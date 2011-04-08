@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2009-09-04 23:22+0100\n"
+"Last-Translator: Dennis S. L. Jørgensen <maniactor@gmail.com>\n"
+"Language-Team: Team DSLJ <maniactor@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "_Jan"
+
+msgid "_Feb"
+msgstr "_Feb"
+
+msgid "_Mar"
+msgstr "_Mar"
+
+msgid "_Apr"
+msgstr "_Apr"
+
+msgid "_May"
+msgstr "_Maj"
+
+msgid "_Jun"
+msgstr "_Jun"
+
+msgid "_Jul"
+msgstr "_Jul"
+
+msgid "_Aug"
+msgstr "_Aug"
+
+msgid "_Sep"
+msgstr "_Sep"
+
+msgid "_Oct"
+msgstr "_Okt"
+
+msgid "_Nov"
+msgstr "_Nov"
+
+msgid "_Dec"
+msgstr "_Dec"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "March"
+msgstr "Marts"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "_Mon"
+msgstr "_Man"
+
+msgid "_Tue"
+msgstr "_Tir"
+
+msgid "_Wed"
+msgstr "_Ons"
+
+msgid "_Thu"
+msgstr "_Tor"
+
+msgid "_Fri"
+msgstr "_Fre"
+
+msgid "_Sat"
+msgstr "_Lør"
+
+msgid "_Sun"
+msgstr "_Søn"
+
+msgid "Monday"
+msgstr "Mandag"
+
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+msgid "Wednesday"
+msgstr "Onsdag"
+
+msgid "Thursday"
+msgstr "Torsdag"
+
+msgid "Friday"
+msgstr "Fredag"
+
+msgid "Saturday"
+msgstr "Lørdag"
+
+msgid "Sunday"
+msgstr "Søndag"

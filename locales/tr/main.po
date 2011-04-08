@@ -1,0 +1,2621 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"PO-Revision-Date: 2009-09-17 23:52+0200\n"
+"Last-Translator: ozgur ulukir <ozgurulukir@yahoo.com>\n"
+"Language-Team: crm <admin@craftmerkezi.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Turkish\n"
+"X-Poedit-Country: TURKEY\n"
+
+msgid "Dotclear has been upgraded."
+msgstr "Dotclear güncellenmesi tamamlandı."
+
+msgid "Password reset"
+msgstr "Parola sıfırla"
+
+msgid "Someone has requested to reset the password for the following site and username."
+msgstr ""
+
+msgid "Username:"
+msgstr "Kullanıcı adı:"
+
+msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
+msgstr ""
+
+#, php-format
+msgid "The e-mail was sent successfully to %s."
+msgstr ""
+
+msgid "Your new password"
+msgstr "Yeni parolanız"
+
+msgid "Password:"
+msgstr "Parola:"
+
+msgid "Your new password is in your mailbox."
+msgstr ""
+
+msgid "Passwords don't match"
+msgstr "Parolalar eşleşmiyor"
+
+#, fuzzy
+msgid "You didn't change your password."
+msgstr "Parolanızı değiştirin"
+
+msgid "You have to change your password before you can login."
+msgstr ""
+
+msgid "In order to login, you have to change your password now."
+msgstr ""
+
+msgid "Wrong username or password"
+msgstr "Hatalı kullanıcı adı ya da parola"
+
+msgid "Back to login screen"
+msgstr "Giriş ekranına dön"
+
+msgid "Request a new password"
+msgstr "Yeni parola iste"
+
+msgid "Email:"
+msgstr "Eposta:"
+
+msgid "recover"
+msgstr "kurtar"
+
+msgid "Change your password"
+msgstr "Parolanızı değiştirin"
+
+msgid "New password:"
+msgstr "Yeni parola:"
+
+msgid "Confirm password:"
+msgstr "Parolayı onayla:"
+
+#, fuzzy
+msgid "change"
+msgstr "iptal"
+
+msgid "Remember my ID on this computer"
+msgstr "ID'mi bu bilgisayarda hatırla"
+
+msgid "login"
+msgstr "giriş"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Özel alanda çalışabilmek için çerezleri kabul etmelisiniz."
+
+msgid "I forgot my password"
+msgstr "Parolamı unuttum"
+
+msgid "New blog"
+msgstr "Yeni blog"
+
+msgid "Blogs"
+msgstr "Bloglar"
+
+msgid "Blog details"
+msgstr "Blog ayrıntıları"
+
+msgid "Blog ID:"
+msgstr "Blog ID:"
+
+msgid "Required field"
+msgstr "Gerekli alan"
+
+msgid "At least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr ""
+
+msgid "Blog name:"
+msgstr "Blog adı:"
+
+msgid "Blog URL:"
+msgstr "Blog  URL'si"
+
+msgid "Blog description:"
+msgstr "Blog açıklaması"
+
+msgid "save"
+msgstr "kaydet"
+
+msgid "No such blog ID"
+msgstr ""
+
+msgid "Password verification failed"
+msgstr "Parola doğrulaması başarısız"
+
+msgid "Delete a blog"
+msgstr "Blog sil"
+
+msgid "Warning"
+msgstr "Uyarı"
+
+#, php-format
+msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
+msgstr ""
+
+msgid "Please give your password to confirm the blog deletion."
+msgstr ""
+
+msgid "Your password:"
+msgstr "Parolanız"
+
+msgid "Delete this blog"
+msgstr "Bu bloğu sil"
+
+msgid "No given blog id."
+msgstr ""
+
+msgid "No such blog."
+msgstr "Böyle blog yok"
+
+msgid "year/month/day/title"
+msgstr "yıl/ay/gün/başlık"
+
+msgid "year/month/title"
+msgstr "yıl/ay/başlık"
+
+msgid "year/title"
+msgstr "yıl/başlık"
+
+msgid "title"
+msgstr "başlık"
+
+msgid "Title"
+msgstr "Başlık"
+
+msgid "Title, Date"
+msgstr "Başlık, Tarih"
+
+msgid "Title, Country, Date"
+msgstr "Başlık, Ülke, Tarih"
+
+msgid "Title, City, Country, Date"
+msgstr "Başlık, Şehir, Ülke, Tarih"
+
+msgid "I would like search engines and archivers to index and archive my blog's content."
+msgstr ""
+
+msgid "I would like search engines and archivers to index but not archive my blog's content."
+msgstr ""
+
+msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
+msgstr ""
+
+#, fuzzy
+msgid "That blog Id is already in use."
+msgstr "Dotclear evvelce kurulmuş."
+
+msgid "Invalid language code"
+msgstr "Geçersiz dil kodu"
+
+msgid "Blog settings"
+msgstr "Blog ayarları"
+
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
+msgstr ""
+
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgstr ""
+
+msgid "Blog has been successfully created."
+msgstr "Blog başarıyla oluşturuldu."
+
+msgid "Blog has been successfully updated."
+msgstr "Blog başarıyla güncellendi"
+
+msgid "Parameters"
+msgstr ""
+
+msgid "URL scan method:"
+msgstr "URL tarama yöntemi"
+
+msgid "Blog status:"
+msgstr "Blog durumu:"
+
+msgid "Blog configuration"
+msgstr "Blog ayarları"
+
+msgid "Blog editor name:"
+msgstr "Blog editörü adı:"
+
+msgid "Default language:"
+msgstr "Varsayılan dil"
+
+msgid "Blog timezone:"
+msgstr "Blog zamandilimi"
+
+msgid "Copyright notice:"
+msgstr "Telif hakkı uyarısı:"
+
+msgid "New post URL format:"
+msgstr ""
+
+msgid "Enable XML/RPC interface"
+msgstr "XML/RPC arayüzünü mümkün kıl."
+
+msgid "more information"
+msgstr "daha çok bilgi"
+
+msgid "Comments and trackbacks"
+msgstr "Ahkamlar ve gerizlemeler"
+
+msgid "Accept comments"
+msgstr "Ahkamlar kabul"
+
+msgid "Moderate comments"
+msgstr "Ahkamları yönet"
+
+#, php-format
+msgid "Leave comments open for %s days"
+msgstr ""
+
+msgid "Leave blank to disable this feature."
+msgstr ""
+
+msgid "Wiki syntax for comments"
+msgstr "Ahkamlar içim Wiki yazımı"
+
+msgid "Accept trackbacks"
+msgstr "Gerizlemeler kabul"
+
+msgid "Moderate trackbacks"
+msgstr "Gerizlemeleri yönet"
+
+#, php-format
+msgid "Leave trackbacks open for %s days"
+msgstr ""
+
+msgid "Add \"nofollow\" relation on comments and trackbacks links"
+msgstr ""
+
+msgid "Blog presentation"
+msgstr "Blog sunumu:"
+
+msgid "Date format:"
+msgstr "Tarih biçimi:"
+
+msgid "Time format:"
+msgstr "Zaman biçimi:"
+
+msgid "Display smilies on entries and comments"
+msgstr ""
+
+#, php-format
+msgid "Display %s entries per page"
+msgstr "Sayfa başına %s yazı göster"
+
+#, php-format
+msgid "Display %s entries per feed"
+msgstr "Besleme başına %s yazı göster"
+
+#, php-format
+msgid "Display %s comments per feed"
+msgstr "Besleme başına %s ahkam göster"
+
+msgid "Truncate feeds"
+msgstr ""
+
+msgid "Media and images"
+msgstr "Ortam ve görüntüler"
+
+msgid "Generated image sizes (in pixels)"
+msgstr ""
+
+msgid "Thumbnails:"
+msgstr "Pullar:"
+
+msgid "Small:"
+msgstr "Küçük:"
+
+msgid "Medium:"
+msgstr "Orta:"
+
+msgid "Inserted image title"
+msgstr "Katılmış görüntü başlığı"
+
+msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
+msgstr ""
+
+msgid "Search engines robots policy"
+msgstr "Arama motoru robotları politikası"
+
+msgid "XML/RPC interface"
+msgstr ""
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr ""
+
+msgid "XML/RPC interface is not active. Change settings to enable it."
+msgstr ""
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr ""
+
+msgid "Server URL:"
+msgstr "Sunucu URL'si"
+
+msgid "Blogging system:"
+msgstr "Bloglama sistemi:"
+
+msgid "User name:"
+msgstr "Kullanıcı adı:"
+
+msgid "your password"
+msgstr "parolanız"
+
+msgid "Users"
+msgstr "Kullanıcılar"
+
+msgid "Users on this blog"
+msgstr "Bu blog'daki kullanıcılar"
+
+msgid "No users"
+msgstr "Kullanıcı yok"
+
+msgid "change permissions"
+msgstr "izinleri değiştir"
+
+msgid "Super administrator"
+msgstr "Süper admin"
+
+msgid "You can't remove default theme."
+msgstr ""
+
+msgid "Theme does not exist."
+msgstr "Tema mevcut değil."
+
+msgid "Unable to move uploaded file."
+msgstr ""
+
+msgid "An error occurred while downloading the file."
+msgstr ""
+
+#, php-format
+msgid "by %s"
+msgstr "yazan %s"
+
+#, php-format
+msgid "version %s"
+msgstr "%s sürüm"
+
+#, php-format
+msgid "(built on \"%s\")"
+msgstr "(\"%s\" üzerinde yapıldı)"
+
+#, php-format
+msgid "(requires \"%s\")"
+msgstr ""
+
+msgid "Stylesheet"
+msgstr ""
+
+msgid "Theme configuration"
+msgstr "Tema ayarları"
+
+msgid "Blog themes"
+msgstr "Blog temaları"
+
+msgid "Blog appearance"
+msgstr "Blog görünüşü"
+
+msgid "Theme has been successfully changed."
+msgstr "Tema başarıyla değiştirildi."
+
+msgid "Theme has been successfully installed."
+msgstr "Tema başarıyla kuruldu."
+
+msgid "Theme has been successfully upgraded"
+msgstr "Tema güncellemesi başarılı"
+
+msgid "Theme has been successfully deleted."
+msgstr "Tema silinimi başarılı."
+
+#, php-format
+msgid "You can find additional themes for your blog on %s."
+msgstr "Blogunuz için ilave temaları %s adresinde bulabilirsiniz."
+
+msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
+msgstr ""
+
+msgid "Themes"
+msgstr "Temalar"
+
+#, php-format
+msgid "You are currently using \"%s\""
+msgstr "Şimdi \"%s\" kullanıyorsunuz."
+
+msgid "use selected theme"
+msgstr "seçili temayı kullan"
+
+msgid "delete selected theme"
+msgstr "seçili temayı sil"
+
+msgid "Install or upgrade a theme"
+msgstr "Tema kur veya güncelle"
+
+msgid "You can install themes by uploading or downloading zip files."
+msgstr ""
+
+msgid "Upload a zip file"
+msgstr "Zip dosyası"
+
+msgid "Theme zip file:"
+msgstr "Tema zip dosyası:"
+
+msgid "Upload theme"
+msgstr "Tema yükle"
+
+msgid "Download a zip file"
+msgstr "ZIP dosyası indir"
+
+msgid "Theme zip file URL:"
+msgstr ""
+
+msgid "Download theme"
+msgstr "Tema indir"
+
+msgid "To enable this function, please give write access to your themes directory."
+msgstr ""
+
+msgid "back"
+msgstr "geri"
+
+msgid "Last update"
+msgstr "Son güncelleme"
+
+msgid "Blog name"
+msgstr "Blog adı"
+
+msgid "Blog ID"
+msgstr "Blog ID"
+
+msgid "Descending"
+msgstr ""
+
+msgid "Ascending"
+msgstr ""
+
+msgid "List of blogs"
+msgstr "Blog listesi"
+
+msgid "Blog has been successfully deleted."
+msgstr "Blog silinimi başarılı"
+
+msgid "Create a new blog"
+msgstr "Yeni bir blog oluştur"
+
+msgid "Filters"
+msgstr "Süzgeçler"
+
+msgid "Order by:"
+msgstr "Sıralama ölçütü"
+
+msgid "Sort:"
+msgstr "Sırala:"
+
+msgid "Search:"
+msgstr "Ara:"
+
+msgid "Blogs per page"
+msgstr "Sayfa başına blog"
+
+msgid "filter"
+msgstr "süzgeç"
+
+msgid "No blog"
+msgstr "Blog yok"
+
+msgid "Page(s)"
+msgstr "Sayfa(lar)"
+
+msgid "Entries"
+msgstr "Yazılar"
+
+msgid "Status"
+msgstr "Durum"
+
+#, php-format
+msgid "Edit blog %s"
+msgstr "%s blogunu düzenle"
+
+msgid "edit"
+msgstr "düzenle"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "%s bloga geç"
+
+msgid "This category does not exist."
+msgstr "Bu kategori mevcut değil."
+
+msgid "Categories"
+msgstr "Kategoriler"
+
+msgid "The category has been successfully created."
+msgstr "Kategori oluşturumu başarılı."
+
+msgid "The category has been successfully removed."
+msgstr "Kategori silinimi başarılı."
+
+msgid "Categories have been successfully reordered."
+msgstr "Kategori sıralanımı başarılı."
+
+msgid "The category has been successfully moved."
+msgstr "Kategori silinimi başarılı."
+
+msgid "No category yet."
+msgstr "Henüz kategori yok"
+
+msgid "Categories list"
+msgstr "Kategori listesi"
+
+#, php-format
+msgid "%d entries"
+msgstr "%d yazı"
+
+#, php-format
+msgid "%d entry"
+msgstr "%d yazı"
+
+msgid "total:"
+msgstr "toplam:"
+
+msgid "URL:"
+msgstr "URL:"
+
+msgid "Add a new category"
+msgstr "Yeni kategori ekle"
+
+msgid "Title:"
+msgstr "Başlık:"
+
+msgid "Parent:"
+msgstr "Ana:"
+
+msgid "Top level"
+msgstr "Üst seviye"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Remove a category"
+msgstr "Kategori sil"
+
+msgid "Choose a category to remove:"
+msgstr "Silinecek kategoriyi seçin:"
+
+msgid "ok"
+msgstr "tamam"
+
+msgid "Reorder categories"
+msgstr "Kategorileri sırala"
+
+msgid "This will relocate all categories on the top level"
+msgstr ""
+
+msgid "Reorder"
+msgstr "Yine sırala"
+
+msgid "New category"
+msgstr "Yeni kategori"
+
+msgid "Category has been successfully updated."
+msgstr "Kategori güncellenimi başarılı."
+
+msgid "Category information"
+msgstr "Kategori bilgisi"
+
+msgid "Warning: If you set the URL manually, it may conflict with another category."
+msgstr ""
+
+msgid "Description:"
+msgstr "Açıklama:"
+
+msgid "Move this category"
+msgstr "Bu kategoriyi taşı"
+
+msgid "Category parent"
+msgstr "Ana kategori"
+
+msgid "Category sibling"
+msgstr "Yavru kategori"
+
+msgid "Move current category"
+msgstr "Geçerli kategoriyi taşı"
+
+msgid "after"
+msgstr "önce"
+
+msgid "before"
+msgstr "sonra"
+
+msgid "Entry does not exist."
+msgstr "Yazı mevcut değil."
+
+msgid "No comment"
+msgstr "Ahkam yok"
+
+msgid "You can't edit this comment."
+msgstr "Bu ahkamı düzenleyemezsiniz."
+
+msgid "Edit comment"
+msgstr "Ahkamı düzenle"
+
+msgid "Comment has been successfully updated."
+msgstr "Ahkam başarıyla güncellendi"
+
+#, php-format
+msgid "Your comment on my blog %s"
+msgstr "%s Blogundaki ahkamlarınız"
+
+#, php-format
+msgid ""
+"Hi!\n"
+"\n"
+"You wrote a comment on:\n"
+"%s\n"
+"\n"
+"\n"
+msgstr ""
+
+msgid "Send an e-mail"
+msgstr "Bir e-posta gönder"
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "\"%s\" geri dön"
+
+msgid "IP address:"
+msgstr "IP adresi"
+
+msgid "Date:"
+msgstr "Tarih:"
+
+msgid "Author:"
+msgstr "Yazar:"
+
+msgid "Web site:"
+msgstr "Web sayfası"
+
+msgid "Status:"
+msgstr "Durum:"
+
+msgid "Comment:"
+msgstr "Ahkam:"
+
+msgid "delete"
+msgstr "sil"
+
+msgid "comment"
+msgstr "ahkam"
+
+msgid "trackback"
+msgstr "gerizleme"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Entry title"
+msgstr "Yazı başlığı"
+
+msgid "Author"
+msgstr "Yazar"
+
+msgid "publish"
+msgstr "yayınla"
+
+msgid "unpublish"
+msgstr "yayınlama"
+
+msgid "mark as pending"
+msgstr "beklemede işaretle"
+
+msgid "mark as junk"
+msgstr "spam işaretle"
+
+msgid "Comments"
+msgstr "Ahkamlar"
+
+msgid "Type:"
+msgstr "Tip:"
+
+msgid "Comments per page"
+msgstr "Sayfa başına ahkam"
+
+msgid "Comment author:"
+msgstr "Ahkamı yazan:"
+
+msgid "You have one spam comments."
+msgstr ""
+
+msgid "Show it."
+msgstr ""
+
+#, php-format
+msgid "You have %s spam comments."
+msgstr "%s spam ahkam var."
+
+msgid "Show them."
+msgstr ""
+
+msgid "Selected comments action:"
+msgstr "Seçili ahkamlara yap:"
+
+#, php-format
+msgid "%d comment"
+msgstr "%d ahkam"
+
+#, php-format
+msgid "%d comments"
+msgstr "%d ahkam"
+
+msgid "New entry"
+msgstr "Yeni yazı"
+
+msgid "User preferences"
+msgstr "Kullanıcı tercihleri"
+
+msgid "Documentation"
+msgstr "Belgeler"
+
+msgid "Latest news"
+msgstr "Son haberler"
+
+msgid "Dashboard"
+msgstr "Gösterge"
+
+msgid "Make this blog my default blog"
+msgstr ""
+
+msgid "This blog is offline"
+msgstr "Bu blog çevrimdışı."
+
+msgid "This blog is removed"
+msgstr "Bu blog silindi"
+
+msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr "Aşağıdaki eklentiler kuruldu:"
+
+msgid "Following plugins have not been installed:"
+msgstr ""
+
+msgid "Quick entry"
+msgstr "Hızlı entri"
+
+msgid "Content:"
+msgstr "İçerik:"
+
+msgid "Category:"
+msgstr "Kategori:"
+
+msgid "save and publish"
+msgstr "kaydet ve yayınla"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s mevcut!"
+
+msgid "Upgrade now"
+msgstr ""
+
+msgid "Remind me later"
+msgstr "Gelecekte beni hatırla"
+
+#, fuzzy
+msgid "Some plugins are installed twice:"
+msgstr "Aşağıdaki eklentiler kuruldu:"
+
+#, php-format
+msgid "PHP version is %s (5.0 or earlier needed)."
+msgstr ""
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr ""
+
+msgid "Iconv module is not available."
+msgstr ""
+
+msgid "Output control functions are not available."
+msgstr ""
+
+msgid "SimpleXML module is not available."
+msgstr ""
+
+msgid "DOM XML module is not available."
+msgstr ""
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr ""
+
+msgid "SPL module is not available."
+msgstr ""
+
+#, php-format
+msgid "MySQL version is %s (4.1 or earlier needed)."
+msgstr ""
+
+msgid "MySQL InnoDB engine is not available."
+msgstr ""
+
+#, php-format
+msgid "PostgreSQL version is %s (8.0 or earlier needed)."
+msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr ""
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear evvelce kurulmuş."
+
+msgid "Dotclear cannot be installed."
+msgstr ""
+
+msgid "No user ID given"
+msgstr ""
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "Invalid email address"
+msgstr "Geçersiz eposta adresi "
+
+msgid "No password given"
+msgstr "Parola girilmedi"
+
+msgid "Password must contain at least 6 characters."
+msgstr ""
+
+msgid "My first blog"
+msgstr "İlk bloğum"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "Dotclear'a hoşgeldiniz!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr ""
+
+msgid "Dotclear Team"
+msgstr "Dotclear Ekibi"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "Dotclear kurulumu"
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "Dotclear kurulumu"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr ""
+
+msgid "Errors:"
+msgstr ""
+
+msgid "Configuration file has been successfully created."
+msgstr ""
+
+msgid "User information"
+msgstr "Kullanıcı bilgisi"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr ""
+
+msgid "First Name:"
+msgstr "İlk isim:"
+
+msgid "Last Name:"
+msgstr "Soy İsim:"
+
+msgid "Username and password"
+msgstr "Kullanıcı adı ve parola"
+
+msgid "All done!"
+msgstr "Hepsi bitti!"
+
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr ""
+
+msgid "Your account"
+msgstr "Hesabınız"
+
+msgid "Your blog"
+msgstr "Blogunuz"
+
+msgid "Blog address:"
+msgstr "Blog adresi"
+
+msgid "Administration interface:"
+msgstr "Admin arayüzü:"
+
+msgid "Manage your blog now"
+msgstr ""
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "%s dosyası mevcut değil."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "%s dosyası yazılamadı."
+
+msgid "Dotclear installation wizard"
+msgstr "Dotclear kurulum sihirbazı"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "Eylem"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "Sistem bilgisi"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr ""
+
+msgid "Database type:"
+msgstr "Veritabanı tipi:"
+
+msgid "Database Host Name:"
+msgstr "Veritabanı Sunucu Adı:"
+
+msgid "Database Name:"
+msgstr "Veritabanı İsmi:"
+
+msgid "Database User Name:"
+msgstr "Veritabanı Kullanıcı İsmi:"
+
+msgid "Database Password:"
+msgstr "Veritabanı parolası:"
+
+msgid "Database Tables Prefix:"
+msgstr "Veritabanı tabloları öneki:"
+
+msgid "No such installed language"
+msgstr "Böyle kurulu dil yok"
+
+msgid "You can't remove English language."
+msgstr "İngilizce dilini silemezsiniz."
+
+msgid "Permissions to delete language denied."
+msgstr ""
+
+msgid "Invalid language file URL."
+msgstr ""
+
+msgid "Languages management"
+msgstr "Dil yönetimi"
+
+msgid "Language has been successfully deleted."
+msgstr "Dil silinimi başarılı."
+
+msgid "Language has been successfully installed."
+msgstr "Dil kurulumu başarılı."
+
+msgid "Language has been successfully upgraded"
+msgstr "Dil geüncellenimi başarılı."
+
+msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
+msgstr ""
+
+#, php-format
+msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
+msgstr ""
+
+msgid "Installed languages"
+msgstr "Kurulu diller"
+
+msgid "No additional language is installed."
+msgstr ""
+
+msgid "Language"
+msgstr "Dil"
+
+msgid "Action"
+msgstr "Eylem"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Install or upgrade languages"
+msgstr ""
+
+#, php-format
+msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
+msgstr ""
+
+msgid "Available languages"
+msgstr "Mevcut diller"
+
+#, php-format
+msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
+msgstr ""
+
+msgid "Language:"
+msgstr "Dil:"
+
+msgid "Install language"
+msgstr "Dil kur"
+
+msgid "You can install languages by uploading zip files."
+msgstr "Zip dosyalarını yükleyerek dil kurabilirsiniz."
+
+msgid "Language zip file:"
+msgstr "Dil zip dosyası:"
+
+msgid "Upload language"
+msgstr "Dil yükle"
+
+msgid "Invalid language zip file."
+msgstr "Geçersiz dil zip dosyası."
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr ""
+
+msgid "An error occurred during language upgrade."
+msgstr ""
+
+msgid "Error:"
+msgstr "Hata:"
+
+msgid "By names, in ascending order"
+msgstr ""
+
+msgid "By names, in descending order"
+msgstr ""
+
+msgid "By dates, in ascending order"
+msgstr ""
+
+msgid "By dates, in descending order"
+msgstr ""
+
+msgid "Media manager"
+msgstr "Medya yönetimi"
+
+msgid "confirm removal"
+msgstr "kaldırmayı onayla"
+
+#, php-format
+msgid "Are you sure you want to remove %s?"
+msgstr ""
+
+msgid "cancel"
+msgstr "iptal"
+
+msgid "yes"
+msgstr "evet"
+
+msgid "Directory has been successfully created."
+msgstr "Dizin oluşturumu başarılı."
+
+msgid "Files have been successfully uploaded."
+msgstr "Dosyaların yüklenimi başarılı."
+
+msgid "File has been successfully removed."
+msgstr "Dosya silinimi başarılı."
+
+msgid "Directory has been successfully removed."
+msgstr "Dizin silinimi başarılı."
+
+msgid "Directory has been successfully rebuilt."
+msgstr "Dizin yine inşaası başarılı."
+
+msgid "Zip file has been successfully extracted."
+msgstr ""
+
+#, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s."
+msgstr ""
+
+msgid "Attach this file to entry"
+msgstr "Bu dosyayı yazıya ekle"
+
+#, php-format
+msgid "Choose a file to insert into entry by clicking on %s."
+msgstr ""
+
+msgid "No file."
+msgstr "Dosya yok."
+
+msgid "Sort files:"
+msgstr "Dosyaları sırala:"
+
+msgid "Add files"
+msgstr "Dosya ekle"
+
+msgid "Choose a file:"
+msgstr "Bir dosya seçin:"
+
+#, php-format
+msgid "Maximum size %s"
+msgstr "En büyük boyut %s"
+
+msgid "Private"
+msgstr ""
+
+msgid "send"
+msgstr "yolla"
+
+msgid "Please take care to publish media that you own and that are not protected by copyright."
+msgstr ""
+
+msgid "New directory"
+msgstr "Yeni dizin"
+
+msgid "Directory Name:"
+msgstr "Dizin adı:"
+
+msgid "Download this directory as a zip file"
+msgstr ""
+
+msgid "open"
+msgstr "aç"
+
+msgid "Insert this file into entry"
+msgstr "Bu dosyayı yazıya kat"
+
+msgid "Not a valid file"
+msgstr "Geçerli bir dosya değil"
+
+msgid "File has been successfully updated."
+msgstr "Dosya güncellenimi  başarılı."
+
+msgid "Thumbnails have been successfully updated."
+msgstr "Pulların güncellenimi başarılı."
+
+msgid "Insert media item"
+msgstr "Medya parçası ekle"
+
+msgid "Image size:"
+msgstr "Görüntü boyutu:"
+
+msgid "original"
+msgstr ""
+
+msgid "Image alignment"
+msgstr "Görüntü hizalaması"
+
+msgid "None"
+msgstr ""
+
+msgid "Left"
+msgstr "Sol"
+
+msgid "Right"
+msgstr "Sağ"
+
+msgid "Center"
+msgstr "Orta"
+
+msgid "Image insertion"
+msgstr "Görüntü kat"
+
+msgid "As a single image"
+msgstr "Tek görüntü gibi"
+
+msgid "As a link to original image"
+msgstr ""
+
+msgid "MP3 disposition"
+msgstr ""
+
+msgid "Please note that you cannot insert mp3 files with visual editor."
+msgstr ""
+
+msgid "Please note that you cannot insert video files with visual editor."
+msgstr ""
+
+msgid "Video size"
+msgstr "Vidyo boyutu:"
+
+msgid "Width:"
+msgstr "Genişlik:"
+
+msgid "Height:"
+msgstr "Yükseklik:"
+
+msgid "Video disposition"
+msgstr "Vidyo disposition"
+
+msgid "Media item will be inserted as a link."
+msgstr ""
+
+msgid "Cancel"
+msgstr "Iptal"
+
+msgid "Insert"
+msgstr "Kat"
+
+msgid "Media details"
+msgstr "Medya ayrıntıları"
+
+msgid "Available sizes:"
+msgstr "Mevcut ölçüler"
+
+msgid "File owner:"
+msgstr "Dosya sahibi:"
+
+msgid "File type:"
+msgstr "Dosya tipi:"
+
+msgid "File size:"
+msgstr "Dosya boyutu:"
+
+msgid "File URL:"
+msgstr "Dosya URL'si"
+
+msgid "Show entries containing this media"
+msgstr ""
+
+msgid "Entries containing this media"
+msgstr "Bu medyayı içeren yazılar"
+
+msgid "No entry seems contain this media."
+msgstr ""
+
+msgid "Image details"
+msgstr "Resim ayrıntıları"
+
+msgid "No detail"
+msgstr "Ayrıntı yok"
+
+msgid "Update thumbnails"
+msgstr "Pulları güncelle"
+
+msgid "This will create or update thumbnails for this image."
+msgstr ""
+
+msgid "update thumbnails"
+msgstr "pulları güncelle"
+
+msgid "Extract in a new directory"
+msgstr "Yeni dizine aç"
+
+msgid "Extract in current directory"
+msgstr "Bulunduğu dizine aç"
+
+msgid "Extract archive"
+msgstr "Arşivi çıkar"
+
+msgid "This will extract archive in a new directory that should not exist yet."
+msgstr ""
+
+msgid "This will extract archive in current directory and will overwrite existing files or directory."
+msgstr ""
+
+msgid "Extract mode:"
+msgstr "Çıkarma kipi:"
+
+msgid "extract"
+msgstr "çıkart"
+
+msgid "Change media properties"
+msgstr "Medya özelliklerini değiştir"
+
+msgid "File name:"
+msgstr "Dosya adı:"
+
+msgid "File title:"
+msgstr "Dosya başlığı:"
+
+msgid "File date:"
+msgstr "Dosya tarihi:"
+
+msgid "New directory:"
+msgstr "Yeni dizin:"
+
+msgid "Change file"
+msgstr "Dosyayı değiştir"
+
+msgid "No blog or user given."
+msgstr ""
+
+msgid "permissions"
+msgstr "izinler"
+
+msgid "Permissions"
+msgstr "İzinler"
+
+msgid "The permissions have been successfully updated."
+msgstr "Izinlerin güncellenimi başarılı."
+
+#, php-format
+msgid "You are about to change permissions on the following blogs for users %s."
+msgstr ""
+
+msgid "choose a blog"
+msgstr "bir blog seçin"
+
+msgid "Choose a blog"
+msgstr "Bir blog seçin"
+
+msgid "Entries per page"
+msgstr "Sayfa başına yazı"
+
+#, php-format
+msgid "Choose one or more blogs to which you want to give permissions to users %s."
+msgstr ""
+
+msgid "set permissions"
+msgstr "izinleri ayarla"
+
+msgid "No content found on this plugin."
+msgstr ""
+
+msgid "Plugin not found"
+msgstr "Plugin bulunamadı"
+
+msgid "The plugin you reached does not exist or does not have an admin page."
+msgstr ""
+
+msgid "No such plugin."
+msgstr "Böyle plugin yok"
+
+msgid "You don't have permissions to delete this plugin."
+msgstr ""
+
+msgid "You don't have permissions to deactivate this plugin."
+msgstr ""
+
+msgid "Plugins management"
+msgstr "Eklenti yönetimi"
+
+msgid "Plugin has been successfully deleted."
+msgstr "Eklenti silinimi başarılı."
+
+msgid "Plugin has been successfully installed."
+msgstr "Eklenti kurulumu başarılı."
+
+msgid "Plugin has been successfully upgraded"
+msgstr "Eklenti güncellenimi başarılı."
+
+msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
+msgstr ""
+
+#, php-format
+msgid "You can find additional plugins for your blog on %s."
+msgstr ""
+
+msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
+msgstr ""
+
+msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
+msgstr ""
+
+msgid "Plugins"
+msgstr "Eklentiler"
+
+msgid "Activated plugins"
+msgstr "Etkinleştirilmiş eklentiler"
+
+msgid "Plugin"
+msgstr "Eklenti"
+
+msgid "Version"
+msgstr "Sürüm"
+
+msgid "Details"
+msgstr "Ayrıntılar"
+
+msgid "Deactivate"
+msgstr "Etkisizleştir"
+
+msgid "Deactivated plugins"
+msgstr "Etkisizleştirilmiş eklentiler"
+
+msgid "Activate"
+msgstr "Etkinleştir"
+
+msgid "Install or upgrade a plugin"
+msgstr "Eklenti kurun ya da güncelleyin."
+
+msgid "You can install plugins by uploading or downloading zip files."
+msgstr ""
+
+msgid "Plugin zip file:"
+msgstr "Eklenti zip dosyası:"
+
+msgid "Upload plugin"
+msgstr "Eklenti yükle"
+
+msgid "Plugin zip file URL:"
+msgstr "Eklenti zip dosya URLsi:"
+
+msgid "Download plugin"
+msgstr "Eklenti indir"
+
+msgid "To enable this function, please give write access to your plugins directory."
+msgstr ""
+
+msgid "Add a link"
+msgstr "Bağlantı ekle"
+
+msgid "Available"
+msgstr "Müsait"
+
+msgid "Most used"
+msgstr "Çok kullanılan"
+
+msgid "Link URL:"
+msgstr "Bağlantı URL'si"
+
+msgid "Link language:"
+msgstr "Bağlantı dili:"
+
+msgid "insert"
+msgstr "kat"
+
+msgid "Add a link to an entry"
+msgstr "Bu yazıya bağlantı ekle"
+
+msgid "Search entry:"
+msgstr "Yazı ara:"
+
+msgid "This entry does not exist."
+msgstr "Bu yazı mevcut değil."
+
+msgid "Edit entry"
+msgstr "Yazıyı düzenle"
+
+msgid "next entry"
+msgstr "sonraki yazı"
+
+msgid "previous entry"
+msgstr "önceki yazı"
+
+msgid "Entry has been successfully updated."
+msgstr "Yazı güncellemini başarılı."
+
+msgid "Entry has been successfully created."
+msgstr "Yazı oluşturumu başarılı."
+
+msgid "File has been successfully attached."
+msgstr "Dosya eklenimi başarılı."
+
+msgid "Attachment has been successfully removed."
+msgstr "Eklenti silinimi başarılı."
+
+msgid "Comment has been successfully created."
+msgstr "Ahkam başarıyla oluşturuldu."
+
+msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgstr ""
+
+msgid "View entry"
+msgstr "Yazıyı gör"
+
+msgid "Preview entry"
+msgstr "Yazıyı önizle"
+
+msgid "Entry status:"
+msgstr "Yazı durumu:"
+
+msgid "Published on:"
+msgstr "Yayın tarihi"
+
+msgid "Text formating:"
+msgstr ""
+
+msgid "Convert to XHTML"
+msgstr "XHTML ye dönüştür"
+
+msgid "Selected entry"
+msgstr "Seçilmiş yazı"
+
+msgid "Entry lang:"
+msgstr "Yazı dili:"
+
+msgid "Entry password:"
+msgstr "Yazı parolası:"
+
+msgid "Basename:"
+msgstr ""
+
+msgid "Warning: If you set the URL manually, it may conflict with another entry."
+msgstr ""
+
+msgid "Attachments"
+msgstr "Ekler"
+
+msgid "remove"
+msgstr "kaldır"
+
+msgid "No attachment."
+msgstr "Ek yok"
+
+msgid "Add files to this entry"
+msgstr "Bu yazıya dosya ekle"
+
+msgid "Excerpt:"
+msgstr "Alıntı:"
+
+msgid "Notes:"
+msgstr "Notlar:"
+
+msgid "Ping blogs"
+msgstr "Blogları \"pingle\""
+
+msgid "Trackbacks"
+msgstr "Gerizlemeler"
+
+msgid "No trackback"
+msgstr "Gerizleme yok"
+
+msgid "Add a comment"
+msgstr "Ahkam ekle"
+
+msgid "Name:"
+msgstr "İsim:"
+
+msgid "IP address"
+msgstr "IP adresi"
+
+msgid "published"
+msgstr "yayınlandı"
+
+msgid "unpublished"
+msgstr "yayınlanmadı"
+
+msgid "pending"
+msgstr "beklemede"
+
+msgid "junk"
+msgstr "spam"
+
+msgid "Edit this comment"
+msgstr "Bu ahkamı düzenle"
+
+msgid "This attachment does not exist"
+msgstr "Bu ek mevcut değil"
+
+msgid "Remove attachment"
+msgstr "Eki kaldır"
+
+msgid "Attachment"
+msgstr "Ek"
+
+msgid "Are you sure you want to remove this attachment?"
+msgstr ""
+
+msgid "selected"
+msgstr "seçili"
+
+msgid "not selected"
+msgstr "seçilmedi"
+
+msgid "Category"
+msgstr "Kategori"
+
+msgid "Selected"
+msgstr "Seçili"
+
+#, fuzzy
+msgid "Publish"
+msgstr "yayınla"
+
+#, fuzzy
+msgid "Unpublish"
+msgstr "yayınlama"
+
+#, fuzzy
+msgid "Schedule"
+msgstr "plan"
+
+#, fuzzy
+msgid "Mark as pending"
+msgstr "beklemede işaretle"
+
+msgid "Mark"
+msgstr ""
+
+#, fuzzy
+msgid "Mark as selected"
+msgstr "seçildi işaretle"
+
+#, fuzzy
+msgid "Mark as unselected"
+msgstr "seçilmedi işarete"
+
+#, fuzzy
+msgid "Change"
+msgstr "Dosyayı değiştir"
+
+#, fuzzy
+msgid "Change category"
+msgstr "kategori değiştir"
+
+#, fuzzy
+msgid "Change author"
+msgstr "yazar değiştir"
+
+msgid "Selected:"
+msgstr "Seçili:"
+
+msgid "Month:"
+msgstr "Ay:"
+
+msgid "Lang:"
+msgstr "Dil:"
+
+msgid "Selected entries action:"
+msgstr "Seçilmiş yazılara yap:"
+
+msgid "This user does not exist"
+msgstr "Bu kullanıcı mevcut değil"
+
+msgid "Change category for entries"
+msgstr "Yazıların kategorisini değiştir"
+
+msgid "Change author for entries"
+msgstr "Yazıların yazarını değiştir"
+
+msgid "Author ID:"
+msgstr "Yazar ID:"
+
+msgid "If you want to change your email or password you must provide your current password."
+msgstr ""
+
+msgid "Personal information has been successfully updated."
+msgstr ""
+
+msgid "Display name:"
+msgstr "Gösterim ismi:"
+
+msgid "Preferred format:"
+msgstr "Yeğlenen biçim:"
+
+msgid "Default entry status:"
+msgstr "Varsayılan yazı durumu:"
+
+msgid "Entry edit field height:"
+msgstr ""
+
+msgid "User language:"
+msgstr "Kullanıcı dili:"
+
+msgid "User timezone:"
+msgstr "Kullanıcı zamandilimi"
+
+msgid "Enable WYSIWYG mode"
+msgstr "WYSIWYG kipini aç"
+
+msgid "Search"
+msgstr "Ara"
+
+msgid "Search options"
+msgstr "Arama seçenekleri"
+
+msgid "Query:"
+msgstr "Sorgulama:"
+
+msgid "search entries"
+msgstr "yazıları ara"
+
+msgid "search comments"
+msgstr "ahkamları ara"
+
+msgid "schedule"
+msgstr "plan"
+
+msgid "change category"
+msgstr "kategori değiştir"
+
+msgid "change author"
+msgstr "yazar değiştir"
+
+#, php-format
+msgid "%d entries found"
+msgstr "%d yazı bulundu"
+
+#, php-format
+msgid "%d entry found"
+msgstr "%d yazı bulundu"
+
+#, php-format
+msgid "%d comment found"
+msgstr "%d ahkam bulundu"
+
+#, php-format
+msgid "%d comments found"
+msgstr "%d ahkam bulundu"
+
+msgid "This entry does not exist or is not published"
+msgstr ""
+
+msgid "All pings sent."
+msgstr ""
+
+msgid "Auto discover ping URLs"
+msgstr ""
+
+msgid "URLs to ping:"
+msgstr "pingl URL' leri"
+
+msgid "Send excerpt:"
+msgstr "Alıntı gönder:"
+
+msgid "Previously sent pings"
+msgstr ""
+
+msgid "Dotclear update"
+msgstr "Dotclear güncelleme"
+
+#, php-format
+msgid "Unable to delete file %s"
+msgstr "%s dosyası silinemedi"
+
+#, php-format
+msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
+msgstr ""
+
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
+msgstr ""
+
+#, php-format
+msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
+msgstr ""
+
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
+msgstr ""
+
+msgid "No newer Dotclear version available."
+msgstr "Daha yeni Dotclear surumu yoktur."
+
+#, php-format
+msgid "Dotclear %s is available."
+msgstr "Dotclear %s mevcut."
+
+msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
+msgstr ""
+
+msgid "Update Dotclear"
+msgstr "Dotclear'ı güncelle "
+
+msgid "Update backup files"
+msgstr "Yedek dosyalarını güncelle"
+
+msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
+msgstr ""
+
+msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
+msgstr ""
+
+#, php-format
+msgid "You should not revert to version prior to last one (%s)."
+msgstr ""
+
+msgid "Delete selected file"
+msgstr "Seçili dosyayı sil"
+
+msgid "Revert to selected file"
+msgstr "Seçili dosyaya geri dön"
+
+msgid "Congratulations, you're one click away from the end of the update."
+msgstr ""
+
+msgid "Finish the update."
+msgstr "Güncellemeyi bitir."
+
+msgid "new user"
+msgstr "yeni kullanıcı"
+
+#, php-format
+msgid "User \"%s\" already exists."
+msgstr "Kullanıcı \"%s\" evvelden mevcut."
+
+msgid "User has been successfully updated."
+msgstr "Kullanıcı güncellenimi başarılı."
+
+msgid "User has been successfully created."
+msgstr "Kullanıcı oluşturumu başarılı."
+
+msgid "Warning:"
+msgstr "Uyarı:"
+
+msgid "If you change your username, you will have to log in again."
+msgstr ""
+
+msgid "Password change required to connect"
+msgstr ""
+
+msgid "No permissions."
+msgstr "İzinler belirsiz."
+
+msgid "Add new permissions"
+msgstr "Yeni izin ekle"
+
+msgid "Username"
+msgstr "Kullanıcı adı:"
+
+msgid "Last Name"
+msgstr "Soy İsim"
+
+msgid "First Name"
+msgstr "İlk İsim"
+
+msgid "Display name"
+msgstr "Gösterim ismi"
+
+msgid "Number of entries"
+msgstr "Yazı sayısı"
+
+msgid "Set permissions"
+msgstr "Izinleri ayarla"
+
+msgid "users"
+msgstr "kullanıcılar"
+
+msgid "User has been successfully removed."
+msgstr "Kullanıcı silinimi başarılı."
+
+msgid "Create a new user"
+msgstr "Yeni kullanıcı oluştur"
+
+msgid "Users per page"
+msgstr "Sayfa başına kullanıcı"
+
+msgid "Selected users action:"
+msgstr "Seçili kullanıcılara yap:"
+
+msgid "Blog:"
+msgstr "Blog:"
+
+msgid "Change blog"
+msgstr "Blog değiştir"
+
+msgid "Blogs:"
+msgstr "Bloglar:"
+
+msgid "View site"
+msgstr "Siteyi gör"
+
+msgid "User:"
+msgstr "Kullanıcı:"
+
+msgid "Logout"
+msgstr "Çıkış"
+
+#, php-format
+msgid "Thank you for using %s."
+msgstr "\"%s\" kullandığınız için teşekkürler"
+
+msgid "Help"
+msgstr "Yardım"
+
+msgid "uncover"
+msgstr ""
+
+msgid "hide"
+msgstr "gizle"
+
+msgid "help"
+msgstr "yardım"
+
+msgid "No selection"
+msgstr "Seçim yok"
+
+msgid "select all"
+msgstr "hepsini seç"
+
+msgid "invert selection"
+msgstr "seçimi evir"
+
+msgid "view entry"
+msgstr "yazıyı gör"
+
+#, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr ""
+
+msgid "Are you sure you want to delete this entry?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr ""
+
+msgid "Are you sure you want to delete this comment?"
+msgstr ""
+
+msgid "Users with posts cannot be deleted."
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr ""
+
+msgid "Are you sure you want to reorder all categories?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr ""
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr ""
+
+msgid "Use this theme"
+msgstr "Bu temayı kullan"
+
+msgid "Remove this theme"
+msgstr "Bu temayı sil"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr ""
+
+msgid "Zip file content"
+msgstr "ZIP dosyası içeriği"
+
+msgid "XHTML markup validator"
+msgstr "XHTML tastikle"
+
+msgid "XHTML content is valid."
+msgstr "XHTML içeriği geçerli."
+
+msgid "There are XHTML markup errors."
+msgstr "XHTML markup hataları var."
+
+msgid "You have unsaved changes."
+msgstr "Kaydedilmemiş değişiklikler var."
+
+msgid "close"
+msgstr "kapat"
+
+msgid "now"
+msgstr "şimdi"
+
+msgid "visual"
+msgstr "görsel"
+
+msgid "source"
+msgstr "kaynak"
+
+msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "-- none --"
+msgstr "--yok--"
+
+msgid "-- block format --"
+msgstr "-- blok biçimi --"
+
+msgid "Paragraph"
+msgstr "Paragraf"
+
+msgid "Level 1 header"
+msgstr "Başlık seviye 1"
+
+msgid "Level 2 header"
+msgstr "Başlık seviye 2"
+
+msgid "Level 3 header"
+msgstr "Başlık seviye 3"
+
+msgid "Level 4 header"
+msgstr "Başlık seviye 4"
+
+msgid "Level 5 header"
+msgstr "Başlık seviye 5"
+
+msgid "Level 6 header"
+msgstr "Başlık seviye 6"
+
+msgid "Strong emphasis"
+msgstr ""
+
+msgid "Emphasis"
+msgstr ""
+
+msgid "Inserted"
+msgstr "Katılmış"
+
+msgid "Deleted"
+msgstr "Silinen"
+
+msgid "Inline quote"
+msgstr ""
+
+msgid "Code"
+msgstr "Kod"
+
+msgid "Line break"
+msgstr ""
+
+msgid "Blockquote"
+msgstr ""
+
+msgid "Preformated text"
+msgstr ""
+
+msgid "Unordered list"
+msgstr "Sırasız liste"
+
+msgid "Ordered list"
+msgstr "Sıralı liste"
+
+msgid "Link"
+msgstr "Bağlantı"
+
+msgid "URL?"
+msgstr "URL?"
+
+msgid "Language?"
+msgstr "Dil?"
+
+msgid "External image"
+msgstr "Harici görüntü"
+
+msgid "Media chooser"
+msgstr "Medya seçici"
+
+msgid "Link to an entry"
+msgstr "Bir yazıya bağlantı"
+
+msgid "Activate enhanced uploader"
+msgstr "Gelişmiş yükleyiciyi etkinleştir"
+
+msgid "Disable enhanced uploader"
+msgstr "Gelişmiş yükleyiciyi kapat"
+
+msgid "File successfully uploaded."
+msgstr "Dosya başarıyla yüklendi."
+
+msgid "Maximum file size allowed:"
+msgstr ""
+
+msgid "Limit exceeded."
+msgstr "Sınır aşıldı."
+
+msgid "File size exceeds allowed limit."
+msgstr "Dosya boyutu müsaadelinin üzerinde."
+
+msgid "Canceled."
+msgstr "İptallendi."
+
+msgid "HTTP Error:"
+msgstr "HTTP Hatası:"
+
+msgid "Choose file"
+msgstr "Dosya seçimi"
+
+msgid "Choose files"
+msgstr "Dosyaları seçimi"
+
+msgid "Clean"
+msgstr "Temizle"
+
+msgid "Upload"
+msgstr "Yükle"
+
+msgid "No file in queue."
+msgstr "Kuyrukta dosya yok."
+
+msgid "1 file in queue."
+msgstr "kuyrukta 1 dosya var."
+
+#, php-format
+msgid "%d files in queue."
+msgstr "Kuyrukta %d dosya var."
+
+msgid "Queue error:"
+msgstr "Kuyruk hatası."
+
+msgid "&#171;prev."
+msgstr "&#171;önck."
+
+msgid "next&#187;"
+msgstr "sonraki&#187;"
+
+msgid "No entry"
+msgstr "Yazı yok"
+
+msgid "scheduled"
+msgstr "planlandı"
+
+msgid "protected"
+msgstr "korumalı"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d ek"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d ek"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "No user"
+msgstr "Kullanıcı yok"
+
+msgid "admin"
+msgstr ""
+
+#, fuzzy
+msgid "superadmin"
+msgstr "Süper admin"
+
+#, fuzzy
+msgid "Database error"
+msgstr "Veritabanı tipi:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Updates"
+msgstr "Güncellemeler"
+
+msgid "Languages"
+msgstr "Diller"
+
+msgid "Unable to open directory."
+msgstr "Dizin açılamadı."
+
+msgid "Unable to create directory."
+msgstr "Dizin oluşturulamadı."
+
+msgid "File is not writable."
+msgstr "Dosya yazılabilir değil."
+
+msgid "Unable to open file."
+msgstr "Dosya açılamadı."
+
+msgid "Not an uploaded file."
+msgstr "Yüklenmiş bir dosya değil."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Gönderilen dosya izin verilen dosya boyutunu aşıyor."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded."
+msgstr "Dosya yüklenilmedi."
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr "Dosya diske yazılamadı."
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s bir klasör değil."
+
+msgid "Uploading this file is not allowed."
+msgstr "Bu dosyanın gönderilmesine izin yok."
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+msgid "File already exists."
+msgstr "Dosya zan var."
+
+msgid "Cannot write in this directory."
+msgstr ""
+
+msgid "An error occurred while writing the file."
+msgstr ""
+
+msgid "Source file does not exist."
+msgstr "Kaynak dosya mevcut değil."
+
+msgid "File is not in jail."
+msgstr ""
+
+msgid "Destination directory is not writable."
+msgstr ""
+
+msgid "Unable to rename file."
+msgstr "Dosya yeniden adlandırılamadı."
+
+msgid "File cannot be removed."
+msgstr "Dosya silinemedi."
+
+msgid "Directory is not in jail."
+msgstr ""
+
+msgid "Directory cannot be removed."
+msgstr "Dizin silinemedi."
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr ""
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+msgid "Unable to write destination file."
+msgstr ""
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+msgid "File does not exist"
+msgstr "Dosya mevcut değil"
+
+msgid "Cannot read file"
+msgstr "Dosya okunamadı"
+
+msgid "Directory does not exist"
+msgstr "Dizin mevcut değil."
+
+msgid "Cannot read directory"
+msgstr "Dizin okunamadı"
+
+msgid "administrator"
+msgstr "administrator"
+
+msgid "manage their own entries and comments"
+msgstr ""
+
+msgid "publish entries and comments"
+msgstr "yazıları ve ahkamları yayınla"
+
+msgid "delete entries and comments"
+msgstr ""
+
+msgid "manage all entries and comments"
+msgstr ""
+
+msgid "manage categories"
+msgstr "kategorileri yönet"
+
+msgid "manage their own media items"
+msgstr ""
+
+msgid "manage all media items"
+msgstr ""
+
+msgid "That user does not exist in the database."
+msgstr "Bu kullanıcı veritabanında mevcut değil."
+
+msgid "That key does not exist in the database."
+msgstr "Bu anahtar veritabanında mevcut değil."
+
+msgid "You are not allowed to add categories"
+msgstr "Kategori ekleme izniniz yok"
+
+msgid "You are not allowed to update categories"
+msgstr ""
+
+msgid "You are not allowed to delete categories"
+msgstr ""
+
+msgid "This category is not empty."
+msgstr "Bu kategori boş değil."
+
+msgid "Category URL must be unique."
+msgstr "Kategori URL si eşsiz olmalı."
+
+msgid "You must provide a category title"
+msgstr "Kategori başlığı girmelisiniz"
+
+msgid "You must provide a category URL"
+msgstr "Kategori URL si girmelisiniz"
+
+msgid "You are not allowed to create an entry"
+msgstr ""
+
+msgid "You are not allowed to update entries"
+msgstr ""
+
+msgid "No such entry ID"
+msgstr ""
+
+msgid "You are not allowed to edit this entry"
+msgstr ""
+
+msgid "You are not allowed to change this entry status"
+msgstr ""
+
+msgid "You are not allowed to change this entry category"
+msgstr ""
+
+msgid "You are not allowed to mark this entry as selected"
+msgstr ""
+
+msgid "You are not allowed to delete entries"
+msgstr ""
+
+msgid "You are not allowed to delete this entry"
+msgstr ""
+
+msgid "No entry title"
+msgstr "Yazı başlığı yok"
+
+msgid "No entry content"
+msgstr "Yazı içeriği yok"
+
+msgid "Empty entry URL"
+msgstr "Boş yazı URL si"
+
+msgid "You are not allowed to update comments"
+msgstr ""
+
+msgid "No such comment ID"
+msgstr ""
+
+msgid "You are not allowed to update this comment"
+msgstr ""
+
+msgid "You are not allowed to change this comment's status"
+msgstr ""
+
+msgid "You are not allowed to delete comments"
+msgstr ""
+
+msgid "You are not allowed to delete this comment"
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr "Ahkam girmelisiniz"
+
+msgid "You must provide an author name"
+msgstr "Yazar ismi gimelisiniz"
+
+msgid "Email address is not valid."
+msgstr "Eposta adresi geçersiz"
+
+msgid "online"
+msgstr "çevrimiçi"
+
+msgid "offline"
+msgstr "çevrimdışı"
+
+msgid "removed"
+msgstr "kaldırıldı"
+
+msgid "You are not an administrator"
+msgstr "Admin değilsiniz"
+
+msgid "Invalid user language code"
+msgstr "Geçersiz kullanucı dili kodu."
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "No blog name"
+msgstr "Blog adı yok"
+
+msgid "No blog URL"
+msgstr "Blog URL si yok"
+
+#, fuzzy
+msgid "No log message"
+msgstr "Blog adı yok"
+
+#, fuzzy
+msgid "unknown"
+msgstr "şimdi"
+
+msgid "No blog defined."
+msgstr "Tanımlı blog yok."
+
+#, php-format
+msgid "Directory %s does not exist."
+msgstr "%s dizini mevcut değil."
+
+msgid "You are not a super administrator."
+msgstr "Super admin değilsiniz."
+
+msgid "Permission denied."
+msgstr ""
+
+msgid "You are not the file owner."
+msgstr "Dosya sahibi siz değilsiniz."
+
+msgid "New file already exists."
+msgstr "Yeni dosya evvelce mevcut."
+
+msgid "File does not exist in the database."
+msgstr ""
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr ""
+
+msgid "Embedded Audio Player"
+msgstr ""
+
+msgid "Embedded Video Player"
+msgstr ""
+
+#, php-format
+msgid "%s: in [%s] and [%s]"
+msgstr ""
+
+msgid "Empty module zip file."
+msgstr ""
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr ""
+
+msgid "An error occurred during module deletion."
+msgstr ""
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (same version)"
+msgstr ""
+
+msgid "Unable to read new _define.php file"
+msgstr ""
+
+msgid "No such module."
+msgstr "Böyle bi modül yok."
+
+msgid "Cannot remove module files"
+msgstr ""
+
+msgid "Cannot deactivate plugin."
+msgstr "Eklenti kapatılamadı."
+
+msgid "Cannot activate plugin."
+msgstr "Eklenti çalıştırılamadı."
+
+#, fuzzy, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Geçersiz namespace ayarlama: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr ""
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "%s geçerli bir ayar id 'si değil"
+
+msgid "No namespace specified"
+msgstr "Namespace belirlenmedi"
+
+#, fuzzy
+msgid "Unable to retrieve namespaces:"
+msgstr "Dosya yeniden adlandırılamadı."
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Geçersiz namespace ayarlama: %s"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "%s hala ping 'li"
+
+msgid "Unable to ping URL"
+msgstr "URL pinglenemedi."
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "%s bir ping URL 'si değil"
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, ping hatası:"
+
+msgid "Digests file not found."
+msgstr "Özet dosyası bulunamadı."
+
+msgid "No file to download"
+msgstr "İndirmeye dosya yok"
+
+msgid "Root directory is not writable."
+msgstr ""
+
+msgid "An error occurred while downloading archive."
+msgstr ""
+
+msgid "Archive not found."
+msgstr "Arşiv bulunamadı"
+
+msgid "Unable to read current digests file."
+msgstr ""
+
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr ""
+
+msgid "Incomplete archive."
+msgstr "Eksik arşiv."
+
+msgid "Unable to read digests file."
+msgstr ""
+
+msgid "Invalid digests file."
+msgstr "Geçersiz özet dosyası."
+
+msgid "SQLite Database Schema cannot be upgraded."
+msgstr ""
+
+msgid "Something went wrong with auto upgrade:"
+msgstr "Oto güncelleme sırasında birşeyler ters gitti:"
+
+msgid "Unable to connect to database"
+msgstr ""
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr ""
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr ""
+
+#~ msgid "Login:"
+#~ msgstr "Giriş:"
+
+#~ msgid "Login and password"
+#~ msgstr "Giriş ve parola"
+
+#~ msgid "User ID"
+#~ msgstr "Kullanıcı ID:"
+
+#~ msgid "Name"
+#~ msgstr "İsim"

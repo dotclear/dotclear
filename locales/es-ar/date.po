@@ -1,0 +1,133 @@
+# Dotclear language pack (Argentinian Spanish).
+# Work under Creative Commons license attribution-share alike 3.0 unported, please see http://creativecommons.org/licenses/by-sa/3.0/ for details.
+# ThecaTTony <thecattony@thecattony.com.ar>, 2009.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.1.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2009-10-03 02:30-0300\n"
+"Last-Translator: ThecaTTony <thecattony@thecattony.com.ar>\n"
+"Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d/%m/%Y %H:%M"
+
+msgid "_Jan"
+msgstr "Ene"
+
+msgid "_Feb"
+msgstr "Feb"
+
+msgid "_Mar"
+msgstr "Mar"
+
+msgid "_Apr"
+msgstr "Abr"
+
+msgid "_May"
+msgstr "May"
+
+msgid "_Jun"
+msgstr "Jun"
+
+msgid "_Jul"
+msgstr "Jul"
+
+msgid "_Aug"
+msgstr "Ago"
+
+msgid "_Sep"
+msgstr "Sep"
+
+msgid "_Oct"
+msgstr "Oct"
+
+msgid "_Nov"
+msgstr "Nov"
+
+msgid "_Dec"
+msgstr "Dic"
+
+msgid "January"
+msgstr "Enero"
+
+msgid "February"
+msgstr "Febrero"
+
+msgid "March"
+msgstr "Marzo"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Mayo"
+
+msgid "June"
+msgstr "Junio"
+
+msgid "July"
+msgstr "Julio"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Septiembre"
+
+msgid "October"
+msgstr "Octubre"
+
+msgid "November"
+msgstr "Noviembre"
+
+msgid "December"
+msgstr "Diciembre"
+
+msgid "_Mon"
+msgstr "Lun"
+
+msgid "_Tue"
+msgstr "Mar"
+
+msgid "_Wed"
+msgstr "Mie"
+
+msgid "_Thu"
+msgstr "Jue"
+
+msgid "_Fri"
+msgstr "Vie"
+
+msgid "_Sat"
+msgstr "Sab"
+
+msgid "_Sun"
+msgstr "Dom"
+
+msgid "Monday"
+msgstr "Lunes"
+
+msgid "Tuesday"
+msgstr "Martes"
+
+msgid "Wednesday"
+msgstr "Miércoles"
+
+msgid "Thursday"
+msgstr "Jueves"
+
+msgid "Friday"
+msgstr "Viernes"
+
+msgid "Saturday"
+msgstr "Sábado"
+
+msgid "Sunday"
+msgstr "Domingo"

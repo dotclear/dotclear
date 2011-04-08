@@ -1,0 +1,136 @@
+# Dotclear language pack (Spanish).
+#
+#
+# Miguel A. Muñoz <mamunoz@scienter.es>, 2008.
+# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2009-07-03 11:36+0200\n"
+"Last-Translator: Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d/%m/%Y %H:%M"
+
+msgid "_Jan"
+msgstr "_Ene"
+
+msgid "_Feb"
+msgstr "_Feb"
+
+msgid "_Mar"
+msgstr "_Mar"
+
+msgid "_Apr"
+msgstr "_Abr"
+
+msgid "_May"
+msgstr "_May"
+
+msgid "_Jun"
+msgstr "_Jun"
+
+msgid "_Jul"
+msgstr "_Jul"
+
+msgid "_Aug"
+msgstr "_Ago"
+
+msgid "_Sep"
+msgstr "_Sep"
+
+msgid "_Oct"
+msgstr "_Oct"
+
+msgid "_Nov"
+msgstr "_Nov"
+
+msgid "_Dec"
+msgstr "_Dic"
+
+msgid "January"
+msgstr "Enero"
+
+msgid "February"
+msgstr "Febrero"
+
+msgid "March"
+msgstr "Marzo"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Mayo"
+
+msgid "June"
+msgstr "Junio"
+
+msgid "July"
+msgstr "Julio"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Septiembre"
+
+msgid "October"
+msgstr "Octubre"
+
+msgid "November"
+msgstr "Noviembre"
+
+msgid "December"
+msgstr "Diciembre"
+
+msgid "_Mon"
+msgstr "_Lun"
+
+msgid "_Tue"
+msgstr "_Mar"
+
+msgid "_Wed"
+msgstr "_Mié"
+
+msgid "_Thu"
+msgstr "_Jue"
+
+msgid "_Fri"
+msgstr "_Vie"
+
+msgid "_Sat"
+msgstr "_Sáb"
+
+msgid "_Sun"
+msgstr "_Dom"
+
+msgid "Monday"
+msgstr "Lunes"
+
+msgid "Tuesday"
+msgstr "Martes"
+
+msgid "Wednesday"
+msgstr "Miércoles"
+
+msgid "Thursday"
+msgstr "Jueves"
+
+msgid "Friday"
+msgstr "Viernes"
+
+msgid "Saturday"
+msgstr "Sábado"
+
+msgid "Sunday"
+msgstr "Domingo"

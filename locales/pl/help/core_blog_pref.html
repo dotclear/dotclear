@@ -1,0 +1,144 @@
+<html>
+<head>
+  <title>Ustawienia bloga</title>
+</head>
+
+<body>
+
+<h3>Szczegóły bloga</h3>
+<dl>
+  <dt>ID bloga</dt>
+  <dd>Unikalny identyfikator bloga. Wymagane, może być zmienione tylko przez administratora.</dd>
+  
+  <dt>Nazwa bloga</dt>
+  <dd>Nazwa bloga, wymagane.</dd>
+  
+  <dt>URL bloga</dt>
+  <dd>Kompletny adres URL bloga. Wymagane, może być zmienione tylko przez administratora.</dd>
+  
+  <dt>Stan bloga</dt>
+  <dd>
+    <ul>
+      <li><strong>online</strong>: blog otwarty dla odwiedzających.</li>
+      <li><strong>offline</strong>: blog zamknięty dla odwiedzających, ale otwarty dla autorów.</li>
+      <li><strong>usunięty</strong>: blog zamknięty zarówno dla odwiedzających jak i autorów.</li>
+    </ul>
+  </dd>
+  
+  <dt>Opis bloga</dt>
+  <dd>Tutaj możesz wpisać dowolny opis dla swojego bloga. To jest zwykły tekst, bez formatowania.</dd>
+</dl>
+
+<h3>Konfiguracja bloga</h3>
+<dl>
+  <dt>Blog editor's name</dt>
+  <dd>Name of the person responsible for the blog. It may be the owner or the
+  publisher if he exists.</dd>
+  
+  <dt>Informacja o prawach autorskich</dt>
+  <dd>Informacja o prawach autorskich dla tego bloga.</dd>
+  
+  <dt>Domyślny język</dt>
+  <dd>Język interfejsu bloga. Wybrany język może być już dostępny i wtedy
+  interfejs będzie przetłumaczony lub też tłumaczenie nie istnieje i wtedy używany
+  będzie język angielski.</dd>
+  
+  <dt>Strefa czasowa</dt>
+  <dd>Definiuje strefę czasową, która będzie używana dla komentarzy i trackbacków.</dd>
+  
+  <dt>Format daty</dt>
+  <dd>Format daty dla wpisów na blogu.
+  <a href="#date_format">Opis formatowania</a>.</dd>
+  
+  <dt>Format czasu</dt>
+  <dd>Format czasu dla wpisów na blogu.
+  <a href="#date_format">Opis formatowania</a>.</dd>
+  
+  <dt>Wyświetlaj ... wpisów na stronę</dt>
+  <dd>The number will be used as the limit for the number of entries
+  on the homepage, the first page of each category and the rss feeds.</dd>
+  
+  <dt>Pozostaw możliwość komentowania przez ... dni</dt>
+  <dd>The number of days during wich comments and trackbacks will be open 
+  after the post publication. When empty, the comments will be kept open
+  indefinitly.</dd>
+  
+  <dt>Wyświetlaj emotikony we wpisach i komentarzach</dt>
+  <dd>Wyświetla sekwencje znaków takie jak :-) lub ;-) jako obrazy.</dd>
+  
+  <dt>Akceptuj komentarze</dt>
+  <dd>Domyślnie akceptuje komentarze na tym blogu. Gdy wybrane, nadpisuje ustawienia
+  dla poszczególnych wpisów.</dd>
+  
+  <dt>Akceptuj trackbacki</dt>
+  <dd>Domyślnie akceptuje trackbacki na tym blogu. Gdy wybrane, nadpisuje ustawienia
+  dla poszczególnych wpisów.</dd>
+  
+  <dt>Moderuj komentarze i trackbacki</dt>
+  <dd>Gdy ta opcja jest wybrana, komentarze i tackbacki będą publikowane dopiero
+  po zaakceptowaniu ich przez właściciela jednego z autorów bloga.</dd>
+  
+  <dt>Dodaj atrybut rel="nofollow" do linków w komentarzach i trackbackach.</dt>
+  <dd>Adds an attribut on the links in comments and trackbacks, instructing the
+  search bots not to follow those links. This antispam features has yet to
+  prove its value.</dd>
+  
+  <dt>Formatowanie wiki dla komentarzy</dt>
+  <dd>Pozwala na korzystanie z komentarzach z podstawowego formatowania wiki.</dd>
+</dl>
+
+<h3>Format reference</h3>
+<p>Niektóre pola mogą być skonfigurowane tak, aby dostosować format daty i czasu
+do twoich potrzeb. Tutaj znajduje się opis formatowania:</p>
+
+<ul>
+  <li><strong>%a</strong>: skrócony dzień tygodnia (lokalny).</li>
+  <li><strong>%A</strong>: kompletny dzień tygodnia (lokalny).</li>
+  <li><strong>%b</strong>: skrócona nazwa miesiąca (lokalna).</li>
+  <li><strong>%B</strong>: kompletna nazwa miesiąca (lokalna).</li>
+  <li><strong>%c</strong>: domyślna data i czas lokalny.</li>
+  <li><strong>%C</strong>: wiek</li>
+  <li><strong>%d</strong>: numeric month day (from 01 to 31)</li>
+  <li><strong>%D</strong>: identyczne jak %m/%d/%y</li>
+  <li><strong>%e</strong>: numeric month day (from 1 to 31)</li>
+  <li><strong>%g</strong>: identyczne jak %G, 2 cyfry.</li>
+  <li><strong>%G</strong>: The year on 4 digits, according to the week number
+  (cf. %V). Format and value identical to %Y, except that if the number of the
+  week belongs to the preceding or following year, the current year
+  will be used instead.</li>
+  <li><strong>%h</strong>: identyczne jak %b</li>
+  <li><strong>%H</strong>: digital hour of the day, 24H mode
+  (from 00 to 23)</li>
+  <li><strong>%I</strong>: digital hour of the day, 12H mode
+  (from 01 to 12)</li>
+  <li><strong>%j</strong>: dzień roku, cyfrowo (od 001 do 366)</li>
+  <li><strong>%m</strong>: miesiąc, cyfrowo (od 1 do 12)</li>
+  <li><strong>%M</strong>: minuta, cyfrowo</li>
+  <li><strong>%n</strong>: znak nowej linii</li>
+  <li><strong>%p</strong>: "am" lub "pm", w zależności od czasu absolutnego, lub lokalnych ustawień.</li>
+  <li><strong>%r</strong>: godzina, format 12-godzinny</li>
+  <li><strong>%R</strong>: godzina, format 24-godzinny</li>
+  <li><strong>%S</strong>: sekundy, cyfrowo</li>
+  <li><strong>%t</strong>: znak tabulacji</li>
+  <li><strong>%T</strong>: aktualny czas (identyczne jak %H:%M:%S)</li>
+  <li><strong>%u</strong>: dzień tygodnia, cyfra, od 1 do 7. (1 to poniedziałek)</li>
+  <li><strong>%U</strong>: numer tygodnia, pierwsza niedziela roku jest pierwszym
+  dniem pierwszego tygodnia.</li>
+  <li><strong>%V</strong>: numer tygodnia wg ISO 8601:1988, cyfrowo, od 01 do 53.
+  1. tydzień to pierwszy tydzień z liczbą dni w bieżącym roku większą od 4, którego
+  poniedziałek jest pierwszym dniem.
+  (Use %G or %g for the year elements corresponding to the number of the
+  week for the considered timestamp.)</li>
+  <li><strong>%W</strong>: numer tygodnia w roku, pierwszy poniedziałek w roku traktowany
+  jest jako początek pierwszego tygodnia</li>
+  <li><strong>%w</strong>: dzień tygodnia, cyfry, 0 to niedziela</li>
+  <li><strong>%x</strong>: preferowany format dla daty, bez czsu</li>
+  <li><strong>%X</strong>: preferowany format dla czasu, bez daty</li>
+  <li><strong>%y</strong>: rok, dwie cyfry (od 00 do 99)</li>
+  <li><strong>%Y</strong>: rok, cztery cyfry</li>
+  <li><strong>%Z ou %z</strong>: strefa czasowa, nazwa lub skrót</li>
+  <li><strong>%%</strong>: znak "%"</li>
+</ul>
+
+</body>
+</html>

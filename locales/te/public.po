@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2008-10-02 17:21+0530\n"
+"Last-Translator: Veeven <veeven@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Not found strings
+msgid "To content"
+msgstr "విషయానికి"
+
+msgid "To menu"
+msgstr "మెనూకి"
+
+msgid "To search"
+msgstr "అన్వేషణకి"
+
+msgid "By"
+msgstr "రాసినది"
+
+msgid "by"
+msgstr "రాసినది"
+
+msgid "on"
+msgstr "తేదీ"
+
+msgid "On"
+msgstr "తేదీ"
+
+msgid "Continue reading"
+msgstr "చదవడం కొనసాగించండి"
+
+msgid "no comment"
+msgstr "వ్యాఖ్యలు లేవు"
+
+msgid "one comment"
+msgstr "ఒక వ్యాఖ్య"
+
+msgid "%d comments"
+msgstr "%d వ్యాఖ్యలు"
+
+msgid "no trackback"
+msgstr "ట్రాకుబ్యాకులు లేవు"
+
+msgid "one trackback"
+msgstr "ఒక ట్రాకుబ్యాకు"
+
+msgid "%d trackbacks"
+msgstr "%d ట్రాకుబ్యాకులు"
+
+msgid "no attachment"
+msgstr "జోడింపులు లేవు"
+
+msgid "one attachment"
+msgstr "ఒక జోడింపు"
+
+msgid "%d attachments"
+msgstr "%d జోడింపులు"
+
+msgid "previous entries"
+msgstr "గత టపాలు"
+
+msgid "page"
+msgstr "పేజీ"
+
+msgid "of"
+msgstr "యొక్క"
+
+msgid "next entries"
+msgstr "తర్వాతి టపాలు"
+
+msgid "Search"
+msgstr "వెతుకు"
+
+#, fuzzy
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "<p>మీ అన్వేషణకి ఫలితాలేమీ లేవు.</p>"
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr ""
+
+msgid "Home"
+msgstr "వాకిలి"
+
+msgid "All keywords"
+msgstr "అన్ని కీపదాలు"
+
+msgid "Best of me"
+msgstr "ఉత్తమం"
+
+msgid "Languages"
+msgstr "భాషలు"
+
+msgid "Categories"
+msgstr "వర్గాలు"
+
+#, fuzzy
+msgid "Subcategories"
+msgstr "వర్గాలు"
+
+msgid "Archives"
+msgstr "కైఫీయతులు"
+
+msgid "Links"
+msgstr "లంకెలు"
+
+msgid "Subscribe"
+msgstr "చందాచేరండి"
+
+msgid "Entries feed"
+msgstr "టపాల ఫీడు"
+
+msgid "Comments feed"
+msgstr "వ్యాఖ్యల ఫీడు"
+
+msgid "This blog's comments Atom feed"
+msgstr "ఈ బ్లాగు యొక్క వ్యాఖ్యల ఆటమ్ ఫీడు"
+
+msgid "This category's entries Atom feed"
+msgstr "ఈ వర్గంలోని టపాల ఆటమ్ ఫీడు"
+
+msgid "This category's comments Atom feed"
+msgstr "ఈ వర్గంలోని వ్యాఖ్యల ఆటమ్ ఫీడు"
+
+msgid "This post's comments feed"
+msgstr "ఈ టపా యొక్క వ్యాఖ్యల ఫీడు"
+
+msgid "This post's comments Atom feed"
+msgstr "ఈ టపా యొక్క వ్యాఖ్యల ఆటమ్ ఫీడు"
+
+msgid "Attachments"
+msgstr "జోడింపులు"
+
+msgid "Permalink"
+msgstr "స్థిరలింకు"
+
+msgid "Comments"
+msgstr "వ్యాఖ్యలు"
+
+msgid "Your comment"
+msgstr "మీ వ్యాఖ్య"
+
+msgid "Your comment has been published."
+msgstr "మీ వ్యాఖ్యని ప్రచురించాం."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "మీ వ్యాఖ్య దాఖలైంది మరియు ప్రచురణకై సమీక్షించబడుతుంది."
+
+msgid "Add a comment"
+msgstr "ఓ వ్యాఖ్య చేర్చండి"
+
+msgid "Name or nickname"
+msgstr "పేరు లేదా ముద్దుపేరు"
+
+msgid "Email address"
+msgstr "ఈమెయిలు చిరునామా"
+
+msgid "Website"
+msgstr "వెబ్ సైటు"
+
+msgid "optional"
+msgstr "ఐచ్ఛికం"
+
+msgid "Comment"
+msgstr "వ్యాఖ్య"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML సంకేతాన్ని పాఠ్యంగా చూపిస్తాం మరియు వెబ్ చిరునామాలని ఆటోమెటిగ్గా లింకులుగా చూపిస్తాం."
+
+msgid "Remember me on this blog"
+msgstr "ఈ బ్లాగులో నన్ను గుర్తుంచుకో"
+
+msgid "preview"
+msgstr "మునుజూపు"
+
+msgid "send"
+msgstr "పంపించు"
+
+msgid "They posted on the same topic"
+msgstr "వాళ్ళు ఇదే విషయంపై వ్రాసారు"
+
+msgid "Trackback URL"
+msgstr "ట్రాకుబ్యాకు URL"
+
+msgid "You must provide an author name"
+msgstr "రచయిత పేరు తప్పనిసరిగా ఇవ్వాలి"
+
+msgid "You must provide a comment"
+msgstr "మీరు తప్పనిసరిగా వ్యాఖ్యని ఇవ్వాలి"
+
+msgid "Email address is not valid"
+msgstr "ఈమెయిలు చిరునామా సరైనది కాదు"
+
+msgid "Document not found"
+msgstr "పత్రం కనబడలేదు"
+
+msgid "The document you are looking for does not exist."
+msgstr "మీరు వెతుకుతున్న పత్రం ఇక్కడ లేదు."
+
+msgid "Powered by %s"
+msgstr "%s తో శక్తిమంతం"
+
+msgid "Subscribe to"
+msgstr "చందాచేరండి"
+
+msgid "What is an RSS feed?"
+msgstr "RSS ఫీడు అంటే ఏమిటి?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "RSS ఫీడు అనేది ఉచిత బ్లాగు సంగ్రహం. అది విషయాన్ని (టపాలు లేదా వ్యాఖ్యలు) గానీ లేదా వాటి సంగ్రహాన్ని గానీ వాటి పూర్తి కూర్పులకి లింకులతో మరియు ఇతర సంబంధిత సమాచారంతో అందిస్తుంది. కొత్తగా ప్రచురించిన అంశాలను మీ అభిమాన RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">సంకలినిలో</a> చదువుకోవచ్చు."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "ఈ URLని మీ సంకలిని లోనికి కాపీ చెయ్యండి:"
+
+msgid "Password needed"
+msgstr "సంకేతపదం కావాలి"
+
+msgid "You must give a password to access this area."
+msgstr "ఈ ప్రదేశాన్ని చూడడానికి మీరు సంకేతపదం ఇవ్వాలి."
+
+msgid "Password:"
+msgstr "సంకేతపదం:"
+
+msgid "You must provide a valid email address."
+msgstr "మీరు తప్పనిసరిగా ఓ సరైన ఈమెయిల్ చిరునామా ఇవ్వాలి."
+
+msgid "Read"
+msgstr "చదవండి"

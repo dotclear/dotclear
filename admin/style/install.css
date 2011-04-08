@@ -1,0 +1,124 @@
+/*
+	loader.css
+	Simple CSS rules for NetInstall
+	
+	(c) 2008 - Olivier Meunier & contributors - All rights reserved.
+	Please see http://dotclear.net/ for more details.
+*/
+body.install {
+	font: 0.8em "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
+	color: #000;
+	background-color: #fff;
+}
+body.install #content {
+	width:500px;
+	margin:1em auto;
+}
+body.install #main {
+	padding:1em 2em;
+	border:1px #ccc solid;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+}
+body.install h1,h2 {
+	font-family: Arial,Helvetica,sans-serif;
+}
+body.install h1 {
+	background: url(install/w-logo.png) no-repeat top center;
+	font-size:1.8em;
+	font-weight:normal;
+	text-align:center;
+	color: #666;
+	padding-top: 70px;
+	margin: 0 0 0.75em 0;
+}
+body.install h2 {
+	color: #f90;
+}
+body.install h3 {
+	margin-top:0;
+}
+body.install label {
+	font-weight: bold;
+	color: #555;
+}
+
+body.install .msg {
+	padding:10px 10px 10px 42px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+}
+body.install .warning {
+	background: #ffc url(install/important.png) no-repeat 10px 10px;
+}
+body.install .notice {
+	background: #eef url(install/note.png) no-repeat 10px 10px;
+}
+
+div.error, p.error, div.message, p.message, div.static-msg, p.static-msg {
+	padding: 0.5em 0.5em 0.5em 40px;
+	margin-bottom: 1em;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+p.error, p.message, p.static-msg {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+div.error, p.error {
+	background: #e5bfbf url(msg-error.png) no-repeat 5px 5px;
+	color: #600;
+}
+div.message, p.message, div.static-msg, p.static-msg {
+	background: #666 url(msg-std.png) no-repeat 5px 5px;
+	color: #fff;
+}
+div.message a, p.message a, div.static-msg a, p.static-msg a {
+	color: #fff;
+}
+label {
+	display : block;
+}
+label input, label select, label span {
+	display : block;
+}
+
+label.required {
+	font-weight : bold;
+}
+label.required:before {
+	content : '* ';
+	color : #c00;
+}
+
+form {
+	display : block;
+	margin : 0;
+	padding : 0;
+}
+
+fieldset {
+	display : block;
+	margin : 0 0 1em 0;
+	padding : 1em 0.5em;
+	border-width : 1px 0;
+	border-style: solid;
+	border-color: #ccc;
+	background: #fbfbfb;
+}
+legend {
+	font-weight : bold;
+	padding: 0.2em 0.6em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ccc;
+	background: #fbfbfb;
+	margin-bottom: 0.5em;
+}
+a#obfus {
+	color: #fff;
+	background-color: #666;
+	padding: 0 10px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}

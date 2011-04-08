@@ -1,0 +1,22 @@
+Welcome to Dotclear
+
+WHAT YOU NEED TO RUN DOTCLEAR
+-----------------------------
+In order to run Dotclear you need:
+
+ * A web server (Apache, Cheerokee, lightHttpd, etc.)
+ * PHP 5 with the following modules:
+   * mbstring
+   * iconv
+   * simplexml
+   * mysql, postgresql or sqlite
+ * A database server (MySQL or PostgreSQL) or SQLite.
+
+
+INSTALLATION
+------------
+Copy inc/config.php.in to inc/config.php and fill in the fields with appropriate
+values.
+
+If you intend to use MySQL or PostgreSQL, you'll have to create a database
+first. With SQLite, db/ folder will have to be writable by your web server.

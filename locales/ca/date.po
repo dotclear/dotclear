@@ -1,0 +1,133 @@
+# Dotclear language pack (Catalan).
+# Aina Chabert Ramon <ainachabert@gmail.com>, 2008.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2008-06-03 17:02+0200\n"
+"Last-Translator: Aina Chabert Ramon <ainachabert@gmail.com>\n"
+"Language-Team: Catalan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Catalan\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d/%m/%Y %H:%M"
+
+msgid "_Jan"
+msgstr "Gen"
+
+msgid "_Feb"
+msgstr "Feb"
+
+msgid "_Mar"
+msgstr "Mar"
+
+msgid "_Apr"
+msgstr "Abr"
+
+msgid "_May"
+msgstr "Mai"
+
+msgid "_Jun"
+msgstr "Jun"
+
+msgid "_Jul"
+msgstr "Jul"
+
+msgid "_Aug"
+msgstr "Ago"
+
+msgid "_Sep"
+msgstr "Sep"
+
+msgid "_Oct"
+msgstr "Oct"
+
+msgid "_Nov"
+msgstr "Nov"
+
+msgid "_Dec"
+msgstr "Des"
+
+msgid "January"
+msgstr "Gener"
+
+msgid "February"
+msgstr "Febrer"
+
+msgid "March"
+msgstr "Març"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Maig"
+
+msgid "June"
+msgstr "Juny"
+
+msgid "July"
+msgstr "Juliol"
+
+msgid "August"
+msgstr "Agost"
+
+msgid "September"
+msgstr "Setembre"
+
+msgid "October"
+msgstr "Octubre"
+
+msgid "November"
+msgstr "Novembre"
+
+msgid "December"
+msgstr "Desembre"
+
+msgid "_Mon"
+msgstr "Dl"
+
+msgid "_Tue"
+msgstr "Dm"
+
+msgid "_Wed"
+msgstr "Dx"
+
+msgid "_Thu"
+msgstr "Dj"
+
+msgid "_Fri"
+msgstr "Dv"
+
+msgid "_Sat"
+msgstr "Db"
+
+msgid "_Sun"
+msgstr "Dg"
+
+msgid "Monday"
+msgstr "Dilluns"
+
+msgid "Tuesday"
+msgstr "Dimarts"
+
+msgid "Wednesday"
+msgstr "Dimecres"
+
+msgid "Thursday"
+msgstr "Dijous"
+
+msgid "Friday"
+msgstr "Divendres"
+
+msgid "Saturday"
+msgstr "Dissabte"
+
+msgid "Sunday"
+msgstr "Diumenge"

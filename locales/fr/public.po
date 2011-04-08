@@ -1,0 +1,242 @@
+# French translation of DotClear
+# Copyright (C) 2006.
+# Olivier Meunier <olivier@dotclear.net>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2011-01-15 22:47+0100\n"
+"Last-Translator: xave <xave@dotclear.net>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+
+msgid "To content"
+msgstr "Aller au contenu"
+
+msgid "To menu"
+msgstr "Aller au menu"
+
+msgid "To search"
+msgstr "Aller à la recherche"
+
+msgid "By"
+msgstr "Par"
+
+msgid "by"
+msgstr "par"
+
+msgid "on"
+msgstr "le"
+
+msgid "On"
+msgstr "Le"
+
+msgid "Continue reading"
+msgstr "Lire la suite"
+
+msgid "no comment"
+msgstr "aucun commentaire"
+
+msgid "one comment"
+msgstr "un commentaire"
+
+msgid "%d comments"
+msgstr "%d commentaires"
+
+msgid "no trackback"
+msgstr "aucun rétrolien"
+
+msgid "one trackback"
+msgstr "un rétrolien"
+
+msgid "%d trackbacks"
+msgstr "%d rétroliens"
+
+msgid "no attachment"
+msgstr "aucune annexe"
+
+msgid "one attachment"
+msgstr "une annexe"
+
+msgid "%d attachments"
+msgstr "%d annexes"
+
+msgid "previous entries"
+msgstr "billets précédents"
+
+msgid "page"
+msgstr "page"
+
+msgid "of"
+msgstr "de"
+
+msgid "next entries"
+msgstr "billets suivants"
+
+msgid "Search"
+msgstr "Recherche"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Votre recherche de <em>%1$s</em> n'a donné aucun résultat."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Votre recherche de <em>%1$s</em> a donné <strong>%2$s</strong> résultat."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Votre recherche de <em>%1$s</em> a donné <strong>%2$s</strong> résultats."
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "All keywords"
+msgstr "Tous les mots clés"
+
+msgid "Best of me"
+msgstr "À retenir"
+
+msgid "Languages"
+msgstr "Langues"
+
+msgid "Categories"
+msgstr "Catégories"
+
+msgid "Subcategories"
+msgstr "Sous-catégories"
+
+msgid "Archives"
+msgstr "Archives"
+
+msgid "Links"
+msgstr "Liens"
+
+msgid "Subscribe"
+msgstr "S'abonner"
+
+msgid "Entries feed"
+msgstr "Fil des billets"
+
+msgid "Comments feed"
+msgstr "Fil des commentaires"
+
+msgid "This blog's comments Atom feed"
+msgstr "Fil Atom des commentaires de ce blog"
+
+msgid "This category's entries Atom feed"
+msgstr "Fil Atom des billets de cette catégorie"
+
+msgid "This category's comments Atom feed"
+msgstr "Fil Atom des commentaires de cette catégorie"
+
+msgid "This post's comments feed"
+msgstr "Fil des commentaires de ce billet"
+
+msgid "This post's comments Atom feed"
+msgstr "Fil Atom des commentaires de ce billet"
+
+msgid "Attachments"
+msgstr "Annexes"
+
+msgid "Permalink"
+msgstr "Lien permanent"
+
+msgid "Comments"
+msgstr "Commentaires"
+
+msgid "Your comment"
+msgstr "Votre commentaire"
+
+msgid "Your comment has been published."
+msgstr "Votre commentaire a été publié."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Votre commentaire a été enregistré et sera publié après validation."
+
+msgid "Add a comment"
+msgstr "Ajouter un commentaire"
+
+msgid "Name or nickname"
+msgstr "Nom ou pseudo"
+
+msgid "Email address"
+msgstr "Adresse email"
+
+msgid "Website"
+msgstr "Site web"
+
+msgid "optional"
+msgstr "facultatif"
+
+msgid "Comment"
+msgstr "Commentaire"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr "Les commentaires peuvent être formatés en utilisant une syntaxe wiki simplifiée."
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "Le code HTML est affiché comme du texte et les adresses web sont automatiquement transformées."
+
+msgid "Remember me on this blog"
+msgstr "Se souvenir de moi sur ce blog"
+
+msgid "preview"
+msgstr "prévisualiser"
+
+msgid "send"
+msgstr "envoyer"
+
+msgid "They posted on the same topic"
+msgstr "La discussion continue ailleurs"
+
+msgid "Trackback URL"
+msgstr "URL de rétrolien"
+
+msgid "You must provide an author name"
+msgstr "Vous devez indiquer un nom"
+
+msgid "You must provide a comment"
+msgstr "Vous devez écrire un commentaire"
+
+msgid "Email address is not valid"
+msgstr "Adresse email incorrecte"
+
+msgid "Document not found"
+msgstr "Document non trouvé"
+
+msgid "The document you are looking for does not exist."
+msgstr "Le document que vous cherchez n'existe pas."
+
+msgid "Powered by %s"
+msgstr "Propulsé par %s"
+
+msgid "Subscribe to"
+msgstr "S'abonner à"
+
+msgid "What is an RSS feed?"
+msgstr "Qu'est ce qu'un fil RSS ?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Un fil RSS recueille les informations de mise à jour d'un site. Il fournit le contenu des billets ou des commentaires ou un extrait de ceux-ci, ainsi qu'un lien vers les versions complètes et quelques autres informations. Ce fil a pour vocation d'être lu par un <a href=\"http://fr.wikipedia.org/wiki/Agr%C3%A9gateur\">agrégateur</a> RSS."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Copier simplement l'adresse suivante dans votre agrégateur :"
+
+msgid "Password needed"
+msgstr "Mot de passe nécessaire"
+
+msgid "You must give a password to access this area."
+msgstr "Vous devez indiquer un mot de passe pour accéder à cette partie."
+
+msgid "Password:"
+msgstr "Mot de passe :"
+
+msgid "You must provide a valid email address."
+msgstr "Vous devez indiquer une adresse e-mail valide."
+
+msgid "Read"
+msgstr "Lire"
+

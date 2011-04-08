@@ -1,0 +1,173 @@
+.jstEditor {
+	border-width : 0 1px 1px 1px;
+	border-style : solid;
+	border-color : #000 #ccc #ccc #000;
+	padding-left: 5px;
+	background : #f9f9f9;
+}
+.jstEditor textarea, .jstEditor iframe {
+  margin: 0;
+  border: 0;
+}
+
+.jstHandle {
+	height: 8px;
+	background: #ccc url(resize.png) no-repeat center center;
+	font-size: 0.1em;
+	cursor: s-resize;
+	border-color: #ccc #ccc #ccc #000;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+}
+
+.jstElements {
+	padding: 3px 3px;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: #000 #ccc #ccc #000;
+	background: #eceade;
+}
+
+.jstElements select, .jstElements button {
+	vertical-align: middle;
+}
+.jstElements select {
+	width: 12em;
+}
+.jstElements button {
+	margin-right : 2px;
+	width : 20px;
+	height: 20px;
+	padding: 0;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #eceade;
+	background-color : transparent;
+	background-position : 50% 50%;
+	background-repeat: no-repeat;
+}
+.jstElements button:hover {
+	border-color : #ccc;
+	background-color: #dfdbc7;
+}
+.jstElements button span {
+	display : none;	
+}
+.jstElements span {
+	display : inline;
+}
+
+.jstSpacer {
+	width : 0px;
+	font-size: 1px;
+	margin-right: 4px;
+}
+
+.jstSwitcher {
+	display: block;
+	list-style: none;
+	margin: 0 0 0 -5px;
+	padding: 0 0 5px 0;
+	background: #eee;
+	border-top: 1px solid #999;
+	font-size: 90%;
+	font-weight: bold;
+}
+.jstSwitcher li {
+	display: inline;
+	margin: 0 0 0 5px;
+	padding: 2px 4px;
+}
+.jstSwitcher li.jstSwitcherCurrent {
+	color: #fff;
+	background: #999;
+	-moz-border-radius: 0 0 2px 2px;
+}
+.jstSwitcher a {
+	font-weight: normal;
+	border-bottom: none !important;
+}
+
+/* Buttons
+-------------------------------------------------------- */
+.jstb_strong {
+	background-image: url(bt_strong.png);
+}
+.jstb_em {
+	background-image: url(bt_em.png);
+}
+.jstb_ins {
+	background-image: url(bt_ins.png);
+}
+.jstb_del {
+	background-image: url(bt_del.png);
+}
+.jstb_quote {
+	background-image: url(bt_quote.png);
+}
+.jstb_code {
+	background-image: url(bt_code.png);
+}
+.jstb_paragraph {
+	background-image: url(bt_paragraph.png);
+}
+.jstb_br {
+	background-image: url(bt_br.png);
+}
+.jstb_blockquote {
+	background-image: url(bt_bquote.png);
+}
+.jstb_pre {
+	background-image: url(bt_pre.png);
+}
+.jstb_ul {
+	background-image: url(bt_ul.png);
+}
+.jstb_ol {
+	background-image: url(bt_ol.png);
+}
+.jstb_link {
+	background-image: url(bt_link.png);
+}
+.jstb_img {
+	background-image: url(bt_img.png);
+}
+.jstb_img_select {
+	background-image: url(bt_img_select.png);
+}
+.jstb_post_link {
+	background-image: url(bt_post.png);
+}
+.jstb_removeFormat {
+	background-image: url(bt_clean.png);
+}
+
+
+/* WYSIWYG Iframe */
+.wysiwygIframe {
+	border-width : 1px;
+	border-style : solid;
+	border-color : #000 #ccc #ccc #000;
+	width : 100%;
+}
+
+/* WYSIWYG Document */
+body.wysiwygDoc {
+	font: 12px "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
+	color : #000;
+	background: #f9f9f9;
+	margin: 0;
+	padding : 2px;
+	border: none;
+}
+.wysiwygDoc pre, .wysiwygDoc code, .wysiwygDoc kbd, .wysiwygDoc samp {
+	font-family:"Courier New",Courier,monospace;
+	font-size : 1.1em;
+}
+.wysiwygDoc code {
+	color : #666;
+	font-weight : bold;
+}
+body.wysiwygDoc  > p:first-child {
+	margin-top: 0;
+}

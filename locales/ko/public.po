@@ -1,0 +1,238 @@
+# Dotclear language pack (Korean).
+# Claire Cambier <zenais59@hotmail.com>, 2008.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-RC2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2009-01-14 04:21+0100\n"
+"Last-Translator: S.L. SONG <baramme@free.fr>\n"
+"Language-Team: Korean\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Korean\n"
+
+msgid "To content"
+msgstr "글꼭지 내용으로"
+
+msgid "To menu"
+msgstr "메뉴로"
+
+msgid "To search"
+msgstr "찾기로"
+
+msgid "By"
+msgstr "글쓴이 : "
+
+msgid "by"
+msgstr " 글쓴이 : "
+
+msgid "on"
+msgstr " 올린 때 : "
+
+msgid "On"
+msgstr "올린 때 : "
+
+msgid "Continue reading"
+msgstr "본문으로"
+
+msgid "no comment"
+msgstr "댓글 없음"
+
+msgid "one comment"
+msgstr "댓글 하나"
+
+msgid "%d comments"
+msgstr "댓글 %d 개"
+
+msgid "no trackback"
+msgstr "글걸이 없음"
+
+msgid "one trackback"
+msgstr "글걸이 1 개"
+
+msgid "%d trackbacks"
+msgstr "글걸이 %d 개"
+
+msgid "no attachment"
+msgstr "첨부파일 없음"
+
+msgid "one attachment"
+msgstr "첨부파일 한 개"
+
+msgid "%d attachments"
+msgstr "첨부파일 %d 개"
+
+msgid "previous entries"
+msgstr "이전 글꼭지"
+
+msgid "page"
+msgstr "페이지"
+
+msgid "of"
+msgstr "의"
+
+msgid "next entries"
+msgstr "다음 글꼭지"
+
+msgid "Search"
+msgstr "찾기"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "<em>%1$s</em>에 대한 찾기 결과가 없습니다."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "<em>%1$s</em>에 대한 찾기 결과 : <strong>%2$s</strong> 개 찾음."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "<em>%1$s</em>에 대한 찾기 결과 : <strong>%2$s</strong> 개 찾음."
+
+msgid "Home"
+msgstr "처음으로"
+
+msgid "All keywords"
+msgstr "모든 키워드"
+
+msgid "Best of me"
+msgstr "꼭 보세요"
+
+msgid "Languages"
+msgstr "언어"
+
+msgid "Categories"
+msgstr "분류"
+
+msgid "Subcategories"
+msgstr "하위분류"
+
+msgid "Archives"
+msgstr "글모둠"
+
+msgid "Links"
+msgstr "링크"
+
+msgid "Subscribe"
+msgstr "구독신청"
+
+msgid "Entries feed"
+msgstr "글꼭지 타래소식"
+
+msgid "Comments feed"
+msgstr "댓글 타래소식"
+
+msgid "This blog's comments Atom feed"
+msgstr "이 블로그의 댓글 타래소식 (Atom)"
+
+msgid "This category's entries Atom feed"
+msgstr "이 분류의 글꼭지들 타래소식 (Atom)"
+
+msgid "This category's comments Atom feed"
+msgstr "이 분류의 댓글들 타래소식 (Atom)"
+
+msgid "This post's comments feed"
+msgstr "이 글꼭지에 대한 댓글 타래소식"
+
+msgid "This post's comments Atom feed"
+msgstr "이 글꼭지에 대한 댓글 타래소식 (Atom)"
+
+msgid "Attachments"
+msgstr "첨부파일"
+
+msgid "Permalink"
+msgstr "고유링크"
+
+msgid "Comments"
+msgstr "댓글"
+
+msgid "Your comment"
+msgstr "당신의 댓글"
+
+msgid "Your comment has been published."
+msgstr "당신의 댓글이 공개되었습니다."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "당신의 댓글이 전송되었고, 공개전 점검 대기 상태입니다."
+
+msgid "Add a comment"
+msgstr "댓글 달기"
+
+msgid "Name or nickname"
+msgstr "이름 또는 별칭"
+
+msgid "Email address"
+msgstr "이메일 주소"
+
+msgid "Website"
+msgstr "웹사이트"
+
+msgid "optional"
+msgstr "선택사항"
+
+msgid "Comment"
+msgstr "댓글"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML코드는 텍스트로 보여지고, 웹주소는 자동으로 변환됩니다."
+
+msgid "Remember me on this blog"
+msgstr "이 블로그에서 나를 기억하도록하기"
+
+msgid "preview"
+msgstr "미리보기"
+
+msgid "send"
+msgstr "보내기"
+
+msgid "They posted on the same topic"
+msgstr "이 글꼭지에 걸린 글들"
+
+msgid "Trackback URL"
+msgstr "글걸기주소"
+
+msgid "You must provide an author name"
+msgstr "글쓴이 이름을 쓰셔야 합니다."
+
+msgid "You must provide a comment"
+msgstr "댓글을 쓰셔야 합니다."
+
+msgid "Email address is not valid"
+msgstr "이메일 주소가 바르지 않습니다."
+
+msgid "Document not found"
+msgstr "문서가 없습니다."
+
+msgid "The document you are looking for does not exist."
+msgstr "찾는 문서는 존재하지 않는 문서입니다."
+
+msgid "Powered by %s"
+msgstr "Powered by %s"
+
+msgid "Subscribe to"
+msgstr "타래소식 받아보기"
+
+msgid "What is an RSS feed?"
+msgstr "타래소식(RSS feed)이란?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "타래소식(RSS feed)이란 블로그 요약입니다. 타래소식은 블로그에 올라온 각종 글들의 내용이나 그 요약문을, 원문 링크와 기타 메타정보 등과 함께 목록형태로 제공합니다. 블로그에서 최근에 공개한 항목들은 당신이 선호하는 타래소식 구독기(RSS 리더)로 읽을 수 있습니다."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "다음 URL을 당신의 타래소식 구독기(RSS 리더)로 복사해 넣으세요:"
+
+msgid "Password needed"
+msgstr "비밀번호가 필요합니다"
+
+msgid "You must give a password to access this area."
+msgstr "이 영역에 접근하려면 비밀번호를 제시해야합니다."
+
+msgid "Password:"
+msgstr "비밀번호:"
+
+msgid "You must provide a valid email address."
+msgstr "올바른 이메일 주소를 쓰셔야합니다."
+
+msgid "Read"
+msgstr "읽기"

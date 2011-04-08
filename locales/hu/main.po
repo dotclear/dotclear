@@ -1,0 +1,2725 @@
+# Dotclear language pack (Hungarian).
+# Benjamin Bank <benjaminbank@gmail.com>, 2008.
+# no meg Muráncsik Sebestyén <dr.graf@lajt.hu>, ugyanakkor.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-RC2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"PO-Revision-Date: 2008-06-29 18:39+0200\n"
+"Last-Translator: Benjamin Bank <benjaminbank@gmail.com> | Murancsik Sebestyen <dr.graf@lajt.hu>\n"
+"Language-Team: Hungarian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+
+msgid "Dotclear has been upgraded."
+msgstr "A DotClear-t sikerrel frissítettem."
+
+msgid "Password reset"
+msgstr "A jelszót helyreállítottam."
+
+msgid "Someone has requested to reset the password for the following site and username."
+msgstr "Valaki az alábbi oldalon kérte az alábbi felhasználó jelszavának helyreállítását."
+
+msgid "Username:"
+msgstr "Felhasználónév:"
+
+msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
+msgstr "Jelszóváltoztatáshoz kattints ide (vagy ha nem kértél jelszócserét, úgy vedd figyelmen kívül a levelet)"
+
+#, php-format
+msgid "The e-mail was sent successfully to %s."
+msgstr "Az e-mailt elküldtük az alábbi címre: %s."
+
+msgid "Your new password"
+msgstr "Az új jelszavad"
+
+msgid "Password:"
+msgstr "Jelszó:"
+
+msgid "Your new password is in your mailbox."
+msgstr "Az új jelszavad a postaládádban pihen."
+
+msgid "Passwords don't match"
+msgstr "A jelszavak nem egyeznek"
+
+#, fuzzy
+msgid "You didn't change your password."
+msgstr "Jelszó lecserélése"
+
+#, fuzzy
+msgid "You have to change your password before you can login."
+msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akkor add meg a régi jelszavadat!"
+
+msgid "In order to login, you have to change your password now."
+msgstr ""
+
+msgid "Wrong username or password"
+msgstr "Hibás felhasználónév vagy jelszó"
+
+msgid "Back to login screen"
+msgstr "Vissza a bejelentkező képernyőre"
+
+msgid "Request a new password"
+msgstr "Új jelszó igénylése"
+
+msgid "Email:"
+msgstr "E-mail:"
+
+msgid "recover"
+msgstr "helyreállít"
+
+msgid "Change your password"
+msgstr "Jelszó lecserélése"
+
+msgid "New password:"
+msgstr "Új jelszó:"
+
+msgid "Confirm password:"
+msgstr "Jelszó megerősítése:"
+
+#, fuzzy
+msgid "change"
+msgstr "vissza"
+
+msgid "Remember my ID on this computer"
+msgstr "Emlékezz rám"
+
+msgid "login"
+msgstr "bejelentkezés"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr "Engedélyezned kell a sütiket a belépéshez."
+
+msgid "I forgot my password"
+msgstr "Elfelejtettem a jelszavam"
+
+msgid "New blog"
+msgstr "Új blog"
+
+msgid "Blogs"
+msgstr "Blogok"
+
+msgid "Blog details"
+msgstr "Blog részletei"
+
+msgid "Blog ID:"
+msgstr "Blog ID:"
+
+msgid "Required field"
+msgstr "Kötelező kitölteni"
+
+msgid "At least 2 characters using letters, numbers or symbols."
+msgstr "Legalább 2 karakter, betűket, számokat vagy szimbólumokat használhatsz."
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "Fontos, hogy a blog ID-jének megváltoztatásával az index.php fájl átírására lesz szükség!"
+
+msgid "Blog name:"
+msgstr "Blognév:"
+
+msgid "Blog URL:"
+msgstr "Blog URL-je:"
+
+msgid "Blog description:"
+msgstr "Blog leírása:"
+
+msgid "save"
+msgstr "mentés"
+
+msgid "No such blog ID"
+msgstr "Nincs ilyen azonosítójú blog"
+
+msgid "Password verification failed"
+msgstr "Hibás jelszó"
+
+msgid "Delete a blog"
+msgstr "Blog törlése"
+
+msgid "Warning"
+msgstr "Figyelem"
+
+#, php-format
+msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
+msgstr "A(z) %s összes bejegyzése, megjegyzései és kategóriái törölve lesznek!"
+
+msgid "Please give your password to confirm the blog deletion."
+msgstr "Add meg a jelszavadat a megerősítéshez."
+
+msgid "Your password:"
+msgstr "Jelszó:"
+
+msgid "Delete this blog"
+msgstr "Töröld"
+
+msgid "No given blog id."
+msgstr "Nincs megadott blog id."
+
+msgid "No such blog."
+msgstr "Nincs ilyen blog."
+
+msgid "year/month/day/title"
+msgstr "év/hó/nap/cím"
+
+msgid "year/month/title"
+msgstr "év/hó/cím"
+
+msgid "year/title"
+msgstr "év/cím"
+
+msgid "title"
+msgstr "cím"
+
+msgid "Title"
+msgstr "Cím"
+
+msgid "Title, Date"
+msgstr "Cím, dátum"
+
+msgid "Title, Country, Date"
+msgstr "Cím, ország, dátum"
+
+msgid "Title, City, Country, Date"
+msgstr "Cím, város, ország, dátum"
+
+msgid "I would like search engines and archivers to index and archive my blog's content."
+msgstr "Szeretném, ha a keresőmotorok és katalogizálók indexeljék és archiválják a blogom tartalmát."
+
+msgid "I would like search engines and archivers to index but not archive my blog's content."
+msgstr "Szeretném, ha a keresőmotorok és katalogizálók indexeljék, viszont NE archiválják a blogom tartalmát."
+
+#, fuzzy
+msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
+msgstr "Szeretném, ha a keresőmotorok és katalogizálók NE indexeljék és NE archiválják a blogom tartalmát."
+
+#, fuzzy
+msgid "That blog Id is already in use."
+msgstr "A DotClear már telepítve van."
+
+msgid "Invalid language code"
+msgstr "Hibás nyelvkód"
+
+msgid "Blog settings"
+msgstr "Blog beállításai"
+
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
+msgstr ""
+
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgstr ""
+
+msgid "Blog has been successfully created."
+msgstr "A blogot sikeresen elkészítettem."
+
+msgid "Blog has been successfully updated."
+msgstr "A blogot sikeresen frissítettem."
+
+msgid "Parameters"
+msgstr "Beállítások"
+
+msgid "URL scan method:"
+msgstr "URL ellenőrzési eljárás:"
+
+msgid "Blog status:"
+msgstr "Blog állapot:"
+
+msgid "Blog configuration"
+msgstr "Blog beállítás"
+
+msgid "Blog editor name:"
+msgstr "Blogszerkesztő neve:"
+
+msgid "Default language:"
+msgstr "Alapértelmezett nyelv:"
+
+msgid "Blog timezone:"
+msgstr "Blog időzónája:"
+
+msgid "Copyright notice:"
+msgstr "Védjegy megjegyzései:"
+
+msgid "New post URL format:"
+msgstr "Az új bejegyzés URL formátuma:"
+
+msgid "Enable XML/RPC interface"
+msgstr "Az XML/RPC interfész engedélyezése"
+
+msgid "more information"
+msgstr "több információ"
+
+msgid "Comments and trackbacks"
+msgstr "Megjegyések és trackback-ek"
+
+msgid "Accept comments"
+msgstr "Hozzászólások engedélyezve"
+
+msgid "Moderate comments"
+msgstr "Megjegyzések moderálása"
+
+#, php-format
+msgid "Leave comments open for %s days"
+msgstr "Megjegyzéseket %s napig tehetnek."
+
+msgid "Leave blank to disable this feature."
+msgstr "Hagyd üresen, ha nem szeretnéd használni ezt a lehetőséget."
+
+msgid "Wiki syntax for comments"
+msgstr "Wiki szintakszis a megjegyzésekhez"
+
+msgid "Accept trackbacks"
+msgstr "Trackback-ek engedélyezve"
+
+msgid "Moderate trackbacks"
+msgstr "Trackback-ek moderálása"
+
+#, php-format
+msgid "Leave trackbacks open for %s days"
+msgstr "Trackbackeket %s napig tehetnek"
+
+msgid "Add \"nofollow\" relation on comments and trackbacks links"
+msgstr "A \"nofollow\" jelző hozzáadása a kommentekhez és a trackback linkekhez"
+
+msgid "Blog presentation"
+msgstr "Blog bemutatása"
+
+msgid "Date format:"
+msgstr "Dátumforma:"
+
+msgid "Time format:"
+msgstr "Időforma:"
+
+msgid "Display smilies on entries and comments"
+msgstr "A smiley-k kikapcsolása a bejegyzésekben és a hozzásólásoknál"
+
+#, php-format
+msgid "Display %s entries per page"
+msgstr "%s bejegyzést mutass oldalanként"
+
+#, php-format
+msgid "Display %s entries per feed"
+msgstr "%s bejegyzést mutass feed-enként"
+
+#, php-format
+msgid "Display %s comments per feed"
+msgstr "%s hozzászólást mutass feed-enként"
+
+msgid "Truncate feeds"
+msgstr "Feedek megcsonkítása"
+
+msgid "Media and images"
+msgstr "Média és képek"
+
+msgid "Generated image sizes (in pixels)"
+msgstr "Elkészített képméretek (pixelben)"
+
+msgid "Thumbnails:"
+msgstr "Előnézet:"
+
+msgid "Small:"
+msgstr "Kicsi:"
+
+msgid "Medium:"
+msgstr "Közepes:"
+
+msgid "Inserted image title"
+msgstr "Beillesztett kép címe"
+
+msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
+msgstr "Ez definiálja a kép tulajdonságait, amikor behelyezed a médiakezelőbe. A kép metaadataiból állítjuk elő ezt."
+
+msgid "Search engines robots policy"
+msgstr "Keresőmotorok robotjainak jogai"
+
+msgid "XML/RPC interface"
+msgstr "XML/RPC interfész"
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr "Az XML/RPC interfésszel tudod szerkeszteni a blogodat egy külső kezelővel."
+
+msgid "XML/RPC interface is not active. Change settings to enable it."
+msgstr "Az XML/RPC nem aktív. Változtasd meg a beállításokat hogy engedélyezd."
+
+#, fuzzy
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr "Az XML/RPC interfész aktív. A következő paramétereket kell beállítanod a kliensben:"
+
+msgid "Server URL:"
+msgstr "Szerver URL-je:"
+
+msgid "Blogging system:"
+msgstr "Blogrendszer:"
+
+msgid "User name:"
+msgstr "Felhasználónév:"
+
+msgid "your password"
+msgstr "jelszavad"
+
+msgid "Users"
+msgstr "Felhasználók"
+
+msgid "Users on this blog"
+msgstr "Felhasználók a blogon"
+
+msgid "No users"
+msgstr "Nincsenek felhasználók"
+
+msgid "change permissions"
+msgstr "jogok megváltoztatása"
+
+msgid "Super administrator"
+msgstr "Szuper adminisztrátor"
+
+msgid "You can't remove default theme."
+msgstr "Nem tudod eltávolítani az alapértelmezett témát."
+
+msgid "Theme does not exist."
+msgstr "A téma nem létezik."
+
+msgid "Unable to move uploaded file."
+msgstr "Nem tudom mozgatnia feltöltött fájlt."
+
+#, fuzzy
+msgid "An error occurred while downloading the file."
+msgstr "Hiba történt a fájl letöltése közben."
+
+#, php-format
+msgid "by %s"
+msgstr "szerző: %s"
+
+#, php-format
+msgid "version %s"
+msgstr "%s verzió"
+
+#, php-format
+msgid "(built on \"%s\")"
+msgstr "(\"%s\"-kor készült)"
+
+#, php-format
+msgid "(requires \"%s\")"
+msgstr "(\"%s\" szükséges)"
+
+msgid "Stylesheet"
+msgstr "Stíluslap"
+
+msgid "Theme configuration"
+msgstr "Téma beállítása"
+
+msgid "Blog themes"
+msgstr "Blog témái"
+
+msgid "Blog appearance"
+msgstr "Blog jellege"
+
+msgid "Theme has been successfully changed."
+msgstr "A téma sikeresen megváltozott."
+
+msgid "Theme has been successfully installed."
+msgstr "A téma sikeresen feltelepült."
+
+msgid "Theme has been successfully upgraded"
+msgstr "A téma sikeresen frissült."
+
+msgid "Theme has been successfully deleted."
+msgstr "A téma sikeresen törlődött."
+
+#, php-format
+msgid "You can find additional themes for your blog on %s."
+msgstr "Találhatsz további témákat a blogodhoz itt :: %s"
+
+msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
+msgstr "Ahhoz, hogy telepíts vagy frissíts egy témát, csak fel kell azt töltened a \"Téma telepítése és frissítése\" résznél."
+
+msgid "Themes"
+msgstr "Témák"
+
+#, php-format
+msgid "You are currently using \"%s\""
+msgstr "A \"%s\"-t használod"
+
+msgid "use selected theme"
+msgstr "a kijelölt téma használata"
+
+msgid "delete selected theme"
+msgstr "kijelölttéma törlése"
+
+msgid "Install or upgrade a theme"
+msgstr "Téma frissítése/telepítése"
+
+msgid "You can install themes by uploading or downloading zip files."
+msgstr "Zip fájl fel- vagy letöltésével tudsz telepíteni témát."
+
+msgid "Upload a zip file"
+msgstr "Zip fájl feltöltése"
+
+msgid "Theme zip file:"
+msgstr "Téma zip-fájlja:"
+
+msgid "Upload theme"
+msgstr "Téma feltöltése"
+
+msgid "Download a zip file"
+msgstr "Zip fájl letöltése"
+
+msgid "Theme zip file URL:"
+msgstr "A téma zipjének URL-je:"
+
+msgid "Download theme"
+msgstr "Téma letöltése"
+
+msgid "To enable this function, please give write access to your themes directory."
+msgstr "A funkció használatához adj írási jogot a themes mappádnak."
+
+msgid "back"
+msgstr "vissza"
+
+msgid "Last update"
+msgstr "Legutóbbi frisítés"
+
+msgid "Blog name"
+msgstr "Blognév"
+
+msgid "Blog ID"
+msgstr "Blog ID"
+
+msgid "Descending"
+msgstr "Csökkenő"
+
+msgid "Ascending"
+msgstr "Növekvő"
+
+msgid "List of blogs"
+msgstr "Blogok listája"
+
+msgid "Blog has been successfully deleted."
+msgstr "A blogot sikeresen töröltem."
+
+msgid "Create a new blog"
+msgstr "Új blog készítése"
+
+msgid "Filters"
+msgstr "Szűrők"
+
+msgid "Order by:"
+msgstr "Rendezés:"
+
+msgid "Sort:"
+msgstr "Rendezés:"
+
+msgid "Search:"
+msgstr "Keresés:"
+
+msgid "Blogs per page"
+msgstr "Blogok oldalanként"
+
+msgid "filter"
+msgstr "szűrő"
+
+msgid "No blog"
+msgstr "Nincs blog"
+
+msgid "Page(s)"
+msgstr "Oldal"
+
+msgid "Entries"
+msgstr "Bejegyzések"
+
+msgid "Status"
+msgstr "Állapot"
+
+#, php-format
+msgid "Edit blog %s"
+msgstr "A %s blog szerkesztése"
+
+msgid "edit"
+msgstr "szerkesztés"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "%s blogra ugrás"
+
+#, fuzzy
+msgid "This category does not exist."
+msgstr "A bejegyzés nem létezik."
+
+msgid "Categories"
+msgstr "Kategóriák"
+
+msgid "The category has been successfully created."
+msgstr "A kategória létrejött."
+
+#, fuzzy
+msgid "The category has been successfully removed."
+msgstr "A kategória adatai frissítve."
+
+#, fuzzy
+msgid "Categories have been successfully reordered."
+msgstr "A kategória adatai frissítve."
+
+#, fuzzy
+msgid "The category has been successfully moved."
+msgstr "A kategória adatai frissítve."
+
+#, fuzzy
+msgid "No category yet."
+msgstr "Kategória létrehozása"
+
+#, fuzzy
+msgid "Categories list"
+msgstr "Kategóriák"
+
+#, php-format
+msgid "%d entries"
+msgstr "%d bejegyzés"
+
+#, php-format
+msgid "%d entry"
+msgstr "%d bejegyzés"
+
+msgid "total:"
+msgstr "összes ::"
+
+msgid "URL:"
+msgstr "URL ::"
+
+#, fuzzy
+msgid "Add a new category"
+msgstr "Új kategória létrehozása"
+
+msgid "Title:"
+msgstr "Cím::"
+
+#, fuzzy
+msgid "Parent:"
+msgstr "Bejegyzés keresése:"
+
+msgid "Top level"
+msgstr ""
+
+#, fuzzy
+msgid "Save"
+msgstr "mentés"
+
+msgid "Remove a category"
+msgstr "Kategória törlése"
+
+#, fuzzy
+msgid "Choose a category to remove:"
+msgstr "A bejegyzések kategóriája nem létezik"
+
+msgid "ok"
+msgstr "ok"
+
+msgid "Reorder categories"
+msgstr "Kategóriák átrendezése"
+
+msgid "This will relocate all categories on the top level"
+msgstr ""
+
+#, fuzzy
+msgid "Reorder"
+msgstr "Rendezés mentése"
+
+msgid "New category"
+msgstr "Kategória létrehozása"
+
+msgid "Category has been successfully updated."
+msgstr "A kategória adatai frissítve."
+
+msgid "Category information"
+msgstr "kategória információi"
+
+msgid "Warning: If you set the URL manually, it may conflict with another category."
+msgstr "Figyelem: ha az URL-t magad szerkeszted, akkor ütközhet más kategóriákéval."
+
+msgid "Description:"
+msgstr "Leírás:"
+
+#, fuzzy
+msgid "Move this category"
+msgstr "Kategória létrehozása"
+
+#, fuzzy
+msgid "Category parent"
+msgstr "Kategória:"
+
+#, fuzzy
+msgid "Category sibling"
+msgstr "Kategória:"
+
+#, fuzzy
+msgid "Move current category"
+msgstr "Kategória létrehozása"
+
+#, fuzzy
+msgid "after"
+msgstr "előtte"
+
+msgid "before"
+msgstr "utána"
+
+msgid "Entry does not exist."
+msgstr "A bejegyzés nem létezik."
+
+msgid "No comment"
+msgstr "Nincs hozzászólás"
+
+msgid "You can't edit this comment."
+msgstr "Nem szerkesztheted a hozzászólást."
+
+msgid "Edit comment"
+msgstr "Hozzászólás szerkesztése"
+
+msgid "Comment has been successfully updated."
+msgstr "A kommentár sikeresen frissült."
+
+#, php-format
+msgid "Your comment on my blog %s"
+msgstr "A te megjegyzéseid a %s blogomon"
+
+#, php-format
+msgid ""
+"Hi!\n"
+"\n"
+"You wrote a comment on:\n"
+"%s\n"
+"\n"
+"\n"
+msgstr ""
+"Szia!\n"
+"\n"
+"Kommentárt írtál ehhez :: \n"
+"%s\n"
+"\n"
+"\n"
+
+msgid "Send an e-mail"
+msgstr "E-mail küldése"
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "Vissza a \"%s\"-hez"
+
+msgid "IP address:"
+msgstr "IP cím:"
+
+msgid "Date:"
+msgstr "Dátum:"
+
+msgid "Author:"
+msgstr "Szerző:"
+
+msgid "Web site:"
+msgstr "Honlap:"
+
+msgid "Status:"
+msgstr "Állapot:"
+
+msgid "Comment:"
+msgstr "Hozzászólás:"
+
+msgid "delete"
+msgstr "törlés"
+
+msgid "comment"
+msgstr "megjegyzés"
+
+msgid "trackback"
+msgstr "trackback"
+
+msgid "Date"
+msgstr "Dátum"
+
+msgid "Entry title"
+msgstr "Bejegyzés címe"
+
+msgid "Author"
+msgstr "Szerző"
+
+msgid "publish"
+msgstr "közzé tesz"
+
+msgid "unpublish"
+msgstr "visszavon"
+
+msgid "mark as pending"
+msgstr "függőként megjelöl"
+
+msgid "mark as junk"
+msgstr "szemétként megjelöl"
+
+msgid "Comments"
+msgstr "Hozzászólások"
+
+msgid "Type:"
+msgstr "Típus:"
+
+msgid "Comments per page"
+msgstr "Megjegyések oldalanként"
+
+msgid "Comment author:"
+msgstr "Megjegyzés szerzője:"
+
+msgid "You have one spam comments."
+msgstr "Van egy spam megjegyzésed."
+
+msgid "Show it."
+msgstr "Mutasd meg."
+
+#, php-format
+msgid "You have %s spam comments."
+msgstr "%s spam megjegyzésed van."
+
+msgid "Show them."
+msgstr "Megmutat"
+
+msgid "Selected comments action:"
+msgstr "Teendő a kiválasztott hozzászólásokkal"
+
+#, php-format
+msgid "%d comment"
+msgstr "%d megjegyzés"
+
+#, php-format
+msgid "%d comments"
+msgstr "%d megjegyzés"
+
+msgid "New entry"
+msgstr "Új bejegyzés"
+
+msgid "User preferences"
+msgstr "Felhasználó beállításai"
+
+msgid "Documentation"
+msgstr "Dokumentáció"
+
+msgid "Latest news"
+msgstr "Újság"
+
+msgid "Dashboard"
+msgstr "Beállítópanel"
+
+msgid "Make this blog my default blog"
+msgstr "Legyen ez az alapértelmezett blog"
+
+msgid "This blog is offline"
+msgstr "Ez a blog offline."
+
+msgid "This blog is removed"
+msgstr "A blogot eltávolították."
+
+msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+msgstr "DC_ADMIN_URL nincs definiálva, ezt neked kell beállítanod a konfigurációs fájlodban."
+
+msgid "Following plugins have been installed:"
+msgstr "A következő kiegészítőket telepítettem ::"
+
+msgid "Following plugins have not been installed:"
+msgstr "A következő kiegészítőket NEM telepítettem ::"
+
+#, fuzzy
+msgid "Quick entry"
+msgstr "Új bejegyzés"
+
+msgid "Content:"
+msgstr "Tartalom:"
+
+msgid "Category:"
+msgstr "Kategória:"
+
+msgid "save and publish"
+msgstr "mentsd és punlikáld"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s már elérhető!"
+
+msgid "Upgrade now"
+msgstr "Frissítés"
+
+msgid "Remind me later"
+msgstr "Értesíts később"
+
+#, fuzzy
+msgid "Some plugins are installed twice:"
+msgstr "A következő kiegészítőket telepítettem ::"
+
+#, php-format
+msgid "PHP version is %s (5.0 or earlier needed)."
+msgstr "PHP verzió %s (5.0 vagy korábbi kell)."
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr "Multibyte string modul (mbstring) nem elérhető."
+
+msgid "Iconv module is not available."
+msgstr "Iconv modul nem elérhető."
+
+msgid "Output control functions are not available."
+msgstr "Kimeneti konrolfunkciók nem elérhetőek."
+
+msgid "SimpleXML module is not available."
+msgstr "SimpleXML modul nem elérhető."
+
+msgid "DOM XML module is not available."
+msgstr "DOM XML modul nem elérhető."
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr "PRCE motor nem támogatja az UTF-8 szövegeket."
+
+msgid "SPL module is not available."
+msgstr "SPL modul nem elérhető."
+
+#, php-format
+msgid "MySQL version is %s (4.1 or earlier needed)."
+msgstr "MySQL verzió %s (4.1 vagy korábbi szükséges)."
+
+msgid "MySQL InnoDB engine is not available."
+msgstr "MySQL InnoDB motor nem elérhető."
+
+#, php-format
+msgid "PostgreSQL version is %s (8.0 or earlier needed)."
+msgstr "PostgreSQL verió %s (8.0 vagy korábbi kell)."
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr "Állíts be mesterkulcsot (DC_MASTER_KEY) a konfigurációs fájlodban."
+
+msgid "Dotclear is already installed."
+msgstr "A DotClear már telepítve van."
+
+msgid "Dotclear cannot be installed."
+msgstr "A DotClear-t nem lehet telepíteni."
+
+msgid "No user ID given"
+msgstr "Nem adtál meg felhasználói nevet"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "A felhasználónévnek legalább 2 karakter hosszúnak kell lennie! Tartalmazhat betűt, számokat vagy szimbólumokat."
+
+msgid "Invalid email address"
+msgstr "Helytelen e-mail cím"
+
+msgid "No password given"
+msgstr "Nincs jelszó"
+
+msgid "Password must contain at least 6 characters."
+msgstr "A jelszónak legalább 6 karakter hosszúnak kell lennie."
+
+msgid "My first blog"
+msgstr "Az első blogom"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "Üdvözlet a DorClearnél!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "Ez az első bejegyzésed. Mikor kész vagy arra, hogy blogolhass, egyszerűen jelentkezz be, hogy ezt megváltoztasd vagy töröld!"
+
+msgid "Dotclear Team"
+msgstr "DotClear csapat"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>Bármily különös, ez egy megjegyzés.</p>\n"
+"<p>Ahhoz, hogy törölhesd, jelentkezz be és nézd meg a blog hozzászólásait. Aztán törölheted vagy átírhatod őket!</p>"
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "DotClear telepítés"
+
+msgid "show"
+msgstr ""
+
+msgid "Dotclear installation"
+msgstr "DotClear telepítés"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr "%s cache mappa nem írható."
+
+msgid "Errors:"
+msgstr "Hibák:"
+
+#, fuzzy
+msgid "Configuration file has been successfully created."
+msgstr "A kategória adatai frissítve."
+
+msgid "User information"
+msgstr "Felhasználói adatok"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "Kérlek, add meg a következő információkat, melyek szükségesek az első felhasználó létrehozásához."
+
+#, fuzzy
+msgid "First Name:"
+msgstr "Vezetéknév::"
+
+#, fuzzy
+msgid "Last Name:"
+msgstr "Legutóbbi frisítés"
+
+#, fuzzy
+msgid "Username and password"
+msgstr "Hibás felhasználónév vagy jelszó"
+
+msgid "All done!"
+msgstr "Minden rendben!"
+
+#, fuzzy
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "A DotClear-t siekresen feltelepítetted. Íme néhány hasznos információ, mellyel a blogot karban tarthatod."
+
+msgid "Your account"
+msgstr "A fiókod"
+
+msgid "Your blog"
+msgstr "A blogod"
+
+msgid "Blog address:"
+msgstr "Blogod címe::"
+
+msgid "Administration interface:"
+msgstr "Adminisztrációs felület::"
+
+msgid "Manage your blog now"
+msgstr "Kezeld a blogodat MOST"
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "A %s nem létezik."
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr "Nem tudok hozzáférni a %s -hez."
+
+msgid "Dotclear installation wizard"
+msgstr "DotClear telepítő tündér"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "Feladat"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "Rendszerinformációk"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "Kérlek, add meg a következő információkat, amelyek szükségesek a konfigurációs fájl elkészítésében."
+
+msgid "Database type:"
+msgstr "Adatbázis típusa:"
+
+msgid "Database Host Name:"
+msgstr "Adatbázis host neve:"
+
+msgid "Database Name:"
+msgstr "Adatbázisnév:"
+
+msgid "Database User Name:"
+msgstr "Adatbázis felhasználói neve:"
+
+msgid "Database Password:"
+msgstr "Adatbázis jelszava:"
+
+msgid "Database Tables Prefix:"
+msgstr "Adatbázis tábláinak prefixuma:"
+
+msgid "No such installed language"
+msgstr "Nincs ilyen telepített nyelv."
+
+msgid "You can't remove English language."
+msgstr "Nem törölheted az angol nyelvi fájlokat."
+
+msgid "Permissions to delete language denied."
+msgstr "A nylevfájlok törlési jogát megtagadtam."
+
+msgid "Invalid language file URL."
+msgstr "Hibás a nyelvi fájl URL-je."
+
+msgid "Languages management"
+msgstr "Nyelvkezelő"
+
+#, fuzzy
+msgid "Language has been successfully deleted."
+msgstr "A kategória adatai frissítve."
+
+#, fuzzy
+msgid "Language has been successfully installed."
+msgstr "A kategória adatai frissítve."
+
+#, fuzzy
+msgid "Language has been successfully upgraded"
+msgstr "A kategória adatai frissítve."
+
+msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
+msgstr "Itt telepítheted, frissítheted vagy letörölheted a DotClear nyelvcsomagjait."
+
+#, php-format
+msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
+msgstr "A felhasználó nyelvét megváltoztathatod a <a href=\"%1$s\">beállításoknál</a> vagy megváltoztathatod a blog alapnyelvét a <a href=\"%2$s\">blog beállításainál</a>."
+
+msgid "Installed languages"
+msgstr "Telepített nyelvek"
+
+msgid "No additional language is installed."
+msgstr "Nincs további nyelvcsomag telepítve."
+
+#, fuzzy
+msgid "Language"
+msgstr "Nyelv?"
+
+msgid "Action"
+msgstr "Feladat"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Install or upgrade languages"
+msgstr "Nyelvcsomag telepítése vagy frissítése"
+
+#, php-format
+msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
+msgstr "Telepíthetsz és törölhetsz úgy is nyelvet, hogy a megfelelő könyvtárat létrehozod/törlöd a %s mappádban."
+
+msgid "Available languages"
+msgstr "Elérhető nyelvek"
+
+#, php-format
+msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
+msgstr "Letölthetsz és telepíthetsz további nyelvcsomagokat közvetkenül a Dorclear.net oldalról. A kért nyelvcsomag a %s verzió alapcsomagjában van."
+
+#, fuzzy
+msgid "Language:"
+msgstr "Nyelv?"
+
+msgid "Install language"
+msgstr "Nyelv telepítése"
+
+msgid "You can install languages by uploading zip files."
+msgstr "egy .zip fájl feltöltésével telepíthetsz további nyelveket."
+
+msgid "Language zip file:"
+msgstr "Nyelv zip-fájlja:"
+
+msgid "Upload language"
+msgstr "Nyelv feltöltése"
+
+msgid "Invalid language zip file."
+msgstr "Érvénytelen nyelvi csomag."
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "A zip fájl nem tűnik érvényes DotClear nyelvi csomagnak."
+
+msgid "An error occurred during language upgrade."
+msgstr "Hiba történt a nyelvfrissítés során."
+
+msgid "Error:"
+msgstr "Hiba:"
+
+msgid "By names, in ascending order"
+msgstr "Név szerint növekvő"
+
+msgid "By names, in descending order"
+msgstr "Név szerint csökkenő"
+
+msgid "By dates, in ascending order"
+msgstr "Idő szerint növekvő"
+
+msgid "By dates, in descending order"
+msgstr "Idő szerint csökkenő"
+
+msgid "Media manager"
+msgstr "Médiakezelő"
+
+msgid "confirm removal"
+msgstr "törlés megerősítése"
+
+#, php-format
+msgid "Are you sure you want to remove %s?"
+msgstr "Biztosan szeretnéd a %s-t törölni?"
+
+msgid "cancel"
+msgstr "vissza"
+
+msgid "yes"
+msgstr "igen"
+
+msgid "Directory has been successfully created."
+msgstr "A mappát létrehoztam."
+
+msgid "Files have been successfully uploaded."
+msgstr "A fájlokat feltöltöttem."
+
+msgid "File has been successfully removed."
+msgstr "A fájlokat letöröltem."
+
+msgid "Directory has been successfully removed."
+msgstr "A mappát letöröltem."
+
+msgid "Directory has been successfully rebuilt."
+msgstr "A mappa újraépült."
+
+#, fuzzy
+msgid "Zip file has been successfully extracted."
+msgstr "A kategória adatai frissítve."
+
+#, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s."
+msgstr "Válassz egy fájlt ahhoz, hogy a %s bejegyzéshez csatold, majd katt a %s -re."
+
+msgid "Attach this file to entry"
+msgstr "Fájl csatolása a bejegyzéshez"
+
+#, php-format
+msgid "Choose a file to insert into entry by clicking on %s."
+msgstr "Válassz egy fájlt, amelyet a bejegyzéshez szereznél csatolni, és katt a %s -re."
+
+msgid "No file."
+msgstr "Nincs fájl."
+
+msgid "Sort files:"
+msgstr "Fájlok rendezése:"
+
+msgid "Add files"
+msgstr "Fájlok hozzáadása"
+
+msgid "Choose a file:"
+msgstr "Válassz fájlt:"
+
+#, php-format
+msgid "Maximum size %s"
+msgstr "A maximális méret %s"
+
+msgid "Private"
+msgstr "Privát"
+
+msgid "send"
+msgstr "küld"
+
+msgid "Please take care to publish media that you own and that are not protected by copyright."
+msgstr "Vigyázz a feltöltött anyagaidra, amelyek a sajátjaid és nem védettek!"
+
+msgid "New directory"
+msgstr "Új mappa"
+
+#, fuzzy
+msgid "Directory Name:"
+msgstr "Új mappa"
+
+msgid "Download this directory as a zip file"
+msgstr "Mapa letöltése zip fájlként"
+
+msgid "open"
+msgstr "megnyit"
+
+msgid "Insert this file into entry"
+msgstr "Fájl beillesztése a bejegyzésbe"
+
+msgid "Not a valid file"
+msgstr "Nem érvényes fájl"
+
+msgid "File has been successfully updated."
+msgstr "A fájl sikeresen frissült."
+
+msgid "Thumbnails have been successfully updated."
+msgstr "A kisképek sikeresen frissültek."
+
+msgid "Insert media item"
+msgstr "Médiaelem beszúrása"
+
+msgid "Image size:"
+msgstr "Képméret:"
+
+msgid "original"
+msgstr "eredeti"
+
+msgid "Image alignment"
+msgstr "Kép igazítása"
+
+msgid "None"
+msgstr "Semelyik"
+
+msgid "Left"
+msgstr "Balra"
+
+msgid "Right"
+msgstr "Jobbra"
+
+msgid "Center"
+msgstr "Középre"
+
+msgid "Image insertion"
+msgstr "Kép beillesztése"
+
+msgid "As a single image"
+msgstr "Szimpla képként"
+
+msgid "As a link to original image"
+msgstr "Hivatkozás az eredeti képre"
+
+msgid "MP3 disposition"
+msgstr "MP3 beosztása"
+
+msgid "Please note that you cannot insert mp3 files with visual editor."
+msgstr "Figyelem! Nem tudsz mp3 fájlokat beilleszteni a vizuális szerkesztővel!"
+
+msgid "Please note that you cannot insert video files with visual editor."
+msgstr "Figyelem! Nem tudsz videofájlokat beilleszteni a vizuális szerkesztővel!"
+
+msgid "Video size"
+msgstr "Videó mérete"
+
+msgid "Width:"
+msgstr "Szélesség:"
+
+msgid "Height:"
+msgstr "Magasság:"
+
+msgid "Video disposition"
+msgstr "Videó beosztása"
+
+msgid "Media item will be inserted as a link."
+msgstr "A médiaelem linkként lesz beszúrva."
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Insert"
+msgstr "Beszúr"
+
+msgid "Media details"
+msgstr "Média tulajdonságok"
+
+msgid "Available sizes:"
+msgstr "Elérhető méretek:"
+
+msgid "File owner:"
+msgstr "Fájl tulajdonosa:"
+
+msgid "File type:"
+msgstr "Fájltípus:"
+
+msgid "File size:"
+msgstr "Fájlméret:"
+
+msgid "File URL:"
+msgstr "Fájl URL:"
+
+msgid "Show entries containing this media"
+msgstr "Azok a bejegyzések mutatása, amelyek tartalmazzák ezt"
+
+msgid "Entries containing this media"
+msgstr "a bejegyzések, amelyek tartalmazzák ezt"
+
+msgid "No entry seems contain this media."
+msgstr "Úgy tűnik, hogy semelyik bejegyzésben nincs ez benne."
+
+msgid "Image details"
+msgstr "Kép tulajdonságai"
+
+msgid "No detail"
+msgstr "Nincs tulajdonsága"
+
+msgid "Update thumbnails"
+msgstr "Kisképek frissítése"
+
+msgid "This will create or update thumbnails for this image."
+msgstr "A gomb megnyomásával újraépül a kép előnézeti képe."
+
+msgid "update thumbnails"
+msgstr "kiskép frissítése"
+
+msgid "Extract in a new directory"
+msgstr "Kicsomagolás új mappába"
+
+msgid "Extract in current directory"
+msgstr "Kicsomagolás ide"
+
+msgid "Extract archive"
+msgstr "Kicsomagolás"
+
+#, fuzzy
+msgid "This will extract archive in a new directory that should not exist yet."
+msgstr "A gomb megnyomásával ki lesznek a fájlok csomagolva egy új mappába."
+
+msgid "This will extract archive in current directory and will overwrite existing files or directory."
+msgstr "A gomb megnyomásával ki lesznek a fájlok csomagolva a jelenlegi mappába, a létezőket pedig felül fogja írni."
+
+msgid "Extract mode:"
+msgstr "Kicsomagolás módja:"
+
+msgid "extract"
+msgstr "kicsomagol"
+
+msgid "Change media properties"
+msgstr "A média tulajdonságainak megváltoztatása"
+
+msgid "File name:"
+msgstr "Fájlnév:"
+
+msgid "File title:"
+msgstr "Fájltípus:"
+
+msgid "File date:"
+msgstr "Fájl dátuma:"
+
+msgid "New directory:"
+msgstr "Új mappa"
+
+msgid "Change file"
+msgstr "Fájl megváltoztatása"
+
+msgid "No blog or user given."
+msgstr "Nem adtál meg blogot vagy felhasználót."
+
+msgid "permissions"
+msgstr "jogok"
+
+msgid "Permissions"
+msgstr "Jogok"
+
+msgid "The permissions have been successfully updated."
+msgstr "A jogokat frissítettem."
+
+#, php-format
+msgid "You are about to change permissions on the following blogs for users %s."
+msgstr "A(z) %s felhasználó jogait fogod módosítani...."
+
+msgid "choose a blog"
+msgstr "válassz blogot"
+
+msgid "Choose a blog"
+msgstr "Válassz blogot"
+
+msgid "Entries per page"
+msgstr "Bejegyzések oldalanként"
+
+#, php-format
+msgid "Choose one or more blogs to which you want to give permissions to users %s."
+msgstr "Válassz legalább egy blogot, hogy melyikhez szeretnéd a(z) %s jogait megváltoztatni."
+
+msgid "set permissions"
+msgstr "jogok beállítása"
+
+msgid "No content found on this plugin."
+msgstr "nem talátam tartalmat a kiegészítőhöz."
+
+msgid "Plugin not found"
+msgstr "Nincs kiegészítő"
+
+msgid "The plugin you reached does not exist or does not have an admin page."
+msgstr "Az elért kiegészítő nem létezik vagy nincs adminisztációs oldala."
+
+msgid "No such plugin."
+msgstr "Nincs ilyen kiegészítő."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "Nincs jogod törölni ezt a kiegészítőt."
+
+msgid "You don't have permissions to deactivate this plugin."
+msgstr "Nincs jogod kikapcsolni ezt a kiegészítőt."
+
+msgid "Plugins management"
+msgstr "Kiegészítő-kezelő"
+
+#, fuzzy
+msgid "Plugin has been successfully deleted."
+msgstr "A kategória adatai frissítve."
+
+msgid "Plugin has been successfully installed."
+msgstr "A kategóriát sikeresen feltelepítettem."
+
+msgid "Plugin has been successfully upgraded"
+msgstr "A kategóriát sikeresen feltelepítettem."
+
+msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
+msgstr "A kiegészítők új funkciókat adnak! Itt tudod őket szolgálat alá helyezni vagy kikapcsolni."
+
+#, php-format
+msgid "You can find additional plugins for your blog on %s."
+msgstr "Találhatsz a %s helyen kiegészítőket a blogodhoz."
+
+msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
+msgstr "Ahhoz, hogy telepíts vagy frissíts egy kiegészítőt, általában csak fel kell azt töltened a telepítőoldalon."
+
+msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
+msgstr "Ahhoz, hogy telepítsd vagy frissítsd a kiegészítőt, csaj ki kell azt csomagolnod a plugins mappába."
+
+msgid "Plugins"
+msgstr "Kiegészítők"
+
+msgid "Activated plugins"
+msgstr "Bekapcsolt kiegészítők"
+
+msgid "Plugin"
+msgstr "Kiegészítő"
+
+msgid "Version"
+msgstr "Verzió"
+
+msgid "Details"
+msgstr "Tulajdonságok"
+
+msgid "Deactivate"
+msgstr "Kikapcsolás"
+
+msgid "Deactivated plugins"
+msgstr "Kikapcsolt kiegészítők"
+
+msgid "Activate"
+msgstr "Bekapcsol"
+
+msgid "Install or upgrade a plugin"
+msgstr "Kiegészítő telepítése vagy frissítése"
+
+msgid "You can install plugins by uploading or downloading zip files."
+msgstr "Zip fájl fel- vagy letöltésével tudsz telepíteni kiegészítőt."
+
+msgid "Plugin zip file:"
+msgstr "Kiegészítő .zip fájlja:"
+
+msgid "Upload plugin"
+msgstr "Feltölt"
+
+msgid "Plugin zip file URL:"
+msgstr "A kiegészítő zip URL-je:"
+
+msgid "Download plugin"
+msgstr "Kieg. letöltése"
+
+msgid "To enable this function, please give write access to your plugins directory."
+msgstr "A funkció eléréséhez szükséges a plugins mapához írási jog!"
+
+msgid "Add a link"
+msgstr "Hivatkozás hozzáadása"
+
+msgid "Available"
+msgstr "Elérhető"
+
+msgid "Most used"
+msgstr "Legtöbbet használt"
+
+msgid "Link URL:"
+msgstr "Hivatkozás URL-je:"
+
+msgid "Link language:"
+msgstr "Hivatkozás nyelve:"
+
+msgid "insert"
+msgstr "beilleszt"
+
+msgid "Add a link to an entry"
+msgstr "Hivatkozás beillesztése a bejegyzésbe"
+
+msgid "Search entry:"
+msgstr "Bejegyzés keresése:"
+
+msgid "This entry does not exist."
+msgstr "Ez a bejegyzés nem létezik."
+
+msgid "Edit entry"
+msgstr "Bejegyzés szerkesztése"
+
+msgid "next entry"
+msgstr "előző bejegyzés"
+
+msgid "previous entry"
+msgstr "következő bejegyzés"
+
+msgid "Entry has been successfully updated."
+msgstr "A bejegyzést frissítettem."
+
+msgid "Entry has been successfully created."
+msgstr "A bejegyzést létrehoztam."
+
+msgid "File has been successfully attached."
+msgstr "A fájlt hozzácsatoltam."
+
+msgid "Attachment has been successfully removed."
+msgstr "A csatolmányt eltávolítottam."
+
+msgid "Comment has been successfully created."
+msgstr "A megjegyzés létrejött."
+
+msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgstr "Ne fejeltsd el érvényesíteni az XHTML átalakítást azzal, hogy mentesz!"
+
+#, fuzzy
+msgid "View entry"
+msgstr "Új bejegyzés"
+
+#, fuzzy
+msgid "Preview entry"
+msgstr "Új bejegyzés"
+
+msgid "Entry status:"
+msgstr "A bejegyzés állapota:"
+
+msgid "Published on:"
+msgstr "Punlikálva:"
+
+msgid "Text formating:"
+msgstr "Formátum:"
+
+msgid "Convert to XHTML"
+msgstr "Konvertálás XHTML-lé"
+
+msgid "Selected entry"
+msgstr "Kijelölt bejegyzés"
+
+msgid "Entry lang:"
+msgstr "Nyelv:"
+
+msgid "Entry password:"
+msgstr "Jelszó:"
+
+msgid "Basename:"
+msgstr "Alapnév:"
+
+msgid "Warning: If you set the URL manually, it may conflict with another entry."
+msgstr "Figyelem: ha az URL-t magad szerkeszted, akkor ütközhet más bejegyzésekével."
+
+msgid "Attachments"
+msgstr "Mellékletek"
+
+msgid "remove"
+msgstr "eltávolítás"
+
+msgid "No attachment."
+msgstr "Nincs melléklet."
+
+msgid "Add files to this entry"
+msgstr "Fájl hozzáadása"
+
+msgid "Excerpt:"
+msgstr "Bevezető:"
+
+msgid "Notes:"
+msgstr "Megjegyzések:"
+
+msgid "Ping blogs"
+msgstr "Bejegyzések pingelése"
+
+msgid "Trackbacks"
+msgstr "Trackbackek"
+
+msgid "No trackback"
+msgstr "Nincs trackback"
+
+msgid "Add a comment"
+msgstr "Megjegyzés hozzáadása"
+
+msgid "Name:"
+msgstr "Keresztnév::"
+
+msgid "IP address"
+msgstr "IP cím"
+
+msgid "published"
+msgstr "publikált"
+
+msgid "unpublished"
+msgstr "nem publikált"
+
+msgid "pending"
+msgstr "függő"
+
+msgid "junk"
+msgstr "szemét"
+
+msgid "Edit this comment"
+msgstr "Megjegyzés szerkesztése"
+
+msgid "This attachment does not exist"
+msgstr "Ez a csatolt fájl nem létezik"
+
+msgid "Remove attachment"
+msgstr "Csatolmány törlése"
+
+msgid "Attachment"
+msgstr "Csatolt fájlok"
+
+msgid "Are you sure you want to remove this attachment?"
+msgstr "Biztosan törölni szeretnéd?"
+
+msgid "selected"
+msgstr "kiválasztott"
+
+msgid "not selected"
+msgstr "nem kiválasztott"
+
+msgid "Category"
+msgstr "Kategória"
+
+msgid "Selected"
+msgstr "Kiválasztott"
+
+#, fuzzy
+msgid "Publish"
+msgstr "közzé tesz"
+
+#, fuzzy
+msgid "Unpublish"
+msgstr "visszavon"
+
+#, fuzzy
+msgid "Schedule"
+msgstr "időzítés"
+
+#, fuzzy
+msgid "Mark as pending"
+msgstr "függőként megjelöl"
+
+msgid "Mark"
+msgstr ""
+
+#, fuzzy
+msgid "Mark as selected"
+msgstr "kiválasztottnak jelöl"
+
+#, fuzzy
+msgid "Mark as unselected"
+msgstr "nem kiválasztottnak jelöl"
+
+#, fuzzy
+msgid "Change"
+msgstr "Fájl megváltoztatása"
+
+#, fuzzy
+msgid "Change category"
+msgstr "kategória megváltoztatása"
+
+#, fuzzy
+msgid "Change author"
+msgstr "szerző megváltoztatása"
+
+msgid "Selected:"
+msgstr "Kiválasztott:"
+
+msgid "Month:"
+msgstr "Hónap:"
+
+msgid "Lang:"
+msgstr "Nyelv:"
+
+msgid "Selected entries action:"
+msgstr "Teendő a kijelöltekkel:"
+
+msgid "This user does not exist"
+msgstr ""
+
+msgid "Change category for entries"
+msgstr "A bejegyzések kategóriája nem létezik"
+
+msgid "Change author for entries"
+msgstr "A szerző megváltoztatása"
+
+msgid "Author ID:"
+msgstr "Szerző ID:"
+
+msgid "If you want to change your email or password you must provide your current password."
+msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akkor add meg a régi jelszavadat!"
+
+msgid "Personal information has been successfully updated."
+msgstr "A személyes információk frissültek!"
+
+msgid "Display name:"
+msgstr "Név:"
+
+msgid "Preferred format:"
+msgstr "Kedvelt forma:"
+
+msgid "Default entry status:"
+msgstr "Alapértelmezett bejegyzési státusz:"
+
+msgid "Entry edit field height:"
+msgstr "Szerkesztő magassága:"
+
+msgid "User language:"
+msgstr "Nyelv:"
+
+msgid "User timezone:"
+msgstr "Időzóna:"
+
+msgid "Enable WYSIWYG mode"
+msgstr "WYSIWYG mód"
+
+msgid "Search"
+msgstr "Keresés"
+
+msgid "Search options"
+msgstr "Keresési feltételek"
+
+msgid "Query:"
+msgstr "Lekérés:"
+
+msgid "search entries"
+msgstr "bejegyzések keresése"
+
+msgid "search comments"
+msgstr "megjegyzések keresése"
+
+msgid "schedule"
+msgstr "időzítés"
+
+msgid "change category"
+msgstr "kategória megváltoztatása"
+
+msgid "change author"
+msgstr "szerző megváltoztatása"
+
+#, php-format
+msgid "%d entries found"
+msgstr "%d bejegyzést találtam"
+
+#, php-format
+msgid "%d entry found"
+msgstr "%d bejegyzést találtam"
+
+#, php-format
+msgid "%d comment found"
+msgstr "%d megjegyzést találtam"
+
+#, php-format
+msgid "%d comments found"
+msgstr "d megjegyzést találtam"
+
+msgid "This entry does not exist or is not published"
+msgstr "Ez a bejegyzés nem létezik vagy nem publikálták"
+
+msgid "All pings sent."
+msgstr "Minden ping el lett küldve."
+
+msgid "Auto discover ping URLs"
+msgstr "Automata felfedezés az URL pingeléshez"
+
+msgid "URLs to ping:"
+msgstr "Pingelendő URL-ek:"
+
+msgid "Send excerpt:"
+msgstr "Kivonat küldése"
+
+msgid "Previously sent pings"
+msgstr "Elzőleg üldött pingek"
+
+#, fuzzy
+msgid "Dotclear update"
+msgstr "A DotClear sikeresen frissítve."
+
+#, php-format
+msgid "Unable to delete file %s"
+msgstr "NEm tudom a %s fájlt törölni"
+
+#, php-format
+msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
+msgstr "A letöltött DotClear archívum hibásnak tűnik. <a %s>Szedd le</a> megint."
+
+#, fuzzy
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
+msgstr "A kövekező DotClear telepítési fájlok megváltoztak, így nem próbáltuk felülírni a telepítésedet. Kérlek, magad frissítsd!"
+
+#, php-format
+msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
+msgstr "A következő fájlokat nem lehet olvasni. Kérlek, javítsd a hibát vagy próbálj készíteni a %s fájlról biztonsági mentést!"
+
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
+msgstr "A következő fájlokat nem tudom lemezre írni. Próbáld meg orvosolni a hibát vagy <a href=\"http://dotclear.org/download\">manuálisan frissíts</a>"
+
+msgid "No newer Dotclear version available."
+msgstr "Nincs új DotClear verzió."
+
+#, php-format
+msgid "Dotclear %s is available."
+msgstr "DotClear %s elérhető."
+
+msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
+msgstr "Ahhoz, hogy a Dotclear telepítésedet frissítsd, egyszerűen csak kattints a következőre. A biztonsági mentés automatikusan létrejön a gyökérkönyvtárba."
+
+msgid "Update Dotclear"
+msgstr "Dotclear frissítés"
+
+msgid "Update backup files"
+msgstr "Biztonsági mentések frissítése"
+
+msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
+msgstr "A következő fájlok még az előző frissítés biztonsági másolatai. Visszaállíthatod az előző telepítáést vagy le is törölheted, ha nincs rájuk szükséged."
+
+msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
+msgstr "Fontos, hogy visszaállításkor előfordulhat néhány mellékhatás. Csak akkor használd a funkciót, ha tudod, mit cisnálsz!"
+
+#, php-format
+msgid "You should not revert to version prior to last one (%s)."
+msgstr "Nem ajánlott visszaállítani az előző verzióra a Dotcleart (%s)"
+
+msgid "Delete selected file"
+msgstr "Kijelölt fájl törlése"
+
+msgid "Revert to selected file"
+msgstr "Kijelölt fájl helyreállítása"
+
+msgid "Congratulations, you're one click away from the end of the update."
+msgstr "Gratulálok, egyetlen kattintás választ el a frissítés végétől."
+
+msgid "Finish the update."
+msgstr "Frissítés vége"
+
+msgid "new user"
+msgstr "új felhasználó"
+
+#, php-format
+msgid "User \"%s\" already exists."
+msgstr "A(z) \"%s\" felhasználó már létezik."
+
+msgid "User has been successfully updated."
+msgstr "A felhasználót sikeresen frissítettem."
+
+msgid "User has been successfully created."
+msgstr "A felhasználót sikeresen létrehoztam."
+
+msgid "Warning:"
+msgstr "Figyelem:"
+
+#, fuzzy
+msgid "If you change your username, you will have to log in again."
+msgstr "Ha megváltoztatod a loginodat, ismét be kell jelentkezned."
+
+msgid "Password change required to connect"
+msgstr ""
+
+msgid "No permissions."
+msgstr "Nincs jog."
+
+msgid "Add new permissions"
+msgstr "Új jog hozzáadása"
+
+#, fuzzy
+msgid "Username"
+msgstr "Felhasználónév:"
+
+#, fuzzy
+msgid "Last Name"
+msgstr "Legutóbbi frisítés"
+
+#, fuzzy
+msgid "First Name"
+msgstr "Keresztnév"
+
+msgid "Display name"
+msgstr "Név"
+
+msgid "Number of entries"
+msgstr "Bejegyzések száma"
+
+msgid "Set permissions"
+msgstr "Jogok beállítása"
+
+msgid "users"
+msgstr "felhasználó"
+
+msgid "User has been successfully removed."
+msgstr "A felhasználó le eltt törölve."
+
+msgid "Create a new user"
+msgstr "Új felhasnáló létrehozása"
+
+msgid "Users per page"
+msgstr "Felhasználók oldalanként"
+
+msgid "Selected users action:"
+msgstr "Feladat a kijelölt felhasználókkal"
+
+msgid "Blog:"
+msgstr "Blog:"
+
+msgid "Change blog"
+msgstr "Blog megváltoztatása"
+
+msgid "Blogs:"
+msgstr "Blog:"
+
+msgid "View site"
+msgstr "Oldal megtekintése"
+
+msgid "User:"
+msgstr "Felhasználó"
+
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+#, php-format
+msgid "Thank you for using %s."
+msgstr "Köszönjük, hogy a %s -t használta."
+
+msgid "Help"
+msgstr "Súgó"
+
+msgid "uncover"
+msgstr "nem takart"
+
+msgid "hide"
+msgstr "rejt"
+
+msgid "help"
+msgstr "súgó"
+
+msgid "No selection"
+msgstr "Nincs kijelölés"
+
+msgid "select all"
+msgstr "mindet"
+
+msgid "invert selection"
+msgstr "ellenkezőket"
+
+msgid "view entry"
+msgstr "oldal megtekintése"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzéseket?"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzést?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "Biztosan szeretnéd törölni a hozzászólásokat?"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr "Biztosan szeretnéd törölni a hozzászólást?"
+
+msgid "Users with posts cannot be deleted."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Biztosan szeretnéd törölni a kijelölt felhasználókat?"
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#, fuzzy
+msgid "Are you sure you want to reorder all categories?"
+msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "Biztosan a jelenlegi mappába szeretnéd kicsomagolni a fájlt?"
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+msgid "Use this theme"
+msgstr "Ezt használd"
+
+msgid "Remove this theme"
+msgstr "Ezt töröld"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+msgid "Zip file content"
+msgstr "Zip fájl tartalma"
+
+msgid "XHTML markup validator"
+msgstr "XMTML érvényesítő"
+
+msgid "XHTML content is valid."
+msgstr "XHTML tartalom érvényes."
+
+msgid "There are XHTML markup errors."
+msgstr "Vannak hibák az XHTML kódban."
+
+msgid "You have unsaved changes."
+msgstr "Vannak nem mentett változásaid."
+
+msgid "close"
+msgstr "bezár"
+
+msgid "now"
+msgstr "most"
+
+msgid "visual"
+msgstr "vizuális"
+
+msgid "source"
+msgstr "forrás"
+
+msgid "You can use the following shortcuts to format your text."
+msgstr "A következő gyorsbillentyűket használhatod a szöveg formázására."
+
+msgid "-- none --"
+msgstr "-- semmi --"
+
+msgid "-- block format --"
+msgstr "-- blokk formátuma --"
+
+msgid "Paragraph"
+msgstr "Paragrafus"
+
+msgid "Level 1 header"
+msgstr "Első szintű fejléc"
+
+msgid "Level 2 header"
+msgstr "Második szintű fejléc"
+
+msgid "Level 3 header"
+msgstr "Harmadik szintű fejléc"
+
+msgid "Level 4 header"
+msgstr "Negyedik szintű fejléc"
+
+msgid "Level 5 header"
+msgstr "Ötödik szintű fejléc"
+
+msgid "Level 6 header"
+msgstr "Hatodik szintű fejléc"
+
+msgid "Strong emphasis"
+msgstr "Félkövér"
+
+msgid "Emphasis"
+msgstr "Dőlt"
+
+msgid "Inserted"
+msgstr "Aláhúzott"
+
+msgid "Deleted"
+msgstr "Áthúzott"
+
+msgid "Inline quote"
+msgstr "soron belüli idézet"
+
+msgid "Code"
+msgstr "Kód"
+
+msgid "Line break"
+msgstr "Sortörés"
+
+msgid "Blockquote"
+msgstr "Blokkidézet"
+
+msgid "Preformated text"
+msgstr "Előre megformázott szöveg"
+
+msgid "Unordered list"
+msgstr "Felsorolás"
+
+msgid "Ordered list"
+msgstr "Felsorolás számozással"
+
+msgid "Link"
+msgstr "Hivatkozás"
+
+msgid "URL?"
+msgstr "URL ::"
+
+msgid "Language?"
+msgstr "Nyelv ::"
+
+msgid "External image"
+msgstr "Külső kép"
+
+msgid "Media chooser"
+msgstr "Médiaválasztó"
+
+msgid "Link to an entry"
+msgstr "Hivatkozás egy bejegyzésre"
+
+msgid "Activate enhanced uploader"
+msgstr "Bővített fájlfeltöltő aktiválása"
+
+msgid "Disable enhanced uploader"
+msgstr "Bővített fájlfeltöltő kikapcsolása"
+
+msgid "File successfully uploaded."
+msgstr "A fájlt sikeresen feltöltöttem."
+
+msgid "Maximum file size allowed:"
+msgstr "A maximális fájlméret:"
+
+msgid "Limit exceeded."
+msgstr "A határokat elértem."
+
+msgid "File size exceeds allowed limit."
+msgstr "A fájlméret eléri a megengedettet!"
+
+msgid "Canceled."
+msgstr "Visszavonva."
+
+msgid "HTTP Error:"
+msgstr "HTTP Hiba:"
+
+msgid "Choose file"
+msgstr "Válassz fájlt"
+
+msgid "Choose files"
+msgstr "Válassz fájlokat"
+
+msgid "Clean"
+msgstr "Takarít"
+
+msgid "Upload"
+msgstr "Feltölt"
+
+msgid "No file in queue."
+msgstr "Nincs fájl a várakozási sorban."
+
+msgid "1 file in queue."
+msgstr "Egy fájl a várakozási sorban."
+
+#, php-format
+msgid "%d files in queue."
+msgstr "%d fájl a várakozási sorban."
+
+msgid "Queue error:"
+msgstr "Várakozási hiba:"
+
+msgid "&#171;prev."
+msgstr "&#171; előző"
+
+msgid "next&#187;"
+msgstr "következő&#187;"
+
+msgid "No entry"
+msgstr "Nincs bejegyzés"
+
+msgid "scheduled"
+msgstr "időzített"
+
+msgid "protected"
+msgstr "védett"
+
+#, php-format
+msgid "%d attachment"
+msgstr "%d csatolt fájl"
+
+#, php-format
+msgid "%d attachments"
+msgstr "%d csatolt fájl"
+
+msgid "Type"
+msgstr "Típus"
+
+msgid "No user"
+msgstr "Nincs felhasználó"
+
+msgid "admin"
+msgstr ""
+
+#, fuzzy
+msgid "superadmin"
+msgstr "Szuper adminisztrátor"
+
+#, fuzzy
+msgid "Database error"
+msgstr "Adatbázis típusa:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+msgid "System"
+msgstr "Rendszer"
+
+msgid "Blog"
+msgstr "Blog"
+
+msgid "Updates"
+msgstr "Frissítések"
+
+#, fuzzy
+msgid "Languages"
+msgstr "Nyelv?"
+
+msgid "Unable to open directory."
+msgstr "Nem lehet megnyitni a mappát."
+
+msgid "Unable to create directory."
+msgstr "Nem lehet létrehozni a mappát."
+
+msgid "File is not writable."
+msgstr "A fájl nem írható."
+
+msgid "Unable to open file."
+msgstr "Nem lehet megnyitni a fájlt."
+
+msgid "Not an uploaded file."
+msgstr "Nem egy feltöltött fájl."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "A feltöltött fájl mérete meghaladja a maximálisan feltölthető fájl méretét."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "A feltöltött fájl csak részben érkezett meg a kiszolgálóra."
+
+msgid "No file was uploaded."
+msgstr "Nem érkezett fájl a kiszolgálóra."
+
+msgid "Missing a temporary folder."
+msgstr "Az ideiglenes mappa hiányzik!"
+
+msgid "Failed to write file to disk."
+msgstr "Nem tudok a lemezre írni."
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "a(z) %s nem mappa."
+
+msgid "Uploading this file is not allowed."
+msgstr "Nem engedélyezett feltölteni ezt a fájlt."
+
+msgid "Destination directory is not in jail."
+msgstr "Hibás célmappanév."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Az új fájl már létezik."
+
+msgid "Cannot write in this directory."
+msgstr "Nem tudok a mappába írni."
+
+msgid "An error occurred while writing the file."
+msgstr "Hiba történt a fájl írása közben."
+
+msgid "Source file does not exist."
+msgstr "A forrásfájl nem létezik."
+
+msgid "File is not in jail."
+msgstr "Hibás fájlnév."
+
+msgid "Destination directory is not writable."
+msgstr "A célmappa nem írható."
+
+msgid "Unable to rename file."
+msgstr "Nem lehet átnevezni a fájlt."
+
+msgid "File cannot be removed."
+msgstr "A fájlt nem lehet eltávolítani."
+
+msgid "Directory is not in jail."
+msgstr "Hibás mappanév."
+
+msgid "Directory cannot be removed."
+msgstr "A mappát nem lehet eltávolítani."
+
+msgid "Not enough memory to open image."
+msgstr "Nincs elég memória a kép megnyitásához."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "A(z) %s nincs zip-be tömörítve."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Megpróbálom a(z) %s mappába kicsomagolni."
+
+msgid "Unable to write destination file."
+msgstr "Nem lehet írni a célfájlba."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Nem lehet írni a célmappába, mert nincs elég jog hozzá."
+
+msgid "Not enough memory to open file."
+msgstr "Nincs elég memória a fájl megnyitásához."
+
+msgid "File does not exist"
+msgstr "A fájl nem létezik"
+
+msgid "Cannot read file"
+msgstr "Nem lehet a fájlt olvasni"
+
+msgid "Directory does not exist"
+msgstr "A mappa nem létezik"
+
+msgid "Cannot read directory"
+msgstr "Nem lehet a mappát olvasni"
+
+msgid "administrator"
+msgstr "adminisztrátor"
+
+msgid "manage their own entries and comments"
+msgstr "az ő bejegzyéseik és hozzászólásaik módosítása"
+
+msgid "publish entries and comments"
+msgstr "bejegyzések és hozzászólások publikálása"
+
+msgid "delete entries and comments"
+msgstr "bejegyzések és hozzászólások törlése"
+
+msgid "manage all entries and comments"
+msgstr "az összes bejegyzés és hozzászólás kezelése"
+
+msgid "manage categories"
+msgstr "kategóriák kezelése"
+
+msgid "manage their own media items"
+msgstr "médiaelemeik kezelése"
+
+msgid "manage all media items"
+msgstr "az összes médiaelem kezelése"
+
+msgid "That user does not exist in the database."
+msgstr ""
+
+msgid "That key does not exist in the database."
+msgstr ""
+
+msgid "You are not allowed to add categories"
+msgstr "Nem lehet neked új kategóriákat hozzáadni."
+
+msgid "You are not allowed to update categories"
+msgstr "Nem lehet neked kategóriákat frissíteni."
+
+msgid "You are not allowed to delete categories"
+msgstr "Nem lehet neked kategóriákat törölnöd."
+
+msgid "This category is not empty."
+msgstr "A kategória ne üres."
+
+msgid "Category URL must be unique."
+msgstr "A kategória URL-jének egyedinek kell lennie"
+
+msgid "You must provide a category title"
+msgstr "Meg kell adnod kategóriacímet"
+
+msgid "You must provide a category URL"
+msgstr "Meg kell adnod kategória URL-t"
+
+msgid "You are not allowed to create an entry"
+msgstr "Nem hozhatsz létre új bejegyzést"
+
+msgid "You are not allowed to update entries"
+msgstr "Nem frissítheted a bejegyzéseket"
+
+msgid "No such entry ID"
+msgstr "Nincs ilyen ID-jű bejegyzés"
+
+msgid "You are not allowed to edit this entry"
+msgstr "Nem lehet szerkesztened ezt a bejegyzést"
+
+msgid "You are not allowed to change this entry status"
+msgstr "Nem lehet megváltoztatnod a bejegyzés állapotát"
+
+msgid "You are not allowed to change this entry category"
+msgstr "Nem lehet megváltoztatnod a bejegyzés kategóriáját"
+
+msgid "You are not allowed to mark this entry as selected"
+msgstr "Nem lehet kijelölnöd ezt a bejegyzést"
+
+msgid "You are not allowed to delete entries"
+msgstr "Nem lehet bejegyzéseket törölnöd"
+
+msgid "You are not allowed to delete this entry"
+msgstr "Nem lehet ezt a bejegyzést törölnöd"
+
+msgid "No entry title"
+msgstr "Nincs cím"
+
+msgid "No entry content"
+msgstr "Nincs tartalom"
+
+msgid "Empty entry URL"
+msgstr "Üres az URL"
+
+msgid "You are not allowed to update comments"
+msgstr "Nem tudod frissíteni a hozzászólásokat"
+
+msgid "No such comment ID"
+msgstr "Nincs ilyen ID-jű megjegyzés"
+
+msgid "You are not allowed to update this comment"
+msgstr "Nem frissítheted a hozzásólást"
+
+msgid "You are not allowed to change this comment's status"
+msgstr "Nem váloztathatod a hozzászólás állapotát"
+
+msgid "You are not allowed to delete comments"
+msgstr "Nem törölhetsz hozzásólásokat"
+
+msgid "You are not allowed to delete this comment"
+msgstr "Nem törölheted ezt a hozzászólást"
+
+msgid "You must provide a comment"
+msgstr "Írnod kell hozzászólást"
+
+msgid "You must provide an author name"
+msgstr "Meg kell adnod a szerző nevét"
+
+msgid "Email address is not valid."
+msgstr "Az e-mail cím nem érvényes."
+
+msgid "online"
+msgstr "elérhető"
+
+msgid "offline"
+msgstr "láthatatlan"
+
+msgid "removed"
+msgstr "törölt"
+
+msgid "You are not an administrator"
+msgstr "Nem vagy adminisztrátor"
+
+msgid "Invalid user language code"
+msgstr "Érvénytelen nyelvi kód"
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "A blog ID-jének legalább 2 karaktert kell tartalmaznia (betűket, számokat és szimbólumokat írhatsz)"
+
+msgid "No blog name"
+msgstr "Nincs blognév"
+
+msgid "No blog URL"
+msgstr "Nincs blog URL"
+
+#, fuzzy
+msgid "No log message"
+msgstr "Nincs blognév"
+
+#, fuzzy
+msgid "unknown"
+msgstr "most"
+
+msgid "No blog defined."
+msgstr "Nincs definiált blog."
+
+#, php-format
+msgid "Directory %s does not exist."
+msgstr "A(z) %s mappa nem létezik."
+
+msgid "You are not a super administrator."
+msgstr "Nem vagy szuper adminisztrátor."
+
+msgid "Permission denied."
+msgstr "Hozzáférés megtagadva."
+
+msgid "You are not the file owner."
+msgstr "Nem te vagy a fájl tulajdonosa."
+
+msgid "New file already exists."
+msgstr "Az új fájl már létezik."
+
+msgid "File does not exist in the database."
+msgstr "A fájl nincs az adatbázisban."
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr "A(z) %s célmappa már létezik."
+
+msgid "Embedded Audio Player"
+msgstr ""
+
+msgid "Embedded Video Player"
+msgstr ""
+
+#, php-format
+msgid "%s: in [%s] and [%s]"
+msgstr ""
+
+msgid "Empty module zip file."
+msgstr "Üres modul zip-fájl."
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr "A zip fájl nem tűnik érvényes DotClear modulnak."
+
+msgid "An error occurred during module deletion."
+msgstr "Hiba történt a modul törlése közben."
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (same version)"
+msgstr "Nem lehet \"%s\"-re frissíteni (ugyanaz a verzió)"
+
+msgid "Unable to read new _define.php file"
+msgstr "Nem lehet olvasni az új _define.php fájlt"
+
+msgid "No such module."
+msgstr "Nincs ilyen modul."
+
+msgid "Cannot remove module files"
+msgstr "Nem lehet eltávolítani a modul fájlokat."
+
+msgid "Cannot deactivate plugin."
+msgstr "Nem lehet kikapcsolni a kiegészítőt."
+
+msgid "Cannot activate plugin."
+msgstr "Nem lehet bekapcsolni a kiegészítőt."
+
+#, fuzzy, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr "Hibás beállítási név: %s"
+
+msgid "Unable to retrieve settings:"
+msgstr "Nem lehet a beállításokat lekérni:"
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr "A(z) %s nem érvényes beállítókulcs"
+
+msgid "No namespace specified"
+msgstr "Nincs meghatározva név"
+
+#, fuzzy
+msgid "Unable to retrieve namespaces:"
+msgstr "Nem lehet a beállításokat lekérni:"
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr "Hibás beállítási név: %s"
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr "A(z) %s -t már megpingeltem."
+
+msgid "Unable to ping URL"
+msgstr "Nem lehet megpingelni az URL-t."
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr "A(z) %s nem egy URL-ping."
+
+#, php-format
+msgid "%s, ping error:"
+msgstr "%s, ping hiba:"
+
+msgid "Digests file not found."
+msgstr "A digest fájl nem található."
+
+#, fuzzy
+msgid "No file to download"
+msgstr "Nem érkezett fájl a kiszolgálóra."
+
+#, fuzzy
+msgid "Root directory is not writable."
+msgstr "%s cache mappa nem írható."
+
+#, fuzzy
+msgid "An error occurred while downloading archive."
+msgstr "Hiba történt a DotClear archívum letöltése folyamán."
+
+#, fuzzy
+msgid "Archive not found."
+msgstr "A DotClear archívumot nem találom."
+
+msgid "Unable to read current digests file."
+msgstr "Nem lehet olvasni az aktuális digest fájlt."
+
+#, fuzzy
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "A letöltött fájl nem tűnik érvényes DorClear archívumnak."
+
+#, fuzzy
+msgid "Incomplete archive."
+msgstr "Részben elkészült DotClear archívum."
+
+msgid "Unable to read digests file."
+msgstr "Nem lehet digest fájlt olvasni."
+
+msgid "Invalid digests file."
+msgstr "Érvénytelen digest fájl."
+
+msgid "SQLite Database Schema cannot be upgraded."
+msgstr "SQLite Database Schema-t nem lehet frissíteni."
+
+msgid "Something went wrong with auto upgrade:"
+msgstr "Valami elszállt automata frissítés közben:"
+
+msgid "Unable to connect to database"
+msgstr ""
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr ""
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr ""
+
+#~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
+#~ msgstr "A <strong>%s</strong> fájl már létezik. ha szükséged van bármilyen konfigurációs elem megváltoztatására, előbb töröld vagy <a href=\"%s\">folytathatod a telepítést</a>."
+
+#~ msgid "Login:"
+#~ msgstr "Felhasználónév:"
+
+#~ msgid "An error occured while deleting %s theme:"
+#~ msgstr "Hiba történt %s törlése közben:"
+
+#~ msgid "Category order has been successfully updated."
+#~ msgstr "A kategória sorrendje frissült."
+
+#~ msgid "Create new category"
+#~ msgstr "Új kategória létrehozása"
+
+#~ msgid "No category."
+#~ msgstr "Nincs kategória."
+
+#~ msgid "Name"
+#~ msgstr "Név"
+
+#~ msgid "1 entry"
+#~ msgstr "Egy bejegyzés"
+
+#~ msgid "Delete selected categories"
+#~ msgstr "Kategória törlése"
+
+#~ msgid "Edit category"
+#~ msgstr "Kategória szerkesztése"
+
+#~ msgid "successfully installed"
+#~ msgstr "sikeresen telepítettem"
+
+#~ msgid "Your new Dotclear blog has been successfully set up at:"
+#~ msgstr "Az új DotClear blogot sikeresen beállítottam itt::"
+
+#, fuzzy
+#~ msgid "Login and password"
+#~ msgstr "Elfelejtettem a jelszavam"
+
+#, fuzzy
+#~ msgid "Dotclear auto update"
+#~ msgstr "A DotClear sikeresen frissítve."
+
+#~ msgid "You are about to update your blog to Dotclear %s."
+#~ msgstr "Frissíteni szeretnéda  DotClear %s -t."
+
+#~ msgid "User ID"
+#~ msgstr "Felhasználónév"
+
+#~ msgid "add another files"
+#~ msgstr "további fájlok létrehozása"
+
+#~ msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to update manualy."
+#~ msgstr "A következő DotClear telepítési fájlokat nem tudtam a lemezre írni. kérlek, javítsd ki a hibát vagy magad frissítsd a fájlokat!"

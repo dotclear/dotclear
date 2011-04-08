@@ -1,0 +1,1428 @@
+# French translation of DotClear
+# Copyright (C) 2006.
+# Olivier Meunier <olivier@dotclear.net>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: S.L. SONG <baramme@free.fr>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Korean\n"
+"X-Poedit-Country: KOREA, REPUBLIC OF\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "no"
+msgstr "아니오"
+
+msgid "Configuration successfully updated"
+msgstr "설정사항 갱신 성공"
+
+msgid "Settings definition successfully updated"
+msgstr "설정 정의내용 갱신 성공"
+
+msgid "blog settings"
+msgstr "블로그 설정"
+
+msgid "Value"
+msgstr "값"
+
+msgid "Description"
+msgstr "설명"
+
+msgid "global settings"
+msgstr "글로벌 설정"
+
+msgid "Akismet spam filter"
+msgstr "Akismet 스팸필터"
+
+#, php-format
+msgid "Filtered by %s."
+msgstr "%s로 걸러짐"
+
+msgid "Akismet API key:"
+msgstr "Akismet 관리키 :"
+
+msgid "API key verified"
+msgstr "관리키 확인됨"
+
+msgid "API key not verified"
+msgstr "관리키 확인 안됨"
+
+msgid "Get your own API key"
+msgstr "당신의 관리키를 받으세요"
+
+msgid "Antispam"
+msgstr "안티스팸"
+
+msgid "Delete junk comments older than"
+msgstr "다음 날짜수가 지나면 스팸댓글 삭제"
+
+msgid "days"
+msgstr "일"
+
+msgid "IP Blacklist / Whitelist Filter"
+msgstr "접속 거부/허용 IP 리스트 필터"
+
+#, php-format
+msgid "Filtered by %1$s with rule %2$s."
+msgstr "%2$s 규칙에 의거 %1$s을 이용해 걸러짐."
+
+msgid "IP address has been successfully added."
+msgstr "IP 주소가 성공적으로 추가되었습니다."
+
+msgid "IP addresses have been successfully removed."
+msgstr "IP 주소가 성공적으로 제거되었습니다."
+
+msgid "Blacklist"
+msgstr "접속거부 IP 목록"
+
+msgid "Whitelist"
+msgstr "접속허용 IP 목록"
+
+msgid "Add an IP address"
+msgstr "IP 주소 추가"
+
+msgid "Global IP"
+msgstr "글로벌 IP"
+
+msgid "Add"
+msgstr "추가"
+
+msgid "No IP address in list."
+msgstr "목록이 비었습니다."
+
+msgid "IP list"
+msgstr "IP 목록"
+
+msgid "Checks sender IP address against DNSBL servers"
+msgstr "DNSBL 서버에 대한 발신자 IP 주소 체크"
+
+#, php-format
+msgid "Filtered by %1$s with server %2$s."
+msgstr "%2$s 서버에서 %1$s를 이용해 걸러짐."
+
+msgid "IP Lookup servers"
+msgstr "IP Lookup 서버"
+
+msgid "Add here a coma separated list of servers."
+msgstr "여기에 서버 목록을 쉼표로 분리하여 추가하세요."
+
+msgid "Checks links in comments against surbl.org"
+msgstr "surbl.org 에서 댓글 링크 체크"
+
+msgid "Words Blacklist"
+msgstr "금지어 목록"
+
+#, php-format
+msgid "Filtered by %1$s with word %2$s."
+msgstr "금지어 %2$s가 %1$s에 의해 걸러짐."
+
+msgid "Words have been successfully added."
+msgstr "금지어들이 성공적으로 추가되었습니다."
+
+msgid "Word has been successfully added."
+msgstr "금지어가 성공적으로 추가되었습니다."
+
+msgid "Words have been successfully removed."
+msgstr "금지어들이 성공적으로 삭제되었습니다."
+
+msgid "Add a word"
+msgstr "금지어 추가"
+
+msgid "Global word"
+msgstr "글로벌 금지어"
+
+msgid "No word in list."
+msgstr "금지어가 목록에 없습니다."
+
+msgid "List"
+msgstr "목록"
+
+msgid "Delete selected words"
+msgstr "선택된 단어 삭제"
+
+msgid "Create default wordlist"
+msgstr "기본 금지어 목록 만들기"
+
+msgid "This word exists"
+msgstr "이 단어는 이미 있습니다."
+
+msgid "No description"
+msgstr "설명 없음"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "%1$s (%2$s) 로 걸러짐"
+
+msgid "Unknown filter."
+msgstr "알 수 없는 필터"
+
+msgid "This comment is a spam:"
+msgstr "이 댓글은 스팸입니다 :"
+
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(스팸 댓글 %d 개 포함)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(스팸 댓글 %d 개 포함)"
+
+msgid "Spam moderation"
+msgstr "스팸 관리"
+
+msgid "Spam"
+msgstr "스팸"
+
+msgid "Ham"
+msgstr "스팸없음"
+
+msgid "Filter does not exist."
+msgstr "필터가 없습니다."
+
+msgid "Filter has no user interface."
+msgstr "이 필터엔 사용자 인터페이스가 없습니다."
+
+msgid "Return to filters"
+msgstr "필터 목록으로 돌아가기"
+
+#, php-format
+msgid "%s configuration"
+msgstr "%s 설정"
+
+msgid "Information"
+msgstr "정보"
+
+msgid "Spam comments have been successfully deleted."
+msgstr "스팸 댓글들이 성공적으로 삭제되었습니다."
+
+msgid "Junk comments:"
+msgstr "스팸 댓글 :"
+
+msgid "Published comments:"
+msgstr "공개된 댓글 :"
+
+msgid "Delete all spams"
+msgstr "모든 스팸 삭제"
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "%s 일이 지난 스팸은 모두 자동으로 삭제됩니다."
+
+msgid "Available spam filters"
+msgstr "사용가능한 스팸 필터"
+
+msgid "Filters configuration has been successfully saved."
+msgstr "필터 설정이 성공적으로 저장되었습니다."
+
+msgid "Order"
+msgstr "순서"
+
+msgid "Active"
+msgstr "작동중"
+
+msgid "Auto Del."
+msgstr "자동 삭제"
+
+msgid "Filter name"
+msgstr "필터 이름"
+
+msgid "Filter configuration"
+msgstr "필터 설정"
+
+msgid "Syndication"
+msgstr "타래소식(RSS)"
+
+msgid "Junk comments RSS feed"
+msgstr "스팸댓글 타래소식"
+
+msgid "Published comments RSS feed"
+msgstr "공개된 댓글 타래소식"
+
+msgid "Blogroll"
+msgstr "링크모음"
+
+msgid "manage blogroll"
+msgstr "링크모음 관리"
+
+msgid "Links"
+msgstr "링크모음"
+
+msgid "All categories"
+msgstr "모든 링크분류 포함"
+
+msgid "Home page only"
+msgstr "시작화면에만 보이기"
+
+msgid "You must provide a link title"
+msgstr "링크의 제목을 지정해야합니다."
+
+msgid "You must provide a link URL"
+msgstr "링크의 URL을 지정해야합니다."
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "XBEL 이나 OPML 파일을 지정해야합니다."
+
+msgid "File is not in XML format."
+msgstr "XML 파일이 아닙니다."
+
+msgid "No such link or title"
+msgstr "링크 또는 제목이 존재하지 않습니다."
+
+msgid "Return to blogroll"
+msgstr "링크모음으로 돌아가기"
+
+msgid "Category has been successfully updated"
+msgstr "링크분류가 성공적으로 갱신되었습니다"
+
+msgid "Edit category"
+msgstr "링크분류 편집"
+
+msgid "Link has been successfully updated"
+msgstr "링크가 성공적으로 갱신되었습니다."
+
+msgid "Edit link"
+msgstr "링크 편집"
+
+msgid "XFN"
+msgstr "XFN"
+
+msgid "_xfn_Me"
+msgstr "나"
+
+msgid "_xfn_Another link for myself"
+msgstr "나를 지시하는 또 다른 링크"
+
+msgid "_xfn_Friendship"
+msgstr "친구들"
+
+msgid "_xfn_Contact"
+msgstr "주소록"
+
+msgid "_xfn_Acquaintance"
+msgstr "아는 사람들"
+
+msgid "_xfn_Friend"
+msgstr "친구"
+
+msgid "_xfn_Physical"
+msgstr "외모"
+
+msgid "_xfn_Met"
+msgstr "만남"
+
+msgid "_xfn_Professional"
+msgstr "업무연관"
+
+msgid "_xfn_Co-worker"
+msgstr "함께 일하는 사람"
+
+msgid "_xfn_Colleague"
+msgstr "동료"
+
+msgid "_xfn_Geographical"
+msgstr "지역"
+
+msgid "_xfn_Co-resident"
+msgstr "함께 사는 사람"
+
+msgid "_xfn_Neighbor"
+msgstr "이웃"
+
+msgid "_xfn_Family"
+msgstr "가족"
+
+msgid "_xfn_Child"
+msgstr "자녀"
+
+msgid "_xfn_Parent"
+msgstr "부모"
+
+msgid "_xfn_Sibling"
+msgstr "형제자매"
+
+msgid "_xfn_Spouse"
+msgstr "배우자"
+
+msgid "_xfn_Kin"
+msgstr "친지"
+
+msgid "_xfn_Romantic"
+msgstr "로망스"
+
+msgid "_xfn_Muse"
+msgstr "즐김"
+
+msgid "_xfn_Crush"
+msgstr "가벼운관계"
+
+msgid "_xfn_Date"
+msgstr "데이트"
+
+msgid "_xfn_Sweetheart"
+msgstr "벗"
+
+msgid "Nothing to import"
+msgstr "가져오기할 게 없습니다"
+
+msgid "Import operation cancelled."
+msgstr "가져오기가 취소되었습니다"
+
+msgid "Items order has been successfully updated"
+msgstr "항목 순서가 성공적으로 갱신되었습니다"
+
+msgid "Items have been successfully removed."
+msgstr "항목들이 성공적으로 삭제되었습니다."
+
+msgid "Link has been successfully created."
+msgstr "링크가 성공적으로 생성되었습니다."
+
+msgid "category has been successfully created."
+msgstr "분류가 성공적으로 생성되었습니다."
+
+msgid "links have been successfully imported."
+msgstr "링크들을 성공적으로 가져왔습니다."
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Lang"
+msgstr "언어"
+
+msgid "Save order"
+msgstr "순서 저장"
+
+msgid "Delete selected links"
+msgstr "선택된 링크들 삭제"
+
+msgid "Are you sure you want to delete selected links?"
+msgstr "선택된 링크들을 삭제하시려는 게 확실합니까 ?"
+
+msgid "The link list is empty."
+msgstr ""
+
+msgid "Add a new link"
+msgstr "새 링크 추가"
+
+msgid "Add a category"
+msgstr "새 분류 추가"
+
+msgid "Import links"
+msgstr "링크 가져오기"
+
+msgid "OPML or XBEL File:"
+msgstr "OPML 또는 XBEL 파일 :"
+
+msgid "import"
+msgstr "가져오기"
+
+msgid "Light linear gradient"
+msgstr "밝은 선형 그래디언트"
+
+msgid "Medium linear gradient"
+msgstr "중간 선형 그래디언트"
+
+msgid "Dark linear gradient"
+msgstr "어두운 선형 그래디언트"
+
+msgid "Solid color"
+msgstr "단일색"
+
+msgid "Custom..."
+msgstr "이미지 추가하기"
+
+msgid "Blowup configuration"
+msgstr "Blowup 설정"
+
+msgid "Predefined styles"
+msgstr "미리 지정된 스타일들"
+
+msgid "Apply code"
+msgstr "코드 적용"
+
+#, fuzzy
+msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+msgstr "이미지가 생성될 수 없으므로, 일부 바탕색은 바꿀 수 없습니다."
+
+#, fuzzy
+msgid "Theme configuration has been successfully updated."
+msgstr "테마 설정이 성공적으로 갱신되었습니다."
+
+msgid "General"
+msgstr "일반"
+
+msgid "Background color:"
+msgstr "바탕색 :"
+
+msgid "Background color fill:"
+msgstr "바탕색 채우기 :"
+
+msgid "Main text font:"
+msgstr "본문 글꼴 :"
+
+msgid "Main text font size:"
+msgstr "본문 글자 크기 :"
+
+msgid "Main text color:"
+msgstr "본문 색상 :"
+
+msgid "Text line height:"
+msgstr "본문 행간 크기 :"
+
+msgid "Links color:"
+msgstr "링크 색 :"
+
+msgid "Visited links color:"
+msgstr "방문한 링크 색상 :"
+
+msgid "Focus links color:"
+msgstr "마우스가 놓일 때 링크 색상 :"
+
+msgid "Page top"
+msgstr "페이지 높이 :"
+
+msgid "Prelude color:"
+msgstr "도입부 색상 :"
+
+msgid "Hide main title"
+msgstr "블로그 제목 감추기"
+
+msgid "Main title font:"
+msgstr "블로그 제목 글꼴 :"
+
+msgid "Main title font size:"
+msgstr "블로그 제목 글자 크기 :"
+
+msgid "Main title color:"
+msgstr "블로그 제목 색상 :"
+
+msgid "Main title alignment:"
+msgstr "블로그 제목 줄맞춤 :"
+
+msgid "center"
+msgstr "가운데"
+
+msgid "left"
+msgstr "왼쪽"
+
+msgid "right"
+msgstr "오른쪽"
+
+msgid "Main title position (x:y)"
+msgstr "블로그 제목 위치 (x:y)"
+
+msgid "Top image"
+msgstr "최상위 이미지"
+
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "다른 이미지를 쓰시려면, 목록에서 \"이미지 추가하기\"를 선택하세요. 이미지를 서버로 올리는 칸이 나옵니다."
+
+msgid "Add your image:"
+msgstr "다른 이미지 추가 :"
+
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "JPEG 또는 PNG 파일, 폭 800 픽셀, 최대 크기 %s"
+
+msgid "Preview"
+msgstr "미리보기"
+
+msgid "Sidebar"
+msgstr "측면판"
+
+msgid "Sidebar position:"
+msgstr "측면판 위치 :"
+
+msgid "Sidebar text font:"
+msgstr "측면판 바탕글 글꼴 :"
+
+msgid "Sidebar text font size:"
+msgstr "측면판 바탕글 글자 크기 :"
+
+msgid "Sidebar text color:"
+msgstr "측면판 바탕글 색상 :"
+
+msgid "Sidebar titles font:"
+msgstr "측면판 제목 글꼴 :"
+
+msgid "Sidebar titles font size:"
+msgstr "측면판 제목 글자 크기 :"
+
+msgid "Sidebar titles color:"
+msgstr "측면판 제목 색상 :"
+
+msgid "Sidebar 2nd level titles font:"
+msgstr "측면판 소제목 글꼴 :"
+
+msgid "Sidebar 2nd level titles font size:"
+msgstr "측면판 소제목 글자 크기 :"
+
+msgid "Sidebar 2nd level titles color:"
+msgstr "측면판 소제목 색상 :"
+
+msgid "Sidebar lines color:"
+msgstr "측면판 선 색상 :"
+
+msgid "Sidebar links color:"
+msgstr "측면판 링크 색상 :"
+
+msgid "Sidebar visited links color:"
+msgstr "측면판 방문한-링크 색상 :"
+
+msgid "Sidebar focus links color:"
+msgstr "측면판 마우스-놓인-링크 색상 :"
+
+msgid "Date title font:"
+msgstr "날짜 제목 글꼴 :"
+
+msgid "Date title font size:"
+msgstr "날짜 제목 글자 크기 :"
+
+msgid "Date title color:"
+msgstr "날짜 제목 색상 :"
+
+msgid "Entry title font:"
+msgstr "글꼭지 제목 글꼴 :"
+
+msgid "Entry title font size:"
+msgstr "글꼭지 제목 글자 크기 :"
+
+msgid "Entry title color:"
+msgstr "글꼭지 제목 색상 :"
+
+msgid "Comment background color:"
+msgstr "댓글 바탕색 :"
+
+msgid "Comment text color:"
+msgstr "댓글 글자색 :"
+
+msgid "My comment background color:"
+msgstr "내 댓글 바탕색 :"
+
+msgid "My comment text color:"
+msgstr "내 댓글 글자색 :"
+
+msgid "Footer"
+msgstr "바닥글"
+
+msgid "Footer font:"
+msgstr "바닥글 글꼴 :"
+
+msgid "Footer font size:"
+msgstr "바닥글 글자 크기 :"
+
+msgid "Footer color:"
+msgstr "바닥글 글자색 :"
+
+msgid "Footer links color:"
+msgstr "바닥글 링크 색상 :"
+
+msgid "Footer background color:"
+msgstr "바닥글 바탕색 :"
+
+msgid "Configuration import / export"
+msgstr "가져오기 / 내보내기 설정"
+
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "다음 코드를 이용하면 당신의 설정을 공유할 수 있습니다. 다른 곳에서 가져온 설정을 적용하려면, 코드를 붙여넣기 한 뒤, \"코드 적용\"을 실행하고 저장하시면 됩니다."
+
+msgid "default"
+msgstr "기본값"
+
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr ""
+
+#, fuzzy
+msgid "The 'public' directory does not exist."
+msgstr "이 페이지는 존재하지 않습니다."
+
+#, php-format
+msgid "The '%s' directory cannot be modified."
+msgstr ""
+
+msgid "Unable to create images."
+msgstr "이미지를 생성할 수 없습니다."
+
+msgid "Invalid file type."
+msgstr "바르지 않은 파일 형식입니다."
+
+msgid "Uploaded image is not 800 pixels wide."
+msgstr ""
+
+msgid "Unable to open image."
+msgstr "이미지파일을 읽을 수 없습니다."
+
+msgid "External media"
+msgstr "외부 미디어"
+
+msgid "External media selector"
+msgstr "외부 미디어 선택기"
+
+msgid "Supported media services"
+msgstr "지원되는 미디어 서비스들"
+
+msgid "Please enter the URL of the page containing the video you want to include in your post."
+msgstr "글꼭지에 넣을 비디오를 지닌 페이지의 URL을 적어주세요."
+
+msgid "Page URL:"
+msgstr "페이지 URL :"
+
+msgid "Media alignment"
+msgstr "미디어 줄맞춤"
+
+msgid "Media title"
+msgstr "미디어 제목"
+
+msgid "Checks trackback source for a link to the post"
+msgstr "다른 블로그의 글꼭지로 가는 링크를 가졌는지 글걸기댓글 소스에서 확인"
+
+msgid "Import/Export"
+msgstr "가져오기/내보내기"
+
+msgid "Flat file export"
+msgstr "일반텍스트 파일로 내보내기"
+
+msgid "Exports a blog or a full Dotclear installation to flat file."
+msgstr "특정 블로그 또는 Dotclear 전체를 한 개의 일반텍스트로 내보내기."
+
+msgid "Export file not found."
+msgstr "내보내기 파일 없음."
+
+msgid "Export a blog"
+msgstr "블로그 내보내기"
+
+#, php-format
+msgid "This will create an export of your current blog: %s"
+msgstr "이 기능은 현재 블로그(%s)를 내보내기 합니다."
+
+msgid "Export"
+msgstr "내보내기"
+
+msgid "You may also want to download your media directory as a zip file"
+msgstr "미디어 폴더를 zip 파일로 묶어 내려받기 하실 수도 있습니다."
+
+msgid "Export all content"
+msgstr "모든 내용 내보내기"
+
+msgid "Congratulation!"
+msgstr "축하합니다 !"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "당신의 블로그를 성공적으로 가져왔습니다. Dotclear 2에 오신 걸 환영합니다 !"
+
+msgid "Why don't you blog this now?"
+msgstr "지금 당장 글쓰기를 하는 건 어떨까요 ?"
+
+msgid "or"
+msgstr "또는"
+
+msgid "visit your dashboard"
+msgstr "당신의 블로그관리화면으로 가보세요"
+
+msgid "Dotclear 1.2 import"
+msgstr "Dotclear 1.2에서 가져오기"
+
+msgid "Import a Dotclear 1.2 installation into your current blog."
+msgstr "Dotclear 1.2의 블로그를 현재 블로그로 가져오기"
+
+#, php-format
+msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
+msgstr "Dotclear 1.2의 내용을 현재 블로그인 %s의 새 내용으로 가져오는 작업입니다."
+
+msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
+msgstr "이 과정에서 현재 블로그의 분류, 링크, 글꼭지 및 댓글 등을 모두 비우게 된다는 것에 주의하세요."
+
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr "블로그 크기에 따라, 작업이 몇 분 걸릴 수도 있습니다."
+
+msgid "General information"
+msgstr "일반 정보"
+
+msgid "Import my blog now"
+msgstr "내 블로그를 지금 가져오기"
+
+msgid "We first need some information about your old Dotclear 1.2 installation."
+msgstr "먼저, 당신이 쓰던 Dotclear 1.2 실행본에 대한 몇 가지 정보가 필요합니다."
+
+msgid "Entries import options"
+msgstr "글꼭지 가져오기 선택사항"
+
+msgid "Number of entries to import at once:"
+msgstr "한 번에 가져올 글꼭지 수 :"
+
+msgid "Importing users"
+msgstr "사용자들 가져옴"
+
+msgid "Importing categories"
+msgstr "분류들 가져옴"
+
+msgid "Importing blogroll"
+msgstr "링크모음을 가져옴"
+
+#, fuzzy, php-format
+msgid "Importing entries from %d to %d / %d"
+msgstr "%d 에서 %d 까지 글꼭지 가져옴"
+
+msgid "Please read carefully"
+msgstr "주의 깊게 읽어주세요"
+
+msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
+msgstr "가져오기된 모든 사용자에게 무작위 비밀번호가 부여되었습니다. 따라서 각 사용자는 사용자로긴 화면의 \"비밀번호를 잊었어요\" 링크를 이용해서 새 비밀번호를 신청해야합니다 (이 과정이 올바로 진행되려면, 사용자가 등록한 이메일주소 또한 정상이어야합니다)"
+
+#, php-format
+msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
+msgstr "Dotclear 2가 새로운 URL 형식을 사용한다는 점을 주의해주세요. <a href=\"%s\">DC1 redirect</a> 플러그인을 설치한 뒤, 당신의 블로그 설정화면에서 그것의 작동을 켜주면, 깨진 링크가 생기는 문제를 예방할 수 있습니다."
+
+msgid "next step"
+msgstr "다음 단계로"
+
+msgid "Dotclear tables not found"
+msgstr "Dotclear 테이블이 없습니다"
+
+msgid "Feed import"
+msgstr "타래소식 가져오기"
+
+msgid "Imports a feed as new entries."
+msgstr "타래소식을 새 글꼭지들로서 가져오기."
+
+msgid "Cannot retrieve feed URL."
+msgstr "타래소식 주소를 얻을 수 없습니다."
+
+msgid "No items in feed."
+msgstr "타래소식에 항목이 없습니다."
+
+msgid "Content successfully imported."
+msgstr "내용을 성공적으로 가져왔습니다."
+
+msgid "Import from a feed"
+msgstr "타래소식에서 가져오기"
+
+#, php-format
+msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
+msgstr "이 과정은 (RSS 또는 Atom) 타래소식을 현재 블로그(%s)의 새 내용으로 가져옵니다."
+
+msgid "Feed URL:"
+msgstr "타래소식 주소 :"
+
+msgid "Send"
+msgstr "보내기"
+
+msgid "Flat file import"
+msgstr "일반텍스트 파일에서 가져오기"
+
+msgid "Imports a blog or a full Dotclear installation from flat file."
+msgstr "하나의 블로그 혹은 DotClear 전체를 일반텍스트 파일로부터 가져옵니다."
+
+msgid "Single blog successfully imported."
+msgstr "단일 블로그를 성공적으로 가져왔습니다."
+
+msgid "Are you sure you want to import a full backup file?"
+msgstr "전체백업 파일을 가져오기하는 게 확실하십니까 ?"
+
+msgid "Import a single blog"
+msgstr "단일 블로그 가져오기"
+
+#, php-format
+msgid "This will import a single blog backup as new content in the current blog: %s."
+msgstr "이 과정은, 백업된 단일 블로그 내용을 현재 블로그 (%s) 의 새 내용으로 가져옵니다."
+
+msgid "Upload a backup file"
+msgstr "백업파일 올리기"
+
+msgid "or pick up a local file in your public directory"
+msgstr "또는 당신의 공개폴더(public directory)에 있는 파일 중에서 가져오기"
+
+msgid "Import a full backup file"
+msgstr "전체백업 파일 가져오기"
+
+msgid "Warning: This will reset all the content of your database, except users."
+msgstr "경고 : 전체백업파일을 가져오기하면, 사용자목록만 빼고, 당신의 데이터베이스의 모든 내용이 지워집니다."
+
+#, fuzzy
+msgid "WordPress import"
+msgstr "Wordpress에서 가져오기"
+
+#, fuzzy
+msgid "Import a WordPress installation into your current blog."
+msgstr "Wordpress 블로그를 현재 블로그로 가져오기."
+
+#, fuzzy, php-format
+msgid "This will import your WordPress content as new content in the current blog: %s."
+msgstr "이 과정은, 당신의 Wordpress 블로그를 현재 블로그 (%s)의 새 내용으로 가져옵니다."
+
+#, fuzzy
+msgid "We first need some information about your old WordPress installation."
+msgstr "먼저, 당신이 쓰던 Wordpress 블로그에 대한 몇가지 정보가 필요합니다."
+
+#, fuzzy
+msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
+msgstr "Wordpress와 Dotclear는 분류를 다르게 처리합니다. Wordpress에서는, 한 문건에 여러 분류를 지정해 둘 수 있지만, Dotclear는 이것을 \"한 분류와 여러 분류딱지\"로 간주합니다. 그러므로 Dotclear로 Wordpress 문건을 가져오기하면 한 문건에 오직 한 법주만 지정해서 가져올 수 있고, 이를 위해 가장 오래된 분류를 문건의 분류로 선택합니다. 문건에 지정된 다른 분류들이 문건에서 완전히 사라지는 것을 피하려면, 나머지 분류들을 문건에 대한 분류딱지로 처리해 가져올 수 있습니다. 이 때, 원하신다면, 이 분류딱지들에 머리씨를 붙여서 기존 분류딱지들과 구별되도록 하실 수도 있습니다."
+
+#, fuzzy
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+msgstr "한편, Wordpress에서는 분류가 지정되지 않은 문건을 허용하지 않습니다. 이 때문에 설치시 기본값으로 <i>\"비분류\"</i>라는 첫 분류가 새 글에 지정되도록 되어 있습니다. 이 분류를 수정하지 않고 그대로 두셨다면, Dotclear로 가져오기할 때 이 분류는 그냥 무시하도록 하실 수 있습니다. 왜냐면, Dotclear는 문건에 분류가 지정되지 않는 것을 허용하기 때문입니다."
+
+msgid "Ignore the first category:"
+msgstr "첫 분류 무시 :"
+
+msgid "Import lowest numbered category on posts:"
+msgstr "포스트에 지정된 분류 중 가장 오래된 분류를 가져옴 :"
+
+msgid "Import all categories as tags:"
+msgstr "모든 분류들을 분류딱지로서 가져오기 :"
+
+msgid "Prefix such tags with:"
+msgstr "가져올 분류딱지들에 다음 머리씨를 붙임 :"
+
+#, fuzzy
+msgid "Content filters"
+msgstr "필터 목록으로 돌아가기"
+
+msgid "You may want to process your post and/or comment content with the following filters."
+msgstr ""
+
+msgid "Post content formatter:"
+msgstr ""
+
+#, fuzzy
+msgid "Comment content formatter:"
+msgstr "댓글 글자색 :"
+
+#, fuzzy
+msgid "WordPress tables not found"
+msgstr "Wordpress 테이블이 발견되지 않았습니다"
+
+msgid "No file to read."
+msgstr "읽을 파일이 없습니다."
+
+msgid "File is not a DotClear backup."
+msgstr "이 파일은 DotClear 백업파일이 아닙니다."
+
+msgid "File is not a single blog export."
+msgstr "이 파일은 단일 블로그의 내보내기 파일이 아닙니다."
+
+msgid "File is not a full export."
+msgstr "이 파일은 전체 블로그의 내보내기 파일이 아닙니다."
+
+msgid "The backup file does not appear to be well formed."
+msgstr ""
+
+msgid "Please wait..."
+msgstr "잠깐만 기다려주세요..."
+
+msgid "Import"
+msgstr "블로그로 가져오기"
+
+# French translation of DotClea"
+msgid "Maintenance"
+msgstr "블로그 정비"
+
+msgid "Optimization successful."
+msgstr "최적화 성공."
+
+msgid "Comments and trackback counted."
+msgstr "댓글과 글걸기댓글 수가 재계산되었습니다."
+
+msgid "Templates cache directory emptied."
+msgstr "템플릿 캐쉬 폴더가 비워졌습니다."
+
+msgid "Logs deleted."
+msgstr ""
+
+#, php-format
+msgid "Indexing entry %d to %d."
+msgstr "글꼭지 %d 에서 %d 까지 인덱싱."
+
+msgid "next"
+msgstr "다음"
+
+msgid "Entries index done."
+msgstr "글꼭지 인덱스가 만들어졌습니다."
+
+msgid "Back"
+msgstr "돌아가기"
+
+#, php-format
+msgid "Indexing comment %d to %d."
+msgstr "댓글 %d 에서 %d 까지 인덱싱."
+
+msgid "Comments index done."
+msgstr "댓글 인덱스가 만들어졌습니다."
+
+msgid "Optimize database room"
+msgstr "데이터베이스 공간 최적화"
+
+msgid "Vacuum tables"
+msgstr "테이블 최적화 (Vacuum tables)"
+
+msgid "Counters"
+msgstr "계수기"
+
+msgid "Reset comments and ping counters"
+msgstr "댓글과 글걸이 누적계수 초기화"
+
+msgid "Search engine index"
+msgstr "찾기 엔진 인덱스"
+
+msgid "This may take a very long time"
+msgstr "시간이 많이 걸릴 수도 있는 작업입니다."
+
+msgid "Index all posts"
+msgstr "모든 글꼭지 인덱스"
+
+msgid "Index all comments"
+msgstr "모든 댓글 인덱스"
+
+#, fuzzy
+msgid "Vacuum logs"
+msgstr "테이블 최적화 (Vacuum tables)"
+
+#, fuzzy
+msgid "Delete all logs"
+msgstr "모든 스팸 삭제"
+
+msgid "Empty templates cache directory"
+msgstr "템플릿 캐쉬 폴더 비우기"
+
+msgid "Empty directory"
+msgstr "폴더 비우기"
+
+msgid "Pages"
+msgstr "페이지"
+
+msgid "manage pages"
+msgstr "페이지 관리"
+
+msgid "Published on"
+msgstr "공개 일시"
+
+msgid "This page's comments feed"
+msgstr "이 페이지의 댓글 타래소식"
+
+msgid "You must provide a valid email address."
+msgstr "정상적인 이메일 주소를 적으셔야합니다."
+
+msgid "Page title"
+msgstr "페이지 제목"
+
+msgid "Page position"
+msgstr "페이지 위치"
+
+msgid "Publication date"
+msgstr "공개 일시"
+
+msgid "No page"
+msgstr "페이지 없음"
+
+msgid "Are you sure you want to delete selected pages?"
+msgstr "선택한 페이지들을 삭제하시려는 게 확실합니까 ?"
+
+msgid "New page"
+msgstr "새 페이지"
+
+msgid "Selected pages action:"
+msgstr "선택된 페이지들에 대한 작업 :"
+
+msgid "This page does not exist."
+msgstr "이 페이지는 존재하지 않습니다."
+
+msgid "Edit page"
+msgstr "페이지 편집"
+
+msgid "next page"
+msgstr "다음 페이지"
+
+msgid "previous page"
+msgstr "이전 페이지"
+
+msgid "Are you sure you want to delete this page?"
+msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
+
+msgid "Page has been successfully updated."
+msgstr "페이지가 성공적으로 갱신되었습니다."
+
+msgid "Page has been successfully created."
+msgstr "페이지가 성공적으로 생성되었습니다."
+
+msgid "View page"
+msgstr "페이지 보기"
+
+msgid "Preview page"
+msgstr "페이지 미리보기"
+
+msgid "Page status:"
+msgstr "페이지 공개상태 :"
+
+msgid "Page position:"
+msgstr "페이지 위치 :"
+
+msgid "Page lang:"
+msgstr "페이지 언어 :"
+
+msgid "Page password:"
+msgstr "페이지 비밀번호 :"
+
+msgid "Warning: If you set the URL manually, it may conflict with another page."
+msgstr "주의 : URL을 수작업으로 지정할 경우, 다른 페이지와 충돌이 생길 수도 있습니다."
+
+msgid "Add files to this page"
+msgstr "페이지에 파일 첨부"
+
+msgid "Pings"
+msgstr "Pings"
+
+msgid "Pings configuration"
+msgstr "Pings 설정"
+
+msgid "Settings have been successfully updated."
+msgstr "설정사항이 성공적으로 갱신되었습니다."
+
+msgid "Activate pings extension"
+msgstr "ping 모듈 작동시키기"
+
+msgid "Service name:"
+msgstr "서비스 이름 :"
+
+msgid "Service URI:"
+msgstr "서비스 URI :"
+
+msgid "error"
+msgstr "오류"
+
+msgid "Test ping services"
+msgstr "ping 서비스 테스트"
+
+msgid "Check all"
+msgstr ""
+
+msgid "Pings:"
+msgstr "Pings :"
+
+msgid "Tags"
+msgstr "분류딱지"
+
+msgid "Tags:"
+msgstr "분류딱지 목록 :"
+
+#, php-format
+msgid "Are you sure you want to remove this %s?"
+msgstr "이 %s 를 삭제하려는게 확실합니까 ?"
+
+#, php-format
+msgid "Add a %s to this entry"
+msgstr "%s 를(을) 이 글꼭지에 추가"
+
+msgid "Choose from list"
+msgstr "목록에서 선택"
+
+msgid "all"
+msgstr "모두"
+
+msgid "Tag"
+msgstr "분류딱지"
+
+msgid "used in %e - frequency %p%"
+msgstr ""
+
+#, fuzzy
+msgid "entry"
+msgstr "가운데"
+
+msgid "entries"
+msgstr "글꼭지"
+
+msgid "Enter tags separated by coma"
+msgstr ""
+
+#, fuzzy
+msgid "Add tags"
+msgstr "분류딱지 추가"
+
+#, fuzzy
+msgid "Remove tags"
+msgstr "분류딱지 제거"
+
+msgid "Add tags to entries"
+msgstr "글꼭지에 분류딱지 추가"
+
+msgid "Tags to add:"
+msgstr "추가할 분류딱지들 :"
+
+msgid "Remove selected tags from entries"
+msgstr "선택된 글꼭지들에서 분류딱지 제거"
+
+msgid "No tags for selected entries"
+msgstr "선택된 글꼭지들에는 분류딱지가 없습니다."
+
+msgid "Following tags have been found in selected entries:"
+msgstr "선택된 글꼭지들에서 찾은 분류딱지들 :"
+
+msgid "short"
+msgstr ""
+
+msgid "extended"
+msgstr ""
+
+#, fuzzy
+msgid "Tags list format:"
+msgstr "추가할 분류딱지들 :"
+
+msgid "This tag's comments Atom feed"
+msgstr "이 분류딱지가 붙은 댓글들의 타래소식 (Atom)"
+
+msgid "This tag's entries Atom feed"
+msgstr "이 분류딱지가 설정된 글꼭지들의 타래소식 (Atom)"
+
+msgid "Limit (empty means no limit):"
+msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
+
+msgid "Entries count"
+msgstr "글꼭지 수"
+
+msgid "Tag name"
+msgstr "분류딱지 이름"
+
+msgid "All tags"
+msgstr "모든 분류딱지"
+
+msgid "Link to all tags:"
+msgstr ""
+
+msgid "Edit tag"
+msgstr "분류딱지 편집"
+
+msgid "Tag has been successfully renamed"
+msgstr "분류딱지 이름바꾸기 성공"
+
+msgid "Back to tags list"
+msgstr "분류딱지 목록으로 돌아가기"
+
+msgid "Rename this tag:"
+msgstr "분류딱지 이름바꾸기 :"
+
+msgid "Delete this tag"
+msgstr "분류딱지 삭제"
+
+msgid "Tag has been successfully removed"
+msgstr "분류딱지가 성공적으로 삭제되었습니다."
+
+msgid "No tags on this blog."
+msgstr "아직 아무 분류딱지도 없습니다."
+
+msgid "Theme Editor"
+msgstr "테마 편집기"
+
+msgid "No file"
+msgstr "파일 없음"
+
+msgid "File does not exist."
+msgstr "파일이 존재하지 않습니다."
+
+#, php-format
+msgid "File %s is not readable"
+msgstr "%s 파일을 읽을 수 없습니다."
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
+
+msgid "Saving document..."
+msgstr "문서 저장 중..."
+
+msgid "Document saved"
+msgstr "문서 저장됨"
+
+msgid "An error occurred:"
+msgstr "오류 발생 :"
+
+#, php-format
+msgid "Your current theme on this blog is \"%s\"."
+msgstr "이 블로그에서 당신이 사용하는 현재 테마는 \"%s\" 입니다."
+
+msgid "You can't edit default theme."
+msgstr "기본 테마 파일은 편집할 수 없습니다."
+
+msgid "Please select a file to edit."
+msgstr "편집할 파일을 선택해주세요."
+
+msgid "File editor"
+msgstr "파일 편집기"
+
+#, php-format
+msgid "Editing file %s"
+msgstr "%s 파일 편집"
+
+msgid "This file is not writable. Please check your theme files permissions."
+msgstr "이 파일은 편집할 수 없습니다. 테마 파일들의 접근허가 상태를 확인해주세요."
+
+msgid "Templates files"
+msgstr "템플릿 파일들"
+
+msgid "CSS files"
+msgstr "CSS 파일들"
+
+msgid "JavaScript files"
+msgstr "자바스크립트 파일들"
+
+msgid "Presentation widgets"
+msgstr "화면구성 위젯"
+
+msgid "Search engine"
+msgstr "찾기 엔진"
+
+msgid "Navigation links"
+msgstr "시작화면/글모둠 링크"
+
+msgid "Selected entries"
+msgstr "선별 글꼭지 목록"
+
+msgid "Best of me"
+msgstr "꼭 보세요"
+
+msgid "Blog languages"
+msgstr "언어설정"
+
+msgid "With entries counts"
+msgstr "글꼭지 수 표시"
+
+msgid "Subscribe links"
+msgstr "구독용 링크"
+
+msgid "Subscribe"
+msgstr "구독"
+
+msgid "Feeds type:"
+msgstr "타래소식 종류 :"
+
+msgid "Feed reader"
+msgstr "타래소식 구독기 (RSS 리더)"
+
+msgid "Somewhere else"
+msgstr "다른 곳으로"
+
+msgid "Entries limit:"
+msgstr "최대 글꼭지 수 :"
+
+msgid "Text"
+msgstr "알림말"
+
+msgid "Text:"
+msgstr "알림말 :"
+
+msgid "Last entries"
+msgstr "최근 글꼭지"
+
+msgid "Uncategorized"
+msgstr "분류 미정"
+
+msgid "Tag:"
+msgstr "분류딱지 :"
+
+msgid "Last comments"
+msgstr "최근 댓글들"
+
+msgid "Comments limit:"
+msgstr "최대 댓글 수 :"
+
+msgid "Home"
+msgstr "시작화면"
+
+msgid "Archives"
+msgstr "글모둠"
+
+#, php-format
+msgid "This blog's entries %s feed"
+msgstr "이 블로그의 %s 글꼭지 타래소식"
+
+#, php-format
+msgid "This blog's comments %s feed"
+msgstr "이 블로그의 %s 댓글 타래소식"
+
+msgid "Entries feed"
+msgstr "글꼭지 타래소식"
+
+msgid "Comments feed"
+msgstr "댓글 타래소식"
+
+msgid "navigation"
+msgstr "기본사항"
+
+msgid "extra"
+msgstr "추가사항"
+
+msgid "Widgets"
+msgstr "위젯 목록"
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr "측면판을 초기화하시려는 게 확실합니까 ?"
+
+msgid "Available widgets"
+msgstr "사용할 수 있는 위젯들"
+
+msgid "Append to:"
+msgstr "추가할 곳 :"
+
+msgid "add widgets to sidebars"
+msgstr "위젯을 측면판에 추가"
+
+msgid "Navigation sidebar"
+msgstr "기본사항 측면판"
+
+msgid "Extra sidebar"
+msgstr "추가사항 측면판"
+
+msgid "update sidebars"
+msgstr "측면판 갱신"
+
+msgid "reset sidebars"
+msgstr "측면판 초기화"
+
+msgid "Widget templates tags"
+msgstr "위젯 템플릿 태그들"
+
+msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
+msgstr "위젯은 화면구성을 쉽게 바꿀 수 있도록 준비된 뭉치요소입니다. 당신이 테마를 편집할 권한이 있다면, 템플릿 태그와 그에 고유한 설정을 이용해 위젯을 테마에 직접 추가할 수있습니다."
+
+msgid "To add a widget in your template, you need to write code like this:"
+msgstr "위젯을 템플릿에 추가하려면, 다음처럼 코드를 작성하세요 :"
+
+msgid "Widget ID"
+msgstr "위젯 ID"
+
+msgid "Setting name"
+msgstr "설정 이름"
+
+msgid "Setting value"
+msgstr "설정값"
+
+msgid "Here are the following available widgets for your blog:"
+msgstr "이 블로그에서 사용할 수 있는 위젯들입니다 :"
+
+msgid "Widget ID:"
+msgstr "위젯 ID :"
+
+msgid "No setting for this widget"
+msgstr "이 위젯에는 아무 설정값도 없습니다."
+
+msgid "Setting name:"
+msgstr "설정 이름 :"
+
+msgid "No widget."
+msgstr "위젯 없음."
+
+msgid "order"
+msgstr "순서"
+
+msgid "Remove widget"
+msgstr "위젯 삭제"
+
+#~ msgid "Unsupported service"
+#~ msgstr "지원되지 않는 서비스"
+
+#~ msgid "Invalid page URL"
+#~ msgstr "바르지 않은 페이지 URL"

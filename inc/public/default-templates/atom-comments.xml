@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{tpl:BlogLanguage}}">
+  
+  <title type="html">{{tpl:BlogName encode_xml="1"}}{{tpl:SysFeedSubtitle encode_xml="1"}}
+  - {{tpl:lang Comments}}</title>
+  <subtitle type="html">{{tpl:BlogDescription encode_xml="1"}}</subtitle>
+  <link href="{{tpl:SysSelfURI}}" rel="self" type="application/atom+xml"/>
+  <link href="{{tpl:BlogURL}}" rel="alternate" type="text/html"
+  title="{{tpl:BlogDescription encode_xml="1"}}"/>
+  <updated>{{tpl:BlogUpdateDate iso8601="1"}}</updated>
+  <author>
+    <name>{{tpl:BlogEditor encode_xml="1"}}</name>
+  </author>
+  <id>{{tpl:BlogFeedID}}</id>
+  <generator uri="http://www.dotclear.org/">Dotclear</generator>
+  
+  <tpl:Comments order="desc" with_pings="1">
+  
+  <tpl:CommentIf is_ping="1">
+  <entry>
+    <title>[ping] {{tpl:PingEntryTitle encode_xml="1"}} - {{tpl:PingBlogName encode_xml="1"}}</title>
+    <link href="{{tpl:PingPostURL encode_xml="1"}}#c{{tpl:PingID}}" rel="alternate" type="text/html"
+    title="[ping] {{tpl:PingEntryTitle encode_xml="1"}} - {{tpl:PingBlogName encode_xml="1"}}" />
+    <id>{{tpl:PingFeedID}}</id>
+    <published>{{tpl:PingDate iso8601="1"}}</published>
+    <updated>{{tpl:PingDate iso8601="1" upddt="1"}}</updated>
+    <author><name>{{tpl:PingBlogName encode_xml="1"}}</name></author>
+    <content type="html">&lt;p&gt;&lt;a href="{{tpl:PingAuthorURL encode_xml="1"}}"&gt;{{tpl:PingTitle encode_xml="1"}}&lt;/a&gt;&lt;/p&gt; {{tpl:PingContent encode_xml="1"}}</content>
+  </entry>
+  
+  </tpl:CommentIf>
+  
+  <tpl:CommentIf is_ping="0">
+  <entry>
+    <title>{{tpl:CommentEntryTitle encode_xml="1"}} - {{tpl:CommentAuthor encode_xml="1"}}</title>
+    <link href="{{tpl:CommentPostURL encode_xml="1"}}#c{{tpl:CommentID}}" rel="alternate" type="text/html"
+    title="{{tpl:CommentEntryTitle encode_xml="1"}} - {{tpl:CommentAuthor encode_xml="1"}}" />
+    <id>{{tpl:CommentFeedID}}</id>
+    <published>{{tpl:CommentDate iso8601="1"}}</published>
+    <updated>{{tpl:CommentDate iso8601="1" upddt="1"}}</updated>
+    <author><name>{{tpl:CommentAuthor encode_xml="1"}}</name></author>
+    <content type="html">{{tpl:CommentContent absolute_urls="1" encode_xml="1"}}</content>
+  </entry>
+  </tpl:CommentIf>
+  </tpl:Comments>
+  
+</feed>

@@ -1,0 +1,134 @@
+# Dotclear language pack (Polish).
+# Copyright (C) 2007 Free Software Foundation, Inc.
+# Nnidŷu <nnidyu@asylumeternity.net>, 2007.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: DotClear 2.0b7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2007-08-29 23:00+0200\n"
+"Last-Translator: Nnidŷu <nnidyu@asylumeternity.net>\n"
+"Language-Team: Polish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Polish\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "sty"
+
+msgid "_Feb"
+msgstr "lut"
+
+msgid "_Mar"
+msgstr "mar"
+
+msgid "_Apr"
+msgstr "kwi"
+
+msgid "_May"
+msgstr "maj"
+
+msgid "_Jun"
+msgstr "cze"
+
+msgid "_Jul"
+msgstr "lip"
+
+msgid "_Aug"
+msgstr "sie"
+
+msgid "_Sep"
+msgstr "wrz"
+
+msgid "_Oct"
+msgstr "paź"
+
+msgid "_Nov"
+msgstr "lis"
+
+msgid "_Dec"
+msgstr "gru"
+
+msgid "January"
+msgstr "styczeń"
+
+msgid "February"
+msgstr "luty"
+
+msgid "March"
+msgstr "marzec"
+
+msgid "April"
+msgstr "kwiecień"
+
+msgid "May"
+msgstr "maj"
+
+msgid "June"
+msgstr "czerwiec"
+
+msgid "July"
+msgstr "lipiec"
+
+msgid "August"
+msgstr "sierpień"
+
+msgid "September"
+msgstr "wrzesień"
+
+msgid "October"
+msgstr "październik"
+
+msgid "November"
+msgstr "listopad"
+
+msgid "December"
+msgstr "grudzień"
+
+msgid "_Mon"
+msgstr "pon"
+
+msgid "_Tue"
+msgstr "wto"
+
+msgid "_Wed"
+msgstr "śro"
+
+msgid "_Thu"
+msgstr "czw"
+
+msgid "_Fri"
+msgstr "pią"
+
+msgid "_Sat"
+msgstr "sob"
+
+msgid "_Sun"
+msgstr "nie"
+
+msgid "Monday"
+msgstr "poniedziałek"
+
+msgid "Tuesday"
+msgstr "wtorek"
+
+msgid "Wednesday"
+msgstr "środa"
+
+msgid "Thursday"
+msgstr "czwartek"
+
+msgid "Friday"
+msgstr "piątek"
+
+msgid "Saturday"
+msgstr "sobota"
+
+msgid "Sunday"
+msgstr "niedziela"

@@ -1,0 +1,29 @@
+#file-box {
+	width: 100%;
+	float: left;
+	margin-right: -180px;
+}
+
+#file-editor {
+	margin-right: 180px;
+}
+
+#file-chooser {
+	float: right;
+	width: 170px;
+}
+#file-chooser ul {
+	padding-left: 0;
+}
+#file-chooser li {
+	list-style: square inside;
+}
+#file-chooser li.default-file {
+	color: #f90;
+}
+#file-chooser li.parent-file {
+	color:#c00;
+}
+textarea {
+	font: 1em Monaco,"Courier New",Courier,monospace;
+}

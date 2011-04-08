@@ -1,0 +1,76 @@
+#listWidgets {
+	float: left;
+	width: 33%;
+}
+
+#sidebarsWidgets {
+	float: left;
+	width: 65%;
+	margin-left: 1%;
+}
+#sidebarNav {
+	float: left;
+	width: 50%;
+	margin-left: 0%;
+}
+#sidebarExtra {
+	float: left;
+	width: 49%;
+	margin-left: 1%;
+}
+
+#sidebarsControl {
+	clear: left;
+}
+
+#widgets, #dndnav, #dndextra {
+	padding: 1em 0;
+}
+
+.widgets fieldset {
+	border: 1px solid #999;
+}
+.widgets legend {
+	border: 1px solid #999;
+}
+
+.widgets p.widget-name {
+	background: #d4d0bc;
+	color: #000;
+	padding: 4px;
+	margin: 0.5em 0 0 0;
+	border-width: 1px 1px 1px 1px;
+	border-style: solid;
+	border-color: #666;
+	font-weight: bold;
+}
+.widgets p.widget-name img {
+	cursor: pointer;
+	margin-bottom: -1px;
+}
+
+.widgetSettings {
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	border-color: #666;
+	padding: 4px;
+	background: #eceade;
+}
+
+#widgets .widgetSettings {
+	display: none;
+}
+
+.hideControls .widgetSettings {
+	display: none;
+}
+.hideControl {
+	display: none;
+}
+
+#widgets-tpl dt {
+	margin: 1em 0 0 0;
+}
+#widgets-tpl dd {
+	margin: 0.2em 0 1em 0;
+}

@@ -1,0 +1,239 @@
+# Dotclear language pack (Argentinian Spanish).
+# Work under Creative Commons license attribution-share alike 3.0 unported, please see http://creativecommons.org/licenses/by-sa/3.0/ for details.
+# ThecaTTony <thecattony@thecattony.com.ar>, 2009.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.1.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2009-10-03 02:40-0300\n"
+"Last-Translator: ThecaTTony <thecattony@thecattony.com.ar>\n"
+"Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Not found strings
+msgid "To content"
+msgstr "Ir al contenido"
+
+msgid "To menu"
+msgstr "Ir al menú"
+
+msgid "To search"
+msgstr "Ir al buscador"
+
+msgid "By"
+msgstr "Por"
+
+msgid "by"
+msgstr "por"
+
+msgid "on"
+msgstr "el"
+
+msgid "On"
+msgstr "El"
+
+msgid "Continue reading"
+msgstr "Continuar leyendo"
+
+msgid "no comment"
+msgstr "sin comentarios"
+
+msgid "one comment"
+msgstr "un comentario"
+
+msgid "%d comments"
+msgstr "%d comentarios"
+
+msgid "no trackback"
+msgstr "sin enlaces inversos"
+
+msgid "one trackback"
+msgstr "un enlace inverso"
+
+msgid "%d trackbacks"
+msgstr "%d enlaces inversos"
+
+msgid "no attachment"
+msgstr "sin archivos adjuntos"
+
+msgid "one attachment"
+msgstr "un archivo adjunto"
+
+msgid "%d attachments"
+msgstr "%d archivos adjuntos"
+
+msgid "previous entries"
+msgstr "entradas anteriores"
+
+msgid "page"
+msgstr "página"
+
+msgid "of"
+msgstr "de"
+
+msgid "next entries"
+msgstr "entradas siguientes"
+
+msgid "Search"
+msgstr "Búsqueda"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Su búsqueda de <em>%1$s</em> no ha devuelto resultados."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Su búsqueda de <em>%1$s</em> ha devuelto <strong>%2$s</strong> resultado."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Su búsqueda de <em>%1$s</em> ha devuelto <strong>%2$s</strong> resultados."
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "All keywords"
+msgstr "Todas las palabras"
+
+msgid "Best of me"
+msgstr "Destacados"
+
+msgid "Languages"
+msgstr "Idiomas"
+
+msgid "Categories"
+msgstr "Categorías"
+
+msgid "Subcategories"
+msgstr "Subcategorías"
+
+msgid "Archives"
+msgstr "Archivos"
+
+msgid "Links"
+msgstr "Enlaces"
+
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+msgid "Entries feed"
+msgstr "Redifusión de entradas (feeds)"
+
+msgid "Comments feed"
+msgstr "Redifusión de comentarios (feeds)"
+
+msgid "This blog's comments Atom feed"
+msgstr "Redifusión Atom de comentarios de este blog"
+
+msgid "This category's entries Atom feed"
+msgstr "Redifusión Atom de entradas de esta categoría"
+
+msgid "This category's comments Atom feed"
+msgstr "Redifusión Atom de comentarios de esta categoría"
+
+msgid "This post's comments feed"
+msgstr "Redifusión de comentarios de esta entrada"
+
+msgid "This post's comments Atom feed"
+msgstr "Redifusión Atom de comentarios de esta entrada"
+
+msgid "Attachments"
+msgstr "Archivos adjuntos"
+
+msgid "Permalink"
+msgstr "Enlace permanente"
+
+msgid "Comments"
+msgstr "Comentarios"
+
+msgid "Your comment"
+msgstr "Su comentario"
+
+msgid "Your comment has been published."
+msgstr "Su comentario ha sido publicado"
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Su comentario ha sido enviado y sera revisado para su publicación."
+
+msgid "Add a comment"
+msgstr "Añadir un comentario"
+
+msgid "Name or nickname"
+msgstr "Nombre o alias"
+
+msgid "Email address"
+msgstr "Dirección de e-mail"
+
+msgid "Website"
+msgstr "Sitio web"
+
+msgid "optional"
+msgstr "opcional"
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "El código HTML se reconoce como texto y las direcciones web se transformarán de manera automática."
+
+msgid "Remember me on this blog"
+msgstr "Recordarme en este blog"
+
+msgid "preview"
+msgstr "vista previa"
+
+msgid "send"
+msgstr "enviar"
+
+msgid "They posted on the same topic"
+msgstr "Incluidas en el mismo tema"
+
+msgid "Trackback URL"
+msgstr "URL de enlace inverso"
+
+msgid "You must provide an author name"
+msgstr "Debes indicar un nombre del autor"
+
+msgid "You must provide a comment"
+msgstr "Debe escribir un comentario"
+
+msgid "Email address is not valid"
+msgstr "Dirección de e-mail no válida"
+
+msgid "Document not found"
+msgstr "Documento no encontrado"
+
+msgid "The document you are looking for does not exist."
+msgstr "El documento que buscas no existe"
+
+msgid "Powered by %s"
+msgstr "Impulsado por %s"
+
+msgid "Subscribe to"
+msgstr "Suscribirse a"
+
+msgid "What is an RSS feed?"
+msgstr "¿Qué es una redifusión web (RSS/Atom)?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Una redifusión web o feed (RSS/Atom) es un resumen de contenido de un sitio web. Proporciona contenidos (de entradas y comentarios) o resúmenes de los mismos, junto con enlaces a la versión completa y a cualquier otra información que contenga. De esta manera las ultimas publicaciones del sitio pueden ser leídas por su <a href=\"http://es.wikipedia.org/wiki/Agregador/\">agregador de noticias</a> favorito."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Simplemente, copia la dirección URL siguiente en tu agregador:"
+
+msgid "Password needed"
+msgstr "Es necesaria la contraseña"
+
+msgid "You must give a password to access this area."
+msgstr "Necesitas una contraseña para acceder a este área."
+
+msgid "Password:"
+msgstr "Contraseña:"
+
+msgid "You must provide a valid email address."
+msgstr "Debes indicar una dirección de e-mail válida."
+
+msgid "Read"
+msgstr "Leer"

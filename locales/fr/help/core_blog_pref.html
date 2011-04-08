@@ -1,0 +1,190 @@
+<html>
+<head>
+  <title>Préférences du blog</title>
+</head>
+
+<body>
+
+<h3>Informations du blog</h3>
+<dl>
+  <dt>Identifiant du blog</dt>
+  <dd>Identifiant unique du blog. Obligatoire, ne peut être modifié que par un
+  super administrateur.</dd>
+  
+  <dt>Nom du blog</dt>
+  <dd>Nom du blog, obligatoire.</dd>
+  
+  <dt>URL du blog</dt>
+  <dd>URL complète du blog. Obligatoire, ne peut être modifiée que par un super
+  administrateur.</dd>
+  
+  <dt>Méthode de lecture de l'URL</dt>
+  <dd>Définit le mode de lecture de l'URL. PATH_INFO est conseillé, QUERY_STRING
+  doit être utilisé si le premier ne fonctionne pas. En mode PATH_INFO, l'URL du
+  blog doit se terminer par un "/" et en mode QUERY_STRING, par un "?".</dd>
+  
+  <dt>État du blog</dt>
+  <dd>
+    <ul>
+      <li><strong>en ligne</strong>&nbsp;: blog accessible aux visiteurs</li>
+      <li><strong>hors ligne</strong>&nbsp;: blog inaccessible aux visiteurs
+      mais les rédacteurs peuvent se connecter</li>
+      <li><strong>supprimé</strong>&nbsp;: blog inaccessible aux visiteurs
+      comme aux rédacteurs</li>
+    </ul>
+  </dd>
+  
+  <dt>Description du blog</dt>
+  <dd>Texte libre de description du blog. Il s'agit d'un texte simple, sans
+  formatage quelconque.</dd>
+</dl>
+
+<h3>Configuration du blog</h3>
+<dl>
+  <dt>Nom de l'éditeur du blog</dt>
+  <dd>Nom de la personne en charge du blog. Peut être le propriétaire ou le
+  directeur de publication s'il existe.</dd>
+  
+  <dt>Note de copyright</dt>
+  <dd>Note indiquant les droits de reproduction autorisés pour le blog.</dd>
+  
+  <dt>Langue par défaut</dt>
+  <dd>Langue de l'interface du blog. Si cette langue existe parmis les
+  traductions, l'interface sera traduite dans celle-ci, sinon elle apparaîtra
+  en Anglais.</dd>
+  
+  <dt>Fuseau horaire du blog</dt>
+  <dd>Définit le fuseau horaire qui sera utilisé pour dater les commentaires et
+  trackbacks entrant sur le blog.</dd>
+  
+  <dt>Format des dates</dt>
+  <dd>Indique le format de la date d'un billet sur le blog. Voir la section
+  "formatage des dates" pour plus détails.</dd>
+  
+  <dt>Format des heures</dt>
+  <dd>Indique le format de l'heure d'un billet sur le blog. Voir la section
+  "formatage des dates" pour plus détails.</dd>
+  
+  <dt>Laisser les commentaires ouvert durant .. jours</dt>
+  <dd>Permet d'indiquer le nombre de jours durant lesquels les commentaires
+  sont possibles sur un billet après sa publication. Aucune valeur laissera
+  les commentaires toujours ouverts.</dd>
+  
+  <dt>Laisser les rétroliens ouvert durant .. jours</dt>
+  <dd>Permet d'indiquer le nombre de jours durant lesquels les rétroliens
+  sont possibles sur un billet après sa publication. Aucune valeur laissera
+  les rétroliens toujours ouverts.</dd>
+  
+  <dt>Accepter les commentaires</dt>
+  <dd>Accepter globalement les commentaires sur le blog. Ce paramètre est
+  supérieur à celui autorisant ou non les commentaires sur un billet.</dd>
+  
+  <dt>Accepter les rétroliens</dt>
+  <dd>Accepter globalement les rétroliens sur le blog. Ce paramètre est
+  supérieur à celui autorisant ou non les rétroliens sur un billet.</dd>
+  
+  <dt>Modérer les commentaires</dt>
+  <dd>Si cette option est activée, les commentaires ne seront publiés qu'après
+  l'approbation d'un rédacteur.</dd>
+  
+  <dt>Modérer les rétroliens</dt>
+  <dd>Si cette option est activée, les rétroliens ne seront publiés qu'après
+  l'approbation d'un rédacteur.</dd>
+  
+  <dt>Ajouter la relation "nofollow" aux liens des commentaires et rétroliens</dt>
+  <dd>Ajoute un attribut sur les liens des commentaires et rétroliens indiquant
+  aux robots des moteurs de recherche de ne pas aller sur ce liens. Cette mesure
+  est censée permettre de lutter contre le spam mais n'a pas encore vraiment
+  prouvé son efficacité.</dd>
+  
+  <dt>Syntaxe wiki pour les commentaires</dt>
+  <dd>Autoriser quelques éléments de la syntaxe wiki dans les commentaires.</dd>
+  
+  <dt>Afficher .. billets par page</dt>
+  <dd>Le nombre donné sera utilisé comme limite d'affichage des billets sur la
+  page d'accueil et la première page de chaque catégorie.</dd>
+  
+  <dt>Afficher des émoticones dans les billets et commentaires</dt>
+  <dd>Remplacer certains symboles comme :-) ou ;-) en image.</dd>
+  
+  <dt>Afficher .. billets par flux de syndication</dt>
+  <dd>Le nombre donné sera utilisé comme limite d'affichage des billets dans
+  les flux de syndication.</dd>
+  
+  <dt>Afficher .. commentaires par flux de syndication</dt>
+  <dd>Le nombre donné sera utilisé comme limite d'affichage des commentaires dans
+  les flux de syndication.</dd>
+  
+  <dt>Tronquer le flux de syndication</dt>
+  <dd>Cette option permet de ne fournir qu'un extrait des billets dans les flux
+  de syndication.</dd>
+</dl>
+
+<h3>Formatage des dates</h3>
+<p>Certains champs permettent de formater les dates avec des caractères
+particuliers dont voici la définition&nbsp;:</p>
+
+<ul>
+  <li><strong>%a</strong>&nbsp;: nom abrégé du jour de la semaine (local).</li>
+  <li><strong>%A</strong>&nbsp;: nom complet du jour de la semaine (local).</li>
+  <li><strong>%b</strong>&nbsp;: nom abrégé du mois (local).</li>
+  <li><strong>%B</strong>&nbsp;: nom complet du mois (local).</li>
+  <li><strong>%c</strong>&nbsp;: représentation préférée pour les dates et
+  heures, en local.</li>
+  <li><strong>%C</strong>&nbsp;: numéro de siècle (l'année, divisée par 100 et
+  arrondie entre 00 et 99)</li>
+  <li><strong>%d</strong>&nbsp;: jour du mois en numérique (intervalle 01 à
+  31)</li>
+  <li><strong>%D</strong>&nbsp;: identique à %m/%d/%y</li>
+  <li><strong>%e</strong>&nbsp;: numéro du jour du mois. Les chiffres sont
+  précédés d'un espace (de ' 1' à '31')</li>
+  <li><strong>%g</strong>&nbsp;: identique à %G, sur 2 chiffres.</li>
+  <li><strong>%G</strong>&nbsp;: L'année sur 4 chiffres correspondant au numéro
+  de semaine (voir %V). Même format et valeur que %Y, excepté que si le numéro
+  de la semaine appartient à l'année précédente ou suivante, l'année courante
+  sera utilisé à la place.</li>
+  <li><strong>%h</strong>&nbsp;: identique à %b</li>
+  <li><strong>%H</strong>&nbsp;: heure de la journée en numérique, et sur
+  24-heures (intervalle de 00 à 23)</li>
+  <li><strong>%I</strong>&nbsp;: heure de la journée en numérique, et sur 12-
+  heures (intervalle 01 à 12)</li>
+  <li><strong>%j</strong>&nbsp;: jour de l'année, en numérique (intervalle 001 à
+  366)</li>
+  <li><strong>%m</strong>&nbsp;: mois en numérique (intervalle 1 à 12)</li>
+  <li><strong>%M</strong>&nbsp;: minute en numérique</li>
+  <li><strong>%n</strong>&nbsp;: newline character</li>
+  <li><strong>%p</strong>&nbsp;: soit `am' ou `pm' en fonction de l'heure
+  absolue, ou en fonction des valeurs enregistrées en local.</li>
+  <li><strong>%r</strong>&nbsp;: l'heure au format a.m. et p.m.</li>
+  <li><strong>%R</strong>&nbsp;: l'heure au format 24h</li>
+  <li><strong>%S</strong>&nbsp;: secondes en numérique</li>
+  <li><strong>%t</strong>&nbsp;: tabulation</li>
+  <li><strong>%T</strong>&nbsp;: l'heure actuelle (égal à %H:%M:%S)</li>
+  <li><strong>%u</strong>&nbsp;: le numéro de jour dans la semaine, de 1 à 7. (1
+  représente Lundi)</li>
+  <li><strong>%U</strong>&nbsp;: numéro de semaine dans l'année, en considérant
+  le premier dimanche de l'année comme le premier jour de la première
+  semaine.</li>
+  <li><strong>%V</strong>&nbsp;: le numéro de semaine comme défini dans l'ISO
+  8601:1988, sous forme décimale, de 01 à 53. La semaine 1 est la première
+  semaine qui a plus de 4 jours dans l'année courante, et dont Lundi est le
+  premier jour. (Utilisez %G ou %g pour les éléments de l'année qui
+  correspondent au numéro de la semaine pour le timestamp donné.)</li>
+  <li><strong>%W</strong>&nbsp;: numéro de semaine dans l'année, en considérant
+  le premier lundi de l'année comme le premier jour de la première semaine</li>
+  <li><strong>%w</strong>&nbsp;: jour de la semaine, numérique, avec Dimanche =
+  0</li>
+  <li><strong>%x</strong>&nbsp;: format préféré de représentation de la date
+  sans l'heure</li>
+  <li><strong>%X</strong>&nbsp;: format préféré de représentation de l'heure
+  sans la date</li>
+  <li><strong>%y</strong>&nbsp;: l'année, numérique, sur deux chiffres (de 00 à
+  99)</li>
+  <li><strong>%Y</strong>&nbsp;: l'année, numérique, sur quatre chiffres</li>
+  <li><strong>%Z ou %z</strong>&nbsp;: fuseau horaire, ou nom ou
+  abréviation</li>
+  <li><strong>%%</strong>&nbsp;: un caractère `%' littéral</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+# Dotclear language pack (Polish).
+# Copyright (C) 2007 Free Software Foundation, Inc.
+# Nnidŷu <nnidyu@asylumeternity.net>, 2007.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: DotClear 2.0b7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2010-11-16 21:38+0100\n"
+"Last-Translator: Cezary Błajszczak <cezary.blajszczak@gmail.com>\n"
+"Language-Team: Polish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Polish\n"
+
+msgid "To content"
+msgstr "Do treści"
+
+msgid "To menu"
+msgstr "Do menu"
+
+msgid "To search"
+msgstr "Do wyszukiwania"
+
+msgid "By"
+msgstr "Przez"
+
+msgid "by"
+msgstr "przez"
+
+msgid "on"
+msgstr "w"
+
+msgid "On"
+msgstr "W"
+
+msgid "Continue reading"
+msgstr "Kontynuuj czytanie"
+
+msgid "no comment"
+msgstr "brak komentarzy"
+
+msgid "one comment"
+msgstr "jeden komentarz"
+
+msgid "%d comments"
+msgstr "%d komentarzy"
+
+msgid "no trackback"
+msgstr "brak trackbacków"
+
+msgid "one trackback"
+msgstr "jeden trackback"
+
+msgid "%d trackbacks"
+msgstr "%d trackbacków"
+
+msgid "no attachment"
+msgstr "brak załączników"
+
+msgid "one attachment"
+msgstr "jeden załącznik"
+
+msgid "%d attachments"
+msgstr "%d załączników"
+
+msgid "previous entries"
+msgstr "wcześniejsze wpisy"
+
+msgid "page"
+msgstr "strona"
+
+msgid "of"
+msgstr "z"
+
+msgid "next entries"
+msgstr "następne wpisy"
+
+msgid "Search"
+msgstr "Szukaj"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Twoje wyszukiwanie <em>%1$s</em> nie zwróciło rezultatów."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Twoje wyszukiwanie <em>%1$s</em> zwróciło <strong>%2$s</strong> rezultat."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Twoje wyszukiwanie <em>%1$s</em> zwróciło <strong>%2$s</strong> rezultatów."
+
+msgid "Home"
+msgstr "Strona główna"
+
+msgid "All keywords"
+msgstr "Wszystkie słowa kluczowe"
+
+msgid "Best of me"
+msgstr "Najlepsze"
+
+msgid "Languages"
+msgstr "Języki"
+
+msgid "Categories"
+msgstr "Kategorie"
+
+msgid "Subcategories"
+msgstr "Podkategorie"
+
+msgid "Archives"
+msgstr "Archiwa"
+
+msgid "Links"
+msgstr "Odnośniki"
+
+msgid "Subscribe"
+msgstr "Subskrypcja"
+
+msgid "Entries feed"
+msgstr "Kanał RSS wpisów"
+
+msgid "Comments feed"
+msgstr "Kanał RSS komentarzy"
+
+msgid "This blog's comments Atom feed"
+msgstr "Kanał Atom dla komentarzy na tym blogu"
+
+msgid "This category's entries Atom feed"
+msgstr "Kanał Atom dla wpisów w tej kategorii"
+
+msgid "This category's comments Atom feed"
+msgstr "Kanał Atom dla komentarzy w tej kategorii"
+
+msgid "This post's comments feed"
+msgstr "Kanał RSS dla komentarzy do tego wpisu"
+
+msgid "This post's comments Atom feed"
+msgstr "Kanał Atom dla komentarzy do tego wpisu"
+
+msgid "Attachments"
+msgstr "Załączniki"
+
+msgid "Permalink"
+msgstr "Permalink"
+
+msgid "Comments"
+msgstr "Komentarze"
+
+msgid "Your comment"
+msgstr "Twój komentarz"
+
+msgid "Your comment has been published."
+msgstr "Twój komentarz został opublikowany."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Twój komentarz został wysłany i będzie poddany moderacji."
+
+msgid "Add a comment"
+msgstr "Dodaj komentarz"
+
+msgid "Name or nickname"
+msgstr "Imię lub pseudonim"
+
+msgid "Email address"
+msgstr "Adres e-mail"
+
+msgid "Website"
+msgstr "Strona WWW"
+
+msgid "optional"
+msgstr "opcjonalne"
+
+msgid "Comment"
+msgstr "Komentarz"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "Kod HTML jest wyświetlany jako tekst a adresy stron są automatycznie konwertowane."
+
+msgid "Remember me on this blog"
+msgstr "Pamiętaj mnie na tym blogu"
+
+msgid "preview"
+msgstr "podgląd"
+
+msgid "send"
+msgstr "wyślij"
+
+msgid "They posted on the same topic"
+msgstr "Napisali na ten sam temat"
+
+msgid "Trackback URL"
+msgstr "URL dla trackbacków"
+
+msgid "You must provide an author name"
+msgstr "Musisz podać autora"
+
+msgid "You must provide a comment"
+msgstr "Musisz napisać treść komentarza"
+
+msgid "Email address is not valid"
+msgstr "Adres e-mail jest niepoprawny"
+
+msgid "Document not found"
+msgstr "Nie znaleziono dokumentu"
+
+msgid "The document you are looking for does not exist."
+msgstr "Dokument, którego szukasz nie istnieje"
+
+msgid "Powered by %s"
+msgstr "Napędzane przez %s"
+
+msgid "Subscribe to"
+msgstr "Subskrybuj"
+
+msgid "What is an RSS feed?"
+msgstr "Co to jest kanał RSS/Atom?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Kanał RSS/Atom jest darmowym i wolnym podsumowaniem bloga. Udostępnia on treść (zarówno posty jak i komentarze) lub ich streszczenia razem z linkami do pełnej wersji oraz inne dane. Ostatnio opublikowane elementy mogą być wtedy czytane za pomocą Twojego ulubionego <a·href=\"http://pl.wikipedia.org/wiki/Czytnik_kanałów\">czytnika</a>."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Po prostu skopiuj następujący adres do swojego czytnika:"
+
+msgid "Password needed"
+msgstr "Hasło wymagane"
+
+msgid "You must give a password to access this area."
+msgstr "Musisz podać hasło, by uzyskać dostęp do tego miejsca."
+
+msgid "Password:"
+msgstr "Hasło:"
+
+msgid "You must provide a valid email address."
+msgstr "Musisz podać poprawny adres e-mail."
+
+msgid "Read"
+msgstr "Czytaj"
+
+#~ msgid "Keywords"
+#~ msgstr "Słowa kluczowe"
+#~ msgid "Keyword"
+#~ msgstr "Słowo kluczowe"
+#~ msgid "This blog's entries RSS feed"
+#~ msgstr "Kanał RSS dla wpisów na tym blogu"
+#~ msgid "This post's comments RSS feed"
+#~ msgstr "Kanał RSS dla komentarzy do tego wpisu"
+

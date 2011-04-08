@@ -1,0 +1,23 @@
+ul.spaminfo {
+	display: block;
+	list-style: none;
+	margin: 1em 0;
+	padding: 0;
+}
+ul.spaminfo li {
+	margin: 0.5em 0;
+	padding-left: 16px;
+	/*background: url(index.php?pf=antispam/feed.png) no-repeat center left;*/
+	background-color: transparent;
+	background-position: center left;
+	background-repeat: no-repeat;
+}
+ul.spaminfo .spamcount {
+	background-image: url(images/junk.png);
+}
+ul.spaminfo .hamcount {
+	background-image: url(images/check-on.png);
+}
+ul.spaminfo .feed {
+	background-image: url(index.php?pf=antispam/feed.png);
+}

@@ -1,0 +1,250 @@
+# Dotclear language pack (Catalan).
+# Aina Chabert Ramon <ainachabert@gmail.com>, 2008.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-rc1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2008-06-03 17:03+0200\n"
+"Last-Translator: Aina Chabert Ramon <ainachabert@gmail.com>\n"
+"Language-Team: Catalan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Catalan\n"
+
+msgid "To content"
+msgstr "Anar al contingut"
+
+msgid "To menu"
+msgstr "Anar al menú"
+
+msgid "To search"
+msgstr "Cercar"
+
+msgid "By"
+msgstr "Per"
+
+msgid "by"
+msgstr "per"
+
+msgid "on"
+msgstr "el"
+
+msgid "On"
+msgstr "El"
+
+msgid "Continue reading"
+msgstr "Continuar llegint"
+
+msgid "no comment"
+msgstr "Sense comentaris"
+
+msgid "one comment"
+msgstr "Un comentari"
+
+msgid "%d comments"
+msgstr "%d comentaris"
+
+msgid "no trackback"
+msgstr "Sense respostes"
+
+msgid "one trackback"
+msgstr "Una resposta"
+
+msgid "%d trackbacks"
+msgstr "%d respostes"
+
+msgid "no attachment"
+msgstr "sense fitxers adjunts"
+
+msgid "one attachment"
+msgstr "un fitxer adjunt"
+
+msgid "%d attachments"
+msgstr "%d fitxers adjunts"
+
+msgid "previous entries"
+msgstr "registres anteriors"
+
+msgid "page"
+msgstr "pàgina"
+
+msgid "of"
+msgstr "de"
+
+msgid "next entries"
+msgstr "registres següents"
+
+msgid "Search"
+msgstr "Cercar"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr ""
+
+msgid "Home"
+msgstr "Inici"
+
+msgid "All keywords"
+msgstr "Totes les paraules clau"
+
+msgid "Best of me"
+msgstr "A remarcar"
+
+msgid "Languages"
+msgstr "Idiomes"
+
+msgid "Categories"
+msgstr "Categories"
+
+#, fuzzy
+msgid "Subcategories"
+msgstr "Categories"
+
+msgid "Archives"
+msgstr "Fitxers"
+
+msgid "Links"
+msgstr "Enllaços"
+
+msgid "Subscribe"
+msgstr "Subscriure's"
+
+msgid "Entries feed"
+msgstr "Registre d'entrades"
+
+msgid "Comments feed"
+msgstr "Registre de comentaris"
+
+#, fuzzy
+msgid "This blog's comments Atom feed"
+msgstr "Fitxers RSS de comentaris d'aquest Blog"
+
+#, fuzzy
+msgid "This category's entries Atom feed"
+msgstr "Fitxers RSS d'entrades d'aquesta categoria"
+
+#, fuzzy
+msgid "This category's comments Atom feed"
+msgstr "Fitxers RSS de comentaris d'aquesta categoria"
+
+msgid "This post's comments feed"
+msgstr "Fitxers de comentaris d'aquesta entrada"
+
+#, fuzzy
+msgid "This post's comments Atom feed"
+msgstr "Fitxers de comentaris d'aquesta entrada"
+
+msgid "Attachments"
+msgstr "Fitxers adjunts"
+
+msgid "Permalink"
+msgstr "Enllaç permanent"
+
+msgid "Comments"
+msgstr "Comentaris"
+
+msgid "Your comment"
+msgstr "El seu comentari"
+
+msgid "Your comment has been published."
+msgstr "El seu comentari ha estat publicat"
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "El seu comentari s'ha lliurat i es revisarà per la seva publicació"
+
+msgid "Add a comment"
+msgstr "Afegir un comentari"
+
+msgid "Name or nickname"
+msgstr "Nom o pseudònim"
+
+msgid "Email address"
+msgstr "Adreça de correu electrònic"
+
+msgid "Website"
+msgstr "Lloc Web"
+
+msgid "optional"
+msgstr "opcional"
+
+msgid "Comment"
+msgstr "Comentari"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "El codi HTML es reconeix com a text i les adreces web es convertiran automàticament."
+
+msgid "Remember me on this blog"
+msgstr "Recorda'm en aquest blog"
+
+msgid "preview"
+msgstr "vista prèvia"
+
+msgid "send"
+msgstr "lliurar"
+
+msgid "They posted on the same topic"
+msgstr "Incloses en el mateix tema"
+
+msgid "Trackback URL"
+msgstr "URL de resposta"
+
+msgid "You must provide an author name"
+msgstr "Ha d'indicar un nom d'autor"
+
+msgid "You must provide a comment"
+msgstr "Ha d'escriure un comentari"
+
+msgid "Email address is not valid"
+msgstr "L'adreça de correu electrònic no és vàlida"
+
+msgid "Document not found"
+msgstr "No s'ha trobat el document"
+
+msgid "The document you are looking for does not exist."
+msgstr "El document que cerca no existeix"
+
+#, fuzzy
+msgid "Powered by %s"
+msgstr "Impulsat per"
+
+msgid "Subscribe to"
+msgstr "Subscriure's a"
+
+msgid "What is an RSS feed?"
+msgstr "Què és un arxiu RSS?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Un arxiu RSS recull les informacions d'actualització d'un lloc web. Proporciona continguts (tant nous registres com comentaris) o un resum dels mateixos, juntament amb un enllaç a la versió completa i a qualsevol altre informació que contingui. D'aquesta manera, els últims temes publicats poden ser llegits pels seus RSS favorits <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Simplement copii l'adreça següent en el seu agregador:"
+
+msgid "Password needed"
+msgstr "Es necessària una contrasenya"
+
+msgid "You must give a password to access this area."
+msgstr "Necessita una contrasenya per a accedir a aquesta àrea."
+
+msgid "Password:"
+msgstr "Contrasenya:"
+
+msgid "You must provide a valid email address."
+msgstr "Ha d'indicar una adreça de correu electrònic vàlida"
+
+msgid "Read"
+msgstr "Llegir"
+
+#~ msgid "This blog's entries RSS feed"
+#~ msgstr "Fitxers RSS dels registres d'entrada"
+
+#~ msgid "This post's comments RSS feed"
+#~ msgstr "Fitxers RSS de comentaris d'aquesta entrada"

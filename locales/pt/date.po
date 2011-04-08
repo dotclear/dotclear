@@ -1,0 +1,137 @@
+# Dotclear language pack (Portuguese).
+# Luis Correia <luis.f.correia@gmail.com>, 2008.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-RC2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2009-01-13 09:51+0100\n"
+"Last-Translator: f.gangneux <fgangneux@sapo.pt>\n"
+"Language-Team: Portuguese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: PORTUGAL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: /home/pil/.poedit/pt\n"
+"X-Poedit-SearchPath-0: /home/pil/Documents/TRAD/pt\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "_Jan"
+
+msgid "_Feb"
+msgstr "_Fev"
+
+msgid "_Mar"
+msgstr "_Mar"
+
+msgid "_Apr"
+msgstr "_Abr"
+
+msgid "_May"
+msgstr "_Mai"
+
+msgid "_Jun"
+msgstr "_Jun"
+
+msgid "_Jul"
+msgstr "_Jul"
+
+msgid "_Aug"
+msgstr "_Ago"
+
+msgid "_Sep"
+msgstr "_Set"
+
+msgid "_Oct"
+msgstr "_Out"
+
+msgid "_Nov"
+msgstr "_Nov"
+
+msgid "_Dec"
+msgstr "_Dez"
+
+msgid "January"
+msgstr "Janeiro"
+
+msgid "February"
+msgstr "Fevereiro"
+
+msgid "March"
+msgstr "Março"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Maio"
+
+msgid "June"
+msgstr "Junho"
+
+msgid "July"
+msgstr "Julho"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Setembro"
+
+msgid "October"
+msgstr "Outubro"
+
+msgid "November"
+msgstr "Novembro"
+
+msgid "December"
+msgstr "Dezembro"
+
+msgid "_Mon"
+msgstr "_Seg"
+
+msgid "_Tue"
+msgstr "_Ter"
+
+msgid "_Wed"
+msgstr "_Qua"
+
+msgid "_Thu"
+msgstr "_Qui"
+
+msgid "_Fri"
+msgstr "_Sex"
+
+msgid "_Sat"
+msgstr "_Sab"
+
+msgid "_Sun"
+msgstr "_Dom"
+
+msgid "Monday"
+msgstr "Segunda"
+
+msgid "Tuesday"
+msgstr "Terça"
+
+msgid "Wednesday"
+msgstr "Quarta"
+
+msgid "Thursday"
+msgstr "Quinta"
+
+msgid "Friday"
+msgstr "Sexta"
+
+msgid "Saturday"
+msgstr "Sábado"
+
+msgid "Sunday"
+msgstr "Domingo"

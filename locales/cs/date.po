@@ -1,0 +1,134 @@
+# Dotclear 2 Czech translation
+# Jan Skrasek <hrach.cz@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2009-10-24 17:24+0100\n"
+"Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
+"Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n< =4) ? 1 : 2\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d.%m.%Y %H:%M"
+
+msgid "_Jan"
+msgstr "led"
+
+msgid "_Feb"
+msgstr "úno"
+
+msgid "_Mar"
+msgstr "bře"
+
+msgid "_Apr"
+msgstr "dub"
+
+msgid "_May"
+msgstr "kvě"
+
+msgid "_Jun"
+msgstr "črn"
+
+msgid "_Jul"
+msgstr "črc"
+
+msgid "_Aug"
+msgstr "srp"
+
+msgid "_Sep"
+msgstr "zář"
+
+msgid "_Oct"
+msgstr "říj"
+
+msgid "_Nov"
+msgstr "lis"
+
+msgid "_Dec"
+msgstr "pro"
+
+msgid "January"
+msgstr "leden"
+
+msgid "February"
+msgstr "únor"
+
+msgid "March"
+msgstr "březen"
+
+msgid "April"
+msgstr "duben"
+
+msgid "May"
+msgstr "květen"
+
+msgid "June"
+msgstr "červen"
+
+msgid "July"
+msgstr "červenec"
+
+msgid "August"
+msgstr "srpen"
+
+msgid "September"
+msgstr "září"
+
+msgid "October"
+msgstr "říjen"
+
+msgid "November"
+msgstr "listopad"
+
+msgid "December"
+msgstr "prosinec"
+
+msgid "_Mon"
+msgstr "po"
+
+msgid "_Tue"
+msgstr "út"
+
+msgid "_Wed"
+msgstr "st"
+
+msgid "_Thu"
+msgstr "čt"
+
+msgid "_Fri"
+msgstr "pa"
+
+msgid "_Sat"
+msgstr "so"
+
+msgid "_Sun"
+msgstr "ne"
+
+msgid "Monday"
+msgstr "pondělí"
+
+msgid "Tuesday"
+msgstr "úterý"
+
+msgid "Wednesday"
+msgstr "středa"
+
+msgid "Thursday"
+msgstr "čtvrtek"
+
+msgid "Friday"
+msgstr "pátek"
+
+msgid "Saturday"
+msgstr "sobota"
+
+msgid "Sunday"
+msgstr "neděle"

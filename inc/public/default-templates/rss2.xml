@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet title="XSL formatting" type="text/xsl" href="{{tpl:BlogURL}}feed/rss2/xslt" ?>
+<rss version="2.0"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>{{tpl:BlogName encode_xml="1"}}{{tpl:SysFeedSubtitle encode_xml="1"}}</title>
+  <link>{{tpl:BlogURL}}</link>
+  <atom:link href="{{tpl:SysSelfURI}}" rel="self" type="application/rss+xml"/>
+  <description>{{tpl:BlogDescription encode_xml="1"}}</description>
+  <language>{{tpl:BlogLanguage}}</language>
+  <pubDate>{{tpl:BlogUpdateDate rfc822="1"}}</pubDate>
+  <copyright>{{tpl:BlogCopyrightNotice encode_xml="1"}}</copyright>
+  <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+  <generator>Dotclear</generator>
+  
+  <tpl:Entries>
+  
+  <item>
+    <title>{{tpl:EntryTitle encode_xml="1"}}</title>
+    <link>{{tpl:EntryURL}}</link>
+    <guid isPermaLink="false">{{tpl:EntryFeedID}}</guid>
+    <pubDate>{{tpl:EntryDate rfc822="1"}}</pubDate>
+    <dc:creator>{{tpl:EntryAuthorCommonName encode_xml="1"}}</dc:creator>
+    <tpl:EntryIf has_category="1">
+    <category>{{tpl:EntryCategory encode_html="1"}}</category>
+    </tpl:EntryIf>
+    <tpl:EntryTags><category>{{tpl:TagID}}</category></tpl:EntryTags>
+    
+    <description>{{tpl:EntryExcerpt absolute_urls="1" encode_xml="1"}}
+    {{tpl:EntryContent absolute_urls="1" encode_xml="1"}}</description>
+    
+    <tpl:Attachments>
+      <enclosure url="{{tpl:AttachmentURL}}"
+      length="{{tpl:AttachmentSize full="1"}}" type="{{tpl:AttachmentMimeType}}" />
+    </tpl:Attachments>
+    
+    <tpl:EntryIf comments_active="1">
+      <comments>{{tpl:EntryURL}}#comment-form</comments>
+      <wfw:comment>{{tpl:EntryURL}}#comment-form</wfw:comment>
+      <wfw:commentRss>{{tpl:BlogFeedURL}}/comments/{{tpl:EntryID}}</wfw:commentRss>
+    </tpl:EntryIf>
+  </item>
+  </tpl:Entries>
+  
+</channel>
+</rss>

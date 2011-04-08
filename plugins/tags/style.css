@@ -1,0 +1,100 @@
+.tag0 {  }
+.tag10 { font-size: 140%; }
+.tag20 { font-size: 150%; }
+.tag30 { font-size: 160%; }
+.tag40 { font-size: 170%; }
+.tag50 { font-size: 180%; }
+.tag60 { font-size: 190%; }
+.tag70 { font-size: 200%; }
+.tag80 { font-size: 210%; }
+.tag90 { font-size: 220%; }
+.tag100 { font-size: 230%; }
+
+table.tags {
+	margin-left: 3em;
+}
+
+
+tr.tagLetter span {
+	font-size : 250%;
+	border: none;
+	display : block;
+	width: 1ex;
+	position: relative;
+	top: 0.80em;
+	left: -2ex;
+}
+
+ul.metaList {
+	margin: 0 0 1em 0;
+	padding: 0;
+}
+ul.metaList li {
+	margin: 0;
+	padding: 0;
+	list-style: square;
+	list-style-position: inside;
+}
+
+a.metaRemove {
+	color : #999 !important;
+	border: none;
+}
+a.metaRemove:hover, a.metaRemove:focus {
+	color : #06c !important;
+}
+
+.addMeta a {
+	border: none;
+}
+.addMeta a:hover, .addMeta a:focus {
+	background: #fc0;
+	color: #000;
+}
+.addMeta a.metaGetMore {
+	font-weight: bold;
+}
+/* Auto Complete */
+.ac_results {
+	padding: 0px;
+	border: 1px dotted #f90;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 1em;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+.ac_loading {
+	background: transparent url('index.php?pf=tags/img/loader.gif') right center no-repeat;
+}
+.ac_odd {
+	background-color: #eee;
+}
+.ac_over {
+	background-color: #06c;
+	color: white;
+}

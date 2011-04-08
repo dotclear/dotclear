@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Not found strings
+msgid "To content"
+msgstr "Al kontento"
+
+msgid "To menu"
+msgstr "Al menuo"
+
+msgid "To search"
+msgstr "Al serĉilo"
+
+msgid "By"
+msgstr "Far"
+
+msgid "by"
+msgstr "far"
+
+msgid "on"
+msgstr "je la"
+
+msgid "On"
+msgstr "Je la"
+
+msgid "Continue reading"
+msgstr "Legi plu"
+
+msgid "no comment"
+msgstr "neniu komento"
+
+msgid "one comment"
+msgstr "neniu komento"
+
+msgid "%d comments"
+msgstr "%d komentoj"
+
+msgid "no trackback"
+msgstr "neniu retroligo"
+
+msgid "one trackback"
+msgstr "unu retroligo"
+
+msgid "%d trackbacks"
+msgstr "%d retroligoj"
+
+msgid "no attachment"
+msgstr "neniu aldonaĵo"
+
+msgid "one attachment"
+msgstr "unu aldonaĵo"
+
+msgid "%d attachments"
+msgstr "%d aldonaĵoj"
+
+msgid "previous entries"
+msgstr "malantaŭaj biletoj"
+
+msgid "page"
+msgstr "paĝo"
+
+msgid "of"
+msgstr "de"
+
+msgid "next entries"
+msgstr "antaŭaj biletoj"
+
+msgid "Search"
+msgstr "Serĉi"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Via serĉo pri <em>%1$s</em> trovis neniun rezulton."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Via serĉo pri <em>%1$s</em> trovis <strong>%2$s</strong> rezultojn."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Via serĉo pri <em>%1$s</em> trovis <strong>%2$s</strong> rezultojn."
+
+msgid "Home"
+msgstr "Hejmpaĝo"
+
+msgid "All keywords"
+msgstr "Ĉiuj ŝlosilvortoj"
+
+msgid "Best of me"
+msgstr ""
+
+msgid "Languages"
+msgstr "Lingvoj"
+
+msgid "Categories"
+msgstr "Kategorioj"
+
+msgid "Subcategories"
+msgstr "Subkategorioj"
+
+msgid "Archives"
+msgstr "Arkivoj"
+
+msgid "Links"
+msgstr "Ligoj"
+
+msgid "Subscribe"
+msgstr "Aboni"
+
+msgid "Entries feed"
+msgstr "Ĉeno de la biletoj"
+
+msgid "Comments feed"
+msgstr "Ĉeno de la komentoj"
+
+msgid "This blog's comments Atom feed"
+msgstr "La Atom-a ĉeno de tiu blogo komentoj"
+
+msgid "This category's entries Atom feed"
+msgstr ""
+
+msgid "This category's comments Atom feed"
+msgstr ""
+
+msgid "This post's comments feed"
+msgstr ""
+
+msgid "This post's comments Atom feed"
+msgstr ""
+
+msgid "Attachments"
+msgstr "Aldonaĵoj"
+
+msgid "Permalink"
+msgstr "Permanenta ligilo"
+
+msgid "Comments"
+msgstr "Komentoj"
+
+msgid "Your comment"
+msgstr "Via komento"
+
+msgid "Your comment has been published."
+msgstr "Via komento estis publikigita"
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Via komento estis sendita kaj estos kontrolita antaŭ publikigado."
+
+msgid "Add a comment"
+msgstr "Aldoni komenton"
+
+msgid "Name or nickname"
+msgstr "Nomo"
+
+msgid "Email address"
+msgstr "Retpoŝtadreso"
+
+msgid "Website"
+msgstr "Retejo"
+
+msgid "optional"
+msgstr "opcia"
+
+msgid "Comment"
+msgstr "Komento"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr ""
+
+msgid "Remember me on this blog"
+msgstr "Memoru min en tiu blogo"
+
+msgid "preview"
+msgstr "previdi"
+
+msgid "send"
+msgstr "sendi"
+
+msgid "They posted on the same topic"
+msgstr ""
+
+msgid "Trackback URL"
+msgstr ""
+
+msgid "You must provide an author name"
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr ""
+
+msgid "Email address is not valid"
+msgstr ""
+
+msgid "Document not found"
+msgstr "Dokumento ne trovebla"
+
+#, fuzzy
+msgid "The document you are looking for does not exist."
+msgstr "La dokumento kiun vi serĉas ne ekzistas."
+
+msgid "Powered by %s"
+msgstr ""
+
+msgid "Subscribe to"
+msgstr ""
+
+msgid "What is an RSS feed?"
+msgstr ""
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr ""
+
+msgid "Password needed"
+msgstr "Pasvorto necesa"
+
+msgid "You must give a password to access this area."
+msgstr "Vi devas doni pasvorton por vidi tiun paĝon."
+
+msgid "Password:"
+msgstr "Pasvorto:"
+
+msgid "You must provide a valid email address."
+msgstr "Vi devas doni korektan retpoŝtadreson."
+
+msgid "Read"
+msgstr "Legi"

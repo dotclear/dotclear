@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "Jan"
+
+msgid "_Feb"
+msgstr "Feb"
+
+msgid "_Mar"
+msgstr "Mar"
+
+msgid "_Apr"
+msgstr "Apr"
+
+msgid "_May"
+msgstr "Maj"
+
+msgid "_Jun"
+msgstr "Jun"
+
+msgid "_Jul"
+msgstr "Jul"
+
+msgid "_Aug"
+msgstr "Aŭg"
+
+msgid "_Sep"
+msgstr "Sep"
+
+msgid "_Oct"
+msgstr "Oct"
+
+msgid "_Nov"
+msgstr "Nov"
+
+msgid "_Dec"
+msgstr "Dec"
+
+msgid "January"
+msgstr "Januaro"
+
+msgid "February"
+msgstr "Februaro"
+
+msgid "March"
+msgstr "Marto"
+
+msgid "April"
+msgstr "Aprilo"
+
+msgid "May"
+msgstr "Majo"
+
+msgid "June"
+msgstr "Junio"
+
+msgid "July"
+msgstr "Julio"
+
+msgid "August"
+msgstr "Aŭgusto"
+
+msgid "September"
+msgstr "Septembro"
+
+msgid "October"
+msgstr "Oktobro"
+
+msgid "November"
+msgstr "Novembro"
+
+msgid "December"
+msgstr "Decembro"
+
+msgid "_Mon"
+msgstr "Lun"
+
+msgid "_Tue"
+msgstr "Mar"
+
+msgid "_Wed"
+msgstr "Mer"
+
+msgid "_Thu"
+msgstr "Jaŭ"
+
+msgid "_Fri"
+msgstr "Ven"
+
+msgid "_Sat"
+msgstr "Sab"
+
+msgid "_Sun"
+msgstr "Dim"
+
+msgid "Monday"
+msgstr "Lundo"
+
+msgid "Tuesday"
+msgstr "Mardo"
+
+msgid "Wednesday"
+msgstr "Merkredo"
+
+msgid "Thursday"
+msgstr "Jaŭdo"
+
+msgid "Friday"
+msgstr "Vendredo"
+
+msgid "Saturday"
+msgstr "Sabato"
+
+msgid "Sunday"
+msgstr "Dimanĉo"

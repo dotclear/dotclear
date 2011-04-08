@@ -1,0 +1,133 @@
+# Dotclear language pack (Occitan).
+# euskaraz <sabrina.favier@orange.fr>, 2008.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-RC2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2008-06-25 11:37+0200\n"
+"Last-Translator: euskaraz <sabrina.favier@orange.fr>\n"
+"Language-Team: Occitan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Occitan\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d lo %m de %Y %H:%M"
+
+msgid "_Jan"
+msgstr "Gen"
+
+msgid "_Feb"
+msgstr "Feb"
+
+msgid "_Mar"
+msgstr "Mar"
+
+msgid "_Apr"
+msgstr "Abr"
+
+msgid "_May"
+msgstr "Mai"
+
+msgid "_Jun"
+msgstr "Jun"
+
+msgid "_Jul"
+msgstr "Jul"
+
+msgid "_Aug"
+msgstr "Ago"
+
+msgid "_Sep"
+msgstr "Set"
+
+msgid "_Oct"
+msgstr "Oct"
+
+msgid "_Nov"
+msgstr "Nov"
+
+msgid "_Dec"
+msgstr "Dec"
+
+msgid "January"
+msgstr "Genièr"
+
+msgid "February"
+msgstr "Febrièr"
+
+msgid "March"
+msgstr "Març"
+
+msgid "April"
+msgstr "Abrial"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "June"
+msgstr "Junh"
+
+msgid "July"
+msgstr "Julhet"
+
+msgid "August"
+msgstr "Agost"
+
+msgid "September"
+msgstr "Setembre"
+
+msgid "October"
+msgstr "Octobre"
+
+msgid "November"
+msgstr "Novembre"
+
+msgid "December"
+msgstr "Decembre"
+
+msgid "_Mon"
+msgstr ""
+
+msgid "_Tue"
+msgstr ""
+
+msgid "_Wed"
+msgstr ""
+
+msgid "_Thu"
+msgstr ""
+
+msgid "_Fri"
+msgstr ""
+
+msgid "_Sat"
+msgstr ""
+
+msgid "_Sun"
+msgstr ""
+
+msgid "Monday"
+msgstr "Diluns"
+
+msgid "Tuesday"
+msgstr "Dimarç"
+
+msgid "Wednesday"
+msgstr "Dimècres"
+
+msgid "Thursday"
+msgstr "Dijòus"
+
+msgid "Friday"
+msgstr "Divendres"
+
+msgid "Saturday"
+msgstr "Dissabte"
+
+msgid "Sunday"
+msgstr "Dimenge"

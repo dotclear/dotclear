@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>Référence de la syntaxe Wiki</title>
+</head>
+
+<body>
+
+<h3>Référence de la syntaxe Wiki</h3>
+
+<p>La syntaxe Wiki est une manière d'écrire du texte avec un jeu de balises
+réduit au minimum, permettant de couvrir les besoins les plus courants
+(titres, paragraphes, citations, listes...).</p>
+
+<dl>
+<dt>Éléments de bloc</dt>
+<dd>
+<ul>
+  <li>Laissez une ligne vide entre chaque bloc de même nature.</li>
+  <li><strong>Paragraphe</strong>&nbsp;: texte libre, terminé par une ligne
+  vide si suivi d'un second paragraphe.</li>
+  <li><strong>Titre</strong>&nbsp;: <code>!!! titre</code>, <code>!! titre</code>
+  ou <code>! titre</code> pour des titres plus ou moins importants.</li>
+  <li><strong>Trait horizontal</strong>&nbsp;: <code>----</code></li>
+  <li><strong>Listes</strong>&nbsp;: lignes débutant par <code>*</code> pour des
+  listes à puce ou <code>#</code> pour des listes numérotées. Vous pouvez faire
+  des listes imbriquées en mélangeant les codes de liste. Par exemple&nbsp;:
+<pre>
+* item 1
+** item 1.1
+* item 2
+*# item 2.1
+...
+</pre>
+  </li>
+  <li><strong>Texte préformaté</strong>&nbsp;: espace avant chaque ligne de texte.</li>
+  <li><strong>Bloc de citation</strong>&nbsp;: <code>&gt;</code> devant chaque
+  ligne de texte.</li>
+</ul>
+</dd>
+
+<dt>Éléments de formatage</dt>
+<dd>
+<ul>
+  <li><strong>Emphase</strong>&nbsp;: deux apostrophes <code>''texte''</code></li>
+  <li><strong>Forte emphase</strong>&nbsp;: deux soulignés <code>__texte__</code></li>
+  <li><strong>Retour forcé à la ligne</strong>&nbsp;: <code>%%%</code></li>
+  <li><strong>Insertion</strong>&nbsp;: deux plus <code>++texte++</code></li>
+  <li><strong>Suppression</strong>&nbsp;: deux moins <code>--texte--</code></li>
+  <li><strong>Lien</strong>&nbsp;: <code>[url]</code>, <code>[nom|url]</code>,
+    <code>[nom|url|langue]</code> ou <code>[nom|url|langue|titre]</code></li>
+  <li><strong>Image</strong>&nbsp;:
+    <code>((url|texte alternatif))</code>,
+    <code>((url|texte alternatif|position))</code> ou
+    <code>((url|texte alternatif|position|description longue))</code>.
+    <br />La position peut prendre les valeurs L ou G (gauche), R ou D (droite) ou C (centré).</li>
+  <li><strong>Ancre</strong>&nbsp;: <code>~ancre~</code></li>
+  <li><strong>Acronyme</strong>&nbsp;: <code>??acronyme|titre??</code></li>
+  <li><strong>Code HTML en ligne</strong>: deux apostrophes inversées <code>``code html``</code></li>
+  <li><strong>Citation en ligne</strong>&nbsp;: <code>{{citation}}</code>,
+    <code>{{citation|langue}}</code> ou <code>{{citation|langue|url}}</code></li>
+  <li><strong>Code</strong>&nbsp;: <code>@@code ici@@</code></li>
+  <li><strong>Note de bas de page</strong>&nbsp;: <code>$$Corps de la note$$</code></li>
+</ul>
+</dd>
+
+<dt>Empêcher le formatage du texte</dt>
+<dd>Pour insérer un caractère sans que celui-ci soit reconnu comme un caractère
+de formatage, ajoutez le caractère <code>\</code> avant celui-ci. Par exemple&nbsp;:
+<code>\[texte entre crochet qui n'est pas un lien\]</code>
+</dd>
+
+<dt>Insérer du code HTML</dt>
+<dd>Vous pouvez ponctuellement avoir besoin d'insérer du code HTML dans votre
+texte au format Wiki. Pour cela, utilisez le code suivant&nbsp;:
+<pre>
+///html
+&lt;p style="color:red"&gt;mon texte en rouge&lt;/p&gt;
+///
+</pre>
+</dd>
+</dl>
+
+
+</body>
+</html>

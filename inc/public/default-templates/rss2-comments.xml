@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet title="XSL formatting" type="text/xsl" href="{{tpl:BlogURL}}feed/rss2/xslt" ?>
+<rss version="2.0"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>{{tpl:BlogName encode_xml="1"}}{{tpl:SysFeedSubtitle encode_xml="1"}}
+  - {{tpl:lang Comments}}</title>
+  <link>{{tpl:BlogURL}}</link>
+  <atom:link href="{{tpl:SysSelfURI}}" rel="self" type="application/rss+xml"/>
+  <description>{{tpl:BlogDescription encode_xml="1"}}</description>
+  <language>{{tpl:BlogLanguage}}</language>
+  <pubDate>{{tpl:BlogUpdateDate rfc822="1"}}</pubDate>
+  <copyright>{{tpl:BlogCopyrightNotice encode_xml="1"}}</copyright>
+  <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+  <generator>Dotclear</generator>
+  
+  <tpl:Comments order="desc" with_pings="1">
+  
+  <tpl:CommentIf is_ping="1">
+  <item>
+    <title>[ping] {{tpl:PingEntryTitle encode_xml="1"}} - {{tpl:PingBlogName encode_xml="1"}}</title>
+    <link>{{tpl:PingPostURL encode_xml="1"}}#c{{tpl:PingID}}</link>
+    <guid isPermaLink="false">{{tpl:PingFeedID}}</guid>
+    <pubDate>{{tpl:PingDate rfc822="1"}}</pubDate>
+    <dc:creator>{{tpl:PingBlogName encode_xml="1"}}</dc:creator>
+    
+    <description>&lt;p&gt;&lt;a href="{{tpl:PingAuthorURL encode_xml="1"}}"&gt;{{tpl:PingTitle encode_xml="1"}}&lt;/a&gt;&lt;/p&gt;
+    {{tpl:PingContent encode_xml="1"}}</description>
+  </item>
+  </tpl:CommentIf>
+  
+  <tpl:CommentIf is_ping="0">
+  <item>
+    <title>{{tpl:CommentEntryTitle encode_xml="1"}} - {{tpl:CommentAuthor encode_xml="1"}}</title>
+    <link>{{tpl:CommentPostURL encode_xml="1"}}#c{{tpl:CommentID}}</link>
+    <guid isPermaLink="false">{{tpl:CommentFeedID}}</guid>
+    <pubDate>{{tpl:CommentDate rfc822="1"}}</pubDate>
+    <dc:creator>{{tpl:CommentAuthor encode_xml="1"}}</dc:creator>
+    
+    <description>{{tpl:CommentContent absolute_urls="1" encode_xml="1"}}</description>
+  </item>
+  </tpl:CommentIf>
+  </tpl:Comments>
+  
+</channel>
+</rss>

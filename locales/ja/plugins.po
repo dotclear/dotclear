@@ -1,0 +1,1421 @@
+# -----------------------------------------------------------------------------
+# Japanese translation of Dotclear
+#
+# Copyright (c) 2008  Dotclear Japan  ( http://dotclear.ja-jp.org )  /
+#                     Takafumi      ( jp.drupal@imagine **reverse order**)
+#
+# -----------------------------------------------------------------------------
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"PO-Revision-Date: 2008-11-24 00:00+0900\n"
+"Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
+"Language-Team: Dotclear Japan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "no"
+msgstr "いいえ"
+
+msgid "Configuration successfully updated"
+msgstr "設定は正常に更新されました"
+
+msgid "Settings definition successfully updated"
+msgstr "設定の定義は正常に更新されました"
+
+msgid "blog settings"
+msgstr "ブログの設定"
+
+msgid "Value"
+msgstr "値"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "global settings"
+msgstr "全般の設定"
+
+msgid "Akismet spam filter"
+msgstr "Akismetスパムフィルタ"
+
+#, php-format
+msgid "Filtered by %s."
+msgstr "%s によってフィルタされました。"
+
+msgid "Akismet API key:"
+msgstr "Akismet APIキー："
+
+msgid "API key verified"
+msgstr "APIキーが確認されました"
+
+msgid "API key not verified"
+msgstr "APIキーが確認されませんでした"
+
+msgid "Get your own API key"
+msgstr "あなた自身のAPIキーを取得"
+
+msgid "Antispam"
+msgstr "アンチスパム"
+
+msgid "Delete junk comments older than"
+msgstr "次の日数を経過したジャンクコメントを削除："
+
+msgid "days"
+msgstr "日"
+
+msgid "IP Blacklist / Whitelist Filter"
+msgstr "IPアドレスのブラックリスト／ホワイトリスト"
+
+#, php-format
+msgid "Filtered by %1$s with rule %2$s."
+msgstr "ルール「%2$s」に従い %1$s によってフィルタされました。"
+
+msgid "IP address has been successfully added."
+msgstr "IPアドレスは正常に追加されました。"
+
+msgid "IP addresses have been successfully removed."
+msgstr "IPアドレスは正常に削除されました。"
+
+msgid "Blacklist"
+msgstr "ブラックリスト"
+
+msgid "Whitelist"
+msgstr "ホワイトリスト"
+
+msgid "Add an IP address"
+msgstr "IPアドレスの追加"
+
+msgid "Global IP"
+msgstr "グローバルIP"
+
+msgid "Add"
+msgstr "追加"
+
+msgid "No IP address in list."
+msgstr "リストにIPアドレスがありません。"
+
+msgid "IP list"
+msgstr "IPリスト"
+
+msgid "Checks sender IP address against DNSBL servers"
+msgstr "投稿者のIPアドレスをDNSBLサーバに照会します"
+
+#, php-format
+msgid "Filtered by %1$s with server %2$s."
+msgstr "サーバ「%2$s」が %1$s によってフィルタされました。"
+
+msgid "IP Lookup servers"
+msgstr "IP Lookup サーバ"
+
+msgid "Add here a coma separated list of servers."
+msgstr "サーバのリストをコンマで区切って追加してください。"
+
+msgid "Checks links in comments against surbl.org"
+msgstr "コメント内のリンクを surbl.org に照会します"
+
+msgid "Words Blacklist"
+msgstr "ワードのブラックリスト"
+
+#, php-format
+msgid "Filtered by %1$s with word %2$s."
+msgstr "ワード「%2$s」が %1$s によってフィルタされました。"
+
+msgid "Words have been successfully added."
+msgstr "ワードは正常に追加されました。"
+
+msgid "Word has been successfully added."
+msgstr "ワードは正常に追加されました。"
+
+msgid "Words have been successfully removed."
+msgstr "ワードは正常に削除されました。"
+
+msgid "Add a word"
+msgstr "ワードの追加"
+
+msgid "Global word"
+msgstr "グローバルワード"
+
+msgid "No word in list."
+msgstr "リストにワードがありません。"
+
+msgid "List"
+msgstr "リスト"
+
+msgid "Delete selected words"
+msgstr "選択されたワードを削除"
+
+msgid "Create default wordlist"
+msgstr "デフォルトのワードリストを作成"
+
+msgid "This word exists"
+msgstr "このワードは存在します"
+
+msgid "No description"
+msgstr "説明はありません"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "%1$s によってフィルタされました（%2$s）"
+
+msgid "Unknown filter."
+msgstr "不明なフィルタです。"
+
+msgid "This comment is a spam:"
+msgstr "このコメントはスパムです："
+
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "（%d のスパムコメントを含む）"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "（%d のスパムコメントを含む）"
+
+msgid "Spam moderation"
+msgstr "スパムのモデレート"
+
+msgid "Spam"
+msgstr "スパム"
+
+msgid "Ham"
+msgstr "非スパム"
+
+msgid "Filter does not exist."
+msgstr "フィルタが存在しません。"
+
+msgid "Filter has no user interface."
+msgstr "このフィルタにはユーザインターフェイスがありません。"
+
+msgid "Return to filters"
+msgstr "フィルタへ戻る"
+
+#, php-format
+msgid "%s configuration"
+msgstr "%s の設定"
+
+msgid "Information"
+msgstr "情報"
+
+msgid "Spam comments have been successfully deleted."
+msgstr "スパムコメントは正常に削除されました。"
+
+msgid "Junk comments:"
+msgstr "ジャンクコメント："
+
+msgid "Published comments:"
+msgstr "掲載済みコメント："
+
+msgid "Delete all spams"
+msgstr "すべてのスパムを削除"
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "%s 日を経過したすべてのスパムコメントは自動的に削除されます。"
+
+msgid "Available spam filters"
+msgstr "利用可能なスパムフィルタ"
+
+msgid "Filters configuration has been successfully saved."
+msgstr "フィルタの設定は正常に保存されました。"
+
+msgid "Order"
+msgstr "並び順"
+
+msgid "Active"
+msgstr "有効"
+
+msgid "Auto Del."
+msgstr "自動削除"
+
+msgid "Filter name"
+msgstr "フィルタ名"
+
+msgid "Filter configuration"
+msgstr "フィルタの設定"
+
+msgid "Syndication"
+msgstr "シンジケート"
+
+msgid "Junk comments RSS feed"
+msgstr "ジャンクコメントのRSSフィード"
+
+msgid "Published comments RSS feed"
+msgstr "掲載済みコメントのRSSフィード"
+
+msgid "Blogroll"
+msgstr "ブログロール"
+
+msgid "manage blogroll"
+msgstr "ブログロールの管理"
+
+msgid "Links"
+msgstr "リンク"
+
+msgid "All categories"
+msgstr "すべてのカテゴリ"
+
+msgid "Home page only"
+msgstr "ホームページのみ"
+
+msgid "You must provide a link title"
+msgstr "リンクのタイトルを入力する必要があります"
+
+msgid "You must provide a link URL"
+msgstr "リンクのURLを入力する必要があります"
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "XBELかOPMLファイルを与える必要があります。"
+
+msgid "File is not in XML format."
+msgstr "ファイルはXMLフォーマットではありません。"
+
+msgid "No such link or title"
+msgstr "指定されたリンクやタイトルはありません"
+
+msgid "Return to blogroll"
+msgstr "ブログロールへ戻る"
+
+msgid "Category has been successfully updated"
+msgstr "カテゴリは正常に更新されました"
+
+msgid "Edit category"
+msgstr "カテゴリの編集"
+
+msgid "Link has been successfully updated"
+msgstr "リンクは正常に更新されました"
+
+msgid "Edit link"
+msgstr "リンクの編集"
+
+msgid "XFN"
+msgstr "XFN (Xhtml Friends Network)"
+
+msgid "_xfn_Me"
+msgstr "自分"
+
+msgid "_xfn_Another link for myself"
+msgstr "自分自身への別のリンク"
+
+msgid "_xfn_Friendship"
+msgstr "友情"
+
+msgid "_xfn_Contact"
+msgstr "連絡方法を知っている人"
+
+msgid "_xfn_Acquaintance"
+msgstr "面識はあるが親密ではない人"
+
+msgid "_xfn_Friend"
+msgstr "友人"
+
+msgid "_xfn_Physical"
+msgstr "面識"
+
+msgid "_xfn_Met"
+msgstr "会ったことがある"
+
+msgid "_xfn_Professional"
+msgstr "職業"
+
+msgid "_xfn_Co-worker"
+msgstr "同僚・同じ組織で働く人"
+
+msgid "_xfn_Colleague"
+msgstr "研究・活動の分野が同じ人"
+
+msgid "_xfn_Geographical"
+msgstr "地理"
+
+msgid "_xfn_Co-resident"
+msgstr "同居人"
+
+msgid "_xfn_Neighbor"
+msgstr "隣人（ごく近所）"
+
+msgid "_xfn_Family"
+msgstr "家族"
+
+msgid "_xfn_Child"
+msgstr "子供"
+
+msgid "_xfn_Parent"
+msgstr "親"
+
+msgid "_xfn_Sibling"
+msgstr "兄弟・姉妹"
+
+msgid "_xfn_Spouse"
+msgstr "配偶者"
+
+msgid "_xfn_Kin"
+msgstr "血縁者"
+
+msgid "_xfn_Romantic"
+msgstr "恋愛"
+
+msgid "_xfn_Muse"
+msgstr "気になる人"
+
+msgid "_xfn_Crush"
+msgstr "片思いの人"
+
+msgid "_xfn_Date"
+msgstr "デートする人"
+
+msgid "_xfn_Sweetheart"
+msgstr "恋人"
+
+msgid "Nothing to import"
+msgstr "インポートするものがありません"
+
+msgid "Import operation cancelled."
+msgstr "インポート操作はキャンセルされました。"
+
+msgid "Items order has been successfully updated"
+msgstr "アイテムの並び順は正常に更新されました"
+
+msgid "Items have been successfully removed."
+msgstr "アイテムは正常に削除されました。"
+
+msgid "Link has been successfully created."
+msgstr "リンクは正常に作成されました。"
+
+msgid "category has been successfully created."
+msgstr "カテゴリは正常に作成されました。"
+
+msgid "links have been successfully imported."
+msgstr "リンクは正常にインポートされました。"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Lang"
+msgstr "言語"
+
+msgid "Save order"
+msgstr "並び順を保存"
+
+msgid "Delete selected links"
+msgstr "選択されたリンクを削除"
+
+msgid "Are you sure you want to delete selected links?"
+msgstr "本当に、選択されたリンクを削除してもよろしいですか？"
+
+msgid "The link list is empty."
+msgstr ""
+
+msgid "Add a new link"
+msgstr "新しいリンクを追加"
+
+msgid "Add a category"
+msgstr "カテゴリの追加"
+
+msgid "Import links"
+msgstr "リンクのインポート"
+
+msgid "OPML or XBEL File:"
+msgstr "OPML/XBELファイル："
+
+msgid "import"
+msgstr "インポート"
+
+msgid "Light linear gradient"
+msgstr "明るい直線のグラデーション"
+
+msgid "Medium linear gradient"
+msgstr "適度な明るさの直線のグラデーション"
+
+msgid "Dark linear gradient"
+msgstr "暗い直線のグラデーション"
+
+msgid "Solid color"
+msgstr "ソリッドカラー"
+
+msgid "Custom..."
+msgstr "カスタム..."
+
+msgid "Blowup configuration"
+msgstr "Blowupの設定"
+
+msgid "Predefined styles"
+msgstr "定義済みのスタイル"
+
+msgid "Apply code"
+msgstr "コードを適用"
+
+#, fuzzy
+msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+msgstr "画像が作成できなかったため、いくつかの背景プロパティは変更できません。"
+
+msgid "Theme configuration has been successfully updated."
+msgstr "テーマの設定は正常に更新されました。"
+
+msgid "General"
+msgstr "全般"
+
+msgid "Background color:"
+msgstr "背景色："
+
+msgid "Background color fill:"
+msgstr "背景色の塗りつぶし："
+
+msgid "Main text font:"
+msgstr "メインテキストのフォント："
+
+msgid "Main text font size:"
+msgstr "メインテキストのフォントサイズ："
+
+msgid "Main text color:"
+msgstr "メインテキストの色："
+
+msgid "Text line height:"
+msgstr "テキスト行の高さ："
+
+msgid "Links color:"
+msgstr "リンクの色："
+
+msgid "Visited links color:"
+msgstr "訪問済みリンクの色："
+
+msgid "Focus links color:"
+msgstr "フォーカスリンクの色："
+
+msgid "Page top"
+msgstr "ページトップ"
+
+msgid "Prelude color:"
+msgstr "ヘッダの色："
+
+msgid "Hide main title"
+msgstr "メインタイトルを非表示"
+
+msgid "Main title font:"
+msgstr "メインタイトルのフォント："
+
+msgid "Main title font size:"
+msgstr "メインタイトルのフォントサイズ："
+
+msgid "Main title color:"
+msgstr "メインタイトルの色："
+
+msgid "Main title alignment:"
+msgstr "メインタイトルの配置："
+
+msgid "center"
+msgstr "中央"
+
+msgid "left"
+msgstr "左"
+
+msgid "right"
+msgstr "右"
+
+msgid "Main title position (x:y)"
+msgstr "メインタイトルの位置 (X:Y)"
+
+msgid "Top image"
+msgstr "トップの画像"
+
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "独自の画像をアップロードするには「カスタム...」を選択してください。"
+
+msgid "Add your image:"
+msgstr "画像の追加："
+
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "幅が 800 ピクセルの JPEG か PNG ファイル／最大サイズ %s"
+
+msgid "Preview"
+msgstr "プレビュー"
+
+msgid "Sidebar"
+msgstr "サイドバー"
+
+msgid "Sidebar position:"
+msgstr "サイドバーの位置："
+
+msgid "Sidebar text font:"
+msgstr "サイドバーテキストのフォント："
+
+msgid "Sidebar text font size:"
+msgstr "サイドバーテキストのフォントサイズ："
+
+msgid "Sidebar text color:"
+msgstr "サイドバーテキストの色："
+
+msgid "Sidebar titles font:"
+msgstr "サイドバータイトルのフォント："
+
+msgid "Sidebar titles font size:"
+msgstr "サイドバータイトルのフォントサイズ："
+
+msgid "Sidebar titles color:"
+msgstr "サイドバータイトルの色："
+
+msgid "Sidebar 2nd level titles font:"
+msgstr "サイドバー第2レベルタイトルのフォント："
+
+msgid "Sidebar 2nd level titles font size:"
+msgstr "サイドバー第2レベルタイトルのフォントサイズ："
+
+msgid "Sidebar 2nd level titles color:"
+msgstr "サイドバー第2レベルタイトルの色："
+
+msgid "Sidebar lines color:"
+msgstr "サイドバーのラインの色："
+
+msgid "Sidebar links color:"
+msgstr "サイドバーのリンクの色："
+
+msgid "Sidebar visited links color:"
+msgstr "サイドバーの訪問済みリンクの色："
+
+msgid "Sidebar focus links color:"
+msgstr "サイドバーのフォーカスリンクの色："
+
+msgid "Date title font:"
+msgstr "日付タイトルのフォント："
+
+msgid "Date title font size:"
+msgstr "日付タイトルのフォントサイズ："
+
+msgid "Date title color:"
+msgstr "日付タイトルの色："
+
+msgid "Entry title font:"
+msgstr "エントリタイトルのフォント："
+
+msgid "Entry title font size:"
+msgstr "エントリタイトルのフォントサイズ："
+
+msgid "Entry title color:"
+msgstr "エントリタイトルの色："
+
+msgid "Comment background color:"
+msgstr "コメントの背景色："
+
+msgid "Comment text color:"
+msgstr "コメントテキストの色："
+
+msgid "My comment background color:"
+msgstr "自己コメントの背景色："
+
+msgid "My comment text color:"
+msgstr "自己コメントテキストの色："
+
+msgid "Footer"
+msgstr "フッタ"
+
+msgid "Footer font:"
+msgstr "フッタのフォント："
+
+msgid "Footer font size:"
+msgstr "フッタのフォントサイズ："
+
+msgid "Footer color:"
+msgstr "フッタの色："
+
+msgid "Footer links color:"
+msgstr "フッタリンクの色："
+
+msgid "Footer background color:"
+msgstr "フッタの背景色："
+
+msgid "Configuration import / export"
+msgstr "設定のインポート／エクスポート"
+
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "以下のコードを使用して、設定を共有することができます。 設定を適用するには、コードをペーストし、「コードを適用」をクリックした後に保存してください。"
+
+msgid "default"
+msgstr "デフォルト"
+
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr ""
+
+#, fuzzy
+msgid "The 'public' directory does not exist."
+msgstr "このページは存在しません。"
+
+#, php-format
+msgid "The '%s' directory cannot be modified."
+msgstr ""
+
+msgid "Unable to create images."
+msgstr "画像が作成できません。"
+
+msgid "Invalid file type."
+msgstr "無効なファイルタイプです。"
+
+msgid "Uploaded image is not 800 pixels wide."
+msgstr ""
+
+msgid "Unable to open image."
+msgstr "画像が開けません。"
+
+msgid "External media"
+msgstr "外部メディア"
+
+msgid "External media selector"
+msgstr "外部メディアセレクタ"
+
+msgid "Supported media services"
+msgstr "対応するメディアサービス"
+
+msgid "Please enter the URL of the page containing the video you want to include in your post."
+msgstr "投稿に含めたいビデオを含んだページのURLを入力してください。"
+
+msgid "Page URL:"
+msgstr "ページのURL："
+
+msgid "Media alignment"
+msgstr "メディアの配置"
+
+msgid "Media title"
+msgstr "メディアのタイトル"
+
+msgid "Checks trackback source for a link to the post"
+msgstr "投稿へリンクしているかトラックバック元をチェックします"
+
+msgid "Import/Export"
+msgstr "インポート／エクスポート"
+
+msgid "Flat file export"
+msgstr "フラットファイルのエクスポート"
+
+msgid "Exports a blog or a full Dotclear installation to flat file."
+msgstr "ブログまたは完全なDotclearインストールをフラットファイルへエクスポートします。"
+
+msgid "Export file not found."
+msgstr "エクスポートファイルが見つかりませんでした。"
+
+msgid "Export a blog"
+msgstr "ブログのエクスポート"
+
+#, php-format
+msgid "This will create an export of your current blog: %s"
+msgstr "これは現在のブログ「%s」のエクスポートを作成します"
+
+msgid "Export"
+msgstr "エクスポート"
+
+msgid "You may also want to download your media directory as a zip file"
+msgstr "また、メディアディレクトリを zip ファイルとしてダウンロードできます"
+
+msgid "Export all content"
+msgstr "全コンテンツのエクスポート"
+
+msgid "Congratulation!"
+msgstr "おめでとう！"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "あなたのブログは正常にインポートされました。 Dotclear 2 へようこそ！"
+
+msgid "Why don't you blog this now?"
+msgstr "すぐにブログしませんか？"
+
+msgid "or"
+msgstr "または"
+
+msgid "visit your dashboard"
+msgstr "ダッシュボードへアクセス"
+
+msgid "Dotclear 1.2 import"
+msgstr "Dotclear 1.2 のインポート"
+
+msgid "Import a Dotclear 1.2 installation into your current blog."
+msgstr "現在のブログへ Dotclear 1.2 インストールをインポートします。"
+
+#, php-format
+msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
+msgstr "これは Dotclear 1.2 のコンテンツを、現在のブログ「%s」へ新しいコンテンツとしてインポートします。"
+
+msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
+msgstr "この処理が現在のブログのカテゴリ、ブログロール、エントリ、コメントを空にすることに注意してください。"
+
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr "インポートするブログのサイズによっては、処理に数分間かかることがあります。"
+
+msgid "General information"
+msgstr "全般の情報"
+
+msgid "Import my blog now"
+msgstr "ブログをインポート"
+
+msgid "We first need some information about your old Dotclear 1.2 installation."
+msgstr "はじめに、古い Dotclear 1.2 インストールに関するいくつかの情報が必要です。"
+
+msgid "Entries import options"
+msgstr "エントリのインポートオプション"
+
+msgid "Number of entries to import at once:"
+msgstr "一度にインポートするエントリ数："
+
+msgid "Importing users"
+msgstr "ユーザをインポート中"
+
+msgid "Importing categories"
+msgstr "カテゴリをインポート中"
+
+msgid "Importing blogroll"
+msgstr "ブログロールをインポート中"
+
+#, fuzzy, php-format
+msgid "Importing entries from %d to %d / %d"
+msgstr "%d から %d のエントリをインポート中"
+
+msgid "Please read carefully"
+msgstr "注意深くお読みください"
+
+msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
+msgstr "新たにインポートされたすべてのユーザはランダムなパスワードを受け取っており、ログインページの「パスワードの再発行」リンクから新しいパスワードを要求する必要があります（ユーザの登録済みメールアドレスは有効でなければなりません）。"
+
+#, php-format
+msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
+msgstr "Dotclear 2 が新しいURLレイアウトを持っていることに注意してください。 <a href=\"%s\">DC1 redirect</a> プラグインをインストールし、ブログの設定で有効化することにより、リンク切れを回避することができます。"
+
+msgid "next step"
+msgstr "次のステップ"
+
+msgid "Dotclear tables not found"
+msgstr "Dotclearのテーブルが見つかりませんでした"
+
+msgid "Feed import"
+msgstr "フィードのインポート"
+
+msgid "Imports a feed as new entries."
+msgstr "フィードを新しいエントリとしてインポートします。"
+
+msgid "Cannot retrieve feed URL."
+msgstr "フィードURLから取得できません。"
+
+msgid "No items in feed."
+msgstr "フィードにアイテムがありません。"
+
+msgid "Content successfully imported."
+msgstr "内容は正常にインポートされました。"
+
+msgid "Import from a feed"
+msgstr "フィードからインポート"
+
+#, php-format
+msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
+msgstr "これはフィード（RSS/Atom）を、現在のブログ「%s」の新しいコンテンツとしてインポートします。"
+
+msgid "Feed URL:"
+msgstr "フィードURL："
+
+msgid "Send"
+msgstr "送信"
+
+msgid "Flat file import"
+msgstr "フラットファイルのインポート"
+
+msgid "Imports a blog or a full Dotclear installation from flat file."
+msgstr "ブログまたは完全なDotclearインストールをフラットファイルからインポートします。"
+
+msgid "Single blog successfully imported."
+msgstr "単独ブログは正常にインポートされました。"
+
+msgid "Are you sure you want to import a full backup file?"
+msgstr "本当に、完全なバックアップファイルをインポートしてもよろしいですか？"
+
+msgid "Import a single blog"
+msgstr "単独ブログのインポート"
+
+#, php-format
+msgid "This will import a single blog backup as new content in the current blog: %s."
+msgstr "これは単独ブログのバックアップを、現在のブログ「%s」の新しいコンテンツとしてインポートします。"
+
+msgid "Upload a backup file"
+msgstr "バックアップファイルのアップロード"
+
+msgid "or pick up a local file in your public directory"
+msgstr "または、パブリックディレクトリのローカルファイルを選択"
+
+msgid "Import a full backup file"
+msgstr "完全なバックアップファイルのインポート"
+
+msgid "Warning: This will reset all the content of your database, except users."
+msgstr "警告： これはユーザを除いて、データベースのすべてのコンテンツがリセットされます。"
+
+msgid "WordPress import"
+msgstr "WordPress のインポート"
+
+msgid "Import a WordPress installation into your current blog."
+msgstr "現在のブログへ WordPress インストールをインポートします。"
+
+#, php-format
+msgid "This will import your WordPress content as new content in the current blog: %s."
+msgstr "これは WordPress のコンテンツを、現在のブログ「%s」へ新しいコンテンツとしてインポートします。"
+
+msgid "We first need some information about your old WordPress installation."
+msgstr "はじめに、古い WordPress インストールに関するいくつかの情報が必要です。"
+
+msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
+msgstr "WordPress と Dotclear のカテゴリの処理は全く異なります。 WordPress では、1つの投稿にいくつかのカテゴリを割り当てることができますが、Dotclear の世界では、むしろ「1つのカテゴリ、いくつかのタグ」のように考えます。 従って Dotclear は、投稿ごとに1つのカテゴリ（最も低い番号のもの）のみがインポートできます。 すべてのカテゴリの痕跡を保持したい場合、任意のプレフィックスと共に、それらをタグとしてインポートすることができます。"
+
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+msgstr "他方で、WordPress では投稿を未分類にすることができず、デフォルトのインストールでは <i>\"Uncategorized\"</i> とラベル付けされた最初のカテゴリを持ちます。 そのカテゴリを変更していない場合、Dotclear では実際に投稿を未分類にしておくことが可能なため、ブログのインポート中にそれをただ無視することができます。"
+
+msgid "Ignore the first category:"
+msgstr "最初のカテゴリを無視："
+
+msgid "Import lowest numbered category on posts:"
+msgstr "投稿で最も低い番号付けされたカテゴリをインポート："
+
+msgid "Import all categories as tags:"
+msgstr "すべてのカテゴリをタグとしてインポート："
+
+msgid "Prefix such tags with:"
+msgstr "タグに付加するプレフィックス："
+
+#, fuzzy
+msgid "Content filters"
+msgstr "フィルタへ戻る"
+
+msgid "You may want to process your post and/or comment content with the following filters."
+msgstr ""
+
+msgid "Post content formatter:"
+msgstr ""
+
+#, fuzzy
+msgid "Comment content formatter:"
+msgstr "コメントテキストの色："
+
+msgid "WordPress tables not found"
+msgstr "WordPress テーブルが見つかりませんでした"
+
+msgid "No file to read."
+msgstr "ファイルが読み込めません。"
+
+msgid "File is not a DotClear backup."
+msgstr "ファイルはDotClearのバックアップではありません。"
+
+msgid "File is not a single blog export."
+msgstr "ファイルは単独のブログをエクスポートしたものではありません。"
+
+msgid "File is not a full export."
+msgstr "ファイルは完全なエクスポートではありません。"
+
+msgid "The backup file does not appear to be well formed."
+msgstr ""
+
+msgid "Please wait..."
+msgstr "しばらくお待ちください..."
+
+msgid "Import"
+msgstr "インポート"
+
+msgid "Maintenance"
+msgstr "メンテナンス"
+
+msgid "Optimization successful."
+msgstr "正常に最適化されました。"
+
+msgid "Comments and trackback counted."
+msgstr "コメントとトラックバックがカウントされました。"
+
+msgid "Templates cache directory emptied."
+msgstr "テンプレートキャッシュディレクトリが空にされました。"
+
+msgid "Logs deleted."
+msgstr ""
+
+#, php-format
+msgid "Indexing entry %d to %d."
+msgstr "%d ～ %d のエントリに索引付け中です。"
+
+msgid "next"
+msgstr "次へ"
+
+msgid "Entries index done."
+msgstr "エントリの索引付けが完了しました。"
+
+msgid "Back"
+msgstr "戻る"
+
+#, php-format
+msgid "Indexing comment %d to %d."
+msgstr "%d ～ %d のコメントに索引付け中です。"
+
+msgid "Comments index done."
+msgstr "コメントの索引付けが完了しました。"
+
+msgid "Optimize database room"
+msgstr "データベースの最適化"
+
+msgid "Vacuum tables"
+msgstr "テーブルの整理"
+
+msgid "Counters"
+msgstr "カウンタ"
+
+msgid "Reset comments and ping counters"
+msgstr "コメントとPingのカウンタをリセット"
+
+msgid "Search engine index"
+msgstr "検索エンジンの索引"
+
+msgid "This may take a very long time"
+msgstr "これは非常に長い時間がかかる場合があります"
+
+msgid "Index all posts"
+msgstr "全投稿の索引付け"
+
+msgid "Index all comments"
+msgstr "全コメントの索引付け"
+
+#, fuzzy
+msgid "Vacuum logs"
+msgstr "テーブルの整理"
+
+#, fuzzy
+msgid "Delete all logs"
+msgstr "すべてのスパムを削除"
+
+msgid "Empty templates cache directory"
+msgstr "テンプレートキャッシュディレクトリを空にする"
+
+msgid "Empty directory"
+msgstr "ディレクトリを空にする"
+
+msgid "Pages"
+msgstr "ページ"
+
+msgid "manage pages"
+msgstr "ページの管理"
+
+msgid "Published on"
+msgstr "掲載の日時"
+
+msgid "This page's comments feed"
+msgstr "このページのコメントのフィード"
+
+msgid "You must provide a valid email address."
+msgstr "有効なメールアドレスを入力する必要があります。"
+
+msgid "Page title"
+msgstr "ページのタイトル"
+
+msgid "Page position"
+msgstr "ページの位置"
+
+msgid "Publication date"
+msgstr "掲載の日付"
+
+msgid "No page"
+msgstr "ページはありません"
+
+msgid "Are you sure you want to delete selected pages?"
+msgstr "本当に、選択されたページを削除してもよろしいですか？"
+
+msgid "New page"
+msgstr "新しいページ"
+
+msgid "Selected pages action:"
+msgstr "選択されたページに実行："
+
+msgid "This page does not exist."
+msgstr "このページは存在しません。"
+
+msgid "Edit page"
+msgstr "ページの編集"
+
+msgid "next page"
+msgstr "次のページ"
+
+msgid "previous page"
+msgstr "前のページ"
+
+msgid "Are you sure you want to delete this page?"
+msgstr "本当に、このページを削除してもよろしいですか？"
+
+msgid "Page has been successfully updated."
+msgstr "ページは正常に更新されました。"
+
+msgid "Page has been successfully created."
+msgstr "ページは正常に作成されました。"
+
+msgid "View page"
+msgstr "ページを表示"
+
+msgid "Preview page"
+msgstr "ページをプレビュー"
+
+msgid "Page status:"
+msgstr "ページの状態："
+
+msgid "Page position:"
+msgstr "ページの位置："
+
+msgid "Page lang:"
+msgstr "ページの言語："
+
+msgid "Page password:"
+msgstr "ページのパスワード："
+
+msgid "Warning: If you set the URL manually, it may conflict with another page."
+msgstr "警告： URLを手作業で設定した場合、別のページと衝突する可能性があります。"
+
+msgid "Add files to this page"
+msgstr "このページへファイルを追加"
+
+msgid "Pings"
+msgstr "Ping"
+
+msgid "Pings configuration"
+msgstr "Pingの設定"
+
+msgid "Settings have been successfully updated."
+msgstr "設定は正常に更新されました。"
+
+msgid "Activate pings extension"
+msgstr "Pingエクステンションの有効化"
+
+msgid "Service name:"
+msgstr "サービス名："
+
+msgid "Service URI:"
+msgstr "サービスのURI："
+
+msgid "error"
+msgstr "エラー"
+
+msgid "Test ping services"
+msgstr "Pingサービスのテスト"
+
+msgid "Check all"
+msgstr ""
+
+msgid "Pings:"
+msgstr "Ping："
+
+msgid "Tags"
+msgstr "タグ"
+
+msgid "Tags:"
+msgstr "タグ："
+
+#, php-format
+msgid "Are you sure you want to remove this %s?"
+msgstr "本当に、この %s を削除してもよろしいですか？"
+
+#, php-format
+msgid "Add a %s to this entry"
+msgstr "このエントリへ %s を追加"
+
+msgid "Choose from list"
+msgstr "リストから選択"
+
+msgid "all"
+msgstr "すべて"
+
+msgid "Tag"
+msgstr "タグ"
+
+msgid "used in %e - frequency %p%"
+msgstr ""
+
+#, fuzzy
+msgid "entry"
+msgstr "中央"
+
+msgid "entries"
+msgstr "エントリ"
+
+msgid "Enter tags separated by coma"
+msgstr ""
+
+#, fuzzy
+msgid "Add tags"
+msgstr "タグの追加"
+
+#, fuzzy
+msgid "Remove tags"
+msgstr "タグの除去"
+
+msgid "Add tags to entries"
+msgstr "エントリへタグを追加"
+
+msgid "Tags to add:"
+msgstr "追加するタグ："
+
+msgid "Remove selected tags from entries"
+msgstr "エントリから選択されたタグを除去"
+
+msgid "No tags for selected entries"
+msgstr "選択されたエントリにはタグがありません"
+
+msgid "Following tags have been found in selected entries:"
+msgstr "以下のタグが選択されたエントリで見つかりました："
+
+msgid "short"
+msgstr ""
+
+msgid "extended"
+msgstr ""
+
+#, fuzzy
+msgid "Tags list format:"
+msgstr "追加するタグ："
+
+msgid "This tag's comments Atom feed"
+msgstr "このタグのコメントのAtomフィード"
+
+msgid "This tag's entries Atom feed"
+msgstr "このタグのエントリのAtomフィード"
+
+msgid "Limit (empty means no limit):"
+msgstr "制限（空欄は無制限）"
+
+msgid "Entries count"
+msgstr "エントリ数"
+
+msgid "Tag name"
+msgstr "タグ名"
+
+msgid "All tags"
+msgstr "すべてのタグ"
+
+msgid "Link to all tags:"
+msgstr ""
+
+msgid "Edit tag"
+msgstr "タグの編集"
+
+msgid "Tag has been successfully renamed"
+msgstr "タグの名前は正常に変更されました"
+
+msgid "Back to tags list"
+msgstr "タグ一覧に戻る"
+
+msgid "Rename this tag:"
+msgstr "このタグの名前を変更："
+
+msgid "Delete this tag"
+msgstr "このタグを削除"
+
+msgid "Tag has been successfully removed"
+msgstr "タグは正常に削除されました"
+
+msgid "No tags on this blog."
+msgstr "このブログでのタグはありません。"
+
+msgid "Theme Editor"
+msgstr "テーマエディタ"
+
+msgid "No file"
+msgstr "ファイルはありません"
+
+msgid "File does not exist."
+msgstr "ファイルが存在しません。"
+
+#, php-format
+msgid "File %s is not readable"
+msgstr "ファイル %s は読み込み可能ではありません"
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "ファイル %s に書き込むことができません。 テーマのファイルとフォルダのパーミッションを確認してください。"
+
+msgid "Saving document..."
+msgstr "ドキュメントの保存中..."
+
+msgid "Document saved"
+msgstr "ドキュメントは保存されました"
+
+msgid "An error occurred:"
+msgstr "エラーが発生しました："
+
+#, php-format
+msgid "Your current theme on this blog is \"%s\"."
+msgstr "このブログの現在のテーマは \"%s\" です。"
+
+msgid "You can't edit default theme."
+msgstr "デフォルトテーマは編集できません。"
+
+msgid "Please select a file to edit."
+msgstr "編集したいファイルを選択してください。"
+
+msgid "File editor"
+msgstr "ファイルエディタ"
+
+#, php-format
+msgid "Editing file %s"
+msgstr "ファイル %s の編集"
+
+msgid "This file is not writable. Please check your theme files permissions."
+msgstr "このファイルは書き込み可能ではありません。 テーマファイルのパーミッションを確認してください。"
+
+msgid "Templates files"
+msgstr "テンプレートファイル"
+
+msgid "CSS files"
+msgstr "CSSファイル"
+
+msgid "JavaScript files"
+msgstr "JavaScriptファイル"
+
+msgid "Presentation widgets"
+msgstr "プレゼンテーションウィジェット"
+
+msgid "Search engine"
+msgstr "検索エンジン"
+
+msgid "Navigation links"
+msgstr "ナビゲーションリンク"
+
+msgid "Selected entries"
+msgstr "イチ押しのエントリ"
+
+msgid "Best of me"
+msgstr "私のイチ押し"
+
+msgid "Blog languages"
+msgstr "ブログの言語"
+
+msgid "With entries counts"
+msgstr "エントリ数付き"
+
+msgid "Subscribe links"
+msgstr "定期受信リンク"
+
+msgid "Subscribe"
+msgstr "定期受信"
+
+msgid "Feeds type:"
+msgstr "フィードタイプ："
+
+msgid "Feed reader"
+msgstr "フィードリーダー"
+
+msgid "Somewhere else"
+msgstr "他のサイト"
+
+msgid "Entries limit:"
+msgstr "エントリの制限："
+
+msgid "Text"
+msgstr "テキスト"
+
+msgid "Text:"
+msgstr "テキスト："
+
+msgid "Last entries"
+msgstr "最終エントリ"
+
+msgid "Uncategorized"
+msgstr "未分類"
+
+msgid "Tag:"
+msgstr "タグ："
+
+msgid "Last comments"
+msgstr "最終コメント"
+
+msgid "Comments limit:"
+msgstr "コメントの制限："
+
+msgid "Home"
+msgstr "ホーム"
+
+msgid "Archives"
+msgstr "アーカイブ"
+
+#, php-format
+msgid "This blog's entries %s feed"
+msgstr "このブログのエントリ %s のフィード"
+
+#, php-format
+msgid "This blog's comments %s feed"
+msgstr "このブログのコメント %s のフィード"
+
+msgid "Entries feed"
+msgstr "エントリのフィード"
+
+msgid "Comments feed"
+msgstr "コメントのフィード"
+
+msgid "navigation"
+msgstr "ナビゲーション"
+
+msgid "extra"
+msgstr "拡張"
+
+msgid "Widgets"
+msgstr "ウィジェット"
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr "本当に、サイドバーをリセットしてもよろしいですか？"
+
+msgid "Available widgets"
+msgstr "利用可能なウィジェット"
+
+msgid "Append to:"
+msgstr "付加先："
+
+msgid "add widgets to sidebars"
+msgstr "サイドバーへウィジェットを追加"
+
+msgid "Navigation sidebar"
+msgstr "ナビゲーションサイドバー"
+
+msgid "Extra sidebar"
+msgstr "拡張サイドバー"
+
+msgid "update sidebars"
+msgstr "サイドバーを更新"
+
+msgid "reset sidebars"
+msgstr "サイドバーをリセット"
+
+msgid "Widget templates tags"
+msgstr "ウィジェットテンプレートのタグ"
+
+msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
+msgstr "あなたのテーマテンプレートの編集が許可されている場合、それら自身の設定で、テンプレートタグとしてウィジェットを直接加えることができます。"
+
+msgid "To add a widget in your template, you need to write code like this:"
+msgstr "あなたのテンプレートにウィジェットを加えるには、このようなコードを書く必要があります："
+
+msgid "Widget ID"
+msgstr "ウィジェット ID"
+
+msgid "Setting name"
+msgstr "設定名"
+
+msgid "Setting value"
+msgstr "設定値"
+
+msgid "Here are the following available widgets for your blog:"
+msgstr "あなたのブログ用に以下の利用可能なウィジェットがあります："
+
+msgid "Widget ID:"
+msgstr "ウィジェット ID："
+
+msgid "No setting for this widget"
+msgstr "このウィジェットに設定はありません"
+
+msgid "Setting name:"
+msgstr "設定名："
+
+msgid "No widget."
+msgstr "ウィジェットはありません。"
+
+msgid "order"
+msgstr "並び順"
+
+msgid "Remove widget"
+msgstr "ウィジェットの削除"
+
+#~ msgid "Unsupported service"
+#~ msgstr "サポートされていないサービスです"
+
+#~ msgid "Invalid page URL"
+#~ msgstr "無効なページURLです"

@@ -1,0 +1,134 @@
+# German translation of DotClear
+# Copyright (C) 2008.
+# Andreas Diller <nendilo@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2009-01-04 08:25+0100\n"
+"Last-Translator: Andreas Diller <nendilo@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d.%m.%Y %H:%M"
+
+msgid "_Jan"
+msgstr "Jan."
+
+msgid "_Feb"
+msgstr "Feb."
+
+msgid "_Mar"
+msgstr "Mär."
+
+msgid "_Apr"
+msgstr "Apr."
+
+msgid "_May"
+msgstr "Mai"
+
+msgid "_Jun"
+msgstr "Jun."
+
+msgid "_Jul"
+msgstr "Jul."
+
+msgid "_Aug"
+msgstr "Aug."
+
+msgid "_Sep"
+msgstr "Sep."
+
+msgid "_Oct"
+msgstr "Okt."
+
+msgid "_Nov"
+msgstr "Nov."
+
+msgid "_Dec"
+msgstr "Dez."
+
+msgid "January"
+msgstr "Januar"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "March"
+msgstr "März"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "Dezember"
+
+msgid "_Mon"
+msgstr "Mo."
+
+msgid "_Tue"
+msgstr "Di."
+
+msgid "_Wed"
+msgstr "Mi."
+
+msgid "_Thu"
+msgstr "Do."
+
+msgid "_Fri"
+msgstr "Fr."
+
+msgid "_Sat"
+msgstr "Sa."
+
+msgid "_Sun"
+msgstr "So."
+
+msgid "Monday"
+msgstr "Montag"
+
+msgid "Tuesday"
+msgstr "Dienstag"
+
+msgid "Wednesday"
+msgstr "Mittwoch"
+
+msgid "Thursday"
+msgstr "Donnerstag"
+
+msgid "Friday"
+msgstr "Freitag"
+
+msgid "Saturday"
+msgstr "Samstag"
+
+msgid "Sunday"
+msgstr "Sonntag"

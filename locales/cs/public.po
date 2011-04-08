@@ -1,0 +1,240 @@
+# Dotclear 2 Czech translation
+# Jan Skrasek <hrach.cz@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2009-11-21 18:50+0100\n"
+"Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
+"Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n< =4) ? 1 : 2\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+
+# Not found strings
+msgid "To content"
+msgstr "Obsah"
+
+msgid "To menu"
+msgstr "Menu"
+
+msgid "To search"
+msgstr "Vyhledávání"
+
+msgid "By"
+msgstr "Od"
+
+msgid "by"
+msgstr "od"
+
+msgid "on"
+msgstr "v"
+
+msgid "On"
+msgstr "v"
+
+msgid "Continue reading"
+msgstr "Číst dál..."
+
+msgid "no comment"
+msgstr "žádné komentáře"
+
+msgid "one comment"
+msgstr "jeden komentář"
+
+msgid "%d comments"
+msgstr "%d komentářů(e)"
+
+msgid "no trackback"
+msgstr "žádné trackbacky"
+
+msgid "one trackback"
+msgstr "jeden trackback"
+
+msgid "%d trackbacks"
+msgstr "%d trackbacků(y)"
+
+msgid "no attachment"
+msgstr "žádná příloha"
+
+msgid "one attachment"
+msgstr "jedna příloha"
+
+msgid "%d attachments"
+msgstr "%d příloh(y)"
+
+msgid "previous entries"
+msgstr "přechozí články"
+
+msgid "page"
+msgstr "strana"
+
+msgid "of"
+msgstr "ze"
+
+msgid "next entries"
+msgstr "následující články"
+
+msgid "Search"
+msgstr "Vyhledávání"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Žádne výsledky pro hledání <em>%1$s</em>."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Hledání výrazu \"<em>%1$s</em>\" vrátilo <strong>%2$s</strong> výsledek."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Hledání výrazu \"<em>%1$s</em>\" vrátilo <strong>%2$s</strong> výsledky."
+
+msgid "Home"
+msgstr "Úvod"
+
+msgid "All keywords"
+msgstr "Všechny štítky"
+
+msgid "Best of me"
+msgstr "Nejlepší šlánky"
+
+msgid "Languages"
+msgstr "Jazyky"
+
+msgid "Categories"
+msgstr "Kategorie"
+
+msgid "Subcategories"
+msgstr "Podkategorie"
+
+msgid "Archives"
+msgstr "Archivy"
+
+msgid "Links"
+msgstr "Odkazy"
+
+msgid "Subscribe"
+msgstr "Odebírat"
+
+msgid "Entries feed"
+msgstr "Kanál článků"
+
+msgid "Comments feed"
+msgstr "Kanál komentářů"
+
+msgid "This blog's comments Atom feed"
+msgstr "Atom kanál komentářů"
+
+msgid "This category's entries Atom feed"
+msgstr "Atom kanál článků kategorie"
+
+msgid "This category's comments Atom feed"
+msgstr "Atom kanál komentářů kategorie"
+
+msgid "This post's comments feed"
+msgstr "Kanál pro komentáře článku"
+
+msgid "This post's comments Atom feed"
+msgstr "Atom kanál pro komentáře článku"
+
+msgid "Attachments"
+msgstr "Přílohy"
+
+msgid "Permalink"
+msgstr "Trvalý odkaz"
+
+msgid "Comments"
+msgstr "Komentáře"
+
+msgid "Your comment"
+msgstr "Váš komentář"
+
+msgid "Your comment has been published."
+msgstr "Váš komentář byl publikován."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Váš komentář byl zaslán a bude předán k moderování."
+
+msgid "Add a comment"
+msgstr "Přidat komentář"
+
+msgid "Name or nickname"
+msgstr "Jméno nebo přeždívka"
+
+msgid "Email address"
+msgstr "E-mail"
+
+msgid "Website"
+msgstr "Web"
+
+msgid "optional"
+msgstr "volitelné"
+
+msgid "Comment"
+msgstr "Komentář"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML kód bude zobrazen jako text, URL adresy budou automaticky překonvertovány na odkazy."
+
+msgid "Remember me on this blog"
+msgstr "Zapamatuj si mě"
+
+msgid "preview"
+msgstr "náhled"
+
+msgid "send"
+msgstr "poslat"
+
+msgid "They posted on the same topic"
+msgstr "Jsou publikovány ve stejném tématu"
+
+msgid "Trackback URL"
+msgstr "Trackback URL"
+
+msgid "You must provide an author name"
+msgstr "Musíte uvést jméno autora"
+
+msgid "You must provide a comment"
+msgstr "Musíte napsat nějaký komentář"
+
+msgid "Email address is not valid"
+msgstr "E-mailová adresa není správná"
+
+msgid "Document not found"
+msgstr "Dokument nenalezen"
+
+msgid "The document you are looking for does not exist."
+msgstr "Dokument, který hledáte, neexistuje."
+
+msgid "Powered by %s"
+msgstr "Vytvořil %s"
+
+msgid "Subscribe to"
+msgstr "Přihlásit se k odběru"
+
+msgid "What is an RSS feed?"
+msgstr "Co je to RSS kanál?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "RSS kanál je univerzálně poskytovaný souhrn blogu. Pomocí nějk jednoduše získáte zahlaví článků a odkazy na jejich plnou verzi. RSS kanál můžete odebírat pomocí svého oblíbeného <a href=\"http://cs.wikipedia.org/wiki/RSS\">agregátoru</a>."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Jednoduše zkopírujte toto URL do vašeho programu pro RSS:"
+
+msgid "Password needed"
+msgstr "Je vyžadováno heslo"
+
+msgid "You must give a password to access this area."
+msgstr "Musíte zadat heslo přo přístup do této sekce."
+
+msgid "Password:"
+msgstr "Heslo:"
+
+msgid "You must provide a valid email address."
+msgstr "Musíte vložit validní emailovou adresu."
+
+msgid "Read"
+msgstr "Číst"
