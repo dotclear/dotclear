@@ -1,0 +1,2621 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"PO-Revision-Date: 2009-09-16 12:33+0600\n"
+"Last-Translator: Adnan Shameem <needadnan@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bengali\n"
+
+msgid "Dotclear has been upgraded."
+msgstr "ডটক্লিয়ার আপগ্রেড করা হয়েছে।"
+
+msgid "Password reset"
+msgstr "পাসওয়ার্ড রিসেট"
+
+msgid "Someone has requested to reset the password for the following site and username."
+msgstr ""
+
+msgid "Username:"
+msgstr "ইউজারনেম:"
+
+msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
+msgstr ""
+
+#, php-format
+msgid "The e-mail was sent successfully to %s."
+msgstr ""
+
+msgid "Your new password"
+msgstr "আপনার নতুন পাসওয়ার্ড"
+
+msgid "Password:"
+msgstr "পাসওয়ার্ড:"
+
+msgid "Your new password is in your mailbox."
+msgstr "আপনার নতুন পাসওয়ার্ড আপনার মেইলবক্সে পাঠিয়ে দেয়া হয়েছে।"
+
+msgid "Passwords don't match"
+msgstr "দুটো পাসওয়ার্ডে অমিল রয়েছে"
+
+msgid "You didn't change your password."
+msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
+
+#, fuzzy
+msgid "You have to change your password before you can login."
+msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
+
+#, fuzzy
+msgid "In order to login, you have to change your password now."
+msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
+
+msgid "Wrong username or password"
+msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
+
+msgid "Back to login screen"
+msgstr "লগইন পাতায় ফিরে যাও"
+
+msgid "Request a new password"
+msgstr "নতুন পাসওয়ার্ডের জন্য অনুরোধ করুন"
+
+msgid "Email:"
+msgstr "ইমেইল:"
+
+msgid "recover"
+msgstr "উদ্ধার করুন"
+
+msgid "Change your password"
+msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
+
+msgid "New password:"
+msgstr "নতুন পাসওয়ার্ড:"
+
+msgid "Confirm password:"
+msgstr "আবার পাসওয়ার্ড:"
+
+msgid "change"
+msgstr "পরিবর্তন করুন"
+
+msgid "Remember my ID on this computer"
+msgstr "আমার ID এই কম্পিউটারে মনে রেখো"
+
+msgid "login"
+msgstr "লগইন"
+
+msgid "You must accept cookies in order to use the private area."
+msgstr ""
+
+msgid "I forgot my password"
+msgstr "আমার পাসওয়ার্ড ভুলে গেছি"
+
+msgid "New blog"
+msgstr "নতুন ব্লগ"
+
+msgid "Blogs"
+msgstr "ব্লগসমূহ"
+
+msgid "Blog details"
+msgstr "ব্লগের বিবরণ"
+
+msgid "Blog ID:"
+msgstr "ব্লগ আইডি:"
+
+msgid "Required field"
+msgstr "প্রয়োজনীয় ঘর"
+
+msgid "At least 2 characters using letters, numbers or symbols."
+msgstr "কমপক্ষে ২ অক্ষর লিখতে হবে - বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr ""
+
+msgid "Blog name:"
+msgstr "ব্লগের নাম:"
+
+msgid "Blog URL:"
+msgstr "ব্লগ URL:"
+
+msgid "Blog description:"
+msgstr "ব্লগের বিবরণ:"
+
+msgid "save"
+msgstr "সংরক্ষণ করুন"
+
+msgid "No such blog ID"
+msgstr "এরকম কোনো ব্লগ আইডি নেই"
+
+msgid "Password verification failed"
+msgstr "পাসওয়ার্ড নিশ্চিতকরণ সম্ভব হয় নি"
+
+msgid "Delete a blog"
+msgstr "ব্লগ মুছে ফেলো"
+
+msgid "Warning"
+msgstr "সতর্কবাণী"
+
+#, php-format
+msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
+msgstr ""
+
+msgid "Please give your password to confirm the blog deletion."
+msgstr ""
+
+msgid "Your password:"
+msgstr "আপনার পাসওয়ার্ড:"
+
+msgid "Delete this blog"
+msgstr "এই ব্লগ মুছে ফেলো"
+
+msgid "No given blog id."
+msgstr "ব্লগ আইডি দেয়া নেই।"
+
+msgid "No such blog."
+msgstr "এরকম কোনো ব্লগ নেই।"
+
+msgid "year/month/day/title"
+msgstr "বছর/মাস/দিন/টাইটেল"
+
+msgid "year/month/title"
+msgstr "বছর/মাস/টাইটেল"
+
+msgid "year/title"
+msgstr "বছর/টাইটেল"
+
+msgid "title"
+msgstr "টাইটেল"
+
+msgid "Title"
+msgstr "টাইটেল"
+
+msgid "Title, Date"
+msgstr "টাইটেল, তারিখ"
+
+msgid "Title, Country, Date"
+msgstr "টাইটেল, দেশ, তারিখ"
+
+msgid "Title, City, Country, Date"
+msgstr "টাইটেল, শহর, দেশ, তারিখ"
+
+msgid "I would like search engines and archivers to index and archive my blog's content."
+msgstr ""
+
+msgid "I would like search engines and archivers to index but not archive my blog's content."
+msgstr ""
+
+msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
+msgstr ""
+
+#, fuzzy
+msgid "That blog Id is already in use."
+msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
+
+msgid "Invalid language code"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+msgid "Blog settings"
+msgstr "ব্লগ সেটিংস"
+
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
+msgstr ""
+
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgstr ""
+
+msgid "Blog has been successfully created."
+msgstr "ব্লগটি সফলভাবে তৈরী হয়েছে।"
+
+msgid "Blog has been successfully updated."
+msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
+
+msgid "Parameters"
+msgstr ""
+
+msgid "URL scan method:"
+msgstr ""
+
+msgid "Blog status:"
+msgstr "ব্লগের অবস্থা:"
+
+msgid "Blog configuration"
+msgstr "ব্লগ কনফিগারেশন"
+
+msgid "Blog editor name:"
+msgstr "ব্লগের সম্পাদকের নাম:"
+
+msgid "Default language:"
+msgstr "ডিফল্ট ভাষা:"
+
+msgid "Blog timezone:"
+msgstr "ব্লগের টাইমজোন:"
+
+msgid "Copyright notice:"
+msgstr "কপিরাইট নোটিস:"
+
+msgid "New post URL format:"
+msgstr "নতুন পোস্টের URL ফরম্যাট:"
+
+msgid "Enable XML/RPC interface"
+msgstr ""
+
+msgid "more information"
+msgstr "আরো তথ্য"
+
+msgid "Comments and trackbacks"
+msgstr "মন্তব্য এবং ট্র্যাকব্যাকসমূহ"
+
+msgid "Accept comments"
+msgstr ""
+
+msgid "Moderate comments"
+msgstr ""
+
+#, php-format
+msgid "Leave comments open for %s days"
+msgstr ""
+
+#, fuzzy
+msgid "Leave blank to disable this feature."
+msgstr "এই ফিচারটি বাতিল করতে হলে খালি রাখুন।"
+
+msgid "Wiki syntax for comments"
+msgstr ""
+
+msgid "Accept trackbacks"
+msgstr ""
+
+msgid "Moderate trackbacks"
+msgstr ""
+
+#, php-format
+msgid "Leave trackbacks open for %s days"
+msgstr ""
+
+msgid "Add \"nofollow\" relation on comments and trackbacks links"
+msgstr ""
+
+msgid "Blog presentation"
+msgstr ""
+
+msgid "Date format:"
+msgstr "তারিখের ফরম্যাট:"
+
+msgid "Time format:"
+msgstr "সময়ের ফরম্যাট:"
+
+msgid "Display smilies on entries and comments"
+msgstr "এন্ট্রি এবং মন্তব্যে স্মাইলি দেখাবে"
+
+#, php-format
+msgid "Display %s entries per page"
+msgstr "প্রতি পেজে %s টি এন্ট্রি দেখাবে"
+
+#, php-format
+msgid "Display %s entries per feed"
+msgstr "প্রতি ফিডে %s টি এন্ট্রি দেখাবে"
+
+#, php-format
+msgid "Display %s comments per feed"
+msgstr "প্রতি ফিডে %s টি মন্তব্য দেখাবে"
+
+msgid "Truncate feeds"
+msgstr ""
+
+msgid "Media and images"
+msgstr "মিডিয়া এবং ছবিসমূহ"
+
+msgid "Generated image sizes (in pixels)"
+msgstr ""
+
+msgid "Thumbnails:"
+msgstr "থাম্বনেইল:"
+
+msgid "Small:"
+msgstr "ছোট:"
+
+msgid "Medium:"
+msgstr "মাঝারি:"
+
+msgid "Inserted image title"
+msgstr ""
+
+msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
+msgstr ""
+
+msgid "Search engines robots policy"
+msgstr "সার্চ ইঞ্জিনের রোবটের জন্য নিয়ম"
+
+msgid "XML/RPC interface"
+msgstr "XML/RPC ইন্টারফেস"
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr ""
+
+msgid "XML/RPC interface is not active. Change settings to enable it."
+msgstr ""
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr ""
+
+msgid "Server URL:"
+msgstr "সার্ভার URL:"
+
+msgid "Blogging system:"
+msgstr "ব্লগিং সিস্টেম:"
+
+msgid "User name:"
+msgstr "ইউজার নেম:"
+
+msgid "your password"
+msgstr "আপনার পাসওয়ার্ড"
+
+msgid "Users"
+msgstr "ইজারসমূহ"
+
+msgid "Users on this blog"
+msgstr "এই ব্লগের ইউজারসমূহ"
+
+msgid "No users"
+msgstr "শূণ্য ইউজার"
+
+msgid "change permissions"
+msgstr "অনুমতি পরিবর্তন করুন"
+
+msgid "Super administrator"
+msgstr ""
+
+msgid "You can't remove default theme."
+msgstr "You can't remove default theme."
+
+msgid "Theme does not exist."
+msgstr "থিমটি খুঁজে পাওয়া যায় নি"
+
+msgid "Unable to move uploaded file."
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
+
+msgid "An error occurred while downloading the file."
+msgstr ""
+
+#, php-format
+msgid "by %s"
+msgstr "লিখেছেন %s"
+
+#, php-format
+msgid "version %s"
+msgstr "সংস্করণ %s"
+
+#, php-format
+msgid "(built on \"%s\")"
+msgstr ""
+
+#, php-format
+msgid "(requires \"%s\")"
+msgstr ""
+
+msgid "Stylesheet"
+msgstr "স্টাইলশিট"
+
+msgid "Theme configuration"
+msgstr "থিম কনফিগারেশন"
+
+msgid "Blog themes"
+msgstr "ব্লগের থিমসমূহ"
+
+msgid "Blog appearance"
+msgstr ""
+
+msgid "Theme has been successfully changed."
+msgstr "থিম সফলভাবে পরিবর্তন করা হয়েছে।"
+
+msgid "Theme has been successfully installed."
+msgstr "থিমটি সফলভাবে ইন্সটল করা হয়েছে।"
+
+msgid "Theme has been successfully upgraded"
+msgstr "থিমটি সফলভাবে আপগ্রেড করা হয়েছে।"
+
+msgid "Theme has been successfully deleted."
+msgstr "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+
+#, php-format
+msgid "You can find additional themes for your blog on %s."
+msgstr ""
+
+msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
+msgstr ""
+
+msgid "Themes"
+msgstr "থিমসমূহ"
+
+#, php-format
+msgid "You are currently using \"%s\""
+msgstr "আপনি বর্তমানে ব্যবহার করছেন \"%s\""
+
+msgid "use selected theme"
+msgstr ""
+
+msgid "delete selected theme"
+msgstr ""
+
+msgid "Install or upgrade a theme"
+msgstr ""
+
+msgid "You can install themes by uploading or downloading zip files."
+msgstr ""
+
+msgid "Upload a zip file"
+msgstr "Zip ফাইল আপলোড করুন"
+
+msgid "Theme zip file:"
+msgstr "থিমের zip ফাইল:"
+
+msgid "Upload theme"
+msgstr "থিম আপলোড করুন"
+
+msgid "Download a zip file"
+msgstr "Zip ফাইল ডাউনলোড"
+
+msgid "Theme zip file URL:"
+msgstr "থিমের zip ফাইলের URL:"
+
+msgid "Download theme"
+msgstr "থিম ডাউনলোড"
+
+msgid "To enable this function, please give write access to your themes directory."
+msgstr ""
+
+msgid "back"
+msgstr ""
+
+msgid "Last update"
+msgstr "সর্বশেষ আপডেট"
+
+msgid "Blog name"
+msgstr "ব্লগের নাম"
+
+msgid "Blog ID"
+msgstr "ব্লগ আইডি"
+
+msgid "Descending"
+msgstr "বড় থেকে ছোট"
+
+msgid "Ascending"
+msgstr "ছোট থেকে বড়"
+
+msgid "List of blogs"
+msgstr "ব্লগের লিস্ট"
+
+msgid "Blog has been successfully deleted."
+msgstr "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
+
+msgid "Create a new blog"
+msgstr "একটি নতুন ব্লগ তৈরি করুন"
+
+msgid "Filters"
+msgstr ""
+
+msgid "Order by:"
+msgstr ""
+
+msgid "Sort:"
+msgstr ""
+
+msgid "Search:"
+msgstr ""
+
+msgid "Blogs per page"
+msgstr ""
+
+msgid "filter"
+msgstr "ফিল্টার"
+
+msgid "No blog"
+msgstr ""
+
+msgid "Page(s)"
+msgstr "পেজ(সমূহ)"
+
+msgid "Entries"
+msgstr "এন্ট্রি"
+
+msgid "Status"
+msgstr "অবস্থা"
+
+#, php-format
+msgid "Edit blog %s"
+msgstr "%s ব্লগ এডিট করুন"
+
+msgid "edit"
+msgstr "এডিট"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr ""
+
+msgid "This category does not exist."
+msgstr "এই ক্যাটাগরির কোনো অস্তিত্ব নেই।"
+
+msgid "Categories"
+msgstr "ক্যাটাগরিসমূহ"
+
+msgid "The category has been successfully created."
+msgstr "ক্যাটাগরিটি সফলভাবে তৈরি হয়েছে।"
+
+msgid "The category has been successfully removed."
+msgstr "ক্যাটাগরিটি সফলভাবে মুছে ফেলা হয়েছে।"
+
+msgid "Categories have been successfully reordered."
+msgstr "ক্যাটাগরিটি সফলভাবে পুনর্বিন্যাস করা হয়েছে।"
+
+msgid "The category has been successfully moved."
+msgstr "ক্যাটাগরিটি সফলভাবে সরানো হয়েছে।"
+
+msgid "No category yet."
+msgstr "কোনো ক্যাটাগরি নেই।"
+
+msgid "Categories list"
+msgstr "ক্যাটাগরির লিস্ট"
+
+#, php-format
+msgid "%d entries"
+msgstr "%d টি এন্ট্রি"
+
+#, php-format
+msgid "%d entry"
+msgstr "%d টি এন্ট্রি"
+
+msgid "total:"
+msgstr "মোট:"
+
+msgid "URL:"
+msgstr "URL:"
+
+msgid "Add a new category"
+msgstr "নতুন ক্যাটাগরি তৈরি করুন"
+
+msgid "Title:"
+msgstr "টাইটেল:"
+
+msgid "Parent:"
+msgstr ""
+
+msgid "Top level"
+msgstr ""
+
+msgid "Save"
+msgstr "সংরক্ষণ করুন"
+
+msgid "Remove a category"
+msgstr ""
+
+msgid "Choose a category to remove:"
+msgstr "মুছে ফেলতে হলে ক্যাটাগরি সিলেক্ট করুন:"
+
+msgid "ok"
+msgstr "ঠিক আছে"
+
+msgid "Reorder categories"
+msgstr ""
+
+msgid "This will relocate all categories on the top level"
+msgstr ""
+
+msgid "Reorder"
+msgstr "পুনর্বিন্যাস"
+
+msgid "New category"
+msgstr "নতুন ক্যাটাগরি"
+
+msgid "Category has been successfully updated."
+msgstr "ক্যাটাগরি সফলভাবে আপডেট করা হয়েছে।"
+
+msgid "Category information"
+msgstr "ক্যাটাগরির তথ্য"
+
+msgid "Warning: If you set the URL manually, it may conflict with another category."
+msgstr "মনে রাখুন: আপনি যদি নিজে URL সেট করে দেন, তাহলে সেটা অন্য ক্যাটাগরির সাথে সমস্যা হতে পারে।"
+
+msgid "Description:"
+msgstr "বিবরণ:"
+
+msgid "Move this category"
+msgstr "এই ক্যাটাগরিকে সরিয়ে নিন"
+
+msgid "Category parent"
+msgstr ""
+
+msgid "Category sibling"
+msgstr ""
+
+msgid "Move current category"
+msgstr ""
+
+msgid "after"
+msgstr "পরে"
+
+msgid "before"
+msgstr "আগে"
+
+msgid "Entry does not exist."
+msgstr "এই এন্ট্রিটি নেই।"
+
+msgid "No comment"
+msgstr "শূণ্য মন্তব্য"
+
+msgid "You can't edit this comment."
+msgstr "আপনি এই মন্তব্যটি এডিট করতে পারবেন না।"
+
+msgid "Edit comment"
+msgstr "মন্তব্য এডিট করুন"
+
+msgid "Comment has been successfully updated."
+msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+
+#, php-format
+msgid "Your comment on my blog %s"
+msgstr ""
+
+#, php-format
+msgid ""
+"Hi!\n"
+"\n"
+"You wrote a comment on:\n"
+"%s\n"
+"\n"
+"\n"
+msgstr ""
+
+msgid "Send an e-mail"
+msgstr "ই-মেইল পাঠাও"
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "ফিরে যাও \"%s\""
+
+msgid "IP address:"
+msgstr "IP এড্রেস:"
+
+msgid "Date:"
+msgstr "তারিখ:"
+
+msgid "Author:"
+msgstr "লেখক:"
+
+msgid "Web site:"
+msgstr "ওয়েব সাইট:"
+
+msgid "Status:"
+msgstr "অবস্থা:"
+
+msgid "Comment:"
+msgstr "মন্তব্য"
+
+msgid "delete"
+msgstr "মুছে ফেলুন"
+
+msgid "comment"
+msgstr "মন্তব্য"
+
+msgid "trackback"
+msgstr "ট্র্যাকব্যাক"
+
+msgid "Date"
+msgstr "তারিখ"
+
+msgid "Entry title"
+msgstr "এন্ট্রির টাইটেল"
+
+msgid "Author"
+msgstr "লেখক"
+
+msgid "publish"
+msgstr "প্রকাশ করুন"
+
+msgid "unpublish"
+msgstr "অপ্রকাশ করুন"
+
+msgid "mark as pending"
+msgstr ""
+
+msgid "mark as junk"
+msgstr ""
+
+msgid "Comments"
+msgstr "মন্তব্য"
+
+msgid "Type:"
+msgstr "ধরণ:"
+
+msgid "Comments per page"
+msgstr "প্রতি পেজে মন্তব্য"
+
+msgid "Comment author:"
+msgstr "মন্তব্যের লেখক:"
+
+msgid "You have one spam comments."
+msgstr "আপনার একটি স্প্যাম মন্তব্য আছে।"
+
+msgid "Show it."
+msgstr "সেটি দেখাও।"
+
+#, php-format
+msgid "You have %s spam comments."
+msgstr "আপনার %s টি স্প্যাম মন্তব্য আছে।"
+
+msgid "Show them."
+msgstr "সেগুলো দেখাও।"
+
+msgid "Selected comments action:"
+msgstr ""
+
+#, php-format
+msgid "%d comment"
+msgstr "%d টি মন্তব্য"
+
+#, php-format
+msgid "%d comments"
+msgstr "%d টি মন্তব্য"
+
+msgid "New entry"
+msgstr "নতুন এন্ট্রি"
+
+msgid "User preferences"
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Latest news"
+msgstr "সর্বশেষ সংবাদ"
+
+msgid "Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+msgid "Make this blog my default blog"
+msgstr "এই ব্লগটিকে আমার ডিফল্ট ব্লগ বানাও"
+
+msgid "This blog is offline"
+msgstr "এই ব্লগটি অফলাইনে আছে"
+
+msgid "This blog is removed"
+msgstr "এই ব্লগটি মুছে ফেলা হয়েছে"
+
+msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
+
+msgid "Following plugins have not been installed:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
+
+msgid "Quick entry"
+msgstr "দ্রুত এন্ট্রি"
+
+msgid "Content:"
+msgstr "কন্টেন্ট:"
+
+msgid "Category:"
+msgstr "ক্যাটাগরি:"
+
+msgid "save and publish"
+msgstr "সেভ ও প্রকাশ করুন"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s এসে গেছে!"
+
+msgid "Upgrade now"
+msgstr "আপগ্রেড করুন"
+
+msgid "Remind me later"
+msgstr "পড়ে মনে করিয়ে দিও"
+
+#, fuzzy
+msgid "Some plugins are installed twice:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
+
+#, php-format
+msgid "PHP version is %s (5.0 or earlier needed)."
+msgstr "PHP সংস্করণ আছে %s (5.0 অথবা পূর্বের লাগবে)."
+
+msgid "Multibyte string module (mbstring) is not available."
+msgstr ""
+
+msgid "Iconv module is not available."
+msgstr ""
+
+msgid "Output control functions are not available."
+msgstr ""
+
+msgid "SimpleXML module is not available."
+msgstr ""
+
+msgid "DOM XML module is not available."
+msgstr ""
+
+msgid "PCRE engine does not support UTF-8 strings."
+msgstr ""
+
+msgid "SPL module is not available."
+msgstr ""
+
+#, php-format
+msgid "MySQL version is %s (4.1 or earlier needed)."
+msgstr ""
+
+msgid "MySQL InnoDB engine is not available."
+msgstr ""
+
+#, php-format
+msgid "PostgreSQL version is %s (8.0 or earlier needed)."
+msgstr ""
+
+msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
+msgstr ""
+
+msgid "Dotclear is already installed."
+msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
+
+msgid "Dotclear cannot be installed."
+msgstr "Dotclear ইন্সটল করা সম্ভব নয়।"
+
+msgid "No user ID given"
+msgstr "কোনো ইউজার আইডি দেয়া হয় নি"
+
+msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr "ইউজার আইডিতে কমপক্ষে ২টি অক্ষর থাকতে হবে, যাতে বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
+
+msgid "Invalid email address"
+msgstr "অবৈধ ইমেইল এড্রেস"
+
+msgid "No password given"
+msgstr "কোনো পাসওয়ার্ড দেয়া হয় নি"
+
+msgid "Password must contain at least 6 characters."
+msgstr "পাসওয়ার্ডে কমপক্ষে ৬টি অক্ষর থাকতে হবে।"
+
+msgid "My first blog"
+msgstr "আমার প্রথম ব্লগ"
+
+msgid "%A, %B %e %Y"
+msgstr ""
+
+msgid "Welcome to Dotclear!"
+msgstr "ডটক্লিয়ারে স্বাগতম!"
+
+msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
+msgstr "এটি আপনার প্রথম এন্ট্রি। আপনি ব্লগ লেখার জন্য প্রস্তুত হলে, লগইন করে এটিকে এডিট করতে বা মুছে ফেলতে পারবেন।"
+
+msgid "Dotclear Team"
+msgstr "ডটক্লিয়ার টিম"
+
+msgid ""
+"<p>This is a comment.</p>\n"
+"<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
+msgstr ""
+"<p>এটি একটি মন্তব্য।</p>\n"
+"<p>এটি মুছতে হলে, লগইন করুন এবং ব্লগের মন্তব্য দেখুন। তারপর আপনি মন্তব্যটি মুছে ফেলতে বা এডিট করতে পারবেন।</p>"
+
+#, fuzzy
+msgid "Dotclear Install"
+msgstr "Dotclear ইন্সটলেশন"
+
+msgid "show"
+msgstr "দেখাও"
+
+msgid "Dotclear installation"
+msgstr "Dotclear ইন্সটলেশন"
+
+#, php-format
+msgid "Cache directory %s is not writable."
+msgstr ""
+
+msgid "Errors:"
+msgstr ""
+
+msgid "Configuration file has been successfully created."
+msgstr "কনফিগারেশন ফাইল সফলভাবে তৈরি হয়েছে।"
+
+msgid "User information"
+msgstr "ইউজারের তথ্য"
+
+msgid "Please provide the following information needed to create the first user."
+msgstr "অনুগ্রহ করে প্রথম ইউজার তৈরির জন্য নিচের তথ্য প্রদান করুন।"
+
+#, fuzzy
+msgid "First Name:"
+msgstr "প্রথম নাম:"
+
+#, fuzzy
+msgid "Last Name:"
+msgstr "সর্বশেষ আপডেট"
+
+#, fuzzy
+msgid "Username and password"
+msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
+
+msgid "All done!"
+msgstr "কাজ শেষ!"
+
+#, fuzzy
+msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
+msgstr "ডটক্লিয়ার সফলভাবে ইন্সটল করা হয়েছে। এখানে কিছু তথ্য আছে যেগুলো সংরক্ষণ করে রাখা উচিত হবে।"
+
+msgid "Your account"
+msgstr "আপনার এ্যাকাউন্ট"
+
+msgid "Your blog"
+msgstr "আপনার ব্লগ"
+
+msgid "Blog address:"
+msgstr "ব্লগ এড্রেস:"
+
+msgid "Administration interface:"
+msgstr ""
+
+msgid "Manage your blog now"
+msgstr ""
+
+msgid "Installation can not be completed"
+msgstr ""
+
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr ""
+
+#, php-format
+msgid "File %s does not exist."
+msgstr "%s ফাইলটি নেই।"
+
+#, php-format
+msgid "Cannot write %s file."
+msgstr ""
+
+msgid "Dotclear installation wizard"
+msgstr "ডটক্লিয়ার ইন্সটলেশন উইজার্ড"
+
+msgid "Welcome"
+msgstr ""
+
+msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
+msgstr ""
+
+#, fuzzy
+msgid "Attention:"
+msgstr "সংযুক্ত ফাইল"
+
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr ""
+
+msgid "System information"
+msgstr "সিস্টেমের তথ্য"
+
+msgid "Please provide the following information needed to create your configuration file."
+msgstr "অনুগ্রহ করে নিচের তথ্যগুলো দিন যাতে কনফিগারেশন ফাইল প্রস্তুত করা যায়।"
+
+msgid "Database type:"
+msgstr "ডাটাবেজের ধরণ:"
+
+msgid "Database Host Name:"
+msgstr "ডাটাবেজের হোস্টের নাম:"
+
+msgid "Database Name:"
+msgstr "ডাটাবেজের নাম:"
+
+msgid "Database User Name:"
+msgstr "ডাটাবেজের ইউজারনেম:"
+
+msgid "Database Password:"
+msgstr "ডাটাবেজ পাসওয়ার্ড:"
+
+msgid "Database Tables Prefix:"
+msgstr "ডাটাবেজের টেবিল প্রেফিক্স:"
+
+msgid "No such installed language"
+msgstr "এরকম কোনো ভাষা পাওয়া যায় নি"
+
+msgid "You can't remove English language."
+msgstr "আপনি ইংরেজি ভাষা মুছতে পারবেন না।"
+
+msgid "Permissions to delete language denied."
+msgstr "ভাষা মোছার জন্য আপনার অনুমতি নেই।"
+
+msgid "Invalid language file URL."
+msgstr "অবৈধ ল্যাঙ্গুয়েজ ফাইল URL।"
+
+msgid "Languages management"
+msgstr "ভাষা ম্যানেজমেন্ট"
+
+msgid "Language has been successfully deleted."
+msgstr "ভাষাটি সফলভাবে মুছে ফেলা হয়েছে।"
+
+msgid "Language has been successfully installed."
+msgstr "ভাষাটি সফলভাবে ইন্সটল করা হয়েছে।"
+
+msgid "Language has been successfully upgraded"
+msgstr "ভাষাটি সফলভাবে আপগ্রেড করা হয়েছে।"
+
+msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
+msgstr "আপনি এখান থেকে ডটক্লিয়ারের জন্য ভাষা ইন্সটল, আপগ্রেড বা মুছে ফেলতে পারবেন।"
+
+#, php-format
+msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
+msgstr ""
+
+msgid "Installed languages"
+msgstr "ইন্সটলকৃত ভাষা"
+
+msgid "No additional language is installed."
+msgstr ""
+
+msgid "Language"
+msgstr "ভাষা"
+
+msgid "Action"
+msgstr ""
+
+msgid "Delete"
+msgstr "মুছে ফেলুন"
+
+msgid "Install or upgrade languages"
+msgstr "ভাষাসমূহ ইন্সটল বা আপগ্রেড"
+
+#, php-format
+msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
+msgstr ""
+
+msgid "Available languages"
+msgstr ""
+
+#, php-format
+msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
+msgstr ""
+
+msgid "Language:"
+msgstr "ভাষা:"
+
+msgid "Install language"
+msgstr "ভাষা ইন্সটল"
+
+msgid "You can install languages by uploading zip files."
+msgstr "আপনি zip ফাইল আপলোডের মাধ্যমে ভাষা ইন্সটল করতে পারবেন।"
+
+msgid "Language zip file:"
+msgstr "ভাষার zip ফাইল:"
+
+msgid "Upload language"
+msgstr "ভাষা আপলোড"
+
+msgid "Invalid language zip file."
+msgstr "অবৈধ ভাষার zip ফাইল।"
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "Zip ফাইলটি বৈধ ডটক্লিয়ার ল্যাঙ্গুয়েজ প্যাক বলে মনে হচ্ছে না।"
+
+msgid "An error occurred during language upgrade."
+msgstr "ভাষা আপগ্রেড করার সময় এরর দেখা দিয়েছে।"
+
+msgid "Error:"
+msgstr ""
+
+msgid "By names, in ascending order"
+msgstr ""
+
+msgid "By names, in descending order"
+msgstr ""
+
+msgid "By dates, in ascending order"
+msgstr ""
+
+msgid "By dates, in descending order"
+msgstr ""
+
+msgid "Media manager"
+msgstr "মিডিয়া ম্যানেজার"
+
+msgid "confirm removal"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove %s?"
+msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
+
+msgid "cancel"
+msgstr "বাতিল"
+
+msgid "yes"
+msgstr "হ্যাঁ"
+
+msgid "Directory has been successfully created."
+msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+
+msgid "Files have been successfully uploaded."
+msgstr "ফাইলগুলো সফলভাবে আপলোড করা হয়েছে।"
+
+msgid "File has been successfully removed."
+msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা হয়েছে।"
+
+msgid "Directory has been successfully removed."
+msgstr "ডিরেক্টরি সফলভাবে মুছে ফেলা হয়েছে।"
+
+msgid "Directory has been successfully rebuilt."
+msgstr ""
+
+msgid "Zip file has been successfully extracted."
+msgstr "Zip ফাইল সফলভাবে এক্সট্রাক্ট করা হয়েছে।"
+
+#, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s."
+msgstr "%s এন্ট্রির সাথে যে ফাইল সংযুক্ত করতে চান তা %s তে ক্লিক করুন।"
+
+msgid "Attach this file to entry"
+msgstr "এন্ট্রির সাথে এই ফাইলটি সংযুক্ত করুন"
+
+#, php-format
+msgid "Choose a file to insert into entry by clicking on %s."
+msgstr "এন্ট্রিতে ফাইল লাগানোর জন্য %s তে ক্লিক করুন।"
+
+msgid "No file."
+msgstr "কোনো ফাইল নেই।"
+
+msgid "Sort files:"
+msgstr ""
+
+msgid "Add files"
+msgstr ""
+
+msgid "Choose a file:"
+msgstr ""
+
+#, php-format
+msgid "Maximum size %s"
+msgstr "সর্বোচ্চ সাইজ %s"
+
+msgid "Private"
+msgstr "প্রাইভেট"
+
+msgid "send"
+msgstr "পাঠাও"
+
+msgid "Please take care to publish media that you own and that are not protected by copyright."
+msgstr ""
+
+msgid "New directory"
+msgstr "নতুন ডিরেক্টরি"
+
+#, fuzzy
+msgid "Directory Name:"
+msgstr "নতুন ডিরেক্টরি:"
+
+msgid "Download this directory as a zip file"
+msgstr "এই ডিরেক্টরিকে একটি zip ফাইল হিসেবে ডাউনলোড করুন"
+
+msgid "open"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr "এন্ট্রিতে এই ফাইলটি লাগাও"
+
+msgid "Not a valid file"
+msgstr "ফাইলটি বৈধ নয়"
+
+msgid "File has been successfully updated."
+msgstr "ফাইলটি সফলভাবে আপডেট করা হয়েছে।"
+
+msgid "Thumbnails have been successfully updated."
+msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+
+msgid "Insert media item"
+msgstr "মিডিয়া আইটেম লাগান"
+
+msgid "Image size:"
+msgstr "ইমেজ সাইজ:"
+
+msgid "original"
+msgstr "আসল"
+
+msgid "Image alignment"
+msgstr ""
+
+msgid "None"
+msgstr "কোনটাই নয়"
+
+msgid "Left"
+msgstr "বামে"
+
+msgid "Right"
+msgstr "ডানে"
+
+msgid "Center"
+msgstr "মাঝে"
+
+msgid "Image insertion"
+msgstr ""
+
+msgid "As a single image"
+msgstr ""
+
+msgid "As a link to original image"
+msgstr ""
+
+msgid "MP3 disposition"
+msgstr ""
+
+msgid "Please note that you cannot insert mp3 files with visual editor."
+msgstr ""
+
+msgid "Please note that you cannot insert video files with visual editor."
+msgstr ""
+
+msgid "Video size"
+msgstr "ভিডিও সাইজ"
+
+msgid "Width:"
+msgstr "দৈর্ঘ্য:"
+
+msgid "Height:"
+msgstr "প্রস্থ:"
+
+msgid "Video disposition"
+msgstr ""
+
+msgid "Media item will be inserted as a link."
+msgstr "মিডিয়া আইটেমটি লিংক হিসেবে লাগানো হবে।"
+
+msgid "Cancel"
+msgstr "বাতিল"
+
+msgid "Insert"
+msgstr "লাগান"
+
+msgid "Media details"
+msgstr "মিডিয়ার বিবরণ"
+
+msgid "Available sizes:"
+msgstr ""
+
+msgid "File owner:"
+msgstr "ফাইলের মালিক:"
+
+msgid "File type:"
+msgstr "ফাইলের ধরণ:"
+
+msgid "File size:"
+msgstr "ফাইল সাইজ:"
+
+msgid "File URL:"
+msgstr "ফাইল URL:"
+
+msgid "Show entries containing this media"
+msgstr "যেসব এন্ট্রিতে এই মিডিয়াটি আছে সেগুলো দেখাও"
+
+msgid "Entries containing this media"
+msgstr "যেসব এন্ট্রিতে এই মিডিয়া আছে"
+
+msgid "No entry seems contain this media."
+msgstr "এই মিডিয়াটি কোনো এন্ট্রিতে নেই।"
+
+msgid "Image details"
+msgstr "ইমেজের বিবরণ"
+
+msgid "No detail"
+msgstr "বিবরণ নেই"
+
+msgid "Update thumbnails"
+msgstr "আপডেট থাম্বনেইল"
+
+msgid "This will create or update thumbnails for this image."
+msgstr ""
+
+msgid "update thumbnails"
+msgstr "আপডেট থাম্বনেইল"
+
+msgid "Extract in a new directory"
+msgstr ""
+
+msgid "Extract in current directory"
+msgstr ""
+
+msgid "Extract archive"
+msgstr ""
+
+msgid "This will extract archive in a new directory that should not exist yet."
+msgstr ""
+
+msgid "This will extract archive in current directory and will overwrite existing files or directory."
+msgstr ""
+
+msgid "Extract mode:"
+msgstr ""
+
+msgid "extract"
+msgstr ""
+
+msgid "Change media properties"
+msgstr "মিডিয়া প্রোপার্টিজ পরিবর্তন"
+
+msgid "File name:"
+msgstr "ফাইলের নাম:"
+
+msgid "File title:"
+msgstr "ফাইলের শিরোনাম:"
+
+msgid "File date:"
+msgstr "ফাইলের তারিখ:"
+
+msgid "New directory:"
+msgstr "নতুন ডিরেক্টরি:"
+
+msgid "Change file"
+msgstr ""
+
+msgid "No blog or user given."
+msgstr ""
+
+msgid "permissions"
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
+msgid "The permissions have been successfully updated."
+msgstr ""
+
+#, php-format
+msgid "You are about to change permissions on the following blogs for users %s."
+msgstr ""
+
+msgid "choose a blog"
+msgstr ""
+
+msgid "Choose a blog"
+msgstr ""
+
+msgid "Entries per page"
+msgstr "প্রতি পেজে এন্ট্রি"
+
+#, php-format
+msgid "Choose one or more blogs to which you want to give permissions to users %s."
+msgstr ""
+
+msgid "set permissions"
+msgstr ""
+
+msgid "No content found on this plugin."
+msgstr "এই প্লাগইনে কোনো কন্টেন্ট নেই।"
+
+msgid "Plugin not found"
+msgstr "প্লাগইন পাওয়া যায় নি"
+
+msgid "The plugin you reached does not exist or does not have an admin page."
+msgstr ""
+
+msgid "No such plugin."
+msgstr "এরকম কোনো প্লাগইন নেই।"
+
+msgid "You don't have permissions to delete this plugin."
+msgstr ""
+
+msgid "You don't have permissions to deactivate this plugin."
+msgstr ""
+
+msgid "Plugins management"
+msgstr "প্লাগইন দেখাশোনা"
+
+msgid "Plugin has been successfully deleted."
+msgstr ""
+
+msgid "Plugin has been successfully installed."
+msgstr ""
+
+msgid "Plugin has been successfully upgraded"
+msgstr ""
+
+msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
+msgstr ""
+
+#, php-format
+msgid "You can find additional plugins for your blog on %s."
+msgstr ""
+
+msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
+msgstr ""
+
+msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
+msgstr ""
+
+msgid "Plugins"
+msgstr "প্লাগইনসমূহ"
+
+msgid "Activated plugins"
+msgstr "সক্রিয় প্লাগইনসমূহ"
+
+msgid "Plugin"
+msgstr "প্লাগইন"
+
+msgid "Version"
+msgstr "ভার্সন"
+
+msgid "Details"
+msgstr "বিবরণ"
+
+msgid "Deactivate"
+msgstr "নিস্ক্রিয়"
+
+msgid "Deactivated plugins"
+msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
+
+msgid "Activate"
+msgstr "সক্রিয়"
+
+msgid "Install or upgrade a plugin"
+msgstr ""
+
+msgid "You can install plugins by uploading or downloading zip files."
+msgstr ""
+
+msgid "Plugin zip file:"
+msgstr "প্লাগইন zip ফাইল:"
+
+msgid "Upload plugin"
+msgstr "প্লাগইন আপলোড"
+
+msgid "Plugin zip file URL:"
+msgstr "প্লাগইন zip ফাইল URL:"
+
+msgid "Download plugin"
+msgstr "প্লাগইন ডাউনলোড"
+
+msgid "To enable this function, please give write access to your plugins directory."
+msgstr ""
+
+msgid "Add a link"
+msgstr "লিংক যোগ করুন"
+
+msgid "Available"
+msgstr ""
+
+msgid "Most used"
+msgstr ""
+
+msgid "Link URL:"
+msgstr "লিংক URL:"
+
+msgid "Link language:"
+msgstr "লিংক ভাষা:"
+
+msgid "insert"
+msgstr "লাগান"
+
+msgid "Add a link to an entry"
+msgstr "কোনো এন্ট্রিতে লিংক যোগ করুন"
+
+msgid "Search entry:"
+msgstr "সার্চ এন্ট্রি:"
+
+msgid "This entry does not exist."
+msgstr "এই এন্ট্রির কোনো অস্তিত্ব নেই।"
+
+msgid "Edit entry"
+msgstr "এন্ট্রি এডিট"
+
+msgid "next entry"
+msgstr "পরের এন্ট্রি"
+
+msgid "previous entry"
+msgstr "আগের এন্ট্রি"
+
+msgid "Entry has been successfully updated."
+msgstr ""
+
+msgid "Entry has been successfully created."
+msgstr ""
+
+msgid "File has been successfully attached."
+msgstr ""
+
+msgid "Attachment has been successfully removed."
+msgstr ""
+
+msgid "Comment has been successfully created."
+msgstr ""
+
+msgid "Don't forget to validate your XHTML conversion by saving your post."
+msgstr ""
+
+msgid "View entry"
+msgstr "এন্ট্রি দেখাও"
+
+msgid "Preview entry"
+msgstr "প্রিভিউ এন্ট্রি"
+
+msgid "Entry status:"
+msgstr "এন্ট্রি স্ট্যাটাস:"
+
+msgid "Published on:"
+msgstr "প্রকাশিত হয়েছে:"
+
+msgid "Text formating:"
+msgstr "টেক্সট ফরম্যাটিং:"
+
+msgid "Convert to XHTML"
+msgstr "XHTML-এ কনভার্ট"
+
+msgid "Selected entry"
+msgstr ""
+
+msgid "Entry lang:"
+msgstr "এন্ট্রির ভাষা:"
+
+msgid "Entry password:"
+msgstr ""
+
+msgid "Basename:"
+msgstr ""
+
+msgid "Warning: If you set the URL manually, it may conflict with another entry."
+msgstr ""
+
+msgid "Attachments"
+msgstr "সংযুক্ত ফাইলসমূহ"
+
+msgid "remove"
+msgstr "মুছে ফেলো"
+
+msgid "No attachment."
+msgstr "সংযুক্ত ফাইল নেই।"
+
+msgid "Add files to this entry"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr ""
+
+msgid "Notes:"
+msgstr ""
+
+msgid "Ping blogs"
+msgstr ""
+
+msgid "Trackbacks"
+msgstr "ট্র্যাকব্যাক"
+
+msgid "No trackback"
+msgstr "শূণ্য ট্র্যাকব্যাক"
+
+msgid "Add a comment"
+msgstr "মন্তব্য যোগ করুন"
+
+msgid "Name:"
+msgstr "নাম:"
+
+msgid "IP address"
+msgstr "IP এড্রেস"
+
+msgid "published"
+msgstr "প্রকাশিত"
+
+msgid "unpublished"
+msgstr "অপ্রকাশিত"
+
+msgid "pending"
+msgstr "অপেক্ষমান"
+
+msgid "junk"
+msgstr "জাঙ্ক"
+
+msgid "Edit this comment"
+msgstr "এই মন্তব্য এডিট করুন"
+
+msgid "This attachment does not exist"
+msgstr "এই সংযুক্ত ফাইলটি খুঁজে পাওয়া যাচ্ছে না"
+
+msgid "Remove attachment"
+msgstr "সংযুক্ত ফাইলটি মুছে ফেলো"
+
+msgid "Attachment"
+msgstr "সংযুক্ত ফাইল"
+
+msgid "Are you sure you want to remove this attachment?"
+msgstr "আপনি কি আসলেই এই সংযুক্ত ফাইলটি মুছে ফেলতে চান?"
+
+msgid "selected"
+msgstr ""
+
+msgid "not selected"
+msgstr ""
+
+msgid "Category"
+msgstr "ক্যাটাগরি"
+
+msgid "Selected"
+msgstr ""
+
+msgid "Publish"
+msgstr "প্রকাশ করুন"
+
+msgid "Unpublish"
+msgstr "অপ্রকাশ করুন"
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Mark as pending"
+msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
+
+msgid "Mark"
+msgstr "চিহ্নিত করুন"
+
+#, fuzzy
+msgid "Mark as selected"
+msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
+
+#, fuzzy
+msgid "Mark as unselected"
+msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
+
+msgid "Change"
+msgstr "পরিবর্তন"
+
+msgid "Change category"
+msgstr "ক্যাটাগরি পরিবর্তন"
+
+msgid "Change author"
+msgstr "লেখক পরিবর্তন"
+
+msgid "Selected:"
+msgstr ""
+
+msgid "Month:"
+msgstr "মাস:"
+
+msgid "Lang:"
+msgstr "ভাষা:"
+
+msgid "Selected entries action:"
+msgstr ""
+
+msgid "This user does not exist"
+msgstr "এধরণের কোনো ইউজার নেই"
+
+msgid "Change category for entries"
+msgstr ""
+
+msgid "Change author for entries"
+msgstr ""
+
+msgid "Author ID:"
+msgstr "লেখকের আইডি:"
+
+msgid "If you want to change your email or password you must provide your current password."
+msgstr ""
+
+msgid "Personal information has been successfully updated."
+msgstr ""
+
+msgid "Display name:"
+msgstr ""
+
+msgid "Preferred format:"
+msgstr ""
+
+msgid "Default entry status:"
+msgstr "ডিফল্ট এন্ট্রি স্ট্যাটাস:"
+
+msgid "Entry edit field height:"
+msgstr ""
+
+msgid "User language:"
+msgstr "ইউজারের ভাষা:"
+
+msgid "User timezone:"
+msgstr "ইউজারের টাইমজোন:"
+
+msgid "Enable WYSIWYG mode"
+msgstr ""
+
+msgid "Search"
+msgstr "সার্চ"
+
+msgid "Search options"
+msgstr "সার্চ অপশন"
+
+msgid "Query:"
+msgstr ""
+
+msgid "search entries"
+msgstr "এন্ট্রিতে সার্চ"
+
+msgid "search comments"
+msgstr "মন্তব্যতে সার্চ"
+
+msgid "schedule"
+msgstr ""
+
+msgid "change category"
+msgstr "ক্যাটাগরি পরিবর্তন"
+
+msgid "change author"
+msgstr "লেখক পরিবর্তন"
+
+#, php-format
+msgid "%d entries found"
+msgstr "%d টি এন্ট্রি পাওয়া গেছে"
+
+#, php-format
+msgid "%d entry found"
+msgstr "%d টি এন্ট্রি পাওয়া গেছে"
+
+#, php-format
+msgid "%d comment found"
+msgstr "%d টি মন্তব্য পাওয়া গেছে"
+
+#, php-format
+msgid "%d comments found"
+msgstr "%d টি মন্তব্য পাওয়া গেছে"
+
+msgid "This entry does not exist or is not published"
+msgstr ""
+
+msgid "All pings sent."
+msgstr ""
+
+msgid "Auto discover ping URLs"
+msgstr ""
+
+msgid "URLs to ping:"
+msgstr ""
+
+msgid "Send excerpt:"
+msgstr ""
+
+msgid "Previously sent pings"
+msgstr ""
+
+msgid "Dotclear update"
+msgstr "Dotclear আপডেট"
+
+#, php-format
+msgid "Unable to delete file %s"
+msgstr ""
+
+#, php-format
+msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
+msgstr ""
+
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
+msgstr ""
+
+#, php-format
+msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
+msgstr ""
+
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
+msgstr ""
+
+msgid "No newer Dotclear version available."
+msgstr "ডটক্লিয়ারের কোনো নতুন ভার্সন বের হয় নি।"
+
+#, php-format
+msgid "Dotclear %s is available."
+msgstr "Dotclear %s বের হয়েছে।"
+
+msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
+msgstr ""
+
+msgid "Update Dotclear"
+msgstr "আপডেট Dotclear"
+
+msgid "Update backup files"
+msgstr "ব্যাকআপ ফাইল আপডেট করুন"
+
+msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
+msgstr ""
+
+msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
+msgstr ""
+
+#, php-format
+msgid "You should not revert to version prior to last one (%s)."
+msgstr ""
+
+msgid "Delete selected file"
+msgstr ""
+
+msgid "Revert to selected file"
+msgstr ""
+
+msgid "Congratulations, you're one click away from the end of the update."
+msgstr ""
+
+msgid "Finish the update."
+msgstr ""
+
+msgid "new user"
+msgstr "নতুন ইউজার"
+
+#, php-format
+msgid "User \"%s\" already exists."
+msgstr "\"%s\" নামে আরেকজন ইউজার ইতিমধ্যেই আছেন।"
+
+msgid "User has been successfully updated."
+msgstr ""
+
+msgid "User has been successfully created."
+msgstr ""
+
+msgid "Warning:"
+msgstr ""
+
+msgid "If you change your username, you will have to log in again."
+msgstr ""
+
+msgid "Password change required to connect"
+msgstr ""
+
+msgid "No permissions."
+msgstr ""
+
+msgid "Add new permissions"
+msgstr ""
+
+#, fuzzy
+msgid "Username"
+msgstr "ইউজারনেম:"
+
+#, fuzzy
+msgid "Last Name"
+msgstr "সর্বশেষ আপডেট"
+
+#, fuzzy
+msgid "First Name"
+msgstr "প্রথম নাম"
+
+msgid "Display name"
+msgstr ""
+
+msgid "Number of entries"
+msgstr "এন্ট্রির সংখ্যা"
+
+msgid "Set permissions"
+msgstr ""
+
+msgid "users"
+msgstr "ইউজারসমূহ"
+
+msgid "User has been successfully removed."
+msgstr "ইউজার সফলভাবে মুছে ফেলা হয়েছে।"
+
+msgid "Create a new user"
+msgstr "নতুন ইউজার তৈরি করুন"
+
+msgid "Users per page"
+msgstr "প্রতি পেজে ইউজারের সংখ্যা"
+
+msgid "Selected users action:"
+msgstr ""
+
+msgid "Blog:"
+msgstr "ব্লগ:"
+
+msgid "Change blog"
+msgstr ""
+
+msgid "Blogs:"
+msgstr "ব্লগসমূহ:"
+
+msgid "View site"
+msgstr "সাইট দেখাও"
+
+msgid "User:"
+msgstr "ইউজার:"
+
+msgid "Logout"
+msgstr "লগআউট"
+
+#, php-format
+msgid "Thank you for using %s."
+msgstr "%s ব্যবহার করার জন্য ধন্যবাদ।"
+
+msgid "Help"
+msgstr "সাহায্য"
+
+msgid "uncover"
+msgstr "দেখাও"
+
+msgid "hide"
+msgstr "লুকাও"
+
+msgid "help"
+msgstr "সাহায্য"
+
+msgid "No selection"
+msgstr ""
+
+msgid "select all"
+msgstr "সব সিলেক্ট করুন"
+
+msgid "invert selection"
+msgstr ""
+
+msgid "view entry"
+msgstr "এন্ট্রি দেখাও"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr ""
+
+msgid "Users with posts cannot be deleted."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to reorder all categories?"
+msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr ""
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr ""
+
+msgid "Use this theme"
+msgstr ""
+
+msgid "Remove this theme"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr ""
+
+msgid "Zip file content"
+msgstr ""
+
+msgid "XHTML markup validator"
+msgstr ""
+
+msgid "XHTML content is valid."
+msgstr ""
+
+msgid "There are XHTML markup errors."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "close"
+msgstr ""
+
+msgid "now"
+msgstr "এখন"
+
+msgid "visual"
+msgstr ""
+
+msgid "source"
+msgstr ""
+
+msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "-- none --"
+msgstr ""
+
+msgid "-- block format --"
+msgstr ""
+
+msgid "Paragraph"
+msgstr ""
+
+msgid "Level 1 header"
+msgstr ""
+
+msgid "Level 2 header"
+msgstr ""
+
+msgid "Level 3 header"
+msgstr ""
+
+msgid "Level 4 header"
+msgstr ""
+
+msgid "Level 5 header"
+msgstr ""
+
+msgid "Level 6 header"
+msgstr ""
+
+msgid "Strong emphasis"
+msgstr ""
+
+msgid "Emphasis"
+msgstr ""
+
+msgid "Inserted"
+msgstr ""
+
+msgid "Deleted"
+msgstr ""
+
+msgid "Inline quote"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Line break"
+msgstr ""
+
+msgid "Blockquote"
+msgstr ""
+
+msgid "Preformated text"
+msgstr ""
+
+msgid "Unordered list"
+msgstr ""
+
+msgid "Ordered list"
+msgstr ""
+
+msgid "Link"
+msgstr "লিংক"
+
+msgid "URL?"
+msgstr "URL?"
+
+msgid "Language?"
+msgstr "ভাষা?"
+
+msgid "External image"
+msgstr ""
+
+msgid "Media chooser"
+msgstr ""
+
+msgid "Link to an entry"
+msgstr ""
+
+msgid "Activate enhanced uploader"
+msgstr ""
+
+msgid "Disable enhanced uploader"
+msgstr ""
+
+msgid "File successfully uploaded."
+msgstr ""
+
+msgid "Maximum file size allowed:"
+msgstr ""
+
+msgid "Limit exceeded."
+msgstr ""
+
+msgid "File size exceeds allowed limit."
+msgstr ""
+
+msgid "Canceled."
+msgstr ""
+
+msgid "HTTP Error:"
+msgstr ""
+
+msgid "Choose file"
+msgstr ""
+
+msgid "Choose files"
+msgstr ""
+
+msgid "Clean"
+msgstr ""
+
+msgid "Upload"
+msgstr "আপলোড"
+
+msgid "No file in queue."
+msgstr ""
+
+msgid "1 file in queue."
+msgstr ""
+
+#, php-format
+msgid "%d files in queue."
+msgstr ""
+
+msgid "Queue error:"
+msgstr ""
+
+msgid "&#171;prev."
+msgstr ""
+
+msgid "next&#187;"
+msgstr ""
+
+msgid "No entry"
+msgstr ""
+
+msgid "scheduled"
+msgstr ""
+
+msgid "protected"
+msgstr ""
+
+#, php-format
+msgid "%d attachment"
+msgstr ""
+
+#, php-format
+msgid "%d attachments"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "No user"
+msgstr ""
+
+msgid "admin"
+msgstr ""
+
+msgid "superadmin"
+msgstr ""
+
+#, fuzzy
+msgid "Database error"
+msgstr "ডাটাবেজের ধরণ:"
+
+msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "Blog"
+msgstr "ব্লগ"
+
+msgid "Updates"
+msgstr ""
+
+msgid "Languages"
+msgstr "ভাষাসমূহ"
+
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to create directory."
+msgstr ""
+
+msgid "File is not writable."
+msgstr ""
+
+msgid "Unable to open file."
+msgstr ""
+
+msgid "Not an uploaded file."
+msgstr ""
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr ""
+
+msgid "Uploading this file is not allowed."
+msgstr ""
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+#, fuzzy
+msgid "File already exists."
+msgstr "\"%s\" নামে আরেকজন ইউজার ইতিমধ্যেই আছেন।"
+
+msgid "Cannot write in this directory."
+msgstr ""
+
+msgid "An error occurred while writing the file."
+msgstr ""
+
+msgid "Source file does not exist."
+msgstr ""
+
+msgid "File is not in jail."
+msgstr ""
+
+msgid "Destination directory is not writable."
+msgstr ""
+
+msgid "Unable to rename file."
+msgstr ""
+
+msgid "File cannot be removed."
+msgstr ""
+
+msgid "Directory is not in jail."
+msgstr ""
+
+msgid "Directory cannot be removed."
+msgstr ""
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr ""
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+msgid "Unable to write destination file."
+msgstr ""
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+msgid "File does not exist"
+msgstr ""
+
+msgid "Cannot read file"
+msgstr ""
+
+msgid "Directory does not exist"
+msgstr ""
+
+msgid "Cannot read directory"
+msgstr ""
+
+msgid "administrator"
+msgstr ""
+
+msgid "manage their own entries and comments"
+msgstr ""
+
+msgid "publish entries and comments"
+msgstr ""
+
+msgid "delete entries and comments"
+msgstr ""
+
+msgid "manage all entries and comments"
+msgstr ""
+
+msgid "manage categories"
+msgstr ""
+
+msgid "manage their own media items"
+msgstr ""
+
+msgid "manage all media items"
+msgstr ""
+
+msgid "That user does not exist in the database."
+msgstr ""
+
+msgid "That key does not exist in the database."
+msgstr ""
+
+msgid "You are not allowed to add categories"
+msgstr ""
+
+msgid "You are not allowed to update categories"
+msgstr ""
+
+msgid "You are not allowed to delete categories"
+msgstr ""
+
+msgid "This category is not empty."
+msgstr ""
+
+msgid "Category URL must be unique."
+msgstr ""
+
+msgid "You must provide a category title"
+msgstr ""
+
+msgid "You must provide a category URL"
+msgstr ""
+
+msgid "You are not allowed to create an entry"
+msgstr ""
+
+msgid "You are not allowed to update entries"
+msgstr ""
+
+msgid "No such entry ID"
+msgstr ""
+
+msgid "You are not allowed to edit this entry"
+msgstr ""
+
+msgid "You are not allowed to change this entry status"
+msgstr ""
+
+msgid "You are not allowed to change this entry category"
+msgstr ""
+
+msgid "You are not allowed to mark this entry as selected"
+msgstr ""
+
+msgid "You are not allowed to delete entries"
+msgstr ""
+
+msgid "You are not allowed to delete this entry"
+msgstr ""
+
+msgid "No entry title"
+msgstr "এন্ট্রির কোনো টাইটেল নেই"
+
+msgid "No entry content"
+msgstr "এন্ট্রির কোনো কন্টেন্ট নেই"
+
+msgid "Empty entry URL"
+msgstr ""
+
+msgid "You are not allowed to update comments"
+msgstr ""
+
+msgid "No such comment ID"
+msgstr ""
+
+msgid "You are not allowed to update this comment"
+msgstr ""
+
+msgid "You are not allowed to change this comment's status"
+msgstr ""
+
+msgid "You are not allowed to delete comments"
+msgstr ""
+
+msgid "You are not allowed to delete this comment"
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr ""
+
+msgid "You must provide an author name"
+msgstr ""
+
+msgid "Email address is not valid."
+msgstr ""
+
+msgid "online"
+msgstr "অনলাইন"
+
+msgid "offline"
+msgstr "অফলাইন"
+
+msgid "removed"
+msgstr ""
+
+msgid "You are not an administrator"
+msgstr ""
+
+msgid "Invalid user language code"
+msgstr ""
+
+msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
+msgstr ""
+
+msgid "No blog name"
+msgstr ""
+
+msgid "No blog URL"
+msgstr ""
+
+msgid "No log message"
+msgstr ""
+
+#, fuzzy
+msgid "unknown"
+msgstr "এখন"
+
+msgid "No blog defined."
+msgstr ""
+
+#, php-format
+msgid "Directory %s does not exist."
+msgstr ""
+
+msgid "You are not a super administrator."
+msgstr ""
+
+msgid "Permission denied."
+msgstr ""
+
+msgid "You are not the file owner."
+msgstr ""
+
+msgid "New file already exists."
+msgstr ""
+
+msgid "File does not exist in the database."
+msgstr ""
+
+#, php-format
+msgid "Extract destination directory %s already exists."
+msgstr ""
+
+msgid "Embedded Audio Player"
+msgstr ""
+
+msgid "Embedded Video Player"
+msgstr ""
+
+#, php-format
+msgid "%s: in [%s] and [%s]"
+msgstr ""
+
+msgid "Empty module zip file."
+msgstr ""
+
+msgid "The zip file does not appear to be a valid Dotclear module."
+msgstr ""
+
+msgid "An error occurred during module deletion."
+msgstr ""
+
+#, php-format
+msgid "Unable to upgrade \"%s\". (same version)"
+msgstr ""
+
+msgid "Unable to read new _define.php file"
+msgstr ""
+
+msgid "No such module."
+msgstr ""
+
+msgid "Cannot remove module files"
+msgstr ""
+
+msgid "Cannot deactivate plugin."
+msgstr ""
+
+msgid "Cannot activate plugin."
+msgstr ""
+
+#, php-format
+msgid "Invalid setting dcNamespace: %s"
+msgstr ""
+
+msgid "Unable to retrieve settings:"
+msgstr ""
+
+#, php-format
+msgid "%s is not a valid setting id"
+msgstr ""
+
+msgid "No namespace specified"
+msgstr ""
+
+msgid "Unable to retrieve namespaces:"
+msgstr ""
+
+#, php-format
+msgid "Invalid setting namespace: %s"
+msgstr ""
+
+#, php-format
+msgid "%s has still been pinged"
+msgstr ""
+
+msgid "Unable to ping URL"
+msgstr ""
+
+#, php-format
+msgid "%s is not a ping URL"
+msgstr ""
+
+#, php-format
+msgid "%s, ping error:"
+msgstr ""
+
+msgid "Digests file not found."
+msgstr ""
+
+msgid "No file to download"
+msgstr ""
+
+msgid "Root directory is not writable."
+msgstr ""
+
+msgid "An error occurred while downloading archive."
+msgstr ""
+
+msgid "Archive not found."
+msgstr ""
+
+msgid "Unable to read current digests file."
+msgstr ""
+
+#, fuzzy
+msgid "Downloaded file does not seem to be a valid archive."
+msgstr "Zip ফাইলটি বৈধ ডটক্লিয়ার ল্যাঙ্গুয়েজ প্যাক বলে মনে হচ্ছে না।"
+
+msgid "Incomplete archive."
+msgstr ""
+
+msgid "Unable to read digests file."
+msgstr ""
+
+msgid "Invalid digests file."
+msgstr ""
+
+msgid "SQLite Database Schema cannot be upgraded."
+msgstr ""
+
+msgid "Something went wrong with auto upgrade:"
+msgstr ""
+
+msgid "Unable to connect to database"
+msgstr ""
+
+#, php-format
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr ""
+
+msgid "The following error was encountered while trying to read the database:"
+msgstr ""
+
+#~ msgid "Login:"
+#~ msgstr "লগইন:"
+
+#~ msgid "Login and password"
+#~ msgstr "লগইন ও পাসওয়ার্ড"
+
+#~ msgid "Name"
+#~ msgstr "নাম"

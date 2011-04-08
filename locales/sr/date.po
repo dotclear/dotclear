@@ -1,0 +1,132 @@
+# French translation of DotClear
+# Copyright (C) 2006.
+# Olivier Meunier <olivier@dotclear.net>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2008-09-10 11:30+0100\n"
+"Last-Translator: dragan <dragan@ctoutvert.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d/%m/%Y %H:%M"
+
+msgid "_Jan"
+msgstr "jan"
+
+msgid "_Feb"
+msgstr "feb"
+
+msgid "_Mar"
+msgstr "mar"
+
+msgid "_Apr"
+msgstr "apr"
+
+msgid "_May"
+msgstr "maj"
+
+msgid "_Jun"
+msgstr "jun"
+
+msgid "_Jul"
+msgstr "jul"
+
+msgid "_Aug"
+msgstr "avg"
+
+msgid "_Sep"
+msgstr "sep"
+
+msgid "_Oct"
+msgstr "okt"
+
+msgid "_Nov"
+msgstr "nov"
+
+msgid "_Dec"
+msgstr "dec"
+
+msgid "January"
+msgstr "januar"
+
+msgid "February"
+msgstr "februar"
+
+msgid "March"
+msgstr "mart"
+
+msgid "April"
+msgstr "april"
+
+msgid "May"
+msgstr "maj"
+
+msgid "June"
+msgstr "juni"
+
+msgid "July"
+msgstr "juli"
+
+msgid "August"
+msgstr "avgust"
+
+msgid "September"
+msgstr "septembar"
+
+msgid "October"
+msgstr "oktobar"
+
+msgid "November"
+msgstr "novembar"
+
+msgid "December"
+msgstr "decembar"
+
+msgid "_Mon"
+msgstr "pon"
+
+msgid "_Tue"
+msgstr "uto"
+
+msgid "_Wed"
+msgstr "sre"
+
+msgid "_Thu"
+msgstr "čet"
+
+msgid "_Fri"
+msgstr "pet"
+
+msgid "_Sat"
+msgstr "sub"
+
+msgid "_Sun"
+msgstr "ned"
+
+msgid "Monday"
+msgstr "ponedeljak"
+
+msgid "Tuesday"
+msgstr "uorak"
+
+msgid "Wednesday"
+msgstr "sreda"
+
+msgid "Thursday"
+msgstr "četvrtak"
+
+msgid "Friday"
+msgstr "petak"
+
+msgid "Saturday"
+msgstr "subota"
+
+msgid "Sunday"
+msgstr "nedelja"

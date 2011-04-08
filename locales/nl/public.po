@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2009-10-21 18:57+0100\n"
+"Last-Translator: Joran Bosscher <joranbosscher@gmail.com>\n"
+"Language-Team: Joran <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: The netherlands\n"
+
+# Not found strings
+msgid "To content"
+msgstr "Naar inhoud"
+
+msgid "To menu"
+msgstr "Naar menu"
+
+msgid "To search"
+msgstr "Naar het zoeken"
+
+msgid "By"
+msgstr "Doord"
+
+msgid "by"
+msgstr "door"
+
+msgid "on"
+msgstr "op"
+
+msgid "On"
+msgstr "Op"
+
+msgid "Continue reading"
+msgstr "Lees verder"
+
+msgid "no comment"
+msgstr "geen comments"
+
+msgid "one comment"
+msgstr "een comment"
+
+msgid "%d comments"
+msgstr "%d comments"
+
+msgid "no trackback"
+msgstr "geen trackback"
+
+msgid "one trackback"
+msgstr "een trackback"
+
+msgid "%d trackbacks"
+msgstr "%d trackbacks"
+
+msgid "no attachment"
+msgstr "geen bijlages"
+
+msgid "one attachment"
+msgstr "een bijlage"
+
+msgid "%d attachments"
+msgstr "%d bijlages"
+
+msgid "previous entries"
+msgstr "vorige posts"
+
+msgid "page"
+msgstr "pagina"
+
+msgid "of"
+msgstr "van"
+
+msgid "next entries"
+msgstr "volgende posts"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Je zoekopdracht naar <em>%1$</em> heeft geen resultaten."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Je zoekopdracht naar <em>%1$s</em> heeft <strong>%2$s</strong> resultaten opgeleverd."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Je zoekopdracht naar <em>%1$s</em> heeft <strong>%2$s</strong> resultaten opgeleverd."
+
+msgid "Home"
+msgstr "Home"
+
+msgid "All keywords"
+msgstr "Alle tags"
+
+msgid "Best of me"
+msgstr "Beste blogs"
+
+msgid "Languages"
+msgstr "Talen"
+
+msgid "Categories"
+msgstr "Categorïen"
+
+msgid "Subcategories"
+msgstr "Subcategorïen"
+
+msgid "Archives"
+msgstr "Archief"
+
+msgid "Links"
+msgstr "Links"
+
+msgid "Subscribe"
+msgstr "Aanmelden"
+
+msgid "Entries feed"
+msgstr "Feed van post"
+
+msgid "Comments feed"
+msgstr "Feed van reacties"
+
+msgid "This blog's comments Atom feed"
+msgstr "Atom feed van dit blog"
+
+msgid "This category's entries Atom feed"
+msgstr "Atom feed van deze categorie"
+
+msgid "This category's comments Atom feed"
+msgstr "Atom feed van comments op deze categorie"
+
+msgid "This post's comments feed"
+msgstr "De feed van de comments op deze post"
+
+msgid "This post's comments Atom feed"
+msgstr "De Atom feed van de comments op deze post"
+
+msgid "Attachments"
+msgstr "Bijlages"
+
+msgid "Permalink"
+msgstr "Permalink"
+
+msgid "Comments"
+msgstr "Comments"
+
+msgid "Your comment"
+msgstr "Jou comment"
+
+msgid "Your comment has been published."
+msgstr "Jou comment is gepubliceerd"
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Je comment is opgeslagen, en zal worden bekeken voordat hij gepubliceerd word."
+
+msgid "Add a comment"
+msgstr "Schrijf een comment"
+
+msgid "Name or nickname"
+msgstr "Naam of nickname"
+
+msgid "Email address"
+msgstr "Emailadres"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "optional"
+msgstr "niet verplicht"
+
+msgid "Comment"
+msgstr "Comment"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "Géén HTML code, urls worden automatisch klikbaar."
+
+msgid "Remember me on this blog"
+msgstr "Onthoud mij"
+
+msgid "preview"
+msgstr "preview"
+
+msgid "send"
+msgstr "zend"
+
+msgid "They posted on the same topic"
+msgstr "Zij posten over hetzelfde onderwerp"
+
+msgid "Trackback URL"
+msgstr "Trackback URL"
+
+msgid "You must provide an author name"
+msgstr "Je moet een naam invoeren"
+
+msgid "You must provide a comment"
+msgstr "Je moet een bericht invoeren"
+
+msgid "Email address is not valid"
+msgstr "Je moet een geldig emailadres invoeren"
+
+msgid "Document not found"
+msgstr "Document niet gevonden"
+
+msgid "The document you are looking for does not exist."
+msgstr "Het document waar je naar zoekt bestaat niet."
+
+msgid "Powered by %s"
+msgstr "Powered by %s"
+
+msgid "Subscribe to"
+msgstr "Inschrijven op"
+
+msgid "What is an RSS feed?"
+msgstr "Wat is een RSS feed ?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "RSS ofwel really simple syndication is een eenvoudige manier om automatisch op de hoogte te blijven van favoriete websites. Bezoekers hoeven niet meer te surfen naar internetpagina's om te kijken of de pagina's zijn gewijzigd. RSS feeds kun je lezen met een <a href=\"http://nl.wikipedia.org/wiki/Feedreader\"\">RSS lezer\"</a>."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Je hoeft alleen de volgende URL naar je RSS lezer te kopieeren: "
+
+msgid "Password needed"
+msgstr "Wachtwoord nodig"
+
+msgid "You must give a password to access this area."
+msgstr "Je moet een wachtwoord invoeren om deze pagina's te bekijken"
+
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+msgid "You must provide a valid email address."
+msgstr "Vul een geldig emailadres in."
+
+msgid "Read"
+msgstr "Lees"

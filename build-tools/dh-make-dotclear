@@ -1,0 +1,224 @@
+#!/usr/bin/env php
+<?php
+class lambdaModule
+{
+	private $deb;
+	private $type;
+	private $today;
+	
+	private $id;
+	private $package_name;
+	private $name;
+	private $desc;
+	private $author;
+	private $version;
+	
+	public function __construct($module,$type)
+	{
+		if ($type != 'plugin' && $type != 'theme') {
+			throw new Exception('Invalid module type');
+		}
+		$this->type = $type;
+		
+		if (!$module || !is_dir($module)) {
+			throw new Exception(sprintf('Module %s does not exist',$module));
+		}
+		
+		$mod_define = $module.'/_define.php';
+		
+		if (!is_file($mod_define)) {
+			throw new Exception(sprintf('Module %s does not have _define.php file',$module));
+		}
+		
+		if (is_dir($module.'/debian')) {
+			throw new Exception(sprintf('Module %s already have a debian directory',$module));
+		}
+		
+		include $mod_define;
+		$this->id = strtolower(basename(realpath($module)));
+		$this->package_name = 'libdotclear-'.$this->type.'-'.$this->id;
+		
+		# Creating debian directory
+		$this->deb = $module.'/debian';
+		mkdir($this->deb);
+		
+		$this->createFile('changelog',$this->changelogTPL());
+		$this->createFile('compat',"4\n");
+		$this->createFile('control',$this->controlTPL());
+		$this->createFile('copyright',$this->copyrightTPL());
+		$this->createFile('dirs',$this->dirsTPL());
+		$this->createFile('rules',$this->rulesTPL());
+		chmod($this->deb.'/rules',0755);
+	}
+	
+	private function registerModule($name,$desc,$author,$version)
+	{
+		$this->name = $name;
+		$this->desc = $desc;
+		$this->author = $author;
+		$this->version = $version;
+	}
+	
+	private function createFile($name,$content='')
+	{
+		$fp = fopen($this->deb.'/'.$name,'wb');
+		fwrite($fp,$content);
+		fclose($fp);
+	}
+	
+	private function changelogTPL()
+	{
+		return
+		$this->package_name.' ('.$this->version.') unstable; urgency=low'."\n".
+		"\n".
+		"  Initial upstream release\n".
+		"\n".
+		" -- ".$this->author." <email@example.com>  ".date('r')."\n\n";
+	}
+	
+	private function controlTPL()
+	{
+		return
+		"Source: ".$this->package_name."\n".
+		"Section: web\n".
+		"Priority: optional\n".
+		"Maintainer: ".$this->author." <email@example.com>\n".
+		"Build-Depends: debhelper (>= 4.0.0), php5-cli\n".
+		"Standards-Version: 3.6.1\n".
+		"\n".
+		"Package: ".$this->package_name."\n".
+		"Architecture: all\n".
+		'Depends: ${misc:Depends}, dotclear'."\n".
+		"Description: Dotclear ".$this->name." Module \n".
+		" DotClear is a bloging tool.\n".
+		" .\n".
+		" ".$this->desc."\n".
+		"\n";
+	}
+	
+	private function copyrightTPL()
+	{
+		return
+		"This is Dotclear ".$this->name." Module, written and maintained by ".$this->author."\n".
+		"on ".date('r').".\n".
+		"\n".
+		"Copyright (C) ".date('Y')." ".$this->author."\n".
+		"\n".
+		"License:\n".
+		"\n".
+		"  This program is free software; you can redistribute it and/or modify\n".
+		"  it under the terms of the GNU General Public License as published by\n".
+		"  the Free Software Foundation; either version 2 of the License, or\n".
+		"  (at your option) any later version.\n".
+		"\n".
+		"  This program is distributed in the hope that it will be useful,\n".
+		"  but WITHOUT ANY WARRANTY; without even the implied warranty of\n".
+		"  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n".
+		"  GNU General Public License for more details.\n".
+		"\n".
+		"  You should have received a copy of the GNU General Public License\n".
+		"  along with this package; if not, write to the Free Software\n".
+		"  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA\n".
+		"  02111-1307, USA.\n".
+		"\n".
+		"On Debian systems, the complete text of the GNU General\n".
+		"Public License can be found in `/usr/share/common-licenses/GPL'.".
+		"\n";
+	}
+	
+	private function dirsTPL()
+	{
+		return
+		'/usr/share/dotclear/'.$this->type.'s/'.$this->id."\n";
+	}
+	
+	private function rulesTPL()
+	{
+		return
+		"#!/usr/bin/make -f\n".
+		"# -*- makefile -*-\n".
+		"\n".
+		"DEST=debian/".$this->package_name."/usr/share/dotclear/".$this->type.'s/'.$this->id."\n".
+		"\n".
+		"configure: configure-stamp\n".
+		"configure-stamp:\n".
+		"	dh_testdir\n".
+		"	# Add here commands to configure the package.\n".
+		"\n".
+		"	touch configure-stamp\n".
+		"\n".
+		"build: build-stamp\n".
+		"\n".
+		"build-stamp: configure-stamp\n".
+		"	dh_testdir\n".
+		"\n".
+		"	# Add here commands to compile the package.\n".
+		'	test -f Makefile && $(MAKE) config || echo "No Makefile"'."\n".
+		"	touch build-stamp\n".
+		"\n".
+		"clean:\n".
+		"	dh_testdir\n".
+		"	dh_testroot\n".
+		"	rm -f build-stamp configure-stamp\n".
+		"\n".
+		"	# Add here commands to clean up after the build process.\n".
+		'	test -f Makefile && $(MAKE) clean || echo "No Makefile"'."\n".
+		"\n".
+		"	dh_clean\n".
+		"\n".
+		"install: build\n".
+		"	dh_testdir\n".
+		"	dh_testroot\n".
+		"	dh_clean -k\n".
+		"	dh_installdirs\n".
+		"\n".
+		"	test -d _dist/module \\\n".
+		'	&& cp -af _dist/module ./$(DEST) \\'."\n".
+		"	|| ( \\\n".
+		"		find ./ -mindepth 1 -type d -not -regex '.*.svn.*' \\\n".
+		"		-not -regex '.*debian.*' -exec mkdir ./\$(DEST)/\{\} \; \\\n".
+		"		&& find ./ -type f -not -regex '.*.svn.*' -not -regex '.*debian.*' \\\n".
+		"		-not -name 'Makefile' -not -name 'configure-stamp' \\\n".
+		"		-not -name 'build-stamp' -exec cp -f \{\} ./\$(DEST) \; \\\n".
+		"	)\n".
+		"\n".
+		"# Build architecture-independent files here.\n".
+		"binary-indep: build install\n".
+		"# We have nothing to do by default.\n".
+		"\n".
+		"# Build architecture-dependent files here.\n".
+		"binary-arch: build install\n".
+		"	dh_testdir\n".
+		"	dh_testroot\n".
+		"	dh_installchangelogs\n".
+		"	dh_installdocs\n".
+		"	dh_installexamples\n".
+		"	dh_installman\n".
+		"	dh_link\n".
+		"	dh_strip\n".
+		"	dh_compress\n".
+		"	dh_fixperms\n".
+		"	dh_installdeb\n".
+		"	dh_gencontrol\n".
+		"	dh_md5sums\n".
+		"	dh_builddeb\n".
+		"\n".
+		"binary: binary-indep binary-arch\n".
+		".PHONY: build clean binary-indep binary-arch binary install configure\n".
+		"\n";
+	}
+}
+
+# Main
+try
+{
+	$module = !empty($_SERVER['argv'][1]) ? $_SERVER['argv'][1] : '.';
+	$type = !empty($_SERVER['argv'][2]) ? $_SERVER['argv'][2] : 'plugin';
+	$m = new lambdaModule($module,$type);
+}
+catch (Exception $e)
+{
+	fwrite(STDERR,$e->getMessage()."\n");
+	exit(1);
+}
+?>

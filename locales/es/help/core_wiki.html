@@ -1,0 +1,84 @@
+<html>
+<head>
+  <title>Referencia de la sintaxis wiki</title>
+</head>
+
+<body>
+
+<h3>Referencia de la sintaxis wiki</h3>
+
+<p>La sintaxis wiki es una manera de escribir texto con un conjunto de etiquetas
+reducido al mínimo, que permite cubrir las necesidades más habituales
+(títulos, párrafos, citas, listas...).</p>
+
+<dl>
+<dt>Elementos de bloque</dt>
+<dd>
+<ul>
+  <li>Deje una línea en blanco entre cada bloque de la misma naturaleza.</li>
+  <li><strong>Párrafo</strong>: texto libre, terminado por una línea en blanco
+  si va seguido de otro párrafo.</li>
+  <li><strong>Título</strong>: <code>!!! título</code>, <code>!! título</code>
+  o <code>! título</code> según los títulos sean más o menos importantes.</li>
+  <li><strong>Línea horizontal</strong>: <code>----</code></li>
+  <li><strong>Listas</strong>: Inicie cada línea con <code>*</code> para las
+  listas no numeradas, o con <code>#</code> para las listas numeradas. Puede
+  anidar listas mezclando los códigos de lista. Por ejemplo:
+<pre>
+* elemento 1
+** elemento 1.1
+* elemento 2
+*# elemento 2.1
+...
+</pre>
+  </li>
+  <li><strong>Texto preformateado</strong>: cada línea de texto debe empezar con un espacio.</li>
+  <li><strong>Bloque de cita</strong>: cada línea debe empezar con <code>&gt;</code>.</li>
+</ul>
+</dd>
+
+<dt>Elementos de formato</dt>
+<dd>
+<ul>
+  <li><strong>Énfasis</strong>: dos apóstrofes <code>''texto''</code></li>
+  <li><strong>Énfasis enérgico</strong>: dos guiones bajos <code>__texto__</code></li>
+  <li><strong>Salto de línea</strong>: <code>%%%</code></li>
+  <li><strong>Inserción</strong>: dos signos de más <code>++texto++</code></li>
+  <li><strong>Supresión</strong>: dos signos de menos <code>--texto--</code></li>
+  <li><strong>Enlace</strong>: <code>[url]</code>, <code>[nombre|url]</code>,
+    <code>[nombre|url|idioma]</code> o <code>[nombre|url|idioma|título]</code></li>
+  <li><strong>Imagen</strong>:
+    <code>((url|texto alternativo))</code>,
+    <code>((url|texto alternativo|posición))</code> ou
+    <code>((url|texto alternativo|posición|descripción larga))</code>.
+    <br />La posición puede tomar los valores L o G (izquierda), R o D (derecha) o C (centrado).</li>
+  <li><strong>Ancla</strong>: <code>~ancla~</code></li>
+  <li><strong>Acrónimo</strong>: <code>??acrónimo|título??</code></li>
+  <li><strong>Código HTML en línea</strong>: dos acentos graves <code>``código html``</code></li>
+  <li><strong>Cita en línea</strong>: <code>{{cita}}</code>,
+    <code>{{cita|idioma}}</code> o <code>{{cita|idioma|url}}</code></li>
+  <li><strong>Código</strong>: <code>@@código@@</code></li>
+  <li><strong>Nota a pie de página</strong>: <code>$$Cuerpo de la nota$$</code></li>
+</ul>
+</dd>
+
+<dt>Texto no formateado</dt>
+<dd>Para insertar un carácter sin que sea reconocido como un carácter de formato,
+añada el carácter <code>\</code> antes de él. Por ejemplo:
+<code>\[texto entre corchetes que no es un enlace\]</code>
+</dd>
+
+<dt>Inserción de código HTML</dt>
+<dd>Puede que ocasionalmente necesite insertar código HTML en su texto en formato wiki.
+Para ello, utilice el siguiente código:
+<pre>
+///html
+&lt;p style="color:red"&gt;mi texto en rojo&lt;/p&gt;
+///
+</pre>
+</dd>
+</dl>
+
+
+</body>
+</html>

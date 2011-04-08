@@ -1,0 +1,133 @@
+# Dotclear language pack (Basque).
+# Atropos-Nemesis(Project "trentansapres" "euskalblogs") <jonquiereguillaume@msn.com>, 2008.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-RC2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2008-06-25 14:32+0200\n"
+"Last-Translator: Atropos-Nemesis <jonquiereguillaume@msn.com>\n"
+"Language-Team: Basque\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Basque\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "urt"
+
+msgid "_Feb"
+msgstr "ots"
+
+msgid "_Mar"
+msgstr "mar"
+
+msgid "_Apr"
+msgstr "api"
+
+msgid "_May"
+msgstr "mai"
+
+msgid "_Jun"
+msgstr "eka"
+
+msgid "_Jul"
+msgstr "uzt"
+
+msgid "_Aug"
+msgstr "abu"
+
+msgid "_Sep"
+msgstr "ira"
+
+msgid "_Oct"
+msgstr "urr"
+
+msgid "_Nov"
+msgstr "aza"
+
+msgid "_Dec"
+msgstr "abe"
+
+msgid "January"
+msgstr "urtarrila"
+
+msgid "February"
+msgstr "otsaila"
+
+msgid "March"
+msgstr "martxoa"
+
+msgid "April"
+msgstr "apirila"
+
+msgid "May"
+msgstr "maiatza"
+
+msgid "June"
+msgstr "ekaina"
+
+msgid "July"
+msgstr "uztaila"
+
+msgid "August"
+msgstr "abuztua"
+
+msgid "September"
+msgstr "iraila"
+
+msgid "October"
+msgstr "urria"
+
+msgid "November"
+msgstr "azaroa"
+
+msgid "December"
+msgstr "abendua"
+
+msgid "_Mon"
+msgstr "Asl"
+
+msgid "_Tue"
+msgstr "Ast"
+
+msgid "_Wed"
+msgstr "Ask"
+
+msgid "_Thu"
+msgstr "Ost"
+
+msgid "_Fri"
+msgstr "Osl"
+
+msgid "_Sat"
+msgstr "Lar"
+
+msgid "_Sun"
+msgstr "Iga"
+
+msgid "Monday"
+msgstr "Astelehena"
+
+msgid "Tuesday"
+msgstr "Asteartea"
+
+msgid "Wednesday"
+msgstr "Asteazkena"
+
+msgid "Thursday"
+msgstr "Osteguna"
+
+msgid "Friday"
+msgstr "Ostirala"
+
+msgid "Saturday"
+msgstr "Larunbata"
+
+msgid "Sunday"
+msgstr "Igandea"

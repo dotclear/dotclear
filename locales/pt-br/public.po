@@ -1,0 +1,251 @@
+# Portuguese translation of DotClear
+# Copyright (C) 2006.
+# Olivier Meunier <olivier@dotclear.net>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2008-06-15 12:34-0300\n"
+"Last-Translator: Alain Fagot Béarez <Alain@Timbo-Bearez.biz>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "To content"
+msgstr "Ir ao conteúdo"
+
+msgid "To menu"
+msgstr "Ir à ementa"
+
+msgid "To search"
+msgstr "Ir à pesquisa"
+
+msgid "By"
+msgstr "Por"
+
+msgid "by"
+msgstr "por"
+
+msgid "on"
+msgstr "o dia"
+
+msgid "On"
+msgstr "O dia"
+
+msgid "Continue reading"
+msgstr "Continue a leitura"
+
+msgid "no comment"
+msgstr "nenhum comentário"
+
+msgid "one comment"
+msgstr "um comentário"
+
+msgid "%d comments"
+msgstr "%d comentários"
+
+msgid "no trackback"
+msgstr "nenhum trackback"
+
+msgid "one trackback"
+msgstr "um trackback"
+
+msgid "%d trackbacks"
+msgstr "%d trackbacks"
+
+msgid "no attachment"
+msgstr "nenhum anexo"
+
+msgid "one attachment"
+msgstr "um anexo"
+
+msgid "%d attachments"
+msgstr "%d anexos"
+
+msgid "previous entries"
+msgstr "posts anteriores"
+
+msgid "page"
+msgstr "página"
+
+msgid "of"
+msgstr "de"
+
+msgid "next entries"
+msgstr "posts seguintes"
+
+msgid "Search"
+msgstr "Pesquisa"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr ""
+
+msgid "Home"
+msgstr "Página principal"
+
+msgid "All keywords"
+msgstr "Todas as palavras chaves"
+
+msgid "Best of me"
+msgstr "O meu melhor"
+
+msgid "Languages"
+msgstr "Idiomas"
+
+msgid "Categories"
+msgstr "Categorias"
+
+#, fuzzy
+msgid "Subcategories"
+msgstr "Categorias"
+
+msgid "Archives"
+msgstr "Arquivos"
+
+msgid "Links"
+msgstr "Links"
+
+msgid "Subscribe"
+msgstr "Assinar"
+
+msgid "Entries feed"
+msgstr "Feed dos posts"
+
+msgid "Comments feed"
+msgstr "Feed dos comentários"
+
+#, fuzzy
+msgid "This blog's comments Atom feed"
+msgstr "Feed RSS dos comentários deste blog"
+
+#, fuzzy
+msgid "This category's entries Atom feed"
+msgstr "Feed RSS dos posts desta categoria"
+
+#, fuzzy
+msgid "This category's comments Atom feed"
+msgstr "Feed RSS dos comentários desta categoria"
+
+msgid "This post's comments feed"
+msgstr "Feed dos comentários deste post"
+
+#, fuzzy
+msgid "This post's comments Atom feed"
+msgstr "Feed dos comentários deste post"
+
+msgid "Attachments"
+msgstr "Anexos"
+
+msgid "Permalink"
+msgstr "Link permanente"
+
+msgid "Comments"
+msgstr "Comentários"
+
+msgid "Your comment"
+msgstr "Seu comentário"
+
+msgid "Your comment has been published."
+msgstr "Seu comentário foi publicado."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Seu comentário foi registrado e será publicado depois da aprobação."
+
+msgid "Add a comment"
+msgstr "Acrescentar um comentário"
+
+msgid "Name or nickname"
+msgstr "Nome ou apelido"
+
+msgid "Email address"
+msgstr "Endereço de email"
+
+msgid "Website"
+msgstr "Saite web"
+
+msgid "optional"
+msgstr "opcional"
+
+msgid "Comment"
+msgstr "Comentário"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "O código HTML é exibido como texto e os endereços web são automaticamente transformados."
+
+msgid "Remember me on this blog"
+msgstr "Se lembrar de mim neste blog"
+
+msgid "preview"
+msgstr "pré-visualizar"
+
+msgid "send"
+msgstr "enviar"
+
+msgid "They posted on the same topic"
+msgstr "A discussão continua em outros locais"
+
+msgid "Trackback URL"
+msgstr "URL de trackback"
+
+msgid "You must provide an author name"
+msgstr "Você tem de indicar um nome"
+
+msgid "You must provide a comment"
+msgstr "Você tem de escrever um comentário"
+
+msgid "Email address is not valid"
+msgstr "Endereço de email incorrecto"
+
+msgid "Document not found"
+msgstr "Nenhum documento encontrado"
+
+msgid "The document you are looking for does not exist."
+msgstr "O documento que você procura não existe."
+
+#, fuzzy
+msgid "Powered by %s"
+msgstr "Powered by"
+
+msgid "Subscribe to"
+msgstr "Assinar"
+
+msgid "What is an RSS feed?"
+msgstr "O que é um feed RSS?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Um feed RSS recolha as informações de actualização de um saite. Fornece o conteúdo dos posts ou os comentários ou um extracto destes, assim que links para as versões completas e algumas outras informações. Este feed tem por vocação de ser lido por um <a href=\"http://pt.wikipedia.org/wiki/Agregador\">agregador</a> RSS."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Copiar simplesmente o endereço seguinte no seu agregador:"
+
+msgid "Password needed"
+msgstr "Senha necessária"
+
+msgid "You must give a password to access this area."
+msgstr "Você tem de indicar uma senha por acessar a essa parte."
+
+msgid "Password:"
+msgstr "Senha:"
+
+msgid "You must provide a valid email address."
+msgstr "Você tem de indicar um endereço de email válido."
+
+msgid "Read"
+msgstr "Ler"
+
+#~ msgid "This blog's entries RSS feed"
+#~ msgstr "Feed RSS dos posts deste blog"
+
+#~ msgid "This post's comments RSS feed"
+#~ msgstr "Feed RSS dos comentários deste post"

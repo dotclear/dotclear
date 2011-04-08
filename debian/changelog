@@ -1,0 +1,3930 @@
+dotclear (2.0.2-1) unstable; urgency=low ; svnrev=2282
+
+  * SVN Revision 2236 - olivier, on Wed, 06 Aug 2008 11:42:49 +0200
+    New debian changelog. mkdcl.php update.
+
+  * SVN Revision 2237 - olivier, on Wed, 06 Aug 2008 14:43:29 +0200
+    Debian package enhancements.
+
+  * SVN Revision 2240 - olivier, on Sun, 10 Aug 2008 15:56:41 +0200
+    Makefile minor fix
+
+  * SVN Revision 2241 - olivier, on Mon, 11 Aug 2008 11:33:54 +0200
+    Removed l10n_plugin_load
+
+  * SVN Revision 2242 - olivier, on Mon, 11 Aug 2008 11:41:01 +0200
+    Load clearbricks before config in inc/load_plugin_file. Closes #375.
+
+  * SVN Revision 2243 - olivier, on Tue, 12 Aug 2008 15:53:59 +0200
+    Added 300 seconds HTPP max-age in load_plugin_file. Closes #377.
+
+  * SVN Revision 2244 - olivier, on Tue, 12 Aug 2008 16:29:36 +0200
+    2 hours max age seems to be ok.
+
+  * SVN Revision 2246 - olivier, on Thu, 14 Aug 2008 17:23:59 +0200
+    Added title part in URL of Dotclear 1.2 import. Closes #384.
+
+  * SVN Revision 2249 - olivier, on Sat, 16 Aug 2008 21:37:03 +0200
+    Version 2.0.1 on trunk.
+
+  * SVN Revision 2250 - olivier, on Sat, 16 Aug 2008 22:32:42 +0200
+    2.0.1 changelog
+
+  * SVN Revision 2254 - olivier, on Thu, 28 Aug 2008 16:20:02 +0200
+    New installer. Should be easier without all this mail stuff. Closes #386.
+
+  * SVN Revision 2255 - olivier, on Thu, 28 Aug 2008 16:28:59 +0200
+    L10N FR update
+
+  * SVN Revision 2256 - olivier, on Thu, 28 Aug 2008 17:19:12 +0200
+    Fixes in wordpress import. Closes #390.
+
+  * SVN Revision 2257 - olivier, on Thu, 28 Aug 2008 17:22:35 +0200
+    L10N FR update for [2256]
+
+  * SVN Revision 2258 - olivier, on Thu, 28 Aug 2008 17:24:47 +0200
+    L10N FR minor fixes. Closes #373.
+
+  * SVN Revision 2259 - olivier, on Thu, 28 Aug 2008 17:44:21 +0200
+    Removed links at the end of installation.
+
+  * SVN Revision 2260 - olivier, on Thu, 04 Sep 2008 15:34:49 +0200
+    More secure and efficient way to handle full text export.
+
+  * SVN Revision 2261 - olivier, on Thu, 04 Sep 2008 17:20:19 +0200
+    Added a message if a search returns no result. Closes #362.
+
+  * SVN Revision 2262 - pep, on Thu, 04 Sep 2008 18:31:28 +0200
+    Added adminBeforePostCreate and adminAfterPostCreate behaviors calls in dcRestMethods::quickPost().  Closes #361
+
+  * SVN Revision 2265 - olivier, on Fri, 05 Sep 2008 01:01:01 +0200
+    Added a message about new URL layout in Dotclear 1.2 import.
+
+  * SVN Revision 2266 - olivier, on Fri, 05 Sep 2008 01:11:22 +0200
+    L10N FR upgrade
+
+  * SVN Revision 2267 - olivier, on Fri, 05 Sep 2008 01:22:10 +0200
+    Added wmode=transparent in flv player integration. Closes #378.
+
+  * SVN Revision 2268 - olivier, on Fri, 05 Sep 2008 06:09:46 +0200
+    Fixed a layout bug in admin and added nice CSS rules for pre blocks.
+
+  * SVN Revision 2269 - olivier, on Fri, 05 Sep 2008 06:10:22 +0200
+    Nice CSS rules for pre blocks in default theme.
+
+  * SVN Revision 2270 - olivier, on Fri, 05 Sep 2008 06:56:25 +0200
+    Finaly found why I had this stupid "]" directory sometimes :)
+
+  * SVN Revision 2271 - olivier, on Fri, 05 Sep 2008 13:31:21 +0200
+    Changed message in fairTrackbacks
+
+  * SVN Revision 2272 - olivier, on Fri, 05 Sep 2008 16:42:32 +0200
+    Find entries containing a media item. Closes #187.
+
+  * SVN Revision 2273 - olivier, on Fri, 05 Sep 2008 17:32:56 +0200
+    Batch select/unselect entries. Closes #267.
+
+  * SVN Revision 2274 - olivier, on Fri, 05 Sep 2008 17:33:52 +0200
+    Code comment bad charset in dcBlog.
+
+  * SVN Revision 2275 - olivier, on Fri, 05 Sep 2008 22:10:24 +0200
+    L10N ES upgrade.
+
+  * SVN Revision 2277 - olivier, on Sat, 06 Sep 2008 03:45:58 +0200
+    Marked trunk version as 2.1-alpha1
+
+  * SVN Revision 2278 - olivier, on Sat, 06 Sep 2008 03:46:13 +0200
+    2.0.2 Changelog
+
+  * SVN Revision 2280 - olivier, on Sat, 06 Sep 2008 03:55:53 +0200
+    L10N FR update.
+
+  * SVN Revision 2282 - olivier, on Sat, 06 Sep 2008 04:16:43 +0200
+    UTF8 CSS encoding
+
+ -- Olivier Meunier <olivier@dotclear.net>  Sat, 06 Sep 2008 04:19:06 +0200
+
+dotclear (2.0-1) unstable; urgency=low ; svnrev=2233
+
+  * SVN Revision 2026 - olivier, on Mon, 30 Jun 2008 13:16:15 +0200
+    Debian changelog update
+
+  * SVN Revision 2027 - olivier, on Mon, 30 Jun 2008 18:06:12 +0200
+    Forgot to pass persist option to dbLayer...
+
+  * SVN Revision 2028 - olivier, on Tue, 01 Jul 2008 12:03:42 +0200
+    Users with contentadmin permissions should be able to log.
+    Added an error message if user exists in user.php
+
+  * SVN Revision 2030 - olivier, on Tue, 01 Jul 2008 15:58:42 +0200
+    Added theme version in themes list. Closes #282.
+
+  * SVN Revision 2031 - olivier, on Tue, 01 Jul 2008 16:44:19 +0200
+    Added Title only on images legend. Closes #305.
+
+  * SVN Revision 2032 - olivier, on Tue, 01 Jul 2008 16:47:25 +0200
+    Removed SQLite support. Enhanced error messages. Closes #250.
+
+  * SVN Revision 2033 - olivier, on Tue, 01 Jul 2008 17:50:30 +0200
+    Added dcAuth blog_count property.
+
+  * SVN Revision 2034 - xave, on Thu, 03 Jul 2008 11:35:15 +0200
+    Added support for Deezer in externalMedia.
+
+  * SVN Revision 2035 - xave, on Thu, 03 Jul 2008 15:07:32 +0200
+    removed ugly non free obsolete user agent. :p
+
+  * SVN Revision 2036 - xave, on Thu, 03 Jul 2008 15:57:39 +0200
+    Hides comments div on post pages with no comments. Closes #286.
+
+  * SVN Revision 2037 - olivier, on Thu, 03 Jul 2008 21:31:53 +0200
+    SQLite support is back with PDO and SQLite v3 only. Closes #250.
+
+  * SVN Revision 2038 - olivier, on Fri, 04 Jul 2008 13:32:43 +0200
+    Fixed plugin regexps which sometimes prevented plugin display.
+
+  * SVN Revision 2039 - olivier, on Fri, 04 Jul 2008 18:22:26 +0200
+    New dashboard layout, with quick entry form.
+
+  * SVN Revision 2040 - olivier, on Fri, 04 Jul 2008 18:28:25 +0200
+    L10N update (POT and FR)
+
+  * SVN Revision 2041 - olivier, on Fri, 04 Jul 2008 23:22:59 +0200
+    Forgot comment and trackback status in quickPost
+
+  * SVN Revision 2042 - olivier, on Sat, 05 Jul 2008 00:22:06 +0200
+    idx_media_media_path may be too long for MySQL. PostgreSQL only now.
+
+  * SVN Revision 2043 - xave, on Tue, 08 Jul 2008 10:34:39 +0200
+    Applied 2036 to the page plugin. Closes #313.
+
+  * SVN Revision 2044 - xave, on Tue, 08 Jul 2008 16:01:42 +0200
+    [2043] was flawed (ctrl-v != ctrl-x, stupid !)
+    Closes #318.
+
+  * SVN Revision 2045 - olivier, on Wed, 09 Jul 2008 10:44:01 +0200
+    Removed windows line breaks.
+
+  * SVN Revision 2046 - olivier, on Wed, 09 Jul 2008 12:08:26 +0200
+    Dashboard "default blog" link position
+
+  * SVN Revision 2047 - olivier, on Wed, 09 Jul 2008 12:09:38 +0200
+    Added "new entry" button on entries list.
+
+  * SVN Revision 2048 - olivier, on Wed, 09 Jul 2008 12:15:42 +0200
+    First draft for view or preview entry in context. Removed preview tab in post.php.
+    Needs some modal box now.
+
+  * SVN Revision 2049 - olivier, on Wed, 09 Jul 2008 12:40:12 +0200
+    Modal box for post preview.
+
+  * SVN Revision 2050 - olivier, on Wed, 09 Jul 2008 14:33:36 +0200
+    You can't delete yourself or a super-admin.
+
+  * SVN Revision 2051 - olivier, on Wed, 09 Jul 2008 14:39:36 +0200
+    Added full URL of custom image in blowupConfig.
+
+  * SVN Revision 2052 - olivier, on Thu, 10 Jul 2008 12:50:43 +0200
+    You should be able to delete a super-admin, but not yourself.
+
+  * SVN Revision 2053 - olivier, on Thu, 10 Jul 2008 13:15:30 +0200
+    Shrank file inupt in media manager. Closes #321.
+
+  * SVN Revision 2054 - olivier, on Thu, 10 Jul 2008 13:19:22 +0200
+    Changed package icon. Closes #284.
+
+  * SVN Revision 2055 - olivier, on Thu, 10 Jul 2008 13:31:01 +0200
+    Atom and RSS minor fixes. Closes #311.
+
+  * SVN Revision 2056 - olivier, on Fri, 11 Jul 2008 11:13:25 +0200
+    We don't need alt attributes on dashboard icons.
+
+  * SVN Revision 2057 - olivier, on Fri, 11 Jul 2008 11:14:42 +0200
+    Different link for spam count on dashboard. Not very nice but closes #324.
+
+  * SVN Revision 2058 - xave, on Fri, 11 Jul 2008 12:52:32 +0200
+    Cleaned up obsolete links in the English in line doc.
+    Closes #300.
+
+  * SVN Revision 2059 - olivier, on Fri, 11 Jul 2008 12:54:32 +0200
+    Templates enhancements.
+
+  * SVN Revision 2060 - olivier, on Fri, 11 Jul 2008 14:43:58 +0200
+    Enhanced templates metadata. Closes #308 and #323.
+
+  * SVN Revision 2061 - olivier, on Fri, 11 Jul 2008 20:18:48 +0200
+    Fixed dc.title in category.html. Closes #326.
+
+  * SVN Revision 2062 - kozlika, on Sat, 12 Jul 2008 21:47:55 +0200
+    Diverses petites corrections dans les fichiers de traduction.
+
+  * SVN Revision 2063 - olivier, on Sat, 12 Jul 2008 22:03:52 +0200
+    EntryLang in page.html template. Closes #327.
+
+  * SVN Revision 2064 - olivier, on Sun, 13 Jul 2008 11:01:19 +0200
+    L10N FR fix.
+
+  * SVN Revision 2065 - olivier, on Mon, 14 Jul 2008 14:59:06 +0200
+    Import/Export plugin version 2.0. See #312.
+
+  * SVN Revision 2068 - olivier, on Mon, 14 Jul 2008 15:16:30 +0200
+    Forgot all classes in import/export 2.0...
+
+  * SVN Revision 2069 - olivier, on Wed, 16 Jul 2008 11:14:30 +0200
+    Added page number in page title if page>1. Templates need this revision to work.
+    Closes #302 and #283.
+
+  * SVN Revision 2070 - olivier, on Wed, 16 Jul 2008 13:02:37 +0200
+    Store candyUpload state in a cookie on succes. Closes #310.
+
+  * SVN Revision 2071 - olivier, on Wed, 16 Jul 2008 13:41:44 +0200
+    Force candyUpload flash object to be in viewport on init. Closes #285.
+
+  * SVN Revision 2072 - olivier, on Wed, 16 Jul 2008 14:27:31 +0200
+    Added empty style.css in customCSS theme.
+
+  * SVN Revision 2073 - olivier, on Wed, 16 Jul 2008 14:34:37 +0200
+    Minor FR typo fixes. Closes #295.
+
+  * SVN Revision 2074 - olivier, on Wed, 16 Jul 2008 14:55:56 +0200
+    ArrayObject is better than arrayObject.
+
+  * SVN Revision 2075 - olivier, on Wed, 16 Jul 2008 15:32:10 +0200
+    Convert CRLF to LF
+
+  * SVN Revision 2076 - olivier, on Wed, 16 Jul 2008 15:46:52 +0200
+    Changed some NULL by null.
+
+  * SVN Revision 2077 - olivier, on Wed, 16 Jul 2008 15:52:14 +0200
+    Replaced php_sapi_name() by PHP_SAPI.
+
+  * SVN Revision 2078 - olivier, on Wed, 16 Jul 2008 20:19:48 +0200
+    Import/Export FR locales fixes.
+
+  * SVN Revision 2079 - biou, on Wed, 16 Jul 2008 22:16:53 +0200
+    added basic gui for antispam_moderation_ttl setting
+
+  * SVN Revision 2080 - olivier, on Wed, 16 Jul 2008 22:30:25 +0200
+    Added DC_ANTISPAM_CONF_SUPER constant
+
+  * SVN Revision 2081 - olivier, on Wed, 16 Jul 2008 22:36:28 +0200
+    Fixed a bug in _permissions.js
+
+  * SVN Revision 2082 - olivier, on Thu, 17 Jul 2008 11:39:52 +0200
+    Added page preview in Pages plugin. Closes #331
+
+  * SVN Revision 2083 - olivier, on Thu, 17 Jul 2008 11:51:25 +0200
+    Page remove should redirect to the right place.
+
+  * SVN Revision 2084 - biou, on Thu, 17 Jul 2008 12:07:34 +0200
+    added credits file
+
+  * SVN Revision 2085 - olivier, on Thu, 17 Jul 2008 12:34:43 +0200
+    Added adminDashboardHeaders behavior in admin/index
+
+  * SVN Revision 2086 - olivier, on Thu, 17 Jul 2008 12:40:11 +0200
+    External Media in quickPost on dashboard. List of supported services.
+    Closes #330 and #332.
+
+  * SVN Revision 2087 - olivier, on Thu, 17 Jul 2008 12:50:35 +0200
+    Removed EOF in inc/public/lib.urlhandlers
+
+  * SVN Revision 2088 - olivier, on Thu, 17 Jul 2008 15:20:21 +0200
+    We don't need to display error code in core_error.
+
+  * SVN Revision 2089 - biou, on Thu, 17 Jul 2008 20:28:45 +0200
+    import/export: now we show the choice of file even if there is no file, in order to show the user that it is possible to import from the public directory. (Bastien Scapin ergo criteria, guidage, incitation)
+
+  * SVN Revision 2090 - biou, on Thu, 17 Jul 2008 20:32:01 +0200
+    import/export: now possible to export in a file in the public directory.
+
+  * SVN Revision 2091 - olivier, on Thu, 17 Jul 2008 22:55:07 +0200
+    Export layout minor fixes.
+
+  * SVN Revision 2092 - olivier, on Fri, 18 Jul 2008 00:00:58 +0200
+    Class on candyUplod progress bar was not very nice :)
+
+  * SVN Revision 2093 - olivier, on Fri, 18 Jul 2008 04:33:12 +0200
+    Import/Export:
+      * Added behavior importExportModules
+      * Added dcIeModule::init()
+      * Added dcIeModule::autoSubmit()
+      * Added dcIeModule::progressBar()
+
+  * SVN Revision 2094 - olivier, on Fri, 18 Jul 2008 05:16:34 +0200
+    Import/Export, changed priority and added dcIeModule::congratMessage()
+
+  * SVN Revision 2095 - olivier, on Fri, 18 Jul 2008 05:26:41 +0200
+    Import/Export, enhanced congratulation message.
+
+  * SVN Revision 2096 - xave, on Fri, 18 Jul 2008 08:22:32 +0200
+    small l10n fix
+
+  * SVN Revision 2097 - olivier, on Fri, 18 Jul 2008 09:24:38 +0200
+    Added Dotclear 1.2 import module in Import/Export plugin.
+
+  * SVN Revision 2101 - olivier, on Fri, 18 Jul 2008 20:51:32 +0200
+    New plugins list. You can now activate/deactivate plugins. Closes #198.
+
+  * SVN Revision 2102 - olivier, on Fri, 18 Jul 2008 21:05:10 +0200
+    Pages L10N update
+
+  * SVN Revision 2103 - olivier, on Fri, 18 Jul 2008 21:07:32 +0200
+    L10N update, FR fixes.
+
+  * SVN Revision 2104 - olivier, on Fri, 18 Jul 2008 21:15:51 +0200
+    Markup error in plugins.php
+
+  * SVN Revision 2105 - olivier, on Sat, 19 Jul 2008 04:01:14 +0200
+    Better menu this way.
+
+  * SVN Revision 2106 - olivier, on Sat, 19 Jul 2008 12:08:11 +0200
+    Enhanced menu again.
+
+  * SVN Revision 2107 - olivier, on Sat, 19 Jul 2008 12:17:07 +0200
+    New entry link in menu as a button.
+
+  * SVN Revision 2108 - xave, on Sat, 19 Jul 2008 17:38:11 +0200
+    WP Import first draft. DO NOT USE.
+    Needs tweaking and cleaning. Pages, tags and proper category handling are missing.
+
+  * SVN Revision 2109 - olivier, on Sat, 19 Jul 2008 18:48:19 +0200
+    Removed "new entry" link in entries list.
+
+  * SVN Revision 2110 - olivier, on Sun, 20 Jul 2008 01:29:13 +0200
+    New nice, very nice, theme chooser.
+
+  * SVN Revision 2111 - olivier, on Sun, 20 Jul 2008 01:30:38 +0200
+    L10N FR update.
+
+  * SVN Revision 2112 - olivier, on Sun, 20 Jul 2008 01:31:13 +0200
+    Theme chooser missing rule.
+
+  * SVN Revision 2113 - olivier, on Sun, 20 Jul 2008 01:45:58 +0200
+    Fixes on Dotclear 1.2 import class.
+
+  * SVN Revision 2114 - olivier, on Sun, 20 Jul 2008 12:15:30 +0200
+    Added a link to theme stylesheet in theme chooser.
+
+  * SVN Revision 2115 - olivier, on Sun, 20 Jul 2008 12:39:49 +0200
+    L10N FR. Replaced spaces by non breaking spaces where needed.
+
+  * SVN Revision 2116 - olivier, on Sun, 20 Jul 2008 14:26:08 +0200
+    Added links to Dotaddict on top of plugins and themes lists.
+
+  * SVN Revision 2117 - olivier, on Sun, 20 Jul 2008 14:36:06 +0200
+    "inflate" replaced by "extract"
+
+  * SVN Revision 2118 - xave, on Sun, 20 Jul 2008 14:44:35 +0200
+    (Almost ?) completed.
+    Code needs cleaning.
+
+  * SVN Revision 2119 - olivier, on Sun, 20 Jul 2008 14:46:03 +0200
+    L10N update.
+
+  * SVN Revision 2120 - olivier, on Sun, 20 Jul 2008 14:52:12 +0200
+    L10N FR minor fixes.
+
+  * SVN Revision 2121 - olivier, on Sun, 20 Jul 2008 16:43:04 +0200
+    Working on RTL support. That could work. See #217.
+
+  * SVN Revision 2122 - olivier, on Sun, 20 Jul 2008 18:39:43 +0200
+    Added language code with language name in select boxes.
+
+  * SVN Revision 2123 - olivier, on Sun, 20 Jul 2008 19:05:34 +0200
+    Added dcCore::getPostTypes(). Closes #333.
+
+  * SVN Revision 2124 - olivier, on Sun, 20 Jul 2008 19:36:48 +0200
+    Minor fix in themes presentation.
+
+  * SVN Revision 2125 - olivier, on Sun, 20 Jul 2008 20:09:17 +0200
+    Added an DB index.
+
+  * SVN Revision 2127 - olivier, on Mon, 21 Jul 2008 01:34:32 +0200
+    Added no_context attribute on following template tags. Closes #233.
+    
+     * tpl:Archives
+     * tpl:Entries
+     * tpl:Comments
+     * tpl:Pings
+
+  * SVN Revision 2128 - olivier, on Mon, 21 Jul 2008 02:10:08 +0200
+    Entries (and comments) lists minor enhancement.
+
+  * SVN Revision 2129 - olivier, on Mon, 21 Jul 2008 02:41:53 +0200
+    Added dc_post.post_position field.
+
+  * SVN Revision 2130 - olivier, on Mon, 21 Jul 2008 02:47:32 +0200
+    Added page position in Pages plugins. Closes #246.
+
+  * SVN Revision 2131 - olivier, on Mon, 21 Jul 2008 02:48:42 +0200
+    Pages plugin version update.
+
+  * SVN Revision 2132 - olivier, on Mon, 21 Jul 2008 03:03:39 +0200
+    Added tpl:SysPoweredBy tag. Closes #288.
+
+  * SVN Revision 2133 - olivier, on Mon, 21 Jul 2008 13:06:38 +0200
+    Fixed a bug with single category import. Moved file while uploaded before processing.
+    Closes #342.
+
+  * SVN Revision 2134 - olivier, on Mon, 21 Jul 2008 14:53:52 +0200
+    Slicker footer in admin.
+
+  * SVN Revision 2135 - olivier, on Mon, 21 Jul 2008 15:22:04 +0200
+    L10N FR update.
+
+  * SVN Revision 2136 - xave, on Mon, 21 Jul 2008 18:47:54 +0200
+    Added user permissions handling, several refinements and a general code cleaning.
+    
+    Closes #339.
+
+  * SVN Revision 2137 - olivier, on Mon, 21 Jul 2008 22:51:29 +0200
+    Sort plugins in plugins page. Closes #345.
+
+  * SVN Revision 2138 - biou, on Tue, 22 Jul 2008 00:11:43 +0200
+    externalMedia: basic jamendo support
+
+  * SVN Revision 2139 - olivier, on Tue, 22 Jul 2008 00:29:01 +0200
+    External media, one query is enough ;)
+
+  * SVN Revision 2140 - olivier, on Tue, 22 Jul 2008 00:46:00 +0200
+    Updated blowup and blueSilence screeshots.
+
+  * SVN Revision 2141 - olivier, on Tue, 22 Jul 2008 02:13:17 +0200
+    Updated mp3 and flv players. Allow full screen on flv player.
+    Many thanks to neolao for his great work on this tools :)
+
+  * SVN Revision 2142 - biou, on Tue, 22 Jul 2008 10:26:03 +0200
+    externalMedia: jamendo track mode support
+
+  * SVN Revision 2143 - biou, on Tue, 22 Jul 2008 10:50:36 +0200
+    externalMedia: jamendo, deleted one http connexion, but quite slow
+
+  * SVN Revision 2144 - olivier, on Tue, 22 Jul 2008 11:39:46 +0200
+    JSMin while building JS files. Closes #346.
+
+  * SVN Revision 2145 - olivier, on Tue, 22 Jul 2008 12:11:35 +0200
+    Added a class named "back" on back links.
+
+  * SVN Revision 2146 - xave, on Tue, 22 Jul 2008 13:43:26 +0200
+    Changed default prefix in class.dc.import.wp.php
+    Added visibility for post processing message.
+
+  * SVN Revision 2147 - olivier, on Tue, 22 Jul 2008 18:14:06 +0200
+    We should be able to create "fake settings" for one shot use or default setting value.
+
+  * SVN Revision 2148 - olivier, on Tue, 22 Jul 2008 23:39:36 +0200
+    Admin design refreshed, with new logo.
+
+  * SVN Revision 2149 - olivier, on Wed, 23 Jul 2008 01:25:42 +0200
+    Fixed a regression in toggleWithLegend jQuery function.
+
+  * SVN Revision 2152 - olivier, on Wed, 23 Jul 2008 11:59:52 +0200
+    Added favicon on admin page.
+
+  * SVN Revision 2157 - olivier, on Wed, 23 Jul 2008 14:41:55 +0200
+    Admin minor layout fix. Closes #347.
+
+  * SVN Revision 2159 - olivier, on Wed, 23 Jul 2008 16:48:46 +0200
+    Force loading every help files from l10n plugins in resources.
+
+  * SVN Revision 2160 - olivier, on Wed, 23 Jul 2008 16:53:31 +0200
+    Don't load plugin resources help if exists.
+
+  * SVN Revision 2163 - olivier, on Wed, 23 Jul 2008 17:10:40 +0200
+    Remove locales/_pot. You'll find pot files in l10n-plugins/template/po directory now.
+
+  * SVN Revision 2164 - olivier, on Wed, 23 Jul 2008 17:27:59 +0200
+    L10N FR in a plugin now. Needs more work to be full ok.
+
+  * SVN Revision 2165 - olivier, on Wed, 23 Jul 2008 17:33:11 +0200
+    Removed locales/fr
+
+  * SVN Revision 2166 - olivier, on Wed, 23 Jul 2008 17:40:54 +0200
+    Moved help.html from blowupConfig and themeEditor to plugin root. Removed locales from this plugins.
+
+  * SVN Revision 2167 - olivier, on Wed, 23 Jul 2008 17:47:54 +0200
+    Removed fr locales from included plugins.
+
+  * SVN Revision 2168 - olivier, on Wed, 23 Jul 2008 17:48:49 +0200
+    pwet.po is useless :)
+
+  * SVN Revision 2169 - olivier, on Wed, 23 Jul 2008 18:08:35 +0200
+    Loading locales from l10n plugins on authentication page. Thanks Takafumi.
+
+  * SVN Revision 2170 - olivier, on Wed, 23 Jul 2008 18:13:09 +0200
+    That's it. template files not in tpl are not accepted anymore. Closes #214.
+
+  * SVN Revision 2172 - olivier, on Wed, 23 Jul 2008 18:48:14 +0200
+    Fixed lang loading and css issues in installer.
+
+  * SVN Revision 2174 - olivier, on Wed, 23 Jul 2008 21:59:29 +0200
+    Removed favicon from admin interface. Closes #348.
+
+  * SVN Revision 2175 - pep, on Thu, 24 Jul 2008 12:54:57 +0200
+    Don't display perms that are no longer defined. Closes #351
+
+  * SVN Revision 2177 - biou, on Thu, 24 Jul 2008 15:39:25 +0200
+    added coreAfterPostContentFormat behavior
+
+  * SVN Revision 2178 - biou, on Thu, 24 Jul 2008 15:43:20 +0200
+    oops !
+
+  * SVN Revision 2179 - biou, on Thu, 24 Jul 2008 15:55:28 +0200
+    re-oops ! murphy...
+
+  * SVN Revision 2180 - olivier, on Mon, 28 Jul 2008 09:33:12 +0200
+    Changed coreAfterPostContentFormat behavior parameters.
+
+  * SVN Revision 2181 - olivier, on Mon, 28 Jul 2008 09:40:01 +0200
+    Added coreBeforeCommentCreate and coreAfterCommentCreate behaviors.
+
+  * SVN Revision 2182 - olivier, on Tue, 29 Jul 2008 14:45:29 +0200
+    First step in removing l10n plugins.
+
+  * SVN Revision 2183 - olivier, on Tue, 29 Jul 2008 14:46:56 +0200
+    Remove l10n-fr plugin.
+
+  * SVN Revision 2184 - olivier, on Tue, 29 Jul 2008 14:47:53 +0200
+    locales/fr is back. Other languages will follow.
+
+  * SVN Revision 2185 - olivier, on Tue, 29 Jul 2008 15:01:20 +0200
+    New po_update.sh script (in locales) and _pot files.
+
+  * SVN Revision 2186 - olivier, on Tue, 29 Jul 2008 15:19:13 +0200
+    Plugins l10n-<lang> are going away...
+
+  * SVN Revision 2187 - olivier, on Tue, 29 Jul 2008 15:25:25 +0200
+    DC_RC_PATH check in locales/en/resources.php
+
+  * SVN Revision 2188 - olivier, on Tue, 29 Jul 2008 15:26:10 +0200
+    L10N JA in locales.
+
+  * SVN Revision 2189 - olivier, on Tue, 29 Jul 2008 15:39:04 +0200
+    Fixed some untransladed strings in metadata and blogroll plugins. Thx Takafumi.
+
+  * SVN Revision 2192 - olivier, on Tue, 29 Jul 2008 16:14:53 +0200
+    Old l10n plugins are in locales now.
+
+  * SVN Revision 2193 - olivier, on Tue, 29 Jul 2008 17:07:56 +0200
+    L10N packages creation in Makefile.
+
+  * SVN Revision 2194 - olivier, on Tue, 29 Jul 2008 17:48:58 +0200
+    Minor installation improvements.
+
+  * SVN Revision 2195 - olivier, on Tue, 29 Jul 2008 18:31:24 +0200
+    CSS minor fix on tabs.
+
+  * SVN Revision 2196 - olivier, on Tue, 29 Jul 2008 20:42:40 +0200
+    It's better if we load plugins.po.
+
+  * SVN Revision 2197 - olivier, on Tue, 29 Jul 2008 21:15:49 +0200
+    common.js clean up
+
+  * SVN Revision 2198 - olivier, on Tue, 29 Jul 2008 22:09:25 +0200
+    Plugin delete confirmation message update.
+
+  * SVN Revision 2199 - olivier, on Tue, 29 Jul 2008 22:33:09 +0200
+    New languages management page. Extra bonus will follow.
+
+  * SVN Revision 2200 - olivier, on Tue, 29 Jul 2008 22:46:56 +0200
+    L10N POT and FR update
+
+  * SVN Revision 2201 - olivier, on Tue, 29 Jul 2008 23:14:02 +0200
+    Makefile minor fix.
+
+  * SVN Revision 2202 - olivier, on Wed, 30 Jul 2008 01:06:55 +0200
+    Languages download for install or upgrade from dotclear.net.
+
+  * SVN Revision 2203 - olivier, on Wed, 30 Jul 2008 01:14:35 +0200
+    langs.php minor update
+
+  * SVN Revision 2204 - olivier, on Wed, 30 Jul 2008 01:14:48 +0200
+    L10N POT and FR update
+
+  * SVN Revision 2205 - olivier, on Wed, 30 Jul 2008 08:50:41 +0200
+    plugins.po needs to be loaded on public area too.
+
+  * SVN Revision 2206 - olivier, on Wed, 30 Jul 2008 09:15:36 +0200
+    Added some hints in langs.php
+
+  * SVN Revision 2207 - olivier, on Wed, 30 Jul 2008 11:05:20 +0200
+    Minor visual fix on media_item
+
+  * SVN Revision 2208 - olivier, on Wed, 30 Jul 2008 11:17:23 +0200
+    Added "Tag" in tags feeds title.
+
+  * SVN Revision 2209 - olivier, on Wed, 30 Jul 2008 11:22:08 +0200
+    Replaced RSS2 feeds URLs by Atom ones. RSS2 is still available for those who like it. Closes #357.
+
+  * SVN Revision 2210 - olivier, on Wed, 30 Jul 2008 11:36:58 +0200
+    Feeds links minor fixes.
+
+  * SVN Revision 2211 - olivier, on Wed, 30 Jul 2008 11:50:01 +0200
+    plugins and public POT files update
+
+  * SVN Revision 2212 - olivier, on Wed, 30 Jul 2008 12:03:55 +0200
+    POT and FR L10N update.
+
+  * SVN Revision 2213 - olivier, on Wed, 30 Jul 2008 12:35:38 +0200
+    Changed "theme settings" by "blog aspect". Updated POT and FR L10N.
+
+  * SVN Revision 2214 - olivier, on Wed, 30 Jul 2008 13:51:24 +0200
+    locales/po_update.sh can now handle plugins.
+
+  * SVN Revision 2216 - olivier, on Wed, 30 Jul 2008 16:52:15 +0200
+    Removed dotclear.net from ping services.
+
+  * SVN Revision 2217 - olivier, on Wed, 30 Jul 2008 17:20:33 +0200
+    Typo fixes. Thanks Takafumi for the patch.
+
+  * SVN Revision 2218 - olivier, on Wed, 30 Jul 2008 18:38:49 +0200
+    Typo fixes. Thx Takafumi.
+
+  * SVN Revision 2219 - takafumi, on Wed, 30 Jul 2008 19:57:36 +0200
+    Updated L10N JA for final RC.
+
+  * SVN Revision 2220 - olivier, on Wed, 30 Jul 2008 23:45:11 +0200
+    RSS2 to Atom in Pages. Closes #357.
+
+  * SVN Revision 2221 - olivier, on Wed, 30 Jul 2008 23:49:10 +0200
+    Force encode_html="1" in meta description value for post. Closes #359.
+    Added fullscreen support on flv player in attachements. Closes #360.
+
+  * SVN Revision 2222 - takafumi, on Thu, 31 Jul 2008 09:59:33 +0200
+    Updated JA L10N - small fix
+
+  * SVN Revision 2223 - olivier, on Thu, 31 Jul 2008 14:34:54 +0200
+    Minor fix in modal.css
+
+  * SVN Revision 2225 - olivier, on Thu, 31 Jul 2008 17:14:28 +0200
+    Minor cosmetic enhancement
+
+  * SVN Revision 2226 - olivier, on Thu, 31 Jul 2008 21:07:14 +0200
+    Changelog and version update. Yeah baby, that's 2.0. Closes #358.
+
+  * SVN Revision 2233 - olivier, on Fri, 01 Aug 2008 12:38:48 +0200
+    L10N FR typo fix.
+
+ -- Olivier Meunier <olivier@dotclear.net>  Wed, 06 Aug 2008 11:37:43 +0200
+
+dotclear (1.99+2.0-beta8-2) unstable; urgency=low ; svnrev=2025
+
+  * SVN Revision 1851 - olivier, on Tue, 06 May 2008 16:19:19 +0200
+    New spam filter plugin : Fair Trackbacks. Checks for incoming trackbacks validity.
+
+  * SVN Revision 1852 - olivier, on Wed, 07 May 2008 16:03:04 +0200
+    FairTrackbacks. Removed sender host check, added excpetion messages.
+
+  * SVN Revision 1853 - olivier, on Wed, 07 May 2008 16:37:23 +0200
+    Fixed meta display order in entry edit page.
+
+  * SVN Revision 1854 - olivier, on Tue, 13 May 2008 14:02:27 +0200
+    Debian package update
+
+  * SVN Revision 1855 - olivier, on Tue, 13 May 2008 14:29:13 +0200
+    New debian changelog
+
+  * SVN Revision 1856 - olivier, on Tue, 13 May 2008 15:26:34 +0200
+    Added fairTrackbacks in Makefile.
+
+  * SVN Revision 1857 - olivier, on Wed, 14 May 2008 12:14:19 +0200
+    In debian world RC version is older than Beta ...
+
+  * SVN Revision 1858 - olivier, on Sat, 17 May 2008 12:47:56 +0200
+    Use DC_VENDOR_NAME in admin/auth.php page
+
+  * SVN Revision 1859 - olivier, on Mon, 19 May 2008 13:59:36 +0200
+    Some new core features to allow translations in plugins. See #226.
+
+  * SVN Revision 1860 - xave, on Wed, 21 May 2008 09:48:45 +0200
+    added automatic focus
+
+  * SVN Revision 1861 - olivier, on Wed, 21 May 2008 14:11:42 +0200
+    Fixed a bug which prevent to search comments with author "0"
+
+  * SVN Revision 1862 - olivier, on Sun, 25 May 2008 22:47:35 +0200
+    Added dcAuth::sessionExists and dcAuth::checkSession methods. See #254.
+
+  * SVN Revision 1863 - bruno, on Fri, 30 May 2008 13:10:47 +0200
+     * Fixed tag deletion bug when post_type != 'post' 
+     * Added optional $post_type parameter to delMeta and updateMeta
+    cf. http://forum.dotclear.net/viewtopic.php?pid=212534
+
+  * SVN Revision 1864 - bruno, on Fri, 30 May 2008 14:53:53 +0200
+    Missed 1 post_type filter in actions ...
+
+  * SVN Revision 1865 - olivier, on Fri, 30 May 2008 15:24:43 +0200
+    Added inc/l10n_plugin_load.php. This file should be included by l10n plugins.
+
+  * SVN Revision 1866 - olivier, on Fri, 30 May 2008 15:31:25 +0200
+    Do not delete tag on empty list. Closes #257.
+
+  * SVN Revision 1867 - pep, on Fri, 30 May 2008 17:00:48 +0200
+    Added Pages support in externalMedia
+
+  * SVN Revision 1868 - olivier, on Fri, 30 May 2008 22:47:23 +0200
+    Minor JS fixes.
+
+  * SVN Revision 1869 - olivier, on Sat, 31 May 2008 10:33:25 +0200
+    Fixed a bug in revision [1868].
+
+  * SVN Revision 1871 - olivier, on Sat, 31 May 2008 16:19:16 +0200
+    Remove super admin rights on dcAuth::sudo exceptions. Closes #260.
+
+  * SVN Revision 1872 - olivier, on Sun, 01 Jun 2008 20:21:35 +0200
+    Allowed dcAuth::checkSession() without uid.
+
+  * SVN Revision 1873 - olivier, on Sun, 01 Jun 2008 20:41:22 +0200
+    Another to bypass browser_uid in dcAuth.
+
+  * SVN Revision 1874 - olivier, on Mon, 02 Jun 2008 08:43:37 +0200
+    [1872] and [1873] was mistakes.
+
+  * SVN Revision 1875 - olivier, on Mon, 02 Jun 2008 17:38:17 +0200
+    Added mort files sorting options in dcMedia.
+
+  * SVN Revision 1876 - olivier, on Mon, 02 Jun 2008 17:44:08 +0200
+    You can now check user authentication with DC_AUTH_KEY and DC_AUTH_BLOGID constants
+    in inc/admin/prepend.php.
+
+  * SVN Revision 1877 - olivier, on Mon, 02 Jun 2008 17:51:32 +0200
+    Important update: new uploader using swfupload flash movie and nice jQuery stuff.
+
+  * SVN Revision 1878 - olivier, on Mon, 02 Jun 2008 18:47:32 +0200
+    Authentication for uploader is better this way.
+
+  * SVN Revision 1879 - olivier, on Mon, 02 Jun 2008 18:51:07 +0200
+    Translation update.
+
+  * SVN Revision 1880 - olivier, on Tue, 03 Jun 2008 10:50:18 +0200
+    Fixed a bug in inc/admin/prepend.php. Fixed some FR L10N.
+
+  * SVN Revision 1881 - olivier, on Tue, 03 Jun 2008 10:56:44 +0200
+    Fixed a bug in candyUpload path.
+
+  * SVN Revision 1882 - olivier, on Tue, 03 Jun 2008 11:25:29 +0200
+    Fixed a memory issue in plugin index page display.
+
+  * SVN Revision 1883 - olivier, on Tue, 03 Jun 2008 12:23:58 +0200
+    Not sure this line is usefull in import plugin.
+
+  * SVN Revision 1884 - olivier, on Tue, 03 Jun 2008 14:36:12 +0200
+    Fixed another bug in jsCandyUpload default base_url.
+
+  * SVN Revision 1888 - olivier, on Tue, 03 Jun 2008 17:37:28 +0200
+    Removed CA, ES and PL locales as they are in plugins.
+
+  * SVN Revision 1889 - olivier, on Fri, 06 Jun 2008 10:23:32 +0200
+    Added post_type parameter in service getPostById. Closes #237.
+
+  * SVN Revision 1890 - olivier, on Fri, 06 Jun 2008 10:37:49 +0200
+    Escaped dailymotion video URLs. Closes #238.
+
+  * SVN Revision 1891 - olivier, on Fri, 06 Jun 2008 11:08:11 +0200
+    Fixed some permissions issues in media manager. Closes #251.
+
+  * SVN Revision 1892 - olivier, on Fri, 06 Jun 2008 11:23:44 +0200
+    Added focus on tags field in post. Closes #256.
+
+  * SVN Revision 1893 - olivier, on Fri, 06 Jun 2008 11:26:50 +0200
+    Fixed markup in themeEditor help. Closes #241.
+
+  * SVN Revision 1894 - olivier, on Fri, 06 Jun 2008 11:38:54 +0200
+    Minor presentation fix in admin/posts
+
+  * SVN Revision 1895 - olivier, on Fri, 06 Jun 2008 11:45:38 +0200
+    Pages plugin enhancements. Closes #245.
+
+  * SVN Revision 1896 - olivier, on Fri, 06 Jun 2008 11:48:03 +0200
+    Pages L10N update
+
+  * SVN Revision 1897 - olivier, on Fri, 06 Jun 2008 11:53:14 +0200
+    Removed third argument in netHttp::iniClient calls. Closes #242.
+
+  * SVN Revision 1898 - olivier, on Fri, 06 Jun 2008 11:57:14 +0200
+    Pages L10N update. Closes #231.
+
+  * SVN Revision 1899 - olivier, on Fri, 06 Jun 2008 12:08:31 +0200
+    Added _posts_list.js into Pages plugin.
+
+  * SVN Revision 1900 - olivier, on Fri, 06 Jun 2008 14:25:57 +0200
+    post_id filter in array for dcBlog::getPosts. Closes #244.
+
+  * SVN Revision 1901 - biou, on Fri, 06 Jun 2008 14:55:40 +0200
+    added lang filtering in some blog methods + comments cleanup
+
+  * SVN Revision 1902 - olivier, on Fri, 06 Jun 2008 15:05:20 +0200
+    Default theme comment form review. Closes #252.
+
+  * SVN Revision 1903 - olivier, on Mon, 09 Jun 2008 10:29:45 +0200
+    Added a message about blog ID in blog configuration. Closes #234.
+
+  * SVN Revision 1904 - olivier, on Mon, 09 Jun 2008 12:13:41 +0200
+    Removed some path disclosure in plugins and themes. Closes #229.
+
+  * SVN Revision 1906 - olivier, on Mon, 09 Jun 2008 12:43:22 +0200
+    Added messages on comment creation and update. Closes #247.
+
+  * SVN Revision 1907 - olivier, on Mon, 09 Jun 2008 12:56:26 +0200
+    Added lang and xml:lang attributes in templates. Closes #258.
+
+  * SVN Revision 1908 - olivier, on Mon, 09 Jun 2008 13:17:10 +0200
+    Fixed title attribute in tags template. Closes #230.
+
+  * SVN Revision 1909 - olivier, on Mon, 09 Jun 2008 16:06:03 +0200
+    Changed forum address in core_error message.
+
+  * SVN Revision 1910 - olivier, on Mon, 09 Jun 2008 18:49:16 +0200
+    Fixed the way we load resources.php file in language packs.
+
+  * SVN Revision 1917 - olivier, on Tue, 10 Jun 2008 12:53:14 +0200
+    Fixed a bug with core->media->writable() calls.
+
+  * SVN Revision 1918 - bruno, on Tue, 10 Jun 2008 14:51:15 +0200
+    Added ignore_pagination in <tpl:Entries> to avoid undesired page jumps when using multiple tpl:entries on the same page.
+
+  * SVN Revision 1919 - biou, on Tue, 10 Jun 2008 21:39:54 +0200
+    added a bunch of language parameters in template tags
+
+  * SVN Revision 1920 - olivier, on Sat, 14 Jun 2008 18:11:58 +0200
+    Updated jQuery to 1.2.6
+
+  * SVN Revision 1924 - olivier, on Sat, 14 Jun 2008 18:57:30 +0200
+    Minor fix in externalMedia.
+
+  * SVN Revision 1925 - olivier, on Mon, 16 Jun 2008 01:45:16 +0200
+    Fixed a bug with image metadata title assignement.
+
+  * SVN Revision 1926 - olivier, on Mon, 16 Jun 2008 12:48:20 +0200
+    Media manager changes
+     * dcMedia fileRecord media_meta is now available as SimpleXMLElement
+     * media_img_s_size setting to specify image small size
+     * media_img_t_size setting to specify image thumbnail size
+     * media_img_title_pattern setting, used in image insertion popup to set image title attribute based on image metadata
+     * some fixes in javascript files related to media
+
+  * SVN Revision 1927 - olivier, on Mon, 16 Jun 2008 13:02:55 +0200
+    "rc" in version number should be "RC"...
+
+  * SVN Revision 1928 - olivier, on Mon, 16 Jun 2008 13:37:52 +0200
+    Image description fixes in media manager.
+
+  * SVN Revision 1929 - olivier, on Mon, 16 Jun 2008 13:43:17 +0200
+    Removed jQuery radioVal custom function. Use :checked selector instead.
+
+  * SVN Revision 1931 - olivier, on Mon, 16 Jun 2008 16:18:03 +0200
+    Moved admin/res directory to inc/swf. Closes #266.
+
+  * SVN Revision 1932 - olivier, on Mon, 16 Jun 2008 19:04:45 +0200
+    Added support for mp3 and flv URLs in externalMedia. Closes #249.
+
+  * SVN Revision 1944 - olivier, on Thu, 19 Jun 2008 13:05:34 +0200
+    Forgot a string in metadata.
+
+  * SVN Revision 1946 - olivier, on Thu, 19 Jun 2008 15:22:30 +0200
+    Added (it seems) support for regional languages variants.
+
+  * SVN Revision 1948 - olivier, on Thu, 19 Jun 2008 16:55:32 +0200
+    Removed support of langs.po file.
+
+  * SVN Revision 1951 - olivier, on Thu, 19 Jun 2008 18:08:27 +0200
+    Minor fixes in some plugins menu names.
+
+  * SVN Revision 1952 - olivier, on Thu, 19 Jun 2008 18:09:12 +0200
+    More l10n and regional code stuff.
+
+  * SVN Revision 1956 - olivier, on Fri, 20 Jun 2008 10:43:02 +0200
+    Enhanced blog settings form.
+
+  * SVN Revision 1957 - olivier, on Fri, 20 Jun 2008 11:14:06 +0200
+    Fixed a template documentation bug.
+
+  * SVN Revision 1958 - olivier, on Fri, 20 Jun 2008 12:01:34 +0200
+    Added preferences for robots policy. See #279. Templates are comming.
+
+  * SVN Revision 1959 - olivier, on Fri, 20 Jun 2008 12:32:01 +0200
+    Added meta robots in default templates. Added meta description in each template. Closes #279.
+
+  * SVN Revision 1960 - olivier, on Fri, 20 Jun 2008 12:40:04 +0200
+    Added X-Robots-Tag header for feeds.
+
+  * SVN Revision 1961 - olivier, on Fri, 20 Jun 2008 12:56:14 +0200
+    Translation update. Replaced some DotClear by Dotclear.
+
+  * SVN Revision 1965 - olivier, on Fri, 20 Jun 2008 16:51:52 +0200
+    Added a LICENSE file.
+
+  * SVN Revision 1966 - olivier, on Fri, 20 Jun 2008 17:12:34 +0200
+    Added some missing license blocks.
+
+  * SVN Revision 1967 - olivier, on Fri, 20 Jun 2008 17:40:19 +0200
+    Minor license fixes in antiflood and akismet plugins.
+
+  * SVN Revision 1968 - olivier, on Fri, 20 Jun 2008 17:48:16 +0200
+    Trunk license block change. Dotclear is GPL version 2.0. Others files comming.
+
+  * SVN Revision 1972 - olivier, on Fri, 20 Jun 2008 18:16:37 +0200
+    Shit happens...
+
+  * SVN Revision 1973 - olivier, on Fri, 20 Jun 2008 18:27:14 +0200
+    I think I need a break...
+
+  * SVN Revision 1974 - olivier, on Fri, 20 Jun 2008 18:32:45 +0200
+    Added license blocks in some CSS files.
+
+  * SVN Revision 1975 - olivier, on Fri, 20 Jun 2008 18:38:38 +0200
+    Don't pack JS files, for browser performances reasons.
+
+  * SVN Revision 1976 - olivier, on Fri, 20 Jun 2008 18:55:55 +0200
+    Candy upload becomes optionnal.
+
+  * SVN Revision 1977 - olivier, on Fri, 20 Jun 2008 18:57:57 +0200
+    L10N fr update.
+
+  * SVN Revision 1978 - olivier, on Fri, 20 Jun 2008 19:07:42 +0200
+    Reached 2.0-RC2 version.
+
+  * SVN Revision 1981 - olivier, on Fri, 20 Jun 2008 19:32:28 +0200
+    Cruched all png images.
+
+  * SVN Revision 1983 - olivier, on Fri, 20 Jun 2008 19:50:47 +0200
+    Micro bug in blog_pref
+
+  * SVN Revision 1985 - olivier, on Sat, 21 Jun 2008 12:34:45 +0200
+    2.0 RC2 changelog.
+
+  * SVN Revision 1990 - xave, on Tue, 24 Jun 2008 10:19:55 +0200
+    Plugins are now initialized right after upload.
+
+  * SVN Revision 1997 - olivier, on Wed, 25 Jun 2008 13:46:54 +0200
+    Removed langs.pot file.
+
+  * SVN Revision 2002 - olivier, on Thu, 26 Jun 2008 09:23:28 +0200
+    Fixed a bug in image insertion. Closes #293.
+
+  * SVN Revision 2004 - olivier, on Thu, 26 Jun 2008 09:28:51 +0200
+    2.0RC2.1 version
+
+  * SVN Revision 2007 - olivier, on Thu, 26 Jun 2008 17:16:08 +0200
+    Export only current blog and not from a list.
+
+  * SVN Revision 2009 - romuald, on Thu, 26 Jun 2008 19:06:20 +0200
+    wizard: display error from dbLayer exception
+
+  * SVN Revision 2011 - olivier, on Sat, 28 Jun 2008 13:18:23 +0200
+    Changed the way we handle blogs list and credentials.
+    !!! IMPORTANT !!! dcAuth::getPermissions signature changed.
+    Please test it a lot.
+
+  * SVN Revision 2012 - olivier, on Sat, 28 Jun 2008 15:42:37 +0200
+    Categories query optimization.
+
+  * SVN Revision 2013 - olivier, on Sat, 28 Jun 2008 16:23:20 +0200
+    Metadata query optimization.
+
+  * SVN Revision 2014 - olivier, on Sat, 28 Jun 2008 16:24:46 +0200
+    Removed sort by number of entries in admin/blogs.php
+
+  * SVN Revision 2015 - olivier, on Sat, 28 Jun 2008 17:52:39 +0200
+    New way to display news on admin dashboard.
+
+  * SVN Revision 2016 - olivier, on Sat, 28 Jun 2008 17:59:48 +0200
+    Fixed a bug with media sort box.
+
+  * SVN Revision 2018 - olivier, on Sat, 28 Jun 2008 18:22:26 +0200
+    Media selection minor performance tweak.
+
+  * SVN Revision 2019 - olivier, on Sat, 28 Jun 2008 18:31:06 +0200
+    Attachments query is nicer like that...
+
+  * SVN Revision 2020 - olivier, on Sun, 29 Jun 2008 00:44:22 +0200
+    Fixed file merge order in themeEditor. Closes #292.
+
+  * SVN Revision 2021 - olivier, on Sun, 29 Jun 2008 01:00:08 +0200
+    Minor fixes in _blog_theme.js. Closes #297.
+
+  * SVN Revision 2023 - olivier, on Sun, 29 Jun 2008 15:45:36 +0200
+    Enhanced dashboard items
+
+ -- Olivier Meunier <olivier@dotclear.net>  Mon, 30 Jun 2008 13:15:30 +0200
+
+dotclear (1.99+2.0-beta8-1) unstable; urgency=low ; svnrev=1850
+
+  * SVN Revision 1623 - olivier, on Tue, 26 Feb 2008 11:10:15 +0100
+    New debian changelog
+
+  * SVN Revision 1624 - olivier, on Wed, 27 Feb 2008 10:54:27 +0100
+    Added some exceptions while unziping files in media manager or module installer
+
+  * SVN Revision 1625 - olivier, on Wed, 27 Feb 2008 10:54:57 +0100
+    Typo in js comment.
+
+  * SVN Revision 1626 - olivier, on Wed, 27 Feb 2008 11:24:22 +0100
+    Added clearbricks fileZip class.
+
+  * SVN Revision 1627 - olivier, on Wed, 27 Feb 2008 11:33:29 +0100
+    Yeah baby! zip file download in each folder of media manager.
+
+  * SVN Revision 1628 - olivier, on Wed, 27 Feb 2008 11:41:11 +0100
+    Updated L10N fr
+
+  * SVN Revision 1629 - olivier, on Wed, 27 Feb 2008 11:58:37 +0100
+    Polished media item forms.
+
+  * SVN Revision 1630 - olivier, on Wed, 27 Feb 2008 12:51:58 +0100
+    Ajax display of zip file content in media manager.
+
+  * SVN Revision 1631 - olivier, on Wed, 27 Feb 2008 14:36:02 +0100
+    Two options for inflate: new directory or current directory
+
+  * SVN Revision 1632 - olivier, on Wed, 27 Feb 2008 14:36:13 +0100
+    L10N fr update
+
+  * SVN Revision 1633 - olivier, on Thu, 28 Feb 2008 12:01:07 +0100
+    Move default html files to tpl directory.
+    New themes should have there templates in a sub-directory called "tpl"
+    Transitional workaround to handle html files in the theme directory.
+
+  * SVN Revision 1634 - olivier, on Thu, 28 Feb 2008 12:06:01 +0100
+    default theme becomes blueSilence. /!\ EVERYTHING IS BROKEN, DO NOT UPDATE NOW
+
+  * SVN Revision 1635 - olivier, on Thu, 28 Feb 2008 12:11:54 +0100
+    Blowup is becoming default theme. Everything still broken ;)
+
+  * SVN Revision 1636 - olivier, on Thu, 28 Feb 2008 12:14:18 +0100
+    Moved tpl, smilies and js directories from blueSilence to default theme. Should begin to work again.
+
+  * SVN Revision 1637 - olivier, on Thu, 28 Feb 2008 12:24:22 +0100
+    Settings migration for new default theme.
+
+  * SVN Revision 1638 - olivier, on Thu, 28 Feb 2008 13:15:38 +0100
+    Added simple behavior support in templates
+
+  * SVN Revision 1639 - olivier, on Thu, 28 Feb 2008 13:18:42 +0100
+    Added publicHeadContent behavior in _head.html.
+    Added publicFooterContent behavior in _footer.html.
+    Removed special _head.html for blowup and called behaviors instead.
+    Fixed images URLs in blowup.
+    Seems to work now :)
+
+  * SVN Revision 1640 - olivier, on Thu, 28 Feb 2008 13:24:33 +0100
+    Using new behaviors for customCSS theme.
+
+  * SVN Revision 1641 - olivier, on Thu, 28 Feb 2008 13:38:56 +0100
+    Minor fix in customCSS
+
+  * SVN Revision 1642 - olivier, on Thu, 28 Feb 2008 13:46:53 +0100
+    Added user_head.html include in _head.html template.
+
+  * SVN Revision 1643 - olivier, on Thu, 28 Feb 2008 14:37:21 +0100
+    Added border:none for images in links in default theme.
+
+  * SVN Revision 1644 - olivier, on Thu, 28 Feb 2008 17:56:15 +0100
+    adminBlogPreferencesForm behavior is useless withour blog_settings :)
+
+  * SVN Revision 1649 - olivier, on Mon, 03 Mar 2008 12:04:40 +0100
+    Moved print.css from blueSilence to default theme.
+
+  * SVN Revision 1650 - olivier, on Mon, 03 Mar 2008 12:16:58 +0100
+    New post tags display in default theme.
+
+  * SVN Revision 1651 - olivier, on Mon, 03 Mar 2008 12:17:58 +0100
+    Default theme minor fix...
+
+  * SVN Revision 1653 - olivier, on Wed, 05 Mar 2008 11:06:06 +0100
+    Added a class "buttons" in comment form
+
+  * SVN Revision 1654 - pep, on Fri, 07 Mar 2008 20:26:23 +0100
+    That was fun, wasn't it ? :-p
+
+  * SVN Revision 1657 - bruno, on Mon, 10 Mar 2008 13:09:10 +0100
+    Added inline template documentation comments
+
+  * SVN Revision 1658 - olivier, on Mon, 10 Mar 2008 15:50:32 +0100
+    Added "behavior" attribute to SysBehavior template tag.
+
+  * SVN Revision 1659 - olivier, on Mon, 10 Mar 2008 17:05:53 +0100
+    In DTDs, that's not "0" but "O" :)
+
+  * SVN Revision 1660 - olivier, on Tue, 11 Mar 2008 06:35:48 +0100
+    In template world trackback = ping. Changed following template tags:
+     * tpl:EntryTrackbackCount => tpl:EntryPingCount
+     * tpl:EntryTrackbackData => tpl:EntryPingData
+     * tpl:EntryTrackbackLink => tpl:EntryPingLink
+
+  * SVN Revision 1661 - olivier, on Wed, 12 Mar 2008 10:39:47 +0100
+    dcBlog::getNextPost now takes a post record object as argument.
+    Added a new argument: restrict_to_category to find next/previous
+    post in the same category.
+    Added restrict_to_category to tpl:EntryPrevious and tpl:EntryNext
+    template tags.
+    Enhanced styling possibilities for post navlinks.
+
+  * SVN Revision 1664 - pep, on Fri, 14 Mar 2008 10:01:59 +0100
+    Markup
+
+  * SVN Revision 1666 - olivier, on Fri, 14 Mar 2008 18:30:13 +0100
+    Added error CSS class in Blowup theme.
+
+  * SVN Revision 1667 - biou, on Tue, 18 Mar 2008 16:38:38 +0100
+    _mail function tip in config.php.in
+
+  * SVN Revision 1668 - biou, on Tue, 18 Mar 2008 16:39:37 +0100
+    oops
+
+  * SVN Revision 1669 - biou, on Wed, 19 Mar 2008 20:50:55 +0100
+    moderation ttl
+
+  * SVN Revision 1670 - biou, on Wed, 19 Mar 2008 21:12:41 +0100
+
+  * SVN Revision 1671 - biou, on Wed, 19 Mar 2008 21:13:34 +0100
+    ability to bypass the moderation queue
+
+  * SVN Revision 1672 - olivier, on Thu, 20 Mar 2008 12:15:32 +0100
+    Fixed typo in template documentation
+
+  * SVN Revision 1673 - olivier, on Thu, 20 Mar 2008 12:25:24 +0100
+    Fixed typo in template documentation
+
+  * SVN Revision 1674 - olivier, on Thu, 20 Mar 2008 14:54:16 +0100
+    We don't need bugReport plugin anymore (that doesn't mean there's no bug anymore ;)
+
+  * SVN Revision 1676 - biou, on Thu, 20 Mar 2008 17:12:03 +0100
+    double settings->put forbidden, fixes #176
+
+  * SVN Revision 1681 - olivier, on Wed, 26 Mar 2008 15:33:46 +0100
+    Dailymotion fix on external media
+
+  * SVN Revision 1682 - biou, on Sat, 29 Mar 2008 10:57:05 +0100
+    new behaviors: language display and input overload
+
+  * SVN Revision 1684 - olivier, on Mon, 31 Mar 2008 11:01:56 +0200
+    "next", "prev" translation for lists. Closed #183.
+
+  * SVN Revision 1685 - olivier, on Fri, 04 Apr 2008 15:01:32 +0200
+    cleanLang plugin intergration.
+
+  * SVN Revision 1686 - olivier, on Fri, 04 Apr 2008 15:25:04 +0200
+    Languages lists translation. Closes #186.
+
+  * SVN Revision 1687 - olivier, on Fri, 04 Apr 2008 15:47:19 +0200
+    Added Polish translation. Thanks to Nnid?\197?\183u.
+
+  * SVN Revision 1688 - olivier, on Fri, 04 Apr 2008 16:02:10 +0200
+    Added persistent database connection option in config.php. Closes #180.
+
+  * SVN Revision 1689 - olivier, on Fri, 04 Apr 2008 17:46:26 +0200
+    Added has_tpl and has_tag attributes to tpl:SysIf tag. Closes #179.
+
+  * SVN Revision 1690 - pep, on Tue, 08 Apr 2008 18:22:35 +0200
+    Fixed #197
+
+  * SVN Revision 1691 - olivier, on Mon, 14 Apr 2008 11:34:47 +0200
+    Fixed an issue with language codes input validation. Thanks to Sacha.
+
+  * SVN Revision 1694 - olivier, on Mon, 14 Apr 2008 12:16:42 +0200
+    FR L10N update
+
+  * SVN Revision 1695 - olivier, on Mon, 14 Apr 2008 12:21:33 +0200
+    Added CA and ES translations. Thanks to S?\195?\169bastien Ducoulombier.
+
+  * SVN Revision 1696 - olivier, on Mon, 14 Apr 2008 14:00:44 +0200
+    Added input check for blog language code.
+
+  * SVN Revision 1701 - olivier, on Tue, 15 Apr 2008 16:42:23 +0200
+    FR L10N update
+
+  * SVN Revision 1711 - olivier, on Thu, 17 Apr 2008 17:55:03 +0200
+    dcMedia changes for new clearbricks filemanager.
+
+  * SVN Revision 1712 - olivier, on Fri, 18 Apr 2008 10:29:54 +0200
+    Reverted dcMedia to revision [1710].
+
+  * SVN Revision 1713 - olivier, on Fri, 18 Apr 2008 11:41:36 +0200
+    Added support for isFileExclude in dcMedia.
+
+  * SVN Revision 1714 - olivier, on Fri, 18 Apr 2008 11:50:08 +0200
+    Added a configuration option to set a excluded files names pattern in media manager.
+
+  * SVN Revision 1715 - olivier, on Fri, 18 Apr 2008 15:55:58 +0200
+    First commit of gettext POT files
+
+  * SVN Revision 1716 - olivier, on Fri, 18 Apr 2008 16:00:50 +0200
+    L10N FR update
+
+  * SVN Revision 1717 - biou, on Fri, 18 Apr 2008 16:48:44 +0200
+    added adminCommentsHeaders behavior
+
+  * SVN Revision 1718 - olivier, on Fri, 18 Apr 2008 17:02:21 +0200
+    Added post_type support in dcBlog::getNextPost and dcBlog::getComments
+
+  * SVN Revision 1719 - olivier, on Sat, 19 Apr 2008 11:23:09 +0200
+    New button style. May be better, may need to be enhanced.
+
+  * SVN Revision 1720 - olivier, on Sat, 19 Apr 2008 11:53:55 +0200
+    Can now select posts with many or no post_type. Closed #161.
+
+  * SVN Revision 1721 - olivier, on Sat, 19 Apr 2008 11:55:05 +0200
+    Updated dcBlog::getPosts documentation.
+
+  * SVN Revision 1722 - olivier, on Sat, 19 Apr 2008 12:09:48 +0200
+    Changed the way we get post_content and post_excerpt in XHTML validator.
+
+  * SVN Revision 1723 - olivier, on Sat, 19 Apr 2008 14:03:35 +0200
+    Minor fix in importExport main menu view.
+
+  * SVN Revision 1724 - olivier, on Sun, 20 Apr 2008 11:00:44 +0200
+    New admin css class: a.button
+
+  * SVN Revision 1725 - olivier, on Sun, 20 Apr 2008 11:06:49 +0200
+    post.post_type is now correctly handled. Closes #146.
+
+  * SVN Revision 1726 - olivier, on Sun, 20 Apr 2008 11:09:10 +0200
+    POT update
+
+  * SVN Revision 1727 - olivier, on Sun, 20 Apr 2008 11:12:54 +0200
+    New version of JavaScript packer.
+
+  * SVN Revision 1728 - olivier, on Sun, 20 Apr 2008 11:19:21 +0200
+    New pages plugin.
+
+  * SVN Revision 1729 - olivier, on Sun, 20 Apr 2008 11:19:44 +0200
+    Including pages plugin in makefile.
+
+  * SVN Revision 1730 - olivier, on Sun, 20 Apr 2008 14:48:38 +0200
+    Pages plugin: tpl directory becomes default-templates.
+
+  * SVN Revision 1733 - olivier, on Mon, 21 Apr 2008 11:36:18 +0200
+    "page" URL prefix in Pages plugin was mistake. "pages/..." is the new one.
+
+  * SVN Revision 1735 - olivier, on Mon, 21 Apr 2008 17:30:11 +0200
+    New plugin: theme editor.
+
+  * SVN Revision 1736 - olivier, on Mon, 21 Apr 2008 17:51:37 +0200
+    Minor improvements in themeEditor
+
+  * SVN Revision 1737 - olivier, on Mon, 21 Apr 2008 18:23:41 +0200
+    Dotclear logo update
+
+  * SVN Revision 1738 - olivier, on Mon, 21 Apr 2008 18:24:51 +0200
+    Added themeEditor in Makefile
+
+  * SVN Revision 1739 - olivier, on Tue, 22 Apr 2008 09:50:31 +0200
+    Removed overflow:hidden in themeEditor CSS.
+
+  * SVN Revision 1740 - bruno, on Tue, 22 Apr 2008 11:36:35 +0200
+    Typo : adress -> address
+
+  * SVN Revision 1741 - olivier, on Tue, 22 Apr 2008 18:19:37 +0200
+    Added border-radius on buttons for webkit. Added an empty hreflang in popup_link languages chooser.
+
+  * SVN Revision 1742 - olivier, on Tue, 22 Apr 2008 18:21:07 +0200
+    Added JavaScript var: dotclear.msg.no_selection.
+
+  * SVN Revision 1743 - olivier, on Tue, 22 Apr 2008 18:22:35 +0200
+    New tags selector in admin/post. Closes #191 and #153.
+
+  * SVN Revision 1744 - olivier, on Tue, 22 Apr 2008 18:56:30 +0200
+    POT and FR L10N update
+
+  * SVN Revision 1745 - olivier, on Tue, 22 Apr 2008 19:23:55 +0200
+    Tag removing on all associated posts. Closes #192.
+
+  * SVN Revision 1746 - olivier, on Tue, 22 Apr 2008 19:26:14 +0200
+    That works too ;)
+
+  * SVN Revision 1747 - olivier, on Tue, 22 Apr 2008 19:28:18 +0200
+    Added _pot in metadata plugin, translation fix.
+
+  * SVN Revision 1748 - olivier, on Wed, 23 Apr 2008 00:50:29 +0200
+    Tag removal on posts selection. Closes #168.
+
+  * SVN Revision 1749 - olivier, on Wed, 23 Apr 2008 02:23:59 +0200
+    Theme Editor improvements (files permissions and display)
+
+  * SVN Revision 1750 - olivier, on Wed, 23 Apr 2008 02:30:04 +0200
+    User theme path fix in Theme Editor.
+
+  * SVN Revision 1751 - olivier, on Wed, 23 Apr 2008 02:43:55 +0200
+    Added js/ and style/ sub-directories search in Theme Editor.
+
+  * SVN Revision 1752 - olivier, on Wed, 23 Apr 2008 03:25:12 +0200
+    Minor fix in Theme Editor
+
+  * SVN Revision 1753 - olivier, on Wed, 23 Apr 2008 03:26:10 +0200
+    Removed comment in Theme Editor script.js...
+
+  * SVN Revision 1754 - olivier, on Wed, 23 Apr 2008 09:56:35 +0200
+    Replaced mb_encode_mimeheader() with mail::B64Header().
+
+  * SVN Revision 1756 - bruno, on Wed, 23 Apr 2008 11:17:28 +0200
+    Removed post_type dependency for tags deletion/renaming
+
+  * SVN Revision 1757 - olivier, on Wed, 23 Apr 2008 11:28:51 +0200
+    Added remove_tags action in tag_posts (plugin metadata)
+
+  * SVN Revision 1758 - olivier, on Wed, 23 Apr 2008 13:00:19 +0200
+    Added following new behaviors:
+     * adminBeforeUserDelete
+     * adminBeforeCommentCreate
+     * adminAfterCommentCreate
+     * adminBeforeCommentUpdate
+     * adminAfterCommentUpdate
+     * adminBeforeBlogCreate
+     * adminAfterBlogCreate
+    Closes #202, #172 and #170.
+
+  * SVN Revision 1759 - olivier, on Wed, 23 Apr 2008 13:36:58 +0200
+    New behavior: adminPostNavLinks. Closes #175.
+
+  * SVN Revision 1760 - olivier, on Wed, 23 Apr 2008 14:24:14 +0200
+    Call dcBlog::triggerBlog on user update.
+
+  * SVN Revision 1761 - olivier, on Wed, 23 Apr 2008 14:55:36 +0200
+    Added post_type filters in dcBlog following methods: (closes #162)
+     * getCategories
+     * getLangs
+     * getPostsUsers
+     * getComments
+
+  * SVN Revision 1763 - olivier, on Wed, 23 Apr 2008 15:13:54 +0200
+    html::escapeHTML on blog name in admin. Closes #205.
+
+  * SVN Revision 1764 - olivier, on Wed, 23 Apr 2008 16:56:39 +0200
+    Added public behaviors. See #143.
+     * publicEntryBeforeContent
+     * publicEntryAfterContent
+     * publicTopAfterContent
+     * publicFooterAfterContent
+
+  * SVN Revision 1766 - olivier, on Thu, 24 Apr 2008 11:09:00 +0200
+    Minor fix in default theme _flv_player.html
+
+  * SVN Revision 1767 - olivier, on Thu, 24 Apr 2008 12:42:31 +0200
+    Theme deletion. Closes #174.
+
+  * SVN Revision 1768 - olivier, on Thu, 24 Apr 2008 13:54:41 +0200
+    Added dcModules::deleteModule. Better way to remove modules and display error messages in admin/plugins.php.
+
+  * SVN Revision 1769 - olivier, on Thu, 24 Apr 2008 14:06:41 +0200
+    Added public behaviors. Closes #143.
+     * publicCommentBeforeContent
+     * publicCommentAfterContent
+     * publicPingBeforeContent
+     * publicPingAfterContent
+     * publicCommentFormBeforeContent
+     * publicCommentFormAfterContent
+
+  * SVN Revision 1770 - olivier, on Thu, 24 Apr 2008 14:47:00 +0200
+    Fixed a bug in default theme while saving some settings. Closes #212.
+
+  * SVN Revision 1771 - olivier, on Thu, 24 Apr 2008 14:52:05 +0200
+    Typo in help/en/user_pref
+
+  * SVN Revision 1772 - olivier, on Thu, 24 Apr 2008 15:35:01 +0200
+    Added back following template tags:
+     * tpl:EntryTrackbackCount
+     * tpl:EntryTrackbackData
+     * tpl:EntryTrackbackLink 
+    They will be remove on 2.0 release.
+
+  * SVN Revision 1773 - olivier, on Thu, 24 Apr 2008 16:53:42 +0200
+    Fixed a bug with categories.
+
+  * SVN Revision 1774 - olivier, on Thu, 24 Apr 2008 17:17:41 +0200
+    [1773] was not the good way :) Closes #215.
+
+  * SVN Revision 1775 - olivier, on Thu, 24 Apr 2008 17:33:47 +0200
+    New blowup image: rabbit.
+
+  * SVN Revision 1776 - olivier, on Thu, 24 Apr 2008 17:43:41 +0200
+    L10N POT and FR update
+
+  * SVN Revision 1777 - olivier, on Thu, 24 Apr 2008 18:25:12 +0200
+    New tag icon in Blowup. Closes #208.
+
+  * SVN Revision 1778 - olivier, on Fri, 25 Apr 2008 10:52:24 +0200
+    Display thumbnails only for images.
+
+  * SVN Revision 1779 - olivier, on Fri, 25 Apr 2008 13:00:14 +0200
+    Text editor enhancements.
+
+  * SVN Revision 1780 - olivier, on Fri, 25 Apr 2008 13:01:46 +0200
+    Editor minor fix.
+
+  * SVN Revision 1781 - olivier, on Fri, 25 Apr 2008 13:23:53 +0200
+    New edit-b.png button.
+
+  * SVN Revision 1782 - olivier, on Fri, 25 Apr 2008 13:28:38 +0200
+    Crushed png files.
+
+  * SVN Revision 1784 - olivier, on Fri, 25 Apr 2008 13:50:46 +0200
+    RTL first step. See #217.
+
+  * SVN Revision 1785 - olivier, on Fri, 25 Apr 2008 16:17:43 +0200
+    New resize image for Text Editor
+
+  * SVN Revision 1786 - olivier, on Fri, 25 Apr 2008 20:09:03 +0200
+    New button in toolbar : insert post link. Closes #113.
+
+  * SVN Revision 1787 - olivier, on Fri, 25 Apr 2008 20:28:54 +0200
+    Forgott a file in [1786]
+
+  * SVN Revision 1788 - olivier, on Fri, 25 Apr 2008 20:31:59 +0200
+    It's better to escape URLs :)
+
+  * SVN Revision 1789 - olivier, on Fri, 25 Apr 2008 20:47:57 +0200
+    Added user_email in dcBlog::getUsersPosts
+
+  * SVN Revision 1790 - olivier, on Sat, 26 Apr 2008 01:22:26 +0200
+    Better front error messages. Closes #218.
+
+  * SVN Revision 1791 - olivier, on Sat, 26 Apr 2008 16:03:24 +0200
+    Theme and plugins can now be upgraded. Thanks Biou :) Closes #155.
+
+  * SVN Revision 1792 - olivier, on Sat, 26 Apr 2008 16:06:49 +0200
+    L10N POT and FR update.
+
+  * SVN Revision 1793 - olivier, on Sun, 27 Apr 2008 10:08:29 +0200
+    Added back comment deletion in comment.php. Fields xml escape in rss and atom comments feeds.
+    Closes #220 and #221.
+
+  * SVN Revision 1794 - olivier, on Sun, 27 Apr 2008 10:52:05 +0200
+    Added behavior adminCurrentThemeDetails.
+
+  * SVN Revision 1795 - olivier, on Sun, 27 Apr 2008 12:25:20 +0200
+    Theme editor link is now found in current theme details.
+
+  * SVN Revision 1796 - olivier, on Sun, 27 Apr 2008 14:24:16 +0200
+    Moved Blowup configuration tool to a plugin.
+
+  * SVN Revision 1797 - olivier, on Sun, 27 Apr 2008 14:29:06 +0200
+    blowupConfig plugin in Makefile
+
+  * SVN Revision 1798 - olivier, on Sun, 27 Apr 2008 14:46:50 +0200
+    blowupConfig: Added butterflies images (thx Helgy). Main title can be centered.
+
+  * SVN Revision 1799 - olivier, on Sun, 27 Apr 2008 14:57:13 +0200
+    We don't need blowupConfig with all themes...
+
+  * SVN Revision 1800 - olivier, on Sun, 27 Apr 2008 14:58:42 +0200
+    ...and I need to test before commit...
+
+  * SVN Revision 1801 - olivier, on Sun, 27 Apr 2008 15:27:36 +0200
+    blowupConfig minor fixes and L10N FR.
+
+  * SVN Revision 1802 - olivier, on Sun, 27 Apr 2008 15:33:25 +0200
+    Added "Peas & Carrots" blowup style.
+
+  * SVN Revision 1803 - olivier, on Sun, 27 Apr 2008 15:48:36 +0200
+    Added "Typo" blowup style.
+
+  * SVN Revision 1804 - olivier, on Sun, 27 Apr 2008 15:50:45 +0200
+    Empty setting table before full import (for setting with null blog_id). Closes #219.
+
+  * SVN Revision 1805 - olivier, on Sun, 27 Apr 2008 15:53:52 +0200
+    Remove bad tabindex in popup_link. Closes #222.
+
+  * SVN Revision 1806 - olivier, on Sun, 27 Apr 2008 16:21:36 +0200
+    Enhanced plugin & themes installation forms.
+
+  * SVN Revision 1807 - olivier, on Sun, 27 Apr 2008 16:28:59 +0200
+    Blowup theme minor CSS fix.
+
+  * SVN Revision 1808 - olivier, on Sun, 27 Apr 2008 16:35:19 +0200
+    Added Blank image to blowupConfig
+
+  * SVN Revision 1809 - olivier, on Mon, 28 Apr 2008 15:10:25 +0200
+    New way to display contextual help in admin pages. See #148.
+     * Added dcPage::helpPage() and dcPage::helpBlock()
+     * Added some JS and a handler to display help
+
+  * SVN Revision 1810 - olivier, on Mon, 28 Apr 2008 15:56:44 +0200
+    Removed all dcPage::help() calls. Need to be replaced now...
+
+  * SVN Revision 1811 - olivier, on Mon, 28 Apr 2008 16:24:36 +0200
+    Moved help files to locales/
+
+  * SVN Revision 1812 - olivier, on Mon, 28 Apr 2008 16:28:39 +0200
+    Removed admin/help and admin/help.php. Changed default path in dcPage::pageHelp()
+
+  * SVN Revision 1813 - olivier, on Mon, 28 Apr 2008 17:16:32 +0200
+    Added dcPage::helpPage calls in admin pages. See #148.
+    Need to work on help files.
+
+  * SVN Revision 1814 - olivier, on Mon, 28 Apr 2008 18:17:20 +0200
+    Better help display for IE.
+
+  * SVN Revision 1815 - olivier, on Mon, 28 Apr 2008 22:57:48 +0200
+    Enhanced help viewer. See #148.
+
+  * SVN Revision 1816 - olivier, on Mon, 28 Apr 2008 23:08:32 +0200
+    Help viewer and L10N POT and FR update.
+
+  * SVN Revision 1817 - olivier, on Mon, 28 Apr 2008 23:17:48 +0200
+    Added class="clear" on preview post submit button. Closes #224.
+
+  * SVN Revision 1818 - olivier, on Tue, 29 Apr 2008 00:04:24 +0200
+    Ask password for user management actions. See #225.
+
+  * SVN Revision 1819 - olivier, on Tue, 29 Apr 2008 00:30:56 +0200
+    Add JS helper for password validation fields. See #225.
+
+  * SVN Revision 1820 - olivier, on Tue, 29 Apr 2008 00:53:13 +0200
+    Added password verification on full blog import and JS helper in preferences. Closes #225.
+
+  * SVN Revision 1821 - olivier, on Tue, 29 Apr 2008 09:44:07 +0200
+    L10N POT and FR update
+
+  * SVN Revision 1822 - olivier, on Tue, 29 Apr 2008 09:44:37 +0200
+    Text and background colors for comments with class="me". Closes #223.
+
+  * SVN Revision 1823 - olivier, on Tue, 29 Apr 2008 09:56:15 +0200
+    Removed post:<id> macro in link to post toolbar button. post_id could change on import/export process.
+
+  * SVN Revision 1824 - olivier, on Tue, 29 Apr 2008 10:49:33 +0200
+    Default theme minor fixes.
+
+  * SVN Revision 1825 - olivier, on Tue, 29 Apr 2008 11:47:16 +0200
+    Help page paths are now located in $__resources['help'] array. Thus we can create full l10n plugins.
+
+  * SVN Revision 1826 - olivier, on Tue, 29 Apr 2008 12:21:53 +0200
+    Enhanced help viewer.
+
+  * SVN Revision 1827 - olivier, on Tue, 29 Apr 2008 12:34:44 +0200
+    FR help update.
+
+  * SVN Revision 1828 - olivier, on Tue, 29 Apr 2008 12:38:03 +0200
+    Removed svn:executable on help files.
+
+  * SVN Revision 1829 - olivier, on Tue, 29 Apr 2008 13:46:52 +0200
+    English help corrections. Thanks mitt :)
+
+  * SVN Revision 1830 - olivier, on Tue, 29 Apr 2008 16:05:51 +0200
+    FR help fix.
+
+  * SVN Revision 1831 - olivier, on Tue, 29 Apr 2008 23:00:27 +0200
+    New Blowup default theme.
+
+  * SVN Revision 1832 - olivier, on Tue, 29 Apr 2008 23:25:38 +0200
+    Blowup fixes and new style "Spring Time".
+
+  * SVN Revision 1833 - olivier, on Tue, 29 Apr 2008 23:38:20 +0200
+    Minor typo fixes.
+
+  * SVN Revision 1834 - olivier, on Wed, 30 Apr 2008 11:43:55 +0200
+    Help files validation fixes.
+
+  * SVN Revision 1835 - olivier, on Wed, 30 Apr 2008 12:13:32 +0200
+    Minor fixes in blowupConfig.
+
+  * SVN Revision 1836 - olivier, on Wed, 30 Apr 2008 12:32:53 +0200
+    jsToolBar block select translation.
+
+  * SVN Revision 1837 - olivier, on Wed, 30 Apr 2008 12:58:29 +0200
+    Load locales/<lang>/resources.php plugins files.
+
+  * SVN Revision 1838 - olivier, on Wed, 30 Apr 2008 14:00:54 +0200
+    themeEditor and blowupConfig plugins FR help pages.
+
+  * SVN Revision 1839 - olivier, on Wed, 30 Apr 2008 14:07:57 +0200
+    Sort language codes in link popup.
+
+  * SVN Revision 1840 - olivier, on Wed, 30 Apr 2008 14:17:32 +0200
+    Plugin pages: Added public behaviors.
+
+  * SVN Revision 1841 - olivier, on Wed, 30 Apr 2008 15:27:24 +0200
+    Blowup screenshot update.
+
+  * SVN Revision 1842 - olivier, on Wed, 30 Apr 2008 15:28:29 +0200
+    blowupConfig and themeEditor English help. Thanks mitt :)
+
+  * SVN Revision 1843 - olivier, on Wed, 30 Apr 2008 15:44:46 +0200
+    Added forgotten _preferences.js file.
+
+  * SVN Revision 1844 - olivier, on Wed, 30 Apr 2008 16:51:20 +0200
+    blowupConfig typo
+
+  * SVN Revision 1845 - olivier, on Wed, 30 Apr 2008 16:58:39 +0200
+    jQuery upgraded to 1.2.3
+
+  * SVN Revision 1846 - olivier, on Wed, 30 Apr 2008 17:06:11 +0200
+    Added themes/default/tpl/.htaccess
+
+  * SVN Revision 1847 - olivier, on Wed, 30 Apr 2008 23:57:39 +0200
+    2.0-rc1 changelog and version number.
+
+  * SVN Revision 1849 - xave, on Sat, 03 May 2008 01:14:43 +0200
+    small spelling correction.
+
+ -- Olivier Meunier <olivier@dotclear.net>  Tue, 13 May 2008 14:26:36 +0200
+
+dotclear (1.99+2.0-beta7-8) unstable; urgency=low ; svnrev=1622
+
+  * SVN Revision 1620 - olivier, on Mon, 25 Feb 2008 15:53:39 +0100
+    Fixed some issues on export process. See #147.
+
+  * SVN Revision 1621 - olivier, on Tue, 26 Feb 2008 10:22:44 +0100
+    New debian changelog
+
+  * SVN Revision 1622 - olivier, on Tue, 26 Feb 2008 11:00:19 +0100
+    Fixed a bug in class.db.export
+
+ -- Mikael Poussard <mik@gandi.net>  Tue, 26 Feb 2008 11:09:49 +0100
+
+dotclear (1.99+2.0-beta7-7) unstable; urgency=low ; svnrev=1619
+
+  * SVN Revision 1611 - olivier, on Tue, 19 Feb 2008 16:21:22 +0100
+    New debian changelog
+
+  * SVN Revision 1612 - olivier, on Tue, 19 Feb 2008 17:30:24 +0100
+    Minor fix in blowup.
+
+  * SVN Revision 1613 - olivier, on Thu, 21 Feb 2008 01:27:20 +0100
+    Dreams come true, you can now inflate zip files in media manager.
+
+  * SVN Revision 1614 - olivier, on Thu, 21 Feb 2008 02:22:33 +0100
+    Improved dcModules::installPackage()
+
+  * SVN Revision 1615 - olivier, on Thu, 21 Feb 2008 12:04:20 +0100
+    Tidy directory name in media manager. Closes #166.
+
+  * SVN Revision 1616 - olivier, on Thu, 21 Feb 2008 14:15:11 +0100
+    Typo in urlHandler
+
+  * SVN Revision 1617 - olivier, on Thu, 21 Feb 2008 16:59:18 +0100
+    You can now recreate thumbnails for a given image.
+
+  * SVN Revision 1618 - olivier, on Thu, 21 Feb 2008 17:37:46 +0100
+    Medium thumbnail size can now be changed by user. Closes #129.
+
+  * SVN Revision 1619 - olivier, on Fri, 22 Feb 2008 15:18:52 +0100
+    Minor fix in dcMedia thumbnails generator.
+
+ -- Mikael Poussard <mik@gandi.net>  Tue, 26 Feb 2008 10:21:32 +0100
+
+dotclear (1.99+2.0-beta7-6) unstable; urgency=low ; svnrev=1610
+
+  * SVN Revision 1606 - olivier, on Tue, 19 Feb 2008 12:48:52 +0100
+    New debian changelog
+
+  * SVN Revision 1608 - olivier, on Tue, 19 Feb 2008 15:45:16 +0100
+    Enhanced themes list.
+
+  * SVN Revision 1609 - olivier, on Tue, 19 Feb 2008 15:45:48 +0100
+    Added screenshot to blowup theme.
+
+  * SVN Revision 1610 - olivier, on Tue, 19 Feb 2008 16:09:56 +0100
+    Fixed a bug with color-picker.js in Safari
+
+ -- Mikael Poussard <mik@gandi.net>  Tue, 19 Feb 2008 16:19:56 +0100
+
+dotclear (1.99+2.0-beta7-5) unstable; urgency=low ; svnrev=1605
+
+  * SVN Revision 1572 - olivier, on Tue, 12 Feb 2008 10:53:41 +0100
+    Updated debian/changelog
+
+  * SVN Revision 1573 - olivier, on Tue, 12 Feb 2008 17:00:17 +0100
+    Enhanced blowup theme
+
+  * SVN Revision 1574 - olivier, on Wed, 13 Feb 2008 14:41:58 +0100
+    New Blowup theme features:
+    * Gradients selector (or solid color) for top background
+    * Main title alignment and position
+    * Main title can be hidden
+
+  * SVN Revision 1575 - olivier, on Wed, 13 Feb 2008 14:42:59 +0100
+    Blowup theme. Forgot gradient images...
+
+  * SVN Revision 1576 - olivier, on Wed, 13 Feb 2008 16:02:48 +0100
+    Changed comment box in Blowup theme.
+
+  * SVN Revision 1577 - olivier, on Wed, 13 Feb 2008 20:23:23 +0100
+    Moved page top image to another folder. Added night skin.
+
+  * SVN Revision 1578 - biou, on Wed, 13 Feb 2008 21:02:49 +0100
+    fixed a bug with folder names containing an ampersand (+ small comment typo bonus)
+
+  * SVN Revision 1579 - olivier, on Thu, 14 Feb 2008 00:27:01 +0100
+    Added enctype multipart/form-data for blog theme configuration
+
+  * SVN Revision 1580 - olivier, on Thu, 14 Feb 2008 11:10:35 +0100
+    Fixes for color picker positioning
+
+  * SVN Revision 1581 - olivier, on Thu, 14 Feb 2008 11:56:33 +0100
+    Fieldsets display
+
+  * SVN Revision 1582 - olivier, on Thu, 14 Feb 2008 12:07:45 +0100
+    Added image mask (for upload, comming next)
+
+  * SVN Revision 1583 - olivier, on Thu, 14 Feb 2008 12:20:16 +0100
+    Added .grid in admin CSS
+
+  * SVN Revision 1584 - olivier, on Thu, 14 Feb 2008 13:58:23 +0100
+    Can now call other theme images in blog_theme.php
+
+  * SVN Revision 1585 - olivier, on Thu, 14 Feb 2008 14:00:55 +0100
+    Blowup improvements. Added images uploader, that's nice.
+
+  * SVN Revision 1586 - olivier, on Thu, 14 Feb 2008 14:05:24 +0100
+    Updated "Forest" skin in blowup.
+
+  * SVN Revision 1587 - olivier, on Thu, 14 Feb 2008 14:51:58 +0100
+    Added flourish-1 top image and fixed a bug
+
+  * SVN Revision 1588 - olivier, on Thu, 14 Feb 2008 15:17:07 +0100
+    new grid.png
+
+  * SVN Revision 1589 - olivier, on Thu, 14 Feb 2008 16:44:59 +0100
+    Added images in Blowup
+
+  * SVN Revision 1590 - olivier, on Thu, 14 Feb 2008 17:03:03 +0100
+    Added 20px margin between prelude and top in Blowup
+
+  * SVN Revision 1591 - olivier, on Thu, 14 Feb 2008 17:08:49 +0100
+    Blowup again...
+
+  * SVN Revision 1592 - olivier, on Fri, 15 Feb 2008 00:05:45 +0100
+    Blowup theme. Better way to handle native and uploaded top images.
+
+  * SVN Revision 1593 - olivier, on Fri, 15 Feb 2008 00:39:54 +0100
+    Minor update on alpha images in blowup theme
+
+  * SVN Revision 1594 - olivier, on Fri, 15 Feb 2008 10:08:42 +0100
+    Added skin flaming in blowup
+
+  * SVN Revision 1595 - olivier, on Fri, 15 Feb 2008 10:52:33 +0100
+    Fixed youtube page parse in externalMedia. Thx sacha.
+
+  * SVN Revision 1596 - olivier, on Fri, 15 Feb 2008 17:49:36 +0100
+    Added unzip class from clearbricks.
+
+  * SVN Revision 1597 - olivier, on Sat, 16 Feb 2008 00:39:26 +0100
+    New plugins format : ZIP. RIP pkg.gz. THIS IS A MAJOR CHANGE, more news later. Closes #141.
+
+  * SVN Revision 1598 - olivier, on Sat, 16 Feb 2008 00:40:35 +0100
+    L10N FR update.
+
+  * SVN Revision 1599 - olivier, on Sat, 16 Feb 2008 02:05:45 +0100
+    You can now upload or donwload themes from theme configuration page. Closes #150.
+
+  * SVN Revision 1600 - olivier, on Mon, 18 Feb 2008 13:10:01 +0100
+    FR L10N update.
+
+  * SVN Revision 1601 - olivier, on Mon, 18 Feb 2008 13:57:16 +0100
+    FR l10n for blowup theme.
+
+  * SVN Revision 1603 - olivier, on Mon, 18 Feb 2008 14:15:36 +0100
+    Minor fix
+
+  * SVN Revision 1605 - olivier, on Tue, 19 Feb 2008 08:41:55 +0100
+    Minor fix in blowup theme.
+
+ -- Mikael Poussard <mik@gandi.net>  Tue, 19 Feb 2008 12:47:03 +0100
+
+dotclear (1.99+2.0-beta5-7) unstable; urgency=low ; svnrev=1571
+
+  * SVN Revision 1198 - mik, on Fri, 19 Jan 2007 11:28:24 +0100
+    fake debian changelog
+
+  * SVN Revision 1199 - olivier, on Fri, 19 Jan 2007 12:19:03 +0100
+    2.0 beta 5.4 changelog and FR l10n update
+
+  * SVN Revision 1201 - olivier, on Mon, 22 Jan 2007 00:24:43 +0100
+    Added a check on commentsActive while accepting a comment.
+    Do you know what stupid means? I do.
+
+  * SVN Revision 1215 - biou, on Fri, 26 Jan 2007 22:33:20 +0100
+    query_string by default 1/2
+
+  * SVN Revision 1216 - biou, on Fri, 26 Jan 2007 22:33:53 +0100
+    query_string by default 2/2
+
+  * SVN Revision 1222 - olivier, on Tue, 30 Jan 2007 12:10:48 +0100
+    Added index for database.
+
+  * SVN Revision 1241 - pep, on Fri, 02 Feb 2007 17:22:44 +0100
+    Fixed a bug in categories restrictions
+
+  * SVN Revision 1245 - biou, on Fri, 02 Feb 2007 19:00:49 +0100
+    antispam behaviors landed
+
+  * SVN Revision 1246 - biou, on Fri, 02 Feb 2007 19:06:11 +0100
+    akismet: antispam compatibility
+
+  * SVN Revision 1247 - biou, on Fri, 02 Feb 2007 19:11:10 +0100
+    antispam dans la cour des grands
+
+  * SVN Revision 1248 - biou, on Fri, 02 Feb 2007 19:11:48 +0100
+    rbl dans la cour des grands
+
+  * SVN Revision 1249 - biou, on Fri, 02 Feb 2007 19:12:16 +0100
+    spamwords dans la cour des grands
+
+  * SVN Revision 1250 - biou, on Fri, 02 Feb 2007 19:18:20 +0100
+    spamplemousse ?\195?\160 la retraite
+
+  * SVN Revision 1251 - biou, on Fri, 02 Feb 2007 19:21:08 +0100
+    ipblacklist dans la cour des grands
+
+  * SVN Revision 1252 - biou, on Fri, 02 Feb 2007 19:25:53 +0100
+    antispam: small fix
+
+  * SVN Revision 1253 - biou, on Fri, 02 Feb 2007 19:27:33 +0100
+    akismet: intl update
+
+  * SVN Revision 1254 - biou, on Fri, 02 Feb 2007 19:34:54 +0100
+    Changelog update
+
+  * SVN Revision 1255 - pep, on Fri, 02 Feb 2007 19:43:54 +0100
+    Updated Makefile
+
+  * SVN Revision 1256 - pep, on Sat, 03 Feb 2007 00:25:03 +0100
+    antispam plugin : Tiny fix in markup
+
+  * SVN Revision 1257 - olivier, on Mon, 05 Feb 2007 11:52:23 +0100
+    JS code presentation.
+
+  * SVN Revision 1258 - olivier, on Mon, 05 Feb 2007 16:33:46 +0100
+    netXMLRPC migration
+
+  * SVN Revision 1259 - biou, on Mon, 05 Feb 2007 20:04:12 +0100
+    antispam: list update works now
+
+  * SVN Revision 1260 - olivier, on Tue, 13 Feb 2007 11:37:22 +0100
+    XHTML fix i comment.php
+
+  * SVN Revision 1261 - olivier, on Tue, 13 Feb 2007 22:51:41 +0100
+    Antispam review
+
+  * SVN Revision 1262 - olivier, on Tue, 13 Feb 2007 22:52:13 +0100
+    New akismet filter
+
+  * SVN Revision 1263 - olivier, on Tue, 13 Feb 2007 22:54:00 +0100
+    Removed old RPL, Spamword and IP Blacklist filters.
+    They're now embeded in antispam.
+
+  * SVN Revision 1264 - olivier, on Tue, 13 Feb 2007 22:59:06 +0100
+    Antispam and Akismet license blocks.
+
+  * SVN Revision 1265 - olivier, on Tue, 13 Feb 2007 23:01:03 +0100
+    Changed akismet default permissions.
+
+  * SVN Revision 1266 - olivier, on Tue, 13 Feb 2007 23:05:02 +0100
+    Removed old antispam behaviors.
+
+  * SVN Revision 1267 - olivier, on Tue, 13 Feb 2007 23:08:48 +0100
+    Fixed a bug with blog_pref and get_included_files.
+    An autoprepend file can include other files and that will
+    be a mess.
+
+  * SVN Revision 1268 - pep, on Wed, 14 Feb 2007 01:48:44 +0100
+    Updated Makefile
+
+  * SVN Revision 1269 - pep, on Wed, 14 Feb 2007 05:17:30 +0100
+    Fixed a bug in linkslookup filter
+
+  * SVN Revision 1270 - olivier, on Wed, 14 Feb 2007 10:00:51 +0100
+    Antispam fixes
+
+  * SVN Revision 1271 - olivier, on Wed, 14 Feb 2007 13:33:29 +0100
+    Fix in antispam
+
+  * SVN Revision 1272 - olivier, on Wed, 14 Feb 2007 15:16:02 +0100
+    Removed checkbox for categories if they have posts. Closes #80.
+
+  * SVN Revision 1273 - olivier, on Wed, 14 Feb 2007 15:47:29 +0100
+    Moved comment preview in comment form and added a submit button bellow.
+    Closes #84.
+
+  * SVN Revision 1274 - olivier, on Wed, 14 Feb 2007 16:02:06 +0100
+    Password page translation. Closes #92.
+
+  * SVN Revision 1275 - olivier, on Wed, 14 Feb 2007 16:30:52 +0100
+    Added some "s" accesskey in admin save buttons. Closes #78.
+
+  * SVN Revision 1276 - olivier, on Wed, 14 Feb 2007 16:39:18 +0100
+    Fixes in akismet.
+
+  * SVN Revision 1277 - olivier, on Wed, 14 Feb 2007 16:41:45 +0100
+    Media directory is automatic now.
+
+  * SVN Revision 1278 - olivier, on Wed, 14 Feb 2007 18:21:34 +0100
+    Added a setting to disable template cache and another one to
+    allow PHP in templates. Closes #138.
+
+  * SVN Revision 1279 - olivier, on Thu, 15 Feb 2007 13:59:05 +0100
+    Changed URL for Akismet API Key.
+
+  * SVN Revision 1280 - olivier, on Sun, 18 Feb 2007 18:13:15 +0100
+    Fixed loadModuleFile() method code. That should fix logout issues. \o/
+
+  * SVN Revision 1281 - olivier, on Sun, 18 Feb 2007 22:19:07 +0100
+    Optimized dcModules::loadModuleFile().
+
+  * SVN Revision 1282 - olivier, on Mon, 19 Feb 2007 11:17:03 +0100
+    Behavior comment fix.
+
+  * SVN Revision 1283 - olivier, on Mon, 19 Feb 2007 11:19:20 +0100
+    Dashboard improvements. We'll need to translate documentation
+    and have a English news blog ;)
+
+  * SVN Revision 1284 - olivier, on Mon, 19 Feb 2007 17:32:19 +0100
+    Create cache dir with makefile. It becomes default cache dir.
+
+  * SVN Revision 1285 - olivier, on Mon, 19 Feb 2007 19:50:26 +0100
+    Added a link to comments list by IP on IP address in comment.php
+
+  * SVN Revision 1286 - olivier, on Mon, 19 Feb 2007 19:51:48 +0100
+    L10N FR update
+
+  * SVN Revision 1287 - olivier, on Mon, 19 Feb 2007 22:12:14 +0100
+    2.0 beta 6
+
+  * SVN Revision 1294 - pep, on Wed, 28 Feb 2007 00:30:03 +0100
+    Added post_type restriction in dcBlog::getDates
+
+  * SVN Revision 1307 - biou, on Sun, 04 Mar 2007 19:17:20 +0100
+    typo fix
+
+  * SVN Revision 1324 - pep, on Mon, 12 Mar 2007 01:58:34 +0100
+    Fixed a bug in JS (thank you, Bruno ;-) )
+
+  * SVN Revision 1325 - pep, on Mon, 12 Mar 2007 02:25:22 +0100
+    Cosmetics and sanitized output
+
+  * SVN Revision 1326 - olivier, on Mon, 12 Mar 2007 11:32:47 +0100
+    HTML escape in lib.dc.page
+
+  * SVN Revision 1327 - olivier, on Tue, 13 Mar 2007 19:23:39 +0100
+    Added options to limit posts and comments in feeds.
+    Added option to truncate post feeds.
+    Some code cleanup in url handler.
+    Need some l10n now.
+
+  * SVN Revision 1328 - olivier, on Tue, 13 Mar 2007 19:27:03 +0100
+    FR L10N update
+
+  * SVN Revision 1340 - biou, on Wed, 21 Mar 2007 08:59:51 +0100
+    fixed a bug in antispam(global ips in ipfilter appeared in badwords)
+
+  * SVN Revision 1341 - olivier, on Wed, 21 Mar 2007 16:54:15 +0100
+    Update according to changes introduced by Clearbricks revision 46.
+
+  * SVN Revision 1342 - olivier, on Wed, 21 Mar 2007 17:26:03 +0100
+    Fixed installer. Need to use dbSchema now.
+
+  * SVN Revision 1343 - olivier, on Thu, 22 Mar 2007 00:04:04 +0100
+    New install/upgrade with UDBS. See #145.
+
+  * SVN Revision 1344 - olivier, on Thu, 22 Mar 2007 00:08:10 +0100
+    Removed Clearbricks xmlsql class.
+
+  * SVN Revision 1346 - olivier, on Fri, 23 Mar 2007 11:45:53 +0100
+    Versions handlers in dcCore class. Use a cache versions property in order
+    to not fetch versions twice.
+    dotclearUpgrade function uses these handlers now.
+
+  * SVN Revision 1348 - olivier, on Mon, 26 Mar 2007 15:24:35 +0200
+    Moved private dcMedia methods to protected.
+
+  * SVN Revision 1350 - olivier, on Wed, 28 Mar 2007 21:19:28 +0200
+    L10N FR fix in blogroll plugin.
+
+  * SVN Revision 1354 - biou, on Fri, 30 Mar 2007 11:22:39 +0200
+    antispam: added a trailing dot to address in dnsblLookup, fixes #149
+
+  * SVN Revision 1355 - olivier, on Fri, 30 Mar 2007 15:50:01 +0200
+    Archives template tags documentation
+
+  * SVN Revision 1356 - olivier, on Fri, 30 Mar 2007 17:12:16 +0200
+    Updated fr links
+
+  * SVN Revision 1357 - olivier, on Fri, 30 Mar 2007 17:15:09 +0200
+    Changed the way we handle xmlrpc URLs. Added DC_XMLRPC_URL constant to customize it.
+    Closes #144.
+
+  * SVN Revision 1358 - olivier, on Fri, 30 Mar 2007 17:33:05 +0200
+    Added DC_FORCE_SCHEME_443 to force redirect on https if port is 443
+
+  * SVN Revision 1359 - olivier, on Mon, 02 Apr 2007 10:47:28 +0200
+    L10N EN dates fixes
+
+  * SVN Revision 1360 - olivier, on Mon, 02 Apr 2007 10:57:21 +0200
+    Resources takes only one "s"
+
+  * SVN Revision 1361 - olivier, on Mon, 02 Apr 2007 14:37:24 +0200
+    Cookies changes.
+     * Persistent cookie is not serialized any more.
+     * Persistent and session cookie use http::broserUID()
+
+  * SVN Revision 1362 - olivier, on Mon, 02 Apr 2007 15:07:10 +0200
+    Added DC_ADMIN_SSL constant to allow secured admin cookies.
+
+  * SVN Revision 1363 - olivier, on Mon, 02 Apr 2007 18:26:38 +0200
+    about:config lisibility
+
+  * SVN Revision 1364 - olivier, on Tue, 03 Apr 2007 11:58:13 +0200
+    First step for plugin auto install.
+
+  * SVN Revision 1365 - olivier, on Tue, 03 Apr 2007 13:31:56 +0200
+    Added dcModules::moduleInfo()
+
+  * SVN Revision 1366 - olivier, on Tue, 03 Apr 2007 13:52:58 +0200
+    Plugin install message style.
+
+  * SVN Revision 1367 - olivier, on Tue, 03 Apr 2007 16:23:16 +0200
+    Show smilies in excerpts too.
+
+  * SVN Revision 1370 - olivier, on Sat, 07 Apr 2007 14:52:02 +0200
+    (Tags widget) Don't display "all tags" link if "tags" URL handler is disabled.
+
+  * SVN Revision 1383 - biou, on Tue, 08 May 2007 09:50:23 +0200
+    antispam: intl fix
+
+  * SVN Revision 1384 - biou, on Sun, 13 May 2007 08:27:14 +0200
+    fixed missing /div (thanks to Alakazam)
+
+  * SVN Revision 1385 - biou, on Sun, 13 May 2007 08:34:34 +0200
+    fix tab ordering (thanks to Dsls)
+
+  * SVN Revision 1386 - biou, on Wed, 23 May 2007 17:13:46 +0200
+    fix in xmlrpc newMediaObject (double decoding)
+    thanks to alilou
+
+  * SVN Revision 1387 - olivier, on Wed, 30 May 2007 16:28:49 +0200
+    Added installation procedures in plugins (metadata, blogroll
+    and antispam) and removed DB part of them in native dbSchema.
+    Back and alive.
+
+  * SVN Revision 1388 - olivier, on Thu, 31 May 2007 11:15:30 +0200
+    Added trackbacks_ttl preference.
+
+  * SVN Revision 1389 - olivier, on Thu, 31 May 2007 11:23:30 +0200
+    L10N FR update
+
+  * SVN Revision 1390 - olivier, on Thu, 31 May 2007 17:53:52 +0200
+    Trackbacks only moderation
+
+  * SVN Revision 1391 - kozlika, on Fri, 01 Jun 2007 22:10:28 +0200
+    fixed a makefile bug for macsox
+
+  * SVN Revision 1392 - pep, on Sat, 02 Jun 2007 04:41:08 +0200
+    Fixed a typo in french l10n
+
+  * SVN Revision 1393 - pep, on Sun, 03 Jun 2007 11:17:36 +0200
+    Re-arranged comments & trackbacks options in blog_pref.php
+
+  * SVN Revision 1394 - pep, on Sun, 03 Jun 2007 14:01:27 +0200
+    UI fix in plugins manager : "Add ..." tab's now always shown, with a warning when plugins dir isn't writable.
+
+  * SVN Revision 1399 - biou, on Sat, 09 Jun 2007 11:54:05 +0200
+    ergo problem fixed : the dotclear logo is often confused with the submit button
+
+  * SVN Revision 1400 - biou, on Sat, 09 Jun 2007 12:06:28 +0200
+    added blogroll to sidebar
+
+  * SVN Revision 1401 - pep, on Sat, 09 Jun 2007 12:49:28 +0200
+    Fixed markup error in blogroll admin page
+
+  * SVN Revision 1402 - olivier, on Sat, 09 Jun 2007 18:55:43 +0200
+    Removed blogroll from sidebar.
+
+  * SVN Revision 1403 - pep, on Mon, 11 Jun 2007 09:40:47 +0200
+    Added some behaviors in category.php (Look Ma, without any key ! :-p )
+
+  * SVN Revision 1404 - biou, on Mon, 11 Jun 2007 10:18:42 +0200
+    added blogroll to Plugins menu
+
+  * SVN Revision 1405 - olivier, on Mon, 11 Jun 2007 10:46:57 +0200
+    New default values in core->session instance.
+
+  * SVN Revision 1406 - pep, on Tue, 12 Jun 2007 02:35:18 +0200
+    The return of the revenge of icon-small
+
+  * SVN Revision 1408 - pep, on Tue, 12 Jun 2007 12:38:41 +0200
+    Added post_type in columns returned by dcBlog::getPosts().
+
+  * SVN Revision 1412 - pep, on Tue, 12 Jun 2007 17:14:39 +0200
+    Fixed a bug in xmlrpc handler (* cough *)
+
+  * SVN Revision 1413 - pep, on Tue, 12 Jun 2007 20:00:56 +0200
+    Fixed a bug : _prepend.php were loaded twice in xmlrpc context
+
+  * SVN Revision 1415 - olivier, on Thu, 14 Jun 2007 16:47:37 +0200
+    Fixed a display bug in comments filters.
+
+  * SVN Revision 1419 - pep, on Sun, 17 Jun 2007 16:30:12 +0200
+    Added 'type' attribute in <tpl:EntryIf> (Cf. #146 and [1408])
+
+  * SVN Revision 1426 - pep, on Wed, 20 Jun 2007 10:50:48 +0200
+    Fixed markup error (erm ... ROFL)
+
+  * SVN Revision 1427 - pep, on Wed, 20 Jun 2007 11:30:38 +0200
+    Sure, copy/paste is evil. :-)
+
+  * SVN Revision 1428 - olivier, on Wed, 20 Jun 2007 15:55:45 +0200
+    Sliding doors on jsPartTabs, much nicer :)
+
+  * SVN Revision 1429 - olivier, on Wed, 20 Jun 2007 16:26:27 +0200
+    Forgot images for sliding doors
+
+  * SVN Revision 1431 - olivier, on Wed, 20 Jun 2007 16:54:43 +0200
+    Added corePostSearch behavior (in order to create search plugins)
+
+  * SVN Revision 1436 - pep, on Sun, 24 Jun 2007 03:16:04 +0200
+    Small fix
+
+  * SVN Revision 1438 - olivier, on Wed, 27 Jun 2007 09:54:27 +0200
+    Fixed a bug in jsToolBar WYSIWYG and IE6 SP1. Thank Nico :)
+
+  * SVN Revision 1439 - olivier, on Wed, 27 Jun 2007 14:26:05 +0200
+    Added search param in dcBlog::getComments()
+
+  * SVN Revision 1442 - olivier, on Thu, 28 Jun 2007 10:57:37 +0200
+    Data check in posts.php and comments.php
+
+  * SVN Revision 1443 - olivier, on Thu, 28 Jun 2007 11:31:56 +0200
+    Internal search engine. Closes #20.
+
+  * SVN Revision 1444 - olivier, on Thu, 28 Jun 2007 11:32:44 +0200
+    FR L10N for search engine [1443]
+
+  * SVN Revision 1446 - olivier, on Thu, 28 Jun 2007 14:51:32 +0200
+    fixed upload_max_filesize issue while post_max_size is lower.
+
+  * SVN Revision 1448 - olivier, on Thu, 28 Jun 2007 17:20:10 +0200
+    Added FLV format support with Neolao player.
+
+  * SVN Revision 1449 - kozlika, on Sat, 30 Jun 2007 08:02:25 +0200
+    typo
+
+  * SVN Revision 1450 - olivier, on Mon, 02 Jul 2007 16:02:07 +0200
+    Added core_error file if database is broken. A bit taken on WordPress page ;)
+
+  * SVN Revision 1451 - olivier, on Mon, 02 Jul 2007 16:17:05 +0200
+    style indentation
+
+  * SVN Revision 1452 - olivier, on Mon, 02 Jul 2007 17:01:25 +0200
+    jQuery 1.1.3 switch.
+
+  * SVN Revision 1453 - olivier, on Mon, 02 Jul 2007 17:29:51 +0200
+    We don't want to show an HTML page in CLI mode on errors.
+
+  * SVN Revision 1454 - olivier, on Tue, 03 Jul 2007 11:33:49 +0200
+    Improved error handling. Added error message if config.php does not exist. Closes #156.
+
+  * SVN Revision 1455 - olivier, on Tue, 03 Jul 2007 11:35:11 +0200
+    Renamed core_error.html
+
+  * SVN Revision 1456 - olivier, on Thu, 05 Jul 2007 16:22:12 +0200
+    jQuery 1.1.3.1
+
+  * SVN Revision 1457 - olivier, on Wed, 11 Jul 2007 12:48:07 +0200
+    Nonce implementation for admin part. Don't update your version now! Need to update 75 forms now :)
+
+  * SVN Revision 1458 - olivier, on Wed, 11 Jul 2007 22:59:00 +0200
+    Fixed a security issue. Details soon on documentation wiki.
+
+  * SVN Revision 1465 - olivier, on Thu, 12 Jul 2007 13:07:16 +0200
+    FR l10n update
+
+  * SVN Revision 1466 - olivier, on Thu, 12 Jul 2007 14:19:45 +0200
+    2.0-beta7 and changelog
+
+  * SVN Revision 1469 - olivier, on Fri, 13 Jul 2007 12:08:00 +0200
+    Remove all session data while upgrading.
+
+  * SVN Revision 1470 - olivier, on Wed, 25 Jul 2007 14:38:48 +0200
+    Added "alt" texts for "plus" and "minus" buttons. Closes #152.
+
+  * SVN Revision 1471 - olivier, on Wed, 25 Jul 2007 16:17:24 +0200
+    Added "save" button in entry preview pane. Closes #59.
+
+  * SVN Revision 1472 - olivier, on Wed, 25 Jul 2007 17:47:37 +0200
+    Force media_title usage if given. Closes #157.
+
+  * SVN Revision 1473 - olivier, on Wed, 25 Jul 2007 18:22:09 +0200
+    XHTML convert button, return with revenge. Closes #115.
+
+  * SVN Revision 1474 - olivier, on Thu, 26 Jul 2007 08:42:22 +0200
+    L10N FR update
+
+  * SVN Revision 1475 - olivier, on Thu, 26 Jul 2007 10:22:08 +0200
+    Added Clearbricks HTML validation class.
+
+  * SVN Revision 1477 - olivier, on Thu, 26 Jul 2007 14:28:44 +0200
+    Markup validator return (with xhr revenge) Closes #111.
+
+  * SVN Revision 1479 - biou, on Thu, 26 Jul 2007 16:34:38 +0200
+    added behavior adminBeforePostDelete
+
+  * SVN Revision 1480 - olivier, on Thu, 26 Jul 2007 16:36:13 +0200
+    We can now add any media from toolbar. Needs now some work for flv and mp3. See #83.
+
+  * SVN Revision 1481 - olivier, on Thu, 26 Jul 2007 16:38:05 +0200
+    [1480] cleanup
+
+  * SVN Revision 1484 - biou, on Fri, 27 Jul 2007 15:50:19 +0200
+    changed permissions on metadata plugin
+    to enable actions on tags when the user has edit rights
+
+  * SVN Revision 1487 - olivier, on Sat, 28 Jul 2007 13:38:24 +0200
+    Any media in entry insertion. Closes #83.
+     * Handle MP3 and FLV files with embeded player
+     * New dcMedia static methods to call MP3 and FLV players
+     * Added "res" folder in "admin" in which files can be loaded with "pf=" arg
+     * Added two patterns for html::absoluteURLs Clearbricks method
+
+  * SVN Revision 1488 - olivier, on Sat, 28 Jul 2007 14:10:06 +0200
+    Easier way to get blog URL ending with a question mark.
+
+  * SVN Revision 1489 - olivier, on Sat, 28 Jul 2007 14:13:05 +0200
+    Better name for dcBlog::getMarkURL
+
+  * SVN Revision 1490 - olivier, on Sat, 28 Jul 2007 14:23:39 +0200
+    Removed useless swf files in admin and themes/default.
+    WARNING: themes/default/player_???.swf becomes now ?pf=player_???.swf
+    Introducing new template value "BlogQmarkURL" that returns blog URL with
+    a questing mark at the end.
+    FLV and MP3 players templates review.
+
+  * SVN Revision 1491 - olivier, on Sat, 28 Jul 2007 14:49:30 +0200
+    Fixed XHTML validation issue.
+    See http://www.dotclear.net/forum/viewtopic.php?pid=171299#p171299 for details.
+
+  * SVN Revision 1492 - olivier, on Sat, 28 Jul 2007 14:59:32 +0200
+    Fixed a minor issue with tags widget.
+
+  * SVN Revision 1493 - olivier, on Sat, 28 Jul 2007 15:48:53 +0200
+    Added DC_CONTEXT_ADMIN in themes/customCSS/_config.php
+
+  * SVN Revision 1495 - olivier, on Thu, 02 Aug 2007 10:34:38 +0200
+    Finally closes #118
+
+  * SVN Revision 1497 - olivier, on Thu, 02 Aug 2007 15:14:03 +0200
+    FR L10N update
+
+  * SVN Revision 1499 - olivier, on Sat, 11 Aug 2007 11:34:04 +0200
+    Added templateAfterBlock and templateAfterValue behaviors.
+
+  * SVN Revision 1500 - olivier, on Fri, 17 Aug 2007 09:39:47 +0200
+    A plugin page can be loaded in a popup window.
+
+  * SVN Revision 1501 - olivier, on Fri, 17 Aug 2007 16:19:56 +0200
+    Say hello to the new button that let you insert dailymotion and youtube
+    videos in your posts :)
+
+  * SVN Revision 1502 - olivier, on Fri, 17 Aug 2007 16:56:10 +0200
+    Minor fixes in externalMedia plugin
+
+  * SVN Revision 1503 - olivier, on Sat, 18 Aug 2007 12:56:24 +0200
+    Enhanced media object detection in externalMedia plugin.
+
+  * SVN Revision 1504 - biou, on Mon, 20 Aug 2007 10:36:53 +0200
+    increased coherence in licence blocks in antispam
+
+  * SVN Revision 1507 - olivier, on Mon, 20 Aug 2007 14:24:43 +0200
+    External Media plugin minor fixes.
+
+  * SVN Revision 1508 - olivier, on Tue, 21 Aug 2007 10:35:52 +0200
+    Added indexes for PostgreSQL in core schema and in antispam plugin.
+
+  * SVN Revision 1509 - biou, on Tue, 21 Aug 2007 16:48:53 +0200
+    fixed alt attribute on the status image
+
+  * SVN Revision 1510 - pep, on Fri, 24 Aug 2007 06:04:25 +0200
+    Added post_type attribute for tags <tpl:Archives>, <tpl:ArchiveNext> and <tpl:ArchivePrevious>.
+    Should solve side effects with Gallery and Related plugins.
+
+  * SVN Revision 1513 - olivier, on Fri, 24 Aug 2007 15:16:13 +0200
+    Added Google Video in External Media plugin
+
+  * SVN Revision 1514 - pep, on Mon, 27 Aug 2007 17:03:41 +0200
+    Small fix in posts_actions.php (Thx to Marc Claustre)
+
+  * SVN Revision 1515 - biou, on Wed, 29 Aug 2007 10:25:40 +0200
+    bug fixed in badwords
+    thanks to sasha and petaramesh
+
+  * SVN Revision 1516 - olivier, on Thu, 30 Aug 2007 10:29:02 +0200
+    You can change title for an external media.
+
+  * SVN Revision 1517 - biou, on Sun, 02 Sep 2007 11:10:37 +0200
+    typos fixed, lang updates
+    thx to sasha
+
+  * SVN Revision 1518 - biou, on Sun, 02 Sep 2007 11:23:52 +0200
+    lockable fields handling update
+    works now for several lockable fields in <div id="lockable">
+    thx to sasha
+
+  * SVN Revision 1521 - biou, on Fri, 14 Sep 2007 18:41:19 +0200
+    fixed bug in dcAuth
+    thx to Sasha
+
+  * SVN Revision 1522 - biou, on Fri, 14 Sep 2007 18:42:24 +0200
+    externalMedia in related
+
+  * SVN Revision 1523 - olivier, on Thu, 20 Sep 2007 15:23:27 +0200
+    Added tplBeforeData and tplAfterData behaviors
+
+  * SVN Revision 1524 - olivier, on Thu, 20 Sep 2007 16:07:19 +0200
+    Say hello to jquery 1.2.1. Everything seems to work fine.
+
+  * SVN Revision 1525 - biou, on Fri, 21 Sep 2007 10:52:20 +0200
+    idn compatibility
+    see http://www.dotclear.net/forum/viewtopic.php?pid=179934#p179934
+
+  * SVN Revision 1526 - biou, on Sun, 30 Sep 2007 15:34:25 +0200
+    spam comments number displayed on dashboard
+    thanks to moe
+
+  * SVN Revision 1527 - kozlika, on Fri, 05 Oct 2007 21:13:19 +0200
+    Suppression de r?\195?\168gles redondantes dans la feuille de style du th?\195?\168me par d?\195?\169faut. (Thanks to Adjaya)
+
+  * SVN Revision 1528 - kozlika, on Sun, 07 Oct 2007 18:03:48 +0200
+    Typo in admin files - Thanks to goetzilla http://www.dotclear.net/forum/viewtopic.php?pid=181006#p181006
+    (vous v?\195?\169rifiez hein ?)
+
+  * SVN Revision 1529 - kozlika, on Mon, 08 Oct 2007 07:49:20 +0200
+    ooooooops une fois suffit ! (thanks to Moe)
+
+  * SVN Revision 1530 - kozlika, on Mon, 08 Oct 2007 15:18:59 +0200
+    themes/default/style.css cleanup
+    (aucune modif du theme, que du nettoyage de code)
+
+  * SVN Revision 1532 - olivier, on Wed, 24 Oct 2007 17:36:58 +0200
+    Fixed a bug with new youtube page.
+
+  * SVN Revision 1533 - pep, on Thu, 01 Nov 2007 18:59:01 +0100
+    Fix CDATA stuff
+
+  * SVN Revision 1534 - pep, on Fri, 02 Nov 2007 16:46:41 +0100
+    Well... Tagsoup rollback
+
+  * SVN Revision 1538 - olivier, on Thu, 29 Nov 2007 11:42:08 +0100
+    svn:ignore has no place here
+
+  * SVN Revision 1539 - olivier, on Thu, 29 Nov 2007 11:48:37 +0100
+    Remove svn:ignore
+
+  * SVN Revision 1540 - olivier, on Thu, 29 Nov 2007 11:49:44 +0100
+    Removed svn:ignore
+
+  * SVN Revision 1541 - olivier, on Thu, 29 Nov 2007 13:00:44 +0100
+    Changed mask test in antispam ipFilter.
+
+  * SVN Revision 1542 - olivier, on Thu, 29 Nov 2007 13:42:59 +0100
+    Changed the way we handle dashboard icons and items. Plugins should not rely
+    on $__dashboard_icons or $__dashboard_items anymore and have to use adminDashboardIcons
+    and adminDashboardItems behaviors.
+
+  * SVN Revision 1543 - olivier, on Fri, 30 Nov 2007 16:54:01 +0100
+    Changed the way PCRE UTF-8 support is checked
+
+  * SVN Revision 1548 - olivier, on Tue, 15 Jan 2008 16:12:35 +0100
+    Fixed the way we sort items in mediaManager. Closed #169.
+
+  * SVN Revision 1550 - olivier, on Thu, 31 Jan 2008 11:35:41 +0100
+    jQuery updated to 1.2.2
+
+  * SVN Revision 1551 - olivier, on Fri, 01 Feb 2008 16:28:18 +0100
+    New theme settings page.
+
+  * SVN Revision 1552 - olivier, on Fri, 01 Feb 2008 16:32:24 +0100
+    CSS fix for themes list
+
+  * SVN Revision 1554 - olivier, on Mon, 04 Feb 2008 14:14:27 +0100
+    Added p.field property in admin CSS
+
+  * SVN Revision 1555 - olivier, on Tue, 05 Feb 2008 11:18:10 +0100
+    Updated jQuery version in default theme. Added JS packer for JavaScript files in default theme.
+
+  * SVN Revision 1556 - olivier, on Wed, 06 Feb 2008 10:48:03 +0100
+    Added color picker in admin (using farbtastic)
+
+  * SVN Revision 1557 - olivier, on Wed, 06 Feb 2008 11:29:51 +0100
+    Minor change in admin/blog_theme.php
+
+  * SVN Revision 1558 - olivier, on Wed, 06 Feb 2008 14:57:36 +0100
+    Minor change in admin/blog_theme.php
+
+  * SVN Revision 1559 - olivier, on Wed, 06 Feb 2008 15:05:42 +0100
+    Fix (again) in blog_theme.php
+
+  * SVN Revision 1560 - olivier, on Wed, 06 Feb 2008 15:56:00 +0100
+    Changed translation of "tag" and "tags" in default theme
+
+  * SVN Revision 1561 - olivier, on Wed, 06 Feb 2008 17:52:07 +0100
+    Forgot farbtastic CSS
+
+  * SVN Revision 1562 - olivier, on Wed, 06 Feb 2008 17:59:13 +0100
+    New blowup theme. Needs last revision to work.
+
+  * SVN Revision 1563 - olivier, on Thu, 07 Feb 2008 11:01:11 +0100
+    Fixed farbtastic packing issues
+
+  * SVN Revision 1564 - olivier, on Thu, 07 Feb 2008 11:36:39 +0100
+    Fixed a bug with admin dashboard items and icons for some PHP version.
+    Dashboard icons should now be added with the following syntax:
+    $__dashboard_icons[<ID>] = new arrayObject(array(<title>,<url>,<image>));
+
+  * SVN Revision 1565 - olivier, on Fri, 08 Feb 2008 15:59:01 +0100
+    Added coreBlogAfterTriggerBlog and urlHandlerServeDocument behaviors.
+
+  * SVN Revision 1566 - olivier, on Mon, 11 Feb 2008 13:10:05 +0100
+    Added $cur in coreBlogAfterTriggerBlog call
+
+  * SVN Revision 1567 - olivier, on Mon, 11 Feb 2008 14:54:03 +0100
+    Added tpl and blog update date in urlHandler result
+
+  * SVN Revision 1568 - olivier, on Mon, 11 Feb 2008 17:33:09 +0100
+    Changed the way we handle commenter cookie (with JS now)
+
+ -- Mikael Poussard <mik@gandi.net>  Tue, 12 Feb 2008 10:51:07 +0100
+
+dotclear (1.99+2.0-beta5-6) unstable; urgency=low ; svnrev=1197
+
+  * SVN Revision 1194 - olivier, on Thu, 18 Jan 2007 11:16:51 +0100
+    jsToolBar.wysiwyg fix
+
+  * SVN Revision 1195 - olivier, on Thu, 18 Jan 2007 17:56:38 +0100
+    Changed next/previous post query and added an index to improve
+    it.
+
+  * SVN Revision 1196 - olivier, on Thu, 18 Jan 2007 17:57:06 +0100
+    I forgot version number in [1195]
+
+  * SVN Revision 1197 - olivier, on Fri, 19 Jan 2007 11:18:54 +0100
+    Changed dcBlog::getPosts() query. Removed LEFT JOIN ON post_media table
+    and added an record extension called countMedia.
+
+ -- Mikael Poussard <mik@gandi.net>  Fri, 19 Jan 2007 11:24:55 +0100
+
+dotclear (1.99+2.0-beta5-5) unstable; urgency=low ; svnrev=1191
+
+  * SVN Revision 1189 - olivier, on Tue, 16 Jan 2007 20:30:19 +0100
+    Debian changelog
+
+  * SVN Revision 1190 - olivier, on Tue, 16 Jan 2007 23:07:53 +0100
+    Removed a anoying require on clearbricks/_common.php in load_plugin_file
+
+  * SVN Revision 1191 - olivier, on Wed, 17 Jan 2007 10:06:25 +0100
+    Transmit comment status within comments_actions.php
+
+ -- Mikael Poussard <mik@gandi.net>  Fri, 17 Jan 2007 10:42:30 +0100
+
+dotclear (1.99+2.0-beta5-4) unstable; urgency=low ; svnrev=1188
+
+  * SVN Revision 1184 - olivier, on Tue, 16 Jan 2007 11:50:52 +0100
+    Make akismet configurable only by superadmin with DC_AKISMET_SUPER
+
+  * SVN Revision 1185 - olivier, on Tue, 16 Jan 2007 15:17:46 +0100
+    Test .svn directory before mkdcl.php launch
+
+  * SVN Revision 1186 - olivier, on Tue, 16 Jan 2007 16:14:04 +0100
+    New debian changelog
+
+  * SVN Revision 1187 - olivier, on Tue, 16 Jan 2007 20:08:07 +0100
+    Command line upgrade script and fix in load_plugin_file.php
+
+  * SVN Revision 1188 - olivier, on Tue, 16 Jan 2007 20:29:22 +0100
+    That's a bug dude!
+
+ -- Mikael Poussard <mik@gandi.net>  Tue, 16 Jan 2007 20:30:07 +0100
+
+dotclear (1.99+2.0-beta5-3) unstable; urgency=low ; svnrev=1182
+
+  * SVN Revision 1178 - mik, on Mon, 15 Jan 2007 18:21:28 +0100
+      README file copied in debian dir
+
+  * SVN Revision 1179 - olivier, on Mon, 15 Jan 2007 18:38:02 +0100
+    Minor change on spam display in comments.php
+
+  * SVN Revision 1182 - olivier, on Tue, 16 Jan 2007 11:30:23 +0100
+    Removed Build-Depends dotclear in dh-make-dotclear
+
+ -- Mikael Poussard <mik@gandi.net>  Tue, 16 Jan 2007 16:13:50 +0100
+
+dotclear (1.99+2.0-beta5-2) unstable; urgency=low ; svnrev=1177
+
+  * SVN Revision 1144 - olivier, on Thu, 11 Jan 2007 17:32:32 +0100
+    New Debian changelog
+
+  * SVN Revision 1145 - olivier, on Thu, 11 Jan 2007 18:44:58 +0100
+    check.php fix for PHP 5.0. beta 5.1
+
+  * SVN Revision 1148 - olivier, on Fri, 12 Jan 2007 02:04:52 +0100
+    I forgot CHANGELOG
+
+  * SVN Revision 1149 - olivier, on Fri, 12 Jan 2007 02:06:22 +0100
+    2.0 beta 5.2
+
+  * SVN Revision 1150 - mik, on Fri, 12 Jan 2007 13:38:35 +0100
+      Dotclear README, no Debian README
+
+  * SVN Revision 1151 - olivier, on Fri, 12 Jan 2007 19:09:17 +0100
+    Added delete button in post edit.
+
+  * SVN Revision 1159 - biou, on Sat, 13 Jan 2007 17:02:51 +0100
+    fixed bad cut and paste in akismet licence block
+
+  * SVN Revision 1169 - olivier, on Mon, 15 Jan 2007 10:14:00 +0100
+    Minor fix in jsToolBar.dotclear.js
+
+  * SVN Revision 1170 - olivier, on Mon, 15 Jan 2007 11:53:35 +0100
+    Removed comment edit link from date and add it to a small edit icon.
+
+  * SVN Revision 1171 - olivier, on Mon, 15 Jan 2007 12:31:46 +0100
+    Removed an unwanted <p> in comment line
+
+  * SVN Revision 1172 - olivier, on Mon, 15 Jan 2007 14:12:50 +0100
+    Added comment_ip filter in dcBlog::getComments()
+
+  * SVN Revision 1173 - olivier, on Mon, 15 Jan 2007 14:25:20 +0100
+    Added IP filter in comments list
+
+  * SVN Revision 1174 - olivier, on Mon, 15 Jan 2007 15:35:53 +0100
+    Enhanced comments list.
+
+  * SVN Revision 1175 - olivier, on Mon, 15 Jan 2007 15:54:58 +0100
+    New comments list in post page.
+
+  * SVN Revision 1176 - olivier, on Mon, 15 Jan 2007 18:14:03 +0100
+    Hide spam in comments list and added a link to show them.
+
+  * SVN Revision 1177 - olivier, on Mon, 15 Jan 2007 18:14:37 +0100
+    FR locales update
+
+ -- Mikael Poussard <mik@gandi.net>  Mon, 15 Jan 2007 18:20:54 +0100
+
+dotclear (1.99+2.0-beta5-1) unstable; urgency=low ; svnrev=1143
+
+  * SVN Revision 1096 - olivier, on Wed, 27 Dec 2006 12:00:10 +0100
+    Fixed a bug with Clearbricks imageMeta::getMeta().
+    I forgot to add this in beta4, shame on me!
+
+  * SVN Revision 1097 - olivier, on Wed, 27 Dec 2006 12:21:44 +0100
+    Better dynamic files uploader in media manager.
+
+  * SVN Revision 1098 - olivier, on Wed, 27 Dec 2006 14:55:49 +0100
+    xdebug helpers in DC_DEV mode
+
+  * SVN Revision 1099 - olivier, on Fri, 29 Dec 2006 12:41:10 +0100
+    Purged clearbricks directory. Everything is broken now. Woohoo!
+
+  * SVN Revision 1100 - olivier, on Fri, 29 Dec 2006 12:43:09 +0100
+    Clearbricks final purge.
+
+  * SVN Revision 1101 - olivier, on Fri, 29 Dec 2006 12:46:23 +0100
+    Clearbricks externals definitions.
+
+  * SVN Revision 1102 - olivier, on Fri, 29 Dec 2006 12:47:42 +0100
+    Clearbricks for Dotclear _common.php file.
+
+  * SVN Revision 1103 - pep, on Fri, 29 Dec 2006 16:17:34 +0100
+    Fixed include in build-tools/make-l10n.php
+
+  * SVN Revision 1104 - pep, on Sun, 31 Dec 2006 04:41:47 +0100
+    Small fix : auto_br in dcCore::initWikiSimpleComment
+
+  * SVN Revision 1106 - pep, on Sat, 06 Jan 2007 06:25:44 +0100
+    Added support for language restriction in feeds
+
+  * SVN Revision 1107 - pep, on Sat, 06 Jan 2007 07:00:45 +0100
+    Damn it ! Grrr ...
+
+  * SVN Revision 1108 - olivier, on Mon, 08 Jan 2007 15:52:13 +0100
+    Added forgotten setCacheDir() in admin/index.php.
+
+  * SVN Revision 1120 - olivier, on Mon, 08 Jan 2007 17:22:27 +0100
+    If theme does not exist, revert to default.
+
+  * SVN Revision 1121 - olivier, on Mon, 08 Jan 2007 17:37:55 +0100
+    Decreased theme credits font size
+
+  * SVN Revision 1122 - olivier, on Mon, 08 Jan 2007 17:40:56 +0100
+    Changed some IDs by classes in widgets.
+
+  * SVN Revision 1123 - olivier, on Mon, 08 Jan 2007 17:48:29 +0100
+    Changed default theme for new class names.
+
+  * SVN Revision 1129 - pep, on Tue, 09 Jan 2007 16:41:02 +0100
+    Tsssss ... ;-)
+
+  * SVN Revision 1130 - olivier, on Wed, 10 Jan 2007 00:56:34 +0100
+    Makefile and debian package fixes.
+
+  * SVN Revision 1131 - olivier, on Wed, 10 Jan 2007 15:38:17 +0100
+    New Debian changelog way, with a new mkdcl tool.
+
+  * SVN Revision 1132 - olivier, on Wed, 10 Jan 2007 18:27:58 +0100
+    Added dh-make-dotclear, an helper tool to create Debian packages for
+    themes and plugins.
+
+  * SVN Revision 1135 - olivier, on Thu, 11 Jan 2007 12:19:19 +0100
+    Added check for SPL in instaler
+
+  * SVN Revision 1137 - olivier, on Thu, 11 Jan 2007 13:57:29 +0100
+    Fixed a Safari layout issue
+
+  * SVN Revision 1138 - olivier, on Thu, 11 Jan 2007 14:02:20 +0100
+    Fixed a layout issue with toolbar on Safari and Opera
+
+  * SVN Revision 1139 - olivier, on Thu, 11 Jan 2007 15:55:58 +0100
+    config.php.in update
+
+  * SVN Revision 1140 - olivier, on Thu, 11 Jan 2007 15:56:28 +0100
+    Install wizard.
+
+  * SVN Revision 1141 - olivier, on Thu, 11 Jan 2007 16:41:18 +0100
+    Chmod config.php created by wizard
+
+  * SVN Revision 1142 - olivier, on Thu, 11 Jan 2007 17:02:29 +0100
+    Fixes in wizard
+
+  * SVN Revision 1143 - olivier, on Thu, 11 Jan 2007 17:30:29 +0100
+    2.0-beta5
+
+ -- Mikael Poussard <mik@gandi.net>  Thu, 11 Jan 2007 17:31:46 +0100
+
+dotclear (1.99+2.0-beta4-1) unstable; urgency=low ; svnrev=1095
+
+  * SVN Revision 962 - olivier, on Mon, 06 Nov 2006 17:44:07 +0100
+    This should fix "Indirect modification of overloaded property" PHP 5.2 bug.
+    You should never use an array inside _ctx (context) global object.
+
+  * SVN Revision 963 - biou, on Mon, 06 Nov 2006 20:41:30 +0100
+    fix for the offline coders :)
+    disable properly the feed lookup when DC_NEWS_FEED is empty
+
+  * SVN Revision 964 - olivier, on Tue, 07 Nov 2006 10:31:25 +0100
+    Escaped user_email form field in admin/auth.php
+
+  * SVN Revision 965 - olivier, on Tue, 07 Nov 2006 18:23:02 +0100
+    SQLite changes method fix
+
+  * SVN Revision 966 - pep, on Wed, 08 Nov 2006 20:34:49 +0100
+    Added {{tpl:BlogPublicURL}}
+
+  * SVN Revision 967 - pep, on Thu, 09 Nov 2006 00:09:47 +0100
+    Minor fix
+
+  * SVN Revision 968 - pep, on Thu, 09 Nov 2006 02:42:41 +0100
+    Fixed a bug when setting templates paths
+
+  * SVN Revision 971 - olivier, on Sat, 11 Nov 2006 20:42:51 +0100
+    Silent load of xml string in feedParser
+
+  * SVN Revision 973 - olivier, on Sun, 12 Nov 2006 18:34:08 +0100
+    grrr
+
+  * SVN Revision 974 - olivier, on Sun, 12 Nov 2006 18:35:19 +0100
+    removed line in class.dc.import.php
+
+  * SVN Revision 975 - olivier, on Sun, 12 Nov 2006 19:51:57 +0100
+    Return real string in XML/RPC newPost method
+
+  * SVN Revision 977 - pep, on Tue, 14 Nov 2006 18:03:06 +0100
+    Minor fix : Do not invalidate HTTP cache when adding a comment marked as spam.
+
+  * SVN Revision 978 - pep, on Thu, 16 Nov 2006 15:49:35 +0100
+    Small fix in markup
+
+  * SVN Revision 980 - olivier, on Mon, 20 Nov 2006 00:50:37 +0100
+    Code fix in Clearbricks html::escapeJS()
+
+  * SVN Revision 981 - olivier, on Mon, 20 Nov 2006 14:50:48 +0100
+    Switch to jQuery, part #1. This needs a lot of tests!
+
+  * SVN Revision 982 - olivier, on Mon, 20 Nov 2006 16:50:09 +0100
+    Uncompressed jquery.js source in SVN. We need a way to compress .js files in makefile.
+
+  * SVN Revision 986 - olivier, on Tue, 21 Nov 2006 15:47:25 +0100
+    Replaced multi-part-page.js by jquery.pageTabs plugin.
+    When you need tabs on a page, call dcPage::jsPageTabs. dcPage::jsjsMultiPartPage is
+    not available anymore.
+    If you need to handle events on tab load, use tabload(fn) or onetabload(fn) events.
+    tabload will trigger event every time the tab is loaded.
+    onetabload will trigger event only the first time the tab is loaded.
+    Example: $('#tabid').onetabload(function() { alert(this.id); });
+
+  * SVN Revision 988 - olivier, on Tue, 21 Nov 2006 18:17:58 +0100
+    Handle tabload and onetabload events with chainhandler.
+
+  * SVN Revision 989 - olivier, on Tue, 21 Nov 2006 23:45:39 +0100
+    Changed some png for IE (shame on me!)
+
+  * SVN Revision 990 - olivier, on Wed, 22 Nov 2006 00:08:31 +0100
+    Applied jQuery diff on attr() internal function to fix an IE (again) bug.
+
+  * SVN Revision 991 - pep, on Wed, 22 Nov 2006 13:04:11 +0100
+    Fixed a bug ... * cough * 
+
+  * SVN Revision 992 - olivier, on Wed, 22 Nov 2006 17:04:49 +0100
+    Widgets now work with Safari. I hate this browser.
+
+  * SVN Revision 993 - pep, on Wed, 22 Nov 2006 20:08:01 +0100
+    Added some toys for themes designers
+
+  * SVN Revision 995 - olivier, on Thu, 23 Nov 2006 00:47:42 +0100
+    Removed warning in confirm-close JS file
+
+  * SVN Revision 996 - olivier, on Thu, 23 Nov 2006 00:56:59 +0100
+    Enhanced admin/user.php page. Added some fieldsets.
+    adminUserForm behavior should now echo stuff and not return.
+
+  * SVN Revision 998 - olivier, on Thu, 23 Nov 2006 01:09:03 +0100
+    Enhanced preferences page.
+
+  * SVN Revision 999 - olivier, on Thu, 23 Nov 2006 01:11:12 +0100
+    Added following behaviors in admin/blog_pref.php:
+     * adminBeforeBlogUpdate
+     * adminAfterBlogUpdate
+     * adminBeforeBlogSettingsUpdate
+     * adminBlogPreferencesHeaders
+     * adminBlogPreferencesForm
+
+  * SVN Revision 1000 - olivier, on Thu, 23 Nov 2006 01:12:16 +0100
+    FR locales update
+
+  * SVN Revision 1001 - olivier, on Thu, 23 Nov 2006 02:07:59 +0100
+    user_options field in cursor should be an ArrayObject.
+
+  * SVN Revision 1002 - olivier, on Thu, 23 Nov 2006 11:57:27 +0100
+    Fixed a bug in blog_pref.php
+
+  * SVN Revision 1003 - olivier, on Thu, 23 Nov 2006 14:24:54 +0100
+    Improved performances in core::getBlogPermissions
+
+  * SVN Revision 1005 - olivier, on Thu, 23 Nov 2006 23:16:56 +0100
+    Added link "add another file" in media upload form.
+
+  * SVN Revision 1006 - olivier, on Fri, 24 Nov 2006 11:30:24 +0100
+    Fixed bug in page when URL contains % symbol.
+
+  * SVN Revision 1007 - olivier, on Sat, 25 Nov 2006 04:57:22 +0100
+    Enhanced post edit page.
+
+  * SVN Revision 1008 - olivier, on Sat, 25 Nov 2006 05:01:27 +0100
+    Metadata presentation fix
+
+  * SVN Revision 1009 - olivier, on Sat, 25 Nov 2006 05:02:14 +0100
+    Pings presentation fix.
+
+  * SVN Revision 1010 - olivier, on Sat, 25 Nov 2006 14:30:14 +0100
+    Added concat function in dbLayer
+
+  * SVN Revision 1011 - olivier, on Sat, 25 Nov 2006 14:34:29 +0100
+    Finally fixed the bug with next/previous entry.
+
+  * SVN Revision 1013 - olivier, on Sun, 26 Nov 2006 15:37:37 +0100
+    Visual enhancements of fieldsets.
+
+  * SVN Revision 1014 - pep, on Mon, 27 Nov 2006 02:50:51 +0100
+    Minor fix
+
+  * SVN Revision 1015 - olivier, on Mon, 27 Nov 2006 10:05:10 +0100
+    Added tests in tpl:EntryIf.
+     * first (First post in list)
+     * odd (1: post index is odd, 0: post index is even)
+    Closes #137.
+
+  * SVN Revision 1016 - olivier, on Mon, 27 Nov 2006 10:30:51 +0100
+    changed default edit_size.
+
+  * SVN Revision 1018 - olivier, on Tue, 28 Nov 2006 13:51:45 +0100
+    New netSocket class.
+    Replaced HttpClient by netHttp class.
+    Fixed bugs in feedReader class.
+    Dotclear changes to come...
+
+  * SVN Revision 1019 - olivier, on Tue, 28 Nov 2006 14:01:49 +0100
+    New netHttp class fixes:
+     * Widget feed reader silently fail on issues
+     * Akismet adaptation
+     * Admin dashboard won't fail anymore when feed is not available
+     * Use netHttp output module to download plugin packages
+     * Trackbacks netHttp switch
+
+  * SVN Revision 1020 - olivier, on Tue, 28 Nov 2006 14:03:02 +0100
+    In files::installPackage removes file on package error.
+
+  * SVN Revision 1025 - olivier, on Fri, 01 Dec 2006 11:43:08 +0100
+    dcCore and dcBlog documentation.
+
+  * SVN Revision 1027 - pep, on Sun, 03 Dec 2006 03:13:02 +0100
+    Enhanced HTTP Cache handling with support of ETags and HTTP_IF_NONE_MATCH conditions.
+
+  * SVN Revision 1028 - pep, on Sun, 03 Dec 2006 03:21:40 +0100
+    Grrrrr (Don't forget : one free "Oooops" by commit)
+
+  * SVN Revision 1029 - olivier, on Mon, 04 Dec 2006 09:26:42 +0100
+    Minor fixes with etags
+
+  * SVN Revision 1030 - olivier, on Mon, 04 Dec 2006 11:44:25 +0100
+    Fixed bug with QUERY_STRING mode when arg has a space (tag).
+    Allow user to choose between QUERY_STRING and PATH_INFO mode.
+    Closes #133.
+
+  * SVN Revision 1032 - olivier, on Tue, 05 Dec 2006 10:27:29 +0100
+    dcError and dcAuth documentation. dcCore doc fixes.
+
+  * SVN Revision 1033 - olivier, on Tue, 05 Dec 2006 12:20:44 +0100
+    dcUtils documentation
+
+  * SVN Revision 1034 - olivier, on Tue, 05 Dec 2006 12:41:57 +0100
+    dcRest documentation
+
+  * SVN Revision 1035 - olivier, on Tue, 05 Dec 2006 12:44:49 +0100
+    dcAuth, dcBlog, dcCore and dcError documentation fixes
+
+  * SVN Revision 1036 - olivier, on Tue, 05 Dec 2006 12:48:06 +0100
+    dcError documentation fix
+
+  * SVN Revision 1037 - olivier, on Tue, 05 Dec 2006 12:49:22 +0100
+    dcSettings documentation
+
+  * SVN Revision 1038 - olivier, on Tue, 05 Dec 2006 16:08:29 +0100
+    dcModules documentation
+
+  * SVN Revision 1039 - olivier, on Tue, 05 Dec 2006 17:57:15 +0100
+    dcMedia documentation
+
+  * SVN Revision 1040 - olivier, on Tue, 05 Dec 2006 18:37:58 +0100
+    dcTrackback documentation
+
+  * SVN Revision 1042 - olivier, on Thu, 07 Dec 2006 10:32:22 +0100
+    Added quotes around etag value.
+
+  * SVN Revision 1043 - olivier, on Thu, 07 Dec 2006 13:26:15 +0100
+    netSocket improvements.
+
+  * SVN Revision 1044 - olivier, on Thu, 07 Dec 2006 13:30:54 +0100
+    Fixed a bug with tag size in default CSS
+
+  * SVN Revision 1045 - olivier, on Thu, 07 Dec 2006 14:19:12 +0100
+    Fixed a bug with WYSIWYG and jsToolbar. Added filters in toolbar. Thanks Nicolas.
+
+  * SVN Revision 1046 - olivier, on Thu, 07 Dec 2006 15:51:18 +0100
+    Changed core::updCommentStatus() and core::updComment().
+
+  * SVN Revision 1047 - olivier, on Thu, 07 Dec 2006 17:17:53 +0100
+    =======================================================================
+    WARNING ! You should change every plugin using coreBeforeCommentUpdate
+    and coreAfterCommentUpdate behaviors.
+    =======================================================================
+    Replaceed $id by $rs (record) in coreBeforeCommentUpdate and
+    coreAfterCommentUpdate.
+
+  * SVN Revision 1048 - olivier, on Thu, 07 Dec 2006 17:51:54 +0100
+    Akismet autolearn behaviors. /!\ Needs #1047.
+
+  * SVN Revision 1049 - olivier, on Fri, 08 Dec 2006 15:10:20 +0100
+    Added information in dcMedia documentation
+
+  * SVN Revision 1050 - olivier, on Fri, 08 Dec 2006 15:10:45 +0100
+    Record extensions documentation
+
+  * SVN Revision 1051 - olivier, on Fri, 08 Dec 2006 16:58:49 +0100
+    Added all dc.* classes to a documentation group
+
+  * SVN Revision 1052 - pep, on Sun, 10 Dec 2006 01:45:32 +0100
+    Fixed a bug in categories handling
+
+  * SVN Revision 1053 - olivier, on Mon, 11 Dec 2006 15:03:30 +0100
+    Clearbricks netSocket, netHttp, feedReader and feedParser documentation. Quick and dirty way!
+
+  * SVN Revision 1054 - olivier, on Tue, 12 Dec 2006 10:51:58 +0100
+    Clearbricks dbLayer documentation.
+
+  * SVN Revision 1055 - olivier, on Tue, 12 Dec 2006 10:52:18 +0100
+    Clearbricks crypt class documentation.
+
+  * SVN Revision 1056 - olivier, on Tue, 12 Dec 2006 12:07:17 +0100
+    Changed DC_REQUEST_PART env var by URL_REQUEST_PART
+
+  * SVN Revision 1057 - olivier, on Tue, 12 Dec 2006 14:23:12 +0100
+    Can add tags on tag posts list. Closes #140.
+
+  * SVN Revision 1058 - olivier, on Tue, 12 Dec 2006 14:52:34 +0100
+    Added forgotten semi-colons in JS. tool-man drag&drop is a mess, need to work on it one day.
+
+  * SVN Revision 1059 - olivier, on Tue, 12 Dec 2006 15:21:16 +0100
+    Semi-colon fix in jsToolBar.js
+
+  * SVN Revision 1060 - olivier, on Tue, 12 Dec 2006 15:47:41 +0100
+    Semi-colon fixes on date picker.
+
+  * SVN Revision 1061 - xave, on Tue, 12 Dec 2006 18:08:22 +0100
+    a bunch of small documentation fixes
+
+  * SVN Revision 1062 - xave, on Wed, 13 Dec 2006 10:11:04 +0100
+    small documentation fixes
+
+  * SVN Revision 1063 - olivier, on Mon, 18 Dec 2006 10:10:18 +0100
+    Remove this awful 'LIKE' queries in dcMedia and thus, fix a performance issue.
+
+  * SVN Revision 1064 - olivier, on Mon, 18 Dec 2006 12:05:01 +0100
+    Enhanced Import/Export plugin:
+     * Import new DB fields with conditions and default values
+     * Removed import of "version" table
+     * Fixed a bug in dcImport::insertUser
+
+  * SVN Revision 1065 - olivier, on Mon, 18 Dec 2006 16:14:52 +0100
+    Added comment_spam_filter field.
+
+  * SVN Revision 1066 - olivier, on Mon, 18 Dec 2006 16:55:53 +0100
+    SQLite schema update with fix for UNION.
+
+  * SVN Revision 1067 - olivier, on Mon, 18 Dec 2006 17:17:41 +0100
+    Use real JOIN in getComments.
+
+  * SVN Revision 1068 - olivier, on Mon, 18 Dec 2006 18:06:52 +0100
+    jsToolBar fixes for packer.
+
+  * SVN Revision 1069 - olivier, on Mon, 18 Dec 2006 18:08:44 +0100
+    HTML filter is now disabled by default.
+
+  * SVN Revision 1070 - olivier, on Mon, 18 Dec 2006 18:13:27 +0100
+    dragesort-tablerows fixes for packer.
+
+  * SVN Revision 1071 - olivier, on Mon, 18 Dec 2006 22:26:33 +0100
+    _comments.js fixes for packer.
+
+  * SVN Revision 1072 - olivier, on Mon, 18 Dec 2006 22:43:24 +0100
+    jsToolbar.wysiwyg fix for packer.
+
+  * SVN Revision 1073 - olivier, on Tue, 19 Dec 2006 11:09:09 +0100
+    Added some more tests in install/check
+
+  * SVN Revision 1074 - olivier, on Tue, 19 Dec 2006 15:40:24 +0100
+    FR locales update.
+
+  * SVN Revision 1075 - olivier, on Tue, 19 Dec 2006 18:17:15 +0100
+    Fixed a bug with pagination and languages.
+
+  * SVN Revision 1076 - olivier, on Wed, 20 Dec 2006 15:02:06 +0100
+    Fixed a bug with next/prev in admin.
+
+  * SVN Revision 1077 - olivier, on Wed, 20 Dec 2006 17:52:16 +0100
+    Admin interface enhancements. Should be less "geeky".
+
+  * SVN Revision 1078 - olivier, on Wed, 20 Dec 2006 23:56:20 +0100
+    Allright, big changes for widgets. Welcome to version 1.5!
+      * Plugin is called last (position 1000000000)
+      * Sad but true, adminInitWidget event is dead, long live
+      to initWidgets, available in admin and public context
+      (same sintax, in most cases you just need to change the
+      behavior name)
+      * New initDefaultWidgets behavior that allows plugins to
+      add default widgets in sidebar they want
+      * On fresh install, some widgets are ready and visible by default
+      * Sidebars can be reset
+    Things could be broken these days, you're warned.
+
+  * SVN Revision 1079 - olivier, on Wed, 20 Dec 2006 23:59:08 +0100
+    Metadata for widgets 1.5.
+
+  * SVN Revision 1080 - olivier, on Thu, 21 Dec 2006 00:00:03 +0100
+    Blogroll plugin is widgets 1.5 ready.
+
+  * SVN Revision 1085 - olivier, on Thu, 21 Dec 2006 18:57:31 +0100
+    JS helpers on permissions choice.
+
+  * SVN Revision 1086 - olivier, on Thu, 21 Dec 2006 19:12:54 +0100
+    Fetch user_status in dcCore::getUsers().
+
+  * SVN Revision 1088 - olivier, on Tue, 26 Dec 2006 12:14:27 +0100
+    Fixed warning in _post.js
+
+  * SVN Revision 1089 - olivier, on Tue, 26 Dec 2006 13:40:36 +0100
+    Changed pings/icon.png.
+
+  * SVN Revision 1090 - olivier, on Tue, 26 Dec 2006 17:19:13 +0100
+    Added JavaScript packer from Nicolas Martin. That rocks!
+
+  * SVN Revision 1091 - olivier, on Tue, 26 Dec 2006 17:46:29 +0100
+    Added jQuery in default theme
+
+  * SVN Revision 1092 - olivier, on Tue, 26 Dec 2006 18:46:50 +0100
+    Plugins can now handle import/export of their own data with
+    new behaviors:
+     * exportFull
+     * exportSingle
+     * importInit
+     * importSingle
+     * importFull
+     * importPrepareDC12
+
+  * SVN Revision 1093 - olivier, on Tue, 26 Dec 2006 18:48:29 +0100
+    Metadata plugin now handles import/export on its own.
+
+  * SVN Revision 1094 - olivier, on Tue, 26 Dec 2006 20:27:59 +0100
+    FR locales update.
+
+  * SVN Revision 1095 - olivier, on Tue, 26 Dec 2006 20:31:37 +0100
+    2.0-beta4 \o/
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:35:32 +0100
+
+dotclear (1.99+2.0-beta3.1-1) unstable; urgency=low ; svnrev=961
+
+  * SVN Revision 961 - olivier, on Mon, 06 Nov 2006 15:38:48 +0100
+    Dotclear 2 beta 3.1
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:35:13 +0100
+
+dotclear (1.99+2.0-beta3-2) unstable; urgency=low ; svnrev=960
+
+  * SVN Revision 955 - mik, on Mon, 06 Nov 2006 11:33:22 +0100
+     * Added dist-bz2
+     * Typo corrected
+
+  * SVN Revision 956 - mik, on Mon, 06 Nov 2006 11:36:38 +0100
+     * Dotclear2 should not be installed with php 5.2.
+
+  * SVN Revision 958 - olivier, on Mon, 06 Nov 2006 12:46:11 +0100
+    Fixed return detection in plugin loader.
+
+  * SVN Revision 959 - olivier, on Mon, 06 Nov 2006 13:57:05 +0100
+    Removed warning in clearbricks path detection.
+
+  * SVN Revision 960 - olivier, on Mon, 06 Nov 2006 14:09:57 +0100
+    Added proxy support in IXR_Client.
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:34:54 +0100
+
+dotclear (1.99+2.0-beta3-1) unstable; urgency=low ; svnrev=954
+
+  * SVN Revision 926 - olivier, on Thu, 26 Oct 2006 17:45:56 +0200
+    Display comment_spam_status in comment form.
+
+  * SVN Revision 929 - olivier, on Mon, 30 Oct 2006 12:28:30 +0100
+    Clearbricks can now be included with CLEARBRICKS_PATH or be in /usr/lib/clearbricks
+
+  * SVN Revision 932 - pep, on Mon, 30 Oct 2006 15:30:59 +0100
+    Skip filter on comments already marked as spam
+
+  * SVN Revision 933 - olivier, on Mon, 30 Oct 2006 16:36:36 +0100
+    Added callFunction method in PostgreSQL dbLayer.
+
+  * SVN Revision 934 - pep, on Tue, 31 Oct 2006 00:24:16 +0100
+    Added public method HttpClient::setHost
+
+  * SVN Revision 935 - pep, on Tue, 31 Oct 2006 00:57:26 +0100
+    Added connection timeout in IXR_Client
+
+  * SVN Revision 936 - olivier, on Tue, 31 Oct 2006 15:39:48 +0100
+    Moved Incutio libs to clearbricks third party libs.
+
+  * SVN Revision 937 - olivier, on Tue, 31 Oct 2006 15:46:34 +0100
+    Removed inc/ext directory
+
+  * SVN Revision 938 - olivier, on Thu, 02 Nov 2006 09:21:10 +0100
+    Fixed a bug with auto_url in wiki2xhtml
+
+  * SVN Revision 939 - olivier, on Thu, 02 Nov 2006 09:25:26 +0100
+    Fixed a bug with empty URLs in html.filter
+
+  * SVN Revision 940 - olivier, on Thu, 02 Nov 2006 10:20:16 +0100
+    Fixed an issue in static recordset sort function. Closes #132.
+
+  * SVN Revision 941 - olivier, on Thu, 02 Nov 2006 16:32:28 +0100
+    Added generator tag in Atom and RSS feeds.
+
+  * SVN Revision 942 - olivier, on Thu, 02 Nov 2006 17:18:44 +0100
+    Added pubDate tag in RSS feeds.
+
+  * SVN Revision 943 - olivier, on Thu, 02 Nov 2006 17:19:49 +0100
+    Added generator and publication date support in feedParser class.
+
+  * SVN Revision 944 - olivier, on Fri, 03 Nov 2006 15:28:29 +0100
+    Minor fix in class.dc.xmlrpc
+
+  * SVN Revision 945 - biou, on Fri, 03 Nov 2006 15:32:37 +0100
+    minor fix in spamplemousse dnsbl list (blbl is dead)
+
+  * SVN Revision 946 - olivier, on Fri, 03 Nov 2006 17:31:59 +0100
+    Added priority setting in modules loader.
+    _define.php plugin file SHOULD content only registerModule()
+    call, nothing more.
+    Use _prepend.php to load PHP code on plugin init.
+
+  * SVN Revision 950 - olivier, on Fri, 03 Nov 2006 18:27:17 +0100
+    Pings plugin.
+
+  * SVN Revision 951 - olivier, on Sat, 04 Nov 2006 16:48:10 +0100
+    Moved akismet plugin to core plugins.
+
+  * SVN Revision 952 - olivier, on Sat, 04 Nov 2006 17:31:42 +0100
+    Makefile update
+
+  * SVN Revision 953 - olivier, on Sat, 04 Nov 2006 20:08:23 +0100
+    FR locales update
+
+  * SVN Revision 954 - olivier, on Sun, 05 Nov 2006 11:47:09 +0100
+    2.0-beta3
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:34:20 +0100
+
+dotclear (1.99+2.0-beta2-5) unstable; urgency=low ; svnrev=925
+
+  * SVN Revision 906 - olivier, on Tue, 17 Oct 2006 14:18:56 +0200
+    Fixed a bug in feed import and post URL
+
+  * SVN Revision 907 - pep, on Fri, 20 Oct 2006 15:44:29 +0200
+    Should now be able to import DC1+twPostMetas metadatas and tags
+
+  * SVN Revision 908 - pep, on Fri, 20 Oct 2006 15:46:05 +0200
+    Ooops :-p
+
+  * SVN Revision 909 - olivier, on Fri, 20 Oct 2006 16:10:13 +0200
+    Fixed line ending in class.dc.import
+
+  * SVN Revision 910 - olivier, on Fri, 20 Oct 2006 17:20:32 +0200
+    Fixed a bug with image insertion when only one size is available. Thanks to Nicolas Martin.
+
+  * SVN Revision 911 - pep, on Sun, 22 Oct 2006 01:48:35 +0200
+    Added attr 'wiki_comments' to <tpl:SysIf>
+
+  * SVN Revision 913 - olivier, on Mon, 23 Oct 2006 15:10:47 +0200
+    XML/RPC improvements
+     * Changed trace function, added trace_args and trace_response parameters
+     * Allowed plugins to have a _xmlrpc.php file which will be loaded by setBlog() method
+     * Added XML/RPC behaviors
+      * xmlrpcBeforeNewPost
+      * xmlrpcAfterNewPost
+      * xmlrpcBeforeEditPost
+      * xmlrpcAfterEditPost
+      * xmlrpcGetPostInfo
+      * xmlrpcBeforePublishPost
+      * xmlrpcAfterPublishPost
+
+  * SVN Revision 914 - olivier, on Mon, 23 Oct 2006 16:13:28 +0200
+    Fixes in XML/RPC lib.
+
+  * SVN Revision 915 - olivier, on Mon, 23 Oct 2006 16:59:03 +0200
+    XML/RPC fixes. Added XML/RPC tags support in metadata plugin.
+
+  * SVN Revision 916 - olivier, on Tue, 24 Oct 2006 11:13:50 +0200
+    Added a magnifier icon before "filters" link in backend.
+
+  * SVN Revision 917 - olivier, on Tue, 24 Oct 2006 11:17:08 +0200
+    Filters display
+
+  * SVN Revision 918 - olivier, on Tue, 24 Oct 2006 11:29:57 +0200
+    Remove title field in link insertion popup. It was a bit confusing.
+
+  * SVN Revision 919 - olivier, on Tue, 24 Oct 2006 11:43:50 +0200
+    Added a "plus" button in image insertion popup. Translation update.
+
+  * SVN Revision 920 - olivier, on Tue, 24 Oct 2006 11:52:49 +0200
+    Fixed a bug with standalone mode in admin/blog_pref
+
+  * SVN Revision 921 - olivier, on Tue, 24 Oct 2006 14:04:47 +0200
+    Handle blog_status in blog configuration (for superadmin only).
+
+  * SVN Revision 922 - xave, on Tue, 24 Oct 2006 14:31:11 +0200
+    new "blog status" help paragraph
+
+  * SVN Revision 923 - xave, on Tue, 24 Oct 2006 14:42:29 +0200
+    Free: one oops with every commit !
+
+  * SVN Revision 924 - olivier, on Wed, 25 Oct 2006 11:04:04 +0200
+    Fixed performance issues in import/export.
+
+  * SVN Revision 925 - olivier, on Wed, 25 Oct 2006 11:36:47 +0200
+    Minor XML/RPC improvement
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:33:57 +0100
+
+dotclear (1.99+2.0-beta2-4) unstable; urgency=low ; svnrev=905
+
+  * SVN Revision 902 - olivier, on Thu, 12 Oct 2006 10:49:55 +0200
+    Added enable_xmlrpc setting in class.dc.xmlrpc.
+
+  * SVN Revision 903 - olivier, on Thu, 12 Oct 2006 14:02:11 +0200
+    Created a tab for users list in admin/blog_pref
+
+  * SVN Revision 904 - olivier, on Thu, 12 Oct 2006 14:03:43 +0200
+    Translation update
+
+  * SVN Revision 905 - olivier, on Thu, 12 Oct 2006 17:24:08 +0200
+    Blog admin should not see super admin in blog users list.
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:33:27 +0100
+
+dotclear (1.99+2.0-beta2-3) unstable; urgency=low ; svnrev=901
+
+  * SVN Revision 869 - pep, on Sat, 09 Sep 2006 17:26:46 +0200
+    Added core::hasBehavior and core::getBehaviors methods
+
+  * SVN Revision 870 - pep, on Sun, 10 Sep 2006 18:34:22 +0200
+    Changed regexps to detect the input format. Added support for OPML of type 'link'.
+
+  * SVN Revision 871 - mik, on Thu, 21 Sep 2006 16:01:35 +0200
+     * Make a standalone clearbricks package as I need it for something else.
+     * Dotclear2 may, in the futur, be dependante on this package and do not anymore install it on inc/
+     * Hollidays are for weak men.
+
+  * SVN Revision 872 - pep, on Sun, 24 Sep 2006 19:58:21 +0200
+    Fix a bug in sessions handling (Many thanks to Pierre-Emmanuel Chauvaud who found the bug).
+    NB : Though it works well, this fix may be changed later.
+
+  * SVN Revision 873 - pep, on Sun, 24 Sep 2006 20:17:55 +0200
+    Damn it ! (c) Jack B. and Olivier M.
+
+  * SVN Revision 874 - olivier, on Mon, 02 Oct 2006 11:47:12 +0200
+    Force session hash session function to sha1.
+
+  * SVN Revision 875 - olivier, on Mon, 02 Oct 2006 11:59:02 +0200
+    text::tidyURL should avoid traversing paths.
+
+  * SVN Revision 876 - olivier, on Tue, 03 Oct 2006 13:44:57 +0200
+    Moved prelude from templates to _top sub-template.
+
+  * SVN Revision 877 - olivier, on Tue, 03 Oct 2006 17:53:13 +0200
+    "binary" attribute does not work with mysql 4.1. As it has been removed in 4.1+ we decide now to not support MySQL < 4.1.
+
+  * SVN Revision 878 - olivier, on Wed, 04 Oct 2006 09:43:31 +0200
+    Grumbl
+
+  * SVN Revision 879 - olivier, on Wed, 04 Oct 2006 11:14:38 +0200
+    Translation update
+
+  * SVN Revision 880 - olivier, on Wed, 04 Oct 2006 11:27:18 +0200
+    Added sort options in tags widget. User can now sort tags by name or by entries count and choose sort direction.
+
+  * SVN Revision 881 - olivier, on Wed, 04 Oct 2006 11:58:42 +0200
+    Grumbl
+
+  * SVN Revision 882 - olivier, on Wed, 04 Oct 2006 17:16:54 +0200
+    Moved core dcSession class to sessionDB clearbricks class.
+
+  * SVN Revision 883 - olivier, on Wed, 04 Oct 2006 18:09:55 +0200
+    Added text::removeBOM function
+
+  * SVN Revision 884 - olivier, on Thu, 05 Oct 2006 14:57:39 +0200
+    Added dcAuth::sudo()
+
+  * SVN Revision 885 - olivier, on Thu, 05 Oct 2006 17:48:37 +0200
+    Random sleep when password authentication fails.
+
+  * SVN Revision 886 - olivier, on Fri, 06 Oct 2006 11:43:12 +0200
+    Changed returned value by core::getUserPermissions.
+
+  * SVN Revision 887 - olivier, on Fri, 06 Oct 2006 12:39:44 +0200
+    Added core::getBlogPermissions. Enhanced permissions display. Display users permissions on blog configuration page.
+
+  * SVN Revision 888 - olivier, on Fri, 06 Oct 2006 14:50:00 +0200
+    You can now call core::getBlogPermissions without super_admin users in result.
+
+  * SVN Revision 891 - olivier, on Fri, 06 Oct 2006 18:23:41 +0200
+    You can set DC_AUTH_CLASS in config to a class which inherits dcAuth.
+    Thus you'll be able to perform authentication on LDAP directory,
+    another database, plain text files, etc.
+    Removed DC_SINGLE_SIGNON constant and replaced its only feature by
+    core->auth->allowPassChange() method. You should use it if you
+    don't want your users to change their passwords.
+
+  * SVN Revision 892 - olivier, on Mon, 09 Oct 2006 10:57:11 +0200
+    Added pre and code CSS rules for admin.
+
+  * SVN Revision 893 - olivier, on Mon, 09 Oct 2006 11:47:20 +0200
+    Added wiki help (french)
+
+  * SVN Revision 894 - olivier, on Mon, 09 Oct 2006 11:48:23 +0200
+    Wiki syntax help (english). Need to be translated.
+
+  * SVN Revision 895 - xave, on Mon, 09 Oct 2006 15:14:22 +0200
+    Wiki doc translation
+
+  * SVN Revision 896 - olivier, on Tue, 10 Oct 2006 15:31:58 +0200
+    Enhanced blog filters in admin. Added blog_url in blog search.
+
+  * SVN Revision 897 - olivier, on Tue, 10 Oct 2006 16:09:19 +0200
+    Rewrote class.xmlsql. Changed db creation and upgrade files.
+    Added indexes for PostgreSQL and renamed MySQL ones.
+
+  * SVN Revision 898 - olivier, on Wed, 11 Oct 2006 11:29:27 +0200
+    Added a message on dashboard when DC_ADMIN_URL is not defined.
+
+  * SVN Revision 899 - olivier, on Wed, 11 Oct 2006 15:28:39 +0200
+    Moved XML/RPC interface to admin/xmlrpc.php and removed XML/RPC multiblog feature.
+    Blog ID has to be set within XML/RPC URL as b= parameter.
+    User can disable XML/RPC on a blog if needed. Blog parameters page shows XML/RPC
+    parameters.
+
+  * SVN Revision 900 - olivier, on Wed, 11 Oct 2006 15:48:00 +0200
+    Translation update. 2.0-beta-2.4 freeze.
+
+  * SVN Revision 901 - olivier, on Wed, 11 Oct 2006 16:10:07 +0200
+    Added mt.supportedTextFilters and fix category update in XML/RPC.
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:33:01 +0100
+
+dotclear (1.99+2.0-beta2-2) unstable; urgency=low ; svnrev=868
+
+  * SVN Revision 868 - olivier, on Thu, 07 Sep 2006 17:36:59 +0200
+    Improved RSS XSLT style sheet, can now handle HTML content.
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:32:43 +0100
+
+dotclear (1.99+2.0-beta2-1) unstable; urgency=low ; svnrev=867
+
+  * SVN Revision 796 - pep, on Mon, 07 Aug 2006 11:55:28 +0200
+    Added files::installPackage method.
+
+  * SVN Revision 797 - olivier, on Mon, 07 Aug 2006 12:13:12 +0200
+    Removed files::copyRemote method
+
+  * SVN Revision 798 - olivier, on Mon, 07 Aug 2006 14:40:56 +0200
+    Licence and fixes in toolbar (Nicolas)
+
+  * SVN Revision 801 - olivier, on Mon, 07 Aug 2006 16:19:05 +0200
+    Added system checks (php version, db system...) before installation.
+
+  * SVN Revision 803 - olivier, on Tue, 08 Aug 2006 10:42:18 +0200
+    Main FR translation update.
+
+  * SVN Revision 804 - olivier, on Tue, 08 Aug 2006 11:15:52 +0200
+    Updated plugins translations (FR)
+
+  * SVN Revision 806 - olivier, on Tue, 08 Aug 2006 11:31:45 +0200
+    Changed information in .po files.
+
+  * SVN Revision 812 - olivier, on Tue, 08 Aug 2006 11:55:38 +0200
+    Fix in locales/fr/main.po
+
+  * SVN Revision 813 - olivier, on Tue, 08 Aug 2006 13:53:18 +0200
+    Added customCSS theme
+
+  * SVN Revision 814 - olivier, on Tue, 08 Aug 2006 15:17:02 +0200
+    Added CHANGELOG file, fix InnoDB check in installer, added "deny from all" .htaccess on db/ and plugins/
+
+  * SVN Revision 815 - olivier, on Tue, 08 Aug 2006 16:15:52 +0200
+    Typo in CHANGELOG
+
+  * SVN Revision 816 - olivier, on Tue, 08 Aug 2006 23:39:36 +0200
+    _shutdown is now __shutdown and closes session only if session exists.
+
+  * SVN Revision 818 - pep, on Wed, 09 Aug 2006 04:35:02 +0200
+    Tiny fix in files::installPackage
+
+  * SVN Revision 819 - pep, on Wed, 09 Aug 2006 05:49:22 +0200
+    Added plugins management facility (initial commit)
+
+  * SVN Revision 820 - pep, on Wed, 09 Aug 2006 06:00:53 +0200
+    Damn it ! (c) Vivi
+
+  * SVN Revision 821 - olivier, on Wed, 09 Aug 2006 14:37:43 +0200
+    Plugins manager improvements.
+     * Moved from dashboard to system menu
+     * Only available for super admins
+     * Remove plugins only by POST requests
+     * Don't display icons (icon size may vary)
+
+  * SVN Revision 822 - olivier, on Wed, 09 Aug 2006 14:52:07 +0200
+    CHANGELOG update
+
+  * SVN Revision 823 - pep, on Wed, 09 Aug 2006 15:55:26 +0200
+    Did a bit of cleaning
+
+  * SVN Revision 824 - olivier, on Thu, 10 Aug 2006 17:52:18 +0200
+    Added text::detectEncoding and text::toUTF8.
+
+  * SVN Revision 826 - olivier, on Sat, 12 Aug 2006 20:31:13 +0200
+    In text::detectEncoding(), added a space in string to avoid test failure.
+
+  * SVN Revision 829 - olivier, on Tue, 15 Aug 2006 01:16:38 +0200
+    We don't need to pass $core to urlHandler constructor.
+
+  * SVN Revision 830 - olivier, on Tue, 15 Aug 2006 01:17:45 +0200
+    Added text::utf8badFind and text::cleanUTF8. Taken from http://phputf8.sourceforge.net
+
+  * SVN Revision 831 - olivier, on Wed, 16 Aug 2006 14:15:33 +0200
+    Tags definition can be overloaded wuth custom_tags property in wiki2xhtml.
+
+  * SVN Revision 832 - olivier, on Wed, 16 Aug 2006 15:01:17 +0200
+    Added auto line break in wiki2xhtml (in paragraphs only, disabled by default)
+
+  * SVN Revision 833 - olivier, on Wed, 16 Aug 2006 15:17:05 +0200
+    Changed medium image size (460px). Closes #129.
+
+  * SVN Revision 834 - olivier, on Wed, 16 Aug 2006 15:31:35 +0200
+    Disallow special wrappers for fopen like functions
+
+  * SVN Revision 835 - olivier, on Wed, 16 Aug 2006 18:07:31 +0200
+    448
+
+  * SVN Revision 836 - mik, on Thu, 17 Aug 2006 16:43:25 +0200
+     make build
+
+  * SVN Revision 837 - olivier, on Sat, 19 Aug 2006 02:18:23 +0200
+    http::redirect() should support complete URLs
+
+  * SVN Revision 838 - olivier, on Sat, 19 Aug 2006 02:21:11 +0200
+    Added base_url property in class.pager, thus we can customize url pattern.
+
+  * SVN Revision 839 - olivier, on Sun, 20 Aug 2006 02:59:11 +0200
+    Added auto line break in comments and wiki comments.
+
+  * SVN Revision 840 - olivier, on Sun, 20 Aug 2006 03:03:38 +0200
+    Fixed a bug with entries count query in dcBlog::getPosts().
+
+  * SVN Revision 842 - olivier, on Mon, 21 Aug 2006 18:03:33 +0200
+    Fixed two bugs in clearbricks.
+
+  * SVN Revision 843 - olivier, on Tue, 22 Aug 2006 15:57:15 +0200
+    Fixed a bug with media manager and blog switching.
+
+  * SVN Revision 844 - pep, on Tue, 22 Aug 2006 18:34:19 +0200
+    metaWeblog.newMediaObject should return a struct.
+
+  * SVN Revision 845 - pep, on Wed, 23 Aug 2006 17:18:19 +0200
+    Changed files::getDirList. Now, can be called more than once without side effects.
+
+  * SVN Revision 846 - pep, on Wed, 23 Aug 2006 20:50:34 +0200
+    Small changes in plugins.php
+
+  * SVN Revision 847 - pep, on Thu, 24 Aug 2006 14:17:27 +0200
+    Updated lang file
+
+  * SVN Revision 851 - olivier, on Mon, 28 Aug 2006 15:22:18 +0200
+    Changed text::isEmail() code.
+
+  * SVN Revision 852 - olivier, on Mon, 28 Aug 2006 19:01:58 +0200
+    Added text::QPEncode() and mail::QPHeader()
+
+  * SVN Revision 853 - olivier, on Mon, 28 Aug 2006 19:29:47 +0200
+    Don't encode ASCII strings in mail::QPHeader()
+
+  * SVN Revision 856 - olivier, on Tue, 29 Aug 2006 11:28:19 +0200
+    Added mail::B64Header() function. You should use it instead of QPHeader for "From", "Subject", etc.
+
+  * SVN Revision 857 - olivier, on Thu, 31 Aug 2006 18:10:41 +0200
+    Removed content:encoded in RSS2 feeds
+
+  * SVN Revision 860 - olivier, on Sun, 03 Sep 2006 15:47:50 +0200
+    Added operator attribute in AttachmentIf, EntryIf and SysIf template tags.
+
+  * SVN Revision 861 - olivier, on Sun, 03 Sep 2006 15:49:05 +0200
+    Removed comments feed references when comments and trackbacks are disabled.
+
+  * SVN Revision 862 - olivier, on Sun, 03 Sep 2006 18:15:40 +0200
+    Can now read iptc and exif with pictures. Thanks to Mathieu Lecarme for patches.
+
+  * SVN Revision 863 - olivier, on Mon, 04 Sep 2006 11:41:07 +0200
+    Added an option to disable HTML filter.
+
+  * SVN Revision 865 - olivier, on Thu, 07 Sep 2006 11:40:28 +0200
+    Load locales inside plugin activator.
+
+  * SVN Revision 866 - olivier, on Thu, 07 Sep 2006 11:52:13 +0200
+    Fixes in template::setPath. Called more than once, path wasn't reset.
+
+  * SVN Revision 867 - olivier, on Thu, 07 Sep 2006 11:53:08 +0200
+    Added publicBeforeDocument and publicAfterDocument behaviors
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:31:38 +0100
+
+dotclear (1.99+2.0-beta1-11) unstable; urgency=low ; svnrev=795
+
+  * SVN Revision 722 - olivier, on Wed, 12 Jul 2006 22:00:33 +0200
+    New settings code design.
+     * DB upgrade (removed primary key on setting table, added a unique key on blog_id and setting_id)
+     * Blog_id on setting can be null, then setting is applied to all blogs on which it does not exist.
+     * about:config plugin now handles blog settings and global settings.
+     * If a blog setting become the same than a global setting (same value, id, type, ns, label), it's droped.
+
+  * SVN Revision 723 - olivier, on Thu, 13 Jul 2006 15:00:02 +0200
+    Fixed a bug in tag plugin.
+
+  * SVN Revision 724 - biou, on Mon, 17 Jul 2006 10:05:17 +0200
+    initial commit of spample 2 (bayesian filtering)
+
+  * SVN Revision 726 - olivier, on Mon, 17 Jul 2006 12:53:21 +0200
+    Updated dbschema init (to reflect changes in [722])
+
+  * SVN Revision 727 - biou, on Mon, 17 Jul 2006 21:40:34 +0200
+    spamplemousse2 moved to the right place
+
+  * SVN Revision 731 - olivier, on Tue, 18 Jul 2006 15:06:12 +0200
+    Added class autloader in clearbricks. It can be use everywhere, just add
+    $__autoload['className'] = 'file_path'; to make a class auto loading.
+
+  * SVN Revision 732 - olivier, on Tue, 18 Jul 2006 16:20:16 +0200
+    Moved dcURL (core/class.dc.url.php) to ClearBricks urlHandler (class.url.handler.php)
+
+  * SVN Revision 733 - olivier, on Tue, 18 Jul 2006 17:44:53 +0200
+    Added dt::setTZ().
+
+  * SVN Revision 735 - olivier, on Tue, 18 Jul 2006 23:53:56 +0200
+    Fixed a minor security hole with permissions in posts bulk actions.
+
+  * SVN Revision 736 - olivier, on Wed, 19 Jul 2006 00:03:18 +0200
+    Added fake Expires HTTP header in admin prepend file.
+
+  * SVN Revision 737 - olivier, on Wed, 19 Jul 2006 00:54:34 +0200
+    Code cleanup. Removed unneeded try/catch blocks.
+
+  * SVN Revision 739 - olivier, on Wed, 19 Jul 2006 00:57:20 +0200
+    Removed unneeded try/catch blocks in metadata plugin.
+
+  * SVN Revision 740 - olivier, on Wed, 19 Jul 2006 01:00:10 +0200
+    Removed unneeded try/catch blocks in dcSession.
+
+  * SVN Revision 741 - olivier, on Wed, 19 Jul 2006 11:47:06 +0200
+    Set url_scan from blog_url when create or update a blog.
+
+  * SVN Revision 742 - olivier, on Wed, 19 Jul 2006 15:52:42 +0200
+    Added class.dc.meta autoload in metadata plugin.
+
+  * SVN Revision 743 - olivier, on Wed, 19 Jul 2006 16:56:22 +0200
+    Added creator support in feed.parser
+
+  * SVN Revision 744 - olivier, on Wed, 19 Jul 2006 18:02:22 +0200
+    Fixed a bug in feed parser.
+
+  * SVN Revision 745 - olivier, on Wed, 19 Jul 2006 18:03:05 +0200
+    Added getMetaRecord() static method in dcMeta.
+
+  * SVN Revision 747 - olivier, on Wed, 19 Jul 2006 23:23:37 +0200
+    Changed tpl:EntryAuthorDisplayName by tpl:EntryAuthorCommonName in RSS and Atom feeds.
+
+  * SVN Revision 748 - olivier, on Wed, 19 Jul 2006 23:53:10 +0200
+    Added urlHandler::unregister() method.
+
+  * SVN Revision 754 - pep, on Thu, 20 Jul 2006 03:17:32 +0200
+    Fixed a bug in feedReader
+
+  * SVN Revision 757 - olivier, on Thu, 20 Jul 2006 12:43:16 +0200
+    Fixed a bug in import class and wide settings.
+
+  * SVN Revision 759 - olivier, on Thu, 20 Jul 2006 16:24:46 +0200
+    Changed devlog URL
+
+  * SVN Revision 760 - olivier, on Tue, 25 Jul 2006 17:14:52 +0200
+    Typo fix in spamplemousse. Closes #125.
+
+  * SVN Revision 761 - olivier, on Thu, 27 Jul 2006 21:52:30 +0200
+    Allow themes to be configured with _config.php theme file.
+
+  * SVN Revision 762 - olivier, on Fri, 28 Jul 2006 04:22:58 +0200
+    Fixed timezone set in lib.date
+
+  * SVN Revision 763 - olivier, on Fri, 28 Jul 2006 04:25:22 +0200
+    Media manager enhancements:
+     * Don't change media_title, media_private and media_dt on rebuild
+     * Added image.meta lib in clearbricks
+     * Added jpeg XMP meta values support in media manager
+
+  * SVN Revision 764 - olivier, on Fri, 28 Jul 2006 15:27:49 +0200
+    Fixed a bug with meta wiki url.
+
+  * SVN Revision 765 - olivier, on Fri, 28 Jul 2006 17:24:58 +0200
+    Added entities in html::decodeEntities
+
+  * SVN Revision 766 - olivier, on Fri, 28 Jul 2006 17:25:36 +0200
+    Decodes entities in imageMeta::parseXMP
+
+  * SVN Revision 767 - olivier, on Sat, 29 Jul 2006 16:12:14 +0200
+    Added "center" support in image chooser.
+
+  * SVN Revision 768 - olivier, on Sat, 29 Jul 2006 16:21:55 +0200
+    Allow text widget to be on home page only. Closes #124.
+
+  * SVN Revision 769 - olivier, on Sat, 29 Jul 2006 16:54:59 +0200
+    Media manager improvements
+     * Fix on meta display
+     * Current path in media manager is stored in session
+
+  * SVN Revision 770 - olivier, on Sat, 29 Jul 2006 17:16:41 +0200
+    Fixes in dc.core documentation
+
+  * SVN Revision 771 - olivier, on Mon, 31 Jul 2006 00:49:55 +0200
+    Escape attributes value in htmlFilter. Closes #127.
+
+  * SVN Revision 773 - olivier, on Mon, 31 Jul 2006 12:57:30 +0200
+    Forgot to remove a test value in admin/media.php
+
+  * SVN Revision 774 - olivier, on Mon, 31 Jul 2006 14:24:12 +0200
+    Well, dnsbl weren't used at all, and it was buggy :) Closes #126.
+
+  * SVN Revision 777 - olivier, on Mon, 31 Jul 2006 17:46:08 +0200
+    Explicitly close session before database connection
+
+  * SVN Revision 778 - olivier, on Tue, 01 Aug 2006 14:16:06 +0200
+    Added a miniTidy process in htmlFilter if htmlTidy module is not present.
+
+  * SVN Revision 779 - olivier, on Tue, 01 Aug 2006 14:32:44 +0200
+    Media manager improvement. Closes #38.
+     * If a file is in database and not in file system : remove it
+     * If a file is in filesystem and not in database : create it
+
+  * SVN Revision 780 - olivier, on Tue, 01 Aug 2006 17:09:24 +0200
+    Toolbar improvements (nicolas).
+
+  * SVN Revision 781 - olivier, on Tue, 01 Aug 2006 17:48:59 +0200
+    Toolbar improvements (nicolas)
+
+  * SVN Revision 782 - olivier, on Tue, 01 Aug 2006 22:41:32 +0200
+    Automatic upgrade should not delete files if directory is empty (and root)
+
+  * SVN Revision 783 - olivier, on Wed, 02 Aug 2006 14:11:21 +0200
+    Added an optional append callback in widgets. If present, function is called when widget is append to a group.
+
+  * SVN Revision 784 - mik, on Wed, 02 Aug 2006 17:45:54 +0200
+     * Tab instead of space works better
+
+  * SVN Revision 786 - olivier, on Thu, 03 Aug 2006 16:34:22 +0200
+    Last entries and last comments widgets.
+
+  * SVN Revision 787 - olivier, on Thu, 03 Aug 2006 16:52:56 +0200
+    Added template::getPath. template::setPath now accepts array.
+
+  * SVN Revision 788 - olivier, on Thu, 03 Aug 2006 19:00:59 +0200
+    Adding a type in dcMedia, broke auto update feature.
+
+  * SVN Revision 793 - olivier, on Fri, 04 Aug 2006 16:56:19 +0200
+    Added RSD support.
+
+  * SVN Revision 795 - olivier, on Mon, 07 Aug 2006 11:07:04 +0200
+    Fixed bugs in admin/media.php and path remind feature.
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:31:24 +0100
+
+dotclear (1.99+2.0-beta1-10) unstable; urgency=low ; svnrev=721
+
+  * SVN Revision 680 - olivier, on Fri, 30 Jun 2006 16:20:53 +0200
+    Can now handle more than one path in DC_PLUGINS_ROOT.
+
+  * SVN Revision 681 - olivier, on Fri, 30 Jun 2006 18:00:06 +0200
+    Added "moderate comments and trackbacks" option in blog_pref
+
+  * SVN Revision 682 - olivier, on Mon, 03 Jul 2006 11:25:48 +0200
+    Absolute URLs on entries and comments expander.
+
+  * SVN Revision 683 - olivier, on Mon, 03 Jul 2006 12:53:08 +0200
+    Escaped author name in RSS and Atom feeds.
+
+  * SVN Revision 684 - olivier, on Mon, 03 Jul 2006 14:51:56 +0200
+    Changed "basename" translation
+
+  * SVN Revision 685 - pep, on Tue, 04 Jul 2006 01:57:54 +0200
+    Added a basic OPML/XBEL import facility in blogroll
+
+  * SVN Revision 686 - olivier, on Tue, 04 Jul 2006 14:20:35 +0200
+    Added maintenance plugin to makefile.
+
+  * SVN Revision 687 - olivier, on Tue, 04 Jul 2006 14:41:33 +0200
+    Fixed bugs with DC1.2 import.
+
+  * SVN Revision 688 - olivier, on Tue, 04 Jul 2006 14:58:33 +0200
+    Fix in blogroll OPML/XBEL import
+
+  * SVN Revision 689 - olivier, on Tue, 04 Jul 2006 15:14:42 +0200
+    Added charset settings for MySQL 4.1+
+
+  * SVN Revision 690 - olivier, on Tue, 04 Jul 2006 15:40:15 +0200
+    Detect if gd2 exists in class.image.tools.php. Closed #119.
+
+  * SVN Revision 691 - olivier, on Tue, 04 Jul 2006 16:47:59 +0200
+    Rename dblayer::escapeStr to dblayer::escape
+
+  * SVN Revision 693 - pep, on Tue, 04 Jul 2006 16:54:25 +0200
+    Fixed a bug when alternates links are of type application/xhtml+xml in Atom feeds
+
+  * SVN Revision 694 - olivier, on Tue, 04 Jul 2006 17:45:01 +0200
+    Fixed a minor security issue in html::absoluteURLs(). Removed /e in preg_replace. Thanks to loufoque for report.
+
+  * SVN Revision 695 - olivier, on Tue, 04 Jul 2006 18:14:51 +0200
+    Added dbLayer::integer method.
+
+  * SVN Revision 696 - olivier, on Tue, 04 Jul 2006 18:33:18 +0200
+    Minor fixes on html::absoluteURLs
+
+  * SVN Revision 697 - olivier, on Tue, 04 Jul 2006 23:32:33 +0200
+    Added files::tidyFileName.
+
+  * SVN Revision 698 - olivier, on Wed, 05 Jul 2006 03:40:48 +0200
+    Files name in media manager on upload or rename are made clean. closes #116.
+
+  * SVN Revision 699 - olivier, on Wed, 05 Jul 2006 05:12:39 +0200
+    Remove integer method from dbLayer.
+    Added "in" method to create IN query fragment from string, integer or array.
+    Added cat_id_not and cat_url_not params (bool) in dcBlog::getPosts. When
+    getting posts by cat_id or cat_url, specify cat_id/url_not will invert
+    result.
+
+  * SVN Revision 700 - olivier, on Wed, 05 Jul 2006 11:37:05 +0200
+    Allow iframe in HTMLFilter
+
+  * SVN Revision 701 - olivier, on Wed, 05 Jul 2006 13:03:05 +0200
+    Fixed scheduled entries issue with timezones. Closes #120.
+
+  * SVN Revision 702 - olivier, on Wed, 05 Jul 2006 16:14:44 +0200
+    Forgot 'NOT' with cat_url_not param in dcBlog::getPosts
+
+  * SVN Revision 703 - olivier, on Wed, 05 Jul 2006 16:26:13 +0200
+    Allow multiple categories selection in tpl:Entries.
+    You can do such things:
+     * tpl:Entries category="cat1_url,cat2_url" to select entries in cat1 or cat2
+     * tpl:Entries category='!cat1_url,cat2_url" to select entries not in cat1 neither cat2
+
+  * SVN Revision 704 - olivier, on Wed, 05 Jul 2006 17:13:04 +0200
+    Minor fixes in template::getFile
+
+  * SVN Revision 705 - olivier, on Thu, 06 Jul 2006 01:54:36 +0200
+    Added templateBeforeBlock and templateBeforeValue behaviors. Closes #13.
+
+  * SVN Revision 706 - olivier, on Thu, 06 Jul 2006 12:26:15 +0200
+    New dblayer connection process. You have to use dbLayer::init() with driver to create a new connection object.
+
+  * SVN Revision 707 - olivier, on Thu, 06 Jul 2006 12:30:06 +0200
+    Forgot a comment in dcCore
+
+  * SVN Revision 708 - olivier, on Thu, 06 Jul 2006 16:05:11 +0200
+    Fixed a bug in dbLayer::changes with MySQL. Closes #121.
+
+  * SVN Revision 709 - olivier, on Thu, 06 Jul 2006 17:13:01 +0200
+    Added coreBeforeCommentUpdate and coreAfterCommentUpdate behaviors
+
+  * SVN Revision 710 - olivier, on Tue, 11 Jul 2006 11:49:10 +0200
+    Changed category feed URL
+
+  * SVN Revision 711 - olivier, on Tue, 11 Jul 2006 12:31:39 +0200
+    Added custom "from" param in dcBlog::getComments()
+
+  * SVN Revision 712 - olivier, on Tue, 11 Jul 2006 14:55:48 +0200
+    Added tpl:SysFeedSubtitle template tag. Value can be overloaded with _ctx->feed_subtitle.
+
+  * SVN Revision 713 - olivier, on Tue, 11 Jul 2006 15:16:50 +0200
+    Added feeds (entries and comments) for tags. Refs #45.
+
+  * SVN Revision 714 - olivier, on Tue, 11 Jul 2006 18:22:54 +0200
+    Moved submitPostsForm() from _posts.js to _posts_list.js
+
+  * SVN Revision 715 - olivier, on Tue, 11 Jul 2006 18:32:41 +0200
+     * Added adminPostsActionsCombo, adminPostsActions and adminPostsActionsContent behaviors
+     * Enable POST['redir'] param in posts_actions to overload original redirection
+
+  * SVN Revision 716 - olivier, on Tue, 11 Jul 2006 18:35:32 +0200
+     * Added action on entries list to add new tags to entries
+     * Added actions in tag's entries list (publish, delete...)
+    Closes #45.
+
+  * SVN Revision 717 - olivier, on Tue, 11 Jul 2006 18:41:00 +0200
+    Replaced tpl:MetaEntries by Entries in tag.html template.
+
+  * SVN Revision 718 - olivier, on Tue, 11 Jul 2006 23:39:39 +0200
+    Changed default news feed.
+
+  * SVN Revision 719 - olivier, on Wed, 12 Jul 2006 12:12:39 +0200
+    Minor fixes in comments_actions and posts_actions SQL.
+
+  * SVN Revision 720 - olivier, on Wed, 12 Jul 2006 12:16:21 +0200
+    Added media items count in posts select.
+
+  * SVN Revision 721 - olivier, on Wed, 12 Jul 2006 15:24:10 +0200
+    Attachments information enhancements:
+     * Added attachments information in admin posts list
+     * Added attachments count in default template. Closes #71.
+    Other enhancements:
+     * Added password protection icon in admin posts list
+     * Added comment_count, ping_count and attach_count classes in default theme
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:30:33 +0100
+
+dotclear (1.99+2.0-beta1-9) unstable; urgency=low ; svnrev=679
+
+  * SVN Revision 678 - olivier, on Fri, 30 Jun 2006 00:14:38 +0200
+    Fixed a bug with new post and empty date field.
+
+  * SVN Revision 679 - pep, on Fri, 30 Jun 2006 03:50:48 +0200
+    Fixed an issue with dates when parsing Atom 0.3 feeds. (Closed #114)
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:30:18 +0100
+
+dotclear (1.99+2.0-beta1-8) unstable; urgency=low ; svnrev=677
+
+  * SVN Revision 669 - olivier, on Tue, 27 Jun 2006 17:58:28 +0200
+    User must provide a valid email address to use bug report plugin
+
+  * SVN Revision 670 - olivier, on Tue, 27 Jun 2006 18:15:24 +0200
+    Fixed an issue with metadata update.
+
+  * SVN Revision 671 - olivier, on Tue, 27 Jun 2006 19:06:36 +0200
+    It's 2.0-beta1  \o\ \o/ /o/
+
+  * SVN Revision 672 - xave, on Tue, 27 Jun 2006 19:12:14 +0200
+    first draft of the English contextual help.
+
+  * SVN Revision 673 - xave, on Tue, 27 Jun 2006 19:18:48 +0200
+    svn is tricky to learn. :)
+
+  * SVN Revision 674 - olivier, on Wed, 28 Jun 2006 11:57:13 +0200
+    Added content-type and charset header in install/index.php
+
+  * SVN Revision 675 - olivier, on Wed, 28 Jun 2006 13:35:40 +0200
+    Typo in fr online help
+
+  * SVN Revision 676 - olivier, on Wed, 28 Jun 2006 13:41:11 +0200
+    Fixed a bug with Opera and post_dt field.
+
+  * SVN Revision 677 - mik, on Thu, 29 Jun 2006 16:45:56 +0200
+     * Deleting the .svn folder *after* having copied the plugins directory is better.
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:29:48 +0100
+
+dotclear (1.99+2.0-beta1-7) unstable; urgency=low ; svnrev=668
+
+  * SVN Revision 659 - olivier, on Fri, 23 Jun 2006 14:55:32 +0200
+    Translation update
+
+  * SVN Revision 660 - xave, on Fri, 23 Jun 2006 15:27:04 +0200
+    first file for the English contextual help
+
+  * SVN Revision 661 - olivier, on Fri, 23 Jun 2006 18:13:50 +0200
+    Revert FR doc
+
+  * SVN Revision 662 - olivier, on Mon, 26 Jun 2006 10:15:19 +0200
+    If a trackback comes without a post title, use the blog name instead.
+
+  * SVN Revision 663 - olivier, on Tue, 27 Jun 2006 14:52:18 +0200
+    Added class socketMail to mail tools.
+
+  * SVN Revision 664 - olivier, on Tue, 27 Jun 2006 15:24:12 +0200
+    Changed string headers to array when sending a mail.
+
+  * SVN Revision 665 - olivier, on Tue, 27 Jun 2006 17:45:26 +0200
+    New bug report plugin
+
+  * SVN Revision 666 - olivier, on Tue, 27 Jun 2006 17:46:59 +0200
+    Fixed some issues with comments information
+
+  * SVN Revision 667 - mik, on Tue, 27 Jun 2006 17:49:45 +0200
+     * dotclear-blogreport plugin
+
+  * SVN Revision 668 - mik, on Tue, 27 Jun 2006 17:50:17 +0200
+      * dotclear-blogreport plugins
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:24:45 +0100
+
+dotclear (1.99+2.0-beta1-6) unstable; urgency=low ; svnrev=658
+
+  * SVN Revision 658 - olivier, on Fri, 23 Jun 2006 12:35:20 +0200
+    Changed theme screenshot loading method.
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:24:01 +0100
+
+dotclear (1.99+2.0-beta1-5) unstable; urgency=low ; svnrev=657
+
+  * SVN Revision 657 - olivier, on Fri, 23 Jun 2006 12:01:29 +0200
+    Fixed a bug with URL check.
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:23:57 +0100
+
+dotclear (1.99+2.0-beta1-4) unstable; urgency=low ; svnrev=656
+
+  * SVN Revision 656 - olivier, on Fri, 23 Jun 2006 10:09:24 +0200
+    Added publicPrepend behavior
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:23:11 +0100
+
+dotclear (1.99+2.0-beta1-3) unstable; urgency=low ; svnrev=654
+
+  * SVN Revision 653 - olivier, on Thu, 22 Jun 2006 18:48:55 +0200
+    We can now push user and blog to auth process.
+
+  * SVN Revision 654 - olivier, on Thu, 22 Jun 2006 18:55:34 +0200
+    Typo fixes in blog pref.
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:22:52 +0100
+
+dotclear (1.99+2.0-beta1-2) unstable; urgency=low ; svnrev=652
+
+  * SVN Revision 648 - olivier, on Wed, 21 Jun 2006 20:43:00 +0200
+    New default theme
+
+  * SVN Revision 650 - olivier, on Thu, 22 Jun 2006 12:12:03 +0200
+    Enable wysiwyg for user by default.
+
+  * SVN Revision 651 - olivier, on Thu, 22 Jun 2006 12:26:49 +0200
+    tpl:Entries should look at _ctx->users
+
+  * SVN Revision 652 - olivier, on Thu, 22 Jun 2006 14:56:05 +0200
+    Removed double link check in spamplemousse
+
+ -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:22:20 +0100
+
+dotclear (1.99+2.0-beta1-1) unstable; urgency=low ; svnrev=644
+  
+
+  Initial upstream release
+
+ -- Mikael Poussard <mik@gandi.net>  Web, 21 Jun 2006 14:34:01 +0200
+

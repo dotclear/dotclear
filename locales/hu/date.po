@@ -1,0 +1,133 @@
+# Dotclear language pack (Hungarian).
+# Benjamin Bank <benjaminbank@gmail.com>, 2008.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-RC2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2008-06-27 9:48+0200\n"
+"Last-Translator: Benjamin Bank <benjaminbank@gmail.com>\n"
+"Language-Team: Hungarian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y. %m %d., %H:%M"
+
+msgid "_Jan"
+msgstr "_jan"
+
+msgid "_Feb"
+msgstr "_febr"
+
+msgid "_Mar"
+msgstr "_márc"
+
+msgid "_Apr"
+msgstr "_ápr"
+
+msgid "_May"
+msgstr "_máj"
+
+msgid "_Jun"
+msgstr "_júni"
+
+msgid "_Jul"
+msgstr "_júli"
+
+msgid "_Aug"
+msgstr "_aug"
+
+msgid "_Sep"
+msgstr "_szept"
+
+msgid "_Oct"
+msgstr "_okt"
+
+msgid "_Nov"
+msgstr "_nov"
+
+msgid "_Dec"
+msgstr "_dec"
+
+msgid "January"
+msgstr "január"
+
+msgid "February"
+msgstr "február"
+
+msgid "March"
+msgstr "március"
+
+msgid "April"
+msgstr "április"
+
+msgid "May"
+msgstr "május"
+
+msgid "June"
+msgstr "június"
+
+msgid "July"
+msgstr "július"
+
+msgid "August"
+msgstr "augusztus"
+
+msgid "September"
+msgstr "szeptember"
+
+msgid "October"
+msgstr "október"
+
+msgid "November"
+msgstr "november"
+
+msgid "December"
+msgstr "december"
+
+msgid "_Mon"
+msgstr "_H"
+
+msgid "_Tue"
+msgstr "_K"
+
+msgid "_Wed"
+msgstr "_Sz"
+
+msgid "_Thu"
+msgstr "_Cs"
+
+msgid "_Fri"
+msgstr "_P"
+
+msgid "_Sat"
+msgstr "_Szo"
+
+msgid "_Sun"
+msgstr "_V"
+
+msgid "Monday"
+msgstr "hétfő"
+
+msgid "Tuesday"
+msgstr "kedd"
+
+msgid "Wednesday"
+msgstr "szerda"
+
+msgid "Thursday"
+msgstr "csütörtök"
+
+msgid "Friday"
+msgstr "péntek"
+
+msgid "Saturday"
+msgstr "szombat"
+
+msgid "Sunday"
+msgstr "vasárnap"

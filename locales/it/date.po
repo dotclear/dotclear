@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2008-12-16 18:13+0100\n"
+"Last-Translator: Charles Hebert <charles.hebert@gmail.com>\n"
+"Language-Team: fr <charles.hebert@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d-%m-%Y %H:%M"
+
+msgid "_Jan"
+msgstr "Gen."
+
+msgid "_Feb"
+msgstr "Feb."
+
+msgid "_Mar"
+msgstr "Mar."
+
+msgid "_Apr"
+msgstr "Apr."
+
+msgid "_May"
+msgstr "Mag."
+
+msgid "_Jun"
+msgstr "Giu."
+
+msgid "_Jul"
+msgstr "Lug."
+
+msgid "_Aug"
+msgstr "Ago."
+
+msgid "_Sep"
+msgstr "Set."
+
+msgid "_Oct"
+msgstr "Ott."
+
+msgid "_Nov"
+msgstr "Nov."
+
+msgid "_Dec"
+msgstr "Dic."
+
+msgid "January"
+msgstr "Gennaio"
+
+msgid "February"
+msgstr "Febbraio"
+
+msgid "March"
+msgstr "Marzo"
+
+msgid "April"
+msgstr "Aprile"
+
+msgid "May"
+msgstr "Maggio"
+
+msgid "June"
+msgstr "Giugno"
+
+msgid "July"
+msgstr "Luglio"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Settembre"
+
+msgid "October"
+msgstr "Ottobre"
+
+msgid "November"
+msgstr "Novembre"
+
+msgid "December"
+msgstr "Dicembre"
+
+msgid "_Mon"
+msgstr "Lun."
+
+msgid "_Tue"
+msgstr "Mar."
+
+msgid "_Wed"
+msgstr "Mer."
+
+msgid "_Thu"
+msgstr "Gio."
+
+msgid "_Fri"
+msgstr "Ven."
+
+msgid "_Sat"
+msgstr "Sab."
+
+msgid "_Sun"
+msgstr "Dom."
+
+msgid "Monday"
+msgstr "Lunedì"
+
+msgid "Tuesday"
+msgstr "Martedì"
+
+msgid "Wednesday"
+msgstr "Mercoledì"
+
+msgid "Thursday"
+msgstr "Giovedì"
+
+msgid "Friday"
+msgstr "Venerdì"
+
+msgid "Saturday"
+msgstr "Sabato"
+
+msgid "Sunday"
+msgstr "Domenica"

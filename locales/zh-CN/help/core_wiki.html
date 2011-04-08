@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+<head>
+  <title>Wiki 语法参考</title>
+</head>
+
+<body>
+
+<h3>Wiki 语法参考</h3>
+
+<p>wiki 语法是一个用最少的标签来提高您的文本的方法，用以满足基本的要求(标题，段落，引用，列表...)</p>
+
+<dl>
+<dt>区块元素</dt>
+<dd>
+<ul>
+  <li>在两个相似区块中间留一个空行。</li>
+  <li><strong>段落</strong>：自由文本，如果有另一个段落跟随其后，则以空行结束。</li>
+  <li><strong>标题</strong>：<code>!!! 标题</code>，<code>!! 标题</code>或者 <code>! 标题</code>，允许您使用不同级别的标题。</li>
+  <li><strong>水平线</strong>：<code>----</code></li>
+  <li><strong>列表</strong>：每一行以 <code>*</code> 或者 <code>#</code> 开始。对应无序列表和有序列表。列表层叠通过下列方式混合列表标记实现：
+<pre>
+* 项目 1
+** 项目 1.1
+* 项目 2
+*# 项目 2.1
+...
+</pre>
+  </li>
+  <li><strong>预格式化文本</strong>：每行以一个空格开始。</li>
+  <li><strong>区块引用</strong>：每一行以分号(<code>&gt;</code>)开始。</li>
+</ul>
+</dd>
+
+<dt>格式化标签</dt>
+<dd>
+<ul>
+  <li><strong>强调</strong>：两个引号 <code>''文本''</code></li>
+  <li><strong>着重强调</strong>：两个下划线 <code>__text__</code></li>
+  <li><strong>新一行</strong>：<code>%%%</code></li>
+  <li><strong>下划线</strong>：两个加号 <code>++text++</code></li>
+  <li><strong>删除线</strong>：两个减号 <code>--text--</code></li>
+  <li><strong>链接</strong>： <code>[url]</code>，<code>[名称|url]</code>，<code>[名称|url|语言]</code> 或者 <code>[名称|url|语言|标题]</code></li>
+  <li><strong>图片</strong>：
+  	<code>((url|替代文本))</code>，
+    <code>((url|替代文本|位置))</code> 或者 
+    <code>((url|替代文本|位置|长的描述))</code>。
+    <br />位置可以是 L 或 G(左边)，R 或 D(右边)或者 C(中间)。</li>
+  <li><strong>锚</strong>：<code>~anchor~</code></li>
+  <li><strong>首字母缩写</strong>：<code>??缩写|标题??</code></li>
+  <li><strong>行内 HTML</strong>：两个反引号 <code>``html 代码``</code></li>
+  <li><strong>行内引用</strong>：<code>{{引用}}</code>，<code>{{引用|语言}}</code> 或者 <code>{{引用|语言|url}}</code></li>
+  <li><strong>代码</strong>：<code>@@代码@@</code></li>
+  <li><strong>脚标</strong>：<code>$$脚标$$</code></li>
+</ul>
+</dd>
+
+<dt>未格式化文本</dt>
+<dd>如果您不想要一个格式化字符被解析，在前面添加 <code>\</code>。这样：<code>\[括号中的文本不会成为链接\]</code>
+</dd>
+
+<dt>HTML 代码</dt>
+<dd>即使您选择了 wiki syntax，您有时会需要更强大的格式华，例如 HTML 语法。按下面的方法做：
+<pre>
+///html
+&lt;p style="color:red"&gt;红色的文字&lt;/p&gt;
+///
+</pre>
+</dd>
+</dl>
+
+
+</body>
+</html>

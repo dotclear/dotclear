@@ -1,0 +1,240 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2010-01-16 19:15+0800\n"
+"Last-Translator: lainme <lainme993@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+
+msgid "To content"
+msgstr "内容"
+
+msgid "To menu"
+msgstr "菜单"
+
+msgid "To search"
+msgstr "搜索"
+
+msgid "By"
+msgstr "作者"
+
+msgid "by"
+msgstr "作者"
+
+msgid "on"
+msgstr "于"
+
+msgid "On"
+msgstr "于"
+
+msgid "Continue reading"
+msgstr "继续阅读"
+
+msgid "no comment"
+msgstr "没有评论"
+
+msgid "one comment"
+msgstr "一个评论"
+
+msgid "%d comments"
+msgstr "%d 个评论"
+
+msgid "no trackback"
+msgstr "没有 trackback"
+
+msgid "one trackback"
+msgstr "一个 trackback"
+
+msgid "%d trackbacks"
+msgstr "%d 个 trackback"
+
+msgid "no attachment"
+msgstr "没有附件"
+
+msgid "one attachment"
+msgstr "一个附件"
+
+msgid "%d attachments"
+msgstr "%d 个附件"
+
+msgid "previous entries"
+msgstr "前一篇文章"
+
+msgid "page"
+msgstr "页面"
+
+#, fuzzy
+msgid "of"
+msgstr "of"
+
+msgid "next entries"
+msgstr "下一篇文章"
+
+msgid "Search"
+msgstr "搜索"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "您搜索 <em>%1$s</em> 没有匹配结果。"
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "您搜索 <em>%1$s</em> 返回 <strong>%2$s</strong> 个结果。"
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "您搜索 <em>%1$s</em> 返回 <strong>%2$s</strong> 个结果。"
+
+msgid "Home"
+msgstr "主页"
+
+msgid "All keywords"
+msgstr "所有关键字"
+
+msgid "Best of me"
+msgstr "我最好的文章"
+
+msgid "Languages"
+msgstr "语言"
+
+msgid "Categories"
+msgstr "分类目录"
+
+msgid "Subcategories"
+msgstr "子分类目录"
+
+msgid "Archives"
+msgstr "归档"
+
+msgid "Links"
+msgstr "链接"
+
+msgid "Subscribe"
+msgstr "订阅"
+
+msgid "Entries feed"
+msgstr "文章 feed"
+
+msgid "Comments feed"
+msgstr "评论 feed"
+
+msgid "This blog's comments Atom feed"
+msgstr "此博客评论的 Atom feed"
+
+msgid "This category's entries Atom feed"
+msgstr "此分类目录文章的 Atom feed"
+
+msgid "This category's comments Atom feed"
+msgstr "此分类目录评论的 Atom feed"
+
+msgid "This post's comments feed"
+msgstr "这篇文章的评论 feed"
+
+msgid "This post's comments Atom feed"
+msgstr "这篇文章的评论 Atom feed"
+
+msgid "Attachments"
+msgstr "附件"
+
+msgid "Permalink"
+msgstr "永久链接"
+
+msgid "Comments"
+msgstr "评论"
+
+msgid "Your comment"
+msgstr "您的评论"
+
+msgid "Your comment has been published."
+msgstr "您的评论已发布。"
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "您的评论已提交并将被复审以发布。"
+
+msgid "Add a comment"
+msgstr "添加一个评论"
+
+msgid "Name or nickname"
+msgstr "姓名或昵称"
+
+msgid "Email address"
+msgstr "邮件地址"
+
+msgid "Website"
+msgstr "网站"
+
+msgid "optional"
+msgstr "可选的"
+
+msgid "Comment"
+msgstr "评论"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML 代码以文本显示，网站地址会被自动转化。"
+
+msgid "Remember me on this blog"
+msgstr "在这个博客上记住我"
+
+msgid "preview"
+msgstr "预览"
+
+msgid "send"
+msgstr "发送"
+
+msgid "They posted on the same topic"
+msgstr "他／她们讨论同一个话题"
+
+msgid "Trackback URL"
+msgstr "Trackback URL"
+
+msgid "You must provide an author name"
+msgstr "您必须提供作者姓名"
+
+msgid "You must provide a comment"
+msgstr "您必须提供一个评论"
+
+msgid "Email address is not valid"
+msgstr "邮件地址无效"
+
+msgid "Document not found"
+msgstr "文件不存在"
+
+msgid "The document you are looking for does not exist."
+msgstr "您寻找的文件不存在。"
+
+msgid "Powered by %s"
+msgstr "Powered by %s"
+
+msgid "Subscribe to"
+msgstr "订阅到"
+
+msgid "What is an RSS feed?"
+msgstr "什么是 RSS feed？"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "RSS feed 是一个免费的博客摘要。它提供内容（文章或者评论）或者内容的摘要，以及到完整版本的链接和其他元标记。最新发表的条目可以使用您喜欢的 RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">聚合器</a> 来阅读。"
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "仅需复制下列 URL 到您的聚合器："
+
+msgid "Password needed"
+msgstr "需要密码"
+
+msgid "You must give a password to access this area."
+msgstr "您必须提供密码以进入这一区域。"
+
+msgid "Password:"
+msgstr "密码："
+
+msgid "You must provide a valid email address."
+msgstr "您必须提供有效的邮件地址。"
+
+msgid "Read"
+msgstr "读取"

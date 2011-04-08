@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2009-10-21 00:51+0100\n"
+"Last-Translator: Joran Bosscher <joranbosscher@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: Netherlands\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "_Jan"
+
+msgid "_Feb"
+msgstr "_Feb"
+
+msgid "_Mar"
+msgstr "_Mar"
+
+msgid "_Apr"
+msgstr "_Apr"
+
+msgid "_May"
+msgstr "_Mei"
+
+msgid "_Jun"
+msgstr "_Jun"
+
+msgid "_Jul"
+msgstr "_Jul"
+
+msgid "_Aug"
+msgstr "_Aug"
+
+msgid "_Sep"
+msgstr "_Sep"
+
+msgid "_Oct"
+msgstr "_Okt"
+
+msgid "_Nov"
+msgstr "_Nov"
+
+msgid "_Dec"
+msgstr "_Dec"
+
+msgid "January"
+msgstr "Januari"
+
+msgid "February"
+msgstr "Februari"
+
+msgid "March"
+msgstr "Maart"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Mei"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "Augustus"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "_Mon"
+msgstr "_Man"
+
+msgid "_Tue"
+msgstr "_Din"
+
+msgid "_Wed"
+msgstr "_Woe"
+
+msgid "_Thu"
+msgstr "_Don"
+
+msgid "_Fri"
+msgstr "_Vri"
+
+msgid "_Sat"
+msgstr "_Zat"
+
+msgid "_Sun"
+msgstr "_Zon"
+
+msgid "Monday"
+msgstr "Maandag"
+
+msgid "Tuesday"
+msgstr "Dinsdag"
+
+msgid "Wednesday"
+msgstr "Woensdag"
+
+msgid "Thursday"
+msgstr "Donderdag"
+
+msgid "Friday"
+msgstr "Vrijdag"
+
+msgid "Saturday"
+msgstr "Zaterdag"
+
+msgid "Sunday"
+msgstr "Zondag"

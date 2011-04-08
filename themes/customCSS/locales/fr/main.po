@@ -1,0 +1,20 @@
+# French translation of DotClear
+# Copyright (C) 2006.
+# Olivier Meunier <olivier@dotclear.net>, 2006.
+#
+
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\n"
+
+#: themes/custom/_config.php:27
+#, php-format
+msgid "File %s does not exist and directory %s is not writable."
+msgstr "Le fichier %s n'existe pas et le répertoire %s n'est pas accessible en écriture."
+
+#: themes/custom/_config.php:40
+msgid "Style sheet upgraded."
+msgstr "Feuille de style mise à jour."
+
+#: themes/custom/_config.php:47
+msgid "Style sheet:"
+msgstr "Feuille de style :"

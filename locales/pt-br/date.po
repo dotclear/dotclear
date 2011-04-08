@@ -1,0 +1,132 @@
+# Portuguese translation of DotClear
+# Copyright (C) 2006
+# Olivier Meunier <olivier@dotclear.net>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-RC1-1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2008-06-19 18:34+0200\n"
+"Last-Translator: Alain Fagot Béarez <Alain@Timbo-Bearez.biz>\n"
+"Language-Team: Portuguese (Brazil)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese (Brazil)\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d/%m/%Y %H:%M"
+
+msgid "_Jan"
+msgstr "jan"
+
+msgid "_Feb"
+msgstr "fev"
+
+msgid "_Mar"
+msgstr "mar"
+
+msgid "_Apr"
+msgstr "abr"
+
+msgid "_May"
+msgstr "mai"
+
+msgid "_Jun"
+msgstr "jun"
+
+msgid "_Jul"
+msgstr "jul"
+
+msgid "_Aug"
+msgstr "ago"
+
+msgid "_Sep"
+msgstr "set"
+
+msgid "_Oct"
+msgstr "out"
+
+msgid "_Nov"
+msgstr "nov"
+
+msgid "_Dec"
+msgstr "dez"
+
+msgid "January"
+msgstr "janeiro"
+
+msgid "February"
+msgstr "fevereiro"
+
+msgid "March"
+msgstr "março"
+
+msgid "April"
+msgstr "abril"
+
+msgid "May"
+msgstr "maio"
+
+msgid "June"
+msgstr "junho"
+
+msgid "July"
+msgstr "julho"
+
+msgid "August"
+msgstr "agosto"
+
+msgid "September"
+msgstr "setembro"
+
+msgid "October"
+msgstr "outubro"
+
+msgid "November"
+msgstr "novembro"
+
+msgid "December"
+msgstr "dezembro"
+
+msgid "_Mon"
+msgstr "seg"
+
+msgid "_Tue"
+msgstr "ter"
+
+msgid "_Wed"
+msgstr "qua"
+
+msgid "_Thu"
+msgstr "qui"
+
+msgid "_Fri"
+msgstr "sex"
+
+msgid "_Sat"
+msgstr "sab"
+
+msgid "_Sun"
+msgstr "dom"
+
+msgid "Monday"
+msgstr "segunda-feira"
+
+msgid "Tuesday"
+msgstr "terça-feira"
+
+msgid "Wednesday"
+msgstr "quarta-feira"
+
+msgid "Thursday"
+msgstr "quinta-feira"
+
+msgid "Friday"
+msgstr "sexta-feira"
+
+msgid "Saturday"
+msgstr "sábado"
+
+msgid "Sunday"
+msgstr "domingo"

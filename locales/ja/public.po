@@ -1,0 +1,240 @@
+# -----------------------------------------------------------------------------
+# Japanese translation of Dotclear
+#
+# Copyright (c) 2008  Dotclear Japan  ( http://dotclear.ja-jp.org )  /
+#                     Takafumi      ( jp.drupal@imagine **reverse order**)
+#
+# -----------------------------------------------------------------------------
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2008-10-31 00:00+0900\n"
+"Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
+"Language-Team: Dotclear Japan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "To content"
+msgstr "コンテンツへ"
+
+msgid "To menu"
+msgstr "メニューへ"
+
+msgid "To search"
+msgstr "検索へ"
+
+msgid "By"
+msgstr "投稿者："
+
+msgid "by"
+msgstr "投稿者："
+
+msgid "on"
+msgstr "投稿日："
+
+msgid "On"
+msgstr "投稿日："
+
+msgid "Continue reading"
+msgstr "続きを読む -"
+
+msgid "no comment"
+msgstr "コメント(0)"
+
+msgid "one comment"
+msgstr "コメント(1)"
+
+msgid "%d comments"
+msgstr "コメント(%d)"
+
+msgid "no trackback"
+msgstr "トラックバック(0)"
+
+msgid "one trackback"
+msgstr "トラックバック(1)"
+
+msgid "%d trackbacks"
+msgstr "トラックバック(%d)"
+
+msgid "no attachment"
+msgstr "添付(0)"
+
+msgid "one attachment"
+msgstr "添付(1)"
+
+msgid "%d attachments"
+msgstr "添付(%d)"
+
+msgid "previous entries"
+msgstr "前のエントリ"
+
+msgid "page"
+msgstr "ページ"
+
+msgid "of"
+msgstr "/"
+
+msgid "next entries"
+msgstr "次のエントリ"
+
+msgid "Search"
+msgstr "検索"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "<em>%1$s</em> の検索結果はありません。"
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "<em>%1$s</em> の検索結果は <strong>%2$s</strong> です。"
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "<em>%1$s</em> の検索結果は <strong>%2$s</strong> です。"
+
+msgid "Home"
+msgstr "ホーム"
+
+msgid "All keywords"
+msgstr "すべてのキーワード"
+
+msgid "Best of me"
+msgstr "私のイチ押し"
+
+msgid "Languages"
+msgstr "言語"
+
+msgid "Categories"
+msgstr "カテゴリ"
+
+msgid "Subcategories"
+msgstr "サブカテゴリ"
+
+msgid "Archives"
+msgstr "アーカイブ"
+
+msgid "Links"
+msgstr "リンク"
+
+msgid "Subscribe"
+msgstr "定期受信"
+
+msgid "Entries feed"
+msgstr "エントリのフィード"
+
+msgid "Comments feed"
+msgstr "コメントのフィード"
+
+msgid "This blog's comments Atom feed"
+msgstr "このブログのコメントのAtomフィード"
+
+msgid "This category's entries Atom feed"
+msgstr "このカテゴリのエントリのAtomフィード"
+
+msgid "This category's comments Atom feed"
+msgstr "このカテゴリのコメントのAtomフィード"
+
+msgid "This post's comments feed"
+msgstr "この投稿のコメントフィード"
+
+msgid "This post's comments Atom feed"
+msgstr "この投稿のコメントのAtomフィード"
+
+msgid "Attachments"
+msgstr "添付ファイル"
+
+msgid "Permalink"
+msgstr "パーマリンク"
+
+msgid "Comments"
+msgstr "コメント"
+
+msgid "Your comment"
+msgstr "あなたのコメント"
+
+msgid "Your comment has been published."
+msgstr "コメントが掲載されました。"
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "コメントは正常に送信され、掲載待ちとなりました。"
+
+msgid "Add a comment"
+msgstr "コメントを追加"
+
+msgid "Name or nickname"
+msgstr "お名前／ニックネーム"
+
+msgid "Email address"
+msgstr "メールアドレス"
+
+msgid "Website"
+msgstr "ウェブサイト"
+
+msgid "optional"
+msgstr "任意"
+
+msgid "Comment"
+msgstr "コメント"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTMLコードはテキストとして表示され、ウェブアドレスは自動的に変換されます。"
+
+msgid "Remember me on this blog"
+msgstr "次回から入力を省略"
+
+msgid "preview"
+msgstr "プレビュー"
+
+msgid "send"
+msgstr "送信"
+
+msgid "They posted on the same topic"
+msgstr "同じトピックに関する投稿"
+
+msgid "Trackback URL"
+msgstr "トラックバックURL"
+
+msgid "You must provide an author name"
+msgstr "投稿者名の入力は必須です"
+
+msgid "You must provide a comment"
+msgstr "コメントの入力は必須です"
+
+msgid "Email address is not valid"
+msgstr "メールアドレスが無効です"
+
+msgid "Document not found"
+msgstr "ドキュメントが見つかりませんでした"
+
+msgid "The document you are looking for does not exist."
+msgstr "お探しのドキュメントは存在しません。"
+
+msgid "Powered by %s"
+msgstr "Powered by %s"
+
+msgid "Subscribe to"
+msgstr "定期受信："
+
+msgid "What is an RSS feed?"
+msgstr "RSSフィードとは？"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "RSSフィードはフリーなブログの要約です。 それはフルバージョン（全文）や他のメタデータへのリンクと共に、コンテンツ（投稿やコメント）やコンテンツの要約を提供します。 これによって、最近のアイテムをあなたのお好みのRSS<a href=\"http://ja.wikipedia.org/wiki/Aggregator\">アグリゲータ</a>で読むことができます。"
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "あなたのアグリゲータに以下のURLをコピーしてください："
+
+msgid "Password needed"
+msgstr "パスワードが必要です"
+
+msgid "You must give a password to access this area."
+msgstr "このエリアへのアクセスにはパスワードが必要です。"
+
+msgid "Password:"
+msgstr "パスワード："
+
+msgid "You must provide a valid email address."
+msgstr "有効なメールアドレスを入力する必要があります。"
+
+msgid "Read"
+msgstr "読む"

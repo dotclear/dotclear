@@ -1,0 +1,236 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Turkish translation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2009-09-17 23:29+0200\n"
+"Last-Translator: ozgur ulukir <ozgurulukir@yahoo.com>\n"
+"Language-Team: crm <admin@craftmerkezi.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Turkish\n"
+"X-Poedit-Country: TURKEY\n"
+"X-Poedit-Basepath: .\n"
+
+msgid "To content"
+msgstr "İçeriğe git"
+
+msgid "To menu"
+msgstr "Menüye git"
+
+msgid "To search"
+msgstr "Aramaya git"
+
+msgid "By"
+msgstr "Yazan"
+
+msgid "by"
+msgstr "yazan"
+
+msgid "on"
+msgstr "tarih"
+
+msgid "On"
+msgstr "Tarih"
+
+msgid "Continue reading"
+msgstr "Tamamını oku"
+
+msgid "no comment"
+msgstr "ahkam yok"
+
+msgid "one comment"
+msgstr "bir ahkam"
+
+msgid "%d comments"
+msgstr "%d ahkam"
+
+msgid "no trackback"
+msgstr "gerizleme yok"
+
+msgid "one trackback"
+msgstr "bir gerizleme"
+
+msgid "%d trackbacks"
+msgstr "%d gerizleme"
+
+msgid "no attachment"
+msgstr "ek yok"
+
+msgid "one attachment"
+msgstr "bir ek"
+
+msgid "%d attachments"
+msgstr "%d ek"
+
+msgid "previous entries"
+msgstr "önceki yazılar"
+
+msgid "page"
+msgstr "sayfa"
+
+msgid "of"
+msgstr ""
+
+msgid "next entries"
+msgstr "diğer yazılar"
+
+msgid "Search"
+msgstr "Ara"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "<em>%1$s</em> için aramanız olumsuz sonuçlandı."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "<em>%1$s</em> için aramanız <strong>%2$s</strong> sonuç döndürdü."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "<em>%1$s</em> için aramanız <strong>%2$s</strong> sonuç döndürdü."
+
+msgid "Home"
+msgstr "Ana sayfa"
+
+msgid "All keywords"
+msgstr "Tüm anahtar sözcükler"
+
+msgid "Best of me"
+msgstr "En iyilerim"
+
+msgid "Languages"
+msgstr "Diller"
+
+msgid "Categories"
+msgstr "Kategoriler"
+
+msgid "Subcategories"
+msgstr "Alt kategoriler"
+
+msgid "Archives"
+msgstr "Arşiv"
+
+msgid "Links"
+msgstr "Bağlantılar"
+
+msgid "Subscribe"
+msgstr "Anone ol"
+
+msgid "Entries feed"
+msgstr "Yazı beslemesi"
+
+msgid "Comments feed"
+msgstr "Ahkam beslemesi"
+
+msgid "This blog's comments Atom feed"
+msgstr "Blog'daki ahkamların Atom beslemesi"
+
+msgid "This category's entries Atom feed"
+msgstr "Bu kategorideki yazıların Atom beslemesi"
+
+msgid "This category's comments Atom feed"
+msgstr "Bu kategorideki yorumların atom beslemesi"
+
+msgid "This post's comments feed"
+msgstr "Bu yazının ahkam beslemesi"
+
+msgid "This post's comments Atom feed"
+msgstr "Bu yazının ahkam Atom beslemesi"
+
+msgid "Attachments"
+msgstr "Ekler"
+
+msgid "Permalink"
+msgstr "Permalink"
+
+msgid "Comments"
+msgstr "Ahkamlar"
+
+msgid "Your comment"
+msgstr "Ahkamınız"
+
+msgid "Your comment has been published."
+msgstr "Ahkamınız yayımlandı"
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Ahkamınız gönderildi ve yayınlanmadan önce gözden geçirilecek."
+
+msgid "Add a comment"
+msgstr "Ahkam yaz"
+
+msgid "Name or nickname"
+msgstr "İsim veya rumuz"
+
+msgid "Email address"
+msgstr "Eposta adresi"
+
+msgid "Website"
+msgstr "Vebsayfası"
+
+msgid "optional"
+msgstr "seçimlik"
+
+msgid "Comment"
+msgstr "Ahkam"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML kodu metin olarak gösterilecek ve vebadresleri otomatik dönüştürülecek."
+
+msgid "Remember me on this blog"
+msgstr "Bu blog'da beni hatırla"
+
+msgid "preview"
+msgstr "önizleme"
+
+msgid "send"
+msgstr "yolla"
+
+msgid "They posted on the same topic"
+msgstr "Aynı başlığa yazdılar"
+
+msgid "Trackback URL"
+msgstr "Gerizleme URL'si"
+
+msgid "You must provide an author name"
+msgstr "Yazar ismi girin"
+
+msgid "You must provide a comment"
+msgstr "Ahkam girmelisiniz"
+
+msgid "Email address is not valid"
+msgstr "Eposta adresi geçersiz"
+
+msgid "Document not found"
+msgstr "Döküman bulunamadı"
+
+msgid "The document you are looking for does not exist."
+msgstr "Aradığınız döküman mevcut değil."
+
+msgid "Powered by %s"
+msgstr "%s desteği ile"
+
+msgid "Subscribe to"
+msgstr "Kaydol"
+
+msgid "What is an RSS feed?"
+msgstr "RSS beslemesi nedir?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "RSS beslemesi ucretsiz bir blog özetidir. İçerik (yazıları veya ahkamları) veya içeriklerin özetini, tam sürüme bağlantılar ve diğer metadatalar ile sunar. Son yayınlanmıs yazılar favori RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">toplayıcınız</a> ile okunabilir."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Asagıdaki URL yi toplayıcınıza kopyalayın o kadar:"
+
+msgid "Password needed"
+msgstr "Parola gerekli"
+
+msgid "You must give a password to access this area."
+msgstr "Bu alana erişmek için parola girmelisiniz."
+
+msgid "Password:"
+msgstr "Parola:"
+
+msgid "You must provide a valid email address."
+msgstr "Geçerli bir email adresi girin"
+
+msgid "Read"
+msgstr "Oku"

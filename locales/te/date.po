@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2008-10-01 05:30+0530\n"
+"Last-Translator: Veeven <veeven@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "జన"
+
+msgid "_Feb"
+msgstr "ఫిబ్ర"
+
+msgid "_Mar"
+msgstr "మార్చి"
+
+msgid "_Apr"
+msgstr "ఏప్రి"
+
+msgid "_May"
+msgstr "మే"
+
+msgid "_Jun"
+msgstr "జూన్"
+
+msgid "_Jul"
+msgstr "జూలై"
+
+msgid "_Aug"
+msgstr "ఆగ"
+
+msgid "_Sep"
+msgstr "సెప్టెం"
+
+msgid "_Oct"
+msgstr "అక్టో"
+
+msgid "_Nov"
+msgstr "నవం"
+
+msgid "_Dec"
+msgstr "డిసెం"
+
+msgid "January"
+msgstr "జనవరి"
+
+msgid "February"
+msgstr "ఫిబ్రవరి"
+
+msgid "March"
+msgstr "మార్చి"
+
+msgid "April"
+msgstr "ఏప్రిల్"
+
+msgid "May"
+msgstr "మే"
+
+msgid "June"
+msgstr "జూన్"
+
+msgid "July"
+msgstr "జూలై"
+
+msgid "August"
+msgstr "ఆగస్ట్"
+
+msgid "September"
+msgstr "సెప్టెంబర్"
+
+msgid "October"
+msgstr "అక్టోబర్"
+
+msgid "November"
+msgstr "నవంబర్"
+
+msgid "December"
+msgstr "డిసెంబర్"
+
+msgid "_Mon"
+msgstr "సోమ"
+
+msgid "_Tue"
+msgstr "మంగళ"
+
+msgid "_Wed"
+msgstr "బుధ"
+
+msgid "_Thu"
+msgstr "గురు"
+
+msgid "_Fri"
+msgstr "శుక్ర"
+
+msgid "_Sat"
+msgstr "శని"
+
+msgid "_Sun"
+msgstr "ఆది"
+
+msgid "Monday"
+msgstr "సోమవారం"
+
+msgid "Tuesday"
+msgstr "మంగళవారం"
+
+msgid "Wednesday"
+msgstr "బుధవారం"
+
+msgid "Thursday"
+msgstr "గురువారం"
+
+msgid "Friday"
+msgstr "శుక్రవారం"
+
+msgid "Saturday"
+msgstr "శనివారం"
+
+msgid "Sunday"
+msgstr "ఆదివారం"

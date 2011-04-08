@@ -1,0 +1,241 @@
+# Dotclear language pack (Hungarian).
+# Benjamin Bank <benjaminbank@gmail.com>, 2008.
+#
+# UPDATE-zúzás:
+# Muráncsik Sebestyén <dr.graf@lajt.hu>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2.0-RC2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2008-06-29 18:40+0200\n"
+"Last-Translator: Muráncsik Sebestyén <dr.graf@lajt.hu>, 2009\n"
+"Language-Team: Hungarian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hungarian\n"
+
+msgid "To content"
+msgstr "Tartalom"
+
+msgid "To menu"
+msgstr "Menü"
+
+msgid "To search"
+msgstr "Keresés"
+
+msgid "By"
+msgstr "/"
+
+msgid "by"
+msgstr "/"
+
+msgid "on"
+msgstr "::"
+
+msgid "On"
+msgstr "::"
+
+msgid "Continue reading"
+msgstr "Folytatás"
+
+msgid "no comment"
+msgstr "nincs hozzászólás"
+
+msgid "one comment"
+msgstr "egy hozzászólás"
+
+msgid "%d comments"
+msgstr "%d hozzászólás"
+
+msgid "no trackback"
+msgstr "nincs trackback"
+
+msgid "one trackback"
+msgstr "1 trackback"
+
+msgid "%d trackbacks"
+msgstr "%d trackback"
+
+msgid "no attachment"
+msgstr "nincs melléklet"
+
+msgid "one attachment"
+msgstr "egy melléklet"
+
+msgid "%d attachments"
+msgstr "%d melléklet"
+
+msgid "previous entries"
+msgstr "előző bejegyzések"
+
+msgid "page"
+msgstr "oldal"
+
+msgid "of"
+msgstr "/"
+
+msgid "next entries"
+msgstr "következő bejegyzések"
+
+msgid "Search"
+msgstr "Keresés"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "A keresésed (<em>%1$s</em>) nem adott eredményt."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "A keresésed (<em>%1$s</em>) eredményei:"
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "A keresésed (<em>%1$s</em>) eredményei:"
+
+msgid "Home"
+msgstr "Főoldal"
+
+msgid "All keywords"
+msgstr "Összes kulcsszó"
+
+msgid "Best of me"
+msgstr "Legjobb tőlem"
+
+msgid "Languages"
+msgstr "Nyelv"
+
+msgid "Categories"
+msgstr "Kategóriák"
+
+#, fuzzy
+msgid "Subcategories"
+msgstr "Kategóriák"
+
+msgid "Archives"
+msgstr "Archívum"
+
+msgid "Links"
+msgstr "Linkek"
+
+msgid "Subscribe"
+msgstr "Feliratkozás"
+
+msgid "Entries feed"
+msgstr "Bejegyzések feed-je"
+
+msgid "Comments feed"
+msgstr "Hozzászólások feed-je"
+
+msgid "This blog's comments Atom feed"
+msgstr "Ez a blog hozzászólásainak Atom feedje"
+
+msgid "This category's entries Atom feed"
+msgstr "Ez a kategória bejegyzéseinek Atom feedje"
+
+msgid "This category's comments Atom feed"
+msgstr "Ez a kategória hozzászólásainak Atom feedje"
+
+msgid "This post's comments feed"
+msgstr "Ez a bejegyzés hozzászólásainak feedje"
+
+msgid "This post's comments Atom feed"
+msgstr "Ez a bejegyzés hozzászólásainak Atom feedje"
+
+msgid "Attachments"
+msgstr "Mellékletek"
+
+msgid "Permalink"
+msgstr "Permalink"
+
+msgid "Comments"
+msgstr "Hozzászólások"
+
+msgid "Your comment"
+msgstr "Hozzászólásod"
+
+msgid "Your comment has been published."
+msgstr "A hozzászólásodat publikáltuk."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "A hozzászólásodat elmentettük, és most felülvizsgálatra vár."
+
+msgid "Add a comment"
+msgstr "Szólj hozzá"
+
+msgid "Name or nickname"
+msgstr "Név"
+
+msgid "Email address"
+msgstr "E-mail"
+
+msgid "Website"
+msgstr "Honlap"
+
+msgid "optional"
+msgstr "elhagyható"
+
+msgid "Comment"
+msgstr "Megjegyzés"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "A HTML kódot szövegként fogja megjeleníteni és a webcímeket automatikusan átkonvertálja a rendszer!"
+
+msgid "Remember me on this blog"
+msgstr "Emlékezz rám legközelebb is"
+
+msgid "preview"
+msgstr "előnézet"
+
+msgid "send"
+msgstr "küldés"
+
+msgid "They posted on the same topic"
+msgstr "Ők jegyeztek be hasonló témában"
+
+msgid "Trackback URL"
+msgstr "Trackback URL"
+
+msgid "You must provide an author name"
+msgstr "Egy nevet meg kell adnod"
+
+msgid "You must provide a comment"
+msgstr "Kell valamilyen hozzászólást írnod"
+
+msgid "Email address is not valid"
+msgstr "Hibás e-mail cím"
+
+msgid "Document not found"
+msgstr "A keresett lap nem található"
+
+msgid "The document you are looking for does not exist."
+msgstr ""
+
+msgid "Powered by %s"
+msgstr "Üzemelteti: poDesign Artworks"
+
+msgid "Subscribe to"
+msgstr "Feliratkozás:"
+
+msgid "What is an RSS feed?"
+msgstr "Mi az RSS feed?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Az RSS webes együttműködésre szolgáló XML állományformátumok családja, melyet gyakran frissülő szájtok (többek között blogok, portálok) használnak, az oldalon megjelenő új tartalom (cikkek, bejegyzések) rövid összefoglalójának terjesztésére. Sok szempontból a hírlevél Web 2.0-es utódjának tekinthető. A felhasználók az RSS-csatornákra történő feliratkozás révén előre beállíthatják, hogy honnan szeretnék a friss híreket megkapni, így több (tíz, száz) oldal hírei egyetlen felületen hozzáférhetők, kezelhetők lesznek, nem kell mindegyiket végiglátogatni a felhasználót érdeklő információ megtalálására."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Csak másold a következő URL-t a jelvevőbe:"
+
+msgid "Password needed"
+msgstr "Jelszó szükséges"
+
+msgid "You must give a password to access this area."
+msgstr "Meg kell adnod egy jelszót, hogy ehhez a területhez hozzáférhess."
+
+msgid "Password:"
+msgstr "Jelszó:"
+
+msgid "You must provide a valid email address."
+msgstr "Élő e-mail címet kell megadnod."
+
+msgid "Read"
+msgstr "Olvas"

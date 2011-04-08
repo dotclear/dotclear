@@ -1,0 +1,74 @@
+msgid "_xfn_Me"
+msgstr "Me"
+
+msgid "_xfn_Another link for myself"
+msgstr "Another link for myself"
+
+msgid "_xfn_Friendship"
+msgstr "Friendship"
+
+msgid "_xfn_Contact"
+msgstr "Contact"
+
+msgid "_xfn_Acquaintance"
+msgstr "Acquaintance"
+
+msgid "_xfn_Friend"
+msgstr "Friend"
+
+msgid "_xfn_Physical"
+msgstr "Physical"
+
+msgid "_xfn_Met"
+msgstr "Met"
+
+msgid "_xfn_Professional"
+msgstr "Professional"
+
+msgid "_xfn_Co-worker"
+msgstr "Co-worker"
+
+msgid "_xfn_Colleague"
+msgstr "Colleague"
+
+msgid "_xfn_Geographical"
+msgstr "Geographical"
+
+msgid "_xfn_Co-resident"
+msgstr "Co-resident"
+
+msgid "_xfn_Neighbor"
+msgstr "Neighbor"
+
+msgid "_xfn_Family"
+msgstr "Family"
+
+msgid "_xfn_Child"
+msgstr "Child"
+
+msgid "_xfn_Parent"
+msgstr "Parent"
+
+msgid "_xfn_Sibling"
+msgstr "Sibling"
+
+msgid "_xfn_Spouse"
+msgstr "Spouse"
+
+msgid "_xfn_Kin"
+msgstr "Kin"
+
+msgid "_xfn_Romantic"
+msgstr "Romantic"
+
+msgid "_xfn_Muse"
+msgstr "Muse"
+
+msgid "_xfn_Crush"
+msgstr "Crush"
+
+msgid "_xfn_Date"
+msgstr "Date"
+
+msgid "_xfn_Sweetheart"
+msgstr "Sweetheart"

@@ -1,0 +1,242 @@
+# translation of public.po to Spanish
+# Dotclear language pack (Spanish).
+#
+#
+# Miguel A. Muñoz <mamunoz@scienter.es>, 2008.
+# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: public\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2009-10-01 18:55+0200\n"
+"Last-Translator: Enrique Matias Sanchez (Quique) <cronopios@gmail.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "To content"
+msgstr "Ir al contenido"
+
+msgid "To menu"
+msgstr "Ir al menú"
+
+msgid "To search"
+msgstr "Ir a las búsquedas"
+
+msgid "By"
+msgstr "Por"
+
+msgid "by"
+msgstr "por"
+
+msgid "on"
+msgstr "el"
+
+msgid "On"
+msgstr "El"
+
+msgid "Continue reading"
+msgstr "Seguir leyendo"
+
+msgid "no comment"
+msgstr "sin comentarios"
+
+msgid "one comment"
+msgstr "un comentario"
+
+msgid "%d comments"
+msgstr "%d comentarios"
+
+msgid "no trackback"
+msgstr "sin retroenlaces"
+
+msgid "one trackback"
+msgstr "un retroenlace"
+
+msgid "%d trackbacks"
+msgstr "%d retroenlaces"
+
+msgid "no attachment"
+msgstr "sin adjuntos"
+
+msgid "one attachment"
+msgstr "un adjunto"
+
+msgid "%d attachments"
+msgstr "%d adjuntos"
+
+msgid "previous entries"
+msgstr "entradas anteriores"
+
+msgid "page"
+msgstr "página"
+
+msgid "of"
+msgstr "de"
+
+msgid "next entries"
+msgstr "siguientes entradas"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Su busqueda de <em>%1$s</em> no ha devuelto ningún resultado."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Su búsqueda de <em>%1$s</em> ha devuelto <strong>%2$s</strong> resultado."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Su búsqueda de <em>%1$s</em> ha devuelto <strong>%2$s</strong> resultados."
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "All keywords"
+msgstr "Todas las palabras clave"
+
+msgid "Best of me"
+msgstr "Destacados"
+
+msgid "Languages"
+msgstr "Idiomas"
+
+msgid "Categories"
+msgstr "Categorías"
+
+msgid "Subcategories"
+msgstr "Subcategorías"
+
+msgid "Archives"
+msgstr "Archivos"
+
+msgid "Links"
+msgstr "Enlaces"
+
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+msgid "Entries feed"
+msgstr "Fuente de las entradas"
+
+msgid "Comments feed"
+msgstr "Fuente de los comentarios"
+
+msgid "This blog's comments Atom feed"
+msgstr "Fuente Atom de los comentarios de este blog"
+
+msgid "This category's entries Atom feed"
+msgstr "Fuente Atom de las entradas de esta categoría"
+
+msgid "This category's comments Atom feed"
+msgstr "Fuente Atom de los comentarios de esta categoría"
+
+msgid "This post's comments feed"
+msgstr "Fuente de los comentarios de esta entrada"
+
+msgid "This post's comments Atom feed"
+msgstr "Fuente Atom de los comentarios de esta entrada"
+
+msgid "Attachments"
+msgstr "Adjuntos"
+
+msgid "Permalink"
+msgstr "Enlace permanente"
+
+msgid "Comments"
+msgstr "Comentarios"
+
+msgid "Your comment"
+msgstr "Su comentario"
+
+msgid "Your comment has been published."
+msgstr "Su comentario ha sido publicado."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Se ha enviado su comentario, y se publicará tras ser revisado."
+
+msgid "Add a comment"
+msgstr "Añadir un comentario"
+
+msgid "Name or nickname"
+msgstr "Nombre o apodo"
+
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+msgid "Website"
+msgstr "Sitio web"
+
+msgid "optional"
+msgstr "opcional"
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "El código HTML se muestra como texto y las direcciones web se transforman automáticamente."
+
+msgid "Remember me on this blog"
+msgstr "Recordarme en este blog"
+
+msgid "preview"
+msgstr "vista previa"
+
+msgid "send"
+msgstr "enviar"
+
+msgid "They posted on the same topic"
+msgstr "Discusiones sobre el mismo tema"
+
+msgid "Trackback URL"
+msgstr "URL de retroenlace"
+
+msgid "You must provide an author name"
+msgstr "Debe proporcionar un nombre de autor"
+
+msgid "You must provide a comment"
+msgstr "Debe escribir un comentario"
+
+msgid "Email address is not valid"
+msgstr "La dirección de correo electrónico no es válida"
+
+msgid "Document not found"
+msgstr "Documento no encontrado"
+
+msgid "The document you are looking for does not exist."
+msgstr "El documento que busca no existe."
+
+msgid "Powered by %s"
+msgstr "Funciona con %s"
+
+msgid "Subscribe to"
+msgstr "Suscribirse a"
+
+msgid "What is an RSS feed?"
+msgstr "¿Qué es una fuente RSS?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Una fuente RSS recoge la información de actualizaciones de un sitio web. Proporciona el contenido de las entradas o comentarios, o un extracto de ellos, junto con un enlace a la versión completa y otros metadatos. Esta fuente tiene como objetivo ser leído por un <a href=\"http://es.wikipedia.org/wiki/Agregador/\">agregador</a> de RSS."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Simplemente copie la siguiente dirección en su agregador:"
+
+msgid "Password needed"
+msgstr "Es necesaria una contraseña"
+
+msgid "You must give a password to access this area."
+msgstr "Debe indicar una contraseña para acceder a este área."
+
+msgid "Password:"
+msgstr "Contraseña:"
+
+msgid "You must provide a valid email address."
+msgstr "Debe proporcionar una dirección de correo electrónico válida."
+
+msgid "Read"
+msgstr "Leer"

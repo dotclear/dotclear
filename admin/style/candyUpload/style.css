@@ -1,0 +1,120 @@
+
+div.cu-ctrl {
+	background: #fbfbfb;
+	padding: 5px 0 0 0;
+	margin: 0 0 1em 0;
+	overflow: hidden;
+	border-color: #ccc;
+	border-width: 1px 0;
+	border-style: solid;
+}
+div.cu-ctrl a {
+	border: none;
+}
+
+div.cu-msg {
+	padding: 0 0.5em;
+	font-weight: bold;
+}
+div.cu-msg.cu-error {
+	color: #c00;
+}
+
+div.cu-files {
+	padding: 0 0.5em;
+	margin: 10px 0;
+}
+div.cu-file {
+	margin: 0 0 8px 0;
+	position: relative;
+}
+div.cu-fileinfo {
+	margin-left: 16px;
+}
+div.cu-fileinfo span.cu-filecancel {
+	display: block;
+	position: absolute;
+	top: 2px;
+	left: 0px !important;
+	left: -16px;
+}
+div.cu-files span.cu-filecancel a {
+	display: block;
+	width: 12px;
+	height: 12px;
+	background: transparent url(cancel.png) no-repeat top left;
+	border: none;
+	text-indent: -5000px;
+	outline: none;
+}
+div.cu-files span.cu-filemsg {
+	font-weight: bold;
+	color: green;
+}
+div.cu-files span.cu-filemsg.cu-error {
+	color: #c00;
+}
+
+div.cu-progress {
+	margin-left: 16px;
+}
+div.cu-progress div {
+	height: 10px;
+	width: 0;
+	font-size: 0.8em;
+	line-height: 1em;
+	height: 1em;
+	padding: 2px 0;
+	text-align: right;
+	background: green url(loader.png) repeat-x top left;
+	color: white;
+	font-weight: bold;
+	-moz-border-radius: 2px;
+}
+
+div.cu-btn {
+	padding: 0 0.5em;
+	line-height: 1em;
+	height: 1.6em;
+	margin-top: 1em;
+	position: relative;
+}
+div.cu-btn span {
+	display: block;
+	margin: 0 0 0 5px;
+	float: right;
+}
+div.cu-btn span a {
+	display: block;
+	padding: 2px;
+	line-height: 127%;
+	background: #e2dfca;
+	color: #333;
+	text-decoration: none;
+	border: 1px solid #e2dfca !important;
+	outline: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+div.cu-btn span a:hover, div.cu-btn span a:focus {
+	border-color: #ccc;
+	color: #06c;
+}
+div.cu-btn span.cu-btn-browse {
+	float: none;
+	position: absolute;
+	left: 0.5em;
+	margin: 0;
+}
+div.cu-btn span.cu-btn-upload {
+	font-weight: bold;
+}
+
+div.cu-maxsize {
+	clear: both;
+	margin: 3px 0 0 0.5em;
+}
+
+div.cu-disable {
+	padding: 0 0 0.5em 0.5em;
+}

@@ -1,0 +1,1452 @@
+# French translation of DotClear
+# Copyright (C) 2006.
+# Olivier Meunier <olivier@dotclear.net>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Дмитрий Ищенко <ischenkodv@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+
+msgid "no"
+msgstr "нет"
+
+msgid "Configuration successfully updated"
+msgstr "Конфигурация успешно обновлена"
+
+msgid "Settings definition successfully updated"
+msgstr "Настройки успешно обновлены"
+
+msgid "blog settings"
+msgstr "настройки блога"
+
+msgid "Value"
+msgstr "Значение"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "global settings"
+msgstr "глобальные настройки"
+
+msgid "Akismet spam filter"
+msgstr "Спам фильтр Akismet"
+
+#, php-format
+msgid "Filtered by %s."
+msgstr "Отфильтровано %s"
+
+msgid "Akismet API key:"
+msgstr "API ключ Akismet:"
+
+msgid "API key verified"
+msgstr "API ключ подтвержден"
+
+msgid "API key not verified"
+msgstr "API ключ не подтвержден"
+
+msgid "Get your own API key"
+msgstr "Получите свой API ключ Akismet"
+
+msgid "Antispam"
+msgstr "Антиспам"
+
+msgid "Delete junk comments older than"
+msgstr "Удалить спам комментарии старше чем"
+
+msgid "days"
+msgstr "дней"
+
+msgid "IP Blacklist / Whitelist Filter"
+msgstr "Черный/белый список IP"
+
+#, php-format
+msgid "Filtered by %1$s with rule %2$s."
+msgstr "Фильтровать по %1$s с правилом %2$s."
+
+msgid "IP address has been successfully added."
+msgstr "IP адрес успешно добавлен."
+
+msgid "IP addresses have been successfully removed."
+msgstr "IP адрес успешно удален."
+
+msgid "Blacklist"
+msgstr "Черный список"
+
+msgid "Whitelist"
+msgstr "Белый список"
+
+msgid "Add an IP address"
+msgstr "Добавить IP адрес"
+
+msgid "Global IP"
+msgstr "Глобальный IP"
+
+msgid "Add"
+msgstr "Добавить"
+
+msgid "No IP address in list."
+msgstr "Нет IP адресов в списке."
+
+msgid "IP list"
+msgstr "Список IP"
+
+msgid "Checks sender IP address against DNSBL servers"
+msgstr "Проверить IP адрес на сервере DNSBL"
+
+#, php-format
+msgid "Filtered by %1$s with server %2$s."
+msgstr "Фильтровать по %1$s на сервере %2$s."
+
+msgid "IP Lookup servers"
+msgstr "Серверы просмотра IP"
+
+msgid "Add here a coma separated list of servers."
+msgstr "Добавьте сюда список серверов через запятую."
+
+msgid "Checks links in comments against surbl.org"
+msgstr "Проверить ссылки в комментариях на surbl.org"
+
+msgid "Words Blacklist"
+msgstr "Черный список слов"
+
+#, php-format
+msgid "Filtered by %1$s with word %2$s."
+msgstr "Отфильтровано по %1$s со словом %2$s."
+
+msgid "Words have been successfully added."
+msgstr "Слова были успешно добавлены."
+
+msgid "Word has been successfully added."
+msgstr "Слово было успешно добавлено."
+
+msgid "Words have been successfully removed."
+msgstr "Слова были успешно удалены."
+
+msgid "Add a word"
+msgstr "Добавить слово"
+
+msgid "Global word"
+msgstr "Глобальное слово"
+
+msgid "No word in list."
+msgstr "Нет слов в списке."
+
+msgid "List"
+msgstr "Список"
+
+msgid "Delete selected words"
+msgstr "Удалить выделенные слова"
+
+msgid "Create default wordlist"
+msgstr "Создать список слов по умолчанию"
+
+msgid "This word exists"
+msgstr "Это слово существует"
+
+msgid "No description"
+msgstr "Нет описания"
+
+#, php-format
+msgid "Filtered by %1$s (%2$s)"
+msgstr "Отфильтровано по %1$s (%2$s)"
+
+msgid "Unknown filter."
+msgstr "Неизвестный фильтр"
+
+msgid "This comment is a spam:"
+msgstr "Этот комментарий является спамом:"
+
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(включая %d спам комментариев)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(включая %d спам комментариев)"
+
+msgid "Spam moderation"
+msgstr "Модерация спама"
+
+msgid "Spam"
+msgstr "Спам"
+
+msgid "Ham"
+msgstr "Не спам"
+
+msgid "Filter does not exist."
+msgstr "Фильтр не существует."
+
+msgid "Filter has no user interface."
+msgstr "Фильтр не имеет пользовательского интерфейса."
+
+msgid "Return to filters"
+msgstr "Вернуться к фильтрам"
+
+#, php-format
+msgid "%s configuration"
+msgstr "%s конфигурация"
+
+msgid "Information"
+msgstr "Информация"
+
+msgid "Spam comments have been successfully deleted."
+msgstr "Спам комментарии были успешно удалены."
+
+msgid "Junk comments:"
+msgstr "Спам комментарии:"
+
+msgid "Published comments:"
+msgstr "Опубликованные комментарии:"
+
+msgid "Delete all spams"
+msgstr "Удалить весь спам"
+
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Все спам комментарии старше чем %s дней будут удалены автоматически."
+
+msgid "Available spam filters"
+msgstr "Доступные спам фильтры"
+
+msgid "Filters configuration has been successfully saved."
+msgstr "Конфигурация фильтров успешно сохранена."
+
+msgid "Order"
+msgstr "Порядок"
+
+msgid "Active"
+msgstr "Активный"
+
+msgid "Auto Del."
+msgstr "Авто удаление"
+
+msgid "Filter name"
+msgstr "Имя фильтра"
+
+msgid "Filter configuration"
+msgstr "Конфигурация фильтра"
+
+msgid "Syndication"
+msgstr "Ленты новостей"
+
+msgid "Junk comments RSS feed"
+msgstr "RSS спам комментариев"
+
+msgid "Published comments RSS feed"
+msgstr "RSS опубликованных комментариев"
+
+msgid "Blogroll"
+msgstr "Ссылки"
+
+msgid "manage blogroll"
+msgstr "управление ссылками"
+
+msgid "Links"
+msgstr "Ссылки"
+
+#, fuzzy
+msgid "All categories"
+msgstr "Импортировать категории"
+
+msgid "Home page only"
+msgstr "Долько домашняя страница"
+
+msgid "You must provide a link title"
+msgstr "Вы должны указать текст ссылки"
+
+msgid "You must provide a link URL"
+msgstr "Необходимо указать URL ссылки"
+
+msgid "You need to provide a XBEL or OPML file."
+msgstr "Необходимо предоставить XBEL или OPML файл."
+
+msgid "File is not in XML format."
+msgstr "Файл не в формате XML."
+
+msgid "No such link or title"
+msgstr "Нет такой ссылки ли заголовка"
+
+msgid "Return to blogroll"
+msgstr "Вернуться в блогролл"
+
+msgid "Category has been successfully updated"
+msgstr "Категория была успешно удалена"
+
+#, fuzzy
+msgid "Edit category"
+msgstr "Добавить категорию"
+
+msgid "Link has been successfully updated"
+msgstr "Ссылка была успешно обновлена"
+
+msgid "Edit link"
+msgstr "Редактировать ссылку"
+
+msgid "XFN"
+msgstr "XFN"
+
+msgid "_xfn_Me"
+msgstr "Мне"
+
+msgid "_xfn_Another link for myself"
+msgstr "Другую ссылку для меня"
+
+msgid "_xfn_Friendship"
+msgstr "Дружба"
+
+msgid "_xfn_Contact"
+msgstr "Контакт"
+
+msgid "_xfn_Acquaintance"
+msgstr "Знакомство"
+
+msgid "_xfn_Friend"
+msgstr "Друг(подруга)"
+
+msgid "_xfn_Physical"
+msgstr "Материальный"
+
+msgid "_xfn_Met"
+msgstr "Встретить"
+
+msgid "_xfn_Professional"
+msgstr "Профессионал"
+
+msgid "_xfn_Co-worker"
+msgstr "Товарищ по работе"
+
+msgid "_xfn_Colleague"
+msgstr "Коллега"
+
+msgid "_xfn_Geographical"
+msgstr "Георгафический"
+
+msgid "_xfn_Co-resident"
+msgstr "Сожитель"
+
+msgid "_xfn_Neighbor"
+msgstr "Сосед"
+
+msgid "_xfn_Family"
+msgstr "Семья"
+
+msgid "_xfn_Child"
+msgstr "Ребенок"
+
+msgid "_xfn_Parent"
+msgstr "Родитель"
+
+msgid "_xfn_Sibling"
+msgstr "Брат/Сестра"
+
+msgid "_xfn_Spouse"
+msgstr "Супруг/Супруга"
+
+msgid "_xfn_Kin"
+msgstr "Семья"
+
+msgid "_xfn_Romantic"
+msgstr "Романтика"
+
+msgid "_xfn_Muse"
+msgstr "Муза"
+
+msgid "_xfn_Crush"
+msgstr "Страсть"
+
+msgid "_xfn_Date"
+msgstr "Свидание"
+
+msgid "_xfn_Sweetheart"
+msgstr "Подруга"
+
+msgid "Nothing to import"
+msgstr "Нечего импортировать"
+
+msgid "Import operation cancelled."
+msgstr "Импортирование отменено."
+
+msgid "Items order has been successfully updated"
+msgstr "Порядок элементов успешно обновлен"
+
+msgid "Items have been successfully removed."
+msgstr "Элементы успешно удалены."
+
+msgid "Link has been successfully created."
+msgstr "Ссылка успешно создана."
+
+msgid "category has been successfully created."
+msgstr "Категория успешно обновлена."
+
+msgid "links have been successfully imported."
+msgstr "Ссылки были успешно импортированы."
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Lang"
+msgstr "Язык"
+
+#, fuzzy
+msgid "Save order"
+msgstr "порядок"
+
+msgid "Delete selected links"
+msgstr "Удалить выбранные ссылки"
+
+msgid "Are you sure you want to delete selected links?"
+msgstr "Вы уверены, что хотите удалить выбранные ссылки?"
+
+msgid "The link list is empty."
+msgstr ""
+
+msgid "Add a new link"
+msgstr "Добавить новую ссылку"
+
+msgid "Add a category"
+msgstr "Добавить категорию"
+
+msgid "Import links"
+msgstr "Импортировать ссылки"
+
+msgid "OPML or XBEL File:"
+msgstr "OPML или XBEL файл:"
+
+msgid "import"
+msgstr "импортировать"
+
+msgid "Light linear gradient"
+msgstr "Светлый линейный градиент"
+
+msgid "Medium linear gradient"
+msgstr "Средний линейный градиент"
+
+msgid "Dark linear gradient"
+msgstr "Темный линейный градиент"
+
+msgid "Solid color"
+msgstr "Чистый цвет"
+
+msgid "Custom..."
+msgstr "Настроить..."
+
+msgid "Blowup configuration"
+msgstr "Сброс конфигурации"
+
+msgid "Predefined styles"
+msgstr "Предустановленные стили"
+
+msgid "Apply code"
+msgstr "Применить код"
+
+#, fuzzy
+msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
+msgstr "Поскольку изображение не было создано, вы не сможете изменять некоторые свойства фона."
+
+msgid "Theme configuration has been successfully updated."
+msgstr "Настройки темы были успешно обновлены."
+
+msgid "General"
+msgstr "Общие"
+
+msgid "Background color:"
+msgstr "Цвет фона:"
+
+msgid "Background color fill:"
+msgstr "Цвет заливки фона:"
+
+msgid "Main text font:"
+msgstr "Шрифт основного текста:"
+
+msgid "Main text font size:"
+msgstr "Размер шрифта основного текста:"
+
+msgid "Main text color:"
+msgstr "Цвет основного текста:"
+
+msgid "Text line height:"
+msgstr "Высота строки текста:"
+
+msgid "Links color:"
+msgstr "Цвет ссылок:"
+
+msgid "Visited links color:"
+msgstr "Цвет посещенных ссылок:"
+
+msgid "Focus links color:"
+msgstr "Цвет ссылок в фокусе:"
+
+msgid "Page top"
+msgstr "Верх страницы"
+
+msgid "Prelude color:"
+msgstr "Цвет вводной части:"
+
+msgid "Hide main title"
+msgstr "Спраятать главный заголовок"
+
+msgid "Main title font:"
+msgstr "Шрифт главного заголовка:"
+
+msgid "Main title font size:"
+msgstr "Размер шрифта главного заголовка:"
+
+msgid "Main title color:"
+msgstr "Цвет главного заголовка:"
+
+msgid "Main title alignment:"
+msgstr "Выравнивание главного заголовка:"
+
+msgid "center"
+msgstr "по центру"
+
+msgid "left"
+msgstr "по левому краю"
+
+msgid "right"
+msgstr "по правому краю"
+
+msgid "Main title position (x:y)"
+msgstr "Позиция главного заголовка (x:y)"
+
+msgid "Top image"
+msgstr "Верхнее изображение"
+
+msgid "Choose \"Custom...\" to upload your own image."
+msgstr "Выберите \"Настроить...\" чтобы загрузить свое изображение."
+
+msgid "Add your image:"
+msgstr "Добавить изображение:"
+
+#, php-format
+msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
+msgstr "Файл JPEG или PNG, шириной 800 пикселей, максимальный размер %s"
+
+msgid "Preview"
+msgstr "Предпросмотр"
+
+msgid "Sidebar"
+msgstr "Сайдбар"
+
+msgid "Sidebar position:"
+msgstr "Позиция сайдбара:"
+
+msgid "Sidebar text font:"
+msgstr "Шрифт текста сайдбара:"
+
+msgid "Sidebar text font size:"
+msgstr "Размер шрифта текста сайдбара:"
+
+msgid "Sidebar text color:"
+msgstr "Цвет текста сайдбара:"
+
+msgid "Sidebar titles font:"
+msgstr "Шрифт заголовков сайдбара:"
+
+msgid "Sidebar titles font size:"
+msgstr "Размер шрифта заголовков сайдбара:"
+
+msgid "Sidebar titles color:"
+msgstr "Цвет заголовков сайдбара:"
+
+msgid "Sidebar 2nd level titles font:"
+msgstr "Шрифт заголовков 2-го уровня сайдбара:"
+
+msgid "Sidebar 2nd level titles font size:"
+msgstr "Размер шрифта заголовков 2-го уровня сайдбара:"
+
+msgid "Sidebar 2nd level titles color:"
+msgstr "Цвет заголовков 2-го уровня сайдбара:"
+
+msgid "Sidebar lines color:"
+msgstr "Цвет линий сайдбара:"
+
+msgid "Sidebar links color:"
+msgstr "Цвет ссылок в сайдбаре:"
+
+msgid "Sidebar visited links color:"
+msgstr "Цвет посещенных ссылок в сайдбаре:"
+
+msgid "Sidebar focus links color:"
+msgstr "Цвет ссылок в фокусе сайдбара:"
+
+msgid "Date title font:"
+msgstr "Шрифт заголовка даты:"
+
+msgid "Date title font size:"
+msgstr "Размер шрифта заголовка даты:"
+
+msgid "Date title color:"
+msgstr "Цвет заголовка даты:"
+
+msgid "Entry title font:"
+msgstr "Шрифт заголовка записи:"
+
+msgid "Entry title font size:"
+msgstr "Размер шрифта заголовка записи:"
+
+msgid "Entry title color:"
+msgstr "Цвет заголовка записи:"
+
+msgid "Comment background color:"
+msgstr "Цвет фона комментириев:"
+
+msgid "Comment text color:"
+msgstr "Цвет текста комментариев:"
+
+msgid "My comment background color:"
+msgstr "Цвет фона моих комментариев:"
+
+msgid "My comment text color:"
+msgstr "Цвет текста моих комментариев:"
+
+msgid "Footer"
+msgstr "Нижний колонтитул"
+
+msgid "Footer font:"
+msgstr "Шрифт нижнего колонтитула:"
+
+msgid "Footer font size:"
+msgstr "Размер шрифта нижнего колонтитула:"
+
+msgid "Footer color:"
+msgstr "Цвет нижнего колонтитула:"
+
+msgid "Footer links color:"
+msgstr "Цвет ссылок в нижнем колонтитуле:"
+
+msgid "Footer background color:"
+msgstr "Цвет фона нижнего колонтитула:"
+
+msgid "Configuration import / export"
+msgstr "Импортировать/экспортировать настройки"
+
+msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
+msgstr "Вы можете сделать настройки общими, используя следующий код. Чтобы применить настройки, вставьте код, нажмите на \"Применить код\" и сохраните."
+
+msgid "default"
+msgstr "по умолчанию"
+
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr ""
+
+#, fuzzy
+msgid "The 'public' directory does not exist."
+msgstr "Эта страница не существует."
+
+#, php-format
+msgid "The '%s' directory cannot be modified."
+msgstr ""
+
+msgid "Unable to create images."
+msgstr "Невозможно создать изображения."
+
+msgid "Invalid file type."
+msgstr "Неверный тип файла."
+
+msgid "Uploaded image is not 800 pixels wide."
+msgstr ""
+
+msgid "Unable to open image."
+msgstr "Невозможно открыть изображение."
+
+msgid "External media"
+msgstr "Внешние медиа"
+
+msgid "External media selector"
+msgstr "Внешний медиа селектор"
+
+msgid "Supported media services"
+msgstr "Поддерживаемые медиа сервисы"
+
+msgid "Please enter the URL of the page containing the video you want to include in your post."
+msgstr "Пожалуйста, введите URL страницы, содержащей видео файл, который вы хотите добавить в запись."
+
+msgid "Page URL:"
+msgstr "URL страницы:"
+
+msgid "Media alignment"
+msgstr "Расположение медиа"
+
+msgid "Media title"
+msgstr "Заголовок медиа"
+
+msgid "Checks trackback source for a link to the post"
+msgstr "Проверить источник пинга на наличие ссылки на пост"
+
+msgid "Import/Export"
+msgstr "Импорт/Экспорт"
+
+msgid "Flat file export"
+msgstr "Экспорт текстового файла."
+
+msgid "Exports a blog or a full Dotclear installation to flat file."
+msgstr "Экспорт блога или полной установки Dotclear в текстовый файл."
+
+#, fuzzy
+msgid "Export file not found."
+msgstr "Таблицы Dotclear не найдены"
+
+msgid "Export a blog"
+msgstr "Экспортировать блог"
+
+#, php-format
+msgid "This will create an export of your current blog: %s"
+msgstr "Это выполнит экспорт вашего текущего блога: %s."
+
+msgid "Export"
+msgstr "Экспорт"
+
+msgid "You may also want to download your media directory as a zip file"
+msgstr ""
+
+msgid "Export all content"
+msgstr "Экспорт всего содержимого"
+
+msgid "Congratulation!"
+msgstr "Поздравляем!"
+
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "Ваш блог успешно импортирован. Добро пожаловать в Dotclear 2 !"
+
+msgid "Why don't you blog this now?"
+msgstr "Почему бы не создать пост сейчас?"
+
+msgid "or"
+msgstr "или"
+
+msgid "visit your dashboard"
+msgstr "посетить панель инструментов"
+
+msgid "Dotclear 1.2 import"
+msgstr "Импорт Dotclear 1.2"
+
+msgid "Import a Dotclear 1.2 installation into your current blog."
+msgstr "Импортировать установку Dotclear 1.2 в ваш текущий блог."
+
+#, php-format
+msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
+msgstr "Это импортирует содержимое вашего блога Dotclear 1.2 как новое содержимое текущего блога: %s."
+
+msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
+msgstr "Заметьте, что этот процесс очистит все категории, ссылки, записи и комментарии текущего блога."
+
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr "В зависимости от размера вашего блога, это может занять несколько минут."
+
+msgid "General information"
+msgstr "Общая информация"
+
+msgid "Import my blog now"
+msgstr "Импортировать мой блог"
+
+msgid "We first need some information about your old Dotclear 1.2 installation."
+msgstr "Сначала, нам нужна информация о вашей старой установке Dotclear 1.2."
+
+msgid "Entries import options"
+msgstr "Опции импорта записей"
+
+msgid "Number of entries to import at once:"
+msgstr "Количество записей для одновременного импорта:"
+
+msgid "Importing users"
+msgstr "Импортировать пользователей"
+
+msgid "Importing categories"
+msgstr "Импортировать категории"
+
+msgid "Importing blogroll"
+msgstr "Импортировать ссылки"
+
+#, fuzzy, php-format
+msgid "Importing entries from %d to %d / %d"
+msgstr "Импортировать записи от %d до %d"
+
+msgid "Please read carefully"
+msgstr ""
+
+msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
+msgstr "Каждый новый импортированный пользователь получил пароль и для получения нового нужно нажать на ссылку \"Я забыл пароль\" на форме логина (зарегистрированный email адрес должен быть действительным)."
+
+#, php-format
+msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
+msgstr ""
+
+msgid "next step"
+msgstr "следующий шаг"
+
+msgid "Dotclear tables not found"
+msgstr "Таблицы Dotclear не найдены"
+
+msgid "Feed import"
+msgstr "Импортировать ленту новостей"
+
+msgid "Imports a feed as new entries."
+msgstr "Импортировать ленту новостей как новые записи."
+
+msgid "Cannot retrieve feed URL."
+msgstr "Невозможно получить URL ленты новостей."
+
+msgid "No items in feed."
+msgstr "Нет элементов в ленте новостей."
+
+msgid "Content successfully imported."
+msgstr "Содержимое успешно импортировано."
+
+msgid "Import from a feed"
+msgstr "Импортировать из ленты новостей"
+
+#, php-format
+msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
+msgstr "Импорт ленты новостей (RSS или Atom) как новое содержимое в текущий блог: %s."
+
+msgid "Feed URL:"
+msgstr "URL ленты новостей:"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "Flat file import"
+msgstr "Импортировать текстовый файл"
+
+msgid "Imports a blog or a full Dotclear installation from flat file."
+msgstr "Импортировать блог или полную установку Dotclear из текстового файла."
+
+msgid "Single blog successfully imported."
+msgstr "Блог успешно импортирован."
+
+msgid "Are you sure you want to import a full backup file?"
+msgstr "Вы уверены, что хотите импортировать резервный файл?"
+
+msgid "Import a single blog"
+msgstr "Импортировать один блог"
+
+#, php-format
+msgid "This will import a single blog backup as new content in the current blog: %s."
+msgstr "Это импортирует резервный файл одного блога как новое содержимое в текущий блог: %s."
+
+msgid "Upload a backup file"
+msgstr "Загрузить резервный файл"
+
+msgid "or pick up a local file in your public directory"
+msgstr "или укажите на локальный файл в общедоступной директории"
+
+msgid "Import a full backup file"
+msgstr "Импортировать полный резервный файл"
+
+msgid "Warning: This will reset all the content of your database, except users."
+msgstr "Внимание: Это очистит все содержимое базы данных, кроме пользователей."
+
+msgid "WordPress import"
+msgstr "Импортировать WordPress"
+
+msgid "Import a WordPress installation into your current blog."
+msgstr "Импортировать блог WordPress в ваш текущий блог."
+
+#, php-format
+msgid "This will import your WordPress content as new content in the current blog: %s."
+msgstr "Это импортирует содержимое блога WordPress как новое содержимое в ваш текущий блог: %s."
+
+msgid "We first need some information about your old WordPress installation."
+msgstr "Сначала нам нужно получить некоторую информацию о вашем старом блоге WordPress."
+
+msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
+msgstr "WordPress и Dotclear по разному работают с категориями. Вы можете назначить несколько разных категорий к записи в WordPress. В Dotclear все подчиняется правилу \"Одна категоиря, несколько тегов\". Следовательно Dotclear может импортировать только одну категорию на одну запись, и в этом случае выбирается первая созданная категория. Если вы хотите сохранить информацию о категориях, вы можете выполнить их импорт в виде тегов с возможностью добавления префикса."
+
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+msgstr "С другой стороны, в WordPress, запись не может существовать без категории, и установка по умолчанию имеет первую категории с названием <i>\"Без категории\"</i>. Если вы не изменяли эту категорию, то вы можете игнорировать её при импорте вашего блога, так как Dotclear позволяет вам иметь записи без категорий."
+
+msgid "Ignore the first category:"
+msgstr "Игнорировать первую категорию:"
+
+msgid "Import lowest numbered category on posts:"
+msgstr "Импортировать самую старую категорию на записи:"
+
+msgid "Import all categories as tags:"
+msgstr "Импортировать все категории как теги:"
+
+msgid "Prefix such tags with:"
+msgstr "Добавить префикс к тегам:"
+
+#, fuzzy
+msgid "Content filters"
+msgstr "Вернуться к фильтрам"
+
+msgid "You may want to process your post and/or comment content with the following filters."
+msgstr ""
+
+msgid "Post content formatter:"
+msgstr ""
+
+#, fuzzy
+msgid "Comment content formatter:"
+msgstr "Цвет текста комментариев:"
+
+#, fuzzy
+msgid "WordPress tables not found"
+msgstr "Таблицы Dotclear не найдены"
+
+msgid "No file to read."
+msgstr "Нет файла для чтения."
+
+msgid "File is not a DotClear backup."
+msgstr "Файл не является резервной копией DotClear."
+
+msgid "File is not a single blog export."
+msgstr "Файл не является файлом экспотра блога."
+
+msgid "File is not a full export."
+msgstr "Файл не является полным экспортом."
+
+msgid "The backup file does not appear to be well formed."
+msgstr ""
+
+msgid "Please wait..."
+msgstr "Пожалуйста подождите..."
+
+msgid "Import"
+msgstr "Импортировать"
+
+# French translation of DotClea"
+msgid "Maintenance"
+msgstr "Поддержка"
+
+msgid "Optimization successful."
+msgstr "Оптимизация успешно выполнена."
+
+msgid "Comments and trackback counted."
+msgstr "Комментарии и пинги посчитаны."
+
+msgid "Templates cache directory emptied."
+msgstr ""
+
+msgid "Logs deleted."
+msgstr ""
+
+#, php-format
+msgid "Indexing entry %d to %d."
+msgstr "Индексирование записей с %d по %d"
+
+msgid "next"
+msgstr "следующая"
+
+msgid "Entries index done."
+msgstr "Индексация записей завершена."
+
+msgid "Back"
+msgstr "Назад"
+
+#, php-format
+msgid "Indexing comment %d to %d."
+msgstr "Индексирование комментариев с %d по %d."
+
+msgid "Comments index done."
+msgstr "Индексация комментариев завершена."
+
+msgid "Optimize database room"
+msgstr "Оптимизация базы данных"
+
+msgid "Vacuum tables"
+msgstr "Очистить базу данных"
+
+msgid "Counters"
+msgstr "Счетчики"
+
+msgid "Reset comments and ping counters"
+msgstr "Сбросить счетчики комментариев и пингов"
+
+msgid "Search engine index"
+msgstr "Индекс поисковика"
+
+msgid "This may take a very long time"
+msgstr "Это может занять много времени"
+
+msgid "Index all posts"
+msgstr "Индексировать все записи"
+
+msgid "Index all comments"
+msgstr "Индексировать все комментарии"
+
+#, fuzzy
+msgid "Vacuum logs"
+msgstr "Очистить базу данных"
+
+#, fuzzy
+msgid "Delete all logs"
+msgstr "Удалить весь спам"
+
+msgid "Empty templates cache directory"
+msgstr ""
+
+msgid "Empty directory"
+msgstr ""
+
+msgid "Pages"
+msgstr "Страницы"
+
+msgid "manage pages"
+msgstr "управление страницами"
+
+msgid "Published on"
+msgstr "Опубликовано"
+
+msgid "This page's comments feed"
+msgstr "Лента новостей к комментариям этой страницы"
+
+msgid "You must provide a valid email address."
+msgstr "Вы должны ввести действительный email адрес."
+
+msgid "Page title"
+msgstr "Заголовок страницы"
+
+msgid "Page position"
+msgstr "Позиция страницы"
+
+msgid "Publication date"
+msgstr "Дата публикации"
+
+msgid "No page"
+msgstr "Нет страниц"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected pages?"
+msgstr "Вы уверены, что хотите удалить выбранные ссылки?"
+
+msgid "New page"
+msgstr "Новая страница"
+
+msgid "Selected pages action:"
+msgstr "Действия над выбранными страницами:"
+
+msgid "This page does not exist."
+msgstr "Эта страница не существует."
+
+msgid "Edit page"
+msgstr "Редактировать страницу"
+
+msgid "next page"
+msgstr "следующая страница"
+
+msgid "previous page"
+msgstr "предыдущая страница"
+
+msgid "Are you sure you want to delete this page?"
+msgstr "Вы уверены, что хотите удалить эту страницу?"
+
+msgid "Page has been successfully updated."
+msgstr "Страница успешно обновлена."
+
+msgid "Page has been successfully created."
+msgstr "Страница успешно создана."
+
+msgid "View page"
+msgstr "Просмотреть страницу"
+
+msgid "Preview page"
+msgstr "Предпросмотр страницы"
+
+msgid "Page status:"
+msgstr "Статус страницы:"
+
+msgid "Page position:"
+msgstr "Позиция страницы:"
+
+msgid "Page lang:"
+msgstr "Язык страницы:"
+
+msgid "Page password:"
+msgstr "Пароль страницы:"
+
+msgid "Warning: If you set the URL manually, it may conflict with another page."
+msgstr "Внимание: если вы вводите URL вручную, это может вызвать конфликт с другой страницей."
+
+msgid "Add files to this page"
+msgstr "Добавить файлы на страницу"
+
+msgid "Pings"
+msgstr "Пинги"
+
+msgid "Pings configuration"
+msgstr "Конфигурация пингов"
+
+msgid "Settings have been successfully updated."
+msgstr "Настройки успешно обновлены."
+
+msgid "Activate pings extension"
+msgstr "Активировать модуль пингов."
+
+msgid "Service name:"
+msgstr "Название сервиса:"
+
+msgid "Service URI:"
+msgstr "URI сервиса:"
+
+msgid "error"
+msgstr "ошибка"
+
+msgid "Test ping services"
+msgstr "Протестировать сервис пингов"
+
+msgid "Check all"
+msgstr ""
+
+msgid "Pings:"
+msgstr "Пинги:"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "Tags:"
+msgstr "Теги:"
+
+#, php-format
+msgid "Are you sure you want to remove this %s?"
+msgstr "Вы уверены, что хотите удалить %s ?"
+
+#, php-format
+msgid "Add a %s to this entry"
+msgstr "Добавить %s к этой записи"
+
+msgid "Choose from list"
+msgstr "Выбрать из списка"
+
+msgid "all"
+msgstr "все"
+
+msgid "Tag"
+msgstr "Тег"
+
+msgid "used in %e - frequency %p%"
+msgstr ""
+
+#, fuzzy
+msgid "entry"
+msgstr "по центру"
+
+msgid "entries"
+msgstr "записи"
+
+msgid "Enter tags separated by coma"
+msgstr ""
+
+#, fuzzy
+msgid "Add tags"
+msgstr "добавить теги"
+
+#, fuzzy
+msgid "Remove tags"
+msgstr "удалить теги"
+
+msgid "Add tags to entries"
+msgstr "Добавить теги к записям"
+
+msgid "Tags to add:"
+msgstr "Теги для добавления:"
+
+msgid "Remove selected tags from entries"
+msgstr "Удалить выбранные теги из записей"
+
+msgid "No tags for selected entries"
+msgstr "Нет тегов для выбранных записей"
+
+msgid "Following tags have been found in selected entries:"
+msgstr "Следующие теги  были найдены в выбранных записях:"
+
+msgid "short"
+msgstr ""
+
+msgid "extended"
+msgstr ""
+
+#, fuzzy
+msgid "Tags list format:"
+msgstr "Теги для добавления:"
+
+msgid "This tag's comments Atom feed"
+msgstr "Лента новостей Atom для комментариев этого тега"
+
+msgid "This tag's entries Atom feed"
+msgstr "Лента новостей Atom записей с этим тегом"
+
+msgid "Limit (empty means no limit):"
+msgstr "Лимит (нет предела при пустом поле)"
+
+msgid "Entries count"
+msgstr "Количество записей"
+
+msgid "Tag name"
+msgstr "Название тега"
+
+msgid "All tags"
+msgstr "Все теги"
+
+msgid "Link to all tags:"
+msgstr ""
+
+msgid "Edit tag"
+msgstr "Редактировать тег"
+
+msgid "Tag has been successfully renamed"
+msgstr "Тег был успешно переименован"
+
+msgid "Back to tags list"
+msgstr "Вернуться к списку тегов"
+
+msgid "Rename this tag:"
+msgstr "Переименовать этот тег:"
+
+msgid "Delete this tag"
+msgstr "Удалить этот тег"
+
+msgid "Tag has been successfully removed"
+msgstr "Тег успешно удален"
+
+msgid "No tags on this blog."
+msgstr "Нет тегов в этом блоге"
+
+msgid "Theme Editor"
+msgstr "Редактор тем"
+
+msgid "No file"
+msgstr "Нет файла"
+
+msgid "File does not exist."
+msgstr "Файл не существует."
+
+#, php-format
+msgid "File %s is not readable"
+msgstr "Файл %s не читабельный"
+
+#, php-format
+msgid "Unable to write file %s. Please check your theme files and folders permissions."
+msgstr "Невозможно выполнить запись в файл %s. Пожалуйста, проверьте файлы темы и права доступа к папкам."
+
+msgid "Saving document..."
+msgstr "Сохранение документа..."
+
+msgid "Document saved"
+msgstr "Документ сохранен"
+
+msgid "An error occurred:"
+msgstr "Произошла ошибка:"
+
+#, php-format
+msgid "Your current theme on this blog is \"%s\"."
+msgstr "Текущая тема блога \"%s\"."
+
+msgid "You can't edit default theme."
+msgstr "Нельзя редактировать тему по-умолчанию."
+
+msgid "Please select a file to edit."
+msgstr "Выберите файл для редактирования."
+
+msgid "File editor"
+msgstr "Редактор файлов"
+
+#, php-format
+msgid "Editing file %s"
+msgstr "Редактирования файла %s"
+
+msgid "This file is not writable. Please check your theme files permissions."
+msgstr "Невозможно выполнить запись в файл. Пожалуйста проверьте права доступа к файлам темы."
+
+msgid "Templates files"
+msgstr "Файлы шаблонов"
+
+msgid "CSS files"
+msgstr "CSS файлы"
+
+msgid "JavaScript files"
+msgstr "JavaScript файлы"
+
+msgid "Presentation widgets"
+msgstr "Виджеты оформления"
+
+msgid "Search engine"
+msgstr "Поиск"
+
+msgid "Navigation links"
+msgstr "Навигационные ссылки"
+
+msgid "Selected entries"
+msgstr "Выбранные записи"
+
+msgid "Best of me"
+msgstr "Лучшее"
+
+msgid "Blog languages"
+msgstr "Языки блога"
+
+msgid "With entries counts"
+msgstr "Показывать количество записей"
+
+msgid "Subscribe links"
+msgstr "Ссылки подписки"
+
+msgid "Subscribe"
+msgstr "Подписаться"
+
+msgid "Feeds type:"
+msgstr "Тип фида:"
+
+msgid "Feed reader"
+msgstr "RSS ридер"
+
+msgid "Somewhere else"
+msgstr "Где-нибудь еще"
+
+msgid "Entries limit:"
+msgstr "Максимальное количество записей:"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Text:"
+msgstr "Текст:"
+
+msgid "Last entries"
+msgstr "Последние записи"
+
+#, fuzzy
+msgid "Uncategorized"
+msgstr "Импортировать категории"
+
+#, fuzzy
+msgid "Tag:"
+msgstr "Теги:"
+
+msgid "Last comments"
+msgstr "Последние комментарии"
+
+msgid "Comments limit:"
+msgstr "Максимальное количество комментариев:"
+
+msgid "Home"
+msgstr "Домой"
+
+msgid "Archives"
+msgstr "Архивы"
+
+#, php-format
+msgid "This blog's entries %s feed"
+msgstr "Лента новостей %s записей блога"
+
+#, php-format
+msgid "This blog's comments %s feed"
+msgstr "Лента новостей %s комментариев блога"
+
+msgid "Entries feed"
+msgstr "RSS записей"
+
+msgid "Comments feed"
+msgstr "RSS комментариев"
+
+msgid "navigation"
+msgstr "навигация"
+
+msgid "extra"
+msgstr "экстра"
+
+msgid "Widgets"
+msgstr "Виджеты"
+
+msgid "Are you sure you want to reset sidebars?"
+msgstr "Вы уверены, что хотите переустановить сайдбар?"
+
+msgid "Available widgets"
+msgstr "Доступные виджеты"
+
+msgid "Append to:"
+msgstr "Добавить к:"
+
+msgid "add widgets to sidebars"
+msgstr "добавить виджеты в сайдбар"
+
+msgid "Navigation sidebar"
+msgstr "Сайдбар для навигации"
+
+msgid "Extra sidebar"
+msgstr "Экстра сайдбар"
+
+msgid "update sidebars"
+msgstr "Обновить сайдбары"
+
+msgid "reset sidebars"
+msgstr "Переустановить сайдбары"
+
+msgid "Widget templates tags"
+msgstr ""
+
+msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
+msgstr ""
+
+msgid "To add a widget in your template, you need to write code like this:"
+msgstr ""
+
+#, fuzzy
+msgid "Widget ID"
+msgstr "Виджеты"
+
+#, fuzzy
+msgid "Setting name"
+msgstr "Название сервиса:"
+
+msgid "Setting value"
+msgstr ""
+
+msgid "Here are the following available widgets for your blog:"
+msgstr ""
+
+#, fuzzy
+msgid "Widget ID:"
+msgstr "Виджеты"
+
+msgid "No setting for this widget"
+msgstr ""
+
+#, fuzzy
+msgid "Setting name:"
+msgstr "Название сервиса:"
+
+msgid "No widget."
+msgstr "Нет виджета."
+
+msgid "order"
+msgstr "порядок"
+
+msgid "Remove widget"
+msgstr "Удалить виджет"
+
+#~ msgid "Unsupported service"
+#~ msgstr "Сервис не поддержуется"
+
+#~ msgid "Invalid page URL"
+#~ msgstr "Неверный URL страницы"
+
+#~ msgid "Add a new category"
+#~ msgstr "Добавить новую категорию"
+
+#~ msgid "Empty file name"
+#~ msgstr "Пустое имя файла"
+
+#~ msgid "This file already exists"
+#~ msgstr "Этот файл уже существует"
+
+#~ msgid "It can be downloaded here:"
+#~ msgstr "Это можно загрузить здесь:"
+
+#~ msgid "The backup file has been created in your public directory."
+#~ msgstr "Резервный файл был создан в публичной директории."
+
+#~ msgid "more"
+#~ msgstr "больше"
+
+#~ msgid "Categories list"
+#~ msgstr "Список категорий"

@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2009-09-02 18:57+0600\n"
+"Last-Translator: Adnan Shameem <needadnan@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Bengali\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+msgid "_Jan"
+msgstr "জানু"
+
+msgid "_Feb"
+msgstr "ফেব্রু"
+
+msgid "_Mar"
+msgstr "মার্চ"
+
+msgid "_Apr"
+msgstr "এপ্রিল"
+
+msgid "_May"
+msgstr "মে"
+
+msgid "_Jun"
+msgstr "জুন"
+
+msgid "_Jul"
+msgstr "জুল"
+
+msgid "_Aug"
+msgstr "আগ"
+
+msgid "_Sep"
+msgstr "সেপ্ট"
+
+msgid "_Oct"
+msgstr "অক্টো"
+
+msgid "_Nov"
+msgstr "নভে"
+
+msgid "_Dec"
+msgstr "ডিসে"
+
+msgid "January"
+msgstr "জানুয়ারি"
+
+msgid "February"
+msgstr "ফেব্রুয়ারি"
+
+msgid "March"
+msgstr "মার্চ"
+
+msgid "April"
+msgstr "এপ্রিল"
+
+msgid "May"
+msgstr "মে"
+
+msgid "June"
+msgstr "জুন"
+
+msgid "July"
+msgstr "জুলাই"
+
+msgid "August"
+msgstr "আগস্ট"
+
+msgid "September"
+msgstr "সেপ্টেম্বর"
+
+msgid "October"
+msgstr "অক্টোবর"
+
+msgid "November"
+msgstr "নভেম্বর"
+
+msgid "December"
+msgstr "ডিসেম্বর"
+
+msgid "_Mon"
+msgstr "সোম"
+
+msgid "_Tue"
+msgstr "মঙ্গল"
+
+msgid "_Wed"
+msgstr "বুধ"
+
+msgid "_Thu"
+msgstr "বৃহ"
+
+msgid "_Fri"
+msgstr "শুক্র"
+
+msgid "_Sat"
+msgstr "শনি"
+
+msgid "_Sun"
+msgstr "রবি"
+
+msgid "Monday"
+msgstr "সোমবার"
+
+msgid "Tuesday"
+msgstr "মঙ্গলবার"
+
+msgid "Wednesday"
+msgstr "বুধবার"
+
+msgid "Thursday"
+msgstr "বৃহস্পতিবার"
+
+msgid "Friday"
+msgstr "শুক্রবার"
+
+msgid "Saturday"
+msgstr "শনিবার"
+
+msgid "Sunday"
+msgstr "রবিবার"

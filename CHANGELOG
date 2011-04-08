@@ -1,0 +1,307 @@
+Dotclear 2.2.2 - 2011-01-17
+===========================================================
+* Bugfix: 2.2.1 was blocking new installations
+* Autoupdate procedure should now be "bad ftp client configuration"-proof.
+* Several other small bugfixes
+
+Dotclear 2.2.1 - 2011-01-15
+===========================================================
+* ExternalMedia is not part of the core distribution anymore
+* New attribute to tpl:SysIf: blog_id
+* New behaviour: adminMediaItemForm
+* Several bugfixes
+* Several code optimizations
+* Several typos corrected
+* Security fix in Clearbricks. Thx to François Pierre-Doray for pointing it out.
+
+
+Dotclear 2.2 - 2010-07-01
+===========================================================
+* New installation wizard.
+* Several new behaviours:
+	- adminCommentHeaders
+	- adminCommentsActionsCombo
+	- adminCommentsActions
+	- adminCommentsActionsContent
+	- adminBeforeCommentDelete
+	- adminPostsActionsHeaders
+	- adminUsersActionsCombo
+	- coreBeforeCategoryCreate & coreAfterCategoryCreate
+	- coreBeforeCategoryUpdate & coreAfterCategoryUpdate
+	- coreBeforeLogCreate & coreAfterLogCreate
+	- coreBeforePostCreate & coreAfterPostCreate
+	- coreBeforePostUpdate & coreAfterPostUpdate
+	- coreMediaConstruct
+	- templateCustomSortByAlias
+	- urlHandlerGetArgsDocument
+* New methods for several core classes.
+* Metadata integration to the core.
+* Error handlers can now be extended.
+* Templates: blocks can now be recursive.
+* Templates: Entries & Comments tags can now be sorted.
+* Templates: The template subsystem is quicker, linier, and ready to be extended.
+* Complete reworking of the settings system 
+* Correct handling of postgresql non default schemas.
+* Admin: Autocompletion and further enhancing to tags handling.
+* Admin: Accessibility & ergonomic tweaks.
+* Admin: Administrator tag in users list.
+* Comment cookies are now specific to the blog rather than to the domain.
+* Password changes can now be mandatory.
+* jQuery updated to 1.4.2.
+* And way too many bugfixes and typos squashes to be listed.
+
+
+Dotclear 2.1.7 - 2010-05-25
+===========================================================
+* Auto-update procedure fix
+
+Dotclear 2.1.6 - 2009-10-01
+===========================================================
+* Install procedure fixes
+* Admin: Page managers can now create pages
+* Admin: several typos corrected.
+* Admin: Widgets now work in IE8.
+* Admin: Password protected posts can now be previewed.
+* Templates: tpl:Meta* are now tpl:Tags*.
+* Templates: <tpl:Entries lastn="0"> now display all posts.
+* new behavior: adminPageHTMLHead
+* DB schema: new blog_id field in log table
+* Media manager: Pubic folder can now be set on a different host.
+* WordPress import fixes
+* Dailymotion insertion fix
+* Upgrade procedure: CRLF removed in files that were bugging the upgrade.
+* JQuery updated to 1.3
+* IE7-js update
+* security: Full Path Disclosure protection. Thx to Karim Ayad for pointing it out.
+* and way too many bugfixes to be listed.
+
+Dotclear 2.1.5 - 2009-02-05
+===========================================================
+* Security release
+* Youtube insertion update
+
+Dotclear 2.1.4 - 2008-12-21
+===========================================================
+* Security flaw fix
+* WordPress import refining
+* XML-RPC improvements
+
+Dotclear 2.1.3 - 2008-11-19
+===========================================================
+* Admin: New upgrade procedure
+* Admin: Fixed video insertion bug
+* Template: New attributes
+  * url on EntryIf
+  * only_category on Blogroll
+  * no_context on Pagination
+* Template: New tag
+  * BlogID
+* Admin: escaped blog_id on authentication page
+
+Dotclear 2.1.1 - 2008-11-07
+===========================================================
+* Admin: Automatic Update bug fixes
+* Admin: Disable Automatic Update if no digests file
+* Admin: Javascript fixes in authentication page
+* Admin: Fixed errors with categories select boxes
+* Template: Added level attribute in tpl:Categories
+* Media: Added H.264/MPEG-4 AVC for mp4 files
+
+Dotclear 2.1 - 2008-11-01
+===========================================================
+* Subcategories
+* Admin: Automatic Update
+* Admin: Flash 10 support for uploader
+* Admin: mailto link in comment details
+* Admin: Embedded video size selection
+* Admin: Restrict session cookie path to admin
+* Media: H.264/MPEG-4 AVC (HD) support with m4v files
+* Inherited themes
+* WordPress XML-RPC methods support
+* True unicode URLs
+* Plugin: Widgets as template tags
+* Plugin: Filters in entries widgets and Blogroll
+* Plugin: Added vimeo.com in external media
+* Template: New tags
+  * LoopPosition
+  * CommentAuthorDomain
+  * CommentAuthorMD5
+  * EntryFirstImage
+  * EntryCategoryShortURL
+  * CategoryIf
+  * CategoryFirstChildren
+  * CategoryParents
+  * EntryCategoriesBreadcrum
+  * MediaURL
+
+Dotclear 2.0.2 - 2008-09-05
+===========================================================
+* New installation procedure
+* Plugin: WordPress import fixes
+* Plugin: Plain text export as downloadable files
+* Plugin: Message about URLs in Dotclear 1.2 import
+* Public: Display a message if search returns no result
+* Admin: Fixed some CSS bugs
+* Admin: Batch select/unselect entries
+* Admin: In a media item, find entries containing it
+
+Dotclear 2.0.1 - 2008-08-16
+===========================================================
+* Plugin: Fixed a bug with Dotclear 1.2 URLs import.
+* Plugin: Fixed a l10n bug in Pages
+* Admin: Enhanced plugins resources loading and cache
+
+Dotclear 2.0 - 2008-08-01
+===========================================================
+* Public: Atom becomes the default feed format. RSS 2 is always available.
+* Admin: design enhancements and new Dotclear logo
+* Admin: entries preview in blog context
+* L10N: New language manager with zip files support
+* Plugin: Import/Export plugin version 2.0 with import from Dotclear 1.2 and WordPress
+* Plugin: Pages enhancements (preview, sorting)
+* Plugin: support for jamendo and deezer in External Media
+* JSMin on JavaScript files instead of JS packing
+* SQLite 3 only support (PDO based)
+* Many bug fixes and major performances improvements
+
+Dotclear 2.0 RC2 - 2008-06-21
+===========================================================
+* FairTrackback spam filter
+* Language pack infrastructure
+* Bug fix on comment search with author "0"
+* Javascript fixes
+* dcAuth::sessionExists and dcAuth::checkSession new methods
+* Right management in dcAuth::sudo
+* Media File sorting options in media manager
+* CandyUpload, new uploader tool based on SWFUpload
+* New search engine robots options
+* New image options
+* L10N: Japanese and Portugues (Brazil) language packs
+* Many bug fixes and enhancements
+
+Dotclear 2.0 RC1 - 2008-05-01
+===========================================================
+* New: Pages plugin
+* New: Theme editor plugin
+* Entries: Text and WYSIWYG enhancements
+* Entries: Markup validator
+* Entries: Insertion of links to other entries from toolbar
+* Entries: External media insertion (dailymotion, youtube, google video)
+* Tags: Same list for new and existing entries
+* Tags: Tags can be removed on all associated entries
+* Tags: Tags can be removed on a post selection
+* Admin: Ask password for user management tasks, theme upload and plugin upload
+* Admin: New contextual help viewer
+* Media manager: Recreate thumbnails option
+* Media manager: Custom medium thumbnail size (per blog)
+* Media manager: Zip files extract support
+* Media manager: Zip file download of directory
+* Media manager: File exclusion pattern option
+* Themes and plugins: Zip as new package format
+* Themes and plugins: Upload
+* Themes and plugins: Upgrade within administration interface
+* Themes and plugins: Deletion
+* Public: New default theme: Blowup (fully customizable)
+* Public: Changed the way commenter cookie is handled
+* Themes: Template files moved to tpl/ directory
+* L10N: Polish, Catalan and Spanish translations
+* Misc: jQuery upgraded to 1.2.3
+* Misc: Crushed png files
+* Fixed many bugs
+
+Dotclear 2.0 beta 7 - 2007-07-12
+===========================================================
+* New way to display comments and trackbacks on entries in backend
+* Dashboard visual improvements
+* Default cache dir created by installation process
+* Option to limit posts and comments in feeds
+* Introduced UDBS for installation and upgrade
+* Changed handling of XML-RPC URLs
+* New option to force HTTPS redirect if wanted
+* Enforced cookies security (directory and ssl support)
+* Added Plugin auto-install and auto-upgrade support
+* Added trackbacks ttl and moderation preferences
+* Added an Internal search engine
+* FLV support in backend with Neolao player
+* Added nice messages if database is broken or Dotclear not installed
+* upgrade jQuery to 1.1.3
+* Fixed many bugs
+* Fixed security issues in backend
+
+Dotclear 2.0 beta 6 - 2007-02-19
+===========================================================
+* New antispam plugin, with a set of filters (rbl, ipblacklist, spamwords, akismet)
+* New admin dashboard page
+* Fixed unwanted logout bug
+* Added settings to disable template caching and allow PHP code
+* Blog preferences panel bug fix
+* New XML-RPC Client and Server
+* Comment posting permissions bug fix
+
+Dotclear 2.0 beta 5.4 - 2007-01-19
+===========================================================
+* Minor change on spam display in comments.php
+* Command line upgrade script and fix in load_plugin_file.php
+* Make akismet configurable only by superadmin with DC_AKISMET_SUPER
+* SQL optimisations
+* New comments view in post
+
+Dotclear 2.0 beta 5.2 - 2007-01-11
+===========================================================
+* Fixed a bug with imageMeta::getMeta
+* Enhanced dynamic file uploader
+* Move clearbricks files to their own repository
+* Fixed a bug with auto_br in wikiSimpleComment
+* Support for language restriction in feeds
+* Default theme structure changes
+* Fixed a PHP 5.0 compatibility issue
+* Installation Wizard
+
+Dotclear 2.0 beta 4 - 2006-12-26
+===========================================================
+* Performances enhancements.
+* Administration UI enhancements.
+* More user-friendly Widgets (version 1.5).
+* Switch to jQuery <http://jquery.com>.
+* Added jQuery in default theme.
+* Major changes in HTTP client and Feed Parser based on a
+  generic socket handler.
+* PHP 5.2 compatibility.
+* Code documentation (all core and most of clearbricks).
+* Many bug fixes.
+
+Dotclear 2.0 beta 3 - 2006-11-05
+===========================================================
+* Disallow special wrappers for fopen like functions.
+* XML/RPC improvements.
+* Read IPTC and EXIF metadata in uploaded pictures.
+* MySQL 4.1 support only.
+* Metadata import from Dotclear 1.2.x.
+* Akismet plugin.
+* Pings plugin.
+* Added a priority setting for plugins.
+* Many bug fixes.
+
+Dotclear 2.0 beta 2 - 2006-08-09
+===========================================================
+* DC_PLUGIN_ROOT can handle more than one path.
+* OPML/XBEL import in blogroll plugin.
+* Fixed a security issue in html::absoluteURLs().
+* Fixed issues with timezone on scheduled entries.
+* Multiple categories selection in tpl:Entries.
+* Improved dbLayer.
+* Changed category feed URL.
+* Feeds for tags (entries and comments).
+* Added attachments count on backend and frontend.
+* New settings code design. Can now handle wide system settings.
+* Memory usage improvements with autoloader.
+* Some code cleanup.
+* Feed parser improvements.
+* Themes can be configured if needed.
+* XMP support on JPEG files.
+* Media manager improvements.
+* Spamplemousse now uses DNSBL (and the guy who left the bug was fired).
+* Javascript editor and toolbar improvements.
+* RDS support (XML/RPC API discovery).
+* Added a theme with user stylesheet.
+* Plugins manager

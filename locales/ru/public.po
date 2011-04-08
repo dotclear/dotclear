@@ -1,0 +1,238 @@
+# French translation of DotClear
+# Copyright (C) 2006.
+# Olivier Meunier <olivier@dotclear.net>, 2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2008-10-22 01:47+0200\n"
+"Last-Translator: Дмитрий Ищенко <ischenkodv@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+
+msgid "To content"
+msgstr "К содержимому"
+
+msgid "To menu"
+msgstr "К меню"
+
+msgid "To search"
+msgstr "В поиск"
+
+msgid "By"
+msgstr "Кем"
+
+msgid "by"
+msgstr "кем"
+
+msgid "on"
+msgstr "в"
+
+msgid "On"
+msgstr "в"
+
+msgid "Continue reading"
+msgstr "Читать дальше"
+
+msgid "no comment"
+msgstr "нет комментариев"
+
+msgid "one comment"
+msgstr "Один комментарий"
+
+msgid "%d comments"
+msgstr "Комментариев: %d"
+
+msgid "no trackback"
+msgstr "нет трекбеков"
+
+msgid "one trackback"
+msgstr "Один трекбек"
+
+msgid "%d trackbacks"
+msgstr "Трекбеков: %d"
+
+msgid "no attachment"
+msgstr "нет вложений"
+
+msgid "one attachment"
+msgstr "Одно вложение"
+
+msgid "%d attachments"
+msgstr "Вложений: %d"
+
+msgid "previous entries"
+msgstr "предыдущие записи"
+
+msgid "page"
+msgstr "страница"
+
+msgid "of"
+msgstr "из"
+
+msgid "next entries"
+msgstr "следующие записи"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr ""
+
+msgid "Home"
+msgstr "Домой"
+
+msgid "All keywords"
+msgstr "Все ключевые слова"
+
+msgid "Best of me"
+msgstr "Лучшие"
+
+msgid "Languages"
+msgstr "Языки"
+
+msgid "Categories"
+msgstr "Категории"
+
+#, fuzzy
+msgid "Subcategories"
+msgstr "Категории"
+
+msgid "Archives"
+msgstr "Архивы"
+
+msgid "Links"
+msgstr "Ссылки"
+
+msgid "Subscribe"
+msgstr "Подписаться"
+
+msgid "Entries feed"
+msgstr "RSS записей"
+
+msgid "Comments feed"
+msgstr "RSS комментариев"
+
+msgid "This blog's comments Atom feed"
+msgstr "Лента новостей Atom комментариев блога"
+
+msgid "This category's entries Atom feed"
+msgstr "Лента новостей Atom записей блога"
+
+msgid "This category's comments Atom feed"
+msgstr "Лента новостей Atom комментариев этой категории"
+
+msgid "This post's comments feed"
+msgstr "RSS комментариев этой записи"
+
+msgid "This post's comments Atom feed"
+msgstr "Лента новостей Atom комментариев этой записи"
+
+msgid "Attachments"
+msgstr "Вложения"
+
+msgid "Permalink"
+msgstr "Постоянная ссылка"
+
+msgid "Comments"
+msgstr "Комментарии"
+
+msgid "Your comment"
+msgstr "Ваш комментарий"
+
+msgid "Your comment has been published."
+msgstr "Ваш комментарий опубликован."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Ваш комментарий сохранен и ожидает модерации."
+
+msgid "Add a comment"
+msgstr "Добавить комментарий"
+
+msgid "Name or nickname"
+msgstr "Имя"
+
+msgid "Email address"
+msgstr "Email"
+
+msgid "Website"
+msgstr "Вебсайт"
+
+msgid "optional"
+msgstr "необязательно"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML код отображается как текст, веб адреса автоматически преобразовываются."
+
+msgid "Remember me on this blog"
+msgstr "Запомнить меня на этом блоге"
+
+msgid "preview"
+msgstr "предпросмотр"
+
+msgid "send"
+msgstr "отправить"
+
+msgid "They posted on the same topic"
+msgstr "Продолжение обсуждения"
+
+msgid "Trackback URL"
+msgstr "URL трекбека"
+
+msgid "You must provide an author name"
+msgstr "Укажите ваше имя"
+
+msgid "You must provide a comment"
+msgstr "Введите ваш комментарий"
+
+msgid "Email address is not valid"
+msgstr "Неверный адрес email"
+
+msgid "Document not found"
+msgstr "Документ не найден"
+
+msgid "The document you are looking for does not exist."
+msgstr "Документ, который вы ищете не существует."
+
+msgid "Powered by %s"
+msgstr "Создано на %s"
+
+msgid "Subscribe to"
+msgstr "Подписаться на"
+
+msgid "What is an RSS feed?"
+msgstr "Что такое RSS ?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Лента новостей RSS - это краткая подборка новостей блога. Она содержит записи или комментарии вместе со ссылками на полную версию, а также другие данные. Последние опубликованные записи могут быть прочитаны таким образом в приложении для <a href=\"http://en.wikipedia.org/wiki/Aggregator\">чтения лент RSS</a>"
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Копировать следующий URL в программу чтения новостей:"
+
+msgid "Password needed"
+msgstr "Необходим пароль"
+
+msgid "You must give a password to access this area."
+msgstr "Нужно ввести пароль чтобы пройти далее."
+
+msgid "Password:"
+msgstr "Пароль:"
+
+msgid "You must provide a valid email address."
+msgstr "Введите правильный email адрес."
+
+msgid "Read"
+msgstr "Читать"

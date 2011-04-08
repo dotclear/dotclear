@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xml:lang="{{tpl:BlogLanguage}}">
+  
+  <title type="html">{{tpl:BlogName encode_xml="1"}}{{tpl:SysFeedSubtitle encode_xml="1"}}</title>
+  <subtitle type="html">{{tpl:BlogDescription encode_xml="1"}}</subtitle>
+  <link href="{{tpl:SysSelfURI}}" rel="self" type="application/atom+xml"/>
+  <link href="{{tpl:BlogURL}}" rel="alternate" type="text/html"
+  title="{{tpl:BlogDescription encode_xml="1"}}"/>
+  <updated>{{tpl:BlogUpdateDate iso8601="1"}}</updated>
+  <author>
+    <name>{{tpl:BlogEditor encode_xml="1"}}</name>
+  </author>
+  <id>{{tpl:BlogFeedID}}</id>
+  <generator uri="http://www.dotclear.org/">Dotclear</generator>
+  
+  <tpl:Entries>
+  
+  <entry>
+    <title>{{tpl:EntryTitle encode_xml="1"}}</title>
+    <link href="{{tpl:EntryURL}}" rel="alternate" type="text/html"
+    title="{{tpl:EntryTitle encode_xml="1"}}" />
+    <id>{{tpl:EntryFeedID}}</id>
+    <published>{{tpl:EntryDate iso8601="1"}}</published>
+    <updated>{{tpl:EntryDate iso8601="1" upddt="1"}}</updated>
+    <author><name>{{tpl:EntryAuthorCommonName encode_xml="1"}}</name></author>
+    <tpl:EntryIf has_category="1">
+    <dc:subject>{{tpl:EntryCategory encode_html="1"}}</dc:subject>
+    </tpl:EntryIf>
+    <tpl:EntryTags><dc:subject>{{tpl:TagID}}</dc:subject></tpl:EntryTags>
+    
+    <content type="html">{{tpl:EntryExcerpt absolute_urls="1" encode_xml="1"}}
+    {{tpl:EntryContent absolute_urls="1" encode_xml="1"}}</content>
+    
+    <tpl:Attachments>
+      <link rel="enclosure" href="{{tpl:AttachmentURL}}"
+      length="{{tpl:AttachmentSize full="1"}}" type="{{tpl:AttachmentMimeType}}" />
+    </tpl:Attachments>
+
+    
+    <tpl:EntryIf comments_active="1">
+      <wfw:comment>{{tpl:EntryURL}}#comment-form</wfw:comment>
+      <wfw:commentRss>{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}</wfw:commentRss>
+    </tpl:EntryIf>
+  </entry>
+  </tpl:Entries>
+
+</feed>

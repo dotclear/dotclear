@@ -1,0 +1,241 @@
+# German translation of DotClear
+# Copyright (C) 2008.
+# Andreas Diller <nendilo@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2010-08-09 19:51-0000\n"
+"Last-Translator: ben_griffith <ben_griffith@topmail.co.uk>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+# Not found strings
+msgid "To content"
+msgstr "Zum Inhalt"
+
+msgid "To menu"
+msgstr "Zum Menü"
+
+msgid "To search"
+msgstr "Zur Suche"
+
+msgid "By"
+msgstr "Von"
+
+msgid "by"
+msgstr "von"
+
+msgid "on"
+msgstr "am"
+
+msgid "On"
+msgstr "Am"
+
+msgid "Continue reading"
+msgstr "Weiterlesen"
+
+msgid "no comment"
+msgstr "Kein Kommentar"
+
+msgid "one comment"
+msgstr "Ein Kommentar"
+
+msgid "%d comments"
+msgstr "%d Kommentare"
+
+msgid "no trackback"
+msgstr "Kein Trackback"
+
+msgid "one trackback"
+msgstr "Ein Trackback"
+
+msgid "%d trackbacks"
+msgstr "%d Trackbacks"
+
+msgid "no attachment"
+msgstr "Keine Dateianlage"
+
+msgid "one attachment"
+msgstr "Eine Dateianlage"
+
+msgid "%d attachments"
+msgstr "%d Dateianlagen"
+
+msgid "previous entries"
+msgstr "vorheriger Einträge"
+
+msgid "page"
+msgstr "Seite"
+
+msgid "of"
+msgstr "von"
+
+msgid "next entries"
+msgstr "nächste Einträge"
+
+msgid "Search"
+msgstr "Suche"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Deine Suche nach <em>%1$s</em> ergab keinen Treffer."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Deine Suche nach <em>%1$s</em> ergab <strong>%2$s</strong> Treffer."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Deine Suche nach <em>%1$s</em> ergab <strong>%2$s</strong> Treffer."
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "All keywords"
+msgstr "Alle Schlüsselwörter"
+
+msgid "Best of me"
+msgstr "Das Beste von mir"
+
+msgid "Languages"
+msgstr "Sprachen"
+
+msgid "Categories"
+msgstr "Kategorien"
+
+msgid "Subcategories"
+msgstr "Unterkategorien"
+
+msgid "Archives"
+msgstr "Archiv"
+
+msgid "Links"
+msgstr "Links"
+
+msgid "Subscribe"
+msgstr "Abonnements"
+
+msgid "Entries feed"
+msgstr "Feed für Einträge"
+
+msgid "Comments feed"
+msgstr "Feed für Kommentare"
+
+msgid "This blog's comments Atom feed"
+msgstr "Die Kommentare dieses Blogs als Atom-Feed abonnieren"
+
+msgid "This category's entries Atom feed"
+msgstr "Die Einträge dieser Kategorie als Atom-Feed abonnieren"
+
+msgid "This category's comments Atom feed"
+msgstr "Die Kommentare dieser Kategorie als Atom-Feed abonnieren"
+
+msgid "This post's comments feed"
+msgstr "Die Kommentare dieses Eintrags als Atom-Feed abonnieren"
+
+msgid "This post's comments Atom feed"
+msgstr "Die Kommentare dieses Eintrags als Atom-Feed abonnieren"
+
+msgid "Attachments"
+msgstr "Dateianlagen"
+
+msgid "Permalink"
+msgstr "Permalink"
+
+msgid "Comments"
+msgstr "Kommentare"
+
+msgid "Your comment"
+msgstr "Dein Kommentar"
+
+msgid "Your comment has been published."
+msgstr "Dein Kommentar wurde erfolgreich veröffentlicht."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Dein Kommentar wurde gespeichert und wird nach Überprüfung veröffentlicht."
+
+msgid "Add a comment"
+msgstr "Kommentar eintragen"
+
+msgid "Name or nickname"
+msgstr "Name oder Nickname"
+
+msgid "Email address"
+msgstr "Email-Adresse"
+
+msgid "Website"
+msgstr "Webseite"
+
+msgid "optional"
+msgstr "optional"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML-Code wird als normaler Text angezeigt, Links und Email-Adressen werden automatisch umgewandelt."
+
+msgid "Remember me on this blog"
+msgstr "Speichere meine Angaben für diesen Blog"
+
+msgid "preview"
+msgstr "Vorschau"
+
+msgid "send"
+msgstr "Senden"
+
+msgid "They posted on the same topic"
+msgstr "Sie schrieben am gleichen Thema"
+
+msgid "Trackback URL"
+msgstr "Trackback URL"
+
+msgid "You must provide an author name"
+msgstr "Du mußt einen Namen oder Nicknamen angeben"
+
+msgid "You must provide a comment"
+msgstr "Du mußt einen Kommentar eingeben"
+
+msgid "Email address is not valid"
+msgstr "Die Email-Adresse ist nicht gültig"
+
+msgid "Document not found"
+msgstr "Dokument nicht gefunden"
+
+msgid "The document you are looking for does not exist."
+msgstr "Das Dokument existiert nicht."
+
+msgid "Powered by %s"
+msgstr "Erstellt mit %s"
+
+msgid "Subscribe to"
+msgstr "Abonnieren von"
+
+msgid "What is an RSS feed?"
+msgstr "Was ist ein RSS-Feed?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "<abbr xml:lang=\"en\" lang=\"en\" title=\"Really Simple Syndication\">RSS</abbr> ist eine freie Inhaltsübersicht für den Blog. Man kann Inhalte (z.B. Einträge oder Kommentare), oder auch Auszüge von Inhalten mit Links und anderen Metadaten abonnieren. Diese kannst Du dann in einen beliebigen <a href=\"http://de.wikipedia.org/wiki/Feedreader\">Feedreader</a>. lesen."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Kopiere einfach den folgenden URL in Deinen Feedreader:"
+
+msgid "Password needed"
+msgstr "Passwort erforderlich"
+
+msgid "You must give a password to access this area."
+msgstr "Für den Zutritt benötigst Du ein Passwort."
+
+msgid "Password:"
+msgstr "Passwort:"
+
+msgid "You must provide a valid email address."
+msgstr "Du mußt eine gültige Email-Adresse verwenden."
+
+msgid "Read"
+msgstr "Lesen"
+

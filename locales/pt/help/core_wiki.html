@@ -1,0 +1,80 @@
+<html>
+<head>
+  <title>Referência da sintaxe wiki</title>
+</head>
+
+<body>	
+<h3>Referência da sintaxe wiki</h3>
+
+<p>A sintaxe wiki é uma forma de melhorar o seu texto com um conjunto mínimo de comandos (os "tags"),<br />estudado para cobrir as necessidades básicas como: títulos, parágrafos, citações,
+listas etc.</ p>
+
+<dl>	
+<h5><dt>Elementos em Bloco</dt></h5>
+<dd>
+<ul>
+         <li> Deixar uma linha em branco entre cada bloco do mesmo tipo.</li>
+         <li> <strong>Parágrafo</strong>: texto livre, termine por uma linha em branco se for seguido por um segundo parágrafo.</li>
+         <li> <strong>Título</strong>: <code>!!! título</code>, <code>!! título</code> ou <code>! título</code>, o que permite usar três níveis (tamanho) para os títulos.</li>
+         <li> <strong>Linha horizontal</strong>: <code>----</code></li>
+         <li> <strong>Lista</strong>: Comece cada linha com <code>*</code> ou <code>#</code> para listas não numeradas ou numeradas respectivamente. <br />
+         Imbricação de listas é feito através da mistura de marcadores, desta maneira:
+<pre>
+* item 1
+** item 1.1
+* item 2
+*# item 2.1
+etc.
+</pre>       
+</li>
+		  <li><strong>Texto pré formatado</strong>: cada linha deve começar com um espaço.</li>
+		  <li><strong>Bloco de citação</strong>: cada linha deve começar com (<code>&gt;</code>).</li>
+</ul>
+</dd>
+
+<h5><dt>Código de formatação</dt></h5>
+<dd>
+<ul>
+  <li><strong>Emphasis</strong>: two quotes <code>''text''</code></li>
+  <li><strong>Strong emphasis</strong>: two underscore <code>__text__</code></li>
+  <li><strong>New line</strong>: <code>%%%</code></li>
+  <li><strong>Insertion</strong>: two plusses <code>++text++</code></li>
+  <li><strong>Deletion</strong>: two minuses <code>--text--</code></li>
+  <li><strong>Link</strong>: <code>[url]</code>, <code>[name|url]</code>,
+    <code>[name|url|language]</code> or <code>[name|url|languagee|title]</code></li>
+  <li><strong>Image</strong>:
+    <code>((url|alternative text))</code>,
+    <code>((url|alternative text|position))</code> or
+    <code>((url|alternative text|position|long description))</code>.
+    <br />The position can be either L or G (left), R or D (right) or C (centered).</li>
+  <li><strong>Anchor</strong>: <code>~anchor~</code></li>
+  <li><strong>Acronym</strong>: <code>??acronym|title??</code></li>
+  <li><strong>Inline HTML</strong>: two backquotes <code>``html code``</code></li>
+  <li><strong>Inline quote</strong>: <code>{{quote}}</code>,
+    <code>{{quote|language}}</code> or <code>{{quote|language|url}}</code></li>
+  <li><strong>Code</strong>: <code>@@code@@</code></li>
+  <li><strong>Footnotes</strong>: <code>$$footnote$$</code></li>
+</ul>
+</dd>
+
+<h5><dt>Texto Não formatado</dt></h5>
+
+Para impedir que um código de formatação seja interpretado como tal, adicionar um <code>\</code> logo antes dele.
+<br />desta maneira: <code>\[este texto não é um link\]</code>
+</dd>
+
+<br /><h5><dt>Código HTML</dt></h5>
+
+<dd>Mesmo que você escolheu a sintaxe wiki, por vezes, pode necessitar de commando de formatação mais poderosa, ou seja, a sintaxe HTML. Fá-lo da seguinte maneira:
+
+<pre>
+///html
+&lt;p style="color:red"&gt;o meu texto em vermelho&lt;/p&gt;
+///
+</pre>
+</dd>
+</dl>
+
+
+</body>
+</html>

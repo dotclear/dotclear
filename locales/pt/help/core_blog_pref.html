@@ -1,0 +1,165 @@
+<html>
+<head>
+<title>Configurações do blog</title>
+</head>
+<body>
+
+	<h3>Configurações do blog</h3>
+<h4>Detalhes do blog</h4>
+<dl>
+
+<h5><dt>ID do blog</dt></h5>
+
+<dd>ID exclusivo do blog. Obrigatório, só poderá ser modificado por um super-administrador.</dd> 
+
+<h5><dt>Nome do blog</dt></h5>
+
+<dd>Obrigatório.</dd> 
+
+<h5><dt>URL do blog</dt></h5>
+
+<dd>URL completa do blog. Obrigatório, só poderá ser modificado por um super-administrador.</dd> 
+
+<h5><dt>Estado do blog</dt></h5>
+
+<dd>  
+<ul>  
+<li><strong>online</strong>: blog aberto ao visitantes</li>  
+<li><strong>offline</strong>: blog fechado ao visitantes, aberto aos editores.</li>  
+<li><strong>removido</strong>: blog fechado para ambos os visitantes e editores</li>  
+</ul>
+</dd> 
+
+<h5><dt>Descrição do blog</dt></h5>
+
+<dd>Aqui você pode colocar a descrição que você deseja para o seu blog. Este é um campo de texto simples, sem formatação. 
+</dd>
+</dl>
+
+	<h4>Configuração do blog</h4>
+<dl>
+
+<h5><dt>Nome do editor do blog</dt></h5>
+
+<dd>Nome da pessoa responsável pelo blog. Pode ser o proprietário ou o director da publicação se ele existe.</dd> 
+
+<h5><dt>Aviso de copyright</dt></h5>
+
+<dd>Nota sobre os direitos de reprodução para o blog.</dd> 
+
+<h5><dt>Língua principal</dt></h5>
+
+<dd>Língua da interface do blog. Se essa língua esta instalada, a interface será traduzida nela, se não, a interface aparecerá em Inglês.   
+</dd> 
+
+<h5><dt>Fuso horário do blog</dt></h5>
+
+<dd>Define o fuso horário que será usado para os comentários e trackbacks.</dd> 
+
+<h5><dt>Formato de data</dt></h5>
+
+<dd>Veja a secção "Referência dos formatos de data e hora" abaixo para mais detalhes.</dd> 
+
+<h5><dt>Formato de hora</dt></h5>
+
+<dd>Veja a secção "Referência dos formatos de data e hora" abaixo para mais detalhes.</dd> 
+
+<h5><dt>Mostrar [..] entradas por páginas</dt></h5>
+
+<dd>Esse número será utilizado como o limite para o número de entradas na página inicial, a primeira página de cada categoria e os feeds RSS.</dd> 
+
+<h5><dt>Deixar os comentários abertos durante [..] dias</dt></h5>
+
+<dd>O número de dias durante o qual os comentários e trackbacks serão abertos após a publicação da entrada.<br />
+si vazios, os comentários serão mantidos abertos indefinidamente.</dd> 
+
+<h5><dt>Permitir os emoticons em entradas e comentários</dt></h5>
+
+<dd>Substituir as sequências de caracteres como :-) ou ,-) para as imagens.</dd> 
+
+<h5><dt>Permitir comentários</dt></h5>
+
+<dd>Aceitar ou recusar globalmente os comentários no blog. Tem precedência sobre a configuração por entrada.</dd> 
+
+<h5><dt>Permitir trackbacks</dt></h5>
+
+<dd>Aceitar ou recusar globalmente os trackbacks no blog. Tem precedência sobre a configuração por entrada.</dd> 
+
+<h5><dt>Moderar comentários e trackbacks</dt></h5>
+
+<dd>Com essa opção, comentários e trackbacks serão publicados após acordo do editor.</dd> 
+
+<h5><dt>Adicionar "não seguir" em links de comentários e trackbacks</dt></h5>
+
+<dd>Adiciona uma moção nos links de comentários e trackbacks, instruindo os robots dos motor de pesquisa para não seguir esses links.<br />
+Este funcionalidade anti-spam ainda tem de provar a sua eficiência.
+</dd> 
+
+<h5><dt>Sintaxe "wiki" para comentários</dt></h5>
+
+<dd>Permite o uso da sintaxe wiki nos comentários.</dd>
+</dl>
+
+	<h4>Referência dos formatos de data e hora</h4>
+
+<p>Alguns campos podem ser configurados para formatar a data e a hora de acordo com suas necessidades.<br />
+<br />
+Veja aqui as referência</p>
+
+
+<h5>Os mais usados</h5>
+
+<ul>
+
+<h5>Data</h5>
+  
+<li><strong>%a</strong>: Dia da semana (Sab).</li>
+<li><strong>%A</strong>: Dia da semana (Sábado).</li>  
+<li><strong>%d</strong>: Dia do mês (01-31)</li>
+<li><strong>%e</strong>: Dia do mês (1-31)</li>
+<li><strong>%b</strong>: Mês (Jan).</li>
+<li><strong>%B</strong>: Mês (Janeiro).</li>
+<li><strong>%m</strong>: Mês (1-12)</li>  
+<li><strong>%y</strong>: Ano(10)</li>
+<li><strong>%Y</strong>: Ano (2010)</li>
+
+<h5>Hora</h5>
+
+<li><strong>%H</strong>: Hora (00-23)</li>
+<li><strong>%M</strong>: Minuta(00-59)</li>  
+<li><strong>%S</strong>: Secunda(00-59)</li>
+<li><strong>%T</strong>: idêntico à %H:%M:%S</li>  
+
+
+<h5>Outro</h5>
+
+
+<li><strong>%n</strong>: Nova linha</li>
+<li><strong>%t</strong>: Tabulação</li>
+<li><strong>%%</strong>: O caracteres "%" literal</li>
+</ul> 
+
+<h5>Outras referencias possíveis</h5>
+
+<ul>
+<li><strong>%c</strong>: default local date and time display.</li>   
+<li><strong>%C</strong>: century (the year, divided by 100 and round up beetween 00 and 99)</li>
+<li><strong>%D</strong>: identical to %m/%d/%y</li>
+<li><strong>%g</strong>: identical to %G, 2 digits.</li>
+<li><strong>%G</strong>: The year on 4 digits, according to the week number (cf. %V). Format and value identical to %Y, except that if the number of the week belongs to the preceding or following year, the current year will be used instead.</li>
+<li><strong>%h</strong>: identical to %b</li>
+<li><strong>%I</strong>: digital hour of the day, 12H mode (from 01 to 12)</li>
+<li><strong>%j</strong>: day of the year, digital (from 001 to 366)</li>
+<li><strong>%p</strong>: either `am' or `pm', according to the absolute time, or depending of the local settings.</li>
+<li><strong>%r</strong>: the hour, a.m. and p.m. format</li>
+<li><strong>%R</strong>: the hour, 24h format</li>
+<li><strong>%u</strong>: day week, digit, from 1 to 7. (1 stands for monday)</li>
+<li><strong>%U</strong>: week number, the first sundqy of the year being the first day of the first week.</li>
+<li><strong>%V</strong>: the week numpber as defined in ISO 8601:1988, digital, from 01 to 53. The week 1 is the first week with more than 4 days in the current year, whose monday is the first day. (Use %G or %g for the year elements corresponding to the number of the week for the considered timestamp.)</li>
+<li><strong>%W</strong>: number of the week in the year, the first monday of the year being the start of the first week</li>
+<li><strong>%w</strong>: day of the week, digital, 0 stands for sunday</li>
+<li><strong>%X</strong>: prefered format for the time without the date</li> 
+<li><strong>%Z ou %z</strong>: timezone, name or abbreviation</li>
+</ul>
+</body>
+</html>
