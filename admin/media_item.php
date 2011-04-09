@@ -113,7 +113,7 @@ if (!empty($_POST['thumbs']) && $file->media_type == 'image' && $file->editable 
 {
 	try {
 		$foo = null;
-		$core->media->imageThumbCreate($foo,$file->basename);
+		$core->media->mediaFireRecreateEvent($file);
 		http::redirect($page_url.'&id='.$id.'&thumbupd=1');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
