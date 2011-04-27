@@ -253,7 +253,7 @@ echo
 '<fieldset><legend>'.__('My profile').'</legend>'.
 '<div class="two-cols">'.
 '<div class="col">'.
-'<p><label for"user_name">'.__('Last Name:').
+'<p><label for="user_name">'.__('Last Name:').
 form::field('user_name',20,255,html::escapeHTML($user_name),'',2).'</label></p>'.
 
 '<p><label for="user_firstname">'.__('First Name:').
@@ -351,6 +351,7 @@ echo '<form action="preferences.php" method="post" id="favs-form">';
 echo '<div class="two-cols">';
 echo '<div class="col70">';
 echo '<fieldset id="my-favs"><legend>'.__('My favorites').'</legend>';
+echo '<p>'.__('Modify numbers in fields to change favorites order.').'</p>';
 $count = 0;
 foreach ($ws->dumpPrefs() as $k => $v) {
 	// User favorites only
@@ -361,7 +362,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 			$count++;
 			echo '<li id="fu-'.$k.'">'.
 				'<img src="'.$fav['large-icon'].'" alt="" /> '.
-				'<span>'.form::field(array('order['.$k.']'),2,3,$count).'</span>'.
+				form::field(array('order['.$k.']'),2,3,$count,'position','',false,'title="position de '.$fav['title'].'"').
 				'<label for="fuk-'.$k.'">'.form::checkbox(array('remove[]','fuk-'.$k),$k).$fav['title'].'</label>'.
 				'</li>';
 		}
@@ -422,7 +423,7 @@ foreach ($array as $k => $fav) {
 		if ($count == 0) echo '<ul class="fav-list">';
 		$count++;
 		echo '<li id="fa-'.$fav[0].'">'.'<label for="fak-'.$fav[0].'">'.
-			'<span class="minimal">'.form::checkbox(array('append[]','fak-'.$fav[0]),$k).'</span>'.
+			form::checkbox(array('append[]','fak-'.$fav[0]),$k).
 			'<img src="'.$fav[3].'" alt="" /> '.'<span class="zoom"><img src="'.$fav[4].'" alt="" /></span>'.$fav[1].
 			'</label>'.'</li>';
 	}

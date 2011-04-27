@@ -318,11 +318,11 @@ elseif ($recover)
 {
 	echo
 	'<fieldset><legend>'.__('Request a new password').'</legend>'.
-	'<p><label>'.__('Username:').' '.
-	form::field(array('user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
+	'<p><label for="user_id">'.__('Username:').' '.
+	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
 	
-	'<p><label>'.__('Email:').' '.
-	form::field(array('user_email'),20,255,html::escapeHTML($user_email),'',2).'</label></p>'.
+	'<p><label for="user_email">'.__('Email:').' '.
+	form::field(array('user_email','user_email'),20,255,html::escapeHTML($user_email),'',2).'</label></p>'.
 	
 	'<p><input type="submit" value="'.__('recover').'" tabindex="3" />'.
 	form::hidden(array('recover'),1).'</p>'.
@@ -334,11 +334,11 @@ elseif ($change_pwd)
 {
 	echo
 	'<fieldset><legend>'.__('Change your password').'</legend>'.
-	'<p><label>'.__('New password:').' '.
-	form::password(array('new_pwd'),20,255,'','',1).'</label></p>'.
+	'<p><label for="new_pwd">'.__('New password:').' '.
+	form::password(array('new_pwd','new_pwd'),20,255,'','',1).'</label></p>'.
 	
-	'<p><label>'.__('Confirm password:').' '.
-	form::password(array('new_pwd_c'),20,255,'','',2).'</label></p>'.
+	'<p><label for="new_pwd_c">'.__('Confirm password:').' '.
+	form::password(array('new_pwd_c','new_pwd_c'),20,255,'','',2).'</label></p>'.
 	'</fielset>'.
 	
 	'<p><input type="submit" value="'.__('change').'" />'.
@@ -358,15 +358,15 @@ else
 			echo '<legend>'.__('Safe mode login').'</legend>';
 		}
 		echo
-		'<p><label>'.__('Username:').' '.
-		form::field(array('user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
+		'<p><label for="user_id">'.__('Username:').' '.
+		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
 		
-		'<p><label>'.__('Password:').' '.
-		form::password(array('user_pwd'),20,255,'','',2).'</label></p>'.
+		'<p><label for="user_pwd">'.__('Password:').' '.
+		form::password(array('user_pwd','user_pwd'),20,255,'','',2).'</label></p>'.
 		
 		'<p><label class="classic">'.
-		form::checkbox(array('user_remember'),1,'','',3).' '.
-		__('Remember my ID on this computer').'</label></p>'.
+		'<p><label for="user_remember" class="classic">'.
+		form::checkbox(array('user_remember','user_remember'),1,'','',3).' '.
 		
 		'<p><input type="submit" value="'.__('login').'" tabindex="4" /></p>';
 		
