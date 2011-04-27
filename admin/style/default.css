@@ -72,6 +72,9 @@ pre {
 	white-space: pre-line;
 	word-wrap: break-word;
 }
+abbr {
+	cursor: help;
+}
 
 
 /* LAYOUT
@@ -1085,10 +1088,14 @@ label.area, p.area {
 label.required {
 	font-weight: bold;
 }
-label.required:before {
+label.required abbr {
+	color: red;
+	font-size: 1.3em;
+}
+/*label.required:before {
 	content: '* ';
 	color: #c00;
-}
+}*/
 
 p.field {
 	position: relative;
