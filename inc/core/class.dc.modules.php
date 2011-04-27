@@ -65,9 +65,6 @@ class dcModules
 		$this->path = explode(PATH_SEPARATOR,$path);
 		$this->ns = $ns;
 		
-		$disabled = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
-		$disabled = $disabled && !get_parent_class($this) ? true : false;
-		
 		foreach ($this->path as $root)
 		{
 			if (!is_dir($root) || !is_readable($root)) {
@@ -89,7 +86,7 @@ class dcModules
 				if ($entry != '.' && $entry != '..' && is_dir($full_entry)
 				&& file_exists($full_entry.'/_define.php'))
 				{
-					if (!file_exists($full_entry.'/_disabled') && !$disabled)
+					if (!file_exists($full_entry.'/_disabled'))
 					{
 						$this->id = $entry;
 						$this->mroot = $full_entry;

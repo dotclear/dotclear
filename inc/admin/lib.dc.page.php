@@ -131,15 +131,6 @@ class dcPage
 		'<div id="main">'."\n".
 		'<div id="content">'."\n";
 		
-		# Recovery mode
-		if (isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'])
-		{
-			echo
-			'<div class="error"><h3>'.__('Recovery mode').'</h3>'.
-			'<p>'.__('You are in recovery mode means no plugin have been loaded.').'</p>'.
-			'</div>';
-		}
-		
 		if ($core->error->flag()) {
 			echo
 			'<div class="error"><strong>'.__('Errors:').'</strong>'.
