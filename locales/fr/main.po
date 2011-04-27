@@ -15,6 +15,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: French\n"
 
+msgid "log in"
+msgstr "Se connecter"
+
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear a été mis à jour."
 
