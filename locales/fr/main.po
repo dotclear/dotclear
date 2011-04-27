@@ -2707,6 +2707,9 @@ msgstr "Les favoris ont été mis à jour avec succès."
 msgid "Personal options has been successfully updated."
 msgstr "Vos options personnelles ont été enregistrées avec succès."
 
+msgid "Dashboard modules"
+msgstr "Modules du tableau de bord"
+
 msgid "Display documentation links"
 msgstr "Afficher les liens de documentation"
 
