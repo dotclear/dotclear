@@ -229,7 +229,9 @@ dcPage::open(__('Entries'),$starting_script);
 
 if (!$core->error->flag())
 {
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Entries').'</h2>';
+	echo 
+	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Entries').'</h2>'.
+	'<p class="top-add"><a class="button add" href="post.php"><img src="images/add.png" alt="" /> '.__('New entry').'</a></p>';
 	
 	if (!$show_filters) {
 		echo '<p><a id="filter-control" class="form-control" href="#">'.
@@ -264,8 +266,8 @@ if (!$core->error->flag())
 	'<label>'.__('Sort:').
 	form::combo('order',$order_combo,$order).'</label></p>'.
 	'<p><label class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Entries per page').'</label> '.
-	'<input type="submit" value="'.__('filter').'" /></p>'.
+	__('Entries per page').'</label></p> '.
+	'<p><input type="submit" value="'.__('Apply filters').'" /></p>'.
 	'</div>'.
 	'</div>'.
 	'<br class="clear" />'. //Opera sucks

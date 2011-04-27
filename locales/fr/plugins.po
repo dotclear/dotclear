@@ -7,7 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-14 22:01+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: xave <xave@dotclear.net>\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -1381,6 +1381,18 @@ msgstr "ordre"
 
 msgid "Remove widget"
 msgstr "Supprimer le widget"
+
+msgid "Preferences successfully updated"
+msgstr "Préférences mises à jour avec succès"
+
+msgid "Preferences definition successfully updated"
+msgstr "Définition des préférences mise à jour avec succès"
+
+msgid "user preferences"
+msgstr "préférences utilisateur"
+
+msgid "global preferences"
+msgstr "préférences globales"
 
 #~ msgid "External media"
 #~ msgstr "Média externe"

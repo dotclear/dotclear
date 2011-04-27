@@ -405,7 +405,7 @@ msgid "Are you sure you want to delete selected links?"
 msgstr "您确定您要删除选定的链接吗？"
 
 msgid "The link list is empty."
-msgstr "链接列表是空的。"
+msgstr ""
 
 msgid "Add a new link"
 msgstr "添加一个新链接"
@@ -446,8 +446,9 @@ msgstr "预定义的样式"
 msgid "Apply code"
 msgstr "应用代码"
 
+#, fuzzy
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "由于下列原因，图片无法被创建。您将不能改变某些背景属性。"
+msgstr "由于图片无法被创建，您将不能改变某些背景属性。"
 
 msgid "Theme configuration has been successfully updated."
 msgstr "成功更新主题配置。"
@@ -485,6 +486,7 @@ msgstr "焦点链接颜色："
 msgid "Page top"
 msgstr "页面顶部"
 
+#, fuzzy
 msgid "Prelude color:"
 msgstr "Prelude 的颜色："
 
@@ -634,14 +636,15 @@ msgid "default"
 msgstr "默认"
 
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "下列函数至少有一个不存在： imagecreatetruecolor，imagepng 以及 imagecreatefrompng。"
+msgstr ""
 
+#, fuzzy
 msgid "The 'public' directory does not exist."
-msgstr "“public”目录不存在。"
+msgstr "此页面不存在。"
 
 #, php-format
 msgid "The '%s' directory cannot be modified."
-msgstr "无法修改“%s”目录。"
+msgstr ""
 
 msgid "Unable to create images."
 msgstr "无法创建图片。"
@@ -650,7 +653,7 @@ msgid "Invalid file type."
 msgstr "无效的文件格式。"
 
 msgid "Uploaded image is not 800 pixels wide."
-msgstr "上传的图片不是 800 像素宽。"
+msgstr ""
 
 msgid "Unable to open image."
 msgstr "无法打开图片。"
@@ -900,7 +903,7 @@ msgid "File is not a full export."
 msgstr "文件不是一个完整的导出。"
 
 msgid "The backup file does not appear to be well formed."
-msgstr "备份文件的形式似乎并不良好。"
+msgstr ""
 
 msgid "Please wait..."
 msgstr "请稍等..."
@@ -921,7 +924,7 @@ msgid "Templates cache directory emptied."
 msgstr "模板缓存目录清空。"
 
 msgid "Logs deleted."
-msgstr "日志已删除。"
+msgstr ""
 
 #, php-format
 msgid "Indexing entry %d to %d."
@@ -967,11 +970,13 @@ msgstr "索引所有文章"
 msgid "Index all comments"
 msgstr "索引所有评论"
 
+#, fuzzy
 msgid "Vacuum logs"
-msgstr "清理日志"
+msgstr "清理表"
 
+#, fuzzy
 msgid "Delete all logs"
-msgstr "删除所有日志"
+msgstr "删除所有垃圾评论"
 
 msgid "Empty templates cache directory"
 msgstr "清空模板缓存目录"
@@ -1085,7 +1090,7 @@ msgid "Test ping services"
 msgstr "测试 ping 服务器"
 
 msgid "Check all"
-msgstr "检查全部"
+msgstr ""
 
 msgid "Pings:"
 msgstr "Pings："
@@ -1114,16 +1119,17 @@ msgid "Tag"
 msgstr "标签"
 
 msgid "used in %e - frequency %p%"
-msgstr "在 %e 中使用 —— 频率 %p%"
+msgstr ""
 
+#, fuzzy
 msgid "entry"
-msgstr "文章"
+msgstr "中间"
 
 msgid "entries"
 msgstr "文章"
 
 msgid "Enter tags separated by coma"
-msgstr "输入标签，逗号分隔"
+msgstr ""
 
 msgid "Add tags"
 msgstr "添加标签"
@@ -1147,13 +1153,14 @@ msgid "Following tags have been found in selected entries:"
 msgstr "所选文章中发现下列标签："
 
 msgid "short"
-msgstr "简短"
+msgstr ""
 
 msgid "extended"
-msgstr "扩展"
+msgstr ""
 
+#, fuzzy
 msgid "Tags list format:"
-msgstr "标签列表的格式："
+msgstr "要添加的标签："
 
 msgid "This tag's comments Atom feed"
 msgstr "此标签的评论 Atom feed"
@@ -1174,7 +1181,7 @@ msgid "All tags"
 msgstr "所有标签"
 
 msgid "Link to all tags:"
-msgstr "链接到全部标签："
+msgstr ""
 
 msgid "Edit tag"
 msgstr "编辑标签"
@@ -1320,7 +1327,7 @@ msgstr "归档"
 
 #, php-format
 msgid "This blog's entries %s feed"
-msgstr "此博客的文章 %s feed"
+msgstr "此博客的文章 %d feed"
 
 #, php-format
 msgid "This blog's comments %s feed"
@@ -1406,6 +1413,6 @@ msgstr "移除小工具"
 
 #~ msgid "Unsupported service"
 #~ msgstr "不支持的服务"
+
 #~ msgid "Invalid page URL"
 #~ msgstr "无效的页面 URL"
-

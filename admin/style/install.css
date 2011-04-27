@@ -21,7 +21,7 @@ body.install #main {
 	-webkit-border-radius:8px;
 }
 body.install h1,h2 {
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Helvetica,arial,sans-serif;
 }
 body.install h1 {
 	background: url(install/w-logo.png) no-repeat top center;
@@ -33,7 +33,7 @@ body.install h1 {
 	margin: 0 0 0.75em 0;
 }
 body.install h2 {
-	color: #f90;
+	color: #C71585;
 }
 body.install h3 {
 	margin-top:0;
@@ -104,7 +104,7 @@ fieldset {
 	border-width : 1px 0;
 	border-style: solid;
 	border-color: #ccc;
-	background: #fbfbfb;
+	background: #f5f5f5;
 }
 legend {
 	font-weight : bold;
@@ -112,7 +112,7 @@ legend {
 	border-width: 1px;
 	border-style: solid;
 	border-color: #ccc;
-	background: #fbfbfb;
+	background: #f5f5f5;
 	margin-bottom: 0.5em;
 }
 a#obfus {

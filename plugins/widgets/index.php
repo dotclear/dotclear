@@ -199,7 +199,7 @@ echo
 '<p id="sidebarsControl">'.
 $core->formNonce().
 '<input type="submit" name="wup" value="'.__('update sidebars').'" /> '.
-'<input type="submit" name="wreset" value="'.__('reset sidebars').'" /></p>'.
+'<input type="submit" class="reset" name="wreset" value="'.__('reset sidebars').'" /></p>'.
 '</form>';
 
 $widget_elements = new stdClass;

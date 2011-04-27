@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: DotClear 2.0b7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-13 05:22+0200\n"
-"PO-Revision-Date: 2010-11-16 21:38+0100\n"
-"Last-Translator: Cezary Błajszczak <cezary.blajszczak@gmail.com>\n"
+"PO-Revision-Date: 2007-08-31 14:50+0200\n"
+"Last-Translator: Nnidŷu <nnidyu@asylumeternity.net>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,13 +83,13 @@ msgid "Search"
 msgstr "Szukaj"
 
 msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "Twoje wyszukiwanie <em>%1$s</em> nie zwróciło rezultatów."
+msgstr ""
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "Twoje wyszukiwanie <em>%1$s</em> zwróciło <strong>%2$s</strong> rezultat."
+msgstr ""
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "Twoje wyszukiwanie <em>%1$s</em> zwróciło <strong>%2$s</strong> rezultatów."
+msgstr ""
 
 msgid "Home"
 msgstr "Strona główna"
@@ -106,8 +106,9 @@ msgstr "Języki"
 msgid "Categories"
 msgstr "Kategorie"
 
+#, fuzzy
 msgid "Subcategories"
-msgstr "Podkategorie"
+msgstr "Kategorie"
 
 msgid "Archives"
 msgstr "Archiwa"
@@ -124,20 +125,24 @@ msgstr "Kanał RSS wpisów"
 msgid "Comments feed"
 msgstr "Kanał RSS komentarzy"
 
+#, fuzzy
 msgid "This blog's comments Atom feed"
-msgstr "Kanał Atom dla komentarzy na tym blogu"
+msgstr "Kanał RSS dla komentarzy na tym blogu"
 
+#, fuzzy
 msgid "This category's entries Atom feed"
-msgstr "Kanał Atom dla wpisów w tej kategorii"
+msgstr "Kanał RSS dla wpisów w tej kategorii"
 
+#, fuzzy
 msgid "This category's comments Atom feed"
-msgstr "Kanał Atom dla komentarzy w tej kategorii"
+msgstr "Kanał RSS dla komentarzy w tej kategorii"
 
 msgid "This post's comments feed"
 msgstr "Kanał RSS dla komentarzy do tego wpisu"
 
+#, fuzzy
 msgid "This post's comments Atom feed"
-msgstr "Kanał Atom dla komentarzy do tego wpisu"
+msgstr "Kanał RSS dla komentarzy do tego wpisu"
 
 msgid "Attachments"
 msgstr "Załączniki"
@@ -208,8 +213,9 @@ msgstr "Nie znaleziono dokumentu"
 msgid "The document you are looking for does not exist."
 msgstr "Dokument, którego szukasz nie istnieje"
 
+#, fuzzy
 msgid "Powered by %s"
-msgstr "Napędzane przez %s"
+msgstr "Napędzane przez"
 
 msgid "Subscribe to"
 msgstr "Subskrybuj"
@@ -240,10 +246,12 @@ msgstr "Czytaj"
 
 #~ msgid "Keywords"
 #~ msgstr "Słowa kluczowe"
+
 #~ msgid "Keyword"
 #~ msgstr "Słowo kluczowe"
+
 #~ msgid "This blog's entries RSS feed"
 #~ msgstr "Kanał RSS dla wpisów na tym blogu"
+
 #~ msgid "This post's comments RSS feed"
 #~ msgstr "Kanał RSS dla komentarzy do tego wpisu"
-

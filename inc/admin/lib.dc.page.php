@@ -117,9 +117,12 @@ class dcPage
 		'<div id="info-box">'.
 		'<form action="index.php" method="post"><div>'.
 		$blog_box.
-		' - <a href="'.$core->blog->url.'" class="button">'.__('View site').'</a>'.
-		' - '.__('User:').' <strong>'.$core->auth->userID().'</strong>'.
-		' - <a href="index.php?logout=1" class="logout">'.__('Logout').'</a>'.
+		'<a href="'.$core->blog->url.'"onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
+		'</div></form>'.
+		'</div>'.
+		'<div id="info-box2"><form action="index.php" method="post><div>"'.
+		' '.__('User:').' <strong>'.$core->auth->userID().'</strong>'.
+		' - <a href="index.php?logout=1" class="logout">'.__('Logout').' <img src="images/logout.png" alt="" /></a>'.
 		'</div></form>'.
 		'</div>';
 		
@@ -161,8 +164,9 @@ class dcPage
 		
 		echo
 		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><p><img src="images/dotclear_pw.png" alt="Dotclear" /> '.
-		sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear</a>').
+		'<div id="footer"><p>'.
+		sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>').
+		' <span class="credit"> (Icons by <a href="http://dryicons.com/">Dryicons</a>)</span>'.
 		'</p></div>'."\n".
 		"</div>\n";		// End of #wrapper
 		
@@ -327,7 +331,7 @@ class dcPage
 		}
 		
 		echo
-		'<div id="help"><hr /><div class="help-content"><h2>'.__('Help').'</h2>'.
+		'<div id="help"><hr /><div class="help-content clear"><h2>'.__('Help').'</h2>'.
 		$content.
 		'</div></div>';
 	}

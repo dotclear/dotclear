@@ -24,17 +24,17 @@ class dcMenu
 		$this->items = array();
 	}
 	
-	public function addItem($title,$url,$img,$active,$show=true,$id=null)
+	public function addItem($title,$url,$img,$active,$show=true,$id=null,$class=null)
 	{
 		if($show) {
-			$this->items[] = $this->itemDef($title,$url,$img,$active,$id);
+			$this->items[] = $this->itemDef($title,$url,$img,$active,$id,$class);
 		}
 	}
 	
-	public function prependItem($title,$url,$img,$active,$show=true,$id=null)
+	public function prependItem($title,$url,$img,$active,$show=true,$id=null,$class=null)
 	{
 		if ($show) {
-			array_unshift($this->items,$this->itemDef($title,$url,$img,$active,$id));
+			array_unshift($this->items,$this->itemDef($title,$url,$img,$active,$id,$class));
 		}
 	}
 	
@@ -64,7 +64,7 @@ class dcMenu
 		return $res;
 	}
 	
-	protected function itemDef($title,$url,$img,$active,$id=null)
+	protected function itemDef($title,$url,$img,$active,$id=null,$class=null)
 	{
 		if (is_array($url)) {
 			$link = $url[0];
@@ -75,7 +75,7 @@ class dcMenu
 		}
 		
 		return
-		'<li'.(($active) ? ' class="active"' : '').
+		'<li'.(($active || $class) ? ' class="'.(($active) ? 'active ' : '').(($class) ? $class : '').'"' : '').
 		(($id) ? ' id="'.$id.'"' : '').
 		(($img) ? ' style="background-image: url('.$img.');"' : '').
 		'>'.

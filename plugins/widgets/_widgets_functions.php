@@ -25,7 +25,7 @@ class defaultWidgets
 		'<form action="'.$core->blog->url.'" method="get">'.
 		'<fieldset>'.
 		'<p><input type="text" size="10" maxlength="255" id="q" name="q" value="'.$value.'" /> '.
-		'<input class="submit" type="submit" value="ok" /></p>'.
+		'<input type="submit" value="ok" /></p>'.
 		'</fieldset>'.
 		'</form>'.
 		'</div>';

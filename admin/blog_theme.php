@@ -267,7 +267,7 @@ if (!$theme_conf_mode)
 	'<p class="col"><input type="submit" name="select" value="'.__('use selected theme').'" /></p>';
 	
 	if ($can_install) {
-		echo '<p class="col right"><input type="submit" name="remove" value="'.__('delete selected theme').'" /></p>';
+		echo '<p class="col right"><input type="submit" class="delete" name="remove" value="'.__('delete selected theme').'" /></p>';
 	}
 	
 	echo
@@ -279,7 +279,7 @@ if (!$theme_conf_mode)
 	if ($can_install)
 	{
 		echo
-		'<div class="multi-part" id="add-theme" title="'.__('Install or upgrade a theme').'">';
+		'<div class="multi-part clear" id="add-theme" title="'.__('Install or upgrade a theme').'">';
 		
 		if ($is_writable)
 		{

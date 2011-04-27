@@ -62,7 +62,7 @@ if (!$core->error->flag())
 	'<div>'.$core->formNonce().'</div>'.
 	'<p><label>'.__('Your password:').' '.
 	form::password('pwd',20,255).'</label></p>'.
-	'<p><input type="submit" name="del" value="'.__('Delete this blog').'" />'.
+	'<p><input type="submit" class="delete" name="del" value="'.__('Delete this blog').'" />'.
 	form::hidden('blog_id',$blog_id).'</p>'.
 	'</form>';
 }

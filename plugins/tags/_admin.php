@@ -37,9 +37,18 @@ $core->addBehavior('adminBeforeUserUpdate',array('tagsBehaviors','setTagListForm
 
 $core->addBehavior('coreInitWikiPost',array('tagsBehaviors','coreInitWikiPost'));
 
+$core->addBehavior('adminDashboardFavs',array('tagsBehaviors','dashboardFavs'));
+
 # BEHAVIORS
 class tagsBehaviors
 {
+	public static function dashboardFavs($core,$favs)
+	{
+		$favs['tags'] = new ArrayObject(array('tags',__('Tags'),'plugin.php?p=tags&amp;m=tags',
+			'index.php?pf=tags/icon.png','index.php?pf=tags/icon-big.png',
+			'usage,contentadmin',null,null));
+	}
+
 	public static function coreInitWikiPost($wiki2xhtml)
 	{
 		$wiki2xhtml->registerFunction('url:tag',array('tagsBehaviors','wiki2xhtmlTag'));

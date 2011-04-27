@@ -210,6 +210,17 @@ $_s->meta
 	->primary('pk_meta','meta_id','meta_type','post_id')
 	;
 
+$_s->pref
+	->pref_id		('varchar',	255,	false)
+	->user_id			('varchar',	32,	true)
+	->pref_ws		('varchar',	32,	false,	"'system'")
+	->pref_value	('text',		0,	true,	null)
+	->pref_type		('varchar',	8,	false,	"'string'")
+	->pref_label	('text',		0,	true)
+	
+	->unique('uk_pref','pref_ws','pref_id','user_id')
+	;
+
 /* References indexes
 -------------------------------------------------------- */
 $_s->category->index	('idx_category_blog_id',			'btree',	'blog_id');
@@ -227,6 +238,7 @@ $_s->log->index		('idx_log_user_id',				'btree',	'user_id');
 $_s->comment->index		('idx_comment_post_id',			'btree',	'post_id');
 $_s->meta->index		('idx_meta_post_id',	'btree','post_id');
 $_s->meta->index		('idx_meta_meta_type',	'btree','meta_type');
+$_s->pref->index		('idx_pref_user_id',			'btree',	'user_id');
 
 /* Performance indexes
 -------------------------------------------------------- */
@@ -255,6 +267,7 @@ $_s->ping->reference('fk_ping_post','post_id','post','post_id','cascade','cascad
 $_s->comment->reference('fk_comment_post','post_id','post','post_id','cascade','cascade');
 $_s->log->reference('fk_log_blog','blog_id','blog','blog_id','cascade','set null');
 $_s->meta->reference('fk_meta_post','post_id','post','post_id','cascade','cascade');
+$_s->pref->reference('fk_pref_user','user_id','user','user_id','cascade','cascade');
 
 /* PostgreSQL specific indexes
 -------------------------------------------------------- */
@@ -262,5 +275,6 @@ if ($_s->driver() == 'pgsql')
 {
 	$_s->setting->index		('idx_setting_blog_id_null',	'btree',	'(blog_id IS NULL)');
 	$_s->media->index		('idx_media_media_path',		'btree',	'media_path', 'media_dir');
+	$_s->pref->index		('idx_pref_user_id_null',		'btree',	'(user_id IS NULL)');
 }
 ?>

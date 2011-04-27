@@ -458,7 +458,7 @@ if ($blog_id)
 	{
 		echo
 		'<form action="blog_del.php" method="post">'.
-		'<p><input type="submit" value="'.__('Delete this blog').'" />'.
+		'<p><input type="submit" class="delete" value="'.__('Delete this blog').'" />'.
 		form::hidden(array('blog_id'),$blog_id).
 		$core->formNonce().'</p>'.
 		'</form>';

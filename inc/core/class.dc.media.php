@@ -106,6 +106,10 @@ class dcMedia extends filemanager
 		$this->addFileHandler('image/png','recreate',array($this,'imageThumbCreate'));
 		$this->addFileHandler('image/gif','recreate',array($this,'imageThumbCreate'));
 		
+		$this->addFileHandler('image/jpeg','recreate',array($this,'imageThumbCreate'));
+		$this->addFileHandler('image/png','recreate',array($this,'imageThumbCreate'));
+		$this->addFileHandler('image/gif','recreate',array($this,'imageThumbCreate'));
+		
 		# Thumbnails sizes
 		$this->thumb_sizes['m'][0] = abs($core->blog->settings->system->media_img_m_size);
 		$this->thumb_sizes['s'][0] = abs($core->blog->settings->system->media_img_s_size);
@@ -903,10 +907,21 @@ class dcMedia extends filemanager
 		$media_type = files::getMimeType($f->basename);
 		$this->callFileHandler($media_type,'recreate',null,$f->basename); // Args list to be completed as necessary (Franck)
 	}
+
+	/**
+	Calls file handlers registered for recreate event
+	
+	@param	f	<b>fileItem</b>	fileItem object
+	*/
+	public function mediaFireRecreateEvent($f)
+	{
+		$media_type = files::getMimeType($f->basename);
+		$this->callFileHandler($media_type,'recreate',null,$f->basename); // Args list to be completed as necessary (Franck)
+	}
 	
 	/* Image handlers
 	------------------------------------------------------- */
-	public function imageThumbCreate($cur,$f,$media_id,$force=true)
+	public function imageThumbCreate($cur,$f,$force=true)
 	{
 		$file = $this->pwd.'/'.$f;
 		

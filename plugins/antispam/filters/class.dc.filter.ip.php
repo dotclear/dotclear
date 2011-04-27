@@ -172,7 +172,7 @@ class dcFilterIP extends dcSpamFilter
 			}
 			$res .=
 			'</div>'.
-			'<p><input class="submit" type="submit" value="'.__('Delete').'"/>'.
+			'<p><input class="submit delete" type="submit" value="'.__('Delete').'"/>'.
 			$core->formNonce().
 			form::hidden(array('ip_type'),$type).
 			'</p>'.

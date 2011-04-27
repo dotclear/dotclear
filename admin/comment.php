@@ -225,7 +225,7 @@ if ($comment_id)
 	'<input type="submit" accesskey="s" name="update" value="'.__('save').'" /> ';
 	
 	if ($can_delete) {
-		echo '<input type="submit" name="delete" value="'.__('delete').'" />';
+		echo '<input type="submit" class="delete" name="delete" value="'.__('delete').'" />';
 	}
 	echo
 	'</p>'.

@@ -45,25 +45,46 @@ $plugins_install = $core->plugins->installModules();
 # Dashboard icons
 $__dashboard_icons = new ArrayObject();
 
+# Dashboard favorites
 $post_count = $core->blog->getPosts(array(),true)->f(0);
 $str_entries = ($post_count > 1) ? __('%d entries') : __('%d entry');
 
 $comment_count = $core->blog->getComments(array(),true)->f(0);
 $str_comments = ($comment_count > 1) ? __('%d comments') : __('%d comment');
 
-$__dashboard_icons['new_post'] = new ArrayObject(array(__('New entry'),'post.php','images/menu/edit-b.png'));
-$__dashboard_icons['posts'] = new ArrayObject(array(sprintf($str_entries,$post_count),'posts.php','images/menu/entries-b.png'));
-$__dashboard_icons['comments'] = new ArrayObject(array(sprintf($str_comments,$comment_count),'comments.php','images/menu/comments-b.png'));
-$__dashboard_icons['prefs'] = new ArrayObject(array(__('User preferences'),'preferences.php','images/menu/user-pref-b.png'));
-
-if ($core->auth->check('admin',$core->blog->id))
-{
-	$__dashboard_icons['blog_pref'] = new ArrayObject(array(__('Blog settings'),'blog_pref.php','images/menu/blog-pref-b.png'));
-	$__dashboard_icons['blog_theme'] = new ArrayObject(array(__('Blog appearance'),'blog_theme.php','images/menu/blog-theme-b.png'));
+$ws = $core->auth->user_prefs->addWorkspace('favorites');
+$count = 0;
+foreach ($ws->dumpPrefs() as $k => $v) {
+	// User favorites only
+	if (!$v['global']) {
+		$fav = unserialize($v['value']);
+		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
+			$count++;
+			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
+				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
+			$__dashboard_icons[$fav['name']] = new ArrayObject(array($title,$fav['url'],$fav['large-icon']));
+		}
+	}
+}	
+if (!$count) {
+	// Global favorites if any
+	foreach ($ws->dumpPrefs() as $k => $v) {
+		$fav = unserialize($v['value']);
+		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
+			$count++;
+			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
+				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
+			$__dashboard_icons[$fav['name']] = new ArrayObject(array($title,$fav['url'],$fav['large-icon']));
+		}
+	}
 }
-
-$core->callBehavior('adminDashboardIcons', $core, $__dashboard_icons);
-
+if (!$count) {
+	// No user or global favorites, add "user pref" and "new entry" fav
+	if ($core->auth->check('usage,contentadmin',$core->blog->id)) {
+		$__dashboard_icons['new_post'] = new ArrayObject(array(__('New entry'),'post.php','images/menu/edit-b.png'));
+	}
+	$__dashboard_icons['prefs'] = new ArrayObject(array(__('My preferences'),'preferences.php','images/menu/user-pref-b.png'));
+}
 
 # Latest news for dashboard
 $__dashboard_items = new ArrayObject(array(new ArrayObject,new ArrayObject));
@@ -111,7 +132,7 @@ try
 				'<dd>'.dt::dt2str('%d %B %Y',$item->pubdate,'Europe/Paris').'</dd>';
 			}
 			$i++;
-			if ($i > 7) { break; }
+			if ($i > 3) { break; }
 		}
 		$latest_news .= '</dl>';
 		$__dashboard_items[1][] = $latest_news;

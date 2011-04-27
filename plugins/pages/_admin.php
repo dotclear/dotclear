@@ -12,9 +12,19 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $core->addBehavior('adminDashboardIcons','pages_dashboard');
+$core->addBehavior('adminDashboardFavs','pages_dashboard_favs');
 function pages_dashboard($core,$icons)
 {
 	$icons['pages'] = new ArrayObject(array(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/icon-big.png'));
+}
+function pages_dashboard_favs($core,$favs)
+{
+	$favs['pages'] = new ArrayObject(array('pages',__('Pages'),'plugin.php?p=pages',
+		'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
+		'contentadmin,pages',null,null));
+	$favs['newpage'] = new ArrayObject(array('newpage',__('New page'),'plugin.php?p=pages&amp;act=page',
+		'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
+		'contentadmin,pages',null,null));
 }
 
 $_menu['Blog']->addItem(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/icon.png',
