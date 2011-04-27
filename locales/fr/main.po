@@ -2721,3 +2721,9 @@ msgstr "Afficher les nouvelles de Dotclear"
 
 msgid "Display quick entry form"
 msgstr "Afficher le formulaire de billet rapide"
+
+msgid "Default favorites have been successfully updated."
+msgstr "Les favoris par défaut ont été enregistrés avec succès."
+
+msgid "Define as default favorites"
+msgstr "Definir comme favoris par défaut"

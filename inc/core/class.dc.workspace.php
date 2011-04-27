@@ -263,8 +263,9 @@ class dcWorkspace
 	Removes an existing pref. Workspace 
 	
 	@param	id		<b>string</b>		Pref ID
+	@param	force_global	<b>boolean</b>	Force global pref drop
 	*/
-	public function drop($id)
+	public function drop($id,$force_global=false)
 	{
 		if (!$this->ws) {
 			throw new Exception(__('No workspace specified'));
@@ -272,7 +273,7 @@ class dcWorkspace
 		
 		$strReq =	'DELETE FROM '.$this->table.' ';
 		
-		if ($this->user_id === null) {
+		if (($force_global) || ($this->user_id === null)) {
 			$strReq .= 'WHERE user_id IS NULL ';
 			$global = true;
 		} else {

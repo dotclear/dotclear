@@ -34,7 +34,7 @@ $user_dm_quickentry = $core->auth->user_prefs->dashboard->quickentry;
 
 $default_tab = 'user-profile';
 
-if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder'])) {
+if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced'])) {
 	$default_tab = 'user-favorites';
 } elseif (!empty($_GET['updated'])) {
 	$default_tab = 'user-options';
@@ -264,6 +264,34 @@ if (!empty($_POST['saveorder']) && !empty($order))
 	}
 }
 
+# Replace default favorites by current set (super admin only)
+if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
+	try {
+		$ws = $core->auth->user_prefs->addWorkspace('favorites');
+		$user_favs = $ws->DumpLocalPrefs();
+		$def_favs = $ws->DumpGlobalPrefs();
+		foreach ($def_favs as $k => $v)
+		{
+			$core->auth->user_prefs->favorites->drop($k,true);
+		}
+		$count = 0;
+		foreach ($user_favs as $k => $v)
+		{
+			$uid = sprintf("g%03s",$count);
+			$f = unserialize($v['value']);
+			$fav = array('name' => $f['name'],'title' => $f['title'],'url' => $f['url'],'small-icon' => $f['small-icon'],
+				'large-icon' => $f['large-icon'],'permissions' => $f['permissions'],'id' => $f['id'],'class' => $f['class']);
+			$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string',null,null,true);
+			$count++;
+		}
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+
+	if (!$core->error->flag()) {
+		http::redirect('preferences.php?&replaced=1');
+	}
+}
 
 /* DISPLAY
 -------------------------------------------------------- */
@@ -291,6 +319,9 @@ if (!empty($_GET['neworder'])) {
 }
 if (!empty($_GET['removed'])) {
 		echo '<p class="message">'.__('Favorites have been successfully removed.').'</p>';
+}
+if (!empty($_GET['replaced'])) {
+		echo '<p class="message">'.__('Default favorites have been successfully updated.').'</p>';
 }
 
 echo '<h2>'.$page_title.'</h2>';
@@ -443,7 +474,9 @@ if ($count > 0) {
 	'<div class="clear">'.
 	'<p class="col">'.form::hidden('favs_order','').
 	$core->formNonce().
-	'<input type="submit" name="saveorder" value="'.__('Save order').'"></p>'.
+	'<input type="submit" name="saveorder" value="'.__('Save order').'">'.
+	($core->auth->isSuperAdmin() ? ' <input type="submit" name="replace" value="'.__('Define as default favorites').'">' : '').
+	'</p>'.
 	
 	'<p class="right"><input type="submit" class="delete" name="removeaction"'.
 	'value="'.__('Delete selected favorites').'" '.
