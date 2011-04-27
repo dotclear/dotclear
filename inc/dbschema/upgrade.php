@@ -146,40 +146,43 @@ function dotclearUpgrade($core)
 			if (version_compare($version,'2.3','<'))
 			{
 				# Add global favorites
-				$sqlstr = 'INSERT INTO `dc_pref` (`pref_id`, `user_id`, `pref_ws`, `pref_value`, `pref_type`, `pref_label`) VALUES';
-				$sqlstr .= '(\'g000\', NULL, \'favorites\', \'a:8:{s:4:"name";s:8:"new_post";s:5:"title";'.
-					's:'.strlen(__('New entry')).':"'.__('New entry').'";s:3:"url";s:8:"post.php";'.
-					's:10:"small-icon";s:20:"images/menu/edit.png";s:10:"large-icon";s:22:"images/menu/edit-b.png";'.
-					's:11:"permissions";s:18:"usage,contentadmin";s:2:"id";N;s:5:"class";s:13:"menu-new-post";}\', \'string\', NULL)';
-				$sqlstr .= '(\'g001\', NULL, \'favorites\', \'a:8:{s:4:"name";s:5:"posts";s:5:"title";'.
-					's:'.strlen(__('Entries')).':"'.__('Entries').'";s:3:"url";s:9:"posts.php";'.
-					's:10:"small-icon";s:23:"images/menu/entries.png";s:10:"large-icon";s:25:"images/menu/entries-b.png";'.
-					's:11:"permissions";s:18:"usage,contentadmin";s:2:"id";N;s:5:"class";N;}\', \'string\', NULL)';
-				$sqlstr .= '(\'g002\', NULL, \'favorites\', \'a:8:{s:4:"name";s:8:"comments";s:5:"title";'.
-					's:'.strlen(__('Comments')).':"'.__('Comments').'";s:3:"url";s:12:"comments.php";'.
-					's:10:"small-icon";s:24:"images/menu/comments.png";s:10:"large-icon";s:26:"images/menu/comments-b.png";'.
-					's:11:"permissions";s:18:"usage,contentadmin";s:2:"id";N;s:5:"class";N;}\', \'string\', NULL)';
-				$sqlstr .= '(\'g003\', NULL, \'favorites\', \'a:8:{s:4:"name";s:5:"prefs";s:5:"title";'.
-					's:'.strlen(__('My preferences')).':"'.__('My preferences').'";s:3:"url";s:15:"preferences.php";'.
-					's:10:"small-icon";s:25:"images/menu/user-pref.png";s:10:"large-icon";s:27:"images/menu/user-pref-b.png";'.
-					's:11:"permissions";s:1:"*";s:2:"id";N;s:5:"class";N;}\', \'string\', NULL)';
-				$sqlstr .= '(\'g004\', NULL, \'favorites\', \'a:8:{s:4:"name";s:9:"blog_pref";s:5:"title";'.
-					's:'.strlen(__('Blog settings')).':"'.__('Blog settings').'";s:3:"url";s:13:"blog_pref.php";'.
-					's:10:"small-icon";s:25:"images/menu/blog-pref.png";s:10:"large-icon";s:27:"images/menu/blog-pref-b.png";'.
-					's:11:"permissions";s:5:"admin";s:2:"id";N;s:5:"class";N;}\', \'string\', NULL)';
-				$sqlstr .= '(\'g005\', NULL, \'favorites\', \'a:8:{s:4:"name";s:10:"blog_theme";s:5:"title";'.
-					's:'.strlen(__('Blog appearance')).':"'.__('Blog appearance').'";s:3:"url";s:14:"blog_theme.php";'.
-					's:10:"small-icon";s:22:"images/menu/themes.png";s:10:"large-icon";s:28:"images/menu/blog-theme-b.png";'.
-					's:11:"permissions";s:5:"admin";s:2:"id";N;s:5:"class";N;}\', \'string\', NULL)';
-				$sqlstr .= '(\'g006\', NULL, \'favorites\', \'a:8:{s:4:"name";s:5:"pages";s:5:"title";'.
-					's:'.strlen(__('Pages')).':"'.__('Pages').'";s:3:"url";s:18:"plugin.php?p=pages";'.
-					's:10:"small-icon";s:27:"index.php?pf=pages/icon.png";s:10:"large-icon";s:31:"index.php?pf=pages/icon-big.png";'.
-					's:11:"permissions";s:18:"contentadmin,pages";s:2:"id";N;s:5:"class";N;}\', \'string\', NULL)';
-				$sqlstr .= '(\'g007\', NULL, \'favorites\', \'a:8:{s:4:"name";s:8:"blogroll";s:5:"title";'.
-					's:'.strlen(__('Blogroll')).':"'.__('Blogroll').'";s:3:"url";s:21:"plugin.php?p=blogroll";'.
-					's:10:"small-icon";s:36:"index.php?pf=blogroll/icon-small.png";s:10:"large-icon";s:30:"index.php?pf=blogroll/icon.png";'.
-					's:11:"permissions";s:18:"usage,contentadmin";s:2:"id";N;s:5:"class";N;}\', \'string\', NULL);';
-				$core->con->execute($sqlstr);
+				$init_fav = array();
+
+				$init_fav['new_post'] = array('new_post',__('New entry'),'post.php',
+					'images/menu/edit.png','images/menu/edit-b.png',
+					'usage,contentadmin',null,'menu-new-post');
+				$init_fav['posts'] = array('posts',__('Entries'),'posts.php',
+					'images/menu/entries.png','images/menu/entries-b.png',
+					'usage,contentadmin',null,null);
+				$init_fav['comments'] = array('comments',__('Comments'),'comments.php',
+					'images/menu/comments.png','images/menu/comments-b.png',
+					'usage,contentadmin',null,null);
+				$init_fav['prefs'] = array('prefs',__('My preferences'),'preferences.php',
+					'images/menu/user-pref.png','images/menu/user-pref-b.png',
+					'*',null,null);
+				$init_fav['blog_pref'] = array('blog_pref',__('Blog settings'),'blog_pref.php',
+					'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
+					'admin',null,null);
+				$init_fav['blog_theme'] = array('blog_theme',__('Blog appearance'),'blog_theme.php',
+					'images/menu/themes.png','images/menu/blog-theme-b.png',
+					'admin',null,null);
+
+				$init_fav['pages'] = array('pages',__('Pages'),'plugin.php?p=pages',
+					'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
+					'contentadmin,pages',null,null);
+				$init_fav['blogroll'] = array('blogroll',__('Blogroll'),'plugin.php?p=blogroll',
+					'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
+					'usage,contentadmin',null,null);
+
+				$count = 0;
+				foreach ($init_fav as $k => $f) {
+					$t = array('name' => $f[0],'title' => $f[1],'url' => $f[2], 'small-icon' => $f[3],
+						'large-icon' => $f[4],'permissions' => $f[5],'id' => $f[6],'class' => $f[7]);
+					$sqlstr = 'INSERT INTO '.$core->prefix.'pref (pref_id, user_id, pref_ws, pref_value, pref_type, pref_label) VALUES ('.
+						'\''.sprintf("g%03s",$count).'\',NULL,\'favorites\',\''.serialize($t).'\',\'string\',NULL);';
+					$core->con->execute($sqlstr);
+					$count++;
+				}
 			}
 			
 			$core->setVersion('core',DC_VERSION);
