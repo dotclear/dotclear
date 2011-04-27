@@ -121,7 +121,7 @@ if (!$core->error->flag())
 	'</label></p>'.
 	'<p><label class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
 	__('Entries per page').'</label> '.
-	'<input type="submit" value="'.__('filter').'" />'.
+	'<input type="submit" value="'.__('Apply filters').'" />'.
 	$hidden_fields.'</p>'.
 	'</div>'.
 	

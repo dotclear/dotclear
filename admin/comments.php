@@ -184,7 +184,7 @@ if (!$core->error->flag())
 	'<label>'.__('IP address:').' '.
 	form::field('ip',20,39,html::escapeHTML($ip)).
 	'</label></p>'.
-	'<p><input type="submit" value="'.__('filter').'" /></p>'.
+	'<p><input type="submit" value="'.__('Apply filters').'" /></p>'.
 	'</div>'.
 	
 	'</div>'.

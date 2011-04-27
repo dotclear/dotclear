@@ -146,7 +146,7 @@ else
 		echo
 		'<p>'.$core->formNonce().
 		form::hidden('ts',time()).
-		'<input name="delete_all" type="submit" value="'.__('Delete all spams').'" /></p>';
+		'<input name="delete_all" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
 	}
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).'</p>';

@@ -23,6 +23,15 @@ $core->addBehavior('coreAfterCommentUpdate',array('dcAntispam','trainFilters'));
 $core->addBehavior('adminAfterCommentDesc',array('dcAntispam','statusMessage'));
 $core->addBehavior('adminDashboardIcons',array('dcAntispam','dashboardIcon'));
 
+$core->addBehavior('adminDashboardFavs','antispamDashboardFavs');
+
+function antispamDashboardFavs($core,$favs)
+{
+	$favs['antispam'] = new ArrayObject(array('antispam',__('Antispam'),'plugin.php?p=antispam',
+		'index.php?pf=antispam/icon.png','index.php?pf=antispam/icon-big.png',
+		'admin',null,null));
+}
+
 if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {
 	$core->addBehavior('adminBlogPreferencesForm',array('antispamBehaviors','adminBlogPreferencesForm'));
 	$core->addBehavior('adminBeforeBlogSettingsUpdate',array('antispamBehaviors','adminBeforeBlogSettingsUpdate'));

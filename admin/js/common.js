@@ -195,7 +195,7 @@ jQuery.fn.helpViewer = function() {
 	this.find('h3:first').nextAll('*:not(h3)').hide();
 	sizeBox();
 	
-	var img = $('<img src="images/help.png" alt="'+dotclear.msg.help+'" title="'+dotclear.msg.help+'" id="help-button" />');
+	var img = $('<span id="help-button">'+dotclear.msg.help+'</span>');
 	var select = $();
 	img.click(function() { return toggle(); });
 	
@@ -337,6 +337,9 @@ $(function() {
 	);
 	$('#plugins-menu h3:first').toggleWithLegend($('#plugins-menu ul:first'),
 		$.extend({cookie:'dc_plugins_menu'},menu_settings)
+	);
+	$('#favorites-menu h3:first').toggleWithLegend($('#favorites-menu ul:first'),
+		$.extend({cookie:'dc_favorites_menu'},menu_settings)
 	);
 	
 	$('#help').helpViewer();

@@ -137,6 +137,15 @@ elseif ($core->auth->sessionExists())
 		$core->session->destroy();
 		http::redirect('auth.php');
 	}
+
+/*	
+	# Check add to my fav fired
+	if (!empty($_REQUEST['add-favorite'])) {
+		$redir = $_SERVER['REQUEST_URI'];
+		# Extract admin page from URI
+		# TO BE COMPLETED
+	}
+*/
 }
 
 if ($core->auth->userID() && $core->blog !== null)
@@ -158,28 +167,94 @@ if ($core->auth->userID() && $core->blog !== null)
 		}
 	}
 	unset($hfiles,$locales_root);
+
+	# Standard favorites
+	$_fav = new ArrayObject();
+
+	# [] : Title, URL, small icon, large icon, permissions, id, class
+	# NB : '*' in permissions means any, null means super admin only
+	
+	$_fav['prefs'] = new ArrayObject(array('prefs',__('My preferences'),'preferences.php',
+		'images/menu/user-pref.png','images/menu/user-pref-b.png',
+		'*',null,null));
+
+	$_fav['new_post'] = new ArrayObject(array('new_post',__('New entry'),'post.php',
+		'images/menu/edit.png','images/menu/edit-b.png',
+		'usage,contentadmin',null,'menu-new-post'));
+	$_fav['posts'] = new ArrayObject(array('posts',__('Entries'),'posts.php',
+		'images/menu/entries.png','images/menu/entries-b.png',
+		'usage,contentadmin',null,null));
+	$_fav['comments'] = new ArrayObject(array('comments',__('Comments'),'comments.php',
+		'images/menu/comments.png','images/menu/comments-b.png',
+		'usage,contentadmin',null,null));
+	$_fav['search'] = new ArrayObject(array('search',__('Search'),'search.php',
+		'images/menu/search.png','images/menu/search-b.png',
+		'usage,contentadmin',null,null));
+	$_fav['categories'] = new ArrayObject(array('categories',__('Categories'),'categories.php',
+		'images/menu/categories.png','images/menu/categories-b.png',
+		'categories',null,null));
+	$_fav['media'] = new ArrayObject(array('media',__('Media manager'),'media.php',
+		'images/menu/media.png','images/menu/media-b.png',
+		'media,media_admin',null,null));
+	$_fav['blog_pref'] = new ArrayObject(array('blog_pref',__('Blog settings'),'blog_pref.php',
+		'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
+		'admin',null,null));
+	$_fav['blog_theme'] = new ArrayObject(array('blog_theme',__('Blog appearance'),'blog_theme.php',
+		'images/menu/themes.png','images/menu/blog-theme-b.png',
+		'admin',null,null));
+
+	$_fav['blogs'] = new ArrayObject(array('blogs',__('Blogs'),'blogs.php',
+		'images/menu/blogs.png','images/menu/blogs-b.png',
+		'usage,contentadmin',null,null));
+	$_fav['users'] = new ArrayObject(array('users',__('Users'),'users.php',
+		'images/menu/users.png','images/menu/users-b.png',
+		null,null,null));
+	$_fav['plugins'] = new ArrayObject(array('plugins',__('Plugins'),'plugins.php',
+		'images/menu/plugins.png','images/menu/plugins-b.png',
+		null,null,null));
+	$_fav['langs'] = new ArrayObject(array('langs',__('Languages'),'langs.php',
+		'images/menu/langs.png','images/menu/langs-b.png',
+		null,null,null));
 	
 	# Menus creation
 	$_menu['Dashboard'] = new dcMenu('dashboard-menu',null);
+	$_menu['Favorites'] = new dcMenu('favorites-menu','My favorites');
 	$_menu['Blog'] = new dcMenu('blog-menu','Blog');
 	$_menu['System'] = new dcMenu('system-menu','System');
 	$_menu['Plugins'] = new dcMenu('plugins-menu','Plugins');
 	
 	# Loading plugins
 	$core->plugins->loadModules(DC_PLUGINS_ROOT,'admin',$_lang);
+
+	# Loading favorites info from plugins
+	$core->callBehavior('adminDashboardFavs', $core, $_fav);
 	
 	# Set menu titles
 	
 	$_menu['System']->title = __('System');
 	$_menu['Blog']->title = __('Blog');
 	$_menu['Plugins']->title = __('Plugins');
-	
+	$_menu['Favorites']->title = __('My favorites');
+
+/*	
+	if (!preg_match('/index.php$/',$_SERVER['REQUEST_URI'])) {
+		# Admin index can't be add in fav's
+		$_menu['Dashboard']->prependItem(__('Add this page to my favorites'),'#','images/menu/add_to_favorites.png',
+			false,$core->auth->check('usage,contentadmin',$core->blog->id),'fav-add');
+	}
+*/
+	$_menu['Dashboard']->prependItem(__('My preferences'),'preferences.php','images/menu/user-pref.png',
+		preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+		true);
 	$_menu['Dashboard']->prependItem(__('Dashboard'),'index.php','images/menu/dashboard.png',
 		preg_match('/index.php$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('usage,contentadmin',$core->blog->id));
 	
 	$_menu['Blog']->prependItem(__('Blog appearance'),'blog_theme.php','images/menu/themes.png',
 		preg_match('/blog_theme.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+		$core->auth->check('admin',$core->blog->id));
+	$_menu['Blog']->prependItem(__('Blog settings'),'blog_pref.php','images/menu/blog-pref.png',
+		preg_match('/blog_pref.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('admin',$core->blog->id));
 	$_menu['Blog']->prependItem(__('Media manager'),'media.php','images/menu/media.png',
 		preg_match('/media(_item)?.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
@@ -216,5 +291,36 @@ if ($core->auth->userID() && $core->blog !== null)
 		preg_match('/blogs.php$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin() ||
 		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->blog_count > 1);
+
+	// Set favorites menu
+	$ws = $core->auth->user_prefs->addWorkspace('favorites');
+	$count = 0;
+	foreach ($ws->dumpPrefs() as $k => $v) {
+		// User favorites only
+		if (!$v['global']) {
+			$count++;
+			$fav = unserialize($v['value']);
+			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+		}
+	}	
+	if (!$count) {
+		// Global favorites if any
+		foreach ($ws->dumpPrefs() as $k => $v) {
+			$count++;
+			$fav = unserialize($v['value']);
+			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+		}
+	}
+	if (!$count) {
+		// No user or global favorites, add "new entry" fav
+		$_menu['Favorites']->addItem(__('New entry'),'post.php','images/menu/edit.png',
+			preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
+			$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
+	}
+	
 }
 ?>

@@ -26,7 +26,7 @@ header('Content-Type: text/html; charset=utf-8');
   body {
 	font: 62.5%/1.5em "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
 	color : #000;
-	background : #eceade;
+	background : #E5E3DA;
 	margin : 0;
 	padding : 0;
   }

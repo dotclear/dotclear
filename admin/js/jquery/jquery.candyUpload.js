@@ -448,19 +448,19 @@
 		},
 		
 		createControls: function() {
-			this.ctrl.btn_browse = $('<a href="#">&nbsp;</a>').click(function() {
+			this.ctrl.btn_browse = $('<a href="#" class="button">&nbsp;</a>').click(function() {
 				return false;
 			});
 			
-			this.ctrl.btn_cancel = $('<a href="#">' + this.locales.cancel + '</a>').click(function() {
+			this.ctrl.btn_cancel = $('<a href="#" class="button">' + this.locales.cancel + '</a>').click(function() {
 				return false;
 			});
 			
-			this.ctrl.btn_clean = $('<a href="#">' + this.locales.clean + '</a>').click(function() {
+			this.ctrl.btn_clean = $('<a href="#" class="button">' + this.locales.clean + '</a>').click(function() {
 				return false;
 			});
 			
-			this.ctrl.btn_upload = $('<a href="#">' + this.locales.upload + '</a>').click(function() {
+			this.ctrl.btn_upload = $('<a href="#" class="button">' + this.locales.upload + '</a>').click(function() {
 				return false;
 			});
 			

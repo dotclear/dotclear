@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-15 22:40+0100\n"
-"PO-Revision-Date: 2011-01-16 19:14+0100\n"
-"Last-Translator: xave <xave@dotclear.net>\n"
+"PO-Revision-Date: 2011-04-19 13:57+0100\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -2554,6 +2554,23 @@ msgstr "Impossible d'obtenir les espaces de nommage :"
 msgid "Invalid setting namespace: %s"
 msgstr "Espace de nommage du paramètre invalide : %s"
 
+msgid "Unable to retrieve workspaces:"
+msgstr "Impossible d'obtenir les espaces de travail :"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Espace de travail de la préférence invalide : %s"
+
+msgid "Unable to retrieve prefs:"
+msgstr "Impossible d'obtenir les préférences :"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s n'est pas un identifiant de préférence valide"
+
+msgid "No workspace specified"
+msgstr "Aucun espace de travail spécifié"
+
 #, php-format
 msgid "%s has still been pinged"
 msgstr "Un rétrolien vers %s a déjà été fait"
@@ -2629,3 +2646,57 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Name"
 #~ msgstr "Nom"
+
+msgid "My favorites"
+msgstr "Mes favoris"
+
+msgid "Add this page to my favorites"
+msgstr "Ajouter cette page à mes favoris"
+
+msgid "My profile"
+msgstr "Mon profil"
+
+msgid "My options"
+msgstr "Mes options"
+
+msgid "Default favorites"
+msgstr "Favoris par défaut"
+
+msgid "My preferences"
+msgstr "Mes préférences"
+
+msgid "Apply filters"
+msgstr "Appliquer les filtres"
+
+msgid "Go to site"
+msgstr "Aller sur le site"
+
+msgid "new window"
+msgstr "nouvelle fenêtre"
+
+msgid "Those favorites are displayed when My Favorites list is empty."
+msgstr "Favoris affichés quand la liste Mes Favoris est vide."
+
+msgid "Favorites have been successfully added."
+msgstr "Les favoris ont été ajoutés avec succès."
+
+msgid "Delete selected favorites"
+msgstr "Retirer les favoris sélectionnés"
+
+msgid "Add to my favorites"
+msgstr "Ajouter à mes favoris"
+
+msgid "Available favorites"
+msgstr "Favoris disponibles"
+
+msgid "Currently no personal favorites."
+msgstr "La liste de vos favoris est vide pour le moment."
+
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "Êtes-vous sûr de vouloir retirer les favoris sélectionnés ?"
+
+msgid "Favorites have been successfully removed."
+msgstr "Les favoris ont été retirés avec succès."
+
+msgid "Favorites has been successfully updated."
+msgstr "Les favoris ont été mis à jour avec succès."

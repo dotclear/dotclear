@@ -154,7 +154,7 @@ if (!$core->error->flag())
 	if (!$posts->isEmpty() && $core->auth->check('contentadmin',$core->blog->id)) {
 		echo
 		'<form id="tag_delete" action="'.$this_url.'" method="post">'.
-		'<p><input type="submit" name="delete" value="'.__('Delete this tag').'" />'.
+		'<p><input type="submit" class="delete" name="delete" value="'.__('Delete this tag').'" />'.
 		$core->formNonce().'</p>'.
 		'</form>';
 	}

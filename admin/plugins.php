@@ -253,7 +253,7 @@ if (!empty($p_available))
 			'<div>'.
 			$core->formNonce().
 			form::hidden(array('plugin_id'),html::escapeHTML($k)).
-			($is_deactivable ? '<input type="submit" class="activate" name="deactivate" value="'.__('Deactivate').'" /> ' : '').
+			($is_deactivable ? '<input type="submit" name="deactivate" value="'.__('Deactivate').'" /> ' : '').
 			($is_deletable ? '<input type="submit" class="delete" name="delete" value="'.__('Delete').'" /> ' : '').
 			'</div>'.
 			'</form>';
@@ -296,7 +296,7 @@ if (!empty($p_disabled))
 			$core->formNonce().
 			form::hidden(array('plugin_id'),html::escapeHTML($k)).
 			form::hidden(array('deactivated'),1).
-			($is_activable ? '<input type="submit" class="activate" name="activate" value="'.__('Activate').'" /> ' : '').
+			($is_activable ? '<input type="submit" value="'.__('Activate').'" /> ' : '').
 			($is_deletable ? '<input type="submit" class="delete" name="delete" value="'.__('Delete').'" /> ' : '').
 			'</div>'.
 			'</form>';

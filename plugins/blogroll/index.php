@@ -285,7 +285,7 @@ while ($rs->fetch())
 		$core->formNonce().
 		'<input type="submit" name="saveorder" value="'.__('Save order').'"></p>'.
 		
-		'<p class="col right"><input type="submit" name="removeaction"'.
+		'<p class="col right"><input type="submit" class="delete" name="removeaction"'.
 		'value="'.__('Delete selected links').'" '.
 		'onclick="return window.confirm(\''.html::escapeJS(
 			__('Are you sure you want to delete selected links?')).'\');" /></p>'.
@@ -300,7 +300,7 @@ while ($rs->fetch())
 
 <?php
 echo
-'<div class="multi-part" id="add-link" title="'.__('Add a link').'">'.
+'<div class="multi-part clear" id="add-link" title="'.__('Add a link').'">'.
 '<form action="plugin.php" method="post" id="add-link-form">'.
 '<fieldset class="two-cols"><legend>'.__('Add a new link').'</legend>'.
 '<p class="col"><label class="required" title="'.__('Required field').'">'.__('Title:').' '.

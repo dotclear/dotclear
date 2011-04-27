@@ -1,3 +1,9 @@
+Dotclear 2.2.3 - 2011-04-01
+===========================================================
+* Security fix in media manager. Thx to Raphaël
+* Bugfix : 2.2.2 was preventing manual thumbnail regeneration.
+* Database handling bugfixes
+
 Dotclear 2.2.2 - 2011-01-17
 ===========================================================
 * Bugfix: 2.2.1 was blocking new installations
