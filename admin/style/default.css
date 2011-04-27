@@ -280,10 +280,10 @@ abbr {
 	text-align: center;
 }
 #dashboard-main #icons p {
-	float: left;
 	width: 240px;
 	text-align: center;
 	margin: 2em 0 0 0;
+	display:inline-block;
 }
 #dashboard-main #icons span {
 	display: block;
