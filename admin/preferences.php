@@ -450,7 +450,7 @@ echo '<form action="preferences.php" method="post" id="favs-form">';
 echo '<div class="two-cols">';
 echo '<div class="col70">';
 echo '<fieldset id="my-favs"><legend>'.__('My favorites').'</legend>';
-echo '<p>'.__('Modify numbers in fields to change favorites order.').'</p>';
+
 $count = 0;
 foreach ($ws->dumpPrefs() as $k => $v) {
 	// User favorites only
@@ -475,7 +475,7 @@ if ($count > 0) {
 	'<p class="col">'.form::hidden('favs_order','').
 	$core->formNonce().
 	'<input type="submit" name="saveorder" value="'.__('Save order').'">'.
-	($core->auth->isSuperAdmin() ? ' <input type="submit" name="replace" value="'.__('Define as default favorites').'">' : '').
+	($core->auth->isSuperAdmin() ? ' <input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'">' : '').
 	'</p>'.
 	
 	'<p class="right"><input type="submit" class="delete" name="removeaction"'.
