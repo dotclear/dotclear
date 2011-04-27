@@ -240,6 +240,7 @@ if (empty($_POST['favs_order']) && !empty($_POST['order'])) {
 if (!empty($_POST['saveorder']) && !empty($order))
 {
 	try {
+		$ws = $core->auth->user_prefs->addWorkspace('favorites');
 		$user_favs = $ws->DumpLocalPrefs();
 		foreach ($user_favs as $k => $v)
 		{
