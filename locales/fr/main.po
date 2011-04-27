@@ -2674,6 +2674,9 @@ msgstr "Aller sur le site"
 msgid "new window"
 msgstr "nouvelle fenêtre"
 
+msgid "Modify numbers in fields to change favorites order."
+msgstr "Modifiez les nombres dans les champs pour changer l'ordre des favoris."
+
 msgid "Those favorites are displayed when My Favorites list is empty."
 msgstr "Favoris affichés quand la liste Mes Favoris est vide."
 

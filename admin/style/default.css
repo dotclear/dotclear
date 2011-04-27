@@ -437,11 +437,11 @@ select#del_cat {
 }
 #my-favs label {height: 2.5em;width:140px;margin-top:.3em;}
 #my-favs label input {display:inline;}
-#my-favs img, #my-favs span {
+#my-favs img {
 	display: block;
 }
-#my-favs span {
-	margin: 0 .2em .4em .2em;
+#my-favs input.position {
+	margin: 0 0 .4em .2em;
 }
 #available-favs input, #available-favs label, #available-favs label span {
 	white-space: normal;
