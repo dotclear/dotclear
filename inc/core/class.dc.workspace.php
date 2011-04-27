@@ -102,7 +102,7 @@ class dcWorkspace
 		return true;
 	}
 	
-	private function prefExists($id,$global=false)
+	public function prefExists($id,$global=false)
 	{
 		$array = $global ? 'global' : 'local';
 		return isset($this->{$array.'_prefs'}[$id]);
