@@ -277,10 +277,11 @@ abbr {
 #dashboard-main #icons {
 	overflow: hidden;
 	padding-bottom: 1em;
+	text-align: center;
 }
 #dashboard-main #icons p {
 	float: left;
-	width: 200px;
+	width: 240px;
 	text-align: center;
 	margin: 2em 0 0 0;
 }

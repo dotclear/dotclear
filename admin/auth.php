@@ -357,7 +357,7 @@ else
 		form::checkbox(array('user_remember','user_remember'),1,'','',3).' '.
 		__('Remember my ID on this computer').'</label></p>'.
 		
-		'<p><input type="submit" value="'.__('login').'" tabindex="4" /></p>';
+		'<p><input type="submit" value="'.__('log in').'" tabindex="4" /></p>';
 		
 		if (!empty($_REQUEST['blog'])) {
 			echo form::hidden('blog',html::escapeHTML($_REQUEST['blog']));
