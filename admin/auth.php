@@ -355,6 +355,7 @@ else
 		'<p><label class="classic">'.
 		'<p><label for="user_remember" class="classic">'.
 		form::checkbox(array('user_remember','user_remember'),1,'','',3).' '.
+		__('Remember my ID on this computer').'</label></p>'.
 		
 		'<p><input type="submit" value="'.__('login').'" tabindex="4" /></p>';
 		
