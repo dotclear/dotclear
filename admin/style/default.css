@@ -1092,10 +1092,11 @@ label.required abbr {
 	color: red;
 	font-size: 1.3em;
 }
-/*label.required:before {
+/* à supprimer quand tous les formulaires auront été corrigés */
+label.required:before {
 	content: '* ';
 	color: #c00;
-}*/
+}
 
 p.field {
 	position: relative;
