@@ -27,10 +27,17 @@ $user_post_status = $core->auth->getInfo('user_post_status');
 
 $user_options = $core->auth->getOptions();
 
+$core->auth->user_prefs->addWorkspace('dashboard');
+$user_dm_doclinks = $core->auth->user_prefs->dashboard->doclinks;
+$user_dm_dcnews = $core->auth->user_prefs->dashboard->dcnews;
+$user_dm_quickentry = $core->auth->user_prefs->dashboard->quickentry;
+
 $default_tab = 'user-profile';
 
 if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder'])) {
 	$default_tab = 'user-favorites';
+} elseif (!empty($_GET['updated'])) {
+	$default_tab = 'user-options';
 }
 
 foreach ($core->getFormaters() as $v) {
@@ -68,15 +75,7 @@ if (isset($_POST['user_name']))
 		$cur->user_url = $user_url = $_POST['user_url'];
 		$cur->user_lang = $user_lang = $_POST['user_lang'];
 		$cur->user_tz = $user_tz = $_POST['user_tz'];
-		$cur->user_post_status = $user_post_status = $_POST['user_post_status'];
-		
-		$user_options['edit_size'] = (integer) $_POST['user_edit_size'];
-		if ($user_options['edit_size'] < 1) {
-			$user_options['edit_size'] = 10;
-		}
-		$user_options['post_format'] = $_POST['user_post_format'];
-		$user_options['enable_wysiwyg'] = !empty($_POST['user_wysiwyg']);
-		
+
 		$cur->user_options = new ArrayObject($user_options);
 		
 		if ($core->auth->allowPassChange() && !empty($_POST['new_pwd']))
@@ -93,7 +92,54 @@ if (isset($_POST['user_name']))
 		}
 		
 		# --BEHAVIOR-- adminBeforeUserUpdate
+		$core->callBehavior('adminBeforeUserProfileUpdate',$cur,$core->auth->userID());
+		
+		# Udate user
+		$core->updUser($core->auth->userID(),$cur);
+		
+		# --BEHAVIOR-- adminAfterUserUpdate
+		$core->callBehavior('adminAfterUserProfileUpdate',$cur,$core->auth->userID());
+		
+		http::redirect('preferences.php?upd=1');
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Update user options
+if (isset($_POST['user_post_format'])) {
+	try
+	{
+		$cur = $core->con->openCursor($core->prefix.'user');
+		
+		$cur->user_name = $user_name;
+		$cur->user_firstname = $user_firstname;
+		$cur->user_displayname = $user_displayname;
+		$cur->user_email = $user_email;
+		$cur->user_url = $user_url;
+		$cur->user_lang = $user_lang;
+		$cur->user_tz = $user_tz;
+
+		$cur->user_post_status = $user_post_status = $_POST['user_post_status'];
+		
+		$user_options['edit_size'] = (integer) $_POST['user_edit_size'];
+		if ($user_options['edit_size'] < 1) {
+			$user_options['edit_size'] = 10;
+		}
+		$user_options['post_format'] = $_POST['user_post_format'];
+		$user_options['enable_wysiwyg'] = !empty($_POST['user_wysiwyg']);
+		
+		$cur->user_options = new ArrayObject($user_options);
+		
+		# --BEHAVIOR-- adminBeforeUserUpdate
 		$core->callBehavior('adminBeforeUserUpdate',$cur,$core->auth->userID());
+		
+		# Update user prefs
+		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
+		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
+		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
 		
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
@@ -101,7 +147,7 @@ if (isset($_POST['user_name']))
 		# --BEHAVIOR-- adminAfterUserUpdate
 		$core->callBehavior('adminAfterUserUpdate',$cur,$core->auth->userID());
 		
-		http::redirect('preferences.php?upd=1');
+		http::redirect('preferences.php?updated=1');
 	}
 	catch (Exception $e)
 	{
@@ -232,9 +278,9 @@ dcPage::open($page_title,
 if (!empty($_GET['upd'])) {
 		echo '<p class="message">'.__('Personal information has been successfully updated.').'</p>';
 }
-
-echo '<h2>'.$page_title.'</h2>';
-
+if (!empty($_GET['updated'])) {
+		echo '<p class="message">'.__('Personal options has been successfully updated.').'</p>';
+}
 if (!empty($_GET['append'])) {
 		echo '<p class="message">'.__('Favorites have been successfully added.').'</p>';
 }
@@ -244,6 +290,8 @@ if (!empty($_GET['neworder'])) {
 if (!empty($_GET['removed'])) {
 		echo '<p class="message">'.__('Favorites have been successfully removed.').'</p>';
 }
+
+echo '<h2>'.$page_title.'</h2>';
 
 # User profile
 echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';
@@ -315,7 +363,7 @@ echo '</div>';
 echo '<div class="multi-part" id="user-options" title="'.__('My options').'">';
 
 echo
-'<form action="preferences.php" method="post" id="user-form">'.
+'<form action="preferences.php" method="post" id="user-options">'.
 '<fieldset><legend>'.__('My options').'</legend>'.
 
 '<p><label for="user_post_format">'.__('Preferred format:').
@@ -330,6 +378,24 @@ form::field('user_edit_size',5,4,(integer) $user_options['edit_size'],'',9).'</l
 '<p><label for="user_wysiwyg" class="classic">'.
 form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg'],'',12).' '.
 __('Enable WYSIWYG mode').'</label></p>'.
+'<br class="clear" />'. //Opera sucks
+'</fieldset>';
+
+echo
+'<fieldset><legend>'.__('Dashboard modules').'</legend>'.
+
+'<p><label for="user_dm_doclinks" class="classic">'.
+form::checkbox('user_dm_doclinks',1,$user_dm_doclinks,'',13).' '.
+__('Display documentation links').'</label></p>'.
+
+'<p><label for="user_dm_dcnews" class="classic">'.
+form::checkbox('user_dm_dcnews',1,$user_dm_dcnews,'',14).' '.
+__('Display Dotclear news').'</label></p>'.
+
+'<p><label for="user_dm_quickentry" class="classic">'.
+form::checkbox('user_dm_quickentry',1,$user_dm_quickentry,'',15).' '.
+__('Display quick entry form').'</label></p>'.
+
 '<br class="clear" />'. //Opera sucks
 '</fieldset>';
 

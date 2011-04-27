@@ -2703,3 +2703,6 @@ msgstr "Les favoris ont été retirés avec succès."
 
 msgid "Favorites has been successfully updated."
 msgstr "Les favoris ont été mis à jour avec succès."
+
+msgid "Personal options has been successfully updated."
+msgstr "Vos options personnelles ont été enregistrées avec succès."
