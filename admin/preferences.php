@@ -268,6 +268,7 @@ if (!empty($_POST['saveorder']) && !empty($order))
 -------------------------------------------------------- */
 dcPage::open($page_title,
 	dcPage::jsLoad('js/_preferences.js').
+	dcPage::jsLoad('js/jquery/jquery-ui-1.8.12.custom.min.js').
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsConfirmClose('user-form').
 	
@@ -429,6 +430,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 			echo '<li id="fu-'.$k.'">'.
 				'<img src="'.$fav['large-icon'].'" alt="" /> '.
 				form::field(array('order['.$k.']'),2,3,$count,'position','',false,'title="position de '.$fav['title'].'"').
+				form::hidden('dynorder[]',$k).
 				'<label for="fuk-'.$k.'">'.form::checkbox(array('remove[]','fuk-'.$k),$k).$fav['title'].'</label>'.
 				'</li>';
 		}
