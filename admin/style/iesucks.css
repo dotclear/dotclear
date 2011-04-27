@@ -40,3 +40,6 @@ div.media-list .media-item {
 a.media-icon {
 	border-bottom:none !important;
 }
+#dashboard-main #icons p {
+	display: inline;
+}
