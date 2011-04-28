@@ -352,7 +352,6 @@ else
 		'<p><label for="user_pwd">'.__('Password:').' '.
 		form::password(array('user_pwd','user_pwd'),20,255,'','',2).'</label></p>'.
 		
-		'<p><label class="classic">'.
 		'<p><label for="user_remember" class="classic">'.
 		form::checkbox(array('user_remember','user_remember'),1,'','',3).' '.
 		__('Remember my ID on this computer').'</label></p>'.
