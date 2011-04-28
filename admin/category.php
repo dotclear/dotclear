@@ -183,14 +183,14 @@ echo $title.'</h2>';
 echo
 '<form action="category.php" method="post" id="category-form">'.
 '<fieldset><legend>'.__('Category information').'</legend>'.
-'<p><label class="required" title="'.__('Required field').'">'.__('Title:').' '.
+'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
 form::field('cat_title',40,255,html::escapeHTML($cat_title),'',2).
 '</label></p>';
 if (!$cat_id)
 {
 	$rs = $core->blog->getCategories(array('post_type'=>'post'));
 	echo
-	'<p><label>'.__('Parent:').' '.
+	'<p><label for="new_cat_parent">'.__('Parent:').' '.
 	'<select id="new_cat_parent" name="new_cat_parent" tabindex="3">'.
 	'<option value="0">'.__('Top level').'</option>';
 	while ($rs->fetch()) {
@@ -203,7 +203,7 @@ if (!$cat_id)
 }
 echo
 '<div class="lockable">'.
-'<p><label>'.__('URL:').' '.form::field('cat_url',40,255,html::escapeHTML($cat_url),'',4).
+'<p><label for="cat_url">'.__('URL:').' '.form::field('cat_url',40,255,html::escapeHTML($cat_url),'',4).
 '</label></p>'.
 '<p class="form-note warn" id="note-cat-url">'.
 __('Warning: If you set the URL manually, it may conflict with another category.').'</p>'.
@@ -229,7 +229,7 @@ if ($cat_id)
 	
 	'<form action="category.php" method="post">'.
 	'<fieldset><legend>'.__('Category parent').'</legend>'.
-	'<p><label class="classic">'.__('Parent:').' '.
+	'<p><label for="cat_parent" class="classic">'.__('Parent:').' '.
 	form::combo('cat_parent',$allowed_parents,$cat_parent).'</label></p>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" tabindex="5" />'.
 	form::hidden(array('id'),$cat_id).$core->formNonce().'</p>'.
@@ -243,7 +243,7 @@ if ($cat_id)
 		'<form action="category.php" method="post">'.
 		'<fieldset><legend>'.__('Category sibling').'</legend>'.
 		'<p><label class="classic" for="cat_sibling">'.__('Move current category').'</label> '.
-		form::combo('cat_move',array(__('before')=>'before',__('after')=>'after')).' '.
+		form::combo('cat_move',array(__('before')=>'before',__('after')=>'after'),'','','',false,'title="'.__('position: ').'"').' '.
 		form::combo('cat_sibling',$siblings).'</p>'.
 		'<p><input type="submit" accesskey="s" value="'.__('Save').'" tabindex="5" />'.
 		form::hidden(array('id'),$cat_id).$core->formNonce().'</p>'.

@@ -290,10 +290,10 @@ if (!$theme_conf_mode)
 			'<form method="post" action="blog_theme.php" id="uploadpkg" enctype="multipart/form-data">'.
 			'<fieldset>'.
 			'<legend>'.__('Upload a zip file').'</legend>'.
-			'<p class="field"><label class=" classic required" title="'.__('Required field').'">'.__('Theme zip file:').' '.
-			'<input type="file" name="pkg_file" /></label></p>'.
-			'<p class="field"><label class="classic required" title="'.__('Required field').'">'.__('Your password:').' '.
-			form::password(array('your_pwd'),20,255).'</label></p>'.
+			'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file:').' '.
+			'<input type="file" name="pkg_file" id="pkg_file" /></label></p>'.
+			'<p class="field"><label for="your_pwd" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
+			form::password(array('your_pwd','your_pwd'),20,255).'</label></p>'.
 			'<input type="submit" name="upload_pkg" value="'.__('Upload theme').'" />'.
 			$core->formNonce().
 			'</fieldset>'.
@@ -304,10 +304,10 @@ if (!$theme_conf_mode)
 			'<form method="post" action="blog_theme.php" id="fetchpkg">'.
 			'<fieldset>'.
 			'<legend>'.__('Download a zip file').'</legend>'.
-			'<p class="field"><label class=" classic required" title="'.__('Required field').'">'.__('Theme zip file URL:').' '.
-			form::field(array('pkg_url'),40,255).'</label></p>'.
-			'<p class="field"><label class="classic required" title="'.__('Required field').'">'.__('Your password:').' '.
-			form::password(array('your_pwd'),20,255).'</label></p>'.
+			'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file URL:').' '.
+			form::field(array('pkg_url','pkg_url'),40,255).'</label></p>'.
+			'<p class="field"><label id="your_pwd" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
+			form::password(array('your_pwd','your_pwd'),20,255).'</label></p>'.
 			'<input type="submit" name="fetch_pkg" value="'.__('Download theme').'" />'.
 			$core->formNonce().
 			'</fieldset>'.

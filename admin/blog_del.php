@@ -60,7 +60,7 @@ if (!$core->error->flag())
 	echo
 	'<form action="blog_del.php" method="post">'.
 	'<div>'.$core->formNonce().'</div>'.
-	'<p><label>'.__('Your password:').' '.
+	'<p><label for="pwd">'.__('Your password:').' '.
 	form::password('pwd',20,255).'</label></p>'.
 	'<p><input type="submit" class="delete" name="del" value="'.__('Delete this blog').'" />'.
 	form::hidden('blog_id',$blog_id).'</p>'.
