@@ -290,6 +290,44 @@ class dcWorkspace
 			$array = $global ? 'global' : 'local';
 			unset($this->{$array.'_prefs'}[$id]);
 		}
+
+		$this->prefs = $this->global_prefs;
+		foreach ($this->local_prefs as $id => $v) {
+			$this->prefs[$id] = $v;
+		}
+	}
+
+	/**
+	Removes all existing pref. in a Workspace 
+	
+	@param	force_global	<b>boolean</b>	Force global pref drop
+	*/
+	public function dropAll($force_global=false)
+	{
+		if (!$this->ws) {
+			throw new Exception(__('No workspace specified'));
+		}
+		
+		$strReq =	'DELETE FROM '.$this->table.' ';
+		
+		if (($force_global) || ($this->user_id === null)) {
+			$strReq .= 'WHERE user_id IS NULL ';
+			$global = true;
+		} else {
+			$strReq .= "WHERE user_id = '".$this->con->escape($this->user_id)."' ";
+			$global = false;
+		}
+		
+		$strReq .= "AND pref_ws = '".$this->con->escape($this->ws)."' ";
+		
+		$this->con->execute($strReq);
+		
+		$array = $global ? 'global' : 'local';
+		unset($this->{$array.'_prefs'});
+		$this->{$array.'_prefs'} = array();
+		
+		$array = $global ? 'local' : 'global';
+		$this->prefs = $this->{$array.'_prefs'};
 	}
 	
 	/**
