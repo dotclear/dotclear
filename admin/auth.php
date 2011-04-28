@@ -392,10 +392,10 @@ else
 		} else {
 			echo
 			'<p><a href="auth.php?safe_mode=1" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>'.
-			'<p class="form-note"><a href="#" id="safe_mode_link_help">'.__('Know more about safe mode').'</a></p>'.
+			'<p class="form-note"><a href="#" id="safe_mode_link_help">'.__('What is dotclear safe mode ?').'</a></p>'.
 			'<p id="safe_mode_help"><em>'.
-				__('This mode allows you to log in without any plugin loaded (very usefull in case of conflict between two of them for example)').'&nbsp;'.
-				__('Disable or delete plugin(s) which are giving you troubles then log out. You can after log in as usual').
+				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;'.
+				__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
 			'</em></p>';
 		}
 		
