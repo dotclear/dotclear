@@ -204,10 +204,7 @@ if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
 	// Update pref_id values
 	try {
 		$user_favs = $ws->DumpLocalPrefs();
-		foreach ($user_favs as $k => $v)
-		{
-			$core->auth->user_prefs->favorites->drop($k);
-		}
+		$core->auth->user_prefs->favorites->dropAll();
 		$count = 0;
 		foreach ($user_favs as $k => $v)
 		{
@@ -242,10 +239,7 @@ if (!empty($_POST['saveorder']) && !empty($order))
 	try {
 		$ws = $core->auth->user_prefs->addWorkspace('favorites');
 		$user_favs = $ws->DumpLocalPrefs();
-		foreach ($user_favs as $k => $v)
-		{
-			$core->auth->user_prefs->favorites->drop($k);
-		}
+		$core->auth->user_prefs->favorites->dropAll();
 		$count = 0;
 		foreach ($order as $i => $k) {
 			$uid = sprintf("u%03s",$count);
@@ -269,11 +263,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 	try {
 		$ws = $core->auth->user_prefs->addWorkspace('favorites');
 		$user_favs = $ws->DumpLocalPrefs();
-		$def_favs = $ws->DumpGlobalPrefs();
-		foreach ($def_favs as $k => $v)
-		{
-			$core->auth->user_prefs->favorites->drop($k,true);
-		}
+		$core->auth->user_prefs->favorites->dropAll(true);
 		$count = 0;
 		foreach ($user_favs as $k => $v)
 		{
