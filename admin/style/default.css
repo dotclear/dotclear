@@ -1066,3 +1066,12 @@ fieldset.constrained {
 #login-screen input[type=text], #login-screen input[type=password] {
 	width: 100%;
 }
+#login-screen #safe_mode_help {
+	display : none;
+	margin : 0 0 1em 0;
+	padding: 5px 10px 5px 30px;
+	background: #fbfbfb url(msg-std.png) no-repeat 5px 5px;
+	border: 1px solid #999;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
