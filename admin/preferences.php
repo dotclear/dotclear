@@ -451,7 +451,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 			$count++;
 			echo '<li id="fu-'.$k.'">'.
 				'<img src="'.$fav['large-icon'].'" alt="" /> '.
-				form::field(array('order['.$k.']'),2,3,$count,'position','',false,'title="position de '.$fav['title'].'"').
+				form::field(array('order['.$k.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),$fav['title']).'"').
 				form::hidden('dynorder[]',$k).
 				'<label for="fuk-'.$k.'">'.form::checkbox(array('remove[]','fuk-'.$k),$k).$fav['title'].'</label>'.
 				'</li>';

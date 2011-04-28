@@ -2727,3 +2727,6 @@ msgstr "Les favoris par défaut ont été enregistrés avec succès."
 
 msgid "Define as default favorites"
 msgstr "Definir comme favoris par défaut"
+
+msgid "position of %s"
+msgstr "position de %s"
