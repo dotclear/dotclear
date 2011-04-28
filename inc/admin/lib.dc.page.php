@@ -75,6 +75,8 @@ class dcPage
 			'<noscript><div><input type="submit" value="'.__('ok').'" /></div></noscript>';
 		}
 		
+		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
+		
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
 		echo
@@ -108,7 +110,9 @@ class dcPage
 		
 		echo
 		"</head>\n".
-		'<body id="dotclear-admin">'."\n".
+		'<body id="dotclear-admin'.
+		($safe_mode ? ' safe-mode' : '').
+		'">'."\n".
 		
 		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
 		
@@ -128,12 +132,12 @@ class dcPage
 		'<div id="main">'."\n".
 		'<div id="content">'."\n";
 		
-		# Recovery mode
-		if (isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'])
+		# Safe mode
+		if ($safe_mode)
 		{
 			echo
-			'<div class="error"><h3>'.__('Recovery mode').'</h3>'.
-			'<p>'.__('You are in recovery mode means no plugin have been loaded.').'</p>'.
+			'<div class="error"><h3>'.__('Safe mode').'</h3>'.
+			'<p>'.__('You are in safe mode. All plugins have been temporary disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
 			'</div>';
 		}
 		

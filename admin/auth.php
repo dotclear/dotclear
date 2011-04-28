@@ -292,6 +292,10 @@ echo dcPage::jsCommon();
       }
 	 return true;
     };
+    
+    $('a#safe_mode_link_help').click(function() {
+      $(this).parent().next().slideToggle();
+    });
   });
   //]]>
   </script>
@@ -387,7 +391,12 @@ else
 			'<p><a href="auth.php" id="normal_mode_link">'.__('Get back to normal authentication').'</a></p>';
 		} else {
 			echo
-			'<p><a href="auth.php?safe_mode=1" id="safe_mode_link">'.__('I have a connection problem').'</a></p>';
+			'<p><a href="auth.php?safe_mode=1" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>'.
+			'<p class="form-note"><a href="#" id="safe_mode_link_help">'.__('Know more about safe mode').'</a></p>'.
+			'<p id="safe_mode_help"><em>'.
+				__('This mode allows you to log in without any plugin loaded (very usefull in case of conflict between two of them for example)').'&nbsp;'.
+				__('Disable or delete plugin(s) which are giving you troubles then log out. You can after log in as usual').
+			'</em></p>';
 		}
 		
 		if ($core->auth->allowPassChange()) {
