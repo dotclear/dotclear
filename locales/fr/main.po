@@ -206,7 +206,7 @@ msgstr "Paramètres du blog"
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Attention: sauf cas particulier, il est généralement conseillé de terminer l'URL de votre blog par \"/\" en mode PATH_INFO."
 
-msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Attention: sauf cas particulier, il est généralement conseillé de terminer l'URL de votre blog par \"?\" en mode QUERY_STRING."
 
 msgid "Blog has been successfully created."
@@ -2727,3 +2727,6 @@ msgstr "Les favoris par défaut ont été enregistrés avec succès."
 
 msgid "Define as default favorites"
 msgstr "Definir comme favoris par défaut"
+
+msgid "position of %s"
+msgstr "position de %s"
