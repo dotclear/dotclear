@@ -293,6 +293,14 @@ echo dcPage::jsCommon();
 	 return true;
     };
     
+    if (navigator.cookieEnabled) {
+      $('#cookie_help').hide();
+    } else {
+      $('#cookie_help').show();
+    }
+    $('#issue h4').toggleWithLegend($('#issue').children().not('h4'),
+      {cookie:'dc_issue',fn: function(){$('#safe_mode_help').hide();}}
+    );
     $('a#safe_mode_link_help').click(function() {
       $(this).parent().next().slideToggle();
     });
@@ -384,7 +392,10 @@ else
 		echo
 		'</fieldset>'.
 		
-		'<p>'.__('You must accept cookies in order to use the private area.').'</p>';
+		'<p id="cookie_help">'.__('You must accept cookies in order to use the private area.').'</p>'.
+		
+		'<div id="issue">'.
+		'<h4>'.__('Connection issue').'</h4>';
 		
 		if ($safe_mode) {
 			echo
@@ -402,6 +413,8 @@ else
 		if ($core->auth->allowPassChange()) {
 			echo '<p><a href="auth.php?recover=1">'.__('I forgot my password').'</a></p>';
 		}
+		echo
+		'</div>';
 	}
 }
 ?>
