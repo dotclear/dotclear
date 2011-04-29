@@ -158,30 +158,30 @@ if (!$core->error->flag())
 	'<fieldset><legend>'.__('Filters').'</legend>'.
 	'<div class="three-cols">'.
 	'<div class="col">'.
-	'<label>'.__('Type:').' '.
+	'<label for="type">'.__('Type:').' '.
 	form::combo('type',$type_combo,$type).
 	'</label> '.
-	'<label>'.__('Status:').' '.
+	'<label for="status">'.__('Status:').' '.
 	form::combo('status',$status_combo,$status).
 	'</label>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<p><label>'.__('Order by:').' '.
+	'<p><label for="sortby">'.__('Order by:').' '.
 	form::combo('sortby',$sortby_combo,$sortby).
 	'</label> '.
-	'<label>'.__('Sort:').' '.
+	'<label for="order">'.__('Sort:').' '.
 	form::combo('order',$order_combo,$order).
 	'</label></p>'.
-	'<p><label class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
+	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
 	__('Comments per page').'</label></p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<p><label>'.__('Comment author:').' '.
+	'<p><label for="author">'.__('Comment author:').' '.
 	form::field('author',20,255,html::escapeHTML($author)).
 	'</label>'.
-	'<label>'.__('IP address:').' '.
+	'<label for="ip">'.__('IP address:').' '.
 	form::field('ip',20,39,html::escapeHTML($ip)).
 	'</label></p>'.
 	'<p><input type="submit" value="'.__('Apply filters').'" /></p>'.
@@ -212,8 +212,8 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right">'.__('Selected comments action:').' '.
-	form::combo('action',$combo_action).
+	'<p class="col right"><label for="action" class="inline">'.__('Selected comments action:').'</label> '.
+	form::combo('action',$combo_action,'','','','','title="'.__('action: ').'"').
 	$core->formNonce().
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('type'),$type).
