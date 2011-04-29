@@ -173,7 +173,7 @@ abbr {
 	font-size: .95em;
 	width: 13em;
 	float: left;
-	margin-top: .5em;
+	margin-top: 1em;
 	margin-bottom: 10px;
 }
 
@@ -1067,7 +1067,7 @@ label input, label select, label span {
 }
 p.form-note {
 	margin-top: -1em;
-	color: #C71585;
+	color: #08847d;
 	font-style: italic;
 }
 
