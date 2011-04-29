@@ -124,7 +124,7 @@ class dcPage
 		'<a href="'.$core->blog->url.'"onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
 		'</div></form>'.
 		'</div>'.
-		'<div id="info-box2"><form action="index.php" method="post><div>"'.
+		'<div id="info-box2"><form action="index.php" method="post"><div>'.
 		' '.__('User:').' <strong>'.$core->auth->userID().'</strong>'.
 		' - <a href="index.php?logout=1" class="logout">'.__('Logout').' <img src="images/logout.png" alt="" /></a>'.
 		'</div></form>'.
