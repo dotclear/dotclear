@@ -907,17 +907,6 @@ class dcMedia extends filemanager
 		$media_type = files::getMimeType($f->basename);
 		$this->callFileHandler($media_type,'recreate',null,$f->basename); // Args list to be completed as necessary (Franck)
 	}
-
-	/**
-	Calls file handlers registered for recreate event
-	
-	@param	f	<b>fileItem</b>	fileItem object
-	*/
-	public function mediaFireRecreateEvent($f)
-	{
-		$media_type = files::getMimeType($f->basename);
-		$this->callFileHandler($media_type,'recreate',null,$f->basename); // Args list to be completed as necessary (Franck)
-	}
 	
 	/* Image handlers
 	------------------------------------------------------- */
