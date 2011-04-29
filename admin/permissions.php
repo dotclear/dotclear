@@ -134,8 +134,8 @@ if (!empty($blogs) && !empty($users))
 			}
 			
 			echo
-			'<p><label class="classic">'.
-			form::checkbox(array('perm['.html::escapeHTML($b).']['.html::escapeHTML($perm_id).']'),
+			'<p><label for="perm'.html::escapeHTML($b).html::escapeHTML($perm_id).'" class="classic">'.
+			form::checkbox(array('perm['.html::escapeHTML($b).']['.html::escapeHTML($perm_id).']','perm'.html::escapeHTML($b).html::escapeHTML($perm_id)),
 			1,$checked).' '.
 			__($perm).'</label></p>';
 		}
@@ -143,7 +143,7 @@ if (!empty($blogs) && !empty($users))
 	
 	echo
 	'<fieldset>'.
-	'<p><label>'.__('Your password:').
+	'<p><label for="your_pwd">'.__('Your password:').
 	form::password('your_pwd',20,255,'','',15).'</label></p>'.
 	'</fieldset>'.
 	'<p><input type="submit" accesskey="s" value="'.__('save').'" />'.

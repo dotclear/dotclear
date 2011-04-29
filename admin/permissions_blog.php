@@ -107,19 +107,19 @@ if (!$core->error->flag())
 	'<fieldset class="two-cols"><legend>'.__('Filters').'</legend>'.
 	
 	'<div class="col">'.
-	'<p><label>'.__('Order by:').' '.
+	'<p><label for="sortby">'.__('Order by:').' '.
 	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).
 	'</label> '.
-	'<label>'.__('Sort:').' '.
+	'<label for="order">'.__('Sort:').' '.
 	form::combo('order',$order_combo,html::escapeHTML($order)).
 	'</label></p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<p><label>'.__('Search:').' '.
+	'<p><label for="q">'.__('Search:').' '.
 	form::field('q',20,255,html::escapeHTML($q)).
 	'</label></p>'.
-	'<p><label class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
+	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
 	__('Entries per page').'</label> '.
 	'<input type="submit" value="'.__('Apply filters').'" />'.
 	$hidden_fields.'</p>'.
@@ -186,7 +186,7 @@ function blogLine($rs)
 	return
 	'<tr class="line">'.
 	'<td class="nowrap">'.
-	form::checkbox(array('blog_id[]'),$rs->blog_id).'</td>'.
+	form::checkbox(array('blog_id[]'),$rs->blog_id,'','','',false,'title="'.__('select').' '.$rs->blog_id.'"').'</td>'.
 	'<td class="nowrap">'.$rs->blog_id.'</td>'.
 	'<td class="maximal">'.html::escapeHTML($rs->blog_name).'</td>'.
 	'<td class="nowrap">'.$core->countBlogPosts($rs->blog_id).'</td>'.
