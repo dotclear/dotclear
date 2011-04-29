@@ -226,9 +226,9 @@ if (!empty($dc_langs) && $is_writable)
 	'<legend>'.__('Available languages').'</legend>'.
 	'<p>'.sprintf(__('You can download and install a additional language directly from Dotclear.net. '.
 	'Proposed languages are based on your version: %s.'),'<strong>'.DC_VERSION.'</strong>').'</p>'.
-	'<p class="field"><label class="classic">'.__('Language:').' '.
+	'<p class="field"><label for="pkg_url" class="classic">'.__('Language:').' '.
 	form::combo(array('pkg_url'),$dc_langs_combo).'</label></p>'.
-	'<p class="field"><label class="classic required" title="'.__('Required field').'">'.__('Your password:').' '.
+	'<p class="field"><label for="your_pwd" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
 	form::password(array('your_pwd'),20,255).'</label></p>'.
 	'<input type="submit" value="'.__('Install language').'" />'.
 	$core->formNonce().
@@ -244,10 +244,10 @@ if ($is_writable)
 	'<fieldset>'.
 	'<legend>'.__('Upload a zip file').'</legend>'.
 	'<p>'.__('You can install languages by uploading zip files.').'</p>'.
-	'<p class="field"><label class="classic required" title="'.__('Required field').'">'.__('Language zip file:').' '.
-	'<input type="file" name="pkg_file" /></label></p>'.
-	'<p class="field"><label class="classic required" title="'.__('Required field').'">'.__('Your password:').' '.
-	form::password(array('your_pwd'),20,255).'</label></p>'.
+	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Language zip file:').' '.
+	'<input type="file" id="pkg_file" name="pkg_file" /></label></p>'.
+	'<p class="field"><label for="your_pwd" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
+	form::password(array('your_pwd','your_pwd'),20,255).'</label></p>'.
 	'<input type="submit" name="upload_pkg" value="'.__('Upload language').'" />'.
 	$core->formNonce().
 	'</fieldset>'.
