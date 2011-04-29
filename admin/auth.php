@@ -31,6 +31,7 @@ $page_url = http::getHost().$_SERVER['REQUEST_URI'];
 $change_pwd = $core->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
 $login_data = !empty($_POST['login_data']) ? $_POST['login_data'] : null;
 $recover = $core->auth->allowPassChange() && !empty($_REQUEST['recover']);
+$safe_mode = !empty($_REQUEST['safe_mode']);
 $akey = $core->auth->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
 $user_id = $user_pwd = $user_key = $user_email = null;
 $err = $msg = null;
@@ -204,6 +205,10 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 			$change_pwd = true;
 		}
 	}
+	elseif ($check_user && !empty($_POST['safe_mode']) && !$core->auth->isSuperAdmin()) 
+	{
+		$err = __('Safe Mode can only be used for super administrators.');
+	}
 	elseif ($check_user)
 	{
 		$core->session->start();
@@ -212,6 +217,10 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 		
 		if (!empty($_POST['blog'])) {
 			$_SESSION['sess_blog_id'] = $_POST['blog'];
+		}
+		
+		if (!empty($_POST['safe_mode']) && $core->auth->isSuperAdmin()) {
+			$_SESSION['sess_safe_mode'] = true;
 		}
 		
 		if (!empty($_POST['user_remember'])) {
@@ -283,6 +292,10 @@ echo dcPage::jsCommon();
       }
 	 return true;
     };
+    
+    $('a#safe_mode_link_help').click(function() {
+      $(this).parent().next().slideToggle();
+    });
   });
   //]]>
   </script>
@@ -345,6 +358,9 @@ else
 	{
 		echo
 		'<fieldset>';
+		if ($safe_mode) {
+			echo '<legend>'.__('Safe mode login').'</legend>';
+		}
 		echo
 		'<p><label for="user_id">'.__('Username:').' '.
 		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
@@ -361,11 +377,27 @@ else
 		if (!empty($_REQUEST['blog'])) {
 			echo form::hidden('blog',html::escapeHTML($_REQUEST['blog']));
 		}
+		if($safe_mode) {
+			echo form::hidden('safe_mode',1);
+		}
 		
 		echo
 		'</fieldset>'.
 		
 		'<p>'.__('You must accept cookies in order to use the private area.').'</p>';
+		
+		if ($safe_mode) {
+			echo
+			'<p><a href="auth.php" id="normal_mode_link">'.__('Get back to normal authentication').'</a></p>';
+		} else {
+			echo
+			'<p><a href="auth.php?safe_mode=1" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>'.
+			'<p class="form-note"><a href="#" id="safe_mode_link_help">'.__('What is dotclear safe mode ?').'</a></p>'.
+			'<p id="safe_mode_help"><em>'.
+				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;'.
+				__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
+			'</em></p>';
+		}
 		
 		if ($core->auth->allowPassChange()) {
 			echo '<p><a href="auth.php?recover=1">'.__('I forgot my password').'</a></p>';
