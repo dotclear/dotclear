@@ -1069,6 +1069,12 @@ p.form-note {
 	margin-top: -1em;
 	color: #5A0094;
 	font-style: italic;
+	font-style:normal;
+	background: #eef url(info.png) no-repeat .2em .2em;
+	border: 1px solid #99f;
+	padding: .2em 1em .1em 24px;
+	margin-top: -.7em;
+	color: #666;
 }
 
 label.classic {
