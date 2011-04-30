@@ -189,45 +189,45 @@ echo
 '<fieldset><legend>'.__('User information').'</legend>'.
 '<div class="two-cols">'.
 '<div class="col">'.
-'<p><label class="required" title="'.__('Required field').'">'.__('Username:').' '.
+'<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').' '.
 form::field('user_id',20,255,html::escapeHTML($user_id),'',2).
 '</label></p>'.
 '<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p>'.
 
-'<p><label>'.($user_id!='' ? __('New password:') : __('Password:')).' '.
+'<p><label for="new_pwd">'.($user_id!='' ? __('New password:') : __('Password:')).' '.
 form::password('new_pwd',20,255,'','',3).
 '</label></p>'.
 
-'<p><label>'.__('Confirm password:').' '.
+'<p><label for="new_pwd_c">'.__('Confirm password:').' '.
 form::password('new_pwd_c',20,255,'','',4).
 '</label></p>'.
 
-'<p><label>'.__('Last Name:').' '.
+'<p><label for="user_name">'.__('Last Name:').' '.
 form::field('user_name',20,255,html::escapeHTML($user_name),'',5).
 '</label></p>'.
 
-'<p><label>'.__('First Name:').' '.
+'<p><label for="user_firstname">'.__('First Name:').' '.
 form::field('user_firstname',20,255,html::escapeHTML($user_firstname),'',6).
 '</label></p>'.
 
-'<p><label>'.__('Display name:').' '.
+'<p><label for="user_displayname">'.__('Display name:').' '.
 form::field('user_displayname',20,255,html::escapeHTML($user_displayname),'',7).
 '</label></p>'.
 
-'<p><label>'.__('Email:').' '.
+'<p><label for="user_email">'.__('Email:').' '.
 form::field('user_email',20,255,html::escapeHTML($user_email),'',8).
 '</label></p>'.
 '</div>'.
 
 '<div class="col">'.
-'<p><label>'.__('URL:').' '.
+'<p><label for="user_url">'.__('URL:').' '.
 form::field('user_url',30,255,html::escapeHTML($user_url),'',9).
 '</label></p>'.
-'<p><label>'.__('Preferred format:').' '.
+'<p><label for="user_post_format">'.__('Preferred format:').' '.
 form::combo('user_post_format',$formaters_combo,$user_options['post_format'],'',10).
 '</label></p>'.
 
-'<p><label>'.__('Default entry status:').' '.
+'<p><label for="user_post_status">'.__('Default entry status:').' '.
 form::combo('user_post_status',$status_combo,$user_post_status,'',11).
 '</label></p>'.
 
@@ -235,23 +235,23 @@ form::combo('user_post_status',$status_combo,$user_post_status,'',11).
 form::field('user_edit_size',5,4,(integer) $user_options['edit_size'],'',12).
 '</label></p>'.
 
-'<p><label>'.__('User language:').' '.
+'<p><label for="user_edit_size">'.__('User language:').' '.
 form::combo('user_lang',$lang_combo,$user_lang,'l10n',13).
 '</label></p>'.
 
-'<p><label>'.__('User timezone:').' '.
+'<p><label for="user_tz">'.__('User timezone:').' '.
 form::combo('user_tz',dt::getZones(true,true),$user_tz,'',14).
 '</label></p>';
 
 if ($core->auth->allowPassChange()) {
 	echo
-	'<p><label class="classic">'.
+	'<p><label for="user_change_pwd" class="classic">'.
 	form::checkbox('user_change_pwd','1',$user_change_pwd,'',15).' '.
 	__('Password change required to connect').'</label></p>';
 }
 
 echo
-'<p><label class="classic">'.form::checkbox('user_super','1',$user_super,'',16).' '.
+'<p><label for="user_super" class="classic">'.form::checkbox('user_super','1',$user_super,'',16).' '.
 __('Super administrator').'</label></p>'.
 '</div>'.
 '</div>'.
@@ -262,7 +262,7 @@ $core->callBehavior('adminUserForm',isset($rs) ? $rs : null);
 
 echo
 '<fieldset>'.
-'<p><label>'.__('Your password:').
+'<p><label for="your_pwd">'.__('Your password:').
 form::password('your_pwd',20,255,'','',17).'</label></p>'.
 '</fieldset>'.
 '<p class="clear"><input type="submit" accesskey="s" value="'.__('Save').'" tabindex="16" />'.

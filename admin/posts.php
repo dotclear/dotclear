@@ -243,29 +243,29 @@ if (!$core->error->flag())
 	'<fieldset><legend>'.__('Filters').'</legend>'.
 	'<div class="three-cols">'.
 	'<div class="col">'.
-	'<label>'.__('Author:').
+	'<label for="user_id">'.__('Author:').
 	form::combo('user_id',$users_combo,$user_id).'</label> '.
-	'<label>'.__('Category:').
+	'<label for="cat_id">'.__('Category:').
 	form::combo('cat_id',$categories_combo,$cat_id).'</label> '.
-	'<label>'.__('Status:').
+	'<label for="status">'.__('Status:').
 	form::combo('status',$status_combo,$status).'</label> '.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<label>'.__('Selected:').
+	'<label for="selected">'.__('Selected:').
 	form::combo('selected',$selected_combo,$selected).'</label> '.
-	'<label>'.__('Month:').
+	'<label for="month">'.__('Month:').
 	form::combo('month',$dt_m_combo,$month).'</label> '.
-	'<label>'.__('Lang:').
+	'<label for="lang">'.__('Lang:').
 	form::combo('lang',$lang_combo,$lang).'</label> '.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<p><label>'.__('Order by:').
+	'<p><label for="sortby">'.__('Order by:').
 	form::combo('sortby',$sortby_combo,$sortby).'</label> '.
-	'<label>'.__('Sort:').
+	'<label for="order">'.__('Sort:').
 	form::combo('order',$order_combo,$order).'</label></p>'.
-	'<p><label class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
+	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
 	__('Entries per page').'</label></p> '.
 	'<p><input type="submit" value="'.__('Apply filters').'" /></p>'.
 	'</div>'.
@@ -283,7 +283,7 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right">'.__('Selected entries action:').' '.
+	'<p class="col right"><label for="action" class="inline">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('user_id'),$user_id).
