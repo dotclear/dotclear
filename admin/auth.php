@@ -298,12 +298,7 @@ echo dcPage::jsCommon();
     } else {
       $('#cookie_help').show();
     }
-    $('#issue #more').toggleWithLegend($('#issue').children().not('#more'),
-      {cookie:'dc_issue',fn: function(){$('#safe_mode_help').hide();}}
-    );
-    $('a#safe_mode_link_help').click(function() {
-      $(this).parent().next().slideToggle();
-    });
+    $('#issue #more').toggleWithLegend($('#issue').children().not('#more'));
   });
   //]]>
   </script>
@@ -368,11 +363,11 @@ else
 		'<fieldset>';
 		if ($safe_mode) {
 			echo '<legend>'.__('Safe mode login').'</legend>';
-			echo '<div class="form-note"><p><a href="#" id="safe_mode_link_help">'.__('What is dotclear safe mode ?').'</a></p>'.
-			'<p id="safe_mode_help">'.
+			echo 
+				'<p class="form-note">'.
 				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;'.
 				__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
-			'</p></div>';
+				'</p>';
 		}
 		echo
 		'<p><label for="user_id">'.__('Username:').' '.
