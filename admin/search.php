@@ -75,9 +75,9 @@ echo
 '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Search').'</h2>'.
 '<form action="search.php" method="get">'.
 '<fieldset><legend>'.__('Search options').'</legend>'.
-'<p><label class="classic">'.__('Query:').' '.form::field('q',30,255,html::escapeHTML($q)).'</label> '.
-'<label class="classic">'.form::radio(array('qtype'),'p',$qtype == 'p').' '.__('search entries').'</label> '.
-'<label class="classic">'.form::radio(array('qtype'),'c',$qtype == 'c').' '.__('search comments').'</label> '.
+'<p><label for="q" class="classic">'.__('Query:').' '.form::field('q',30,255,html::escapeHTML($q)).'</label> '.
+'<label for="qtype1" class="classic">'.form::radio(array('qtype','qtype1'),'p',$qtype == 'p').' '.__('search entries').'</label> '.
+'<label for="qtype2" class="classic">'.form::radio(array('qtype','qtype2'),'c',$qtype == 'c').' '.__('search comments').'</label> '.
 ' <input type="submit" value="'.__('ok').'" /></p>'.
 '</fieldset>'.
 '</form>';
@@ -124,8 +124,8 @@ if ($q && !$core->error->flag())
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
 		
-		'<p class="col right">'.__('Selected entries action:').
-		form::combo('action',$combo_action).
+		'<p class="col right"><label for="action1" class="inline"'.__('Selected entries action:').'</label> '.
+		form::combo(array('action','action1'),$combo_action).
 		'<input type="submit" value="'.__('ok').'" /></p>'.
 		form::hidden('redir',preg_replace('/%/','%%',$redir)).
 		$core->formNonce().
@@ -164,8 +164,8 @@ if ($q && !$core->error->flag())
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
 		
-		'<p class="col right">'.__('Selected comments action:').' '.
-		form::combo('action',$combo_action).
+		'<p class="col right"><label for="action2" class="inline">'.__('Selected comments action:').'</label> '.
+		form::combo(array('action','action2'),$combo_action).
 		'<input type="submit" value="'.__('ok').'" /></p>'.
 		form::hidden('redir',preg_replace('/%/','%%',$redir)).
 		$core->formNonce().
