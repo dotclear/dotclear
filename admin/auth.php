@@ -298,7 +298,7 @@ echo dcPage::jsCommon();
     } else {
       $('#cookie_help').show();
     }
-    $('#issue h4').toggleWithLegend($('#issue').children().not('h4'),
+    $('#issue #more').toggleWithLegend($('#issue').children().not('#more'),
       {cookie:'dc_issue',fn: function(){$('#safe_mode_help').hide();}}
     );
     $('a#safe_mode_link_help').click(function() {
@@ -368,6 +368,11 @@ else
 		'<fieldset>';
 		if ($safe_mode) {
 			echo '<legend>'.__('Safe mode login').'</legend>';
+			echo '<div class="form-note"><p><a href="#" id="safe_mode_link_help">'.__('What is dotclear safe mode ?').'</a></p>'.
+			'<p id="safe_mode_help">'.
+				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;'.
+				__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
+			'</p></div>';
 		}
 		echo
 		'<p><label for="user_id">'.__('Username:').' '.
@@ -391,30 +396,22 @@ else
 		
 		echo
 		'</fieldset>'.
-		
-		'<p id="cookie_help">'.__('You must accept cookies in order to use the private area.').'</p>'.
-		
-		'<div id="issue">'.
-		'<h4>'.__('Connection issue').'</h4>';
+		'<p id="cookie_help">'.__('You must accept cookies in order to use the private area.').'</p>';
+
+		echo '<div id="issue">';
 		
 		if ($safe_mode) {
 			echo
 			'<p><a href="auth.php" id="normal_mode_link">'.__('Get back to normal authentication').'</a></p>';
 		} else {
-			echo
-			'<p><a href="auth.php?safe_mode=1" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>'.
-			'<p class="form-note"><a href="#" id="safe_mode_link_help">'.__('What is dotclear safe mode ?').'</a></p>'.
-			'<p id="safe_mode_help"><em>'.
-				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;'.
-				__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
-			'</em></p>';
+			echo '<p id="more"><strong>'.__('Connection issue?').'</strong></p>';
+			if ($core->auth->allowPassChange()) {
+				echo '<p><a href="auth.php?recover=1">'.__('I forgot my password').'</a></p>';
+			}
+			echo '<p><a href="auth.php?safe_mode=1" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>';
 		}
 		
-		if ($core->auth->allowPassChange()) {
-			echo '<p><a href="auth.php?recover=1">'.__('I forgot my password').'</a></p>';
-		}
-		echo
-		'</div>';
+		echo '</div>';
 	}
 }
 ?>
