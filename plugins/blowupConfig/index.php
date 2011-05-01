@@ -207,6 +207,7 @@ if (!empty($_POST))
   echo dcPage::jsVar('dotclear.blowup_public_url',blowupConfig::imagesURL());
   echo dcPage::jsVar('dotclear.msg.predefined_styles',__('Predefined styles'));
   echo dcPage::jsVar('dotclear.msg.apply_code',__('Apply code'));
+  echo dcPage::jsVar('dotclear.msg.predefined_style_title',__('Choose a predefined style'));
   ?>
   //]]>
   </script>
