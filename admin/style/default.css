@@ -304,9 +304,11 @@ abbr {
 	font-size: 1.2em;
 }
 #dashboard-main #quick p.qinfo {
-	margin: -1em -1em 1em;
-	padding: 1em;
-	background: #ebeadd;
+	margin: -.7em -1em 1em;
+	background: #eef url(info.png) no-repeat .2em .2em;
+	border: 1px solid #99f;
+	padding: .2em 1em .1em 24px;
+	color: #666;
 }
 
 #dashboard-items {
@@ -1066,9 +1068,6 @@ label input, label select, label span {
 	display: block;
 }
 p.form-note {
-	margin-top: -1em;
-	color: #5A0094;
-	font-style: italic;
 	font-style:normal;
 	background: #eef url(info.png) no-repeat .2em .2em;
 	border: 1px solid #99f;
@@ -1076,6 +1075,7 @@ p.form-note {
 	margin-top: -.7em;
 	color: #666;
 }
+.form-note a {border-bottom: 1px solid #99f;}
 
 label.classic {
 	display: inline;
@@ -1096,7 +1096,7 @@ label.required {
 	font-weight: bold;
 }
 label.required abbr {
-	color: red;
+	color: #dd0000;
 	font-size: 1.3em;
 }
 label.inline {
@@ -1157,15 +1157,8 @@ fieldset.constrained {
 #login-screen input[type=text], #login-screen input[type=password] {
 	width: 100%;
 }
-
-#login-screen #safe_mode_help {
-	display : none;
-	margin : 0 0 1em 0;
-	padding: 5px 10px 5px 30px;
-	background: #fbfbfb url(msg-std.png) no-repeat 5px 5px;
-	border: 1px solid #999;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
+#login-screen #issue {
+	margin-left: .5em;
 }
 
 

@@ -136,7 +136,7 @@ class dcFilterAkismet extends dcSpamFilter
 		
 		$res =
 		'<form action="'.html::escapeURL($url).'" method="post">'.
-		'<p><label class="classic">'.__('Akismet API key:').' '.
+		'<p><label for="ak_key" class="classic">'.__('Akismet API key:').' '.
 		form::field('ak_key',12,128,$ak_key).'</label>';
 		
 		if ($ak_verified !== null) {

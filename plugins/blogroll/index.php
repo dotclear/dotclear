@@ -251,8 +251,8 @@ while ($rs->fetch())
 	
 	echo
 	'<tr class="line" id="l_'.$rs->link_id.'">'.
-	'<td class="handle minimal">'.form::field(array('order['.$rs->link_id.']'),2,5,$position).'</td>'.
-	'<td class="minimal">'.form::checkbox(array('remove[]'),$rs->link_id).'</td>';
+	'<td class="handle minimal">'.form::field(array('order['.$rs->link_id.']'),2,5,$position,'','',false,'title="'.__('position').'"').'</td>'.
+	'<td class="minimal">'.form::checkbox(array('remove[]'),$rs->link_id,'','','',false,'title="'.__('select this link').'"').'</td>';
 	
 	
 	if ($rs->is_cat)
@@ -303,19 +303,19 @@ echo
 '<div class="multi-part clear" id="add-link" title="'.__('Add a link').'">'.
 '<form action="plugin.php" method="post" id="add-link-form">'.
 '<fieldset class="two-cols"><legend>'.__('Add a new link').'</legend>'.
-'<p class="col"><label class="required" title="'.__('Required field').'">'.__('Title:').' '.
+'<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
 form::field('link_title',30,255,$link_title,'',2).
 '</label></p>'.
 
-'<p class="col"><label class="required" title="'.__('Required field').'">'.__('URL:').' '.
+'<p class="col"><label for="link_href" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('URL:').' '.
 form::field('link_href',30,255,$link_href,'',3).
 '</label></p>'.
 
-'<p class="col"><label>'.__('Description:').' '.
+'<p class="col"><label for="link_desc">'.__('Description:').' '.
 form::field('link_desc',30,255,$link_desc,'',4).
 '</label></p>'.
 
-'<p class="col"><label>'.__('Language:').' '.
+'<p class="col"><label for="link_lang">'.__('Language:').' '.
 form::field('link_lang',5,5,$link_lang,'',5).
 '</label></p>'.
 '<p>'.form::hidden(array('p'),'blogroll').
@@ -329,7 +329,7 @@ echo
 '<div class="multi-part" id="add-cat" title="'.__('Add a category').'">'.
 '<form action="plugin.php" method="post" id="add-category-form">'.
 '<fieldset><legend>'.__('Add a new category').'</legend>'.
-'<p><label class=" classic required" title="'.__('Required field').'">'.__('Title:').' '.
+'<p><label for="cat_title" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
 form::field('cat_title',30,255,$cat_title,'',7).'</label> '.
 form::hidden(array('p'),'blogroll').
 $core->formNonce().
@@ -344,8 +344,8 @@ if (!isset($imported)) {
 	echo
 	'<form action="plugin.php" method="post" id="import-links-form" enctype="multipart/form-data">'.
 	'<fieldset><legend>'.__('Import links').'</legend>'.
-	'<p><label class=" classic required" title="'.__('Required field').'">'.__('OPML or XBEL File:').' '.
-	'<input type="file" name="links_file" /></label></p>'.
+	'<p><label for="links_file" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('OPML or XBEL File:').' '.
+	'<input type="file" id="links_file" name="links_file" /></label></p>'.
 	'<p>'.form::hidden(array('p'),'blogroll').
 	$core->formNonce().
 	'<input type="submit" name="import_links" value="'.__('import').'" tabindex="10" /></p>'.
