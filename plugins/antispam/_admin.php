@@ -44,7 +44,7 @@ class antispamBehaviors
 		$ttl = $settings->antispam->antispam_moderation_ttl;
 		echo
 		'<fieldset><legend>Antispam</legend>'.
-		'<p><label class="classic">'.__('Delete junk comments older than').' '.
+		'<p><label for="antispam_moderation_ttl" class="classic">'.__('Delete junk comments older than').' '.
 		form::field('antispam_moderation_ttl', 3, 3, $ttl).
 		' '.__('days').
 		'</label></p>'.

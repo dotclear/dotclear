@@ -87,7 +87,7 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
   <title>about:config</title>
   <?php echo dcPage::jsPageTabs($part); ?>
   <style type="text/css">
-  .ns-name { background: #ccc; color: #000; padding-top: 0.3em; padding-bottom: 0.3em; font-size: 1.1em; }
+  .ns-name { background: #dfdfdf; color: #333; padding-top: 0.3em; padding-bottom: 0.3em; font-size: 1.1em; }
   </style>
 </head>
 
