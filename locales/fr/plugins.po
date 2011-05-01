@@ -1420,3 +1420,6 @@ msgstr "préférences globales"
 
 #~ msgid "Invalid page URL"
 #~ msgstr "URL de la page non valide"
+
+msgid "Choose a predefined style"
+msgstr "Sélectionnez un style prédéfini"
