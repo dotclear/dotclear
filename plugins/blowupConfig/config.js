@@ -35,10 +35,11 @@ $(function() {
 	});
 	
 	// Predefined styles
-	// /!\ needs geek master to add title="Choose a predefined style" in select tag
+	// /!\ needs geek master to add locale for attr title="Choose a predefined style" in select tag
 	var styles_combo = document.createElement('select');
 	$(styles_combo).append('<option value="">&nbsp;</option>');
 	$(styles_combo).append('<option value="none">none</option>');
+	$(styles_combo).attr('title','Choose a predefined style');
 	
 	for (var style in dotclear.blowup_styles) {
 		styles_option = document.createElement('option');
