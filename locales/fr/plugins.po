@@ -1063,7 +1063,7 @@ msgid "Test ping services"
 msgstr "Tester les services de ping"
 
 msgid "Check all"
-msgstr "Tout vérifier."
+msgstr "Tout cocher."
 
 msgid "Pings:"
 msgstr "Pings :"
