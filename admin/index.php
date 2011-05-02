@@ -43,6 +43,37 @@ if (!empty($_GET['logout'])) {
 $plugins_install = $core->plugins->installModules();
 
 # Check dashboard module prefs
+$core->auth->user_prefs->loadPrefs();
+	
+	// Set favorites menu
+	$ws = $core->auth->user_prefs->addWorkspace('favorites');
+	$count = 0;
+	foreach ($ws->dumpPrefs() as $k => $v) {
+		// User favorites only
+		if (!$v['global']) {
+			$count++;
+			$fav = unserialize($v['value']);
+			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+		}
+	}	
+	if (!$count) {
+		// Global favorites if any
+		foreach ($ws->dumpPrefs() as $k => $v) {
+			$count++;
+			$fav = unserialize($v['value']);
+			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+		}
+	}
+	if (!$count) {
+		// No user or global favorites, add "new entry" fav
+		$_menu['Favorites']->addItem(__('New entry'),'post.php','images/menu/edit.png',
+			preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
+			$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
+	}
 $core->auth->user_prefs->addWorkspace('dashboard');
 if (!$core->auth->user_prefs->dashboard->prefExists('doclinks')) {
 	if (!$core->auth->user_prefs->dashboard->prefExists('doclinks',true)) {
@@ -220,7 +251,7 @@ if (!empty($plugins_install['failure']))
 }
 
 # Dashboard icons
-echo '<div id="dashboard-main"><div id="icons" class="clear">';
+echo '<div id="dashboard-main"><div id="icons">';
 foreach ($__dashboard_icons as $i)
 {
 	echo
@@ -277,7 +308,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 echo '</div>';
 
 # Dashboard columns
-echo '<div id="dashboard-items">';
+$dashboardItems = '';
 
 # Dotclear updates notifications
 if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
@@ -286,7 +317,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 	$new_v = $updater->check(DC_VERSION);
 	
 	if ($updater->getNotify() && $new_v) {
-		echo
+		$dashboardItems .=
 		'<div id="upg-notify" class="static-msg"><p>'.sprintf(__('Dotclear %s is available!'),$new_v).'</p> '.
 		'<ul><li><strong><a href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a></strong>'.
 		'</li><li><a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
@@ -303,7 +334,7 @@ if ($core->auth->isSuperAdmin())
 	}
 	
 	if (count($list) > 0) {
-		echo
+		$dashboardItems .=
 		'<div id="module-errors" class="error"><p>'.__('Some plugins are installed twice:').'</p> '.
 		'<ul>'.implode("\n",$list).'</ul></div>';
 	}
@@ -311,14 +342,17 @@ if ($core->auth->isSuperAdmin())
 }
 
 foreach ($__dashboard_items as $i)
-{
-	echo '<div>';
-	foreach ($i as $v) {
-		echo $v;
+{	
+	if ($i->count() > 0)
+	{
+		$dashboardItems .= '<div>';
+		foreach ($i as $v) {
+			$dashboardItems .= $v;
+		}
+		$dashboardItems .= '</div>';
 	}
-	echo '</div>';
 }
-echo '</div>';
+echo ($dashboardItems ? '<div id="dashboard-items">'.$dashboardItems.'</div>' : '');
 
 dcPage::close();
 ?>
