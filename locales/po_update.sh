@@ -32,6 +32,7 @@ pings
 tags
 themeEditor
 widgets
+userPref
 "
 
 PO_LANG=$1
