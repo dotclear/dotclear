@@ -308,7 +308,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 echo '</div>';
 
 # Dashboard columns
-echo '<div id="dashboard-items">';
+$dashboardItems = '';
 
 # Dotclear updates notifications
 if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
@@ -317,7 +317,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 	$new_v = $updater->check(DC_VERSION);
 	
 	if ($updater->getNotify() && $new_v) {
-		echo
+		$dashboardItems .=
 		'<div id="upg-notify" class="static-msg"><p>'.sprintf(__('Dotclear %s is available!'),$new_v).'</p> '.
 		'<ul><li><strong><a href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a></strong>'.
 		'</li><li><a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
@@ -334,7 +334,7 @@ if ($core->auth->isSuperAdmin())
 	}
 	
 	if (count($list) > 0) {
-		echo
+		$dashboardItems .=
 		'<div id="module-errors" class="error"><p>'.__('Some plugins are installed twice:').'</p> '.
 		'<ul>'.implode("\n",$list).'</ul></div>';
 	}
@@ -342,14 +342,17 @@ if ($core->auth->isSuperAdmin())
 }
 
 foreach ($__dashboard_items as $i)
-{
-	echo '<div>';
-	foreach ($i as $v) {
-		echo $v;
+{	
+	if ($i->count() > 0)
+	{
+		$dashboardItems .= '<div>';
+		foreach ($i as $v) {
+			$dashboardItems .= $v;
+		}
+		$dashboardItems .= '</div>';
 	}
-	echo '</div>';
 }
-echo '</div>';
+echo ($dashboardItems ? '<div id="dashboard-items">'.$dashboardItems.'</div>' : '');
 
 dcPage::close();
 ?>
