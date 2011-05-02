@@ -100,7 +100,7 @@ class adminPageList extends adminGenericList
 		
 		$res .=
 		'<td class="nowrap">'.
-		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable()).'</td>'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable(),'title="'.__('select this page').'"').'</td>'.
 		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
