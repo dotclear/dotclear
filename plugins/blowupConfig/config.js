@@ -36,7 +36,6 @@ $(function() {
 	
 	// Predefined styles
 	var styles_combo = document.createElement('select');
-	styles_combo.title = dotclear.msg.predefined_style_title;
 	$(styles_combo).append('<option value="">&nbsp;</option>');
 	$(styles_combo).append('<option value="none">none</option>');
 	$(styles_combo).attr('title',dotclear.msg.predefined_style_title);
