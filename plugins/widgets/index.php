@@ -164,6 +164,7 @@ echo
 '<fieldset><legend>'.__('Available widgets').'</legend>'.
 '<div id="widgets">';
 
+$j = 0;
 foreach ($__widgets->elements(true) as $w) {
 	echo
 	'<div>'.form::hidden(array('w[void][0][id]'),html::escapeHTML($w->id())).
@@ -171,8 +172,9 @@ foreach ($__widgets->elements(true) as $w) {
 	$w->name().'</p>'.
 	'<p class="js-remove"><label class="classic">'.__('Append to:').' '.
 	form::combo(array('addw['.$w->id().']'),$append_combo).'</label></p>'.
-	'<div class="widgetSettings">'.$w->formSettings('w[void][0]').'</div>'.
+	'<div class="widgetSettings">'.$w->formSettings('w[void][0]',$j).'</div>'.
 	'</div>';
+	$j++;
 }
 
 echo
@@ -186,13 +188,13 @@ echo '<form id="sidebarsWidgets" action="'.$p_url.'" method="post">';
 # Nav sidebar
 echo
 '<div id="sidebarNav" class="widgets">'.
-sidebarWidgets('dndnav',__('Navigation sidebar'),$widgets_nav,'nav',$__default_widgets['nav']).
+sidebarWidgets('dndnav',__('Navigation sidebar'),$widgets_nav,'nav',$__default_widgets['nav'],$j).
 '</div>';
 
 # Extra sidebar
 echo
 '<div id="sidebarExtra" class="widgets">'.
-sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra']).
+sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra'],$j).
 '</div>';
 
 echo
@@ -261,7 +263,7 @@ $widget_elements->content .= '</dl></div>';
 
 dcPage::helpBlock($widget_elements);
 
-function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets)
+function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 {
 	$res = '<fieldset><legend>'.$title.'</legend><div id="'.$id.'">';
 	
@@ -286,10 +288,11 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets)
 		'<p class="removeWidget js-remove"><label class="classic">'.
 		form::checkbox(array($iname.'[_rem]'),'1',0).' '.__('Remove widget').
 		'</label></p>'.
-		'<div class="widgetSettings">'.$w->formSettings($iname).'</div>'.
+		'<div class="widgetSettings">'.$w->formSettings($iname,&$j).'</div>'.
 		'</div>';
 		
 		$i++;
+		$j++;
 	}
 	
 	$res .= '</div></fieldset>';
