@@ -297,7 +297,7 @@ foreach ($__dashboard_items as $i)
 }
 
 # Dashboard icons
-echo '<div id="dashboard-main"'.($dashboardItems ? '' : 'class="fullwidth"').'><div id="icons">';
+echo '<div id="dashboard-main"'.($dashboardItems ? '' : ' class="fullwidth"').'><div id="icons">';
 foreach ($__dashboard_icons as $i)
 {
 	echo
