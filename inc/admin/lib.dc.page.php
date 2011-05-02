@@ -121,7 +121,7 @@ class dcPage
 		'<div id="info-box">'.
 		'<form action="index.php" method="post"><div>'.
 		$blog_box.
-		'<a href="'.$core->blog->url.'"onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
+		'<a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
 		'</div></form>'.
 		'</div>'.
 		'<div id="info-box2"><form action="index.php" method="post"><div>'.
