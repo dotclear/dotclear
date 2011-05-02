@@ -69,9 +69,11 @@ class dcPage
 				$blogs[html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
 			}
 			$blog_box =
+			'<label for="switchblog" class="classic">'.
 			__('Blogs:').' '.
 			$core->formNonce().
 			form::combo('switchblog',$blogs,$core->blog->id,	'',1).
+			'</label>'.
 			'<noscript><div><input type="submit" value="'.__('ok').'" /></div></noscript>';
 		}
 		
@@ -124,10 +126,10 @@ class dcPage
 		'<a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
 		'</div></form>'.
 		'</div>'.
-		'<div id="info-box2"><form action="index.php" method="post"><div>'.
+		'<div id="info-box2"><div>'.
 		' '.__('User:').' <strong>'.$core->auth->userID().'</strong>'.
 		' - <a href="index.php?logout=1" class="logout">'.__('Logout').' <img src="images/logout.png" alt="" /></a>'.
-		'</div></form>'.
+		'</div>'.
 		'</div>';
 		
 		echo
