@@ -274,6 +274,11 @@ abbr {
 	padding: 1em 1%;
 	width: 66%;
 }
+#dashboard-main.fullwidth {
+	width: 100%;
+	padding: 1em 0;
+	float: none;
+}
 #dashboard-main #icons {
 	overflow: hidden;
 	padding-bottom: 1em;
