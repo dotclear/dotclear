@@ -386,7 +386,7 @@ echo '</div>';
 echo '<div class="multi-part" id="user-options" title="'.__('My options').'">';
 
 echo
-'<form action="preferences.php" method="post" id="user-options">'.
+'<form action="preferences.php" method="post" id="opts-forms">'.
 '<fieldset><legend>'.__('My options').'</legend>'.
 
 '<p><label for="user_post_format">'.__('Preferred format:').
@@ -452,7 +452,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 			echo '<li id="fu-'.$k.'">'.
 				'<img src="'.$fav['large-icon'].'" alt="" /> '.
 				form::field(array('order['.$k.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),$fav['title']).'"').
-				form::hidden('dynorder[]',$k).
+				form::hidden(array('dynorder[]','dynorder-'.$k.''),$k).
 				'<label for="fuk-'.$k.'">'.form::checkbox(array('remove[]','fuk-'.$k),$k).$fav['title'].'</label>'.
 				'</li>';
 		}
@@ -465,16 +465,18 @@ if ($count > 0) {
 	'<p>'.form::hidden('favs_order','').
 	$core->formNonce().
 	'<input type="submit" name="saveorder" value="'.__('Save order').'" /> '.
-	
-	'<input type="submit" class="delete" name="removeaction"'.
+
+	'<input type="submit" class="delete" name="removeaction" '.
 	'value="'.__('Delete selected favorites').'" '.
 	'onclick="return window.confirm(\''.html::escapeJS(
 		__('Are you sure you want to remove selected favorites?')).'\');" /></p>'.
 
 	($core->auth->isSuperAdmin() ? 
-	'<hr />'.
-	'<p>'.__('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:').'</p>'.
-	'<p><input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'" />' : '').'</p>'.
+		'<hr />'.
+		'<p>'.__('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:').'</p>'.
+		'<p><input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'" />' : 
+		'').
+		'</p>'.
 	'</div>';
 } else {
 	echo
@@ -527,8 +529,8 @@ if ($count > 0) echo '</ul>';
 echo
 '<p>'.
 $core->formNonce().
-'<input type="submit" name="appendaction" value="'.__('Add to my favorites').'" /></p>'.
-'</fieldset>';
+'<input type="submit" name="appendaction" value="'.__('Add to my favorites').'" /></p>';
+echo '</fieldset>';
 echo '</div>';
 echo '</div>'; # Two-cols
 echo '</form>';
