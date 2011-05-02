@@ -265,20 +265,20 @@ if ($blog_id)
 	if ($core->auth->isSuperAdmin())
 	{
 		echo
-		'<p><label for="blog_id" class="required">'.__('Blog ID:').
+		'<p><label for="blog_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').
 		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</label></p>'.
 		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').' '.
 		__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
 	}
 	
 	echo
-	'<p><label for="blog_name" class="required">'.__('Blog name:').
+	'<p><label for="blog_name" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').
 	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</label></p>';
 	
 	if ($core->auth->isSuperAdmin())
 	{
 		echo
-		'<p><label for="blog_url" class="required">'.__('Blog URL:').
+		'<p><label for="blog_url" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').
 		form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</label></p>'.
 		
 		'<p><label for="url_scan">'.__('URL scan method:').

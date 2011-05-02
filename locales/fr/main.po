@@ -2704,7 +2704,7 @@ msgstr "Êtes-vous sûr de vouloir retirer les favoris sélectionnés ?"
 msgid "Favorites have been successfully removed."
 msgstr "Les favoris ont été retirés avec succès."
 
-msgid "Favorites has been successfully updated."
+msgid "Favorites have been successfully updated."
 msgstr "Les favoris ont été mis à jour avec succès."
 
 msgid "Personal options has been successfully updated."
@@ -2726,7 +2726,7 @@ msgid "Default favorites have been successfully updated."
 msgstr "Les favoris par défaut ont été enregistrés avec succès."
 
 msgid "Define as default favorites"
-msgstr "Definir comme favoris par défaut"
+msgstr "Définir comme favoris par défaut"
 
 msgid "position of %s"
 msgstr "position de %s"

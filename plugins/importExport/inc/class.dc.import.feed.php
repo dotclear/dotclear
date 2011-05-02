@@ -88,7 +88,7 @@ class dcImportFeed extends dcIeModule
 		'<fieldset>'.
 		$this->core->formNonce().
 		form::hidden(array('do'),1).
-		'<p><label>'.__('Feed URL:').' '.
+		'<p><label for="feed_url">'.__('Feed URL:').' '.
 		form::field('feed_url',40,300,html::escapeHTML($this->feed_url)).'</label></p>'.
 		'<p><input type="submit" value="'.__('Send').'" /></p>'.
 		'</fieldset>'.

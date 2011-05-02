@@ -280,7 +280,7 @@ abbr {
 	text-align: center;
 }
 #dashboard-main #icons p {
-	width: 240px;
+	width: 210px;
 	text-align: center;
 	margin: 2em 0 0 0;
 	display:inline-block;
@@ -438,8 +438,9 @@ select#del_cat {
 #my-favs ul li {
 	display: block;
 	float: left;
-	width: 170px;
-	margin-bottom: 2.5em;
+	width: 164px;
+	margin-top: 1em;
+	margin-bottom: 1.5em;
 }
 #my-favs label {height: 2.5em;width:140px;margin-top:.3em;}
 #my-favs label input {display:inline;}
@@ -786,8 +787,8 @@ ul.nice li {
 	border-left: none;
 	padding: 5px;
 	float: right;
-	height: 400px;
-	width: 300px;
+	height: 420px;
+	width: 320px;
 	overflow: auto;
 }
 #theme-box div.theme-shot img {
@@ -822,7 +823,7 @@ ul.nice li {
 #themes-wrapper #themes {
 	border: 1px solid #999;
 	overflow: auto;
-	height: 400px;
+	height: 420px;
 	padding: 5px;
 	margin: 0;
 }
@@ -1186,6 +1187,7 @@ a.back {
 	-webkit-border-radius: .2em; 
 	-moz-border-radius: .2em;
 	border-radius: .2em;
+	margin-bottom: .1em;
 }
 /* validation */
 input[type=submit], 
