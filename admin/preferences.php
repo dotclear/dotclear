@@ -305,7 +305,7 @@ if (!empty($_GET['append'])) {
 		echo '<p class="message">'.__('Favorites have been successfully added.').'</p>';
 }
 if (!empty($_GET['neworder'])) {
-	echo '<p class="message">'.__('Favorites has been successfully updated.').'</p>';
+	echo '<p class="message">'.__('Favorites have been successfully updated.').'</p>';
 }
 if (!empty($_GET['removed'])) {
 		echo '<p class="message">'.__('Favorites have been successfully removed.').'</p>';
@@ -462,16 +462,19 @@ if ($count > 0) echo '</ul>';
 if ($count > 0) {
 	echo
 	'<div class="clear">'.
-	'<p class="col">'.form::hidden('favs_order','').
+	'<p>'.form::hidden('favs_order','').
 	$core->formNonce().
-	'<input type="submit" name="saveorder" value="'.__('Save order').'">'.
-	($core->auth->isSuperAdmin() ? ' <input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'">' : '').
-	'</p>'.
+	'<input type="submit" name="saveorder" value="'.__('Save order').'"> '.
 	
-	'<p class="right"><input type="submit" class="delete" name="removeaction"'.
+	'<input type="submit" class="delete" name="removeaction"'.
 	'value="'.__('Delete selected favorites').'" '.
 	'onclick="return window.confirm(\''.html::escapeJS(
 		__('Are you sure you want to remove selected favorites?')).'\');" /></p>'.
+
+	($core->auth->isSuperAdmin() ? 
+	'<hr />'.
+	'<p>Si vous disposez du statut de super administrateur, vous pouvez faire de cet ensemble celui qui sera affiché par défaut sur tous les blogs de l\'installation :</p>'.
+	'<p><input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'">' : '').'</p>'.
 	'</div>';
 } else {
 	echo
