@@ -554,7 +554,7 @@ if ($post_id)
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
 		
-		'<p class="col right"><label for="action" class="inline">'.__('Selected comments action:').'</label> '.
+		'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
 		form::combo('action',$combo_action).
 		form::hidden('redir','post.php?id='.$post_id.'&amp;co=1').
 		$core->formNonce().

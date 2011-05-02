@@ -58,16 +58,16 @@ if (!empty($_GET['up'])) {
 
 echo
 '<form action="'.$p_url.'" method="post">'.
-'<p><label class="classic">'.form::checkbox('pings_active',1,$core->blog->settings->pings->pings_active).' '.
+'<p><label for="pings_active" class="classic">'.form::checkbox('pings_active',1,$core->blog->settings->pings->pings_active).' '.
 __('Activate pings extension').'</label></p>';
 
 foreach ($pings_uris as $n => $u)
 {
 	echo
-	'<p><label class="classic">'.__('Service name:').' '.
+	'<p><label for="pings_srv_name" class="classic">'.__('Service name:').' '.
 	form::field(array('pings_srv_name[]'),20,128,html::escapeHTML($n)).'</label> '.
-	'<label class="classic">'.__('Service URI:').' '.
-	form::field(array('pings_srv_uri[]'),40,255,html::escapeHTML($u)).'</label>';
+	'<label for="pings_srv_uri" class="classic">'.__('Service URI:').' '.
+	form::field(array('pings_srv_uri[]','pings_srv_uri'),40,255,html::escapeHTML($u)).'</label>';
 	
 	if (!empty($_GET['test']))
 	{
@@ -83,10 +83,10 @@ foreach ($pings_uris as $n => $u)
 }
 
 echo
-'<p><label class="classic">'.__('Service name:').' '.
-form::field(array('pings_srv_name[]'),20,128).'</label> '.
-'<label class="classic">'.__('Service URI:').' '.
-form::field(array('pings_srv_uri[]'),40,255).'</label>'.
+'<p><label for="pings_srv_name2" class="classic">'.__('Service name:').' '.
+form::field(array('pings_srv_name[]','pings_srv_name2'),20,128).'</label> '.
+'<label for="pings_srv_uri2" class="classic">'.__('Service URI:').' '.
+form::field(array('pings_srv_uri[]','pings_srv_uri2'),40,255).'</label>'.
 '</p>'.
 
 '<p><input type="submit" value="'.__('save').'" />'.
