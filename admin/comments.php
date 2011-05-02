@@ -212,7 +212,7 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right"><label for="action" class="inline">'.__('Selected comments action:').'</label> '.
+	'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
 	form::combo('action',$combo_action,'','','','','title="'.__('action: ').'"').
 	$core->formNonce().
 	'<input type="submit" value="'.__('ok').'" /></p>'.

@@ -62,8 +62,8 @@ class pingsBehaviors
 		foreach ($pings_uris as $k => $v)
 		{
 			echo
-			'<p class="ping-services"><label class="classic">'.
-			form::checkbox(array('pings_do[]'),html::escapeHTML($v),in_array($v,$pings_do)).' '.
+			'<p class="ping-services"><label for="pings_do" class="classic">'.
+			form::checkbox(array('pings_do[]','pings_do'),html::escapeHTML($v),in_array($v,$pings_do)).' '.
 			html::escapeHTML($k).'</label></p>';
 		}
 	}
