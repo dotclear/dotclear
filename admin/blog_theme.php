@@ -306,7 +306,7 @@ if (!$theme_conf_mode)
 			'<legend>'.__('Download a zip file').'</legend>'.
 			'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file URL:').' '.
 			form::field(array('pkg_url','pkg_url'),40,255).'</label></p>'.
-			'<p class="field"><label id="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
+			'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
 			form::password(array('your_pwd','your_pwd2'),20,255).'</label></p>'.
 			'<input type="submit" name="fetch_pkg" value="'.__('Download theme').'" />'.
 			$core->formNonce().

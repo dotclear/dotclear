@@ -283,10 +283,10 @@ while ($rs->fetch())
 		'<p class="col">'.form::hidden('links_order','').
 		form::hidden(array('p'),'blogroll').
 		$core->formNonce().
-		'<input type="submit" name="saveorder" value="'.__('Save order').'"></p>'.
+		'<input type="submit" name="saveorder" value="'.__('Save order').'" /></p>'.
 		
 		'<p class="col right"><input type="submit" class="delete" name="removeaction"'.
-		'value="'.__('Delete selected links').'" '.
+		' value="'.__('Delete selected links').'" '.
 		'onclick="return window.confirm(\''.html::escapeJS(
 			__('Are you sure you want to delete selected links?')).'\');" /></p>'.
 		'</div>';
