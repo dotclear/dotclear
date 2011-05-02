@@ -220,7 +220,7 @@ if (!empty($plugins_install['failure']))
 }
 
 # Dashboard icons
-echo '<div id="dashboard-main"><div id="icons">';
+echo '<div id="dashboard-main"><div id="icons" class="clear">';
 foreach ($__dashboard_icons as $i)
 {
 	echo

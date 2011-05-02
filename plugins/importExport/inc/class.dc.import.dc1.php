@@ -150,18 +150,18 @@ class dcImportDC1 extends dcIeModule
 				
 				printf($this->imForm(1,__('General information'),__('Import my blog now')),
 				'<h3>'.__('We first need some information about your old Dotclear 1.2 installation.').'</h3>'.
-				'<p><label>'.__('Database Host Name:').' '.
+				'<p><label for="db_host">'.__('Database Host Name:').' '.
 				form::field('db_host',30,255,html::escapeHTML($this->vars['db_host'])).'</label></p>'.
-				'<p><label>'.__('Database Name:',html::escapeHTML($this->vars['db_name'])).' '.
+				'<p><label for="db_name">'.__('Database Name:',html::escapeHTML($this->vars['db_name'])).' '.
 				form::field('db_name',30,255,html::escapeHTML($this->vars['db_name'])).'</label></p>'.
-				'<p><label>'.__('Database User Name:').' '.
+				'<p><label for="db_user">'.__('Database User Name:').' '.
 				form::field('db_user',30,255,html::escapeHTML($this->vars['db_user'])).'</label></p>'.
-				'<p><label>'.__('Database Password:').' '.
+				'<p><label for="db_pwd">'.__('Database Password:').' '.
 				form::password('db_pwd',30,255).'</label></p>'.
-				'<p><label>'.__('Database Tables Prefix:').' '.
+				'<p><label for="db_prefix">'.__('Database Tables Prefix:').' '.
 				form::field('db_prefix',30,255,html::escapeHTML($this->vars['db_prefix'])).'</label></p>'.
 				'<h3>'.__('Entries import options').'</h3>'.
-				'<p><label>'.__('Number of entries to import at once:').' '.
+				'<p><label for="post_limit">'.__('Number of entries to import at once:').' '.
 				form::field('post_limit',3,3,html::escapeHTML($this->vars['post_limit'])).'</label></p>'
 				);
 				break;
