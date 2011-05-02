@@ -58,6 +58,27 @@ msgstr "Vous devez changer de mot de passe avant de vous connecter."
 msgid "In order to login, you have to change your password now."
 msgstr "Afin de vous connecter, vous devez changer votre mot de passe."
 
+msgid "Safe Mode can only be used for super administrators."
+msgstr "Le mode sans échec ne peut être utilisé que par un super administrateur."
+
+msgid "Safe mode login"
+msgstr "Connexion en mode sans échec"
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr "Ce mode vous permet de vous connecter sans activer de plugins. Il peut être utile pour résoudre un problème de compatibilité"
+
+msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr "Désactivez ou supprimez les plugins semblant en être la cause, puis déconnectez-vous et connectez-vous à nouveau normalement."
+
+msgid "Get back to normal authentication"
+msgstr "Retour à l'écran de connexion normal"
+
+msgid "Connection issue?"
+msgstr "Problème de connexion ?"
+
+msgid "I want to log in in safe mode"
+msgstr "Me connecter en mode sans échec"
+
 msgid "Wrong username or password"
 msgstr "Nom d'utilisateur ou mot de passe incorrect"
 
