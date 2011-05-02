@@ -219,40 +219,42 @@ class dcWidget
 		return $this->settings;
 	}
 	
-	public function formSettings($pr='')
+	public function formSettings($pr='',&$i=0)
 	{
 		$res = '';
 		foreach ($this->settings as $id => $s)
 		{
+			$wfid = "wf-".$i;
 			$iname = $pr ? $pr.'['.$id.']' : $id;
 			switch ($s['type'])
 			{
 				case 'text':
 					$res .=
-					'<p><label>'.$s['title'].' '.
-					form::field(array($iname),20,255,html::escapeHTML($s['value']),'maximal').
+					'<p><label for="'.$wfid.'">'.$s['title'].' '.
+					form::field(array($iname,$wfid),20,255,html::escapeHTML($s['value']),'maximal').
 					'</label></p>';
 					break;
 				case 'textarea':
 					$res .=
-					'<p><label>'.$s['title'].' '.
-					form::textarea(array($iname),30,5,html::escapeHTML($s['value']),'maximal').
+					'<p><label for="'.$wfid.'">'.$s['title'].' '.
+					form::textarea(array($iname,$wfid),30,5,html::escapeHTML($s['value']),'maximal').
 					'</label></p>';
 					break;
 				case 'check':
 					$res .=
 					'<p>'.form::hidden(array($iname),'0').
-					'<label class="classic">'.
-					form::checkbox(array($iname),'1',$s['value']).' '.$s['title'].
+					'<label class="classic" for="'.$wfid.'">'.
+					form::checkbox(array($iname,$wfid),'1',$s['value']).' '.$s['title'].
 					'</label></p>';
 					break;
 				case 'combo':
 					$res .=
-					'<p><label>'.$s['title'].' '.
-					form::combo(array($iname),$s['options'],$s['value']).
+					'<p><label for="'.$wfid.'">'.$s['title'].' '.
+					form::combo(array($iname,$wfid),$s['options'],$s['value']).
 					'</label></p>';
 					break;
 			}
+			$i++;
 		}
 		
 		return $res;
