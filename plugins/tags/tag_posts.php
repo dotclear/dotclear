@@ -124,7 +124,7 @@ if (!$core->error->flag())
 	{
 		echo
 		'<form action="'.$this_url.'" method="post">'.
-		'<p><label class="classic">'.__('Rename this tag:').' '.
+		'<p><label for="new_tag_id" class="classic">'.__('Rename this tag:').' '.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'</label> <input type="submit" value="'.__('save').'" />'.
 		$core->formNonce().'</p>'.
@@ -140,7 +140,7 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right">'.__('Selected entries action:').' '.
+	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</action> '.
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden('post_type','').
