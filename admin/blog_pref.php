@@ -436,10 +436,12 @@ if ($blog_id)
 	echo
 	'<fieldset><legend>'.__('Search engines robots policy').'</legend>';
 	
+	$i = 0;
 	foreach ($robots_policy_options as $k => $v)
 	{
-		echo '<p><label for="robots_policy" class="classic">'.
-		form::radio(array('robots_policy'),$k,$blog_settings->system->robots_policy == $k).' '.$v.'</label></p>';
+		echo '<p><label for="robots_policy-'.$i.'" class="classic">'.
+		form::radio(array('robots_policy','robots_policy-'.$i),$k,$blog_settings->system->robots_policy == $k).' '.$v.'</label></p>';
+		$i++;
 	}
 	
 	echo '</fieldset>';
