@@ -2665,6 +2665,9 @@ msgstr "Mes options"
 msgid "Default favorites"
 msgstr "Favoris par défaut"
 
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
+msgstr "Si vous êtes super administrateur, vous pouvez définir ce jeu de favoris comme l'ensemble par défaut pour tous les blogs de l'installation :"
+
 msgid "My preferences"
 msgstr "Mes préférences"
 
