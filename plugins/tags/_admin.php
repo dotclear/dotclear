@@ -228,7 +228,7 @@ class tagsBehaviors
 			echo
 			'<h2>'.__('Add tags to entries').'</h2>'.
 			'<form action="posts_actions.php" method="post">'.
-			'<div><label class="area">'.__('Tags to add:').'</label> '.
+			'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
 			form::textarea('new_tags',60,3).
 			'</div>'.
 			$hidden_fields.
@@ -309,7 +309,7 @@ class tagsBehaviors
 		
 		echo
 		'<fieldset><legend>'.__('Tags').'</legend>'.
-		'<p><label>'.__('Tags list format:').' '.
+		'<p><label for="user_tag_list_format">'.__('Tags list format:').' '.
 		form::combo('user_tag_list_format',$combo,$value).
 		'</label></p></fieldset>';
 	}
