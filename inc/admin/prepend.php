@@ -148,6 +148,11 @@ elseif ($core->auth->sessionExists())
 */
 }
 
+if (!empty($_GET['logout'])) {
+	// Nothing more to do here before logout
+	return;
+}
+
 if ($core->auth->userID() && $core->blog !== null)
 {
 	# Loading resources and help files
@@ -292,43 +297,34 @@ if ($core->auth->userID() && $core->blog !== null)
 		$core->auth->isSuperAdmin() ||
 		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->blog_count > 1);
 
-	try {
-		// Set favorites menu
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		$count = 0;
+	// Set favorites menu
+	$ws = $core->auth->user_prefs->addWorkspace('favorites');
+	$count = 0;
+	foreach ($ws->dumpPrefs() as $k => $v) {
+		// User favorites only
+		if (!$v['global']) {
+			$count++;
+			$fav = unserialize($v['value']);
+			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+		}
+	}	
+	if (!$count) {
+		// Global favorites if any
 		foreach ($ws->dumpPrefs() as $k => $v) {
-			// User favorites only
-			if (!$v['global']) {
-				$count++;
-				$fav = unserialize($v['value']);
-				$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
-					preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
-					(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
-			}
-		}	
-		if (!$count) {
-			// Global favorites if any
-			foreach ($ws->dumpPrefs() as $k => $v) {
-				$count++;
-				$fav = unserialize($v['value']);
-				$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
-					preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
-					(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
-			}
+			$count++;
+			$fav = unserialize($v['value']);
+			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 		}
-		if (!$count) {
-			// No user or global favorites, add "new entry" fav
-			$_menu['Favorites']->addItem(__('New entry'),'post.php','images/menu/edit.png',
-				preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
-				$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
-		}
-	} catch (Exception $e) {
-		$version = $core->getVersion('core');
-		if (version_compare($version,'2.3','<') && !empty($_GET['logout'])) {
-			;	// Ignore lack of dc_pref table before the logout following an auto-update
-		} else {
-			$core->error->add($e->getMessage());
-		}
+	}
+	if (!$count) {
+		// No user or global favorites, add "new entry" fav
+		$_menu['Favorites']->addItem(__('New entry'),'post.php','images/menu/edit.png',
+			preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
+			$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
 	}
 }
 ?>
