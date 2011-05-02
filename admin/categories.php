@@ -123,7 +123,7 @@ echo '<div class="col">'.
 
 '<form action="category.php" method="post">'.
 '<fieldset><legend>'.__('Add a new category').'</legend>'.
-'<p><label for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
+'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
 form::field('cat_title',30,255).'</label></p>'.
 '<p><label for="new_cat_parent">'.__('Parent:').' '.
 '<select id="new_cat_parent" name="new_cat_parent">'.

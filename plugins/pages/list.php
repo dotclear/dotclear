@@ -189,7 +189,7 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right">'.__('Selected pages action:').' '.
+	'<p class="col right"><label for="action" class="inline">'.__('Selected pages action:').'</label> '.
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('post_type'),'page').

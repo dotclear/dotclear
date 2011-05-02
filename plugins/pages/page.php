@@ -440,7 +440,7 @@ if ($can_edit_page)
 	echo '<div id="entry-content"><fieldset class="constrained">';
 	
 	echo
-	'<p class="col"><label class="required" title="'.__('Required field').'">'.__('Title:').
+	'<p class="col"><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
 	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal',2).
 	'</label></p>'.
 	
@@ -448,8 +448,8 @@ if ($can_edit_page)
 	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt),'',2).
 	'</p>'.
 	
-	'<p class="area"><label class="required" title="'.__('Required field').'" '.
-	'for="post_content">'.__('Content:').'</label> '.
+	'<p class="area"><label class="required" '.
+	'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
 	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content),'',2).
 	'</p>';
 	
