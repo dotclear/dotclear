@@ -124,7 +124,7 @@ if ($q && !$core->error->flag())
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
 		
-		'<p class="col right"><label for="action1" class="classic"'.__('Selected entries action:').'</label> '.
+		'<p class="col right"><label for="action1" class="classic">'.__('Selected entries action:').'</label> '.
 		form::combo(array('action','action1'),$combo_action).
 		'<input type="submit" value="'.__('ok').'" /></p>'.
 		form::hidden('redir',preg_replace('/%/','%%',$redir)).
