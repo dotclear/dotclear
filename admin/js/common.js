@@ -5,7 +5,7 @@ function chainHandler(obj, handlerName, handler) {
 		return function() {
 			handler.apply(this, arguments);
 			if (existingFunction)
-				existingFunction.apply(this, arguments); 
+				existingFunction.apply(this, arguments);
 		};
 	})(handlerName in obj ? obj[handlerName] : null);
 };
@@ -44,7 +44,7 @@ jQuery.fn.enableShiftClick = function() {
 					range = trparent.nextUntil('#'+dotclear.lastclicked);
 				else
 					range = trparent.prevUntil('#'+dotclear.lastclicked);
-				
+
 				range.find('input[type=checkbox]').setChecked(dotclear.lastclickedstatus);
 				this.checked = dotclear.lastclickedstatus;
 			}
@@ -56,7 +56,7 @@ jQuery.fn.enableShiftClick = function() {
 	});
 }
 
-jQuery.fn.toggleWithLegend = function(target,s) {
+jQuery.fn.toggleWithLegend = function(target,s, callback) {
 	var defaults = {
 		img_on_src: dotclear.img_plus_src,
 		img_on_alt: dotclear.img_plus_alt,
@@ -70,30 +70,30 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 		reverse_cookie: false // Reverse cookie behavior
 	};
 	var p = jQuery.extend(defaults,s);
-	
+
 	if (!target) { return this; }
-	
+
 	var set_cookie = p.hide ^ p.reverse_cookie;
 	if (p.cookie && jQuery.cookie(p.cookie)) {
 		p.hide = p.reverse_cookie;
 	}
-	
-	var toggle = function(i,speed) {
+
+	var toggle = function(i,speed, callback) {
 		speed = speed || 0;
 		if (p.hide) {
 			$(i).get(0).src = p.img_on_src;
 			$(i).get(0).alt = p.img_on_alt;
-			target.hide(speed);
+			target.hide(speed, callback);
 		} else {
 			$(i).get(0).src = p.img_off_src;
 			$(i).get(0).alt = p.img_off_alt;
-			target.show(speed);
+			target.show(speed, callback);
 			if (p.fn) {
 				p.fn.apply(target);
 				p.fn = false;
 			}
 		}
-		
+
 		if (p.cookie && set_cookie) {
 			if (p.hide ^ p.reverse_cookie) {
 				jQuery.cookie(p.cookie,'',{expires: -1});
@@ -101,10 +101,10 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 				jQuery.cookie(p.cookie,1,{expires: 30});
 			}
 		}
-		
+
 		p.hide = !p.hide;
 	};
-	
+
 	return this.each(function() {
 		var i = document.createElement('img');
 		i.src = p.img_off_src;
@@ -116,16 +116,16 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 			border: 'none',
 			outline: 'none'
 		});
-		
+
 		var ctarget = p.legend_click ? this : a;
-		
+
 		$(ctarget).css('cursor','pointer');
 		$(ctarget).click(function() {
-			toggle(i,p.speed);
+			toggle(i,p.speed, callback);
 			return false;
 		});
-		
-		
+
+
 		toggle($(i).get(0));
 		$(this).prepend(' ').prepend(a);
 	});
@@ -135,7 +135,7 @@ jQuery.fn.helpViewer = function() {
 	if (this.length < 1) {
 		return this;
 	}
-	
+
 	var p = {
 		img_on_src: dotclear.img_plus_src,
 		img_on_alt: dotclear.img_plus_alt,
@@ -155,19 +155,19 @@ jQuery.fn.helpViewer = function() {
 		sizeBox();
 		return false;
 	};
-	
+
 	var sizeBox = function() {
 		This.css('height','auto');
 		if ($('body').height() > This.height()) {
 			This.css('height',$('body').height() + 'px');
 		}
 	};
-	
+
 	var textToggler = function(o) {
 		var i = $('<img src="'+p.img_on_src+'" alt="'+p.img_on_alt+'" />');
 		o.css('cursor','pointer');
 		var hide = true;
-		
+
 		o.prepend(' ').prepend(i);
 		o.click(function() {
 			$(this).nextAll().each(function() {
@@ -187,20 +187,20 @@ jQuery.fn.helpViewer = function() {
 			}
 		});
 	};
-	
+
 	this.addClass('help-box');
 	this.find('>hr').remove();
-	
+
 	this.find('h3').each(function() { textToggler($(this)); });
 	this.find('h3:first').nextAll('*:not(h3)').hide();
 	sizeBox();
-	
+
 	var img = $('<span id="help-button">'+dotclear.msg.help+'</span>');
 	var select = $();
 	img.click(function() { return toggle(); });
-	
+
 	$('#content').append(img);
-	
+
 	return this;
 };
 
@@ -208,7 +208,7 @@ jQuery.fn.helpViewer = function() {
 -------------------------------------------------------- */
 var dotclear = {
 	msg: {},
-	
+
 	hideLockable: function() {
 		$('div.lockable').each(function() {
 			var current_lockable_div = this;
@@ -216,14 +216,14 @@ var dotclear = {
 			$(this).find('input').each(function() {
 				this.disabled = true;
 				$(this).width(($(this).width()-14) + 'px');
-				
+
 				var imgE = document.createElement('img');
 				imgE.src = 'images/locker.png';
 				imgE.style.position = 'absolute';
 				imgE.style.top = '1.7em';
 				imgE.style.left = ($(this).width()+4)+'px';
 				$(imgE).css('cursor','pointer');
-				
+
 				$(imgE).click(function() {
 					$(this).hide();
 					$(this).prev('input').each(function() {
@@ -232,13 +232,13 @@ var dotclear = {
 					});
 					$(current_lockable_div).find('p.form-note').show();
 				});
-				
+
 				$(this).parent().css('position','relative');
 				$(this).after(imgE);
 			});
 		});
 	},
-	
+
 	checkboxesHelpers: function(e) {
 		var a = document.createElement('a');
 		a.href='#';
@@ -248,9 +248,9 @@ var dotclear = {
 			return false;
 		};
 		$(e).append(a);
-		
+
 		$(e).append(document.createTextNode(' - '));
-		
+
 		a = document.createElement('a');
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.no_selection));
@@ -259,9 +259,9 @@ var dotclear = {
 			return false;
 		};
 		$(e).append(a);
-		
+
 		$(e).append(document.createTextNode(' - '));
-		
+
 		a = document.createElement('a');
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.invert_sel));
@@ -271,45 +271,45 @@ var dotclear = {
 		};
 		$(e).append(a);
 	},
-	
+
 	postsActionsHelper: function() {
 		$('#form-entries').submit(function() {
 			var action = $(this).find('select[name="action"]').val();
 			var checked = false;
-			
+
 			$(this).find('input[name="entries[]"]').each(function() {
 				if (this.checked) {
 					checked = true;
 				}
 			});
-			
+
 			if (!checked) { return false; }
-			
+
 			if (action == 'delete') {
 				return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s',$('input[name="entries[]"]:checked').size()));
 			}
-			
+
 			return true;
 		});
 	},
-	
+
 	commentsActionsHelper: function() {
 		$('#form-comments').submit(function() {
 			var action = $(this).find('select[name="action"]').val();
 			var checked = false;
-			
+
 			$(this).find('input[name="comments[]"]').each(function() {
 				if (this.checked) {
 					checked = true;
 				}
 			});
-			
+
 			if (!checked) { return false; }
-			
+
 			if (action == 'delete') {
 				return window.confirm(dotclear.msg.confirm_delete_comments.replace('%s',$('input[name="comments[]"]:checked').size()));
 			}
-			
+
 			return true;
 		});
 	}
@@ -322,7 +322,7 @@ $(function() {
 	$('#switchblog').change(function() {
 		this.form.submit();
 	});
-	
+
 	var menu_settings = {
 		img_on_src: dotclear.img_menu_off,
 		img_off_src: dotclear.img_menu_on,
@@ -330,23 +330,27 @@ $(function() {
 		speed: 100
 	}
 	$('#blog-menu h3:first').toggleWithLegend($('#blog-menu ul:first'),
-		$.extend({cookie:'dc_blog_menu',hide:false,reverse_cookie:true},menu_settings)
+		$.extend({cookie:'dc_blog_menu',hide:false,reverse_cookie:true},menu_settings),
+		positionFooter
 	);
 	$('#system-menu h3:first').toggleWithLegend($('#system-menu ul:first'),
-		$.extend({cookie:'dc_system_menu'},menu_settings)
+		$.extend({cookie:'dc_system_menu'},menu_settings),
+		positionFooter
 	);
 	$('#plugins-menu h3:first').toggleWithLegend($('#plugins-menu ul:first'),
-		$.extend({cookie:'dc_plugins_menu'},menu_settings)
+		$.extend({cookie:'dc_plugins_menu'},menu_settings),
+		positionFooter
 	);
 	$('#favorites-menu h3:first').toggleWithLegend($('#favorites-menu ul:first'),
-		$.extend({cookie:'dc_favorites_menu'},menu_settings)
+		$.extend({cookie:'dc_favorites_menu'},menu_settings),
+		positionFooter
 	);
-	
+
 	$('#help').helpViewer();
-	
+
 	$('.message').backgroundFade({sColor:'#cccccc',eColor:'#666666',steps:20});
 	$('.error').backgroundFade({sColor:'#f5e5e5',eColor:'#e5bfbf',steps:20});
-	
+
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
 		var e = this.elements['your_pwd'];
 		if (e.value == '') {
@@ -358,5 +362,33 @@ $(function() {
 		}
 		return true;
 	});
+
+
+	// Sticky footer
+	positionFooter();
+	function positionFooter() {
+		$("#wrapper").css({ overflow: "auto" });
+		var page_height = $("#top").height() + $("#wrapper").height() - $("#footer").height();
+		if( page_height < $(window).height() ){
+			// calcul de la largeur
+			var page_width = $(document).width() - 30;
+			$("#footer").css({
+				position: "absolute",
+				bottom: "10px",
+				width: page_width+"px",
+				padding: ".75em 0",
+				marginbottom: "0"
+			});
+		} else {
+			$("#footer").css({
+				position: "static",
+				padding: ".75em 0",
+				width: "auto",
+			});
+		}
+
+	}
+	$(window).resize(positionFooter);
+
 });
 
