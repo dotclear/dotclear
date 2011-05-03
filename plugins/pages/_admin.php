@@ -13,6 +13,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $core->addBehavior('adminDashboardIcons','pages_dashboard');
 $core->addBehavior('adminDashboardFavs','pages_dashboard_favs');
+$core->addBehavior('adminDashboardFavsIcon','pages_dashboard_favs_icon');
 function pages_dashboard($core,$icons)
 {
 	$icons['pages'] = new ArrayObject(array(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/icon-big.png'));
@@ -25,6 +26,19 @@ function pages_dashboard_favs($core,$favs)
 	$favs['newpage'] = new ArrayObject(array('newpage',__('New page'),'plugin.php?p=pages&amp;act=page',
 		'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
 		'contentadmin,pages',null,null));
+}
+function pages_dashboard_favs_icon($core,$name,$icon)
+{
+	// Check if it is one of my own favs
+	if ($name == 'pages') {
+		$params = new ArrayObject();
+		$params['post_type'] = 'page';
+		$page_count = $core->blog->getPosts($params,true)->f(0);
+		if ($page_count > 0) {
+			$str_pages = ($page_count > 1) ? __('%d pages') : __('%d page');
+			$icon[0] = sprintf($str_pages,$page_count);
+		}
+	}
 }
 
 $_menu['Blog']->addItem(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/icon.png',

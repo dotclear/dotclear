@@ -1423,3 +1423,9 @@ msgstr "préférences globales"
 
 msgid "Choose a predefined style"
 msgstr "Sélectionnez un style prédéfini"
+
+msgid "%d pages"
+msgstr "%d pages"
+
+msgid "%d page"
+msgstr "%d page"
