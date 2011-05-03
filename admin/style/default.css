@@ -271,8 +271,8 @@ abbr {
 #dashboard-main {
 	float: left;
 	overflow: hidden;
-	padding: 1em 1%;
-	width: 66%;
+	padding: 1em 2% 1em 0;
+	width: 70%;
 }
 #dashboard-main.fullwidth {
 	width: 100%;
@@ -318,9 +318,8 @@ abbr {
 
 #dashboard-items {
 	float: left;
-	width: 29%;
+	width: 27%;
 	overflow: hidden;
-	margin-left: 2%;
 	padding-bottom: 1em;
 	padding-top: 3em;
 }
@@ -1187,7 +1186,7 @@ a.back {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	padding: .1em .75em .1em;
+	padding: .1em .5em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .2em;
 	-moz-border-radius: .2em;
