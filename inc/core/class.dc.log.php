@@ -84,10 +84,13 @@ class dcLog
 			$strReq .= 'AND log_table'.$this->core->con->in($params['log_table']);
 		}
 		
-		if (!empty($params['order']) && !$count_only) {
-			$strReq .= 'ORDER BY '.$this->core->con->escape($params['order']).' ';
-		} else {
-			$strReq .= 'ORDER BY log_dt DESC ';
+		if (!$count_only)
+		{
+			if (!empty($params['order'])) {
+				$strReq .= 'ORDER BY '.$this->core->con->escape($params['order']).' ';
+			} else {
+				$strReq .= 'ORDER BY log_dt DESC ';
+			}
 		}
 		
 		if (!empty($params['limit'])) {
