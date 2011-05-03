@@ -61,13 +61,14 @@ echo
 '<p><label for="pings_active" class="classic">'.form::checkbox('pings_active',1,$core->blog->settings->pings->pings_active).' '.
 __('Activate pings extension').'</label></p>';
 
+$i = 0;
 foreach ($pings_uris as $n => $u)
 {
 	echo
-	'<p><label for="pings_srv_name" class="classic">'.__('Service name:').' '.
-	form::field(array('pings_srv_name[]'),20,128,html::escapeHTML($n)).'</label> '.
-	'<label for="pings_srv_uri" class="classic">'.__('Service URI:').' '.
-	form::field(array('pings_srv_uri[]','pings_srv_uri'),40,255,html::escapeHTML($u)).'</label>';
+	'<p><label for="pings_srv_name-'.$i.'" class="classic">'.__('Service name:').' '.
+	form::field(array('pings_srv_name[]','pings_srv_name-'.$i),20,128,html::escapeHTML($n)).'</label> '.
+	'<label for="pings_srv_uri-'.$i.'" class="classic">'.__('Service URI:').' '.
+	form::field(array('pings_srv_uri[]','pings_srv_uri-'.$i),40,255,html::escapeHTML($u)).'</label>';
 	
 	if (!empty($_GET['test']))
 	{
@@ -80,6 +81,7 @@ foreach ($pings_uris as $n => $u)
 	}
 	
 	echo '</p>';
+	$i++;
 }
 
 echo
