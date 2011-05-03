@@ -134,7 +134,7 @@ abbr {
 	width: 20em;
 }
 #info-box a img, #info-box2 a img {
-	vertical-align: middle; 
+	vertical-align: middle;
 	padding-left: .3em;
 	}
 #info-box a, #info-box2 a {
@@ -216,7 +216,7 @@ abbr {
 }
 
 /* favoris en haut */
-#fav-add { 
+#fav-add {
 	position: absolute;
 	top: 3.5em;
 	right: 2em;
@@ -225,7 +225,7 @@ abbr {
 #footer {
 	clear: both;
 	padding: .75em 2em;
-	margin: 6em 1em .5em 1em;
+	margin: 6em 15px .5em 15px;
 	-webkit-border-radius: .3em;
 	-moz-border-radius: .3em;
 	border-radius: .3em;
@@ -242,7 +242,7 @@ abbr {
 	color: #f5f5f5;
 }
 #footer p span.credit {
-	font-size: .85em; 
+	font-size: .85em;
 	font-weight: normal;
 }
 
@@ -995,7 +995,7 @@ td.expand {
 	border-collapse: separate;
 }
 .dragable tbody td {
-	
+
 }
 .handle {
 	padding: 0;
@@ -1110,7 +1110,7 @@ label.inline {
 }
 p.field {
 	position: relative;
-	
+
 }
 p.field label {
 	display: block;
@@ -1176,11 +1176,11 @@ h2 a.button {
 	vertical-align: middle;
 }
 /* commun */
-input[type=submit], 
-input[type=reset], 
-input[type=button], 
+input[type=submit],
+input[type=reset],
+input[type=button],
 a.button,
-a.button.add, 
+a.button.add,
 a.back {
 	display: inline-block;
 	outline: none;
@@ -1189,13 +1189,13 @@ a.back {
 	text-decoration: none;
 	padding: .1em .75em .1em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .2em; 
+	-webkit-border-radius: .2em;
 	-moz-border-radius: .2em;
 	border-radius: .2em;
 	margin-bottom: .1em;
 }
 /* validation */
-input[type=submit], 
+input[type=submit],
 input[type=button],
 a.button.add {
 	color: #fff;
@@ -1204,11 +1204,11 @@ a.button.add {
 	background: -webkit-gradient(linear, left top, left bottom, from(#2C8FD1), to(#2373A8));
 	background: -moz-linear-gradient(top,  #2C8FD1,  #2373A8);
 }
-input[type=submit]:hover, 
-input[type=reset]:hover, 
+input[type=submit]:hover,
+input[type=reset]:hover,
 input[type=button]:hover,
-input[type=submit]:focus, 
-input[type=reset]:focus, 
+input[type=submit]:focus,
+input[type=reset]:focus,
 input[type=button]:focus,
 a.button.add:hover,
 a.button.add:focus {
@@ -1219,9 +1219,9 @@ a.button.add:focus {
 	border: 1px solid #2C8FD1;
 }
 /* suppression et reset */
-a.button, 
-a.back, 
-input[type=submit].reset, 
+a.button,
+a.back,
+input[type=submit].reset,
 input[type=submit].delete {
 	border: 1px solid #999;
 	background: #f5f5f5;
@@ -1230,13 +1230,13 @@ input[type=submit].delete {
 	background: -moz-linear-gradient(top,  #f5f5f5,  #e5e5e5);
 	text-shadow: none;
 	}
-a.button:hover, 
-a.back:hover, 
-input[type=submit].reset:hover, 
+a.button:hover,
+a.back:hover,
+input[type=submit].reset:hover,
 input[type=submit].delete:hover,
-a.button:focus, 
-a.back:focus, 
-input[type=submit].reset:focus, 
+a.button:focus,
+a.back:focus,
+input[type=submit].reset:focus,
 input[type=submit].delete:focus {
 	background: #e5e5e5;
 	background: -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#f5f5f5));
