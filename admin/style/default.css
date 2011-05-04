@@ -143,7 +143,9 @@ abbr {
 	color: #fff;
 	border-bottom-color: #ccc;
 }
-#info-box a {margin-left: 2em;}
+#info-box a {
+	margin-left: 2em;
+}
 
 #wrapper {
 	width: 100%;
@@ -155,13 +157,8 @@ abbr {
 	margin-top: 0;
 }
 #content {
-	margin-left: 13em;
-	margin-bottom: 4em;
-	margin-top: .5em;
-	margin-right: 1.5em;
-	padding-top: 10px;
-	padding-left: 1em;
-	padding-right: 1em;
+	margin: .5em 1.5em 4em 13em;
+	padding: 1em;
 	background: #fff;
 	-webkit-border-radius: .5em;
 	-moz-border-radius: .5em;
@@ -174,7 +171,7 @@ abbr {
 	width: 13em;
 	float: left;
 	margin-top: 1em;
-	margin-bottom: 10px;
+	margin-bottom: 1em;
 }
 
 #main-menu h3 {
@@ -213,13 +210,6 @@ abbr {
 }
 #main-menu #dashboard-menu li {
 	margin-left: 0;
-}
-
-/* favoris en haut */
-#fav-add {
-	position: absolute;
-	top: 3.5em;
-	right: 2em;
 }
 
 #footer {
@@ -345,6 +335,7 @@ abbr {
 #dashboard-items #news dd p {
 	margin: 0.2em 0 0 0;
 }
+
 #upg-notify {
 }
 #upg-notify ul {
@@ -356,11 +347,11 @@ abbr {
 
 /* POST */
 #entry-sidebar {
-	width: 200px;
+	width: 17em;
 	float: right;
 }
 #entry-content {
-	margin-right: 220px;
+	margin-right: 18em;
 }
 #comments {
 	clear: both;
@@ -372,8 +363,8 @@ abbr {
 }
 #categories ul {
 	list-style: none;
-	margin: 0 0 0 0;
-	padding: 0 0 0 0;
+	margin: 0;
+	padding: 0;
 }
 #categories ul li {
 	margin: .5em 0;
@@ -544,20 +535,22 @@ select#del_cat {
 }
 
 /* POPUP */
-body.popup #wrapper {
-	background-position: -130px 0;
+body.popup #wrapper, body.popup #top {
+	margin-top: -1.5em;
 }
 body.popup #top h1 {
-	background-position: -130px 0;
+	background: transparent;
 }
 body.popup #main {
 	margin-left: -35px;
+	margin-bottom: 1em;
 }
 body.popup #content {
 	margin-left: 35px;
+	margin-left: 2em;  /* 3.2 */
 }
 body.popup #footer {
-	background-position: -130px 0;
+	display: none; /* 3.2 */
 }
 body.popup #footer p {
 	margin-left: 35px;
@@ -566,6 +559,8 @@ body.popup #footer p {
 
 /* CLASSES
 -------------------------------------------------------- */
+
+/* -------------- paragraphe pour bouton Nouveau bidule ----------- */
 p.top-add {
 	text-align: right;
 	margin: 0;
@@ -599,15 +594,12 @@ div.clearer {
 	height: 1px;
 	font-size: 1px;
 }
-
 .hide {
 	display: none;
 }
-
 .right {
 	text-align: right;
 }
-
 .frame-shrink {
 	border: 1px solid #666;
 	padding: 0.5em;
@@ -672,7 +664,6 @@ ul.nice li {
 	width: 33.3%;
 	margin-left: 0;
 }
-
 .two-cols {
 	position: static;
 }
