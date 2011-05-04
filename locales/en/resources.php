@@ -28,6 +28,7 @@ $__resources['help'] = array(
 	'core_post' => dirname(__FILE__).'/help/post.html',
 	'core_posts' => dirname(__FILE__).'/help/posts.html',
 	'core_user_pref' => dirname(__FILE__).'/help/user_pref.html',
+	'core_user' => dirname(__FILE__).'/help/user.html',
 	'core_wiki' => dirname(__FILE__).'/help/wiki.html'
 );
 ?>

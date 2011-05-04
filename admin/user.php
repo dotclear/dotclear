@@ -311,5 +311,6 @@ if ($user_id)
 	'</fieldset>';
 }
 
+dcPage::helpBlock('core_user');
 dcPage::close();
 ?>
