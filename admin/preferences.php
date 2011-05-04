@@ -486,7 +486,7 @@ if ($count > 0) {
 echo '</fieldset>';
 
 echo '<div id="default-favs"><h3>'.__('Default favorites').'</h3>';
-echo '<p class="form-note clear">'.__('Those favorites are displayed when My Favorites list is empty.').'</p>';
+echo '<p class="form-note info clear">'.__('Those favorites are displayed when My Favorites list is empty.').'</p>';
 $count = 0;
 foreach ($ws->dumpPrefs() as $k => $v) {
 	// Global favorites only

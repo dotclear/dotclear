@@ -364,8 +364,8 @@ else
 		if ($safe_mode) {
 			echo '<legend>'.__('Safe mode login').'</legend>';
 			echo 
-				'<p class="form-note">'.
-				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;'.
+				'<p class="form-note info">'.
+				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;<br />'.
 				__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
 				'</p>';
 		}

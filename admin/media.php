@@ -327,6 +327,7 @@ if ($core_media_writable)
 	
 	echo
 	'<div class="col"><h3 id="add-file">'.__('Add files').'</h3>'.
+	'<p class="form-note info">'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	'<form id="media-upload" class="clear" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</div>'.
@@ -342,7 +343,6 @@ if ($core_media_writable)
 	form::hidden(array('d'),$d).'</p>'.
 	'</fieldset>'.
 	'</form>'.
-	'<p class="form-note">'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	'</div>';
 	
 	echo

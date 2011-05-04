@@ -267,8 +267,8 @@ if ($blog_id)
 		echo
 		'<p><label for="blog_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').
 		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</label></p>'.
-		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').' '.
-		__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
+		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
+		'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
 	}
 	
 	echo
