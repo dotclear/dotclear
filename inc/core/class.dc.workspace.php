@@ -45,7 +45,11 @@ class dcWorkspace
 		$this->table = $core->prefix.'pref';
 		$this->user_id =& $user_id;
 		
-		$this->getPrefs($rs);
+		try {$this->getPrefs($rs);} catch (Exception $e) {
+			if (version_compare($core->getVersion('core'),'2.3','>')) {
+				trigger_error($e->getMessage());
+			}
+		}
 	}
 	
 	private function getPrefs($rs=null)
@@ -62,7 +66,8 @@ class dcWorkspace
 			try {
 				$rs = $this->con->select($strReq);
 			} catch (Exception $e) {
-				trigger_error(__('Unable to retrieve prefs:').' '.$this->con->error(), E_USER_ERROR);
+				//~ trigger_error(__('Unable to retrieve prefs:').' '.$this->con->error(), E_USER_ERROR);
+				throw $e;
 			}
 		}
 		while ($rs->fetch())

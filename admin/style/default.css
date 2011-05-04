@@ -271,8 +271,8 @@ abbr {
 #dashboard-main {
 	float: left;
 	overflow: hidden;
-	padding: 1em 1%;
-	width: 66%;
+	padding: 1em 2% 1em 0;
+	width: 70%;
 }
 #dashboard-main.fullwidth {
 	width: 100%;
@@ -318,9 +318,8 @@ abbr {
 
 #dashboard-items {
 	float: left;
-	width: 29%;
+	width: 27%;
 	overflow: hidden;
-	margin-left: 2%;
 	padding-bottom: 1em;
 	padding-top: 3em;
 }
@@ -1074,12 +1073,21 @@ label input, label select, label span {
 	display: block;
 }
 p.form-note {
-	font-style:normal;
-	background: #eef url(info.png) no-repeat .2em .2em;
-	border: 1px solid #99f;
-	padding: .2em 1em .1em 24px;
+	font-style:italic;
 	margin-top: -.7em;
 	color: #666;
+}
+p.form-note.warn, p.form-note.info {
+	font-style: normal;
+	padding: .2em 1em .1em 24px;
+}
+p.form-note.warn {
+	background: #ffd url(warning.png) no-repeat .2em .2em;
+	border: 1px solid #f0c020;
+}
+p.form-note.info {
+	background: #eef url(info.png) no-repeat .2em .2em;
+	border: 1px solid #99f;
 }
 .form-note a {border-bottom: 1px solid #99f;}
 
@@ -1187,7 +1195,7 @@ a.back {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	padding: .1em .75em .1em;
+	padding: .1em .5em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .2em;
 	-moz-border-radius: .2em;

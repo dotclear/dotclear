@@ -955,7 +955,7 @@ msgid "First Name:"
 msgstr "Prénom :"
 
 msgid "Last Name:"
-msgstr "Nom"
+msgstr "Nom :"
 
 msgid "Username and password"
 msgstr "Identifiant et mot de passe"
