@@ -1073,12 +1073,21 @@ label input, label select, label span {
 	display: block;
 }
 p.form-note {
-	font-style:normal;
-	background: #eef url(info.png) no-repeat .2em .2em;
-	border: 1px solid #99f;
-	padding: .2em 1em .1em 24px;
+	font-style:italic;
 	margin-top: -.7em;
 	color: #666;
+}
+p.form-note.warn, p.form-note.info {
+	font-style: normal;
+	padding: .2em 1em .1em 24px;
+}
+p.form-note.warn {
+	background: #ffd url(warning.png) no-repeat .2em .2em;
+	border: 1px solid #f0c020;
+}
+p.form-note.info {
+	background: #eef url(info.png) no-repeat .2em .2em;
+	border: 1px solid #99f;
 }
 .form-note a {border-bottom: 1px solid #99f;}
 
