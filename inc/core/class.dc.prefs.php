@@ -43,7 +43,7 @@ class dcPrefs
 		$this->user_id =& $user_id;
 		try {$this->loadPrefs();} catch (Exception $e) {
 			if (version_compare($core->getVersion('core'),'2.3','>')) {
-				trigger_error($e->getMessage());
+				trigger_error(__('Unable to retrieve workspaces:').' '.$this->con->error(), E_USER_ERROR);
 			}
 		}
 	}
@@ -62,8 +62,6 @@ class dcPrefs
 		try {
 			$rs = $this->con->select($strReq);
 		} catch (Exception $e) {
-			//~ trigger_error(__('Unable to retrieve workspaces:').' '.$this->con->error(), E_USER_ERROR);
-			//~ throw new Exception(__('Unable to retrieve workspaces:').' '.$this->con->error(), E_USER_ERROR);
 			throw $e;
 		}
 		
