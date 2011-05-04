@@ -292,7 +292,6 @@ if ($core->auth->userID() && $core->blog !== null)
 		$core->auth->isSuperAdmin() ||
 		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->blog_count > 1);
 
-	try {
 		// Set favorites menu
 		$ws = $core->auth->user_prefs->addWorkspace('favorites');
 		$count = 0;
@@ -322,13 +321,5 @@ if ($core->auth->userID() && $core->blog !== null)
 				preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
 				$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
 		}
-	} catch (Exception $e) {
-		$version = $core->getVersion('core');
-		if (version_compare($version,'2.3','<')) {
-			;	// Ignore lack of dc_pref table before the logout following an auto-update
-		} else {
-			$core->error->add($e->getMessage());
-		}
-	}
-	}
+}
 ?>
