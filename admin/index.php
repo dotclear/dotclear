@@ -43,37 +43,6 @@ if (!empty($_GET['logout'])) {
 $plugins_install = $core->plugins->installModules();
 
 # Check dashboard module prefs
-$core->auth->user_prefs->loadPrefs();
-	
-	// Set favorites menu
-	$ws = $core->auth->user_prefs->addWorkspace('favorites');
-	$count = 0;
-	foreach ($ws->dumpPrefs() as $k => $v) {
-		// User favorites only
-		if (!$v['global']) {
-			$count++;
-			$fav = unserialize($v['value']);
-			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
-				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
-				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
-		}
-	}	
-	if (!$count) {
-		// Global favorites if any
-		foreach ($ws->dumpPrefs() as $k => $v) {
-			$count++;
-			$fav = unserialize($v['value']);
-			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
-				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
-				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
-		}
-	}
-	if (!$count) {
-		// No user or global favorites, add "new entry" fav
-		$_menu['Favorites']->addItem(__('New entry'),'post.php','images/menu/edit.png',
-			preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
-			$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
-	}
 $core->auth->user_prefs->addWorkspace('dashboard');
 if (!$core->auth->user_prefs->dashboard->prefExists('doclinks')) {
 	if (!$core->auth->user_prefs->dashboard->prefExists('doclinks',true)) {
