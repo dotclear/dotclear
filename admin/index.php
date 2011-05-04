@@ -43,9 +43,6 @@ if (!empty($_GET['logout'])) {
 $plugins_install = $core->plugins->installModules();
 
 # Check dashboard module prefs
-
-
-
 if (!$core->auth->user_prefs->dashboard->prefExists('doclinks')) {
 	if (!$core->auth->user_prefs->dashboard->prefExists('doclinks',true)) {
 		$core->auth->user_prefs->dashboard->put('doclinks',true,'boolean','',null,true);
