@@ -21,6 +21,9 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%d/%m/%Y %H:%M"
 
+msgid "%A %e %B %Y"
+msgstr "%A %e de %B de %Y"
+
 msgid "_Jan"
 msgstr "_Ene"
 

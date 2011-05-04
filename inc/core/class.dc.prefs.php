@@ -41,13 +41,17 @@ class dcPrefs
 		$this->con =& $core->con;
 		$this->table = $core->prefix.'pref';
 		$this->user_id =& $user_id;
-		//~ $this->loadPrefs();
+		try {$this->loadPrefs();} catch (Exception $e) {
+			if (version_compare($core->getVersion('core'),'2.3','>')) {
+				trigger_error($e->getMessage());
+			}
+		}
 	}
 	
 	/**
 	Retrieves all workspaces (and their prefs) from database, with one query. 
 	*/
-	public function loadPrefs()
+	private function loadPrefs()
 	{
 		$strReq = 'SELECT user_id, pref_id, pref_value, '.
 				'pref_type, pref_label, pref_ws '.
@@ -58,7 +62,8 @@ class dcPrefs
 		try {
 			$rs = $this->con->select($strReq);
 		} catch (Exception $e) {
-			trigger_error(__('Unable to retrieve workspaces:').' '.$this->con->error(), E_USER_ERROR);
+			//~ trigger_error(__('Unable to retrieve workspaces:').' '.$this->con->error(), E_USER_ERROR);
+			//~ throw new Exception(__('Unable to retrieve workspaces:').' '.$this->con->error(), E_USER_ERROR);
 			throw $e;
 		}
 		
