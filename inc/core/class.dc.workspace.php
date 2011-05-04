@@ -47,7 +47,7 @@ class dcWorkspace
 		
 		try {$this->getPrefs($rs);} catch (Exception $e) {
 			if (version_compare($core->getVersion('core'),'2.3','>')) {
-				trigger_error($e->getMessage());
+				trigger_error(__('Unable to retrieve prefs:').' '.$this->con->error(), E_USER_ERROR);
 			}
 		}
 	}
@@ -66,7 +66,6 @@ class dcWorkspace
 			try {
 				$rs = $this->con->select($strReq);
 			} catch (Exception $e) {
-				//~ trigger_error(__('Unable to retrieve prefs:').' '.$this->con->error(), E_USER_ERROR);
 				throw $e;
 			}
 		}
