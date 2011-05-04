@@ -1423,27 +1423,21 @@ class dcCore
 	*/
 	public function countAllComments()
 	{
-		$strReq = 'SELECT COUNT(comment_id) AS nb, post_id '.
-				'FROM '.$this->prefix.'comment '.
-				'WHERE comment_trackback %s 1 '.
-				'AND comment_status = 1 '.
-				'GROUP BY post_id ';
-		
-		$rsC = $this->con->select(sprintf($strReq,'<>'));
-		$rsT = $this->con->select(sprintf($strReq,'='));
-		
-		$cur = $this->con->openCursor($this->prefix.'post');
-		while ($rsC->fetch()) {
-			$cur->nb_comment = (integer) $rsC->nb;
-			$cur->update('WHERE post_id = '.(integer) $rsC->post_id);
-			$cur->clean();
-		}
-		
-		while ($rsT->fetch()) {
-			$cur->nb_trackback = (integer) $rsT->nb;
-			$cur->update('WHERE post_id = '.(integer) $rsT->post_id);
-			$cur->clean();
-		}
+	
+		$updCommentReq = 'UPDATE '.$this->prefix.'post P '.
+			'SET nb_comment = ('.
+				'SELECT COUNT(C.comment_id) from '.$this->prefix.'comment C '.
+				'WHERE C.post_id = P.post_id AND C.comment_trackback <> 1 '.
+				'AND C.comment_status = 1 '.
+			')';
+		$updTrackbackReq = 'UPDATE '.$this->prefix.'post P '.
+			'SET nb_trackback = ('.
+				'SELECT COUNT(C.comment_id) from '.$this->prefix.'comment C '.
+				'WHERE C.post_id = P.post_id AND C.comment_trackback = 1 '.
+				'AND C.comment_status = 1 '.
+			')';
+		$this->con->execute($updCommentReq);
+		$this->con->execute($updTrackbackReq);
 	}
 	
 	/**
