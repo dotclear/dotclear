@@ -39,6 +39,8 @@ class dcAuth
 	
 	protected $perm_types;	///< <b>array</b> Permission types
 	
+	public $user_prefs;	///< <b>dcPrefs</b>	dcPrefs object
+	
 	/**
 	Class constructor. Takes dcCore object as single argument.
 	
@@ -134,6 +136,8 @@ class dcAuth
 		$rs->user_firstname, $rs->user_displayname);
 		
 		$this->user_options = array_merge($this->core->userDefaults(),$rs->options());
+		
+		$this->user_prefs = new dcPrefs($this->core,$this->user_id);
 		
 		# Get permissions on blogs
 		if ($this->findUserBlog() === false) {

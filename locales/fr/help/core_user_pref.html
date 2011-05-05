@@ -5,14 +5,14 @@
 
 <body>
 
-<h3>Informations utilisateurs</h3>
+<h3>Mon profil</h3>
 <dl>
   <dt>Nom, Prénom</dt>
   <dd>Si le pseudonyme n'est pas renseigné, le nom de l'auteur qui sera affiché
   sera composé des noms et prénoms renseignés dans ces champs.</dd>
   
   <dt>Pseudonyme</dt>
-  <dd>Vous pouvez choisir ici le nom sous lequel vos billets seront signés.</dd>
+  <dd>Vous pouvez choisir ici le nom sous lequel vos billets seront signés. S'il est renseigné, le pseudonyme se substitue au nom et au prénom.</dd>
   
   <dt>Email</dt>
   <dd>Adresse à laquelle devront être envoyées les notifications de nouveaux
@@ -22,10 +22,26 @@
   <dd>Indique le site web de l'utilisateur. S'il est indiqué, le nom du rédacteur
   d'un billet sera présenté comme un lien vers le site donné.</dd>
   
+  <dt>Langue de l'utilisateur</dt>
+  <dd>Indique la langue dans laquelle on souhaite publier ses billets. Si la
+  traduction existe, l'interface sera également traduite dans cette langue.</dd>
+  
+  <dt>Fuseau horaire de l'utilisateur</dt>
+  <dd>Ce choix déterminera l'affichage de l'heure de publication des billets.</dd>
+  
+  <dt>Changer le mot de passe</dt>
+  <dd>Pour changer votre mot de passe, indiquez deux fois le nouveau mot de passe 
+  dans les champs <em>Nouveau mot de passe</em> et <em>Confirmer le mot de 
+  passe</em>. Le mot de passe doit être long d'au moins 6 caractères. 
+  Si aucun mot de passe n'est spécifié, il ne sera pas changé.</dd>
+</dl>
+  
+<h3>Mes options</h3>
+<dl> 
   <dt>Format d'édition préféré</dt>
   <dd>Choix de la syntaxe par défaut pour la saisie des billets. Le wiki est une
   syntaxe simplifiée et sera converti en xhtml valide&nbsp;; à moins que vous ne
-  maîtrisiez parfaitement le HTML nous vous conseillons le choix du wiki.</dd>
+  maîtrisiez parfaitement le xhtml, nous vous conseillons le choix du wiki.</dd>
   
   <dt>État des billets par défaut</dt>
   <dd>Le statut par défaut des billets peut être déterminé à&nbsp;:
@@ -43,22 +59,29 @@
   <dd>Fixe la hauteur de la zone d'édtion du billet. Par défaut ce paramètre est
   réglé à la valeur 24.</dd>
   
-  <dt>Langue de l'utilisateur</dt>
-  <dd>Indique la langue dans laquelle on souhaite publier ses billets. Si la
-  traduction existe, l'interface sera également traduite dans cette langue.</dd>
-  
-  <dt>Fuseau horaire de l'utilisateur</dt>
-  <dd>Ce choix déterminera l'affichage de l'heure de publication des billets.</dd>
-  
   <dt>Activer l'éditeur visuel</dt>
   <dd>Permet d'activer ou non l'éditeur visuel des billets et des catégories.</dd>
+  
+  <dt>Modules du tableau de bord</dt>
+  <dd>Les choix opérés dans cette zone détermineront l'affichage de 
+  ces blocs sur le tableau de bord.</dd>
+  
+  <dt>Format de la liste de tags</dt>
+  <dd>Ce choix permet, dans la page d'édition d'un billet, d'afficher tous les tags 
+  disponibles ou seulement les plus utilisés.</dd>
 </dl>
-
-<h3>Changer le mot de passe</h3>
-<p>Pour changer votre mot de passe, indiquez deux fois le nouveau mot de passe
-dans les champs <em>Nouveau mot de passe</em> et <em>Confirmer le mot de
-passe</em>. Le mot de passe doit être long d'au moins 6 caractères.</p>
-<p>Si aucun mot de passe n'est donné, celui-ci ne sera pas changé.</p>
-
+<h3>Mes favoris</h3>
+<dl>
+  <dt>Mes favoris</dt>
+  <dd>Cette zone affiche les favoris actuellement utilisés. Ils peuvent être réordonnés 
+  au moyen de la souris si javascript est activé dans votre navigateur. Sinon, une case 
+  permet d'attribuer à chaque favori un numéro d'ordre. Lorsque vous avez terminé, n'oubliez 
+  pas d'enregistrer vos modifications. Vous pouvez aussi sélectionner les favoris à supprimer
+  du tableau de bord.</dd>
+  
+  <dt>Favoris disponibles</dt>
+  <dd>Tous les plugins permettant d'être mis en favoris sont listés ici. 
+  Cochez les cases correspondantes aux favoris que vous souhaitez utiliser, puis ajoutez-les.</dd>
+</dl>
 </body>
 </html>

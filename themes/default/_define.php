@@ -13,7 +13,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
 	/* Name */			"Blowup",
-	/* Description*/		"Fully customizable theme",
+	/* Description*/		"Default Dotclear theme, fully customizable",
 	/* Author */			"Marco & Olivier",
 	/* Version */			'1.0'
 );

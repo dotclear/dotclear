@@ -106,6 +106,10 @@ class dcMedia extends filemanager
 		$this->addFileHandler('image/png','recreate',array($this,'imageThumbCreate'));
 		$this->addFileHandler('image/gif','recreate',array($this,'imageThumbCreate'));
 		
+		$this->addFileHandler('image/jpeg','recreate',array($this,'imageThumbCreate'));
+		$this->addFileHandler('image/png','recreate',array($this,'imageThumbCreate'));
+		$this->addFileHandler('image/gif','recreate',array($this,'imageThumbCreate'));
+		
 		# Thumbnails sizes
 		$this->thumb_sizes['m'][0] = abs($core->blog->settings->system->media_img_m_size);
 		$this->thumb_sizes['s'][0] = abs($core->blog->settings->system->media_img_s_size);
@@ -906,7 +910,7 @@ class dcMedia extends filemanager
 	
 	/* Image handlers
 	------------------------------------------------------- */
-	public function imageThumbCreate($cur,$f,$media_id,$force=true)
+	public function imageThumbCreate($cur,$f,$force=true)
 	{
 		$file = $this->pwd.'/'.$f;
 		

@@ -89,7 +89,7 @@ else
 	echo
 	'<form id="file-form" action="'.$p_url.'" method="post">'.
 	'<fieldset><legend>'.__('File editor').'</legend>'.
-	'<p>'.sprintf(__('Editing file %s'),'<strong>'.$file['f']).'</strong></p>'.
+	'<p><label for="file_content">'.sprintf(__('Editing file %s'),'<strong>'.$file['f']).'</strong></label></p>'.
 	'<p>'.form::textarea('file_content',72,25,html::escapeHTML($file['c']),'maximal','',!$file['w']).'</p>';
 	
 	if ($file['w'])

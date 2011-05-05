@@ -226,7 +226,7 @@ dcPage::open(__('Blog settings'),
 	dcPage::jsVar('dotclear.msg.warning_path_info',
 		__('Warning: except for special configurations, it is generally advised to have a trailing "/" in your blog URL in PATH_INFO mode.'))."\n".
 	dcPage::jsVar('dotclear.msg.warning_query_string',
-		__('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in when QUERY_STRING mode.'))."\n".
+		__('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.'))."\n".
 	"//]]>".
 	"</script>".
 	dcPage::jsConfirmClose('blog-form').
@@ -265,26 +265,26 @@ if ($blog_id)
 	if ($core->auth->isSuperAdmin())
 	{
 		echo
-		'<p><label class="required" title="'.__('Required field').'">'.__('Blog ID:').
+		'<p><label for="blog_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').
 		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</label></p>'.
-		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').' '.
-		__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
+		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
+		'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
 	}
 	
 	echo
-	'<p><label class="required" title="'.__('Required field').'">'.__('Blog name:').
+	'<p><label for="blog_name" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').
 	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</label></p>';
 	
 	if ($core->auth->isSuperAdmin())
 	{
 		echo
-		'<p><label class="required" title="'.__('Required field').'">'.__('Blog URL:').
+		'<p><label for="blog_url" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').
 		form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</label></p>'.
 		
-		'<p><label>'.__('URL scan method:').
+		'<p><label for="url_scan">'.__('URL scan method:').
 		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</label></p>'.
 		
-		'<p><label>'.__('Blog status:').
+		'<p><label for="blog_status">'.__('Blog status:').
 		form::combo('blog_status',$status_combo,$blog_status).'</label></p>';
 	}
 	
@@ -298,29 +298,29 @@ if ($blog_id)
 	'<fieldset><legend>'.__('Blog configuration').'</legend>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	'<p><label>'.__('Blog editor name:').
+	'<p><label for="editor">'.__('Blog editor name:').
 	form::field('editor',30,255,html::escapeHTML($blog_settings->system->editor)).
 	'</label></p>'.
 	
-	'<p><label>'.__('Default language:').
+	'<p><label for="lang">'.__('Default language:').
 	form::combo('lang',$lang_combo,$blog_settings->system->lang,'l10n').
 	'</label></p>'.
 	
-	'<p><label>'.__('Blog timezone:').
+	'<p><label for="blog_timezone">'.__('Blog timezone:').
 	form::combo('blog_timezone',dt::getZones(true,true),html::escapeHTML($blog_settings->system->blog_timezone)).
 	'</label></p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<p><label>'.__('Copyright notice:').
+	'<p><label for="copyright_notice">'.__('Copyright notice:').
 	form::field('copyright_notice',30,255,html::escapeHTML($blog_settings->system->copyright_notice)).
 	'</label></p>'.
 	
-	'<p><label>'.__('New post URL format:').
+	'<p><label for="post_url_format">'.__('New post URL format:').
 	form::combo('post_url_format',$post_url_combo,html::escapeHTML($blog_settings->system->post_url_format)).
 	'</label></p>'.
 	
-	'<p><label class="classic">'.
+	'<p><label for="enable_xmlrpc" class="classic">'.
 	form::checkbox('enable_xmlrpc','1',$blog_settings->system->enable_xmlrpc).
 	__('Enable XML/RPC interface').'</label>'.
 	' - <a href="#xmlrpc">'.__('more information').'</a></p>'.
@@ -333,38 +333,38 @@ if ($blog_id)
 	'<fieldset><legend>'.__('Comments and trackbacks').'</legend>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	'<p><label class="classic">'.
+	'<p><label for="allow_comments" class="classic">'.
 	form::checkbox('allow_comments','1',$blog_settings->system->allow_comments).
 	__('Accept comments').'</label></p>'.
 	
-	'<p><label class="classic">'.
+	'<p><label for="comments_pub" class="classic">'.
 	form::checkbox('comments_pub','1',!$blog_settings->system->comments_pub).
 	__('Moderate comments').'</label></p>'.
 	
-	'<p><label class="classic">'.sprintf(__('Leave comments open for %s days'),
+	'<p><label for="comments_ttl" class="classic">'.sprintf(__('Leave comments open for %s days'),
 	form::field('comments_ttl',2,3,$blog_settings->system->comments_ttl)).
 	'</label></p>'.
 	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.
 	
-	'<p><label class="classic">'.
+	'<p><label for="wiki_comments" class="classic">'.
 	form::checkbox('wiki_comments','1',$blog_settings->system->wiki_comments).
 	__('Wiki syntax for comments').'</label></p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<p><label class="classic">'.
+	'<p><label for="allow_trackbacks" class="classic">'.
 	form::checkbox('allow_trackbacks','1',$blog_settings->system->allow_trackbacks).
 	__('Accept trackbacks').'</label></p>'.
 	
-	'<p><label class="classic">'.
+	'<p><label for="trackbacks_pub" class="classic">'.
 	form::checkbox('trackbacks_pub','1',!$blog_settings->system->trackbacks_pub).
 	__('Moderate trackbacks').'</label></p>'.
 	
-	'<p><label class="classic">'.sprintf(__('Leave trackbacks open for %s days'),
+	'<p><label for="trackbacks_ttl" class="classic">'.sprintf(__('Leave trackbacks open for %s days'),
 	form::field('trackbacks_ttl',2,3,$blog_settings->system->trackbacks_ttl)).'</label></p>'.
 	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.
 	
-	'<p><label class="classic">'.
+	'<p><label for="comments_nofollow" class="classic">'.
 	form::checkbox('comments_nofollow','1',$blog_settings->system->comments_nofollow).
 	__('Add "nofollow" relation on comments and trackbacks links').'</label></p>'.
 	'</div>'.
@@ -376,33 +376,33 @@ if ($blog_id)
 	'<fieldset><legend>'.__('Blog presentation').'</legend>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	'<p><label>'.__('Date format:').
+	'<p><label for="date_format">'.__('Date format:').
 	form::field('date_format',30,255,html::escapeHTML($blog_settings->system->date_format)).
 	'</label></p>'.
 	
-	'<p><label>'.__('Time format:').
+	'<p><label for="time_format">'.__('Time format:').
 	form::field('time_format',30,255,html::escapeHTML($blog_settings->system->time_format)).
 	'</label></p>'.
 	
-	'<p><label class="classic">'.
+	'<p><label for="use_smilies" class="classic">'.
 	form::checkbox('use_smilies','1',$blog_settings->system->use_smilies).
 	__('Display smilies on entries and comments').'</label></p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<p><label class="classic">'.sprintf(__('Display %s entries per page'),
+	'<p><label for="nb_post_per_page" class="classic">'.sprintf(__('Display %s entries per page'),
 	form::field('nb_post_per_page',2,3,$blog_settings->system->nb_post_per_page)).
 	'</label></p>'.
 	
-	'<p><label class="classic">'.sprintf(__('Display %s entries per feed'),
+	'<p><label for="nb_post_per_feed" class="classic">'.sprintf(__('Display %s entries per feed'),
 	form::field('nb_post_per_feed',2,3,$blog_settings->system->nb_post_per_feed)).
 	'</label></p>'.
 	
-	'<p><label class="classic">'.sprintf(__('Display %s comments per feed'),
+	'<p><label for="nb_comment_per_feed" class="classic">'.sprintf(__('Display %s comments per feed'),
 	form::field('nb_comment_per_feed',2,3,$blog_settings->system->nb_comment_per_feed)).
 	'</label></p>'.
 	
-	'<p><label class="classic">'.
+	'<p><label for="short_feed_items" class="classic">'.
 	form::checkbox('short_feed_items','1',$blog_settings->system->short_feed_items).
 	__('Truncate feeds').'</label></p>'.
 	'</div>'.
@@ -415,13 +415,13 @@ if ($blog_id)
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	'<h4>'.__('Generated image sizes (in pixels)').'</h4>'.
-	'<p class="field"><label>'.__('Thumbnails:').' '.
+	'<p class="field"><label for="media_img_t_size">'.__('Thumbnails:').' '.
 	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</label></p>'.
 	
-	'<p class="field"><label>'.__('Small:').' '.
+	'<p class="field"><label for="media_img_s_size">'.__('Small:').' '.
 	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</label></p>'.
 	
-	'<p class="field"><label>'.__('Medium:').' '.
+	'<p class="field"><label for="media_img_m_size">'.__('Medium:').' '.
 	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</label></p>'.
 	'</div>'.
 	
@@ -436,10 +436,12 @@ if ($blog_id)
 	echo
 	'<fieldset><legend>'.__('Search engines robots policy').'</legend>';
 	
+	$i = 0;
 	foreach ($robots_policy_options as $k => $v)
 	{
-		echo '<p><label class="classic">'.
-		form::radio(array('robots_policy'),$k,$blog_settings->system->robots_policy == $k).' '.$v.'</label></p>';
+		echo '<p><label for="robots_policy-'.$i.'" class="classic">'.
+		form::radio(array('robots_policy','robots_policy-'.$i),$k,$blog_settings->system->robots_policy == $k).' '.$v.'</label></p>';
+		$i++;
 	}
 	
 	echo '</fieldset>';
@@ -458,7 +460,7 @@ if ($blog_id)
 	{
 		echo
 		'<form action="blog_del.php" method="post">'.
-		'<p><input type="submit" value="'.__('Delete this blog').'" />'.
+		'<p><input type="submit" class="delete" value="'.__('Delete this blog').'" />'.
 		form::hidden(array('blog_id'),$blog_id).
 		$core->formNonce().'</p>'.
 		'</form>';

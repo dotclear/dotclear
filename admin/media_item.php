@@ -235,9 +235,9 @@ if ($popup)
 		echo
 		'<h3>'.__('Image insertion').'</h3>'.
 		'<p>'.
-		'<label class="classic">'.form::radio(array('insertion'),'simple',true).
+		'<label for="insert1" class="classic">'.form::radio(array('insertion','insert1'),'simple',true).
 		__('As a single image').'</label><br />'.
-		'<label class="classic">'.form::radio(array('insertion'),'link',false).
+		'<label for="insert2" class="classic">'.form::radio(array('insertion','insert2'),'link',false).
 		__('As a link to original image').'</label>'.
 		'</p>';
 	}
@@ -257,7 +257,7 @@ if ($popup)
 		
 		echo '<p>';
 		foreach ($i_align as $k => $v) {
-			echo '<label class="classic">'.
+			echo '<label for="alignment" class="classic">'.
 			form::radio(array('alignment'),$k,$v[1]).' '.$v[0].'</label><br /> ';
 		}
 		
@@ -275,9 +275,9 @@ if ($popup)
 		
 		echo
 		'<h3>'.__('Video size').'</h3>'.
-		'<p><label class="classic">'.__('Width:').' '.
+		'<p><label for="video_w" class="classic">'.__('Width:').' '.
 		form::field('video_w',3,4,400).'  '.
-		'<label class="classic">'.__('Height:').' '.
+		'<label for="video_h" class="classic">'.__('Height:').' '.
 		form::field('video_h',3,4,300).
 		'</p>';
 		
@@ -292,7 +292,7 @@ if ($popup)
 		
 		echo '<p>';
 		foreach ($i_align as $k => $v) {
-			echo '<label class="classic">'.
+			echo '<label for="alignment" class="classic">'.
 			form::radio(array('alignment'),$k,$v[1]).' '.$v[0].'</label><br /> ';
 		}
 		
@@ -473,7 +473,7 @@ if ($file->editable && $core_media_writable)
 		'<li><strong>'.__('Extract in current directory').'</strong> : '.
 		__('This will extract archive in current directory and will overwrite existing files or directory.').'</li>'.
 		'</ul>'.
-		'<p><label class="classic">'.__('Extract mode:').' '.
+		'<p><label for="inflate_mode" class="classic">'.__('Extract mode:').' '.
 		form::combo('inflate_mode',$inflate_combo,'new').'</label> '.
 		'<input type="submit" name="unzip" value="'.__('extract').'" />'.
 		form::hidden(array('id'),$id).
@@ -484,15 +484,15 @@ if ($file->editable && $core_media_writable)
 	echo
 	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
 	'<fieldset><legend>'.__('Change media properties').'</legend>'.
-	'<p><label>'.__('File name:').
+	'<p><label for="media_file">'.__('File name:').
 	form::field('media_file',30,255,html::escapeHTML($file->basename)).'</label></p>'.
-	'<p><label>'.__('File title:').
+	'<p><label for="media_title">'.__('File title:').
 	form::field('media_title',30,255,html::escapeHTML($file->media_title)).'</label></p>'.
-	'<p><label>'.__('File date:').
+	'<p><label for="media_dt">'.__('File date:').
 	form::field('media_dt',16,16,html::escapeHTML($file->media_dtstr)).'</label></p>'.
-	'<p><label class="classic">'.form::checkbox('media_private',1,$file->media_priv).' '.
+	'<p><label for="media_private" class="classic">'.form::checkbox('media_private',1,$file->media_priv).' '.
 	__('Private').'</label></p>'.
-	'<p><label>'.__('New directory:').
+	'<p><label for="media_path">'.__('New directory:').
 	form::combo('media_path',$dirs_combo,dirname($file->relname)).'</label></p>'.
 	'<p><input type="submit" accesskey="s" value="'.__('save').'" />'.
 	form::hidden(array('id'),$id).
@@ -503,9 +503,9 @@ if ($file->editable && $core_media_writable)
 	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
 	'<fieldset><legend>'.__('Change file').'</legend>'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).'</div>'.
-	'<p><label>'.__('Choose a file:').
+	'<p><label for="upfile">'.__('Choose a file:').
 	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).') '.
-	'<input type="file" name="upfile" size="35" />'.
+	'<input type="file" id="upfile" name="upfile" size="35" />'.
 	'</label></p>'.
 	'<p><input type="submit" value="'.__('send').'" />'.
 	form::hidden(array('id'),$id).

@@ -301,7 +301,7 @@ else
 	
 	echo
 	'<form action="media.php" method="get">'.
-	'<p><label class="classic">'.__('Sort files:').' '.
+	'<p><label for="file_sort" class="classic">'.__('Sort files:').' '.
 	form::combo('file_sort',$sort_combo,$file_sort).'</label>'.
 	form::hidden(array('popup'),$popup).
 	form::hidden(array('post_id'),$post_id).
@@ -327,22 +327,22 @@ if ($core_media_writable)
 	
 	echo
 	'<div class="col"><h3 id="add-file">'.__('Add files').'</h3>'.
+	'<p class="form-note info">'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	'<form id="media-upload" class="clear" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</div>'.
 	'<fieldset id="add-file-f">'.
-	'<p><label>'.__('Choose a file:').
+	'<p><label for="upfile">'.__('Choose a file:').
 	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.
-	'<input type="file" name="upfile" size="20" />'.
+	'<input type="file" id="upfile" name="upfile" size="20" />'.
 	'</label></p>'.
-	'<p><label>'.__('Title:').form::field(array('upfiletitle'),35,255).'</label></p>'.
-	'<p><label class="classic">'.form::checkbox(array('upfilepriv'),1).' '.
+	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle'),35,255).'</label></p>'.
+	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv'),1).' '.
 	__('Private').'</label></p>'.
 	'<p><input type="submit" value="'.__('send').'" />'.
 	form::hidden(array('d'),$d).'</p>'.
 	'</fieldset>'.
 	'</form>'.
-	'<p class="form-note">'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	'</div>';
 	
 	echo
@@ -350,7 +350,7 @@ if ($core_media_writable)
 	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
 	'<fieldset id="new-dir-f">'.
 	$core->formNonce().
-	'<p><label>'.__('Directory Name:').
+	'<p><label for="newdir">'.__('Directory Name:').
 	form::field(array('newdir'),35,255).'</label></p>'.
 	'<p><input type="submit" value="'.__('save').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.

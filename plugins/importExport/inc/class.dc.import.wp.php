@@ -181,15 +181,15 @@ class dcImportWP extends dcIeModule
 				
 				printf($this->imForm(1,__('General information'),__('Import my blog now')),
 				'<h3>'.__('We first need some information about your old WordPress installation.').'</h3>'.
-				'<p><label>'.__('Database Host Name:').' '.
+				'<p><label for="db_host">'.__('Database Host Name:').' '.
 				form::field('db_host',30,255,html::escapeHTML($this->vars['db_host'])).'</label></p>'.
-				'<p><label>'.__('Database Name:',html::escapeHTML($this->vars['db_name'])).' '.
+				'<p><label for="db_name">'.__('Database Name:',html::escapeHTML($this->vars['db_name'])).' '.
 				form::field('db_name',30,255,html::escapeHTML($this->vars['db_name'])).'</label></p>'.
-				'<p><label>'.__('Database User Name:').' '.
+				'<p><label for="db_user">'.__('Database User Name:').' '.
 				form::field('db_user',30,255,html::escapeHTML($this->vars['db_user'])).'</label></p>'.
-				'<p><label>'.__('Database Password:').' '.
+				'<p><label for="db_pwd">'.__('Database Password:').' '.
 				form::password('db_pwd',30,255).'</label></p>'.
-				'<p><label>'.__('Database Tables Prefix:').' '.
+				'<p><label for="db_prefix">'.__('Database Tables Prefix:').' '.
 				form::field('db_prefix',30,255,html::escapeHTML($this->vars['db_prefix'])).'</label></p>'.
 				'<h3>'.__('Entries import options').'</h3>'.
 				'<p>'.__('WordPress and Dotclear\'s handling of categories are quite different. '.
@@ -201,21 +201,21 @@ class dcImportWP extends dcIeModule
 				'installation has a first category labelised <i>"Uncategorized"</i>. If you did not change that '.
 				'category, you can just ignore it while importing your blog, as Dotclear allows you to '.
 				'actually keep your posts uncategorized.').'</p>'.
-				'<p><label class="classic">'.form::checkbox('ignore_first_cat',1,$this->vars['ignore_first_cat']).' '.
+				'<p><label for="ignore_first_cat" class="classic">'.form::checkbox('ignore_first_cat',1,$this->vars['ignore_first_cat']).' '.
 				__('Ignore the first category:').'</label></p>'.
-				'<p><label class="classic">'.form::checkbox('cat_import',1,$this->vars['cat_import']).' '.
+				'<p><label for="cat_import" class="classic">'.form::checkbox('cat_import',1,$this->vars['cat_import']).' '.
 				__('Import lowest numbered category on posts:').'</label></p>'.
-				'<p><label class="classic">'.form::checkbox('cat_as_tags',1,$this->vars['cat_as_tags']).' '.
+				'<p><label for="cat_as_tags" class="classic">'.form::checkbox('cat_as_tags',1,$this->vars['cat_as_tags']).' '.
 				__('Import all categories as tags:').'</label></p>'.
-				'<p><label>'.__('Prefix such tags with:').' '.
+				'<p><label for="cat_tags_prefix">'.__('Prefix such tags with:').' '.
 				form::field('cat_tags_prefix',10,20,html::escapeHTML($this->vars['cat_tags_prefix'])).'</label></p>'.
-				'<p><label>'.__('Number of entries to import at once:').' '.
+				'<p><label for="post_limit">'.__('Number of entries to import at once:').' '.
 				form::field('post_limit',3,3,html::escapeHTML($this->vars['post_limit'])).'</label></p>'.
 				
 				'<h3>'.__('Content filters').'</h3>'.
 				'<p>'.__('You may want to process your post and/or comment content with the following filters.').'</p>'.
-				'<p><label>'.__('Post content formatter:').' '.form::combo('post_formater',$this->formaters,$this->vars['post_formater']).'</label></p>'.
-				'<p><label>'.__('Comment content formatter:').' '.form::combo('comment_formater',$this->formaters,$this->vars['comment_formater']).'</label></p>'
+				'<p><label for="post_formater">'.__('Post content formatter:').' '.form::combo('post_formater',$this->formaters,$this->vars['post_formater']).'</label></p>'.
+				'<p><label for="comment_formater">'.__('Comment content formatter:').' '.form::combo('comment_formater',$this->formaters,$this->vars['comment_formater']).'</label></p>'
 				);
 				break;
 			case 2:

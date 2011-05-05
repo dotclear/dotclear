@@ -6,14 +6,17 @@ msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-15 22:40+0100\n"
-"PO-Revision-Date: 2011-01-16 19:14+0100\n"
-"Last-Translator: xave <xave@dotclear.net>\n"
+"PO-Revision-Date: 2011-04-19 13:57+0100\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: French\n"
+
+msgid "log in"
+msgstr "Se connecter"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear a été mis à jour."
@@ -54,6 +57,27 @@ msgstr "Vous devez changer de mot de passe avant de vous connecter."
 
 msgid "In order to login, you have to change your password now."
 msgstr "Afin de vous connecter, vous devez changer votre mot de passe."
+
+msgid "Safe Mode can only be used for super administrators."
+msgstr "Le mode sans échec ne peut être utilisé que par un super administrateur."
+
+msgid "Safe mode login"
+msgstr "Connexion en mode sans échec"
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr "Ce mode vous permet de vous connecter sans activer de plugins. Il peut être utile pour résoudre un problème de compatibilité"
+
+msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr "Désactivez ou supprimez les plugins semblant en être la cause, puis déconnectez-vous et connectez-vous à nouveau normalement."
+
+msgid "Get back to normal authentication"
+msgstr "Retour à l'écran de connexion normal"
+
+msgid "Connection issue?"
+msgstr "Problème de connexion ?"
+
+msgid "I want to log in in safe mode"
+msgstr "Me connecter en mode sans échec"
 
 msgid "Wrong username or password"
 msgstr "Nom d'utilisateur ou mot de passe incorrect"
@@ -203,7 +227,7 @@ msgstr "Paramètres du blog"
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Attention: sauf cas particulier, il est généralement conseillé de terminer l'URL de votre blog par \"/\" en mode PATH_INFO."
 
-msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Attention: sauf cas particulier, il est généralement conseillé de terminer l'URL de votre blog par \"?\" en mode QUERY_STRING."
 
 msgid "Blog has been successfully created."
@@ -931,7 +955,7 @@ msgid "First Name:"
 msgstr "Prénom :"
 
 msgid "Last Name:"
-msgstr "Nom"
+msgstr "Nom :"
 
 msgid "Username and password"
 msgstr "Identifiant et mot de passe"
@@ -2554,6 +2578,23 @@ msgstr "Impossible d'obtenir les espaces de nommage :"
 msgid "Invalid setting namespace: %s"
 msgstr "Espace de nommage du paramètre invalide : %s"
 
+msgid "Unable to retrieve workspaces:"
+msgstr "Impossible d'obtenir les espaces de travail :"
+
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Espace de travail de la préférence invalide : %s"
+
+msgid "Unable to retrieve prefs:"
+msgstr "Impossible d'obtenir les préférences :"
+
+#, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s n'est pas un identifiant de préférence valide"
+
+msgid "No workspace specified"
+msgstr "Aucun espace de travail spécifié"
+
 #, php-format
 msgid "%s has still been pinged"
 msgstr "Un rétrolien vers %s a déjà été fait"
@@ -2629,3 +2670,93 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Name"
 #~ msgstr "Nom"
+
+msgid "My favorites"
+msgstr "Mes favoris"
+
+msgid "Add this page to my favorites"
+msgstr "Ajouter cette page à mes favoris"
+
+msgid "My profile"
+msgstr "Mon profil"
+
+msgid "My options"
+msgstr "Mes options"
+
+msgid "Default favorites"
+msgstr "Favoris par défaut"
+
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
+msgstr "Si vous êtes super administrateur, vous pouvez définir ce jeu de favoris comme l'ensemble par défaut pour tous les blogs de l'installation :"
+
+msgid "My preferences"
+msgstr "Mes préférences"
+
+msgid "Apply filters"
+msgstr "Appliquer les filtres"
+
+msgid "Go to site"
+msgstr "Aller sur le site"
+
+msgid "new window"
+msgstr "nouvelle fenêtre"
+
+msgid "Modify numbers in fields to change favorites order."
+msgstr "Modifiez les nombres dans les champs pour changer l'ordre des favoris."
+
+msgid "Those favorites are displayed when My Favorites list is empty."
+msgstr "Favoris affichés quand la liste Mes Favoris est vide."
+
+msgid "Favorites have been successfully added."
+msgstr "Les favoris ont été ajoutés avec succès."
+
+msgid "Delete selected favorites"
+msgstr "Retirer les favoris sélectionnés"
+
+msgid "Add to my favorites"
+msgstr "Ajouter à mes favoris"
+
+msgid "Available favorites"
+msgstr "Favoris disponibles"
+
+msgid "Currently no personal favorites."
+msgstr "La liste de vos favoris est vide pour le moment."
+
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "Êtes-vous sûr de vouloir retirer les favoris sélectionnés ?"
+
+msgid "Favorites have been successfully removed."
+msgstr "Les favoris ont été retirés avec succès."
+
+msgid "Favorites have been successfully updated."
+msgstr "Les favoris ont été mis à jour avec succès."
+
+msgid "Personal options has been successfully updated."
+msgstr "Vos options personnelles ont été enregistrées avec succès."
+
+msgid "Dashboard modules"
+msgstr "Modules du tableau de bord"
+
+msgid "Display documentation links"
+msgstr "Afficher les liens de documentation"
+
+msgid "Display Dotclear news"
+msgstr "Afficher les nouvelles de Dotclear"
+
+msgid "Display quick entry form"
+msgstr "Afficher le formulaire de billet rapide"
+
+msgid "Default favorites have been successfully updated."
+msgstr "Les favoris par défaut ont été enregistrés avec succès."
+
+msgid "Define as default favorites"
+msgstr "Définir comme favoris par défaut"
+
+msgid "position of %s"
+msgstr "position de %s"
+
+msgid "Accessibility options"
+msgstr "Options d'accessibilité"
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr "Désactiver le drag and drop javascript pour ordonner les éléments"

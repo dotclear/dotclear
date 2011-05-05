@@ -35,7 +35,7 @@ dcPage::openPopup(__('Add a link to an entry'),
 echo '<h2>'.__('Add a link to an entry').'</h2>';
 
 echo '<form action="popup_posts.php" method="get">'.
-'<p><label class="classic">'.__('Search entry:').' '.form::field('q',30,255,html::escapeHTML($q)).'</label> '.
+'<p><label for="q" class="classic">'.__('Search entry:').' '.form::field('q',30,255,html::escapeHTML($q)).'</label> '.
 ' <input type="submit" value="'.__('ok').'" /></p>'.
 '</form>';
 

@@ -38,6 +38,7 @@ $(function() {
 	var styles_combo = document.createElement('select');
 	$(styles_combo).append('<option value="">&nbsp;</option>');
 	$(styles_combo).append('<option value="none">none</option>');
+	$(styles_combo).attr('title',dotclear.msg.predefined_style_title);
 	
 	for (var style in dotclear.blowup_styles) {
 		styles_option = document.createElement('option');

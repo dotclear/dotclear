@@ -45,7 +45,7 @@ $(function() {
 				actions.append(select).append('&nbsp;&nbsp;');
 			}
 			if (submit_r.length > 0 && $('input:radio',info).attr('id') != 'theme_default') {
-				var remove = $('<a href="#" class="button">' + dotclear.msg.remove_this_theme + '</a>');
+				var remove = $('<a href="#" class="button delete">' + dotclear.msg.remove_this_theme + '</a>');
 				remove.click(function() {
 					var t_name = $(this).parents('#theme-box').find('div.theme-info h3:first').text();
 					t_name = $.trim(t_name);

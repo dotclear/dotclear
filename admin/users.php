@@ -116,9 +116,9 @@ if (!$core->error->flag())
 		echo '<p class="message">'.__('User has been successfully removed.').'</p>';
 	}
 	
-	echo '<h2>'.__('Users').'</h2>';
-	
-	echo '<p><strong><a href="user.php">'.__('Create a new user').'</a></strong></p>';
+	echo 
+	'<h2>'.__('Users').'</h2>'.
+	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('Create a new user').'</a></strong></p>';
 	
 	if (!$show_filters) {
 		echo '<p><a id="filter-control" class="form-control" href="#">'.__('Filters').'</a></p>';
@@ -129,21 +129,21 @@ if (!$core->error->flag())
 	'<fieldset class="two-cols"><legend>'.__('Filters').'</legend>'.
 	
 	'<div class="col">'.
-	'<p><label>'.__('Order by:').' '.
+	'<p><label for="sortby">'.__('Order by:').' '.
 	form::combo('sortby',$sortby_combo,$sortby).
 	'</label> '.
-	'<label>'.__('Sort:').' '.
+	'<label for="order">'.__('Sort:').' '.
 	form::combo('order',$order_combo,$order).
 	'</label></p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<p><label>'.__('Search:').' '.
+	'<p><label for="q">'.__('Search:').' '.
 	form::field('q',20,255,html::escapeHTML($q)).
 	'</label></p>'.
-	'<p><label class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
+	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
 	__('Users per page').'</label> '.
-	'<input type="submit" value="'.__('filter').'" /></p>'.
+	'<input type="submit" value="'.__('Apply filters').'" /></p>'.
 	'</div>'.
 	
 	'<br class="clear" />'. //Opera sucks
@@ -159,7 +159,7 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right"><label class="classic">'.
+	'<p class="col right"><label for="dispatch_action" class="classic">'.
 	__('Selected users action:').' '.
 	form::combo('dispatch_action',$combo_action).
 	'</label> '.

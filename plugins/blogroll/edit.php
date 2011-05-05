@@ -107,13 +107,13 @@ if (isset($rs) && $rs->is_cat)
 	'<form action="'.$p_url.'" method="post">'.
 	'<fieldset><legend>'.__('Edit category').'</legend>'.
 	
-	'<p><label class="required classic" title="'.__('Required field').'">'.__('Title:').' '.
+	'<p><label for="link_desc" class="required classic"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
 	form::field('link_desc',30,255,html::escapeHTML($link_desc)).'</label> '.
 	
 	form::hidden('edit',1).
 	form::hidden('id',$id).
 	$core->formNonce().
-	'<input type="submit" name="edit_cat" class="submit" value="'.__('save').'"/></p>'.
+	'<input type="submit" name="edit_cat" value="'.__('save').'"/></p>'.
 	'</fieldset>'.
 	'</form>';
 }
@@ -127,23 +127,23 @@ if (isset($rs) && !$rs->is_cat)
 	'<form action="plugin.php" method="post">'.
 	'<fieldset class="two-cols"><legend>'.__('Edit link').'</legend>'.
 	
-	'<p class="col"><label class="required" title="'.__('Required field').'">'.__('Title:').' '.
+	'<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
 	form::field('link_title',30,255,html::escapeHTML($link_title)).'</label></p>'.
 	
-	'<p class="col"><label class="required" title="'.__('Required field').'">'.__('URL:').' '.
+	'<p class="col"><label for="link_href" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('URL:').' '.
 	form::field('link_href',30,255,html::escapeHTML($link_href)).'</label></p>'.
 	
-	'<p class="col"><label>'.__('Description:').' '.
+	'<p class="col"><label for="link_desc">'.__('Description:').' '.
 	form::field('link_desc',30,255,html::escapeHTML($link_desc)).'</label></p>'.
 	
-	'<p class="col"><label>'.__('Language:').' '.
+	'<p class="col"><label for="link_lang">'.__('Language:').' '.
 	form::field('link_lang',5,5,html::escapeHTML($link_lang)).'</label></p>'.
 	
 	'<p>'.form::hidden('p','blogroll').
 	form::hidden('edit',1).
 	form::hidden('id',$id).
 	$core->formNonce().
-	'<input type="submit" name="edit_link" class="submit" value="'.__('save').'"/></p>'.
+	'<input type="submit" name="edit_link" value="'.__('save').'"/></p>'.
 	'</fieldset>'.
 	
 	

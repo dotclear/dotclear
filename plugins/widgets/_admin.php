@@ -11,6 +11,15 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
+$core->addBehavior('adminDashboardFavs','widgets_dashboard_favs');
+
+function widgets_dashboard_favs($core,$favs)
+{
+	$favs['widgets'] = new ArrayObject(array('widgets',__('Presentation widgets'),'plugin.php?p=widgets',
+		'index.php?pf=widgets/icon.png','index.php?pf=widgets/icon-big.png',
+		'admin',null,null));
+}
+
 $_menu['Blog']->addItem(__('Presentation widgets'),'plugin.php?p=widgets','index.php?pf=widgets/icon.png',
 		preg_match('/plugin.php\?p=widgets(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('admin',$core->blog->id));

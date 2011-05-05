@@ -69,11 +69,15 @@ class dcPage
 				$blogs[html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
 			}
 			$blog_box =
+			'<label for="switchblog" class="classic">'.
 			__('Blogs:').' '.
 			$core->formNonce().
 			form::combo('switchblog',$blogs,$core->blog->id,	'',1).
+			'</label>'.
 			'<noscript><div><input type="submit" value="'.__('ok').'" /></div></noscript>';
 		}
+		
+		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 		
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
@@ -108,7 +112,9 @@ class dcPage
 		
 		echo
 		"</head>\n".
-		'<body id="dotclear-admin">'."\n".
+		'<body id="dotclear-admin'.
+		($safe_mode ? ' safe-mode' : '').
+		'">'."\n".
 		
 		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
 		
@@ -117,16 +123,28 @@ class dcPage
 		'<div id="info-box">'.
 		'<form action="index.php" method="post"><div>'.
 		$blog_box.
-		' - <a href="'.$core->blog->url.'" class="button">'.__('View site').'</a>'.
-		' - '.__('User:').' <strong>'.$core->auth->userID().'</strong>'.
-		' - <a href="index.php?logout=1" class="logout">'.__('Logout').'</a>'.
+		'<a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
 		'</div></form>'.
+		'</div>'.
+		'<div id="info-box2"><div>'.
+		' '.__('User:').' <strong>'.$core->auth->userID().'</strong>'.
+		' - <a href="index.php?logout=1" class="logout">'.__('Logout').' <img src="images/logout.png" alt="" /></a>'.
+		'</div>'.
 		'</div>';
 		
 		echo
 		'<div id="wrapper">'."\n".
 		'<div id="main">'."\n".
 		'<div id="content">'."\n";
+		
+		# Safe mode
+		if ($safe_mode)
+		{
+			echo
+			'<div class="error"><h3>'.__('Safe mode').'</h3>'.
+			'<p>'.__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
+			'</div>';
+		}
 		
 		if ($core->error->flag()) {
 			echo
@@ -152,8 +170,9 @@ class dcPage
 		
 		echo
 		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><p><img src="images/dotclear_pw.png" alt="Dotclear" /> '.
-		sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear</a>').
+		'<div id="footer"><p>'.
+		sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>').
+		' <span class="credit"> (Icons by <a href="http://dryicons.com/">Dryicons</a>)</span>'.
 		'</p></div>'."\n".
 		"</div>\n";		// End of #wrapper
 		
@@ -318,7 +337,7 @@ class dcPage
 		}
 		
 		echo
-		'<div id="help"><hr /><div class="help-content"><h2>'.__('Help').'</h2>'.
+		'<div id="help"><hr /><div class="help-content clear"><h2>'.__('Help').'</h2>'.
 		$content.
 		'</div></div>';
 	}
