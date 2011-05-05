@@ -330,7 +330,7 @@ $(function() {
 		speed: 100
 	}
 	$('#blog-menu h3:first').toggleWithLegend($('#blog-menu ul:first'),
-		$.extend({cookie:'dc_blog_menu',hide:false,reverse_cookie:true},menu_settings),
+		$.extend({cookie:'dc_blog_menu'},menu_settings),
 		positionFooter
 	);
 	$('#system-menu h3:first').toggleWithLegend($('#system-menu ul:first'),
@@ -342,7 +342,7 @@ $(function() {
 		positionFooter
 	);
 	$('#favorites-menu h3:first').toggleWithLegend($('#favorites-menu ul:first'),
-		$.extend({cookie:'dc_favorites_menu'},menu_settings),
+		$.extend({cookie:'dc_favorites_menu',hide:false,reverse_cookie:true},menu_settings),
 		positionFooter
 	);
 
