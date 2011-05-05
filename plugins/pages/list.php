@@ -176,7 +176,7 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 <body>
 <?php
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Pages').'</h2>'.
-'<p class="top-add"><a class="button add" href="'.$p_url.'&amp;act=page"><img src="images/add.png" alt="" />'.__('New page').'</a></p>';
+'<p class="top-add"><a class="button add" href="'.$p_url.'&amp;act=page">'.__('New page').'</a></p>';
 
 if (!$core->error->flag())
 {
