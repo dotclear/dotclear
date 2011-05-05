@@ -231,7 +231,7 @@ if (!$core->error->flag())
 {
 	echo 
 	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Entries').'</h2>'.
-	'<p class="top-add"><a class="button add" href="post.php"><img src="images/add.png" alt="" /> '.__('New entry').'</a></p>';
+	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>';
 	
 	if (!$show_filters) {
 		echo '<p><a id="filter-control" class="form-control" href="#">'.

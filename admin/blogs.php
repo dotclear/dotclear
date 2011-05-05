@@ -83,7 +83,7 @@ echo '<h2>'.__('List of blogs').'</h2>';
 if (!$core->error->flag())
 {
 	if ($core->auth->isSuperAdmin()) {
-		echo '<p class="top-add"><a class="button add" href="blog.php"><img src="images/add.png" alt="" />'.__('Create a new blog').'</a></p>';
+		echo '<p class="top-add"><a class="button add" href="blog.php">'.__('Create a new blog').'</a></p>';
 	}
 	
 	if (!$show_filters) {

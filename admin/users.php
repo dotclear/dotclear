@@ -118,7 +118,7 @@ if (!$core->error->flag())
 	
 	echo 
 	'<h2>'.__('Users').'</h2>'.
-	'<p class="top-add"><strong><a class="button add" href="user.php"><img src="images/add.png" alt="" />'.__('Create a new user').'</a></strong></p>';
+	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('Create a new user').'</a></strong></p>';
 	
 	if (!$show_filters) {
 		echo '<p><a id="filter-control" class="form-control" href="#">'.__('Filters').'</a></p>';
