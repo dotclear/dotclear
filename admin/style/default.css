@@ -205,7 +205,7 @@ abbr {
 	border-right: none;
 	border-left: none;
 	margin-right: -.76em;
-	padding: .4em 0 .1em 32px;
+	padding: .4em .76em .1em 32px;
 	background-position: 12px .4em;
 }
 #main-menu #dashboard-menu li {
