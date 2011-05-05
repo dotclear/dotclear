@@ -28,6 +28,7 @@ if (!is_readable(DC_DIGESTS)) {
 $updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
 $new_v = $updater->check(DC_VERSION);
 $zip_file = $new_v ? DC_BACKUP_PATH.'/'.basename($updater->getFileURL()) : '';
+$version_info = $new_v ? $updater->getInfoURL() : '';
 
 # Hide "update me" message
 if (!empty($_GET['hide_msg'])) {
@@ -167,7 +168,9 @@ if (!$step)
 	else
 	{
 		echo
-		'<p class="static-msg">'.sprintf(__('Dotclear %s is available.'),$new_v).'</p>'.
+			'<p class="static-msg">'.sprintf(__('Dotclear %s is available.'),$new_v).
+				($version_info ? ' <a href="'.$version_info.'">('.__('information about this version').')</a>' : '').
+				'</p>'.
 		
 		'<p>'.__('To upgrade your Dotclear installation simply click on the following button. '.
 			'A backup file of your current installation will be created in your root directory.').'</p>'.
