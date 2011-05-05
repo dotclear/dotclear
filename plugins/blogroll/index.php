@@ -165,6 +165,11 @@ try {
   <title>Blogroll</title>
   <?php echo dcPage::jsToolMan(); ?>
   <?php echo dcPage::jsConfirmClose('links-form','add-link-form','add-category-form'); ?>
+  <?php 
+	$core->auth->user_prefs->addWorkspace('accessibility'); 
+	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+  ?>
+  <?php if (!$user_dm_nodragdrop) : ?>
   <script type="text/javascript">
   //<![CDATA[
   
@@ -204,6 +209,7 @@ try {
   };
   //]]>
   </script>
+  <?php endif; ?>
   <?php echo dcPage::jsPageTabs($default_tab); ?>
 </head>
 
