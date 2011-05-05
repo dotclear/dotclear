@@ -301,7 +301,7 @@ if ($core->auth->userID() && $core->blog !== null)
 			$count++;
 			$fav = unserialize($v['value']);
 			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
-				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				preg_match('/'.str_replace('?','\?',$fav['url']).'(\?.*)?$/',$_SERVER['REQUEST_URI']),
 				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 		}
 	}	
@@ -311,7 +311,7 @@ if ($core->auth->userID() && $core->blog !== null)
 			$count++;
 			$fav = unserialize($v['value']);
 			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
-				preg_match('/'.$fav['url'].'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				preg_match('/'.str_replace('?','\?',$fav['url']).'(\?.*)?$/',$_SERVER['REQUEST_URI']),
 				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 		}
 	}
