@@ -59,12 +59,14 @@ class pingsBehaviors
 		}
 		
 		echo '<h3 class="ping-services">'.__('Pings:').'</h3>';
+		$i = 0;
 		foreach ($pings_uris as $k => $v)
 		{
 			echo
-			'<p class="ping-services"><label class="classic">'.
-			form::checkbox(array('pings_do[]'),html::escapeHTML($v),in_array($v,$pings_do)).' '.
+			'<p class="ping-services"><label for="pings_do-'.$i.'" class="classic">'.
+			form::checkbox(array('pings_do[]','pings_do-'.$i),html::escapeHTML($v),in_array($v,$pings_do)).' '.
 			html::escapeHTML($k).'</label></p>';
+			$i++;
 		}
 	}
 	

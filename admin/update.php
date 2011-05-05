@@ -197,7 +197,7 @@ if (!$step)
 		'unwanted side-effects. Consider reverting only if you experience strong issues with this new version.').'</strong> '.
 		sprintf(__('You should not revert to version prior to last one (%s).'),end($archives)).
 		'</p>'.
-		'<p><input type="submit" name="b_del" value="'.__('Delete selected file').'" /> '.
+		'<p><input type="submit" class="delete" name="b_del" value="'.__('Delete selected file').'" /> '.
 		'<input type="submit" name="b_revert" value="'.__('Revert to selected file').'" />'.
 		$core->formNonce().'</p>'.
 		'</form>';

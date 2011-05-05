@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-01-14 22:01+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Дмитрий Ищенко <ischenkodv@gmail.com>\n"
+"Last-Translator: Ihar <chi27@open.by>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -251,9 +251,8 @@ msgstr "управление ссылками"
 msgid "Links"
 msgstr "Ссылки"
 
-#, fuzzy
 msgid "All categories"
-msgstr "Импортировать категории"
+msgstr "Все категории"
 
 msgid "Home page only"
 msgstr "Долько домашняя страница"
@@ -279,9 +278,8 @@ msgstr "Вернуться в блогролл"
 msgid "Category has been successfully updated"
 msgstr "Категория была успешно удалена"
 
-#, fuzzy
 msgid "Edit category"
-msgstr "Добавить категорию"
+msgstr "Редактировать категорию"
 
 msgid "Link has been successfully updated"
 msgstr "Ссылка была успешно обновлена"
@@ -394,9 +392,8 @@ msgstr "URL"
 msgid "Lang"
 msgstr "Язык"
 
-#, fuzzy
 msgid "Save order"
-msgstr "порядок"
+msgstr "Сохранить порядок"
 
 msgid "Delete selected links"
 msgstr "Удалить выбранные ссылки"
@@ -405,7 +402,7 @@ msgid "Are you sure you want to delete selected links?"
 msgstr "Вы уверены, что хотите удалить выбранные ссылки?"
 
 msgid "The link list is empty."
-msgstr ""
+msgstr "Список ссылок пуст"
 
 msgid "Add a new link"
 msgstr "Добавить новую ссылку"
@@ -446,9 +443,8 @@ msgstr "Предустановленные стили"
 msgid "Apply code"
 msgstr "Применить код"
 
-#, fuzzy
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "Поскольку изображение не было создано, вы не сможете изменять некоторые свойства фона."
+msgstr "Иизображение не может быть создано по следующим причинам. Вы не сможете изменять некоторые свойства фона."
 
 msgid "Theme configuration has been successfully updated."
 msgstr "Настройки темы были успешно обновлены."
@@ -635,15 +631,14 @@ msgid "default"
 msgstr "по умолчанию"
 
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr ""
+msgstr "Одна или более следующих функций не доступны: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-#, fuzzy
 msgid "The 'public' directory does not exist."
-msgstr "Эта страница не существует."
+msgstr "Директория \"public\"  не существует."
 
 #, php-format
 msgid "The '%s' directory cannot be modified."
-msgstr ""
+msgstr "Директория %s не может быть изменена."
 
 msgid "Unable to create images."
 msgstr "Невозможно создать изображения."
@@ -652,31 +647,10 @@ msgid "Invalid file type."
 msgstr "Неверный тип файла."
 
 msgid "Uploaded image is not 800 pixels wide."
-msgstr ""
+msgstr "Загруженное изображение шириной не 800 пикселей."
 
 msgid "Unable to open image."
 msgstr "Невозможно открыть изображение."
-
-msgid "External media"
-msgstr "Внешние медиа"
-
-msgid "External media selector"
-msgstr "Внешний медиа селектор"
-
-msgid "Supported media services"
-msgstr "Поддерживаемые медиа сервисы"
-
-msgid "Please enter the URL of the page containing the video you want to include in your post."
-msgstr "Пожалуйста, введите URL страницы, содержащей видео файл, который вы хотите добавить в запись."
-
-msgid "Page URL:"
-msgstr "URL страницы:"
-
-msgid "Media alignment"
-msgstr "Расположение медиа"
-
-msgid "Media title"
-msgstr "Заголовок медиа"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Проверить источник пинга на наличие ссылки на пост"
@@ -690,9 +664,8 @@ msgstr "Экспорт текстового файла."
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "Экспорт блога или полной установки Dotclear в текстовый файл."
 
-#, fuzzy
 msgid "Export file not found."
-msgstr "Таблицы Dotclear не найдены"
+msgstr "Экспортируемый файл не найден."
 
 msgid "Export a blog"
 msgstr "Экспортировать блог"
@@ -705,7 +678,7 @@ msgid "Export"
 msgstr "Экспорт"
 
 msgid "You may also want to download your media directory as a zip file"
-msgstr ""
+msgstr "Вы также можете сохранить вашу директорию медиа-файлов в виде zip-архива"
 
 msgid "Export all content"
 msgstr "Экспорт всего содержимого"
@@ -765,19 +738,19 @@ msgstr "Импортировать категории"
 msgid "Importing blogroll"
 msgstr "Импортировать ссылки"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Importing entries from %d to %d / %d"
-msgstr "Импортировать записи от %d до %d"
+msgstr "Импортировать записи от %d до %d / %d"
 
 msgid "Please read carefully"
-msgstr ""
+msgstr "Пожалуйста прочитайте внимательно"
 
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "Каждый новый импортированный пользователь получил пароль и для получения нового нужно нажать на ссылку \"Я забыл пароль\" на форме логина (зарегистрированный email адрес должен быть действительным)."
 
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
-msgstr ""
+msgstr "Пожалуйста обратите внимание, что Dotclear 2 имеет новый формат URL. Вы можете избежать неверных ссылок установив плагин< href=\"%s\">DC1 redirect</a> и активировав его в вашем блоге."
 
 msgid "next step"
 msgstr "следующий шаг"
@@ -875,23 +848,20 @@ msgstr "Импортировать все категории как теги:"
 msgid "Prefix such tags with:"
 msgstr "Добавить префикс к тегам:"
 
-#, fuzzy
 msgid "Content filters"
-msgstr "Вернуться к фильтрам"
+msgstr "Фильтры содержания"
 
 msgid "You may want to process your post and/or comment content with the following filters."
-msgstr ""
+msgstr "Вы можете обработать ваш пост и/или содержимое комментария с помощью следующих фильтров."
 
 msgid "Post content formatter:"
-msgstr ""
+msgstr "Форматтер содержимого постов:"
 
-#, fuzzy
 msgid "Comment content formatter:"
-msgstr "Цвет текста комментариев:"
+msgstr "Форматтер содержания комментариев:"
 
-#, fuzzy
 msgid "WordPress tables not found"
-msgstr "Таблицы Dotclear не найдены"
+msgstr "Таблицы WordPress не найдены"
 
 msgid "No file to read."
 msgstr "Нет файла для чтения."
@@ -906,7 +876,7 @@ msgid "File is not a full export."
 msgstr "Файл не является полным экспортом."
 
 msgid "The backup file does not appear to be well formed."
-msgstr ""
+msgstr "Файл резервной копии сформирован  криво."
 
 msgid "Please wait..."
 msgstr "Пожалуйста подождите..."
@@ -925,10 +895,10 @@ msgid "Comments and trackback counted."
 msgstr "Комментарии и пинги посчитаны."
 
 msgid "Templates cache directory emptied."
-msgstr ""
+msgstr "Директория кеша шаблонов пустая"
 
 msgid "Logs deleted."
-msgstr ""
+msgstr "Логи удалены."
 
 #, php-format
 msgid "Indexing entry %d to %d."
@@ -974,19 +944,17 @@ msgstr "Индексировать все записи"
 msgid "Index all comments"
 msgstr "Индексировать все комментарии"
 
-#, fuzzy
 msgid "Vacuum logs"
-msgstr "Очистить базу данных"
+msgstr "Очистить логи"
 
-#, fuzzy
 msgid "Delete all logs"
-msgstr "Удалить весь спам"
+msgstr "Удалить все логи"
 
 msgid "Empty templates cache directory"
-msgstr ""
+msgstr "Очистить директорию кеша шаблонов"
 
 msgid "Empty directory"
-msgstr ""
+msgstr "Очистить директорию"
 
 msgid "Pages"
 msgstr "Страницы"
@@ -1015,9 +983,8 @@ msgstr "Дата публикации"
 msgid "No page"
 msgstr "Нет страниц"
 
-#, fuzzy
 msgid "Are you sure you want to delete selected pages?"
-msgstr "Вы уверены, что хотите удалить выбранные ссылки?"
+msgstr "Вы уверены, что хотите удалить выбранные страницы?"
 
 msgid "New page"
 msgstr "Новая страница"
@@ -1095,7 +1062,7 @@ msgid "Test ping services"
 msgstr "Протестировать сервис пингов"
 
 msgid "Check all"
-msgstr ""
+msgstr "Проверить все"
 
 msgid "Pings:"
 msgstr "Пинги:"
@@ -1124,23 +1091,20 @@ msgid "Tag"
 msgstr "Тег"
 
 msgid "used in %e - frequency %p%"
-msgstr ""
+msgstr "используется в %e - frequency %p%"
 
-#, fuzzy
 msgid "entry"
-msgstr "по центру"
+msgstr "публикация"
 
 msgid "entries"
 msgstr "записи"
 
 msgid "Enter tags separated by coma"
-msgstr ""
+msgstr "Введите теги, разделяя запятыми"
 
-#, fuzzy
 msgid "Add tags"
 msgstr "добавить теги"
 
-#, fuzzy
 msgid "Remove tags"
 msgstr "удалить теги"
 
@@ -1160,14 +1124,13 @@ msgid "Following tags have been found in selected entries:"
 msgstr "Следующие теги  были найдены в выбранных записях:"
 
 msgid "short"
-msgstr ""
+msgstr "короткий"
 
 msgid "extended"
-msgstr ""
+msgstr "расширенный"
 
-#, fuzzy
 msgid "Tags list format:"
-msgstr "Теги для добавления:"
+msgstr "Формат списка тегов:"
 
 msgid "This tag's comments Atom feed"
 msgstr "Лента новостей Atom для комментариев этого тега"
@@ -1188,7 +1151,7 @@ msgid "All tags"
 msgstr "Все теги"
 
 msgid "Link to all tags:"
-msgstr ""
+msgstr "Ссылка на все теги"
 
 msgid "Edit tag"
 msgstr "Редактировать тег"
@@ -1314,13 +1277,11 @@ msgstr "Текст:"
 msgid "Last entries"
 msgstr "Последние записи"
 
-#, fuzzy
 msgid "Uncategorized"
-msgstr "Импортировать категории"
+msgstr "Внекатегорийно"
 
-#, fuzzy
 msgid "Tag:"
-msgstr "Теги:"
+msgstr "Тег:"
 
 msgid "Last comments"
 msgstr "Последние комментарии"
@@ -1382,38 +1343,34 @@ msgid "reset sidebars"
 msgstr "Переустановить сайдбары"
 
 msgid "Widget templates tags"
-msgstr ""
+msgstr "Теги шаблонов виджетов"
 
 msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr ""
+msgstr "Если Вы способны редактировать ваши шаблоны темы, Вы можете непосредственно добавить виджеты как теги шаблонов, со своей собственной конфигурацией."
 
 msgid "To add a widget in your template, you need to write code like this:"
-msgstr ""
+msgstr "Для добавления виджета в ваш шаблон вы должны написать примерно такой код:"
 
-#, fuzzy
 msgid "Widget ID"
-msgstr "Виджеты"
+msgstr "ID виджета"
 
-#, fuzzy
 msgid "Setting name"
-msgstr "Название сервиса:"
+msgstr "Название настройки"
 
 msgid "Setting value"
-msgstr ""
+msgstr "Значение параметра"
 
 msgid "Here are the following available widgets for your blog:"
-msgstr ""
+msgstr "Для вашего блога доступны следующие виджеты:"
 
-#, fuzzy
 msgid "Widget ID:"
-msgstr "Виджеты"
+msgstr "ID виджета:"
 
 msgid "No setting for this widget"
-msgstr ""
+msgstr "Нет настроек для этого виджета"
 
-#, fuzzy
 msgid "Setting name:"
-msgstr "Название сервиса:"
+msgstr "Название настройки:"
 
 msgid "No widget."
 msgstr "Нет виджета."
@@ -1424,29 +1381,36 @@ msgstr "порядок"
 msgid "Remove widget"
 msgstr "Удалить виджет"
 
+#~ msgid "External media"
+#~ msgstr "Внешние медиа"
+#~ msgid "External media selector"
+#~ msgstr "Внешний медиа селектор"
+#~ msgid "Supported media services"
+#~ msgstr "Поддерживаемые медиа сервисы"
+#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
+#~ msgstr "Пожалуйста, введите URL страницы, содержащей видео файл, который вы хотите добавить в запись."
+#~ msgid "Page URL:"
+#~ msgstr "URL страницы:"
+#~ msgid "Media alignment"
+#~ msgstr "Расположение медиа"
+#~ msgid "Media title"
+#~ msgstr "Заголовок медиа"
 #~ msgid "Unsupported service"
 #~ msgstr "Сервис не поддержуется"
-
 #~ msgid "Invalid page URL"
 #~ msgstr "Неверный URL страницы"
-
 #~ msgid "Add a new category"
 #~ msgstr "Добавить новую категорию"
-
 #~ msgid "Empty file name"
 #~ msgstr "Пустое имя файла"
-
 #~ msgid "This file already exists"
 #~ msgstr "Этот файл уже существует"
-
 #~ msgid "It can be downloaded here:"
 #~ msgstr "Это можно загрузить здесь:"
-
 #~ msgid "The backup file has been created in your public directory."
 #~ msgstr "Резервный файл был создан в публичной директории."
-
 #~ msgid "more"
 #~ msgstr "больше"
-
 #~ msgid "Categories list"
 #~ msgstr "Список категорий"
+

@@ -31,6 +31,7 @@ if ($dlang != 'en')
 	l10n::init();
 	l10n::set(dirname(__FILE__).'/../../locales/'.$dlang.'/date');
 	l10n::set(dirname(__FILE__).'/../../locales/'.$dlang.'/main');
+	l10n::set(dirname(__FILE__).'/../../locales/'.$dlang.'/plugins');
 }
 
 if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY == '') {
@@ -183,6 +184,51 @@ if ($can_install && !empty($_POST))
 		define('DC_CONTEXT_ADMIN',true);
 		$core->plugins->loadModules(DC_PLUGINS_ROOT);
 		$plugins_install = $core->plugins->installModules();
+		
+		# Add dashboard module options
+		$core->auth->user_prefs->addWorkspace('dashboard');
+		$core->auth->user_prefs->dashboard->put('doclinks',true,'boolean','',null,true);
+		$core->auth->user_prefs->dashboard->put('dcnews',true,'boolean','',null,true);
+		$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean','',null,true);
+		
+		# Add default favorites
+		$core->auth->user_prefs->addWorkspace('favorites');
+
+		$init_fav = array();
+		
+		$init_fav['new_post'] = array('new_post',__('New entry'),'post.php',
+			'images/menu/edit.png','images/menu/edit-b.png',
+			'usage,contentadmin',null,'menu-new-post');
+		$init_fav['posts'] = array('posts',__('Entries'),'posts.php',
+			'images/menu/entries.png','images/menu/entries-b.png',
+			'usage,contentadmin',null,null);
+		$init_fav['comments'] = array('comments',__('Comments'),'comments.php',
+			'images/menu/comments.png','images/menu/comments-b.png',
+			'usage,contentadmin',null,null);
+		$init_fav['prefs'] = array('prefs',__('My preferences'),'preferences.php',
+			'images/menu/user-pref.png','images/menu/user-pref-b.png',
+			'*',null,null);
+		$init_fav['blog_pref'] = array('blog_pref',__('Blog settings'),'blog_pref.php',
+			'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
+			'admin',null,null);
+		$init_fav['blog_theme'] = array('blog_theme',__('Blog appearance'),'blog_theme.php',
+			'images/menu/themes.png','images/menu/blog-theme-b.png',
+			'admin',null,null);
+
+		$init_fav['pages'] = array('pages',__('Pages'),'plugin.php?p=pages',
+			'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
+			'contentadmin,pages',null,null);
+		$init_fav['blogroll'] = array('blogroll',__('Blogroll'),'plugin.php?p=blogroll',
+			'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
+			'usage,contentadmin',null,null);
+
+		$count = 0;
+		foreach ($init_fav as $k => $f) {
+			$t = array('name' => $f[0],'title' => $f[1],'url' => $f[2], 'small-icon' => $f[3],
+				'large-icon' => $f[4],'permissions' => $f[5],'id' => $f[6],'class' => $f[7]);
+			$core->auth->user_prefs->favorites->put(sprintf("g%03s",$count),serialize($t),'string',null,true,true);
+			$count++;
+		}
 		
 		$step = 1;
 	}

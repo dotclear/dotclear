@@ -65,8 +65,8 @@ if (($post_id && $media_id) || $core->error->flag())
 		echo
 		'<form action="post_media.php" method="post">'.
 		'<p>'.__('Are you sure you want to remove this attachment?').'</p>'.
-		'<p><input type="submit" value="'.__('cancel').'" /> '.
-		' &nbsp; <input type="submit" name="remove" value="'.__('yes').'" />'.
+		'<p><input type="submit" class="reset" value="'.__('cancel').'" /> '.
+		' &nbsp; <input type="submit" class="delete" name="remove" value="'.__('yes').'" />'.
 		form::hidden('post_id',$post_id).
 		form::hidden('media_id',$media_id).
 		$core->formNonce().'</p>'.

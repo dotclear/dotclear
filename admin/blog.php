@@ -75,15 +75,15 @@ else
 	
 	'<fieldset><legend>'.__('Blog details').'</legend>'.
 	$core->formNonce().
-	'<p><label class="required" title="'.__('Required field').'">'.__('Blog ID:').' '.
+	'<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').' '.
 	form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</label></p>'.
-	'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').' '.
-	__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>'.
+	'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
+	'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>'.
 	
-	'<p><label class="required" title="'.__('Required field').'">'.__('Blog name:').' '.
+	'<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').' '.
 	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</label></p>'.
 	
-	'<p><label class="required" title="'.__('Required field').'">'.__('Blog URL:').' '.
+	'<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').' '.
 	form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</label></p>'.
 	
 	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label> '.
@@ -92,7 +92,7 @@ else
 	
 	'<p><input type="submit" accesskey="s" value="'.__('save').'" /></p>'.
 	'</form>';
-	
+
 	dcPage::close();
 }
 ?>

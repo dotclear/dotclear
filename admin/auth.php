@@ -31,6 +31,7 @@ $page_url = http::getHost().$_SERVER['REQUEST_URI'];
 $change_pwd = $core->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
 $login_data = !empty($_POST['login_data']) ? $_POST['login_data'] : null;
 $recover = $core->auth->allowPassChange() && !empty($_REQUEST['recover']);
+$safe_mode = !empty($_REQUEST['safe_mode']);
 $akey = $core->auth->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
 $user_id = $user_pwd = $user_key = $user_email = null;
 $err = $msg = null;
@@ -204,6 +205,10 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 			$change_pwd = true;
 		}
 	}
+	elseif ($check_user && !empty($_POST['safe_mode']) && !$core->auth->isSuperAdmin()) 
+	{
+		$err = __('Safe Mode can only be used for super administrators.');
+	}
 	elseif ($check_user)
 	{
 		$core->session->start();
@@ -212,6 +217,10 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 		
 		if (!empty($_POST['blog'])) {
 			$_SESSION['sess_blog_id'] = $_POST['blog'];
+		}
+		
+		if (!empty($_POST['safe_mode']) && $core->auth->isSuperAdmin()) {
+			$_SESSION['sess_safe_mode'] = true;
 		}
 		
 		if (!empty($_POST['user_remember'])) {
@@ -283,6 +292,13 @@ echo dcPage::jsCommon();
       }
 	 return true;
     };
+    
+    if (navigator.cookieEnabled) {
+      $('#cookie_help').hide();
+    } else {
+      $('#cookie_help').show();
+    }
+    $('#issue #more').toggleWithLegend($('#issue').children().not('#more'));
   });
   //]]>
   </script>
@@ -309,11 +325,11 @@ elseif ($recover)
 {
 	echo
 	'<fieldset><legend>'.__('Request a new password').'</legend>'.
-	'<p><label>'.__('Username:').' '.
-	form::field(array('user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
+	'<p><label for="user_id">'.__('Username:').' '.
+	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
 	
-	'<p><label>'.__('Email:').' '.
-	form::field(array('user_email'),20,255,html::escapeHTML($user_email),'',2).'</label></p>'.
+	'<p><label for="user_email">'.__('Email:').' '.
+	form::field(array('user_email','user_email'),20,255,html::escapeHTML($user_email),'',2).'</label></p>'.
 	
 	'<p><input type="submit" value="'.__('recover').'" tabindex="3" />'.
 	form::hidden(array('recover'),1).'</p>'.
@@ -325,11 +341,11 @@ elseif ($change_pwd)
 {
 	echo
 	'<fieldset><legend>'.__('Change your password').'</legend>'.
-	'<p><label>'.__('New password:').' '.
-	form::password(array('new_pwd'),20,255,'','',1).'</label></p>'.
+	'<p><label for="new_pwd">'.__('New password:').' '.
+	form::password(array('new_pwd','new_pwd'),20,255,'','',1).'</label></p>'.
 	
-	'<p><label>'.__('Confirm password:').' '.
-	form::password(array('new_pwd_c'),20,255,'','',2).'</label></p>'.
+	'<p><label for="new_pwd_c">'.__('Confirm password:').' '.
+	form::password(array('new_pwd_c','new_pwd_c'),20,255,'','',2).'</label></p>'.
 	'</fielset>'.
 	
 	'<p><input type="submit" value="'.__('change').'" />'.
@@ -345,31 +361,52 @@ else
 	{
 		echo
 		'<fieldset>';
+		if ($safe_mode) {
+			echo '<legend>'.__('Safe mode login').'</legend>';
+			echo 
+				'<p class="form-note info">'.
+				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;<br />'.
+				__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
+				'</p>';
+		}
 		echo
-		'<p><label>'.__('Username:').' '.
-		form::field(array('user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
+		'<p><label for="user_id">'.__('Username:').' '.
+		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
 		
-		'<p><label>'.__('Password:').' '.
-		form::password(array('user_pwd'),20,255,'','',2).'</label></p>'.
+		'<p><label for="user_pwd">'.__('Password:').' '.
+		form::password(array('user_pwd','user_pwd'),20,255,'','',2).'</label></p>'.
 		
-		'<p><label class="classic">'.
-		form::checkbox(array('user_remember'),1,'','',3).' '.
+		'<p><label for="user_remember" class="classic">'.
+		form::checkbox(array('user_remember','user_remember'),1,'','',3).' '.
 		__('Remember my ID on this computer').'</label></p>'.
 		
-		'<p><input type="submit" value="'.__('login').'" tabindex="4" /></p>';
+		'<p><input type="submit" value="'.__('log in').'" tabindex="4" /></p>';
 		
 		if (!empty($_REQUEST['blog'])) {
 			echo form::hidden('blog',html::escapeHTML($_REQUEST['blog']));
 		}
+		if($safe_mode) {
+			echo form::hidden('safe_mode',1);
+		}
 		
 		echo
 		'</fieldset>'.
+		'<p id="cookie_help">'.__('You must accept cookies in order to use the private area.').'</p>';
+
+		echo '<div id="issue">';
 		
-		'<p>'.__('You must accept cookies in order to use the private area.').'</p>';
-		
-		if ($core->auth->allowPassChange()) {
-			echo '<p><a href="auth.php?recover=1">'.__('I forgot my password').'</a></p>';
+		if ($safe_mode) {
+			echo
+			'<p><a href="auth.php" id="normal_mode_link">'.__('Get back to normal authentication').'</a></p>';
+		} else {
+			echo '<p id="more"><strong>'.__('Connection issue?').'</strong></p>';
+			if ($core->auth->allowPassChange()) {
+				echo '<p><a href="auth.php?recover=1">'.__('I forgot my password').'</a></p>';
+			}
+			echo '<p><a href="auth.php?safe_mode=1" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>';
 		}
+		
+		echo '</div>';
 	}
 }
 ?>

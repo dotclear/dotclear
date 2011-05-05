@@ -223,7 +223,7 @@ if ($action == 'category')
 	
 	echo
 	'<form action="posts_actions.php" method="post">'.
-	'<p><label class="classic">'.__('Category:').' '.
+	'<p><label for="new_cat_id" class="classic">'.__('Category:').' '.
 	form::combo('new_cat_id',$categories_combo,'').
 	'</label> ';
 	
@@ -240,7 +240,7 @@ elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 	
 	echo
 	'<form action="posts_actions.php" method="post">'.
-	'<p><label class="classic">'.__('Author ID:').' '.
+	'<p><label for="new_auth_id" class="classic">'.__('Author ID:').' '.
 	form::field('new_auth_id',20,255).
 	'</label> ';
 	

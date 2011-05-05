@@ -13,7 +13,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
 	/* Name */			"Blue Silence",
-	/* Description*/		"Default Dotclear Theme",
+	/* Description*/		"Dotclear Theme",
 	/* Author */			"Marco / marcarea.com",
 	/* Version */			'1.0'
 );

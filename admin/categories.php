@@ -123,9 +123,9 @@ echo '<div class="col">'.
 
 '<form action="category.php" method="post">'.
 '<fieldset><legend>'.__('Add a new category').'</legend>'.
-'<p><label>'.__('Title:').' '.
+'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
 form::field('cat_title',30,255).'</label></p>'.
-'<p><label>'.__('Parent:').' '.
+'<p><label for="new_cat_parent">'.__('Parent:').' '.
 '<select id="new_cat_parent" name="new_cat_parent">'.
 '<option value="0">'.__('Top level').'</option>';
 while ($rs->fetch()) {
@@ -162,7 +162,7 @@ if (!$rs->isEmpty())
 		echo
 		'<form action="categories.php" method="post" id="delete-category">'.
 		'<fieldset><legend>'.__('Remove a category').'</legend>'.
-		'<p><label>'.__('Choose a category to remove:').' '.
+		'<p><label for="del_cat">'.__('Choose a category to remove:').' '.
 		form::combo('del_cat',$deletable).'</label></p> '.
 		'<p><input type="submit" value="'.__('ok').'" /></p>'.
 		$core->formNonce().

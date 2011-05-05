@@ -365,40 +365,40 @@ if ($can_edit_post)
 	echo '<div id="entry-sidebar">';
 	
 	echo
-	'<p><label>'.__('Category:').
+	'<p><label for="cat_id">'.__('Category:').
 	form::combo('cat_id',$categories_combo,$cat_id,'maximal',3).
 	'</label></p>'.
 	
-	'<p><label>'.__('Entry status:').
+	'<p><label for="post_status">'.__('Entry status:').
 	form::combo('post_status',$status_combo,$post_status,'',3,!$can_publish).
 	'</label></p>'.
 	
-	'<p><label>'.__('Published on:').
+	'<p><label for="post_dt">'.__('Published on:').
 	form::field('post_dt',16,16,$post_dt,'',3).
 	'</label></p>'.
 	
-	'<p><label>'.__('Text formating:').
+	'<p><label for="post_format">'.__('Text formating:').
 	form::combo('post_format',$formaters_combo,$post_format,'',3).
 	($post_id && $post_format != 'xhtml' ? '<a id="convert-xhtml" href="post.php?id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').
 	'</label></p>'.
 	
-	'<p><label class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment,'',3).' '.
+	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment,'',3).' '.
 	__('Accept comments').'</label></p>'.
-	'<p><label class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb,'',3).' '.
+	'<p><label for="post_open_tb" class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb,'',3).' '.
 	__('Accept trackbacks').'</label></p>'.
-	'<p><label class="classic">'.form::checkbox('post_selected',1,$post_selected,'',3).' '.
+	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected,'',3).' '.
 	__('Selected entry').'</label></p>'.
 	
-	'<p><label>'.__('Entry lang:').
+	'<p><label for="post_lang">'.__('Entry lang:').
 	form::combo('post_lang',$lang_combo,$post_lang,'',5).
 	'</label></p>'.
 	
-	'<p><label>'.__('Entry password:').
+	'<p><label for="post_password">'.__('Entry password:').
 	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal',3).
 	'</label></p>'.
 	
 	'<div class="lockable">'.
-	'<p><label>'.__('Basename:').
+	'<p><label for="post_url">'.__('Basename:').
 	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal',3).
 	'</label></p>'.
 	'<p class="form-note warn">'.
@@ -451,7 +451,7 @@ if ($can_edit_post)
 	echo '<div id="entry-content"><fieldset class="constrained">';
 	
 	echo
-	'<p class="col"><label class="required" title="'.__('Required field').'">'.__('Title:').
+	'<p class="col"><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
 	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal',2).
 	'</label></p>'.
 	
@@ -459,12 +459,12 @@ if ($can_edit_post)
 	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt),'',2).
 	'</p>'.
 	
-	'<p class="area"><label class="required" title="'.__('Required field').'" '.
-	'for="post_content">'.__('Content:').'</label> '.
+	'<p class="area"><label class="required" '.
+	'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
 	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content),'',2).
 	'</p>'.
 	
-	'<p class="area" id="notes-area"><label>'.__('Notes:').'</label>'.
+	'<p class="area" id="notes-area"><label for="post_notes">'.__('Notes:').'</label>'.
 	form::textarea('post_notes',50,5,html::escapeHTML($post_notes),'',2).
 	'</p>';
 	
@@ -476,7 +476,7 @@ if ($can_edit_post)
 	($post_id ? form::hidden('id',$post_id) : '').
 	'<input type="submit" value="'.__('save').' (s)" tabindex="4" '.
 	'accesskey="s" name="save" /> '.
-	($can_delete ? '<input type="submit" value="'.__('delete').'" name="delete" />' : '').
+	($can_delete ? '<input type="submit" class="delete" value="'.__('delete').'" name="delete" />' : '').
 	$core->formNonce().
 	'</p>';
 	
@@ -485,7 +485,7 @@ if ($can_edit_post)
 	echo '</div>';
 	
 	if ($post_id && $post->post_status == 1) {
-		echo '<br /><p><a href="trackbacks.php?id='.$post_id.'" class="multi-part">'.
+		echo '<p><a href="trackbacks.php?id='.$post_id.'" class="multi-part">'.
 		__('Ping blogs').'</a></p>';
 	}
 	
@@ -537,7 +537,7 @@ if ($post_id)
 	echo '<h3>'.__('Trackbacks').'</h3>';
 	
 	if (!$trackbacks->isEmpty()) {
-		showComments($trackbacks,$has_action);
+		showComments($trackbacks,$has_action,true);
 	} else {
 		echo '<p>'.__('No trackback').'</p>';
 	}
@@ -554,7 +554,7 @@ if ($post_id)
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
 		
-		'<p class="col right">'.__('Selected comments action:').' '.
+		'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
 		form::combo('action',$combo_action).
 		form::hidden('redir','post.php?id='.$post_id.'&amp;co=1').
 		$core->formNonce().
@@ -576,20 +576,20 @@ if ($post_id)
 	
 	'<form action="comment.php" method="post" id="comment-form">'.
 	'<fieldset class="constrained">'.
-	'<p><label class="required" title="'.__('Required field').'">'.__('Name:').
+	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').
 	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn'))).
 	'</label></p>'.
 	
-	'<p><label>'.__('Email:').
+	'<p><label for="comment_email">'.__('Email:').
 	form::field('comment_email',30,255,html::escapeHTML($core->auth->getInfo('user_email'))).
 	'</label></p>'.
 	
-	'<p><label>'.__('Web site:').
+	'<p><label for="comment_site">'.__('Web site:').
 	form::field('comment_site',30,255,html::escapeHTML($core->auth->getInfo('user_url'))).
 	'</label></p>'.
 	
-	'<p class="area"><label for="comment_content" class="required" title="'.
-	__('Required field').'">'.__('Comment:').'</label> '.
+	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.
+	__('Comment:').'</label> '.
 	form::textarea('comment_content',50,8,html::escapeHTML('')).
 	'</p>'.
 	
@@ -603,7 +603,7 @@ if ($post_id)
 
 
 # Show comments or trackbacks
-function showComments($rs,$has_action)
+function showComments($rs,$has_action,$tb=false)
 {
 	echo
 	'<table class="comments-list"><tr>'.
@@ -639,7 +639,7 @@ function showComments($rs,$has_action)
 		' id="c'.$rs->comment_id.'">'.
 		
 		'<td class="nowrap">'.
-		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0) : '').'</td>'.
+		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
 		'<td class="maximal">'.html::escapeHTML($rs->comment_author).'</td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
 		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.

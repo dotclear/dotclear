@@ -100,7 +100,7 @@ class adminPageList extends adminGenericList
 		
 		$res .=
 		'<td class="nowrap">'.
-		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable()).'</td>'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable(),'title="'.__('select this page').'"').'</td>'.
 		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
@@ -175,8 +175,8 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 
 <body>
 <?php
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Pages').
-' - <a class="button" href="'.$p_url.'&amp;act=page">'.__('New page').'</a></h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Pages').'</h2>'.
+'<p class="top-add"><a class="button add" href="'.$p_url.'&amp;act=page">'.__('New page').'</a></p>';
 
 if (!$core->error->flag())
 {
@@ -189,7 +189,7 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right">'.__('Selected pages action:').' '.
+	'<p class="col right"><label for="action" class="classic">'.__('Selected pages action:').'</label> '.
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('post_type'),'page').

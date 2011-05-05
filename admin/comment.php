@@ -190,26 +190,26 @@ if ($comment_id)
 	
 	echo
 	'<form action="comment.php" method="post" id="comment-form">'.
-	'<p><label>'.__('IP address:').'</label> '.
+	'<p>'.__('IP address:').'<br /> '.
 	'<a href="comments.php?ip='.$comment_ip.'">'.$comment_ip.'</a></p>'.
 	
-	'<p><label>'.__('Date:').'</label> '.
+	'<p>'.__('Date:').'<br /> '.
 	dt::dt2str(__('%Y-%m-%d %H:%M'),$comment_dt).'</p>'.
 	
-	'<p><label class="required" title="'.__('Required field').'">'.__('Author:').
+	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr>'.__('Author:').
 	form::field('comment_author',30,255,html::escapeHTML($comment_author)).
 	'</label></p>'.
 	
-	'<p><label>'.__('Email:').
+	'<p><label for="comment_email">'.__('Email:').
 	form::field('comment_email',30,255,html::escapeHTML($comment_email)).
 	$comment_mailto.
 	'</label></p>'.
 	
-	'<p><label>'.__('Web site:').
+	'<p><label for="comment_site">'.__('Web site:').
 	form::field('comment_site',30,255,html::escapeHTML($comment_site)).
 	'</label></p>'.
 	
-	'<p><label>'.__('Status:').
+	'<p><label for="comment_status">'.__('Status:').
 	form::combo('comment_status',$status_combo,$comment_status,'','',!$can_publish).
 	'</label></p>'.
 	
@@ -225,7 +225,7 @@ if ($comment_id)
 	'<input type="submit" accesskey="s" name="update" value="'.__('save').'" /> ';
 	
 	if ($can_delete) {
-		echo '<input type="submit" name="delete" value="'.__('delete').'" />';
+		echo '<input type="submit" class="delete" name="delete" value="'.__('delete').'" />';
 	}
 	echo
 	'</p>'.

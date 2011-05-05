@@ -14,4 +14,13 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 $_menu['Plugins']->addItem(__('Maintenance'),'plugin.php?p=maintenance','index.php?pf=maintenance/icon.png',
 		preg_match('/plugin.php\?p=maintenance(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin());
+
+$core->addBehavior('adminDashboardFavs','maintenanceDashboardFavs');
+
+function maintenanceDashboardFavs($core,$favs)
+{
+	$favs['maintenance'] = new ArrayObject(array('maintenance',__('Maintenance'),'plugin.php?p=maintenance',
+		'index.php?pf=maintenance/icon.png','index.php?pf=maintenance/icon-big.png',
+		null,null,null));
+}
 ?>

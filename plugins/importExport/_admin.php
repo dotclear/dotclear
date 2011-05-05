@@ -19,4 +19,13 @@ $_menu['Plugins']->addItem(__('Import/Export'),'plugin.php?p=importExport','inde
 $__autoload['backupFile'] = dirname(__FILE__).'/inc/flat/class.backupFile.php';
 $__autoload['dcImport'] = dirname(__FILE__).'/inc/flat/class.dc.import.php';
 $__autoload['dbExport'] = dirname(__FILE__).'/inc/flat/class.db.export.php';
+
+$core->addBehavior('adminDashboardFavs','importExportDashboardFavs');
+
+function importExportDashboardFavs($core,$favs)
+{
+	$favs['importExport'] = new ArrayObject(array('importExport',__('Import/Export'),'plugin.php?p=importExport',
+		'index.php?pf=importExport/icon.png','index.php?pf=importExport/icon-big.png',
+		'admin',null,null));
+}
 ?>

@@ -165,7 +165,7 @@ class dcFilterWords extends dcSpamFilter
 			'</div>'.
 			'<p>'.form::hidden(array('spamwords'),1).
 			$core->formNonce().
-			'<input class="submit" type="submit" value="' . __('Delete selected words') . '"/></p>'.
+			'<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"/></p>'.
 			'</fieldset></form>';
 		}
 		

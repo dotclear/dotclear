@@ -25,7 +25,7 @@
 	border-width: 1px 1px 0 1px;
 	border-style: solid;
 	border-color: #000 #ccc #ccc #000;
-	background: #eceade;
+	background: #dfdfdf;
 }
 
 .jstElements select, .jstElements button {
@@ -41,14 +41,14 @@
 	padding: 0;
 	border-style: solid;
 	border-width: 1px;
-	border-color: #eceade;
+	border-color: #dfdfdf;
 	background-color : transparent;
 	background-position : 50% 50%;
 	background-repeat: no-repeat;
 }
 .jstElements button:hover {
 	border-color : #ccc;
-	background-color: #dfdbc7;
+	background-color: #fff;
 }
 .jstElements button span {
 	display : none;	
@@ -68,7 +68,7 @@
 	list-style: none;
 	margin: 0 0 0 -5px;
 	padding: 0 0 5px 0;
-	background: #eee;
+	background: #dfdfdf;
 	border-top: 1px solid #999;
 	font-size: 90%;
 	font-weight: bold;

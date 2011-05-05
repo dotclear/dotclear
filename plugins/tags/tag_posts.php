@@ -124,7 +124,7 @@ if (!$core->error->flag())
 	{
 		echo
 		'<form action="'.$this_url.'" method="post">'.
-		'<p><label class="classic">'.__('Rename this tag:').' '.
+		'<p><label for="new_tag_id" class="classic">'.__('Rename this tag:').' '.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'</label> <input type="submit" value="'.__('save').'" />'.
 		$core->formNonce().'</p>'.
@@ -140,7 +140,7 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right">'.__('Selected entries action:').' '.
+	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden('post_type','').
@@ -154,7 +154,7 @@ if (!$core->error->flag())
 	if (!$posts->isEmpty() && $core->auth->check('contentadmin',$core->blog->id)) {
 		echo
 		'<form id="tag_delete" action="'.$this_url.'" method="post">'.
-		'<p><input type="submit" name="delete" value="'.__('Delete this tag').'" />'.
+		'<p><input type="submit" class="delete" name="delete" value="'.__('Delete this tag').'" />'.
 		$core->formNonce().'</p>'.
 		'</form>';
 	}

@@ -42,82 +42,137 @@ if (!empty($_GET['logout'])) {
 # Plugin install
 $plugins_install = $core->plugins->installModules();
 
+# Check dashboard module prefs
+$ws = $core->auth->user_prefs->addWorkspace('dashboard');
+if (!$core->auth->user_prefs->dashboard->prefExists('doclinks')) {
+	if (!$core->auth->user_prefs->dashboard->prefExists('doclinks',true)) {
+		$core->auth->user_prefs->dashboard->put('doclinks',true,'boolean','',null,true);
+	}
+	$core->auth->user_prefs->dashboard->put('doclinks',true,'boolean');
+}
+if (!$core->auth->user_prefs->dashboard->prefExists('dcnews')) {
+	if (!$core->auth->user_prefs->dashboard->prefExists('dcnews',true)) {
+		$core->auth->user_prefs->dashboard->put('dcnews',true,'boolean','',null,true);
+	}
+	$core->auth->user_prefs->dashboard->put('dcnews',true,'boolean');
+}
+if (!$core->auth->user_prefs->dashboard->prefExists('quickentry')) {
+	if (!$core->auth->user_prefs->dashboard->prefExists('quickentry',true)) {
+		$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean','',null,true);
+	}
+	$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean');
+}
+
 # Dashboard icons
 $__dashboard_icons = new ArrayObject();
 
+# Dashboard favorites
 $post_count = $core->blog->getPosts(array(),true)->f(0);
 $str_entries = ($post_count > 1) ? __('%d entries') : __('%d entry');
 
 $comment_count = $core->blog->getComments(array(),true)->f(0);
 $str_comments = ($comment_count > 1) ? __('%d comments') : __('%d comment');
 
-$__dashboard_icons['new_post'] = new ArrayObject(array(__('New entry'),'post.php','images/menu/edit-b.png'));
-$__dashboard_icons['posts'] = new ArrayObject(array(sprintf($str_entries,$post_count),'posts.php','images/menu/entries-b.png'));
-$__dashboard_icons['comments'] = new ArrayObject(array(sprintf($str_comments,$comment_count),'comments.php','images/menu/comments-b.png'));
-$__dashboard_icons['prefs'] = new ArrayObject(array(__('User preferences'),'preferences.php','images/menu/user-pref-b.png'));
+$ws = $core->auth->user_prefs->addWorkspace('favorites');
+$count = 0;
+foreach ($ws->dumpPrefs() as $k => $v) {
+	// User favorites only
+	if (!$v['global']) {
+		$fav = unserialize($v['value']);
+		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
+			$count++;
+			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
+				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
+			$__dashboard_icons[$fav['name']] = new ArrayObject(array($title,$fav['url'],$fav['large-icon']));
 
-if ($core->auth->check('admin',$core->blog->id))
-{
-	$__dashboard_icons['blog_pref'] = new ArrayObject(array(__('Blog settings'),'blog_pref.php','images/menu/blog-pref-b.png'));
-	$__dashboard_icons['blog_theme'] = new ArrayObject(array(__('Blog appearance'),'blog_theme.php','images/menu/blog-theme-b.png'));
+			# Let plugins set their own title for favorite on dashboard
+			$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
+		}
+	}
+}	
+if (!$count) {
+	// Global favorites if any
+	foreach ($ws->dumpPrefs() as $k => $v) {
+		$fav = unserialize($v['value']);
+		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
+			$count++;
+			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
+				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
+			$__dashboard_icons[$fav['name']] = new ArrayObject(array($title,$fav['url'],$fav['large-icon']));
+
+			# Let plugins set their own title for favorite on dashboard
+			$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
+		}
+	}
 }
-
-$core->callBehavior('adminDashboardIcons', $core, $__dashboard_icons);
-
+if (!$count) {
+	// No user or global favorites, add "user pref" and "new entry" fav
+	if ($core->auth->check('usage,contentadmin',$core->blog->id)) {
+		$__dashboard_icons['new_post'] = new ArrayObject(array(__('New entry'),'post.php','images/menu/edit-b.png'));
+	}
+	$__dashboard_icons['prefs'] = new ArrayObject(array(__('My preferences'),'preferences.php','images/menu/user-pref-b.png'));
+}
 
 # Latest news for dashboard
 $__dashboard_items = new ArrayObject(array(new ArrayObject,new ArrayObject));
 
 # Documentation links
-if (!empty($__resources['doc']))
-{
-	$doc_links = '<h3>'.__('Documentation').'</h3><ul>';
+$dashboardItem = 0;
+if ($core->auth->user_prefs->dashboard->doclinks) {
+	if (!empty($__resources['doc']))
+	{
+		$doc_links = '<h3>'.__('Documentation').'</h3><ul>';
 	
-	foreach ($__resources['doc'] as $k => $v) {
-		$doc_links .= '<li><a href="'.$v.'">'.$k.'</a></li>';
+		foreach ($__resources['doc'] as $k => $v) {
+			$doc_links .= '<li><a href="'.$v.'">'.$k.'</a></li>';
+		}
+	
+		$doc_links .= '</ul>';
+		$__dashboard_items[$dashboardItem][] = $doc_links;
+		$dashboardItem++;
 	}
-	
-	$doc_links .= '</ul>';
-	$__dashboard_items[0][] = $doc_links;
 }
 
-try
-{
-	if (empty($__resources['rss_news'])) {
-		throw new Exception();
-	}
-	
-	$feed_reader = new feedReader;
-	$feed_reader->setCacheDir(DC_TPL_CACHE);
-	$feed_reader->setTimeout(2);
-	$feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
-	$feed = $feed_reader->parse($__resources['rss_news']);
-	if ($feed)
+if ($core->auth->user_prefs->dashboard->dcnews) {
+	try
 	{
-		$latest_news = '<h3>'.__('Latest news').'</h3><dl id="news">';
-		$i = 1;
-		foreach ($feed->items as $item)
-		{
-			$dt = isset($item->link) ? '<a href="'.$item->link.'">'.$item->title.'</a>' : $item->title;
-			
-			if ($i < 3) {
-				$latest_news .=
-				'<dt>'.$dt.'</dt>'.
-				'<dd><p><strong>'.dt::dt2str('%d %B %Y',$item->pubdate,'Europe/Paris').'</strong>: '.
-				'<em>'.text::cutString(html::clean($item->content),120).'...</em></p></dd>';
-			} else {
-				$latest_news .=
-				'<dt>'.$dt.'</dt>'.
-				'<dd>'.dt::dt2str('%d %B %Y',$item->pubdate,'Europe/Paris').'</dd>';
-			}
-			$i++;
-			if ($i > 7) { break; }
+		if (empty($__resources['rss_news'])) {
+			throw new Exception();
 		}
-		$latest_news .= '</dl>';
-		$__dashboard_items[1][] = $latest_news;
+	
+		$feed_reader = new feedReader;
+		$feed_reader->setCacheDir(DC_TPL_CACHE);
+		$feed_reader->setTimeout(2);
+		$feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
+		$feed = $feed_reader->parse($__resources['rss_news']);
+		if ($feed)
+		{
+			$latest_news = '<h3>'.__('Latest news').'</h3><dl id="news">';
+			$i = 1;
+			foreach ($feed->items as $item)
+			{
+				$dt = isset($item->link) ? '<a href="'.$item->link.'">'.$item->title.'</a>' : $item->title;
+			
+				if ($i < 3) {
+					$latest_news .=
+					'<dt>'.$dt.'</dt>'.
+					'<dd><p><strong>'.dt::dt2str('%d %B %Y',$item->pubdate,'Europe/Paris').'</strong>: '.
+					'<em>'.text::cutString(html::clean($item->content),120).'...</em></p></dd>';
+				} else {
+					$latest_news .=
+					'<dt>'.$dt.'</dt>'.
+					'<dd>'.dt::dt2str('%d %B %Y',$item->pubdate,'Europe/Paris').'</dd>';
+				}
+				$i++;
+				if ($i > 3) { break; }
+			}
+			$latest_news .= '</dl>';
+			$__dashboard_items[$dashboardItem][] = $latest_news;
+			$dashboardItem++;
+		}
 	}
+	catch (Exception $e) {}
 }
-catch (Exception $e) {}
 
 $core->callBehavior('adminDashboardItems', $core, $__dashboard_items);
 
@@ -170,63 +225,8 @@ if (!empty($plugins_install['failure']))
 	echo '</ul></div>';
 }
 
-# Dashboard icons
-echo '<div id="dashboard-main"><div id="icons">';
-foreach ($__dashboard_icons as $i)
-{
-	echo
-	'<p><a href="'.$i[1].'"><img src="'.$i[2].'" alt="" /></a>'.
-	'<span><a href="'.$i[1].'">'.$i[0].'</a></span></p>';
-}
-echo '</div>';
-
-if ($core->auth->check('usage,contentadmin',$core->blog->id))
-{
-	$categories_combo = array('&nbsp;' => '');
-	try {
-		$categories = $core->blog->getCategories(array('post_type'=>'post'));
-		while ($categories->fetch()) {
-			$categories_combo[] = new formSelectOption(
-				str_repeat('&nbsp;&nbsp;',$categories->level-1).'&bull; '.html::escapeHTML($categories->cat_title),
-				$categories->cat_id
-			);
-		}
-	} catch (Exception $e) { }
-	
-	echo
-	'<div id="quick">'.
-	'<h3>'.__('Quick entry').'</h3>'.
-	'<form id="quick-entry" action="post.php" method="post">'.
-	'<fieldset>'.
-	'<p class="col"><label class="required" title="'.__('Required field').'">'.__('Title:').
-	form::field('post_title',20,255,'','maximal',2).
-	'</label></p>'.
-	'<p class="area"><label class="required" title="'.__('Required field').'" '.
-	'for="post_content">'.__('Content:').'</label> '.
-	form::textarea('post_content',50,7,'','',2).
-	'</p>'.
-	'<p><label class="classic">'.__('Category:').' '.
-	form::combo('cat_id',$categories_combo,'','',2).'</label></p>'.
-	'<p><input type="submit" value="'.__('save').'" name="save" tabindex="3" /> '.
-	($core->auth->check('publish',$core->blog->id)
-		? '<input type="hidden" value="'.__('save and publish').'" name="save-publish" />'
-		: '').
-	$core->formNonce().
-	form::hidden('post_status',-2).
-	form::hidden('post_format',$core->auth->getOption('post_format')).
-	form::hidden('post_excerpt','').
-	form::hidden('post_lang',$core->auth->getInfo('user_lang')).
-	form::hidden('post_notes','').
-	'</p>'.
-	'</fieldset>'.
-	'</form>'.
-	'</div>';
-}
-
-echo '</div>';
-
-# Dashboard columns
-echo '<div id="dashboard-items">';
+# Dashboard columns (processed first, as we need to know the result before displaying the icons.)
+$dashboardItems = '';
 
 # Dotclear updates notifications
 if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
@@ -235,7 +235,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 	$new_v = $updater->check(DC_VERSION);
 	
 	if ($updater->getNotify() && $new_v) {
-		echo
+		$dashboardItems .=
 		'<div id="upg-notify" class="static-msg"><p>'.sprintf(__('Dotclear %s is available!'),$new_v).'</p> '.
 		'<ul><li><strong><a href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a></strong>'.
 		'</li><li><a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
@@ -252,7 +252,7 @@ if ($core->auth->isSuperAdmin())
 	}
 	
 	if (count($list) > 0) {
-		echo
+		$dashboardItems .=
 		'<div id="module-errors" class="error"><p>'.__('Some plugins are installed twice:').'</p> '.
 		'<ul>'.implode("\n",$list).'</ul></div>';
 	}
@@ -260,14 +260,75 @@ if ($core->auth->isSuperAdmin())
 }
 
 foreach ($__dashboard_items as $i)
-{
-	echo '<div>';
-	foreach ($i as $v) {
-		echo $v;
+{	
+	if ($i->count() > 0)
+	{
+		$dashboardItems .= '<div>';
+		foreach ($i as $v) {
+			$dashboardItems .= $v;
+		}
+		$dashboardItems .= '</div>';
 	}
-	echo '</div>';
+}
+
+# Dashboard icons
+echo '<div id="dashboard-main"'.($dashboardItems ? '' : ' class="fullwidth"').'><div id="icons">';
+foreach ($__dashboard_icons as $i)
+{
+	echo
+	'<p><a href="'.$i[1].'"><img src="'.$i[2].'" alt="" /></a>'.
+	'<span><a href="'.$i[1].'">'.$i[0].'</a></span></p>';
 }
 echo '</div>';
+
+if ($core->auth->user_prefs->dashboard->quickentry) {
+	if ($core->auth->check('usage,contentadmin',$core->blog->id))
+	{
+		$categories_combo = array('&nbsp;' => '');
+		try {
+			$categories = $core->blog->getCategories(array('post_type'=>'post'));
+			while ($categories->fetch()) {
+				$categories_combo[] = new formSelectOption(
+					str_repeat('&nbsp;&nbsp;',$categories->level-1).'&bull; '.html::escapeHTML($categories->cat_title),
+					$categories->cat_id
+				);
+			}
+		} catch (Exception $e) { }
+	
+		echo
+		'<div id="quick">'.
+		'<h3>'.__('Quick entry').'</h3>'.
+		'<form id="quick-entry" action="post.php" method="post">'.
+		'<fieldset>'.
+		'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
+		form::field('post_title',20,255,'','maximal',2).
+		'</label></p>'.
+		'<p class="area"><label class="required" '.
+		'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
+		form::textarea('post_content',50,7,'','',2).
+		'</p>'.
+		'<p><label for="cat_id" class="classic">'.__('Category:').' '.
+		form::combo('cat_id',$categories_combo,'','',2).'</label></p>'.
+		'<p><input type="submit" value="'.__('save').'" name="save" tabindex="3" /> '.
+		($core->auth->check('publish',$core->blog->id)
+			? '<input type="hidden" value="'.__('save and publish').'" name="save-publish" />'
+			: '').
+		$core->formNonce().
+		form::hidden('post_status',-2).
+		form::hidden('post_format',$core->auth->getOption('post_format')).
+		form::hidden('post_excerpt','').
+		form::hidden('post_lang',$core->auth->getInfo('user_lang')).
+		form::hidden('post_notes','').
+		'</p>'.
+		'</fieldset>'.
+		'</form>'.
+		'</div>';
+	}
+}
+
+echo '</div>';
+
+echo ($dashboardItems ? '<div id="dashboard-items">'.$dashboardItems.'</div>' : '');
 
 dcPage::close();
 ?>

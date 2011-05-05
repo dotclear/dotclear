@@ -155,10 +155,10 @@ class dcExportFlat extends dcIeModule
 		'<fieldset><legend>'.__('Export a blog').'</legend>'.
 		'<p>'.sprintf(__('This will create an export of your current blog: %s'),
 		'<strong>'.html::escapeHTML($this->core->blog->name).'</strong>').'</p>'.
-		'<p><label class="classic">'.__('File name:').' '.
-		form::field(array('file_name'),25,255,date('Y-m-d-').html::escapeHTML($this->core->blog->id.'-backup.txt')).
+		'<p><label for="file_name" class="classic">'.__('File name:').' '.
+		form::field(array('file_name','file_name'),25,255,date('Y-m-d-').html::escapeHTML($this->core->blog->id.'-backup.txt')).
 		'</label> '.
-		'<input type="submit" value="'.__('Export').'" /></p>'.
+		'<input type="submit" value="'.__('Export').'" />'.
 		form::hidden(array('do'),'export_blog').
 		$this->core->formNonce().'</p>'.
 		'<p class="zip-dl"><a href="media.php?d=&amp;zipdl=1">'.
@@ -170,8 +170,8 @@ class dcExportFlat extends dcIeModule
 			echo
 			'<form action="'.$this->getURL(true).'" method="post">'.
 			'<fieldset><legend>'.__('Export all content').'</legend>'.
-			'<p><label class="classic">'.__('File name:').' '.
-			form::field(array('file_name'),25,255,date('Y-m-d-').'dotclear-backup.txt').
+			'<p><label for="file_name2" class="classic">'.__('File name:').' '.
+			form::field(array('file_name','file_name2'),25,255,date('Y-m-d-').'dotclear-backup.txt').
 			'</label> '.
 			'<input type="submit" value="'.__('Export all content').'" />'.
 			form::hidden(array('do'),'export_all').

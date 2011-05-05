@@ -163,7 +163,7 @@ class dcImportFlat extends dcIeModule
 		$this->core->formNonce().
 		form::hidden(array('do'),1).
 		form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
-		'<p><label>'.__('Upload a backup file').' '.
+		'<p><label for="up_single_file">'.__('Upload a backup file').' '.
 		'<input type="file" id="up_single_file" name="up_single_file" size="20" />'.
 		'</label></p>';
 		
@@ -172,7 +172,7 @@ class dcImportFlat extends dcIeModule
 		$empty = empty($public_files);
 		$public_files = array_merge(array('-' => ''),$public_files);
 		echo
-		'<p><label>'.__('or pick up a local file in your public directory').' '.
+		'<p><label for="public_single_file">'.__('or pick up a local file in your public directory').' '.
 		form::combo('public_single_file',$public_files, '', '', '', $empty).
 		'</label></p>';
 		
@@ -192,19 +192,19 @@ class dcImportFlat extends dcIeModule
 			$this->core->formNonce().
 			form::hidden(array('do'),1).
 			form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
-			'<p><label>'.__('Upload a backup file').' '.
+			'<p><label for="up_full_file">'.__('Upload a backup file').' '.
 			'<input type="file" id="up_full_file" name="up_full_file" size="20" />'.
 			'</label></p>';
 			
 			echo
-			'<p><label>'.__('or pick up a local file in your public directory').' '.
+			'<p><label for="public_full_file">'.__('or pick up a local file in your public directory').' '.
 			form::combo('public_full_file',$public_files, '', '', '', $empty).
 			'</label></p>';
 			
 			echo
 			'<p><strong>'.__('Warning: This will reset all the content of your database, except users.').'</strong></p>'.
 			
-			'<p><label>'.__('Your password:').
+			'<p><label for="your_pwd">'.__('Your password:').
 			form::password('your_pwd',20,255).'</label></p>'.
 			
 			'<p><input type="submit" value="'.__('Send').'" /></p>'.
