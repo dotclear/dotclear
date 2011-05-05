@@ -32,6 +32,9 @@ $user_dm_doclinks = $core->auth->user_prefs->dashboard->doclinks;
 $user_dm_dcnews = $core->auth->user_prefs->dashboard->dcnews;
 $user_dm_quickentry = $core->auth->user_prefs->dashboard->quickentry;
 
+$core->auth->user_prefs->addWorkspace('accessibility');
+$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+
 $default_tab = 'user-profile';
 
 if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced'])) {
@@ -140,6 +143,7 @@ if (isset($_POST['user_post_format'])) {
 		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
 		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
 		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
+		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_dm_nodragdrop']),'boolean');
 		
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
@@ -287,6 +291,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 -------------------------------------------------------- */
 dcPage::open($page_title,
 	dcPage::jsLoad('js/_preferences.js').
+	($user_dm_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
 	dcPage::jsLoad('js/jquery/jquery-ui-1.8.12.custom.min.js').
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsConfirmClose('user-form').
@@ -405,18 +410,28 @@ __('Enable WYSIWYG mode').'</label></p>'.
 '</fieldset>';
 
 echo
+'<fieldset><legend>'.__('Accessibility options').'</legend>'.
+
+'<p><label for="user_dm_nodragdrop" class="classic">'.
+form::checkbox('user_dm_nodragdrop',1,$user_dm_nodragdrop,'',13).' '.
+__('Disable javascript powered drag and drop for ordering items').'</label></p>'.
+
+'<br class="clear" />'. //Opera sucks
+'</fieldset>';
+
+echo
 '<fieldset><legend>'.__('Dashboard modules').'</legend>'.
 
 '<p><label for="user_dm_doclinks" class="classic">'.
-form::checkbox('user_dm_doclinks',1,$user_dm_doclinks,'',13).' '.
+form::checkbox('user_dm_doclinks',1,$user_dm_doclinks,'',14).' '.
 __('Display documentation links').'</label></p>'.
 
 '<p><label for="user_dm_dcnews" class="classic">'.
-form::checkbox('user_dm_dcnews',1,$user_dm_dcnews,'',14).' '.
+form::checkbox('user_dm_dcnews',1,$user_dm_dcnews,'',15).' '.
 __('Display Dotclear news').'</label></p>'.
 
 '<p><label for="user_dm_quickentry" class="classic">'.
-form::checkbox('user_dm_quickentry',1,$user_dm_quickentry,'',15).' '.
+form::checkbox('user_dm_quickentry',1,$user_dm_quickentry,'',16).' '.
 __('Display quick entry form').'</label></p>'.
 
 '<br class="clear" />'. //Opera sucks

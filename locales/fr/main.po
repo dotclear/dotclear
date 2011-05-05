@@ -2754,3 +2754,9 @@ msgstr "Définir comme favoris par défaut"
 
 msgid "position of %s"
 msgstr "position de %s"
+
+msgid "Accessibility options"
+msgstr "Options d'accessibilité"
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr "Désactiver le drag and drop javascript pour ordonner les éléments"
