@@ -529,7 +529,8 @@ function cmp($a,$b) {
     }
     return ($a[1] < $b[1]) ? -1 : 1;
 }
-$array->uasort('cmp');
+$array=$array->getArrayCopy();
+uasort($array,'cmp');
 foreach ($array as $k => $fav) {
 	if (($fav[5] == '*') || $core->auth->check($fav[5],$core->blog->id)) {
 		if ($count == 0) echo '<ul class="fav-list">';
