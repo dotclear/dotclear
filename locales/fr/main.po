@@ -2764,5 +2764,5 @@ msgstr "Options d'accessibilité"
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Désactiver le drag and drop javascript pour ordonnancer les éléments"
 
-msgid "Numeric fields will indicate the position of the elements."
+msgid "Numeric fields will allow to type the elements' ordering number."
 msgstr "Des champs numériques permettront d'indiquer la position des éléments."
