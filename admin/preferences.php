@@ -416,7 +416,7 @@ echo
 form::checkbox('user_dm_nodragdrop',1,$user_dm_nodragdrop,'',13).' '.
 __('Disable javascript powered drag and drop for ordering items').'</label></p>'.
 
-'<br class="clear" />'. //Opera sucks
+'<p class="clear form-note info">'.__('Numeric fields will indicate the position of the elements.').'</p>'.
 '</fieldset>';
 
 echo
