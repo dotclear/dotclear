@@ -34,7 +34,7 @@ $post_open_tb = $core->blog->settings->system->allow_trackbacks;
 
 $post_media = array();
 
-$page_title = __('New entry');
+$page_title = '<a href="posts.php">'.__('Entries').'</a> &rsaquo; '.__('New entry');
 
 $can_view_page = true;
 $can_edit_post = $core->auth->check('usage,contentadmin',$core->blog->id);
