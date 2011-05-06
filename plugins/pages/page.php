@@ -25,6 +25,7 @@ $post_excerpt = '';
 $post_excerpt_xhtml = '';
 $post_content = '';
 $post_content_xhtml = '';
+$post_notes = '';
 $post_status = $core->auth->getInfo('user_post_status');
 $post_position = 0;
 $post_open_comment = false;
@@ -101,6 +102,7 @@ if (!empty($_REQUEST['id']))
 		$post_excerpt_xhtml = $post->post_excerpt_xhtml;
 		$post_content = $post->post_content;
 		$post_content_xhtml = $post->post_content_xhtml;
+		$post_notes = $post->post_notes;
 		$post_status = $post->post_status;
 		$post_position = (integer) $post->post_position;
 		$post_open_comment = (boolean) $post->post_open_comment;
@@ -161,6 +163,8 @@ if (!empty($_POST) && $can_edit_page)
 	$post_password = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
 	$post_position = (integer) $_POST['post_position'];
 	
+	$post_notes = $_POST['post_notes'];
+
 	if (isset($_POST['post_url'])) {
 		$post_url = $_POST['post_url'];
 	}
@@ -190,6 +194,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page)
 	$cur->post_excerpt_xhtml = $post_excerpt_xhtml;
 	$cur->post_content = $post_content;
 	$cur->post_content_xhtml = $post_content_xhtml;
+	$cur->post_notes = $post_notes;
 	$cur->post_status = $post_status;
 	$cur->post_position = $post_position;
 	$cur->post_open_comment = (integer) $post_open_comment;
@@ -453,6 +458,11 @@ if ($can_edit_page)
 	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content),'',2).
 	'</p>';
 	
+	echo
+	'<p class="area" id="notes-area"><label for="post_notes">'.__('Notes:').'</label>'.
+	form::textarea('post_notes',50,5,html::escapeHTML($post_notes),'',2).
+	'</p>';
+
 	# --BEHAVIOR-- adminPageForm
 	$core->callBehavior('adminPageForm',isset($post) ? $post : null);
 	
