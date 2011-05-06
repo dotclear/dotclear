@@ -34,7 +34,7 @@ $post_open_tb = $core->blog->settings->system->allow_trackbacks;
 
 $post_media = array();
 
-$page_title = '<a href="posts.php">'.__('Entries').'</a> &rsaquo; '.__('New entry');
+$page_title = __('New entry');
 
 $can_view_page = true;
 $can_edit_post = $core->auth->check('usage,contentadmin',$core->blog->id);
@@ -321,7 +321,7 @@ if (!empty($_GET['xconv']))
 	echo '<p class="message">'.__('Don\'t forget to validate your XHTML conversion by saving your post.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.$page_title;
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; '.$page_title;
 
 if ($post_id && $post->post_status == 1) {
 	echo ' - <a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View entry').'</a>';
