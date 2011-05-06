@@ -379,8 +379,9 @@ if ($can_edit_post)
 	
 	'<p><label for="post_format">'.__('Text formating:').
 	form::combo('post_format',$formaters_combo,$post_format,'',3).
-	($post_id && $post_format != 'xhtml' ? '<a id="convert-xhtml" href="post.php?id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').
-	'</label></p>'.
+	'</label>'.
+	'</p>'.
+	'<p>'.($post_id && $post_format != 'xhtml' ? '<a id="convert-xhtml" class="button" href="post.php?id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').'</p>'.
 	
 	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment,'',3).' '.
 	__('Accept comments').'</label></p>'.
@@ -440,7 +441,7 @@ if ($can_edit_post)
 		if (empty($post_media)) {
 			echo '<p>'.__('No attachment.').'</p>';
 		}
-		echo '<p><a href="media.php?post_id='.$post_id.'">'.__('Add files to this entry').'</a></p>';
+		echo '<p><a class="button" href="media.php?post_id='.$post_id.'">'.__('Add files to this entry').'</a></p>';
 	}
 	
 	# --BEHAVIOR-- adminPostFormSidebar
