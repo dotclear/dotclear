@@ -199,6 +199,7 @@ form::field('user_id',20,255,html::escapeHTML($user_id),'',2).
 ($user_id != '' ? __('New password:') : __('Password:')).' '.
 form::password('new_pwd',20,255,'','',3).
 '</label></p>'.
+'<p class="form-note">'.__('Password must contain at least 6 characters.').'</p>'.
 
 '<p><label for="new_pwd_c" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Confirm password:').' '.
