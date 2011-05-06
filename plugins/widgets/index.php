@@ -144,7 +144,13 @@ elseif (!empty($_POST['wreset']))
   <script type="text/javascript" src="js/tool-man/css.js"></script>
   <script type="text/javascript" src="js/tool-man/coordinates.js"></script>
   <script type="text/javascript" src="js/tool-man/drag.js"></script>
+  <?php 
+	$core->auth->user_prefs->addWorkspace('accessibility'); 
+	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+  ?>
+  <?php if (!$user_dm_nodragdrop) : ?>
   <script type="text/javascript" src="index.php?pf=widgets/dragdrop.js"></script>
+  <?php endif; ?>
   <script type="text/javascript" src="index.php?pf=widgets/widgets.js"></script>
   <script type="text/javascript">
   //<![CDATA[
