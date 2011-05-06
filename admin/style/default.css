@@ -167,11 +167,12 @@ abbr {
 }
 	#content:after {clear:both; content:""; display:block; height:0; font-size:0;}
 #main-menu {
-	font-size: .95em;
 	width: 13em;
 	float: left;
 	margin-top: 1em;
 	margin-bottom: 1em;
+}
+#main-menu * {
 }
 
 #main-menu h3 {
@@ -179,8 +180,10 @@ abbr {
 	padding: .5em 0 0 .5em;
 	text-transform: uppercase;
 	color: #666;
+	font-size: 1.1em;
 }
 #main-menu ul {
+	font-size: .95em;
 	margin: 0 0 1em 0;
 	padding: 0;
 	list-style: none;
@@ -196,17 +199,16 @@ abbr {
 	font-weight: bold;
 }
 #main-menu .active a {
-	border-bottom-style: solid;
 	border-bottom: none;
+	color: #333;
 }
 #main-menu li.active {
 	background-color: #fff;
-	border: 1px solid #ccc;
-	border-right: none;
-	border-left: none;
-	margin-right: -.76em;
 	padding: .4em 0 .1em 32px;
 	background-position: 12px .4em;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	margin-right: -1px;
 }
 #main-menu #dashboard-menu li {
 	margin-left: 0;

@@ -21,6 +21,16 @@ header("Pragma: no-cache");
 
 define('DC_CONTEXT_ADMIN',true);
 
+function dc_prepare_url($url) {
+
+	$u = str_replace(array('?','&amp;'),array('\?','&'),$url);
+	return (!strpos($u,'\?') ? 
+		'/'.$u.'$/' :
+		(!strpos($u,'&') ? 
+		'/'.$u.'(\?.*)?$/' :
+		'/'.$u.'(&.*)?$/'));
+}
+
 function dc_load_locales() {
 	global $_lang, $core;
 	
@@ -301,7 +311,7 @@ if ($core->auth->userID() && $core->blog !== null)
 			$count++;
 			$fav = unserialize($v['value']);
 			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
-				preg_match('/'.str_replace('?','\?',$fav['url']).'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
 				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 		}
 	}	
@@ -311,7 +321,7 @@ if ($core->auth->userID() && $core->blog !== null)
 			$count++;
 			$fav = unserialize($v['value']);
 			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
-				preg_match('/'.str_replace('?','\?',$fav['url']).'(\?.*)?$/',$_SERVER['REQUEST_URI']),
+				preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
 				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 		}
 	}
