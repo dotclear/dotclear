@@ -96,7 +96,7 @@ if (!empty($_GET['sent'])) {
 
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.$page_title.'</h2>';
 
-echo '<p><a href="'.$core->getPostAdminURL($post->post_type,$id).'">&#171; '.
+echo '<p><a class="back" href="'.$core->getPostAdminURL($post->post_type,$id).'">'.
 	sprintf(__('Back to "%s"'),html::escapeHTML($post->post_title)).'</a></p>';
 
 echo
@@ -111,7 +111,7 @@ if (!empty($_GET['auto'])) {
 	flush();
 	$tb_urls = implode("\n",$TB->discover($post->post_excerpt_xhtml.' '.$post->post_content_xhtml));
 } else {
-	$auto_link = '<strong><a href="trackbacks.php?id='.$id.'&amp;auto=1">'.
+	$auto_link = '<strong><a class="button" href="trackbacks.php?id='.$id.'&amp;auto=1">'.
 	__('Auto discover ping URLs').'</a></strong>';
 }
 
