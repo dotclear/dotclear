@@ -141,9 +141,9 @@ if (!$show_filters) {
 # --BEHAVIOR-- adminCommentsHeaders
 $starting_script .= $core->callBehavior('adminCommentsHeaders');
 
-dcPage::open(__('Comments'),$starting_script);
+dcPage::open(__('Comments and trackbacks'),$starting_script);
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Comments').'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Comments and trackbacks').'</h2>';
 
 if (!$core->error->flag())
 {

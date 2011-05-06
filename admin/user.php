@@ -194,11 +194,15 @@ form::field('user_id',20,255,html::escapeHTML($user_id),'',2).
 '</label></p>'.
 '<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p>'.
 
-'<p><label for="new_pwd">'.($user_id!='' ? __('New password:') : __('Password:')).' '.
+'<p><label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
+($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').
+($user_id != '' ? __('New password:') : __('Password:')).' '.
 form::password('new_pwd',20,255,'','',3).
 '</label></p>'.
+'<p class="form-note">'.__('Password must contain at least 6 characters.').'</p>'.
 
-'<p><label for="new_pwd_c">'.__('Confirm password:').' '.
+'<p><label for="new_pwd_c" '.($user_id != '' ? '' : 'class="required"').'>'.
+($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Confirm password:').' '.
 form::password('new_pwd_c',20,255,'','',4).
 '</label></p>'.
 
@@ -262,7 +266,8 @@ $core->callBehavior('adminUserForm',isset($rs) ? $rs : null);
 
 echo
 '<fieldset>'.
-'<p><label for="your_pwd">'.__('Your password:').
+'<p><label for="your_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
+($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Your password:').
 form::password('your_pwd',20,255,'','',17).'</label></p>'.
 '</fieldset>'.
 '<p class="clear"><input type="submit" accesskey="s" value="'.__('Save').'" tabindex="16" />'.

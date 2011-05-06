@@ -12,7 +12,7 @@ jsToolBar.prototype.elements.link.popup = function (args) {
 	var url = this.elements.link.open_url+args;
 	
 	var p_win = window.open(url,'dc_popup',
-	'alwaysRaised=yes,dependent=yes,toolbar=yes,height=420,width=380,'+
+	'alwaysRaised=yes,dependent=yes,toolbar=yes,height=420,width=520,'+
 	'menubar=no,resizable=yes,scrollbars=yes,status=no');
 };
 

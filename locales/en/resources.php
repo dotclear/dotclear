@@ -17,7 +17,8 @@ $__resources['doc'] = array(
 	"Dotclear 2 documentation" => 'http://dotclear.org/documentation/2.0',
 	'Dotclear 2 presentation' => 'http://dotclear.org/documentation/2.0/overview/tour',
 	"User manual" => 'http://dotclear.org/documentation/2.0/usage',
-	"Installation and administration guides" => 'http://dotclear.org/documentation/2.0/admin'
+	"Installation and administration guides" => 'http://dotclear.org/documentation/2.0/admin',
+	"Dotclear 2 support forum" => 'http://forum.dotclear.net/'
 );
 
 $__resources['help'] = array(
