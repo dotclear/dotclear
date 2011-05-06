@@ -121,7 +121,7 @@ $dashboardItem = 0;
 if ($core->auth->user_prefs->dashboard->doclinks) {
 	if (!empty($__resources['doc']))
 	{
-		$doc_links = '<h3>'.__('Documentation').'</h3><ul>';
+		$doc_links = '<h3>'.__('Documentation and support').'</h3><ul>';
 	
 		foreach ($__resources['doc'] as $k => $v) {
 			$doc_links .= '<li><a href="'.$v.'">'.$k.'</a></li>';
