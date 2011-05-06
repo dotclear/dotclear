@@ -179,6 +179,7 @@ else
 	form::hidden(array('p'),'maintenance').'</p>'.
 	'</form>';
 }
+dcPage::helpBlock('maintenance');
 ?>
 
 </body>
