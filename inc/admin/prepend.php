@@ -24,9 +24,11 @@ define('DC_CONTEXT_ADMIN',true);
 function dc_prepare_url($url) {
 
 	$u = str_replace(array('?','&amp;'),array('\?','&'),$url);
-	return (!strpos($u,'&') ? 
+	return (!strpos($u,'\?') ? 
+		'/'.$u.'$/' :
+		(!strpos($u,'&') ? 
 		'/'.$u.'(\?.*)?$/' :
-		'/'.$u.'(&.*)?$/');
+		'/'.$u.'(&.*)?$/'));
 }
 
 function dc_load_locales() {
