@@ -646,9 +646,10 @@ class dcBlog
 	
 	@param	params		<b>array</b>		Parameters
 	@param	count_only	<b>boolean</b>		Only counts results
-	@return	<b>record</b>	A record with some more capabilities
+	@param	sql_only	<b>boolean</b>		Only return SQL request
+	@return	<b>record</b>	A record with some more capabilities or the SQL request
 	*/
-	public function getPosts($params=array(),$count_only=false)
+	public function getPosts($params=array(),$count_only=false,$sql_only=false)
 	{
 		if ($count_only)
 		{
@@ -822,6 +823,10 @@ class dcBlog
 		
 		if (!$count_only && !empty($params['limit'])) {
 			$strReq .= $this->con->limit($params['limit']);
+		}
+		
+		if ($sql_only) {
+			return $strReq;
 		}
 		
 		$rs = $this->con->select($strReq);
