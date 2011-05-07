@@ -17,7 +17,6 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Language" content="en" />
-  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title>Dotclear - Error</title>

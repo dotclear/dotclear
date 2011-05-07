@@ -253,7 +253,6 @@ xml:lang="en" lang="en">
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta http-equiv="Content-Language" content="en" />
-  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></title>

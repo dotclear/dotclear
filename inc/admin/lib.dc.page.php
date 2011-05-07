@@ -91,7 +91,6 @@ class dcPage
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
 		
-		'  <meta name="MSSmartTagsPreventParsing" content="TRUE" />'."\n".
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 		
@@ -200,7 +199,6 @@ class dcPage
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
 		
-		'  <meta name="MSSmartTagsPreventParsing" content="TRUE" />'."\n".
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 		
