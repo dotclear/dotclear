@@ -1181,7 +1181,8 @@ input[type=submit],
 input[type=reset],
 input[type=button],
 a.button,
-a.back {
+a.back,
+a.submit {
 	display: inline-block;
 	outline: none;
 	cursor: pointer;
@@ -1196,7 +1197,8 @@ a.back {
 }
 /* validation */
 input[type=submit],
-input[type=button] {
+input[type=button],
+a.submit {
 	color: #fff;
 	border: 1px solid #2373A8;
 	background: #2373A8;
@@ -1204,11 +1206,11 @@ input[type=button] {
 	background: -moz-linear-gradient(top,  #2C8FD1,  #2373A8);
 }
 input[type=submit]:hover,
-input[type=reset]:hover,
 input[type=button]:hover,
+a.submit:hover,
 input[type=submit]:focus,
-input[type=reset]:focus,
-input[type=button]:focus {
+input[type=button]:focus,
+a.submit:focus {
 	background: #2373A8;
 	background: -webkit-gradient(linear, left top, left bottom, from(#2373A8), to(#2C8FD1));
 	background: -moz-linear-gradient(top,  #2373A8,  #2C8FD1);
@@ -1229,10 +1231,12 @@ input[type=submit].delete {
 	}
 a.button:hover,
 a.back:hover,
+input[type=reset]:hover,
 input[type=submit].reset:hover,
 input[type=submit].delete:hover,
 a.button:focus,
 a.back:focus,
+input[type=reset]:focus,
 input[type=submit].reset:focus,
 input[type=submit].delete:focus {
 	background: #e5e5e5;
