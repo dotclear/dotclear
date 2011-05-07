@@ -1,0 +1,178 @@
+<html>
+<head>
+  <title>Rédaction d'une page</title>
+</head>
+
+<body>
+
+<h3>Rédaction de la page</h3>
+
+<dl>
+  <dt>Titre de la page</dt>
+  <dd>Inscrivez le titre de la page. Ce champ est obligatoire.</dd>
+  
+  <dt>Extrait</dt>
+  <dd>Ce champ est optionel.</dd>
+  
+  <dt>Contenu</dt>
+  <dd>Le contenu de la page. Ce champ est obligatoire.</dd>
+  
+  <dt>Notes</dt>
+  <dd>Cette zone de texte sert à la prise de notes ou pense-bête divers. Elle ne
+  sera jamais affichée sur le blog.</dd>
+  
+  <dt>Etat de la page</dt>
+  <dd>Permet de choisir l'état de la page après enregistrement&nbsp;:
+    <ul>
+    <li><strong>en attente</strong>&nbsp;: en attente de publication.</li>
+    <li><strong>programmée</strong>&nbsp;: la page sera mise en ligne à la date et à l'heure
+    indiquées dans le champ <em>Publiée le</em>.</li>
+    <li><strong>non publiée</strong>&nbsp;: page hors ligne.</li>
+    <li><strong>publiée</strong>&nbsp;: page en ligne.</li>
+    </ul>
+  </dd>
+  
+  <dt>Publié le</dt>
+  <dd>Permet de modifier la date et l'heure de publication de la page. Si vous avez
+  choisi le statut <em>programmée</em> elle sera mise en ligne aux date et heure
+  définis dans ce champ.</dd>
+  
+  <dt>Format du texte</dt>
+  <dd>Permet de choisir la syntaxe de saisie de la page. Le wiki est une syntaxe
+  simplifiée et sera converti en xhtml valide ; à moins que vous maîtrisiez
+  parfaitement le xhtml nous vous conseillons de la choisir de préférence.
+  Consultez la référence de la syntaxe Wiki pour plus
+  d'informations.</dd>
+  
+  <dt>Accepter les commentaires</dt>
+  <dd>Cochez ou décochez la case selon que vous souhaitez permettre ou interdire
+  les commentaires sur la page en particulier. L'option pour permettre ou
+  autoriser de façon générale les commentaires se situe dans le menu Préférences
+  du blog.</dd>
+  
+  <dt>Accepter les rétroliens</dt>
+  <dd>Un rétrolien permet de signaler une page dans les commentaires d'un autre
+  blog. Cochez ou décochez la case selon que vous souhaitez permettre ou interdire
+  les rétroliens sur la page. L'option pour permettre ou autoriser de façon
+  générale les rétroliens se situe dans le menu Préférences du blog.</dd>
+
+  <dt>Position de la page</dt>
+  <dd>Permet de classer les différentes pages en fonction de leur numéro d'ordre.
+  Ce champ est utilisé par le widget Pages (<em>Trier par position de la page</em>).</dd>
+
+  <dt>Langue de la page</dt>
+  <dd>Code langue de votre page. Par défaut, il s'agit du code de votre
+  langue. Vous pouvez le changer, par le code d'une autre langue, par
+  exemple "en", "fr-qc". Ce code est libre, il sera utilisé lors de l'affichage
+  des pages.</dd>
+  
+  <dt>Mot de passe de la page</dt>
+  <dd>Permet de déterminer un mot de passe d'accès à une page dans le blog. Une
+  page protégée par mot de passe ne sera visible nulle part sur votre blog, vous
+  pourrez en donner l'adresse à vos lecteurs en vous rendant sur le lien
+  <em>Voir la page</em>.</dd>
+  
+  <dt>URL spécifique</dt>
+  <dd>Ce champ permet de choisir une URL pour une page autre que celle par défaut
+  après avoir cliqué sur le petit verrou placé à sa droite. Si vous essayez
+  d'utiliser une URL déjà existante, celle-ci se verra incrémentée d'un chiffre.</dd>
+  
+  <dt>Pièces jointes</dt>
+  <dd>Les pièces jointes sont tous les médias attachés à la page. Le lien
+  d'ajout d'une pièce jointe permet de choisir un fichier à ajouter à la page.
+  Pensez à sauvegarder votre page avant de choisir une pièce jointe. Consultez
+  l'aide du gestionnaire de média pour plus de détails.</dd>
+</dl>
+
+<h3>Commentaires</h3>
+<dl>
+  <dt>Liste les commentaires</dt>
+  <dd>Depuis l'onglets <em>Commentaires</em> vous pouvez lire et changer l'état
+  des commentaires de votre page. Suivant vos permissions, vous pouvez modifier,
+  mettre en ligne ou hors ligne, supprimer ou classer comme commentaire
+  indésirable.</dd>
+  
+  <dt>Ajouter un commentaire</dt>
+  <dd>Depuis l'onglet <em>Ajouter un commentaire</em> vous pouvez répondre
+  directement à un commentaire sans passer par votre blog. Cette interface vous
+  permet également de saisir votre commentaire en XHTML, sans limitation. Vous
+  devrez remplir les champs de la même manière qu'en modifiant un commentaire.</dd>
+</dl>
+
+<h3>Référence de la syntaxe Wiki</h3>
+
+<p>La syntaxe Wiki est une manière d'écrire du texte avec un jeu de balises
+réduit au minimum, permettant de couvrir les besoins les plus courants
+(titres, paragraphes, citations, listes...).</p>
+
+<dl>
+<dt>Éléments de bloc</dt>
+<dd>
+<ul>
+  <li>Laissez une ligne vide entre chaque bloc de même nature.</li>
+  <li><strong>Paragraphe</strong>&nbsp;: texte libre, terminé par une ligne
+  vide si suivi d'un second paragraphe.</li>
+  <li><strong>Titre</strong>&nbsp;: <code>!!! titre</code>, <code>!! titre</code>
+  ou <code>! titre</code> pour des titres plus ou moins importants.</li>
+  <li><strong>Trait horizontal</strong>&nbsp;: <code>----</code></li>
+  <li><strong>Listes</strong>&nbsp;: lignes débutant par <code>*</code> pour des
+  listes à puce ou <code>#</code> pour des listes numérotées. Vous pouvez faire
+  des listes imbriquées en mélangeant les codes de liste. Par exemple&nbsp;:
+<pre>
+* item 1
+** item 1.1
+* item 2
+*# item 2.1
+...
+</pre>
+  </li>
+  <li><strong>Texte préformaté</strong>&nbsp;: espace avant chaque ligne de texte.</li>
+  <li><strong>Bloc de citation</strong>&nbsp;: <code>&gt;</code> devant chaque
+  ligne de texte.</li>
+</ul>
+</dd>
+
+<dt>Éléments de formatage</dt>
+<dd>
+<ul>
+  <li><strong>Emphase</strong>&nbsp;: deux apostrophes <code>''texte''</code></li>
+  <li><strong>Forte emphase</strong>&nbsp;: deux soulignés <code>__texte__</code></li>
+  <li><strong>Retour forcé à la ligne</strong>&nbsp;: <code>%%%</code></li>
+  <li><strong>Insertion</strong>&nbsp;: deux plus <code>++texte++</code></li>
+  <li><strong>Suppression</strong>&nbsp;: deux moins <code>--texte--</code></li>
+  <li><strong>Lien</strong>&nbsp;: <code>[url]</code>, <code>[nom|url]</code>,
+    <code>[nom|url|langue]</code> ou <code>[nom|url|langue|titre]</code></li>
+  <li><strong>Image</strong>&nbsp;:
+    <code>((url|texte alternatif))</code>,
+    <code>((url|texte alternatif|position))</code> ou
+    <code>((url|texte alternatif|position|description longue))</code>.
+    <br />La position peut prendre les valeurs L ou G (gauche), R ou D (droite) ou C (centré).</li>
+  <li><strong>Ancre</strong>&nbsp;: <code>~ancre~</code></li>
+  <li><strong>Acronyme</strong>&nbsp;: <code>??acronyme|titre??</code></li>
+  <li><strong>Code HTML en ligne</strong>: deux apostrophes inversées <code>``code html``</code></li>
+  <li><strong>Citation en ligne</strong>&nbsp;: <code>{{citation}}</code>,
+    <code>{{citation|langue}}</code> ou <code>{{citation|langue|url}}</code></li>
+  <li><strong>Code</strong>&nbsp;: <code>@@code ici@@</code></li>
+  <li><strong>Note de bas de page</strong>&nbsp;: <code>$$Corps de la note$$</code></li>
+</ul>
+</dd>
+
+<dt>Empêcher le formatage du texte</dt>
+<dd>Pour insérer un caractère sans que celui-ci soit reconnu comme un caractère
+de formatage, ajoutez le caractère <code>\</code> avant celui-ci. Par exemple&nbsp;:
+<code>\[texte entre crochet qui n'est pas un lien\]</code>
+</dd>
+
+<dt>Insérer du code HTML</dt>
+<dd>Vous pouvez ponctuellement avoir besoin d'insérer du code HTML dans votre
+texte au format Wiki. Pour cela, utilisez le code suivant&nbsp;:
+<pre>
+///html
+&lt;p style="color:red"&gt;mon texte en rouge&lt;/p&gt;
+///
+</pre>
+</dd>
+</dl>
+
+</body>
+</html>
