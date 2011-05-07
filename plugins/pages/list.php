@@ -198,6 +198,7 @@ if (!$core->error->flag())
 	'</div>'.
 	'</form>');
 }
+dcPage::helpBlock('pages');
 ?>
 </body>
 </html>
