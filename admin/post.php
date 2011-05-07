@@ -477,7 +477,7 @@ if ($can_edit_post)
 	($post_id ? form::hidden('id',$post_id) : '').
 	'<input type="submit" value="'.__('save').' (s)" tabindex="4" '.
 	'accesskey="s" name="save" /> '.
-	($can_delete ? '<input type="submit" class="delete" value="'.__('delete').'" name="delete" />' : '').
+	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
 	$core->formNonce().
 	'</p>';
 	
