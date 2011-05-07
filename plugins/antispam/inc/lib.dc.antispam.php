@@ -78,6 +78,16 @@ class dcAntispam
 		}
 	}
 	
+	public static function dashboardIconTitle($core)
+	{
+		if (($count = self::countSpam($core)) > 0) {
+			$str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
+			return '</a> <br /><a href="comments.php?status=-2">'.sprintf($str,$count);
+		} else {
+			return '';
+		}
+	}
+	
 	public static function countSpam($core)
 	{
 		return $core->blog->getComments(array('comment_status'=>-2),true)->f(0);
