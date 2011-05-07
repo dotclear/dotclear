@@ -1146,27 +1146,30 @@ fieldset.constrained {
 #login-screen {
 	display: block;
 	width: 18em;
-	margin: 30px auto 0;
+	margin: 1.5em auto 0;
 	font-size: 1.1em;
 }
 #login-screen h1 {
 	text-indent: -2000px;
-	background: transparent url(dotclear-logo.png) no-repeat top left;
-	height: 46px;
+	background: transparent url(dotclear-logo2.png) no-repeat top left;
+	height: 50px;
+	margin-bottom: 1.5em;
 }
 #login-screen fieldset {
 	border: 1px solid #999;
-	padding: 1em 10px;
+	padding: 1em 1em 0 1em;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
 }
-#login-screen input[type=text], #login-screen input[type=password] {
+#login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit] {
 	width: 100%;
 }
 #login-screen #issue {
-	margin-left: .5em;
+	margin-left: 1em;
+	font-size: 1em;
 }
+#login-screen #issue strong {font-weight: normal;}
 
 
 /* ------------------  Tous les boutons -------------------- */
