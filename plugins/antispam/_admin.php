@@ -24,12 +24,25 @@ $core->addBehavior('adminAfterCommentDesc',array('dcAntispam','statusMessage'));
 $core->addBehavior('adminDashboardIcons',array('dcAntispam','dashboardIcon'));
 
 $core->addBehavior('adminDashboardFavs','antispamDashboardFavs');
+$core->addBehavior('adminDashboardFavsIcon','antispamDashboardFavsIcon');
 
 function antispamDashboardFavs($core,$favs)
 {
 	$favs['antispam'] = new ArrayObject(array('antispam',__('Antispam'),'plugin.php?p=antispam',
 		'index.php?pf=antispam/icon.png','index.php?pf=antispam/icon-big.png',
 		'admin',null,null));
+}
+
+function antispamDashboardFavsIcon($core,$name,$icon)
+{
+	// Check if it is comments favs
+	if ($name == 'comments') {
+		// Hack comments title if there is at least one spam
+		$str = dcAntispam::dashboardIconTitle($core);
+		if ($str != '') {
+			$icon[0] .= $str;
+		}
+	}
 }
 
 if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {
