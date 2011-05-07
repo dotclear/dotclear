@@ -137,7 +137,7 @@ msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Au moins 2 caractères, composés de lettres non accentuées, chiffres ou symboles."
 
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "Veuillez noter que changer l'identifiant de votre blog peut nécessiter des changements dans votre fichier index.php public."
+msgstr "Veuillez noter que changer l'identifiant de votre blog peut nécessiter des modifications dans votre fichier index.php public."
 
 msgid "Blog name:"
 msgstr "Nom du blog :"
