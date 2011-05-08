@@ -338,7 +338,7 @@ else
 		include $theme_conf_file;
 		
 		echo
-		'<p class="clear"><input type="submit" value="'.__('save').'" />'.
+		'<p class="clear"><input type="submit" value="'.__('Save').'" />'.
 		$core->formNonce().'</p>'.
 		'</form>';
 	}

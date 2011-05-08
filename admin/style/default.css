@@ -1085,11 +1085,11 @@ p.form-note {
 	margin-top: -.7em;
 	color: #666;
 }
-p.form-note.warn, p.form-note.info {
+p.form-note.warn, p.form-note.info, p.warning {
 	font-style: normal;
 	padding: .2em 1em .1em 24px;
 }
-p.form-note.warn {
+p.form-note.warn, p.warning {
 	background: #ffd url(warning.png) no-repeat .2em .2em;
 	border: 1px solid #f0c020;
 }
@@ -1168,7 +1168,7 @@ fieldset.constrained {
 	text-indent: -2000px;
 	background: transparent url(dotclear-logo2.png) no-repeat top left;
 	height: 50px;
-	margin-bottom: 1.5em;
+	margin-bottom: .5em;
 }
 #login-screen fieldset {
 	border: 1px solid #999;
@@ -1240,11 +1240,11 @@ a.button,
 a.back,
 input[type=submit].reset,
 input[type=submit].delete {
-	border: 1px solid #999;
+	border: 1px solid #ccc;
 	background: #f5f5f5;
 	color: #000;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e5e5e5));
-	background: -moz-linear-gradient(top,  #f5f5f5,  #e5e5e5);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
+	background: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
 	text-shadow: none;
 	}
 a.button:hover,
@@ -1257,16 +1257,15 @@ a.back:focus,
 input[type=reset]:focus,
 input[type=submit].reset:focus,
 input[type=submit].delete:focus {
-	background: #e5e5e5;
-	background: -webkit-gradient(linear, left top, left bottom, from(#e5e5e5), to(#f5f5f5));
-	background: -moz-linear-gradient(top,  #e5e5e5,  #f5f5f5);
+	background: #dfdfdf;
+	background: -webkit-gradient(linear, left top, left bottom, from(#dfdfdf), to(#f5f5f5));
+	background: -moz-linear-gradient(top,  #dfdfdf,  #f5f5f5);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#f5f5f5');
 	}
 a.delete,
 input.delete,
 input[type=submit].delete {
 	color: #c00;
-	font-weight: bold;
 }
 a.delete:hover,
 input.delete:hover,
@@ -1278,7 +1277,7 @@ input[type=submit].delete:focus {
 }
 /* finasseries */
 input[type=button] {
-	padding: .1em .1em;
+	padding: .1em;
 }
 #info-box a.button {
 	padding: 0 .5em;
@@ -1294,7 +1293,7 @@ a.button.add {
 	margin-bottom: .1em;	
 	background: #2C8FD1 url(add.png) no-repeat .2em center;
 	color: #fff;
-	padding: .2em 1em .2em 28px;
+	padding: .1em 1em .2em 28px;
 	border: 1px solid #2373A8;
 }
 a.button.add:hover, a.button.add:focus {

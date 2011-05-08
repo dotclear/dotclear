@@ -451,7 +451,7 @@ if ($blog_id)
 	$core->callBehavior('adminBlogPreferencesForm',$core,$blog_settings);
 	
 	echo
-	'<p><input type="submit" accesskey="s" value="'.__('save').'" />'.
+	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	(!$standalone ? form::hidden('id',$blog_id) : '').
 	'</p>'.
 	'</form>';

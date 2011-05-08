@@ -90,7 +90,7 @@ else
 	form::textarea('blog_desc',60,5,html::escapeHTML($blog_desc)).'</p>'.
 	'</fieldset>'.
 	
-	'<p><input type="submit" accesskey="s" value="'.__('save').'" /></p>'.
+	'<p><input type="submit" accesskey="s" value="'.__('Save').'" /></p>'.
 	'</form>';
 
 	dcPage::close();
