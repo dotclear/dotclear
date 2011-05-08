@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2008-11-24 00:00+0900\n"
 "Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
 "Language-Team: Dotclear Japan\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -61,6 +62,10 @@ msgstr "メールアドレスやパスワードを変更したい場合は、現
 msgid "In order to login, you have to change your password now."
 msgstr ""
 
+#, fuzzy
+msgid "Safe Mode can only be used for super administrators."
+msgstr "あなたは最高管理者ではありません。"
+
 msgid "Wrong username or password"
 msgstr "ユーザ名またはパスワードが間違っています"
 
@@ -89,17 +94,36 @@ msgstr "パスワードの再入力："
 msgid "change"
 msgstr "キャンセル"
 
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
 msgid "Remember my ID on this computer"
 msgstr "次回から入力を省略"
 
-msgid "login"
-msgstr "ログイン"
+#, fuzzy
+msgid "log in"
+msgstr "ブログ名"
 
 msgid "You must accept cookies in order to use the private area."
 msgstr "プライベートエリアを使用するために、クッキーを受け入れる必要があります。"
 
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
 msgid "I forgot my password"
 msgstr "パスワードの再発行"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 msgid "New blog"
 msgstr "新規ブログ"
@@ -131,7 +155,7 @@ msgstr "ブログURL："
 msgid "Blog description:"
 msgstr "ブログの説明："
 
-msgid "save"
+msgid "Save"
 msgstr "保存"
 
 msgid "No such blog ID"
@@ -212,7 +236,7 @@ msgstr "ブログの設定"
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr ""
 
-msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr ""
 
 msgid "Blog has been successfully created."
@@ -517,8 +541,9 @@ msgstr "検索："
 msgid "Blogs per page"
 msgstr "ブログ / ページ"
 
-msgid "filter"
-msgstr "絞り込み"
+#, fuzzy
+msgid "Apply filters"
+msgstr "ファイルの追加"
 
 msgid "No blog"
 msgstr "ブログはありません"
@@ -593,9 +618,6 @@ msgstr "親："
 msgid "Top level"
 msgstr "最上位"
 
-msgid "Save"
-msgstr "保存"
-
 msgid "Remove a category"
 msgstr "カテゴリの削除"
 
@@ -646,6 +668,10 @@ msgstr "後へ"
 
 msgid "before"
 msgstr "前へ"
+
+#, fuzzy
+msgid "position: "
+msgstr "MP3 の配置"
 
 msgid "Entry does not exist."
 msgstr "エントリは存在しません。"
@@ -707,7 +733,7 @@ msgstr "状態："
 msgid "Comment:"
 msgstr "コメント："
 
-msgid "delete"
+msgid "Delete"
 msgstr "削除"
 
 msgid "comment"
@@ -737,8 +763,8 @@ msgstr "保留に指定"
 msgid "mark as junk"
 msgstr "ジャンクに指定"
 
-msgid "Comments"
-msgstr "コメント"
+msgid "delete"
+msgstr "削除"
 
 msgid "Type:"
 msgstr "タイプ："
@@ -765,6 +791,13 @@ msgstr "それらを表示する。"
 msgid "Selected comments action:"
 msgstr "選択されたコメントに実行："
 
+#, fuzzy
+msgid "action: "
+msgstr "操作"
+
+msgid "Comments"
+msgstr "コメント"
+
 #, php-format
 msgid "%d comment"
 msgstr "コメント(%d)"
@@ -776,10 +809,12 @@ msgstr "コメント(%d)"
 msgid "New entry"
 msgstr "新規エントリ"
 
-msgid "User preferences"
+#, fuzzy
+msgid "My preferences"
 msgstr "ユーザの環境設定"
 
-msgid "Documentation"
+#, fuzzy
+msgid "Documentation and support"
 msgstr "ドキュメント"
 
 msgid "Latest news"
@@ -806,6 +841,23 @@ msgstr "以下のプラグインがインストールされました："
 msgid "Following plugins have not been installed:"
 msgstr "以下のプラグインはインストールされませんでした："
 
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s が入手可能です！"
+
+msgid "Upgrade now"
+msgstr "ただちにアップグレード"
+
+msgid "Remind me later"
+msgstr "後で再度知らせる"
+
+msgid "information about this version"
+msgstr ""
+
+#, fuzzy
+msgid "Some plugins are installed twice:"
+msgstr "以下のプラグインがインストールされました："
+
 msgid "Quick entry"
 msgstr "クイックエントリ"
 
@@ -817,20 +869,6 @@ msgstr "カテゴリ："
 
 msgid "save and publish"
 msgstr "保存して掲載"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s が入手可能です！"
-
-msgid "Upgrade now"
-msgstr "ただちにアップグレード"
-
-msgid "Remind me later"
-msgstr "後で再度知らせる"
-
-#, fuzzy
-msgid "Some plugins are installed twice:"
-msgstr "以下のプラグインがインストールされました："
 
 #, php-format
 msgid "PHP version is %s (5.0 or earlier needed)."
@@ -915,6 +953,14 @@ msgstr ""
 "<p>これを削除するには、ログインしてブログのコメントを表示してください。 その後、削除や編集することができます。</p>"
 
 #, fuzzy
+msgid "Pages"
+msgstr "ページ"
+
+#, fuzzy
+msgid "Blogroll"
+msgstr "ブログ"
+
+#, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear のインストール"
 
@@ -951,6 +997,9 @@ msgstr "最終更新"
 #, fuzzy
 msgid "Username and password"
 msgstr "ユーザ名またはパスワードが間違っています"
+
+msgid "save"
+msgstr "保存"
 
 msgid "All done!"
 msgstr "すべて完了しました！"
@@ -1070,9 +1119,6 @@ msgstr "言語"
 msgid "Action"
 msgstr "操作"
 
-msgid "Delete"
-msgstr "削除"
-
 msgid "Install or upgrade languages"
 msgstr "言語のインストール／アップグレード"
 
@@ -1180,6 +1226,9 @@ msgstr "ファイルの並び替え："
 msgid "Add files"
 msgstr "ファイルの追加"
 
+msgid "Please take care to publish media that you own and that are not protected by copyright."
+msgstr "あなたが所有し、著作権によって保護されていないメディアを公開するように気をつけてください。"
+
 msgid "Choose a file:"
 msgstr "ファイルを選択："
 
@@ -1192,9 +1241,6 @@ msgstr "プライベート"
 
 msgid "send"
 msgstr "送信"
-
-msgid "Please take care to publish media that you own and that are not protected by copyright."
-msgstr "あなたが所有し、著作権によって保護されていないメディアを公開するように気をつけてください。"
 
 msgid "New directory"
 msgstr "新規ディレクトリ"
@@ -1398,6 +1444,10 @@ msgstr "ユーザ %s さんにパーミッションを与えたいブログを�
 msgid "set permissions"
 msgstr "パーミッションを設定"
 
+#, fuzzy
+msgid "select"
+msgstr "イチ押し"
+
 msgid "No content found on this plugin."
 msgstr "このプラグインのコンテンツは見つかりませんでした。"
 
@@ -1497,6 +1547,10 @@ msgstr "最も使用"
 
 msgid "Link URL:"
 msgstr "リンクのURL："
+
+#, fuzzy
+msgid "Link title:"
+msgstr "ファイルのタイトル："
 
 msgid "Link language:"
 msgstr "リンクの言語："
@@ -1621,6 +1675,14 @@ msgstr "保留"
 msgid "junk"
 msgstr "ジャンク"
 
+#, fuzzy
+msgid "select this comment"
+msgstr "このコメントを編集"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "トラックバックを許可"
+
 msgid "Edit this comment"
 msgstr "このコメントを編集"
 
@@ -1717,8 +1779,41 @@ msgstr "メールアドレスやパスワードを変更したい場合は、現
 msgid "Personal information has been successfully updated."
 msgstr "個人情報は正常に更新されました。"
 
+#, fuzzy
+msgid "Personal options has been successfully updated."
+msgstr "個人情報は正常に更新されました。"
+
+#, fuzzy
+msgid "Favorites have been successfully added."
+msgstr "ファイルは正常にアップロードされました。"
+
+#, fuzzy
+msgid "Favorites have been successfully updated."
+msgstr "ファイルは正常に更新されました。"
+
+#, fuzzy
+msgid "Favorites have been successfully removed."
+msgstr "ファイルは正常に削除されました。"
+
+#, fuzzy
+msgid "Default favorites have been successfully updated."
+msgstr "サムネイルは正常に更新されました。"
+
+msgid "My profile"
+msgstr ""
+
 msgid "Display name:"
 msgstr "表示名："
+
+msgid "User language:"
+msgstr "ユーザの言語："
+
+msgid "User timezone:"
+msgstr "ユーザのタイムゾーン："
+
+#, fuzzy
+msgid "My options"
+msgstr "検索オプション"
 
 msgid "Preferred format:"
 msgstr "優先書式"
@@ -1729,14 +1824,73 @@ msgstr "デフォルトのエントリ状態："
 msgid "Entry edit field height:"
 msgstr "エントリ編集フィールドの高さ"
 
-msgid "User language:"
-msgstr "ユーザの言語："
-
-msgid "User timezone:"
-msgstr "ユーザのタイムゾーン："
-
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG モードの有効化"
+
+msgid "Accessibility options"
+msgstr ""
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr ""
+
+msgid "Numeric fields will allow to type the elements' ordering number."
+msgstr ""
+
+#, fuzzy
+msgid "Dashboard modules"
+msgstr "ダッシュボード"
+
+#, fuzzy
+msgid "Display documentation links"
+msgstr "ドキュメント"
+
+#, fuzzy
+msgid "Display Dotclear news"
+msgstr "Dotclear をアップデート"
+
+msgid "Display quick entry form"
+msgstr ""
+
+msgid "My favorites"
+msgstr ""
+
+#, php-format
+msgid "position of %s"
+msgstr ""
+
+#, fuzzy
+msgid "Save order"
+msgstr "並び替え"
+
+#, fuzzy
+msgid "Delete selected favorites"
+msgstr "選択したファイルを削除"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "本当に、カテゴリ \"%s\" を削除してもよろしいですか？"
+
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
+msgstr ""
+
+msgid "Define as default favorites"
+msgstr ""
+
+msgid "Currently no personal favorites."
+msgstr ""
+
+msgid "Default favorites"
+msgstr ""
+
+msgid "Those favorites are displayed when My Favorites list is empty."
+msgstr ""
+
+#, fuzzy
+msgid "Available favorites"
+msgstr "利用可能なサイズ："
+
+msgid "Add to my favorites"
+msgstr ""
 
 msgid "Search"
 msgstr "検索"
@@ -1929,14 +2083,23 @@ msgstr "ブログの変更"
 msgid "Blogs:"
 msgstr "ブログ："
 
-msgid "View site"
-msgstr "サイトを表示"
+msgid "Go to site"
+msgstr ""
+
+msgid "new window"
+msgstr ""
 
 msgid "User:"
 msgstr "ユーザ："
 
 msgid "Logout"
 msgstr "ログアウト"
+
+msgid "Safe mode"
+msgstr ""
+
+msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
+msgstr ""
 
 #, php-format
 msgid "Thank you for using %s."
@@ -1954,7 +2117,8 @@ msgstr "隠す"
 msgid "help"
 msgstr "ヘルプ"
 
-msgid "No selection"
+#, fuzzy
+msgid "no selection"
 msgstr "選択されていません"
 
 msgid "select all"
@@ -2035,6 +2199,9 @@ msgstr "XHTMLコンテンツは適切です。"
 
 msgid "There are XHTML markup errors."
 msgstr "XHTMLマークアップエラーがあります。"
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "保存されていない変更があります。"
@@ -2224,6 +2391,9 @@ msgstr "データベースのタイプ："
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
+msgid "Languages"
+msgstr "言語"
+
 msgid "System"
 msgstr "システム"
 
@@ -2232,112 +2402,6 @@ msgstr "ブログ"
 
 msgid "Updates"
 msgstr "アップデート"
-
-msgid "Languages"
-msgstr "言語"
-
-msgid "Unable to open directory."
-msgstr "ディレクトが開けません。"
-
-msgid "Unable to create directory."
-msgstr "ディレクトリが作成できません。"
-
-msgid "File is not writable."
-msgstr "ファイルが書き込み可能ではありません。"
-
-msgid "Unable to open file."
-msgstr "ファイルが開けません。"
-
-msgid "Not an uploaded file."
-msgstr "アップロードされたファイルではありません。"
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "アップロードされたファイルは、許可される最大サイズを超過します。"
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "アップロードされたファイルは、一部分のみがアップロードされました。"
-
-msgid "No file was uploaded."
-msgstr "ファイルはアップロードされませんでした。"
-
-msgid "Missing a temporary folder."
-msgstr "一時フォルダが見あたりません。"
-
-msgid "Failed to write file to disk."
-msgstr "ディスクへのファイルの書き込みに失敗しました。"
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s はディレクトリではありません。"
-
-msgid "Uploading this file is not allowed."
-msgstr "このファイルのアップロードは許可されません。"
-
-msgid "Destination directory is not in jail."
-msgstr "対象ディレクトリが有効アクセス範囲内にありません。"
-
-#, fuzzy
-msgid "File already exists."
-msgstr "新しいファイルはすでに存在します。"
-
-msgid "Cannot write in this directory."
-msgstr "このディレクトリへの書き込みができません。"
-
-msgid "An error occurred while writing the file."
-msgstr "ファイルの書き込み中にエラーが発生しました。"
-
-msgid "Source file does not exist."
-msgstr "ソースファイルが存在しません。"
-
-msgid "File is not in jail."
-msgstr "ファイルが有効アクセス範囲内にありません。"
-
-msgid "Destination directory is not writable."
-msgstr "対象ディレクトリが書き込み可能ではありません。"
-
-msgid "Unable to rename file."
-msgstr "ファイル名の変更ができません。"
-
-msgid "File cannot be removed."
-msgstr "ファイルを削除することができません。"
-
-msgid "Directory is not in jail."
-msgstr "ディレクトリが有効アクセス範囲内にありません。"
-
-msgid "Directory cannot be removed."
-msgstr "ディレクトリを削除することができません。"
-
-msgid "Not enough memory to open image."
-msgstr "画像を開くのに十分なメモリがありません。"
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "ファイル %s はzipで圧縮されていません。"
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "フォルダ名 %s のzip展開を試行しています"
-
-msgid "Unable to write destination file."
-msgstr "対象ファイルに書き込むことができません。"
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "アクセスが許可されていないため、対象ディレクトリに書き込むことができません。"
-
-msgid "Not enough memory to open file."
-msgstr "ファイルを開くのに十分なメモリがありません。"
-
-msgid "File does not exist"
-msgstr "ファイルが存在しません"
-
-msgid "Cannot read file"
-msgstr "ファイルが読み込めません"
-
-msgid "Directory does not exist"
-msgstr "ディレクトリが存在しません"
-
-msgid "Cannot read directory"
-msgstr "ディレクトリが読み込めません"
 
 msgid "administrator"
 msgstr "管理者"
@@ -2501,6 +2565,10 @@ msgstr "許可されていません。"
 msgid "You are not the file owner."
 msgstr "あなたはファイルの所有者ではありません。"
 
+#, fuzzy
+msgid "This file is not allowed."
+msgstr "このファイルのアップロードは許可されません。"
+
 msgid "New file already exists."
 msgstr "新しいファイルはすでに存在します。"
 
@@ -2564,6 +2632,10 @@ msgid "No namespace specified"
 msgstr "ネームスペースが指定されていません"
 
 #, fuzzy
+msgid "Unable to retrieve workspaces:"
+msgstr "設定を取り出すことができません："
+
+#, fuzzy
 msgid "Unable to retrieve namespaces:"
 msgstr "設定を取り出すことができません："
 
@@ -2617,11 +2689,130 @@ msgstr "ダイジェストファイルが読めません。"
 msgid "Invalid digests file."
 msgstr "無効なダイジェストファイルです。"
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "無効なネームスペースの設定です： %s"
+
+#, fuzzy
+msgid "Unable to retrieve prefs:"
+msgstr "設定を取り出すことができません："
+
+#, fuzzy, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s は不正な設定IDです"
+
+#, fuzzy
+msgid "No workspace specified"
+msgstr "ネームスペースが指定されていません"
+
 msgid "SQLite Database Schema cannot be upgraded."
 msgstr "SQLite のデータベーススキーマはアップグレードすることができません。"
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "自動アップグレードで何か誤りがありました："
+
+msgid "Unable to open directory."
+msgstr "ディレクトが開けません。"
+
+msgid "Unable to create directory."
+msgstr "ディレクトリが作成できません。"
+
+msgid "File is not writable."
+msgstr "ファイルが書き込み可能ではありません。"
+
+msgid "Unable to open file."
+msgstr "ファイルが開けません。"
+
+msgid "Not an uploaded file."
+msgstr "アップロードされたファイルではありません。"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "アップロードされたファイルは、許可される最大サイズを超過します。"
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "アップロードされたファイルは、一部分のみがアップロードされました。"
+
+msgid "No file was uploaded."
+msgstr "ファイルはアップロードされませんでした。"
+
+msgid "Missing a temporary folder."
+msgstr "一時フォルダが見あたりません。"
+
+msgid "Failed to write file to disk."
+msgstr "ディスクへのファイルの書き込みに失敗しました。"
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s はディレクトリではありません。"
+
+msgid "Uploading this file is not allowed."
+msgstr "このファイルのアップロードは許可されません。"
+
+msgid "Destination directory is not in jail."
+msgstr "対象ディレクトリが有効アクセス範囲内にありません。"
+
+#, fuzzy
+msgid "File already exists."
+msgstr "新しいファイルはすでに存在します。"
+
+msgid "Cannot write in this directory."
+msgstr "このディレクトリへの書き込みができません。"
+
+msgid "An error occurred while writing the file."
+msgstr "ファイルの書き込み中にエラーが発生しました。"
+
+msgid "Source file does not exist."
+msgstr "ソースファイルが存在しません。"
+
+msgid "File is not in jail."
+msgstr "ファイルが有効アクセス範囲内にありません。"
+
+msgid "Destination directory is not writable."
+msgstr "対象ディレクトリが書き込み可能ではありません。"
+
+msgid "Unable to rename file."
+msgstr "ファイル名の変更ができません。"
+
+msgid "File cannot be removed."
+msgstr "ファイルを削除することができません。"
+
+msgid "Directory is not in jail."
+msgstr "ディレクトリが有効アクセス範囲内にありません。"
+
+msgid "Directory cannot be removed."
+msgstr "ディレクトリを削除することができません。"
+
+msgid "Not enough memory to open image."
+msgstr "画像を開くのに十分なメモリがありません。"
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "ファイル %s はzipで圧縮されていません。"
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "フォルダ名 %s のzip展開を試行しています"
+
+msgid "Unable to write destination file."
+msgstr "対象ファイルに書き込むことができません。"
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "アクセスが許可されていないため、対象ディレクトリに書き込むことができません。"
+
+msgid "Not enough memory to open file."
+msgstr "ファイルを開くのに十分なメモリがありません。"
+
+msgid "File does not exist"
+msgstr "ファイルが存在しません"
+
+msgid "Cannot read file"
+msgstr "ファイルが読み込めません"
+
+msgid "Directory does not exist"
+msgstr "ディレクトリが存在しません"
+
+msgid "Cannot read directory"
+msgstr "ディレクトリが読み込めません"
 
 msgid "Unable to connect to database"
 msgstr ""
@@ -2632,6 +2823,15 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "login"
+#~ msgstr "ログイン"
+
+#~ msgid "filter"
+#~ msgstr "絞り込み"
+
+#~ msgid "View site"
+#~ msgstr "サイトを表示"
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "ファイル <strong>%s</strong> はすでに存在しています。 このファイル内の設定項目のいずれかをリセットしたい場合は、最初にそれを削除してください。 そうでない場合は、<a href=\"%s\">インストールを継続</a>することもできます。"

@@ -5,10 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: S.L. SONG <baramme@free.fr>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -244,9 +245,6 @@ msgstr "스팸댓글 타래소식"
 msgid "Published comments RSS feed"
 msgstr "공개된 댓글 타래소식"
 
-msgid "Blogroll"
-msgstr "링크모음"
-
 msgid "manage blogroll"
 msgstr "링크모음 관리"
 
@@ -394,8 +392,13 @@ msgstr "URL"
 msgid "Lang"
 msgstr "언어"
 
-msgid "Save order"
-msgstr "순서 저장"
+#, fuzzy
+msgid "position"
+msgstr "페이지 위치"
+
+#, fuzzy
+msgid "select this link"
+msgstr "분류딱지 삭제"
 
 msgid "Delete selected links"
 msgstr "선택된 링크들 삭제"
@@ -444,6 +447,10 @@ msgstr "미리 지정된 스타일들"
 
 msgid "Apply code"
 msgstr "코드 적용"
+
+#, fuzzy
+msgid "Choose a predefined style"
+msgstr "미리 지정된 스타일들"
 
 #, fuzzy
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
@@ -631,6 +638,9 @@ msgstr "가져오기 / 내보내기 설정"
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "다음 코드를 이용하면 당신의 설정을 공유할 수 있습니다. 다른 곳에서 가져온 설정을 적용하려면, 코드를 붙여넣기 한 뒤, \"코드 적용\"을 실행하고 저장하시면 됩니다."
 
+msgid "Copy this code:"
+msgstr ""
+
 msgid "default"
 msgstr "기본값"
 
@@ -656,27 +666,6 @@ msgstr ""
 
 msgid "Unable to open image."
 msgstr "이미지파일을 읽을 수 없습니다."
-
-msgid "External media"
-msgstr "외부 미디어"
-
-msgid "External media selector"
-msgstr "외부 미디어 선택기"
-
-msgid "Supported media services"
-msgstr "지원되는 미디어 서비스들"
-
-msgid "Please enter the URL of the page containing the video you want to include in your post."
-msgstr "글꼭지에 넣을 비디오를 지닌 페이지의 URL을 적어주세요."
-
-msgid "Page URL:"
-msgstr "페이지 URL :"
-
-msgid "Media alignment"
-msgstr "미디어 줄맞춤"
-
-msgid "Media title"
-msgstr "미디어 제목"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "다른 블로그의 글꼭지로 가는 링크를 가졌는지 글걸기댓글 소스에서 확인"
@@ -992,8 +981,16 @@ msgstr "템플릿 캐쉬 폴더 비우기"
 msgid "Empty directory"
 msgstr "폴더 비우기"
 
-msgid "Pages"
-msgstr "페이지"
+msgid "New page"
+msgstr "새 페이지"
+
+#, fuzzy, php-format
+msgid "%d page"
+msgstr "페이지 편집"
+
+#, fuzzy, php-format
+msgid "%d pages"
+msgstr "페이지 편집"
 
 msgid "manage pages"
 msgstr "페이지 관리"
@@ -1019,11 +1016,12 @@ msgstr "공개 일시"
 msgid "No page"
 msgstr "페이지 없음"
 
+#, fuzzy
+msgid "select this page"
+msgstr "분류딱지 삭제"
+
 msgid "Are you sure you want to delete selected pages?"
 msgstr "선택한 페이지들을 삭제하시려는 게 확실합니까 ?"
-
-msgid "New page"
-msgstr "새 페이지"
 
 msgid "Selected pages action:"
 msgstr "선택된 페이지들에 대한 작업 :"
@@ -1269,6 +1267,21 @@ msgstr "CSS 파일들"
 msgid "JavaScript files"
 msgstr "자바스크립트 파일들"
 
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "페이지가 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "Preferences definition successfully updated"
+msgstr "설정 정의내용 갱신 성공"
+
+msgid "user preferences"
+msgstr ""
+
+#, fuzzy
+msgid "global preferences"
+msgstr "글로벌 설정"
+
 msgid "Presentation widgets"
 msgstr "화면구성 위젯"
 
@@ -1420,6 +1433,36 @@ msgstr "순서"
 
 msgid "Remove widget"
 msgstr "위젯 삭제"
+
+#~ msgid "Blogroll"
+#~ msgstr "링크모음"
+
+#~ msgid "Save order"
+#~ msgstr "순서 저장"
+
+#~ msgid "External media"
+#~ msgstr "외부 미디어"
+
+#~ msgid "External media selector"
+#~ msgstr "외부 미디어 선택기"
+
+#~ msgid "Supported media services"
+#~ msgstr "지원되는 미디어 서비스들"
+
+#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
+#~ msgstr "글꼭지에 넣을 비디오를 지닌 페이지의 URL을 적어주세요."
+
+#~ msgid "Page URL:"
+#~ msgstr "페이지 URL :"
+
+#~ msgid "Media alignment"
+#~ msgstr "미디어 줄맞춤"
+
+#~ msgid "Media title"
+#~ msgstr "미디어 제목"
+
+#~ msgid "Pages"
+#~ msgstr "페이지"
 
 #~ msgid "Unsupported service"
 #~ msgstr "지원되지 않는 서비스"

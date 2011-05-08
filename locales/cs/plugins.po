@@ -5,10 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2010-06-02 01:31+0100\n"
 "Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -244,9 +245,6 @@ msgstr "Podezřelé komentáře - RSS zdroj"
 msgid "Published comments RSS feed"
 msgstr "Publikované komentáře - RSS zdroj"
 
-msgid "Blogroll"
-msgstr "Odkazy"
-
 msgid "manage blogroll"
 msgstr "spravovat odkazy"
 
@@ -394,8 +392,13 @@ msgstr "URL"
 msgid "Lang"
 msgstr "Jazyk"
 
-msgid "Save order"
-msgstr "Uložit pořadí"
+#, fuzzy
+msgid "position"
+msgstr "Pozice stránky"
+
+#, fuzzy
+msgid "select this link"
+msgstr "Smazat tento štítek"
 
 msgid "Delete selected links"
 msgstr "Smazat vybrané odkazy"
@@ -444,6 +447,10 @@ msgstr "Předdefinované styly"
 
 msgid "Apply code"
 msgstr "Nastavit z kódu"
+
+#, fuzzy
+msgid "Choose a predefined style"
+msgstr "Předdefinované styly"
 
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr "Kvůli následujícím důvodům nemůžou být vytvořeny obrázky. Nebudete schopni změnit vlastnosti pozadí."
@@ -629,6 +636,9 @@ msgstr "Importovat / exportovat konfiguraci"
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "Svoji konfigurace můžete sdílet pomocí tohoto kódu. Pro jeho aplikaci jej vložte a klikněte na tlačítko \"Nastavit z kódu\" and uložte."
 
+msgid "Copy this code:"
+msgstr ""
+
 msgid "default"
 msgstr "výchozí"
 
@@ -653,27 +663,6 @@ msgstr "Nahraný obrázek není 800 pixelů široký."
 
 msgid "Unable to open image."
 msgstr "Obrázek nelze otevřít."
-
-msgid "External media"
-msgstr "Externí média"
-
-msgid "External media selector"
-msgstr "Výběr externích médií"
-
-msgid "Supported media services"
-msgstr "Podporované mediální služby"
-
-msgid "Please enter the URL of the page containing the video you want to include in your post."
-msgstr "Prosím, vložte URL stránky obsahující video, které chcete vložit do vašeho článku."
-
-msgid "Page URL:"
-msgstr "URL stránky:"
-
-msgid "Media alignment"
-msgstr "Zarovnání média"
-
-msgid "Media title"
-msgstr "Název média"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Zkontroluj zdroj trackbacku, jestli je tam odkaz na článek"
@@ -978,8 +967,16 @@ msgstr "Vyprázdnit cahce adresář šablon"
 msgid "Empty directory"
 msgstr "Vypráznit adresář"
 
-msgid "Pages"
-msgstr "Stránky"
+msgid "New page"
+msgstr "Nová stránka"
+
+#, fuzzy, php-format
+msgid "%d page"
+msgstr "Upravit stránku"
+
+#, fuzzy, php-format
+msgid "%d pages"
+msgstr "Upravit stránku"
 
 msgid "manage pages"
 msgstr "spravovat stránky"
@@ -1005,11 +1002,12 @@ msgstr "Datum publikování"
 msgid "No page"
 msgstr "Žádná stránka"
 
+#, fuzzy
+msgid "select this page"
+msgstr "Smazat tento štítek"
+
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Jste si jisti, že chcete smazat vybrané stránky?"
-
-msgid "New page"
-msgstr "Nová stránka"
 
 msgid "Selected pages action:"
 msgstr "Vybrané stránky:"
@@ -1251,6 +1249,21 @@ msgstr "CSS soubory"
 msgid "JavaScript files"
 msgstr "JavaScript soubory"
 
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "Stránka byla úspěšně upravena."
+
+#, fuzzy
+msgid "Preferences definition successfully updated"
+msgstr "Konfigurační direktivy byly úspěšně aktualizovány"
+
+msgid "user preferences"
+msgstr ""
+
+#, fuzzy
+msgid "global preferences"
+msgstr "globální nastavení"
+
 msgid "Presentation widgets"
 msgstr "Widgety"
 
@@ -1402,6 +1415,36 @@ msgstr "pořadí"
 
 msgid "Remove widget"
 msgstr "Odebrat widget"
+
+#~ msgid "Blogroll"
+#~ msgstr "Odkazy"
+
+#~ msgid "Save order"
+#~ msgstr "Uložit pořadí"
+
+#~ msgid "External media"
+#~ msgstr "Externí média"
+
+#~ msgid "External media selector"
+#~ msgstr "Výběr externích médií"
+
+#~ msgid "Supported media services"
+#~ msgstr "Podporované mediální služby"
+
+#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
+#~ msgstr "Prosím, vložte URL stránky obsahující video, které chcete vložit do vašeho článku."
+
+#~ msgid "Page URL:"
+#~ msgstr "URL stránky:"
+
+#~ msgid "Media alignment"
+#~ msgstr "Zarovnání média"
+
+#~ msgid "Media title"
+#~ msgstr "Název média"
+
+#~ msgid "Pages"
+#~ msgstr "Stránky"
 
 #~ msgid "Unsupported service"
 #~ msgstr "Nepodporovaná služba"

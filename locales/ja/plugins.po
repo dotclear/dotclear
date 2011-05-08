@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2008-11-24 00:00+0900\n"
 "Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
 "Language-Team: Dotclear Japan\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -245,9 +246,6 @@ msgstr "ジャンクコメントのRSSフィード"
 msgid "Published comments RSS feed"
 msgstr "掲載済みコメントのRSSフィード"
 
-msgid "Blogroll"
-msgstr "ブログロール"
-
 msgid "manage blogroll"
 msgstr "ブログロールの管理"
 
@@ -395,8 +393,13 @@ msgstr "URL"
 msgid "Lang"
 msgstr "言語"
 
-msgid "Save order"
-msgstr "並び順を保存"
+#, fuzzy
+msgid "position"
+msgstr "ページの位置"
+
+#, fuzzy
+msgid "select this link"
+msgstr "このタグを削除"
 
 msgid "Delete selected links"
 msgstr "選択されたリンクを削除"
@@ -445,6 +448,10 @@ msgstr "定義済みのスタイル"
 
 msgid "Apply code"
 msgstr "コードを適用"
+
+#, fuzzy
+msgid "Choose a predefined style"
+msgstr "定義済みのスタイル"
 
 #, fuzzy
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
@@ -631,6 +638,9 @@ msgstr "設定のインポート／エクスポート"
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "以下のコードを使用して、設定を共有することができます。 設定を適用するには、コードをペーストし、「コードを適用」をクリックした後に保存してください。"
 
+msgid "Copy this code:"
+msgstr ""
+
 msgid "default"
 msgstr "デフォルト"
 
@@ -656,27 +666,6 @@ msgstr ""
 
 msgid "Unable to open image."
 msgstr "画像が開けません。"
-
-msgid "External media"
-msgstr "外部メディア"
-
-msgid "External media selector"
-msgstr "外部メディアセレクタ"
-
-msgid "Supported media services"
-msgstr "対応するメディアサービス"
-
-msgid "Please enter the URL of the page containing the video you want to include in your post."
-msgstr "投稿に含めたいビデオを含んだページのURLを入力してください。"
-
-msgid "Page URL:"
-msgstr "ページのURL："
-
-msgid "Media alignment"
-msgstr "メディアの配置"
-
-msgid "Media title"
-msgstr "メディアのタイトル"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "投稿へリンクしているかトラックバック元をチェックします"
@@ -985,8 +974,16 @@ msgstr "テンプレートキャッシュディレクトリを空にする"
 msgid "Empty directory"
 msgstr "ディレクトリを空にする"
 
-msgid "Pages"
-msgstr "ページ"
+msgid "New page"
+msgstr "新しいページ"
+
+#, fuzzy, php-format
+msgid "%d page"
+msgstr "ページの編集"
+
+#, fuzzy, php-format
+msgid "%d pages"
+msgstr "ページの編集"
 
 msgid "manage pages"
 msgstr "ページの管理"
@@ -1012,11 +1009,12 @@ msgstr "掲載の日付"
 msgid "No page"
 msgstr "ページはありません"
 
+#, fuzzy
+msgid "select this page"
+msgstr "このタグを削除"
+
 msgid "Are you sure you want to delete selected pages?"
 msgstr "本当に、選択されたページを削除してもよろしいですか？"
-
-msgid "New page"
-msgstr "新しいページ"
 
 msgid "Selected pages action:"
 msgstr "選択されたページに実行："
@@ -1262,6 +1260,21 @@ msgstr "CSSファイル"
 msgid "JavaScript files"
 msgstr "JavaScriptファイル"
 
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "ページは正常に更新されました。"
+
+#, fuzzy
+msgid "Preferences definition successfully updated"
+msgstr "設定の定義は正常に更新されました"
+
+msgid "user preferences"
+msgstr ""
+
+#, fuzzy
+msgid "global preferences"
+msgstr "全般の設定"
+
 msgid "Presentation widgets"
 msgstr "プレゼンテーションウィジェット"
 
@@ -1413,6 +1426,36 @@ msgstr "並び順"
 
 msgid "Remove widget"
 msgstr "ウィジェットの削除"
+
+#~ msgid "Blogroll"
+#~ msgstr "ブログロール"
+
+#~ msgid "Save order"
+#~ msgstr "並び順を保存"
+
+#~ msgid "External media"
+#~ msgstr "外部メディア"
+
+#~ msgid "External media selector"
+#~ msgstr "外部メディアセレクタ"
+
+#~ msgid "Supported media services"
+#~ msgstr "対応するメディアサービス"
+
+#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
+#~ msgstr "投稿に含めたいビデオを含んだページのURLを入力してください。"
+
+#~ msgid "Page URL:"
+#~ msgstr "ページのURL："
+
+#~ msgid "Media alignment"
+#~ msgstr "メディアの配置"
+
+#~ msgid "Media title"
+#~ msgstr "メディアのタイトル"
+
+#~ msgid "Pages"
+#~ msgstr "ページ"
 
 #~ msgid "Unsupported service"
 #~ msgstr "サポートされていないサービスです"

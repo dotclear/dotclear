@@ -9,6 +9,7 @@ msgstr ""
 "PO-Revision-Date: 2009-11-21 18:50+0100\n"
 "Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -175,6 +176,9 @@ msgstr "volitelné"
 
 msgid "Comment"
 msgstr "Komentář"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "HTML kód bude zobrazen jako text, URL adresy budou automaticky překonvertovány na odkazy."

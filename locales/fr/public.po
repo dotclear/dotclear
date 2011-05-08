@@ -239,4 +239,3 @@ msgstr "Vous devez indiquer une adresse e-mail valide."
 
 msgid "Read"
 msgstr "Lire"
-

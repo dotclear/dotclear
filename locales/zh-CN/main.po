@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:36+0200\n"
 "PO-Revision-Date: 2010-01-16 19:07+0800\n"
 "Last-Translator: lainme <lainme993@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,6 +57,10 @@ msgstr "在您能登录前，您必须改变您的密码。"
 msgid "In order to login, you have to change your password now."
 msgstr "您必须现在更改密码以便登录。"
 
+#, fuzzy
+msgid "Safe Mode can only be used for super administrators."
+msgstr "您不是超级管理员。"
+
 msgid "Wrong username or password"
 msgstr "错误的用户名或密码"
 
@@ -83,17 +88,36 @@ msgstr "确认密码："
 msgid "change"
 msgstr "更改"
 
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
 msgid "Remember my ID on this computer"
 msgstr "在这台计算机上记住我的 ID"
 
-msgid "login"
-msgstr "登录"
+#, fuzzy
+msgid "log in"
+msgstr "博客名称"
 
 msgid "You must accept cookies in order to use the private area."
 msgstr "您必须接受 cookies 以使用私有区域。"
 
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
 msgid "I forgot my password"
 msgstr "我忘记了我的密码"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 msgid "New blog"
 msgstr "新博客"
@@ -125,7 +149,7 @@ msgstr "博客 URL："
 msgid "Blog description:"
 msgstr "博客描述："
 
-msgid "save"
+msgid "Save"
 msgstr "保存"
 
 msgid "No such blog ID"
@@ -205,7 +229,7 @@ msgstr "博客设置"
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr ""
 
-msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr ""
 
 msgid "Blog has been successfully created."
@@ -510,8 +534,9 @@ msgstr "搜索："
 msgid "Blogs per page"
 msgstr "每页的博客数目"
 
-msgid "filter"
-msgstr "过滤"
+#, fuzzy
+msgid "Apply filters"
+msgstr "添加文件"
 
 msgid "No blog"
 msgstr "没有博客"
@@ -586,9 +611,6 @@ msgstr "上层目录："
 msgid "Top level"
 msgstr "顶层"
 
-msgid "Save"
-msgstr "保存"
-
 msgid "Remove a category"
 msgstr "移除一个分类目录"
 
@@ -639,6 +661,10 @@ msgstr "后于"
 
 msgid "before"
 msgstr "前于"
+
+#, fuzzy
+msgid "position: "
+msgstr "MP3 处理"
 
 msgid "Entry does not exist."
 msgstr "文章不存在。"
@@ -700,7 +726,7 @@ msgstr "状态："
 msgid "Comment:"
 msgstr "评论："
 
-msgid "delete"
+msgid "Delete"
 msgstr "删除"
 
 msgid "comment"
@@ -730,8 +756,8 @@ msgstr "标记为待审核"
 msgid "mark as junk"
 msgstr "标记为垃圾评论"
 
-msgid "Comments"
-msgstr "评论"
+msgid "delete"
+msgstr "删除"
 
 msgid "Type:"
 msgstr "类型："
@@ -758,6 +784,13 @@ msgstr "显示它们。"
 msgid "Selected comments action:"
 msgstr "选择的评论动作："
 
+#, fuzzy
+msgid "action: "
+msgstr "动作"
+
+msgid "Comments"
+msgstr "评论"
+
 #, php-format
 msgid "%d comment"
 msgstr "%d 个评论"
@@ -769,10 +802,12 @@ msgstr "%d 个评论"
 msgid "New entry"
 msgstr "新文章"
 
-msgid "User preferences"
+#, fuzzy
+msgid "My preferences"
 msgstr "用户偏好"
 
-msgid "Documentation"
+#, fuzzy
+msgid "Documentation and support"
 msgstr "文档"
 
 msgid "Latest news"
@@ -799,6 +834,23 @@ msgstr "下列插件已被安装："
 msgid "Following plugins have not been installed:"
 msgstr "下列插件还没有安装："
 
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s 可用！"
+
+msgid "Upgrade now"
+msgstr "现在升级"
+
+msgid "Remind me later"
+msgstr "稍后提醒我"
+
+msgid "information about this version"
+msgstr ""
+
+#, fuzzy
+msgid "Some plugins are installed twice:"
+msgstr "下列插件已被安装："
+
 msgid "Quick entry"
 msgstr "快速书写文章"
 
@@ -810,20 +862,6 @@ msgstr "分类目录："
 
 msgid "save and publish"
 msgstr "保存并发布"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s 可用！"
-
-msgid "Upgrade now"
-msgstr "现在升级"
-
-msgid "Remind me later"
-msgstr "稍后提醒我"
-
-#, fuzzy
-msgid "Some plugins are installed twice:"
-msgstr "下列插件已被安装："
 
 #, php-format
 msgid "PHP version is %s (5.0 or earlier needed)."
@@ -908,6 +946,14 @@ msgstr ""
 "<p>要删除它，登入并查看您的博客评论。然后您可以移除或者修改它。</p>"
 
 #, fuzzy
+msgid "Pages"
+msgstr "页数"
+
+#, fuzzy
+msgid "Blogroll"
+msgstr "博客"
+
+#, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear 安装"
 
@@ -941,6 +987,9 @@ msgstr "姓："
 
 msgid "Username and password"
 msgstr "用户名和密码"
+
+msgid "save"
+msgstr "保存"
 
 msgid "All done!"
 msgstr "一切完成！"
@@ -1060,9 +1109,6 @@ msgstr "语言"
 msgid "Action"
 msgstr "动作"
 
-msgid "Delete"
-msgstr "删除"
-
 msgid "Install or upgrade languages"
 msgstr "安装或者升级语言包"
 
@@ -1170,6 +1216,9 @@ msgstr "排序文件："
 msgid "Add files"
 msgstr "添加文件"
 
+msgid "Please take care to publish media that you own and that are not protected by copyright."
+msgstr "请小心发布您拥有的媒体文件，这不受到版权的保护。"
+
 msgid "Choose a file:"
 msgstr "选择一个文件："
 
@@ -1182,9 +1231,6 @@ msgstr "私有的"
 
 msgid "send"
 msgstr "发送"
-
-msgid "Please take care to publish media that you own and that are not protected by copyright."
-msgstr "请小心发布您拥有的媒体文件，这不受到版权的保护。"
 
 msgid "New directory"
 msgstr "新目录"
@@ -1387,6 +1433,10 @@ msgstr "选择一个或者多个您想要赋予用户 %s 权限的博客。"
 msgid "set permissions"
 msgstr "设置权限"
 
+#, fuzzy
+msgid "select"
+msgstr "精选的"
+
 msgid "No content found on this plugin."
 msgstr "这个插件中没有找到内容。"
 
@@ -1486,6 +1536,10 @@ msgstr "最多使用"
 
 msgid "Link URL:"
 msgstr "链接 URL："
+
+#, fuzzy
+msgid "Link title:"
+msgstr "文件标题："
 
 msgid "Link language:"
 msgstr "链接语言："
@@ -1610,6 +1664,14 @@ msgstr "待审核"
 msgid "junk"
 msgstr "垃圾评论"
 
+#, fuzzy
+msgid "select this comment"
+msgstr "编辑这个评论"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "接受 trackbacks"
+
 msgid "Edit this comment"
 msgstr "编辑这个评论"
 
@@ -1697,8 +1759,41 @@ msgstr "如果您想要改变您的邮箱或者密码，您必须提供当前的
 msgid "Personal information has been successfully updated."
 msgstr "成功更新个人信息。"
 
+#, fuzzy
+msgid "Personal options has been successfully updated."
+msgstr "成功更新个人信息。"
+
+#, fuzzy
+msgid "Favorites have been successfully added."
+msgstr "成功上传文件。"
+
+#, fuzzy
+msgid "Favorites have been successfully updated."
+msgstr "成功更新文件。"
+
+#, fuzzy
+msgid "Favorites have been successfully removed."
+msgstr "成功移除文件。"
+
+#, fuzzy
+msgid "Default favorites have been successfully updated."
+msgstr "成功更新缩略图。"
+
+msgid "My profile"
+msgstr ""
+
 msgid "Display name:"
 msgstr "显示的名字："
+
+msgid "User language:"
+msgstr "用户语言："
+
+msgid "User timezone:"
+msgstr "用户时区："
+
+#, fuzzy
+msgid "My options"
+msgstr "搜索选项"
 
 msgid "Preferred format:"
 msgstr "喜好的格式："
@@ -1709,14 +1804,73 @@ msgstr "默认的文章状态："
 msgid "Entry edit field height:"
 msgstr "文章编辑区域高度："
 
-msgid "User language:"
-msgstr "用户语言："
-
-msgid "User timezone:"
-msgstr "用户时区："
-
 msgid "Enable WYSIWYG mode"
 msgstr "激活所见即所得模式"
+
+msgid "Accessibility options"
+msgstr ""
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr ""
+
+msgid "Numeric fields will allow to type the elements' ordering number."
+msgstr ""
+
+#, fuzzy
+msgid "Dashboard modules"
+msgstr "控制板"
+
+#, fuzzy
+msgid "Display documentation links"
+msgstr "文档"
+
+#, fuzzy
+msgid "Display Dotclear news"
+msgstr "更新 Dotclear"
+
+msgid "Display quick entry form"
+msgstr ""
+
+msgid "My favorites"
+msgstr ""
+
+#, php-format
+msgid "position of %s"
+msgstr ""
+
+#, fuzzy
+msgid "Save order"
+msgstr "重新排序"
+
+#, fuzzy
+msgid "Delete selected favorites"
+msgstr "删除选择的文件"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "您确定您要重新排列所有分类目录吗？"
+
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
+msgstr ""
+
+msgid "Define as default favorites"
+msgstr ""
+
+msgid "Currently no personal favorites."
+msgstr ""
+
+msgid "Default favorites"
+msgstr ""
+
+msgid "Those favorites are displayed when My Favorites list is empty."
+msgstr ""
+
+#, fuzzy
+msgid "Available favorites"
+msgstr "可用的大小："
+
+msgid "Add to my favorites"
+msgstr ""
 
 msgid "Search"
 msgstr "搜索"
@@ -1906,14 +2060,23 @@ msgstr "改变博客"
 msgid "Blogs:"
 msgstr "博客："
 
-msgid "View site"
-msgstr "浏览网站"
+msgid "Go to site"
+msgstr ""
+
+msgid "new window"
+msgstr ""
 
 msgid "User:"
 msgstr "用户："
 
 msgid "Logout"
 msgstr "退出"
+
+msgid "Safe mode"
+msgstr ""
+
+msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
+msgstr ""
 
 #, php-format
 msgid "Thank you for using %s."
@@ -1931,7 +2094,8 @@ msgstr "隐藏"
 msgid "help"
 msgstr "帮助"
 
-msgid "No selection"
+#, fuzzy
+msgid "no selection"
 msgstr "取消全部选择"
 
 msgid "select all"
@@ -2012,6 +2176,9 @@ msgstr "XHTML 内容有效。"
 
 msgid "There are XHTML markup errors."
 msgstr "这是 XHTML 标记的错误。"
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "您有未保存的改动。"
@@ -2201,6 +2368,9 @@ msgstr "数据库类型："
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
+msgid "Languages"
+msgstr "语言"
+
 msgid "System"
 msgstr "系统"
 
@@ -2209,114 +2379,6 @@ msgstr "博客"
 
 msgid "Updates"
 msgstr "更新"
-
-msgid "Languages"
-msgstr "语言"
-
-msgid "Unable to open directory."
-msgstr "无法打开目录。"
-
-msgid "Unable to create directory."
-msgstr "无法创建目录。"
-
-msgid "File is not writable."
-msgstr "文件不可写。"
-
-msgid "Unable to open file."
-msgstr "无法打开文件。"
-
-msgid "Not an uploaded file."
-msgstr "不是一个上传的文件。"
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "上传的文件超过了最大允许的文件大小。"
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "上传的文件仅被部分上传。"
-
-msgid "No file was uploaded."
-msgstr "没有文件被上传。"
-
-msgid "Missing a temporary folder."
-msgstr "忽略了一个临时文件夹。"
-
-msgid "Failed to write file to disk."
-msgstr "写入文件到磁盘失败。"
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s 不是一个目录。"
-
-msgid "Uploading this file is not allowed."
-msgstr "上传此文件是不允许的。"
-
-#, fuzzy
-msgid "Destination directory is not in jail."
-msgstr "目标目录不在监禁中。"
-
-msgid "File already exists."
-msgstr "文件已存在。"
-
-msgid "Cannot write in this directory."
-msgstr "无法在这个目录写入。"
-
-msgid "An error occurred while writing the file."
-msgstr "写入文件时出现错误。"
-
-msgid "Source file does not exist."
-msgstr "源文件不存在。"
-
-#, fuzzy
-msgid "File is not in jail."
-msgstr "文件不再监禁中。"
-
-msgid "Destination directory is not writable."
-msgstr "目标目录不可写。"
-
-msgid "Unable to rename file."
-msgstr "无法重命名文件。"
-
-msgid "File cannot be removed."
-msgstr "文件无法被移除。"
-
-#, fuzzy
-msgid "Directory is not in jail."
-msgstr "目录不在监禁中。"
-
-msgid "Directory cannot be removed."
-msgstr "目录无法被移除。"
-
-msgid "Not enough memory to open image."
-msgstr "没有足够的空间打开图片。"
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "文件 %s 没有压缩到 zip 中。"
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "尝试解压缩一个目录 %s"
-
-msgid "Unable to write destination file."
-msgstr "无法写入目标文件。"
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "无法写入目标目录，权限被拒绝。"
-
-msgid "Not enough memory to open file."
-msgstr "没有足够空间打开文件。"
-
-msgid "File does not exist"
-msgstr "文件不存在"
-
-msgid "Cannot read file"
-msgstr "无法读取文件"
-
-msgid "Directory does not exist"
-msgstr "目录不存在"
-
-msgid "Cannot read directory"
-msgstr "无法读取目录"
 
 msgid "administrator"
 msgstr "管理员"
@@ -2481,6 +2543,10 @@ msgstr "权限被拒绝。"
 msgid "You are not the file owner."
 msgstr "您不是文件的所有者。"
 
+#, fuzzy
+msgid "This file is not allowed."
+msgstr "上传此文件是不允许的。"
+
 msgid "New file already exists."
 msgstr "新文件已经存在。"
 
@@ -2544,6 +2610,10 @@ msgid "No namespace specified"
 msgstr "没有指定命名空间"
 
 #, fuzzy
+msgid "Unable to retrieve workspaces:"
+msgstr "无法检索设置："
+
+#, fuzzy
 msgid "Unable to retrieve namespaces:"
 msgstr "无法检索设置："
 
@@ -2597,11 +2667,132 @@ msgstr "无法读取摘要文件。"
 msgid "Invalid digests file."
 msgstr "无效的摘要文件。"
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "无效的设置命名空间：%s"
+
+#, fuzzy
+msgid "Unable to retrieve prefs:"
+msgstr "无法检索设置："
+
+#, fuzzy, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s 不是一个有效的设置 ID"
+
+#, fuzzy
+msgid "No workspace specified"
+msgstr "没有指定命名空间"
+
 msgid "SQLite Database Schema cannot be upgraded."
 msgstr "SQLite 数据库模式无法被升级。"
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "自动升级时出现错误："
+
+msgid "Unable to open directory."
+msgstr "无法打开目录。"
+
+msgid "Unable to create directory."
+msgstr "无法创建目录。"
+
+msgid "File is not writable."
+msgstr "文件不可写。"
+
+msgid "Unable to open file."
+msgstr "无法打开文件。"
+
+msgid "Not an uploaded file."
+msgstr "不是一个上传的文件。"
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "上传的文件超过了最大允许的文件大小。"
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "上传的文件仅被部分上传。"
+
+msgid "No file was uploaded."
+msgstr "没有文件被上传。"
+
+msgid "Missing a temporary folder."
+msgstr "忽略了一个临时文件夹。"
+
+msgid "Failed to write file to disk."
+msgstr "写入文件到磁盘失败。"
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s 不是一个目录。"
+
+msgid "Uploading this file is not allowed."
+msgstr "上传此文件是不允许的。"
+
+#, fuzzy
+msgid "Destination directory is not in jail."
+msgstr "目标目录不在监禁中。"
+
+msgid "File already exists."
+msgstr "文件已存在。"
+
+msgid "Cannot write in this directory."
+msgstr "无法在这个目录写入。"
+
+msgid "An error occurred while writing the file."
+msgstr "写入文件时出现错误。"
+
+msgid "Source file does not exist."
+msgstr "源文件不存在。"
+
+#, fuzzy
+msgid "File is not in jail."
+msgstr "文件不再监禁中。"
+
+msgid "Destination directory is not writable."
+msgstr "目标目录不可写。"
+
+msgid "Unable to rename file."
+msgstr "无法重命名文件。"
+
+msgid "File cannot be removed."
+msgstr "文件无法被移除。"
+
+#, fuzzy
+msgid "Directory is not in jail."
+msgstr "目录不在监禁中。"
+
+msgid "Directory cannot be removed."
+msgstr "目录无法被移除。"
+
+msgid "Not enough memory to open image."
+msgstr "没有足够的空间打开图片。"
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "文件 %s 没有压缩到 zip 中。"
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "尝试解压缩一个目录 %s"
+
+msgid "Unable to write destination file."
+msgstr "无法写入目标文件。"
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "无法写入目标目录，权限被拒绝。"
+
+msgid "Not enough memory to open file."
+msgstr "没有足够空间打开文件。"
+
+msgid "File does not exist"
+msgstr "文件不存在"
+
+msgid "Cannot read file"
+msgstr "无法读取文件"
+
+msgid "Directory does not exist"
+msgstr "目录不存在"
+
+msgid "Cannot read directory"
+msgstr "无法读取目录"
 
 msgid "Unable to connect to database"
 msgstr ""
@@ -2612,6 +2803,15 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "login"
+#~ msgstr "登录"
+
+#~ msgid "filter"
+#~ msgstr "过滤"
+
+#~ msgid "View site"
+#~ msgstr "浏览网站"
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "<strong>%s</strong> 文件已经存在。如果您需要在这个文件中重新设置任何配置项目，请先删除它或者您可以<a href=\"%s\">继续安装</a>。"

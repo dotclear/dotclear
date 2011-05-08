@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2008-10-02 17:21+0530\n"
 "Last-Translator: Veeven <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -175,6 +176,9 @@ msgstr "ఐచ్ఛికం"
 
 msgid "Comment"
 msgstr "వ్యాఖ్య"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "HTML సంకేతాన్ని పాఠ్యంగా చూపిస్తాం మరియు వెబ్ చిరునామాలని ఆటోమెటిగ్గా లింకులుగా చూపిస్తాం."

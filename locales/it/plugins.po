@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -243,9 +244,6 @@ msgstr ""
 msgid "Published comments RSS feed"
 msgstr ""
 
-msgid "Blogroll"
-msgstr ""
-
 msgid "manage blogroll"
 msgstr ""
 
@@ -393,7 +391,10 @@ msgstr ""
 msgid "Lang"
 msgstr ""
 
-msgid "Save order"
+msgid "position"
+msgstr ""
+
+msgid "select this link"
 msgstr ""
 
 msgid "Delete selected links"
@@ -442,6 +443,9 @@ msgid "Predefined styles"
 msgstr ""
 
 msgid "Apply code"
+msgstr ""
+
+msgid "Choose a predefined style"
 msgstr ""
 
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
@@ -628,6 +632,9 @@ msgstr ""
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr ""
 
+msgid "Copy this code:"
+msgstr ""
+
 msgid "default"
 msgstr ""
 
@@ -651,27 +658,6 @@ msgid "Uploaded image is not 800 pixels wide."
 msgstr ""
 
 msgid "Unable to open image."
-msgstr ""
-
-msgid "External media"
-msgstr ""
-
-msgid "External media selector"
-msgstr ""
-
-msgid "Supported media services"
-msgstr ""
-
-msgid "Please enter the URL of the page containing the video you want to include in your post."
-msgstr ""
-
-msgid "Page URL:"
-msgstr ""
-
-msgid "Media alignment"
-msgstr ""
-
-msgid "Media title"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
@@ -977,7 +963,15 @@ msgstr ""
 msgid "Empty directory"
 msgstr ""
 
-msgid "Pages"
+msgid "New page"
+msgstr ""
+
+#, php-format
+msgid "%d page"
+msgstr ""
+
+#, php-format
+msgid "%d pages"
 msgstr ""
 
 msgid "manage pages"
@@ -1004,10 +998,10 @@ msgstr ""
 msgid "No page"
 msgstr ""
 
-msgid "Are you sure you want to delete selected pages?"
+msgid "select this page"
 msgstr ""
 
-msgid "New page"
+msgid "Are you sure you want to delete selected pages?"
 msgstr ""
 
 msgid "Selected pages action:"
@@ -1248,6 +1242,18 @@ msgid "CSS files"
 msgstr ""
 
 msgid "JavaScript files"
+msgstr ""
+
+msgid "Preferences successfully updated"
+msgstr ""
+
+msgid "Preferences definition successfully updated"
+msgstr ""
+
+msgid "user preferences"
+msgstr ""
+
+msgid "global preferences"
 msgstr ""
 
 msgid "Presentation widgets"

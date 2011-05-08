@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:36+0200\n"
 "PO-Revision-Date: 2010-01-16 19:14+0800\n"
 "Last-Translator: lainme <lainme993@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -245,9 +246,6 @@ msgstr "垃圾评论 RSS feed"
 msgid "Published comments RSS feed"
 msgstr "发表的评论 RSS feed"
 
-msgid "Blogroll"
-msgstr "博客链接"
-
 msgid "manage blogroll"
 msgstr "管理博客链接"
 
@@ -395,8 +393,13 @@ msgstr "URL"
 msgid "Lang"
 msgstr "语言"
 
-msgid "Save order"
-msgstr "保存顺序"
+#, fuzzy
+msgid "position"
+msgstr "页面位置"
+
+#, fuzzy
+msgid "select this link"
+msgstr "删除此标签"
 
 msgid "Delete selected links"
 msgstr "删除选定的链接"
@@ -445,6 +448,10 @@ msgstr "预定义的样式"
 
 msgid "Apply code"
 msgstr "应用代码"
+
+#, fuzzy
+msgid "Choose a predefined style"
+msgstr "预定义的样式"
 
 #, fuzzy
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
@@ -632,6 +639,9 @@ msgstr "配置导入／导出"
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "您可以使用如下代码分享您的配置。要应用一个配置 ，粘贴代码，点击“应用代码”并保存。"
 
+msgid "Copy this code:"
+msgstr ""
+
 msgid "default"
 msgstr "默认"
 
@@ -657,27 +667,6 @@ msgstr ""
 
 msgid "Unable to open image."
 msgstr "无法打开图片。"
-
-msgid "External media"
-msgstr "外部媒体"
-
-msgid "External media selector"
-msgstr "外部媒体选择器"
-
-msgid "Supported media services"
-msgstr "支持的媒体服务"
-
-msgid "Please enter the URL of the page containing the video you want to include in your post."
-msgstr "请输入您要包含到文章中的视频页面的 URL。"
-
-msgid "Page URL:"
-msgstr "页面 URL："
-
-msgid "Media alignment"
-msgstr "媒体对齐"
-
-msgid "Media title"
-msgstr "媒体标题"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "检查文章链接的 trackback 源"
@@ -984,8 +973,16 @@ msgstr "清空模板缓存目录"
 msgid "Empty directory"
 msgstr "清空目录"
 
-msgid "Pages"
-msgstr "页面"
+msgid "New page"
+msgstr "新页面"
+
+#, fuzzy, php-format
+msgid "%d page"
+msgstr "编辑页面"
+
+#, fuzzy, php-format
+msgid "%d pages"
+msgstr "编辑页面"
 
 msgid "manage pages"
 msgstr "管理页面"
@@ -1011,11 +1008,12 @@ msgstr "发布时间"
 msgid "No page"
 msgstr "没有页面"
 
+#, fuzzy
+msgid "select this page"
+msgstr "删除此标签"
+
 msgid "Are you sure you want to delete selected pages?"
 msgstr "您确定要删除选定的页面吗？"
-
-msgid "New page"
-msgstr "新页面"
 
 msgid "Selected pages action:"
 msgstr "选定的页面动作："
@@ -1259,6 +1257,21 @@ msgstr "CSS 文件"
 msgid "JavaScript files"
 msgstr "JavaScript 文件"
 
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "成功更新页面。"
+
+#, fuzzy
+msgid "Preferences definition successfully updated"
+msgstr "成功更新设置定义"
+
+msgid "user preferences"
+msgstr ""
+
+#, fuzzy
+msgid "global preferences"
+msgstr "全局设置"
+
 msgid "Presentation widgets"
 msgstr "展示小工具"
 
@@ -1410,6 +1423,36 @@ msgstr "顺序"
 
 msgid "Remove widget"
 msgstr "移除小工具"
+
+#~ msgid "Blogroll"
+#~ msgstr "博客链接"
+
+#~ msgid "Save order"
+#~ msgstr "保存顺序"
+
+#~ msgid "External media"
+#~ msgstr "外部媒体"
+
+#~ msgid "External media selector"
+#~ msgstr "外部媒体选择器"
+
+#~ msgid "Supported media services"
+#~ msgstr "支持的媒体服务"
+
+#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
+#~ msgstr "请输入您要包含到文章中的视频页面的 URL。"
+
+#~ msgid "Page URL:"
+#~ msgstr "页面 URL："
+
+#~ msgid "Media alignment"
+#~ msgstr "媒体对齐"
+
+#~ msgid "Media title"
+#~ msgstr "媒体标题"
+
+#~ msgid "Pages"
+#~ msgstr "页面"
 
 #~ msgid "Unsupported service"
 #~ msgstr "不支持的服务"

@@ -5,10 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2010-08-09 19:49-0000\n"
 "Last-Translator: ben_griffith <ben_griffith@topmail.co.uk>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -244,9 +245,6 @@ msgstr "Junk-Kommentare per RSS-Feed abonnieren"
 msgid "Published comments RSS feed"
 msgstr "Veröffentlichte Kommentare per RSS-Feed abonnieren"
 
-msgid "Blogroll"
-msgstr "Blogroll"
-
 msgid "manage blogroll"
 msgstr "Blogroll verwalten"
 
@@ -394,8 +392,13 @@ msgstr "URL"
 msgid "Lang"
 msgstr "Sprache"
 
-msgid "Save order"
-msgstr "Anordnung speichern"
+#, fuzzy
+msgid "position"
+msgstr "Position der Seite"
+
+#, fuzzy
+msgid "select this link"
+msgstr "Diesen Tag löschen"
 
 msgid "Delete selected links"
 msgstr "Lösche ausgewählte Links"
@@ -444,6 +447,10 @@ msgstr "Vordefinierter Style"
 
 msgid "Apply code"
 msgstr "Code einfügen"
+
+#, fuzzy
+msgid "Choose a predefined style"
+msgstr "Vordefinierter Style"
 
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr "Aus folgendem Grund konnten die Grafiken nicht erstellt werden. Du kannst die Hintergrund-Eigenschaften nicht ändern."
@@ -629,6 +636,9 @@ msgstr "Konfiguration importieren / exportieren"
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "Du kannst zum schützen Deiner Konfiguration den folgenden Code benutzen und in eine Datei speichern. Um eine Konfiguration zu importieren, füge den Code ein, klicke auf \"Code einfügen\" und \"speichern\"."
 
+msgid "Copy this code:"
+msgstr ""
+
 msgid "default"
 msgstr "Standard"
 
@@ -653,27 +663,6 @@ msgstr "Hochgeladenes Bild ist nicht 800px breit."
 
 msgid "Unable to open image."
 msgstr "Kann Grafik nicht öffnen."
-
-msgid "External media"
-msgstr "Externes Medium"
-
-msgid "External media selector"
-msgstr "Externe Medienauswahl"
-
-msgid "Supported media services"
-msgstr "Unterstützte Medienservices"
-
-msgid "Please enter the URL of the page containing the video you want to include in your post."
-msgstr "Bitte gebe einen URL der Seite ein von der Du das Video einfügen willst."
-
-msgid "Page URL:"
-msgstr "URL der Seite:"
-
-msgid "Media alignment"
-msgstr "Ausrichtung des Mediums"
-
-msgid "Media title"
-msgstr "Titel des Mediums"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Überprüft die Trackback-Quelle für einen Link zu den Beitrag."
@@ -979,8 +968,16 @@ msgstr "Leere Template Cache-Verzeichnis"
 msgid "Empty directory"
 msgstr "Leere Verzeichnis"
 
-msgid "Pages"
-msgstr "Seiten"
+msgid "New page"
+msgstr "Neue Seite"
+
+#, fuzzy, php-format
+msgid "%d page"
+msgstr "Seite bearbeiten"
+
+#, fuzzy, php-format
+msgid "%d pages"
+msgstr "Seite bearbeiten"
 
 msgid "manage pages"
 msgstr "Verwaltet Seiten"
@@ -1006,11 +1003,12 @@ msgstr "Datum der Veröffentlichung"
 msgid "No page"
 msgstr "Keine Seite"
 
+#, fuzzy
+msgid "select this page"
+msgstr "Diesen Tag löschen"
+
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Bist Du Dir sicher die ausgewählte Seite zu löschen?"
-
-msgid "New page"
-msgstr "Neue Seite"
 
 msgid "Selected pages action:"
 msgstr "Wähle eine Aktion der Seiten:"
@@ -1254,6 +1252,21 @@ msgstr "CSS Dateien"
 msgid "JavaScript files"
 msgstr "JavaScript Dateien"
 
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "Die Seite wurde erfolgreiche aktualisiert."
+
+#, fuzzy
+msgid "Preferences definition successfully updated"
+msgstr "Definierte Einstellungen erfolgreich aktualisiert"
+
+msgid "user preferences"
+msgstr ""
+
+#, fuzzy
+msgid "global preferences"
+msgstr "Globale Einstellungen"
+
 msgid "Presentation widgets"
 msgstr "Präsentation Widgets"
 
@@ -1405,6 +1418,36 @@ msgstr "sortiere"
 
 msgid "Remove widget"
 msgstr "Entferne Widget"
+
+#~ msgid "Blogroll"
+#~ msgstr "Blogroll"
+
+#~ msgid "Save order"
+#~ msgstr "Anordnung speichern"
+
+#~ msgid "External media"
+#~ msgstr "Externes Medium"
+
+#~ msgid "External media selector"
+#~ msgstr "Externe Medienauswahl"
+
+#~ msgid "Supported media services"
+#~ msgstr "Unterstützte Medienservices"
+
+#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
+#~ msgstr "Bitte gebe einen URL der Seite ein von der Du das Video einfügen willst."
+
+#~ msgid "Page URL:"
+#~ msgstr "URL der Seite:"
+
+#~ msgid "Media alignment"
+#~ msgstr "Ausrichtung des Mediums"
+
+#~ msgid "Media title"
+#~ msgstr "Titel des Mediums"
+
+#~ msgid "Pages"
+#~ msgstr "Seiten"
 
 #~ msgid "Unsupported service"
 #~ msgstr "Nicht unterstützter Service"

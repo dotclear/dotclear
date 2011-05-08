@@ -12,6 +12,7 @@ msgstr ""
 "PO-Revision-Date: 2008-06-29 18:40+0200\n"
 "Last-Translator: Muráncsik Sebestyén <dr.graf@lajt.hu>, 2009\n"
 "Language-Team: Hungarian\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -176,6 +177,9 @@ msgstr "elhagyható"
 
 msgid "Comment"
 msgstr "Megjegyzés"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "A HTML kódot szövegként fogja megjeleníteni és a webcímeket automatikusan átkonvertálja a rendszer!"
