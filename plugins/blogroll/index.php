@@ -406,6 +406,8 @@ else {
 	'</form>';
 }
 echo '</div>';
+
+dcPage::helpBlock('blogroll');
 ?>
 
 </body>
