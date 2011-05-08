@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-05-08 18:35+0200\n"
-"PO-Revision-Date: 2011-04-19 13:57+0100\n"
+"PO-Revision-Date: 2011-05-08 19:27+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -656,9 +656,8 @@ msgstr "après"
 msgid "before"
 msgstr "avant"
 
-#, fuzzy
 msgid "position: "
-msgstr "position de %s"
+msgstr "position : "
 
 msgid "Entry does not exist."
 msgstr "Ce billet n'existe pas."
@@ -778,9 +777,8 @@ msgstr "Les afficher."
 msgid "Selected comments action:"
 msgstr "Action sur les commentaires sélectionnés :"
 
-#, fuzzy
 msgid "action: "
-msgstr "Action"
+msgstr "action : "
 
 msgid "Comments"
 msgstr "Commentaires"
@@ -837,7 +835,7 @@ msgid "Remind me later"
 msgstr "Me le rappeler plus tard"
 
 msgid "information about this version"
-msgstr ""
+msgstr "Information à propos de cette version"
 
 msgid "Some plugins are installed twice:"
 msgstr "Ces extensions sont installées en double :"
@@ -934,13 +932,11 @@ msgid ""
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Ceci est un commentaire</p><p>Pour le supprimer, connectez-vous et affichez les commentaires de votre blog. Vous pourrez alors le supprimer ou le modifier.</p>"
 
-#, fuzzy
 msgid "Pages"
-msgstr "Page(s)"
+msgstr "Pages"
 
-#, fuzzy
 msgid "Blogroll"
-msgstr "Blog"
+msgstr "Liens / Blogroll"
 
 msgid "Dotclear Install"
 msgstr "Installation de Dotclear"
@@ -1419,9 +1415,8 @@ msgstr "Choisissez un ou plusieurs blogs pour lesquels les utilisateurs suivants
 msgid "set permissions"
 msgstr "définir les permissions"
 
-#, fuzzy
 msgid "select"
-msgstr "sélectionné"
+msgstr "sélectionner"
 
 msgid "No content found on this plugin."
 msgstr "Aucun contenu pour cette extension."
@@ -1649,13 +1644,11 @@ msgstr "en attente"
 msgid "junk"
 msgstr "indésirable"
 
-#, fuzzy
 msgid "select this comment"
-msgstr "Modifier ce commentaire"
+msgstr "Sélectionner ce commentaire"
 
-#, fuzzy
 msgid "select this trackback"
-msgstr "Accepter les rétroliens"
+msgstr "Sélectionner ce rétrolien"
 
 msgid "Edit this comment"
 msgstr "Modifier ce commentaire"
@@ -1814,9 +1807,8 @@ msgstr "Mes favoris"
 msgid "position of %s"
 msgstr "position de %s"
 
-#, fuzzy
 msgid "Save order"
-msgstr "Réordonner"
+msgstr "Enregistrer l'ordre"
 
 msgid "Delete selected favorites"
 msgstr "Retirer les favoris sélectionnés"
@@ -2044,12 +2036,11 @@ msgstr "Utilisateur :"
 msgid "Logout"
 msgstr "Déconnexion"
 
-#, fuzzy
 msgid "Safe mode"
-msgstr "Connexion en mode sans échec"
+msgstr "Mode de secours"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
-msgstr ""
+msgstr "Vous êtes en mode de secours. Tous les plugins ont été temporairement désactivés. N'oubliez-pas de vous déconnecter puis de vous reconnecter normalement pour retrouver toutes les fonctionnalités"
 
 #, php-format
 msgid "Thank you for using %s."
@@ -2509,9 +2500,8 @@ msgstr "Permission refusée."
 msgid "You are not the file owner."
 msgstr "Vous n'êtes pas le propriétaire de ce fichier."
 
-#, fuzzy
 msgid "This file is not allowed."
-msgstr "L'envoi de ce fichier n'est pas autorisé."
+msgstr "Ce fichier n'est pas autorisé."
 
 msgid "New file already exists."
 msgstr "Le nouveau fichier existe déjà."
