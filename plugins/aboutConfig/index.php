@@ -135,7 +135,7 @@ foreach ($settings as $ns => $s)
 }
 ?>
 </table>
-<p><input type="submit" value="<?php echo __('save'); ?>" />
+<p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="hidden" name="p" value="aboutConfig" />
 <?php echo $core->formNonce(); ?></p>
 </form>
@@ -173,7 +173,7 @@ foreach ($settings as $ns => $s)
 }
 ?>
 </table>
-<p><input type="submit" value="<?php echo __('save'); ?>" />
+<p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="hidden" name="p" value="aboutConfig" />
 <?php echo $core->formNonce(); ?></p>
 </form>
