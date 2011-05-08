@@ -390,13 +390,11 @@ msgstr "URL"
 msgid "Lang"
 msgstr "Langue"
 
-#, fuzzy
 msgid "position"
-msgstr "Position de la page"
+msgstr "position"
 
-#, fuzzy
 msgid "select this link"
-msgstr "Supprimer ce tag"
+msgstr "sélectionner ce lien"
 
 msgid "Delete selected links"
 msgstr "Supprimer les liens sélectionnés"
@@ -634,7 +632,7 @@ msgid "You can share your configuration using the following code. To apply a con
 msgstr "Vous pouvez partager votre configuration en utilisant le code suivant. Pour appliquer une configuration, copiez le code, cliquez sur \"Appliquer le code\" et enregistrez."
 
 msgid "Copy this code:"
-msgstr ""
+msgstr "Copier ce code :"
 
 msgid "default"
 msgstr "par défaut"
@@ -1000,9 +998,8 @@ msgstr "Date de publication"
 msgid "No page"
 msgstr "Aucune page"
 
-#, fuzzy
 msgid "select this page"
-msgstr "Supprimer ce tag"
+msgstr "sélectionner cette page"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Êtes-vous certain de vouloir supprimer les pages sélectionnées ?"
