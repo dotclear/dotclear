@@ -244,10 +244,10 @@ msgid "Published comments RSS feed"
 msgstr "Fil RSS des commentaires publiés"
 
 msgid "Blogroll"
-msgstr "Liens"
+msgstr "Liens / Blogroll"
 
 msgid "manage blogroll"
-msgstr "gestion de la liste de liens"
+msgstr "gérer la liste de liens"
 
 msgid "Links"
 msgstr "Liens"
