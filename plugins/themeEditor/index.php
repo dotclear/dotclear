@@ -95,7 +95,7 @@ else
 	if ($file['w'])
 	{
 		echo
-		'<p><input type="submit" name="write" value="'.__('save').' (s)" accesskey="s" /> '.
+		'<p><input type="submit" name="write" value="'.__('Save').' (s)" accesskey="s" /> '.
 		$core->formNonce().
 		($file['type'] ? form::hidden(array($file['type']),$file['f']) : '').
 		'</p>';
