@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2010-08-18 17:43+0100\n"
 "Last-Translator: Luca Andrea Rossi <rossilucaandrea@gmail.com>\n"
 "Language-Team: Charles Hebert <charles.hebert@gmail.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -175,6 +176,9 @@ msgstr "facoltativo"
 msgid "Comment"
 msgstr "Commento"
 
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "Il codice HTML è mostrato come testo e gli indirizzi web sono automaticamente convertiti."
 
@@ -237,4 +241,3 @@ msgstr "È necessario fornire un indirizzo email valido."
 
 msgid "Read"
 msgstr "Leggi"
-

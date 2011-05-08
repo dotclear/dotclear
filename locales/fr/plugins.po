@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-14 22:01+0100\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -243,9 +243,6 @@ msgstr "Fil RSS des commentaires indésirables"
 msgid "Published comments RSS feed"
 msgstr "Fil RSS des commentaires publiés"
 
-msgid "Blogroll"
-msgstr "Liens / Blogroll"
-
 msgid "manage blogroll"
 msgstr "gérer la liste de liens"
 
@@ -393,8 +390,13 @@ msgstr "URL"
 msgid "Lang"
 msgstr "Langue"
 
-msgid "Save order"
-msgstr "Enregistrer l'ordre"
+#, fuzzy
+msgid "position"
+msgstr "Position de la page"
+
+#, fuzzy
+msgid "select this link"
+msgstr "Supprimer ce tag"
 
 msgid "Delete selected links"
 msgstr "Supprimer les liens sélectionnés"
@@ -443,6 +445,9 @@ msgstr "Styles prédéfinis"
 
 msgid "Apply code"
 msgstr "Appliquer le code"
+
+msgid "Choose a predefined style"
+msgstr "Sélectionnez un style prédéfini"
 
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr "Pour les raisons qui suivent, les images ne pouvant être créées, vous ne pourrez pas changer certaines propriétés."
@@ -627,6 +632,9 @@ msgstr "Import / export de configuration"
 
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "Vous pouvez partager votre configuration en utilisant le code suivant. Pour appliquer une configuration, copiez le code, cliquez sur \"Appliquer le code\" et enregistrez."
+
+msgid "Copy this code:"
+msgstr ""
 
 msgid "default"
 msgstr "par défaut"
@@ -957,8 +965,16 @@ msgstr "Vider le répertoire du cache des templates"
 msgid "Empty directory"
 msgstr "Vider le répertoire"
 
-msgid "Pages"
-msgstr "Pages"
+msgid "New page"
+msgstr "Nouvelle page"
+
+#, php-format
+msgid "%d page"
+msgstr "%d page"
+
+#, php-format
+msgid "%d pages"
+msgstr "%d pages"
 
 msgid "manage pages"
 msgstr "gérer les pages"
@@ -984,11 +1000,12 @@ msgstr "Date de publication"
 msgid "No page"
 msgstr "Aucune page"
 
+#, fuzzy
+msgid "select this page"
+msgstr "Supprimer ce tag"
+
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Êtes-vous certain de vouloir supprimer les pages sélectionnées ?"
-
-msgid "New page"
-msgstr "Nouvelle page"
 
 msgid "Selected pages action:"
 msgstr "Action sur les pages sélectionnées :"
@@ -1230,6 +1247,18 @@ msgstr "Fichiers CSS"
 msgid "JavaScript files"
 msgstr "Fichiers JavaScript"
 
+msgid "Preferences successfully updated"
+msgstr "Préférences mises à jour avec succès"
+
+msgid "Preferences definition successfully updated"
+msgstr "Définition des préférences mise à jour avec succès"
+
+msgid "user preferences"
+msgstr "préférences utilisateur"
+
+msgid "global preferences"
+msgstr "préférences globales"
+
 msgid "Presentation widgets"
 msgstr "Widgets de présentation"
 
@@ -1382,17 +1411,14 @@ msgstr "ordre"
 msgid "Remove widget"
 msgstr "Supprimer le widget"
 
-msgid "Preferences successfully updated"
-msgstr "Préférences mises à jour avec succès"
+#~ msgid "Blogroll"
+#~ msgstr "Liens / Blogroll"
 
-msgid "Preferences definition successfully updated"
-msgstr "Définition des préférences mise à jour avec succès"
+#~ msgid "Save order"
+#~ msgstr "Enregistrer l'ordre"
 
-msgid "user preferences"
-msgstr "préférences utilisateur"
-
-msgid "global preferences"
-msgstr "préférences globales"
+#~ msgid "Pages"
+#~ msgstr "Pages"
 
 #~ msgid "External media"
 #~ msgstr "Média externe"
@@ -1420,12 +1446,3 @@ msgstr "préférences globales"
 
 #~ msgid "Invalid page URL"
 #~ msgstr "URL de la page non valide"
-
-msgid "Choose a predefined style"
-msgstr "Sélectionnez un style prédéfini"
-
-msgid "%d pages"
-msgstr "%d pages"
-
-msgid "%d page"
-msgstr "%d page"

@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2009-09-16 12:33+0600\n"
 "Last-Translator: Adnan Shameem <needadnan@gmail.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -57,6 +58,9 @@ msgstr "আপনি আপনার পাসওয়ার্ড পরিবর
 msgid "In order to login, you have to change your password now."
 msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
 
+msgid "Safe Mode can only be used for super administrators."
+msgstr ""
+
 msgid "Wrong username or password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
 
@@ -84,17 +88,36 @@ msgstr "আবার পাসওয়ার্ড:"
 msgid "change"
 msgstr "পরিবর্তন করুন"
 
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
 msgid "Remember my ID on this computer"
 msgstr "আমার ID এই কম্পিউটারে মনে রেখো"
 
-msgid "login"
-msgstr "লগইন"
+#, fuzzy
+msgid "log in"
+msgstr "ব্লগের নাম"
 
 msgid "You must accept cookies in order to use the private area."
 msgstr ""
 
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
 msgid "I forgot my password"
 msgstr "আমার পাসওয়ার্ড ভুলে গেছি"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 msgid "New blog"
 msgstr "নতুন ব্লগ"
@@ -126,7 +149,7 @@ msgstr "ব্লগ URL:"
 msgid "Blog description:"
 msgstr "ব্লগের বিবরণ:"
 
-msgid "save"
+msgid "Save"
 msgstr "সংরক্ষণ করুন"
 
 msgid "No such blog ID"
@@ -206,7 +229,7 @@ msgstr "ব্লগ সেটিংস"
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr ""
 
-msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr ""
 
 msgid "Blog has been successfully created."
@@ -512,7 +535,8 @@ msgstr ""
 msgid "Blogs per page"
 msgstr ""
 
-msgid "filter"
+#, fuzzy
+msgid "Apply filters"
 msgstr "ফিল্টার"
 
 msgid "No blog"
@@ -588,9 +612,6 @@ msgstr ""
 msgid "Top level"
 msgstr ""
 
-msgid "Save"
-msgstr "সংরক্ষণ করুন"
-
 msgid "Remove a category"
 msgstr ""
 
@@ -641,6 +662,10 @@ msgstr "পরে"
 
 msgid "before"
 msgstr "আগে"
+
+#, fuzzy
+msgid "position: "
+msgstr "বিবরণ:"
 
 msgid "Entry does not exist."
 msgstr "এই এন্ট্রিটি নেই।"
@@ -696,7 +721,7 @@ msgstr "অবস্থা:"
 msgid "Comment:"
 msgstr "মন্তব্য"
 
-msgid "delete"
+msgid "Delete"
 msgstr "মুছে ফেলুন"
 
 msgid "comment"
@@ -726,8 +751,8 @@ msgstr ""
 msgid "mark as junk"
 msgstr ""
 
-msgid "Comments"
-msgstr "মন্তব্য"
+msgid "delete"
+msgstr "মুছে ফেলুন"
 
 msgid "Type:"
 msgstr "ধরণ:"
@@ -754,6 +779,13 @@ msgstr "সেগুলো দেখাও।"
 msgid "Selected comments action:"
 msgstr ""
 
+#, fuzzy
+msgid "action: "
+msgstr "বিবরণ:"
+
+msgid "Comments"
+msgstr "মন্তব্য"
+
 #, php-format
 msgid "%d comment"
 msgstr "%d টি মন্তব্য"
@@ -765,10 +797,10 @@ msgstr "%d টি মন্তব্য"
 msgid "New entry"
 msgstr "নতুন এন্ট্রি"
 
-msgid "User preferences"
+msgid "My preferences"
 msgstr ""
 
-msgid "Documentation"
+msgid "Documentation and support"
 msgstr ""
 
 msgid "Latest news"
@@ -795,6 +827,23 @@ msgstr "নিচের প্লাগইনগুলো ইন্সটল ক
 msgid "Following plugins have not been installed:"
 msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s এসে গেছে!"
+
+msgid "Upgrade now"
+msgstr "আপগ্রেড করুন"
+
+msgid "Remind me later"
+msgstr "পড়ে মনে করিয়ে দিও"
+
+msgid "information about this version"
+msgstr ""
+
+#, fuzzy
+msgid "Some plugins are installed twice:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
+
 msgid "Quick entry"
 msgstr "দ্রুত এন্ট্রি"
 
@@ -806,20 +855,6 @@ msgstr "ক্যাটাগরি:"
 
 msgid "save and publish"
 msgstr "সেভ ও প্রকাশ করুন"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s এসে গেছে!"
-
-msgid "Upgrade now"
-msgstr "আপগ্রেড করুন"
-
-msgid "Remind me later"
-msgstr "পড়ে মনে করিয়ে দিও"
-
-#, fuzzy
-msgid "Some plugins are installed twice:"
-msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
 
 #, php-format
 msgid "PHP version is %s (5.0 or earlier needed)."
@@ -904,6 +939,14 @@ msgstr ""
 "<p>এটি মুছতে হলে, লগইন করুন এবং ব্লগের মন্তব্য দেখুন। তারপর আপনি মন্তব্যটি মুছে ফেলতে বা এডিট করতে পারবেন।</p>"
 
 #, fuzzy
+msgid "Pages"
+msgstr "পেজ(সমূহ)"
+
+#, fuzzy
+msgid "Blogroll"
+msgstr "ব্লগ"
+
+#, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear ইন্সটলেশন"
 
@@ -940,6 +983,9 @@ msgstr "সর্বশেষ আপডেট"
 #, fuzzy
 msgid "Username and password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
+
+msgid "save"
+msgstr "সংরক্ষণ করুন"
 
 msgid "All done!"
 msgstr "কাজ শেষ!"
@@ -1060,9 +1106,6 @@ msgstr "ভাষা"
 msgid "Action"
 msgstr ""
 
-msgid "Delete"
-msgstr "মুছে ফেলুন"
-
 msgid "Install or upgrade languages"
 msgstr "ভাষাসমূহ ইন্সটল বা আপগ্রেড"
 
@@ -1170,6 +1213,9 @@ msgstr ""
 msgid "Add files"
 msgstr ""
 
+msgid "Please take care to publish media that you own and that are not protected by copyright."
+msgstr ""
+
 msgid "Choose a file:"
 msgstr ""
 
@@ -1182,9 +1228,6 @@ msgstr "প্রাইভেট"
 
 msgid "send"
 msgstr "পাঠাও"
-
-msgid "Please take care to publish media that you own and that are not protected by copyright."
-msgstr ""
 
 msgid "New directory"
 msgstr "নতুন ডিরেক্টরি"
@@ -1387,6 +1430,10 @@ msgstr ""
 msgid "set permissions"
 msgstr ""
 
+#, fuzzy
+msgid "select"
+msgstr "সব সিলেক্ট করুন"
+
 msgid "No content found on this plugin."
 msgstr "এই প্লাগইনে কোনো কন্টেন্ট নেই।"
 
@@ -1486,6 +1533,10 @@ msgstr ""
 
 msgid "Link URL:"
 msgstr "লিংক URL:"
+
+#, fuzzy
+msgid "Link title:"
+msgstr "ফাইলের শিরোনাম:"
 
 msgid "Link language:"
 msgstr "লিংক ভাষা:"
@@ -1610,6 +1661,14 @@ msgstr "অপেক্ষমান"
 msgid "junk"
 msgstr "জাঙ্ক"
 
+#, fuzzy
+msgid "select this comment"
+msgstr "এই মন্তব্য এডিট করুন"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "শূণ্য ট্র্যাকব্যাক"
+
 msgid "Edit this comment"
 msgstr "এই মন্তব্য এডিট করুন"
 
@@ -1699,8 +1758,41 @@ msgstr ""
 msgid "Personal information has been successfully updated."
 msgstr ""
 
+#, fuzzy
+msgid "Personal options has been successfully updated."
+msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
+
+#, fuzzy
+msgid "Favorites have been successfully added."
+msgstr "ফাইলগুলো সফলভাবে আপলোড করা হয়েছে।"
+
+#, fuzzy
+msgid "Favorites have been successfully updated."
+msgstr "ফাইলটি সফলভাবে আপডেট করা হয়েছে।"
+
+#, fuzzy
+msgid "Favorites have been successfully removed."
+msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা হয়েছে।"
+
+#, fuzzy
+msgid "Default favorites have been successfully updated."
+msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+
+msgid "My profile"
+msgstr ""
+
 msgid "Display name:"
 msgstr ""
+
+msgid "User language:"
+msgstr "ইউজারের ভাষা:"
+
+msgid "User timezone:"
+msgstr "ইউজারের টাইমজোন:"
+
+#, fuzzy
+msgid "My options"
+msgstr "সার্চ অপশন"
 
 msgid "Preferred format:"
 msgstr ""
@@ -1711,13 +1803,69 @@ msgstr "ডিফল্ট এন্ট্রি স্ট্যাটাস:"
 msgid "Entry edit field height:"
 msgstr ""
 
-msgid "User language:"
-msgstr "ইউজারের ভাষা:"
-
-msgid "User timezone:"
-msgstr "ইউজারের টাইমজোন:"
-
 msgid "Enable WYSIWYG mode"
+msgstr ""
+
+msgid "Accessibility options"
+msgstr ""
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr ""
+
+msgid "Numeric fields will allow to type the elements' ordering number."
+msgstr ""
+
+#, fuzzy
+msgid "Dashboard modules"
+msgstr "ড্যাশবোর্ড"
+
+msgid "Display documentation links"
+msgstr ""
+
+#, fuzzy
+msgid "Display Dotclear news"
+msgstr "আপডেট Dotclear"
+
+msgid "Display quick entry form"
+msgstr ""
+
+msgid "My favorites"
+msgstr ""
+
+#, php-format
+msgid "position of %s"
+msgstr ""
+
+#, fuzzy
+msgid "Save order"
+msgstr "পুনর্বিন্যাস"
+
+msgid "Delete selected favorites"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
+
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
+msgstr ""
+
+msgid "Define as default favorites"
+msgstr ""
+
+msgid "Currently no personal favorites."
+msgstr ""
+
+msgid "Default favorites"
+msgstr ""
+
+msgid "Those favorites are displayed when My Favorites list is empty."
+msgstr ""
+
+msgid "Available favorites"
+msgstr ""
+
+msgid "Add to my favorites"
 msgstr ""
 
 msgid "Search"
@@ -1910,14 +2058,23 @@ msgstr ""
 msgid "Blogs:"
 msgstr "ব্লগসমূহ:"
 
-msgid "View site"
-msgstr "সাইট দেখাও"
+msgid "Go to site"
+msgstr ""
+
+msgid "new window"
+msgstr ""
 
 msgid "User:"
 msgstr "ইউজার:"
 
 msgid "Logout"
 msgstr "লগআউট"
+
+msgid "Safe mode"
+msgstr ""
+
+msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
+msgstr ""
 
 #, php-format
 msgid "Thank you for using %s."
@@ -1935,7 +2092,7 @@ msgstr "লুকাও"
 msgid "help"
 msgstr "সাহায্য"
 
-msgid "No selection"
+msgid "no selection"
 msgstr ""
 
 msgid "select all"
@@ -2015,6 +2172,9 @@ msgid "XHTML content is valid."
 msgstr ""
 
 msgid "There are XHTML markup errors."
+msgstr ""
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -2204,6 +2364,9 @@ msgstr "ডাটাবেজের ধরণ:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
+msgid "Languages"
+msgstr "ভাষাসমূহ"
+
 msgid "System"
 msgstr ""
 
@@ -2211,112 +2374,6 @@ msgid "Blog"
 msgstr "ব্লগ"
 
 msgid "Updates"
-msgstr ""
-
-msgid "Languages"
-msgstr "ভাষাসমূহ"
-
-msgid "Unable to open directory."
-msgstr ""
-
-msgid "Unable to create directory."
-msgstr ""
-
-msgid "File is not writable."
-msgstr ""
-
-msgid "Unable to open file."
-msgstr ""
-
-msgid "Not an uploaded file."
-msgstr ""
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-msgid "No file was uploaded."
-msgstr ""
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr ""
-
-msgid "Uploading this file is not allowed."
-msgstr ""
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-#, fuzzy
-msgid "File already exists."
-msgstr "\"%s\" নামে আরেকজন ইউজার ইতিমধ্যেই আছেন।"
-
-msgid "Cannot write in this directory."
-msgstr ""
-
-msgid "An error occurred while writing the file."
-msgstr ""
-
-msgid "Source file does not exist."
-msgstr ""
-
-msgid "File is not in jail."
-msgstr ""
-
-msgid "Destination directory is not writable."
-msgstr ""
-
-msgid "Unable to rename file."
-msgstr ""
-
-msgid "File cannot be removed."
-msgstr ""
-
-msgid "Directory is not in jail."
-msgstr ""
-
-msgid "Directory cannot be removed."
-msgstr ""
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr ""
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr ""
-
-msgid "Unable to write destination file."
-msgstr ""
-
-msgid "Unable to write in target directory, permission denied."
-msgstr ""
-
-msgid "Not enough memory to open file."
-msgstr ""
-
-msgid "File does not exist"
-msgstr ""
-
-msgid "Cannot read file"
-msgstr ""
-
-msgid "Directory does not exist"
-msgstr ""
-
-msgid "Cannot read directory"
 msgstr ""
 
 msgid "administrator"
@@ -2480,6 +2537,9 @@ msgstr ""
 msgid "You are not the file owner."
 msgstr ""
 
+msgid "This file is not allowed."
+msgstr ""
+
 msgid "New file already exists."
 msgstr ""
 
@@ -2542,6 +2602,9 @@ msgstr ""
 msgid "No namespace specified"
 msgstr ""
 
+msgid "Unable to retrieve workspaces:"
+msgstr ""
+
 msgid "Unable to retrieve namespaces:"
 msgstr ""
 
@@ -2595,10 +2658,127 @@ msgstr ""
 msgid "Invalid digests file."
 msgstr ""
 
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr ""
+
+msgid "Unable to retrieve prefs:"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%s is not a valid pref id"
+msgstr "ফাইলটি বৈধ নয়"
+
+msgid "No workspace specified"
+msgstr ""
+
 msgid "SQLite Database Schema cannot be upgraded."
 msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
+msgstr ""
+
+msgid "Unable to open directory."
+msgstr ""
+
+msgid "Unable to create directory."
+msgstr ""
+
+msgid "File is not writable."
+msgstr ""
+
+msgid "Unable to open file."
+msgstr ""
+
+msgid "Not an uploaded file."
+msgstr ""
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr ""
+
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+msgid "No file was uploaded."
+msgstr ""
+
+msgid "Missing a temporary folder."
+msgstr ""
+
+msgid "Failed to write file to disk."
+msgstr ""
+
+#, php-format
+msgid "%s is not a directory."
+msgstr ""
+
+msgid "Uploading this file is not allowed."
+msgstr ""
+
+msgid "Destination directory is not in jail."
+msgstr ""
+
+#, fuzzy
+msgid "File already exists."
+msgstr "\"%s\" নামে আরেকজন ইউজার ইতিমধ্যেই আছেন।"
+
+msgid "Cannot write in this directory."
+msgstr ""
+
+msgid "An error occurred while writing the file."
+msgstr ""
+
+msgid "Source file does not exist."
+msgstr ""
+
+msgid "File is not in jail."
+msgstr ""
+
+msgid "Destination directory is not writable."
+msgstr ""
+
+msgid "Unable to rename file."
+msgstr ""
+
+msgid "File cannot be removed."
+msgstr ""
+
+msgid "Directory is not in jail."
+msgstr ""
+
+msgid "Directory cannot be removed."
+msgstr ""
+
+msgid "Not enough memory to open image."
+msgstr ""
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr ""
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr ""
+
+msgid "Unable to write destination file."
+msgstr ""
+
+msgid "Unable to write in target directory, permission denied."
+msgstr ""
+
+msgid "Not enough memory to open file."
+msgstr ""
+
+msgid "File does not exist"
+msgstr ""
+
+msgid "Cannot read file"
+msgstr ""
+
+msgid "Directory does not exist"
+msgstr ""
+
+msgid "Cannot read directory"
 msgstr ""
 
 msgid "Unable to connect to database"
@@ -2610,6 +2790,12 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "login"
+#~ msgstr "লগইন"
+
+#~ msgid "View site"
+#~ msgstr "সাইট দেখাও"
 
 #~ msgid "Login:"
 #~ msgstr "লগইন:"

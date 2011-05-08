@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2008-06-29 18:39+0200\n"
 "Last-Translator: Benjamin Bank <benjaminbank@gmail.com> | Murancsik Sebestyen <dr.graf@lajt.hu>\n"
 "Language-Team: Hungarian\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,6 +59,10 @@ msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akk
 msgid "In order to login, you have to change your password now."
 msgstr ""
 
+#, fuzzy
+msgid "Safe Mode can only be used for super administrators."
+msgstr "Nem vagy szuper adminisztrátor."
+
 msgid "Wrong username or password"
 msgstr "Hibás felhasználónév vagy jelszó"
 
@@ -86,17 +91,36 @@ msgstr "Jelszó megerősítése:"
 msgid "change"
 msgstr "vissza"
 
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
 msgid "Remember my ID on this computer"
 msgstr "Emlékezz rám"
 
-msgid "login"
-msgstr "bejelentkezés"
+#, fuzzy
+msgid "log in"
+msgstr "Blognév"
 
 msgid "You must accept cookies in order to use the private area."
 msgstr "Engedélyezned kell a sütiket a belépéshez."
 
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
 msgid "I forgot my password"
 msgstr "Elfelejtettem a jelszavam"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 msgid "New blog"
 msgstr "Új blog"
@@ -128,7 +152,8 @@ msgstr "Blog URL-je:"
 msgid "Blog description:"
 msgstr "Blog leírása:"
 
-msgid "save"
+#, fuzzy
+msgid "Save"
 msgstr "mentés"
 
 msgid "No such blog ID"
@@ -209,7 +234,7 @@ msgstr "Blog beállításai"
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr ""
 
-msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr ""
 
 msgid "Blog has been successfully created."
@@ -516,8 +541,9 @@ msgstr "Keresés:"
 msgid "Blogs per page"
 msgstr "Blogok oldalanként"
 
-msgid "filter"
-msgstr "szűrő"
+#, fuzzy
+msgid "Apply filters"
+msgstr "Fájlok hozzáadása"
 
 msgid "No blog"
 msgstr "Nincs blog"
@@ -600,10 +626,6 @@ msgstr "Bejegyzés keresése:"
 msgid "Top level"
 msgstr ""
 
-#, fuzzy
-msgid "Save"
-msgstr "mentés"
-
 msgid "Remove a category"
 msgstr "Kategória törlése"
 
@@ -661,6 +683,10 @@ msgstr "előtte"
 
 msgid "before"
 msgstr "utána"
+
+#, fuzzy
+msgid "position: "
+msgstr "MP3 beosztása"
 
 msgid "Entry does not exist."
 msgstr "A bejegyzés nem létezik."
@@ -722,8 +748,8 @@ msgstr "Állapot:"
 msgid "Comment:"
 msgstr "Hozzászólás:"
 
-msgid "delete"
-msgstr "törlés"
+msgid "Delete"
+msgstr "Törlés"
 
 msgid "comment"
 msgstr "megjegyzés"
@@ -752,8 +778,8 @@ msgstr "függőként megjelöl"
 msgid "mark as junk"
 msgstr "szemétként megjelöl"
 
-msgid "Comments"
-msgstr "Hozzászólások"
+msgid "delete"
+msgstr "törlés"
 
 msgid "Type:"
 msgstr "Típus:"
@@ -780,6 +806,13 @@ msgstr "Megmutat"
 msgid "Selected comments action:"
 msgstr "Teendő a kiválasztott hozzászólásokkal"
 
+#, fuzzy
+msgid "action: "
+msgstr "Feladat"
+
+msgid "Comments"
+msgstr "Hozzászólások"
+
 #, php-format
 msgid "%d comment"
 msgstr "%d megjegyzés"
@@ -791,10 +824,12 @@ msgstr "%d megjegyzés"
 msgid "New entry"
 msgstr "Új bejegyzés"
 
-msgid "User preferences"
+#, fuzzy
+msgid "My preferences"
 msgstr "Felhasználó beállításai"
 
-msgid "Documentation"
+#, fuzzy
+msgid "Documentation and support"
 msgstr "Dokumentáció"
 
 msgid "Latest news"
@@ -821,6 +856,23 @@ msgstr "A következő kiegészítőket telepítettem ::"
 msgid "Following plugins have not been installed:"
 msgstr "A következő kiegészítőket NEM telepítettem ::"
 
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s már elérhető!"
+
+msgid "Upgrade now"
+msgstr "Frissítés"
+
+msgid "Remind me later"
+msgstr "Értesíts később"
+
+msgid "information about this version"
+msgstr ""
+
+#, fuzzy
+msgid "Some plugins are installed twice:"
+msgstr "A következő kiegészítőket telepítettem ::"
+
 #, fuzzy
 msgid "Quick entry"
 msgstr "Új bejegyzés"
@@ -833,20 +885,6 @@ msgstr "Kategória:"
 
 msgid "save and publish"
 msgstr "mentsd és punlikáld"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s már elérhető!"
-
-msgid "Upgrade now"
-msgstr "Frissítés"
-
-msgid "Remind me later"
-msgstr "Értesíts később"
-
-#, fuzzy
-msgid "Some plugins are installed twice:"
-msgstr "A következő kiegészítőket telepítettem ::"
 
 #, php-format
 msgid "PHP version is %s (5.0 or earlier needed)."
@@ -931,6 +969,14 @@ msgstr ""
 "<p>Ahhoz, hogy törölhesd, jelentkezz be és nézd meg a blog hozzászólásait. Aztán törölheted vagy átírhatod őket!</p>"
 
 #, fuzzy
+msgid "Pages"
+msgstr "Oldal"
+
+#, fuzzy
+msgid "Blogroll"
+msgstr "Blog"
+
+#, fuzzy
 msgid "Dotclear Install"
 msgstr "DotClear telepítés"
 
@@ -968,6 +1014,9 @@ msgstr "Legutóbbi frisítés"
 #, fuzzy
 msgid "Username and password"
 msgstr "Hibás felhasználónév vagy jelszó"
+
+msgid "save"
+msgstr "mentés"
 
 msgid "All done!"
 msgstr "Minden rendben!"
@@ -1092,9 +1141,6 @@ msgstr "Nyelv?"
 msgid "Action"
 msgstr "Feladat"
 
-msgid "Delete"
-msgstr "Törlés"
-
 msgid "Install or upgrade languages"
 msgstr "Nyelvcsomag telepítése vagy frissítése"
 
@@ -1204,6 +1250,9 @@ msgstr "Fájlok rendezése:"
 msgid "Add files"
 msgstr "Fájlok hozzáadása"
 
+msgid "Please take care to publish media that you own and that are not protected by copyright."
+msgstr "Vigyázz a feltöltött anyagaidra, amelyek a sajátjaid és nem védettek!"
+
 msgid "Choose a file:"
 msgstr "Válassz fájlt:"
 
@@ -1216,9 +1265,6 @@ msgstr "Privát"
 
 msgid "send"
 msgstr "küld"
-
-msgid "Please take care to publish media that you own and that are not protected by copyright."
-msgstr "Vigyázz a feltöltött anyagaidra, amelyek a sajátjaid és nem védettek!"
 
 msgid "New directory"
 msgstr "Új mappa"
@@ -1422,6 +1468,10 @@ msgstr "Válassz legalább egy blogot, hogy melyikhez szeretnéd a(z) %s jogait 
 msgid "set permissions"
 msgstr "jogok beállítása"
 
+#, fuzzy
+msgid "select"
+msgstr "kiválasztott"
+
 msgid "No content found on this plugin."
 msgstr "nem talátam tartalmat a kiegészítőhöz."
 
@@ -1522,6 +1572,10 @@ msgstr "Legtöbbet használt"
 
 msgid "Link URL:"
 msgstr "Hivatkozás URL-je:"
+
+#, fuzzy
+msgid "Link title:"
+msgstr "Fájltípus:"
 
 msgid "Link language:"
 msgstr "Hivatkozás nyelve:"
@@ -1648,6 +1702,14 @@ msgstr "függő"
 msgid "junk"
 msgstr "szemét"
 
+#, fuzzy
+msgid "select this comment"
+msgstr "Megjegyzés szerkesztése"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Trackback-ek engedélyezve"
+
 msgid "Edit this comment"
 msgstr "Megjegyzés szerkesztése"
 
@@ -1744,8 +1806,41 @@ msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akk
 msgid "Personal information has been successfully updated."
 msgstr "A személyes információk frissültek!"
 
+#, fuzzy
+msgid "Personal options has been successfully updated."
+msgstr "A személyes információk frissültek!"
+
+#, fuzzy
+msgid "Favorites have been successfully added."
+msgstr "A fájlokat feltöltöttem."
+
+#, fuzzy
+msgid "Favorites have been successfully updated."
+msgstr "A fájl sikeresen frissült."
+
+#, fuzzy
+msgid "Favorites have been successfully removed."
+msgstr "A fájlokat letöröltem."
+
+#, fuzzy
+msgid "Default favorites have been successfully updated."
+msgstr "A kisképek sikeresen frissültek."
+
+msgid "My profile"
+msgstr ""
+
 msgid "Display name:"
 msgstr "Név:"
+
+msgid "User language:"
+msgstr "Nyelv:"
+
+msgid "User timezone:"
+msgstr "Időzóna:"
+
+#, fuzzy
+msgid "My options"
+msgstr "Keresési feltételek"
 
 msgid "Preferred format:"
 msgstr "Kedvelt forma:"
@@ -1756,14 +1851,73 @@ msgstr "Alapértelmezett bejegyzési státusz:"
 msgid "Entry edit field height:"
 msgstr "Szerkesztő magassága:"
 
-msgid "User language:"
-msgstr "Nyelv:"
-
-msgid "User timezone:"
-msgstr "Időzóna:"
-
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG mód"
+
+msgid "Accessibility options"
+msgstr ""
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr ""
+
+msgid "Numeric fields will allow to type the elements' ordering number."
+msgstr ""
+
+#, fuzzy
+msgid "Dashboard modules"
+msgstr "Beállítópanel"
+
+#, fuzzy
+msgid "Display documentation links"
+msgstr "Dokumentáció"
+
+#, fuzzy
+msgid "Display Dotclear news"
+msgstr "Dotclear frissítés"
+
+msgid "Display quick entry form"
+msgstr ""
+
+msgid "My favorites"
+msgstr ""
+
+#, php-format
+msgid "position of %s"
+msgstr ""
+
+#, fuzzy
+msgid "Save order"
+msgstr "Rendezés mentése"
+
+#, fuzzy
+msgid "Delete selected favorites"
+msgstr "Kategória törlése"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
+msgstr ""
+
+msgid "Define as default favorites"
+msgstr ""
+
+msgid "Currently no personal favorites."
+msgstr ""
+
+msgid "Default favorites"
+msgstr ""
+
+msgid "Those favorites are displayed when My Favorites list is empty."
+msgstr ""
+
+#, fuzzy
+msgid "Available favorites"
+msgstr "Elérhető méretek:"
+
+msgid "Add to my favorites"
+msgstr ""
 
 msgid "Search"
 msgstr "Keresés"
@@ -1958,14 +2112,23 @@ msgstr "Blog megváltoztatása"
 msgid "Blogs:"
 msgstr "Blog:"
 
-msgid "View site"
-msgstr "Oldal megtekintése"
+msgid "Go to site"
+msgstr ""
+
+msgid "new window"
+msgstr ""
 
 msgid "User:"
 msgstr "Felhasználó"
 
 msgid "Logout"
 msgstr "Kijelentkezés"
+
+msgid "Safe mode"
+msgstr ""
+
+msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
+msgstr ""
 
 #, php-format
 msgid "Thank you for using %s."
@@ -1983,7 +2146,8 @@ msgstr "rejt"
 msgid "help"
 msgstr "súgó"
 
-msgid "No selection"
+#, fuzzy
+msgid "no selection"
 msgstr "Nincs kijelölés"
 
 msgid "select all"
@@ -2064,6 +2228,9 @@ msgstr "XHTML tartalom érvényes."
 
 msgid "There are XHTML markup errors."
 msgstr "Vannak hibák az XHTML kódban."
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Vannak nem mentett változásaid."
@@ -2253,6 +2420,10 @@ msgstr "Adatbázis típusa:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
+#, fuzzy
+msgid "Languages"
+msgstr "Nyelv?"
+
 msgid "System"
 msgstr "Rendszer"
 
@@ -2261,113 +2432,6 @@ msgstr "Blog"
 
 msgid "Updates"
 msgstr "Frissítések"
-
-#, fuzzy
-msgid "Languages"
-msgstr "Nyelv?"
-
-msgid "Unable to open directory."
-msgstr "Nem lehet megnyitni a mappát."
-
-msgid "Unable to create directory."
-msgstr "Nem lehet létrehozni a mappát."
-
-msgid "File is not writable."
-msgstr "A fájl nem írható."
-
-msgid "Unable to open file."
-msgstr "Nem lehet megnyitni a fájlt."
-
-msgid "Not an uploaded file."
-msgstr "Nem egy feltöltött fájl."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "A feltöltött fájl mérete meghaladja a maximálisan feltölthető fájl méretét."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "A feltöltött fájl csak részben érkezett meg a kiszolgálóra."
-
-msgid "No file was uploaded."
-msgstr "Nem érkezett fájl a kiszolgálóra."
-
-msgid "Missing a temporary folder."
-msgstr "Az ideiglenes mappa hiányzik!"
-
-msgid "Failed to write file to disk."
-msgstr "Nem tudok a lemezre írni."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "a(z) %s nem mappa."
-
-msgid "Uploading this file is not allowed."
-msgstr "Nem engedélyezett feltölteni ezt a fájlt."
-
-msgid "Destination directory is not in jail."
-msgstr "Hibás célmappanév."
-
-#, fuzzy
-msgid "File already exists."
-msgstr "Az új fájl már létezik."
-
-msgid "Cannot write in this directory."
-msgstr "Nem tudok a mappába írni."
-
-msgid "An error occurred while writing the file."
-msgstr "Hiba történt a fájl írása közben."
-
-msgid "Source file does not exist."
-msgstr "A forrásfájl nem létezik."
-
-msgid "File is not in jail."
-msgstr "Hibás fájlnév."
-
-msgid "Destination directory is not writable."
-msgstr "A célmappa nem írható."
-
-msgid "Unable to rename file."
-msgstr "Nem lehet átnevezni a fájlt."
-
-msgid "File cannot be removed."
-msgstr "A fájlt nem lehet eltávolítani."
-
-msgid "Directory is not in jail."
-msgstr "Hibás mappanév."
-
-msgid "Directory cannot be removed."
-msgstr "A mappát nem lehet eltávolítani."
-
-msgid "Not enough memory to open image."
-msgstr "Nincs elég memória a kép megnyitásához."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "A(z) %s nincs zip-be tömörítve."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Megpróbálom a(z) %s mappába kicsomagolni."
-
-msgid "Unable to write destination file."
-msgstr "Nem lehet írni a célfájlba."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Nem lehet írni a célmappába, mert nincs elég jog hozzá."
-
-msgid "Not enough memory to open file."
-msgstr "Nincs elég memória a fájl megnyitásához."
-
-msgid "File does not exist"
-msgstr "A fájl nem létezik"
-
-msgid "Cannot read file"
-msgstr "Nem lehet a fájlt olvasni"
-
-msgid "Directory does not exist"
-msgstr "A mappa nem létezik"
-
-msgid "Cannot read directory"
-msgstr "Nem lehet a mappát olvasni"
 
 msgid "administrator"
 msgstr "adminisztrátor"
@@ -2531,6 +2595,10 @@ msgstr "Hozzáférés megtagadva."
 msgid "You are not the file owner."
 msgstr "Nem te vagy a fájl tulajdonosa."
 
+#, fuzzy
+msgid "This file is not allowed."
+msgstr "Nem engedélyezett feltölteni ezt a fájlt."
+
 msgid "New file already exists."
 msgstr "Az új fájl már létezik."
 
@@ -2594,6 +2662,10 @@ msgid "No namespace specified"
 msgstr "Nincs meghatározva név"
 
 #, fuzzy
+msgid "Unable to retrieve workspaces:"
+msgstr "Nem lehet a beállításokat lekérni:"
+
+#, fuzzy
 msgid "Unable to retrieve namespaces:"
 msgstr "Nem lehet a beállításokat lekérni:"
 
@@ -2652,11 +2724,130 @@ msgstr "Nem lehet digest fájlt olvasni."
 msgid "Invalid digests file."
 msgstr "Érvénytelen digest fájl."
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Hibás beállítási név: %s"
+
+#, fuzzy
+msgid "Unable to retrieve prefs:"
+msgstr "Nem lehet a beállításokat lekérni:"
+
+#, fuzzy, php-format
+msgid "%s is not a valid pref id"
+msgstr "A(z) %s nem érvényes beállítókulcs"
+
+#, fuzzy
+msgid "No workspace specified"
+msgstr "Nincs meghatározva név"
+
 msgid "SQLite Database Schema cannot be upgraded."
 msgstr "SQLite Database Schema-t nem lehet frissíteni."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Valami elszállt automata frissítés közben:"
+
+msgid "Unable to open directory."
+msgstr "Nem lehet megnyitni a mappát."
+
+msgid "Unable to create directory."
+msgstr "Nem lehet létrehozni a mappát."
+
+msgid "File is not writable."
+msgstr "A fájl nem írható."
+
+msgid "Unable to open file."
+msgstr "Nem lehet megnyitni a fájlt."
+
+msgid "Not an uploaded file."
+msgstr "Nem egy feltöltött fájl."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "A feltöltött fájl mérete meghaladja a maximálisan feltölthető fájl méretét."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "A feltöltött fájl csak részben érkezett meg a kiszolgálóra."
+
+msgid "No file was uploaded."
+msgstr "Nem érkezett fájl a kiszolgálóra."
+
+msgid "Missing a temporary folder."
+msgstr "Az ideiglenes mappa hiányzik!"
+
+msgid "Failed to write file to disk."
+msgstr "Nem tudok a lemezre írni."
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "a(z) %s nem mappa."
+
+msgid "Uploading this file is not allowed."
+msgstr "Nem engedélyezett feltölteni ezt a fájlt."
+
+msgid "Destination directory is not in jail."
+msgstr "Hibás célmappanév."
+
+#, fuzzy
+msgid "File already exists."
+msgstr "Az új fájl már létezik."
+
+msgid "Cannot write in this directory."
+msgstr "Nem tudok a mappába írni."
+
+msgid "An error occurred while writing the file."
+msgstr "Hiba történt a fájl írása közben."
+
+msgid "Source file does not exist."
+msgstr "A forrásfájl nem létezik."
+
+msgid "File is not in jail."
+msgstr "Hibás fájlnév."
+
+msgid "Destination directory is not writable."
+msgstr "A célmappa nem írható."
+
+msgid "Unable to rename file."
+msgstr "Nem lehet átnevezni a fájlt."
+
+msgid "File cannot be removed."
+msgstr "A fájlt nem lehet eltávolítani."
+
+msgid "Directory is not in jail."
+msgstr "Hibás mappanév."
+
+msgid "Directory cannot be removed."
+msgstr "A mappát nem lehet eltávolítani."
+
+msgid "Not enough memory to open image."
+msgstr "Nincs elég memória a kép megnyitásához."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "A(z) %s nincs zip-be tömörítve."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Megpróbálom a(z) %s mappába kicsomagolni."
+
+msgid "Unable to write destination file."
+msgstr "Nem lehet írni a célfájlba."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Nem lehet írni a célmappába, mert nincs elég jog hozzá."
+
+msgid "Not enough memory to open file."
+msgstr "Nincs elég memória a fájl megnyitásához."
+
+msgid "File does not exist"
+msgstr "A fájl nem létezik"
+
+msgid "Cannot read file"
+msgstr "Nem lehet a fájlt olvasni"
+
+msgid "Directory does not exist"
+msgstr "A mappa nem létezik"
+
+msgid "Cannot read directory"
+msgstr "Nem lehet a mappát olvasni"
 
 msgid "Unable to connect to database"
 msgstr ""
@@ -2667,6 +2858,15 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "login"
+#~ msgstr "bejelentkezés"
+
+#~ msgid "filter"
+#~ msgstr "szűrő"
+
+#~ msgid "View site"
+#~ msgstr "Oldal megtekintése"
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "A <strong>%s</strong> fájl már létezik. ha szükséged van bármilyen konfigurációs elem megváltoztatására, előbb töröld vagy <a href=\"%s\">folytathatod a telepítést</a>."
@@ -2691,9 +2891,6 @@ msgstr ""
 
 #~ msgid "1 entry"
 #~ msgstr "Egy bejegyzés"
-
-#~ msgid "Delete selected categories"
-#~ msgstr "Kategória törlése"
 
 #~ msgid "Edit category"
 #~ msgstr "Kategória szerkesztése"

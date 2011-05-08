@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2008-07-13 12:42+0200\n"
 "Last-Translator: Nnidŷu <nnidyu@asylumeternity.net>\n"
 "Language-Team: Polish\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -244,9 +245,6 @@ msgstr "Kanał RSS dla niechcianych komentarzy"
 msgid "Published comments RSS feed"
 msgstr "Kanał RSS dla opublikowanych komentarzy"
 
-msgid "Blogroll"
-msgstr "Blogroll"
-
 msgid "manage blogroll"
 msgstr "zarządzaj odnośnikami"
 
@@ -397,8 +395,12 @@ msgid "Lang"
 msgstr "Język"
 
 #, fuzzy
-msgid "Save order"
-msgstr "kolejność"
+msgid "position"
+msgstr "Dyspozycja mediów"
+
+#, fuzzy
+msgid "select this link"
+msgstr "wybierz wszystkie odnośniki"
 
 msgid "Delete selected links"
 msgstr "Usuń wybrane odnośniki"
@@ -448,6 +450,10 @@ msgstr "Style predefiniowane"
 
 msgid "Apply code"
 msgstr "Zastosuj kod"
+
+#, fuzzy
+msgid "Choose a predefined style"
+msgstr "Style predefiniowane"
 
 #, fuzzy
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
@@ -634,6 +640,9 @@ msgstr "Import / eksport konfiguracji"
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "Możesz podzielić się swoją konfiguracją z innymi używając poniższego kodu. Aby zastosować konfigurację, wklej kod, kliknij na \"Zastosuj kod\" i zapisz."
 
+msgid "Copy this code:"
+msgstr ""
+
 msgid "default"
 msgstr ""
 
@@ -659,28 +668,6 @@ msgstr ""
 
 msgid "Unable to open image."
 msgstr "Nie można otworzyć obrazu."
-
-msgid "External media"
-msgstr "Media zewnętrzne"
-
-msgid "External media selector"
-msgstr "Selektor mediów zewnętrznych"
-
-#, fuzzy
-msgid "Supported media services"
-msgstr "Nieobsługiwana usługa"
-
-msgid "Please enter the URL of the page containing the video you want to include in your post."
-msgstr "Wprowadź adres URL strony zawierającej plik wideo, który chcesz dołączyć do swojego wpisu."
-
-msgid "Page URL:"
-msgstr "Adres URL:"
-
-msgid "Media alignment"
-msgstr "Wyrównanie mediów"
-
-msgid "Media title"
-msgstr "Tytuł mediów"
 
 msgid "Checks trackback source for a link to the post"
 msgstr ""
@@ -1001,8 +988,16 @@ msgstr ""
 msgid "Empty directory"
 msgstr ""
 
-msgid "Pages"
-msgstr "Strony"
+msgid "New page"
+msgstr "Nowa strona"
+
+#, fuzzy, php-format
+msgid "%d page"
+msgstr "Edytuj stronę"
+
+#, fuzzy, php-format
+msgid "%d pages"
+msgstr "Edytuj stronę"
 
 msgid "manage pages"
 msgstr "zarządzaj stronami"
@@ -1030,11 +1025,12 @@ msgid "No page"
 msgstr "Brak stron"
 
 #, fuzzy
+msgid "select this page"
+msgstr "Usuń ten tag"
+
+#, fuzzy
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Jesteś pewien, że chcesz usunąć wybrane odnośniki?"
-
-msgid "New page"
-msgstr "Nowa strona"
 
 msgid "Selected pages action:"
 msgstr ""
@@ -1286,6 +1282,21 @@ msgstr "Pliki CSS"
 msgid "JavaScript files"
 msgstr "Pliki JavaScript"
 
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "Strona została pomyślnie zaktualizowana."
+
+#, fuzzy
+msgid "Preferences definition successfully updated"
+msgstr "Definicja ustawień pomyślnie zaktualizowana"
+
+msgid "user preferences"
+msgstr ""
+
+#, fuzzy
+msgid "global preferences"
+msgstr "ustawienia globalne"
+
 msgid "Presentation widgets"
 msgstr "Widgety prezentacji"
 
@@ -1443,6 +1454,38 @@ msgstr "kolejność"
 msgid "Remove widget"
 msgstr "Usuń widget"
 
+#~ msgid "Blogroll"
+#~ msgstr "Blogroll"
+
+#, fuzzy
+#~ msgid "Save order"
+#~ msgstr "kolejność"
+
+#~ msgid "External media"
+#~ msgstr "Media zewnętrzne"
+
+#~ msgid "External media selector"
+#~ msgstr "Selektor mediów zewnętrznych"
+
+#, fuzzy
+#~ msgid "Supported media services"
+#~ msgstr "Nieobsługiwana usługa"
+
+#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
+#~ msgstr "Wprowadź adres URL strony zawierającej plik wideo, który chcesz dołączyć do swojego wpisu."
+
+#~ msgid "Page URL:"
+#~ msgstr "Adres URL:"
+
+#~ msgid "Media alignment"
+#~ msgstr "Wyrównanie mediów"
+
+#~ msgid "Media title"
+#~ msgstr "Tytuł mediów"
+
+#~ msgid "Pages"
+#~ msgstr "Strony"
+
 #~ msgid "Unsupported service"
 #~ msgstr "Nieobsługiwana usługa"
 
@@ -1463,9 +1506,6 @@ msgstr "Usuń widget"
 
 #~ msgid "Add a new category"
 #~ msgstr "Dodaj nową kategorię"
-
-#~ msgid "select all links"
-#~ msgstr "wybierz wszystkie odnośniki"
 
 #~ msgid "Search"
 #~ msgstr "Wyszukiwanie"

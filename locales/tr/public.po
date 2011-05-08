@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2009-09-17 23:29+0200\n"
 "Last-Translator: ozgur ulukir <ozgurulukir@yahoo.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -171,6 +172,9 @@ msgstr "seçimlik"
 
 msgid "Comment"
 msgstr "Ahkam"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "HTML kodu metin olarak gösterilecek ve vebadresleri otomatik dönüştürülecek."

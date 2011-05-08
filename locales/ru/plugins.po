@@ -5,10 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-14 22:01+0100\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ihar <chi27@open.by>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -242,9 +243,6 @@ msgstr "RSS спам комментариев"
 msgid "Published comments RSS feed"
 msgstr "RSS опубликованных комментариев"
 
-msgid "Blogroll"
-msgstr "Ссылки"
-
 msgid "manage blogroll"
 msgstr "управление ссылками"
 
@@ -392,8 +390,13 @@ msgstr "URL"
 msgid "Lang"
 msgstr "Язык"
 
-msgid "Save order"
-msgstr "Сохранить порядок"
+#, fuzzy
+msgid "position"
+msgstr "Позиция страницы"
+
+#, fuzzy
+msgid "select this link"
+msgstr "Удалить этот тег"
 
 msgid "Delete selected links"
 msgstr "Удалить выбранные ссылки"
@@ -442,6 +445,10 @@ msgstr "Предустановленные стили"
 
 msgid "Apply code"
 msgstr "Применить код"
+
+#, fuzzy
+msgid "Choose a predefined style"
+msgstr "Предустановленные стили"
 
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr "Иизображение не может быть создано по следующим причинам. Вы не сможете изменять некоторые свойства фона."
@@ -626,6 +633,9 @@ msgstr "Импортировать/экспортировать настройк
 
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "Вы можете сделать настройки общими, используя следующий код. Чтобы применить настройки, вставьте код, нажмите на \"Применить код\" и сохраните."
+
+msgid "Copy this code:"
+msgstr ""
 
 msgid "default"
 msgstr "по умолчанию"
@@ -956,8 +966,16 @@ msgstr "Очистить директорию кеша шаблонов"
 msgid "Empty directory"
 msgstr "Очистить директорию"
 
-msgid "Pages"
-msgstr "Страницы"
+msgid "New page"
+msgstr "Новая страница"
+
+#, fuzzy, php-format
+msgid "%d page"
+msgstr "Редактировать страницу"
+
+#, fuzzy, php-format
+msgid "%d pages"
+msgstr "Редактировать страницу"
 
 msgid "manage pages"
 msgstr "управление страницами"
@@ -983,11 +1001,12 @@ msgstr "Дата публикации"
 msgid "No page"
 msgstr "Нет страниц"
 
+#, fuzzy
+msgid "select this page"
+msgstr "Удалить этот тег"
+
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Вы уверены, что хотите удалить выбранные страницы?"
-
-msgid "New page"
-msgstr "Новая страница"
 
 msgid "Selected pages action:"
 msgstr "Действия над выбранными страницами:"
@@ -1229,6 +1248,21 @@ msgstr "CSS файлы"
 msgid "JavaScript files"
 msgstr "JavaScript файлы"
 
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "Страница успешно обновлена."
+
+#, fuzzy
+msgid "Preferences definition successfully updated"
+msgstr "Настройки успешно обновлены"
+
+msgid "user preferences"
+msgstr ""
+
+#, fuzzy
+msgid "global preferences"
+msgstr "глобальные настройки"
+
 msgid "Presentation widgets"
 msgstr "Виджеты оформления"
 
@@ -1381,36 +1415,59 @@ msgstr "порядок"
 msgid "Remove widget"
 msgstr "Удалить виджет"
 
+#~ msgid "Blogroll"
+#~ msgstr "Ссылки"
+
+#~ msgid "Save order"
+#~ msgstr "Сохранить порядок"
+
+#~ msgid "Pages"
+#~ msgstr "Страницы"
+
 #~ msgid "External media"
 #~ msgstr "Внешние медиа"
+
 #~ msgid "External media selector"
 #~ msgstr "Внешний медиа селектор"
+
 #~ msgid "Supported media services"
 #~ msgstr "Поддерживаемые медиа сервисы"
+
 #~ msgid "Please enter the URL of the page containing the video you want to include in your post."
 #~ msgstr "Пожалуйста, введите URL страницы, содержащей видео файл, который вы хотите добавить в запись."
+
 #~ msgid "Page URL:"
 #~ msgstr "URL страницы:"
+
 #~ msgid "Media alignment"
 #~ msgstr "Расположение медиа"
+
 #~ msgid "Media title"
 #~ msgstr "Заголовок медиа"
+
 #~ msgid "Unsupported service"
 #~ msgstr "Сервис не поддержуется"
+
 #~ msgid "Invalid page URL"
 #~ msgstr "Неверный URL страницы"
+
 #~ msgid "Add a new category"
 #~ msgstr "Добавить новую категорию"
+
 #~ msgid "Empty file name"
 #~ msgstr "Пустое имя файла"
+
 #~ msgid "This file already exists"
 #~ msgstr "Этот файл уже существует"
+
 #~ msgid "It can be downloaded here:"
 #~ msgstr "Это можно загрузить здесь:"
+
 #~ msgid "The backup file has been created in your public directory."
 #~ msgstr "Резервный файл был создан в публичной директории."
+
 #~ msgid "more"
 #~ msgstr "больше"
+
 #~ msgid "Categories list"
 #~ msgstr "Список категорий"
-

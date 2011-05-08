@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-15 22:40+0100\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2011-04-12 17:48+0200\n"
 "Last-Translator: Ihar <chi27@open.by>\n"
 "Language-Team: ru_RU <en@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -58,6 +59,10 @@ msgstr "Введите ваш текущий пароль для входа."
 msgid "In order to login, you have to change your password now."
 msgstr "Чтобы войти в систему, смените ваш пароль"
 
+#, fuzzy
+msgid "Safe Mode can only be used for super administrators."
+msgstr "Вы не супер администратор."
+
 msgid "Wrong username or password"
 msgstr "Неправильное имя пользователя либо пароль"
 
@@ -85,17 +90,36 @@ msgstr "Подтвердите пароль:"
 msgid "change"
 msgstr "изменить"
 
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
 msgid "Remember my ID on this computer"
 msgstr "Запомнить меня на этом компьютере"
 
-msgid "login"
-msgstr "логин"
+#, fuzzy
+msgid "log in"
+msgstr "Название блога"
 
 msgid "You must accept cookies in order to use the private area."
 msgstr "Вы должны включить cookies, чтобы получить доступ в админ панель."
 
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
 msgid "I forgot my password"
 msgstr "Я забыл свой пароль"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 msgid "New blog"
 msgstr "Новый блог"
@@ -127,8 +151,8 @@ msgstr "URL блога:"
 msgid "Blog description:"
 msgstr "Описание блога :"
 
-msgid "save"
-msgstr "сохранить"
+msgid "Save"
+msgstr "Сохранить"
 
 msgid "No such blog ID"
 msgstr "Блог с таким ID не существует"
@@ -206,7 +230,8 @@ msgstr "Настройки"
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Предупреждение: за исключением специальных конфигураций, обычно очень рекомендуем, экранировать обратным слешем двойные кавычки(\"/\") в URL-е вашего блога в PATH_INFO."
 
-msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+#, fuzzy
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Предупреждение: за исключением специальных конфигураций, очень рекомендуем экранировать обратным слешем двойные кавычки(\"/\")в вашем blog URL в  QUERY_STRING."
 
 msgid "Blog has been successfully created."
@@ -511,8 +536,9 @@ msgstr "Поиск:"
 msgid "Blogs per page"
 msgstr "Блогов на страницу"
 
-msgid "filter"
-msgstr "фильтр"
+#, fuzzy
+msgid "Apply filters"
+msgstr "Добавить файлы"
 
 msgid "No blog"
 msgstr "Нет блога"
@@ -587,9 +613,6 @@ msgstr "Родитель:"
 msgid "Top level"
 msgstr "Верхний уровень"
 
-msgid "Save"
-msgstr "Сохранить"
-
 msgid "Remove a category"
 msgstr "Удалитькатегорию."
 
@@ -640,6 +663,10 @@ msgstr "после"
 
 msgid "before"
 msgstr "перед"
+
+#, fuzzy
+msgid "position: "
+msgstr "Добавление MP3"
 
 msgid "Entry does not exist."
 msgstr "Эта запись не существует."
@@ -701,8 +728,8 @@ msgstr "Статус:"
 msgid "Comment:"
 msgstr "Комментарий:"
 
-msgid "delete"
-msgstr "удалить"
+msgid "Delete"
+msgstr "Удалить"
 
 msgid "comment"
 msgstr "комментарий"
@@ -731,8 +758,8 @@ msgstr "отметить как ожидающий"
 msgid "mark as junk"
 msgstr "отметить как нежелательный"
 
-msgid "Comments"
-msgstr "Комментарии"
+msgid "delete"
+msgstr "удалить"
 
 msgid "Type:"
 msgstr "Тип:"
@@ -759,6 +786,13 @@ msgstr "Показать все."
 msgid "Selected comments action:"
 msgstr "Действие с выбранными комментариями:"
 
+#, fuzzy
+msgid "action: "
+msgstr "Действие"
+
+msgid "Comments"
+msgstr "Комментарии"
+
 #, php-format
 msgid "%d comment"
 msgstr "Комментарии (%d)"
@@ -770,10 +804,12 @@ msgstr "комментарии (%d)"
 msgid "New entry"
 msgstr "Новая запись"
 
-msgid "User preferences"
+#, fuzzy
+msgid "My preferences"
 msgstr "Пользовательские настройки"
 
-msgid "Documentation"
+#, fuzzy
+msgid "Documentation and support"
 msgstr "Документация"
 
 msgid "Latest news"
@@ -800,6 +836,22 @@ msgstr "Следующие плагины были установлены:"
 msgid "Following plugins have not been installed:"
 msgstr "Следующие плагины не были установлены:"
 
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s предоставлена для обновления или установки."
+
+msgid "Upgrade now"
+msgstr "Обновить сейчас"
+
+msgid "Remind me later"
+msgstr "Напомнить мне позже"
+
+msgid "information about this version"
+msgstr ""
+
+msgid "Some plugins are installed twice:"
+msgstr "Некоторые плагины  установлены дважды:"
+
 msgid "Quick entry"
 msgstr "Быстрая запись"
 
@@ -811,19 +863,6 @@ msgstr "Категория:"
 
 msgid "save and publish"
 msgstr "сохранить и опубликовать"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s предоставлена для обновления или установки."
-
-msgid "Upgrade now"
-msgstr "Обновить сейчас"
-
-msgid "Remind me later"
-msgstr "Напомнить мне позже"
-
-msgid "Some plugins are installed twice:"
-msgstr "Некоторые плагины  установлены дважды:"
 
 #, php-format
 msgid "PHP version is %s (5.0 or earlier needed)."
@@ -907,6 +946,14 @@ msgstr ""
 "<p>Это комментарий.</p>\n"
 "<p>Войдите в систему, чтобы увидеть комментарии. Затем вы сможете отредактировать или удалить их.</p>"
 
+#, fuzzy
+msgid "Pages"
+msgstr "Страницы"
+
+#, fuzzy
+msgid "Blogroll"
+msgstr "Блог"
+
 msgid "Dotclear Install"
 msgstr "Установка Dotclear"
 
@@ -940,6 +987,9 @@ msgstr "Фамилия:"
 
 msgid "Username and password"
 msgstr "Имя пользователя и пароль"
+
+msgid "save"
+msgstr "сохранить"
 
 msgid "All done!"
 msgstr "Выполнено!"
@@ -1058,9 +1108,6 @@ msgstr "Язык"
 msgid "Action"
 msgstr "Действие"
 
-msgid "Delete"
-msgstr "Удалить"
-
 msgid "Install or upgrade languages"
 msgstr "Установить или обновить языковые пакеты"
 
@@ -1168,6 +1215,9 @@ msgstr "Сортировать файлы:"
 msgid "Add files"
 msgstr "Добавить файлы"
 
+msgid "Please take care to publish media that you own and that are not protected by copyright."
+msgstr "Пожалуйста, публикуйте медиа файлы, автором которых являетесь вы, либо которые не защищены авторским правом."
+
 msgid "Choose a file:"
 msgstr "Выбрать файл:"
 
@@ -1180,9 +1230,6 @@ msgstr "Личный"
 
 msgid "send"
 msgstr "отправить"
-
-msgid "Please take care to publish media that you own and that are not protected by copyright."
-msgstr "Пожалуйста, публикуйте медиа файлы, автором которых являетесь вы, либо которые не защищены авторским правом."
 
 msgid "New directory"
 msgstr "Новая директория"
@@ -1383,6 +1430,10 @@ msgstr "Выберите один или более блогов, для кот�
 
 msgid "set permissions"
 msgstr "установить права доступа"
+
+#, fuzzy
+msgid "select"
+msgstr "выбранный"
 
 msgid "No content found on this plugin."
 msgstr "Для этого плагина не найдено содержимого."
@@ -1610,6 +1661,14 @@ msgstr "в ожидании"
 msgid "junk"
 msgstr "нежелательный"
 
+#, fuzzy
+msgid "select this comment"
+msgstr "Редактировать комментарий"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Принимать пинги"
+
 msgid "Edit this comment"
 msgstr "Редактировать комментарий"
 
@@ -1697,8 +1756,41 @@ msgstr "Если вы хотите ваш email или пароль, то вы �
 msgid "Personal information has been successfully updated."
 msgstr "Личная информация успешно обновлена."
 
+#, fuzzy
+msgid "Personal options has been successfully updated."
+msgstr "Личная информация успешно обновлена."
+
+#, fuzzy
+msgid "Favorites have been successfully added."
+msgstr "Файл был успешно загружен."
+
+#, fuzzy
+msgid "Favorites have been successfully updated."
+msgstr "Файл был успешно обновлен."
+
+#, fuzzy
+msgid "Favorites have been successfully removed."
+msgstr "Файл был успешно удален."
+
+#, fuzzy
+msgid "Default favorites have been successfully updated."
+msgstr "Уменьшенные изображения обновлены."
+
+msgid "My profile"
+msgstr ""
+
 msgid "Display name:"
 msgstr "Псевдоним:"
+
+msgid "User language:"
+msgstr "Язык пользователя:"
+
+msgid "User timezone:"
+msgstr "Временной пояс пользователя:"
+
+#, fuzzy
+msgid "My options"
+msgstr "Параметры поиска"
 
 msgid "Preferred format:"
 msgstr "Предпочитаемый формат:"
@@ -1709,14 +1801,73 @@ msgstr "Статус записей по умолчанию:"
 msgid "Entry edit field height:"
 msgstr "Высота поля редактирования:"
 
-msgid "User language:"
-msgstr "Язык пользователя:"
-
-msgid "User timezone:"
-msgstr "Временной пояс пользователя:"
-
 msgid "Enable WYSIWYG mode"
 msgstr "Активировать режим WYSIWYG"
+
+msgid "Accessibility options"
+msgstr ""
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr ""
+
+msgid "Numeric fields will allow to type the elements' ordering number."
+msgstr ""
+
+#, fuzzy
+msgid "Dashboard modules"
+msgstr "Панель инструментов"
+
+#, fuzzy
+msgid "Display documentation links"
+msgstr "Документация"
+
+#, fuzzy
+msgid "Display Dotclear news"
+msgstr "Обновить Dotclear"
+
+msgid "Display quick entry form"
+msgstr ""
+
+msgid "My favorites"
+msgstr ""
+
+#, php-format
+msgid "position of %s"
+msgstr ""
+
+#, fuzzy
+msgid "Save order"
+msgstr "Упорядочить"
+
+#, fuzzy
+msgid "Delete selected favorites"
+msgstr "Удалить выбранный файл"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "Вы уверены, что хотите удалить этот элемент?"
+
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
+msgstr ""
+
+msgid "Define as default favorites"
+msgstr ""
+
+msgid "Currently no personal favorites."
+msgstr ""
+
+msgid "Default favorites"
+msgstr ""
+
+msgid "Those favorites are displayed when My Favorites list is empty."
+msgstr ""
+
+#, fuzzy
+msgid "Available favorites"
+msgstr "Доступные размеры:"
+
+msgid "Add to my favorites"
+msgstr ""
 
 msgid "Search"
 msgstr "Поиск"
@@ -1905,14 +2056,23 @@ msgstr "Изменить блог"
 msgid "Blogs:"
 msgstr "Блоги:"
 
-msgid "View site"
-msgstr "Просмотр сайта"
+msgid "Go to site"
+msgstr ""
+
+msgid "new window"
+msgstr ""
 
 msgid "User:"
 msgstr "Пользователь:"
 
 msgid "Logout"
 msgstr "Выйти"
+
+msgid "Safe mode"
+msgstr ""
+
+msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
+msgstr ""
 
 #, php-format
 msgid "Thank you for using %s."
@@ -2200,6 +2360,9 @@ msgstr "Ошибка базы данных:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Вероятно, отсутствует таблица Сеанса в вашей базе данных. - Dotclear установлена правильно?"
 
+msgid "Languages"
+msgstr "Языки"
+
 msgid "System"
 msgstr "Система"
 
@@ -2208,115 +2371,6 @@ msgstr "Блог"
 
 msgid "Updates"
 msgstr "Обновления"
-
-msgid "Languages"
-msgstr "Языки"
-
-msgid "Unable to open directory."
-msgstr "Невозможно открыть директорию."
-
-msgid "Unable to create directory."
-msgstr "Невозможно создать директорию."
-
-msgid "File is not writable."
-msgstr "Файл не доступен для записи."
-
-msgid "Unable to open file."
-msgstr "Невозможно открыть файл."
-
-# pas compris
-msgid "Not an uploaded file."
-msgstr "Нет загруженных файлов."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Загруженный файл превышает максимально допустимый размер."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Загружаемый файл был загружен только частично."
-
-msgid "No file was uploaded."
-msgstr "Нет загруженных файлов."
-
-msgid "Missing a temporary folder."
-msgstr "Отсутствует временная директория."
-
-msgid "Failed to write file to disk."
-msgstr "Невозможно записать файл на диск."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s не является директорией."
-
-msgid "Uploading this file is not allowed."
-msgstr "Загрузка файла не разрешена."
-
-# "en jail" ? c'est du geek ?
-msgid "Destination directory is not in jail."
-msgstr "Целевая директория не в jail."
-
-msgid "File already exists."
-msgstr "Файл уже существует."
-
-msgid "Cannot write in this directory."
-msgstr "Невозможно выполнить запись в эту директорию."
-
-msgid "An error occurred while writing the file."
-msgstr "При записи файла произошла ошибка."
-
-msgid "Source file does not exist."
-msgstr "Источник файла не существует."
-
-# geek ?
-msgid "File is not in jail."
-msgstr "Файл не в jail."
-
-msgid "Destination directory is not writable."
-msgstr "Целевая директория не доступна для записи."
-
-msgid "Unable to rename file."
-msgstr "Невозможно переименовать файл."
-
-msgid "File cannot be removed."
-msgstr "Файл не может быть удален."
-
-# décidément ! mais que veut dire "jail" ?
-msgid "Directory is not in jail."
-msgstr "Папка не в jail."
-
-msgid "Directory cannot be removed."
-msgstr "Эта директория не может быть удалена."
-
-msgid "Not enough memory to open image."
-msgstr "Недостаточно памяти для открытия изображения."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Файл %s не сжат в zip."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Извлечение папки %s"
-
-msgid "Unable to write destination file."
-msgstr "Невозможно записать целевой файл."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Невозмжно записать в целевую директорию, нет прав доступа."
-
-msgid "Not enough memory to open file."
-msgstr "Недостаточно памяти для открытия файла."
-
-msgid "File does not exist"
-msgstr "Файл не существует"
-
-msgid "Cannot read file"
-msgstr "Невозможно прочитать файл"
-
-msgid "Directory does not exist"
-msgstr "Директория не существует"
-
-msgid "Cannot read directory"
-msgstr "Невозможно прочитать директорию"
 
 msgid "administrator"
 msgstr "администратор"
@@ -2462,18 +2516,6 @@ msgstr "В журналенет сообщений"
 msgid "unknown"
 msgstr "неизвестно"
 
-msgid "medium"
-msgstr "Средний:"
-
-msgid "small"
-msgstr "Маленький:"
-
-msgid "thumbnail"
-msgstr "Уменьшенное изображение:"
-
-msgid "square"
-msgstr "квадрат"
-
 msgid "No blog defined."
 msgstr "Блог не задан."
 
@@ -2489,6 +2531,10 @@ msgstr "Недостаточно прав доступа."
 
 msgid "You are not the file owner."
 msgstr "Вы не владелец файла."
+
+#, fuzzy
+msgid "This file is not allowed."
+msgstr "Загрузка файла не разрешена."
 
 msgid "New file already exists."
 msgstr "Новый файл уже существует."
@@ -2552,6 +2598,10 @@ msgstr "%s не является действительным ID настрой�
 msgid "No namespace specified"
 msgstr "Не указано пространство имен"
 
+#, fuzzy
+msgid "Unable to retrieve workspaces:"
+msgstr "Невозможно извлечь параметры:"
+
 msgid "Unable to retrieve namespaces:"
 msgstr "Невозможно извлечь параметры:"
 
@@ -2604,11 +2654,133 @@ msgstr "Невозможно прочитать дайджест-файл."
 msgid "Invalid digests file."
 msgstr "Неверный дайджест-файл."
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "eНе верное значение dcNamespace: %s"
+
+#, fuzzy
+msgid "Unable to retrieve prefs:"
+msgstr "Невозможно извлечь параметры:"
+
+#, fuzzy, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s не является действительным ID настройки"
+
+#, fuzzy
+msgid "No workspace specified"
+msgstr "Не указано пространство имен"
+
 msgid "SQLite Database Schema cannot be upgraded."
 msgstr "База данных SQLite не может быть обновлена."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Произошла ошибка при автоматическом обновлении:"
+
+msgid "Unable to open directory."
+msgstr "Невозможно открыть директорию."
+
+msgid "Unable to create directory."
+msgstr "Невозможно создать директорию."
+
+msgid "File is not writable."
+msgstr "Файл не доступен для записи."
+
+msgid "Unable to open file."
+msgstr "Невозможно открыть файл."
+
+# pas compris
+msgid "Not an uploaded file."
+msgstr "Нет загруженных файлов."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "Загруженный файл превышает максимально допустимый размер."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "Загружаемый файл был загружен только частично."
+
+msgid "No file was uploaded."
+msgstr "Нет загруженных файлов."
+
+msgid "Missing a temporary folder."
+msgstr "Отсутствует временная директория."
+
+msgid "Failed to write file to disk."
+msgstr "Невозможно записать файл на диск."
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s не является директорией."
+
+msgid "Uploading this file is not allowed."
+msgstr "Загрузка файла не разрешена."
+
+# "en jail" ? c'est du geek ?
+msgid "Destination directory is not in jail."
+msgstr "Целевая директория не в jail."
+
+msgid "File already exists."
+msgstr "Файл уже существует."
+
+msgid "Cannot write in this directory."
+msgstr "Невозможно выполнить запись в эту директорию."
+
+msgid "An error occurred while writing the file."
+msgstr "При записи файла произошла ошибка."
+
+msgid "Source file does not exist."
+msgstr "Источник файла не существует."
+
+# geek ?
+msgid "File is not in jail."
+msgstr "Файл не в jail."
+
+msgid "Destination directory is not writable."
+msgstr "Целевая директория не доступна для записи."
+
+msgid "Unable to rename file."
+msgstr "Невозможно переименовать файл."
+
+msgid "File cannot be removed."
+msgstr "Файл не может быть удален."
+
+# décidément ! mais que veut dire "jail" ?
+msgid "Directory is not in jail."
+msgstr "Папка не в jail."
+
+msgid "Directory cannot be removed."
+msgstr "Эта директория не может быть удалена."
+
+msgid "Not enough memory to open image."
+msgstr "Недостаточно памяти для открытия изображения."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "Файл %s не сжат в zip."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Извлечение папки %s"
+
+msgid "Unable to write destination file."
+msgstr "Невозможно записать целевой файл."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Невозмжно записать в целевую директорию, нет прав доступа."
+
+msgid "Not enough memory to open file."
+msgstr "Недостаточно памяти для открытия файла."
+
+msgid "File does not exist"
+msgstr "Файл не существует"
+
+msgid "Cannot read file"
+msgstr "Невозможно прочитать файл"
+
+msgid "Directory does not exist"
+msgstr "Директория не существует"
+
+msgid "Cannot read directory"
+msgstr "Невозможно прочитать директорию"
 
 msgid "Unable to connect to database"
 msgstr "Невозможно соединиться с базой данных"
@@ -2620,36 +2792,68 @@ msgstr "<p>Это может означать, что имя пользоват�
 msgid "The following error was encountered while trying to read the database:"
 msgstr "При попытке чтения базы данных обнаружена следующая ошибка:"
 
+#~ msgid "login"
+#~ msgstr "логин"
+
+#~ msgid "filter"
+#~ msgstr "фильтр"
+
+#~ msgid "View site"
+#~ msgstr "Просмотр сайта"
+
+#~ msgid "medium"
+#~ msgstr "Средний:"
+
+#~ msgid "small"
+#~ msgstr "Маленький:"
+
+#~ msgid "thumbnail"
+#~ msgstr "Уменьшенное изображение:"
+
+#~ msgid "square"
+#~ msgstr "квадрат"
+
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "Файл <strong>%s</strong> уже существует. Если вам нужно изменить конфигурацию файла, то сначала удалите его, либо вы можете <a href=\"%s\">продолжить установку</a>."
+
 #~ msgid "Login:"
 #~ msgstr "Логин :"
+
 #~ msgid "Category order has been successfully updated."
 #~ msgstr "Порядок категорий был успешно изменен."
+
 #~ msgid "Name"
 #~ msgstr "Имя"
+
 #~ msgid "1 entry"
 #~ msgstr "1 запись"
+
 #~ msgid "Edit category"
 #~ msgstr "Редактировать категорию"
+
 #~ msgid "No email"
 #~ msgstr "Нет адреса email"
+
 #~ msgid "successfully installed"
 #~ msgstr "успешно установлен"
+
 #~ msgid "Your new Dotclear blog has been successfully set up at:"
 #~ msgstr "Ваш новый блог Dotclear был успешно установлен в:"
+
 #~ msgid "You can log in to the administrator account with the following information:"
 #~ msgstr "Вы можете войти в панель администрации используя следующие данные:"
+
 #~ msgid "We hope you enjoy your new weblog. Thanks!"
 #~ msgstr "Мы надеемся, что Вам понравится Ваш новый блог. Спасибо!"
+
 #~ msgid "Now you can <a href=\"%s\">log in</a> with the following information:"
 #~ msgstr "Теперь вы можете <a href=\"%s\">войти</a> используя следующую информацию:"
+
 #~ msgid "A password reminder was sent to %s. You'll be able to change it once you're logged in."
 #~ msgstr "Ваш пароль отправлен на %s. Вы сможете изменить его, после того, как залогинитесь."
+
 #~ msgid "User ID"
 #~ msgstr "ID пользователя"
+
 #~ msgid "add another files"
 #~ msgstr "добавить другие файлы"
-#~ msgid "Are you sure you want to remove this item?"
-#~ msgstr "Вы уверены, что хотите удалить этот элемент?"
-

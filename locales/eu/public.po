@@ -6,6 +6,7 @@ msgstr ""
 "PO-Revision-Date: 2008-06-25 05:13+0100\n"
 "Last-Translator: Atropos-Nemesis <jonquiereguillaume@msn.com>\n"
 "Language-Team: Atropos-Nemesis <jonquiereguillaume@msn.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -178,6 +179,9 @@ msgstr "hautazkoa"
 
 msgid "Comment"
 msgstr "Iruzkina"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr ""

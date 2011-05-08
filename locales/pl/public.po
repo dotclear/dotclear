@@ -11,6 +11,7 @@ msgstr ""
 "PO-Revision-Date: 2007-08-31 14:50+0200\n"
 "Last-Translator: Nnidŷu <nnidyu@asylumeternity.net>\n"
 "Language-Team: Polish\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -179,6 +180,9 @@ msgstr "opcjonalne"
 
 msgid "Comment"
 msgstr "Komentarz"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "Kod HTML jest wyświetlany jako tekst a adresy stron są automatycznie konwertowane."

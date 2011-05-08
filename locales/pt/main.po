@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2009-10-02 21:51+0100\n"
 "Last-Translator: Luis Correia <luis.f.correia@gmail.com>\n"
 "Language-Team: Portuguese\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,6 +60,10 @@ msgstr "Tem que mudar a sua palavra passe antes de poder entrar"
 msgid "In order to login, you have to change your password now."
 msgstr "Para poder fazer login, tem que alterar a sua palavra passe agora."
 
+#, fuzzy
+msgid "Safe Mode can only be used for super administrators."
+msgstr "Não é super-administrador."
+
 msgid "Wrong username or password"
 msgstr "Utilizador ou password incorrecto"
 
@@ -86,17 +91,36 @@ msgstr "Confirmar a password:"
 msgid "change"
 msgstr "mude"
 
+msgid "Safe mode login"
+msgstr ""
+
+msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
+msgstr ""
+
+msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
+msgstr ""
+
 msgid "Remember my ID on this computer"
 msgstr "Lembrar o meu ID neste computador"
 
-msgid "login"
-msgstr "login"
+#, fuzzy
+msgid "log in"
+msgstr "Nome do blog"
 
 msgid "You must accept cookies in order to use the private area."
 msgstr "Tem que permitir os \"cookies\" para a utilizar a área privada"
 
+msgid "Get back to normal authentication"
+msgstr ""
+
+msgid "Connection issue?"
+msgstr ""
+
 msgid "I forgot my password"
 msgstr "Esqueci a minha password"
+
+msgid "I want to log in in safe mode"
+msgstr ""
 
 msgid "New blog"
 msgstr "Novo blog"
@@ -128,8 +152,8 @@ msgstr "URL do blog:"
 msgid "Blog description:"
 msgstr "Descrição do blog:"
 
-msgid "save"
-msgstr "gravar"
+msgid "Save"
+msgstr "Gravar"
 
 msgid "No such blog ID"
 msgstr "ID de blog inexistente"
@@ -208,7 +232,7 @@ msgstr "Configurações do blog"
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr ""
 
-msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in when QUERY_STRING mode."
+msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr ""
 
 msgid "Blog has been successfully created."
@@ -513,8 +537,9 @@ msgstr "Pesquisar:"
 msgid "Blogs per page"
 msgstr "Blogs por página"
 
-msgid "filter"
-msgstr "filtro"
+#, fuzzy
+msgid "Apply filters"
+msgstr "Adicionar ficheiros"
 
 msgid "No blog"
 msgstr "Sem blog"
@@ -589,9 +614,6 @@ msgstr "Nível ascendente:"
 msgid "Top level"
 msgstr "Nível superior (top)"
 
-msgid "Save"
-msgstr "Gravar"
-
 msgid "Remove a category"
 msgstr "Remover a categoria"
 
@@ -642,6 +664,10 @@ msgstr "depois"
 
 msgid "before"
 msgstr "antes "
+
+#, fuzzy
+msgid "position: "
+msgstr "Disposição do MP3"
 
 msgid "Entry does not exist."
 msgstr "A entrada não existe."
@@ -703,8 +729,8 @@ msgstr "Estado:"
 msgid "Comment:"
 msgstr "Comentário:"
 
-msgid "delete"
-msgstr "apagar"
+msgid "Delete"
+msgstr "Apagar"
 
 msgid "comment"
 msgstr "comentário"
@@ -733,8 +759,8 @@ msgstr "marcar como pendente"
 msgid "mark as junk"
 msgstr "marcar como lixo"
 
-msgid "Comments"
-msgstr "Comentários"
+msgid "delete"
+msgstr "apagar"
 
 msgid "Type:"
 msgstr "Tipo:"
@@ -761,6 +787,13 @@ msgstr "Mostrá-os."
 msgid "Selected comments action:"
 msgstr "Acção sobre os comentários seleccionados:"
 
+#, fuzzy
+msgid "action: "
+msgstr "Acção"
+
+msgid "Comments"
+msgstr "Comentários"
+
 #, php-format
 msgid "%d comment"
 msgstr "%d comentário"
@@ -772,10 +805,12 @@ msgstr "%d comentários"
 msgid "New entry"
 msgstr "Nova entrada"
 
-msgid "User preferences"
+#, fuzzy
+msgid "My preferences"
 msgstr "Preferências do utilizador"
 
-msgid "Documentation"
+#, fuzzy
+msgid "Documentation and support"
 msgstr "Documentação"
 
 msgid "Latest news"
@@ -802,6 +837,23 @@ msgstr "Estes plugins foram instalados:"
 msgid "Following plugins have not been installed:"
 msgstr "Estes plugins não foram instalados:"
 
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s está disponível!"
+
+msgid "Upgrade now"
+msgstr "Actualizar agora"
+
+msgid "Remind me later"
+msgstr "Lembrar-me mais tarde"
+
+msgid "information about this version"
+msgstr ""
+
+#, fuzzy
+msgid "Some plugins are installed twice:"
+msgstr "Estes plugins foram instalados:"
+
 msgid "Quick entry"
 msgstr "Entrada rápida"
 
@@ -813,20 +865,6 @@ msgstr "Categoria:"
 
 msgid "save and publish"
 msgstr "grava e publicar"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s está disponível!"
-
-msgid "Upgrade now"
-msgstr "Actualizar agora"
-
-msgid "Remind me later"
-msgstr "Lembrar-me mais tarde"
-
-#, fuzzy
-msgid "Some plugins are installed twice:"
-msgstr "Estes plugins foram instalados:"
 
 #, php-format
 msgid "PHP version is %s (5.0 or earlier needed)."
@@ -911,6 +949,14 @@ msgstr ""
 "<p>Para apagar-lo, faça o login, veja os comentários do seu blog. Depois, você pode remover ou editá-lo.</p>"
 
 #, fuzzy
+msgid "Pages"
+msgstr "Página(s)"
+
+#, fuzzy
+msgid "Blogroll"
+msgstr "Blog"
+
+#, fuzzy
 msgid "Dotclear Install"
 msgstr "Instalação Dotclear"
 
@@ -944,6 +990,9 @@ msgstr "Apelido:"
 
 msgid "Username and password"
 msgstr "Utilizador ou password"
+
+msgid "save"
+msgstr "gravar"
 
 msgid "All done!"
 msgstr "Concluído!"
@@ -1063,9 +1112,6 @@ msgstr "Linguagem"
 msgid "Action"
 msgstr "Acção"
 
-msgid "Delete"
-msgstr "Apagar"
-
 msgid "Install or upgrade languages"
 msgstr "Instalar ou actualizar linguagens"
 
@@ -1173,6 +1219,9 @@ msgstr "Ordena os ficheiros:"
 msgid "Add files"
 msgstr "Adicionar ficheiros"
 
+msgid "Please take care to publish media that you own and that are not protected by copyright."
+msgstr "Por favor publique apenas conteúdo que não esteja protegido por copyright."
+
 msgid "Choose a file:"
 msgstr "Escolha o ficheiro:"
 
@@ -1185,9 +1234,6 @@ msgstr "Privado"
 
 msgid "send"
 msgstr "enviar"
-
-msgid "Please take care to publish media that you own and that are not protected by copyright."
-msgstr "Por favor publique apenas conteúdo que não esteja protegido por copyright."
 
 msgid "New directory"
 msgstr "Nova directoria"
@@ -1390,6 +1436,10 @@ msgstr "Escolha um ou mais blogs para o qual se pretende atribuir permissões pa
 msgid "set permissions"
 msgstr "definir permissões"
 
+#, fuzzy
+msgid "select"
+msgstr "seleccionado"
+
 msgid "No content found on this plugin."
 msgstr "Nenhum conteúdo encontrado neste plugin."
 
@@ -1489,6 +1539,10 @@ msgstr "Mais usado"
 
 msgid "Link URL:"
 msgstr "URL do link"
+
+#, fuzzy
+msgid "Link title:"
+msgstr "Título do ficheiro:"
 
 msgid "Link language:"
 msgstr "Língua do link"
@@ -1613,6 +1667,14 @@ msgstr "pendente"
 msgid "junk"
 msgstr "spam"
 
+#, fuzzy
+msgid "select this comment"
+msgstr "Editar este comentário"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Permitir trackbacks"
+
 msgid "Edit this comment"
 msgstr "Editar este comentário"
 
@@ -1700,8 +1762,41 @@ msgstr "Se você quer mudar o seu endereço de email ou a sua password, tem que 
 msgid "Personal information has been successfully updated."
 msgstr "As informações pessoais foram actualizadas com êxito."
 
+#, fuzzy
+msgid "Personal options has been successfully updated."
+msgstr "As informações pessoais foram actualizadas com êxito."
+
+#, fuzzy
+msgid "Favorites have been successfully added."
+msgstr "Os ficheiros foram enviados com sucesso."
+
+#, fuzzy
+msgid "Favorites have been successfully updated."
+msgstr "O ficheiro foi actualizado com sucesso"
+
+#, fuzzy
+msgid "Favorites have been successfully removed."
+msgstr "O ficheiro foi removido com sucesso."
+
+#, fuzzy
+msgid "Default favorites have been successfully updated."
+msgstr "As miniaturas foram actualizadas."
+
+msgid "My profile"
+msgstr ""
+
 msgid "Display name:"
 msgstr "Mostrar o nome:"
+
+msgid "User language:"
+msgstr "Língua do utilizador:"
+
+msgid "User timezone:"
+msgstr "Fuso horário do utilizador:"
+
+#, fuzzy
+msgid "My options"
+msgstr "Opções da pesquisa"
 
 msgid "Preferred format:"
 msgstr "Formato preferido:"
@@ -1712,14 +1807,73 @@ msgstr "Estado da entrada por defeito:"
 msgid "Entry edit field height:"
 msgstr "Altura do campo de edição da entrada:"
 
-msgid "User language:"
-msgstr "Língua do utilizador:"
-
-msgid "User timezone:"
-msgstr "Fuso horário do utilizador:"
-
 msgid "Enable WYSIWYG mode"
 msgstr "Activar a interface WYSIWYG"
+
+msgid "Accessibility options"
+msgstr ""
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr ""
+
+msgid "Numeric fields will allow to type the elements' ordering number."
+msgstr ""
+
+#, fuzzy
+msgid "Dashboard modules"
+msgstr "Painel de controlo"
+
+#, fuzzy
+msgid "Display documentation links"
+msgstr "Documentação"
+
+#, fuzzy
+msgid "Display Dotclear news"
+msgstr "Actualizar Dotclear"
+
+msgid "Display quick entry form"
+msgstr ""
+
+msgid "My favorites"
+msgstr ""
+
+#, php-format
+msgid "position of %s"
+msgstr ""
+
+#, fuzzy
+msgid "Save order"
+msgstr "Reordenar"
+
+#, fuzzy
+msgid "Delete selected favorites"
+msgstr "Suprimir o ficheiro seleccionado"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected favorites?"
+msgstr "Tem certeza de que deseja reordenar as categorias?"
+
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
+msgstr ""
+
+msgid "Define as default favorites"
+msgstr ""
+
+msgid "Currently no personal favorites."
+msgstr ""
+
+msgid "Default favorites"
+msgstr ""
+
+msgid "Those favorites are displayed when My Favorites list is empty."
+msgstr ""
+
+#, fuzzy
+msgid "Available favorites"
+msgstr "Tamanhos disponíveis:"
+
+msgid "Add to my favorites"
+msgstr ""
 
 msgid "Search"
 msgstr "Pesquisa"
@@ -1908,14 +2062,23 @@ msgstr "Modificar blog"
 msgid "Blogs:"
 msgstr "Blogs:"
 
-msgid "View site"
-msgstr "Ver o website"
+msgid "Go to site"
+msgstr ""
+
+msgid "new window"
+msgstr ""
 
 msgid "User:"
 msgstr "Utilizador:"
 
 msgid "Logout"
 msgstr "Logout"
+
+msgid "Safe mode"
+msgstr ""
+
+msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
+msgstr ""
 
 #, php-format
 msgid "Thank you for using %s."
@@ -1933,7 +2096,8 @@ msgstr "esconder"
 msgid "help"
 msgstr "ajuda"
 
-msgid "No selection"
+#, fuzzy
+msgid "no selection"
 msgstr "Nenhuma selecção"
 
 msgid "select all"
@@ -2013,6 +2177,9 @@ msgstr "O conteúdo XHTML é válido."
 
 msgid "There are XHTML markup errors."
 msgstr "O código XHTML contem erros."
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Você tem alterações não salvas."
@@ -2202,6 +2369,9 @@ msgstr "Tipo de base de dados:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
+msgid "Languages"
+msgstr "Línguas"
+
 msgid "System"
 msgstr "Sistema"
 
@@ -2210,111 +2380,6 @@ msgstr "Blog"
 
 msgid "Updates"
 msgstr "Actualizações"
-
-msgid "Languages"
-msgstr "Línguas"
-
-msgid "Unable to open directory."
-msgstr "Não consigo abrir a pasta."
-
-msgid "Unable to create directory."
-msgstr "Não consigo criar a pasta."
-
-msgid "File is not writable."
-msgstr "O ficheiro não tem acesso de escrita."
-
-msgid "Unable to open file."
-msgstr "Não consigo abrir o ficheiro."
-
-msgid "Not an uploaded file."
-msgstr "O ficheiro não é um ficheiro enviado."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "O ficheiro enviado excede o tamanho máximo autorizado."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "O ficheiro só foi recebido parcialmente."
-
-msgid "No file was uploaded."
-msgstr "Nenhum ficheiro foi enviado."
-
-msgid "Missing a temporary folder."
-msgstr "Falta uma pasta temporária."
-
-msgid "Failed to write file to disk."
-msgstr "Falha ao gravar o ficheiro no disco."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s não é uma pasta."
-
-msgid "Uploading this file is not allowed."
-msgstr "Enviar este ficheiro não é permitido."
-
-msgid "Destination directory is not in jail."
-msgstr "A pasta alcançada não é dentro do \"Jail\""
-
-msgid "File already exists."
-msgstr "O ficheiro já existe."
-
-msgid "Cannot write in this directory."
-msgstr "Não consigo escrever nesta pasta."
-
-msgid "An error occurred while writing the file."
-msgstr "Ocorreu um erro ao escrever o ficheiro."
-
-msgid "Source file does not exist."
-msgstr "O ficheiro não existe."
-
-msgid "File is not in jail."
-msgstr "O ficheiro não é dentro do \"Jail\""
-
-msgid "Destination directory is not writable."
-msgstr "A pasta não tem acesso de escrita."
-
-msgid "Unable to rename file."
-msgstr "Não consigo renomear o ficheiro."
-
-msgid "File cannot be removed."
-msgstr "O ficheiro não pode ser removido."
-
-msgid "Directory is not in jail."
-msgstr "A pasta não é dentro do \"Jail\""
-
-msgid "Directory cannot be removed."
-msgstr "A pasta não pode ser removida."
-
-msgid "Not enough memory to open image."
-msgstr "Memória insuficiente para abrir a imagem."
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "O ficheiro %s não está compactado no zip."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Tentando extrair a pasta %s"
-
-msgid "Unable to write destination file."
-msgstr "Não consigo escrever no ficheiro alcançado."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Não consigo escrever na pasta alcançada, permissão recusada."
-
-msgid "Not enough memory to open file."
-msgstr "Memória insuficiente para abrir o ficheiro."
-
-msgid "File does not exist"
-msgstr "O ficheiro não existe"
-
-msgid "Cannot read file"
-msgstr "Não consigo ler o ficheiro"
-
-msgid "Directory does not exist"
-msgstr "A pasta não existe"
-
-msgid "Cannot read directory"
-msgstr "Não consigo ler a pasta"
 
 msgid "administrator"
 msgstr "administrador"
@@ -2478,6 +2543,10 @@ msgstr "Permissão recusada."
 msgid "You are not the file owner."
 msgstr "Você não é o dono do ficheiro."
 
+#, fuzzy
+msgid "This file is not allowed."
+msgstr "Enviar este ficheiro não é permitido."
+
 msgid "New file already exists."
 msgstr "O novo ficheiro já existe."
 
@@ -2541,6 +2610,10 @@ msgid "No namespace specified"
 msgstr "Nenhum espaço de nomes especificado"
 
 #, fuzzy
+msgid "Unable to retrieve workspaces:"
+msgstr "Não consigo recuperar os parâmetros:"
+
+#, fuzzy
 msgid "Unable to retrieve namespaces:"
 msgstr "Não consigo recuperar os parâmetros:"
 
@@ -2594,11 +2667,129 @@ msgstr "Não consigo ler o ficheiro compilado."
 msgid "Invalid digests file."
 msgstr "Ficheiro compilados inválido."
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Parâmetro do espaço de nome invalido: %s"
+
+#, fuzzy
+msgid "Unable to retrieve prefs:"
+msgstr "Não consigo recuperar os parâmetros:"
+
+#, fuzzy, php-format
+msgid "%s is not a valid pref id"
+msgstr "%s não é uma id de configuração válida"
+
+#, fuzzy
+msgid "No workspace specified"
+msgstr "Nenhum espaço de nomes especificado"
+
 msgid "SQLite Database Schema cannot be upgraded."
 msgstr "O esquema da base de dados SQLite não pode ser actualizado."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Um erro aconteceu durante a actualização automática:"
+
+msgid "Unable to open directory."
+msgstr "Não consigo abrir a pasta."
+
+msgid "Unable to create directory."
+msgstr "Não consigo criar a pasta."
+
+msgid "File is not writable."
+msgstr "O ficheiro não tem acesso de escrita."
+
+msgid "Unable to open file."
+msgstr "Não consigo abrir o ficheiro."
+
+msgid "Not an uploaded file."
+msgstr "O ficheiro não é um ficheiro enviado."
+
+msgid "The uploaded file exceeds the maximum file size allowed."
+msgstr "O ficheiro enviado excede o tamanho máximo autorizado."
+
+msgid "The uploaded file was only partially uploaded."
+msgstr "O ficheiro só foi recebido parcialmente."
+
+msgid "No file was uploaded."
+msgstr "Nenhum ficheiro foi enviado."
+
+msgid "Missing a temporary folder."
+msgstr "Falta uma pasta temporária."
+
+msgid "Failed to write file to disk."
+msgstr "Falha ao gravar o ficheiro no disco."
+
+#, php-format
+msgid "%s is not a directory."
+msgstr "%s não é uma pasta."
+
+msgid "Uploading this file is not allowed."
+msgstr "Enviar este ficheiro não é permitido."
+
+msgid "Destination directory is not in jail."
+msgstr "A pasta alcançada não é dentro do \"Jail\""
+
+msgid "File already exists."
+msgstr "O ficheiro já existe."
+
+msgid "Cannot write in this directory."
+msgstr "Não consigo escrever nesta pasta."
+
+msgid "An error occurred while writing the file."
+msgstr "Ocorreu um erro ao escrever o ficheiro."
+
+msgid "Source file does not exist."
+msgstr "O ficheiro não existe."
+
+msgid "File is not in jail."
+msgstr "O ficheiro não é dentro do \"Jail\""
+
+msgid "Destination directory is not writable."
+msgstr "A pasta não tem acesso de escrita."
+
+msgid "Unable to rename file."
+msgstr "Não consigo renomear o ficheiro."
+
+msgid "File cannot be removed."
+msgstr "O ficheiro não pode ser removido."
+
+msgid "Directory is not in jail."
+msgstr "A pasta não é dentro do \"Jail\""
+
+msgid "Directory cannot be removed."
+msgstr "A pasta não pode ser removida."
+
+msgid "Not enough memory to open image."
+msgstr "Memória insuficiente para abrir a imagem."
+
+#, php-format
+msgid "File %s is not compressed in the zip."
+msgstr "O ficheiro %s não está compactado no zip."
+
+#, php-format
+msgid "Trying to unzip a folder name %s"
+msgstr "Tentando extrair a pasta %s"
+
+msgid "Unable to write destination file."
+msgstr "Não consigo escrever no ficheiro alcançado."
+
+msgid "Unable to write in target directory, permission denied."
+msgstr "Não consigo escrever na pasta alcançada, permissão recusada."
+
+msgid "Not enough memory to open file."
+msgstr "Memória insuficiente para abrir o ficheiro."
+
+msgid "File does not exist"
+msgstr "O ficheiro não existe"
+
+msgid "Cannot read file"
+msgstr "Não consigo ler o ficheiro"
+
+msgid "Directory does not exist"
+msgstr "A pasta não existe"
+
+msgid "Cannot read directory"
+msgstr "Não consigo ler a pasta"
 
 msgid "Unable to connect to database"
 msgstr ""
@@ -2609,6 +2800,15 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "login"
+#~ msgstr "login"
+
+#~ msgid "filter"
+#~ msgstr "filtro"
+
+#~ msgid "View site"
+#~ msgstr "Ver o website"
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "O ficheiro <strong>%s</strong> já existe. Se necessita de alterar alguns itens de configuração, apague este ficheiro primeiro, se não <a href=\"%s\">continue para instalar</a>."

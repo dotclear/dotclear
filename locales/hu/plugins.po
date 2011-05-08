@@ -6,10 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-23 21:37+0200\n"
+"POT-Creation-Date: 2011-05-08 18:35+0200\n"
 "PO-Revision-Date: 2008-06-27 17:39+0200\n"
 "Last-Translator: Muráncsik Sebestyén <dr.graf@lajt.hu>\n"
 "Language-Team: Hungarian\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -243,9 +244,6 @@ msgstr "Spam hozzászólások RSS feed-je"
 msgid "Published comments RSS feed"
 msgstr "Publikált hozzászólások RSS feed-je"
 
-msgid "Blogroll"
-msgstr "Blogroll"
-
 msgid "manage blogroll"
 msgstr "blogroll kezelése"
 
@@ -393,8 +391,13 @@ msgstr "URL"
 msgid "Lang"
 msgstr "Nyelv"
 
-msgid "Save order"
-msgstr "Rend mentése"
+#, fuzzy
+msgid "position"
+msgstr "Oldal elhelyzekdése"
+
+#, fuzzy
+msgid "select this link"
+msgstr "Címke törlése"
 
 msgid "Delete selected links"
 msgstr "Kiválasztott hivatkozások törlése"
@@ -443,6 +446,10 @@ msgstr "Előre definiált stílusok"
 
 msgid "Apply code"
 msgstr "Kód alkalmazása"
+
+#, fuzzy
+msgid "Choose a predefined style"
+msgstr "Előre definiált stílusok"
 
 #, fuzzy
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
@@ -629,6 +636,9 @@ msgstr "Beállítások importálása / exportálása"
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "Megoszthatod a konfigurációdat a következő kóddal. Hogy alkalmazhasd máshol a beálíltást, másold át a kódot és kattints a \"Kód alkalmazása\" gombra."
 
+msgid "Copy this code:"
+msgstr ""
+
 msgid "default"
 msgstr "alapértelmezett"
 
@@ -654,27 +664,6 @@ msgstr ""
 
 msgid "Unable to open image."
 msgstr "Nem lehet a fájlt megnyitni."
-
-msgid "External media"
-msgstr "Külső média"
-
-msgid "External media selector"
-msgstr "Külső média választó"
-
-msgid "Supported media services"
-msgstr "Támogatott média szolgáltatások"
-
-msgid "Please enter the URL of the page containing the video you want to include in your post."
-msgstr "Kérlek, írd be a videót tartalmazó lap URL-kjét, amit szeretnél publikálni."
-
-msgid "Page URL:"
-msgstr "Lap URL:"
-
-msgid "Media alignment"
-msgstr "Média igazítása:"
-
-msgid "Media title"
-msgstr "Média címe"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Trackback forrás ellenőrzése"
@@ -990,8 +979,16 @@ msgstr "A sablonok cache mappájának ürítése"
 msgid "Empty directory"
 msgstr "Üres mappa"
 
-msgid "Pages"
-msgstr "Oldalak"
+msgid "New page"
+msgstr "Új oldal"
+
+#, fuzzy, php-format
+msgid "%d page"
+msgstr "Oldal szerkesztése"
+
+#, fuzzy, php-format
+msgid "%d pages"
+msgstr "Oldal szerkesztése"
 
 msgid "manage pages"
 msgstr "oldalak kezelése"
@@ -1017,11 +1014,12 @@ msgstr "Punlikáció ideje"
 msgid "No page"
 msgstr "Nincs oldal"
 
+#, fuzzy
+msgid "select this page"
+msgstr "Címke törlése"
+
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Biztosan törölni szeretnéd a kiválasztott oldalakat?"
-
-msgid "New page"
-msgstr "Új oldal"
 
 msgid "Selected pages action:"
 msgstr "Akció a kiválasztott oldalakkal:"
@@ -1268,6 +1266,21 @@ msgstr ""
 msgid "JavaScript files"
 msgstr ""
 
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "Az oldalt sikeresen frissítettem."
+
+#, fuzzy
+msgid "Preferences definition successfully updated"
+msgstr "A beállítások definícióit sikeresen frissítettem."
+
+msgid "user preferences"
+msgstr ""
+
+#, fuzzy
+msgid "global preferences"
+msgstr "általános beállítások"
+
 msgid "Presentation widgets"
 msgstr "Bemutató kütyük"
 
@@ -1420,6 +1433,36 @@ msgstr "rendezés"
 
 msgid "Remove widget"
 msgstr "Kütyü eltávolítása"
+
+#~ msgid "Blogroll"
+#~ msgstr "Blogroll"
+
+#~ msgid "Save order"
+#~ msgstr "Rend mentése"
+
+#~ msgid "External media"
+#~ msgstr "Külső média"
+
+#~ msgid "External media selector"
+#~ msgstr "Külső média választó"
+
+#~ msgid "Supported media services"
+#~ msgstr "Támogatott média szolgáltatások"
+
+#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
+#~ msgstr "Kérlek, írd be a videót tartalmazó lap URL-kjét, amit szeretnél publikálni."
+
+#~ msgid "Page URL:"
+#~ msgstr "Lap URL:"
+
+#~ msgid "Media alignment"
+#~ msgstr "Média igazítása:"
+
+#~ msgid "Media title"
+#~ msgstr "Média címe"
+
+#~ msgid "Pages"
+#~ msgstr "Oldalak"
 
 #~ msgid "Unsupported service"
 #~ msgstr "Nem támogatott szolgáltatás"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-04 23:45+0200\n"
+"POT-Creation-Date: 2011-05-08 18:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,8 +38,8 @@ msgid "Value"
 msgstr ""
 
 #: plugins/aboutConfig/index.php:113 plugins/aboutConfig/index.php:151
-#: plugins/antispam/index.php:173 plugins/blogroll/index.php:241
-#: plugins/blogroll/index.php:366 plugins/userPref/index.php:109
+#: plugins/antispam/index.php:173 plugins/blogroll/index.php:247
+#: plugins/blogroll/index.php:372 plugins/userPref/index.php:109
 #: plugins/userPref/index.php:147
 msgid "Description"
 msgstr ""
@@ -73,16 +73,16 @@ msgstr ""
 msgid "Get your own API key"
 msgstr ""
 
-#: plugins/antispam/_admin.php:18 plugins/antispam/_admin.php:30
+#: plugins/antispam/_admin.php:18 plugins/antispam/_admin.php:31
 #: plugins/antispam/index.php:18
 msgid "Antispam"
 msgstr ""
 
-#: plugins/antispam/_admin.php:47
+#: plugins/antispam/_admin.php:60
 msgid "Delete junk comments older than"
 msgstr ""
 
-#: plugins/antispam/_admin.php:49
+#: plugins/antispam/_admin.php:62
 msgid "days"
 msgstr ""
 
@@ -221,11 +221,13 @@ msgid "This comment is a spam:"
 msgstr ""
 
 #: plugins/antispam/inc/lib.dc.antispam.php:76
+#: plugins/antispam/inc/lib.dc.antispam.php:84
 #, php-format
 msgid "(including %d spam comment)"
 msgstr ""
 
 #: plugins/antispam/inc/lib.dc.antispam.php:76
+#: plugins/antispam/inc/lib.dc.antispam.php:84
 #, php-format
 msgid "(including %d spam comments)"
 msgstr ""
@@ -494,7 +496,7 @@ msgstr ""
 msgid "_xfn_Sweetheart"
 msgstr ""
 
-#: plugins/blogroll/index.php:50 plugins/blogroll/index.php:360
+#: plugins/blogroll/index.php:50 plugins/blogroll/index.php:366
 msgid "Nothing to import"
 msgstr ""
 
@@ -502,72 +504,72 @@ msgstr ""
 msgid "Import operation cancelled."
 msgstr ""
 
-#: plugins/blogroll/index.php:215
+#: plugins/blogroll/index.php:221
 msgid "Items order has been successfully updated"
 msgstr ""
 
-#: plugins/blogroll/index.php:219
+#: plugins/blogroll/index.php:225
 msgid "Items have been successfully removed."
 msgstr ""
 
-#: plugins/blogroll/index.php:223
+#: plugins/blogroll/index.php:229
 msgid "Link has been successfully created."
 msgstr ""
 
-#: plugins/blogroll/index.php:227
+#: plugins/blogroll/index.php:233
 msgid "category has been successfully created."
 msgstr ""
 
-#: plugins/blogroll/index.php:231
+#: plugins/blogroll/index.php:237
 msgid "links have been successfully imported."
 msgstr ""
 
-#: plugins/blogroll/index.php:242
+#: plugins/blogroll/index.php:248
 msgid "URL"
 msgstr ""
 
-#: plugins/blogroll/index.php:243
+#: plugins/blogroll/index.php:249
 msgid "Lang"
 msgstr ""
 
-#: plugins/blogroll/index.php:254
+#: plugins/blogroll/index.php:260
 msgid "position"
 msgstr ""
 
-#: plugins/blogroll/index.php:255
+#: plugins/blogroll/index.php:261
 msgid "select this link"
 msgstr ""
 
-#: plugins/blogroll/index.php:289
+#: plugins/blogroll/index.php:295
 msgid "Delete selected links"
 msgstr ""
 
-#: plugins/blogroll/index.php:291
+#: plugins/blogroll/index.php:297
 msgid "Are you sure you want to delete selected links?"
 msgstr ""
 
-#: plugins/blogroll/index.php:295
+#: plugins/blogroll/index.php:301
 msgid "The link list is empty."
 msgstr ""
 
-#: plugins/blogroll/index.php:305
+#: plugins/blogroll/index.php:311
 msgid "Add a new link"
 msgstr ""
 
-#: plugins/blogroll/index.php:329
+#: plugins/blogroll/index.php:335
 msgid "Add a category"
 msgstr ""
 
-#: plugins/blogroll/index.php:342 plugins/blogroll/index.php:346
-#: plugins/blogroll/index.php:358
+#: plugins/blogroll/index.php:348 plugins/blogroll/index.php:352
+#: plugins/blogroll/index.php:364
 msgid "Import links"
 msgstr ""
 
-#: plugins/blogroll/index.php:347
+#: plugins/blogroll/index.php:353
 msgid "OPML or XBEL File:"
 msgstr ""
 
-#: plugins/blogroll/index.php:351 plugins/blogroll/index.php:395
+#: plugins/blogroll/index.php:357 plugins/blogroll/index.php:401
 msgid "import"
 msgstr ""
 
@@ -1320,7 +1322,7 @@ msgid "Empty directory"
 msgstr ""
 
 #: plugins/pages/_admin.php:26 plugins/pages/list.php:179
-#: plugins/pages/page.php:35
+#: plugins/pages/page.php:36
 msgid "New page"
 msgstr ""
 
@@ -1378,63 +1380,63 @@ msgstr ""
 msgid "Selected pages action:"
 msgstr ""
 
-#: plugins/pages/page.php:88
+#: plugins/pages/page.php:89
 msgid "This page does not exist."
 msgstr ""
 
-#: plugins/pages/page.php:109 plugins/pages/page.php:356
+#: plugins/pages/page.php:111 plugins/pages/page.php:361
 msgid "Edit page"
 msgstr ""
 
-#: plugins/pages/page.php:119
+#: plugins/pages/page.php:121
 msgid "next page"
 msgstr ""
 
-#: plugins/pages/page.php:126
+#: plugins/pages/page.php:128
 msgid "previous page"
 msgstr ""
 
-#: plugins/pages/page.php:273
+#: plugins/pages/page.php:278
 msgid "Are you sure you want to delete this page?"
 msgstr ""
 
-#: plugins/pages/page.php:294
+#: plugins/pages/page.php:299
 msgid "Page has been successfully updated."
 msgstr ""
 
-#: plugins/pages/page.php:297
+#: plugins/pages/page.php:302
 msgid "Page has been successfully created."
 msgstr ""
 
-#: plugins/pages/page.php:320
+#: plugins/pages/page.php:325
 msgid "View page"
 msgstr ""
 
-#: plugins/pages/page.php:327
+#: plugins/pages/page.php:332
 msgid "Preview page"
 msgstr ""
 
-#: plugins/pages/page.php:361
+#: plugins/pages/page.php:366
 msgid "Page status:"
 msgstr ""
 
-#: plugins/pages/page.php:378
+#: plugins/pages/page.php:383
 msgid "Page position:"
 msgstr ""
 
-#: plugins/pages/page.php:382
+#: plugins/pages/page.php:387
 msgid "Page lang:"
 msgstr ""
 
-#: plugins/pages/page.php:385
+#: plugins/pages/page.php:390
 msgid "Page password:"
 msgstr ""
 
-#: plugins/pages/page.php:394
+#: plugins/pages/page.php:399
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr ""
 
-#: plugins/pages/page.php:432
+#: plugins/pages/page.php:437
 msgid "Add files to this page"
 msgstr ""
 
@@ -1717,7 +1719,7 @@ msgstr ""
 msgid "global preferences"
 msgstr ""
 
-#: plugins/widgets/_admin.php:14
+#: plugins/widgets/_admin.php:18 plugins/widgets/_admin.php:23
 msgid "Presentation widgets"
 msgstr ""
 
@@ -1834,90 +1836,90 @@ msgstr ""
 msgid "extra"
 msgstr ""
 
-#: plugins/widgets/index.php:138 plugins/widgets/index.php:159
+#: plugins/widgets/index.php:138 plugins/widgets/index.php:165
 msgid "Widgets"
 msgstr ""
 
-#: plugins/widgets/index.php:152
+#: plugins/widgets/index.php:158
 msgid "Are you sure you want to reset sidebars?"
 msgstr ""
 
-#: plugins/widgets/index.php:164
+#: plugins/widgets/index.php:170
 msgid "Available widgets"
 msgstr ""
 
-#: plugins/widgets/index.php:173
+#: plugins/widgets/index.php:179
 msgid "Append to:"
 msgstr ""
 
-#: plugins/widgets/index.php:183
+#: plugins/widgets/index.php:189
 msgid "add widgets to sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:191
+#: plugins/widgets/index.php:197
 msgid "Navigation sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:197
+#: plugins/widgets/index.php:203
 msgid "Extra sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:203
+#: plugins/widgets/index.php:209
 msgid "update sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:204
+#: plugins/widgets/index.php:210
 msgid "reset sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:209
+#: plugins/widgets/index.php:215
 msgid "Widget templates tags"
 msgstr ""
 
-#: plugins/widgets/index.php:211
+#: plugins/widgets/index.php:217
 msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
 msgstr ""
 
-#: plugins/widgets/index.php:213
+#: plugins/widgets/index.php:219
 msgid "To add a widget in your template, you need to write code like this:"
 msgstr ""
 
-#: plugins/widgets/index.php:214
+#: plugins/widgets/index.php:220
 msgid "Widget ID"
 msgstr ""
 
-#: plugins/widgets/index.php:215
+#: plugins/widgets/index.php:221
 msgid "Setting name"
 msgstr ""
 
-#: plugins/widgets/index.php:215
+#: plugins/widgets/index.php:221
 msgid "Setting value"
 msgstr ""
 
-#: plugins/widgets/index.php:218
+#: plugins/widgets/index.php:224
 msgid "Here are the following available widgets for your blog:"
 msgstr ""
 
-#: plugins/widgets/index.php:225
+#: plugins/widgets/index.php:231
 msgid "Widget ID:"
 msgstr ""
 
-#: plugins/widgets/index.php:231
+#: plugins/widgets/index.php:237
 msgid "No setting for this widget"
 msgstr ""
 
-#: plugins/widgets/index.php:254
+#: plugins/widgets/index.php:260
 msgid "Setting name:"
 msgstr ""
 
-#: plugins/widgets/index.php:276
+#: plugins/widgets/index.php:282
 msgid "No widget."
 msgstr ""
 
-#: plugins/widgets/index.php:286
+#: plugins/widgets/index.php:292
 msgid "order"
 msgstr ""
 
-#: plugins/widgets/index.php:289
+#: plugins/widgets/index.php:295
 msgid "Remove widget"
 msgstr ""
