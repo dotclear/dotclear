@@ -15,59 +15,59 @@ class dcFilterWords extends dcSpamFilter
 {
 	public $has_gui = true;
 	public $name = 'Bad Words';
-	
+
 	private $style_list = 'height: 200px; overflow: auto; margin-bottom: 1em; ';
 	private $style_p = 'margin: 1px 0 0 0; padding: 0.2em 0.5em; ';
 	private $style_global = 'background: #ccff99; ';
-	
+
 	private $con;
 	private $table;
-	
+
 	public function __construct($core)
 	{
 		parent::__construct($core);
 		$this->con =& $core->con;
 		$this->table = $core->prefix.'spamrule';
 	}
-	
+
 	protected function setInfo()
 	{
 		$this->description = __('Words Blacklist');
 	}
-	
+
 	public function getStatusMessage($status,$comment_id)
 	{
 		return sprintf(__('Filtered by %1$s with word %2$s.'),$this->guiLink(),'<em>'.$status.'</em>');
 	}
-	
+
 	public function isSpam($type,$author,$email,$site,$ip,$content,$post_id,&$status)
 	{
 		$str = $author.' '.$email.' '.$site.' '.$content;
-		
+
 		$rs = $this->getRules();
-		
+
 		while ($rs->fetch())
 		{
 			$word = $rs->rule_content;
-			
+
 			if (substr($word,0,1) == '/' && substr($word,-1,1) == '/') {
 				$reg = substr(substr($word,1),0,-1);
 			} else {
 				$reg = preg_quote($word, '/');
 				$reg = '(^|\s+|>|<)'.$reg.'(>|<|\s+|\.|$)';
 			}
-			
+
 			if (preg_match('/'.$reg.'/msiu',$str)) {
 				$status = $word;
 				return true;
 			}
 		}
 	}
-	
+
 	public function gui($url)
 	{
 		$core =& $this->core;
-		
+
 		# Create list
 		if (!empty($_POST['createlist']))
 		{
@@ -78,12 +78,12 @@ class dcFilterWords extends dcSpamFilter
 				$core->error->add($e->getMessage());
 			}
 		}
-		
+
 		# Adding a word
 		if (!empty($_POST['swa']))
 		{
 			$globalsw = !empty($_POST['globalsw']) && $core->auth->isSuperAdmin();
-			
+
 			try {
 				$this->addRule($_POST['swa'],$globalsw);
 				http::redirect($url.'&added=1');
@@ -91,7 +91,7 @@ class dcFilterWords extends dcSpamFilter
 				$core->error->add($e->getMessage());
 			}
 		}
-		
+
 		# Removing spamwords
 		if (!empty($_POST['swd']) && is_array($_POST['swd']))
 		{
@@ -102,11 +102,11 @@ class dcFilterWords extends dcSpamFilter
 				$core->error->add($e->getMessage());
 			}
 		}
-		
+
 		/* DISPLAY
 		---------------------------------------------- */
 		$res = '';
-		
+
 		if (!empty($_GET['list'])) {
 			$res .= '<p class="message">'.__('Words have been successfully added.').'</p>';
 		}
@@ -116,23 +116,23 @@ class dcFilterWords extends dcSpamFilter
 		if (!empty($_GET['removed'])) {
 			$res .= '<p class="message">'.__('Words have been successfully removed.').'</p>';
 		}
-		
+
 		$res .=
 		'<form action="'.html::escapeURL($url).'" method="post">'.
 		'<fieldset><legend>'.__('Add a word').'</legend>'.
-		'<p>'.form::field('swa',20,128).' ';
-		
+		'<p><label class="classic" for="swa">'.__('Add a word').' '.form::field('swa',20,128).'</label>';
+
 		if ($core->auth->isSuperAdmin()) {
-			$res .= '<label class="classic">'.form::checkbox('globalsw',1).' '.
+			$res .= '<label class="classic" for="globalsw">'.form::checkbox('globalsw',1).' '.
 			__('Global word').'</label> ';
 		}
-		
+
 		$res .=
 		$core->formNonce().
 		'<input type="submit" value="'.__('Add').'"/></p>'.
 		'</fieldset>'.
 		'</form>';
-		
+
 		$rs = $this->getRules();
 		if ($rs->isEmpty())
 		{
@@ -144,7 +144,7 @@ class dcFilterWords extends dcSpamFilter
 			'<form action="'.html::escapeURL($url).'" method="post">'.
 			'<fieldset><legend>' . __('List') . '</legend>'.
 			'<div style="'.$this->style_list.'">';
-			
+
 			while ($rs->fetch())
 			{
 				$disabled_word = false;
@@ -153,14 +153,14 @@ class dcFilterWords extends dcSpamFilter
 					$disabled_word = !$core->auth->isSuperAdmin();
 					$p_style .= $this->style_global;
 				}
-				
+
 				$res .=
 				'<p style="'.$p_style.'"><label class="classic">'.
-				form::checkbox(array('swd[]'),$rs->rule_id,false,'','',$disabled_word).' '.
+				form::checkbox(array('swd[]'),$rs->rule_id,false,'','',$disabled_word, 'title="'.html::escapeHTML($rs->rule_content).'"').' '.
 				html::escapeHTML($rs->rule_content).
 				'</label></p>';
 			}
-			
+
 			$res .=
 			'</div>'.
 			'<p>'.form::hidden(array('spamwords'),1).
@@ -168,7 +168,7 @@ class dcFilterWords extends dcSpamFilter
 			'<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"/></p>'.
 			'</fieldset></form>';
 		}
-		
+
 		if ($core->auth->isSuperAdmin())
 		{
 			$res .=
@@ -179,10 +179,10 @@ class dcFilterWords extends dcSpamFilter
 			$core->formNonce().'</p>'.
 			'</form>';
 		}
-		
+
 		return $res;
 	}
-	
+
 	private function getRules()
 	{
 		$strReq = 'SELECT rule_id, blog_id, rule_content '.
@@ -191,42 +191,42 @@ class dcFilterWords extends dcSpamFilter
 				"AND ( blog_id = '".$this->con->escape($this->core->blog->id)."' ".
 				"OR blog_id IS NULL ) ".
 				'ORDER BY blog_id ASC, rule_content ASC ';
-		
+
 		return $this->con->select($strReq);
 	}
-	
+
 	private function addRule($content,$general=false)
 	{
 		$strReq = 'SELECT rule_id FROM '.$this->table.' '.
 				"WHERE rule_type = 'word' ".
 				"AND rule_content = '".$this->con->escape($content)."' ";
 		$rs = $this->con->select($strReq);
-		
+
 		if (!$rs->isEmpty()) {
 			throw new Exception(__('This word exists'));
 		}
-		
+
 		$rs = $this->con->select('SELECT MAX(rule_id) FROM '.$this->table);
 		$id = (integer) $rs->f(0) + 1;
-		
+
 		$cur = $this->con->openCursor($this->table);
 		$cur->rule_id = $id;
 		$cur->rule_type = 'word';
 		$cur->rule_content = (string) $content;
-		
+
 		if ($general && $this->core->auth->isSuperAdmin()) {
 			$cur->blog_id = null;
 		} else {
 			$cur->blog_id = $this->core->blog->id;
 		}
-		
+
 		$cur->insert();
 	}
-	
+
 	private function removeRule($ids)
 	{
 		$strReq = 'DELETE FROM '.$this->table.' ';
-		
+
 		if (is_array($ids)) {
 			foreach ($ids as &$v) {
 				$v = (integer) $v;
@@ -236,14 +236,14 @@ class dcFilterWords extends dcSpamFilter
 			$ids = (integer) $ids;
 			$strReq .= 'WHERE rule_id = '.$ids.' ';
 		}
-		
+
 		if (!$this->core->auth->isSuperAdmin()) {
 			$strReq .= "AND blog_id = '".$this->con->escape($this->core->blog->id)."' ";
 		}
-		
+
 		$this->con->execute($strReq);
 	}
-	
+
 	public function defaultWordsList()
 	{
 		$words = array(
@@ -346,7 +346,7 @@ class dcFilterWords extends dcSpamFilter
 			'xanax',
 			'zolus'
 		);
-		
+
 		foreach ($words as $w) {
 			try {
 				$this->addRule($w,true);
@@ -355,3 +355,4 @@ class dcFilterWords extends dcSpamFilter
 	}
 }
 ?>
+
