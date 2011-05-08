@@ -494,7 +494,7 @@ if ($file->editable && $core_media_writable)
 	__('Private').'</label></p>'.
 	'<p><label for="media_path">'.__('New directory:').
 	form::combo('media_path',$dirs_combo,dirname($file->relname)).'</label></p>'.
-	'<p><input type="submit" accesskey="s" value="'.__('save').'" />'.
+	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	form::hidden(array('id'),$id).
 	$core->formNonce().'</p>'.
 	'</fieldset></form>';

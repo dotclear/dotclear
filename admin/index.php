@@ -311,7 +311,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'</p>'.
 		'<p><label for="cat_id" class="classic">'.__('Category:').' '.
 		form::combo('cat_id',$categories_combo,'','',2).'</label></p>'.
-		'<p><input type="submit" value="'.__('save').'" name="save" tabindex="3" /> '.
+		'<p><input type="submit" value="'.__('Save').'" name="save" tabindex="3" /> '.
 		($core->auth->check('publish',$core->blog->id)
 			? '<input type="hidden" value="'.__('save and publish').'" name="save-publish" />'
 			: '').

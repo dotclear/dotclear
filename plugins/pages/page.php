@@ -584,7 +584,7 @@ if ($post_id)
 	
 	'<p>'.form::hidden('post_id',$post_id).
 	$core->formNonce().
-	'<input type="submit" name="add" value="'.__('save').'" /></p>'.
+	'<input type="submit" name="add" value="'.__('Save').'" /></p>'.
 	'</fieldset>'.
 	'</form>'.
 	'</div>';

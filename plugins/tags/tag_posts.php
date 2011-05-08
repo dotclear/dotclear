@@ -126,7 +126,7 @@ if (!$core->error->flag())
 		'<form action="'.$this_url.'" method="post">'.
 		'<p><label for="new_tag_id" class="classic">'.__('Rename this tag:').' '.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
-		'</label> <input type="submit" value="'.__('save').'" />'.
+		'</label> <input type="submit" value="'.__('Save').'" />'.
 		$core->formNonce().'</p>'.
 		'</form>';
 	}

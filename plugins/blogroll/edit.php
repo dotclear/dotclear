@@ -113,7 +113,7 @@ if (isset($rs) && $rs->is_cat)
 	form::hidden('edit',1).
 	form::hidden('id',$id).
 	$core->formNonce().
-	'<input type="submit" name="edit_cat" value="'.__('save').'"/></p>'.
+	'<input type="submit" name="edit_cat" value="'.__('Save').'"/></p>'.
 	'</fieldset>'.
 	'</form>';
 }
@@ -143,7 +143,7 @@ if (isset($rs) && !$rs->is_cat)
 	form::hidden('edit',1).
 	form::hidden('id',$id).
 	$core->formNonce().
-	'<input type="submit" name="edit_link" value="'.__('save').'"/></p>'.
+	'<input type="submit" name="edit_link" value="'.__('Save').'"/></p>'.
 	'</fieldset>'.
 	
 	

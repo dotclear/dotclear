@@ -326,7 +326,7 @@ form::field('link_lang',5,5,$link_lang,'',5).
 '</label></p>'.
 '<p>'.form::hidden(array('p'),'blogroll').
 $core->formNonce().
-'<input type="submit" name="add_link" value="'.__('save').'" tabindex="6" /></p>'.
+'<input type="submit" name="add_link" value="'.__('Save').'" tabindex="6" /></p>'.
 '</fieldset>'.
 '</form>'.
 '</div>';
@@ -339,7 +339,7 @@ echo
 form::field('cat_title',30,255,$cat_title,'',7).'</label> '.
 form::hidden(array('p'),'blogroll').
 $core->formNonce().
-'<input type="submit" name="add_cat" value="'.__('save').'" tabindex="8" /></p>'.
+'<input type="submit" name="add_cat" value="'.__('Save').'" tabindex="8" /></p>'.
 '</fieldset>'.
 '</form>'.
 '</div>';

@@ -222,7 +222,7 @@ if ($comment_id)
 	
 	'<p>'.form::hidden('id',$comment_id).
 	$core->formNonce().
-	'<input type="submit" accesskey="s" name="update" value="'.__('save').'" /> ';
+	'<input type="submit" accesskey="s" name="update" value="'.__('Save').'" /> ';
 	
 	if ($can_delete) {
 		echo '<input type="submit" class="delete" name="delete" value="'.__('Delete').'" />';

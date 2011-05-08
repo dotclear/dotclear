@@ -91,7 +91,7 @@ form::field(array('pings_srv_name[]','pings_srv_name2'),20,128).'</label> '.
 form::field(array('pings_srv_uri[]','pings_srv_uri2'),40,255).'</label>'.
 '</p>'.
 
-'<p><input type="submit" value="'.__('save').'" />'.
+'<p><input type="submit" value="'.__('Save').'" />'.
 $core->formNonce().'</p>'.
 '</form>';
 

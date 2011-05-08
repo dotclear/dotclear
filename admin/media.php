@@ -352,7 +352,7 @@ if ($core_media_writable)
 	$core->formNonce().
 	'<p><label for="newdir">'.__('Directory Name:').
 	form::field(array('newdir'),35,255).'</label></p>'.
-	'<p><input type="submit" value="'.__('save').'" />'.
+	'<p><input type="submit" value="'.__('Save').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
 	'</fieldset>'.
 	'</form></div>';

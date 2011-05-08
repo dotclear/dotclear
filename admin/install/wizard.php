@@ -183,7 +183,7 @@ form::password('DBPASSWORD',30,255).'</label></p>'.
 '<p><label class="required" title="'.__('Required field').'">'.__('Database Tables Prefix:').' '.
 form::field('DBPREFIX',30,255,html::escapeHTML($DBPREFIX)).'</label></p>'.
 
-'<p><input type="submit" value="'.__('save').'" /></p>'.
+'<p><input type="submit" value="'.__('Save').'" /></p>'.
 '</form>';
 ?>
 </div>

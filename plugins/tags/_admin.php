@@ -234,7 +234,7 @@ class tagsBehaviors
 			$hidden_fields.
 			$core->formNonce().
 			form::hidden(array('action'),'tags').
-			'<p><input type="submit" value="'.__('save').'" '.
+			'<p><input type="submit" value="'.__('Save').'" '.
 			'name="save_tags" /></p>'.
 			'</form>';
 		}
