@@ -296,7 +296,7 @@ if (!empty($p_disabled))
 			$core->formNonce().
 			form::hidden(array('plugin_id'),html::escapeHTML($k)).
 			form::hidden(array('deactivated'),1).
-			($is_activable ? '<input type="submit" value="'.__('Activate').'" /> ' : '').
+			($is_activable ? '<input type="submit" name="activate" value="'.__('Activate').'" /> ' : '').
 			($is_deletable ? '<input type="submit" class="delete" name="delete" value="'.__('Delete').'" /> ' : '').
 			'</div>'.
 			'</form>';
