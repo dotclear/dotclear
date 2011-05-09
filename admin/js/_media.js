@@ -16,12 +16,12 @@ $(function() {
 	}
 	
 	if (!$.browser.opera) {
-		var upldr = $('<a href="#">' + dotclear.msg.activate_enhanced_uploader + '</a>')
+		var cue = $('<a/>').attr({'id':'candyupload-enable','href':'#'}).append(dotclear.msg.activate_enhanced_uploader)
 		.click(function() {
 			candyUploadInit();
 			return false;
 		});
-		$('#media-upload>fieldset').append($('<div></div>').append(upldr));
+		$('#media-upload>fieldset').append($('<div></div>').append(cue));
 		
 		if ($.cookie('dc_candy_upl') == 1) {
 			candyUploadInit();
@@ -42,7 +42,8 @@ $(function() {
 			callbacks: {
 				createControls: function() {
 					var _this = this;
-					var l = $('<a href="#">' + dotclear.msg.disable_enhanced_uploader + '</a>').click(function() {
+					var cud = $('<a/>').attr({'id':'candyupload-disable','href':'#'}).append(dotclear.msg.disable_enhanced_uploader)
+					.click(function() {
 						_this.upldr.destroy();
 						_this.ctrl.block.empty().remove();
 						$('#media-upload').show();
@@ -50,10 +51,21 @@ $(function() {
 						$.cookie('dc_candy_upl','',{expires: -1});
 						return false;
 					});
-					this.ctrl.disable = $('<div class="cu-disable"></div>').append(l).appendTo(this.ctrl.block);
+					this.ctrl.btn_browse.hide();
+					this.ctrl.msg.html(dotclear.msg.load_enhanced_uploader);
+					this.ctrl.disable = $('<div class="cu-disable"></div>').append(cud).appendTo(this.ctrl.block);
 				},
 				flashReady: function() {
-					this.ctrl.btn_browse.addClass('button');
+					var _this = this;
+					this.ctrl.msg.fadeOut('fast',function() {
+						$(this).text(_this.locales.no_file_in_queue).fadeIn('fast');
+						_this.ctrl.btn_browse.fadeIn('fast',function() {
+							_this.upldr.container.children().css({
+								width: $('.cu-btn-browse').width(),
+								height: $('.cu-btn-browse').height()
+							});
+						});
+					});
 					this.ctrl.block.append(this.ctrl.disable);
 				},
 				uploadSuccess: function(o,data) {
