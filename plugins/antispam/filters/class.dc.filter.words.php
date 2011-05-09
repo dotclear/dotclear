@@ -155,8 +155,8 @@ class dcFilterWords extends dcSpamFilter
 				}
 
 				$res .=
-				'<p style="'.$p_style.'"><label class="classic">'.
-				form::checkbox(array('swd[]'),$rs->rule_id,false,'','',$disabled_word, 'title="'.html::escapeHTML($rs->rule_content).'"').' '.
+				'<p style="'.$p_style.'"><label class="classic" for="word'.$rs->rule_id.'">'.
+				form::checkbox(array('swd[]', 'word'.$rs->rule_id),$rs->rule_id,false,'','',$disabled_word).' '.
 				html::escapeHTML($rs->rule_content).
 				'</label></p>';
 			}
