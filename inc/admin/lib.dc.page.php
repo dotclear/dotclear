@@ -433,6 +433,8 @@ class dcPage
 			__('There are XHTML markup errors.')).
 		self::jsVar('dotclear.msg.confirm_change_post_format',
 			__('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?')).
+		self::jsVar('dotclear.msg.load_enhanced_uploader',
+			__('Loading enhanced uploader, please wait.')).
 		"\n//]]>\n".
 		"</script>\n";
 	}
