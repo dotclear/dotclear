@@ -1080,6 +1080,9 @@ label {
 label input, label select, label span {
 	display: block;
 }
+#filters-form label {
+	display: inline;
+}
 p.form-note {
 	font-style:italic;
 	margin-top: -.7em;
@@ -1299,3 +1302,24 @@ a.button.add {
 a.button.add:hover, a.button.add:focus {
 	background-color: #2373A8;
 }
+
+form#filters {font-size: 100%; background: #f0f0f0; padding: 1em; border-radius: .5em; border: 1px solid #ddd;}
+form#filters .margintop {padding-top: 1.33em;}
+form#filters ul {list-style-type:none;margin: 0; padding: 0; margin-left: 1em;}
+form#filters .col30 {border-left: 1px solid #999;}
+form#filters .col30 h3 {margin-left: 1em;}
+.line { position: relative; padding: 3px 0 0 28px; margin: 0 0 1em 0;}
+.line input[type=submit] {position: absolute; left:0;top:0; padding: 0 .1em; margin: 0;}
+.line input[type=checkbox] {position: absolute; left: 0; top: .2em; padding: 0 .1em; margin: 0;}
+.line select { margin-right: 2em;}
+.line label { display: block; width: 8em; float: left;}
+.line label img {margin-right: 8px;}
+.line label.or {
+	text-align: right;
+	margin-left: 5em;
+	font-weight: bold;
+}
+.line label.or + select {margin-left: 2em;}
+li.line { padding: 0 0 0 20px; height: 1em;}
+li.line label {width: auto;}
+#available_filters input[type=submit] {padding: 0 .1em; margin-left: .5em;}

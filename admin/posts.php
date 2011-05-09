@@ -47,7 +47,6 @@ if (!$core->error->flag())
 {
 	# Filter form we'll put in html_block
 	$users_combo = $categories_combo = array();
-	$users_combo['-'] = $categories_combo['-'] = '';
 	while ($users->fetch())
 	{
 		$user_cn = dcUtils::getUserCN($users->user_id,$users->user_name,
@@ -68,25 +67,21 @@ if (!$core->error->flag())
 	}
 	
 	$status_combo = array(
-	'-' => ''
 	);
 	foreach ($core->blog->getAllPostStatus() as $k => $v) {
 		$status_combo[$v] = (string) $k;
 	}
 	
 	$selected_combo = array(
-	'-' => '',
 	__('selected') => '1',
 	__('not selected') => '0'
 	);
 	
 	# Months array
-	$dt_m_combo['-'] = '';
 	while ($dates->fetch()) {
 		$dt_m_combo[dt::str('%B %Y',$dates->ts())] = $dates->year().$dates->month();
 	}
 	
-	$lang_combo['-'] = '';
 	while ($langs->fetch()) {
 		$lang_combo[$langs->post_lang] = $langs->post_lang;
 	}
@@ -137,17 +132,6 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 
 /* Get posts
 -------------------------------------------------------- */
-$user_id = !empty($_GET['user_id']) ?	$_GET['user_id'] : '';
-$cat_id = !empty($_GET['cat_id']) ?	$_GET['cat_id'] : '';
-$status = isset($_GET['status']) ?	$_GET['status'] : '';
-$selected = isset($_GET['selected']) ?	$_GET['selected'] : '';
-$month = !empty($_GET['month']) ?		$_GET['month'] : '';
-$lang = !empty($_GET['lang']) ?		$_GET['lang'] : '';
-$sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'post_dt';
-$order = !empty($_GET['order']) ?		$_GET['order'] : 'desc';
-
-$show_filters = false;
-
 $page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
 $nb_per_page =  30;
 
@@ -158,61 +142,47 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
 	$nb_per_page = (integer) $_GET['nb'];
 }
 
+$params = new ArrayObject();
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 $params['no_content'] = true;
 
-# - User filter
-if ($user_id !== '' && in_array($user_id,$users_combo)) {
-	$params['user_id'] = $user_id;
-	$show_filters = true;
-}
-
-# - Categories filter
-if ($cat_id !== '' && in_array($cat_id,$categories_combo)) {
-	$params['cat_id'] = $cat_id;
-	$show_filters = true;
-}
-
-# - Status filter
-if ($status !== '' && in_array($status,$status_combo)) {
-	$params['post_status'] = $status;
-	$show_filters = true;
-}
-
-# - Selected filter
-if ($selected !== '' && in_array($selected,$selected_combo)) {
-	$params['post_selected'] = $selected;
-	$show_filters = true;
-}
-
-# - Month filter
-if ($month !== '' && in_array($month,$dt_m_combo)) {
-	$params['post_month'] = substr($month,4,2);
-	$params['post_year'] = substr($month,0,4);
-	$show_filters = true;
-}
-
-# - Lang filter
-if ($lang !== '' && in_array($lang,$lang_combo)) {
-	$params['post_lang'] = $lang;
-	$show_filters = true;
-}
-
-# - Sortby and order filter
-if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
-	if ($order !== '' && in_array($order,$order_combo)) {
-		$params['order'] = $sortby.' '.$order;
-	}
-	
-	if ($sortby != 'post_dt' || $order != 'desc') {
-		$show_filters = true;
+$filterSet = new dcFilterSet('posts.php');
+class monthComboFilter extends comboFilter {
+	public function applyFilter($params) {
+		$month=$this->values[0];
+		$params['post_month'] = substr($month,4,2);
+		$params['post_year'] = substr($month,0,4);
 	}
 }
+$filterSet
+	->addFilter(new comboFilter(
+		'users',__('Author'), 'user', $users_combo))
+	->addFilter(new comboFilter(
+		'category',__('Category'), 'cat_id', $categories_combo))
+	->addFilter(new comboFilter(
+		'post_status',__('Status'), 'post_status', $status_combo,array('singleval' => 1)))
+	->addFilter(new comboFilter(
+		'post_selected',__('Selected'), 'post_selected', $selected_combo))
+	->addFilter(new comboFilter(
+		'lang',__('Lang'), 'post_lang', $lang_combo))
+	->addFilter(new monthComboFilter(
+		'month',__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)))
+	->addFilter(new valueFilter(
+		'title',__('Title contains'),"post_title",25,100));
+$filterSet->setValues($_GET);
 
 # Get posts
 try {
+	$nfparams = $params->getArrayCopy();
+	$filtered = $filterSet->applyFilters($params);
 	$posts = $core->blog->getPosts($params);
 	$counter = $core->blog->getPosts($params,true);
+	if ($filtered) {
+		$totalcounter = $core->blog->getPosts($nfparams,true);
+		$page_title = sprintf(__('Entries / %s filtered out of %s'),$counter->f(0),$totalcounter->f(0));
+	} else {
+		$page_title = __('Entries');
+	}
 	$post_list = new adminPostList($core,$posts,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
@@ -221,59 +191,19 @@ try {
 /* DISPLAY
 -------------------------------------------------------- */
 $starting_script = dcPage::jsLoad('js/_posts_list.js');
-if (!$show_filters) {
-	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
-}
+
+$starting_script = $filterSet->header();
 
 dcPage::open(__('Entries'),$starting_script);
 
 if (!$core->error->flag())
 {
 	echo 
-	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Entries').'</h2>'.
+	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.$page_title.'</h2>'.
 	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>';
-	
-	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.
-		__('Filters').'</a></p>';
-	}
-	
-	echo
-	'<form action="posts.php" method="get" id="filters-form">'.
-	'<fieldset><legend>'.__('Filters').'</legend>'.
-	'<div class="three-cols">'.
-	'<div class="col">'.
-	'<label for="user_id">'.__('Author:').
-	form::combo('user_id',$users_combo,$user_id).'</label> '.
-	'<label for="cat_id">'.__('Category:').
-	form::combo('cat_id',$categories_combo,$cat_id).'</label> '.
-	'<label for="status">'.__('Status:').
-	form::combo('status',$status_combo,$status).'</label> '.
-	'</div>'.
-	
-	'<div class="col">'.
-	'<label for="selected">'.__('Selected:').
-	form::combo('selected',$selected_combo,$selected).'</label> '.
-	'<label for="month">'.__('Month:').
-	form::combo('month',$dt_m_combo,$month).'</label> '.
-	'<label for="lang">'.__('Lang:').
-	form::combo('lang',$lang_combo,$lang).'</label> '.
-	'</div>'.
-	
-	'<div class="col">'.
-	'<p><label for="sortby">'.__('Order by:').
-	form::combo('sortby',$sortby_combo,$sortby).'</label> '.
-	'<label for="order">'.__('Sort:').
-	form::combo('order',$order_combo,$order).'</label></p>'.
-	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Entries per page').'</label></p> '.
-	'<p><input type="submit" value="'.__('Apply filters').'" /></p>'.
-	'</div>'.
-	'</div>'.
-	'<br class="clear" />'. //Opera sucks
-	'</fieldset>'.
-	'</form>';
-	
+
+	$filterSet->display();
+
 	# Show posts
 	$post_list->display($page,$nb_per_page,
 	'<form action="posts_actions.php" method="post" id="form-entries">'.
@@ -286,16 +216,7 @@ if (!$core->error->flag())
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
-	form::hidden(array('user_id'),$user_id).
-	form::hidden(array('cat_id'),$cat_id).
-	form::hidden(array('status'),$status).
-	form::hidden(array('selected'),$selected).
-	form::hidden(array('month'),$month).
-	form::hidden(array('lang'),$lang).
-	form::hidden(array('sortby'),$sortby).
-	form::hidden(array('order'),$order).
-	form::hidden(array('page'),$page).
-	form::hidden(array('nb'),$nb_per_page).
+	$filterSet->getFormFieldsAsHidden().
 	$core->formNonce().
 	'</div>'.
 	'</form>'
