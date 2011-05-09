@@ -166,9 +166,7 @@ $filterSet
 	->addFilter(new comboFilter(
 		'lang',__('Lang'), 'post_lang', $lang_combo))
 	->addFilter(new monthComboFilter(
-		'month',__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)))
-	->addFilter(new valueFilter(
-		'title',__('Title contains'),"post_title",25,100));
+		'month',__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)));
 $filterSet->setValues($_GET);
 
 # Get posts

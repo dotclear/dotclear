@@ -219,8 +219,6 @@ class comboFilter extends Filter {
 		parent::__construct($id,$desc,$request_param);
 		$this->options = $options;
 		$this->extra = $extra;
-		/*$this->default = $default;
-		$this->no_value = $no_value;*/
 		$this->desc = $desc;
 		$this->verb = "is";
 		$this->values=array();
@@ -269,45 +267,4 @@ class comboFilter extends Filter {
 			$params[$this->request_param]=$this->values;
 	}
 }
-
-class booleanFilter extends Filter {
-	public function getType() {
-		return "boolean";
-	}
-}
-
-class valueFilter extends Filter {
-	protected $size;
-	protected $max;
-	protected $default;
-	protected $no_value;
-	
-	public function __construct($id,$desc,$request_param,$size, $max, $no_value='',$default=null) {
-		parent::__construct($id,$desc,$request_param);
-		$this->size = $size;
-		$this->max = $max;
-		$this->default_value = $default;
-		$this->no_value = $no_value;
-	}
-
-	public function getType() {
-		return "value";
-	}
-	
-	
-	public function getFormFields() {
-		return '<label for="'.$this->field_id.'">'.$this->desc.'</label>'.
-			form::field($this->field_id,$this->size,$this->max,$this->value);
-	
-	}
-	
-	public function setValues($form_data) {
-		parent::setValues($form_data);
-		if ($this->enabled && $this->value==$this->no_value) {
-			$this->enabled = false;
-			$this->value=null;
-		}
-	}
-}
-
 ?>
