@@ -83,6 +83,7 @@ class dcImport extends backupFile
 		$this->cur_link        = $this->con->openCursor($this->prefix.'link');
 		$this->cur_setting     = $this->con->openCursor($this->prefix.'setting');
 		$this->cur_user        = $this->con->openCursor($this->prefix.'user');
+		$this->cur_pref        = $this->con->openCursor($this->prefix.'pref');
 		$this->cur_permissions = $this->con->openCursor($this->prefix.'permissions');
 		$this->cur_post        = $this->con->openCursor($this->prefix.'post');
 		$this->cur_meta        = $this->con->openCursor($this->prefix.'meta');
@@ -252,6 +253,9 @@ class dcImport extends backupFile
 					case 'user':
 						$this->insertUser($line);
 						break;
+					case 'pref':
+						$this->insertPref($line);
+						break;
 					case 'permissions':
 						$this->insertPermissions($line);
 						break;
@@ -362,6 +366,20 @@ class dcImport extends backupFile
 		$this->cur_setting->setting_label = (string) $setting->setting_label;
 		
 		$this->cur_setting->insert();
+	}
+	
+	private function insertPref($pref)
+	{
+		$this->cur_pref->clean();
+		
+		$this->cur_pref->pref_id    = (string) $pref->pref_id;
+		$this->cur_pref->user_id    = !$pref->user_id ? null : (string) $pref->user_id;
+		$this->cur_pref->pref_ws    = (string) $pref->pref_ws;
+		$this->cur_pref->pref_value = (string) $pref->pref_value;
+		$this->cur_pref->pref_type  = (string) $pref->pref_type;
+		$this->cur_pref->pref_label = (string) $pref->pref_label;
+		
+		$this->cur_pref->insert();
 	}
 	
 	private function insertUser($user)
