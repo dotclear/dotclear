@@ -336,8 +336,8 @@ if ($core_media_writable)
 	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.
 	'<input type="file" id="upfile" name="upfile" size="20" />'.
 	'</label></p>'.
-	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle'),35,255).'</label></p>'.
-	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv'),1).' '.
+	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
+	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
 	__('Private').'</label></p>'.
 	'<p><input type="submit" value="'.__('send').'" />'.
 	form::hidden(array('d'),$d).'</p>'.
@@ -351,7 +351,7 @@ if ($core_media_writable)
 	'<fieldset id="new-dir-f">'.
 	$core->formNonce().
 	'<p><label for="newdir">'.__('Directory Name:').
-	form::field(array('newdir'),35,255).'</label></p>'.
+	form::field(array('newdir','newdir'),35,255).'</label></p>'.
 	'<p><input type="submit" value="'.__('Save').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
 	'</fieldset>'.
