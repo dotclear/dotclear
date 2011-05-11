@@ -2803,3 +2803,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Modify numbers in fields to change favorites order."
 #~ msgstr "Modifiez les nombres dans les champs pour changer l'ordre des favoris."
+
+msgid "Activate enhanced uploader in media manager"
+msgstr "Activer l'interface avancée du gestionnaire de média"

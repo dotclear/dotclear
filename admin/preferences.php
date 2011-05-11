@@ -33,7 +33,10 @@ $user_dm_dcnews = $core->auth->user_prefs->dashboard->dcnews;
 $user_dm_quickentry = $core->auth->user_prefs->dashboard->quickentry;
 
 $core->auth->user_prefs->addWorkspace('accessibility');
-$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+$user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+
+$core->auth->user_prefs->addWorkspace('interface');
+$user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 
 $default_tab = 'user-profile';
 
@@ -143,7 +146,8 @@ if (isset($_POST['user_post_format'])) {
 		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
 		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
 		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
-		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_dm_nodragdrop']),'boolean');
+		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_acc_nodragdrop']),'boolean');
+		$core->auth->user_prefs->interface->put('enhanceduploader',!empty($_POST['user_ui_enhanceduploader']),'boolean');
 		
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
@@ -291,7 +295,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 -------------------------------------------------------- */
 dcPage::open($page_title,
 	dcPage::jsLoad('js/_preferences.js').
-	($user_dm_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
+	($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
 	dcPage::jsLoad('js/jquery/jquery-ui-1.8.12.custom.min.js').
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsConfirmClose('user-form').
@@ -406,14 +410,19 @@ form::field('user_edit_size',5,4,(integer) $user_options['edit_size'],'',9).'</l
 '<p><label for="user_wysiwyg" class="classic">'.
 form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg'],'',12).' '.
 __('Enable WYSIWYG mode').'</label></p>'.
+
+'<p><label for="user_ui_enhanceduploader" class="classic">'.
+form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader,'',13).' '.
+__('Activate enhanced uploader in media manager').'</label></p>'.
+
 '<br class="clear" />'. //Opera sucks
 '</fieldset>';
 
 echo
 '<fieldset><legend>'.__('Accessibility options').'</legend>'.
 
-'<p><label for="user_dm_nodragdrop" class="classic">'.
-form::checkbox('user_dm_nodragdrop',1,$user_dm_nodragdrop,'',13).' '.
+'<p><label for="user_acc_nodragdrop" class="classic">'.
+form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop,'',14).' '.
 __('Disable javascript powered drag and drop for ordering items').'</label></p>'.
 
 '<p class="clear form-note info">'.__('Numeric fields will allow to type the elements\' ordering number.').'</p>'.
@@ -423,15 +432,15 @@ echo
 '<fieldset><legend>'.__('Dashboard modules').'</legend>'.
 
 '<p><label for="user_dm_doclinks" class="classic">'.
-form::checkbox('user_dm_doclinks',1,$user_dm_doclinks,'',14).' '.
+form::checkbox('user_dm_doclinks',1,$user_dm_doclinks,'',15).' '.
 __('Display documentation links').'</label></p>'.
 
 '<p><label for="user_dm_dcnews" class="classic">'.
-form::checkbox('user_dm_dcnews',1,$user_dm_dcnews,'',15).' '.
+form::checkbox('user_dm_dcnews',1,$user_dm_dcnews,'',16).' '.
 __('Display Dotclear news').'</label></p>'.
 
 '<p><label for="user_dm_quickentry" class="classic">'.
-form::checkbox('user_dm_quickentry',1,$user_dm_quickentry,'',16).' '.
+form::checkbox('user_dm_quickentry',1,$user_dm_quickentry,'',17).' '.
 __('Display quick entry form').'</label></p>'.
 
 '<br class="clear" />'. //Opera sucks
