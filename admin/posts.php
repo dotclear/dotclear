@@ -186,6 +186,8 @@ try {
 	$core->error->add($e->getMessage());
 }
 
+$filterSet->setColumnsForm($post_list->getColumnsForm());
+
 /* DISPLAY
 -------------------------------------------------------- */
 $starting_script = dcPage::jsLoad('js/_posts_list.js');
