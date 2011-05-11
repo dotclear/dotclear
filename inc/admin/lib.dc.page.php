@@ -101,6 +101,9 @@ class dcPage
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo '  <style type="text/css">'."\n".'  @import "style/default-rtl.css";'."\n"."  </style>\n";
 		}
+
+		echo 
+		'<link rel="icon" type="image/png" href="images/favicon.png" />';
 		
 		echo
 		self::jsCommon().
