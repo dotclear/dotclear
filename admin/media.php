@@ -245,6 +245,11 @@ $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 
 call_user_func($open_f,__('Media manager'),
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA["."\n".
+	dcPage::jsVar('dotclear.candyUpload_force_init',$user_ui_enhanceduploader)."\n".
+	"//]]>".
+	"</script>".
 	dcPage::jsLoad('js/_media.js').
 	(($user_ui_enhanceduploader && $core_media_writable) ? dcPage::jsCandyUpload(array('d='.$d)) : '')
 	);
