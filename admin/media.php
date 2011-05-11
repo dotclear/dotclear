@@ -241,9 +241,13 @@ if ($dir && !empty($_GET['remove']))
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
+$core->auth->user_prefs->addWorkspace('interface');
+$user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
+
 call_user_func($open_f,__('Media manager'),
 	dcPage::jsLoad('js/_media.js').
-	($core_media_writable ? dcPage::jsCandyUpload(array('d='.$d)) : ''));
+	(($user_ui_enhanceduploader && $core_media_writable) ? dcPage::jsCandyUpload(array('d='.$d)) : '')
+	);
 
 if (!empty($_GET['mkdok'])) {
 	echo '<p class="message">'.__('Directory has been successfully created.').'</p>';
