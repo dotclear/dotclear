@@ -27,6 +27,7 @@ class dcFilterSet {
 	protected $form_prefix;
 	protected $action;
 	protected $hideform;
+	protected $columns_form;
 	
 	public function __construct($action,$form_prefix="f_") {
 		$this->form_prefix=$form_prefix;
@@ -54,6 +55,12 @@ class dcFilterSet {
 			$this->filters[$form_data['add_filter']]->add();
 		}
 	}
+	
+	public function setColumnsForm($html)
+	{
+		$this->columns_form = $html;
+	}
+	
 	public function getFormFieldsAsHidden() {
 		$ret='';
 		foreach ($this->filters as $filter) {
@@ -94,11 +101,7 @@ class dcFilterSet {
 			'</p>'.
 			'</div>'.
 			'<div class="col30">'.
-			'<h3>'.__('Displayed information').'</h3>'.
-			'<ul>'.
-			'<li class="line"><label for="col_title">Titre</label><input type="checkbox" id="col_title" value="title" name="title" checked="checked"></li>'.
-
-			'</ul>'.
+			$this->columns_form.
 			'</div>'.
 			'<p class="clear margintop"><input type="submit" value="'.__('Apply filters and display options').'" name="apply"></p>'.
 

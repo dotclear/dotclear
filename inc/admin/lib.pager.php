@@ -31,23 +31,31 @@ class adminGenericColumn
 		if (!is_string($title)) {
 			throw new Exception(__('Invalid column title'));
 		}
+		
 		if (is_null($html) || !is_string($html)) {
 			$html = '';
 		}
+		if (!empty($html)) {
+			$html = ' '.$html;
+		}
+		
 		if (!is_int($order)) {
 			$order = null;
 		}
 		
 		try {
+			if (!is_array($callback) || count($callback) < 2) {
+				throw new Exception(__('Callback parameter should be an array'));
+			}
 			$r = new ReflectionClass($callback[0]);
 			$f = $r->getMethod($callback[1]);
 			$p = $r->getParentClass();
 			if (!$p || $p->name != 'adminGenericList') {
-				throw new Exception(__('Invalid callback'));
+				throw new Exception(__('Callback class should be inherited of adminGenericList class'));
 			}
 		}
 		catch (Exception $e) {
-			throw new Exception(__('Invalid callback'));
+			throw new Exception(sprintf(__('Invalid column callback: %s'),$e->getMessage()));
 		}
 		
 		$this->id = $id;
@@ -83,7 +91,6 @@ class adminGenericList
 	protected $rs_count;
 	protected $columns;
 	
-	
 	public function __construct($core,$rs,$rs_count)
 	{
 		$this->core =& $core;
@@ -91,7 +98,8 @@ class adminGenericList
 		$this->rs_count = $rs_count;
 		$this->context = get_class($this);
 		$this->columns = array();
-		$this->column_pattern = 'c_%s';
+		$this->form_prefix = 'col_%s';
+		$this->form_trigger = 'add_filter';
 		
 		$this->html_prev = __('&#171;prev.');
 		$this->html_next = __('next&#187;');
@@ -119,7 +127,7 @@ class adminGenericList
 		$this->addColumn('adminCommentList','status',__('Status'),array('adminCommentList','getStatus'));
 		$this->addColumn('adminCommentList','edit','',array('adminCommentList','getEdit'));
 		
-		# Comment columns
+		# User columns
 		$this->addColumn('adminUserList','username',__('Username'),array('adminUserList','getUserName'));
 		$this->addColumn('adminUserList','firstname',__('First name'),array('adminUserList','getFirstName'));
 		$this->addColumn('adminUserList','lastname',__('Last name'),array('adminUserList','getLastName'));
@@ -150,12 +158,33 @@ class adminGenericList
 	
 	public function setColumnsVisibility()
 	{
-		foreach ($this->columns[$this->context] as $k => $v) {
-			$key = sprintf($this->column_pattern,$k);
-			if (array_key_exists($key,$_REQUEST)) {
-				$v->setVisibility((bool) $key);
+		if (array_key_exists($this->form_trigger,$_REQUEST)) {
+			foreach ($this->columns[$this->context] as $k => $v) {
+				$key = sprintf($this->form_prefix,$k);
+				if (!array_key_exists($key,$_REQUEST)) {
+					$v->setVisibility(false);
+				}
 			}
 		}
+	}
+	
+	public function getColumnsForm()
+	{
+		$block = 
+		'<h3>'.__('Displayed information').'</h3>'.
+		'<ul>%s</ul>';
+		
+		$list = array();
+		
+		foreach ($this->columns[$this->context] as $k => $v) {
+			$col_id = sprintf($this->form_prefix,$k);
+			$col_label = sprintf('<label for="%s">%s</label>',$col_id,$v->getInfo('title'));
+			$col_html = sprintf('<li class="line">%s</li>',$col_label.form::checkbox($col_id,1,$v->isVisible()));
+			
+			array_push($list,$col_html);
+		}
+		
+		return !empty($list) ? sprintf($block,implode('',$list)) : '';
 	}
 	
 	public function display($page,$nb_per_page,$enclose_block='')
@@ -329,19 +358,14 @@ class adminCommentList extends adminGenericList
 		' id="c'.$this->rs->comment_id.'">%s</tr>';
 	}
 	
-	protected function getContent()
-	{
-		return
-		'<tr class="line'.($this->rs->comment_status != 1 ? ' offline' : '').'"'.
-		' id="c'.$this->rs->comment_id.'">%s</tr>';
-	}
-	
 	protected function getTitle()
 	{
 		$post_url = $this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id);
 		
 		return
-		'<td class="maximal"><a href="'.$post_url.'">'.
+		'<td class="maximal">'.
+		form::checkbox(array('comments[]'),$this->rs->comment_id,'','','',0).'&nbsp'.
+		'<a href="'.$post_url.'">'.
 		html::escapeHTML($this->rs->post_title).'</a>'.
 		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</td>';
 	}
@@ -424,7 +448,7 @@ class adminUserList extends adminGenericList
 		
 		return
 		'<td class="maximal">'.form::hidden(array('nb_post[]'),(integer) $this->rs->nb_post).
-		form::checkbox(array('user_id[]'),$this->rs->user_id).
+		form::checkbox(array('user_id[]'),$this->rs->user_id).'&nbsp;'.
 		'<a href="user.php?id='.$this->rs->user_id.'">'.
 		$this->rs->user_id.'</a>&nbsp;'.$img_status.'</td>';
 	}
