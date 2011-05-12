@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2009-01-14 04:21+0100\n"
 "Last-Translator: S.L. SONG <baramme@free.fr>\n"
 "Language-Team: \n"
@@ -1827,6 +1827,16 @@ msgstr "글꼭지 편집칸 높이 :"
 msgid "Enable WYSIWYG mode"
 msgstr "위지윅모드 사용가능"
 
+#, fuzzy
+msgid "Activate enhanced uploader in media manager"
+msgstr "복수파일 동시전송 모드로 전환"
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
+
 msgid "Accessibility options"
 msgstr ""
 
@@ -2201,6 +2211,9 @@ msgid "There are XHTML markup errors."
 msgstr "XHTML 오류가 있습니다."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 msgid "You have unsaved changes."

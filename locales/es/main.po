@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2009-10-02 16:02+0200\n"
 "Last-Translator: Quique <cronopios@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -1812,6 +1812,16 @@ msgstr "Tamaño de la zona de edición:"
 msgid "Enable WYSIWYG mode"
 msgstr "Habilitar el modo WYSIWYG"
 
+#, fuzzy
+msgid "Activate enhanced uploader in media manager"
+msgstr "Activar la interfaz avanzada"
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
+
 msgid "Accessibility options"
 msgstr ""
 
@@ -2192,6 +2202,9 @@ msgid "There are XHTML markup errors."
 msgstr "Hay errores en las etiquetas XHTML."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 msgid "You have unsaved changes."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2010-08-09 19:49-0000\n"
 "Last-Translator: ben_griffith <ben_griffith@topmail.co.uk>\n"
 "Language-Team: \n"
@@ -236,6 +236,10 @@ msgstr "Filtername"
 msgid "Filter configuration"
 msgstr "Filter-Einstellungen"
 
+#, fuzzy
+msgid "position"
+msgstr "Position der Seite"
+
 msgid "Syndication"
 msgstr "Zusammenfassung"
 
@@ -391,10 +395,6 @@ msgstr "URL"
 
 msgid "Lang"
 msgstr "Sprache"
-
-#, fuzzy
-msgid "position"
-msgstr "Position der Seite"
 
 #, fuzzy
 msgid "select this link"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2008-06-27 17:39+0200\n"
 "Last-Translator: Muráncsik Sebestyén <dr.graf@lajt.hu>\n"
 "Language-Team: Hungarian\n"
@@ -235,6 +235,10 @@ msgstr "Szűrőnév"
 msgid "Filter configuration"
 msgstr "Szűrő beállítása"
 
+#, fuzzy
+msgid "position"
+msgstr "Oldal elhelyzekdése"
+
 msgid "Syndication"
 msgstr "Szindikáció"
 
@@ -390,10 +394,6 @@ msgstr "URL"
 
 msgid "Lang"
 msgstr "Nyelv"
-
-#, fuzzy
-msgid "position"
-msgstr "Oldal elhelyzekdése"
 
 #, fuzzy
 msgid "select this link"

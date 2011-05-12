@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -235,6 +235,9 @@ msgstr ""
 msgid "Filter configuration"
 msgstr ""
 
+msgid "position"
+msgstr ""
+
 msgid "Syndication"
 msgstr ""
 
@@ -389,9 +392,6 @@ msgid "URL"
 msgstr ""
 
 msgid "Lang"
-msgstr ""
-
-msgid "position"
 msgstr ""
 
 msgid "select this link"

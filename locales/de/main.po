@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2010-08-09 06:24-0000\n"
 "Last-Translator: ben_griffith <ben_griffith@topmail.co.uk>\n"
 "Language-Team: \n"
@@ -1807,6 +1807,16 @@ msgstr "Höhe des Eingabefeldes:"
 msgid "Enable WYSIWYG mode"
 msgstr "Verwende WYSIWYG Modus"
 
+#, fuzzy
+msgid "Activate enhanced uploader in media manager"
+msgstr "Aktiviere erweiterten Uploader"
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
+
 msgid "Accessibility options"
 msgstr ""
 
@@ -2177,6 +2187,9 @@ msgid "There are XHTML markup errors."
 msgstr "Es gibt XHTML Markup-Fehler."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 msgid "You have unsaved changes."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ihar <chi27@open.by>\n"
 "Language-Team: \n"
@@ -234,6 +234,10 @@ msgstr "Имя фильтра"
 msgid "Filter configuration"
 msgstr "Конфигурация фильтра"
 
+#, fuzzy
+msgid "position"
+msgstr "Позиция страницы"
+
 msgid "Syndication"
 msgstr "Ленты новостей"
 
@@ -389,10 +393,6 @@ msgstr "URL"
 
 msgid "Lang"
 msgstr "Язык"
-
-#, fuzzy
-msgid "position"
-msgstr "Позиция страницы"
 
 #, fuzzy
 msgid "select this link"

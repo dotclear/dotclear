@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: S.L. SONG <baramme@free.fr>\n"
 "Language-Team: \n"
@@ -236,6 +236,10 @@ msgstr "필터 이름"
 msgid "Filter configuration"
 msgstr "필터 설정"
 
+#, fuzzy
+msgid "position"
+msgstr "페이지 위치"
+
 msgid "Syndication"
 msgstr "타래소식(RSS)"
 
@@ -391,10 +395,6 @@ msgstr "URL"
 
 msgid "Lang"
 msgstr "언어"
-
-#, fuzzy
-msgid "position"
-msgstr "페이지 위치"
 
 #, fuzzy
 msgid "select this link"
