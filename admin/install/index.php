@@ -190,7 +190,15 @@ if ($can_install && !empty($_POST))
 		$core->auth->user_prefs->dashboard->put('doclinks',true,'boolean','',null,true);
 		$core->auth->user_prefs->dashboard->put('dcnews',true,'boolean','',null,true);
 		$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean','',null,true);
-		
+
+		# Add accessibility options
+		$core->auth->user_prefs->addWorkspace('accessibility');
+		$core->auth->user_prefs->accessibility->put('nodragdrop',false,'boolean','',null,true);
+
+		# Add user interface options
+		$core->auth->user_prefs->addWorkspace('interface');
+		$core->auth->user_prefs->interface->put('enhanceduploader',false,'boolean','',null,true);
+
 		# Add default favorites
 		$core->auth->user_prefs->addWorkspace('favorites');
 

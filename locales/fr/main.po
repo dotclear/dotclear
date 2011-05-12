@@ -2274,6 +2274,9 @@ msgstr "Nettoyer"
 msgid "Upload"
 msgstr "Envoyer"
 
+msgid "Loading enhanced uploader, please wait."
+msgstr "Chargement de l'interface avancée."
+
 msgid "No file in queue."
 msgstr "Aucun fichier en file d'attente."
 
@@ -2803,3 +2806,12 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Modify numbers in fields to change favorites order."
 #~ msgstr "Modifiez les nombres dans les champs pour changer l'ordre des favoris."
+
+msgid "Activate enhanced uploader in media manager"
+msgstr "Activer l'interface avancée du gestionnaire de médias"
+
+msgid "Do not use standard favicon"
+msgstr "Ne pas utiliser le favicon standard"
+
+msgid "This will be applied for all users"
+msgstr "Ce choix sera actif pour tous les utilisateurs"

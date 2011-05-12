@@ -33,14 +33,23 @@ $user_dm_dcnews = $core->auth->user_prefs->dashboard->dcnews;
 $user_dm_quickentry = $core->auth->user_prefs->dashboard->quickentry;
 
 $core->auth->user_prefs->addWorkspace('accessibility');
-$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+$user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 
-$default_tab = 'user-profile';
+$core->auth->user_prefs->addWorkspace('interface');
+$user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
+if ($core->auth->isSuperAdmin()) {
+	$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
+}
+
+$default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
 if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced'])) {
 	$default_tab = 'user-favorites';
 } elseif (!empty($_GET['updated'])) {
 	$default_tab = 'user-options';
+}
+if (($default_tab != 'user-profile') && ($default_tab != 'user-options') && ($default_tab != 'user-favorites')) {
+	$default_tab = 'user-profile';
 }
 
 foreach ($core->getFormaters() as $v) {
@@ -143,7 +152,12 @@ if (isset($_POST['user_post_format'])) {
 		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
 		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
 		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
-		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_dm_nodragdrop']),'boolean');
+		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_acc_nodragdrop']),'boolean');
+		$core->auth->user_prefs->interface->put('enhanceduploader',!empty($_POST['user_ui_enhanceduploader']),'boolean');
+		if ($core->auth->isSuperAdmin()) {
+			# Applied to all users
+			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
+		}
 		
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
@@ -291,7 +305,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 -------------------------------------------------------- */
 dcPage::open($page_title,
 	dcPage::jsLoad('js/_preferences.js').
-	($user_dm_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
+	($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
 	dcPage::jsLoad('js/jquery/jquery-ui-1.8.12.custom.min.js').
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsConfirmClose('user-form').
@@ -321,6 +335,8 @@ if (!empty($_GET['replaced'])) {
 
 echo '<h2>'.$page_title.'</h2>';
 
+$tabindex = 2;
+
 # User profile
 echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';
 
@@ -330,29 +346,29 @@ echo
 '<div class="two-cols">'.
 '<div class="col">'.
 '<p><label for="user_name">'.__('Last Name:').
-form::field('user_name',20,255,html::escapeHTML($user_name),'',2).'</label></p>'.
+form::field('user_name',20,255,html::escapeHTML($user_name),'',$tabindex++).'</label></p>'.
 
 '<p><label for="user_firstname">'.__('First Name:').
-form::field('user_firstname',20,255,html::escapeHTML($user_firstname),'',3).'</label></p>'.
+form::field('user_firstname',20,255,html::escapeHTML($user_firstname),'',$tabindex++).'</label></p>'.
 
 '<p><label for="user_displayname">'.__('Display name:').
-form::field('user_displayname',20,255,html::escapeHTML($user_displayname),'',4).'</label></p>'.
+form::field('user_displayname',20,255,html::escapeHTML($user_displayname),'',$tabindex++).'</label></p>'.
 
 '<p><label for="user_email">'.__('Email:').
-form::field('user_email',20,255,html::escapeHTML($user_email),'',5).'</label></p>'.
+form::field('user_email',20,255,html::escapeHTML($user_email),'',$tabindex++).'</label></p>'.
 
 '<p><label for="user_url">'.__('URL:').
-form::field('user_url',30,255,html::escapeHTML($user_url),'',6).'</label></p>'.
+form::field('user_url',30,255,html::escapeHTML($user_url),'',$tabindex++).'</label></p>'.
 
 '</div>'.
 
 '<div class="col">'.
 
 '<p><label for="user_lang">'.__('User language:').
-form::combo('user_lang',$lang_combo,$user_lang,'l10n',10).'</label></p>'.
+form::combo('user_lang',$lang_combo,$user_lang,'l10n',$tabindex++).'</label></p>'.
 
 '<p><label for="user_tz">'.__('User timezone:').
-form::combo('user_tz',dt::getZones(true,true),$user_tz,'',11).'</label></p>'.
+form::combo('user_tz',dt::getZones(true,true),$user_tz,'',$tabindex++).'</label></p>'.
 
 '</div>'.
 '</div>'.
@@ -366,16 +382,16 @@ if ($core->auth->allowPassChange())
 	'<legend>'.__('Change your password').'</legend>'.
 	
 	'<p><label for="new_pwd">'.__('New password:').
-	form::password('new_pwd',20,255,'','',30).'</label></p>'.
+	form::password('new_pwd',20,255,'','',$tabindex++).'</label></p>'.
 	
 	'<p><label for="new_pwd_c">'.__('Confirm password:').
-	form::password('new_pwd_c',20,255,'','',31).'</label></p>'.
+	form::password('new_pwd_c',20,255,'','',$tabindex++).'</label></p>'.
 	'</fieldset>'.
 	
 	'<fieldset>'.
 	'<p>'.__('If you want to change your email or password you must provide your current password.').'</p>'.
 	'<p><label for="cur_pwd">'.__('Your password:').
-	form::password('cur_pwd',20,255,'','',32).'</label></p>'.
+	form::password('cur_pwd',20,255,'','',$tabindex++).'</label></p>'.
 	'</fieldset>';
 }
 
@@ -395,25 +411,39 @@ echo
 '<fieldset><legend>'.__('My options').'</legend>'.
 
 '<p><label for="user_post_format">'.__('Preferred format:').
-form::combo('user_post_format',$formaters_combo,$user_options['post_format'],'',7).'</label></p>'.
+form::combo('user_post_format',$formaters_combo,$user_options['post_format'],'',$tabindex++).'</label></p>'.
 
 '<p><label for="user_post_status">'.__('Default entry status:').
-form::combo('user_post_status',$status_combo,$user_post_status,'',8).'</label></p>'.
+form::combo('user_post_status',$status_combo,$user_post_status,'',$tabindex++).'</label></p>'.
 
 '<p><label for="user_edit_size">'.__('Entry edit field height:').
-form::field('user_edit_size',5,4,(integer) $user_options['edit_size'],'',9).'</label></p>'.
+form::field('user_edit_size',5,4,(integer) $user_options['edit_size'],'',$tabindex++).'</label></p>'.
 
 '<p><label for="user_wysiwyg" class="classic">'.
-form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg'],'',12).' '.
+form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg'],'',$tabindex++).' '.
 __('Enable WYSIWYG mode').'</label></p>'.
+
+'<p><label for="user_ui_enhanceduploader" class="classic">'.
+form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader,'',$tabindex++).' '.
+__('Activate enhanced uploader in media manager').'</label></p>';
+
+if ($core->auth->isSuperAdmin()) {
+	echo
+	'<p><label for="user_ui_hide_std_favicon" class="classic">'.
+	form::checkbox('user_ui_hide_std_favicon',1,$user_ui_hide_std_favicon,'',$tabindex++).' '.
+	__('Do not use standard favicon').'</label></p>'.
+	'<p class="clear form-note info">'.__('This will be applied for all users').'</p>';
+}
+
+echo 
 '<br class="clear" />'. //Opera sucks
 '</fieldset>';
 
 echo
 '<fieldset><legend>'.__('Accessibility options').'</legend>'.
 
-'<p><label for="user_dm_nodragdrop" class="classic">'.
-form::checkbox('user_dm_nodragdrop',1,$user_dm_nodragdrop,'',13).' '.
+'<p><label for="user_acc_nodragdrop" class="classic">'.
+form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop,'',$tabindex++).' '.
 __('Disable javascript powered drag and drop for ordering items').'</label></p>'.
 
 '<p class="clear form-note info">'.__('Numeric fields will allow to type the elements\' ordering number.').'</p>'.
@@ -423,15 +453,15 @@ echo
 '<fieldset><legend>'.__('Dashboard modules').'</legend>'.
 
 '<p><label for="user_dm_doclinks" class="classic">'.
-form::checkbox('user_dm_doclinks',1,$user_dm_doclinks,'',14).' '.
+form::checkbox('user_dm_doclinks',1,$user_dm_doclinks,'',$tabindex++).' '.
 __('Display documentation links').'</label></p>'.
 
 '<p><label for="user_dm_dcnews" class="classic">'.
-form::checkbox('user_dm_dcnews',1,$user_dm_dcnews,'',15).' '.
+form::checkbox('user_dm_dcnews',1,$user_dm_dcnews,'',$tabindex++).' '.
 __('Display Dotclear news').'</label></p>'.
 
 '<p><label for="user_dm_quickentry" class="classic">'.
-form::checkbox('user_dm_quickentry',1,$user_dm_quickentry,'',16).' '.
+form::checkbox('user_dm_quickentry',1,$user_dm_quickentry,'',$tabindex++).' '.
 __('Display quick entry form').'</label></p>'.
 
 '<br class="clear" />'. //Opera sucks

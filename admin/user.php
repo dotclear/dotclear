@@ -235,11 +235,11 @@ form::combo('user_post_format',$formaters_combo,$user_options['post_format'],'',
 form::combo('user_post_status',$status_combo,$user_post_status,'',11).
 '</label></p>'.
 
-'<p><label>'.__('Entry edit field height:').' '.
+'<p><label for="user_edit_size">'.__('Entry edit field height:').' '.
 form::field('user_edit_size',5,4,(integer) $user_options['edit_size'],'',12).
 '</label></p>'.
 
-'<p><label for="user_edit_size">'.__('User language:').' '.
+'<p><label for="user_lang">'.__('User language:').' '.
 form::combo('user_lang',$lang_combo,$user_lang,'l10n',13).
 '</label></p>'.
 
