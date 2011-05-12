@@ -41,12 +41,15 @@ if ($core->auth->isSuperAdmin()) {
 	$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 }
 
-$default_tab = 'user-profile';
+$default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
 if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced'])) {
 	$default_tab = 'user-favorites';
 } elseif (!empty($_GET['updated'])) {
 	$default_tab = 'user-options';
+}
+if (($default_tab != 'user-profile') && ($default_tab != 'user-options') && ($default_tab != 'user-favorites')) {
+	$default_tab = 'user-profile';
 }
 
 foreach ($core->getFormaters() as $v) {
