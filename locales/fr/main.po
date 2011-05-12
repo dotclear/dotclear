@@ -2806,3 +2806,9 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activer l'interface avancée du gestionnaire de média"
+
+msgid "Do not use standard favicon"
+msgstr "Ne pas utiliser le favicon standard"
+
+msgid "This will be applied for all users"
+msgstr "Ce choix sera actif pour tous les utilisateurs"
