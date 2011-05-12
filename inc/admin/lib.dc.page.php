@@ -102,8 +102,11 @@ class dcPage
 			echo '  <style type="text/css">'."\n".'  @import "style/default-rtl.css";'."\n"."  </style>\n";
 		}
 
-		echo 
-		'<link rel="icon" type="image/png" href="images/favicon.png" />';
+		$core->auth->user_prefs->addWorkspace('interface');
+		$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
+		if (!$user_ui_hide_std_favicon) {
+			echo '<link rel="icon" type="image/png" href="images/favicon.png" />';
+		}
 		
 		echo
 		self::jsCommon().
