@@ -2274,6 +2274,9 @@ msgstr "Nettoyer"
 msgid "Upload"
 msgstr "Envoyer"
 
+msgid "Loading enhanced uploader, please wait."
+msgstr "Chargement de l'interface avancée."
+
 msgid "No file in queue."
 msgstr "Aucun fichier en file d'attente."
 
@@ -2805,4 +2808,4 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Modifiez les nombres dans les champs pour changer l'ordre des favoris."
 
 msgid "Activate enhanced uploader in media manager"
-msgstr "Activer l'interface avancée du gestionnaire de média"
+msgstr "Activer l'interface avancée du gestionnaire de médias"
