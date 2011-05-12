@@ -57,7 +57,7 @@ if (!empty($_REQUEST['id']))
 	while ($rs->fetch()) {
 		if (!isset($p[$rs->cat_id])) {
 			$allowed_parents[] = new formSelectOption(
-				str_repeat('&nbsp;&nbsp;',$rs->level-1).'&bull; '.html::escapeHTML($rs->cat_title),
+				str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title),
 				$rs->cat_id
 			);
 		}

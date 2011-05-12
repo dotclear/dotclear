@@ -129,7 +129,9 @@ form::field('cat_title',30,255).'</label></p>'.
 '<select id="new_cat_parent" name="new_cat_parent">'.
 '<option value="0">'.__('Top level').'</option>';
 while ($rs->fetch()) {
-	echo '<option value="'.$rs->cat_id.'">'.str_repeat('&nbsp;&nbsp;',$rs->level).'&bull; '.html::escapeHTML($rs->cat_title).'</option>';
+	echo '<option value="'.$rs->cat_id.'">'.
+		str_repeat('&nbsp;&nbsp;',$rs->level-1).($categories->level-1 == 0 ? '' : '&bull; ').
+		html::escapeHTML($rs->cat_title).'</option>';
 }
 echo
 '</select></label></p>'.
