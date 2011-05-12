@@ -158,13 +158,22 @@ class adminGenericList
 	
 	public function setColumnsVisibility()
 	{
-		if (array_key_exists($this->form_trigger,$_REQUEST)) {
-			foreach ($this->columns[$this->context] as $k => $v) {
+		$ws = $this->core->auth->user_prefs->addWorkspace('lists');
+		
+		$user_pref = !is_null($ws->{$this->context}) ? unserialize($ws->{$this->context}) : array();
+		
+		foreach ($this->columns[$this->context] as $k => $v) {
+			$visibility =  array_key_exists($k,$user_pref) ? $user_pref[$k] : true;
+			if (array_key_exists($this->form_trigger,$_REQUEST)) {
 				$key = sprintf($this->form_prefix,$k);
-				if (!array_key_exists($key,$_REQUEST)) {
-					$v->setVisibility(false);
-				}
+				$visibility = !array_key_exists($key,$_REQUEST) ? false : true;
 			}
+			$v->setVisibility($visibility);
+			$user_pref[$k] = $visibility;
+		}
+		
+		if (array_key_exists($this->form_trigger,$_REQUEST)) {
+			$this->core->auth->user_prefs->lists->put($this->context,serialize($user_pref),'string');
 		}
 	}
 	
