@@ -57,7 +57,7 @@ $__widgets->lastposts->setting('title',__('Title:'),__('Last entries'));
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 $categories = array('' => '', __('Uncategorized') => 'null');
 while ($rs->fetch()) {
-	$categories[str_repeat('&nbsp;&nbsp;',$rs->level-1).'&bull; '.html::escapeHTML($rs->cat_title)] = $rs->cat_id;
+	$categories[str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title)] = $rs->cat_id;
 }
 $__widgets->lastposts->setting('category',__('Category:'),'','combo',$categories);
 unset($rs,$categories);

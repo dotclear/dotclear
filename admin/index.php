@@ -291,7 +291,8 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 			$categories = $core->blog->getCategories(array('post_type'=>'post'));
 			while ($categories->fetch()) {
 				$categories_combo[] = new formSelectOption(
-					str_repeat('&nbsp;&nbsp;',$categories->level-1).'&bull; '.html::escapeHTML($categories->cat_title),
+					str_repeat('&nbsp;&nbsp;',$categories->level-1).
+					($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
 					$categories->cat_id
 				);
 			}
