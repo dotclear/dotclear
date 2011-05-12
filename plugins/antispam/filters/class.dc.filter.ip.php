@@ -166,8 +166,8 @@ class dcFilterIP extends dcSpamFilter
 				}
 
 				$res .=
-				'<p style="'.$p_style.'"><label class="classic">'.
-				form::checkbox(array('delip[]'),$rs->rule_id,false,'','',$disabled_ip, 'title="'.html::escapeHTML($pattern).'"').' '.
+				'<p style="'.$p_style.'"><label class="classic" for="'.$type.'-ip-'.$rs->rule_id.'">'.
+				form::checkbox(array('delip[]',$type.'-ip-'.$rs->rule_id),$rs->rule_id,false,'','',$disabled_ip).' '.
 				html::escapeHTML($pattern).
 				'</label></p>';
 			}
