@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2008-10-12 12:02+0530\n"
 "Last-Translator: Veeven <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -234,6 +234,10 @@ msgstr "వడపోత పేరు"
 msgid "Filter configuration"
 msgstr ""
 
+#, fuzzy
+msgid "position"
+msgstr "పేజీ స్థానం"
+
 msgid "Syndication"
 msgstr ""
 
@@ -390,10 +394,6 @@ msgstr ""
 
 msgid "Lang"
 msgstr "భాష"
-
-#, fuzzy
-msgid "position"
-msgstr "పేజీ స్థానం"
 
 msgid "select this link"
 msgstr ""

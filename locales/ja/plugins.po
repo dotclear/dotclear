@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2008-11-24 00:00+0900\n"
 "Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
 "Language-Team: Dotclear Japan\n"
@@ -237,6 +237,10 @@ msgstr "フィルタ名"
 msgid "Filter configuration"
 msgstr "フィルタの設定"
 
+#, fuzzy
+msgid "position"
+msgstr "ページの位置"
+
 msgid "Syndication"
 msgstr "シンジケート"
 
@@ -392,10 +396,6 @@ msgstr "URL"
 
 msgid "Lang"
 msgstr "言語"
-
-#, fuzzy
-msgid "position"
-msgstr "ページの位置"
 
 #, fuzzy
 msgid "select this link"

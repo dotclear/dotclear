@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2010-08-18 17:30+0100\n"
 "Last-Translator: Luca Andrea Rossi <rossilucaandrea@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1802,6 +1802,16 @@ msgstr "Altezza riquadro di scrittura degli articoli:"
 msgid "Enable WYSIWYG mode"
 msgstr "Attivare l'editor visuale"
 
+#, fuzzy
+msgid "Activate enhanced uploader in media manager"
+msgstr "Attiva il caricamento avanzato"
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
+
 msgid "Accessibility options"
 msgstr ""
 
@@ -2171,6 +2181,9 @@ msgid "There are XHTML markup errors."
 msgstr "Sono stati trovati degli errori XHTML."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 msgid "You have unsaved changes."

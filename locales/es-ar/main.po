@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2009-10-03 04:00-0300\n"
 "Last-Translator: ThecaTTony <thecattony@thecattony.com.ar>\n"
 "Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
@@ -1818,6 +1818,16 @@ msgstr "Alto del campo de edición de entradas:"
 msgid "Enable WYSIWYG mode"
 msgstr "Activar el modo WYSIWYG"
 
+#, fuzzy
+msgid "Activate enhanced uploader in media manager"
+msgstr "Activar ventajas de subida"
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
+
 msgid "Accessibility options"
 msgstr ""
 
@@ -2187,6 +2197,9 @@ msgid "There are XHTML markup errors."
 msgstr "Hay errores en el lenguaje de marcas XHTML."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 msgid "You have unsaved changes."

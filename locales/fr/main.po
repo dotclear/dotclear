@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-05-12 21:09+0200\n"
 "PO-Revision-Date: 2011-05-08 19:27+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1779,6 +1779,15 @@ msgstr "Taille de la zone d'édition :"
 msgid "Enable WYSIWYG mode"
 msgstr "Activer l'éditeur visuel"
 
+msgid "Activate enhanced uploader in media manager"
+msgstr "Activer l'interface avancée du gestionnaire de médias"
+
+msgid "Do not use standard favicon"
+msgstr "Ne pas utiliser le favicon standard"
+
+msgid "This will be applied for all users"
+msgstr "Ce choix sera actif pour tous les utilisateurs"
+
 msgid "Accessibility options"
 msgstr "Options d'accessibilité"
 
@@ -2142,6 +2151,9 @@ msgstr "Il y a des erreurs XHTML."
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Vous avez des modifications non sauvegardées. Changer de format vous fera perdre ces modifications. Continuer ?"
 
+msgid "Loading enhanced uploader, please wait."
+msgstr "Chargement de l'interface avancée."
+
 msgid "You have unsaved changes."
 msgstr "Vous n'avez pas enregistré vos modifications."
 
@@ -2273,9 +2285,6 @@ msgstr "Nettoyer"
 
 msgid "Upload"
 msgstr "Envoyer"
-
-msgid "Loading enhanced uploader, please wait."
-msgstr "Chargement de l'interface avancée."
 
 msgid "No file in queue."
 msgstr "Aucun fichier en file d'attente."
@@ -2806,12 +2815,3 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Modify numbers in fields to change favorites order."
 #~ msgstr "Modifiez les nombres dans les champs pour changer l'ordre des favoris."
-
-msgid "Activate enhanced uploader in media manager"
-msgstr "Activer l'interface avancée du gestionnaire de médias"
-
-msgid "Do not use standard favicon"
-msgstr "Ne pas utiliser le favicon standard"
-
-msgid "This will be applied for all users"
-msgstr "Ce choix sera actif pour tous les utilisateurs"
