@@ -105,6 +105,7 @@ class dcExportFlat extends dcIeModule
 				$exp->exportTable('link');
 				$exp->exportTable('setting');
 				$exp->exportTable('user');
+				$exp->exportTable('pref');
 				$exp->exportTable('permissions');
 				$exp->exportTable('post');
 				$exp->exportTable('meta');

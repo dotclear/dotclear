@@ -241,9 +241,18 @@ if ($dir && !empty($_GET['remove']))
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
+$core->auth->user_prefs->addWorkspace('interface');
+$user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
+
 call_user_func($open_f,__('Media manager'),
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA["."\n".
+	dcPage::jsVar('dotclear.candyUpload_force_init',$user_ui_enhanceduploader)."\n".
+	"//]]>".
+	"</script>".
 	dcPage::jsLoad('js/_media.js').
-	($core_media_writable ? dcPage::jsCandyUpload(array('d='.$d)) : ''));
+	(($user_ui_enhanceduploader && $core_media_writable) ? dcPage::jsCandyUpload(array('d='.$d)) : '')
+	);
 
 if (!empty($_GET['mkdok'])) {
 	echo '<p class="message">'.__('Directory has been successfully created.').'</p>';
@@ -336,8 +345,8 @@ if ($core_media_writable)
 	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.
 	'<input type="file" id="upfile" name="upfile" size="20" />'.
 	'</label></p>'.
-	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle'),35,255).'</label></p>'.
-	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv'),1).' '.
+	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
+	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
 	__('Private').'</label></p>'.
 	'<p><input type="submit" value="'.__('send').'" />'.
 	form::hidden(array('d'),$d).'</p>'.
@@ -351,7 +360,7 @@ if ($core_media_writable)
 	'<fieldset id="new-dir-f">'.
 	$core->formNonce().
 	'<p><label for="newdir">'.__('Directory Name:').
-	form::field(array('newdir'),35,255).'</label></p>'.
+	form::field(array('newdir','newdir'),35,255).'</label></p>'.
 	'<p><input type="submit" value="'.__('Save').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
 	'</fieldset>'.
