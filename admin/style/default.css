@@ -1169,6 +1169,7 @@ fieldset.constrained {
 	background: transparent url(dotclear-logo2.png) no-repeat top left;
 	height: 50px;
 	margin-bottom: .5em;
+	margin-left: .5em;
 }
 #login-screen fieldset {
 	border: 1px solid #999;
