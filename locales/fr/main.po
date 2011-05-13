@@ -1212,6 +1212,9 @@ msgstr "Taille maximale %s"
 msgid "Private"
 msgstr "Privé"
 
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr "Pour envoyer plusieurs fichiers à la fois, vous pouvez activer l'interface avancée dans"
+
 msgid "send"
 msgstr "envoyer"
 

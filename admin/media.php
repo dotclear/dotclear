@@ -336,7 +336,7 @@ if ($core_media_writable)
 	
 	echo
 	'<div class="col"><h3 id="add-file">'.__('Add files').'</h3>'.
-	'<p class="form-note info">'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
+	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	'<form id="media-upload" class="clear" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</div>'.
@@ -348,6 +348,8 @@ if ($core_media_writable)
 	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
 	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
 	__('Private').'</label></p>'.
+	'<p class="form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
+	'<a href="preferences.php?tab=user-options"> '.__('My preferences').'</a></p>'.
 	'<p><input type="submit" value="'.__('send').'" />'.
 	form::hidden(array('d'),$d).'</p>'.
 	'</fieldset>'.
