@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-12 21:09+0200\n"
+"POT-Creation-Date: 2011-05-13 19:36+0200\n"
 "PO-Revision-Date: 2008-06-03 17:03+0200\n"
 "Last-Translator: Aina Chabert Ramon <ainachabert@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -1273,6 +1273,9 @@ msgstr "Mida màxima %s"
 
 msgid "Private"
 msgstr "Privat"
+
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
 
 msgid "send"
 msgstr "Enviat"

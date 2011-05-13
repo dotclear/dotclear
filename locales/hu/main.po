@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-12 21:09+0200\n"
+"POT-Creation-Date: 2011-05-13 19:36+0200\n"
 "PO-Revision-Date: 2008-06-29 18:39+0200\n"
 "Last-Translator: Benjamin Bank <benjaminbank@gmail.com> | Murancsik Sebestyen <dr.graf@lajt.hu>\n"
 "Language-Team: Hungarian\n"
@@ -1262,6 +1262,9 @@ msgstr "A maximális méret %s"
 
 msgid "Private"
 msgstr "Privát"
+
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
 
 msgid "send"
 msgstr "küld"

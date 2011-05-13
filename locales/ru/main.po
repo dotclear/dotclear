@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-12 21:09+0200\n"
+"POT-Creation-Date: 2011-05-13 19:36+0200\n"
 "PO-Revision-Date: 2011-04-12 17:48+0200\n"
 "Last-Translator: Ihar <chi27@open.by>\n"
 "Language-Team: ru_RU <en@li.org>\n"
@@ -1227,6 +1227,9 @@ msgstr "Максимальный размер %s"
 
 msgid "Private"
 msgstr "Личный"
+
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
 
 msgid "send"
 msgstr "отправить"
