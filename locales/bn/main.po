@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-12 21:09+0200\n"
+"POT-Creation-Date: 2011-05-13 19:36+0200\n"
 "PO-Revision-Date: 2009-09-16 12:33+0600\n"
 "Last-Translator: Adnan Shameem <needadnan@gmail.com>\n"
 "Language-Team: \n"
@@ -1225,6 +1225,9 @@ msgstr "সর্বোচ্চ সাইজ %s"
 
 msgid "Private"
 msgstr "প্রাইভেট"
+
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
 
 msgid "send"
 msgstr "পাঠাও"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-12 21:09+0200\n"
+"POT-Creation-Date: 2011-05-13 19:36+0200\n"
 "PO-Revision-Date: 2010-06-02 01:21+0100\n"
 "Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -1225,6 +1225,9 @@ msgstr "Maximální velikost %s"
 
 msgid "Private"
 msgstr "Soukromý"
+
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
 
 msgid "send"
 msgstr "poslat"
