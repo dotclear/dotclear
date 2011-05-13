@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-12 21:09+0200\n"
+"POT-Creation-Date: 2011-05-13 19:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr ""
 
-#: admin/auth.php:87 admin/auth.php:111 admin/auth.php:327 admin/auth.php:372
+#: admin/auth.php:87 admin/auth.php:111 admin/auth.php:328 admin/auth.php:373
 #: admin/install/index.php:332 admin/install/index.php:373 admin/user.php:192
 msgid "Username:"
 msgstr ""
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Your new password"
 msgstr ""
 
-#: admin/auth.php:112 admin/auth.php:375 admin/blog_pref.php:488
+#: admin/auth.php:112 admin/auth.php:376 admin/blog_pref.php:488
 #: admin/install/index.php:334 admin/install/index.php:374 admin/user.php:199
 msgid "Password:"
 msgstr ""
@@ -80,78 +80,78 @@ msgstr ""
 msgid "Wrong username or password"
 msgstr ""
 
-#: admin/auth.php:321 admin/auth.php:337
+#: admin/auth.php:322 admin/auth.php:338
 msgid "Back to login screen"
 msgstr ""
 
-#: admin/auth.php:326
+#: admin/auth.php:327
 msgid "Request a new password"
 msgstr ""
 
-#: admin/auth.php:330 admin/comment.php:203 admin/install/index.php:327
+#: admin/auth.php:331 admin/comment.php:203 admin/install/index.php:327
 #: admin/post.php:584 admin/preferences.php:357 admin/user.php:221
 #: inc/admin/lib.dc.page.php:389
 msgid "Email:"
 msgstr ""
 
-#: admin/auth.php:333
+#: admin/auth.php:334
 msgid "recover"
 msgstr ""
 
-#: admin/auth.php:342 admin/preferences.php:382
+#: admin/auth.php:343 admin/preferences.php:382
 msgid "Change your password"
 msgstr ""
 
-#: admin/auth.php:343 admin/preferences.php:384 admin/user.php:199
+#: admin/auth.php:344 admin/preferences.php:384 admin/user.php:199
 msgid "New password:"
 msgstr ""
 
-#: admin/auth.php:346 admin/install/index.php:336 admin/preferences.php:387
+#: admin/auth.php:347 admin/install/index.php:336 admin/preferences.php:387
 #: admin/user.php:205
 msgid "Confirm password:"
 msgstr ""
 
-#: admin/auth.php:350
+#: admin/auth.php:351
 msgid "change"
 msgstr ""
 
-#: admin/auth.php:364
+#: admin/auth.php:365
 msgid "Safe mode login"
 msgstr ""
 
-#: admin/auth.php:367
+#: admin/auth.php:368
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr ""
 
-#: admin/auth.php:368
+#: admin/auth.php:369
 msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr ""
 
-#: admin/auth.php:380
+#: admin/auth.php:381
 msgid "Remember my ID on this computer"
 msgstr ""
 
-#: admin/auth.php:382
+#: admin/auth.php:383
 msgid "log in"
 msgstr ""
 
-#: admin/auth.php:393
+#: admin/auth.php:394
 msgid "You must accept cookies in order to use the private area."
 msgstr ""
 
-#: admin/auth.php:399
+#: admin/auth.php:400
 msgid "Get back to normal authentication"
 msgstr ""
 
-#: admin/auth.php:401
+#: admin/auth.php:402
 msgid "Connection issue?"
 msgstr ""
 
-#: admin/auth.php:403
+#: admin/auth.php:404
 msgid "I forgot my password"
 msgstr ""
 
-#: admin/auth.php:405
+#: admin/auth.php:406
 msgid "I want to log in in safe mode"
 msgstr ""
 
@@ -210,7 +210,7 @@ msgstr ""
 #: admin/blog.php:93 admin/blog_pref.php:454 admin/blog_theme.php:341
 #: admin/categories.php:138 admin/category.php:216 admin/category.php:234
 #: admin/category.php:248 admin/comment.php:225 admin/index.php:315
-#: admin/install/wizard.php:186 admin/media.php:364 admin/media_item.php:497
+#: admin/install/wizard.php:186 admin/media.php:366 admin/media_item.php:497
 #: admin/permissions.php:149 admin/post.php:478 admin/post.php:599
 #: admin/posts_actions.php:235 admin/posts_actions.php:252
 #: admin/preferences.php:401 admin/preferences.php:476 admin/user.php:273
@@ -1053,7 +1053,7 @@ msgstr ""
 msgid "mark as junk"
 msgstr ""
 
-#: admin/comments.php:119 admin/media.php:448 admin/post.php:526
+#: admin/comments.php:119 admin/media.php:450 admin/post.php:526
 #: admin/search.php:107 admin/search.php:150
 msgid "delete"
 msgstr ""
@@ -1118,9 +1118,9 @@ msgstr ""
 msgid "New entry"
 msgstr ""
 
-#: admin/index.php:113 admin/install/index.php:216 admin/preferences.php:17
-#: inc/admin/prepend.php:187 inc/admin/prepend.php:256
-#: inc/dbschema/upgrade.php:160
+#: admin/index.php:113 admin/install/index.php:216 admin/media.php:352
+#: admin/preferences.php:17 inc/admin/prepend.php:187
+#: inc/admin/prepend.php:256 inc/dbschema/upgrade.php:160
 msgid "My preferences"
 msgstr ""
 
@@ -1642,8 +1642,8 @@ msgstr ""
 msgid "Choose a file to attach to entry %s by clicking on %s."
 msgstr ""
 
-#: admin/media.php:292 admin/media.php:296 admin/media.php:430
-#: admin/media.php:431
+#: admin/media.php:292 admin/media.php:296 admin/media.php:432
+#: admin/media.php:433
 msgid "Attach this file to entry"
 msgstr ""
 
@@ -1681,27 +1681,31 @@ msgstr ""
 msgid "Private"
 msgstr ""
 
-#: admin/media.php:351 admin/media_item.php:510
+#: admin/media.php:351
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
+
+#: admin/media.php:353 admin/media_item.php:510
 msgid "send"
 msgstr ""
 
-#: admin/media.php:358
+#: admin/media.php:360
 msgid "New directory"
 msgstr ""
 
-#: admin/media.php:362
+#: admin/media.php:364
 msgid "Directory Name:"
 msgstr ""
 
-#: admin/media.php:386
+#: admin/media.php:388
 msgid "Download this directory as a zip file"
 msgstr ""
 
-#: admin/media.php:422 admin/post.php:429
+#: admin/media.php:424 admin/post.php:429
 msgid "open"
 msgstr ""
 
-#: admin/media.php:440 admin/media.php:441
+#: admin/media.php:442 admin/media.php:443
 msgid "Insert this file into entry"
 msgstr ""
 
