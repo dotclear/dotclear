@@ -335,7 +335,8 @@ elseif ($recover)
 	form::hidden(array('recover'),1).'</p>'.
 	'</fieldset>'.
 	
-	'<p><a href="auth.php">'.__('Back to login screen').'</a></p>';
+	'<div id="issue">'.
+	'<p><a href="auth.php">'.__('Back to login screen').'</a></p></div>';
 }
 elseif ($change_pwd)
 {
@@ -391,7 +392,7 @@ else
 		
 		echo
 		'</fieldset>'.
-		'<p id="cookie_help">'.__('You must accept cookies in order to use the private area.').'</p>';
+		'<p id="cookie_help" class="error">'.__('You must accept cookies in order to use the private area.').'</p>';
 
 		echo '<div id="issue">';
 		
