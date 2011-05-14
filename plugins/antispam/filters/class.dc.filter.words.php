@@ -355,4 +355,3 @@ class dcFilterWords extends dcSpamFilter
 	}
 }
 ?>
-
