@@ -118,4 +118,3 @@ class dcFilterIpLookup extends dcSpamFilter
 	}
 }
 ?>
-

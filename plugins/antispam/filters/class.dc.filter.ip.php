@@ -310,4 +310,3 @@ class dcFilterIP extends dcSpamFilter
 	}
 }
 ?>
-
