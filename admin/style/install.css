@@ -95,6 +95,10 @@ label input, label select, label span {
 label.required {
 	font-weight : bold;
 }
+label.required abbr {
+	color: #dd0000;
+	font-size: 1.3em;
+}
 
 form {
 	display : block;
