@@ -192,7 +192,7 @@ $filterSet->setColumnsForm($post_list->getColumnsForm());
 -------------------------------------------------------- */
 $starting_script = dcPage::jsLoad('js/_posts_list.js');
 
-$starting_script = $filterSet->header();
+$starting_script .= $filterSet->header();
 
 dcPage::open(__('Entries'),$starting_script);
 
