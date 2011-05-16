@@ -19,10 +19,9 @@ class adminGenericColumn
 	protected $title;
 	protected $callback;
 	protected $html;
-	protected $order;
 	protected $visibility;
 	
-	public function __construct($id,$title,$callback,$html = null,$order = null)
+	public function __construct($id,$title,$callback,$html = null)
 	{
 		if (!is_string($id) || $id === '') {
 			throw new Exception(__('Invalid column ID'));
@@ -37,10 +36,6 @@ class adminGenericColumn
 		}
 		if (!empty($html)) {
 			$html = ' '.$html;
-		}
-		
-		if (!is_int($order)) {
-			$order = null;
 		}
 		
 		try {
@@ -62,7 +57,6 @@ class adminGenericColumn
 		$this->title = $title;
 		$this->callback = $callback;
 		$this->html = $html;
-		$this->order = $order;
 		$this->visibility = true;
 	}
 	
@@ -134,19 +128,19 @@ class adminGenericList
 		$this->addColumn('adminUserList','displayname',__('Display name'),array('adminUserList','getDisplayName'));
 		$this->addColumn('adminUserList','entries',__('Entries'),array('adminUserList','getEntries'));
 		
-		$this->setColumnsVisibility();
-		
 		$core->callBehavior('adminGenericListConstruct',$this);
+		
+		$this->setColumnsVisibility();
 	}
 	
-	public function addColumn($context,$id,$title,$callback,$html = null,$order = null)
+	public function addColumn($context,$id,$title,$callback,$html = null)
 	{
 		try {
 			if (!array_key_exists($context,$this->columns)) {
 				$this->columns[$context] = array();
 			}
 			
-			$c = new adminGenericColumn($id,$title,$callback,$html,$order);
+			$c = new adminGenericColumn($id,$title,$callback,$html);
 			$this->columns[$context][$c->getInfo('id')] = $c;
 		}
 		catch (Exception $e) {
@@ -209,7 +203,7 @@ class adminGenericList
 			$pager->html_next = $this->html_next;
 			$pager->var_page = 'page';
 			
-			$html_block = '<table class="clear"><tr>';
+			$html_block = '<table class="maximal clear"><tr>';
 			
 			foreach ($this->columns[$this->context] as $k => $v) {
 				if ($v->isVisible()) {
