@@ -1,3 +1,4 @@
 cache
 inc/config.php
 \.htaccess
+public/filters
