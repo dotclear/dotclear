@@ -24,6 +24,10 @@ config:
 	
 	## Remove .svn folders
 	find ./$(DIST)/ -type d -name '.svn' | xargs rm -rf
+
+	## Remove .hg* files and folders
+	find ./$(DIST)/ -type d -name '.hg*' | xargs rm -rf
+	find ./$(DIST)/ -type f -name '.hg*' | xargs rm -rf
 	
 	## Remove config file if any
 	rm -f ./$(DC)/inc/config.php
