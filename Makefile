@@ -42,6 +42,7 @@ config:
 	./plugins/pages \
 	./plugins/pings \
 	./plugins/themeEditor \
+	./plugins/userPref \
 	./plugins/widgets \
 	./$(DC)/plugins/
 	
