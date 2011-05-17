@@ -289,6 +289,13 @@ function dotclearUpgrade($core)
 				}
 			}
 			
+			if (version_compare($version,'2.3.1','<'))
+			{
+				# Remove unecessary file
+				@unlink(DC_ROOT.'/'.'inc/libs/clearbricks/.hgignore');
+			}
+			
+			
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
 			
