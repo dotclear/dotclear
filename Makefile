@@ -49,6 +49,10 @@ config:
 	## Remove .svn folders
 	find ./$(DIST)/ -type d -name '.svn' -print0 | xargs -0 rm -rf
 	
+	## Remove .hg* files and folders
+	find ./$(DIST)/ -type d -name '.hg*' | xargs rm -rf
+	find ./$(DIST)/ -type f -name '.hg*' | xargs rm -rf
+
 	## "Compile" .po files
 	./build-tools/make-l10n.php ./$(DC)/
 	
