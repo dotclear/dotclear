@@ -1,3 +1,21 @@
+Dotclear 2.3.0 - 2011-05-16
+===========================================================
+* Admin: Major backend redesign
+* Admin: Customizable Dashboard
+* Admin: New Favourites admin submenu
+* Admin: New user preferences backend
+* Admin: Accessibility enhancements
+* Admin: Inline help extended
+* Templates: Default theme templates moved to inc/public/default-templates
+* Clearbricks: External libraries relocated to inc/libs
+* Clearbricks: fixed utf-8 and mysql strict mode problems
+* Added a safe mode connection, disabling all plugins
+* Mysqli support (config.php may need to be updated manually)
+* Fixed dcLog bug with pgsql
+* Fixed comment/trackbacks counters reset.
+* Several other bug fixes
+
+
 Dotclear 2.2.3 - 2011-04-01
 ===========================================================
 * Security fix in media manager. Thx to Raphaël
@@ -19,7 +37,6 @@ Dotclear 2.2.1 - 2011-01-15
 * Several code optimizations
 * Several typos corrected
 * Security fix in Clearbricks. Thx to François Pierre-Doray for pointing it out.
-
 
 Dotclear 2.2 - 2010-07-01
 ===========================================================
