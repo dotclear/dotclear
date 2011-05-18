@@ -370,6 +370,10 @@ class dcImport extends backupFile
 	
 	private function insertPref($pref)
 	{
+		if ($this->prefExists($pref->pref_ws,$pref->pref_id,$pref->user_id)) {
+			return;
+		}
+		
 		$this->cur_pref->clean();
 		
 		$this->cur_pref->pref_id    = (string) $pref->pref_id;
@@ -750,6 +754,23 @@ class dcImport extends backupFile
 		
 		$this->stack['users'][$user_id] = !$rs->isEmpty();
 		return $this->stack['users'][$user_id];
+	}
+	
+	private function prefExists($pref_id,$pref_ws,$user_id)
+	{
+		$strReq = 'SELECT pref_id,pref_ws,user_id '.
+				'FROM '.$this->prefix.'pref '.
+				"WHERE pref_id = '".$this->con->escape($pref_id)."' ".
+				"AND pref_ws = '".$this->con->escape($pref_ws)."' ";
+		if (!$user_id) {
+			$strReq .= "AND user_id IS NULL ";
+		} else {
+			$strReq .= "AND user_id = '".$this->con->escape($user_id)."' ";
+		}
+		
+		$rs = $this->con->select($strReq);
+		
+		return !$rs->isEmpty();
 	}
 	
 	private function mediaExists()
