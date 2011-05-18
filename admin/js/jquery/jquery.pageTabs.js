@@ -8,9 +8,9 @@ jQuery._pageTabs = function(start_tab,settings) {
 		listClassName: 'part-tabs',
 		breakerClassName: 'clear'
 	};
-	
+
 	var index = start_tab ? start_tab : 0;
-	
+
 	this.params = jQuery.extend(defaults,settings);
 	this.divs = jQuery('div.'+this.params.className);
 	this.createList();
@@ -19,19 +19,19 @@ jQuery._pageTabs = function(start_tab,settings) {
 
 jQuery._pageTabs.prototype = {
 	items: new Array(),
-	
+
 	createList: function() {
 		if (this.divs.length <= 0) {
 			return;
 		}
-		
+
 		this.block = document.createElement('div');
 		this.block.className = this.params.listClassName;
 		this.list = document.createElement('ul');
 		//this.list.className = this.params.listClassName;
 		this.block.appendChild(this.list);
 		var li, a;
-		
+
 		var This = this;
 		var i=0;
 		jQuery('.'+this.params.className).each(function() {
@@ -56,32 +56,32 @@ jQuery._pageTabs.prototype = {
 				This.list.appendChild(li);
 			}
 		});
-		
+
 		this.breaker = document.createElement('br');
 		this.breaker.className = this.params.breakerClassName;
-		
+
 		jQuery(this.divs.get(0)).before(this.block);
 		jQuery(this.block).after(this.breaker);
 	},
-	
+
 	showDiv: function(index) {
 		var This = this;
 		var i = 0;
 		var to_trigger = null;
-		
+
 		this.divs.each(function() {
 			if ((this.id != '' && this.id == index) || i == index) {
-				jQuery(this).show();
+				jQuery(this).show(0, positionFooter);
 				This.items[i].className = This.params.listClassName+'-active';
 				to_trigger = i;
 			} else {
-				jQuery(this).hide();
+				jQuery(this).hide(0, positionFooter);
 				This.items[i].className = '';
 			}
-			
+
 			i++;
 		});
-		
+
 		if (to_trigger != null) {
 			jQuery(this.divs[to_trigger]).onetabload();
 			jQuery(this.divs[to_trigger]).tabload();
