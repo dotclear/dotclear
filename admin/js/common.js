@@ -121,7 +121,7 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 
 		$(ctarget).css('cursor','pointer');
 		$(ctarget).click(function() {
-			toggle(i,p.speed, callback);
+			toggle(i,p.speed, positionFooter);
 			return false;
 		});
 
