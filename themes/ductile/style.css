@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+/* Ductile
+Dotclear theme
+Version de chantier
+Start: 19 mai 2011
+last change: */
+
+/* fichiers séparés à réunir plus tard
+(faudra pas oublier le print aussi)
+ */
+
+@import url(rebase.css);
+@import url(colors.css);
+@import url(layouts.css);

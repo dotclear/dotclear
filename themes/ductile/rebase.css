@@ -1,0 +1,97 @@
+@charset "UTF-8";
+html, 
+body {
+	margin: 0;
+	padding: 0 .5em;
+	font-family: Georgia, serif;
+	font-size: 100.1%;
+	line-height: 1.5;
+	color: #333;
+	background: #fff;
+	}
+div, form, fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+	}
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.25;
+	font-weight: bold;
+	font-style: normal;
+	margin: 1em 0 .5em 0;
+	}
+h1 {
+	font-size: 2.5em;
+	margin: 0;
+	}
+h2 {
+	font-size: 1.6em;
+	}
+h3 {
+	font-size: 1.33em;
+	}
+h4 {
+	font-size: 1.2em;
+	}
+h5 {
+	font-size: 1.1em;
+	}
+h6 {
+	font-size: 1.5em;
+	}
+p {
+	margin: 1em 0 .5em 0;
+	}
+img a {
+	border: none;
+	}
+sup, sub {
+	font-size: .7em;
+	line-height: .7em;
+	}
+abbr, acronym {
+	border-bottom: 1px dotted;
+	cursor: help;
+	}
+strong {
+	font-size: 92%;
+	}
+blockquote, q {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	}
+blockquote em, q em {
+	font-style: normal;
+	}
+cite {
+	font-size: .9em;
+	}
+ul, ol, dd {
+	margin: 1em 0 .5em 28px;
+	}
+code, pre {
+	font-family: "Andale mono","Courier New", Courier, mono;
+	background: #f0f0f5;
+	}
+pre {
+	margin: 1em;
+	overflow: auto;
+	padding: 1px 8px;
+	line-height: 120%;
+	}
+hr {
+	height: 1px;
+	border: 0;
+	border-top: 1px dashed #999;
+	width: 50%;
+	height: 1px;
+	}
+input, button, select {
+	vertical-align: middle;
+	}
+em, i {
+	font-style: italic;
+	}
+strong, b {
+	font-weight: bold;
+	}
