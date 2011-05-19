@@ -756,7 +756,7 @@ class dcImport extends backupFile
 		return $this->stack['users'][$user_id];
 	}
 	
-	private function prefExists($pref_id,$pref_ws,$user_id)
+	private function prefExists($pref_ws,$pref_id,$user_id)
 	{
 		$strReq = 'SELECT pref_id,pref_ws,user_id '.
 				'FROM '.$this->prefix.'pref '.
