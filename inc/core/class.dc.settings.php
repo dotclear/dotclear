@@ -307,5 +307,78 @@ class dcSettings
 		return $settings;
 	}
 
+	/**
+	Returns a list of settings matching given criteria, for any blog.
+	<b>$params</b> is an array taking the following
+	optionnal parameters:
+	
+	- ns : retrieve setting from given namespace
+	- id : retrieve only settings corresponding to the given id
+	
+	@param	params		<b>array</b>		Parameters
+	@return	<b>record</b>	A record 
+	*/
+	public function getGlobalSettings($params=array())
+	{
+		$strReq = "SELECT * from ".$this->table." ";
+		$where = array();
+		if (!empty($params['ns'])) {
+			$where[] = "setting_ns = '".$this->con->escape($params['ns'])."'";
+		}
+		if (!empty($params['id'])) {
+			$where[] = "setting_id = '".$this->con->escape($params['id'])."'";
+		}
+		if (isset($params['blog_id'])) {
+			if (!empty($params['blog_id'])) {
+				$where[] = "blog_id = '".$this->con->escape($params['blog_id'])."'";
+			} else {
+				$where[] = "blog_id IS NULL";
+			}
+		}
+		if (count($where) != 0) {
+			$strReq .= " WHERE ".join(" AND ", $where);
+		}
+		$strReq .= " ORDER by blog_id";
+		return $this->con->select($strReq);
+	}
+
+	/**
+	Updates a setting from a given record
+	
+	@param	rs		<b>record</b>		the setting to update
+	*/
+	public function updateSetting($rs) 
+	{
+		$cur = $this->con->openCursor($this->table);
+		$cur->setting_id = $rs->setting_id;
+		$cur->setting_value = $rs->setting_value;
+		$cur->setting_type = $rs->setting_type;
+		$cur->setting_label = $rs->setting_label;
+		$cur->blog_id = $rs->blog_id;
+		$cur->setting_ns = $rs->setting_ns;
+		if ($cur->blog_id == null) {
+				$where = 'WHERE blog_id IS NULL ';
+		} else {
+			$where = "WHERE blog_id = '".$this->con->escape($cur->blog_id)."' ";
+		}
+		$cur->update($where."AND setting_id = '".$this->con->escape($cur->setting_id)."' AND setting_ns = '".$this->con->escape($cur->setting_ns)."' ");
+	}
+	
+	/**
+	Drops a setting from a given record
+	
+	@param	rs		<b>record</b>		the setting to drop
+	@return	int		number of deleted records (0 if setting does not exist)
+	*/
+	public function dropSetting($rs) {
+		$strReq = "DELETE FROM ".$this->table.' ';
+		if ($rs->blog_id == null) {
+			$strReq .= 'WHERE blog_id IS NULL ';
+		} else {
+			$strReq .= "WHERE blog_id = '".$this->con->escape($rs->blog_id)."' ";
+		}
+		$strReq .= "AND setting_id = '".$this->con->escape($rs->setting_id)."' AND setting_ns = '".$this->con->escape($rs->setting_ns)."' ";
+		return $this->con->execute($strReq);
+	}
 }
 ?>
