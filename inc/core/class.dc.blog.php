@@ -390,7 +390,7 @@ class dcBlog
 		}
 		
 		if (!empty($params['post_type'])) {
-			$strReq .= "AND post_type = '".$this->con->escape($params['post_type'])."' ";
+			$strReq .= 'AND P.post_type '.$this->con->in($params['post_type']);
 		}
 		
 		$strReq .= 'GROUP BY C.cat_id ';
