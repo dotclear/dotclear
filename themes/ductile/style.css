@@ -8,7 +8,6 @@ Version de chantier
 /* ------------------------------------------------------- imports */
 
 @import url(rebase.css);
-@import url(colors.css);
 @import url(layouts.css);
 
 
@@ -20,12 +19,32 @@ a:hover, a:focus {
 	background: #eee;
 	text-decoration: none;
 	}
-
 h1 a, h2 a, .post-info-co a {
 	text-decoration: none;
 	}
+.post-title a {
+	font-weight: normal;
+	}
 
-.post-content img {
+/* ------------------------------------------------------- billets */
+.post-title {
+	font-style:italic;
+	}
+
+/* ------------------------------------------------------- billets */
+#sidebar h2 {
+	font-size: 1em;
+}
+
+
+/* ----------------------------------------------- 
+personnalisations blog chantier
+------------------------------------------------ */
+.post-content img, .post-excerpt img {
 	border: 1px solid #ccc;
-	
+}
+code, pre {
+	background: #dfdfdf;
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
 }

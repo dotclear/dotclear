@@ -74,13 +74,13 @@ ul ul, ol ol {
 	}
 code, pre {
 	font-family: "Andale mono","Courier New", Courier, mono;
-	background: #f0f0f5;
+	font-size: .875em;
 	}
 pre {
 	margin: 1em;
 	overflow: auto;
 	padding: 1px 8px;
-	line-height: 120%;
+	line-height: 1.2;
 	}
 hr {
 	height: 1px;
