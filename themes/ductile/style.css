@@ -1,15 +1,31 @@
 @charset "UTF-8";
 
 /* Ductile
-Dotclear theme
+Dotclear theme by Dotclear Team
 Version de chantier
-Start: 19 mai 2011
-last change: */
+*/
 
-/* fichiers séparés à réunir plus tard
-(faudra pas oublier le print aussi)
- */
+/* ------------------------------------------------------- imports */
 
 @import url(rebase.css);
 @import url(colors.css);
 @import url(layouts.css);
+
+
+/* ----------------------------------------------- liens */
+a {
+	color: #666;
+	}
+a:hover, a:focus {
+	background: #eee;
+	text-decoration: none;
+	}
+
+h1 a, h2 a, .post-info-co a {
+	text-decoration: none;
+	}
+
+.post-content img {
+	border: 1px solid #ccc;
+	
+}

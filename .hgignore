@@ -3,3 +3,4 @@ inc/config.php
 \.htaccess
 public/filters
 themes/ductile/_work
+themes/ductile-work
