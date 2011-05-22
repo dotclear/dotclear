@@ -1,12 +1,13 @@
 @charset "UTF-8";
+
 html, 
 body {
 	margin: 0;
-	padding: 0 .5em;
-	font-family: Georgia, serif;
+	padding: 0;
+	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	font-size: 100.1%;
 	line-height: 1.5;
-	color: #333;
+	color: #151515;
 	background: #fff;
 	}
 div, form, fieldset {
@@ -14,15 +15,14 @@ div, form, fieldset {
 	padding: 0;
 	border: none;
 	}
-h1, h2, h3, h4, h5, h6 {
-	line-height: 1.25;
+h2, h3, h4, h5, h6 {
+	line-height: 1.2;
 	font-weight: bold;
-	font-style: normal;
 	margin: 1em 0 .5em 0;
 	}
 h1 {
-	font-size: 2.5em;
 	margin: 0;
+	font-weight: normal;
 	}
 h2 {
 	font-size: 1.6em;
@@ -68,6 +68,9 @@ cite {
 	}
 ul, ol, dd {
 	margin: 1em 0 .5em 28px;
+	}
+ul ul, ol ol {
+	margin-top: .5em;
 	}
 code, pre {
 	font-family: "Andale mono","Courier New", Courier, mono;

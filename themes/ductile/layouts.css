@@ -1,38 +1,39 @@
 @charset "UTF-8";
-/* pour le head - a réflechir : <meta name="viewport" content="width=device-width" /> */
 
-/* petit ours */
-@media screen and (max-width:640px) {
-body {
-	padding: 0 1%;
-	}
+@media only screen and (min-width: 961px) {
+	#wrapper {
+		padding: 0 15%;
+		}
 }
 
-/* moyen ours */
-@media screen 
-and (min-width: 641px)
-and (max-width: 960px) {
-body {
-	padding: 0 10%;
-	color: #999;
-	}
+@media only screen and (min-width: 641px) and (max-width: 960px) {
+	#wrapper {
+		padding: 0 10%;
+		}
 }
 
-/* grand ours */
-@media screen 
-and (min-width: 961px)
-and (max-width: 1420px) {
-body {
-	padding: 0 15%;
-	color: red;
-	}
+@media only screen and (max-width:640px) {
+	html {
+		-webkit-text-size-adjust: none;
+		}
+	#wrapper {
+		padding: 0 3%;
+		}
+	img {
+		max-width: 100%;
+		height: auto;
+		width: auto\9; /* ie8 */
+		}
 }
 
-/* yeti */
-@media screen 
-and (min-width: 1421px) {
-body {
-	padding: 0 15%;
-	background: pink;
-	}
+@media only screen and (max-width:480px) {
+	h1 {
+		font-size: 1.8em;
+		}
+}
+
+@media only screen and (min-width: 481px) {
+	h1 {
+	font-size: 2.5em;
+		}
 }
