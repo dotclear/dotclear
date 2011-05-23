@@ -8,7 +8,7 @@ Version de chantier
 /* ------------------------------------------------------- imports */
 
 @import url(rebase.css);
-@import url(layouts.css);
+@import url(mediaqueries.css);
 
 /* ------------------------------------------------------- body */
 body {
