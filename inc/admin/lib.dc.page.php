@@ -611,7 +611,7 @@ class dcPage
 				"tinyMCE.settings.plugins = '".html::escapeJS('fullscreen,paste,searchreplace')."'; ",
 				"tinyMCE.settings.theme_advanced_buttons1 = '".html::escapeJS('justifyleft,justifycenter,justifyright,separator,bold,italic,underline,strikethrough,sub,sup,separator,blockquote,bullist,numlist,outdent,indent,separator,undo,redo,separator,visualaid,separator,fullscreen,separator,code')."';",
 				"tinyMCE.settings.theme_advanced_buttons2 = '".html::escapeJS('formatselect,removeformat,cleanup,seperator,cut,copy,paste,pastetext,pasteword,search,replace')."';",
-				"tinyMCE.settings.theme_advanced_buttons3 = '".html::escapeJS('link,unlink,hr,charmap,emotions')."';",
+				"tinyMCE.settings.theme_advanced_buttons3 = '".html::escapeJS('link,unlink,hr,charmap')."';",
 				"tinyMCE.settings.theme_advanced_toolbar_location = '".html::escapeJS('top')."';",
 				"tinyMCE.settings.theme_advanced_toolbar_align = '".html::escapeJS('left')."';",
 				"tinyMCE.settings.theme_advanced_statusbar_location = '".html::escapeJS('bottom')."';",

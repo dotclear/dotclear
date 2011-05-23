@@ -102,3 +102,49 @@ dcToolBarManager.fn.wiki.push(function() {
 		window.dc_tag_editor.addMeta(t);
 	};
 });
+
+dcToolBarManager.fn.xhtml.push(function() {
+	tinymce.create('tinymce.plugins.dcTagPlugin', {
+		init : function(ed, url) {
+			this.editor = ed;
+			
+			ed.addCommand('mceDcTag', function() {
+				var se = ed.selection;
+				
+				if (se.isCollapsed() && !ed.dom.getParent(se.getNode(), 'A')) {
+					 return;
+				}
+				tinymce.execCommand("mceInsertLink", false, tinymce.plugins.dcTagPlugin.url+'/'+se.getContent(), {skip_undo : 1});
+				window.dc_tag_editor.addMeta(se.getContent());
+			});
+			
+			ed.addButton('tag', {
+				title : tinymce.plugins.dcTagPlugin.title,
+				cmd : 'mceDcTag',
+				image :'index.php?pf=tags/img/tag-add.png'
+			});
+			
+			ed.addShortcut('ctrl+m', 'advlink.advlink_desc', 'mceDcTag');
+			
+			ed.onNodeChange.add(function(ed, cm, n, co) {
+				cm.setDisabled('tag', co && n.nodeName != 'A');
+				cm.setActive('tag', n.nodeName == 'A' && !n.name);
+			});
+		},
+		
+		getInfo : function() {
+			return {
+				longname : 'Dotclear tag',
+				author : 'Tomtom for dotclear',
+				authorurl : 'http://dotclear.org',
+				infourl : 'http://dotclear.org',
+				version : tinymce.majorVersion + "." + tinymce.minorVersion
+			};
+		}
+	});
+	
+	tinymce.PluginManager.add('dcTag', tinymce.plugins.dcTagPlugin);
+	
+	tinymce.settings.plugins += ",-dcTag";
+	tinymce.settings.theme_advanced_buttons3 += ",tag";
+});

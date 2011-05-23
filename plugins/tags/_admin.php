@@ -125,6 +125,10 @@ class tagsBehaviors
 			"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
 			"jsToolBar.prototype.elements.tag.url = '".html::escapeJS($tag_url)."';\n".
 		"});\n".
+		"dcToolBarManager.fn.xhtml.push(function() {\n".
+			"tinyMCE.plugins.dcTagPlugin.title = '".html::escapeJS(__('Tag'))."';\n".
+			"tinyMCE.plugins.dcTagPlugin.url = '".html::escapeJS($tag_url)."';\n".
+		"});\n".
 		"\n//]]>\n".
 		"</script>\n".
 		'<link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />';

@@ -98,3 +98,9 @@ a.metaRemove:hover, a.metaRemove:focus {
 	background-color: #06c;
 	color: white;
 }
+
+.defaultSkin a.mce_tag img{
+	width: 16px;
+	height: 16px;
+	padding: 2px;
+}
