@@ -10,6 +10,12 @@ Version de chantier
 @import url(rebase.css);
 @import url(layouts.css);
 
+/* ------------------------------------------------------- body */
+body {
+	background: #fff;
+	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+	color: #151515;
+	}
 
 /* ----------------------------------------------- liens */
 a {
@@ -19,27 +25,13 @@ a:hover, a:focus {
 	background: #eee;
 	text-decoration: none;
 	}
-h1 a, h2 a, .post-info-co a {
-	text-decoration: none;
-	}
-.post-title a {
-	font-weight: normal;
-	}
-
-/* ------------------------------------------------------- billets */
-.post-title {
-	font-style:italic;
-	}
-
-/* ------------------------------------------------------- billets */
-#sidebar h2 {
-	font-size: 1em;
-}
 
 
-/* ----------------------------------------------- 
-personnalisations blog chantier
------------------------------------------------- */
+
+
+/* ================================================ 
+	personnalisations blog chantier
+================================================ */
 .post-content img, .post-excerpt img {
 	border: 1px solid #ccc;
 }

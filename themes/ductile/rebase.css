@@ -4,11 +4,8 @@ html,
 body {
 	margin: 0;
 	padding: 0;
-	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	font-size: 100.1%;
 	line-height: 1.5;
-	color: #151515;
-	background: #fff;
 	}
 div, form, fieldset {
 	margin: 0;
@@ -54,10 +51,9 @@ abbr, acronym {
 	cursor: help;
 	}
 strong {
-	font-size: 92%;
+	font-size: .94em;
 	}
 blockquote, q {
-	font-family: Georgia, "Times New Roman", Times, serif;
 	font-style: italic;
 	}
 blockquote em, q em {
@@ -67,7 +63,7 @@ cite {
 	font-size: .9em;
 	}
 ul, ol, dd {
-	margin: 1em 0 .5em 28px;
+	margin: 1em 0 .5em 1.5em;
 	}
 ul ul, ol ol {
 	margin-top: .5em;
@@ -76,17 +72,20 @@ code, pre {
 	font-family: "Andale mono","Courier New", Courier, mono;
 	font-size: .875em;
 	}
+code {
+	padding: 0 2px;
+	}
 pre {
 	margin: 1em;
 	overflow: auto;
-	padding: 1px 8px;
+	padding: 1px .5em;
 	line-height: 1.2;
 	}
 hr {
 	height: 1px;
 	border: 0;
-	border-top: 1px dashed #999;
-	width: 50%;
+	border-top: 1px solid #aaa;
+	width: 60%;
 	height: 1px;
 	}
 input, button, select {
