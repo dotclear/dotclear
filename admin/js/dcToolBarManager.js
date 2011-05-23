@@ -2,13 +2,17 @@
 	var methods = {
 		init: function(options) {
 			var settings = {
-				mode: 'xhtml'
+				mode: 'xhtml',
+				context: null
 			};
 			return this.each(function(){
+				var _this = this;
 				if (options) {
 					$.extend(settings,options);
 				}
-				$.data(this,'mode',settings.mode);
+				$.each(settings, function(k,v) {
+					$.data(_this,k,v);
+				});
 				dcToolBarManager._load(settings.mode,this);
 			});
 		
@@ -108,9 +112,6 @@ dcToolBarManager.prototype = {
 				if(! --n) {
 					t.loaded = true;
 					t.init();
-					$.each(_this.fn[mode],function(i,callback) {
-						callback();
-					});
 				}
 			});
 			
@@ -132,6 +133,10 @@ dcToolBarManager.prototype = {
 			throw this.msg.toolbar_does_not_exists.replace('%s',mode);
 		}
 		var t = this.toolbars[mode];
+		
+		$.each(this.fn[mode],function(i,callback) {
+			callback();
+		});
 		t.load(elm);
 	},
 	

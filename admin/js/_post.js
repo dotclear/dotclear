@@ -84,7 +84,10 @@ $(function() {
 		});
 		
 		// Init toolbars
-		$('#post_excerpt,#post_content').dctoolbarmanager({mode:$(formatField).val()});
+		$('#post_excerpt,#post_content').dctoolbarmanager({
+			mode: $(formatField).val(),
+			context: 'post'
+		});
 	}
 	
 	if (document.getElementById('comment_content')) {
@@ -121,14 +124,14 @@ $(function() {
 			hide: $('#post_password').val() == ''
 		});
 		
-		$('#post_content').dctoolbarmanager('draw');
-		
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
 			fn: function() { $('#post_excerpt').dctoolbarmanager('draw'); },
 			cookie: 'dcx_post_excerpt',
 			hide: $('#post_excerpt').val() == ''
 		});
+		
+		$('#post_content').dctoolbarmanager('draw');
 		
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {

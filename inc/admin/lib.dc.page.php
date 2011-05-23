@@ -582,7 +582,8 @@ class dcPage
 				"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."';"
 			),
 			'load' => array(
-				"$.data(elm,'toolbar',new jsToolBar(document.getElementById($(elm).attr('id'))));"
+				"$.data(elm,'toolbar',new jsToolBar(document.getElementById($(elm).attr('id'))));",
+				"$(elm).data('toolbar').context = $(elm).data('context');"
 			),
 			'draw' => array(
 				"$(elm).data('toolbar').switchMode('wiki');"
