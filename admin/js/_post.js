@@ -79,24 +79,23 @@ $(function() {
 		// Get document format and prepare toolbars
 		var formatField = $('#post_format').get(0);
 		$(formatField).change(function() {
-			excerptTb.switchMode(this.value);
-			contentTb.switchMode(this.value);
+			$('#post_excerpt').dctoolbarmanager('switch',$(this).val());
+			$('#post_content').dctoolbarmanager('switch',$(this).val());
 		});
 		
-		var excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
-		var contentTb = new jsToolBar(document.getElementById('post_content'));
-		excerptTb.context = contentTb.context = 'post';
+		// Init toolbars
+		$('#post_excerpt,#post_content').dctoolbarmanager({mode:$(formatField).val()});
 	}
 	
 	if (document.getElementById('comment_content')) {
-		var commentTb = new jsToolBar(document.getElementById('comment_content'));
+		$('#comment_content').dctoolbarmanager({mode:'xhtml'});
 	}
 	
 	// Post preview
 	$('#post-preview').modalWeb($(window).width()-40,$(window).height()-40);
 	
 	// Tabs events
-	$('#edit-entry').onetabload(function() {
+	$('#edit-entry').onetabload(function() { 
 		dotclear.hideLockable();
 		
 		// Add date picker
@@ -122,15 +121,14 @@ $(function() {
 			hide: $('#post_password').val() == ''
 		});
 		
+		$('#post_content').dctoolbarmanager('draw');
+		
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
-			fn: function() { excerptTb.switchMode(formatField.value); },
+			fn: function() { $('#post_excerpt').dctoolbarmanager('draw'); },
 			cookie: 'dcx_post_excerpt',
 			hide: $('#post_excerpt').val() == ''
 		});
-		
-		// Load toolbars
-		contentTb.switchMode(formatField.value);
 		
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {
@@ -226,6 +224,6 @@ $(function() {
 	});
 	
 	$('#add-comment').onetabload(function() {
-		commentTb.draw('xhtml');
+		$('#comment_content').dctoolbarmanager('draw');
 	});
 });

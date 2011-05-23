@@ -158,6 +158,18 @@ jsToolBar.prototype = {
 		this.draw(mode);
 	},
 	
+	remove: function() {
+		// Empty toolbar
+		while (this.toolbar.hasChildNodes()) {
+			this.toolbar.removeChild(this.toolbar.firstChild)
+		}
+		this.toolbar.parentNode.appendChild(this.textarea);
+		this.toolbar.parentNode.removeChild(this.handle);
+		this.toolbar.parentNode.removeChild(this.editor);
+		this.toolbar.parentNode.removeChild(this.toolbar);
+		this.toolNodes = {}; // vide les raccourcis DOM/**/
+	},
+	
 	button: function(toolName) {
 		var tool = this.elements[toolName];
 		if (typeof tool.fn[this.mode] != 'function') return null;

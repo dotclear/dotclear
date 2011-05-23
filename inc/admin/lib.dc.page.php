@@ -548,82 +548,115 @@ class dcPage
 	
 	public static function jsToolBar()
 	{
-		$res =
-		'<link rel="stylesheet" type="text/css" href="style/jsToolBar/jsToolBar.css" />'.
-		'<script type="text/javascript" src="js/jsToolBar/jsToolBar.js"></script>';
-		
-		if (isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('enable_wysiwyg')) {
-			$res .= '<script type="text/javascript" src="js/jsToolBar/jsToolBar.wysiwyg.js"></script>';
+		$params_wiki = array(
+			'init' => array(
+				"jsToolBar.prototype.dialog_url = 'popup.php';",
+				"jsToolBar.prototype.base_url = '".html::escapeJS($GLOBALS['core']->blog->host)."';",
+				"jsToolBar.prototype.legend_msg = '".html::escapeJS(__('You can use the following shortcuts to format your text.'))."';",
+				"jsToolBar.prototype.elements.blocks.options.none = '".html::escapeJS(__('-- none --'))."';",
+				"jsToolBar.prototype.elements.blocks.options.nonebis = '".html::escapeJS(__('-- block format --'))."';",
+				"jsToolBar.prototype.elements.blocks.options.p = '".html::escapeJS(__('Paragraph'))."';",
+				"jsToolBar.prototype.elements.blocks.options.h1 = '".html::escapeJS(__('Level 1 header'))."';",
+				"jsToolBar.prototype.elements.blocks.options.h2 = '".html::escapeJS(__('Level 2 header'))."';",
+				"jsToolBar.prototype.elements.blocks.options.h3 = '".html::escapeJS(__('Level 3 header'))."';",
+				"jsToolBar.prototype.elements.blocks.options.h4 = '".html::escapeJS(__('Level 4 header'))."';",
+				"jsToolBar.prototype.elements.blocks.options.h5 = '".html::escapeJS(__('Level 5 header'))."';",
+				"jsToolBar.prototype.elements.blocks.options.h6 = '".html::escapeJS(__('Level 6 header'))."';",
+				"jsToolBar.prototype.elements.strong.title = '".html::escapeJS(__('Strong emphasis'))."';",
+				"jsToolBar.prototype.elements.em.title = '".html::escapeJS(__('Emphasis'))."';",
+				"jsToolBar.prototype.elements.ins.title = '".html::escapeJS(__('Inserted'))."';",
+				"jsToolBar.prototype.elements.del.title = '".html::escapeJS(__('Deleted'))."';",
+				"jsToolBar.prototype.elements.quote.title = '".html::escapeJS(__('Inline quote'))."';",
+				"jsToolBar.prototype.elements.code.title = '".html::escapeJS(__('Code'))."';",
+				"jsToolBar.prototype.elements.br.title = '".html::escapeJS(__('Line break'))."';",
+				"jsToolBar.prototype.elements.blockquote.title = '".html::escapeJS(__('Blockquote'))."';",
+				"jsToolBar.prototype.elements.pre.title = '".html::escapeJS(__('Preformated text'))."';",
+				"jsToolBar.prototype.elements.ul.title = '".html::escapeJS(__('Unordered list'))."';",
+				"jsToolBar.prototype.elements.ol.title = '".html::escapeJS(__('Ordered list'))."';",
+				"jsToolBar.prototype.elements.link.title = '".html::escapeJS(__('Link'))."';",
+				"jsToolBar.prototype.elements.link.href_prompt = '".html::escapeJS(__('URL?'))."';",
+				"jsToolBar.prototype.elements.link.hreflang_prompt = '".html::escapeJS(__('Language?'))."';",
+				"jsToolBar.prototype.elements.img.title = '".html::escapeJS(__('External image'))."';",
+				"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."';",
+				"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."';",
+				"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."';"
+			),
+			'load' => array(
+				"$.data(elm,'toolbar',new jsToolBar(document.getElementById($(elm).attr('id'))));"
+			),
+			'draw' => array(
+				"$(elm).data('toolbar').switchMode('wiki');"
+			),
+			'destroy' => array(
+				"$(elm).data('toolbar').remove();"
+			)
+		);
+		if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
+			$params_wiki['init'][] = "jsToolBar.prototype.elements.img_select.disabled = true;";
 		}
 		
-		$res .=
-		'<script type="text/javascript" src="js/jsToolBar/jsToolBar.dotclear.js"></script>'.
+		$params_xhtml = array(
+			'preinit' => array(
+				"if (!window.tinyMCE) {",
+				"window.tinyMCEPreInit = {base : 'js/tiny_mce', suffix : '', query : ''};",
+				"}"
+			),
+			'init' => array(
+				"tinyMCE.dom.Event.domLoaded = true;",
+				"tinyMCE.settings = {};",
+				"tinyMCE.settings.mode = 'textareas';",
+				"tinyMCE.settings.relative_urls = false;",
+				"tinyMCE.settings.theme = '".html::escapeJS('advanced')."';",
+				"tinyMCE.settings.plugins = '".html::escapeJS('fullscreen,paste,searchreplace')."'; ",
+				"tinyMCE.settings.theme_advanced_buttons1 = '".html::escapeJS('justifyleft,justifycenter,justifyright,separator,bold,italic,underline,strikethrough,sub,sup,separator,blockquote,bullist,numlist,outdent,indent,separator,undo,redo,separator,visualaid,separator,fullscreen,separator,code')."';",
+				"tinyMCE.settings.theme_advanced_buttons2 = '".html::escapeJS('formatselect,removeformat,cleanup,seperator,cut,copy,paste,pastetext,pasteword,search,replace')."';",
+				"tinyMCE.settings.theme_advanced_buttons3 = '".html::escapeJS('link,unlink,hr,charmap,emotions')."';",
+				"tinyMCE.settings.theme_advanced_toolbar_location = '".html::escapeJS('top')."';",
+				"tinyMCE.settings.theme_advanced_toolbar_align = '".html::escapeJS('left')."';",
+				"tinyMCE.settings.theme_advanced_statusbar_location = '".html::escapeJS('bottom')."';",
+				"tinyMCE.settings.theme_advanced_resizing = true;",
+				"tinyMCE.settings.theme_advanced_resize_horizontal = false;",
+				"tinyMCE.settings.entity_encoding = '".html::escapeJS('raw')."';",
+				"tinyMCE.settings.add_unload_trigger = false;",
+				"tinyMCE.settings.remove_linebreaks = false;",
+				"tinyMCE.settings.paste_auto_cleanup_on_paste = true;"
+			),
+			'load' => array(
+				"$.data(elm,'toolbar',new tinyMCE.Editor($(elm).attr('id'),tinyMCE.settings));"
+			),
+			'draw' => array(
+				"$(elm).data('toolbar').render();"
+			),
+			'destroy' => array(
+				"$(elm).data('toolbar').remove();"
+			)
+		);
+		
+		$res =
+		'<script type="text/javascript" src="js/dcToolBarManager.js"></script>'.
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
-		"jsToolBar.prototype.dialog_url = 'popup.php'; ".
-		"jsToolBar.prototype.iframe_css = '".
-			'body{'.
-				'font: 12px "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;'.
-				'color : #000;'.
-				'background: #f9f9f9;'.
-				'margin: 0;'.
-				'padding : 2px;'.
-				'border: none;'.
-				(l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? 'direction:rtl;' : '').
-			'}'.
-			'pre, code, kbd, samp {'.
-				'font-family:"Courier New",Courier,monospace;'.
-				'font-size : 1.1em;'.
-			'}'.
-			'code {'.
-				'color : #666;'.
-				'font-weight : bold;'.
-			'}'.
-			'body > p:first-child {'.
-				'margin-top: 0;'.
-			'}'.
-		"'; ".
-		"jsToolBar.prototype.base_url = '".html::escapeJS($GLOBALS['core']->blog->host)."'; ".
-		"jsToolBar.prototype.switcher_visual_title = '".html::escapeJS(__('visual'))."'; ".
-		"jsToolBar.prototype.switcher_source_title = '".html::escapeJS(__('source'))."'; ".
-		"jsToolBar.prototype.legend_msg = '".
-		html::escapeJS(__('You can use the following shortcuts to format your text.'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.none = '".html::escapeJS(__('-- none --'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.nonebis = '".html::escapeJS(__('-- block format --'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.p = '".html::escapeJS(__('Paragraph'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h1 = '".html::escapeJS(__('Level 1 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h2 = '".html::escapeJS(__('Level 2 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h3 = '".html::escapeJS(__('Level 3 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h4 = '".html::escapeJS(__('Level 4 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h5 = '".html::escapeJS(__('Level 5 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h6 = '".html::escapeJS(__('Level 6 header'))."'; ".
-		"jsToolBar.prototype.elements.strong.title = '".html::escapeJS(__('Strong emphasis'))."'; ".
-		"jsToolBar.prototype.elements.em.title = '".html::escapeJS(__('Emphasis'))."'; ".
-		"jsToolBar.prototype.elements.ins.title = '".html::escapeJS(__('Inserted'))."'; ".
-		"jsToolBar.prototype.elements.del.title = '".html::escapeJS(__('Deleted'))."'; ".
-		"jsToolBar.prototype.elements.quote.title = '".html::escapeJS(__('Inline quote'))."'; ".
-		"jsToolBar.prototype.elements.code.title = '".html::escapeJS(__('Code'))."'; ".
-		"jsToolBar.prototype.elements.br.title = '".html::escapeJS(__('Line break'))."'; ".
-		"jsToolBar.prototype.elements.blockquote.title = '".html::escapeJS(__('Blockquote'))."'; ".
-		"jsToolBar.prototype.elements.pre.title = '".html::escapeJS(__('Preformated text'))."'; ".
-		"jsToolBar.prototype.elements.ul.title = '".html::escapeJS(__('Unordered list'))."'; ".
-		"jsToolBar.prototype.elements.ol.title = '".html::escapeJS(__('Ordered list'))."'; ".
-		
-		"jsToolBar.prototype.elements.link.title = '".html::escapeJS(__('Link'))."'; ".
-		"jsToolBar.prototype.elements.link.href_prompt = '".html::escapeJS(__('URL?'))."'; ".
-		"jsToolBar.prototype.elements.link.hreflang_prompt = '".html::escapeJS(__('Language?'))."'; ".
-		
-		"jsToolBar.prototype.elements.img.title = '".html::escapeJS(__('External image'))."'; ".
-		"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."'; ".
-		
-		"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."'; ".
-		"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ";
-		
-		if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
-			$res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";
-		}
-		
-		$res .=
+		"var dcToolBarManager = new dcToolBarManager();\n".
+		"dcToolBarManager.msg.toolbar_does_not_exists = '".html::escapeJS(__('Toolbar [%s] does not exists'))."';\n".
+		"dcToolBarManager.setToolBar({\n".
+			"id: 'xhtml',\n".
+			"js_urls: ['js/tiny_mce/tiny_mce.js'],\n".
+			"css_urls: [],\n".
+			"preinit: function() {".implode(' ',$params_xhtml['preinit'])."},\n".
+			"init: function() {".implode(' ',$params_xhtml['init'])."},\n".
+			"load: function(elm) {".implode(' ',$params_xhtml['load'])."},\n".
+			"draw: function(elm) {".implode(' ',$params_xhtml['draw'])."},\n".
+			"destroy: function(elm) {".implode(' ',$params_xhtml['destroy'])."}\n".
+		"});\n".
+		"dcToolBarManager.setToolBar({\n".
+			"id: 'wiki',\n".
+			"js_urls: ['js/jsToolBar/jsToolBar.js','js/jsToolBar/jsToolBar.dotclear.js'],\n".
+			"css_urls: ['style/jsToolBar/jsToolBar.css'],\n".
+			"init: function() {".implode("\n",$params_wiki['init'])."},\n".
+			"load: function(elm) {".implode(' ',$params_wiki['load'])."},\n".
+			"draw: function(elm) {".implode(' ',$params_wiki['draw'])."},\n".
+			"destroy: function(elm) {".implode(' ',$params_wiki['destroy'])."}\n".
+		"});\n".
 		"\n//]]>\n".
 		"</script>\n";
 		
