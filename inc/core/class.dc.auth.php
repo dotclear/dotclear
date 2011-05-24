@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -76,9 +76,10 @@ class dcAuth
 	@param	user_id	<b>string</b>		User ID
 	@param	pwd		<b>string</b>		User password
 	@param	user_key	<b>string</b>		User key check
+	@param	check_blog	<b>boolean</b>		checks if user is associated to a blog or not.
 	@return	<b>boolean</b>
 	*/
-	public function checkUser($user_id, $pwd=null, $user_key=null)
+	public function checkUser($user_id, $pwd=null, $user_key=null, $check_blog=true)
 	{
 		# Check user and password
 		$strReq = 'SELECT user_id, user_super, user_pwd, user_change_pwd, '.
@@ -140,7 +141,7 @@ class dcAuth
 		$this->user_prefs = new dcPrefs($this->core,$this->user_id);
 		
 		# Get permissions on blogs
-		if ($this->findUserBlog() === false) {
+		if ($check_blog && ($this->findUserBlog() === false)) {
 			return false;
 		}
 		return true;
