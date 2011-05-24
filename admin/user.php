@@ -95,6 +95,10 @@ if (isset($_POST['user_name']))
 		$cur->user_tz = $user_tz = $_POST['user_tz'];
 		$cur->user_post_status = $user_post_status = $_POST['user_post_status'];
 		
+		if ($cur->user_id == $core->auth->userID() && $core->auth->isSuperAdmin()) {
+			// force super_user to true if current user
+			$cur->user_super = $user_super = true;
+		}
 		if ($core->auth->allowPassChange()) {
 			$cur->user_change_pwd = !empty($_POST['user_change_pwd']) ? 1 : 0;
 		}
@@ -254,8 +258,10 @@ if ($core->auth->allowPassChange()) {
 	__('Password change required to connect').'</label></p>';
 }
 
+$super_disabled = $user_super && $user_id == $core->auth->userID();
+
 echo
-'<p><label for="user_super" class="classic">'.form::checkbox('user_super','1',$user_super,'',16).' '.
+'<p><label for="user_super" class="classic">'.form::checkbox('user_super','1',$user_super,'',16,$super_disabled).' '.
 __('Super administrator').'</label></p>'.
 '</div>'.
 '</div>'.
