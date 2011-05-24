@@ -294,7 +294,7 @@ echo dcPage::jsCommon();
     $.cookie('dc_admin_test_cookie',true);
     if ($.cookie('dc_admin_test_cookie')) {
       $('#cookie_help').hide();
-      $.cookie('dc_admin_test_cookie', '', {expires: -1});
+      $.cookie('dc_admin_test_cookie', '', {'expires': -1});
     } else {
       $('#cookie_help').show();
     }
