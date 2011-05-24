@@ -64,6 +64,6 @@ $(function() {
 
 	// allow to hide quick entry div, and remember choice
 	$('#quick h3').toggleWithLegend($('#quick').children().not('h3'),{
-		cookie: 'dcx_quick_entry',
+		cookie: 'dcx_quick_entry'
 	}, positionFooter);
 });
