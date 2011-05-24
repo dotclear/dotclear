@@ -23,15 +23,15 @@ if (!empty($delete_users))
 		{
 			# --BEHAVIOR-- adminBeforeUserDelete
 			$core->callBehavior('adminBeforeUserDelete',$u);
-			
-			$core->delUser($u);
+			if ($u != $core->auth->userID()) {
+				$core->delUser($u);
+			}
 		}
 		catch (Exception $e)
 		{
 			$core->error->add($e->getMessage());
 		}
 	}
-	
 	if (!$core->error->flag()) {
 		http::redirect('users.php?del=1');
 	}
