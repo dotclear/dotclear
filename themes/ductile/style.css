@@ -26,8 +26,91 @@ a:hover, a:focus {
 	text-decoration: none;
 	}
 
+/* ----------------------------------------------- page */
+#page {
+	position: relative;
+	padding-top: 16px;
+	}
 
+/* ----------------------------------------------- top */
+h1 a {
+	text-decoration: none;
+	}
+#prelude {
+	position: absolute;
+	margin: 0;
+	top: 0;
+	left: 3px;
+	color: #fff;
+	}
+#prelude a {
+	color: #fff;
+}
+#prelude a:focus {
+	color: #666;
+}
 
+/* ----------------------------------------------- billets */
+.post {
+	background: transparent url(img/filet.png) repeat-x left bottom;
+	}
+.day-date {
+	display: none;
+	}
+h2.post-title a {
+	font-weight: normal;
+	font-style: italic;
+	text-decoration: none;
+	}
+.post-info, .post-tags {
+	font-size: .875em;
+	margin: 0;
+	padding: 0;
+	}
+.post-info a, .post-tags a {
+	padding-right: 1em;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: left center;	
+	}
+.post-info a {
+	background-image: url(img/category.png);
+	padding-left: 22px;
+	}
+.post-tags a {
+	background-image: url(img/tag12.png);
+	padding-left: 16px;
+	}
+.post-tags li {
+	display: inline;
+	}
+.post-content {
+	padding-bottom: 9px;
+	}
+.read-it {
+	text-align: right;
+	margin: 0;
+	}
+.post-info-co {
+	margin: 0;
+	background: #fff;
+	display: inline;
+	font-style: italic;
+	}
+.post-info-co a {
+	text-decoration: none;
+	padding-right: 1em;
+	padding-left: 20px;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: left center;
+	}
+.post-info-co a.comment_count {
+	background-image: url(img/comment.png);
+	}
+.post-info-co a.ping_count {
+	background-image: url(img/ping.png);
+	}
 
 /* ================================================ 
 	personnalisations blog chantier
