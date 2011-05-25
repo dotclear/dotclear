@@ -2,23 +2,25 @@
 	var methods = {
 		init: function(options) {
 			var settings = {
-				mode: 'xhtml',
-				context: null
+				id: null,
+				mode: null,
 			};
+			$.extend(settings,options);
+			
 			return this.each(function(){
 				var _this = this;
-				if (options) {
-					$.extend(settings,options);
-				}
 				$.each(settings, function(k,v) {
 					$.data(_this,k,v);
 				});
-				dcToolBarManager._load(settings.mode,this);
+				dcToolBarManager._init(settings.mode,_this);
 			});
 		
 		},
 		draw: function() {
 			return this.each(function(){
+				if ($(this).data('toolbar') == null) {
+					throw 'Toolbar should be initialize before render it';
+				}
 				dcToolBarManager._draw($(this).data('mode'),this);
 			});
 		},
@@ -29,124 +31,203 @@
 				if ($(this).data('mode') != mode) {
 					$.data(this,'mode',mode);
 					dcToolBarManager._destroy($(this).data('mode'),this);
-					dcToolBarManager._load(mode,this);
-					dcToolBarManager._draw(mode,this);
+					dcToolBarManager._init(mode,this);
 				}
 			});
 		}
 	};
 	
 	$.fn.dctoolbarmanager = function(method) {
-		if (methods[method]) {
-			return methods[method].apply(this,Array.prototype.slice.call(arguments,1));
-		} else if (typeof method === 'object' || !method) {
-			return methods.init.apply(this,arguments);
-		} else {
-			$.error('Method ' + method + ' does not exist on jQuery.dctoolbar');
-		}
+		//try {
+			if (methods[method]) {
+				return methods[method].apply(this,Array.prototype.slice.call(arguments,1));
+			} else if (typeof method === 'object' || !method) {
+				return methods.init.apply(this,arguments);
+			} else {
+				throw 'Method ' + method + ' does not exist on jQuery.dctoolbarmanager';
+			}
+		/*} catch (e) {
+			$.error('Error happend on jQuery.dctoolbarmanager: ' + e);
+		}*/
 	};
 })(jQuery);
 
 function dcToolBarManager() {
 	this.setToolBar = function(options) {
-		var settings = {
-			id: 'generic',
-			js_urls: [],
-			css_urls: [],
-			preinit: function() {},
-			init: function() {},
-			load: function() {},
-			draw: function() {},
-			destroy: function() {}
-		};
-		
-		$.extend(settings,options);
-		
-		this.toolbars[settings.id] = {
-			id: settings.id,
-			js_urls: settings.js_urls,
-			css_urls: settings.css_urls,
-			preinit: settings.preinit,
-			init: settings.init,
-			load: settings.load,
-			draw: settings.draw,
-			destroy: settings.destroy,
-			loaded: false
-		};
-		
-		this.fn[settings.id] = new Array();
-		
-		this._init(settings.id);
+		try {
+			var toolbar = {
+				id: null,
+				mode: null,
+				js: [],
+				css: [],
+				onPreInit: function() {},
+				onInit: function() {},
+				onDraw: function() {},
+				onDestroy: function() {}
+			};
+			
+			$.extend(toolbar,options);
+			
+			if (toolbar.id == null || toolbar.id == '') {
+				throw 'Invalid toolbar id';
+			}
+			
+			if (toolbar.mode == null || toolbar.mode == '') {
+				throw 'Invalid toolbar mode';
+			}
+			
+			//var js = $.makeArray(toolbar.js);
+			if (!$.isArray(toolbar.js)) {
+				throw 'Invalid format for JS scripts';
+			}
+			//var css = $.makeArray(toolbar.css);
+			if (!$.isArray(toolbar.css)) {
+				throw 'Invalid format for CSS scripts';
+			}
+			
+			// Add toolbar
+			this.toolbars[toolbar.mode] = {
+				id: toolbar.id,
+				js: toolbar.js,
+				css: toolbar.css,
+				loaded: false,
+				init: false
+			};
+			
+			// Add events
+			this.events[toolbar.mode] = {
+				onPreInit: [],
+				onInit: [],
+				onDraw: [],
+				onDestroy: []
+			};
+			this.bind('onPreInit',toolbar.mode,toolbar.onPreInit);
+			this.bind('onInit',toolbar.mode,toolbar.onInit);
+			this.bind('onDraw',toolbar.mode,toolbar.onDraw);
+			this.bind('onDestroy',toolbar.mode,toolbar.onDestroy);
+			
+			// Pre-init toolbar
+			this._preInit(toolbar.mode);
+		} catch (e) {
+			$.error('Toolbar signature error: ' + e.message);
+		}
 	};
-};
+	
+	this.bind = function(event,mode,callback) {
+		if (!this.events.hasOwnProperty(mode)) {
+			throw 'No event available for toolbar [%s]'.replace('%s',id);
+		}
+		
+		var events = this.events[mode];
+		
+		if (!events.hasOwnProperty(event)) {
+			throw 'Event [%1$s] does not exist for toolbar [%2$s]'.replace('%1$s',event).replace('%2$s',mode);
+		}
+		
+		if (typeof(callback) === 'function') {
+			events[event].push(callback);
+		}
+	},
+	
+	this.call = function(event,mode) {
+		if (!this.events.hasOwnProperty(mode)) {
+			return;
+		}
+		
+		var events = this.events[mode];
+		
+		if (!events.hasOwnProperty(event)) {
+			return;
+		}
+		
+		var _arguments = arguments;
+		
+		$.each(events[event],function(i,fn) {
+			fn.apply(this,Array.prototype.slice.call(_arguments,2));
+		});
+	}
+}
 
 dcToolBarManager.prototype = {
 	toolbars: {},
-	fn: {},
-	msg: {
-		toolbar_does_not_exists: 'Toolbar [%s] does not exists'
+	events: {},
+	msg: {},
+	
+	_preInit: function(mode) {
+		if (!this.toolbars.hasOwnProperty(mode)) {
+			throw 'Toolbar [%s] does not exist'.replace('%s',mode);
+		}
+		
+		this.call('onPreInit',mode);
+		
+		var t = this.toolbars[mode];
+		var n = t.js.length;
+		
+		// Loading JS scripts
+		$.each(t.js, function(i,url) {
+			$.ajax({
+				async: false,
+				url: url,
+				dataType: 'script'
+			});
+		});
+		
+		// Loading CSS scripts
+		$.each(t.css, function(j,css) {
+			$('head').append($('<link/>').attr({
+				rel: 'stylesheet',
+				type: 'text/css',
+				href: css
+			}));
+		});
+		
+		t.loaded = true;
 	},
 	
-	_init: function(mode) {
-		try {
-			var _this = this;
-			var results = [];
-			
-			var t = this.toolbars[mode];
-			
-			if (t.loaded) {
-				return;
-			}
-			
-			var n = t.js_urls.length;
-			
-			// Pre-initialization
-			t.preinit();
-			
-			// Loading JS scripts
-			$.each(t.js_urls, function(i,url) {
-				$('head').append($('<script>').attr({
-					type: 'text/javascript',
-					src: url
-				}));
-				if(! --n) {
-					t.loaded = true;
-					t.init();
-				}
-			});
-			
-			// Loading CSS scripts
-			$.each(t.css_urls, function(j,css) {
-				$('head').append($('<link/>').attr({
-					rel: 'stylesheet',
-					type: 'text/css',
-					href: css
-				}));
-			});
-		} catch (e) {
-			$.error('Error during toolbar [' + id + '] initialization: ' + e.message);
+	_init: function(mode,elm) {
+		if (!this.toolbars.hasOwnProperty(mode)) {
+			throw 'Toolbar [%s] does not exist'.replace('%s',mode);
 		}
-	},
-	
-	_load: function(mode,elm) {
-		if (!this.toolbars[mode]) {
-			throw this.msg.toolbar_does_not_exists.replace('%s',mode);
-		}
+		
+		var _this = this;
 		var t = this.toolbars[mode];
 		
-		$.each(this.fn[mode],function(i,callback) {
-			callback();
-		});
-		t.load(elm);
+		var _this = this;
+		var t = this.toolbars[mode];
+		
+		if (t.loaded) {
+			if (!t.init) {
+				// Init toolbar
+				this.call('onInit',mode,elm);
+				t.init = true;
+			}
+			// Draw toolbar
+			this._draw(mode,elm);
+			return;
+		}
+		
+		setTimeout(function() { _this._init.apply(_this,[mode,elm]); },1);
 	},
 	
 	_draw: function(mode,elm) {
+		if (!this.toolbars.hasOwnProperty(mode)) {
+			throw 'Toolbar [%s] does not exist'.replace('%s',mode);
+		}
+		
 		var t = this.toolbars[mode];
-		t.draw(elm);
+		
+		// Draw toolbar
+		this.call('onDraw',mode,elm);
 	},
 	
 	_destroy: function(mode,elm) {
+		if (!this.toolbars.hasOwnProperty(mode)) {
+			throw 'Toolbar [%s] does not exist'.replace('%s',mode);
+		}
+		
 		var t = this.toolbars[mode];
-		t.destroy(elm);
+		
+		// Destroy toolbar
+		this.call('onDestroy',mode,elm);
 	}
 }

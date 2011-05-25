@@ -85,6 +85,7 @@ $(function() {
 		
 		// Init toolbars
 		$('#post_excerpt,#post_content').dctoolbarmanager({
+			id: 'tinymce',
 			mode: $(formatField).val(),
 			context: 'post'
 		});
@@ -130,8 +131,6 @@ $(function() {
 			cookie: 'dcx_post_excerpt',
 			hide: $('#post_excerpt').val() == ''
 		});
-		
-		$('#post_content').dctoolbarmanager('draw');
 		
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {

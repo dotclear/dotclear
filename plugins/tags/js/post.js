@@ -59,7 +59,7 @@ $(function() {
 });
 
 // Toolbar button for tags
-dcToolBarManager.fn.wiki.push(function() {
+dcToolBarManager.bind('onInit','wiki',function() {
 	jsToolBar.prototype.elements.tagSpace = {type: 'space'};
 	
 	jsToolBar.prototype.elements.tag = {type: 'button', title: 'Keyword', fn:{} };
@@ -103,28 +103,28 @@ dcToolBarManager.fn.wiki.push(function() {
 	};
 });
 
-dcToolBarManager.fn.xhtml.push(function() {
-	tinymce.create('tinymce.plugins.dcTagPlugin', {
+dcToolBarManager.bind('onInit','xhtml',function() {
+	tinymce.create('tinymce.plugins.dcTag', {
 		init : function(ed, url) {
 			this.editor = ed;
 			
-			ed.addCommand('mceDcTag', function() {
+			ed.addCommand('dcTag', function() {
 				var se = ed.selection;
 				
 				if (se.isCollapsed() && !ed.dom.getParent(se.getNode(), 'A')) {
 					 return;
 				}
-				tinymce.execCommand("mceInsertLink", false, tinymce.plugins.dcTagPlugin.url+'/'+se.getContent(), {skip_undo : 1});
+				tinymce.execCommand("mceInsertLink", false, tinymce.plugins.dcTag.url+'/'+se.getContent(), {skip_undo : 1});
 				window.dc_tag_editor.addMeta(se.getContent());
 			});
 			
 			ed.addButton('tag', {
-				title : tinymce.plugins.dcTagPlugin.title,
-				cmd : 'mceDcTag',
+				title : tinymce.plugins.dcTag.title,
+				cmd : 'dcTag',
 				image :'index.php?pf=tags/img/tag-add.png'
 			});
 			
-			ed.addShortcut('ctrl+m', 'advlink.advlink_desc', 'mceDcTag');
+			ed.addShortcut('ctrl+alt+t', 'advlink.advlink_desc', 'dcTag');
 			
 			ed.onNodeChange.add(function(ed, cm, n, co) {
 				cm.setDisabled('tag', co && n.nodeName != 'A');
@@ -137,13 +137,13 @@ dcToolBarManager.fn.xhtml.push(function() {
 				longname : 'Dotclear tag',
 				author : 'Tomtom for dotclear',
 				authorurl : 'http://dotclear.org',
-				infourl : 'http://dotclear.org',
+				infourl : '',
 				version : tinymce.majorVersion + "." + tinymce.minorVersion
 			};
 		}
 	});
 	
-	tinymce.PluginManager.add('dcTag', tinymce.plugins.dcTagPlugin);
+	tinymce.PluginManager.add('dcTag', tinymce.plugins.dcTag);
 	
 	tinymce.settings.plugins += ",-dcTag";
 	tinymce.settings.theme_advanced_buttons3 += ",tag";

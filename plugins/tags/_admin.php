@@ -121,13 +121,13 @@ class tagsBehaviors
 		"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
 		"dotclear.msg.entry = '".html::escapeJS(__('entry'))."';\n".
 		"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
-		"dcToolBarManager.fn.wiki.push(function() {\n".
+		"dcToolBarManager.bind('onInit','wiki',function() {\n".
 			"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
 			"jsToolBar.prototype.elements.tag.url = '".html::escapeJS($tag_url)."';\n".
 		"});\n".
-		"dcToolBarManager.fn.xhtml.push(function() {\n".
-			"tinyMCE.plugins.dcTagPlugin.title = '".html::escapeJS(__('Tag'))."';\n".
-			"tinyMCE.plugins.dcTagPlugin.url = '".html::escapeJS($tag_url)."';\n".
+		"dcToolBarManager.bind('onInit','xhtml',function() {\n".
+			"tinymce.plugins.dcTag.title = '".html::escapeJS(__('Tag'))."';\n".
+			"tinymce.plugins.dcTag.url = '".html::escapeJS($tag_url)."';\n".
 		"});\n".
 		"\n//]]>\n".
 		"</script>\n".
