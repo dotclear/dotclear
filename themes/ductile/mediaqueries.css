@@ -10,6 +10,19 @@
 @media only screen and (max-width:480px) {
 	h1 {
 		font-size: 1.8em;
+		margin-left: 3%;
+		}
+}
+
+@media only screen and (min-width: 481px) {
+	h1 {
+	font-size: 2.5em;
+		}
+	h1 a, h1 a:hover, h1 a:focus {
+		background-repeat: no-repeat;
+		background-position: left center;
+		padding-left: 68px;
+		background-image: url(img/home-small.png);
 		}
 }
 
@@ -24,12 +37,6 @@
 		max-width: 100%;
 		height: auto;
 		width: auto\9; /* pour ie8 */
-		}
-}
-
-@media only screen and (min-width: 481px) {
-	h1 {
-	font-size: 2.5em;
 		}
 }
 
