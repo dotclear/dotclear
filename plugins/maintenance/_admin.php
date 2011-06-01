@@ -19,7 +19,7 @@ $core->addBehavior('adminDashboardFavs','maintenanceDashboardFavs');
 
 function maintenanceDashboardFavs($core,$favs)
 {
-	$favs['maintenance'] = new ArrayObject(array('maintenance',__('Maintenance'),'plugin.php?p=maintenance',
+	$favs['maintenance'] = new ArrayObject(array('maintenance','Maintenance','plugin.php?p=maintenance',
 		'index.php?pf=maintenance/icon.png','index.php?pf=maintenance/icon-big.png',
 		null,null,null));
 }
