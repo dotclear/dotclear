@@ -40,7 +40,7 @@ $core->addBehavior('adminDashboardFavs','pingDashboardFavs');
 
 function pingDashboardFavs($core,$favs)
 {
-	$favs['pings'] = new ArrayObject(array('pings',__('Pings'),'plugin.php?p=pings',
+	$favs['pings'] = new ArrayObject(array('pings','Pings','plugin.php?p=pings',
 		'index.php?pf=pings/icon.png','index.php?pf=pings/icon-big.png',
 		null,null,null));
 }

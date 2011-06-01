@@ -24,7 +24,7 @@ $core->addBehavior('adminDashboardFavs','importExportDashboardFavs');
 
 function importExportDashboardFavs($core,$favs)
 {
-	$favs['importExport'] = new ArrayObject(array('importExport',__('Import/Export'),'plugin.php?p=importExport',
+	$favs['importExport'] = new ArrayObject(array('importExport','Import/Export','plugin.php?p=importExport',
 		'index.php?pf=importExport/icon.png','index.php?pf=importExport/icon-big.png',
 		'admin',null,null));
 }
