@@ -30,7 +30,7 @@ if ($q) {
 
 dcPage::openPopup(__('Add a link to an entry'),
 	dcPage::jsLoad('js/_posts_list.js').
-	dcPage::jsLoad('js/jsToolBar/popup_posts.js'));
+	dcPage::jsLoad('js/tiny_mce/plugins/dcControls/js/popup_posts.js'));
 
 echo '<h2>'.__('Add a link to an entry').'</h2>';
 

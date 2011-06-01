@@ -548,110 +548,150 @@ class dcPage
 	
 	public static function jsToolBar()
 	{
-		$params_wiki = array(
-			'onInit' => array(
-				"jsToolBar.prototype.dialog_url = 'popup.php';",
-				"jsToolBar.prototype.base_url = '".html::escapeJS($GLOBALS['core']->blog->host)."';",
-				"jsToolBar.prototype.legend_msg = '".html::escapeJS(__('You can use the following shortcuts to format your text.'))."';",
-				"jsToolBar.prototype.elements.blocks.options.none = '".html::escapeJS(__('-- none --'))."';",
-				"jsToolBar.prototype.elements.blocks.options.nonebis = '".html::escapeJS(__('-- block format --'))."';",
-				"jsToolBar.prototype.elements.blocks.options.p = '".html::escapeJS(__('Paragraph'))."';",
-				"jsToolBar.prototype.elements.blocks.options.h1 = '".html::escapeJS(__('Level 1 header'))."';",
-				"jsToolBar.prototype.elements.blocks.options.h2 = '".html::escapeJS(__('Level 2 header'))."';",
-				"jsToolBar.prototype.elements.blocks.options.h3 = '".html::escapeJS(__('Level 3 header'))."';",
-				"jsToolBar.prototype.elements.blocks.options.h4 = '".html::escapeJS(__('Level 4 header'))."';",
-				"jsToolBar.prototype.elements.blocks.options.h5 = '".html::escapeJS(__('Level 5 header'))."';",
-				"jsToolBar.prototype.elements.blocks.options.h6 = '".html::escapeJS(__('Level 6 header'))."';",
-				"jsToolBar.prototype.elements.strong.title = '".html::escapeJS(__('Strong emphasis'))."';",
-				"jsToolBar.prototype.elements.em.title = '".html::escapeJS(__('Emphasis'))."';",
-				"jsToolBar.prototype.elements.ins.title = '".html::escapeJS(__('Inserted'))."';",
-				"jsToolBar.prototype.elements.del.title = '".html::escapeJS(__('Deleted'))."';",
-				"jsToolBar.prototype.elements.quote.title = '".html::escapeJS(__('Inline quote'))."';",
-				"jsToolBar.prototype.elements.code.title = '".html::escapeJS(__('Code'))."';",
-				"jsToolBar.prototype.elements.br.title = '".html::escapeJS(__('Line break'))."';",
-				"jsToolBar.prototype.elements.blockquote.title = '".html::escapeJS(__('Blockquote'))."';",
-				"jsToolBar.prototype.elements.pre.title = '".html::escapeJS(__('Preformated text'))."';",
-				"jsToolBar.prototype.elements.ul.title = '".html::escapeJS(__('Unordered list'))."';",
-				"jsToolBar.prototype.elements.ol.title = '".html::escapeJS(__('Ordered list'))."';",
-				"jsToolBar.prototype.elements.link.title = '".html::escapeJS(__('Link'))."';",
-				"jsToolBar.prototype.elements.link.href_prompt = '".html::escapeJS(__('URL?'))."';",
-				"jsToolBar.prototype.elements.link.hreflang_prompt = '".html::escapeJS(__('Language?'))."';",
-				"jsToolBar.prototype.elements.img.title = '".html::escapeJS(__('External image'))."';",
-				"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."';",
-				"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."';",
-				"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."';"
-			),
-			'onDraw' => array(
-				"$.data(elm,'toolbar',new jsToolBar(document.getElementById($(elm).attr('id'))));",
-				"$(elm).data('toolbar').context = $(elm).data('context');",
-				"$(elm).data('toolbar').switchMode('wiki');"
-			),
-			'onDestroy' => array(
-				"$(elm).data('toolbar').remove();"
-			)
-		);
-		if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
-			$params_wiki['onInit'][] = "jsToolBar.prototype.elements.img_select.disabled = true;";
-		}
+		$tb = new dcToolBar($GLOBALS['core']);
 		
-		$params_xhtml = array(
-			'onPreInit' => array(
-				"window.tinyMCEPreInit = {base : 'js/tiny_mce', suffix : '', query : ''};"
+		// Add xhtml toolbar
+		$tb->addFormatter('xhtml');
+		$tb->addSettings('xhtml',array(
+			'mode' => 'textareas',
+			'relative_urls' => 'false',
+			'theme' => 'advanced',
+			'theme_advanced_toolbar_location' => 'top',
+			'theme_advanced_toolbar_align' => 'left',
+			'theme_advanced_statusbar_location' => 'bottom',
+			'theme_advanced_resizing' => 'true',
+			'theme_advanced_resize_horizontal' => 'false',
+			'theme_advanced_blockformats' => 'p,pre,h1,h2,h3,h4',
+			'convert_newlines_to_brs' => 'true',
+			'paste_auto_cleanup_on_paste' => 'true',
+			'formats' => '{underline: {inline: "ins"},strikethrough: {inline: "del"},inlinecode: {inline: "code"},quote: {inline: "q"}}'
+		));
+		$tb->addPlugins('xhtml',array(
+			'fullscreen' => true,
+			'paste' => true,
+			'searchreplace' => true,
+			'dcControls' => true,
+			'dcTags' => false
+		));
+		$tb->addButtons('xhtml',array(
+			1 => array(
+				'justifyleft',
+				'justifycenter',
+				'justifyright',
+				'separator',
+				'bold',
+				'italic',
+				'underline',
+				'strikethrough',
+				'inlinecode',
+				'quote',
+				'sub',
+				'sup',
+				'separator',
+				'blockquote',
+				'bullist',
+				'numlist',
+				'outdent',
+				'indent',
+				'separator',
+				'undo',
+				'redo',
+				'separator',
+				'fullscreen',
+				'separator',
+				'code'
 			),
-			'onInit' => array(
-				"tinymce.dom.Event.domLoaded = true;",
-				"tinymce.settings = {};",
-				"tinymce.settings.mode = 'textareas';",
-				"tinymce.settings.relative_urls = false;",
-				"tinymce.settings.theme = '".html::escapeJS('advanced')."';",
-				"tinymce.settings.plugins = '".html::escapeJS('fullscreen,paste,searchreplace')."'; ",
-				"tinymce.settings.theme_advanced_buttons1 = '".html::escapeJS('justifyleft,justifycenter,justifyright,separator,bold,italic,underline,strikethrough,sub,sup,separator,blockquote,bullist,numlist,outdent,indent,separator,undo,redo,separator,visualaid,separator,fullscreen,separator,code')."';",
-				"tinymce.settings.theme_advanced_buttons2 = '".html::escapeJS('formatselect,removeformat,cleanup,seperator,cut,copy,paste,pastetext,pasteword,search,replace')."';",
-				"tinymce.settings.theme_advanced_buttons3 = '".html::escapeJS('link,unlink,hr,charmap')."';",
-				"tinymce.settings.theme_advanced_toolbar_location = '".html::escapeJS('top')."';",
-				"tinymce.settings.theme_advanced_toolbar_align = '".html::escapeJS('left')."';",
-				"tinymce.settings.theme_advanced_statusbar_location = '".html::escapeJS('bottom')."';",
-				"tinymce.settings.theme_advanced_resizing = true;",
-				"tinymce.settings.theme_advanced_resize_horizontal = false;",
-				"tinymce.settings.entity_encoding = '".html::escapeJS('raw')."';",
-				"tinymce.settings.add_unload_trigger = false;",
-				"tinymce.settings.remove_linebreaks = false;",
-				"tinymce.settings.paste_auto_cleanup_on_paste = true;"
+			2 => array(
+				'formatselect',
+				'removeformat',
+				'cleanup',
+				'seperator',
+				'cut',
+				'copy',
+				'paste',
+				'pastetext',
+				'pasteword',
+				'search',
+				'replace'
 			),
-			'onDraw' => array(
-				"$.data(elm,'toolbar',new tinymce.Editor($(elm).attr('id'),tinyMCE.settings));",
-				"$(elm).data('toolbar').render();"
-			),
-			'onDestroy' => array(
-				"$(elm).data('toolbar').remove();"
+			3 => array(
+				'link',
+				'postlink',
+				'medialink',
+				'separator',
+				'unlink',
+				'separator',
+				'hr',
+				'charmap',
+				'visualchars'
 			)
-		);
+		));
+		
+		// Add wiki toolbar
+		$tb->addFormatter('wiki');
+		$tb->addSettings('wiki',array(
+			'mode' => 'none',
+			'relative_urls' => 'false',
+			'theme' => 'advanced',
+			'theme_advanced_toolbar_location' => 'top',
+			'theme_advanced_toolbar_align' => 'left',
+			'theme_advanced_statusbar_location' => 'bottom',
+			'theme_advanced_resizing' => 'true',
+			'theme_advanced_resize_horizontal' => 'false',
+			'theme_advanced_path'  => 'false',
+			'theme_advanced_blockformats' => 'p,pre,h1,h2,h3,h4',
+			'entity_encoding' => 'raw',
+			'remove_linebreaks' => 'false',
+			'inline_styles' => 'false',
+			'convert_fonts_to_spans' => 'false',
+			'paste_auto_cleanup_on_paste' => 'true',
+			'force_br_newlines' => 'true',
+			'force_p_newlines' => 'false',
+			'forced_root_block' => '',
+			'formats' => '{underline: {inline: "ins"},strikethrough: {inline: "del"},inlinecode: {inline: "code"},quote: {inline: "q"}}'
+		));
+		$tb->addPlugins('wiki',array(
+			'fullscreen' => true,
+			'paste' => true,
+			'searchreplace' => true,
+			'dcControls' => true,
+			'dcTags' => false
+		));
+		$tb->addButtons('wiki',array(
+			1 => array(
+				'formatselect',
+				'bold',
+				'italic',
+				'underline',
+				'strikethrough',
+				'quote',
+				'inlinecode',
+				'separator',
+				'blockquote',
+				'bullist',
+				'numlist',
+				'separator',
+				'link',
+				'unlink',
+				'separator',
+				'search',
+				'replace',
+				'separator',
+				'undo',
+				'redo',
+				'separator',
+				'fullscreen',
+				'separator',
+				'code'
+			)
+		));
 		
 		$res =
-		'<script type="text/javascript" src="js/dcToolBarManager.js"></script>'.
+		'<script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>'.
+		'<script type="text/javascript" src="js/dcToolBar.js"></script>'.
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
-		"var dcToolBarManager = new dcToolBarManager();\n".
-		"dcToolBarManager.msg.toolbar_does_not_exists = '".html::escapeJS(__('Toolbar [%s] does not exists'))."';\n".
-		"dcToolBarManager.setToolBar({\n".
-			"id: 'tinymce',\n".
-			"mode: 'xhtml',\n".
-			"js: ['js/tiny_mce/tiny_mce.js'],\n".
-			"css: [],\n".
-			"onPreInit: function() {".implode(' ',$params_xhtml['onPreInit'])."},\n".
-			"onInit: function() {".implode(' ',$params_xhtml['onInit'])."},\n".
-			"onDraw: function(elm) {".implode(' ',$params_xhtml['onDraw'])."},\n".
-			"onDestroy: function(elm) {".implode(' ',$params_xhtml['onDestroy'])."}\n".
-		"});\n".
-		"dcToolBarManager.setToolBar({\n".
-			"id: 'jstoolbar',\n".
-			"mode: 'wiki',\n".
-			"js: ['js/jsToolBar/jsToolBar.js','js/jsToolBar/jsToolBar.dotclear.js'],\n".
-			"css: ['style/jsToolBar/jsToolBar.css'],\n".
-			"onInit: function() {".implode("\n",$params_wiki['onInit'])."},\n".
-			"onDraw: function(elm) {".implode(' ',$params_wiki['onDraw'])."},\n".
-			"onDestroy: function(elm) {".implode(' ',$params_wiki['onDestroy'])."}\n".
-		"});\n".
+		$tb->getJS().
 		"\n//]]>\n".
 		"</script>\n";
 		

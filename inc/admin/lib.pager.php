@@ -350,7 +350,18 @@ class adminPostList extends adminGenericList
 	}
 }
 
-class adminPostMiniList extends adminPostList{}
+class adminPostMiniList extends adminPostList
+{
+	protected function getTitle()
+	{
+		return
+		'<td class="maximal">'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable()).'&nbsp'.
+		'<a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'" '.
+		'title="'.html::escapeHTML($this->rs->getURL()).'">'.
+		html::escapeHTML($this->rs->post_title).'</a></td>';
+	}
+}
 
 class adminCommentList extends adminGenericList
 {

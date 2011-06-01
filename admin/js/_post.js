@@ -79,20 +79,16 @@ $(function() {
 		// Get document format and prepare toolbars
 		var formatField = $('#post_format').get(0);
 		$(formatField).change(function() {
-			$('#post_excerpt').dctoolbarmanager('switch',$(this).val());
-			$('#post_content').dctoolbarmanager('switch',$(this).val());
+			$('#post_excerpt').dctoolbar('switch',$(this).val());
+			$('#post_content').dctoolbar('switch',$(this).val());
 		});
 		
 		// Init toolbars
-		$('#post_excerpt,#post_content').dctoolbarmanager({
-			id: 'tinymce',
-			mode: $(formatField).val(),
-			context: 'post'
-		});
+		$('#post_excerpt,#post_content').dctoolbar({formatter: $(formatField).val()});
 	}
 	
 	if (document.getElementById('comment_content')) {
-		$('#comment_content').dctoolbarmanager({mode:'xhtml'});
+		//$('#comment_content').dctoolbar({formatter:'xhtml'});
 	}
 	
 	// Post preview
@@ -127,10 +123,11 @@ $(function() {
 		
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
-			fn: function() { $('#post_excerpt').dctoolbarmanager('draw'); },
+			fn: function() { $('#post_excerpt').dctoolbar('draw'); },
 			cookie: 'dcx_post_excerpt',
 			hide: $('#post_excerpt').val() == ''
 		});
+		$('#post_content').dctoolbar('draw');
 		
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {

@@ -18,7 +18,7 @@ $href = !empty($_GET['href']) ? $_GET['href'] : '';
 $hreflang = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
 $title = !empty($_GET['title']) ? $_GET['title'] : '';
 
-dcPage::openPopup(__('Add a link'),dcPage::jsLoad('js/jsToolBar/popup_link.js'));
+dcPage::openPopup(__('Add a link'),dcPage::jsLoad('js/tiny_mce/plugins/dcControls/js/popup_link.js'));
 
 echo '<h2>'.__('Add a link').'</h2>';
 
