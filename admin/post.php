@@ -526,6 +526,9 @@ if ($post_id)
 		$combo_action[__('delete')] = 'delete';
 	}
 	
+	# --BEHAVIOR-- adminCommentsActionsCombo
+	$core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
+	
 	$has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
 	
 	echo
