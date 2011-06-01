@@ -83,7 +83,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 			$count++;
 			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
 				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-			$__dashboard_icons[$fav['name']] = new ArrayObject(array($title,$fav['url'],$fav['large-icon']));
+			$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
 
 			# Let plugins set their own title for favorite on dashboard
 			$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
@@ -98,7 +98,7 @@ if (!$count) {
 			$count++;
 			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
 				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-			$__dashboard_icons[$fav['name']] = new ArrayObject(array($title,$fav['url'],$fav['large-icon']));
+			$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
 
 			# Let plugins set their own title for favorite on dashboard
 			$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);

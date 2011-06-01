@@ -310,7 +310,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		if (!$v['global']) {
 			$count++;
 			$fav = unserialize($v['value']);
-			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+			$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
 				preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
 				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 		}
@@ -320,7 +320,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		foreach ($ws->dumpPrefs() as $k => $v) {
 			$count++;
 			$fav = unserialize($v['value']);
-			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+			$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
 				preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
 				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 		}
