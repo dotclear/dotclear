@@ -269,9 +269,9 @@ class dcPage
 				$res .= '<p>Profiler file : '.xdebug_get_profiler_filename().'</p>';
 			} else {
 				$prof_url = http::getSelfURI();
-				$prof_url .= (strpos($prof_url,'?') === false) ? '?' : '&amp;';
+				$prof_url .= (strpos($prof_url,'?') === false) ? '?' : '&';
 				$prof_url .= 'XDEBUG_PROFILE';
-				$res .= '<p><a href="'.$prof_url.'">Trigger profiler</a></p>';
+				$res .= '<p><a href="'.html::escapeURL($prof_url).'">Trigger profiler</a></p>';
 			}
 			
 			/* xdebug configuration:
