@@ -64,6 +64,18 @@ class dcCore
 			mysqlConnection::$weak_locks = true;
 		}
 		
+		# define searchpath for postgresql
+		if ($this->con instanceof pgsqlConnection)
+		{
+			$searchpath = explode ('.',$prefix,2);
+			if (count($searchpath) > 1)
+			{
+				$prefix = $searchpath[1];
+				$sql = 'SET search_path TO '.$searchpath[0].',public;';
+				$this->con->execute($sql);
+			}
+		}
+		
 		$this->prefix = $prefix;
 		
 		$this->error = new dcError();
