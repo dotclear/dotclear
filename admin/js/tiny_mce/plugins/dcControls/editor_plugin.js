@@ -55,8 +55,10 @@
 				if (se.isCollapsed() && !ed.dom.getParent(se.getNode(), 'A'))
 					return;
 				
+				var url = popup_post_url + '?q=' + se.getContent();
+				
 				ed.windowManager.open({
-					file: popup_post_url,
+					file: url,
 					width: 760,
 					height: 500,
 					dc_popup: '',
@@ -116,6 +118,7 @@
 			});
 			
 			// Register shortcuts
+			ed.addShortcut('ctrl+alt+c', 'dcControls.inlinecode_desc', 'dcCode');
 			ed.addShortcut('ctrl+alt+q', 'dcControls.quote_desc', 'dcQuote');
 			ed.addShortcut('ctrl+alt+l', 'dcControls.link_desc', 'dcExternalLink');
 			ed.addShortcut('ctrl+alt+p', 'dcControls.postlink_desc', 'dcPostLink');
@@ -126,7 +129,7 @@
 				cm.setDisabled('postlink', co && n.nodeName != 'A');
 				cm.setActive('inlinecode', n.nodeName == 'CODE' || ed.dom.getParent(n, 'CODE'));
 				cm.setActive('quote', n.nodeName == 'Q' || ed.dom.getParent(n, 'Q'));
-				cm.setActive('postlink', n.nodeName == 'A' && !n.name);
+				cm.setActive('postlink', n.nodeName == 'A' && n.href.indexOf(ed.settings.post_url_pattern) != -1);
 			});
 		},
 		

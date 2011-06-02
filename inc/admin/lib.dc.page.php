@@ -564,7 +564,8 @@ class dcPage
 			'theme_advanced_blockformats' => 'p,pre,h1,h2,h3,h4',
 			'convert_newlines_to_brs' => 'true',
 			'paste_auto_cleanup_on_paste' => 'true',
-			'formats' => '{underline: {inline: "ins"},strikethrough: {inline: "del"},inlinecode: {inline: "code"},quote: {inline: "q"}}'
+			'formats' => '{underline: {inline: "ins"},strikethrough: {inline: "del"},inlinecode: {inline: "code"},quote: {inline: "q"}}',
+			'post_url_pattern' => $GLOBALS['core']->blog->getQMarkURL().$GLOBALS['core']->url->getBase('post')
 		));
 		$tb->addPlugins('xhtml',array(
 			'fullscreen' => true,
