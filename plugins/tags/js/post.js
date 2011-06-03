@@ -56,54 +56,7 @@ $(function() {
 			}
 		});
 	});
-});
 
-// Toolbar button for tags
-dcToolBarManager.bind('onInit','wiki',function() {
-	jsToolBar.prototype.elements.tagSpace = {type: 'space'};
-	
-	jsToolBar.prototype.elements.tag = {type: 'button', title: 'Keyword', fn:{} };
-	jsToolBar.prototype.elements.tag.context = 'post';
-	jsToolBar.prototype.elements.tag.icon = 'index.php?pf=tags/img/tag-add.png';
-	jsToolBar.prototype.elements.tag.fn.wiki = function() {
-		this.encloseSelection('','',function(str) {
-			if (str == '') { window.alert(dotclear.msg.no_selection); return ''; }
-			if (str.indexOf(',') != -1) {
-				return str;
-			} else {
-				window.dc_tag_editor.addMeta(str);
-				return '['+str+'|tag:'+str+']';
-			}
-		});
-	};
-	jsToolBar.prototype.elements.tag.fn.xhtml = function() {
-		var url = this.elements.tag.url;
-		this.encloseSelection('','',function(str) {
-			if (str == '') { window.alert(dotclear.msg.no_selection); return ''; }
-			if (str.indexOf(',') != -1) {
-				return str;
-			} else {
-				window.dc_tag_editor.addMeta(str);
-				return '<a href="'+this.stripBaseURL(url+'/'+str)+'">'+str+'</a>';
-			}
-		});
-	};
-	jsToolBar.prototype.elements.tag.fn.wysiwyg = function() {
-		var t = this.getSelectedText();
-		
-		if (t == '') { window.alert(dotclear.msg.no_selection); return; }
-		if (t.indexOf(',') != -1) { return; }
-		
-		var n = this.getSelectedNode();
-		var a = document.createElement('a');
-		a.href = this.stripBaseURL(this.elements.tag.url+'/'+t);
-		a.appendChild(n);
-		this.insertNode(a);
-		window.dc_tag_editor.addMeta(t);
-	};
-});
-
-dcToolBarManager.bind('onInit','xhtml',function() {
 	tinymce.create('tinymce.plugins.dcTag', {
 		init : function(ed, url) {
 			this.editor = ed;
@@ -114,21 +67,33 @@ dcToolBarManager.bind('onInit','xhtml',function() {
 				if (se.isCollapsed() && !ed.dom.getParent(se.getNode(), 'A')) {
 					 return;
 				}
-				tinymce.execCommand("mceInsertLink", false, tinymce.plugins.dcTag.url+'/'+se.getContent(), {skip_undo : 1});
+				
 				window.dc_tag_editor.addMeta(se.getContent());
+				tinymce.execCommand('mceInsertLink', false, '#mce_temp_url#', {skip_undo : 1});
+		
+				elementArray = tinymce.grep(ed.dom.select("a"),function(n) {return ed.dom.getAttrib(n,'href') == '#mce_temp_url#';});
+				for (i=0; i<elementArray.length; i++) {
+					var node = elementArray[i];
+					ed.dom.setAttrib(node,'href',ed.getParam('tag_url_pattern')+'/'+se.getContent());
+					ed.dom.setAttrib(node,'title','Tag: ' + se.getContent());
+				}
+				ed.focus();
+				ed.selection.select(node);
+				ed.selection.collapse(0);
+				tinymce.storeSelection();
+				tinymce.execCommand('mceEndUndoLevel');
 			});
 			
 			ed.addButton('tag', {
-				title : tinymce.plugins.dcTag.title,
+				title : 'dcTag.tag_desc',
 				cmd : 'dcTag',
 				image :'index.php?pf=tags/img/tag-add.png'
 			});
 			
-			ed.addShortcut('ctrl+alt+t', 'advlink.advlink_desc', 'dcTag');
+			ed.addShortcut('ctrl+alt+t', 'dcTag.ta_desc', 'dcTag');
 			
 			ed.onNodeChange.add(function(ed, cm, n, co) {
-				cm.setDisabled('tag', co && n.nodeName != 'A');
-				cm.setActive('tag', n.nodeName == 'A' && !n.name);
+				cm.setDisabled('tag', co || ed.dom.getParent(n, 'A'));
 			});
 		},
 		
@@ -144,7 +109,4 @@ dcToolBarManager.bind('onInit','xhtml',function() {
 	});
 	
 	tinymce.PluginManager.add('dcTag', tinymce.plugins.dcTag);
-	
-	tinymce.settings.plugins += ",-dcTag";
-	tinymce.settings.theme_advanced_buttons3 += ",tag";
 });

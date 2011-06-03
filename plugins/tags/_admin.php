@@ -39,6 +39,8 @@ $core->addBehavior('coreInitWikiPost',array('tagsBehaviors','coreInitWikiPost'))
 
 $core->addBehavior('adminDashboardFavs',array('tagsBehaviors','dashboardFavs'));
 
+$core->addBehavior('adminToolbar',array('tagsBehaviors','adminToolbar'));
+
 # BEHAVIORS
 class tagsBehaviors
 {
@@ -121,14 +123,6 @@ class tagsBehaviors
 		"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
 		"dotclear.msg.entry = '".html::escapeJS(__('entry'))."';\n".
 		"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
-		"dcToolBarManager.bind('onInit','wiki',function() {\n".
-			"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
-			"jsToolBar.prototype.elements.tag.url = '".html::escapeJS($tag_url)."';\n".
-		"});\n".
-		"dcToolBarManager.bind('onInit','xhtml',function() {\n".
-			"tinymce.plugins.dcTag.title = '".html::escapeJS(__('Tag'))."';\n".
-			"tinymce.plugins.dcTag.url = '".html::escapeJS($tag_url)."';\n".
-		"});\n".
 		"\n//]]>\n".
 		"</script>\n".
 		'<link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />';
@@ -136,8 +130,6 @@ class tagsBehaviors
 	
 	public static function postsActionsHeaders()
 	{
-		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getBase('tag');
-		
 		$opts = $GLOBALS['core']->auth->getOptions();
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
 		
@@ -325,6 +317,15 @@ class tagsBehaviors
 		if (!is_null($user_id)) {
 			$cur->user_options['tag_list_format'] = $_POST['user_tag_list_format'];
 		}
+	}
+	
+	public static function adminToolbar($tb)
+	{
+		$tag_url = $GLOBALS['core']->blog->getQMarkURL().$GLOBALS['core']->url->getBase('tag');
+		
+		$tb->addSettings('xhtml',array('tag_url_pattern' => $tag_url));
+		$tb->addPlugins('xhtml',array('dcTag' => false));
+		$tb->addButtons('xhtml',array(3 => array('tag')));
 	}
 }
 ?>
