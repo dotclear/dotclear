@@ -1,66 +1,72 @@
-$(function() {
-	$('#link-insert-ok').click(function(){
-		var ed = window.opener.tinymce.activeEditor;
-		var node = ed.selection.getNode();
-		var formatter = ed.activeFormatter;
-		var href = $('#href').val();
-		var title = $('#title').val();
-		var hreflang = $('#hreflang').val();
+tinyMCEPopup.requireLangPack();
+
+var popup_link = {
+	init: function() {
+		$('#div-entries h4').toggleWithLegend($('#div-entries').children().not('h4'),{
+			cookie: 'dcx_div_entries'
+		});
 		
-		// href attribue is mandatory
-		if (href == '') {
-			$('#href').focus();
-			$('#href').backgroundFade({sColor:'#ffffff',eColor:'#ff9999',steps:50},function() {
-				$(this).backgroundFade({sColor:'#ff9999',eColor:'#ffffff'});
-			});
+		$('#form-entries tr>td.maximal>a').click(function() {
+			$('#href').val($(this).attr('title'));
+			$('#title').val($(this).html());
 			return false;
-		}
+		});
 		
-		node = ed.dom.getParent(node, 'A');
+		$('#link-insert-ok').click(function(){
+			var ed = tinyMCEPopup.editor;
+			var formatter = ed.getParam('formatter');
+			var node = ed.selection.getNode();
+			var href = $('#href').val();
+			var title = $('#title').val();
+			var hreflang = $('#hreflang').val();
+			
+			// href attribue is mandatory
+			if (href == '') {
+				$('#href').focus();
+				$('#href').backgroundFade({sColor:'#ffffff',eColor:'#ff9999',steps:50},function() {
+					$(this).backgroundFade({sColor:'#ff9999',eColor:'#ffffff'});
+				});
+				return false;
+			}
+			
+			node = ed.dom.getParent(node, 'A');
+			
+			// Insert link
+			if (node == null) {
+				ed.getDoc().execCommand("unlink", false, null);
+				tinyMCEPopup.execCommand("mceInsertLink", false, "#mce_temp_url#", {skip_undo : 1});
 		
-		// Create link
-		if (node == null) {
-			var link = '';
-			if (formatter == 'xhtml') {
-				link += '<a href="' + href + '"';
-				if (title != '') {
-					link += ' title="' + title + '"';
-				}
-				if (hreflang != '') {
-					link += ' hreflang="' + hreflang + '"';
-				}
-				link += '>{$selection}</a>';
-			}
-			if (formatter == 'wiki') {
-				link += '[{$selection}|' + href;
-				if (hreflang != '') {
-					link += '|' + hreflang;
-				}
-				if (title != '') {
-					link += '|' + title;
-				}
-				link += ']';
-			}
-			ed.execCommand('mceReplaceContent',false,link,{skip_undo : 1});
-		}
-		// Update link
-		else {
-			if (formatter == 'xhtml') {
-				node.href = href;
-				if (title != '') {
-					node.title = title;
-				}
-				if (hreflang != '') {
-					node.hreflang = hreflang;
+				elementArray = tinymce.grep(ed.dom.select("a"),function(n) {return ed.dom.getAttrib(n,'href') == '#mce_temp_url#';});
+				for (i=0; i<elementArray.length; i++) {
+					node = elementArray[i];
+					ed.dom.setAttrib(node,'href',href);
+					ed.dom.setAttrib(node,'title',title);
+					ed.dom.setAttrib(node,'hreflang',hreflang);
 				}
 			}
-		}
+			// Update link
+			else {
+				ed.dom.setAttrib(node,'href',href);
+				ed.dom.setAttrib(node,'title',title);
+				ed.dom.setAttrib(node,'hreflang',hreflang);
+			}
+			
+			// Don't move caret if selection was image
+			if (node.childNodes.length != 1 || node.firstChild.nodeName != 'IMG') {
+				ed.focus();
+				ed.selection.select(node);
+				ed.selection.collapse(0);
+				tinyMCEPopup.storeSelection();
+			}
 		
-		ed.execCommand("mceEndUndoLevel");
-		ed.windowManager.close(window);
-	});
-	
-	$('#link-insert-cancel').click(function(){
-		window.opener.tinymce.activeEditor.windowManager.close(window);
-	});
-});
+			tinyMCEPopup.execCommand("mceEndUndoLevel");
+			tinyMCEPopup.close();
+		});
+		
+		$('#link-insert-cancel').click(function(){
+			tinyMCEPopup.close();
+		});
+	}
+};
+
+tinyMCEPopup.onInit.add(popup_link.init, popup_link);

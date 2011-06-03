@@ -14,11 +14,27 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-$href = !empty($_GET['href']) ? $_GET['href'] : '';
-$hreflang = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
-$title = !empty($_GET['title']) ? $_GET['title'] : '';
+$href	= !empty($_GET['href']) ? $_GET['href'] : '';
+$hreflang	= !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
+$title	= !empty($_GET['title']) ? $_GET['title'] : '';
+$q		= !empty($_GET['q']) ? $_GET['q'] : null;
+$page	= !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
+$nb_per_page = 10;
 
-dcPage::openPopup(__('Add a link'),dcPage::jsLoad('js/tiny_mce/plugins/dcControls/js/popup_link.js'));
+$params = array();
+$params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
+$params['no_content'] = true;
+$params['order'] = 'post_dt DESC';
+
+if ($q) {
+	$params['search'] = $q;
+}
+
+dcPage::openPopup(__('Add a link'),
+	dcPage::jsLoad('js/_posts_list.js').
+	dcPage::jsLoad('js/tiny_mce/tiny_mce_popup.js').
+	dcPage::jsLoad('js/tiny_mce/plugins/dcControls/js/popup_link.js')
+);
 
 echo '<h2>'.__('Add a link').'</h2>';
 
@@ -39,6 +55,7 @@ unset($rs);
 
 echo
 '<form id="link-insert-form" action="#" method="get">'.
+'<h4>'.__('Enter a destination URL').'</h4>'.
 '<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Link URL:').' '.
 form::field('href',35,512,html::escapeHTML($href)).'</label></p>'.
 '<p><label>'.__('Link title:').' '. 
@@ -46,11 +63,29 @@ form::field('title',35,512,html::escapeHTML($title)).'</label></p>'.
 '<p><label>'.__('Link language:').' '.
 form::combo('hreflang',$lang_combo,$hreflang).
 '</label></p>'.
-
-'</form>'.
-
 '<p><a class="button reset" href="#" id="link-insert-cancel">'.__('cancel').'</a> - '.
 '<strong><a class="button" href="#" id="link-insert-ok">'.__('insert').'</a></strong></p>'."\n".
+
+'<div id="div-entries">'.
+'<h4>'.__('Or link to existing content').'</h4>'.
+'<p class="form-note">'.__('Click on a title to select the link').'</p>'.
+'<p><label for="q" class="classic">'.__('Search entry:').' '.form::field('q',30,255,html::escapeHTML($q)).'</label> '.
+' <input type="submit" value="'.__('ok').'" /></p>';
+
+try {
+	$posts = $core->blog->getPosts($params);
+	$counter = $core->blog->getPosts($params,true);
+	$post_list = new adminPostMiniList($core,$posts,$counter->f(0));
+} catch (Exception $e) {
+	$core->error->add($e->getMessage());
+}
+
+echo '<div id="form-entries">'; # I know it's not a form but we just need the ID
+$post_list->display($page,$nb_per_page);
+echo
+'</div>'.
+'</div>'.
+'</form>'.
 
 '<script type="text/javascript">'."\n".
 '//<![CDATA['."\n".
@@ -59,4 +94,5 @@ form::combo('hreflang',$lang_combo,$hreflang).
 '</script>'."\n";
 
 dcPage::closePopup();
+
 ?>
