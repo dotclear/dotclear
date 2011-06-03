@@ -564,15 +564,13 @@ class dcPage
 			'theme_advanced_blockformats' => 'p,pre,h1,h2,h3,h4',
 			'convert_newlines_to_brs' => 'true',
 			'paste_auto_cleanup_on_paste' => 'true',
-			'formats' => '{underline: {inline: "ins"},strikethrough: {inline: "del"},inlinecode: {inline: "code"},quote: {inline: "q"}}',
-			'post_url_pattern' => $GLOBALS['core']->blog->getQMarkURL().$GLOBALS['core']->url->getBase('post')
+			'formats' => '{underline: {inline: "ins"},strikethrough: {inline: "del"},inlinecode: {inline: "code"},quote: {inline: "q"}}'
 		));
 		$tb->addPlugins('xhtml',array(
 			'fullscreen' => true,
 			'paste' => true,
 			'searchreplace' => true,
-			'dcControls' => true,
-			'dcTags' => false
+			'dcControls' => true
 		));
 		$tb->addButtons('xhtml',array(
 			1 => array(
@@ -617,10 +615,9 @@ class dcPage
 			),
 			3 => array(
 				'link',
-				'postlink',
-				'medialink',
-				'separator',
 				'unlink',
+				'separator',
+				'media',
 				'separator',
 				'hr',
 				'charmap',
@@ -655,8 +652,7 @@ class dcPage
 			'fullscreen' => true,
 			'paste' => true,
 			'searchreplace' => true,
-			'dcControls' => true,
-			'dcTags' => false
+			'dcControls' => true
 		));
 		$tb->addButtons('wiki',array(
 			1 => array(

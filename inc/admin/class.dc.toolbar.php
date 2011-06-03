@@ -75,6 +75,8 @@ class dcToolbar
 	{
 		$res = "dcToolBar = new dcToolBar();\n";
 		
+		$this->core->callBehavior('adminToolbar',$this);
+		
 		foreach ($this->toolbars as $formatter => $options) {
 			$s = $options['settings'];
 			

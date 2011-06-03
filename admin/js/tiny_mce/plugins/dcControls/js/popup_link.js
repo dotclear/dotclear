@@ -33,8 +33,8 @@ var popup_link = {
 			
 			// Insert link
 			if (node == null) {
-				ed.getDoc().execCommand("unlink", false, null);
-				tinyMCEPopup.execCommand("mceInsertLink", false, "#mce_temp_url#", {skip_undo : 1});
+				ed.getDoc().execCommand('unlink', false, null);
+				tinyMCEPopup.execCommand('mceInsertLink', false, '#mce_temp_url#', {skip_undo : 1});
 		
 				elementArray = tinymce.grep(ed.dom.select("a"),function(n) {return ed.dom.getAttrib(n,'href') == '#mce_temp_url#';});
 				for (i=0; i<elementArray.length; i++) {
@@ -59,7 +59,7 @@ var popup_link = {
 				tinyMCEPopup.storeSelection();
 			}
 		
-			tinyMCEPopup.execCommand("mceEndUndoLevel");
+			tinyMCEPopup.execCommand('mceEndUndoLevel');
 			tinyMCEPopup.close();
 		});
 		

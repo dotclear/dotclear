@@ -159,6 +159,7 @@ function dcGetImageTitle($file,$pattern)
 $starting_scripts = dcPage::jsLoad('js/_media_item.js');
 if ($popup) {
 	$starting_scripts .=
+	dcPage::jsLoad('js/tiny_mce/tiny_mce_popup.js').
 	dcPage::jsLoad('js/tiny_mce/plugins/dcControls/js/popup_media.js');
 }
 call_user_func($open_f,__('Media manager'),
