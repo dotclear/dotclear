@@ -12,39 +12,54 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 /**
-@ingroup DC_CORE
-@nosubgrouping
-@brief Authentication and user credentials management
-
-dcAuth is a class used to handle everything related to user authentication
-and credentials. Object is provided by dcCore $auth property.
+* @ingroup DC_CORE
+* @nosubgrouping
+* @brief Authentication and user credentials management
+* 
+* dcAuth is a class used to handle everything related to user authentication
+* and credentials. Object is provided by dcCore $auth property.
 */
 class dcAuth
 {
-	protected $core;		///< <b>dcCore</b> dcCore instance
-	protected $con;		///< <b>connection</b> Database connection object
+	/** @var dcCore dcCore instance */
+	protected $core;
+	/** @var connection Database connection object */
+	protected $con;
 	
-	protected $user_table;	///< <b>string</b>	User table name
-	protected $perm_table;	///< <b>string</b>	Perm table name
+	/** @var string User table name */
+	protected $user_table;
+	/** @var string Perm table name */
+	protected $perm_table;
 	
-	protected $user_id;					///< <b>string</b>		Current user ID
-	protected $user_info = array();		///< <b>array</b>		Array with user information
-	protected $user_options = array();		///< <b>array</b>		Array with user options
-	protected $user_change_pwd;			///< <b>boolean</b>		User must change his password after login
-	protected $user_admin;				///< <b>boolean</b>		User is super admin
-	protected $permissions = array();		///< <b>array</b>		Permissions for each blog
-	protected $allow_pass_change = true;	///< <b>boolean</b>		User can change its password
-	protected $blogs = array();			///< <b>array</b>		List of blogs on which the user has permissions
-	public $blog_count = null;				///< <b>integer</b>		Count of user blogs
+	/** @var string Current user ID */
+	protected $user_id;
+	/** @var array Array with user information */
+	protected $user_info = array();
+	/** @var array Array with user options */
+	protected $user_options = array();
+	/** @var boolean User must change his password after login */
+	protected $user_change_pwd;
+	/** @var boolean User is super admin */
+	protected $user_admin;
+	/** @var array Permissions for each blog */
+	protected $permissions = array();
+	/** @var boolean User can change its password */
+	protected $allow_pass_change = true;
+	/** @var array List of blogs on which the user has permissions */
+	protected $blogs = array();
+	/** @var integer Count of user blogs */
+	public $blog_count = null;
 	
-	protected $perm_types;	///< <b>array</b> Permission types
+	/** @var array Permission types */
+	protected $perm_types;
 	
-	public $user_prefs;	///< <b>dcPrefs</b>	dcPrefs object
+	/** @var dcPrefs dcPrefs object */
+	public $user_prefs;
 	
 	/**
-	Class constructor. Takes dcCore object as single argument.
-	
-	@param	core		<b>dcCore</b>		dcCore object
+	* Class constructor. Takes dcCore object as single argument.
+	* 
+	* @param dcCore	$core		dcCore object
 	*/
 	public function __construct($core)
 	{
@@ -69,15 +84,15 @@ class dcAuth
 	/// @name Credentials and user permissions
 	//@{
 	/**
-	Checks if user exists and can log in. <var>$pwd</var> argument is optionnal
-	while you may need to check user without password. This method will create
-	credentials and populate all needed object properties.
-	
-	@param	user_id	<b>string</b>		User ID
-	@param	pwd		<b>string</b>		User password
-	@param	user_key	<b>string</b>		User key check
-	@param	check_blog	<b>boolean</b>		checks if user is associated to a blog or not.
-	@return	<b>boolean</b>
+	* Checks if user exists and can log in. <var>$pwd</var> argument is optionnal
+	* while you may need to check user without password. This method will create
+	* credentials and populate all needed object properties.
+	* 
+	* @param string	$user_id		User ID
+	* @param string	$pwd			User password
+	* @param string	$user_key		User key check
+	* @param boolean	$check_blog	checks if user is associated to a blog or not.
+	* @return boolean
 	*/
 	public function checkUser($user_id, $pwd=null, $user_key=null, $check_blog=true)
 	{
@@ -148,10 +163,10 @@ class dcAuth
 	}
 	
 	/**
-	This method only check current user password.
-	
-	@param	pwd		<b>string</b>		User password
-	@return	<b>boolean</b>
+	* This method only check current user password.
+	* 
+	* @param string	$pwd			User password
+	* @return boolean
 	*/
 	public function checkPassword($pwd)
 	{
@@ -163,9 +178,9 @@ class dcAuth
 	}
 	
 	/**
-	This method checks if user session cookie exists
-	
-	@return	<b>boolean</b>
+	* This method checks if user session cookie exists
+	* 
+	* @return boolean
 	*/
 	public function sessionExists()
 	{
@@ -173,9 +188,9 @@ class dcAuth
 	}
 	
 	/**
-	This method checks user session validity.
-	
-	@return	<b>boolean</b>
+	* This method checks user session validity.
+	* 
+	* @return boolean
 	*/
 	public function checkSession($uid=null)
 	{
@@ -212,9 +227,9 @@ class dcAuth
 	}
 	
 	/**
-	Checks if user is super admin
-	
-	@return	<b>boolean</b>
+	* Checks if user is super admin
+	* 
+	* @return boolean
 	*/
 	public function isSuperAdmin()
 	{
@@ -222,13 +237,13 @@ class dcAuth
 	}
 	
 	/**
-	Checks if user has permissions given in <var>$permissions</var> for blog
-	<var>$blog_id</var>. <var>$permissions</var> is a coma separated list of
-	permissions.
-	
-	@param	permissions	<b>string</b>		Permissions list
-	@param	blog_id		<b>string</b>		Blog ID
-	@return	<b>boolean</b>
+	* Checks if user has permissions given in <var>$permissions</var> for blog
+	* <var>$blog_id</var>. <var>$permissions</var> is a coma separated list of
+	* permissions.
+	* 
+	* @param string	$permissions	Permissions list
+	* @param string	$blog_id		Blog ID
+	* @return boolean
 	*/
 	public function check($permissions,$blog_id)
 	{
@@ -257,9 +272,9 @@ class dcAuth
 	}
 	
 	/**
-	Returns true if user is allowed to change its password.
-	
-	@return	<b>boolean</b>
+	* Returns true if user is allowed to change its password.
+	* 
+	* @return	boolean
 	*/
 	public function allowPassChange()
 	{
@@ -312,10 +327,11 @@ class dcAuth
 	/// @name Sudo
 	//@{
 	/**
-	Calls <var>$f</var> function with super admin rights.
-	
-	@param	f		<b>callback</b>	Callback function
-	@return	<b>mixed</b> Function result
+	* Calls $f function with super admin rights.
+	* Returns the function result.
+	* 
+	* @param callback	$f			Callback function
+	* @return mixed
 	*/
 	public function sudo($f)
 	{
@@ -346,13 +362,14 @@ class dcAuth
 	/// @name User information and options
 	//@{
 	/**
-	Returns user permissions for a blog as an array which looks like:
-	
-	 - [blog_id]
-	   - [permission] => true
-	   - ...
-	
-	@return	<b>array</b>
+	* Returns user permissions for a blog as an array which looks like:
+	* 
+	*  - [blog_id]
+	*    - [permission] => true
+	*    - ...
+	* 
+	* @param string	$blog_id		Blog ID
+	* @return array
 	*/
 	public function getPermissions($blog_id)
 	{
@@ -422,9 +439,9 @@ class dcAuth
 	}
 	
 	/**
-	Returns current user ID
-	
-	@return	<b>string</b>
+	* Returns current user ID
+	* 
+	* @return string
 	*/
 	public function userID()
 	{
@@ -432,10 +449,10 @@ class dcAuth
 	}
 	
 	/**
-	Returns information about a user .
-	
-	@param	n		<b>string</b>		Information name
-	@return	<b>string</b> Information value
+	* Returns information about a user .
+	* 
+	* @param string	$n			Information name
+	* @return string
 	*/
 	public function getInfo($n)
 	{
@@ -447,10 +464,10 @@ class dcAuth
 	}
 	
 	/**
-	Returns a specific user option
-	
-	@param	n		<b>string</b>		Option name
-	@return	<b>string</b> Option value
+	* Returns a specific user option
+	* 
+	* @param string	$n			Option name
+	* @return string
 	*/
 	public function getOption($n)
 	{
@@ -461,9 +478,9 @@ class dcAuth
 	}
 	
 	/**
-	Returns all user options in an associative array.
-	
-	@return	<b>array</b>
+	* Returns all user options in an associative array.
+	* 
+	* @return array
 	*/
 	public function getOptions()
 	{
@@ -474,10 +491,10 @@ class dcAuth
 	/// @name Permissions
 	//@{
 	/**
-	Returns an array with permissions parsed from the string <var>$level</var>
-	
-	@param	level	<b>string</b>		Permissions string
-	@return	<b>array</b>
+	* Returns an array with permissions parsed from the string <var>$level</var>
+	* 
+	* @param string	$level		Permissions string
+	* @return array
 	*/
 	public function parsePermissions($level)
 	{
@@ -492,9 +509,9 @@ class dcAuth
 	}
 	
 	/**
-	Returns <var>perm_types</var> property content.
-	
-	@return	<b>array</b>
+	* Returns <var>perm_types</var> property content.
+	* 
+	* @return array
 	*/
 	public function getPermissionsTypes()
 	{
@@ -502,10 +519,10 @@ class dcAuth
 	}
 	
 	/**
-	Adds a new permission type.
-	
-	@param	name		<b>string</b>		Permission name
-	@param	title	<b>string</b>		Permission title
+	* Adds a new permission type.
+	* 
+	* @param string	$name		Permission name
+	* @param string	$title		Permission title
 	*/
 	public function setPermissionType($name,$title)
 	{
@@ -516,12 +533,12 @@ class dcAuth
 	/// @name Password recovery
 	//@{
 	/**
-	Add a recover key to a specific user identified by its email and
-	password.
-	
-	@param	user_id		<b>string</b>		User ID
-	@param	user_email	<b>string</b>		User Email
-	@return	<b>string</b> Recover key
+	* Add a recover key to a specific user identified by its email and
+	* password.
+	* 
+	* @param string	$user_id		User ID
+	* @param string	$user_email	User Email
+	* @return string
 	*/
 	public function setRecoverKey($user_id,$user_email)
 	{
@@ -547,14 +564,14 @@ class dcAuth
 	}
 	
 	/**
-	Creates a new user password using recovery key. Returns an array:
-	
-	- user_email
-	- user_id
-	- new_pass
-	
-	@param	recover_key	<b>string</b>		Recovery key
-	@return	<b>array</b>
+	* Creates a new user password using recovery key. Returns an array:
+	* 
+	* - user_email
+	* - user_id
+	* - new_pass
+	* 
+	* @param string	$recover_key	Recovery key
+	* @return array
 	*/
 	public function recoverUserPassword($recover_key)
 	{
@@ -590,24 +607,24 @@ class dcAuth
 	//@{
 	
 	/**
-	Called after core->addUser
-	@see		dcCore::addUser
-	@param	cur		<b>cursor</b>		User cursor
+	* Called after core->addUser
+	* @see dcCore::addUser
+	* @param cursor	$cur			User cursor
 	*/
 	public function afterAddUser($cur) {}
 	
 	/**
-	Called after core->updUser
-	@see		dcCore::updUser
-	@param	id		<b>string</b>		User ID
-	@param	cur		<b>cursor</b>		User cursor
+	* Called after core->updUser
+	* @see dcCore::updUser
+	* @param string	$id			User ID
+	* @param cursor	$cur			User cursor
 	*/
 	public function afterUpdUser($id,$cur) {}
 	
 	/**
-	Called after core->delUser
-	@see		dcCore::delUser
-	@param	id		<b>string</b>		User ID
+	* Called after core->delUser
+	* @see dcCore::delUser
+	* @param string	$id			User ID
 	*/
 	public function afterDelUser($id) {}
 	//@}
