@@ -1024,7 +1024,7 @@ class dcBlog
 		} else {
 			$strReq .= "AND post_type = 'post' ";
 		}
-				
+		
 		if (!empty($params['year'])) {
 			$strReq .= 'AND '.$this->con->dateFormat('post_dt','%Y')." = '".sprintf('%04d',$params['year'])."' ";
 		}
@@ -1164,7 +1164,7 @@ class dcBlog
 		
 		$cur->post_upddt = date('Y-m-d H:i:s');
 		
-		#�If user is only "usage", we need to check the post's owner
+		#If user is only "usage", we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
 			$strReq = 'SELECT post_id '.
