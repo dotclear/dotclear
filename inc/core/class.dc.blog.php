@@ -857,13 +857,13 @@ class dcBlog
 		$post_id = (integer) $post->post_id;
 		
 		if($dir > 0) {
-               $sign = '>';
-               $order = 'ASC';
-          }
-          else {
-               $sign = '<';
-               $order = 'DESC';
-          }
+			$sign = '>';
+			$order = 'ASC';
+		}
+		else {
+			$sign = '<';
+			$order = 'DESC';
+		}
 		
 		$params['post_type'] = $post->post_type;
 		$params['limit'] = 1;
