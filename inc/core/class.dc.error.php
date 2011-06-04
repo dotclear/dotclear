@@ -12,22 +12,26 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 /**
-@ingroup DC_CORE
-@brief Error class
-
-dcError is a very simple error class, with a stack. Call dcError::add to
-add an error in stack. In administration area, errors are automatically
-displayed.
+* @ingroup DC_CORE
+* @brief Error class
+* 
+* dcError is a very simple error class, with a stack. Call dcError::add to
+* add an error in stack. In administration area, errors are automatically
+* displayed.
 */
 class dcError
 {
-	protected $errors = array();				///< <b>array</b>	Errors stack
-	protected $flag = false;					///< <b>boolean</b>	True if stack is not empty
-	protected $html_list = "<ul>\n%s</ul>\n";	///< <b>string</b>	HTML errors list pattern
-	protected $html_item = "<li>%s</li>\n";	///< <b>string</b>	HTML error item pattern
+	/** @var array Errors stack */
+	protected $errors = array();
+	/** @var boolean True if stack is not empty */
+	protected $flag = false;
+	/** @var string HTML errors list pattern */
+	protected $html_list = "<ul>\n%s</ul>\n";
+	/** @var string HTML error item pattern */
+	protected $html_item = "<li>%s</li>\n";
 	
 	/**
-	Object constructor.
+	* Object constructor.
 	*/
 	public function __construct()
 	{
@@ -36,9 +40,9 @@ class dcError
 	}
 	
 	/**
-	Object string representation. Returns errors stack.
-	
-	@return	<b>string</b>
+	* Object string representation. Returns errors stack.
+	* 
+	* @return string
 	*/
 	public function __toString()
 	{
@@ -53,9 +57,9 @@ class dcError
 	}
 	
 	/**
-	Adds an error to stack.
-	
-	@param	msg		<b>string</b>		Error message
+	* Adds an error to stack.
+	* 
+	* @param string	$msg			Error message
 	*/
 	public function add($msg)
 	{
@@ -64,9 +68,9 @@ class dcError
 	}
 	
 	/**
-	Returns the value of <var>flag</var> property.
-	
-	@return	<b>boolean</b> True if errors stack is not empty
+	* Returns the value of <var>flag</var> property. True if errors stack is not empty
+	* 
+	* @return boolean
 	*/
 	public function flag()
 	{
@@ -74,7 +78,7 @@ class dcError
 	}
 	
 	/**
-	Resets errors stack.
+	* Resets errors stack.
 	*/
 	public function reset()
 	{
@@ -83,9 +87,9 @@ class dcError
 	}
 	
 	/**
-	Returns <var>errors</var> property.
-	
-	@return	<b>array</b>
+	* Returns <var>errors</var> property.
+	* 
+	* @return array
 	*/
 	public function getErrors()
 	{
@@ -93,10 +97,10 @@ class dcError
 	}
 	
 	/**
-	Sets <var>list</var> and <var>item</var> properties.
-	
-	@param	list		<b>string</b>		HTML errors list pattern
-	@param	item		<b>string</b>		HTML error item pattern
+	* Sets <var>list</var> and <var>item</var> properties.
+	* 
+	* @param string	$list		HTML errors list pattern
+	* @param string	$item		HTML error item pattern
 	*/
 	public function setHTMLFormat($list,$item)
 	{
@@ -105,9 +109,9 @@ class dcError
 	}
 	
 	/**
-	Returns errors stack as HTML.
-	
-	@return	<b>string</b>
+	* Returns errors stack as HTML.
+	* 
+	* @return string
 	*/
 	public function toHTML()
 	{
