@@ -42,6 +42,7 @@ h1 a {
 	top: 0;
 	left: 3px;
 	color: #fff;
+	font-size: .875em;
 	}
 #prelude a {
 	color: #fff;
@@ -57,6 +58,9 @@ h1 a {
 .day-date {
 	display: none;
 	}
+h2.post-title {
+	margin-bottom: .33em;
+}
 h2.post-title a {
 	font-weight: normal;
 	font-style: italic;
@@ -67,21 +71,15 @@ h2.post-title a {
 	margin: 0;
 	padding: 0;
 	}
-.post-info a, .post-tags a {
+.post-tags a {
 	padding-right: 1em;
 	background-color: #fff;
 	background-repeat: no-repeat;
 	background-position: left center;	
 	}
-/* règle à revoir après modif du html pour différencier
-lien de catégorie et permalink */
-.post-info a {
-	background-image: url(img/category.png);
-	padding-left: 22px;
-	}
 .post-tags a {
-	background-image: url(img/tag12.png);
-	padding-left: 16px;
+	background-image: url(img/tag.png);
+	padding-left: 14px;
 	}
 .post-tags li {
 	display: inline;
@@ -91,22 +89,24 @@ lien de catégorie et permalink */
 	}
 .read-it {
 	text-align: right;
-	margin: 0;
+	margin: 0 0 .25em 0;
 	}
 .post-info-co {
 	margin: 0;
 	background: #fff;
 	display: inline;
 	font-size: 0.875em;
+	line-height: 1.2;
 	font-style: italic;
 	}
 .post-info-co a {
 	text-decoration: none;
 	padding-right: 1em;
-	padding-left: 20px;
+	padding-left: 28px;
 	background-color: #fff;
 	background-repeat: no-repeat;
 	background-position: left center;
+	white-space: nowrap;
 	}
 .post-info-co a.comment_count {
 	background-image: url(img/comment.png);
@@ -114,7 +114,9 @@ lien de catégorie et permalink */
 .post-info-co a.ping_count {
 	background-image: url(img/ping.png);
 	}
-
+.post-info-co a.attach_count {
+	background-image: url(img/attach.png);	
+	}
 /* ================================================ 
 	personnalisations blog chantier
 ================================================ */
