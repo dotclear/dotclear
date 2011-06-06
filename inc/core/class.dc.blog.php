@@ -726,11 +726,7 @@ class dcBlog
 		#Adding parameters
 		if (isset($params['post_type']))
 		{
-			if (is_array($params['post_type']) && !empty($params['post_type'])) {
-				$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
-			} elseif ($params['post_type'] != '') {
-				$strReq .= "AND post_type = '".$this->con->escape($params['post_type'])."' ";
-			}
+			$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
 		}
 		else
 		{
@@ -1783,11 +1779,7 @@ class dcBlog
 		
 		if (!empty($params['post_type']))
 		{
-			if (is_array($params['post_type']) && !empty($params['post_type'])) {
-				$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
-			} else {
-				$strReq .= "AND post_type = '".$this->con->escape($params['post_type'])."' ";
-			}
+			$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
 		}
 		
 		if (!empty($params['post_id'])) {
