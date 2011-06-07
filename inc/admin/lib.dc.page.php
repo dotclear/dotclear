@@ -15,6 +15,8 @@ define('DC_AUTH_PAGE','auth.php');
 
 class dcPage
 {
+	private static $loaded_js=array();
+
 	# Auth check
 	public static function check($permissions)
 	{
@@ -348,7 +350,11 @@ class dcPage
 	
 	public static function jsLoad($src)
 	{
-		return '<script type="text/javascript" src="'.html::escapeHTML($src).'"></script>'."\n";
+		$escaped_src = html::escapeHTML($src);
+		if (!isset(self::$loaded_js[$escaped_src])) {
+			self::$loaded_js[$escaped_src]=true;
+			return '<script type="text/javascript" src="'.$escaped_src.'"></script>'."\n";
+		}
 	}
 	
 	public static function jsVar($n,$v)
@@ -359,6 +365,7 @@ class dcPage
 	public static function jsCommon()
 	{
 		return
+		self::jsLoad('js/jquery/jquery.js').
 		self::jsLoad('js/jquery/jquery.js').
 		self::jsLoad('js/jquery/jquery.biscuit.js').
 		self::jsLoad('js/jquery/jquery.bgFade.js').
