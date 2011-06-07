@@ -44,7 +44,7 @@ class tagsBehaviors
 {
 	public static function dashboardFavs($core,$favs)
 	{
-		$favs['tags'] = new ArrayObject(array('tags',__('Tags'),'plugin.php?p=tags&amp;m=tags',
+		$favs['tags'] = new ArrayObject(array('tags','Tags','plugin.php?p=tags&amp;m=tags',
 			'index.php?pf=tags/icon.png','index.php?pf=tags/icon-big.png',
 			'usage,contentadmin',null,null));
 	}

@@ -334,7 +334,7 @@ function positionFooter() {
 		$("#footer").css({
 			position: "static",
 			padding: ".75em 0",
-			width: "auto",
+			width: "auto"
 		});
 	}
 

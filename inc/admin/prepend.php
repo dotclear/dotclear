@@ -184,45 +184,45 @@ if ($core->auth->userID() && $core->blog !== null)
 	# [] : Title, URL, small icon, large icon, permissions, id, class
 	# NB : '*' in permissions means any, null means super admin only
 	
-	$_fav['prefs'] = new ArrayObject(array('prefs',__('My preferences'),'preferences.php',
+	$_fav['prefs'] = new ArrayObject(array('prefs','My preferences','preferences.php',
 		'images/menu/user-pref.png','images/menu/user-pref-b.png',
 		'*',null,null));
 
-	$_fav['new_post'] = new ArrayObject(array('new_post',__('New entry'),'post.php',
+	$_fav['new_post'] = new ArrayObject(array('new_post','New entry','post.php',
 		'images/menu/edit.png','images/menu/edit-b.png',
 		'usage,contentadmin',null,'menu-new-post'));
-	$_fav['posts'] = new ArrayObject(array('posts',__('Entries'),'posts.php',
+	$_fav['posts'] = new ArrayObject(array('posts','Entries','posts.php',
 		'images/menu/entries.png','images/menu/entries-b.png',
 		'usage,contentadmin',null,null));
-	$_fav['comments'] = new ArrayObject(array('comments',__('Comments'),'comments.php',
+	$_fav['comments'] = new ArrayObject(array('comments','Comments','comments.php',
 		'images/menu/comments.png','images/menu/comments-b.png',
 		'usage,contentadmin',null,null));
-	$_fav['search'] = new ArrayObject(array('search',__('Search'),'search.php',
+	$_fav['search'] = new ArrayObject(array('search','Search','search.php',
 		'images/menu/search.png','images/menu/search-b.png',
 		'usage,contentadmin',null,null));
-	$_fav['categories'] = new ArrayObject(array('categories',__('Categories'),'categories.php',
+	$_fav['categories'] = new ArrayObject(array('categories','Categories','categories.php',
 		'images/menu/categories.png','images/menu/categories-b.png',
 		'categories',null,null));
-	$_fav['media'] = new ArrayObject(array('media',__('Media manager'),'media.php',
+	$_fav['media'] = new ArrayObject(array('media','Media manager','media.php',
 		'images/menu/media.png','images/menu/media-b.png',
 		'media,media_admin',null,null));
-	$_fav['blog_pref'] = new ArrayObject(array('blog_pref',__('Blog settings'),'blog_pref.php',
+	$_fav['blog_pref'] = new ArrayObject(array('blog_pref','Blog settings','blog_pref.php',
 		'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
 		'admin',null,null));
-	$_fav['blog_theme'] = new ArrayObject(array('blog_theme',__('Blog appearance'),'blog_theme.php',
+	$_fav['blog_theme'] = new ArrayObject(array('blog_theme','Blog appearance','blog_theme.php',
 		'images/menu/themes.png','images/menu/blog-theme-b.png',
 		'admin',null,null));
 
-	$_fav['blogs'] = new ArrayObject(array('blogs',__('Blogs'),'blogs.php',
+	$_fav['blogs'] = new ArrayObject(array('blogs','Blogs','blogs.php',
 		'images/menu/blogs.png','images/menu/blogs-b.png',
 		'usage,contentadmin',null,null));
-	$_fav['users'] = new ArrayObject(array('users',__('Users'),'users.php',
+	$_fav['users'] = new ArrayObject(array('users','Users','users.php',
 		'images/menu/users.png','images/menu/users-b.png',
 		null,null,null));
-	$_fav['plugins'] = new ArrayObject(array('plugins',__('Plugins'),'plugins.php',
+	$_fav['plugins'] = new ArrayObject(array('plugins','Plugins','plugins.php',
 		'images/menu/plugins.png','images/menu/plugins-b.png',
 		null,null,null));
-	$_fav['langs'] = new ArrayObject(array('langs',__('Languages'),'langs.php',
+	$_fav['langs'] = new ArrayObject(array('langs','Languages','langs.php',
 		'images/menu/langs.png','images/menu/langs-b.png',
 		null,null,null));
 	
@@ -310,7 +310,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		if (!$v['global']) {
 			$count++;
 			$fav = unserialize($v['value']);
-			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+			$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
 				preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
 				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 		}
@@ -320,7 +320,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		foreach ($ws->dumpPrefs() as $k => $v) {
 			$count++;
 			$fav = unserialize($v['value']);
-			$_menu['Favorites']->addItem($fav['title'],$fav['url'],$fav['small-icon'],
+			$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
 				preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
 				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 		}

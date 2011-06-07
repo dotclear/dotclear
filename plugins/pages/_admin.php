@@ -20,10 +20,10 @@ function pages_dashboard($core,$icons)
 }
 function pages_dashboard_favs($core,$favs)
 {
-	$favs['pages'] = new ArrayObject(array('pages',__('Pages'),'plugin.php?p=pages',
+	$favs['pages'] = new ArrayObject(array('pages','Pages','plugin.php?p=pages',
 		'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
 		'contentadmin,pages',null,null));
-	$favs['newpage'] = new ArrayObject(array('newpage',__('New page'),'plugin.php?p=pages&amp;act=page',
+	$favs['newpage'] = new ArrayObject(array('newpage','New page','plugin.php?p=pages&amp;act=page',
 		'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
 		'contentadmin,pages',null,null));
 }

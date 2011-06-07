@@ -498,7 +498,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 				'<img src="'.$fav['large-icon'].'" alt="" /> '.
 				form::field(array('order['.$k.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),$fav['title']).'"').
 				form::hidden(array('dynorder[]','dynorder-'.$k.''),$k).
-				'<label for="fuk-'.$k.'">'.form::checkbox(array('remove[]','fuk-'.$k),$k).$fav['title'].'</label>'.
+				'<label for="fuk-'.$k.'">'.form::checkbox(array('remove[]','fuk-'.$k),$k).__($fav['title']).'</label>'.
 				'</li>';
 		}
 	}
@@ -541,7 +541,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 			if ($count == 0) echo '<ul class="fav-list">';
 			$count++;
 			echo '<li id="fd-'.$k.'">'.
-			'<img src="'.$fav['small-icon'].'" alt="" /> '.$fav['title'].'</li>';
+			'<img src="'.$fav['small-icon'].'" alt="" /> '.__($fav['title']).'</li>';
 		}
 	}
 }	
@@ -567,8 +567,8 @@ foreach ($array as $k => $fav) {
 		$count++;
 		echo '<li id="fa-'.$fav[0].'">'.'<label for="fak-'.$fav[0].'">'.
 			form::checkbox(array('append[]','fak-'.$fav[0]),$k).
-			'<img src="'.$fav[3].'" alt="" /> '.'<span class="zoom"><img src="'.$fav[4].'" alt="" /></span>'.$fav[1].
-			'</label>'.'</li>';
+			'<img src="'.$fav[3].'" alt="" /> '.'<span class="zoom"><img src="'.$fav[4].'" alt="" /></span>'.
+			__($fav[1]).'</label>'.'</li>';
 	}
 }	
 if ($count > 0) echo '</ul>';

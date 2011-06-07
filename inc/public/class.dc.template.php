@@ -562,7 +562,7 @@ class dcTemplate extends template
 			$p .= "\$params['post_lang'] = '".addslashes($attr['post_lang'])."';\n";
 		}
 		
-		if (empty($attr['no_context']))
+		if (empty($attr['no_context']) && !isset($attr['category']))
 		{
 			$p .=
 			'if ($_ctx->exists("categories")) { '.
@@ -1323,15 +1323,21 @@ class dcTemplate extends template
 		
 		if (empty($attr['no_context']))
 		{
-			$p .=
-			'if ($_ctx->exists("users")) { '.
-				"\$params['user_id'] = \$_ctx->users->user_id; ".
-			"}\n";
+			if (!isset($attr['author']))
+			{
+				$p .=
+				'if ($_ctx->exists("users")) { '.
+					"\$params['user_id'] = \$_ctx->users->user_id; ".
+				"}\n";
+			}
 			
-			$p .=
-			'if ($_ctx->exists("categories")) { '.
-				"\$params['cat_id'] = \$_ctx->categories->cat_id; ".
-			"}\n";
+			if (!isset($attr['category']) && (!isset($attr['no_category']) || !$attr['no_category']))
+			{
+				$p .=
+				'if ($_ctx->exists("categories")) { '.
+					"\$params['cat_id'] = \$_ctx->categories->cat_id; ".
+				"}\n";
+			}
 			
 			$p .=
 			'if ($_ctx->exists("archives")) { '.
