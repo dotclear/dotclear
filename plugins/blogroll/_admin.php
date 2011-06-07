@@ -19,7 +19,7 @@ function blogroll_dashboard($core,$icons)
 }
 function blogroll_dashboard_favs($core,$favs)
 {
-	$favs['blogroll'] = new ArrayObject(array('blogroll',__('Blogroll'),'plugin.php?p=blogroll',
+	$favs['blogroll'] = new ArrayObject(array('blogroll','Blogroll','plugin.php?p=blogroll',
 		'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
 		'usage,contentadmin',null,null));
 }

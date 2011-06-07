@@ -2,6 +2,13 @@ Dotclear 2.4.0 - ongoing dev
 ===========================================================
 * handling of postgres non default schemas (db_prefix = 'schema.prefix')
 
+Dotclear 2.3.1 - ongoing dev
+===========================================================
+* Updated makefile for cleaner distrib.
+* Better localization handling for prefs and shortcuts.
+* Misc JS & CSS cleaning.
+* Import/Export preferences-related bugfix.
+
 Dotclear 2.3.0 - 2011-05-16
 ===========================================================
 * Admin: Major backend redesign

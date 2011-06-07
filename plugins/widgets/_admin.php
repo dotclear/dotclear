@@ -15,7 +15,7 @@ $core->addBehavior('adminDashboardFavs','widgets_dashboard_favs');
 
 function widgets_dashboard_favs($core,$favs)
 {
-	$favs['widgets'] = new ArrayObject(array('widgets',__('Presentation widgets'),'plugin.php?p=widgets',
+	$favs['widgets'] = new ArrayObject(array('widgets','Presentation widgets','plugin.php?p=widgets',
 		'index.php?pf=widgets/icon.png','index.php?pf=widgets/icon-big.png',
 		'admin',null,null));
 }
