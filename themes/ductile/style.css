@@ -17,7 +17,7 @@ body {
 	color: #151515;
 	}
 
-/* ----------------------------------------------- liens */
+/* ------------------------------------------------------- liens */
 a {
 	color: #666;
 	}
@@ -26,13 +26,12 @@ a:hover, a:focus {
 	text-decoration: none;
 	}
 
-/* ----------------------------------------------- page */
+/* ------------------------------------------------------- page */
 #page {
 	position: relative;
-	padding-top: 16px;
 	}
 
-/* ----------------------------------------------- top */
+/* ------------------------------------------------------- top */
 h1 a {
 	text-decoration: none;
 	}
@@ -51,7 +50,7 @@ h1 a {
 	color: #666;
 }
 
-/* ----------------------------------------------- billets */
+/* ------------------------------------------------------- billets */
 .post {
 	background: transparent url(img/filet.png) repeat-x left bottom;
 	}
@@ -66,20 +65,21 @@ h2.post-title a {
 	font-style: italic;
 	text-decoration: none;
 	}
+.post-info, .post-tags, .post-info-co, .read-it {
+	line-height: 1.2;	
+	margin: .33em 0;
+	}
 .post-info, .post-tags {
 	font-size: .875em;
-	margin: 0;
 	padding: 0;
+	}
+.post-info a, .post-tags a, .post-info-co a {
+	white-space: nowrap;
 	}
 .post-tags a {
 	padding-right: 1em;
-	background-color: #fff;
-	background-repeat: no-repeat;
-	background-position: left center;	
-	}
-.post-tags a {
-	background-image: url(img/tag.png);
 	padding-left: 14px;
+	background: #fff no-repeat left center url(img/tag.png);
 	}
 .post-tags li {
 	display: inline;
@@ -96,7 +96,6 @@ h2.post-title a {
 	background: #fff;
 	display: inline;
 	font-size: 0.875em;
-	line-height: 1.2;
 	font-style: italic;
 	}
 .post-info-co a {
@@ -106,7 +105,6 @@ h2.post-title a {
 	background-color: #fff;
 	background-repeat: no-repeat;
 	background-position: left center;
-	white-space: nowrap;
 	}
 .post-info-co a.comment_count {
 	background-image: url(img/comment.png);
@@ -117,6 +115,125 @@ h2.post-title a {
 .post-info-co a.attach_count {
 	background-image: url(img/attach.png);	
 	}
+
+/* ------------------------------------------------------- sidebar */
+#sidebar {
+	font-size: 0.875em;
+	}
+#sidebar h2 {
+	font-size: 1.2em;
+	margin: 0;
+	font-weight: normal;
+	}
+#sidebar h3 {
+	font-size: 1.1em;
+	margin-bottom: 0;
+	font-weight: normal;
+	}
+#sidebar ul {
+	margin: .75em 0 .5em 4px;
+	list-style-type: none;
+	padding: 0;
+	}
+#sidebar ul li ul {
+	margin-top: .5em;
+	}
+#sidebar ul li {
+	padding-left: 16px;
+	background: transparent url(img/square.png) no-repeat 0 .5em;
+	}
+#sidebar ul li ul li {
+	background-image: url(img/square2.png);
+	}
+#sidebar ul li ul li ul li {
+	background-image: url(img/square3.png);
+	}
+#blognav > div, #blogextra > div {
+	background: #f3f2e9;
+	margin-bottom: 1em;
+	padding: 4px 8px;
+	-moz-box-shadow: 2px 2px 4px #bbb;
+	-webkit-box-shadow: 2px 2px 4px #bbb;
+	-o-box-shadow: 2px 2px 4px #bbb;
+	box-shadow: 2px 2px 4px #bbb;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	}
+	
+/* recherche */
+#search p {
+	background: #fff; 
+	text-align: right;
+	border: 1px solid #ddd;
+	vertical-align: middle;
+	padding: 0;
+	}
+#search input { 
+	margin: 0;
+	border: none;
+	background: transparent;
+	height: 2em;
+	}
+#search #q {
+	float: left;
+	width: 80%;
+	}
+#search #q:focus {
+	background: #fcfcf9;
+	}
+#search .submit {
+	background: #706F6F;
+	color: #fff;
+	vertical-align: top;
+	width: 20%;
+	font-variant: small-caps;
+	}
+#search .submit:hover, #search .submit:focus {
+	background: #333;
+	}
+
+/* ------------------------------------------------------- pagination */
+#navlinks, .pagination {
+	margin-bottom: 1em;
+	padding: 4px 8px;
+	text-align: center;
+	font-size: .875em;
+	color: #000;
+	background: #f4f4f5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f5), to(#d7d7dC));
+	background: -moz-linear-gradient(top,  #f4f4f5,  #d7d7dC);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #ccc;
+	}
+#navlinks {
+	margin-top: 2.2em;
+	}
+#navlinks a, .pagination a {
+	padding: 0 1em;
+	}
+	
+/* ------------------------------------------------------- footer */
+#footer {
+	clear: both;
+	background: #706f6f;
+	color: #fff;
+	}
+#footer p {
+	padding: .66em;
+	margin: 0;
+	text-align: right;
+}
+#footer a {
+	color: #fff;
+	}
+#footer a:hover, #footer a:focus {
+	background: #333;
+	}
+
 /* ================================================ 
 	personnalisations blog chantier
 ================================================ */
