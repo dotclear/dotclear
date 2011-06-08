@@ -10,7 +10,20 @@
 @media only screen and (max-width:480px) {
 	h1 {
 		font-size: 1.8em;
-		margin-left: 3%;
+		padding: 0 3%;
+		background: #706f6f;
+		-moz-box-shadow: 0 2px 3px #bbb;
+		-webkit-box-shadow: 0 2px 3px #bbb;
+		-o-box-shadow: 0 2px 3px #bbb;
+		box-shadow: 0 2px 3px #bbb;
+		}
+	h1 a {
+		display: block;
+		color: #fff;
+		text-shadow: 0 1px 1px #333;
+		}
+	h1 a:hover, h1 a:focus {
+		background: #333;
 		}
 	#prelude {
 		display: none;
@@ -18,6 +31,9 @@
 }
 
 @media only screen and (min-width: 481px) {
+	#page {
+		padding-top: 16px;
+		}
 	h1 {
 	font-size: 2.5em;
 		}
@@ -47,10 +63,45 @@
 	#wrapper {
 		padding: 0 10%;
 		}
+	#blognav, #blogextra { 
+		width: 48%; float:left;
+		}
+	#blognav {
+		margin-right: 4%;
+	}
 }
 
 @media only screen and (min-width: 961px) {
 	#wrapper {
 		padding: 0 15%;
 		}
+	#main {
+		width : 100%;
+		margin : 0 -26% 0 0;
+		float : left;
+		display: inline;
+		}
+	#content {
+		margin : 0 32% 0 0;
+		padding : 10px;
+		}
+	#footer {
+		clear : both;
+		text-align:center;
+		}
+	#sidebar {
+		width : 26%;
+		float : right;
+		margin-top: 3em;
+		}
+	#blognav, #blogextra {
+		margin : 0;
+		}
+}
+
+@media only screen and (min-width: 1280px) {
+	#wrapper {
+		padding: 0 140px 0 340px;
+		}
+	p.post-info { margin-left: -200px; float: left; width: 140px; text-align: right;}
 }
