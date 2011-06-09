@@ -1,11 +1,35 @@
 @charset "UTF-8";
 
 /* Ductile
-Dotclear theme by Dotclear Team
-Version de chantier
+	Dotclear theme by Dotclear Team
+	Version de chantier
 */
 
-/* ------------------------------------------------------- imports */
+/* Infos
+Plan de cette feuille :
+1. Structure, imports
+2. Liens, html
+3. Page
+4. Haut de page
+5. Wrapper, main, content
+6. Billets
+7. Commentaires et rétroliens
+8. Sidebar
+9. Footer
+10. Classes communes
+11. Pages spécifiques
+12. Clearers
+
+Couleurs :
+Typo: #222 courant, #4c4c85 commentaires
+Liens: #666 courant, #ad3f4c titre billet et Lire la suite
+Titres: #909090
+Fond formulaire comm: #eef
+*/
+
+/* -----------------------------------------------------------------
+	1. STRUCTURE - IMPORTS
+------------------------------------------------------------------ */
 
 @import url(rebase.css);
 @import url(mediaqueries.css);
@@ -14,24 +38,46 @@ Version de chantier
 body {
 	background: #fff;
 	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
-	color: #151515;
+	color: #222;
 	}
 
-/* ------------------------------------------------------- liens */
+/* ------------------------------------------------------------
+	2. LIENS & Complément balises HTML
+------------------------------------------------------------- */
+del {
+	color: #800000;
+	}
+blockquote {
+	border: 2px solid #eef;
+	padding: 1px 1em .5em;
+	}
+code, pre {
+	background: #efefef;
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	font-size: .81em;
+	}
+
 a {
 	color: #666;
 	}
 a:hover, a:focus {
-	background: #eee;
+	background-color: #eee;
 	text-decoration: none;
 	}
 
-/* ------------------------------------------------------- page */
+/* ------------------------------------------------------------
+	3. PAGE
+------------------------------------------------------------- */
+
 #page {
 	position: relative;
 	}
 
-/* ------------------------------------------------------- top */
+/* ------------------------------------------------------------
+	4. HAUT DE PAGE
+------------------------------------------------------------- */
+
 h1 a {
 	text-decoration: none;
 	}
@@ -45,12 +91,71 @@ h1 a {
 	}
 #prelude a {
 	color: #fff;
-}
+	}
 #prelude a:focus {
 	color: #666;
-}
+	}
 
-/* ------------------------------------------------------- billets */
+/* ------------------------------------------------------------
+	5. WRAPPER MAIN CONTENT
+------------------------------------------------------------- */
+
+#wrapper { }
+#main { }
+#content { }
+
+/* ------------------------------------------------------- content-info */
+#content-info {
+	margin-top: 4em;
+	font-size: .875em;
+	font-family: "helvetica neue", helvetica, sans-serif;
+	}
+#content-info h2 { 
+	font-size: 1.2em;
+	}
+#subcategories {
+	font-size: .875em;
+	font-family: "helvetica neue", helvetica, sans-serif;
+	}
+#subcategories h3 { 
+	font-size: 1.1em;
+	font-variant: small-caps;
+	}
+#content-info p, 
+#content-info ul, 
+#subcategories ul { 
+	margin: .5em 0;
+	}
+
+/* ------------------------------------------------------- pagination, navlinks */
+#navlinks, 
+.pagination {
+	margin-bottom: 1em;
+	padding: 4px 8px;
+	text-align: center;
+	font-size: .875em;
+	color: #000;
+	background: #f4f4f5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f5), to(#d7d7dC));
+	background: -moz-linear-gradient(top,  #f4f4f5,  #d7d7dC);
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #ccc;
+	}
+#navlinks {
+	margin-top: 4em;
+	}
+#navlinks a, 
+.pagination a {
+	padding: 0 1em;
+	}
+
+/* ------------------------------------------------------------
+	6. BILLETS
+------------------------------------------------------------- */
+
 .post {
 	background: transparent url(img/filet.png) repeat-x left bottom;
 	}
@@ -58,22 +163,42 @@ h1 a {
 	display: none;
 	}
 h2.post-title {
+	font-weight: normal;
 	margin-bottom: .33em;
-}
+	color: #909090;
+	line-height: 1;
+	font-size: 3em;
+	}
 h2.post-title a {
 	font-weight: normal;
 	font-style: italic;
 	text-decoration: none;
+	color: #ad3f4c;
 	}
-.post-info, .post-tags, .post-info-co, .read-it {
+.post h3, 
+.post h4, 
+.post h5
+.post h6 {
+	font-variant: small-caps;
+	font-weight: normal;
+	color: #666;
+	}
+.post-info, 
+.post-tags, 
+.post-info-co, 
+.read-it, 
+.page-info {
 	line-height: 1.2;	
 	margin: .33em 0;
 	}
-.post-info, .post-tags {
+.post-info, 
+.post-tags {
 	font-size: .875em;
 	padding: 0;
 	}
-.post-info a, .post-tags a, .post-info-co a {
+.post-info a, 
+.post-tags a, 
+.post-info-co a {
 	white-space: nowrap;
 	}
 .post-tags a {
@@ -87,16 +212,27 @@ h2.post-title a {
 .post-content {
 	padding-bottom: 9px;
 	}
+.post ul {
+	list-style-type: square;
+	}
+.footnotes {
+	font-size: .875em;
+	}
 .read-it {
 	text-align: right;
 	margin: 0 0 .25em 0;
 	}
-.post-info-co {
+.read-it a {
+	color: #ad3f4c;
+	}
+.post-info-co, 
+.page-info {
 	margin: 0;
 	background: #fff;
 	display: inline;
 	font-size: 0.875em;
 	font-style: italic;
+	padding-right: .5em;
 	}
 .post-info-co a {
 	text-decoration: none;
@@ -116,7 +252,166 @@ h2.post-title a {
 	background-image: url(img/attach.png);	
 	}
 
-/* ------------------------------------------------------- sidebar */
+/* ------------------------------------------------------------
+	7. COMMENTAIRES, PINGS
+------------------------------------------------------------- */
+
+/* ------------------------------------------------------- commentaires et rétroliens */
+#comments, 
+#pings, 
+#comment-form,
+#comments-feed { 
+	color: #4c4c85;
+	font-family: "helvetica neue", helvetica, sans-serif;	
+	font-size: .875em;
+	}
+#comment-form {
+	padding: 1em;
+	background: #eef;
+	margin-top: 1em;
+	color: #333;
+	border: 1px solid #ddf;
+	}
+#pr {
+	padding: 1em;
+	border: 1px dashed #4c4c85;
+	margin-bottom: 1em;
+	}
+#comments h3, 
+#pings h3, 
+#pr h3, 
+#comment-form h3 { 
+	margin-top: 2em;
+	color: #666;
+	}
+#comment-form h3 {
+	margin-top: 0;
+	}
+#comments dl { }
+#comments dt { 
+	padding-bottom: .2em;
+	border-bottom: 1px solid #ccc;
+	margin-top: 1.5em;
+	line-height: 1.1;
+	}
+#comments dd { }
+#comments .first { }
+#comments .odd { }
+#comments .me { 
+	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+	color: #333;
+	font-size: 1.14em;
+	}
+a.comment-number {
+	font-size: 2em;
+	font-weight: normal;
+	font-style: italic;
+	text-decoration: none;
+	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+	color: #909090;
+	}
+
+#pings dl { }
+#pings dt { 
+	border-bottom: 1px solid #ccc;
+	margin-top: 1.5em;
+	line-height: 1.1;
+	padding-bottom: .2em;
+	}
+#pings dd { }
+#pings .first { }
+#pings .odd { }
+
+#pr dl { }
+#pr dd { }
+
+/* ------------------------------------------------------- formulaire des commentaires */
+#comment-form fieldset { }
+.field { 
+	margin-bottom: 1em;
+	}
+.field label { 
+	display: block;
+	font-size: .875em;
+	color: #666;
+	text-indent: 6px;
+	}
+.field input, 
+.field textarea {
+	display: block;
+	font-size: 100%;
+	border: 1px solid #ccc;
+	text-indent: 4px;
+	background: #fff;
+	-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	}
+.field textarea { 
+	font-family: "helvetica neue", helvetica, sans-serif;
+	font-size: .875em;
+	padding: .5em 1em;	
+	}
+.field input:focus, 
+.field textarea:focus {
+	background: #fff;
+	}
+#comment-form input[type=submit], 
+#comment-form input[type=reset] {
+	font-size: .875em;
+	display: inline-block;
+	text-transform: capitalize;
+	font-weight: bold;
+	text-align: center;
+	padding: .33em .66em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: solid 1px #777;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #eee;
+	background: #555;
+	background: -webkit-gradient(linear, left top, left bottom, from(#777), to(#555));
+	background: -moz-linear-gradient(top, #777, #555);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#777777', endColorstr='#555555');	
+	}
+#comment-form input[type=submit]:hover, #comment-form input[type=submit]:focus,
+#comment-form input[type=reset]:hover, #comment-form input[type=reset]:focus {
+	background: #777;
+	background: -webkit-gradient(linear, left top, left bottom, from(#555), to(#777));
+	background: -moz-linear-gradient(top, #555, #777);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#777777');
+	text-decoration: none;
+	}
+#c_content {
+	width: 95%;
+	padding: 4px;
+	}
+
+.form-help { 
+	margin-top: 0;
+	font-size: .875em;
+	font-style: italic;
+	}
+
+#ping-url { 
+	background: #efefef;
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	font-size: .81em;
+	padding-left: .5em;
+	}
+#comments-feed { 
+	margin-top: 2em; 
+	}
+
+/* ------------------------------------------------------------
+	8. SIDEBAR
+------------------------------------------------------------- */
+
 #sidebar {
 	font-size: 0.875em;
 	}
@@ -148,20 +443,18 @@ h2.post-title a {
 #sidebar ul li ul li ul li {
 	background-image: url(img/square3.png);
 	}
-#blognav > div, #blogextra > div {
+#blognav > div, 
+#blogextra > div {
 	background: #f3f2e9;
 	margin-bottom: 1em;
 	padding: 4px 8px;
-	-moz-box-shadow: 2px 2px 4px #bbb;
-	-webkit-box-shadow: 2px 2px 4px #bbb;
-	-o-box-shadow: 2px 2px 4px #bbb;
-	box-shadow: 2px 2px 4px #bbb;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
+	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+	-o-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
+	box-shadow: 2px 2px 4px rgba(0,0,0,.2);
 	}
 	
-/* recherche */
+/* ------------------------------------------------------- recherche */
 #search p {
 	background: #fff; 
 	text-align: right;
@@ -189,34 +482,15 @@ h2.post-title a {
 	width: 20%;
 	font-variant: small-caps;
 	}
-#search .submit:hover, #search .submit:focus {
+#search .submit:hover, 
+#search .submit:focus {
 	background: #333;
 	}
-
-/* ------------------------------------------------------- pagination */
-#navlinks, .pagination {
-	margin-bottom: 1em;
-	padding: 4px 8px;
-	text-align: center;
-	font-size: .875em;
-	color: #000;
-	background: #f4f4f5;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f5), to(#d7d7dC));
-	background: -moz-linear-gradient(top,  #f4f4f5,  #d7d7dC);
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-	border-right: 1px solid #aaa;
-	border-bottom: 1px solid #ccc;
-	}
-#navlinks {
-	margin-top: 2.2em;
-	}
-#navlinks a, .pagination a {
-	padding: 0 1em;
-	}
 	
-/* ------------------------------------------------------- footer */
+/* ------------------------------------------------------------
+	9. FOOTER
+------------------------------------------------------------- */
+
 #footer {
 	clear: both;
 	background: #706f6f;
@@ -226,12 +500,109 @@ h2.post-title a {
 	padding: .66em;
 	margin: 0;
 	text-align: right;
-}
+	}
 #footer a {
 	color: #fff;
 	}
-#footer a:hover, #footer a:focus {
+#footer a:hover, 
+#footer a:focus {
 	background: #333;
+	}
+	
+/* ------------------------------------------------------------
+	10. CLASSES COMMUNES
+------------------------------------------------------------- */
+
+/* ------------------------------------------------------- RSS */
+.feed { 
+	padding-left: 20px;
+	background : transparent url(img/feed.png) no-repeat left center;
+	}
+
+/* ------------------------------------------------------- tags */	
+.dc-tags .content-inner, 
+.dc-tags .content-inner ul {
+	font-size: 1.25em;
+	margin: 0;
+	padding: 0;
+	}
+.dc-tags #content ul li, 
+.dc-tags #content ul li a, 
+#sidebar .tags ul li, 
+#sidebar .tags ul li a {
+	display : inline;
+	width : auto;
+	padding-left : 0;
+	padding-right : .5em;
+	background-color : transparent;
+	background-image: none;
+	text-decoration: none;
+	line-height : 1.5em;
+	}
+.tags ul li a:hover {
+	background-image :none;
+	}
+.dc-tags .tag0, .tags .tag0 { font-size: 85%; }
+.dc-tags .tag10, .tags .tag10 { font-size: 90%; }
+.dc-tags .tag20, .tags .tag20 { font-size: 95%; }
+.dc-tags .tag30, .tags .tag30 { font-size: 100%; }
+.dc-tags .tag40, .tags .tag40 { font-size: 105%; }
+.dc-tags .tag50, .tags .tag50 { font-size: 110%; }
+.dc-tags .tag60, .tags .tag60 { font-size: 115%; }
+.dc-tags .tag70, .tags .tag70 { font-size: 120%; }
+.dc-tags .tag80, .tags .tag80 { font-size: 125%; }
+.dc-tags .tag90, .tags .tag90 { font-size: 130%; }
+.dc-tags .tag100, .tags .tag100 { font-size: 135%; }
+
+/* ------------------------------------------------------- messages d'erreur */
+.error {
+	border : 1px solid #c44;
+	background : #df0;
+	padding : 0.5em;
+	}
+.error ul {
+	padding-left : 20px;
+	}
+.error li {
+	list-style : square;
+	}
+
+/* ------------------------------------------------------- class à dispo pour billets */
+.left { float: left; margin-right : 1em; }
+.right { float: right; margin-left : 1em; }
+.center { margin-left : auto; margin-right : auto; }
+.left-text { text-align : left; }
+.right-text { text-align : right; }
+.center-text { text-align : center; }
+.little-text { font-size : .875em;}
+.little-upper-text { font-size : .875em; text-transform : uppercase; }
+
+
+/* ------------------------------------------------------------
+	11. PAGES SPECIFIQUES
+------------------------------------------------------------- */
+
+.dc-home { }
+.dc-post { }
+.dc-categories { }
+.dc-category { }
+.dc-archive { }
+.dc-archive-month { }
+.dc-tags { }
+.dc-tag { }
+.dc-404 { }
+.dc-search { }
+
+
+/* ---------------------------------------------------
+  12. ET POUR FINIR NE PAS OUBLIER LES CLEARERS
+--------------------------------------------------- */
+.post, 
+.footnotes, 
+.attachments, 
+.post-info-co, 
+#comments, #footer {
+	clear:both;
 	}
 
 /* ================================================ 
@@ -239,9 +610,4 @@ h2.post-title a {
 ================================================ */
 .post-content img, .post-excerpt img {
 	border: 1px solid #ccc;
-}
-code, pre {
-	background: #dfdfdf;
-	border-right: 1px solid #aaa;
-	border-bottom: 1px solid #aaa;
-}
+	}
