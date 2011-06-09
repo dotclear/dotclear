@@ -10,15 +10,20 @@
 @media only screen and (max-width:480px) {
 	h1 {
 		font-size: 1.8em;
-		padding: 0 3%;
-		background: #706f6f;
-		-moz-box-shadow: 0 2px 3px #bbb;
-		-webkit-box-shadow: 0 2px 3px #bbb;
-		-o-box-shadow: 0 2px 3px #bbb;
-		box-shadow: 0 2px 3px #bbb;
+		border: solid 1px #777;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		-o-box-shadow: rgba(0,0,0,.2);
+		box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		color: #eee;
+		background: #555;
+		background: -webkit-gradient(linear, left top, left bottom, from(#777), to(#555));
+		background: -moz-linear-gradient(top, #777, #555);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#777777', endColorstr='#555555');	
 		}
 	h1 a {
 		display: block;
+		padding: 0 3%;
 		color: #fff;
 		text-shadow: 0 1px 1px #333;
 		}
@@ -103,5 +108,19 @@
 	#wrapper {
 		padding: 0 140px 0 340px;
 		}
-	p.post-info { margin-left: -200px; float: left; width: 140px; text-align: right;}
+	.dc-tags #wrapper, .dc-archive-month #wrapper, .dc-404 #wrapper {
+		padding: 0 15%;
+		}
+	p.post-info { 
+		margin-left: -200px; 
+		float: left; 
+		width: 140px; 
+		text-align: right;
+		}
+	.dc-archive-month p.post-info {
+		margin-left: 0;
+		float:none;
+		width: auto;
+		text-align: left;
+		}
 }
