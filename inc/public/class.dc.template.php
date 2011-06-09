@@ -322,6 +322,12 @@ class dcTemplate extends template
 			}
 		}
 		
+		if (($node instanceof tplNodeBlock) && !$node->isClosed()) {
+			$errors[] = sprintf(
+				__('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
+				html::escapeHTML($node->getTag()));
+		}
+		
 		$err = "";
 		if (count($errors) > 0) {
 			$err = "\n\n<!-- \n".
@@ -3234,6 +3240,9 @@ class tplNodeBlock extends tplNode
 	}
 	public function setClosing() {
 		$this->closed = true;
+	}
+	public function isClosed() {
+		return $this->closed;
 	}
 	public function compile($tpl) {
 		if ($this->closed) {
