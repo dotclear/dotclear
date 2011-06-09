@@ -443,6 +443,10 @@ a.comment-number {
 #sidebar ul li ul li ul li {
 	background-image: url(img/square3.png);
 	}
+#sidebar .syndicate ul li {
+	background-image: none;
+	padding-left: 0;
+}
 #blognav > div, 
 #blogextra > div {
 	background: #f3f2e9;
@@ -584,10 +588,12 @@ a.comment-number {
 
 .dc-home { }
 .dc-post { }
-.dc-categories { }
 .dc-category { }
 .dc-archive { }
-.dc-archive-month { }
+.dc-archive-month h2.post-title {
+	font-size: 1.3em;
+	}
+.dc-archive { }
 .dc-tags { }
 .dc-tag { }
 .dc-404 { }
