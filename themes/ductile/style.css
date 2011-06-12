@@ -78,8 +78,13 @@ a:hover, a:focus {
 	4. HAUT DE PAGE
 ------------------------------------------------------------- */
 
+h1 {
+	font-variant: small-caps;
+	line-height: 1;
+	}
 h1 a {
 	text-decoration: none;
+	display: inline-block;
 	}
 #prelude {
 	position: absolute;
@@ -94,6 +99,34 @@ h1 a {
 	}
 #prelude a:focus {
 	color: #666;
+	}
+#blogdesc {
+	margin: -8px 0 0 68px;
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
+	font-style: italic;
+	color: #909090;
+	}
+#supranav {
+	margin: 16px 0 0;
+	padding: 0;
+	list-style-type: none;
+	padding: 4px;
+	font-size: .875em;
+	text-align: center;
+	background-color: #f3f2e9;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	}
+#supranav li {
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
+	text-transform: uppercase;
+	display: inline;
+	padding: 4px 1em;
+	}
+#supranav li a {
+	text-decoration: none;
+	padding: 4px 1em;
+	white-space: nowrap;
 	}
 
 /* ------------------------------------------------------------
@@ -110,14 +143,14 @@ h1 a {
 #content-info {
 	margin-top: 4em;
 	font-size: .875em;
-	font-family: "helvetica neue", helvetica, sans-serif;
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	}
 #content-info h2 { 
 	font-size: 1.2em;
 	}
 #subcategories {
 	font-size: .875em;
-	font-family: "helvetica neue", helvetica, sans-serif;
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	}
 #subcategories h3 { 
 	font-size: 1.1em;
@@ -152,6 +185,7 @@ h1 a {
 #navlinks a, 
 .pagination a {
 	padding: 0 1em;
+	white-space: nowrap;
 	}
 
 /* ------------------------------------------------------------
@@ -169,7 +203,6 @@ h2.post-title {
 	margin-bottom: .33em;
 	color: #909090;
 	line-height: 1.17;
-	font-size: 3em;
 	}
 h2.post-title a {
 	font-weight: normal;
@@ -253,6 +286,25 @@ h2.post-title a {
 .post-info-co a.attach_count {
 	background-image: url(img/attach.png);	
 	}
+#attachments {
+	font-size: .875em;
+	border-bottom: 1px solid #999;
+	margin: 0 0 2em;
+	}
+#attachments h3 {
+	font-variant: small-caps;
+	font-weight: normal;
+	color: #666;
+	}
+#attachments ul {
+	list-style-type: none;
+	margin: 0 0 1em;
+	padding: 0;
+	}
+#attachments ul li {
+	padding-left: 24px;
+	background: #fff url(img/download.png) no-repeat;
+	}
 
 /* ------------------------------------------------------------
 	7. COMMENTAIRES, PINGS
@@ -264,7 +316,7 @@ h2.post-title a {
 #comment-form,
 #comments-feed { 
 	color: #4c4c85;
-	font-family: "helvetica neue", helvetica, sans-serif;	
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	font-size: .875em;
 	}
 #comment-form {
@@ -350,7 +402,7 @@ a.comment-number {
 	border-radius: 3px;
 	}
 .field textarea { 
-	font-family: "helvetica neue", helvetica, sans-serif;
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	font-size: .875em;
 	padding: .5em 1em;	
 	}
@@ -490,7 +542,7 @@ a.comment-number {
 	}
 #search .submit:hover, 
 #search .submit:focus {
-	background: #333;
+	background: #686867;
 	}
 	
 /* ------------------------------------------------------------
@@ -499,7 +551,7 @@ a.comment-number {
 
 #footer {
 	clear: both;
-	background: #706f6f;
+	background: #686867;
 	color: #fff;
 	}
 #footer p {
@@ -512,7 +564,11 @@ a.comment-number {
 	}
 #footer a:hover, 
 #footer a:focus {
-	background: #333;
+	background: #686867;
+	}
+#stickers {
+	list-style-type: none;
+	margin: 0;
 	}
 	
 /* ------------------------------------------------------------
@@ -607,7 +663,7 @@ a.comment-number {
 --------------------------------------------------- */
 .post, 
 .footnotes, 
-.attachments, 
+#attachments, 
 .post-info-co, 
 #comments, #footer {
 	clear:both;
