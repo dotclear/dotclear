@@ -107,26 +107,26 @@ h1 a {
 	color: #909090;
 	}
 #supranav {
-	margin: 16px 0 0;
+	margin: 24px 0 0;
 	padding: 0;
 	list-style-type: none;
-	padding: 4px;
+	padding: 4px 4px 2px 4px;
 	font-size: .875em;
-	text-align: center;
-	background-color: #f3f2e9;
-	border-top: 1px solid #eee;
-	border-bottom: 1px solid #eee;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 	}
 #supranav li {
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	text-transform: uppercase;
 	display: inline;
-	padding: 4px 1em;
 	}
 #supranav li a {
+	display: inline-block;
+	margin-bottom: 2px;
 	text-decoration: none;
-	padding: 4px 1em;
+	padding: 4px 2em;
 	white-space: nowrap;
+	background-color: #F3F2E9;
 	}
 
 /* ------------------------------------------------------------
@@ -201,7 +201,7 @@ h1 a {
 h2.post-title {
 	font-weight: normal;
 	margin-bottom: .33em;
-	color: #909090;
+	color: #686867;
 	line-height: 1.17;
 	}
 h2.post-title a {
