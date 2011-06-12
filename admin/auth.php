@@ -21,6 +21,7 @@ if (isset($_SESSION['sess_user_id']))
 # Loading locales for detected language
 # That's a tricky hack but it works ;)
 $dlang = http::getAcceptLanguage();
+$dlang = ($dlang == '' ? 'en' : $dlang);
 if ($dlang != 'en')
 {
 	l10n::set(dirname(__FILE__).'/../locales/'.$dlang.'/main');
@@ -247,12 +248,12 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-xml:lang="en" lang="en">
+xml:lang="<?php echo $dlang; ?>" lang="<?php echo $dlang; ?>">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta http-equiv="Content-Language" content="en" />
+  <meta http-equiv="Content-Language" content="<?php echo $dlang; ?>" />
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></title>
