@@ -1,0 +1,18 @@
+<!-- media queries -->
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<style type="text/css" media="screen">
+@import url({{tpl:BlogThemeURL}}/style.css);
+</style>
+<style type="text/css" media="print">
+@import url({{tpl:BlogThemeURL}}/../default/print.css);
+</style>
+
+<script type="text/javascript" src="{{tpl:BlogThemeURL}}/../default/js/jquery.js"></script>
+<script type="text/javascript" src="{{tpl:BlogThemeURL}}/../default/js/jquery.cookie.js"></script>
+
+{{tpl:include src="user_head.html"}}
+{{tpl:SysBehavior behavior="publicHeadContent"}}
