@@ -3,7 +3,7 @@
 /* seuils retenus :
 480px
 640px
-960px
+1024px
 1280px
 ----------------- */
 
@@ -75,9 +75,7 @@
 	h1 {
 		font-size: 2em;
 		padding-right: 240px;
-		}
-	h1 a {
-		padding-left: 32px;
+		margin-left: 32px;
 		}
 
 	#supranav {
@@ -90,7 +88,7 @@
 		}
 	#supranav li a {
 		display: inline-block;
-		padding: 8px 32px;
+		padding: 8px 32px 8px 28px;
 		border-right: 1px solid #ccc;
 	 	}
 	#supranav li a span {
@@ -101,7 +99,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		padding-right: 10%;
+		padding-right: 3%;
 		}
 	#stickers li {
 		display: inline;
@@ -129,7 +127,7 @@
 		-webkit-text-size-adjust: none;
 		}
 	#wrapper {
-		padding: 0 3%;
+		padding: 0 2%;
 		}
 	img {
 		max-width: 100%;
@@ -138,7 +136,7 @@
 		}
 }
 
-@media only screen and (min-width: 640px) and (max-width: 960px) {
+@media only screen and (min-width: 640px) and (max-width: 1024px) {
 	#wrapper {
 		padding: 0 10%;
 		}
@@ -147,49 +145,78 @@
 		}
 	#blognav {
 		margin-right: 4%;
-	}
+		}
 	#stickers {
 		padding-right: 10%;
 		}
 }
 
-@media only screen and (min-width: 961px) {
+@media only screen and (min-width: 840px) and (max-width: 1024px) {
 	#wrapper {
 		padding: 0 13%;
 		}
+	#stickers {
+		padding-right: 13%;
+		}	
+}
+
+@media only screen and (min-width: 1025px) {
+	#wrapper {
+		padding: 0 32px;
+		}
 	#main {
 		width : 100%;
-		margin : 0 -26% 0 0;
+		margin : 0 -22% 0 0;
 		float : left;
 		display: inline;
 		}
 	#content {
-		margin : 0 32% 0 0;
-		padding : 10px;
+		margin : 0 30% 0 0;
+		padding : 0 0 2em 0;
 		}
 	#footer {
 		clear : both;
 		text-align:center;
 		}
 	#sidebar {
-		width : 26%;
+		width : 22%;
 		float : right;
-		margin-top: 4.66em;
 		}
 	#blognav, #blogextra {
 		margin : 0;
 		}
 	#stickers {
-		padding-right: 13%;
+		padding-right: 32px;
+		}
+
+	#sidebar #blognav div:first-child {
+		margin-top: 4.66em;
+		}
+	#sidebar div#search:first-child { 
+		background: none;
+		margin-top: 0;
+		margin-bottom: 2em;
+		padding-bottom: 2px;
+		font-size: 1em;
+		}
+	#sidebar div#search:first-child h2 {
+		font-size: 1em;
+		text-transform: uppercase;
+		text-shadow: 0 1px 1px rgba(0,0,0,.2);
+		vertical-align: top;
+		color: #666;
+		}
+	#sidebar div#search p {
+		margin: .33em 0;
 		}
 }
 
 @media only screen and (min-width: 1280px) {
 	#wrapper {
-		padding: 0 140px 0 340px;
+		padding: 0 96px 0 296px;
 		}
 	.dc-tags #wrapper, .dc-archive-month #wrapper, .dc-404 #wrapper {
-		padding: 0 15%;
+		padding: 0 96px;
 		}
 	p.post-info { 
 		margin-left: -200px; 
@@ -204,6 +231,6 @@
 		text-align: left;
 		}
 	#stickers {
-		padding-right: 140px;
+		padding-right: 96px;
 		}
 }
