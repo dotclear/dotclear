@@ -1,0 +1,2 @@
+msgid "Style sheet upgraded."
+msgstr "Feuille de style mise à jour."
