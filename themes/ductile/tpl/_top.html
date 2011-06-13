@@ -1,19 +1,32 @@
-<div id="top">
-  <h1><span><a href="{{tpl:BlogURL}}">{{tpl:BlogName encode_html="1"}}</a></span></h1>
+<div id="header">
+	<div id="top">
+  	<h1><span><a href="{{tpl:BlogURL}}">{{tpl:BlogName encode_html="1"}}</a></span></h1>
   
-  <!-- # --BEHAVIOR-- publicTopAfterContent -->
-  {{tpl:SysBehavior behavior="publicTopAfterContent"}}
+  	<!-- # --BEHAVIOR-- publicTopAfterContent -->
+  	{{tpl:SysBehavior behavior="publicTopAfterContent"}}
+	</div>
+
+	<ul id="prelude">
+		<li><a href="#main">{{tpl:lang To content}}</a></li>
+		<li><a href="#blognav">{{tpl:lang To menu}}</a></li>
+		<li><a href="#search">{{tpl:lang To search}}</a></li>
+	</ul>
+
+	<!-- Pour Franck: 
+	Il faudrait trouver un moyen pour que 
+	1. la balise <p /> ne soit présente que si la description est non vide
+	2. que l'utilisateur puisse indiquer si oui ou non il souhaite afficher la description (?)
+	-->
+	<p id="blogdesc">{{tpl:BlogDescription}}</p>
+
+	<!-- Pour Franck: 
+	Ajouter un id incrémental
+	Par défaut : accueil, archives (rien dans le span)
+	-->
+	<ul id="supranav">
+		<li id="li1" class="active"><a href="{{tpl:BlogURL}}">Accueil<span> articles récents</span></a></li>
+		<li id="li2"><a href="#">Construire un thème<span> tutoriels</span></a></li>
+		<li id="li3"><a href="#">Maquettes<span> projets graphiques</span></a></li>
+		<li id="li4"><a href="{{tpl:BlogURL}}archive">Archives<span> 2005-2011</span></a></li>
+	</ul>
 </div>
-
-<p id="prelude"><a href="#main">{{tpl:lang To content}}</a> |
-<a href="#blognav">{{tpl:lang To menu}}</a> |
-<a href="#search">{{tpl:lang To search}}</a></p>
-
-<p id="blogdesc">{{tpl:BlogDescription}}</p>
-
-<ul id="supranav">
-	<li><a href="#">Articles récents</a></li>
-	<li><a href="#">Construire un thème</a></li>
-	<li><a href="#">Maquettes</a></li>
-	<li><a href="#">Archives</a></li>
-</ul>

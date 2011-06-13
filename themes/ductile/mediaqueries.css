@@ -8,39 +8,38 @@
 ----------------- */
 
 @media only screen and (max-width:480px) {
+	#prelude, #blogdesc, #supranav span {
+		display: none !important;
+		}
+
 	h1 {
 		font-size: 1.8em;
-		border: solid 1px #777;
-		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-		-o-box-shadow: rgba(0,0,0,.2);
-		box-shadow: 0 1px 2px rgba(0,0,0,.2);
-		color: #eee;
-		background: #555;
-		background: -webkit-gradient(linear, left top, left bottom, from(#777), to(#555));
-		background: -moz-linear-gradient(top, #777, #555);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#777777', endColorstr='#555555');	
 		}
 	h1 a {
-		padding: 6px 3%;
-		color: #fff;
-		text-shadow: 0 1px 1px #333;
+		display: block;
+		padding: 6px 8px;
+		background: #f4f4f5;
+		background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f5), to(#d7d7dC));
+		background: -moz-linear-gradient(top,  #f4f4f5,  #d7d7dC);
+		border-right: 1px solid #aaa;
+		border-bottom: 1px solid #ccc;
 		}
-	h1 a:hover, h1 a:focus {
-		background: #686867;
+
+	#supranav {
+		border:none;
+		margin: 8px 0 0;
 		}
-	#prelude, #blogdesc {
-		display: none;
+	#supranav li a {
+		border-right: 0;
+		display: block;
+		padding: 4px 8px;
+		border-bottom: 1px solid #ccc;
 		}
+
 	h2.post-title {
 		font-size: 2.5em;
 		}
-	#supranav li {
-		display: block !important;
-		}
-	#supranav li+li {
-		border-top: 1px solid #ddd;
-		}
+
 	#stickers {
 		margin: 0;
 		padding: 0;
@@ -54,7 +53,7 @@
 		border: 2px solid #fff;
 		border-left: 8px solid #fff;
 		border-right: 8px solid #fff;
-	}
+		}
 	#stickers img {
 		display: block;
 		position: absolute;
@@ -71,18 +70,33 @@
 @media only screen and (min-width: 481px) {
 	#top {
 		padding-top: 24px;
+		padding-bottom: 4px;
 		}
 	h1 {
 		font-size: 2em;
-		padding-right: 200px;
+		padding-right: 240px;
 		}
-	h1 a, h1 a:hover, h1 a:focus {
-		background-repeat: no-repeat;
-		background-position: left top;
-		padding-left: 68px;
-		background-image: url(img/home-small.png);
-		min-height: 44px;
+	h1 a {
+		padding-left: 32px;
 		}
+
+	#supranav {
+		margin: 36px 0 0;
+		border-bottom: 1px solid #ccc;
+		}
+	#supranav li {
+		display: inline;
+		padding: 8px 0;
+		}
+	#supranav li a {
+		display: inline-block;
+		padding: 8px 32px;
+		border-right: 1px solid #ccc;
+	 	}
+	#supranav li a span {
+		display: block;
+		}
+
 	#stickers {
 		position: absolute;
 		top: 0;
@@ -107,7 +121,7 @@
 	#stickers li a:focus {
 		background-color: #fff;
 		border-bottom: 4px solid #ad3f4c;
-	}
+		}
 }
 
 @media only screen and (max-width:639px) {
@@ -141,7 +155,7 @@
 
 @media only screen and (min-width: 961px) {
 	#wrapper {
-		padding: 0 15%;
+		padding: 0 13%;
 		}
 	#main {
 		width : 100%;
@@ -166,7 +180,7 @@
 		margin : 0;
 		}
 	#stickers {
-		padding-right: 15%;
+		padding-right: 13%;
 		}
 }
 
