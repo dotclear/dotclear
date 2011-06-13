@@ -25,6 +25,9 @@ Typo: #222 courant, #4c4c85 commentaires
 Liens: #666 courant, #ad3f4c titre billet et Lire la suite
 Titres: #909090
 Fond formulaire comm: #eef
+
+Thanks to:
+Colorzilla wysiwyg gradient editor http://www.colorzilla.com/gradient-editor/
 */
 
 /* -----------------------------------------------------------------
@@ -62,7 +65,7 @@ a {
 	color: #666;
 	}
 a:hover, a:focus {
-	background-color: #eee;
+	background-color: #ebebee;
 	text-decoration: none;
 	}
 
@@ -77,14 +80,15 @@ a:hover, a:focus {
 /* ------------------------------------------------------------
 	4. HAUT DE PAGE
 ------------------------------------------------------------- */
-
+#header {
+	text-shadow: 0 1px 1px rgba(0,0,0,.2);
+	line-height: 1;
+	}
 h1 {
 	font-variant: small-caps;
-	line-height: 1;
 	}
 h1 a {
 	text-decoration: none;
-	display: inline-block;
 	}
 #prelude {
 	position: absolute;
@@ -93,40 +97,65 @@ h1 a {
 	left: 3px;
 	color: #fff;
 	font-size: .875em;
+	list-style-type: none;
 	}
-#prelude a {
-	color: #fff;
+#prelude li {
+	display: inline;
 	}
-#prelude a:focus {
-	color: #666;
+#prelude a, #prelude a:hover, #prelude a:visited {
+	position:absolute;
+	left:0px;
+	top:-500px;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+	}
+#prelude a:active, #prelude a:focus {
+	position:static;
+	width:auto;
+	height:auto;
 	}
 #blogdesc {
-	margin: -8px 0 0 68px;
+	margin: 0;
+	padding-left: 32px;
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	font-style: italic;
 	color: #909090;
+	text-shadow: none;
 	}
 #supranav {
-	margin: 24px 0 0;
-	padding: 0;
+	padding: 0 0 0 2px;
 	list-style-type: none;
-	padding: 4px 4px 2px 4px;
+	line-height: 1.25;
 	font-size: .875em;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
 	}
 #supranav li {
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	text-transform: uppercase;
-	display: inline;
+	vertical-align: top;
 	}
 #supranav li a {
-	display: inline-block;
-	margin-bottom: 2px;
 	text-decoration: none;
-	padding: 4px 2em;
 	white-space: nowrap;
-	background-color: #F3F2E9;
+	margin-bottom: 4px;
+	-webkit-border-bottom-left-radius: 7px;
+	-moz-border-radius-bottomleft: 7px;
+	border-bottom-left-radius: 7px;	
+	background: transparent url(img/menu.png) no-repeat right top;
+ }
+#supranav li a:hover, #supranav li a:active, #supranav li a:focus {
+	background-color: #ebebee;
+	background-position: right -150px;
+	}
+#supranav li.active a {
+	background-position: right -150px;
+	}
+#supranav li a span {
+	display: block;
+	text-transform: none;
+	text-shadow: none;
+	font-family: georgia;
+	font-style:italic;
 	}
 
 /* ------------------------------------------------------------
@@ -170,9 +199,14 @@ h1 a {
 	text-align: center;
 	font-size: .875em;
 	color: #000;
-	background: #f4f4f5;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f5), to(#d7d7dC));
-	background: -moz-linear-gradient(top,  #f4f4f5,  #d7d7dC);
+	background: rgb(244,244,245);
+	background: -moz-linear-gradient(top, rgba(244,244,245,1) 0%, rgba(215,215,220,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244,244,245,1)), color-stop(100%,rgba(215,215,220,1)));
+	background: -webkit-linear-gradient(top, rgba(244,244,245,1) 0%,rgba(215,215,220,1) 100%);
+	background: -o-linear-gradient(top, rgba(244,244,245,1) 0%,rgba(215,215,220,1) 100%);
+	background: -ms-linear-gradient(top, rgba(244,244,245,1) 0%,rgba(215,215,220,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f5', endColorstr='#d7d7dc',GradientType=0 );
+	background: linear-gradient(top, rgba(244,244,245,1) 0%,rgba(215,215,220,1) 100%);
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border-radius: 4px;
@@ -201,7 +235,7 @@ h1 a {
 h2.post-title {
 	font-weight: normal;
 	margin-bottom: .33em;
-	color: #686867;
+	color: #000;
 	line-height: 1.17;
 	}
 h2.post-title a {
@@ -426,18 +460,26 @@ a.comment-number {
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	background: rgb(119,119,119);
+	background: -moz-linear-gradient(top, rgba(119,119,119,1) 0%, rgba(85,85,85,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(119,119,119,1)), color-stop(100%,rgba(85,85,85,1)));
+	background: -webkit-linear-gradient(top, rgba(119,119,119,1) 0%,rgba(85,85,85,1) 100%);
+	background: -o-linear-gradient(top, rgba(119,119,119,1) 0%,rgba(85,85,85,1) 100%);
+	background: -ms-linear-gradient(top, rgba(119,119,119,1) 0%,rgba(85,85,85,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#777777', endColorstr='#555555',GradientType=0 );
 	color: #eee;
-	background: #555;
-	background: -webkit-gradient(linear, left top, left bottom, from(#777), to(#555));
-	background: -moz-linear-gradient(top, #777, #555);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#777777', endColorstr='#555555');	
 	}
 #comment-form input[type=submit]:hover, #comment-form input[type=submit]:focus,
 #comment-form input[type=reset]:hover, #comment-form input[type=reset]:focus {
-	background: #777;
-	background: -webkit-gradient(linear, left top, left bottom, from(#555), to(#777));
-	background: -moz-linear-gradient(top, #555, #777);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#777777');
+	background: linear-gradient(top, rgba(119,119,119,1) 0%,rgba(85,85,85,1) 100%);
+	background: rgb(85,85,85);
+	background: -moz-linear-gradient(top, rgba(85,85,85,1) 0%, rgba(119,119,119,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(85,85,85,1)), color-stop(100%,rgba(119,119,119,1)));
+	background: -webkit-linear-gradient(top, rgba(85,85,85,1) 0%,rgba(119,119,119,1) 100%);
+	background: -o-linear-gradient(top, rgba(85,85,85,1) 0%,rgba(119,119,119,1) 100%);
+	background: -ms-linear-gradient(top, rgba(85,85,85,1) 0%,rgba(119,119,119,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555555', endColorstr='#777777',GradientType=0 );
+	background: linear-gradient(top, rgba(85,85,85,1) 0%,rgba(119,119,119,1) 100%);
 	text-decoration: none;
 	}
 #c_content {
@@ -528,7 +570,7 @@ a.comment-number {
 	}
 #search #q {
 	float: left;
-	width: 80%;
+	width: 78%;
 	}
 #search #q:focus {
 	background: #fcfcf9;
@@ -555,9 +597,11 @@ a.comment-number {
 	color: #fff;
 	}
 #footer p {
-	padding: .66em;
+	padding: .66em 2em;
 	margin: 0;
 	text-align: right;
+	font-size: .875em;
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	}
 #footer a {
 	color: #fff;
