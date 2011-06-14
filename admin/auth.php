@@ -88,7 +88,7 @@ if ($recover && !empty($_POST['user_id']) && !empty($_POST['user_email']))
 		__('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.')."\n".
 		$page_url.'?akey='.$recover_key;
 		
-		$headers[] = 'From: dotclear@'.$_SERVER['HTTP_HOST'];
+		$headers[] = 'From: '.(defined('DC_ADMIN_MAILFROM') && DC_ADMIN_MAILFROM ? DC_ADMIN_MAILFROM : 'dotclear@local');
 		$headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 		
 		mail::sendMail($user_email,$subject,$message,$headers);
