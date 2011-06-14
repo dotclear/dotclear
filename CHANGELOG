@@ -1,9 +1,11 @@
-Dotclear 2.3.1 - ongoing dev
+Dotclear 2.3.1 - 2001-06-14
 ===========================================================
 * Updated makefile for cleaner distrib.
 * Better localization handling for prefs and shortcuts.
 * Misc JS & CSS cleaning.
 * Import/Export preferences-related bugfix.
+* Administrative mail address is now configurable.
+* Security: one minor fix and changes for two potential problems. Thanks to Jeremie Boutoille
 
 Dotclear 2.3.0 - 2011-05-16
 ===========================================================
