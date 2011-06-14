@@ -70,11 +70,11 @@
 @media only screen and (min-width: 481px) {
 	#top {
 		padding-top: 24px;
-		padding-bottom: 4px;
 		}
 	h1 {
 		font-size: 2em;
 		padding-right: 240px;
+		padding-bottom: 4px;
 		margin-left: 32px;
 		}
 
@@ -136,7 +136,7 @@
 		}
 }
 
-@media only screen and (min-width: 640px) and (max-width: 1024px) {
+@media only screen and (min-width: 640px) and (max-width: 1023px) {
 	#wrapper {
 		padding: 0 10%;
 		}
@@ -151,7 +151,7 @@
 		}
 }
 
-@media only screen and (min-width: 840px) and (max-width: 1024px) {
+@media only screen and (min-width: 840px) and (max-width: 1023px) {
 	#wrapper {
 		padding: 0 13%;
 		}
@@ -160,9 +160,9 @@
 		}	
 }
 
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1024px) {
 	#wrapper {
-		padding: 0 32px;
+		padding: 0 7%;
 		}
 	#main {
 		width : 100%;
@@ -174,10 +174,6 @@
 		margin : 0 30% 0 0;
 		padding : 0 0 2em 0;
 		}
-	#footer {
-		clear : both;
-		text-align:center;
-		}
 	#sidebar {
 		width : 22%;
 		float : right;
@@ -186,7 +182,7 @@
 		margin : 0;
 		}
 	#stickers {
-		padding-right: 32px;
+		padding-right: 7%;
 		}
 
 	#sidebar #blognav div:first-child {
@@ -198,6 +194,8 @@
 		margin-bottom: 2em;
 		padding-bottom: 2px;
 		font-size: 1em;
+		border: 1px solid #ddd;
+		border-top: none 0;
 		}
 	#sidebar div#search:first-child h2 {
 		font-size: 1em;
@@ -212,16 +210,13 @@
 }
 
 @media only screen and (min-width: 1280px) {
-	#wrapper {
-		padding: 0 96px 0 296px;
-		}
-	.dc-tags #wrapper, .dc-archive-month #wrapper, .dc-404 #wrapper {
-		padding: 0 96px;
+	#content {
+		margin : 0 30% 0 200px;
 		}
 	p.post-info { 
 		margin-left: -200px; 
 		float: left; 
-		width: 140px; 
+		width: 150px; 
 		text-align: right;
 		}
 	.dc-archive-month p.post-info {
@@ -230,7 +225,13 @@
 		width: auto;
 		text-align: left;
 		}
+}
+
+@media only screen and (min-width: 1600px) {
+	#wrapper {
+		padding: 0 12%;
+		}
 	#stickers {
-		padding-right: 96px;
+		padding-right: 12%;
 		}
 }
