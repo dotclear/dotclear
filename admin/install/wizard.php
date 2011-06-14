@@ -99,6 +99,7 @@ if (!empty($_POST))
 		
 		$admin_url = preg_replace('%install/wizard.php$%','',$_SERVER['REQUEST_URI']);
 		writeConfigValue('DC_ADMIN_URL',http::getHost().$admin_url,$full_conf);
+		writeConfigValue('DC_ADMIN_MAILFROM','dotclear@'.$_SERVER['HTTP_HOST'],$full_conf);
 		writeConfigValue('DC_MASTER_KEY',md5(uniqid()),$full_conf);
 		
 		$fp = @fopen(DC_RC_PATH,'wb');
