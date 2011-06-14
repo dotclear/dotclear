@@ -22,7 +22,7 @@ if (isset($_SESSION['sess_user_id']))
 # That's a tricky hack but it works ;)
 $dlang = http::getAcceptLanguage();
 $dlang = ($dlang == '' ? 'en' : $dlang);
-if ($dlang != 'en')
+if ($dlang != 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$dlang))
 {
 	l10n::set(dirname(__FILE__).'/../locales/'.$dlang.'/main');
 }
