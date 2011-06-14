@@ -39,6 +39,9 @@ define('DC_MASTER_KEY','');
 // Admin URL. You need to set it for some features.
 define('DC_ADMIN_URL','');
 
+// Admin mail from address. For password recovery and such.
+define('DC_ADMIN_MAILFROM','');
+
 // Cookie's name
 define('DC_SESSION_NAME','dcxd');
 
