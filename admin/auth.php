@@ -125,24 +125,37 @@ elseif ($akey)
 	}
 }
 # Change password and retry to log
-elseif ($change_pwd and $data = unserialize(base64_decode($_POST['login_data'])))
+elseif ($change_pwd)
 {
-	# Check login informations
-	$check_user = false;
-	if (isset($data['cookie_admin']) && strlen($data['cookie_admin']) == 104)
-	{
-		$user_id = substr($data['cookie_admin'],40);
-		$user_id = @unpack('a32',@pack('H*',$user_id));
-		if (is_array($user_id))
-		{
-			$user_id = $user_id[1];
-			$user_key = substr($data['cookie_admin'],0,40);
-			$check_user = $core->auth->checkUser($user_id,null,$user_key) === true;
-		}
-	}
-	
 	try
 	{
+		$tmp_data = explode('/',$_POST['login_data']);
+		if (count($tmp_data) != 3) {
+			throw new Exception();
+		}
+		$data = array(
+			'user_id'=>base64_decode($tmp_data[0]),
+			'cookie_admin'=>$tmp_data[1],
+			'user_remember'=>$tmp_data[2]=='1'
+		);
+		if ($data['user_id'] === false) {
+			throw new Exception();
+		}
+		
+		# Check login informations
+		$check_user = false;
+		if (isset($data['cookie_admin']) && strlen($data['cookie_admin']) == 104)
+		{
+			$user_id = substr($data['cookie_admin'],40);
+			$user_id = @unpack('a32',@pack('H*',$user_id));
+			if (is_array($user_id))
+			{
+				$user_id = $user_id[1];
+				$user_key = substr($data['cookie_admin'],0,40);
+				$check_user = $core->auth->checkUser($user_id,null,$user_key) === true;
+			}
+		}
+	
 		if (!$core->auth->allowPassChange() || !$check_user) {
 			$change_pwd = false;
 			throw new Exception();
@@ -165,11 +178,7 @@ elseif ($change_pwd and $data = unserialize(base64_decode($_POST['login_data']))
 		$_SESSION['sess_user_id'] = $user_id;
 		$_SESSION['sess_browser_uid'] = http::browserUID(DC_MASTER_KEY);
 		
-		if (!empty($data['blog_id'])) {
-			$_SESSION['sess_blog_id'] = $data['blog_id'];
-		}
-		
-		if (!empty($data['user_remember']))
+		if ($data['user_remember'])
 		{
 			setcookie('dc_admin',$data['cookie_admin'],strtotime('+15 days'),'','',DC_ADMIN_SSL);
 		}
@@ -192,12 +201,11 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 	
 	if ($check_user && $core->auth->mustChangePassword())
 	{
-		$login_data = base64_encode(serialize(array(
-			'user_id'=>$user_id,
-			'cookie_admin'=>$cookie_admin,
-			'blog_id'=>(!empty($_POST['blog']) ? $_POST['blog'] : ''),
-			'user_remember'=>!empty($_POST['user_remember'])
-		)));
+		$login_data = join('/',array(
+			base64_encode($user_id),
+			$cookie_admin,
+			empty($_POST['user_remember'])?'0':'1'
+		));
 		
 		if (!$core->auth->allowPassChange()) {
 			$err = __('You have to change your password before you can login.');
