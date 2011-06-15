@@ -155,7 +155,11 @@ function display_theme_details($id,$details,$current)
 	}
 	
 	$radio_id = 'theme_'.html::escapeHTML($id);
-	$theme_url = http::concatURL($core->blog->url,$core->blog->settings->system->themes_url.'/'.$id);
+	if (preg_match('#^http(s)?://#',$core->blog->settings->system->themes_url)) {
+		$theme_url = http::concatURL($core->blog->settings->system->themes_url,'/'.$id);
+	} else {
+		$theme_url = http::concatURL($core->blog->url,$core->blog->settings->system->themes_url.'/'.$id);
+	}
 	$has_conf = file_exists(path::real($core->blog->themes_path.'/'.$id).'/_config.php');
 	$has_css = file_exists(path::real($core->blog->themes_path.'/'.$id).'/style.css');
 	$parent = $core->themes->moduleInfo($id,'parent');
