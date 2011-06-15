@@ -200,14 +200,14 @@ if ($core->blog->status == 0) {
 	echo '<p class="static-msg">'.__('This blog is removed').'</p>';
 }
 
-if (!defined('DC_ADMIN_URL') || DC_ADMIN_URL) {
+if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {
 	echo
 	'<p class="static-msg">'.
 	'DC_ADMIN_URL '.__('is not defined, you should edit your configuration file.').
 	'</p>';
 }
 
-if (!defined('DC_ADMIN_MAILFROM') || DC_ADMIN_MAILFROM) {
+if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
 	echo
 	'<p class="static-msg">'.
 	'DC_ADMIN_MAILFROM '.__('is not defined, you should edit your configuration file.').
