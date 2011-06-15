@@ -554,10 +554,10 @@ echo '<fieldset><legend>'.__('Available favorites').'</legend>';
 $count = 0;
 $array = $_fav;
 function cmp($a,$b) {
-    if ($a[1] == $b[1]) {
+    if (__($a[1]) == __($b[1])) {
         return 0;
     }
-    return ($a[1] < $b[1]) ? -1 : 1;
+    return (__($a[1]) < __($b[1])) ? -1 : 1;
 }
 $array=$array->getArrayCopy();
 uasort($array,'cmp');
