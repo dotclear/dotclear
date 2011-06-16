@@ -44,16 +44,23 @@ class tplDuctileTheme
 
 		# Main font
 		$main_font_selectors = 'body, #supranav li a span, #comments.me, a.comment-number';
-		if isset($s['body_font']) self::prop($css,$main_font_selectors,'font-family',self::fontDef($s['body_font']));
+		if (isset($s['body_font'])) self::prop($css,$main_font_selectors,'font-family',self::fontDef($s['body_font']));
 
-		# Alternate font
-		$alternate_font_selectors = '#blogdesc, #supranav li, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer p';
-		if isset($s['alternate_font']) self::prop($css,$alternate_font_selectors,'font-family',self::fontDef($s['alternate_font']));
+		# Secondary font
+		$alternate_font_selectors = '#blogdesc, #supranav, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer p';
+		if (isset($s['alternate_font'])) self::prop($css,$alternate_font_selectors,'font-family',self::fontDef($s['alternate_font']));
+		
+		# Inside posts links font weight
+		$links = '.post-excerpt a, .post-content a';
+		if (isset($s['body_link_w'])) self::prop($css,$links,'font-weight',($s['body_link_w'] ? 'bold' : 'normal'));
 
-		# Link colors
-		if isset($s['body_link_c']) self::prop($css,'a','color',$s['body_link_c']);
-		if isset($s['body_link_v_c']) self::prop($css,'a:visited','color',$s['body_link_v_c']);
-		if isset($s['body_link_f_c']) self::prop($css,'a:hover, a:focus, a:active','color',$s['body_link_f_c']);
+		# Inside posts links colors (normal, visited)
+		$links_selectors = '.post-excerpt a:link, .post-excerpt a:visited, .post-content a:link, .post-content a:visited';
+		if (isset($s['body_link_v_c'])) self::prop($css,$links_selectors,'color',$s['body_link_v_c']);
+
+		# Inside posts links colors (hover, active, focus)
+		$links_alternate_selectors = '.post-excerpt a:hover, .post-excerpt a:active, .post-excerpt a:focus, .post-content a:hover, .post-content a:active, .post-content a:focus';
+		if (isset($s['body_link_f_c'])) self::prop($css,$links_alternate_selectors,'color',$s['body_link_f_c']);
 
 		# Style directives
 		$res = '';
