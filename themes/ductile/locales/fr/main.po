@@ -1,2 +1,41 @@
 msgid "Style sheet upgraded."
 msgstr "Feuille de style mise à jour."
+
+msgid "Fonts"
+msgstr "Polices de caractère"
+
+msgid "Main font:"
+msgstr "Famille de police principale :"
+
+msgid "Alternate font:"
+msgstr "Famille de police secondaire :"
+
+msgid "Ductile primary"
+msgstr "Principale de Ductile"
+
+msgid "Ductile secondary"
+msgstr "Secondaire de Ductile"
+
+msgid "Times New Roman"
+msgstr "Times New Roman"
+
+msgid "Georgia"
+msgstr "Georgia"
+
+msgid "Garamond"
+msgstr "Garamond"
+
+msgid "Helvetica/Arial"
+msgstr "Helvetica/Arial"
+
+msgid "Verdana"
+msgstr "Verdana"
+
+msgid "Trebuchet MS"
+msgstr "Trebuchet MS"
+
+msgid "Impact"
+msgstr "Impact"
+
+msgid "Monospace"
+msgstr "Monospace"

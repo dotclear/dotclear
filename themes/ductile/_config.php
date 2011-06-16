@@ -13,6 +13,20 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/main');
 
+$fonts = array(
+	__('default') => '',
+	__('Ductile primary') => 'Ductile body',
+	__('Ductile secondary') => 'Ductile alternate',
+	__('Times New Roman') => 'Times New Roman',
+	__('Georgia') => 'Georgia',
+	__('Garamond') => 'Garamond',
+	__('Helvetica/Arial') => 'Helvetica/Arial',
+	__('Verdana') => 'Verdana',
+	__('Trebuchet MS') => 'Trebuchet MS',
+	__('Impact') => 'Impact',
+	__('Monospace') => 'Monospace'
+);
+
 function adjustColor($c)
 {
 	if ($c === '') {
@@ -39,7 +53,9 @@ function adjustColor($c)
 $ductile_base = array(
 	'body_link_c' => null,
 	'body_link_v_c' => null,
-	'body_link_f_c' => null
+	'body_link_f_c' => null,
+	'body_font' => null,
+	'alternate_font' => null
 );
 
 $ductile_user = $core->blog->settings->themes->ductile_style;
@@ -58,6 +74,9 @@ if (!empty($_POST))
 		$ductile_user['body_link_f_c'] = adjustColor($_POST['body_link_f_c']);
 		$ductile_user['body_link_v_c'] = adjustColor($_POST['body_link_v_c']);
 		
+		$ductile_user['body_font'] = $_POST['body_font'];
+		$ductile_user['alternate_font'] = $_POST['alternate_font'];
+		
 		$core->blog->settings->addNamespace('themes');
 		$core->blog->settings->themes->put('ductile_style',serialize($ductile_user));
 		$core->blog->triggerBlog();
@@ -72,6 +91,14 @@ if (!empty($_POST))
 		$core->error->add($e->getMessage());
 	}
 }
+
+echo '<fieldset><legend>'.__('Fonts').'</legend>'.
+'<p class="field"><label for="body_font">'.__('Main font:').' '.
+form::combo('body_font',$fonts,$ductile_user['body_font']).'</label></p>'.
+
+'<p class="field"><label for="alternate_font">'.__('Alternate font:').' '.
+form::combo('alternate_font',$fonts,$ductile_user['alternate_font']).'</label></p>'.
+'</fieldset>';
 
 echo '<fieldset><legend>'.__('Links').'</legend>'.
 '<p class="field"><label for="body_link_c">'.__('Links color:').' '.
