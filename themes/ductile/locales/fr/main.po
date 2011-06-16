@@ -1,13 +1,25 @@
 msgid "Style sheet upgraded."
 msgstr "Feuille de style mise à jour."
 
+msgid "Links in bold:"
+msgstr "Liens en gras :"
+
+msgid "Inside posts links"
+msgstr "Liens dans les billets"
+
+msgid "Normal and visited links color:"
+msgstr "Couleur des liens normaux et visités :"
+
+msgid "Active, hover and focus links color:"
+msgstr "Couleur des liens actifs, survolés et ayant le focus :"
+
 msgid "Fonts"
 msgstr "Polices de caractère"
 
 msgid "Main font:"
 msgstr "Famille de police principale :"
 
-msgid "Alternate font:"
+msgid "Secondary font:"
 msgstr "Famille de police secondaire :"
 
 msgid "Ductile primary"

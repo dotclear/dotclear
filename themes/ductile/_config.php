@@ -51,7 +51,7 @@ function adjustColor($c)
 }
 
 $ductile_base = array(
-	'body_link_c' => null,
+	'body_link_w' => null,
 	'body_link_v_c' => null,
 	'body_link_f_c' => null,
 	'body_font' => null,
@@ -70,9 +70,10 @@ if (!empty($_POST))
 {
 	try
 	{
-		$ductile_user['body_link_c'] = adjustColor($_POST['body_link_c']);
-		$ductile_user['body_link_f_c'] = adjustColor($_POST['body_link_f_c']);
+		$ductile_user['body_link_w'] = (integer) !empty($_POST['body_link_w']);
+
 		$ductile_user['body_link_v_c'] = adjustColor($_POST['body_link_v_c']);
+		$ductile_user['body_link_f_c'] = adjustColor($_POST['body_link_f_c']);
 		
 		$ductile_user['body_font'] = $_POST['body_font'];
 		$ductile_user['alternate_font'] = $_POST['alternate_font'];
@@ -96,19 +97,19 @@ echo '<fieldset><legend>'.__('Fonts').'</legend>'.
 '<p class="field"><label for="body_font">'.__('Main font:').' '.
 form::combo('body_font',$fonts,$ductile_user['body_font']).'</label></p>'.
 
-'<p class="field"><label for="alternate_font">'.__('Alternate font:').' '.
+'<p class="field"><label for="alternate_font">'.__('Secondary font:').' '.
 form::combo('alternate_font',$fonts,$ductile_user['alternate_font']).'</label></p>'.
 '</fieldset>';
 
-echo '<fieldset><legend>'.__('Links').'</legend>'.
-'<p class="field"><label for="body_link_c">'.__('Links color:').' '.
-form::field('body_link_c',7,7,$ductile_user['body_link_c'],'colorpicker').'</label></p>'.
+echo '<fieldset><legend>'.__('Inside posts links').'</legend>'.
+'<p class="field"><label for="body_link_w">'.__('Links in bold:').' '.
+form::checkbox('body_link_w',1,$ductile_user['body_link_w']).'</label>'.'</p>'.
 
-'<p class="field"><label for="body_link_v_c">'.__('Visited links color:').' '.
-form::field('body_link_v_c',7,7,$ductile_user['body_link_v_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="body_link_v_c">'.__('Normal and visited links color:').'</label> '.
+form::field('body_link_v_c',7,7,$ductile_user['body_link_v_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="body_link_f_c">'.__('Focus links color:').' '.
-form::field('body_link_f_c',7,7,$ductile_user['body_link_f_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="body_link_f_c">'.__('Active, hover and focus links color:').'</label> '.
+form::field('body_link_f_c',7,7,$ductile_user['body_link_f_c'],'colorpicker').'</p>'.
 '</fieldset>';
 
 ?>
