@@ -44,16 +44,16 @@ class tplDuctileTheme
 
 		# Main font
 		$main_font_selectors = 'body, #supranav li a span, #comments.me, a.comment-number';
-		self::prop($css,$main_font_selectors,'font-family',self::fontDef($s['body_font']));
+		if isset($s['body_font']) self::prop($css,$main_font_selectors,'font-family',self::fontDef($s['body_font']));
 
 		# Alternate font
 		$alternate_font_selectors = '#blogdesc, #supranav li, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer p';
-		self::prop($css,$alternate_font_selectors,'font-family',self::fontDef($s['alternate_font']));
+		if isset($s['alternate_font']) self::prop($css,$alternate_font_selectors,'font-family',self::fontDef($s['alternate_font']));
 
 		# Link colors
-		self::prop($css,'a','color',$s['body_link_c']);
-		self::prop($css,'a:visited','color',$s['body_link_v_c']);
-		self::prop($css,'a:hover, a:focus, a:active','color',$s['body_link_f_c']);
+		if isset($s['body_link_c']) self::prop($css,'a','color',$s['body_link_c']);
+		if isset($s['body_link_v_c']) self::prop($css,'a:visited','color',$s['body_link_v_c']);
+		if isset($s['body_link_f_c']) self::prop($css,'a:hover, a:focus, a:active','color',$s['body_link_f_c']);
 
 		# Style directives
 		$res = '';
@@ -69,15 +69,24 @@ class tplDuctileTheme
 	}
 
 	protected static $fonts = array(
+		// Theme standard
 		'Ductile body' => '"Century Schoolbook", "Century Schoolbook L", Georgia, serif',
 		'Ductile alternate' => '"Franklin gothic medium", "arial narrow", "DejaVu Sans Condensed", "helvetica neue", helvetica, sans-serif',
+
+		// Serif families
 		'Times New Roman' => 'Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif',
 		'Georgia' => 'Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif," "Bitstream Vera Serif", "Liberation Serif", Georgia, serif',
 		'Garamond' => '"Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif',
+
+		// Sans-serif families
 		'Helvetica/Arial' => 'Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif',
 		'Verdana' => 'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif',
 		'Trebuchet MS' => '"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif',
+
+		// Cursive families
 		'Impact' => 'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif',
+
+		// Monospace families
 		'Monospace' => 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace'
 	);
 
