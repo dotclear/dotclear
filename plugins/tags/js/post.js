@@ -86,11 +86,10 @@ $(function() {
 			
 			ed.addButton('tag', {
 				title : 'dcTag.tag_desc',
-				cmd : 'dcTag',
-				image :'index.php?pf=tags/img/tag-add.png'
+				cmd : 'dcTag'
 			});
 			
-			ed.addShortcut('ctrl+alt+t', 'dcTag.ta_desc', 'dcTag');
+			ed.addShortcut('ctrl+alt+t', 'dcTag.tag_desc', 'dcTag');
 			
 			ed.onNodeChange.add(function(ed, cm, n, co) {
 				cm.setDisabled('tag', co || ed.dom.getParent(n, 'A'));
