@@ -247,7 +247,6 @@ if ($popup)
 		$media_type = 'mp3';
 		
 		echo '<h3>'.__('MP3 disposition').'</h3>'.
-		'<p class="message">'.__("Please note that you cannot insert mp3 files with visual editor.").'</p>';
 		
 		$i_align = array(
 			'none' => array(__('None'),0),
@@ -270,9 +269,6 @@ if ($popup)
 	elseif ($file->type == 'video/x-flv' || $file->type == 'video/mp4' || $file->type == 'video/x-m4v')
 	{
 		$media_type = 'flv';
-		
-		echo
-		'<p class="message">'.__("Please note that you cannot insert video files with visual editor.").'</p>';
 		
 		echo
 		'<h3>'.__('Video size').'</h3>'.
