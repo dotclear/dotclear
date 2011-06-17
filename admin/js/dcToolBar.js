@@ -15,6 +15,9 @@
 			return this.each(function(){
 				$.data(this,'toolbar',new tinymce.Editor($(this).attr('id'),dcToolBar.getConfig(settings.formatter)));
 				$(this).data('toolbar').activeFormatter = settings.formatter;
+				$(this).data('toolbar').onPreInit.add(function(ed) {
+					tinymce.addI18n(dcToolBar.getI18n());
+				});
 			});
 		
 		},
@@ -31,7 +34,10 @@
 				if ($(this).data('toolbar') == null) {
 					throw 'Toolbar should be initialize before show it';
 				}
-				$(this).data('toolbar').show();
+				var t = $(this).data('toolbar');
+
+				tinymce.dom.show(t.getContainer());
+				t.load();
 			});
 		},
 		hide: function() {
@@ -39,7 +45,10 @@
 				if ($(this).data('toolbar') == null) {
 					throw 'Toolbar should be initialize before hide it';
 				}
-				$(this).data('toolbar').hide();
+				var t = $(this).data('toolbar');
+
+				tinymce.dom.hide(t.getContainer());
+				t.load();
 			});
 		},
 		toggle: function() {
@@ -47,10 +56,14 @@
 				if ($(this).data('toolbar') == null) {
 					throw 'Toolbar should be initialize before toogle it';
 				}
-				if ($(this).data('toolbar').isHidden()) {
-					$(this).data('toolbar').show();
-				} else {
-					$(this).data('toolbar').hide();
+				var t = $(this).data('toolbar');
+				if (t.isHidden()) {
+					t.show();
+					t.load();
+				}
+				else {
+					t.save();
+					$(t.getContainer()).hide();
 				}
 			});
 		},
@@ -96,6 +109,10 @@ function dcToolBar() {
 		this.configurations[formatter] = config;
 	};
 	
+	this.setI18n = function(i18n) {
+		this.i18n = i18n;
+	};
+	
 	this.getConfig = function(formatter) {
 		if (this.configurations.hasOwnProperty(formatter)) {
 			return this.configurations[formatter];
@@ -103,8 +120,13 @@ function dcToolBar() {
 			return null;
 		}
 	};
+	
+	this.getI18n = function() {
+		return this.i18n == null ? {} : this.i18n;
+	};
 }
 
 dcToolBar.prototype = {
-	configurations: {}
+	configurations: {},
+	i18n: null
 }

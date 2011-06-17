@@ -9,6 +9,7 @@ class dcToolbar
 	{
 		$this->core = $core;
 		$this->toolbars = array();
+		$this->i18n = array();
 	}
 	
 	public function addFormatter($formatter)
@@ -66,9 +67,24 @@ class dcToolbar
 		}
 		
 		foreach($buttons as $level => $ids) {
+			if (!is_array($ids)) {
+				continue;
+			}
 			$level = !preg_match('#^[1-4]$#',$level) ? 1 : $level;
 			$this->toolbars[$formatter]['buttons'][$level] = array_merge($this->toolbars[$formatter]['buttons'][$level],$ids);
 		}
+	}
+	
+	public function addI18n($component,$i18n)
+	{
+		if (!is_array($i18n)) {
+			return;
+		}
+		if (!array_key_exists($component,$this->i18n)) {
+			$this->i18n[$component] = array();
+		}
+		
+		$this->i18n[$component] = array_merge($this->i18n[$component],$i18n);
 	}
 	
 	public function getJS()
@@ -93,6 +109,16 @@ class dcToolbar
 			array_walk($s,create_function('&$v,$k','$v=sprintf("%s: %s",$k,(!preg_match("#^(true|false|{.*})$#",$v)?"\'".$v."\'":$v));'));
 			$res .= sprintf("dcToolBar.setConfig('%s',{%s});\n",$formatter,implode(",\n",$s));
 		}
+		
+		// Add translation
+		$i18n = array();
+		
+		foreach ($this->i18n as $component => $values) {
+			array_walk($this->i18n[$component],create_function('&$v,$k','$v=sprintf("\'%s\': \'%s\'",$k,html::escapeJS($v));'));
+			array_push($i18n,sprintf('%s: {%s}',$component,implode(',',$this->i18n[$component])));
+		}
+		
+		$res .= !empty($i18n) ? sprintf("dcToolBar.setI18n({%s: {%s}});\n",'en',implode(",\n",$i18n)) : '';
 		
 		return $res;
 	}

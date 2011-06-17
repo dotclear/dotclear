@@ -604,12 +604,10 @@ class dcPage
 				'formatselect',
 				'removeformat',
 				'cleanup',
-				'seperator',
-				'cut',
-				'copy',
-				'paste',
+				'separator',
 				'pastetext',
 				'pasteword',
+				'separator',
 				'search',
 				'replace'
 			),
@@ -681,6 +679,133 @@ class dcPage
 				'separator',
 				'code'
 			)
+		));
+		
+		$tb->addI18n('common',array(
+			'edit_confirm' => __('Do you want to use the WYSIWYG mode for this textarea?'),
+			'apply' => __('Apply'),
+			'insert' => __('Insert'),
+			'update' => __('Update'),
+			'cancel' => __('Cancel'),
+			'close' => __('Close'),
+			'browse' => __('Browse'),
+			'class_name' => __('Class'),
+			'not_set' => __('-- Not set --'),
+			'clipboard_msg' => __('Copy/Cut/Paste is not available in Mozilla and Firefox. Do you want more information about this issue?'),
+			'clipboard_no_support' => __('Currently not supported by your browser, use keyboard shortcuts instead.'),
+			'popup_blocked' => __('Sorry, but we have noticed that your popup-blocker has disabled a window that provides application functionality. You will need to disable popup blocking on this site in order to fully utilize this tool.'),
+			'invalid_data' => __('{#field} is invalid'),
+			'invalid_data_number' => __('{#field} must be a number'),
+			'invalid_data_min' => __('{#field} must be a number greater than {#min}'),
+			'invalid_data_size' => __('{#field} must be a number or percentage'),
+			'more_colors' => __('More colors')
+		));
+		$tb->addI18n('advanced',array(
+			'style_select' => __('Styles'),
+			'font_size' => __('Font size'),
+			'fontdefault' => __('Font family'),
+			'block' => __('Format'),
+			'paragraph' => __('Paragraph'),
+			'div' => __('Div'),
+			'address' => __('Address'),
+			'pre' => __('Preformatted'),
+			'h1' => __('Heading 1'),
+			'h2' => __('Heading 2'),
+			'h3' => __('Heading 3'),
+			'h4' => __('Heading 4'),
+			'h5' => __('Heading 5'),
+			'h6' => __('Heading 6'),
+			'blockquote' => __('Blockquote'),
+			'code' => __('Code'),
+			'samp' => __('Code sample'),
+			'dt' => __('Definition term '),
+			'dd' => __('Definition description'),
+			'bold_desc' => __('Bold (Ctrl+prout)'),
+			'italic_desc' => __('Italic (Ctrl+I)'),
+			'underline_desc' => __('Underline (Ctrl+U)'),
+			'striketrough_desc' => __('Strikethrough'),
+			'justifyleft_desc' => __('Align left'),
+			'justifycenter_desc' => __('Align center'),
+			'justifyright_desc' => __('Align right'),
+			'justifyfull_desc' => __('Align full'),
+			'bullist_desc' => __('Unordered list'),
+			'numlist_desc' => __('Ordered list'),
+			'outdent_desc' => __('Outdent'),
+			'indent_desc' => __('Indent'),
+			'undo_desc' => __('Undo (Ctrl+Z)'),
+			'redo_desc' => __('Redo (Ctrl+Y)'),
+			'link_desc' => __('Insert/edit link'),
+			'unlink_desc' => __('Unlink'),
+			'image_desc' => __('Insert/edit image'),
+			'cleanup_desc' => __('Cleanup messy code'),
+			'code_desc' => __('Edit HTML Source'),
+			'sub_desc' => __('Subscript'),
+			'sup_desc' => __('Superscript'),
+			'hr_desc' => __('Insert horizontal ruler'),
+			'removeformat_desc' => __('Remove formatting'),
+			'custom1_desc' => __('Your custom description here'),
+			'forecolor_desc' => __('Select text color'),
+			'backcolor_desc' => __('Select background color'),
+			'charmap_desc' => __('Insert custom character'),
+			'visualaid_desc' => __('Toggle guidelines/invisible elements'),
+			'anchor_desc' => __('Insert/edit anchor'),
+			'cut_desc' => __('Cut'),
+			'copy_desc' => __('Copy'),
+			'paste_desc' => __('Paste'),
+			'image_props_desc' => __('Image properties'),
+			'newdocument_desc' => __('New document'),
+			'help_desc' => __('Help'),
+			'blockquote_desc' => __('Blockquote'),
+			'clipboard_msg' => __('Copy/Cut/Paste is not available in Mozilla and Firefox.\r\nDo you want more information about this issue?'),
+			'path' => __('Path'),
+			'newdocument' => __('Are you sure you want clear all contents?'),
+			'toolbar_focus' => __('Jump to tool buttons - Alt+Q, Jump to editor - Alt-Z, Jump to element path - Alt-X'),
+			'more_colors' => __('More colors'),
+			'shortcuts_desc' => __('Accessibility Help'),
+			'help_shortcut' => __('. Press ALT F10 for toolbar. Press ALT 0 for help.'),
+			'rich_text_area' => __('Rich Text Area'),
+			'toolbar' => __('Toolbar')
+		));
+		$tb->addI18n('advanced_dlg',array(
+			'about_title' => __('About TinyMCE'),
+			'about_general' => __('About'),
+			'about_help' => __('Help'),
+			'about_license' => __('License'),
+			'about_plugins' => __('Plugins'),
+			'about_plugin' => __('Plugin'),
+			'about_author' => __('Author'),
+			'about_version' => __('Version'),
+			'about_loaded' => __('Loaded plugins'),
+			'anchor_title' => __('Insert/edit anchor'),
+			'anchor_name' => __('Anchor name'),
+			'anchor_invalid' => __('Please specify a valid anchor name.'),
+			'code_title' => __('HTML Source Editor'),
+			'code_wordwrap' => __('Word wrap'),
+			'charmap_title' => __('Select custom character'),
+			'accessibility_help' => __('Accessibility Help'),
+			'accessibility_usage_title' => __('General Usage')
+		));
+		$tb->addI18n('paste',array(
+			'paste_text_desc' => __('Paste as Plain Text'),
+			'paste_word_desc' => __('Paste from Word'),
+			'selectall_desc' => __('Select All'),
+			'plaintext_mode_sticky' => __('Paste is now in plain text mode. Click again to toggle back to regular paste mode. After you paste something you will be returned to regular paste mode.'),
+			'plaintext_mode' => __('Paste is now in plain text mode. Click again to toggle back to regular paste mode.')
+		));
+		$tb->addI18n('paste_dlg',array(
+			'text_title' => __('Use CTRL+V on your keyboard to paste the text into the window.'),
+			'text_linebreaks' => __('Keep linebreaks'),
+			'word_title' => __('Use CTRL+V on your keyboard to paste the text into the window.')
+		));
+		$tb->addI18n('fullscreen',array('desc' => __('Toggle fullscreen mode')));
+		$tb->addI18n('aria',array('rich_text_area' => __('Rich Text Area')));
+		
+		$tb->addI18n('dcControls',array(
+			'inlinecode_desc' => __('Code'),
+			'quote_desc' => __('Quote'),
+			'link_desc' => __('Link'),
+			'media_desc' => __('Add media from media manager'),
+			'webmedia_desc' => __('Add media from web')
 		));
 		
 		$res =
