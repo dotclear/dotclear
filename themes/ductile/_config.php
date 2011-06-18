@@ -63,6 +63,9 @@ function adjustColor($c)
 }
 
 $ductile_base = array(
+	// HTML
+	'subtitle_hidden' => null,
+	// CSS
 	'body_font' => null,
 	'alternate_font' => null,
 	'blog_title_w' => null,
@@ -94,6 +97,12 @@ if (!empty($_POST))
 {
 	try
 	{
+		# HTML
+		
+		$ductile_user['subtitle_hidden'] = (integer) !empty($_POST['subtitle_hidden']);
+		
+		# CSS
+		
 		$ductile_user['body_font'] = $_POST['body_font'];
 		$ductile_user['alternate_font'] = $_POST['alternate_font'];
 
@@ -123,7 +132,7 @@ if (!empty($_POST))
 
 		echo
 		'<div class="message"><p>'.
-		__('Style sheet upgraded.').
+		__('Theme configuration upgraded.').
 		'</p></div>';
 	}
 	catch (Exception $e)
@@ -131,6 +140,21 @@ if (!empty($_POST))
 		$core->error->add($e->getMessage());
 	}
 }
+
+# HTML Tab
+
+echo '<div class="multi-part" id="themes-list" title="'.__('Content').'">';
+
+echo '<fieldset><legend>'.__('Header').'</legend>'.
+'<p class="field"><label for="subtitle_hidden">'.__('Hide blog description:').' '.
+form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.'</p>'.
+'</fieldset>';
+
+echo '</div>'; // Close tab
+
+# CSS tab
+
+echo '<div class="multi-part" id="ductile-css" title="'.__('Presentation').'">';
 
 echo '<h3>'.__('General settings').'</h3>';
 
@@ -152,7 +176,7 @@ form::checkbox('blog_title_w',1,$ductile_user['blog_title_w']).'</label>'.'</p>'
 '<p class="field"><label for="blog_title_s">'.__('Font size:').'</label> '.
 form::field('blog_title_s',7,7,$ductile_user['blog_title_s']).' '.__('(in em by default)').'</p>'.
 
-'<p class="field"><label for="blog_title_c">'.__('Color:').'</label> '.
+'<p class="field picker"><label for="blog_title_c">'.__('Color:').'</label> '.
 form::field('blog_title_c',7,7,$ductile_user['blog_title_c'],'colorpicker').'</p>'.
 '</fieldset>';
 
@@ -166,7 +190,7 @@ form::checkbox('post_title_w',1,$ductile_user['post_title_w']).'</label>'.'</p>'
 '<p class="field"><label for="post_title_s">'.__('Font size:').'</label> '.
 form::field('post_title_s',7,7,$ductile_user['post_title_s']).' '.__('(in em by default)').'</p>'.
 
-'<p class="field"><label for="post_title_c">'.__('Color:').'</label> '.
+'<p class="field picker"><label for="post_title_c">'.__('Color:').'</label> '.
 form::field('post_title_c',7,7,$ductile_user['post_title_c'],'colorpicker').'</p>'.
 '</fieldset>';
 
@@ -177,10 +201,10 @@ echo '<fieldset><legend>'.__('Inside posts links').'</legend>'.
 '<p class="field"><label for="post_link_w">'.__('In bold:').' '.
 form::checkbox('post_link_w',1,$ductile_user['post_link_w']).'</label>'.'</p>'.
 
-'<p class="field"><label for="post_link_v_c">'.__('Normal and visited links color:').'</label> '.
+'<p class="field picker"><label for="post_link_v_c">'.__('Normal and visited links color:').'</label> '.
 form::field('post_link_v_c',7,7,$ductile_user['post_link_v_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="body_link_f_c">'.__('Active, hover and focus links color:').'</label> '.
+'<p class="field picker"><label for="body_link_f_c">'.__('Active, hover and focus links color:').'</label> '.
 form::field('post_link_f_c',7,7,$ductile_user['post_link_f_c'],'colorpicker').'</p>'.
 '</fieldset>';
 
@@ -196,7 +220,7 @@ form::checkbox('blog_title_w_m',1,$ductile_user['blog_title_w_m']).'</label>'.'<
 '<p class="field"><label for="blog_title_s_m">'.__('Font size:').'</label> '.
 form::field('blog_title_s_m',7,7,$ductile_user['blog_title_s_m']).' '.__('(in em by default)').'</p>'.
 
-'<p class="field"><label for="blog_title_c_m">'.__('Color:').'</label> '.
+'<p class="field picker"><label for="blog_title_c_m">'.__('Color:').'</label> '.
 form::field('blog_title_c_m',7,7,$ductile_user['blog_title_c_m'],'colorpicker').'</p>'.
 '</fieldset>';
 
@@ -210,11 +234,13 @@ form::checkbox('post_title_w_m',1,$ductile_user['post_title_w_m']).'</label>'.'<
 '<p class="field"><label for="post_title_s_m">'.__('Font size:').'</label> '.
 form::field('post_title_s_m',7,7,$ductile_user['post_title_s_m']).' '.__('(in em by default)').'</p>'.
 
-'<p class="field"><label for="post_title_c_m">'.__('Color:').'</label> '.
+'<p class="field picker"><label for="post_title_c_m">'.__('Color:').'</label> '.
 form::field('post_title_c_m',7,7,$ductile_user['post_title_c_m'],'colorpicker').'</p>'.
 '</fieldset>';
 
 echo '</div>';
 echo '</div>';
+
+echo '</div>'; // Close tab
 
 ?>
