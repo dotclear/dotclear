@@ -135,10 +135,10 @@ if (!empty($_POST))
 echo '<h3>'.__('General settings').'</h3>';
 
 echo '<fieldset><legend>'.__('Fonts').'</legend>'.
-'<p class="field"><label for="body_font">'.__('Main font:').' '.
+'<p class="field"><label for="body_font">'.__('Main:').' '.
 form::combo('body_font',$fonts,$ductile_user['body_font']).'</label></p>'.
 
-'<p class="field"><label for="alternate_font">'.__('Secondary font:').' '.
+'<p class="field"><label for="alternate_font">'.__('Secondary:').' '.
 form::combo('alternate_font',$fonts,$ductile_user['alternate_font']).'</label></p>'.
 '</fieldset>';
 
@@ -146,13 +146,13 @@ echo '<div class="two-cols">';
 echo '<div class="col">';
 
 echo '<fieldset><legend>'.__('Blog title').'</legend>'.
-'<p class="field"><label for="blog_title_w">'.__('Blog title in bold:').' '.
+'<p class="field"><label for="blog_title_w">'.__('In bold:').' '.
 form::checkbox('blog_title_w',1,$ductile_user['blog_title_w']).'</label>'.'</p>'.
 
-'<p class="field"><label for="blog_title_s">'.__('Blog title font size:').'</label> '.
+'<p class="field"><label for="blog_title_s">'.__('Font size:').'</label> '.
 form::field('blog_title_s',7,7,$ductile_user['blog_title_s']).' '.__('(in em by default)').'</p>'.
 
-'<p class="field"><label for="blog_title_c">'.__('Blog title color:').'</label> '.
+'<p class="field"><label for="blog_title_c">'.__('Color:').'</label> '.
 form::field('blog_title_c',7,7,$ductile_user['blog_title_c'],'colorpicker').'</p>'.
 '</fieldset>';
 
@@ -160,13 +160,13 @@ echo '</div>';
 echo '<div class="col">';
 
 echo '<fieldset><legend>'.__('Post title').'</legend>'.
-'<p class="field"><label for="post_title_w">'.__('Post title in bold:').' '.
+'<p class="field"><label for="post_title_w">'.__('In bold:').' '.
 form::checkbox('post_title_w',1,$ductile_user['post_title_w']).'</label>'.'</p>'.
 
-'<p class="field"><label for="post_title_s">'.__('Post title font size:').'</label> '.
+'<p class="field"><label for="post_title_s">'.__('Font size:').'</label> '.
 form::field('post_title_s',7,7,$ductile_user['post_title_s']).' '.__('(in em by default)').'</p>'.
 
-'<p class="field"><label for="post_title_c">'.__('Post title color:').'</label> '.
+'<p class="field"><label for="post_title_c">'.__('Color:').'</label> '.
 form::field('post_title_c',7,7,$ductile_user['post_title_c'],'colorpicker').'</p>'.
 '</fieldset>';
 
@@ -174,7 +174,7 @@ echo '</div>';
 echo '</div>';
 
 echo '<fieldset><legend>'.__('Inside posts links').'</legend>'.
-'<p class="field"><label for="post_link_w">'.__('Links in bold:').' '.
+'<p class="field"><label for="post_link_w">'.__('In bold:').' '.
 form::checkbox('post_link_w',1,$ductile_user['post_link_w']).'</label>'.'</p>'.
 
 '<p class="field"><label for="post_link_v_c">'.__('Normal and visited links color:').'</label> '.
@@ -190,13 +190,13 @@ echo '<div class="two-cols">';
 echo '<div class="col">';
 
 echo '<fieldset><legend>'.__('Blog title').'</legend>'.
-'<p class="field"><label for="blog_title_w_m">'.__('Blog title in bold:').' '.
+'<p class="field"><label for="blog_title_w_m">'.__('In bold:').' '.
 form::checkbox('blog_title_w_m',1,$ductile_user['blog_title_w_m']).'</label>'.'</p>'.
 
-'<p class="field"><label for="blog_title_s_m">'.__('Blog title font size:').'</label> '.
+'<p class="field"><label for="blog_title_s_m">'.__('Font size:').'</label> '.
 form::field('blog_title_s_m',7,7,$ductile_user['blog_title_s_m']).' '.__('(in em by default)').'</p>'.
 
-'<p class="field"><label for="blog_title_c_m">'.__('Blog title color:').'</label> '.
+'<p class="field"><label for="blog_title_c_m">'.__('Color:').'</label> '.
 form::field('blog_title_c_m',7,7,$ductile_user['blog_title_c_m'],'colorpicker').'</p>'.
 '</fieldset>';
 
@@ -204,13 +204,13 @@ echo '</div>';
 echo '<div class="col">';
 
 echo '<fieldset><legend>'.__('Post title').'</legend>'.
-'<p class="field"><label for="post_title_w_m">'.__('Post title in bold:').' '.
+'<p class="field"><label for="post_title_w_m">'.__('In bold:').' '.
 form::checkbox('post_title_w_m',1,$ductile_user['post_title_w_m']).'</label>'.'</p>'.
 
-'<p class="field"><label for="post_title_s_m">'.__('Post title font size:').'</label> '.
+'<p class="field"><label for="post_title_s_m">'.__('Font size:').'</label> '.
 form::field('post_title_s_m',7,7,$ductile_user['post_title_s_m']).' '.__('(in em by default)').'</p>'.
 
-'<p class="field"><label for="post_title_c_m">'.__('Post title color:').'</label> '.
+'<p class="field"><label for="post_title_c_m">'.__('Color:').'</label> '.
 form::field('post_title_c_m',7,7,$ductile_user['post_title_c_m'],'colorpicker').'</p>'.
 '</fieldset>';
 
