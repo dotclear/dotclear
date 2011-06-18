@@ -1,6 +1,6 @@
 <div id="header">
 
-	<ul id="prelude">
+	<ul id="prelude" class="nomobile">
 		<li><a href="#main">{{tpl:lang To content}}</a></li>
 		<li><a href="#blognav">{{tpl:lang To menu}}</a></li>
 		<li><a href="#search">{{tpl:lang To search}}</a></li>
@@ -14,7 +14,7 @@
 		1. la balise <p /> ne soit présente que si la description est non vide
 		2. que l'utilisateur puisse indiquer si oui ou non il souhaite afficher la description (?)
 		-->
-		<p id="blogdesc">{{tpl:BlogDescription}}</p>
+		<p id="blogdesc" class="nomobile">{{tpl:BlogDescription}}</p>
 
 	<!-- # --BEHAVIOR-- publicTopAfterContent -->
 	{{tpl:SysBehavior behavior="publicTopAfterContent"}}
@@ -25,9 +25,9 @@
 	Par défaut : accueil, archives (rien dans le span)
 	-->
 	<ul id="supranav">
-		<li id="li1" class="active"><a href="{{tpl:BlogURL}}">Accueil<span> articles récents</span></a></li>
-		<li id="li2"><a href="#">Construire un thème<span> tutoriels</span></a></li>
-		<li id="li3"><a href="#">Maquettes<span> projets graphiques</span></a></li>
-		<li id="li4"><a href="{{tpl:BlogURL}}archive">Archives<span> 2005-2011</span></a></li>
+		<li id="li1" class="active"><a href="{{tpl:BlogURL}}">Accueil<span class="nomobile"> articles récents</span></a></li>
+		<li id="li2"><a href="#">Construire un thème<span class="nomobile"> tutoriels</span></a></li>
+		<li id="li3"><a href="#">Maquettes<span class="nomobile"> projets graphiques</span></a></li>
+		<li id="li4"><a href="{{tpl:BlogURL}}archive">Archives<span class="nomobile"> 2005-2011</span></a></li>
 	</ul>
 </div>

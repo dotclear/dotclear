@@ -35,7 +35,8 @@ jQuery.fn.colorPicker = function() {
 		}
 		span.css('display','block');
 		
-		span.css('width',($(this).width()+12)+'px');
+		//span.css('width',($(this).width()+12)+'px');
+		span.css('width',($(this).width()+7.5)+'em');
 		span.css('padding','0 5px 0 0');
 		$(this).wrap(span);
 		$(this).after(handler);
@@ -44,7 +45,7 @@ jQuery.fn.colorPicker = function() {
 		handler.css({
 			position: 'absolute',
 			top: 3,
-			right: 0
+			//right: 0
 		});
 		
 		handler.css({cursor: 'default'});
