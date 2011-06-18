@@ -10,32 +10,20 @@ msgstr "Paramètres spécifiques pour les mobiles"
 msgid "Blog title"
 msgstr "Titre du blog"
 
-msgid "Blog title in bold:"
-msgstr "Titre du blog en gras :"
+msgid "In bold:"
+msgstr "En gras :"
 
-msgid "Blog title font size:"
-msgstr "Taille de police du titre du blog :"
+msgid "Font size:"
+msgstr "Taille de police :"
 
 msgid "(in em by default)"
 msgstr "(en em par défaut)"
 
-msgid "Blog title color:"
-msgstr "Couleur du titre du blog :"
+msgid "Color:"
+msgstr "Couleur :"
 
 msgid "Post title"
 msgstr "Titre des billets"
-
-msgid "Post title in bold:"
-msgstr "Titre des billets en gras :"
-
-msgid "Post title font size:"
-msgstr "Taille de police du titre des billets :"
-
-msgid "Post title color:"
-msgstr "Couleur du titre des billets :"
-
-msgid "Links in bold:"
-msgstr "Liens en gras :"
 
 msgid "Inside posts links"
 msgstr "Liens dans les billets"
@@ -49,11 +37,11 @@ msgstr "Couleur des liens actifs, survolés et ayant le focus :"
 msgid "Fonts"
 msgstr "Polices de caractère"
 
-msgid "Main font:"
-msgstr "Famille de police principale :"
+msgid "Main:"
+msgstr "Principale :"
 
-msgid "Secondary font:"
-msgstr "Famille de police secondaire :"
+msgid "Secondary:"
+msgstr "Secondaire :"
 
 msgid "Ductile primary"
 msgstr "Principale de Ductile"
