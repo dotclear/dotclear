@@ -43,24 +43,24 @@ class tplDuctileTheme
 		# Properties
 
 		# Main font
-		$main_font_selectors = 'body, #supranav li a span, #comments.me, a.comment-number';
-		if (isset($s['body_font'])) self::prop($css,$main_font_selectors,'font-family',self::fontDef($s['body_font']));
+		$selectors = 'body, #supranav li a span, #comments.me, a.comment-number';
+		if (isset($s['body_font'])) self::prop($css,$selectors,'font-family',self::fontDef($s['body_font']));
 
 		# Secondary font
-		$alternate_font_selectors = '#blogdesc, #supranav, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer p';
-		if (isset($s['alternate_font'])) self::prop($css,$alternate_font_selectors,'font-family',self::fontDef($s['alternate_font']));
+		$selectors = '#blogdesc, #supranav, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer p';
+		if (isset($s['alternate_font'])) self::prop($css,$selectors,'font-family',self::fontDef($s['alternate_font']));
 		
 		# Inside posts links font weight
-		$links = '.post-excerpt a, .post-content a';
-		if (isset($s['body_link_w'])) self::prop($css,$links,'font-weight',($s['body_link_w'] ? 'bold' : 'normal'));
+		$selectors = '.post-excerpt a, .post-content a';
+		if (isset($s['post_link_w'])) self::prop($css,$selectors,'font-weight',($s['post_link_w'] ? 'bold' : 'normal'));
 
 		# Inside posts links colors (normal, visited)
-		$links_selectors = '.post-excerpt a:link, .post-excerpt a:visited, .post-content a:link, .post-content a:visited';
-		if (isset($s['body_link_v_c'])) self::prop($css,$links_selectors,'color',$s['body_link_v_c']);
+		$selectors = '.post-excerpt a:link, .post-excerpt a:visited, .post-content a:link, .post-content a:visited';
+		if (isset($s['post_link_v_c'])) self::prop($css,$selectors,'color',$s['post_link_v_c']);
 
 		# Inside posts links colors (hover, active, focus)
-		$links_alternate_selectors = '.post-excerpt a:hover, .post-excerpt a:active, .post-excerpt a:focus, .post-content a:hover, .post-content a:active, .post-content a:focus';
-		if (isset($s['body_link_f_c'])) self::prop($css,$links_alternate_selectors,'color',$s['body_link_f_c']);
+		$selectors = '.post-excerpt a:hover, .post-excerpt a:active, .post-excerpt a:focus, .post-content a:hover, .post-content a:active, .post-content a:focus';
+		if (isset($s['post_link_f_c'])) self::prop($css,$selectors,'color',$s['post_link_f_c']);
 
 		# Style directives
 		$res = '';
@@ -72,6 +72,86 @@ class tplDuctileTheme
 			$res .= "}\n";
 		}
 
+		# Large screens
+		$css_large = array();
+
+		# Blog title font weight
+		$selectors = 'h1, h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
+		if (isset($s['blog_title_w'])) self::prop($css_large,$selectors,'font-weight',($s['blog_title_w'] ? 'bold' : 'normal'));
+		
+		# Blog title font size
+		$selectors = 'h1';
+		if (isset($s['blog_title_s'])) self::prop($css_large,$selectors,'font-size',$s['blog_title_s']);
+		
+		# Blog title color
+		$selectors = 'h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
+		if (isset($s['blog_title_c'])) self::prop($css_large,$selectors,'color',$s['blog_title_c']);
+
+		# Post title font weight
+		$selectors = 'h2.post-title, h2.post-title a:link, h2.post-title a:visited, h2.post-title a:hover, h2.post-title a:visited, h2.post-title a:focus';
+		if (isset($s['post_title_w'])) self::prop($css_large,$selectors,'font-weight',($s['post_title_w'] ? 'bold' : 'normal'));
+		
+		# Post title font size
+		$selectors = 'h2.post-title';
+		if (isset($s['post_title_s'])) self::prop($css_large,$selectors,'font-size',$s['post_title_s']);
+		
+		# Post title color
+		$selectors = 'h2.post-title a:link, h2.post-title a:visited, h2.post-title a:hover, h2.post-title a:visited, h2.post-title a:focus';
+		if (isset($s['post_title_c'])) self::prop($css_large,$selectors,'color',$s['post_title_c']);
+
+		# Style directives for large screens
+		if (count($css_large)) {
+			$res .= '@media only screen and (min-width: 481px) {'."\n";
+			foreach ($css_large as $selector => $values) {
+				$res .= $selector." {\n";
+				foreach ($values as $k => $v) {
+					$res .= $k.':'.$v.";\n";
+				}
+				$res .= "}\n";
+			}
+			$res .= "}\n";
+		}
+
+		# Small screens
+		$css_small = array();
+
+		# Blog title font weight
+		$selectors = 'h1, h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
+		if (isset($s['blog_title_w_m'])) self::prop($css_small,$selectors,'font-weight',($s['blog_title_w_m'] ? 'bold' : 'normal'));
+		
+		# Blog title font size
+		$selectors = 'h1';
+		if (isset($s['blog_title_s_m'])) self::prop($css_small,$selectors,'font-size',$s['blog_title_s_m']);
+		
+		# Blog title color
+		$selectors = 'h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
+		if (isset($s['blog_title_c_m'])) self::prop($css_small,$selectors,'color',$s['blog_title_c_m']);
+
+		# Post title font weight
+		$selectors = 'h2.post-title, h2.post-title a:link, h2.post-title a:visited, h2.post-title a:hover, h2.post-title a:visited, h2.post-title a:focus';
+		if (isset($s['post_title_w_m'])) self::prop($css_small,$selectors,'font-weight',($s['post_title_w_m'] ? 'bold' : 'normal'));
+		
+		# Post title font size
+		$selectors = 'h2.post-title';
+		if (isset($s['post_title_s_m'])) self::prop($css_small,$selectors,'font-size',$s['post_title_s_m']);
+		
+		# Post title color
+		$selectors = 'h2.post-title a:link, h2.post-title a:visited, h2.post-title a:hover, h2.post-title a:visited, h2.post-title a:focus';
+		if (isset($s['post_title_c_m'])) self::prop($css_small,$selectors,'color',$s['post_title_c_m']);
+
+		# Style directives for small screens
+		if (count($css_small)) {
+			$res .= '@media only screen and (max-width: 480px) {'."\n";
+			foreach ($css_small as $selector => $values) {
+				$res .= $selector." {\n";
+				foreach ($values as $k => $v) {
+					$res .= $k.':'.$v.";\n";
+				}
+				$res .= "}\n";
+			}
+			$res .= "}\n";
+		}
+		
 		return $res;
 	}
 

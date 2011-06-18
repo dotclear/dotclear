@@ -1,6 +1,39 @@
 msgid "Style sheet upgraded."
 msgstr "Feuille de style mise à jour."
 
+msgid "General settings"
+msgstr "Paramètres généraux"
+
+msgid "Mobile specific settings"
+msgstr "Paramètres spécifiques pour les mobiles"
+
+msgid "Blog title"
+msgstr "Titre du blog"
+
+msgid "Blog title in bold:"
+msgstr "Titre du blog en gras :"
+
+msgid "Blog title font size:"
+msgstr "Taille de police du titre du blog :"
+
+msgid "(in em by default)"
+msgstr "(en em par défaut)"
+
+msgid "Blog title color:"
+msgstr "Couleur du titre du blog :"
+
+msgid "Post title"
+msgstr "Titre des billets"
+
+msgid "Post title in bold:"
+msgstr "Titre des billets en gras :"
+
+msgid "Post title font size:"
+msgstr "Taille de police du titre des billets :"
+
+msgid "Post title color:"
+msgstr "Couleur du titre des billets :"
+
 msgid "Links in bold:"
 msgstr "Liens en gras :"
 
