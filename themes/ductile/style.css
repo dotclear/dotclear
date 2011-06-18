@@ -24,6 +24,7 @@ Couleurs :
 Typo: #222 courant, #4c4c85 commentaires
 Liens: #666 courant, #ad3f4c titre billet et Lire la suite
 Fond formulaire comm: #eef
+Fond sidebar: #ededed
 
 Thanks to:
 Colorzilla wysiwyg gradient editor http://www.colorzilla.com/gradient-editor/
@@ -88,6 +89,7 @@ h1 {
 	}
 h1 a {
 	text-decoration: none;
+	color: #333;
 	}
 #prelude {
 	position: absolute;
@@ -103,7 +105,7 @@ h1 a {
 	}
 #prelude a, #prelude a:hover, #prelude a:visited {
 	position:absolute;
-	left:0px;
+	left:0;
 	top:-500px;
 	width:1px;
 	height:1px;
@@ -122,13 +124,13 @@ h1 a {
 	text-shadow: none;
 	}
 #supranav {
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	padding: 0 0 0 4px;
 	list-style-type: none;
 	line-height: 1.25;
 	font-size: .875em;
 	}
 #supranav li {
-	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	text-transform: uppercase;
 	vertical-align: top;
 	}
@@ -546,7 +548,7 @@ a.comment-number {
 }
 #blognav > div, 
 #blogextra > div {
-	background: #f3f2e9;
+	background: #ededed;
 	margin-bottom: 1em;
 	padding: 4px 8px;
 	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
