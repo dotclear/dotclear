@@ -1,17 +1,20 @@
 @charset "UTF-8";
 
 /* seuils retenus :
-480px
-640px
-1024px
-1280px
------------------ */
+jusqu'à 480px: tout en une colonne, sidebar et stickers en bas
+480px: stickers en haut
+640px: sidebar toujours en bas mais divisé en deux colonnes
+1024px: passage à deux colonnes, sidebar à droite
+1280px: décalage du post-info vers la gauche
+1600px: marges plus grandes */
 
+/* --------------------------------------------------------------------
+	Téléphones (moins de 480px)
+-------------------------------------------------------------------- */
 @media only screen and (max-width:480px) {
 	#prelude, #blogdesc, #supranav span {
 		display: none !important;
 		}
-
 	h1 {
 		font-size: 1.8em;
 		}
@@ -24,7 +27,6 @@
 		border-right: 1px solid #aaa;
 		border-bottom: 1px solid #ccc;
 		}
-
 	#supranav {
 		border:none;
 		margin: 8px 0 0;
@@ -35,11 +37,9 @@
 		padding: 4px 8px;
 		border-bottom: 1px solid #ccc;
 		}
-
 	h2.post-title {
-		font-size: 2.5em;
+		font-size: 2em;
 		}
-
 	#stickers {
 		margin: 0;
 		padding: 0;
@@ -51,8 +51,8 @@
 		margin-left: 0;
 		padding-left: 0;
 		border: 2px solid #fff;
-		border-left: 8px solid #fff;
-		border-right: 8px solid #fff;
+		border-left: 6px solid #fff;
+		border-right: 6px solid #fff;
 		}
 	#stickers img {
 		display: block;
@@ -67,6 +67,10 @@
 		}
 }
 
+/* --------------------------------------------------------------------
+	Autres (plus de 480px)
+-------------------------------------------------------------------- */
+
 @media only screen and (min-width: 481px) {
 	#top {
 		padding-top: 24px;
@@ -77,7 +81,6 @@
 		padding-bottom: 4px;
 		margin-left: 32px;
 		}
-
 	#supranav {
 		margin: 36px 0 0;
 		border-bottom: 1px solid #ccc;
@@ -94,7 +97,6 @@
 	#supranav li a span {
 		display: block;
 		}
-
 	#stickers {
 		position: absolute;
 		top: 0;
@@ -112,7 +114,7 @@
 		display: none;
 		}
 	h2.post-title {
-		font-size: 2.8em;
+		font-size: 2.6em;
 		}
 	#stickers li a:hover,
 	#stickers li a:active,
@@ -122,8 +124,16 @@
 		}
 }
 
+/* ------------------------------------------------------ special redimensionnement paysage */
+@media screen and (max-width:640px) and (orientation: landscape) { 
+  body { 
+   -webkit-text-size-adjust: 70%; 
+  } 
+}
+
+/* ------------------------------------------------------ règles communes > 640px */
 @media only screen and (max-width:639px) {
-	html {
+	body {
 		-webkit-text-size-adjust: none;
 		}
 	#wrapper {
@@ -136,6 +146,7 @@
 		}
 }
 
+/* ------------------------------------------------------ spécifique 640px à 1024px */
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
 	#wrapper {
 		padding: 0 10%;
@@ -151,6 +162,7 @@
 		}
 }
 
+/* ------------------------------------------------------ spécifique 840px à 1024px */
 @media only screen and (min-width: 840px) and (max-width: 1023px) {
 	#wrapper {
 		padding: 0 13%;
@@ -160,22 +172,25 @@
 		}	
 }
 
+/* ------------------------------------------------------ 
+	au-delà de 1024px on passe à deux colonnes
+------------------------------------------------------ */
 @media only screen and (min-width: 1024px) {
 	#wrapper {
 		padding: 0 7%;
 		}
 	#main {
 		width : 100%;
-		margin : 0 -22% 0 0;
+		margin : 0 -17em 0 0;
 		float : left;
 		display: inline;
 		}
 	#content {
-		margin : 0 30% 0 0;
+		margin : 0 20em 0 0;
 		padding : 0 0 2em 0;
 		}
 	#sidebar {
-		width : 22%;
+		width : 17em;
 		float : right;
 		}
 	#blognav, #blogextra {
@@ -184,7 +199,6 @@
 	#stickers {
 		padding-right: 7%;
 		}
-
 	#sidebar #blognav div:first-child {
 		margin-top: 4.66em;
 		}
@@ -204,14 +218,17 @@
 		vertical-align: top;
 		color: #666;
 		}
-	#sidebar div#search p {
+	#sidebar div#search:first-child p {
 		margin: .33em 0;
 		}
 }
 
+/* ------------------------------------------------------ 
+	au-delà de 1280px on décale le post-info à gauche
+------------------------------------------------------- */
 @media only screen and (min-width: 1280px) {
 	#content {
-		margin : 0 30% 0 200px;
+		margin : 0 20em 0 200px;
 		}
 	p.post-info { 
 		margin-left: -200px; 
@@ -227,11 +244,12 @@
 		}
 }
 
+/* ------------------------------------------------------ au-delà de 1600px */
 @media only screen and (min-width: 1600px) {
 	#wrapper {
-		padding: 0 12%;
+		padding: 0 10%;
 		}
 	#stickers {
-		padding-right: 12%;
+		padding-right: 10%;
 		}
 }
