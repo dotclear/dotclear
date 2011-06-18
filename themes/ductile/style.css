@@ -162,7 +162,7 @@ h1 a {
 	5. WRAPPER MAIN CONTENT
 ------------------------------------------------------------- */
 
-#wrapper { }
+#wrapper { clear:both; }
 #main { }
 #content { 
 	padding-bottom: 2em; 
@@ -232,15 +232,12 @@ h1 a {
 .day-date {
 	display: none;
 	}
-h2.post-title {
-	font-weight: normal;
+.post-title {
 	margin-bottom: .33em;
 	color: #000;
 	line-height: 1.17;
 	}
-h2.post-title a {
-	font-weight: normal;
-	font-style: italic;
+.post-title a {
 	text-decoration: none;
 	color: #ad3f4c;
 	}
@@ -390,7 +387,7 @@ h2.post-title a {
 	color: #333;
 	font-size: 1.14em;
 	}
-a.comment-number {
+.comment-number {
 	font-size: 2em;
 	font-weight: normal;
 	font-style: italic;
@@ -572,13 +569,13 @@ a.comment-number {
 	height: auto;
 	line-height: 2em;
 	}
-#search #q {
+#q {
 	float: left;
 	width: 78%;
 	font-size: 100%;
 	padding-left: 2px;
 	}
-#search #q:focus {
+#q:focus {
 	background: #fcfcf9;
 	}
 #search .submit {

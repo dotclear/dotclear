@@ -12,7 +12,7 @@ jusqu'à 480px: tout en une colonne, sidebar et stickers en bas
 	Téléphones (moins de 480px)
 -------------------------------------------------------------------- */
 @media only screen and (max-width:480px) {
-	#prelude, #blogdesc, #supranav span {
+	.nomobile {
 		display: none !important;
 		}
 	h1 {
@@ -37,8 +37,14 @@ jusqu'à 480px: tout en une colonne, sidebar et stickers en bas
 		padding: 4px 8px;
 		border-bottom: 1px solid #ccc;
 		}
-	h2.post-title {
-		font-size: 2em;
+	.post-title {
+		font-size: 1.5em;
+		font-weight: bold;
+		font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
+		}
+	.post-title a {
+		font-style: normal;
+		font-weight: bold;
 		}
 	#stickers {
 		margin: 0;
@@ -97,6 +103,14 @@ jusqu'à 480px: tout en une colonne, sidebar et stickers en bas
 	#supranav li a span {
 		display: block;
 		}
+	.post-title {
+		font-size: 2.5em;
+		font-weight: normal;
+		}
+	.post-title a {
+		font-style: italic;
+		font-weight: normal;
+		}
 	#stickers {
 		position: absolute;
 		top: 0;
@@ -113,7 +127,7 @@ jusqu'à 480px: tout en une colonne, sidebar et stickers en bas
 	#stickers li span {
 		display: none;
 		}
-	h2.post-title {
+	.post-title {
 		font-size: 2.6em;
 		}
 	#stickers li a:hover,
