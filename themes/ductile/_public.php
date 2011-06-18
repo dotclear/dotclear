@@ -41,6 +41,10 @@ class tplDuctileTheme
 		$css = array();
 
 		# Properties
+		
+		# Blog description
+		$selectors = '#blogdesc';
+		if (isset($s['subtitle_hidden'])) self::prop($css,$selectors,'display',($s['subtitle_hidden'] ? 'none' : null));
 
 		# Main font
 		$selectors = 'body, #supranav li a span, #comments.me, a.comment-number';

@@ -1,5 +1,17 @@
-msgid "Style sheet upgraded."
-msgstr "Feuille de style mise à jour."
+msgid "Theme configuration upgraded."
+msgstr "Configuration du thème mise à jour."
+
+msgid "Content"
+msgstr "Contenu"
+
+msgid "Header"
+msgstr "Entête"
+
+msgid "Hide blog description:"
+msgstr "Cacher la description du blog :"
+
+msgid "Presentation"
+msgstr "Présentation"
 
 msgid "General settings"
 msgstr "Paramètres généraux"
