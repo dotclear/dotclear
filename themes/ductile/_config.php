@@ -93,38 +93,42 @@ if (!is_array($ductile_user)) {
 
 $ductile_user = array_merge($ductile_base,$ductile_user);
 
+$conf_tab = isset($_POST['conf_tab']) ? $_POST['conf_tab'] : 'html';
+
 if (!empty($_POST))
 {
 	try
 	{
 		# HTML
-		
-		$ductile_user['subtitle_hidden'] = (integer) !empty($_POST['subtitle_hidden']);
+		if ($conf_tab == 'html') {
+			$ductile_user['subtitle_hidden'] = (integer) !empty($_POST['subtitle_hidden']);
+		}
 		
 		# CSS
-		
-		$ductile_user['body_font'] = $_POST['body_font'];
-		$ductile_user['alternate_font'] = $_POST['alternate_font'];
+		if ($conf_tab == 'css') {
+			$ductile_user['body_font'] = $_POST['body_font'];
+			$ductile_user['alternate_font'] = $_POST['alternate_font'];
 
-		$ductile_user['blog_title_w'] = (integer) !empty($_POST['blog_title_w']);
-		$ductile_user['blog_title_s'] = adjustFontSize($_POST['blog_title_s']);
-		$ductile_user['blog_title_c'] = adjustColor($_POST['blog_title_c']);
+			$ductile_user['blog_title_w'] = (integer) !empty($_POST['blog_title_w']);
+			$ductile_user['blog_title_s'] = adjustFontSize($_POST['blog_title_s']);
+			$ductile_user['blog_title_c'] = adjustColor($_POST['blog_title_c']);
 		
-		$ductile_user['post_title_w'] = (integer) !empty($_POST['post_title_w']);
-		$ductile_user['post_title_s'] = adjustFontSize($_POST['post_title_s']);
-		$ductile_user['post_title_c'] = adjustColor($_POST['post_title_c']);
+			$ductile_user['post_title_w'] = (integer) !empty($_POST['post_title_w']);
+			$ductile_user['post_title_s'] = adjustFontSize($_POST['post_title_s']);
+			$ductile_user['post_title_c'] = adjustColor($_POST['post_title_c']);
 		
-		$ductile_user['post_link_w'] = (integer) !empty($_POST['post_link_w']);
-		$ductile_user['post_link_v_c'] = adjustColor($_POST['post_link_v_c']);
-		$ductile_user['post_link_f_c'] = adjustColor($_POST['post_link_f_c']);
+			$ductile_user['post_link_w'] = (integer) !empty($_POST['post_link_w']);
+			$ductile_user['post_link_v_c'] = adjustColor($_POST['post_link_v_c']);
+			$ductile_user['post_link_f_c'] = adjustColor($_POST['post_link_f_c']);
 		
-		$ductile_user['blog_title_w_m'] = (integer) !empty($_POST['blog_title_w_m']);
-		$ductile_user['blog_title_s_m'] = adjustFontSize($_POST['blog_title_s_m']);
-		$ductile_user['blog_title_c_m'] = adjustColor($_POST['blog_title_c_m']);
+			$ductile_user['blog_title_w_m'] = (integer) !empty($_POST['blog_title_w_m']);
+			$ductile_user['blog_title_s_m'] = adjustFontSize($_POST['blog_title_s_m']);
+			$ductile_user['blog_title_c_m'] = adjustColor($_POST['blog_title_c_m']);
 		
-		$ductile_user['post_title_w_m'] = (integer) !empty($_POST['post_title_w_m']);
-		$ductile_user['post_title_s_m'] = adjustFontSize($_POST['post_title_s_m']);
-		$ductile_user['post_title_c_m'] = adjustColor($_POST['post_title_c_m']);
+			$ductile_user['post_title_w_m'] = (integer) !empty($_POST['post_title_w_m']);
+			$ductile_user['post_title_s_m'] = adjustFontSize($_POST['post_title_s_m']);
+			$ductile_user['post_title_c_m'] = adjustColor($_POST['post_title_c_m']);
+		}
 		
 		$core->blog->settings->addNamespace('themes');
 		$core->blog->settings->themes->put('ductile_style',serialize($ductile_user));
@@ -141,20 +145,30 @@ if (!empty($_POST))
 	}
 }
 
+echo '</form>';
+
 # HTML Tab
 
-echo '<div class="multi-part" id="themes-list" title="'.__('Content').'">';
+echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">';
+
+echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
 
 echo '<fieldset><legend>'.__('Header').'</legend>'.
 '<p class="field"><label for="subtitle_hidden">'.__('Hide blog description:').' '.
 form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.'</p>'.
 '</fieldset>';
 
+echo '<input type="hidden" name="conf_tab" value="html">';
+echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
+echo '</form>';
+
 echo '</div>'; // Close tab
 
 # CSS tab
 
-echo '<div class="multi-part" id="ductile-css" title="'.__('Presentation').'">';
+echo '<div class="multi-part" id="themes-list'.($conf_tab == 'css' ? '' : '-css').'" title="'.__('Presentation').'">';
+
+echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
 
 echo '<h3>'.__('General settings').'</h3>';
 
@@ -241,6 +255,12 @@ form::field('post_title_c_m',7,7,$ductile_user['post_title_c_m'],'colorpicker').
 echo '</div>';
 echo '</div>';
 
+echo '<input type="hidden" name="conf_tab" value="css">';
+echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
+echo '</form>';
+
 echo '</div>'; // Close tab
+
+echo '<form style="display:none">';
 
 ?>
