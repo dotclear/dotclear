@@ -25,11 +25,8 @@ msgstr "Titre du blog"
 msgid "In bold:"
 msgstr "En gras :"
 
-msgid "Font size:"
-msgstr "Taille de police :"
-
-msgid "(in em by default)"
-msgstr "(en em par défaut)"
+msgid "Font size (in em by default):"
+msgstr "Taille de police (en em par défaut) :"
 
 msgid "Color:"
 msgstr "Couleur :"
