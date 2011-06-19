@@ -27,7 +27,7 @@ class tplDuctileTheme
 	
 	public static function ductileStyleHelper()
 	{
-		$s = $GLOBALS['core']->blog->settings->themes->ductile_style;
+		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_style');
 
 		if ($s === null) {
 			return;

@@ -85,7 +85,7 @@ $ductile_base = array(
 	'post_title_c_m' => null
 );
 
-$ductile_user = $core->blog->settings->themes->ductile_style;
+$ductile_user = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_style');
 $ductile_user = @unserialize($ductile_user);
 if (!is_array($ductile_user)) {
 	$ductile_user = array();
@@ -131,7 +131,7 @@ if (!empty($_POST))
 		}
 		
 		$core->blog->settings->addNamespace('themes');
-		$core->blog->settings->themes->put('ductile_style',serialize($ductile_user));
+		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_style',serialize($ductile_user));
 		$core->blog->triggerBlog();
 
 		echo
