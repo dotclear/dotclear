@@ -950,7 +950,7 @@ class dcMedia extends filemanager
 		}
 	}
 	
-	protected function imageThumbUpdate(&$file,&$newFile)
+	protected function imageThumbUpdate($file,$newFile)
 	{
 		if ($file->relname != $newFile->relname)
 		{
