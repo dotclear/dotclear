@@ -13,13 +13,13 @@ var popup_media = {
 				center: 'text-align: center;'
 			};
 			// Form vars
-			var url = $('input[name=url]').val();
-			var src = $('input[name=src]:checked').val();
-			var type = $('input[name=type]').val();
-			var title = $('input[name=title]').val();
-			var description = $('input[name=description]').val();
-			var alignment = $('input[name=alignment]:checked').val();
-			var insertion = $('input[name=insertion]:checked').val();
+			var url = $('input[name="url"]').val();
+			var src = $('input[name="src"]:checked').val();
+			var type = $('input[name="type"]').val();
+			var title = $('input[name="title"]').val();
+			var description = $('input[name="description"]').val();
+			var alignment = $('input[name="alignment"]:checked').val();
+			var insertion = $('input[name="insertion"]:checked').val();
 			var player = $('#public_player').val();
 			var width = $('#video_w').val();
 			var height = $('#video_h').val();
@@ -64,14 +64,14 @@ var popup_media = {
 				var res = null;
 				var opt_div = {};
 				var oplayer = $(player);
-				var flashvars = $("[name=FlashVars]",player).val();
+				var flashvars = $('[name="FlashVars"]',player).val();
 				
 				if (title) {
 					flashvars = 'title='+title+'&amp;'+flashvars;
 				}
 				flashvars = flashvars.replace(/(width=\d*)/,'width='+width);
 				flashvars = flashvars.replace(/(height=\d*)/,'height='+height);
-				$("[name=FlashVars]",oplayer).val(flashvars);
+				$('[name="FlashVars"]',oplayer).val(flashvars);
 				
 				oplayer.attr('width',width);
 				oplayer.attr('height',height);
@@ -87,7 +87,7 @@ var popup_media = {
 			else {
 				tinyMCEPopup.execCommand('mceInsertLink', false, '#mce_temp_url#', {skip_undo : 1});
 				
-				elementArray = tinymce.grep(ed.dom.select("a"),function(n) {return ed.dom.getAttrib(n,'href') == '#mce_temp_url#';});
+				elementArray = tinymce.grep(ed.dom.select('a'),function(n) {return ed.dom.getAttrib(n,'href') == '#mce_temp_url#';});
 				for (i=0; i<elementArray.length; i++) {
 					var node = elementArray[i];
 					ed.dom.setAttrib(node,'href',href);
