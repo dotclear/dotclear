@@ -53,17 +53,18 @@ jusqu'à 480px: tout en une colonne, sidebar et stickers en bas
 		}
 	#stickers li {
 		position: relative;
-		line-height: 2.5em;
+		padding: .5em 0;
 		margin-left: 0;
-		padding-left: 0;
-		border: 2px solid #fff;
-		border-left: 6px solid #fff;
-		border-right: 6px solid #fff;
+		border-style: solid;
+		border-color: #fff;
+		border-width: 2px 6px;
+		overflow: hidden;
 		}
 	#stickers img {
-		display: block;
 		position: absolute;
-		clip: rect(0px,32px,32px,0px);
+		top: -2px;
+		clip: rect(0 32px 36px 0);
+		clip: rect(0, 32px, 36px, 0);
 		}
 	#stickers span {
 		margin-left: 40px;
@@ -125,10 +126,11 @@ jusqu'à 480px: tout en une colonne, sidebar et stickers en bas
 		padding-right: 0;
 		}
 	#stickers li span {
-		display: none;
-		}
-	.post-title {
-		font-size: 2.6em;
+		font-size: 1px;
+		display: inline-block;
+		height:1px;
+		width: 1px;
+		overflow:hidden;
 		}
 	#stickers li a:hover,
 	#stickers li a:active,
