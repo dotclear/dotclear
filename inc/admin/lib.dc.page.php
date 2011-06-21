@@ -870,19 +870,23 @@ class dcPage
 	public static function jsToolMan()
 	{
 		return
-		'<script type="text/javascript" src="js/tool-man/core.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/events.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/css.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/coordinates.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/drag.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/dragsort.js"></script>'.
-		'<script type="text/javascript" src="js/dragsort-tablerows.js"></script>';
+		self::jsLoad('js/tool-man/core.js').
+		self::jsLoad('js/tool-man/events.js').
+		self::jsLoad('js/tool-man/css.js').
+		self::jsLoad('js/tool-man/coordinates.js').
+		self::jsLoad('js/tool-man/drag.js').
+		self::jsLoad('js/tool-man/dragsort.js').
+		self::jsLoad('js/dragsort-tablerows.js');
 	}
 	
 	public static function jsMetaEditor()
 	{
-		return
-		'<script type="text/javascript" src="js/meta-editor.js"></script>';
+		return self::jsLoad('js/meta-editor.js');
+	}
+	
+	public static function jsOEmbed()
+	{
+		return self::jsLoad('js/jquery/jquery.oembed.js');
 	}
 }
 ?>

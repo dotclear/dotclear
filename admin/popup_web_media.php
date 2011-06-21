@@ -15,7 +15,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 dcPage::openPopup(__('Add a web media'),
-	dcPage::jsLoad('js/jquery/jquery.oembed.js').
+	dcPage::jsOEmbed().
 	dcPage::jsLoad('js/tiny_mce/tiny_mce_popup.js').
 	dcPage::jsLoad('js/tiny_mce/plugins/dcControls/js/popup_web_media.js').
 	'<style type="text/css">

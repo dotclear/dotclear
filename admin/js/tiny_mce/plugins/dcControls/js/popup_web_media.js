@@ -4,9 +4,6 @@ var popup_web_media = {
 	oembed_opts: {
 		maxWidth: 480,
 		maxHeight: 400,
-		defaultOEmbedProvider: 'embed.ly',
-		greedy: false,
-		embedMethod: 'fill',
 		onProviderNotFound: function(url) {
 			$('#src').removeClass().addClass('error');
 			alert('Provider not supported');
@@ -16,12 +13,6 @@ var popup_web_media = {
 				$('#src').removeClass().addClass('error');
 			} else {
 				$('#src').removeClass().addClass('success');
-				if (!data.thumbnail_url) {
-					$('input[value="thumbnail"]').attr('disabled',true);
-				} else {
-					$('input[value="thumbnail"]').attr('disabled',false);
-				}
-				$('div.two-cols').slideDown();
 			}
 		},
 		afterEmbed: function(data) {
@@ -38,21 +29,18 @@ var popup_web_media = {
 				if (data.height) $('#height').val(data.height);
 				
 				if (!data.thumbnail_url) {
-					$('input[name="insertion" value="thumbnail"]').attr('disabled', 'disabled');
+					$('input[value="thumbnail"]').attr('disabled',true);
+				} else {
+					$('input[value="thumbnail"]').attr('disabled',false);
 				}
 				
-				$(this).data('code',popup_web_media.getValidXHTMLCode(data.html));
+				$(this).data('data',data);
+				
+				$('div.two-cols').slideDown();
 			}
-		},
-		onEmbed: function(data) {
-			$(this).data('code',popup_web_media.getValidXHTMLCode(data.html));
 		},
 		onError: function(xhr,status,error) {
 			$('#src').removeClass().addClass('error');
-		},
-		ajaxOptions: {
-			cache: false,
-			timeout: 5000
 		}
 	},
 	
@@ -70,21 +58,57 @@ var popup_web_media = {
 			
 			$('#src').removeClass().addClass('loading');
 			
-			$('#alt,#title').val('');
+			$('#alt,#title,#width,#height').val('');
 			
-			$('div.preview').data('code',null);
+			$('div.preview').data('data',null);
 			$('div.preview').oembed($('#src').val(),popup_web_media.oembed_opts);
 		});
 		
 		$('#webmedia-insert-ok').click(function(){
 			var ed = tinyMCEPopup.editor;
-			var xhtml = $('div.preview').data('code');
+			var media_align_grid = {
+				left: 'float: left; margin: 0 1em 1em 0;',
+				right: 'float: right; margin: 0 0 1em 1em;',
+				center: 'text-align: center;'
+			};
+			var data = $('div.preview').data('data');
+			var alignment = $('input[name=alignment]:checked').val();
+			var insertion = $('input[name="insertion"]:checked').val();
+			var src = $('input[name="src"]').val();
+			var title = $('input[name="title"]').val();
+			var alt = $('input[name="alt"]').val();
+			var code = '';
 			
-			if (xhtml != null) {
-				ed.execCommand('mceInsertContent',false,xhtml.get(0).outerHTML)
+			if (data != null) {
+				var a = $('<a>').attr({
+					'href': src,
+					'title': title
+				});
+				var img = $('<img>').attr({
+					'src': data.thumbnail_url,
+					'alt': alt,
+					'title': title
+				});
+				switch($('input[name="insertion"]:checked').val()) {
+					case 'media':
+						code = $(data.code);
+						break;
+					case 'thumbnail':
+						code = a.append(img);
+						break;
+					case 'link':
+						code = a.append(alt);
+						break;
+				}
+				
+				if (alignment != 'none') {
+					code.attr('style',media_align_grid[alignment]);
+				}
+				
+				ed.execCommand('mceInsertContent',false,code.get(0).outerHTML);
 				tinyMCEPopup.close();
 			} else {
-				alert('provide a valide media');
+				alert('Provide a valid media');
 			}
 		});
 		
