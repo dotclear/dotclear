@@ -6,6 +6,21 @@ div.col {
 	width: 100%;
 }
 
+/* Web media */
+#src {
+	padding-left: 25px;
+	background: transparent url(img/search.png) no-repeat 5px center;
+}
+#src.loading {
+	background: #ccc url(img/loader.gif) no-repeat 5px center;
+}
+#src.error {
+	background: #ff9999 url(img/cross.png) no-repeat 7px center;
+}
+#src.success {
+	background: #99ff99 url(img/tick.png) no-repeat 7px center;
+}
+
 /* Browse */
 a.browse span {display:block; width:20px; height:18px; background:url(../../img/icons.gif) -860px 0; border:1px solid #FFF; margin-left:1px;}
 .mceOldBoxModel a.browse span {width:22px; height:20px;}

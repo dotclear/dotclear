@@ -17,22 +17,7 @@ dcPage::check('usage,contentadmin');
 dcPage::openPopup(__('Add a web media'),
 	dcPage::jsOEmbed().
 	dcPage::jsLoad('js/tiny_mce/tiny_mce_popup.js').
-	dcPage::jsLoad('js/tiny_mce/plugins/dcControls/js/popup_web_media.js').
-	'<style type="text/css">
-	#src {
-		padding-left: 25px;
-		background: transparent url(images/menu/search.png) no-repeat 5px center;
-	}
-	#src.loading {
-		background-color: #ccc;
-	}
-	#src.error {
-		background: #ff9999 url(images/check-off.png) no-repeat 5px center;
-	}
-	#src.success {
-		background: #99ff99 url(images/check-on.png) no-repeat 5px center;
-	}
-	</style>'
+	dcPage::jsLoad('js/tiny_mce/plugins/dcControls/js/popup_web_media.js')
 );
 
 $align = array(
@@ -52,7 +37,7 @@ echo
 
 '<form id="video-insert-form" action="#" method="get">'.
 '<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Source URL:').'</label>'.
-form::field('src',85,512,'').'&nbsp;'.
+form::field('src',65,512,'').'&nbsp;'.
 '<a class="button" href="#" id="webmedia-insert-search">'.__('search').'</a> - '.
 '<strong><a class="button" href="#" id="webmedia-insert-ok">'.__('insert').'</a></strong> - '.
 '<a class="button reset" href="#" id="webmedia-insert-cancel">'.__('cancel').'</a></p>'.

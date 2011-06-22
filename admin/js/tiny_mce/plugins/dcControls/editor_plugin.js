@@ -72,10 +72,9 @@
 			ed.addCommand('dcWebMedia', function() {
 				ed.windowManager.open({
 					file: popup_web_media_url,
-					width: 820,
-					height: 700,
+					width: 800,
+					height: 650,
 					inline: 1,
-					popup_css : false,
 					dc_popup: '',
 					alwaysRaised: 'yes',
 					dependent: 'yes',
