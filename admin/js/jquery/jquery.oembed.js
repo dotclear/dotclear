@@ -190,14 +190,14 @@
 			if (data.author_name) alt.push(data.author_name);
 			if (data.title) alt.push(data.title);
 			
-			return $('<a>').attr({
+			return $('<div>').append($('<a>').attr({
 				'href': data.url,
 				'title': title
 			}).append($('<img>').attr({
 				'src': href,
 				'title': title,
 				'alt': alt.join(' - ')
-			}));
+			}))).html();
 		},
 		
 		_getVideoCode: function(data) {
@@ -218,10 +218,10 @@
 			if (data.author_name) alt.push(data.author_name);
 			if (data.title) alt.push(data.title);
 			
-			return $('<a>').attr({
+			return $('<div>').append($('<a>').attr({
 				'href': data.url,
 				'title': title
-			}).append(title);
+			}).append(title)).html();
 		},
 		
 		_getValidHXHTMLCode: function(html) {
@@ -242,7 +242,7 @@
 							object.attr(attr[attributes[i].name],attributes[i].value);
 						}
 					}
-					xhtml += object.get(0).outerHTML;
+					xhtml += $('<div>').append(object).html();
 				} 
 				else if (this.tagName == 'OBJECT') {
 					if ($(this).find('embed').size() > 0) {
@@ -255,9 +255,9 @@
 						}
 						$(this).find('embed').remove();
 					}
-					xhtml += this.outerHTML;
+					xhtml += $('<div>').append($(this)).html();
 				} else {
-					xhtml += internalMethods._getValidHXHTMLCode($(html).find('iframe,object').get(0).outerHTML);
+					xhtml += internalMethods._getValidHXHTMLCode($('<div>').append($(html).find('iframe,object')).html());
 				}
 			});
 			

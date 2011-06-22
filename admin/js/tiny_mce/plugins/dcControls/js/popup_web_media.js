@@ -2,7 +2,7 @@ tinyMCEPopup.requireLangPack();
 
 var popup_web_media = {
 	oembed_opts: {
-		maxWidth: 480,
+		maxWidth: 450,
 		maxHeight: 400,
 		onProviderNotFound: function(url) {
 			$('#src').removeClass().addClass('error');
@@ -45,8 +45,13 @@ var popup_web_media = {
 	},
 	
 	init: function() {
-		$('#src').focusin(function() {
+		$('#src').focusin(function(e) {
 			$(this).removeClass();
+		}).keypress(function(e) {
+			if (e.keyCode == 13) {
+				$(this).focusout();
+				$('#webmedia-insert-search').click();
+			}
 		});
 		
 		$('#webmedia-insert-search').click(function() {
@@ -77,35 +82,44 @@ var popup_web_media = {
 			var src = $('input[name="src"]').val();
 			var title = $('input[name="title"]').val();
 			var alt = $('input[name="alt"]').val();
-			var code = '';
+			var width = $('input[name="width"]').val();
+			var height = $('input[name="height"]').val();
 			
 			if (data != null) {
-				var a = $('<a>').attr({
-					'href': src,
-					'title': title
-				});
-				var img = $('<img>').attr({
-					'src': data.thumbnail_url,
-					'alt': alt,
-					'title': title
-				});
+				var res = null;
+				var opts_div = {};
+				var opts_img = {
+					src: data.thumbnail_url,
+					alt: alt,
+					title: title
+				};
+				var opts_a = {
+					href: src,
+					title: title
+				};
+				
 				switch($('input[name="insertion"]:checked').val()) {
 					case 'media':
-						code = $(data.code);
+						code = $(data.code).attr({
+							'width': width,
+							'height': height
+						});
+						res = ed.dom.create('div',opts_div,ed.dom.getOuterHTML(code.get(0)))
 						break;
 					case 'thumbnail':
-						code = a.append(img);
+						var img = ed.dom.create('img',opts_img);
+						res = ed.dom.create('a',opts_a,ed.dom.getOuterHTML(img));
 						break;
 					case 'link':
-						code = a.append(alt);
+						res = ed.dom.create('a',opts_a,alt);
 						break;
 				}
 				
 				if (alignment != 'none') {
-					code.attr('style',media_align_grid[alignment]);
+					ed.dom.setAttribs(res,{style: media_align_grid[alignment]});
 				}
 				
-				ed.execCommand('mceInsertContent',false,code.get(0).outerHTML);
+				ed.execCommand('mceInsertContent',false,ed.dom.getOuterHTML(res));
 				tinyMCEPopup.close();
 			} else {
 				alert('Provide a valid media');
@@ -126,44 +140,6 @@ var popup_web_media = {
 			
 		}
 		return info;
-	},
-	
-	getValidXHTMLCode: function(html) {
-		var xhtml = $(html);
-		var type = xhtml.get(0).tagName;
-		
-		if (type == 'IFRAME') {
-			var attr = {
-				'src': 'data',
-				'width': 'width',
-				'height': 'height'
-			};
-			var attributes = xhtml.get(0).attributes;
-			xhtml = $('<object>');
-			xhtml.attr('type','text/html');
-			for (i in attributes) {
-				if (attr.hasOwnProperty(attributes[i].name)) {
-					xhtml.attr(attr[attributes[i].name],attributes[i].value);
-				}
-			}
-		} 
-		else if (type == 'OBJECT') {
-			if (xhtml.find('embed').size() > 0) {
-				var embed = xhtml.find('embed').get(0);
-				if ($.inArray('src',embed.attributes)) {
-					xhtml.attr('data',embed.attributes.src.nodeValue);
-				}
-				if ($.inArray('type',embed.attributes)) {
-					xhtml.attr('type',embed.attributes.type.nodeValue);
-				}
-				xhtml.find('embed').remove();
-			}
-		}
-		else {
-			xhtml = this.getValidXHTMLCode(xhtml.find('iframe,object').get(0).outerHTML);
-		}
-		
-		return xhtml;
 	}
 };
 

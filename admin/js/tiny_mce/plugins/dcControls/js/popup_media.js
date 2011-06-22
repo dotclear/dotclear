@@ -80,7 +80,7 @@ var popup_media = {
 					opt_div.style = media_align_grid[alignment];
 				}
 				
-				res = ed.dom.createHTML('div',opt_div,oplayer.get(0).outerHTML);
+				res = ed.dom.createHTML('div',opt_div,ed.dom.getOuterHTML(oplayer.get(0)));
 				
 				ed.execCommand('mceInsertContent',false,res,{skip_undo : 1});
 			}
