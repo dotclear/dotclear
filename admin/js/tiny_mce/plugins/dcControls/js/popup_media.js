@@ -85,7 +85,7 @@ var popup_media = {
 				ed.execCommand('mceInsertContent',false,res,{skip_undo : 1});
 			}
 			else {
-				tinyMCEPopup.execCommand('mceInsertLink', false, '#mce_temp_url#', {skip_undo : 1});
+				ed.execCommand('mceInsertLink', false, '#mce_temp_url#', {skip_undo : 1});
 				
 				elementArray = tinymce.grep(ed.dom.select('a'),function(n) {return ed.dom.getAttrib(n,'href') == '#mce_temp_url#';});
 				for (i=0; i<elementArray.length; i++) {
@@ -95,7 +95,8 @@ var popup_media = {
 				}
 			}
 			
-			tinyMCEPopup.execCommand('mceEndUndoLevel');
+			ed.execCommand('mceEndUndoLevel');
+			ed.execCommand('mceRepaint');
 			tinyMCEPopup.close();
 		});
 		

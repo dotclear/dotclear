@@ -120,6 +120,7 @@ var popup_web_media = {
 				}
 				
 				ed.execCommand('mceInsertContent',false,ed.dom.getOuterHTML(res));
+				ed.execCommand('mceRepaint');
 				tinyMCEPopup.close();
 			} else {
 				alert('Provide a valid media');
