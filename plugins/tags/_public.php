@@ -43,6 +43,7 @@ $core->tpl->addBlock('EntryMetaData',array('tplTags','EntryTags'));
 
 
 $core->addBehavior('templateBeforeBlock',array('behaviorsTags','templateBeforeBlock'));
+$core->addBehavior('tplSysIfConditions',array('behaviorsTags','tplSysIfConditions'));
 
 class behaviorsTags
 {
@@ -67,6 +68,18 @@ class behaviorsTags
 				"\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n".
 				"\$params['sql'] .= \"AND META.meta_id = '\".\$core->con->escape(\$_ctx->meta->meta_id).\"' \";\n".
 			"} ?>\n";
+		}
+	}
+	
+	public static function tplIfConditions($tag, $attr,$content,$if)
+	{
+		if ($tag == 'Sys' && isset($attr['has_tag'])) {
+			$sign = '';
+			if (substr($attr['has_tag'],0,1) == '!') {
+				$sign = '!';
+				$attr['has_tag'] = substr($attr['has_tag'],1);
+			}
+			$if[] =  $sign."(\$core->tpl->tagExists('".addslashes($attr['has_tag'])."') )";
 		}
 	}
 }

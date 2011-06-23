@@ -726,7 +726,9 @@ class dcBlog
 		#Adding parameters
 		if (isset($params['post_type']))
 		{
-			$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
+			if (is_array($params['post_type']) || $params['post_type'] != '') {
+				$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
+			}
 		}
 		else
 		{

@@ -42,6 +42,7 @@ $__autoload['dcCategories']			= dirname(__FILE__).'/core/class.dc.categories.php
 $__autoload['dcError']				= dirname(__FILE__).'/core/class.dc.error.php';
 $__autoload['dcMeta']				= dirname(__FILE__).'/core/class.dc.meta.php';
 $__autoload['dcMedia']				= dirname(__FILE__).'/core/class.dc.media.php';
+$__autoload['dcPostMedia']				= dirname(__FILE__).'/core/class.dc.postmedia.php';
 $__autoload['dcModules']				= dirname(__FILE__).'/core/class.dc.modules.php';
 $__autoload['dcThemes']				= dirname(__FILE__).'/core/class.dc.themes.php';
 $__autoload['dcRestServer']			= dirname(__FILE__).'/core/class.dc.rest.php';
