@@ -6,13 +6,15 @@ var popup_web_media = {
 		maxHeight: 400,
 		onProviderNotFound: function(url) {
 			$('#src').removeClass().addClass('error');
-			alert('Provider not supported');
+			alert(tinyMCEPopup.editor.getLang('dcControls_dlg.provider_not_supported'));
 		},
 		beforeEmbed: function(data) {
 			if (data.type == 'error') {
 				$('#src').removeClass().addClass('error');
+				$('a.insert').hide();
 			} else {
 				$('#src').removeClass().addClass('success');
+				$('a.insert').show();
 			}
 		},
 		afterEmbed: function(data) {
@@ -41,10 +43,13 @@ var popup_web_media = {
 		},
 		onError: function(xhr,status,error) {
 			$('#src').removeClass().addClass('error');
+			alert(tinyMCEPopup.editor.getLang('dcControl_dlg.webmedia_no_information'));
 		}
 	},
 	
 	init: function() {
+		$('a.insert').hide();
+		
 		$('#src').focusin(function(e) {
 			$(this).removeClass();
 		}).keypress(function(e) {
@@ -58,6 +63,8 @@ var popup_web_media = {
 			if ($('#src').val() == '') {
 				return;
 			}
+			
+			$('a.insert').hide();
 			
 			$('div.two-cols').slideUp();
 			
@@ -125,7 +132,7 @@ var popup_web_media = {
 				ed.execCommand('mceRepaint');
 				tinyMCEPopup.close();
 			} else {
-				alert('Provide a valid media');
+				alert(tinyMCEPopup.editor.getLang('dcControls_dlg.no_media_loaded'));
 			}
 		});
 		

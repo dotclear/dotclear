@@ -63,8 +63,8 @@ form::field('title',35,512,html::escapeHTML($title)).'</label></p>'.
 '<p><label>'.__('Link language:').' '.
 form::combo('hreflang',$lang_combo,$hreflang).
 '</label></p>'.
-'<p><a class="button reset" href="#" id="link-insert-cancel">'.__('cancel').'</a> - '.
-'<strong><a class="button" href="#" id="link-insert-ok">'.__('insert').'</a></strong></p>'."\n".
+'<p><a class="button cancel" href="#" id="link-insert-cancel">'.__('cancel').'</a>'.
+'<a class="button insert" href="#" id="link-insert-ok">'.__('insert').'</a></p>'."\n".
 
 '<div id="div-entries">'.
 '<h4>'.__('Or link to existing content').'</h4>'.

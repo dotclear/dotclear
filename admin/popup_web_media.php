@@ -35,12 +35,13 @@ $v_insert = array(
 echo
 '<h2>'.__('Add a web media').'</h2>'.
 
+'<p class="error" style="display: none;"></p>'.
 '<form id="video-insert-form" action="#" method="get">'.
 '<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Source URL:').'</label>'.
 form::field('src',65,512,'').'&nbsp;'.
-'<a class="button" href="#" id="webmedia-insert-search">'.__('search').'</a> - '.
-'<strong><a class="button" href="#" id="webmedia-insert-ok">'.__('insert').'</a></strong> - '.
-'<a class="button reset" href="#" id="webmedia-insert-cancel">'.__('cancel').'</a></p>'.
+'<a class="button" href="#" id="webmedia-insert-search">'.__('preview').'</a>'.
+'<a class="button insert" href="#" id="webmedia-insert-ok">'.__('insert').'</a>'.
+'<a class="button cancel" href="#" id="webmedia-insert-cancel">'.__('cancel').'</a></p>'.
 
 '<div class="two-cols" style="display:none;"><div class="col">'.
 '<p><label class="required"><abbr title="'.__('Width').'">*</abbr> '.__('Width:').'</label>'.

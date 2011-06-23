@@ -305,8 +305,8 @@ if ($popup)
 	}
 	
 	echo
-	'<p><a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a> - '.
-	'<strong><a id="media-insert-ok" class="button" href="#">'.__('Insert').'</a></strong>'.
+	'<p><a id="media-insert-cancel" class="button cancel" href="#">'.__('cancel').'</a>'.
+	'<a id="media-insert-ok" class="button insert" href="#">'.__('insert').'</a>'.
 	form::hidden(array('type'),html::escapeHTML($media_type)).
 	form::hidden(array('title'),html::escapeHTML($file->media_title)).
 	form::hidden(array('description'),html::escapeHTML($media_desc)).

@@ -6,6 +6,9 @@ div.col {
 	width: 100%;
 }
 
+/* Buttons */
+a.button { margin-right: 5px; }
+a.insert { font-weight: bold; }
 /* Web media */
 #src {
 	padding-left: 25px;
@@ -20,6 +23,7 @@ div.col {
 #src.success {
 	background: #99ff99 url(img/tick.png) no-repeat 7px center;
 }
+
 
 /* Browse */
 a.browse span {display:block; width:20px; height:18px; background:url(../../img/icons.gif) -860px 0; border:1px solid #FFF; margin-left:1px;}

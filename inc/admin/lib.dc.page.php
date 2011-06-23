@@ -615,6 +615,7 @@ class dcPage
 			3 => array(
 				'link',
 				'unlink',
+				'anchor',
 				'separator',
 				'media',
 				'webmedia',
@@ -802,13 +803,17 @@ class dcPage
 		));
 		$tb->addI18n('fullscreen',array('desc' => __('Toggle fullscreen mode')));
 		$tb->addI18n('aria',array('rich_text_area' => __('Rich Text Area')));
-		
 		$tb->addI18n('dcControls',array(
 			'inlinecode_desc' => __('Code'),
 			'quote_desc' => __('Quote'),
 			'link_desc' => __('Link'),
 			'media_desc' => __('Add media from media manager'),
 			'webmedia_desc' => __('Add media from web')
+		));
+		$tb->addI18n('dcControls_dlg',array(
+			'provider_not_supported' => __('Provider not supported.'),
+			'webmedia_no_information' => __('Impossible to get media information. Please, try again later.'),
+			'no_media_loaded' => __('No media loaded. Please, load one beore inserting.')
 		));
 		
 		$res =
