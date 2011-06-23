@@ -59,7 +59,7 @@ dcPage::check('media,media_admin');
 
 $post_id = !empty($_GET['post_id']) ? (integer) $_GET['post_id'] : null;
 if ($post_id) {
-	$post = $core->blog->getPosts(array('post_id'=>$post_id,'post_type'=>''));
+	$post = $core->blog->getPosts(array('post_id'=>$post_id));
 	if ($post->isEmpty()) {
 		$post_id = null;
 	}
@@ -67,7 +67,6 @@ if ($post_id) {
 	$post_type = $post->post_type;
 	unset($post);
 }
-
 $d = isset($_REQUEST['d']) ? $_REQUEST['d'] : null;
 $dir = null;
 

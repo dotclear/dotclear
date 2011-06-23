@@ -32,8 +32,6 @@ $post_selected = false;
 $post_open_comment = $core->blog->settings->system->allow_comments;
 $post_open_tb = $core->blog->settings->system->allow_trackbacks;
 
-$post_media = array();
-
 $page_title = __('New entry');
 
 $can_view_page = true;
@@ -145,7 +143,6 @@ if (!empty($_REQUEST['id']))
 		
 		try {
 			$core->media = new dcMedia($core);
-			$post_media = $core->media->getPostMedia($post_id);
 		} catch (Exception $e) {}
 	}
 }
@@ -407,43 +404,6 @@ if ($can_edit_post)
 	'</p>'.
 	'</div>';
 	
-	if ($post_id)
-	{
-		echo
-		'<h3 class="clear">'.__('Attachments').'</h3>';
-		foreach ($post_media as $f)
-		{
-			$ftitle = $f->media_title;
-			if (strlen($ftitle) > 18) {
-				$ftitle = substr($ftitle,0,16).'...';
-			}
-			echo
-			'<div class="media-item">'.
-			'<a class="media-icon" href="media_item.php?id='.$f->media_id.'">'.
-			'<img src="'.$f->media_icon.'" alt="" title="'.$f->basename.'" /></a>'.
-			'<ul>'.
-			'<li><a class="media-link" href="media_item.php?id='.$f->media_id.'"'.
-			'title="'.$f->basename.'">'.$ftitle.'</a></li>'.
-			'<li>'.$f->media_dtstr.'</li>'.
-			'<li>'.files::size($f->size).' - '.
-			'<a href="'.$f->file_url.'">'.__('open').'</a>'.'</li>'.
-			
-			'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
-			'href="post_media.php?post_id='.$post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
-			'<img src="images/check-off.png" alt="'.__('remove').'" /></a>'.
-			'</li>'.
-			
-			'</ul>'.
-			'</div>';
-		}
-		unset($f);
-		
-		if (empty($post_media)) {
-			echo '<p>'.__('No attachment.').'</p>';
-		}
-		echo '<p><a class="button" href="media.php?post_id='.$post_id.'">'.__('Add files to this entry').'</a></p>';
-	}
-	
 	# --BEHAVIOR-- adminPostFormSidebar
 	$core->callBehavior('adminPostFormSidebar',isset($post) ? $post : null);
 	
@@ -490,15 +450,6 @@ if ($can_edit_post)
 		__('Ping blogs').'</a></p>';
 	}
 	
-	if ($post_id && !empty($post_media))
-	{
-		echo
-		'<form action="post_media.php" id="attachment-remove-hide" method="post">'.
-		'<div>'.form::hidden(array('post_id'),$post_id).
-		form::hidden(array('media_id'),'').
-		form::hidden(array('remove'),1).
-		$core->formNonce().'</div></form>';
-	}
 }
 
 
