@@ -389,7 +389,7 @@
 	};
 	
 	var providers = [
-		new publicMethods.OEmbedProvider('youtube', 'video', ['youtube\\.com/watch.+v=[\\w-]+&?']), // 'http://www.youtube.com/oembed'	(no jsonp)
+		new publicMethods.OEmbedProvider('youtube', 'video', ['youtube\\.com/watch.+v=[\\w-]+&?', 'youtu\\.be/.*']), // 'http://www.youtube.com/oembed'	(no jsonp)
 		new publicMethods.OEmbedProvider('flickr', 'photo', ['flickr\\.com/photos/[-.\\w@]+/\\d+/?'], 'http://flickr.com/services/oembed', 'jsoncallback'),
 		new publicMethods.OEmbedProvider('viddler', 'video', ['viddler\.com']), // 'http://lab.viddler.com/services/oembed/' (no jsonp)
 		new publicMethods.OEmbedProvider('blip', 'video', ['blip\\.tv/.+'], 'http://blip.tv/oembed/'),
