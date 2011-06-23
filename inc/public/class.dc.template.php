@@ -347,6 +347,9 @@ class dcTemplate extends template
 		# --BEHAVIOR-- templateBeforeBlock
 		$res = $this->core->callBehavior('templateBeforeBlock',$this->core,$this->current_tag,$attr);
 		
+		# --BEHAVIOR-- templateInsideBlock
+		$this->core->callBehavior('templateInsideBlock',$this->core,$this->current_tag,$attr,array(&$content));
+		
 		if (isset($this->blocks[$this->current_tag])) {
 			$res .= call_user_func($this->blocks[$this->current_tag],$attr,$content);
 		} elseif ($this->unknown_block_handler != null) {
