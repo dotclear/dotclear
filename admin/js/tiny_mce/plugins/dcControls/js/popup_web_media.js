@@ -87,7 +87,9 @@ var popup_web_media = {
 			
 			if (data != null) {
 				var res = null;
-				var opts_div = {};
+				var opts_div = {
+					class: 'media media-' + data.type
+				};
 				var opts_img = {
 					src: data.thumbnail_url,
 					alt: alt,

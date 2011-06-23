@@ -52,17 +52,23 @@ var popup_media = {
 			}
 			else if (type == 'mp3') {
 				var res = null;
+				var opts_div = {
+					class: 'media media-audio'
+				};
+				
 				if (alignment != 'none') {
-					res = ed.dom.createHTML('div',{style: media_align_grid[alignment]},player);
+					opts_div.style = media_align_grid[alignment];
 				}
-				else {
-					res = player;
-				}
+				
+				res = ed.dom.createHTML('div',opts_div,player);
+				
 				ed.execCommand('mceInsertContent',false,res,{skip_undo : 1});
 			}
 			else if (type == 'flv') {
 				var res = null;
-				var opt_div = {};
+				var opt_div = {
+					class: 'media media-video'
+				};
 				var oplayer = $(player);
 				var flashvars = $('[name="FlashVars"]',player).val();
 				
@@ -85,14 +91,19 @@ var popup_media = {
 				ed.execCommand('mceInsertContent',false,res,{skip_undo : 1});
 			}
 			else {
-				ed.execCommand('mceInsertLink', false, '#mce_temp_url#', {skip_undo : 1});
+				var res = null;
+				var opts_a = {
+					href: url,
+					title: title
+				};
 				
-				elementArray = tinymce.grep(ed.dom.select('a'),function(n) {return ed.dom.getAttrib(n,'href') == '#mce_temp_url#';});
-				for (i=0; i<elementArray.length; i++) {
-					var node = elementArray[i];
-					ed.dom.setAttrib(node,'href',href);
-					ed.dom.setAttrib(node,'title',title);
+				if (alignment != 'none') {
+					opts_a.style = media_align_grid[alignment];
 				}
+				
+				res = ed.dom.createHTML('a',opts_a,(description || title));
+				
+				ed.execCommand('mceInsertContent',false,res,{skip_undo : 1});
 			}
 			
 			ed.execCommand('mceEndUndoLevel');

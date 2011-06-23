@@ -201,11 +201,11 @@
 		},
 		
 		_getVideoCode: function(data) {
-			return internalMethods._getValidHXHTMLCode(data.html);
+			return internalMethods._getValidHXHTMLCode(data.html,data);
 		},
 		
 		_getRichCode: function(data) {
-			return internalMethods._getValidHXHTMLCode(data.html);
+			return internalMethods._getValidHXHTMLCode(data.html,data);
 		},
 		
 		_getLinkCode: function(data) {
@@ -224,8 +224,12 @@
 			}).append(title)).html();
 		},
 		
-		_getValidHXHTMLCode: function(html) {
+		_getValidHXHTMLCode: function(html,data) {
 			var xhtml = '';
+			var alt = new Array();
+			if (data.provider_name) alt.push(data.provider_name);
+			if (data.author_name) alt.push(data.author_name);
+			if (data.title) alt.push(data.title);
 			
 			$(html).each(function() {
 				if (this.tagName == 'IFRAME') {
@@ -242,7 +246,7 @@
 							object.attr(attr[attributes[i].name],attributes[i].value);
 						}
 					}
-					xhtml += $('<div>').append(object).html();
+					xhtml += $('<div>').append(object.html(alt.join(' - '))).html();
 				} 
 				else if (this.tagName == 'OBJECT') {
 					if ($(this).find('embed').size() > 0) {
@@ -255,9 +259,9 @@
 						}
 						$(this).find('embed').remove();
 					}
-					xhtml += $('<div>').append($(this)).html();
+					xhtml += $('<div>').append($(this).html(alt.join(' - '))).html();
 				} else {
-					xhtml += internalMethods._getValidHXHTMLCode($('<div>').append($(html).find('iframe,object')).html());
+					xhtml += internalMethods._getValidHXHTMLCode($('<div>').append($(html).find('iframe,object')).html(),data);
 				}
 			});
 			
