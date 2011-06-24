@@ -1001,7 +1001,7 @@ class dcTemplate extends template
 		$this->core->callBehavior('tplIfConditions','CategoryIf',$attr,$content,$if);
 		
 		if (!empty($if)) {
-			return '<?php if('.implode(' '.$operator.' ',$if).') : ?>'.$content.'<?php endif; ?>';
+			return '<?php if('.implode(' '.$operator.' ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
@@ -1355,7 +1355,7 @@ class dcTemplate extends template
 		$this->core->callBehavior('tplIfConditions','EntryIf',$attr,$content,$if);
 		
 		if (!empty($if)) {
-			return '<?php if('.implode(' '.$operator.' ',(array)$if).') : ?>'.$content.'<?php endif; ?>';
+			return '<?php if('.implode(' '.$operator.' ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
@@ -2008,7 +2008,7 @@ class dcTemplate extends template
 		$this->core->callBehavior('tplIfConditions','PaginationIf',$attr,$content,$if);
 		
 		if (!empty($if)) {
-			return '<?php if('.implode(' && ',$if).') : ?>'.$content.'<?php endif; ?>';
+			return '<?php if('.implode(' && ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
@@ -2283,7 +2283,7 @@ class dcTemplate extends template
 		$this->core->callBehavior('tplIfConditions','CommentIf',$attr,$content,$if);
 		
 		if (!empty($if)) {
-			return '<?php if('.implode(' && ',$if).') : ?>'.$content.'<?php endif; ?>';
+			return '<?php if('.implode(' && ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
@@ -2861,7 +2861,7 @@ class dcTemplate extends template
 		$this->core->callBehavior('tplIfConditions','SysIf',$attr,$content,$if);
 		
 		if (!empty($if)) {
-			return '<?php if('.implode(' '.$operator.' ',$if).') : ?>'.$content.'<?php endif; ?>';
+			return '<?php if('.implode(' '.$operator.' ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
