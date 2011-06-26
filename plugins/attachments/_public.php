@@ -113,7 +113,7 @@ class attachmentTpl {
 				'$attach_f->type == "video/x-m4v")';
 		}
 		
-		if (!empty($if)) {
+		if (count($if) != 0) {
 			return '<?php if('.implode(' '.$operator.' ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;

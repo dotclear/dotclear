@@ -37,6 +37,7 @@ config:
 	./plugins/aboutConfig \
 	./plugins/akismet \
 	./plugins/antispam \
+	./plugins/attachments \
 	./plugins/blogroll \
 	./plugins/blowupConfig \
 	./plugins/fairTrackbacks \
