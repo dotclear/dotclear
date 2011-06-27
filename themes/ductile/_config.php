@@ -108,10 +108,8 @@ $ductile_stickers_base = array(
 $ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
 $ductile_stickers = @unserialize($ductile_stickers);
 if (!is_array($ductile_stickers)) {
-	$ductile_stickers = array();
+	$ductile_stickers = $ductile_stickers_base;
 }
-
-$ductile_stickers = $ductile_stickers_base;
 
 $conf_tab = isset($_POST['conf_tab']) ? $_POST['conf_tab'] : 'html';
 
@@ -204,10 +202,9 @@ echo '<fieldset><legend>'.__('Header').'</legend>'.
 form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.'</p>'.
 '</fieldset>';
 
-//echo '<fieldset><legend>'.__('Stickers').'</legend>';
-echo '<h3>'.__('Stickers').'</h3>';
+echo '<fieldset><legend>'.__('Stickers').'</legend>';
 
-echo '<table id="stickerslist">'.'<caption>'.__('Stickers').'</caption>'.
+echo '<table id="stickerslist">'.'<caption>'.__('Stickers (footer)').'</caption>'.
 '<thead>'.
 '<tr>'.
 '<th scope="col">'.__('Position').'</th>'.
@@ -238,7 +235,7 @@ echo '<table id="stickerslist">'.'<caption>'.__('Stickers').'</caption>'.
 '</tbody>'.
 '</table>';
 
-//echo '</fieldset>';
+echo '</fieldset>';
 
 echo '<input type="hidden" name="conf_tab" value="html">';
 echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
