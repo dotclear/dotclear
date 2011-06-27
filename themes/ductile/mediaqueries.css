@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
 /* seuils retenus :
-jusqu'à 480px: tout en une colonne, sidebar et stickers en bas
-480px: stickers en haut
-640px: sidebar toujours en bas mais divisé en deux colonnes
-1024px: passage à deux colonnes, sidebar à droite
-1280px: décalage du post-info vers la gauche
-1600px: marges plus grandes */
+< 480px: tout en une colonne, sidebar et stickers en bas
+> 480px: stickers en haut
+> 640px: sidebar toujours en bas mais divisé en deux colonnes
+> 1024px: passage à deux colonnes, sidebar à droite
+> 1280px: décalage du post-info vers la gauche
+> 1600px: marges plus grandes */
 
 /* --------------------------------------------------------------------
-	Téléphones (moins de 480px)
+	Moins de 480px (téléphones)
 -------------------------------------------------------------------- */
 @media only screen and (max-width:480px) {
 	.nomobile {
