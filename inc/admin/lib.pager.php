@@ -21,7 +21,7 @@ class adminGenericColumn
 	protected $html;
 	protected $visibility;
 	
-	public function __construct($id,$title,$callback,$html = null)
+	public function __construct($id,$title,$callback,$html = null,$can_hide = true)
 	{
 		if (!is_string($id) || $id === '') {
 			throw new Exception(__('Invalid column ID'));
@@ -36,6 +36,10 @@ class adminGenericColumn
 		}
 		if (!empty($html)) {
 			$html = ' '.$html;
+		}
+		
+		if (!is_bool($can_hide)) {
+			$can_hide = true;
 		}
 		
 		try {
@@ -57,6 +61,7 @@ class adminGenericColumn
 		$this->title = $title;
 		$this->callback = $callback;
 		$this->html = $html;
+		$this->can_hide = $can_hide;
 		$this->visibility = true;
 	}
 	
@@ -75,6 +80,11 @@ class adminGenericColumn
 	public function isVisible()
 	{
 		return $this->visibility;
+	}
+	
+	public function canHide()
+	{
+		return $this->can_hide;
 	}
 }
 
@@ -99,7 +109,7 @@ class adminGenericList
 		$this->html_next = __('next&#187;');
 		
 		# Post columns
-		$this->addColumn('adminPostList','title',__('Title'),array('adminPostList','getTitle'));
+		$this->addColumn('adminPostList','title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
 		$this->addColumn('adminPostList','date',__('Date'),array('adminPostList','getDate'));
 		$this->addColumn('adminPostList','category',__('Category'),array('adminPostList','getCategory'));
 		$this->addColumn('adminPostList','author',__('Author'),array('adminPostList','getAuthor'));
@@ -108,13 +118,13 @@ class adminGenericList
 		$this->addColumn('adminPostList','status',__('Status'),array('adminPostList','getStatus'));
 		
 		# Post (mini list) columns
-		$this->addColumn('adminPostMiniList','title',__('Title'),array('adminPostList','getTitle'));
+		$this->addColumn('adminPostMiniList','title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
 		$this->addColumn('adminPostMiniList','date',__('Date'),array('adminPostList','getDate'));
 		$this->addColumn('adminPostMiniList','author',__('Author'),array('adminPostList','getAuthor'));
 		$this->addColumn('adminPostMiniList','status',__('Status'),array('adminPostList','getStatus'));
 		
 		# Comment columns
-		$this->addColumn('adminCommentList','title',__('Title'),array('adminCommentList','getTitle'));
+		$this->addColumn('adminCommentList','title',__('Title'),array('adminCommentList','getTitle'),' class="maximal"',false);
 		$this->addColumn('adminCommentList','date',__('Date'),array('adminCommentList','getDate'));
 		$this->addColumn('adminCommentList','author',__('Author'),array('adminCommentList','getAuthor'));
 		$this->addColumn('adminCommentList','type',__('Type'),array('adminCommentList','getType'));
@@ -122,7 +132,7 @@ class adminGenericList
 		$this->addColumn('adminCommentList','edit','',array('adminCommentList','getEdit'));
 		
 		# User columns
-		$this->addColumn('adminUserList','username',__('Username'),array('adminUserList','getUserName'));
+		$this->addColumn('adminUserList','username',__('Username'),array('adminUserList','getUserName'),' class="maximal"',false);
 		$this->addColumn('adminUserList','firstname',__('First name'),array('adminUserList','getFirstName'));
 		$this->addColumn('adminUserList','lastname',__('Last name'),array('adminUserList','getLastName'));
 		$this->addColumn('adminUserList','displayname',__('Display name'),array('adminUserList','getDisplayName'));
@@ -133,14 +143,14 @@ class adminGenericList
 		$this->setColumnsVisibility();
 	}
 	
-	public function addColumn($context,$id,$title,$callback,$html = null)
+	public function addColumn($context,$id,$title,$callback,$html = null,$can_hide = true)
 	{
 		try {
 			if (!array_key_exists($context,$this->columns)) {
 				$this->columns[$context] = array();
 			}
 			
-			$c = new adminGenericColumn($id,$title,$callback,$html);
+			$c = new adminGenericColumn($id,$title,$callback,$html,$can_hide);
 			$this->columns[$context][$c->getInfo('id')] = $c;
 		}
 		catch (Exception $e) {
@@ -162,6 +172,9 @@ class adminGenericList
 				$key = sprintf($this->form_prefix,$k);
 				$visibility = !array_key_exists($key,$_REQUEST) ? false : true;
 			}
+			if (!$v->canHide()) {
+				$visibility = true;
+			}
 			$v->setVisibility($visibility);
 			$user_pref[$k] = $visibility;
 		}
@@ -182,7 +195,7 @@ class adminGenericList
 		foreach ($this->columns[$this->context] as $k => $v) {
 			$col_id = sprintf($this->form_prefix,$k);
 			$col_label = sprintf('<label for="%s">%s</label>',$col_id,$v->getInfo('title'));
-			$col_html = sprintf('<li class="line">%s</li>',$col_label.form::checkbox($col_id,1,$v->isVisible()));
+			$col_html = sprintf('<li class="line">%s</li>',$col_label.form::checkbox($col_id,1,$v->isVisible(),null,null,!$v->canHide()));
 			
 			array_push($list,$col_html);
 		}
@@ -350,7 +363,18 @@ class adminPostList extends adminGenericList
 	}
 }
 
-class adminPostMiniList extends adminPostList{}
+class adminPostMiniList extends adminPostList
+{
+	protected function getTitle() 
+	{
+		return
+		'<td class="maximal">'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable()).'&nbsp'.
+		'<a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'" '.
+		'title="'.html::escapeHTML($this->rs->getURL()).'">'.
+		html::escapeHTML($this->rs->post_title).'</a></td>';
+	}
+}
 
 class adminCommentList extends adminGenericList
 {
