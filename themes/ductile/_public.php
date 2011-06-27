@@ -84,7 +84,7 @@ class tplDuctileTheme
 	{
 		echo 
 			'<style type="text/css">'."\n".
-			'/* Additionnal style directives */'."\n".
+			'/* '.__('Additionnal style directives').' */'."\n".
 			self::ductileStyleHelper().
 			"</style>\n";
 	}
