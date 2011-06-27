@@ -12,10 +12,74 @@
 
 if (!defined('DC_RC_PATH')) { return; }
 
+# Behaviors
 $core->addBehavior('publicHeadContent',array('tplDuctileTheme','publicHeadContent'));
+
+# Template items
+$core->tpl->addValue('Stickers',array('tplDuctileTheme','showStickers'));
 
 class tplDuctileTheme
 {
+	public static function showStickers($attr)
+	{
+		$res = '';
+		$default = false;
+		$img_url = $GLOBALS['core']->blog->settings->system->themes_url.'/'.$GLOBALS['core']->blog->settings->system->theme.'/img/';
+
+		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_stickers');
+
+		if ($s === null) {
+			$default = true;
+		} else {
+			$s = @unserialize($s);
+			if (!is_array($s)) {
+				$default = true;
+			} else {
+				$s = array_filter($s,"self::cleanStickers");
+				if (count($s) == 0) {
+					$default = true;
+				} else {
+					$count = 1;
+					foreach ($s as $sticker) {
+						$res .= self::setSticker($count,($count == count($s)),$sticker['label'],$sticker['url'],$img_url.$sticker['image']);
+						$count++;
+					}
+				}
+			}
+		}
+
+		if ($default || $res == '') {
+			$res = self::setSticker(1,true,__('Feed'),$GLOBALS['core']->blog->url.$GLOBALS['core']->url->getBase('feed').'/atom',$img_url.'sticker-feed.png');
+		}
+
+		if ($res != '') {
+			$res = '<ul id="stickers">'."\n".$res.'</ul>'."\n";
+			return $res;
+		}
+	}
+	
+	protected static function cleanStickers($s)
+	{
+		if (is_array($s)) {
+			if (isset($s['label']) && isset($s['url']) && isset($s['image'])) {
+				if ($s['label'] != null && $s['url'] != null && $s['image'] != null) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	protected static function setSticker($position,$last,$label,$url,$image)
+	{
+		return '<li id="sticker'.$position.'"'.($last ? ' class="last"' : '').'>'."\n".
+			'<a href="'.$url.'">'."\n".
+			'<img alt="" src="'.$image.'" />'."\n".
+			'<span>'.$label.'</span>'."\n".
+			'</a>'."\n".
+			'</li>'."\n";
+	}
+
 	public static function publicHeadContent($core)
 	{
 		echo 

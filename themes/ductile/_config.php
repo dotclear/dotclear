@@ -13,6 +13,12 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/main');
 
+$sticker_images = array(
+	__('Contact') => 'sticker-contact.png',
+	__('Feed') => 'sticker-feed.png',
+	__('About') => 'sticker-about.png'
+);
+
 $fonts = array(
 	__('default') => '',
 	__('Ductile primary') => 'Ductile body',
@@ -93,6 +99,20 @@ if (!is_array($ductile_user)) {
 
 $ductile_user = array_merge($ductile_base,$ductile_user);
 
+$ductile_stickers_base = array(
+	array('label' => null,'url' => null,'image' => null),
+	array('label' => null,'url' => null,'image' => null),
+	array('label' => null,'url' => null,'image' => null)
+);
+
+$ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
+$ductile_stickers = @unserialize($ductile_stickers);
+if (!is_array($ductile_stickers)) {
+	$ductile_stickers = array();
+}
+
+$ductile_stickers = $ductile_stickers_base;
+
 $conf_tab = isset($_POST['conf_tab']) ? $_POST['conf_tab'] : 'html';
 
 if (!empty($_POST))
@@ -102,6 +122,31 @@ if (!empty($_POST))
 		# HTML
 		if ($conf_tab == 'html') {
 			$ductile_user['subtitle_hidden'] = (integer) !empty($_POST['subtitle_hidden']);
+			
+			$count = 0;
+			if (!empty($_POST['sticker1_label']) && !empty($_POST['sticker1_url'])) {
+				$ductile_stickers[$count]['label'] = $_POST['sticker1_label'];
+				$ductile_stickers[$count]['url'] = $_POST['sticker1_url'];
+				$ductile_stickers[$count]['image'] = $_POST['sticker1_image'];
+				$count++;
+			}
+			if (!empty($_POST['sticker2_label']) && !empty($_POST['sticker2_url'])) {
+				$ductile_stickers[$count]['label'] = $_POST['sticker2_label'];
+				$ductile_stickers[$count]['url'] = $_POST['sticker2_url'];
+				$ductile_stickers[$count]['image'] = $_POST['sticker2_image'];
+				$count++;
+			}
+			if (!empty($_POST['sticker3_label']) && !empty($_POST['sticker3_url'])) {
+				$ductile_stickers[$count]['label'] = $_POST['sticker3_label'];
+				$ductile_stickers[$count]['url'] = $_POST['sticker3_url'];
+				$ductile_stickers[$count]['image'] = $_POST['sticker3_image'];
+				$count++;
+			}
+			for ($i = $count; $i < 3; $i++) {
+				$ductile_stickers[$i]['label'] = null;
+				$ductile_stickers[$i]['url'] = null;
+				$ductile_stickers[$i]['image'] = null;
+			}
 		}
 		
 		# CSS
@@ -132,6 +177,7 @@ if (!empty($_POST))
 		
 		$core->blog->settings->addNamespace('themes');
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_style',serialize($ductile_user));
+		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_stickers',serialize($ductile_stickers));
 		$core->blog->triggerBlog();
 
 		echo
@@ -157,6 +203,42 @@ echo '<fieldset><legend>'.__('Header').'</legend>'.
 '<p class="field"><label for="subtitle_hidden">'.__('Hide blog description:').' '.
 form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.'</p>'.
 '</fieldset>';
+
+//echo '<fieldset><legend>'.__('Stickers').'</legend>';
+echo '<h3>'.__('Stickers').'</h3>';
+
+echo '<table id="stickerslist">'.'<caption>'.__('Stickers').'</caption>'.
+'<thead>'.
+'<tr>'.
+'<th scope="col">'.__('Position').'</th>'.
+'<th scope="col">'.__('Label').'</th>'.
+'<th scope="col">'.__('URL').'</th>'.
+'<th scope="col">'.__('Icon').'</th>'.
+'</tr>'.
+'</thead>'.
+'<tbody>'.
+'<tr>'.
+'<td scope="raw">1</td>'.
+'<td>'.form::field('sticker1_label',20,255,$ductile_stickers[0]['label']).'</td>'.
+'<td>'.form::field('sticker1_url',40,255,$ductile_stickers[0]['url']).'</td>'.
+'<td>'.form::combo('sticker1_image',$sticker_images,$ductile_stickers[0]['image']).'</td>'.
+'</tr>'.
+'<tr>'.
+'<td scope="raw">2</td>'.
+'<td>'.form::field('sticker2_label',20,255,$ductile_stickers[1]['label']).'</td>'.
+'<td>'.form::field('sticker2_url',40,255,$ductile_stickers[1]['url']).'</td>'.
+'<td>'.form::combo('sticker2_image',$sticker_images,$ductile_stickers[1]['image']).'</td>'.
+'</tr>'.
+'<tr>'.
+'<td scope="raw">3</td>'.
+'<td>'.form::field('sticker3_label',20,255,$ductile_stickers[2]['label']).'</td>'.
+'<td>'.form::field('sticker3_url',40,255,$ductile_stickers[2]['url']).'</td>'.
+'<td>'.form::combo('sticker3_image',$sticker_images,$ductile_stickers[2]['image']).'</td>'.
+'</tr>'.
+'</tbody>'.
+'</table>';
+
+//echo '</fieldset>';
 
 echo '<input type="hidden" name="conf_tab" value="html">';
 echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
