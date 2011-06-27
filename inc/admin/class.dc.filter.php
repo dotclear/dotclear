@@ -51,8 +51,10 @@ class dcFilterSet {
 			if ($filter->isEnabled())
 				$this->hideform=false;
 		}
-		if (isset($form_data['add_filter']) && isset($this->filters[$form_data['add_filter']])) {
+		if (isset($form_data['apply']) && (trim($form_data['apply']) == '+')
+			&& isset($form_data['add_filter']) && isset($this->filters[$form_data['add_filter']])) {
 			$this->filters[$form_data['add_filter']]->add();
+			$this->hideform=false;
 		}
 	}
 	
@@ -71,14 +73,16 @@ class dcFilterSet {
 
 	public function getForm($action,$extra_content,$method="get",$nb_cols=3) {
 		$ret = '';
-		/*if ($this->hideform) {
-			$ret .= '<p><a id="filter-control" class="form-control" href="#">'.
-			__('Filters').'</a></p>';
-		}*/
-		$ret .= '<p><img alt="" src="minus.png"/> <a href="#" id="toggle-filters">'.__('Toggle filters and display options').'</a></p>';
+		
+		if ($this->hideform) {
+			$formclass = ' class="hidden"';
+		} else {
+			$formclass='';
+		}
+		$ret .= '<p><img alt="" src="images/minus.png" /> <a href="#" id="toggle-filters">'.__('Toggle filters and display options').'</a></p>';
 		$ret .=
 			'<div class="two-cols">'.
-			'<form id="filters" action="'.$this->action.'" method="get" id="filters-form">'.
+			'<form id="filters" action="'.$this->action.'" method="get" id="filters-form"'.$formclass.'>'.
 			'<div class="col70">'.
 			'<h3>'.__('Entries filters').'</h3>';
 			
@@ -241,7 +245,7 @@ class comboFilter extends Filter {
 	public function setValues($form_data) {
 		parent::setValues($form_data);
 		if (isset($form_data[$this->field_id."_v"])) {
-			$this->verb = $form_data[$this->field_id."_v"] == 'is' ? 'is' : 'isnot';
+			$this->verb = ($form_data[$this->field_id."_v"] == 'is') ? 'is' : 'isnot';
 		}
 	}
 
@@ -258,16 +262,25 @@ class comboFilter extends Filter {
 			$desc = __('or');
 			$labelclass = ' class="or"';
 		};
-		return '<label for="'.$this->getFieldId($pos).'"'.$labelclass.'>'.$desc.'</label>'.
-			(($pos == 0) ?form::combo($this->field_id.'_v',array(__('is')=>'is',__('is not')=>'isnot'),$this->verb) : '').
-			form::combo($this->getFieldId($pos),$this->options,$this->values[$pos]);
+		return '<span class="filter-title">'.$desc.'</span>'.
+			(($pos == 0) 
+				?form::combo($this->field_id.'_v',
+					array(__('is')=>'is',__('is not')=>'isnot'),$this->verb,'','',
+					false,'title="'.sprintf(__('%s is or is not'),$this->desc).'"') 
+				:'').
+			form::combo($this->getFieldId($pos),$this->options,$this->values[$pos],
+				'','',false,'title="'.__('Choose an option').'"');
 	}
 	
 	public function applyFilter($params) {
+		$attr = $this->request_param;
+		if ($this->verb != "is") {
+			$params[$attr."_not"] = true;
+		}
 		if (isset($this->extra['singleval']))
-			$params[$this->request_param]=$this->values[0];
+			$params[$attr]=$this->values[0];
 		else
-			$params[$this->request_param]=$this->values;
+			$params[$attr]=$this->values;
 	}
 }
 ?>

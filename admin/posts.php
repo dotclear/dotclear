@@ -156,7 +156,7 @@ class monthComboFilter extends comboFilter {
 }
 $filterSet
 	->addFilter(new comboFilter(
-		'users',__('Author'), 'user', $users_combo))
+		'users',__('Author'), 'user_id', $users_combo))
 	->addFilter(new comboFilter(
 		'category',__('Category'), 'cat_id', $categories_combo))
 	->addFilter(new comboFilter(
@@ -213,7 +213,7 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
+	'<p class="col right"><span class="filter-title">'.__('Selected entries action:').'</span> '.
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	$filterSet->getFormFieldsAsHidden().

@@ -735,7 +735,12 @@ class dcBlog
 		}
 		
 		if (!empty($params['user_id'])) {
-			$strReq .= "AND U.user_id = '".$this->con->escape($params['user_id'])."' ";
+			if (!empty($params['user_id_not'])) {
+				$not = "NOT ";
+			} else {
+				$not = "";
+			}
+			$strReq .= "AND U.user_id ".$not.$this->con->in($params['user_id'])." ";
 		}
 		
 		if (!empty($params['cat_id']))
