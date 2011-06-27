@@ -768,7 +768,11 @@ class dcPage
 			'shortcuts_desc' => __('Accessibility Help'),
 			'help_shortcut' => __('. Press ALT F10 for toolbar. Press ALT 0 for help.'),
 			'rich_text_area' => __('Rich Text Area'),
-			'toolbar' => __('Toolbar')
+			'toolbar' => __('Toolbar'),
+			'anchor_delta_width' => '40',
+			'anchor_delta_height' => '50',
+			'charmap_delta_width' => '50',
+			'charmap_delta_height' => '70',
 		));
 		$tb->addI18n('advanced_dlg',array(
 			'about_title' => __('About TinyMCE'),

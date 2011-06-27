@@ -24,7 +24,7 @@
 					return;
 				
 				var url = popup_link_url;
-				var node = se.getNode();
+				var node = ed.dom.getParent(se.getNode(), 'A');
 				
 				if (node.nodeName == 'A') {
 					var href= node.href || '';
