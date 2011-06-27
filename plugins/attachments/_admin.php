@@ -12,7 +12,7 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $core->addBehavior ('adminPostFormSidebar',array('attachmentAdmin','adminPostFormSidebar'));
-$core->addBehavior ('adminPostForm',array('attachmentAdmin','adminPostForm'));
+$core->addBehavior ('adminPostAfterForm',array('attachmentAdmin','adminPostAfterForm'));
 
 class attachmentAdmin
 {
@@ -59,7 +59,7 @@ class attachmentAdmin
 		}
 	}
 	
-	public static function adminPostForm($post) {
+	public static function adminPostAfterForm($post) {
 		if ($post !== null)
 		{
 			$core =& $GLOBALS['core'];

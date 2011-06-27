@@ -443,6 +443,10 @@ if ($can_edit_post)
 	
 	echo '</fieldset></div>';		// End #entry-content
 	echo '</form>';
+	
+	# --BEHAVIOR-- adminPostForm
+	$core->callBehavior('adminPostAfterForm',isset($post) ? $post : null);
+	
 	echo '</div>';
 	
 	if ($post_id && $post->post_status == 1) {
