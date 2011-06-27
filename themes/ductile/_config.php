@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/main');
+l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/admin');
 
 $sticker_images = array(
 	__('Contact') => 'sticker-contact.png',

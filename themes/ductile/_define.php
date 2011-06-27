@@ -13,6 +13,6 @@ $this->registerModule(
 	/* Name */			"Ductile",
 	/* Description*/		"Chantier pour un nouveau theme",
 	/* Author */			"Dotclear Team",
-	/* Version */			'0.5.1'
+	/* Version */			'0.6'
 );
 ?>
