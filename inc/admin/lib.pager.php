@@ -218,6 +218,7 @@ class adminGenericList
 			
 			$html_block =
 			'<table class="maximal clear">'.
+			$this->getCaption($page).
 			'<thead><tr>';
 			
 			foreach ($this->columns[$this->context] as $k => $v) {
@@ -268,6 +269,25 @@ class adminGenericList
 		return sprintf($this->getDefaultLine(),$res);
 	}
 	
+	private function getCaption($page)
+	{
+		$caption = $this->getDefaultCaption();
+		
+		if (!empty($caption)) {
+			$caption = sprintf(
+				'<caption>%s - %s</caption>',
+				$caption,sprintf(__('Page %s'),$page)
+			);
+		}
+		
+		return $caption;
+	}
+	
+	protected function getDefaultCaption()
+	{
+		return;
+	}
+	
 	protected function getDefaultLine()
 	{
 		return '<tr class="line">%s</tr>';
@@ -276,6 +296,11 @@ class adminGenericList
 
 class adminPostList extends adminGenericList
 {
+	protected function getDefaultCaption()
+	{
+		return __('Entries list');
+	}
+	
 	protected function getDefaultLine()
 	{
 		return
@@ -384,6 +409,11 @@ class adminPostMiniList extends adminPostList
 
 class adminCommentList extends adminGenericList
 {
+	protected function getDefaultCaption()
+	{
+		return __('Comments list');
+	}
+	
 	protected function getDefaultLine()
 	{
 		return
@@ -465,6 +495,11 @@ class adminCommentList extends adminGenericList
 
 class adminUserList extends adminGenericList
 {
+	protected function getDefaultCaption()
+	{
+		return __('Users list');
+	}
+	
 	protected function getUserName()
 	{
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
