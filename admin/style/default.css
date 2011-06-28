@@ -953,9 +953,14 @@ th, td {
 	padding: 3px 5px;
 	vertical-align: top;
 }
-th {
+thead th {
 	text-align: left;
 	border-bottom-color: #666;
+}
+tbody th {
+	text-align: left;
+	font-weight: normal;
+	border-bottom-color: #ccc;
 }
 
 .noborder td, td.noborder, .noborder th, th.noborder {

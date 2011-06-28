@@ -216,15 +216,21 @@ class adminGenericList
 			$pager->html_next = $this->html_next;
 			$pager->var_page = 'page';
 			
-			$html_block = '<table class="maximal clear"><tr>';
+			$html_block =
+			'<table class="maximal clear">'.
+			'<thead><tr>';
 			
 			foreach ($this->columns[$this->context] as $k => $v) {
 				if ($v->isVisible()) {
-					$html_block .= sprintf('<th%s>%s</th>',$v->getInfo('html'),$v->getInfo('title'));
+					$html_extra = $v->getInfo('html') != '' ? ' '.$v->getInfo('html') : '';
+					$html_block .= sprintf('<th scope="col"%s>%s</th>',$html_extra,$v->getInfo('title'));
 				}
 			}
 			
-			$html_block .= '</tr>%s</table>';
+			$html_block .=
+			'</tr></thead>'.
+			'<tbody>%s</tbody>'.
+			'</table>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
@@ -280,10 +286,10 @@ class adminPostList extends adminGenericList
 	protected function getTitle()
 	{
 		return
-		'<td class="maximal">'.
-		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable()).'&nbsp'.
+		'<th scope="row" class="maximal">'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable()).'&nbsp;'.
 		'<a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
-		html::escapeHTML($this->rs->post_title).'</a></td>';
+		html::escapeHTML($this->rs->post_title).'</a></th>';
 	}
 	
 	protected function getDate()
@@ -368,8 +374,8 @@ class adminPostMiniList extends adminPostList
 	protected function getTitle() 
 	{
 		return
-		'<td class="maximal">'.
-		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable()).'&nbsp'.
+		'<th scope="row" class="maximal">'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable()).'&nbsp;'.
 		'<a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'" '.
 		'title="'.html::escapeHTML($this->rs->getURL()).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>';
@@ -390,11 +396,11 @@ class adminCommentList extends adminGenericList
 		$post_url = $this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id);
 		
 		return
-		'<td class="maximal">'.
-		form::checkbox(array('comments[]'),$this->rs->comment_id,'','','',0).'&nbsp'.
+		'<th scope="row" class="maximal">'.
+		form::checkbox(array('comments[]'),$this->rs->comment_id,'','','',0).'&nbsp;'.
 		'<a href="'.$post_url.'">'.
 		html::escapeHTML($this->rs->post_title).'</a>'.
-		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</td>';
+		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</th>';
 	}
 	
 	protected function getDate()
@@ -474,10 +480,10 @@ class adminUserList extends adminGenericList
 		}
 		
 		return
-		'<td class="maximal">'.form::hidden(array('nb_post[]'),(integer) $this->rs->nb_post).
+		'<th scope="row" class="maximal">'.form::hidden(array('nb_post[]'),(integer) $this->rs->nb_post).
 		form::checkbox(array('user_id[]'),$this->rs->user_id).'&nbsp;'.
 		'<a href="user.php?id='.$this->rs->user_id.'">'.
-		$this->rs->user_id.'</a>&nbsp;'.$img_status.'</td>';
+		$this->rs->user_id.'</a>&nbsp;'.$img_status.'</th>';
 	}
 	
 	protected function getFirstName()
