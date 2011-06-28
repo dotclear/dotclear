@@ -95,6 +95,7 @@ class dcToolbar
 		
 		foreach ($this->toolbars as $formatter => $options) {
 			$s = $options['settings'];
+			$s['language'] = 'en';
 			
 			// Add plugins
 			array_walk($options['plugins'],create_function('&$v,$k','$v=!$v ? "-".$k : $k;'));

@@ -12,12 +12,11 @@
 				}
 			}
 			
+			tinymce.addI18n(dcToolBar.getI18n());
+			
 			return this.each(function(){
 				$.data(this,'toolbar',new tinymce.Editor($(this).attr('id'),dcToolBar.getConfig(settings.formatter)));
 				$(this).data('toolbar').activeFormatter = settings.formatter;
-				$(this).data('toolbar').onPreInit.add(function(ed) {
-					tinymce.addI18n(dcToolBar.getI18n());
-				});
 			});
 		
 		},
