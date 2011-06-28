@@ -128,7 +128,7 @@ var popup_web_media = {
 					ed.dom.setAttribs(res,{style: media_align_grid[alignment]});
 				}
 				
-				ed.execCommand('mceInsertContent',false,ed.dom.getOuterHTML(res));
+				ed.execCommand('mceInsertContent',false,ed.dom.getOuterHTML(res) + ed.dom.createHTML('p'));
 				ed.execCommand('mceRepaint');
 				tinyMCEPopup.close();
 			} else {
