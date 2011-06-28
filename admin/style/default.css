@@ -943,6 +943,10 @@ table {
 	border-collapse: collapse;
 	margin: 0 0 1em 0;
 }
+table caption {
+	position: absolute;
+	left: -9999px;
+}
 tr.line:hover {
 	background: #ddd;
 }
