@@ -111,6 +111,7 @@ class adminGenericList
 		# Post columns
 		$this->addColumn('adminPostList','title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
 		$this->addColumn('adminPostList','date',__('Date'),array('adminPostList','getDate'));
+		$this->addColumn('adminPostList','datetime',__('Date and time'),array('adminPostList','getDateTime'));
 		$this->addColumn('adminPostList','category',__('Category'),array('adminPostList','getCategory'));
 		$this->addColumn('adminPostList','author',__('Author'),array('adminPostList','getAuthor'));
 		$this->addColumn('adminPostList','comment',__('Comments'),array('adminPostList','getComments'));
@@ -318,6 +319,11 @@ class adminPostList extends adminGenericList
 	}
 	
 	protected function getDate()
+	{
+		return '<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d'),$this->rs->post_dt).'</td>';
+	}
+	
+	protected function getDateTime()
 	{
 		return '<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>';
 	}
