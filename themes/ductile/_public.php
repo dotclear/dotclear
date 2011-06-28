@@ -14,19 +14,17 @@ if (!defined('DC_RC_PATH')) { return; }
 
 # Behaviors
 $core->addBehavior('publicHeadContent',array('tplDuctileTheme','publicHeadContent'));
-
-# Template items
-$core->tpl->addValue('Stickers',array('tplDuctileTheme','showStickers'));
+$core->addBehavior('publicInsideFooter',array('tplDuctileTheme','publicInsideFooter'));
 
 class tplDuctileTheme
 {
-	public static function showStickers($attr)
+	public static function publicInsideFooter($core)
 	{
 		$res = '';
 		$default = false;
-		$img_url = $GLOBALS['core']->blog->settings->system->themes_url.'/'.$GLOBALS['core']->blog->settings->system->theme.'/img/';
+		$img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/';
 
-		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_stickers');
+		$s = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
 
 		if ($s === null) {
 			$default = true;
@@ -49,12 +47,12 @@ class tplDuctileTheme
 		}
 
 		if ($default || $res == '') {
-			$res = self::setSticker(1,true,__('Feed'),$GLOBALS['core']->blog->url.$GLOBALS['core']->url->getBase('feed').'/atom',$img_url.'sticker-feed.png');
+			$res = self::setSticker(1,true,__('Feed'),$core->blog->url.$core->url->getBase('feed').'/atom',$img_url.'sticker-feed.png');
 		}
 
 		if ($res != '') {
 			$res = '<ul id="stickers">'."\n".$res.'</ul>'."\n";
-			return $res;
+			echo $res;
 		}
 	}
 	
