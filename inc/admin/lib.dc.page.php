@@ -571,6 +571,7 @@ class dcPage
 			'fullscreen' => true,
 			'paste' => true,
 			'searchreplace' => true,
+			'inlinepopups' => true,
 			'dcControls' => true
 		));
 		$tb->addButtons('xhtml',array(
@@ -610,7 +611,8 @@ class dcPage
 				'pasteword',
 				'separator',
 				'search',
-				'replace'
+				'replace',
+				'autosave'
 			),
 			3 => array(
 				'link',
