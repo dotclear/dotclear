@@ -30,6 +30,14 @@ var popup_web_media = {
 				if (data.width) $('#width').val(data.width);
 				if (data.height) $('#height').val(data.height);
 				
+				if (data.type == 'photo') {
+					$('#width').attr('disabled',true);
+					$('#height').attr('disabled',true);
+				} else {
+					$('#width').attr('disabled',false);
+					$('#height').attr('disabled',false);
+				}
+				
 				if (!data.thumbnail_url) {
 					$('input[value="thumbnail"]').attr('disabled',true);
 				} else {
