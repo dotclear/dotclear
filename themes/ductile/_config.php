@@ -189,8 +189,6 @@ if (!empty($_POST))
 	}
 }
 
-echo '</form>';
-
 # HTML Tab
 
 echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">';
@@ -339,7 +337,5 @@ echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->fo
 echo '</form>';
 
 echo '</div>'; // Close tab
-
-echo '<form style="display:none">';
 
 ?>
