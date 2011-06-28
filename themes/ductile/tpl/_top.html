@@ -8,17 +8,11 @@
 
 	<div id="top">
   	<h1><span><a href="{{tpl:BlogURL}}">{{tpl:BlogName encode_html="1"}}</a></span></h1>
-
-		<!-- Pour Franck: 
-		Il faudrait trouver un moyen pour que 
-		1. la balise <p /> ne soit présente que si la description est non vide
-		2. que l'utilisateur puisse indiquer si oui ou non il souhaite afficher la description (?)
-		-->
 		<p id="blogdesc" class="nomobile">{{tpl:BlogDescription}}</p>
+	</div>
 
 	<!-- # --BEHAVIOR-- publicTopAfterContent -->
 	{{tpl:SysBehavior behavior="publicTopAfterContent"}}
-	</div>
 
 	<!-- Pour Franck: 
 	Ajouter un id incrémental

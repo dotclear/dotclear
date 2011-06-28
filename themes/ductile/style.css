@@ -194,7 +194,7 @@ h1 a {
 /* ------------------------------------------------------- pagination, navlinks */
 #navlinks, 
 .pagination {
-	margin-bottom: 1em;
+	margin: 2em 0 1em 0;
 	padding: 4px 8px;
 	text-align: center;
 	font-size: .875em;
@@ -260,7 +260,10 @@ h1 a {
 .post-info, 
 .post-tags {
 	font-size: .875em;
-	padding: 0;
+	margin: 0;
+	background: #fff;
+	display: inline;
+	padding: 0 .66em 0 0;
 	}
 .post-info a, 
 .post-tags a, 
