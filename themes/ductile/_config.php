@@ -189,6 +189,9 @@ if (!empty($_POST))
 	}
 }
 
+// To be deleted when adminThemeConfigManaged behaviour will be implemented in admin/blog_themes.php :
+echo '</form>';
+
 # HTML Tab
 
 echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">';
@@ -337,5 +340,8 @@ echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->fo
 echo '</form>';
 
 echo '</div>'; // Close tab
+
+// To be deleted when adminThemeConfigManaged behaviour will be implemented in admin/blog_themes.php :
+echo '<form style="display:none">';
 
 ?>
