@@ -255,7 +255,7 @@
 	.post-attr a, .post-info, .post-tags {
 		padding-right: 0 !important;
 		}
-	.dc-archive-month p.post-info {
+	.dc-archive-month .post-attr {
 		margin-left: 0;
 		float:none;
 		width: auto;
