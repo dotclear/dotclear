@@ -246,11 +246,14 @@
 	#content {
 		margin : 0 20em 0 200px;
 		}
-	p.post-info { 
+	.post-attr { 
 		margin-left: -200px; 
 		float: left; 
 		width: 150px; 
 		text-align: right;
+		}
+	.post-attr a, .post-info, .post-tags {
+		padding-right: 0 !important;
 		}
 	.dc-archive-month p.post-info {
 		margin-left: 0;
