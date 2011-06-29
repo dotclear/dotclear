@@ -11,6 +11,76 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+class dcPager extends pager
+{
+	public function getLinks()
+	{
+		$htmlText = '';
+		$htmlStart = '';
+		$htmlEnd = '';
+		$htmlPrev = '';
+		$htmlNext = '';
+		$htmlDirectAccess = '';
+		$htmlHidden = '';
+		
+		$this->setURL();
+		
+		# Page text
+		$htmlText = sprintf(__('Page %s over %s'),$this->env,$this->nb_elements).'&nbsp;';
+		
+		# Previous page
+		if($this->env != 1) {
+			$htmlPrev = '<a href="'.sprintf($this->page_url,$this->env-1).'" class="prev">'.
+			$htmlPrev .= $this->html_prev.'</a>&nbsp;';
+		}
+		
+		# Next page
+		if($this->env != $this->nb_pages) {
+			$htmlNext = '&nbsp;<a href="'.sprintf($this->page_url,$this->env+1).'" class="next">';
+			$htmlNext .= $this->html_next.'</a>';
+		}
+		
+		# Start
+		if($this->env != 1) {
+			$htmlStart = '<a href="'.sprintf($this->page_url,1).'" class="start">'.
+			$htmlStart .= $this->html_start.'</a>&nbsp;';
+		}
+		
+		# End
+		if($this->env != $this->nb_pages) {
+			$htmlEnd = '&nbsp;<a href="'.sprintf($this->page_url,$this->nb_elements).'" class="end">'.
+			$htmlEnd .= $this->html_end.'</a>&nbsp;';
+		}
+		
+		# Direct acces
+		$htmlDirectAccess = 
+			'<span>'.__('Direct access to page').'&nbsp;'.
+			form::field('page',3,3,$this->env).'&nbsp;'.
+			'<input type="submit" value="'.__('ok').'" />'.
+			'<span>';
+			
+		# Hidden fields
+		foreach ($_GET as $k => $v) {
+			if ($k != $this->var_page) {
+				$htmlHidden .= form::hidden(array($k),$v);
+			}
+		}
+		
+		$res =
+			'<form method="get" action="'.$this->base_url.'">'.
+			$htmlStart.
+			$htmlPrev.
+			$htmlText.
+			$htmlNext.
+			$htmlEnd.
+			$htmlDirectAccess.
+			$htmlHidden.
+			'</form>';
+		
+		return $this->nb_elements > 0 ? $res : '';
+	}
+}
+
 class adminGenericColumn
 {
 	protected $core;
@@ -105,8 +175,10 @@ class adminGenericList
 		$this->form_prefix = 'col_%s';
 		$this->form_trigger = 'add_filter';
 		
-		$this->html_prev = __('&#171;prev.');
-		$this->html_next = __('next&#187;');
+		$this->html_prev = __('prev');
+		$this->html_next = __('next');
+		$this->html_start = __('start');
+		$this->html_end = __('end');
 		
 		# Post columns
 		$this->addColumn('adminPostList','title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
@@ -216,9 +288,11 @@ class adminGenericList
 		}
 		else
 		{
-			$pager = new pager($page,$this->rs_count,$nb_per_page,10);
+			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			$pager->html_prev = $this->html_prev;
 			$pager->html_next = $this->html_next;
+			$pager->html_start = $this->html_start;
+			$pager->html_end = $this->html_end;
 			$pager->var_page = 'page';
 			
 			$html_block =
@@ -242,7 +316,7 @@ class adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<div class="pagination">'.$pager->getLinks().'</div>';
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -255,7 +329,7 @@ class adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<div class="pagination">'.$pager->getLinks().'</div>';
 		}
 	}
 	
