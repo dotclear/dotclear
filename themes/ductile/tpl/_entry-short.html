@@ -1,23 +1,25 @@
-    <div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" xml:lang="{{tpl:EntryLang}}">
+    <div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} short" lang="{{tpl:EntryLang}}" xml:lang="{{tpl:EntryLang}}">
     <!-- # New day date -->
     <tpl:DateHeader><p class="day-date">{{tpl:EntryDate}}</p></tpl:DateHeader>
     
     <h2 class="post-title"><a
     href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
     
-    <p class="post-info">
-    	<span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}</span>
-    	<span class="post-date">{{tpl:lang on}} {{tpl:EntryDate}}, {{tpl:EntryTime}}</span>
-    <tpl:EntryIf has_category="1">
-    	<span class="post-cat"><a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
-    </tpl:EntryIf>
-    </p>
-    
-    <tpl:EntryTags>
-    <tpl:TagsHeader><p class="post-tags"></tpl:TagsHeader>
-    <a href="{{tpl:TagURL}}">{{tpl:TagID}}</a>
-    <tpl:TagsFooter></p></tpl:TagsFooter>
-    </tpl:EntryTags>
+		<div class="post-attr">
+	    <p class="post-info">
+	    	<span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
+	    	<span class="post-date">{{tpl:lang on}} {{tpl:EntryDate}}, {{tpl:EntryTime}}. </span>
+	    	<tpl:EntryIf has_category="1">
+	    		<span class="post-cat"><a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
+	    	</tpl:EntryIf>
+	    </p>
+	    
+	    <tpl:EntryTags>
+	    <tpl:TagsHeader><p class="post-tags"></tpl:TagsHeader>
+	    <a href="{{tpl:TagURL}}">{{tpl:TagID}}</a>
+	    <tpl:TagsFooter></p></tpl:TagsFooter>
+	    </tpl:EntryTags>
+		</div>    
     
     <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
     {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}

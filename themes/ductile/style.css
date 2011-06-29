@@ -265,6 +265,13 @@ h1 a {
 	display: inline;
 	padding: 0 .66em 0 0;
 	}
+.post-info span + span {
+	padding-left: .5em;
+	}
+.post-cat a {
+	padding-left: 24px;
+	background: #fff no-repeat left center url(img/category.png);
+	}
 .post-info a, 
 .post-tags a, 
 .post-info-co a {
