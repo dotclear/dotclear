@@ -112,13 +112,14 @@
 				cmd: 'dcWebMedia'
 			});
 			
+			// Init shortcuts
+			for (var s in ed.shortcuts) {
+				delete ed.shortcuts[s];
+			}
 			// Register shortcuts
-			ed.addShortcut('alt+shift+c', 'dcControls.inlinecode_desc', 'dcCode');
-			ed.addShortcut('alt+shift+q', 'dcControls.quote_desc', 'dcQuote');
-			ed.addShortcut('alt+shift+l', 'dcControls.link_desc', 'dcLink');
-			ed.addShortcut('alt+shift+i', 'dcControls.imglink_desc', 'dcImgLink');
-			ed.addShortcut('alt+shift+m', 'dcControls.media_desc', 'dcMedia');
-			ed.addShortcut('alt+shift+w', 'dcControls.media_desc', 'dcWebMedia');
+			ed.addShortcut('ctrl+alt+l', 'dcControls.link_desc', 'dcLink');
+			ed.addShortcut('ctrl+alt+m', 'dcControls.media_desc', 'dcMedia');
+			ed.addShortcut('ctrl+alt+w', 'dcControls.media_desc', 'dcWebMedia');
 			
 			// Register changes management
 			ed.onNodeChange.add(function(ed, cm, n, co) {

@@ -565,7 +565,8 @@ class dcPage
 			'theme_advanced_blockformats' => 'p,pre,h3,h4,h5,h6',
 			'paste_auto_cleanup_on_paste' => 'true',
 			'forced_root_block' => '',
-			'formats' => '{underline: {inline: "ins"},strikethrough: {inline: "del"},inlinecode: {inline: "code"},quote: {inline: "q"}}'
+			'formats' => '{underline: {inline: "ins"},strikethrough: {inline: "del"},inlinecode: {inline: "code"},quote: {inline: "q"}}',
+			'entity_encoding' => 'raw'
 		));
 		$tb->addPlugins('xhtml',array(
 			'fullscreen' => true,
