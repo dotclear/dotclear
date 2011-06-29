@@ -5,14 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-06-27 13:14+0200\n"
 "PO-Revision-Date: 2011-05-08 19:27+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Poedit-Language: French\n"
 
 msgid "Dotclear has been upgraded."
@@ -1707,14 +1707,17 @@ msgstr "Changer la catégorie"
 msgid "Change author"
 msgstr "Changer l'auteur"
 
-msgid "Selected:"
-msgstr "Sélectionné :"
+#, fuzzy
+msgid "Lang"
+msgstr "Langue :"
 
-msgid "Month:"
+#, fuzzy
+msgid "Month"
 msgstr "Mois :"
 
-msgid "Lang:"
-msgstr "Langue :"
+#, php-format
+msgid "Entries / %s filtered out of %s"
+msgstr ""
 
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
@@ -2015,6 +2018,39 @@ msgstr "Utilisateurs par page"
 msgid "Selected users action:"
 msgstr "Action sur les utilisateurs sélectionnés :"
 
+msgid "Toggle filters and display options"
+msgstr ""
+
+msgid "Entries filters"
+msgstr "Filtres sur les billets"
+
+msgid "Delete all filters"
+msgstr "Supprimer tous les filtres"
+
+msgid "Add a filter"
+msgstr "Ajouter un filtre"
+
+msgid "Add this filter"
+msgstr "Ajouter ce filtre"
+
+msgid "Apply filters and display options"
+msgstr "Appliquer les filtres et les options d'affichage"
+
+msgid "or"
+msgstr "ou"
+
+msgid "is"
+msgstr "est"
+
+msgid "is not"
+msgstr "n'est pas"
+
+msgid "%s is or is not"
+msgstr "%s est ou n'est pas"
+
+msgid "Choose an option"
+msgstr "Choisissez une option un blog"
+
 msgid "Blog:"
 msgstr "Blog :"
 
@@ -2141,6 +2177,9 @@ msgstr "Il y a des erreurs XHTML."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Vous avez des modifications non sauvegardées. Changer de format vous fera perdre ces modifications. Continuer ?"
+
+msgid "Loading enhanced uploader, please wait."
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Vous n'avez pas enregistré vos modifications."
@@ -2287,11 +2326,43 @@ msgstr "%d fichiers en attente."
 msgid "Queue error:"
 msgstr "Erreur de file d'attente :"
 
+msgid "Invalid column ID"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid column title"
+msgstr "URL de fichier de langue invalide."
+
+msgid "Callback parameter should be an array"
+msgstr ""
+
+msgid "Callback class should be inherited of adminGenericList class"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Invalid column callback: %s"
+msgstr "Espace de travail de la préférence invalide : %s"
+
 msgid "&#171;prev."
 msgstr "&#171;préc."
 
 msgid "next&#187;"
 msgstr "suiv.&#187;"
+
+msgid "Type"
+msgstr "Type"
+
+#, fuzzy
+msgid "First name"
+msgstr "Prénom"
+
+#, fuzzy
+msgid "Last name"
+msgstr "Nom"
+
+#, fuzzy
+msgid "Displayed information"
+msgstr "Informations utilisateur"
 
 msgid "No entry"
 msgstr "Pas de billet"
@@ -2309,12 +2380,6 @@ msgstr "%d annexe"
 #, php-format
 msgid "%d attachments"
 msgstr "%d annexes"
-
-msgid "Type"
-msgstr "Type"
-
-msgid "No user"
-msgstr "Pas d'utilisateur"
 
 msgid "admin"
 msgstr "Administrateur"
@@ -2755,6 +2820,12 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
+#~ msgid "Selected:"
+#~ msgstr "Sélectionné :"
+
+#~ msgid "No user"
+#~ msgstr "Pas d'utilisateur"
 
 #~ msgid "login"
 #~ msgstr "login"
