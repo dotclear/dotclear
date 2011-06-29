@@ -79,6 +79,20 @@ abbr {
 
 /* LAYOUT
 -------------------------------------------------------- */
+#prelude {
+	background: #575859;
+	line-height: 1.8em;
+	margin: 0;
+	overflow: hidden;
+	}
+#prelude li {
+	list-style-type: none;
+	margin: 0 1em 0 0;
+	background:transparent;
+	}
+#prelude li a {
+	color:#fff;
+	}
 
 #top {
 	margin: 0;

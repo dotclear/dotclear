@@ -123,6 +123,7 @@ class dcPage
 		($safe_mode ? ' safe-mode' : '').
 		'">'."\n".
 		
+		'<ul id="prelude"><li><a href="#content">Aller au contenu</a></li><li><a href="#main-menu">Aller au menu</a></li></ul>'."\n".
 		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
 		
 		
@@ -369,6 +370,7 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.biscuit.js').
 		self::jsLoad('js/jquery/jquery.bgFade.js').
 		self::jsLoad('js/common.js').
+		self::jsLoad('js/prelude.js').
 		
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
