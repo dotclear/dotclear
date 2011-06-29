@@ -721,7 +721,8 @@ h1 a {
 --------------------------------------------------- */
 .post, 
 .footnotes, 
-#attachments, 
+#attachments,
+.read-it, 
 .post-info-co, 
 #comments, #footer {
 	clear:both;

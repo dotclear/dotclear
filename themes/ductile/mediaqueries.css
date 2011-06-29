@@ -117,26 +117,27 @@
 		top: 0;
 		right: 0;
 		padding-right: 3%;
+		font-size: .875em;
 		}
 	#stickers li {
-		display: inline;
-		padding: 0 4px;
-		}
-	#stickers li.last {
-		padding-right: 0;
+		display: block;
+		float: right;
+		text-align: center;
+		width: 60px;
+		padding: 0;
 		}
 	#stickers li span {
-		font-size: 1px;
-		display: inline-block;
-		height:1px;
-		width: 1px;
-		overflow:hidden;
+		display: block;
+		text-align: center;
 		}
 	#stickers li a:hover,
 	#stickers li a:active,
 	#stickers li a:focus {
 		background-color: #fff;
-		border-bottom: 4px solid #ad3f4c;
+		}
+	#stickers a:hover, #stickers a:focus {
+		color: #000;
+		background: #fff;
 		}
 }
 
@@ -244,12 +245,12 @@
 ------------------------------------------------------- */
 @media only screen and (min-width: 1280px) {
 	#content {
-		margin : 0 20em 0 200px;
+		margin : 0 20em 0 220px;
 		}
 	.post-attr { 
-		margin-left: -200px; 
+		margin-left: -220px; 
 		float: left; 
-		width: 150px; 
+		width: 180px; 
 		text-align: right;
 		}
 	.post-attr a, .post-info, .post-tags {
