@@ -7,11 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:36+0200\n"
+"POT-Creation-Date: 2011-06-27 13:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -112,23 +111,24 @@ msgid "Whitelist"
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:126
+#: plugins/antispam/filters/class.dc.filter.ip.php:128
 msgid "Add an IP address"
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:132
+#: plugins/antispam/filters/class.dc.filter.ip.php:133
 msgid "Global IP"
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:137
+#: plugins/antispam/filters/class.dc.filter.ip.php:138
 #: plugins/antispam/filters/class.dc.filter.words.php:132
 msgid "Add"
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:144
+#: plugins/antispam/filters/class.dc.filter.ip.php:145
 msgid "No IP address in list."
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:150
+#: plugins/antispam/filters/class.dc.filter.ip.php:151
 msgid "IP list"
 msgstr ""
 
@@ -176,6 +176,7 @@ msgid "Words have been successfully removed."
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.words.php:122
+#: plugins/antispam/filters/class.dc.filter.words.php:123
 msgid "Add a word"
 msgstr ""
 
@@ -298,11 +299,11 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: plugins/antispam/index.php:170
+#: plugins/antispam/index.php:170 plugins/antispam/index.php:191
 msgid "Active"
 msgstr ""
 
-#: plugins/antispam/index.php:171
+#: plugins/antispam/index.php:171 plugins/antispam/index.php:192
 msgid "Auto Del."
 msgstr ""
 
@@ -312,6 +313,10 @@ msgstr ""
 
 #: plugins/antispam/index.php:184 plugins/antispam/index.php:185
 msgid "Filter configuration"
+msgstr ""
+
+#: plugins/antispam/index.php:190 plugins/blogroll/index.php:260
+msgid "position"
 msgstr ""
 
 #: plugins/antispam/index.php:214
@@ -526,14 +531,6 @@ msgstr ""
 
 #: plugins/blogroll/index.php:248
 msgid "URL"
-msgstr ""
-
-#: plugins/blogroll/index.php:249
-msgid "Lang"
-msgstr ""
-
-#: plugins/blogroll/index.php:260
-msgid "position"
 msgstr ""
 
 #: plugins/blogroll/index.php:261
@@ -948,10 +945,6 @@ msgstr ""
 
 #: plugins/importExport/inc/class.dc.ieModule.php:85
 msgid "Why don't you blog this now?"
-msgstr ""
-
-#: plugins/importExport/inc/class.dc.ieModule.php:86
-msgid "or"
 msgstr ""
 
 #: plugins/importExport/inc/class.dc.ieModule.php:86
