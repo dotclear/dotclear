@@ -1022,6 +1022,16 @@ td.expand {
 	padding-left: 15px;
 }
 
+div.pagination {
+	padding-bottom: 1em;
+}
+div.pagination a {
+	padding: 0 0.3em 0 0.3em;
+}
+div.pagination span{
+	margin-left: 2em;
+}
+
 /* FORMS
 -------------------------------------------------------- */
 form {
