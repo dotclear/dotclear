@@ -201,7 +201,11 @@ class adminGenericList
 			array_push($list,$col_html);
 		}
 		
-		return !empty($list) ? sprintf($block,implode('',$list)) : '';
+		$nb_per_page = isset($_GET['nb']) ? $_GET['nb'] : 10;
+		
+		array_push($list,'<label for="nb" class="classic">'.__('Items per page:').'</label>&nbsp;'.form::field('nb',3,3,$nb_per_page));
+		
+		return sprintf($block,implode('',$list));
 	}
 	
 	public function display($page,$nb_per_page,$enclose_block='')
