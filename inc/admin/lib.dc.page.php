@@ -74,7 +74,7 @@ class dcPage
 			'<label for="switchblog" class="classic">'.
 			__('Blogs:').' '.
 			$core->formNonce().
-			form::combo('switchblog',$blogs,$core->blog->id,	'',1).
+			form::combo('switchblog',$blogs,$core->blog->id,	'').
 			'</label>'.
 			'<noscript><div><input type="submit" value="'.__('ok').'" /></div></noscript>';
 		}
