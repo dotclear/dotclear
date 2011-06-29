@@ -73,8 +73,8 @@ if (!$core->error->flag())
 	}
 	
 	$selected_combo = array(
-	__('selected') => '1',
-	__('not selected') => '0'
+	__('is selected') => '1',
+	__('is not selected') => '0'
 	);
 	
 	# Months array
@@ -146,7 +146,7 @@ $params = new ArrayObject();
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 $params['no_content'] = true;
 
-$filterSet = new dcFilterSet('posts.php');
+$filterSet = new dcFilterSet('posts','posts.php');
 class monthComboFilter extends comboFilter {
 	public function applyFilter($params) {
 		$month=$this->values[0];
@@ -161,12 +161,13 @@ $filterSet
 		'category',__('Category'), 'cat_id', $categories_combo))
 	->addFilter(new comboFilter(
 		'post_status',__('Status'), 'post_status', $status_combo,array('singleval' => 1)))
-	->addFilter(new comboFilter(
-		'post_selected',__('Selected'), 'post_selected', $selected_combo))
+	->addFilter(new booleanFilter(
+		'post_selected',__('The post :'), 'post_selected', $selected_combo))
 	->addFilter(new comboFilter(
 		'lang',__('Lang'), 'post_lang', $lang_combo))
 	->addFilter(new monthComboFilter(
 		'month',__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)));
+
 $filterSet->setValues($_GET);
 
 # Get posts

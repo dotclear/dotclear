@@ -1432,7 +1432,6 @@ class dcBlog
 	private function getPostsCategoryFilter($arr,$field='cat_id')
 	{
 		$field = $field == 'cat_id' ? 'cat_id' : 'cat_url';
-		
 		$sub = array();
 		$not = array();
 		$queries = array();
@@ -1446,9 +1445,13 @@ class dcBlog
 			
 			if (isset($args['not'])) { $not[$id] = 1; }
 			if (isset($args['sub'])) { $sub[$id] = 1; }
+			$nullExcluded = false;
 			if ($field == 'cat_id') {
 				if (preg_match('/^null$/i',$id)) {
 					$queries[$id] = 'P.cat_id IS NULL';
+					if ($not[$id]) {
+						$nullExcluded = true;
+					}
 				}
 				else {
 					$queries[$id] = 'P.cat_id = '.(integer) $id;
@@ -1490,11 +1493,14 @@ class dcBlog
 		}
 		
 		if ($sql[1]) {
-			$sql[1] = '(P.cat_id IS NULL OR NOT('.$sql[1].'))';
+			if ($nullExcluded) {
+				$sql[1] = 'NOT('.$sql[1].')';
+			} else {
+				$sql[1] = '(P.cat_id IS NULL OR NOT('.$sql[1].'))';
+			}
 		} else {
 			unset($sql[1]);
 		}
-		
 		return implode(' AND ',$sql);
 	}
 	
