@@ -365,12 +365,17 @@ abbr {
 }
 
 /* POST */
-#entry-sidebar {
-	width: 17em;
-	float: right;
+#entry-wrapper {
+	float: left;
+	width: 100%;
+	margin-right: -18em;
 }
 #entry-content {
 	margin-right: 18em;
+}
+#entry-sidebar {
+	width: 17em;
+	float: right;
 }
 #comments {
 	clear: both;
