@@ -155,7 +155,7 @@ class dcFilterSet {
 		$ret .= '<p><img alt="" src="images/minus.png" /> <a href="#" id="toggle-filters">'.__('Toggle filters and display options').'</a></p>';
 		$ret .=
 			'<div class="two-cols">'.
-			'<form id="filters" action="'.$this->action.'" method="'.$method.'" id="filters-form"'.$formclass.'>'.
+			'<form id="filters" action="'.$this->action.'" method="'.$method.'"'.$formclass.'>'.
 			'<div class="col70">'.
 			'<h3>'.__('Entries filters').'</h3>';
 			
@@ -174,17 +174,17 @@ class dcFilterSet {
 			$ret .= '</ul>';
 		}
 		$ret .= 
-			'<p class="clear"><input class="delete" type="submit" value="'.__('Delete all filters').'" name="clear_filters"></p>'.
+			'<p class="clear"><input class="delete" type="submit" value="'.__('Delete all filters').'" name="clear_filters" /></p>'.
 			'<h3 class="margintop">'.__('Add a filter').'</h3>'.
 			'<p id="available_filters">'.
 			form::combo("add_filter",$form_combo).
-			'<input type="submit" value=" + " title="'.__('Add this filter').'" name="apply">'.
+			'<input type="submit" value=" + " title="'.__('Add this filter').'" name="apply" />'.
 			'</p>'.
 			'</div>'.
 			'<div class="col30">'.
 			$this->columns_form.
 			'</div>'.
-			'<p class="clear margintop"><input type="submit" value="'.__('Apply filters and display options').'" name="apply"></p>'.
+			'<p class="clear margintop"><input type="submit" value="'.__('Apply filters and display options').'" name="apply" /></p>'.
 
 			'</form></div>';
 		return $ret;
