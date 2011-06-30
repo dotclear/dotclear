@@ -33,38 +33,38 @@ class dcPager extends pager
 		$this->setURL();
 		
 		# Page text
-		$htmlText = sprintf(__('Page %s over %s'),$this->env,$this->nb_pages).'&nbsp;';
+		$htmlText = '<span>'.sprintf(__('Page %s over %s'),$this->env,$this->nb_pages).'</span>';
 		
 		# Previous page
 		if($this->env != 1) {
 			$htmlPrev = '<a href="'.sprintf($this->page_url,$this->env-1).'" class="prev">'.
-			$htmlPrev .= $this->html_prev.'</a>&nbsp;';
+			$htmlPrev .= $this->html_prev.'</a>';
 		}
 		
 		# Next page
 		if($this->env != $this->nb_pages) {
-			$htmlNext = '&nbsp;<a href="'.sprintf($this->page_url,$this->env+1).'" class="next">';
+			$htmlNext = '<a href="'.sprintf($this->page_url,$this->env+1).'" class="next">';
 			$htmlNext .= $this->html_next.'</a>';
 		}
 		
 		# Start
 		if($this->env != 1) {
 			$htmlStart = '<a href="'.sprintf($this->page_url,1).'" class="start">'.
-			$htmlStart .= $this->html_start.'</a>&nbsp;';
+			$htmlStart .= $this->html_start.'</a>';
 		}
 		
 		# End
 		if($this->env != $this->nb_pages) {
-			$htmlEnd = '&nbsp;<a href="'.sprintf($this->page_url,$this->nb_elements).'" class="end">'.
-			$htmlEnd .= $this->html_end.'</a>&nbsp;';
+			$htmlEnd = '<a href="'.sprintf($this->page_url,$this->nb_elements).'" class="end">'.
+			$htmlEnd .= $this->html_end.'</a>';
 		}
 		
 		# Direct acces
 		$htmlDirectAccess = 
 			'<span>'.__('Direct access to page').'&nbsp;'.
-			form::field('page',3,3,$this->env).'&nbsp;'.
+			form::field(array('page'),3,3,$this->env).'&nbsp;'.
 			'<input type="submit" value="'.__('ok').'" />'.
-			'<span>';
+			'</span>';
 			
 		# Hidden fields
 		foreach ($_GET as $k => $v) {
@@ -74,7 +74,7 @@ class dcPager extends pager
 		}
 		
 		$res =
-			'<form method="get" action="'.$this->base_url.'">'.
+			'<form method="get" action="'.$this->base_url.'"><p>'.
 			$htmlStart.
 			$htmlPrev.
 			$htmlText.
@@ -82,7 +82,7 @@ class dcPager extends pager
 			$htmlEnd.
 			$htmlDirectAccess.
 			$htmlHidden.
-			'</form>';
+			'</p></form>';
 		
 		return $this->nb_elements > 0 ? $res : '';
 	}
@@ -273,9 +273,11 @@ abstract class adminGenericList
 		
 		$nb_per_page = isset($_GET['nb']) ? $_GET['nb'] : 10;
 		
-		array_push($list,'<label for="nb" class="classic">'.__('Items per page:').'</label>&nbsp;'.form::field('nb',3,3,$nb_per_page));
-		
-		return sprintf($block,implode('',$list));
+		return
+		sprintf($block,implode('',$list)).
+		'<p><label for="nb">'.__('Items per page:').
+		'</label>&nbsp;'.form::field('nb',3,3,$nb_per_page).
+		'</p>';
 	}
 	
 	/**

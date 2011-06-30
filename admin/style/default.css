@@ -1026,10 +1026,10 @@ div.pagination {
 	padding-bottom: 1em;
 }
 div.pagination a {
-	padding: 0 0.3em 0 0.3em;
+	margin: 0 0.3em 0 0.3em;
 }
 div.pagination span{
-	margin-left: 2em;
+	margin: 0 1em 0 1em;
 }
 
 /* FORMS
@@ -1099,7 +1099,7 @@ label {
 label input, label select, label span {
 	display: block;
 }
-#filters-form label {
+#filters label {
 	display: inline;
 }
 p.form-note {
