@@ -71,7 +71,7 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
 	
 	return
 	'<tr>'.
-	'<td><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
+	'<th scope="row"><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></th>'.
 	'<td>'.$field.'</td>'.
 	'<td>'.$s['type'].'</td>'.
 	'<td>'.html::escapeHTML($s['label']).'</td>'.
@@ -83,7 +83,7 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
   <title>user:preferences</title>
   <?php echo dcPage::jsPageTabs($part); ?>
   <style type="text/css">
-  .ns-name { background: #ccc; color: #000; padding-top: 0.3em; padding-bottom: 0.3em; font-size: 1.1em; }
+  .ws-name { background: #ccc; color: #000; padding-top: 0.3em; padding-bottom: 0.3em; font-size: 1.1em; }
   </style>
 </head>
 
@@ -102,12 +102,16 @@ if (!empty($_GET['upda'])) {
 <div id="local" class="multi-part" title="<?php echo __('user preferences'); ?>">
 <form action="plugin.php" method="post">
 <table>
+<caption><?php echo __('Local user preferences list'); ?></caption>
+<thead>
 <tr>
-  <th class="nowrap">Pref ID</th>
-  <th><?php echo __('Value'); ?></th>
-  <th><?php echo __('Type'); ?></th>
-  <th class="maximal"><?php echo __('Description'); ?></th>
+  <th scope="col" class="nowrap">Pref ID</th>
+  <th scope="col"><?php echo __('Value'); ?></th>
+  <th scope="col"><?php echo __('Type'); ?></th>
+  <th scope="col" class="maximal"><?php echo __('Description'); ?></th>
 </tr>
+</thead>
+<tbody>
 <?php
 $prefs = array();
 
@@ -122,7 +126,7 @@ ksort($prefs);
 foreach ($prefs as $ws => $s)
 {
 	ksort($s);
-	echo '<tr><td colspan="4" class="ws-name">workspace: <strong>'.$ws.'</strong></td></tr>';
+	echo '<tr><th scope="row" colspan="4" class="ws-name">workspace: <strong>'.$ws.'</strong></th></tr>';
 	
 	foreach ($s as $k => $v)
 	{
@@ -130,6 +134,7 @@ foreach ($prefs as $ws => $s)
 	}
 }
 ?>
+</tbody>
 </table>
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="hidden" name="p" value="userPref" />
@@ -140,12 +145,16 @@ foreach ($prefs as $ws => $s)
 <div id="global" class="multi-part" title="<?php echo __('global preferences'); ?>">
 <form action="plugin.php" method="post">
 <table>
+<caption><?php echo __('Global user preferences list'); ?></caption>
+<thead>
 <tr>
-  <th class="nowrap">Pref ID</th>
-  <th><?php echo __('Value'); ?></th>
-  <th><?php echo __('Type'); ?></th>
-  <th class="maximal"><?php echo __('Description'); ?></th>
+  <th scope="col" class="nowrap">Pref ID</th>
+  <th scope="col"><?php echo __('Value'); ?></th>
+  <th scope="col"><?php echo __('Type'); ?></th>
+  <th scope="col" class="maximal"><?php echo __('Description'); ?></th>
 </tr>
+</thead>
+<tbody>
 <?php
 $prefs = array();
 
@@ -160,7 +169,7 @@ ksort($prefs);
 foreach ($prefs as $ws => $s)
 {
 	ksort($s);
-	echo '<tr><td colspan="4" class="ws-name">workspace: <strong>'.$ws.'</strong></td></tr>';
+	echo '<tr><th scope="row" colspan="4" class="ws-name">workspace: <strong>'.$ws.'</strong></th></tr>';
 	
 	foreach ($s as $k => $v)
 	{
@@ -168,6 +177,7 @@ foreach ($prefs as $ws => $s)
 	}
 }
 ?>
+</tbody>
 </table>
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="hidden" name="p" value="userPref" />

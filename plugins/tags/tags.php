@@ -42,13 +42,13 @@ while ($tags->fetch())
 		if ($tags->index() >= round($tags->count()/2)) {
 			$col = 1;
 		}
-		$cols[$col] .= '<tr class="tagLetter"><td colspan="2"><span>'.$letter.'</span></td></tr>';
+		$cols[$col] .= '<tr class="tagLetter"><th scope="row" colspan="2"><span>'.$letter.'</span></th></tr>';
 	}
 	
 	$cols[$col] .=
 	'<tr class="line">'.
-		'<td class="maximal"><a href="'.$p_url.
-		'&amp;m=tag_posts&amp;tag='.rawurlencode($tags->meta_id).'">'.$tags->meta_id.'</a></td>'.
+		'<th scope="row" class="maximal"><a href="'.$p_url.
+		'&amp;m=tag_posts&amp;tag='.rawurlencode($tags->meta_id).'">'.$tags->meta_id.'</a></th>'.
 		'<td class="nowrap"><strong>'.$tags->count.'</strong> '.
 		(($tags->count==1) ? __('entry') : __('entries')).'</td>'.
 	'</tr>';
@@ -56,7 +56,10 @@ while ($tags->fetch())
 	$last_letter = $letter;
 }
 
-$table = '<div class="col"><table class="tags">%s</table></div>';
+$table =
+'<div class="col"><table class="tags"><caption>'.
+__('Tags list').
+'</caption><tbody>%s</tbody></table></div>';
 
 if ($cols[0])
 {
