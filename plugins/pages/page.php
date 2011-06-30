@@ -360,6 +360,44 @@ if ($can_edit_page)
 {
 	echo '<div class="multi-part" title="'.__('Edit page').'" id="edit-entry">';
 	echo '<form action="'.html::escapeURL($redir_url).'" method="post" id="entry-form">';
+
+	echo '<div id="entry-wrapper">';
+	echo '<div id="entry-content"><fieldset class="constrained">';
+	
+	echo
+	'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
+	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
+	'</label></p>'.
+	
+	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'</label> '.
+	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
+	'</p>'.
+	
+	'<p class="area"><label class="required" '.
+	'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
+	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
+	'</p>';
+	
+	echo
+	'<p class="area" id="notes-area"><label for="post_notes">'.__('Notes:').'</label>'.
+	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
+	'</p>';
+
+	# --BEHAVIOR-- adminPageForm
+	$core->callBehavior('adminPageForm',isset($post) ? $post : null);
+	
+	echo
+	'<p>'.
+	($post_id ? form::hidden('id',$post_id) : '').
+	'<input type="submit" value="'.__('Save').' (s)" '.
+	'accesskey="s" name="save" /> '.
+	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
+	$core->formNonce().
+	'</p>';
+	
+	echo '</fieldset></div>';		// End #entry-content
+	echo '</div>';		// End #entry-wrapper
+
 	echo '<div id="entry-sidebar">';
 	
 	echo
@@ -442,40 +480,6 @@ if ($can_edit_page)
 	
 	echo '</div>';		// End #entry-sidebar
 	
-	echo '<div id="entry-content"><fieldset class="constrained">';
-	
-	echo
-	'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
-	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
-	'</label></p>'.
-	
-	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'</label> '.
-	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
-	'</p>'.
-	
-	'<p class="area"><label class="required" '.
-	'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
-	'</p>';
-	
-	echo
-	'<p class="area" id="notes-area"><label for="post_notes">'.__('Notes:').'</label>'.
-	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
-	'</p>';
-
-	# --BEHAVIOR-- adminPageForm
-	$core->callBehavior('adminPageForm',isset($post) ? $post : null);
-	
-	echo
-	'<p>'.
-	($post_id ? form::hidden('id',$post_id) : '').
-	'<input type="submit" value="'.__('Save').' (s)" '.
-	'accesskey="s" name="save" /> '.
-	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
-	$core->formNonce().
-	'</p>';
-	
-	echo '</fieldset></div>';		// End #entry-content
 	echo '</form>';
 	echo '</div>';
 	
