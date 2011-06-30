@@ -337,14 +337,20 @@ else
 	
 	try
 	{
-		echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
+		# Let theme configuration set their own form(s)
+		$managed = (boolean) $core->callBehavior('adminThemeConfigManaged');
 		
+		if (!$managed)
+			echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
+
 		include $theme_conf_file;
-		
-		echo
-		'<p class="clear"><input type="submit" value="'.__('Save').'" />'.
-		$core->formNonce().'</p>'.
-		'</form>';
+
+		if (!$managed)
+			echo
+			'<p class="clear"><input type="submit" value="'.__('Save').'" />'.
+			$core->formNonce().'</p>'.
+			'</form>';
+
 	}
 	catch (Exception $e)
 	{
