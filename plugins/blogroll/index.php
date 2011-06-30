@@ -241,12 +241,13 @@ if (!empty($_GET['importlinks'])) {
 <div class="multi-part" title="<?php echo __('Blogroll'); ?>">
 <form action="plugin.php" method="post" id="links-form">
 <table class="maximal dragable">
+<caption><?php echo __('Links list'); ?></caption>
 <thead>
 <tr>
-  <th colspan="3"><?php echo __('Title'); ?></th>
-  <th><?php echo __('Description'); ?></th>
-  <th><?php echo __('URL'); ?></th>
-  <th><?php echo __('Lang'); ?></th>
+  <th scope="col" colspan="3"><?php echo __('Title'); ?></th>
+  <th scope="col"><?php echo __('Description'); ?></th>
+  <th scope="col"><?php echo __('URL'); ?></th>
+  <th scope="col"><?php echo __('Lang'); ?></th>
 </tr>
 </thead>
 <tbody id="links-list">
@@ -264,14 +265,14 @@ while ($rs->fetch())
 	if ($rs->is_cat)
 	{
 		echo
-		'<td colspan="5"><strong><a href="'.$p_url.'&amp;edit=1&amp;id='.$rs->link_id.'">'.
-		html::escapeHTML($rs->link_desc).'</a></strong></td>';
+		'<th scope="row" colspan="5"><strong><a href="'.$p_url.'&amp;edit=1&amp;id='.$rs->link_id.'">'.
+		html::escapeHTML($rs->link_desc).'</a></strong></th>';
 	}
 	else
 	{
 		echo
-		'<td><a href="'.$p_url.'&amp;edit=1&amp;id='.$rs->link_id.'">'.
-		html::escapeHTML($rs->link_title).'</a></td>'.
+		'<th scope="row"><a href="'.$p_url.'&amp;edit=1&amp;id='.$rs->link_id.'">'.
+		html::escapeHTML($rs->link_title).'</a></th>'.
 		'<td>'.html::escapeHTML($rs->link_desc).'</td>'.
 		'<td>'.html::escapeHTML($rs->link_href).'</td>'.
 		'<td>'.html::escapeHTML($rs->link_lang).'</td>';

@@ -165,12 +165,13 @@ else
 
 	echo
 	'<table class="dragable">'.
+	'<caption>'.__('Antispan filters list').'</caption>'.
 	'<thead><tr>'.
-	'<th>'.__('Order').'</th>'.
-	'<th>'.__('Active').'</th>'.
-	'<th>'.__('Auto Del.').'</th>'.
-	'<th class="nowrap">'.__('Filter name').'</th>'.
-	'<th colspan="2">'.__('Description').'</th>'.
+	'<th scope="col">'.__('Order').'</th>'.
+	'<th scope="col">'.__('Active').'</th>'.
+	'<th scope="col">'.__('Auto Del.').'</th>'.
+	'<th scope="col" class="nowrap">'.__('Filter name').'</th>'.
+	'<th scope="col" colspan="2">'.__('Description').'</th>'.
 	'</tr></thead>'.
 	'<tbody id="filters-list" >';
 
@@ -190,7 +191,7 @@ else
 		'<td class="handle">'.form::field(array('f_order['.$fid.']'),2,5,(string) $i, '', '', false, 'title="'.__('position').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_active[]'),$fid,$f->active, '', '', false, 'title="'.__('Active').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_auto_del[]'),$fid,$f->auto_delete, '', '', false, 'title="'.__('Auto Del.').'"').'</td>'.
-		'<td class="nowrap">'.$f->name.'</td>'.
+		'<th scope="row" class="nowrap">'.$f->name.'</th>'.
 		'<td class="maximal">'.$f->description.'</td>'.
 		'<td class="status">'.$gui_link.'</td>'.
 		'</tr>';

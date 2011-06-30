@@ -76,7 +76,7 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 	return
 	'<tr>'.
 	'<td><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
-	'<td>'.$field.'</td>'.
+	'<th scope="row">'.$field.'</th>'.
 	'<td>'.$s['type'].'</td>'.
 	'<td>'.html::escapeHTML($s['label']).'</td>'.
 	'</tr>';
@@ -106,12 +106,16 @@ if (!empty($_GET['upda'])) {
 <div id="local" class="multi-part" title="<?php echo __('blog settings'); ?>">
 <form action="plugin.php" method="post">
 <table>
+<caption><?php echo __('Local blog settings list'); ?></caption>
+<thead>
 <tr>
-  <th class="nowrap">Setting ID</th>
-  <th><?php echo __('Value'); ?></th>
-  <th><?php echo __('Type'); ?></th>
-  <th class="maximal"><?php echo __('Description'); ?></th>
+  <th scope="col" class="nowrap">Setting ID</th>
+  <th scope="col"><?php echo __('Value'); ?></th>
+  <th scope="col"><?php echo __('Type'); ?></th>
+  <th scope="col" class="maximal"><?php echo __('Description'); ?></th>
 </tr>
+</thead>
+<tbody>
 <?php
 $settings = array();
 
@@ -126,7 +130,7 @@ ksort($settings);
 foreach ($settings as $ns => $s)
 {
 	ksort($s);
-	echo '<tr><td colspan="4" class="ns-name">namespace: <strong>'.$ns.'</strong></td></tr>';
+	echo '<tr><th scope="row" colspan="4" class="ns-name">namespace: <strong>'.$ns.'</strong></th></tr>';
 	
 	foreach ($s as $k => $v)
 	{
@@ -134,6 +138,7 @@ foreach ($settings as $ns => $s)
 	}
 }
 ?>
+</tbody>
 </table>
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="hidden" name="p" value="aboutConfig" />
@@ -144,12 +149,16 @@ foreach ($settings as $ns => $s)
 <div id="global" class="multi-part" title="<?php echo __('global settings'); ?>">
 <form action="plugin.php" method="post">
 <table>
+<caption><?php echo __('Global blog settings list'); ?></caption>
+<thead>
 <tr>
-  <th class="nowrap">Setting ID</th>
-  <th><?php echo __('Value'); ?></th>
-  <th><?php echo __('Type'); ?></th>
-  <th class="maximal"><?php echo __('Description'); ?></th>
+  <th scope="col" class="nowrap">Setting ID</th>
+  <th scope="col"><?php echo __('Value'); ?></th>
+  <th scope="col"><?php echo __('Type'); ?></th>
+  <th scope="col" class="maximal"><?php echo __('Description'); ?></th>
 </tr>
+</thead>
+<tbody>
 <?php
 $settings = array();
 
@@ -164,7 +173,7 @@ ksort($settings);
 foreach ($settings as $ns => $s)
 {
 	ksort($s);
-	echo '<tr><td colspan="4" class="ns-name">namespace: <strong>'.$ns.'</strong></td></tr>';
+	echo '<tr><th scope="row" colspan="4" class="ns-name">namespace: <strong>'.$ns.'</strong></th></tr>';
 	
 	foreach ($s as $k => $v)
 	{
@@ -172,6 +181,7 @@ foreach ($settings as $ns => $s)
 	}
 }
 ?>
+</tbody>
 </table>
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="hidden" name="p" value="aboutConfig" />
