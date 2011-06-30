@@ -10,7 +10,7 @@ $(function() {
 		});
 
 		if ($('input[name=save-publish]',f).length > 0) {
-			var btn = $('<input type="submit" value="' + $('input[name=save-publish]',f).val() + '" tabindex="3" />');
+			var btn = $('<input type="submit" value="' + $('input[name=save-publish]',f).val() + '" />');
 			$('input[name=save-publish]',f).remove();
 			$('input[name=save]',f).after(btn).after(' ');
 			btn.click(function() {

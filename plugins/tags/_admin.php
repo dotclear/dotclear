@@ -81,7 +81,7 @@ class tagsBehaviors
 		
 		echo
 		'<h3><label for="post_tags">'.__('Tags:').'</label></h3>'.
-		'<div class="p" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal',3).'</div>';
+		'<div class="p" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal').'</div>';
 	}
 	
 	public static function setTags($cur,$post_id)

@@ -311,15 +311,15 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'<form id="quick-entry" action="post.php" method="post">'.
 		'<fieldset>'.
 		'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
-		form::field('post_title',20,255,'','maximal',2).
+		form::field('post_title',20,255,'','maximal').
 		'</label></p>'.
 		'<p class="area"><label class="required" '.
 		'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-		form::textarea('post_content',50,7,'','',2).
+		form::textarea('post_content',50,7).
 		'</p>'.
 		'<p><label for="cat_id" class="classic">'.__('Category:').' '.
-		form::combo('cat_id',$categories_combo,'','',2).'</label></p>'.
-		'<p><input type="submit" value="'.__('Save').'" name="save" tabindex="3" /> '.
+		form::combo('cat_id',$categories_combo).'</label></p>'.
+		'<p><input type="submit" value="'.__('Save').'" name="save" /> '.
 		($core->auth->check('publish',$core->blog->id)
 			? '<input type="hidden" value="'.__('save and publish').'" name="save-publish" />'
 			: '').

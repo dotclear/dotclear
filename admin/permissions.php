@@ -144,7 +144,7 @@ if (!empty($blogs) && !empty($users))
 	echo
 	'<fieldset>'.
 	'<p><label for="your_pwd">'.__('Your password:').
-	form::password('your_pwd',20,255,'','',15).'</label></p>'.
+	form::password('your_pwd',20,255).'</label></p>'.
 	'</fieldset>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	$core->formNonce();

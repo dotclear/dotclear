@@ -335,12 +335,12 @@ elseif ($recover)
 	echo
 	'<fieldset><legend>'.__('Request a new password').'</legend>'.
 	'<p><label for="user_id">'.__('Username:').' '.
-	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
+	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</label></p>'.
 	
 	'<p><label for="user_email">'.__('Email:').' '.
-	form::field(array('user_email','user_email'),20,255,html::escapeHTML($user_email),'',2).'</label></p>'.
+	form::field(array('user_email','user_email'),20,255,html::escapeHTML($user_email)).'</label></p>'.
 	
-	'<p><input type="submit" value="'.__('recover').'" tabindex="3" />'.
+	'<p><input type="submit" value="'.__('recover').'" />'.
 	form::hidden(array('recover'),1).'</p>'.
 	'</fieldset>'.
 	
@@ -352,10 +352,10 @@ elseif ($change_pwd)
 	echo
 	'<fieldset><legend>'.__('Change your password').'</legend>'.
 	'<p><label for="new_pwd">'.__('New password:').' '.
-	form::password(array('new_pwd','new_pwd'),20,255,'','',1).'</label></p>'.
+	form::password(array('new_pwd','new_pwd'),20,255).'</label></p>'.
 	
 	'<p><label for="new_pwd_c">'.__('Confirm password:').' '.
-	form::password(array('new_pwd_c','new_pwd_c'),20,255,'','',2).'</label></p>'.
+	form::password(array('new_pwd_c','new_pwd_c'),20,255).'</label></p>'.
 	'</fielset>'.
 	
 	'<p><input type="submit" value="'.__('change').'" />'.
@@ -381,16 +381,16 @@ else
 		}
 		echo
 		'<p><label for="user_id">'.__('Username:').' '.
-		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
+		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</label></p>'.
 		
 		'<p><label for="user_pwd">'.__('Password:').' '.
-		form::password(array('user_pwd','user_pwd'),20,255,'','',2).'</label></p>'.
+		form::password(array('user_pwd','user_pwd'),20,255).'</label></p>'.
 		
 		'<p><label for="user_remember" class="classic">'.
-		form::checkbox(array('user_remember','user_remember'),1,'','',3).' '.
+		form::checkbox(array('user_remember','user_remember'),1).' '.
 		__('Remember my ID on this computer').'</label></p>'.
 		
-		'<p><input type="submit" value="'.__('log in').'" tabindex="4" /></p>';
+		'<p><input type="submit" value="'.__('log in').'" /></p>';
 		
 		if (!empty($_REQUEST['blog'])) {
 			echo form::hidden('blog',html::escapeHTML($_REQUEST['blog']));
