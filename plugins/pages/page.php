@@ -364,36 +364,36 @@ if ($can_edit_page)
 	
 	echo
 	'<p><label for="post_status">'.__('Page status:').
-	form::combo('post_status',$status_combo,$post_status,'',3,!$can_publish).
+	form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
 	'</label></p>'.
 	
 	'<p><label for="post_dt">'.__('Published on:').
-	form::field('post_dt',16,16,$post_dt,'',3).'</label></p>'.
+	form::field('post_dt',16,16,$post_dt).'</label></p>'.
 	
 	'<p><label for="post_format">'.__('Text formating:').
-	form::combo('post_format',$formaters_combo,$post_format,'',3).
+	form::combo('post_format',$formaters_combo,$post_format).
 	($post_id && $post_format != 'xhtml' ? '<a href="'.html::escapeURL($redir_url).'&amp;id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').
 	'</label></p>'.
 	
-	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment,'',3).' '.
+	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment).' '.
 	__('Accept comments').'</label></p>'.
-	'<p><label for="post_open_tb" class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb,'',3).' '.
+	'<p><label for="post_open_tb" class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb).' '.
 	__('Accept trackbacks').'</label></p>'.
 	
 	'<p><label for="post_position" class="classic">'.__('Page position:').' '.
-	form::field('post_position',3,3,(string) $post_position,'',3).
+	form::field('post_position',3,3,(string) $post_position).
 	'</label></p>'.
 	
 	'<p><label for="post_lang">'.__('Page lang:').
-	form::combo('post_lang',$lang_combo,$post_lang,'',5).'</label></p>'.
+	form::combo('post_lang',$lang_combo,$post_lang).'</label></p>'.
 	
 	'<p><label for="post_password">'.__('Page password:').
-	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal',3).
+	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
 	'</label></p>'.
 	
 	'<div class="lockable">'.
 	'<p><label for="post_url">'.__('Basename:').
-	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal',3).
+	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
 	'</label></p>'.
 	'<p class="form-note warn">'.
 	__('Warning: If you set the URL manually, it may conflict with another page.').
@@ -446,21 +446,21 @@ if ($can_edit_page)
 	
 	echo
 	'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
-	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal',2).
+	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
 	'</label></p>'.
 	
 	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'</label> '.
-	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt),'',2).
+	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 	'</p>'.
 	
 	'<p class="area"><label class="required" '.
 	'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content),'',2).
+	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
 	'</p>';
 	
 	echo
 	'<p class="area" id="notes-area"><label for="post_notes">'.__('Notes:').'</label>'.
-	form::textarea('post_notes',50,5,html::escapeHTML($post_notes),'',2).
+	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 	'</p>';
 
 	# --BEHAVIOR-- adminPageForm
@@ -469,7 +469,7 @@ if ($can_edit_page)
 	echo
 	'<p>'.
 	($post_id ? form::hidden('id',$post_id) : '').
-	'<input type="submit" value="'.__('Save').' (s)" tabindex="4" '.
+	'<input type="submit" value="'.__('Save').' (s)" '.
 	'accesskey="s" name="save" /> '.
 	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
 	$core->formNonce().
