@@ -69,8 +69,10 @@ $__autoload['adminPostList']			= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminPostMiniList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminCommentList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminUserList']			= dirname(__FILE__).'/admin/lib.pager.php';
-$__autoload['dcFilterSet'] =  dirname(__FILE__).'/admin/class.dc.filter.php';
-$__autoload['dcFilter'] =  dirname(__FILE__).'/admin/class.dc.filter.php';
+$__autoload['adminBlogList']			= dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['adminBlogPermissionsList']	= dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['dcFilterSet']			= dirname(__FILE__).'/admin/class.dc.filter.php';
+$__autoload['dcFilter']				= dirname(__FILE__).'/admin/class.dc.filter.php';
 
 $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
 $__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';

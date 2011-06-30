@@ -135,62 +135,17 @@ if (!$core->error->flag())
 	'<strong>'.implode(', ',$users).'</strong>').'</p>';
 	
 	# Show blogs
-	if ($nb_blog == 0)
-	{
-		echo '<p><strong>'.__('No blog').'</strong></p>';
-	}
-	else
-	{
-		$pager = new pager($page,$nb_blog,$nb_per_page,10);
-		$pager->var_page = 'page';
-		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
-		
-		echo
-		'<form action="permissions.php" method="post" id="form-blogs">'.
-		'<table class="clear"><tr>'.
-		'<th colspan="2">'.__('Blog ID').'</th>'.
-		'<th>'.__('Blog name').'</th>'.
-		'<th class="nowrap">'.__('Entries').'</th>'.
-		'<th class="nowrap">'.__('Status').'</th>'.
-		'</tr>';
-		
-		while ($rs->fetch()) {
-			echo blogLine($rs);
-		}
-		
-		echo
-		'</table>'.
-		
+	$blogs_list = new adminBlogPermissionsList($core,$rs,$nb_blog);
+	$blogs_list->display($page,$nb_per_page,'<form action="permissions.php" method="post" id="form-blogs">'.
+		'%s'.
 		'<p class="checkboxes-helpers"></p>'.
-		
 		'<p><input type="submit" value="'.__('set permissions').'" />'.
 		$hidden_fields.
 		$core->formNonce().'</p>'.
-		'</form>';
-		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
-	}
+		'</form>'
+	);
 }
 
 dcPage::close();
 
-function blogLine($rs)
-{
-	global $core;
-	
-	$img_status = $rs->blog_status == 1 ? 'check-on' : 'check-off';
-	$txt_status = $GLOBALS['core']->getBlogStatus($rs->blog_status);
-	$img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',$img_status,$txt_status);
-	
-	return
-	'<tr class="line">'.
-	'<td class="nowrap">'.
-	form::checkbox(array('blog_id[]'),$rs->blog_id,'','','',false,'title="'.__('select').' '.$rs->blog_id.'"').'</td>'.
-	'<td class="nowrap">'.$rs->blog_id.'</td>'.
-	'<td class="maximal">'.html::escapeHTML($rs->blog_name).'</td>'.
-	'<td class="nowrap">'.$core->countBlogPosts($rs->blog_id).'</td>'.
-	'<td class="status">'.$img_status.'</td>'.
-	'</tr>';
-}
 ?>

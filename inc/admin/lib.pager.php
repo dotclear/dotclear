@@ -141,7 +141,18 @@ class adminGenericColumn
 			$r = new ReflectionClass($callback[0]);
 			$f = $r->getMethod($callback[1]);
 			$p = $r->getParentClass();
-			if (!$p || $p->name != 'adminGenericList') {
+			$find_parent = false;
+			
+			while (!$p) {
+				if ($p->name == 'adminGenericList') {
+					$find_parent = true;
+				}
+				else {
+					$p->getParentClass();
+				}
+			}
+			
+			if (!$p || !$f) {
 				throw new Exception(__('Callback class should be inherited of adminGenericList class'));
 			}
 		}
@@ -423,7 +434,6 @@ abstract class adminGenericList
 		foreach ($this->columns as $k => $v) {
 			if ($v->isVisible()) {
 				$c = $v->getInfo('callback');
-				$func = $c[1];
 				$res .= $this->{$c[1]}();
 			}
 		}
@@ -588,7 +598,7 @@ class adminPostMiniList extends adminPostList
 {
 	public function setColumns()
 	{
-		$this->addColumn('title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
+		$this->addColumn('title',__('Title'),array('adminPostMiniList','getTitle'),' class="maximal"',false);
 		$this->addColumn('date',__('Date'),array('adminPostList','getDate'));
 		$this->addColumn('author',__('Author'),array('adminPostList','getAuthor'));
 		$this->addColumn('status',__('Status'),array('adminPostList','getStatus'));
@@ -772,6 +782,112 @@ class adminUserList extends adminGenericList
 		return
 		'<td class="nowrap"><a href="posts.php?user_id='.$this->rs->user_id.'">'.
 		$this->rs->nb_post.'</a></td>';
+	}
+}
+
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief abstract blogs list class.
+
+Handle blogs list on admin side
+*/
+class adminBlogList extends adminGenericList
+{
+	public function setColumns()
+	{
+		$this->addColumn('blogname',__('Blog name'),array('adminBlogList','getBlogName'),'class="maximal"',false);
+		$this->addColumn('lastupdate',__('Last update'),array('adminBlogList','getLastUpdate'),'class="nowrap"');
+		$this->addColumn('entries',__('Entries'),array('adminBlogList','getEntries'),'class="nowrap"');
+		$this->addColumn('blogid',__('Blog ID'),array('adminBlogList','getBlogId'),'class="nowrap"');
+		$this->addColumn('action','',array('adminBlogList','getAction'),'class="nowrap"');
+		$this->addColumn('status',__('status'),array('adminBlogList','getStatus'),'class="nowrap"');
+	}
+	
+	protected function getDefaultCaption()
+	{
+		return __('Blogs list');
+	}
+	
+	protected function getBlogName()
+	{
+		return
+		'<th scope="row" class="maximal"><a href="index.php?switchblog='.$this->rs->blog_id.'" '.
+		'title="'.sprintf(__('Switch to blog %s'),$this->rs->blog_id).'">'.
+		html::escapeHTML($this->rs->blog_name).'</a></th>';
+	}
+	
+	protected function getLastUpdate()
+	{
+		$offset = dt::getTimeOffset($this->core->auth->getInfo('user_tz'));
+		$blog_upddt = dt::str(__('%Y-%m-%d %H:%M'),strtotime($this->rs->blog_upddt) + $offset);
+	
+		return '<td class="nowrap">'.$blog_upddt.'</td>';
+	}
+	
+	protected function getEntries()
+	{
+		return '<td class="nowrap">'.$this->core->countBlogPosts($this->rs->blog_id).'</td>';
+	}
+	
+	protected function getBlogId()
+	{
+		return '<td class="nowrap">'.html::escapeHTML($this->rs->blog_id).'</td>';
+	}
+	
+	protected function getAction()
+	{
+		$edit_link = '';
+		$blog_id = html::escapeHTML($this->rs->blog_id);
+	
+		if ($GLOBALS['core']->auth->isSuperAdmin()) {
+			$edit_link = 
+			'<a href="blog.php?id='.$blog_id.'" '.
+			'title="'.sprintf(__('Edit blog %s'),$blog_id).'">'.
+			__('edit').'</a>';
+		}
+		
+		return '<td class="nowrap">'.$edit_link.'</td>';
+	}
+	
+	protected function getStatus()
+	{
+		$img_status = $this->rs->blog_status == 1 ? 'check-on' : 'check-off';
+		$txt_status = $GLOBALS['core']->getBlogStatus($this->rs->blog_status);
+		$img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',$img_status,$txt_status);
+		
+		return '<td class="status">'.$img_status.'</td>';
+	}
+}
+
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief abstract blogs permissions list class.
+
+Handle blogs permissions list on admin side
+*/
+class adminBlogPermissionsList extends adminBlogList
+{
+	public function setColumns()
+	{
+		$this->addColumn('blogid',__('Blog ID'),array('adminBlogPermissionsList','getBlogId'),'class="nowrap"',false);
+		$this->addColumn('blogname',__('Blog name'),array('adminBlogPermissionsList','getBlogName'),'class="maximal"');
+		$this->addColumn('entries',__('Entries'),array('adminBlogList','getEntries'),'class="nowrap"');
+		$this->addColumn('status',__('status'),array('adminBlogList','getStatus'),'class="nowrap"');
+	}
+	
+	protected function getBlogId()
+	{
+		return
+		'<th scope="row" class="nowrap">'.
+		form::checkbox(array('blog_id[]'),$this->rs->blog_id,'','','',false,'title="'.__('select').' '.$this->rs->blog_id.'"').
+		$this->rs->blog_id.'</th>';
+	}
+	
+	protected function getBlogName()
+	{
+		return '<td class="maximal">'.html::escapeHTML($this->rs->blog_name).'</td>';
 	}
 }
 

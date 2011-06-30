@@ -607,13 +607,16 @@ if ($post_id)
 function showComments($rs,$has_action,$tb=false)
 {
 	echo
-	'<table class="comments-list"><tr>'.
-	'<th colspan="2">'.__('Author').'</th>'.
-	'<th>'.__('Date').'</th>'.
-	'<th class="nowrap">'.__('IP address').'</th>'.
-	'<th>'.__('Status').'</th>'.
-	'<th>&nbsp;</th>'.
-	'</tr>';
+	'<table class="comments-list">'.
+	'<caption>'.__('Post comments and trackbacks').'</caption>'.
+	'<thead><tr>'.
+	'<th scope="col" colspan="2">'.__('Author').'</th>'.
+	'<th scope="col">'.__('Date').'</th>'.
+	'<th scope="col" class="nowrap">'.__('IP address').'</th>'.
+	'<th scope="col">'.__('Status').'</th>'.
+	'<th scope="col">&nbsp;</th>'.
+	'</tr></thead>'.
+	'<tbody>';
 	
 	while($rs->fetch())
 	{
@@ -641,7 +644,7 @@ function showComments($rs,$has_action,$tb=false)
 		
 		'<td class="nowrap">'.
 		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
-		'<td class="maximal">'.html::escapeHTML($rs->comment_author).'</td>'.
+		'<th scope="row" class="maximal">'.html::escapeHTML($rs->comment_author).'</th>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
 		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.
 		'<td class="nowrap status">'.$img_status.'</td>'.
@@ -651,7 +654,9 @@ function showComments($rs,$has_action,$tb=false)
 		'</tr>';
 	}
 	
-	echo '</table>';
+	echo
+	'</tbody>'.
+	'</table>';
 }
 
 dcPage::helpBlock('core_post','core_wiki');

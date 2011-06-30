@@ -172,10 +172,12 @@ if (empty($locales_content))
 else
 {
 	echo
-	'<table class="clear plugins"><tr>'.
-	'<th>'.__('Language').'</th>'.
-	'<th class="nowrap">'.__('Action').'</th>'.
-	'</tr>';
+	'<table class="clear plugins">'.
+	'<thead><tr>'.
+	'<th scope="col">'.__('Language').'</th>'.
+	'<th scope="col" class="nowrap">'.__('Action').'</th>'.
+	'</tr></thead>'.
+	'<tbody>';
 	
 	foreach ($locales_content as $k => $v)
 	{
@@ -183,8 +185,8 @@ else
 		
 		echo
 		'<tr class="line wide">'.
-		'<td class="maximal nowrap">('.$k.') '.
-		'<strong>'.html::escapeHTML($iso_codes[$k]).'</strong></td>'.
+		'<th scope="row" class="maximal nowrap">('.$k.') '.
+		'<strong>'.html::escapeHTML($iso_codes[$k]).'</strong></th>'.
 		'<td class="nowrap action">';
 		
 		if ($is_deletable)
@@ -201,7 +203,9 @@ else
 		
 		echo '</td></tr>';
 	}
-	echo '</table>';
+	echo
+	'</tbody>'.
+	'</table>';
 }
 
 echo '<h3>'.__('Install or upgrade languages').'</h3>';
@@ -227,7 +231,7 @@ if (!empty($dc_langs) && $is_writable)
 	'<p>'.sprintf(__('You can download and install a additional language directly from Dotclear.net. '.
 	'Proposed languages are based on your version: %s.'),'<strong>'.DC_VERSION.'</strong>').'</p>'.
 	'<p class="field"><label for="pkg_url" class="classic">'.__('Language:').' '.
-	form::combo(array('pkg_url'),$dc_langs_combo).'</label></p>'.
+	form::combo('pkg_url',$dc_langs_combo).'</label></p>'.
 	'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
 	form::password(array('your_pwd','your_pwd1'),20,255).'</label></p>'.
 	'<input type="submit" value="'.__('Install language').'" />'.
