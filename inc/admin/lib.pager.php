@@ -11,6 +11,13 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief Dotclear Pager class.
+
+Dotclear Pager handles pagination for every admin list.
+*/
 class dcPager extends pager
 {
 	public function getLinks()
@@ -26,7 +33,7 @@ class dcPager extends pager
 		$this->setURL();
 		
 		# Page text
-		$htmlText = sprintf(__('Page %s over %s'),$this->env,$this->nb_elements).'&nbsp;';
+		$htmlText = sprintf(__('Page %s over %s'),$this->env,$this->nb_pages).'&nbsp;';
 		
 		# Previous page
 		if($this->env != 1) {
@@ -81,16 +88,31 @@ class dcPager extends pager
 	}
 }
 
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief Dotclear Generic column class.
+
+Dotclear Generic column handles each column object use in adminGenericList class.
+*/
 class adminGenericColumn
 {
-	protected $core;
-	protected $rs;
-	protected $id;
-	protected $title;
-	protected $callback;
-	protected $html;
-	protected $visibility;
+	protected $core;		/// <b>object</b> dcCore object
+	protected $id;			/// <b>string</b> ID of defined column
+	protected $title;		/// <b>string</b> Title of defined column
+	protected $callback;	/// <b>array</b> Callback calls to display defined column
+	protected $html;		/// <b>string</b> Extra HTML for defined column
+	protected $visibility;	/// <b>boolean</b> Visibility of defined column
 	
+	/**
+	Inits Generic column object
+	
+	@param	id		<b>string</b>		Column id
+	@param	title	<b>string</b>		Column title (for table headers)
+	@param	callback	<b>array</b>		Column callback (used for display)
+	@param	html		<b>string</b>		Extra html (used for table headers)
+	@param	can_hide	<b>boolean</b>		Defines if the column can be hidden or not
+	*/
 	public function __construct($id,$title,$callback,$html = null,$can_hide = true)
 	{
 		if (!is_string($id) || $id === '') {
@@ -135,11 +157,23 @@ class adminGenericColumn
 		$this->visibility = true;
 	}
 	
-	public function getInfo($k)
+	/**
+	Gets information of defined column
+	
+	@param	info		<b>string</b>		Column info to retrive
+	
+	@return	<b>mixed</b>	The information requested, null otherwise
+	*/
+	public function getInfo($info)
 	{
-		return property_exists(get_class($this),$k) ? $this->{$k} : null;
+		return property_exists(get_class($this),$info) ? $this->{$info} : null;
 	}
 	
+	/**
+	Sets visibility of defined column
+	
+	@param	visibility	<b>boolean</b>		Column visibility
+	*/
 	public function setVisibility($visibility)
 	{
 		if (is_bool($visibility)) {
@@ -147,24 +181,53 @@ class adminGenericColumn
 		}
 	}
 	
+	/**
+	Returns visibility status of defined column
+	
+	@return	<b>boolean</b>		true if column is visible, false otherwise
+	*/
 	public function isVisible()
 	{
 		return $this->visibility;
 	}
 	
+	/**
+	Returns if the defined column can be hidden
+	
+	@return	<b>boolean</b>	true if column can be hidden, false otherwise
+	*/
 	public function canHide()
 	{
 		return $this->can_hide;
 	}
 }
 
-class adminGenericList
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief abstract Generic list class.
+
+Dotclear Generic list handles administration lists
+*/
+abstract class adminGenericList
 {
 	protected $core;
 	protected $rs;
 	protected $rs_count;
 	protected $columns;
 	
+	/*
+	Sets columns of defined list
+	*/
+	abstract function setColumns();
+	
+	/**
+	Inits List object
+	
+	@param	core		<b>dcCore</b>		dcCore object
+	@param	rs		<b>recordSet</b>	Items recordSet to display
+	@param	rs_count	<b>int</b>		Total items number
+	*/
 	public function __construct($core,$rs,$rs_count)
 	{
 		$this->core =& $core;
@@ -180,83 +243,18 @@ class adminGenericList
 		$this->html_start = __('start');
 		$this->html_end = __('end');
 		
-		# Post columns
-		$this->addColumn('adminPostList','title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
-		$this->addColumn('adminPostList','date',__('Date'),array('adminPostList','getDate'));
-		$this->addColumn('adminPostList','datetime',__('Date and time'),array('adminPostList','getDateTime'));
-		$this->addColumn('adminPostList','category',__('Category'),array('adminPostList','getCategory'));
-		$this->addColumn('adminPostList','author',__('Author'),array('adminPostList','getAuthor'));
-		$this->addColumn('adminPostList','comment',__('Comments'),array('adminPostList','getComments'));
-		$this->addColumn('adminPostList','trackback',__('Trackbacks'),array('adminPostList','getTrackbacks'));
-		$this->addColumn('adminPostList','status',__('Status'),array('adminPostList','getStatus'));
+		$this->setColumns();
 		
-		# Post (mini list) columns
-		$this->addColumn('adminPostMiniList','title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
-		$this->addColumn('adminPostMiniList','date',__('Date'),array('adminPostList','getDate'));
-		$this->addColumn('adminPostMiniList','author',__('Author'),array('adminPostList','getAuthor'));
-		$this->addColumn('adminPostMiniList','status',__('Status'),array('adminPostList','getStatus'));
-		
-		# Comment columns
-		$this->addColumn('adminCommentList','title',__('Title'),array('adminCommentList','getTitle'),' class="maximal"',false);
-		$this->addColumn('adminCommentList','date',__('Date'),array('adminCommentList','getDate'));
-		$this->addColumn('adminCommentList','author',__('Author'),array('adminCommentList','getAuthor'));
-		$this->addColumn('adminCommentList','type',__('Type'),array('adminCommentList','getType'));
-		$this->addColumn('adminCommentList','status',__('Status'),array('adminCommentList','getStatus'));
-		$this->addColumn('adminCommentList','edit','',array('adminCommentList','getEdit'));
-		
-		# User columns
-		$this->addColumn('adminUserList','username',__('Username'),array('adminUserList','getUserName'),' class="maximal"',false);
-		$this->addColumn('adminUserList','firstname',__('First name'),array('adminUserList','getFirstName'));
-		$this->addColumn('adminUserList','lastname',__('Last name'),array('adminUserList','getLastName'));
-		$this->addColumn('adminUserList','displayname',__('Display name'),array('adminUserList','getDisplayName'));
-		$this->addColumn('adminUserList','entries',__('Entries'),array('adminUserList','getEntries'));
-		
-		$core->callBehavior('adminGenericListConstruct',$this);
+		$core->callBehavior('adminListConstruct',$this);
 		
 		$this->setColumnsVisibility();
 	}
 	
-	public function addColumn($context,$id,$title,$callback,$html = null,$can_hide = true)
-	{
-		try {
-			if (!array_key_exists($context,$this->columns)) {
-				$this->columns[$context] = array();
-			}
-			
-			$c = new adminGenericColumn($id,$title,$callback,$html,$can_hide);
-			$this->columns[$context][$c->getInfo('id')] = $c;
-		}
-		catch (Exception $e) {
-			if (DC_DEBUG) {
-				$this->core->error->add($e->getMessage());
-			}
-		}
-	}
+	/**
+	Returns HTML code form used to choose which column to display
 	
-	public function setColumnsVisibility()
-	{
-		$ws = $this->core->auth->user_prefs->addWorkspace('lists');
-		
-		$user_pref = !is_null($ws->{$this->context}) ? unserialize($ws->{$this->context}) : array();
-		
-		foreach ($this->columns[$this->context] as $k => $v) {
-			$visibility =  array_key_exists($k,$user_pref) ? $user_pref[$k] : true;
-			if (array_key_exists($this->form_trigger,$_REQUEST)) {
-				$key = sprintf($this->form_prefix,$k);
-				$visibility = !array_key_exists($key,$_REQUEST) ? false : true;
-			}
-			if (!$v->canHide()) {
-				$visibility = true;
-			}
-			$v->setVisibility($visibility);
-			$user_pref[$k] = $visibility;
-		}
-		
-		if (array_key_exists($this->form_trigger,$_REQUEST)) {
-			$this->core->auth->user_prefs->lists->put($this->context,serialize($user_pref),'string');
-		}
-	}
-	
+	@return	<b>string</b>		HTML code form
+	*/
 	public function getColumnsForm()
 	{
 		$block = 
@@ -265,7 +263,7 @@ class adminGenericList
 		
 		$list = array();
 		
-		foreach ($this->columns[$this->context] as $k => $v) {
+		foreach ($this->columns as $k => $v) {
 			$col_id = sprintf($this->form_prefix,$k);
 			$col_label = sprintf('<label for="%s">%s</label>',$col_id,$v->getInfo('title'));
 			$col_html = sprintf('<li class="line">%s</li>',$col_label.form::checkbox($col_id,1,$v->isVisible(),null,null,!$v->canHide()));
@@ -280,7 +278,16 @@ class adminGenericList
 		return sprintf($block,implode('',$list));
 	}
 	
-	public function display($page,$nb_per_page,$enclose_block='')
+	/**
+	Returns HTML code list to display
+	
+	@param	page			<b>string|int</b>	Current page
+	@param	nb_per_page	<b>string|int</b>	Number of items to display in each page
+	@param	enclose_block	<b>string</b>		HTML wrapper of defined list
+	
+	@return	<b>string</b>		HTML code list
+	*/
+	public function display($page,$nb_per_page,$enclose_block = '')
 	{
 		if ($this->rs->isEmpty())
 		{
@@ -300,7 +307,7 @@ class adminGenericList
 			$this->getCaption($page).
 			'<thead><tr>';
 			
-			foreach ($this->columns[$this->context] as $k => $v) {
+			foreach ($this->columns as $k => $v) {
 				if ($v->isVisible()) {
 					$html_extra = $v->getInfo('html') != '' ? ' '.$v->getInfo('html') : '';
 					$html_block .= sprintf('<th scope="col"%s>%s</th>',$html_extra,$v->getInfo('title'));
@@ -333,11 +340,85 @@ class adminGenericList
 		}
 	}
 	
+	/**
+	Adds column to defined list
+	
+	@param	id		<b>string</b>		Column id
+	@param	title	<b>string</b>		Column title (for table headers)
+	@param	callback	<b>array</b>		Column callback (used for display)
+	@param	html		<b>string</b>		Extra html (used for table headers)
+	@param	can_hide	<b>boolean</b>		Defines if the column can be hidden or not
+	*/
+	protected function addColumn($id,$title,$callback,$html = null,$can_hide = true)
+	{
+		try {
+			$c = new adminGenericColumn($id,$title,$callback,$html,$can_hide);
+			$this->columns[$id] = $c;
+		}
+		catch (Exception $e) {
+			if (DC_DEBUG) {
+				$this->core->error->add($e->getMessage());
+			}
+		}
+	}
+	
+	/**
+	Returns default caption text
+	
+	@return	<b>string</b>		Default caption
+	*/
+	protected function getDefaultCaption()
+	{
+		return;
+	}
+	
+	/**
+	Returns default HTMl code line
+	
+	@return	<b>string</b>		Default HTMl code line
+	*/
+	protected function getDefaultLine()
+	{
+		return '<tr class="line">%s</tr>';
+	}
+	
+	/**
+	Sets columns visibility of defined list
+	*/
+	private function setColumnsVisibility()
+	{
+		$ws = $this->core->auth->user_prefs->addWorkspace('lists');
+		
+		$user_pref = !is_null($ws->{$this->context}) ? unserialize($ws->{$this->context}) : array();
+		
+		foreach ($this->columns as $k => $v) {
+			$visibility =  array_key_exists($k,$user_pref) ? $user_pref[$k] : true;
+			if (array_key_exists($this->form_trigger,$_REQUEST)) {
+				$key = sprintf($this->form_prefix,$k);
+				$visibility = !array_key_exists($key,$_REQUEST) ? false : true;
+			}
+			if (!$v->canHide()) {
+				$visibility = true;
+			}
+			$v->setVisibility($visibility);
+			$user_pref[$k] = $visibility;
+		}
+		
+		if (array_key_exists($this->form_trigger,$_REQUEST)) {
+			$this->core->auth->user_prefs->lists->put($this->context,serialize($user_pref),'string');
+		}
+	}
+	
+	/**
+	Returns HTML code for each line of defined list
+	
+	@return	<b>string</b>		HTML code line
+	*/
 	private function displayLine()
 	{
 		$res = '';
 		
-		foreach ($this->columns[$this->context] as $k => $v) {
+		foreach ($this->columns as $k => $v) {
 			if ($v->isVisible()) {
 				$c = $v->getInfo('callback');
 				$func = $c[1];
@@ -348,6 +429,13 @@ class adminGenericList
 		return sprintf($this->getDefaultLine(),$res);
 	}
 	
+	/**
+	Returns caption of defined list
+	
+	@param	page			<b>string|int</b>	Current page
+	
+	@return	<b>string</b>		HTML caption tag
+	*/
 	private function getCaption($page)
 	{
 		$caption = $this->getDefaultCaption();
@@ -361,20 +449,29 @@ class adminGenericList
 		
 		return $caption;
 	}
-	
-	protected function getDefaultCaption()
-	{
-		return;
-	}
-	
-	protected function getDefaultLine()
-	{
-		return '<tr class="line">%s</tr>';
-	}
 }
 
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief abstract posts list class.
+
+Handle posts list on admin side
+*/
 class adminPostList extends adminGenericList
 {
+	public function setColumns()
+	{
+		$this->addColumn('title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
+		$this->addColumn('date',__('Date'),array('adminPostList','getDate'));
+		$this->addColumn('datetime',__('Date and time'),array('adminPostList','getDateTime'));
+		$this->addColumn('category',__('Category'),array('adminPostList','getCategory'));
+		$this->addColumn('author',__('Author'),array('adminPostList','getAuthor'));
+		$this->addColumn('comment',__('Comments'),array('adminPostList','getComments'));
+		$this->addColumn('trackback',__('Trackbacks'),array('adminPostList','getTrackbacks'));
+		$this->addColumn('status',__('Status'),array('adminPostList','getStatus'));
+	}
+	
 	protected function getDefaultCaption()
 	{
 		return __('Entries list');
@@ -478,8 +575,23 @@ class adminPostList extends adminGenericList
 	}
 }
 
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief abstract mini posts list class.
+
+Handle mini posts list on admin side (used for link popup)
+*/
 class adminPostMiniList extends adminPostList
 {
+	public function setColumns()
+	{
+		$this->addColumn('title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
+		$this->addColumn('date',__('Date'),array('adminPostList','getDate'));
+		$this->addColumn('author',__('Author'),array('adminPostList','getAuthor'));
+		$this->addColumn('status',__('Status'),array('adminPostList','getStatus'));
+	}
+	
 	protected function getTitle() 
 	{
 		return
@@ -491,8 +603,25 @@ class adminPostMiniList extends adminPostList
 	}
 }
 
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief abstract comments list class.
+
+Handle comments list on admin side
+*/
 class adminCommentList extends adminGenericList
 {
+	public function setColumns()
+	{
+		$this->addColumn('title',__('Title'),array('adminCommentList','getTitle'),' class="maximal"',false);
+		$this->addColumn('date',__('Date'),array('adminCommentList','getDate'));
+		$this->addColumn('author',__('Author'),array('adminCommentList','getAuthor'));
+		$this->addColumn('type',__('Type'),array('adminCommentList','getType'));
+		$this->addColumn('status',__('Status'),array('adminCommentList','getStatus'));
+		$this->addColumn('edit','',array('adminCommentList','getEdit'));
+	}
+	
 	protected function getDefaultCaption()
 	{
 		return __('Comments list');
@@ -577,8 +706,24 @@ class adminCommentList extends adminGenericList
 	}
 }
 
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief abstract users list class.
+
+Handle users list on admin side
+*/
 class adminUserList extends adminGenericList
 {
+	public function setColumns()
+	{
+		$this->addColumn('username',__('Username'),array('adminUserList','getUserName'),'class="maximal"',false);
+		$this->addColumn('firstname',__('First name'),array('adminUserList','getFirstName'),'class="nowrap"');
+		$this->addColumn('lastname',__('Last name'),array('adminUserList','getLastName'),'class="nowrap"');
+		$this->addColumn('displayname',__('Display name'),array('adminUserList','getDisplayName'),'class="nowrap"');
+		$this->addColumn('entries',__('Entries'),array('adminUserList','getEntries'),'class="nowrap"');
+	}
+	
 	protected function getDefaultCaption()
 	{
 		return __('Users list');
