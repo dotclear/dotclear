@@ -117,69 +117,10 @@ if (!$core->error->flag())
 	'</form>';
 	
 	# Show blogs
-	if ($nb_blog == 0)
-	{
-		echo '<p><strong>'.__('No blog').'</strong></p>';
-	}
-	else
-	{
-		$pager = new pager($page,$nb_blog,$nb_per_page,10);
-		$pager->var_page = 'page';
-		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
-		
-		echo
-		'<table class="clear"><tr>'.
-		'<th>'.__('Blog name').'</th>'.
-		'<th class="nowrap">'.__('Last update').'</th>'.
-		'<th class="nowrap">'.__('Entries').'</th>'.
-		'<th class="nowrap">'.__('Blog ID').'</th>'.
-		'<th>&nbsp;</th>'.
-		'<th class="nowrap">'.__('Status').'</th>'.
-		'</tr>';
-		
-		while ($rs->fetch()) {
-			echo blogLine($rs);
-		}
-		
-		echo '</table>';
-		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
-	}
+	$blogs_list = new adminBlogList($core,$rs,$nb_blog);
+	$blogs_list->display($page,$nb_per_page);
 }
 
 dcPage::close();
 
-function blogLine($rs)
-{
-	global $core;
-	
-	$blog_id = html::escapeHTML($rs->blog_id);
-	$edit_link = '';
-	
-	if ($GLOBALS['core']->auth->isSuperAdmin()) {
-		$edit_link = 
-		'<a href="blog.php?id='.$blog_id.'" '.
-		'title="'.sprintf(__('Edit blog %s'),$blog_id).'">'.
-		__('edit').'</a>';
-	}
-	
-	$img_status = $rs->blog_status == 1 ? 'check-on' : 'check-off';
-	$txt_status = $GLOBALS['core']->getBlogStatus($rs->blog_status);
-	$img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',$img_status,$txt_status);
-	$offset = dt::getTimeOffset($core->auth->getInfo('user_tz'));
-	$blog_upddt = dt::str(__('%Y-%m-%d %H:%M'),strtotime($rs->blog_upddt) + $offset);
-	
-	return
-	'<tr class="line">'.
-	'<td class="maximal"><a href="index.php?switchblog='.$rs->blog_id.'" '.
-	'title="'.sprintf(__('Switch to blog %s'),$rs->blog_id).'">'.
-	html::escapeHTML($rs->blog_name).'</a></td>'.
-	'<td class="nowrap">'.$blog_upddt.'</td>'.
-	'<td class="nowrap">'.$core->countBlogPosts($rs->blog_id).'</td>'.
-	'<td class="nowrap">'.$blog_id.'</td>'.
-	'<td>'.$edit_link.'</td>'.
-	'<td class="status">'.$img_status.'</td>'.
-	'</tr>';
-}
 ?>

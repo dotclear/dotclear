@@ -226,12 +226,15 @@ if (!empty($p_available))
 {
 	echo
 	'<h3>'.__('Activated plugins').'</h3>'.
-	'<table class="clear plugins"><tr>'.
-	'<th>'.__('Plugin').'</th>'.
-	'<th class="nowrap">'.__('Version').'</th>'.
-	'<th class="nowrap">'.__('Details').'</th>'.
-	'<th class="nowrap">'.__('Action').'</th>'.
-	'</tr>';
+	'<table class="clear plugins">'.
+	'<caption>'.__('Activated plugin list').'</caption>'.
+	'<thead><tr>'.
+	'<th scope="col">'.__('Plugin').'</th>'.
+	'<th scope="col" class="nowrap">'.__('Version').'</th>'.
+	'<th scope="col" class="nowrap">'.__('Details').'</th>'.
+	'<th scope="col" class="nowrap">'.__('Action').'</th>'.
+	'</tr></thead>'.
+	'<tbody>';
 	
 	foreach ($p_available as $k => $v)
 	{
@@ -240,7 +243,7 @@ if (!empty($p_available))
 		
 		echo
 		'<tr class="line wide">'.
-		'<td class="minimal nowrap"><strong>'.html::escapeHTML($k).'</strong></td>'.
+		'<th scope="row" class="minimal nowrap"><strong>'.html::escapeHTML($k).'</strong></th>'.
 		'<td class="minimal">'.html::escapeHTML($v['version']).'</td>'.
 		'<td class="maximal"><strong>'.html::escapeHTML($v['name']).'</strong> '.
 		'<br />'.html::escapeHTML($v['desc']).'</td>'.
@@ -264,6 +267,7 @@ if (!empty($p_available))
 		'</tr>';
 	}
 	echo
+	'</tbody>'.
 	'</table>';
 }
 
@@ -273,10 +277,13 @@ if (!empty($p_disabled))
 {
 	echo
 	'<h3>'.__('Deactivated plugins').'</h3>'.
-	'<table class="clear plugins"><tr>'.
-	'<th>'.__('Plugin').'</th>'.
-	'<th class="nowrap">'.__('Action').'</th>'.
-	'</tr>';
+	'<table class="clear plugins">'.
+	'<caption>'.__('Deactivated plugin list').'</caption>'.
+	'<thead><tr>'.
+	'<th scope="col">'.__('Plugin').'</th>'.
+	'<th scope="col" class="nowrap">'.__('Action').'</th>'.
+	'</tr></thead>'.
+	'<tbody>';
 	
 	foreach ($p_disabled as $k => $v)
 	{
@@ -285,7 +292,7 @@ if (!empty($p_disabled))
 		
 		echo
 		'<tr class="line wide">'.
-		'<td class="maximal nowrap"><strong>'.html::escapeHTML($k).'</strong></td>'.
+		'<th scope="row" class="maximal nowrap"><strong>'.html::escapeHTML($k).'</strong></th>'.
 		'<td class="nowrap action">';
 		
 		if ($is_deletable || $is_activable)
@@ -307,6 +314,7 @@ if (!empty($p_disabled))
 		'</tr>';
 	}
 	echo
+	'</tbody>'.
 	'</table>';
 }
 
