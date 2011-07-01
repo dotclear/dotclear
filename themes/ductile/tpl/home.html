@@ -60,6 +60,7 @@
 
   <tpl:Entries>
 
+		<!-- First page -->
 		<tpl:SysIf current_mode="default">
 			<tpl:LoopPosition start="1" length="1">
 	  		{{tpl:include src="_entry-full.html"}}
@@ -70,10 +71,12 @@
 	  	</tpl:LoopPosition>
   	</tpl:SysIf>
   	
+		<!-- Next pages -->
 		<tpl:SysIf current_mode="!default">
   		{{tpl:include src="_entry-short.html"}}
   	</tpl:SysIf>  	
     
+		<!-- Pagination -->
     <tpl:EntriesFooter>
 			{{tpl:include src="_pagination.html"}}
     </tpl:EntriesFooter>
