@@ -190,8 +190,6 @@ abbr {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
-#main-menu * {
-}
 
 #main-menu h3 {
 	margin: 0 0 0.5em 0;
@@ -220,7 +218,7 @@ abbr {
 	border-bottom: none;
 	color: #333;
 }
-#main-menu li.active {
+#main-menu .active {
 	background-color: #fff;
 	padding: .4em 0 .1em 32px;
 	background-position: 12px .4em;
@@ -230,6 +228,24 @@ abbr {
 }
 #main-menu #dashboard-menu li {
 	margin-left: 0;
+}
+#favorites-menu ul {
+	background: #eef;
+	padding: .2em 0 .3em 0;
+	margin: .5em;
+	border-radius: .3em;
+	border: 1px solid #dde;
+}
+#favorites-menu a {
+	color: #000;
+	font-weight: normal;
+}
+#favorites-menu .active {
+	background-color: transparent;
+	border: none	;
+}
+#favorites-menu .active a {
+	font-weight: bold;
 }
 
 #footer {
