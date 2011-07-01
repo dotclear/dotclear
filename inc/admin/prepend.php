@@ -21,6 +21,26 @@ header("Pragma: no-cache");
 
 define('DC_CONTEXT_ADMIN',true);
 
+function dc_valid_fav($url) {
+	global $core;
+	
+	$parts = parse_url($url);
+	if (isset($parts['path'])) {
+		if ($parts['path'] == 'plugin.php') {
+			if (isset($parts['query'])) {
+				$parts = explode('&', $parts['query']);
+				$param = explode('=', $parts[0]);
+				if (($param[0] == 'p') && (isset($param[1]))) {
+					if (!$core->plugins->moduleExists($param[1])) {
+						return false;
+					}
+				}
+			}
+		}
+	}
+	return true;
+}
+
 function dc_prepare_url($url) {
 
 	$u = str_replace(array('?','&amp;'),array('\?','&'),$url);
@@ -308,21 +328,25 @@ if ($core->auth->userID() && $core->blog !== null)
 	foreach ($ws->dumpPrefs() as $k => $v) {
 		// User favorites only
 		if (!$v['global']) {
-			$count++;
 			$fav = unserialize($v['value']);
-			$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-				preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
-				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+			if (dc_valid_fav($fav['url'])) {
+				$count++;
+				$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
+					preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
+					(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+			}
 		}
 	}	
 	if (!$count) {
 		// Global favorites if any
 		foreach ($ws->dumpPrefs() as $k => $v) {
-			$count++;
 			$fav = unserialize($v['value']);
-			$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-				preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
-				(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+			if (dc_valid_fav($fav[url])) {
+				$count++;
+				$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
+					preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
+					(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+			}
 		}
 	}
 	if (!$count) {
