@@ -79,8 +79,8 @@ $(function() {
 		// Get document format and prepare toolbars
 		var formatField = $('#post_format').get(0);
 		$(formatField).change(function() {
-			$('#post_excerpt').dctoolbar('switch',$(this).val());
-			$('#post_content').dctoolbar('switch',$(this).val());
+			$('#post_excerpt').dctoolbar('switchMode',$(this).val());
+			$('#post_content').dctoolbar('switchMode',$(this).val());
 		});
 		
 		// Init toolbars
@@ -95,7 +95,7 @@ $(function() {
 	$('#post-preview').modalWeb($(window).width()-40,$(window).height()-40);
 	
 	// Tabs events
-	$('#edit-entry').onetabload(function() { 
+	$('#edit-entry').onetabload(function() {
 		dotclear.hideLockable();
 		
 		// Add date picker
@@ -122,12 +122,12 @@ $(function() {
 		});
 		
 		// We load toolbar on excerpt only when it's ready
+		$('#post_content,#post_excerpt').dctoolbar('draw');
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
-			fn: function() { $('#post_excerpt').dctoolbar('draw'); },
-			cookie: 'dcx_post_excerpt',
-			hide: $('#post_excerpt').val() == ''
+			cookie: 'dcx_post_excerpt'
+		},function() {
+			$('#post_excerpt').dctoolbar('toggle');
 		});
-		$('#post_content').dctoolbar('draw');
 		
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {
