@@ -225,6 +225,7 @@ form::field('user_displayname',20,255,html::escapeHTML($user_displayname)).
 '<p><label for="user_email">'.__('Email:').' '.
 form::field('user_email',20,255,html::escapeHTML($user_email)).
 '</label></p>'.
+'<p class="form-note">'.__('Mandatory for password recovering procedure.').'</p>'.
 '</div>'.
 
 '<div class="col">'.
