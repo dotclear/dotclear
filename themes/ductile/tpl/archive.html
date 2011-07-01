@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{tpl:BlogLanguage}}" lang="{{tpl:BlogLanguage}}">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+  
+  <title>{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}</title>
+  <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+  <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
+  <meta name="date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}" />
+  <meta name="dc.language" content="{{tpl:BlogLanguage}}" />
+  <meta name="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
+  <meta name="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+  <meta name="dc.date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
+  
+  <tpl:Archives>
+    <link rel="chapter" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}" />
+  </tpl:Archives>
+  
+  <link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
+  <tpl:Categories>
+  <link rel="section" href="{{tpl:CategoryURL}}" title="{{tpl:CategoryTitle encode_html="1"}}" />
+  </tpl:Categories>
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+  
+  {{tpl:include src="_head.html"}}
+</head>
+
+<body class="dc-archive">
+<div id="page">
+{{tpl:include src="_top.html"}}
+
+<div id="wrapper">
+
+<div id="main">
+  <div id="content">
+  
+  <div id="content-info">
+    <h2>{{tpl:lang Archives}}</h2>
+  </div>
+  
+  <div class="content-inner">
+
+		<div id="by-date" class="arch-block"> <!-- by date -->
+			<h3>{{tpl:lang By date}}</h3>
+	  	<tpl:Archives>
+		    <tpl:ArchivesYearHeader>
+		    	<div>
+		      <h4>{{tpl:ArchiveDate format="%Y"}}</h4>
+		      <ul>
+			    </tpl:ArchivesYearHeader>
+			      <li><a href="{{tpl:ArchiveURL}}"
+			      title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a>
+			      ({{tpl:ArchiveEntriesCount}})</li>
+			    <tpl:ArchivesYearFooter>
+		      </ul>
+		      </div>
+		    </tpl:ArchivesYearFooter>
+	  	</tpl:Archives>
+	  </div>
+	
+		<div id="by-cat" class="arch-block"> <!-- by cat -->
+			<h3>{{tpl:lang By category}}</h3>
+			<tpl:Widget id="categories">
+				<setting name="title"></setting>
+			</tpl:Widget>
+		</div>
+	
+		<div id="by-tag" class="arch-block"> <!-- by tag -->
+			<h3>{{tpl:lang By tag}}</h3>
+			<ul>
+				<tpl:MetaData type="tag">
+					<li><a href="{{tpl:MetaURL}}" class="tag{{tpl:MetaRoundPercent}}">{{tpl:MetaID}}</a></li>
+				</tpl:MetaData>
+			</ul>	
+		</div>
+	
+		<div id="aside" class="arch-block"> <!-- others -->
+			<h3>{{tpl:lang Pages}}</h3>
+			<tpl:Widget id="pages">
+					<setting name="title"></setting>
+					<setting name="homeonly">0</setting>
+				</tpl:Widget>
+		</div>
+				
+  </div> <!-- End .content-inner -->
+  
+  </div> <!-- End #main -->
+</div> <!-- End #main -->
+
+<div id="sidebar">
+  <div id="blognav">
+		<tpl:Widget id="search">
+		</tpl:Widget>
+  </div> <!-- End #blognav -->
+
+  <div id="blogextra">
+		<tpl:Widget id="bestof">
+			<setting name="homeonly">0</setting>
+		</tpl:Widget>
+  </div> <!-- End #blogextra -->
+</div>
+
+</div> <!-- End #wrapper -->
+
+{{tpl:include src="_footer.html"}}
+</div> <!-- End #page -->
+</body>
+</html>

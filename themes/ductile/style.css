@@ -192,7 +192,7 @@ h1 a {
 	}
 
 /* ------------------------------------------------------- pagination, navlinks */
-#navlinks, 
+.navlinks, 
 .pagination {
 	margin: 2em 0 1em 0;
 	padding: 4px 8px;
@@ -213,10 +213,10 @@ h1 a {
 	border-right: 1px solid #aaa;
 	border-bottom: 1px solid #ccc;
 	}
-#navlinks {
+.navlinks {
 	margin-top: 4em;
 	}
-#navlinks a, 
+.navlinks a, 
 .pagination a {
 	padding: 0 1em;
 	white-space: nowrap;
@@ -243,7 +243,7 @@ h1 a {
 	}
 .post h3, 
 .post h4, 
-.post h5
+.post h5,
 .post h6 {
 	font-variant: small-caps;
 	font-weight: normal;
@@ -705,11 +705,32 @@ h1 a {
 .dc-home { }
 .dc-post { }
 .dc-category { }
-.dc-archive { }
+
+.dc-archive #content {
+	margin-left: 0;
+	}
+.arch-block {
+	float: left;
+	display: inline;
+	margin-right: 4em;
+	margin-bottom: 3em;
+	}
+.arch-block h3, .dc-archive #blogextra h2 {
+	font-size: 1.2em;
+	font-style: italic;
+	font-weight: normal;
+	margin-bottom: 2em;
+	}
+.arch-block ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	}
+
 .dc-archive-month h2.post-title {
 	font-size: 1.3em;
 	}
-.dc-archive { }
+
 .dc-tags { }
 .dc-tag { }
 .dc-404 { }

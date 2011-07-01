@@ -45,24 +45,28 @@
 <div id="main">
   <div id="content">
   
-  <p id="navlinks">
-  <tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a>
-  - </tpl:ArchivePrevious>
-  <a href="{{tpl:BlogArchiveURL}}">{{tpl:lang Archives}}</a>
-  <tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
-  </p>
+	  <p class="navlinks">
+		  <tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> - </tpl:ArchivePrevious>
+		  {{tpl:ArchiveDate}}
+		  <tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
+	  </p>
   
-  <div id="content-info">
-    <h2>{{tpl:ArchiveDate}}</h2>
-  </div>
+	  <div id="content-info">
+	    <h2>{{tpl:ArchiveDate}} <span>({{tpl:ArchiveEntriesCount}})</span></h2>
+	  </div>
   
-  <div class="content-inner">
-  <tpl:Entries no_content="1">
-	
-		{{tpl:include src="_entry-title.html"}}
+	  <div class="content-inner">
+	  	<tpl:Entries no_content="1">
+				{{tpl:include src="_entry-title.html"}}
+		  </tpl:Entries>
+	  </div>
 
-  </tpl:Entries>
-  </div>
+	  <p class="navlinks">
+		  <tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> - </tpl:ArchivePrevious>
+		  {{tpl:ArchiveDate}}
+		  <tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
+	  </p>
+  
   </div>
 </div> <!-- End #main -->
 
