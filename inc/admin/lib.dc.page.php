@@ -97,10 +97,10 @@ class dcPage
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 		
 		self::jsLoadIE7().
-		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n". ; 
+		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n"; 
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo
-		'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n". ; 
+		'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
 		}
 
 		$core->auth->user_prefs->addWorkspace('interface');
@@ -211,10 +211,10 @@ class dcPage
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 		
 		self::jsLoadIE7().
-		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n". ; 
+		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n"; 
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo
-			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n". ; 
+			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
 		}
 		
 		echo
