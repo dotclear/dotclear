@@ -168,12 +168,15 @@ $filterSet
 	->addFilter(new monthComboFilter(
 		'month',__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)));
 
+$core->callBehavior('adminPostsFilters',$filterSet);
+
 $filterSet->setValues($_GET);
 
 # Get posts
 try {
 	$nfparams = $params->getArrayCopy();
 	$filtered = $filterSet->applyFilters($params);
+	$core->callBehavior('adminPostsParams',$params);
 	$posts = $core->blog->getPosts($params);
 	$counter = $core->blog->getPosts($params,true);
 	if ($filtered) {
