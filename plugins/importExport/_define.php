@@ -16,7 +16,9 @@ $this->registerModule(
 	/* Description*/		"Import and Export your blog",
 	/* Author */			"Olivier Meunier",
 	/* Version */			'2.4',
-	/* Permissions */		'admin',
-	/* Priority */			10
+	array(
+		'permissions' => 'admin',
+		'priority' => 10
+	)
 );
 ?>

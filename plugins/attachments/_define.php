@@ -16,7 +16,9 @@ $this->registerModule(
 	/* Description*/	"Manage post attachments",
 	/* Author */		"Dotclear Team",
 	/* Version */		'1.0',
-	/* Permissions */	'contentadmin,pages',
-	999
+	array(
+		'permissions' =>	'contentadmin,pages',
+		'priority' =>		999
+	)
 );
 ?>
