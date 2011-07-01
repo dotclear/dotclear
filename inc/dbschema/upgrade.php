@@ -19,7 +19,7 @@ function dotclearUpgrade($core)
 		return false;
 	}
 	
-	if (version_compare($version,DC_VERSION,'<') == 1)
+	if (version_compare($version,DC_VERSION,'<') == 1 || strpos(DC_VERSION,'dev'))
 	{
 		try
 		{
