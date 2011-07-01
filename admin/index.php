@@ -176,6 +176,11 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 
 $core->callBehavior('adminDashboardItems', $core, $__dashboard_items);
 
+# Dashboard content
+$dashboardContents = '';
+$__dashboard_contents = new ArrayObject(array(new ArrayObject,new ArrayObject));
+$core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
+
 /* DISPLAY
 -------------------------------------------------------- */
 dcPage::open(__('Dashboard'),
@@ -335,6 +340,19 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'</div>';
 	}
 }
+
+foreach ($__dashboard_contents as $i)
+{	
+	if ($i->count() > 0)
+	{
+		$dashboardContents .= '<div>';
+		foreach ($i as $v) {
+			$dashboardContents .= $v;
+		}
+		$dashboardContents .= '</div>';
+	}
+}
+echo ($dashboardContents ? '<div id="dashboard-contents">'.$dashboardContents.'</div>' : '');
 
 echo '</div>';
 
