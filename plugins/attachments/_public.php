@@ -194,7 +194,7 @@ class attachmentTpl {
 		return '<?php echo '.sprintf($f,'$attach_f->file_url').'; ?>';
 	}
 	
-	public function MediaURL($attr)
+	public static function MediaURL($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$_ctx->file_url').'; ?>';
@@ -208,7 +208,7 @@ class attachmentTpl {
 	more	CDATA	#IMPLIED	-- text to display for "more attachment" (default: %s attachment, %s is replaced by the number of attachments)
 	>
 	*/
-	public function EntryAttachmentCount($attr)
+	public static function EntryAttachmentCount($attr)
 	{
 		$none = 'no attachment';
 		$one = 'one attachment';

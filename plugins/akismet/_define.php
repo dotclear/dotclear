@@ -16,7 +16,9 @@ $this->registerModule(
 	/* Description*/		"Akismet interface for Dotclear",
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.1',
-	/* Permissions */		'usage,contentadmin',
-	/* Priority */			200
+	array(
+		'permissions' =>	'usage,contentadmin',
+		'priority' =>		200
+	)
 );
 ?>

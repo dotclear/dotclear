@@ -16,7 +16,9 @@ $this->registerModule(
 	/* Description*/		"Widgets for your blog sidebars",
 	/* Author */			"Olivier Meunier",
 	/* Version */			'2',
-	/* Permissions */		'admin',
-	/* Priority */			1000000000
+	array(
+		'permissions' =>	'admin',
+		'priority' =>		1000000000
+	)
 );
 ?>
