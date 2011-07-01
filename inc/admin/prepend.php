@@ -23,18 +23,11 @@ define('DC_CONTEXT_ADMIN',true);
 
 function dc_valid_fav($url) {
 	global $core;
-	
-	$parts = parse_url($url);
-	if (isset($parts['path'])) {
-		if ($parts['path'] == 'plugin.php') {
-			if (isset($parts['query'])) {
-				$parts = explode('&', $parts['query']);
-				$param = explode('=', $parts[0]);
-				if (($param[0] == 'p') && (isset($param[1]))) {
-					if (!$core->plugins->moduleExists($param[1])) {
-						return false;
-					}
-				}
+
+	if (preg_match('#plugin\.php\?p=([^&]+)#',$url,$matches)) {
+		if (isset($matches[1])) {
+			if (!$core->plugins->moduleExists($matches[1])) {
+				return false;
 			}
 		}
 	}
