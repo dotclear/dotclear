@@ -263,9 +263,8 @@ xml:lang="en" lang="en">
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title><?php echo __('Dotclear Install'); ?></title>
   
-  <style type="text/css">
-  @import url(../style/install.css); 
-  </style>
+	<link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" /> 
+
   <script type="text/javascript" src="../js/jquery/jquery.js"></script>
   <script type="text/javascript">
   //<![CDATA[

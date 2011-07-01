@@ -138,10 +138,7 @@ xml:lang="en" lang="en">
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title><?php echo __('Dotclear installation wizard'); ?></title>
-  
-  <style type="text/css">
-  @import url(../style/install.css); 
-  </style>
+	<link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" /> 
 </head>
 
 <body id="dotclear-admin" class="install">
