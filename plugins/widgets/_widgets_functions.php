@@ -93,7 +93,7 @@ class defaultWidgets
 			'<a href="'.$core->blog->url.$core->url->getBase('category').'/'.
 			$rs->cat_url.'">'.
 			html::escapeHTML($rs->cat_title).'</a>'.
-			($w->postcount ? ' ('.$rs->nb_post.')' : '');
+			($w->postcount ? ' <span>('.$rs->nb_post.')</span>' : '');
 			
 			
 			$level = $rs->level;
