@@ -285,8 +285,8 @@ echo '<div id="dashboard-main"'.($dashboardItems ? '' : ' class="fullwidth"').'>
 foreach ($__dashboard_icons as $i)
 {
 	echo
-	'<p><a href="'.$i[1].'"><img src="'.$i[2].'" alt="" /></a>'.
-	'<span><a href="'.$i[1].'">'.$i[0].'</a></span></p>';
+	'<p><a href="'.$i[1].'"><img src="'.$i[2].'" alt="" />'.
+	'<br /><span>'.$i[0].'</span></a></p>';
 }
 echo '</div>';
 
