@@ -271,9 +271,8 @@ echo dcPage::jsLoadIE7();
 echo dcPage::jsCommon();
 ?>
   
-  <style type="text/css">
-  @import url(style/default.css); 
-  </style>
+	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
+	 
   <?php
   # --BEHAVIOR-- loginPageHTMLHead
   $core->callBehavior('loginPageHTMLHead');
