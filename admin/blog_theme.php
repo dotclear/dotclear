@@ -337,15 +337,15 @@ else
 	
 	try
 	{
-		# Let theme configuration set their own form(s)
-		$managed = (boolean) $core->callBehavior('adminThemeConfigManaged');
-		
-		if (!$managed)
+		# Let theme configuration set their own form(s) if required
+		$standalone_config = (boolean) $core->themes->moduleInfo($core->blog->settings->system->theme,'standalone_config');
+
+		if (!$standalone_config)
 			echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
 
 		include $theme_conf_file;
 
-		if (!$managed)
+		if (!$standalone_config)
 			echo
 			'<p class="clear"><input type="submit" value="'.__('Save').'" />'.
 			$core->formNonce().'</p>'.

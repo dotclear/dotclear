@@ -38,7 +38,7 @@ class dcThemes extends dcModules
 	@param	desc			<b>string</b>		Module description
 	@param	author		<b>string</b>		Module author name
 	@param	version		<b>string</b>		Module version
-	@param	properties	<b>array</b>		extra properties (currently available keys : parent, priority)
+	@param	properties	<b>array</b>		extra properties (currently available keys : parent, priority, standalone_config)
 	*/
 	public function registerModule($name,$desc,$author,$version,$properties = array())
 	{
@@ -56,7 +56,8 @@ class dcThemes extends dcModules
 		$properties = array_merge(
 			array(
 				'parent' => null,
-				'priority' => 1000
+				'priority' => 1000,
+				'standalone_config' => false
 			), $properties
 		);
 		if ($this->id) {
