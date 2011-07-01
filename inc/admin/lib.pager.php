@@ -230,7 +230,7 @@ abstract class adminGenericList
 	/*
 	Sets columns of defined list
 	*/
-	abstract function setColumns();
+	public function setColumns() {}
 	
 	/**
 	Inits List object
@@ -304,7 +304,7 @@ abstract class adminGenericList
 	{
 		if ($this->rs->isEmpty())
 		{
-			echo '<p><strong>'.__('No entry').'</strong></p>';
+			echo '<p><strong>'.__('No item').'</strong></p>';
 		}
 		else
 		{
