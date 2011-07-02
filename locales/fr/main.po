@@ -794,6 +794,9 @@ msgstr "%d commentaires"
 msgid "New entry"
 msgstr "Nouveau billet"
 
+msgid "Global help"
+msgstr "Aide générale"
+
 msgid "My dashboard"
 msgstr "Mon tableau de bord"
 
