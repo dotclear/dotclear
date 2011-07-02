@@ -134,7 +134,7 @@ class dcPage
 		'</div></form>'.
 		'</div>'.
 		'<div id="info-box2"><div>'.
-		' <a href="preference.php">'.__('My preferences').'</a>'.
+		' <a'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
 		' | <a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
 		'</div>'.
 		'</div>';
