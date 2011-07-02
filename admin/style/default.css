@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 */
 body {
-	font: 76%/1.5em Helvetica,Arial,sans-serif;
+	font: 75%/1.5em Helvetica,Arial,sans-serif;
 	color: #333;
 	background: #f5f5f5;
 	margin: 0;
@@ -125,6 +125,7 @@ abbr {
 }
 #info-boxes {
 	background: #575859;
+	font-size: .95em;
 }
 #info-box1 {
 	margin: 0;
@@ -134,7 +135,7 @@ abbr {
 	background: #575859;
 }
 #info-box2 {
-	margin: 0;
+	margin: .1em 0 0 0;
 	padding: .5em 1em 4px 0;
 	color: #fff;
 	float: right;
@@ -143,7 +144,7 @@ abbr {
 	height: 2em;
 }
 #info-box1 select {
-	width: 20em;
+	width: 15em;
 }
 #info-box1 a img, #info-box2 a img {
 	vertical-align: middle;
@@ -154,13 +155,13 @@ abbr {
 	font-weight: bold;
 	color: #fff;
 	border-bottom-color: #ccc;
-	margin-left: .5em;
-	margin-right: .5em;
+	margin-left: .3em;
+	margin-right: .3em;
 	white-space: nowrap;
 	font-weight: normal;
 }
 #info-box1 a {
-	margin-left: 1.5em;
+	margin-left: 1.33em;
 }
 #info-box2 a.active {
 	border-bottom-color: #f5f5f5;
