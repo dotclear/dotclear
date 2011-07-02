@@ -266,9 +266,6 @@ if ($core->auth->userID() && $core->blog !== null)
 			false,$core->auth->check('usage,contentadmin',$core->blog->id),'fav-add');
 	}
 */
-	$_menu['Dashboard']->prependItem(__('My preferences'),'preferences.php','images/menu/user-pref.png',
-		preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
-		true);
 	$_menu['Dashboard']->prependItem(__('Dashboard'),'index.php','images/menu/dashboard.png',
 		preg_match('/index.php$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('usage,contentadmin',$core->blog->id));
