@@ -2048,6 +2048,9 @@ msgstr "Utilisateur :"
 msgid "Logout"
 msgstr "Déconnexion"
 
+msgid "Logout %s"
+msgstr "Déconnecter %s"
+
 msgid "Safe mode"
 msgstr "Mode de secours"
 
