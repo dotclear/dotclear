@@ -49,9 +49,11 @@
   
   <div class="content-inner">
 
-		<div id="by-date" class="arch-block"> <!-- by date -->
+<!-- entries sorted by date -->
+		<div id="by-date" class="arch-block">
 			<h3>{{tpl:lang By date}}</h3>
-	  	<tpl:Archives>
+			<p class="fromto">{{tpl:lang From}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate format="%d %B %Y"}}</a></tpl:Entries> {{tpl:lang to}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate format="%d %B %Y"}}</a></tpl:Entries></p>
+	  	<tpl:Archives order="asc">
 		    <tpl:ArchivesYearHeader>
 		    	<div>
 		      <h4>{{tpl:ArchiveDate format="%Y"}}</h4>
@@ -59,38 +61,65 @@
 			    </tpl:ArchivesYearHeader>
 			      <li><a href="{{tpl:ArchiveURL}}"
 			      title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a>
-			      ({{tpl:ArchiveEntriesCount}})</li>
+			      <span>({{tpl:ArchiveEntriesCount}})</span></li>
 			    <tpl:ArchivesYearFooter>
 		      </ul>
 		      </div>
 		    </tpl:ArchivesYearFooter>
 	  	</tpl:Archives>
 	  </div>
+	  
+	  <hr class="hidden" />
+
+<!-- entries sorted by others criterias -->	
+		<tpl:Categories level="1">
+			<tpl:CategoriesHeader>
+				<div id="by-cat" class="arch-block">
+				<h3>{{tpl:lang By category}}</h3>
+				<ul>
+			</tpl:CategoriesHeader>
+				<li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
+				<tpl:CategoryFirstChildren>
+					<tpl:CategoriesHeader>
+					<ul>
+					</tpl:CategoriesHeader>
+						<li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>				
+					<tpl:CategoriesFooter>
+					</ul>
+					</tpl:CategoriesFooter>
+				</tpl:CategoryFirstChildren>			
+				</li>
+			<tpl:CategoriesFooter>
+			</ul>
+			</div>
+			</tpl:CategoriesFooter>
+		</tpl:Categories>
 	
-		<div id="by-cat" class="arch-block"> <!-- by cat -->
-			<h3>{{tpl:lang By category}}</h3>
-			<tpl:Widget id="categories">
-				<setting name="title"></setting>
-			</tpl:Widget>
+		<tpl:Tags sortby="count" order="desc">
+			<tpl:TagsHeader>
+			<div id="by-tag" class="arch-block">
+				<h3>{{tpl:lang By tag}}</h3>
+				<ul>
+			</tpl:TagsHeader>
+					<li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
+			<tpl:TagsFooter>
+				</ul>	
+			</div>
+			</tpl:TagsFooter>
+		</tpl:Tags>
+		
+		<hr class="hidden" />
+
+<!-- others things -->		
+		<div class="arch-block">
+			<tpl:Entries type="page" no_content="1">
+				<tpl:EntriesHeader><h3>{{tpl:lang Pages}}</h3>
+					<ul></tpl:EntriesHeader>
+					<li><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></li>
+				<tpl:EntriesFooter></ul></tpl:EntriesFooter>
+			</tpl:Entries>
 		</div>
 	
-		<div id="by-tag" class="arch-block"> <!-- by tag -->
-			<h3>{{tpl:lang By tag}}</h3>
-			<ul>
-				<tpl:MetaData type="tag">
-					<li><a href="{{tpl:MetaURL}}" class="tag{{tpl:MetaRoundPercent}}">{{tpl:MetaID}}</a></li>
-				</tpl:MetaData>
-			</ul>	
-		</div>
-	
-		<div id="aside" class="arch-block"> <!-- others -->
-			<h3>{{tpl:lang Pages}}</h3>
-			<tpl:Widget id="pages">
-					<setting name="title"></setting>
-					<setting name="homeonly">0</setting>
-				</tpl:Widget>
-		</div>
-				
   </div> <!-- End .content-inner -->
   
   </div> <!-- End #main -->
@@ -103,9 +132,9 @@
   </div> <!-- End #blognav -->
 
   <div id="blogextra">
-		<tpl:Widget id="bestof">
-			<setting name="homeonly">0</setting>
-		</tpl:Widget>
+		{{tpl:Widgets type="extra"}}
+	</div>
+
   </div> <!-- End #blogextra -->
 </div>
 
