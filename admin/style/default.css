@@ -95,10 +95,16 @@ abbr {
 	color:#fff;
 	}
 
+#header {
+	background: #575859;
+	height: 3em;
+	position: relative;
+}
 #top {
 	margin: 0;
 	padding: 0;
-	background: #575859 url(dc_bg.png) repeat-x 0 3em;
+	width: 13em;
+	float: left;
 }
 #top h1 {
 	padding: 0;
@@ -117,57 +123,53 @@ abbr {
 	outline: none;
 	color: #fff;
 }
-
-#info-box {
+#info-boxes {
 	background: #575859;
-	position: absolute;
-	left: 13em;
-	top: 3px;
+}
+#info-box1 {
 	margin: 0;
-	padding: 3px 3px 4px 0;
+	padding: .5em 3px 4px 0;
 	color: #fff;
+	float: left;
+	background: #575859;
 }
 #info-box2 {
-	background: #575859;
-	position: absolute;
-	right: 0.5em;
-	top: 3px;
 	margin: 0;
-	padding: 3px 3px 4px 0;
+	padding: .5em 1em 4px 0;
 	color: #fff;
+	float: right;
+	text-align: right;
+	background: #575859;
+	height: 2em;
 }
-#info-box div, #info-box2 div {
-	margin: 0; padding: 0;
-}
-#info-box div div, #info-box2 div div {
-	display: inline;
-}
-#info-box>form>div, #info-box2>form>div {
-	line-height: 1.5;
-}
-#info-box select {
+#info-box1 select {
 	width: 20em;
 }
-#info-box a img, #info-box2 a img {
+#info-box1 a img, #info-box2 a img {
 	vertical-align: middle;
 	padding-left: .3em;
 	}
-#info-box a, #info-box2 a {
+#info-box1 a, #info-box2 a {
 	background: #575859;
 	font-weight: bold;
 	color: #fff;
 	border-bottom-color: #ccc;
 	margin-left: 0.5em;
 	margin-right: 0.5em;
+	white-space: nowrap;
 }
-#info-box a {
-	margin-left: 2em;
+#info-box1 a {
+	margin-left: 1.5em;
 }
 #info-box2 a.active {
 	border-bottom-color: #f5f5f5;
+	margin: 0;
 	padding: 1.2em .5em;
 	background-color: #f5f5f5;
 	color: #333;
+}
+#info-box2 span {
+	color: #575859;
 }
 #wrapper {
 	width: 100%;
@@ -194,7 +196,7 @@ abbr {
 #main-menu {
 	width: 13em;
 	float: left;
-	margin-top: 1em;
+	margin-top: 2em;
 	margin-bottom: 1em;
 }
 
@@ -236,11 +238,16 @@ abbr {
 #main-menu #dashboard-menu li {
 	margin-left: 0;
 }
+#favorites-menu h3 {
+	margin-right: .5em;
+	background: transparent url(../images/menu/favorite.png) no-repeat right;
+}
 #favorites-menu {
 	background: #D9E1D9;
+	padding: .2em 0 .1em 0;
+	margin: 0 .5em 0 0;
 }
 #favorites-menu ul {
-	padding: .2em 0 .66em 0;
 }
 #favorites-menu a {
 	color: #000;
