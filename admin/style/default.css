@@ -130,7 +130,7 @@ abbr {
 #info-box2 {
 	background: #575859;
 	position: absolute;
-	right: 1em;
+	right: 0.5em;
 	top: 3px;
 	margin: 0;
 	padding: 3px 3px 4px 0;
@@ -157,6 +157,8 @@ abbr {
 	font-weight: bold;
 	color: #fff;
 	border-bottom-color: #ccc;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
 }
 #info-box a {
 	margin-left: 2em;
