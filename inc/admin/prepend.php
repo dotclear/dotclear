@@ -334,7 +334,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		// Global favorites if any
 		foreach ($ws->dumpPrefs() as $k => $v) {
 			$fav = unserialize($v['value']);
-			if (dc_valid_fav($fav[url])) {
+			if (dc_valid_fav($fav['url'])) {
 				$count++;
 				$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
 					preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
