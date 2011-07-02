@@ -122,20 +122,23 @@ class dcPage
 		($safe_mode ? ' safe-mode' : '').
 		'">'."\n".
 		
+		'<div id=header>'.
 		'<ul id="prelude"><li><a href="#content">Aller au contenu</a></li><li><a href="#main-menu">Aller au menu</a></li></ul>'."\n".
-		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
-		
+		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";	
 		
 		echo
-		'<div id="info-box">'.
-		'<form action="index.php" method="post"><div>'.
+		'<div id="info-boxes">'.
+		'<div id="info-box1">'.
+		'<form action="index.php" method="post">'.
 		$blog_box.
 		'<a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
-		'</div></form>'.
+		'</form>'.
 		'</div>'.
-		'<div id="info-box2"><div>'.
-		' <a'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
-		' | <a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
+		'<div id="info-box2">'.
+		'<a'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
+		'<span> | </span><a'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
+		'<span> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
+		'</div>'.
 		'</div>'.
 		'</div>';
 		

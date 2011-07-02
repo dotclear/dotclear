@@ -266,10 +266,6 @@ if ($core->auth->userID() && $core->blog !== null)
 			false,$core->auth->check('usage,contentadmin',$core->blog->id),'fav-add');
 	}
 */
-	$_menu['Dashboard']->prependItem(__('Dashboard'),'index.php','images/menu/dashboard.png',
-		preg_match('/index.php$/',$_SERVER['REQUEST_URI']),
-		$core->auth->check('usage,contentadmin',$core->blog->id));
-	
 	$_menu['Blog']->prependItem(__('Blog appearance'),'blog_theme.php','images/menu/themes.png',
 		preg_match('/blog_theme.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('admin',$core->blog->id));
