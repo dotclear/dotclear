@@ -318,7 +318,7 @@ if (!empty($_GET['xconv']))
 	echo '<p class="message">'.__('Don\'t forget to validate your XHTML conversion by saving your post.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; '.$page_title;
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title.'</span>';
 
 if ($post_id && $post->post_status == 1) {
 	echo ' - <a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View entry').'</a>';

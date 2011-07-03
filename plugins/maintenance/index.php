@@ -68,7 +68,7 @@ elseif ($action == 'log')
 </head>
 
 <body>
-<h2><?php echo __('Maintenance'); ?></h2>
+<h2 class="page-title"><?php echo __('Maintenance'); ?></h2>
 
 <?php
 if (!empty($_GET['vacuum'])) {

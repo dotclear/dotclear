@@ -109,7 +109,7 @@ catch (Exception $e)
 </head>
 <body>
 <?php
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.$page_name.'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_name.'</span></h2>';
 
 if ($filter_gui !== false)
 {

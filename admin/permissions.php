@@ -97,7 +97,7 @@ dcPage::open(__('permissions'),
 	dcPage::jsLoad('js/_permissions.js')
 );
 
-echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; '.__('Permissions').'</h2>';
+echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.__('Permissions').'</span></h2>';
 
 if (!empty($_GET['upd'])) {
 		echo '<p class="message">'.__('The permissions have been successfully updated.').'</p>';
