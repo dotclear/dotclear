@@ -572,10 +572,10 @@ select#del_cat {
 	padding-left: 20px;
 	margin-left: 0;
 }
-#help-button {
+#content.with-help #help-button {
 	right: 282px;
 }
-#help {
+#content.with-help #help {
 	display: block;
 	position: absolute;
 	top: 40px;
