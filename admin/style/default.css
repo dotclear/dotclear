@@ -91,7 +91,7 @@ abbr {
 	margin: 0 1em 0 0;
 	background:transparent;
 	}
-#prelude li a {
+#prelude a {
 	color:#fff;
 	}
 
@@ -126,6 +126,7 @@ abbr {
 #info-boxes {
 	background: #575859;
 	font-size: .95em;
+	height: 3em;
 }
 #info-box1 {
 	margin: 0;
@@ -199,12 +200,12 @@ abbr {
 #main-menu {
 	width: 13em;
 	float: left;
-	margin-top: 2em;
+	margin-top: 1.2em;
 	margin-bottom: 1em;
 }
 
 #main-menu h3 {
-	margin: 0 0 0.5em 0;
+	margin: 0 0 0.5em;
 	padding: .5em 0 0 .5em;
 	text-transform: uppercase;
 	color: #666;
@@ -218,7 +219,7 @@ abbr {
 }
 #main-menu li {
 	display: block;
-	margin: 0.5em 0 0 0;
+	margin: 0.5em 0 0;
 	padding: .2em 0 0 32px;
 	background-repeat: no-repeat;
 	background-position: 12px .2em;
@@ -238,19 +239,12 @@ abbr {
 	border-bottom: 1px solid #ddd;
 	margin-right: -1px;
 }
-#main-menu #dashboard-menu li {
-	margin-left: 0;
+#favorites-menu {
+	margin: 0 0 2em;
 }
 #favorites-menu h3 {
-	margin-right: .5em;
-	background: transparent url(../images/menu/favorite.png) no-repeat right;
-}
-#favorites-menu {
-	background: #D9E1D9;
-	padding: .2em 0 .1em 0;
-	margin: 0 .5em 0 0;
-}
-#favorites-menu ul {
+	color: #333;
+	text-transform: none;
 }
 #favorites-menu a {
 	color: #000;
@@ -258,7 +252,7 @@ abbr {
 }
 #favorites-menu .active {
 	background-color: transparent;
-	border: none	;
+	border: none;
 }
 #favorites-menu .active a {
 	font-weight: bold;
@@ -370,7 +364,7 @@ abbr {
 	padding-bottom: 1em;
 	padding-top: 3em;
 }
-#dashboard-items p img {
+#dashboard-items img {
 	vertical-align: middle;
 }
 #dashboard-items ul {
@@ -382,14 +376,14 @@ abbr {
 	margin: 0.25em 0 0 0;
 	color: #666;
 }
-#dashboard-items #news dt {
+#news dt {
 	font-weight: bold;
 	margin: 0 0 0.4em 0;
 }
-#dashboard-items #news dd {
+#news dd {
 	margin: 0 0 1em 0;
 }
-#dashboard-items #news dd p {
+#news dd p {
 	margin: 0.2em 0 0 0;
 }
 
@@ -428,7 +422,7 @@ abbr {
 	margin: 0;
 	padding: 0;
 }
-#categories ul li {
+#categories li {
 	margin: .5em 0;
 	padding: .3em 1.5em;
 	border: 1px solid #ccc;
@@ -437,13 +431,13 @@ abbr {
 	-webkit-border-radius: .3em;
 	border-radius: .3em;
 }
-#categories ul li h4 {
+#categories h4 {
 	margin: 0;
 }
-#categories ul li h4 span {
+#categories h4 span {
 	font-weight: normal;
 }
-#categories ul li p {
+#categories li p {
 	margin: 0;
 }
 select#del_cat {
@@ -492,7 +486,7 @@ select#del_cat {
 	padding-left: 0;
 	line-height: 1.2;
 }
-#my-favs ul li {
+#my-favs li {
 	display: block;
 	float: left;
 	width: 164px;
@@ -528,7 +522,7 @@ select#del_cat {
 	padding-left: 0;
 	position: relative;
 }
-.fav-list li img {
+.fav-list img {
 	vertical-align: middle;
 	margin-right: .2em;
 }
@@ -578,10 +572,10 @@ select#del_cat {
 	padding-left: 20px;
 	margin-left: 0;
 }
-#content.with-help #help-button {
+#help-button {
 	right: 282px;
 }
-#content.with-help #help {
+#help {
 	display: block;
 	position: absolute;
 	top: 40px;
@@ -599,6 +593,7 @@ select#del_cat {
 /* POPUP */
 body.popup #wrapper, body.popup #top {
 	margin-top: -1.5em;
+	float: none;
 }
 body.popup #top h1 {
 	background: transparent;
