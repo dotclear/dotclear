@@ -35,7 +35,9 @@ jQuery.fn.colorPicker = function() {
 		}
 		span.css('display','block');
 		
-		span.css('width',($(this).width()+12)+'px');
+		/*ligne supprimée car elle ne fait pas le calcul
+		du width de l'input et ça fout la merde */
+		//span.css('width',($(this).width()+12)+'px');
 		span.css('padding','0 5px 0 0');
 		$(this).wrap(span);
 		$(this).after(handler);
@@ -44,7 +46,9 @@ jQuery.fn.colorPicker = function() {
 		handler.css({
 			position: 'absolute',
 			top: 3,
-			right: 0
+			/* la largeur du span n'étant pas calculée
+			right: 0 crée un affichage pourri. On vire. */
+			//right: 0
 		});
 		
 		handler.css({cursor: 'default'});
