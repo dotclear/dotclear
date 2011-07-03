@@ -226,7 +226,7 @@ class tagsBehaviors
 		if ($action == 'tags')
 		{
 			echo
-			'<h2>'.__('Add tags to entries').'</h2>'.
+			'<h2 class="page-title">'.__('Add tags to entries').'</h2>'.
 			'<form action="posts_actions.php" method="post">'.
 			'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
 			form::textarea('new_tags',60,3).
@@ -256,7 +256,7 @@ class tagsBehaviors
 				}
 			}
 			
-			echo '<h2>'.__('Remove selected tags from entries').'</h2>';
+			echo '<h2 class="page-title">'.__('Remove selected tags from entries').'</h2>';
 			
 			if (empty($tags)) {
 				echo '<p>'.__('No tags for selected entries').'</p>';

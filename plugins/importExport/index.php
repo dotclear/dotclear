@@ -104,7 +104,7 @@ if ($type && $current_module !== null)
 }
 else
 {
-	echo '<h2>'.__('Import/Export').'</h2>';
+	echo '<h2 class="page-title">'.__('Import/Export').'</h2>';
 	echo '<h3>'.__('Import').'</h3>';
 	
 	echo '<dl class="modules">';
