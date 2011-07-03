@@ -180,7 +180,7 @@ if (!empty($_GET['add'])) {
 		echo '<p class="message">'.__('User has been successfully created.').'</p>';
 }
 
-echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; '.$page_title.'</h2>';
+echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
 
 if ($user_id == $core->auth->userID()) {
 	echo
