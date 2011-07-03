@@ -22,6 +22,7 @@ Plan de cette feuille :
 
 Couleurs :
 Typo: #222 courant, #4c4c85 commentaires
+Titres non cliquables: #14709e
 Liens: #666 courant, #ad3f4c titre billet et Lire la suite
 Fond formulaire comm: #eef
 Fond sidebar: #ededed
@@ -91,31 +92,6 @@ h1 a {
 	text-decoration: none;
 	color: #333;
 	}
-#prelude {
-	position: absolute;
-	margin: 0;
-	top: 0;
-	left: 3px;
-	color: #fff;
-	font-size: .875em;
-	list-style-type: none;
-	}
-#prelude li {
-	display: inline;
-	}
-#prelude a, #prelude a:hover, #prelude a:visited {
-	position:absolute;
-	left:0;
-	top:-500px;
-	width:1px;
-	height:1px;
-	overflow:hidden;
-	}
-#prelude a:active, #prelude a:focus {
-	position:static;
-	width:auto;
-	height:auto;
-	}
 #blogdesc {
 	margin: 0 0 0 32px;
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
@@ -123,18 +99,18 @@ h1 a {
 	color: #888;
 	text-shadow: none;
 	}
-#supranav {
+.supranav, #prelude {
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	padding: 0 0 0 4px;
 	list-style-type: none;
 	line-height: 1.25;
 	font-size: .875em;
 	}
-#supranav li {
+.supranav li, #prelude li {
 	text-transform: uppercase;
 	vertical-align: top;
 	}
-#supranav li a {
+.supranav li a {
 	text-decoration: none;
 	white-space: nowrap;
 	margin-bottom: 4px;
@@ -143,14 +119,16 @@ h1 a {
 	border-bottom-left-radius: 7px;	
 	background: transparent url(img/menu.png) no-repeat right top;
  }
-#supranav li a:hover, #supranav li a:active, #supranav li a:focus {
+.supranav li a:hover, 
+.supranav li a:active, 
+.supranav li a:focus {
 	background-color: #ebebee;
 	background-position: right -150px;
 	}
-#supranav li.active a {
+.supranav li.active a {
 	background-position: right -150px;
 	}
-#supranav li a span {
+.supranav li a span {
 	display: block;
 	text-transform: none;
 	text-shadow: none;
@@ -176,6 +154,7 @@ h1 a {
 	}
 #content-info h2 { 
 	font-size: 1.2em;
+	color: #14709e;
 	}
 #subcategories {
 	font-size: .875em;
@@ -234,7 +213,7 @@ h1 a {
 	}
 .post-title {
 	margin-bottom: .33em;
-	color: #000;
+	color: #14709e;
 	line-height: 1.17;
 	}
 .post-title a {
@@ -247,7 +226,7 @@ h1 a {
 .post h6 {
 	font-variant: small-caps;
 	font-weight: normal;
-	color: #666;
+	color: #14709e;
 	}
 .post-info, 
 .post-tags, 
@@ -294,6 +273,10 @@ h1 a {
 .footnotes {
 	font-size: .875em;
 	}
+.footnotes h4 {
+	font-variant: normal;
+	font-weight: bold;
+}
 .read-it {
 	text-align: right;
 	margin: 0 0 .25em 0;
@@ -721,6 +704,7 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 	font-style: italic;
 	font-weight: normal;
 	text-transform: lowercase;
+	color: #14709e;
 	}
 .arch-block h4 {
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;

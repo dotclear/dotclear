@@ -12,7 +12,7 @@
 	Moins de 480px (téléphones)
 -------------------------------------------------------------------- */
 @media only screen and (max-width:480px) {
-	.nomobile {
+	.nosmall {
 		display: none !important;
 		}
 	h1 {
@@ -27,15 +27,34 @@
 		border-right: 1px solid #aaa;
 		border-bottom: 1px solid #ccc;
 		}
-	#supranav {
+	.supranav, #prelude {
 		border:none;
 		margin: 8px 0 0;
+		background: #fff;
 		}
-	#supranav li a {
+	.supranav li a, #prelude li a {
 		border-right: 0;
 		display: block;
 		padding: 4px 8px;
 		border-bottom: 1px solid #ccc;
+		text-decoration: none;
+		white-space: nowrap;
+		margin-bottom: 4px;
+		-webkit-border-bottom-left-radius: 7px;
+		-moz-border-radius-bottomleft: 7px;
+		border-bottom-left-radius: 7px;
+		}
+	#gotop li {
+		text-transform: none;
+		}
+	#prelude li a {
+		background: transparent url(img/menumobile.png) no-repeat right center;
+		 }
+	#sn-bottom li a {
+		background: transparent url(img/menumobile.png) no-repeat right top;
+		}
+	#gotop li a {
+		background: transparent url(img/menumobile.png) no-repeat right -150px;
 		}
 	.post-title {
 		font-size: 1.5em;
@@ -79,6 +98,36 @@
 -------------------------------------------------------------------- */
 
 @media only screen and (min-width: 481px) {
+	.nobig {
+		display: none;
+		}
+	#prelude {
+		position: absolute;
+		margin: 0;
+		top: 0;
+		left: 3px;
+		color: #fff;
+		font-size: .875em;
+		list-style-type: none;
+		}
+	#prelude li {
+		display: inline;
+		text-transform: none !important;
+		}
+	#prelude a, #prelude a:hover, #prelude a:visited {
+		position:absolute;
+		left:0;
+		top:-500px;
+		width:1px;
+		height:1px;
+		overflow:hidden;
+		background-image: none !important;
+		}
+	#prelude a:active, #prelude a:focus {
+		position:static;
+		width:auto;
+		height:auto;
+		}
 	#top {
 		padding-top: 24px;
 		}
@@ -88,20 +137,23 @@
 		padding-bottom: 4px;
 		margin-left: 32px;
 		}
-	#supranav {
+	#sn-bottom {
+		display: none;
+		}
+	.supranav {
 		margin: 36px 0 0;
 		border-bottom: 1px solid #ccc;
 		}
-	#supranav li {
+	.supranav li {
 		display: inline;
 		padding: 8px 0;
 		}
-	#supranav li a {
+	.supranav li a {
 		display: inline-block;
 		padding: 8px 32px 8px 28px;
 		border-right: 1px solid #ccc;
 	 	}
-	#supranav li a span {
+	.supranav li a span {
 		display: block;
 		}
 	.post-title {
