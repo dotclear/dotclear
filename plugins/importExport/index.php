@@ -96,7 +96,7 @@ if ($type && $current_module !== null && !empty($_REQUEST['do']))
 if ($type && $current_module !== null)
 {
 	echo '<h2><a href="'.$p_url.'">'.__('Import/Export').'</a>'.
-	' &rsaquo; '.html::escapeHTML($current_module->name).'</h2>';
+	' &rsaquo; <span class="page-title">'.html::escapeHTML($current_module->name).'</span></h2>';
 	
 	echo '<div id="ie-gui">';
 	$current_module->gui();

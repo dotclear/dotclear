@@ -20,7 +20,7 @@ $title = !empty($_GET['title']) ? $_GET['title'] : '';
 
 dcPage::openPopup(__('Add a link'),dcPage::jsLoad('js/jsToolBar/popup_link.js'));
 
-echo '<h2>'.__('Add a link').'</h2>';
+echo '<h2 class="page-title">'.__('Add a link').'</h2>';
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));

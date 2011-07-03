@@ -190,7 +190,7 @@ dcPage::open(__('Dashboard'),
 	$core->callBehavior('adminDashboardHeaders')
 );
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Dashboard');
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Dashboard').'</span>';
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->blog_count > 1) {
 	echo

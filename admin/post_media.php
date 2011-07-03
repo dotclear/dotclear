@@ -60,7 +60,7 @@ if (($post_id && $media_id) || $core->error->flag())
 	{
 		dcPage::open(__('Remove attachment'));
 		
-		echo '<h2>'.__('Attachment').' &rsaquo; '.__('confirm removal').'</h2>';
+		echo '<h2>'.__('Attachment').' &rsaquo; <span class="page-title">'.__('confirm removal').'</span></h2>';
 		
 		echo
 		'<form action="post_media.php" method="post">'.

@@ -109,7 +109,7 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 <body>
 
 <h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo;
-<?php echo __('Edit tag'); ?></h2>
+<span class="page-title"><?php echo __('Edit tag'); ?></span></h2>
 
 <?php
 if (!empty($_GET['renamed'])) {

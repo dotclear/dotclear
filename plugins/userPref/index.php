@@ -97,7 +97,7 @@ if (!empty($_GET['upda'])) {
 	echo '<p class="message">'.__('Preferences definition successfully updated').'</p>';
 }
 ?>
-<h2><?php echo html::escapeHTML($core->auth->userID()); ?> &rsaquo; user:preferences</h2>
+<h2><?php echo html::escapeHTML($core->auth->userID()); ?> &rsaquo; <span class="page-title">user:preferences</span></h2>
 
 <div id="local" class="multi-part" title="<?php echo __('user preferences'); ?>">
 <form action="plugin.php" method="post">

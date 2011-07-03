@@ -78,7 +78,7 @@ if (!empty($_GET['del'])) {
 	echo '<p class="message">'.__('Blog has been successfully deleted.').'</p>';
 }
 
-echo '<h2>'.__('List of blogs').'</h2>';
+echo '<h2 class="page-title">'.__('List of blogs').'</h2>';
 
 if (!$core->error->flag())
 {

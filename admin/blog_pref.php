@@ -242,8 +242,8 @@ dcPage::open(__('Blog settings'),
 if ($blog_id)
 {
 	echo '<h2>'.(!$standalone ? '<a href="blogs.php">'.__('Blogs').'</a> &rsaquo; ' : '').
-	html::escapeHTML($blog_name).' &rsaquo; '.
-	__('Blog settings').'</h2>';
+	html::escapeHTML($blog_name).' &rsaquo; <span class="page-title">'.
+	__('Blog settings').'</span></h2>';
 	
 	if (!empty($_GET['add'])) {
 		echo '<p class="message">'.__('Blog has been successfully created.').'</p>';
