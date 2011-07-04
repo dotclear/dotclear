@@ -214,7 +214,7 @@ try {
 </head>
 
 <body>
-<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; Blogroll</h2>
+<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title">Blogroll</span></h2>
 
 <?php
 if (!empty($_GET['neworder'])) {

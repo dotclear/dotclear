@@ -206,7 +206,7 @@ $core->callBehavior('adminPostsActionsContent',$core,$action,$hidden_fields);
 
 if ($action == 'category')
 {
-	echo '<h2>'.__('Change category for entries').'</h2>';
+	echo '<h2 class="page-title">'.__('Change category for entries').'</h2>';
 	
 	# categories list
 	# Getting categories
@@ -237,7 +237,7 @@ if ($action == 'category')
 }
 elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 {
-	echo '<h2>'.__('Change author for entries').'</h2>';
+	echo '<h2 class="page-title">'.__('Change author for entries').'</h2>';
 	
 	echo
 	'<form action="posts_actions.php" method="post">'.

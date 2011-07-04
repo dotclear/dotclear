@@ -319,7 +319,7 @@ if (!empty($_GET['xconv']))
 }
 
 echo '<h2>'.html::escapeHTML($core->blog->name).
-' &rsaquo; <a href="'.$p_url.'">'.__('Pages').'</a> &rsaquo; '.$page_title;
+' &rsaquo; <a href="'.$p_url.'">'.__('Pages').'</a> &rsaquo; <span class="page-title">'.$page_title.'</span>';
 
 if ($post_id && $post->post_status == 1) {
 	echo ' - <a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View page').'</a>';

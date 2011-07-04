@@ -67,7 +67,7 @@ if (!empty($_GET['moved'])) {
 		echo '<p class="message">'.__('The category has been successfully moved.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Categories').'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Categories').'</span></h2>';
 
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 

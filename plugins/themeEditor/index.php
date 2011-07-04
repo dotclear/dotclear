@@ -68,7 +68,7 @@ catch (Exception $e)
 
 <body>
 <?php echo '<h2>'.html::escapeHTML($core->blog->name).
-' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; '.__('Theme Editor').'</h2>'; ?>
+' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; <span class="page-title">'.__('Theme Editor').'</span></h2>'; ?>
 
 <p><strong><?php echo sprintf(__('Your current theme on this blog is "%s".'),html::escapeHTML($T['name'])); ?></strong></p>
 

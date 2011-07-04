@@ -221,7 +221,7 @@ if ($dir && !empty($_GET['remove']))
 {
 	call_user_func($open_f,__('Media manager'));
 	
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Media manager').' &rsaquo; '.__('confirm removal').'</h2>';
+	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Media manager').' &rsaquo; <span class="page-title">'.__('confirm removal').'</span></h2>';
 	
 	echo
 	'<form action="'.html::escapeURL($page_url).'" method="post">'.
@@ -277,8 +277,17 @@ if (!empty($_GET['unzipok'])) {
 	echo '<p class="message">'.__('Zip file has been successfully extracted.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <a href="'.html::escapeURL($page_url.'&d=').'">'.__('Media manager').'</a>'.
-' / '.(isset($core->media) ? $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s') : '').'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; ';
+if (!isset($core->media)) {
+	echo '<span class="page-title">'.__('Media manager').'</span></h2>';
+} else {
+	$breadcrumb = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s','<span class="page-title">%s</span>');
+	if ($breadcrumb == '') {
+		echo '<span class="page-title">'.__('Media manager').'</span></h2>';
+	} else {
+		echo '<a href="'.html::escapeURL($page_url.'&d=').'">'.__('Media manager').'</a>'.' / '.$breadcrumb.'</h2>';
+	}
+}
 
 if (!$dir) {
 	call_user_func($close_f);

@@ -178,7 +178,7 @@ if ($cat_id)
 	}
 }
 
-echo $title.'</h2>';
+echo '<span class="page-title">'.$title.'</span></h2>';
 
 echo
 '<form action="category.php" method="post" id="category-form">'.

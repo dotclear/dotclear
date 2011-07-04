@@ -82,7 +82,7 @@ else
 {
 	call_user_func($open_f,__('Plugin not found'));
 	
-	echo '<h2>'.__('Plugin not found').'</h2>';
+	echo '<h2 class="page-title">'.__('Plugin not found').'</h2>';
 	
 	echo '<p>'.__('The plugin you reached does not exist or does not have an admin page.').'</p>';
 	
