@@ -147,7 +147,7 @@ $starting_script .= $core->callBehavior('adminCommentsHeaders');
 
 dcPage::open(__('Comments and trackbacks'),$starting_script);
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Comments and trackbacks').'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Comments and trackbacks').'</span></h2>';
 
 if (!$core->error->flag())
 {

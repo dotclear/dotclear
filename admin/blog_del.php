@@ -15,6 +15,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::checkSuper();
 
 $blog_id = '';
+$blog_name = '';
 
 if (!empty($_POST['blog_id']))
 {
@@ -28,6 +29,7 @@ if (!empty($_POST['blog_id']))
 		$core->error->add(__('No such blog ID'));
 	} else {
 		$blog_id = $rs->blog_id;
+		$blog_name = $rs->blog_name;
 	}
 }
 
@@ -51,10 +53,10 @@ dcPage::open('Delete a blog');
 if (!$core->error->flag())
 {
 	echo
-	'<h2>'.__('Delete a blog').'</h2>'.
+	'<h2 class="page-title">'.__('Delete a blog').'</h2>'.
 	'<p class="message">'.__('Warning').'</p>'.
 	'<p>'.sprintf(__('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
-	'<strong>'.$blog_id.'</strong>').'</p>'.
+	'<strong>'.$blog_id.' ('.$blog_name.')</strong>').'</p>'.
 	'<p>'.__('Please give your password to confirm the blog deletion.').'</p>';
 	
 	echo

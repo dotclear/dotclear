@@ -230,7 +230,7 @@ dcPage::open(__('Entries'),$starting_script);
 if (!$core->error->flag())
 {
 	echo 
-	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Entries').'</h2>'.
+	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Entries').'</span></h2>'.
 	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>';
 	
 	if (!$show_filters) {

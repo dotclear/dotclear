@@ -172,7 +172,7 @@ dcPage::open(__('Plugins management'),
 );
 
 echo
-'<h2>'.__('Plugins management').'</h2>';
+'<h2 class="page-title">'.__('Plugins management').'</h2>';
 
 if (!empty($_GET['removed'])) {
 	echo

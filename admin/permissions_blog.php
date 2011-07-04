@@ -89,7 +89,7 @@ if (!$show_filters) {
 }
 dcPage::open(__('choose a blog'),$starting_script);
 
-echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; '.__('Choose a blog').'</h2>';
+echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.__('Choose a blog').'</span></h2>';
 
 if (!$core->error->flag())
 {

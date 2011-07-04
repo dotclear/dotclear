@@ -181,7 +181,7 @@ if (!empty($_GET['thumbupd'])) {
 
 echo '<h2><a href="'.html::escapeURL($media_page_url).'">'.__('Media manager').'</a>'.
 ' / '.$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').
-$file->basename.'</h2>';
+'<span class="page-title">'.$file->basename.'</span></h2>';
 
 # Insertion popup
 if ($popup)
