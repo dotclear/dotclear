@@ -160,7 +160,7 @@ $filterSet
 	->addFilter(new comboFilter(
 		'category',__('Category'), 'cat_id', $categories_combo))
 	->addFilter(new comboFilter(
-		'post_status',__('Status'), 'post_status', $status_combo,array('singleval' => 1)))
+		'post_status',__('Status'), 'post_status', $status_combo))
 	->addFilter(new booleanFilter(
 		'post_selected',__('The post :'), 'post_selected', $selected_combo))
 	->addFilter(new comboFilter(
