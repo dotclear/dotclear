@@ -89,6 +89,24 @@ class dcBlog
 		}
 	}
 	
+	/**
+	Returns sql statement for a given parameter. 
+	Computes in() or not_in lists in parameter
+
+	@param	params	<b>array</b> query parameters
+	@param	param_name	<b>array</b> parameter to check
+	@param	sql column	<b>array</b> sql column matching parameter name
+	
+	@return	<b>string</b> the generated SQL statement
+	*/
+	protected function getInParamStr($params, $param_name, $sql_column) {
+		$not='';
+		if (isset($params[$param_name.'_not'])) {
+			$not = "NOT ";
+		}
+		return $sql_column.' '.$not.$this->con->in($params[$param_name]).' ';
+	}
+	
 	/// @name Common public methods
 	//@{
 	/**
@@ -735,12 +753,7 @@ class dcBlog
 		}
 		
 		if (!empty($params['user_id'])) {
-			if (!empty($params['user_id_not'])) {
-				$not = "NOT ";
-			} else {
-				$not = "";
-			}
-			$strReq .= "AND U.user_id ".$not.$this->con->in($params['user_id'])." ";
+			$strReq .= 'AND '.$this->getInParamStr($params,'user_id','U.user_id');
 		}
 		
 		if (!empty($params['cat_id']))
@@ -766,7 +779,7 @@ class dcBlog
 		
 		/* Other filters */
 		if (isset($params['post_status'])) {
-			$strReq .= 'AND post_status = '.(integer) $params['post_status'].' ';
+			$strReq .= 'AND '.$this->getInParamStr($params,'post_status','post_status');
 		}
 		
 		if (isset($params['post_selected'])) {
@@ -789,7 +802,7 @@ class dcBlog
 		}
 		
 		if (!empty($params['post_lang'])) {
-			$strReq .= "AND P.post_lang = '".$this->con->escape($params['post_lang'])."' ";
+			$strReq .= 'AND '.$this->getInParamStr($params,'post_lang','P.post_lang');
 		}
 		
 		if (!empty($params['search']))
