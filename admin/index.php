@@ -190,14 +190,12 @@ dcPage::open(__('Dashboard'),
 	$core->callBehavior('adminDashboardHeaders')
 );
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Dashboard').'</span>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Dashboard').'</span></h2>';
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->blog_count > 1) {
 	echo
-	' - <a href="index.php?default_blog=1" class="button">'.__('Make this blog my default blog').'</a>';
+	'<p><a href="index.php?default_blog=1" class="button">'.__('Make this blog my default blog').'</a></p>';
 }
-
-echo '</h2>';
 
 if ($core->blog->status == 0) {
 	echo '<p class="static-msg">'.__('This blog is offline').'</p>';
