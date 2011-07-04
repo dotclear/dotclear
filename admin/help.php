@@ -58,7 +58,12 @@ function helpPage()
 		return '';
 	}
 	
-	return ($title != '' ? ' > '.$title.'</h2>' : '</h2>').'<div id="mainhelp">'.$content.'</div>';
+	if ($title != '') {
+		$title = '<a href="help.php">'.__('Global help').'</a> &rsaquo; <span class="page-title">'.$title.'</span>';
+	} else {
+		$title = '<span class="page-title">'.__('Global help').'</span>';
+	}
+	return '<h2>'.$title.'</h2>'."\n".'<div id="mainhelp">'.$content.'</div>';
 }
 
 $help_page = !empty($_GET['page']) ? html::escapeHTML($_GET['page']) : 'core_main';
@@ -74,7 +79,7 @@ dcPage::open(__('Global help'),
 if (($content == '') || ($help_page == 'core_main')) {
 	$content = helpPage('core_main');
 }
-echo '<h2><a href="help.php">'.__('Global help').'</a>'.$content;
+echo $content;
 
 dcPage::close();
 ?>
