@@ -20,7 +20,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 <body>
 <h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo;
-<?php echo __('Tags'); ?></h2>
+<span class="page-title"><?php echo __('Tags'); ?></span></h2>
 
 <?php
 if (!empty($_GET['del'])) {

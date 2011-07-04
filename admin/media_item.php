@@ -181,7 +181,7 @@ if (!empty($_GET['thumbupd'])) {
 
 echo '<h2><a href="'.html::escapeURL($media_page_url).'">'.__('Media manager').'</a>'.
 ' / '.$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').
-$file->basename.'</h2>';
+'<span class="page-title">'.$file->basename.'</span></h2>';
 
 # Insertion popup
 if ($popup)
@@ -393,7 +393,11 @@ else
 	
 	if ($file->media_image)
 	{ # We look for thumbnails too
-		$media_root = $core->blog->host.path::clean($core->blog->settings->system->public_url).'/';
+		if (preg_match('#^http(s)?://#',$this->core->blog->settings->system->public_url)) {
+			$media_root = $core->blog->settings->system->public_url;
+		} else {
+			$media_root = $core->blog->host.path::clean($core->blog->settings->system->public_url).'/';
+		}
 		foreach ($file->media_thumb as $v) {
 			$v = preg_replace('/^'.preg_quote($media_root,'/').'/','',$v);
 			$params['sql'] .= "OR post_content_xhtml LIKE '%".$core->con->escape($v)."%' ";

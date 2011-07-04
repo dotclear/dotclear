@@ -43,6 +43,8 @@ $core->tpl->addBlock('EntryMetaData',array('tplTags','EntryTags'));
 
 
 $core->addBehavior('templateBeforeBlock',array('behaviorsTags','templateBeforeBlock'));
+$core->addBehavior('tplSysIfConditions',array('behaviorsTags','tplSysIfConditions'));
+$core->addBehavior('publicBeforeDocument',array('behaviorsTags','addTplPath'));
 
 class behaviorsTags
 {
@@ -69,6 +71,24 @@ class behaviorsTags
 			"} ?>\n";
 		}
 	}
+	
+	public static function tplIfConditions($tag, $attr,$content,$if)
+	{
+		if ($tag == 'Sys' && isset($attr['has_tag'])) {
+			$sign = '';
+			if (substr($attr['has_tag'],0,1) == '!') {
+				$sign = '!';
+				$attr['has_tag'] = substr($attr['has_tag'],1);
+			}
+			$if[] =  $sign."(\$core->tpl->tagExists('".addslashes($attr['has_tag'])."') )";
+		}
+	}
+	
+	public static function addTplPath($core)
+	{
+		$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates');
+	}
+
 }
 
 class tplTags

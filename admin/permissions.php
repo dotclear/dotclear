@@ -97,7 +97,7 @@ dcPage::open(__('permissions'),
 	dcPage::jsLoad('js/_permissions.js')
 );
 
-echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; '.__('Permissions').'</h2>';
+echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.__('Permissions').'</span></h2>';
 
 if (!empty($_GET['upd'])) {
 		echo '<p class="message">'.__('The permissions have been successfully updated.').'</p>';
@@ -144,7 +144,7 @@ if (!empty($blogs) && !empty($users))
 	echo
 	'<fieldset>'.
 	'<p><label for="your_pwd">'.__('Your password:').
-	form::password('your_pwd',20,255,'','',15).'</label></p>'.
+	form::password('your_pwd',20,255).'</label></p>'.
 	'</fieldset>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	$core->formNonce();

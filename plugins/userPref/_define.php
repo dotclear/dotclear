@@ -15,7 +15,6 @@ $this->registerModule(
 	/* Name */			"user:preferences",
 	/* Description*/		"Manage every user preference directive",
 	/* Author */			"Franck Paul",
-	/* Version */			'0.1',
-	/* Permissions */		null
+	/* Version */			'0.1'
 );
 ?>

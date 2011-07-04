@@ -44,7 +44,7 @@ class tagsBehaviors
 {
 	public static function dashboardFavs($core,$favs)
 	{
-		$favs['tags'] = new ArrayObject(array('tags',__('Tags'),'plugin.php?p=tags&amp;m=tags',
+		$favs['tags'] = new ArrayObject(array('tags','Tags','plugin.php?p=tags&amp;m=tags',
 			'index.php?pf=tags/icon.png','index.php?pf=tags/icon-big.png',
 			'usage,contentadmin',null,null));
 	}
@@ -81,7 +81,7 @@ class tagsBehaviors
 		
 		echo
 		'<h3><label for="post_tags">'.__('Tags:').'</label></h3>'.
-		'<div class="p" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal',3).'</div>';
+		'<div class="p" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal').'</div>';
 	}
 	
 	public static function setTags($cur,$post_id)
@@ -226,7 +226,7 @@ class tagsBehaviors
 		if ($action == 'tags')
 		{
 			echo
-			'<h2>'.__('Add tags to entries').'</h2>'.
+			'<h2 class="page-title">'.__('Add tags to entries').'</h2>'.
 			'<form action="posts_actions.php" method="post">'.
 			'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
 			form::textarea('new_tags',60,3).
@@ -256,7 +256,7 @@ class tagsBehaviors
 				}
 			}
 			
-			echo '<h2>'.__('Remove selected tags from entries').'</h2>';
+			echo '<h2 class="page-title">'.__('Remove selected tags from entries').'</h2>';
 			
 			if (empty($tags)) {
 				echo '<p>'.__('No tags for selected entries').'</p>';

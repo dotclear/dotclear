@@ -16,6 +16,8 @@ $this->registerModule(
 	/* Description*/		"Configure your Blowup Theme",
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.1',
-	/* Permissions */		'admin'
+	array(
+		'permissions' =>	'admin'
+	)
 );
 ?>

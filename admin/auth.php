@@ -21,7 +21,8 @@ if (isset($_SESSION['sess_user_id']))
 # Loading locales for detected language
 # That's a tricky hack but it works ;)
 $dlang = http::getAcceptLanguage();
-if ($dlang != 'en')
+$dlang = ($dlang == '' ? 'en' : $dlang);
+if ($dlang != 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$dlang))
 {
 	l10n::set(dirname(__FILE__).'/../locales/'.$dlang.'/main');
 }
@@ -88,7 +89,7 @@ if ($recover && !empty($_POST['user_id']) && !empty($_POST['user_email']))
 		__('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.')."\n".
 		$page_url.'?akey='.$recover_key;
 		
-		$headers[] = 'From: dotclear@'.$_SERVER['HTTP_HOST'];
+		$headers[] = 'From: '.(defined('DC_ADMIN_MAILFROM') && DC_ADMIN_MAILFROM ? DC_ADMIN_MAILFROM : 'dotclear@local');
 		$headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 		
 		mail::sendMail($user_email,$subject,$message,$headers);
@@ -124,8 +125,23 @@ elseif ($akey)
 	}
 }
 # Change password and retry to log
-elseif ($change_pwd and $data = unserialize(base64_decode($_POST['login_data'])))
+elseif ($change_pwd)
 {
+	try
+	{
+		$tmp_data = explode('/',$_POST['login_data']);
+		if (count($tmp_data) != 3) {
+			throw new Exception();
+		}
+		$data = array(
+			'user_id'=>base64_decode($tmp_data[0]),
+			'cookie_admin'=>$tmp_data[1],
+			'user_remember'=>$tmp_data[2]=='1'
+		);
+		if ($data['user_id'] === false) {
+			throw new Exception();
+		}
+		
 	# Check login informations
 	$check_user = false;
 	if (isset($data['cookie_admin']) && strlen($data['cookie_admin']) == 104)
@@ -140,8 +156,6 @@ elseif ($change_pwd and $data = unserialize(base64_decode($_POST['login_data']))
 		}
 	}
 	
-	try
-	{
 		if (!$core->auth->allowPassChange() || !$check_user) {
 			$change_pwd = false;
 			throw new Exception();
@@ -164,11 +178,7 @@ elseif ($change_pwd and $data = unserialize(base64_decode($_POST['login_data']))
 		$_SESSION['sess_user_id'] = $user_id;
 		$_SESSION['sess_browser_uid'] = http::browserUID(DC_MASTER_KEY);
 		
-		if (!empty($data['blog_id'])) {
-			$_SESSION['sess_blog_id'] = $data['blog_id'];
-		}
-		
-		if (!empty($data['user_remember']))
+		if ($data['user_remember'])
 		{
 			setcookie('dc_admin',$data['cookie_admin'],strtotime('+15 days'),'','',DC_ADMIN_SSL);
 		}
@@ -191,12 +201,11 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 	
 	if ($check_user && $core->auth->mustChangePassword())
 	{
-		$login_data = base64_encode(serialize(array(
-			'user_id'=>$user_id,
-			'cookie_admin'=>$cookie_admin,
-			'blog_id'=>(!empty($_POST['blog']) ? $_POST['blog'] : ''),
-			'user_remember'=>!empty($_POST['user_remember'])
-		)));
+		$login_data = join('/',array(
+			base64_encode($user_id),
+			$cookie_admin,
+			empty($_POST['user_remember'])?'0':'1'
+		));
 		
 		if (!$core->auth->allowPassChange()) {
 			$err = __('You have to change your password before you can login.');
@@ -247,12 +256,12 @@ header('Content-Type: text/html; charset=UTF-8');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-xml:lang="en" lang="en">
+xml:lang="<?php echo $dlang; ?>" lang="<?php echo $dlang; ?>">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta http-equiv="Content-Language" content="en" />
+  <meta http-equiv="Content-Language" content="<?php echo $dlang; ?>" />
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></title>
@@ -262,9 +271,8 @@ echo dcPage::jsLoadIE7();
 echo dcPage::jsCommon();
 ?>
   
-  <style type="text/css">
-  @import url(style/default.css); 
-  </style>
+	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
+	 
   <?php
   # --BEHAVIOR-- loginPageHTMLHead
   $core->callBehavior('loginPageHTMLHead');
@@ -294,7 +302,7 @@ echo dcPage::jsCommon();
     $.cookie('dc_admin_test_cookie',true);
     if ($.cookie('dc_admin_test_cookie')) {
       $('#cookie_help').hide();
-      $.cookie('dc_admin_test_cookie', '', {expires: -1});
+      $.cookie('dc_admin_test_cookie', '', {'expires': -1});
     } else {
       $('#cookie_help').show();
     }
@@ -326,12 +334,12 @@ elseif ($recover)
 	echo
 	'<fieldset><legend>'.__('Request a new password').'</legend>'.
 	'<p><label for="user_id">'.__('Username:').' '.
-	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
+	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</label></p>'.
 	
 	'<p><label for="user_email">'.__('Email:').' '.
-	form::field(array('user_email','user_email'),20,255,html::escapeHTML($user_email),'',2).'</label></p>'.
+	form::field(array('user_email','user_email'),20,255,html::escapeHTML($user_email)).'</label></p>'.
 	
-	'<p><input type="submit" value="'.__('recover').'" tabindex="3" />'.
+	'<p><input type="submit" value="'.__('recover').'" />'.
 	form::hidden(array('recover'),1).'</p>'.
 	'</fieldset>'.
 	
@@ -343,10 +351,10 @@ elseif ($change_pwd)
 	echo
 	'<fieldset><legend>'.__('Change your password').'</legend>'.
 	'<p><label for="new_pwd">'.__('New password:').' '.
-	form::password(array('new_pwd','new_pwd'),20,255,'','',1).'</label></p>'.
+	form::password(array('new_pwd','new_pwd'),20,255).'</label></p>'.
 	
 	'<p><label for="new_pwd_c">'.__('Confirm password:').' '.
-	form::password(array('new_pwd_c','new_pwd_c'),20,255,'','',2).'</label></p>'.
+	form::password(array('new_pwd_c','new_pwd_c'),20,255).'</label></p>'.
 	'</fielset>'.
 	
 	'<p><input type="submit" value="'.__('change').'" />'.
@@ -372,16 +380,16 @@ else
 		}
 		echo
 		'<p><label for="user_id">'.__('Username:').' '.
-		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id),'',1).'</label></p>'.
+		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</label></p>'.
 		
 		'<p><label for="user_pwd">'.__('Password:').' '.
-		form::password(array('user_pwd','user_pwd'),20,255,'','',2).'</label></p>'.
+		form::password(array('user_pwd','user_pwd'),20,255).'</label></p>'.
 		
 		'<p><label for="user_remember" class="classic">'.
-		form::checkbox(array('user_remember','user_remember'),1,'','',3).' '.
+		form::checkbox(array('user_remember','user_remember'),1).' '.
 		__('Remember my ID on this computer').'</label></p>'.
 		
-		'<p><input type="submit" value="'.__('log in').'" tabindex="4" /></p>';
+		'<p><input type="submit" value="'.__('log in').'" /></p>';
 		
 		if (!empty($_REQUEST['blog'])) {
 			echo form::hidden('blog',html::escapeHTML($_REQUEST['blog']));

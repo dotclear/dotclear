@@ -333,9 +333,7 @@ if (!empty($_GET['replaced'])) {
 		echo '<p class="message">'.__('Default favorites have been successfully updated.').'</p>';
 }
 
-echo '<h2>'.$page_title.'</h2>';
-
-$tabindex = 2;
+echo '<h2 class="page-title">'.$page_title.'</h2>';
 
 # User profile
 echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';
@@ -346,29 +344,29 @@ echo
 '<div class="two-cols">'.
 '<div class="col">'.
 '<p><label for="user_name">'.__('Last Name:').
-form::field('user_name',20,255,html::escapeHTML($user_name),'',$tabindex++).'</label></p>'.
+form::field('user_name',20,255,html::escapeHTML($user_name)).'</label></p>'.
 
 '<p><label for="user_firstname">'.__('First Name:').
-form::field('user_firstname',20,255,html::escapeHTML($user_firstname),'',$tabindex++).'</label></p>'.
+form::field('user_firstname',20,255,html::escapeHTML($user_firstname)).'</label></p>'.
 
 '<p><label for="user_displayname">'.__('Display name:').
-form::field('user_displayname',20,255,html::escapeHTML($user_displayname),'',$tabindex++).'</label></p>'.
+form::field('user_displayname',20,255,html::escapeHTML($user_displayname)).'</label></p>'.
 
 '<p><label for="user_email">'.__('Email:').
-form::field('user_email',20,255,html::escapeHTML($user_email),'',$tabindex++).'</label></p>'.
+form::field('user_email',20,255,html::escapeHTML($user_email)).'</label></p>'.
 
 '<p><label for="user_url">'.__('URL:').
-form::field('user_url',30,255,html::escapeHTML($user_url),'',$tabindex++).'</label></p>'.
+form::field('user_url',30,255,html::escapeHTML($user_url)).'</label></p>'.
 
 '</div>'.
 
 '<div class="col">'.
 
 '<p><label for="user_lang">'.__('User language:').
-form::combo('user_lang',$lang_combo,$user_lang,'l10n',$tabindex++).'</label></p>'.
+form::combo('user_lang',$lang_combo,$user_lang,'l10n').'</label></p>'.
 
 '<p><label for="user_tz">'.__('User timezone:').
-form::combo('user_tz',dt::getZones(true,true),$user_tz,'',$tabindex++).'</label></p>'.
+form::combo('user_tz',dt::getZones(true,true),$user_tz).'</label></p>'.
 
 '</div>'.
 '</div>'.
@@ -382,23 +380,23 @@ if ($core->auth->allowPassChange())
 	'<legend>'.__('Change your password').'</legend>'.
 	
 	'<p><label for="new_pwd">'.__('New password:').
-	form::password('new_pwd',20,255,'','',$tabindex++).'</label></p>'.
+	form::password('new_pwd',20,255).'</label></p>'.
 	
 	'<p><label for="new_pwd_c">'.__('Confirm password:').
-	form::password('new_pwd_c',20,255,'','',$tabindex++).'</label></p>'.
+	form::password('new_pwd_c',20,255).'</label></p>'.
 	'</fieldset>'.
 	
 	'<fieldset>'.
 	'<p>'.__('If you want to change your email or password you must provide your current password.').'</p>'.
 	'<p><label for="cur_pwd">'.__('Your password:').
-	form::password('cur_pwd',20,255,'','',$tabindex++).'</label></p>'.
+	form::password('cur_pwd',20,255).'</label></p>'.
 	'</fieldset>';
 }
 
 echo
 '<p class="clear">'.
 $core->formNonce().
-'<input type="submit" accesskey="s" value="'.__('Save').'" tabindex="33" /></p>'.
+'<input type="submit" accesskey="s" value="'.__('Save').'" /></p>'.
 '</form>';
 
 echo '</div>';
@@ -411,26 +409,26 @@ echo
 '<fieldset><legend>'.__('My options').'</legend>'.
 
 '<p><label for="user_post_format">'.__('Preferred format:').
-form::combo('user_post_format',$formaters_combo,$user_options['post_format'],'',$tabindex++).'</label></p>'.
+form::combo('user_post_format',$formaters_combo,$user_options['post_format']).'</label></p>'.
 
 '<p><label for="user_post_status">'.__('Default entry status:').
-form::combo('user_post_status',$status_combo,$user_post_status,'',$tabindex++).'</label></p>'.
+form::combo('user_post_status',$status_combo,$user_post_status).'</label></p>'.
 
 '<p><label for="user_edit_size">'.__('Entry edit field height:').
-form::field('user_edit_size',5,4,(integer) $user_options['edit_size'],'',$tabindex++).'</label></p>'.
+form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).'</label></p>'.
 
 '<p><label for="user_wysiwyg" class="classic">'.
-form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg'],'',$tabindex++).' '.
+form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg']).' '.
 __('Enable WYSIWYG mode').'</label></p>'.
 
 '<p><label for="user_ui_enhanceduploader" class="classic">'.
-form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader,'',$tabindex++).' '.
+form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
 __('Activate enhanced uploader in media manager').'</label></p>';
 
 if ($core->auth->isSuperAdmin()) {
 	echo
 	'<p><label for="user_ui_hide_std_favicon" class="classic">'.
-	form::checkbox('user_ui_hide_std_favicon',1,$user_ui_hide_std_favicon,'',$tabindex++).' '.
+	form::checkbox('user_ui_hide_std_favicon',1,$user_ui_hide_std_favicon).' '.
 	__('Do not use standard favicon').'</label></p>'.
 	'<p class="clear form-note info">'.__('This will be applied for all users').'</p>';
 }
@@ -443,7 +441,7 @@ echo
 '<fieldset><legend>'.__('Accessibility options').'</legend>'.
 
 '<p><label for="user_acc_nodragdrop" class="classic">'.
-form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop,'',$tabindex++).' '.
+form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop).' '.
 __('Disable javascript powered drag and drop for ordering items').'</label></p>'.
 
 '<p class="clear form-note info">'.__('Numeric fields will allow to type the elements\' ordering number.').'</p>'.
@@ -453,15 +451,15 @@ echo
 '<fieldset><legend>'.__('Dashboard modules').'</legend>'.
 
 '<p><label for="user_dm_doclinks" class="classic">'.
-form::checkbox('user_dm_doclinks',1,$user_dm_doclinks,'',$tabindex++).' '.
+form::checkbox('user_dm_doclinks',1,$user_dm_doclinks).' '.
 __('Display documentation links').'</label></p>'.
 
 '<p><label for="user_dm_dcnews" class="classic">'.
-form::checkbox('user_dm_dcnews',1,$user_dm_dcnews,'',$tabindex++).' '.
+form::checkbox('user_dm_dcnews',1,$user_dm_dcnews).' '.
 __('Display Dotclear news').'</label></p>'.
 
 '<p><label for="user_dm_quickentry" class="classic">'.
-form::checkbox('user_dm_quickentry',1,$user_dm_quickentry,'',$tabindex++).' '.
+form::checkbox('user_dm_quickentry',1,$user_dm_quickentry).' '.
 __('Display quick entry form').'</label></p>'.
 
 '<br class="clear" />'. //Opera sucks
@@ -473,7 +471,7 @@ $core->callBehavior('adminPreferencesForm',$core);
 echo
 '<p class="clear">'.
 $core->formNonce().
-'<input type="submit" accesskey="s" value="'.__('Save').'" tabindex="33" /></p>'.
+'<input type="submit" accesskey="s" value="'.__('Save').'" /></p>'.
 '</form>';
 
 echo '</div>';
@@ -498,7 +496,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 				'<img src="'.$fav['large-icon'].'" alt="" /> '.
 				form::field(array('order['.$k.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),$fav['title']).'"').
 				form::hidden(array('dynorder[]','dynorder-'.$k.''),$k).
-				'<label for="fuk-'.$k.'">'.form::checkbox(array('remove[]','fuk-'.$k),$k).$fav['title'].'</label>'.
+				'<label for="fuk-'.$k.'">'.form::checkbox(array('remove[]','fuk-'.$k),$k).__($fav['title']).'</label>'.
 				'</li>';
 		}
 	}
@@ -541,7 +539,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 			if ($count == 0) echo '<ul class="fav-list">';
 			$count++;
 			echo '<li id="fd-'.$k.'">'.
-			'<img src="'.$fav['small-icon'].'" alt="" /> '.$fav['title'].'</li>';
+			'<img src="'.$fav['small-icon'].'" alt="" /> '.__($fav['title']).'</li>';
 		}
 	}
 }	
@@ -554,10 +552,10 @@ echo '<fieldset><legend>'.__('Available favorites').'</legend>';
 $count = 0;
 $array = $_fav;
 function cmp($a,$b) {
-    if ($a[1] == $b[1]) {
+    if (__($a[1]) == __($b[1])) {
         return 0;
     }
-    return ($a[1] < $b[1]) ? -1 : 1;
+    return (__($a[1]) < __($b[1])) ? -1 : 1;
 }
 $array=$array->getArrayCopy();
 uasort($array,'cmp');
@@ -567,8 +565,8 @@ foreach ($array as $k => $fav) {
 		$count++;
 		echo '<li id="fa-'.$fav[0].'">'.'<label for="fak-'.$fav[0].'">'.
 			form::checkbox(array('append[]','fak-'.$fav[0]),$k).
-			'<img src="'.$fav[3].'" alt="" /> '.'<span class="zoom"><img src="'.$fav[4].'" alt="" /></span>'.$fav[1].
-			'</label>'.'</li>';
+			'<img src="'.$fav[3].'" alt="" /> '.'<span class="zoom"><img src="'.$fav[4].'" alt="" /></span>'.
+			__($fav[1]).'</label>'.'</li>';
 	}
 }	
 if ($count > 0) echo '</ul>';

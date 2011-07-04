@@ -95,6 +95,10 @@ if (isset($_POST['user_name']))
 		$cur->user_tz = $user_tz = $_POST['user_tz'];
 		$cur->user_post_status = $user_post_status = $_POST['user_post_status'];
 		
+		if ($cur->user_id == $core->auth->userID() && $core->auth->isSuperAdmin()) {
+			// force super_user to true if current user
+			$cur->user_super = $user_super = true;
+		}
 		if ($core->auth->allowPassChange()) {
 			$cur->user_change_pwd = !empty($_POST['user_change_pwd']) ? 1 : 0;
 		}
@@ -176,7 +180,7 @@ if (!empty($_GET['add'])) {
 		echo '<p class="message">'.__('User has been successfully created.').'</p>';
 }
 
-echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; '.$page_title.'</h2>';
+echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
 
 if ($user_id == $core->auth->userID()) {
 	echo
@@ -190,72 +194,75 @@ echo
 '<div class="two-cols">'.
 '<div class="col">'.
 '<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').' '.
-form::field('user_id',20,255,html::escapeHTML($user_id),'',2).
+form::field('user_id',20,255,html::escapeHTML($user_id)).
 '</label></p>'.
 '<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p>'.
 
 '<p><label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').
 ($user_id != '' ? __('New password:') : __('Password:')).' '.
-form::password('new_pwd',20,255,'','',3).
+form::password('new_pwd',20,255).
 '</label></p>'.
 '<p class="form-note">'.__('Password must contain at least 6 characters.').'</p>'.
 
 '<p><label for="new_pwd_c" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Confirm password:').' '.
-form::password('new_pwd_c',20,255,'','',4).
+form::password('new_pwd_c',20,255).
 '</label></p>'.
 
 '<p><label for="user_name">'.__('Last Name:').' '.
-form::field('user_name',20,255,html::escapeHTML($user_name),'',5).
+form::field('user_name',20,255,html::escapeHTML($user_name)).
 '</label></p>'.
 
 '<p><label for="user_firstname">'.__('First Name:').' '.
-form::field('user_firstname',20,255,html::escapeHTML($user_firstname),'',6).
+form::field('user_firstname',20,255,html::escapeHTML($user_firstname)).
 '</label></p>'.
 
 '<p><label for="user_displayname">'.__('Display name:').' '.
-form::field('user_displayname',20,255,html::escapeHTML($user_displayname),'',7).
+form::field('user_displayname',20,255,html::escapeHTML($user_displayname)).
 '</label></p>'.
 
 '<p><label for="user_email">'.__('Email:').' '.
-form::field('user_email',20,255,html::escapeHTML($user_email),'',8).
+form::field('user_email',20,255,html::escapeHTML($user_email)).
 '</label></p>'.
+'<p class="form-note">'.__('Mandatory for password recovering procedure.').'</p>'.
 '</div>'.
 
 '<div class="col">'.
 '<p><label for="user_url">'.__('URL:').' '.
-form::field('user_url',30,255,html::escapeHTML($user_url),'',9).
+form::field('user_url',30,255,html::escapeHTML($user_url)).
 '</label></p>'.
 '<p><label for="user_post_format">'.__('Preferred format:').' '.
-form::combo('user_post_format',$formaters_combo,$user_options['post_format'],'',10).
+form::combo('user_post_format',$formaters_combo,$user_options['post_format']).
 '</label></p>'.
 
 '<p><label for="user_post_status">'.__('Default entry status:').' '.
-form::combo('user_post_status',$status_combo,$user_post_status,'',11).
+form::combo('user_post_status',$status_combo,$user_post_status).
 '</label></p>'.
 
 '<p><label for="user_edit_size">'.__('Entry edit field height:').' '.
-form::field('user_edit_size',5,4,(integer) $user_options['edit_size'],'',12).
+form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).
 '</label></p>'.
 
 '<p><label for="user_lang">'.__('User language:').' '.
-form::combo('user_lang',$lang_combo,$user_lang,'l10n',13).
+form::combo('user_lang',$lang_combo,$user_lang,'l10n').
 '</label></p>'.
 
 '<p><label for="user_tz">'.__('User timezone:').' '.
-form::combo('user_tz',dt::getZones(true,true),$user_tz,'',14).
+form::combo('user_tz',dt::getZones(true,true),$user_tz).
 '</label></p>';
 
 if ($core->auth->allowPassChange()) {
 	echo
 	'<p><label for="user_change_pwd" class="classic">'.
-	form::checkbox('user_change_pwd','1',$user_change_pwd,'',15).' '.
+	form::checkbox('user_change_pwd','1',$user_change_pwd).' '.
 	__('Password change required to connect').'</label></p>';
 }
 
+$super_disabled = $user_super && $user_id == $core->auth->userID();
+
 echo
-'<p><label for="user_super" class="classic">'.form::checkbox('user_super','1',$user_super,'',16).' '.
+'<p><label for="user_super" class="classic">'.form::checkbox('user_super','1',$user_super,'','',$super_disabled).' '.
 __('Super administrator').'</label></p>'.
 '</div>'.
 '</div>'.
@@ -268,9 +275,9 @@ echo
 '<fieldset>'.
 '<p><label for="your_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Your password:').
-form::password('your_pwd',20,255,'','',17).'</label></p>'.
+form::password('your_pwd',20,255).'</label></p>'.
 '</fieldset>'.
-'<p class="clear"><input type="submit" accesskey="s" value="'.__('Save').'" tabindex="16" />'.
+'<p class="clear"><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 ($user_id != '' ? form::hidden('id',$user_id) : '').
 $core->formNonce().
 '</p>'.

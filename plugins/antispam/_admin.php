@@ -28,7 +28,7 @@ $core->addBehavior('adminDashboardFavsIcon','antispamDashboardFavsIcon');
 
 function antispamDashboardFavs($core,$favs)
 {
-	$favs['antispam'] = new ArrayObject(array('antispam',__('Antispam'),'plugin.php?p=antispam',
+	$favs['antispam'] = new ArrayObject(array('antispam','Antispam','plugin.php?p=antispam',
 		'index.php?pf=antispam/icon.png','index.php?pf=antispam/icon-big.png',
 		'admin',null,null));
 }

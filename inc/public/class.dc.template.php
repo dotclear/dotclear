@@ -54,20 +54,6 @@ class dcTemplate extends template
 		$this->addValue('ArchiveEntriesCount',array($this,'ArchiveEntriesCount'));
 		$this->addValue('ArchiveURL',array($this,'ArchiveURL'));
 		
-		# Attachments
-		$this->addBlock('Attachments',array($this,'Attachments'));
-		$this->addBlock('AttachmentsHeader',array($this,'AttachmentsHeader'));
-		$this->addBlock('AttachmentsFooter',array($this,'AttachmentsFooter'));
-		$this->addValue('AttachmentMimeType',array($this,'AttachmentMimeType'));
-		$this->addValue('AttachmentType',array($this,'AttachmentType'));
-		$this->addValue('AttachmentFileName',array($this,'AttachmentFileName'));
-		$this->addValue('AttachmentSize',array($this,'AttachmentSize'));
-		$this->addValue('AttachmentTitle',array($this,'AttachmentTitle'));
-		$this->addValue('AttachmentThumbnailURL',array($this,'AttachmentThumbnailURL'));
-		$this->addValue('AttachmentURL',array($this,'AttachmentURL'));
-		$this->addBlock('AttachmentIf',array($this,'AttachmentIf'));
-		$this->addValue('MediaURL',array($this,'MediaURL'));
-		
 		# Blog
 		$this->addValue('BlogArchiveURL',array($this,'BlogArchiveURL'));
 		$this->addValue('BlogCopyrightNotice',array($this,'BlogCopyrightNotice'));
@@ -140,7 +126,6 @@ class dcTemplate extends template
 		$this->addBlock('EntriesFooter',array($this,'EntriesFooter'));
 		$this->addBlock('EntriesHeader',array($this,'EntriesHeader'));
 		$this->addValue('EntryExcerpt',array($this,'EntryExcerpt'));
-		$this->addValue('EntryAttachmentCount',array($this,'EntryAttachmentCount'));
 		$this->addValue('EntryAuthorCommonName',array($this,'EntryAuthorCommonName'));
 		$this->addValue('EntryAuthorDisplayName',array($this,'EntryAuthorDisplayName'));
 		$this->addValue('EntryAuthorEmail',array($this,'EntryAuthorEmail'));
@@ -322,6 +307,12 @@ class dcTemplate extends template
 			}
 		}
 		
+		if (($node instanceof tplNodeBlock) && !$node->isClosed()) {
+			$errors[] = sprintf(
+				__('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
+				html::escapeHTML($node->getTag()));
+		}
+		
 		$err = "";
 		if (count($errors) > 0) {
 			$err = "\n\n<!-- \n".
@@ -340,6 +331,9 @@ class dcTemplate extends template
 		$attr = new ArrayObject($attr);
 		# --BEHAVIOR-- templateBeforeBlock
 		$res = $this->core->callBehavior('templateBeforeBlock',$this->core,$this->current_tag,$attr);
+		
+		# --BEHAVIOR-- templateInsideBlock
+		$this->core->callBehavior('templateInsideBlock',$this->core,$this->current_tag,$attr,array(&$content));
 		
 		if (isset($this->blocks[$this->current_tag])) {
 			$res .= call_user_func($this->blocks[$this->current_tag],$attr,$content);
@@ -562,7 +556,7 @@ class dcTemplate extends template
 			$p .= "\$params['post_lang'] = '".addslashes($attr['post_lang'])."';\n";
 		}
 		
-		if (empty($attr['no_context']))
+		if (empty($attr['no_context']) && !isset($attr['category']))
 		{
 			$p .=
 			'if ($_ctx->exists("categories")) { '.
@@ -739,175 +733,6 @@ class dcTemplate extends template
 		return '<?php echo '.sprintf($f,'$_ctx->archives->url($core)').'; ?>';
 	}
 	
-	/* Attachments ---------------------------------------- */
-	/*dtd
-	<!ELEMENT tpl:Attachments - - -- Post Attachments loop -->
-	*/
-	public function Attachments($attr,$content)
-	{
-		$res =
-		"<?php\n".
-		'if ($_ctx->posts !== null && $core->media) {'."\n".
-			'$_ctx->attachments = new ArrayObject($core->media->getPostMedia($_ctx->posts->post_id));'."\n".
-		"?>\n".
-		
-		'<?php foreach ($_ctx->attachments as $attach_i => $attach_f) : '.
-		'$GLOBALS[\'attach_i\'] = $attach_i; $GLOBALS[\'attach_f\'] = $attach_f;'.
-		'$_ctx->file_url = $attach_f->file_url; ?>'.
-		$content.
-		'<?php endforeach; $_ctx->attachments = null; unset($attach_i,$attach_f,$_ctx->file_url); ?>'.
-		
-		"<?php } ?>\n";
-		
-		return $res;
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentsHeader - - -- First attachments result container -->
-	*/
-	public function AttachmentsHeader($attr,$content)
-	{
-		return
-		"<?php if (\$attach_i == 0) : ?>".
-		$content.
-		"<?php endif; ?>";
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentsFooter - - -- Last attachments result container -->
-	*/
-	public function AttachmentsFooter($attr,$content)
-	{
-		return
-		"<?php if (\$attach_i+1 == count(\$_ctx->attachments)) : ?>".
-		$content.
-		"<?php endif; ?>";
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentsIf - - -- Test on attachment fields -->
-	<!ATTLIST tpl:AttachmentIf
-	is_image	(0|1)	#IMPLIED	-- test if attachment is an image (value : 1) or not (value : 0)
-	has_thumb	(0|1)	#IMPLIED	-- test if attachment has a square thumnail (value : 1) or not (value : 0)
-	is_mp3	(0|1)	#IMPLIED	-- test if attachment is a mp3 file (value : 1) or not (value : 0)
-	is_flv	(0|1)	#IMPLIED	-- test if attachment is a flv file (value : 1) or not (value : 0)
-	>
-	*/
-	public function AttachmentIf($attr,$content)
-	{
-		$if = array();
-		
-		$operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
-		
-		if (isset($attr['is_image'])) {
-			$sign = (boolean) $attr['is_image'] ? '' : '!';
-			$if[] = $sign.'$attach_f->media_image';
-		}
-		
-		if (isset($attr['has_thumb'])) {
-			$sign = (boolean) $attr['has_thumb'] ? '' : '!';
-			$if[] = $sign.'isset($attach_f->media_thumb[\'sq\'])';
-		}
-		
-		if (isset($attr['is_mp3'])) {
-			$sign = (boolean) $attr['is_mp3'] ? '==' : '!=';
-			$if[] = '$attach_f->type '.$sign.' "audio/mpeg3"';
-		}
-		
-		if (isset($attr['is_flv'])) {
-			$sign = (boolean) $attr['is_flv'] ? '' : '!';
-			$if[] = $sign.
-				'($attach_f->type == "video/x-flv" || '.
-				'$attach_f->type == "video/mp4" || '.
-				'$attach_f->type == "video/x-m4v")';
-		}
-		
-		if (!empty($if)) {
-			return '<?php if('.implode(' '.$operator.' ',$if).') : ?>'.$content.'<?php endif; ?>';
-		} else {
-			return $content;
-		}
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentMimeType - O -- Attachment MIME Type -->
-	*/
-	public function AttachmentMimeType($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->type').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentType - O -- Attachment type -->
-	*/
-	public function AttachmentType($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->media_type').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentFileName - O -- Attachment file name -->
-	*/
-	public function AttachmentFileName($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->basename').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentSize - O -- Attachment size -->
-	<!ATTLIST tpl:AttachmentSize
-	full	CDATA	#IMPLIED	-- if set, size is rounded to a human-readable value (in KB, MB, GB, TB)
-	>
-	*/
-	public function AttachmentSize($attr)
-	{
-		$f = $this->getFilters($attr);
-		if (!empty($attr['full'])) {
-			return '<?php echo '.sprintf($f,'$attach_f->size').'; ?>';
-		}
-		return '<?php echo '.sprintf($f,'files::size($attach_f->size)').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentTitle - O -- Attachment title -->
-	*/
-	public function AttachmentTitle($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->media_title').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentThumbnailURL - O -- Attachment square thumbnail URL -->
-	*/
-	public function AttachmentThumbnailURL($attr)
-	{
-		$f = $this->getFilters($attr);
-		return
-		'<?php '.
-		'if (isset($attach_f->media_thumb[\'sq\'])) {'.
-			'echo '.sprintf($f,'$attach_f->media_thumb[\'sq\']').';'.
-		'}'.
-		'?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:AttachmentURL - O -- Attachment URL -->
-	*/
-	public function AttachmentURL($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->file_url').'; ?>';
-	}
-	
-	public function MediaURL($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->file_url').'; ?>';
-	}
 	
 	/* Blog ----------------------------------------------- */
 	/*dtd
@@ -1150,7 +975,7 @@ class dcTemplate extends template
 	*/
 	public function CategoryIf($attr,$content)
 	{
-		$if = array();
+		$if = new ArrayObject();
 		$operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
 		
 		if (isset($attr['url'])) {
@@ -1173,8 +998,10 @@ class dcTemplate extends template
 			$if[] = '$_ctx->categories->cat_desc '.$sign.' ""'; 
 		} 
 		
-		if (!empty($if)) {
-			return '<?php if('.implode(' '.$operator.' ',$if).') : ?>'.$content.'<?php endif; ?>';
+		$this->core->callBehavior('tplIfConditions','CategoryIf',$attr,$content,$if);
+		
+		if (count($if) != 0) {
+			return '<?php if('.implode(' '.$operator.' ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
@@ -1323,15 +1150,21 @@ class dcTemplate extends template
 		
 		if (empty($attr['no_context']))
 		{
-			$p .=
-			'if ($_ctx->exists("users")) { '.
-				"\$params['user_id'] = \$_ctx->users->user_id; ".
-			"}\n";
+			if (!isset($attr['author']))
+			{
+				$p .=
+				'if ($_ctx->exists("users")) { '.
+					"\$params['user_id'] = \$_ctx->users->user_id; ".
+				"}\n";
+			}
 			
-			$p .=
-			'if ($_ctx->exists("categories")) { '.
-				"\$params['cat_id'] = \$_ctx->categories->cat_id; ".
-			"}\n";
+			if (!isset($attr['category']) && (!isset($attr['no_category']) || !$attr['no_category']))
+			{
+				$p .=
+				'if ($_ctx->exists("categories")) { '.
+					"\$params['cat_id'] = \$_ctx->categories->cat_id; ".
+				"}\n";
+			}
 			
 			$p .=
 			'if ($_ctx->exists("archives")) { '.
@@ -1415,7 +1248,7 @@ class dcTemplate extends template
 	extended	(0|1)	#IMPLIED	-- post has an excerpt (value : 1) or not (value : 0)
 	selected	(0|1)	#IMPLIED	-- post is selected (value : 1) or not (value : 0)
 	has_category	(0|1)	#IMPLIED	-- post has a category (value : 1) or not (value : 0)
-	has_attachment	(0|1)	#IMPLIED	-- post has attachments (value : 1) or not (value : 0)
+	has_attachment	(0|1)	#IMPLIED	-- post has attachments (value : 1) or not (value : 0) (see Attachment plugin for code)
 	comments_active	(0|1)	#IMPLIED	-- comments are active for this post (value : 1) or not (value : 0)
 	pings_active	(0|1)	#IMPLIED	-- trackbacks are active for this post (value : 1) or not (value : 0)
 	show_comments	(0|1)	#IMPLIED	-- there are comments for this post (value : 1) or not (value : 0)
@@ -1426,7 +1259,7 @@ class dcTemplate extends template
 	*/
 	public function EntryIf($attr,$content)
 	{
-		$if = array();
+		$if = new ArrayObject();
 		$extended = null;
 		$hascategory = null;
 		
@@ -1483,11 +1316,6 @@ class dcTemplate extends template
 			$if[] = $sign.'$_ctx->posts->cat_id';
 		}
 		
-		if (isset($attr['has_attachment'])) {
-			$sign = (boolean) $attr['has_attachment'] ? '' : '!';
-			$if[] = $sign.'$_ctx->posts->countMedia()';
-		}
-		
 		if (isset($attr['comments_active'])) {
 			$sign = (boolean) $attr['comments_active'] ? '' : '!';
 			$if[] = $sign.'$_ctx->posts->commentsActive()';
@@ -1524,8 +1352,10 @@ class dcTemplate extends template
 			}
 		}
 		
-		if (!empty($if)) {
-			return '<?php if('.implode(' '.$operator.' ',$if).') : ?>'.$content.'<?php endif; ?>';
+		$this->core->callBehavior('tplIfConditions','EntryIf',$attr,$content,$if);
+		
+		if (count($if) != 0) {
+			return '<?php if('.implode(' '.$operator.' ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
@@ -1620,39 +1450,6 @@ class dcTemplate extends template
 		return '<?php echo '.sprintf($f,'$_ctx->posts->getExcerpt('.$urls.')').'; ?>';
 	}
 	
-	/*dtd
-	<!ELEMENT tpl:EntryAttachmentCount - O -- Number of attachments for entry -->
-	<!ATTLIST tpl:EntryAttachmentCount
-	none	CDATA	#IMPLIED	-- text to display for "no attachment" (default: no attachment)
-	one	CDATA	#IMPLIED	-- text to display for "one attachment" (default: one attachment)
-	more	CDATA	#IMPLIED	-- text to display for "more attachment" (default: %s attachment, %s is replaced by the number of attachments)
-	>
-	*/
-	public function EntryAttachmentCount($attr)
-	{
-		$none = 'no attachment';
-		$one = 'one attachment';
-		$more = '%d attachments';
-		
-		if (isset($attr['none'])) {
-			$none = addslashes($attr['none']);
-		}
-		if (isset($attr['one'])) {
-			$one = addslashes($attr['one']);
-		}
-		if (isset($attr['more'])) {
-			$more = addslashes($attr['more']);
-		}
-		
-		return
-		"<?php if (\$_ctx->posts->countMedia() == 0) {\n".
-		"  printf(__('".$none."'),(integer) \$_ctx->posts->countMedia());\n".
-		"} elseif (\$_ctx->posts->countMedia() == 1) {\n".
-		"  printf(__('".$one."'),(integer) \$_ctx->posts->countMedia());\n".
-		"} else {\n".
-		"  printf(__('".$more."'),(integer) \$_ctx->posts->countMedia());\n".
-		"} ?>";
-	}
 	
 	/*dtd
 	<!ELEMENT tpl:EntryAuthorCommonName - O -- Entry author common name -->
@@ -2208,8 +2005,10 @@ class dcTemplate extends template
 			$if[] = $sign.'context::PaginationEnd()';
 		}
 		
-		if (!empty($if)) {
-			return '<?php if('.implode(' && ',$if).') : ?>'.$content.'<?php endif; ?>';
+		$this->core->callBehavior('tplIfConditions','PaginationIf',$attr,$content,$if);
+		
+		if (count($if) != 0) {
+			return '<?php if('.implode(' && ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
@@ -2481,8 +2280,10 @@ class dcTemplate extends template
 			$if[] = $sign.'$_ctx->comments->comment_trackback';
 		}
 		
-		if (!empty($if)) {
-			return '<?php if('.implode(' && ',$if).') : ?>'.$content.'<?php endif; ?>';
+		$this->core->callBehavior('tplIfConditions','CommentIf',$attr,$content,$if);
+		
+		if (count($if) != 0) {
+			return '<?php if('.implode(' && ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
@@ -2972,7 +2773,7 @@ class dcTemplate extends template
 	current_tpl		CDATA	#IMPLIED	-- tests if current template is the one given in paramater
 	current_mode		CDATA	#IMPLIED	-- tests if current URL mode is the one given in parameter
 	has_tpl			CDATA     #IMPLIED  -- tests if a named template exists
-	has_tag			CDATA     #IMPLIED  -- tests if a named template tag exists
+	has_tag			CDATA     #IMPLIED  -- tests if a named template tag exists (see Tag plugin for code)
 	blog_id			CDATA     #IMPLIED  -- tests if current blog ID is the one given in parameter
 	comments_active	(0|1)	#IMPLIED	-- test if comments are enabled blog-wide 
 	pings_active		(0|1)	#IMPLIED	-- test if trackbacks are enabled blog-wide 
@@ -2982,7 +2783,7 @@ class dcTemplate extends template
 	*/
 	public function SysIf($attr,$content)
 	{
-		$if = array();
+		$if = new ArrayObject();
 		$is_ping = null;
 		
 		$operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
@@ -3028,15 +2829,6 @@ class dcTemplate extends template
 			$if[] = $sign."\$core->tpl->getFilePath('".addslashes($attr['has_tpl'])."') !== false";
 		}
 		
-		if (isset($attr['has_tag'])) {
-			$sign = '';
-			if (substr($attr['has_tag'],0,1) == '!') {
-				$sign = '!';
-				$attr['has_tag'] = substr($attr['has_tag'],1);
-			}
-			$if[] =  $sign."(\$core->tpl->tagExists('".addslashes($attr['has_tag'])."') )";
-		}
-		
 		if (isset($attr['blog_id'])) {
 			$sign = '';
 			if (substr($attr['blog_id'],0,1) == '!') {
@@ -3066,8 +2858,10 @@ class dcTemplate extends template
 			$if[] = '(isset($_search_count) && $_search_count '.html::decodeEntities($attr['search_count']).')';
 		}
 		
-		if (!empty($if)) {
-			return '<?php if('.implode(' '.$operator.' ',$if).') : ?>'.$content.'<?php endif; ?>';
+		$this->core->callBehavior('tplIfConditions','SysIf',$attr,$content,$if);
+		
+		if (count($if) != 0) {
+			return '<?php if('.implode(' '.$operator.' ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
 		} else {
 			return $content;
 		}
@@ -3228,6 +3022,9 @@ class tplNodeBlock extends tplNode
 	}
 	public function setClosing() {
 		$this->closed = true;
+	}
+	public function isClosed() {
+		return $this->closed;
 	}
 	public function compile($tpl) {
 		if ($this->closed) {

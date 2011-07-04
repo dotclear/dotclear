@@ -38,21 +38,39 @@ class dcThemes extends dcModules
 	@param	desc			<b>string</b>		Module description
 	@param	author		<b>string</b>		Module author name
 	@param	version		<b>string</b>		Module version
-	@param	parent		<b>string</b>		Module parent
-	@param	priority		<b>integer</b>		Module priority
+	@param	properties	<b>array</b>		extra properties (currently available keys : parent, priority, standalone_config)
 	*/
-	public function registerModule($name,$desc,$author,$version,$parent = null,$priority = 1000)
+	public function registerModule($name,$desc,$author,$version,$properties = array())
 	{
+		if (!is_array($properties)) {
+			//Fallback to legacy registerModule parameters
+			$args = func_get_args();
+			$properties = array();
+			if (isset($args[4])) {
+				$properties['parent']=$args[4];
+			}
+			if (isset($args[5])) {
+				$properties['priority']= (integer)$args[5];
+			}
+		}
+		$properties = array_merge(
+			array(
+				'parent' => null,
+				'priority' => 1000,
+				'standalone_config' => false
+			), $properties
+		);
 		if ($this->id) {
-			$this->modules[$this->id] = array(
-			'root' => $this->mroot,
-			'name' => $name,
-			'desc' => $desc,
-			'author' => $author,
-			'version' => $version,
-			'parent' => $parent,
-			'priority' => 1000,
-			'root_writable' => is_writable($this->mroot)
+			$this->modules[$this->id] = array_merge(
+				$properties,
+				array(
+					'root' => $this->mroot,
+					'name' => $name,
+					'desc' => $desc,
+					'author' => $author,
+					'version' => $version,
+					'root_writable' => is_writable($this->mroot)
+				)
 			);
 		}
 	}	

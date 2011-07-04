@@ -15,6 +15,8 @@ define('DC_AUTH_PAGE','auth.php');
 
 class dcPage
 {
+	private static $loaded_js=array();
+
 	# Auth check
 	public static function check($permissions)
 	{
@@ -72,7 +74,7 @@ class dcPage
 			'<label for="switchblog" class="classic">'.
 			__('Blogs:').' '.
 			$core->formNonce().
-			form::combo('switchblog',$blogs,$core->blog->id,	'',1).
+			form::combo('switchblog',$blogs,$core->blog->id).
 			'</label>'.
 			'<noscript><div><input type="submit" value="'.__('ok').'" /></div></noscript>';
 		}
@@ -95,11 +97,10 @@ class dcPage
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 		
 		self::jsLoadIE7().
-		'  <style type="text/css">'."\n". 
-		'  @import "style/default.css";'."\n".
-		"  </style>\n";
+		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n"; 
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
-			echo '  <style type="text/css">'."\n".'  @import "style/default-rtl.css";'."\n"."  </style>\n";
+			echo
+		'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
 		}
 
 		$core->auth->user_prefs->addWorkspace('interface');
@@ -121,19 +122,23 @@ class dcPage
 		($safe_mode ? ' safe-mode' : '').
 		'">'."\n".
 		
-		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
-		
+		'<div id=header>'.
+		'<ul id="prelude"><li><a href="#content">Aller au contenu</a></li><li><a href="#main-menu">Aller au menu</a></li></ul>'."\n".
+		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";	
 		
 		echo
-		'<div id="info-box">'.
-		'<form action="index.php" method="post"><div>'.
+		'<div id="info-boxes">'.
+		'<div id="info-box1">'.
+		'<form action="index.php" method="post">'.
 		$blog_box.
 		'<a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
-		'</div></form>'.
+		'</form>'.
 		'</div>'.
-		'<div id="info-box2"><div>'.
-		' '.__('User:').' <strong>'.$core->auth->userID().'</strong>'.
-		' - <a href="index.php?logout=1" class="logout">'.__('Logout').' <img src="images/logout.png" alt="" /></a>'.
+		'<div id="info-box2">'.
+		'<a'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
+		'<span> | </span><a'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
+		'<span> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
+		'</div>'.
 		'</div>'.
 		'</div>';
 		
@@ -209,11 +214,10 @@ class dcPage
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 		
 		self::jsLoadIE7().
-		'  <style type="text/css">'."\n". 
-		'  @import "style/default.css";'."\n".
-		"  </style>\n";
+		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n"; 
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
-			echo '  <style type="text/css">'."\n".'  @import "style/default-rtl.css";'."\n"."  </style>\n";
+			echo
+			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
 		}
 		
 		echo
@@ -269,9 +273,9 @@ class dcPage
 				$res .= '<p>Profiler file : '.xdebug_get_profiler_filename().'</p>';
 			} else {
 				$prof_url = http::getSelfURI();
-				$prof_url .= (strpos($prof_url,'?') === false) ? '?' : '&amp;';
+				$prof_url .= (strpos($prof_url,'?') === false) ? '?' : '&';
 				$prof_url .= 'XDEBUG_PROFILE';
-				$res .= '<p><a href="'.$prof_url.'">Trigger profiler</a></p>';
+				$res .= '<p><a href="'.html::escapeURL($prof_url).'">Trigger profiler</a></p>';
 			}
 			
 			/* xdebug configuration:
@@ -348,7 +352,11 @@ class dcPage
 	
 	public static function jsLoad($src)
 	{
-		return '<script type="text/javascript" src="'.html::escapeHTML($src).'"></script>'."\n";
+		$escaped_src = html::escapeHTML($src);
+		if (!isset(self::$loaded_js[$escaped_src])) {
+			self::$loaded_js[$escaped_src]=true;
+			return '<script type="text/javascript" src="'.$escaped_src.'"></script>'."\n";
+		}
 	}
 	
 	public static function jsVar($n,$v)
@@ -363,6 +371,7 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.biscuit.js').
 		self::jsLoad('js/jquery/jquery.bgFade.js').
 		self::jsLoad('js/common.js').
+		self::jsLoad('js/prelude.js').
 		
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".

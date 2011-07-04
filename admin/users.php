@@ -23,15 +23,15 @@ if (!empty($delete_users))
 		{
 			# --BEHAVIOR-- adminBeforeUserDelete
 			$core->callBehavior('adminBeforeUserDelete',$u);
-			
-			$core->delUser($u);
+			if ($u != $core->auth->userID()) {
+				$core->delUser($u);
+			}
 		}
 		catch (Exception $e)
 		{
 			$core->error->add($e->getMessage());
 		}
 	}
-	
 	if (!$core->error->flag()) {
 		http::redirect('users.php?del=1');
 	}
@@ -117,7 +117,7 @@ if (!$core->error->flag())
 	}
 	
 	echo 
-	'<h2>'.__('Users').'</h2>'.
+	'<h2 class="post-title">'.__('Users').'</h2>'.
 	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('Create a new user').'</a></strong></p>';
 	
 	if (!$show_filters) {
