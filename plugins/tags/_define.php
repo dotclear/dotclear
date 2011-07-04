@@ -16,6 +16,8 @@ $this->registerModule(
 	/* Description*/		"Tags for posts",
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.1',
-	/* Permissions */		'usage,contentadmin'
+	array(
+		'permissions' =>	'usage,contentadmin'
+	)
 );
 ?>

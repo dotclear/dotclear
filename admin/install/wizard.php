@@ -99,6 +99,7 @@ if (!empty($_POST))
 		
 		$admin_url = preg_replace('%install/wizard.php$%','',$_SERVER['REQUEST_URI']);
 		writeConfigValue('DC_ADMIN_URL',http::getHost().$admin_url,$full_conf);
+		writeConfigValue('DC_ADMIN_MAILFROM','dotclear@'.$_SERVER['HTTP_HOST'],$full_conf);
 		writeConfigValue('DC_MASTER_KEY',md5(uniqid()),$full_conf);
 		
 		$fp = @fopen(DC_RC_PATH,'wb');
@@ -137,10 +138,7 @@ xml:lang="en" lang="en">
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title><?php echo __('Dotclear installation wizard'); ?></title>
-  
-  <style type="text/css">
-  @import url(../style/install.css); 
-  </style>
+	<link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" /> 
 </head>
 
 <body id="dotclear-admin" class="install">

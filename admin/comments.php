@@ -107,6 +107,7 @@ if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 
 # Actions combo box
 $combo_action = array();
+$default = '';
 if ($core->auth->check('publish,contentadmin',$core->blog->id))
 {
 	$combo_action[__('publish')] = 'publish';
@@ -117,6 +118,9 @@ if ($core->auth->check('publish,contentadmin',$core->blog->id))
 if ($core->auth->check('delete,contentadmin',$core->blog->id))
 {
 	$combo_action[__('delete')] = 'delete';
+	if ($status == -2) {
+		$default = 'delete';
+	}
 }
 
 # --BEHAVIOR-- adminCommentsActionsCombo
@@ -143,7 +147,7 @@ $starting_script .= $core->callBehavior('adminCommentsHeaders');
 
 dcPage::open(__('Comments and trackbacks'),$starting_script);
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Comments and trackbacks').'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Comments and trackbacks').'</span></h2>';
 
 if (!$core->error->flag())
 {
@@ -213,7 +217,7 @@ if (!$core->error->flag())
 	'<p class="col checkboxes-helpers"></p>'.
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
-	form::combo('action',$combo_action,'','','','','title="'.__('action: ').'"').
+	form::combo('action',$combo_action,$default,'','','','title="'.__('action: ').'"').
 	$core->formNonce().
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('type'),$type).

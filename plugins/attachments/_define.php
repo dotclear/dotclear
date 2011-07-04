@@ -12,13 +12,13 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"Import / Export",
-	/* Description*/		"Import and Export your blog",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'2.4',
+	/* Name */		"attachments",
+	/* Description*/	"Manage post attachments",
+	/* Author */		"Dotclear Team",
+	/* Version */		'1.0',
 	array(
-		'permissions' => 'admin',
-		'priority' => 10
+		'permissions' =>	'contentadmin,pages',
+		'priority' =>		999
 	)
 );
 ?>

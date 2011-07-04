@@ -50,7 +50,7 @@ catch (Exception $e)
 
 <body>
 <?php
-echo '<h2>'.__('Pings configuration').'</h2>';
+echo '<h2 class="page-title">'.__('Pings configuration').'</h2>';
 
 if (!empty($_GET['up'])) {
 	echo '<p class="message">'.__('Settings have been successfully updated.').'</p>';

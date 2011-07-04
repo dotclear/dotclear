@@ -132,8 +132,7 @@ class dcRestMethods
 		if ($core->auth->userID()) {
 			$rsp->comment_ip($rs->comment_ip);
 			$rsp->comment_email($rs->comment_email);
-			# --BEHAVIOR-- adminAfterCommentDesc
-			$rsp->comment_spam_disp($core->callBehavior('adminAfterCommentDesc', $rs));
+			$rsp->comment_spam_disp(dcAntispam::statusMessage($rs));
 		}
 		
 		return $rsp;

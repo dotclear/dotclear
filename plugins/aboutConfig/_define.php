@@ -15,7 +15,6 @@ $this->registerModule(
 	/* Name */			"about:config",
 	/* Description*/		"Manage every blog configuration directive",
 	/* Author */			"Olivier Meunier",
-	/* Version */			'0.3',
-	/* Permissions */		null
+	/* Version */			'0.3'
 );
 ?>

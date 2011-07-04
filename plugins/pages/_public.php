@@ -32,9 +32,11 @@ class urlPages extends dcUrlHandlers
 			
 			$core->blog->withoutPassword(false);
 			
-			$params = new ArrayObject();
-			$params['post_type'] = 'page';
-			$params['post_url'] = $args;
+			$params = new ArrayObject(array(
+				'post_type' => 'page',
+				'post_url' => $args));
+			
+			$core->callBehavior('publicPagesBeforeGetPosts',$params,$args);
 			
 			$_ctx->posts = $core->blog->getPosts($params);
 			

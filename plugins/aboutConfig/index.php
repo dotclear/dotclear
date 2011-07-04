@@ -101,7 +101,7 @@ if (!empty($_GET['upda'])) {
 	echo '<p class="message">'.__('Settings definition successfully updated').'</p>';
 }
 ?>
-<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; about:config</h2>
+<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title">about:config</span></h2>
 
 <div id="local" class="multi-part" title="<?php echo __('blog settings'); ?>">
 <form action="plugin.php" method="post">

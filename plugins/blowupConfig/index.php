@@ -222,7 +222,7 @@ if (!empty($_POST))
 <?php
 echo
 '<h2>'.html::escapeHTML($core->blog->name).
-' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; '.__('Blowup configuration').'</h2>'.
+' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; <span class="page-title">'.__('Blowup configuration').'</span></h2>'.
 '<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';
 
 

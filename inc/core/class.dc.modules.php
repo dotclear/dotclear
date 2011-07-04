@@ -158,11 +158,28 @@ class dcModules
 	@param	desc			<b>string</b>		Module description
 	@param	author		<b>string</b>		Module author name
 	@param	version		<b>string</b>		Module version
-	@param	permissions	<b>string</b>		Module permissions
-	@param	priority		<b>integer</b>		Module priority
+	@param	properties	<b>array</b>		extra properties (currently available keys : permissions, priority)
 	*/
-	public function registerModule($name,$desc,$author,$version,$permissions=null,$priority=1000)
+	public function registerModule($name,$desc,$author,$version, $properties = array())
 	{
+		if (!is_array($properties)) {
+			//Fallback to legacy registerModule parameters
+			$args = func_get_args();
+			$properties = array();
+			if (isset($args[4])) {
+				$properties['permissions']=$args[4];
+			}
+			if (isset($args[5])) {
+				$properties['priority']= (integer)$args[5];
+			}
+		}
+		$properties = array_merge(
+			array(
+				'permissions' => null,
+				'priority' => 1000
+			), $properties
+		);
+		$permissions = $properties['permissions'];
 		if ($this->ns == 'admin') {
 			if ($permissions == '' && !$this->core->auth->isSuperAdmin()) {
 				return;
@@ -176,15 +193,16 @@ class dcModules
 			$module_overwrite = $module_exists ? version_compare($this->modules_names[$name],$version,'<') : false;
 			if (!$module_exists || ($module_exists && $module_overwrite)) {
 				$this->modules_names[$name] = $version;
-				$this->modules[$this->id] = array(
-					'root' => $this->mroot,
-					'name' => $name,
-					'desc' => $desc,
-					'author' => $author,
-					'version' => $version,
-					'permissions' => $permissions,
-					'priority' => $priority === null ? 1000 : (integer) $priority,
-					'root_writable' => is_writable($this->mroot)
+				$this->modules[$this->id] = array_merge(
+					$properties,
+					array(
+						'root' => $this->mroot,
+						'name' => $name,
+						'desc' => $desc,
+						'author' => $author,
+						'version' => $version,
+						'root_writable' => is_writable($this->mroot)
+					)
 				);
 			}
 			else {

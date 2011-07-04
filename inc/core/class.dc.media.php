@@ -22,8 +22,8 @@ class dcMedia extends filemanager
 	protected $core;		///< <b>dcCore</b> dcCore instance
 	protected $con;		///< <b>connection</b> Database connection
 	protected $table;		///< <b>string</b> Media table name
-	protected $table_ref;	///< <b>string</b> Post-media relation table name
 	protected $type;		///< <b>string</b> Media type filter
+	protected $postmedia;
 	protected $file_sort = 'name-asc';
 	
 	protected $file_handler = array();	///< <b>array</b> Array of callbacks
@@ -56,13 +56,13 @@ class dcMedia extends filemanager
 	{
 		$this->core =& $core;
 		$this->con =& $core->con;
+		$this->postmedia = new dcPostMedia($core);
 		
 		if ($this->core->blog == null) {
 			throw new Exception(__('No blog defined.'));
 		}
 		
 		$this->table = $this->core->prefix.'media';
-		$this->table_ref = $this->core->prefix.'post_media';
 		$root = $this->core->blog->public_path;
 		
 		if (preg_match('#^http(s)?://#',$this->core->blog->settings->system->public_url)) {
@@ -493,21 +493,14 @@ class dcMedia extends filemanager
 	*/
 	public function getPostMedia($post_id,$media_id=null)
 	{
-		$post_id = (integer) $post_id;
-		
-		$strReq =
-		'SELECT media_file, M.media_id, media_path, media_title, media_meta, media_dt, '.
-		'media_creadt, media_upddt, media_private, user_id '.
-		'FROM '.$this->table.' M '.
-		'INNER JOIN '.$this->table_ref.' PM ON (M.media_id = PM.media_id) '.
-		"WHERE media_path = '".$this->path."' ".
-		'AND post_id = '.$post_id.' ';
-		
+		$params = array(
+			'post_id' => $post_id,
+			'media_path' => $this->path
+		);
 		if ($media_id) {
-			$strReq .= 'AND M.media_id = '.(integer) $media_id.' ';
+			$params['media_id'] = (integer) $media_id;
 		}
-		
-		$rs = $this->con->select($strReq);
+		$rs = $this->postmedia->getPostMedia($params);
 		
 		$res = array();
 		
@@ -522,47 +515,21 @@ class dcMedia extends filemanager
 	}
 	
 	/**
-	Attaches a media to a post.
-	
-	@param	post_id	<b>integer</b>		Post ID
-	@param	media_id	<b>integer</b>		Optionnal media ID
+	@deprecated since version 2.4
+	@see dcPostMedia::addPostMedia
 	*/
 	public function addPostMedia($post_id,$media_id)
 	{
-		$post_id = (integer) $post_id;
-		$media_id = (integer) $media_id;
-		
-		$f = $this->getPostMedia($post_id,$media_id);
-		
-		if (!empty($f)) {
-			return;
-		}
-		
-		$cur = $this->con->openCursor($this->table_ref);
-		$cur->post_id = $post_id;
-		$cur->media_id = $media_id;
-		
-		$cur->insert();
-		$this->core->blog->triggerBlog();
+		$this->postmedia->addPostMedia($post_id,$media_id);
 	}
 	
 	/**
-	Detaches a media from a post.
-	
-	@param	post_id	<b>integer</b>		Post ID
-	@param	media_id	<b>integer</b>		Optionnal media ID
+	@deprecated since version 2.4
+	@see dcPostMedia::removePostMedia
 	*/
 	public function removePostMedia($post_id,$media_id)
 	{
-		$post_id = (integer) $post_id;
-		$media_id = (integer) $media_id;
-		
-		$strReq = 'DELETE FROM '.$this->table_ref.' '.
-				'WHERE post_id = '.$post_id.' '.
-				'AND media_id = '.$media_id.' ';
-		
-		$this->con->execute($strReq);
-		$this->core->blog->triggerBlog();
+		$this->postmedia->removePostMedia($post_id,$media_id,"attachment");
 	}
 	
 	/**

@@ -32,8 +32,6 @@ $post_selected = false;
 $post_open_comment = $core->blog->settings->system->allow_comments;
 $post_open_tb = $core->blog->settings->system->allow_trackbacks;
 
-$post_media = array();
-
 $page_title = __('New entry');
 
 $can_view_page = true;
@@ -145,7 +143,6 @@ if (!empty($_REQUEST['id']))
 		
 		try {
 			$core->media = new dcMedia($core);
-			$post_media = $core->media->getPostMedia($post_id);
 		} catch (Exception $e) {}
 	}
 }
@@ -321,7 +318,7 @@ if (!empty($_GET['xconv']))
 	echo '<p class="message">'.__('Don\'t forget to validate your XHTML conversion by saving your post.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; '.$page_title;
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title.'</span>';
 
 if ($post_id && $post->post_status == 1) {
 	echo ' - <a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View entry').'</a>';
@@ -362,111 +359,25 @@ if ($can_edit_post)
 {
 	echo '<div class="multi-part" title="'.__('Edit entry').'" id="edit-entry">';
 	echo '<form action="post.php" method="post" id="entry-form">';
-	echo '<div id="entry-sidebar">';
-	
-	echo
-	'<p><label for="cat_id">'.__('Category:').
-	form::combo('cat_id',$categories_combo,$cat_id,'maximal',3).
-	'</label></p>'.
-	
-	'<p><label for="post_status">'.__('Entry status:').
-	form::combo('post_status',$status_combo,$post_status,'',3,!$can_publish).
-	'</label></p>'.
-	
-	'<p><label for="post_dt">'.__('Published on:').
-	form::field('post_dt',16,16,$post_dt,'',3).
-	'</label></p>'.
-	
-	'<p><label for="post_format">'.__('Text formating:').
-	form::combo('post_format',$formaters_combo,$post_format,'',3).
-	'</label>'.
-	'</p>'.
-	'<p>'.($post_id && $post_format != 'xhtml' ? '<a id="convert-xhtml" class="button" href="post.php?id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').'</p>'.
-	
-	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment,'',3).' '.
-	__('Accept comments').'</label></p>'.
-	'<p><label for="post_open_tb" class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb,'',3).' '.
-	__('Accept trackbacks').'</label></p>'.
-	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected,'',3).' '.
-	__('Selected entry').'</label></p>'.
-	
-	'<p><label for="post_lang">'.__('Entry lang:').
-	form::combo('post_lang',$lang_combo,$post_lang,'',5).
-	'</label></p>'.
-	
-	'<p><label for="post_password">'.__('Entry password:').
-	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal',3).
-	'</label></p>'.
-	
-	'<div class="lockable">'.
-	'<p><label for="post_url">'.__('Basename:').
-	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal',3).
-	'</label></p>'.
-	'<p class="form-note warn">'.
-	__('Warning: If you set the URL manually, it may conflict with another entry.').
-	'</p>'.
-	'</div>';
-	
-	if ($post_id)
-	{
-		echo
-		'<h3 class="clear">'.__('Attachments').'</h3>';
-		foreach ($post_media as $f)
-		{
-			$ftitle = $f->media_title;
-			if (strlen($ftitle) > 18) {
-				$ftitle = substr($ftitle,0,16).'...';
-			}
-			echo
-			'<div class="media-item">'.
-			'<a class="media-icon" href="media_item.php?id='.$f->media_id.'">'.
-			'<img src="'.$f->media_icon.'" alt="" title="'.$f->basename.'" /></a>'.
-			'<ul>'.
-			'<li><a class="media-link" href="media_item.php?id='.$f->media_id.'"'.
-			'title="'.$f->basename.'">'.$ftitle.'</a></li>'.
-			'<li>'.$f->media_dtstr.'</li>'.
-			'<li>'.files::size($f->size).' - '.
-			'<a href="'.$f->file_url.'">'.__('open').'</a>'.'</li>'.
-			
-			'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
-			'href="post_media.php?post_id='.$post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
-			'<img src="images/check-off.png" alt="'.__('remove').'" /></a>'.
-			'</li>'.
-			
-			'</ul>'.
-			'</div>';
-		}
-		unset($f);
-		
-		if (empty($post_media)) {
-			echo '<p>'.__('No attachment.').'</p>';
-		}
-		echo '<p><a class="button" href="media.php?post_id='.$post_id.'">'.__('Add files to this entry').'</a></p>';
-	}
-	
-	# --BEHAVIOR-- adminPostFormSidebar
-	$core->callBehavior('adminPostFormSidebar',isset($post) ? $post : null);
-	
-	echo '</div>';		// End #entry-sidebar
-	
+	echo '<div id="entry-wrapper">';
 	echo '<div id="entry-content"><fieldset class="constrained">';
 	
 	echo
 	'<p class="col"><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
-	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal',2).
+	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
 	'</label></p>'.
 	
 	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'</label> '.
-	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt),'',2).
+	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 	'</p>'.
 	
 	'<p class="area"><label class="required" '.
 	'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content),'',2).
+	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
 	'</p>'.
 	
 	'<p class="area" id="notes-area"><label for="post_notes">'.__('Notes:').'</label>'.
-	form::textarea('post_notes',50,5,html::escapeHTML($post_notes),'',2).
+	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 	'</p>';
 	
 	# --BEHAVIOR-- adminPostForm
@@ -475,14 +386,70 @@ if ($can_edit_post)
 	echo
 	'<p>'.
 	($post_id ? form::hidden('id',$post_id) : '').
-	'<input type="submit" value="'.__('Save').' (s)" tabindex="4" '.
+	'<input type="submit" value="'.__('Save').' (s)" '.
 	'accesskey="s" name="save" /> '.
 	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
 	$core->formNonce().
 	'</p>';
 	
 	echo '</fieldset></div>';		// End #entry-content
+	echo '</div>';		// End #entry-wrapper
+
+	echo '<div id="entry-sidebar">';
+	
+	echo
+	'<p><label for="cat_id">'.__('Category:').
+	form::combo('cat_id',$categories_combo,$cat_id,'maximal').
+	'</label></p>'.
+	
+	'<p><label for="post_status">'.__('Entry status:').
+	form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
+	'</label></p>'.
+	
+	'<p><label for="post_dt">'.__('Published on:').
+	form::field('post_dt',16,16,$post_dt).
+	'</label></p>'.
+	
+	'<p><label for="post_format">'.__('Text formating:').
+	form::combo('post_format',$formaters_combo,$post_format).
+	'</label>'.
+	'</p>'.
+	'<p>'.($post_id && $post_format != 'xhtml' ? '<a id="convert-xhtml" class="button" href="post.php?id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').'</p>'.
+	
+	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment).' '.
+	__('Accept comments').'</label></p>'.
+	'<p><label for="post_open_tb" class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb).' '.
+	__('Accept trackbacks').'</label></p>'.
+	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
+	__('Selected entry').'</label></p>'.
+	
+	'<p><label for="post_lang">'.__('Entry lang:').
+	form::combo('post_lang',$lang_combo,$post_lang).
+	'</label></p>'.
+	
+	'<p><label for="post_password">'.__('Entry password:').
+	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
+	'</label></p>'.
+	
+	'<div class="lockable">'.
+	'<p><label for="post_url">'.__('Basename:').
+	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
+	'</label></p>'.
+	'<p class="form-note warn">'.
+	__('Warning: If you set the URL manually, it may conflict with another entry.').
+	'</p>'.
+	'</div>';
+	
+	# --BEHAVIOR-- adminPostFormSidebar
+	$core->callBehavior('adminPostFormSidebar',isset($post) ? $post : null);
+	
+	echo '</div>';		// End #entry-sidebar
+
 	echo '</form>';
+	
+	# --BEHAVIOR-- adminPostForm
+	$core->callBehavior('adminPostAfterForm',isset($post) ? $post : null);
+	
 	echo '</div>';
 	
 	if ($post_id && $post->post_status == 1) {
@@ -490,15 +457,6 @@ if ($can_edit_post)
 		__('Ping blogs').'</a></p>';
 	}
 	
-	if ($post_id && !empty($post_media))
-	{
-		echo
-		'<form action="post_media.php" id="attachment-remove-hide" method="post">'.
-		'<div>'.form::hidden(array('post_id'),$post_id).
-		form::hidden(array('media_id'),'').
-		form::hidden(array('remove'),1).
-		$core->formNonce().'</div></form>';
-	}
 }
 
 
@@ -525,6 +483,9 @@ if ($post_id)
 	{
 		$combo_action[__('delete')] = 'delete';
 	}
+	
+	# --BEHAVIOR-- adminCommentsActionsCombo
+	$core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
 	
 	$has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
 	

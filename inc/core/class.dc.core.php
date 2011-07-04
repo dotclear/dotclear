@@ -26,7 +26,7 @@ to blogs, database connection, plugins...
 class dcCore
 {
 	public $con;		///< <b>connection</b>		Database connection object
-	public $prefix;	///< <b>string</b>			Database tables prefix
+	public $prefix;		///< <b>string</b>			Database tables prefix
 	public $blog;		///< <b>dcBlog</b>			dcBlog object
 	public $error;		///< <b>dcError</b>			dcError object
 	public $auth;		///< <b>dcAuth</b>			dcAuth object
@@ -35,7 +35,8 @@ class dcCore
 	public $wiki2xhtml;	///< <b>wiki2xhtml</b>		wiki2xhtml object
 	public $plugins;	///< <b>dcModules</b>		dcModules object
 	public $media;		///< <b>dcMedia</b>			dcMedia object
-	public $rest;		///< <b>dcRestServer</b>		dcRestServer object
+	public $postmedia;	///< <b>dcPostMedia</b>		dcPostMedia object
+	public $rest;		///< <b>dcRestServer</b>	dcRestServer object
 	public $log;		///< <b>dcLog</b>			dcLog object
 	
 	private $versions = null;
@@ -62,6 +63,18 @@ class dcCore
 		# define weak_locks for mysql
 		if ($this->con instanceof mysqlConnection) {
 			mysqlConnection::$weak_locks = true;
+		}
+		
+		# define searchpath for postgresql
+		if ($this->con instanceof pgsqlConnection)
+		{
+			$searchpath = explode ('.',$prefix,2);
+			if (count($searchpath) > 1)
+			{
+				$prefix = $searchpath[1];
+				$sql = 'SET search_path TO '.$searchpath[0].',public;';
+				$this->con->execute($sql);
+			}
 		}
 		
 		$this->prefix = $prefix;

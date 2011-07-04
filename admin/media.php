@@ -67,7 +67,6 @@ if ($post_id) {
 	$post_type = $post->post_type;
 	unset($post);
 }
-
 $d = isset($_REQUEST['d']) ? $_REQUEST['d'] : null;
 $dir = null;
 
@@ -222,7 +221,7 @@ if ($dir && !empty($_GET['remove']))
 {
 	call_user_func($open_f,__('Media manager'));
 	
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Media manager').' &rsaquo; '.__('confirm removal').'</h2>';
+	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Media manager').' &rsaquo; <span class="page-title">'.__('confirm removal').'</span></h2>';
 	
 	echo
 	'<form action="'.html::escapeURL($page_url).'" method="post">'.
