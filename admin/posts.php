@@ -170,7 +170,7 @@ $filterSet
 
 $core->callBehavior('adminPostsFilters',$filterSet);
 
-$filterSet->setValues($_GET);
+$filterSet->setFormValues($_GET);
 
 # Get posts
 try {
