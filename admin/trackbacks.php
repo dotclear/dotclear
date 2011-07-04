@@ -94,7 +94,7 @@ if (!empty($_GET['sent'])) {
 		echo '<p class="message">'.__('All pings sent.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.$page_title.'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
 
 echo '<p><a class="back" href="'.$core->getPostAdminURL($post->post_type,$id).'">'.
 	sprintf(__('Back to "%s"'),html::escapeHTML($post->post_title)).'</a></p>';
