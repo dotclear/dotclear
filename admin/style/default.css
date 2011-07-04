@@ -141,7 +141,7 @@ abbr {
 }
 #info-box2 {
 	margin: .1em 0 0 0;
-	padding: .5em 1em 4px 0;
+	padding: .5em 1.5em 4px 0;
 	color: #fff;
 	float: right;
 	text-align: right;
@@ -179,7 +179,37 @@ abbr {
 #info-box2 span {
 	color: #575859;
 }
-/* prelude */
+#helplinks {
+	font-size: .95em;
+	text-align: center;
+	margin-right: 2em;
+	padding: .1em 1.66em;
+	background: #e5e5e5;
+	position: absolute;
+	top: 3.2em;
+	right: 0;
+	-webkit-border-bottom-left-radius: .5em;
+	-webkit-border-bottom-right-radius: .5em;
+	-moz-border-radius-bottomleft: .5em;
+	-moz-border-radius-bottomright: .5em;
+	border-bottom-left-radius: .5em;
+	border-bottom-right-radius: .5em;
+	-moz-box-shadow: 1px 1px 1px #cccccc;
+	-webkit-box-shadow: 1px 1px 1px #cccccc;
+	-o-box-shadow: 1px 1px 1px #cccccc;
+	box-shadow: 1px 1px 1px #cccccc;
+	border: 1px solid #ddd;
+}
+#helplinks a {
+	color: #000;
+}
+#helplinks span {
+	padding: 0 .33em;
+}
+#helplinks a.active {
+	font-weight: bold;
+	border-bottom-color: #e5e5e5;
+}
 #wrapper {
 	width: 100%;
 }
@@ -798,7 +828,8 @@ option.avail10n {
 	z-index: 100;
 }
 #help-button {
-	position: absolute;
+	display: none;
+/*	position: absolute;
 	top: 6.2em;
 	right: 0px;
 	cursor: pointer;
@@ -812,7 +843,7 @@ option.avail10n {
 	-moz-border-radius: 1em 0 0 1em;
 	-webkit-border-top-left-radius: 1em;
 	-webkit-border-bottom-left-radius: 1em;
-	color: #444;
+	color: #444;*/
 }
 .helplink {
 	margin-left: 0.5em;

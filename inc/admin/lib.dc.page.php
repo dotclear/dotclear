@@ -140,6 +140,10 @@ class dcPage
 		'<span> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
 		'</div>'.
 		'</div>'.
+		'<p id="helplinks">'.
+		'<a href="#">Aide de cette page</a><span> | </span>'.
+		'<a'.(preg_match('/help.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="help.php">'.__('Global help').'</a>'.
+		'</p>'.
 		'</div>';
 		
 		echo
