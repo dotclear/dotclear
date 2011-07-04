@@ -99,21 +99,24 @@ class adminGenericColumn
 {
 	protected $core;		/// <b>object</b> dcCore object
 	protected $id;			/// <b>string</b> ID of defined column
+	protected $alias;		/// <b>string</b> ID of defined column
 	protected $title;		/// <b>string</b> Title of defined column
 	protected $callback;	/// <b>array</b> Callback calls to display defined column
-	protected $html;		/// <b>string</b> Extra HTML for defined column
-	protected $visibility;	/// <b>boolean</b> Visibility of defined column
+	protected $html;		/// <b>array</b> Extra HTML for defined column
 	
 	/**
 	Inits Generic column object
 	
 	@param	id		<b>string</b>		Column id
+	@param	alias	<b>string</b>		Column alias for SQL
 	@param	title	<b>string</b>		Column title (for table headers)
 	@param	callback	<b>array</b>		Column callback (used for display)
-	@param	html		<b>string</b>		Extra html (used for table headers)
+	@param	html		<b>array</b>		Extra html (used for table headers)
+	@param	sortable	<b>boolean</b>		Defines if the column can be sorted or not
+	@param	listable	<b>boolean</b>		Defines if the column can be listed or not
 	@param	can_hide	<b>boolean</b>		Defines if the column can be hidden or not
 	*/
-	public function __construct($id,$title,$callback,$html = null,$can_hide = true)
+	public function __construct($id,$alias,$title,$callback,$html = null,$sortable = true,$listable = true,$can_hide = true)
 	{
 		if (!is_string($id) || $id === '') {
 			throw new Exception(__('Invalid column ID'));
@@ -123,15 +126,24 @@ class adminGenericColumn
 			throw new Exception(__('Invalid column title'));
 		}
 		
-		if (is_null($html) || !is_string($html)) {
-			$html = '';
+		if (is_null($html) || !is_array($html)) {
+			$html = array();
 		}
-		if (!empty($html)) {
-			$html = ' '.$html;
+		
+		if (!is_bool($sortable)) {
+			$sortable = true;
+		}
+		
+		if (!is_bool($listable)) {
+			$listable = true;
 		}
 		
 		if (!is_bool($can_hide)) {
 			$can_hide = true;
+		}
+		
+		if (!is_string($alias) && $sortable) {
+			throw new Exception(__('Invalid column alias'));
 		}
 		
 		try {
@@ -161,9 +173,12 @@ class adminGenericColumn
 		}
 		
 		$this->id = $id;
+		$this->alias = $alias;
 		$this->title = $title;
 		$this->callback = $callback;
 		$this->html = $html;
+		$this->sortable = $sortable;
+		$this->listable = $listable;
 		$this->can_hide = $can_hide;
 		$this->visibility = true;
 	}
@@ -187,8 +202,11 @@ class adminGenericColumn
 	*/
 	public function setVisibility($visibility)
 	{
-		if (is_bool($visibility)) {
+		if (is_bool($visibility) && $this->can_hide) {
 			$this->visibility = $visibility;
+		}
+		else {
+			$this->visibility = true;
 		}
 	}
 	
@@ -200,6 +218,26 @@ class adminGenericColumn
 	public function isVisible()
 	{
 		return $this->visibility;
+	}
+	
+	/**
+	Returns if the defined column can be sorted
+	
+	@return	<b>boolean</b>		true if column is sortable, false otherwise
+	*/
+	public function isSortable()
+	{
+		return $this->sortable;
+	}
+	
+	/**
+	Returns if the defined column can be listed
+	
+	@return	<b>boolean</b>		true if column is listable, false otherwise
+	*/
+	public function isListable()
+	{
+		return $this->listable;
 	}
 	
 	/**
@@ -279,7 +317,9 @@ abstract class adminGenericList
 			$col_label = sprintf('<label for="%s">%s</label>',$col_id,$v->getInfo('title'));
 			$col_html = sprintf('<li class="line">%s</li>',$col_label.form::checkbox($col_id,1,$v->isVisible(),null,null,!$v->canHide()));
 			
-			array_push($list,$col_html);
+			if ($v->isListable()) {
+				array_push($list,$col_html);
+			}
 		}
 		
 		$nb_per_page = isset($_GET['nb']) ? $_GET['nb'] : 10;
@@ -322,8 +362,16 @@ abstract class adminGenericList
 			
 			foreach ($this->columns as $k => $v) {
 				if ($v->isVisible()) {
-					$html_extra = $v->getInfo('html') != '' ? ' '.$v->getInfo('html') : '';
-					$html_block .= sprintf('<th scope="col"%s>%s</th>',$html_extra,$v->getInfo('title'));
+					$title = $v->getInfo('title');
+					if ($v->isSortable()) {
+						$title = sprintf('<a href="%2$s">%1$s</a>',$title,$this->getSortLink($v));
+					}
+					$html_extra = '';
+					foreach ($v->getInfo('html') as $i => $j) {
+						$html_extra = $i.'="'.implode(' ',$j).'"';
+					}
+					$html_extra = !empty($html_extra) ? ' '.$html_extra : '';
+					$html_block .= sprintf('<th scope="col"%2$s>%1$s</th>',$title,$html_extra);
 				}
 			}
 			
@@ -357,15 +405,29 @@ abstract class adminGenericList
 	Adds column to defined list
 	
 	@param	id		<b>string</b>		Column id
+	@param	alias	<b>string</b>		Column alias for SQL
 	@param	title	<b>string</b>		Column title (for table headers)
 	@param	callback	<b>array</b>		Column callback (used for display)
 	@param	html		<b>string</b>		Extra html (used for table headers)
+	@param	sortable	<b>boolean</b>		Defines if the column can be sorted or not
+	@param	listable	<b>boolean</b>		Defines if the column can be listed or not
 	@param	can_hide	<b>boolean</b>		Defines if the column can be hidden or not
 	*/
-	protected function addColumn($id,$title,$callback,$html = null,$can_hide = true)
+	protected function addColumn($id,$alias,$title,$callback,$html = null,$sortable = true,$listable = true,$can_hide = true)
 	{
 		try {
-			$c = new adminGenericColumn($id,$title,$callback,$html,$can_hide);
+			if (is_null($html) || !is_array($html)) {
+				$html = array();
+			}
+			if (isset($_GET['sortby']) && $_GET['sortby'] === $alias && isset($_GET['order'])) {
+				if (array_key_exists('class',$html)) {
+					array_push($html['class'],$_GET['order']);
+				}
+				else {
+					$html['class'] = array($_GET['order']);
+				}
+			}
+			$c = new adminGenericColumn($id,$alias,$title,$callback,$html,$sortable,$listable,$can_hide);
 			$this->columns[$id] = $c;
 		}
 		catch (Exception $e) {
@@ -409,9 +471,6 @@ abstract class adminGenericList
 			if (array_key_exists($this->form_trigger,$_REQUEST)) {
 				$key = sprintf($this->form_prefix,$k);
 				$visibility = !array_key_exists($key,$_REQUEST) ? false : true;
-			}
-			if (!$v->canHide()) {
-				$visibility = true;
 			}
 			$v->setVisibility($visibility);
 			$user_pref[$k] = $visibility;
@@ -461,6 +520,34 @@ abstract class adminGenericList
 		
 		return $caption;
 	}
+	
+	/**
+	Returns link to sort the defined column
+	
+	@param	c		<b>adminGenericColumn</b>	Current column
+	
+	@return	<b>string</b>		HTML link
+	*/
+	private function getSortLink($c)
+	{
+		$order = 'desc';
+		if (isset($_GET['sortby']) && $_GET['sortby'] === $c->getInfo('alias')) {
+			if (isset($_GET['order']) && $_GET['order'] === 'desc') {
+				$order = 'asc';
+			}
+		}
+		
+		$args = $_GET;
+		$args['sortby'] = $c->getInfo('alias');
+		$args['order'] = $order;
+		
+		array_walk($args,create_function('&$v,$k','$v=$k."=".$v;'));
+		
+		$url = $_SERVER['PHP_SELF'];
+		$url .= '?'.implode('&amp;',$args);
+		
+		return $url;
+	}
 }
 
 /**
@@ -474,14 +561,14 @@ class adminPostList extends adminGenericList
 {
 	public function setColumns()
 	{
-		$this->addColumn('title',__('Title'),array('adminPostList','getTitle'),' class="maximal"',false);
-		$this->addColumn('date',__('Date'),array('adminPostList','getDate'));
-		$this->addColumn('datetime',__('Date and time'),array('adminPostList','getDateTime'));
-		$this->addColumn('category',__('Category'),array('adminPostList','getCategory'));
-		$this->addColumn('author',__('Author'),array('adminPostList','getAuthor'));
-		$this->addColumn('comment',__('Comments'),array('adminPostList','getComments'));
-		$this->addColumn('trackback',__('Trackbacks'),array('adminPostList','getTrackbacks'));
-		$this->addColumn('status',__('Status'),array('adminPostList','getStatus'));
+		$this->addColumn('title','post_title',__('Title'),array('adminPostList','getTitle'),array('class' => array('maximal')),true,true,false);
+		$this->addColumn('date','post_dt',__('Date'),array('adminPostList','getDate'));
+		$this->addColumn('datetime','post_dt',__('Date and time'),array('adminPostList','getDateTime'));
+		$this->addColumn('category','cat_title',__('Category'),array('adminPostList','getCategory'));
+		$this->addColumn('author','user_id',__('Author'),array('adminPostList','getAuthor'));
+		$this->addColumn('comments','nb_comment',__('Comments'),array('adminPostList','getComments'));
+		$this->addColumn('trackbacks','nb_trackback',__('Trackbacks'),array('adminPostList','getTrackbacks'));
+		$this->addColumn('status','post_status',__('Status'),array('adminPostList','getStatus'));
 	}
 	
 	protected function getDefaultCaption()
@@ -598,10 +685,10 @@ class adminPostMiniList extends adminPostList
 {
 	public function setColumns()
 	{
-		$this->addColumn('title',__('Title'),array('adminPostMiniList','getTitle'),' class="maximal"',false);
-		$this->addColumn('date',__('Date'),array('adminPostList','getDate'));
-		$this->addColumn('author',__('Author'),array('adminPostList','getAuthor'));
-		$this->addColumn('status',__('Status'),array('adminPostList','getStatus'));
+		$this->addColumn('title','post_title',__('Title'),array('adminPostMiniList','getTitle'),array('class' => array('maximal')),true,true,false);
+		$this->addColumn('date','post_dt',__('Date'),array('adminPostList','getDate'));
+		$this->addColumn('author','user_id',__('Author'),array('adminPostList','getAuthor'));
+		$this->addColumn('status','post_status',__('Status'),array('adminPostList','getStatus'));
 	}
 	
 	protected function getTitle() 
@@ -626,12 +713,12 @@ class adminCommentList extends adminGenericList
 {
 	public function setColumns()
 	{
-		$this->addColumn('title',__('Title'),array('adminCommentList','getTitle'),' class="maximal"',false);
-		$this->addColumn('date',__('Date'),array('adminCommentList','getDate'));
-		$this->addColumn('author',__('Author'),array('adminCommentList','getAuthor'));
-		$this->addColumn('type',__('Type'),array('adminCommentList','getType'));
-		$this->addColumn('status',__('Status'),array('adminCommentList','getStatus'));
-		$this->addColumn('edit','',array('adminCommentList','getEdit'));
+		$this->addColumn('title','post_title',__('Title'),array('adminCommentList','getTitle'),array('class' => array('maximal')),true,true,false);
+		$this->addColumn('date','comment_dt',__('Date'),array('adminCommentList','getDate'));
+		$this->addColumn('author','comment_author',__('Author'),array('adminCommentList','getAuthor'));
+		$this->addColumn('type','comment_trackback',__('Type'),array('adminCommentList','getType'));
+		$this->addColumn('status','comment_status',__('Status'),array('adminCommentList','getStatus'));
+		$this->addColumn('edit',null,'',array('adminCommentList','getEdit'),null,false,false,false);
 	}
 	
 	protected function getDefaultCaption()
@@ -729,11 +816,11 @@ class adminUserList extends adminGenericList
 {
 	public function setColumns()
 	{
-		$this->addColumn('username',__('Username'),array('adminUserList','getUserName'),'class="maximal"',false);
-		$this->addColumn('firstname',__('First name'),array('adminUserList','getFirstName'),'class="nowrap"');
-		$this->addColumn('lastname',__('Last name'),array('adminUserList','getLastName'),'class="nowrap"');
-		$this->addColumn('displayname',__('Display name'),array('adminUserList','getDisplayName'),'class="nowrap"');
-		$this->addColumn('entries',__('Entries'),array('adminUserList','getEntries'),'class="nowrap"');
+		$this->addColumn('username','U.user_id',__('Username'),array('adminUserList','getUserName'),array('class' => array('maximal')),true,true,false);
+		$this->addColumn('firstname','user_firstname',__('First name'),array('adminUserList','getFirstName'),array('class' => array('nowrap')));
+		$this->addColumn('lastname','user_name',__('Last name'),array('adminUserList','getLastName'),array('class' => array('nowrap')));
+		$this->addColumn('displayname','user_displayname',__('Display name'),array('adminUserList','getDisplayName'),array('class' => array('nowrap')));
+		$this->addColumn('entries','nb_post',__('Entries'),array('adminUserList','getEntries'),array('class' => array('nowrap')));
 	}
 	
 	protected function getDefaultCaption()
@@ -796,12 +883,12 @@ class adminBlogList extends adminGenericList
 {
 	public function setColumns()
 	{
-		$this->addColumn('blogname',__('Blog name'),array('adminBlogList','getBlogName'),'class="maximal"',false);
-		$this->addColumn('lastupdate',__('Last update'),array('adminBlogList','getLastUpdate'),'class="nowrap"');
-		$this->addColumn('entries',__('Entries'),array('adminBlogList','getEntries'),'class="nowrap"');
-		$this->addColumn('blogid',__('Blog ID'),array('adminBlogList','getBlogId'),'class="nowrap"');
-		$this->addColumn('action','',array('adminBlogList','getAction'),'class="nowrap"');
-		$this->addColumn('status',__('status'),array('adminBlogList','getStatus'),'class="nowrap"');
+		$this->addColumn('blogname','UPPER(blog_name)',__('Blog name'),array('adminBlogList','getBlogName'),array('class' => array('maximal')),true,true,false);
+		$this->addColumn('lastupdate','blog_upddt',__('Last update'),array('adminBlogList','getLastUpdate'),array('class' => array('nowrap')));
+		$this->addColumn('entries',null,__('Entries'),array('adminBlogList','getEntries'),array('class' => array('nowrap')),false);
+		$this->addColumn('blogid','B.blog_id',__('Blog ID'),array('adminBlogList','getBlogId'),array('class' => array('nowrap')));
+		$this->addColumn('action',null,'',array('adminBlogList','getAction'),array('class' => array('nowrap')));
+		$this->addColumn('status','blog_status',__('status'),array('adminBlogList','getStatus'),array('class' => array('nowrap')));
 	}
 	
 	protected function getDefaultCaption()
@@ -871,10 +958,10 @@ class adminBlogPermissionsList extends adminBlogList
 {
 	public function setColumns()
 	{
-		$this->addColumn('blogid',__('Blog ID'),array('adminBlogPermissionsList','getBlogId'),'class="nowrap"',false);
-		$this->addColumn('blogname',__('Blog name'),array('adminBlogPermissionsList','getBlogName'),'class="maximal"');
-		$this->addColumn('entries',__('Entries'),array('adminBlogList','getEntries'),'class="nowrap"');
-		$this->addColumn('status',__('status'),array('adminBlogList','getStatus'),'class="nowrap"');
+		$this->addColumn('blogid','B.blog_id',__('Blog ID'),array('adminBlogPermissionsList','getBlogId'),array('class' => array('nowrap')),false,true,false);
+		$this->addColumn('blogname','UPPER(blog_name)',__('Blog name'),array('adminBlogPermissionsList','getBlogName'),array('class' => array('maximal')),false);
+		$this->addColumn('entries',null,__('Entries'),array('adminBlogList','getEntries'),array('class' => array('nowrap')),false);
+		$this->addColumn('status','blog_status',__('status'),array('adminBlogList','getStatus'),array('class' => array('nowrap')),false);
 	}
 	
 	protected function getBlogId()

@@ -85,20 +85,6 @@ if (!$core->error->flag())
 	while ($langs->fetch()) {
 		$lang_combo[$langs->post_lang] = $langs->post_lang;
 	}
-	
-	$sortby_combo = array(
-	__('Date') => 'post_dt',
-	__('Title') => 'post_title',
-	__('Category') => 'cat_title',
-	__('Author') => 'user_id',
-	__('Status') => 'post_status',
-	__('Selected') => 'post_selected'
-	);
-	
-	$order_combo = array(
-	__('Descending') => 'desc',
-	__('Ascending') => 'asc'
-	);
 }
 
 # Actions combo box
@@ -145,6 +131,15 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
 $params = new ArrayObject();
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 $params['no_content'] = true;
+
+# - Sortby and order filter
+$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'post_dt';
+$order = !empty($_GET['order']) ? $_GET['order'] : 'desc';
+if ($sortby !== '') {
+	if ($order !== '') {
+		$params['order'] = $sortby.' '.$order;
+	}
+}
 
 $filterSet = new dcFilterSet('posts','posts.php');
 class monthComboFilter extends comboFilter {
