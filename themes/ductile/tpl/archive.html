@@ -49,7 +49,7 @@
   
   <div class="content-inner">
 
-<!-- entries sorted by date -->
+	<div id="time-criteria"><!-- entries sorted by date -->
 		<div id="by-date" class="arch-block">
 			<h3>{{tpl:lang By date}}</h3>
 			<p class="fromto">{{tpl:lang From}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate format="%d %B %Y"}}</a></tpl:Entries> {{tpl:lang to}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate format="%d %B %Y"}}</a></tpl:Entries></p>
@@ -59,8 +59,7 @@
 		      <h4>{{tpl:ArchiveDate format="%Y"}}</h4>
 		      <ul>
 			    </tpl:ArchivesYearHeader>
-			      <li><a href="{{tpl:ArchiveURL}}"
-			      title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a>
+			      <li><a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a>
 			      <span>({{tpl:ArchiveEntriesCount}})</span></li>
 			    <tpl:ArchivesYearFooter>
 		      </ul>
@@ -68,10 +67,9 @@
 		    </tpl:ArchivesYearFooter>
 	  	</tpl:Archives>
 	  </div>
-	  
-	  <hr class="hidden" />
+	</div>
 
-<!-- entries sorted by others criterias -->	
+	<div id="other-criteria"><!-- entries sorted by others criterias -->	
 		<tpl:Categories level="1">
 			<tpl:CategoriesHeader>
 				<div id="by-cat" class="arch-block">
@@ -107,10 +105,9 @@
 			</div>
 			</tpl:TagsFooter>
 		</tpl:Tags>
-		
-		<hr class="hidden" />
+	</div>
 
-<!-- others things -->		
+	<div id="more-arch"><!-- others things -->		
 		<div class="arch-block">
 			<tpl:Entries type="page" no_content="1">
 				<tpl:EntriesHeader><h3>{{tpl:lang Pages}}</h3>
@@ -119,7 +116,7 @@
 				<tpl:EntriesFooter></ul></tpl:EntriesFooter>
 			</tpl:Entries>
 		</div>
-	
+	</div>
   </div> <!-- End .content-inner -->
   
   </div> <!-- End #main -->

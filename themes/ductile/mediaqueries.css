@@ -290,6 +290,9 @@
 	#sidebar div#search:first-child p {
 		margin: .33em 0;
 		}
+	.dc-archive #content {
+		margin: 0 17em 0 0;
+		}
 }
 
 /* ------------------------------------------------------ 

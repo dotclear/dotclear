@@ -171,6 +171,7 @@ h1 a {
 	}
 
 /* ------------------------------------------------------- pagination, navlinks */
+#navlinks,
 .navlinks, 
 .pagination {
 	margin: 2em 0 1em 0;
@@ -192,9 +193,11 @@ h1 a {
 	border-right: 1px solid #aaa;
 	border-bottom: 1px solid #ccc;
 	}
+#navlinks,
 .navlinks {
 	margin-top: 4em;
 	}
+#navlinks a,
 .navlinks a, 
 .pagination a {
 	padding: 0 1em;
@@ -690,13 +693,18 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 .dc-post { }
 .dc-category { }
 
-.dc-archive #content {
-	margin: 0 18em 0 0;
-	}
+/* ---------------------------------------------------------------- archives */
+.dc-archive {}
+#time-criteria {}
+#other-criteria {}
+#more-arch {}
 .arch-block {
 	display: inline-block;
-	margin: 0 5em 2em 0;
+	margin: 0 0 2em 4em;
 	vertical-align: top;
+	}
+.arch-block:first-child {
+	margin-left: 0;
 	}
 .arch-block h3 {
 	margin-bottom: 1em;
@@ -713,7 +721,7 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 	margin-bottom: 0;
 	margin-top: 0;
 	}
-.arch-block ul, .dc-archive #blogextra ul {
+.arch-block ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -742,7 +750,7 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 	width: 10em;
 	}
 #by-date ul {
-	margin-bottom: 1em;
+	margin-bottom: 1.5em;
 	}
 #by-date span {
 	font-size: .875em;
@@ -761,6 +769,13 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 #by-cat ul li:last-child {
 	background-image: url(img/last-hline.png);
 	}
+#by-tag {
+	width: 18em;
+	}	
+#by-tag ul li {
+	display: inline;
+	padding-right: 1em;
+}
 #by-tag .tag0 { color: #909090; font-size: 90%; }
 #by-tag .tag10 { color: #828282; font-size: 92%; }
 #by-tag .tag20 { color: #737373; font-size: 94%; }
