@@ -1811,10 +1811,9 @@ class dcBlog
 		}
 		
 		if (isset($params['comment_status'])) {
-			$strReq .= 'AND comment_status = '.(integer) $params['comment_status'].' ';
-		}
-		
-		if (!empty($params['comment_status_not']))
+			$strReq .= 'AND '.$this->getInParamStr($params,'comment_status','comment_status');
+		} 
+		elseif (!empty($params['comment_status_not'])) // older method, deprecated
 		{
 			$strReq .= 'AND comment_status <> '.(integer) $params['comment_status_not'].' ';
 		}
