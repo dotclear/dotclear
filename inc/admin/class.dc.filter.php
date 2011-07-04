@@ -90,7 +90,7 @@ class dcFilterSet {
 	
 	@param	form_data	<b>array</b>	form values (usually $_GET or $_POST)
 	*/
-	public function setValues ($form_data) {
+	public function setFormValues ($form_data) {
 		$this->hideform = true;
 		if (isset($form_data['clear_filters'])) {
 			$this->saveFilters();
@@ -100,7 +100,7 @@ class dcFilterSet {
 			$this->loadFilters();
 		}
 		foreach ($this->filters as $filter) {
-			$filter->setValues ($form_data);
+			$filter->setFormValues ($form_data);
 			if ($filter->isEnabled()) {
 				$this->hideform=false;
 			}
@@ -336,7 +336,7 @@ abstract class Filter {
 	Set filter values from form_data (usually $_GET)	
 	@param	$form_data	<b>array</b>	form data
 	*/
-	public function setValues($form_data) {
+	public function setFormValues($form_data) {
 		$count=0;
 		while (isset($form_data[$this->getFieldId($count)])) {
 			if (!isset($form_data['del_'.$this->getFieldId($count)])) {
@@ -388,6 +388,14 @@ abstract class Filter {
 	public function applyFilter($params) {
 	}
 	
+	public function setValues($value) {
+		$this->values = $value;
+	}
+	
+	public function getValue() {
+		return $this->values;
+	}
+	
 }
 
 /**
@@ -435,8 +443,8 @@ class comboFilter extends Filter {
 		$this->verb = $data['verb'];
 	}
 	
-	public function setValues($form_data) {
-		parent::setValues($form_data);
+	public function setFormValues($form_data) {
+		parent::setFormValues($form_data);
 		if (isset($form_data[$this->field_id."_v"])) {
 			$this->verb = ($form_data[$this->field_id."_v"] == 'is') ? 'is' : 'isnot';
 		}
@@ -513,4 +521,45 @@ class booleanFilter extends Filter {
 	}
 }
 
+
+class textFilter extends Filter {
+	protected $size;
+	protected $max;
+	
+	public function __construct($id,$desc,$request_param,$size,$max) {
+		parent::__construct($id,$desc,$request_param);
+		$this->options = $options;
+		$this->values=array();
+		$this->size = $size;
+		$this->max = $max;
+	}
+	
+	
+	public function getType() {
+		return "text";
+	}
+	public function add() {
+		parent::add();
+		$this->values[]='';
+	}
+
+	public function getFormFields($pos=0) {
+		return '<span class="'.$labelclass.'">'.$this->desc.'</span>'.
+			form::field($this->getFieldId($pos),$this->size,$this->max,html::escapeHTML($this->values[0]));
+	}
+	
+	public function applyFilter($params) {
+		$params[$this->request_param]=$this->values[0];
+	}
+	
+	public function setValues($value) {
+		parent::setValues(array($value));
+	}
+
+	public function getValue() {
+		$v = parent::getValue();
+		return $v[0];
+	}
+	
+}
 ?>

@@ -16,17 +16,14 @@ dcPage::check('usage,contentadmin');
 
 # Creating filter combo boxes
 # Filter form we'll put in html_block
-$status_combo = array(
-'-' => ''
-);
+$status_combo = array();
 foreach ($core->blog->getAllCommentStatus() as $k => $v) {
 	$status_combo[$v] = (string) $k;
 }
 
 $type_combo = array(
-'-' => '',
-__('comment') => 'co',
-__('trackback') => 'tb'
+__('comment') => '0',
+__('trackback') => '1'
 );
 
 $sortby_combo = array(
@@ -42,18 +39,6 @@ __('Ascending') => 'asc'
 );
 
 
-/* Get comments
--------------------------------------------------------- */
-$author = isset($_GET['author']) ?	$_GET['author'] : '';
-$status = isset($_GET['status']) ?		$_GET['status'] : '';
-$type = !empty($_GET['type']) ?		$_GET['type'] : '';
-$sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'comment_dt';
-$order = !empty($_GET['order']) ?		$_GET['order'] : 'desc';
-$ip = !empty($_GET['ip']) ?			$_GET['ip'] : '';
-
-$with_spam = $author || $status || $type || $sortby != 'comment_dt' || $order != 'desc' || $ip;
-
-$show_filters = false;
 
 $page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
 $nb_per_page =  30;
@@ -64,46 +49,9 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
 	}
 	$nb_per_page = (integer) $_GET['nb'];
 }
-
+$params = new ArrayObject();
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 $params['no_content'] = true;
-
-# Author filter
-if ($author !== '') {
-	$params['q_author'] = $author;
-	$show_filters = true;
-}
-
-# - Type filter
-if ($type == 'tb' || $type == 'co') {
-	$params['comment_trackback'] = ($type == 'tb');
-	$show_filters = true;
-}
-
-# - Status filter
-if ($status !== '' && in_array($status,$status_combo)) {
-	$params['comment_status'] = $status;
-	$show_filters = true;
-} elseif (!$with_spam) {
-	$params['comment_status_not'] = -2;
-}
-
-# - IP filter
-if ($ip) {
-	$params['comment_ip'] = $ip;
-	$show_filters = true;
-}
-
-# Sortby and order filter
-if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
-	if ($order !== '' && in_array($order,$order_combo)) {
-		$params['order'] = $sortby.' '.$order;
-	}
-	
-	if ($sortby != 'comment_dt' || $order != 'desc') {
-		$show_filters = true;
-	}
-}
 
 # Actions combo box
 $combo_action = array();
@@ -122,28 +70,57 @@ if ($core->auth->check('delete,contentadmin',$core->blog->id))
 # --BEHAVIOR-- adminCommentsActionsCombo
 $core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
 
+$filterSet = new dcFilterSet('comments','comments.php');
+
+$authorFilter = new textFilter(
+		'author',__('Author'),'q_author',20,255);
+$filterSet
+	->addFilter(new comboFilter(
+		'status',__('Status'), 'comment_status', $status_combo))
+	->addFilter(new booleanFilter(
+		'type',__('Type'), 'comment_trackback', $type_combo))
+	->addFilter($authorFilter)
+	->addFilter(new textFilter(
+		'ip',__('IP address'),'comment_ip',20,39));
+		
+$core->callBehavior('adminCommentsFilters',$filterSet);
+
+$filterSet->setFormValues($_GET);
+if (isset($_GET['author'])) {
+	$authorFilter->add();
+	$authorFilter->setValue($_GET['author']);
+}
 /* Get comments
 -------------------------------------------------------- */
 try {
+	$nfparams = $params->getArrayCopy();
+	$filtered = $filterSet->applyFilters($params);
+	$core->callBehavior('adminCommentsParams',$params);
 	$comments = $core->blog->getComments($params);
 	$counter = $core->blog->getComments($params,true);
+	if ($filtered) {
+		$totalcounter = $core->blog->getComments($nfparams,true);
+		$page_title = sprintf(__('Comments and Trackacks / %s filtered out of %s'),$counter->f(0),$totalcounter->f(0));
+	} else {
+		$page_title = __('Comments and Trackacks');
+	}
+
 	$comment_list = new adminCommentList($core,$comments,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
+$filterSet->setColumnsForm($comment_list->getColumnsForm());
 
 /* DISPLAY
 -------------------------------------------------------- */
-$starting_script = dcPage::jsLoad('js/_comments.js');
-if (!$show_filters) {
-	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
-}
+$starting_script = dcPage::jsLoad('js/_comments.js').$filterSet->header();;
+
 # --BEHAVIOR-- adminCommentsHeaders
 $starting_script .= $core->callBehavior('adminCommentsHeaders');
 
 dcPage::open(__('Comments and trackbacks'),$starting_script);
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Comments and trackbacks').'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.$page_title.'</h2>';
 
 if (!$core->error->flag())
 {
@@ -152,45 +129,7 @@ if (!$core->error->flag())
 		echo '<p><a id="filter-control" class="form-control" href="#">'.
 		__('Filters').'</a></p>';
 	}
-	
-	echo
-	'<form action="comments.php" method="get" id="filters-form">'.
-	'<fieldset><legend>'.__('Filters').'</legend>'.
-	'<div class="three-cols">'.
-	'<div class="col">'.
-	'<label for="type">'.__('Type:').' '.
-	form::combo('type',$type_combo,$type).
-	'</label> '.
-	'<label for="status">'.__('Status:').' '.
-	form::combo('status',$status_combo,$status).
-	'</label>'.
-	'</div>'.
-	
-	'<div class="col">'.
-	'<p><label for="sortby">'.__('Order by:').' '.
-	form::combo('sortby',$sortby_combo,$sortby).
-	'</label> '.
-	'<label for="order">'.__('Sort:').' '.
-	form::combo('order',$order_combo,$order).
-	'</label></p>'.
-	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Comments per page').'</label></p>'.
-	'</div>'.
-	
-	'<div class="col">'.
-	'<p><label for="author">'.__('Comment author:').' '.
-	form::field('author',20,255,html::escapeHTML($author)).
-	'</label>'.
-	'<label for="ip">'.__('IP address:').' '.
-	form::field('ip',20,39,html::escapeHTML($ip)).
-	'</label></p>'.
-	'<p><input type="submit" value="'.__('Apply filters').'" /></p>'.
-	'</div>'.
-	
-	'</div>'.
-	'<br class="clear" />'. //Opera sucks
-	'</fieldset>'.
-	'</form>';
+	$filterSet->display();
 	
 	if (!$with_spam) {
 		$spam_count = $core->blog->getComments(array('comment_status'=>-2),true)->f(0);
