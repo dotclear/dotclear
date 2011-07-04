@@ -174,16 +174,23 @@ class dcMedia extends filemanager
 	Returns HTML breadCrumb for media manager navigation.
 	
 	@param	href		<b>string</b>		URL pattern
+	@param	last		<b>string</b>		Last item pattern
 	@return	<b>string</b> HTML code
 	*/
-	public function breadCrumb($href)
+	public function breadCrumb($href,$last='')
 	{
 		$res = '';
 		if ($this->relpwd && $this->relpwd != '.') {
 			$pwd = '';
-			foreach (explode('/',$this->relpwd) as $v) {
-				$pwd .= rawurlencode($v).'/';
-				$res .= '<a href="'.sprintf($href,$pwd).'">'.$v.'</a> / ';
+			$arr = explode('/',$this->relpwd);
+			$count = count($arr);
+			foreach ($arr as $v) {
+				if (($last != '') && (0 === --$count)) {
+					$res .= sprintf($last,$v);
+				} else {
+					$pwd .= rawurlencode($v).'/';
+					$res .= '<a href="'.sprintf($href,$pwd).'">'.$v.'</a> / ';
+				}
 			}
 		}
 		return $res;
