@@ -77,30 +77,32 @@ abbr {
 	cursor: help;
 }
 
-
 /* LAYOUT
 -------------------------------------------------------- */
-/* prelude */
-#prelude {
-	background: #575859;
-	line-height: 1.8em;
-	margin: 0;
-	overflow: hidden;
-	}
-#prelude li {
-	list-style-type: none;
-	margin: 0 1em 0 0;
-	background:transparent;
-	}
-#prelude a {
-	color:#fff;
-	}
 /* header */
 #header {
 	background: #575859;
 	height: 3em;
 	position: relative;
 }
+#prelude {
+	background: #575859;
+	line-height: 1.5em;
+	margin: 0;
+	padding: 0 1.7em 0 1em;
+	overflow: hidden;
+	position: absolute;
+	top: 1.2em;
+	left: 0;
+	}
+#prelude li {
+	list-style-type: none;
+	margin: 0 1em 0 0;
+	background:transparent;
+	}
+#prelude li a {
+	color:#fff;
+	}
 #top {
 	margin: 0;
 	padding: 0;
