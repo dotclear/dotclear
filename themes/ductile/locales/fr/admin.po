@@ -34,6 +34,9 @@ msgstr "Couleur :"
 msgid "Post title"
 msgstr "Titre des billets"
 
+msgid "Titles without link"
+msgstr "Titres sans lien"
+
 msgid "Inside posts links"
 msgstr "Liens dans les billets"
 

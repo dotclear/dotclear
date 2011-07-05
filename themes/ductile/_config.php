@@ -88,7 +88,8 @@ $ductile_base = array(
 	'blog_title_c_m' => null,
 	'post_title_w_m' => null,
 	'post_title_s_m' => null,
-	'post_title_c_m' => null
+	'post_title_c_m' => null,
+	'post_simple_title_c' => null
 );
 
 $ductile_user = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_style');
@@ -163,6 +164,8 @@ if (!empty($_POST))
 			$ductile_user['post_link_w'] = (integer) !empty($_POST['post_link_w']);
 			$ductile_user['post_link_v_c'] = adjustColor($_POST['post_link_v_c']);
 			$ductile_user['post_link_f_c'] = adjustColor($_POST['post_link_f_c']);
+		
+			$ductile_user['post_simple_title_c'] = adjustColor($_POST['post_simple_title_c']);
 		
 			$ductile_user['blog_title_w_m'] = (integer) !empty($_POST['blog_title_w_m']);
 			$ductile_user['blog_title_s_m'] = adjustFontSize($_POST['blog_title_s_m']);
@@ -290,6 +293,12 @@ form::field('post_title_c',7,7,$ductile_user['post_title_c'],'colorpicker').'</p
 
 echo '</div>';
 echo '</div>';
+
+echo '<fieldset><legend>'.__('Titles without link').'</legend>'.
+
+'<p class="field picker"><label for="post_simple_title_c">'.__('Color:').'</label> '.
+form::field('post_simple_title_c',7,7,$ductile_user['post_simple_title_c'],'colorpicker').'</p>'.
+'</fieldset>';
 
 echo '<fieldset><legend>'.__('Inside posts links').'</legend>'.
 '<p class="field"><label for="post_link_w">'.__('In bold:').' '.
