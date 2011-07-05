@@ -165,6 +165,10 @@ class tplDuctileTheme
 		$selectors = 'h2.post-title a:link, h2.post-title a:visited, h2.post-title a:hover, h2.post-title a:visited, h2.post-title a:focus';
 		if (isset($s['post_title_c'])) self::prop($css_large,$selectors,'color',$s['post_title_c']);
 
+		# Simple title color (title without link)
+		$selectors = '#content-info h2, .post-title, .post h3, .post h4, .post h5, .post h6, .arch-block h3';
+		if (isset($s['post_simple_title_c'])) self::prop($css_large,$selectors,'color',$s['post_simple_title_c']);
+
 		# Style directives for large screens
 		if (count($css_large)) {
 			$res .= '@media only screen and (min-width: 481px) {'."\n";
