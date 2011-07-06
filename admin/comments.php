@@ -54,15 +54,15 @@ $core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
 $filterSet = new dcFilterSet('comments','comments.php');
 
 $authorFilter = new textFilter(
-		'author',__('Author'),'q_author',20,255);
+		'author',__('Author'), __('Author'),'q_author',20,255);
 $filterSet
 	->addFilter(new comboFilter(
-		'status',__('Status'), 'comment_status', $status_combo))
+		'status',__('Status'), __('Status'), 'comment_status', $status_combo))
 	->addFilter(new booleanFilter(
-		'type',__('Type'), 'comment_trackback', $type_combo))
+		'type',__('Type'), __('Type'), 'comment_trackback', $type_combo))
 	->addFilter($authorFilter)
 	->addFilter(new textFilter(
-		'ip',__('IP address'),'comment_ip',20,39));
+		'ip',__('IP address'), __('IP address'), 'comment_ip',20,39));
 		
 $core->callBehavior('adminCommentsFilters',$filterSet);
 
