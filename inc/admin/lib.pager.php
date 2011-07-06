@@ -14,11 +14,11 @@ if (!defined('DC_RC_PATH')) { return; }
 /**
 @ingroup DC_CORE
 @nosubgrouping
-@brief Dotclear Pager class.
+@brief Dotclear items pager class.
 
-Dotclear Pager handles pagination for every admin list.
+Dotclear items pager handles pagination for every admin list.
 */
-class dcPager extends pager
+class adminItemsPager extends pager
 {
 	public function getLinks()
 	{
@@ -55,7 +55,7 @@ class dcPager extends pager
 		
 		# End
 		if($this->env != $this->nb_pages) {
-			$htmlEnd = '<a href="'.sprintf($this->page_url,$this->nb_elements).'" class="end">'.
+			$htmlEnd = '<a href="'.sprintf($this->page_url,$this->nb_pages).'" class="end">'.
 			$htmlEnd .= $this->html_end.'</a>';
 		}
 		
@@ -91,11 +91,11 @@ class dcPager extends pager
 /**
 @ingroup DC_CORE
 @nosubgrouping
-@brief Dotclear Generic column class.
+@brief Dotclear items column class.
 
-Dotclear Generic column handles each column object use in adminGenericList class.
+Dotclear items column handles each column object use in adminItemsList class.
 */
-class adminGenericColumn
+class adminItemsColumn
 {
 	protected $core;		/// <b>object</b> dcCore object
 	protected $id;			/// <b>string</b> ID of defined column
@@ -156,7 +156,7 @@ class adminGenericColumn
 			$find_parent = false;
 			
 			while (!$p) {
-				if ($p->name == 'adminGenericList') {
+				if ($p->name == 'adminItemsList') {
 					$find_parent = true;
 				}
 				else {
@@ -165,7 +165,7 @@ class adminGenericColumn
 			}
 			
 			if (!$p || !$f) {
-				throw new Exception(__('Callback class should be inherited of adminGenericList class'));
+				throw new Exception(__('Callback class should be inherited of adminItemsList class'));
 			}
 		}
 		catch (Exception $e) {
@@ -254,34 +254,35 @@ class adminGenericColumn
 /**
 @ingroup DC_CORE
 @nosubgrouping
-@brief abstract Generic list class.
+@brief abstract items list class.
 
-Dotclear Generic list handles administration lists
+Dotclear items list handles administration lists
 */
-abstract class adminGenericList
+abstract class adminItemsList
 {
 	protected $core;
 	protected $rs;
 	protected $rs_count;
 	protected $columns;
+	protected $sortby;
+	protected $order;
+	protected $nb_per_page;
+	protected $page;
 	
 	/*
 	Sets columns of defined list
 	*/
-	public function setColumns() {}
+	abstract function setColumns();
 	
 	/**
 	Inits List object
 	
 	@param	core		<b>dcCore</b>		dcCore object
-	@param	rs		<b>recordSet</b>	Items recordSet to display
-	@param	rs_count	<b>int</b>		Total items number
 	*/
-	public function __construct($core,$rs,$rs_count)
+	public function __construct($core)
 	{
-		$this->core =& $core;
-		$this->rs =& $rs;
-		$this->rs_count = $rs_count;
+		
+		$this->core = $core;
 		$this->context = get_class($this);
 		$this->columns = array();
 		$this->form_prefix = 'col_%s';
@@ -292,11 +293,52 @@ abstract class adminGenericList
 		$this->html_start = __('start');
 		$this->html_end = __('end');
 		
+		$this->setOptions();
+		
 		$this->setColumns();
 		
-		$core->callBehavior('adminListConstruct',$this);
+		# --BEHAVIOR-- adminItemsListConstruct
+		$core->callBehavior('adminItemsListConstruct',$this);
 		
 		$this->setColumnsVisibility();
+	}
+	
+	/**
+	Apply limit, sortby and order filters to items parameters
+	
+	@param	params	<b>array</b>	Items parameters
+	
+	@return	<b>array</b>		Items parameters
+	*/
+	public function applyFilters($params)
+	{
+		if (!is_null($this->sortby) && !is_null($this->order)) {
+			foreach ($this->columns as $k => $c) {
+				if (
+					$this->sortby === $c->getInfo('alias') &&
+					in_array($this->order,array('asc','desc'))
+				) {
+					$params['order'] = $this->sortby.' '.$this->order;
+					break;
+				}
+			}
+		}
+		
+		$params['limit'] = array((($this->page-1)*$this->nb_per_page),$this->nb_per_page);
+		
+		return $params;
+	}
+	
+	/**
+	Sets items and items counter
+	
+	@param	rs		<b>recordSet</b>	Items recordSet to display
+	@param	rs_count	<b>int</b>		Total items number
+	*/
+	public function setItems($rs,$rs_count)
+	{
+		$this->rs = $rs;
+		$this->rs_count = $rs_count;
 	}
 	
 	/**
@@ -322,25 +364,48 @@ abstract class adminGenericList
 			}
 		}
 		
-		$nb_per_page = isset($_GET['nb']) ? $_GET['nb'] : 10;
+		$nb_per_page = !is_null($this->nb_per_page) ? $this->nb_per_page : 10;
 		
 		return
 		sprintf($block,implode('',$list)).
-		'<p><label for="nb">'.__('Items per page:').
-		'</label>&nbsp;'.form::field('nb',3,3,$nb_per_page).
+		'<p><label for="nb_per_page">'.__('Items per page:').
+		'</label>&nbsp;'.form::field('nb_per_page',3,3,$nb_per_page).
 		'</p>';
+	}
+	
+	/**
+	Returns HTML hidden fields for list options
+	
+	@return	<b>string</b>		HTML hidden fields
+	*/
+	public function getFormFieldsAsHidden()
+	{
+		$res = '';
+		
+		if (!is_null($this->sortby)) {
+			$res .= form::hidden(array('sortby'),$this->sortby);
+		}
+		if (!is_null($this->order)) {
+			$res .= form::hidden(array('order'),$this->order);
+		}
+		if (!is_null($this->nb_per_page)) {
+			$res .= form::hidden(array('nb_per_page'),$this->nb_per_page);
+		}
+		if (!is_null($this->page)) {
+			$res .= form::hidden(array('page'),$this->page);
+		}
+		
+		return $res;
 	}
 	
 	/**
 	Returns HTML code list to display
 	
-	@param	page			<b>string|int</b>	Current page
-	@param	nb_per_page	<b>string|int</b>	Number of items to display in each page
 	@param	enclose_block	<b>string</b>		HTML wrapper of defined list
 	
 	@return	<b>string</b>		HTML code list
 	*/
-	public function display($page,$nb_per_page,$enclose_block = '')
+	public function display($enclose_block = '')
 	{
 		if ($this->rs->isEmpty())
 		{
@@ -348,7 +413,7 @@ abstract class adminGenericList
 		}
 		else
 		{
-			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
+			$pager = new adminItemsPager($this->page,$this->rs_count,$this->nb_per_page,10);
 			$pager->html_prev = $this->html_prev;
 			$pager->html_next = $this->html_next;
 			$pager->html_start = $this->html_start;
@@ -357,7 +422,7 @@ abstract class adminGenericList
 			
 			$html_block =
 			'<table class="maximal clear">'.
-			$this->getCaption($page).
+			$this->getCaption($this->page).
 			'<thead><tr>';
 			
 			foreach ($this->columns as $k => $v) {
@@ -419,20 +484,20 @@ abstract class adminGenericList
 			if (is_null($html) || !is_array($html)) {
 				$html = array();
 			}
-			if (isset($_GET['sortby']) && $_GET['sortby'] === $alias && isset($_GET['order'])) {
+			if ($this->sortby === $alias && !is_null($this->order)) {
 				if (array_key_exists('class',$html)) {
-					array_push($html['class'],$_GET['order']);
+					array_push($html['class'],$this->order);
 				}
 				else {
-					$html['class'] = array($_GET['order']);
+					$html['class'] = array($this->order);
 				}
 			}
-			$c = new adminGenericColumn($id,$alias,$title,$callback,$html,$sortable,$listable,$can_hide);
+			$c = new adminItemsColumn($id,$alias,$title,$callback,$html,$sortable,$listable,$can_hide);
 			$this->columns[$id] = $c;
 		}
 		catch (Exception $e) {
 			if (DC_DEBUG) {
-				$this->core->error->add($e->getMessage());
+				$this->core->error->add(sprintf('[%s] %s',$id,$e->getMessage()));
 			}
 		}
 	}
@@ -458,26 +523,60 @@ abstract class adminGenericList
 	}
 	
 	/**
+	Sets options of defined list
+	*/
+	private function setOptions()
+	{
+		$opts = $_GET;
+		
+		$ws = $this->core->auth->user_prefs->addWorkspace('lists');
+		
+		$user_pref = !is_null($ws->{$this->context.'_opts'}) ? unserialize($ws->{$this->context.'_opts'}) : array();
+		# Sortby
+		$this->sortby = array_key_exists('sortby',$user_pref) ? $user_pref['sortby'] : null;
+		$this->sortby = array_key_exists('sortby',$opts) ? $opts['sortby'] : $this->sortby;
+		$user_pref['sortby'] = $this->sortby;
+		# Order
+		$this->order = array_key_exists('order',$user_pref) ? $user_pref['order'] : null;
+		$this->order = array_key_exists('order',$opts) ? $opts['order'] : $this->order;
+		$user_pref['order'] = $this->order;
+		# Number per page
+		$this->nb_per_page = array_key_exists('nb_per_page',$user_pref) ? $user_pref['nb_per_page'] : 10;
+		$this->nb_per_page = array_key_exists('nb_per_page',$opts) ? $opts['nb_per_page'] : $this->nb_per_page;
+		$user_pref['nb_per_page'] = $this->nb_per_page;
+		
+		if (array_key_exists('sortby',$opts) || array_key_exists('order',$opts) || array_key_exists('nb_per_page',$opts)) {
+			$this->core->auth->user_prefs->lists->put($this->context.'_opts',serialize($user_pref),'string');
+		}
+		
+		# Page
+		$this->page = array_key_exists('page',$opts) ? $opts['page'] : 1;
+	}
+	
+	/**
 	Sets columns visibility of defined list
 	*/
 	private function setColumnsVisibility()
 	{
+		$opts = $_GET;
+		
+		# Visibility
 		$ws = $this->core->auth->user_prefs->addWorkspace('lists');
 		
-		$user_pref = !is_null($ws->{$this->context}) ? unserialize($ws->{$this->context}) : array();
+		$user_pref = !is_null($ws->{$this->context.'_col'}) ? unserialize($ws->{$this->context.'_col'}) : array();
 		
 		foreach ($this->columns as $k => $v) {
 			$visibility =  array_key_exists($k,$user_pref) ? $user_pref[$k] : true;
-			if (array_key_exists($this->form_trigger,$_REQUEST)) {
+			if (array_key_exists($this->form_trigger,$opts)) {
 				$key = sprintf($this->form_prefix,$k);
-				$visibility = !array_key_exists($key,$_REQUEST) ? false : true;
+				$visibility = !array_key_exists($key,$opts) ? false : true;
 			}
 			$v->setVisibility($visibility);
 			$user_pref[$k] = $visibility;
 		}
 		
-		if (array_key_exists($this->form_trigger,$_REQUEST)) {
-			$this->core->auth->user_prefs->lists->put($this->context,serialize($user_pref),'string');
+		if (array_key_exists($this->form_trigger,$opts)) {
+			$this->core->auth->user_prefs->lists->put($this->context.'_col',serialize($user_pref),'string');
 		}
 	}
 	
@@ -531,8 +630,8 @@ abstract class adminGenericList
 	private function getSortLink($c)
 	{
 		$order = 'desc';
-		if (isset($_GET['sortby']) && $_GET['sortby'] === $c->getInfo('alias')) {
-			if (isset($_GET['order']) && $_GET['order'] === 'desc') {
+		if (!is_null($this->sortby) && $this->sortby === $c->getInfo('alias')) {
+			if (!is_null($this->order) && $this->order === $order) {
 				$order = 'asc';
 			}
 		}
@@ -557,7 +656,7 @@ abstract class adminGenericList
 
 Handle posts list on admin side
 */
-class adminPostList extends adminGenericList
+class adminPostList extends adminItemsList
 {
 	public function setColumns()
 	{
@@ -709,7 +808,7 @@ class adminPostMiniList extends adminPostList
 
 Handle comments list on admin side
 */
-class adminCommentList extends adminGenericList
+class adminCommentList extends adminItemsList
 {
 	public function setColumns()
 	{
@@ -812,7 +911,7 @@ class adminCommentList extends adminGenericList
 
 Handle users list on admin side
 */
-class adminUserList extends adminGenericList
+class adminUserList extends adminItemsList
 {
 	public function setColumns()
 	{
@@ -879,7 +978,7 @@ class adminUserList extends adminGenericList
 
 Handle blogs list on admin side
 */
-class adminBlogList extends adminGenericList
+class adminBlogList extends adminItemsList
 {
 	public function setColumns()
 	{
@@ -887,7 +986,7 @@ class adminBlogList extends adminGenericList
 		$this->addColumn('lastupdate','blog_upddt',__('Last update'),array('adminBlogList','getLastUpdate'),array('class' => array('nowrap')));
 		$this->addColumn('entries',null,__('Entries'),array('adminBlogList','getEntries'),array('class' => array('nowrap')),false);
 		$this->addColumn('blogid','B.blog_id',__('Blog ID'),array('adminBlogList','getBlogId'),array('class' => array('nowrap')));
-		$this->addColumn('action',null,'',array('adminBlogList','getAction'),array('class' => array('nowrap')));
+		$this->addColumn('action',null,'',array('adminBlogList','getAction'),array('class' => array('nowrap')),false);
 		$this->addColumn('status','blog_status',__('status'),array('adminBlogList','getStatus'),array('class' => array('nowrap')));
 	}
 	
