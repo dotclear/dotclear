@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: DotClear 2.0b7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-13 05:22+0200\n"
-"PO-Revision-Date: 2007-08-31 14:50+0200\n"
-"Last-Translator: Nnidŷu <nnidyu@asylumeternity.net>\n"
+"PO-Revision-Date: 2011-06-26 14:11+0100\n"
+"Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -84,13 +84,13 @@ msgid "Search"
 msgstr "Szukaj"
 
 msgid "Your search for <em>%1$s</em> returned no result."
-msgstr ""
+msgstr "Przy wyszukiwaniu frazy <em>%1$s</em> nie znaleziono nic."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr ""
+msgstr "Przy wyszukiwaniu frazy <em>%1$s</em> znaleziono <strong>%2$s</strong> wynik."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr ""
+msgstr "Przy wyszukiwaniu frazy <em>%1$s</em> znaleziono <strong>%2$s</strong> wyników."
 
 msgid "Home"
 msgstr "Strona główna"
@@ -107,9 +107,8 @@ msgstr "Języki"
 msgid "Categories"
 msgstr "Kategorie"
 
-#, fuzzy
 msgid "Subcategories"
-msgstr "Kategorie"
+msgstr "Podkategorie"
 
 msgid "Archives"
 msgstr "Archiwa"
@@ -126,24 +125,20 @@ msgstr "Kanał RSS wpisów"
 msgid "Comments feed"
 msgstr "Kanał RSS komentarzy"
 
-#, fuzzy
 msgid "This blog's comments Atom feed"
-msgstr "Kanał RSS dla komentarzy na tym blogu"
+msgstr "Kanał Atom z komentarzami na tym blogu"
 
-#, fuzzy
 msgid "This category's entries Atom feed"
-msgstr "Kanał RSS dla wpisów w tej kategorii"
+msgstr "Kanał Atom z wpisami w tej kategorii"
 
-#, fuzzy
 msgid "This category's comments Atom feed"
-msgstr "Kanał RSS dla komentarzy w tej kategorii"
+msgstr "Kanał Atom z komentarzami w tej kategorii"
 
 msgid "This post's comments feed"
 msgstr "Kanał RSS dla komentarzy do tego wpisu"
 
-#, fuzzy
 msgid "This post's comments Atom feed"
-msgstr "Kanał RSS dla komentarzy do tego wpisu"
+msgstr "Kanał Atom z komentarzami do tego wpisu"
 
 msgid "Attachments"
 msgstr "Załączniki"
@@ -161,7 +156,7 @@ msgid "Your comment has been published."
 msgstr "Twój komentarz został opublikowany."
 
 msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr "Twój komentarz został wysłany i będzie poddany moderacji."
+msgstr "Twój komentarz został wysłany i zostanie poddany moderacji."
 
 msgid "Add a comment"
 msgstr "Dodaj komentarz"
@@ -182,10 +177,10 @@ msgid "Comment"
 msgstr "Komentarz"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "Komentarze mogą być formatowane przy użyciu prostej składni wiki."
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr "Kod HTML jest wyświetlany jako tekst a adresy stron są automatycznie konwertowane."
+msgstr "Kod HTML jest wyświetlany jako tekst a adresy stron są konwertowane automatycznie."
 
 msgid "Remember me on this blog"
 msgstr "Pamiętaj mnie na tym blogu"
@@ -217,9 +212,8 @@ msgstr "Nie znaleziono dokumentu"
 msgid "The document you are looking for does not exist."
 msgstr "Dokument, którego szukasz nie istnieje"
 
-#, fuzzy
 msgid "Powered by %s"
-msgstr "Napędzane przez"
+msgstr "Napędzane przez %s"
 
 msgid "Subscribe to"
 msgstr "Subskrybuj"
