@@ -168,7 +168,7 @@ class dcFilterSet {
 				if ($filter->isEnabled()) {
 					$ret .= $filter->getFormLine();
 				}
-				$form_combo[$filter->desc]=$filter->id;
+				$form_combo[$filter->name]=$filter->id;
 				$count++;
 			}
 			$ret .= '</ul>';
@@ -236,12 +236,13 @@ Dotclear Filter handles administration filters for each list
 A filter fills in a parameter array, as defined in dcBlog class
 */
 abstract class Filter {
-	public $id;					///< <b>string</b> field id (local to fieldset)
-	public $desc;				///< <b>string</b> field description
-	protected $request_param;	///< <b>string</b> resulting parameter array key
-	protected $enabled;			///< <b>string</b> true if filter is enabled
-	protected $values;			///< <b>array</b> possible filter values
-	public $field_id;			///< <b>string</b> field id (global to the page)
+	public $id;					///<b>string</b> field id (local to fieldset)
+	public $name;				///<b>string</b> filter name
+	public $desc;				///<b>string</b> field description
+	protected $request_param;	///<b>string</b> resulting parameter array key
+	protected $enabled;			///<b>string</b> true if filter is enabled
+	protected $values;			///<b>array</b> possible filter values
+	public $field_id;			///<b>string</b> field id (global to the page)
 	
 	/**
 	Inits Filter object
@@ -249,8 +250,9 @@ abstract class Filter {
 	@param	id		<b>string</b>	field id
 	@param	form_prefix	<b>string</b>		form prefix to use for parameters
 	*/
-	public function __construct ($id,$desc,$request_param) {
+	public function __construct ($id,$name,$desc,$request_param) {
 		$this->id = $id;
+		$this->name=$name;
 		$this->desc = $desc;
 		$this->request_param = $request_param;
 		$this->enabled=false;
@@ -412,8 +414,8 @@ class comboFilter extends Filter {
 	protected $verb;
 	protected $extra;
 	
-	public function __construct($id,$desc,$request_param,$options,$extra=array()) {
-		parent::__construct($id,$desc,$request_param);
+	public function __construct($id,$name,$desc,$request_param,$options,$extra=array()) {
+		parent::__construct($id,$name,$desc,$request_param);
 		$this->options = $options;
 		$this->extra = $extra;
 		$this->desc = $desc;
@@ -495,8 +497,8 @@ Handle boolean filter on admin side.
 class booleanFilter extends Filter {
 	protected $options;
 	
-	public function __construct($id,$desc,$request_param,$options,$extra=array()) {
-		parent::__construct($id,$desc,$request_param);
+	public function __construct($id,$name,$desc,$request_param,$options,$extra=array()) {
+		parent::__construct($id,$name,$desc,$request_param);
 		$this->options = $options;
 		$this->values=array();
 	}
@@ -507,7 +509,7 @@ class booleanFilter extends Filter {
 	}
 	public function add() {
 		parent::add();
-		$this->values[]=$options[0];
+		$this->values=current($this->options);
 	}
 
 	public function getFormFields($pos=0) {
@@ -526,8 +528,8 @@ class textFilter extends Filter {
 	protected $size;
 	protected $max;
 	
-	public function __construct($id,$desc,$request_param,$size,$max) {
-		parent::__construct($id,$desc,$request_param);
+	public function __construct($id,$name,$desc,$request_param,$size,$max) {
+		parent::__construct($id,$name,$desc,$request_param);
 		$this->options = $options;
 		$this->values=array();
 		$this->size = $size;
