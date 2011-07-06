@@ -136,17 +136,17 @@ class monthComboFilter extends comboFilter {
 }
 $filterSet
 	->addFilter(new comboFilter(
-		'users',__('Author'), 'user_id', $users_combo))
+		'users',__('Author'), __('Author'), 'user_id', $users_combo))
 	->addFilter(new comboFilter(
-		'category',__('Category'), 'cat_id', $categories_combo))
+		'category',__('Category'), __('Category'), 'cat_id', $categories_combo))
 	->addFilter(new comboFilter(
-		'post_status',__('Status'), 'post_status', $status_combo))
+		'post_status',__('Status'), __('Status'), 'post_status', $status_combo))
 	->addFilter(new booleanFilter(
-		'post_selected',__('The post :'), 'post_selected', $selected_combo))
+		'post_selected',__('Selected'), __('The post : '),'post_selected', $selected_combo))
 	->addFilter(new comboFilter(
-		'lang',__('Lang'), 'post_lang', $lang_combo))
+		'lang',__('Lang'), __('Lang'), 'post_lang', $lang_combo))
 	->addFilter(new monthComboFilter(
-		'month',__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)));
+		'month',__('Month'),__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)));
 
 $core->callBehavior('adminPostsFilters',$filterSet);
 
