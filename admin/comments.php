@@ -26,32 +26,13 @@ __('comment') => '0',
 __('trackback') => '1'
 );
 
-$sortby_combo = array(
-__('Date') => 'comment_dt',
-__('Entry title') => 'post_title',
-__('Author') => 'comment_author',
-__('Status') => 'comment_status'
-);
+$comment_list = new adminCommentList($core);
 
-$order_combo = array(
-__('Descending') => 'desc',
-__('Ascending') => 'asc'
-);
-
-
-
-$page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
-$nb_per_page =  30;
-
-if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-	if ($nb_per_page != $_GET['nb']) {
-		$show_filters = true;
-	}
-	$nb_per_page = (integer) $_GET['nb'];
-}
 $params = new ArrayObject();
-$params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 $params['no_content'] = true;
+
+# - Limit, sortby and order filter
+$params = $comment_list->applyFilters($params);
 
 # Actions combo box
 $combo_action = array();
@@ -105,7 +86,7 @@ try {
 		$page_title = __('Comments and Trackacks');
 	}
 
-	$comment_list = new adminCommentList($core,$comments,$counter->f(0));
+	$comment_list->setItems($comments,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
@@ -125,10 +106,6 @@ echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.$page_title.'</h2>'
 if (!$core->error->flag())
 {
 	# Filters
-	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.
-		__('Filters').'</a></p>';
-	}
 	$filterSet->display();
 	
 	if (!$with_spam) {
@@ -143,8 +120,7 @@ if (!$core->error->flag())
 	}
 	
 	# Show comments
-	$comment_list->display($page,$nb_per_page,
-	'<form action="comments_actions.php" method="post" id="form-comments">'.
+	$comment_list->display('<form action="comments_actions.php" method="post" id="form-comments">'.
 	
 	'%s'.
 	
@@ -156,13 +132,10 @@ if (!$core->error->flag())
 	$core->formNonce().
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('type'),$type).
-	form::hidden(array('sortby'),$sortby).
-	form::hidden(array('order'),$order).
 	form::hidden(array('author'),preg_replace('/%/','%%',$author)).
 	form::hidden(array('status'),$status).
 	form::hidden(array('ip'),preg_replace('/%/','%%',$ip)).
-	form::hidden(array('page'),$page).
-	form::hidden(array('nb'),$nb_per_page).
+	$comment_list->getFormFieldsAsHidden().
 	'</div>'.
 	
 	'</form>'

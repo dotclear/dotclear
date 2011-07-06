@@ -14,28 +14,14 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-# Filters
-$sortby_combo = array(
-__('Last update') => 'blog_upddt',
-__('Blog name') => 'UPPER(blog_name)',
-__('Blog ID') => 'B.blog_id'
-);
-
-$order_combo = array(
-__('Descending') => 'desc',
-__('Ascending') => 'asc'
-);
-
 $q = !empty($_GET['q']) ? $_GET['q'] : '';
-$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'blog_upddt';
-$order = !empty($_GET['order']) ? $_GET['order'] : 'desc';
 
-$page = !empty($_GET['page']) ? $_GET['page'] : 1;
-$nb_per_page =  30;
+$blogs_list = new adminBlogList($core);
 
-if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-	$nb_per_page = $_GET['nb'];
-}
+$params = new ArrayObject();
+
+# - Limit, sortby and order filter
+$params = $blogs_list->applyFilters($params);
 
 $show_filters = false;
 	
@@ -45,23 +31,10 @@ if ($q) {
 	$show_filters = true;
 }
 
-# - Sortby and order filter
-if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
-	if ($order !== '' && in_array($order,$order_combo)) {
-		$params['order'] = $sortby.' '.$order;
-	}
-	
-	if ($sortby != 'blog_upddt' || $order != 'desc') {
-		$show_filters = true;
-	}
-}
-
-$params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
-
 try {
 	$counter = $core->getBlogs($params,1);
 	$rs = $core->getBlogs($params);
-	$nb_blog = $counter->f(0);
+	$blogs_list->setItems($rs,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
@@ -92,33 +65,19 @@ if (!$core->error->flag())
 	
 	echo
 	'<form action="blogs.php" method="get" id="filters-form">'.
-	'<fieldset class="two-cols"><legend>'.__('Filters').'</legend>'.
+	'<fieldset><legend>'.__('Filters').'</legend>'.
 	
-	'<div class="col">'.
-	'<p><label for="sortby">'.__('Order by:').' '.
-	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).
-	'</label> '.
-	'<label for="order">'.__('Sort:').' '.
-	form::combo('order',$order_combo,html::escapeHTML($order)).
-	'</label></p>'.
-	'</div>'.
-	
-	'<div class="col">'.
 	'<p><label for="q">'.__('Search:').' '.
 	form::field('q',20,255,html::escapeHTML($q)).
 	'</label></p>'.
-	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Blogs per page').'</label> '.
-	'<input type="submit" value="'.__('Apply filters').'" /></p>'.
-	'</div>'.
+	'<p><input type="submit" value="'.__('Apply filters').'" /></p>'.
 	
 	'<br class="clear" />'. //Opera sucks
 	'</fieldset>'.
 	'</form>';
 	
 	# Show blogs
-	$blogs_list = new adminBlogList($core,$rs,$nb_blog);
-	$blogs_list->display($page,$nb_per_page);
+	$blogs_list->display();
 }
 
 dcPage::close();
