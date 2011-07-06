@@ -1,25 +1,14 @@
 <?php
-# ***** BEGIN LICENSE BLOCK *****
-# This file is part of DotClear "MyPostTypes" plugin.
-# Copyright (c) 2010 Bruno Hondelatte, and contributors. 
-# Many, many thanks to Olivier Meunier and the Dotclear Team.
-# All rights reserved.
+# -- BEGIN LICENSE BLOCK ---------------------------------------
 #
-# MyPostTypes plugin for DC2 is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-# 
-# DotClear is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with DotClear; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+# This file is part of Dotclear 2.
 #
-# ***** END LICENSE BLOCK *****
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Licensed under the GPL version 2.0 license.
+# See LICENSE file or
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+# -- END LICENSE BLOCK -----------------------------------------
 
 /**
 @ingroup DC_CORE
