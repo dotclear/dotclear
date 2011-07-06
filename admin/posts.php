@@ -118,28 +118,13 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 
 /* Get posts
 -------------------------------------------------------- */
-$page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
-$nb_per_page =  30;
-
-if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-	if ($nb_per_page != $_GET['nb']) {
-		$show_filters = true;
-	}
-	$nb_per_page = (integer) $_GET['nb'];
-}
+$post_list = new adminPostList($core);
 
 $params = new ArrayObject();
-$params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 $params['no_content'] = true;
 
-# - Sortby and order filter
-$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'post_dt';
-$order = !empty($_GET['order']) ? $_GET['order'] : 'desc';
-if ($sortby !== '') {
-	if ($order !== '') {
-		$params['order'] = $sortby.' '.$order;
-	}
-}
+# - Limit, sortby and order filter
+$params = $post_list->applyFilters($params);
 
 $filterSet = new dcFilterSet('posts','posts.php');
 class monthComboFilter extends comboFilter {
@@ -180,7 +165,7 @@ try {
 	} else {
 		$page_title = __('Entries');
 	}
-	$post_list = new adminPostList($core,$posts,$counter->f(0));
+	$post_list->setItems($posts,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
@@ -204,8 +189,7 @@ if (!$core->error->flag())
 	$filterSet->display();
 
 	# Show posts
-	$post_list->display($page,$nb_per_page,
-	'<form action="posts_actions.php" method="post" id="form-entries">'.
+	$post_list->display('<form action="posts_actions.php" method="post" id="form-entries">'.
 	
 	'%s'.
 	
@@ -216,6 +200,7 @@ if (!$core->error->flag())
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	$filterSet->getFormFieldsAsHidden().
+	$post_list->getFormFieldsAsHidden().
 	$core->formNonce().
 	'</div>'.
 	'</form>'

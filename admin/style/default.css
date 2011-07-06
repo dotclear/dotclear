@@ -957,7 +957,7 @@ th, td {
 	padding: 3px 5px;
 	vertical-align: top;
 }
-thead th{
+thead th {
 	text-align: left;
 	border-top: 1px solid #666;
 	border-bottom: 1px solid #666;
@@ -967,11 +967,13 @@ thead a, thead a:link, thead a:visited {
 	text-decoration: none;
 	border-bottom: 1px dotted #000;
 }
-thead th.asc {
+thead th.asc a {
+	color: #2373A8;
 	padding-left: 15px;
 	background: transparent url(asc.png) no-repeat left center;
 }
-thead th.desc {
+thead th.desc a {
+	color: #2373A8;
 	padding-left: 15px;
 	background: transparent url(desc.png) no-repeat left center;
 }

@@ -14,21 +14,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
-# Filters
-$sortby_combo = array(
-__('Blog ID') => 'B.blog_id',
-__('Blog name') => 'blog_name'
-);
-
-$order_combo = array(
-__('Descending') => 'desc',
-__('Ascending') => 'asc'
-);
-
 $q = !empty($_GET['q']) ? $_GET['q'] : '';
-$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'blog_id';
-$order = !empty($_GET['order']) ? $_GET['order'] : 'asc';
-
 
 # Check users
 if (!empty($_REQUEST['user_id']) && is_array($_REQUEST['user_id']))
@@ -47,12 +33,12 @@ if (empty($users))
 }
 else
 {
-	$page = !empty($_GET['page']) ? $_GET['page'] : 1;
-	$nb_per_page =  30;
+	$blogs_list = new adminBlogPermissionsList($core);
 	
-	if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-		$nb_per_page = $_GET['nb'];
-	}
+	$params = new ArrayObject();
+	
+	# - Limit, sortby and order filter
+	$params = $blogs_list->applyFilters($params);
 	
 	$show_filters = false;
 	
@@ -62,20 +48,10 @@ else
 		$show_filters = true;
 	}
 	
-	# - Sortby and order filter
-	if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
-		if ($order !== '' && in_array($order,$order_combo)) {
-			$params['order'] = $sortby.' '.$order;
-			$show_filters = true;
-		}
-	}
-	
-	$params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
-	
 	try {
 		$rs = $core->getBlogs($params);
 		$counter = $core->getBlogs($params,1);
-		$nb_blog = $counter->f(0);
+		$blogs_list->setItems($rs,$counter->f(0));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -106,24 +82,11 @@ if (!$core->error->flag())
 	'<form action="permissions_blog.php" method="get" id="filters-form">'.
 	'<fieldset class="two-cols"><legend>'.__('Filters').'</legend>'.
 	
-	'<div class="col">'.
-	'<p><label for="sortby">'.__('Order by:').' '.
-	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).
-	'</label> '.
-	'<label for="order">'.__('Sort:').' '.
-	form::combo('order',$order_combo,html::escapeHTML($order)).
-	'</label></p>'.
-	'</div>'.
-	
-	'<div class="col">'.
 	'<p><label for="q">'.__('Search:').' '.
 	form::field('q',20,255,html::escapeHTML($q)).
 	'</label></p>'.
-	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Entries per page').'</label> '.
-	'<input type="submit" value="'.__('Apply filters').'" />'.
+	'<p><input type="submit" value="'.__('Apply filters').'" />'.
 	$hidden_fields.'</p>'.
-	'</div>'.
 	
 	'<br class="clear" />'. //Opera sucks
 	'</fieldset>'.
@@ -135,8 +98,7 @@ if (!$core->error->flag())
 	'<strong>'.implode(', ',$users).'</strong>').'</p>';
 	
 	# Show blogs
-	$blogs_list = new adminBlogPermissionsList($core,$rs,$nb_blog);
-	$blogs_list->display($page,$nb_per_page,'<form action="permissions.php" method="post" id="form-blogs">'.
+	$blogs_list->display('<form action="permissions.php" method="post" id="form-blogs">'.
 		'%s'.
 		'<p class="checkboxes-helpers"></p>'.
 		'<p><input type="submit" value="'.__('set permissions').'" />'.

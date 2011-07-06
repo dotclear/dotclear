@@ -16,13 +16,13 @@ dcPage::check('usage,contentadmin');
 
 $q = !empty($_GET['q']) ? $_GET['q'] : null;
 
-$page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
-$nb_per_page =  10;
+$post_list = new adminPostMiniList($core);
 
 $params = array();
-$params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 $params['no_content'] = true;
-$params['order'] = 'post_dt DESC';
+
+# - Limit, sortby and order filter
+$params = $post_list->applyFilters($params);
 
 if ($q) {
 	$params['search'] = $q;
@@ -42,13 +42,13 @@ echo '<form action="popup_posts.php" method="get">'.
 try {
 	$posts = $core->blog->getPosts($params);
 	$counter = $core->blog->getPosts($params,true);
-	$post_list = new adminPostMiniList($core,$posts,$counter->f(0));
+	$post_list->setItems($posts,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
 
 echo '<div id="form-entries">'; # I know it's not a form but we just need the ID
-$post_list->display($page,$nb_per_page);
+$post_list->display();
 echo '</div>';
 
 echo '<p><a class="button" href="#" id="link-insert-cancel">'.__('cancel').'</a></p>';

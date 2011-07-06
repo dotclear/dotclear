@@ -63,20 +63,16 @@ $core->callBehavior('adminUsersActionsCombo',array(&$combo_action));
 
 
 # Get users
-$page = !empty($_GET['page']) ? $_GET['page'] : 1;
-$nb_per_page =  30;
-
-if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-	$nb_per_page = $_GET['nb'];
-}
+$user_list = new adminUserList($core);
 
 $q = !empty($_GET['q']) ? $_GET['q'] : '';
-$sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'user_id';
-$order = !empty($_GET['order']) ?		$_GET['order'] : 'asc';
-
-$params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 
 $show_filters = false;
+
+$params = new ArrayObject();
+
+# - Limit, sortby and order filter
+$params = $user_list->applyFilters($params);
 
 # - Search filter
 if ($q) {
@@ -84,22 +80,13 @@ if ($q) {
 	$show_filters = true;
 }
 
-# - Sortby and order filter
-if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
-	if ($order !== '' && in_array($order,$order_combo)) {
-		$params['order'] = $sortby.' '.$order;
-		$show_filters = true;
-	}
-}
-
 try {
 	$rs = $core->getUsers($params);
 	$counter = $core->getUsers($params,1);
-	$user_list = new adminUserList($core,$rs,$counter->f(0));
+	$user_list->setItems($rs,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
-
 
 /* DISPLAY
 -------------------------------------------------------- */
@@ -126,33 +113,19 @@ if (!$core->error->flag())
 	
 	echo
 	'<form action="users.php" method="get" id="filters-form">'.
-	'<fieldset class="two-cols"><legend>'.__('Filters').'</legend>'.
+	'<fieldset><legend>'.__('Filters').'</legend>'.
 	
-	'<div class="col">'.
-	'<p><label for="sortby">'.__('Order by:').' '.
-	form::combo('sortby',$sortby_combo,$sortby).
-	'</label> '.
-	'<label for="order">'.__('Sort:').' '.
-	form::combo('order',$order_combo,$order).
-	'</label></p>'.
-	'</div>'.
-	
-	'<div class="col">'.
 	'<p><label for="q">'.__('Search:').' '.
 	form::field('q',20,255,html::escapeHTML($q)).
 	'</label></p>'.
-	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Users per page').'</label> '.
-	'<input type="submit" value="'.__('Apply filters').'" /></p>'.
-	'</div>'.
+	'<p><input type="submit" value="'.__('Apply filters').'" /></p>'.
 	
 	'<br class="clear" />'. //Opera sucks
 	'</fieldset>'.
 	'</form>';
 	
 	# Show users
-	$user_list->display($page,$nb_per_page,
-	'<form action="dispatcher.php" method="get" id="form-users">'.
+	$user_list->display('<form action="dispatcher.php" method="get" id="form-users">'.
 	
 	'%s'.
 	
@@ -165,6 +138,7 @@ if (!$core->error->flag())
 	'</label> '.
 	'<input type="submit" value="'.__('ok').'" />'.
 	'</p>'.
+	$user_list->getFormFieldsAsHidden().
 	'</div>'.
 	'</form>'
 	);
