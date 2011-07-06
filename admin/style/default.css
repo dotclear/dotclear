@@ -140,7 +140,7 @@ abbr {
 }
 #info-box2 {
 	margin: .1em 0 0 0;
-	padding: .5em 1em 4px 0;
+	padding: .5em 1.3em 4px 0;
 	color: #fff;
 	float: right;
 	text-align: right;
@@ -189,7 +189,7 @@ abbr {
 	margin-top: 0;
 }
 #content {
-	margin: .5em 1.5em 4em 13em;
+	margin: 1.5em 1.5em 4em 13em;
 	padding: 1em;
 	background: #fff;
 	-webkit-border-radius: .5em;
@@ -323,8 +323,7 @@ abbr {
 	text-transform: none;
 }
 #favorites-menu a {
-	color: #000;
-	font-weight: normal;
+	color: #333;
 }
 #favorites-menu .active {
 	background-color: transparent;
@@ -332,6 +331,7 @@ abbr {
 }
 #favorites-menu .active a {
 	font-weight: bold;
+	color: #666;
 }
 /* ------------------------------------------------------------------ footer */
 #footer {
