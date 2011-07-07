@@ -36,7 +36,7 @@ class adminGenericList
 	{
 		// For backward compatibility only: the developer tried to create
 		// a list with the old constructor.
-		$this->raiseDeprecated(get_class($this));
+		ob_start($this->raiseDeprecated(get_class($this)));
 		
 		$this->core =& $core;
 		$this->rs =& $rs;
@@ -58,7 +58,7 @@ class adminGenericList
 			array_shift($trace);
 			$grand = array_shift($trace);
 			$msg = 'Deprecated class called. (';
-			$msg .= $name . ' was called from '.$grand['file'].' ['.$grand['line'].'])';
+			$msg .= $name.' was called from '.$grand['file'].' ['.$grand['line'].'])';
 			trigger_error($msg, E_USER_NOTICE);
 		}
 	}
