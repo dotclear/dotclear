@@ -1167,6 +1167,7 @@ label.area, p.area {
 .area textarea {
 	display: block;
 	width: 100%;
+	resize: vertical;
 }
 label.required {
 	font-weight: bold;
@@ -1194,6 +1195,9 @@ p.field input, p.field select {
 }
 label .maximal, textarea.maximal, input.maximal {
 	width: 100%;
+}
+textarea.maximal {
+	resize: vertical;
 }
 
 a.form-control {

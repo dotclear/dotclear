@@ -43,20 +43,17 @@ function jsToolBar(textarea) {
 	this.editor.parentNode.insertBefore(this.toolbar,this.editor);
 	
 	// Dragable resizing (only for gecko)
-	if (this.editor.addEventListener)
+	if (navigator.appName == 'Microsoft Internet Explorer')
 	{
-		this.handle = document.createElement('div');
-		this.handle.className = 'jstHandle';
-		var dragStart = this.resizeDragStart;
-		var This = this;
-		this.handle.addEventListener('mousedown',function(event) { dragStart.call(This,event); },false);
-		// fix memory leak in Firefox (bug #241518)
-		window.addEventListener('unload',function() {
-				var del = This.handle.parentNode.removeChild(This.handle);
-				delete(This.handle);
-		},false);
-		
-		this.editor.parentNode.insertBefore(this.handle,this.editor.nextSibling);
+		if (this.editor.addEventListener)
+		{		
+			this.handle = document.createElement('div');
+			this.handle.className = 'jstHandle';
+			var dragStart = this.resizeDragStart;
+			var This = this;
+			this.handle.addEventListener('mousedown',function(event) { dragStart.call(This,event); },false);
+			this.editor.parentNode.insertBefore(this.handle,this.editor.nextSibling);
+		}
 	}
 	
 	this.context = null;
