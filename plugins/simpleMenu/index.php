@@ -212,7 +212,7 @@ if ($step)
 			// Selection du type d'item
 			echo '<form id="additem" action="'.$p_url.'&add=2" method="post">';
 			echo '<fieldset><legend>'.__('Select type').'</legend>';
-			echo '<p><label for"item_type" class="classic">'.__('Type of item menu:').'</label>'.form::combo('item_type',$items_combo,'').'</p>';
+			echo '<p class="field"><label for"item_type" class="classic">'.__('Type of item menu:').'</label>'.form::combo('item_type',$items_combo,'').'</p>';
 			echo '<p>'.$core->formNonce().'<input type="submit" name="append" value="'.__('Continue').'" />'.'</p>';
 			echo '</fieldset>';
 			echo '</form>';
@@ -224,23 +224,23 @@ if ($step)
 				echo '<fieldset><legend>'.$item_type_label.'</legend>';
 				switch ($item_type) {
 					case 'lang':
-						echo '<p><label for"item_select" class="classic">'.__('Select language:').'</label>'.
+						echo '<p class="field"><label for"item_select" class="classic">'.__('Select language:').'</label>'.
 							form::combo('item_select',$langs_combo,'');
 						break;
 					case 'category':
-						echo '<p><label for"item_select" class="classic">'.__('Select category:').'</label>'.
+						echo '<p class="field"><label for"item_select" class="classic">'.__('Select category:').'</label>'.
 							form::combo('item_select',$categories_combo,'');
 						break;
 					case 'archive':
-						echo '<p><label for"item_select" class="classic">'.__('Select month:').'</label>'.
+						echo '<p class="field"><label for"item_select" class="classic">'.__('Select month:').'</label>'.
 							form::combo('item_select',$months_combo,'');
 						break;
 					case 'pages':
-						echo '<p><label for"item_select" class="classic">'.__('Select page:').'</label>'.
+						echo '<p class="field"><label for"item_select" class="classic">'.__('Select page:').'</label>'.
 							form::combo('item_select',$pages_combo,'');
 						break;
 					case 'tags':
-						echo '<p><label for"item_select" class="classic">'.__('Select tag:').'</label>'.
+						echo '<p class="field"><label for"item_select" class="classic">'.__('Select tag:').'</label>'.
 							form::combo('item_select',$tags_combo,'');
 						break;
 				}
@@ -254,9 +254,9 @@ if ($step)
 			// Libellé et description
 			echo '<form id="additem" action="'.$p_url.'&add=4" method="post">';
 			echo '<fieldset><legend>'.$item_type_label.($item_select_label != '' ? ' ('.$item_select_label.')' : '').'</legend>';
-			echo '<p><label for"item_label" class="classic">'.__('Label of item menu:').'</label>'.form::field('item_label',10,255,$item_label).'</p>';
-			echo '<p><label for"item_descr" class="classic">'.__('Description of item menu:').'</label>'.form::field('item_label',20,255,$item_descr).'</p>';
-			echo '<p><label for"item_url" class="classic">'.__('URL of item menu:').'</label>'.form::field('item_url',40,255,$item_url).'</p>';
+			echo '<p class="field"><label for"item_label" class="classic">'.__('Label of item menu:').'</label>'.form::field('item_label',10,255,$item_label).'</p>';
+			echo '<p class="field"><label for"item_descr" class="classic">'.__('Description of item menu:').'</label>'.form::field('item_label',20,255,$item_descr).'</p>';
+			echo '<p class="field"><label for"item_url" class="classic">'.__('URL of item menu:').'</label>'.form::field('item_url',40,255,$item_url).'</p>';
 			echo form::hidden('item_type',$item_type).form::hidden('item_select',$item_select);
 			echo '<p>'.$core->formNonce().'<input type="submit" name="append" value="'.__('Add item').'" /></p>';
 			echo '</fieldset>';
