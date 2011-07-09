@@ -1,41 +1,35 @@
 
-div.cu-ctrl {
+.cu-ctrl {
 	background: #f5f5f5;
-	padding: 5px 0 0 0;
+	padding: .5em 0 0 0;
 	margin: 0 0 1em 0;
 	overflow: hidden;
-	border-color: #ccc;
-	border-width: 1px 0;
-	border-style: solid;
 }
-
-div.cu-msg {
-	padding: 0 0.5em;
+.cu-msg {
 	font-weight: bold;
 }
-div.cu-msg.cu-error {
+.cu-msg.cu-error {
 	color: #c00;
 }
-
-div.cu-files {
+.cu-files {
 	padding: 0 0.5em;
 	margin: 10px 0;
 }
-div.cu-file {
+.cu-file {
 	margin: 0 0 8px 0;
 	position: relative;
 }
-div.cu-fileinfo {
+.cu-fileinfo {
 	margin-left: 16px;
 }
-div.cu-fileinfo span.cu-filecancel {
+.cu-fileinfo span.cu-filecancel {
 	display: block;
 	position: absolute;
 	top: 2px;
 	left: 0px !important;
 	left: -16px;
 }
-div.cu-files span.cu-filecancel a {
+.cu-filecancel a {
 	display: block;
 	width: 12px;
 	height: 12px;
@@ -44,18 +38,17 @@ div.cu-files span.cu-filecancel a {
 	text-indent: -5000px;
 	outline: none;
 }
-div.cu-files span.cu-filemsg {
+.cu-filemsg {
 	font-weight: bold;
 	color: green;
 }
-div.cu-files span.cu-filemsg.cu-error {
+span.cu-filemsg.cu-error {
 	color: #c00;
 }
-
-div.cu-progress {
+.cu-progress {
 	margin-left: 16px;
 }
-div.cu-progress div {
+.cu-progress div {
 	height: 10px;
 	width: 0;
 	font-size: 0.8em;
@@ -68,37 +61,40 @@ div.cu-progress div {
 	font-weight: bold;
 	-moz-border-radius: 2px;
 }
-
-div.cu-btn {
+.cu-btn {
 	padding: 0 0.5em;
 	line-height: 1.2em;
 	height: 1.5em;
 	margin-top: 1em;
 	position: relative;
 }
-div.cu-btn span {
+.cu-btn span {
 	display: block;
-	margin: 0 0 0 .5em;
+	margin: 0 1em 0 0;
 	float: right;
 }
-div.cu-btn span a {
+.cu-btn span a {
 	display: block;
 	padding: .3em 1.5em;
 }
-div.cu-btn span.cu-btn-browse {
+span.cu-btn-browse {
 	float: none;
 	position: absolute;
-	left: 0.5em;
+	left: 0;
 	margin: 0;
 }
-div.cu-btn span.cu-btn-upload a.button {
+span.cu-btn-upload, span.cu-btn-clean {
+	margin-right: 0;
+}
+span.cu-btn-upload a.button {
 	color: #fff;
 	border: 1px solid #2373A8;
 	background: #2373A8;
 	background: -webkit-gradient(linear, left top, left bottom, from(#2C8FD1), to(#2373A8));
 	background: -moz-linear-gradient(top,  #2C8FD1,  #2373A8);
 }
-div.cu-btn span.cu-btn-upload a.button:hover, div.cu-btn span.cu-btn-upload a.button:focus {
+span.cu-btn-upload a.button:hover, 
+span.cu-btn-upload a.button:focus {
 	color: #fff;
 	border: 1px solid #2C8FD1;
 	background: #2C8FD1;
@@ -106,13 +102,12 @@ div.cu-btn span.cu-btn-upload a.button:hover, div.cu-btn span.cu-btn-upload a.bu
 	background: -moz-linear-gradient(top,  #2373A8,  #2C8FD1);
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#2373A8', endColorstr='#2C8FD1');
 }
-div.cu-maxsize {
+.cu-maxsize.form-note {
 	clear: both;
-	margin: .75em 0 0 0.5em;
+	margin: 1.5em 0 0;
 	font-style: italic;
 }
-
-div.cu-disable {
+.cu-disable {
 	margin: 1em 0;
 	padding: 0 0 0.5em 0.5em;
 }

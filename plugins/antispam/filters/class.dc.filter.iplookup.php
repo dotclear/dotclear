@@ -85,7 +85,8 @@ class dcFilterIpLookup extends dcSpamFilter
 		'<fieldset><legend>' . __('IP Lookup servers') . '</legend>'.
 		'<p><label for="bls">'.__('Add here a coma separated list of servers.').
 		form::textarea('bls',40,3,html::escapeHTML($bls),'maximal').
-		'<input type="submit" value="'.__('Save').'" /></label></p>'.
+		'</p>'.
+		'<p><input type="submit" value="'.__('Save').'" /></label></p>'.
 		$this->core->formNonce().'</p>'.
 		'</fieldset>'.
 		'</form>';

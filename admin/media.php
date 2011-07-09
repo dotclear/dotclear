@@ -343,12 +343,12 @@ if ($core_media_writable)
 	echo '<div class="two-cols">';
 	
 	echo
-	'<div class="col"><h3 id="add-file">'.__('Add files').'</h3>'.
+	'<div class="col">'.
+	'<fieldset id="add-file-f"><legend>'.__('Add files').'</legend>'.
 	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	'<form id="media-upload" class="clear" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</div>'.
-	'<fieldset id="add-file-f">'.
 	'<p><label for="upfile">'.__('Choose a file:').
 	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.
 	'<input type="file" id="upfile" name="upfile" size="20" />'.
@@ -365,9 +365,10 @@ if ($core_media_writable)
 	'</div>';
 	
 	echo
-	'<div class="col"><h3 id="new-dir">'.__('New directory').'</h3>'.
+	'<div class="col">'.
 	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
 	'<fieldset id="new-dir-f">'.
+	'<legend>'.__('New directory').'</legend>'.
 	$core->formNonce().
 	'<p><label for="newdir">'.__('Directory Name:').
 	form::field(array('newdir','newdir'),35,255).'</label></p>'.

@@ -127,8 +127,8 @@ else
 	$moderationTTL = $core->blog->settings->antispam->antispam_moderation_ttl;
 
 	echo
-	'<form action="'.$p_url.'" method="post">'.
-	'<fieldset><legend>'.__('Information').'</legend>';
+	'<form action="'.$p_url.'" method="post" class="fieldset">'.
+	'<h3>'.__('Information').'</h3>';
 
 	if (!empty($_GET['del'])) {
 		echo '<p class="message">'.__('Spam comments have been successfully deleted.').'</p>';
@@ -152,13 +152,12 @@ else
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).'</p>';
 	}
-	echo '</fieldset></form>';
+	echo '</form>';
 
 
 	# Filters
 	echo
-	'<form action="'.$p_url.'" method="post">'.
-	'<fieldset><legend>'.__('Available spam filters').'</legend>';
+	'<form action="'.$p_url.'" method="post" class="fieldset">';
 
 	if (!empty($_GET['upd'])) {
 		echo '<p class="message">'.__('Filters configuration has been successfully saved.').'</p>';
@@ -166,6 +165,7 @@ else
 
 	echo
 	'<table class="dragable">'.
+	'<caption>'.__('Available spam filters').'</caption>'.
 	'<thead><tr>'.
 	'<th>'.__('Order').'</th>'.
 	'<th>'.__('Active').'</th>'.
@@ -191,7 +191,7 @@ else
 		'<td class="handle">'.form::field(array('f_order['.$fid.']'),2,5,(string) $i, '', '', false, 'title="'.__('position').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_active[]'),$fid,$f->active, '', '', false, 'title="'.__('Active').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_auto_del[]'),$fid,$f->auto_delete, '', '', false, 'title="'.__('Auto Del.').'"').'</td>'.
-		'<td class="nowrap">'.$f->name.'</td>'.
+		'<td class="nowrap" scope="raw">'.$f->name.'</td>'.
 		'<td class="maximal">'.$f->description.'</td>'.
 		'<td class="status">'.$gui_link.'</td>'.
 		'</tr>';
@@ -202,7 +202,7 @@ else
 	'<p>'.form::hidden('filters_order','').
 	$core->formNonce().
 	'<input type="submit" name="filters_upd" value="'.__('Save').'" /></p>'.
-	'</fieldset></form>';
+	'</form>';
 
 
 	# Syndication
@@ -212,16 +212,14 @@ else
 		$spam_feed = $core->blog->url.$core->url->getBase('spamfeed').'/'.$code = dcAntispam::getUserCode($core);
 
 		echo
-		'<fieldset><legend>'.__('Syndication').'</legend>'.
+		'<h3>'.__('Syndication').'</h3>'.
 		'<ul class="spaminfo">'.
 		'<li class="feed"><a href="'.$spam_feed.'">'.__('Junk comments RSS feed').'</a></li>'.
 		'<li class="feed"><a href="'.$ham_feed.'">'.__('Published comments RSS feed').'</a></li>'.
-		'</ul>'.
-		'</fieldset>';
+		'</ul>';
 	}
 }
 ?>
 
 </body>
 </html>
-
