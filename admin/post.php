@@ -379,9 +379,7 @@ if ($can_edit_post)
 	($post_id ? form::hidden('id',$post_id) : '').
 	'<input type="submit" value="'.__('Save').' (s)" '.
 	'accesskey="s" name="save" /> ';
-	if ($post_id && $post->post_status == 1) {
-		;
-	} elseif ($post_id) {
+	if ($post_id) {
 		$preview_url =
 		$core->blog->url.$core->url->getBase('preview').'/'.
 		$core->auth->userID().'/'.
