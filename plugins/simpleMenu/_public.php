@@ -19,13 +19,15 @@ class tplSimpleMenu
 	public static function simpleMenu($attr)
 	{
 		$class = isset($attr['class']) ? trim($attr['class']) : '';
+		$id = isset($attr['id']) ? trim($attr['id']) : '';
 		
 		return '<?php echo tplSimpleMenu::displayMenu('.
-				"'".addslashes($class)."'".
+				"'".addslashes($class)."',".
+				"'".addslashes($id)."'".
 			'); ?>';
 	}
 	
-	public static function displayMenu($class)
+	public static function displayMenu($class,$id)
 	{
 		$ret = '';
 
@@ -58,14 +60,18 @@ class tplSimpleMenu
 					(($_SERVER['URL_REQUEST_PART'] == '') && (($href == $home_url) || ($href == $home_directory)))) {
 					$active = true;
 				}
-				$ret .= '<li class="li'.$i.($active ? ' active' : '').'">'.
-						'<a href="'.$href.'">'.$m['label'].($m['descr'] ? '<span>'.$m['descr'].'</span>' : '').'</a>'.
+				$ret .= '<li class="li'.($i+1).
+							($active ? ' active' : '').
+							($i == 0 ? ' li-first' : '').
+							($i == count($menu)-1 ? ' li-last' : '').
+						'">'.
+						'<a href="'.$href.'">'.__($m['label']).($m['descr'] ? '<span>'.__($m['descr']).'</span>' : '').'</a>'.
 						'</li>';
 			}
 			
 			// Final rendering
 			if ($ret) {
-				$ret = '<ul class="simple-menu'.($class ? ' '.$class : '').'">'."\n".$ret."\n".'</ul>';
+				$ret = '<ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'">'."\n".$ret."\n".'</ul>';
 			}
 		}
 
