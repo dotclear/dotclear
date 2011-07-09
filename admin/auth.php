@@ -378,6 +378,10 @@ else
 				__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
 				'</p>';
 		}
+		else {
+			echo '<legend>'.__('Connection').'</legend>';
+		}
+
 		echo
 		'<p><label for="user_id">'.__('Username:').' '.
 		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</label></p>'.

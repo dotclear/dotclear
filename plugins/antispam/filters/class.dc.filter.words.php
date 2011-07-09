@@ -118,9 +118,8 @@ class dcFilterWords extends dcSpamFilter
 		}
 
 		$res .=
-		'<form action="'.html::escapeURL($url).'" method="post">'.
-		'<fieldset><legend>'.__('Add a word').'</legend>'.
-		'<p><label class="classic" for="swa">'.__('Add a word').' '.form::field('swa',20,128).'</label>';
+		'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
+		'<p><label class="classic" for="swa">'.__('Add a word ').' '.form::field('swa',20,128).'</label>';
 
 		if ($core->auth->isSuperAdmin()) {
 			$res .= '<label class="classic" for="globalsw">'.form::checkbox('globalsw',1).' '.
@@ -129,8 +128,8 @@ class dcFilterWords extends dcSpamFilter
 
 		$res .=
 		$core->formNonce().
-		'<input type="submit" value="'.__('Add').'"/></p>'.
-		'</fieldset>'.
+		'</p>'.
+		'<p><input type="submit" value="'.__('Add').'"/></p>'.
 		'</form>';
 
 		$rs = $this->getRules();
@@ -141,8 +140,8 @@ class dcFilterWords extends dcSpamFilter
 		else
 		{
 			$res .=
-			'<form action="'.html::escapeURL($url).'" method="post">'.
-			'<fieldset><legend>' . __('List') . '</legend>'.
+			'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
+			'<h3>' . __('List of bad words') . '</h3>'.
 			'<div style="'.$this->style_list.'">';
 
 			while ($rs->fetch())
@@ -166,7 +165,7 @@ class dcFilterWords extends dcSpamFilter
 			'<p>'.form::hidden(array('spamwords'),1).
 			$core->formNonce().
 			'<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"/></p>'.
-			'</fieldset></form>';
+			'</form>';
 		}
 
 		if ($core->auth->isSuperAdmin())

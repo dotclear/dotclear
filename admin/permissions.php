@@ -142,7 +142,7 @@ if (!empty($blogs) && !empty($users))
 	}
 	
 	echo
-	'<fieldset>'.
+	'<fieldset><legend>'.__('Validate permissions').'</legend>'.
 	'<p><label for="your_pwd">'.__('Your password:').
 	form::password('your_pwd',20,255).'</label></p>'.
 	'</fieldset>'.

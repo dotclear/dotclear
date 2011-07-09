@@ -500,7 +500,7 @@
 			});
 			
 			var size = this.formatSize(upldr.params.file_size_limit);
-			$('<div class="cu-maxsize">' + this.locales.max_file_size + ' ' + size + '</div>').appendTo(this.ctrl.block);
+			$('<p class="cu-maxsize form-note info">' + this.locales.max_file_size + ' ' + size + '</p>').appendTo(this.ctrl.block);
 		},
 		
 		refreshControls: function(upldr) {
@@ -552,7 +552,7 @@
 			var fileblock = $('<div class="cu-file" id="' + o.id + '">' +
 					'<div class="cu-fileinfo"><span class="cu-filename">' + o.name + '</span> ' + 
 					'<span class="cu-filesize">(' + this.formatSize(o.size) + ')</span> ' +
-					'<span class="cu-filecancel"><a href="#">cancel</a></span> ' +
+					'<span class="cu-filecancel"><a href="#">cancel</a> </span> ' +
 					'<span class="cu-filemsg"></span>' +
 					'</div>');
 			

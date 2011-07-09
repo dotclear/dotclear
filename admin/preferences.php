@@ -386,11 +386,9 @@ if ($core->auth->allowPassChange())
 	form::password('new_pwd_c',20,255).'</label></p>'.
 	'</fieldset>'.
 	
-	'<fieldset>'.
-	'<p>'.__('If you want to change your email or password you must provide your current password.').'</p>'.
+	'<p>'.__('If you have changed this user email or password you must provide your current password to save these modifications.').'</p>'.
 	'<p><label for="cur_pwd">'.__('Your password:').
-	form::password('cur_pwd',20,255).'</label></p>'.
-	'</fieldset>';
+	form::password('cur_pwd',20,255).'</label></p>';
 }
 
 echo

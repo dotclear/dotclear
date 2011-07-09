@@ -272,11 +272,9 @@ __('Super administrator').'</label></p>'.
 $core->callBehavior('adminUserForm',isset($rs) ? $rs : null);
 
 echo
-'<fieldset>'.
 '<p><label for="your_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Your password:').
 form::password('your_pwd',20,255).'</label></p>'.
-'</fieldset>'.
 '<p class="clear"><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 ($user_id != '' ? form::hidden('id',$user_id) : '').
 $core->formNonce().

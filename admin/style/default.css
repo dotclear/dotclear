@@ -1009,6 +1009,14 @@ table {
 tr.line:hover {
 	background: #ddd;
 }
+caption {
+	color: #333;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: .5em;
+}
+
 th, td {
 	border-width: 0 0 1px 0;
 	border-style: solid;
@@ -1078,7 +1086,7 @@ form {
 	margin: 0;
 	padding: 0;
 }
-fieldset {
+fieldset, .fieldset {
 	display: block;
 	margin: 0 0 1em 0;
 	padding: 1em 0.5em;
@@ -1207,7 +1215,7 @@ a.form-control {
 	color: green;
 	padding-left: 20px;
 }
-fieldset.constrained {
+.constrained {
 	margin: 0;
 	padding: 0;
 	border: none;
@@ -1318,9 +1326,9 @@ a.button.add {
 	-moz-border-radius: .5em;
 	border-radius: .5em;
 	margin-bottom: .1em;	
-	background: #2C8FD1 url(add.png) no-repeat .2em center;
+	background: #2C8FD1 url(add.png) no-repeat 6px center;
 	color: #fff;
-	padding: .1em 1em .2em 28px;
+	padding: .2em 12px .2em 24px;
 	border: 1px solid #2373A8;
 }
 a.button.add:hover, a.button.add:focus {

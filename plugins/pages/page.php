@@ -362,7 +362,7 @@ if ($can_edit_page)
 	echo '<form action="'.html::escapeURL($redir_url).'" method="post" id="entry-form">';
 
 	echo '<div id="entry-wrapper">';
-	echo '<div id="entry-content"><fieldset class="constrained">';
+	echo '<div id="entry-content"><div class="constrained">';
 	
 	echo
 	'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
@@ -395,7 +395,7 @@ if ($can_edit_page)
 	$core->formNonce().
 	'</p>';
 	
-	echo '</fieldset></div>';		// End #entry-content
+	echo '</div></div>';		// End #entry-content
 	echo '</div>';		// End #entry-wrapper
 
 	echo '<div id="entry-sidebar">';
@@ -569,7 +569,7 @@ if ($post_id)
 	'<h3>'.__('Add a comment').'</h3>'.
 	
 	'<form action="comment.php" method="post" id="comment-form">'.
-	'<fieldset class="constrained">'.
+	'<div class="constrained">'.
 	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').
 	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn'))).
 	'</label></p>'.
@@ -589,7 +589,7 @@ if ($post_id)
 	'<p>'.form::hidden('post_id',$post_id).
 	$core->formNonce().
 	'<input type="submit" name="add" value="'.__('Save').'" /></p>'.
-	'</fieldset>'.
+	'</div>'.
 	'</form>'.
 	'</div>';
 }
