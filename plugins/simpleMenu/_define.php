@@ -13,9 +13,9 @@ if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
 	/* Name */			"simpleMenu",
-	/* Description*/		"Simple menu bar for DC",
+	/* Description*/		"Simple menu for DC",
 	/* Author */			"Franck Paul",
-	/* Version */			'0.1',
+	/* Version */			'0.2',
 	array(
 		'permissions' =>	'admin'
 	)
