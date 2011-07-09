@@ -302,8 +302,10 @@
 	#content {
 		margin : 0 20em 0 220px;
 		}
-	.post-attr { 
-		margin-left: -220px; 
+	.full .post-attr,
+	.dc-post .post-attr {
+		margin-left: -220px;
+		margin-top: 0; 
 		float: left; 
 		width: 180px; 
 		text-align: right;
@@ -311,11 +313,14 @@
 	.post-attr a, .post-info, .post-tags {
 		padding-right: 0 !important;
 		}
-	.dc-archive-month .post-attr {
-		margin-left: 0;
-		float:none;
-		width: auto;
-		text-align: left;
+	#content-info, .navlinks, .pagination {
+		margin-left: -220px !important;
+	}
+	.dc-archive #content-info {
+		margin-left: 0 !important;
+	}
+	#content-info a.feed { 
+		white-space: nowrap;
 		}
 }
 
