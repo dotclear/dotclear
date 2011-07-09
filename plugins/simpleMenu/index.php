@@ -299,7 +299,11 @@ if ($step) {
 		asort($order);
 		$order = array_keys($order);
 	} elseif (!empty($_POST['im_order'])) {
-		$order = explode(',',$_POST['im_order']);
+		$order = $_POST['im_order'];
+		if (substr($order,-1) == ',') {
+			$order = substr($order,0,strlen($order)-1);
+		}
+		$order = explode(',',$order);
 	}
 
 	if (!empty($_POST['saveorder']) && !empty($order))
@@ -334,9 +338,53 @@ if ($step) {
 	<title><?php echo $page_title; ?></title>
 	<?php
 		echo
-			dcPage::jsToolMan(); //.
-//			dcPage::jsLoad('index.php?pf=simpleMenu/dragdrop.js');
+			dcPage::jsToolMan();
 	?>
+	  <?php 
+		$core->auth->user_prefs->addWorkspace('accessibility'); 
+		$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+	  ?>
+	  <?php if (!$user_dm_nodragdrop) : ?>
+	  <script type="text/javascript">
+	  //<![CDATA[
+
+	  var dragsort = ToolMan.dragsort();
+	  $(function() {
+	  	dragsort.makeTableSortable($("#menuitemslist").get(0),
+	  	dotclear.sortable.setHandle,dotclear.sortable.saveOrder);
+
+		$('.checkboxes-helpers').each(function() {
+			dotclear.checkboxesHelpers(this);
+		});
+	  });
+
+	  dotclear.sortable = {
+		  setHandle: function(item) {
+			var handle = $(item).find('td.handle').get(0);
+			while (handle.firstChild) {
+				handle.removeChild(handle.firstChild);
+			}
+
+			item.toolManDragGroup.setHandle(handle);
+			handle.className = handle.className+' handler';
+		  },
+
+		  saveOrder: function(item) {
+			var group = item.toolManDragGroup;
+			var order = document.getElementById('im_order');
+			group.register('dragend', function() {
+				order.value = '';
+				items = item.parentNode.getElementsByTagName('tr');
+
+				for (var i=0; i<items.length; i++) {
+					order.value += items[i].id.substr(2)+',';
+				}
+			});
+		  }
+	  };
+	  //]]>
+	  </script>
+	  <?php endif; ?>
 	<!--
 	<link rel="stylesheet" type="text/css" href="index.php?pf=simpleMenu/style.css" />
 	-->
@@ -436,15 +484,15 @@ if (count($menu)) {
 	}
 	// Entête table
 	echo 
-		'<table id="menuitemslist">'.
+		'<table class="maximal dragable">'.
 		'<caption>'.__('Menu items list').'</caption>'.
 		'<thead>'.
 		'<tr>';
 	if (!$step) {
-		echo '<th scope="col"></th>';
 		if (count($menu) > 1) {
-			echo '<th scope="col">'.__('Order').'</th>';
+			echo '<th scope="col"></th>';
 		}
+		echo '<th scope="col"></th>';
 	}
 	echo
 		'<th scope="col">'.__('Label').'</th>'.
@@ -452,17 +500,17 @@ if (count($menu)) {
 		'<th scope="col">'.__('URL').'</th>'.
 		'</tr>'.
 		'</thead>'.
-		'<tbody>';
+		'<tbody id="menuitemslist">';
 	$count = 0;
 	foreach ($menu as $i => $m) {
-		echo '<tr>';
+		echo '<tr class="line" id="l_'.$i.'">';
 		if (!$step) {
 			$count++;
-			echo '<td>'.form::checkbox(array('items_selected[]','ims-'.$i),$i).'</td>';
 			if (count($menu) > 1) {
-				echo '<td>'.form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),__($m['label'])).'"').
+				echo '<td class="handle minimal">'.form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),__($m['label'])).'"').
 					form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>';
 			}
+			echo '<td class="minimal">'.form::checkbox(array('items_selected[]','ims-'.$i),$i).'</td>';
 			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),20,255,__($m['label'])).'</td>';
 			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),30,255,__($m['descr'])).'</td>';
 			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),40,255,$m['url']).'</td>';
@@ -476,16 +524,17 @@ if (count($menu)) {
 	echo '</tbody>'.
 		'</table>';
 	if (!$step) {
-		echo '<p>'.form::hidden('im_order','').$core->formNonce();
+		echo '<div class="two-cols">';
+		echo '<p class="col">'.form::hidden('im_order','').$core->formNonce();
 		if (count($menu) > 1) {
 			echo '<input type="submit" name="saveorder" value="'.__('Save order').'" /> ';
 		}
-		echo
-			'<input type="submit" name="updateaction" value="'.__('Update menu items').'" /> '.
-			'<input type="submit" class="delete" name="removeaction" '.
+		echo '<input type="submit" name="updateaction" value="'.__('Update menu items').'" />'.'</p>';
+		echo '<p class="col right">'.'<input type="submit" class="delete" name="removeaction" '.
 				'value="'.__('Delete selected menu items').'" '.
 				'onclick="return window.confirm(\''.html::escapeJS(__('Are you sure you want to remove selected menu items?')).'\');" />'.
 			'</p>';
+		echo '</div>';
 		echo '</form>';
 	}
 } else {
