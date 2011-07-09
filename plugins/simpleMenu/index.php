@@ -306,7 +306,7 @@ if ($step) {
 		$order = explode(',',$order);
 	}
 
-	if (!empty($_POST['saveorder']) && !empty($order))
+	if (!empty($_POST['updateaction']) && !empty($order))
 	{
 		try {
 			$newmenu = array();
@@ -489,9 +489,7 @@ if (count($menu)) {
 		'<thead>'.
 		'<tr>';
 	if (!$step) {
-		if (count($menu) > 1) {
-			echo '<th scope="col"></th>';
-		}
+		echo '<th scope="col"></th>';
 		echo '<th scope="col"></th>';
 	}
 	echo
@@ -506,10 +504,8 @@ if (count($menu)) {
 		echo '<tr class="line" id="l_'.$i.'">';
 		if (!$step) {
 			$count++;
-			if (count($menu) > 1) {
-				echo '<td class="handle minimal">'.form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),__($m['label'])).'"').
-					form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>';
-			}
+			echo '<td class="handle minimal">'.form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),__($m['label'])).'"').
+				form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>';
 			echo '<td class="minimal">'.form::checkbox(array('items_selected[]','ims-'.$i),$i).'</td>';
 			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),20,255,__($m['label'])).'</td>';
 			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),30,255,__($m['descr'])).'</td>';
@@ -526,10 +522,7 @@ if (count($menu)) {
 	if (!$step) {
 		echo '<div class="two-cols">';
 		echo '<p class="col">'.form::hidden('im_order','').$core->formNonce();
-		if (count($menu) > 1) {
-			echo '<input type="submit" name="saveorder" value="'.__('Save order').'" /> ';
-		}
-		echo '<input type="submit" name="updateaction" value="'.__('Update menu items').'" />'.'</p>';
+		echo '<input type="submit" name="updateaction" value="'.__('Update menu').'" />'.'</p>';
 		echo '<p class="col right">'.'<input type="submit" class="delete" name="removeaction" '.
 				'value="'.__('Delete selected menu items').'" '.
 				'onclick="return window.confirm(\''.html::escapeJS(__('Are you sure you want to remove selected menu items?')).'\');" />'.
