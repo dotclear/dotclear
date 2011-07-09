@@ -313,25 +313,26 @@ if (!empty($_GET['xconv']))
 {
 	$post_excerpt = $post_excerpt_xhtml;
 	$post_content = $post_content_xhtml;
+	$post_title = $post_title_xhtml;
 	$post_format = 'xhtml';
 	
 	echo '<p class="message">'.__('Don\'t forget to validate your XHTML conversion by saving your post.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title.'</span>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title.' 	&ldquo;'.$post_title.'&rdquo;</span></h2>';
 
 if ($post_id && $post->post_status == 1) {
-	echo ' - <a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View entry').'</a>';
+	echo '<p><a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View entry').'</a>';
 } elseif ($post_id) {
 	$preview_url =
 	$core->blog->url.$core->url->getBase('preview').'/'.
 	$core->auth->userID().'/'.
 	http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
 	'/'.$post->post_url;
-	echo ' - <a id="post-preview" href="'.$preview_url.'" class="button">'.__('Preview entry').'</a>';
+	echo '<p><a id="post-preview" href="'.$preview_url.'" class="button">'.__('Preview entry').'</a>';
 }
 
-echo '</h2>';
+echo '</p>';
 
 if ($post_id)
 {
