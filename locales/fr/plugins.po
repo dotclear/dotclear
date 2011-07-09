@@ -530,7 +530,7 @@ msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "Fichier JPEG ou PNG, 800 pixels de large et de taille maximale %s"
 
 msgid "Preview"
-msgstr "Prévisualisation"
+msgstr "Prévisualiser"
 
 msgid "Sidebar"
 msgstr "Bandeau"
