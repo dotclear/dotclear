@@ -87,10 +87,10 @@ try {
 } catch (Exception $e) { }
 
 # Liste des types d'item de menu
-$items = array('home' => array(__('Page d‘accueil'),0));
+$items = array('home' => array(__('Home'),0));
 
 if (count($langs_combo) > 1) {
-	$items['lang'] = array(__('Langue'),1);
+	$items['lang'] = array(__('Language'),1);
 }
 if (count($categories_combo)) {
 	$items['category'] = array(__('Category'),1);
@@ -149,7 +149,7 @@ if ($step) {
 		case 3:
 			// Third step, menu item attributes to be changed or completed if necessary
 			$item_select_label = '';
-			$item_label = __('Title');
+			$item_label = __('Label');
 			$item_descr = __('Description');
 			$item_url = $blog_url;
 			switch ($item_type) {
@@ -418,7 +418,7 @@ if ($step)
 			echo '<form id="additem" action="'.$p_url.'&add=2" method="post">';
 			echo '<fieldset><legend>'.__('Select type').'</legend>';
 			echo '<p class="field"><label for"item_type" class="classic">'.__('Type of item menu:').'</label>'.form::combo('item_type',$items_combo,'').'</p>';
-			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue').'" />'.'</p>';
+			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue…').'" />'.'</p>';
 			echo '</fieldset>';
 			echo '</form>';
 			break;
@@ -437,7 +437,7 @@ if ($step)
 							form::combo('item_select',$categories_combo,'');
 						break;
 					case 'archive':
-						echo '<p class="field"><label for"item_select" class="classic">'.__('Select month:').'</label>'.
+						echo '<p class="field"><label for"item_select" class="classic">'.__('Select month (if necessary):').'</label>'.
 							form::combo('item_select',$months_combo,'');
 						break;
 					case 'pages':
@@ -445,12 +445,12 @@ if ($step)
 							form::combo('item_select',$pages_combo,'');
 						break;
 					case 'tags':
-						echo '<p class="field"><label for"item_select" class="classic">'.__('Select tag:').'</label>'.
+						echo '<p class="field"><label for"item_select" class="classic">'.__('Select tag (if necessary):').'</label>'.
 							form::combo('item_select',$tags_combo,'');
 						break;
 				}
 				echo form::hidden('item_type',$item_type);
-				echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue').'" /></p>';
+				echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue…').'" /></p>';
 				echo '</fieldset>';
 				echo '</form>';
 				break;
@@ -466,7 +466,7 @@ if ($step)
 			echo '<p class="field"><label for"item_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
 				__('URL of item menu:').'</label>'.form::field('item_url',40,255,$item_url).'</p>';
 			echo form::hidden('item_type',$item_type).form::hidden('item_select',$item_select);
-			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Add item').'" /></p>';
+			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Add this item').'" /></p>';
 			echo '</fieldset>';
 			echo '</form>';
 			break;
