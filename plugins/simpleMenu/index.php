@@ -229,12 +229,14 @@ if ($step) {
 			break;
 	}
 } else {
+	
+	# Remove selected menu items
 	if (!empty($_POST['removeaction']))
 	{
 		try {
 	 		if (!empty($_POST['items_selected'])) {
 				foreach ($_POST['items_selected'] as $k => $v) {
-					$menu[$k]['label'] = '';
+					$menu[$v]['label'] = '';
 				}
 				$newmenu = array();
 				foreach ($menu as $k => $v) {
@@ -259,6 +261,8 @@ if ($step) {
 			$core->error->add($e->getMessage());
 		}
 	}
+
+	# Update menu items
 	if (!empty($_POST['updateaction']))
 	{
 		try {
@@ -407,9 +411,12 @@ if ($step)
 			// Libellé et description
 			echo '<form id="additem" action="'.$p_url.'&add=4" method="post">';
 			echo '<fieldset><legend>'.$item_type_label.($item_select_label != '' ? ' ('.$item_select_label.')' : '').'</legend>';
-			echo '<p class="field"><label for"item_label" class="classic">'.__('Label of item menu:').'</label>'.form::field('item_label',10,255,$item_label).'</p>';
-			echo '<p class="field"><label for"item_descr" class="classic">'.__('Description of item menu:').'</label>'.form::field('item_descr',20,255,$item_descr).'</p>';
-			echo '<p class="field"><label for"item_url" class="classic">'.__('URL of item menu:').'</label>'.form::field('item_url',40,255,$item_url).'</p>';
+			echo '<p class="field"><label for"item_label" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
+				__('Label of item menu:').'</label>'.form::field('item_label',20,255,$item_label).'</p>';
+			echo '<p class="field"><label for"item_descr" class="classic">'.
+				__('Description of item menu:').'</label>'.form::field('item_descr',30,255,$item_descr).'</p>';
+			echo '<p class="field"><label for"item_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
+				__('URL of item menu:').'</label>'.form::field('item_url',40,255,$item_url).'</p>';
 			echo form::hidden('item_type',$item_type).form::hidden('item_select',$item_select);
 			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Add item').'" /></p>';
 			echo '</fieldset>';
@@ -451,14 +458,14 @@ if (count($menu)) {
 		echo '<tr>';
 		if (!$step) {
 			$count++;
-			echo '<td>'.form::checkbox(array('items_selected[]','ims-'.$i),false,'','','',($step)).'</td>';
+			echo '<td>'.form::checkbox(array('items_selected[]','ims-'.$i),$i).'</td>';
 			if (count($menu) > 1) {
 				echo '<td>'.form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),__($m['label'])).'"').
 					form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>';
 			}
-			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),10,255,__($m['label']),'','',($step)).'</td>';
-			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),20,255,__($m['descr']),'','',($step)).'</td>';
-			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),40,255,$m['url'],'','',($step)).'</td>';
+			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),20,255,__($m['label'])).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),30,255,__($m['descr'])).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),40,255,$m['url']).'</td>';
 		} else {
 			echo '<td class="nowrap" scope="row">'.__($m['label']).'</td>';
 			echo '<td class="nowrap">'.__($m['descr']).'</td>';
