@@ -15,7 +15,7 @@ $core->addBehavior('adminDashboardIcons','simpleMenu_dashboard');
 $core->addBehavior('adminDashboardFavs','simpleMenu_dashboard_favs');
 function simpleMenu_dashboard($core,$icons)
 {
-	$icons['simpleMenu'] = new ArrayObject(array(__('simpleMenu'),'plugin.php?p=simpleMenu','index.php?pf=simpleMenu/icon.png'));
+	$icons['simpleMenu'] = new ArrayObject(array(__('Simple menu'),'plugin.php?p=simpleMenu','index.php?pf=simpleMenu/icon.png'));
 }
 function simpleMenu_dashboard_favs($core,$favs)
 {
@@ -24,7 +24,7 @@ function simpleMenu_dashboard_favs($core,$favs)
 		'usage,contentadmin',null,null));
 }
 
-$_menu['Plugins']->addItem(__('simpleMenu'),'plugin.php?p=simpleMenu','index.php?pf=simpleMenu/icon-small.png',
+$_menu['Plugins']->addItem(__('Simple menu'),'plugin.php?p=simpleMenu','index.php?pf=simpleMenu/icon-small.png',
                 preg_match('/plugin.php\?p=simpleMenu(&.*)?$/',$_SERVER['REQUEST_URI']),
                 $core->auth->check('usage,contentadmin',$core->blog->id));
 ?>

@@ -18,10 +18,6 @@ $page_title = __('Simple menu');
 # Url de base
 $p_url = 'plugin.php?p=simpleMenu';
 
-# Récupération paramètres postés
-$item_type = isset($_POST['item_type']) ? $_POST['item_type'] : '';
-$item_select = isset($_POST['item_select']) ? $_POST['item_select'] : '';
-
 # Liste des catégories
 $categories_combo = array();
 $categories_label = array();
@@ -114,6 +110,25 @@ foreach ($items as $k => $v) {
 	$items_combo[$v[0]] = $k;
 }
 
+# Menu par défaut
+$blog_url = html::stripHostURL($core->blog->url);
+$menu_default = array(
+	array('label' => __('Home'), 'descr' => __('Recent posts'), 'url' => $blog_url),
+	array('label' => __('Archives'), 'descr' => __('Old posts'), 'url' => $blog_url.$core->url->getBase('archive'))
+);
+
+# Lecture menu existant
+$menu = $core->blog->settings->system->get('simpleMenu');
+$menu = @unserialize($menu);
+if (!is_array($menu)) {
+	$menu = $menu_default;
+	$core->blog->settings->system->put('simpleMenu',serialize($menu));
+}
+
+# Récupération paramètres postés
+$item_type = isset($_POST['item_type']) ? $_POST['item_type'] : '';
+$item_select = isset($_POST['item_select']) ? $_POST['item_select'] : '';
+
 # Traitement
 $step = (!empty($_GET['add']) ? (integer) $_GET['add'] : 0);
 if (($step > 4) || ($step < 0)) $step = 0;
@@ -124,18 +139,21 @@ if ($step) {
 
 	switch ($step) {
 		case 1:
+			// First step, menu item type to be selected
 			$item_type = $item_select = '';
 			break;
 		case 2:
 			if ($items[$item_type][1] > 0) {
+				// Second step (optional), menu item sub-type to be selected
 				$item_select = '';
 				break;
 			}
 		case 3:
+			// Third step, menu item attributes to be changed or completed if necessary
 			$item_select_label = '';
 			$item_label = __('Title');
 			$item_descr = __('Description');
-			$item_url = html::stripHostURL($core->blog->url);
+			$item_url = $blog_url;
 			switch ($item_type) {
 				case 'home':
 					$item_label = __('Home');
@@ -187,6 +205,30 @@ if ($step) {
 					break;
 			}
 			break;
+		case 4:
+			// Fourth step, menu item to be added
+			try {
+				if ($item_label && $item_url) 
+				{
+					// Add new item menu in menu array
+					$menu[] = array(
+						'label' => $item_label,
+						'descr' => $item_descr,
+						'url' => $item_url
+					);
+					// Save menu in blog settings
+					$core->blog->settings->system->put('simpleMenu',serialize($menu));
+				
+					// All done successfully, return to menu items list
+					http::redirect($p_url.'&added=1');
+				} else {
+					throw new Exception(__('Label and URL of menu item are mandatory.'));
+				}
+			}
+			catch (Exception $e) {
+				$core->error->add($e->getMessage());
+			}
+			break;
 	}
 }
 
@@ -201,6 +243,16 @@ if ($step) {
 <body>
 
 <?php
+
+if (!empty($_GET['added'])) {
+	echo '<p class="message">'.__('Menu item has been successfully added.').'</p>';
+}
+if (!empty($_GET['removed'])) {
+	echo '<p class="message">'.__('Menu items have been successfully removed.').'</p>';
+}
+if (!empty($_GET['neworder'])) {
+	echo '<p class="message">'.__('Menu items have been successfully updated.').'</p>';
+}
 
 if ($step) 
 {
