@@ -322,18 +322,8 @@ if (!empty($_GET['xconv']))
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title.' 	&ldquo;'.$post_title.'&rdquo;</span></h2>';
 
 if ($post_id && $post->post_status == 1) {
-	echo '<p><a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View entry').'</a>';
-} elseif ($post_id) {
-	$preview_url =
-	$core->blog->url.$core->url->getBase('preview').'/'.
-	$core->auth->userID().'/'.
-	http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
-	'/'.$post->post_url;
-	echo '<p><a id="post-preview" href="'.$preview_url.'" class="button">'.__('Preview entry').'</a>';
+	echo '<p><a href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
 }
-
-echo '</p>';
-
 if ($post_id)
 {
 	echo '<p>';
@@ -388,7 +378,18 @@ if ($can_edit_post)
 	'<p>'.
 	($post_id ? form::hidden('id',$post_id) : '').
 	'<input type="submit" value="'.__('Save').' (s)" '.
-	'accesskey="s" name="save" /> '.
+	'accesskey="s" name="save" /> ';
+	if ($post_id && $post->post_status == 1) {
+		;
+	} elseif ($post_id) {
+		$preview_url =
+		$core->blog->url.$core->url->getBase('preview').'/'.
+		$core->auth->userID().'/'.
+		http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
+		'/'.$post->post_url;
+		echo '<a id="post-preview" href="'.$preview_url.'" class="button">'.__('Preview').'</a> ';
+	}
+	echo
 	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
 	$core->formNonce().
 	'</p>';

@@ -1241,7 +1241,7 @@ a.submit {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	padding: .1em .5em;
+	padding: .1em .5em 0 .5em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .2em;
 	-moz-border-radius: .2em;
@@ -1301,6 +1301,8 @@ a.delete,
 input.delete,
 input[type=submit].delete {
 	color: #c00;
+	padding-bottom: .1em;
+	margin-left: 1em;
 }
 a.delete:hover,
 input.delete:hover,
