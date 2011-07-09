@@ -148,7 +148,7 @@ h1 a {
 
 /* ------------------------------------------------------- content-info */
 #content-info {
-	margin-top: 4em;
+	margin-top: 2em;
 	font-size: .875em;
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	}
@@ -164,10 +164,15 @@ h1 a {
 	font-size: 1.1em;
 	font-variant: small-caps;
 	}
+#subcategories li {
+	margin: 0;
+	}
 #content-info p, 
 #content-info ul, 
 #subcategories ul { 
 	margin: .5em 0;
+	padding: 0;
+	list-style-type: none;
 	}
 
 /* ------------------------------------------------------- pagination, navlinks */
@@ -250,10 +255,18 @@ h1 a {
 .post-info span + span {
 	padding-left: .5em;
 	}
+.post-breadcrumb-cat a {
+	padding-left: 24px;
+	background: #fff no-repeat left center url(img/breadcrumb-category.png);
+}
 .post-cat a {
 	padding-left: 24px;
 	background: #fff no-repeat left center url(img/category.png);
 	}
+.post-info .post-date {
+	padding-left: 28px;
+	background: #fff no-repeat 6px center url(img/date.png);
+}
 .post-info a, 
 .post-tags a, 
 .post-info-co a {
@@ -286,6 +299,8 @@ h1 a {
 	}
 .read-it a {
 	color: #ad3f4c;
+	background: #fff;
+	padding-left: .5em;
 	}
 .post-info-co, 
 .page-info {
@@ -813,7 +828,7 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 .dc-tags { }
 .dc-tag { }
 .dc-404 { }
-.dc-search { }
+.dc-search #content-info em { color: #14709e; }
 
 
 /* ---------------------------------------------------
