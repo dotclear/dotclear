@@ -18,6 +18,9 @@ $page_title = __('Simple menu');
 # Url de base
 $p_url = 'plugin.php?p=simpleMenu';
 
+# Url du blog
+$blog_url = html::stripHostURL($core->blog->url);
+
 # Liste des catégories
 $categories_combo = array();
 $categories_label = array();
@@ -110,24 +113,19 @@ foreach ($items as $k => $v) {
 	$items_combo[$v[0]] = $k;
 }
 
-# Menu par défaut
-$blog_url = html::stripHostURL($core->blog->url);
-$menu_default = array(
-	array('label' => __('Home'), 'descr' => __('Recent posts'), 'url' => $blog_url),
-	array('label' => __('Archives'), 'descr' => __('Old posts'), 'url' => $blog_url.$core->url->getBase('archive'))
-);
-
 # Lecture menu existant
 $menu = $core->blog->settings->system->get('simpleMenu');
 $menu = @unserialize($menu);
 if (!is_array($menu)) {
-	$menu = $menu_default;
-	$core->blog->settings->system->put('simpleMenu',serialize($menu));
+	$menu = array();
 }
 
 # Récupération paramètres postés
 $item_type = isset($_POST['item_type']) ? $_POST['item_type'] : '';
 $item_select = isset($_POST['item_select']) ? $_POST['item_select'] : '';
+$item_label = isset($_POST['item_label']) ? $_POST['item_label'] : '';
+$item_descr = isset($_POST['item_descr']) ? $_POST['item_descr'] : '';
+$item_url = isset($_POST['item_url']) ? $_POST['item_url'] : '';
 
 # Traitement
 $step = (!empty($_GET['add']) ? (integer) $_GET['add'] : 0);
@@ -208,7 +206,7 @@ if ($step) {
 		case 4:
 			// Fourth step, menu item to be added
 			try {
-				if ($item_label && $item_url) 
+				if (($item_label != '') && ($item_url != '')) 
 				{
 					// Add new item menu in menu array
 					$menu[] = array(
@@ -230,6 +228,98 @@ if ($step) {
 			}
 			break;
 	}
+} else {
+	if (!empty($_POST['removeaction']))
+	{
+		try {
+	 		if (!empty($_POST['items_selected'])) {
+				foreach ($_POST['items_selected'] as $k => $v) {
+					$menu[$k]['label'] = '';
+				}
+				$newmenu = array();
+				foreach ($menu as $k => $v) {
+					if ($v['label']) {
+						$newmenu[] = array(
+							'label' => $v['label'],
+							'descr' => $v['descr'],
+							'url' => $v['url']);
+					}
+				}
+				$menu = $newmenu;
+				// Save menu in blog settings
+				$core->blog->settings->system->put('simpleMenu',serialize($menu));
+				
+				// All done successfully, return to menu items list
+				http::redirect($p_url.'&removed=1');
+			} else {
+				throw new Exception(__('No menu items selected.'));
+			}
+		}
+		catch (Exception $e) {
+			$core->error->add($e->getMessage());
+		}
+	}
+	if (!empty($_POST['updateaction']))
+	{
+		try {
+			foreach ($_POST['items_label'] as $k => $v) {
+				if (!$v) throw new Exception(__('Label is mandatory.'));
+			}
+			foreach ($_POST['items_url'] as $k => $v) {
+				if (!$v) throw new Exception(__('URL is mandatory.'));
+			}
+			$newmenu = array();
+			for ($i = 0; $i < count($_POST['items_label']); $i++)
+			{
+				$newmenu[] = array(
+					'label' => $_POST['items_label'][$i],
+					'descr' => $_POST['items_descr'][$i],
+					'url' => $_POST['items_url'][$i]);
+			}
+			$menu = $newmenu;
+			// Save menu in blog settings
+			$core->blog->settings->system->put('simpleMenu',serialize($menu));
+
+			// All done successfully, return to menu items list
+			http::redirect($p_url.'&updated=1');
+		}
+		catch (Exception $e) {
+			$core->error->add($e->getMessage());
+		}
+	}
+	
+	# Order menu items
+	$order = array();
+	if (empty($_POST['im_order']) && !empty($_POST['order'])) {
+		$order = $_POST['order'];
+		asort($order);
+		$order = array_keys($order);
+	} elseif (!empty($_POST['im_order'])) {
+		$order = explode(',',$_POST['im_order']);
+	}
+
+	if (!empty($_POST['saveorder']) && !empty($order))
+	{
+		try {
+			$newmenu = array();
+			foreach ($order as $i => $k) {
+				$newmenu[] = array(
+					'label' => $menu[$k]['label'],
+					'descr' => $menu[$k]['descr'],
+					'url' => $menu[$k]['url']);
+			}
+			$menu = $newmenu;
+			// Save menu in blog settings
+			$core->blog->settings->system->put('simpleMenu',serialize($menu));
+
+			// All done successfully, return to menu items list
+			http::redirect($p_url.'&neworder=1');
+		} 
+		catch (Exception $e) {
+			$core->error->add($e->getMessage());
+		}
+	}
+	
 }
 
 # Display
@@ -237,7 +327,15 @@ if ($step) {
 
 <html>
 <head>
-  <title><?php echo $page_title; ?></title>
+	<title><?php echo $page_title; ?></title>
+	<?php
+		echo
+			dcPage::jsToolMan(); //.
+//			dcPage::jsLoad('index.php?pf=simpleMenu/dragdrop.js');
+	?>
+	<!--
+	<link rel="stylesheet" type="text/css" href="index.php?pf=simpleMenu/style.css" />
+	-->
 </head>
 
 <body>
@@ -253,6 +351,9 @@ if (!empty($_GET['removed'])) {
 if (!empty($_GET['neworder'])) {
 	echo '<p class="message">'.__('Menu items have been successfully updated.').'</p>';
 }
+if (!empty($_GET['updated'])) {
+	echo '<p class="message">'.__('Menu items have been successfully updated.').'</p>';
+}
 
 if ($step) 
 {
@@ -265,7 +366,7 @@ if ($step)
 			echo '<form id="additem" action="'.$p_url.'&add=2" method="post">';
 			echo '<fieldset><legend>'.__('Select type').'</legend>';
 			echo '<p class="field"><label for"item_type" class="classic">'.__('Type of item menu:').'</label>'.form::combo('item_type',$items_combo,'').'</p>';
-			echo '<p>'.$core->formNonce().'<input type="submit" name="append" value="'.__('Continue').'" />'.'</p>';
+			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue').'" />'.'</p>';
 			echo '</fieldset>';
 			echo '</form>';
 			break;
@@ -297,7 +398,7 @@ if ($step)
 						break;
 				}
 				echo form::hidden('item_type',$item_type);
-				echo '<p>'.$core->formNonce().'<input type="submit" name="append" value="'.__('Continue').'" /></p>';
+				echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue').'" /></p>';
 				echo '</fieldset>';
 				echo '</form>';
 				break;
@@ -307,20 +408,87 @@ if ($step)
 			echo '<form id="additem" action="'.$p_url.'&add=4" method="post">';
 			echo '<fieldset><legend>'.$item_type_label.($item_select_label != '' ? ' ('.$item_select_label.')' : '').'</legend>';
 			echo '<p class="field"><label for"item_label" class="classic">'.__('Label of item menu:').'</label>'.form::field('item_label',10,255,$item_label).'</p>';
-			echo '<p class="field"><label for"item_descr" class="classic">'.__('Description of item menu:').'</label>'.form::field('item_label',20,255,$item_descr).'</p>';
+			echo '<p class="field"><label for"item_descr" class="classic">'.__('Description of item menu:').'</label>'.form::field('item_descr',20,255,$item_descr).'</p>';
 			echo '<p class="field"><label for"item_url" class="classic">'.__('URL of item menu:').'</label>'.form::field('item_url',40,255,$item_url).'</p>';
 			echo form::hidden('item_type',$item_type).form::hidden('item_select',$item_select);
-			echo '<p>'.$core->formNonce().'<input type="submit" name="append" value="'.__('Add item').'" /></p>';
+			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Add item').'" /></p>';
 			echo '</fieldset>';
 			echo '</form>';
 			break;
 	}
-} else {
-	// Liste des items
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
+}
 
+// Liste des items
+if (!$step) {
+	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
+}
+	
+if (count($menu)) {
+	if (!$step) {
+		echo '<form id="menuitems" action="'.$p_url.'" method="post">';
+	}
+	// Entête table
+	echo 
+		'<table id="menuitemslist">'.
+		'<caption>'.__('Menu items list').'</caption>'.
+		'<thead>'.
+		'<tr>';
+	if (!$step) {
+		echo '<th scope="col"></th>';
+		if (count($menu) > 1) {
+			echo '<th scope="col">'.__('Order').'</th>';
+		}
+	}
+	echo
+		'<th scope="col">'.__('Label').'</th>'.
+		'<th scope="col">'.__('Description').'</th>'.
+		'<th scope="col">'.__('URL').'</th>'.
+		'</tr>'.
+		'</thead>'.
+		'<tbody>';
+	$count = 0;
+	foreach ($menu as $i => $m) {
+		echo '<tr>';
+		if (!$step) {
+			$count++;
+			echo '<td>'.form::checkbox(array('items_selected[]','ims-'.$i),false,'','','',($step)).'</td>';
+			if (count($menu) > 1) {
+				echo '<td>'.form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),__($m['label'])).'"').
+					form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>';
+			}
+			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),10,255,__($m['label']),'','',($step)).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),20,255,__($m['descr']),'','',($step)).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),40,255,$m['url'],'','',($step)).'</td>';
+		} else {
+			echo '<td class="nowrap" scope="row">'.__($m['label']).'</td>';
+			echo '<td class="nowrap">'.__($m['descr']).'</td>';
+			echo '<td class="nowrap">'.$m['url'].'</td>';
+		}
+		echo '</tr>';
+	}
+	echo '</tbody>'.
+		'</table>';
+	if (!$step) {
+		echo '<p>'.form::hidden('im_order','').$core->formNonce();
+		if (count($menu) > 1) {
+			echo '<input type="submit" name="saveorder" value="'.__('Save order').'" /> ';
+		}
+		echo
+			'<input type="submit" name="updateaction" value="'.__('Update menu items').'" /> '.
+			'<input type="submit" class="delete" name="removeaction" '.
+				'value="'.__('Delete selected menu items').'" '.
+				'onclick="return window.confirm(\''.html::escapeJS(__('Are you sure you want to remove selected menu items?')).'\');" />'.
+			'</p>';
+		echo '</form>';
+	}
+} else {
+	echo
+		'<p>'.__('Currently no menu items').'</p>';
+}
+
+if (!$step) {
 	echo '<form id="menuitems" action="'.$p_url.'&add=1" method="post">';
-	echo '<p>'.$core->formNonce().'<input type="submit" name="append" value="'.__('Add an item').'" /></p>';
+	echo '<p>'.$core->formNonce().'<input class="add" type="submit" name="appendaction" value="'.__('Add an item').'" /></p>';
 	echo '</form>';
 }
 
