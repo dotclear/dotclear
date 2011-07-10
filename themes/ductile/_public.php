@@ -16,8 +16,31 @@ if (!defined('DC_RC_PATH')) { return; }
 $core->addBehavior('publicHeadContent',array('tplDuctileTheme','publicHeadContent'));
 $core->addBehavior('publicInsideFooter',array('tplDuctileTheme','publicInsideFooter'));
 
+# Templates
+$core->tpl->addValue('ductileEntriesList',array('tplDuctileTheme','ductileEntriesList'));
+
 class tplDuctileTheme
 {
+	public static function ductileEntriesList($attr)
+	{
+		global $core;
+		$default = isset($attr['default']) ? trim($attr['default']) : 'short';
+
+		$model = '';
+		$s = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_lists');
+		if ($s !== null) {
+			$s = @unserialize($s);
+			if (is_array($s)) {
+				if (isset($s[$core->url->type])) {
+					$model = $s[$core->url->type];
+				}
+			}
+		}
+
+		$local_attr = array('src' => '_entry-'.($model ? $model : $default).'.html');
+		return $core->tpl->includeFile($local_attr);
+	}
+
 	public static function publicInsideFooter($core)
 	{
 		$res = '';

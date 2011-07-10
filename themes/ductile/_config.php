@@ -13,6 +13,21 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/admin');
 
+$list_types = array(
+	__('Title') => 'title',
+	__('Short') => 'short',
+	__('Full') => 'full'
+);
+
+$contexts = array(
+	'default' => __('Home (first page)'),
+	'default-page' => __('Home (other pages)'),
+	'category' => __('Entries for a category'),
+	'tag' => __('Entries for a tag'),
+	'search' => __('Search result entries'),
+	'archive-month' => __('Month archive entries')
+);
+
 $sticker_images = array(
 	__('Contact') => 'sticker-contact.png',
 	__('Feed') => 'sticker-feed.png',
@@ -112,6 +127,21 @@ if (!is_array($ductile_stickers)) {
 	$ductile_stickers = $ductile_stickers_base;
 }
 
+$ductile_lists_base = array(
+	'default' => null,
+	'default-page' => null,
+	'category' => null,
+	'tag' => null,
+	'search' => null,
+	'archive-month' => null
+);
+
+$ductile_lists = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_lists');
+$ductile_lists = @unserialize($ductile_lists);
+if (!is_array($ductile_lists)) {
+	$ductile_lists = $ductile_lists_base;
+}
+
 $conf_tab = isset($_POST['conf_tab']) ? $_POST['conf_tab'] : 'html';
 
 if (!empty($_POST))
@@ -146,6 +176,11 @@ if (!empty($_POST))
 				$ductile_stickers[$i]['url'] = null;
 				$ductile_stickers[$i]['image'] = null;
 			}
+
+			for ($i = 0; $i < count($_POST['list_type']); $i++) {
+				$ductile_lists[$_POST['list_ctx'][$i]] = $_POST['list_type'][$i];
+			}
+	 		
 		}
 		
 		# CSS
@@ -179,6 +214,7 @@ if (!empty($_POST))
 		$core->blog->settings->addNamespace('themes');
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_style',serialize($ductile_user));
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_stickers',serialize($ductile_stickers));
+		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_entries_lists',serialize($ductile_lists));
 		$core->blog->triggerBlog();
 
 		echo
@@ -236,6 +272,29 @@ echo '<table id="stickerslist">'.'<caption>'.__('Stickers (footer)').'</caption>
 '<td>'.form::field('sticker3_url',40,255,$ductile_stickers[2]['url']).'</td>'.
 '<td>'.form::combo('sticker3_image',$sticker_images,$ductile_stickers[2]['image']).'</td>'.
 '</tr>'.
+'</tbody>'.
+'</table>';
+
+echo '</fieldset>';
+
+echo '<fieldset><legend>'.__('Entries list types').'</legend>';
+
+echo '<table id="entrieslist">'.'<caption>'.__('Entries lists').'</caption>'.
+'<thead>'.
+'<tr>'.
+'<th scope="col">'.__('Context').'</th>'.
+'<th scope="col">'.__('Entries list type').'</th>'.
+'</tr>'.
+'</thead>'.
+'<tbody>';
+foreach ($ductile_lists as $k => $v) {
+	echo 
+		'<tr>'.
+		'<td scope="raw">'.$contexts[$k].'</td>'.
+		'<td>'.form::hidden(array('list_ctx[]'),$k).form::combo(array('list_type[]'),$list_types,$v).'</td>'.
+		'</tr>';
+}
+echo
 '</tbody>'.
 '</table>';
 

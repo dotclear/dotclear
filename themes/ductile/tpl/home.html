@@ -63,19 +63,19 @@
 		<!-- First page -->
 		<tpl:SysIf current_mode="default">
 			<tpl:LoopPosition start="1" length="1">
-	  		{{tpl:include src="_entry-full.html"}}
-	  	</tpl:LoopPosition>
+				{{tpl:include src="_entry-full.html"}}
+			</tpl:LoopPosition>
 	
 			<tpl:LoopPosition start="2">
-	  		{{tpl:include src="_entry-short.html"}}
-	  	</tpl:LoopPosition>
-  	</tpl:SysIf>
-  	
+				{{tpl:ductileEntriesList default="short"}}
+			</tpl:LoopPosition>
+		</tpl:SysIf>
+	
 		<!-- Next pages -->
 		<tpl:SysIf current_mode="!default">
-  		{{tpl:include src="_entry-short.html"}}
-  	</tpl:SysIf>  	
-    
+			{{tpl:ductileEntriesList default="short"}}
+		</tpl:SysIf>  	
+
 		<!-- Pagination -->
     <tpl:EntriesFooter>
 			{{tpl:include src="_pagination.html"}}
