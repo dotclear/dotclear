@@ -455,7 +455,7 @@ if ($file->editable && $core_media_writable)
 		'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
 		'<fieldset><legend>'.__('Update thumbnails').'</legend>'.
 		'<p>'.__('This will create or update thumbnails for this image.').'</p>'.
-		'<p><input type="submit" name="thumbs" value="'.__('update thumbnails').'" />'.
+		'<p><input type="submit" name="thumbs" value="'.__('Update thumbnails').'" />'.
 		form::hidden(array('id'),$id).
 		$core->formNonce().'</p>'.
 		'</fieldset></form>';
@@ -479,7 +479,7 @@ if ($file->editable && $core_media_writable)
 		'</ul>'.
 		'<p><label for="inflate_mode" class="classic">'.__('Extract mode:').' '.
 		form::combo('inflate_mode',$inflate_combo,'new').'</label> '.
-		'<input type="submit" name="unzip" value="'.__('extract').'" />'.
+		'<input type="submit" name="unzip" value="'.__('Extract').'" />'.
 		form::hidden(array('id'),$id).
 		$core->formNonce().'</p>'.
 		'</fieldset></form>';
@@ -511,7 +511,7 @@ if ($file->editable && $core_media_writable)
 	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).') '.
 	'<input type="file" id="upfile" name="upfile" size="35" />'.
 	'</label></p>'.
-	'<p><input type="submit" value="'.__('send').'" />'.
+	'<p><input type="submit" value="'.__('Send').'" />'.
 	form::hidden(array('id'),$id).
 	$core->formNonce().'</p>'.
 	'</fieldset></form>';

@@ -227,8 +227,8 @@ if ($dir && !empty($_GET['remove']))
 	'<form action="'.html::escapeURL($page_url).'" method="post">'.
 	'<p>'.sprintf(__('Are you sure you want to remove %s?'),
 	html::escapeHTML($_GET['remove'])).'</p>'.
-	'<p><input type="submit" value="'.__('cancel').'" /> '.
-	' &nbsp; <input type="submit" name="rmyes" value="'.__('yes').'" />'.
+	'<p><input type="submit" value="'.__('Cancel').'" /> '.
+	' &nbsp; <input type="submit" name="rmyes" value="'.__('Yes').'" />'.
 	form::hidden('d',$d).
 	$core->formNonce().
 	form::hidden('remove',html::escapeHTML($_GET['remove'])).'</p>'.
@@ -322,7 +322,7 @@ else
 	form::combo('file_sort',$sort_combo,$file_sort).'</label>'.
 	form::hidden(array('popup'),$popup).
 	form::hidden(array('post_id'),$post_id).
-	'<input type="submit" value="'.__('ok').'" /></p>'.
+	'<input type="submit" value="'.__('Sort').'" /></p>'.
 	'</form>'.
 	
 	'<div class="media-list">'.
@@ -358,7 +358,7 @@ if ($core_media_writable)
 	__('Private').'</label></p>'.
 	'<p class="form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
 	'<a href="preferences.php?tab=user-options"> '.__('My preferences').'</a></p>'.
-	'<p><input type="submit" value="'.__('send').'" />'.
+	'<p><input type="submit" value="'.__('Send').'" />'.
 	form::hidden(array('d'),$d).'</p>'.
 	'</fieldset>'.
 	'</form>'.
@@ -372,7 +372,7 @@ if ($core_media_writable)
 	$core->formNonce().
 	'<p><label for="newdir">'.__('Directory Name:').
 	form::field(array('newdir','newdir'),35,255).'</label></p>'.
-	'<p><input type="submit" value="'.__('Save').'" />'.
+	'<p><input type="submit" value="'.__('Create').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
 	'</fieldset>'.
 	'</form></div>';

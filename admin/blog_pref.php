@@ -527,7 +527,7 @@ if ($blog_id)
 				if (!$v['super'] && $core->auth->isSuperAdmin()) {
 					echo
 					' - <a href="permissions.php?blog_id[]='.$blog_id.'&amp;user_id[]='.$k.'">'
-					.__('change permissions').'</a>';
+					.__('Change permissions').'</a>';
 				}
 				
 				echo '</h4>';

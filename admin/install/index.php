@@ -336,7 +336,7 @@ if ($can_install && $step == 0)
 	form::password('u_pwd2',30,255).'</label></p>'.
 	'</fieldset>'.
 	
-	'<p><input type="submit" value="'.__('save').'" /></p>'.
+	'<p><input type="submit" value="'.__('Save').'" /></p>'.
 	'</form>';
 }
 elseif ($can_install && $step == 1)

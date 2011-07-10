@@ -354,7 +354,7 @@ if (!isset($imported)) {
 	'<input type="file" id="links_file" name="links_file" /></label></p>'.
 	'<p>'.form::hidden(array('p'),'blogroll').
 	$core->formNonce().
-	'<input type="submit" name="import_links" value="'.__('import').'" /></p>'.
+	'<input type="submit" name="import_links" value="'.__('Import').'" /></p>'.
 	'</fieldset>'.
 	'</form>';
 }
@@ -397,8 +397,8 @@ else {
 		'<p class="col right">'.
 		form::hidden(array('p'),'blogroll').
 		$core->formNonce().
-		'<input type="submit" name="cancel_import" value="'.__('cancel').'" />&nbsp;'.
-		'<input type="submit" name="import_links_do" value="'.__('import').'" /></p>'.
+		'<input type="submit" name="cancel_import" value="'.__('Cancel').'" />&nbsp;'.
+		'<input type="submit" name="import_links_do" value="'.__('Import').'" /></p>'.
 		'</div>';
 	}
 	echo

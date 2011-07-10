@@ -1304,6 +1304,9 @@ input[type=submit].delete {
 	padding-bottom: .1em;
 	margin-left: 1em;
 }
+#delete-category .delete {
+	margin-left: 0;
+}
 a.delete:hover,
 input.delete:hover,
 input[type=submit].delete:hover,
