@@ -917,6 +917,10 @@ div.static-msg a, p.static-msg a {
 }
 /* -------------------------------------------------------------------- CLASSES COMMUNES */
 
+.no-margin {
+	margin: 0;
+}
+
 /* paragraphe pour bouton Nouveau bidule */
 p.top-add {
 	text-align: right;
@@ -1304,7 +1308,7 @@ input[type=submit].delete {
 	padding-bottom: .1em;
 	margin-left: 1em;
 }
-#delete-category .delete {
+#delete-category .delete, #tag_delete .delete {
 	margin-left: 0;
 }
 a.delete:hover,
@@ -1333,7 +1337,7 @@ a.button.add {
 	margin-bottom: .1em;	
 	background: #2C8FD1 url(add.png) no-repeat 6px center;
 	color: #fff;
-	padding: .2em 12px .2em 24px;
+	padding: .2em 16px .2em 30px;
 	border: 1px solid #2373A8;
 }
 a.button.add:hover, a.button.add:focus {

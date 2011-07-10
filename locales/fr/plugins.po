@@ -1169,7 +1169,7 @@ msgid "Link to all tags:"
 msgstr "Lien vers tous les mots-clefs :"
 
 msgid "Edit tag"
-msgstr "Modifier un tag"
+msgstr "Modifier le tag"
 
 msgid "Tag has been successfully renamed"
 msgstr "Tag renommé avec succès"
