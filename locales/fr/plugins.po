@@ -1020,7 +1020,7 @@ msgid "previous page"
 msgstr "page précédente"
 
 msgid "Are you sure you want to delete this page?"
-msgstr "Êtes-vous certain de vouloir supprimer cette pages ?"
+msgstr "Êtes-vous certain de vouloir supprimer cette page ?"
 
 msgid "Page has been successfully updated."
 msgstr "La page a été mise à jour avec succès."
