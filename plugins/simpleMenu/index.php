@@ -107,6 +107,9 @@ if ($core->plugins->moduleExists('tags')) {
 		$items['tags'] = array(__('Tags'),1);
 }
 
+# --BEHAVIOR-- adminSimpleMenuAddType
+$core->callBehavior('adminSimpleMenuAddType',$items);
+
 $items['special'] = array(__('User defined'),0);
 
 $items_combo = array();
