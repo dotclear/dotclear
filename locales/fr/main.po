@@ -423,7 +423,7 @@ msgid "Configure theme"
 msgstr "Configurer le thème"
 
 msgid "Theme configuration"
-msgstr "Configuration du thème"
+msgstr "Configurer le thème"
 
 msgid "Blog themes"
 msgstr "Thèmes du blog"
@@ -753,7 +753,7 @@ msgid "mark as junk"
 msgstr "indésirable"
 
 msgid "Delete"
-msgstr "supprimer"
+msgstr "Supprimer"
 
 msgid "Type:"
 msgstr "Type :"
@@ -979,7 +979,7 @@ msgid "Username and password"
 msgstr "Identifiant et mot de passe"
 
 msgid "Save"
-msgstr "enregistrer"
+msgstr "Enregistrer"
 
 msgid "All done!"
 msgstr "Terminé !"
@@ -1613,6 +1613,9 @@ msgstr "Pièces jointes"
 
 msgid "remove"
 msgstr "supprimer"
+
+msgid "Remove"
+msgstr "Supprimer"
 
 msgid "No attachment."
 msgstr "Aucune pièce jointe"

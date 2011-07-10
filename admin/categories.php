@@ -135,7 +135,7 @@ while ($rs->fetch()) {
 }
 echo
 '</select></label></p>'.
-'<p><input type="submit" value="'.__('Save').'" /></p>'.
+'<p><input type="submit" value="'.__('Create').'" /></p>'.
 $core->formNonce().
 '</fieldset>'.
 '</form>';

@@ -319,7 +319,12 @@ if (!empty($_GET['xconv']))
 	echo '<p class="message">'.__('Don\'t forget to validate your XHTML conversion by saving your post.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title.' 	&ldquo;'.$post_title.'&rdquo;</span></h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title;
+
+	if ($post_id) {
+		echo ' &ldquo;'.$post_title.'&rdquo;';
+	}
+echo	'</span></h2>';
 
 if ($post_id && $post->post_status == 1) {
 	echo '<p><a href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
