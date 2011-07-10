@@ -385,7 +385,7 @@ msgstr "Utenti di questo blog"
 msgid "No users"
 msgstr "Nessun utente"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "cambia i permessi"
 
 msgid "Super administrator"
@@ -754,7 +754,7 @@ msgstr "segna come in moderazione"
 msgid "mark as junk"
 msgstr "segna come spam"
 
-msgid "delete"
+msgid "Delete"
 msgstr "elimina"
 
 msgid "Type:"
@@ -985,7 +985,7 @@ msgstr "Cognome:"
 msgid "Username and password"
 msgstr "Nome utente e password"
 
-msgid "save"
+msgid "Save"
 msgstr "salva"
 
 msgid "All done!"
@@ -1168,10 +1168,10 @@ msgstr "conferma eliminazione"
 msgid "Are you sure you want to remove %s?"
 msgstr "Si è sicuri di voler eliminare %s?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "annulla"
 
-msgid "yes"
+msgid "Yes"
 msgstr "sì"
 
 msgid "Directory has been successfully created."
@@ -1428,7 +1428,7 @@ msgstr "Articoli per pagina"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Selezionare uno o più blog ai quali si desidera dare i permessi agli utenti %s."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "imposta permessi"
 
 #, fuzzy

@@ -1370,10 +1370,10 @@ msgstr "Сайдбар для навигации"
 msgid "Extra sidebar"
 msgstr "Экстра сайдбар"
 
-msgid "update sidebars"
+msgid "Update sidebars"
 msgstr "Обновить сайдбары"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "Переустановить сайдбары"
 
 msgid "Widget templates tags"

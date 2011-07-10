@@ -1371,10 +1371,10 @@ msgstr "Navigační panel"
 msgid "Extra sidebar"
 msgstr "Extra panel"
 
-msgid "update sidebars"
+msgid "Update sidebars"
 msgstr "aktualizovat panely"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "resetovat panely"
 
 msgid "Widget templates tags"

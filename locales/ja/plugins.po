@@ -1382,10 +1382,10 @@ msgstr "ナビゲーションサイドバー"
 msgid "Extra sidebar"
 msgstr "拡張サイドバー"
 
-msgid "update sidebars"
+msgid "Update sidebars"
 msgstr "サイドバーを更新"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "サイドバーをリセット"
 
 msgid "Widget templates tags"

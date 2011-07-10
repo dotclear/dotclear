@@ -387,7 +387,7 @@ msgstr "ఈ బ్లాగు వాడుకరులు"
 msgid "No users"
 msgstr "వాడుకరులు లేరు"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "అనుమతులని మార్చండి"
 
 msgid "Super administrator"
@@ -766,7 +766,7 @@ msgstr ""
 msgid "mark as junk"
 msgstr ""
 
-msgid "delete"
+msgid "Delete"
 msgstr "తొలగించు"
 
 msgid "Type:"
@@ -1001,7 +1001,7 @@ msgstr "చివరి తాజాకరణ"
 msgid "Username and password"
 msgstr "తప్పుడు వాడుకరిపేరు లేదా సంకేతపదం"
 
-msgid "save"
+msgid "Save"
 msgstr "భద్రపరచు"
 
 msgid "All done!"
@@ -1185,10 +1185,10 @@ msgstr "తొలగింపుని నిర్ధారించండి"
 msgid "Are you sure you want to remove %s?"
 msgstr "%sని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "రద్దుచేయి"
 
-msgid "yes"
+msgid "Yes"
 msgstr "అవును"
 
 msgid "Directory has been successfully created."
@@ -1447,7 +1447,7 @@ msgstr "టపాలు (ఒక పేజీకి)"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "అనుమతులు ఇవ్వండి"
 
 #, fuzzy

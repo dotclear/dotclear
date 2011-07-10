@@ -395,7 +395,7 @@ msgstr "Usuaris en aquest blog"
 msgid "No users"
 msgstr "Cap usuari"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "Canviar permisos"
 
 msgid "Super administrator"
@@ -778,7 +778,7 @@ msgstr "marcar com a pendent"
 msgid "mark as junk"
 msgstr "marca com a no desitjat"
 
-msgid "delete"
+msgid "Delete"
 msgstr "suprimir"
 
 msgid "Type:"
@@ -1016,7 +1016,7 @@ msgstr "Última actualització"
 msgid "Username and password"
 msgstr "Identificador o contrasenya incorrectes"
 
-msgid "save"
+msgid "Save"
 msgstr "desa"
 
 msgid "All done!"
@@ -1216,10 +1216,10 @@ msgstr "Confirmar la supressió"
 msgid "Are you sure you want to remove %s?"
 msgstr "Està segur que vol suprimir  %s?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "Anul·lar"
 
-msgid "yes"
+msgid "Yes"
 msgstr "Sí"
 
 msgid "Directory has been successfully created."
@@ -1483,7 +1483,7 @@ msgstr "Entrades per pàgina"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Esculli un o més blogs en els quals vulgui atribuir permisos als usuaris %s."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "definir els permisos"
 
 #, fuzzy

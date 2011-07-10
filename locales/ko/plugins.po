@@ -1389,10 +1389,10 @@ msgstr "기본사항 측면판"
 msgid "Extra sidebar"
 msgstr "추가사항 측면판"
 
-msgid "update sidebars"
+msgid "Update sidebars"
 msgstr "측면판 갱신"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "측면판 초기화"
 
 msgid "Widget templates tags"

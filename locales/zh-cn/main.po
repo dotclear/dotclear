@@ -387,7 +387,7 @@ msgstr "这个博客上的用户"
 msgid "No users"
 msgstr "没有用户"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "改变权限"
 
 msgid "Super administrator"
@@ -756,7 +756,7 @@ msgstr "标记为待审核"
 msgid "mark as junk"
 msgstr "标记为垃圾评论"
 
-msgid "delete"
+msgid "Delete"
 msgstr "删除"
 
 msgid "Type:"
@@ -988,7 +988,7 @@ msgstr "姓："
 msgid "Username and password"
 msgstr "用户名和密码"
 
-msgid "save"
+msgid "Save"
 msgstr "保存"
 
 msgid "All done!"
@@ -1172,10 +1172,10 @@ msgstr "确认清除"
 msgid "Are you sure you want to remove %s?"
 msgstr "您确定要移除 %s 吗？"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "取消"
 
-msgid "yes"
+msgid "Yes"
 msgstr "是"
 
 msgid "Directory has been successfully created."
@@ -1433,7 +1433,7 @@ msgstr "每页文章数"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "选择一个或者多个您想要赋予用户 %s 权限的博客。"
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "设置权限"
 
 #, fuzzy

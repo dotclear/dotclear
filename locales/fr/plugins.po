@@ -1366,10 +1366,10 @@ msgstr "Bandeau de navigation"
 msgid "Extra sidebar"
 msgstr "Bandeau d'extra"
 
-msgid "update sidebars"
+msgid "Update sidebars"
 msgstr "Mettre à jour les bandeaux"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "Réinitialiser les bandeaux"
 
 msgid "Widget templates tags"

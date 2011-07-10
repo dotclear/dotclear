@@ -1364,10 +1364,10 @@ msgstr "Pasek nawigacji"
 msgid "Extra sidebar"
 msgstr "Pasek dodatkowy"
 
-msgid "update sidebars"
+msgid "Update sidebars"
 msgstr "zaktualizuj paski boczne"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "resetuj paski boczne"
 
 msgid "Widget templates tags"

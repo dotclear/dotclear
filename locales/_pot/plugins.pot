@@ -1867,11 +1867,11 @@ msgid "Extra sidebar"
 msgstr ""
 
 #: plugins/widgets/index.php:209
-msgid "update sidebars"
+msgid "Update sidebars"
 msgstr ""
 
 #: plugins/widgets/index.php:210
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr ""
 
 #: plugins/widgets/index.php:215

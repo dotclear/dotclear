@@ -389,7 +389,7 @@ msgstr "Bu blog'daki kullanıcılar"
 msgid "No users"
 msgstr "Kullanıcı yok"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "izinleri değiştir"
 
 msgid "Super administrator"
@@ -752,7 +752,7 @@ msgstr "beklemede işaretle"
 msgid "mark as junk"
 msgstr "spam işaretle"
 
-msgid "delete"
+msgid "Delete"
 msgstr "sil"
 
 msgid "Type:"
@@ -982,7 +982,7 @@ msgstr "Soy İsim:"
 msgid "Username and password"
 msgstr "Kullanıcı adı ve parola"
 
-msgid "save"
+msgid "Save"
 msgstr "kaydet"
 
 msgid "All done!"
@@ -1166,10 +1166,10 @@ msgstr "kaldırmayı onayla"
 msgid "Are you sure you want to remove %s?"
 msgstr ""
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "iptal"
 
-msgid "yes"
+msgid "Yes"
 msgstr "evet"
 
 msgid "Directory has been successfully created."
@@ -1426,7 +1426,7 @@ msgstr "Sayfa başına yazı"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "izinleri ayarla"
 
 #, fuzzy
