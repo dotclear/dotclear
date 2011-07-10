@@ -1306,10 +1306,9 @@ input.delete,
 input[type=submit].delete {
 	color: #c00;
 	padding-bottom: .1em;
-	margin-left: 1em;
 }
-#delete-category .delete, #tag_delete .delete {
-	margin-left: 0;
+#entry-content .delete {
+	margin-left: 1em;
 }
 a.delete:hover,
 input.delete:hover,

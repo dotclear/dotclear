@@ -150,7 +150,9 @@ else
 		'<input name="delete_all" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
 	}
 	if ($moderationTTL != null && $moderationTTL >=0) {
-		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).'</p>';
+		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
+		__('You can modify this duration in ').
+		'<a href="blog_pref.php"> '.__('Blog preferences').'</a></p>';
 	}
 	echo '</form>';
 
