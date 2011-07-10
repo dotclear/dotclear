@@ -87,30 +87,31 @@ try {
 } catch (Exception $e) { }
 
 # Liste des types d'item de menu
-$items = array('home' => array(__('Home'),0));
+$items = array('home' => array(__('Home'),false));
 
 if (count($langs_combo) > 1) {
-	$items['lang'] = array(__('Language'),1);
+	$items['lang'] = array(__('Language'),true);
 }
 if (count($categories_combo)) {
-	$items['category'] = array(__('Category'),1);
+	$items['category'] = array(__('Category'),true);
 }
 if (count($months_combo) > 1) {
-	$items['archive'] = array(__('Archive'),1);
+	$items['archive'] = array(__('Archive'),true);
 }
 if ($core->plugins->moduleExists('pages')) {
 	if(count($pages_combo))
-		$items['pages'] = array(__('Page'),1);
+		$items['pages'] = array(__('Page'),true);
 }
 if ($core->plugins->moduleExists('tags')) {
 	if (count($tags_combo) > 1)
-		$items['tags'] = array(__('Tags'),1);
+		$items['tags'] = array(__('Tags'),true);
 }
 
 # --BEHAVIOR-- adminSimpleMenuAddType
+# Should add an item to $items as an array(<label>,<optional step (true or false)>)
 $core->callBehavior('adminSimpleMenuAddType',$items);
 
-$items['special'] = array(__('User defined'),0);
+$items['special'] = array(__('User defined'),false);
 
 $items_combo = array();
 foreach ($items as $k => $v) {
@@ -145,7 +146,7 @@ if ($step) {
 			$item_type = $item_select = '';
 			break;
 		case 2:
-			if ($items[$item_type][1] > 0) {
+			if ($items[$item_type][1]) {
 				// Second step (optional), menu item sub-type to be selected
 				$item_select = '';
 				break;
@@ -204,6 +205,13 @@ if ($step) {
 					}
 					break;
 				case 'special':
+					break;
+				default:
+					# --BEHAVIOR-- adminSimpleMenuBeforeEdit
+					# Should modify if necessary $item_label, $item_descr and $item_url
+					# Should set if necessary $item_select_label (displayed on further admin step only)
+					$core->callBehavior('adminSimpleMenuBeforeEdit',$item_type,$item_select,
+						$item_label,$item_descr,$item_url,$item_select_label);
 					break;
 			}
 			break;
@@ -429,7 +437,7 @@ if ($step)
 			echo '</form>';
 			break;
 		case 2:
-			if ($items[$item_type][1] > 0) {
+			if ($items[$item_type][1]) {
 				// Choix à faire
 				echo '<form id="additem" action="'.$p_url.'&add=3" method="post">';
 				echo '<fieldset><legend>'.$item_type_label.'</legend>';
@@ -454,6 +462,11 @@ if ($step)
 						echo '<p class="field"><label for"item_select" class="classic">'.__('Select tag (if necessary):').'</label>'.
 							form::combo('item_select',$tags_combo,'');
 						break;
+					default:
+						echo
+							# --BEHAVIOR-- adminSimpleMenuSelect
+							# Optional step once $item_type known : should provide a field using 'item_select' as id
+							$core->callBehavior('adminSimpleMenuSelect',$item_type,'item_select');
 				}
 				echo form::hidden('item_type',$item_type);
 				echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue…').'" /></p>';
