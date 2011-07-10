@@ -541,6 +541,7 @@ if (!$step) {
 	echo '</form>';
 }
 
+dcPage::helpBlock('simpleMenu');
 ?>
 
 </body>
