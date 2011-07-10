@@ -58,7 +58,7 @@ $combo_action = array(
 	__('Delete') => 'deleteuser'
 );
 
-# --BEHAVIOR-- adminUser	sActionsCombo
+# --BEHAVIOR-- adminUsersActionsCombo
 $core->callBehavior('adminUsersActionsCombo',array(&$combo_action));
 
 

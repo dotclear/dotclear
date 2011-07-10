@@ -71,9 +71,8 @@ else
 	echo
 	'<h2><a href="blogs.php">'.__('Blogs').'</a> &rsaquo; <span class="page-title">'.__('New blog').'</span></h2>'.
 	
-	'<form action="blog.php" method="post" id="blog-form">'.
+	'<form action="blog.php" method="post" id="blog-form" class="fieldset">'.
 	
-	'<fieldset><legend>'.__('Blog details').'</legend>'.
 	$core->formNonce().
 	'<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').' '.
 	form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</label></p>'.
@@ -88,9 +87,8 @@ else
 	
 	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label> '.
 	form::textarea('blog_desc',60,5,html::escapeHTML($blog_desc)).'</p>'.
-	'</fieldset>'.
 	
-	'<p><input type="submit" accesskey="s" value="'.__('Save').'" /></p>'.
+	'<p><input type="submit" accesskey="s" value="'.__('Create').'" /></p>'.
 	'</form>';
 
 	dcPage::close();
