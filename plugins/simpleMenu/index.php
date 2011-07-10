@@ -106,6 +106,7 @@ if ($core->plugins->moduleExists('tags')) {
 	if (count($tags_combo) > 1)
 		$items['tags'] = array(__('Tags'),1);
 }
+
 $items['special'] = array(__('User defined'),0);
 
 $items_combo = array();
@@ -338,28 +339,30 @@ if ($step) {
 	<title><?php echo $page_title; ?></title>
 	<?php
 		echo
-			dcPage::jsToolMan();
+			dcPage::jsToolMan().
+			# --BEHAVIOR-- adminPageHeaders
+			$core->callBehavior('adminPageHeaders');
 	?>
-	  <?php 
+	<?php 
 		$core->auth->user_prefs->addWorkspace('accessibility'); 
 		$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
-	  ?>
-	  <?php if (!$user_dm_nodragdrop) : ?>
-	  <script type="text/javascript">
-	  //<![CDATA[
+	?>
+	<?php if (!$user_dm_nodragdrop) : ?>
+	<script type="text/javascript">
+	//<![CDATA[
 
-	  var dragsort = ToolMan.dragsort();
-	  $(function() {
-	  	dragsort.makeTableSortable($("#menuitemslist").get(0),
-	  	dotclear.sortable.setHandle,dotclear.sortable.saveOrder);
+	var dragsort = ToolMan.dragsort();
+	$(function() {
+		dragsort.makeTableSortable($("#menuitemslist").get(0),
+		dotclear.sortable.setHandle,dotclear.sortable.saveOrder);
 
 		$('.checkboxes-helpers').each(function() {
 			dotclear.checkboxesHelpers(this);
 		});
-	  });
+	});
 
-	  dotclear.sortable = {
-		  setHandle: function(item) {
+	dotclear.sortable = {
+		setHandle: function(item) {
 			var handle = $(item).find('td.handle').get(0);
 			while (handle.firstChild) {
 				handle.removeChild(handle.firstChild);
@@ -367,9 +370,9 @@ if ($step) {
 
 			item.toolManDragGroup.setHandle(handle);
 			handle.className = handle.className+' handler';
-		  },
+		},
 
-		  saveOrder: function(item) {
+		saveOrder: function(item) {
 			var group = item.toolManDragGroup;
 			var order = document.getElementById('im_order');
 			group.register('dragend', function() {
@@ -380,11 +383,11 @@ if ($step) {
 					order.value += items[i].id.substr(2)+',';
 				}
 			});
-		  }
-	  };
-	  //]]>
-	  </script>
-	  <?php endif; ?>
+		}
+	};
+	//]]>
+	</script>
+	<?php endif; ?>
 	<!--
 	<link rel="stylesheet" type="text/css" href="index.php?pf=simpleMenu/style.css" />
 	-->
