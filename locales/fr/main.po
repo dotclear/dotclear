@@ -237,10 +237,10 @@ msgid "Parameters"
 msgstr "Paramètres"
 
 msgid "URL scan method:"
-msgstr "Méthode de lecture de l'URL"
+msgstr "Méthode de lecture de l'URL :"
 
 msgid "Blog status:"
-msgstr "État du blog"
+msgstr "État du blog :"
 
 msgid "Blog configuration"
 msgstr "Configuration du blog"
