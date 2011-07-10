@@ -371,7 +371,7 @@ abbr {
 	margin-bottom: .5em;
 	margin-left: .5em;
 }
-#login-screen fieldset {
+#login-screen fieldset, #login-screen .fieldset {
 	border: 1px solid #999;
 	padding: 1em 1em 0 1em;
 	-moz-border-radius: 4px;

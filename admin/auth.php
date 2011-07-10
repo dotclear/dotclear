@@ -333,11 +333,11 @@ elseif ($recover)
 {
 	echo
 	'<fieldset><legend>'.__('Request a new password').'</legend>'.
-	'<p><label for="user_id">'.__('Username:').' '.
-	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</label></p>'.
+	'<p><label for="user_id">'.__('Username:').'</label> '.
+	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</p>'.
 	
-	'<p><label for="user_email">'.__('Email:').' '.
-	form::field(array('user_email','user_email'),20,255,html::escapeHTML($user_email)).'</label></p>'.
+	'<p><label for="user_email">'.__('Email:').'</label> '.
+	form::field(array('user_email','user_email'),20,255,html::escapeHTML($user_email)).'</p>'.
 	
 	'<p><input type="submit" value="'.__('recover').'" />'.
 	form::hidden(array('recover'),1).'</p>'.
@@ -350,11 +350,11 @@ elseif ($change_pwd)
 {
 	echo
 	'<fieldset><legend>'.__('Change your password').'</legend>'.
-	'<p><label for="new_pwd">'.__('New password:').' '.
-	form::password(array('new_pwd','new_pwd'),20,255).'</label></p>'.
+	'<p><label for="new_pwd">'.__('New password:').'</label> '.
+	form::password(array('new_pwd','new_pwd'),20,255).'</p>'.
 	
-	'<p><label for="new_pwd_c">'.__('Confirm password:').' '.
-	form::password(array('new_pwd_c','new_pwd_c'),20,255).'</label></p>'.
+	'<p><label for="new_pwd_c">'.__('Confirm password:').'</label> '.
+	form::password(array('new_pwd_c','new_pwd_c'),20,255).'</p>'.
 	'</fielset>'.
 	
 	'<p><input type="submit" value="'.__('change').'" />'.
@@ -368,9 +368,8 @@ else
 	}
 	else
 	{
-		echo
-		'<fieldset>';
 		if ($safe_mode) {
+			echo '<fieldset>';
 			echo '<legend>'.__('Safe mode login').'</legend>';
 			echo 
 				'<p class="form-note info">'.
@@ -379,18 +378,19 @@ else
 				'</p>';
 		}
 		else {
-			echo '<legend>'.__('Connection').'</legend>';
+			echo '<div class="fieldset">';
 		}
 
 		echo
-		'<p><label for="user_id">'.__('Username:').' '.
-		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</label></p>'.
+		'<p><label for="user_id">'.__('Username:').'</label> '.
+		form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</p>'.
 		
-		'<p><label for="user_pwd">'.__('Password:').' '.
-		form::password(array('user_pwd','user_pwd'),20,255).'</label></p>'.
+		'<p><label for="user_pwd">'.__('Password:').'</label> '.
+		form::password(array('user_pwd','user_pwd'),20,255).'</p>'.
 		
-		'<p><label for="user_remember" class="classic">'.
-		form::checkbox(array('user_remember','user_remember'),1).' '.
+		'<p>'.
+		form::checkbox(array('user_remember','user_remember'),1).
+		'<label for="user_remember" class="classic">'.
 		__('Remember my ID on this computer').'</label></p>'.
 		
 		'<p><input type="submit" value="'.__('log in').'" /></p>';
@@ -399,11 +399,14 @@ else
 			echo form::hidden('blog',html::escapeHTML($_REQUEST['blog']));
 		}
 		if($safe_mode) {
-			echo form::hidden('safe_mode',1);
+			echo 
+			form::hidden('safe_mode',1).
+			'</fieldset>';
 		}
-		
+		else {
+			echo '</div>';
+		}
 		echo
-		'</fieldset>'.
 		'<p id="cookie_help" class="error">'.__('You must accept cookies in order to use the private area.').'</p>';
 
 		echo '<div id="issue">';
