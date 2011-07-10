@@ -74,12 +74,12 @@ dcPage::open(__('Search'),$starting_scripts);
 echo
 '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Search').'</span></h2>'.
 '<form action="search.php" method="get">'.
-'<fieldset><legend>'.__('Search options').'</legend>'.
-'<p><label for="q" class="classic">'.__('Query:').' '.form::field('q',30,255,html::escapeHTML($q)).'</label> '.
-'<label for="qtype1" class="classic">'.form::radio(array('qtype','qtype1'),'p',$qtype == 'p').' '.__('search entries').'</label> '.
-'<label for="qtype2" class="classic">'.form::radio(array('qtype','qtype2'),'c',$qtype == 'c').' '.__('search comments').'</label> '.
-' <input type="submit" value="'.__('ok').'" /></p>'.
-'</fieldset>'.
+'<div class="fieldset"><h3>'.__('Search options').'</h3>'.
+'<p><label for="q">'.__('Query:').' </label>'.form::field('q',30,255,html::escapeHTML($q)).'</p>'.
+'<p><label for="qtype1" class="classic">'.form::radio(array('qtype','qtype1'),'p',$qtype == 'p').' '.__('Search entries').'</label> '.
+'<label for="qtype2" class="classic">'.form::radio(array('qtype','qtype2'),'c',$qtype == 'c').' '.__('Search comments').'</label></p>'.
+'</p><input type="submit" value="'.__('Search').'" /></p>'.
+'</div>'.
 '</form>';
 
 if ($q && !$core->error->flag())

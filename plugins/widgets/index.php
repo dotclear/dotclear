@@ -186,7 +186,7 @@ foreach ($__widgets->elements(true) as $w) {
 echo
 '</div>'.
 '</fieldset>'.
-'<p><input type="submit" class="js-remove" name="append" value="'.__('add widgets to sidebars').'" />'.
+'<p><input type="submit" class="js-remove" name="append" value="'.__('Add widgets to sidebars').'" />'.
 $core->formNonce().'</p>'.
 '</form>';
 
@@ -206,8 +206,8 @@ sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_
 echo
 '<p id="sidebarsControl">'.
 $core->formNonce().
-'<input type="submit" name="wup" value="'.__('update sidebars').'" /> '.
-'<input type="submit" class="reset" name="wreset" value="'.__('reset sidebars').'" /></p>'.
+'<input type="submit" name="wup" value="'.__('Update sidebars').'" /> '.
+'<input type="submit" class="reset" name="wreset" value="'.__('Reset sidebars').'" /></p>'.
 '</form>';
 
 $widget_elements = new stdClass;

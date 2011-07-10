@@ -461,8 +461,8 @@ msgstr "Thèmes"
 msgid "You are currently using \"%s\""
 msgstr "Vous utilisez actuellement \"%s\""
 
-msgid "use selected theme"
-msgstr "utiliser le thème sélectionné"
+msgid "Use selected theme"
+msgstr "Utiliser le thème sélectionné"
 
 msgid "delete selected theme"
 msgstr "Supprimer le thème sélectionné"

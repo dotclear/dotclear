@@ -382,8 +382,8 @@ msgstr "Utilisateurs de ce blog"
 msgid "No users"
 msgstr "Aucun utilisateur"
 
-msgid "change permissions"
-msgstr "changer les permissions"
+msgid "Change permissions"
+msgstr "Changer les permissions"
 
 msgid "Super administrator"
 msgstr "Super administrateur"
@@ -418,6 +418,9 @@ msgstr "(nécessite \"%s\")"
 
 msgid "Stylesheet"
 msgstr "Feuille de style"
+
+msgid "Configure theme"
+msgstr "Configurer le thème"
 
 msgid "Theme configuration"
 msgstr "Configuration du thème"
@@ -454,10 +457,10 @@ msgstr "Thèmes"
 msgid "You are currently using \"%s\""
 msgstr "Vous utilisez actuellement \"%s\""
 
-msgid "use selected theme"
-msgstr "utiliser le thème sélectionné"
+msgid "Use selected theme"
+msgstr "Utiliser le thème sélectionné"
 
-msgid "delete selected theme"
+msgid "Delete selected theme"
 msgstr "Supprimer le thème sélectionné"
 
 msgid "Install or upgrade a theme"
@@ -852,8 +855,8 @@ msgstr "Contenu :"
 msgid "Category:"
 msgstr "Catégorie :"
 
-msgid "save and publish"
-msgstr "enregister et publier"
+msgid "Save and publish"
+msgstr "Enregister et publier"
 
 #, php-format
 msgid "PHP version is %s (5.0 or earlier needed)."
@@ -1199,6 +1202,9 @@ msgstr "Aucun fichier."
 msgid "Sort files:"
 msgstr "Trier les fichiers :"
 
+msgid "Sort"
+msgstr "Trier"
+
 msgid "Add files"
 msgstr "Ajouter des fichiers"
 
@@ -1218,8 +1224,8 @@ msgstr "Privé"
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Pour envoyer plusieurs fichiers à la fois, vous pouvez activer l'interface avancée dans"
 
-msgid "send"
-msgstr "envoyer"
+msgid "Send"
+msgstr "Envoyer"
 
 msgid "New directory"
 msgstr "Nouveau répertoire"

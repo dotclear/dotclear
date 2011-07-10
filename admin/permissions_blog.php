@@ -164,7 +164,7 @@ if (!$core->error->flag())
 		
 		'<p class="checkboxes-helpers"></p>'.
 		
-		'<p><input type="submit" value="'.__('set permissions').'" />'.
+		'<p><input type="submit" value="'.__('Set permissions').'" />'.
 		$hidden_fields.
 		$core->formNonce().'</p>'.
 		'</form>';

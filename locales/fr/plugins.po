@@ -1180,6 +1180,9 @@ msgstr "Retour à la liste des tags"
 msgid "Rename this tag:"
 msgstr "Renommer ce tag :"
 
+msgid "Rename"
+msgstr "Renommer"
+
 msgid "Delete this tag"
 msgstr "Supprimer ce tag"
 

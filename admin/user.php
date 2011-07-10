@@ -289,7 +289,7 @@ $core->formNonce().
 
 if ($user_id)
 {
-	echo '<fieldset class="clear"><legend>'.__('Permissions').'</legend>';
+	echo '<div class="clear fieldset"><h3>'.__('Permissions').'</h3>';
 	
 	$permissions = $core->getUserPermissions($user_id);
 	$perm_types = $core->auth->getPermissionsTypes();
@@ -307,7 +307,7 @@ if ($user_id)
 				echo '<h4><a href="blog.php?id='.html::escapeHTML($k).'">'.
 				html::escapeHTML($v['name']).'</a> ('.html::escapeHTML($k).') - '.
 				'<a href="permissions.php?blog_id[]='.$k.'&amp;user_id[]='.$user_id.'">'
-				.__('change permissions').'</a></h4>';
+				.__('Change permissions').'</a></h4>';
 				
 				echo '<ul>';
 				foreach ($v['p'] as $p => $V) {
@@ -323,7 +323,7 @@ if ($user_id)
 	echo
 	'<p><a href="permissions_blog.php?user_id[]='.$user_id.'">'.
 	__('Add new permissions').'</a></p>'.
-	'</fieldset>';
+	'</div>';
 }
 
 dcPage::helpBlock('core_user');

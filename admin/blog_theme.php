@@ -193,7 +193,7 @@ function display_theme_details($id,$details,$current)
 	'</div>'.
 	'<div class="theme-actions">';
 		if ($current && $has_conf) {
-			$res .= '<p><a href="blog_theme.php?conf=1" class="button">'.__('Theme configuration').'</a></p>';
+			$res .= '<p><a href="blog_theme.php?conf=1" class="button">'.__('Configure theme').'</a></p>';
 		}
 		if ($current) {
 			# --BEHAVIOR-- adminCurrentThemeDetails
@@ -268,10 +268,10 @@ if (!$theme_conf_mode)
 	echo
 	'<div class="two-cols clear" id="themes-actions">'.
 	$core->formNonce().
-	'<p class="col"><input type="submit" name="select" value="'.__('use selected theme').'" /></p>';
+	'<p class="col"><input type="submit" name="select" value="'.__('Use selected theme').'" /></p>';
 	
 	if ($can_install) {
-		echo '<p class="col right"><input type="submit" class="delete" name="remove" value="'.__('delete selected theme').'" /></p>';
+		echo '<p class="col right"><input type="submit" class="delete" name="remove" value="'.__('Delete selected theme').'" /></p>';
 	}
 	
 	echo
