@@ -384,7 +384,7 @@ msgstr ""
 msgid "No users"
 msgstr ""
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr ""
 
 msgid "Super administrator"
@@ -751,7 +751,7 @@ msgstr ""
 msgid "mark as junk"
 msgstr ""
 
-msgid "delete"
+msgid "Delete"
 msgstr ""
 
 msgid "Type:"
@@ -980,7 +980,7 @@ msgstr "Nom:"
 msgid "Username and password"
 msgstr ""
 
-msgid "save"
+msgid "Save"
 msgstr "salvar"
 
 msgid "All done!"
@@ -1167,10 +1167,10 @@ msgstr ""
 msgid "Are you sure you want to remove %s?"
 msgstr ""
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "dirimir"
 
-msgid "yes"
+msgid "Yes"
 msgstr "òc"
 
 msgid "Directory has been successfully created."
@@ -1428,7 +1428,7 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr ""
 
 msgid "select"

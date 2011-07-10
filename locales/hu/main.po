@@ -393,7 +393,7 @@ msgstr "Felhasználók a blogon"
 msgid "No users"
 msgstr "Nincsenek felhasználók"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "jogok megváltoztatása"
 
 msgid "Super administrator"
@@ -778,7 +778,7 @@ msgstr "függőként megjelöl"
 msgid "mark as junk"
 msgstr "szemétként megjelöl"
 
-msgid "delete"
+msgid "Delete"
 msgstr "törlés"
 
 msgid "Type:"
@@ -1015,7 +1015,7 @@ msgstr "Legutóbbi frisítés"
 msgid "Username and password"
 msgstr "Hibás felhasználónév vagy jelszó"
 
-msgid "save"
+msgid "Save"
 msgstr "mentés"
 
 msgid "All done!"
@@ -1205,10 +1205,10 @@ msgstr "törlés megerősítése"
 msgid "Are you sure you want to remove %s?"
 msgstr "Biztosan szeretnéd a %s-t törölni?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "vissza"
 
-msgid "yes"
+msgid "Yes"
 msgstr "igen"
 
 msgid "Directory has been successfully created."
@@ -1468,7 +1468,7 @@ msgstr "Bejegyzések oldalanként"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Válassz legalább egy blogot, hogy melyikhez szeretnéd a(z) %s jogait megváltoztatni."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "jogok beállítása"
 
 #, fuzzy

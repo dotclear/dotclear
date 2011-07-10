@@ -388,7 +388,7 @@ msgstr "এই ব্লগের ইউজারসমূহ"
 msgid "No users"
 msgstr "শূণ্য ইউজার"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "অনুমতি পরিবর্তন করুন"
 
 msgid "Super administrator"
@@ -751,7 +751,7 @@ msgstr ""
 msgid "mark as junk"
 msgstr ""
 
-msgid "delete"
+msgid "Delete"
 msgstr "মুছে ফেলুন"
 
 msgid "Type:"
@@ -984,7 +984,7 @@ msgstr "সর্বশেষ আপডেট"
 msgid "Username and password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
 
-msgid "save"
+msgid "Save"
 msgstr "সংরক্ষণ করুন"
 
 msgid "All done!"
@@ -1169,10 +1169,10 @@ msgstr ""
 msgid "Are you sure you want to remove %s?"
 msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "বাতিল"
 
-msgid "yes"
+msgid "Yes"
 msgstr "হ্যাঁ"
 
 msgid "Directory has been successfully created."
@@ -1430,7 +1430,7 @@ msgstr "প্রতি পেজে এন্ট্রি"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr ""
 
 #, fuzzy

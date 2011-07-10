@@ -384,7 +384,7 @@ msgstr "Użytkownicy na tym blogu"
 msgid "No users"
 msgstr "Brak użytkowników"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "zmień uprawnienia"
 
 msgid "Super administrator"
@@ -751,7 +751,7 @@ msgstr "oznacz jako w przygotowaniu"
 msgid "mark as junk"
 msgstr "oznacz jako niechciane"
 
-msgid "delete"
+msgid "Delete"
 msgstr "usuń"
 
 msgid "Type:"
@@ -976,7 +976,7 @@ msgstr "Nazwisko:"
 msgid "Username and password"
 msgstr "Nazwa użytkownika i hasło"
 
-msgid "save"
+msgid "Save"
 msgstr "zapisz"
 
 msgid "All done!"
@@ -1159,10 +1159,10 @@ msgstr "potwierdź usunięcie"
 msgid "Are you sure you want to remove %s?"
 msgstr "Jesteś pewien, że chcesz usunąć %s?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "anuluj"
 
-msgid "yes"
+msgid "Yes"
 msgstr "tak"
 
 msgid "Directory has been successfully created."
@@ -1419,7 +1419,7 @@ msgstr "wpisy(-ów) na stronę"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Wybierz jeden lub więcej blogów do których chcesz nadać uprawnienia użytkownikowi %s."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "ustaw uprawnienia"
 
 msgid "select"

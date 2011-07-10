@@ -389,7 +389,7 @@ msgstr "Пользователи этого блога"
 msgid "No users"
 msgstr "Нет пользователей"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "изменить права доступа"
 
 msgid "Super administrator"
@@ -758,7 +758,7 @@ msgstr "отметить как ожидающий"
 msgid "mark as junk"
 msgstr "отметить как нежелательный"
 
-msgid "delete"
+msgid "Delete"
 msgstr "удалить"
 
 msgid "Type:"
@@ -988,7 +988,7 @@ msgstr "Фамилия:"
 msgid "Username and password"
 msgstr "Имя пользователя и пароль"
 
-msgid "save"
+msgid "Save"
 msgstr "сохранить"
 
 msgid "All done!"
@@ -1171,10 +1171,10 @@ msgstr "Подтвердите удаление"
 msgid "Are you sure you want to remove %s?"
 msgstr "Вы уверены, что хотите удалить %s ?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "отмена"
 
-msgid "yes"
+msgid "Yes"
 msgstr "да"
 
 msgid "Directory has been successfully created."
@@ -1431,7 +1431,7 @@ msgstr "Записей на странице"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Выберите один или более блогов, для которых вы хотите изменить права доступа для пользователей %s."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "установить права доступа"
 
 #, fuzzy

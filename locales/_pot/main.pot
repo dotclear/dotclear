@@ -538,7 +538,7 @@ msgid "No users"
 msgstr ""
 
 #: admin/blog_pref.php:530 admin/user.php:300
-msgid "change permissions"
+msgid "Change permissions"
 msgstr ""
 
 #: admin/blog_pref.php:537 admin/user.php:259
@@ -1055,7 +1055,7 @@ msgstr ""
 
 #: admin/comments.php:119 admin/media.php:450 admin/post.php:526
 #: admin/search.php:107 admin/search.php:150
-msgid "delete"
+msgid "Delete"
 msgstr ""
 
 #: admin/comments.php:161
@@ -1360,7 +1360,7 @@ msgid "Username and password"
 msgstr ""
 
 #: admin/install/index.php:340
-msgid "save"
+msgid "Save"
 msgstr ""
 
 #: admin/install/index.php:365
@@ -1606,11 +1606,11 @@ msgstr ""
 
 #: admin/media.php:231 admin/popup_link.php:52 admin/popup_posts.php:54
 #: admin/post_media.php:68
-msgid "cancel"
+msgid "Cancel"
 msgstr ""
 
 #: admin/media.php:232 admin/post_media.php:69
-msgid "yes"
+msgid "Yes"
 msgstr ""
 
 #: admin/media.php:258
@@ -1953,7 +1953,7 @@ msgid "Choose one or more blogs to which you want to give permissions to users %
 msgstr ""
 
 #: admin/permissions_blog.php:167
-msgid "set permissions"
+msgid "Set permissions"
 msgstr ""
 
 #: admin/permissions_blog.php:189

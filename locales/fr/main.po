@@ -752,7 +752,7 @@ msgstr "en attente"
 msgid "mark as junk"
 msgstr "indésirable"
 
-msgid "delete"
+msgid "Delete"
 msgstr "supprimer"
 
 msgid "Type:"
@@ -978,7 +978,7 @@ msgstr "Nom :"
 msgid "Username and password"
 msgstr "Identifiant et mot de passe"
 
-msgid "save"
+msgid "Save"
 msgstr "enregistrer"
 
 msgid "All done!"
@@ -1161,10 +1161,10 @@ msgstr "Confirmer la suppression"
 msgid "Are you sure you want to remove %s?"
 msgstr "Êtes-vous certain de vouloir supprimer %s ?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "annuler"
 
-msgid "yes"
+msgid "Yes"
 msgstr "oui"
 
 msgid "Directory has been successfully created."
@@ -1424,7 +1424,7 @@ msgstr "Billets par page"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Choisissez un ou plusieurs blogs pour lesquels les utilisateurs suivants auront des permissions : %s."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "définir les permissions"
 
 msgid "select"

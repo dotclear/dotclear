@@ -1389,10 +1389,10 @@ msgstr "Navigációs oldalsáv"
 msgid "Extra sidebar"
 msgstr "Extra oldalsáv"
 
-msgid "update sidebars"
+msgid "Update sidebars"
 msgstr "Oldalsáv frissítése"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "Oldalsáv visszaállítása"
 
 msgid "Widget templates tags"

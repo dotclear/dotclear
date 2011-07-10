@@ -386,7 +386,7 @@ msgstr "Uživatelé tohoto blogu"
 msgid "No users"
 msgstr "Žádní uživatelé"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "změnit práva"
 
 msgid "Super administrator"
@@ -755,7 +755,7 @@ msgstr "označit jako nedokončené"
 msgid "mark as junk"
 msgstr "označit jako podezřelé"
 
-msgid "delete"
+msgid "Delete"
 msgstr "smazat"
 
 msgid "Type:"
@@ -986,7 +986,7 @@ msgstr "Příjmení:"
 msgid "Username and password"
 msgstr "Uživatelské jméno a heslo"
 
-msgid "save"
+msgid "Save"
 msgstr "uložit"
 
 msgid "All done!"
@@ -1169,10 +1169,10 @@ msgstr "potvrdit odstranění"
 msgid "Are you sure you want to remove %s?"
 msgstr "Jeste si jisti, že chcete odstranit %s?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "zrušit"
 
-msgid "yes"
+msgid "Yes"
 msgstr "ano"
 
 msgid "Directory has been successfully created."
@@ -1429,7 +1429,7 @@ msgstr "článku na stranu"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Vyberte jeden nebo více blogů, ke kterým chcete uživateli %s dát oprávnění."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "Nastavit oprávnění"
 
 #, fuzzy

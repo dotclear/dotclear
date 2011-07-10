@@ -394,7 +394,7 @@ msgstr "このブログでのユーザ"
 msgid "No users"
 msgstr "ユーザはいません"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "パーミッションの変更"
 
 msgid "Super administrator"
@@ -763,7 +763,7 @@ msgstr "保留に指定"
 msgid "mark as junk"
 msgstr "ジャンクに指定"
 
-msgid "delete"
+msgid "Delete"
 msgstr "削除"
 
 msgid "Type:"
@@ -998,7 +998,7 @@ msgstr "最終更新"
 msgid "Username and password"
 msgstr "ユーザ名またはパスワードが間違っています"
 
-msgid "save"
+msgid "Save"
 msgstr "保存"
 
 msgid "All done!"
@@ -1182,10 +1182,10 @@ msgstr "削除の確認"
 msgid "Are you sure you want to remove %s?"
 msgstr "本当に、%s を削除してもよろしいですか？"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "キャンセル"
 
-msgid "yes"
+msgid "Yes"
 msgstr "はい"
 
 msgid "Directory has been successfully created."
@@ -1444,7 +1444,7 @@ msgstr "エントリ / ページ"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "ユーザ %s さんにパーミッションを与えたいブログを、1つ以上選択してください。"
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "パーミッションを設定"
 
 #, fuzzy

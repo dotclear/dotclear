@@ -1374,10 +1374,10 @@ msgstr "Navigation Sidebar"
 msgid "Extra sidebar"
 msgstr "Extra Sidebar"
 
-msgid "update sidebars"
+msgid "Update sidebars"
 msgstr "Sidebars aktualisieren"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "Sidebars zurücksetzen"
 
 msgid "Widget templates tags"

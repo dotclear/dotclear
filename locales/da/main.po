@@ -388,7 +388,7 @@ msgstr "Brugere på denne blog"
 msgid "No users"
 msgstr "Ingen brugere"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "Skift rettigheder"
 
 msgid "Super administrator"
@@ -756,7 +756,7 @@ msgstr "marker som ventende"
 msgid "mark as junk"
 msgstr "marker som junk"
 
-msgid "delete"
+msgid "Delete"
 msgstr "slet"
 
 msgid "Type:"
@@ -991,7 +991,7 @@ msgstr "Sidste opdatering"
 msgid "Username and password"
 msgstr "Forkert brugernavn eller kodeord"
 
-msgid "save"
+msgid "Save"
 msgstr "gem"
 
 msgid "All done!"
@@ -1176,10 +1176,10 @@ msgstr ""
 msgid "Are you sure you want to remove %s?"
 msgstr ""
 
-msgid "cancel"
+msgid "Cancel"
 msgstr ""
 
-msgid "yes"
+msgid "Yes"
 msgstr ""
 
 msgid "Directory has been successfully created."
@@ -1436,7 +1436,7 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr ""
 
 msgid "select"

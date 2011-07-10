@@ -393,7 +393,7 @@ msgstr "이 블로그의 사용자들"
 msgid "No users"
 msgstr "사용자 없음"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "권한 변경"
 
 msgid "Super administrator"
@@ -762,7 +762,7 @@ msgstr "미지정으로 표시"
 msgid "mark as junk"
 msgstr "스팸으로 표시"
 
-msgid "delete"
+msgid "Delete"
 msgstr "삭제"
 
 msgid "Type:"
@@ -997,7 +997,7 @@ msgstr "최근 갱신"
 msgid "Username and password"
 msgstr "잘못된 사용자이름 또는 비밀번호"
 
-msgid "save"
+msgid "Save"
 msgstr "저장"
 
 msgid "All done!"
@@ -1182,10 +1182,10 @@ msgstr "삭제 확인"
 msgid "Are you sure you want to remove %s?"
 msgstr "%s을 삭제하시려는 게 확실하십니까?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "취소"
 
-msgid "yes"
+msgid "Yes"
 msgstr "예"
 
 msgid "Directory has been successfully created."
@@ -1444,7 +1444,7 @@ msgstr "페이지당 글꼭지수"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "사용자 %s가 권한을 가지게될 블로그들을 선택해주세요."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "권한 설정"
 
 #, fuzzy
