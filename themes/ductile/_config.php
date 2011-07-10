@@ -25,7 +25,7 @@ $contexts = array(
 	'category' => __('Entries for a category'),
 	'tag' => __('Entries for a tag'),
 	'search' => __('Search result entries'),
-	'archive-month' => __('Month archive entries')
+	'archive' => __('Month archive entries')
 );
 
 $sticker_images = array(
@@ -133,7 +133,7 @@ $ductile_lists_base = array(
 	'category' => null,
 	'tag' => null,
 	'search' => null,
-	'archive-month' => null
+	'archive' => null
 );
 
 $ductile_lists = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_lists');
