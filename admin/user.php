@@ -153,7 +153,11 @@ if (isset($_POST['user_name']))
 			# --BEHAVIOR-- adminAfterUserCreate
 			$core->callBehavior('adminAfterUserCreate',$cur,$new_id);
 			
-			http::redirect('user.php?id='.$new_id.'&add=1');
+			if (!empty($_POST['saveplus'])) {
+				http::redirect('user.php?add=1');
+			} else {
+				http::redirect('user.php?id='.$new_id.'&add=1');
+			}
 		}
 	}
 	catch (Exception $e)
@@ -275,7 +279,8 @@ echo
 '<p><label for="your_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Your password:').
 form::password('your_pwd',20,255).'</label></p>'.
-'<p class="clear"><input type="submit" accesskey="s" value="'.__('Save').'" />'.
+'<p class="clear"><input type="submit" name="save" accesskey="s" value="'.__('Save').'" />'.
+($user_id != '' ? '' : ' <input type="submit" name="saveplus" value="'.__('Save and create another').'" />').
 ($user_id != '' ? form::hidden('id',$user_id) : '').
 $core->formNonce().
 '</p>'.
