@@ -295,10 +295,10 @@ abbr {
 }
 #main-menu li {
 	display: block;
-	margin: 0.66em 0 0;
-	padding: .2em 0 0 34px;
+	margin: 0.5em 0 0;
+	padding: .2em 0 0 32px;
 	background-repeat: no-repeat;
-	background-position: 6px center;
+	background-position: 12px .2em;
 }
 #main-menu a {
 	font-weight: bold;
