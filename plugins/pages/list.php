@@ -146,6 +146,7 @@ if ($core->auth->check('publish,contentadmin',$core->blog->id))
 {
 	$combo_action[__('publish')] = 'publish';
 	$combo_action[__('unpublish')] = 'unpublish';
+	$combo_action[__('schedule')] = 'schedule';
 	$combo_action[__('mark as pending')] = 'pending';
 }
 if ($core->auth->check('admin',$core->blog->id)) {
