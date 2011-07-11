@@ -215,8 +215,13 @@ if (!empty($_POST))
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_style',serialize($ductile_user));
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_stickers',serialize($ductile_stickers));
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_entries_lists',serialize($ductile_lists));
+
+		// Blog refresh
 		$core->blog->triggerBlog();
 
+		// Template cache reset
+		$core->emptyTemplatesCache();
+		
 		echo
 		'<div class="message"><p>'.
 		__('Theme configuration upgraded.').
