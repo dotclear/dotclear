@@ -1,7 +1,7 @@
 <?php
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 #
-# This file is part of widgets, a plugin for Dotclear 2.
+# This file is part of simpleMenu, a plugin for Dotclear 2.
 #
 # Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
