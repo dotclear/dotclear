@@ -228,6 +228,7 @@ if ($step) {
 					);
 					// Save menu in blog settings
 					$core->blog->settings->system->put('simpleMenu',serialize($menu));
+					$core->blog->triggerBlog();
 				
 					// All done successfully, return to menu items list
 					http::redirect($p_url.'&added=1');
@@ -262,6 +263,7 @@ if ($step) {
 				$menu = $newmenu;
 				// Save menu in blog settings
 				$core->blog->settings->system->put('simpleMenu',serialize($menu));
+				$core->blog->triggerBlog();
 				
 				// All done successfully, return to menu items list
 				http::redirect($p_url.'&removed=1');
@@ -295,6 +297,7 @@ if ($step) {
 			$menu = $newmenu;
 			// Save menu in blog settings
 			$core->blog->settings->system->put('simpleMenu',serialize($menu));
+			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
 			http::redirect($p_url.'&updated=1');
@@ -331,6 +334,7 @@ if ($step) {
 			$menu = $newmenu;
 			// Save menu in blog settings
 			$core->blog->settings->system->put('simpleMenu',serialize($menu));
+			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
 			http::redirect($p_url.'&neworder=1');
