@@ -295,10 +295,10 @@ abbr {
 }
 #main-menu li {
 	display: block;
-	margin: 0.5em 0 0;
-	padding: .2em 0 0 32px;
+	margin: 0.66em 0 0;
+	padding: .2em 0 0 34px;
 	background-repeat: no-repeat;
-	background-position: 12px .2em;
+	background-position: 6px center;
 }
 #main-menu a {
 	font-weight: bold;
@@ -424,6 +424,16 @@ abbr {
 }
 #icons a:focus span, #icons a:hover span {
 	text-decoration: underline;
+}
+/* test */
+#icons img {
+	padding: 6px;
+	background: #dfdfdf;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+#icons a:hover img {
+	background: #bbb;
 }
 #quick {
 	clear: left;
