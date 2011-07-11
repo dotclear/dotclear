@@ -1703,7 +1703,7 @@ class dcTemplate extends template
 		$iso8601 = !empty($attr['iso8601']);
 		$rfc822 = !empty($attr['rfc822']);
 		$type = (!empty($attr['creadt']) ? 'creadt' : '');
-		$type = (!empty($attr['upddt']) ? 'upddt' : '');
+		$type = (!empty($attr['upddt']) ? 'upddt' : $type);
 		
 		$f = $this->getFilters($attr);
 		
