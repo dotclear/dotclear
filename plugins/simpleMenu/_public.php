@@ -22,6 +22,10 @@ class tplSimpleMenu
 		$id = isset($attr['id']) ? trim($attr['id']) : '';
 		$description = isset($attr['description']) ? trim($attr['description']) : '';
 		
+		if (!preg_match('#^(title|span)$#',$description)) {
+			$description = '';
+		}
+		
 		return '<?php echo tplSimpleMenu::displayMenu('.
 				"'".addslashes($class)."',".
 				"'".addslashes($id)."',".
