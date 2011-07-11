@@ -500,7 +500,13 @@ if ($step)
 if (!$step) {
 	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
 }
-	
+
+if (!$step) {
+	echo '<form id="menuitemsappend" action="'.$p_url.'&add=1" method="post">';
+	echo '<p>'.$core->formNonce().'<input class="add" type="submit" name="appendaction" value="'.__('Add an item').'" /></p>';
+	echo '</form>';
+}
+
 if (count($menu)) {
 	if (!$step) {
 		echo '<form id="menuitems" action="'.$p_url.'" method="post">';
@@ -556,12 +562,6 @@ if (count($menu)) {
 } else {
 	echo
 		'<p>'.__('Currently no menu items').'</p>';
-}
-
-if (!$step) {
-	echo '<form id="menuitems" action="'.$p_url.'&add=1" method="post">';
-	echo '<p>'.$core->formNonce().'<input class="add" type="submit" name="appendaction" value="'.__('Add an item').'" /></p>';
-	echo '</form>';
 }
 
 dcPage::helpBlock('simpleMenu');
