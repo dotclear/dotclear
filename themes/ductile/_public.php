@@ -18,9 +18,33 @@ $core->addBehavior('publicInsideFooter',array('tplDuctileTheme','publicInsideFoo
 
 # Templates
 $core->tpl->addValue('ductileEntriesList',array('tplDuctileTheme','ductileEntriesList'));
+$core->tpl->addBlock('EntryIfContentIsCut',array('tplDuctileTheme','EntryIfContentIsCut'));
 
 class tplDuctileTheme
 {
+	public static function EntryIfContentIsCut($attr,$content)
+	{
+		global $core;
+		
+		if (empty($attr['cut_string']) || empty($attr['cut_string'])) {
+			return '';
+		}
+		
+		$urls = '0';
+		if (!empty($attr['absolute_urls'])) {
+			$urls = '1';
+		}
+		
+		$short = $core->tpl->getFilters($attr);
+		$attr['cut_string'] = 0;
+		$full = $core->tpl->getFilters($attr);
+
+		return '<?php if (strlen('.sprintf($full,'$_ctx->posts->getContent('.$urls.')').') > '.
+			'strlen('.sprintf($short,'$_ctx->posts->getContent('.$urls.')').')) : ?>'.
+			$content.
+			'<?php endif; ?>';
+	}	
+	
 	public static function ductileEntriesList($attr)
 	{
 		global $core;
