@@ -1732,7 +1732,7 @@ class dcTemplate extends template
 		}
 		
 		$type = (!empty($attr['creadt']) ? 'creadt' : '');
-		$type = (!empty($attr['upddt']) ? 'upddt' : '');
+		$type = (!empty($attr['upddt']) ? 'upddt' : $type);
         
 		$f = $this->getFilters($attr);
 		return '<?php echo '.sprintf($f,"\$_ctx->posts->getTime('".$format."','".$type."')").'; ?>';
