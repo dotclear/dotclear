@@ -407,7 +407,6 @@ class comboFilter extends Filter {
 		parent::__construct($id,$name,$desc,$request_param);
 		$this->options = $options;
 		$this->extra = $extra;
-		$this->desc = $desc;
 		$this->verb = "is";
 		$this->values=array();
 	}
@@ -486,7 +485,7 @@ Handle boolean filter on admin side.
 class booleanFilter extends Filter {
 	protected $options;
 	
-	public function __construct($id,$name,$desc,$request_param,$options,$extra=array()) {
+	public function __construct($id,$name,$desc,$request_param,$options) {
 		parent::__construct($id,$name,$desc,$request_param);
 		$this->options = $options;
 		$this->values=array();
@@ -519,10 +518,9 @@ class textFilter extends Filter {
 	
 	public function __construct($id,$name,$desc,$request_param,$size,$max) {
 		parent::__construct($id,$name,$desc,$request_param);
-		$this->options = $options;
-		$this->values=array();
 		$this->size = $size;
 		$this->max = $max;
+		$this->values=array();
 	}
 	
 	
