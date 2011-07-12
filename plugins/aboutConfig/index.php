@@ -89,6 +89,7 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
   <style type="text/css">
   table.settings { border: 1px solid #999; margin-bottom: 2em; }
   table.settings th { background: #f5f5f5; color: #444; padding-top: 0.3em; padding-bottom: 0.3em; }
+  ul.submenu {float: right; border: 1px solid #ccc; padding-right: 1em; padding-left: 1.5em; margin-top:0.5em; margin-bottom:0.5em; }
   </style>
 </head>
 
@@ -109,7 +110,7 @@ if (!empty($_GET['upda'])) {
 
 <?php 
 
-$table_header = '<table class="settings"><caption>%s</caption>'.
+$table_header = '<table class="settings" id="%s"><caption>%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
 '  <th class="nowrap">Setting ID</th>'."\n".
@@ -131,10 +132,18 @@ foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
 
 ksort($settings);
 
+if (count($settings) > 0) {
+	echo '<ul class="submenu">';
+	foreach ($settings as $ns => $s) {
+		echo '<li><a href="#l_'.$ns.'">'.$ns.'</a></li>';
+	}
+	echo '</ul>';
+}
+
 foreach ($settings as $ns => $s)
 {
 	ksort($s);
-	echo sprintf($table_header,$ns);
+	echo sprintf($table_header,'l_'.$ns,$ns);
 	foreach ($s as $k => $v)
 	{
 		echo settingLine($k,$v,$ns,'s',!$v['global']);
@@ -162,10 +171,18 @@ foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
 
 ksort($settings);
 
+if (count($settings) > 0) {
+	echo '<ul class="submenu">';
+	foreach ($settings as $ns => $s) {
+		echo '<li><a href="#g_'.$ns.'">'.$ns.'</a></li>';
+	}
+	echo '</ul>';
+}
+
 foreach ($settings as $ns => $s)
 {
 	ksort($s);
-	echo sprintf($table_header,$ns);
+	echo sprintf($table_header,'g_'.$ns,$ns);
 	foreach ($s as $k => $v)
 	{
 		echo settingLine($k,$v,$ns,'gs',false);
