@@ -85,6 +85,7 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
   <style type="text/css">
 	table.prefs { border: 1px solid #999; margin-bottom: 2em; }
 	table.prefs th { background: #f5f5f5; color: #444; padding-top: 0.3em; padding-bottom: 0.3em; }
+	ul.submenu {float: right; border: 1px solid #ccc; padding-right: 1em; padding-left: 1.5em; margin-top:0.5em; margin-bottom:0.5em; }
   </style>
 </head>
 
@@ -127,6 +128,14 @@ foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
 
 ksort($prefs);
 
+if (count($prefs) > 0) {
+	echo '<ul class="submenu">';
+	foreach ($prefs as $ws => $s) {
+		echo '<li><a href="#l_'.$ws.'">'.$ws.'</a></li>';
+	}
+	echo '</ul>';
+}
+
 foreach ($prefs as $ws => $s)
 {
 	ksort($s);
@@ -158,6 +167,14 @@ foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
 }
 
 ksort($prefs);
+
+if (count($prefs) > 0) {
+	echo '<ul class="submenu">';
+	foreach ($prefs as $ws => $s) {
+		echo '<li><a href="#g_'.$ws.'">'.$ws.'</a></li>';
+	}
+	echo '</ul>';
+}
 
 foreach ($prefs as $ws => $s)
 {
