@@ -43,7 +43,8 @@ if ($core->auth->isSuperAdmin()) {
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
-if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced'])) {
+if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || 
+	!empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction'])) {
 	$default_tab = 'user-favorites';
 } elseif (!empty($_GET['updated'])) {
 	$default_tab = 'user-options';
@@ -121,7 +122,8 @@ if (isset($_POST['user_name']))
 }
 
 # Update user options
-if (isset($_POST['user_post_format'])) {
+if (isset($_POST['user_post_format'])) 
+{
 	try
 	{
 		$cur = $core->con->openCursor($core->prefix.'user');
@@ -174,71 +176,89 @@ if (isset($_POST['user_post_format'])) {
 }
 
 # Add selected favorites
-if (!empty($_POST['appendaction']) && !empty($_POST['append'])) {
-	$ws = $core->auth->user_prefs->addWorkspace('favorites');
-	$user_favs = $ws->DumpLocalPrefs();
-	$count = count($user_favs);
-	foreach ($_POST['append'] as $k => $v)
-	{
-		try {
-			$found = false;
-			foreach ($user_favs as $f) {
-				$f = unserialize($f['value']);
-				if ($f['name'] == $v) {
-					$found = true;
-					break;
+if (!empty($_POST['appendaction'])) 
+{
+	try {
+		if (empty($_POST['append'])) {
+			throw new Exception(__('No favorite selected'));
+		}
+
+		$ws = $core->auth->user_prefs->addWorkspace('favorites');
+		$user_favs = $ws->DumpLocalPrefs();
+		$count = count($user_favs);
+		foreach ($_POST['append'] as $k => $v)
+		{
+			try {
+				$found = false;
+				foreach ($user_favs as $f) {
+					$f = unserialize($f['value']);
+					if ($f['name'] == $v) {
+						$found = true;
+						break;
+					}
 				}
+				if (!$found) {
+					$uid = sprintf("u%03s",$count);
+					$fav = array('name' => $_fav[$v][0],'title' => $_fav[$v][1],'url' => $_fav[$v][2],'small-icon' => $_fav[$v][3],
+						'large-icon' => $_fav[$v][4],'permissions' => $_fav[$v][5],'id' => $_fav[$v][6],'class' => $_fav[$v][7]);
+					$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string');
+					$count++;
+				}
+			} catch (Exception $e) {
+				$core->error->add($e->getMessage());
+				break;
 			}
-			if (!$found) {
+		}
+	
+		if (!$core->error->flag()) {
+			http::redirect('preferences.php?append=1');
+		}
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Delete selected favorites
+if (!empty($_POST['removeaction']))
+{
+	try {
+		if (empty($_POST['remove'])) {
+			throw new Exception(__('No favorite selected'));
+		}
+		
+		$ws = $core->auth->user_prefs->addWorkspace('favorites');
+		foreach ($_POST['remove'] as $k => $v)
+		{
+			try {
+				$core->auth->user_prefs->favorites->drop($v);
+			} catch (Exception $e) {
+				$core->error->add($e->getMessage());
+				break;
+			}
+		}
+		// Update pref_id values
+		try {
+			$user_favs = $ws->DumpLocalPrefs();
+			$core->auth->user_prefs->favorites->dropAll();
+			$count = 0;
+			foreach ($user_favs as $k => $v)
+			{
 				$uid = sprintf("u%03s",$count);
-				$fav = array('name' => $_fav[$v][0],'title' => $_fav[$v][1],'url' => $_fav[$v][2],'small-icon' => $_fav[$v][3],
-					'large-icon' => $_fav[$v][4],'permissions' => $_fav[$v][5],'id' => $_fav[$v][6],'class' => $_fav[$v][7]);
+				$f = unserialize($v['value']);
+				$fav = array('name' => $f['name'],'title' => $f['title'],'url' => $f['url'],'small-icon' => $f['small-icon'],
+					'large-icon' => $f['large-icon'],'permissions' => $f['permissions'],'id' => $f['id'],'class' => $f['class']);
 				$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string');
 				$count++;
 			}
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
-			break;
 		}
-	}
 	
-	if (!$core->error->flag()) {
-		http::redirect('preferences.php?append=1');
-	}
-}
-
-# Delete selected favorites
-if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
-	$ws = $core->auth->user_prefs->addWorkspace('favorites');
-	foreach ($_POST['remove'] as $k => $v)
-	{
-		try {
-			$core->auth->user_prefs->favorites->drop($v);
-		} catch (Exception $e) {
-			$core->error->add($e->getMessage());
-			break;
-		}
-	}
-	// Update pref_id values
-	try {
-		$user_favs = $ws->DumpLocalPrefs();
-		$core->auth->user_prefs->favorites->dropAll();
-		$count = 0;
-		foreach ($user_favs as $k => $v)
-		{
-			$uid = sprintf("u%03s",$count);
-			$f = unserialize($v['value']);
-			$fav = array('name' => $f['name'],'title' => $f['title'],'url' => $f['url'],'small-icon' => $f['small-icon'],
-				'large-icon' => $f['large-icon'],'permissions' => $f['permissions'],'id' => $f['id'],'class' => $f['class']);
-			$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string');
-			$count++;
+		if (!$core->error->flag()) {
+			http::redirect('preferences.php?removed=1');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
-	}
-	
-	if (!$core->error->flag()) {
-		http::redirect('preferences.php?removed=1');
 	}
 }
 
