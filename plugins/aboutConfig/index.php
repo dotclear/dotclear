@@ -11,6 +11,16 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
+# Local navigation
+if (!empty($_POST['gs_nav'])) {
+	http::redirect($p_url.$_POST['gs_nav']);
+	exit;
+}
+if (!empty($_POST['ls_nav'])) {
+	http::redirect($p_url.$_POST['ls_nav']);
+	exit;
+}
+
 # Local settings update
 if (!empty($_POST['s']) && is_array($_POST['s']))
 {
@@ -89,8 +99,22 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
   <style type="text/css">
   table.settings { border: 1px solid #999; margin-bottom: 2em; }
   table.settings th { background: #f5f5f5; color: #444; padding-top: 0.3em; padding-bottom: 0.3em; }
-  ul.submenu {float: right; border: 1px solid #ccc; padding-right: 1em; padding-left: 1.5em; margin-top:0.5em; margin-bottom:0.5em; }
+  p.anchor-nav {float: right; }
   </style>
+	<script type="text/javascript">
+	//<![CDATA[
+	$(function() {
+		$("#gs_submit").hide();
+		$("#ls_submit").hide();
+		$("#gs_nav").change(function() {
+			window.location = $("#gs_nav option:selected").val();
+		})
+		$("#ls_nav").change(function() {
+			window.location = $("#ls_nav option:selected").val();
+		})
+	});
+	//]]>
+	</script>
 </head>
 
 <body>
@@ -106,10 +130,8 @@ if (!empty($_GET['upda'])) {
 <h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title">about:config</span></h2>
 
 <div id="local" class="multi-part" title="<?php echo __('blog settings'); ?>">
-<form action="plugin.php" method="post">
 
 <?php 
-
 $table_header = '<table class="settings" id="%s"><caption>%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
@@ -123,23 +145,30 @@ $table_header = '<table class="settings" id="%s"><caption>%s</caption>'.
 $table_footer = '</tbody></table>';
 
 $settings = array();
-
 foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
 	foreach ($namespace->dumpSettings() as $k => $v) {
 		$settings[$ns][$k] = $v;
 	}
 }
-
 ksort($settings);
-
 if (count($settings) > 0) {
-	echo '<ul class="submenu">';
+	$ns_combo = array();
 	foreach ($settings as $ns => $s) {
-		echo '<li><a href="#l_'.$ns.'">'.$ns.'</a></li>';
+		$ns_combo[$ns] = '#l_'.$ns;
 	}
-	echo '</ul>';
+	echo 
+		'<form action="plugin.php" method="post">'.
+		'<p class="anchor-nav">'.
+		'<label for="ls_nav" class="classic">'.__('Goto:').'</label> '.form::combo('ls_nav',$ns_combo).
+		' <input type="submit" value="'.__('Ok').'" id="ls_submit" />'.
+		'<input type="hidden" name="p" value="aboutConfig" />'.
+		$core->formNonce().'</p></form>';
 }
+?>
 
+<form action="plugin.php" method="post">
+
+<?php
 foreach ($settings as $ns => $s)
 {
 	ksort($s);
@@ -159,7 +188,7 @@ foreach ($settings as $ns => $s)
 </div>
 
 <div id="global" class="multi-part" title="<?php echo __('global settings'); ?>">
-<form action="plugin.php" method="post">
+
 <?php
 $settings = array();
 
@@ -172,13 +201,23 @@ foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
 ksort($settings);
 
 if (count($settings) > 0) {
-	echo '<ul class="submenu">';
+	$ns_combo = array();
 	foreach ($settings as $ns => $s) {
-		echo '<li><a href="#g_'.$ns.'">'.$ns.'</a></li>';
+		$ns_combo[$ns] = '#g_'.$ns;
 	}
-	echo '</ul>';
+	echo 
+		'<form action="plugin.php" method="post">'.
+		'<p class="anchor-nav">'.
+		'<label for="gs_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gs_nav',$ns_combo).
+		' <input type="submit" value="'.__('Ok').'" id="gs_submit" />'.
+		'<input type="hidden" name="p" value="aboutConfig" />'.
+		$core->formNonce().'</p></form>';
 }
+?>
 
+<form action="plugin.php" method="post">
+
+<?php
 foreach ($settings as $ns => $s)
 {
 	ksort($s);
