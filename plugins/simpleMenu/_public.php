@@ -45,7 +45,7 @@ class tplSimpleMenu
 			return;
 		}
 
-		$menu = tplSimpleMenu::displayMenu();
+		$menu = tplSimpleMenu::displayMenu('','','title');
 		if ($menu == '') {
 			return;
 		}
