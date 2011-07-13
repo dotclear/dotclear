@@ -108,7 +108,7 @@ if ($core->plugins->moduleExists('tags')) {
 }
 
 # --BEHAVIOR-- adminSimpleMenuAddType
-# Should add an item to $items as an array(<label>,<optional step (true or false)>)
+# Should add an item to $items[<id>] as an array(<label>,<optional step (true or false)>)
 $core->callBehavior('adminSimpleMenuAddType',$items);
 
 $items['special'] = array(__('User defined'),false);

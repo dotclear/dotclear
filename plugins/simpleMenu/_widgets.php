@@ -11,13 +11,15 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-$this->registerModule(
-	/* Name */			"simpleMenu",
-	/* Description*/		"Simple menu for Dotclear",
-	/* Author */			"Franck Paul",
-	/* Version */			'0.8',
-	array(
-		'permissions' =>	'admin'
-	)
-);
+$core->addBehavior('initWidgets',array('simpleMenuWidgets','initWidgets'));
+
+class simpleMenuWidgets
+{
+	public static function initWidgets($w)
+	{
+		$w->create('simplemenu',__('Simple menu'),array('tplSimpleMenu','simpleMenuWidget'));
+		$w->simplemenu->setting('title',__('Title:'),__('Menu'));
+		$w->simplemenu->setting('homeonly',__('Home page only'),1,'check');
+	}
+}
 ?>

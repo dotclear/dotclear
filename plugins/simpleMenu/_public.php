@@ -11,11 +11,14 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+require dirname(__FILE__).'/_widgets.php';
+
 # Simple menu template functions
 $core->tpl->addValue('SimpleMenu',array('tplSimpleMenu','simpleMenu'));
 
 class tplSimpleMenu
 {
+	# Template function
 	public static function simpleMenu($attr)
 	{
 		$class = isset($attr['class']) ? trim($attr['class']) : '';
@@ -31,6 +34,23 @@ class tplSimpleMenu
 				"'".addslashes($id)."',".
 				"'".addslashes($description)."'".
 			'); ?>';
+	}
+	
+	# Widget function
+	public static function simpleMenuWidget($w)
+	{
+		global $core, $_ctx;
+		
+		if ($w->homeonly && $core->url->type != 'default') {
+			return;
+		}
+
+		$menu = tplSimpleMenu::displayMenu();
+		if ($menu == '') {
+			return;
+		}
+
+		return '<div class="simple-menu">'.($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.'</div>';
 	}
 	
 	public static function displayMenu($class='',$id='',$description='')
