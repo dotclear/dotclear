@@ -525,6 +525,17 @@ h1 a {
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	color: #333;
 	}
+#sidebar h2.toggle {
+	background-image: url(img/plus.png);
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+#sidebar h2.expanded {
+	background-image: url(img/minus.png);
+}
+#sidebar h2.toggle a {
+	text-decoration: none;
+}
 #sidebar h3 {
 	font-size: 1em;
 	margin-bottom: 0;
