@@ -19,14 +19,47 @@ $core->addBehavior('publicInsideFooter',array('tplDuctileTheme','publicInsideFoo
 # Templates
 $core->tpl->addValue('ductileEntriesList',array('tplDuctileTheme','ductileEntriesList'));
 $core->tpl->addBlock('EntryIfContentIsCut',array('tplDuctileTheme','EntryIfContentIsCut'));
+$core->tpl->addValue('ductileNbEntryPerPage',array('tplDuctileTheme','ductileNbEntryPerPage'));
 
 class tplDuctileTheme
 {
+	public static function ductileNbEntryPerPage($attr)
+	{
+		global $core;
+
+		$nb = 0;
+		$s = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_counts');
+		if ($s !== null) {
+			$s = @unserialize($s);
+			if (is_array($s)) {
+				if (isset($s[$core->url->type])) {
+					// Nb de billets par page défini par la config du thème
+					$nb = (integer) $s[$core->url->type];
+				} else {
+					if (($core->url->type == 'default-page') && (isset($s['default']))) {
+						// Les pages 2 et suivantes de la home ont le même nombre de billet que la première page
+						$nb = (integer) $s['default'];
+					}
+				}
+			}
+		}
+
+		if ($nb == 0) {
+			if (!empty($attr['nb'])) {
+				// Nb de billets par page défini par défaut dans le template
+				$nb = (integer) $attr['nb'];
+			}
+		}
+
+		if ($nb > 0)
+			return '<?php $_ctx->nb_entry_per_page = '.$nb.' ; ?>';
+	}
+	
 	public static function EntryIfContentIsCut($attr,$content)
 	{
 		global $core;
 		
-		if (empty($attr['cut_string']) || empty($attr['cut_string'])) {
+		if (empty($attr['cut_string']) || empty($attr['full'])) {
 			return '';
 		}
 		

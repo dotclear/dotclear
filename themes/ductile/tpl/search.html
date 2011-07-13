@@ -22,6 +22,7 @@
   <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
   <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
   
+  {{tpl:ductileNbEntryPerPage}}
   <tpl:Entries no_content="1">
     <tpl:EntriesHeader>
       <tpl:Pagination>
@@ -65,6 +66,7 @@
     </tpl:SysIf>
   </div>
   
+  {{tpl:ductileNbEntryPerPage}}
   <tpl:Entries>
 
 	{{tpl:ductileEntriesList default="short"}}

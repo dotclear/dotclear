@@ -142,6 +142,20 @@ if (!is_array($ductile_lists)) {
 	$ductile_lists = $ductile_lists_base;
 }
 
+$ductile_counts_base = array(
+	'default' => null,
+	'category' => null,
+	'tag' => null,
+	'search' => null
+);
+
+$ductile_counts = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_counts');
+$ductile_counts = @unserialize($ductile_counts);
+if (!is_array($ductile_counts)) {
+	$ductile_counts = $ductile_counts_base;
+}
+
+
 $conf_tab = isset($_POST['conf_tab']) ? $_POST['conf_tab'] : 'html';
 
 if (!empty($_POST))
@@ -181,6 +195,10 @@ if (!empty($_POST))
 				$ductile_lists[$_POST['list_ctx'][$i]] = $_POST['list_type'][$i];
 			}
 	 		
+			for ($i = 0; $i < count($_POST['count_nb']); $i++) {
+				$ductile_counts[$_POST['count_ctx'][$i]] = $_POST['count_nb'][$i];
+			}
+	 		
 		}
 		
 		# CSS
@@ -215,6 +233,7 @@ if (!empty($_POST))
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_style',serialize($ductile_user));
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_stickers',serialize($ductile_stickers));
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_entries_lists',serialize($ductile_lists));
+		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_entries_counts',serialize($ductile_counts));
 
 		// Blog refresh
 		$core->blog->triggerBlog();
@@ -282,13 +301,14 @@ echo '<table id="stickerslist">'.'<caption>'.__('Stickers (footer)').'</caption>
 
 echo '</fieldset>';
 
-echo '<fieldset><legend>'.__('Entries list types').'</legend>';
+echo '<fieldset><legend>'.__('Entries list types and limits').'</legend>';
 
 echo '<table id="entrieslist">'.'<caption>'.__('Entries lists').'</caption>'.
 '<thead>'.
 '<tr>'.
 '<th scope="col">'.__('Context').'</th>'.
 '<th scope="col">'.__('Entries list type').'</th>'.
+'<th scope="col">'.__('Number of entries').'</th>'.
 '</tr>'.
 '</thead>'.
 '<tbody>';
@@ -296,7 +316,13 @@ foreach ($ductile_lists as $k => $v) {
 	echo 
 		'<tr>'.
 		'<td scope="raw">'.$contexts[$k].'</td>'.
-		'<td>'.form::hidden(array('list_ctx[]'),$k).form::combo(array('list_type[]'),$list_types,$v).'</td>'.
+		'<td>'.form::hidden(array('list_ctx[]'),$k).form::combo(array('list_type[]'),$list_types,$v).'</td>';
+	if (array_key_exists($k,$ductile_counts)) {
+		echo '<td>'.form::hidden(array('count_ctx[]'),$k).form::field(array('count_nb[]'),2,3,$ductile_counts[$k]).'</td>';
+	} else {
+		echo '<td></td>';
+	}
+	echo
 		'</tr>';
 }
 echo
