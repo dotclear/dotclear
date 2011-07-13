@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */			"simpleMenu",
 	/* Description*/		"Simple menu for Dotclear",
 	/* Author */			"Franck Paul",
-	/* Version */			'0.6',
+	/* Version */			'0.7',
 	array(
 		'permissions' =>	'admin'
 	)
