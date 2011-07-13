@@ -11,6 +11,16 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
+# Local navigation
+if (!empty($_POST['gp_nav'])) {
+	http::redirect($p_url.$_POST['gp_nav']);
+	exit;
+}
+if (!empty($_POST['lp_nav'])) {
+	http::redirect($p_url.$_POST['lp_nav']);
+	exit;
+}
+
 # Local prefs update
 if (!empty($_POST['s']) && is_array($_POST['s']))
 {
@@ -85,8 +95,22 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
   <style type="text/css">
 	table.prefs { border: 1px solid #999; margin-bottom: 2em; }
 	table.prefs th { background: #f5f5f5; color: #444; padding-top: 0.3em; padding-bottom: 0.3em; }
-	ul.submenu {float: right; border: 1px solid #ccc; padding-right: 1em; padding-left: 1.5em; margin-top:0.5em; margin-bottom:0.5em; }
+	p.anchor-nav {float: right; }
   </style>
+	<script type="text/javascript">
+	//<![CDATA[
+	$(function() {
+		$("#gp_submit").hide();
+		$("#lp_submit").hide();
+		$("#gp_nav").change(function() {
+			window.location = $("#gp_nav option:selected").val();
+		})
+		$("#lp_nav").change(function() {
+			window.location = $("#lp_nav option:selected").val();
+		})
+	});
+	//]]>
+	</script>
 </head>
 
 <body>
@@ -102,11 +126,9 @@ if (!empty($_GET['upda'])) {
 <h2><?php echo html::escapeHTML($core->auth->userID()); ?> &rsaquo; <span class="page-title">user:preferences</span></h2>
 
 <div id="local" class="multi-part" title="<?php echo __('user preferences'); ?>">
-<form action="plugin.php" method="post">
 
 <?php 
-
-$table_header = '<table class="prefs"><caption>%s</caption>'.
+$table_header = '<table class="prefs" id="%s"><caption>%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
 '  <th class="nowrap">Setting ID</th>'."\n".
@@ -119,27 +141,34 @@ $table_header = '<table class="prefs"><caption>%s</caption>'.
 $table_footer = '</tbody></table>';
 
 $prefs = array();
-
 foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
 	foreach ($workspace->dumpPrefs() as $k => $v) {
 		$prefs[$ws][$k] = $v;
 	}
 }
-
 ksort($prefs);
-
 if (count($prefs) > 0) {
-	echo '<ul class="submenu">';
+	$ws_combo = array();
 	foreach ($prefs as $ws => $s) {
-		echo '<li><a href="#l_'.$ws.'">'.$ws.'</a></li>';
+		$ws_combo[$ws] = '#l_'.$ws;
 	}
-	echo '</ul>';
+	echo 
+		'<form action="plugin.php" method="post">'.
+		'<p class="anchor-nav">'.
+		'<label for="lp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('lp_nav',$ws_combo).
+		' <input type="submit" value="'.__('Ok').'" id="lp_submit" />'.
+		'<input type="hidden" name="p" value="aboutConfig" />'.
+		$core->formNonce().'</p></form>';
 }
+?>
 
+<form action="plugin.php" method="post">
+
+<?php
 foreach ($prefs as $ws => $s)
 {
 	ksort($s);
-	echo sprintf($table_header,$ws);
+	echo sprintf($table_header,'l_'.$ws,$ws);
 	foreach ($s as $k => $v)
 	{
 		echo prefLine($k,$v,$ws,'s',!$v['global']);
@@ -155,7 +184,6 @@ foreach ($prefs as $ws => $s)
 </div>
 
 <div id="global" class="multi-part" title="<?php echo __('global preferences'); ?>">
-<form action="plugin.php" method="post">
 
 <?php
 $prefs = array();
@@ -169,17 +197,27 @@ foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
 ksort($prefs);
 
 if (count($prefs) > 0) {
-	echo '<ul class="submenu">';
+	$ws_combo = array();
 	foreach ($prefs as $ws => $s) {
-		echo '<li><a href="#g_'.$ws.'">'.$ws.'</a></li>';
+		$ws_combo[$ws] = '#g_'.$ws;
 	}
-	echo '</ul>';
+	echo 
+		'<form action="plugin.php" method="post">'.
+		'<p class="anchor-nav">'.
+		'<label for="gp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gp_nav',$ws_combo).
+		' <input type="submit" value="'.__('Ok').'" id="gp_submit" />'.
+		'<input type="hidden" name="p" value="aboutConfig" />'.
+		$core->formNonce().'</p></form>';
 }
+?>
 
+<form action="plugin.php" method="post">
+
+<?php
 foreach ($prefs as $ws => $s)
 {
 	ksort($s);
-	echo sprintf($table_header,$ws);
+	echo sprintf($table_header,'g_'.$ws,$ws);
 	foreach ($s as $k => $v)
 	{
 		echo prefLine($k,$v,$ws,'gs',false);
