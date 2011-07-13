@@ -165,6 +165,11 @@ class tplDuctileTheme
 			'/* '.__('Additionnal style directives').' */'."\n".
 			self::ductileStyleHelper().
 			"</style>\n";
+			
+		echo
+			'<script type="text/javascript" src="'.
+			$core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.
+			'/ductile.js"></script>'."\n";
 	}
 	
 	public static function ductileStyleHelper()
