@@ -34,9 +34,8 @@
 					throw 'Toolbar should be initialize before show it';
 				}
 				var t = $(this).data('toolbar');
-
-				tinymce.dom.show(t.getContainer());
-				t.load();
+				
+				t.show();
 			});
 		},
 		hide: function() {
@@ -45,9 +44,8 @@
 					throw 'Toolbar should be initialize before hide it';
 				}
 				var t = $(this).data('toolbar');
-
-				tinymce.dom.hide(t.getContainer());
-				t.load();
+				
+				t.hide();
 			});
 		},
 		toggle: function() {
@@ -56,12 +54,11 @@
 					throw 'Toolbar should be initialize before toogle it';
 				}
 				var t = $(this).data('toolbar');
+				
 				if (t.isHidden()) {
-					t.show();
-					t.load();
-				}
-				else {
-					t.save();
+					$(t.getContainer()).show();
+					$(t.getElement()).hide();
+				} else {
 					$(t.getContainer()).hide();
 				}
 			});
@@ -75,14 +72,17 @@
 				$.data(this,'toolbar',null);
 			});
 		},
-		switch: function(formatter) {
+		switchMode: function(formatter) {
 			return this.each(function(){
 				if ($(this).data('formatter') != formatter) {
 					var options = {};
+					var displayed = !$(this).data('toolbar').isHidden();
 					options.formatter = formatter;
 					methods.destroy.apply($(this));
 					methods.init.apply($(this),[options]);
-					methods.draw.apply($(this));
+					if (displayed) {
+						methods.draw.apply($(this));
+					}
 				}
 			});
 		}
@@ -98,7 +98,7 @@
 				throw 'Method ' + method + ' does not exist on jQuery.dctoolbar';
 			}
 		} catch (e) {
-			$.error('Error happend on jQuery.dctoolbar: ' + e);
+			$.error('Error happened on jQuery.dctoolbar: ' + e);
 		}
 	};
 })(jQuery);
