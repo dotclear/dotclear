@@ -642,22 +642,21 @@ class dcPage
 			'theme_advanced_resizing' => 'true',
 			'theme_advanced_resize_horizontal' => 'false',
 			'theme_advanced_path'  => 'false',
-			'theme_advanced_blockformats' => 'p,pre,h3,h4,h5,h6',
-			'entity_encoding' => 'raw',
+			'theme_advanced_blockformats' => 'h3,h4,h5,h6',
 			'remove_linebreaks' => 'false',
 			'inline_styles' => 'false',
 			'convert_fonts_to_spans' => 'false',
 			'paste_auto_cleanup_on_paste' => 'true',
 			'force_br_newlines' => 'true',
 			'force_p_newlines' => 'false',
-			'forced_root_block' => '',
-			'formats' => '{underline: {inline: "ins"},strikethrough: {inline: "del"},inlinecode: {inline: "code"},quote: {inline: "q"}}'
+			'forced_root_block' => ''
 		));
 		$tb->addPlugins('wiki',array(
 			'fullscreen' => true,
 			'paste' => true,
 			'searchreplace' => true,
-			'dcControls' => true
+			'dcControls' => true,
+			'dcwiki' => true
 		));
 		$tb->addButtons('wiki',array(
 			1 => array(
@@ -674,7 +673,6 @@ class dcPage
 				'numlist',
 				'separator',
 				'link',
-				'unlink',
 				'separator',
 				'search',
 				'replace',
@@ -682,9 +680,7 @@ class dcPage
 				'undo',
 				'redo',
 				'separator',
-				'fullscreen',
-				'separator',
-				'code'
+				'fullscreen'
 			)
 		));
 		
