@@ -87,31 +87,32 @@ try {
 } catch (Exception $e) { }
 
 # Liste des types d'item de menu
-$items = array('home' => array(__('Home'),false));
+$items = new ArrayObject();
+$items['home'] = new ArrayObject(array(__('Home'),false));
 
 if (count($langs_combo) > 1) {
-	$items['lang'] = array(__('Language'),true);
+	$items['lang'] = new ArrayObject(array(__('Language'),true));
 }
 if (count($categories_combo)) {
-	$items['category'] = array(__('Category'),true);
+	$items['category'] = new ArrayObject(array(__('Category'),true));
 }
 if (count($months_combo) > 1) {
-	$items['archive'] = array(__('Archive'),true);
+	$items['archive'] = new ArrayObject(array(__('Archive'),true));
 }
 if ($core->plugins->moduleExists('pages')) {
 	if(count($pages_combo))
-		$items['pages'] = array(__('Page'),true);
+		$items['pages'] = new ArrayObject(array(__('Page'),true));
 }
 if ($core->plugins->moduleExists('tags')) {
 	if (count($tags_combo) > 1)
-		$items['tags'] = array(__('Tags'),true);
+		$items['tags'] = new ArrayObject(array(__('Tags'),true));
 }
 
 # --BEHAVIOR-- adminSimpleMenuAddType
 # Should add an item to $items[<id>] as an array(<label>,<optional step (true or false)>)
 $core->callBehavior('adminSimpleMenuAddType',$items);
 
-$items['special'] = array(__('User defined'),false);
+$items['special'] = new ArrayObject(array(__('User defined'),false));
 
 $items_combo = array();
 foreach ($items as $k => $v) {
