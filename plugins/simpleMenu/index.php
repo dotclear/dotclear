@@ -212,7 +212,7 @@ if ($step) {
 					# Should modify if necessary $item_label, $item_descr and $item_url
 					# Should set if necessary $item_select_label (displayed on further admin step only)
 					$core->callBehavior('adminSimpleMenuBeforeEdit',$item_type,$item_select,
-						$item_label,$item_descr,$item_url,$item_select_label);
+						array(&$item_label,&$item_descr,&$item_url,&$item_select_label));
 					break;
 			}
 			break;
