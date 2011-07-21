@@ -110,6 +110,9 @@ h1 a {
 	text-transform: uppercase;
 	vertical-align: top;
 	}
+.supranav {
+	clear: both;
+	}
 .supranav li a {
 	text-decoration: none;
 	white-space: nowrap;
@@ -263,13 +266,18 @@ h1 a {
 	padding-left: 24px;
 	background: #fff no-repeat left center url(img/category.png);
 	}
+.permalink a {
+	padding-left: 20px;
+	background: #fff no-repeat left center url(img/link.png);
+	}
 .post-info .post-date {
 	padding-left: 28px;
 	background: #fff no-repeat 6px center url(img/date.png);
 }
 .post-info a, 
 .post-tags a, 
-.post-info-co a {
+.post-info-co a,
+.permalink a {
 	white-space: nowrap;
 	}
 .post-tags a {
@@ -354,14 +362,14 @@ h1 a {
 
 /* ------------------------------------------------------- commentaires et rétroliens */
 #comments, 
-#pings, 
+#ping-url, 
 #comment-form,
 #comments-feed { 
 	color: #4c4c85;
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	font-size: .875em;
 	}
-#comment-form {
+#comment-form, #ping-url {
 	padding: 1em;
 	background: #eef;
 	margin-top: 1em;
@@ -374,23 +382,29 @@ h1 a {
 	margin-bottom: 1em;
 	}
 #comments h3, 
-#pings h3, 
+#ping-url h3, 
 #pr h3, 
 #comment-form h3 { 
 	margin-top: 2em;
 	color: #666;
 	}
-#comment-form h3 {
+#comment-form h3, #ping-url h3 {
 	margin-top: 0;
 	}
-#comments dl { }
-#comments dt { 
+#comments > ul { 
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+	}
+.comment {
+	margin-left: 0;
+	}
+#comments .comment-info { 
 	padding-bottom: .2em;
 	border-bottom: 1px solid #ccc;
 	margin-top: 1.5em;
 	line-height: 1.1;
 	}
-#comments dd { }
 #comments .first { }
 #comments .odd { }
 #comments .me { 
@@ -404,17 +418,8 @@ h1 a {
 	font-style: italic;
 	text-decoration: none;
 	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
-	color: #909090;
+	color: #ad3f4c;
 	}
-
-#pings dl { }
-#pings dt { 
-	border-bottom: 1px solid #ccc;
-	margin-top: 1.5em;
-	line-height: 1.1;
-	padding-bottom: .2em;
-	}
-#pings dd { }
 #pings .first { }
 #pings .odd { }
 
@@ -500,13 +505,13 @@ h1 a {
 	font-style: italic;
 	}
 
-#ping-url { 
+/*#ping-url { 
 	background: #efefef;
 	border-right: 1px solid #aaa;
 	border-bottom: 1px solid #aaa;
 	font-size: .81em;
 	padding-left: .5em;
-	}
+	}*/
 #comments-feed { 
 	margin-top: 2em; 
 	}
@@ -549,7 +554,8 @@ h1 a {
 	padding: 0;
 	}
 #sidebar ul li ul {
-	margin-top: .5em;
+	margin-top: 0;
+	margin-bottom: 0;
 	}
 #sidebar ul li {
 	padding-left: 16px;
