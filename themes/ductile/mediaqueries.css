@@ -131,6 +131,15 @@
 	#top {
 		padding-top: 24px;
 		}
+ #logo {
+		float:left; 
+		margin:0 1.5em 0 1em;	
+		}
+	#logo a {
+		border: none;
+		background: transparent;
+		text-decoration: none;
+		}
 	h1 {
 		font-size: 2em;
 		padding-right: 240px;
@@ -201,7 +210,7 @@
   } 
 }
 
-/* ------------------------------------------------------ règles communes > 640px */
+/* ------------------------------------------------------ règles communes < 640px */
 @media only screen and (max-width:639px) {
 	body {
 		-webkit-text-size-adjust: none;
