@@ -31,12 +31,6 @@ $contexts = array(
 	'archive' => __('Month archive entries')
 );
 
-$sticker_images = array(
-	__('Contact') => 'sticker-contact.png',
-	__('Feed') => 'sticker-feed.png',
-	__('About') => 'sticker-about.png'
-);
-
 $fonts = array(
 	__('default') => '',
 	__('Ductile primary') => 'Ductile body',
