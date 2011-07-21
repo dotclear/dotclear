@@ -12,6 +12,8 @@
 
 if (!defined('DC_RC_PATH')) { return; }
 
+l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/main');
+
 # Behaviors
 $core->addBehavior('publicHeadContent',array('tplDuctileTheme','publicHeadContent'));
 $core->addBehavior('publicInsideFooter',array('tplDuctileTheme','publicInsideFooter'));
