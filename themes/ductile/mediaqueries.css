@@ -183,7 +183,7 @@
 		}
 	#stickers li {
 		display: block;
-		float: right;
+		float: left;
 		text-align: center;
 		width: 60px;
 		padding: 0;
