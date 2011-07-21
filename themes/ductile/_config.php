@@ -13,6 +13,9 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/admin');
 
+$img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/';
+$img_path = dirname(__FILE__).'/img/';
+
 $list_types = array(
 	__('Title') => 'title',
 	__('Short') => 'short',
@@ -107,26 +110,6 @@ $ductile_base = array(
 	'post_simple_title_c' => null
 );
 
-$ductile_user = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_style');
-$ductile_user = @unserialize($ductile_user);
-if (!is_array($ductile_user)) {
-	$ductile_user = array();
-}
-
-$ductile_user = array_merge($ductile_base,$ductile_user);
-
-$ductile_stickers_base = array(
-	array('label' => null,'url' => null,'image' => null),
-	array('label' => null,'url' => null,'image' => null),
-	array('label' => null,'url' => null,'image' => null)
-);
-
-$ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
-$ductile_stickers = @unserialize($ductile_stickers);
-if (!is_array($ductile_stickers)) {
-	$ductile_stickers = $ductile_stickers_base;
-}
-
 $ductile_lists_base = array(
 	'default' => null,
 	'default-page' => null,
@@ -136,25 +119,12 @@ $ductile_lists_base = array(
 	'archive' => null
 );
 
-$ductile_lists = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_lists');
-$ductile_lists = @unserialize($ductile_lists);
-if (!is_array($ductile_lists)) {
-	$ductile_lists = $ductile_lists_base;
-}
-
 $ductile_counts_base = array(
 	'default' => null,
 	'category' => null,
 	'tag' => null,
 	'search' => null
 );
-
-$ductile_counts = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_counts');
-$ductile_counts = @unserialize($ductile_counts);
-if (!is_array($ductile_counts)) {
-	$ductile_counts = $ductile_counts_base;
-}
-
 
 $conf_tab = isset($_POST['conf_tab']) ? $_POST['conf_tab'] : 'html';
 
@@ -166,29 +136,15 @@ if (!empty($_POST))
 		if ($conf_tab == 'html') {
 			$ductile_user['subtitle_hidden'] = (integer) !empty($_POST['subtitle_hidden']);
 			
-			$count = 0;
-			if (!empty($_POST['sticker1_label']) && !empty($_POST['sticker1_url'])) {
-				$ductile_stickers[$count]['label'] = $_POST['sticker1_label'];
-				$ductile_stickers[$count]['url'] = $_POST['sticker1_url'];
-				$ductile_stickers[$count]['image'] = $_POST['sticker1_image'];
-				$count++;
-			}
-			if (!empty($_POST['sticker2_label']) && !empty($_POST['sticker2_url'])) {
-				$ductile_stickers[$count]['label'] = $_POST['sticker2_label'];
-				$ductile_stickers[$count]['url'] = $_POST['sticker2_url'];
-				$ductile_stickers[$count]['image'] = $_POST['sticker2_image'];
-				$count++;
-			}
-			if (!empty($_POST['sticker3_label']) && !empty($_POST['sticker3_url'])) {
-				$ductile_stickers[$count]['label'] = $_POST['sticker3_label'];
-				$ductile_stickers[$count]['url'] = $_POST['sticker3_url'];
-				$ductile_stickers[$count]['image'] = $_POST['sticker3_image'];
-				$count++;
-			}
-			for ($i = $count; $i < 3; $i++) {
-				$ductile_stickers[$i]['label'] = null;
-				$ductile_stickers[$i]['url'] = null;
-				$ductile_stickers[$i]['image'] = null;
+			$ductile_stickers = array();
+			for ($i = 0; $i < count($_POST['sticker_label']); $i++) {
+				if (!empty($_POST['sticker_label'][$i]) && !empty($_POST['sticker_url'][$i])) {
+					$ductile_stickers[] = array(
+						'label' => $_POST['sticker_label'][$i],
+						'url' => $_POST['sticker_url'][$i],
+						'image' => $_POST['sticker_image'][$i]
+					);
+				}
 			}
 
 			for ($i = 0; $i < count($_POST['list_type']); $i++) {
@@ -252,6 +208,47 @@ if (!empty($_POST))
 	}
 }
 
+$ductile_user = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_style');
+$ductile_user = @unserialize($ductile_user);
+if (!is_array($ductile_user)) {
+	$ductile_user = array();
+}
+
+$ductile_user = array_merge($ductile_base,$ductile_user);
+
+$ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
+$ductile_stickers = @unserialize($ductile_stickers);
+$ductile_stickers_full = array();
+if (is_array($ductile_stickers)) {
+	foreach ($ductile_stickers as $k => $v) {
+		$ductile_stickers_full[$v['image']] = array('label' => $v['label'],'url' => $v['url']);
+	}
+}
+// Get all sticker-*.png in img folder of theme
+$ductile_stickers_images = files::scandir($img_path);
+if (is_array($ductile_stickers_images)) {
+	foreach ($ductile_stickers_images as $v) {
+		if (preg_match('/^sticker\-(.*)\.png$/',$v)) {
+			if (!array_key_exists($v,$ductile_stickers_full)) {
+				// image not used by a saved sticker
+				$ductile_stickers_full[$v] = array('label' => null,'url' => null);
+			}
+		}
+	}
+}
+
+$ductile_lists = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_lists');
+$ductile_lists = @unserialize($ductile_lists);
+if (!is_array($ductile_lists)) {
+	$ductile_lists = $ductile_lists_base;
+}
+
+$ductile_counts = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_counts');
+$ductile_counts = @unserialize($ductile_counts);
+if (!is_array($ductile_counts)) {
+	$ductile_counts = $ductile_counts_base;
+}
+
 // To be deleted when adminThemeConfigManaged behaviour will be implemented in admin/blog_themes.php :
 echo '</form>';
 
@@ -268,42 +265,27 @@ form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.
 
 echo '<fieldset><legend>'.__('Stickers').'</legend>';
 
-$img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/';
-
 echo '<table id="stickerslist">'.'<caption>'.__('Stickers (footer)').'</caption>'.
 '<thead>'.
 '<tr>'.
 '<th scope="col">'.__('Position').'</th>'.
+'<th scope="col">'.__('Image').'</th>'.
 '<th scope="col">'.__('Label').'</th>'.
 '<th scope="col">'.__('URL').'</th>'.
-'<th scope="col">'.__('Icon').'</th>'.
-'<th>'.'</th>'.
 '</tr>'.
 '</thead>'.
-'<tbody>'.
-'<tr>'.
-'<td scope="raw">1</td>'.
-'<td>'.form::field('sticker1_label',20,255,$ductile_stickers[0]['label']).'</td>'.
-'<td>'.form::field('sticker1_url',40,255,$ductile_stickers[0]['url']).'</td>'.
-'<td>'.form::combo('sticker1_image',$sticker_images,$ductile_stickers[0]['image']).'</td>'.
-'<td>'.'<img src="'.$img_url.$ductile_stickers[0]['image'].'" />'.'</td>'.
-'</tr>'.
-'<tr>'.
-'<td scope="raw">2</td>'.
-'<td>'.form::field('sticker2_label',20,255,$ductile_stickers[1]['label']).'</td>'.
-'<td>'.form::field('sticker2_url',40,255,$ductile_stickers[1]['url']).'</td>'.
-'<td>'.form::combo('sticker2_image',$sticker_images,$ductile_stickers[1]['image']).'</td>'.
-'<td>'.'<img src="'.$img_url.$ductile_stickers[1]['image'].'" />'.'</td>'.
-'</td>'.
-'</tr>'.
-'<tr>'.
-'<td scope="raw">3</td>'.
-'<td>'.form::field('sticker3_label',20,255,$ductile_stickers[2]['label']).'</td>'.
-'<td>'.form::field('sticker3_url',40,255,$ductile_stickers[2]['url']).'</td>'.
-'<td>'.form::combo('sticker3_image',$sticker_images,$ductile_stickers[2]['image']).'</td>'.
-'<td>'.'<img src="'.$img_url.$ductile_stickers[2]['image'].'" />'.'</td>'.
-'</td>'.
-'</tr>'.
+'<tbody>';
+$count = 1;
+foreach ($ductile_stickers_full as $k => $v) {
+	echo 
+	'<tr>'.
+	'<td>'.form::field(array('sticker_position[]'),2,3,$count++).'</td>'.
+	'<td>'.form::hidden(array('sticker_image[]'),$k).'<img src="'.$img_url.$k.'" /> '.'</td>'.
+	'<td scope="raw">'.form::field(array('sticker_label[]'),20,255,$v['label']).'</td>'.
+	'<td>'.form::field(array('sticker_url[]'),40,255,$v['url']).'</td>'.
+	'</tr>';
+}
+echo
 '</tbody>'.
 '</table>';
 
