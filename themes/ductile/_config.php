@@ -268,6 +268,8 @@ form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.
 
 echo '<fieldset><legend>'.__('Stickers').'</legend>';
 
+$img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/';
+
 echo '<table id="stickerslist">'.'<caption>'.__('Stickers (footer)').'</caption>'.
 '<thead>'.
 '<tr>'.
@@ -275,6 +277,7 @@ echo '<table id="stickerslist">'.'<caption>'.__('Stickers (footer)').'</caption>
 '<th scope="col">'.__('Label').'</th>'.
 '<th scope="col">'.__('URL').'</th>'.
 '<th scope="col">'.__('Icon').'</th>'.
+'<th>'.'</th>'.
 '</tr>'.
 '</thead>'.
 '<tbody>'.
@@ -283,18 +286,23 @@ echo '<table id="stickerslist">'.'<caption>'.__('Stickers (footer)').'</caption>
 '<td>'.form::field('sticker1_label',20,255,$ductile_stickers[0]['label']).'</td>'.
 '<td>'.form::field('sticker1_url',40,255,$ductile_stickers[0]['url']).'</td>'.
 '<td>'.form::combo('sticker1_image',$sticker_images,$ductile_stickers[0]['image']).'</td>'.
+'<td>'.'<img src="'.$img_url.$ductile_stickers[0]['image'].'" />'.'</td>'.
 '</tr>'.
 '<tr>'.
 '<td scope="raw">2</td>'.
 '<td>'.form::field('sticker2_label',20,255,$ductile_stickers[1]['label']).'</td>'.
 '<td>'.form::field('sticker2_url',40,255,$ductile_stickers[1]['url']).'</td>'.
 '<td>'.form::combo('sticker2_image',$sticker_images,$ductile_stickers[1]['image']).'</td>'.
+'<td>'.'<img src="'.$img_url.$ductile_stickers[1]['image'].'" />'.'</td>'.
+'</td>'.
 '</tr>'.
 '<tr>'.
 '<td scope="raw">3</td>'.
 '<td>'.form::field('sticker3_label',20,255,$ductile_stickers[2]['label']).'</td>'.
 '<td>'.form::field('sticker3_url',40,255,$ductile_stickers[2]['url']).'</td>'.
 '<td>'.form::combo('sticker3_image',$sticker_images,$ductile_stickers[2]['image']).'</td>'.
+'<td>'.'<img src="'.$img_url.$ductile_stickers[2]['image'].'" />'.'</td>'.
+'</td>'.
 '</tr>'.
 '</tbody>'.
 '</table>';
