@@ -126,6 +126,51 @@ $ductile_counts_base = array(
 	'search' => null
 );
 
+$ductile_user = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_style');
+$ductile_user = @unserialize($ductile_user);
+if (!is_array($ductile_user)) {
+	$ductile_user = array();
+}
+$ductile_user = array_merge($ductile_base,$ductile_user);
+
+$ductile_lists = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_lists');
+$ductile_lists = @unserialize($ductile_lists);
+if (!is_array($ductile_lists)) {
+	$ductile_lists = $ductile_lists_base;
+}
+
+$ductile_counts = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_counts');
+$ductile_counts = @unserialize($ductile_counts);
+if (!is_array($ductile_counts)) {
+	$ductile_counts = $ductile_counts_base;
+}
+
+$ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
+$ductile_stickers = @unserialize($ductile_stickers);
+
+$ductile_stickers_full = array();
+// Get all sticker images already used
+if (is_array($ductile_stickers)) {
+	foreach ($ductile_stickers as $v) {
+		$ductile_stickers_full[] = $v['image'];
+	}
+}
+// Get all sticker-*.png in img folder of theme
+$ductile_stickers_images = files::scandir($img_path);
+if (is_array($ductile_stickers_images)) {
+	foreach ($ductile_stickers_images as $v) {
+		if (preg_match('/^sticker\-(.*)\.png$/',$v)) {
+			if (!in_array($v,$ductile_stickers_full)) {
+				// image not already used
+				$ductile_stickers[] = array(
+					'label' => null,
+					'url' => null,
+					'image' => $v);
+			}
+		}
+	}
+}
+
 $conf_tab = isset($_POST['conf_tab']) ? $_POST['conf_tab'] : 'html';
 
 if (!empty($_POST))
@@ -135,18 +180,34 @@ if (!empty($_POST))
 		# HTML
 		if ($conf_tab == 'html') {
 			$ductile_user['subtitle_hidden'] = (integer) !empty($_POST['subtitle_hidden']);
-			
+
 			$ductile_stickers = array();
-			for ($i = 0; $i < count($_POST['sticker_label']); $i++) {
-				if (!empty($_POST['sticker_label'][$i]) && !empty($_POST['sticker_url'][$i])) {
-					$ductile_stickers[] = array(
-						'label' => $_POST['sticker_label'][$i],
-						'url' => $_POST['sticker_url'][$i],
-						'image' => $_POST['sticker_image'][$i]
-					);
-				}
+			for ($i = 0; $i < count($_POST['sticker_image']); $i++) {
+				$ductile_stickers[] = array(
+					'label' => $_POST['sticker_label'][$i],
+					'url' => $_POST['sticker_url'][$i],
+					'image' => $_POST['sticker_image'][$i]
+				);
 			}
 
+			$order = array();
+			if (empty($_POST['ds_order']) && !empty($_POST['order'])) {
+				$order = $_POST['order'];
+				asort($order);
+				$order = array_keys($order);
+			}
+			if (!empty($order)) {
+				$new_ductile_stickers = array();
+				foreach ($order as $i => $k) {
+					$new_ductile_stickers[] = array(
+						'label' => $ductile_stickers[$k]['label'],
+						'url' => $ductile_stickers[$k]['url'],
+						'image' => $ductile_stickers[$k]['image']
+					);
+				}
+				$ductile_stickers = $new_ductile_stickers;
+			}
+			
 			for ($i = 0; $i < count($_POST['list_type']); $i++) {
 				$ductile_lists[$_POST['list_ctx'][$i]] = $_POST['list_type'][$i];
 			}
@@ -208,47 +269,6 @@ if (!empty($_POST))
 	}
 }
 
-$ductile_user = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_style');
-$ductile_user = @unserialize($ductile_user);
-if (!is_array($ductile_user)) {
-	$ductile_user = array();
-}
-
-$ductile_user = array_merge($ductile_base,$ductile_user);
-
-$ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
-$ductile_stickers = @unserialize($ductile_stickers);
-$ductile_stickers_full = array();
-if (is_array($ductile_stickers)) {
-	foreach ($ductile_stickers as $k => $v) {
-		$ductile_stickers_full[$v['image']] = array('label' => $v['label'],'url' => $v['url']);
-	}
-}
-// Get all sticker-*.png in img folder of theme
-$ductile_stickers_images = files::scandir($img_path);
-if (is_array($ductile_stickers_images)) {
-	foreach ($ductile_stickers_images as $v) {
-		if (preg_match('/^sticker\-(.*)\.png$/',$v)) {
-			if (!array_key_exists($v,$ductile_stickers_full)) {
-				// image not used by a saved sticker
-				$ductile_stickers_full[$v] = array('label' => null,'url' => null);
-			}
-		}
-	}
-}
-
-$ductile_lists = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_lists');
-$ductile_lists = @unserialize($ductile_lists);
-if (!is_array($ductile_lists)) {
-	$ductile_lists = $ductile_lists_base;
-}
-
-$ductile_counts = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_counts');
-$ductile_counts = @unserialize($ductile_counts);
-if (!is_array($ductile_counts)) {
-	$ductile_counts = $ductile_counts_base;
-}
-
 // To be deleted when adminThemeConfigManaged behaviour will be implemented in admin/blog_themes.php :
 echo '</form>';
 
@@ -265,24 +285,26 @@ form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.
 
 echo '<fieldset><legend>'.__('Stickers').'</legend>';
 
-echo '<table id="stickerslist">'.'<caption>'.__('Stickers (footer)').'</caption>'.
+echo '<table class="dragable">'.'<caption>'.__('Stickers (footer)').'</caption>'.
 '<thead>'.
 '<tr>'.
-'<th scope="col">'.__('Position').'</th>'.
+'<th scope="col">'.'</th>'.
 '<th scope="col">'.__('Image').'</th>'.
 '<th scope="col">'.__('Label').'</th>'.
 '<th scope="col">'.__('URL').'</th>'.
 '</tr>'.
 '</thead>'.
-'<tbody>';
-$count = 1;
-foreach ($ductile_stickers_full as $k => $v) {
+'<tbody id="stickerslist">';
+$count = 0;
+foreach ($ductile_stickers as $i => $v) {
+	$count++;
 	echo 
-	'<tr>'.
-	'<td>'.form::field(array('sticker_position[]'),2,3,$count++).'</td>'.
-	'<td>'.form::hidden(array('sticker_image[]'),$k).'<img src="'.$img_url.$k.'" /> '.'</td>'.
-	'<td scope="raw">'.form::field(array('sticker_label[]'),20,255,$v['label']).'</td>'.
-	'<td>'.form::field(array('sticker_url[]'),40,255,$v['url']).'</td>'.
+	'<tr class="line" id="l_'.$i.'">'.
+	'<td class="handle minimal">'.form::field(array('order['.$i.']'),2,3,$count,'position','',false).
+		form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>'.
+	'<td>'.form::hidden(array('sticker_image[]'),$v['image']).'<img src="'.$img_url.$v['image'].'" /> '.'</td>'.
+	'<td scope="raw">'.form::field(array('sticker_label[]','dsl-'.$i),20,255,$v['label']).'</td>'.
+	'<td>'.form::field(array('sticker_url[]','dsu-'.$i),40,255,$v['url']).'</td>'.
 	'</tr>';
 }
 echo
@@ -322,7 +344,7 @@ echo
 echo '</fieldset>';
 
 echo '<input type="hidden" name="conf_tab" value="html">';
-echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
+echo '<p class="clear">'.form::hidden('ds_order','').'<input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
 echo '</form>';
 
 echo '</div>'; // Close tab
@@ -433,4 +455,46 @@ echo '</div>'; // Close tab
 // To be deleted when adminThemeConfigManaged behaviour will be implemented in admin/blog_themes.php :
 echo '<form style="display:none">';
 
+// Need some more Js
+$core->auth->user_prefs->addWorkspace('accessibility'); 
+$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+echo dcPage::jsToolMan();
+
 ?>
+<?php if (!$user_dm_nodragdrop) : ?>
+<script type="text/javascript">
+//<![CDATA[
+
+var dragsort = ToolMan.dragsort();
+$(function() {
+	dragsort.makeTableSortable($("#stickerslist").get(0),
+	dotclear.sortable.setHandle,dotclear.sortable.saveOrder);
+});
+
+dotclear.sortable = {
+	setHandle: function(item) {
+		var handle = $(item).find('td.handle').get(0);
+		while (handle.firstChild) {
+			handle.removeChild(handle.firstChild);
+		}
+
+		item.toolManDragGroup.setHandle(handle);
+		handle.className = handle.className+' handler';
+	},
+
+	saveOrder: function(item) {
+		var group = item.toolManDragGroup;
+		var order = document.getElementById('ds_order');
+		group.register('dragend', function() {
+			order.value = '';
+			items = item.parentNode.getElementsByTagName('tr');
+
+			for (var i=0; i<items.length; i++) {
+				order.value += items[i].id.substr(2)+',';
+			}
+		});
+	}
+};
+//]]>
+</script>
+<?php endif; ?>
