@@ -1,2 +1,8 @@
 msgid "Additionnal style directives"
 msgstr "Directives CSS supplémentaires"
+
+msgid "reactions"
+msgstr "réactions"
+
+msgid "Add ping"
+msgstr "Ajouter un rétrolien"
