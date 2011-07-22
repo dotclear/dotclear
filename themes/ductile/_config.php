@@ -265,6 +265,9 @@ if (!empty($_POST))
 	}
 }
 
+// Legacy mode
+if (!$standalone_config) echo '</form>';
+
 # HTML Tab
 
 echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">';
@@ -448,6 +451,9 @@ echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->fo
 echo '</form>';
 
 echo '</div>'; // Close tab
+
+// Legacy mode
+if (!$standalone_config) echo '<form style="display:none">';
 
 // Need some more Js
 $core->auth->user_prefs->addWorkspace('accessibility'); 

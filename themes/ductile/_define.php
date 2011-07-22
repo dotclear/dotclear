@@ -13,9 +13,11 @@ $this->registerModule(
 	/* Name */				"Ductile",
 	/* Description*/		"Chantier pour un nouveau theme",
 	/* Author */			"Dotclear Team",
-	/* Version */			'0.8',
-	/* Properties */		array(
+	/* Version */			'0.8.1'
+	/* Properties * (uncomment for 2.4 compliance only)
+							,array(
 								'standalone_config' => true
-	)
+							)
+	*/
 );
 ?>
