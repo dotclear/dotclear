@@ -2,67 +2,59 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{tpl:BlogLanguage}}" lang="{{tpl:BlogLanguage}}">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX,NOARCHIVE"}}" />
-  
-  <title>{{tpl:lang Document not found}} - {{tpl:BlogName encode_html="1"}}</title>
-  <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
-  <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
-  
-  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
-  <meta name="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Document not found}} - {{tpl:BlogName encode_html="1"}}" />
-  <meta name="dc.language" content="{{tpl:BlogLanguage}}" />
-  <meta name="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
-  <meta name="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
-  <meta name="dc.type" content="text" />
-  <meta name="dc.format" content="text/html" />
-  
-  <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
-  <link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
-  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
-  
-  {{tpl:include src="_head.html"}}
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX,NOARCHIVE"}}" />
+	
+	<title>{{tpl:lang Document not found}} - {{tpl:BlogName encode_html="1"}}</title>
+	<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+	<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
+	
+	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+	<meta name="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Document not found}} - {{tpl:BlogName encode_html="1"}}" />
+	<meta name="dc.language" content="{{tpl:BlogLanguage}}" />
+	<meta name="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
+	<meta name="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+	<meta name="dc.type" content="text" />
+	<meta name="dc.format" content="text/html" />
+	
+	<link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
+	<link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
+	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+	
+	{{tpl:include src="_head.html"}}
 </head>
 
 <body class="dc-404">
-<div id="page">
-{{tpl:include src="_top.html"}}
-
-<div id="wrapper">
-
-<div id="main">
-  <div id="content">
-  
-  <div id="content-info">
-    <h2>{{tpl:lang Document not found}}</h2>
-    <p>L'adresse est erronée ou la page a été supprimée.</p>
-  </div>
-  
-  <div class="content-inner">
-		<h3>{{tpl:lang Suggestions:}}</h3>
-		<ul>
-			<li><a href="{{tpl:BlogURL}}">{{tpl:lang Go to homepage}}</a></li>
-			<li><a href="#search">{{tpl:lang Use search form}}</a></li>
-			<li><a href="{{tpl:BlogURL}}archive">{{tpl:lang Explore archives}}</a></li>
-		</ul>
-  </div>
-  
-  </div>
-</div>
-
-<div id="sidebar">
-  <div id="blognav">
-    {{tpl:Widgets type="nav"}}
-  </div> <!-- End #blognav -->
-  
-  <div id="blogextra">
-    {{tpl:Widgets type="extra"}}
-  </div> <!-- End #blogextra -->
-</div>
-
-</div> <!-- End #wrapper -->
-
-{{tpl:include src="_footer.html"}}
-</div> <!-- End #page -->
+	<div id="page">
+		{{tpl:include src="_top.html"}}
+		
+		<div id="wrapper">
+			
+			<div id="main">
+				<div id="content">
+					
+					<div id="content-info">
+						<h2>{{tpl:lang Document not found}}</h2>
+						<p>L'adresse est erronée ou la page a été supprimée.</p>
+					</div>
+					
+					<div class="content-inner">
+						<h3>{{tpl:lang Suggestions:}}</h3>
+						<ul>
+							<li><a href="{{tpl:BlogURL}}">{{tpl:lang Go to homepage}}</a></li>
+							<li><a href="#search">{{tpl:lang Use search form}}</a></li>
+							<li><a href="{{tpl:BlogURL}}archive">{{tpl:lang Explore archives}}</a></li>
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+			
+			{{tpl:include src="_sidebar.html"}}
+			
+		</div> <!-- End #wrapper -->
+		
+		{{tpl:include src="_footer.html"}}
+	</div> <!-- End #page -->
 </body>
 </html>
