@@ -273,8 +273,12 @@ echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" encty
 
 echo '<fieldset><legend>'.__('Header').'</legend>'.
 '<p class="field"><label for="subtitle_hidden">'.__('Hide blog description:').' '.
-form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.'</p>'.
-'</fieldset>';
+form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.'</p>';
+if ($core->plugins->moduleExists('simpleMenu'))
+{
+	echo '<p>'.sprintf(__('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),'plugin.php?p=simpleMenu').'</p>';
+}
+echo '</fieldset>';
 
 echo '<fieldset><legend>'.__('Stickers').'</legend>';
 
