@@ -467,7 +467,6 @@ if (!$standalone_config) echo '<form style="display:none">';
 // Need some more Js
 $core->auth->user_prefs->addWorkspace('accessibility'); 
 $user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
-echo dcPage::jsToolMan();
 
 ?>
 <?php if (!$user_dm_nodragdrop) : ?>
