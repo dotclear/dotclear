@@ -91,6 +91,9 @@
 	#stickers a {
 		text-decoration: none;
 		}
+	ul, ol, dd {
+		margin: 1em 0 .5em 1em !important;
+		}
 }
 
 /* --------------------------------------------------------------------
