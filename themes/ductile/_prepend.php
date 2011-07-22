@@ -23,8 +23,53 @@ class tplDuctileThemeAdmin
 {
 	public static function adminPageHTMLHead()
 	{
+		global $core;
+		
 		echo "\n".'<!-- Header directives for Ductile configuration -->'."\n";
 		echo dcPage::jsToolMan();
+
+		// Need some more Js
+		$core->auth->user_prefs->addWorkspace('accessibility'); 
+		$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+		if (!$user_dm_nodragdrop) {
+			echo <<<EOT
+<script type="text/javascript">
+//<![CDATA[
+
+var dragsort = ToolMan.dragsort();
+$(function() {
+	dragsort.makeTableSortable($("#stickerslist").get(0),
+	dotclear.sortable.setHandle,dotclear.sortable.saveOrder);
+});
+
+dotclear.sortable = {
+	setHandle: function(item) {
+		var handle = $(item).find('td.handle').get(0);
+		while (handle.firstChild) {
+			handle.removeChild(handle.firstChild);
+		}
+
+		item.toolManDragGroup.setHandle(handle);
+		handle.className = handle.className+' handler';
+	},
+
+	saveOrder: function(item) {
+		var group = item.toolManDragGroup;
+		var order = document.getElementById('ds_order');
+		group.register('dragend', function() {
+			order.value = '';
+			items = item.parentNode.getElementsByTagName('tr');
+
+			for (var i=0; i<items.length; i++) {
+				order.value += items[i].id.substr(2)+',';
+			}
+		});
+	}
+};
+//]]>
+</script>
+EOT;
+		}
 	}
 }
 ?>
