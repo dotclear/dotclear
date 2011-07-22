@@ -10,9 +10,12 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"Ductile",
+	/* Name */				"Ductile",
 	/* Description*/		"Chantier pour un nouveau theme",
 	/* Author */			"Dotclear Team",
-	/* Version */			'0.8'
+	/* Version */			'0.8',
+	/* Properties */		array(
+								'standalone_config' => true
+	)
 );
 ?>

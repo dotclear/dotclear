@@ -16,6 +16,8 @@ l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/admin');
 $img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/';
 $img_path = dirname(__FILE__).'/img/';
 
+$standalone_config = (boolean) $core->themes->moduleInfo($core->blog->settings->system->theme,'standalone_config');
+
 $list_types = array(
 	__('Title') => 'title',
 	__('Short') => 'short',
@@ -263,9 +265,6 @@ if (!empty($_POST))
 	}
 }
 
-// To be deleted when adminThemeConfigManaged behaviour will be implemented in admin/blog_themes.php :
-echo '</form>';
-
 # HTML Tab
 
 echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">';
@@ -445,9 +444,6 @@ echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->fo
 echo '</form>';
 
 echo '</div>'; // Close tab
-
-// To be deleted when adminThemeConfigManaged behaviour will be implemented in admin/blog_themes.php :
-echo '<form style="display:none">';
 
 // Need some more Js
 $core->auth->user_prefs->addWorkspace('accessibility'); 
