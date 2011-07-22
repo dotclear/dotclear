@@ -144,6 +144,15 @@ if (!is_array($ductile_counts)) {
 $ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
 $ductile_stickers = @unserialize($ductile_stickers);
 
+// If no stickers defined, add feed Atom one
+if (!is_array($ductile_stickers)) {
+	$ductile_stickers = array(array(
+		'label' => __('Subscribe'),
+		'url' => $core->blog->url.$core->url->getBase('feed').'/atom',
+		'image' => 'sticker-feed.png'
+		));
+}
+
 $ductile_stickers_full = array();
 // Get all sticker images already used
 if (is_array($ductile_stickers)) {
