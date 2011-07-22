@@ -247,6 +247,9 @@ h1 a {
 	line-height: 1.2;	
 	margin: .33em 0;
 	}
+.post-attr {
+	margin-bottom: 1em;
+}
 .post-info, 
 .post-tags {
 	font-size: .875em;
@@ -275,7 +278,6 @@ h1 a {
 	background: #fff no-repeat 6px center url(img/date.png);
 }
 .post-info a, 
-.post-tags a, 
 .post-info-co a,
 .permalink a {
 	white-space: nowrap;
@@ -368,6 +370,7 @@ h1 a {
 	color: #4c4c85;
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	font-size: .875em;
+	clear: both;
 	}
 #comment-form, #ping-url {
 	padding: 1em;
@@ -396,14 +399,19 @@ h1 a {
 	padding-left: 0;
 	list-style-type: none;
 	}
-.comment {
+.comment, .ping {
+	clear: left;
 	margin-left: 0;
+	border-top: 1px solid #bbb;
 	}
-#comments .comment-info { 
+.comment-info { 
+	clear: left;
+	float: left;
 	padding-bottom: .2em;
-	border-bottom: 1px solid #ccc;
-	margin-top: 1.5em;
-	line-height: 1.1;
+	margin-top: 1em;
+	line-height: 1.25;
+	width: 10em;
+	color: #666;
 	}
 #comments .first { }
 #comments .odd { }
@@ -419,12 +427,23 @@ h1 a {
 	text-decoration: none;
 	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	color: #ad3f4c;
+	display: block;
+	width: 2em;
 	}
-#pings .first { }
-#pings .odd { }
-
-#pr dl { }
-#pr dd { }
+.comment .comment-number {
+	background: transparent url(img/comm.png) right center no-repeat;
+	}
+.ping .comment-number {
+	background: transparent url(img/tb.png) right center no-repeat;
+	}
+.comment-content {
+	margin-left: 11em;
+	}
+#comments-feed {
+	border-top: 1px solid #bbb;
+	margin-top: 1.5em;
+	padding-top: 1em;
+	}
 
 /* ------------------------------------------------------- formulaire des commentaires */
 #comment-form fieldset { }
@@ -844,7 +863,20 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 
 .dc-tags { }
 .dc-tag { }
-.dc-404 { }
+
+.dc-404 #content-info {
+	padding-bottom: 200px;
+	background: transparent url(img/404.png) no-repeat bottom center;
+	}
+.dc-404 .content-inner ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+	}
+.dc-404 .content-inner h3 {
+	font-size: 1.1em;
+	font-variant: small-caps;
+	}
 .dc-search #content-info em { color: #14709e; }
 
 
