@@ -25,12 +25,6 @@
   <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
   <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
   
-  <tpl:EntryNext><link rel="next" href="{{tpl:EntryURL}}"
-  title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryNext>
-  
-  <tpl:EntryPrevious><link rel="prev" href="{{tpl:EntryURL}}"
-  title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryPrevious>
-  
   <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
   
   {{tpl:include src="_head.html"}}
@@ -43,7 +37,7 @@
   </script>
 </head>
 
-<body class="dc-post">
+<body class="dc-page">
 <div id="page">
 {{tpl:EntryPingData}}
 
@@ -54,26 +48,8 @@
 <div id="main">
   <div id="content">
   
-  <p class="navlinks">
-  <tpl:EntryPrevious><a href="{{tpl:EntryURL}}"
-  title="{{tpl:EntryTitle encode_html="1"}}" class="prev">&#171; {{tpl:EntryTitle encode_html="1"
-  cut_string="50"}}</a></tpl:EntryPrevious>
-  <tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}"
-  title="{{tpl:EntryTitle encode_html="1"}}" class="next">{{tpl:EntryTitle encode_html="1"
-  cut_string="50"}} &#187;</a></tpl:EntryNext>
-  </p>
+		{{tpl:include src="_simple-entry.html"}}
 
-	{{tpl:include src="_simple-entry.html"}}
-
-  <p class="navlinks">
-  <tpl:EntryPrevious><a href="{{tpl:EntryURL}}"
-  title="{{tpl:EntryTitle encode_html="1"}}" class="prev">&#171; {{tpl:EntryTitle encode_html="1"
-  cut_string="50"}}</a></tpl:EntryPrevious>
-  <tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}"
-  title="{{tpl:EntryTitle encode_html="1"}}" class="next">{{tpl:EntryTitle encode_html="1"
-  cut_string="50"}} &#187;</a></tpl:EntryNext>
-  </p>
-  
   </div>
 </div> <!-- End #main -->
 

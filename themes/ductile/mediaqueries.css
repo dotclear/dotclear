@@ -313,7 +313,7 @@
 		margin : 0 20em 0 220px;
 		}
 	.full .post-attr,
-	.dc-post .post-attr {
+	.simple .post-attr {
 		margin-left: -220px;
 		margin-top: 0; 
 		float: left; 
@@ -325,13 +325,13 @@
 		}
 	#content-info, .navlinks, .pagination {
 		margin-left: -220px !important;
-	}
+		}
 	.dc-archive #content-info {
 		margin-left: 0 !important;
-	}
+		}
 	#content-info a.feed { 
 		white-space: nowrap;
-		}
+		}	
 }
 
 /* ------------------------------------------------------ au-delà de 1600px */

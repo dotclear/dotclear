@@ -6,3 +6,15 @@ msgstr "réactions"
 
 msgid "Add ping"
 msgstr "Ajouter un rétrolien"
+
+msgid "Suggestions:"
+msgstr "Suggestions :"
+
+msgid "Go to homepage"
+msgstr "Aller à l'accueil"
+
+msgid "Use search form"
+msgstr "Faire une recherche"
+
+msgid "Explore archives"
+msgstr "Explorer les archives"
