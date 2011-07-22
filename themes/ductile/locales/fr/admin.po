@@ -10,6 +10,9 @@ msgstr "Entête"
 msgid "Hide blog description:"
 msgstr "Cacher la description du blog :"
 
+msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
+msgstr "Pour configurer le menu allez à la <a href=\"%s\">page d'administration de l'extension Menu Simple</a>."
+
 msgid "Stickers"
 msgstr "Étiquettes"
 
