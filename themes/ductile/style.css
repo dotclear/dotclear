@@ -367,7 +367,7 @@ h1 a {
 #ping-url, 
 #comment-form,
 #comments-feed { 
-	color: #4c4c85;
+	color: #333;
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	font-size: .875em;
 	clear: both;
@@ -381,7 +381,7 @@ h1 a {
 	}
 #pr {
 	padding: 1em;
-	border: 1px dashed #4c4c85;
+	border: 1px dashed #14709e;
 	margin-bottom: 1em;
 	}
 #comments h3, 
@@ -412,12 +412,13 @@ h1 a {
 	line-height: 1.25;
 	width: 10em;
 	color: #666;
+	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	}
 #comments .first { }
 #comments .odd { }
 #comments .me { 
 	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
-	color: #333;
+	color: #14709e;
 	font-size: 1.14em;
 	}
 .comment-number {
@@ -437,7 +438,7 @@ h1 a {
 	background: transparent url(img/tb.png) right center no-repeat;
 	}
 .comment-content {
-	margin-left: 11em;
+	margin-left: 11.5em;
 	}
 #comments-feed {
 	border-top: 1px solid #bbb;
