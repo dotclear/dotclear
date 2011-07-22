@@ -467,6 +467,8 @@ h1 a {
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 	font-family: sans-serif;
+	}
+.field textarea { 
 	padding: .5em 1em;	
 	}
 .field input:focus, 
