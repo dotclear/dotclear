@@ -61,7 +61,7 @@ class tplDuctileTheme
 	{
 		global $core;
 		
-		if (empty($attr['cut_string']) || empty($attr['full'])) {
+		if (empty($attr['cut_string']) || !empty($attr['full'])) {
 			return '';
 		}
 		
@@ -69,10 +69,12 @@ class tplDuctileTheme
 		if (!empty($attr['absolute_urls'])) {
 			$urls = '1';
 		}
-		
+
 		$short = $core->tpl->getFilters($attr);
+		$cut = $attr['cut_string'];
 		$attr['cut_string'] = 0;
 		$full = $core->tpl->getFilters($attr);
+		$attr['cut_string'] = $cut;
 
 		return '<?php if (strlen('.sprintf($full,'$_ctx->posts->getContent('.$urls.')').') > '.
 			'strlen('.sprintf($short,'$_ctx->posts->getContent('.$urls.')').')) : ?>'.
