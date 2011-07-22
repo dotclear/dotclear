@@ -18,18 +18,13 @@ if (!defined('DC_RC_PATH')) { return; }
 
 # Behaviors
 $GLOBALS['core']->addBehavior('adminPageHTMLHead',array('tplDuctileThemeAdmin','adminPageHTMLHead'));
-$GLOBALS['core']->addBehavior('adminThemeConfigManaged',array('tplDuctileThemeAdmin','adminThemeConfigManaged'));
 
 class tplDuctileThemeAdmin
 {
 	public static function adminPageHTMLHead()
 	{
 		echo "\n".'<!-- Header directives for Ductile configuration -->'."\n";
-	}
-
-	public static function adminThemeConfigManaged()
-	{
-		return true;
+		echo dcPage::jsToolMan();
 	}
 }
 ?>
