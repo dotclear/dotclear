@@ -19,5 +19,17 @@ msgstr "Faire une recherche"
 msgid "Explore archives"
 msgstr "Explorer les archives"
 
+msgid "to"
+msgstr "à"
+
 msgid "From"
 msgstr "De"
+
+msgid "By category"
+msgstr "Par catégorie"
+
+msgid "By date"
+msgstr "Par date"
+
+msgid "By tag"
+msgstr "Par tag"
