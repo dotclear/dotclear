@@ -14,6 +14,7 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 # Admin mode only :
+$GLOBALS['core']->themes->loadModuleL10Nresources($GLOBALS['core']->blog->settings->system->theme,$GLOBALS['_lang']);
 
 # Behaviors
 $GLOBALS['core']->addBehavior('adminPageHTMLHead',array('tplDuctileThemeAdmin','adminPageHTMLHead'));
