@@ -41,7 +41,7 @@ Colorzilla wysiwyg gradient editor http://www.colorzilla.com/gradient-editor/
 /* ------------------------------------------------------- body */
 body {
 	background: #fff;
-	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+	font-family: "New Century Schoolbook","Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	color: #222;
 	}
 
@@ -130,6 +130,7 @@ h1 a {
 	}
 .supranav li.active a {
 	background-position: right -150px;
+	color: #14709e;
 	}
 .supranav li a span {
 	display: block;
