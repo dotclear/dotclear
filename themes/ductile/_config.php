@@ -465,4 +465,5 @@ echo '</div>'; // Close tab
 // Legacy mode
 if (!$standalone_config) echo '<form style="display:none">';
 
+dcPage::helpBlock('ductile');
 ?>
