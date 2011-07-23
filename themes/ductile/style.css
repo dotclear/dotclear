@@ -245,16 +245,13 @@ h1 a {
 	text-decoration: none;
 	color: #ad3f4c;
 	}
+.post h3,
 .post h4, 
 .post h5,
 .post h6 {
 	font-weight: normal;
 	color: #14709e;
 	}
-.post h3 {
-	font-weight: normal;
-	font-weight: bold;
-}
 .post h3, .post h5 {
 	font-variant: small-caps;
 	}
