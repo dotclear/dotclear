@@ -3,14 +3,11 @@
 <!-- compat media queries -->
 <!--[if lt IE 9]>
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/ie.css" media="screen" />
 <![endif]-->
 
-<style type="text/css" media="screen">
-@import url({{tpl:BlogThemeURL}}/style.css);
-</style>
-<style type="text/css" media="print">
-@import url({{tpl:BlogThemeURL}}/../default/print.css);
-</style>
+<link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/../default/print.css" media="print" />
 
 <script type="text/javascript" src="{{tpl:BlogThemeURL}}/../default/js/jquery.js"></script>
 <script type="text/javascript" src="{{tpl:BlogThemeURL}}/../default/js/jquery.cookie.js"></script>
