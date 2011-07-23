@@ -14,6 +14,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/admin');
 
 $img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/';
+$img_url = http::concatURL($core->blog->url,$img_url);
 $img_path = dirname(__FILE__).'/img/';
 
 $standalone_config = (boolean) $core->themes->moduleInfo($core->blog->settings->system->theme,'standalone_config');
