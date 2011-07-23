@@ -1,9 +1,13 @@
 @charset "UTF-8";
-
-/* Ductile
-	Dotclear theme by Dotclear Team
-	Version de chantier
-*/
+/* -- BEGIN LICENSE BLOCK ---------------------------------------
+# This file is part of Ductile, a theme for Dotclear
+#
+# Copyright (c) 2011 - Association Dotclear
+# Licensed under the GPL version 2.0 license.
+# See LICENSE file or
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+# -- END LICENSE BLOCK ----------------------------------------- */
 
 /* Infos
 Plan de cette feuille :
@@ -61,6 +65,9 @@ code, pre {
 	border-bottom: 1px solid #aaa;
 	font-size: .81em;
 	}
+pre {
+	white-space: normal;
+	}
 
 a {
 	color: #666;
@@ -85,6 +92,9 @@ a:hover, a:focus {
 	text-shadow: 0 1px 1px rgba(0,0,0,.2);
 	line-height: 1;
 	}
+#logo a img, #stickers a img {
+	border: none;
+}
 h1 {
 	font-variant: small-caps;
 	}
