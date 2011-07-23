@@ -56,6 +56,10 @@
 	#gotop li {
 		text-transform: none;
 		}
+	#prelude {
+		margin: .5em 0 !important;
+		padding-left: 0 !important;
+		}
 	#prelude li a {
 		background: transparent url(img/menumobile.png) no-repeat right center;
 		 }
