@@ -40,7 +40,10 @@
 	
 	<!-- # Entry without excerpt -->
 	<tpl:EntryIf extended="0">
-		<div class="post-content">{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="300"}}</div>
+		<div class="post-content">
+			<p class="post-icon">{{tpl:EntryFirstImage size="t"}}</p>
+			{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="300"}}
+		</div>
 		<tpl:EntryIfContentIsCut encode_html="1" remove_html="1" cut_string="300">
 			<p class="read-it"><a href="{{tpl:EntryURL}}"
 			 title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue reading}}</a></p>
