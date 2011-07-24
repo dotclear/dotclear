@@ -245,6 +245,10 @@ h1 a {
 	text-decoration: none;
 	color: #ad3f4c;
 	}
+.post-icon {
+	float: left;
+	margin: .5em 1em 1em 0;
+	}
 .post h3,
 .post h4, 
 .post h5,
