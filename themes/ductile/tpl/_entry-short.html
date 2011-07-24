@@ -41,7 +41,7 @@
 	<!-- # Entry without excerpt -->
 	<tpl:EntryIf extended="0">
 		<div class="post-content">
-			<p class="post-icon">{{tpl:EntryFirstImage size="t"}}</p>
+			{{tpl:EntryFirstImage size="t" class="post-icon"}}
 			{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="300"}}
 		</div>
 		<tpl:EntryIfContentIsCut encode_html="1" remove_html="1" cut_string="300">
