@@ -247,7 +247,15 @@ h1 a {
 	}
 .post-icon {
 	float: left;
-	margin: .5em 1em 1em 0;
+	margin: .33em 1em .66em 0;
+	}
+.post-icon img {
+	padding: 4px;
+	border: 1px solid #999;
+	-moz-box-shadow: 2px 2px 3px #ccc;
+	-webkit-box-shadow: 2px 2px 3px #ccc;
+	-o-box-shadow: 2px 2px 3px #ccc;
+	box-shadow: 2px 2px 3px #ccc;
 	}
 .post h3,
 .post h4, 
