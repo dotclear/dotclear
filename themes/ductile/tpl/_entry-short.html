@@ -42,7 +42,12 @@
 	<tpl:EntryIf extended="0">
 		<div class="post-content">
 			{{tpl:EntryFirstImage size="t" class="post-icon"}}
-			{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="300"}}
+			<p>
+				{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="300"}}
+				<tpl:EntryIfContentIsCut encode_html="1" remove_html="1" cut_string="300">
+				&nbsp;[…]
+				</tpl:EntryIfContentIsCut>
+			</p>
 		</div>
 		<tpl:EntryIfContentIsCut encode_html="1" remove_html="1" cut_string="300">
 			<p class="read-it"><a href="{{tpl:EntryURL}}"
