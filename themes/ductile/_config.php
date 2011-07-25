@@ -418,7 +418,7 @@ form::checkbox('post_link_w',1,$ductile_user['post_link_w']).'</label>'.'</p>'.
 '<p class="field picker"><label for="post_link_v_c">'.__('Normal and visited links color:').'</label> '.
 form::field('post_link_v_c',7,7,$ductile_user['post_link_v_c'],'colorpicker').'</p>'.
 
-'<p class="field picker"><label for="body_link_f_c">'.__('Active, hover and focus links color:').'</label> '.
+'<p class="field picker"><label for="post_link_f_c">'.__('Active, hover and focus links color:').'</label> '.
 form::field('post_link_f_c',7,7,$ductile_user['post_link_f_c'],'colorpicker').'</p>'.
 '</fieldset>';
 
