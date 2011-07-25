@@ -544,20 +544,11 @@ h1 a {
 	width: 95%;
 	padding: 4px;
 	}
-
 .form-help { 
 	margin-top: 0;
 	font-size: .875em;
 	font-style: italic;
 	}
-
-/*#ping-url { 
-	background: #efefef;
-	border-right: 1px solid #aaa;
-	border-bottom: 1px solid #aaa;
-	font-size: .81em;
-	padding-left: .5em;
-	}*/
 #comments-feed { 
 	margin-top: 2em; 
 	}
@@ -568,6 +559,9 @@ h1 a {
 
 #sidebar {
 	font-size: 0.875em;
+	}
+#sidebar img {
+	max-width: 100%;
 	}
 #sidebar h2 {
 	font-size: 1.1em;
@@ -919,6 +913,14 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 .read-it, 
 .post-info-co, 
 #comments, #footer {
+	clear:both;
+	}
+/* Micro clearfix thx to Nicolas Gallagher */
+.post-content:before, .post-content:after {
+	content: "";
+	display: table;
+	}
+.post-content:after {
 	clear:both;
 	}
 
