@@ -135,3 +135,6 @@ msgstr "Impact"
 
 msgid "Monospace"
 msgstr "Monospace"
+
+msgid "contrast ratio = %.1f:1"
+msgstr "ratio de contraste = %.1f:1"
