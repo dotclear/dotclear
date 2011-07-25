@@ -122,7 +122,7 @@ class dcPage
 		($safe_mode ? ' safe-mode' : '').
 		'">'."\n".
 		
-		'<div id=header>'.
+		'<div id="header">'.
 		'<ul id="prelude"><li><a href="#content">Aller au contenu</a></li><li><a href="#main-menu">Aller au menu</a></li></ul>'."\n".
 		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";	
 		
