@@ -107,12 +107,12 @@ $ductile_base = array(
 );
 
 $ductile_lists_base = array(
-	'default' => null,
-	'default-page' => null,
-	'category' => null,
-	'tag' => null,
-	'search' => null,
-	'archive' => null
+	'default' => 'short',
+	'default-page' => 'short',
+	'category' => 'short',
+	'tag' => 'short',
+	'search' => 'short',
+	'archive' => 'title'
 );
 
 $ductile_counts_base = array(
