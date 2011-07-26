@@ -82,30 +82,90 @@ function adjustColor($c)
 	return '';
 }
 
-function computeContrastRatio($c,$b)
+function computeContrastRatio($color,$background)
 {
 	// Compute contrast ratio between two colors
 	
-	$c = adjustColor($c);
-	if (($c == '') || (strlen($c) != 7)) return 0;
-	$b = adjustColor($b);
-	if (($b == '') || (strlen($b) != 7)) return 0;
+	$color = adjustColor($color);
+	if (($color == '') || (strlen($color) != 7)) return 0;
+	$background = adjustColor($background);
+	if (($background == '') || (strlen($background) != 7)) return 0;
 	
-	$l1 = (0.2126 * pow(hexdec(substr($c,1,2))/255,2.2)) + (0.7152 * pow(hexdec(substr($c,3,2))/255,2.2)) + (0.0722 * pow(hexdec(substr($c,5,2))/255,2.2));
-	$l2 = (0.2126 * pow(hexdec(substr($b,1,2))/255,2.2)) + (0.7152 * pow(hexdec(substr($b,3,2))/255,2.2)) + (0.0722 * pow(hexdec(substr($b,5,2))/255,2.2));
+	$l1 = (0.2126 * pow(hexdec(substr($color,1,2))/255,2.2)) +
+		(0.7152 * pow(hexdec(substr($color,3,2))/255,2.2)) +
+		(0.0722 * pow(hexdec(substr($color,5,2))/255,2.2));
+
+	$l2 = (0.2126 * pow(hexdec(substr($background,1,2))/255,2.2)) +
+	 	(0.7152 * pow(hexdec(substr($background,3,2))/255,2.2)) +
+		(0.0722 * pow(hexdec(substr($background,5,2))/255,2.2));
 
 	if ($l1 > $l2) {
-		$r = ($l1 + 0.05) / ($l2 + 0.05);
+		$ratio = ($l1 + 0.05) / ($l2 + 0.05);
 	} else {
-		$r = ($l2 + 0.05) / ($l1 + 0.05);
+		$ratio = ($l2 + 0.05) / ($l1 + 0.05);
 	}
-	return $r;
+	return $ratio;
 }
 
-function contrastRatio($c,$b) {
-	if (($c != '') && ($b != '')) {
-		$r = computeContrastRatio($c,$b);
-		return '<span style="position:absolute;top:0;left:23em;">('.sprintf(__('contrast ratio = %.1f:1'),$r).')</span>';
+function contrastRatioLevel($ratio,$size,$bold)
+{
+	if ($size == '') {
+		return '';
+	}
+
+	// Eval font size in em (assume base font size in pixels equal to 16)
+	if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex)?$/',$size,$m)) {
+		if (empty($m[2])) {
+			$m[2] = 'em';
+		}
+	} else {
+		return '';
+	}
+	switch ($m[2]) {
+		case '%':
+			$s = (float) $m[1] / 100;
+			break;
+		case 'pt':
+			$s = (float) $m[1] / 12;
+			break;
+		case 'px':
+			$s = (float) $m[1] / 16;
+			break;
+		case 'em':
+			$s = (float) $m[1];
+			break;
+		case 'ex':
+			$s = (float) $m[1] / 2;
+			break;
+		default:
+			return '';
+	}
+
+	$large = ((($s > 1.5) && ($bold == false)) || (($s > 1.2) && ($bold == true)));
+	
+	// Check ratio
+	if ($ratio > 7) {
+		return 'AAA';
+	} elseif (($ratio > 4.5) && $large) {
+		return 'AAA';
+	} elseif ($ratio > 4.5) {
+		return 'AA';
+	} elseif (($ratio > 3) && $large) {
+		return 'AA';
+	}
+	return '';
+}
+
+function contrastRatio($color,$background,$size='',$bold=false)
+{
+	if (($color != '') && ($background != '')) {
+		$ratio = computeContrastRatio($color,$background);
+		$level = contrastRatioLevel($ratio,$size,$bold);
+		return 
+			'<span style="position:absolute;top:0;left:23em;">('.
+			sprintf(__('contrast ratio = %.1f:1'),$ratio).
+			($level != '' ? ' / '.sprintf(__('WCAG %s'),$level) : '').
+			')</span>';
 	}
 	return '';
 }
@@ -413,7 +473,11 @@ form::checkbox('blog_title_w',1,$ductile_user['blog_title_w']).'</label>'.'</p>'
 form::field('blog_title_s',7,7,$ductile_user['blog_title_s']).'</p>'.
 
 '<p class="field picker"><label for="blog_title_c">'.__('Color:').'</label> '.
-form::field('blog_title_c',7,7,$ductile_user['blog_title_c'],'colorpicker').contrastRatio($ductile_user['blog_title_c'],'#ffffff').'</p>'.
+form::field('blog_title_c',7,7,$ductile_user['blog_title_c'],'colorpicker').
+contrastRatio($ductile_user['blog_title_c'],'#ffffff',
+	(!empty($ductile_user['blog_title_s']) ? $ductile_user['blog_title_s'] : '2em'),
+	$ductile_user['blog_title_w']).
+'</p>'.
 '</fieldset>';
 
 echo '</div>';
@@ -427,7 +491,11 @@ form::checkbox('post_title_w',1,$ductile_user['post_title_w']).'</label>'.'</p>'
 form::field('post_title_s',7,7,$ductile_user['post_title_s']).'</p>'.
 
 '<p class="field picker"><label for="post_title_c">'.__('Color:').'</label> '.
-form::field('post_title_c',7,7,$ductile_user['post_title_c'],'colorpicker').contrastRatio($ductile_user['post_title_c'],'#ffffff').'</p>'.
+form::field('post_title_c',7,7,$ductile_user['post_title_c'],'colorpicker').
+contrastRatio($ductile_user['post_title_c'],'#ffffff',
+	(!empty($ductile_user['post_title_s']) ? $ductile_user['post_title_s'] : '2.5em'),
+	$ductile_user['post_title_w']).
+'</p>'.
 '</fieldset>';
 
 echo '</div>';
@@ -436,7 +504,11 @@ echo '</div>';
 echo '<fieldset><legend>'.__('Titles without link').'</legend>'.
 
 '<p class="field picker"><label for="post_simple_title_c">'.__('Color:').'</label> '.
-form::field('post_simple_title_c',7,7,$ductile_user['post_simple_title_c'],'colorpicker').contrastRatio($ductile_user['post_simple_title_c'],'#ffffff').'</p>'.
+form::field('post_simple_title_c',7,7,$ductile_user['post_simple_title_c'],'colorpicker').
+contrastRatio($ductile_user['post_simple_title_c'],'#ffffff',
+	'1.1em',	// H5 minimum size
+	false).
+'</p>'.
 '</fieldset>';
 
 echo '<fieldset><legend>'.__('Inside posts links').'</legend>'.
@@ -444,10 +516,18 @@ echo '<fieldset><legend>'.__('Inside posts links').'</legend>'.
 form::checkbox('post_link_w',1,$ductile_user['post_link_w']).'</label>'.'</p>'.
 
 '<p class="field picker"><label for="post_link_v_c">'.__('Normal and visited links color:').'</label> '.
-form::field('post_link_v_c',7,7,$ductile_user['post_link_v_c'],'colorpicker').contrastRatio($ductile_user['post_link_v_c'],'#ffffff').'</p>'.
+form::field('post_link_v_c',7,7,$ductile_user['post_link_v_c'],'colorpicker').
+contrastRatio($ductile_user['post_link_v_c'],'#ffffff',
+	'1em',
+	$ductile_user['post_link_w']).
+'</p>'.
 
 '<p class="field picker"><label for="post_link_f_c">'.__('Active, hover and focus links color:').'</label> '.
-form::field('post_link_f_c',7,7,$ductile_user['post_link_f_c'],'colorpicker').contrastRatio($ductile_user['post_link_f_c'],'#ebebee').'</p>'.
+form::field('post_link_f_c',7,7,$ductile_user['post_link_f_c'],'colorpicker').
+contrastRatio($ductile_user['post_link_f_c'],'#ebebee',
+	'1em',
+	$ductile_user['post_link_w']).
+'</p>'.
 '</fieldset>';
 
 echo '<h3>'.__('Mobile specific settings').'</h3>';
@@ -463,7 +543,11 @@ form::checkbox('blog_title_w_m',1,$ductile_user['blog_title_w_m']).'</label>'.'<
 form::field('blog_title_s_m',7,7,$ductile_user['blog_title_s_m']).'</p>'.
 
 '<p class="field picker"><label for="blog_title_c_m">'.__('Color:').'</label> '.
-form::field('blog_title_c_m',7,7,$ductile_user['blog_title_c_m'],'colorpicker').contrastRatio($ductile_user['blog_title_c_m'],'#d7d7dc').'</p>'.
+form::field('blog_title_c_m',7,7,$ductile_user['blog_title_c_m'],'colorpicker').
+contrastRatio($ductile_user['blog_title_c_m'],'#d7d7dc',
+	(!empty($ductile_user['blog_title_s_m']) ? $ductile_user['blog_title_s_m'] : '1.8em'),
+	$ductile_user['blog_title_w_m']).
+'</p>'.
 '</fieldset>';
 
 echo '</div>';
@@ -477,7 +561,11 @@ form::checkbox('post_title_w_m',1,$ductile_user['post_title_w_m']).'</label>'.'<
 form::field('post_title_s_m',7,7,$ductile_user['post_title_s_m']).'</p>'.
 
 '<p class="field picker"><label for="post_title_c_m">'.__('Color:').'</label> '.
-form::field('post_title_c_m',7,7,$ductile_user['post_title_c_m'],'colorpicker').contrastRatio($ductile_user['post_title_c_m'],'#ffffff').'</p>'.
+form::field('post_title_c_m',7,7,$ductile_user['post_title_c_m'],'colorpicker').
+contrastRatio($ductile_user['post_title_c_m'],'#ffffff',
+	(!empty($ductile_user['post_title_s_m']) ? $ductile_user['post_title_s_m'] : '1.5em'),
+	$ductile_user['post_title_w_m']).
+'</p>'.
 '</fieldset>';
 
 echo '</div>';
