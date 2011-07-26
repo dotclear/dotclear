@@ -163,7 +163,7 @@ function contrastRatio($color,$background,$size='',$bold=false)
 		$level = contrastRatioLevel($ratio,$size,$bold);
 		return 
 			'<span style="position:absolute;top:0;left:23em;">('.
-			sprintf(__('contrast ratio = %.1f:1'),$ratio).
+			sprintf(__('ratio = %.1f:1'),$ratio).
 			($level != '' ? ' / '.sprintf(__('WCAG %s'),$level) : '').
 			')</span>';
 	}
