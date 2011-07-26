@@ -9,11 +9,7 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
-# Public and Admin modes :
-
 if (!defined('DC_RC_PATH')) { return; }
-
-# Admin mode only :
 
 # Behaviors
 $GLOBALS['core']->addBehavior('adminPageHTMLHead',array('tplDuctileThemeAdmin','adminPageHTMLHead'));
