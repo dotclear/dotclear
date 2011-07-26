@@ -16,6 +16,8 @@ $img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->
 $img_url = http::concatURL($core->blog->url,$img_url);
 $img_path = dirname(__FILE__).'/img/';
 
+$tpl_path = dirname(__FILE__).'/tpl/';
+
 $standalone_config = (boolean) $core->themes->moduleInfo($core->blog->settings->system->theme,'standalone_config');
 
 $list_types = array(
@@ -23,6 +25,22 @@ $list_types = array(
 	__('Short') => 'short',
 	__('Full') => 'full'
 );
+// Get all _entry-*.html in tpl folder of theme
+$list_types_templates = files::scandir($tpl_path);
+if (is_array($list_types_templates)) {
+	foreach ($list_types_templates as $v) {
+		if (preg_match('/^_entry\-(.*)\.html$/',$v,$m)) {
+			if (isset($m[1])) {
+				if (!in_array($m[1],$list_types)) {
+					// template not already in full list
+					$list_types[__($m[1])] = $m[1];
+				}
+			}
+		}
+	}
+}
+
+
 
 $contexts = array(
 	'default' => __('Home (first page)'),
