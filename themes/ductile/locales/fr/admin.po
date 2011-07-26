@@ -136,5 +136,5 @@ msgstr "Impact"
 msgid "Monospace"
 msgstr "Monospace"
 
-msgid "ratio = %.1f:1"
-msgstr "ratio = %.1f:1"
+msgid "ratio %.1f"
+msgstr "ratio %.1f"
