@@ -245,7 +245,7 @@ h1 a {
 	text-decoration: none;
 	color: #ad3f4c;
 	}
-.post-icon {
+.post-icon { 	/* for entry short */
 	display: block;
 	float: left;
 	margin: .33em 1em .66em 0;
@@ -255,6 +255,9 @@ h1 a {
 	-webkit-box-shadow: 2px 2px 3px #ccc;
 	-o-box-shadow: 2px 2px 3px #ccc;
 	box-shadow: 2px 2px 3px #ccc;
+	}
+.short .post-content p { 	/* for entry short */
+	margin-top: 0;
 	}
 .post h3,
 .post h4, 
@@ -571,9 +574,8 @@ h1 a {
 	color: #333;
 	}
 #sidebar h2.toggle {
-	background-image: url(img/plus.png);
-	background-repeat: no-repeat;
-	padding-left: 20px;
+	background: url(img/plus.png) no-repeat left center;
+	padding-left: 16px;
 }
 #sidebar h2.expanded {
 	background-image: url(img/minus.png);
@@ -908,6 +910,8 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
   12. ET POUR FINIR NE PAS OUBLIER LES CLEARERS
 --------------------------------------------------- */
 .post, 
+.pagination,
+.navlinks,
 .footnotes, 
 #attachments,
 .read-it, 

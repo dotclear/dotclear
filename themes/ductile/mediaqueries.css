@@ -175,6 +175,7 @@
 		}
 	.supranav li a {
 		display: inline-block;
+		vertical-align: top;
 		padding: 8px 32px 8px 28px;
 		border-right: 1px solid #ccc;
 		min-height: 2.5em;
@@ -204,18 +205,19 @@
 		width: 60px;
 		padding: 0;
 		}
-	#stickers li span {
+	#stickers span {
 		display: block;
 		text-align: center;
-		}
-	#stickers li a:hover,
-	#stickers li a:active,
-	#stickers li a:focus {
-		background-color: #fff;
+		position: absolute;
+		top: -500px;
 		}
 	#stickers a:hover, #stickers a:focus {
+		background: #fff !important;
+		}
+	#stickers a:hover span, #stickers a:focus span {
 		color: #666;
-		background: #fff;
+		position: static;
+		top: 0;
 		}
 }
 
