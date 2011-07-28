@@ -191,7 +191,13 @@ h1 a {
 	padding: 0;
 	list-style-type: none;
 	}
-
+#subcategories ul li { 
+	display: inline; 
+	padding-right: 1em;
+	}
+.feed-info {
+	color: #fff;
+	}
 /* ------------------------------------------------------- pagination, navlinks */
 #navlinks,
 .navlinks, 
@@ -435,17 +441,11 @@ h1 a {
 	border-top: 1px solid #bbb;
 	}
 .comment-info { 
-	clear: left;
-	float: left;
 	padding-bottom: .2em;
-	margin-top: 1em;
 	line-height: 1.25;
-	width: 10em;
 	color: #666;
 	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	}
-#comments .first { }
-#comments .odd { }
 #comments .me { 
 	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	color: #14709e;
@@ -465,9 +465,6 @@ h1 a {
 	}
 .ping .comment-number {
 	background: transparent url(img/tb.png) right center no-repeat;
-	}
-.comment-content {
-	margin-left: 11.5em;
 	}
 #comments-feed {
 	border-top: 1px solid #bbb;

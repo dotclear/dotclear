@@ -219,6 +219,14 @@
 		position: static;
 		top: 0;
 		}
+	.comment-info { 
+		clear: left;
+		float: left;
+		width: 10em;
+		}
+	.comment-content {
+		margin-left: 11.5em;
+		}
 }
 
 /* ------------------------------------------------------ special redimensionnement paysage */
