@@ -33,6 +33,7 @@ Fond sidebar: #ededed
 
 Thanks to:
 Colorzilla wysiwyg gradient editor http://www.colorzilla.com/gradient-editor/
+Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
 */
 
 /* -----------------------------------------------------------------
@@ -92,12 +93,13 @@ ul ul {
 	4. HAUT DE PAGE
 ------------------------------------------------------------- */
 #header {
+	position: relative;
 	text-shadow: 0 1px 1px rgba(0,0,0,.2);
 	line-height: 1;
 	}
 #logo a img, #stickers a img {
 	border: none;
-}
+	}
 h1 {
 	font-variant: small-caps;
 	}
@@ -134,7 +136,7 @@ h1 a {
 	-moz-border-radius-bottomleft: 7px;
 	border-bottom-left-radius: 7px;	
 	background: transparent url(img/menu.png) no-repeat right top;
- }
+	}
 .supranav li a:hover, 
 .supranav li a:active, 
 .supranav li a:focus {
@@ -149,7 +151,7 @@ h1 a {
 	display: block;
 	text-transform: none;
 	text-shadow: none;
-	font-family: georgia;
+	font-family: "New Century Schoolbook","Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	font-style:italic;
 	}
 
@@ -157,7 +159,9 @@ h1 a {
 	5. WRAPPER MAIN CONTENT
 ------------------------------------------------------------- */
 
-#wrapper { clear:both; }
+#wrapper {
+	clear:both;
+	}
 #main { }
 #content { 
 	padding-bottom: 2em; 
@@ -181,9 +185,6 @@ h1 a {
 	font-size: 1.1em;
 	font-variant: small-caps;
 	}
-#subcategories li {
-	margin: 0;
-	}
 #content-info p, 
 #content-info ul, 
 #subcategories ul { 
@@ -191,15 +192,16 @@ h1 a {
 	padding: 0;
 	list-style-type: none;
 	}
-#subcategories ul li { 
+#subcategories li { 
+	margin: 0;
 	display: inline; 
 	padding-right: 1em;
 	}
 .feed-info {
 	color: #fff;
 	}
+
 /* ------------------------------------------------------- pagination, navlinks */
-#navlinks,
 .navlinks, 
 .pagination {
 	margin: 2em 0 1em 0;
@@ -221,11 +223,9 @@ h1 a {
 	border-right: 1px solid #aaa;
 	border-bottom: 1px solid #ccc;
 	}
-#navlinks,
 .navlinks {
 	margin-top: 4em;
 	}
-#navlinks a,
 .navlinks a, 
 .pagination a {
 	padding: 0 1em;
@@ -278,14 +278,13 @@ h1 a {
 .post-info, 
 .post-tags, 
 .post-info-co, 
-.read-it, 
-.page-info {
+.read-it {
 	line-height: 1.2;	
 	margin: .33em 0;
 	}
 .post-attr {
 	margin-bottom: 1em;
-}
+	}
 .post-info, 
 .post-tags {
 	font-size: .875em;
@@ -299,20 +298,20 @@ h1 a {
 	}
 .post-breadcrumb-cat a {
 	padding-left: 24px;
-	background: #fff no-repeat left center url(img/breadcrumb-category.png);
-}
+	background: transparent no-repeat left center url(img/breadcrumb-category.png);
+	}
 .post-cat a {
 	padding-left: 24px;
-	background: #fff no-repeat left center url(img/category.png);
+	background: transparent no-repeat left center url(img/category.png);
 	}
 .permalink a {
 	padding-left: 20px;
-	background: #fff no-repeat left center url(img/link.png);
+	background: transparent no-repeat left center url(img/link.png);
 	}
 .post-info .post-date {
 	padding-left: 28px;
-	background: #fff no-repeat 6px center url(img/date.png);
-}
+	background: transparent no-repeat 6px center url(img/date.png);
+	}
 .post-info a, 
 .post-info-co a,
 .permalink a {
@@ -321,7 +320,7 @@ h1 a {
 .post-tags a {
 	padding-right: 1em;
 	padding-left: 14px;
-	background: #fff no-repeat left center url(img/tag.png);
+	background: transparent no-repeat left center url(img/tag.png);
 	}
 .post-tags li {
 	display: inline;
@@ -338,18 +337,16 @@ h1 a {
 .footnotes h4 {
 	font-variant: normal;
 	font-weight: bold;
-}
+	}
 .read-it {
 	text-align: right;
 	margin: 0 0 .25em 0;
 	}
 .read-it a {
 	color: #ad3f4c;
-	background: #fff;
 	padding-left: .5em;
 	}
-.post-info-co, 
-.page-info {
+.post-info-co {
 	margin: 0;
 	background: #fff;
 	display: inline;
@@ -391,7 +388,7 @@ h1 a {
 	}
 #attachments ul li {
 	padding-left: 24px;
-	background: #fff url(img/download.png) no-repeat;
+	background: transparent url(img/download.png) no-repeat left .3em;
 	}
 
 /* ------------------------------------------------------------
@@ -444,10 +441,10 @@ h1 a {
 	padding-bottom: .2em;
 	line-height: 1.25;
 	color: #666;
-	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+	font-family: "New Century Schoolbook","Century Schoolbook", "Century Schoolbook L", Georgia, serif;	
 	}
 #comments .me { 
-	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+	font-family: "New Century Schoolbook","Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	color: #14709e;
 	}
 .comment-number {
@@ -455,7 +452,7 @@ h1 a {
 	font-weight: normal;
 	font-style: italic;
 	text-decoration: none;
-	font-family: "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+	font-family: "New Century Schoolbook","Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	color: #ad3f4c;
 	display: block;
 	width: 2em;
@@ -493,7 +490,7 @@ h1 a {
 	-webkit-border-radius: 3px; 
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	font-family: sans-serif;
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	}
 .field textarea { 
 	padding: .5em 1em;	
@@ -573,13 +570,13 @@ h1 a {
 #sidebar h2.toggle {
 	background: url(img/plus.png) no-repeat left center;
 	padding-left: 16px;
-}
+	}
 #sidebar h2.expanded {
 	background-image: url(img/minus.png);
-}
+	}
 #sidebar h2.toggle a {
 	text-decoration: none;
-}
+	}
 #sidebar h3 {
 	font-size: 1em;
 	margin-bottom: 0;
@@ -609,7 +606,7 @@ h1 a {
 #sidebar .syndicate ul li {
 	background-image: none;
 	padding-left: 0;
-}
+	}
 #blognav > div, 
 #blogextra > div {
 	background: #ededed;
@@ -849,7 +846,7 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 #by-tag ul li {
 	display: inline;
 	padding-right: 1em;
-}
+	}
 #by-tag .tag0 { color: #909090; font-size: 90%; }
 #by-tag .tag10 { color: #828282; font-size: 92%; }
 #by-tag .tag20 { color: #737373; font-size: 94%; }
@@ -900,7 +897,9 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 	font-size: 1.1em;
 	font-variant: small-caps;
 	}
-.dc-search #content-info em { color: #14709e; }
+.dc-search #content-info em { 
+	color: #14709e; 
+	}
 
 
 /* ---------------------------------------------------
@@ -913,10 +912,10 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 #attachments,
 .read-it, 
 .post-info-co, 
-#comments, #footer {
+#comments, #footer,
+.clearer {
 	clear:both;
 	}
-/* Micro clearfix thx to Nicolas Gallagher */
 .post-content:before, .post-content:after {
 	content: "";
 	display: table;
