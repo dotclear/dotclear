@@ -393,7 +393,7 @@ else
 	
 	if ($file->media_image)
 	{ # We look for thumbnails too
-		if (preg_match('#^http(s)?://#',$this->core->blog->settings->system->public_url)) {
+		if (preg_match('#^http(s)?://#',$core->blog->settings->system->public_url)) {
 			$media_root = $core->blog->settings->system->public_url;
 		} else {
 			$media_root = $core->blog->host.path::clean($core->blog->settings->system->public_url).'/';
