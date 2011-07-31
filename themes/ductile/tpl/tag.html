@@ -56,28 +56,27 @@
 					
 					<div id="content-info">
 						<h2>{{tpl:lang Tag}} - {{tpl:TagID}}</h2>
-						
-						<p>
-							<a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}"
+						<p><a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}"
 							title="{{tpl:lang This tag's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a>
-							
 							<tpl:SysIf operator="or" comments_active="1" pings_active="1">
 								 - <a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}/comments"
 								title="{{tpl:lang This tag's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
 							</tpl:SysIf>
 						</p>
 					</div>
-					
-					{{tpl:ductileNbEntryPerPage}}
-					<tpl:Entries>
-						{{tpl:ductileEntriesList default="short"}}
+
+					<div class"content-inner">
+						{{tpl:ductileNbEntryPerPage}}
+						<tpl:Entries>
+							{{tpl:ductileEntriesList default="short"}}
 						
-						<tpl:EntriesFooter>
-							{{tpl:include src="_pagination.html"}}
-						</tpl:EntriesFooter>
+							<tpl:EntriesFooter>
+								{{tpl:include src="_pagination.html"}}
+							</tpl:EntriesFooter>
 						
-					</tpl:Entries>
-				</div>
+						</tpl:Entries>
+					</div> <!-- End #content-inner -->
+				</div> <!-- End #content -->
 			</div> <!-- End #main -->
 			
 			{{tpl:include src="_sidebar.html"}}

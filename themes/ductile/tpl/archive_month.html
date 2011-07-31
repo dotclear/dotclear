@@ -42,7 +42,7 @@
 			<div id="main">
 				<div id="content">
 					
-					<p class="navlinks">
+					<p class="navlinks topnl">
 						<tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> - </tpl:ArchivePrevious>
 						{{tpl:ArchiveDate}}
 						<tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
@@ -54,7 +54,7 @@
 					
 					<div class="content-inner">
 						<tpl:Entries>
-							{{tpl:ductileEntriesList default="title"}}
+							{{tpl:ductileEntriesList default="short"}}
 						</tpl:Entries>
 					</div>
 					
