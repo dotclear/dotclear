@@ -923,6 +923,13 @@ hr.hidden {background: #fff; color: #fff; border-color: #fff; }
 .post-content:after {
 	clear:both;
 	}
+.post:before, .post:after {
+	content: "";
+	display: table;
+	}
+.post:after {
+	clear:both;
+	}
 
 /* ================================================ 
 	personnalisations blog chantier
