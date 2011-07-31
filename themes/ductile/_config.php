@@ -247,7 +247,7 @@ $ductile_lists_base = array(
 	'category' => 'short',
 	'tag' => 'short',
 	'search' => 'short',
-	'archive' => 'title'
+	'archive' => 'short'
 );
 
 $ductile_counts_base = array(
