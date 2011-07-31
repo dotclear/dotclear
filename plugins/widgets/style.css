@@ -18,6 +18,10 @@
 	width: 49%;
 	margin-left: 1%;
 }
+#sidebarCustom {
+	float: left;
+	width: 100%;
+}
 
 #sidebarsControl {
 	clear: left;
