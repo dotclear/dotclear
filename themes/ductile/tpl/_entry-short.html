@@ -32,7 +32,10 @@
 	
 	<!-- # Entry with an excerpt -->
 	<tpl:EntryIf extended="1">
-		<div class="post-content">{{tpl:EntryExcerpt}}</div>
+		<div class="post-content">
+			{{tpl:EntryFirstImage size="t" class="post-icon"}}
+			{{tpl:EntryExcerpt}}
+		</div>
 		<p class="read-it"><a href="{{tpl:EntryURL}}"
 		 title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue reading}}</a>
 		</p>
