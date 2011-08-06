@@ -35,6 +35,7 @@ class publicWidgets
 	public static function widgetsHandler($type,$disable='')
 	{
 		$wtype = 'widgets_'.$type;
+		$GLOBALS['core']->blog->settings->addNameSpace('widgets');
 		$widgets = $GLOBALS['core']->blog->settings->widgets->{$wtype};
 		
 		if (!$widgets) { // If widgets value is empty, get defaults
