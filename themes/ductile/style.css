@@ -174,6 +174,7 @@ h1 a {
 
 /* ------------------------------------------------------- content-info */
 #content-info {
+	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	font-size: .875em;
 	}
 #content-info h2 {
@@ -699,7 +700,7 @@ h1 a {
 	}
 #footer a:hover, 
 #footer a:focus {
-	background-color: #686867;
+	background-color: #333;
 	}
 #stickers {
 	list-style-type: none;
@@ -950,7 +951,7 @@ hr.hidden {
 	font-size: 110%;
 	}
 .dc-archive #search {
-	padding: 4px;
+	padding: 4px 8px;
 	}
 .dc-archive #blogextra div {
 	background-color: transparent;
@@ -965,7 +966,7 @@ hr.hidden {
 .dc-archive #blogextra h2 {
 	margin-bottom: .33em;
 	}	
-.dc-archive-month h2.post-title {
+.dc-archive-month .title h2.post-title {
 	font-size: 1.3em;
 	}
 /* ---------------------------------------------------------------- 404 */
