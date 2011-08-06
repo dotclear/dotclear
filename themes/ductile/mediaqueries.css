@@ -31,15 +31,20 @@
 		display: block;
 		padding: 6px 8px;
 		background: #f4f4f5;
-		background: -webkit-gradient(linear, left top, left bottom, from(#f4f4f5), to(#d7d7dC));
+		background-image: -webkit-gradient(linear, left top, left bottom, from( #f4f4f5), to(#d7d7dC));
+		background: -webkit-linear-gradient(top,  #f4f4f5,  #d7d7dC);
 		background: -moz-linear-gradient(top,  #f4f4f5,  #d7d7dC);
+		background: -o-linear-gradient(top,  #f4f4f5,  #d7d7dC);
+		background: -ms-linear-gradient(top,  #f4f4f5,  #d7d7dC);
+		background: linear-gradient(top,  #f4f4f5,  #d7d7dC);
 		border-right: 1px solid #aaa;
 		border-bottom: 1px solid #ccc;
 		}
 	.supranav, #prelude {
-		border:none;
+		border: none;
 		margin: 8px 0 0;
 		background: #fff;
+		padding-left: 0;
 		}
 	.supranav li a, #prelude li a {
 		border-right: 0;
@@ -49,16 +54,14 @@
 		text-decoration: none;
 		white-space: nowrap;
 		margin-bottom: 4px;
-		-webkit-border-bottom-left-radius: 7px;
-		-moz-border-radius-bottomleft: 7px;
-		border-bottom-left-radius: 7px;
 		}
 	#gotop li {
+		border-top: 1px solid #ccc;
 		text-transform: none;
+		padding-top: 6px;
 		}
 	#prelude {
 		margin: .5em 0 !important;
-		padding-left: 0 !important;
 		}
 	#prelude li a {
 		background: transparent url(img/menumobile.png) no-repeat right center;
@@ -78,18 +81,20 @@
 		font-style: normal;
 		font-weight: bold;
 		}
+	#other-criteria .arch-block, #more-criteria .arch-block {
+		margin-left: 0 !important;
+		}
 	#stickers {
 		margin: 0;
 		padding: 0;
-		border-bottom: 8px solid #fff;
+		border-bottom: 1px solid #fff;
 		}
 	#stickers li {
 		position: relative;
 		padding: .5em 0;
 		margin-left: 0;
 		border-style: solid;
-		border-color: #fff;
-		border-width: 2px 6px;
+		border-width: 1px 0 0 0;
 		overflow: hidden;
 		}
 	#stickers img {
@@ -112,7 +117,6 @@
 /* --------------------------------------------------------------------
 	Autres (plus de 480px)
 -------------------------------------------------------------------- */
-
 @media only screen and (min-width: 481px) {
 	.nobig {
 		display: none;
@@ -120,10 +124,10 @@
 	#prelude {
 		position: absolute;
 		margin: 0;
+		padding: 0 0 0 4px;
 		top: 0;
 		left: 3px;
 		color: #fff;
-		font-size: .875em;
 		list-style-type: none;
 		}
 	#prelude li {
@@ -147,9 +151,9 @@
 	#top {
 		padding-top: 24px;
 		}
- #logo {
+ 	#logo {
 		float:left; 
-		margin:0 1.5em 0 1em;	
+		margin: 0 32px 0 24px;	
 		}
 	#logo a {
 		border: none;
@@ -168,6 +172,7 @@
 	.supranav {
 		margin: 36px 0 0;
 		border-bottom: 1px solid #ccc;
+		padding: 0 0 0 4px;
 		}
 	.supranav li {
 		display: inline;
@@ -179,6 +184,9 @@
 		padding: 8px 32px 8px 28px;
 		border-right: 1px solid #ccc;
 		min-height: 2.5em;
+		-moz-border-radius: 0 0 0 7px;
+		-webkit-border-radius: 0 0 0 7px;
+		border-radius: 0 0 0 7px;
 	 	}
 	.supranav li a span {
 		display: block;
@@ -215,7 +223,7 @@
 		background: #fff !important;
 		}
 	#stickers a:hover span, #stickers a:focus span {
-		color: #666;
+		color: #686867;
 		position: static;
 		top: 0;
 		}
@@ -245,7 +253,7 @@
 		padding: 0 2%;
 		}
 	img {
-		max-width: 100%;
+		max-width: 97%;
 		height: auto;
 		width: auto\9; /* pour ie8 */
 		}
