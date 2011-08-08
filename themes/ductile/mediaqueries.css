@@ -112,6 +112,9 @@
 	ul, ol, dd {
 		padding: 0;
 		}
+	.post ul, .post ol, .post dd {
+		margin-left: 1em !important;
+		}
 }
 
 /* --------------------------------------------------------------------
