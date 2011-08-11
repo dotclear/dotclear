@@ -341,11 +341,13 @@ class context
 	# First post image helpers
 	public static function EntryFirstImageHelper($size,$with_category,$class="")
 	{
-		if (!preg_match('/^sq|t|s|m|o$/',$size)) {
+		global $core, $_ctx;
+		
+		if (!$core->media) $core->media = new dcMedia($core);
+		$sizes = implode('|',array_keys($core->media->thumb_sizes)).'|o';
+		if (!preg_match('/^'.$sizes.'$/',$size)) {
 			$size = 's';
 		}
-		
-		global $core, $_ctx;
 		
 		$p_url = $core->blog->settings->system->public_url;
 		$p_site = preg_replace('#^(.+?//.+?)/(.*)$#','$1',$core->blog->url);
@@ -399,11 +401,15 @@ class context
 	
 	private static function ContentFirstImageLookup($root,$img,$size)
 	{
+		global $core;
+		
 		# Get base name and extension
 		$info = path::info($img);
 		$base = $info['base'];
 		
-		if (preg_match('/^\.(.+)_(sq|t|s|m)$/',$base,$m)) {
+		if (!$core->media) $core->media = new dcMedia($core);
+		$sizes = implode('|',array_keys($core->media->thumb_sizes));
+		if (preg_match('/^\.(.+)_('.$sizes.')$/',$base,$m)) {
 			$base = $m[1];
 		}
 		
