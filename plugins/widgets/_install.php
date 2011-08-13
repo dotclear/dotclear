@@ -30,6 +30,11 @@ if ($settings->widgets->widgets_extra != null) {
 } else {
 	$settings->widgets->put('widgets_extra','','string','Extra widgets',false);
 }
+if ($settings->widgets->widgets_custom != null) {
+	$settings->widgets->put('widgets_custom',dcWidgets::load($settings->widgets->widgets_custom)->store());
+} else {
+	$settings->widgets->put('widgets_custom','','string','Custom widgets',false);
+}
 $core->setVersion('widgets',$version);
 return true;
 ?>

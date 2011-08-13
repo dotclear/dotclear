@@ -155,11 +155,7 @@ function display_theme_details($id,$details,$current)
 	}
 	
 	$radio_id = 'theme_'.html::escapeHTML($id);
-	if (preg_match('#^http(s)?://#',$core->blog->settings->system->themes_url)) {
-		$theme_url = http::concatURL($core->blog->settings->system->themes_url,'/'.$id);
-	} else {
-		$theme_url = http::concatURL($core->blog->url,$core->blog->settings->system->themes_url.'/'.$id);
-	}
+	$theme_url = http::concatURL($core->blog->url,$core->blog->settings->system->themes_url.'/'.$id);
 	$has_conf = file_exists(path::real($core->blog->themes_path.'/'.$id).'/_config.php');
 	$has_css = file_exists(path::real($core->blog->themes_path.'/'.$id).'/style.css');
 	$parent = $core->themes->moduleInfo($id,'parent');
@@ -215,7 +211,7 @@ dcPage::open(__('Blog themes'),
 if (!$theme_conf_mode)
 {
 	echo
-	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Blog appearance').'</span></h2>';
+	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Blog appearance').'</h2>';
 	
 	if (!empty($_GET['upd'])) {
 		echo '<p class="message">'.__('Theme has been successfully changed.').'</p>';
@@ -333,25 +329,24 @@ else
 	$core->themes->loadModuleL10Nresources($core->blog->settings->system->theme,$_lang);
 	echo
 	'<h2>'.html::escapeHTML($core->blog->name).
-	' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; <span class="page-title">'.__('Theme configuration').'<span class="page-title"></h2>'.
+	' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; '.__('Theme configuration').'</h2>'.
 	'<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';
 	
 	try
 	{
-		# Let theme configuration set their own form(s) if required
-		$standalone_config = (boolean) $core->themes->moduleInfo($core->blog->settings->system->theme,'standalone_config');
-
-		if (!$standalone_config)
+		# Let theme configuration set their own form(s)
+		$managed = (boolean) $core->callBehavior('adminThemeConfigManaged');
+		
+		if (!$managed)
 			echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
 
 		include $theme_conf_file;
 
-		if (!$standalone_config)
+		if (!$managed)
 			echo
 			'<p class="clear"><input type="submit" value="'.__('Save').'" />'.
 			$core->formNonce().'</p>'.
 			'</form>';
-
 	}
 	catch (Exception $e)
 	{

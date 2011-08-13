@@ -14,8 +14,8 @@ if (!defined('DC_RC_PATH')) { return; }
 $this->registerModule(
 	/* Name */			"Widgets",
 	/* Description*/		"Widgets for your blog sidebars",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'2',
+	/* Author */			"Olivier Meunier & Dotclear Team",
+	/* Version */			'3',
 	array(
 		'permissions' =>	'admin',
 		'priority' =>		1000000000
