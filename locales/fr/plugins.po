@@ -1345,6 +1345,9 @@ msgstr "navigation"
 msgid "extra"
 msgstr "extra"
 
+msgid "custom"
+msgstr "supplémentaire"
+
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -1365,6 +1368,9 @@ msgstr "Bandeau de navigation"
 
 msgid "Extra sidebar"
 msgstr "Bandeau d'extra"
+
+msgid "Custom sidebar"
+msgstr "Bandeau supplémentaire"
 
 msgid "Update sidebars"
 msgstr "Mettre à jour les bandeaux"
