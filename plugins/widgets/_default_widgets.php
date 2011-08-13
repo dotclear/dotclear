@@ -78,7 +78,7 @@ $core->callBehavior('initWidgets',$__widgets);
 
 # Default widgets
 global $__default_widgets;
-$__default_widgets = array('nav'=> new dcWidgets(), 'extra'=> new dcWidgets());
+$__default_widgets = array('nav'=> new dcWidgets(), 'extra'=> new dcWidgets(), 'custom'=> new dcWidgets());
 
 $__default_widgets['nav']->append($__widgets->search);
 $__default_widgets['nav']->append($__widgets->navigation);

@@ -9,19 +9,24 @@ $(function() {
 	var widgets = document.getElementById('widgets');
 	var w_nav = document.getElementById('dndnav');
 	var w_ext = document.getElementById('dndextra');
+	var w_custom = document.getElementById('dndcustom');
 	
 	w_nav.className = 'hideControls';
 	w_ext.className = 'hideControls';
+	w_custom.className = 'hideControls';
 	
 	removeElements(document.getElementById('listWidgets'),'input');
 	removeElements(widgets,'p');
 	removeElements(w_nav,'p');
 	removeElements(w_ext,'p');
+	removeElements(w_custom,'p');
 	hideElements(w_nav,'input');
 	hideElements(w_ext,'input');
+	hideElements(w_custom,'input');
 	
 	configControls(w_nav);
 	configControls(w_ext);
+	configControls(w_custom);
 	
 	dragdrop.makeListContainer(widgets,'div',setHandle);
 	if (!document.all) { widgets.factory = true; }
@@ -29,6 +34,8 @@ $(function() {
 	w_nav.onDragEnd = navDragEnd;
 	dragdrop.makeListContainer(w_ext,'div',setHandle);
 	w_ext.onDragEnd = extraDragEnd;
+	dragdrop.makeListContainer(w_custom,'div',setHandle);
+	w_custom.onDragEnd = customDragEnd;
 	
 	// Helper to remove some elements
 	function removeElements(p,name) {
@@ -60,6 +67,11 @@ $(function() {
 	}
 	function extraDragEnd() {
 		formControls(this.parentNode,'extra');
+		configControls(this.parentNode);
+		removeEmptyMsg(this.parentNode);
+	}
+	function customDragEnd() {
+		formControls(this.parentNode,'custom');
 		configControls(this.parentNode);
 		removeEmptyMsg(this.parentNode);
 	}
