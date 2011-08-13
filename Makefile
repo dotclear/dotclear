@@ -46,6 +46,7 @@ config:
 	./plugins/tags \
 	./plugins/pages \
 	./plugins/pings \
+	./plugins/simpleMenu \
 	./plugins/themeEditor \
 	./plugins/userPref \
 	./plugins/widgets \
