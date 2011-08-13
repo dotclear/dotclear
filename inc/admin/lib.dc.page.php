@@ -182,7 +182,6 @@ class dcPage
 		'</div>'."\n".		// End of #main-menu
 		'<div id="footer"><p>'.
 		sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>').
-		' <span class="credit"> (Icons by <a href="http://dryicons.com/">Dryicons</a>)</span>'.
 		'</p></div>'."\n".
 		"</div>\n";		// End of #wrapper
 		
