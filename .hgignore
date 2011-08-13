@@ -1,4 +1,9 @@
 cache
-public
 inc/config.php
 \.htaccess
+public/filters
+themes/ductile/_work
+themes/ductile-work
+themes/ductile/default-templates
+themes/ductileMag
+themes/ductileFocus

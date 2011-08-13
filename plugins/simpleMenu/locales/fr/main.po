@@ -1,0 +1,125 @@
+msgid "Simple menu"
+msgstr "Menu simple"
+
+msgid "Simple menu for Dotclear"
+msgstr "Menu simple pour Dotclear"
+
+msgid "All months"
+msgstr "Tous les mois"
+
+msgid "Tags"
+msgstr "Mots-clés"
+
+msgid "User defined"
+msgstr "Saisie libre"
+
+msgid "Label"
+msgstr "Libellé"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Recent posts"
+msgstr "Billets récents"
+
+msgid "Switch to %s language"
+msgstr "Basculer vers le %s"
+
+msgid "Recent Posts from this category"
+msgstr "Billets récents de cette catégorie"
+
+msgid "Archives"
+msgstr "Archives"
+
+msgid "Posts from %s"
+msgstr "Billets de %s"
+
+msgid "All tags"
+msgstr "Tous les mots clés"
+
+msgid "Recent posts for %s tag"
+msgstr "Billets récent pour le mot-clé %s"
+
+msgid "Label and URL of menu item are mandatory."
+msgstr "Les libellés et URL sont obligatoires."
+
+msgid "No menu items selected."
+msgstr "Aucun item de menu sélectionné."
+
+msgid "Label is mandatory."
+msgstr "Le libellé est obligatoire."
+
+msgid "URL is mandatory."
+msgstr "l’URL est obligatoire."
+
+msgid "Menu item has been successfully added."
+msgstr "L'item de menu a été ajouté avec succès."
+
+msgid "Menu items have been successfully removed."
+msgstr "Le ou les items de menu ont été supprimés avec succès."
+
+msgid "Menu items have been successfully updated."
+msgstr "Le ou les items de menu ont été mis à jour avec succès."
+
+msgid "Add item"
+msgstr "Ajouter un item de menu"
+
+msgid "Select type"
+msgstr "Sélection du type"
+
+msgid "Type of item menu:"
+msgstr "Type d'item de menu :"
+
+msgid "Continue…"
+msgstr "Continuer…"
+
+msgid "Select language:"
+msgstr "Sélectionnez la langue :"
+
+msgid "Select category:"
+msgstr "Sélectionnez la catégorie :"
+
+msgid "Select month (if necessary):"
+msgstr "Sélectionnez le mois (si nécessaire) :"
+
+msgid "Select page:"
+msgstr "Sélectionnez la page :"
+
+msgid "Select tag (if necessary):"
+msgstr "Sélectionnez le mot clé (si nécessaire) :"
+
+msgid "Label of item menu:"
+msgstr "Libellé de l'item de menu :"
+
+msgid "Description of item menu:"
+msgstr "Description de l'item de menu :"
+
+msgid "URL of item menu:"
+msgstr "URL de l'item de menu :"
+
+msgid "Add this item"
+msgstr "Ajouter cet item"
+
+msgid "Menu items list"
+msgstr "Liste des items de menu"
+
+msgid "position of %s"
+msgstr "position de %s"
+
+msgid "Currently no menu items"
+msgstr "Aucun item de menu pour l'instant"
+
+msgid "Add an item"
+msgstr "Ajouter un item de menu"
+
+msgid "Update menu"
+msgstr "Mettre à jour le menu"
+
+msgid "Delete selected menu items"
+msgstr "Supprimer les items de menu sélectionnés"
+
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Êtes-vous sûr de vouloir supprimer les items de menu sélectionnés ?"

@@ -112,6 +112,12 @@ if (!$core->themes->moduleExists($__theme)) {
 # Loading _public.php file for selected theme
 $core->themes->loadNsFile($__theme,'public');
 
+# Loading translations for selected theme
+if ($__parent_theme) {
+	$core->themes->loadModuleL10N($__parent_theme,$_lang,'main');
+}
+$core->themes->loadModuleL10N($__theme,$_lang,'main');
+
 # --BEHAVIOR-- publicPrepend
 $core->callBehavior('publicPrepend',$core);
 
