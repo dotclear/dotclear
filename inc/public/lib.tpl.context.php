@@ -343,12 +343,11 @@ class context
 	{
 		global $core, $_ctx;
 		
-		if (!$core->media) $core->media = new dcMedia($core);
-		$sizes = implode('|',array_keys($core->media->thumb_sizes)).'|o';
+		$media = new dcMedia($core);
+		$sizes = implode('|',array_keys($media->thumb_sizes)).'|o';
 		if (!preg_match('/^'.$sizes.'$/',$size)) {
 			$size = 's';
 		}
-		
 		$p_url = $core->blog->settings->system->public_url;
 		$p_site = preg_replace('#^(.+?//.+?)/(.*)$#','$1',$core->blog->url);
 		$p_root = $core->blog->public_path;
@@ -407,8 +406,8 @@ class context
 		$info = path::info($img);
 		$base = $info['base'];
 		
-		if (!$core->media) $core->media = new dcMedia($core);
-		$sizes = implode('|',array_keys($core->media->thumb_sizes));
+		$media = new dcMedia($core);
+		$sizes = implode('|',array_keys($media->thumb_sizes));
 		if (preg_match('/^\.(.+)_('.$sizes.')$/',$base,$m)) {
 			$base = $m[1];
 		}
