@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{tpl:BlogLanguage}}" lang="{{tpl:BlogLanguage}}">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+	
+	<title>{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}</title>
+	<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+	<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
+	<meta name="date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+	
+	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+	<meta name="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}" />
+	<meta name="dc.language" content="{{tpl:BlogLanguage}}" />
+	<meta name="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
+	<meta name="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+	<meta name="dc.date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+	<meta name="dc.type" content="text" />
+	<meta name="dc.format" content="text/html" />
+	
+	<link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
+	
+	<tpl:Archives>
+		<link rel="chapter" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}" />
+	</tpl:Archives>
+	
+	<link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
+	<tpl:Categories>
+		<link rel="section" href="{{tpl:CategoryURL}}" title="{{tpl:CategoryTitle encode_html="1"}}" />
+	</tpl:Categories>
+	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+	
+	{{tpl:include src="_head.html"}}
+</head>
+
+<body class="dc-archive">
+	<div id="page">
+		{{tpl:include src="_top.html"}}
+		
+		<div id="wrapper">
+			
+			<div id="main">
+				<div id="content">
+					
+					<div id="content-info">
+						<h2>{{tpl:lang Archives}}</h2>
+					</div>
+					
+					<div class="content-inner">
+						
+						<div id="time-criteria"><!-- entries sorted by date -->
+							<div id="by-date" class="arch-block">
+								<h3>{{tpl:lang By date}}</h3>
+								<p class="fromto">{{tpl:lang FromDay}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate format="%e %B %Y"}}</a></tpl:Entries> {{tpl:lang toDay}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate format="%e %B %Y"}}</a></tpl:Entries></p>
+								<tpl:Archives order="asc">
+									<tpl:ArchivesYearHeader>
+										<div>
+											<h4>{{tpl:ArchiveDate format="%Y"}}</h4>
+											<ul>
+									</tpl:ArchivesYearHeader>
+												<li><a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a>
+													<span>({{tpl:ArchiveEntriesCount}})</span></li>
+									<tpl:ArchivesYearFooter>
+											</ul>
+										</div>
+									</tpl:ArchivesYearFooter>
+								</tpl:Archives>
+							</div>
+						</div>
+						
+						<div id="other-criteria"><!-- entries sorted by others criterias -->	
+							<tpl:Categories level="1">
+								<tpl:CategoriesHeader>
+									<div id="by-cat" class="arch-block">
+										<h3>{{tpl:lang By category}}</h3>
+										<ul>
+								</tpl:CategoriesHeader>
+											<li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
+								<tpl:CategoryFirstChildren>
+									<tpl:CategoriesHeader>
+												<ul>
+									</tpl:CategoriesHeader>
+														<li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>				
+									<tpl:CategoriesFooter>
+												</ul>
+									</tpl:CategoriesFooter>
+								</tpl:CategoryFirstChildren>			
+											</li>
+								<tpl:CategoriesFooter>
+										</ul>
+									</div>
+								</tpl:CategoriesFooter>
+							</tpl:Categories>
+							
+							<tpl:Tags sortby="count" order="desc">
+								<tpl:TagsHeader>
+									<div id="by-tag" class="arch-block">
+										<h3>{{tpl:lang By tag}}</h3>
+										<ul>
+								</tpl:TagsHeader>
+											<li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
+								<tpl:TagsFooter>
+										</ul>	
+									</div>
+								</tpl:TagsFooter>
+							</tpl:Tags>
+						</div>
+						
+						<div id="more-arch"><!-- others things -->		
+							<div class="arch-block">
+								<tpl:Entries type="page" no_content="1">
+									<tpl:EntriesHeader>
+										<h3>{{tpl:lang Pages}}</h3>
+										<ul>
+									</tpl:EntriesHeader>
+											<li><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></li>
+									<tpl:EntriesFooter>
+										</ul>
+									</tpl:EntriesFooter>
+								</tpl:Entries>
+							</div>
+						</div>
+					</div> <!-- End .content-inner -->
+					
+				</div> <!-- End #content -->
+			</div> <!-- End #main -->
+			
+			<div id="sidebar">
+				<div id="blognav">
+					<tpl:Widget id="search">
+					</tpl:Widget>
+				</div> <!-- End #blognav -->
+				
+				<div id="blogextra">
+					{{tpl:Widgets type="extra"}}
+				</div> <!-- End #blogextra -->
+				
+			</div> <!-- End #sidebar -->
+		</div> <!-- End #wrapper -->
+		
+		{{tpl:include src="_footer.html"}}
+	</div> <!-- End #page -->
+</body>
+</html>
