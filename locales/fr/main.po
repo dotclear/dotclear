@@ -1797,6 +1797,9 @@ msgstr "Activer l'éditeur visuel"
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activer l'interface avancée du gestionnaire de médias"
 
+msgid "Iconset:"
+msgstr "Jeu d'icônes :"
+
 msgid "Do not use standard favicon"
 msgstr "Ne pas utiliser le favicon standard"
 
