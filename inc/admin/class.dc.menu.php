@@ -74,6 +74,8 @@ class dcMenu
 			$ahtml = '';
 		}
 		
+		$img = dc_admin_icon_url($img);
+		
 		return
 		'<li'.(($active || $class) ? ' class="'.(($active) ? 'active ' : '').(($class) ? $class : '').'"' : '').
 		(($id) ? ' id="'.$id.'"' : '').
