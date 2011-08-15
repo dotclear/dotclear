@@ -333,23 +333,15 @@ img.smiley {
 	padding: 0 .66em 0 0;
 	}
 .post-info span + span {
-	padding-left: .5em;
+	padding-right: .5em;
 	}
-.post-breadcrumb-cat a {
-	padding-left: 24px;
-	background: transparent no-repeat left center url(img/breadcrumb-category.png);
-	}
-.post-cat a {
+.post-cat {
 	padding-left: 24px;
 	background: transparent no-repeat left center url(img/category.png);
 	}
 .permalink a {
 	padding-left: 20px;
 	background: transparent no-repeat left center url(img/link.png);
-	}
-.post-info .post-date {
-	padding-left: 28px;
-	background: transparent no-repeat 6px center url(img/date.png);
 	}
 .post-tags a {
 	padding-right: 1em;
