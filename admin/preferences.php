@@ -40,6 +40,7 @@ $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader
 if ($core->auth->isSuperAdmin()) {
 	$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 }
+$user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
@@ -59,6 +60,18 @@ foreach ($core->getFormaters() as $v) {
 
 foreach ($core->blog->getAllPostStatus() as $k => $v) {
 	$status_combo[$v] = $k;
+}
+
+$iconsets_combo = array(__('Default') => '');
+$iconsets_root = dirname(__FILE__).'/images/iconset/';
+if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
+	if (($d = @dir($iconsets_root)) !== false) {
+		while (($entry = $d->read()) !== false) {
+			if ($entry != '.' && $entry != '..' && is_dir($iconsets_root.'/'.$entry)) {
+				$iconsets_combo[$entry] = $entry;
+			}
+		}
+	}
 }
 
 # Language codes
@@ -160,6 +173,7 @@ if (isset($_POST['user_post_format']))
 			# Applied to all users
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
 		}
+		$core->auth->user_prefs->interface->put('iconset',(!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
 		
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
@@ -441,7 +455,10 @@ __('Enable WYSIWYG mode').'</label></p>'.
 
 '<p><label for="user_ui_enhanceduploader" class="classic">'.
 form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
-__('Activate enhanced uploader in media manager').'</label></p>';
+__('Activate enhanced uploader in media manager').'</label></p>'.
+
+'<p><label for="user_ui_iconset">'.__('Iconset:').
+form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</label></p>';
 
 if ($core->auth->isSuperAdmin()) {
 	echo
