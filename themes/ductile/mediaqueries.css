@@ -206,6 +206,9 @@
 		font-style: italic;
 		font-weight: normal;
 		}
+	#blogcustom {
+		padding: 0 1em;
+		}
 	#stickers {
 		position: absolute;
 		top: 0;
