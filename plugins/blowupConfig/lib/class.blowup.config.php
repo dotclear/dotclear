@@ -52,7 +52,7 @@ class blowupConfig
 		'rabbit' => 'Rabbit',
 		'roadrunner-1' => 'Road Runner 1',
 		'roadrunner-2' => 'Road Runner 2',
-		'typo' => 'Typo',
+		'typo' => 'Typo'
 	);
 
 	public static function fontsList()

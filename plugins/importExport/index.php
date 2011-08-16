@@ -16,7 +16,7 @@ require dirname(__FILE__).'/inc/class.dc.ieModule.php';
 $modules = new ArrayObject();
 $modules['i'] = new ArrayObject(array(
 	'dcImportFlat' => dirname(__FILE__).'/inc/class.dc.import.flat.php',
-	'dcImportFeed' => dirname(__FILE__).'/inc/class.dc.import.feed.php',
+	'dcImportFeed' => dirname(__FILE__).'/inc/class.dc.import.feed.php'
 ));
 $modules['e'] = new ArrayObject(array(
 	'dcExportFlat' => dirname(__FILE__).'/inc/class.dc.export.flat.php'
