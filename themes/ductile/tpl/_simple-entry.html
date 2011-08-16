@@ -7,10 +7,9 @@
 			<span class="post-date">{{tpl:EntryDate}}. </span>
 			<span class="permalink"><a href="{{tpl:EntryURL}}">{{tpl:lang Permalink}}</a></span>
 			<tpl:EntryIf has_category="1">
-				<tpl:EntryCategoriesBreadcrumb>
-					<span class="post-breadcrumb-cat"><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></span> ›
-				</tpl:EntryCategoriesBreadcrumb>
-				<span class="post-cat"><a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
+				<span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a 
+				href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a 
+				href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
 			</tpl:EntryIf>
 		</p>
 		
