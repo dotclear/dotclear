@@ -387,19 +387,16 @@ img.smiley {
 .post-info-co a {
 	text-decoration: none;
 	padding-right: 1em;
-	padding-left: 28px;
-	background-color: #fff;
-	background-repeat: no-repeat;
-	background-position: left center;
+	padding-left: 20px;
 	}
 .post-info-co a.comment_count {
-	background-image: url(img/comment.png);
+	background: url(img/info-co.png) no-repeat left .25em;
 	}
 .post-info-co a.ping_count {
-	background-image: url(img/ping.png);
+	background: url(img/info-co.png) no-repeat left center;
 	}
 .post-info-co a.attach_count {
-	background-image: url(img/attach.png);	
+	background: url(img/info-co.png) no-repeat left -126px;
 	}
 #attachments {
 	font-size: .875em;
@@ -417,8 +414,8 @@ img.smiley {
 	padding: 0;
 	}
 #attachments ul li {
-	padding-left: 24px;
-	background: transparent url(img/download.png) no-repeat left .3em;
+	padding-left: 28px;
+	background: transparent url(img/download.png) no-repeat left -2px;
 	}
 
 /* ------------------------------------------------------------
@@ -488,10 +485,10 @@ img.smiley {
 	width: 2em;
 	}
 .comment .comment-number {
-	background: transparent url(img/comm.png) right center no-repeat;
+	background: transparent url(img/info-co.png) right .25em no-repeat;
 	}
 .ping .comment-number {
-	background: transparent url(img/tb.png) right center no-repeat;
+	background: transparent url(img/info-co.png) right center no-repeat;
 	}
 #comments-feed {
 	border-top: 1px solid #bbb;
@@ -603,11 +600,11 @@ img.smiley {
 	color: #333;
 	}
 #sidebar h2.toggle {
-	background: url(img/plus.png) no-repeat left center;
+	background: url(img/minus-plus.png) no-repeat left -82px;
 	padding-left: 16px;
 	}
 #sidebar h2.expanded {
-	background-image: url(img/minus.png);
+	background: url(img/minus-plus.png) no-repeat left 6px;
 	}
 #sidebar h2.toggle a {
 	text-decoration: none;
@@ -630,13 +627,13 @@ img.smiley {
 	}
 #sidebar li {
 	padding-left: 16px;
-	background: transparent url(img/square.png) no-repeat 0 .5em;
+	background: transparent url(img/squares.png) no-repeat 0 .5em;
 	}
 #sidebar ul li ul li {
-	background-image: url(img/square2.png);
+	background: transparent url(img/squares.png) no-repeat 0 center;
 	}
 #sidebar ul li ul li ul li {
-	background-image: url(img/square3.png);
+	background: transparent url(img/squares.png) no-repeat 0 center;
 	}
 #sidebar .syndicate li {
 	background-image: none;
