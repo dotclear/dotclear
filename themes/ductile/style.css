@@ -622,15 +622,14 @@ img.smiley {
 	padding: 0;
 	}
 #sidebar ul li ul {
-	margin-top: 0;
-	margin-bottom: 0;
+	margin: 0;
 	}
 #sidebar li {
 	padding-left: 16px;
-	background: transparent url(img/squares.png) no-repeat 0 .5em;
+	background: transparent url(img/squares.png) no-repeat -133px .5em;
 	}
 #sidebar ul li ul li {
-	background: transparent url(img/squares.png) no-repeat 0 center;
+	background: transparent url(img/squares.png) no-repeat -70px center;
 	}
 #sidebar ul li ul li ul li {
 	background: transparent url(img/squares.png) no-repeat 0 center;
@@ -715,7 +714,6 @@ img.smiley {
 	}
 #blogcustom {
 	clear: both;
-	text-align: center;
 	background-color: #ededed;
 	color: #333;
 	border-bottom: 1px solid #999;
@@ -728,7 +726,6 @@ img.smiley {
 	}
 #blogcustom > div {
 	display: inline-block;
-	text-align: left;
 	vertical-align: top;
 	width: 294px;
 	padding: 12px;
