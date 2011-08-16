@@ -1222,7 +1222,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 				'author'				=> $rs->comment_author,
 				'author_url'			=> $rs->comment_site,
 				'author_email'			=> $rs->comment_email,
-				'author_ip'			=> $rs->comment_ip,
+				'author_ip'			=> $rs->comment_ip
 			);
 		}
 		return $res;
