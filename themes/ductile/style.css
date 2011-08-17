@@ -332,29 +332,34 @@ img.smiley {
 	display: inline;
 	padding: 0 .66em 0 0;
 	}
-.post-info span + span {
-	padding-right: .5em;
+.post-date, .post-attr a {
+	white-space: nowrap;
 	}
 .post-cat {
 	padding-left: 24px;
-	background: transparent no-repeat left center url(img/category.png);
+	background: transparent no-repeat -62px center url(img/post-info.png);
 	}
 .permalink a {
 	padding-left: 20px;
-	background: transparent no-repeat left center url(img/link.png);
+	background: transparent no-repeat left bottom url(img/post-info.png);
 	}
-.post-tags a {
-	padding-right: 1em;
-	padding-left: 14px;
-	background: transparent no-repeat left center url(img/tag.png);
+.post-tags li:first-child {
+	padding-left: 20px;
+	background: transparent no-repeat -124px top url(img/post-info.png);
 	}
 .post-tags li {
 	display: inline;
 	}
+.post-tags li:after {
+	content: ", ";
+ }
+.post-tags li:last-child:after {
+	content:"";
+	}
 .post-content {
 	padding-bottom: 9px;
 	}
-.post ul {
+.post-content ul, .post-excerpt ul {
 	list-style-type: square;
 	margin-left: 1em;
 	}
@@ -1066,3 +1071,13 @@ hr.hidden {
 .post:after {
 	clear:both;
 	}
+
+
+.post {
+	position: relative;
+	padding-bottom: 1.5em;
+}
+.post-info-co {
+	position: absolute;
+	bottom: 0;
+}
