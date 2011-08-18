@@ -268,8 +268,10 @@ h1 a {
 ------------------------------------------------------------- */
 .post {
 	background: transparent url(img/filet.png) repeat-x left bottom;
+	position: relative;
+	padding-bottom: 1.5em;
 	}
-.day-date {
+	.day-date {
 	display: none;
 	}
 .post-title {
@@ -382,12 +384,14 @@ img.smiley {
 	padding-left: .5em;
 	}
 .post-info-co {
+	position: absolute;
+	bottom: 0;
 	margin: 0;
 	background: #fff;
-	display: inline;
 	font-size: 0.875em;
 	font-style: italic;
 	padding-right: .5em;
+	max-width: 80%;
 	}
 .post-info-co a {
 	text-decoration: none;
@@ -1071,13 +1075,3 @@ hr.hidden {
 .post:after {
 	clear:both;
 	}
-
-
-.post {
-	position: relative;
-	padding-bottom: 1.5em;
-}
-.post-info-co {
-	position: absolute;
-	bottom: 0;
-}
