@@ -829,6 +829,7 @@ class dcMedia extends filemanager
 	public function inflateZipFile($f,$create_dir=true)
 	{
 		$zip = new fileUnzip($f->file);
+		$zip->setExcludePattern($this->exclude_pattern);
 		$zip->getList(false,'#(^|/)(__MACOSX|\.svn|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 		
 		if ($create_dir)
