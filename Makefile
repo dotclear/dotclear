@@ -64,6 +64,7 @@ config:
 	
 	## Pack javascript files
 	find $(DC)/admin/js/*.js -exec ./build-tools/min-js.php \{\} \;
+	find $(DC)/admin/js/ie7/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jquery/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jsToolBar/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/tool-man/*.js -exec ./build-tools/min-js.php \{\} \;
