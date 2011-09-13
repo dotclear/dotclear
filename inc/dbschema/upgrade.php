@@ -294,7 +294,16 @@ function dotclearUpgrade($core)
 				# Remove unecessary file
 				@unlink(DC_ROOT.'/'.'inc/libs/clearbricks/.hgignore');
 			}
-			
+
+			if (version_compare($version,'2.4.0','<='))
+			{
+				# setup media_exclusion
+				$strReq = 'UPDATE '.$core->prefix.'setting '.
+						"SET setting_value = '/\\.php\$/i' ".
+						"WHERE setting_id = 'media_exclusion' ".
+						"AND setting_value = '' ";
+				$core->con->execute($strReq);
+			}
 			
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
