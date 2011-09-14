@@ -107,7 +107,7 @@ class tagsBehaviors
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
 		
 		return 
-		'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
+		'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.min.js"></script>'.
 		'<script type="text/javascript" src="index.php?pf=tags/js/post.js"></script>'.
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
@@ -136,7 +136,7 @@ class tagsBehaviors
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
 		
 		return 
-		'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
+		'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.min.js"></script>'.
 		'<script type="text/javascript" src="index.php?pf=tags/js/posts_actions.js"></script>'.
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
