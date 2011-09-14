@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
 	/* Name */				"Ductile",
-	/* Description*/		"Chantier pour un nouveau theme",
+	/* Description*/		"Mediaqueries compliant elegant theme",
 	/* Author */			"Dotclear Team",
 	/* Version */			'1.0',
 	/* Properties */		array(
