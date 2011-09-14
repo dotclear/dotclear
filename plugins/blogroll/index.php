@@ -162,7 +162,7 @@ try {
 ?>
 <html>
 <head>
-  <title>Blogroll</title>
+  <title><?php echo __('Blogroll'); ?></title>
   <?php echo dcPage::jsToolMan(); ?>
   <?php echo dcPage::jsConfirmClose('links-form','add-link-form','add-category-form'); ?>
   <?php 
@@ -214,7 +214,7 @@ try {
 </head>
 
 <body>
-<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title">Blogroll</span></h2>
+<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title"><?php echo __('Blogroll'); ?></span></h2>
 
 <?php
 if (!empty($_GET['neworder'])) {
