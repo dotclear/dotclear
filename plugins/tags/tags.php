@@ -14,7 +14,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 ?>
 <html>
 <head>
-  <title>Tags</title>
+  <title><?php echo __('Tags'); ?></title>
   <link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />
 </head>
 

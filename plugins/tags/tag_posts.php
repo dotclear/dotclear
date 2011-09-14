@@ -92,7 +92,7 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 ?>
 <html>
 <head>
-  <title>Tags</title>
+  <title><?php echo __('Tags'); ?></title>
   <link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />
   <script type="text/javascript" src="js/_posts_list.js"></script>
   <script type="text/javascript">
