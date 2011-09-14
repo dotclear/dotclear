@@ -206,7 +206,7 @@ function display_theme_details($id,$details,$current)
 	return $res;
 }
 
-dcPage::open(__('Blog themes'),
+dcPage::open(__('Blog appearance'),
 	(!$theme_conf_mode ? dcPage::jsLoad('js/_blog_theme.js') : '').
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsColorPicker()
