@@ -125,7 +125,7 @@ if (!$core->error->flag())
 		echo
 		'<form action="'.$this_url.'" method="post">'.
 		'<div class="fieldset"><h3>'.__('Actions for this tag').'</h3>'.
-		'<p><label for="new_tag_id">'.__('Edit tag name: ').'</label>'.
+		'<p><label for="new_tag_id">'.__('Edit tag name:').'</label>'.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'<input type="submit" value="'.__('Rename').'" />'.
 		$core->formNonce().

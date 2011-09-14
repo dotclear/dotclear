@@ -1171,26 +1171,32 @@ msgstr "Lien vers tous les mots-clés :"
 msgid "Edit tag"
 msgstr "Modifier le mot-clé"
 
+msgid "Actions for this tag"
+msgstr "Actions pour ce mot-clé"
+
 msgid "Tag has been successfully renamed"
 msgstr "Mot-clé renommé avec succès"
 
 msgid "Back to tags list"
 msgstr "Retour à la liste des mots-clés"
 
-msgid "Rename this tag:"
+msgid "Edit tag name:"
 msgstr "Renommer ce mot-clé :"
 
 msgid "Rename"
 msgstr "Renommer"
 
-msgid "Delete this tag"
-msgstr "Supprimer ce mot-clé"
+msgid "Delete this tag:"
+msgstr "Supprimer ce mot-clé :"
 
 msgid "Tag has been successfully removed"
 msgstr "Mot-clé supprimé avec succès"
 
 msgid "No tags on this blog."
 msgstr "Aucun mot-clé sur ce blog"
+
+msgid "List of entries with this tag"
+msgstr "Liste des billets avec ce mot-clé"
 
 msgid "Theme Editor"
 msgstr "Éditeur de thème"
