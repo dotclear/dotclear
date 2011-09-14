@@ -850,10 +850,10 @@ msgid "Import lowest numbered category on posts:"
 msgstr "Importer la catégorie la plus ancienne sur les articles :"
 
 msgid "Import all categories as tags:"
-msgstr "Importer les catégories comme des tags :"
+msgstr "Importer les catégories comme des mots-clés :"
 
 msgid "Prefix such tags with:"
-msgstr "Préfixer ces tags avec :"
+msgstr "Préfixer ces mots-clés avec :"
 
 msgid "Content filters"
 msgstr "Filtres de contenu"
@@ -1083,10 +1083,10 @@ msgid "Pings:"
 msgstr "Pings :"
 
 msgid "Tags"
-msgstr "Tags"
+msgstr "Mots-clés"
 
 msgid "Tags:"
-msgstr "Tags :"
+msgstr "Mots-clés :"
 
 #, php-format
 msgid "Are you sure you want to remove this %s?"
@@ -1103,7 +1103,7 @@ msgid "all"
 msgstr "tous"
 
 msgid "Tag"
-msgstr "Tag"
+msgstr "Mot-clé"
 
 msgid "used in %e - frequency %p%"
 msgstr "utilisé dans %e - fréquence %p%"
@@ -1115,28 +1115,28 @@ msgid "entries"
 msgstr "billets"
 
 msgid "Enter tags separated by coma"
-msgstr "Entrer les tags séparés par une virgule"
+msgstr "Entrer les mots-clés séparés par une virgule"
 
 msgid "Add tags"
-msgstr "Ajouter des tags"
+msgstr "Ajouter des mots-clés"
 
 msgid "Remove tags"
-msgstr "Supprimer des tags"
+msgstr "Supprimer des mots-clés"
 
 msgid "Add tags to entries"
-msgstr "Ajouter des tags aux billets"
+msgstr "Ajouter des mots-clés aux billets"
 
 msgid "Tags to add:"
-msgstr "Tags à ajouter :"
+msgstr "Mots-clés à ajouter :"
 
 msgid "Remove selected tags from entries"
-msgstr "Supprimer les tags sélectionnés des billets"
+msgstr "Supprimer les mots-clés sélectionnés des billets"
 
 msgid "No tags for selected entries"
-msgstr "Aucun tag pour les billets sélectionnés"
+msgstr "Aucun mot-clé pour les billets sélectionnés"
 
 msgid "Following tags have been found in selected entries:"
-msgstr "Les tags suivants ont été trouvés dans les billets sélectionnés :"
+msgstr "Les mots-clés suivants ont été trouvés dans les billets sélectionnés :"
 
 msgid "short"
 msgstr "court"
@@ -1145,13 +1145,13 @@ msgid "extended"
 msgstr "étendu"
 
 msgid "Tags list format:"
-msgstr "Format de la liste des tags :"
+msgstr "Format de la liste des mots-clés :"
 
 msgid "This tag's comments Atom feed"
-msgstr "Fil Atom des commentaires de ce tag"
+msgstr "Fil Atom des commentaires de ce mot-clé"
 
 msgid "This tag's entries Atom feed"
-msgstr "Fil Atom des billets de ce tag"
+msgstr "Fil Atom des billets de ce mot-clé"
 
 msgid "Limit (empty means no limit):"
 msgstr "Limite (laisser vide pour aucune limite)"
@@ -1160,37 +1160,37 @@ msgid "Entries count"
 msgstr "Nombre de billets"
 
 msgid "Tag name"
-msgstr "Nom du tag"
+msgstr "Nom du mot-clé"
 
 msgid "All tags"
-msgstr "Tous les tags"
+msgstr "Tous les mots-clés"
 
 msgid "Link to all tags:"
-msgstr "Lien vers tous les mots-clefs :"
+msgstr "Lien vers tous les mots-clés :"
 
 msgid "Edit tag"
-msgstr "Modifier le tag"
+msgstr "Modifier le mot-clé"
 
 msgid "Tag has been successfully renamed"
-msgstr "Tag renommé avec succès"
+msgstr "Mot-clé renommé avec succès"
 
 msgid "Back to tags list"
-msgstr "Retour à la liste des tags"
+msgstr "Retour à la liste des mots-clés"
 
 msgid "Rename this tag:"
-msgstr "Renommer ce tag :"
+msgstr "Renommer ce mot-clé :"
 
 msgid "Rename"
 msgstr "Renommer"
 
 msgid "Delete this tag"
-msgstr "Supprimer ce tag"
+msgstr "Supprimer ce mot-clé"
 
 msgid "Tag has been successfully removed"
-msgstr "Tag supprimé avec succès"
+msgstr "Mot-clé supprimé avec succès"
 
 msgid "No tags on this blog."
-msgstr "Aucun tag sur ce blog"
+msgstr "Aucun mot-clé sur ce blog"
 
 msgid "Theme Editor"
 msgstr "Éditeur de thème"
@@ -1311,7 +1311,7 @@ msgid "Uncategorized"
 msgstr "Non catégorisé"
 
 msgid "Tag:"
-msgstr "Tag :"
+msgstr "Mot-clé :"
 
 msgid "Last comments"
 msgstr "Derniers commentaires"
