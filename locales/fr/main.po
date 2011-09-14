@@ -1584,6 +1584,9 @@ msgstr "Voir le billet"
 msgid "Preview entry"
 msgstr "Prévisualiser le billet"
 
+msgid "Go to this entry on the site"
+msgstr "Voir ce billet sur le site"
+
 msgid "Entry status:"
 msgstr "État du billet :"
 
