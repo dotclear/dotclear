@@ -455,10 +455,15 @@ __('Enable WYSIWYG mode').'</label></p>'.
 
 '<p><label for="user_ui_enhanceduploader" class="classic">'.
 form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
-__('Activate enhanced uploader in media manager').'</label></p>'.
+__('Activate enhanced uploader in media manager').'</label></p>';
 
-'<p><label for="user_ui_iconset">'.__('Iconset:').
-form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</label></p>';
+if (count($iconsets_combo) > 1) {
+	echo 
+		'<p><label for="user_ui_iconset">'.__('Iconset:').
+		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</label></p>';
+} else {
+	form::hidden('user_ui_iconset','');
+}
 
 if ($core->auth->isSuperAdmin()) {
 	echo
