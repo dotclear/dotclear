@@ -1746,7 +1746,7 @@ msgstr "Changer l'auteur des billets"
 msgid "Author ID:"
 msgstr "Identifiant de l'utilisateur :"
 
-msgid "If you want to change your email or password you must provide your current password."
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
 msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe."
 
 msgid "Personal information has been successfully updated."
