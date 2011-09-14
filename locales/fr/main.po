@@ -752,8 +752,8 @@ msgstr "en attente"
 msgid "mark as junk"
 msgstr "indésirable"
 
-msgid "Delete"
-msgstr "Supprimer"
+msgid "delete"
+msgstr "supprimer"
 
 msgid "Type:"
 msgstr "Type :"
