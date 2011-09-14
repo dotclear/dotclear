@@ -608,6 +608,9 @@ msgstr "Parent :"
 msgid "Top level"
 msgstr "Premier niveau"
 
+msgid "Create"
+msgstr "Créer"
+
 msgid "Remove a category"
 msgstr "Supprimer une catégorie"
 
@@ -1873,11 +1876,11 @@ msgstr "Options de recherche"
 msgid "Query:"
 msgstr "Requête :"
 
-msgid "search entries"
-msgstr "rechercher des billets"
+msgid "Search entries"
+msgstr "Rechercher des billets"
 
-msgid "search comments"
-msgstr "recherche des commentaires"
+msgid "Search comments"
+msgstr "Rechercher des commentaires"
 
 msgid "schedule"
 msgstr "programmer"
