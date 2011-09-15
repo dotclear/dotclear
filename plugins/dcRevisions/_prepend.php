@@ -2,7 +2,7 @@
 # -- BEGIN LICENSE BLOCK ----------------------------------
 # This file is part of dcRrevisions, a plugin for Dotclear.
 #
-# Copyright (c) 2010 Tomtom and contributors
+# Copyright (c) 2011 Tomtom and contributors
 # http://blog.zenstyle.fr/
 #
 # Licensed under the GPL version 2.0 license.

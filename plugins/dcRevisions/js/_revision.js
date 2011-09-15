@@ -17,7 +17,7 @@ dotclear.revisionExpander = function() {
 		img.alt = dotclear.img_plus_alt;
 		img.className = 'expand';
 		$(img).css('cursor','pointer');
-		img.line=this;
+		img.line = this;
 		img.onclick = function() {
 			dotclear.viewRevisionContent(this,this.line);
 		};
@@ -28,10 +28,10 @@ dotclear.revisionExpander = function() {
 dotclear.viewRevisionContent = function(img,line) {
 	var revisionId = line.id.substr(1);
 	var postId = $("#id").val();
-	var tr = document.getElementById('re'+revisionId);
-	if(!tr){
+	var tr = document.getElementById('re' + revisionId);
+	if (!tr ){
 		tr = document.createElement('tr');
-		tr.id = 're'+revisionId;
+		tr.id = 're' + revisionId;
 		var td = document.createElement('td');
 		td.colSpan = 5;
 		td.className = 'expand';
@@ -47,13 +47,20 @@ dotclear.viewRevisionContent = function(img,line) {
 			function(data){
 				var rsp = $(data).children('rsp')[0];
 				if(rsp.attributes[0].value == 'ok'){
-					var excerpt = $(rsp).find('post_excerpt_xhtml');
-					var content = $(rsp).find('post_content_xhtml');
-					var table = '<table class="preview-rev">';
-					table += dotclear.viewRevisionRender($(rsp).find('post_excerpt_xhtml'),dotclear.msg.excerpt,revisionId);
-					table += dotclear.viewRevisionRender($(rsp).find('post_content_xhtml'),dotclear.msg.content,revisionId);
-					table += '</table>';
-					$(td).append(table)
+					var excerpt_nodes = $(rsp).find('post_excerpt_xhtml').children();
+					var content_nodes = $(rsp).find('post_content_xhtml').children();
+					if (excerpt_nodes.size() == 0 && content_nodes.size() == 0) {
+						$(td).append('<strong>' + dotclear.msg.content_identical + '</strong>');
+					}
+					else {
+						var excerpt = $(rsp).find('post_excerpt_xhtml');
+						var content = $(rsp).find('post_content_xhtml');
+						var table = '<table class="preview-rev">';
+						table += dotclear.viewRevisionRender(excerpt_nodes,dotclear.msg.excerpt,revisionId);
+						table += dotclear.viewRevisionRender(content_nodes,dotclear.msg.content,revisionId);
+						table += '</table>';
+						$(td).append(table);
+					}
 				}
 				else {
 					alert($(rsp).find('message').text());
@@ -77,42 +84,59 @@ dotclear.viewRevisionContent = function(img,line) {
 	}
 };
 
-dotclear.viewRevisionRender = function(content,title,revisionId){
-	var res = '<thead><tr class="rev-header"><th colspan="3">'+title+'</th></tr>'+
-	'<tr class="rev-number"><th class="minimal nowrap">'+dotclear.msg.current+
-	'</th><th class="minimal nowrap">r'+revisionId+
-	'</th><th class="maximal"></th></tr></thead><tbody>';
-	if (content.size() > 0) {
-		var previous = '';
-		content.find('line').each(function() {
-			var class = '';
-			
-			var o = this.attributes[0].value;
-			var n = this.attributes[1].value;
-			var line = this.attributes[2].value;
-			console.log(previous+" - "+line);
-			if (o != '' && n == '') {
-				class = ' delete';
-				if (previous == '') class += ' start';
-				previous = 'o';
-			} 
-			if (o == '' && n != '') {
-				class = ' insert';
-				if (previous == '') class += ' start';
-				previous = 'n';
-			}
-			if (o != '' && n != '') {
-				if (previous == 'o') class = ' delete-end';
-				if (previous == 'n') class = ' insert-end';
-				previous = '';
-			}
-			res += '<tr><td class="minimal col-line">'+o+
-			'</td><td class="minimal col-line">'+n+
-			'</td><td class="maximal'+class+'">'+line+
-			'</td></tr>';
-		});
+dotclear.viewRevisionRender = function(nodes,title,revisionId){
+	var res = lines = previous = '';
+		
+	nodes.each(function(k) {
+		var name = this.nodeName;
+		var content = $(this).text();
+		
+		var ol = $(this).attr('oline') != undefined ? $(this).attr('oline') : '';
+		var nl = $(this).attr('nline') != undefined ? $(this).attr('nline') : '';
+		
+		if (name == 'skip') {
+			ol = nl = '&hellip;';
+		}
+		
+		var class = '';
+		
+		if (name == 'skip') {
+			class = ' skip';
+		}
+		if (name == 'context') {
+			class = ' context';
+		}
+		if (name == 'insert') {
+			class = ' insert';
+		}
+		if (name == 'delete') {
+			class = ' delete';
+		}
+		
+		if (name != previous && (previous == '' || previous == 'context')) {
+			class += ' first';
+		}
+		var next = nodes.size() > k+1 ? nodes.get(k+1).nodeName : '';
+		if (name != next && next != 'insert' && next != 'delete') {
+			class += ' last';
+		}
+		
+		previous = name;
+		
+		lines += '<tr><td class="minimal col-line">'+ol+
+		'</td><td class="minimal col-line">'+nl+
+		'</td><td class="'+class+'">'+content+
+		'</td></tr>';
+	});
+	
+	if (lines != '') {
+		res = '<thead><tr class="rev-header"><th colspan="3">'+title+'</th></tr>'+
+		'<tr class="rev-number"><th class="minimal nowrap">'+dotclear.msg.current+
+		'</th><th class="minimal nowrap">r'+revisionId+
+		'</th><th class="maximal"></th></tr></thead><tbody>'+
+		lines + '</tbody>';
 	}
-	res += '</tbody>';
+	
 	return res;
 };
 
@@ -121,7 +145,6 @@ $(function() {
 		$('#revisions-area label').toggleWithLegend(
 			$('#revisions-area').children().not('label'),{
 				cookie:'dcx_post_revisions',
-				hide:$('#revisions_area').val() == '<p></p>',
 				fn:dotclear.revisionExpander()
 			}
 		);

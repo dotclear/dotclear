@@ -2,7 +2,7 @@
 # -- BEGIN LICENSE BLOCK ----------------------------------
 # This file is part of dcRevisions, a plugin for Dotclear.
 #
-# Copyright (c) 2010 Tomtom and contributors
+# Copyright (c) 2011 Tomtom and contributors
 # http://blog.zenstyle.fr/
 #
 # Licensed under the GPL version 2.0 license.
@@ -11,55 +11,71 @@
 # -- END LICENSE BLOCK ------------------------------------
 */
 #revisions-area { padding-bottom: 1em; }
-table#revisions-list { display: none; }
-table.preview-rev { width: 100%; }
+table#revisions-list { display: none; overflow: scroll; }
+table.preview-rev {
+	border-spacing: 0px;
+	border-collapse: separate;
+	overflow: scroll;
+}
 table.preview-rev, table.preview-rev tr, table.preview-rev th, table.preview-rev td  { border: none; }
 table.preview-rev thead {
 	border: 1px dotted #aaa;
 	background-color: #f3f3f3;
 }
+table.preview-rev tbody {
+	border: 1px dotted #aaa;
+}
 table.preview-rev thead tr.rev-header th, table.preview-rev thead tr.rev-number th {
 	border: 1px dotted #aaa;
 	text-align: center;
 }
+table.preview-rev td { font: normal 11px monospace; }
 table.preview-rev td.center { text-align: center; }
 table.preview-rev td.col-line {
 	background-color: #eceade;
 	color: #aaa;
-	border-top: 1px solid #aaa;
-	/*border-right: 1px solid #ccc;*/
+	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #aaa;
 	border-left: 1px solid #ccc;
+	text-align: right;
 }
-table.preview-rev td.delete {
-	background-color: #fdd;
-	border-left: 1px solid #c00;
-	border-right: 1px solid #c00;
-}
-table.preview-rev td.delete.start {
-	border-top: 1px solid #c00;
-}
-table.preview-rev td.delete-end {
-	border-top: 1px solid #c00;
-}
+/* Insert line */
 table.preview-rev td.insert {
 	background-color: #dfd;
-	border-left: 1px solid #0a0;
-	border-right: 1px solid #0a0;
+	border-color: #0a0;
+	border-style: solid;
+	border-width: 0 1px 0 1px;
 }
-table.preview-rev td.insert.start {
-	border-top: 1px solid #0a0;
+/* Delete line */
+table.preview-rev td.delete {
+	background-color: #fdd;
+	border-color: #c00;
+	border-style: solid;
+	border-width: 0 1px 0 1px;
 }
-table.preview-rev td.insert-end {
-	border-top: 1px solid #0a0;
+/* Skip line */
+table.preview-rev td.skip {
+	background-color: #F7F7F7;
+	color: #D7D7D7;
+	border-color: #D7D7D7;
+	border-style: solid;
 }
-
-del {
+/* Common lines */
+table.preview-rev td.first {
+	border-width: 1px 1px 0 1px;
+}
+table.preview-rev td.last {
+	border-width: 0 1px 1px 1px;
+}
+table.preview-rev td.first.last {
+	border-width: 1px;
+}
+table.preview-rev td.delete del {
 	text-decoration: none;
 	background-color: #e99;
 	padding: 0.2em 0 0.2em 0;
 }
-ins {
+table.preview-rev td.insert ins {
 	text-decoration: none;
 	background-color: #9e9;
 	padding: 0.2em 0 0.2em 0;

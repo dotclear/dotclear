@@ -58,7 +58,7 @@ class dcRevisionsList
 			$res .= 
 				'<tr class="line wide'.(!$this->rs->canPatch() ? ' offline' : '').'" id="r'.$this->rs->revision_id.'">'."\n".
 				'<td class="maximal nowrap rid">'.
-					'<strong>'.sprintf(__('Revision %s'),$this->rs->count()-$this->rs->index()).'</strong>'.
+					'<strong>'.sprintf(__('Revision #%s'),$this->rs->revision_id).'</strong>'.
 				"</td>\n".
 				'<td class="minimal nowrap">'.
 					$this->rs->getAuthorLink().

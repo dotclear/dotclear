@@ -151,7 +151,7 @@ class dcRevisions
 		
 		try {
 			foreach ($diff as $k => $v) {
-				$diff[$k] = uDiff::diff($n[$k],$o[$k]);
+				$diff[$k] = diff::uniDiff($n[$k],$o[$k]);
 			}
 		
 			return $diff;
@@ -217,7 +217,7 @@ class dcRevisions
 		
 		$p = $this->core->blog->getPosts($params);
 		$r = $this->getRevisions($params);
-          
+		
 		$patch = array(
 			'post_excerpt' => $p->post_excerpt,
 			'post_excerpt_xhtml' => $p->post_excerpt_xhtml,
@@ -232,8 +232,7 @@ class dcRevisions
 				if ($k === 'post_content') { $f = 'revision_content_diff'; }
 				if ($k === 'post_content_xhtml') { $f = 'revision_content_xhtml_diff'; }
 				
-				uDiff::check($r->{$f});
-				$patch[$k] = uDiff::patch($v,$r->{$f});
+				$patch[$k] = diff::uniPatch($v,$r->{$f});
 			}
 
 			if ($r->revision_id === $rid) {
