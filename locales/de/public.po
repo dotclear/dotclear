@@ -85,13 +85,13 @@ msgid "Search"
 msgstr "Suche"
 
 msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "Deine Suche nach <em>%1$s</em> ergab keinen Treffer."
+msgstr "Ihre Suche nach <em>%1$s</em> ergab keinen Treffer."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "Deine Suche nach <em>%1$s</em> ergab <strong>%2$s</strong> Treffer."
+msgstr "Ihre Suche nach <em>%1$s</em> ergab <strong>%2$s</strong> Treffer."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "Deine Suche nach <em>%1$s</em> ergab <strong>%2$s</strong> Treffer."
+msgstr "Ihre Suche nach <em>%1$s</em> ergab <strong>%2$s</strong> Treffer."
 
 msgid "Home"
 msgstr "Startseite"
