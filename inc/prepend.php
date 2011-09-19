@@ -10,16 +10,6 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
-//*== DC_DEBUG ==
-ini_set('display_errors',true);
-error_reporting(E_ALL | E_STRICT);
-define('DC_DEBUG',true);
-//*/
-
-if (!defined('DC_DEBUG')) {
-	define('DC_DEBUG',false);
-}
-
 /* ------------------------------------------------------------------------------------------- */
 #  ClearBricks, DotClear classes auto-loader
 if (@is_dir('/usr/lib/clearbricks')) {
@@ -115,6 +105,20 @@ if (!is_file(DC_RC_PATH))
 }
 
 require DC_RC_PATH;
+
+//*== DC_DEBUG ==
+if (!defined('DC_DEBUG')) {
+	define('DC_DEBUG',true);
+}
+if (DC_DEBUG) {
+	ini_set('display_errors',true);
+	error_reporting(E_ALL | E_STRICT);
+}
+//*/
+
+if (!defined('DC_DEBUG')) {
+	define('DC_DEBUG',false);
+}
 
 # Constants
 define('DC_ROOT',path::real(dirname(__FILE__).'/..'));
