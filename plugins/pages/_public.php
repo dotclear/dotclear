@@ -146,7 +146,7 @@ class urlPages extends dcUrlHandlers
 						$cur->comment_ip = http::realIP();
 						
 						$redir = $_ctx->posts->getURL();
-						$redir .= strpos($redir,'?') !== false ? '&' : '?';
+						$redir .= $core->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
 						
 						try
 						{
