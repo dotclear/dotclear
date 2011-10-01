@@ -921,6 +921,9 @@ msgstr "Aucun mot de passe spécifié"
 msgid "Password must contain at least 6 characters."
 msgstr "Le mot de passe doit contenir au moins 6 caractères."
 
+msgid "Continue"
+msgstr "Continuer"
+
 msgid "My first blog"
 msgstr "Mon premier blog"
 
