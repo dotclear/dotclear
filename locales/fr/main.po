@@ -1168,7 +1168,7 @@ msgid "Are you sure you want to remove %s?"
 msgstr "Êtes-vous certain de vouloir supprimer %s ?"
 
 msgid "Cancel"
-msgstr "annuler"
+msgstr "Annuler"
 
 msgid "Yes"
 msgstr "oui"
