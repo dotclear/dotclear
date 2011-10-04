@@ -582,6 +582,7 @@ class dcBlog
 		}
 		
 		$this->categories()->resetOrder();
+		$this->triggerBlog();
 	}
 	
 	private function checkCategory($title,$url,$id=null)
