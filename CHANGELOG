@@ -1,6 +1,12 @@
 Dotclear 2.4.0 - ongoing dev
 ===========================================================
+* Admin: new iconset from Thomas Daveluy
+* Admin: Accessibility enhancements
+* Added a custom widget sidebar
+* Added a new theme (Ductile)
+* Added a new plugin (simpleMenu)
 * handling of postgres non default schemas (db_prefix = 'schema.prefix')
+* Various bug fixes
 
 Dotclear 2.3.1 - 2001-06-14
 ===========================================================
