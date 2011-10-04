@@ -1390,7 +1390,7 @@ msgstr "Utilisation des widgets"
 msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must click on Update sidebars to apply any changes made in this page."
 msgstr "Les widgets sont utilisés pour ajouter des blocs de contenus divers dans vos pages publiques. Pour ajouter un widget, faites-le glisser depuis la liste des Widgets disponibles à gauche jusqu'à l'un des bandeaux sur la droite de la page. Vous pouvez ré-ordonner vos widgets dans un bandeau en le faisant glisser vers le haut ou vers le bas. Vous devez cliquer sur Mettre à jour les bandeaux pour enregistrer les changements effectués sur cette page."
 
-msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name"
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
 msgstr "Une fois inclus dans un bandeau, les widgets ont généralement des options que vous pouvez configurer. Cliquez sur le signe + à côté de leur nom pour y accéder."
 
 msgid "Click on Reset sidebars to get back to default widgets installation."
