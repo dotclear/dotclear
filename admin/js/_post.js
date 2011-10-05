@@ -7,7 +7,7 @@ dotclear.commentExpander = function(line) {
 	img.className = 'expand';
 	$(img).css('cursor','pointer');
 	img.line = line;
-	img.onclick = function() { dotclear.viewCommentContent(this,this.line); };
+	img.onclick = function() { dotclear.viewCommentContent(this,this.line); positionFooter(); };
 	
 	td.insertBefore(img,td.firstChild);
 };
