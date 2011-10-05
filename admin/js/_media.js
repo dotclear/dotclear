@@ -67,6 +67,9 @@ $(function() {
 							fileRemoveAct();
 						});
 					}
+				},
+				fileQueued: function() {
+					positionFooter();
 				}
 			}
 		});

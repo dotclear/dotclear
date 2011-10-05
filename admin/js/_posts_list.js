@@ -7,7 +7,7 @@ dotclear.postExpander = function(line) {
 	img.className = 'expand';
 	$(img).css('cursor','pointer');
 	img.line = line;
-	img.onclick = function() { dotclear.viewPostContent(this,this.line); };
+	img.onclick = function() { dotclear.viewPostContent(this,this.line); positionFooter(); };
 	
 	td.insertBefore(img,td.firstChild);
 };
