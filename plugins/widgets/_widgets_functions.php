@@ -250,7 +250,7 @@ class defaultWidgets
 		
 		$i = 0;
 		foreach ($feed->items as $item) {
-			$li = isset($item->link) ? '<a href="'.$item->link.'">'.$item->title.'</a>' : $item->title;
+			$li = isset($item->link) ? '<a href="'.html::escapeHTML($item->link).'">'.$item->title.'</a>' : $item->title;
 			$res .= ' <li>'.$li.'</li> ';
 			$i++;
 			if ($i >= $limit) {
