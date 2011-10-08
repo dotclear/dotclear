@@ -1590,6 +1590,9 @@ msgstr "Prévisualiser le billet"
 msgid "Go to this entry on the site"
 msgstr "Voir ce billet sur le site"
 
+msgid "Go to this page on the site"
+msgstr "Voir cette page sur le site"
+
 msgid "Entry status:"
 msgstr "État du billet :"
 
