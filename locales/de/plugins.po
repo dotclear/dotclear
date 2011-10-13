@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-13 20:44+0200\n"
 "PO-Revision-Date: 2010-08-09 19:49-0000\n"
 "Last-Translator: ben_griffith <ben_griffith@topmail.co.uk>\n"
 "Language-Team: \n"
@@ -19,6 +19,9 @@ msgstr ""
 
 msgid "no"
 msgstr "nein"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "Konfiguration wurden erfolgreich aktualisiert"
@@ -34,6 +37,12 @@ msgstr "Wert"
 
 msgid "Description"
 msgstr "Beschreibung"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr "Globale Einstellungen"
@@ -85,7 +94,8 @@ msgstr "Blacklist"
 msgid "Whitelist"
 msgstr "Whitelist"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "Gebe eine IP-Adresse ein"
 
 msgid "Global IP"
@@ -132,7 +142,8 @@ msgstr "Wort wurde erfolgreich eingefügt."
 msgid "Words have been successfully removed."
 msgstr "Wörter wurden erfolgreich entfernt."
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "Füge ein Wort ein"
 
 msgid "Global word"
@@ -141,8 +152,8 @@ msgstr "Globales Wort"
 msgid "No word in list."
 msgstr "Kein Wort in der Liste"
 
-msgid "List"
-msgstr "Liste"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "Lösche ausgewählte Wörter"
@@ -189,9 +200,6 @@ msgstr "Kein Filter vorhanden"
 msgid "Filter has no user interface."
 msgstr "Filter hat keine Benutzer-Einstellungen"
 
-msgid "Return to filters"
-msgstr "Zurück zu den Filtern"
-
 #, php-format
 msgid "%s configuration"
 msgstr "%s Konfiguration"
@@ -215,11 +223,18 @@ msgstr "Lösche alle Spams"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Alle Spam-Kommentare die älter als %s Tag(e) sind werden automatisch gelöscht."
 
-msgid "Available spam filters"
-msgstr "Verfügbare Spamfilter"
+msgid "You can modify this duration in "
+msgstr ""
+
+#, fuzzy
+msgid "Blog preferences"
+msgstr "Globale Einstellungen"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "Filter-Einstellungen wurde erfolgreicht gespeichert."
+
+msgid "Available spam filters"
+msgstr "Verfügbare Spamfilter"
 
 msgid "Order"
 msgstr "Sortieren"
@@ -248,6 +263,9 @@ msgstr "Junk-Kommentare per RSS-Feed abonnieren"
 
 msgid "Published comments RSS feed"
 msgstr "Veröffentlichte Kommentare per RSS-Feed abonnieren"
+
+msgid "Blogroll"
+msgstr "Blogroll"
 
 msgid "manage blogroll"
 msgstr "Blogroll verwalten"
@@ -421,8 +439,8 @@ msgstr "Links importieren"
 msgid "OPML or XBEL File:"
 msgstr "OPML oder XBEL Datei:"
 
-msgid "import"
-msgstr "importieren"
+msgid "Import"
+msgstr "Import"
 
 msgid "Light linear gradient"
 msgstr "Leichter linearer Farbverlauf"
@@ -534,9 +552,6 @@ msgstr "Gebe Deine Grafik ein:"
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "JPEG [*.jpeg oder *.jpg] oder PNG [*.png] Dateien mit maximaler Breite von 800 Pixel und %s Dateigröße"
 
-msgid "Preview"
-msgstr "Vorschau"
-
 msgid "Sidebar"
 msgstr "Sidebar"
 
@@ -629,6 +644,9 @@ msgstr "Farbe für Links im Seitenfuss:"
 
 msgid "Footer background color:"
 msgstr "Hintergrundfarbe für Seitenfuss:"
+
+msgid "Additional CSS"
+msgstr ""
 
 msgid "Configuration import / export"
 msgstr "Konfiguration importieren / exportieren"
@@ -795,9 +813,6 @@ msgstr "Dies wird einen Feed (RSS oder Atom) als neuen Inhalt in Deinen aktuelle
 msgid "Feed URL:"
 msgstr "Feed-URL:"
 
-msgid "Send"
-msgstr "Senden"
-
 msgid "Flat file import"
 msgstr "Importiere Denormalisierung"
 
@@ -893,9 +908,6 @@ msgstr "Die Backupdatei scheint nicht formatskonform zu sein."
 msgid "Please wait..."
 msgstr "Bitte warten…"
 
-msgid "Import"
-msgstr "Import"
-
 msgid "Maintenance"
 msgstr "Wartung"
 
@@ -968,8 +980,8 @@ msgstr "Leere Template Cache-Verzeichnis"
 msgid "Empty directory"
 msgstr "Leere Verzeichnis"
 
-msgid "New page"
-msgstr "Neue Seite"
+msgid "Pages"
+msgstr "Seiten"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1010,6 +1022,9 @@ msgstr "Diesen Tag löschen"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Bist Du Dir sicher die ausgewählte Seite zu löschen?"
 
+msgid "New page"
+msgstr "Neue Seite"
+
 msgid "Selected pages action:"
 msgstr "Wähle eine Aktion der Seiten:"
 
@@ -1034,11 +1049,8 @@ msgstr "Die Seite wurde erfolgreiche aktualisiert."
 msgid "Page has been successfully created."
 msgstr "Die Seite wurde erfolgreich erstellt."
 
-msgid "View page"
-msgstr "Seite anzeigen"
-
-msgid "Preview page"
-msgstr "Seitenvorschau"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "Status der Seite:"
@@ -1054,6 +1066,15 @@ msgstr "Passwort der Seite:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Achtung: Wenn Du den URL manuell einfügst, kann es zu Konflikten mit anderen Seiten kommen."
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
 
 msgid "Add files to this page"
 msgstr "Füge Dateien in die Seite ein"
@@ -1185,11 +1206,23 @@ msgstr "Tag wurde erfolgreich umnenannt"
 msgid "Back to tags list"
 msgstr "Zurück zur Tagliste"
 
-msgid "Rename this tag:"
-msgstr "Diesen Tag umbenennen"
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "Füge Dateien in die Seite ein"
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "Tag bearbeiten"
+
+msgid "Rename"
+msgstr ""
+
+#, fuzzy
+msgid "Delete this tag:"
 msgstr "Diesen Tag löschen"
+
+msgid "List of entries with this tag"
+msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr "Tag wurde erfolgreich entfernt"
@@ -1353,6 +1386,10 @@ msgstr "Navigation"
 msgid "extra"
 msgstr "Extra"
 
+#, fuzzy
+msgid "custom"
+msgstr "Speziell…"
+
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -1365,7 +1402,8 @@ msgstr "Verfügbare Widgets"
 msgid "Append to:"
 msgstr "Hinzufügen zu:"
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "Hinzfügen von Widgets zu den Sidebars"
 
 msgid "Navigation sidebar"
@@ -1374,11 +1412,28 @@ msgstr "Navigation Sidebar"
 msgid "Extra sidebar"
 msgstr "Extra Sidebar"
 
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "Sidebars zurücksetzen"
+
 msgid "Update sidebars"
 msgstr "Sidebars aktualisieren"
 
 msgid "Reset sidebars"
 msgstr "Sidebars zurücksetzen"
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "Kein Widget."
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr ""
 
 msgid "Widget templates tags"
 msgstr "Widget templates Tags"
@@ -1419,8 +1474,29 @@ msgstr "sortiere"
 msgid "Remove widget"
 msgstr "Entferne Widget"
 
-#~ msgid "Blogroll"
-#~ msgstr "Blogroll"
+#~ msgid "List"
+#~ msgstr "Liste"
+
+#~ msgid "Return to filters"
+#~ msgstr "Zurück zu den Filtern"
+
+#~ msgid "import"
+#~ msgstr "importieren"
+
+#~ msgid "Preview"
+#~ msgstr "Vorschau"
+
+#~ msgid "Send"
+#~ msgstr "Senden"
+
+#~ msgid "View page"
+#~ msgstr "Seite anzeigen"
+
+#~ msgid "Preview page"
+#~ msgstr "Seitenvorschau"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "Diesen Tag umbenennen"
 
 #~ msgid "Save order"
 #~ msgstr "Anordnung speichern"
@@ -1445,9 +1521,6 @@ msgstr "Entferne Widget"
 
 #~ msgid "Media title"
 #~ msgstr "Titel des Mediums"
-
-#~ msgid "Pages"
-#~ msgstr "Seiten"
 
 #~ msgid "Unsupported service"
 #~ msgstr "Nicht unterstützter Service"

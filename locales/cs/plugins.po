@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-13 20:42+0200\n"
 "PO-Revision-Date: 2010-06-02 01:31+0100\n"
 "Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -19,6 +19,9 @@ msgstr ""
 
 msgid "no"
 msgstr "ne"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "Konfigurace byla úspěšně aktualizována"
@@ -34,6 +37,12 @@ msgstr "Hodnota"
 
 msgid "Description"
 msgstr "Popis"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr "globální nastavení"
@@ -85,7 +94,8 @@ msgstr "Blacklist"
 msgid "Whitelist"
 msgstr "Whitelist"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "Přidat IP adresu"
 
 msgid "Global IP"
@@ -132,7 +142,8 @@ msgstr "Slovo bylo úspěšně přidáno."
 msgid "Words have been successfully removed."
 msgstr "Slova byla úspěšně odstraněna."
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "Přidat slovo"
 
 msgid "Global word"
@@ -141,8 +152,8 @@ msgstr "Globální slova"
 msgid "No word in list."
 msgstr "Žádné slovo v seznamu."
 
-msgid "List"
-msgstr "Seznam"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "Vymazat vybraná slova"
@@ -189,9 +200,6 @@ msgstr "Filtr neexistuje."
 msgid "Filter has no user interface."
 msgstr "Filtr nemá uživatelské rozhraní."
 
-msgid "Return to filters"
-msgstr "Zpět na seznam filtrů"
-
 #, php-format
 msgid "%s configuration"
 msgstr "%s - konfigurace"
@@ -215,11 +223,18 @@ msgstr "Smazat všechen spam."
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Všechny spam komentáře starší než %s dnů(y) budou automaticky smazány."
 
-msgid "Available spam filters"
-msgstr "Dostupné spam filtry"
+msgid "You can modify this duration in "
+msgstr ""
+
+#, fuzzy
+msgid "Blog preferences"
+msgstr "globální nastavení"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "Nastavení filtrů bylo úspěšně uloženo."
+
+msgid "Available spam filters"
+msgstr "Dostupné spam filtry"
 
 msgid "Order"
 msgstr "Pořadí"
@@ -248,6 +263,9 @@ msgstr "Podezřelé komentáře - RSS zdroj"
 
 msgid "Published comments RSS feed"
 msgstr "Publikované komentáře - RSS zdroj"
+
+msgid "Blogroll"
+msgstr "Odkazy"
 
 msgid "manage blogroll"
 msgstr "spravovat odkazy"
@@ -421,8 +439,8 @@ msgstr "Importovat odkazy"
 msgid "OPML or XBEL File:"
 msgstr "OPML nebo XBEL soubor:"
 
-msgid "import"
-msgstr "importovat"
+msgid "Import"
+msgstr "Importovat"
 
 msgid "Light linear gradient"
 msgstr "Světlý lineární přechod"
@@ -534,9 +552,6 @@ msgstr "Přidat vlastní obrázek:"
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "JPEG nebo PNG soubory, široké 800px, maximální velikost %s"
 
-msgid "Preview"
-msgstr "Náhled"
-
 msgid "Sidebar"
 msgstr "Boční panel"
 
@@ -629,6 +644,9 @@ msgstr "Barva odkazů:"
 
 msgid "Footer background color:"
 msgstr "Barva pozadí:"
+
+msgid "Additional CSS"
+msgstr ""
 
 msgid "Configuration import / export"
 msgstr "Importovat / exportovat konfiguraci"
@@ -795,9 +813,6 @@ msgstr "Tímto naimportujete obsah (RSS nebo Atom) zdroje jako nová obsah tohot
 msgid "Feed URL:"
 msgstr "URL zdroje:"
 
-msgid "Send"
-msgstr "Odeslat"
-
 msgid "Flat file import"
 msgstr "Import ze souboru"
 
@@ -893,9 +908,6 @@ msgstr "Záložní soubor vypadá poškozen."
 msgid "Please wait..."
 msgstr "Prosím čekejte..."
 
-msgid "Import"
-msgstr "Importovat"
-
 msgid "Maintenance"
 msgstr "Údržba"
 
@@ -967,8 +979,8 @@ msgstr "Vyprázdnit cahce adresář šablon"
 msgid "Empty directory"
 msgstr "Vypráznit adresář"
 
-msgid "New page"
-msgstr "Nová stránka"
+msgid "Pages"
+msgstr "Stránky"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1009,6 +1021,9 @@ msgstr "Smazat tento štítek"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Jste si jisti, že chcete smazat vybrané stránky?"
 
+msgid "New page"
+msgstr "Nová stránka"
+
 msgid "Selected pages action:"
 msgstr "Vybrané stránky:"
 
@@ -1033,11 +1048,8 @@ msgstr "Stránka byla úspěšně upravena."
 msgid "Page has been successfully created."
 msgstr "Stránka byla úspěšně vytvořena."
 
-msgid "View page"
-msgstr "Zobrazit stránku"
-
-msgid "Preview page"
-msgstr "Náhled stránky"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "Stav stránky:"
@@ -1053,6 +1065,15 @@ msgstr "Heslo stránky:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Varování: Pokud nastavít url manuálně, může dojít ke konfliktu s jinou stránkou."
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
 
 msgid "Add files to this page"
 msgstr "Přidat soubory do této stránky"
@@ -1182,11 +1203,23 @@ msgstr "Štítěk byl úspěšně přejmenován"
 msgid "Back to tags list"
 msgstr "Zpět na seznam štítků"
 
-msgid "Rename this tag:"
-msgstr "Přejmenovat tento štítek:"
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "Přidat soubory do této stránky"
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "Upravit štítek"
+
+msgid "Rename"
+msgstr ""
+
+#, fuzzy
+msgid "Delete this tag:"
 msgstr "Smazat tento štítek"
+
+msgid "List of entries with this tag"
+msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr "Štítek byl úspěšně odstraněn"
@@ -1350,6 +1383,10 @@ msgstr "nagace"
 msgid "extra"
 msgstr "extra"
 
+#, fuzzy
+msgid "custom"
+msgstr "Vlastní..."
+
 msgid "Widgets"
 msgstr "Widgety"
 
@@ -1362,7 +1399,8 @@ msgstr "Dostupné widgety"
 msgid "Append to:"
 msgstr "Přidat za:"
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "přidat widget do panelů"
 
 msgid "Navigation sidebar"
@@ -1371,11 +1409,28 @@ msgstr "Navigační panel"
 msgid "Extra sidebar"
 msgstr "Extra panel"
 
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "resetovat panely"
+
 msgid "Update sidebars"
 msgstr "aktualizovat panely"
 
 msgid "Reset sidebars"
 msgstr "resetovat panely"
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "Žádný widget."
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr ""
 
 msgid "Widget templates tags"
 msgstr "Šablony štítků widgetu"
@@ -1416,8 +1471,29 @@ msgstr "pořadí"
 msgid "Remove widget"
 msgstr "Odebrat widget"
 
-#~ msgid "Blogroll"
-#~ msgstr "Odkazy"
+#~ msgid "List"
+#~ msgstr "Seznam"
+
+#~ msgid "Return to filters"
+#~ msgstr "Zpět na seznam filtrů"
+
+#~ msgid "import"
+#~ msgstr "importovat"
+
+#~ msgid "Preview"
+#~ msgstr "Náhled"
+
+#~ msgid "Send"
+#~ msgstr "Odeslat"
+
+#~ msgid "View page"
+#~ msgstr "Zobrazit stránku"
+
+#~ msgid "Preview page"
+#~ msgstr "Náhled stránky"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "Přejmenovat tento štítek:"
 
 #~ msgid "Save order"
 #~ msgstr "Uložit pořadí"
@@ -1442,9 +1518,6 @@ msgstr "Odebrat widget"
 
 #~ msgid "Media title"
 #~ msgstr "Název média"
-
-#~ msgid "Pages"
-#~ msgstr "Stránky"
 
 #~ msgid "Unsupported service"
 #~ msgstr "Nepodporovaná služba"
