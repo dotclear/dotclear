@@ -104,7 +104,7 @@ if ($q && !$core->error->flag())
 		}
 		if ($core->auth->check('delete,contentadmin',$core->blog->id))
 		{
-			$combo_action[__('delete')] = 'delete';
+			$combo_action[__('Delete')] = 'delete';
 		}
 		
 		# --BEHAVIOR-- adminPostsActionsCombo
@@ -147,7 +147,7 @@ if ($q && !$core->error->flag())
 		}
 		if ($core->auth->check('delete,contentadmin',$core->blog->id))
 		{
-			$combo_action[__('delete')] = 'delete';
+			$combo_action[__('Delete')] = 'delete';
 		}
 		
 		if ($counter->f(0) > 0) {

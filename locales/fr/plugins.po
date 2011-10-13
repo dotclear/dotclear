@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-13 19:37+0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,9 @@ msgstr ""
 
 msgid "no"
 msgstr "non"
+
+msgid "yes"
+msgstr "oui"
 
 msgid "Configuration successfully updated"
 msgstr "Configuration mise à jour avec succès"
@@ -32,6 +35,12 @@ msgstr "Valeur"
 
 msgid "Description"
 msgstr "Description"
+
+msgid "Goto:"
+msgstr "Aller à :"
+
+msgid "Ok"
+msgstr "Valider"
 
 msgid "global settings"
 msgstr "paramètres globaux"
@@ -83,7 +92,7 @@ msgstr "Liste noire"
 msgid "Whitelist"
 msgstr "Liste blanche"
 
-msgid "Add an IP address"
+msgid "Add an IP address: "
 msgstr "Ajouter une adresse IP"
 
 msgid "Global IP"
@@ -130,7 +139,7 @@ msgstr "Le mot a été ajouté avec succès."
 msgid "Words have been successfully removed."
 msgstr "Les mots ont été supprimés avec succès."
 
-msgid "Add a word"
+msgid "Add a word "
 msgstr "Ajouter un mot"
 
 msgid "Global word"
@@ -139,8 +148,8 @@ msgstr "Mot global"
 msgid "No word in list."
 msgstr "Aucun mot dans la liste."
 
-msgid "List"
-msgstr "Liste"
+msgid "List of bad words"
+msgstr "Liste de mots interdits"
 
 msgid "Delete selected words"
 msgstr "Supprimer les mots sélectionnés"
@@ -187,9 +196,6 @@ msgstr "Le filtre n'existe pas."
 msgid "Filter has no user interface."
 msgstr "Le filtre n'a pas d'interface utilisateur."
 
-msgid "Return to filters"
-msgstr "Retour aux filtres"
-
 #, php-format
 msgid "%s configuration"
 msgstr "%s configuration"
@@ -213,11 +219,17 @@ msgstr "Supprimer tous les indésirables"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Tous les indésirables de plus de %s jour(s) seront automatiquement supprimés."
 
-msgid "Available spam filters"
-msgstr "Filtres disponibles"
+msgid "You can modify this duration in "
+msgstr "Vous pouvez modifier cet intervalle dans"
+
+msgid "Blog preferences"
+msgstr "Préférences du blog"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "La configuration des filtres a été enregistrée avec succès."
+
+msgid "Available spam filters"
+msgstr "Filtres disponibles"
 
 msgid "Order"
 msgstr "Ordre"
@@ -245,6 +257,9 @@ msgstr "Fil RSS des commentaires indésirables"
 
 msgid "Published comments RSS feed"
 msgstr "Fil RSS des commentaires publiés"
+
+msgid "Blogroll"
+msgstr "Liens / Blogroll"
 
 msgid "manage blogroll"
 msgstr "gérer la liste de liens"
@@ -417,8 +432,8 @@ msgstr "Importer des liens"
 msgid "OPML or XBEL File:"
 msgstr "Fichier OPML ou XBEL :"
 
-msgid "import"
-msgstr "importer"
+msgid "Import"
+msgstr "Importer"
 
 msgid "Light linear gradient"
 msgstr "Dégradé linéaire clair"
@@ -529,9 +544,6 @@ msgstr "Ajouter votre image&nbsp;:"
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "Fichier JPEG ou PNG, 800 pixels de large et de taille maximale %s"
 
-msgid "Preview"
-msgstr "Prévisualiser"
-
 msgid "Sidebar"
 msgstr "Bandeau"
 
@@ -624,6 +636,9 @@ msgstr "Couleur des liens du pied de page&nbsp;:"
 
 msgid "Footer background color:"
 msgstr "Couleur de fond du pied de page&nbsp;:"
+
+msgid "Additional CSS"
+msgstr "Style additionnel"
 
 msgid "Configuration import / export"
 msgstr "Import / export de configuration"
@@ -790,9 +805,6 @@ msgstr "Ceci va importer un fil (RSS ou Atom) comme un nouveau contenu dans le b
 msgid "Feed URL:"
 msgstr "URL du fil"
 
-msgid "Send"
-msgstr "Envoyer"
-
 msgid "Flat file import"
 msgstr "Importer depuis un fichier texte"
 
@@ -888,9 +900,6 @@ msgstr "Le fichier de sauvegarde ne semble pas être correctement formaté"
 msgid "Please wait..."
 msgstr "Veuillez patienter..."
 
-msgid "Import"
-msgstr "Importer"
-
 # French translation of DotClea"
 msgid "Maintenance"
 msgstr "Maintenance"
@@ -963,8 +972,8 @@ msgstr "Vider le répertoire du cache des templates"
 msgid "Empty directory"
 msgstr "Vider le répertoire"
 
-msgid "New page"
-msgstr "Nouvelle page"
+msgid "Pages"
+msgstr "Pages"
 
 #, php-format
 msgid "%d page"
@@ -1004,6 +1013,9 @@ msgstr "sélectionner cette page"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Êtes-vous certain de vouloir supprimer les pages sélectionnées ?"
 
+msgid "New page"
+msgstr "Nouvelle page"
+
 msgid "Selected pages action:"
 msgstr "Action sur les pages sélectionnées :"
 
@@ -1028,11 +1040,8 @@ msgstr "La page a été mise à jour avec succès."
 msgid "Page has been successfully created."
 msgstr "La page a été créée avec succès."
 
-msgid "View page"
-msgstr "Voir la page"
-
-msgid "Preview page"
-msgstr "Prévisualiser la page"
+msgid "Go to this page on the site"
+msgstr "Aller sur cette page"
 
 msgid "Page status:"
 msgstr "État de la page :"
@@ -1048,6 +1057,15 @@ msgstr "Mot de passe de la page :"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec une autre page."
+
+msgid "Attachments"
+msgstr "Fichiers attachés"
+
+msgid "remove"
+msgstr "supprimer"
+
+msgid "No attachment."
+msgstr "Pas de fichier attaché"
 
 msgid "Add files to this page"
 msgstr "Ajouter un fichier à la page"
@@ -1171,14 +1189,14 @@ msgstr "Lien vers tous les mots-clés :"
 msgid "Edit tag"
 msgstr "Modifier le mot-clé"
 
-msgid "Actions for this tag"
-msgstr "Actions pour ce mot-clé"
-
 msgid "Tag has been successfully renamed"
 msgstr "Mot-clé renommé avec succès"
 
 msgid "Back to tags list"
 msgstr "Retour à la liste des mots-clés"
+
+msgid "Actions for this tag"
+msgstr "Actions pour ce mot-clé"
 
 msgid "Edit tag name:"
 msgstr "Renommer ce mot-clé :"
@@ -1189,14 +1207,14 @@ msgstr "Renommer"
 msgid "Delete this tag:"
 msgstr "Supprimer ce mot-clé :"
 
+msgid "List of entries with this tag"
+msgstr "Liste des billets avec ce mot-clé"
+
 msgid "Tag has been successfully removed"
 msgstr "Mot-clé supprimé avec succès"
 
 msgid "No tags on this blog."
 msgstr "Aucun mot-clé sur ce blog"
-
-msgid "List of entries with this tag"
-msgstr "Liste des billets avec ce mot-clé"
 
 msgid "Theme Editor"
 msgstr "Éditeur de thème"
@@ -1366,8 +1384,8 @@ msgstr "Widgets disponibles"
 msgid "Append to:"
 msgstr "Ajouter à :"
 
-msgid "add widgets to sidebars"
-msgstr "ajouter les widgets aux bandeaux"
+msgid "Add widgets to sidebars"
+msgstr "Ajouter les widgets aux bandeaux"
 
 msgid "Navigation sidebar"
 msgstr "Bandeau de navigation"
@@ -1435,14 +1453,29 @@ msgstr "ordre"
 msgid "Remove widget"
 msgstr "Supprimer le widget"
 
-#~ msgid "Blogroll"
-#~ msgstr "Liens / Blogroll"
+#~ msgid "List"
+#~ msgstr "Liste"
+
+#~ msgid "Return to filters"
+#~ msgstr "Retour aux filtres"
+
+#~ msgid "import"
+#~ msgstr "importer"
+
+#~ msgid "Preview"
+#~ msgstr "Prévisualiser"
+
+#~ msgid "Send"
+#~ msgstr "Envoyer"
+
+#~ msgid "View page"
+#~ msgstr "Voir la page"
+
+#~ msgid "Preview page"
+#~ msgstr "Prévisualiser la page"
 
 #~ msgid "Save order"
 #~ msgstr "Enregistrer l'ordre"
-
-#~ msgid "Pages"
-#~ msgstr "Pages"
 
 #~ msgid "External media"
 #~ msgstr "Média externe"
@@ -1470,6 +1503,3 @@ msgstr "Supprimer le widget"
 
 #~ msgid "Invalid page URL"
 #~ msgstr "URL de la page non valide"
-
-msgid "Goto:"
-msgstr "Aller à :"

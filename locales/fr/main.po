@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
-"PO-Revision-Date: 2011-05-08 19:27+0100\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"POT-Creation-Date: 2011-10-13 19:37+0200\n"
+"PO-Revision-Date: 2011-10-13 19:26+0100\n"
+"Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -121,9 +121,6 @@ msgstr "Nouveau blog"
 msgid "Blogs"
 msgstr "Blogs"
 
-msgid "Blog details"
-msgstr "Informations du blog"
-
 msgid "Blog ID:"
 msgstr "Identifiant du blog :"
 
@@ -145,8 +142,8 @@ msgstr "URL du blog :"
 msgid "Blog description:"
 msgstr "Description du blog :"
 
-msgid "Save"
-msgstr "Enregistrer"
+msgid "Create"
+msgstr "Créer"
 
 msgid "No such blog ID"
 msgstr "Identifiant de blog inconnu"
@@ -235,6 +232,9 @@ msgstr "Blog mis à jour avec succès."
 
 msgid "Parameters"
 msgstr "Paramètres"
+
+msgid "Blog details"
+msgstr "Informations du blog"
 
 msgid "URL scan method:"
 msgstr "Méthode de lecture de l'URL :"
@@ -349,6 +349,9 @@ msgstr "Ceci définit le titre de la balise d'une image insérée depuis le gest
 msgid "Search engines robots policy"
 msgstr "Paramètres d'indexation par les moteurs de recherche"
 
+msgid "Save"
+msgstr "Enregistrer"
+
 msgid "XML/RPC interface"
 msgstr "Interface XML/RPC"
 
@@ -422,12 +425,6 @@ msgstr "Feuille de style"
 msgid "Configure theme"
 msgstr "Configurer le thème"
 
-msgid "Theme configuration"
-msgstr "Configurer le thème"
-
-msgid "Blog themes"
-msgstr "Thèmes du blog"
-
 msgid "Blog appearance"
 msgstr "Apparence du blog"
 
@@ -489,6 +486,9 @@ msgstr "Télécharger le thème"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr "Pour activer cette fonction, donnez un accès en écriture à votre répertoire de thèmes."
+
+msgid "Theme configuration"
+msgstr "Configurer le thème"
 
 msgid "back"
 msgstr "retour"
@@ -608,17 +608,14 @@ msgstr "Parent :"
 msgid "Top level"
 msgstr "Premier niveau"
 
-msgid "Create"
-msgstr "Créer"
-
 msgid "Remove a category"
 msgstr "Supprimer une catégorie"
 
 msgid "Choose a category to remove:"
 msgstr "Choisissez une catégorie à supprimer :"
 
-msgid "ok"
-msgstr "ok"
+msgid "Delete"
+msgstr "Supprimer"
 
 msgid "Reorder categories"
 msgstr "Réordonner les catégories"
@@ -703,10 +700,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "Envoyer un email"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "Retour à \"%s\""
-
 msgid "IP address:"
 msgstr "Adresse IP :"
 
@@ -724,9 +717,6 @@ msgstr "État :"
 
 msgid "Comment:"
 msgstr "Commentaire :"
-
-msgid "Delete"
-msgstr "Supprimer"
 
 msgid "comment"
 msgstr "commentaire"
@@ -754,9 +744,6 @@ msgstr "en attente"
 
 msgid "mark as junk"
 msgstr "indésirable"
-
-msgid "delete"
-msgstr "supprimer"
 
 msgid "Type:"
 msgstr "Type :"
@@ -786,6 +773,9 @@ msgstr "Action sur les commentaires sélectionnés :"
 msgid "action: "
 msgstr "action : "
 
+msgid "ok"
+msgstr "ok"
+
 msgid "Comments"
 msgstr "Commentaires"
 
@@ -799,9 +789,6 @@ msgstr "%d commentaires"
 
 msgid "New entry"
 msgstr "Nouveau billet"
-
-msgid "My dashboard"
-msgstr "Mon tableau de bord"
 
 msgid "My preferences"
 msgstr "Mes préférences"
@@ -824,8 +811,8 @@ msgstr "Ce blog est hors ligne"
 msgid "This blog is removed"
 msgstr "Ce blog est supprimé"
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
-msgstr "DC_ADMIN_URL n'est pas défini, vous devriez corriger votre fichier de configuration."
+msgid "is not defined, you should edit your configuration file."
+msgstr "n'est pas défini, vous devriez corriger votre fichier de configuration."
 
 msgid "Following plugins have been installed:"
 msgstr "Les extensions suivantes ont été installées :"
@@ -921,9 +908,6 @@ msgstr "Aucun mot de passe spécifié"
 msgid "Password must contain at least 6 characters."
 msgstr "Le mot de passe doit contenir au moins 6 caractères."
 
-msgid "Continue"
-msgstr "Continuer"
-
 msgid "My first blog"
 msgstr "Mon premier blog"
 
@@ -943,12 +927,6 @@ msgid ""
 "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Ceci est un commentaire</p><p>Pour le supprimer, connectez-vous et affichez les commentaires de votre blog. Vous pourrez alors le supprimer ou le modifier.</p>"
-
-msgid "Pages"
-msgstr "Pages"
-
-msgid "Blogroll"
-msgstr "Liens / Blogroll"
 
 msgid "Dotclear Install"
 msgstr "Installation de Dotclear"
@@ -983,9 +961,6 @@ msgstr "Nom :"
 
 msgid "Username and password"
 msgstr "Identifiant et mot de passe"
-
-msgid "Save"
-msgstr "Enregistrer"
 
 msgid "All done!"
 msgstr "Terminé !"
@@ -1060,6 +1035,9 @@ msgstr "Mot de passe de la base de données :"
 
 msgid "Database Tables Prefix:"
 msgstr "Préfixe des tables de la base de données :"
+
+msgid "Continue"
+msgstr "Continuer"
 
 msgid "No such installed language"
 msgstr "Cette langue n'est pas installée"
@@ -1248,6 +1226,9 @@ msgstr "ouvrir"
 msgid "Insert this file into entry"
 msgstr "Insérer ce fichier dans le billet"
 
+msgid "delete"
+msgstr "supprimer"
+
 msgid "Not a valid file"
 msgstr "Fichier invalide"
 
@@ -1314,9 +1295,6 @@ msgstr "Disposition de la vidéo"
 msgid "Media item will be inserted as a link."
 msgstr "Le média sera inséré en tant que lien."
 
-msgid "Cancel"
-msgstr "Annuler"
-
 msgid "Insert"
 msgstr "Insérer"
 
@@ -1359,9 +1337,6 @@ msgstr "Mettre à jour les miniatures"
 msgid "This will create or update thumbnails for this image."
 msgstr "Ceci va créer ou mettre à jour les miniatures pour cette image."
 
-msgid "update thumbnails"
-msgstr "mettre à jour les miniatures"
-
 msgid "Extract in a new directory"
 msgstr "Extraire dans un nouveau répertoire"
 
@@ -1380,8 +1355,8 @@ msgstr "Ceci va extraire l'archive dans le répertoire actuel et va écraser les
 msgid "Extract mode:"
 msgstr "Mode d'extraction :"
 
-msgid "extract"
-msgstr "extraire"
+msgid "Extract"
+msgstr "Extrait"
 
 msgid "Change media properties"
 msgstr "Changer les propriétés du média"
@@ -1416,6 +1391,9 @@ msgstr "Permissions mises à jour avec succès."
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Vous allez changer les permissions des utilisateurs %s pour ces blogs."
+
+msgid "Validate permissions"
+msgstr "Valider les permissions"
 
 msgid "choose a blog"
 msgstr "choisissez un blog"
@@ -1542,14 +1520,17 @@ msgstr "Titre du lien :"
 msgid "Link language:"
 msgstr "Langue du lien :"
 
-msgid "insert"
-msgstr "insérer"
-
 msgid "Add a link to an entry"
 msgstr "Ajouter un lien vers un billet"
 
 msgid "Search entry:"
 msgstr "Rechercher un billet :"
+
+msgid "Search"
+msgstr "Rechercher"
+
+msgid "cancel"
+msgstr "Annuler"
 
 msgid "This entry does not exist."
 msgstr "Ce billet n'existe pas."
@@ -1581,17 +1562,20 @@ msgstr "Commentaire créé avec succès."
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Enregistrez votre billet pour valider la transformation en XHTML."
 
-msgid "View entry"
-msgstr "Voir le billet"
-
-msgid "Preview entry"
-msgstr "Prévisualiser le billet"
-
 msgid "Go to this entry on the site"
 msgstr "Voir ce billet sur le site"
 
-msgid "Go to this page on the site"
-msgstr "Voir cette page sur le site"
+msgid "new window"
+msgstr "nouvelle fenêtre"
+
+msgid "Excerpt:"
+msgstr "Extrait :"
+
+msgid "Notes:"
+msgstr "Notes :"
+
+msgid "Preview"
+msgstr "Prévisualiser"
 
 msgid "Entry status:"
 msgstr "État du billet :"
@@ -1619,27 +1603,6 @@ msgstr "URL spécifique :"
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec un autre billet."
-
-msgid "Attachments"
-msgstr "Pièces jointes"
-
-msgid "remove"
-msgstr "supprimer"
-
-msgid "Remove"
-msgstr "Supprimer"
-
-msgid "No attachment."
-msgstr "Aucune pièce jointe"
-
-msgid "Add files to this entry"
-msgstr "Ajouter un fichier au billet"
-
-msgid "Excerpt:"
-msgstr "Extrait :"
-
-msgid "Notes:"
-msgstr "Notes :"
 
 msgid "Ping blogs"
 msgstr "Faire des rétroliens"
@@ -1758,8 +1721,14 @@ msgstr "Changer l'auteur des billets"
 msgid "Author ID:"
 msgstr "Identifiant de l'utilisateur :"
 
-msgid "If you have changed this user email or password you must provide your current password to save these modifications."
-msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe."
+msgid "Default"
+msgstr "Défaut"
+
+msgid "If you want to change your email or password you must provide your current password."
+msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel."
+
+msgid "No favorite selected"
+msgstr "Aucun favori sélectionné"
 
 msgid "Personal information has been successfully updated."
 msgstr "Informations personnelles mises à jour avec succès."
@@ -1790,6 +1759,9 @@ msgstr "Langue de l'utilisateur :"
 
 msgid "User timezone:"
 msgstr "Fuseau horaire de l'utilisateur :"
+
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe."
 
 msgid "My options"
 msgstr "Mes options"
@@ -1876,9 +1848,6 @@ msgstr "Favoris disponibles"
 msgid "Add to my favorites"
 msgstr "Ajouter à mes favoris"
 
-msgid "Search"
-msgstr "Rechercher"
-
 msgid "Search options"
 msgstr "Options de recherche"
 
@@ -1921,6 +1890,10 @@ msgstr "Ce billet n'existe pas ou n'est pas publié"
 
 msgid "All pings sent."
 msgstr "Tous les rétroliens ont été envoyés."
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "Retour à \"%s\""
 
 msgid "Auto discover ping URLs"
 msgstr "Découverte automatique des URL à rétrolier"
@@ -2012,8 +1985,14 @@ msgstr "Attention :"
 msgid "If you change your username, you will have to log in again."
 msgstr "Si vous changez votre login, vous devrez vous identifier à nouveau."
 
+msgid "Mandatory for password recovering procedure."
+msgstr "Obligatoire pour la procédure de récupération de mot de passe."
+
 msgid "Password change required to connect"
 msgstr "Changement de mot de passe requis pour la connexion"
+
+msgid "Save and create another"
+msgstr "Enregistrer et créer un nouveau"
 
 msgid "No permissions."
 msgstr "Aucune permission."
@@ -2035,9 +2014,6 @@ msgstr "Pseudonyme"
 
 msgid "Number of entries"
 msgstr "Nombre de billets"
-
-msgid "Set permissions"
-msgstr "Définir les permissions"
 
 msgid "users"
 msgstr "utilisateurs"
@@ -2066,15 +2042,10 @@ msgstr "Blogs :"
 msgid "Go to site"
 msgstr "Aller sur le site"
 
-msgid "new window"
-msgstr "nouvelle fenêtre"
+msgid "My dashboard"
+msgstr "Mon tableau de bord"
 
-msgid "User:"
-msgstr "Utilisateur :"
-
-msgid "Logout"
-msgstr "Déconnexion"
-
+#, php-format
 msgid "Logout %s"
 msgstr "Déconnecter %s"
 
@@ -2373,9 +2344,6 @@ msgstr "Erreur de base de données :"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Il semble de la table Session n'existe pas dans votre base de données. Dotclear est-il bien installé correctement?"
 
-msgid "Languages"
-msgstr "Langues"
-
 msgid "System"
 msgstr "Système"
 
@@ -2384,6 +2352,9 @@ msgstr "Blog"
 
 msgid "Updates"
 msgstr "Mises à jour"
+
+msgid "Languages"
+msgstr "Langues"
 
 msgid "administrator"
 msgstr "administrateur"
@@ -2720,6 +2691,27 @@ msgstr "Impossible d'écrire le fichier."
 msgid "%s is not a directory."
 msgstr "%s n'est pas un répertoire."
 
+msgid "Bad range"
+msgstr "Mauvaises limites"
+
+msgid "Invalid range"
+msgstr "Sélection invalide"
+
+msgid "Invalid line number"
+msgstr "Numéro de ligne invalide invalide"
+
+msgid "Chunk is out of range"
+msgstr "L'extrait est hors limite"
+
+msgid "Bad context"
+msgstr "Contexte invalide"
+
+msgid "Bad context (in deletion)"
+msgstr "Contexte invalide (lors de la suppression)"
+
+msgid "Invalid diff format"
+msgstr "Format de fichier diff invalide."
+
 msgid "Uploading this file is not allowed."
 msgstr "L'envoi de ce fichier n'est pas autorisé."
 
@@ -2794,15 +2786,54 @@ msgstr "Impossible de lire le répertoire"
 msgid "Unable to connect to database"
 msgstr "Connexion à la base de données impossible"
 
-msgid "Mandatory for password recovering procedure."
-msgstr "Obligatoire pour la procédure de récupération de mot de passe."
-
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de passe de votre fichier <strong>config.php</strong> sont incorrects, soit que nous ne pouvons pas contacter le serveur de base de données à l'adresse \"<em>%s</em>\". Cela peut vouloir dire que le serveur en question est éteint.</p> <ul><li>Êtes-vous sûr que l'identifiant et le mot de passe sont corrects ?</li><li>Êtes-vous sûr d'avoir entré le bon nom de serveur ?</li><li> Êtes-vous sûr que le serveur fonctionne ?</li></ul><p>S vous n'êtes pas sûr de la signification de ces termes, vous devriez probablement contacter votre hébergeur. Si vous avez besoin d'une aide supplémentaire, vous pouvez vous rendre sur <a href=\"http://forum.dotclear.net/\">le forum d'entraide Dotclear</a>.</p>"
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
+#~ msgid "Blog themes"
+#~ msgstr "Thèmes du blog"
+
+#~ msgid "Pages"
+#~ msgstr "Pages"
+
+#~ msgid "Blogroll"
+#~ msgstr "Liens / Blogroll"
+
+#~ msgid "update thumbnails"
+#~ msgstr "mettre à jour les miniatures"
+
+#~ msgid "insert"
+#~ msgstr "insérer"
+
+#~ msgid "View entry"
+#~ msgstr "Voir le billet"
+
+#~ msgid "Go to this page on the site"
+#~ msgstr "Voir cette page sur le site"
+
+#~ msgid "Attachments"
+#~ msgstr "Pièces jointes"
+
+#~ msgid "remove"
+#~ msgstr "supprimer"
+
+#~ msgid "Remove"
+#~ msgstr "Supprimer"
+
+#~ msgid "No attachment."
+#~ msgstr "Aucune pièce jointe"
+
+#~ msgid "Add files to this entry"
+#~ msgstr "Ajouter un fichier au billet"
+
+#~ msgid "User:"
+#~ msgstr "Utilisateur :"
+
+#~ msgid "Logout"
+#~ msgstr "Déconnexion"
 
 #~ msgid "login"
 #~ msgstr "login"
@@ -2851,6 +2882,3 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Modify numbers in fields to change favorites order."
 #~ msgstr "Modifiez les nombres dans les champs pour changer l'ordre des favoris."
-
-msgid "Save and create another"
-msgstr "Enregistrer et créer un nouveau"

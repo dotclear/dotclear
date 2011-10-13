@@ -117,7 +117,7 @@ if ($core->auth->check('publish,contentadmin',$core->blog->id))
 }
 if ($core->auth->check('delete,contentadmin',$core->blog->id))
 {
-	$combo_action[__('delete')] = 'delete';
+	$combo_action[__('Delete')] = 'delete';
 	if ($status == -2) {
 		$default = 'delete';
 	}

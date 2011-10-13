@@ -486,7 +486,7 @@ if ($post_id)
 	
 	if ($can_edit_post && $core->auth->check('delete,contentadmin',$core->blog->id))
 	{
-		$combo_action[__('delete')] = 'delete';
+		$combo_action[__('Delete')] = 'delete';
 	}
 	
 	# --BEHAVIOR-- adminCommentsActionsCombo
