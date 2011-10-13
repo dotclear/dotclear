@@ -456,7 +456,7 @@ function mediaItemLine($f,$i)
 		$res .= '<a class="media-remove" '.
 		'href="'.html::escapeURL($page_url).'&amp;d='.
 		rawurlencode($GLOBALS['d']).'&amp;remove='.rawurlencode($f->basename).'">'.
-		'<img src="images/trash.png" alt="'.__('delete').'" title="'.__('delete').'" /></a>';
+		'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
 	}
 	
 	$res .= '</li>';
