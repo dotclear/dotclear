@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-13 20:09+0200\n"
 "PO-Revision-Date: 2008-11-24 00:00+0900\n"
 "Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
 "Language-Team: Dotclear Japan\n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "no"
 msgstr "いいえ"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "設定は正常に更新されました"
@@ -35,6 +38,12 @@ msgstr "値"
 
 msgid "Description"
 msgstr "説明"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr "全般の設定"
@@ -86,7 +95,8 @@ msgstr "ブラックリスト"
 msgid "Whitelist"
 msgstr "ホワイトリスト"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "IPアドレスの追加"
 
 msgid "Global IP"
@@ -133,7 +143,8 @@ msgstr "ワードは正常に追加されました。"
 msgid "Words have been successfully removed."
 msgstr "ワードは正常に削除されました。"
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "ワードの追加"
 
 msgid "Global word"
@@ -142,8 +153,8 @@ msgstr "グローバルワード"
 msgid "No word in list."
 msgstr "リストにワードがありません。"
 
-msgid "List"
-msgstr "リスト"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "選択されたワードを削除"
@@ -190,9 +201,6 @@ msgstr "フィルタが存在しません。"
 msgid "Filter has no user interface."
 msgstr "このフィルタにはユーザインターフェイスがありません。"
 
-msgid "Return to filters"
-msgstr "フィルタへ戻る"
-
 #, php-format
 msgid "%s configuration"
 msgstr "%s の設定"
@@ -216,11 +224,18 @@ msgstr "すべてのスパムを削除"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "%s 日を経過したすべてのスパムコメントは自動的に削除されます。"
 
-msgid "Available spam filters"
-msgstr "利用可能なスパムフィルタ"
+msgid "You can modify this duration in "
+msgstr ""
+
+#, fuzzy
+msgid "Blog preferences"
+msgstr "全般の設定"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "フィルタの設定は正常に保存されました。"
+
+msgid "Available spam filters"
+msgstr "利用可能なスパムフィルタ"
 
 msgid "Order"
 msgstr "並び順"
@@ -249,6 +264,9 @@ msgstr "ジャンクコメントのRSSフィード"
 
 msgid "Published comments RSS feed"
 msgstr "掲載済みコメントのRSSフィード"
+
+msgid "Blogroll"
+msgstr "ブログロール"
 
 msgid "manage blogroll"
 msgstr "ブログロールの管理"
@@ -422,7 +440,7 @@ msgstr "リンクのインポート"
 msgid "OPML or XBEL File:"
 msgstr "OPML/XBELファイル："
 
-msgid "import"
+msgid "Import"
 msgstr "インポート"
 
 msgid "Light linear gradient"
@@ -536,9 +554,6 @@ msgstr "画像の追加："
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "幅が 800 ピクセルの JPEG か PNG ファイル／最大サイズ %s"
 
-msgid "Preview"
-msgstr "プレビュー"
-
 msgid "Sidebar"
 msgstr "サイドバー"
 
@@ -631,6 +646,9 @@ msgstr "フッタリンクの色："
 
 msgid "Footer background color:"
 msgstr "フッタの背景色："
+
+msgid "Additional CSS"
+msgstr ""
 
 msgid "Configuration import / export"
 msgstr "設定のインポート／エクスポート"
@@ -798,9 +816,6 @@ msgstr "これはフィード（RSS/Atom）を、現在のブログ「%s」の�
 msgid "Feed URL:"
 msgstr "フィードURL："
 
-msgid "Send"
-msgstr "送信"
-
 msgid "Flat file import"
 msgstr "フラットファイルのインポート"
 
@@ -898,9 +913,6 @@ msgstr ""
 msgid "Please wait..."
 msgstr "しばらくお待ちください..."
 
-msgid "Import"
-msgstr "インポート"
-
 msgid "Maintenance"
 msgstr "メンテナンス"
 
@@ -974,8 +986,8 @@ msgstr "テンプレートキャッシュディレクトリを空にする"
 msgid "Empty directory"
 msgstr "ディレクトリを空にする"
 
-msgid "New page"
-msgstr "新しいページ"
+msgid "Pages"
+msgstr "ページ"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1016,6 +1028,9 @@ msgstr "このタグを削除"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "本当に、選択されたページを削除してもよろしいですか？"
 
+msgid "New page"
+msgstr "新しいページ"
+
 msgid "Selected pages action:"
 msgstr "選択されたページに実行："
 
@@ -1040,11 +1055,8 @@ msgstr "ページは正常に更新されました。"
 msgid "Page has been successfully created."
 msgstr "ページは正常に作成されました。"
 
-msgid "View page"
-msgstr "ページを表示"
-
-msgid "Preview page"
-msgstr "ページをプレビュー"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "ページの状態："
@@ -1060,6 +1072,15 @@ msgstr "ページのパスワード："
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "警告： URLを手作業で設定した場合、別のページと衝突する可能性があります。"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
 
 msgid "Add files to this page"
 msgstr "このページへファイルを追加"
@@ -1193,11 +1214,23 @@ msgstr "タグの名前は正常に変更されました"
 msgid "Back to tags list"
 msgstr "タグ一覧に戻る"
 
-msgid "Rename this tag:"
-msgstr "このタグの名前を変更："
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "このページへファイルを追加"
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "タグの編集"
+
+msgid "Rename"
+msgstr ""
+
+#, fuzzy
+msgid "Delete this tag:"
 msgstr "このタグを削除"
+
+msgid "List of entries with this tag"
+msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr "タグは正常に削除されました"
@@ -1361,6 +1394,10 @@ msgstr "ナビゲーション"
 msgid "extra"
 msgstr "拡張"
 
+#, fuzzy
+msgid "custom"
+msgstr "カスタム..."
+
 msgid "Widgets"
 msgstr "ウィジェット"
 
@@ -1373,7 +1410,8 @@ msgstr "利用可能なウィジェット"
 msgid "Append to:"
 msgstr "付加先："
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "サイドバーへウィジェットを追加"
 
 msgid "Navigation sidebar"
@@ -1382,11 +1420,28 @@ msgstr "ナビゲーションサイドバー"
 msgid "Extra sidebar"
 msgstr "拡張サイドバー"
 
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "サイドバーをリセット"
+
 msgid "Update sidebars"
 msgstr "サイドバーを更新"
 
 msgid "Reset sidebars"
 msgstr "サイドバーをリセット"
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "ウィジェットはありません。"
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr ""
 
 msgid "Widget templates tags"
 msgstr "ウィジェットテンプレートのタグ"
@@ -1427,8 +1482,29 @@ msgstr "並び順"
 msgid "Remove widget"
 msgstr "ウィジェットの削除"
 
-#~ msgid "Blogroll"
-#~ msgstr "ブログロール"
+#~ msgid "List"
+#~ msgstr "リスト"
+
+#~ msgid "Return to filters"
+#~ msgstr "フィルタへ戻る"
+
+#~ msgid "import"
+#~ msgstr "インポート"
+
+#~ msgid "Preview"
+#~ msgstr "プレビュー"
+
+#~ msgid "Send"
+#~ msgstr "送信"
+
+#~ msgid "View page"
+#~ msgstr "ページを表示"
+
+#~ msgid "Preview page"
+#~ msgstr "ページをプレビュー"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "このタグの名前を変更："
 
 #~ msgid "Save order"
 #~ msgstr "並び順を保存"
@@ -1453,9 +1529,6 @@ msgstr "ウィジェットの削除"
 
 #~ msgid "Media title"
 #~ msgstr "メディアのタイトル"
-
-#~ msgid "Pages"
-#~ msgstr "ページ"
 
 #~ msgid "Unsupported service"
 #~ msgstr "サポートされていないサービスです"
