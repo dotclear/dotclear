@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-13 20:29+0200\n"
 "PO-Revision-Date: 2011-06-26 14:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
@@ -19,6 +19,9 @@ msgstr ""
 
 msgid "no"
 msgstr "nie"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "Konfiguracja pomyślnie zaktualizowana"
@@ -34,6 +37,12 @@ msgstr "Wartość"
 
 msgid "Description"
 msgstr "Opis"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr "ustawienia globalne"
@@ -85,7 +94,8 @@ msgstr "Czarna lista"
 msgid "Whitelist"
 msgstr "Biała lista"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "Dodaj adres IP"
 
 msgid "Global IP"
@@ -132,7 +142,8 @@ msgstr "Słowo zostało pomyślnie dodane."
 msgid "Words have been successfully removed."
 msgstr "Słowa zostały pomyślnie usunięte."
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "Dodaj słowo"
 
 msgid "Global word"
@@ -141,8 +152,8 @@ msgstr "Słowo globalne"
 msgid "No word in list."
 msgstr "Brak słów na liście."
 
-msgid "List"
-msgstr "Lista"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "Usuń wybrane słowa"
@@ -189,9 +200,6 @@ msgstr "Filtr nie istnieje."
 msgid "Filter has no user interface."
 msgstr "Filtr nie ma interfejsu użytkownika."
 
-msgid "Return to filters"
-msgstr "Wróć do filtrów"
-
 #, php-format
 msgid "%s configuration"
 msgstr "Konfiguracja %s"
@@ -215,11 +223,18 @@ msgstr "Usuń wszystkie elementy oznaczone jako spam"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Wszystkie niechciane komentarze starsze niż %s dni będą automatycznie usuwane."
 
-msgid "Available spam filters"
-msgstr "Dostępne filtry antyspamowe"
+msgid "You can modify this duration in "
+msgstr ""
+
+#, fuzzy
+msgid "Blog preferences"
+msgstr "ustawienia globalne"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "Konfiguracja filtrów została pomyślnie zapisana."
+
+msgid "Available spam filters"
+msgstr "Dostępne filtry antyspamowe"
 
 msgid "Order"
 msgstr "Kolejność"
@@ -247,6 +262,9 @@ msgstr "Kanał RSS dla niechcianych komentarzy"
 
 msgid "Published comments RSS feed"
 msgstr "Kanał RSS dla opublikowanych komentarzy"
+
+msgid "Blogroll"
+msgstr "Blogroll"
 
 msgid "manage blogroll"
 msgstr "zarządzaj polecanymi odnośnikami"
@@ -419,8 +437,8 @@ msgstr "Importuj odnośniki"
 msgid "OPML or XBEL File:"
 msgstr "Plik w formacie OPML lub XBEL:"
 
-msgid "import"
-msgstr "importuj"
+msgid "Import"
+msgstr "Import"
 
 msgid "Light linear gradient"
 msgstr "Jasny liniowy gradient"
@@ -531,9 +549,6 @@ msgstr "Dodaj twój obraz:"
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "Plik JPEG lub PNG, szerokość: 800 pikseli, maksymalny rozmiar: %s"
 
-msgid "Preview"
-msgstr "Podgląd"
-
 msgid "Sidebar"
 msgstr "Panel boczny"
 
@@ -626,6 +641,9 @@ msgstr "Kolor odnośników stopki:"
 
 msgid "Footer background color:"
 msgstr "Kolor tła stopki:"
+
+msgid "Additional CSS"
+msgstr ""
 
 msgid "Configuration import / export"
 msgstr "Import / eksport konfiguracji"
@@ -792,9 +810,6 @@ msgstr "Zaimportuje kanał (RSS lub Atom) jako nową zawartość w aktualnym blo
 msgid "Feed URL:"
 msgstr "Adres URL kanału:"
 
-msgid "Send"
-msgstr "Wyślij"
-
 msgid "Flat file import"
 msgstr "Import pojedynczego pliku"
 
@@ -890,9 +905,6 @@ msgstr "Nieznany format pliku zapasowego."
 msgid "Please wait..."
 msgstr "Proszę czekać..."
 
-msgid "Import"
-msgstr "Import"
-
 msgid "Maintenance"
 msgstr "Konserwacja"
 
@@ -964,8 +976,8 @@ msgstr "Opróżnij katalog cache szablonów"
 msgid "Empty directory"
 msgstr "Opróżnij katalog"
 
-msgid "New page"
-msgstr "Nowa strona"
+msgid "Pages"
+msgstr "Strony"
 
 #, php-format
 msgid "%d page"
@@ -1005,6 +1017,9 @@ msgstr "wybierz tą stronę"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Jesteś pewien, że chcesz usunąć wybraną stronę?"
 
+msgid "New page"
+msgstr "Nowa strona"
+
 msgid "Selected pages action:"
 msgstr "Wybierz akcję dla zaznaczonych stron:"
 
@@ -1029,11 +1044,8 @@ msgstr "Strona została pomyślnie zaktualizowana."
 msgid "Page has been successfully created."
 msgstr "Strona została pomyślnie utworzona."
 
-msgid "View page"
-msgstr "Zobacz stronę"
-
-msgid "Preview page"
-msgstr "Podgląd strony"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "Stan strony:"
@@ -1049,6 +1061,15 @@ msgstr "Hasło strony"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Ostrzeżenie: jeżeli ustawisz ręcznie URL, może on powodować konflikt z inną stroną."
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
 
 msgid "Add files to this page"
 msgstr "Dodaj pliki do strony"
@@ -1178,11 +1199,23 @@ msgstr "Tag został pomyślnie zmieniony."
 msgid "Back to tags list"
 msgstr "Wstecz do listy tagów"
 
-msgid "Rename this tag:"
-msgstr "Zmień nazwę tagu:"
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "Dodaj pliki do strony"
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "Edytuj tag"
+
+msgid "Rename"
+msgstr ""
+
+#, fuzzy
+msgid "Delete this tag:"
 msgstr "Usuń ten tag"
+
+msgid "List of entries with this tag"
+msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr "Tag został pomyślnie usunięty"
@@ -1343,6 +1376,10 @@ msgstr "nawigacja"
 msgid "extra"
 msgstr "ekstra"
 
+#, fuzzy
+msgid "custom"
+msgstr "Własny..."
+
 msgid "Widgets"
 msgstr "Widgety"
 
@@ -1355,7 +1392,8 @@ msgstr "Dostępne widgety"
 msgid "Append to:"
 msgstr "Przypisz do:"
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "dodaj widgety do paska bocznego"
 
 msgid "Navigation sidebar"
@@ -1364,11 +1402,28 @@ msgstr "Pasek nawigacji"
 msgid "Extra sidebar"
 msgstr "Pasek dodatkowy"
 
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "resetuj paski boczne"
+
 msgid "Update sidebars"
 msgstr "zaktualizuj paski boczne"
 
 msgid "Reset sidebars"
 msgstr "resetuj paski boczne"
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "Brak widgetów."
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr ""
 
 msgid "Widget templates tags"
 msgstr "Tagi gadżetów do szablonu"
@@ -1409,8 +1464,29 @@ msgstr "kolejność"
 msgid "Remove widget"
 msgstr "Usuń widget"
 
-#~ msgid "Blogroll"
-#~ msgstr "Blogroll"
+#~ msgid "List"
+#~ msgstr "Lista"
+
+#~ msgid "Return to filters"
+#~ msgstr "Wróć do filtrów"
+
+#~ msgid "import"
+#~ msgstr "importuj"
+
+#~ msgid "Preview"
+#~ msgstr "Podgląd"
+
+#~ msgid "Send"
+#~ msgstr "Wyślij"
+
+#~ msgid "View page"
+#~ msgstr "Zobacz stronę"
+
+#~ msgid "Preview page"
+#~ msgstr "Podgląd strony"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "Zmień nazwę tagu:"
 
 #, fuzzy
 #~ msgid "Save order"
@@ -1437,9 +1513,6 @@ msgstr "Usuń widget"
 
 #~ msgid "Media title"
 #~ msgstr "Tytuł mediów"
-
-#~ msgid "Pages"
-#~ msgstr "Strony"
 
 #~ msgid "Unsupported service"
 #~ msgstr "Nieobsługiwana usługa"

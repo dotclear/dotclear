@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-13 20:09+0200\n"
 "PO-Revision-Date: 2008-11-24 00:00+0900\n"
 "Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
 "Language-Team: Dotclear Japan\n"
@@ -131,9 +131,6 @@ msgstr "新規ブログ"
 msgid "Blogs"
 msgstr "ブログ"
 
-msgid "Blog details"
-msgstr "ブログの詳細"
-
 msgid "Blog ID:"
 msgstr "ブログID："
 
@@ -155,8 +152,8 @@ msgstr "ブログURL："
 msgid "Blog description:"
 msgstr "ブログの説明："
 
-msgid "Save"
-msgstr "保存"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr "指定されたブログIDはありません"
@@ -247,6 +244,9 @@ msgstr "ブログは正常に更新されました。"
 
 msgid "Parameters"
 msgstr "パラメータ"
+
+msgid "Blog details"
+msgstr "ブログの詳細"
 
 msgid "URL scan method:"
 msgstr "URLのスキャン方法："
@@ -361,6 +361,9 @@ msgstr "メディアマネージャから投稿へ挿入する際の、画像タ
 msgid "Search engines robots policy"
 msgstr "検索エンジンロボットのポリシー"
 
+msgid "Save"
+msgstr "保存"
+
 msgid "XML/RPC interface"
 msgstr "XML/RPC インターフェイス"
 
@@ -431,10 +434,8 @@ msgstr "（\"%s\" が必要）"
 msgid "Stylesheet"
 msgstr "スタイルシート"
 
-msgid "Theme configuration"
-msgstr "テーマの環境設定"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "ブログのテーマ"
 
 msgid "Blog appearance"
@@ -466,10 +467,12 @@ msgstr "テーマ"
 msgid "You are currently using \"%s\""
 msgstr "現在使用中のテーマ： %s"
 
-msgid "use selected theme"
+#, fuzzy
+msgid "Use selected theme"
 msgstr "選択したテーマを使用"
 
-msgid "delete selected theme"
+#, fuzzy
+msgid "Delete selected theme"
 msgstr "選択したテーマを削除"
 
 msgid "Install or upgrade a theme"
@@ -498,6 +501,9 @@ msgstr "テーマをダウンロード"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr "この機能を有効にするには、themes ディレクトリに書き込み権限を与えてください。"
+
+msgid "Theme configuration"
+msgstr "テーマの環境設定"
 
 msgid "back"
 msgstr "戻る"
@@ -624,8 +630,8 @@ msgstr "カテゴリの削除"
 msgid "Choose a category to remove:"
 msgstr "削除するカテゴリを選択："
 
-msgid "ok"
-msgstr "OK"
+msgid "Delete"
+msgstr "削除"
 
 msgid "Reorder categories"
 msgstr "カテゴリの並び替え"
@@ -711,10 +717,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "メールを送信"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "\"%s\" へ戻る"
-
 msgid "IP address:"
 msgstr "IPアドレス："
 
@@ -732,9 +734,6 @@ msgstr "状態："
 
 msgid "Comment:"
 msgstr "コメント："
-
-msgid "Delete"
-msgstr "削除"
 
 msgid "comment"
 msgstr "コメント"
@@ -762,9 +761,6 @@ msgstr "保留に指定"
 
 msgid "mark as junk"
 msgstr "ジャンクに指定"
-
-msgid "Delete"
-msgstr "削除"
 
 msgid "Type:"
 msgstr "タイプ："
@@ -794,6 +790,9 @@ msgstr "選択されたコメントに実行："
 #, fuzzy
 msgid "action: "
 msgstr "操作"
+
+msgid "ok"
+msgstr "OK"
 
 msgid "Comments"
 msgstr "コメント"
@@ -832,7 +831,8 @@ msgstr "このブログはオフラインです"
 msgid "This blog is removed"
 msgstr "このブログは撤去されました"
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+#, fuzzy
+msgid "is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL が定義されていません。 環境設定ファイルを編集する必要があります。"
 
 msgid "Following plugins have been installed:"
@@ -867,7 +867,8 @@ msgstr "内容："
 msgid "Category:"
 msgstr "カテゴリ："
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "保存して掲載"
 
 #, php-format
@@ -953,14 +954,6 @@ msgstr ""
 "<p>これを削除するには、ログインしてブログのコメントを表示してください。 その後、削除や編集することができます。</p>"
 
 #, fuzzy
-msgid "Pages"
-msgstr "ページ"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "ブログ"
-
-#, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear のインストール"
 
@@ -997,9 +990,6 @@ msgstr "最終更新"
 #, fuzzy
 msgid "Username and password"
 msgstr "ユーザ名またはパスワードが間違っています"
-
-msgid "Save"
-msgstr "保存"
 
 msgid "All done!"
 msgstr "すべて完了しました！"
@@ -1075,6 +1065,10 @@ msgstr "データベースのパスワード："
 
 msgid "Database Tables Prefix:"
 msgstr "データベーステーブルのプレフィックス："
+
+#, fuzzy
+msgid "Continue"
+msgstr "内容："
 
 msgid "No such installed language"
 msgstr "指定されたインストール済み言語はありません"
@@ -1223,6 +1217,10 @@ msgstr "ファイルはありません。"
 msgid "Sort files:"
 msgstr "ファイルの並び替え："
 
+#, fuzzy
+msgid "Sort"
+msgstr "並び替え："
+
 msgid "Add files"
 msgstr "ファイルの追加"
 
@@ -1242,8 +1240,8 @@ msgstr "プライベート"
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-msgid "send"
-msgstr "送信"
+msgid "Send"
+msgstr ""
 
 msgid "New directory"
 msgstr "新規ディレクトリ"
@@ -1260,6 +1258,10 @@ msgstr "開く"
 
 msgid "Insert this file into entry"
 msgstr "このファイルをエントリへ挿入"
+
+#, fuzzy
+msgid "delete"
+msgstr "削除"
 
 msgid "Not a valid file"
 msgstr "有効なファイルではありません"
@@ -1327,9 +1329,6 @@ msgstr "ビデオの配置"
 msgid "Media item will be inserted as a link."
 msgstr "メディアアイテムはリンクとして挿入されます。"
 
-msgid "Cancel"
-msgstr "キャンセル"
-
 msgid "Insert"
 msgstr "挿入"
 
@@ -1372,9 +1371,6 @@ msgstr "サムネイルの更新"
 msgid "This will create or update thumbnails for this image."
 msgstr "この画像のサムネイルを作成または更新します"
 
-msgid "update thumbnails"
-msgstr "サムネイルの更新"
-
 msgid "Extract in a new directory"
 msgstr "新規ディレクトリに展開"
 
@@ -1394,7 +1390,8 @@ msgstr "現在のディレクトリにアーカイブを展開し、既存のフ
 msgid "Extract mode:"
 msgstr "展開モード："
 
-msgid "extract"
+#, fuzzy
+msgid "Extract"
 msgstr "展開"
 
 msgid "Change media properties"
@@ -1430,6 +1427,10 @@ msgstr "パーミッションは正常に更新されました。"
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "ユーザ %s さんの以下のブログでのパーミッションを変更します。"
+
+#, fuzzy
+msgid "Validate permissions"
+msgstr "パーミッションを設定"
 
 msgid "choose a blog"
 msgstr "ブログの選択"
@@ -1558,14 +1559,18 @@ msgstr "ファイルのタイトル："
 msgid "Link language:"
 msgstr "リンクの言語："
 
-msgid "insert"
-msgstr "挿入"
-
 msgid "Add a link to an entry"
 msgstr "エントリへリンクを追加"
 
 msgid "Search entry:"
 msgstr "エントリの検索："
+
+msgid "Search"
+msgstr "検索"
+
+#, fuzzy
+msgid "cancel"
+msgstr "キャンセル"
 
 msgid "This entry does not exist."
 msgstr "このエントリは存在しません。"
@@ -1597,10 +1602,20 @@ msgstr "コメントは正常に作成されました。"
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "投稿を保存することによって、XHTML 変換を有効にすることを忘れないでください。"
 
-msgid "View entry"
-msgstr "エントリを表示"
+msgid "Go to this entry on the site"
+msgstr ""
 
-msgid "Preview entry"
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr "抜粋："
+
+msgid "Notes:"
+msgstr "注記："
+
+#, fuzzy
+msgid "Preview"
 msgstr "エントリをプレビュー"
 
 msgid "Entry status:"
@@ -1629,24 +1644,6 @@ msgstr "ベース名："
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "警告： URLを手作業で設定した場合、別のエントリと衝突する可能性があります。"
-
-msgid "Attachments"
-msgstr "添付ファイル"
-
-msgid "remove"
-msgstr "取り外す"
-
-msgid "No attachment."
-msgstr "添付ファイルはありません。"
-
-msgid "Add files to this entry"
-msgstr "このエントリにファイルを追加"
-
-msgid "Excerpt:"
-msgstr "抜粋："
-
-msgid "Notes:"
-msgstr "注記："
 
 msgid "Ping blogs"
 msgstr "ブログPing"
@@ -1776,8 +1773,15 @@ msgstr "エントリの投稿者を変更"
 msgid "Author ID:"
 msgstr "投稿者ID："
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "メールアドレスやパスワードを変更したい場合は、現在のパスワードを入力する必要があります。"
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "非イチ押し"
 
 msgid "Personal information has been successfully updated."
 msgstr "個人情報は正常に更新されました。"
@@ -1815,6 +1819,10 @@ msgid "User timezone:"
 msgstr "ユーザのタイムゾーン："
 
 #, fuzzy
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr "メールアドレスやパスワードを変更したい場合は、現在のパスワードを入力する必要があります。"
+
+#, fuzzy
 msgid "My options"
 msgstr "検索オプション"
 
@@ -1833,6 +1841,9 @@ msgstr "WYSIWYG モードの有効化"
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "拡張アップローダを有効化"
+
+msgid "Iconset:"
+msgstr ""
 
 msgid "Do not use standard favicon"
 msgstr ""
@@ -1905,19 +1916,18 @@ msgstr "利用可能なサイズ："
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr "検索"
-
 msgid "Search options"
 msgstr "検索オプション"
 
 msgid "Query:"
 msgstr "クエリー："
 
-msgid "search entries"
+#, fuzzy
+msgid "Search entries"
 msgstr "エントリを検索"
 
-msgid "search comments"
+#, fuzzy
+msgid "Search comments"
 msgstr "コメントを検索"
 
 msgid "schedule"
@@ -1950,6 +1960,10 @@ msgstr "このエントリは存在しないか、掲載されていません"
 
 msgid "All pings sent."
 msgstr "すべてのPingを送信しました。"
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "\"%s\" へ戻る"
 
 msgid "Auto discover ping URLs"
 msgstr "Ping URLを自動検出"
@@ -2042,7 +2056,13 @@ msgstr "警告："
 msgid "If you change your username, you will have to log in again."
 msgstr "ログイン情報を変更した場合、再ログインの必要があります。"
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 msgid "Password change required to connect"
+msgstr ""
+
+msgid "Save and create another"
 msgstr ""
 
 msgid "No permissions."
@@ -2068,9 +2088,6 @@ msgstr "表示名"
 
 msgid "Number of entries"
 msgstr "エントリ数"
-
-msgid "Set permissions"
-msgstr "パーミッションを設定"
 
 msgid "users"
 msgstr "ユーザ"
@@ -2099,13 +2116,12 @@ msgstr "ブログ："
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
-msgstr ""
+#, fuzzy
+msgid "My dashboard"
+msgstr "ダッシュボード"
 
-msgid "User:"
-msgstr "ユーザ："
-
-msgid "Logout"
+#, fuzzy, php-format
+msgid "Logout %s"
 msgstr "ログアウト"
 
 msgid "Safe mode"
@@ -2407,9 +2423,6 @@ msgstr "データベースのタイプ："
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-msgid "Languages"
-msgstr "言語"
-
 msgid "System"
 msgstr "システム"
 
@@ -2418,6 +2431,9 @@ msgstr "ブログ"
 
 msgid "Updates"
 msgstr "アップデート"
+
+msgid "Languages"
+msgstr "言語"
 
 msgid "administrator"
 msgstr "管理者"
@@ -2761,6 +2777,30 @@ msgstr "ディスクへのファイルの書き込みに失敗しました。"
 msgid "%s is not a directory."
 msgstr "%s はディレクトリではありません。"
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "無効な言語コードです"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "無効な言語コードです"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "無効なダイジェストファイルです。"
+
 msgid "Uploading this file is not allowed."
 msgstr "このファイルのアップロードは許可されません。"
 
@@ -2839,6 +2879,41 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "ページ"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "ブログ"
+
+#~ msgid "send"
+#~ msgstr "送信"
+
+#~ msgid "update thumbnails"
+#~ msgstr "サムネイルの更新"
+
+#~ msgid "insert"
+#~ msgstr "挿入"
+
+#~ msgid "View entry"
+#~ msgstr "エントリを表示"
+
+#~ msgid "Attachments"
+#~ msgstr "添付ファイル"
+
+#~ msgid "remove"
+#~ msgstr "取り外す"
+
+#~ msgid "No attachment."
+#~ msgstr "添付ファイルはありません。"
+
+#~ msgid "Add files to this entry"
+#~ msgstr "このエントリにファイルを追加"
+
+#~ msgid "User:"
+#~ msgstr "ユーザ："
 
 #~ msgid "login"
 #~ msgstr "ログイン"

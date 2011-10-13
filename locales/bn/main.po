@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-13 19:50+0200\n"
 "PO-Revision-Date: 2009-09-16 12:33+0600\n"
 "Last-Translator: Adnan Shameem <needadnan@gmail.com>\n"
 "Language-Team: \n"
@@ -125,9 +125,6 @@ msgstr "নতুন ব্লগ"
 msgid "Blogs"
 msgstr "ব্লগসমূহ"
 
-msgid "Blog details"
-msgstr "ব্লগের বিবরণ"
-
 msgid "Blog ID:"
 msgstr "ব্লগ আইডি:"
 
@@ -149,8 +146,8 @@ msgstr "ব্লগ URL:"
 msgid "Blog description:"
 msgstr "ব্লগের বিবরণ:"
 
-msgid "Save"
-msgstr "সংরক্ষণ করুন"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr "এরকম কোনো ব্লগ আইডি নেই"
@@ -240,6 +237,9 @@ msgstr "ব্লগটি সফলভাবে আপডেট করা হ�
 
 msgid "Parameters"
 msgstr ""
+
+msgid "Blog details"
+msgstr "ব্লগের বিবরণ"
 
 msgid "URL scan method:"
 msgstr ""
@@ -355,6 +355,9 @@ msgstr ""
 msgid "Search engines robots policy"
 msgstr "সার্চ ইঞ্জিনের রোবটের জন্য নিয়ম"
 
+msgid "Save"
+msgstr "সংরক্ষণ করুন"
+
 msgid "XML/RPC interface"
 msgstr "XML/RPC ইন্টারফেস"
 
@@ -425,10 +428,8 @@ msgstr ""
 msgid "Stylesheet"
 msgstr "স্টাইলশিট"
 
-msgid "Theme configuration"
-msgstr "থিম কনফিগারেশন"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "ব্লগের থিমসমূহ"
 
 msgid "Blog appearance"
@@ -460,10 +461,11 @@ msgstr "থিমসমূহ"
 msgid "You are currently using \"%s\""
 msgstr "আপনি বর্তমানে ব্যবহার করছেন \"%s\""
 
-msgid "use selected theme"
-msgstr ""
+#, fuzzy
+msgid "Use selected theme"
+msgstr "থিম আপলোড করুন"
 
-msgid "delete selected theme"
+msgid "Delete selected theme"
 msgstr ""
 
 msgid "Install or upgrade a theme"
@@ -492,6 +494,9 @@ msgstr "থিম ডাউনলোড"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr ""
+
+msgid "Theme configuration"
+msgstr "থিম কনফিগারেশন"
 
 msgid "back"
 msgstr ""
@@ -618,8 +623,8 @@ msgstr ""
 msgid "Choose a category to remove:"
 msgstr "মুছে ফেলতে হলে ক্যাটাগরি সিলেক্ট করুন:"
 
-msgid "ok"
-msgstr "ঠিক আছে"
+msgid "Delete"
+msgstr "মুছে ফেলুন"
 
 msgid "Reorder categories"
 msgstr ""
@@ -699,10 +704,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "ই-মেইল পাঠাও"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "ফিরে যাও \"%s\""
-
 msgid "IP address:"
 msgstr "IP এড্রেস:"
 
@@ -720,9 +721,6 @@ msgstr "অবস্থা:"
 
 msgid "Comment:"
 msgstr "মন্তব্য"
-
-msgid "Delete"
-msgstr "মুছে ফেলুন"
 
 msgid "comment"
 msgstr "মন্তব্য"
@@ -750,9 +748,6 @@ msgstr ""
 
 msgid "mark as junk"
 msgstr ""
-
-msgid "Delete"
-msgstr "মুছে ফেলুন"
 
 msgid "Type:"
 msgstr "ধরণ:"
@@ -782,6 +777,9 @@ msgstr ""
 #, fuzzy
 msgid "action: "
 msgstr "বিবরণ:"
+
+msgid "ok"
+msgstr "ঠিক আছে"
 
 msgid "Comments"
 msgstr "মন্তব্য"
@@ -818,7 +816,7 @@ msgstr "এই ব্লগটি অফলাইনে আছে"
 msgid "This blog is removed"
 msgstr "এই ব্লগটি মুছে ফেলা হয়েছে"
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+msgid "is not defined, you should edit your configuration file."
 msgstr ""
 
 msgid "Following plugins have been installed:"
@@ -853,7 +851,8 @@ msgstr "কন্টেন্ট:"
 msgid "Category:"
 msgstr "ক্যাটাগরি:"
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "সেভ ও প্রকাশ করুন"
 
 #, php-format
@@ -939,14 +938,6 @@ msgstr ""
 "<p>এটি মুছতে হলে, লগইন করুন এবং ব্লগের মন্তব্য দেখুন। তারপর আপনি মন্তব্যটি মুছে ফেলতে বা এডিট করতে পারবেন।</p>"
 
 #, fuzzy
-msgid "Pages"
-msgstr "পেজ(সমূহ)"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "ব্লগ"
-
-#, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear ইন্সটলেশন"
 
@@ -983,9 +974,6 @@ msgstr "সর্বশেষ আপডেট"
 #, fuzzy
 msgid "Username and password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
-
-msgid "Save"
-msgstr "সংরক্ষণ করুন"
 
 msgid "All done!"
 msgstr "কাজ শেষ!"
@@ -1062,6 +1050,10 @@ msgstr "ডাটাবেজ পাসওয়ার্ড:"
 
 msgid "Database Tables Prefix:"
 msgstr "ডাটাবেজের টেবিল প্রেফিক্স:"
+
+#, fuzzy
+msgid "Continue"
+msgstr "কন্টেন্ট:"
 
 msgid "No such installed language"
 msgstr "এরকম কোনো ভাষা পাওয়া যায় নি"
@@ -1210,6 +1202,9 @@ msgstr "কোনো ফাইল নেই।"
 msgid "Sort files:"
 msgstr ""
 
+msgid "Sort"
+msgstr ""
+
 msgid "Add files"
 msgstr ""
 
@@ -1229,8 +1224,8 @@ msgstr "প্রাইভেট"
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-msgid "send"
-msgstr "পাঠাও"
+msgid "Send"
+msgstr ""
 
 msgid "New directory"
 msgstr "নতুন ডিরেক্টরি"
@@ -1247,6 +1242,10 @@ msgstr ""
 
 msgid "Insert this file into entry"
 msgstr "এন্ট্রিতে এই ফাইলটি লাগাও"
+
+#, fuzzy
+msgid "delete"
+msgstr "মুছে ফেলুন"
 
 msgid "Not a valid file"
 msgstr "ফাইলটি বৈধ নয়"
@@ -1314,9 +1313,6 @@ msgstr ""
 msgid "Media item will be inserted as a link."
 msgstr "মিডিয়া আইটেমটি লিংক হিসেবে লাগানো হবে।"
 
-msgid "Cancel"
-msgstr "বাতিল"
-
 msgid "Insert"
 msgstr "লাগান"
 
@@ -1359,9 +1355,6 @@ msgstr "আপডেট থাম্বনেইল"
 msgid "This will create or update thumbnails for this image."
 msgstr ""
 
-msgid "update thumbnails"
-msgstr "আপডেট থাম্বনেইল"
-
 msgid "Extract in a new directory"
 msgstr ""
 
@@ -1380,7 +1373,7 @@ msgstr ""
 msgid "Extract mode:"
 msgstr ""
 
-msgid "extract"
+msgid "Extract"
 msgstr ""
 
 msgid "Change media properties"
@@ -1416,6 +1409,10 @@ msgstr ""
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr ""
+
+#, fuzzy
+msgid "Validate permissions"
+msgstr "অনুমতি পরিবর্তন করুন"
 
 msgid "choose a blog"
 msgstr ""
@@ -1544,14 +1541,18 @@ msgstr "ফাইলের শিরোনাম:"
 msgid "Link language:"
 msgstr "লিংক ভাষা:"
 
-msgid "insert"
-msgstr "লাগান"
-
 msgid "Add a link to an entry"
 msgstr "কোনো এন্ট্রিতে লিংক যোগ করুন"
 
 msgid "Search entry:"
 msgstr "সার্চ এন্ট্রি:"
+
+msgid "Search"
+msgstr "সার্চ"
+
+#, fuzzy
+msgid "cancel"
+msgstr "বাতিল"
 
 msgid "This entry does not exist."
 msgstr "এই এন্ট্রির কোনো অস্তিত্ব নেই।"
@@ -1583,10 +1584,20 @@ msgstr ""
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
-msgid "View entry"
-msgstr "এন্ট্রি দেখাও"
+msgid "Go to this entry on the site"
+msgstr ""
 
-msgid "Preview entry"
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr ""
+
+msgid "Notes:"
+msgstr ""
+
+#, fuzzy
+msgid "Preview"
 msgstr "প্রিভিউ এন্ট্রি"
 
 msgid "Entry status:"
@@ -1614,24 +1625,6 @@ msgid "Basename:"
 msgstr ""
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
-msgstr ""
-
-msgid "Attachments"
-msgstr "সংযুক্ত ফাইলসমূহ"
-
-msgid "remove"
-msgstr "মুছে ফেলো"
-
-msgid "No attachment."
-msgstr "সংযুক্ত ফাইল নেই।"
-
-msgid "Add files to this entry"
-msgstr ""
-
-msgid "Excerpt:"
-msgstr ""
-
-msgid "Notes:"
 msgstr ""
 
 msgid "Ping blogs"
@@ -1755,8 +1748,15 @@ msgstr ""
 msgid "Author ID:"
 msgstr "লেখকের আইডি:"
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
 
 msgid "Personal information has been successfully updated."
 msgstr ""
@@ -1793,6 +1793,9 @@ msgstr "ইউজারের ভাষা:"
 msgid "User timezone:"
 msgstr "ইউজারের টাইমজোন:"
 
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr ""
+
 #, fuzzy
 msgid "My options"
 msgstr "সার্চ অপশন"
@@ -1810,6 +1813,9 @@ msgid "Enable WYSIWYG mode"
 msgstr ""
 
 msgid "Activate enhanced uploader in media manager"
+msgstr ""
+
+msgid "Iconset:"
 msgstr ""
 
 msgid "Do not use standard favicon"
@@ -1880,19 +1886,18 @@ msgstr ""
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr "সার্চ"
-
 msgid "Search options"
 msgstr "সার্চ অপশন"
 
 msgid "Query:"
 msgstr ""
 
-msgid "search entries"
+#, fuzzy
+msgid "Search entries"
 msgstr "এন্ট্রিতে সার্চ"
 
-msgid "search comments"
+#, fuzzy
+msgid "Search comments"
 msgstr "মন্তব্যতে সার্চ"
 
 msgid "schedule"
@@ -1925,6 +1930,10 @@ msgstr ""
 
 msgid "All pings sent."
 msgstr ""
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "ফিরে যাও \"%s\""
 
 msgid "Auto discover ping URLs"
 msgstr ""
@@ -2016,7 +2025,13 @@ msgstr ""
 msgid "If you change your username, you will have to log in again."
 msgstr ""
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 msgid "Password change required to connect"
+msgstr ""
+
+msgid "Save and create another"
 msgstr ""
 
 msgid "No permissions."
@@ -2042,9 +2057,6 @@ msgstr ""
 
 msgid "Number of entries"
 msgstr "এন্ট্রির সংখ্যা"
-
-msgid "Set permissions"
-msgstr ""
 
 msgid "users"
 msgstr "ইউজারসমূহ"
@@ -2073,13 +2085,12 @@ msgstr "ব্লগসমূহ:"
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
-msgstr ""
+#, fuzzy
+msgid "My dashboard"
+msgstr "ড্যাশবোর্ড"
 
-msgid "User:"
-msgstr "ইউজার:"
-
-msgid "Logout"
+#, fuzzy, php-format
+msgid "Logout %s"
 msgstr "লগআউট"
 
 msgid "Safe mode"
@@ -2379,9 +2390,6 @@ msgstr "ডাটাবেজের ধরণ:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-msgid "Languages"
-msgstr "ভাষাসমূহ"
-
 msgid "System"
 msgstr ""
 
@@ -2390,6 +2398,9 @@ msgstr "ব্লগ"
 
 msgid "Updates"
 msgstr ""
+
+msgid "Languages"
+msgstr "ভাষাসমূহ"
 
 msgid "administrator"
 msgstr ""
@@ -2727,6 +2738,29 @@ msgstr ""
 msgid "%s is not a directory."
 msgstr ""
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+msgid "Invalid diff format"
+msgstr ""
+
 msgid "Uploading this file is not allowed."
 msgstr ""
 
@@ -2805,6 +2839,38 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "পেজ(সমূহ)"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "ব্লগ"
+
+#~ msgid "send"
+#~ msgstr "পাঠাও"
+
+#~ msgid "update thumbnails"
+#~ msgstr "আপডেট থাম্বনেইল"
+
+#~ msgid "insert"
+#~ msgstr "লাগান"
+
+#~ msgid "View entry"
+#~ msgstr "এন্ট্রি দেখাও"
+
+#~ msgid "Attachments"
+#~ msgstr "সংযুক্ত ফাইলসমূহ"
+
+#~ msgid "remove"
+#~ msgstr "মুছে ফেলো"
+
+#~ msgid "No attachment."
+#~ msgstr "সংযুক্ত ফাইল নেই।"
+
+#~ msgid "User:"
+#~ msgstr "ইউজার:"
 
 #~ msgid "login"
 #~ msgstr "লগইন"
