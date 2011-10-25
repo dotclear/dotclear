@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-25 10:35+0200\n"
+"POT-Creation-Date: 2011-10-25 15:50+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: S.L. SONG <baramme@free.fr>\n"
 "Language-Team: \n"
@@ -1216,7 +1216,7 @@ msgstr "분류딱지 삭제"
 msgid "Type of item menu:"
 msgstr ""
 
-msgid "Continue…"
+msgid "Continue..."
 msgstr ""
 
 #, fuzzy
