@@ -22,6 +22,7 @@ PLUGINS="
 aboutConfig
 akismet
 antispam
+attachments
 blogroll
 blowupConfig
 fairTrackbacks
@@ -29,10 +30,11 @@ importExport
 maintenance
 pages
 pings
+simpleMenu
 tags
 themeEditor
-widgets
 userPref
+widgets
 "
 
 PO_LANG=$1
@@ -56,6 +58,7 @@ extract_strings()
 	-L PHP -k__ \
 	--no-wrap \
 	--foreign-user \
+	--from-code=UTF-8 \
 	"$@"
 }
 
@@ -69,6 +72,7 @@ extract_html_strings()
 	-L PHP -k__ \
 	--no-wrap \
 	--foreign-user \
+	--from-code=UTF-8 \
 	"$@"
 }
 update_po()

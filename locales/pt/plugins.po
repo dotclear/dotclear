@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-13 20:31+0200\n"
+"POT-Creation-Date: 2011-10-25 10:37+0200\n"
 "PO-Revision-Date: 2009-10-02 21:54+0100\n"
 "Last-Translator: Luis Correia <luis.f.correia@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -267,6 +267,19 @@ msgstr "Feed RSS para os comentários spam"
 
 msgid "Published comments RSS feed"
 msgstr "Feed RSS para os comentários publicados"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "Adicione ficheiros a esta página"
 
 msgid "Blogroll"
 msgstr "Blogroll"
@@ -1074,15 +1087,6 @@ msgstr "Senha da página:"
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Aviso: se alterar a URL manualmente, pode entrar em conflito com outra página."
 
-msgid "Attachments"
-msgstr ""
-
-msgid "remove"
-msgstr ""
-
-msgid "No attachment."
-msgstr ""
-
 msgid "Add files to this page"
 msgstr "Adicione ficheiros a esta página"
 
@@ -1116,8 +1120,152 @@ msgstr ""
 msgid "Pings:"
 msgstr "Pings:"
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "Todas as etiquetas"
+
+msgid "All tags"
+msgstr "Todas as etiquetas"
+
+msgid "Home"
+msgstr "Página inicial"
+
+#, fuzzy
+msgid "Archive"
+msgstr "Arquivos"
+
+#, fuzzy
+msgid "Page"
+msgstr "Páginas"
+
 msgid "Tags"
 msgstr "Etiquetas"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "Arquivos"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "Escolha na lista"
+
+#, fuzzy, php-format
+msgid "Recent posts for %s tag"
+msgstr "Adicione ficheiros a esta página"
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "Não há itens no Feed RSS"
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "A palavra foi adicionada com sucesso."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "Os itens foram removidos com sucesso."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "Os parâmetros foram actualizados com sucesso."
+
+#, fuzzy
+msgid "Add item"
+msgstr "Acrescentar etiquetas"
+
+#, fuzzy
+msgid "Select type"
+msgstr "Apagar esta etiqueta"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "línguas do blog"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "Editar a categoria"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "Apagar esta etiqueta"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "Descrição"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "Criar um novo link"
+
+#, fuzzy
+msgid "Menu items list"
+msgstr "Lista de categorias"
+
+#, fuzzy
+msgid "Update menu"
+msgstr "actualizar as barras laterais"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "Suprimir os links seleccionados"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Tem a certeza que pretende suprimir os links seleccionados?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "Etiquetas:"
@@ -1197,9 +1345,6 @@ msgstr "Contador de entradas"
 
 msgid "Tag name"
 msgstr "Nome da etiqueta"
-
-msgid "All tags"
-msgstr "Todas as etiquetas"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -1366,12 +1511,6 @@ msgstr "Últimos Comentários"
 
 msgid "Comments limit:"
 msgstr "Limite dos comentários:"
-
-msgid "Home"
-msgstr "Página inicial"
-
-msgid "Archives"
-msgstr "Arquivos"
 
 #, php-format
 msgid "This blog's entries %s feed"
@@ -1540,6 +1679,3 @@ msgstr "Remover widget"
 
 #~ msgid "more"
 #~ msgstr "mais"
-
-#~ msgid "Categories list"
-#~ msgstr "Lista de categorias"

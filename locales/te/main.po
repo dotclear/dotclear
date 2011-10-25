@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-25 10:44+0200\n"
 "PO-Revision-Date: 2008-10-12 11:49+0530\n"
 "Last-Translator: Veeven <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,9 +125,6 @@ msgstr "కొత్త బ్లాగు"
 msgid "Blogs"
 msgstr "బ్లాగులు"
 
-msgid "Blog details"
-msgstr "బ్లాగు వివరాలు"
-
 msgid "Blog ID:"
 msgstr "బ్లాగు ID:"
 
@@ -149,8 +146,8 @@ msgstr "బ్లాగు URL:"
 msgid "Blog description:"
 msgstr "బ్లాగు వివరణ:"
 
-msgid "Save"
-msgstr "భద్రపరచు"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr "అటువండి బ్లాగు ID లేదు"
@@ -240,6 +237,9 @@ msgstr "బ్లాగుని విజయవంతంగా తాజాక�
 
 msgid "Parameters"
 msgstr ""
+
+msgid "Blog details"
+msgstr "బ్లాగు వివరాలు"
 
 msgid "URL scan method:"
 msgstr ""
@@ -354,6 +354,9 @@ msgstr ""
 msgid "Search engines robots policy"
 msgstr ""
 
+msgid "Save"
+msgstr "భద్రపరచు"
+
 msgid "XML/RPC interface"
 msgstr ""
 
@@ -424,10 +427,8 @@ msgstr ""
 msgid "Stylesheet"
 msgstr ""
 
-msgid "Theme configuration"
-msgstr "అలంకార స్వరూపణం"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "బ్లాగు అలంకారాలు"
 
 msgid "Blog appearance"
@@ -459,10 +460,12 @@ msgstr "అలంకారాలు"
 msgid "You are currently using \"%s\""
 msgstr "మీరు ప్రస్తుతం \"%s\" ని వాడుతున్నారు"
 
-msgid "use selected theme"
+#, fuzzy
+msgid "Use selected theme"
 msgstr "ఎంచుకున్న అలంకారాన్ని వాడు"
 
-msgid "delete selected theme"
+#, fuzzy
+msgid "Delete selected theme"
 msgstr "ఎంచుకున్న అలంకారాన్ని తొలగించు"
 
 msgid "Install or upgrade a theme"
@@ -491,6 +494,9 @@ msgstr "అలంకారాన్ని దిగుమతిచేసుక�
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr ""
+
+msgid "Theme configuration"
+msgstr "అలంకార స్వరూపణం"
 
 msgid "back"
 msgstr "వెనక్కి"
@@ -625,8 +631,8 @@ msgstr "వర్గాలు లేవు."
 msgid "Choose a category to remove:"
 msgstr ""
 
-msgid "ok"
-msgstr "సరే"
+msgid "Delete"
+msgstr "తొలగించు"
 
 #, fuzzy
 msgid "Reorder categories"
@@ -714,10 +720,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr ""
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "తిరిగి \"%s\"కి"
-
 msgid "IP address:"
 msgstr "IP చిరునామా:"
 
@@ -735,9 +737,6 @@ msgstr "స్థితి:"
 
 msgid "Comment:"
 msgstr "వ్యాఖ్య:"
-
-msgid "Delete"
-msgstr "తొలగించు"
 
 msgid "comment"
 msgstr "వ్యాఖ్య"
@@ -765,9 +764,6 @@ msgstr ""
 
 msgid "mark as junk"
 msgstr ""
-
-msgid "Delete"
-msgstr "తొలగించు"
 
 msgid "Type:"
 msgstr "రకం:"
@@ -797,6 +793,9 @@ msgstr "ఎంచుకున్న వ్యాఖ్యలపై చర్య:
 #, fuzzy
 msgid "action: "
 msgstr "చర్య"
+
+msgid "ok"
+msgstr "సరే"
 
 msgid "Comments"
 msgstr "వ్యాఖ్యలు"
@@ -835,7 +834,7 @@ msgstr "ఈ బ్లాగు లైనులో లేదు"
 msgid "This blog is removed"
 msgstr "ఈ బ్లాగుని తొలగించారు"
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+msgid "is not defined, you should edit your configuration file."
 msgstr ""
 
 msgid "Following plugins have been installed:"
@@ -870,7 +869,8 @@ msgstr "విషయం:"
 msgid "Category:"
 msgstr "వర్గం:"
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "భద్రపరచి ప్రచురించు"
 
 #, php-format
@@ -956,14 +956,6 @@ msgstr ""
 "<p>దీన్ని తొలగించడానికి, లోనికి ప్రవేశింటి మీ బ్లాగు యొక్క వ్యాఖ్యలు చూడండి. అక్కడ దీన్ని తొలగించవచ్చు లేదా మార్చవచ్చు.</p>"
 
 #, fuzzy
-msgid "Pages"
-msgstr "పేజీ(లు)"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "బ్లాగు"
-
-#, fuzzy
 msgid "Dotclear Install"
 msgstr "డాట్‌క్లియర్ స్థాపన"
 
@@ -1000,9 +992,6 @@ msgstr "చివరి తాజాకరణ"
 #, fuzzy
 msgid "Username and password"
 msgstr "తప్పుడు వాడుకరిపేరు లేదా సంకేతపదం"
-
-msgid "Save"
-msgstr "భద్రపరచు"
 
 msgid "All done!"
 msgstr "అంతా పూర్తయ్యింది!"
@@ -1078,6 +1067,10 @@ msgstr "డాటాబేసు సంకేతపదం:"
 
 msgid "Database Tables Prefix:"
 msgstr ""
+
+#, fuzzy
+msgid "Continue"
+msgstr "విషయం:"
 
 msgid "No such installed language"
 msgstr "అటువంటి భాష ఏమీ స్థాపించి లేదు"
@@ -1226,6 +1219,10 @@ msgstr "పైళ్ళు లేవు."
 msgid "Sort files:"
 msgstr ""
 
+#, fuzzy
+msgid "Sort"
+msgstr "అమరిక:"
+
 msgid "Add files"
 msgstr "ఫైళ్ళను చేర్చండి"
 
@@ -1245,8 +1242,8 @@ msgstr "అంతరంగికం"
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-msgid "send"
-msgstr "పంపించు"
+msgid "Send"
+msgstr ""
 
 msgid "New directory"
 msgstr ""
@@ -1262,6 +1259,10 @@ msgstr ""
 
 msgid "Insert this file into entry"
 msgstr ""
+
+#, fuzzy
+msgid "delete"
+msgstr "తొలగించు"
 
 msgid "Not a valid file"
 msgstr "సరైన ఫైలు కాదు"
@@ -1331,9 +1332,6 @@ msgstr ""
 msgid "Media item will be inserted as a link."
 msgstr ""
 
-msgid "Cancel"
-msgstr "రద్దుచేయి"
-
 msgid "Insert"
 msgstr ""
 
@@ -1376,9 +1374,6 @@ msgstr ""
 msgid "This will create or update thumbnails for this image."
 msgstr ""
 
-msgid "update thumbnails"
-msgstr ""
-
 msgid "Extract in a new directory"
 msgstr ""
 
@@ -1397,7 +1392,7 @@ msgstr ""
 msgid "Extract mode:"
 msgstr ""
 
-msgid "extract"
+msgid "Extract"
 msgstr ""
 
 msgid "Change media properties"
@@ -1433,6 +1428,10 @@ msgstr ""
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr ""
+
+#, fuzzy
+msgid "Validate permissions"
+msgstr "అనుమతులు ఇవ్వండి"
 
 msgid "choose a blog"
 msgstr "ఓ బ్లాగుని ఎంచుకోండి"
@@ -1561,14 +1560,18 @@ msgstr "ఫైలు శీర్షిక:"
 msgid "Link language:"
 msgstr "లింకు భాష:"
 
-msgid "insert"
-msgstr ""
-
 msgid "Add a link to an entry"
 msgstr ""
 
 msgid "Search entry:"
 msgstr ""
+
+msgid "Search"
+msgstr "వెతుకు"
+
+#, fuzzy
+msgid "cancel"
+msgstr "రద్దుచేయి"
 
 msgid "This entry does not exist."
 msgstr "ఈ టపా లేదు."
@@ -1600,10 +1603,20 @@ msgstr ""
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
-msgid "View entry"
-msgstr "టపాని చూడండి"
+msgid "Go to this entry on the site"
+msgstr ""
 
-msgid "Preview entry"
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr "సంగ్రహం:"
+
+msgid "Notes:"
+msgstr "గమనికలు:"
+
+#, fuzzy
+msgid "Preview"
 msgstr "టపా మునుజూపు"
 
 msgid "Entry status:"
@@ -1632,24 +1645,6 @@ msgstr "మూలనామం:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr ""
-
-msgid "Attachments"
-msgstr "జోడింపులు"
-
-msgid "remove"
-msgstr "తొలగించు"
-
-msgid "No attachment."
-msgstr "జోడింపులు లేవు."
-
-msgid "Add files to this entry"
-msgstr "ఈ టపాకి ఫైళ్ళు చేర్చండి"
-
-msgid "Excerpt:"
-msgstr "సంగ్రహం:"
-
-msgid "Notes:"
-msgstr "గమనికలు:"
 
 msgid "Ping blogs"
 msgstr ""
@@ -1776,7 +1771,13 @@ msgstr "టపాలకి రచయితని మార్చండి"
 msgid "Author ID:"
 msgstr "రచయిత ID:"
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
+msgstr ""
+
+msgid "No favorite selected"
 msgstr ""
 
 msgid "Personal information has been successfully updated."
@@ -1814,6 +1815,9 @@ msgstr "వాడుకరి భాష:"
 msgid "User timezone:"
 msgstr ""
 
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr ""
+
 #, fuzzy
 msgid "My options"
 msgstr "అన్వేషణ ఎంపికలు"
@@ -1831,6 +1835,9 @@ msgid "Enable WYSIWYG mode"
 msgstr ""
 
 msgid "Activate enhanced uploader in media manager"
+msgstr ""
+
+msgid "Iconset:"
 msgstr ""
 
 msgid "Do not use standard favicon"
@@ -1903,19 +1910,18 @@ msgstr "అందుబాటులో ఉన్న పరిమాణాలు:
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr "వెతుకు"
-
 msgid "Search options"
 msgstr "అన్వేషణ ఎంపికలు"
 
 msgid "Query:"
 msgstr "అన్వేషణ:"
 
-msgid "search entries"
+#, fuzzy
+msgid "Search entries"
 msgstr "టపాలని వెతకు"
 
-msgid "search comments"
+#, fuzzy
+msgid "Search comments"
 msgstr "వ్యాఖ్యలని వెతుకు"
 
 msgid "schedule"
@@ -1948,6 +1954,10 @@ msgstr "ఈ టపా ఉనికిలో లేదు లేదా ఇంక�
 
 msgid "All pings sent."
 msgstr ""
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "తిరిగి \"%s\"కి"
 
 msgid "Auto discover ping URLs"
 msgstr ""
@@ -2044,7 +2054,13 @@ msgstr "హెచ్చరిక:"
 msgid "If you change your username, you will have to log in again."
 msgstr "మీ ప్రవేశనామం మార్చితే, మీరు మళ్ళీ లోనికి ప్రవేశించాలి."
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 msgid "Password change required to connect"
+msgstr ""
+
+msgid "Save and create another"
 msgstr ""
 
 msgid "No permissions."
@@ -2070,9 +2086,6 @@ msgstr "చూపించే పేరు"
 
 msgid "Number of entries"
 msgstr "టపాల సంఖ్య"
-
-msgid "Set permissions"
-msgstr "అనుమతులు ఇవ్వండి"
 
 msgid "users"
 msgstr "వాడుకరులు"
@@ -2101,13 +2114,11 @@ msgstr "బ్లాగులు:"
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
+msgid "My dashboard"
 msgstr ""
 
-msgid "User:"
-msgstr "వాడుకరి:"
-
-msgid "Logout"
+#, fuzzy, php-format
+msgid "Logout %s"
 msgstr "నిష్క్రమించు"
 
 msgid "Safe mode"
@@ -2408,9 +2419,6 @@ msgstr "డాటాబేసు రకం:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-msgid "Languages"
-msgstr "భాషలు"
-
 msgid "System"
 msgstr "వ్యవస్థ"
 
@@ -2419,6 +2427,9 @@ msgstr "బ్లాగు"
 
 msgid "Updates"
 msgstr ""
+
+msgid "Languages"
+msgstr "భాషలు"
 
 msgid "administrator"
 msgstr "నిర్వాహకుడు"
@@ -2765,6 +2776,30 @@ msgstr ""
 msgid "%s is not a directory."
 msgstr ""
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "తప్పుడు భాషా సంకేతం"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "తప్పుడు భాషా సంకేతం"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "తప్పుడు భాషా ఫైలు URL."
+
 msgid "Uploading this file is not allowed."
 msgstr ""
 
@@ -2843,6 +2878,35 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "పేజీ(లు)"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "బ్లాగు"
+
+#~ msgid "send"
+#~ msgstr "పంపించు"
+
+#~ msgid "View entry"
+#~ msgstr "టపాని చూడండి"
+
+#~ msgid "Attachments"
+#~ msgstr "జోడింపులు"
+
+#~ msgid "remove"
+#~ msgstr "తొలగించు"
+
+#~ msgid "No attachment."
+#~ msgstr "జోడింపులు లేవు."
+
+#~ msgid "Add files to this entry"
+#~ msgstr "ఈ టపాకి ఫైళ్ళు చేర్చండి"
+
+#~ msgid "User:"
+#~ msgstr "వాడుకరి:"
 
 #~ msgid "login"
 #~ msgstr "ప్రవేశం"

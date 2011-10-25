@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-13 19:55+0200\n"
+"POT-Creation-Date: 2011-10-25 10:32+0200\n"
 "PO-Revision-Date: 2009-10-02 16:06+0200\n"
 "Last-Translator: Quique <cronopios@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -267,6 +267,19 @@ msgstr "Fuente RSS de comentarios no deseados"
 
 msgid "Published comments RSS feed"
 msgstr "Fuente RSS de comentarios publicados"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "Añadir ficheros a la página"
 
 msgid "Blogroll"
 msgstr "Enlaces"
@@ -1075,15 +1088,6 @@ msgstr "Contraseña de la página:"
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Advertencia: si establece el URL manualmente,  puede entrar en conflicto con otra página."
 
-msgid "Attachments"
-msgstr ""
-
-msgid "remove"
-msgstr ""
-
-msgid "No attachment."
-msgstr ""
-
 msgid "Add files to this page"
 msgstr "Añadir ficheros a la página"
 
@@ -1117,8 +1121,151 @@ msgstr ""
 msgid "Pings:"
 msgstr "Pings:"
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "Todas las etiquetas"
+
+msgid "All tags"
+msgstr "Todas las etiquetas"
+
+msgid "Home"
+msgstr "Inicio"
+
+#, fuzzy
+msgid "Archive"
+msgstr "Archivos"
+
+#, fuzzy
+msgid "Page"
+msgstr "Páginas"
+
 msgid "Tags"
 msgstr "Etiquetas"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archivos"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "Elegir desde la lista"
+
+#, fuzzy, php-format
+msgid "Recent posts for %s tag"
+msgstr "Añadir ficheros a la página"
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "No hay elementos en la fuente."
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "La palabra ha sido añadida con éxito."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "Los elementos han sido suprimidos con éxito."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "Ajustes actualizados con éxito."
+
+#, fuzzy
+msgid "Add item"
+msgstr "Añadir etiquetas"
+
+#, fuzzy
+msgid "Select type"
+msgstr "Borrar esta etiqueta"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "Idiomas del blog"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "Modificar una categoría"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "Borrar esta etiqueta"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "Descripción"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "Añadir un enlace nuevo"
+
+msgid "Menu items list"
+msgstr ""
+
+#, fuzzy
+msgid "Update menu"
+msgstr "actualizar las barras laterales"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "Borrar los enlaces seleccionados"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "¿Seguro que desea borrar los enlaces seleccionados?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "Etiquetas:"
@@ -1198,9 +1345,6 @@ msgstr "Número de entradas"
 
 msgid "Tag name"
 msgstr "Nombre de la etiqueta"
-
-msgid "All tags"
-msgstr "Todas las etiquetas"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -1367,12 +1511,6 @@ msgstr "Últimos comentarios"
 
 msgid "Comments limit:"
 msgstr "Número máximo de comentarios:"
-
-msgid "Home"
-msgstr "Inicio"
-
-msgid "Archives"
-msgstr "Archivos"
 
 #, php-format
 msgid "This blog's entries %s feed"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-25 10:41+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ihar <chi27@open.by>\n"
 "Language-Team: \n"
@@ -17,6 +17,9 @@ msgstr ""
 
 msgid "no"
 msgstr "нет"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "Конфигурация успешно обновлена"
@@ -32,6 +35,12 @@ msgstr "Значение"
 
 msgid "Description"
 msgstr "Описание"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr "глобальные настройки"
@@ -83,7 +92,8 @@ msgstr "Черный список"
 msgid "Whitelist"
 msgstr "Белый список"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "Добавить IP адрес"
 
 msgid "Global IP"
@@ -130,7 +140,8 @@ msgstr "Слово было успешно добавлено."
 msgid "Words have been successfully removed."
 msgstr "Слова были успешно удалены."
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "Добавить слово"
 
 msgid "Global word"
@@ -139,8 +150,8 @@ msgstr "Глобальное слово"
 msgid "No word in list."
 msgstr "Нет слов в списке."
 
-msgid "List"
-msgstr "Список"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "Удалить выделенные слова"
@@ -187,9 +198,6 @@ msgstr "Фильтр не существует."
 msgid "Filter has no user interface."
 msgstr "Фильтр не имеет пользовательского интерфейса."
 
-msgid "Return to filters"
-msgstr "Вернуться к фильтрам"
-
 #, php-format
 msgid "%s configuration"
 msgstr "%s конфигурация"
@@ -213,11 +221,18 @@ msgstr "Удалить весь спам"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Все спам комментарии старше чем %s дней будут удалены автоматически."
 
-msgid "Available spam filters"
-msgstr "Доступные спам фильтры"
+msgid "You can modify this duration in "
+msgstr ""
+
+#, fuzzy
+msgid "Blog preferences"
+msgstr "глобальные настройки"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "Конфигурация фильтров успешно сохранена."
+
+msgid "Available spam filters"
+msgstr "Доступные спам фильтры"
 
 msgid "Order"
 msgstr "Порядок"
@@ -246,6 +261,22 @@ msgstr "RSS спам комментариев"
 
 msgid "Published comments RSS feed"
 msgstr "RSS опубликованных комментариев"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "Добавить файлы на страницу"
+
+msgid "Blogroll"
+msgstr "Ссылки"
 
 msgid "manage blogroll"
 msgstr "управление ссылками"
@@ -419,8 +450,8 @@ msgstr "Импортировать ссылки"
 msgid "OPML or XBEL File:"
 msgstr "OPML или XBEL файл:"
 
-msgid "import"
-msgstr "импортировать"
+msgid "Import"
+msgstr "Импортировать"
 
 msgid "Light linear gradient"
 msgstr "Светлый линейный градиент"
@@ -532,9 +563,6 @@ msgstr "Добавить изображение:"
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "Файл JPEG или PNG, шириной 800 пикселей, максимальный размер %s"
 
-msgid "Preview"
-msgstr "Предпросмотр"
-
 msgid "Sidebar"
 msgstr "Сайдбар"
 
@@ -627,6 +655,9 @@ msgstr "Цвет ссылок в нижнем колонтитуле:"
 
 msgid "Footer background color:"
 msgstr "Цвет фона нижнего колонтитула:"
+
+msgid "Additional CSS"
+msgstr ""
 
 msgid "Configuration import / export"
 msgstr "Импортировать/экспортировать настройки"
@@ -793,9 +824,6 @@ msgstr "Импорт ленты новостей (RSS или Atom) как нов
 msgid "Feed URL:"
 msgstr "URL ленты новостей:"
 
-msgid "Send"
-msgstr "Отправить"
-
 msgid "Flat file import"
 msgstr "Импортировать текстовый файл"
 
@@ -891,9 +919,6 @@ msgstr "Файл резервной копии сформирован  крив�
 msgid "Please wait..."
 msgstr "Пожалуйста подождите..."
 
-msgid "Import"
-msgstr "Импортировать"
-
 # French translation of DotClea"
 msgid "Maintenance"
 msgstr "Поддержка"
@@ -966,8 +991,8 @@ msgstr "Очистить директорию кеша шаблонов"
 msgid "Empty directory"
 msgstr "Очистить директорию"
 
-msgid "New page"
-msgstr "Новая страница"
+msgid "Pages"
+msgstr "Страницы"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1008,6 +1033,9 @@ msgstr "Удалить этот тег"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Вы уверены, что хотите удалить выбранные страницы?"
 
+msgid "New page"
+msgstr "Новая страница"
+
 msgid "Selected pages action:"
 msgstr "Действия над выбранными страницами:"
 
@@ -1032,11 +1060,8 @@ msgstr "Страница успешно обновлена."
 msgid "Page has been successfully created."
 msgstr "Страница успешно создана."
 
-msgid "View page"
-msgstr "Просмотреть страницу"
-
-msgid "Preview page"
-msgstr "Предпросмотр страницы"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "Статус страницы:"
@@ -1086,8 +1111,152 @@ msgstr "Проверить все"
 msgid "Pings:"
 msgstr "Пинги:"
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "Все теги"
+
+msgid "All tags"
+msgstr "Все теги"
+
+msgid "Home"
+msgstr "Домой"
+
+#, fuzzy
+msgid "Archive"
+msgstr "Архивы"
+
+#, fuzzy
+msgid "Page"
+msgstr "Страницы"
+
 msgid "Tags"
 msgstr "Теги"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "Архивы"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "Выбрать из списка"
+
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "Нет элементов в ленте новостей."
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "Слово было успешно добавлено."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "Элементы успешно удалены."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "Настройки успешно обновлены."
+
+#, fuzzy
+msgid "Add item"
+msgstr "добавить теги"
+
+#, fuzzy
+msgid "Select type"
+msgstr "Удалить этот тег"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "Языки блога"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "Редактировать категорию"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "Удалить этот тег"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "Описание"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "Добавить новую ссылку"
+
+#, fuzzy
+msgid "Menu items list"
+msgstr "Список категорий"
+
+#, fuzzy
+msgid "Update menu"
+msgstr "Обновить сайдбары"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "Удалить выбранные ссылки"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Вы уверены, что хотите удалить выбранные ссылки?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "Теги:"
@@ -1166,9 +1335,6 @@ msgstr "Количество записей"
 msgid "Tag name"
 msgstr "Название тега"
 
-msgid "All tags"
-msgstr "Все теги"
-
 msgid "Link to all tags:"
 msgstr "Ссылка на все теги"
 
@@ -1181,11 +1347,23 @@ msgstr "Тег был успешно переименован"
 msgid "Back to tags list"
 msgstr "Вернуться к списку тегов"
 
-msgid "Rename this tag:"
-msgstr "Переименовать этот тег:"
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "Добавить файлы на страницу"
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "Редактировать тег"
+
+msgid "Rename"
+msgstr ""
+
+#, fuzzy
+msgid "Delete this tag:"
 msgstr "Удалить этот тег"
+
+msgid "List of entries with this tag"
+msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr "Тег успешно удален"
@@ -1323,12 +1501,6 @@ msgstr "Последние комментарии"
 msgid "Comments limit:"
 msgstr "Максимальное количество комментариев:"
 
-msgid "Home"
-msgstr "Домой"
-
-msgid "Archives"
-msgstr "Архивы"
-
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Лента новостей %s записей блога"
@@ -1349,6 +1521,10 @@ msgstr "навигация"
 msgid "extra"
 msgstr "экстра"
 
+#, fuzzy
+msgid "custom"
+msgstr "Настроить..."
+
 msgid "Widgets"
 msgstr "Виджеты"
 
@@ -1361,7 +1537,8 @@ msgstr "Доступные виджеты"
 msgid "Append to:"
 msgstr "Добавить к:"
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "добавить виджеты в сайдбар"
 
 msgid "Navigation sidebar"
@@ -1370,11 +1547,28 @@ msgstr "Сайдбар для навигации"
 msgid "Extra sidebar"
 msgstr "Экстра сайдбар"
 
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "Переустановить сайдбары"
+
 msgid "Update sidebars"
 msgstr "Обновить сайдбары"
 
 msgid "Reset sidebars"
 msgstr "Переустановить сайдбары"
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "Нет виджета."
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr ""
 
 msgid "Widget templates tags"
 msgstr "Теги шаблонов виджетов"
@@ -1415,14 +1609,32 @@ msgstr "порядок"
 msgid "Remove widget"
 msgstr "Удалить виджет"
 
-#~ msgid "Blogroll"
-#~ msgstr "Ссылки"
+#~ msgid "List"
+#~ msgstr "Список"
+
+#~ msgid "Return to filters"
+#~ msgstr "Вернуться к фильтрам"
+
+#~ msgid "import"
+#~ msgstr "импортировать"
+
+#~ msgid "Preview"
+#~ msgstr "Предпросмотр"
+
+#~ msgid "Send"
+#~ msgstr "Отправить"
+
+#~ msgid "View page"
+#~ msgstr "Просмотреть страницу"
+
+#~ msgid "Preview page"
+#~ msgstr "Предпросмотр страницы"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "Переименовать этот тег:"
 
 #~ msgid "Save order"
 #~ msgstr "Сохранить порядок"
-
-#~ msgid "Pages"
-#~ msgstr "Страницы"
 
 #~ msgid "External media"
 #~ msgstr "Внешние медиа"
@@ -1468,6 +1680,3 @@ msgstr "Удалить виджет"
 
 #~ msgid "more"
 #~ msgstr "больше"
-
-#~ msgid "Categories list"
-#~ msgstr "Список категорий"

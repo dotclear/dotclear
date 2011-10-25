@@ -7,13 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-13 20:47+0200\n"
+"POT-Creation-Date: 2011-10-25 10:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: plugins/aboutConfig/index.php:78 plugins/userPref/index.php:74
@@ -42,6 +42,7 @@ msgstr ""
 
 #: plugins/aboutConfig/index.php:141 plugins/antispam/index.php:176
 #: plugins/blogroll/index.php:247 plugins/blogroll/index.php:372
+#: plugins/simpleMenu/index.php:159 plugins/simpleMenu/index.php:527
 #: plugins/userPref/index.php:137
 msgid "Description"
 msgstr ""
@@ -345,6 +346,22 @@ msgstr ""
 msgid "Published comments RSS feed"
 msgstr ""
 
+#: plugins/attachments/_admin.php:26 plugins/pages/page.php:452
+msgid "Attachments"
+msgstr ""
+
+#: plugins/attachments/_admin.php:46 plugins/pages/page.php:472
+msgid "remove"
+msgstr ""
+
+#: plugins/attachments/_admin.php:55 plugins/pages/page.php:481
+msgid "No attachment."
+msgstr ""
+
+#: plugins/attachments/_admin.php:58
+msgid "Add files to this entry"
+msgstr ""
+
 #: plugins/blogroll/_admin.php:18 plugins/blogroll/_admin.php:27
 #: plugins/blogroll/_widgets.php:21 plugins/blogroll/index.php:165
 #: plugins/blogroll/index.php:217 plugins/blogroll/index.php:241
@@ -364,7 +381,7 @@ msgid "All categories"
 msgstr ""
 
 #: plugins/blogroll/_widgets.php:36 plugins/pages/_widgets.php:23
-#: plugins/widgets/_default_widgets.php:29
+#: plugins/simpleMenu/_widgets.php:22 plugins/widgets/_default_widgets.php:29
 #: plugins/widgets/_default_widgets.php:33
 #: plugins/widgets/_default_widgets.php:42
 #: plugins/widgets/_default_widgets.php:48
@@ -549,7 +566,7 @@ msgstr ""
 msgid "links have been successfully imported."
 msgstr ""
 
-#: plugins/blogroll/index.php:248
+#: plugins/blogroll/index.php:248 plugins/simpleMenu/index.php:528
 msgid "URL"
 msgstr ""
 
@@ -1452,18 +1469,6 @@ msgstr ""
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr ""
 
-#: plugins/pages/page.php:452
-msgid "Attachments"
-msgstr ""
-
-#: plugins/pages/page.php:472
-msgid "remove"
-msgstr ""
-
-#: plugins/pages/page.php:481
-msgid "No attachment."
-msgstr ""
-
 #: plugins/pages/page.php:483
 msgid "Add files to this page"
 msgstr ""
@@ -1508,12 +1513,182 @@ msgstr ""
 msgid "Pings:"
 msgstr ""
 
-#: plugins/tags/_admin.php:14 plugins/tags/_admin.php:160
-#: plugins/tags/_admin.php:163 plugins/tags/_admin.php:311
-#: plugins/tags/_widgets.php:21 plugins/tags/_widgets.php:22
-#: plugins/tags/tag_posts.php:95 plugins/tags/tags.php:17
-#: plugins/tags/tags.php:23
+#: plugins/simpleMenu/_admin.php:18 plugins/simpleMenu/_admin.php:27
+#: plugins/simpleMenu/_widgets.php:20 plugins/simpleMenu/index.php:16
+msgid "Simple menu"
+msgstr ""
+
+#: plugins/simpleMenu/_widgets.php:21
+msgid "Menu"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:58
+msgid "All months"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:82 plugins/simpleMenu/index.php:199
+#: plugins/tags/_widgets.php:30
+msgid "All tags"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:91 plugins/simpleMenu/index.php:163
+#: plugins/widgets/_widgets_functions.php:46
+msgid "Home"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:100
+msgid "Archive"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:104
+msgid "Page"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:108 plugins/tags/_admin.php:14
+#: plugins/tags/_admin.php:160 plugins/tags/_admin.php:163
+#: plugins/tags/_admin.php:311 plugins/tags/_widgets.php:21
+#: plugins/tags/_widgets.php:22 plugins/tags/tag_posts.php:95
+#: plugins/tags/tags.php:17 plugins/tags/tags.php:23
 msgid "Tags"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:115
+msgid "User defined"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:158 plugins/simpleMenu/index.php:526
+msgid "Label"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:164
+msgid "Recent posts"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:169
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:175
+msgid "Recent Posts from this category"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:181 plugins/widgets/_widgets_functions.php:53
+msgid "Archives"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:186
+#, php-format
+msgid "Posts from %s"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:204
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:237
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#: plugins/simpleMenu/index.php:272
+msgid "No menu items selected."
+msgstr ""
+
+#: plugins/simpleMenu/index.php:285
+msgid "Label is mandatory."
+msgstr ""
+
+#: plugins/simpleMenu/index.php:288
+msgid "URL is mandatory."
+msgstr ""
+
+#: plugins/simpleMenu/index.php:417
+msgid "Menu item has been successfully added."
+msgstr ""
+
+#: plugins/simpleMenu/index.php:420
+msgid "Menu items have been successfully removed."
+msgstr ""
+
+#: plugins/simpleMenu/index.php:423 plugins/simpleMenu/index.php:426
+msgid "Menu items have been successfully updated."
+msgstr ""
+
+#: plugins/simpleMenu/index.php:432
+msgid "Add item"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:438
+msgid "Select type"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:439
+msgid "Type of item menu:"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:440 plugins/simpleMenu/index.php:477
+msgid "Continue…"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:451
+msgid "Select language:"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:455
+msgid "Select category:"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:459
+msgid "Select month (if necessary):"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:463
+msgid "Select page:"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:467
+msgid "Select tag (if necessary):"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:487
+msgid "Label of item menu:"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:489
+msgid "Description of item menu:"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:491
+msgid "URL of item menu:"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:493
+msgid "Add this item"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:507
+msgid "Add an item"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:518
+msgid "Menu items list"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:555
+msgid "Update menu"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:557
+msgid "Delete selected menu items"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:558
+msgid "Are you sure you want to remove selected menu items?"
+msgstr ""
+
+#: plugins/simpleMenu/index.php:565
+msgid "Currently no menu items"
 msgstr ""
 
 #: plugins/tags/_admin.php:83
@@ -1619,10 +1794,6 @@ msgstr ""
 
 #: plugins/tags/_widgets.php:25
 msgid "Tag name"
-msgstr ""
-
-#: plugins/tags/_widgets.php:30
-msgid "All tags"
 msgstr ""
 
 #: plugins/tags/_widgets.php:30
@@ -1840,14 +2011,6 @@ msgstr ""
 
 #: plugins/widgets/_default_widgets.php:73
 msgid "Comments limit:"
-msgstr ""
-
-#: plugins/widgets/_widgets_functions.php:46
-msgid "Home"
-msgstr ""
-
-#: plugins/widgets/_widgets_functions.php:53
-msgid "Archives"
 msgstr ""
 
 #: plugins/widgets/_widgets_functions.php:195

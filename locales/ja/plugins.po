@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-13 20:09+0200\n"
+"POT-Creation-Date: 2011-10-25 10:34+0200\n"
 "PO-Revision-Date: 2008-11-24 00:00+0900\n"
 "Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
 "Language-Team: Dotclear Japan\n"
@@ -264,6 +264,19 @@ msgstr "ジャンクコメントのRSSフィード"
 
 msgid "Published comments RSS feed"
 msgstr "掲載済みコメントのRSSフィード"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "このページへファイルを追加"
 
 msgid "Blogroll"
 msgstr "ブログロール"
@@ -1073,15 +1086,6 @@ msgstr "ページのパスワード："
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "警告： URLを手作業で設定した場合、別のページと衝突する可能性があります。"
 
-msgid "Attachments"
-msgstr ""
-
-msgid "remove"
-msgstr ""
-
-msgid "No attachment."
-msgstr ""
-
 msgid "Add files to this page"
 msgstr "このページへファイルを追加"
 
@@ -1115,8 +1119,151 @@ msgstr ""
 msgid "Pings:"
 msgstr "Ping："
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "すべてのタグ"
+
+msgid "All tags"
+msgstr "すべてのタグ"
+
+msgid "Home"
+msgstr "ホーム"
+
+#, fuzzy
+msgid "Archive"
+msgstr "アーカイブ"
+
+#, fuzzy
+msgid "Page"
+msgstr "ページ"
+
 msgid "Tags"
 msgstr "タグ"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "アーカイブ"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "リストから選択"
+
+#, fuzzy, php-format
+msgid "Recent posts for %s tag"
+msgstr "このページへファイルを追加"
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "フィードにアイテムがありません。"
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "ワードは正常に追加されました。"
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "アイテムは正常に削除されました。"
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "設定は正常に更新されました。"
+
+#, fuzzy
+msgid "Add item"
+msgstr "タグの追加"
+
+#, fuzzy
+msgid "Select type"
+msgstr "このタグを削除"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "ブログの言語"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "カテゴリの編集"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "このタグを削除"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "説明"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "新しいリンクを追加"
+
+msgid "Menu items list"
+msgstr ""
+
+#, fuzzy
+msgid "Update menu"
+msgstr "サイドバーを更新"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "選択されたリンクを削除"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "本当に、選択されたリンクを削除してもよろしいですか？"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "タグ："
@@ -1198,9 +1345,6 @@ msgstr "エントリ数"
 
 msgid "Tag name"
 msgstr "タグ名"
-
-msgid "All tags"
-msgstr "すべてのタグ"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -1367,12 +1511,6 @@ msgstr "最終コメント"
 
 msgid "Comments limit:"
 msgstr "コメントの制限："
-
-msgid "Home"
-msgstr "ホーム"
-
-msgid "Archives"
-msgstr "アーカイブ"
 
 #, php-format
 msgid "This blog's entries %s feed"

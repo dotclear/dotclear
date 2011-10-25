@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-25 10:46+0200\n"
 "PO-Revision-Date: 2010-01-16 19:14+0800\n"
 "Last-Translator: lainme <lainme993@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,9 @@ msgstr ""
 
 msgid "no"
 msgstr "否"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "成功更新配置"
@@ -34,6 +37,12 @@ msgstr "值"
 
 msgid "Description"
 msgstr "描述"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr "全局设置"
@@ -85,7 +94,8 @@ msgstr "黑名单"
 msgid "Whitelist"
 msgstr "白名单"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "添加一个 IP 地址"
 
 msgid "Global IP"
@@ -132,7 +142,8 @@ msgstr "成功添加关键字。"
 msgid "Words have been successfully removed."
 msgstr "成功移除关键字。"
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "添加一个关键字"
 
 msgid "Global word"
@@ -141,8 +152,8 @@ msgstr "全局关键字"
 msgid "No word in list."
 msgstr "列表中没有关键字"
 
-msgid "List"
-msgstr "列表"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "删除选择的关键字"
@@ -190,9 +201,6 @@ msgstr "过滤器不存在。"
 msgid "Filter has no user interface."
 msgstr "过滤器没有用户界面。"
 
-msgid "Return to filters"
-msgstr "返回到过滤器"
-
 #, php-format
 msgid "%s configuration"
 msgstr "%s 配置"
@@ -216,11 +224,18 @@ msgstr "删除所有垃圾评论"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "所有早于 %s 天的垃圾评论都会被自动删除。"
 
-msgid "Available spam filters"
-msgstr "可用的垃圾评论过滤器"
+msgid "You can modify this duration in "
+msgstr ""
+
+#, fuzzy
+msgid "Blog preferences"
+msgstr "全局设置"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "成功保存过滤器配置。"
+
+msgid "Available spam filters"
+msgstr "可用的垃圾评论过滤器"
 
 msgid "Order"
 msgstr "顺序"
@@ -249,6 +264,22 @@ msgstr "垃圾评论 RSS feed"
 
 msgid "Published comments RSS feed"
 msgstr "发表的评论 RSS feed"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "向此页面添加文件"
+
+msgid "Blogroll"
+msgstr "博客链接"
 
 msgid "manage blogroll"
 msgstr "管理博客链接"
@@ -422,7 +453,7 @@ msgstr "导入链接"
 msgid "OPML or XBEL File:"
 msgstr "OPML 或者 XBEL 文件："
 
-msgid "import"
+msgid "Import"
 msgstr "导入"
 
 msgid "Light linear gradient"
@@ -537,9 +568,6 @@ msgstr "添加您的图片："
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "JPEG 或者 PNG 文件，800 像素宽，最大大小 %s"
 
-msgid "Preview"
-msgstr "预览"
-
 msgid "Sidebar"
 msgstr "侧边栏"
 
@@ -632,6 +660,9 @@ msgstr "足部链接颜色："
 
 msgid "Footer background color:"
 msgstr "足部背景颜色："
+
+msgid "Additional CSS"
+msgstr ""
 
 msgid "Configuration import / export"
 msgstr "配置导入／导出"
@@ -799,9 +830,6 @@ msgstr "这将会把一个 feed (RSS 或者 Atom)做为一个新内容导入当�
 msgid "Feed URL:"
 msgstr "Feed URL："
 
-msgid "Send"
-msgstr "发送"
-
 msgid "Flat file import"
 msgstr "纯文本导入"
 
@@ -897,9 +925,6 @@ msgstr ""
 msgid "Please wait..."
 msgstr "请稍等..."
 
-msgid "Import"
-msgstr "导入"
-
 msgid "Maintenance"
 msgstr "维护"
 
@@ -973,8 +998,8 @@ msgstr "清空模板缓存目录"
 msgid "Empty directory"
 msgstr "清空目录"
 
-msgid "New page"
-msgstr "新页面"
+msgid "Pages"
+msgstr "页面"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1015,6 +1040,9 @@ msgstr "删除此标签"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "您确定要删除选定的页面吗？"
 
+msgid "New page"
+msgstr "新页面"
+
 msgid "Selected pages action:"
 msgstr "选定的页面动作："
 
@@ -1039,11 +1067,8 @@ msgstr "成功更新页面。"
 msgid "Page has been successfully created."
 msgstr "成功创建页面。"
 
-msgid "View page"
-msgstr "查看页面"
-
-msgid "Preview page"
-msgstr "预览页面"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "页面状态："
@@ -1093,8 +1118,151 @@ msgstr ""
 msgid "Pings:"
 msgstr "Pings："
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "所有标签"
+
+msgid "All tags"
+msgstr "所有标签"
+
+msgid "Home"
+msgstr "主页"
+
+#, fuzzy
+msgid "Archive"
+msgstr "归档"
+
+#, fuzzy
+msgid "Page"
+msgstr "页面"
+
 msgid "Tags"
 msgstr "标签"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "归档"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "从列表中选择"
+
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "feed 中没有条目。"
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "成功添加关键字。"
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "成功删除项目。"
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "成功更新设置。"
+
+#, fuzzy
+msgid "Add item"
+msgstr "添加标签"
+
+#, fuzzy
+msgid "Select type"
+msgstr "删除此标签"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "博客语言"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "编辑分类目录"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "删除此标签"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "描述"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "添加一个新链接"
+
+msgid "Menu items list"
+msgstr ""
+
+#, fuzzy
+msgid "Update menu"
+msgstr "更新侧边栏"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "删除选定的链接"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "您确定您要删除选定的链接吗？"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "标签："
@@ -1175,9 +1343,6 @@ msgstr "文章计数"
 msgid "Tag name"
 msgstr "标签名称"
 
-msgid "All tags"
-msgstr "所有标签"
-
 msgid "Link to all tags:"
 msgstr ""
 
@@ -1190,11 +1355,23 @@ msgstr "成功重命名标签"
 msgid "Back to tags list"
 msgstr "返回到标签列表"
 
-msgid "Rename this tag:"
-msgstr "重命名此标签："
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "向此页面添加文件"
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "编辑标签"
+
+msgid "Rename"
+msgstr ""
+
+#, fuzzy
+msgid "Delete this tag:"
 msgstr "删除此标签"
+
+msgid "List of entries with this tag"
+msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr "成功移除标签"
@@ -1332,12 +1509,6 @@ msgstr "最新评论"
 msgid "Comments limit:"
 msgstr "评论限制："
 
-msgid "Home"
-msgstr "主页"
-
-msgid "Archives"
-msgstr "归档"
-
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "此博客的文章 %d feed"
@@ -1358,6 +1529,10 @@ msgstr "导航"
 msgid "extra"
 msgstr "额外"
 
+#, fuzzy
+msgid "custom"
+msgstr "定制..."
+
 msgid "Widgets"
 msgstr "小工具"
 
@@ -1370,7 +1545,8 @@ msgstr "可用的小工具"
 msgid "Append to:"
 msgstr "追加到："
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "添加小工具和侧边栏"
 
 msgid "Navigation sidebar"
@@ -1379,11 +1555,28 @@ msgstr "导航侧边栏"
 msgid "Extra sidebar"
 msgstr "额外的侧边栏"
 
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "重置侧边栏"
+
 msgid "Update sidebars"
 msgstr "更新侧边栏"
 
 msgid "Reset sidebars"
 msgstr "重置侧边栏"
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "没有小工具。"
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr ""
 
 msgid "Widget templates tags"
 msgstr "小工具模板标签"
@@ -1424,8 +1617,29 @@ msgstr "顺序"
 msgid "Remove widget"
 msgstr "移除小工具"
 
-#~ msgid "Blogroll"
-#~ msgstr "博客链接"
+#~ msgid "List"
+#~ msgstr "列表"
+
+#~ msgid "Return to filters"
+#~ msgstr "返回到过滤器"
+
+#~ msgid "import"
+#~ msgstr "导入"
+
+#~ msgid "Preview"
+#~ msgstr "预览"
+
+#~ msgid "Send"
+#~ msgstr "发送"
+
+#~ msgid "View page"
+#~ msgstr "查看页面"
+
+#~ msgid "Preview page"
+#~ msgstr "预览页面"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "重命名此标签："
 
 #~ msgid "Save order"
 #~ msgstr "保存顺序"
@@ -1450,9 +1664,6 @@ msgstr "移除小工具"
 
 #~ msgid "Media title"
 #~ msgstr "媒体标题"
-
-#~ msgid "Pages"
-#~ msgstr "页面"
 
 #~ msgid "Unsupported service"
 #~ msgstr "不支持的服务"

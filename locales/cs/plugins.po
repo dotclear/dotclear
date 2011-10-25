@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-13 20:42+0200\n"
+"POT-Creation-Date: 2011-10-25 10:32+0200\n"
 "PO-Revision-Date: 2010-06-02 01:31+0100\n"
 "Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -263,6 +263,19 @@ msgstr "Podezřelé komentáře - RSS zdroj"
 
 msgid "Published comments RSS feed"
 msgstr "Publikované komentáře - RSS zdroj"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "Přidat soubory do této stránky"
 
 msgid "Blogroll"
 msgstr "Odkazy"
@@ -1066,15 +1079,6 @@ msgstr "Heslo stránky:"
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Varování: Pokud nastavít url manuálně, může dojít ke konfliktu s jinou stránkou."
 
-msgid "Attachments"
-msgstr ""
-
-msgid "remove"
-msgstr ""
-
-msgid "No attachment."
-msgstr ""
-
 msgid "Add files to this page"
 msgstr "Přidat soubory do této stránky"
 
@@ -1108,8 +1112,151 @@ msgstr "Zkontroluj vše"
 msgid "Pings:"
 msgstr "Pingy:"
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "Všechny štítky"
+
+msgid "All tags"
+msgstr "Všechny štítky"
+
+msgid "Home"
+msgstr "Úvod"
+
+#, fuzzy
+msgid "Archive"
+msgstr "Archívy"
+
+#, fuzzy
+msgid "Page"
+msgstr "Stránky"
+
 msgid "Tags"
 msgstr "Štítky"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archívy"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "Vybrat ze seznamu"
+
+#, fuzzy, php-format
+msgid "Recent posts for %s tag"
+msgstr "Přidat soubory do této stránky"
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "Žádné články v RSS zdroji."
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "Slovo bylo úspěšně přidáno."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "Položky byly úspěšně odstraněny."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "Nastavení bylo úspěšně upraveno."
+
+#, fuzzy
+msgid "Add item"
+msgstr "Přidat štítek"
+
+#, fuzzy
+msgid "Select type"
+msgstr "Smazat tento štítek"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "Jazyky blogu"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "Upravit kategorii"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "Smazat tento štítek"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "Popis"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "Přidat nový odkaz"
+
+msgid "Menu items list"
+msgstr ""
+
+#, fuzzy
+msgid "Update menu"
+msgstr "aktualizovat panely"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "Smazat vybrané odkazy"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Jste si jisti, že chcete smazat vybrané odkazy?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "Štítky:"
@@ -1187,9 +1334,6 @@ msgstr "Počet článků"
 
 msgid "Tag name"
 msgstr "Jméno štítku"
-
-msgid "All tags"
-msgstr "Všechny štítky"
 
 msgid "Link to all tags:"
 msgstr "Odkaz na všechny štítky:"
@@ -1356,12 +1500,6 @@ msgstr "Poslední komentáře"
 
 msgid "Comments limit:"
 msgstr "Limit komentářů:"
-
-msgid "Home"
-msgstr "Úvod"
-
-msgid "Archives"
-msgstr "Archívy"
 
 #, php-format
 msgid "This blog's entries %s feed"

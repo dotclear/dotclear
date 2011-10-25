@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-25 10:33+0200\n"
 "PO-Revision-Date: 2008-06-29 18:39+0200\n"
 "Last-Translator: Benjamin Bank <benjaminbank@gmail.com> | Murancsik Sebestyen <dr.graf@lajt.hu>\n"
 "Language-Team: Hungarian\n"
@@ -128,9 +128,6 @@ msgstr "Új blog"
 msgid "Blogs"
 msgstr "Blogok"
 
-msgid "Blog details"
-msgstr "Blog részletei"
-
 msgid "Blog ID:"
 msgstr "Blog ID:"
 
@@ -152,9 +149,8 @@ msgstr "Blog URL-je:"
 msgid "Blog description:"
 msgstr "Blog leírása:"
 
-#, fuzzy
-msgid "Save"
-msgstr "mentés"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr "Nincs ilyen azonosítójú blog"
@@ -245,6 +241,9 @@ msgstr "A blogot sikeresen frissítettem."
 
 msgid "Parameters"
 msgstr "Beállítások"
+
+msgid "Blog details"
+msgstr "Blog részletei"
 
 msgid "URL scan method:"
 msgstr "URL ellenőrzési eljárás:"
@@ -359,6 +358,10 @@ msgstr "Ez definiálja a kép tulajdonságait, amikor behelyezed a médiakezelő
 msgid "Search engines robots policy"
 msgstr "Keresőmotorok robotjainak jogai"
 
+#, fuzzy
+msgid "Save"
+msgstr "mentés"
+
 msgid "XML/RPC interface"
 msgstr "XML/RPC interfész"
 
@@ -431,10 +434,8 @@ msgstr "(\"%s\" szükséges)"
 msgid "Stylesheet"
 msgstr "Stíluslap"
 
-msgid "Theme configuration"
-msgstr "Téma beállítása"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "Blog témái"
 
 msgid "Blog appearance"
@@ -466,10 +467,12 @@ msgstr "Témák"
 msgid "You are currently using \"%s\""
 msgstr "A \"%s\"-t használod"
 
-msgid "use selected theme"
+#, fuzzy
+msgid "Use selected theme"
 msgstr "a kijelölt téma használata"
 
-msgid "delete selected theme"
+#, fuzzy
+msgid "Delete selected theme"
 msgstr "kijelölttéma törlése"
 
 msgid "Install or upgrade a theme"
@@ -498,6 +501,9 @@ msgstr "Téma letöltése"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr "A funkció használatához adj írási jogot a themes mappádnak."
+
+msgid "Theme configuration"
+msgstr "Téma beállítása"
 
 msgid "back"
 msgstr "vissza"
@@ -633,8 +639,8 @@ msgstr "Kategória törlése"
 msgid "Choose a category to remove:"
 msgstr "A bejegyzések kategóriája nem létezik"
 
-msgid "ok"
-msgstr "ok"
+msgid "Delete"
+msgstr "Törlés"
 
 msgid "Reorder categories"
 msgstr "Kategóriák átrendezése"
@@ -726,10 +732,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "E-mail küldése"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "Vissza a \"%s\"-hez"
-
 msgid "IP address:"
 msgstr "IP cím:"
 
@@ -747,9 +749,6 @@ msgstr "Állapot:"
 
 msgid "Comment:"
 msgstr "Hozzászólás:"
-
-msgid "Delete"
-msgstr "Törlés"
 
 msgid "comment"
 msgstr "megjegyzés"
@@ -777,9 +776,6 @@ msgstr "függőként megjelöl"
 
 msgid "mark as junk"
 msgstr "szemétként megjelöl"
-
-msgid "Delete"
-msgstr "törlés"
 
 msgid "Type:"
 msgstr "Típus:"
@@ -809,6 +805,9 @@ msgstr "Teendő a kiválasztott hozzászólásokkal"
 #, fuzzy
 msgid "action: "
 msgstr "Feladat"
+
+msgid "ok"
+msgstr "ok"
 
 msgid "Comments"
 msgstr "Hozzászólások"
@@ -847,7 +846,8 @@ msgstr "Ez a blog offline."
 msgid "This blog is removed"
 msgstr "A blogot eltávolították."
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+#, fuzzy
+msgid "is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL nincs definiálva, ezt neked kell beállítanod a konfigurációs fájlodban."
 
 msgid "Following plugins have been installed:"
@@ -883,7 +883,8 @@ msgstr "Tartalom:"
 msgid "Category:"
 msgstr "Kategória:"
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "mentsd és punlikáld"
 
 #, php-format
@@ -969,14 +970,6 @@ msgstr ""
 "<p>Ahhoz, hogy törölhesd, jelentkezz be és nézd meg a blog hozzászólásait. Aztán törölheted vagy átírhatod őket!</p>"
 
 #, fuzzy
-msgid "Pages"
-msgstr "Oldal"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "Blog"
-
-#, fuzzy
 msgid "Dotclear Install"
 msgstr "DotClear telepítés"
 
@@ -1014,9 +1007,6 @@ msgstr "Legutóbbi frisítés"
 #, fuzzy
 msgid "Username and password"
 msgstr "Hibás felhasználónév vagy jelszó"
-
-msgid "Save"
-msgstr "mentés"
 
 msgid "All done!"
 msgstr "Minden rendben!"
@@ -1093,6 +1083,10 @@ msgstr "Adatbázis jelszava:"
 
 msgid "Database Tables Prefix:"
 msgstr "Adatbázis tábláinak prefixuma:"
+
+#, fuzzy
+msgid "Continue"
+msgstr "Tartalom:"
 
 msgid "No such installed language"
 msgstr "Nincs ilyen telepített nyelv."
@@ -1247,6 +1241,10 @@ msgstr "Nincs fájl."
 msgid "Sort files:"
 msgstr "Fájlok rendezése:"
 
+#, fuzzy
+msgid "Sort"
+msgstr "Rendezés:"
+
 msgid "Add files"
 msgstr "Fájlok hozzáadása"
 
@@ -1266,8 +1264,8 @@ msgstr "Privát"
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-msgid "send"
-msgstr "küld"
+msgid "Send"
+msgstr ""
 
 msgid "New directory"
 msgstr "Új mappa"
@@ -1284,6 +1282,10 @@ msgstr "megnyit"
 
 msgid "Insert this file into entry"
 msgstr "Fájl beillesztése a bejegyzésbe"
+
+#, fuzzy
+msgid "delete"
+msgstr "Törlés"
 
 msgid "Not a valid file"
 msgstr "Nem érvényes fájl"
@@ -1351,9 +1353,6 @@ msgstr "Videó beosztása"
 msgid "Media item will be inserted as a link."
 msgstr "A médiaelem linkként lesz beszúrva."
 
-msgid "Cancel"
-msgstr "Mégse"
-
 msgid "Insert"
 msgstr "Beszúr"
 
@@ -1396,9 +1395,6 @@ msgstr "Kisképek frissítése"
 msgid "This will create or update thumbnails for this image."
 msgstr "A gomb megnyomásával újraépül a kép előnézeti képe."
 
-msgid "update thumbnails"
-msgstr "kiskép frissítése"
-
 msgid "Extract in a new directory"
 msgstr "Kicsomagolás új mappába"
 
@@ -1418,7 +1414,8 @@ msgstr "A gomb megnyomásával ki lesznek a fájlok csomagolva a jelenlegi mapp�
 msgid "Extract mode:"
 msgstr "Kicsomagolás módja:"
 
-msgid "extract"
+#, fuzzy
+msgid "Extract"
 msgstr "kicsomagol"
 
 msgid "Change media properties"
@@ -1454,6 +1451,10 @@ msgstr "A jogokat frissítettem."
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "A(z) %s felhasználó jogait fogod módosítani...."
+
+#, fuzzy
+msgid "Validate permissions"
+msgstr "jogok beállítása"
 
 msgid "choose a blog"
 msgstr "válassz blogot"
@@ -1583,14 +1584,18 @@ msgstr "Fájltípus:"
 msgid "Link language:"
 msgstr "Hivatkozás nyelve:"
 
-msgid "insert"
-msgstr "beilleszt"
-
 msgid "Add a link to an entry"
 msgstr "Hivatkozás beillesztése a bejegyzésbe"
 
 msgid "Search entry:"
 msgstr "Bejegyzés keresése:"
+
+msgid "Search"
+msgstr "Keresés"
+
+#, fuzzy
+msgid "cancel"
+msgstr "vissza"
 
 msgid "This entry does not exist."
 msgstr "Ez a bejegyzés nem létezik."
@@ -1622,12 +1627,20 @@ msgstr "A megjegyzés létrejött."
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Ne fejeltsd el érvényesíteni az XHTML átalakítást azzal, hogy mentesz!"
 
-#, fuzzy
-msgid "View entry"
-msgstr "Új bejegyzés"
+msgid "Go to this entry on the site"
+msgstr ""
+
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr "Bevezető:"
+
+msgid "Notes:"
+msgstr "Megjegyzések:"
 
 #, fuzzy
-msgid "Preview entry"
+msgid "Preview"
 msgstr "Új bejegyzés"
 
 msgid "Entry status:"
@@ -1656,24 +1669,6 @@ msgstr "Alapnév:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Figyelem: ha az URL-t magad szerkeszted, akkor ütközhet más bejegyzésekével."
-
-msgid "Attachments"
-msgstr "Mellékletek"
-
-msgid "remove"
-msgstr "eltávolítás"
-
-msgid "No attachment."
-msgstr "Nincs melléklet."
-
-msgid "Add files to this entry"
-msgstr "Fájl hozzáadása"
-
-msgid "Excerpt:"
-msgstr "Bevezető:"
-
-msgid "Notes:"
-msgstr "Megjegyzések:"
 
 msgid "Ping blogs"
 msgstr "Bejegyzések pingelése"
@@ -1803,8 +1798,15 @@ msgstr "A szerző megváltoztatása"
 msgid "Author ID:"
 msgstr "Szerző ID:"
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akkor add meg a régi jelszavadat!"
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "nem kiválasztott"
 
 msgid "Personal information has been successfully updated."
 msgstr "A személyes információk frissültek!"
@@ -1842,6 +1844,10 @@ msgid "User timezone:"
 msgstr "Időzóna:"
 
 #, fuzzy
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akkor add meg a régi jelszavadat!"
+
+#, fuzzy
 msgid "My options"
 msgstr "Keresési feltételek"
 
@@ -1860,6 +1866,9 @@ msgstr "WYSIWYG mód"
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "Bővített fájlfeltöltő aktiválása"
+
+msgid "Iconset:"
+msgstr ""
 
 msgid "Do not use standard favicon"
 msgstr ""
@@ -1932,19 +1941,18 @@ msgstr "Elérhető méretek:"
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr "Keresés"
-
 msgid "Search options"
 msgstr "Keresési feltételek"
 
 msgid "Query:"
 msgstr "Lekérés:"
 
-msgid "search entries"
+#, fuzzy
+msgid "Search entries"
 msgstr "bejegyzések keresése"
 
-msgid "search comments"
+#, fuzzy
+msgid "Search comments"
 msgstr "megjegyzések keresése"
 
 msgid "schedule"
@@ -1977,6 +1985,10 @@ msgstr "Ez a bejegyzés nem létezik vagy nem publikálták"
 
 msgid "All pings sent."
 msgstr "Minden ping el lett küldve."
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "Vissza a \"%s\"-hez"
 
 msgid "Auto discover ping URLs"
 msgstr "Automata felfedezés az URL pingeléshez"
@@ -2071,7 +2083,13 @@ msgstr "Figyelem:"
 msgid "If you change your username, you will have to log in again."
 msgstr "Ha megváltoztatod a loginodat, ismét be kell jelentkezned."
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 msgid "Password change required to connect"
+msgstr ""
+
+msgid "Save and create another"
 msgstr ""
 
 msgid "No permissions."
@@ -2097,9 +2115,6 @@ msgstr "Név"
 
 msgid "Number of entries"
 msgstr "Bejegyzések száma"
-
-msgid "Set permissions"
-msgstr "Jogok beállítása"
 
 msgid "users"
 msgstr "felhasználó"
@@ -2128,13 +2143,12 @@ msgstr "Blog:"
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
-msgstr ""
+#, fuzzy
+msgid "My dashboard"
+msgstr "Beállítópanel"
 
-msgid "User:"
-msgstr "Felhasználó"
-
-msgid "Logout"
+#, fuzzy, php-format
+msgid "Logout %s"
 msgstr "Kijelentkezés"
 
 msgid "Safe mode"
@@ -2436,10 +2450,6 @@ msgstr "Adatbázis típusa:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-#, fuzzy
-msgid "Languages"
-msgstr "Nyelv?"
-
 msgid "System"
 msgstr "Rendszer"
 
@@ -2448,6 +2458,10 @@ msgstr "Blog"
 
 msgid "Updates"
 msgstr "Frissítések"
+
+#, fuzzy
+msgid "Languages"
+msgstr "Nyelv?"
 
 msgid "administrator"
 msgstr "adminisztrátor"
@@ -2796,6 +2810,30 @@ msgstr "Nem tudok a lemezre írni."
 msgid "%s is not a directory."
 msgstr "a(z) %s nem mappa."
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Hibás nyelvkód"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Hibás nyelvkód"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Érvénytelen digest fájl."
+
 msgid "Uploading this file is not allowed."
 msgstr "Nem engedélyezett feltölteni ezt a fájlt."
 
@@ -2874,6 +2912,42 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "Oldal"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "Blog"
+
+#~ msgid "send"
+#~ msgstr "küld"
+
+#~ msgid "update thumbnails"
+#~ msgstr "kiskép frissítése"
+
+#~ msgid "insert"
+#~ msgstr "beilleszt"
+
+#, fuzzy
+#~ msgid "View entry"
+#~ msgstr "Új bejegyzés"
+
+#~ msgid "Attachments"
+#~ msgstr "Mellékletek"
+
+#~ msgid "remove"
+#~ msgstr "eltávolítás"
+
+#~ msgid "No attachment."
+#~ msgstr "Nincs melléklet."
+
+#~ msgid "Add files to this entry"
+#~ msgstr "Fájl hozzáadása"
+
+#~ msgid "User:"
+#~ msgstr "Felhasználó"
 
 #~ msgid "login"
 #~ msgstr "bejelentkezés"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-25 10:34+0200\n"
 "PO-Revision-Date: 2010-08-18 17:30+0100\n"
 "Last-Translator: Luca Andrea Rossi <rossilucaandrea@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,9 +123,6 @@ msgstr "Nuovo blog"
 msgid "Blogs"
 msgstr "Blog"
 
-msgid "Blog details"
-msgstr "Dettagli del blog"
-
 msgid "Blog ID:"
 msgstr "ID Blog:"
 
@@ -147,8 +144,8 @@ msgstr "URL del blog:"
 msgid "Blog description:"
 msgstr "Descrizione del blog:"
 
-msgid "Save"
-msgstr "Salva"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr "Non è stato trovato un blog con tale ID"
@@ -238,6 +235,9 @@ msgstr "Il blog è stato aggiornato correttamente."
 
 msgid "Parameters"
 msgstr "Parametri"
+
+msgid "Blog details"
+msgstr "Dettagli del blog"
 
 msgid "URL scan method:"
 msgstr "Metodo scansione URL:"
@@ -352,6 +352,9 @@ msgstr "Ciò definisce il contenuto del tag \"title\" quando si inserisce l'imma
 msgid "Search engines robots policy"
 msgstr "Comportamento per i robot di scansione dei motori di ricerca"
 
+msgid "Save"
+msgstr "Salva"
+
 msgid "XML/RPC interface"
 msgstr "Interfaccia XML/RPC"
 
@@ -422,10 +425,8 @@ msgstr "(richiede \"%s\")"
 msgid "Stylesheet"
 msgstr "Foglio di stile"
 
-msgid "Theme configuration"
-msgstr "Configurazione del tema"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "Temi del blog"
 
 msgid "Blog appearance"
@@ -457,10 +458,12 @@ msgstr "Temi"
 msgid "You are currently using \"%s\""
 msgstr "Attualmente è in uso \"%s\""
 
-msgid "use selected theme"
+#, fuzzy
+msgid "Use selected theme"
 msgstr "utilizzare il tema selezionato"
 
-msgid "delete selected theme"
+#, fuzzy
+msgid "Delete selected theme"
 msgstr "eliminare il tema selezionato"
 
 msgid "Install or upgrade a theme"
@@ -489,6 +492,9 @@ msgstr "Scarica tema"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr "Per abilitare questa funzione è necessario attivare i permessi di scrittura sulla cartella dei temi."
+
+msgid "Theme configuration"
+msgstr "Configurazione del tema"
 
 msgid "back"
 msgstr "precedente"
@@ -615,8 +621,8 @@ msgstr "Rimuovi categoria"
 msgid "Choose a category to remove:"
 msgstr "Selezionare una categoria da eliminare:"
 
-msgid "ok"
-msgstr "ok"
+msgid "Delete"
+msgstr "Elimina"
 
 msgid "Reorder categories"
 msgstr "Riordina categorie"
@@ -702,10 +708,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "Invia un'email"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "Ritorna a \"%s\""
-
 msgid "IP address:"
 msgstr "Indirizzo IP:"
 
@@ -723,9 +725,6 @@ msgstr "Stato:"
 
 msgid "Comment:"
 msgstr "Commento:"
-
-msgid "Delete"
-msgstr "Elimina"
 
 msgid "comment"
 msgstr "commento"
@@ -753,9 +752,6 @@ msgstr "segna come in moderazione"
 
 msgid "mark as junk"
 msgstr "segna come spam"
-
-msgid "Delete"
-msgstr "elimina"
 
 msgid "Type:"
 msgstr "Tipo:"
@@ -785,6 +781,9 @@ msgstr "Azione per i commenti selezionati:"
 #, fuzzy
 msgid "action: "
 msgstr "Azione"
+
+msgid "ok"
+msgstr "ok"
 
 msgid "Comments"
 msgstr "Commenti"
@@ -823,7 +822,8 @@ msgstr "Questo blog è invisibile."
 msgid "This blog is removed"
 msgstr "Questo blog è stato eliminato."
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+#, fuzzy
+msgid "is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL non è definito, è necessario modificare il file di configurazione."
 
 msgid "Following plugins have been installed:"
@@ -857,7 +857,8 @@ msgstr "Contenuto:"
 msgid "Category:"
 msgstr "Categoria:"
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "salva e pubblica"
 
 #, php-format
@@ -943,14 +944,6 @@ msgstr ""
 "<p>Questo è un commento.</p>\n"
 "<p>Per eliminarlo, effettuare l'accesso e visualizzare i commenti del blog. È possibile rimuoverlo o modificarlo.</p>"
 
-#, fuzzy
-msgid "Pages"
-msgstr "Pagina/e"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "Blog"
-
 msgid "Dotclear Install"
 msgstr "Installazione di Dotclear"
 
@@ -984,9 +977,6 @@ msgstr "Cognome:"
 
 msgid "Username and password"
 msgstr "Nome utente e password"
-
-msgid "Save"
-msgstr "salva"
 
 msgid "All done!"
 msgstr "Fatto!"
@@ -1061,6 +1051,10 @@ msgstr "Password database:"
 
 msgid "Database Tables Prefix:"
 msgstr "Prefisso tabelle database:"
+
+#, fuzzy
+msgid "Continue"
+msgstr "Contenuto:"
 
 msgid "No such installed language"
 msgstr "La lingua selezionata non è installata"
@@ -1209,6 +1203,10 @@ msgstr "Nessun file."
 msgid "Sort files:"
 msgstr "Ordina i file:"
 
+#, fuzzy
+msgid "Sort"
+msgstr "Ordina:"
+
 msgid "Add files"
 msgstr "Aggiungi file"
 
@@ -1228,8 +1226,8 @@ msgstr "Privato"
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-msgid "send"
-msgstr "inviare"
+msgid "Send"
+msgstr ""
 
 msgid "New directory"
 msgstr "Nuova cartella"
@@ -1245,6 +1243,10 @@ msgstr "apri"
 
 msgid "Insert this file into entry"
 msgstr "Inserisci questo file nell'articolo"
+
+#, fuzzy
+msgid "delete"
+msgstr "Elimina"
 
 msgid "Not a valid file"
 msgstr "File non valido"
@@ -1312,9 +1314,6 @@ msgstr "Allineamento video"
 msgid "Media item will be inserted as a link."
 msgstr "Il contenuto media sarà inserito come link."
 
-msgid "Cancel"
-msgstr "Annulla"
-
 msgid "Insert"
 msgstr "Inserisci"
 
@@ -1357,9 +1356,6 @@ msgstr "Aggiorna anteprime"
 msgid "This will create or update thumbnails for this image."
 msgstr "Ciò creerà o aggiornerà le anteprime per questa immagine."
 
-msgid "update thumbnails"
-msgstr "aggiorna le anteprime"
-
 msgid "Extract in a new directory"
 msgstr "Estrai in una nuova cartella"
 
@@ -1378,7 +1374,8 @@ msgstr "Ciò estrarrà l'archivio in una cartella esistente e sovrascriverà ogn
 msgid "Extract mode:"
 msgstr "Modalità estrazione:"
 
-msgid "extract"
+#, fuzzy
+msgid "Extract"
 msgstr "estrai"
 
 msgid "Change media properties"
@@ -1414,6 +1411,10 @@ msgstr "I permessi sono stati aggiornati correttamente."
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Si stanno per cambiare i permessi sui seguenti blog per gli utenti %s."
+
+#, fuzzy
+msgid "Validate permissions"
+msgstr "imposta permessi"
 
 msgid "choose a blog"
 msgstr "scegli un blog"
@@ -1542,14 +1543,18 @@ msgstr "Titolo file:"
 msgid "Link language:"
 msgstr "Lingua del link:"
 
-msgid "insert"
-msgstr "inserisci"
-
 msgid "Add a link to an entry"
 msgstr "Aggiungi un link all'articolo"
 
 msgid "Search entry:"
 msgstr "Cerca articolo:"
+
+msgid "Search"
+msgstr "Cerca"
+
+#, fuzzy
+msgid "cancel"
+msgstr "annulla"
 
 msgid "This entry does not exist."
 msgstr "Questo articolo non esiste."
@@ -1581,10 +1586,20 @@ msgstr "Commento aggiunto correttamente."
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Validare la conversione XHTML salvando l'articolo."
 
-msgid "View entry"
-msgstr "Mostra articolo"
+msgid "Go to this entry on the site"
+msgstr ""
 
-msgid "Preview entry"
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr "Estratto:"
+
+msgid "Notes:"
+msgstr "Note:"
+
+#, fuzzy
+msgid "Preview"
 msgstr "Anteprima articolo"
 
 msgid "Entry status:"
@@ -1613,24 +1628,6 @@ msgstr "Nome di base:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Attenzione: impostando un URL manualmente, questo potrebbe entrare in conflitto con un altro articolo."
-
-msgid "Attachments"
-msgstr "Allegati"
-
-msgid "remove"
-msgstr "elimina"
-
-msgid "No attachment."
-msgstr "Nessun allegato."
-
-msgid "Add files to this entry"
-msgstr "Aggiungi un file all'articolo"
-
-msgid "Excerpt:"
-msgstr "Estratto:"
-
-msgid "Notes:"
-msgstr "Note:"
 
 msgid "Ping blogs"
 msgstr "Invia un ping ai blog"
@@ -1751,8 +1748,15 @@ msgstr "Cambia autore degli articoli"
 msgid "Author ID:"
 msgstr "ID autore:"
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Per cambiare la propria email o la propria password, è necessario inserire la password attuale."
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "non selezionato"
 
 msgid "Personal information has been successfully updated."
 msgstr "Informazioni personali aggiornate correttamente."
@@ -1790,6 +1794,10 @@ msgid "User timezone:"
 msgstr "Fuso orario dell'utente:"
 
 #, fuzzy
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr "Per cambiare la propria email o la propria password, è necessario inserire la password attuale."
+
+#, fuzzy
 msgid "My options"
 msgstr "Opzioni di ricerca"
 
@@ -1808,6 +1816,9 @@ msgstr "Attivare l'editor visuale"
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "Attiva il caricamento avanzato"
+
+msgid "Iconset:"
+msgstr ""
 
 msgid "Do not use standard favicon"
 msgstr ""
@@ -1880,19 +1891,18 @@ msgstr "Dimensioni disponibili:"
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr "Cerca"
-
 msgid "Search options"
 msgstr "Opzioni di ricerca"
 
 msgid "Query:"
 msgstr "Richiesta:"
 
-msgid "search entries"
+#, fuzzy
+msgid "Search entries"
 msgstr "cerca articoli"
 
-msgid "search comments"
+#, fuzzy
+msgid "Search comments"
 msgstr "cerca commenti"
 
 msgid "schedule"
@@ -1925,6 +1935,10 @@ msgstr "Questo articolo non esiste o non è pubblicato."
 
 msgid "All pings sent."
 msgstr "Tutti i ping sono stati spediti."
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "Ritorna a \"%s\""
 
 msgid "Auto discover ping URLs"
 msgstr "Cerca automaticamente gli URL a cui inviare i ping"
@@ -2016,8 +2030,14 @@ msgstr "Attenzione:"
 msgid "If you change your username, you will have to log in again."
 msgstr "Cambiando il nome utente, sarà necessario accedere nuovamente."
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 msgid "Password change required to connect"
 msgstr "Modificando la password è necessario accedere nuovamente"
+
+msgid "Save and create another"
+msgstr ""
 
 msgid "No permissions."
 msgstr "Nessun permesso."
@@ -2039,9 +2059,6 @@ msgstr "Nickname"
 
 msgid "Number of entries"
 msgstr "Numero di articoli"
-
-msgid "Set permissions"
-msgstr "Imposta permessi"
 
 msgid "users"
 msgstr "utenti"
@@ -2070,13 +2087,12 @@ msgstr "Blog:"
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
-msgstr ""
+#, fuzzy
+msgid "My dashboard"
+msgstr "Pannello di gestione"
 
-msgid "User:"
-msgstr "Utente:"
-
-msgid "Logout"
+#, fuzzy, php-format
+msgid "Logout %s"
 msgstr "Esci"
 
 msgid "Safe mode"
@@ -2375,9 +2391,6 @@ msgstr "Errore database"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Sembra che non sia presente la tabella delle sessioni nel database. Controllare che Dotclear sia installato correttamente."
 
-msgid "Languages"
-msgstr "Lingue"
-
 msgid "System"
 msgstr "Sistema"
 
@@ -2386,6 +2399,9 @@ msgstr "Blog"
 
 msgid "Updates"
 msgstr "Aggiornamenti"
+
+msgid "Languages"
+msgstr "Lingue"
 
 msgid "administrator"
 msgstr "amministratore"
@@ -2725,6 +2741,30 @@ msgstr "Impossibile scrivere il file sul disco."
 msgid "%s is not a directory."
 msgstr "%s non è una cartella."
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Codice di lingua invalido"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Codice di lingua invalido"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "File di verifica non valido."
+
 msgid "Uploading this file is not allowed."
 msgstr "Il caricamento di questo file non è permesso."
 
@@ -2805,6 +2845,41 @@ msgstr "<p>Questo può significare che il nome utente e la password presenti nel
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Si è verificato il seguente errore durante il tentativo di connessione al database:"
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "Pagina/e"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "Blog"
+
+#~ msgid "send"
+#~ msgstr "inviare"
+
+#~ msgid "update thumbnails"
+#~ msgstr "aggiorna le anteprime"
+
+#~ msgid "insert"
+#~ msgstr "inserisci"
+
+#~ msgid "View entry"
+#~ msgstr "Mostra articolo"
+
+#~ msgid "Attachments"
+#~ msgstr "Allegati"
+
+#~ msgid "remove"
+#~ msgstr "elimina"
+
+#~ msgid "No attachment."
+#~ msgstr "Nessun allegato."
+
+#~ msgid "Add files to this entry"
+#~ msgstr "Aggiungi un file all'articolo"
+
+#~ msgid "User:"
+#~ msgstr "Utente:"
 
 #~ msgid "login"
 #~ msgstr "accesso"
