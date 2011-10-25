@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-25 10:35+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: S.L. SONG <baramme@free.fr>\n"
 "Language-Team: \n"
@@ -19,6 +19,9 @@ msgstr ""
 
 msgid "no"
 msgstr "아니오"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "설정사항 갱신 성공"
@@ -34,6 +37,12 @@ msgstr "값"
 
 msgid "Description"
 msgstr "설명"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr "글로벌 설정"
@@ -85,7 +94,8 @@ msgstr "접속거부 IP 목록"
 msgid "Whitelist"
 msgstr "접속허용 IP 목록"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "IP 주소 추가"
 
 msgid "Global IP"
@@ -132,7 +142,8 @@ msgstr "금지어가 성공적으로 추가되었습니다."
 msgid "Words have been successfully removed."
 msgstr "금지어들이 성공적으로 삭제되었습니다."
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "금지어 추가"
 
 msgid "Global word"
@@ -141,8 +152,8 @@ msgstr "글로벌 금지어"
 msgid "No word in list."
 msgstr "금지어가 목록에 없습니다."
 
-msgid "List"
-msgstr "목록"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "선택된 단어 삭제"
@@ -189,9 +200,6 @@ msgstr "필터가 없습니다."
 msgid "Filter has no user interface."
 msgstr "이 필터엔 사용자 인터페이스가 없습니다."
 
-msgid "Return to filters"
-msgstr "필터 목록으로 돌아가기"
-
 #, php-format
 msgid "%s configuration"
 msgstr "%s 설정"
@@ -215,11 +223,18 @@ msgstr "모든 스팸 삭제"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "%s 일이 지난 스팸은 모두 자동으로 삭제됩니다."
 
-msgid "Available spam filters"
-msgstr "사용가능한 스팸 필터"
+msgid "You can modify this duration in "
+msgstr ""
+
+#, fuzzy
+msgid "Blog preferences"
+msgstr "글로벌 설정"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "필터 설정이 성공적으로 저장되었습니다."
+
+msgid "Available spam filters"
+msgstr "사용가능한 스팸 필터"
 
 msgid "Order"
 msgstr "순서"
@@ -248,6 +263,22 @@ msgstr "스팸댓글 타래소식"
 
 msgid "Published comments RSS feed"
 msgstr "공개된 댓글 타래소식"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "페이지에 파일 첨부"
+
+msgid "Blogroll"
+msgstr "링크모음"
 
 msgid "manage blogroll"
 msgstr "링크모음 관리"
@@ -421,8 +452,8 @@ msgstr "링크 가져오기"
 msgid "OPML or XBEL File:"
 msgstr "OPML 또는 XBEL 파일 :"
 
-msgid "import"
-msgstr "가져오기"
+msgid "Import"
+msgstr "블로그로 가져오기"
 
 msgid "Light linear gradient"
 msgstr "밝은 선형 그래디언트"
@@ -536,9 +567,6 @@ msgstr "다른 이미지 추가 :"
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "JPEG 또는 PNG 파일, 폭 800 픽셀, 최대 크기 %s"
 
-msgid "Preview"
-msgstr "미리보기"
-
 msgid "Sidebar"
 msgstr "측면판"
 
@@ -631,6 +659,9 @@ msgstr "바닥글 링크 색상 :"
 
 msgid "Footer background color:"
 msgstr "바닥글 바탕색 :"
+
+msgid "Additional CSS"
+msgstr ""
 
 msgid "Configuration import / export"
 msgstr "가져오기 / 내보내기 설정"
@@ -798,9 +829,6 @@ msgstr "이 과정은 (RSS 또는 Atom) 타래소식을 현재 블로그(%s)의 
 msgid "Feed URL:"
 msgstr "타래소식 주소 :"
 
-msgid "Send"
-msgstr "보내기"
-
 msgid "Flat file import"
 msgstr "일반텍스트 파일에서 가져오기"
 
@@ -904,9 +932,6 @@ msgstr ""
 msgid "Please wait..."
 msgstr "잠깐만 기다려주세요..."
 
-msgid "Import"
-msgstr "블로그로 가져오기"
-
 # French translation of DotClea"
 msgid "Maintenance"
 msgstr "블로그 정비"
@@ -981,8 +1006,8 @@ msgstr "템플릿 캐쉬 폴더 비우기"
 msgid "Empty directory"
 msgstr "폴더 비우기"
 
-msgid "New page"
-msgstr "새 페이지"
+msgid "Pages"
+msgstr "페이지"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1023,6 +1048,9 @@ msgstr "분류딱지 삭제"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "선택한 페이지들을 삭제하시려는 게 확실합니까 ?"
 
+msgid "New page"
+msgstr "새 페이지"
+
 msgid "Selected pages action:"
 msgstr "선택된 페이지들에 대한 작업 :"
 
@@ -1047,11 +1075,8 @@ msgstr "페이지가 성공적으로 갱신되었습니다."
 msgid "Page has been successfully created."
 msgstr "페이지가 성공적으로 생성되었습니다."
 
-msgid "View page"
-msgstr "페이지 보기"
-
-msgid "Preview page"
-msgstr "페이지 미리보기"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "페이지 공개상태 :"
@@ -1101,8 +1126,151 @@ msgstr ""
 msgid "Pings:"
 msgstr "Pings :"
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "모든 분류딱지"
+
+msgid "All tags"
+msgstr "모든 분류딱지"
+
+msgid "Home"
+msgstr "시작화면"
+
+#, fuzzy
+msgid "Archive"
+msgstr "글모둠"
+
+#, fuzzy
+msgid "Page"
+msgstr "페이지"
+
 msgid "Tags"
 msgstr "분류딱지"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "글모둠"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "목록에서 선택"
+
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "타래소식에 항목이 없습니다."
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "금지어가 성공적으로 추가되었습니다."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "항목들이 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "설정사항이 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "Add item"
+msgstr "분류딱지 추가"
+
+#, fuzzy
+msgid "Select type"
+msgstr "분류딱지 삭제"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "언어설정"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "링크분류 편집"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "분류딱지 삭제"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "설명"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "새 링크 추가"
+
+msgid "Menu items list"
+msgstr ""
+
+#, fuzzy
+msgid "Update menu"
+msgstr "측면판 갱신"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "선택된 링크들 삭제"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "선택된 링크들을 삭제하시려는 게 확실합니까 ?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "분류딱지 목록 :"
@@ -1185,9 +1353,6 @@ msgstr "글꼭지 수"
 msgid "Tag name"
 msgstr "분류딱지 이름"
 
-msgid "All tags"
-msgstr "모든 분류딱지"
-
 msgid "Link to all tags:"
 msgstr ""
 
@@ -1200,11 +1365,23 @@ msgstr "분류딱지 이름바꾸기 성공"
 msgid "Back to tags list"
 msgstr "분류딱지 목록으로 돌아가기"
 
-msgid "Rename this tag:"
-msgstr "분류딱지 이름바꾸기 :"
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "페이지에 파일 첨부"
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "분류딱지 편집"
+
+msgid "Rename"
+msgstr ""
+
+#, fuzzy
+msgid "Delete this tag:"
 msgstr "분류딱지 삭제"
+
+msgid "List of entries with this tag"
+msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr "분류딱지가 성공적으로 삭제되었습니다."
@@ -1342,12 +1519,6 @@ msgstr "최근 댓글들"
 msgid "Comments limit:"
 msgstr "최대 댓글 수 :"
 
-msgid "Home"
-msgstr "시작화면"
-
-msgid "Archives"
-msgstr "글모둠"
-
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "이 블로그의 %s 글꼭지 타래소식"
@@ -1368,6 +1539,10 @@ msgstr "기본사항"
 msgid "extra"
 msgstr "추가사항"
 
+#, fuzzy
+msgid "custom"
+msgstr "이미지 추가하기"
+
 msgid "Widgets"
 msgstr "위젯 목록"
 
@@ -1380,7 +1555,8 @@ msgstr "사용할 수 있는 위젯들"
 msgid "Append to:"
 msgstr "추가할 곳 :"
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "위젯을 측면판에 추가"
 
 msgid "Navigation sidebar"
@@ -1389,11 +1565,28 @@ msgstr "기본사항 측면판"
 msgid "Extra sidebar"
 msgstr "추가사항 측면판"
 
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "측면판 초기화"
+
 msgid "Update sidebars"
 msgstr "측면판 갱신"
 
 msgid "Reset sidebars"
 msgstr "측면판 초기화"
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "위젯 없음."
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr ""
 
 msgid "Widget templates tags"
 msgstr "위젯 템플릿 태그들"
@@ -1434,8 +1627,29 @@ msgstr "순서"
 msgid "Remove widget"
 msgstr "위젯 삭제"
 
-#~ msgid "Blogroll"
-#~ msgstr "링크모음"
+#~ msgid "List"
+#~ msgstr "목록"
+
+#~ msgid "Return to filters"
+#~ msgstr "필터 목록으로 돌아가기"
+
+#~ msgid "import"
+#~ msgstr "가져오기"
+
+#~ msgid "Preview"
+#~ msgstr "미리보기"
+
+#~ msgid "Send"
+#~ msgstr "보내기"
+
+#~ msgid "View page"
+#~ msgstr "페이지 보기"
+
+#~ msgid "Preview page"
+#~ msgstr "페이지 미리보기"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "분류딱지 이름바꾸기 :"
 
 #~ msgid "Save order"
 #~ msgstr "순서 저장"
@@ -1460,9 +1674,6 @@ msgstr "위젯 삭제"
 
 #~ msgid "Media title"
 #~ msgstr "미디어 제목"
-
-#~ msgid "Pages"
-#~ msgstr "페이지"
 
 #~ msgid "Unsupported service"
 #~ msgstr "지원되지 않는 서비스"

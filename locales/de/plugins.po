@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-13 20:44+0200\n"
+"POT-Creation-Date: 2011-10-25 10:32+0200\n"
 "PO-Revision-Date: 2010-08-09 19:49-0000\n"
 "Last-Translator: ben_griffith <ben_griffith@topmail.co.uk>\n"
 "Language-Team: \n"
@@ -263,6 +263,19 @@ msgstr "Junk-Kommentare per RSS-Feed abonnieren"
 
 msgid "Published comments RSS feed"
 msgstr "Veröffentlichte Kommentare per RSS-Feed abonnieren"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "Füge Dateien in die Seite ein"
 
 msgid "Blogroll"
 msgstr "Blogroll"
@@ -1067,15 +1080,6 @@ msgstr "Passwort der Seite:"
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Achtung: Wenn Du den URL manuell einfügst, kann es zu Konflikten mit anderen Seiten kommen."
 
-msgid "Attachments"
-msgstr ""
-
-msgid "remove"
-msgstr ""
-
-msgid "No attachment."
-msgstr ""
-
 msgid "Add files to this page"
 msgstr "Füge Dateien in die Seite ein"
 
@@ -1109,8 +1113,151 @@ msgstr "Alle überprüfen"
 msgid "Pings:"
 msgstr "Pings"
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "Alle Tags"
+
+msgid "All tags"
+msgstr "Alle Tags"
+
+msgid "Home"
+msgstr "Starseite"
+
+#, fuzzy
+msgid "Archive"
+msgstr "Archiv"
+
+#, fuzzy
+msgid "Page"
+msgstr "Seiten"
+
 msgid "Tags"
 msgstr "Tags"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archiv"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "Wähle von Liste"
+
+#, fuzzy, php-format
+msgid "Recent posts for %s tag"
+msgstr "Füge Dateien in die Seite ein"
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "Keine Einträge im Feed."
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "Wort wurde erfolgreich eingefügt."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "Posten wurden erfolgreich entfernt."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "Einstellungen wurden erfolgreich aktualisiert."
+
+#, fuzzy
+msgid "Add item"
+msgstr "Tags hinzufügen"
+
+#, fuzzy
+msgid "Select type"
+msgstr "Diesen Tag löschen"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "Sprachen des Blogs"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "Bearbeite Kategorie"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "Diesen Tag löschen"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "Beschreibung"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "Neuen Link einfügen"
+
+msgid "Menu items list"
+msgstr ""
+
+#, fuzzy
+msgid "Update menu"
+msgstr "Sidebars aktualisieren"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "Lösche ausgewählte Links"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Bist Du Dir sicher die ausgewählten Links zu löschen?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "Tags:"
@@ -1190,9 +1337,6 @@ msgstr "Gezählte Einträge"
 
 msgid "Tag name"
 msgstr "Name des Tags"
-
-msgid "All tags"
-msgstr "Alle Tags"
 
 msgid "Link to all tags:"
 msgstr "Link zu allen Tags"
@@ -1359,12 +1503,6 @@ msgstr "Die letzten Kommentare"
 
 msgid "Comments limit:"
 msgstr "Limit der Kommentare:"
-
-msgid "Home"
-msgstr "Starseite"
-
-msgid "Archives"
-msgstr "Archiv"
 
 #, php-format
 msgid "This blog's entries %s feed"

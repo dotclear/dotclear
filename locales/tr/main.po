@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-13 19:36+0200\n"
+"POT-Creation-Date: 2011-10-25 10:45+0200\n"
 "PO-Revision-Date: 2009-09-17 23:52+0200\n"
 "Last-Translator: ozgur ulukir <ozgurulukir@yahoo.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -127,9 +127,6 @@ msgstr "Yeni blog"
 msgid "Blogs"
 msgstr "Bloglar"
 
-msgid "Blog details"
-msgstr "Blog ayrıntıları"
-
 msgid "Blog ID:"
 msgstr "Blog ID:"
 
@@ -151,8 +148,8 @@ msgstr "Blog  URL'si"
 msgid "Blog description:"
 msgstr "Blog açıklaması"
 
-msgid "Save"
-msgstr "Kaydet"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr ""
@@ -242,6 +239,9 @@ msgstr "Blog başarıyla güncellendi"
 
 msgid "Parameters"
 msgstr ""
+
+msgid "Blog details"
+msgstr "Blog ayrıntıları"
 
 msgid "URL scan method:"
 msgstr "URL tarama yöntemi"
@@ -356,6 +356,9 @@ msgstr ""
 msgid "Search engines robots policy"
 msgstr "Arama motoru robotları politikası"
 
+msgid "Save"
+msgstr "Kaydet"
+
 msgid "XML/RPC interface"
 msgstr ""
 
@@ -426,10 +429,8 @@ msgstr ""
 msgid "Stylesheet"
 msgstr ""
 
-msgid "Theme configuration"
-msgstr "Tema ayarları"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "Blog temaları"
 
 msgid "Blog appearance"
@@ -461,10 +462,12 @@ msgstr "Temalar"
 msgid "You are currently using \"%s\""
 msgstr "Şimdi \"%s\" kullanıyorsunuz."
 
-msgid "use selected theme"
+#, fuzzy
+msgid "Use selected theme"
 msgstr "seçili temayı kullan"
 
-msgid "delete selected theme"
+#, fuzzy
+msgid "Delete selected theme"
 msgstr "seçili temayı sil"
 
 msgid "Install or upgrade a theme"
@@ -493,6 +496,9 @@ msgstr "Tema indir"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr ""
+
+msgid "Theme configuration"
+msgstr "Tema ayarları"
 
 msgid "back"
 msgstr "geri"
@@ -619,8 +625,8 @@ msgstr "Kategori sil"
 msgid "Choose a category to remove:"
 msgstr "Silinecek kategoriyi seçin:"
 
-msgid "ok"
-msgstr "tamam"
+msgid "Delete"
+msgstr "Sil"
 
 msgid "Reorder categories"
 msgstr "Kategorileri sırala"
@@ -700,10 +706,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "Bir e-posta gönder"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "\"%s\" geri dön"
-
 msgid "IP address:"
 msgstr "IP adresi"
 
@@ -721,9 +723,6 @@ msgstr "Durum:"
 
 msgid "Comment:"
 msgstr "Ahkam:"
-
-msgid "Delete"
-msgstr "Sil"
 
 msgid "comment"
 msgstr "ahkam"
@@ -751,9 +750,6 @@ msgstr "beklemede işaretle"
 
 msgid "mark as junk"
 msgstr "spam işaretle"
-
-msgid "Delete"
-msgstr "sil"
 
 msgid "Type:"
 msgstr "Tip:"
@@ -783,6 +779,9 @@ msgstr "Seçili ahkamlara yap:"
 #, fuzzy
 msgid "action: "
 msgstr "Eylem"
+
+msgid "ok"
+msgstr "tamam"
 
 msgid "Comments"
 msgstr "Ahkamlar"
@@ -821,7 +820,7 @@ msgstr "Bu blog çevrimdışı."
 msgid "This blog is removed"
 msgstr "Bu blog silindi"
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+msgid "is not defined, you should edit your configuration file."
 msgstr ""
 
 msgid "Following plugins have been installed:"
@@ -856,7 +855,8 @@ msgstr "İçerik:"
 msgid "Category:"
 msgstr "Kategori:"
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "kaydet ve yayınla"
 
 #, php-format
@@ -940,14 +940,6 @@ msgid ""
 msgstr ""
 
 #, fuzzy
-msgid "Pages"
-msgstr "Sayfa(lar)"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "Blog"
-
-#, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear kurulumu"
 
@@ -981,9 +973,6 @@ msgstr "Soy İsim:"
 
 msgid "Username and password"
 msgstr "Kullanıcı adı ve parola"
-
-msgid "Save"
-msgstr "kaydet"
 
 msgid "All done!"
 msgstr "Hepsi bitti!"
@@ -1059,6 +1048,10 @@ msgstr "Veritabanı parolası:"
 
 msgid "Database Tables Prefix:"
 msgstr "Veritabanı tabloları öneki:"
+
+#, fuzzy
+msgid "Continue"
+msgstr "İçerik:"
 
 msgid "No such installed language"
 msgstr "Böyle kurulu dil yok"
@@ -1207,6 +1200,10 @@ msgstr "Dosya yok."
 msgid "Sort files:"
 msgstr "Dosyaları sırala:"
 
+#, fuzzy
+msgid "Sort"
+msgstr "Sırala:"
+
 msgid "Add files"
 msgstr "Dosya ekle"
 
@@ -1226,8 +1223,8 @@ msgstr ""
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-msgid "send"
-msgstr "yolla"
+msgid "Send"
+msgstr ""
 
 msgid "New directory"
 msgstr "Yeni dizin"
@@ -1243,6 +1240,10 @@ msgstr "aç"
 
 msgid "Insert this file into entry"
 msgstr "Bu dosyayı yazıya kat"
+
+#, fuzzy
+msgid "delete"
+msgstr "Sil"
 
 msgid "Not a valid file"
 msgstr "Geçerli bir dosya değil"
@@ -1310,9 +1311,6 @@ msgstr "Vidyo disposition"
 msgid "Media item will be inserted as a link."
 msgstr ""
 
-msgid "Cancel"
-msgstr "Iptal"
-
 msgid "Insert"
 msgstr "Kat"
 
@@ -1355,9 +1353,6 @@ msgstr "Pulları güncelle"
 msgid "This will create or update thumbnails for this image."
 msgstr ""
 
-msgid "update thumbnails"
-msgstr "pulları güncelle"
-
 msgid "Extract in a new directory"
 msgstr "Yeni dizine aç"
 
@@ -1376,7 +1371,8 @@ msgstr ""
 msgid "Extract mode:"
 msgstr "Çıkarma kipi:"
 
-msgid "extract"
+#, fuzzy
+msgid "Extract"
 msgstr "çıkart"
 
 msgid "Change media properties"
@@ -1412,6 +1408,10 @@ msgstr "Izinlerin güncellenimi başarılı."
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr ""
+
+#, fuzzy
+msgid "Validate permissions"
+msgstr "izinleri ayarla"
 
 msgid "choose a blog"
 msgstr "bir blog seçin"
@@ -1540,14 +1540,18 @@ msgstr "Dosya başlığı:"
 msgid "Link language:"
 msgstr "Bağlantı dili:"
 
-msgid "insert"
-msgstr "kat"
-
 msgid "Add a link to an entry"
 msgstr "Bu yazıya bağlantı ekle"
 
 msgid "Search entry:"
 msgstr "Yazı ara:"
+
+msgid "Search"
+msgstr "Ara"
+
+#, fuzzy
+msgid "cancel"
+msgstr "iptal"
 
 msgid "This entry does not exist."
 msgstr "Bu yazı mevcut değil."
@@ -1579,10 +1583,20 @@ msgstr "Ahkam başarıyla oluşturuldu."
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
-msgid "View entry"
-msgstr "Yazıyı gör"
+msgid "Go to this entry on the site"
+msgstr ""
 
-msgid "Preview entry"
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr "Alıntı:"
+
+msgid "Notes:"
+msgstr "Notlar:"
+
+#, fuzzy
+msgid "Preview"
 msgstr "Yazıyı önizle"
 
 msgid "Entry status:"
@@ -1611,24 +1625,6 @@ msgstr ""
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr ""
-
-msgid "Attachments"
-msgstr "Ekler"
-
-msgid "remove"
-msgstr "kaldır"
-
-msgid "No attachment."
-msgstr "Ek yok"
-
-msgid "Add files to this entry"
-msgstr "Bu yazıya dosya ekle"
-
-msgid "Excerpt:"
-msgstr "Alıntı:"
-
-msgid "Notes:"
-msgstr "Notlar:"
 
 msgid "Ping blogs"
 msgstr "Blogları \"pingle\""
@@ -1758,8 +1754,15 @@ msgstr "Yazıların yazarını değiştir"
 msgid "Author ID:"
 msgstr "Yazar ID:"
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "seçilmedi"
 
 msgid "Personal information has been successfully updated."
 msgstr ""
@@ -1796,6 +1799,9 @@ msgstr "Kullanıcı dili:"
 msgid "User timezone:"
 msgstr "Kullanıcı zamandilimi"
 
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr ""
+
 #, fuzzy
 msgid "My options"
 msgstr "Arama seçenekleri"
@@ -1815,6 +1821,9 @@ msgstr "WYSIWYG kipini aç"
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "Gelişmiş yükleyiciyi etkinleştir"
+
+msgid "Iconset:"
+msgstr ""
 
 msgid "Do not use standard favicon"
 msgstr ""
@@ -1886,19 +1895,18 @@ msgstr "Mevcut ölçüler"
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr "Ara"
-
 msgid "Search options"
 msgstr "Arama seçenekleri"
 
 msgid "Query:"
 msgstr "Sorgulama:"
 
-msgid "search entries"
+#, fuzzy
+msgid "Search entries"
 msgstr "yazıları ara"
 
-msgid "search comments"
+#, fuzzy
+msgid "Search comments"
 msgstr "ahkamları ara"
 
 msgid "schedule"
@@ -1931,6 +1939,10 @@ msgstr ""
 
 msgid "All pings sent."
 msgstr ""
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "\"%s\" geri dön"
 
 msgid "Auto discover ping URLs"
 msgstr ""
@@ -2022,7 +2034,13 @@ msgstr "Uyarı:"
 msgid "If you change your username, you will have to log in again."
 msgstr ""
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 msgid "Password change required to connect"
+msgstr ""
+
+msgid "Save and create another"
 msgstr ""
 
 msgid "No permissions."
@@ -2045,9 +2063,6 @@ msgstr "Gösterim ismi"
 
 msgid "Number of entries"
 msgstr "Yazı sayısı"
-
-msgid "Set permissions"
-msgstr "Izinleri ayarla"
 
 msgid "users"
 msgstr "kullanıcılar"
@@ -2076,13 +2091,12 @@ msgstr "Bloglar:"
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
-msgstr ""
+#, fuzzy
+msgid "My dashboard"
+msgstr "Gösterge"
 
-msgid "User:"
-msgstr "Kullanıcı:"
-
-msgid "Logout"
+#, fuzzy, php-format
+msgid "Logout %s"
 msgstr "Çıkış"
 
 msgid "Safe mode"
@@ -2383,9 +2397,6 @@ msgstr "Veritabanı tipi:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-msgid "Languages"
-msgstr "Diller"
-
 msgid "System"
 msgstr "Sistem"
 
@@ -2394,6 +2405,9 @@ msgstr "Blog"
 
 msgid "Updates"
 msgstr "Güncellemeler"
+
+msgid "Languages"
+msgstr "Diller"
 
 msgid "administrator"
 msgstr "administrator"
@@ -2736,6 +2750,30 @@ msgstr "Dosya diske yazılamadı."
 msgid "%s is not a directory."
 msgstr "%s bir klasör değil."
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Geçersiz dil kodu"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Geçersiz dil kodu"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Geçersiz özet dosyası."
+
 msgid "Uploading this file is not allowed."
 msgstr "Bu dosyanın gönderilmesine izin yok."
 
@@ -2813,6 +2851,41 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "Sayfa(lar)"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "Blog"
+
+#~ msgid "send"
+#~ msgstr "yolla"
+
+#~ msgid "update thumbnails"
+#~ msgstr "pulları güncelle"
+
+#~ msgid "insert"
+#~ msgstr "kat"
+
+#~ msgid "View entry"
+#~ msgstr "Yazıyı gör"
+
+#~ msgid "Attachments"
+#~ msgstr "Ekler"
+
+#~ msgid "remove"
+#~ msgstr "kaldır"
+
+#~ msgid "No attachment."
+#~ msgstr "Ek yok"
+
+#~ msgid "Add files to this entry"
+#~ msgstr "Bu yazıya dosya ekle"
+
+#~ msgid "User:"
+#~ msgstr "Kullanıcı:"
 
 #~ msgid "login"
 #~ msgstr "giriş"

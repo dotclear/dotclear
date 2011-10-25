@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Not found strings
+msgid "To content"
+msgstr ""
+
+msgid "To menu"
+msgstr ""
+
+msgid "To search"
+msgstr ""
+
+msgid "By"
+msgstr ""
+
+msgid "by"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Continue reading"
+msgstr ""
+
+msgid "no comment"
+msgstr ""
+
+msgid "one comment"
+msgstr ""
+
+msgid "%d comments"
+msgstr ""
+
+msgid "no trackback"
+msgstr ""
+
+msgid "one trackback"
+msgstr ""
+
+msgid "%d trackbacks"
+msgstr ""
+
+msgid "no attachment"
+msgstr ""
+
+msgid "one attachment"
+msgstr ""
+
+msgid "%d attachments"
+msgstr ""
+
+msgid "previous entries"
+msgstr ""
+
+msgid "page"
+msgstr ""
+
+msgid "of"
+msgstr ""
+
+msgid "next entries"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "All keywords"
+msgstr ""
+
+msgid "Best of me"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Subcategories"
+msgstr ""
+
+msgid "Archives"
+msgstr ""
+
+msgid "Links"
+msgstr ""
+
+msgid "Subscribe"
+msgstr ""
+
+msgid "Entries feed"
+msgstr ""
+
+msgid "Comments feed"
+msgstr ""
+
+msgid "This blog's comments Atom feed"
+msgstr ""
+
+msgid "This category's entries Atom feed"
+msgstr ""
+
+msgid "This category's comments Atom feed"
+msgstr ""
+
+msgid "This post's comments feed"
+msgstr ""
+
+msgid "This post's comments Atom feed"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+msgid "Permalink"
+msgstr ""
+
+msgid "Comments"
+msgstr ""
+
+msgid "Your comment"
+msgstr ""
+
+msgid "Your comment has been published."
+msgstr ""
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr ""
+
+msgid "Add a comment"
+msgstr ""
+
+msgid "Name or nickname"
+msgstr ""
+
+msgid "Email address"
+msgstr ""
+
+msgid "Website"
+msgstr ""
+
+msgid "optional"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr ""
+
+msgid "Remember me on this blog"
+msgstr ""
+
+msgid "preview"
+msgstr ""
+
+msgid "send"
+msgstr ""
+
+msgid "They posted on the same topic"
+msgstr ""
+
+msgid "Trackback URL"
+msgstr ""
+
+msgid "You must provide an author name"
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr ""
+
+msgid "Email address is not valid"
+msgstr ""
+
+msgid "Document not found"
+msgstr ""
+
+msgid "The document you are looking for does not exist."
+msgstr ""
+
+msgid "Powered by %s"
+msgstr ""
+
+msgid "Subscribe to"
+msgstr ""
+
+msgid "What is an RSS feed?"
+msgstr ""
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr ""
+
+msgid "Password needed"
+msgstr ""
+
+msgid "You must give a password to access this area."
+msgstr ""
+
+msgid "Password:"
+msgstr ""
+
+msgid "You must provide a valid email address."
+msgstr ""
+
+msgid "Read"
+msgstr ""

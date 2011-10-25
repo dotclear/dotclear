@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-13 20:07+0200\n"
+"POT-Creation-Date: 2011-10-25 10:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -257,6 +257,18 @@ msgid "Junk comments RSS feed"
 msgstr ""
 
 msgid "Published comments RSS feed"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+msgid "Add files to this entry"
 msgstr ""
 
 msgid "Blogroll"
@@ -1058,15 +1070,6 @@ msgstr ""
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr ""
 
-msgid "Attachments"
-msgstr ""
-
-msgid "remove"
-msgstr ""
-
-msgid "No attachment."
-msgstr ""
-
 msgid "Add files to this page"
 msgstr ""
 
@@ -1100,7 +1103,133 @@ msgstr ""
 msgid "Pings:"
 msgstr ""
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "All months"
+msgstr ""
+
+msgid "All tags"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Archive"
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
 msgid "Tags"
+msgstr ""
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr ""
+
+#, php-format
+msgid "Posts from %s"
+msgstr ""
+
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+msgid "No menu items selected."
+msgstr ""
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+msgid "Menu item has been successfully added."
+msgstr ""
+
+msgid "Menu items have been successfully removed."
+msgstr ""
+
+msgid "Menu items have been successfully updated."
+msgstr ""
+
+msgid "Add item"
+msgstr ""
+
+msgid "Select type"
+msgstr ""
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+msgid "Select language:"
+msgstr ""
+
+msgid "Select category:"
+msgstr ""
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+msgid "Select page:"
+msgstr ""
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+msgid "Description of item menu:"
+msgstr ""
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+msgid "Add an item"
+msgstr ""
+
+msgid "Menu items list"
+msgstr ""
+
+msgid "Update menu"
+msgstr ""
+
+msgid "Delete selected menu items"
+msgstr ""
+
+msgid "Are you sure you want to remove selected menu items?"
+msgstr ""
+
+msgid "Currently no menu items"
 msgstr ""
 
 msgid "Tags:"
@@ -1178,9 +1307,6 @@ msgid "Entries count"
 msgstr ""
 
 msgid "Tag name"
-msgstr ""
-
-msgid "All tags"
 msgstr ""
 
 msgid "Link to all tags:"
@@ -1341,12 +1467,6 @@ msgid "Last comments"
 msgstr ""
 
 msgid "Comments limit:"
-msgstr ""
-
-msgid "Home"
-msgstr ""
-
-msgid "Archives"
 msgstr ""
 
 #, php-format

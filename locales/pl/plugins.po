@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-13 20:29+0200\n"
+"POT-Creation-Date: 2011-10-25 10:37+0200\n"
 "PO-Revision-Date: 2011-06-26 14:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
@@ -262,6 +262,19 @@ msgstr "Kanał RSS dla niechcianych komentarzy"
 
 msgid "Published comments RSS feed"
 msgstr "Kanał RSS dla opublikowanych komentarzy"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "Dodaj pliki do strony"
 
 msgid "Blogroll"
 msgstr "Blogroll"
@@ -1062,15 +1075,6 @@ msgstr "Hasło strony"
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Ostrzeżenie: jeżeli ustawisz ręcznie URL, może on powodować konflikt z inną stroną."
 
-msgid "Attachments"
-msgstr ""
-
-msgid "remove"
-msgstr ""
-
-msgid "No attachment."
-msgstr ""
-
 msgid "Add files to this page"
 msgstr "Dodaj pliki do strony"
 
@@ -1104,8 +1108,152 @@ msgstr "Zaznacz wszystkie"
 msgid "Pings:"
 msgstr "Pingi"
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "Wszystkie tagi"
+
+msgid "All tags"
+msgstr "Wszystkie tagi"
+
+msgid "Home"
+msgstr "Strona główna"
+
+#, fuzzy
+msgid "Archive"
+msgstr "Archiwum"
+
+#, fuzzy
+msgid "Page"
+msgstr "Strony"
+
 msgid "Tags"
 msgstr "Tagi"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archiwum"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "Wybierz z listy"
+
+#, fuzzy, php-format
+msgid "Recent posts for %s tag"
+msgstr "Dodaj pliki do strony"
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "Brak elementów w kanale."
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "Słowo zostało pomyślnie dodane."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "Elementy zostały pomyślnie usunięte."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "Ustawienia zostały pomyślnie zaktualizowane."
+
+#, fuzzy
+msgid "Add item"
+msgstr "Dodaj tagi"
+
+#, fuzzy
+msgid "Select type"
+msgstr "wybierz tą stronę"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue…"
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "Języki bloga"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "Edytuj kategorię"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "wybierz tą stronę"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "Opis"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "Dodaj nowy odnośnik"
+
+#, fuzzy
+msgid "Menu items list"
+msgstr "Lista kategorii"
+
+#, fuzzy
+msgid "Update menu"
+msgstr "zaktualizuj paski boczne"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "Usuń wybrane odnośniki"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Jesteś pewien, że chcesz usunąć wybrane odnośniki?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "Tagi:"
@@ -1183,9 +1331,6 @@ msgstr "Liczba wpisów"
 
 msgid "Tag name"
 msgstr "Nazwa tagu"
-
-msgid "All tags"
-msgstr "Wszystkie tagi"
 
 msgid "Link to all tags:"
 msgstr "Odnośnik do wszystkich tagów:"
@@ -1349,12 +1494,6 @@ msgstr "Ostatnie komentarze"
 
 msgid "Comments limit:"
 msgstr "Limit komentarzy:"
-
-msgid "Home"
-msgstr "Strona główna"
-
-msgid "Archives"
-msgstr "Archiwum"
 
 #, php-format
 msgid "This blog's entries %s feed"
@@ -1540,9 +1679,6 @@ msgstr "Usuń widget"
 
 #~ msgid "Languages"
 #~ msgstr "Języki"
-
-#~ msgid "Categories list"
-#~ msgstr "Lista kategorii"
 
 #~ msgid "Blog to export:"
 #~ msgstr "Blog do eksportu:"
