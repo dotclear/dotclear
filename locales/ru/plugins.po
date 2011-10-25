@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-25 10:41+0200\n"
+"POT-Creation-Date: 2011-10-25 15:50+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Ihar <chi27@open.by>\n"
 "Language-Team: \n"
@@ -1201,7 +1201,7 @@ msgstr "Удалить этот тег"
 msgid "Type of item menu:"
 msgstr ""
 
-msgid "Continue…"
+msgid "Continue..."
 msgstr ""
 
 #, fuzzy

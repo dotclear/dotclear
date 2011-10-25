@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-25 10:37+0200\n"
+"POT-Creation-Date: 2011-10-25 15:50+0200\n"
 "PO-Revision-Date: 2011-06-26 14:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
@@ -1198,7 +1198,7 @@ msgstr "wybierz tą stronę"
 msgid "Type of item menu:"
 msgstr ""
 
-msgid "Continue…"
+msgid "Continue..."
 msgstr ""
 
 #, fuzzy

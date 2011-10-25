@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-25 10:32+0200\n"
+"POT-Creation-Date: 2011-10-25 15:50+0200\n"
 "PO-Revision-Date: 2009-10-03 03:00-0300\n"
 "Last-Translator: ThecaTTony <thecattony@thecattony.com.ar>\n"
 "Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
@@ -1205,7 +1205,7 @@ msgstr "Eliminar esta etiqueta"
 msgid "Type of item menu:"
 msgstr ""
 
-msgid "Continue…"
+msgid "Continue..."
 msgstr ""
 
 #, fuzzy

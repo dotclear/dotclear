@@ -437,7 +437,7 @@ if ($step)
 			echo '<form id="additem" action="'.$p_url.'&add=2" method="post">';
 			echo '<fieldset><legend>'.__('Select type').'</legend>';
 			echo '<p class="field"><label for"item_type" class="classic">'.__('Type of item menu:').'</label>'.form::combo('item_type',$items_combo,'').'</p>';
-			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue…').'" />'.'</p>';
+			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue...').'" />'.'</p>';
 			echo '</fieldset>';
 			echo '</form>';
 			break;
@@ -474,7 +474,7 @@ if ($step)
 							$core->callBehavior('adminSimpleMenuSelect',$item_type,'item_select');
 				}
 				echo form::hidden('item_type',$item_type);
-				echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue…').'" /></p>';
+				echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue...').'" /></p>';
 				echo '</fieldset>';
 				echo '</form>';
 				break;
