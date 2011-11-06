@@ -162,6 +162,12 @@ class dcAntispam
 			return false;
 		}
 		
+		$permissions = $core->getBlogPermissions($core->blog->id);
+		
+		if ( empty($permissions[$rs->user_id]) ) {
+			return false;
+		}
+		
 		return $rs->user_id;
 	}
 	
