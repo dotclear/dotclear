@@ -171,6 +171,7 @@ class tagsBehaviors
 		{
 			try
 			{
+
 				$meta =& $GLOBALS['core']->meta;
 				$tags = $meta->splitMetaValues($_POST['new_tags']);
 				
@@ -221,13 +222,13 @@ class tagsBehaviors
 		}
 	}
 	
-	public static function adminPostsActionsContent($core,$action,$hidden_fields)
+	public static function adminPostsActionsContent($core,$action,$hidden_fields,$form_uri="posts_actions.php")
 	{
 		if ($action == 'tags')
 		{
 			echo
 			'<h2 class="page-title">'.__('Add tags to entries').'</h2>'.
-			'<form action="posts_actions.php" method="post">'.
+			'<form action="'.$form_uri.'" method="post">'.
 			'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
 			form::textarea('new_tags',60,3).
 			'</div>'.
@@ -266,7 +267,7 @@ class tagsBehaviors
 			$posts_count = count($_POST['entries']);
 			
 			echo
-			'<form action="posts_actions.php" method="post">'.
+			'<form action="'.$form_uri.'" method="post">'.
 			'<fieldset><legend>'.__('Following tags have been found in selected entries:').'</legend>';
 			
 			foreach ($tags as $k => $n) {
