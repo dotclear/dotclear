@@ -150,7 +150,7 @@ $filterSet
 
 $core->callBehavior('adminPostsFilters',$filterSet);
 
-$filterSet->setFormValues($_GET);
+$filterSet->setup($_GET,$_POST);
 
 # Get posts
 try {
@@ -170,7 +170,7 @@ try {
 	$core->error->add($e->getMessage());
 }
 
-$filterSet->setColumnsForm($post_list->getColumnsForm());
+$filterSet->setExtraData($post_list->getColumnsForm());
 
 /* DISPLAY
 -------------------------------------------------------- */
