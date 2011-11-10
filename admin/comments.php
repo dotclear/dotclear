@@ -14,6 +14,20 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
+class authorFilter extends textFilter {
+	public function header() {
+		return 
+			dcPage::jqueryUI().
+			dcPage::jsLoad('js/author_filter.js')
+			;
+	}
+	public function applyFilter($params) {
+		$val = preg_split("/[\s,]+/",$this->values[0]);
+		$params[$this->request_param]=$val;
+	}
+}
+
+
 # Creating filter combo boxes
 # Filter form we'll put in html_block
 $status_combo = array();
@@ -53,8 +67,8 @@ $core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
 
 $filterSet = new dcFilterSet('comments','comments.php');
 
-$authorFilter = new textFilter(
-		'author',__('Author'), __('Author'),'q_author',20,255);
+$authorFilter = new authorFilter(
+		'author',__('Author'), __('Author'),'comment_author',20,255);
 $filterSet
 	->addFilter(new comboFilter(
 		'status',__('Status'), __('Status'), 'comment_status', $status_combo))
@@ -66,7 +80,7 @@ $filterSet
 		
 $core->callBehavior('adminCommentsFilters',$filterSet);
 
-$filterSet->setFormValues($_GET);
+$filterSet->setup($_GET,$_POST);
 if (isset($_GET['author'])) {
 	$authorFilter->add();
 	$authorFilter->setValue($_GET['author']);
@@ -90,11 +104,11 @@ try {
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
-$filterSet->setColumnsForm($comment_list->getColumnsForm());
+$filterSet->setExtraData($comment_list->getColumnsForm());
 
 /* DISPLAY
 -------------------------------------------------------- */
-$starting_script = dcPage::jsLoad('js/_comments.js').$filterSet->header();;
+$starting_script = dcPage::jsLoad('js/_comments.js').$filterSet->header();
 
 # --BEHAVIOR-- adminCommentsHeaders
 $starting_script .= $core->callBehavior('adminCommentsHeaders');

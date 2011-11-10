@@ -500,6 +500,13 @@ class dcPage
 		"</script>\n";
 	}
 	
+	public static function jqueryUI()
+	{
+		return
+		'<link rel="stylesheet" type="text/css" href="style/jquery-ui-1.8.16.custom.css" />'."\n".
+		self::jsLoad('js/jquery/jquery-ui-1.8.16.custom.min.js');
+	}
+
 	public static function jsColorPicker()
 	{
 		return
