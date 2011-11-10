@@ -137,7 +137,7 @@ class monthComboFilter extends comboFilter {
 $filterSet
 	->addFilter(new comboFilter(
 		'users',__('Author'), __('Author'), 'user_id', $users_combo))
-	->addFilter(new comboFilter(
+	->addFilter(new categoryFilter(
 		'category',__('Category'), __('Category'), 'cat_id', $categories_combo))
 	->addFilter(new comboFilter(
 		'post_status',__('Status'), __('Status'), 'post_status', $status_combo))
@@ -146,7 +146,9 @@ $filterSet
 	->addFilter(new comboFilter(
 		'lang',__('Lang'), __('Lang'), 'post_lang', $lang_combo))
 	->addFilter(new monthComboFilter(
-		'month',__('Month'),__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)));
+		'month',__('Month'),__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)))
+	->addFilter(new textFilter(
+		'search',__('Contains'),__('The entry contains'), 'search',20,255));
 
 $core->callBehavior('adminPostsFilters',$filterSet);
 
@@ -164,6 +166,7 @@ try {
 		$page_title = sprintf(__('Entries / %s filtered out of %s'),$counter->f(0),$totalcounter->f(0));
 	} else {
 		$page_title = __('Entries');
+		$filters_info = '';
 	}
 	$post_list->setItems($posts,$counter->f(0));
 } catch (Exception $e) {

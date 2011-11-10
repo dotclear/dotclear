@@ -24,6 +24,7 @@ $core->rest->addFunction('getZipMediaContent',array('dcRestMethods','getZipMedia
 $core->rest->addFunction('getMeta',array('dcRestMethods','getMeta'));
 $core->rest->addFunction('delMeta',array('dcRestMethods','delMeta'));
 $core->rest->addFunction('setPostMeta',array('dcRestMethods','setPostMeta'));
+$core->rest->addFunction('searchCommentAuthor',array('dcRestMethods','searchCommentAuthor'));
 $core->rest->addFunction('searchMeta',array('dcRestMethods','searchMeta'));
 
 $core->rest->serve();
@@ -392,5 +393,30 @@ class dcRestMethods
 		
 		return $rsp;
 	}
+
+	public static function searchCommentAuthor($core,$get)
+	{
+		$q = !empty($get['q']) ? strtoupper($get['q']) : null;
+		
+		$strReq = 'SELECT DISTINCT C.comment_author '.
+			'FROM '.$core->prefix.'comment C '.
+			'INNER JOIN '.$core->prefix.'post P on C.post_id = P.post_id '.
+			'WHERE P.blog_id = \''.$core->blog->id.'\' '.
+			'AND UPPER(comment_author) like \'%'.$core->con->escape($q).'%\''
+			;
+		//echo $strReq;
+		$rs = $core->con->select($strReq);
+		$rsp = new xmlTag();
+		
+		while ($rs->fetch())
+		{
+			$author = new xmlTag('author');
+			$author->name=$rs->comment_author;
+			$rsp->insertNode($author);
+		}
+		
+		return $rsp;
+	}
+
 }
 ?>

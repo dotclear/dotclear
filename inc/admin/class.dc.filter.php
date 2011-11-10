@@ -40,6 +40,7 @@ class dcFilterSet {
 		$this->efilters = new ArrayObject();
 		$this->action = $action;
 		$this->extra_data = '';
+		$this->filtered = false;
 	}
 	
 	/**
@@ -61,10 +62,10 @@ class dcFilterSet {
 	protected function saveFilters() {
 		$ser = array();
 		$ws = $GLOBALS['core']->auth->user_prefs->addWorkspace('filters');
-		foreach($this->lfilters as $filter) {
-			$ser[$filter->id]=$filter->serialize();
-		}
-		$ws->put($this->name,serialize($ser),'string');
+		$data = array();
+		$data= $this->getFiltersAsParams($this->efilters);
+		$ws->put($this->name,serialize($data->getArrayCopy()),'string');
+		return $data;
 	}
 	
 	/**
@@ -72,11 +73,11 @@ class dcFilterSet {
 	*/
 	protected function loadFilters() {
 		$ws = $GLOBALS['core']->auth->user_prefs->addWorkspace('filters');
-		
-		$settings = !is_null($ws->{$this->name}) ? unserialize($ws->{$this->name}) : array();
-		foreach($settings as $k => $v) {
-			$this->lfilters[$k]->unserialize($v);
-		}
+		$data = (!is_null($ws->{$this->name})) ? unserialize($ws->{$this->name}) : array();
+		if (is_array($data))
+			return $data;
+		else
+			return array();
 	}
 	
 	/**
@@ -151,7 +152,6 @@ class dcFilterSet {
 				if ($action == 'add'){
 					if (isset($post['add_filter']) 
 						&& isset($this->efilters[$post['add_filter']])) {
-						echo 'addadd';
 					$this->efilters[$post['add_filter']]->add();
 					}
 				} elseif (strpos($action,'del_') === 0) {
@@ -161,7 +161,8 @@ class dcFilterSet {
 						$this->efilters[$match[1]]->remove($match[2]);
 					}
 				} elseif ($action=="apply") {
-					http::redirect($this->action.'?'.http_build_query($this->getFiltersAsParams($this->efilters),'','&'));
+					$data = $this->saveFilters();
+					http::redirect($this->action.'?'.http_build_query($data,'','&'));
 					exit;
 				}
 			}
@@ -174,6 +175,10 @@ class dcFilterSet {
 			}
 			$this->hideform=false;
 		} else {
+			// Use case (2)
+			if (count($get)==0) {
+				$get = $this->loadFilters();
+			}
 			$this->initializeFromData($this->efilters, $get);
 			$this->initializeFromData($this->lfilters, $get);
 		}
@@ -191,12 +196,11 @@ class dcFilterSet {
 		} else {
 			$formclass='';
 		}
+		
 		$ret .= '<p><img alt="" src="images/minus.png" /> '.
 			'<a href="#" id="toggle-filters">'.
 			__('Toggle filters and display options').
-			'</a></p>';
-		
-		$ret .=
+			'</a></p>'.
 			'<div class="two-cols">'.
 			'<form id="filters" action="'.$this->action.'" method="post"'.$formclass.'>'.
 			'<div class="col70">'.
@@ -216,15 +220,15 @@ class dcFilterSet {
 			}
 		}
 		$ret .= '</tbody></table>'.
-			'<p class="clear"><input class="delete" type="submit" value="'.__('Delete all filters').'" name="'.
-			$this->form_prefix.'clear_filters" />'.
-			'&nbsp;<input  type="submit" value="'.__('Reset').'" name="'.
-			$this->form_prefix.'reset" /></p>'.
 			'<h3 class="margintop">'.__('Add a filter').'</h3>'.
 			'<p id="available_filters">'.
 			form::combo("add_filter",$form_combo).
 			'<input type="submit" value=" + " title="'.__('Add this filter').'" name="'.$this->form_prefix.'add" />'.
 			'</p>'.
+			'<p class="clear"><input class="delete" type="submit" value="'.__('Delete all filters').'" name="'.
+			$this->form_prefix.'clear_filters" />'.
+			'&nbsp;<input  type="submit" value="'.__('Reset').'" name="'.
+			$this->form_prefix.'reset" /></p>'.
 			'</div>';
 		if ($this->extra_data != '') {
 			$ret .=
@@ -260,11 +264,11 @@ class dcFilterSet {
 		return $arr;
 	}
 	
-	protected function displayFilters($filters) {
-		$ret = '<ul>';
-		foreach ($filters as $f) {
+	public function getFiltersText() {
+		$ret = '<p>'.__('Currently applied filters :').'</p><ul>';
+		foreach ($this->lfilters as $f) {
 			if ($f->isEnabled())
-			$ret .= '<li>'.$f->getAsText().'</li>'."\n";
+				$ret .= '<li>'.$f->getAsText().'</li>'."\n";
 		}
 		$ret .= '</ul>';
 		return $ret;
@@ -275,7 +279,11 @@ class dcFilterSet {
 	To be called in page header, of course.
 	*/
 	public function header() {
-		return dcPage::jsLoad('js/filters.js');
+		$ret = dcPage::jsLoad('js/filters.js');
+		foreach($this->efilters as $f) {
+			$ret .= $f->header();
+		}
+		return $ret;
 	}
 	
 	
@@ -294,14 +302,13 @@ class dcFilterSet {
 	
 	*/
 	public function applyFilters($params) {
-		$filtered = false;
 		foreach ($this->lfilters as $filter) {
 			if ($filter->isEnabled()) {
 				$filter->applyFilter($params);
-				$filtered = true;
+				$this->filtered = true;
 			}
 		}
-		return $filtered;
+		return $this->filtered;
 	}
 	
 	public function getDelName($field_id,$pos) {
@@ -487,6 +494,10 @@ abstract class Filter {
 		return $this->values;
 	}
 
+	public function header() {
+		return '';
+	}
+	
 	public abstract function getAsText();
 
 	
@@ -601,10 +612,25 @@ class comboFilter extends Filter {
 	}
 	
 	public function getAsText() {
-		return sprintf("%s %s %s",$this->desc,$this->verb,join(',',$this->values));
+		$arr=array();
+		foreach ($this->values as $value) {
+			$arr[]=array_search($value,$this->options);
+		}
+		return sprintf("%s %s %s",$this->desc,$this->verb,join(',',$arr));
 	}
 }
 
+
+class categoryFilter extends comboFilter {
+	public function getAsText() {
+		$arr=array();
+		foreach ($this->values as $value) {
+			$cat=array_search($value,$this->options);
+			$arr[]=preg_replace("#^.* ([^ ]+) .*$#",'$1',$cat);
+		}
+		return sprintf("%s %s %s",$this->desc,$this->verb,join(',',$arr));
+	}
+}
 /**
 @ingroup DC_CORE
 @nosubgrouping
@@ -631,7 +657,7 @@ class booleanFilter extends Filter {
 	}
 
 	public function getFormFields($pos=0) {
-		return '<td><span class="'.$labelclass.'">'.$this->desc.'</span></td><td>'.
+		return '<td colspan="2">'.$this->desc.'</td><td>'.
 			form::combo($this->getFieldId($pos),$this->options,$this->values[$pos],
 				'','',false,'title="'.__('Choose an option').'"').'</td>';
 	}
@@ -667,8 +693,9 @@ class textFilter extends Filter {
 	}
 
 	public function getFormFields($pos=0) {
-		return '<span class="'.$labelclass.'">'.$this->desc.'</span>'.
-			form::field($this->getFieldId($pos),$this->size,$this->max,html::escapeHTML($this->values[0]));
+		return '<td colspan="2">'.$this->desc.'</td><td>'.
+			form::field($this->getFieldId($pos),$this->size,$this->max,html::escapeHTML($this->values[0])).
+			'</td>';
 	}
 	
 	public function applyFilter($params) {

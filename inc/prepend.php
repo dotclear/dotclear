@@ -74,6 +74,8 @@ $__autoload['adminBlogList']			= dirname(__FILE__).'/admin/class.dc.list.php';
 $__autoload['adminBlogPermissionsList']	= dirname(__FILE__).'/admin/class.dc.list.php';
 $__autoload['dcFilterSet']			= dirname(__FILE__).'/admin/class.dc.filter.php';
 $__autoload['dcFilter']				= dirname(__FILE__).'/admin/class.dc.filter.php';
+$__autoload['textFilter']				= dirname(__FILE__).'/admin/class.dc.filter.php';
+$__autoload['comboFilter']				= dirname(__FILE__).'/admin/class.dc.filter.php';
 
 $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
 $__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';

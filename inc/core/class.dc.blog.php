@@ -1830,6 +1830,9 @@ class dcBlog
 			$q_author = $this->con->escape(str_replace('*','%',strtolower($params['q_author'])));
 			$strReq .= "AND LOWER(comment_author) LIKE '".$q_author."' ";
 		}
+		if (isset($params['comment_author'])) {
+			$strReq .= "AND comment_author ".$this->con->in($params['comment_author']).' ';
+		}
 		
 		if (!empty($params['search']))
 		{
