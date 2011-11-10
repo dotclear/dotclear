@@ -570,7 +570,7 @@ class comboFilter extends Filter {
 
 	public function getFormFields($pos=0) {
 		if ($pos == 0) {
-			$ret = '<td id="'.$this->getFieldId($cur).'" title="'.$this->desc.'" class="filter-title">'.
+			$ret = '<td id="'.$this->getFieldId($pos).'" title="'.$this->desc.'" class="filter-title">'.
 				''.$this->desc.' : </td>'.
 				'<td>'.
 				form::combo($this->field_id.'_v',
@@ -578,7 +578,7 @@ class comboFilter extends Filter {
 					false,'title="'.sprintf(__('%s is or is not'),$this->desc).'"').
 				'</td>';
 		} else {
-			$ret = '<td id="'.$this->getFieldId($cur).'" title="or" colspan="2" class="or">'.
+			$ret = '<td id="'.$this->getFieldId($pos).'" title="or" colspan="2" class="or">'.
 				__('or').' : </td>';
 		};
 		$ret .= '<td>'.form::combo($this->getFieldId($pos),$this->options,$this->values[$pos],
