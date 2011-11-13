@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-25 15:51+0200\n"
+"POT-Creation-Date: 2011-11-13 15:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1546,7 +1546,7 @@ msgstr ""
 
 #: plugins/simpleMenu/index.php:108 plugins/tags/_admin.php:14
 #: plugins/tags/_admin.php:160 plugins/tags/_admin.php:163
-#: plugins/tags/_admin.php:311 plugins/tags/_widgets.php:21
+#: plugins/tags/_admin.php:312 plugins/tags/_widgets.php:21
 #: plugins/tags/_widgets.php:22 plugins/tags/tag_posts.php:95
 #: plugins/tags/tags.php:17 plugins/tags/tags.php:23
 msgid "Tags"
@@ -1744,35 +1744,35 @@ msgstr ""
 msgid "Remove tags"
 msgstr ""
 
-#: plugins/tags/_admin.php:229
+#: plugins/tags/_admin.php:230
 msgid "Add tags to entries"
 msgstr ""
 
-#: plugins/tags/_admin.php:231
+#: plugins/tags/_admin.php:232
 msgid "Tags to add:"
 msgstr ""
 
-#: plugins/tags/_admin.php:259
+#: plugins/tags/_admin.php:260
 msgid "Remove selected tags from entries"
 msgstr ""
 
-#: plugins/tags/_admin.php:262
+#: plugins/tags/_admin.php:263
 msgid "No tags for selected entries"
 msgstr ""
 
-#: plugins/tags/_admin.php:270
+#: plugins/tags/_admin.php:271
 msgid "Following tags have been found in selected entries:"
 msgstr ""
 
-#: plugins/tags/_admin.php:305
+#: plugins/tags/_admin.php:306
 msgid "short"
 msgstr ""
 
-#: plugins/tags/_admin.php:306
+#: plugins/tags/_admin.php:307
 msgid "extended"
 msgstr ""
 
-#: plugins/tags/_admin.php:312
+#: plugins/tags/_admin.php:313
 msgid "Tags list format:"
 msgstr ""
 
