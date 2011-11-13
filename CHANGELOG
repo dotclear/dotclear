@@ -1,4 +1,4 @@
-Dotclear 2.4.0 - ongoing dev
+Dotclear 2.4.0
 ===========================================================
 * Admin: new iconset from Thomas Daveluy
 * Admin: Accessibility enhancements
@@ -6,6 +6,9 @@ Dotclear 2.4.0 - ongoing dev
 * Added a new theme (Ductile)
 * Added a new plugin (simpleMenu)
 * handling of postgres non default schemas (db_prefix = 'schema.prefix')
+* New iconset mechanism
+* New behaviour: coreBlogBeforeGetPosts
+* Security fix: Spam comments feed now checks for blog permission. Thanks to Romuald Brunet.
 * Various bug fixes
 
 Dotclear 2.3.1 - 2001-06-14
