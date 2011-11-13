@@ -1,4 +1,4 @@
-Dotclear 2.4.0
+Dotclear 2.4.0 - 2011-11-13
 ===========================================================
 * Admin: new iconset from Thomas Daveluy
 * Admin: Accessibility enhancements
@@ -11,7 +11,7 @@ Dotclear 2.4.0
 * Security fix: Spam comments feed now checks for blog permission. Thanks to Romuald Brunet.
 * Various bug fixes
 
-Dotclear 2.3.1 - 2001-06-14
+Dotclear 2.3.1 - 2011-06-14
 ===========================================================
 * Updated makefile for cleaner distrib.
 * Better localization handling for prefs and shortcuts.
