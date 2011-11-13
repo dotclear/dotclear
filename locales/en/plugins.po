@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-25 15:49+0200\n"
+"POT-Creation-Date: 2011-11-06 18:11+0100\n"
 "PO-Revision-Date: 2011-10-25 15:52+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1571,4 +1571,3 @@ msgstr ""
 
 msgid "Remove widget"
 msgstr ""
-
