@@ -46,7 +46,6 @@ $params = new ArrayObject();
 $params['no_content'] = true;
 
 # - Limit, sortby and order filter
-$params = $comment_list->applyFilters($params);
 
 # Actions combo box
 $combo_action = array();
@@ -79,6 +78,7 @@ $filterSet
 		'ip',__('IP address'), __('IP address'), 'comment_ip',20,39));
 		
 $core->callBehavior('adminCommentsFilters',$filterSet);
+$filterSet->setExtra($comment_list);
 
 $filterSet->setup($_GET,$_POST);
 if (isset($_GET['author'])) {
@@ -104,7 +104,6 @@ try {
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
-$filterSet->setExtraData($comment_list->getColumnsForm());
 
 /* DISPLAY
 -------------------------------------------------------- */
@@ -149,7 +148,6 @@ if (!$core->error->flag())
 	form::hidden(array('author'),preg_replace('/%/','%%',$author)).
 	form::hidden(array('status'),$status).
 	form::hidden(array('ip'),preg_replace('/%/','%%',$ip)).
-	$comment_list->getFormFieldsAsHidden().
 	'</div>'.
 	
 	'</form>'

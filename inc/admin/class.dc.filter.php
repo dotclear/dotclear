@@ -10,6 +10,58 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
+
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief Interface to add extra data to filterset.
+
+Note : the instance will be cloned to ensure dual filter edit fields / displayed fields
+Be sure to enable correct object cloning then, using the __clone method
+*/
+interface dcFilterExtraInterface {
+	/**
+	Return extra data to display in right column
+	
+	@param	core		<b>dcCore</b>		Dotclear core reference
+	@param	form_prefix	<b>string</b>		form prefix to use for parameters
+	*/
+	public function getFormContent();
+
+	/**
+	Set dedicated data from form submission 
+	(either $_GET or $_POST depending on the context
+	
+	@param	data		<b>array</b>		Data to retrieve information from
+	*/
+	public function initializeFromData($data);
+	
+	/**
+	Save data to configuration
+	*/
+	public function save();
+	
+	/**
+	Load data from configuration
+	*/
+	public function load();
+		
+	/**
+	Update query parameters with given settings
+	@param	params		<b>ArrayObject</b>		Params being sent to query
+	*/
+	public function applyFilters($params);
+	
+	
+	/**
+	Update parameters that will be used for inter-forms communications
+	(either query string or hidden fields).
+	The associative has to be updated with $param['key']='value'
+	@param	params		<b>ArrayObject</b>		Params to update
+	*/
+	public function updateRequestParams($params);
+}
+
 /**
 @ingroup DC_CORE
 @nosubgrouping
@@ -19,12 +71,13 @@ Dotclear FilterSet handles filters and columns when displaying items lists.
 */
 class dcFilterSet {
 
-	protected $lfilters;			/// <b>array</b> lists of defined filters
-	protected $efilters;			/// <b>array</b> lists of defined filters
+	protected $lfilters;		/// <b>array</b> lists of defined filters
+	protected $efilters;		/// <b>array</b> lists of defined filters
 	protected $form_prefix;		/// <b>string</b> displayed form prefix
 	protected $action; 			/// <b>string</b> form action page
 	protected $hideform;		/// <b>boolean</b> start form display hidden by default or not
-	protected $extra_data;	/// <b>string</b> columns form
+	protected $lextra;			/// <b>string</b> columns form
+	protected $eextra;			/// <b>string</b> columns form
 	protected $name;			/// <b>string</b> fieldset name
 	
 	/**
@@ -39,7 +92,8 @@ class dcFilterSet {
 		$this->lfilters = new ArrayObject();
 		$this->efilters = new ArrayObject();
 		$this->action = $action;
-		$this->extra_data = '';
+		$this->lextra = null;
+		$this->eextra = null;
 		$this->filtered = false;
 	}
 	
@@ -62,7 +116,7 @@ class dcFilterSet {
 	protected function saveFilters() {
 		$ser = array();
 		$ws = $GLOBALS['core']->auth->user_prefs->addWorkspace('filters');
-		$data = array();
+		$data = new ArrayObject();
 		$data= $this->getFiltersAsParams($this->efilters);
 		$ws->put($this->name,serialize($data->getArrayCopy()),'string');
 		return $data;
@@ -86,10 +140,13 @@ class dcFilterSet {
 	
 	@param	form_data	<b>array</b>	form values (usually $_GET or $_POST)
 	*/
-	protected function initializeFromData ($filters, $form_data) {
+	protected function initializeFromData ($filters, $extra, $form_data) {
 		$this->hideform = true;
 		foreach ($filters as $filter) {
 			$filter->initializeFromData ($form_data);
+		}
+		if ($extra != null) {
+			$extra-> initializeFromData ($form_data);
 		}
 	}
 	
@@ -98,9 +155,11 @@ class dcFilterSet {
 	
 	@param	html	<b>string</b>		the code to add
 	*/
-	public function setExtraData($html)
+	public function setExtra($extra)
 	{
-		$this->extra_data = $html;
+		$this->lextra = $extra;
+		$this->eextra = clone $extra;
+		
 	}
 	
 	/**
@@ -110,8 +169,16 @@ class dcFilterSet {
 	*/
 	public function getFormFieldsAsHidden() {
 		$ret='';
-		foreach ($this->lfilters as $filter) {
-			$ret.= $filter->getFormFieldAsHidden();
+		$arr = new ArrayObject();
+		foreach ($this->lfilters as $f) {
+			if ($f->isEnabled())
+				$f->updateRequestParams($arr);
+		}
+		if ($this->lextra != null) {
+			$this->lextra->updateRequestParams($arr);
+		}
+		foreach ($arr as $k=>$v) {
+			$ret.= form::hidden($k,$v);
 		}
 		return $ret;
 	}
@@ -148,39 +215,46 @@ class dcFilterSet {
 		if ($action !== false) {
 			// Use case (1)
 			if ($action != 'clear_filters' && $action != 'reset')  {
-				$this->initializeFromData($this->efilters,$post);
+				$this->initializeFromData($this->efilters,$this->eextra, $post);
 				if ($action == 'add'){
 					if (isset($post['add_filter']) 
 						&& isset($this->efilters[$post['add_filter']])) {
 					$this->efilters[$post['add_filter']]->add();
 					}
 				} elseif (strpos($action,'del_') === 0) {
-
 					$count = preg_match('#del_(.+)_([0-9]+)#',$action,$match);
 					if (($count == 1) && isset($this->efilters[$match[1]])) {
 						$this->efilters[$match[1]]->remove($match[2]);
 					}
 				} elseif ($action=="apply") {
 					$data = $this->saveFilters();
+					if ($this->eextra != null) {
+						$this->eextra->save();
+						$this->eextra->updateRequestParams($data);
+					}
 					http::redirect($this->action.'?'.http_build_query($data,'','&'));
 					exit;
 				}
 			}
 			if (isset($post[$this->form_prefix."query"])) {
 				parse_str($post[$this->form_prefix."query"],$out);
-				$this->initializeFromData($this->lfilters,$out);
+				$this->initializeFromData($this->lfilters,$this->lextra, $out);
 				if ($action == 'reset') {
-					$this->initializeFromData($this->efilters,$out);
+					$this->initializeFromData($this->efilters,$this->eextra, $out);
 				}
 			}
 			$this->hideform=false;
 		} else {
 			// Use case (2)
 			if (count($get)==0) {
-				$get = $this->loadFilters();
+				$get = new ArrayObject($this->loadFilters());
+				if ($this->eextra != null) {
+					$this->eextra->load();
+					$this->eextra->updateRequestParams($get);
+				}
 			}
-			$this->initializeFromData($this->efilters, $get);
-			$this->initializeFromData($this->lfilters, $get);
+			$this->initializeFromData($this->efilters, $this->eextra, $get);
+			$this->initializeFromData($this->lfilters, $this->lextra, $get);
 		}
 	}
 	/**
@@ -230,17 +304,22 @@ class dcFilterSet {
 			'&nbsp;<input  type="submit" value="'.__('Reset').'" name="'.
 			$this->form_prefix.'reset" /></p>'.
 			'</div>';
-		if ($this->extra_data != '') {
+		if ($this->eextra != '') {
 			$ret .=
 				'<div class="col30">'.
-				$this->extra_data.
+				$this->eextra->getFormContent().
 				'</div>';
 		}
+		$queryParams = $this->getFiltersAsParams($this->lfilters);
+		if ($this->lextra != null) {
+			$this->lextra->updateRequestParams($queryParams);
+		}
+		
 		$ret .=
 			'<p class="clear margintop">'.
 			'<input type="submit" value="'.__('Apply filters and display options').
 			'" name="'.$this->form_prefix.'apply" /></p>'.
-			form::hidden($this->form_prefix."query",http_build_query($this->getFiltersAsParams($this->lfilters))).
+			form::hidden($this->form_prefix."query",http_build_query($queryParams)).
 			$GLOBALS['core']->formNonce().
 			'</form>'.
 			'</div>';
@@ -259,7 +338,7 @@ class dcFilterSet {
 		$arr = new ArrayObject();
 		foreach ($filters as $f) {
 			if ($f->isEnabled())
-				$f->fillQS($arr);
+				$f->updateRequestParams($arr);
 		}
 		return $arr;
 	}
@@ -307,6 +386,9 @@ class dcFilterSet {
 				$filter->applyFilter($params);
 				$this->filtered = true;
 			}
+		}
+		if ($this->lextra != null) {
+			$this->lextra->applyFilters($params);
 		}
 		return $this->filtered;
 	}
@@ -460,21 +542,9 @@ abstract class Filter {
 		return $ret;
 	}
 	
-	public function fillQS($arr) {
+	public function updateRequestParams($arr) {
 		for ($cur=0; $cur < count($this->values); $cur++) {
 			$arr[$this->getFieldId($cur)]=$this->values[$cur];
-		}
-	}
-	
-	/**
-	Returns form fields as hidden fields
-	
-	@return	<b>string</b>	the corresponding html code
-	*/	
-	public function getFormFieldAsHidden () {
-		$ret='';
-		for ($cur=0; $cur < count($this->values); $cur++) {
-			$ret .= form::hidden($this->getFieldId($cur), $this->values[$cur]);
 		}
 	}
 	
@@ -585,13 +655,9 @@ class comboFilter extends Filter {
 			'','',false,'title="'.__('Choose an option').'"').'</td>';
 		return $ret;
 	}
-
-	public function getFormFieldAsHidden () {
-		return parent::getFormFieldAsHidden().form::hidden($this->field_id."_v",$this->verb);
-	}
 	
-	public function fillQS($arr) {
-		parent::fillQS($arr);
+	public function updateRequestParams($arr) {
+		parent::updateRequestParams($arr);
 		
 		$arr[$this->field_id.'_v']=$this->verb;
 	}
@@ -711,4 +777,6 @@ class textFilter extends Filter {
 	}
 	
 }
+
+
 ?>
