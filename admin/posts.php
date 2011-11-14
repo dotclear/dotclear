@@ -123,9 +123,6 @@ $post_list = new adminPostList($core);
 $params = new ArrayObject();
 $params['no_content'] = true;
 
-# - Limit, sortby and order filter
-$params = $post_list->applyFilters($params);
-
 $filterSet = new dcFilterSet('posts','posts.php');
 class monthComboFilter extends comboFilter {
 	public function applyFilter($params) {
@@ -151,6 +148,7 @@ $filterSet
 		'search',__('Contains'),__('The entry contains'), 'search',20,255));
 
 $core->callBehavior('adminPostsFilters',$filterSet);
+$filterSet->setExtra($post_list);
 
 $filterSet->setup($_GET,$_POST);
 
@@ -173,7 +171,6 @@ try {
 	$core->error->add($e->getMessage());
 }
 
-$filterSet->setExtraData($post_list->getColumnsForm());
 
 /* DISPLAY
 -------------------------------------------------------- */
@@ -190,7 +187,6 @@ if (!$core->error->flag())
 	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>';
 
 	$filterSet->display();
-
 	# Show posts
 	$post_list->display('<form action="posts_actions.php" method="post" id="form-entries">'.
 	
@@ -203,12 +199,14 @@ if (!$core->error->flag())
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	$filterSet->getFormFieldsAsHidden().
-	$post_list->getFormFieldsAsHidden().
 	$core->formNonce().
 	'</div>'.
 	'</form>'
 	);
-}
+
+	
+	}
+
 
 dcPage::helpBlock('core_posts');
 dcPage::close();

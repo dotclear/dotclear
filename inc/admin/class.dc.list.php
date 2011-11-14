@@ -258,7 +258,7 @@ class adminItemsColumn
 
 Dotclear items list handles administration lists
 */
-abstract class adminItemsList
+abstract class adminItemsList implements dcFilterExtraInterface
 {
 	protected $core;
 	protected $rs;
@@ -284,25 +284,30 @@ abstract class adminItemsList
 		
 		$this->core = $core;
 		$this->context = get_class($this);
-		$this->columns = array();
+		$this->columns = new ArrayObject();
 		$this->form_prefix = 'col_%s';
-		$this->form_trigger = 'add_filter';
 		
 		$this->html_prev = __('prev');
 		$this->html_next = __('next');
 		$this->html_start = __('start');
 		$this->html_end = __('end');
 		
-		$this->setOptions();
+		$this->nb_per_page = 10;
 		
 		$this->setColumns();
 		
 		# --BEHAVIOR-- adminItemsListConstruct
 		$core->callBehavior('adminItemsListConstruct',$this);
 		
-		$this->setColumnsVisibility();
 	}
 	
+	public function __clone() {
+		$arr = new ArrayObject();
+		foreach ($this->columns as $k=>$v) {
+			$arr[$k]= clone $v;
+		}
+		$this->columns = $arr;
+	}
 	/**
 	Apply limit, sortby and order filters to items parameters
 	
@@ -346,7 +351,7 @@ abstract class adminItemsList
 	
 	@return	<b>string</b>		HTML code form
 	*/
-	public function getColumnsForm()
+	public function getFormContent()
 	{
 		$block = 
 		'<h3>'.__('Displayed information').'</h3>'.
@@ -371,6 +376,26 @@ abstract class adminItemsList
 		'<p><label for="nb_per_page">'.__('Items per page:').
 		'</label>&nbsp;'.form::field('nb_per_page',3,3,$nb_per_page).
 		'</p>';
+	}
+	
+	public function updateRequestParams($params) {
+		if (!is_null($this->sortby)) {
+			$params['sortby'] = $this->sortby;
+		}
+		if (!is_null($this->order)) {
+			$params['order'] = $this->order;
+		}
+		if (!is_null($this->nb_per_page)) {
+			$params['nb_per_page'] = $this->nb_per_page;
+		}
+		if (!is_null($this->page)) {
+			$params['page'] = $this->page;
+		}
+		foreach ($this->columns as $k => $v) {
+			if($v->isVisible())
+				$params[sprintf($this->form_prefix,$k)] = 1;
+		}
+
 	}
 	
 	/**
@@ -513,7 +538,7 @@ abstract class adminItemsList
 	}
 	
 	/**
-	Returns default HTMl code line
+	Returns default HTML code line
 	
 	@return	<b>string</b>		Default HTMl code line
 	*/
@@ -523,60 +548,60 @@ abstract class adminItemsList
 	}
 	
 	/**
-	Sets options of defined list
+	Loads list from user settings
 	*/
-	private function setOptions()
-	{
-		$opts = $_GET;
-		
+	public function load() {
 		$ws = $this->core->auth->user_prefs->addWorkspace('lists');
-		
 		$user_pref = !is_null($ws->{$this->context.'_opts'}) ? unserialize($ws->{$this->context.'_opts'}) : array();
-		# Sortby
 		$this->sortby = array_key_exists('sortby',$user_pref) ? $user_pref['sortby'] : null;
-		$this->sortby = array_key_exists('sortby',$opts) ? $opts['sortby'] : $this->sortby;
-		$user_pref['sortby'] = $this->sortby;
-		# Order
 		$this->order = array_key_exists('order',$user_pref) ? $user_pref['order'] : null;
-		$this->order = array_key_exists('order',$opts) ? $opts['order'] : $this->order;
-		$user_pref['order'] = $this->order;
-		# Number per page
 		$this->nb_per_page = array_key_exists('nb_per_page',$user_pref) ? $user_pref['nb_per_page'] : 10;
-		$this->nb_per_page = array_key_exists('nb_per_page',$opts) ? $opts['nb_per_page'] : $this->nb_per_page;
-		$user_pref['nb_per_page'] = $this->nb_per_page;
-		
-		if (array_key_exists('sortby',$opts) || array_key_exists('order',$opts) || array_key_exists('nb_per_page',$opts)) {
-			$this->core->auth->user_prefs->lists->put($this->context.'_opts',serialize($user_pref),'string');
+		$user_pref = !is_null($ws->{$this->context.'_col'}) ? unserialize($ws->{$this->context.'_col'}) : array();
+		foreach ($this->columns as $k => $v) {
+			$visibility =  array_key_exists($k,$user_pref) ? $user_pref[$k] : true;
+			$v->setVisibility($visibility);
 		}
-		
-		# Page
-		$this->page = array_key_exists('page',$opts) ? $opts['page'] : 1;
 	}
 	
 	/**
-	Sets columns visibility of defined list
+	Saves list to user settings
 	*/
-	private function setColumnsVisibility()
-	{
-		$opts = $_GET;
-		
-		# Visibility
+	public function save() {
 		$ws = $this->core->auth->user_prefs->addWorkspace('lists');
+		$user_pref = !is_null($ws->{$this->context.'_opts'}) ? unserialize($ws->{$this->context.'_opts'}) : array();
+		$user_pref['order'] = $this->order;
+		$user_pref['nb_per_page'] = $this->nb_per_page;
+		$user_pref['sortby'] = $this->sortby;
+		
+		$this->core->auth->user_prefs->lists->put($this->context.'_opts',serialize($user_pref),'string');
 		
 		$user_pref = !is_null($ws->{$this->context.'_col'}) ? unserialize($ws->{$this->context.'_col'}) : array();
 		
 		foreach ($this->columns as $k => $v) {
-			$visibility =  array_key_exists($k,$user_pref) ? $user_pref[$k] : true;
-			if (array_key_exists($this->form_trigger,$opts)) {
-				$key = sprintf($this->form_prefix,$k);
-				$visibility = !array_key_exists($key,$opts) ? false : true;
-			}
-			$v->setVisibility($visibility);
-			$user_pref[$k] = $visibility;
+			$user_pref[$k] = $v->isVisible();
 		}
+		$this->core->auth->user_prefs->lists->put($this->context.'_col',serialize($user_pref),'string');
+	}
+	
+	/**
+	Set dedicated data from form submission 
+	(either $_GET or $_POST depending on the context
+	
+	@param	data		<b>array</b>		Data to retrieve information from
+	*/
+	public function initializeFromData ($data)
+	{
+		# Sortby
+		$this->sortby = array_key_exists('sortby',$data) ? $data['sortby'] : $this->sortby;
+		$this->order = array_key_exists('order',$data) ? $data['order'] : $this->order;
+		$this->nb_per_page = array_key_exists('nb_per_page',$data) ? $data['nb_per_page'] : $this->nb_per_page;
 		
-		if (array_key_exists($this->form_trigger,$opts)) {
-			$this->core->auth->user_prefs->lists->put($this->context.'_col',serialize($user_pref),'string');
+		# Page
+		$this->page = array_key_exists('page',$data) ? $data['page'] : 1;
+		foreach ($this->columns as $k => $v) {
+			$key = sprintf($this->form_prefix,$k);
+			$visibility = !array_key_exists($key,$data) ? false : true;
+			$v->setVisibility($visibility);
 		}
 	}
 	

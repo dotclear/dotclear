@@ -1462,7 +1462,7 @@ class dcBlog
 			if ($field == 'cat_id') {
 				if (preg_match('/^null$/i',$id)) {
 					$queries[$id] = 'P.cat_id IS NULL';
-					if ($not[$id]) {
+					if (isset($not[$id]) && ($not[$id] == 1)) {
 						$nullExcluded = true;
 					}
 				}
