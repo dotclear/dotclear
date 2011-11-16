@@ -149,6 +149,8 @@ if ($new_v && $step)
 		}
 		
 		$core->error->add($msg);
+		
+		$core->callBehavior('adminDCUpdateException',$e);
 	}
 }
 
