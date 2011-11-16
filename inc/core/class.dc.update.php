@@ -36,10 +36,10 @@ class dcUpdate
 	/**
 	 * Constructor
 	 * 
-	 * @param url		string		Versions file URL
-	 * @param subject		string		Subject to check
-	 * @param version		string		Version type
-	 * @param cache_dir	string		Directory cache path
+	 * @param url			string	Versions file URL
+	 * @param subject		string	Subject to check
+	 * @param version		string	Version type
+	 * @param cache_dir 	string	Directory cache path
 	 */
 	public function __construct($url,$subject,$version,$cache_dir)
 	{
@@ -118,7 +118,7 @@ class dcUpdate
 	}
 	
 	public function getVersion()
-	{return "2.5";
+	{
 		return $this->version_info['version'];
 	}
 	
