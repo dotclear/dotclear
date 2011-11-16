@@ -120,11 +120,8 @@ if ($new_v && $step)
 	{
 		$msg = $e->getMessage();
 		
-		$error_code = 'update_err';
-		
 		if ($e->getCode() == dcUpdate::ERR_FILES_CHANGED)
 		{
-			$error_code = "update_err_files_changed";
 			$msg =
 			__('The following files of your Dotclear installation '.
 			'have been modified so we won\'t try to update your installation. '.
@@ -132,7 +129,6 @@ if ($new_v && $step)
 		}
 		elseif ($e->getCode() == dcUpdate::ERR_FILES_UNREADABLE)
 		{
-			$error_code = "update_err_files_unreadable";
 			$msg =
 			sprintf(__('The following files of your Dotclear installation are not readable. '.
 			'Please fix this or try to make a backup file named %s manually.'),
@@ -140,7 +136,6 @@ if ($new_v && $step)
 		}
 		elseif ($e->getCode() == dcUpdate::ERR_FILES_UNWRITALBE)
 		{
-			$error_code = "update_err_files_unwritalbe";
 			$msg =
 			__('The following files of your Dotclear installation cannot be written. '.
 			'Please fix this or try to <a href="http://dotclear.org/download">update manually</a>.');
@@ -148,7 +143,7 @@ if ($new_v && $step)
 		
 		if (isset($e->bad_files)) {
 			$msg .=
-			'<ul id="'.$error_code.'"><li><strong>'.
+			'<ul><li><strong>'.
 			implode('</strong></li><li><strong>',$e->bad_files).
 			'</strong></li></ul>';
 		}
