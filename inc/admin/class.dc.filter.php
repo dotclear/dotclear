@@ -246,7 +246,14 @@ class dcFilterSet {
 			$this->hideform=false;
 		} else {
 			// Use case (2)
-			if (count($get)==0) {
+			$load_from_settings = true;
+			foreach($get as $k=>$v) {
+				if (strpos($k,$this->form_prefix)===0) {
+					$load_from_settings=false;
+					break;
+				}
+			}
+			if ($load_from_settings) {
 				$get = new ArrayObject($this->loadFilters());
 				if ($this->eextra != null) {
 					$this->eextra->load();
