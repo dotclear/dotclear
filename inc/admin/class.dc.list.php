@@ -591,13 +591,23 @@ abstract class adminItemsList implements dcFilterExtraInterface
 	*/
 	public function initializeFromData ($data)
 	{
+		$load_from_settings = true;
+		foreach ($data as $k=>$v) {
+			if (strpos($this->form_prefix,$k)===0) {
+				$load_from_settings = false;
+			}
+		}
+		if ($load_from_settings) {
+			$this->load();
+		}
 		# Sortby
 		$this->sortby = array_key_exists('sortby',$data) ? $data['sortby'] : $this->sortby;
 		$this->order = array_key_exists('order',$data) ? $data['order'] : $this->order;
 		$this->nb_per_page = array_key_exists('nb_per_page',$data) ? $data['nb_per_page'] : $this->nb_per_page;
-		
 		# Page
 		$this->page = array_key_exists('page',$data) ? $data['page'] : 1;
+		if ($load_from_settings)
+			return;
 		foreach ($this->columns as $k => $v) {
 			$key = sprintf($this->form_prefix,$k);
 			$visibility = !array_key_exists($key,$data) ? false : true;
