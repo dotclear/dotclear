@@ -15,6 +15,26 @@ class dcUrlHandlers extends urlHandler
 {
 	public $args;
 	
+	public function getURLFor($type,$value='') {
+		$core =& $GLOBALS['core'];
+		$url = $core->callBehavior("publicGetURLFor",$type,$value);
+		if ($url !== '') {
+			$url = $core->blog->url.$this->getBase($type);
+			if ($value !== '') {
+				$url .= '/'.$value;
+			}
+		}
+		return $url;
+	}
+	
+	public function register($type,$url,$representation,$handler)
+	{
+		$core =& $GLOBALS['core'];
+		$t = new ArrayObject(array($type,$url,$representation,$handler));
+		$core->callBehavior("publicRegisterURL",$t);
+		parent::register($t[0],$t[1],$t[2],$t[3]);
+	}
+	
 	public static function p404()
 	{
 		throw new Exception ("Page not found",404);

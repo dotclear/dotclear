@@ -98,6 +98,7 @@ class context
 		return $test;
 	}
 	
+	
 	# Static methods
 	public static function global_filter($str,
 	$encode_xml, $remove_html, $cut_string, $lower_case, $upper_case ,$tag='')
