@@ -18,7 +18,7 @@ class dcUrlHandlers extends urlHandler
 	public function getURLFor($type,$value='') {
 		$core =& $GLOBALS['core'];
 		$url = $core->callBehavior("publicGetURLFor",$type,$value);
-		if ($url !== '') {
+		if (!$url) {
 			$url = $core->blog->url.$this->getBase($type);
 			if ($value !== '') {
 				$url .= '/'.$value;
