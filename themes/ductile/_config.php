@@ -283,7 +283,7 @@ $ductile_stickers = @unserialize($ductile_stickers);
 if (!is_array($ductile_stickers)) {
 	$ductile_stickers = array(array(
 		'label' => __('Subscribe'),
-		'url' => $core->blog->url.$core->url->getBase('feed').'/atom',
+		'url' => $core->url->getURLFor('feed','atom'),
 		'image' => 'sticker-feed.png'
 		));
 }

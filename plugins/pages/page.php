@@ -391,10 +391,10 @@ if ($can_edit_page)
 
 	if ($post_id) {
 		$preview_url =
-		$core->blog->url.$core->url->getBase('pagespreview').'/'.
+		$core->url->getURLFor('pagespreview',
 		$core->auth->userID().'/'.
 		http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
-		'/'.$post->post_url;
+		'/'.$post->post_url);
 		echo '<a id="post-preview" href="'.$preview_url.'" class="button">'.__('Preview').'</a>';
 	}
 	

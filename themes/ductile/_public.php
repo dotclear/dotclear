@@ -130,7 +130,7 @@ class tplDuctileTheme
 		}
 
 		if ($default || $res == '') {
-			$res = self::setSticker(1,true,__('Subscribe'),$core->blog->url.$core->url->getBase('feed').'/atom',$img_url.'sticker-feed.png');
+			$res = self::setSticker(1,true,__('Subscribe'),$core->url->getURLFor('feed','atom'),$img_url.'sticker-feed.png');
 		}
 
 		if ($res != '') {

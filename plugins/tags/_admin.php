@@ -101,7 +101,7 @@ class tagsBehaviors
 	
 	public static function postHeaders()
 	{
-		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getBase('tag');
+		$tag_url = $GLOBALS['core']->url->getURLFor('tag');
 		
 		$opts = $GLOBALS['core']->auth->getOptions();
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
@@ -130,7 +130,7 @@ class tagsBehaviors
 	
 	public static function postsActionsHeaders()
 	{
-		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getBase('tag');
+		$tag_url = $GLOBALS['core']->url->getURLFor('tag');
 		
 		$opts = $GLOBALS['core']->auth->getOptions();
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
