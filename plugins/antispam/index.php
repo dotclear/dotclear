@@ -210,8 +210,8 @@ else
 	# Syndication
 	if (DC_ADMIN_URL)
 	{
-		$ham_feed = $core->blog->url.$core->url->getBase('hamfeed').'/'.$code = dcAntispam::getUserCode($core);
-		$spam_feed = $core->blog->url.$core->url->getBase('spamfeed').'/'.$code = dcAntispam::getUserCode($core);
+		$ham_feed = $core->url->getURLFor('hamfeed',$code = dcAntispam::getUserCode($core));
+		$spam_feed = $core->url->getBase('spamfeed',$code = dcAntispam::getUserCode($core));
 
 		echo
 		'<h3>'.__('Syndication').'</h3>'.
