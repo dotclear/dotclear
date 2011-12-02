@@ -390,7 +390,7 @@ if ($can_edit_page)
 	'accesskey="s" name="save" /> ';
 
 	if ($post_id) {
-		$preview_url =
+		$preview_url = $core->blog->url.
 		$core->url->getURLFor('pagespreview',
 		$core->auth->userID().'/'.
 		http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).

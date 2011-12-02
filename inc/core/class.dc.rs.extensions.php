@@ -187,7 +187,7 @@ class rsExtPost
 	*/
 	public static function getCategoryURL($rs)
 	{
-		return $rs->core->url->getURLFor('category',html::sanitizeURL($rs->cat_url));
+		return $rs->core->blog->url.$rs->core->url->getURLFor('category',html::sanitizeURL($rs->cat_url));
 	}
 	
 	/**
@@ -393,7 +393,7 @@ class rsExtPost
 	*/
 	public static function getTrackbackLink($rs)
 	{
-		return $rs->core->url->getURLFor('trackback',$rs->post_id);
+		return $rs->core->blog->url.$rs->core->url->getURLFor('trackback',$rs->post_id);
 	}
 	
 	/**
@@ -776,7 +776,7 @@ class rsExtDates
 	{
 		$url = date('Y/m',strtotime($rs->dt));
 		
-		return $core->url->getURLFor('archive',$url);
+		return $core->blog->url.$core->url->getURLFor('archive',$url);
 	}
 	
 	/**

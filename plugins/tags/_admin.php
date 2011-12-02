@@ -62,7 +62,7 @@ class tagsBehaviors
 		}
 		
 		
-		$tag_url = html::stripHostURL($GLOBALS['core']->blog->url.$GLOBALS['core']->url->getBase('tag'));
+		$tag_url = html::stripHostURL($GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag'));
 		$res['url'] = $tag_url.'/'.rawurlencode(dcMeta::sanitizeMetaID($url));
 		$res['content'] = $content;
 		
@@ -101,9 +101,9 @@ class tagsBehaviors
 	
 	public static function postHeaders()
 	{
-		$tag_url = $GLOBALS['core']->url->getURLFor('tag');
+		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
 		
-		$opts = $GLOBALS['core']->auth->getOptions();
+		$opts = $GLOBALS['core']->blog->url.$GLOBALS['core']->auth->getOptions();
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
 		
 		return 
@@ -130,7 +130,7 @@ class tagsBehaviors
 	
 	public static function postsActionsHeaders()
 	{
-		$tag_url = $GLOBALS['core']->url->getURLFor('tag');
+		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
 		
 		$opts = $GLOBALS['core']->auth->getOptions();
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';

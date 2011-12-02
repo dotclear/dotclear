@@ -741,7 +741,7 @@ class dcTemplate extends template
 	public function BlogArchiveURL($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->url->getURLFor("archive")').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("archive")').'; ?>';
 	}
 	
 	/*dtd
@@ -795,7 +795,7 @@ class dcTemplate extends template
 		}
 		
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->url->getURLFor("feed","'.$type.'")').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("feed","'.$type.'")').'; ?>';
 	}
 	
 	/*dtd
@@ -880,7 +880,7 @@ class dcTemplate extends template
 	public function BlogRSDURL($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->url->getURLFor(\'rsd\')').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor(\'rsd\')').'; ?>';
 	}
 	
 	/*dtd
@@ -1044,7 +1044,7 @@ class dcTemplate extends template
 		}
 		
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->url->getURLFor("feed","category/".'.
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("feed","category/".'.
 		'$_ctx->categories->cat_url."/'.$type.'")').'; ?>';
 	}
 	
@@ -1054,7 +1054,8 @@ class dcTemplate extends template
 	public function CategoryURL($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->url->getURLFor("category",$_ctx->categories->cat_url)').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("category",'.
+			'$_ctx->categories->cat_url)').'; ?>';
 	}
 	
 	/*dtd
@@ -1933,7 +1934,8 @@ class dcTemplate extends template
 	public function LanguageURL($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->url->getURLFor("lang",$_ctx->langs->post_lang)').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("lang",'.
+			'$_ctx->langs->post_lang)').'; ?>';
 	}
 	
 	/* Pagination ------------------------------------- */
