@@ -1,3 +1,12 @@
+Dotclear 2.4.1-dev
+===========================================================
+* New behavior : publicGetURLFor
+* New behavior : publicRegisterURL
+* New behavior : templatePrepareParams
+* Changed the way to get artefacts URLs, through $core->url->getURLFor calls, instead of $core->url->getBase()
+* new/updated parameter sql_only in $core->blog->getPosts and $core->blog->getComments
+
+
 Dotclear 2.4.0
 ===========================================================
 * Admin: new iconset from Thomas Daveluy
