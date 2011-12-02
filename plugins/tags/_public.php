@@ -185,14 +185,14 @@ class tplTags
 	public static function TagURL($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->url->getURLFor("tag",'.
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("tag",'.
 		'rawurlencode($_ctx->meta->meta_id))').'; ?>';
 	}
 	
 	public static function TagCloudURL($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$$core->url->getURLFor("tags")').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("tags")').'; ?>';
 	}
 	
 	public static function TagFeedURL($attr)
@@ -204,7 +204,7 @@ class tplTags
 		}
 		
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->url->getURLFor("tag_feed",'.
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("tag_feed",'.
 		'rawurlencode($_ctx->meta->meta_id)."/'.$type.'")').'; ?>';
 	}
 	
@@ -246,7 +246,7 @@ class tplTags
 		while ($rs->fetch())
 		{
 			$res .=
-			'<li><a href="'.$core->url->getURLFor('tag',rawurlencode($rs->meta_id)).'" '.
+			'<li><a href="'.$core->blog->url.$core->url->getURLFor('tag',rawurlencode($rs->meta_id)).'" '.
 			'class="tag'.$rs->roundpercent.'" rel="tag">'.
 			$rs->meta_id.'</a> </li>';
 		}
@@ -256,7 +256,7 @@ class tplTags
 		if ($core->url->getBase('tags') && !is_null($w->alltagslinktitle) && $w->alltagslinktitle !== '')
 		{
 			$res .=
-			'<p><strong><a href="'.$core->url->getURLFor("tags").'">'.
+			'<p><strong><a href="'.$core->blog->url.$core->url->getURLFor("tags").'">'.
 			html::escapeHTML($w->alltagslinktitle).'</a></strong></p>';
 		}
 		

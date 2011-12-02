@@ -693,8 +693,10 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 				'parentId' => $parent,
 				'description' => $rs->cat_title,
 				'categoryName' => $rs->cat_url,
-				'htmlUrl' => $this->core->url->getURLFor('category',$rs->cat_url),
-				'rssUrl' => $this->core->url->getURLFor('feed','category/'.$rs->cat_url.'/rss2')
+				'htmlUrl' => $this->core->blog->url.
+					$this->core->url->getURLFor('category',$rs->cat_url),
+				'rssUrl' => $this->core->blog->url.
+					$this->core->url->getURLFor('feed','category/'.$rs->cat_url.'/rss2')
 			);
 			
 			$stack[] = $rs->cat_url;
@@ -1071,8 +1073,10 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$tags->sort('meta_id_lower','asc');
 		
 		$res = array();
-		$url   = $this->core->url->getURLFor('tag','%s');
-		$f_url = $this->core->url->getURLFor('tag_feed','%s');
+		$url   = $this->core->blog->url.
+			$this->core->url->getURLFor('tag','%s');
+		$f_url = $this->core->blog->url.
+			$this->core->url->getURLFor('tag_feed','%s');
 		while ($tags->fetch())
 		{
 			$res[] = array(
