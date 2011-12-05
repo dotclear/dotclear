@@ -20,10 +20,10 @@ class dcUrlHandlers extends urlHandler
 		$url = $core->callBehavior("publicGetURLFor",$type,$value);
 		if (!$url) {
 			$url = $this->getBase($type);
-			if ($url) {
-				$url .= '/';
-			}
 			if ($value) {
+				if ($url) {
+					$url .= '/';
+				}
 				$url .= $value;
 			}
 		}
