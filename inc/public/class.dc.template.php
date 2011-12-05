@@ -1209,7 +1209,7 @@ class dcTemplate extends template
 		
 		$res = "<?php\n";
 		$res .= $p;
-		$res .= $this->core->callBehavior("templatePrepareParams","Entries",$tag,$attr);
+		$res .= $this->core->callBehavior("templatePrepareParams","Entries",$attr,$content);
 		$res .= '$_ctx->post_params = $params;'."\n";
 		$res .= '$_ctx->posts = $core->blog->getPosts($params); unset($params);'."\n";
 		$res .= "?>\n";
