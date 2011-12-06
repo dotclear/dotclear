@@ -85,6 +85,7 @@ if (isset($_GET['author'])) {
 	$authorFilter->add();
 	$authorFilter->setValue($_GET['author']);
 }
+$with_spam=true;
 /* Get comments
 -------------------------------------------------------- */
 try {
@@ -144,10 +145,7 @@ if (!$core->error->flag())
 	form::combo('action',$combo_action,'','','','','title="'.__('action: ').'"').
 	$core->formNonce().
 	'<input type="submit" value="'.__('ok').'" /></p>'.
-	form::hidden(array('type'),$type).
-	form::hidden(array('author'),preg_replace('/%/','%%',$author)).
-	form::hidden(array('status'),$status).
-	form::hidden(array('ip'),preg_replace('/%/','%%',$ip)).
+	str_replace('%','%%',$filterSet->getFormFieldsAsHidden()).
 	'</div>'.
 	
 	'</form>'

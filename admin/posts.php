@@ -198,7 +198,7 @@ if (!$core->error->flag())
 	'<p class="col right"><span class="filter-title">'.__('Selected entries action:').'</span> '.
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
-	$filterSet->getFormFieldsAsHidden().
+	str_replace('%','%%',$filterSet->getFormFieldsAsHidden()).
 	$core->formNonce().
 	'</div>'.
 	'</form>'
