@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:36+0200\n"
+"POT-Creation-Date: 2011-11-06 18:09+0100\n"
 "PO-Revision-Date: 2010-01-16 19:07+0800\n"
 "Last-Translator: lainme <lainme993@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,9 +125,6 @@ msgstr "新博客"
 msgid "Blogs"
 msgstr "博客"
 
-msgid "Blog details"
-msgstr "博客详情"
-
 msgid "Blog ID:"
 msgstr "博客 ID："
 
@@ -149,8 +146,8 @@ msgstr "博客 URL："
 msgid "Blog description:"
 msgstr "博客描述："
 
-msgid "Save"
-msgstr "保存"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr "没有这样的博客 ID"
@@ -240,6 +237,9 @@ msgstr "博客已被成功更新。"
 
 msgid "Parameters"
 msgstr "参数"
+
+msgid "Blog details"
+msgstr "博客详情"
 
 msgid "URL scan method:"
 msgstr "URL 扫描方法："
@@ -354,6 +354,9 @@ msgstr "当您从媒体中心将它插入一篇文章时，这会定义一个图
 msgid "Search engines robots policy"
 msgstr "搜索引擎机器人规则"
 
+msgid "Save"
+msgstr "保存"
+
 msgid "XML/RPC interface"
 msgstr "XML/RPC 接口"
 
@@ -387,7 +390,7 @@ msgstr "这个博客上的用户"
 msgid "No users"
 msgstr "没有用户"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "改变权限"
 
 msgid "Super administrator"
@@ -424,10 +427,8 @@ msgstr "(需要“%s”)"
 msgid "Stylesheet"
 msgstr "样式表"
 
-msgid "Theme configuration"
-msgstr "主题配置"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "博客主题"
 
 msgid "Blog appearance"
@@ -459,10 +460,12 @@ msgstr "主题"
 msgid "You are currently using \"%s\""
 msgstr "您正在使用“%s”"
 
-msgid "use selected theme"
+#, fuzzy
+msgid "Use selected theme"
 msgstr "使用选中的主题"
 
-msgid "delete selected theme"
+#, fuzzy
+msgid "Delete selected theme"
 msgstr "删除选中的主题"
 
 msgid "Install or upgrade a theme"
@@ -491,6 +494,9 @@ msgstr "下载主题"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr "要激活这个功能，请赋予您的主题目录写权限。"
+
+msgid "Theme configuration"
+msgstr "主题配置"
 
 msgid "back"
 msgstr "返回"
@@ -617,8 +623,8 @@ msgstr "移除一个分类目录"
 msgid "Choose a category to remove:"
 msgstr "选择要移除的分类目录："
 
-msgid "ok"
-msgstr "确定"
+msgid "Delete"
+msgstr "删除"
 
 msgid "Reorder categories"
 msgstr "重新排序分类目录"
@@ -704,10 +710,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "发送一封邮件"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "返回到“%s”"
-
 msgid "IP address:"
 msgstr "IP 地址："
 
@@ -725,9 +727,6 @@ msgstr "状态："
 
 msgid "Comment:"
 msgstr "评论："
-
-msgid "Delete"
-msgstr "删除"
 
 msgid "comment"
 msgstr "评论"
@@ -755,9 +754,6 @@ msgstr "标记为待审核"
 
 msgid "mark as junk"
 msgstr "标记为垃圾评论"
-
-msgid "delete"
-msgstr "删除"
 
 msgid "Type:"
 msgstr "类型："
@@ -787,6 +783,9 @@ msgstr "选择的评论动作："
 #, fuzzy
 msgid "action: "
 msgstr "动作"
+
+msgid "ok"
+msgstr "确定"
 
 msgid "Comments"
 msgstr "评论"
@@ -825,7 +824,8 @@ msgstr "这个博客不在线"
 msgid "This blog is removed"
 msgstr "这个博客已移除"
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+#, fuzzy
+msgid "is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL 没有定义，您需要编辑您的配置文件。"
 
 msgid "Following plugins have been installed:"
@@ -860,7 +860,8 @@ msgstr "内容："
 msgid "Category:"
 msgstr "分类目录："
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "保存并发布"
 
 #, php-format
@@ -946,14 +947,6 @@ msgstr ""
 "<p>要删除它，登入并查看您的博客评论。然后您可以移除或者修改它。</p>"
 
 #, fuzzy
-msgid "Pages"
-msgstr "页数"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "博客"
-
-#, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear 安装"
 
@@ -987,9 +980,6 @@ msgstr "姓："
 
 msgid "Username and password"
 msgstr "用户名和密码"
-
-msgid "save"
-msgstr "保存"
 
 msgid "All done!"
 msgstr "一切完成！"
@@ -1065,6 +1055,10 @@ msgstr "数据库密码："
 
 msgid "Database Tables Prefix:"
 msgstr "数据库表前缀："
+
+#, fuzzy
+msgid "Continue"
+msgstr "内容："
 
 msgid "No such installed language"
 msgstr "没有这样的已安装的语言包"
@@ -1172,10 +1166,10 @@ msgstr "确认清除"
 msgid "Are you sure you want to remove %s?"
 msgstr "您确定要移除 %s 吗？"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "取消"
 
-msgid "yes"
+msgid "Yes"
 msgstr "是"
 
 msgid "Directory has been successfully created."
@@ -1213,6 +1207,10 @@ msgstr "没有文件。"
 msgid "Sort files:"
 msgstr "排序文件："
 
+#, fuzzy
+msgid "Sort"
+msgstr "排序："
+
 msgid "Add files"
 msgstr "添加文件"
 
@@ -1229,8 +1227,11 @@ msgstr "最大大小 %s"
 msgid "Private"
 msgstr "私有的"
 
-msgid "send"
-msgstr "发送"
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
+
+msgid "Send"
+msgstr ""
 
 msgid "New directory"
 msgstr "新目录"
@@ -1246,6 +1247,10 @@ msgstr "打开"
 
 msgid "Insert this file into entry"
 msgstr "插入这个文件到文章中"
+
+#, fuzzy
+msgid "delete"
+msgstr "删除"
 
 msgid "Not a valid file"
 msgstr "不是一个有效的文件"
@@ -1313,9 +1318,6 @@ msgstr "视频处理"
 msgid "Media item will be inserted as a link."
 msgstr "媒体项目将会作为链接插入。"
 
-msgid "Cancel"
-msgstr "取消"
-
 msgid "Insert"
 msgstr "插入"
 
@@ -1358,9 +1360,6 @@ msgstr "更新缩略图"
 msgid "This will create or update thumbnails for this image."
 msgstr "这将会创建或者更新此图片的缩略图。"
 
-msgid "update thumbnails"
-msgstr "更新缩略图"
-
 msgid "Extract in a new directory"
 msgstr "解压缩到一个新目录"
 
@@ -1380,7 +1379,8 @@ msgstr "这将会把压缩包解压缩到当前目录并会覆盖已存在的文
 msgid "Extract mode:"
 msgstr "解压缩模式："
 
-msgid "extract"
+#, fuzzy
+msgid "Extract"
 msgstr "解压缩"
 
 msgid "Change media properties"
@@ -1417,6 +1417,10 @@ msgstr "成功更新权限。"
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "您将为用户 %s 改变在下列博客的权限。"
 
+#, fuzzy
+msgid "Validate permissions"
+msgstr "设置权限"
+
 msgid "choose a blog"
 msgstr "选择一个博客"
 
@@ -1430,7 +1434,7 @@ msgstr "每页文章数"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "选择一个或者多个您想要赋予用户 %s 权限的博客。"
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "设置权限"
 
 #, fuzzy
@@ -1544,14 +1548,18 @@ msgstr "文件标题："
 msgid "Link language:"
 msgstr "链接语言："
 
-msgid "insert"
-msgstr "插入"
-
 msgid "Add a link to an entry"
 msgstr "向文章中添加一个链接"
 
 msgid "Search entry:"
 msgstr "搜索文章："
+
+msgid "Search"
+msgstr "搜索"
+
+#, fuzzy
+msgid "cancel"
+msgstr "取消"
 
 msgid "This entry does not exist."
 msgstr "这篇文章不存在。"
@@ -1583,10 +1591,20 @@ msgstr "成功创建评论。"
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "请不要忘了通过保存您的文章检验您的 XHTML 转换。"
 
-msgid "View entry"
-msgstr "查看文章"
+msgid "Go to this entry on the site"
+msgstr ""
 
-msgid "Preview entry"
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr "摘录："
+
+msgid "Notes:"
+msgstr "注释："
+
+#, fuzzy
+msgid "Preview"
 msgstr "预览文章"
 
 msgid "Entry status:"
@@ -1615,24 +1633,6 @@ msgstr "具体的 URL："
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "警告：如果您手动设置 URL，它可能与其他文章冲突。"
-
-msgid "Attachments"
-msgstr "附件"
-
-msgid "remove"
-msgstr "移除"
-
-msgid "No attachment."
-msgstr "没有附件。"
-
-msgid "Add files to this entry"
-msgstr "向这篇文章添加文件"
-
-msgid "Excerpt:"
-msgstr "摘录："
-
-msgid "Notes:"
-msgstr "注释："
 
 msgid "Ping blogs"
 msgstr "Ping 博客"
@@ -1753,8 +1753,15 @@ msgstr "改变文章的作者"
 msgid "Author ID:"
 msgstr "作者 ID："
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "如果您想要改变您的邮箱或者密码，您必须提供当前的密码。"
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "非精选的"
 
 msgid "Personal information has been successfully updated."
 msgstr "成功更新个人信息。"
@@ -1792,6 +1799,10 @@ msgid "User timezone:"
 msgstr "用户时区："
 
 #, fuzzy
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr "如果您想要改变您的邮箱或者密码，您必须提供当前的密码。"
+
+#, fuzzy
 msgid "My options"
 msgstr "搜索选项"
 
@@ -1806,6 +1817,19 @@ msgstr "文章编辑区域高度："
 
 msgid "Enable WYSIWYG mode"
 msgstr "激活所见即所得模式"
+
+#, fuzzy
+msgid "Activate enhanced uploader in media manager"
+msgstr "激活增强的上传工具"
+
+msgid "Iconset:"
+msgstr ""
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
 
 msgid "Accessibility options"
 msgstr ""
@@ -1872,19 +1896,18 @@ msgstr "可用的大小："
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr "搜索"
-
 msgid "Search options"
 msgstr "搜索选项"
 
 msgid "Query:"
 msgstr "查询："
 
-msgid "search entries"
+#, fuzzy
+msgid "Search entries"
 msgstr "搜索文章"
 
-msgid "search comments"
+#, fuzzy
+msgid "Search comments"
 msgstr "搜索评论"
 
 msgid "schedule"
@@ -1917,6 +1940,10 @@ msgstr "这篇文章不存在或者没有发布"
 
 msgid "All pings sent."
 msgstr "所有的 ping 已发送。"
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "返回到“%s”"
 
 msgid "Auto discover ping URLs"
 msgstr "自动发现 ping URL。"
@@ -2008,9 +2035,15 @@ msgstr "警告："
 msgid "If you change your username, you will have to log in again."
 msgstr "如果您改变用户名，您必须重新登录。"
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 #, fuzzy
 msgid "Password change required to connect"
 msgstr "连接需要改动密码"
+
+msgid "Save and create another"
+msgstr ""
 
 msgid "No permissions."
 msgstr "没有权限。"
@@ -2032,9 +2065,6 @@ msgstr "显示的名字"
 
 msgid "Number of entries"
 msgstr "文章数目"
-
-msgid "Set permissions"
-msgstr "设置权限"
 
 msgid "users"
 msgstr "用户"
@@ -2063,13 +2093,12 @@ msgstr "博客："
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
-msgstr ""
+#, fuzzy
+msgid "My dashboard"
+msgstr "控制板"
 
-msgid "User:"
-msgstr "用户："
-
-msgid "Logout"
+#, fuzzy, php-format
+msgid "Logout %s"
 msgstr "退出"
 
 msgid "Safe mode"
@@ -2178,6 +2207,9 @@ msgid "There are XHTML markup errors."
 msgstr "这是 XHTML 标记的错误。"
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -2368,9 +2400,6 @@ msgstr "数据库类型："
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-msgid "Languages"
-msgstr "语言"
-
 msgid "System"
 msgstr "系统"
 
@@ -2379,6 +2408,9 @@ msgstr "博客"
 
 msgid "Updates"
 msgstr "更新"
+
+msgid "Languages"
+msgstr "语言"
 
 msgid "administrator"
 msgstr "管理员"
@@ -2723,6 +2755,30 @@ msgstr "写入文件到磁盘失败。"
 msgid "%s is not a directory."
 msgstr "%s 不是一个目录。"
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "无效的语言代码"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "无效的语言代码"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "无效的摘要文件。"
+
 msgid "Uploading this file is not allowed."
 msgstr "上传此文件是不允许的。"
 
@@ -2803,6 +2859,41 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "页数"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "博客"
+
+#~ msgid "send"
+#~ msgstr "发送"
+
+#~ msgid "update thumbnails"
+#~ msgstr "更新缩略图"
+
+#~ msgid "insert"
+#~ msgstr "插入"
+
+#~ msgid "View entry"
+#~ msgstr "查看文章"
+
+#~ msgid "Attachments"
+#~ msgstr "附件"
+
+#~ msgid "remove"
+#~ msgstr "移除"
+
+#~ msgid "No attachment."
+#~ msgstr "没有附件。"
+
+#~ msgid "Add files to this entry"
+#~ msgstr "向这篇文章添加文件"
+
+#~ msgid "User:"
+#~ msgstr "用户："
 
 #~ msgid "login"
 #~ msgstr "登录"

@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -20,7 +20,7 @@ $title = !empty($_GET['title']) ? $_GET['title'] : '';
 
 dcPage::openPopup(__('Add a link'),dcPage::jsLoad('js/jsToolBar/popup_link.js'));
 
-echo '<h2>'.__('Add a link').'</h2>';
+echo '<h2 class="page-title">'.__('Add a link').'</h2>';
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
@@ -49,8 +49,8 @@ form::combo('hreflang',$lang_combo,$hreflang).
 
 '</form>'.
 
-'<p><a class="button reset" href="#" id="link-insert-cancel">'.__('cancel').'</a> - '.
-'<strong><a class="button" href="#" id="link-insert-ok">'.__('insert').'</a></strong></p>'."\n".
+'<p><a class="button reset" href="#" id="link-insert-cancel">'.__('Cancel').'</a> - '.
+'<strong><a class="button" href="#" id="link-insert-ok">'.__('Insert').'</a></strong></p>'."\n".
 
 '<script type="text/javascript">'."\n".
 '//<![CDATA['."\n".

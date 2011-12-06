@@ -5,18 +5,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-27 13:14+0200\n"
+"POT-Creation-Date: 2011-11-06 18:11+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "X-Poedit-Language: French\n"
 
 msgid "no"
 msgstr "non"
+
+msgid "yes"
+msgstr "oui"
 
 msgid "Configuration successfully updated"
 msgstr "Configuration mise à jour avec succès"
@@ -32,6 +35,12 @@ msgstr "Valeur"
 
 msgid "Description"
 msgstr "Description"
+
+msgid "Goto:"
+msgstr "Aller à :"
+
+msgid "Ok"
+msgstr "Valider"
 
 msgid "global settings"
 msgstr "paramètres globaux"
@@ -83,7 +92,7 @@ msgstr "Liste noire"
 msgid "Whitelist"
 msgstr "Liste blanche"
 
-msgid "Add an IP address"
+msgid "Add an IP address: "
 msgstr "Ajouter une adresse IP"
 
 msgid "Global IP"
@@ -139,8 +148,8 @@ msgstr "Mot global"
 msgid "No word in list."
 msgstr "Aucun mot dans la liste."
 
-msgid "List"
-msgstr "Liste"
+msgid "List of bad words"
+msgstr "Liste de mots interdits"
 
 msgid "Delete selected words"
 msgstr "Supprimer les mots sélectionnés"
@@ -187,9 +196,6 @@ msgstr "Le filtre n'existe pas."
 msgid "Filter has no user interface."
 msgstr "Le filtre n'a pas d'interface utilisateur."
 
-msgid "Return to filters"
-msgstr "Retour aux filtres"
-
 #, php-format
 msgid "%s configuration"
 msgstr "%s configuration"
@@ -213,11 +219,17 @@ msgstr "Supprimer tous les indésirables"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Tous les indésirables de plus de %s jour(s) seront automatiquement supprimés."
 
-msgid "Available spam filters"
-msgstr "Filtres disponibles"
+msgid "You can modify this duration in "
+msgstr "Vous pouvez modifier cet intervalle dans"
+
+msgid "Blog preferences"
+msgstr "Préférences du blog"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "La configuration des filtres a été enregistrée avec succès."
+
+msgid "Available spam filters"
+msgstr "Filtres disponibles"
 
 msgid "Order"
 msgstr "Ordre"
@@ -245,6 +257,21 @@ msgstr "Fil RSS des commentaires indésirables"
 
 msgid "Published comments RSS feed"
 msgstr "Fil RSS des commentaires publiés"
+
+msgid "Attachments"
+msgstr "Fichiers attachés"
+
+msgid "remove"
+msgstr "supprimer"
+
+msgid "No attachment."
+msgstr "Pas de fichier attaché"
+
+msgid "Add files to this entry"
+msgstr "Ajouter des fichiers à la page"
+
+msgid "Blogroll"
+msgstr "Liens / Blogroll"
 
 msgid "manage blogroll"
 msgstr "gérer la liste de liens"
@@ -390,6 +417,9 @@ msgstr "Liens importés avec succès."
 msgid "URL"
 msgstr "URL"
 
+msgid "Lang"
+msgstr "Langue"
+
 msgid "select this link"
 msgstr "sélectionner ce lien"
 
@@ -414,8 +444,8 @@ msgstr "Importer des liens"
 msgid "OPML or XBEL File:"
 msgstr "Fichier OPML ou XBEL :"
 
-msgid "import"
-msgstr "importer"
+msgid "Import"
+msgstr "Importer"
 
 msgid "Light linear gradient"
 msgstr "Dégradé linéaire clair"
@@ -526,9 +556,6 @@ msgstr "Ajouter votre image&nbsp;:"
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "Fichier JPEG ou PNG, 800 pixels de large et de taille maximale %s"
 
-msgid "Preview"
-msgstr "Prévisualisation"
-
 msgid "Sidebar"
 msgstr "Bandeau"
 
@@ -622,6 +649,9 @@ msgstr "Couleur des liens du pied de page&nbsp;:"
 msgid "Footer background color:"
 msgstr "Couleur de fond du pied de page&nbsp;:"
 
+msgid "Additional CSS"
+msgstr "Style additionnel"
+
 msgid "Configuration import / export"
 msgstr "Import / export de configuration"
 
@@ -695,6 +725,9 @@ msgstr "Votre blog a été importé avec succès. Bienvenue sur Dotclear 2 !"
 
 msgid "Why don't you blog this now?"
 msgstr "Pourquoi ne pas le bloguer maintenant ?"
+
+msgid "or"
+msgstr "ou"
 
 msgid "visit your dashboard"
 msgstr "vous rendre sur votre tableau de bord"
@@ -784,9 +817,6 @@ msgstr "Ceci va importer un fil (RSS ou Atom) comme un nouveau contenu dans le b
 msgid "Feed URL:"
 msgstr "URL du fil"
 
-msgid "Send"
-msgstr "Envoyer"
-
 msgid "Flat file import"
 msgstr "Importer depuis un fichier texte"
 
@@ -844,10 +874,10 @@ msgid "Import lowest numbered category on posts:"
 msgstr "Importer la catégorie la plus ancienne sur les articles :"
 
 msgid "Import all categories as tags:"
-msgstr "Importer les catégories comme des tags :"
+msgstr "Importer les catégories comme des mots-clés :"
 
 msgid "Prefix such tags with:"
-msgstr "Préfixer ces tags avec :"
+msgstr "Préfixer ces mots-clés avec :"
 
 msgid "Content filters"
 msgstr "Filtres de contenu"
@@ -881,9 +911,6 @@ msgstr "Le fichier de sauvegarde ne semble pas être correctement formaté"
 
 msgid "Please wait..."
 msgstr "Veuillez patienter..."
-
-msgid "Import"
-msgstr "Importer"
 
 # French translation of DotClea"
 msgid "Maintenance"
@@ -957,8 +984,8 @@ msgstr "Vider le répertoire du cache des templates"
 msgid "Empty directory"
 msgstr "Vider le répertoire"
 
-msgid "New page"
-msgstr "Nouvelle page"
+msgid "Pages"
+msgstr "Pages"
 
 #, php-format
 msgid "%d page"
@@ -998,6 +1025,9 @@ msgstr "sélectionner cette page"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Êtes-vous certain de vouloir supprimer les pages sélectionnées ?"
 
+msgid "New page"
+msgstr "Nouvelle page"
+
 msgid "Selected pages action:"
 msgstr "Action sur les pages sélectionnées :"
 
@@ -1014,7 +1044,7 @@ msgid "previous page"
 msgstr "page précédente"
 
 msgid "Are you sure you want to delete this page?"
-msgstr "Êtes-vous certain de vouloir supprimer cette pages ?"
+msgstr "Êtes-vous certain de vouloir supprimer cette page ?"
 
 msgid "Page has been successfully updated."
 msgstr "La page a été mise à jour avec succès."
@@ -1022,11 +1052,8 @@ msgstr "La page a été mise à jour avec succès."
 msgid "Page has been successfully created."
 msgstr "La page a été créée avec succès."
 
-msgid "View page"
-msgstr "Voir la page"
-
-msgid "Preview page"
-msgstr "Prévisualiser la page"
+msgid "Go to this page on the site"
+msgstr "Aller sur cette page"
 
 msgid "Page status:"
 msgstr "État de la page :"
@@ -1076,11 +1103,137 @@ msgstr "Tout cocher."
 msgid "Pings:"
 msgstr "Pings :"
 
+msgid "Simple menu"
+msgstr "Menu simple"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "All months"
+msgstr "Tous les mois"
+
+msgid "All tags"
+msgstr "Tous les mots-clés"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "Archive"
+msgstr "Archive"
+
+msgid "Page"
+msgstr "Page"
+
 msgid "Tags"
-msgstr "Tags"
+msgstr "Mots-clés"
+
+msgid "User defined"
+msgstr "Saisie libre"
+
+msgid "Label"
+msgstr "Libellé"
+
+msgid "Recent posts"
+msgstr "Billets récents"
+
+#, php-format
+msgid "Switch to %s language"
+msgstr "Basculer vers le %s"
+
+msgid "Recent Posts from this category"
+msgstr "Billets récents de cette catégorie"
+
+msgid "Archives"
+msgstr "Archives"
+
+#, php-format
+msgid "Posts from %s"
+msgstr "Billets de %s"
+
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr "Billets récent pour le mot-clé %s"
+
+msgid "Label and URL of menu item are mandatory."
+msgstr "Les libellés et URL sont obligatoires."
+
+msgid "No menu items selected."
+msgstr "Aucun item de menu sélectionné."
+
+msgid "Label is mandatory."
+msgstr "Le libellé est obligatoire."
+
+msgid "URL is mandatory."
+msgstr "l’URL est obligatoire."
+
+msgid "Menu item has been successfully added."
+msgstr "L'item de menu a été ajouté avec succès."
+
+msgid "Menu items have been successfully removed."
+msgstr "Le ou les items de menu ont été supprimés avec succès."
+
+msgid "Menu items have been successfully updated."
+msgstr "Le ou les items de menu ont été mis à jour avec succès."
+
+msgid "Add item"
+msgstr "Ajouter un item de menu"
+
+msgid "Select type"
+msgstr "Sélection du type"
+
+msgid "Type of item menu:"
+msgstr "Type d'item de menu :"
+
+msgid "Continue..."
+msgstr "Continuer…"
+
+msgid "Select language:"
+msgstr "Sélectionnez la langue :"
+
+msgid "Select category:"
+msgstr "Sélectionnez la catégorie :"
+
+msgid "Select month (if necessary):"
+msgstr "Sélectionnez le mois (si nécessaire) :"
+
+msgid "Select page:"
+msgstr "Sélectionnez la page :"
+
+msgid "Select tag (if necessary):"
+msgstr "Sélectionnez le mot clé (si nécessaire) :"
+
+msgid "Label of item menu:"
+msgstr "Libellé de l'item de menu :"
+
+msgid "Description of item menu:"
+msgstr "Description de l'item de menu :"
+
+msgid "URL of item menu:"
+msgstr "URL de l'item de menu :"
+
+msgid "Add this item"
+msgstr "Ajouter cet item"
+
+msgid "Add an item"
+msgstr "Ajouter un item de menu"
+
+msgid "Menu items list"
+msgstr "Liste des items de menu"
+
+msgid "Update menu"
+msgstr "Mettre à jour le menu"
+
+msgid "Delete selected menu items"
+msgstr "Supprimer les items de menu sélectionnés"
+
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Êtes-vous sûr de vouloir supprimer les items de menu sélectionnés ?"
+
+msgid "Currently no menu items"
+msgstr "Aucun item de menu pour l'instant"
 
 msgid "Tags:"
-msgstr "Tags :"
+msgstr "Mots-clés :"
 
 #, php-format
 msgid "Are you sure you want to remove this %s?"
@@ -1097,7 +1250,7 @@ msgid "all"
 msgstr "tous"
 
 msgid "Tag"
-msgstr "Tag"
+msgstr "Mot-clé"
 
 msgid "used in %e - frequency %p%"
 msgstr "utilisé dans %e - fréquence %p%"
@@ -1109,28 +1262,28 @@ msgid "entries"
 msgstr "billets"
 
 msgid "Enter tags separated by coma"
-msgstr "Entrer les tags séparés par une virgule"
+msgstr "Entrer les mots-clés séparés par une virgule"
 
 msgid "Add tags"
-msgstr "Ajouter des tags"
+msgstr "Ajouter des mots-clés"
 
 msgid "Remove tags"
-msgstr "Supprimer des tags"
+msgstr "Supprimer des mots-clés"
 
 msgid "Add tags to entries"
-msgstr "Ajouter des tags aux billets"
+msgstr "Ajouter des mots-clés aux billets"
 
 msgid "Tags to add:"
-msgstr "Tags à ajouter :"
+msgstr "Mots-clés à ajouter :"
 
 msgid "Remove selected tags from entries"
-msgstr "Supprimer les tags sélectionnés des billets"
+msgstr "Supprimer les mots-clés sélectionnés des billets"
 
 msgid "No tags for selected entries"
-msgstr "Aucun tag pour les billets sélectionnés"
+msgstr "Aucun mot-clé pour les billets sélectionnés"
 
 msgid "Following tags have been found in selected entries:"
-msgstr "Les tags suivants ont été trouvés dans les billets sélectionnés :"
+msgstr "Les mots-clés suivants ont été trouvés dans les billets sélectionnés :"
 
 msgid "short"
 msgstr "court"
@@ -1139,13 +1292,13 @@ msgid "extended"
 msgstr "étendu"
 
 msgid "Tags list format:"
-msgstr "Format de la liste des tags :"
+msgstr "Format de la liste des mots-clés :"
 
 msgid "This tag's comments Atom feed"
-msgstr "Fil Atom des commentaires de ce tag"
+msgstr "Fil Atom des commentaires de ce mot-clé"
 
 msgid "This tag's entries Atom feed"
-msgstr "Fil Atom des billets de ce tag"
+msgstr "Fil Atom des billets de ce mot-clé"
 
 msgid "Limit (empty means no limit):"
 msgstr "Limite (laisser vide pour aucune limite)"
@@ -1154,34 +1307,40 @@ msgid "Entries count"
 msgstr "Nombre de billets"
 
 msgid "Tag name"
-msgstr "Nom du tag"
-
-msgid "All tags"
-msgstr "Tous les tags"
+msgstr "Nom du mot-clé"
 
 msgid "Link to all tags:"
-msgstr "Lien vers tous les mots-clefs :"
+msgstr "Lien vers tous les mots-clés :"
 
 msgid "Edit tag"
-msgstr "Modifier un tag"
+msgstr "Modifier le mot-clé"
 
 msgid "Tag has been successfully renamed"
-msgstr "Tag renommé avec succès"
+msgstr "Mot-clé renommé avec succès"
 
 msgid "Back to tags list"
-msgstr "Retour à la liste des tags"
+msgstr "Retour à la liste des mots-clés"
 
-msgid "Rename this tag:"
-msgstr "Renommer ce tag :"
+msgid "Actions for this tag"
+msgstr "Actions pour ce mot-clé"
 
-msgid "Delete this tag"
-msgstr "Supprimer ce tag"
+msgid "Edit tag name:"
+msgstr "Renommer ce mot-clé :"
+
+msgid "Rename"
+msgstr "Renommer"
+
+msgid "Delete this tag:"
+msgstr "Supprimer ce mot-clé :"
+
+msgid "List of entries with this tag"
+msgstr "Liste des billets avec ce mot-clé"
 
 msgid "Tag has been successfully removed"
-msgstr "Tag supprimé avec succès"
+msgstr "Mot-clé supprimé avec succès"
 
 msgid "No tags on this blog."
-msgstr "Aucun tag sur ce blog"
+msgstr "Aucun mot-clé sur ce blog"
 
 msgid "Theme Editor"
 msgstr "Éditeur de thème"
@@ -1302,19 +1461,13 @@ msgid "Uncategorized"
 msgstr "Non catégorisé"
 
 msgid "Tag:"
-msgstr "Tag :"
+msgstr "Mot-clé :"
 
 msgid "Last comments"
 msgstr "Derniers commentaires"
 
 msgid "Comments limit:"
 msgstr "Nombre de commentaires maximum :"
-
-msgid "Home"
-msgstr "Accueil"
-
-msgid "Archives"
-msgstr "Archives"
 
 #, php-format
 msgid "This blog's entries %s feed"
@@ -1336,6 +1489,9 @@ msgstr "navigation"
 msgid "extra"
 msgstr "extra"
 
+msgid "custom"
+msgstr "supplémentaire"
+
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -1348,8 +1504,8 @@ msgstr "Widgets disponibles"
 msgid "Append to:"
 msgstr "Ajouter à :"
 
-msgid "add widgets to sidebars"
-msgstr "ajouter les widgets aux bandeaux"
+msgid "Add widgets to sidebars"
+msgstr "Ajouter les widgets aux bandeaux"
 
 msgid "Navigation sidebar"
 msgstr "Bandeau de navigation"
@@ -1357,11 +1513,26 @@ msgstr "Bandeau de navigation"
 msgid "Extra sidebar"
 msgstr "Bandeau d'extra"
 
-msgid "update sidebars"
+msgid "Custom sidebar"
+msgstr "Bandeau supplémentaire"
+
+msgid "Update sidebars"
 msgstr "Mettre à jour les bandeaux"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "Réinitialiser les bandeaux"
+
+msgid "Use of widgets"
+msgstr "Utilisation des widgets"
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr "Les widgets sont utilisés pour ajouter des blocs de contenus divers dans vos pages publiques. Pour ajouter un widget, faites-le glisser depuis la liste des Widgets disponibles à gauche jusqu'à l'un des bandeaux sur la droite de la page. Vous pouvez ré-ordonner vos widgets dans un bandeau en le faisant glisser vers le haut ou vers le bas. Vous devez mettre à jour les bandeaux pour enregistrer vos modifications."
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr "Une fois inclus dans un bandeau, les widgets ont généralement des options que vous pouvez configurer. Cliquez sur le signe + à côté de leur nom pour y accéder."
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr "Réinitialisez les bandeaux pour retrouver les widgets par défaut de votre installation."
 
 msgid "Widget templates tags"
 msgstr "Marqueurs de template des widgets"
@@ -1402,20 +1573,29 @@ msgstr "ordre"
 msgid "Remove widget"
 msgstr "Supprimer le widget"
 
-#~ msgid "Lang"
-#~ msgstr "Langue"
+#~ msgid "List"
+#~ msgstr "Liste"
 
-#~ msgid "or"
-#~ msgstr "ou"
+#~ msgid "Return to filters"
+#~ msgstr "Retour aux filtres"
 
-#~ msgid "Blogroll"
-#~ msgstr "Liens / Blogroll"
+#~ msgid "import"
+#~ msgstr "importer"
+
+#~ msgid "Preview"
+#~ msgstr "Prévisualiser"
+
+#~ msgid "Send"
+#~ msgstr "Envoyer"
+
+#~ msgid "View page"
+#~ msgstr "Voir la page"
+
+#~ msgid "Preview page"
+#~ msgstr "Prévisualiser la page"
 
 #~ msgid "Save order"
 #~ msgstr "Enregistrer l'ordre"
-
-#~ msgid "Pages"
-#~ msgstr "Pages"
 
 #~ msgid "External media"
 #~ msgstr "Média externe"

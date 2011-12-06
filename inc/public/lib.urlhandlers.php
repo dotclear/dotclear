@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -14,6 +14,29 @@ if (!defined('DC_RC_PATH')) { return; }
 class dcUrlHandlers extends urlHandler
 {
 	public $args;
+	
+	public function getURLFor($type,$value='') {
+		$core =& $GLOBALS['core'];
+		$url = $core->callBehavior("publicGetURLFor",$type,$value);
+		if (!$url) {
+			$url = $this->getBase($type);
+			if ($value) {
+				if ($url) {
+					$url .= '/';
+				}
+				$url .= $value;
+			}
+		}
+		return $url;
+	}
+	
+	public function register($type,$url,$representation,$handler)
+	{
+		$core =& $GLOBALS['core'];
+		$t = new ArrayObject(array($type,$url,$representation,$handler));
+		$core->callBehavior("publicRegisterURL",$t);
+		parent::register($t[0],$t[1],$t[2],$t[3]);
+	}
 	
 	public static function p404()
 	{
@@ -203,8 +226,11 @@ class dcUrlHandlers extends urlHandler
 		$core =& $GLOBALS['core'];
 		
 		$n = self::getPageNumber($args);
+		$params = new ArrayObject(array(
+			'lang' => $args));
 		
-		$params['lang'] = $args;
+		$core->callBehavior('publicLangBeforeGetLangs',$params,$args);
+		
 		$_ctx->langs = $core->blog->getLangs($params);
 		
 		if ($_ctx->langs->isEmpty()) {
@@ -234,8 +260,11 @@ class dcUrlHandlers extends urlHandler
 		}
 		else
 		{
-			$params['cat_url'] = $args;
-			$params['post_type'] = 'post';
+			$params = new ArrayObject(array(
+				'cat_url' => $args,
+				'post_type' => 'post'));
+			
+			$core->callBehavior('publicCategoryBeforeGetCategories',$params,$args);
 			
 			$_ctx->categories = $core->blog->getCategories($params);
 			
@@ -266,9 +295,13 @@ class dcUrlHandlers extends urlHandler
 		}
 		elseif (preg_match('|^/([0-9]{4})/([0-9]{2})$|',$args,$m))
 		{
-			$params['year'] = $m[1];
-			$params['month'] = $m[2];
-			$params['type'] = 'month';
+			$params = new ArrayObject(array(
+				'year' => $m[1],
+				'month' => $m[2],
+				'type' => 'month'));
+			
+			$core->callBehavior('publicArchiveBeforeGetDates',$params,$args);
+			
 			$_ctx->archives = $core->blog->getDates($params);
 			
 			if ($_ctx->archives->isEmpty()) {
@@ -299,9 +332,11 @@ class dcUrlHandlers extends urlHandler
 			
 			$core->blog->withoutPassword(false);
 			
-			$params = new ArrayObject();
-			$params['post_url'] = $args;
+			$params = new ArrayObject(array(
+				'post_url' => $args));
 			
+			$core->callBehavior('publicPostBeforeGetPosts',$params,$args);
+
 			$_ctx->posts = $core->blog->getPosts($params);
 			
 			$_ctx->comment_preview = new ArrayObject();
@@ -409,7 +444,7 @@ class dcUrlHandlers extends urlHandler
 						$cur->comment_ip = http::realIP();
 						
 						$redir = $_ctx->posts->getURL();
-						$redir .= strpos($redir,'?') !== false ? '&' : '?';
+						$redir .= $core->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
 						
 						try
 						{
@@ -480,7 +515,6 @@ class dcUrlHandlers extends urlHandler
 		$comments = false;
 		$cat_url = false;
 		$post_id = null;
-		$params = array();
 		$subtitle = '';
 		
 		$mime = 'application/xml';
@@ -489,8 +523,11 @@ class dcUrlHandlers extends urlHandler
 		$core =& $GLOBALS['core'];
 		
 		if (preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!',$args,$m)) {
-			$params['lang'] = $m[1];
+			$params = new ArrayObject(array('lang' => $m[1]));
+			
 			$args = $m[3];
+			
+			$core->callBehavior('publicFeedBeforeGetLangs',$params,$args);
 			
 			$_ctx->langs = $core->blog->getLangs($params);
 			
@@ -534,8 +571,12 @@ class dcUrlHandlers extends urlHandler
 		
 		if ($cat_url)
 		{
-			$params['cat_url'] = $cat_url;
-			$params['post_type'] = 'post';
+			$params = new ArrayObject(array(
+				'cat_url' => $cat_url,
+				'post_type' => 'post'));
+			
+			$core->callBehavior('publicFeedBeforeGetCategories',$params,$args);
+			
 			$_ctx->categories = $core->blog->getCategories($params);
 			
 			if ($_ctx->categories->isEmpty()) {
@@ -548,8 +589,12 @@ class dcUrlHandlers extends urlHandler
 		}
 		elseif ($post_id)
 		{
-			$params['post_id'] = $post_id;
-			$params['post_type'] = '';
+			$params = new ArrayObject(array(
+				'post_id' => $post_id,
+				'post_type' => ''));
+				
+			$core->callBehavior('publicFeedBeforeGetPosts',$params,$args);
+			
 			$_ctx->posts = $core->blog->getPosts($params);
 			
 			if ($_ctx->posts->isEmpty()) {

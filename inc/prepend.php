@@ -3,22 +3,12 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-
-//*== DC_DEBUG ==
-ini_set('display_errors',true);
-error_reporting(E_ALL | E_STRICT);
-define('DC_DEBUG',true);
-//*/
-
-if (!defined('DC_DEBUG')) {
-	define('DC_DEBUG',false);
-}
 
 /* ------------------------------------------------------------------------------------------- */
 #  ClearBricks, DotClear classes auto-loader
@@ -40,10 +30,9 @@ $__autoload['dcAuth']				= dirname(__FILE__).'/core/class.dc.auth.php';
 $__autoload['dcBlog']				= dirname(__FILE__).'/core/class.dc.blog.php';
 $__autoload['dcCategories']			= dirname(__FILE__).'/core/class.dc.categories.php';
 $__autoload['dcError']				= dirname(__FILE__).'/core/class.dc.error.php';
-$__autoload['dcGenericMeta']		= dirname(__FILE__).'/core/class.dc.genmeta.php';
 $__autoload['dcMeta']				= dirname(__FILE__).'/core/class.dc.meta.php';
-$__autoload['dcUserMeta']				= dirname(__FILE__).'/core/class.dc.usermeta.php';
 $__autoload['dcMedia']				= dirname(__FILE__).'/core/class.dc.media.php';
+$__autoload['dcPostMedia']				= dirname(__FILE__).'/core/class.dc.postmedia.php';
 $__autoload['dcModules']				= dirname(__FILE__).'/core/class.dc.modules.php';
 $__autoload['dcThemes']				= dirname(__FILE__).'/core/class.dc.themes.php';
 $__autoload['dcRestServer']			= dirname(__FILE__).'/core/class.dc.rest.php';
@@ -125,9 +114,23 @@ if (!is_file(DC_RC_PATH))
 
 require DC_RC_PATH;
 
+//*== DC_DEBUG ==
+if (!defined('DC_DEBUG')) {
+	define('DC_DEBUG',true);
+}
+if (DC_DEBUG) {
+	ini_set('display_errors',true);
+	error_reporting(E_ALL | E_STRICT);
+}
+//*/
+
+if (!defined('DC_DEBUG')) {
+	define('DC_DEBUG',false);
+}
+
 # Constants
 define('DC_ROOT',path::real(dirname(__FILE__).'/..'));
-define('DC_VERSION','2.3.1');
+define('DC_VERSION','2.4.0');
 define('DC_DIGESTS',dirname(__FILE__).'/digests');
 define('DC_L10N_ROOT',dirname(__FILE__).'/../locales');
 define('DC_L10N_UPDATE_URL','http://services.dotclear.net/dc2.l10n/?version=%s');
@@ -217,7 +220,7 @@ $core->url->register('trackback','trackback','^trackback/(.+)$',array('dcUrlHand
 $core->url->register('rsd','rsd','^rsd$',array('dcUrlHandlers','rsd'));
 $core->url->register('xmlrpc','xmlrpc','^xmlrpc/(.+)$',array('dcUrlHandlers','xmlrpc'));
 
-$core->setPostType('post','post.php?id=%d',$core->url->getBase('post').'/%s');
+$core->setPostType('post','post.php?id=%d',$core->url->getURLFor('post','%s'));
 
 # Store upload_max_filesize in bytes
 $u_max_size = files::str2bytes(ini_get('upload_max_filesize'));

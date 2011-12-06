@@ -85,7 +85,9 @@ if (!$core->error->flag())
 	'<p><label for="q">'.__('Search:').' '.
 	form::field('q',20,255,html::escapeHTML($q)).
 	'</label></p>'.
-	'<p><input type="submit" value="'.__('Apply filters').'" />'.
+	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
+	__('Entries per page').'</label> '.
+	'<input type="submit" value="'.__('Apply filters').'" />'.
 	$hidden_fields.'</p>'.
 	
 	'<br class="clear" />'. //Opera sucks
@@ -101,6 +103,7 @@ if (!$core->error->flag())
 	$blogs_list->display('<form action="permissions.php" method="post" id="form-blogs">'.
 		'%s'.
 		'<p class="checkboxes-helpers"></p>'.
+		
 		'<p><input type="submit" value="'.__('set permissions').'" />'.
 		$hidden_fields.
 		$core->formNonce().'</p>'.

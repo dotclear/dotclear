@@ -3,14 +3,14 @@ $(function() {
 	if (f.length > 0) {
 		var contentTb = new jsToolBar($('#post_content',f)[0]);
 		contentTb.switchMode($('#post_format',f).val());
-		
+
 		$('input[name=save]',f).click(function() {
 			quickPost(f,-2);
 			return false;
 		});
-		
+
 		if ($('input[name=save-publish]',f).length > 0) {
-			var btn = $('<input type="submit" value="' + $('input[name=save-publish]',f).val() + '" tabindex="3" />');
+			var btn = $('<input type="submit" value="' + $('input[name=save-publish]',f).val() + '" />');
 			$('input[name=save-publish]',f).remove();
 			$('input[name=save]',f).after(btn).after(' ');
 			btn.click(function() {
@@ -18,12 +18,12 @@ $(function() {
 				return false;
 			});
 		}
-		
+
 		function quickPost(f,status) {
 			if (contentTb.getMode() == 'wysiwyg') {
 				contentTb.syncContents('iframe');
 			}
-			
+
 			var params = {
 				f: 'quickPost',
 				xd_check: dotclear.nonce,
@@ -34,9 +34,9 @@ $(function() {
 				post_format: $('#post_format',f).val(),
 				post_lang: $('#post_lang',f).val()
 			}
-			
+
 			$('p.qinfo',f).remove();
-			
+
 			$.post('services.php',params,function(data) {
 				if ($('rsp[status=failed]',data).length > 0) {
 					var msg = '<p class="qinfo"><strong>' + dotclear.msg.error +
@@ -56,14 +56,14 @@ $(function() {
 						contentTb.syncContents('textarea');
 					}
 				}
-				
+
 				$('fieldset',f).prepend(msg);
 			});
 		}
 	}
-	
+
 	// allow to hide quick entry div, and remember choice
 	$('#quick h3').toggleWithLegend($('#quick').children().not('h3'),{
-		cookie: 'dcx_quick_entry',
-	});
+		cookie: 'dcx_quick_entry'
+	}, positionFooter);
 });

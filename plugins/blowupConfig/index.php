@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -23,27 +23,27 @@ if ($core->error->flag()) {
 $blowup_base = array(
 	'body_bg_c' => null,
 	'body_bg_g' => 'light',
-	
+
 	'body_txt_f' => null,
 	'body_txt_s' => null,
 	'body_txt_c' => null,
 	'body_line_height' => null,
-	
+
 	'top_image' => 'default',
 	'top_height' => null,
 	'uploaded' => null,
-	
+
 	'blog_title_hide' => null,
 	'blog_title_f' => null,
 	'blog_title_s' => null,
 	'blog_title_c' => null,
 	'blog_title_a' => null,
 	'blog_title_p' => null,
-	
+
 	'body_link_c' => null,
 	'body_link_f_c' => null,
 	'body_link_v_c' => null,
-	
+
 	'sidebar_position' => null,
 	'sidebar_text_f' => null,
 	'sidebar_text_s' => null,
@@ -58,11 +58,11 @@ $blowup_base = array(
 	'sidebar_link_c' => null,
 	'sidebar_link_f_c' => null,
 	'sidebar_link_v_c' => null,
-	
+
 	'date_title_f' => null,
 	'date_title_s' => null,
 	'date_title_c' => null,
-	
+
 	'post_title_f' => null,
 	'post_title_s' => null,
 	'post_title_c' => null,
@@ -70,13 +70,15 @@ $blowup_base = array(
 	'post_comment_c' => null,
 	'post_commentmy_bg_c' => null,
 	'post_commentmy_c' => null,
-	
+
 	'prelude_c' => null,
 	'footer_f' => null,
 	'footer_s' => null,
 	'footer_c' => null,
 	'footer_l_c' => null,
 	'footer_bg_c' => null,
+
+	'extra_css' => null
 );
 
 $blowup_user = $core->blog->settings->themes->blowup_style;
@@ -107,14 +109,14 @@ if (!empty($_POST))
 		$blowup_user['body_txt_s'] = blowupConfig::adjustFontSize($_POST['body_txt_s']);
 		$blowup_user['body_txt_c'] = blowupConfig::adjustColor($_POST['body_txt_c']);
 		$blowup_user['body_line_height'] = blowupConfig::adjustFontSize($_POST['body_line_height']);
-		
+
 		$blowup_user['blog_title_hide'] = (integer) !empty($_POST['blog_title_hide']);
 		$update_blog_title = !$blowup_user['blog_title_hide'] && (
 			!empty($_POST['blog_title_f']) || !empty($_POST['blog_title_s']) ||
 			!empty($_POST['blog_title_c']) || !empty($_POST['blog_title_a']) ||
 			!empty($_POST['blog_title_p'])
 		);
-		
+
 		if ($update_blog_title)
 		{
 			$blowup_user['blog_title_f'] = $_POST['blog_title_f'];
@@ -123,11 +125,11 @@ if (!empty($_POST))
 			$blowup_user['blog_title_a'] = preg_match('/^(left|center|right)$/',$_POST['blog_title_a']) ? $_POST['blog_title_a'] : null;
 			$blowup_user['blog_title_p'] = blowupConfig::adjustPosition($_POST['blog_title_p']);
 		}
-		
+
 		$blowup_user['body_link_c'] = blowupConfig::adjustColor($_POST['body_link_c']);
 		$blowup_user['body_link_f_c'] = blowupConfig::adjustColor($_POST['body_link_f_c']);
 		$blowup_user['body_link_v_c'] = blowupConfig::adjustColor($_POST['body_link_v_c']);
-		
+
 		$blowup_user['sidebar_text_f'] = $_POST['sidebar_text_f'];
 		$blowup_user['sidebar_text_s'] = blowupConfig::adjustFontSize($_POST['sidebar_text_s']);
 		$blowup_user['sidebar_text_c'] = blowupConfig::adjustColor($_POST['sidebar_text_c']);
@@ -141,41 +143,44 @@ if (!empty($_POST))
 		$blowup_user['sidebar_link_c'] = blowupConfig::adjustColor($_POST['sidebar_link_c']);
 		$blowup_user['sidebar_link_f_c'] = blowupConfig::adjustColor($_POST['sidebar_link_f_c']);
 		$blowup_user['sidebar_link_v_c'] = blowupConfig::adjustColor($_POST['sidebar_link_v_c']);
-		
+
 		$blowup_user['sidebar_position'] = ($_POST['sidebar_position'] == 'left') ? 'left' : null;
-		
+
 		$blowup_user['date_title_f'] = $_POST['date_title_f'];
 		$blowup_user['date_title_s'] = blowupConfig::adjustFontSize($_POST['date_title_s']);
 		$blowup_user['date_title_c'] = blowupConfig::adjustColor($_POST['date_title_c']);
-		
+
 		$blowup_user['post_title_f'] = $_POST['post_title_f'];
 		$blowup_user['post_title_s'] = blowupConfig::adjustFontSize($_POST['post_title_s']);
 		$blowup_user['post_title_c'] = blowupConfig::adjustColor($_POST['post_title_c']);
 		$blowup_user['post_comment_c'] = blowupConfig::adjustColor($_POST['post_comment_c']);
 		$blowup_user['post_commentmy_c'] = blowupConfig::adjustColor($_POST['post_commentmy_c']);
-		
-		
+
+
 		$blowup_user['footer_f'] = $_POST['footer_f'];
 		$blowup_user['footer_s'] = blowupConfig::adjustFontSize($_POST['footer_s']);
 		$blowup_user['footer_c'] = blowupConfig::adjustColor($_POST['footer_c']);
 		$blowup_user['footer_l_c'] = blowupConfig::adjustColor($_POST['footer_l_c']);
 		$blowup_user['footer_bg_c'] = blowupConfig::adjustColor($_POST['footer_bg_c']);
-		
+
+
+		$blowup_user['extra_css'] = blowupConfig::cleanCSS($_POST['extra_css']);
+
 		if ($can_write_images)
 		{
 			$uploaded = null;
 			if ($blowup_user['uploaded'] && is_file(blowupConfig::imagesPath().'/'.$blowup_user['uploaded'])) {
 				$uploaded = blowupConfig::imagesPath().'/'.$blowup_user['uploaded'];
 			}
-			
+
 			if (!empty($_FILES['upfile']) && !empty($_FILES['upfile']['name'])) {
 				files::uploadStatus($_FILES['upfile']);
 				$uploaded = blowupConfig::uploadImage($_FILES['upfile']);
 				$blowup_user['uploaded'] = basename($uploaded);
 			}
-			
+
 			$blowup_user['top_image'] = in_array($_POST['top_image'],$top_images) ? $_POST['top_image'] : 'default';
-			
+
 			$blowup_user['body_bg_c'] = blowupConfig::adjustColor($_POST['body_bg_c']);
 			$blowup_user['body_bg_g'] = in_array($_POST['body_bg_g'],$gradient_types) ? $_POST['body_bg_g'] : '';
 			$blowup_user['post_comment_bg_c'] = blowupConfig::adjustColor($_POST['post_comment_bg_c']);
@@ -183,11 +188,11 @@ if (!empty($_POST))
 			$blowup_user['prelude_c'] = blowupConfig::adjustColor($_POST['prelude_c']);
 			blowupConfig::createImages($blowup_user,$uploaded);
 		}
-		
+
 		$core->blog->settings->addNamespace('themes');
 		$core->blog->settings->themes->put('blowup_style',serialize($blowup_user));
 		$core->blog->triggerBlog();
-		
+
 		http::redirect($p_url.'&upd=1');
 	}
 	catch (Exception $e)
@@ -217,7 +222,7 @@ if (!empty($_POST))
 <?php
 echo
 '<h2>'.html::escapeHTML($core->blog->name).
-' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; '.__('Blowup configuration').'</h2>'.
+' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; <span class="page-title">'.__('Blowup configuration').'</span></h2>'.
 '<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';
 
 
@@ -232,14 +237,14 @@ if (!empty($_GET['upd'])) {
 }
 
 echo '<form id="theme_config" action="'.$p_url.'" method="post" enctype="multipart/form-data">';
-		
+
 echo '<fieldset><legend>'.__('General').'</legend>';
 
 if ($can_write_images) {
 	echo
 	'<p class="field"><label for="body_bg_c">'.__('Background color:').' '.
 	form::field('body_bg_c',7,7,$blowup_user['body_bg_c'],'colorpicker').'</label></p>'.
-	
+
 	'<p class="field"><label for="body_bg_g">'.__('Background color fill:').' '.
 	form::combo('body_bg_g',$gradient_types,$blowup_user['body_bg_g']).'</label></p>';
 }
@@ -303,18 +308,18 @@ if ($can_write_images) {
 	} else {
 		$preview_image = 'index.php?pf=blowupConfig/alpha-img/page-t/'.$blowup_user['top_image'].'.png';
 	}
-	
+
 	echo
 	'<fieldset><legend>'.__('Top image').'</legend>'.
 	'<p class="field"><label for="top_image">'.__('Top image').
 	form::combo('top_image',$top_images,($blowup_user['top_image'] ? $blowup_user['top_image'] : 'default')).'</label></p>'.
 	'<p>'.__('Choose "Custom..." to upload your own image.').'</p>'.
-	
+
 	'<p id="uploader"><label for="upfile">'.__('Add your image:').
 	' ('.sprintf(__('JPEG or PNG file, 800 pixels wide, maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.
 	'<input type="file" name="upfile" id="upfile" size="35" />'.
 	'</label></p>'.
-	
+
 	'<h3>'.__('Preview').'</h3>'.
 	'<div class="grid" style="width:800px;border:1px solid #ccc;">'.
 	'<img style="display:block;" src="'.$preview_image.'" alt="" id="image-preview" />'.
@@ -423,6 +428,13 @@ form::field('footer_l_c',7,7,$blowup_user['footer_l_c'],'colorpicker').'</label>
 '<p class="field"><label for="footer_bg_c">'.__('Footer background color:').' '.
 form::field('footer_bg_c',7,7,$blowup_user['footer_bg_c'],'colorpicker').'</label></p>'.
 '</fieldset>';
+
+echo
+'<fieldset><legend>'.__('Additional CSS').'</legend>'.
+'<p>'.form::textarea('extra_css',72,5,html::escapeHTML($blowup_user['extra_css']),'maximal','',false,'title="'.__('Additional CSS').'"').'</p>'.
+'</fieldset>';
+
+
 
 // Import / Export configuration
 $tmp_array = array();

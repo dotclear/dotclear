@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -92,7 +92,7 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 ?>
 <html>
 <head>
-  <title>Tags</title>
+  <title><?php echo __('Tags'); ?></title>
   <link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />
   <script type="text/javascript" src="js/_posts_list.js"></script>
   <script type="text/javascript">
@@ -109,7 +109,7 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 <body>
 
 <h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo;
-<?php echo __('Edit tag'); ?></h2>
+<span class="page-title"><?php echo __('Edit tag').' &ldquo;'.html::escapeHTML($tag).'&rdquo;'; ?></span></h2>
 
 <?php
 if (!empty($_GET['renamed'])) {
@@ -124,14 +124,26 @@ if (!$core->error->flag())
 	{
 		echo
 		'<form action="'.$this_url.'" method="post">'.
-		'<p><label for="new_tag_id" class="classic">'.__('Rename this tag:').' '.
+		'<div class="fieldset"><h3>'.__('Actions for this tag').'</h3>'.
+		'<p><label for="new_tag_id">'.__('Edit tag name:').'</label>'.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
-		'</label> <input type="submit" value="'.__('Save').'" />'.
-		$core->formNonce().'</p>'.
+		'<input type="submit" value="'.__('Rename').'" />'.
+		$core->formNonce().
 		'</form>';
+		# Remove tag
+		if (!$posts->isEmpty() && $core->auth->check('contentadmin',$core->blog->id)) {
+			echo
+			'<form id="tag_delete" action="'.$this_url.'" method="post">'.
+			'<p class="no-margin">'.__('Delete this tag:').'</p>'.
+			'<input type="submit" class="delete" name="delete" value="'.__('Delete').'" />'.
+			$core->formNonce().
+			'</form>';
+		}
+		echo '</p></div>';
 	}
 	
 	# Show posts
+	echo '<h3>'.__('List of entries with this tag').'</h3>';
 	$post_list->display($page,$nb_per_page,
 	'<form action="posts_actions.php" method="post" id="form-entries">'.
 	
@@ -149,15 +161,6 @@ if (!$core->error->flag())
 	$core->formNonce().
 	'</div>'.
 	'</form>');
-	
-	# Remove tag
-	if (!$posts->isEmpty() && $core->auth->check('contentadmin',$core->blog->id)) {
-		echo
-		'<form id="tag_delete" action="'.$this_url.'" method="post">'.
-		'<p><input type="submit" class="delete" name="delete" value="'.__('Delete this tag').'" />'.
-		$core->formNonce().'</p>'.
-		'</form>';
-	}
 }
 ?>
 </body>

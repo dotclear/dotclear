@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -40,7 +40,7 @@ $core->addBehavior('adminDashboardFavs','pingDashboardFavs');
 
 function pingDashboardFavs($core,$favs)
 {
-	$favs['pings'] = new ArrayObject(array('pings',__('Pings'),'plugin.php?p=pings',
+	$favs['pings'] = new ArrayObject(array('pings','Pings','plugin.php?p=pings',
 		'index.php?pf=pings/icon.png','index.php?pf=pings/icon-big.png',
 		null,null,null));
 }

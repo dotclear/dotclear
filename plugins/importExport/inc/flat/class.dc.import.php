@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -83,6 +83,7 @@ class dcImport extends backupFile
 		$this->cur_link        = $this->con->openCursor($this->prefix.'link');
 		$this->cur_setting     = $this->con->openCursor($this->prefix.'setting');
 		$this->cur_user        = $this->con->openCursor($this->prefix.'user');
+		$this->cur_pref        = $this->con->openCursor($this->prefix.'pref');
 		$this->cur_permissions = $this->con->openCursor($this->prefix.'permissions');
 		$this->cur_post        = $this->con->openCursor($this->prefix.'post');
 		$this->cur_meta        = $this->con->openCursor($this->prefix.'meta');
@@ -252,6 +253,9 @@ class dcImport extends backupFile
 					case 'user':
 						$this->insertUser($line);
 						break;
+					case 'pref':
+						$this->insertPref($line);
+						break;
 					case 'permissions':
 						$this->insertPermissions($line);
 						break;
@@ -362,6 +366,24 @@ class dcImport extends backupFile
 		$this->cur_setting->setting_label = (string) $setting->setting_label;
 		
 		$this->cur_setting->insert();
+	}
+	
+	private function insertPref($pref)
+	{
+		if ($this->prefExists($pref->pref_ws,$pref->pref_id,$pref->user_id)) {
+			return;
+		}
+		
+		$this->cur_pref->clean();
+		
+		$this->cur_pref->pref_id    = (string) $pref->pref_id;
+		$this->cur_pref->user_id    = !$pref->user_id ? null : (string) $pref->user_id;
+		$this->cur_pref->pref_ws    = (string) $pref->pref_ws;
+		$this->cur_pref->pref_value = (string) $pref->pref_value;
+		$this->cur_pref->pref_type  = (string) $pref->pref_type;
+		$this->cur_pref->pref_label = (string) $pref->pref_label;
+		
+		$this->cur_pref->insert();
 	}
 	
 	private function insertUser($user)
@@ -732,6 +754,23 @@ class dcImport extends backupFile
 		
 		$this->stack['users'][$user_id] = !$rs->isEmpty();
 		return $this->stack['users'][$user_id];
+	}
+	
+	private function prefExists($pref_ws,$pref_id,$user_id)
+	{
+		$strReq = 'SELECT pref_id,pref_ws,user_id '.
+				'FROM '.$this->prefix.'pref '.
+				"WHERE pref_id = '".$this->con->escape($pref_id)."' ".
+				"AND pref_ws = '".$this->con->escape($pref_ws)."' ";
+		if (!$user_id) {
+			$strReq .= "AND user_id IS NULL ";
+		} else {
+			$strReq .= "AND user_id = '".$this->con->escape($user_id)."' ";
+		}
+		
+		$rs = $this->con->select($strReq);
+		
+		return !$rs->isEmpty();
 	}
 	
 	private function mediaExists()

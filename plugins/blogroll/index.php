@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -162,7 +162,7 @@ try {
 ?>
 <html>
 <head>
-  <title>Blogroll</title>
+  <title><?php echo __('Blogroll'); ?></title>
   <?php echo dcPage::jsToolMan(); ?>
   <?php echo dcPage::jsConfirmClose('links-form','add-link-form','add-category-form'); ?>
   <?php 
@@ -214,7 +214,7 @@ try {
 </head>
 
 <body>
-<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; Blogroll</h2>
+<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title"><?php echo __('Blogroll'); ?></span></h2>
 
 <?php
 if (!empty($_GET['neworder'])) {
@@ -311,23 +311,23 @@ echo
 '<form action="plugin.php" method="post" id="add-link-form">'.
 '<fieldset class="two-cols"><legend>'.__('Add a new link').'</legend>'.
 '<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
-form::field('link_title',30,255,$link_title,'',2).
+form::field('link_title',30,255,$link_title).
 '</label></p>'.
 
 '<p class="col"><label for="link_href" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('URL:').' '.
-form::field('link_href',30,255,$link_href,'',3).
+form::field('link_href',30,255,$link_href).
 '</label></p>'.
 
 '<p class="col"><label for="link_desc">'.__('Description:').' '.
-form::field('link_desc',30,255,$link_desc,'',4).
+form::field('link_desc',30,255,$link_desc).
 '</label></p>'.
 
 '<p class="col"><label for="link_lang">'.__('Language:').' '.
-form::field('link_lang',5,5,$link_lang,'',5).
+form::field('link_lang',5,5,$link_lang).
 '</label></p>'.
 '<p>'.form::hidden(array('p'),'blogroll').
 $core->formNonce().
-'<input type="submit" name="add_link" value="'.__('Save').'" tabindex="6" /></p>'.
+'<input type="submit" name="add_link" value="'.__('Save').'" /></p>'.
 '</fieldset>'.
 '</form>'.
 '</div>';
@@ -337,10 +337,10 @@ echo
 '<form action="plugin.php" method="post" id="add-category-form">'.
 '<fieldset><legend>'.__('Add a new category').'</legend>'.
 '<p><label for="cat_title" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
-form::field('cat_title',30,255,$cat_title,'',7).'</label> '.
+form::field('cat_title',30,255,$cat_title).'</label> '.
 form::hidden(array('p'),'blogroll').
 $core->formNonce().
-'<input type="submit" name="add_cat" value="'.__('Save').'" tabindex="8" /></p>'.
+'<input type="submit" name="add_cat" value="'.__('Save').'" /></p>'.
 '</fieldset>'.
 '</form>'.
 '</div>';
@@ -355,7 +355,7 @@ if (!isset($imported)) {
 	'<input type="file" id="links_file" name="links_file" /></label></p>'.
 	'<p>'.form::hidden(array('p'),'blogroll').
 	$core->formNonce().
-	'<input type="submit" name="import_links" value="'.__('import').'" tabindex="10" /></p>'.
+	'<input type="submit" name="import_links" value="'.__('Import').'" /></p>'.
 	'</fieldset>'.
 	'</form>';
 }
@@ -398,8 +398,8 @@ else {
 		'<p class="col right">'.
 		form::hidden(array('p'),'blogroll').
 		$core->formNonce().
-		'<input type="submit" name="cancel_import" value="'.__('cancel').'" tabindex="10" />&nbsp;'.
-		'<input type="submit" name="import_links_do" value="'.__('import').'" tabindex="11" /></p>'.
+		'<input type="submit" name="cancel_import" value="'.__('Cancel').'" />&nbsp;'.
+		'<input type="submit" name="import_links_do" value="'.__('Import').'" /></p>'.
 		'</div>';
 	}
 	echo

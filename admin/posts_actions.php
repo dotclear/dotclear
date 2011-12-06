@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -197,7 +197,7 @@ $core->callBehavior('adminPostsActionsContent',$core,$action,$hidden_fields);
 
 if ($action == 'category')
 {
-	echo '<h2>'.__('Change category for entries').'</h2>';
+	echo '<h2 class="page-title">'.__('Change category for entries').'</h2>';
 	
 	# categories list
 	# Getting categories
@@ -206,7 +206,8 @@ if ($action == 'category')
 		$categories = $core->blog->getCategories(array('post_type'=>'post'));
 		while ($categories->fetch()) {
 			$categories_combo[] = new formSelectOption(
-				str_repeat('&nbsp;&nbsp;',$categories->level-1).'&bull; '.html::escapeHTML($categories->cat_title),
+				str_repeat('&nbsp;&nbsp;',$categories->level-1).
+				($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
 				$categories->cat_id
 			);
 		}
@@ -227,7 +228,7 @@ if ($action == 'category')
 }
 elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 {
-	echo '<h2>'.__('Change author for entries').'</h2>';
+	echo '<h2 class="page-title">'.__('Change author for entries').'</h2>';
 	
 	echo
 	'<form action="posts_actions.php" method="post">'.

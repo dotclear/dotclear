@@ -1,0 +1,167 @@
+/* -- BEGIN LICENSE BLOCK ---------------------------------------
+# This file is part of Ductile, a theme for Dotclear
+#
+# Copyright (c) 2011 - Association Dotclear
+# Licensed under the GPL version 2.0 license.
+# See LICENSE file or
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+# -- END LICENSE BLOCK ----------------------------------------- */
+
+
+@charset "UTF-8";
+/* special Internet Explorer, 8 and before */
+
+.nobig {
+	display: none;
+	}
+#sn-bottom {
+	display: none;
+	}
+/* layout */
+#wrapper {
+	padding: 0 13%;
+	}
+#stickers {
+	padding-right: 13%;
+	}	
+#main {
+	width : 100%;
+	}
+#blognav, #blogextra {
+	margin : 0;
+	width: 48%; 
+	float:left;
+	}
+
+/* header - prelude */
+#prelude {
+	position: absolute;
+	margin: 0;
+	top: 0;
+	left: 3px;
+	color: #fff;
+	font-size: .875em;
+	list-style-type: none;
+	}
+#prelude li {
+	display: inline;
+	text-transform: none !important;
+	}
+#prelude a, #prelude a:hover, #prelude a:visited {
+	position:absolute;
+	left:0;
+	top:-500px;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+	background-image: none !important;
+	}
+#prelude a:active, #prelude a:focus {
+	position:static;
+	width:auto;
+	height:auto;
+	}
+/* header - top */
+#top {
+	padding-top: 24px;
+	}
+#logo {
+	float:left; 
+	margin:0 1.5em 0 1em;	
+	}
+#logo a {
+	border: none;
+	background: transparent;
+	text-decoration: none;
+	}
+h1 {
+	font-size: 2em;
+	padding-right: 240px;
+	padding-bottom: 4px;
+	margin-left: 32px;
+	}
+/* header - menu */
+.supranav {
+	margin: 36px 0 0;
+	border-bottom: 1px solid #ccc;
+	}
+.supranav li {
+	display: inline;
+	padding: 8px 0;
+	}
+.supranav li a {
+	display: inline-block;
+	padding: 8px 32px 8px 28px;
+	border-right: 1px solid #ccc;
+	min-height: 2.5em;
+ 	}
+.supranav li a span {
+	display: block;
+	}
+/* post */
+.post-title {
+	font-size: 2.5em;
+	font-weight: normal;
+	}
+.post-title a {
+	font-style: italic;
+	font-weight: normal;
+	}
+/* stickers */
+#stickers {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: .75em;
+	}
+#stickers li {
+	display: block;
+	float: left;
+	text-align: center;
+	width: 60px;
+	padding: 0;
+	}
+#stickers li span {
+	display: block;
+	text-align: center;
+	}
+#stickers li a:hover,
+#stickers li a:active,
+#stickers li a:focus {
+	background-color: #fff;
+	}
+#stickers a:hover, #stickers a:focus {
+	color: #666;
+	background: #fff;
+	}
+/* sidebar */
+#blognav {
+	margin-right: 4%;
+	}
+#sidebar #blognav div:first-child {
+	margin-top: 4.66em;
+	}
+#sidebar div#search:first-child { 
+	background: none;
+	margin-top: 0;
+	margin-bottom: 2em;
+	padding-bottom: 2px;
+	font-size: 1em;
+	border: 1px solid #ddd;
+	border-top: none 0;
+	}
+#sidebar div#search:first-child h2 {
+	font-size: 1em;
+	text-transform: uppercase;
+	text-shadow: 0 1px 1px rgba(0,0,0,.2);
+	vertical-align: top;
+	color: #666;
+	}
+#sidebar div#search:first-child p {
+	margin: .33em 0;
+	}
+/* special archive */
+.dc-archive #content {
+	margin: 0 17em 0 0;
+	}

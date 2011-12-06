@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -57,7 +57,7 @@ if (!empty($_REQUEST['id']))
 	while ($rs->fetch()) {
 		if (!isset($p[$rs->cat_id])) {
 			$allowed_parents[] = new formSelectOption(
-				str_repeat('&nbsp;&nbsp;',$rs->level-1).'&bull; '.html::escapeHTML($rs->cat_title),
+				str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title),
 				$rs->cat_id
 			);
 		}
@@ -178,20 +178,20 @@ if ($cat_id)
 	}
 }
 
-echo $title.'</h2>';
+echo '<span class="page-title">'.$title.'</span></h2>';
 
 echo
 '<form action="category.php" method="post" id="category-form">'.
 '<fieldset><legend>'.__('Category information').'</legend>'.
 '<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
-form::field('cat_title',40,255,html::escapeHTML($cat_title),'',2).
+form::field('cat_title',40,255,html::escapeHTML($cat_title)).
 '</label></p>';
 if (!$cat_id)
 {
 	$rs = $core->blog->getCategories(array('post_type'=>'post'));
 	echo
 	'<p><label for="new_cat_parent">'.__('Parent:').' '.
-	'<select id="new_cat_parent" name="new_cat_parent" tabindex="3">'.
+	'<select id="new_cat_parent" name="new_cat_parent" >'.
 	'<option value="0">'.__('Top level').'</option>';
 	while ($rs->fetch()) {
 		echo '<option value="'.$rs->cat_id.'" '.(!empty($_POST['new_cat_parent']) && $_POST['new_cat_parent'] == $rs->cat_id ? 'selected="selected"' : '').'>'.
@@ -203,17 +203,17 @@ if (!$cat_id)
 }
 echo
 '<div class="lockable">'.
-'<p><label for="cat_url">'.__('URL:').' '.form::field('cat_url',40,255,html::escapeHTML($cat_url),'',4).
+'<p><label for="cat_url">'.__('URL:').' '.form::field('cat_url',40,255,html::escapeHTML($cat_url)).
 '</label></p>'.
 '<p class="form-note warn" id="note-cat-url">'.
 __('Warning: If you set the URL manually, it may conflict with another category.').'</p>'.
 '</div>'.
 
 '<p class="area"><label for="cat_desc">'.__('Description:').'</label> '.
-form::textarea('cat_desc',50,8,html::escapeHTML($cat_desc),'',5).
+form::textarea('cat_desc',50,8,html::escapeHTML($cat_desc)).
 '</p>'.
 
-'<p><input type="submit" accesskey="s" value="'.__('Save').'" tabindex="5" />'.
+'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 ($cat_id ? form::hidden('id',$cat_id) : '').
 $core->formNonce().
 '</p>'.
@@ -231,7 +231,7 @@ if ($cat_id)
 	'<fieldset><legend>'.__('Category parent').'</legend>'.
 	'<p><label for="cat_parent" class="classic">'.__('Parent:').' '.
 	form::combo('cat_parent',$allowed_parents,$cat_parent).'</label></p>'.
-	'<p><input type="submit" accesskey="s" value="'.__('Save').'" tabindex="5" />'.
+	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	form::hidden(array('id'),$cat_id).$core->formNonce().'</p>'.
 	'</fieldset>'.
 	'</form>'.
@@ -245,7 +245,7 @@ if ($cat_id)
 		'<p><label class="classic" for="cat_sibling">'.__('Move current category').'</label> '.
 		form::combo('cat_move',array(__('before')=>'before',__('after')=>'after'),'','','',false,'title="'.__('position: ').'"').' '.
 		form::combo('cat_sibling',$siblings).'</p>'.
-		'<p><input type="submit" accesskey="s" value="'.__('Save').'" tabindex="5" />'.
+		'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 		form::hidden(array('id'),$cat_id).$core->formNonce().'</p>'.
 		'</fieldset>'.
 		'</form>'.

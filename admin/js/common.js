@@ -56,7 +56,7 @@ jQuery.fn.enableShiftClick = function() {
 	});
 }
 
-jQuery.fn.toggleWithLegend = function(target,s, callback) {
+jQuery.fn.toggleWithLegend = function(target,s) {
 	var defaults = {
 		img_on_src: dotclear.img_plus_src,
 		img_on_alt: dotclear.img_plus_alt,
@@ -78,16 +78,16 @@ jQuery.fn.toggleWithLegend = function(target,s, callback) {
 		p.hide = p.reverse_cookie;
 	}
 
-	var toggle = function(i,speed, callback) {
+	var toggle = function(i,speed) {
 		speed = speed || 0;
 		if (p.hide) {
 			$(i).get(0).src = p.img_on_src;
 			$(i).get(0).alt = p.img_on_alt;
-			target.hide(speed, callback);
+			target.hide(speed, positionFooter);
 		} else {
 			$(i).get(0).src = p.img_off_src;
 			$(i).get(0).alt = p.img_off_alt;
-			target.show(speed, callback);
+			target.show(speed, positionFooter);
 			if (p.fn) {
 				p.fn.apply(target);
 				p.fn = false;
@@ -121,7 +121,7 @@ jQuery.fn.toggleWithLegend = function(target,s, callback) {
 
 		$(ctarget).css('cursor','pointer');
 		$(ctarget).click(function() {
-			toggle(i,p.speed, callback);
+			toggle(i,p.speed, positionFooter);
 			return false;
 		});
 
@@ -315,6 +315,31 @@ var dotclear = {
 	}
 };
 
+/* Sticky footer
+-------------------------------------------------------- */
+function positionFooter() {
+	$("#wrapper").css({ overflow: "auto" });
+	var page_height = $("#top").height() + $("#wrapper").height() - $("#footer").height();
+	if( page_height < $(window).height() ){
+		// calcul de la largeur
+		var page_width = $(document).width() - 30;
+		$("#footer").css({
+			position: "absolute",
+			bottom: "10px",
+			width: page_width+"px",
+			padding: ".75em 0",
+			marginbottom: "0"
+		});
+	} else {
+		$("#footer").css({
+			position: "static",
+			padding: ".75em 0",
+			width: "auto"
+		});
+	}
+
+}
+
 /* On document ready
 -------------------------------------------------------- */
 $(function() {
@@ -330,20 +355,16 @@ $(function() {
 		speed: 100
 	}
 	$('#blog-menu h3:first').toggleWithLegend($('#blog-menu ul:first'),
-		$.extend({cookie:'dc_blog_menu'},menu_settings),
-		positionFooter
+		$.extend({cookie:'dc_blog_menu'},menu_settings)
 	);
 	$('#system-menu h3:first').toggleWithLegend($('#system-menu ul:first'),
-		$.extend({cookie:'dc_system_menu'},menu_settings),
-		positionFooter
+		$.extend({cookie:'dc_system_menu'},menu_settings)
 	);
 	$('#plugins-menu h3:first').toggleWithLegend($('#plugins-menu ul:first'),
-		$.extend({cookie:'dc_plugins_menu'},menu_settings),
-		positionFooter
+		$.extend({cookie:'dc_plugins_menu'},menu_settings)
 	);
 	$('#favorites-menu h3:first').toggleWithLegend($('#favorites-menu ul:first'),
-		$.extend({cookie:'dc_favorites_menu',hide:false,reverse_cookie:true},menu_settings),
-		positionFooter
+		$.extend({cookie:'dc_favorites_menu',hide:false,reverse_cookie:true},menu_settings)
 	);
 
 	$('#help').helpViewer();
@@ -366,29 +387,6 @@ $(function() {
 
 	// Sticky footer
 	positionFooter();
-	function positionFooter() {
-		$("#wrapper").css({ overflow: "auto" });
-		var page_height = $("#top").height() + $("#wrapper").height() - $("#footer").height();
-		if( page_height < $(window).height() ){
-			// calcul de la largeur
-			var page_width = $(document).width() - 30;
-			$("#footer").css({
-				position: "absolute",
-				bottom: "10px",
-				width: page_width+"px",
-				padding: ".75em 0",
-				marginbottom: "0"
-			});
-		} else {
-			$("#footer").css({
-				position: "static",
-				padding: ".75em 0",
-				width: "auto",
-			});
-		}
-
-	}
 	$(window).resize(positionFooter);
-
 });
 

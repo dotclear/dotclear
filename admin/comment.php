@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -183,11 +183,10 @@ if ($comment_id)
 		.'">'.__('Send an e-mail').'</a>';
 	}
 	
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Edit comment').'</h2>';
-	
-	echo '<p><a class="back" href="'.$core->getPostAdminURL($post_type,$post_id).'&amp;co=1#c'.$comment_id.'"> '.
-		sprintf(__('Back to "%s"'),$post_title).'</a></p>';
-	
+	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <a href="'.
+		$core->getPostAdminURL($post_type,$post_id).'&amp;co=1#c'.$comment_id.'"> '.
+		$post_title.'</a> &rsaquo; <span class="page-title">'.__('Edit comment').'</span></h2>';
+		
 	echo
 	'<form action="comment.php" method="post" id="comment-form">'.
 	'<p>'.__('IP address:').'<br /> '.

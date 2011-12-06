@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -13,7 +13,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 include dirname(__FILE__).'/_default_widgets.php';
 
-# Loading navigation and extra widgets
+# Loading navigation, extra widgets and custom widgets
 $widgets_nav = null;
 if ($core->blog->settings->widgets->widgets_nav) {
 	$widgets_nav = dcWidgets::load($core->blog->settings->widgets->widgets_nav);
@@ -22,11 +22,16 @@ $widgets_extra = null;
 if ($core->blog->settings->widgets->widgets_extra) {
 	$widgets_extra = dcWidgets::load($core->blog->settings->widgets->widgets_extra);
 }
+$widgets_custom = null;
+if ($core->blog->settings->widgets->widgets_custom) {
+	$widgets_custom = dcWidgets::load($core->blog->settings->widgets->widgets_custom);
+}
 
 $append_combo = array(
 	'-' => 0,
 	__('navigation') => 'nav',
-	__('extra') => 'extra'
+	__('extra') => 'extra',
+	__('custom') => 'custom'
 );
 
 # Adding widgets to sidebars
@@ -35,7 +40,7 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 	# Filter selection
 	$addw = array();
 	foreach ($_POST['addw'] as $k => $v) {
-		if (($v == 'extra' || $v == 'nav') && $__widgets->{$k} !== null ) {
+		if (($v == 'extra' || $v == 'nav' || $v == 'custom') && $__widgets->{$k} !== null ) {
 			$addw[$k] = $v;
 		}
 	}
@@ -49,6 +54,9 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 		if (!($widgets_extra instanceof dcWidgets)) {
 			$widgets_extra = new dcWidgets();
 		}
+		if (!($widgets_custom instanceof dcWidgets)) {
+			$widgets_custom = new dcWidgets();
+		}
 		
 		foreach ($addw as $k => $v)
 		{
@@ -59,7 +67,9 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 				case 'extra':
 					$widgets_extra->append($__widgets->{$k});
 					break;
-				
+				case 'custom':
+					$widgets_custom->append($__widgets->{$k});
+					break;
 			}
 		}
 		
@@ -67,6 +77,7 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 			$core->blog->settings->addNamespace('widgets');
 			$core->blog->settings->widgets->put('widgets_nav',$widgets_nav->store());
 			$core->blog->settings->widgets->put('widgets_extra',$widgets_extra->store());
+			$core->blog->settings->widgets->put('widgets_custom',$widgets_custom->store());
 			$core->blog->triggerBlog();
 			http::redirect($p_url);
 		} catch (Exception $e) {
@@ -100,13 +111,18 @@ if (!empty($_POST['wup']))
 		if (!isset($_POST['w']['extra'])) {
 			$_POST['w']['extra'] = array();
 		}
+		if (!isset($_POST['w']['custom'])) {
+			$_POST['w']['custom'] = array();
+		}
 		
 		$widgets_nav = dcWidgets::loadArray($_POST['w']['nav'],$__widgets);
 		$widgets_extra = dcWidgets::loadArray($_POST['w']['extra'],$__widgets);
+		$widgets_custom = dcWidgets::loadArray($_POST['w']['custom'],$__widgets);
 		
 		$core->blog->settings->addNamespace('widgets');
 		$core->blog->settings->widgets->put('widgets_nav',$widgets_nav->store());
 		$core->blog->settings->widgets->put('widgets_extra',$widgets_extra->store());
+		$core->blog->settings->widgets->put('widgets_custom',$widgets_custom->store());
 		$core->blog->triggerBlog();
 		
 		http::redirect($p_url);
@@ -123,6 +139,7 @@ elseif (!empty($_POST['wreset']))
 		$core->blog->settings->addNamespace('widgets');
 		$core->blog->settings->widgets->put('widgets_nav','');
 		$core->blog->settings->widgets->put('widgets_extra','');
+		$core->blog->settings->widgets->put('widgets_custom','');
 		$core->blog->triggerBlog();
 		
 		http::redirect($p_url);
@@ -162,7 +179,7 @@ elseif (!empty($_POST['wreset']))
 </head>
 <body>
 <?php
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Widgets').'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Widgets').'</span></h2>';
 
 # All widgets
 echo
@@ -186,7 +203,7 @@ foreach ($__widgets->elements(true) as $w) {
 echo
 '</div>'.
 '</fieldset>'.
-'<p><input type="submit" class="js-remove" name="append" value="'.__('add widgets to sidebars').'" />'.
+'<p><input type="submit" class="js-remove" name="append" value="'.__('Add widgets to sidebars').'" />'.
 $core->formNonce().'</p>'.
 '</form>';
 
@@ -203,15 +220,28 @@ echo
 sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra'],$j).
 '</div>';
 
+# Custom sidebar
+echo
+'<div id="sidebarCustom" class="widgets">'.
+sidebarWidgets('dndcustom',__('Custom sidebar'),$widgets_custom,'custom',$__default_widgets['custom'],$j).
+'</div>';
+
 echo
 '<p id="sidebarsControl">'.
 $core->formNonce().
-'<input type="submit" name="wup" value="'.__('update sidebars').'" /> '.
-'<input type="submit" class="reset" name="wreset" value="'.__('reset sidebars').'" /></p>'.
+'<input type="submit" name="wup" value="'.__('Update sidebars').'" /> '.
+'<input type="submit" class="reset" name="wreset" value="'.__('Reset sidebars').'" /></p>'.
 '</form>';
 
 $widget_elements = new stdClass;
 $widget_elements->content =
+'<h3 class="clear">'.__('Use of widgets').'</h3>'.
+'<p>'.__('Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, '.
+'drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order '.
+'your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes.').'</p>'.
+'<p>'.__('Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next '.
+'to their name.').'</p>'.
+'<p>'.__('Reset sidebars to get back to default widgets installation.').'</p>'.
 '<h3 class="clear">'.__('Widget templates tags').'</h3>'.
 '<div id="widgets-tpl">'.
 '<p>'.__('If you are allowed to edit your theme templates, you can directly add widgets as '.

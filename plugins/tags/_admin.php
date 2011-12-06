@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -30,7 +30,7 @@ $core->addBehavior('adminPostsActions',array('tagsBehaviors','adminPostsActions'
 $core->addBehavior('adminPostsActionsContent',array('tagsBehaviors','adminPostsActionsContent'));
 
 $core->addBehavior('adminPreferencesForm',array('tagsBehaviors','adminUserForm'));
-$core->addBehavior('adminUserForm',array('tagsBehaviors','adminUserForm'));
+// $core->addBehavior('adminUserForm',array('tagsBehaviors','adminUserForm'));
 
 $core->addBehavior('adminBeforeUserCreate',array('tagsBehaviors','setTagListFormat'));
 $core->addBehavior('adminBeforeUserUpdate',array('tagsBehaviors','setTagListFormat'));
@@ -44,7 +44,7 @@ class tagsBehaviors
 {
 	public static function dashboardFavs($core,$favs)
 	{
-		$favs['tags'] = new ArrayObject(array('tags',__('Tags'),'plugin.php?p=tags&amp;m=tags',
+		$favs['tags'] = new ArrayObject(array('tags','Tags','plugin.php?p=tags&amp;m=tags',
 			'index.php?pf=tags/icon.png','index.php?pf=tags/icon-big.png',
 			'usage,contentadmin',null,null));
 	}
@@ -62,7 +62,7 @@ class tagsBehaviors
 		}
 		
 		
-		$tag_url = html::stripHostURL($GLOBALS['core']->blog->url.$GLOBALS['core']->url->getBase('tag'));
+		$tag_url = html::stripHostURL($GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag'));
 		$res['url'] = $tag_url.'/'.rawurlencode(dcMeta::sanitizeMetaID($url));
 		$res['content'] = $content;
 		
@@ -81,7 +81,7 @@ class tagsBehaviors
 		
 		echo
 		'<h3><label for="post_tags">'.__('Tags:').'</label></h3>'.
-		'<div class="p" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal',3).'</div>';
+		'<div class="p" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal').'</div>';
 	}
 	
 	public static function setTags($cur,$post_id)
@@ -101,13 +101,13 @@ class tagsBehaviors
 	
 	public static function postHeaders()
 	{
-		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getBase('tag');
+		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
 		
-		$opts = $GLOBALS['core']->auth->getOptions();
+		$opts = $GLOBALS['core']->blog->url.$GLOBALS['core']->auth->getOptions();
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
 		
 		return 
-		dcPage::jqueryUI().
+		'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
 		'<script type="text/javascript" src="index.php?pf=tags/js/post.js"></script>'.
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
@@ -130,7 +130,7 @@ class tagsBehaviors
 	
 	public static function postsActionsHeaders()
 	{
-		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getBase('tag');
+		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
 		
 		$opts = $GLOBALS['core']->auth->getOptions();
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
@@ -221,13 +221,13 @@ class tagsBehaviors
 		}
 	}
 	
-	public static function adminPostsActionsContent($core,$action,$hidden_fields)
+	public static function adminPostsActionsContent($core,$action,$hidden_fields,$form_uri="posts_actions.php")
 	{
 		if ($action == 'tags')
 		{
 			echo
-			'<h2>'.__('Add tags to entries').'</h2>'.
-			'<form action="posts_actions.php" method="post">'.
+			'<h2 class="page-title">'.__('Add tags to entries').'</h2>'.
+			'<form action="'.$form_uri.'" method="post">'.
 			'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
 			form::textarea('new_tags',60,3).
 			'</div>'.
@@ -256,7 +256,7 @@ class tagsBehaviors
 				}
 			}
 			
-			echo '<h2>'.__('Remove selected tags from entries').'</h2>';
+			echo '<h2 class="page-title">'.__('Remove selected tags from entries').'</h2>';
 			
 			if (empty($tags)) {
 				echo '<p>'.__('No tags for selected entries').'</p>';
@@ -266,7 +266,7 @@ class tagsBehaviors
 			$posts_count = count($_POST['entries']);
 			
 			echo
-			'<form action="posts_actions.php" method="post">'.
+			'<form action="'.$form_uri.'" method="post">'.
 			'<fieldset><legend>'.__('Following tags have been found in selected entries:').'</legend>';
 			
 			foreach ($tags as $k => $n) {

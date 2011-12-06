@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-11-06 18:11+0100\n"
 "PO-Revision-Date: 2010-06-02 01:21+0100\n"
 "Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -125,9 +125,6 @@ msgstr "Nový blog"
 msgid "Blogs"
 msgstr "Blogy"
 
-msgid "Blog details"
-msgstr "Detaily blogu"
-
 msgid "Blog ID:"
 msgstr "ID blogu:"
 
@@ -149,8 +146,8 @@ msgstr "URL blogu:"
 msgid "Blog description:"
 msgstr "Popis blogu:"
 
-msgid "Save"
-msgstr "Uložit"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr "Žádné podobné ID blogu"
@@ -239,6 +236,9 @@ msgstr "Blog byl úspěšně upraven."
 
 msgid "Parameters"
 msgstr "Parametry"
+
+msgid "Blog details"
+msgstr "Detaily blogu"
 
 msgid "URL scan method:"
 msgstr "Metoda zpracování URL:"
@@ -353,6 +353,9 @@ msgstr "Tímto definujete titulek obrázku, když jej vložíte do článku pře
 msgid "Search engines robots policy"
 msgstr "Práva pro vyhledávací roboty"
 
+msgid "Save"
+msgstr "Uložit"
+
 msgid "XML/RPC interface"
 msgstr "XML/RPC rozhraní"
 
@@ -386,7 +389,7 @@ msgstr "Uživatelé tohoto blogu"
 msgid "No users"
 msgstr "Žádní uživatelé"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "změnit práva"
 
 msgid "Super administrator"
@@ -423,10 +426,8 @@ msgstr "(vyžaduje \"%s\")"
 msgid "Stylesheet"
 msgstr "Styl"
 
-msgid "Theme configuration"
-msgstr "Konfigurace vzhledu"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "Vzhledy blogu"
 
 msgid "Blog appearance"
@@ -458,10 +459,12 @@ msgstr "Vzhledy"
 msgid "You are currently using \"%s\""
 msgstr "Používáte \"%s\" vzhled"
 
-msgid "use selected theme"
+#, fuzzy
+msgid "Use selected theme"
 msgstr "použít vybraný vzhled"
 
-msgid "delete selected theme"
+#, fuzzy
+msgid "Delete selected theme"
 msgstr "smazat vybraný vzhled"
 
 msgid "Install or upgrade a theme"
@@ -490,6 +493,9 @@ msgstr "Stáhnout vzhled"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr "Pro správnou funkcionalitu povolte prosím zápis do adresáře se vzhledy blogu."
+
+msgid "Theme configuration"
+msgstr "Konfigurace vzhledu"
 
 msgid "back"
 msgstr "zpět"
@@ -616,8 +622,8 @@ msgstr "Odstranit kategorii"
 msgid "Choose a category to remove:"
 msgstr "Vyberte kategorii k odstranění:"
 
-msgid "ok"
-msgstr "ok"
+msgid "Delete"
+msgstr "Smazat"
 
 msgid "Reorder categories"
 msgstr "Seřadit kategorie"
@@ -703,10 +709,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "Odeslat jako e-mail"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "Zpět na \"%s\""
-
 msgid "IP address:"
 msgstr "IP adresa:"
 
@@ -724,9 +726,6 @@ msgstr "Stav:"
 
 msgid "Comment:"
 msgstr "Komentář:"
-
-msgid "Delete"
-msgstr "Smazat"
 
 msgid "comment"
 msgstr "komentář"
@@ -754,9 +753,6 @@ msgstr "označit jako nedokončené"
 
 msgid "mark as junk"
 msgstr "označit jako podezřelé"
-
-msgid "delete"
-msgstr "smazat"
 
 msgid "Type:"
 msgstr "Typ:"
@@ -786,6 +782,9 @@ msgstr "Vybrané komentáře:"
 #, fuzzy
 msgid "action: "
 msgstr "Akce"
+
+msgid "ok"
+msgstr "ok"
 
 msgid "Comments"
 msgstr "Komentáře"
@@ -824,7 +823,8 @@ msgstr "Tento blog je offline"
 msgid "This blog is removed"
 msgstr "Tento blog byl odstraněn"
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+#, fuzzy
+msgid "is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL není nastaveno. Měli byste ho nastavit."
 
 msgid "Following plugins have been installed:"
@@ -858,7 +858,8 @@ msgstr "Obsah:"
 msgid "Category:"
 msgstr "Kategorie:"
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "uložit a publikovat"
 
 #, php-format
@@ -944,14 +945,6 @@ msgstr ""
 "<p>Pro jeho smazání se přihlaste do administrace, kde si můžete zobrazit seznam komentářů a provést potřebné smazání či úpravu.</p>"
 
 #, fuzzy
-msgid "Pages"
-msgstr "Strany(a)"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "Blog"
-
-#, fuzzy
 msgid "Dotclear Install"
 msgstr "Instalace Dotclearu"
 
@@ -985,9 +978,6 @@ msgstr "Příjmení:"
 
 msgid "Username and password"
 msgstr "Uživatelské jméno a heslo"
-
-msgid "save"
-msgstr "uložit"
 
 msgid "All done!"
 msgstr "Vše dokončeno!"
@@ -1062,6 +1052,10 @@ msgstr "DB heslo:"
 
 msgid "Database Tables Prefix:"
 msgstr "DB prefix tabulek:"
+
+#, fuzzy
+msgid "Continue"
+msgstr "Obsah:"
 
 msgid "No such installed language"
 msgstr "Není nainstalován žádný takový jazyk"
@@ -1169,10 +1163,10 @@ msgstr "potvrdit odstranění"
 msgid "Are you sure you want to remove %s?"
 msgstr "Jeste si jisti, že chcete odstranit %s?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "zrušit"
 
-msgid "yes"
+msgid "Yes"
 msgstr "ano"
 
 msgid "Directory has been successfully created."
@@ -1210,6 +1204,10 @@ msgstr "Žádný soubor."
 msgid "Sort files:"
 msgstr "Setřídit soubory:"
 
+#, fuzzy
+msgid "Sort"
+msgstr "Setřídit:"
+
 msgid "Add files"
 msgstr "Přidat soubory"
 
@@ -1226,8 +1224,11 @@ msgstr "Maximální velikost %s"
 msgid "Private"
 msgstr "Soukromý"
 
-msgid "send"
-msgstr "poslat"
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
+
+msgid "Send"
+msgstr ""
 
 msgid "New directory"
 msgstr "Nový adresář"
@@ -1243,6 +1244,10 @@ msgstr "otevřít"
 
 msgid "Insert this file into entry"
 msgstr "Vložit tento soubor do článku"
+
+#, fuzzy
+msgid "delete"
+msgstr "Smazat"
 
 msgid "Not a valid file"
 msgstr "Neplatný soubor"
@@ -1310,9 +1315,6 @@ msgstr "Vlastnosti videa"
 msgid "Media item will be inserted as a link."
 msgstr "Soubor bude vložen jako odkaz."
 
-msgid "Cancel"
-msgstr "Zrušit"
-
 msgid "Insert"
 msgstr "Vložit"
 
@@ -1355,9 +1357,6 @@ msgstr "Aktualizovat náhledy"
 msgid "This will create or update thumbnails for this image."
 msgstr "Tímto vytvoříte nebo aktualizujete náhledy pro tento obrázek."
 
-msgid "update thumbnails"
-msgstr "aktualizovat náhledy"
-
 msgid "Extract in a new directory"
 msgstr "Rozbalit v nonvém adresáři"
 
@@ -1376,7 +1375,8 @@ msgstr "Tímto rozbalíte archív v aktuálním adresáři, může dojít k pře
 msgid "Extract mode:"
 msgstr "Mod rozbalení:"
 
-msgid "extract"
+#, fuzzy
+msgid "Extract"
 msgstr "rozbalit"
 
 msgid "Change media properties"
@@ -1413,6 +1413,10 @@ msgstr "Oprávění byla v pořádku nastavena."
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Nastavte uživateli %s k blogům následující práva."
 
+#, fuzzy
+msgid "Validate permissions"
+msgstr "Nastavit oprávnění"
+
 msgid "choose a blog"
 msgstr "vyberte blog"
 
@@ -1426,7 +1430,7 @@ msgstr "článku na stranu"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Vyberte jeden nebo více blogů, ke kterým chcete uživateli %s dát oprávnění."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "Nastavit oprávnění"
 
 #, fuzzy
@@ -1540,14 +1544,18 @@ msgstr "Titulek souboru:"
 msgid "Link language:"
 msgstr "Odkaz na jazyk:"
 
-msgid "insert"
-msgstr "vložit"
-
 msgid "Add a link to an entry"
 msgstr "Přidat odkaz na článek"
 
 msgid "Search entry:"
 msgstr "Vyhledat článek:"
+
+msgid "Search"
+msgstr "Hledání"
+
+#, fuzzy
+msgid "cancel"
+msgstr "zrušit"
 
 msgid "This entry does not exist."
 msgstr "Tento článek neexistuje."
@@ -1579,10 +1587,20 @@ msgstr "Komentář byl úspěšně přidán."
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Nezapoměňte zvalidovat XHTML kód před jeho uložením."
 
-msgid "View entry"
-msgstr "Zobraz články"
+msgid "Go to this entry on the site"
+msgstr ""
 
-msgid "Preview entry"
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr "Úvod:"
+
+msgid "Notes:"
+msgstr "Poznámky:"
+
+#, fuzzy
+msgid "Preview"
 msgstr "Náhled článku"
 
 msgid "Entry status:"
@@ -1611,24 +1629,6 @@ msgstr "Jedinečné URL:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Varování: Ruční nastavení specifického URL může způsobit konflikty s jinými články se stejným jménem!"
-
-msgid "Attachments"
-msgstr "Přílohy"
-
-msgid "remove"
-msgstr "odebrat"
-
-msgid "No attachment."
-msgstr "Žádné přílohy"
-
-msgid "Add files to this entry"
-msgstr "Přidat soubor ke článku"
-
-msgid "Excerpt:"
-msgstr "Úvod:"
-
-msgid "Notes:"
-msgstr "Poznámky:"
 
 msgid "Ping blogs"
 msgstr "pingy blogů"
@@ -1749,8 +1749,15 @@ msgstr "Změnit autora pro články"
 msgid "Author ID:"
 msgstr "ID autora:"
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Pokud chcete změnit svůj email nebo heslo, musíte zadat svoje aktuální heslo."
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "nevybrané"
 
 msgid "Personal information has been successfully updated."
 msgstr "Osobní informace byly úspěšně aktualizovány."
@@ -1788,6 +1795,10 @@ msgid "User timezone:"
 msgstr "Časové pásmo uživatele:"
 
 #, fuzzy
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr "Pokud chcete změnit svůj email nebo heslo, musíte zadat svoje aktuální heslo."
+
+#, fuzzy
 msgid "My options"
 msgstr "Možnosti hledání"
 
@@ -1802,6 +1813,19 @@ msgstr "Upravit výšku pole:"
 
 msgid "Enable WYSIWYG mode"
 msgstr "Zapnout WYSIWYG mód"
+
+#, fuzzy
+msgid "Activate enhanced uploader in media manager"
+msgstr "Zapnout rozšířený uploader"
+
+msgid "Iconset:"
+msgstr ""
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
 
 msgid "Accessibility options"
 msgstr ""
@@ -1868,19 +1892,18 @@ msgstr "Dostupná velikost:"
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr "Hledání"
-
 msgid "Search options"
 msgstr "Možnosti hledání"
 
 msgid "Query:"
 msgstr "Hledej výraz:"
 
-msgid "search entries"
+#, fuzzy
+msgid "Search entries"
 msgstr "hledat články"
 
-msgid "search comments"
+#, fuzzy
+msgid "Search comments"
 msgstr "hledat komentáře"
 
 msgid "schedule"
@@ -1913,6 +1936,10 @@ msgstr "Tento článek neexistuje, nebo nebyl ještě publikován"
 
 msgid "All pings sent."
 msgstr "Všechny byly pingy poslány."
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "Zpět na \"%s\""
 
 msgid "Auto discover ping URLs"
 msgstr "Automaticky zjistit všechny pingové URL"
@@ -2004,8 +2031,14 @@ msgstr "Varování:"
 msgid "If you change your username, you will have to log in again."
 msgstr "Pokud změníte uživatelské jméno, budete se muset přihlásit znovu."
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 msgid "Password change required to connect"
 msgstr "Pro připojení je vyžadována změna hesla"
+
+msgid "Save and create another"
+msgstr ""
 
 msgid "No permissions."
 msgstr "Žádná oprávnění."
@@ -2027,9 +2060,6 @@ msgstr "Zobrazené jméno"
 
 msgid "Number of entries"
 msgstr "Počet článků"
-
-msgid "Set permissions"
-msgstr "Nastavit oprávnění"
 
 msgid "users"
 msgstr "uživatelé"
@@ -2058,13 +2088,12 @@ msgstr "Blogy:"
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
-msgstr ""
+#, fuzzy
+msgid "My dashboard"
+msgstr "Nástěnka"
 
-msgid "User:"
-msgstr "Uživatel:"
-
-msgid "Logout"
+#, fuzzy, php-format
+msgid "Logout %s"
 msgstr "Odhlásit"
 
 msgid "Safe mode"
@@ -2172,6 +2201,9 @@ msgid "There are XHTML markup errors."
 msgstr "Jsou tam XHTML chyby.."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -2360,9 +2392,6 @@ msgstr "Chyba databáze"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Ve vaší databázi nebyla nalezena Session tabulka. Je Dotclear kompletně nainstalován?"
 
-msgid "Languages"
-msgstr "Jazyky"
-
 msgid "System"
 msgstr "Systém"
 
@@ -2371,6 +2400,9 @@ msgstr "Blog"
 
 msgid "Updates"
 msgstr "Aktualizace"
+
+msgid "Languages"
+msgstr "Jazyky"
 
 msgid "administrator"
 msgstr "administátor"
@@ -2710,6 +2742,30 @@ msgstr "Neúspěšný zápis souboru na disk."
 msgid "%s is not a directory."
 msgstr "%s není adresář."
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Neznámý kód jazyka"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Neznámý kód jazyka"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Nevalidní shrnující soubor."
+
 msgid "Uploading this file is not allowed."
 msgstr "Tento typ souboru není pro nahrávání povolen."
 
@@ -2787,6 +2843,41 @@ msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo ulože
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "Strany(a)"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "Blog"
+
+#~ msgid "send"
+#~ msgstr "poslat"
+
+#~ msgid "update thumbnails"
+#~ msgstr "aktualizovat náhledy"
+
+#~ msgid "insert"
+#~ msgstr "vložit"
+
+#~ msgid "View entry"
+#~ msgstr "Zobraz články"
+
+#~ msgid "Attachments"
+#~ msgstr "Přílohy"
+
+#~ msgid "remove"
+#~ msgstr "odebrat"
+
+#~ msgid "No attachment."
+#~ msgstr "Žádné přílohy"
+
+#~ msgid "Add files to this entry"
+#~ msgstr "Přidat soubor ke článku"
+
+#~ msgid "User:"
+#~ msgstr "Uživatel:"
 
 #~ msgid "login"
 #~ msgstr "Přihlásit"

@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -20,30 +20,46 @@ Dotclear blog class instance is provided by dcCore $blog property.
 */
 class dcBlog
 {
-	protected $core;	///< <b>dcCore</b> dcCore instance
-	public $con;		///< <b>connection</b>	Database connection object
-	public $prefix;	///< <b>string</b>		Database table prefix
+	/** @var dcCore dcCore instance */
+	protected $core;
+	/** @var connection Database connection object */
+	public $con;
+	/** @var string Database table prefix */
+	public $prefix;
 	
-	public $id;		///< <b>string</b>		Blog ID
-	public $uid;		///< <b>string</b>		Blog unique ID
-	public $name;		///< <b>string</b>		Blog name
-	public $desc;		///< <b>string</b>		Blog description
-	public $url;		///< <b>string</b>		Blog URL
-	public $host;		///< <b>string</b>		Blog host
-	public $creadt;	///< <b>string</b>		Blog creation date
-	public $upddt;		///< <b>string</b>		Blog last update date
-	public $status;	///< <b>string</b>		Blog status
+	/** @var string Blog ID */
+	public $id;
+	/** @var string Blog unique ID */
+	public $uid;
+	/** @var string Blog name */
+	public $name;
+	/** @var string Blog description */
+	public $desc;
+	/** @var string Blog URL */
+	public $url;
+	/** @var string Blog host */
+	public $host;
+	/** @var string Blog creation date */
+	public $creadt;
+	/** @var string Blog last update date */
+	public $upddt;
+	/** @var string Blog status */
+	public $status;
 	
-	public $settings;		///< <b>dcSettings</b>	dcSettings object
-	public $themes_path;	///< <b>string</b>		Blog theme path
-	public $public_path;	///< <b>string</b>		Blog public path
+	/** @var dcSettings dcSettings object */
+	public $settings;
+	/** @var string Blog theme path */
+	public $themes_path;
+	/** @var string Blog public path */
+	public $public_path;
 	
 	private $post_status = array();
 	private $comment_status = array();
 	
 	private $categories;
 	
-	public $without_password = true;	///< <b>boolean</b> Disallow entries password protection
+	/** @var boolean Disallow entries password protection */
+	public $without_password = true;
 	
 	/**
 	Inits dcBlog object
@@ -408,7 +424,7 @@ class dcBlog
 		}
 		
 		if (!empty($params['post_type'])) {
-			$strReq .= "AND post_type = '".$this->con->escape($params['post_type'])."' ";
+			$strReq .= 'AND P.post_type '.$this->con->in($params['post_type']);
 		}
 		
 		$strReq .= 'GROUP BY C.cat_id ';
@@ -584,6 +600,7 @@ class dcBlog
 		}
 		
 		$this->categories()->resetOrder();
+		$this->triggerBlog();
 	}
 	
 	private function checkCategory($title,$url,$id=null)
@@ -658,20 +675,24 @@ class dcBlog
 	- from: Append SQL string after "FROM" statement in query
 	- order: Order of results (default "ORDER BY post_dt DES")
 	- limit: Limit parameter
+	- sql_only : return the sql request instead of results. Only ids are selected
 	
 	Please note that on every cat_id or cat_url, you can add ?not to exclude
 	the category and ?sub to get subcategories.
 	
 	@param	params		<b>array</b>		Parameters
 	@param	count_only	<b>boolean</b>		Only counts results
-	@param	sql_only	<b>boolean</b>		Only return SQL request
 	@return	<b>record</b>	A record with some more capabilities or the SQL request
 	*/
-	public function getPosts($params=array(),$count_only=false,$sql_only=false)
+	public function getPosts($params=array(),$count_only=false)
 	{
 		if ($count_only)
 		{
 			$strReq = 'SELECT count(P.post_id) ';
+		}
+		elseif (!empty($params['sql_only'])) 
+		{
+			$strReq = 'SELECT P.post_id ';
 		}
 		else
 		{
@@ -728,10 +749,8 @@ class dcBlog
 		#Adding parameters
 		if (isset($params['post_type']))
 		{
-			if (is_array($params['post_type']) && !empty($params['post_type'])) {
+			if (is_array($params['post_type']) || $params['post_type'] != '') {
 				$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
-			} elseif ($params['post_type'] != '') {
-				$strReq .= "AND post_type = '".$this->con->escape($params['post_type'])."' ";
 			}
 		}
 		else
@@ -843,7 +862,7 @@ class dcBlog
 			$strReq .= $this->con->limit($params['limit']);
 		}
 		
-		if ($sql_only) {
+		if (!empty($params['sql_only'])) {
 			return $strReq;
 		}
 		
@@ -875,13 +894,13 @@ class dcBlog
 		$post_id = (integer) $post->post_id;
 		
 		if($dir > 0) {
-               $sign = '>';
-               $order = 'ASC';
-          }
-          else {
-               $sign = '<';
-               $order = 'DESC';
-          }
+			$sign = '>';
+			$order = 'ASC';
+		}
+		else {
+			$sign = '<';
+			$order = 'DESC';
+		}
 		
 		$params['post_type'] = $post->post_type;
 		$params['limit'] = 1;
@@ -1042,7 +1061,7 @@ class dcBlog
 		} else {
 			$strReq .= "AND post_type = 'post' ";
 		}
-				
+		
 		if (!empty($params['year'])) {
 			$strReq .= 'AND '.$this->con->dateFormat('post_dt','%Y')." = '".sprintf('%04d',$params['year'])."' ";
 		}
@@ -1182,7 +1201,7 @@ class dcBlog
 		
 		$cur->post_upddt = date('Y-m-d H:i:s');
 		
-		#�If user is only "usage", we need to check the post's owner
+		#If user is only "usage", we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
 			$strReq = 'SELECT post_id '.
@@ -1730,6 +1749,7 @@ class dcBlog
 	- from: Append SQL string after "FROM" statement in query
 	- order: Order of results (default "ORDER BY comment_dt DES")
 	- limit: Limit parameter
+	- sql_only : return the sql request instead of results. Only ids are selected
 	
 	@param	params		<b>array</b>		Parameters
 	@param	count_only	<b>boolean</b>		Only counts results
@@ -1740,6 +1760,10 @@ class dcBlog
 		if ($count_only)
 		{
 			$strReq = 'SELECT count(comment_id) ';
+		}
+		elseif (!empty($params['sql_only'])) 
+		{
+			$strReq = 'SELECT P.post_id ';
 		}
 		else
 		{
@@ -1791,11 +1815,7 @@ class dcBlog
 		
 		if (!empty($params['post_type']))
 		{
-			if (is_array($params['post_type']) && !empty($params['post_type'])) {
-				$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
-			} else {
-				$strReq .= "AND post_type = '".$this->con->escape($params['post_type'])."' ";
-			}
+			$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
 		}
 		
 		if (!empty($params['post_id'])) {
@@ -1870,6 +1890,10 @@ class dcBlog
 		
 		if (!$count_only && !empty($params['limit'])) {
 			$strReq .= $this->con->limit($params['limit']);
+		}
+
+		if (!empty($params['sql_only'])) {
+			return $strReq;
 		}
 		
 		$rs = $this->con->select($strReq);

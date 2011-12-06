@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -26,7 +26,7 @@ to blogs, database connection, plugins...
 class dcCore
 {
 	public $con;		///< <b>connection</b>		Database connection object
-	public $prefix;	///< <b>string</b>			Database tables prefix
+	public $prefix;		///< <b>string</b>			Database tables prefix
 	public $blog;		///< <b>dcBlog</b>			dcBlog object
 	public $error;		///< <b>dcError</b>			dcError object
 	public $auth;		///< <b>dcAuth</b>			dcAuth object
@@ -35,7 +35,8 @@ class dcCore
 	public $wiki2xhtml;	///< <b>wiki2xhtml</b>		wiki2xhtml object
 	public $plugins;	///< <b>dcModules</b>		dcModules object
 	public $media;		///< <b>dcMedia</b>			dcMedia object
-	public $rest;		///< <b>dcRestServer</b>		dcRestServer object
+	public $postmedia;	///< <b>dcPostMedia</b>		dcPostMedia object
+	public $rest;		///< <b>dcRestServer</b>	dcRestServer object
 	public $log;		///< <b>dcLog</b>			dcLog object
 	
 	private $versions = null;
@@ -62,6 +63,18 @@ class dcCore
 		# define weak_locks for mysql
 		if ($this->con instanceof mysqlConnection) {
 			mysqlConnection::$weak_locks = true;
+		}
+		
+		# define searchpath for postgresql
+		if ($this->con instanceof pgsqlConnection)
+		{
+			$searchpath = explode ('.',$prefix,2);
+			if (count($searchpath) > 1)
+			{
+				$prefix = $searchpath[1];
+				$sql = 'SET search_path TO '.$searchpath[0].',public;';
+				$this->con->execute($sql);
+			}
 		}
 		
 		$this->prefix = $prefix;
@@ -776,7 +789,7 @@ class dcCore
 		return array(
 			'edit_size' => 24,
 			'enable_wysiwyg' => true,
-			'post_format' => 'wiki',
+			'post_format' => 'wiki'
 		);
 	}
 	//@}
@@ -1278,7 +1291,7 @@ class dcCore
 				'Enable XML/RPC interface'),
 				array('lang','string','en',
 				'Default blog language'),
-				array('media_exclusion','string','',
+				array('media_exclusion','string','/\.php$/i',
 				'File name exclusion pattern in media manager. (PCRE value)'),
 				array('media_img_m_size','integer',448,
 				'Image medium size in media manager'),

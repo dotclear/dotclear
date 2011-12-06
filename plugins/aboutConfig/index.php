@@ -3,13 +3,23 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
+
+# Local navigation
+if (!empty($_POST['gs_nav'])) {
+	http::redirect($p_url.$_POST['gs_nav']);
+	exit;
+}
+if (!empty($_POST['ls_nav'])) {
+	http::redirect($p_url.$_POST['ls_nav']);
+	exit;
+}
 
 # Local settings update
 if (!empty($_POST['s']) && is_array($_POST['s']))
@@ -75,8 +85,8 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 	
 	return
 	'<tr>'.
-	'<td><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
-	'<th scope="row">'.$field.'</th>'.
+	'<td scope="raw"><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
+	'<td>'.$field.'</td>'.
 	'<td>'.$s['type'].'</td>'.
 	'<td>'.html::escapeHTML($s['label']).'</td>'.
 	'</tr>';
@@ -87,8 +97,24 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
   <title>about:config</title>
   <?php echo dcPage::jsPageTabs($part); ?>
   <style type="text/css">
-  .ns-name { background: #dfdfdf; color: #333; padding-top: 0.3em; padding-bottom: 0.3em; font-size: 1.1em; }
+  table.settings { border: 1px solid #999; margin-bottom: 2em; }
+  table.settings th { background: #f5f5f5; color: #444; padding-top: 0.3em; padding-bottom: 0.3em; }
+  p.anchor-nav {float: right; }
   </style>
+	<script type="text/javascript">
+	//<![CDATA[
+	$(function() {
+		$("#gs_submit").hide();
+		$("#ls_submit").hide();
+		$("#gs_nav").change(function() {
+			window.location = $("#gs_nav option:selected").val();
+		})
+		$("#ls_nav").change(function() {
+			window.location = $("#ls_nav option:selected").val();
+		})
+	});
+	//]]>
+	</script>
 </head>
 
 <body>
@@ -101,22 +127,23 @@ if (!empty($_GET['upda'])) {
 	echo '<p class="message">'.__('Settings definition successfully updated').'</p>';
 }
 ?>
-<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; about:config</h2>
+<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title">about:config</span></h2>
 
 <div id="local" class="multi-part" title="<?php echo __('blog settings'); ?>">
-<form action="plugin.php" method="post">
-<table>
-<caption><?php echo __('Local blog settings list'); ?></caption>
-<thead>
-<tr>
-  <th scope="col" class="nowrap">Setting ID</th>
-  <th scope="col"><?php echo __('Value'); ?></th>
-  <th scope="col"><?php echo __('Type'); ?></th>
-  <th scope="col" class="maximal"><?php echo __('Description'); ?></th>
-</tr>
-</thead>
-<tbody>
+
 <?php
+$table_header = '<table class="settings" id="%s"><caption>%s</caption>'.
+'<thead>'.
+'<tr>'."\n".
+'  <th class="nowrap">Setting ID</th>'."\n".
+'  <th>'.__('Value').'</th>'."\n".
+'  <th>'.__('Type').'</th>'."\n".
+'  <th class="maximalx">'.__('Description').'</th>'."\n".
+'</tr>'."\n".
+'</thead>'."\n".
+'<tbody>';
+$table_footer = '</tbody></table>';
+
 $settings = array();
 
 foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
@@ -124,22 +151,37 @@ foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
 		$settings[$ns][$k] = $v;
 	}
 }
-
 ksort($settings);
+if (count($settings) > 0) {
+	$ns_combo = array();
+	foreach ($settings as $ns => $s) {
+		$ns_combo[$ns] = '#l_'.$ns;
+	}
+	echo 
+		'<form action="plugin.php" method="post">'.
+		'<p class="anchor-nav">'.
+		'<label for="ls_nav" class="classic">'.__('Goto:').'</label> '.form::combo('ls_nav',$ns_combo).
+		' <input type="submit" value="'.__('Ok').'" id="ls_submit" />'.
+		'<input type="hidden" name="p" value="aboutConfig" />'.
+		$core->formNonce().'</p></form>';
+}
+?>
 
+<form action="plugin.php" method="post">
+
+<?php
 foreach ($settings as $ns => $s)
 {
 	ksort($s);
-	echo '<tr><th scope="row" colspan="4" class="ns-name">namespace: <strong>'.$ns.'</strong></th></tr>';
-	
+	echo sprintf($table_header,'l_'.$ns,$ns);
 	foreach ($s as $k => $v)
 	{
 		echo settingLine($k,$v,$ns,'s',!$v['global']);
 	}
+	echo $table_footer;
 }
 ?>
-</tbody>
-</table>
+
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="hidden" name="p" value="aboutConfig" />
 <?php echo $core->formNonce(); ?></p>
@@ -147,18 +189,7 @@ foreach ($settings as $ns => $s)
 </div>
 
 <div id="global" class="multi-part" title="<?php echo __('global settings'); ?>">
-<form action="plugin.php" method="post">
-<table>
-<caption><?php echo __('Global blog settings list'); ?></caption>
-<thead>
-<tr>
-  <th scope="col" class="nowrap">Setting ID</th>
-  <th scope="col"><?php echo __('Value'); ?></th>
-  <th scope="col"><?php echo __('Type'); ?></th>
-  <th scope="col" class="maximal"><?php echo __('Description'); ?></th>
-</tr>
-</thead>
-<tbody>
+
 <?php
 $settings = array();
 
@@ -170,19 +201,36 @@ foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
 
 ksort($settings);
 
+if (count($settings) > 0) {
+	$ns_combo = array();
+	foreach ($settings as $ns => $s) {
+		$ns_combo[$ns] = '#g_'.$ns;
+	}
+	echo 
+		'<form action="plugin.php" method="post">'.
+		'<p class="anchor-nav">'.
+		'<label for="gs_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gs_nav',$ns_combo).
+		' <input type="submit" value="'.__('Ok').'" id="gs_submit" />'.
+		'<input type="hidden" name="p" value="aboutConfig" />'.
+		$core->formNonce().'</p></form>';
+}
+?>
+
+<form action="plugin.php" method="post">
+
+<?php
 foreach ($settings as $ns => $s)
 {
 	ksort($s);
-	echo '<tr><th scope="row" colspan="4" class="ns-name">namespace: <strong>'.$ns.'</strong></th></tr>';
-	
+	echo sprintf($table_header,'g_'.$ns,$ns);
 	foreach ($s as $k => $v)
 	{
 		echo settingLine($k,$v,$ns,'gs',false);
 	}
+	echo $table_footer;
 }
 ?>
-</tbody>
-</table>
+
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="hidden" name="p" value="aboutConfig" />
 <?php echo $core->formNonce(); ?></p>

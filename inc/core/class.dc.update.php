@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -34,13 +34,13 @@ class dcUpdate
 	protected $forced_files = array();
 	
 	/**
-	Constructor
-	
-	@param url		string		Versions file URL
-	@param subject		string		Subject to check
-	@param version		string		Version type
-	@param cache_dir	string		Directory cache path
-	*/
+	 * Constructor
+	 * 
+	 * @param url			string	Versions file URL
+	 * @param subject		string	Subject to check
+	 * @param version		string	Version type
+	 * @param cache_dir 	string	Directory cache path
+	 */
 	public function __construct($url,$subject,$version,$cache_dir)
 	{
 		$this->url = $url;
@@ -50,12 +50,12 @@ class dcUpdate
 	}
 	
 	/**
-	Checks for Dotclear updates.
-	Returns latest version if available or false.
-	
-	@param version		string	Current version to compare
-	@return string				Latest version if available
-	*/
+	 * Checks for Dotclear updates.
+	 * Returns latest version if available or false.
+	 * 
+	 * @param version		string	Current version to compare
+	 * @return string				Latest version if available
+	 */
 	public function check($version)
 	{
 		$this->getVersionInfo();
@@ -153,8 +153,8 @@ class dcUpdate
 	}
 	
 	/**
-	Sets notification flag.
-	*/
+	 * Sets notification flag.
+	 */
 	public function setNotify($n)
 	{
 		
@@ -184,8 +184,8 @@ class dcUpdate
 	}
 	
 	/**
-	Downloads new version to destination $dest.
-	*/
+	 * Downloads new version to destination $dest.
+	 */
 	public function download($dest)
 	{
 		$url = $this->getFileURL();
@@ -220,8 +220,8 @@ class dcUpdate
 	}
 	
 	/**
-	Checks if archive was successfully downloaded.
-	*/
+	 * Checks if archive was successfully downloaded.
+	 */
 	public function checkDownload($zip)
 	{
 		$cs = $this->getChecksum();
@@ -230,8 +230,8 @@ class dcUpdate
 	}
 	
 	/**
-	Backups changed files before an update.
-	*/
+	 * Backups changed files before an update.
+	 */
 	public function backup($zip_file,$zip_digests,$root,$root_digests,$dest)
 	{
 		if (!is_readable($zip_file)) {
@@ -307,8 +307,8 @@ class dcUpdate
 	}
 	
 	/**
-	Upgrade process.
-	*/
+	 * Upgrade process.
+	 */
 	public function performUpgrade($zip_file,$zip_digests,$zip_root,$root,$root_digests)
 	{
 		if (!is_readable($zip_file)) {

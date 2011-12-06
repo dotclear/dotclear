@@ -3,7 +3,7 @@
 #
 # This file is part of Antispam, a plugin for Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -122,10 +122,9 @@ class dcFilterIP extends dcSpamFilter
 		$res =
 		'<div class="multi-part" id="tab_'.$type.'" title="'.$title.'">'.
 
-		'<form action="'.html::escapeURL($url).'" method="post">'.
-		'<fieldset><legend>'.__('Add an IP address').'</legend><p>'.
+		'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
 		form::hidden(array('ip_type'),$type).
-		'<label class="classic" for="addip_'.$type.'">'.__('Add an IP address').' '.
+		'<label class="classic" for="addip_'.$type.'">'.__('Add an IP address: ').' '.
 		form::field(array('addip', 'addip_'.$type),18,255).
 		'</label>';
 		if ($core->auth->isSuperAdmin()) {
@@ -135,8 +134,9 @@ class dcFilterIP extends dcSpamFilter
 
 		$res .=
 		$core->formNonce().
-		'<input type="submit" value="'.__('Add').'"/></p>'.
-		'</fieldset></form>';
+		'</p>'.
+		'<p><input type="submit" value="'.__('Add').'"/></p>'.
+		'</form>';
 
 		$rs = $this->getRules($type);
 
@@ -148,7 +148,7 @@ class dcFilterIP extends dcSpamFilter
 		{
 			$res .=
 			'<form action="'.html::escapeURL($url).'" method="post">'.
-			'<fieldset><legend>' . __('IP list') . '</legend>'.
+			'<h3>' . __('IP list') . '</h3>'.
 			'<div style="'.$this->style_list.'">';
 
 			while ($rs->fetch())
@@ -166,8 +166,8 @@ class dcFilterIP extends dcSpamFilter
 				}
 
 				$res .=
-				'<p style="'.$p_style.'"><label class="classic">'.
-				form::checkbox(array('delip[]'),$rs->rule_id,false,'','',$disabled_ip, 'title="'.html::escapeHTML($pattern).'"').' '.
+				'<p style="'.$p_style.'"><label class="classic" for="'.$type.'-ip-'.$rs->rule_id.'">'.
+				form::checkbox(array('delip[]',$type.'-ip-'.$rs->rule_id),$rs->rule_id,false,'','',$disabled_ip).' '.
 				html::escapeHTML($pattern).
 				'</label></p>';
 			}
@@ -177,7 +177,7 @@ class dcFilterIP extends dcSpamFilter
 			$core->formNonce().
 			form::hidden(array('ip_type'),$type).
 			'</p>'.
-			'</fieldset></form>';
+			'</form>';
 		}
 
 		$res .= '</div>';

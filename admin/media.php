@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -67,7 +67,6 @@ if ($post_id) {
 	$post_type = $post->post_type;
 	unset($post);
 }
-
 $d = isset($_REQUEST['d']) ? $_REQUEST['d'] : null;
 $dir = null;
 
@@ -222,14 +221,14 @@ if ($dir && !empty($_GET['remove']))
 {
 	call_user_func($open_f,__('Media manager'));
 	
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Media manager').' &rsaquo; '.__('confirm removal').'</h2>';
+	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Media manager').' &rsaquo; <span class="page-title">'.__('confirm removal').'</span></h2>';
 	
 	echo
 	'<form action="'.html::escapeURL($page_url).'" method="post">'.
 	'<p>'.sprintf(__('Are you sure you want to remove %s?'),
 	html::escapeHTML($_GET['remove'])).'</p>'.
-	'<p><input type="submit" value="'.__('cancel').'" /> '.
-	' &nbsp; <input type="submit" name="rmyes" value="'.__('yes').'" />'.
+	'<p><input type="submit" value="'.__('Cancel').'" /> '.
+	' &nbsp; <input type="submit" name="rmyes" value="'.__('Yes').'" />'.
 	form::hidden('d',$d).
 	$core->formNonce().
 	form::hidden('remove',html::escapeHTML($_GET['remove'])).'</p>'.
@@ -241,9 +240,18 @@ if ($dir && !empty($_GET['remove']))
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
+$core->auth->user_prefs->addWorkspace('interface');
+$user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
+
 call_user_func($open_f,__('Media manager'),
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA["."\n".
+	dcPage::jsVar('dotclear.candyUpload_force_init',$user_ui_enhanceduploader)."\n".
+	"//]]>".
+	"</script>".
 	dcPage::jsLoad('js/_media.js').
-	($core_media_writable ? dcPage::jsCandyUpload(array('d='.$d)) : ''));
+	(($user_ui_enhanceduploader && $core_media_writable) ? dcPage::jsCandyUpload(array('d='.$d)) : '')
+	);
 
 if (!empty($_GET['mkdok'])) {
 	echo '<p class="message">'.__('Directory has been successfully created.').'</p>';
@@ -269,8 +277,17 @@ if (!empty($_GET['unzipok'])) {
 	echo '<p class="message">'.__('Zip file has been successfully extracted.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <a href="'.html::escapeURL($page_url.'&d=').'">'.__('Media manager').'</a>'.
-' / '.(isset($core->media) ? $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s') : '').'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; ';
+if (!isset($core->media)) {
+	echo '<span class="page-title">'.__('Media manager').'</span></h2>';
+} else {
+	$breadcrumb = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s','<span class="page-title">%s</span>');
+	if ($breadcrumb == '') {
+		echo '<span class="page-title">'.__('Media manager').'</span></h2>';
+	} else {
+		echo '<a href="'.html::escapeURL($page_url.'&d=').'">'.__('Media manager').'</a>'.' / '.$breadcrumb.'</h2>';
+	}
+}
 
 if (!$dir) {
 	call_user_func($close_f);
@@ -305,7 +322,7 @@ else
 	form::combo('file_sort',$sort_combo,$file_sort).'</label>'.
 	form::hidden(array('popup'),$popup).
 	form::hidden(array('post_id'),$post_id).
-	'<input type="submit" value="'.__('ok').'" /></p>'.
+	'<input type="submit" value="'.__('Sort').'" /></p>'.
 	'</form>'.
 	
 	'<div class="media-list">'.
@@ -326,33 +343,36 @@ if ($core_media_writable)
 	echo '<div class="two-cols">';
 	
 	echo
-	'<div class="col"><h3 id="add-file">'.__('Add files').'</h3>'.
-	'<p class="form-note info">'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
+	'<div class="col">'.
+	'<fieldset id="add-file-f"><legend>'.__('Add files').'</legend>'.
+	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	'<form id="media-upload" class="clear" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</div>'.
-	'<fieldset id="add-file-f">'.
 	'<p><label for="upfile">'.__('Choose a file:').
 	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.
 	'<input type="file" id="upfile" name="upfile" size="20" />'.
 	'</label></p>'.
-	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle'),35,255).'</label></p>'.
-	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv'),1).' '.
+	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
+	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
 	__('Private').'</label></p>'.
-	'<p><input type="submit" value="'.__('send').'" />'.
+	'<p class="form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
+	'<a href="preferences.php?tab=user-options"> '.__('My preferences').'</a></p>'.
+	'<p><input type="submit" value="'.__('Send').'" />'.
 	form::hidden(array('d'),$d).'</p>'.
 	'</fieldset>'.
 	'</form>'.
 	'</div>';
 	
 	echo
-	'<div class="col"><h3 id="new-dir">'.__('New directory').'</h3>'.
+	'<div class="col">'.
 	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
 	'<fieldset id="new-dir-f">'.
+	'<legend>'.__('New directory').'</legend>'.
 	$core->formNonce().
 	'<p><label for="newdir">'.__('Directory Name:').
-	form::field(array('newdir'),35,255).'</label></p>'.
-	'<p><input type="submit" value="'.__('Save').'" />'.
+	form::field(array('newdir','newdir'),35,255).'</label></p>'.
+	'<p><input type="submit" value="'.__('Create').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
 	'</fieldset>'.
 	'</form></div>';
@@ -436,7 +456,7 @@ function mediaItemLine($f,$i)
 		$res .= '<a class="media-remove" '.
 		'href="'.html::escapeURL($page_url).'&amp;d='.
 		rawurlencode($GLOBALS['d']).'&amp;remove='.rawurlencode($f->basename).'">'.
-		'<img src="images/trash.png" alt="'.__('delete').'" title="'.__('delete').'" /></a>';
+		'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
 	}
 	
 	$res .= '</li>';

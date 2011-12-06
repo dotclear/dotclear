@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -23,15 +23,15 @@ if (!empty($delete_users))
 		{
 			# --BEHAVIOR-- adminBeforeUserDelete
 			$core->callBehavior('adminBeforeUserDelete',$u);
-			
-			$core->delUser($u);
+			if ($u != $core->auth->userID()) {
+				$core->delUser($u);
+			}
 		}
 		catch (Exception $e)
 		{
 			$core->error->add($e->getMessage());
 		}
 	}
-	
 	if (!$core->error->flag()) {
 		http::redirect('users.php?del=1');
 	}
@@ -58,7 +58,7 @@ $combo_action = array(
 	__('Delete') => 'deleteuser'
 );
 
-# --BEHAVIOR-- adminUser	sActionsCombo
+# --BEHAVIOR-- adminUsersActionsCombo
 $core->callBehavior('adminUsersActionsCombo',array(&$combo_action));
 
 
@@ -104,7 +104,7 @@ if (!$core->error->flag())
 	}
 	
 	echo 
-	'<h2>'.__('Users').'</h2>'.
+	'<h2 class="post-title">'.__('Users').'</h2>'.
 	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('Create a new user').'</a></strong></p>';
 	
 	if (!$show_filters) {

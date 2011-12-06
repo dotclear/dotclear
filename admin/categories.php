@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -67,7 +67,7 @@ if (!empty($_GET['moved'])) {
 		echo '<p class="message">'.__('The category has been successfully moved.').'</p>';
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Categories').'</h2>';
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Categories').'</span></h2>';
 
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 
@@ -129,11 +129,13 @@ form::field('cat_title',30,255).'</label></p>'.
 '<select id="new_cat_parent" name="new_cat_parent">'.
 '<option value="0">'.__('Top level').'</option>';
 while ($rs->fetch()) {
-	echo '<option value="'.$rs->cat_id.'">'.str_repeat('&nbsp;&nbsp;',$rs->level).'&bull; '.html::escapeHTML($rs->cat_title).'</option>';
+	echo '<option value="'.$rs->cat_id.'">'.
+		str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').
+		html::escapeHTML($rs->cat_title).'</option>';
 }
 echo
 '</select></label></p>'.
-'<p><input type="submit" value="'.__('Save').'" /></p>'.
+'<p><input type="submit" value="'.__('Create').'" /></p>'.
 $core->formNonce().
 '</fieldset>'.
 '</form>';
@@ -164,7 +166,7 @@ if (!$rs->isEmpty())
 		'<fieldset><legend>'.__('Remove a category').'</legend>'.
 		'<p><label for="del_cat">'.__('Choose a category to remove:').' '.
 		form::combo('del_cat',$deletable).'</label></p> '.
-		'<p><input type="submit" value="'.__('ok').'" /></p>'.
+		'<p><input type="submit" value="'.__('Delete').'" class="delete" /></p>'.
 		$core->formNonce().
 		'</fieldset>'.
 		'</form>';

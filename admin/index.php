@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -83,7 +83,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 			$count++;
 			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
 				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-			$__dashboard_icons[$fav['name']] = new ArrayObject(array($title,$fav['url'],$fav['large-icon']));
+			$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
 
 			# Let plugins set their own title for favorite on dashboard
 			$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
@@ -98,7 +98,7 @@ if (!$count) {
 			$count++;
 			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
 				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-			$__dashboard_icons[$fav['name']] = new ArrayObject(array($title,$fav['url'],$fav['large-icon']));
+			$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
 
 			# Let plugins set their own title for favorite on dashboard
 			$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
@@ -176,6 +176,11 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 
 $core->callBehavior('adminDashboardItems', $core, $__dashboard_items);
 
+# Dashboard content
+$dashboardContents = '';
+$__dashboard_contents = new ArrayObject(array(new ArrayObject,new ArrayObject));
+$core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
+
 /* DISPLAY
 -------------------------------------------------------- */
 dcPage::open(__('Dashboard'),
@@ -185,14 +190,12 @@ dcPage::open(__('Dashboard'),
 	$core->callBehavior('adminDashboardHeaders')
 );
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Dashboard');
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Dashboard').'</span></h2>';
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->blog_count > 1) {
 	echo
-	' - <a href="index.php?default_blog=1" class="button">'.__('Make this blog my default blog').'</a>';
+	'<p><a href="index.php?default_blog=1" class="button">'.__('Make this blog my default blog').'</a></p>';
 }
-
-echo '</h2>';
 
 if ($core->blog->status == 0) {
 	echo '<p class="static-msg">'.__('This blog is offline').'</p>';
@@ -200,10 +203,17 @@ if ($core->blog->status == 0) {
 	echo '<p class="static-msg">'.__('This blog is removed').'</p>';
 }
 
-if (!DC_ADMIN_URL) {
+if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {
 	echo
 	'<p class="static-msg">'.
-	__('DC_ADMIN_URL is not defined, you should edit your configuration file.').
+	'DC_ADMIN_URL '.__('is not defined, you should edit your configuration file.').
+	'</p>';
+}
+
+if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
+	echo
+	'<p class="static-msg">'.
+	'DC_ADMIN_MAILFROM '.__('is not defined, you should edit your configuration file.').
 	'</p>';
 }
 
@@ -278,8 +288,8 @@ echo '<div id="dashboard-main"'.($dashboardItems ? '' : ' class="fullwidth"').'>
 foreach ($__dashboard_icons as $i)
 {
 	echo
-	'<p><a href="'.$i[1].'"><img src="'.$i[2].'" alt="" /></a>'.
-	'<span><a href="'.$i[1].'">'.$i[0].'</a></span></p>';
+	'<p><a href="'.$i[1].'"><img src="'.dc_admin_icon_url($i[2]).'" alt="" />'.
+	'<br /><span>'.$i[0].'</span></a></p>';
 }
 echo '</div>';
 
@@ -291,7 +301,8 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 			$categories = $core->blog->getCategories(array('post_type'=>'post'));
 			while ($categories->fetch()) {
 				$categories_combo[] = new formSelectOption(
-					str_repeat('&nbsp;&nbsp;',$categories->level-1).'&bull; '.html::escapeHTML($categories->cat_title),
+					str_repeat('&nbsp;&nbsp;',$categories->level-1).
+					($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
 					$categories->cat_id
 				);
 			}
@@ -301,19 +312,19 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'<div id="quick">'.
 		'<h3>'.__('Quick entry').'</h3>'.
 		'<form id="quick-entry" action="post.php" method="post">'.
-		'<fieldset>'.
+		'<fieldset><legend>'.__('New entry').'</legend>'.
 		'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
-		form::field('post_title',20,255,'','maximal',2).
+		form::field('post_title',20,255,'','maximal').
 		'</label></p>'.
 		'<p class="area"><label class="required" '.
 		'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-		form::textarea('post_content',50,7,'','',2).
+		form::textarea('post_content',50,7).
 		'</p>'.
 		'<p><label for="cat_id" class="classic">'.__('Category:').' '.
-		form::combo('cat_id',$categories_combo,'','',2).'</label></p>'.
-		'<p><input type="submit" value="'.__('Save').'" name="save" tabindex="3" /> '.
+		form::combo('cat_id',$categories_combo).'</label></p>'.
+		'<p><input type="submit" value="'.__('Save').'" name="save" /> '.
 		($core->auth->check('publish',$core->blog->id)
-			? '<input type="hidden" value="'.__('save and publish').'" name="save-publish" />'
+			? '<input type="hidden" value="'.__('Save and publish').'" name="save-publish" />'
 			: '').
 		$core->formNonce().
 		form::hidden('post_status',-2).
@@ -327,6 +338,19 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'</div>';
 	}
 }
+
+foreach ($__dashboard_contents as $i)
+{	
+	if ($i->count() > 0)
+	{
+		$dashboardContents .= '<div>';
+		foreach ($i as $v) {
+			$dashboardContents .= $v;
+		}
+		$dashboardContents .= '</div>';
+	}
+}
+echo ($dashboardContents ? '<div id="dashboard-contents">'.$dashboardContents.'</div>' : '');
 
 echo '</div>';
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-11-06 18:11+0100\n"
 "PO-Revision-Date: 2008-10-12 12:02+0530\n"
 "Last-Translator: Veeven <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,9 @@ msgstr ""
 
 msgid "no"
 msgstr "కాదు"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr ""
@@ -32,6 +35,12 @@ msgstr "విలువ"
 
 msgid "Description"
 msgstr "వివరణ"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr ""
@@ -83,7 +92,7 @@ msgstr ""
 msgid "Whitelist"
 msgstr ""
 
-msgid "Add an IP address"
+msgid "Add an IP address: "
 msgstr ""
 
 msgid "Global IP"
@@ -130,7 +139,7 @@ msgstr ""
 msgid "Words have been successfully removed."
 msgstr ""
 
-msgid "Add a word"
+msgid "Add a word "
 msgstr ""
 
 msgid "Global word"
@@ -139,8 +148,8 @@ msgstr ""
 msgid "No word in list."
 msgstr ""
 
-msgid "List"
-msgstr "జాబితా"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr ""
@@ -187,9 +196,6 @@ msgstr ""
 msgid "Filter has no user interface."
 msgstr ""
 
-msgid "Return to filters"
-msgstr ""
-
 #, php-format
 msgid "%s configuration"
 msgstr ""
@@ -213,10 +219,16 @@ msgstr ""
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr ""
 
-msgid "Available spam filters"
+msgid "You can modify this duration in "
+msgstr ""
+
+msgid "Blog preferences"
 msgstr ""
 
 msgid "Filters configuration has been successfully saved."
+msgstr ""
+
+msgid "Available spam filters"
 msgstr ""
 
 msgid "Order"
@@ -234,6 +246,10 @@ msgstr "వడపోత పేరు"
 msgid "Filter configuration"
 msgstr ""
 
+#, fuzzy
+msgid "position"
+msgstr "పేజీ స్థానం"
+
 msgid "Syndication"
 msgstr ""
 
@@ -242,6 +258,22 @@ msgstr ""
 
 msgid "Published comments RSS feed"
 msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+
+msgid "Blogroll"
+msgstr "బ్లాగ్మిత్రులు"
 
 msgid "manage blogroll"
 msgstr "బ్లాగ్మిత్రులను సంభాళించండి"
@@ -391,10 +423,6 @@ msgstr ""
 msgid "Lang"
 msgstr "భాష"
 
-#, fuzzy
-msgid "position"
-msgstr "పేజీ స్థానం"
-
 msgid "select this link"
 msgstr ""
 
@@ -419,7 +447,7 @@ msgstr ""
 msgid "OPML or XBEL File:"
 msgstr ""
 
-msgid "import"
+msgid "Import"
 msgstr ""
 
 msgid "Light linear gradient"
@@ -531,9 +559,6 @@ msgstr ""
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr ""
 
-msgid "Preview"
-msgstr "మునుజూపు"
-
 msgid "Sidebar"
 msgstr "ప్రక్కపట్టీ"
 
@@ -625,6 +650,9 @@ msgid "Footer links color:"
 msgstr ""
 
 msgid "Footer background color:"
+msgstr ""
+
+msgid "Additional CSS"
 msgstr ""
 
 msgid "Configuration import / export"
@@ -793,9 +821,6 @@ msgstr ""
 msgid "Feed URL:"
 msgstr ""
 
-msgid "Send"
-msgstr "పంపించు"
-
 msgid "Flat file import"
 msgstr ""
 
@@ -891,9 +916,6 @@ msgstr ""
 msgid "Please wait..."
 msgstr "దయచేసి వేచివుండండి..."
 
-msgid "Import"
-msgstr ""
-
 msgid "Maintenance"
 msgstr ""
 
@@ -965,8 +987,8 @@ msgstr ""
 msgid "Empty directory"
 msgstr ""
 
-msgid "New page"
-msgstr "కొత్త పేజీ"
+msgid "Pages"
+msgstr "పేజీలు"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1008,6 +1030,9 @@ msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
 
+msgid "New page"
+msgstr "కొత్త పేజీ"
+
 msgid "Selected pages action:"
 msgstr "ఎంచుకున్న పేజీలపై చర్య:"
 
@@ -1032,11 +1057,8 @@ msgstr "పేజీని విజయవంతంగా తాజాకరి�
 msgid "Page has been successfully created."
 msgstr "పేజీని విజయవంతంగా సృష్టించాం."
 
-msgid "View page"
-msgstr "పేజీని చూడండి"
-
-msgid "Preview page"
-msgstr "పేజీ మునుజూపు"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "పేజీ స్థితి:"
@@ -1086,8 +1108,147 @@ msgstr ""
 msgid "Pings:"
 msgstr ""
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "అన్ని ట్యాగులూ"
+
+msgid "All tags"
+msgstr "అన్ని ట్యాగులూ"
+
+msgid "Home"
+msgstr ""
+
+msgid "Archive"
+msgstr ""
+
+#, fuzzy
+msgid "Page"
+msgstr "పేజీలు"
+
 msgid "Tags"
 msgstr "ట్యాగులు"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr ""
+
+#, php-format
+msgid "Posts from %s"
+msgstr ""
+
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+msgid "No menu items selected."
+msgstr ""
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "పేజీని విజయవంతంగా సృష్టించాం."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "పేజీని విజయవంతంగా తాజాకరించాం."
+
+#, fuzzy
+msgid "Add item"
+msgstr "ట్యాగులను చేర్చండి"
+
+#, fuzzy
+msgid "Select type"
+msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue..."
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "బ్లాగు భాషలు"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "పేజీ మార్పు"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "వివరణ"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+msgid "Add an item"
+msgstr ""
+
+#, fuzzy
+msgid "Menu items list"
+msgstr "వర్గాల జాబితా"
+
+msgid "Update menu"
+msgstr ""
+
+msgid "Delete selected menu items"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "ట్యాగులు:"
@@ -1170,9 +1331,6 @@ msgstr "టపాల సంఖ్య"
 msgid "Tag name"
 msgstr "ట్యాగు పేరు"
 
-msgid "All tags"
-msgstr "అన్ని ట్యాగులూ"
-
 msgid "Link to all tags:"
 msgstr ""
 
@@ -1185,10 +1343,22 @@ msgstr ""
 msgid "Back to tags list"
 msgstr ""
 
-msgid "Rename this tag:"
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "పేజీ మార్పు"
+
+msgid "Rename"
 msgstr ""
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Delete this tag:"
+msgstr "ఈ పేజీకి ఫైళ్ళను చేర్చండి"
+
+msgid "List of entries with this tag"
 msgstr ""
 
 msgid "Tag has been successfully removed"
@@ -1326,12 +1496,6 @@ msgstr "ఇటీవలి వ్యాఖ్యలు"
 msgid "Comments limit:"
 msgstr "వ్యాఖ్యల పరిమితి:"
 
-msgid "Home"
-msgstr ""
-
-msgid "Archives"
-msgstr ""
-
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr ""
@@ -1352,6 +1516,9 @@ msgstr ""
 msgid "extra"
 msgstr ""
 
+msgid "custom"
+msgstr ""
+
 msgid "Widgets"
 msgstr "విడ్జెట్లు"
 
@@ -1364,8 +1531,9 @@ msgstr "అందుబాటులో ఉన్న విడ్జెట్ల�
 msgid "Append to:"
 msgstr ""
 
-msgid "add widgets to sidebars"
-msgstr ""
+#, fuzzy
+msgid "Add widgets to sidebars"
+msgstr "టపాలకు ట్యాగులను చేర్చండి"
 
 msgid "Navigation sidebar"
 msgstr ""
@@ -1373,10 +1541,26 @@ msgstr ""
 msgid "Extra sidebar"
 msgstr ""
 
-msgid "update sidebars"
+msgid "Custom sidebar"
 msgstr ""
 
-msgid "reset sidebars"
+msgid "Update sidebars"
+msgstr ""
+
+msgid "Reset sidebars"
+msgstr ""
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "ప్రదర్శనా విడ్జెట్లు"
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
 msgstr ""
 
 msgid "Widget templates tags"
@@ -1418,18 +1602,24 @@ msgstr "క్రమం"
 msgid "Remove widget"
 msgstr ""
 
-#~ msgid "Blogroll"
-#~ msgstr "బ్లాగ్మిత్రులు"
+#~ msgid "List"
+#~ msgstr "జాబితా"
+
+#~ msgid "Preview"
+#~ msgstr "మునుజూపు"
+
+#~ msgid "Send"
+#~ msgstr "పంపించు"
+
+#~ msgid "View page"
+#~ msgstr "పేజీని చూడండి"
+
+#~ msgid "Preview page"
+#~ msgstr "పేజీ మునుజూపు"
 
 #, fuzzy
 #~ msgid "Save order"
 #~ msgstr "క్రమం"
 
-#~ msgid "Pages"
-#~ msgstr "పేజీలు"
-
 #~ msgid "more"
 #~ msgstr "మరిన్ని"
-
-#~ msgid "Categories list"
-#~ msgstr "వర్గాల జాబితా"

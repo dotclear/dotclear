@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -14,13 +14,13 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 ?>
 <html>
 <head>
-  <title>Tags</title>
+  <title><?php echo __('Tags'); ?></title>
   <link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />
 </head>
 
 <body>
 <h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo;
-<?php echo __('Tags'); ?></h2>
+<span class="page-title"><?php echo __('Tags'); ?></span></h2>
 
 <?php
 if (!empty($_GET['del'])) {

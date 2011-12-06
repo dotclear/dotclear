@@ -24,6 +24,10 @@ config:
 	
 	## Remove .svn folders
 	find ./$(DIST)/ -type d -name '.svn' | xargs rm -rf
+
+	## Remove .hg* files and folders
+	find ./$(DIST)/ -type d -name '.hg*' | xargs rm -rf
+	find ./$(DIST)/ -type f -name '.hg*' | xargs rm -rf
 	
 	## Remove config file if any
 	rm -f ./$(DC)/inc/config.php
@@ -33,6 +37,7 @@ config:
 	./plugins/aboutConfig \
 	./plugins/akismet \
 	./plugins/antispam \
+	./plugins/attachments \
 	./plugins/blogroll \
 	./plugins/blowupConfig \
 	./plugins/fairTrackbacks \
@@ -41,18 +46,25 @@ config:
 	./plugins/tags \
 	./plugins/pages \
 	./plugins/pings \
+	./plugins/simpleMenu \
 	./plugins/themeEditor \
+	./plugins/userPref \
 	./plugins/widgets \
 	./$(DC)/plugins/
 	
 	## Remove .svn folders
 	find ./$(DIST)/ -type d -name '.svn' -print0 | xargs -0 rm -rf
 	
+	## Remove .hg* files and folders
+	find ./$(DIST)/ -type d -name '.hg*' | xargs rm -rf
+	find ./$(DIST)/ -type f -name '.hg*' | xargs rm -rf
+
 	## "Compile" .po files
 	./build-tools/make-l10n.php ./$(DC)/
 	
 	## Pack javascript files
 	find $(DC)/admin/js/*.js -exec ./build-tools/min-js.php \{\} \;
+	find $(DC)/admin/js/ie7/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jquery/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jsToolBar/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/tool-man/*.js -exec ./build-tools/min-js.php \{\} \;

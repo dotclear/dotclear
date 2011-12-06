@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -85,13 +85,13 @@ class dcImportFeed extends dcIeModule
 		'<strong>'.html::escapeHTML($this->core->blog->name).'</strong>').'</p>'.
 		'<form action="'.$this->getURL(true).'" method="post">'.
 		
-		'<fieldset>'.
+		'<div class="fieldset">'.
 		$this->core->formNonce().
 		form::hidden(array('do'),1).
-		'<p><label for="feed_url">'.__('Feed URL:').' '.
-		form::field('feed_url',40,300,html::escapeHTML($this->feed_url)).'</label></p>'.
-		'<p><input type="submit" value="'.__('Send').'" /></p>'.
-		'</fieldset>'.
+		'<p><label for="feed_url">'.__('Feed URL:').'</label>'.
+		form::field('feed_url',40,300,html::escapeHTML($this->feed_url)).'</p>'.
+		'<p><input type="submit" value="'.__('Import').'" /></p>'.
+		'</div>'.
 		'</form>';
 	}
 }

@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -693,8 +693,10 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 				'parentId' => $parent,
 				'description' => $rs->cat_title,
 				'categoryName' => $rs->cat_url,
-				'htmlUrl' => $this->core->blog->url.$this->core->url->getBase('category').'/'.$rs->cat_url,
-				'rssUrl' => $this->core->blog->url.$this->core->url->getBase('feed').'/category/'.$rs->cat_url.'/rss2'
+				'htmlUrl' => $this->core->blog->url.
+					$this->core->url->getURLFor('category',$rs->cat_url),
+				'rssUrl' => $this->core->blog->url.
+					$this->core->url->getURLFor('feed','category/'.$rs->cat_url.'/rss2')
 			);
 			
 			$stack[] = $rs->cat_url;
@@ -1071,8 +1073,10 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$tags->sort('meta_id_lower','asc');
 		
 		$res = array();
-		$url   = $this->core->blog->url.$this->core->url->getBase('tag').'/%s';
-		$f_url = $this->core->blog->url.$this->core->url->getBase('tag_feed').'/%s';
+		$url   = $this->core->blog->url.
+			$this->core->url->getURLFor('tag','%s');
+		$f_url = $this->core->blog->url.
+			$this->core->url->getURLFor('tag_feed','%s');
 		while ($tags->fetch())
 		{
 			$res[] = array(
@@ -1222,7 +1226,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 				'author'				=> $rs->comment_author,
 				'author_url'			=> $rs->comment_site,
 				'author_email'			=> $rs->comment_email,
-				'author_ip'			=> $rs->comment_ip,
+				'author_ip'			=> $rs->comment_ip
 			);
 		}
 		return $res;

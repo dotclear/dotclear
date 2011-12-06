@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -50,7 +50,7 @@ catch (Exception $e)
 
 <body>
 <?php
-echo '<h2>'.__('Pings configuration').'</h2>';
+echo '<h2 class="page-title">'.__('Pings configuration').'</h2>';
 
 if (!empty($_GET['up'])) {
 	echo '<p class="message">'.__('Settings have been successfully updated.').'</p>';

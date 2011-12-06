@@ -70,7 +70,7 @@ msgid "%d attachments"
 msgstr "%d Dateianlagen"
 
 msgid "previous entries"
-msgstr "vorheriger Einträge"
+msgstr "ältere Einträge"
 
 msgid "page"
 msgstr "Seite"
@@ -79,7 +79,7 @@ msgid "of"
 msgstr "von"
 
 msgid "next entries"
-msgstr "nächste Einträge"
+msgstr "neure Einträge"
 
 msgid "Search"
 msgstr "Suche"
@@ -100,7 +100,7 @@ msgid "All keywords"
 msgstr "Alle Schlüsselwörter"
 
 msgid "Best of me"
-msgstr "Das Beste von mir"
+msgstr "Das Wichtigste über mich"
 
 msgid "Languages"
 msgstr "Sprachen"
@@ -166,19 +166,19 @@ msgid "Name or nickname"
 msgstr "Name oder Nickname"
 
 msgid "Email address"
-msgstr "Email-Adresse"
+msgstr "E-Mail-Adresse"
 
 msgid "Website"
-msgstr "Webseite"
+msgstr "Website"
 
 msgid "optional"
-msgstr "optional"
+msgstr "freiwillig"
 
 msgid "Comment"
 msgstr "Kommentar"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "Kommentare können mit einfacher Wiki-Syntax formatiert werden."
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "HTML-Code wird als normaler Text angezeigt, Links und Email-Adressen werden automatisch umgewandelt."
@@ -193,25 +193,25 @@ msgid "send"
 msgstr "Senden"
 
 msgid "They posted on the same topic"
-msgstr "Sie schrieben am gleichen Thema"
+msgstr "Folgende haben zum gleichen Thema veröffentlicht"
 
 msgid "Trackback URL"
-msgstr "Trackback URL"
+msgstr "Trackback-URL"
 
 msgid "You must provide an author name"
-msgstr "Du mußt einen Namen oder Nicknamen angeben"
+msgstr "Du musst einen Namen oder Nicknamen angeben"
 
 msgid "You must provide a comment"
-msgstr "Du mußt einen Kommentar eingeben"
+msgstr "Du musst einen Kommentar eingeben"
 
 msgid "Email address is not valid"
-msgstr "Die Email-Adresse ist nicht gültig"
+msgstr "Die E-Mail-Adresse ist nicht gültig"
 
 msgid "Document not found"
 msgstr "Dokument nicht gefunden"
 
 msgid "The document you are looking for does not exist."
-msgstr "Das Dokument existiert nicht."
+msgstr "Das gesuchte Dokument existiert nicht."
 
 msgid "Powered by %s"
 msgstr "Erstellt mit %s"
@@ -223,22 +223,22 @@ msgid "What is an RSS feed?"
 msgstr "Was ist ein RSS-Feed?"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr "<abbr xml:lang=\"en\" lang=\"en\" title=\"Really Simple Syndication\">RSS</abbr> ist eine freie Inhaltsübersicht für den Blog. Man kann Inhalte (z.B. Einträge oder Kommentare), oder auch Auszüge von Inhalten mit Links und anderen Metadaten abonnieren. Diese kannst Du dann in einen beliebigen <a href=\"http://de.wikipedia.org/wiki/Feedreader\">Feedreader</a>. lesen."
+msgstr "<abbr xml:lang=\"en\" lang=\"en\" title=\"Really Simple Syndication\">RSS</abbr> ist eine kostenlose Inhaltsübersicht für den Blog. Man kann Inhalte (z.B. Einträge oder Kommentare) oder auch Auszüge von Inhalten mit Links und anderen Metadaten abonnieren. Diese kannst du dann in einem beliebigen <a href=\"http://de.wikipedia.org/wiki/Feedreader\">Feedreader</a>. lesen."
 
 msgid "Simply copy the following URL into your aggregator:"
-msgstr "Kopiere einfach den folgenden URL in Deinen Feedreader:"
+msgstr "Kopiere einfach den folgenden URL in deinen Feedreader:"
 
 msgid "Password needed"
 msgstr "Passwort erforderlich"
 
 msgid "You must give a password to access this area."
-msgstr "Für den Zutritt benötigst Du ein Passwort."
+msgstr "Für den Zutritt benötigst du ein Passwort."
 
 msgid "Password:"
 msgstr "Passwort:"
 
 msgid "You must provide a valid email address."
-msgstr "Du mußt eine gültige Email-Adresse verwenden."
+msgstr "Du mußt eine gültige E-Mail-Adresse verwenden."
 
 msgid "Read"
 msgstr "Lesen"
