@@ -1236,6 +1236,17 @@ a.form-control {
 	color: green;
 	padding-left: 20px;
 }
+
+a#toggle-filters {
+	font-weight: bold;
+	background: url(../images/plus.png) no-repeat 0 0;
+	padding-left: 20px;
+}
+
+a#toggle-filters.opened {
+	background: url(../images/minus.png) no-repeat 0 0;
+}
+
 .constrained {
 	margin: 0;
 	padding: 0;

@@ -22,7 +22,7 @@ class authorFilter extends textFilter {
 			;
 	}
 	public function applyFilter($params) {
-		$val = preg_split("/[\s,]+/",$this->values[0]);
+		$val = preg_split('/\s*,\s*/',$this->values[0]);
 		$params[$this->request_param]=$val;
 	}
 }
@@ -83,7 +83,7 @@ $filterSet->setExtra($comment_list);
 $filterSet->setup($_GET,$_POST);
 if (isset($_GET['author'])) {
 	$authorFilter->add();
-	$authorFilter->setValue($_GET['author']);
+	$authorFilter->setValues($_GET['author']);
 }
 $with_spam=true;
 /* Get comments
