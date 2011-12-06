@@ -29,14 +29,7 @@ if (!empty($_POST['action']) && !empty($_POST['comments']))
 	else
 	{
 		$redir =
-		'comments.php?type='.$_POST['type'].
-		'&author='.$_POST['author'].
-		'&status='.$_POST['status'].
-		'&sortby='.$_POST['sortby'].
-		'&ip='.$_POST['ip'].
-		'&order='.$_POST['order'].
-		'&page='.$_POST['page'].
-		'&nb='.(integer) $_POST['nb'];
+		'comments.php?'.urldecode($_POST['f_query']);
 	}
 	
 	foreach ($comments as $k => $v) {

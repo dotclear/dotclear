@@ -285,7 +285,7 @@ abstract class adminItemsList implements dcFilterExtraInterface
 		$this->core = $core;
 		$this->context = get_class($this);
 		$this->columns = new ArrayObject();
-		$this->form_prefix = 'col_%s';
+		$this->form_prefix = 'col_';
 		
 		$this->html_prev = __('prev');
 		$this->html_next = __('next');
@@ -360,7 +360,7 @@ abstract class adminItemsList implements dcFilterExtraInterface
 		$list = array();
 		
 		foreach ($this->columns as $k => $v) {
-			$col_id = sprintf($this->form_prefix,$k);
+			$col_id = $this->form_prefix.$k;
 			$col_label = sprintf('<label for="%s">%s</label>',$col_id,$v->getInfo('title'));
 			$col_html = sprintf('<li class="line">%s</li>',$col_label.form::checkbox($col_id,1,$v->isVisible(),null,null,!$v->canHide()));
 			
@@ -393,7 +393,7 @@ abstract class adminItemsList implements dcFilterExtraInterface
 		}
 		foreach ($this->columns as $k => $v) {
 			if($v->isVisible())
-				$params[sprintf($this->form_prefix,$k)] = 1;
+				$params[$this->form_prefix.$k] = 1;
 		}
 
 	}
@@ -593,7 +593,7 @@ abstract class adminItemsList implements dcFilterExtraInterface
 	{
 		$load_from_settings = true;
 		foreach ($data as $k=>$v) {
-			if (strpos($this->form_prefix,$k)===0) {
+			if (strpos($k,$this->form_prefix) === 0) {
 				$load_from_settings = false;
 			}
 		}
@@ -608,8 +608,9 @@ abstract class adminItemsList implements dcFilterExtraInterface
 		$this->page = array_key_exists('page',$data) ? $data['page'] : 1;
 		if ($load_from_settings)
 			return;
+
 		foreach ($this->columns as $k => $v) {
-			$key = sprintf($this->form_prefix,$k);
+			$key = $this->form_prefix.$k;
 			$visibility = !array_key_exists($key,$data) ? false : true;
 			$v->setVisibility($visibility);
 		}

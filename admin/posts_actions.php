@@ -30,16 +30,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	else
 	{
 		$redir =
-		'posts.php?user_id='.$_POST['user_id'].
-		'&cat_id='.$_POST['cat_id'].
-		'&status='.$_POST['status'].
-		'&selected='.$_POST['selected'].
-		'&month='.$_POST['month'].
-		'&lang='.$_POST['lang'].
-		'&sortby='.$_POST['sortby'].
-		'&order='.$_POST['order'].
-		'&page='.$_POST['page'].
-		'&nb='.$_POST['nb'];
+		'posts.php?'.urldecode($_POST['f_query']);
 	}
 	
 	foreach ($entries as $k => $v) {

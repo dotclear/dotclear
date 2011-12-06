@@ -178,8 +178,13 @@ class dcFilterSet {
 			$this->lextra->updateRequestParams($arr);
 		}
 		foreach ($arr as $k=>$v) {
-			$ret.= form::hidden($k,$v);
+			$ret.= form::hidden(array($k),$v);
 		}
+		$queryParams = $this->getFiltersAsParams($this->lfilters);
+		if ($this->lextra != null) {
+			$this->lextra->updateRequestParams($queryParams);
+		}
+		$ret .= form::hidden(array($this->form_prefix."query"), http_build_query($queryParams));
 		return $ret;
 	}
 
@@ -326,7 +331,7 @@ class dcFilterSet {
 			'<p class="clear margintop">'.
 			'<input type="submit" value="'.__('Apply filters and display options').
 			'" name="'.$this->form_prefix.'apply" /></p>'.
-			form::hidden($this->form_prefix."query",http_build_query($queryParams)).
+			form::hidden(array($this->form_prefix."query"),http_build_query($queryParams)).
 			$GLOBALS['core']->formNonce().
 			'</form>'.
 			'</div>';
