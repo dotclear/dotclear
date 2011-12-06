@@ -279,12 +279,14 @@ class dcFilterSet {
 		
 		if ($this->hideform) {
 			$formclass = ' class="hidden"';
+			$toggleclass = '';
 		} else {
 			$formclass='';
+			$toggleclass = ' class="opened"';
 		}
 		
-		$ret .= '<p><img alt="" src="images/minus.png" /> '.
-			'<a href="#" id="toggle-filters">'.
+		$ret .= '<p>'.
+			'<a href="#" id="toggle-filters"'.$toggleclass.'>'.
 			__('Toggle filters and display options').
 			'</a></p>'.
 			'<div class="two-cols">'.
