@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -151,8 +151,9 @@ $_s->media
 $_s->post_media
 	->media_id	('bigint',	0,	false)
 	->post_id		('bigint',	0,	false)
+	->link_type		('varchar',	32,	false,	"'attachment'")
 	
-	->primary('pk_post_media','media_id','post_id')
+	->primary('pk_post_media','media_id','post_id','link_type')
 	;
 
 $_s->log
@@ -234,6 +235,7 @@ $_s->post->index		('idx_post_user_id',			'btree',	'user_id');
 $_s->post->index		('idx_post_blog_id',			'btree',	'blog_id');
 $_s->media->index		('idx_media_user_id',			'btree',	'user_id');
 $_s->post_media->index	('idx_post_media_post_id',		'btree',	'post_id');
+$_s->post_media->index	('idx_post_media_media_id',		'btree',	'media_id');
 $_s->log->index		('idx_log_user_id',				'btree',	'user_id');
 $_s->comment->index		('idx_comment_post_id',			'btree',	'post_id');
 $_s->meta->index		('idx_meta_post_id',	'btree','post_id');

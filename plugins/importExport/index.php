@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -16,7 +16,7 @@ require dirname(__FILE__).'/inc/class.dc.ieModule.php';
 $modules = new ArrayObject();
 $modules['i'] = new ArrayObject(array(
 	'dcImportFlat' => dirname(__FILE__).'/inc/class.dc.import.flat.php',
-	'dcImportFeed' => dirname(__FILE__).'/inc/class.dc.import.feed.php',
+	'dcImportFeed' => dirname(__FILE__).'/inc/class.dc.import.feed.php'
 ));
 $modules['e'] = new ArrayObject(array(
 	'dcExportFlat' => dirname(__FILE__).'/inc/class.dc.export.flat.php'
@@ -96,7 +96,7 @@ if ($type && $current_module !== null && !empty($_REQUEST['do']))
 if ($type && $current_module !== null)
 {
 	echo '<h2><a href="'.$p_url.'">'.__('Import/Export').'</a>'.
-	' &rsaquo; '.html::escapeHTML($current_module->name).'</h2>';
+	' &rsaquo; <span class="page-title">'.html::escapeHTML($current_module->name).'</span></h2>';
 	
 	echo '<div id="ie-gui">';
 	$current_module->gui();
@@ -104,7 +104,7 @@ if ($type && $current_module !== null)
 }
 else
 {
-	echo '<h2>'.__('Import/Export').'</h2>';
+	echo '<h2 class="page-title">'.__('Import/Export').'</h2>';
 	echo '<h3>'.__('Import').'</h3>';
 	
 	echo '<dl class="modules">';

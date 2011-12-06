@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -63,6 +63,7 @@ if ($core->auth->check('publish,contentadmin',$core->blog->id))
 {
 	$combo_action[__('publish')] = 'publish';
 	$combo_action[__('unpublish')] = 'unpublish';
+	$combo_action[__('schedule')] = 'schedule';
 	$combo_action[__('mark as pending')] = 'pending';
 }
 if ($core->auth->check('admin',$core->blog->id)) {
@@ -92,7 +93,7 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 
 <body>
 <?php
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Pages').'</h2>'.
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Pages').'</span></h2>'.
 '<p class="top-add"><a class="button add" href="'.$p_url.'&amp;act=page">'.__('New page').'</a></p>';
 
 if (!$core->error->flag())

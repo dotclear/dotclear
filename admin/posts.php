@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -183,7 +183,7 @@ dcPage::open(__('Entries'),$starting_script);
 if (!$core->error->flag())
 {
 	echo 
-	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.$page_title.'</h2>'.
+	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Entries').'</span></h2>'.
 	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>';
 
 	$filterSet->display();
@@ -195,7 +195,7 @@ if (!$core->error->flag())
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right"><span class="filter-title">'.__('Selected entries action:').'</span> '.
+	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	str_replace('%','%%',$filterSet->getFormFieldsAsHidden()).
@@ -203,8 +203,6 @@ if (!$core->error->flag())
 	'</div>'.
 	'</form>'
 	);
-
-	
 	}
 
 

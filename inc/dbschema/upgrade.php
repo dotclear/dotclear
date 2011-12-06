@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -19,7 +19,7 @@ function dotclearUpgrade($core)
 		return false;
 	}
 	
-	if (version_compare($version,DC_VERSION,'<') == 1)
+	if (version_compare($version,DC_VERSION,'<') == 1 || strpos(DC_VERSION,'dev'))
 	{
 		try
 		{
@@ -148,29 +148,29 @@ function dotclearUpgrade($core)
 				# Add global favorites
 				$init_fav = array();
 
-				$init_fav['new_post'] = array('new_post',__('New entry'),'post.php',
+				$init_fav['new_post'] = array('new_post','New entry','post.php',
 					'images/menu/edit.png','images/menu/edit-b.png',
 					'usage,contentadmin',null,'menu-new-post');
-				$init_fav['posts'] = array('posts',__('Entries'),'posts.php',
+				$init_fav['posts'] = array('posts','Entries','posts.php',
 					'images/menu/entries.png','images/menu/entries-b.png',
 					'usage,contentadmin',null,null);
-				$init_fav['comments'] = array('comments',__('Comments'),'comments.php',
+				$init_fav['comments'] = array('comments','Comments','comments.php',
 					'images/menu/comments.png','images/menu/comments-b.png',
 					'usage,contentadmin',null,null);
-				$init_fav['prefs'] = array('prefs',__('My preferences'),'preferences.php',
+				$init_fav['prefs'] = array('prefs','My preferences','preferences.php',
 					'images/menu/user-pref.png','images/menu/user-pref-b.png',
 					'*',null,null);
-				$init_fav['blog_pref'] = array('blog_pref',__('Blog settings'),'blog_pref.php',
+				$init_fav['blog_pref'] = array('blog_pref','Blog settings','blog_pref.php',
 					'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
 					'admin',null,null);
-				$init_fav['blog_theme'] = array('blog_theme',__('Blog appearance'),'blog_theme.php',
+				$init_fav['blog_theme'] = array('blog_theme','Blog appearance','blog_theme.php',
 					'images/menu/themes.png','images/menu/blog-theme-b.png',
 					'admin',null,null);
 
-				$init_fav['pages'] = array('pages',__('Pages'),'plugin.php?p=pages',
+				$init_fav['pages'] = array('pages','Pages','plugin.php?p=pages',
 					'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
 					'contentadmin,pages',null,null);
-				$init_fav['blogroll'] = array('blogroll',__('Blogroll'),'plugin.php?p=blogroll',
+				$init_fav['blogroll'] = array('blogroll','Blogroll','plugin.php?p=blogroll',
 					'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
 					'usage,contentadmin',null,null);
 
@@ -287,6 +287,22 @@ function dotclearUpgrade($core)
 				foreach ($remfolders as $f) {
 					@rmdir(DC_ROOT.'/'.$f);
 				}
+			}
+			
+			if (version_compare($version,'2.3.1','<'))
+			{
+				# Remove unecessary file
+				@unlink(DC_ROOT.'/'.'inc/libs/clearbricks/.hgignore');
+			}
+
+			if (version_compare($version,'2.4.0','<='))
+			{
+				# setup media_exclusion
+				$strReq = 'UPDATE '.$core->prefix.'setting '.
+						"SET setting_value = '/\\.php\$/i' ".
+						"WHERE setting_id = 'media_exclusion' ".
+						"AND setting_value = '' ";
+				$core->con->execute($strReq);
 			}
 			
 			$core->setVersion('core',DC_VERSION);

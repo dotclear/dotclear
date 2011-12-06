@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -97,6 +97,7 @@ class context
 		
 		return $test;
 	}
+	
 	
 	# Static methods
 	public static function global_filter($str,
@@ -341,18 +342,19 @@ class context
 	# First post image helpers
 	public static function EntryFirstImageHelper($size,$with_category,$class="")
 	{
-		if (!preg_match('/^sq|t|s|m|o$/',$size)) {
-			$size = 's';
-		}
-		
 		global $core, $_ctx;
 		
+		$media = new dcMedia($core);
+		$sizes = implode('|',array_keys($media->thumb_sizes)).'|o';
+		if (!preg_match('/^'.$sizes.'$/',$size)) {
+			$size = 's';
+		}
 		$p_url = $core->blog->settings->system->public_url;
 		$p_site = preg_replace('#^(.+?//.+?)/(.*)$#','$1',$core->blog->url);
 		$p_root = $core->blog->public_path;
 		
 		$pattern = '(?:'.preg_quote($p_site,'/').')?'.preg_quote($p_url,'/');
-		$pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|gif|png))"[^>]+/msu',$pattern);
+		$pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png))"[^>]+/msu',$pattern);
 		
 		$src = '';
 		$alt = '';
@@ -399,11 +401,15 @@ class context
 	
 	private static function ContentFirstImageLookup($root,$img,$size)
 	{
+		global $core;
+		
 		# Get base name and extension
 		$info = path::info($img);
 		$base = $info['base'];
 		
-		if (preg_match('/^\.(.+)_(sq|t|s|m)$/',$base,$m)) {
+		$media = new dcMedia($core);
+		$sizes = implode('|',array_keys($media->thumb_sizes));
+		if (preg_match('/^\.(.+)_('.$sizes.')$/',$base,$m)) {
 			$base = $m[1];
 		}
 		
@@ -419,6 +425,8 @@ class context
 				$res = $base.'.'.$info['extension'];
 			} elseif (file_exists($f.'.jpg')) {
 				$res = $base.'.jpg';
+			} elseif (file_exists($f.'.jpeg')) {
+				$res = $base.'.jpeg';
 			} elseif (file_exists($f.'.png')) {
 				$res = $base.'.png';
 			} elseif (file_exists($f.'.gif')) {

@@ -3,7 +3,7 @@
 #
 # This file is part of Antispam, a plugin for Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -83,9 +83,10 @@ class dcFilterIpLookup extends dcSpamFilter
 		$res .=
 		'<form action="'.html::escapeURL($url).'" method="post">'.
 		'<fieldset><legend>' . __('IP Lookup servers') . '</legend>'.
-		'<p>'.'<label for="bls">'.__('Add here a coma separated list of servers.').'</label>'.
-		form::textarea('bls',40,3,html::escapeHTML($bls),'maximal').'</p>'.
-		'<p><input type="submit" value="'.__('Save').'" />'.
+		'<p><label for="bls">'.__('Add here a coma separated list of servers.').
+		form::textarea('bls',40,3,html::escapeHTML($bls),'maximal').
+		'</p>'.
+		'<p><input type="submit" value="'.__('Save').'" /></label></p>'.
 		$this->core->formNonce().'</p>'.
 		'</fieldset>'.
 		'</form>';
@@ -118,4 +119,3 @@ class dcFilterIpLookup extends dcSpamFilter
 	}
 }
 ?>
-

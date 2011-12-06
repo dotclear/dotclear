@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -49,7 +49,7 @@ class defaultWidgets
 		
 		$res .=
 		'<li class="topnav-arch">'.
-		'<a href="'.$core->blog->url.$core->url->getBase("archive").'">'.
+		'<a href="'.$core->blog->url.$core->url->getURLFor("archive").'">'.
 		__('Archives').'</a></li>'.
 		'</ul>'.
 		'</div>';
@@ -90,10 +90,9 @@ class defaultWidgets
 			}
 			
 			$res .=
-			'<a href="'.$core->blog->url.$core->url->getBase('category').'/'.
-			$rs->cat_url.'">'.
+			'<a href="'.$core->blog->url.$core->url->getURLFor('category', $rs->cat_url).'">'.
 			html::escapeHTML($rs->cat_title).'</a>'.
-			($w->postcount ? ' ('.$rs->nb_post.')' : '');
+			($w->postcount ? ' <span>('.$rs->nb_post.')</span>' : '');
 			
 			
 			$level = $rs->level;
@@ -170,7 +169,7 @@ class defaultWidgets
 			$res .=
 			' <li>'.
 			sprintf($l,
-				'<a href="'.$core->blog->url.$core->url->getBase('lang').$rs->post_lang.'" '.
+				'<a href="'.$core->url->getURLFor('lang',$rs->post_lang).'" '.
 				'class="lang-'.$rs->post_lang.'">'.
 				$lang_name.'</a>').
 			' </li>';
@@ -202,7 +201,7 @@ class defaultWidgets
 		
 		$res .=
 		'<li><a type="'.$mime.'" '.
-		'href="'.$core->blog->url.$core->url->getBase('feed').'/'.$type.'" '.
+		'href="'.$core->blog->url.$core->url->getURLFor('feed', $type).'" '.
 		'title="'.sprintf($p_title,($type == 'atom' ? 'Atom' : 'RSS')).'" class="feed">'.
 		__('Entries feed').'</a></li>';
 		
@@ -210,7 +209,7 @@ class defaultWidgets
 		{
 			$res .=
 			'<li><a type="'.$mime.'" '.
-			'href="'.$core->blog->url.$core->url->getBase('feed').'/'.$type.'/comments" '.
+			'href="'.$core->blog->url.$core->url->getURLFor('feed',$type.'/comments').'" '.
 			'title="'.sprintf($c_title,($type == 'atom' ? 'Atom' : 'RSS')).'" class="feed">'.
 			__('Comments feed').'</a></li>';
 		}
@@ -250,7 +249,7 @@ class defaultWidgets
 		
 		$i = 0;
 		foreach ($feed->items as $item) {
-			$li = isset($item->link) ? '<a href="'.$item->link.'">'.$item->title.'</a>' : $item->title;
+			$li = isset($item->link) ? '<a href="'.html::escapeHTML($item->link).'">'.$item->title.'</a>' : $item->title;
 			$res .= ' <li>'.$li.'</li> ';
 			$i++;
 			if ($i >= $limit) {

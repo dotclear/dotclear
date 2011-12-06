@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-11-06 18:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "no"
+msgstr ""
+
+msgid "yes"
 msgstr ""
 
 msgid "Configuration successfully updated"
@@ -32,6 +35,12 @@ msgid "Value"
 msgstr ""
 
 msgid "Description"
+msgstr ""
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
 msgstr ""
 
 msgid "global settings"
@@ -84,7 +93,7 @@ msgstr ""
 msgid "Whitelist"
 msgstr ""
 
-msgid "Add an IP address"
+msgid "Add an IP address: "
 msgstr ""
 
 msgid "Global IP"
@@ -131,7 +140,7 @@ msgstr ""
 msgid "Words have been successfully removed."
 msgstr ""
 
-msgid "Add a word"
+msgid "Add a word "
 msgstr ""
 
 msgid "Global word"
@@ -140,7 +149,7 @@ msgstr ""
 msgid "No word in list."
 msgstr ""
 
-msgid "List"
+msgid "List of bad words"
 msgstr ""
 
 msgid "Delete selected words"
@@ -188,9 +197,6 @@ msgstr ""
 msgid "Filter has no user interface."
 msgstr ""
 
-msgid "Return to filters"
-msgstr ""
-
 #, php-format
 msgid "%s configuration"
 msgstr ""
@@ -214,10 +220,16 @@ msgstr ""
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr ""
 
-msgid "Available spam filters"
+msgid "You can modify this duration in "
+msgstr ""
+
+msgid "Blog preferences"
 msgstr ""
 
 msgid "Filters configuration has been successfully saved."
+msgstr ""
+
+msgid "Available spam filters"
 msgstr ""
 
 msgid "Order"
@@ -235,6 +247,9 @@ msgstr ""
 msgid "Filter configuration"
 msgstr ""
 
+msgid "position"
+msgstr ""
+
 msgid "Syndication"
 msgstr ""
 
@@ -242,6 +257,21 @@ msgid "Junk comments RSS feed"
 msgstr ""
 
 msgid "Published comments RSS feed"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+msgid "Add files to this entry"
+msgstr ""
+
+msgid "Blogroll"
 msgstr ""
 
 msgid "manage blogroll"
@@ -391,9 +421,6 @@ msgstr ""
 msgid "Lang"
 msgstr ""
 
-msgid "position"
-msgstr ""
-
 msgid "select this link"
 msgstr ""
 
@@ -418,7 +445,7 @@ msgstr ""
 msgid "OPML or XBEL File:"
 msgstr ""
 
-msgid "import"
+msgid "Import"
 msgstr ""
 
 msgid "Light linear gradient"
@@ -530,9 +557,6 @@ msgstr ""
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr ""
 
-msgid "Preview"
-msgstr ""
-
 msgid "Sidebar"
 msgstr ""
 
@@ -624,6 +648,9 @@ msgid "Footer links color:"
 msgstr ""
 
 msgid "Footer background color:"
+msgstr ""
+
+msgid "Additional CSS"
 msgstr ""
 
 msgid "Configuration import / export"
@@ -791,9 +818,6 @@ msgstr ""
 msgid "Feed URL:"
 msgstr ""
 
-msgid "Send"
-msgstr ""
-
 msgid "Flat file import"
 msgstr ""
 
@@ -889,9 +913,6 @@ msgstr ""
 msgid "Please wait..."
 msgstr ""
 
-msgid "Import"
-msgstr ""
-
 msgid "Maintenance"
 msgstr ""
 
@@ -963,7 +984,7 @@ msgstr ""
 msgid "Empty directory"
 msgstr ""
 
-msgid "New page"
+msgid "Pages"
 msgstr ""
 
 #, php-format
@@ -1004,6 +1025,9 @@ msgstr ""
 msgid "Are you sure you want to delete selected pages?"
 msgstr ""
 
+msgid "New page"
+msgstr ""
+
 msgid "Selected pages action:"
 msgstr ""
 
@@ -1028,10 +1052,7 @@ msgstr ""
 msgid "Page has been successfully created."
 msgstr ""
 
-msgid "View page"
-msgstr ""
-
-msgid "Preview page"
+msgid "Go to this page on the site"
 msgstr ""
 
 msgid "Page status:"
@@ -1082,7 +1103,133 @@ msgstr ""
 msgid "Pings:"
 msgstr ""
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "All months"
+msgstr ""
+
+msgid "All tags"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Archive"
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
 msgid "Tags"
+msgstr ""
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr ""
+
+#, php-format
+msgid "Posts from %s"
+msgstr ""
+
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+msgid "No menu items selected."
+msgstr ""
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+msgid "Menu item has been successfully added."
+msgstr ""
+
+msgid "Menu items have been successfully removed."
+msgstr ""
+
+msgid "Menu items have been successfully updated."
+msgstr ""
+
+msgid "Add item"
+msgstr ""
+
+msgid "Select type"
+msgstr ""
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue..."
+msgstr ""
+
+msgid "Select language:"
+msgstr ""
+
+msgid "Select category:"
+msgstr ""
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+msgid "Select page:"
+msgstr ""
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+msgid "Description of item menu:"
+msgstr ""
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+msgid "Add an item"
+msgstr ""
+
+msgid "Menu items list"
+msgstr ""
+
+msgid "Update menu"
+msgstr ""
+
+msgid "Delete selected menu items"
+msgstr ""
+
+msgid "Are you sure you want to remove selected menu items?"
+msgstr ""
+
+msgid "Currently no menu items"
 msgstr ""
 
 msgid "Tags:"
@@ -1162,9 +1309,6 @@ msgstr ""
 msgid "Tag name"
 msgstr ""
 
-msgid "All tags"
-msgstr ""
-
 msgid "Link to all tags:"
 msgstr ""
 
@@ -1177,10 +1321,19 @@ msgstr ""
 msgid "Back to tags list"
 msgstr ""
 
-msgid "Rename this tag:"
+msgid "Actions for this tag"
 msgstr ""
 
-msgid "Delete this tag"
+msgid "Edit tag name:"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Delete this tag:"
+msgstr ""
+
+msgid "List of entries with this tag"
 msgstr ""
 
 msgid "Tag has been successfully removed"
@@ -1316,12 +1469,6 @@ msgstr ""
 msgid "Comments limit:"
 msgstr ""
 
-msgid "Home"
-msgstr ""
-
-msgid "Archives"
-msgstr ""
-
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr ""
@@ -1342,6 +1489,9 @@ msgstr ""
 msgid "extra"
 msgstr ""
 
+msgid "custom"
+msgstr ""
+
 msgid "Widgets"
 msgstr ""
 
@@ -1354,7 +1504,7 @@ msgstr ""
 msgid "Append to:"
 msgstr ""
 
-msgid "add widgets to sidebars"
+msgid "Add widgets to sidebars"
 msgstr ""
 
 msgid "Navigation sidebar"
@@ -1363,10 +1513,25 @@ msgstr ""
 msgid "Extra sidebar"
 msgstr ""
 
-msgid "update sidebars"
+msgid "Custom sidebar"
 msgstr ""
 
-msgid "reset sidebars"
+msgid "Update sidebars"
+msgstr ""
+
+msgid "Reset sidebars"
+msgstr ""
+
+msgid "Use of widgets"
+msgstr ""
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
 msgstr ""
 
 msgid "Widget templates tags"

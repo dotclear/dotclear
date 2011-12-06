@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -15,7 +15,7 @@ $core->addBehavior('adminDashboardFavs','widgets_dashboard_favs');
 
 function widgets_dashboard_favs($core,$favs)
 {
-	$favs['widgets'] = new ArrayObject(array('widgets',__('Presentation widgets'),'plugin.php?p=widgets',
+	$favs['widgets'] = new ArrayObject(array('widgets','Presentation widgets','plugin.php?p=widgets',
 		'index.php?pf=widgets/icon.png','index.php?pf=widgets/icon-big.png',
 		'admin',null,null));
 }

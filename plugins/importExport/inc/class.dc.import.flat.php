@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -159,13 +159,13 @@ class dcImportFlat extends dcIeModule
 		'<strong>'.html::escapeHTML($this->core->blog->name).'</strong>').'</p>'.
 		'<form action="'.$this->getURL(true).'" method="post" enctype="multipart/form-data">'.
 		
-		'<fieldset>'.
+		'<div class="fieldset">'.
 		$this->core->formNonce().
 		form::hidden(array('do'),1).
 		form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
-		'<p><label for="up_single_file">'.__('Upload a backup file').' '.
+		'<p><label for="up_single_file">'.__('Upload a backup file').'</label>'.
 		'<input type="file" id="up_single_file" name="up_single_file" size="20" />'.
-		'</label></p>';
+		'</p>';
 		
 		$public_files = $this->getPublicFiles();
 		
@@ -177,8 +177,8 @@ class dcImportFlat extends dcIeModule
 		'</label></p>';
 		
 		echo
-		'<p><input type="submit" value="'.__('Send').'" /></p>'.
-		'</fieldset>'.
+		'<p><input type="submit" value="'.__('Import').'" /></p>'.
+		'</div>'.
 		'</form>';
 		
 		if ($this->core->auth->isSuperAdmin())
@@ -188,27 +188,27 @@ class dcImportFlat extends dcIeModule
 			'<form action="'.$this->getURL(true).'" method="post" enctype="multipart/form-data" id="formfull">'.
 			'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).'</div>'.
 			
-			'<fieldset>'.
+			'<div class="fieldset">'.
 			$this->core->formNonce().
 			form::hidden(array('do'),1).
 			form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
-			'<p><label for="up_full_file">'.__('Upload a backup file').' '.
+			'<p><label for="up_full_file">'.__('Upload a backup file').'</label>'.
 			'<input type="file" id="up_full_file" name="up_full_file" size="20" />'.
-			'</label></p>';
+			'</p>';
 			
 			echo
-			'<p><label for="public_full_file">'.__('or pick up a local file in your public directory').' '.
+			'<p><label for="public_full_file">'.__('or pick up a local file in your public directory').'</label>'.
 			form::combo('public_full_file',$public_files, '', '', '', $empty).
-			'</label></p>';
+			'</p>';
 			
 			echo
-			'<p><strong>'.__('Warning: This will reset all the content of your database, except users.').'</strong></p>'.
+			'<p class="form-note warning"><strong>'.__('Warning: This will reset all the content of your database, except users.').'</strong></p>'.
 			
-			'<p><label for="your_pwd">'.__('Your password:').
-			form::password('your_pwd',20,255).'</label></p>'.
+			'<p><label for="your_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
+			form::password('your_pwd',20,255).'</p>'.
 			
-			'<p><input type="submit" value="'.__('Send').'" /></p>'.
-			'</fieldset>'.
+			'<p><input type="submit" value="'.__('Import').'" /></p>'.
+			'</div>'.
 			'</form>';
 		}
 	}

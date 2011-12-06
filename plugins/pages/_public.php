@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -32,9 +32,11 @@ class urlPages extends dcUrlHandlers
 			
 			$core->blog->withoutPassword(false);
 			
-			$params = new ArrayObject();
-			$params['post_type'] = 'page';
-			$params['post_url'] = $args;
+			$params = new ArrayObject(array(
+				'post_type' => 'page',
+				'post_url' => $args));
+			
+			$core->callBehavior('publicPagesBeforeGetPosts',$params,$args);
 			
 			$_ctx->posts = $core->blog->getPosts($params);
 			
@@ -144,7 +146,7 @@ class urlPages extends dcUrlHandlers
 						$cur->comment_ip = http::realIP();
 						
 						$redir = $_ctx->posts->getURL();
-						$redir .= strpos($redir,'?') !== false ? '&' : '?';
+						$redir .= $core->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
 						
 						try
 						{

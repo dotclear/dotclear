@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -105,6 +105,7 @@ class dcExportFlat extends dcIeModule
 				$exp->exportTable('link');
 				$exp->exportTable('setting');
 				$exp->exportTable('user');
+				$exp->exportTable('pref');
 				$exp->exportTable('permissions');
 				$exp->exportTable('post');
 				$exp->exportTable('meta');
@@ -155,9 +156,8 @@ class dcExportFlat extends dcIeModule
 		'<fieldset><legend>'.__('Export a blog').'</legend>'.
 		'<p>'.sprintf(__('This will create an export of your current blog: %s'),
 		'<strong>'.html::escapeHTML($this->core->blog->name).'</strong>').'</p>'.
-		'<p><label for="file_name" class="classic">'.__('File name:').' '.
+		'<p><label for="file_name" class="classic">'.__('File name:').'</label>'.
 		form::field(array('file_name','file_name'),25,255,date('Y-m-d-').html::escapeHTML($this->core->blog->id.'-backup.txt')).
-		'</label> '.
 		'<input type="submit" value="'.__('Export').'" />'.
 		form::hidden(array('do'),'export_blog').
 		$this->core->formNonce().'</p>'.
@@ -170,9 +170,8 @@ class dcExportFlat extends dcIeModule
 			echo
 			'<form action="'.$this->getURL(true).'" method="post">'.
 			'<fieldset><legend>'.__('Export all content').'</legend>'.
-			'<p><label for="file_name2" class="classic">'.__('File name:').' '.
+			'<p><label for="file_name2" class="classic">'.__('File name:').'</label>'.
 			form::field(array('file_name','file_name2'),25,255,date('Y-m-d-').'dotclear-backup.txt').
-			'</label> '.
 			'<input type="submit" value="'.__('Export all content').'" />'.
 			form::hidden(array('do'),'export_all').
 			$this->core->formNonce().'</p>'.

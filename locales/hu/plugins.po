@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-11-06 18:11+0100\n"
 "PO-Revision-Date: 2008-06-27 17:39+0200\n"
 "Last-Translator: Muráncsik Sebestyén <dr.graf@lajt.hu>\n"
 "Language-Team: Hungarian\n"
@@ -18,6 +18,9 @@ msgstr ""
 
 msgid "no"
 msgstr "nem"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "A konfigurációt sikeresen frissítettem."
@@ -33,6 +36,12 @@ msgstr "Érték"
 
 msgid "Description"
 msgstr "Megnevezés"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr "általános beállítások"
@@ -84,7 +93,8 @@ msgstr "Feketelista"
 msgid "Whitelist"
 msgstr "Fehérlista"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "IP cím hozzáadása"
 
 msgid "Global IP"
@@ -131,7 +141,8 @@ msgstr "A szót sikeresen hozzáadtam."
 msgid "Words have been successfully removed."
 msgstr "A szavakat sikeresen eltávolítottam."
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "Szó hozzáadása"
 
 msgid "Global word"
@@ -140,8 +151,8 @@ msgstr "Globális szó"
 msgid "No word in list."
 msgstr "Nincs szó a listában."
 
-msgid "List"
-msgstr "Lista"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "Kiválasztott szavak törlése"
@@ -188,9 +199,6 @@ msgstr "A szűrő nem létezik."
 msgid "Filter has no user interface."
 msgstr "A szűrőnek nincsen felhasználói felülete."
 
-msgid "Return to filters"
-msgstr "Szűrőkhöz visszatér.."
-
 #, php-format
 msgid "%s configuration"
 msgstr "%s beállítás"
@@ -214,11 +222,18 @@ msgstr "Az összes spam törlése"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Az összes %s napnál öregebb spam automatikusan törlődni fog."
 
-msgid "Available spam filters"
-msgstr "Létező spam szűrők"
+msgid "You can modify this duration in "
+msgstr ""
+
+#, fuzzy
+msgid "Blog preferences"
+msgstr "általános beállítások"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "A szűrők beállítását sikeresen elmentettem."
+
+msgid "Available spam filters"
+msgstr "Létező spam szűrők"
 
 msgid "Order"
 msgstr "Rendezés"
@@ -235,6 +250,10 @@ msgstr "Szűrőnév"
 msgid "Filter configuration"
 msgstr "Szűrő beállítása"
 
+#, fuzzy
+msgid "position"
+msgstr "Oldal elhelyzekdése"
+
 msgid "Syndication"
 msgstr "Szindikáció"
 
@@ -243,6 +262,22 @@ msgstr "Spam hozzászólások RSS feed-je"
 
 msgid "Published comments RSS feed"
 msgstr "Publikált hozzászólások RSS feed-je"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "Fájlok hozzáadása a laphoz"
+
+msgid "Blogroll"
+msgstr "Blogroll"
 
 msgid "manage blogroll"
 msgstr "blogroll kezelése"
@@ -392,10 +427,6 @@ msgid "Lang"
 msgstr "Nyelv"
 
 #, fuzzy
-msgid "position"
-msgstr "Oldal elhelyzekdése"
-
-#, fuzzy
 msgid "select this link"
 msgstr "Címke törlése"
 
@@ -420,8 +451,8 @@ msgstr "Hivatkozások importálása"
 msgid "OPML or XBEL File:"
 msgstr "OPML vagy XBEL fájl:"
 
-msgid "import"
-msgstr "importálás"
+msgid "Import"
+msgstr "Importálás"
 
 msgid "Light linear gradient"
 msgstr "Világos lineáris dőlés"
@@ -534,9 +565,6 @@ msgstr "Saját kép hozzáadása:"
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "JPEG vagy PNG forma, 800 px széles, maximum méret %s"
 
-msgid "Preview"
-msgstr "Előnézet"
-
 msgid "Sidebar"
 msgstr "Oldalsó sáv"
 
@@ -629,6 +657,9 @@ msgstr "Lábjegyzet hivatkozásainak színe:"
 
 msgid "Footer background color:"
 msgstr "Lábjegyzet háttérszíne:"
+
+msgid "Additional CSS"
+msgstr ""
 
 msgid "Configuration import / export"
 msgstr "Beállítások importálása / exportálása"
@@ -796,9 +827,6 @@ msgstr "A folyamat importálni fog RSS vagy Atom feedet új tartalomként a(z) %
 msgid "Feed URL:"
 msgstr "Feed URL-je:"
 
-msgid "Send"
-msgstr "Küld"
-
 msgid "Flat file import"
 msgstr "Flat fájl importálás"
 
@@ -903,9 +931,6 @@ msgstr ""
 msgid "Please wait..."
 msgstr "Kérlek, várj..."
 
-msgid "Import"
-msgstr "Importálás"
-
 msgid "Maintenance"
 msgstr "Folyamat"
 
@@ -979,8 +1004,8 @@ msgstr "A sablonok cache mappájának ürítése"
 msgid "Empty directory"
 msgstr "Üres mappa"
 
-msgid "New page"
-msgstr "Új oldal"
+msgid "Pages"
+msgstr "Oldalak"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1021,6 +1046,9 @@ msgstr "Címke törlése"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Biztosan törölni szeretnéd a kiválasztott oldalakat?"
 
+msgid "New page"
+msgstr "Új oldal"
+
 msgid "Selected pages action:"
 msgstr "Akció a kiválasztott oldalakkal:"
 
@@ -1045,12 +1073,8 @@ msgstr "Az oldalt sikeresen frissítettem."
 msgid "Page has been successfully created."
 msgstr "Az oldalt sikeresen létrehoztam."
 
-msgid "View page"
-msgstr "Oldal megte"
-
-#, fuzzy
-msgid "Preview page"
-msgstr "címke eltávolítása"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "Oldal állapota:"
@@ -1100,8 +1124,151 @@ msgstr ""
 msgid "Pings:"
 msgstr "Pingek:"
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "Mindegyik címke"
+
+msgid "All tags"
+msgstr "Mindegyik címke"
+
+msgid "Home"
+msgstr "Otthon"
+
+#, fuzzy
+msgid "Archive"
+msgstr "Archívum"
+
+#, fuzzy
+msgid "Page"
+msgstr "Oldalak"
+
 msgid "Tags"
 msgstr "címkék"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archívum"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "Kiválasztom a listáról"
+
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "A feedben nincs elem."
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "A szót sikeresen hozzáadtam."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "Az elemeket sikeresen eltávolítottam."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "A beállításokat sikeresen frissítettem."
+
+#, fuzzy
+msgid "Add item"
+msgstr "címke hozzáadása"
+
+#, fuzzy
+msgid "Select type"
+msgstr "Címke törlése"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue..."
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "Blognyelvek"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "Kategória szerkesztése"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "Címke törlése"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "Megnevezés"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "Új hivatkozás hozzáadása"
+
+msgid "Menu items list"
+msgstr ""
+
+#, fuzzy
+msgid "Update menu"
+msgstr "Oldalsáv frissítése"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "Kiválasztott hivatkozások törlése"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Biztosan törölni szerenéd a kiválasztott hivatkozásokat?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "Címkék:"
@@ -1184,9 +1351,6 @@ msgstr "Bejegyzések száma"
 msgid "Tag name"
 msgstr "Címke neve"
 
-msgid "All tags"
-msgstr "Mindegyik címke"
-
 msgid "Link to all tags:"
 msgstr ""
 
@@ -1199,11 +1363,23 @@ msgstr "A címkét sikeresen átneveztem"
 msgid "Back to tags list"
 msgstr "Vissza a címkék listájához"
 
-msgid "Rename this tag:"
-msgstr "Címke átnevezése:"
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "Fájlok hozzáadása a laphoz"
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "Címke szerkesztése"
+
+msgid "Rename"
+msgstr ""
+
+#, fuzzy
+msgid "Delete this tag:"
 msgstr "Címke törlése"
+
+msgid "List of entries with this tag"
+msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr "A címkét sikeresen eltávolítottam"
@@ -1342,12 +1518,6 @@ msgstr "Utolsó hozzászólások"
 msgid "Comments limit:"
 msgstr "Hozzászólások száma:"
 
-msgid "Home"
-msgstr "Otthon"
-
-msgid "Archives"
-msgstr "Archívum"
-
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "A blog bejegyzéseinek %s feedje"
@@ -1368,6 +1538,10 @@ msgstr "navigáció"
 msgid "extra"
 msgstr "extra"
 
+#, fuzzy
+msgid "custom"
+msgstr "Egyedi..."
+
 msgid "Widgets"
 msgstr "Kütyük"
 
@@ -1380,7 +1554,8 @@ msgstr "Elérhető kütyük"
 msgid "Append to:"
 msgstr "Ehhez fűzés:"
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "Kütyük hozzáadása az oldalsó sávhoz"
 
 msgid "Navigation sidebar"
@@ -1389,11 +1564,28 @@ msgstr "Navigációs oldalsáv"
 msgid "Extra sidebar"
 msgstr "Extra oldalsáv"
 
-msgid "update sidebars"
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "Oldalsáv visszaállítása"
+
+msgid "Update sidebars"
 msgstr "Oldalsáv frissítése"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "Oldalsáv visszaállítása"
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "Nincs kütyü."
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr ""
 
 msgid "Widget templates tags"
 msgstr "Kütyüsablon-címkék"
@@ -1434,8 +1626,30 @@ msgstr "rendezés"
 msgid "Remove widget"
 msgstr "Kütyü eltávolítása"
 
-#~ msgid "Blogroll"
-#~ msgstr "Blogroll"
+#~ msgid "List"
+#~ msgstr "Lista"
+
+#~ msgid "Return to filters"
+#~ msgstr "Szűrőkhöz visszatér.."
+
+#~ msgid "import"
+#~ msgstr "importálás"
+
+#~ msgid "Preview"
+#~ msgstr "Előnézet"
+
+#~ msgid "Send"
+#~ msgstr "Küld"
+
+#~ msgid "View page"
+#~ msgstr "Oldal megte"
+
+#, fuzzy
+#~ msgid "Preview page"
+#~ msgstr "címke eltávolítása"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "Címke átnevezése:"
 
 #~ msgid "Save order"
 #~ msgstr "Rend mentése"
@@ -1460,9 +1674,6 @@ msgstr "Kütyü eltávolítása"
 
 #~ msgid "Media title"
 #~ msgstr "Média címe"
-
-#~ msgid "Pages"
-#~ msgstr "Oldalak"
 
 #~ msgid "Unsupported service"
 #~ msgstr "Nem támogatott szolgáltatás"

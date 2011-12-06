@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -60,13 +60,13 @@ if (($post_id && $media_id) || $core->error->flag())
 	{
 		dcPage::open(__('Remove attachment'));
 		
-		echo '<h2>'.__('Attachment').' &rsaquo; '.__('confirm removal').'</h2>';
+		echo '<h2>'.__('Attachment').' &rsaquo; <span class="page-title">'.__('confirm removal').'</span></h2>';
 		
 		echo
 		'<form action="post_media.php" method="post">'.
 		'<p>'.__('Are you sure you want to remove this attachment?').'</p>'.
-		'<p><input type="submit" class="reset" value="'.__('cancel').'" /> '.
-		' &nbsp; <input type="submit" class="delete" name="remove" value="'.__('yes').'" />'.
+		'<p><input type="submit" class="reset" value="'.__('Cancel').'" /> '.
+		' &nbsp; <input type="submit" class="delete" name="remove" value="'.__('Yes').'" />'.
 		form::hidden('post_id',$post_id).
 		form::hidden('media_id',$media_id).
 		$core->formNonce().'</p>'.

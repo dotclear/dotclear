@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -190,35 +190,43 @@ if ($can_install && !empty($_POST))
 		$core->auth->user_prefs->dashboard->put('doclinks',true,'boolean','',null,true);
 		$core->auth->user_prefs->dashboard->put('dcnews',true,'boolean','',null,true);
 		$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean','',null,true);
-		
+
+		# Add accessibility options
+		$core->auth->user_prefs->addWorkspace('accessibility');
+		$core->auth->user_prefs->accessibility->put('nodragdrop',false,'boolean','',null,true);
+
+		# Add user interface options
+		$core->auth->user_prefs->addWorkspace('interface');
+		$core->auth->user_prefs->interface->put('enhanceduploader',false,'boolean','',null,true);
+
 		# Add default favorites
 		$core->auth->user_prefs->addWorkspace('favorites');
 
 		$init_fav = array();
 		
-		$init_fav['new_post'] = array('new_post',__('New entry'),'post.php',
+		$init_fav['new_post'] = array('new_post','New entry','post.php',
 			'images/menu/edit.png','images/menu/edit-b.png',
 			'usage,contentadmin',null,'menu-new-post');
-		$init_fav['posts'] = array('posts',__('Entries'),'posts.php',
+		$init_fav['posts'] = array('posts','Entries','posts.php',
 			'images/menu/entries.png','images/menu/entries-b.png',
 			'usage,contentadmin',null,null);
-		$init_fav['comments'] = array('comments',__('Comments'),'comments.php',
+		$init_fav['comments'] = array('comments','Comments','comments.php',
 			'images/menu/comments.png','images/menu/comments-b.png',
 			'usage,contentadmin',null,null);
-		$init_fav['prefs'] = array('prefs',__('My preferences'),'preferences.php',
+		$init_fav['prefs'] = array('prefs','My preferences','preferences.php',
 			'images/menu/user-pref.png','images/menu/user-pref-b.png',
 			'*',null,null);
-		$init_fav['blog_pref'] = array('blog_pref',__('Blog settings'),'blog_pref.php',
+		$init_fav['blog_pref'] = array('blog_pref','Blog settings','blog_pref.php',
 			'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
 			'admin',null,null);
-		$init_fav['blog_theme'] = array('blog_theme',__('Blog appearance'),'blog_theme.php',
+		$init_fav['blog_theme'] = array('blog_theme','Blog appearance','blog_theme.php',
 			'images/menu/themes.png','images/menu/blog-theme-b.png',
 			'admin',null,null);
 
-		$init_fav['pages'] = array('pages',__('Pages'),'plugin.php?p=pages',
+		$init_fav['pages'] = array('pages','Pages','plugin.php?p=pages',
 			'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
 			'contentadmin,pages',null,null);
-		$init_fav['blogroll'] = array('blogroll',__('Blogroll'),'plugin.php?p=blogroll',
+		$init_fav['blogroll'] = array('blogroll','Blogroll','plugin.php?p=blogroll',
 			'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
 			'usage,contentadmin',null,null);
 
@@ -255,9 +263,8 @@ xml:lang="en" lang="en">
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title><?php echo __('Dotclear Install'); ?></title>
   
-  <style type="text/css">
-  @import url(../style/install.css); 
-  </style>
+	<link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" /> 
+
   <script type="text/javascript" src="../js/jquery/jquery.js"></script>
   <script type="text/javascript">
   //<![CDATA[
@@ -312,24 +319,24 @@ if ($can_install && $step == 0)
 	
 	'<form action="index.php" method="post">'.
 	'<fieldset><legend>'.__('User information').'</legend>'.
-	'<p><label>'.__('First Name:').' '.
+	'<p><label for="u_firstname">'.__('First Name:').' '.
 	form::field('u_firstname',30,255,html::escapeHTML($u_firstname)).'</label></p>'.
-	'<p><label>'.__('Last Name:').' '.
+	'<p><label for="u_name">'.__('Last Name:').' '.
 	form::field('u_name',30,255,html::escapeHTML($u_name)).'</label></p>'.
-	'<p><label>'.__('Email:').' '.
+	'<p><label for="u_email">'.__('Email:').' '.
 	form::field('u_email',30,255,html::escapeHTML($u_email)).'</label></p>'.
 	'</fieldset>'.
 	
 	'<fieldset><legend>'.__('Username and password').'</legend>'.
-	'<p><label class="required" title="'.__('Required field').'">'.__('Username:').' '.
+	'<p><label for="u_login" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').' '.
 	form::field('u_login',30,32,html::escapeHTML($u_login)).'</label></p>'.
-	'<p><label class="required" title="'.__('Required field').'">'.__('Password:').' '.
+	'<p><label for="u_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Password:').' '.
 	form::password('u_pwd',30,255).'</label></p>'.
-	'<p><label class="required" title="'.__('Required field').'">'.__('Confirm password:').' '.
+	'<p><label for="u_pwd2" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Confirm password:').' '.
 	form::password('u_pwd2',30,255).'</label></p>'.
 	'</fieldset>'.
 	
-	'<p><input type="submit" value="'.__('save').'" /></p>'.
+	'<p><input type="submit" value="'.__('Save').'" /></p>'.
 	'</form>';
 }
 elseif ($can_install && $step == 1)

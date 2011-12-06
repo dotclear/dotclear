@@ -3,7 +3,7 @@
 #
 # This file is part of widgets, a plugin for Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -29,6 +29,11 @@ if ($settings->widgets->widgets_extra != null) {
 	$settings->widgets->put('widgets_extra',dcWidgets::load($settings->widgets->widgets_extra)->store());
 } else {
 	$settings->widgets->put('widgets_extra','','string','Extra widgets',false);
+}
+if ($settings->widgets->widgets_custom != null) {
+	$settings->widgets->put('widgets_custom',dcWidgets::load($settings->widgets->widgets_custom)->store());
+} else {
+	$settings->widgets->put('widgets_custom','','string','Custom widgets',false);
 }
 $core->setVersion('widgets',$version);
 return true;

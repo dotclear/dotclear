@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-11-06 18:11+0100\n"
 "PO-Revision-Date: 2009-10-03 03:00-0300\n"
 "Last-Translator: ThecaTTony <thecattony@thecattony.com.ar>\n"
 "Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
@@ -18,6 +18,9 @@ msgstr ""
 
 msgid "no"
 msgstr "no"
+
+msgid "yes"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "Configuración actualizada con éxito"
@@ -33,6 +36,12 @@ msgstr "Valor"
 
 msgid "Description"
 msgstr "Descripción"
+
+msgid "Goto:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
 
 msgid "global settings"
 msgstr "parámetros globales"
@@ -84,7 +93,8 @@ msgstr "Lista negra"
 msgid "Whitelist"
 msgstr "Lista blanca"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "Agregar una dirección IP"
 
 msgid "Global IP"
@@ -131,7 +141,8 @@ msgstr "Palabra agregada con éxito."
 msgid "Words have been successfully removed."
 msgstr "Palabras eliminadas con éxito."
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "Agregar una palabra"
 
 msgid "Global word"
@@ -140,8 +151,8 @@ msgstr "Palabra global"
 msgid "No word in list."
 msgstr "No hay palabras en la lista."
 
-msgid "List"
-msgstr "Lista"
+msgid "List of bad words"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "Eliminar las palabras seleccionadas"
@@ -188,9 +199,6 @@ msgstr "El filtro no existe."
 msgid "Filter has no user interface."
 msgstr "El filtro no tiene interfaz de usuario."
 
-msgid "Return to filters"
-msgstr "Regresar a los filtros"
-
 #, php-format
 msgid "%s configuration"
 msgstr "Configuración de %s"
@@ -214,11 +222,18 @@ msgstr "Eliminar todos los comentarios no deseados"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Todos los comentarios no deseados mas antiguos que %s día(s) serán automáticamente eliminados."
 
-msgid "Available spam filters"
-msgstr "Filtros de spam disponibles"
+msgid "You can modify this duration in "
+msgstr ""
+
+#, fuzzy
+msgid "Blog preferences"
+msgstr "parámetros globales"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "La configuración de los filtros de guardo con éxito."
+
+msgid "Available spam filters"
+msgstr "Filtros de spam disponibles"
 
 msgid "Order"
 msgstr "Orden"
@@ -235,6 +250,10 @@ msgstr "Nombre del filtro"
 msgid "Filter configuration"
 msgstr "Configuración del filtro"
 
+#, fuzzy
+msgid "position"
+msgstr "Posición de la pagina"
+
 msgid "Syndication"
 msgstr "Sindicación"
 
@@ -243,6 +262,22 @@ msgstr "Comentarios no deseados en feeds"
 
 msgid "Published comments RSS feed"
 msgstr "Comentarios publicados en feeds"
+
+msgid "Attachments"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "Agregar archivos a esta pagina"
+
+msgid "Blogroll"
+msgstr "Enlaces recomendados"
 
 msgid "manage blogroll"
 msgstr "Administrar enlaces recomendados"
@@ -392,10 +427,6 @@ msgid "Lang"
 msgstr "Idioma"
 
 #, fuzzy
-msgid "position"
-msgstr "Posición de la pagina"
-
-#, fuzzy
 msgid "select this link"
 msgstr "Eliminar esta etiqueta"
 
@@ -420,8 +451,8 @@ msgstr "Importar enlaces"
 msgid "OPML or XBEL File:"
 msgstr "Archivo OPML o XBEL:"
 
-msgid "import"
-msgstr "importar"
+msgid "Import"
+msgstr "Importar"
 
 msgid "Light linear gradient"
 msgstr "Degradado lineal claro"
@@ -534,9 +565,6 @@ msgstr "Agregar su imagen:"
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "Archivos JPEG o PNG, 800 pixeles de ancho y tamaño máximo de %s"
 
-msgid "Preview"
-msgstr "Vista previa"
-
 msgid "Sidebar"
 msgstr "Barra lateral"
 
@@ -629,6 +657,9 @@ msgstr "Color de enlaces del pie de página:"
 
 msgid "Footer background color:"
 msgstr "Color de fondo del pie de página:"
+
+msgid "Additional CSS"
+msgstr ""
 
 msgid "Configuration import / export"
 msgstr "Configuración de importación y exportación"
@@ -796,9 +827,6 @@ msgstr "Esto importará una redifusión web (RSS o Atom) como contenido nuevo al
 msgid "Feed URL:"
 msgstr "URL de la redifusión web:"
 
-msgid "Send"
-msgstr "Enviar"
-
 msgid "Flat file import"
 msgstr "Importar archivo plano"
 
@@ -894,9 +922,6 @@ msgstr ""
 msgid "Please wait..."
 msgstr "Por favor espere..."
 
-msgid "Import"
-msgstr "Importar"
-
 msgid "Maintenance"
 msgstr "Mantenimiento"
 
@@ -970,8 +995,8 @@ msgstr "Vaciar directorio de cache de plantillas"
 msgid "Empty directory"
 msgstr "Vaciar directorio"
 
-msgid "New page"
-msgstr "Nueva pagina"
+msgid "Pages"
+msgstr "Paginas"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1012,6 +1037,9 @@ msgstr "Eliminar esta etiqueta"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "¿Esta seguro que desea eliminar las paginas seleccionadas?"
 
+msgid "New page"
+msgstr "Nueva pagina"
+
 msgid "Selected pages action:"
 msgstr "Acción sobre las paginas seleccionadas:"
 
@@ -1036,11 +1064,8 @@ msgstr "Pagina actualizada con éxito."
 msgid "Page has been successfully created."
 msgstr "Pagina creada con éxito."
 
-msgid "View page"
-msgstr "Ver pagina"
-
-msgid "Preview page"
-msgstr "Previsualizar pagina"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status:"
 msgstr "Estado de la pagina:"
@@ -1090,8 +1115,151 @@ msgstr ""
 msgid "Pings:"
 msgstr "Pings:"
 
+msgid "Simple menu"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "Todas las etiquetas"
+
+msgid "All tags"
+msgstr "Todas las etiquetas"
+
+msgid "Home"
+msgstr "Inicio"
+
+#, fuzzy
+msgid "Archive"
+msgstr "Archivos"
+
+#, fuzzy
+msgid "Page"
+msgstr "Paginas"
+
 msgid "Tags"
 msgstr "Etiquetas"
+
+msgid "User defined"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
+
+#, php-format
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archivos"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "Elegir de la lista"
+
+#, fuzzy, php-format
+msgid "Recent posts for %s tag"
+msgstr "Agregar archivos a esta pagina"
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "No hay elementos en redifusión web."
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "Palabra agregada con éxito."
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "Elementos eliminados con éxito."
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "Parámetros actualizados con éxito."
+
+#, fuzzy
+msgid "Add item"
+msgstr "agregar etiquetas"
+
+#, fuzzy
+msgid "Select type"
+msgstr "Eliminar esta etiqueta"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue..."
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "Idiomas del blog"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "Editar categoría."
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "Eliminar esta etiqueta"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "Descripción"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+#, fuzzy
+msgid "Add an item"
+msgstr "Agregar un enlace nuevo"
+
+msgid "Menu items list"
+msgstr ""
+
+#, fuzzy
+msgid "Update menu"
+msgstr "actualizar barras laterales"
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "Eliminar enlaces seleccionados"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "¿Esta seguro que desea eliminar los enlaces seleccionados?"
+
+msgid "Currently no menu items"
+msgstr ""
 
 msgid "Tags:"
 msgstr "Etiquetas:"
@@ -1174,9 +1342,6 @@ msgstr "Contador de entradas"
 msgid "Tag name"
 msgstr "Nombre de etiqueta"
 
-msgid "All tags"
-msgstr "Todas las etiquetas"
-
 msgid "Link to all tags:"
 msgstr ""
 
@@ -1189,11 +1354,23 @@ msgstr "Etiqueta renombrada con éxito"
 msgid "Back to tags list"
 msgstr "Volver a la lista de etiquetas"
 
-msgid "Rename this tag:"
-msgstr "Renombrar esta etiqueta:"
+#, fuzzy
+msgid "Actions for this tag"
+msgstr "Agregar archivos a esta pagina"
 
-msgid "Delete this tag"
+#, fuzzy
+msgid "Edit tag name:"
+msgstr "Editar etiqueta"
+
+msgid "Rename"
+msgstr ""
+
+#, fuzzy
+msgid "Delete this tag:"
 msgstr "Eliminar esta etiqueta"
+
+msgid "List of entries with this tag"
+msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr "Etiqueta eliminada con éxito"
@@ -1331,12 +1508,6 @@ msgstr "Últimos comentarios"
 msgid "Comments limit:"
 msgstr "Limite de comentarios:"
 
-msgid "Home"
-msgstr "Inicio"
-
-msgid "Archives"
-msgstr "Archivos"
-
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Redifusión web %s de entradas de este blog"
@@ -1357,6 +1528,10 @@ msgstr "navegación"
 msgid "extra"
 msgstr "extra"
 
+#, fuzzy
+msgid "custom"
+msgstr "Personalizar..."
+
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -1369,7 +1544,8 @@ msgstr "Widgets disponibles"
 msgid "Append to:"
 msgstr "Añadir a:"
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "agregar widgets a la barra lateral"
 
 msgid "Navigation sidebar"
@@ -1378,11 +1554,28 @@ msgstr "Barra lateral de navegación"
 msgid "Extra sidebar"
 msgstr "Barra lateral extra"
 
-msgid "update sidebars"
+#, fuzzy
+msgid "Custom sidebar"
+msgstr "restaurar barras laterales"
+
+msgid "Update sidebars"
 msgstr "actualizar barras laterales"
 
-msgid "reset sidebars"
+msgid "Reset sidebars"
 msgstr "restaurar barras laterales"
+
+#, fuzzy
+msgid "Use of widgets"
+msgstr "Sin widget."
+
+msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+msgstr ""
+
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgstr ""
+
+msgid "Reset sidebars to get back to default widgets installation."
+msgstr ""
 
 msgid "Widget templates tags"
 msgstr "Widgets como etiquetas en plantillas"
@@ -1423,8 +1616,29 @@ msgstr "orden"
 msgid "Remove widget"
 msgstr "Quitar widget"
 
-#~ msgid "Blogroll"
-#~ msgstr "Enlaces recomendados"
+#~ msgid "List"
+#~ msgstr "Lista"
+
+#~ msgid "Return to filters"
+#~ msgstr "Regresar a los filtros"
+
+#~ msgid "import"
+#~ msgstr "importar"
+
+#~ msgid "Preview"
+#~ msgstr "Vista previa"
+
+#~ msgid "Send"
+#~ msgstr "Enviar"
+
+#~ msgid "View page"
+#~ msgstr "Ver pagina"
+
+#~ msgid "Preview page"
+#~ msgstr "Previsualizar pagina"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "Renombrar esta etiqueta:"
 
 #~ msgid "Save order"
 #~ msgstr "Guardar orden"
@@ -1449,9 +1663,6 @@ msgstr "Quitar widget"
 
 #~ msgid "Media title"
 #~ msgstr "Título del medio"
-
-#~ msgid "Pages"
-#~ msgstr "Paginas"
 
 #~ msgid "Unsupported service"
 #~ msgstr "Servicio no soportado"

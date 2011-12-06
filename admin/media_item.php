@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -181,7 +181,7 @@ if (!empty($_GET['thumbupd'])) {
 
 echo '<h2><a href="'.html::escapeURL($media_page_url).'">'.__('Media manager').'</a>'.
 ' / '.$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').
-$file->basename.'</h2>';
+'<span class="page-title">'.$file->basename.'</span></h2>';
 
 # Insertion popup
 if ($popup)
@@ -393,7 +393,11 @@ else
 	
 	if ($file->media_image)
 	{ # We look for thumbnails too
-		$media_root = $core->blog->host.path::clean($core->blog->settings->system->public_url).'/';
+		if (preg_match('#^http(s)?://#',$core->blog->settings->system->public_url)) {
+			$media_root = $core->blog->settings->system->public_url;
+		} else {
+			$media_root = $core->blog->host.path::clean($core->blog->settings->system->public_url).'/';
+		}
 		foreach ($file->media_thumb as $v) {
 			$v = preg_replace('/^'.preg_quote($media_root,'/').'/','',$v);
 			$params['sql'] .= "OR post_content_xhtml LIKE '%".$core->con->escape($v)."%' ";
@@ -451,7 +455,7 @@ if ($file->editable && $core_media_writable)
 		'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
 		'<fieldset><legend>'.__('Update thumbnails').'</legend>'.
 		'<p>'.__('This will create or update thumbnails for this image.').'</p>'.
-		'<p><input type="submit" name="thumbs" value="'.__('update thumbnails').'" />'.
+		'<p><input type="submit" name="thumbs" value="'.__('Update thumbnails').'" />'.
 		form::hidden(array('id'),$id).
 		$core->formNonce().'</p>'.
 		'</fieldset></form>';
@@ -475,7 +479,7 @@ if ($file->editable && $core_media_writable)
 		'</ul>'.
 		'<p><label for="inflate_mode" class="classic">'.__('Extract mode:').' '.
 		form::combo('inflate_mode',$inflate_combo,'new').'</label> '.
-		'<input type="submit" name="unzip" value="'.__('extract').'" />'.
+		'<input type="submit" name="unzip" value="'.__('Extract').'" />'.
 		form::hidden(array('id'),$id).
 		$core->formNonce().'</p>'.
 		'</fieldset></form>';
@@ -507,7 +511,7 @@ if ($file->editable && $core_media_writable)
 	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).') '.
 	'<input type="file" id="upfile" name="upfile" size="35" />'.
 	'</label></p>'.
-	'<p><input type="submit" value="'.__('send').'" />'.
+	'<p><input type="submit" value="'.__('Send').'" />'.
 	form::hidden(array('id'),$id).
 	$core->formNonce().'</p>'.
 	'</fieldset></form>';

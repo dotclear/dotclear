@@ -6,12 +6,13 @@
 	Please see http://dotclear.net/ for more details.
 */
 body.install {
-	font: 0.8em "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
+	font: 0.875em Helvetica,Arial,sans-serif;
 	color: #000;
 	background-color: #fff;
+	line-height: 1.5em;
 }
 body.install #content {
-	width:500px;
+	width:32em;
 	margin:1em auto;
 }
 body.install #main {
@@ -19,6 +20,7 @@ body.install #main {
 	border:1px #ccc solid;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
+	border-radius: 8px;
 }
 body.install h1,h2 {
 	font-family: Helvetica,arial,sans-serif;
@@ -39,12 +41,11 @@ body.install h3 {
 	margin-top:0;
 }
 body.install label {
-	font-weight: bold;
 	color: #555;
 }
 
 body.install .msg {
-	padding:10px 10px 10px 42px;
+	padding:10px 10px 10px 60px;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 }
@@ -54,9 +55,17 @@ body.install .warning {
 body.install .notice {
 	background: #eef url(install/note.png) no-repeat 10px 10px;
 }
+a, a:link, a:visited {
+	color: #2373A8;
+	text-decoration: none;
+	border-bottom: 1px dotted #f90;
+}
+a:hover, a:active, a:focus {
+	text-decoration: underline;
+}
 
 div.error, p.error, div.message, p.message, div.static-msg, p.static-msg {
-	padding: 0.5em 0.5em 0.5em 40px;
+	padding: 0.5em 0.5em 0.5em 60px;
 	margin-bottom: 1em;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
@@ -66,11 +75,11 @@ p.error, p.message, p.static-msg {
 	padding-bottom: 1em;
 }
 div.error, p.error {
-	background: #e5bfbf url(msg-error.png) no-repeat 5px 5px;
+	background: #e5bfbf url(install/process_warning.png) no-repeat 5px 5px;
 	color: #600;
 }
 div.message, p.message, div.static-msg, p.static-msg {
-	background: #666 url(msg-std.png) no-repeat 5px 5px;
+	background: #666 url(install/note.png) no-repeat 5px 5px;
 	color: #fff;
 }
 div.message a, p.message a, div.static-msg a, p.static-msg a {
@@ -86,9 +95,9 @@ label input, label select, label span {
 label.required {
 	font-weight : bold;
 }
-label.required:before {
-	content : '* ';
-	color : #c00;
+label.required abbr {
+	color: #dd0000;
+	font-size: 1.3em;
 }
 
 form {
@@ -121,4 +130,33 @@ a#obfus {
 	padding: 0 10px;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
+}
+
+input[type=submit]{
+	font-size: 1.05em;
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .1em .5em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .2em;
+	-moz-border-radius: .2em;
+	border-radius: .2em;
+	margin-bottom: .1em;
+	color: #fff;
+	border: 1px solid #2373A8;
+	background: #2373A8;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2C8FD1), to(#2373A8));
+	background: -moz-linear-gradient(top,  #2C8FD1,  #2373A8);
+	width: 100%;
+}
+input[type=submit]:hover,
+input[type=submit]:focus {
+	background: #2373A8;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2373A8), to(#2C8FD1));
+	background: -moz-linear-gradient(top,  #2373A8,  #2C8FD1);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#2373A8', endColorstr='#2C8FD1');
+	border: 1px solid #2C8FD1;
 }

@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -155,7 +155,11 @@ function display_theme_details($id,$details,$current)
 	}
 	
 	$radio_id = 'theme_'.html::escapeHTML($id);
-	$theme_url = http::concatURL($core->blog->url,$core->blog->settings->system->themes_url.'/'.$id);
+	if (preg_match('#^http(s)?://#',$core->blog->settings->system->themes_url)) {
+		$theme_url = http::concatURL($core->blog->settings->system->themes_url,'/'.$id);
+	} else {
+		$theme_url = http::concatURL($core->blog->url,$core->blog->settings->system->themes_url.'/'.$id);
+	}
 	$has_conf = file_exists(path::real($core->blog->themes_path.'/'.$id).'/_config.php');
 	$has_css = file_exists(path::real($core->blog->themes_path.'/'.$id).'/style.css');
 	$parent = $core->themes->moduleInfo($id,'parent');
@@ -189,7 +193,7 @@ function display_theme_details($id,$details,$current)
 	'</div>'.
 	'<div class="theme-actions">';
 		if ($current && $has_conf) {
-			$res .= '<p><a href="blog_theme.php?conf=1" class="button">'.__('Theme configuration').'</a></p>';
+			$res .= '<p><a href="blog_theme.php?conf=1" class="button">'.__('Configure theme').'</a></p>';
 		}
 		if ($current) {
 			# --BEHAVIOR-- adminCurrentThemeDetails
@@ -202,7 +206,7 @@ function display_theme_details($id,$details,$current)
 	return $res;
 }
 
-dcPage::open(__('Blog themes'),
+dcPage::open(__('Blog appearance'),
 	(!$theme_conf_mode ? dcPage::jsLoad('js/_blog_theme.js') : '').
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsColorPicker()
@@ -211,7 +215,7 @@ dcPage::open(__('Blog themes'),
 if (!$theme_conf_mode)
 {
 	echo
-	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.__('Blog appearance').'</h2>';
+	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Blog appearance').'</span></h2>';
 	
 	if (!empty($_GET['upd'])) {
 		echo '<p class="message">'.__('Theme has been successfully changed.').'</p>';
@@ -264,10 +268,10 @@ if (!$theme_conf_mode)
 	echo
 	'<div class="two-cols clear" id="themes-actions">'.
 	$core->formNonce().
-	'<p class="col"><input type="submit" name="select" value="'.__('use selected theme').'" /></p>';
+	'<p class="col"><input type="submit" name="select" value="'.__('Use selected theme').'" /></p>';
 	
 	if ($can_install) {
-		echo '<p class="col right"><input type="submit" class="delete" name="remove" value="'.__('delete selected theme').'" /></p>';
+		echo '<p class="col right"><input type="submit" class="delete" name="remove" value="'.__('Delete selected theme').'" /></p>';
 	}
 	
 	echo
@@ -326,21 +330,28 @@ if (!$theme_conf_mode)
 else
 {
 	$theme_name = $core->themes->moduleInfo($core->blog->settings->system->theme,'name');
+	$core->themes->loadModuleL10Nresources($core->blog->settings->system->theme,$_lang);
 	echo
 	'<h2>'.html::escapeHTML($core->blog->name).
-	' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; '.__('Theme configuration').'</h2>'.
+	' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; <span class="page-title">'.__('Theme configuration').'<span class="page-title"></h2>'.
 	'<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';
 	
 	try
 	{
-		echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
-		
+		# Let theme configuration set their own form(s) if required
+		$standalone_config = (boolean) $core->themes->moduleInfo($core->blog->settings->system->theme,'standalone_config');
+
+		if (!$standalone_config)
+			echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
+
 		include $theme_conf_file;
-		
-		echo
-		'<p class="clear"><input type="submit" value="'.__('Save').'" />'.
-		$core->formNonce().'</p>'.
-		'</form>';
+
+		if (!$standalone_config)
+			echo
+			'<p class="clear"><input type="submit" value="'.__('Save').'" />'.
+			$core->formNonce().'</p>'.
+			'</form>';
+
 	}
 	catch (Exception $e)
 	{

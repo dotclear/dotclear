@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -32,11 +32,11 @@ dcPage::openPopup(__('Add a link to an entry'),
 	dcPage::jsLoad('js/_posts_list.js').
 	dcPage::jsLoad('js/jsToolBar/popup_posts.js'));
 
-echo '<h2>'.__('Add a link to an entry').'</h2>';
+echo '<h2 class="page-title">'.__('Add a link to an entry').'</h2>';
 
 echo '<form action="popup_posts.php" method="get">'.
 '<p><label for="q" class="classic">'.__('Search entry:').' '.form::field('q',30,255,html::escapeHTML($q)).'</label> '.
-' <input type="submit" value="'.__('ok').'" /></p>'.
+' <input type="submit" value="'.__('Search').'" /></p>'.
 '</form>';
 
 try {

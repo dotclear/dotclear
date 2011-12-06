@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2010 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -57,7 +57,7 @@ $__widgets->lastposts->setting('title',__('Title:'),__('Last entries'));
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 $categories = array('' => '', __('Uncategorized') => 'null');
 while ($rs->fetch()) {
-	$categories[str_repeat('&nbsp;&nbsp;',$rs->level-1).'&bull; '.html::escapeHTML($rs->cat_title)] = $rs->cat_id;
+	$categories[str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title)] = $rs->cat_id;
 }
 $__widgets->lastposts->setting('category',__('Category:'),'','combo',$categories);
 unset($rs,$categories);
@@ -78,7 +78,7 @@ $core->callBehavior('initWidgets',$__widgets);
 
 # Default widgets
 global $__default_widgets;
-$__default_widgets = array('nav'=> new dcWidgets(), 'extra'=> new dcWidgets());
+$__default_widgets = array('nav'=> new dcWidgets(), 'extra'=> new dcWidgets(), 'custom'=> new dcWidgets());
 
 $__default_widgets['nav']->append($__widgets->search);
 $__default_widgets['nav']->append($__widgets->navigation);

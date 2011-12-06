@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-11-06 18:11+0100\n"
 "PO-Revision-Date: 2011-04-12 17:48+0200\n"
 "Last-Translator: Ihar <chi27@open.by>\n"
 "Language-Team: ru_RU <en@li.org>\n"
@@ -127,9 +127,6 @@ msgstr "Новый блог"
 msgid "Blogs"
 msgstr "Блоги"
 
-msgid "Blog details"
-msgstr "Информация о блоге"
-
 msgid "Blog ID:"
 msgstr "ID блога :"
 
@@ -151,8 +148,8 @@ msgstr "URL блога:"
 msgid "Blog description:"
 msgstr "Описание блога :"
 
-msgid "Save"
-msgstr "Сохранить"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr "Блог с таким ID не существует"
@@ -242,6 +239,9 @@ msgstr "Блог успешно обновлен."
 
 msgid "Parameters"
 msgstr "Настройки"
+
+msgid "Blog details"
+msgstr "Информация о блоге"
 
 msgid "URL scan method:"
 msgstr "Метод сканирования URL:"
@@ -356,6 +356,9 @@ msgstr "Это определяет подпись к изображению к�
 msgid "Search engines robots policy"
 msgstr "Параметры индексации поисковыми машинами."
 
+msgid "Save"
+msgstr "Сохранить"
+
 msgid "XML/RPC interface"
 msgstr "Интерфейс XML/RPC"
 
@@ -389,7 +392,7 @@ msgstr "Пользователи этого блога"
 msgid "No users"
 msgstr "Нет пользователей"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "изменить права доступа"
 
 msgid "Super administrator"
@@ -426,10 +429,8 @@ msgstr "(требует \"%s\")"
 msgid "Stylesheet"
 msgstr "Таблица стилей"
 
-msgid "Theme configuration"
-msgstr "Конфигурация темы"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "Темы блога"
 
 msgid "Blog appearance"
@@ -461,10 +462,12 @@ msgstr "Темы"
 msgid "You are currently using \"%s\""
 msgstr "В данный момент вы используете \"%s\""
 
-msgid "use selected theme"
+#, fuzzy
+msgid "Use selected theme"
 msgstr "использовать выбранную тему"
 
-msgid "delete selected theme"
+#, fuzzy
+msgid "Delete selected theme"
 msgstr "удалить выбранную тему"
 
 msgid "Install or upgrade a theme"
@@ -493,6 +496,9 @@ msgstr "Загрузить тему"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr "Чтобы активировать эту функцию, установите права доступа для записи к директории с вашей темой."
+
+msgid "Theme configuration"
+msgstr "Конфигурация темы"
 
 msgid "back"
 msgstr "назад"
@@ -619,8 +625,8 @@ msgstr "Удалитькатегорию."
 msgid "Choose a category to remove:"
 msgstr "Выбрать категорию для удаления"
 
-msgid "ok"
-msgstr "ok"
+msgid "Delete"
+msgstr "Удалить"
 
 msgid "Reorder categories"
 msgstr "Управление  категориями"
@@ -706,10 +712,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "Послать email"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "Назад к \"%s\""
-
 msgid "IP address:"
 msgstr "IP адрес:"
 
@@ -727,9 +729,6 @@ msgstr "Статус:"
 
 msgid "Comment:"
 msgstr "Комментарий:"
-
-msgid "Delete"
-msgstr "Удалить"
 
 msgid "comment"
 msgstr "комментарий"
@@ -757,9 +756,6 @@ msgstr "отметить как ожидающий"
 
 msgid "mark as junk"
 msgstr "отметить как нежелательный"
-
-msgid "delete"
-msgstr "удалить"
 
 msgid "Type:"
 msgstr "Тип:"
@@ -789,6 +785,9 @@ msgstr "Действие с выбранными комментариями:"
 #, fuzzy
 msgid "action: "
 msgstr "Действие"
+
+msgid "ok"
+msgstr "ok"
 
 msgid "Comments"
 msgstr "Комментарии"
@@ -827,7 +826,8 @@ msgstr "Этот блог в оффлайне"
 msgid "This blog is removed"
 msgstr "Этот блог удален"
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+#, fuzzy
+msgid "is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL не определен, вам нужно отредактировать файл конфигурации."
 
 msgid "Following plugins have been installed:"
@@ -861,7 +861,8 @@ msgstr "Содержание:"
 msgid "Category:"
 msgstr "Категория:"
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "сохранить и опубликовать"
 
 #, php-format
@@ -946,14 +947,6 @@ msgstr ""
 "<p>Это комментарий.</p>\n"
 "<p>Войдите в систему, чтобы увидеть комментарии. Затем вы сможете отредактировать или удалить их.</p>"
 
-#, fuzzy
-msgid "Pages"
-msgstr "Страницы"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "Блог"
-
 msgid "Dotclear Install"
 msgstr "Установка Dotclear"
 
@@ -987,9 +980,6 @@ msgstr "Фамилия:"
 
 msgid "Username and password"
 msgstr "Имя пользователя и пароль"
-
-msgid "save"
-msgstr "сохранить"
 
 msgid "All done!"
 msgstr "Выполнено!"
@@ -1064,6 +1054,10 @@ msgstr "Пароль:"
 
 msgid "Database Tables Prefix:"
 msgstr "Префикс таблиц:"
+
+#, fuzzy
+msgid "Continue"
+msgstr "Содержание:"
 
 msgid "No such installed language"
 msgstr "Такой язык не установлен"
@@ -1171,10 +1165,10 @@ msgstr "Подтвердите удаление"
 msgid "Are you sure you want to remove %s?"
 msgstr "Вы уверены, что хотите удалить %s ?"
 
-msgid "cancel"
+msgid "Cancel"
 msgstr "отмена"
 
-msgid "yes"
+msgid "Yes"
 msgstr "да"
 
 msgid "Directory has been successfully created."
@@ -1212,6 +1206,10 @@ msgstr "Нет файла."
 msgid "Sort files:"
 msgstr "Сортировать файлы:"
 
+#, fuzzy
+msgid "Sort"
+msgstr "Сортировка:"
+
 msgid "Add files"
 msgstr "Добавить файлы"
 
@@ -1228,8 +1226,11 @@ msgstr "Максимальный размер %s"
 msgid "Private"
 msgstr "Личный"
 
-msgid "send"
-msgstr "отправить"
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
+
+msgid "Send"
+msgstr ""
 
 msgid "New directory"
 msgstr "Новая директория"
@@ -1245,6 +1246,10 @@ msgstr "открыть"
 
 msgid "Insert this file into entry"
 msgstr "Вставить этот файл в запись"
+
+#, fuzzy
+msgid "delete"
+msgstr "Удалить"
 
 msgid "Not a valid file"
 msgstr "Неверный файл"
@@ -1312,9 +1317,6 @@ msgstr "Диспозиция видео"
 msgid "Media item will be inserted as a link."
 msgstr "Медиа файл будет вставлен как ссылка."
 
-msgid "Cancel"
-msgstr "Отмена"
-
 msgid "Insert"
 msgstr "Вставить"
 
@@ -1357,9 +1359,6 @@ msgstr "Обновление миниатюр"
 msgid "This will create or update thumbnails for this image."
 msgstr "Миниатюры для изображений будут созданы или обновлены."
 
-msgid "update thumbnails"
-msgstr "обновить миниатюры"
-
 msgid "Extract in a new directory"
 msgstr "Извлечь в новую директорию"
 
@@ -1378,7 +1377,8 @@ msgstr "Это извлечет архив в текущую директори�
 msgid "Extract mode:"
 msgstr "Метод извлечения:"
 
-msgid "extract"
+#, fuzzy
+msgid "Extract"
 msgstr "извлечь"
 
 msgid "Change media properties"
@@ -1415,6 +1415,10 @@ msgstr "Права доступа успешно обновлены"
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Вы собираетесь изменить права доступа на следующие блоги для пользователей %s."
 
+#, fuzzy
+msgid "Validate permissions"
+msgstr "установить права доступа"
+
 msgid "choose a blog"
 msgstr "выбрать блог"
 
@@ -1428,7 +1432,7 @@ msgstr "Записей на странице"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Выберите один или более блогов, для которых вы хотите изменить права доступа для пользователей %s."
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr "установить права доступа"
 
 #, fuzzy
@@ -1541,14 +1545,18 @@ msgstr "Заголовок ссылки:"
 msgid "Link language:"
 msgstr "Язык ссылки:"
 
-msgid "insert"
-msgstr "вставить"
-
 msgid "Add a link to an entry"
 msgstr "Добавить ссылку в запись"
 
 msgid "Search entry:"
 msgstr "Поиск записи:"
+
+msgid "Search"
+msgstr "Поиск"
+
+#, fuzzy
+msgid "cancel"
+msgstr "отмена"
 
 msgid "This entry does not exist."
 msgstr "Эта запись не существует."
@@ -1580,10 +1588,20 @@ msgstr "Комментарий успешно создан."
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Не забудьте проверить правильность преобразования XHTML после сохранения записи."
 
-msgid "View entry"
-msgstr "Просмотреть запись"
+msgid "Go to this entry on the site"
+msgstr ""
 
-msgid "Preview entry"
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr "Отрывок:"
+
+msgid "Notes:"
+msgstr "Заметки:"
+
+#, fuzzy
+msgid "Preview"
 msgstr "Предпросмотр записи"
 
 msgid "Entry status:"
@@ -1612,24 +1630,6 @@ msgstr "Основной URL:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Внимание: если вы введете URL вручную, то он может конфликтовать с другой записью."
-
-msgid "Attachments"
-msgstr "Вложенные файлы"
-
-msgid "remove"
-msgstr "удалить"
-
-msgid "No attachment."
-msgstr "Нет вложенных файлов"
-
-msgid "Add files to this entry"
-msgstr "Добавить файлы к записи"
-
-msgid "Excerpt:"
-msgstr "Отрывок:"
-
-msgid "Notes:"
-msgstr "Заметки:"
 
 msgid "Ping blogs"
 msgstr "Пинговать блог"
@@ -1750,8 +1750,15 @@ msgstr "Изменить автора записей"
 msgid "Author ID:"
 msgstr "ID автора:"
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Если вы хотите ваш email или пароль, то вы должны ввести свой текущий пароль."
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "не выбранный"
 
 msgid "Personal information has been successfully updated."
 msgstr "Личная информация успешно обновлена."
@@ -1789,6 +1796,10 @@ msgid "User timezone:"
 msgstr "Временной пояс пользователя:"
 
 #, fuzzy
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr "Если вы хотите ваш email или пароль, то вы должны ввести свой текущий пароль."
+
+#, fuzzy
 msgid "My options"
 msgstr "Параметры поиска"
 
@@ -1803,6 +1814,19 @@ msgstr "Высота поля редактирования:"
 
 msgid "Enable WYSIWYG mode"
 msgstr "Активировать режим WYSIWYG"
+
+#, fuzzy
+msgid "Activate enhanced uploader in media manager"
+msgstr "Активировать улучшенный аплоадер"
+
+msgid "Iconset:"
+msgstr ""
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
 
 msgid "Accessibility options"
 msgstr ""
@@ -1869,19 +1893,18 @@ msgstr "Доступные размеры:"
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr "Поиск"
-
 msgid "Search options"
 msgstr "Параметры поиска"
 
 msgid "Query:"
 msgstr "Запрос:"
 
-msgid "search entries"
+#, fuzzy
+msgid "Search entries"
 msgstr "поиск записей"
 
-msgid "search comments"
+#, fuzzy
+msgid "Search comments"
 msgstr "поиск комментариев"
 
 msgid "schedule"
@@ -1914,6 +1937,10 @@ msgstr "Эта запись либо не существует либо не о�
 
 msgid "All pings sent."
 msgstr "Все пинги отправлены."
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "Назад к \"%s\""
 
 msgid "Auto discover ping URLs"
 msgstr "Автоматическое обнаружение URL пингов"
@@ -2005,8 +2032,14 @@ msgstr "Внимание:"
 msgid "If you change your username, you will have to log in again."
 msgstr "Если вы измените логин, вам нужно будет войти еще раз."
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 msgid "Password change required to connect"
 msgstr "Изменение пароля требует соединения"
+
+msgid "Save and create another"
+msgstr ""
 
 msgid "No permissions."
 msgstr "Нет прав доступа."
@@ -2028,9 +2061,6 @@ msgstr "Отображаемое имя"
 
 msgid "Number of entries"
 msgstr "Количество записей"
-
-msgid "Set permissions"
-msgstr "Установить права доступа"
 
 msgid "users"
 msgstr "пользователи"
@@ -2059,13 +2089,12 @@ msgstr "Блоги:"
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
-msgstr ""
+#, fuzzy
+msgid "My dashboard"
+msgstr "Панель инструментов"
 
-msgid "User:"
-msgstr "Пользователь:"
-
-msgid "Logout"
+#, fuzzy, php-format
+msgid "Logout %s"
 msgstr "Выйти"
 
 msgid "Safe mode"
@@ -2173,6 +2202,9 @@ msgstr "В разметке XHTML есть ошибки."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Вы не сохранили изменения. Переключение формата поста  приведет к потере этих изменений. Продолжить?"
+
+msgid "Loading enhanced uploader, please wait."
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Вы не сохранили изменения."
@@ -2360,9 +2392,6 @@ msgstr "Ошибка базы данных:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Вероятно, отсутствует таблица Сеанса в вашей базе данных. - Dotclear установлена правильно?"
 
-msgid "Languages"
-msgstr "Языки"
-
 msgid "System"
 msgstr "Система"
 
@@ -2371,6 +2400,9 @@ msgstr "Блог"
 
 msgid "Updates"
 msgstr "Обновления"
+
+msgid "Languages"
+msgstr "Языки"
 
 msgid "administrator"
 msgstr "администратор"
@@ -2711,6 +2743,30 @@ msgstr "Невозможно записать файл на диск."
 msgid "%s is not a directory."
 msgstr "%s не является директорией."
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Неверный код языка."
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Неверный код языка."
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid diff format"
+msgstr "Неверный дайджест-файл."
+
 msgid "Uploading this file is not allowed."
 msgstr "Загрузка файла не разрешена."
 
@@ -2791,6 +2847,41 @@ msgstr "<p>Это может означать, что имя пользоват�
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "При попытке чтения базы данных обнаружена следующая ошибка:"
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "Страницы"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "Блог"
+
+#~ msgid "send"
+#~ msgstr "отправить"
+
+#~ msgid "update thumbnails"
+#~ msgstr "обновить миниатюры"
+
+#~ msgid "insert"
+#~ msgstr "вставить"
+
+#~ msgid "View entry"
+#~ msgstr "Просмотреть запись"
+
+#~ msgid "Attachments"
+#~ msgstr "Вложенные файлы"
+
+#~ msgid "remove"
+#~ msgstr "удалить"
+
+#~ msgid "No attachment."
+#~ msgstr "Нет вложенных файлов"
+
+#~ msgid "Add files to this entry"
+#~ msgstr "Добавить файлы к записи"
+
+#~ msgid "User:"
+#~ msgstr "Пользователь:"
 
 #~ msgid "login"
 #~ msgstr "логин"

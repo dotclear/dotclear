@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-08 18:35+0200\n"
+"POT-Creation-Date: 2011-11-06 18:10+0100\n"
 "PO-Revision-Date: 2009-09-09 09:19+0100\n"
 "Last-Translator: Dennis S. L. Jørgensen <maniactor@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -124,9 +124,6 @@ msgstr "Ny blog"
 msgid "Blogs"
 msgstr "Blogs"
 
-msgid "Blog details"
-msgstr "Blog detaljer"
-
 msgid "Blog ID:"
 msgstr "Blog ID:"
 
@@ -148,8 +145,8 @@ msgstr "Blog URL:"
 msgid "Blog description:"
 msgstr "Blog beskrivelse:"
 
-msgid "Save"
-msgstr "Gem"
+msgid "Create"
+msgstr ""
 
 msgid "No such blog ID"
 msgstr "Intet sådant blog ID"
@@ -240,6 +237,9 @@ msgstr "Bloggen er opdateret uden fejl."
 
 msgid "Parameters"
 msgstr "Parametre"
+
+msgid "Blog details"
+msgstr "Blog detaljer"
 
 msgid "URL scan method:"
 msgstr "URL skan metode:"
@@ -355,6 +355,9 @@ msgstr "Dette definere billede taggets titel når du indsætter det i et indlæg
 msgid "Search engines robots policy"
 msgstr "Søgemaskinerobotter politik"
 
+msgid "Save"
+msgstr "Gem"
+
 msgid "XML/RPC interface"
 msgstr "XML/RPC interface"
 
@@ -388,7 +391,7 @@ msgstr "Brugere på denne blog"
 msgid "No users"
 msgstr "Ingen brugere"
 
-msgid "change permissions"
+msgid "Change permissions"
 msgstr "Skift rettigheder"
 
 msgid "Super administrator"
@@ -425,10 +428,8 @@ msgstr "(kræver \"%s\")"
 msgid "Stylesheet"
 msgstr "Stylesheet"
 
-msgid "Theme configuration"
-msgstr "Tema konfiguration"
-
-msgid "Blog themes"
+#, fuzzy
+msgid "Configure theme"
 msgstr "Blgo temaer"
 
 msgid "Blog appearance"
@@ -460,10 +461,12 @@ msgstr "Temaer"
 msgid "You are currently using \"%s\""
 msgstr "Du bruger lige nu \"%s\""
 
-msgid "use selected theme"
+#, fuzzy
+msgid "Use selected theme"
 msgstr "Brug valgte tema"
 
-msgid "delete selected theme"
+#, fuzzy
+msgid "Delete selected theme"
 msgstr "Slet valgte tema"
 
 msgid "Install or upgrade a theme"
@@ -492,6 +495,9 @@ msgstr "Download tema"
 
 msgid "To enable this function, please give write access to your themes directory."
 msgstr "For at aktivere denne funktion, skal du give skrive tilladelse til din tema mappe."
+
+msgid "Theme configuration"
+msgstr "Tema konfiguration"
 
 msgid "back"
 msgstr "tilbage"
@@ -618,8 +624,8 @@ msgstr "Fjern en kategori"
 msgid "Choose a category to remove:"
 msgstr "Vælg den kategori der skal fjernes:"
 
-msgid "ok"
-msgstr "ok"
+msgid "Delete"
+msgstr "Slet"
 
 msgid "Reorder categories"
 msgstr "Sorter kategorier"
@@ -704,10 +710,6 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr "Send en e-mail"
 
-#, php-format
-msgid "Back to \"%s\""
-msgstr "Tilbage til \"%s\""
-
 msgid "IP address:"
 msgstr "IP addresse:"
 
@@ -725,9 +727,6 @@ msgstr "Status:"
 
 msgid "Comment:"
 msgstr "Kommentar:"
-
-msgid "Delete"
-msgstr "Slet"
 
 msgid "comment"
 msgstr "kommentar"
@@ -755,9 +754,6 @@ msgstr "marker som ventende"
 
 msgid "mark as junk"
 msgstr "marker som junk"
-
-msgid "delete"
-msgstr "slet"
 
 msgid "Type:"
 msgstr "Type:"
@@ -787,6 +783,9 @@ msgstr "Valgte kommentarers handling:"
 #, fuzzy
 msgid "action: "
 msgstr "Handling"
+
+msgid "ok"
+msgstr "ok"
 
 msgid "Comments"
 msgstr "Kommentarer"
@@ -825,7 +824,8 @@ msgstr "Denne blog er offline"
 msgid "This blog is removed"
 msgstr "Denne blog er slettet"
 
-msgid "DC_ADMIN_URL is not defined, you should edit your configuration file."
+#, fuzzy
+msgid "is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL er ikke defineret, du bør redigere din konfigurations fil."
 
 msgid "Following plugins have been installed:"
@@ -860,7 +860,8 @@ msgstr "Indhold:"
 msgid "Category:"
 msgstr "Kategori:"
 
-msgid "save and publish"
+#, fuzzy
+msgid "Save and publish"
 msgstr "gem og udgiv"
 
 #, php-format
@@ -946,14 +947,6 @@ msgstr ""
 "<p>For at slette den, log ind se din blogs kommentarer. Så kan du slette eller redigere den.</p>"
 
 #, fuzzy
-msgid "Pages"
-msgstr "Side(r)"
-
-#, fuzzy
-msgid "Blogroll"
-msgstr "Blogs"
-
-#, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear installation"
 
@@ -990,9 +983,6 @@ msgstr "Sidste opdatering"
 #, fuzzy
 msgid "Username and password"
 msgstr "Forkert brugernavn eller kodeord"
-
-msgid "save"
-msgstr "gem"
 
 msgid "All done!"
 msgstr "Færdig!"
@@ -1069,6 +1059,10 @@ msgstr "Database Kodeord:"
 
 msgid "Database Tables Prefix:"
 msgstr "Database Tabel Prefix:"
+
+#, fuzzy
+msgid "Continue"
+msgstr "Indhold:"
 
 msgid "No such installed language"
 msgstr "Intet sådant installeret sprog"
@@ -1176,10 +1170,10 @@ msgstr ""
 msgid "Are you sure you want to remove %s?"
 msgstr ""
 
-msgid "cancel"
+msgid "Cancel"
 msgstr ""
 
-msgid "yes"
+msgid "Yes"
 msgstr ""
 
 msgid "Directory has been successfully created."
@@ -1217,6 +1211,10 @@ msgstr ""
 msgid "Sort files:"
 msgstr ""
 
+#, fuzzy
+msgid "Sort"
+msgstr "Sorter:"
+
 msgid "Add files"
 msgstr ""
 
@@ -1233,7 +1231,10 @@ msgstr ""
 msgid "Private"
 msgstr ""
 
-msgid "send"
+msgid "To send several files at the same time, you can activate the enhanced uploader in"
+msgstr ""
+
+msgid "Send"
 msgstr ""
 
 msgid "New directory"
@@ -1250,6 +1251,10 @@ msgstr ""
 
 msgid "Insert this file into entry"
 msgstr ""
+
+#, fuzzy
+msgid "delete"
+msgstr "Slet"
 
 msgid "Not a valid file"
 msgstr ""
@@ -1317,9 +1322,6 @@ msgstr ""
 msgid "Media item will be inserted as a link."
 msgstr ""
 
-msgid "Cancel"
-msgstr ""
-
 msgid "Insert"
 msgstr ""
 
@@ -1362,9 +1364,6 @@ msgstr ""
 msgid "This will create or update thumbnails for this image."
 msgstr ""
 
-msgid "update thumbnails"
-msgstr ""
-
 msgid "Extract in a new directory"
 msgstr ""
 
@@ -1383,7 +1382,7 @@ msgstr ""
 msgid "Extract mode:"
 msgstr ""
 
-msgid "extract"
+msgid "Extract"
 msgstr ""
 
 msgid "Change media properties"
@@ -1420,6 +1419,10 @@ msgstr ""
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr ""
 
+#, fuzzy
+msgid "Validate permissions"
+msgstr "Skift rettigheder"
+
 msgid "choose a blog"
 msgstr ""
 
@@ -1433,7 +1436,7 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
-msgid "set permissions"
+msgid "Set permissions"
 msgstr ""
 
 msgid "select"
@@ -1546,13 +1549,16 @@ msgstr "Indlæg titel"
 msgid "Link language:"
 msgstr ""
 
-msgid "insert"
-msgstr ""
-
 msgid "Add a link to an entry"
 msgstr ""
 
 msgid "Search entry:"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "cancel"
 msgstr ""
 
 msgid "This entry does not exist."
@@ -1585,10 +1591,19 @@ msgstr ""
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
-msgid "View entry"
+msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "Preview entry"
+msgid "new window"
+msgstr ""
+
+msgid "Excerpt:"
+msgstr ""
+
+msgid "Notes:"
+msgstr ""
+
+msgid "Preview"
 msgstr ""
 
 msgid "Entry status:"
@@ -1616,24 +1631,6 @@ msgid "Basename:"
 msgstr ""
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
-msgstr ""
-
-msgid "Attachments"
-msgstr ""
-
-msgid "remove"
-msgstr ""
-
-msgid "No attachment."
-msgstr ""
-
-msgid "Add files to this entry"
-msgstr ""
-
-msgid "Excerpt:"
-msgstr ""
-
-msgid "Notes:"
 msgstr ""
 
 msgid "Ping blogs"
@@ -1763,8 +1760,15 @@ msgstr ""
 msgid "Author ID:"
 msgstr ""
 
+msgid "Default"
+msgstr ""
+
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
+
+#, fuzzy
+msgid "No favorite selected"
+msgstr "marker som ventende"
 
 msgid "Personal information has been successfully updated."
 msgstr ""
@@ -1801,6 +1805,9 @@ msgstr ""
 msgid "User timezone:"
 msgstr ""
 
+msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgstr ""
+
 msgid "My options"
 msgstr ""
 
@@ -1814,6 +1821,18 @@ msgid "Entry edit field height:"
 msgstr ""
 
 msgid "Enable WYSIWYG mode"
+msgstr ""
+
+msgid "Activate enhanced uploader in media manager"
+msgstr ""
+
+msgid "Iconset:"
+msgstr ""
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
 msgstr ""
 
 msgid "Accessibility options"
@@ -1879,20 +1898,19 @@ msgstr "Tilgængelig sprog"
 msgid "Add to my favorites"
 msgstr ""
 
-msgid "Search"
-msgstr ""
-
 msgid "Search options"
 msgstr ""
 
 msgid "Query:"
 msgstr ""
 
-msgid "search entries"
-msgstr ""
+#, fuzzy
+msgid "Search entries"
+msgstr "%d indlæg"
 
-msgid "search comments"
-msgstr ""
+#, fuzzy
+msgid "Search comments"
+msgstr "%d kommentarer"
 
 msgid "schedule"
 msgstr ""
@@ -1924,6 +1942,10 @@ msgstr ""
 
 msgid "All pings sent."
 msgstr ""
+
+#, php-format
+msgid "Back to \"%s\""
+msgstr "Tilbage til \"%s\""
 
 msgid "Auto discover ping URLs"
 msgstr ""
@@ -2015,7 +2037,13 @@ msgstr ""
 msgid "If you change your username, you will have to log in again."
 msgstr ""
 
+msgid "Mandatory for password recovering procedure."
+msgstr ""
+
 msgid "Password change required to connect"
+msgstr ""
+
+msgid "Save and create another"
 msgstr ""
 
 msgid "No permissions."
@@ -2040,9 +2068,6 @@ msgid "Display name"
 msgstr ""
 
 msgid "Number of entries"
-msgstr ""
-
-msgid "Set permissions"
 msgstr ""
 
 msgid "users"
@@ -2072,13 +2097,12 @@ msgstr ""
 msgid "Go to site"
 msgstr ""
 
-msgid "new window"
-msgstr ""
+#, fuzzy
+msgid "My dashboard"
+msgstr "Kontrolpanel"
 
-msgid "User:"
-msgstr ""
-
-msgid "Logout"
+#, php-format
+msgid "Logout %s"
 msgstr ""
 
 msgid "Safe mode"
@@ -2185,6 +2209,9 @@ msgid "There are XHTML markup errors."
 msgstr ""
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -2375,9 +2402,6 @@ msgstr "Database type:"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-msgid "Languages"
-msgstr ""
-
 msgid "System"
 msgstr ""
 
@@ -2385,6 +2409,9 @@ msgid "Blog"
 msgstr ""
 
 msgid "Updates"
+msgstr ""
+
+msgid "Languages"
 msgstr ""
 
 msgid "administrator"
@@ -2722,6 +2749,29 @@ msgstr ""
 msgid "%s is not a directory."
 msgstr ""
 
+msgid "Bad range"
+msgstr ""
+
+#, fuzzy
+msgid "Invalid range"
+msgstr "Ugyldig sprog kode"
+
+#, fuzzy
+msgid "Invalid line number"
+msgstr "Ugyldig sprog kode"
+
+msgid "Chunk is out of range"
+msgstr ""
+
+msgid "Bad context"
+msgstr ""
+
+msgid "Bad context (in deletion)"
+msgstr ""
+
+msgid "Invalid diff format"
+msgstr ""
+
 msgid "Uploading this file is not allowed."
 msgstr ""
 
@@ -2800,6 +2850,14 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Pages"
+#~ msgstr "Side(r)"
+
+#, fuzzy
+#~ msgid "Blogroll"
+#~ msgstr "Blogs"
 
 #~ msgid "login"
 #~ msgstr "log ind"
