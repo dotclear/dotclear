@@ -72,7 +72,7 @@ class behaviorsTags
 		}
 	}
 	
-	public static function tplIfConditions($tag, $attr,$content,$if)
+	public static function tplSysIfConditions($tag, $attr,$content,$if)
 	{
 		if ($tag == 'Sys' && isset($attr['has_tag'])) {
 			$sign = '';
