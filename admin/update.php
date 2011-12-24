@@ -119,6 +119,7 @@ if ($new_v && $step)
 	catch (Exception $e)
 	{
 		$msg = $e->getMessage();
+		
 		if ($e->getCode() == dcUpdate::ERR_FILES_CHANGED)
 		{
 			$msg =
@@ -148,6 +149,8 @@ if ($new_v && $step)
 		}
 		
 		$core->error->add($msg);
+		
+		$core->callBehavior('adminDCUpdateException',$e);
 	}
 }
 

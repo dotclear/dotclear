@@ -53,7 +53,7 @@ class tplBlogroll
 	public static function blogrollXbelLink($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase("xbel")').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("xbel")').'; ?>';
 	}
 	
 	public static function getList($cat_title='<h3>%s</h3>',$block='<ul>%s</ul>',$item='<li>%s</li>',$category=null)
