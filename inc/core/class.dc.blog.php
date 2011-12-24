@@ -657,23 +657,24 @@ class dcBlog
 	- from: Append SQL string after "FROM" statement in query
 	- order: Order of results (default "ORDER BY post_dt DES")
 	- limit: Limit parameter
+	- sql_only : return the sql request instead of results. Only ids are selected
 	
 	Please note that on every cat_id or cat_url, you can add ?not to exclude
 	the category and ?sub to get subcategories.
 	
 	@param	params		<b>array</b>		Parameters
 	@param	count_only	<b>boolean</b>		Only counts results
-	@param	sql_only	<b>boolean</b>		Only return SQL request
 	@return	<b>record</b>	A record with some more capabilities or the SQL request
 	*/
-	public function getPosts($params=array(),$count_only=false,$sql_only=false)
+	public function getPosts($params=array(),$count_only=false)
 	{
-		# --BEHAVIOR-- coreBlogBeforeGetPosts
-		$this->core->callBehavior('coreBlogBeforeGetPosts',$params);
-
 		if ($count_only)
 		{
 			$strReq = 'SELECT count(P.post_id) ';
+		}
+		elseif (!empty($params['sql_only'])) 
+		{
+			$strReq = 'SELECT P.post_id ';
 		}
 		else
 		{
@@ -843,7 +844,7 @@ class dcBlog
 			$strReq .= $this->con->limit($params['limit']);
 		}
 		
-		if ($sql_only) {
+		if (!empty($params['sql_only'])) {
 			return $strReq;
 		}
 		
@@ -1724,6 +1725,7 @@ class dcBlog
 	- from: Append SQL string after "FROM" statement in query
 	- order: Order of results (default "ORDER BY comment_dt DES")
 	- limit: Limit parameter
+	- sql_only : return the sql request instead of results. Only ids are selected
 	
 	@param	params		<b>array</b>		Parameters
 	@param	count_only	<b>boolean</b>		Only counts results
@@ -1734,6 +1736,10 @@ class dcBlog
 		if ($count_only)
 		{
 			$strReq = 'SELECT count(comment_id) ';
+		}
+		elseif (!empty($params['sql_only'])) 
+		{
+			$strReq = 'SELECT P.post_id ';
 		}
 		else
 		{
@@ -1858,6 +1864,10 @@ class dcBlog
 		
 		if (!$count_only && !empty($params['limit'])) {
 			$strReq .= $this->con->limit($params['limit']);
+		}
+
+		if (!empty($params['sql_only'])) {
+			return $strReq;
 		}
 		
 		$rs = $this->con->select($strReq);

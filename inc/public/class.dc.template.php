@@ -571,6 +571,7 @@ class dcTemplate extends template
 		
 		$res = "<?php\n";
 		$res .= $p;
+		$res .= $this->core->callBehavior("templatePrepareParams","Archives", $attr,$content);
 		$res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);'."\n";
 		$res .= "?>\n";
 		
@@ -678,6 +679,7 @@ class dcTemplate extends template
 		
 		$res = "<?php\n";
 		$res .= $p;
+		$res .= $this->core->callBehavior("templatePrepareParams","ArchiveNext", $attr, $content);
 		$res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);'."\n";
 		$res .= "?>\n";
 		
@@ -714,6 +716,7 @@ class dcTemplate extends template
 		$p .= "\$params['previous'] = \$_ctx->archives->dt;";
 		
 		$res = "<?php\n";
+		$res .= $this->core->callBehavior("templatePrepareParams","ArchivePrevious", $attr, $content);
 		$res .= $p;
 		$res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);'."\n";
 		$res .= "?>\n";
@@ -741,7 +744,7 @@ class dcTemplate extends template
 	public function BlogArchiveURL($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase("archive")').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("archive")').'; ?>';
 	}
 	
 	/*dtd
@@ -795,7 +798,7 @@ class dcTemplate extends template
 		}
 		
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase("feed")."/'.$type.'"').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("feed","'.$type.'")').'; ?>';
 	}
 	
 	/*dtd
@@ -880,7 +883,7 @@ class dcTemplate extends template
 	public function BlogRSDURL($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase(\'rsd\')').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor(\'rsd\')').'; ?>';
 	}
 	
 	/*dtd
@@ -936,6 +939,7 @@ class dcTemplate extends template
 		
 		$res = "<?php\n";
 		$res .= $p;
+		$res .= $this->core->callBehavior("templatePrepareParams","Categories", $attr, $content);
 		$res .= '$_ctx->categories = $core->blog->getCategories($params);'."\n";
 		$res .= "?>\n";
 		$res .= '<?php while ($_ctx->categories->fetch()) : ?>'.$content.'<?php endwhile; $_ctx->categories = null; unset($params); ?>';
@@ -1044,8 +1048,8 @@ class dcTemplate extends template
 		}
 		
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase("feed")."/category/".'.
-		'$_ctx->categories->cat_url."/'.$type.'"').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("feed","category/".'.
+		'$_ctx->categories->cat_url."/'.$type.'")').'; ?>';
 	}
 	
 	/*dtd
@@ -1054,7 +1058,8 @@ class dcTemplate extends template
 	public function CategoryURL($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase("category")."/".$_ctx->categories->cat_url').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("category",'.
+			'$_ctx->categories->cat_url)').'; ?>';
 	}
 	
 	/*dtd
@@ -1204,10 +1209,10 @@ class dcTemplate extends template
 		
 		$res = "<?php\n";
 		$res .= $p;
+		$res .= $this->core->callBehavior("templatePrepareParams","Entries",$attr,$content);
 		$res .= '$_ctx->post_params = $params;'."\n";
 		$res .= '$_ctx->posts = $core->blog->getPosts($params); unset($params);'."\n";
 		$res .= "?>\n";
-		
 		$res .=
 		'<?php while ($_ctx->posts->fetch()) : ?>'.$content.'<?php endwhile; '.
 		'$_ctx->posts = null; $_ctx->post_params = null; ?>';
@@ -1874,6 +1879,7 @@ class dcTemplate extends template
 		
 		$res = "<?php\n";
 		$res .= $p;
+		$res .= $this->core->callBehavior("templatePrepareParams","Languages",$attr,$content);
 		$res .= '$_ctx->langs = $core->blog->getLangs($params); unset($params);'."\n";
 		$res .= "?>\n";
 		
@@ -1933,7 +1939,8 @@ class dcTemplate extends template
 	public function LanguageURL($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase("lang").$_ctx->langs->post_lang').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("lang",'.
+			'$_ctx->langs->post_lang)').'; ?>';
 	}
 	
 	/* Pagination ------------------------------------- */
@@ -1955,10 +1962,11 @@ class dcTemplate extends template
 		}
         
 		return
-		$p.
-		'<?php if ($_ctx->pagination->f(0) > $_ctx->posts->count()) : ?>'.
-		$content.
-		'<?php endif; ?>';
+			$p.
+			$this->core->callBehavior("templatePrepareParams","Pagination",$attr,$content).
+			'<?php if ($_ctx->pagination->f(0) > $_ctx->posts->count()) : ?>'.
+			$content.
+			'<?php endif; ?>';
 	}
 	
 	/*dtd
@@ -2095,6 +2103,7 @@ class dcTemplate extends template
 		}
 		
 		$res = "<?php\n";
+		$res .= $this->core->callBehavior("templatePrepareParams","Comments",$attr,$content);
 		$res .= $p;
 		$res .= '$_ctx->comments = $core->blog->getComments($params); unset($params);'."\n";
 		$res .= "if (\$_ctx->posts !== null) { \$core->blog->withoutPassword(true);}\n";
@@ -2694,6 +2703,7 @@ class dcTemplate extends template
 		
 		$res = "<?php\n";
 		$res .= $p;
+		$res .= $this->core->callBehavior("templatePrepareParams","Pings",$attr,$content);
 		$res .= '$_ctx->pings = $core->blog->getComments($params); unset($params);'."\n";
 		$res .= "if (\$_ctx->posts !== null) { \$core->blog->withoutPassword(true);}\n";
 		$res .= "?>\n";

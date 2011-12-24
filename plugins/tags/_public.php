@@ -72,7 +72,7 @@ class behaviorsTags
 		}
 	}
 	
-	public static function tplIfConditions($tag, $attr,$content,$if)
+	public static function tplSysIfConditions($tag, $attr,$content,$if)
 	{
 		if ($tag == 'Sys' && isset($attr['has_tag'])) {
 			$sign = '';
@@ -185,14 +185,14 @@ class tplTags
 	public static function TagURL($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase("tag").'.
-		'"/".rawurlencode($_ctx->meta->meta_id)').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("tag",'.
+		'rawurlencode($_ctx->meta->meta_id))').'; ?>';
 	}
 	
 	public static function TagCloudURL($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase("tags")').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("tags")').'; ?>';
 	}
 	
 	public static function TagFeedURL($attr)
@@ -204,8 +204,8 @@ class tplTags
 		}
 		
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getBase("tag_feed")."/".'.
-		'rawurlencode($_ctx->meta->meta_id)."/'.$type.'"').'; ?>';
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("tag_feed",'.
+		'rawurlencode($_ctx->meta->meta_id)."/'.$type.'")').'; ?>';
 	}
 	
 	# Widget function
@@ -246,7 +246,7 @@ class tplTags
 		while ($rs->fetch())
 		{
 			$res .=
-			'<li><a href="'.$core->blog->url.$core->url->getBase('tag').'/'.rawurlencode($rs->meta_id).'" '.
+			'<li><a href="'.$core->blog->url.$core->url->getURLFor('tag',rawurlencode($rs->meta_id)).'" '.
 			'class="tag'.$rs->roundpercent.'" rel="tag">'.
 			$rs->meta_id.'</a> </li>';
 		}
@@ -256,7 +256,7 @@ class tplTags
 		if ($core->url->getBase('tags') && !is_null($w->alltagslinktitle) && $w->alltagslinktitle !== '')
 		{
 			$res .=
-			'<p><strong><a href="'.$core->blog->url.$core->url->getBase("tags").'">'.
+			'<p><strong><a href="'.$core->blog->url.$core->url->getURLFor("tags").'">'.
 			html::escapeHTML($w->alltagslinktitle).'</a></strong></p>';
 		}
 		

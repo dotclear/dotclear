@@ -167,24 +167,24 @@ if ($step) {
 					$item_select_label = array_search($item_select,$langs_combo);
 					$item_label = $item_select_label;
 					$item_descr = sprintf(__('Switch to %s language'),$item_select_label);
-					$item_url .= $core->url->getBase('lang').$item_select;
+					$item_url .= $core->url->getURLFor('lang',$item_select);
 					break;
 				case 'category':
 					$item_select_label = $categories_label[$item_select];
 					$item_label = $item_select_label;
 					$item_descr = __('Recent Posts from this category');
-					$item_url .= $core->url->getBase('category').'/'.$item_select;
+					$item_url .= $core->url->getURLFor('category',$item_select);
 					break;
 				case 'archive':
 					$item_select_label = array_search($item_select,$months_combo);
 					if ($item_select == '-') {
 						$item_label = __('Archives');
 						$item_descr = $first_year.($first_year != $last_year ? ' - '.$last_year : '');
-						$item_url .= $core->url->getBase('archive');
+						$item_url .= $core->url->getURLFor('archive');
 					} else {
 						$item_label = $item_select_label;
 						$item_descr = sprintf(__('Posts from %s'),$item_select_label);
-						$item_url .= $core->url->getBase('archive').'/'.substr($item_select,0,4).'/'.substr($item_select,-2);
+						$item_url .= $core->url->getURLFor('archive',substr($item_select,0,4).'/'.substr($item_select,-2));
 					}
 					break;
 				case 'pages':
@@ -198,11 +198,11 @@ if ($step) {
 					if ($item_select == '-') {
 						$item_label = __('All tags');
 						$item_descr = '';
-						$item_url .= $core->url->getBase('tags');
+						$item_url .= $core->url->getURLFor('tags');
 					} else {
 						$item_label = $item_select_label;
 						$item_descr = sprintf(__('Recent posts for %s tag'),$item_select_label);
-						$item_url .= $core->url->getBase('tag').'/'.$item_select;
+						$item_url .= $core->url->getURLFor('tag',$item_select);
 					}
 					break;
 				case 'special':
