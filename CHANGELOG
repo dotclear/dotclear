@@ -1,13 +1,15 @@
-Dotclear 2.4.1-dev
+Dotclear 2.4.1.2 - 2011-12-24
 ===========================================================
-* New behavior : publicGetURLFor
-* New behavior : publicRegisterURL
-* New behavior : templatePrepareParams
+* Happy Christmas!
+* Security: fixed one SQL injection vulnerability in Clearbricks
+* New behaviour: publicGetURLFor
+* New behaviour: publicRegisterURL
+* New behaviour: templatePrepareParams
 * Changed the way to get artefacts URLs, through $core->url->getURLFor calls, instead of $core->url->getBase()
 * new/updated parameter sql_only in $core->blog->getPosts and $core->blog->getComments
 
 
-Dotclear 2.4.0
+Dotclear 2.4.0 - 2011-11-13
 ===========================================================
 * Admin: new iconset from Thomas Daveluy
 * Admin: Accessibility enhancements
@@ -20,7 +22,7 @@ Dotclear 2.4.0
 * Security fix: Spam comments feed now checks for blog permission. Thanks to Romuald Brunet.
 * Various bug fixes
 
-Dotclear 2.3.1 - 2001-06-14
+Dotclear 2.3.1 - 2011-06-14
 ===========================================================
 * Updated makefile for cleaner distrib.
 * Better localization handling for prefs and shortcuts.
