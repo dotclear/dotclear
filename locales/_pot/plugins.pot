@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-13 15:13+0100\n"
+"POT-Creation-Date: 2012-02-06 06:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 
 #: plugins/aboutConfig/index.php:141 plugins/antispam/index.php:176
 #: plugins/blogroll/index.php:247 plugins/blogroll/index.php:372
-#: plugins/simpleMenu/index.php:159 plugins/simpleMenu/index.php:527
+#: plugins/simpleMenu/index.php:159 plugins/simpleMenu/index.php:524
 #: plugins/userPref/index.php:137
 msgid "Description"
 msgstr ""
@@ -334,15 +334,15 @@ msgstr ""
 msgid "position"
 msgstr ""
 
-#: plugins/antispam/index.php:217
+#: plugins/antispam/index.php:223
 msgid "Syndication"
 msgstr ""
 
-#: plugins/antispam/index.php:219
+#: plugins/antispam/index.php:225
 msgid "Junk comments RSS feed"
 msgstr ""
 
-#: plugins/antispam/index.php:220
+#: plugins/antispam/index.php:226
 msgid "Published comments RSS feed"
 msgstr ""
 
@@ -566,7 +566,7 @@ msgstr ""
 msgid "links have been successfully imported."
 msgstr ""
 
-#: plugins/blogroll/index.php:248 plugins/simpleMenu/index.php:528
+#: plugins/blogroll/index.php:248 plugins/simpleMenu/index.php:525
 msgid "URL"
 msgstr ""
 
@@ -1556,7 +1556,7 @@ msgstr ""
 msgid "User defined"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:158 plugins/simpleMenu/index.php:526
+#: plugins/simpleMenu/index.php:158 plugins/simpleMenu/index.php:523
 msgid "Label"
 msgstr ""
 
@@ -1603,91 +1603,91 @@ msgstr ""
 msgid "URL is mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:417
+#: plugins/simpleMenu/index.php:414
 msgid "Menu item has been successfully added."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:420
+#: plugins/simpleMenu/index.php:417
 msgid "Menu items have been successfully removed."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:423 plugins/simpleMenu/index.php:426
+#: plugins/simpleMenu/index.php:420 plugins/simpleMenu/index.php:423
 msgid "Menu items have been successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:432
+#: plugins/simpleMenu/index.php:429
 msgid "Add item"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:438
+#: plugins/simpleMenu/index.php:435
 msgid "Select type"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:439
+#: plugins/simpleMenu/index.php:436
 msgid "Type of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:440 plugins/simpleMenu/index.php:477
+#: plugins/simpleMenu/index.php:437 plugins/simpleMenu/index.php:474
 msgid "Continue..."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:451
+#: plugins/simpleMenu/index.php:448
 msgid "Select language:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:455
+#: plugins/simpleMenu/index.php:452
 msgid "Select category:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:459
+#: plugins/simpleMenu/index.php:456
 msgid "Select month (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:463
+#: plugins/simpleMenu/index.php:460
 msgid "Select page:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:467
+#: plugins/simpleMenu/index.php:464
 msgid "Select tag (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:487
+#: plugins/simpleMenu/index.php:484
 msgid "Label of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:489
+#: plugins/simpleMenu/index.php:486
 msgid "Description of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:491
+#: plugins/simpleMenu/index.php:488
 msgid "URL of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:493
+#: plugins/simpleMenu/index.php:490
 msgid "Add this item"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:507
+#: plugins/simpleMenu/index.php:504
 msgid "Add an item"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:518
+#: plugins/simpleMenu/index.php:515
 msgid "Menu items list"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:555
+#: plugins/simpleMenu/index.php:552
 msgid "Update menu"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:557
+#: plugins/simpleMenu/index.php:554
 msgid "Delete selected menu items"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:558
+#: plugins/simpleMenu/index.php:555
 msgid "Are you sure you want to remove selected menu items?"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:565
+#: plugins/simpleMenu/index.php:562
 msgid "Currently no menu items"
 msgstr ""
 
@@ -2013,21 +2013,21 @@ msgstr ""
 msgid "Comments limit:"
 msgstr ""
 
-#: plugins/widgets/_widgets_functions.php:195
+#: plugins/widgets/_widgets_functions.php:194
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr ""
 
-#: plugins/widgets/_widgets_functions.php:196
+#: plugins/widgets/_widgets_functions.php:195
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr ""
 
-#: plugins/widgets/_widgets_functions.php:207
+#: plugins/widgets/_widgets_functions.php:206
 msgid "Entries feed"
 msgstr ""
 
-#: plugins/widgets/_widgets_functions.php:215
+#: plugins/widgets/_widgets_functions.php:214
 msgid "Comments feed"
 msgstr ""
 
