@@ -16,7 +16,7 @@ $tag = (!empty($_REQUEST['tag']) || $_REQUEST['tag'] == '0') ? $_REQUEST['tag'] 
 $this_url = $p_url.'&amp;m=tag_posts&amp;tag='.rawurlencode($tag);
 
 
-$page = !empty($_GET['page']) ? $_GET['page'] : 1;
+$page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
 $nb_per_page =  30;
 
 # Rename a tag
