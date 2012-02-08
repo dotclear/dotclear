@@ -30,7 +30,7 @@ if ($dlang != 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$dlang))
 $page_url = http::getHost().$_SERVER['REQUEST_URI'];
 
 $change_pwd = $core->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
-$login_data = !empty($_POST['login_data']) ? $_POST['login_data'] : null;
+$login_data = !empty($_POST['login_data']) ? html::escapeHTML($_POST['login_data']) : null;
 $recover = $core->auth->allowPassChange() && !empty($_REQUEST['recover']);
 $safe_mode = !empty($_REQUEST['safe_mode']);
 $akey = $core->auth->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
