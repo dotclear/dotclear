@@ -137,14 +137,14 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 
 /* Get posts
 -------------------------------------------------------- */
-$user_id = !empty($_GET['user_id']) ?	html::escapeHTML($_GET['user_id']) : '';
-$cat_id = !empty($_GET['cat_id']) ?	html::escapeHTML($_GET['cat_id']) : '';
-$status = isset($_GET['status']) ?	html::escapeHTML($_GET['status']) : '';
-$selected = isset($_GET['selected']) ?	html::escapeHTML($_GET['selected']) : '';
-$month = !empty($_GET['month']) ?		html::escapeHTML($_GET['month']) : '';
-$lang = !empty($_GET['lang']) ?		html::escapeHTML($_GET['lang']) : '';
-$sortby = !empty($_GET['sortby']) ?	html::escapeHTML($_GET['sortby']) : 'post_dt';
-$order = !empty($_GET['order']) ?		html::escapeHTML($_GET['order']) : 'desc';
+$user_id = !empty($_GET['user_id']) ?	$_GET['user_id'] : '';
+$cat_id = !empty($_GET['cat_id']) ?	$_GET['cat_id'] : '';
+$status = isset($_GET['status']) ?	$_GET['status'] : '';
+$selected = isset($_GET['selected']) ?	$_GET['selected'] : '';
+$month = !empty($_GET['month']) ?		$_GET['month'] : '';
+$lang = !empty($_GET['lang']) ?		$_GET['lang'] : '';
+$sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'post_dt';
+$order = !empty($_GET['order']) ?		$_GET['order'] : 'desc';
 
 $show_filters = false;
 
@@ -165,24 +165,32 @@ $params['no_content'] = true;
 if ($user_id !== '' && in_array($user_id,$users_combo)) {
 	$params['user_id'] = $user_id;
 	$show_filters = true;
+} else {
+	$user_id='';
 }
 
 # - Categories filter
 if ($cat_id !== '' && in_array($cat_id,$categories_combo)) {
 	$params['cat_id'] = $cat_id;
 	$show_filters = true;
+} else {
+	$cat_id='';
 }
 
 # - Status filter
 if ($status !== '' && in_array($status,$status_combo)) {
 	$params['post_status'] = $status;
 	$show_filters = true;
+} else {
+	$status='';
 }
 
 # - Selected filter
 if ($selected !== '' && in_array($selected,$selected_combo)) {
 	$params['post_selected'] = $selected;
 	$show_filters = true;
+} else {
+	$selected='';
 }
 
 # - Month filter
@@ -190,23 +198,32 @@ if ($month !== '' && in_array($month,$dt_m_combo)) {
 	$params['post_month'] = substr($month,4,2);
 	$params['post_year'] = substr($month,0,4);
 	$show_filters = true;
+} else {
+	$month='';
 }
 
 # - Lang filter
 if ($lang !== '' && in_array($lang,$lang_combo)) {
 	$params['post_lang'] = $lang;
 	$show_filters = true;
+} else {
+	$lang='';
 }
 
 # - Sortby and order filter
 if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 	if ($order !== '' && in_array($order,$order_combo)) {
 		$params['order'] = $sortby.' '.$order;
+	} else {
+		$order='desc';
 	}
 	
 	if ($sortby != 'post_dt' || $order != 'desc') {
 		$show_filters = true;
 	}
+} else {
+	$sortby='post_dt';
+	$order='desc';
 }
 
 # Get posts
