@@ -137,14 +137,14 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 
 /* Get posts
 -------------------------------------------------------- */
-$user_id = !empty($_GET['user_id']) ?	$_GET['user_id'] : '';
-$cat_id = !empty($_GET['cat_id']) ?	$_GET['cat_id'] : '';
-$status = isset($_GET['status']) ?	$_GET['status'] : '';
-$selected = isset($_GET['selected']) ?	$_GET['selected'] : '';
-$month = !empty($_GET['month']) ?		$_GET['month'] : '';
-$lang = !empty($_GET['lang']) ?		$_GET['lang'] : '';
-$sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'post_dt';
-$order = !empty($_GET['order']) ?		$_GET['order'] : 'desc';
+$user_id = !empty($_GET['user_id']) ?	html::escapeHTML($_GET['user_id']) : '';
+$cat_id = !empty($_GET['cat_id']) ?	html::escapeHTML($_GET['cat_id']) : '';
+$status = isset($_GET['status']) ?	html::escapeHTML($_GET['status']) : '';
+$selected = isset($_GET['selected']) ?	html::escapeHTML($_GET['selected']) : '';
+$month = !empty($_GET['month']) ?		html::escapeHTML($_GET['month']) : '';
+$lang = !empty($_GET['lang']) ?		html::escapeHTML($_GET['lang']) : '';
+$sortby = !empty($_GET['sortby']) ?	html::escapeHTML($_GET['sortby']) : 'post_dt';
+$order = !empty($_GET['order']) ?		html::escapeHTML($_GET['order']) : 'desc';
 
 $show_filters = false;
 
