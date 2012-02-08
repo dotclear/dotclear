@@ -44,12 +44,12 @@ __('Ascending') => 'asc'
 
 /* Get comments
 -------------------------------------------------------- */
-$author = isset($_GET['author']) ?	$_GET['author'] : '';
-$status = isset($_GET['status']) ?		$_GET['status'] : '';
-$type = !empty($_GET['type']) ?		$_GET['type'] : '';
-$sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'comment_dt';
-$order = !empty($_GET['order']) ?		$_GET['order'] : 'desc';
-$ip = !empty($_GET['ip']) ?			$_GET['ip'] : '';
+$author = isset($_GET['author']) ?	html::escapeHTML($_GET['author']) : '';
+$status = isset($_GET['status']) ?		html::escapeHTML($_GET['status']) : '';
+$type = !empty($_GET['type']) ?		html::escapeHTML($_GET['type']) : '';
+$sortby = !empty($_GET['sortby']) ?	html::escapeHTML($_GET['sortby']) : 'comment_dt';
+$order = !empty($_GET['order']) ?		html::escapeHTML($_GET['order']) : 'desc';
+$ip = !empty($_GET['ip']) ?			html::escapeHTML($_GET['ip']) : '';
 
 $with_spam = $author || $status || $type || $sortby != 'comment_dt' || $order != 'desc' || $ip;
 
