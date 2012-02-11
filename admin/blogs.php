@@ -34,7 +34,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : 1;
 $nb_per_page =  30;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-	$nb_per_page = $_GET['nb'];
+	$nb_per_page = (integer) $_GET['nb'];
 }
 
 $show_filters = false;

@@ -72,12 +72,16 @@ $params['no_content'] = true;
 if ($author !== '') {
 	$params['q_author'] = $author;
 	$show_filters = true;
+} else {
+	$author='';
 }
 
 # - Type filter
 if ($type == 'tb' || $type == 'co') {
 	$params['comment_trackback'] = ($type == 'tb');
 	$show_filters = true;
+} else {
+	$type='';
 }
 
 # - Status filter
@@ -86,6 +90,9 @@ if ($status !== '' && in_array($status,$status_combo)) {
 	$show_filters = true;
 } elseif (!$with_spam) {
 	$params['comment_status_not'] = -2;
+	$status='';
+} else {
+	$status='';
 }
 
 # - IP filter
@@ -98,11 +105,16 @@ if ($ip) {
 if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 	if ($order !== '' && in_array($order,$order_combo)) {
 		$params['order'] = $sortby.' '.$order;
+	} else {
+		$order = 'desc';
 	}
 	
 	if ($sortby != 'comment_dt' || $order != 'desc') {
 		$show_filters = true;
 	}
+} else {
+	$sortby = 'comment_dt';
+	$order = 'desc';
 }
 
 # Actions combo box
