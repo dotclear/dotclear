@@ -235,7 +235,6 @@ class dcFilterSet {
 					$data = $this->saveFilters();
 					if ($this->eextra != null) {
 						$this->eextra->save();
-						$this->eextra->updateRequestParams($data);
 					}
 					http::redirect($this->action.'?'.http_build_query($data,'','&'));
 					exit;
@@ -259,14 +258,11 @@ class dcFilterSet {
 				}
 			}
 			if ($load_from_settings) {
-				$get = new ArrayObject($this->loadFilters());
-				if ($this->eextra != null) {
-					$this->eextra->load();
-					$this->eextra->updateRequestParams($get);
-				}
+				$get = new ArrayObject(array_merge($this->loadFilters(),$get));
 			}
 			$this->initializeFromData($this->efilters, $this->eextra, $get);
 			$this->initializeFromData($this->lfilters, $this->lextra, $get);
+
 		}
 	}
 	/**
