@@ -318,14 +318,11 @@ abstract class adminItemsList implements dcFilterExtraInterface
 	public function applyFilters($params)
 	{
 		if (!is_null($this->sortby) && !is_null($this->order)) {
-			foreach ($this->columns as $k => $c) {
-				if (
-					$this->sortby === $c->getInfo('alias') &&
-					in_array($this->order,array('asc','desc'))
-				) {
-					$params['order'] = $this->sortby.' '.$this->order;
-					break;
-				}
+			if (
+				isset($this->columns[$this->sortby]) &&
+				in_array($this->order,array('asc','desc'))
+			) {
+				$params['order'] = $this->columns[$this->sortby]->getInfo('alias').' '.$this->order;
 			}
 		}
 		
@@ -358,7 +355,7 @@ abstract class adminItemsList implements dcFilterExtraInterface
 		'<ul>%s</ul>';
 		
 		$list = array();
-		
+		$sortby_combo = array();
 		foreach ($this->columns as $k => $v) {
 			$col_id = $this->form_prefix.$k;
 			$col_label = sprintf('<label for="%s">%s</label>',$col_id,$v->getInfo('title'));
@@ -367,7 +364,12 @@ abstract class adminItemsList implements dcFilterExtraInterface
 			if ($v->isListable()) {
 				array_push($list,$col_html);
 			}
+			$sortby_combo[$v->getInfo('title')] = $k;
 		}
+		$order_combo = array(
+				__('Descending') => 'desc',
+				__('Ascending') => 'asc'
+		);
 		
 		$nb_per_page = !is_null($this->nb_per_page) ? $this->nb_per_page : 10;
 		
@@ -375,12 +377,18 @@ abstract class adminItemsList implements dcFilterExtraInterface
 		sprintf($block,implode('',$list)).
 		'<p><label for="nb_per_page">'.__('Items per page:').
 		'</label>&nbsp;'.form::field('nb_per_page',3,3,$nb_per_page).
+		'</p>'.
+		'<p><label for="sortby">'.__('Sort by:').
+		'</label>&nbsp;'.form::combo('sortby',$sortby_combo,$this->sortby).
+		'</p>'.
+		'<p><label for="order">'.__('Order:').
+		'</label>&nbsp;'.form::combo('order',$order_combo,$this->order).
 		'</p>';
 	}
 	
 	public function updateRequestParams($params) {
-		if (!is_null($this->sortby)) {
-			$params['sortby'] = $this->sortby;
+		if (!is_null($this->sortby) && isset($this->columns[$this->sortby])) {
+			$params['sortby'] = $this->columns[$this->sortby]->getInfo('alias');
 		}
 		if (!is_null($this->order)) {
 			$params['order'] = $this->order;
@@ -561,6 +569,11 @@ abstract class adminItemsList implements dcFilterExtraInterface
 			$visibility =  array_key_exists($k,$user_pref) ? $user_pref[$k] : true;
 			$v->setVisibility($visibility);
 		}
+		if (!isset($this->columns[$this->sortby])) {
+			// No alias found
+			$this->sortby='';
+		}
+
 	}
 	
 	/**
@@ -603,12 +616,11 @@ abstract class adminItemsList implements dcFilterExtraInterface
 		# Sortby
 		$this->sortby = array_key_exists('sortby',$data) ? $data['sortby'] : $this->sortby;
 		$this->order = array_key_exists('order',$data) ? $data['order'] : $this->order;
-		$this->nb_per_page = array_key_exists('nb_per_page',$data) ? $data['nb_per_page'] : $this->nb_per_page;
+		$this->nb_per_page = array_key_exists('nb_per_page',$data) ? (integer) $data['nb_per_page'] : $this->nb_per_page;
 		# Page
-		$this->page = array_key_exists('page',$data) ? $data['page'] : 1;
+		$this->page = array_key_exists('page',$data) ? (integer) $data['page'] : 1;
 		if ($load_from_settings)
 			return;
-
 		foreach ($this->columns as $k => $v) {
 			$key = $this->form_prefix.$k;
 			$visibility = !array_key_exists($key,$data) ? false : true;
@@ -666,14 +678,14 @@ abstract class adminItemsList implements dcFilterExtraInterface
 	private function getSortLink($c)
 	{
 		$order = 'desc';
-		if (!is_null($this->sortby) && $this->sortby === $c->getInfo('alias')) {
+		if (!is_null($this->sortby) && $this->sortby === $c->getInfo('id')) {
 			if (!is_null($this->order) && $this->order === $order) {
 				$order = 'asc';
 			}
 		}
 		
 		$args = $_GET;
-		$args['sortby'] = $c->getInfo('alias');
+		$args['sortby'] = $c->getInfo('id');
 		$args['order'] = $order;
 		
 		array_walk($args,create_function('&$v,$k','$v=$k."=".$v;'));
