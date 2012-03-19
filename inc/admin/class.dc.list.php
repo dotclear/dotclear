@@ -268,6 +268,8 @@ abstract class adminItemsList implements dcFilterExtraInterface
 	protected $order;
 	protected $nb_per_page;
 	protected $page;
+	protected $default_sortby;
+	protected $default_order;
 	
 	/*
 	Sets columns of defined list
@@ -561,17 +563,18 @@ abstract class adminItemsList implements dcFilterExtraInterface
 	public function load() {
 		$ws = $this->core->auth->user_prefs->addWorkspace('lists');
 		$user_pref = !is_null($ws->{$this->context.'_opts'}) ? unserialize($ws->{$this->context.'_opts'}) : array();
-		$this->sortby = array_key_exists('sortby',$user_pref) ? $user_pref['sortby'] : null;
-		$this->order = array_key_exists('order',$user_pref) ? $user_pref['order'] : null;
+		$this->sortby = array_key_exists('sortby',$user_pref) ? $user_pref['sortby'] : $this->default_sortby;
+		$this->order = array_key_exists('order',$user_pref) ? $user_pref['order'] : $this->default_order;
 		$this->nb_per_page = array_key_exists('nb_per_page',$user_pref) ? $user_pref['nb_per_page'] : 10;
 		$user_pref = !is_null($ws->{$this->context.'_col'}) ? unserialize($ws->{$this->context.'_col'}) : array();
 		foreach ($this->columns as $k => $v) {
 			$visibility =  array_key_exists($k,$user_pref) ? $user_pref[$k] : true;
 			$v->setVisibility($visibility);
 		}
-		if (!isset($this->columns[$this->sortby])) {
+		if ($this->sortby != null && !isset($this->columns[$this->sortby])) {
 			// No alias found
-			$this->sortby='';
+			$this->sortby=$this->default_sortby;
+			$this->order=$this->default_order;
 		}
 
 	}
@@ -716,6 +719,9 @@ class adminPostList extends adminItemsList
 		$this->addColumn('comments','nb_comment',__('Comments'),array('adminPostList','getComments'));
 		$this->addColumn('trackbacks','nb_trackback',__('Trackbacks'),array('adminPostList','getTrackbacks'));
 		$this->addColumn('status','post_status',__('Status'),array('adminPostList','getStatus'));
+		$this->default_sortby = 'datetime';
+		$this->default_order = 'desc';
+
 	}
 	
 	protected function getDefaultCaption()
@@ -866,6 +872,8 @@ class adminCommentList extends adminItemsList
 		$this->addColumn('type','comment_trackback',__('Type'),array('adminCommentList','getType'));
 		$this->addColumn('status','comment_status',__('Status'),array('adminCommentList','getStatus'));
 		$this->addColumn('edit',null,'',array('adminCommentList','getEdit'),null,false,false,false);
+		$this->default_sortby = 'date';
+		$this->default_order = 'desc';
 	}
 	
 	protected function getDefaultCaption()
@@ -968,6 +976,8 @@ class adminUserList extends adminItemsList
 		$this->addColumn('lastname','user_name',__('Last name'),array('adminUserList','getLastName'),array('class' => array('nowrap')));
 		$this->addColumn('displayname','user_displayname',__('Display name'),array('adminUserList','getDisplayName'),array('class' => array('nowrap')));
 		$this->addColumn('entries','nb_post',__('Entries'),array('adminUserList','getEntries'),array('class' => array('nowrap')));
+		$this->default_sortby='lastname';
+		$this->default_order='asc';
 	}
 	
 	protected function getDefaultCaption()
@@ -1036,6 +1046,8 @@ class adminBlogList extends adminItemsList
 		$this->addColumn('blogid','B.blog_id',__('Blog ID'),array('adminBlogList','getBlogId'),array('class' => array('nowrap')));
 		$this->addColumn('action',null,'',array('adminBlogList','getAction'),array('class' => array('nowrap')),false);
 		$this->addColumn('status','blog_status',__('status'),array('adminBlogList','getStatus'),array('class' => array('nowrap')));
+		$this->default_sortby='lastupdate';
+		$this->default_order='desc';
 	}
 	
 	protected function getDefaultCaption()
