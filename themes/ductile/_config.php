@@ -220,6 +220,7 @@ function contrastRatio($color,$background,$size='',$bold=false)
 $ductile_base = array(
 	// HTML
 	'subtitle_hidden' => null,
+	'logo_src' => null,
 	// CSS
 	'body_font' => null,
 	'alternate_font' => null,
@@ -321,6 +322,7 @@ if (!empty($_POST))
 		# HTML
 		if ($conf_tab == 'html') {
 			$ductile_user['subtitle_hidden'] = (integer) !empty($_POST['subtitle_hidden']);
+			$ductile_user['logo_src'] = $_POST['logo_src'];
 
 			$ductile_stickers = array();
 			for ($i = 0; $i < count($_POST['sticker_image']); $i++) {
@@ -426,6 +428,8 @@ if ($core->plugins->moduleExists('simpleMenu'))
 {
 	echo '<p>'.sprintf(__('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),'plugin.php?p=simpleMenu').'</p>';
 }
+echo '<p class="field"><label for"logo_src">'.__('Logo URL:').' '.
+	form::field('logo_src',40,255,$ductile_user['logo_src']).'</label>'.'</p>';
 echo '</fieldset>';
 
 echo '<fieldset><legend>'.__('Stickers').'</legend>';
