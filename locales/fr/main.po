@@ -2039,6 +2039,12 @@ msgstr "Changer de blog"
 msgid "Blogs:"
 msgstr "Blogs :"
 
+msgid "Go to the content"
+msgstr "Aller au contenu"
+
+msgid "Go to the menu"
+msgstr "Aller au menu"
+
 msgid "Go to site"
 msgstr "Aller sur le site"
 

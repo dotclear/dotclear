@@ -123,7 +123,7 @@ class dcPage
 		'">'."\n".
 		
 		'<div id="header">'.
-		'<ul id="prelude"><li><a href="#content">Aller au contenu</a></li><li><a href="#main-menu">Aller au menu</a></li></ul>'."\n".
+		'<ul id="prelude"><li><a href="#content">'.__('Go to the content').'</a></li><li><a href="#main-menu">'.__('Go to the menu').'</a></li></ul>'."\n".
 		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";	
 		
 		echo
