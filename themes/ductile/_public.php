@@ -148,7 +148,7 @@ class tplDuctileTheme
 			if (!is_array($s)) {
 				$default = true;
 			} else {
-				$s = array_filter($s,"tplDuctileTheme::cleanStickers");
+				$s = array_filter($s,"self::cleanStickers");
 				if (count($s) == 0) {
 					$default = true;
 				} else {
