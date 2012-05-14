@@ -668,6 +668,9 @@ class dcBlog
 	*/
 	public function getPosts($params=array(),$count_only=false)
 	{
+		# --BEHAVIOR-- coreBlogBeforeGetPosts
+		$this->core->callBehavior('coreBlogBeforeGetPosts',$params);
+
 		if ($count_only)
 		{
 			$strReq = 'SELECT count(P.post_id) ';
