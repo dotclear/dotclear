@@ -669,7 +669,9 @@ class dcBlog
 	public function getPosts($params=array(),$count_only=false)
 	{
 		# --BEHAVIOR-- coreBlogBeforeGetPosts
+		$params = new ArrayObject($params);
 		$this->core->callBehavior('coreBlogBeforeGetPosts',$params);
+		$params = (array)$params;
 
 		if ($count_only)
 		{
