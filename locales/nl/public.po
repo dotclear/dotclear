@@ -28,7 +28,7 @@ msgid "To search"
 msgstr "Naar het zoeken"
 
 msgid "By"
-msgstr "Doord"
+msgstr "Door"
 
 msgid "by"
 msgstr "door"
