@@ -578,7 +578,7 @@ class dcBlog
 	public function resetCategoriesOrder()
 	{
 		if (!$this->core->auth->check('categories',$this->id)) {
-			throw new Exception(__('You are not allowed to delete categories'));
+			throw new Exception(__('You are not allowed to reset categories order'));
 		}
 		
 		$this->categories()->resetOrder();

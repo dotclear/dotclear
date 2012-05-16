@@ -2404,6 +2404,9 @@ msgstr "Vous n'êtes pas autorisé à modifier des catégories"
 msgid "You are not allowed to delete categories"
 msgstr "Vous n'êtes pas autorisé à supprimer des catégories"
 
+msgid "You are not allowed to reset categories order"
+msgstr "Vous n'êtes pas autorisé à modifier l'ordre des catégories"
+
 msgid "This category is not empty."
 msgstr "Cette catégorie n'est pas vide."
 
