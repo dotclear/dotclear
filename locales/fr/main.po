@@ -2805,6 +2805,18 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
+msgid "medium"
+msgstr "moyenne"
+
+msgid "small"
+msgstr "petite"
+
+msgid "thumbnail"
+msgstr "miniature"
+
+msgid "square"
+msgstr "carrée"
+
 #~ msgid "Blog themes"
 #~ msgstr "Thèmes du blog"
 
@@ -2861,18 +2873,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "View site"
 #~ msgstr "Voir le site"
-
-#~ msgid "medium"
-#~ msgstr "moyenne"
-
-#~ msgid "small"
-#~ msgstr "petite"
-
-#~ msgid "thumbnail"
-#~ msgstr "miniature"
-
-#~ msgid "square"
-#~ msgstr "carrée"
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "Le fichier <strong>%s</strong> existe déjà. Pour réinitialiser votre configuration, supprimez d'abord ce fichier ou bien <a href=\"%s\">continuez l'installation</a>."
