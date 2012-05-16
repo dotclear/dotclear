@@ -41,6 +41,7 @@ if ($core->auth->isSuperAdmin()) {
 	$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 }
 $user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
+$user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
@@ -174,6 +175,7 @@ if (isset($_POST['user_post_format']))
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
 		}
 		$core->auth->user_prefs->interface->put('iconset',(!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
+		$core->auth->user_prefs->interface->put('nofavmenu',!empty($_POST['user_ui_nofavmenu']),'boolean');
 		
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
@@ -455,7 +457,11 @@ __('Enable WYSIWYG mode').'</label></p>'.
 
 '<p><label for="user_ui_enhanceduploader" class="classic">'.
 form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
-__('Activate enhanced uploader in media manager').'</label></p>';
+__('Activate enhanced uploader in media manager').'</label></p>'.
+
+'<p><label for="user_ui_nofavmenu" class="classic">'.
+form::checkbox('user_ui_nofavmenu',1,$user_ui_nofavmenu).' '.
+__('Hide My favorites menu').'</label></p>';
 
 if (count($iconsets_combo) > 1) {
 	echo 
