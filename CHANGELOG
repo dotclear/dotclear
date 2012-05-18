@@ -1,3 +1,12 @@
+Dotclear 2.4.3 - 2012-05-18
+===========================================================
+* Admin: My favorites menu can be hidden
+* Admin: Fix wordpress importer
+* Admin: about:config and user:pref tables are now more readable
+* Ductile theme: Blog logo can be changed
+* New lithuanian language (thanks to Paulius Černakauskas)
+* Various bug fixes
+
 Dotclear 2.4.2 - 2012-02-11
 ===========================================================
 * Security fix release
