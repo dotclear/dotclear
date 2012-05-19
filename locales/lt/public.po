@@ -1,0 +1,244 @@
+# German translation of DotClear
+# Copyright (C) 2008.
+# Andreas Diller <nendilo@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2012-04-18 20:53+0100\n"
+"Last-Translator: Paulius Černakauskas <paulius.cernakauskas@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Lithuanian\n"
+"X-Poedit-Country: LITHUANIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+# Not found strings
+msgid "To content"
+msgstr "Į turinį"
+
+msgid "To menu"
+msgstr "Į meniu"
+
+msgid "To search"
+msgstr "Į paiešką"
+
+msgid "By"
+msgstr "Įrašė"
+
+msgid "by"
+msgstr "įrašė"
+
+msgid "on"
+msgstr ", "
+
+msgid "On"
+msgstr ", "
+
+msgid "Continue reading"
+msgstr "Skaityti toliau"
+
+msgid "no comment"
+msgstr "komentarų nėra"
+
+msgid "one comment"
+msgstr "vienas komentaras"
+
+msgid "%d comments"
+msgstr "%d komentarai"
+
+msgid "no trackback"
+msgstr "trackback nėra"
+
+msgid "one trackback"
+msgstr "vienas trackback"
+
+msgid "%d trackbacks"
+msgstr "%d trackback"
+
+msgid "no attachment"
+msgstr "prisegimų nėra"
+
+msgid "one attachment"
+msgstr "vienas prisegimas"
+
+msgid "%d attachments"
+msgstr "%d prisegimai"
+
+msgid "previous entries"
+msgstr "ankstesni įrašai"
+
+msgid "page"
+msgstr "puslapis"
+
+msgid "of"
+msgstr "iš"
+
+msgid "next entries"
+msgstr "sekantys įrašai"
+
+msgid "Search"
+msgstr "Paieška"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Jūsų <em>%1$s</em> paieška nieko nerado."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Jūsų <em>%1$s</em> paieška atitiko <strong>%2$s</strong> įrašą."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Jūsų <em>%1$s</em> paieška atitiko <strong>%2$s</strong> įrašus."
+
+msgid "Home"
+msgstr "Pradžia"
+
+msgid "All keywords"
+msgstr "Visi raktažodžiai"
+
+msgid "Best of me"
+msgstr "Mano geriausia"
+
+msgid "Languages"
+msgstr "Kalbos"
+
+msgid "Categories"
+msgstr "Kategorijos"
+
+msgid "Subcategories"
+msgstr "Subkategorijos"
+
+msgid "Archives"
+msgstr "Archyvai"
+
+msgid "Links"
+msgstr "Nuorodos"
+
+msgid "Subscribe"
+msgstr "Prenumeruoti"
+
+msgid "Entries feed"
+msgstr "Įrašų rss feed"
+
+msgid "Comments feed"
+msgstr "Komentarų rss feed"
+
+msgid "This blog's comments Atom feed"
+msgstr "Šio blogo komentarų Atom feed"
+
+msgid "This category's entries Atom feed"
+msgstr "Šios kategorijos įrašų Atom feed"
+
+msgid "This category's comments Atom feed"
+msgstr "Šios kategorijos komentarų Atom feed"
+
+msgid "This post's comments feed"
+msgstr "Šios įrašo komentarų rss feed"
+
+msgid "This post's comments Atom feed"
+msgstr "Šios įrašo komentarų Atom feed"
+
+msgid "Attachments"
+msgstr "Prisegimai"
+
+msgid "Permalink"
+msgstr "nuoroda"
+
+msgid "Comments"
+msgstr "Komentarai"
+
+msgid "Your comment"
+msgstr "Jūsų komentaras"
+
+msgid "Your comment has been published."
+msgstr "Jūsų komentaras paskelbtas."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Jūsų komentaras priimtas ir bus peržiūrėtas prieš skelbiant."
+
+msgid "Add a comment"
+msgstr "Pridėti komentarą"
+
+msgid "Name or nickname"
+msgstr "Vardas ar slapyvardis"
+
+msgid "Email address"
+msgstr "El. pašto adresas"
+
+msgid "Website"
+msgstr "Tinklapis"
+
+msgid "optional"
+msgstr "pasirinktinai"
+
+msgid "Comment"
+msgstr "Komentaras"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML kodas yra rodomas kaip tekstas ir internetiniai adresai yra automatiškai konvertuojami."
+
+msgid "Remember me on this blog"
+msgstr "Prisiminti mane šiame bloge"
+
+msgid "preview"
+msgstr "peržiūrėti"
+
+msgid "send"
+msgstr "siųsti"
+
+msgid "They posted on the same topic"
+msgstr "Jie parašė ta pačia tema"
+
+msgid "Trackback URL"
+msgstr "Trackback URL"
+
+msgid "You must provide an author name"
+msgstr "Turite nurodyti autoriaus vardą"
+
+msgid "You must provide a comment"
+msgstr "Turite parašyti komentarą"
+
+msgid "Email address is not valid"
+msgstr "El. pašto adresas netinkamas"
+
+msgid "Document not found"
+msgstr "Dokumentas nerastas"
+
+msgid "The document you are looking for does not exist."
+msgstr "Dokumentas kurio ieškote neegzistuoja"
+
+msgid "Powered by %s"
+msgstr "bogą gamina %s"
+
+msgid "Subscribe to"
+msgstr "Prenumeruoti"
+
+msgid "What is an RSS feed?"
+msgstr "Kas yra RSS feed?"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "RSS yra nemokama interneto naujienų suvestinė. RSS pateikiamos naujienos ar naujienų komentarai, kartu su nuorodomis į pilną turinį ir kita. Tokiu būdu naujausius publikuotus įrašus tuomet galite perskaityti savo pasirinkta <a href=\"http://en.wikipedia.org/wiki/Aggregator\">priemone</a>."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Paprasčiausiai nukopijuokite URL nuorodą į savo RSS programą."
+
+msgid "Password needed"
+msgstr "Reikalingas slaptažodis"
+
+msgid "You must give a password to access this area."
+msgstr "Norėdami čia apsilankyti turite nurodyti slaptažodį."
+
+msgid "Password:"
+msgstr "Slaptažodis:"
+
+msgid "You must provide a valid email address."
+msgstr "Turite nurodyti teisingą el. pašto adresą."
+
+msgid "Read"
+msgstr "Skaityti"
+

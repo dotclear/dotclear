@@ -1045,6 +1045,22 @@ table .nowrap {
 	white-space: nowrap;
 	vertical-align: top;
 }
+table.settings, table.prefs {
+	width: 80%;
+}
+table.settings th:first-child, table.prefs th:first-child {
+	width: 20%;
+}
+table.settings th + th, table.prefs th + th {
+	width: 30%;
+}
+table.settings th + th + th, table.prefs th + th + th {
+	width: 10%;
+}
+table.settings th:last-child, table.prefs th:last-child {
+	width: 40%;
+}
+
 td.status {
 	vertical-align: middle;
 }
@@ -1334,7 +1350,7 @@ a.button.add {
 	-moz-border-radius: .5em;
 	border-radius: .5em;
 	margin-bottom: .1em;	
-	background: #2C8FD1 url(add.png) no-repeat 6px center;
+	background: #2C8FD1 url(../images/add.png) no-repeat 6px center;
 	color: #fff;
 	padding: .2em 16px .2em 30px;
 	border: 1px solid #2373A8;
