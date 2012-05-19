@@ -404,9 +404,6 @@ if ($step) {
 	//]]>
 	</script>
 	<?php endif; ?>
-	<!--
-	<link rel="stylesheet" type="text/css" href="index.php?pf=simpleMenu/style.css" />
-	-->
 </head>
 
 <body>

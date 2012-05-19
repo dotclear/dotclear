@@ -578,7 +578,7 @@ class dcBlog
 	public function resetCategoriesOrder()
 	{
 		if (!$this->core->auth->check('categories',$this->id)) {
-			throw new Exception(__('You are not allowed to delete categories'));
+			throw new Exception(__('You are not allowed to reset categories order'));
 		}
 		
 		$this->categories()->resetOrder();
@@ -668,6 +668,11 @@ class dcBlog
 	*/
 	public function getPosts($params=array(),$count_only=false)
 	{
+		# --BEHAVIOR-- coreBlogBeforeGetPosts
+		$params = new ArrayObject($params);
+		$this->core->callBehavior('coreBlogBeforeGetPosts',$params);
+		$params = (array)$params;
+
 		if ($count_only)
 		{
 			$strReq = 'SELECT count(P.post_id) ';
@@ -1387,7 +1392,7 @@ class dcBlog
 		$rs = $this->con->select($strReq);
 		
 		$now = dt::toUTC(time());
-		$to_change = array();
+		$to_change = new ArrayObject;
 		
 		if ($rs->isEmpty()) {
 			return;
@@ -1409,6 +1414,9 @@ class dcBlog
 		
 		if (!empty($to_change))
 		{
+			# --BEHAVIOR-- coreBeforeScheduledEntriesPublish
+			$this->core->callBehavior('coreBeforeScheduledEntriesPublish',$this,$to_change);
+
 			$strReq =
 			'UPDATE '.$this->prefix.'post SET '.
 			'post_status = 1 '.
@@ -1417,7 +1425,11 @@ class dcBlog
 			
 			$this->con->execute($strReq);
 			$this->triggerBlog();
+
+			# --BEHAVIOR-- coreAfterScheduledEntriesPublish
+			$this->core->callBehavior('coreAfterScheduledEntriesPublish',$this,$to_change);
 		}
+		
 	}
 	
 	/**

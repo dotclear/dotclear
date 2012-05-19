@@ -21,6 +21,7 @@ $core->addBehavior('publicInsideFooter',array('tplDuctileTheme','publicInsideFoo
 $core->tpl->addValue('ductileEntriesList',array('tplDuctileTheme','ductileEntriesList'));
 $core->tpl->addBlock('EntryIfContentIsCut',array('tplDuctileTheme','EntryIfContentIsCut'));
 $core->tpl->addValue('ductileNbEntryPerPage',array('tplDuctileTheme','ductileNbEntryPerPage'));
+$core->tpl->addValue('ductileLogoSrc',array('tplDuctileTheme','ductileLogoSrc'));
 
 class tplDuctileTheme
 {
@@ -101,6 +102,37 @@ class tplDuctileTheme
 		return $core->tpl->includeFile($local_attr);
 	}
 
+	public static function ductileLogoSrc($attr)
+	{
+		global $core;
+
+		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_style');
+		if ($s === null) {
+			return;
+		}
+		$s = @unserialize($s);
+		if (!is_array($s)) {
+			return;
+		}
+		
+		$img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/logo.png';
+		if (isset($s['logo_src'])) {
+			if ($s['logo_src'] !== null) {
+				if ($s['logo_src'] != '') {
+					if ((substr($s['logo_src'],0,1) == '/') || (parse_url($s['logo_src'],PHP_URL_SCHEME) != '')) {
+						// absolute URL
+						$img_url = $s['logo_src'];
+					} else {
+						// relative URL (base = img folder of ductile theme)
+						$img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/'.$s['logo_src'];
+					}
+				}
+			}
+		}
+		
+		return $img_url;
+	}
+
 	public static function publicInsideFooter($core)
 	{
 		$res = '';
@@ -116,7 +148,7 @@ class tplDuctileTheme
 			if (!is_array($s)) {
 				$default = true;
 			} else {
-				$s = array_filter($s,"tplDuctileTheme::cleanStickers");
+				$s = array_filter($s,"self::cleanStickers");
 				if (count($s) == 0) {
 					$default = true;
 				} else {

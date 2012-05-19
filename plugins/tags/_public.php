@@ -63,7 +63,7 @@ class behaviorsTags
 		elseif (empty($attr['no_context']) && ($b == 'Entries' || $b == 'Comments'))
 		{
 			return
-			'<?php if ($_ctx->exists("meta")) { '.
+			'<?php if ($_ctx->exists("meta") && ($_ctx->meta->meta_type == "tag")) { '.
 				"@\$params['from'] .= ', '.\$core->prefix.'meta META ';\n".
 				"@\$params['sql'] .= 'AND META.post_id = P.post_id ';\n".
 				"\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n".

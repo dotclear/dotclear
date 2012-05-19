@@ -14,7 +14,7 @@ $this->registerModule(
 	/* Name */				"Ductile",
 	/* Description*/		"Mediaqueries compliant elegant theme",
 	/* Author */			"Dotclear Team",
-	/* Version */			'1.0',
+	/* Version */			'1.1',
 	/* Properties */		array(
 								'standalone_config' => true
 							)

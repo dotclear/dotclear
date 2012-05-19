@@ -1,0 +1,135 @@
+# German translation of DotClear
+# Copyright (C) 2008.
+# Andreas Diller <nendilo@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2012-04-18 21:10+0100\n"
+"Last-Translator: Paulius Černakauskas <paulius.cernakauskas@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Lithuanian\n"
+"X-Poedit-Country: LITHUANIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d.%m.%Y %H:%M"
+
+msgid "_Jan"
+msgstr "Saus."
+
+msgid "_Feb"
+msgstr "Vas."
+
+msgid "_Mar"
+msgstr "Kov."
+
+msgid "_Apr"
+msgstr "Bal."
+
+msgid "_May"
+msgstr "Geg."
+
+msgid "_Jun"
+msgstr "Bir."
+
+msgid "_Jul"
+msgstr "Liep."
+
+msgid "_Aug"
+msgstr "Rugpj."
+
+msgid "_Sep"
+msgstr "Rugs."
+
+msgid "_Oct"
+msgstr "Spal."
+
+msgid "_Nov"
+msgstr "Lapkr."
+
+msgid "_Dec"
+msgstr "Gruodž."
+
+msgid "January"
+msgstr "sausio"
+
+msgid "February"
+msgstr "vasario"
+
+msgid "March"
+msgstr "kovo"
+
+msgid "April"
+msgstr "balandžio"
+
+msgid "May"
+msgstr "gegužės"
+
+msgid "June"
+msgstr "birželio"
+
+msgid "July"
+msgstr "liepos"
+
+msgid "August"
+msgstr "rugpjūčio"
+
+msgid "September"
+msgstr "rugsėjo"
+
+msgid "October"
+msgstr "spalio"
+
+msgid "November"
+msgstr "lapkričio"
+
+msgid "December"
+msgstr "gruodžio"
+
+msgid "_Mon"
+msgstr "Pr."
+
+msgid "_Tue"
+msgstr "An."
+
+msgid "_Wed"
+msgstr "Tr."
+
+msgid "_Thu"
+msgstr "Kt."
+
+msgid "_Fri"
+msgstr "Pn."
+
+msgid "_Sat"
+msgstr "Š."
+
+msgid "_Sun"
+msgstr "S."
+
+msgid "Monday"
+msgstr "pirmadienį"
+
+msgid "Tuesday"
+msgstr "antradienį"
+
+msgid "Wednesday"
+msgstr "trečiadienį"
+
+msgid "Thursday"
+msgstr "ketvirtadienį"
+
+msgid "Friday"
+msgstr "penktadienį"
+
+msgid "Saturday"
+msgstr "šeštadienį"
+
+msgid "Sunday"
+msgstr "sekmadienį"
+

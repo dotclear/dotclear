@@ -1781,6 +1781,9 @@ msgstr "Activer l'éditeur visuel"
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activer l'interface avancée du gestionnaire de médias"
 
+msgid "Hide My favorites menu"
+msgstr "Cacher le menu Mes Favoris"
+
 msgid "Iconset:"
 msgstr "Jeu d'icônes :"
 
@@ -2038,6 +2041,12 @@ msgstr "Changer de blog"
 
 msgid "Blogs:"
 msgstr "Blogs :"
+
+msgid "Go to the content"
+msgstr "Aller au contenu"
+
+msgid "Go to the menu"
+msgstr "Aller au menu"
 
 msgid "Go to site"
 msgstr "Aller sur le site"
@@ -2394,6 +2403,9 @@ msgstr "Vous n'êtes pas autorisé à modifier des catégories"
 
 msgid "You are not allowed to delete categories"
 msgstr "Vous n'êtes pas autorisé à supprimer des catégories"
+
+msgid "You are not allowed to reset categories order"
+msgstr "Vous n'êtes pas autorisé à modifier l'ordre des catégories"
 
 msgid "This category is not empty."
 msgstr "Cette catégorie n'est pas vide."
@@ -2793,6 +2805,18 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
+msgid "medium"
+msgstr "moyenne"
+
+msgid "small"
+msgstr "petite"
+
+msgid "thumbnail"
+msgstr "miniature"
+
+msgid "square"
+msgstr "carrée"
+
 #~ msgid "Blog themes"
 #~ msgstr "Thèmes du blog"
 
@@ -2849,18 +2873,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "View site"
 #~ msgstr "Voir le site"
-
-#~ msgid "medium"
-#~ msgstr "moyenne"
-
-#~ msgid "small"
-#~ msgstr "petite"
-
-#~ msgid "thumbnail"
-#~ msgstr "miniature"
-
-#~ msgid "square"
-#~ msgstr "carrée"
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "Le fichier <strong>%s</strong> existe déjà. Pour réinitialiser votre configuration, supprimez d'abord ce fichier ou bien <a href=\"%s\">continuez l'installation</a>."

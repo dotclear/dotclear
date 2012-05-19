@@ -620,8 +620,14 @@ class dcImportWP extends dcIeModule
 		}
 		
 		$cur->post_format = $this->vars['post_formater'];
-		$cur->post_content = $this->cleanStr($rs->post_content);
-		$cur->post_excerpt = $this->cleanStr($rs->post_excerpt);
+		$_post_content = explode('<!--more-->',$rs->post_content,2);
+		if (count($_post_content) == 1) {
+			$cur->post_excerpt = NULL;
+			$cur->post_content = $this->cleanStr(array_shift($_post_content));
+		} else {
+			$cur->post_excerpt = $this->cleanStr(array_shift($_post_content));
+			$cur->post_content = $this->cleanStr(array_shift($_post_content));
+		}
 		
 		$cur->post_content_xhtml = $this->core->callFormater($this->vars['post_formater'],$cur->post_content);
 		$cur->post_excerpt_xhtml = $this->core->callFormater($this->vars['post_formater'],$cur->post_excerpt);
@@ -695,7 +701,7 @@ class dcImportWP extends dcIeModule
 			$cur->comment_ip        = $rs->comment_author_IP;
 			$cur->comment_trackback       = $rs->comment_type == 'trackback' ? 1 : 0;
 			$cur->comment_site = substr($this->cleanStr($rs->comment_author_url),0,255);
-			if (!isset($cur->comment_site)) $cur->comment_site = NULL;
+			if ($cur->comment_site == '') $cur->comment_site = NULL;
 			
 			if ($rs->comment_approved == 'spam') {
 				$cur->comment_status = -2;

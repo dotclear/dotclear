@@ -215,6 +215,9 @@ if ($core->auth->userID() && $core->blog !== null)
 	}
 	unset($hfiles,$locales_root);
 
+	$core->auth->user_prefs->addWorkspace('interface');
+	$user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
+
 	# Standard favorites
 	$_fav = new ArrayObject();
 
@@ -265,7 +268,8 @@ if ($core->auth->userID() && $core->blog !== null)
 	
 	# Menus creation
 	$_menu['Dashboard'] = new dcMenu('dashboard-menu',null);
-	$_menu['Favorites'] = new dcMenu('favorites-menu','My favorites');
+	if (!$user_ui_nofavmenu)
+		$_menu['Favorites'] = new dcMenu('favorites-menu','My favorites');
 	$_menu['Blog'] = new dcMenu('blog-menu','Blog');
 	$_menu['System'] = new dcMenu('system-menu','System');
 	$_menu['Plugins'] = new dcMenu('plugins-menu','Plugins');
@@ -281,7 +285,8 @@ if ($core->auth->userID() && $core->blog !== null)
 	$_menu['System']->title = __('System');
 	$_menu['Blog']->title = __('Blog');
 	$_menu['Plugins']->title = __('Plugins');
-	$_menu['Favorites']->title = __('My favorites');
+	if (!$user_ui_nofavmenu)
+		$_menu['Favorites']->title = __('My favorites');
 
 /*	
 	if (!preg_match('/index.php$/',$_SERVER['REQUEST_URI'])) {
@@ -332,38 +337,40 @@ if ($core->auth->userID() && $core->blog !== null)
 		$core->auth->isSuperAdmin() ||
 		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->blog_count > 1);
 
-	// Set favorites menu
-	$ws = $core->auth->user_prefs->addWorkspace('favorites');
-	$count = 0;
-	foreach ($ws->dumpPrefs() as $k => $v) {
-		// User favorites only
-		if (!$v['global']) {
-			$fav = unserialize($v['value']);
-			if (dc_valid_fav($fav['url'])) {
-				$count++;
-				$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-					preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
-					(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
-			}
-		}
-	}	
-	if (!$count) {
-		// Global favorites if any
+	if (!$user_ui_nofavmenu) {
+		// Set favorites menu
+		$ws = $core->auth->user_prefs->addWorkspace('favorites');
+		$count = 0;
 		foreach ($ws->dumpPrefs() as $k => $v) {
-			$fav = unserialize($v['value']);
-			if (dc_valid_fav($fav['url'])) {
-				$count++;
-				$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-					preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
-					(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+			// User favorites only
+			if (!$v['global']) {
+				$fav = unserialize($v['value']);
+				if (dc_valid_fav($fav['url'])) {
+					$count++;
+					$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
+						preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
+						(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+				}
+			}
+		}	
+		if (!$count) {
+			// Global favorites if any
+			foreach ($ws->dumpPrefs() as $k => $v) {
+				$fav = unserialize($v['value']);
+				if (dc_valid_fav($fav['url'])) {
+					$count++;
+					$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
+						preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
+						(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
+				}
 			}
 		}
-	}
-	if (!$count) {
-		// No user or global favorites, add "new entry" fav
-		$_menu['Favorites']->addItem(__('New entry'),'post.php','images/menu/edit.png',
-			preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
-			$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
+		if (!$count) {
+			// No user or global favorites, add "new entry" fav
+			$_menu['Favorites']->addItem(__('New entry'),'post.php','images/menu/edit.png',
+				preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
+				$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
+		}
 	}
 }
 ?>
