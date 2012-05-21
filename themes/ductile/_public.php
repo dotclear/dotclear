@@ -27,18 +27,23 @@ class tplDuctileTheme
 {
 	public static function ductileNbEntryPerPage($attr)
 	{
-		global $core;
-
+		return '<?php tplDuctileTheme::ductileNbEntryPerPageHelper(); ?>';
+	}
+	
+	public static function ductileNbEntryPerPageHelper()
+	{
+		global $_ctx;
+		
 		$nb = 0;
-		$s = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_counts');
+		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_entries_counts');
 		if ($s !== null) {
 			$s = @unserialize($s);
 			if (is_array($s)) {
-				if (isset($s[$core->url->type])) {
+				if (isset($s[$GLOBALS['core']->url->type])) {
 					// Nb de billets par page défini par la config du thème
-					$nb = (integer) $s[$core->url->type];
+					$nb = (integer) $s[$GLOBALS['core']->url->type];
 				} else {
-					if (($core->url->type == 'default-page') && (isset($s['default']))) {
+					if (($GLOBALS['core']->url->type == 'default-page') && (isset($s['default']))) {
 						// Les pages 2 et suivantes de la home ont le même nombre de billet que la première page
 						$nb = (integer) $s['default'];
 					}
@@ -54,7 +59,7 @@ class tplDuctileTheme
 		}
 
 		if ($nb > 0)
-			return '<?php $_ctx->nb_entry_per_page = '.$nb.' ; ?>';
+			$_ctx->nb_entry_per_page = $nb;
 	}
 	
 	public static function EntryIfContentIsCut($attr,$content)
@@ -85,27 +90,51 @@ class tplDuctileTheme
 	public static function ductileEntriesList($attr)
 	{
 		global $core;
+		
 		$default = isset($attr['default']) ? trim($attr['default']) : 'short';
-
-		$model = '';
-		$s = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_lists');
+		return '<?php '."\n".
+			'switch (tplDuctileTheme::ductileEntriesListHelper(\''.$default.'\')) {'."\n".
+			'	case \'title\':'."\n".
+			' ?>'."\n".
+					$core->tpl->includeFile(array('src' => '_entry-title.html'))."\n".
+			'<?php '."\n".
+			'		break;'."\n".
+			'	case \'short\':'."\n".
+			' ?>'."\n".
+					$core->tpl->includeFile(array('src' => '_entry-short.html'))."\n".
+			'<?php '."\n".
+			'		break;'."\n".
+			'	case \'full\':'."\n".
+			' ?>'."\n".
+					$core->tpl->includeFile(array('src' => '_entry-full.html'))."\n".
+			'<?php '."\n".
+			'		break;'."\n".
+			'}'."\n".
+			' ?>';
+	}
+	
+	public static function ductileEntriesListHelper($default)
+	{
+		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_entries_lists');
 		if ($s !== null) {
 			$s = @unserialize($s);
 			if (is_array($s)) {
-				if (isset($s[$core->url->type])) {
-					$model = $s[$core->url->type];
+				if (isset($s[$GLOBALS['core']->url->type])) {
+					$model = $s[$GLOBALS['core']->url->type];
+					return $model;
 				}
 			}
 		}
-
-		$local_attr = array('src' => '_entry-'.($model ? $model : $default).'.html');
-		return $core->tpl->includeFile($local_attr);
+		return $default;
 	}
 
 	public static function ductileLogoSrc($attr)
 	{
-		global $core;
+		return '<?php echo tplDuctileTheme::ductileLogoSrcHelper(); ?>';
+	}
 
+	public static function ductileLogoSrcHelper()
+	{
 		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_style');
 		if ($s === null) {
 			return;
@@ -115,7 +144,7 @@ class tplDuctileTheme
 			return;
 		}
 		
-		$img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/logo.png';
+		$img_url = $GLOBALS['core']->blog->settings->system->themes_url.'/'.$GLOBALS['core']->blog->settings->system->theme.'/img/logo.png';
 		if (isset($s['logo_src'])) {
 			if ($s['logo_src'] !== null) {
 				if ($s['logo_src'] != '') {
@@ -124,7 +153,7 @@ class tplDuctileTheme
 						$img_url = $s['logo_src'];
 					} else {
 						// relative URL (base = img folder of ductile theme)
-						$img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/'.$s['logo_src'];
+						$img_url = $GLOBALS['core']->blog->settings->system->themes_url.'/'.$GLOBALS['core']->blog->settings->system->theme.'/img/'.$s['logo_src'];
 					}
 				}
 			}
