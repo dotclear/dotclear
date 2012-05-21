@@ -1392,7 +1392,7 @@ class dcBlog
 		$rs = $this->con->select($strReq);
 		
 		$now = dt::toUTC(time());
-		$to_change = new ArrayObject;
+		$to_change = array();
 		
 		if ($rs->isEmpty()) {
 			return;
@@ -1415,7 +1415,9 @@ class dcBlog
 		if (!empty($to_change))
 		{
 			# --BEHAVIOR-- coreBeforeScheduledEntriesPublish
+			$to_change = new ArrayObject($to_change);
 			$this->core->callBehavior('coreBeforeScheduledEntriesPublish',$this,$to_change);
+			$to_change = (array)$to_change;
 
 			$strReq =
 			'UPDATE '.$this->prefix.'post SET '.
@@ -1427,6 +1429,7 @@ class dcBlog
 			$this->triggerBlog();
 
 			# --BEHAVIOR-- coreAfterScheduledEntriesPublish
+			$to_change = new ArrayObject($to_change);
 			$this->core->callBehavior('coreAfterScheduledEntriesPublish',$this,$to_change);
 		}
 		
