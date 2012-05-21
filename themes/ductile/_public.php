@@ -91,26 +91,40 @@ class tplDuctileTheme
 	{
 		global $core;
 		
+		$tpl_path = dirname(__FILE__).'/tpl/';
+		$list_types = array('title','short','full');
+
+		// Get all _entry-*.html in tpl folder of theme
+		$list_types_templates = files::scandir($tpl_path);
+		if (is_array($list_types_templates)) {
+			foreach ($list_types_templates as $v) {
+				if (preg_match('/^_entry\-(.*)\.html$/',$v,$m)) {
+					if (isset($m[1])) {
+						if (!in_array($m[1],$list_types)) {
+							// template not already in full list
+							$list_types[] = $m[1];
+						}
+					}
+				}
+			}
+		}
+
 		$default = isset($attr['default']) ? trim($attr['default']) : 'short';
-		return '<?php '."\n".
-			'switch (tplDuctileTheme::ductileEntriesListHelper(\''.$default.'\')) {'."\n".
-			'	case \'title\':'."\n".
-			' ?>'."\n".
-					$core->tpl->includeFile(array('src' => '_entry-title.html'))."\n".
-			'<?php '."\n".
-			'		break;'."\n".
-			'	case \'short\':'."\n".
-			' ?>'."\n".
-					$core->tpl->includeFile(array('src' => '_entry-short.html'))."\n".
-			'<?php '."\n".
-			'		break;'."\n".
-			'	case \'full\':'."\n".
-			' ?>'."\n".
-					$core->tpl->includeFile(array('src' => '_entry-full.html'))."\n".
-			'<?php '."\n".
-			'		break;'."\n".
-			'}'."\n".
-			' ?>';
+		$ret = '<?php '."\n".
+			'switch (tplDuctileTheme::ductileEntriesListHelper(\''.$default.'\')) {'."\n";
+
+		foreach ($list_types as $v) {
+			$ret .= '	case \''.$v.'\':'."\n".
+				'?>'."\n".
+						$core->tpl->includeFile(array('src' => '_entry-'.$v.'.html'))."\n".
+				'<?php '."\n".
+				'		break;'."\n";
+		}
+
+		$ret .= '}'."\n".
+			'?>';
+		
+		return $ret;
 	}
 	
 	public static function ductileEntriesListHelper($default)
