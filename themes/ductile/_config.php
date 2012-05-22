@@ -12,8 +12,11 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/admin');
 
-$img_url = $core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/';
-$img_url = http::concatURL($core->blog->url,$img_url);
+if (preg_match('#^http(s)?://#',$core->blog->settings->system->themes_url)) {
+	$img_url = http::concatURL($core->blog->settings->system->themes_url,'/'.$core->blog->settings->system->theme.'/img/');
+} else {
+	$img_url = http::concatURL($core->blog->url,$core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.'/img/');
+}
 $img_path = dirname(__FILE__).'/img/';
 
 $tpl_path = dirname(__FILE__).'/tpl/';
