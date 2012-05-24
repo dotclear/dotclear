@@ -671,7 +671,6 @@ class dcBlog
 		# --BEHAVIOR-- coreBlogBeforeGetPosts
 		$params = new ArrayObject($params);
 		$this->core->callBehavior('coreBlogBeforeGetPosts',$params);
-		$params = (array)$params;
 
 		if ($count_only)
 		{
@@ -1392,8 +1391,8 @@ class dcBlog
 		$rs = $this->con->select($strReq);
 		
 		$now = dt::toUTC(time());
-		$to_change = array();
-		
+		$to_change = new ArrayObject();
+
 		if ($rs->isEmpty()) {
 			return;
 		}
@@ -1411,25 +1410,20 @@ class dcBlog
 				$to_change[] = (integer) $rs->post_id;
 			}
 		}
-		
-		if (!empty($to_change))
+		if (count($to_change))
 		{
 			# --BEHAVIOR-- coreBeforeScheduledEntriesPublish
-			$to_change = new ArrayObject($to_change);
 			$this->core->callBehavior('coreBeforeScheduledEntriesPublish',$this,$to_change);
-			$to_change = (array)$to_change;
 
 			$strReq =
 			'UPDATE '.$this->prefix.'post SET '.
 			'post_status = 1 '.
 			"WHERE blog_id = '".$this->con->escape($this->id)."' ".
-			'AND post_id '.$this->con->in($to_change).' ';
-			
+			'AND post_id '.$this->con->in((array)$to_change).' ';
 			$this->con->execute($strReq);
 			$this->triggerBlog();
 
 			# --BEHAVIOR-- coreAfterScheduledEntriesPublish
-			$to_change = new ArrayObject($to_change);
 			$this->core->callBehavior('coreAfterScheduledEntriesPublish',$this,$to_change);
 		}
 		
