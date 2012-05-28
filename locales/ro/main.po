@@ -1,20 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Romanian translation for dotclear
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the dotclear package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-06 18:09+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2012-05-28 07:08+0200\n"
+"PO-Revision-Date: 2012-05-27 11:38+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: Romanian <ro@li.org>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-27 15:39+0000\n"
+"X-Generator: Launchpad (build 15288)\n"
 
 msgid "Dotclear has been upgraded."
 msgstr ""
@@ -1776,6 +1778,9 @@ msgstr ""
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
+msgid "Hide My favorites menu"
+msgstr ""
+
 msgid "Iconset:"
 msgstr ""
 
@@ -2032,6 +2037,12 @@ msgid "Change blog"
 msgstr ""
 
 msgid "Blogs:"
+msgstr ""
+
+msgid "Go to the content"
+msgstr ""
+
+msgid "Go to the menu"
 msgstr ""
 
 msgid "Go to site"
@@ -2391,6 +2402,9 @@ msgid "You are not allowed to delete categories"
 msgstr ""
 
 msgid "This category is not empty."
+msgstr ""
+
+msgid "You are not allowed to reset categories order"
 msgstr ""
 
 msgid "Category URL must be unique."
