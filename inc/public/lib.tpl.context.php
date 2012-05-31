@@ -362,7 +362,7 @@ class context
 		# We first look in post content
 		if ($_ctx->posts)
 		{
-			$subject = $_ctx->posts->post_excerpt_xhtml.$_ctx->posts->post_content_xhtml.$_ctx->posts->cat_desc;
+			$subject = $_ctx->posts->post_excerpt_xhtml.$_ctx->posts->post_content_xhtml;
 			if (preg_match_all($pattern,$subject,$m) > 0)
 			{
 				foreach ($m[1] as $i => $img) {
