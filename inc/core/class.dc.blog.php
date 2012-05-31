@@ -316,7 +316,7 @@ class dcBlog
 		}
 		
 		# We need to apply filter after counting
-		if (!empty($params['cat_id']))
+		if (isset($params['cat_id']) && $params['cat_id'] !== '')
 		{
 			$found = false;
 			foreach ($data as $v) {
@@ -331,7 +331,8 @@ class dcBlog
 			}
 		}
 		
-		if (!empty($params['cat_url']) && empty($params['cat_id']))
+		if (isset($params['cat_url']) && ($params['cat_url'] !== '') 
+			&& !isset($params['cat_id']))
 		{
 			$found = false;
 			foreach ($data as $v) {
@@ -744,7 +745,7 @@ class dcBlog
 			$strReq .= "AND post_type = 'post' ";
 		}
 		
-		if (!empty($params['post_id'])) {
+		if (isset($params['post_id']) && $params['post_id'] !== '') {
 			if (is_array($params['post_id'])) {
 				array_walk($params['post_id'],create_function('&$v,$k','if($v!==null){$v=(integer)$v;}'));
 			} else {
@@ -753,7 +754,7 @@ class dcBlog
 			$strReq .= 'AND P.post_id '.$this->con->in($params['post_id']);
 		}
 		
-		if (!empty($params['post_url'])) {
+		if (isset($params['post_url']) && $params['post_url'] !== '') {
 			$strReq .= "AND post_url = '".$this->con->escape($params['post_url'])."' ";
 		}
 		
@@ -761,7 +762,7 @@ class dcBlog
 			$strReq .= "AND U.user_id = '".$this->con->escape($params['user_id'])."' ";
 		}
 		
-		if (!empty($params['cat_id']))
+		if (isset($params['cat_id']) && $params['cat_id'] !== '')
 		{
 			if (!is_array($params['cat_id'])) {
 				$params['cat_id'] = array($params['cat_id']);
@@ -771,7 +772,7 @@ class dcBlog
 			}
 			$strReq .= 'AND '.$this->getPostsCategoryFilter($params['cat_id'],'cat_id').' ';
 		}
-		elseif (!empty($params['cat_url']))
+		elseif (isset($params['cat_url']) && $params['cat_url'] !== '')
 		{
 			if (!is_array($params['cat_url'])) {
 				$params['cat_url'] = array($params['cat_url']);
@@ -1008,10 +1009,10 @@ class dcBlog
 		
 		$cat_field = $catReq = $limit = '';
 		
-		if (!empty($params['cat_id'])) {
+		if (isset($params['cat_id']) && $params['cat_id'] !== '') {
 			$catReq = 'AND P.cat_id = '.(integer) $params['cat_id'].' ';
 			$cat_field = ', C.cat_url ';
-		} elseif (!empty($params['cat_url'])) {
+		} elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
 			$catReq = "AND C.cat_url = '".$this->con->escape($params['cat_url'])."' ";
 			$cat_field = ', C.cat_url ';
 		}
@@ -1803,15 +1804,15 @@ class dcBlog
 			$strReq .= 'AND post_type '.$this->con->in($params['post_type']);
 		}
 		
-		if (!empty($params['post_id'])) {
+		if (isset($params['post_id']) && $params['post_id'] !== '') {
 			$strReq .= 'AND P.post_id = '.(integer) $params['post_id'].' ';
 		}
 		
-		if (!empty($params['cat_id'])) {
+		if (isset($params['cat_id']) && $params['cat_id'] !== '') {
 			$strReq .= 'AND P.cat_id = '.(integer) $params['cat_id'].' ';
 		}
 		
-		if (!empty($params['comment_id'])) {
+		if (isset($params['comment_id']) && $params['comment_id'] !== '') {
 			$strReq .= 'AND comment_id = '.(integer) $params['comment_id'].' ';
 		}
 		
