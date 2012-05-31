@@ -35,7 +35,7 @@ try
 	echo "Starting upgrade process\n";
 	$core->con->begin();
 	try {
-		$changes = dotclearUpgrade(&$core);
+		$changes = dotclearUpgrade($core);
 	} catch (Exception $e) {
 		$core->con->rollback();
 		throw $e;
