@@ -1,9 +1,9 @@
 <?php
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 #
-# This file is part of Dotclear 2.
+# This file is part of importExport, a plugin for DotClear2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2012 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-class dcIeModule
+abstract class dcIeModule
 {
 	public $type;
 	public $id;
@@ -27,41 +27,32 @@ class dcIeModule
 		$this->core =& $core;
 		$this->setInfo();
 		
-		$this->id = get_class($this);
-		if (!$this->type) {
-			throw new Exception('No type for module'.$this->id);
+		if (!in_array($this->type,array('import','export'))) {
+			throw new Exception(sprintf('Unknow type for module %s',get_class($this)));
 		}
-		
-		$this->url = 'plugin.php?p=importExport&t='.$this->type.'&f='.$this->id;
 		
 		if (!$this->name) {
 			$this->name = get_class($this);
 		}
+		
+		$this->id = get_class($this);
+		$this->url = sprintf('plugin.php?p=importExport&type=%s&module=%s',$this->type,$this->id);
 	}
 	
 	public function init()
 	{
 	}
 	
-	protected function setInfo()
-	{
-	}
+	abstract protected function setInfo();
 	
 	final public function getURL($escape=false)
 	{
-		if ($escape) {
-			return html::escapeHTML($this->url);
-		}
-		return $this->url;
+		return $escape ? html::escapeHTML($this->url) : $this->url;
 	}
 	
-	public function process($do)
-	{
-	}
+	abstract public function process($do);
 	
-	public function gui()
-	{
-	}
+	abstract public function gui();
 	
 	protected function progressBar($percent)
 	{
