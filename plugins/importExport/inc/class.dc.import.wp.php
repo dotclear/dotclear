@@ -1,9 +1,9 @@
 <?php
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 #
-# This file is part of Dotclear 2.
+# This file is part of importExport, a plugin for DotClear2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2012 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -60,7 +60,7 @@ class dcImportWP extends dcIeModule
 	
 	protected function setInfo()
 	{
-		$this->type = 'i';
+		$this->type = 'import';
 		$this->name = __('WordPress import');
 		$this->description = __('Import a WordPress installation into your current blog.');
 	}
