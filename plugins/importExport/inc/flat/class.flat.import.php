@@ -629,7 +629,7 @@ class flatImport extends flatBackup
 			$this->insertPost($post);
 			$this->stack['post_id']++;
 		} else {
-			throw new Exception(__('The backup file does not appear to be well formed.'));
+			self::throwIdError($post->__name,$post->__line,'category');
 		}
 	}
 	
@@ -639,7 +639,7 @@ class flatImport extends flatBackup
 			$meta->post_id = $this->old_ids['post'][(integer) $meta->post_id];
 			$this->insertMeta($meta);
 		} else {
-			throw new Exception(__('The backup file does not appear to be well formed.'));
+			self::throwIdError($meta->__name,$meta->__line,'post');
 		}
 	}
 	
@@ -665,8 +665,10 @@ class flatImport extends flatBackup
 			$post_media->post_id = $this->old_ids['post'][(integer) $post_media->post_id];
 			
 			$this->insertPostMedia($post_media);
-		} else {
-			throw new Exception(__('The backup file does not appear to be well formed.'));
+		} elseif (!isset($this->old_ids['media'][(integer) $post_media->media_id])) {
+			self::throwIdError($post_media->__name,$post_media->__line,'media');
+		}else {
+			self::throwIdError($post_media->__name,$post_media->__line,'post');
 		}
 	}
 	
@@ -677,7 +679,7 @@ class flatImport extends flatBackup
 			
 			$this->insertPing($ping);
 		} else {
-			throw new Exception(__('The backup file does not appear to be well formed.'));
+			self::throwIdError($ping->__name,$ping->__line,'post');
 		}
 	}
 	
@@ -692,8 +694,18 @@ class flatImport extends flatBackup
 			$this->insertComment($comment);
 			$this->stack['comment_id']++;
 		} else {
-			throw new Exception(__('The backup file does not appear to be well formed.'));
+			self::throwIdError($comment->__name,$comment->__line,'post');
 		}
+	}
+	
+	private static function throwIdError($name,$line,$related)
+	{
+		throw new Exception(sprintf(
+			__('ID of "%3$s" does not match on record "%1$s" at line %2$s of backup file.'),
+			html::escapeHTML($name),
+			html::escapeHTML($line),
+			html::escapeHTML($related)
+		));
 	}
 	
 	public function searchCategory($rs,$url)
