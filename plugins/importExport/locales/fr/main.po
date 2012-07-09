@@ -1,14 +1,14 @@
 # Language: Français
-# Module: importExport - 3.0
-# Date: 2012-07-09 12:33:59
+# Module: importExport - 3.1
+# Date: 2012-07-09 14:37:32
 # Translated with translater 1.5
 
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: importExport 3.0\n"
+"Project-Id-Version: importExport 3.1\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-07-09T12:33:59+00:00\n"
+"PO-Revision-Date: 2012-07-09T14:37:32+00:00\n"
 "Last-Translator: Jean-Christian Denis\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -307,7 +307,7 @@ msgstr "Formatage des commentaires :"
 msgid "WordPress tables not found"
 msgstr "Tables WordPress non trouvées"
 
-#: inc/flat/class.flat.backup.php:32
+#: inc/flat/class.flat.backup.php:34
 msgid "No file to read."
 msgstr "Aucun fichier lisible."
 
@@ -323,13 +323,9 @@ msgstr "Le fichier n'est pas un fichier d'export simple."
 msgid "File is not a full export."
 msgstr "Le fichier n'est pas un fichier d'export complet."
 
-#: inc/flat/class.flat.import.php:632
-#: inc/flat/class.flat.import.php:642
-#: inc/flat/class.flat.import.php:669
-#: inc/flat/class.flat.import.php:680
-#: inc/flat/class.flat.import.php:695
-msgid "The backup file does not appear to be well formed."
-msgstr "Le fichier de sauvegarde ne semble pas être correctement formaté"
+#: inc/flat/class.flat.import.php:704
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr "L'ID de \"%3$s\" ne correspond pas dans l'enregistrement de \"%1$s\" à la ligne %2$s du fichier de sauvegarde."
 
 #: index.php:69
 msgid "Please wait..."
