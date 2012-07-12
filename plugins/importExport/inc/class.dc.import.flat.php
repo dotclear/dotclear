@@ -1,9 +1,9 @@
 <?php
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 #
-# This file is part of Dotclear 2.
+# This file is part of importExport, a plugin for DotClear2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2012 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -17,7 +17,7 @@ class dcImportFlat extends dcIeModule
 	
 	public function setInfo()
 	{
-		$this->type = 'i';
+		$this->type = 'import';
 		$this->name = __('Flat file import');
 		$this->description = __('Imports a blog or a full Dotclear installation from flat file.');
 	}
@@ -54,14 +54,25 @@ class dcImportFlat extends dcIeModule
 			}
 			
 			try {
-				$bk = new dcImport($this->core,$file);
+				# Try to unzip file
+				$unzip_file = $this->unzip($file);
+				if (false !== $unzip_file) {
+					$bk = new flatImport($this->core,$unzip_file);
+				}
+				# Else this is a normal file
+				else {
+					$bk = new flatImport($this->core,$file);
+				}
+				
 				$bk->importSingle();
 			} catch (Exception $e) {
+				@unlink($unzip_file);
 				if ($to_unlink) {
 					@unlink($file);
 				}
 				throw $e;
 			}
+			@unlink($unzip_file);
 			if ($to_unlink) {
 				@unlink($file);
 			}
@@ -94,14 +105,25 @@ class dcImportFlat extends dcIeModule
 			}
 			
 			try {
-				$bk = new dcImport($this->core,$file);
+				# Try to unzip file
+				$unzip_file = $this->unzip($file);
+				if (false !== $unzip_file) {
+					$bk = new flatImport($this->core,$unzip_file);
+				}
+				# Else this is a normal file
+				else {
+					$bk = new flatImport($this->core,$file);
+				}
+				
 				$bk->importFull();
 			} catch (Exception $e) {
+				@unlink($unzip_file);
 				if ($to_unlink) {
 					@unlink($file);
 				}
 				throw $e;
 			}
+			@unlink($unzip_file);
 			if ($to_unlink) {
 				@unlink($file);
 			}
@@ -127,6 +149,9 @@ class dcImportFlat extends dcIeModule
 			echo '<p class="message">'.__('Content successfully imported.').'</p>';
 			return;
 		}
+		
+		$public_files = array_merge(array('-' => ''),$this->getPublicFiles());
+		$has_files = (boolean) (count($public_files) - 1);
 		
 		echo
 		'<script type="text/javascript">'."\n".
@@ -154,61 +179,60 @@ class dcImportFlat extends dcIeModule
 		"</script>\n";
 		
 		echo
-		'<h3>'.__('Import a single blog').'</h3>'.
-		'<p>'.sprintf(__('This will import a single blog backup as new content in the current blog: %s.'),
-		'<strong>'.html::escapeHTML($this->core->blog->name).'</strong>').'</p>'.
 		'<form action="'.$this->getURL(true).'" method="post" enctype="multipart/form-data">'.
+		'<fieldset><legend>'.__('Single blog').'</legend>'.
+		'<p>'.sprintf(__('This will import a single blog backup as new content in the current blog: %s.'),html::escapeHTML($this->core->blog->name)).'</p>'.
 		
-		'<div class="fieldset">'.
-		$this->core->formNonce().
-		form::hidden(array('do'),1).
-		form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 		'<p><label for="up_single_file">'.__('Upload a backup file').'</label>'.
 		'<input type="file" id="up_single_file" name="up_single_file" size="20" />'.
 		'</p>';
 		
-		$public_files = $this->getPublicFiles();
+		if ($has_files) {
+			echo 
+			'<p><label for="public_single_file">'.__('or pick up a local file in your public directory').' '.
+			form::combo('public_single_file',$public_files).
+			'</label></p>';
+		}
 		
-		$empty = empty($public_files);
-		$public_files = array_merge(array('-' => ''),$public_files);
-		echo
-		'<p><label for="public_single_file">'.__('or pick up a local file in your public directory').' '.
-		form::combo('public_single_file',$public_files, '', '', '', $empty).
-		'</label></p>';
+		echo 
+		'<p>'.
+		$this->core->formNonce().
+		form::hidden(array('do'),1).
+		form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
+		'<input type="submit" value="'.__('Import').'" /></p>'.
 		
-		echo
-		'<p><input type="submit" value="'.__('Import').'" /></p>'.
-		'</div>'.
+		'</fieldset>'.
 		'</form>';
 		
 		if ($this->core->auth->isSuperAdmin())
 		{
 			echo
-			'<h3>'.__('Import a full backup file').'</h3>'.
 			'<form action="'.$this->getURL(true).'" method="post" enctype="multipart/form-data" id="formfull">'.
-			'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).'</div>'.
+			'<fieldset><legend>'.__('Multiple blogs').'</legend>'.
+			'<p>'.__('This will reset all the content of your database, except users.').'</p>'.
 			
-			'<div class="fieldset">'.
-			$this->core->formNonce().
-			form::hidden(array('do'),1).
-			form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 			'<p><label for="up_full_file">'.__('Upload a backup file').'</label>'.
 			'<input type="file" id="up_full_file" name="up_full_file" size="20" />'.
 			'</p>';
 			
-			echo
-			'<p><label for="public_full_file">'.__('or pick up a local file in your public directory').'</label>'.
-			form::combo('public_full_file',$public_files, '', '', '', $empty).
-			'</p>';
+			if ($has_files) {
+				echo 
+				'<p><label for="public_full_file">'.__('or pick up a local file in your public directory').'</label>'.
+				form::combo('public_full_file',$public_files).
+				'</p>';
+			}
 			
 			echo
-			'<p class="form-note warning"><strong>'.__('Warning: This will reset all the content of your database, except users.').'</strong></p>'.
-			
 			'<p><label for="your_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
 			form::password('your_pwd',20,255).'</p>'.
 			
-			'<p><input type="submit" value="'.__('Import').'" /></p>'.
-			'</div>'.
+			'<p>'.
+			$this->core->formNonce().
+			form::hidden(array('do'),1).
+			form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
+			'<input type="submit" value="'.__('Import').'" /></p>'.
+			
+			'</fieldset>'.
 			'</form>';
 		}
 	}
@@ -224,15 +248,78 @@ class dcImportFlat extends dcIeModule
 				
 				if (is_file($entry_path) && is_readable($entry_path))
 				{
-					$fp = fopen($entry_path,'rb');
-					if (strpos(fgets($fp),'///DOTCLEAR|') === 0) {
+					# Do not test each zip file content here, its too long
+					if (substr($entry_path,-4) == '.zip') {
+							$public_files[$entry] = $entry_path;
+					}
+					elseif (self::checkFileContent($entry_path)) {
 						$public_files[$entry] = $entry_path;
 					}
-					fclose($fp);
 				}
 			}
 		}
 		return $public_files;
+	}
+	
+	protected static function checkFileContent($entry_path)
+	{
+		$ret = false;
+		
+		$fp = fopen($entry_path,'rb');
+		$ret = strpos(fgets($fp),'///DOTCLEAR|') === 0;
+		fclose($fp);
+		
+		return $ret;
+	}
+	
+	private function unzip($file)
+	{
+		$zip = new fileUnzip($file);
+		
+		if ($zip->isEmpty()) {
+			$zip->close();
+			return false;//throw new Exception(__('File is empty or not a compressed file.'));
+		}
+		
+		foreach($zip->getFilesList() as $zip_file)
+		{
+			# Check zipped file name
+			if (substr($zip_file,-4) != '.txt') {
+				continue;
+			}
+			
+			# Check zipped file contents
+			$content = $zip->unzip($zip_file);
+			if (strpos($content,'///DOTCLEAR|') !== 0) {
+				unset($content);
+				continue;
+			}
+			
+			$target = path::fullFromRoot($zip_file,dirname($file));
+			
+			# Check existing files with same name
+			if (file_exists($target)) {
+				$zip->close();
+				unset($content);
+				throw new Exception(__('Another file with same name exists.'));
+			}
+			
+			# Extract backup content
+			if (file_put_contents($target,$content) === false) {
+				$zip->close();
+				unset($content);
+				throw new Exception(__('Failed to extract backup file.'));
+			}
+			
+			$zip->close();
+			unset($content);
+			
+			# Return extracted file name
+			return $target;
+		}
+		
+		$zip->close();
+		throw new Exception(__('No backup in compressed file.'));
 	}
 }
 ?>
