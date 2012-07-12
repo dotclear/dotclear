@@ -1,9 +1,9 @@
 <?php
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 #
-# This file is part of Dotclear 2.
+# This file is part of importExport, a plugin for DotClear2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2012 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -15,7 +15,7 @@ class dcExportFlat extends dcIeModule
 {
 	public function setInfo()
 	{
-		$this->type = 'e';
+		$this->type = 'export';
 		$this->name = __('Flat file export');
 		$this->description = __('Exports a blog or a full Dotclear installation to flat file.');
 	}
@@ -30,7 +30,7 @@ class dcExportFlat extends dcIeModule
 			
 			try
 			{
-				$exp = new dbExport($this->core->con,$fullname,$this->core->prefix);
+				$exp = new flatExport($this->core->con,$fullname,$this->core->prefix);
 				fwrite($exp->fp,'///DOTCLEAR|'.DC_VERSION."|single\n");
 				
 				$exp->export('category',
@@ -83,6 +83,7 @@ class dcExportFlat extends dcIeModule
 				
 				$_SESSION['export_file'] = $fullname;
 				$_SESSION['export_filename'] = $_POST['file_name'];
+				$_SESSION['export_filezip'] = !empty($_POST['file_zip']);
 				http::redirect($this->getURL().'&do=ok');
 			}
 			catch (Exception $e)
@@ -98,7 +99,7 @@ class dcExportFlat extends dcIeModule
 			$fullname = $this->core->blog->public_path.'/.backup_'.sha1(uniqid());
 			try
 			{
-				$exp = new dbExport($this->core->con,$fullname,$this->core->prefix);
+				$exp = new flatExport($this->core->con,$fullname,$this->core->prefix);
 				fwrite($exp->fp,'///DOTCLEAR|'.DC_VERSION."|full\n");
 				$exp->exportTable('blog');
 				$exp->exportTable('category');
@@ -122,6 +123,7 @@ class dcExportFlat extends dcIeModule
 				
 				$_SESSION['export_file'] = $fullname;
 				$_SESSION['export_filename'] = $_POST['file_name'];
+				$_SESSION['export_filezip'] = !empty($_POST['file_zip']);
 				http::redirect($this->getURL().'&do=ok');
 			}
 			catch (Exception $e)
@@ -139,13 +141,49 @@ class dcExportFlat extends dcIeModule
 			}
 			
 			ob_end_clean();
-			header('Content-Disposition: attachment;filename='.$_SESSION['export_filename']);
-			header('Content-Type: text/plain; charset=UTF-8');
-			readfile($_SESSION['export_file']);
-			unlink($_SESSION['export_file']);
-			unset($_SESSION['export_file']);
-			unset($_SESSION['export_filename']);
-			exit;
+			
+			if (substr($_SESSION['export_filename'],-4) == '.zip') {
+				$_SESSION['export_filename'] = substr($_SESSION['export_filename'],0,-4);//.'.txt';
+			}
+			
+			# Flat export
+			if (empty($_SESSION['export_filezip'])) {
+			
+				header('Content-Disposition: attachment;filename='.$_SESSION['export_filename']);
+				header('Content-Type: text/plain; charset=UTF-8');
+				readfile($_SESSION['export_file']);
+				
+				unlink($_SESSION['export_file']);
+				unset($_SESSION['export_file'],$_SESSION['export_filename'],$_SESSION['export_filezip']);
+				exit;
+			}
+			# Zip export
+			else {
+				try
+				{
+					$file_zipname = $_SESSION['export_filename'].'.zip';
+					
+					$fp = fopen('php://output','wb');
+					$zip = new fileZip($fp);
+					$zip->addFile($_SESSION['export_file'],$_SESSION['export_filename']);
+					
+					header('Content-Disposition: attachment;filename='.$file_zipname);
+					header('Content-Type: application/x-zip');
+					
+					$zip->write();
+					
+					unlink($_SESSION['export_file']);
+					unset($zip,$_SESSION['export_file'],$_SESSION['export_filename'],$file_zipname);
+					exit;
+				}
+				catch (Exception $e)
+				{
+					unset($zip,$_SESSION['export_file'],$_SESSION['export_filename'],$file_zipname);
+					@unlink($_SESSION['export_file']);
+					
+					throw new Exception(__('Failed to compress export file.'));
+				}
+			}
 		}
 	}
 	
@@ -153,29 +191,50 @@ class dcExportFlat extends dcIeModule
 	{
 		echo
 		'<form action="'.$this->getURL(true).'" method="post">'.
-		'<fieldset><legend>'.__('Export a blog').'</legend>'.
-		'<p>'.sprintf(__('This will create an export of your current blog: %s'),
-		'<strong>'.html::escapeHTML($this->core->blog->name).'</strong>').'</p>'.
-		'<p><label for="file_name" class="classic">'.__('File name:').'</label>'.
-		form::field(array('file_name','file_name'),25,255,date('Y-m-d-').html::escapeHTML($this->core->blog->id.'-backup.txt')).
-		'<input type="submit" value="'.__('Export').'" />'.
-		form::hidden(array('do'),'export_blog').
-		$this->core->formNonce().'</p>'.
+		'<fieldset><legend>'.__('Single blog').'</legend>'.
+		'<p>'.sprintf(__('This will create an export of your current blog: %s'),html::escapeHTML($this->core->blog->name)).'</p>'.
+		
+		'<p><label for="file_name">'.__('File name:').'</label>'.
+		form::field(array('file_name','file_name'),50,255,date('Y-m-d-').html::escapeHTML($this->core->blog->id.'-backup.txt')).
+		'</p>'.
+		
+		'<p><label for="file_zip" class="classic">'.
+		form::checkbox(array('file_zip','file_zip'),1).' '.
+		__('Compress file').'</label>'.
+		'</p>'.
+		
 		'<p class="zip-dl"><a href="media.php?d=&amp;zipdl=1">'.
 		__('You may also want to download your media directory as a zip file').'</a></p>'.
-		'</fieldset></form>';
+		
+		'<p><input type="submit" value="'.__('Export').'" />'.
+		form::hidden(array('do'),'export_blog').
+		$this->core->formNonce().'</p>'.
+		
+		'</fieldset>'.
+		'</form>';
 		
 		if ($this->core->auth->isSuperAdmin())
 		{
 			echo
 			'<form action="'.$this->getURL(true).'" method="post">'.
-			'<fieldset><legend>'.__('Export all content').'</legend>'.
-			'<p><label for="file_name2" class="classic">'.__('File name:').'</label>'.
-			form::field(array('file_name','file_name2'),25,255,date('Y-m-d-').'dotclear-backup.txt').
-			'<input type="submit" value="'.__('Export all content').'" />'.
+			'<fieldset><legend>'.__('Multiple blogs').'</legend>'.
+			'<p>'.__('This will create an export of all the content of your database.').'</p>'.
+			
+			'<p><label for="file_name2">'.__('File name:').'</label>'.
+			form::field(array('file_name','file_name2'),50,255,date('Y-m-d-').'dotclear-backup.txt').
+			'</p>'.
+			
+			'<p><label for="file_zip2" class="classic">'.
+			form::checkbox(array('file_zip','file_zip2'),1).' '.
+			__('Compress file').'</label>'.
+			'</p>'.
+			
+			'<p><input type="submit" value="'.__('Export').'" />'.
 			form::hidden(array('do'),'export_all').
 			$this->core->formNonce().'</p>'.
-			'</fieldset></form>';
+			
+			'</fieldset>'.
+			'</form>';
 		}
 	}
 }

@@ -1,0 +1,333 @@
+# Language: Français
+# Module: importExport - 3.1
+# Date: 2012-07-09 14:37:32
+# Translated with translater 1.5
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: importExport 3.1\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2012-07-09T14:37:32+00:00\n"
+"Last-Translator: Jean-Christian Denis\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: _admin.php:15
+#: _admin.php:28
+#: index.php:59
+msgid "Import/Export"
+msgstr "Import/Export"
+
+#: inc/class.dc.export.flat.php:19
+msgid "Flat file export"
+msgstr "Exporter un fichier texte"
+
+#: inc/class.dc.export.flat.php:20
+msgid "Exports a blog or a full Dotclear installation to flat file."
+msgstr "Exporte un blog ou toutes les données de Dotclear dans un fichier texte."
+
+#: inc/class.dc.export.flat.php:140
+msgid "Export file not found."
+msgstr "Fichier d'export non trouvé."
+
+#: inc/class.dc.export.flat.php:184
+msgid "Failed to compress export file."
+msgstr "Impossible de compresser le fichier d'export."
+
+#: inc/class.dc.export.flat.php:194
+#: inc/class.dc.import.feed.php:84
+#: inc/class.dc.import.flat.php:183
+msgid "Single blog"
+msgstr "Un seul blog"
+
+#: inc/class.dc.export.flat.php:195
+msgid "This will create an export of your current blog: %s"
+msgstr "Ceci va exporter le contenu du blog en cours : %s."
+
+#: inc/class.dc.export.flat.php:197
+#: inc/class.dc.export.flat.php:223
+msgid "File name:"
+msgstr "Nom du fichier :"
+
+#: inc/class.dc.export.flat.php:203
+#: inc/class.dc.export.flat.php:229
+msgid "Compress file"
+msgstr "Compresser le fichier"
+
+#: inc/class.dc.export.flat.php:207
+msgid "You may also want to download your media directory as a zip file"
+msgstr "Vous pouvez également télécharger votre répertoire de médias au format zip."
+
+#: inc/class.dc.export.flat.php:209
+#: inc/class.dc.export.flat.php:232
+#: index.php:89
+msgid "Export"
+msgstr "Exporter"
+
+#: inc/class.dc.export.flat.php:220
+#: inc/class.dc.import.flat.php:211
+msgid "Multiple blogs"
+msgstr "Tous les blogs"
+
+#: inc/class.dc.export.flat.php:221
+msgid "This will create an export of all the content of your database."
+msgstr "Ceci va exporter le contenu complet de votre base de données."
+
+#: inc/class.dc.ieModule.php:74
+msgid "Congratulation!"
+msgstr "Félicitations !"
+
+#: inc/class.dc.ieModule.php:75
+msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
+msgstr "Votre blog a été importé avec succès. Bienvenue sur Dotclear 2 !"
+
+#: inc/class.dc.ieModule.php:76
+msgid "Why don't you blog this now?"
+msgstr "Pourquoi ne pas le bloguer maintenant ?"
+
+#: inc/class.dc.ieModule.php:77
+msgid "or"
+msgstr "ou"
+
+#: inc/class.dc.ieModule.php:77
+msgid "visit your dashboard"
+msgstr "vous rendre sur votre tableau de bord"
+
+#: inc/class.dc.import.dc1.php:43
+msgid "Dotclear 1.2 import"
+msgstr "Importer depuis Dotclear 1.2"
+
+#: inc/class.dc.import.dc1.php:44
+msgid "Import a Dotclear 1.2 installation into your current blog."
+msgstr "Importe un blog Dotclear 1.2 dans votre blog en cours."
+
+#: inc/class.dc.import.dc1.php:145
+msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
+msgstr "Ceci va importer votre blog Dotclear 1.2 comme un nouveau contenu dans le blog en cours : %s."
+
+#: inc/class.dc.import.dc1.php:149
+#: inc/class.dc.import.wp.php:180
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr "Selon la taille de votre blog, ceci peut prendre quelques minutes."
+
+#: inc/class.dc.import.dc1.php:151
+#: inc/class.dc.import.wp.php:182
+msgid "General information"
+msgstr "Informations générales"
+
+#: inc/class.dc.import.dc1.php:151
+#: inc/class.dc.import.wp.php:182
+msgid "Import my blog now"
+msgstr "Importer mon blog"
+
+#: inc/class.dc.import.dc1.php:152
+msgid "We first need some information about your old Dotclear 1.2 installation."
+msgstr "Nous avons d'abord besoin de renseignements à propos de votre ancienne installation Dotclear 1.2."
+
+#: inc/class.dc.import.dc1.php:163
+#: inc/class.dc.import.wp.php:194
+msgid "Entries import options"
+msgstr "Options d'importation des billets"
+
+#: inc/class.dc.import.dc1.php:164
+#: inc/class.dc.import.wp.php:212
+msgid "Number of entries to import at once:"
+msgstr "Nombre de billets à importer à chaque étape :"
+
+#: inc/class.dc.import.dc1.php:169
+#: inc/class.dc.import.wp.php:222
+msgid "Importing users"
+msgstr "Importe les utilisateurs"
+
+#: inc/class.dc.import.dc1.php:174
+#: inc/class.dc.import.wp.php:227
+msgid "Importing categories"
+msgstr "Importe les catégories"
+
+#: inc/class.dc.import.dc1.php:179
+#: inc/class.dc.import.wp.php:232
+msgid "Importing blogroll"
+msgstr "Importe les liens"
+
+#: inc/class.dc.import.dc1.php:184
+#: inc/class.dc.import.wp.php:237
+msgid "Importing entries from %d to %d / %d"
+msgstr "Importation des billets %d à %d"
+
+#: inc/class.dc.import.dc1.php:193
+msgid "Please read carefully"
+msgstr "Merci de lire attentivement"
+
+#: inc/class.dc.import.dc1.php:214
+#: inc/class.dc.import.wp.php:258
+msgid "next step"
+msgstr "étape suivante"
+
+#: inc/class.dc.import.dc1.php:242
+msgid "Dotclear tables not found"
+msgstr "Tables Dotclear non trouvées"
+
+#: inc/class.dc.import.feed.php:22
+msgid "Feed import"
+msgstr "Importer depuis un flux"
+
+#: inc/class.dc.import.feed.php:23
+msgid "Imports a feed as new entries."
+msgstr "Importe un flux comme nouveaux billets."
+
+#: inc/class.dc.import.feed.php:41
+msgid "Cannot retrieve feed URL."
+msgstr "Impossible d'atteindre l'URL du fil."
+
+#: inc/class.dc.import.feed.php:44
+msgid "No items in feed."
+msgstr "Aucun élément dans le fil."
+
+#: inc/class.dc.import.feed.php:79
+#: inc/class.dc.import.flat.php:149
+msgid "Content successfully imported."
+msgstr "Contenu importé avec succès."
+
+#: inc/class.dc.import.feed.php:85
+msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
+msgstr "Ceci va importer un fil (RSS ou Atom) comme un nouveau contenu dans le blog en cours : %s."
+
+#: inc/class.dc.import.feed.php:87
+msgid "Feed URL:"
+msgstr "URL du fil :"
+
+#: inc/class.dc.import.feed.php:93
+#: inc/class.dc.import.flat.php:202
+#: inc/class.dc.import.flat.php:233
+#: index.php:88
+msgid "Import"
+msgstr "Importer"
+
+#: inc/class.dc.import.flat.php:21
+msgid "Flat file import"
+msgstr "Importer depuis un fichier texte"
+
+#: inc/class.dc.import.flat.php:22
+msgid "Imports a blog or a full Dotclear installation from flat file."
+msgstr "Importe un blog ou toutes les données depuis un fichier texte."
+
+#: inc/class.dc.import.flat.php:144
+msgid "Single blog successfully imported."
+msgstr "Blog importé avec succès."
+
+#: inc/class.dc.import.flat.php:160
+msgid "Are you sure you want to import a full backup file?"
+msgstr "Êtes-vous certain de vouloir charger un fichier de sauvegarde complet ?"
+
+#: inc/class.dc.import.flat.php:184
+msgid "This will import a single blog backup as new content in the current blog: %s."
+msgstr "Ceci va charger une sauvegarde de blog comme un nouveau contenu dans le blog en cours : %s."
+
+#: inc/class.dc.import.flat.php:186
+#: inc/class.dc.import.flat.php:214
+msgid "Upload a backup file"
+msgstr "Charger un fichier de sauvegarde"
+
+#: inc/class.dc.import.flat.php:192
+#: inc/class.dc.import.flat.php:220
+msgid "or pick up a local file in your public directory"
+msgstr "ou choisissez un fichier local dans votre répertoire public"
+
+#: inc/class.dc.import.flat.php:212
+msgid "This will reset all the content of your database, except users."
+msgstr "Ceci va remettre à zéro tout le contenu, sauf les utilisateurs."
+
+#: inc/class.dc.import.flat.php:281
+msgid "File is empty or not a compressed file."
+msgstr "Le Fichier est vide ou n'est pas un fichier compressé."
+
+#: inc/class.dc.import.flat.php:304
+msgid "Another file with same name exists."
+msgstr "Un autre fichier du même nom existe déjà."
+
+#: inc/class.dc.import.flat.php:311
+msgid "Failed to extract backup file."
+msgstr "Impossible d'extraire le fichier de sauvegarde."
+
+#: inc/class.dc.import.flat.php:322
+msgid "No backup in compressed file."
+msgstr "Pas de sauvegarde dans le fichier compressé."
+
+#: inc/class.dc.import.wp.php:64
+msgid "WordPress import"
+msgstr "Importer depuis WordPress"
+
+#: inc/class.dc.import.wp.php:65
+msgid "Import a WordPress installation into your current blog."
+msgstr "Importe un blog WordPress dans votre blog en cours."
+
+#: inc/class.dc.import.wp.php:176
+msgid "This will import your WordPress content as new content in the current blog: %s."
+msgstr "Ceci va importer votre blog WordPress comme un nouveau contenu dans le blog en cours : %s."
+
+#: inc/class.dc.import.wp.php:183
+msgid "We first need some information about your old WordPress installation."
+msgstr "Nous avons d'abord besoin de renseignements à propos de votre ancienne installation WordPress."
+
+#: inc/class.dc.import.wp.php:205
+msgid "Ignore the first category:"
+msgstr "Ignorer la première catégorie :"
+
+#: inc/class.dc.import.wp.php:207
+msgid "Import lowest numbered category on posts:"
+msgstr "Importer la catégorie la plus ancienne sur les articles :"
+
+#: inc/class.dc.import.wp.php:209
+msgid "Import all categories as tags:"
+msgstr "Importer les catégories comme des mots-clés :"
+
+#: inc/class.dc.import.wp.php:210
+msgid "Prefix such tags with:"
+msgstr "Préfixer ces mots-clés avec :"
+
+#: inc/class.dc.import.wp.php:215
+msgid "Content filters"
+msgstr "Filtres de contenu"
+
+#: inc/class.dc.import.wp.php:216
+msgid "You may want to process your post and/or comment content with the following filters."
+msgstr "Vous pouvez utiliser les filtres suivants sur vos articles et/ou commentaires."
+
+#: inc/class.dc.import.wp.php:217
+msgid "Post content formatter:"
+msgstr "Formatage des articles :"
+
+#: inc/class.dc.import.wp.php:218
+msgid "Comment content formatter:"
+msgstr "Formatage des commentaires :"
+
+#: inc/class.dc.import.wp.php:286
+msgid "WordPress tables not found"
+msgstr "Tables WordPress non trouvées"
+
+#: inc/flat/class.flat.backup.php:34
+msgid "No file to read."
+msgstr "Aucun fichier lisible."
+
+#: inc/flat/class.flat.import.php:54
+msgid "File is not a DotClear backup."
+msgstr "Le fichier n'est pas une sauvegarde DotClear."
+
+#: inc/flat/class.flat.import.php:105
+msgid "File is not a single blog export."
+msgstr "Le fichier n'est pas un fichier d'export simple."
+
+#: inc/flat/class.flat.import.php:222
+msgid "File is not a full export."
+msgstr "Le fichier n'est pas un fichier d'export complet."
+
+#: inc/flat/class.flat.import.php:704
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr "L'ID de \"%3$s\" ne correspond pas dans l'enregistrement de \"%1$s\" à la ligne %2$s du fichier de sauvegarde."
+
+#: index.php:69
+msgid "Please wait..."
+msgstr "Veuillez patienter..."
+

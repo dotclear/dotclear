@@ -1,9 +1,9 @@
 <?php
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 #
-# This file is part of Dotclear 2.
+# This file is part of importExport, a plugin for DotClear2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2012 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -11,11 +11,12 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-class backupFile
+class flatBackup
 {
 	protected $fp;
 	private $line_cols = array();
 	private $line_name;
+	private $line_num;
 	
 	private $replacement = array(
 		'/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\n)/u' => "\$1\n",
@@ -28,6 +29,7 @@ class backupFile
 	{
 		if (file_exists($file) && is_readable($file)) {
 			$this->fp = fopen($file,'rb');
+			$this->line_num = 1;
 		} else {
 			throw new Exception(__('No file to read.'));
 		}
@@ -42,11 +44,9 @@ class backupFile
 	
 	public function getLine()
 	{
-		if (feof($this->fp)) {
+		if (($line = $this->nextLine()) === false) {
 			return false;
 		}
-		
-		$line = trim(fgets($this->fp));
 		
 		if (substr($line,0,1) == '[')
 		{
@@ -63,7 +63,7 @@ class backupFile
 			$line = preg_split('/(^"|","|"$)/m',$line);
 			
 			if (count($this->line_cols) != count($line)) {
-				throw new Exception('Invalid row count');
+				throw new Exception(sprintf('Invalid row count at line %s',$this->line_num));
 			}
 			
 			$res = array();
@@ -73,24 +73,39 @@ class backupFile
 				preg_replace(array_keys($this->replacement),array_values($this->replacement),$line[$i]);
 			}
 			
-			return new backupFileItem($this->line_name,$res);
+			return new flatBackupItem($this->line_name,$res,$this->line_num);
 		}
 		else
 		{
 			return $this->getLine();
 		}
 	}
+	
+	private function nextLine()
+	{
+		if (feof($this->fp)) {
+			return false;
+		}
+		$this->line_num++;
+		
+		$line = fgets($this->fp);
+		$line = trim($line);
+		
+		return empty($line) ? $this->nextLine() : $line;
+	}
 }
 
-class backupFileItem
+class flatBackupItem
 {
 	public $__name;
+	public $__line;
 	private $__data = array();
 	
-	public function __construct($name,$data)
+	public function __construct($name,$data,$line)
 	{
 		$this->__name = $name;
 		$this->__data = $data;
+		$this->__line = $line;
 	}
 	
 	public function f($name)
