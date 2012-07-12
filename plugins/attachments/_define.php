@@ -17,7 +17,7 @@ $this->registerModule(
 	/* Author */		"Dotclear Team",
 	/* Version */		'1.0',
 	array(
-		'permissions' =>	'contentadmin,pages',
+		'permissions' =>	'usage,contentadmin,pages',
 		'priority' =>		999
 	)
 );
