@@ -1,0 +1,41 @@
+﻿msgid "Additionnal style directives"
+msgstr "Instrucciones CSS adicionales"
+
+msgid "reactions"
+msgstr "reacciones"
+
+msgid "Add ping"
+msgstr "Agregar un retroenlace"
+
+msgid "Suggestions:"
+msgstr "Sugerencias:"
+
+msgid "Go to homepage"
+msgstr "Regresar al inicio"
+
+msgid "Use search form"
+msgstr "Buscar"
+
+msgid "Explore archives"
+msgstr "Explorar los archivos"
+
+msgid "toDay"
+msgstr "al"
+
+msgid "FromDay"
+msgstr "Del"
+
+msgid "From"
+msgstr "Del"
+
+msgid "By category"
+msgstr "Por categoría"
+
+msgid "By date"
+msgstr "Por fecha"
+
+msgid "By tag"
+msgstr "Por tag"
+
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr "Su URL está equivocada o la página fue borrada o desplazada."
