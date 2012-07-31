@@ -360,7 +360,6 @@ class dcBlog
 		
 		$rs = $this->con->select($strReq);
 		$rs->core = $this->core;
-		$rs->_nb_media = array();
 		$rs->extend('rsExtPost');
 		
 		# --BEHAVIOR-- coreBlogGetPosts

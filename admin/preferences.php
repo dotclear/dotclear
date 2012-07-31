@@ -455,10 +455,6 @@ form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).'</label>
 form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg']).' '.
 __('Enable WYSIWYG mode').'</label></p>'.
 
-'<p><label for="user_ui_enhanceduploader" class="classic">'.
-form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
-__('Activate enhanced uploader in media manager').'</label></p>'.
-
 '<p><label for="user_ui_nofavmenu" class="classic">'.
 form::checkbox('user_ui_nofavmenu',1,$user_ui_nofavmenu).' '.
 __('Hide My favorites menu').'</label></p>';

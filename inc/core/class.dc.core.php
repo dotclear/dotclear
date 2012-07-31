@@ -34,8 +34,6 @@ class dcCore
 	public $url;		///< <b>urlHandler</b>		urlHandler object
 	public $wiki2xhtml;	///< <b>wiki2xhtml</b>		wiki2xhtml object
 	public $plugins;	///< <b>dcModules</b>		dcModules object
-	public $media;		///< <b>dcMedia</b>			dcMedia object
-	public $postmedia;	///< <b>dcPostMedia</b>		dcPostMedia object
 	public $rest;		///< <b>dcRestServer</b>	dcRestServer object
 	public $log;		///< <b>dcLog</b>			dcLog object
 	
@@ -1201,16 +1199,6 @@ class dcCore
 				'Enable XML/RPC interface'),
 				array('lang','string','en',
 				'Default blog language'),
-				array('media_exclusion','string','/\.php$/i',
-				'File name exclusion pattern in media manager. (PCRE value)'),
-				array('media_img_m_size','integer',448,
-				'Image medium size in media manager'),
-				array('media_img_s_size','integer',240,
-				'Image small size in media manager'),
-				array('media_img_t_size','integer',100,
-				'Image thumbnail size in media manager'),
-				array('media_img_title_pattern','string','Title ;; Date(%b %Y) ;; separator(, )',
-				'Pattern to set image title when you insert it in a post'),
 				array('nb_post_per_page','integer',20,
 				'Number of entries on home page and category pages'),
 				array('nb_post_per_feed','integer',20,

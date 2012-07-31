@@ -87,16 +87,6 @@ if (!in_array($blog_settings->system->post_url_format,$post_url_combo)) {
 	$post_url_combo[html::escapeHTML($blog_settings->system->post_url_format)] = html::escapeHTML($blog_settings->system->post_url_format);
 }
 
-# Image title combo
-$img_title_combo = array(
-	__('Title') => 'Title ;; separator(, )',
-	__('Title, Date') => 'Title ;; Date(%b %Y) ;; separator(, )',
-	__('Title, Country, Date') => 'Title ;; Country ;; Date(%b %Y) ;; separator(, )',
-	__('Title, City, Country, Date') => 'Title ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
-);
-if (!in_array($blog_settings->system->media_img_title_pattern,$img_title_combo)) {
-	$img_title_combo[html::escapeHTML($blog_settings->system->media_img_title_pattern)] = html::escapeHTML($blog_settings->system->media_img_title_pattern);
-}
 
 # Robots policy options
 $robots_policy_options = array(
@@ -118,15 +108,6 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 	}
 	$cur->blog_name = $_POST['blog_name'];
 	$cur->blog_desc = $_POST['blog_desc'];
-	
-	$media_img_t_size = abs((integer) $_POST['media_img_t_size']);
-	if ($media_img_t_size < 0) { $media_img_t_size = 100; }
-	
-	$media_img_s_size = abs((integer) $_POST['media_img_s_size']);
-	if ($media_img_s_size < 0) { $media_img_s_size = 240; }
-	
-	$media_img_m_size = abs((integer) $_POST['media_img_m_size']);
-	if ($media_img_m_size < 0) { $media_img_m_size = 448; }
 	
 	$nb_post_per_page = abs((integer) $_POST['nb_post_per_page']);
 	if ($nb_post_per_page <= 1) { $nb_post_per_page = 1; }
@@ -182,10 +163,6 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
 		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
-		$blog_settings->system->put('media_img_t_size',$media_img_t_size);
-		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
-		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
-		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
 		$blog_settings->system->put('nb_post_per_feed',$nb_post_per_feed);
 		$blog_settings->system->put('short_feed_items',!empty($_POST['short_feed_items']));
 		
@@ -351,28 +328,6 @@ if ($blog_id)
 	'<br class="clear" />'. //Opera sucks
 	'</fieldset>';
 	
-	echo
-	'<fieldset><legend>'.__('Media and images').'</legend>'.
-	'<div class="two-cols">'.
-	'<div class="col">'.
-	'<h4>'.__('Generated image sizes (in pixels)').'</h4>'.
-	'<p class="field"><label for="media_img_t_size">'.__('Thumbnails:').' '.
-	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</label></p>'.
-	
-	'<p class="field"><label for="media_img_s_size">'.__('Small:').' '.
-	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</label></p>'.
-	
-	'<p class="field"><label for="media_img_m_size">'.__('Medium:').' '.
-	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</label></p>'.
-	'</div>'.
-	
-	'<div class="col">'.
-	'<h4><label for="media_img_title_pattern">'.__('Inserted image title').'</label></h4>'.
-	'<p>'.__('This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture\'s metadata.').'</p>'.
-	'<p>'.form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
-	'</div>'.
-	'</div>'.
-	'</fieldset>';
 	
 	echo
 	'<fieldset><legend>'.__('Search engines robots policy').'</legend>';

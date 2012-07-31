@@ -413,8 +413,6 @@ class dcPage
 			__('Users with posts cannot be deleted.')).
 		self::jsVar('dotclear.msg.confirm_delete_user',
 			__('Are you sure you want to delete selected users (%s)?')).
-		self::jsVar('dotclear.msg.confirm_delete_media',
-			__('Are you sure you want to remove media "%s"?')).
 		self::jsVar('dotclear.msg.confirm_extract_current',
 			__('Are you sure you want to extract archive in current directory?')).
 		self::jsVar('dotclear.msg.confirm_remove_attachment',
@@ -622,12 +620,8 @@ class dcPage
 		"jsToolBar.prototype.elements.img.title = '".html::escapeJS(__('External image'))."'; ".
 		"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."'; ".
 		
-		"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."'; ".
 		"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ";
 		
-		if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
-			$res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";
-		}
 		
 		$res .=
 		"\n//]]>\n".

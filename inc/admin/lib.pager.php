@@ -99,12 +99,6 @@ class adminPostList extends adminGenericList
 			$selected = sprintf($img,__('selected'),'selected.png');
 		}
 		
-		$attach = '';
-		$nb_media = $this->rs->countMedia();
-		if ($nb_media > 0) {
-			$attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
-			$attach = sprintf($img,sprintf($attach_str,$nb_media),'attach.png');
-		}
 		
 		$res = '<tr class="line'.($this->rs->post_status != 1 ? ' offline' : '').'"'.
 		' id="p'.$this->rs->post_id.'">';
@@ -116,7 +110,7 @@ class adminPostList extends adminGenericList
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
 		'<td class="nowrap">'.$this->rs->user_id.'</td>'.
-		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
+		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.'</td>'.
 		'</tr>';
 		
 		return $res;
@@ -195,12 +189,6 @@ class adminPostMiniList extends adminGenericList
 			$selected = sprintf($img,__('selected'),'selected.png');
 		}
 		
-		$attach = '';
-		$nb_media = $this->rs->countMedia();
-		if ($nb_media > 0) {
-			$attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
-			$attach = sprintf($img,sprintf($attach_str,$nb_media),'attach.png');
-		}
 		
 		$res = '<tr class="line'.($this->rs->post_status != 1 ? ' offline' : '').'"'.
 		' id="p'.$this->rs->post_id.'">';
@@ -211,7 +199,7 @@ class adminPostMiniList extends adminGenericList
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
 		'<td class="nowrap">'.$this->rs->user_id.'</td>'.
-		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
+		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.'</td>'.
 		'</tr>';
 		
 		return $res;
