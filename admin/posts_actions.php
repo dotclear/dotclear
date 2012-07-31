@@ -31,7 +31,6 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	{
 		$redir =
 		'posts.php?user_id='.$_POST['user_id'].
-		'&cat_id='.$_POST['cat_id'].
 		'&status='.$_POST['status'].
 		'&selected='.$_POST['selected'].
 		'&month='.$_POST['month'].
@@ -116,22 +115,6 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 		}
 		
 	}
-	elseif ($action == 'category' && isset($_POST['new_cat_id']))
-	{
-		try
-		{
-			while ($posts->fetch())
-			{
-				$new_cat_id = (integer) $_POST['new_cat_id'];
-				$core->blog->updPostCategory($posts->post_id,$new_cat_id);
-			}
-			http::redirect($redir);
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}
-	}
 	elseif ($action == 'author' && isset($_POST['new_auth_id'])
 	&& $core->auth->check('admin',$core->blog->id))
 	{
@@ -186,7 +169,6 @@ else
 {
 	$hidden_fields .=
 	form::hidden(array('user_id'),$_POST['user_id']).
-	form::hidden(array('cat_id'),$_POST['cat_id']).
 	form::hidden(array('status'),$_POST['status']).
 	form::hidden(array('selected'),$_POST['selected']).
 	form::hidden(array('month'),$_POST['month']).
@@ -204,38 +186,7 @@ if (isset($_POST['post_type'])) {
 # --BEHAVIOR-- adminPostsActionsContent
 $core->callBehavior('adminPostsActionsContent',$core,$action,$hidden_fields);
 
-if ($action == 'category')
-{
-	echo '<h2 class="page-title">'.__('Change category for entries').'</h2>';
-	
-	# categories list
-	# Getting categories
-	$categories_combo = array('&nbsp;' => '');
-	try {
-		$categories = $core->blog->getCategories(array('post_type'=>'post'));
-		while ($categories->fetch()) {
-			$categories_combo[] = new formSelectOption(
-				str_repeat('&nbsp;&nbsp;',$categories->level-1).
-				($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-				$categories->cat_id
-			);
-		}
-	} catch (Exception $e) { }
-	
-	echo
-	'<form action="posts_actions.php" method="post">'.
-	'<p><label for="new_cat_id" class="classic">'.__('Category:').' '.
-	form::combo('new_cat_id',$categories_combo,'').
-	'</label> ';
-	
-	echo
-	$hidden_fields.
-	$core->formNonce().
-	form::hidden(array('action'),'category').
-	'<input type="submit" value="'.__('Save').'" /></p>'.
-	'</form>';
-}
-elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
+if ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 {
 	echo '<h2 class="page-title">'.__('Change author for entries').'</h2>';
 	

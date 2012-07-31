@@ -75,7 +75,6 @@ class dcAuth
 			'publish' => __('publish entries and comments'),
 			'delete' => __('delete entries and comments'),
 			'contentadmin' => __('manage all entries and comments'),
-			'categories' => __('manage categories'),
 			'media' => __('manage their own media items'),
 			'media_admin' => __('manage all media items')
 		);

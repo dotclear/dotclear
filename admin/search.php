@@ -80,10 +80,6 @@ if ($q && !$core->error->flag())
 			$combo_action[__('schedule')] = 'schedule';
 			$combo_action[__('mark as pending')] = 'pending';
 		}
-		$combo_action[__('change category')] = 'category';
-		if ($core->auth->check('admin',$core->blog->id)) {
-			$combo_action[__('change author')] = 'author';
-		}
 		if ($core->auth->check('delete,contentadmin',$core->blog->id))
 		{
 			$combo_action[__('Delete')] = 'delete';

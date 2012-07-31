@@ -55,8 +55,6 @@ class dcBlog
 	
 	private $post_status = array();
 	
-	private $categories;
-	
 	/** @var boolean Disallow entries password protection */
 	public $without_password = true;
 	
@@ -168,405 +166,6 @@ class dcBlog
 		# --BEHAVIOR-- coreBlogAfterTriggerBlog
 		$this->core->callBehavior('coreBlogAfterTriggerBlog',$cur);
 	}
-		
-	/// @name Categories management methods
-	//@{
-	public function categories()
-	{
-		if (!($this->categories instanceof dcCategories)) {
-			$this->categories = new dcCategories($this->core);
-		}
-		
-		return $this->categories;
-	}
-	
-	/**
-	Retrieves categories. <var>$params</var> is an associative array which can
-	take the following parameters:
-	
-	- post_type: Get only entries with given type (default "post")
-	- cat_url: filter on cat_url field
-	- cat_id: filter on cat_id field
-	- start: start with a given category
-	- level: categories level to retrieve
-	
-	@param	params	<b>array</b>		Parameters
-	@return	<b>record</b>
-	*/
-	public function getCategories($params=array())
-	{
-		$c_params = array();
-		if (isset($params['post_type'])) {
-			$c_params['post_type'] = $params['post_type'];
-			unset($params['post_type']);
-		}
-		$counter = $this->getCategoriesCounter($c_params);
-		
-		$without_empty = $this->core->auth->userID() == false; # For public display
-		
-		$start = isset($params['start']) ? (integer) $params['start'] : 0;
-		$l = isset($params['level']) ? (integer) $params['level'] : 0;
-		
-		$rs = $this->categories()->getChildren($start,null,'desc');
-		
-		# Get each categories total posts count
-		$data = array();
-		$stack = array();
-		$level = 0;
-		$cols = $rs->columns();
-		while ($rs->fetch())
-		{
-			$nb_post = isset($counter[$rs->cat_id]) ? (integer) $counter[$rs->cat_id] : 0;
-			
-			if ($rs->level > $level) {
-				$nb_total = $nb_post;
-				$stack[$rs->level] = (integer) $nb_post;
-			} elseif ($rs->level == $level) {
-				$nb_total = $nb_post;
-				$stack[$rs->level] += $nb_post;
-			} else {
-				$nb_total = $stack[$rs->level+1] + $nb_post;
-				if (isset($stack[$rs->level])) {
-					$stack[$rs->level] += $nb_total;
-				} else {
-					$stack[$rs->level] = $nb_total;
-				}
-				unset($stack[$rs->level+1]);
-			}
-			
-			if ($nb_total == 0 && $without_empty) {
-				continue;
-			}
-			
-			$level = $rs->level;
-			
-			$t = array();
-			foreach ($cols as $c) {
-				$t[$c] = $rs->f($c);
-			}
-			$t['nb_post'] = $nb_post;
-			$t['nb_total'] = $nb_total;
-			
-			if ($l == 0 || ($l > 0 && $l == $rs->level)) {
-				array_unshift($data,$t);
-			}
-		}
-		
-		# We need to apply filter after counting
-		if (isset($params['cat_id']) && $params['cat_id'] !== '')
-		{
-			$found = false;
-			foreach ($data as $v) {
-				if ($v['cat_id'] == $params['cat_id']) {
-					$found = true;
-					$data = array($v);
-					break;
-				}
-			}
-			if (!$found) {
-				$data = array();
-			}
-		}
-		
-		if (isset($params['cat_url']) && ($params['cat_url'] !== '') 
-			&& !isset($params['cat_id']))
-		{
-			$found = false;
-			foreach ($data as $v) {
-				if ($v['cat_url'] == $params['cat_url']) {
-					$found = true;
-					$data = array($v);
-					break;
-				}
-			}
-			if (!$found) {
-				$data = array();
-			}
-		}
-		
-		return staticRecord::newFromArray($data);
-	}
-	
-	/**
-	Retrieves a category by its ID.
-	
-	@param	id		<b>integer</b>		Category ID
-	@return	<b>record</b>
-	*/
-	public function getCategory($id)
-	{
-		return $this->getCategories(array('cat_id' => $id));
-	}
-	
-	/**
-	Retrieves parents of a given category.
-	
-	@param	id		<b>integer</b>		Category ID
-	@return	<b>record</b>
-	*/
-	public function getCategoryParents($id)
-	{
-		return $this->categories()->getParents($id);
-	}
-	
-	/**
-	Retrieves first parent of a given category.
-	
-	@param	id		<b>integer</b>		Category ID
-	@return	<b>record</b>
-	*/
-	public function getCategoryParent($id)
-	{
-		return $this->categories()->getParent($id);
-	}
-	
-	/**
-	Retrieves all category's first children
-	
-	@param	id		<b>integer</b>		Category ID
-	@return	<b>record</b>
-	*/
-	public function getCategoryFirstChildren($id)
-	{
-		return $this->getCategories(array('start' => $id,'level' => $id == 0 ? 1 : 2));
-	}
-	
-	private function getCategoriesCounter($params=array())
-	{
-		$strReq =
-		'SELECT  C.cat_id, COUNT(P.post_id) AS nb_post '.
-		'FROM '.$this->prefix.'category AS C '.
-		'JOIN '.$this->prefix."post P ON (C.cat_id = P.cat_id AND P.blog_id = '".$this->con->escape($this->id)."' ) ".
-		"WHERE C.blog_id = '".$this->con->escape($this->id)."' ";
-		
-		if (!$this->core->auth->userID()) {
-			$strReq .= 'AND P.post_status = 1 ';
-		}
-		
-		if (!empty($params['post_type'])) {
-			$strReq .= 'AND P.post_type '.$this->con->in($params['post_type']);
-		}
-		
-		$strReq .= 'GROUP BY C.cat_id ';
-		
-		$rs = $this->con->select($strReq);
-		$counters = array();
-		while ($rs->fetch()) {
-			$counters[$rs->cat_id] = $rs->nb_post;
-		}
-		
-		return $counters;
-	}
-	
-	/**
-	Creates a new category. Takes a cursor as input and returns the new category
-	ID.
-	
-	@param	cur		<b>cursor</b>		Category cursor
-	@return	<b>integer</b>		New category ID
-	*/
-	public function addCategory($cur,$parent=0)
-	{
-		if (!$this->core->auth->check('categories',$this->id)) {
-			throw new Exception(__('You are not allowed to add categories'));
-		}
-		
-		$url = array();
-		if ($parent != 0)
-		{
-			$rs = $this->getCategory($parent);
-			if ($rs->isEmpty()) {
-				$url = array();
-			} else {
-				$url[] = $rs->cat_url;
-			}
-		}
-		
-		if ($cur->cat_url == '') {
-			$url[] = text::tidyURL($cur->cat_title,false);
-		} else {
-			$url[] = $cur->cat_url;
-		}
-		
-		$cur->cat_url = implode('/',$url);
-		
-		$this->getCategoryCursor($cur);
-		$cur->blog_id = (string) $this->id;
-		
-		# --BEHAVIOR-- coreBeforeCategoryCreate
-		$this->core->callBehavior('coreBeforeCategoryCreate',$this,$cur);
-		
-		$this->categories()->addNode($cur,$parent);
-		
-		# --BEHAVIOR-- coreAfterCategoryCreate
-		$this->core->callBehavior('coreAfterCategoryCreate',$this,$cur);
-		$this->triggerBlog();
-		
-		return $cur->cat_id;
-	}
-	
-	/**
-	Updates an existing category.
-	
-	@param	id		<b>integer</b>		Category ID
-	@param	cur		<b>cursor</b>		Category cursor
-	*/
-	public function updCategory($id,$cur)
-	{
-		if (!$this->core->auth->check('categories',$this->id)) {
-			throw new Exception(__('You are not allowed to update categories'));
-		}
-		
-		if ($cur->cat_url == '')
-		{
-			$url = array();
-			$rs = $this->categories()->getParents($id);
-			while ($rs->fetch()) {
-				if ($rs->index() == $rs->count()-1) {
-					$url[] = $rs->cat_url;
-				}
-			}
-			
-			
-			$url[] = text::tidyURL($cur->cat_title,false);
-			$cur->cat_url = implode('/',$url);
-		}
-		
-		$this->getCategoryCursor($cur,$id);
-		
-		# --BEHAVIOR-- coreBeforeCategoryUpdate
-		$this->core->callBehavior('coreBeforeCategoryUpdate',$this,$cur);
-		
-		$cur->update(
-		'WHERE cat_id = '.(integer) $id.' '.
-		"AND blog_id = '".$this->con->escape($this->id)."' ");
-		
-		# --BEHAVIOR-- coreAfterCategoryUpdate
-		$this->core->callBehavior('coreAfterCategoryUpdate',$this,$cur);
-		
-		$this->triggerBlog();
-	}
-	
-	/**
-	DEPRECATED METHOD. Use dcBlog::setCategoryParent and dcBlog::moveCategory
-	instead.
-	
-	@param	id		<b>integer</b>		Category ID
-	@param	order	<b>integer</b>		Category position
-	*/
-	public function updCategoryOrder($id,$order)
-	{
-		return;
-	}
-	
-	/**
-	Set a category parent
-	
-	@param	id		<b>integer</b>		Category ID
-	@param	parent	<b>integer</b>		Parent Category ID
-	*/
-	public function setCategoryParent($id,$parent)
-	{
-		$this->categories()->setNodeParent($id,$parent);
-		$this->triggerBlog();
-	}
-	
-	/**
-	Set category position
-	
-	@param	id		<b>integer</b>		Category ID
-	@param	sibling	<b>integer</b>		Sibling Category ID
-	@param	move		<b>integer</b>		Order (before|after)
-	*/
-	public function setCategoryPosition($id,$sibling,$move)
-	{
-		$this->categories()->setNodePosition($id,$sibling,$move);
-		$this->triggerBlog();
-	}
-	
-	/**
-	Deletes a category.
-	
-	@param	id		<b>integer</b>		Category ID
-	*/
-	public function delCategory($id)
-	{
-		if (!$this->core->auth->check('categories',$this->id)) {
-			throw new Exception(__('You are not allowed to delete categories'));
-		}
-		
-		$strReq = 'SELECT COUNT(post_id) AS nb_post '.
-				'FROM '.$this->prefix.'post '.
-				'WHERE cat_id = '.(integer) $id.' '.
-				"AND blog_id = '".$this->con->escape($this->id)."' ";
-		
-		$rs = $this->con->select($strReq);
-		
-		if ($rs->nb_post > 0) {
-			throw new Exception(__('This category is not empty.'));
-		}
-		
-		$this->categories()->deleteNode($id,true);
-		$this->triggerBlog();
-	}
-	
-	/**
-	Reset categories order and relocate them to first level
-	*/
-	public function resetCategoriesOrder()
-	{
-		if (!$this->core->auth->check('categories',$this->id)) {
-			throw new Exception(__('You are not allowed to reset categories order'));
-		}
-		
-		$this->categories()->resetOrder();
-		$this->triggerBlog();
-	}
-	
-	private function checkCategory($title,$url,$id=null)
-	{
-		$strReq = 'SELECT cat_id '.
-				'FROM '.$this->prefix.'category '.
-				"WHERE cat_url = '".$this->con->escape($url)."' ".
-				"AND blog_id = '".$this->con->escape($this->id)."' ";
-		
-		if ($id !== null) {
-			$strReq .= 'AND cat_id <> '.(integer) $id.' ';
-		}
-		
-		$rs = $this->con->select($strReq);
-		
-		if (!$rs->isEmpty()) {
-			throw new Exception(__('Category URL must be unique.'));
-		}
-	}
-	
-	private function getCategoryCursor($cur,$id=null)
-	{
-		if ($cur->cat_title == '') {
-			throw new Exception(__('You must provide a category title'));
-		}
-		
-		# If we don't have any cat_url, let's do one
-		if ($cur->cat_url == '') {
-			$cur->cat_url = text::tidyURL($cur->cat_title,false);
-		}
-		
-		# Still empty ?
-		if ($cur->cat_url == '') {
-			throw new Exception(__('You must provide a category URL'));
-		} else {
-			$cur->cat_url = text::tidyURL($cur->cat_url,true);
-		}
-		
-		# Check if title or url are unique
-		$this->checkCategory($cur->cat_title,$cur->cat_url,$id);
-		
-		if ($cur->cat_desc !== null) {
-			$cur->cat_desc = $this->core->HTMLfilter($cur->cat_desc);
-		}
-	}
-	//@}
 	
 	/// @name Entries management methods
 	//@{
@@ -579,10 +178,6 @@ class dcBlog
 	- post_id: (integer) Get entry with given post_id
 	- post_url: Get entry with given post_url field
 	- user_id: (integer) Get entries belonging to given user ID
-	- cat_id: (string or array) Get entries belonging to given category ID
-	- cat_id_not: deprecated (use cat_id with "id ?not" instead)
-	- cat_url: (string or array) Get entries belonging to given category URL
-	- cat_url_not: deprecated (use cat_url with "url ?not" instead)
 	- post_status: (integer) Get entries with given post_status
 	- post_selected: (boolean) Get select flaged entries
 	- post_year: (integer) Get entries with given year
@@ -596,9 +191,6 @@ class dcBlog
 	- order: Order of results (default "ORDER BY post_dt DES")
 	- limit: Limit parameter
 	- sql_only : return the sql request instead of results. Only ids are selected
-	
-	Please note that on every cat_id or cat_url, you can add ?not to exclude
-	the category and ?sub to get subcategories.
 	
 	@param	params		<b>array</b>		Parameters
 	@param	count_only	<b>boolean</b>		Only counts results
@@ -633,19 +225,17 @@ class dcBlog
 			}
 			
 			$strReq =
-			'SELECT P.post_id, P.blog_id, P.user_id, P.cat_id, post_dt, '.
+			'SELECT P.post_id, P.blog_id, P.user_id, post_dt, '.
 			'post_tz, post_creadt, post_upddt, post_format, post_password, '.
 			'post_url, post_lang, post_title, '.$content_req.
 			'post_type, post_meta, post_status, post_selected, post_position, '.
 			'U.user_name, U.user_firstname, U.user_displayname, U.user_email, '.
-			'U.user_url, '.
-			'C.cat_title, C.cat_url, C.cat_desc ';
+			'U.user_url ';
 		}
 		
 		$strReq .=
 		'FROM '.$this->prefix.'post P '.
-		'INNER JOIN '.$this->prefix.'user U ON U.user_id = P.user_id '.
-		'LEFT OUTER JOIN '.$this->prefix.'category C ON P.cat_id = C.cat_id ';
+		'INNER JOIN '.$this->prefix.'user U ON U.user_id = P.user_id ';
 		
 		if (!empty($params['from'])) {
 			$strReq .= $params['from'].' ';
@@ -696,27 +286,6 @@ class dcBlog
 		
 		if (!empty($params['user_id'])) {
 			$strReq .= "AND U.user_id = '".$this->con->escape($params['user_id'])."' ";
-		}
-		
-		if (isset($params['cat_id']) && $params['cat_id'] !== '')
-		{
-			if (!is_array($params['cat_id'])) {
-				$params['cat_id'] = array($params['cat_id']);
-			}
-			if (!empty($params['cat_id_not'])) {
-				array_walk($params['cat_id'],create_function('&$v,$k','$v=$v." ?not";'));
-			}
-			$strReq .= 'AND '.$this->getPostsCategoryFilter($params['cat_id'],'cat_id').' ';
-		}
-		elseif (isset($params['cat_url']) && $params['cat_url'] !== '')
-		{
-			if (!is_array($params['cat_url'])) {
-				$params['cat_url'] = array($params['cat_url']);
-			}
-			if (!empty($params['cat_url_not'])) {
-				array_walk($params['cat_url'],create_function('&$v,$k','$v=$v." ?not";'));
-			}
-			$strReq .= 'AND '.$this->getPostsCategoryFilter($params['cat_url'],'cat_url').' ';
 		}
 		
 		/* Other filters */
@@ -807,11 +376,10 @@ class dcBlog
 	
 	@param	post_id				<b>integer</b>		Post ID
 	@param	dir					<b>integer</b>		Search direction
-	@param	restrict_to_category	<b>boolean</b>		Restrict to post with same category
 	@param	restrict_to_lang		<b>boolean</b>		Restrict to post with same lang
 	@return	record
 	*/
-	public function getNextPost($post,$dir,$restrict_to_category=false, $restrict_to_lang=false)
+	public function getNextPost($post, $dir, $restrict_to_lang=false)
 	{
 		$dt = $post->post_dt;
 		$post_id = (integer) $post->post_id;
@@ -833,10 +401,6 @@ class dcBlog
 		"	(post_dt = '".$this->con->escape($dt)."' AND P.post_id ".$sign." ".$post_id.") ".
 		"	OR post_dt ".$sign." '".$this->con->escape($dt)."' ".
 		') ';
-		
-		if ($restrict_to_category) {
-			$params['sql'] .= $post->cat_id ? 'AND P.cat_id = '.(integer) $post->cat_id.' ' : 'AND P.cat_id IS NULL ';
-		}
 		
 		if ($restrict_to_lang) {
 			$params['sql'] .= $post->post_lang ? 'AND P.post_lang = \''. $this->con->escape($post->post_lang) .'\' ': 'AND P.post_lang IS NULL ';
@@ -917,8 +481,6 @@ class dcBlog
 	- year: (integer) Get dates for given year
 	- month: (integer) Get dates for given month
 	- day: (integer) Get dates for given day
-	- cat_id: (integer) Category ID filter
-	- cat_url: Category URL filter
 	- post_lang: lang of the posts
 	- next: Get date following match
 	- previous: Get date before match
@@ -945,22 +507,13 @@ class dcBlog
 		
 		$cat_field = $catReq = $limit = '';
 		
-		if (isset($params['cat_id']) && $params['cat_id'] !== '') {
-			$catReq = 'AND P.cat_id = '.(integer) $params['cat_id'].' ';
-			$cat_field = ', C.cat_url ';
-		} elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
-			$catReq = "AND C.cat_url = '".$this->con->escape($params['cat_url'])."' ";
-			$cat_field = ', C.cat_url ';
-		}
 		if (!empty($params['post_lang'])) {
 			$catReq = 'AND P.post_lang = \''. $params['post_lang'].'\' ';
 		}
 		
 		$strReq = 'SELECT DISTINCT('.$this->con->dateFormat('post_dt',$dt_f).') AS dt '.
-				$cat_field.
 				',COUNT(P.post_id) AS nb_post '.
-				'FROM '.$this->prefix.'post P LEFT JOIN '.$this->prefix.'category C '.
-				'ON P.cat_id = C.cat_id '.
+				'FROM '.$this->prefix.'post P '.
 				"WHERE P.blog_id = '".$this->con->escape($this->id)."' ".
 				$catReq;
 		
@@ -1015,8 +568,6 @@ class dcBlog
 			$strReq .= 'AND '.$this->con->dateFormat('post_dt',$dt_fc).$pdir."'".$dt."' ";
 			$limit = $this->con->limit(1);
 		}
-		
-		$strReq .= 'GROUP BY dt '.$cat_field;
 		
 		$order = 'desc';
 		if (!empty($params['order']) && preg_match('/^(desc|asc)$/i',$params['order'])) {
@@ -1195,10 +746,6 @@ class dcBlog
 	
 	public function updPostSelected($id,$selected)
 	{
-		if (!$this->core->auth->check('usage,contentadmin',$this->id)) {
-			throw new Exception(__('You are not allowed to change this entry category'));
-		}
-		
 		$id = (integer) $id;
 		$selected = (boolean) $selected;
 		
@@ -1221,49 +768,6 @@ class dcBlog
 		$cur = $this->con->openCursor($this->prefix.'post');
 		
 		$cur->post_selected = (integer) $selected;
-		$cur->post_upddt = date('Y-m-d H:i:s');
-		
-		$cur->update(
-			'WHERE post_id = '.$id.' '.
-			"AND blog_id = '".$this->con->escape($this->id)."' "
-		);
-		$this->triggerBlog();
-	}
-	
-	/**
-	Updates post category. <var>$cat_id</var> can be null.
-	
-	@param	id		<b>integer</b>		Post ID
-	@param	cat_id	<b>integer</b>		Category ID
-	*/
-	public function updPostCategory($id,$cat_id)
-	{
-		if (!$this->core->auth->check('usage,contentadmin',$this->id)) {
-			throw new Exception(__('You are not allowed to change this entry category'));
-		}
-		
-		$id = (integer) $id;
-		$cat_id = (integer) $cat_id;
-		
-		# If user is only usage, we need to check the post's owner
-		if (!$this->core->auth->check('contentadmin',$this->id))
-		{
-			$strReq = 'SELECT post_id '.
-					'FROM '.$this->prefix.'post '.
-					'WHERE post_id = '.$id.' '.
-					"AND blog_id = '".$this->con->escape($this->id)."' ".
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$rs = $this->con->select($strReq);
-			
-			if ($rs->isEmpty()) {
-				throw new Exception(__('You are not allowed to change this entry category'));
-			}
-		}
-		
-		$cur = $this->con->openCursor($this->prefix.'post');
-		
-		$cur->cat_id = ($cat_id ? $cat_id : null);
 		$cur->post_upddt = date('Y-m-d H:i:s');
 		
 		$cur->update(
@@ -1387,75 +891,6 @@ class dcBlog
 		$strReq .= 'GROUP BY P.user_id, user_name, user_firstname, user_displayname, user_email ';
 		
 		return $this->con->select($strReq);
-	}
-	
-	private function getPostsCategoryFilter($arr,$field='cat_id')
-	{
-		$field = $field == 'cat_id' ? 'cat_id' : 'cat_url';
-		
-		$sub = array();
-		$not = array();
-		$queries = array();
-		
-		foreach ($arr as $v)
-		{
-			$v = trim($v);
-			$args = preg_split('/\s*[?]\s*/',$v,-1,PREG_SPLIT_NO_EMPTY);
-			$id = array_shift($args);
-			$args = array_flip($args);
-			
-			if (isset($args['not'])) { $not[$id] = 1; }
-			if (isset($args['sub'])) { $sub[$id] = 1; }
-			if ($field == 'cat_id') {
-				if (preg_match('/^null$/i',$id)) {
-					$queries[$id] = 'P.cat_id IS NULL';
-				}
-				else {
-					$queries[$id] = 'P.cat_id = '.(integer) $id;
-				}
-			} else {
-				$queries[$id] = "C.cat_url = '".$this->con->escape($id)."' ";
-			}
-		}
-		
-		if (!empty($sub)) {
-			$rs = $this->con->select(
-				'SELECT cat_id, cat_url, cat_lft, cat_rgt FROM '.$this->prefix.'category '.
-				"WHERE blog_id = '".$this->con->escape($this->id)."' ".
-				'AND '.$field.' '.$this->con->in(array_keys($sub))
-			);
-			
-			while ($rs->fetch()) {
-				$queries[$rs->f($field)] = '(C.cat_lft BETWEEN '.$rs->cat_lft.' AND '.$rs->cat_rgt.')';
-			}
-		}
-		
-		# Create queries
-		$sql = array(
-			0 => array(), # wanted categories
-			1 => array()  # excluded categories
-		);
-		
-		foreach ($queries as $id => $q) {
-			$sql[(integer) isset($not[$id])][] = $q;
-		}
-		
-		$sql[0] = implode(' OR ',$sql[0]);
-		$sql[1] = implode(' OR ',$sql[1]);
-		
-		if ($sql[0]) {
-			$sql[0] = '('.$sql[0].')';
-		} else {
-			unset($sql[0]);
-		}
-		
-		if ($sql[1]) {
-			$sql[1] = '(P.cat_id IS NULL OR NOT('.$sql[1].'))';
-		} else {
-			unset($sql[1]);
-		}
-		
-		return implode(' AND ',$sql);
 	}
 	
 	private function getPostCursor($cur,$post_id=null)

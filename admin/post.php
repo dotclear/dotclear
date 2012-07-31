@@ -15,7 +15,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 $post_id = '';
-$cat_id = '';
 $post_dt = '';
 $post_format = $core->auth->getOption('post_format');
 $post_password = '';
@@ -46,18 +45,6 @@ $next_link = $prev_link = $next_headlink = $prev_headlink = null;
 if (!$can_publish) {
 	$post_status = -2;
 }
-
-# Getting categories
-$categories_combo = array('&nbsp;' => '');
-try {
-	$categories = $core->blog->getCategories(array('post_type'=>'post'));
-	while ($categories->fetch()) {
-		$categories_combo[] = new formSelectOption(
-			str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-			$categories->cat_id
-		);
-	}
-} catch (Exception $e) { }
 
 # Status combo
 foreach ($core->blog->getAllPostStatus() as $k => $v) {
@@ -100,7 +87,6 @@ if (!empty($_REQUEST['id']))
 	else
 	{
 		$post_id = $post->post_id;
-		$cat_id = $post->cat_id;
 		$post_dt = date('Y-m-d H:i',strtotime($post->post_dt));
 		$post_format = $post->post_format;
 		$post_password = $post->post_password;
@@ -152,8 +138,6 @@ if (!empty($_POST) && $can_edit_post)
 	
 	$post_title = $_POST['post_title'];
 	
-	$cat_id = (integer) $_POST['cat_id'];
-	
 	if (isset($_POST['post_status'])) {
 		$post_status = (integer) $_POST['post_status'];
 	}
@@ -187,7 +171,6 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post)
 	$cur = $core->con->openCursor($core->prefix.'post');
 	
 	$cur->post_title = $post_title;
-	$cur->cat_id = ($cat_id ? $cat_id : null);
 	$cur->post_dt = $post_dt ? date('Y-m-d H:i:00',strtotime($post_dt)) : '';
 	$cur->post_format = $post_format;
 	$cur->post_password = $post_password;
@@ -388,10 +371,6 @@ if ($can_edit_post)
 	echo '<div id="entry-sidebar">';
 	
 	echo
-	'<p><label for="cat_id">'.__('Category:').
-	form::combo('cat_id',$categories_combo,$cat_id,'maximal').
-	'</label></p>'.
-	
 	'<p><label for="post_status">'.__('Entry status:').
 	form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
 	'</label></p>'.

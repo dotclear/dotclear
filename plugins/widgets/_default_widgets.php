@@ -32,10 +32,6 @@ $__widgets->create('langs',__('Blog languages'),array('defaultWidgets','langs'))
 $__widgets->langs->setting('title',__('Title:'),__('Languages'));
 $__widgets->langs->setting('homeonly',__('Home page only'),1,'check');
 
-$__widgets->create('categories',__('Categories list'),array('defaultWidgets','categories'));
-$__widgets->categories->setting('title',__('Title:'),__('Categories'));
-$__widgets->categories->setting('postcount',__('With entries counts'),0,'check');
-
 $__widgets->create('subscribe',__('Subscribe links'),array('defaultWidgets','subscribe'));
 $__widgets->subscribe->setting('title',__('Title:'),__('Subscribe'));
 $__widgets->subscribe->setting('type',__('Feeds type:'),'atom','combo',array('Atom' => 'atom', 'RSS' => 'rss2'));
@@ -54,13 +50,6 @@ $__widgets->text->setting('homeonly',__('Home page only'),0,'check');
 
 $__widgets->create('lastposts',__('Last entries'),array('defaultWidgets','lastposts'));
 $__widgets->lastposts->setting('title',__('Title:'),__('Last entries'));
-$rs = $core->blog->getCategories(array('post_type'=>'post'));
-$categories = array('' => '', __('Uncategorized') => 'null');
-while ($rs->fetch()) {
-	$categories[str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title)] = $rs->cat_id;
-}
-$__widgets->lastposts->setting('category',__('Category:'),'','combo',$categories);
-unset($rs,$categories);
 if ($core->plugins->moduleExists('tags')) {
 	$__widgets->lastposts->setting('tag',__('Tag:'),'');
 }
@@ -83,7 +72,6 @@ $__default_widgets = array('nav'=> new dcWidgets(), 'extra'=> new dcWidgets(), '
 $__default_widgets['nav']->append($__widgets->search);
 $__default_widgets['nav']->append($__widgets->navigation);
 $__default_widgets['nav']->append($__widgets->bestof);
-$__default_widgets['nav']->append($__widgets->categories);
 $__default_widgets['extra']->append($__widgets->subscribe);
 
 # --BEHAVIOR-- initDefaultWidgets

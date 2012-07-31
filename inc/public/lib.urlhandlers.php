@@ -247,41 +247,6 @@ class dcUrlHandlers extends urlHandler
 		}
 	}
 	
-	public static function category($args)
-	{
-		$_ctx =& $GLOBALS['_ctx'];
-		$core =& $GLOBALS['core'];
-		
-		$n = self::getPageNumber($args);
-		
-		if ($args == '' && !$n) {
-			# No category was specified.
-			self::p404();
-		}
-		else
-		{
-			$params = new ArrayObject(array(
-				'cat_url' => $args,
-				'post_type' => 'post'));
-			
-			$core->callBehavior('publicCategoryBeforeGetCategories',$params,$args);
-			
-			$_ctx->categories = $core->blog->getCategories($params);
-			
-			if ($_ctx->categories->isEmpty()) {
-				# The specified category does no exist.
-				self::p404();
-			}
-			else
-			{
-				if ($n) {
-					$GLOBALS['_page_number'] = $n;
-				}
-				self::serveDocument('category.html');
-			}
-		}
-	}
-	
 	public static function archive($args)
 	{
 		$_ctx =& $GLOBALS['_ctx'];
