@@ -334,30 +334,6 @@ class rsExtPost
 		}
 	}
 	
-	/**
-	Returns post media count using a subquery.
-	
-	@param	rs	Invisible parameter
-	@return	<b>integer</b>
-	*/
-	public static function countMedia($rs)
-	{
-		if (isset($rs->_nb_media[$rs->index()]))
-		{
-			return $rs->_nb_media[$rs->index()];
-		}
-		else
-		{
-			$strReq =
-			'SELECT count(media_id) '.
-			'FROM '.$rs->core->prefix.'post_media '.
-			'WHERE post_id = '.(integer) $rs->post_id.' ';
-			
-			$res = (integer) $rs->core->con->select($strReq)->f(0);
-			$rs->_nb_media[$rs->index()] = $res;
-			return $res;
-		}
-	}
 }
 
 /**

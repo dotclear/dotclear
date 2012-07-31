@@ -19,7 +19,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 $core->rest->addFunction('getPostById',array('dcRestMethods','getPostById'));
 $core->rest->addFunction('quickPost',array('dcRestMethods','quickPost'));
 $core->rest->addFunction('validatePostMarkup',array('dcRestMethods','validatePostMarkup'));
-$core->rest->addFunction('getZipMediaContent',array('dcRestMethods','getZipMediaContent'));
 $core->rest->addFunction('getMeta',array('dcRestMethods','getMeta'));
 $core->rest->addFunction('delMeta',array('dcRestMethods','delMeta'));
 $core->rest->addFunction('setPostMeta',array('dcRestMethods','setPostMeta'));
@@ -158,35 +157,6 @@ class dcRestMethods
 		
 		$rsp->valid($v['valid']);
 		$rsp->errors($v['errors']);
-		
-		return $rsp;
-	}
-	
-	public static function getZipMediaContent($core,$get,$post)
-	{
-		if (empty($get['id'])) {
-			throw new Exception('No media ID');
-		}
-		
-		$id = (integer) $get['id'];
-		
-		if (!$core->auth->check('media,media_admin',$core->blog)) {
-			throw new Exception('Permission denied');
-		}
-		
-		$core->media = new dcMedia($core);
-		$file = $core->media->getFile($id);
-		
-		if ($file === null || $file->type != 'application/zip' || !$file->editable) {
-			throw new Exception('Not a valid file');
-		}
-		
-		$rsp = new xmlTag('result');
-		$content = $core->media->getZipContent($file);
-		
-		foreach ($content as $k => $v) {
-			$rsp->file($k);
-		}
 		
 		return $rsp;
 	}

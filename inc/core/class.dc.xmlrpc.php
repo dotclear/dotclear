@@ -74,10 +74,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 			array('array','string','string','string','integer'),
 			'List of most recent posts in the system');
 		
-		$this->addCallback('metaWeblog.newMediaObject',array($this,'mw_newMediaObject'),
-			array('struct','string','string','string','struct'),
-			'Upload a file on the web server');
-		
 		# MovableType methods
 		$this->addCallback('mt.getRecentPostTitles',array($this,'mt_getRecentPostTitles'),
 			array('array','string','string','string','integer'),
@@ -574,51 +570,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		return true;
 	}
 	
-	private function newMediaObject($blog_id,$user,$pwd,$file)
-	{
-		if (empty($file['name'])) {
-			throw new Exception('No file name');
-		}
-		
-		if (empty($file['bits'])) {
-			throw new Exception('No file content');
-		}
-		
-		$file_name = $file['name'];
-		$file_bits = $file['bits'];
-		
-		$this->setUser($user,$pwd);
-		$this->setBlog();
-		
-		$media = new dcMedia($this->core);
-		
-		$dir_name = path::clean(dirname($file_name));
-		$file_name = basename($file_name);
-		
-		$dir_name = preg_replace('!^/!','',$dir_name);
-		if ($dir_name != '')
-		{
-			$dir = explode('/',$dir_name);
-			$cwd = './';
-			foreach ($dir as $v)
-			{
-				$v = files::tidyFileName($v);
-				$cwd .= $v.'/';
-				$media->makeDir($v);
-				$media->chdir($cwd);
-			}
-		}
-		
-		$media_id = $media->uploadBits($file_name,$file_bits);
-		
-		$f = $media->getFile($media_id);
-		return array(
-			'file' => $file_name,
-			'url' => $f->file_url,
-			'type' => files::getMimeType($file_name)
-		);
-	}
-	
 	private function translateWpStatus($s)
 	{
 		$status = array(
@@ -939,11 +890,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		return $this->getRecentPosts($blogid,$username,$password,$numberOfPosts,'mw');
 	}
 	
-	public function mw_newMediaObject($blogid,$username,$password,$file)
-	{
-		return $this->newMediaObject($blogid,$username,$password,$file);
-	}
-	
 	/* MovableType methods
 	--------------------------------------------------- */
 	public function mt_getRecentPostTitles($blogid,$username,$password,$numberOfPosts)
@@ -1023,11 +969,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 	public function wp_getTags($blogid,$username,$password)
 	{
 		return $this->getTags($username,$password);
-	}
-	
-	public function wp_uploadFile($blogid,$username,$password,$file)
-	{
-		return $this->newMediaObject($blogid,$username,$password,$file);
 	}
 	
 	public function wp_getPostStatusList($blogid,$username,$password)

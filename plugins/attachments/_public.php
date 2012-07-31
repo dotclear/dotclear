@@ -12,7 +12,7 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 # Attachments
-$core->tpl->addBlock('Attachments',array('attachmentTpl','Attachments'));
+/*$core->tpl->addBlock('Attachments',array('attachmentTpl','Attachments'));
 $core->tpl->addBlock('AttachmentsHeader',array('attachmentTpl','AttachmentsHeader'));
 $core->tpl->addBlock('AttachmentsFooter',array('attachmentTpl','AttachmentsFooter'));
 $core->tpl->addValue('AttachmentMimeType',array('attachmentTpl','AttachmentMimeType'));
@@ -28,7 +28,7 @@ $core->tpl->addBlock('AttachmentIf',array('attachmentTpl','AttachmentIf'));
 $core->tpl->addValue('EntryAttachmentCount',array('attachmentTpl','EntryAttachmentCount'));
 
 $core->addBehavior('tplIfConditions',array('attachmentBehavior','tplIfConditions'));
-
+*/
 class attachmentTpl {
 	
 	/*dtd

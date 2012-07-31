@@ -123,9 +123,6 @@ if (!empty($_REQUEST['id']))
 				html::escapeHTML($prev_rs->post_title),$prev_rs->post_id);
 		}
 		
-		try {
-			$core->media = new dcMedia($core);
-		} catch (Exception $e) {}
 	}
 }
 

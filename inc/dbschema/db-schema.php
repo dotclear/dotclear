@@ -111,29 +111,6 @@ $_s->post
 	->unique('uk_post_url','post_url','post_type','blog_id')
 	;
 
-$_s->media
-	->media_id		('bigint',	0,	false)
-	->user_id			('varchar',	32,	false)
-	->media_path		('varchar',	255,	false)
-	->media_title		('varchar',	255,	false)
-	->media_file		('varchar',	255,	false)
-	->media_dir		('varchar',	255,	false,	"'.'")
-	->media_meta		('text',		0,	true,	null)
-	->media_dt		('timestamp',	0,	false,	'now()')
-	->media_creadt		('timestamp',	0,	false,	'now()')
-	->media_upddt		('timestamp',	0,	false,	'now()')
-	->media_private	('smallint',	0,	false,	0)
-	
-	->primary('pk_media','media_id')
-	;
-
-$_s->post_media
-	->media_id	('bigint',	0,	false)
-	->post_id		('bigint',	0,	false)
-	->link_type		('varchar',	32,	false,	"'attachment'")
-	
-	->primary('pk_post_media','media_id','post_id','link_type')
-	;
 
 $_s->log
 	->log_id		('bigint',	0,	false)
@@ -180,9 +157,6 @@ $_s->user->index		('idx_user_user_default_blog',	'btree',	'user_default_blog');
 $_s->permissions->index	('idx_permissions_blog_id',		'btree',	'blog_id');
 $_s->post->index		('idx_post_user_id',			'btree',	'user_id');
 $_s->post->index		('idx_post_blog_id',			'btree',	'blog_id');
-$_s->media->index		('idx_media_user_id',			'btree',	'user_id');
-$_s->post_media->index	('idx_post_media_post_id',		'btree',	'post_id');
-$_s->post_media->index	('idx_post_media_media_id',		'btree',	'media_id');
 $_s->log->index		('idx_log_user_id',				'btree',	'user_id');
 $_s->meta->index		('idx_meta_post_id',	'btree','post_id');
 $_s->meta->index		('idx_meta_meta_type',	'btree','meta_type');
@@ -205,9 +179,6 @@ $_s->permissions->reference('fk_permissions_blog','blog_id','blog','blog_id','ca
 $_s->permissions->reference('fk_permissions_user','user_id','user','user_id','cascade','cascade');
 $_s->post->reference('fk_post_user','user_id','user','user_id','cascade','cascade');
 $_s->post->reference('fk_post_blog','blog_id','blog','blog_id','cascade','cascade');
-$_s->media->reference('fk_media_user','user_id','user','user_id','cascade','cascade');
-$_s->post_media->reference('fk_media','media_id','media','media_id','cascade','cascade');
-$_s->post_media->reference('fk_media_post','post_id','post','post_id','cascade','cascade');
 $_s->log->reference('fk_log_blog','blog_id','blog','blog_id','cascade','set null');
 $_s->meta->reference('fk_meta_post','post_id','post','post_id','cascade','cascade');
 $_s->pref->reference('fk_pref_user','user_id','user','user_id','cascade','cascade');
@@ -217,7 +188,6 @@ $_s->pref->reference('fk_pref_user','user_id','user','user_id','cascade','cascad
 if ($_s->driver() == 'pgsql')
 {
 	$_s->setting->index		('idx_setting_blog_id_null',	'btree',	'(blog_id IS NULL)');
-	$_s->media->index		('idx_media_media_path',		'btree',	'media_path', 'media_dir');
 	$_s->pref->index		('idx_pref_user_id_null',		'btree',	'(user_id IS NULL)');
 }
 ?>
