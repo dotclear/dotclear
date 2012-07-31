@@ -154,9 +154,6 @@ function dotclearUpgrade($core)
 				$init_fav['posts'] = array('posts','Entries','posts.php',
 					'images/menu/entries.png','images/menu/entries-b.png',
 					'usage,contentadmin',null,null);
-				$init_fav['comments'] = array('comments','Comments','comments.php',
-					'images/menu/comments.png','images/menu/comments-b.png',
-					'usage,contentadmin',null,null);
 				$init_fav['prefs'] = array('prefs','My preferences','preferences.php',
 					'images/menu/user-pref.png','images/menu/user-pref-b.png',
 					'*',null,null);

@@ -234,9 +234,6 @@ if ($core->auth->userID() && $core->blog !== null)
 	$_fav['posts'] = new ArrayObject(array('posts','Entries','posts.php',
 		'images/menu/entries.png','images/menu/entries-b.png',
 		'usage,contentadmin',null,null));
-	$_fav['comments'] = new ArrayObject(array('comments','Comments','comments.php',
-		'images/menu/comments.png','images/menu/comments-b.png',
-		'usage,contentadmin',null,null));
 	$_fav['search'] = new ArrayObject(array('search','Search','search.php',
 		'images/menu/search.png','images/menu/search-b.png',
 		'usage,contentadmin',null,null));
@@ -309,9 +306,6 @@ if ($core->auth->userID() && $core->blog !== null)
 		$core->auth->check('categories',$core->blog->id));
 	$_menu['Blog']->prependItem(__('Search'),'search.php','images/menu/search.png',
 		preg_match('/search.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
-		$core->auth->check('usage,contentadmin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Comments'),'comments.php','images/menu/comments.png',
-		preg_match('/comments.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('usage,contentadmin',$core->blog->id));
 	$_menu['Blog']->prependItem(__('Entries'),'posts.php','images/menu/entries.png',
 		preg_match('/posts.php(\?.*)?$/',$_SERVER['REQUEST_URI']),

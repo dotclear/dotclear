@@ -17,7 +17,6 @@
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 $core->rest->addFunction('getPostById',array('dcRestMethods','getPostById'));
-$core->rest->addFunction('getCommentById',array('dcRestMethods','getCommentById'));
 $core->rest->addFunction('quickPost',array('dcRestMethods','quickPost'));
 $core->rest->addFunction('validatePostMarkup',array('dcRestMethods','validatePostMarkup'));
 $core->rest->addFunction('getZipMediaContent',array('dcRestMethods','getZipMediaContent'));
@@ -69,10 +68,6 @@ class dcRestMethods
 		$rsp->post_notes($rs->post_notes);
 		$rsp->post_status($rs->post_status);
 		$rsp->post_selected($rs->post_selected);
-		$rsp->post_open_comment($rs->post_open_comment);
-		$rsp->post_open_tb($rs->post_open_tb);
-		$rsp->nb_comment($rs->nb_comment);
-		$rsp->nb_trackback($rs->nb_trackback);
 		$rsp->user_name($rs->user_name);
 		$rsp->user_firstname($rs->user_firstname);
 		$rsp->user_displayname($rs->user_displayname);
@@ -99,44 +94,6 @@ class dcRestMethods
 		return $rsp;
 	}
 	
-	public static function getCommentById($core,$get)
-	{
-		if (empty($get['id'])) {
-			throw new Exception('No comment ID');
-		}
-		
-		$rs = $core->blog->getComments(array('comment_id' => (integer) $get['id']));
-		
-		if ($rs->isEmpty()) {
-			throw new Exception('No comment for this ID');
-		}
-		
-		$rsp = new xmlTag('post');
-		$rsp->id = $rs->comment_id;
-		
-		$rsp->comment_dt($rs->comment_dt);
-		$rsp->comment_upddt($rs->comment_upddt);
-		$rsp->comment_author($rs->comment_author);
-		$rsp->comment_site($rs->comment_site);
-		$rsp->comment_content($rs->comment_content);
-		$rsp->comment_trackback($rs->comment_trackback);
-		$rsp->comment_status($rs->comment_status);
-		$rsp->post_title($rs->post_title);
-		$rsp->post_url($rs->post_url);
-		$rsp->post_id($rs->post_id);
-		$rsp->post_dt($rs->post_dt);
-		$rsp->user_id($rs->user_id);
-		
-		$rsp->comment_display_content($rs->getContent(true));
-		
-		if ($core->auth->userID()) {
-			$rsp->comment_ip($rs->comment_ip);
-			$rsp->comment_email($rs->comment_email);
-			$rsp->comment_spam_disp(dcAntispam::statusMessage($rs));
-		}
-		
-		return $rsp;
-	}
 	
 	public static function quickPost($core,$get,$post)
 	{
@@ -149,8 +106,6 @@ class dcRestMethods
 		$cur->post_format = !empty($post['post_format']) ? $post['post_format'] : 'xhtml';
 		$cur->post_lang = !empty($post['post_lang']) ? $post['post_lang'] : '';
 		$cur->post_status = !empty($post['post_status']) ? (integer) $post['post_status'] : 0;
-		$cur->post_open_comment = (integer) $core->blog->settings->system->allow_comments;
-		$cur->post_open_tb = (integer) $core->blog->settings->system->allow_trackbacks;
 		
 		# --BEHAVIOR-- adminBeforePostCreate
 		$core->callBehavior('adminBeforePostCreate',$cur);

@@ -186,33 +186,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 			array('struct','integer','string','string','struct'),
 			'Update blog options');
 		
-		$this->addCallback('wp.getComment',array($this,'wp_getComment'),
-			array('struct','integer','string','string','integer'),
-			"Gets a comment, given it's comment ID.");
-		
-		$this->addCallback('wp.getCommentCount',array($this,'wp_getCommentCount'),
-			array('array','integer','string','string','integer'),
-			'Retrieve comment count.');
-		
-		$this->addCallback('wp.getComments',array($this,'wp_getComments'),
-			array('array','integer','string','string','struct'),
-			'Gets a set of comments for a given post.');
-		
-		$this->addCallback('wp.deleteComment',array($this,'wp_deleteComment'),
-			array('boolean','integer','string','string','integer'),
-			'Delete a comment with given ID.');
-		
-		$this->addCallback('wp.editComment',array($this,'wp_editComment'),
-			array('boolean','integer','string','string','integer','struct'),
-			'Edit a comment with given ID.');
-		
-		$this->addCallback('wp.newComment',array($this,'wp_newComment'),
-			array('integer','integer','string','string','integer','struct'),
-			'Create a new comment for a given post ID.');
-		
-		$this->addCallback('wp.getCommentStatusList',array($this,'wp_getCommentStatusList'),
-			array('array','integer','string','string'),
-			'Retrieve all of the comment statuses.');
 	}
 	
 	public function serve($data=false,$encoding='UTF-8')
@@ -334,8 +307,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$excerpt = !empty($struct['mt_excerpt']) ? $struct['mt_excerpt'] : '';
 		$description = !empty($struct['description']) ? $struct['description'] : null;
 		$dateCreated = !empty($struct['dateCreated']) ? $struct['dateCreated'] : null;
-		$open_comment = isset($struct['mt_allow_comments']) ? $struct['mt_allow_comments'] : 1;
-		$open_tb = isset($struct['mt_allow_pings']) ? $struct['mt_allow_pings'] : 1;
 		
 		if ($description !== null) {
 			$content = $description;
@@ -361,8 +332,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$cur->post_excerpt = $excerpt;
 		$cur->post_content_xhtml = $content_xhtml;
 		$cur->post_excerpt_xhtml = $excerpt_xhtml;
-		$cur->post_open_comment = (integer) ($open_comment == 1);
-		$cur->post_open_tb = (integer) ($open_tb == 1);
 		$cur->post_status = (integer) $publish;
 		$cur->post_format = 'xhtml';
 		
@@ -439,8 +408,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$excerpt = (!empty($struct['mt_excerpt'])) ? $struct['mt_excerpt'] : '';
 		$description = (!empty($struct['description'])) ? $struct['description'] : null;
 		$dateCreated = !empty($struct['dateCreated']) ? $struct['dateCreated'] : null;
-		$open_comment = (isset($struct['mt_allow_comments'])) ? $struct['mt_allow_comments'] : 1;
-		$open_tb = (isset($struct['mt_allow_pings'])) ? $struct['mt_allow_pings'] : 1;
 		
 		if ($description !== null) {
 			$content = $description;
@@ -465,8 +432,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$cur->post_excerpt = $excerpt;
 		$cur->post_content_xhtml = $content_xhtml;
 		$cur->post_excerpt_xhtml = $excerpt_xhtml;
-		$cur->post_open_comment = (integer) ($open_comment == 1);
-		$cur->post_open_tb = (integer) ($open_tb == 1);
 		$cur->post_status = (integer) $publish;
 		$cur->post_format = 'xhtml';
 		$cur->post_url = $post->post_url;
@@ -556,8 +521,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 			$res['link'] = $res['permaLink'] = $post->getURL();
 			$res['mt_excerpt'] = $post->post_excerpt_xhtml;
 			$res['mt_text_more'] = '';
-			$res['mt_allow_comments'] = (integer) $post->post_open_comment;
-			$res['mt_allow_pings'] = (integer) $post->post_open_tb;
 			$res['mt_convert_breaks'] = '';
 			$res['mt_keywords'] = '';
 		}
@@ -620,8 +583,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 				$tres['link'] = $tres['permaLink'] = $posts->getURL();
 				$tres['mt_excerpt'] = $posts->post_excerpt_xhtml;
 				$tres['mt_text_more'] = '';
-				$tres['mt_allow_comments'] = (integer) $posts->post_open_comment;
-				$tres['mt_allow_pings'] = (integer) $posts->post_open_tb;
 				$tres['mt_convert_breaks'] = '';
 				$tres['mt_keywords'] = '';
 			}
@@ -831,21 +792,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		}
 	}
 	
-	private function translateWpCommentstatus($s)
-	{
-		$status = array(
-			'hold' => -1,
-			'approve' => 0,
-			'spam' => -2
-		);
-		
-		if (is_int($s)) {
-			$status = array_flip($status);
-			return isset($status[$s]) ? $status[$s] : $status[0];
-		} else {
-			return isset($status[$s]) ? $status[$s] : $status['approve'];
-		}
-	}
 	
 	private function translateWpOptions($options=array())
 	{
@@ -985,8 +931,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 				"categories"			=> array(),
 				"excerpt"				=> $posts->post_excerpt_xhtml,
 				"text_more"			=> '',
-				"mt_allow_comments"		=> (integer) $posts->post_open_comment,
-				"mt_allow_pings"		=> (integer) $posts->post_open_tb,
 				"wp_slug"				=> $posts->post_url,
 				"wp_password"			=> $posts->post_password,
 				"wp_author"			=> $posts->getAuthorCN(),
@@ -1158,159 +1102,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 			);
 		}
 		return $res;
-	}
-	
-	private function countComments($user,$pwd,$post_id)
-	{
-		$this->setUser($user,$pwd);
-		$this->setBlog();
-		
-		$res = array(
-			'approved' => 0,
-			'awaiting_moderation' => 0,
-			'spam' => 0,
-			'total' => 0
-		);
-		$rs = $this->core->blog->getComments(array('post_id' => $post_id));
-		
-		while ($rs->fetch()) {
-			$res['total']++;
-			if ($rs->comment_status == 1) {
-				$res['approved']++;
-			} elseif ($rs->comment_status == -2) {
-				$res['spam']++;
-			} else {
-				$res['awaiting_moderation']++;
-			}
-		}
-		return $res;
-	}
-	
-	private function getComments($user,$pwd,$struct,$id=null)
-	{
-		$this->setUser($user,$pwd);
-		$this->setBlog();
-		
-		$params = array();
-		
-		if (!empty($struct['status'])) {
-			$params['comment_status'] = $this->translateWpCommentstatus($struct['status']);
-		}
-		
-		if (!empty($struct['post_id'])) {
-			$params['post_id'] = (integer) $struct['post_id'];
-		}
-		
-		if (isset($id)) {
-			$params['comment_id'] = $id;
-		}
-		
-		$offset = !empty($struct['offset']) ? (integer) $struct['offset'] : 0;
-		$limit = !empty($struct['number']) ? (integer) $struct['number'] : 10;
-		$params['limit'] = array($offset,$limit);
-		
-		$rs = $this->core->blog->getComments($params);
-		$res = array();
-		while ($rs->fetch())
-		{
-			$res[] = array(
-				'date_created_gmt'		=> new xmlrpcDate($rs->getTS()),
-				'user_id'				=> $rs->user_id,
-				'comment_id'			=> $rs->comment_id,
-				'parent'				=> 0,
-				'status'				=> $this->translateWpCommentstatus((integer) $rs->comment_status),
-				'content'				=> $rs->comment_content,
-				'link'				=> $rs->getPostURL().'#c'.$rs->comment_id,
-				'post_id'				=> $rs->post_id,
-				'post_title'			=> $rs->post_title,
-				'author'				=> $rs->comment_author,
-				'author_url'			=> $rs->comment_site,
-				'author_email'			=> $rs->comment_email,
-				'author_ip'			=> $rs->comment_ip
-			);
-		}
-		return $res;
-	}
-	
-	private function addComment($user,$pwd,$post_id,$struct)
-	{
-		$this->setUser($user,$pwd);
-		$this->setBlog();
-		
-		if (empty($struct['content'])) {
-			throw new Exception('Sorry, you cannot post an empty comment',401);
-		}
-		
-		if (is_numeric($post_id)) {
-			$p['post_id'] = $post_id;
-		} else {
-			$p['post_url'] = $post_id;
-		}
-		$rs = $this->core->blog->getPosts($p);
-		if ($rs->isEmpty()) {
-			throw new Exception('Sorry, no such post.',404);
-		}
-		
-		$cur = $this->core->con->openCursor($this->core->prefix.'comment');
-		
-		$cur->comment_author = $this->core->auth->getInfo('user_cn');
-		$cur->comment_email = $this->core->auth->getInfo('user_email');
-		$cur->comment_site = $this->core->auth->getInfo('user_url');
-		
-		$cur->comment_content = $struct['content'];
-		$cur->post_id = (integer) $post_id;
-		
-		$id = $this->core->blog->addComment($cur);
-		return $id;
-	}
-	
-	private function updComment($user,$pwd,$comment_id,$struct)
-	{
-		$this->setUser($user,$pwd);
-		$this->setBlog();
-		
-		$cur = $this->core->con->openCursor($this->core->prefix.'comment');
-		
-		if (isset($struct['status'])) {
-			$cur->comment_status = $this->translateWpCommentstatus($struct['status']);
-		}
-		
-		if (isset($struct['date_created_gmt'])) {
-			if ($struct['date_created_gmt'] instanceof xmlrpcDate) {
-				$cur->comment_dt = date('Y-m-d H:i:00',$struct['date_created_gmt']->getTimestamp());
-			} elseif (is_string($struct['date_created_gmt']) && @strtotime($struct['date_created_gmt'])) {
-				$cur->comment_dt = date('Y-m-d H:i:00',strtotime($struct['date_created_gmt']));
-			}
-			$cur->comment_dt = $struct['date_created_gmt'];
-		}
-		
-		if (isset($struct['content'])) {
-			$cur->comment_content = $struct['content'];
-		}
-		
-		if (isset($struct['author'])) {
-			$cur->comment_author = $struct['author'];
-		}
-		
-		if (isset($struct['author_url'])) {
-			$cur->comment_site = $struct['author_url'];
-		}
-		
-		if (isset($struct['author_email'])) {
-			$cur->comment_email = $struct['author_email'];
-		}
-		
-		$this->core->blog->updComment($comment_id,$cur);
-		return true;
-	}
-	
-	private function delComment($user,$pwd,$comment_id)
-	{
-		$this->setUser($user,$pwd);
-		$this->setBlog();
-		
-		$this->core->blog->delComment($comment_id);
-		return true;
 	}
 	
 	/* Blogger methods
@@ -1581,52 +1372,5 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		return $this->translateWpOptions($done);
 	}
 	
-	public function wp_getComment($blogid,$username,$password,$commentid)
-	{
-		$res = $this->getComments($username,$password,array(),$commentid);
-		
-		if (empty($res)) {
-			throw new Exception('Sorry, no such comment',404);
-		}
-		
-		return $res[0];
-	}
-	
-	public function wp_getCommentCount($blogid,$username,$password,$postid)
-	{
-		return $this->countComments($username,$password,$postid);
-	}
-	
-	public function wp_getComments($blogid,$username,$password,$struct)
-	{
-		return $this->getComments($username,$password,$struct);
-	}
-	
-	public function wp_deleteComment($blogid,$username,$password,$commentid)
-	{
-		return $this->delComment($username,$password,$commentid);
-	}
-	
-	public function wp_editComment($blogid,$username,$password,$commentid,$content)
-	{
-		return $this->updComment($username,$password,$commentid,$content);
-	}
-	
-	public function wp_newComment($blogid,$username,$password,$postid,$content)
-	{
-		return $this->addComment($username,$password,$postid,$content);
-	}
-	
-	public function wp_getCommentStatusList($blogid,$username,$password)
-	{
-		$this->setUser($username,$password);
-		$this->setBlog();
-		
-		return array(
-			'hold' => 'Unapproved',
-			'approve' => 'Approved',
-			'spam' => 'Spam'
-		);
-	}
 }
 ?>

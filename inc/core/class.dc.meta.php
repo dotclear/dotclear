@@ -246,35 +246,6 @@ class dcMeta
 	}
 	
 	/**
-	Retrieves comments to posts corresponding to given meta criteria.
-	<b>$params</b> is an array taking the following optional parameters:
-	- meta_id : get comments to posts having meta id 
-	- meta_type : get comments to posts having meta type
-	
-	@param	params	<b>array</b>	Parameters
-	@param	count_only	<b>boolean</b>		Only counts results
-	
-	@return	<b>record</b>	the resulting comments record
-	*/
-	public function getCommentsByMeta($params=array(),$count_only=false)
-	{
-		if (!isset($params['meta_id'])) {
-			return null;
-		}
-		
-		$params['from'] = ', '.$this->table.' META ';
-		$params['sql'] = 'AND META.post_id = P.post_id ';
-		$params['sql'] .= "AND META.meta_id = '".$this->con->escape($params['meta_id'])."' ";
-		
-		if (!empty($params['meta_type'])) {
-			$params['sql'] .= "AND META.meta_type = '".$this->con->escape($params['meta_type'])."' ";
-			unset($params['meta_type']);
-		}
-		
-		return $this->core->blog->getComments($params,$count_only);
-	}
-	
-	/**
 	@deprecated since 2.2. Use getMetadata and computeMetaStats instead.
 	Generic-purpose metadata retrieval : gets metadatas according to given
 	criteria. Metadata get enriched with stastistics columns (only relevant 
