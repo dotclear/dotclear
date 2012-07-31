@@ -122,11 +122,6 @@ $_s->post
 	->post_status			('smallint',	0,	false,	0)
 	->post_selected		('smallint',	0,	false,	0)
 	->post_position		('integer',	0,	false,	0)
-	->post_open_comment		('smallint',	0,	false,	0)
-	->post_open_tb			('smallint',	0,	false,	0)
-	->nb_comment			('integer',	0,	false,	0)
-	->nb_trackback			('integer',	0,	false,	0)
-	
 	->primary('pk_post','post_id')
 	
 	->unique('uk_post_url','post_url','post_type','blog_id')
@@ -175,34 +170,6 @@ $_s->version
 	->primary('pk_version','module')
 	;
 
-$_s->ping
-	->post_id		('bigint',	0,	false)
-	->ping_url	('varchar',	255,	false)
-	->ping_dt		('timestamp',	0,	false,	'now()')
-	
-	->primary('pk_ping','post_id','ping_url')
-	;
-
-$_s->comment
-	->comment_id			('bigint',	0,	false)
-	->post_id				('bigint',	0,	false)
-	->comment_dt			('timestamp',	0,	false,	'now()')
-	->comment_tz			('varchar',	128,	false,	"'UTC'")
-	->comment_upddt		('timestamp',	0,	false,	'now()')
-	->comment_author		('varchar',	255,	true,	null)
-	->comment_email		('varchar',	255,	true,	null)
-	->comment_site			('varchar',	255,	true,	null)
-	->comment_content		('text',		0,	true)
-	->comment_words		('text',		0,	true,	null)
-	->comment_ip			('varchar',	39,	true,	null)
-	->comment_status		('smallint',	0,	true,	0)
-	->comment_spam_status	('varchar',	128,	true,	0)
-	->comment_spam_filter	('varchar',	32,	true,	null)
-	->comment_trackback		('smallint',	0,	false,	0)
-	
-	->primary('pk_comment','comment_id')
-	;
-
 $_s->meta
 	->meta_id		('varchar',	255,	false)
 	->meta_type	('varchar',	64,	false)
@@ -237,14 +204,12 @@ $_s->media->index		('idx_media_user_id',			'btree',	'user_id');
 $_s->post_media->index	('idx_post_media_post_id',		'btree',	'post_id');
 $_s->post_media->index	('idx_post_media_media_id',		'btree',	'media_id');
 $_s->log->index		('idx_log_user_id',				'btree',	'user_id');
-$_s->comment->index		('idx_comment_post_id',			'btree',	'post_id');
 $_s->meta->index		('idx_meta_post_id',	'btree','post_id');
 $_s->meta->index		('idx_meta_meta_type',	'btree','meta_type');
 $_s->pref->index		('idx_pref_user_id',			'btree',	'user_id');
 
 /* Performance indexes
 -------------------------------------------------------- */
-$_s->comment->index		('idx_comment_post_id_dt_status',	'btree',	'post_id', 'comment_dt', 'comment_status');
 $_s->post->index		('idx_post_post_dt',			'btree',	'post_dt');
 $_s->post->index		('idx_post_post_dt_post_id',		'btree',	'post_dt','post_id');
 $_s->post->index		('idx_blog_post_post_dt_post_id',	'btree',	'blog_id','post_dt','post_id');
@@ -265,8 +230,6 @@ $_s->post->reference('fk_post_blog','blog_id','blog','blog_id','cascade','cascad
 $_s->media->reference('fk_media_user','user_id','user','user_id','cascade','cascade');
 $_s->post_media->reference('fk_media','media_id','media','media_id','cascade','cascade');
 $_s->post_media->reference('fk_media_post','post_id','post','post_id','cascade','cascade');
-$_s->ping->reference('fk_ping_post','post_id','post','post_id','cascade','cascade');
-$_s->comment->reference('fk_comment_post','post_id','post','post_id','cascade','cascade');
 $_s->log->reference('fk_log_blog','blog_id','blog','blog_id','cascade','set null');
 $_s->meta->reference('fk_meta_post','post_id','post','post_id','cascade','cascade');
 $_s->pref->reference('fk_pref_user','user_id','user','user_id','cascade','cascade');

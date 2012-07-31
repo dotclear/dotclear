@@ -24,7 +24,6 @@ $__resources['doc'] = array(
 $__resources['help'] = array(
 	'core_blog_pref' => dirname(__FILE__).'/help/blog_pref.html',
 	'core_categories' => dirname(__FILE__).'/help/categories.html',
-	'core_comments' => dirname(__FILE__).'/help/comments.html',
 	'core_media' => dirname(__FILE__).'/help/media.html',
 	'core_post' => dirname(__FILE__).'/help/post.html',
 	'core_posts' => dirname(__FILE__).'/help/posts.html',

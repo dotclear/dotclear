@@ -38,7 +38,6 @@ $__autoload['dcThemes']				= dirname(__FILE__).'/core/class.dc.themes.php';
 $__autoload['dcRestServer']			= dirname(__FILE__).'/core/class.dc.rest.php';
 $__autoload['dcNamespace']			= dirname(__FILE__).'/core/class.dc.namespace.php';
 $__autoload['dcSettings']			= dirname(__FILE__).'/core/class.dc.settings.php';
-$__autoload['dcTrackback']			= dirname(__FILE__).'/core/class.dc.trackback.php';
 $__autoload['dcUpdate']				= dirname(__FILE__).'/core/class.dc.update.php';
 $__autoload['dcUtils']				= dirname(__FILE__).'/core/class.dc.utils.php';
 $__autoload['dcXmlRpc']				= dirname(__FILE__).'/core/class.dc.xmlrpc.php';
@@ -47,7 +46,6 @@ $__autoload['dcWorkspace']			= dirname(__FILE__).'/core/class.dc.workspace.php';
 $__autoload['dcPrefs']				= dirname(__FILE__).'/core/class.dc.prefs.php';
 
 $__autoload['rsExtPost']				= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
-$__autoload['rsExtComment']			= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 $__autoload['rsExtDates']			= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 $__autoload['rsExtUser']				= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 
@@ -56,7 +54,6 @@ $__autoload['dcPage']				= dirname(__FILE__).'/admin/lib.dc.page.php';
 $__autoload['adminGenericList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminPostList']			= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminPostMiniList']		= dirname(__FILE__).'/admin/lib.pager.php';
-$__autoload['adminCommentList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminUserList']			= dirname(__FILE__).'/admin/lib.pager.php';
 
 $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
@@ -208,7 +205,6 @@ $core->url->register('category','category','^category/(.+)$',array('dcUrlHandler
 $core->url->register('archive','archive','^archive(/.+)?$',array('dcUrlHandlers','archive'));
 
 $core->url->register('feed','feed','^feed/(.+)$',array('dcUrlHandlers','feed'));
-$core->url->register('trackback','trackback','^trackback/(.+)$',array('dcUrlHandlers','trackback'));
 $core->url->register('rsd','rsd','^rsd$',array('dcUrlHandlers','rsd'));
 $core->url->register('xmlrpc','xmlrpc','^xmlrpc/(.+)$',array('dcUrlHandlers','xmlrpc'));
 

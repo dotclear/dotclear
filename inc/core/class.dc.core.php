@@ -1140,86 +1140,6 @@ class dcCore
 		$this->callBehavior('coreInitWikiPost',$this->wiki2xhtml);
 	}
 	
-	/**
-	Inits <var>wiki2xhtml</var> property for simple blog comment (basic syntax).
-	*/
-	public function initWikiSimpleComment()
-	{
-		$this->initWiki();
-		
-		$this->wiki2xhtml->setOpts(array(
-			'active_title' => 0,
-			'active_setext_title' => 0,
-			'active_hr' => 0,
-			'active_lists' => 0,
-			'active_quote' => 0,
-			'active_pre' => 0,
-			'active_empty' => 0,
-			'active_auto_br' => 1,
-			'active_auto_urls' => 1,
-			'active_urls' => 0,
-			'active_auto_img' => 0,
-			'active_img' => 0,
-			'active_anchor' => 0,
-			'active_em' => 0,
-			'active_strong' => 0,
-			'active_br' => 0,
-			'active_q' => 0,
-			'active_code' => 0,
-			'active_acronym' => 0,
-			'active_ins' => 0,
-			'active_del' => 0,
-			'active_footnotes' => 0,
-			'active_wikiwords' => 0,
-			'active_macros' => 0,
-			'parse_pre' => 0,
-			'active_fr_syntax' => 0
-		));
-		
-		# --BEHAVIOR-- coreInitWikiSimpleComment
-		$this->callBehavior('coreInitWikiSimpleComment',$this->wiki2xhtml);
-	}
-	
-	/**
-	Inits <var>wiki2xhtml</var> property for blog comment.
-	*/
-	public function initWikiComment()
-	{
-		$this->initWiki();
-		
-		$this->wiki2xhtml->setOpts(array(
-			'active_title' => 0,
-			'active_setext_title' => 0,
-			'active_hr' => 0,
-			'active_lists' => 1,
-			'active_quote' => 0,
-			'active_pre' => 1,
-			'active_empty' => 0,
-			'active_auto_br' => 1,
-			'active_auto_urls' => 1,
-			'active_urls' => 1,
-			'active_auto_img' => 0,
-			'active_img' => 0,
-			'active_anchor' => 0,
-			'active_em' => 1,
-			'active_strong' => 1,
-			'active_br' => 1,
-			'active_q' => 1,
-			'active_code' => 1,
-			'active_acronym' => 1,
-			'active_ins' => 1,
-			'active_del' => 1,
-			'active_footnotes' => 0,
-			'active_wikiwords' => 0,
-			'active_macros' => 0,
-			'parse_pre' => 0,
-			'active_fr_syntax' => 0
-		));
-		
-		# --BEHAVIOR-- coreInitWikiComment
-		$this->callBehavior('coreInitWikiComment',$this->wiki2xhtml);
-	}
-	
 	public function wikiPostLink($url,$content)
 	{
 		if (!($this->blog instanceof dcBlog)) { 
@@ -1268,18 +1188,8 @@ class dcCore
 		if (!is_array($defaults))
 		{
 			$defaults = array(
-				array('allow_comments','boolean',true,
-				'Allow comments on blog'),
-				array('allow_trackbacks','boolean',true,
-				'Allow trackbacks on blog'),
 				array('blog_timezone','string','Europe/London',
 				'Blog timezone'),
-				array('comments_nofollow','boolean',true,
-				'Add rel="nofollow" to comments URLs'),
-				array('comments_pub','boolean',true,
-				'Publish comments immediately'),
-				array('comments_ttl','integer',0,
-				'Number of days to keep comments open (0 means no ttl)'),
 				array('copyright_notice','string','','Copyright notice (simple text)'),
 				array('date_format','string','%A, %B %e %Y',
 				'Date format. See PHP strftime function for patterns'),
@@ -1305,8 +1215,6 @@ class dcCore
 				'Number of entries on home page and category pages'),
 				array('nb_post_per_feed','integer',20,
 				'Number of entries on feeds'),
-				array('nb_comment_per_feed','integer',20,
-				'Number of comments on feeds'),
 				array('post_url_format','string','{y}/{m}/{d}/{t}',
 				'Post URL format. {y}: year, {m}: month, {d}: day, {id}: post id, {t}: entry title'),
 				array('public_path','string','public',
@@ -1329,16 +1237,10 @@ class dcCore
 				'Allow PHP code in templates'),
 				array('tpl_use_cache','boolean',true,
 				'Use template caching'),
-				array('trackbacks_pub','boolean',true,
-				'Publish trackbacks immediately'),
-				array('trackbacks_ttl','integer',0,
-				'Number of days to keep trackbacks open (0 means no ttl)'),
 				array('url_scan','string','query_string',
 				'URL handle mode (path_info or query_string)'),
 				array('use_smilies','boolean',false,
 				'Show smilies on entries and comments'),
-				array('wiki_comments','boolean',false,
-				'Allow commenters to use a subset of wiki syntax')
 			);
 		}
 		
@@ -1390,67 +1292,6 @@ class dcCore
 			return null;
 		}
 		return $start+$limit;
-	}
-	
-	/**
-	Recreates comments search engine index.
-	
-	@param	start	<b>integer</b>		Start comment index
-	@param	limit	<b>integer</b>		Number of comments to index
-	
-	@return	<b>integer</b>		<var>$start</var> and <var>$limit</var> sum
-	*/
-	public function indexAllComments($start=null,$limit=null)
-	{
-		$strReq = 'SELECT COUNT(comment_id) '.
-				'FROM '.$this->prefix.'comment';
-		$rs = $this->con->select($strReq);
-		$count = $rs->f(0);
-		
-		$strReq = 'SELECT comment_id, comment_content '.
-				'FROM '.$this->prefix.'comment ';
-		
-		if ($start !== null && $limit !== null) {
-			$strReq .= $this->con->limit($start,$limit);
-		}
-		
-		$rs = $this->con->select($strReq);
-		
-		$cur = $this->con->openCursor($this->prefix.'comment');
-		
-		while ($rs->fetch())
-		{
-			$cur->comment_words = implode(' ',text::splitWords($rs->comment_content));
-			$cur->update('WHERE comment_id = '.(integer) $rs->comment_id);
-			$cur->clean();
-		}
-		
-		if ($start+$limit > $count) {
-			return null;
-		}
-		return $start+$limit;
-	}
-	
-	/**
-	Reinits nb_comment and nb_trackback in post table.
-	*/
-	public function countAllComments()
-	{
-	
-		$updCommentReq = 'UPDATE '.$this->prefix.'post P '.
-			'SET nb_comment = ('.
-				'SELECT COUNT(C.comment_id) from '.$this->prefix.'comment C '.
-				'WHERE C.post_id = P.post_id AND C.comment_trackback <> 1 '.
-				'AND C.comment_status = 1 '.
-			')';
-		$updTrackbackReq = 'UPDATE '.$this->prefix.'post P '.
-			'SET nb_trackback = ('.
-				'SELECT COUNT(C.comment_id) from '.$this->prefix.'comment C '.
-				'WHERE C.post_id = P.post_id AND C.comment_trackback = 1 '.
-				'AND C.comment_status = 1 '.
-			')';
-		$this->con->execute($updCommentReq);
-		$this->con->execute($updTrackbackReq);
 	}
 	
 	/**

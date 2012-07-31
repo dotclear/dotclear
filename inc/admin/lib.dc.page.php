@@ -409,10 +409,6 @@ class dcPage
 			__("Are you sure you want to delete selected entries (%s)?")).
 		self::jsVar('dotclear.msg.confirm_delete_post',
 			__("Are you sure you want to delete this entry?")).
-		self::jsVar('dotclear.msg.confirm_delete_comments',
-			__('Are you sure you want to delete selected comments (%s)?')).
-		self::jsVar('dotclear.msg.confirm_delete_comment',
-			__('Are you sure you want to delete this comment?')).
 		self::jsVar('dotclear.msg.cannot_delete_users',
 			__('Users with posts cannot be deleted.')).
 		self::jsVar('dotclear.msg.confirm_delete_user',

@@ -165,20 +165,7 @@ if ($can_install && !empty($_POST))
 			'to blog, log in to edit or delete it.').'</p>';
 		$cur->post_content_xhtml = $cur->post_content;
 		$cur->post_status = 1;
-		$cur->post_open_comment = 1;
-		$cur->post_open_tb = 0;
 		$post_id = $core->blog->addPost($cur);
-		
-		# Add a comment to it
-		$cur = $core->con->openCursor($core->prefix.'comment');
-		$cur->post_id = $post_id;
-		$cur->comment_tz = $default_tz;
-		$cur->comment_author = __('Dotclear Team');
-		$cur->comment_email = 'contact@dotclear.net';
-		$cur->comment_site = 'http://www.dotclear.org/';
-		$cur->comment_content = __("<p>This is a comment.</p>\n<p>To delete it, log in and ".
-			"view your blog's comments. Then you might remove or edit it.</p>");
-		$core->blog->addComment($cur);
 		
 		#  Plugins initialization
 		define('DC_CONTEXT_ADMIN',true);
@@ -209,9 +196,6 @@ if ($can_install && !empty($_POST))
 			'usage,contentadmin',null,'menu-new-post');
 		$init_fav['posts'] = array('posts','Entries','posts.php',
 			'images/menu/entries.png','images/menu/entries-b.png',
-			'usage,contentadmin',null,null);
-		$init_fav['comments'] = array('comments','Comments','comments.php',
-			'images/menu/comments.png','images/menu/comments-b.png',
 			'usage,contentadmin',null,null);
 		$init_fav['prefs'] = array('prefs','My preferences','preferences.php',
 			'images/menu/user-pref.png','images/menu/user-pref-b.png',

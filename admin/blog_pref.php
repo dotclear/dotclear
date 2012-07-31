@@ -134,9 +134,6 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 	$nb_post_per_feed = abs((integer) $_POST['nb_post_per_feed']);
 	if ($nb_post_per_feed <= 1) { $nb_post_per_feed = 1; }
 	
-	$nb_comment_per_feed = abs((integer) $_POST['nb_comment_per_feed']);
-	if ($nb_comment_per_feed <= 1) { $nb_comment_per_feed = 1; }
-	
 	try
 	{
 		if ($cur->blog_id != null && $cur->blog_id != $blog_id) {
@@ -181,14 +178,6 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('blog_timezone',$_POST['blog_timezone']);
 		$blog_settings->system->put('date_format',$_POST['date_format']);
 		$blog_settings->system->put('time_format',$_POST['time_format']);
-		$blog_settings->system->put('comments_ttl',abs((integer) $_POST['comments_ttl']));
-		$blog_settings->system->put('trackbacks_ttl',abs((integer) $_POST['trackbacks_ttl']));
-		$blog_settings->system->put('allow_comments',!empty($_POST['allow_comments']));
-		$blog_settings->system->put('allow_trackbacks',!empty($_POST['allow_trackbacks']));
-		$blog_settings->system->put('comments_pub',empty($_POST['comments_pub']));
-		$blog_settings->system->put('trackbacks_pub',empty($_POST['trackbacks_pub']));
-		$blog_settings->system->put('comments_nofollow',!empty($_POST['comments_nofollow']));
-		$blog_settings->system->put('wiki_comments',!empty($_POST['wiki_comments']));
 		$blog_settings->system->put('enable_xmlrpc',!empty($_POST['enable_xmlrpc']));
 		
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
@@ -198,7 +187,6 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
 		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
 		$blog_settings->system->put('nb_post_per_feed',$nb_post_per_feed);
-		$blog_settings->system->put('nb_comment_per_feed',$nb_comment_per_feed);
 		$blog_settings->system->put('short_feed_items',!empty($_POST['short_feed_items']));
 		
 		if (isset($_POST['robots_policy'])) {
@@ -330,49 +318,6 @@ if ($blog_id)
 	'</fieldset>';
 	
 	echo
-	'<fieldset><legend>'.__('Comments and trackbacks').'</legend>'.
-	'<div class="two-cols">'.
-	'<div class="col">'.
-	'<p><label for="allow_comments" class="classic">'.
-	form::checkbox('allow_comments','1',$blog_settings->system->allow_comments).
-	__('Accept comments').'</label></p>'.
-	
-	'<p><label for="comments_pub" class="classic">'.
-	form::checkbox('comments_pub','1',!$blog_settings->system->comments_pub).
-	__('Moderate comments').'</label></p>'.
-	
-	'<p><label for="comments_ttl" class="classic">'.sprintf(__('Leave comments open for %s days'),
-	form::field('comments_ttl',2,3,$blog_settings->system->comments_ttl)).
-	'</label></p>'.
-	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.
-	
-	'<p><label for="wiki_comments" class="classic">'.
-	form::checkbox('wiki_comments','1',$blog_settings->system->wiki_comments).
-	__('Wiki syntax for comments').'</label></p>'.
-	'</div>'.
-	
-	'<div class="col">'.
-	'<p><label for="allow_trackbacks" class="classic">'.
-	form::checkbox('allow_trackbacks','1',$blog_settings->system->allow_trackbacks).
-	__('Accept trackbacks').'</label></p>'.
-	
-	'<p><label for="trackbacks_pub" class="classic">'.
-	form::checkbox('trackbacks_pub','1',!$blog_settings->system->trackbacks_pub).
-	__('Moderate trackbacks').'</label></p>'.
-	
-	'<p><label for="trackbacks_ttl" class="classic">'.sprintf(__('Leave trackbacks open for %s days'),
-	form::field('trackbacks_ttl',2,3,$blog_settings->system->trackbacks_ttl)).'</label></p>'.
-	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.
-	
-	'<p><label for="comments_nofollow" class="classic">'.
-	form::checkbox('comments_nofollow','1',$blog_settings->system->comments_nofollow).
-	__('Add "nofollow" relation on comments and trackbacks links').'</label></p>'.
-	'</div>'.
-	'</div>'.
-	'<br class="clear" />'. //Opera sucks
-	'</fieldset>';
-	
-	echo
 	'<fieldset><legend>'.__('Blog presentation').'</legend>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
@@ -396,10 +341,6 @@ if ($blog_id)
 	
 	'<p><label for="nb_post_per_feed" class="classic">'.sprintf(__('Display %s entries per feed'),
 	form::field('nb_post_per_feed',2,3,$blog_settings->system->nb_post_per_feed)).
-	'</label></p>'.
-	
-	'<p><label for="nb_comment_per_feed" class="classic">'.sprintf(__('Display %s comments per feed'),
-	form::field('nb_comment_per_feed',2,3,$blog_settings->system->nb_comment_per_feed)).
 	'</label></p>'.
 	
 	'<p><label for="short_feed_items" class="classic">'.

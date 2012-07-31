@@ -12,7 +12,6 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $core->addBehavior('coreBlogGetPosts',array('rsExtendPublic','coreBlogGetPosts'));
-$core->addBehavior('coreBlogGetComments',array('rsExtendPublic','coreBlogGetComments'));
 
 class rsExtendPublic
 {
@@ -21,10 +20,6 @@ class rsExtendPublic
 		$rs->extend('rsExtPostPublic');
 	}
 	
-	public static function coreBlogGetComments($rs)
-	{
-		$rs->extend('rsExtCommentPublic');
-	}
 }
 
 class rsExtPostPublic extends rsExtPost
@@ -73,21 +68,4 @@ class rsExtPostPublic extends rsExtPost
 	}
 }
 
-class rsExtCommentPublic extends rsExtComment
-{
-	public static function getContent($rs,$absolute_urls=false)
-	{
-		if ($rs->core->blog->settings->system->use_smilies)
-		{
-			$c = parent::getContent($rs,$absolute_urls);
-			
-			if (!isset($GLOBALS['__smilies'])) {
-				$GLOBALS['__smilies'] = context::getSmilies($rs->core->blog);
-			}
-			return context::addSmilies($c);
-		}
-		
-		return parent::getContent($rs,$absolute_urls);
-	}
-}
 ?>
