@@ -129,17 +129,6 @@ class rsExtPost
 	}
 	
 	/**
-	Returns full post category URL.
-	
-	@param	rs	Invisible parameter
-	@return	<b>string</b>
-	*/
-	public static function getCategoryURL($rs)
-	{
-		return $rs->core->blog->url.$rs->core->url->getURLFor('category',html::sanitizeURL($rs->cat_url));
-	}
-	
-	/**
 	Returns whether post has an excerpt.
 	
 	@param	rs	Invisible parameter

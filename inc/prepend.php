@@ -28,7 +28,6 @@ require CLEARBRICKS_PATH.'/_common.php';
 $__autoload['dcCore']				= dirname(__FILE__).'/core/class.dc.core.php';
 $__autoload['dcAuth']				= dirname(__FILE__).'/core/class.dc.auth.php';
 $__autoload['dcBlog']				= dirname(__FILE__).'/core/class.dc.blog.php';
-$__autoload['dcCategories']			= dirname(__FILE__).'/core/class.dc.categories.php';
 $__autoload['dcError']				= dirname(__FILE__).'/core/class.dc.error.php';
 $__autoload['dcMeta']				= dirname(__FILE__).'/core/class.dc.meta.php';
 $__autoload['dcMedia']				= dirname(__FILE__).'/core/class.dc.media.php';
@@ -201,7 +200,6 @@ $core->url->registerError(array('dcUrlHandlers','default404'));
 $core->url->register('lang','','^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$',array('dcUrlHandlers','lang'));
 $core->url->register('post','post','^post/(.+)$',array('dcUrlHandlers','post'));
 $core->url->register('preview','preview','^preview/(.+)$',array('dcUrlHandlers','preview'));
-$core->url->register('category','category','^category/(.+)$',array('dcUrlHandlers','category'));
 $core->url->register('archive','archive','^archive(/.+)?$',array('dcUrlHandlers','archive'));
 
 $core->url->register('feed','feed','^feed/(.+)$',array('dcUrlHandlers','feed'));

@@ -293,18 +293,6 @@ echo '</div>';
 if ($core->auth->user_prefs->dashboard->quickentry) {
 	if ($core->auth->check('usage,contentadmin',$core->blog->id))
 	{
-		$categories_combo = array('&nbsp;' => '');
-		try {
-			$categories = $core->blog->getCategories(array('post_type'=>'post'));
-			while ($categories->fetch()) {
-				$categories_combo[] = new formSelectOption(
-					str_repeat('&nbsp;&nbsp;',$categories->level-1).
-					($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-					$categories->cat_id
-				);
-			}
-		} catch (Exception $e) { }
-	
 		echo
 		'<div id="quick">'.
 		'<h3>'.__('Quick entry').'</h3>'.
@@ -317,8 +305,6 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
 		form::textarea('post_content',50,7).
 		'</p>'.
-		'<p><label for="cat_id" class="classic">'.__('Category:').' '.
-		form::combo('cat_id',$categories_combo).'</label></p>'.
 		'<p><input type="submit" value="'.__('Save').'" name="save" /> '.
 		($core->auth->check('publish',$core->blog->id)
 			? '<input type="hidden" value="'.__('Save and publish').'" name="save-publish" />'

@@ -14,13 +14,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-# Getting categories
-try {
-	$categories = $core->blog->getCategories(array('post_type'=>'post'));
-} catch (Exception $e) {
-	$core->error->add($e->getMessage());
-}
-
 # Getting authors
 try {
 	$users = $core->blog->getPostsUsers();
@@ -46,8 +39,8 @@ try {
 if (!$core->error->flag())
 {
 	# Filter form we'll put in html_block
-	$users_combo = $categories_combo = array();
-	$users_combo['-'] = $categories_combo['-'] = '';
+	$users_combo = array();
+	$users_combo['-'] = '';
 	while ($users->fetch())
 	{
 		$user_cn = dcUtils::getUserCN($users->user_id,$users->user_name,
@@ -58,13 +51,6 @@ if (!$core->error->flag())
 		}
 		
 		$users_combo[$user_cn] = $users->user_id; 
-	}
-	
-	$categories_combo[__('None')] = 'NULL';
-	while ($categories->fetch()) {
-		$categories_combo[str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').
-			html::escapeHTML($categories->cat_title).
-			' ('.$categories->nb_post.')'] = $categories->cat_id;
 	}
 	
 	$status_combo = array(
@@ -94,7 +80,6 @@ if (!$core->error->flag())
 	$sortby_combo = array(
 	__('Date') => 'post_dt',
 	__('Title') => 'post_title',
-	__('Category') => 'cat_title',
 	__('Author') => 'user_id',
 	__('Status') => 'post_status',
 	__('Selected') => 'post_selected'
@@ -121,7 +106,7 @@ $combo_action[__('Mark')] = array(
 	__('Mark as selected') => 'selected',
 	__('Mark as unselected') => 'unselected'
 );
-$combo_action[__('Change')] = array(__('Change category') => 'category');
+$combo_action[__('Change')] = array();
 if ($core->auth->check('admin',$core->blog->id))
 {
 	$combo_action[__('Change')] = array_merge($combo_action[__('Change')],
@@ -138,7 +123,6 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 /* Get posts
 -------------------------------------------------------- */
 $user_id = !empty($_GET['user_id']) ?	$_GET['user_id'] : '';
-$cat_id = !empty($_GET['cat_id']) ?	$_GET['cat_id'] : '';
 $status = isset($_GET['status']) ?	$_GET['status'] : '';
 $selected = isset($_GET['selected']) ?	$_GET['selected'] : '';
 $month = !empty($_GET['month']) ?		$_GET['month'] : '';
@@ -167,14 +151,6 @@ if ($user_id !== '' && in_array($user_id,$users_combo)) {
 	$show_filters = true;
 } else {
 	$user_id='';
-}
-
-# - Categories filter
-if ($cat_id !== '' && in_array($cat_id,$categories_combo)) {
-	$params['cat_id'] = $cat_id;
-	$show_filters = true;
-} else {
-	$cat_id='';
 }
 
 # - Status filter
@@ -262,8 +238,6 @@ if (!$core->error->flag())
 	'<div class="col">'.
 	'<label for="user_id">'.__('Author:').
 	form::combo('user_id',$users_combo,$user_id).'</label> '.
-	'<label for="cat_id">'.__('Category:').
-	form::combo('cat_id',$categories_combo,$cat_id).'</label> '.
 	'<label for="status">'.__('Status:').
 	form::combo('status',$status_combo,$status).'</label> '.
 	'</div>'.
@@ -304,7 +278,6 @@ if (!$core->error->flag())
 	form::combo('action',$combo_action).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('user_id'),$user_id).
-	form::hidden(array('cat_id'),$cat_id).
 	form::hidden(array('status'),$status).
 	form::hidden(array('selected'),$selected).
 	form::hidden(array('month'),$month).

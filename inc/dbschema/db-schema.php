@@ -30,21 +30,6 @@ $_s->blog
 	->primary('pk_blog','blog_id')
 	;
 
-$_s->category
-	->cat_id		('bigint',	0,	false)
-	->blog_id		('varchar',	32,	false)
-	->cat_title	('varchar',	255,	false)
-	->cat_url		('varchar',	255,	false)
-	->cat_desc	('text',		0,	true)
-	->cat_position	('integer',	0,	true,	0)
-	->cat_lft		('integer',	0,	true)
-	->cat_rgt		('integer',	0,	true)
-	
-	->primary('pk_category','cat_id')
-	
-	->unique('uk_cat_url','cat_url','blog_id')
-	;
-
 $_s->session
 	->ses_id		('varchar',	40,	false)
 	->ses_time	('integer',	0,	false,	0)
@@ -101,7 +86,6 @@ $_s->post
 	->post_id				('bigint',	0,	false)
 	->blog_id				('varchar',	32,	false)
 	->user_id				('varchar',	32,	false)
-	->cat_id				('bigint',	0,	true)
 	->post_dt				('timestamp',	0,	false,	'now()')
 	->post_tz				('varchar',	128,	false,	"'UTC'")
 	->post_creadt			('timestamp',	0,	false,	'now()')
@@ -191,13 +175,9 @@ $_s->pref
 
 /* References indexes
 -------------------------------------------------------- */
-$_s->category->index	('idx_category_blog_id',			'btree',	'blog_id');
-$_s->category->index	('idx_category_cat_lft_blog_id',	'btree',	'blog_id', 'cat_lft');
-$_s->category->index	('idx_category_cat_rgt_blog_id',	'btree',	'blog_id', 'cat_rgt');
 $_s->setting->index		('idx_setting_blog_id',			'btree',	'blog_id');
 $_s->user->index		('idx_user_user_default_blog',	'btree',	'user_default_blog');
 $_s->permissions->index	('idx_permissions_blog_id',		'btree',	'blog_id');
-$_s->post->index		('idx_post_cat_id',				'btree',	'cat_id');
 $_s->post->index		('idx_post_user_id',			'btree',	'user_id');
 $_s->post->index		('idx_post_blog_id',			'btree',	'blog_id');
 $_s->media->index		('idx_media_user_id',			'btree',	'user_id');
@@ -219,12 +199,10 @@ $_s->user->index		('idx_user_user_super',			'btree',	'user_super');
 
 /* Foreign keys
 -------------------------------------------------------- */
-$_s->category->reference('fk_category_blog','blog_id','blog','blog_id','cascade','cascade');
 $_s->setting->reference('fk_setting_blog','blog_id','blog','blog_id','cascade','cascade');
 $_s->user->reference('fk_user_default_blog','user_default_blog','blog','blog_id','cascade','set null');
 $_s->permissions->reference('fk_permissions_blog','blog_id','blog','blog_id','cascade','cascade');
 $_s->permissions->reference('fk_permissions_user','user_id','user','user_id','cascade','cascade');
-$_s->post->reference('fk_post_category','cat_id','category','cat_id','cascade','set null');
 $_s->post->reference('fk_post_user','user_id','user','user_id','cascade','cascade');
 $_s->post->reference('fk_post_blog','blog_id','blog','blog_id','cascade','cascade');
 $_s->media->reference('fk_media_user','user_id','user','user_id','cascade','cascade');

@@ -161,28 +161,6 @@ class context
 		return mb_strtoupper($str);
 	}
 	
-	public static function categoryPostParam(&$p)
-	{
-		$not = substr($p['cat_url'],0,1) == '!';
-		if ($not) {
-			$p['cat_url'] = substr($p['cat_url'],1);
-		}
-		
-		$p['cat_url'] = preg_split('/\s*,\s*/',$p['cat_url'],-1,PREG_SPLIT_NO_EMPTY);
-		
-		foreach ($p['cat_url'] as &$v)
-		{
-			if ($not) {
-				$v .= ' ?not';
-			}
-			if ($GLOBALS['_ctx']->exists('categories') && preg_match('/#self/',$v)) {
-				$v = preg_replace('/#self/',$GLOBALS['_ctx']->categories->cat_url,$v);
-			} elseif ($GLOBALS['_ctx']->exists('posts') && preg_match('/#self/',$v)) {
-				$v = preg_replace('/#self/',$GLOBALS['_ctx']->posts->cat_url,$v);
-			}
-		}
-	}
-	
 	# Static methods for pagination
 	public static function PaginationNbPages()
 	{
@@ -340,7 +318,7 @@ class context
 	}
 	
 	# First post image helpers
-	public static function EntryFirstImageHelper($size,$with_category,$class="")
+	public static function EntryFirstImageHelper($size,$class="")
 	{
 		global $core, $_ctx;
 		
@@ -375,23 +353,6 @@ class context
 					}
 				}
 			}
-		}
-		
-		# No src, look in category description if available
-		if (!$src && $with_category && $_ctx->categories)
-		{
-			if (preg_match_all($pattern,$_ctx->categories->cat_desc,$m) > 0)
-			{
-				foreach ($m[1] as $i => $img) {
-					if (($src = self::ContentFirstImageLookup($p_root,$img,$size)) !== false) {
-						$src = $p_url.(dirname($img) != '/' ? dirname($img) : '').'/'.$src;
-						if (preg_match('/alt="([^"]+)"/',$m[0][$i],$malt)) {
-							$alt = $malt[1];
-						}
-						break;
-					}
-				}
-			};
 		}
 		
 		if ($src) {

@@ -46,7 +46,6 @@ class adminPostList extends adminGenericList
 			'<table class="clear"><tr>'.
 			'<th colspan="2">'.__('Title').'</th>'.
 			'<th>'.__('Date').'</th>'.
-			'<th>'.__('Category').'</th>'.
 			'<th>'.__('Author').'</th>'.
 			'<th>'.__('Status').'</th>'.
 			'</tr>%s</table>';
@@ -74,19 +73,6 @@ class adminPostList extends adminGenericList
 	
 	private function postLine()
 	{
-		if ($this->core->auth->check('categories',$this->core->blog->id)) {
-			$cat_link = '<a href="category.php?id=%s">%s</a>';
-		} else {
-			$cat_link = '%2$s';
-		}
-		
-		if ($this->rs->cat_title) {
-			$cat_title = sprintf($cat_link,$this->rs->cat_id,
-			html::escapeHTML($this->rs->cat_title));
-		} else {
-			$cat_title = __('None');
-		}
-		
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($this->rs->post_status) {
 			case 1:
@@ -129,7 +115,6 @@ class adminPostList extends adminGenericList
 		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
-		'<td class="nowrap">'.$cat_title.'</td>'.
 		'<td class="nowrap">'.$this->rs->user_id.'</td>'.
 		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
 		'</tr>';

@@ -67,19 +67,6 @@ class dcTemplate extends template
 		$this->addValue('BlogQmarkURL',array($this,'BlogQmarkURL'));
 		$this->addValue('BlogMetaRobots',array($this,'BlogMetaRobots'));
 		
-		# Categories
-		$this->addBlock('Categories',array($this,'Categories'));
-		$this->addBlock('CategoriesHeader',array($this,'CategoriesHeader'));
-		$this->addBlock('CategoriesFooter',array($this,'CategoriesFooter'));
-		$this->addBlock('CategoryIf',array($this,'CategoryIf'));
-		$this->addBlock('CategoryFirstChildren',array($this,'CategoryFirstChildren'));
-		$this->addBlock('CategoryParents',array($this,'CategoryParents'));
-		$this->addValue('CategoryFeedURL',array($this,'CategoryFeedURL'));
-		$this->addValue('CategoryURL',array($this,'CategoryURL'));
-		$this->addValue('CategoryShortURL',array($this,'CategoryShortURL'));
-		$this->addValue('CategoryDescription',array($this,'CategoryDescription'));
-		$this->addValue('CategoryTitle',array($this,'CategoryTitle'));
-		
 		# Entries
 		$this->addBlock('DateFooter',array($this,'DateFooter'));
 		$this->addBlock('DateHeader',array($this,'DateHeader'));
@@ -94,11 +81,6 @@ class dcTemplate extends template
 		$this->addValue('EntryAuthorLink',array($this,'EntryAuthorLink'));
 		$this->addValue('EntryAuthorURL',array($this,'EntryAuthorURL'));
 		$this->addValue('EntryBasename',array($this,'EntryBasename'));
-		$this->addValue('EntryCategory',array($this,'EntryCategory'));
-		$this->addBlock('EntryCategoriesBreadcrumb',array($this,'EntryCategoriesBreadcrumb'));
-		$this->addValue('EntryCategoryID',array($this,'EntryCategoryID'));
-		$this->addValue('EntryCategoryURL',array($this,'EntryCategoryURL'));
-		$this->addValue('EntryCategoryShortURL',array($this,'EntryCategoryShortURL'));
 		$this->addValue('EntryContent',array($this,'EntryContent'));
 		$this->addValue('EntryDate',array($this,'EntryDate'));
 		$this->addValue('EntryFeedID',array($this,'EntryFeedID'));
@@ -457,7 +439,6 @@ class dcTemplate extends template
 	<!ELEMENT tpl:Archives - - -- Archives dates loop -->
 	<!ATTLIST tpl:Archives
 	type		(day|month|year)	#IMPLIED	-- Get days, months or years, default to month --
-	category	CDATA			#IMPLIED  -- Get dates of given category --
 	no_context (1|0)			#IMPLIED  -- Override context information
 	order	(asc|desc)		#IMPLIED  -- Sort asc or desc --
 	post_type	CDATA			#IMPLIED  -- Get dates of given type of entries, default to post --
@@ -472,24 +453,12 @@ class dcTemplate extends template
 			$p .= "\$params['type'] = '".addslashes($attr['type'])."';\n";
 		}
 		
-		if (isset($attr['category'])) {
-			$p .= "\$params['cat_url'] = '".addslashes($attr['category'])."';\n";
-		}
-        
 		if (isset($attr['post_type'])) {
 			$p .= "\$params['post_type'] = '".addslashes($attr['post_type'])."';\n";
 		}
         
 		if (isset($attr['post_lang'])) {
 			$p .= "\$params['post_lang'] = '".addslashes($attr['post_lang'])."';\n";
-		}
-		
-		if (empty($attr['no_context']) && !isset($attr['category']))
-		{
-			$p .=
-			'if ($_ctx->exists("categories")) { '.
-				"\$params['cat_id'] = \$_ctx->categories->cat_id; ".
-			"}\n";
 		}
 		
 		$order = 'desc';
@@ -850,189 +819,12 @@ class dcTemplate extends template
 		return "<?php echo context::robotsPolicy(\$core->blog->settings->system->robots_policy,'".$robots."'); ?>";
 	}
 	
-	/* Categories ----------------------------------------- */
-	
-	/*dtd
-	<!ELEMENT tpl:Categories - - -- Categories loop -->
-	*/
-	public function Categories($attr,$content)
-	{
-		$p = "if (!isset(\$params)) \$params = array();\n";
-		
-		if (isset($attr['url'])) {
-			$p .= "\$params['cat_url'] = '".addslashes($attr['url'])."';\n";
-		}
-		
-		if (!empty($attr['post_type'])) {
-			$p .= "\$params['post_type'] = '".addslashes($attr['post_type'])."';\n";
-		}
-		
-		if (!empty($attr['level'])) {
-			$p .= "\$params['level'] = ".(integer) $attr['level'].";\n";
-		}
-		
-		$res = "<?php\n";
-		$res .= $p;
-		$res .= $this->core->callBehavior("templatePrepareParams", 
-			array("tag" => "Categories","method" => "blog::getCategories"), 
-			$attr,$content);
-		$res .= '$_ctx->categories = $core->blog->getCategories($params);'."\n";
-		$res .= "?>\n";
-		$res .= '<?php while ($_ctx->categories->fetch()) : ?>'.$content.'<?php endwhile; $_ctx->categories = null; unset($params); ?>';
-		
-		return $res;
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoriesHeader - - -- First Categories result container -->
-	*/
-	public function CategoriesHeader($attr,$content)
-	{
-		return
-		"<?php if (\$_ctx->categories->isStart()) : ?>".
-		$content.
-		"<?php endif; ?>";
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoriesFooter - - -- Last Categories result container -->
-	*/
-	public function CategoriesFooter($attr,$content)
-	{
-		return
-		"<?php if (\$_ctx->categories->isEnd()) : ?>".
-		$content.
-		"<?php endif; ?>";
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoryIf - - -- tests on current entry -->
-	<!ATTLIST tpl:CategoryIf
-	url		CDATA	#IMPLIED	-- category has given url
-	has_entries	(0|1)	#IMPLIED	-- post is the first post from list (value : 1) or not (value : 0)
-	has_description     (0|1)     #IMPLIED  -- category has description (value : 1) or not (value : 0) 
-	>
-	*/
-	public function CategoryIf($attr,$content)
-	{
-		$if = new ArrayObject();
-		$operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
-		
-		if (isset($attr['url'])) {
-			$url = addslashes(trim($attr['url']));
-			if (substr($url,0,1) == '!') {
-				$url = substr($url,1);
-				$if[] = '($_ctx->categories->cat_url != "'.$url.'")';
-			} else {
-				$if[] = '($_ctx->categories->cat_url == "'.$url.'")';
-			}
-		}
-		
-		if (isset($attr['has_entries'])) {
-			$sign = (boolean) $attr['has_entries'] ? '>' : '==';
-			$if[] = '$_ctx->categories->nb_post '.$sign.' 0';
-		}
-		
-		if (isset($attr['has_description'])) { 
-			$sign = (boolean) $attr['has_description'] ? '!=' : '=='; 
-			$if[] = '$_ctx->categories->cat_desc '.$sign.' ""'; 
-		} 
-		
-		$this->core->callBehavior('tplIfConditions','CategoryIf',$attr,$content,$if);
-		
-		if (count($if) != 0) {
-			return '<?php if('.implode(' '.$operator.' ', (array) $if).') : ?>'.$content.'<?php endif; ?>';
-		} else {
-			return $content;
-		}
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoryFirstChildren - - -- Current category first children loop -->
-	*/
-	public function CategoryFirstChildren($attr,$content)
-	{
-		return
-		"<?php\n".
-		'$_ctx->categories = $core->blog->getCategoryFirstChildren($_ctx->categories->cat_id);'."\n".
-		'while ($_ctx->categories->fetch()) : ?>'.$content.'<?php endwhile; $_ctx->categories = null; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoryParents - - -- Current category parents loop -->
-	*/
-	public function CategoryParents($attr,$content)
-	{
-		return
-		"<?php\n".
-		'$_ctx->categories = $core->blog->getCategoryParents($_ctx->categories->cat_id);'."\n".
-		'while ($_ctx->categories->fetch()) : ?>'.$content.'<?php endwhile; $_ctx->categories = null; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoryFeedURL - O -- Category feed URL -->
-	<!ATTLIST tpl:CategoryFeedURL
-	type	(rss2|atom)	#IMPLIED	-- feed type (default : rss2)
-	>
-	*/
-	public function CategoryFeedURL($attr)
-	{
-		$type = !empty($attr['type']) ? $attr['type'] : 'atom';
-		
-		if (!preg_match('#^(rss2|atom)$#',$type)) {
-			$type = 'atom';
-		}
-		
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("feed","category/".'.
-		'$_ctx->categories->cat_url."/'.$type.'")').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoryURL - O -- Category URL (complete iabsolute URL, including blog URL) -->
-	*/
-	public function CategoryURL($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("category",'.
-			'$_ctx->categories->cat_url)').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoryShortURL - O -- Category short URL (relative URL, from /category/) -->
-	*/
-	public function CategoryShortURL($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->categories->cat_url').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoryDescription - O -- Category description -->
-	*/
-	public function CategoryDescription($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->categories->cat_desc').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:CategoryTitle - O -- Category title -->
-	*/
-	public function CategoryTitle($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->categories->cat_title').'; ?>';
-	}
-	
 	/* Entries -------------------------------------------- */
 	/*dtd
 	<!ELEMENT tpl:Entries - - -- Blog Entries loop -->
 	<!ATTLIST tpl:Entries
 	lastn	CDATA	#IMPLIED	-- limit number of results to specified value
 	author	CDATA	#IMPLIED	-- get entries for a given user id
-	category	CDATA	#IMPLIED	-- get entries for specific categories only (multiple comma-separated categories can be specified. Use "!" as prefix to exclude a category)
-	no_category	CDATA	#IMPLIED	-- get entries without category
 	no_context (1|0)	#IMPLIED  -- Override context information
 	sortby	(title|selected|author|date|id)	#IMPLIED	-- specify entries sort criteria (default : date) (multiple comma-separated sortby can be specified. Use "?asc" or "?desc" as suffix to provide an order for each sorby)
 	order	(desc|asc)	#IMPLIED	-- specify entries order (default : desc)
@@ -1071,16 +863,6 @@ class dcTemplate extends template
 			$p .= "\$params['user_id'] = '".addslashes($attr['author'])."';\n";
 		}
 		
-		if (isset($attr['category'])) {
-			$p .= "\$params['cat_url'] = '".addslashes($attr['category'])."';\n";
-			$p .= "context::categoryPostParam(\$params);\n";
-		}
-		
-		if (isset($attr['no_category']) && $attr['no_category']) {
-			$p .= "@\$params['sql'] .= ' AND P.cat_id IS NULL ';\n";
-			$p .= "unset(\$params['cat_url']);\n";
-		}
-		
 		if (!empty($attr['type'])) {
 			$p .= "\$params['post_type'] = preg_split('/\s*,\s*/','".addslashes($attr['type'])."',-1,PREG_SPLIT_NO_EMPTY);\n";
 		}
@@ -1096,14 +878,6 @@ class dcTemplate extends template
 				$p .=
 				'if ($_ctx->exists("users")) { '.
 					"\$params['user_id'] = \$_ctx->users->user_id; ".
-				"}\n";
-			}
-			
-			if (!isset($attr['category']) && (!isset($attr['no_category']) || !$attr['no_category']))
-			{
-				$p .=
-				'if ($_ctx->exists("categories")) { '.
-					"\$params['cat_id'] = \$_ctx->categories->cat_id; ".
 				"}\n";
 			}
 			
@@ -1184,13 +958,11 @@ class dcTemplate extends template
 	<!ELEMENT tpl:EntryIf - - -- tests on current entry -->
 	<!ATTLIST tpl:EntryIf
 	type	CDATA	#IMPLIED	-- post has a given type (default: "post")
-	category	CDATA	#IMPLIED	-- post has a given category
 	first	(0|1)	#IMPLIED	-- post is the first post from list (value : 1) or not (value : 0)
 	odd	(0|1)	#IMPLIED	-- post is in an odd position (value : 1) or not (value : 0)
 	even	(0|1)	#IMPLIED	-- post is in an even position (value : 1) or not (value : 0)
 	extended	(0|1)	#IMPLIED	-- post has an excerpt (value : 1) or not (value : 0)
 	selected	(0|1)	#IMPLIED	-- post is selected (value : 1) or not (value : 0)
-	has_category	(0|1)	#IMPLIED	-- post has a category (value : 1) or not (value : 0)
 	has_attachment	(0|1)	#IMPLIED	-- post has attachments (value : 1) or not (value : 0) (see Attachment plugin for code)
 	operator	(and|or)	#IMPLIED	-- combination of conditions, if more than 1 specifiec (default: and)
 	url		CDATA	#IMPLIED	-- post has given url
@@ -1200,7 +972,6 @@ class dcTemplate extends template
 	{
 		$if = new ArrayObject();
 		$extended = null;
-		$hascategory = null;
 		
 		$operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
         
@@ -1217,16 +988,6 @@ class dcTemplate extends template
 				$if[] = '$_ctx->posts->post_url != "'.addslashes($url).'"';
 			} else {
 				$if[] = '$_ctx->posts->post_url == "'.addslashes($url).'"';
-			}
-		}
-		
-		if (isset($attr['category'])) {
-			$category = addslashes(trim($attr['category']));
-			if (substr($category,0,1) == '!') {
-				$category = substr($category,1);
-				$if[] = '($_ctx->posts->cat_url != "'.$category.'")';
-			} else {
-				$if[] = '($_ctx->posts->cat_url == "'.$category.'")';
 			}
 		}
 		
@@ -1248,11 +1009,6 @@ class dcTemplate extends template
 		if (isset($attr['selected'])) {
 			$sign = (boolean) $attr['selected'] ? '' : '!';
 			$if[] = $sign.'(boolean)$_ctx->posts->post_selected';
-		}
-		
-		if (isset($attr['has_category'])) {
-			$sign = (boolean) $attr['has_category'] ? '' : '!';
-			$if[] = $sign.'$_ctx->posts->cat_id';
 		}
 		
 		$this->core->callBehavior('tplIfConditions','EntryIf',$attr,$content,$if);
@@ -1429,54 +1185,6 @@ class dcTemplate extends template
 	}
 	
 	/*dtd
-	<!ELEMENT tpl:EntryCategory - O -- Entry category (full name) -->
-	*/
-	public function EntryCategory($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->posts->cat_title').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:EntryCategoriesBreadcrumb - - -- Current entry parents loop (without last one) -->
-	*/
-	public function EntryCategoriesBreadcrumb($attr,$content)
-	{
-		return
-		"<?php\n".
-		'$_ctx->categories = $core->blog->getCategoryParents($_ctx->posts->cat_id);'."\n".
-		'while ($_ctx->categories->fetch()) : ?>'.$content.'<?php endwhile; $_ctx->categories = null; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:EntryCategoryID - O -- Entry category ID -->
-	*/
-	public function EntryCategoryID($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->posts->cat_id').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:EntryCategoryURL - O -- Entry category URL -->
-	*/
-	public function EntryCategoryURL($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->posts->getCategoryURL()').'; ?>';
-	}
-	
-	/*dtd
-	<!ELEMENT tpl:EntryCategoryShortURL - O -- Entry category short URL (relative URL, from /category/) -->
-	*/
-	public function EntryCategoryShortURL($attr)
-	{
-		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->posts->cat_url').'; ?>';
-	}
-	
-	
-	/*dtd
 	<!ELEMENT tpl:EntryFeedID - O -- Entry feed ID -->
 	*/
 	public function EntryFeedID($attr)
@@ -1490,7 +1198,6 @@ class dcTemplate extends template
 	<!ATTLIST tpl:EntryAuthorEmail
 	size			(sq|t|s|m|o)	#IMPLIED	-- Image size to extract
 	class		CDATA		#IMPLIED	-- Class to add on image tag
-	with_category	(1|0)		#IMPLIED	-- Search in entry category description if present (default 0)
 	>
 	*/
 	public function EntryFirstImage($attr)
@@ -1499,7 +1206,7 @@ class dcTemplate extends template
 		$class = !empty($attr['class']) ? $attr['class'] : '';
 		$with_category = !empty($attr['with_category']) ? 'true' : 'false';
 		
-		return "<?php echo context::EntryFirstImageHelper('".addslashes($size)."',".$with_category.",'".addslashes($class)."'); ?>";
+		return "<?php echo context::EntryFirstImageHelper('".addslashes($size)."','".addslashes($class)."'); ?>";
 	}
 	
 	/*dtd
@@ -1528,7 +1235,6 @@ class dcTemplate extends template
 	/*dtd
 	<!ELEMENT tpl:EntryNext - - -- Next entry block -->
 	<!ATTLIST tpl:EntryNext
-	restrict_to_category	(0|1)	#IMPLIED	-- find next post in the same category (default: 0)
 	restrict_to_lang		(0|1)	#IMPLIED	-- find next post in the same language (default: 0)
 	>
 	*/
@@ -1876,7 +1582,6 @@ class dcTemplate extends template
 	/*dtd
 	<!ELEMENT tpl:SysIf - - -- System settings tester container -->
 	<!ATTLIST tpl:SysIf
-	categories		(0|1)	#IMPLIED	-- test if categories are set in current context (value : 1) or not (value : 0)
 	posts			(0|1)	#IMPLIED	-- test if posts are set in current context (value : 1) or not (value : 0)
 	blog_lang			CDATA	#IMPLIED	-- tests if blog language is the one given in parameter
 	current_tpl		CDATA	#IMPLIED	-- tests if current template is the one given in paramater
@@ -1893,11 +1598,6 @@ class dcTemplate extends template
 		$is_ping = null;
 		
 		$operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
-		
-		if (isset($attr['categories'])) {
-			$sign = (boolean) $attr['categories'] ? '!' : '=';
-			$if[] = '$_ctx->categories '.$sign.'== null';
-		}
 		
 		if (isset($attr['posts'])) {
 			$sign = (boolean) $attr['posts'] ? '!' : '=';
