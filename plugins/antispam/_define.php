@@ -18,9 +18,6 @@ $this->registerModule(
 	/* Version */			'1.3.1',
 	array(
 		'permissions' =>	'usage,contentadmin',
-		'depends' => array (
-			'comments' => '1.0'
-		),
 		'priority' =>		10
 	)
 );

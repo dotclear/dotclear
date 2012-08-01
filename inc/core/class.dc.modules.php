@@ -322,42 +322,6 @@ class dcModules
 		return $res;
 	}
 	
-	public function getUnmatchedDependencies($id) {
-		if (isset($this->modules[$id])){
-			$mod = $this->modules[$id];
-		} elseif (isset($this->disabled[$id])) {
-			$mod = $this->disabled[$id];
-		} else {
-			return array();
-		}
-		if (!isset($mod['depends'])) {
-			return array();
-		}
-		$failures=array();
-		$deps = $mod['depends'];
-		foreach ($deps as $n => $v) {
-			if (is_array($v)) {
-				$min_ver = $v[0];
-				$max_ver = $v[1];
-				$ver_txt = sprintf(__('%s&lt;=%s&lt;=%s'),$min_ver,$n,$max_ver);
-			} else {
-				$min_ver = $v;
-				$max_ver = '';
-				$ver_txt = sprintf(__('%s&gt;=%s'),$n,$min_ver);
-			}
-			if (!isset($this->modules[$n])) {
-				$failures[$n] = sprintf(__('%s (missing)'),$ver_txt);
-			} else {
-				$modver = $mod['version'];
-				if ((($min_ver != '' ) && version_compare($modver, $minver,'<'))
-					|| (($max_ver != '' ) && version_compare($modver, $maxver,'>'))){
-					$failures[$n] = sprintf(__('%s (current : %s)'),$ver_txt,$modver);
-				}
-			}
-		}
-		return $failures;
-	}
-	
 	/**
 	This method installs module with ID <var>$id</var> and having a _install
 	file. This file should throw exception on failure or true if it installs
