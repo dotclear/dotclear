@@ -1,8 +1,6 @@
 $(function() {
 	var f = $('#quick-entry');
 	if (f.length > 0) {
-		var contentTb = new jsToolBar($('#post_content',f)[0]);
-		contentTb.switchMode($('#post_format',f).val());
 
 		$('input[name=save]',f).click(function() {
 			quickPost(f,-2);
@@ -20,9 +18,6 @@ $(function() {
 		}
 
 		function quickPost(f,status) {
-			if (contentTb.getMode() == 'wysiwyg') {
-				contentTb.syncContents('iframe');
-			}
 
 			var params = {
 				f: 'quickPost',
@@ -52,9 +47,6 @@ $(function() {
 					msg += '</p>';
 					$('#post_title',f).val('');
 					$('#post_content',f).val('');
-					if (contentTb.getMode() == 'wysiwyg') {
-						contentTb.syncContents('textarea');
-					}
 				}
 
 				$('fieldset',f).prepend(msg);

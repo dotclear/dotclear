@@ -118,8 +118,6 @@ class tagsBehaviors
 		"metaEditor.prototype.text_choose = '".html::escapeJS(__('Choose from list'))."';\n".
 		"metaEditor.prototype.text_all = '".html::escapeJS(__('all'))."';\n".
 		"metaEditor.prototype.text_separation = '';\n".
-		"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
-		"jsToolBar.prototype.elements.tag.url = '".html::escapeJS($tag_url)."';\n".
 		"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
 		"dotclear.msg.entry = '".html::escapeJS(__('entry'))."';\n".
 		"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
