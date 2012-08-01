@@ -11,6 +11,8 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+global $__autoload,$core;
+
 $__autoload['dcIeModule'] = 	dirname(__FILE__).'/inc/class.dc.ieModule.php';
 
 $__autoload['dcImportFlat'] = 	dirname(__FILE__).'/inc/class.dc.import.flat.php';

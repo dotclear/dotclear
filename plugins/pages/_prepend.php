@@ -11,6 +11,8 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+global $core;
+
 $core->url->register('pages','pages','^pages/(.+)$',array('urlPages','pages'));
 $core->url->register('pagespreview','pagespreview','^pagespreview/(.+)$',array('urlPages','pagespreview'));
 
