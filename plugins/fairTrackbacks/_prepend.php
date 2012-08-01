@@ -11,6 +11,8 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+global $__autoload;
+
 if (!defined('DC_FAIRTRACKBACKS_FORCE')) {
 	define('DC_FAIRTRACKBACKS_FORCE',false);
 }
