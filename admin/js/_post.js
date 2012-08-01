@@ -76,20 +76,8 @@ $(function() {
 	
 	if (document.getElementById('edit-entry'))
 	{
-		// Get document format and prepare toolbars
 		var formatField = $('#post_format').get(0);
-		$(formatField).change(function() {
-			excerptTb.switchMode(this.value);
-			contentTb.switchMode(this.value);
-		});
 		
-		var excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
-		var contentTb = new jsToolBar(document.getElementById('post_content'));
-		excerptTb.context = contentTb.context = 'post';
-	}
-	
-	if (document.getElementById('comment_content')) {
-		var commentTb = new jsToolBar(document.getElementById('comment_content'));
 	}
 	
 	// Post preview
@@ -122,15 +110,12 @@ $(function() {
 			hide: $('#post_password').val() == ''
 		});
 		
-		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
-			fn: function() { excerptTb.switchMode(formatField.value); },
+			fn: function() { },
 			cookie: 'dcx_post_excerpt',
 			hide: $('#post_excerpt').val() == ''
 		});
 		
-		// Load toolbars
-		contentTb.switchMode(formatField.value);
 		
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {
@@ -225,7 +210,4 @@ $(function() {
 		dotclear.commentsActionsHelper();
 	});
 	
-	$('#add-comment').onetabload(function() {
-		commentTb.draw('xhtml');
-	});
 });

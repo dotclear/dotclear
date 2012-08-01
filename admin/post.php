@@ -249,7 +249,6 @@ if (!$can_edit_post) {
 
 dcPage::open($page_title.' - '.__('Entries'),
 	dcPage::jsDatePicker().
-	dcPage::jsToolBar().
 	dcPage::jsModal().
 	dcPage::jsMetaEditor().
 	dcPage::jsLoad('js/_post.js').

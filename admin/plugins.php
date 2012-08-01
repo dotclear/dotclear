@@ -235,6 +235,7 @@ if (!empty($p_available))
 	
 	foreach ($p_available as $k => $v)
 	{
+
 		$is_deletable = $is_writable && preg_match('!^'.$p_path_pat.'!',$v['root']);
 		$is_deactivable = $v['root_writable'];
 		
@@ -243,7 +244,8 @@ if (!empty($p_available))
 		'<td class="minimal nowrap"><strong>'.html::escapeHTML($k).'</strong></td>'.
 		'<td class="minimal">'.html::escapeHTML($v['version']).'</td>'.
 		'<td class="maximal"><strong>'.html::escapeHTML($v['name']).'</strong> '.
-		'<br />'.html::escapeHTML($v['desc']).'</td>'.
+		'<br />'.html::escapeHTML($v['desc']);
+		echo '</td>'.
 		'<td class="nowrap action">';
 		
 		if ($is_deletable || $is_deactivable)
@@ -280,12 +282,21 @@ if (!empty($p_disabled))
 	
 	foreach ($p_disabled as $k => $v)
 	{
+		$dep = $core->plugins->getUnmatchedDependencies($k); print_r($dep);
+		$invalid=(count($dep) > 0);
+
 		$is_deletable = $is_writable && preg_match('!^'.$p_path_pat.'!',$v['root']);
-		$is_activable = $v['root_writable'];
+		$is_activable = !$invalid && $v['root_writable'];
 		
 		echo
-		'<tr class="line wide">'.
-		'<td class="maximal nowrap"><strong>'.html::escapeHTML($k).'</strong></td>'.
+		'<tr class="line wide'.($invalid ? " error" : "").'">'.
+		'<td class="maximal nowrap"><strong>'.html::escapeHTML($k).'</strong>';
+		if ($invalid) {
+			echo '<br /><span style="color:#c00"><strong>'.__('Unmet dependencies: ').'</strong>'.
+				join(', ',$dep).'</span>';
+		}
+		echo '</td>';
+
 		'<td class="nowrap action">';
 		
 		if ($is_deletable || $is_activable)

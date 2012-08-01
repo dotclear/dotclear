@@ -630,50 +630,6 @@ class dcPage
 		return $res;
 	}
 	
-	public static function jsCandyUpload($params=array(),$base_url=null)
-	{
-		if (!$base_url) {
-			$base_url = path::clean(dirname(preg_replace('/(\?.*$)?/','',$_SERVER['REQUEST_URI']))).'/';
-		}
-		
-		$params = array_merge($params,array(
-			'sess_id='.session_id(),
-			'sess_uid='.$_SESSION['sess_browser_uid'],
-			'xd_check='.$GLOBALS['core']->getNonce()
-		));
-		
-		return
-		'<link rel="stylesheet" type="text/css" href="style/candyUpload/style.css" />'."\n".
-		self::jsLoad('js/jquery/jquery.candyUpload.js').
-		
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		"dotclear.candyUpload = {};\n".
-		self::jsVar('dotclear.msg.activate_enhanced_uploader',__('Activate enhanced uploader')).
-		self::jsVar('dotclear.msg.disable_enhanced_uploader',__('Disable enhanced uploader')).
-		self::jsVar('$._candyUpload.prototype.locales.file_uploaded',__('File successfully uploaded.')).
-		self::jsVar('$._candyUpload.prototype.locales.max_file_size',__('Maximum file size allowed:')).
-		self::jsVar('$._candyUpload.prototype.locales.limit_exceeded',__('Limit exceeded.')).
-		self::jsVar('$._candyUpload.prototype.locales.size_limit_exceeded',__('File size exceeds allowed limit.')).
-		self::jsVar('$._candyUpload.prototype.locales.canceled',__('Canceled.')).
-		self::jsVar('$._candyUpload.prototype.locales.http_error',__('HTTP Error:')).
-		self::jsVar('$._candyUpload.prototype.locales.error',__('Error:')).
-		self::jsVar('$._candyUpload.prototype.locales.choose_file',__('Choose file')).
-		self::jsVar('$._candyUpload.prototype.locales.choose_files',__('Choose files')).
-		self::jsVar('$._candyUpload.prototype.locales.cancel',__('Cancel')).
-		self::jsVar('$._candyUpload.prototype.locales.clean',__('Clean')).
-		self::jsVar('$._candyUpload.prototype.locales.upload',__('Upload')).
-		self::jsVar('$._candyUpload.prototype.locales.no_file_in_queue',__('No file in queue.')).
-		self::jsVar('$._candyUpload.prototype.locales.file_in_queue',__('1 file in queue.')).
-		self::jsVar('$._candyUpload.prototype.locales.files_in_queue',__('%d files in queue.')).
-		self::jsVar('$._candyUpload.prototype.locales.queue_error',__('Queue error:')).
-		self::jsVar('dotclear.candyUpload.base_url',$base_url).
-		self::jsVar('dotclear.candyUpload.movie_url',$base_url.'index.php?pf=swfupload.swf').
-		self::jsVar('dotclear.candyUpload.params',implode('&',$params)).
-		"\n//]]>\n".
-		"</script>\n";
-	}
-	
 	public static function jsToolMan()
 	{
 		return
