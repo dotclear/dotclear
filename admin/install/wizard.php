@@ -45,6 +45,15 @@ if (is_file(DC_RC_PATH)) {
 	http::redirect('index.php');
 }
 
+if (!is_writable(dirname(DC_RC_PATH))) {
+	$err = '<p>'.sprintf(__('Path <strong>%s</strong> is not writable.'),path::real(dirname(DC_RC_PATH))).'</p>'.
+	'<p>'.__('Dotclear installation wizard could not create configuration file for you. '.
+		'You must change folder right or create the <strong>config.php</strong> '.
+		'file manually, please refer to '.
+		'<a href="http://dotclear.org/documentation/2.0/admin/install">'.
+		'the documentation</a> to learn how to do this.').'</p>';
+}
+
 $DBDRIVER = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : 'mysql';
 $DBHOST = !empty($_POST['DBHOST']) ? $_POST['DBHOST'] : '';
 $DBNAME = !empty($_POST['DBNAME']) ? $_POST['DBNAME'] : '';
