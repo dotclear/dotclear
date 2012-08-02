@@ -406,7 +406,7 @@ class adminUserList extends adminGenericList
 		return
 		'<tr class="line">'.
 		'<td class="nowrap">'.form::hidden(array('nb_post[]'),(integer) $this->rs->nb_post).
-		form::checkbox(array('user_id[]'),$this->rs->user_id).'</td>'.
+		form::checkbox(array('users[]'),$this->rs->user_id).'</td>'.
 		'<td class="maximal"><a href="user.php?id='.$this->rs->user_id.'">'.
 		$this->rs->user_id.'</a>&nbsp;'.$img_status.'</td>'.
 		'<td class="nowrap">'.$this->rs->user_firstname.'</td>'.

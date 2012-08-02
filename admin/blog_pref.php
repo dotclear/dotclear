@@ -522,15 +522,7 @@ if ($blog_id)
 				'<h4>'.sprintf($user_url_p,html::escapeHTML($k)).
 				' ('.html::escapeHTML(dcUtils::getUserCN(
 					$k, $v['name'], $v['firstname'], $v['displayname']
-				)).')';
-				
-				if (!$v['super'] && $core->auth->isSuperAdmin()) {
-					echo
-					' - <a href="permissions.php?blog_id[]='.$blog_id.'&amp;user_id[]='.$k.'">'
-					.__('Change permissions').'</a>';
-				}
-				
-				echo '</h4>';
+				)).')</h4>';
 				
 				echo '<ul>';
 				if ($v['super']) {
@@ -541,6 +533,19 @@ if ($blog_id)
 					}
 				}
 				echo '</ul>';
+				
+				if (!$v['super'] && $core->auth->isSuperAdmin()) {
+					echo 
+					'<form action="users_actions.php" method="post">'.
+					'<p><input type="submit" value="'.__('Change permissions').'" />'.
+					form::hidden(array('redir'),'blog_pref.php?id='.$k).
+					form::hidden(array('action'),'perms').
+					form::hidden(array('users[]'),$k).
+					form::hidden(array('blogs[]'),$blog_id).
+					$core->formNonce().
+					'</p>'.
+					'</form>';
+				}
 			}
 		}
 	}

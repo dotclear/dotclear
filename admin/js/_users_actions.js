@@ -52,5 +52,8 @@ jQuery.fn.updatePermissionsForm = function() {
 };
 
 $(function() {
+	$('.checkboxes-helpers').each(function() {
+		dotclear.checkboxesHelpers(this);
+	});
 	$('#permissions-form').updatePermissionsForm();
 });
