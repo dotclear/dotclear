@@ -14,33 +14,9 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
-# Delete users
-if (!empty($delete_users))
-{
-	foreach ($delete_users as $u)
-	{
-		try
-		{
-			# --BEHAVIOR-- adminBeforeUserDelete
-			$core->callBehavior('adminBeforeUserDelete',$u);
-			if ($u != $core->auth->userID()) {
-				$core->delUser($u);
-			}
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}
-	}
-	if (!$core->error->flag()) {
-		http::redirect('users.php?del=1');
-	}
-}
-
-
 # Creating filter combo boxes
 $sortby_combo = array(
-__('Username') => 'U.user_id',
+__('Username') => 'user_id',
 __('Last Name') => 'user_name',
 __('First Name') => 'user_firstname',
 __('Display name') => 'user_displayname',
@@ -54,7 +30,7 @@ __('Ascending') => 'asc'
 
 # Actions combo box
 $combo_action = array(
-	__('Set permissions') => 'setpermissions',
+	__('Set permissions') => 'blogs',
 	__('Delete') => 'deleteuser'
 );
 
@@ -88,10 +64,19 @@ if ($q) {
 if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 	if ($order !== '' && in_array($order,$order_combo)) {
 		$params['order'] = $sortby.' '.$order;
+	} else {
+		$order='asc';
+	}
+	
+	if ($sortby != 'user_id' || $order != 'asc') {
 		$show_filters = true;
 	}
+} else {
+	$sortby = 'user_id';
+	$order = 'asc';
 }
 
+# Get users
 try {
 	$rs = $core->getUsers($params);
 	$counter = $core->getUsers($params,1);
@@ -108,12 +93,15 @@ if (!$show_filters) {
 	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
 }
 
-dcPage::open(__('users'),$starting_script);
+dcPage::open(__('Users'),$starting_script);
 
 if (!$core->error->flag())
 {
 	if (!empty($_GET['del'])) {
 		echo '<p class="message">'.__('User has been successfully removed.').'</p>';
+	}
+	if (!empty($_GET['upd'])) {
+			echo '<p class="message">'.__('The permissions have been successfully updated.').'</p>';
 	}
 	
 	echo 
@@ -152,18 +140,24 @@ if (!$core->error->flag())
 	
 	# Show users
 	$user_list->display($page,$nb_per_page,
-	'<form action="dispatcher.php" method="get" id="form-users">'.
+	'<form action="users_actions.php" method="post" id="form-users">'.
 	
 	'%s'.
 	
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	
-	'<p class="col right"><label for="dispatch_action" class="classic">'.
+	'<p class="col right"><label for="action" class="classic">'.
 	__('Selected users action:').' '.
-	form::combo('dispatch_action',$combo_action).
+	form::combo('action',$combo_action).
 	'</label> '.
 	'<input type="submit" value="'.__('ok').'" />'.
+	form::hidden(array('q'),html::escapeHTML($q)).
+	form::hidden(array('sortby'),$sortby).
+	form::hidden(array('order'),$order).
+	form::hidden(array('page'),$page).
+	form::hidden(array('nb'),$nb_per_page).
+	$core->formNonce().
 	'</p>'.
 	'</div>'.
 	'</form>'
