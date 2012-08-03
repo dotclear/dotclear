@@ -14,6 +14,8 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('media,media_admin');
 
+$tab = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
+
 $post_id = !empty($_GET['post_id']) ? (integer) $_GET['post_id'] : null;
 if ($post_id) {
 	$post = $core->blog->getPosts(array('post_id'=>$post_id));
@@ -102,7 +104,7 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
 	
 	try {
 		$core->media->updateFile($file,$newFile);
-		http::redirect($page_url.'&id='.$id.'&fupd=1');
+		http::redirect($page_url.'&id='.$id.'&fupd=1&tab=media-details-tab');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -114,7 +116,7 @@ if (!empty($_POST['thumbs']) && $file->media_type == 'image' && $file->editable 
 	try {
 		$foo = null;
 		$core->media->mediaFireRecreateEvent($file);
-		http::redirect($page_url.'&id='.$id.'&thumbupd=1');
+		http::redirect($page_url.'&id='.$id.'&thumbupd=1&tab=media-details-tab');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -164,7 +166,7 @@ if ($popup) {
 call_user_func($open_f,__('Media manager'),
 	$starting_scripts.
 	dcPage::jsDatePicker().
-	dcPage::jsPageTabs()
+	dcPage::jsPageTabs($tab)
 );
 
 if ($file === null) {
@@ -339,9 +341,9 @@ if ($file->media_image)
 	{
 		$strong_link = ($s == $thumb_size) ? '<strong>%s</strong>' : '%s';
 		printf($strong_link,'<a href="'.html::escapeURL($page_url).
-		'&amp;id='.$id.'&amp;size='.$s.'">'.$core->media->thumb_sizes[$s][2].'</a> | ');
+		'&amp;id='.$id.'&amp;size='.$s.'&amp;tab=media-details-tab">'.$core->media->thumb_sizes[$s][2].'</a> | ');
 	}
-	echo '<a href="'.html::escapeURL($page_url).'&amp;id='.$id.'&amp;size=o">'.__('original').'</a>';
+	echo '<a href="'.html::escapeURL($page_url).'&amp;id='.$id.'&amp;size=o&amp;tab=media-details-tab">'.__('original').'</a>';
 	echo '</p>';
 	
 	if (isset($file->media_thumb[$thumb_size])) {
@@ -376,7 +378,7 @@ echo
 if (empty($_GET['find_posts']))
 {
 	echo
-	'<p><strong><a href="'.html::escapeHTML($page_url).'&amp;id='.$id.'&amp;find_posts=1">'.
+	'<p><strong><a href="'.html::escapeHTML($page_url).'&amp;id='.$id.'&amp;find_posts=1&amp;tab=media-details-tab">'.
 	__('Show entries containing this media').'</a></strong></p>';
 }
 else
