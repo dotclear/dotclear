@@ -2801,7 +2801,7 @@ class dcTemplate extends template
 	current_tpl		CDATA	#IMPLIED	-- tests if current template is the one given in paramater
 	current_mode		CDATA	#IMPLIED	-- tests if current URL mode is the one given in parameter
 	has_tpl			CDATA     #IMPLIED  -- tests if a named template exists
-	has_tag			CDATA     #IMPLIED  -- tests if a named template tag exists (see Tag plugin for code)
+	has_tag			CDATA     #IMPLIED  -- tests if a named template block or value exists
 	blog_id			CDATA     #IMPLIED  -- tests if current blog ID is the one given in parameter
 	comments_active	(0|1)	#IMPLIED	-- test if comments are enabled blog-wide 
 	pings_active		(0|1)	#IMPLIED	-- test if trackbacks are enabled blog-wide 
@@ -2855,6 +2855,15 @@ class dcTemplate extends template
 				$attr['has_tpl'] = substr($attr['has_tpl'],1);
 			}
 			$if[] = $sign."\$core->tpl->getFilePath('".addslashes($attr['has_tpl'])."') !== false";
+		}
+		
+		if (isset($attr['has_tag'])) {
+			$sign = 'true';
+			if (substr($attr['has_tag'],0,1) == '!') {
+				$sign = 'false';
+				$attr['has_tag'] = substr($attr['has_tag'],1);
+			}
+			$if[] =  "\$core->tpl->tagExists('".addslashes($attr['has_tag'])."') === ".$sign;
 		}
 		
 		if (isset($attr['blog_id'])) {
