@@ -249,7 +249,18 @@ class defaultWidgets
 		
 		$i = 0;
 		foreach ($feed->items as $item) {
-			$li = isset($item->link) ? '<a href="'.html::escapeHTML($item->link).'">'.$item->title.'</a>' : $item->title;
+			$title = isset($item->title) && strlen(trim($item->title)) ? $item->title : '';
+			$link = isset($item->link) && strlen(trim($item->link)) ? $item->link : '';
+			
+			if (!$link && !$title) {
+				continue;
+			}
+			
+			if (!$title) {
+				$title = substr($link,0,25).'...';
+			}
+			
+			$li = $link ? '<a href="'.html::escapeHTML($item->link).'">'.$title.'</a>' : $title;
 			$res .= ' <li>'.$li.'</li> ';
 			$i++;
 			if ($i >= $limit) {
