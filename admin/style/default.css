@@ -807,6 +807,7 @@ option.avail10n {
 	font-weight: bold;
 	text-transform: capitalize;
 	padding: .33em .75em .33em 1em;
+	border-radius: 1em 0 0 1em;
 	-moz-border-radius: 1em 0 0 1em;
 	-webkit-border-top-left-radius: 1em;
 	-webkit-border-bottom-left-radius: 1em;
