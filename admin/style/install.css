@@ -46,6 +46,7 @@ body.install label {
 
 body.install .msg {
 	padding:10px 10px 10px 60px;
+	border-radius:8px;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 }
@@ -67,6 +68,7 @@ a:hover, a:active, a:focus {
 div.error, p.error, div.message, p.message, div.static-msg, p.static-msg {
 	padding: 0.5em 0.5em 0.5em 60px;
 	margin-bottom: 1em;
+	border-radius: 8px;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 }
@@ -128,6 +130,7 @@ a#obfus {
 	color: #fff;
 	background-color: #666;
 	padding: 0 10px;
+	border-radius: 2px;
 	-moz-border-radius: 2px;
 	-webkit-border-radius: 2px;
 }
