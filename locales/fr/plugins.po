@@ -1,19 +1,24 @@
 # French translation of DotClear
 # Copyright (C) 2006.
 # Olivier Meunier <olivier@dotclear.net>, 2006.
+#
+# Translators:
+# Franck  <carnet.franck.paul@gmail.com>, 2011.
+# Stéphane Aulery <lkppo@free.fr>, 2012.
+# xave <xave@dotclear.net>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-06 18:11+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
-"Language: \n"
+"POT-Creation-Date: 2012-08-13 09:59+0200\n"
+"PO-Revision-Date: 2012-08-13 07:28+0000\n"
+"Last-Translator: xave <xave@dotclear.net>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: French\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 msgid "no"
 msgstr "non"
@@ -22,13 +27,13 @@ msgid "yes"
 msgstr "oui"
 
 msgid "Configuration successfully updated"
-msgstr "Configuration mise à jour avec succès"
+msgstr "La configuration a été mise à jour avec succès"
 
 msgid "Settings definition successfully updated"
-msgstr "Définition des paramètres mise à jour avec succès"
+msgstr "Les réglages ont été enregistrés avec succès"
 
 msgid "blog settings"
-msgstr "paramètres du blog"
+msgstr "Réglages du blog"
 
 msgid "Value"
 msgstr "Valeur"
@@ -37,54 +42,54 @@ msgid "Description"
 msgstr "Description"
 
 msgid "Goto:"
-msgstr "Aller à :"
+msgstr "Aller à : "
 
 msgid "Ok"
-msgstr "Valider"
+msgstr "Ok"
 
 msgid "global settings"
-msgstr "paramètres globaux"
+msgstr "Réglages généraux"
 
 msgid "Akismet spam filter"
-msgstr "Filtre de spam Akismet"
+msgstr "Filtre d'indésirable Akismet"
 
 #, php-format
 msgid "Filtered by %s."
-msgstr "Filtré par %s"
+msgstr "Filtré par %s."
 
 msgid "Akismet API key:"
-msgstr "Clé de l'interface Akismet :"
+msgstr "Clé API Akismet :"
 
 msgid "API key verified"
-msgstr "Clé vérifiée"
+msgstr "Clé API vérifiée"
 
 msgid "API key not verified"
-msgstr "Clé non vérifiée"
+msgstr "Clé API non vérifiée"
 
 msgid "Get your own API key"
-msgstr "Obtenez votre clé Akismet"
+msgstr "Obtenez votre propre clé API"
 
 msgid "Antispam"
 msgstr "Antispam"
 
 msgid "Delete junk comments older than"
-msgstr "Supprimer les commentaires indésirables après"
+msgstr "Supprimer les commentaires indésirables âgés de plus de"
 
 msgid "days"
 msgstr "jours"
 
 msgid "IP Blacklist / Whitelist Filter"
-msgstr "Liste noire / Liste blanche IP"
+msgstr "Filtre de liste noire et blanche d'IP"
 
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
-msgstr "Filtré par %1$s avec la règle %2$s."
+msgstr "Flitré par %1$s avec la règle %2$s."
 
 msgid "IP address has been successfully added."
 msgstr "L'adresse IP a été ajoutée avec succès."
 
 msgid "IP addresses have been successfully removed."
-msgstr "L'adresse IP a été supprimée avec succès."
+msgstr "L'adresse IP a été retirée avec succès."
 
 msgid "Blacklist"
 msgstr "Liste noire"
@@ -93,7 +98,7 @@ msgid "Whitelist"
 msgstr "Liste blanche"
 
 msgid "Add an IP address: "
-msgstr "Ajouter une adresse IP"
+msgstr "Ajouter une adresse IP : "
 
 msgid "Global IP"
 msgstr "IP globale"
@@ -102,45 +107,45 @@ msgid "Add"
 msgstr "Ajouter"
 
 msgid "No IP address in list."
-msgstr "Aucune adresse IP dans la liste."
+msgstr "Pas d'adresse IP dans la liste."
 
 msgid "IP list"
-msgstr "Liste d'IP"
+msgstr "Liste IP"
 
 msgid "Checks sender IP address against DNSBL servers"
-msgstr "Vérifie l'adresse IP de l'auteur sur des serveurs DNSBL"
+msgstr "Contrôle l'adresse IP de l'émetteur via les serveurs DNSBL"
 
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
-msgstr "Filtré par %1$s avec le serveur %2$s."
+msgstr "Filtré par %1$s par le serveur %2$s."
 
 msgid "IP Lookup servers"
-msgstr "Serveurs de résolution d'IP"
+msgstr "Serveurs de contrôle d'IP"
 
 msgid "Add here a coma separated list of servers."
-msgstr "Ajoutez ici une liste de serveurs, séparés par des virgules."
+msgstr "Ajouter ici la liste des serveurs séparés par des virgules."
 
 msgid "Checks links in comments against surbl.org"
-msgstr "Vérifie les liens dans les commentaires sur surbl.org"
+msgstr "Contrôle les liens des commentaires via surbl.org"
 
 msgid "Words Blacklist"
-msgstr "Liste de termes interdits"
+msgstr "Liste de mots interdits"
 
 #, php-format
 msgid "Filtered by %1$s with word %2$s."
-msgstr "Filtré par %1$s avec le terme %2$s."
+msgstr "Filtré par %1$s à cause du mot %2$s."
 
 msgid "Words have been successfully added."
-msgstr "Les mots ont été ajouté avec succès."
+msgstr "Les mots ont été ajoutés avec succès."
 
 msgid "Word has been successfully added."
 msgstr "Le mot a été ajouté avec succès."
 
 msgid "Words have been successfully removed."
-msgstr "Les mots ont été supprimés avec succès."
+msgstr "Les mots ont été retirés avec succès."
 
 msgid "Add a word "
-msgstr "Ajouter un mot"
+msgstr "Ajouter un mot "
 
 msgid "Global word"
 msgstr "Mot global"
@@ -155,69 +160,69 @@ msgid "Delete selected words"
 msgstr "Supprimer les mots sélectionnés"
 
 msgid "Create default wordlist"
-msgstr "Créer une liste par défaut"
+msgstr "Créer une liste de mots par défaut"
 
 msgid "This word exists"
-msgstr "Ce mot existe"
+msgstr "Ce mot est déjà présent"
 
 msgid "No description"
-msgstr "Aucune description"
+msgstr "Pas de description"
 
 #, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "Filtré par %1$s (%2$s)"
 
 msgid "Unknown filter."
-msgstr "Filtre inconnu"
+msgstr "Filtre inconnu."
 
 msgid "This comment is a spam:"
-msgstr "Ce commentaire est un indésirable :"
+msgstr "Ce commentaire est indésirable :"
 
 #, php-format
 msgid "(including %d spam comment)"
-msgstr "(dont %d commentaire indésirable)"
+msgstr "(incluant %d commentaire indésirable)"
 
 #, php-format
 msgid "(including %d spam comments)"
-msgstr "(dont %d commentaires indésirables)"
+msgstr "(incluant %d commentaires indésirables)"
 
 msgid "Spam moderation"
 msgstr "Modération des indésirables"
 
 msgid "Spam"
-msgstr "Spam"
+msgstr "Indésirable"
 
 msgid "Ham"
-msgstr "Non spam"
+msgstr "Désirable"
 
 msgid "Filter does not exist."
-msgstr "Le filtre n'existe pas."
+msgstr "Ce filtre n'existe pas."
 
 msgid "Filter has no user interface."
-msgstr "Le filtre n'a pas d'interface utilisateur."
+msgstr "Ce filtre n'a pas de réglages."
 
 #, php-format
 msgid "%s configuration"
-msgstr "%s configuration"
+msgstr "configuration %s"
 
 msgid "Information"
-msgstr "Informations"
+msgstr "Information"
 
 msgid "Spam comments have been successfully deleted."
 msgstr "Les commentaires indésirables ont été supprimés avec succès."
 
 msgid "Junk comments:"
-msgstr "Commentaires indésirables :"
+msgstr "Commentaires indésirables :"
 
 msgid "Published comments:"
-msgstr "Commentaires publiés :"
+msgstr "Commentaires publiés :"
 
 msgid "Delete all spams"
 msgstr "Supprimer tous les indésirables"
 
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Tous les indésirables de plus de %s jour(s) seront automatiquement supprimés."
+msgstr "Tous les commentaires indésirables âgés d'au moins %s jour(s) seront supprimés automatiquement."
 
 msgid "You can modify this duration in "
 msgstr "Vous pouvez modifier cet intervalle dans"
@@ -226,10 +231,10 @@ msgid "Blog preferences"
 msgstr "Préférences du blog"
 
 msgid "Filters configuration has been successfully saved."
-msgstr "La configuration des filtres a été enregistrée avec succès."
+msgstr "La configurations des filtres a été enregistrée avec succès."
 
 msgid "Available spam filters"
-msgstr "Filtres disponibles"
+msgstr "Filtres d'indésirable disponibles"
 
 msgid "Order"
 msgstr "Ordre"
@@ -238,7 +243,7 @@ msgid "Active"
 msgstr "Actif"
 
 msgid "Auto Del."
-msgstr "Suppr. Auto"
+msgstr "Auto suppr."
 
 msgid "Filter name"
 msgstr "Nom du filtre"
@@ -259,7 +264,7 @@ msgid "Published comments RSS feed"
 msgstr "Fil RSS des commentaires publiés"
 
 msgid "Attachments"
-msgstr "Fichiers attachés"
+msgstr "Annexes"
 
 msgid "remove"
 msgstr "supprimer"
@@ -271,10 +276,10 @@ msgid "Add files to this entry"
 msgstr "Ajouter des fichiers à la page"
 
 msgid "Blogroll"
-msgstr "Liens / Blogroll"
+msgstr "Liste des liens"
 
 msgid "manage blogroll"
-msgstr "gérer la liste de liens"
+msgstr "Gestion de la liste des liens"
 
 msgid "Links"
 msgstr "Liens"
@@ -283,34 +288,34 @@ msgid "All categories"
 msgstr "Toutes les catégories"
 
 msgid "Home page only"
-msgstr "Page d'accueil uniquement"
+msgstr "En page d'accueil seulement"
 
 msgid "You must provide a link title"
-msgstr "Vous devez indiquer un titre de lien"
+msgstr "Vous devez fournir un titre de lien"
 
 msgid "You must provide a link URL"
-msgstr "Vous devez indiquer une URL"
+msgstr "Vous devez fournir une URL de lien"
 
 msgid "You need to provide a XBEL or OPML file."
 msgstr "Vous devez fournir un fichier XBEL ou OPML."
 
 msgid "File is not in XML format."
-msgstr "Le fichier n'est pas au format XML."
+msgstr "Ce fichier n'est pas au format XML."
 
 msgid "No such link or title"
-msgstr "Lien ou catégorie inexistant"
+msgstr "Pas de lien ou de titre"
 
 msgid "Return to blogroll"
-msgstr "Retour à la liste des liens"
+msgstr "Retourner à la liste des liens"
 
 msgid "Category has been successfully updated"
-msgstr "Catégorie mise à jour avec succès"
+msgstr "La catégorie a été mise à jour avec succès"
 
 msgid "Edit category"
-msgstr "Modifier une catégorie"
+msgstr "Modifier la catégorie"
 
 msgid "Link has been successfully updated"
-msgstr "Lien mis à jour avec succès"
+msgstr "Le lien a été mis à jour avec succès"
 
 msgid "Edit link"
 msgstr "Modifier le lien"
@@ -319,100 +324,100 @@ msgid "XFN"
 msgstr "XFN"
 
 msgid "_xfn_Me"
-msgstr "Moi"
+msgstr "_xfn_Me"
 
 msgid "_xfn_Another link for myself"
-msgstr "Autre lien m'appartenant"
+msgstr "_xfn_Another link for myself"
 
 msgid "_xfn_Friendship"
-msgstr "Amitié"
+msgstr "_xfn_Friendship"
 
 msgid "_xfn_Contact"
-msgstr "Contact"
+msgstr "_xfn_Contact"
 
 msgid "_xfn_Acquaintance"
-msgstr "Connaissance"
+msgstr "_xfn_Acquaintance"
 
 msgid "_xfn_Friend"
-msgstr "Ami(e)"
+msgstr "_xfn_Friend"
 
 msgid "_xfn_Physical"
-msgstr "Physique"
+msgstr "_xfn_Physical"
 
 msgid "_xfn_Met"
-msgstr "Rencontré(e)"
+msgstr "_xfn_Met"
 
 msgid "_xfn_Professional"
-msgstr "Professionnel"
+msgstr "_xfn_Professional"
 
 msgid "_xfn_Co-worker"
-msgstr "Camarade de travail"
+msgstr "_xfn_Co-worker"
 
 msgid "_xfn_Colleague"
-msgstr "Collègue"
+msgstr "_xfn_Colleague"
 
 msgid "_xfn_Geographical"
-msgstr "Géographique"
+msgstr "_xfn_Geographical"
 
 msgid "_xfn_Co-resident"
-msgstr "Colocataire"
+msgstr "_xfn_Co-resident"
 
 msgid "_xfn_Neighbor"
-msgstr "Voisin(e)"
+msgstr "_xfn_Neighbor"
 
 msgid "_xfn_Family"
-msgstr "Famille"
+msgstr "_xfn_Family"
 
 msgid "_xfn_Child"
-msgstr "Enfant"
+msgstr "_xfn_Child"
 
 msgid "_xfn_Parent"
-msgstr "Parent"
+msgstr "_xfn_Parent"
 
 msgid "_xfn_Sibling"
-msgstr "Frère/Soeur"
+msgstr "_xfn_Sibling"
 
 msgid "_xfn_Spouse"
-msgstr "Époux/Épouse"
+msgstr "_xfn_Spouse"
 
 msgid "_xfn_Kin"
-msgstr "Famille"
+msgstr "_xfn_Kin"
 
 msgid "_xfn_Romantic"
-msgstr "Romantique"
+msgstr "_xfn_Romantic"
 
 msgid "_xfn_Muse"
-msgstr "Muse"
+msgstr "_xfn_Muse"
 
 msgid "_xfn_Crush"
-msgstr "Bluette"
+msgstr "_xfn_Crush"
 
 msgid "_xfn_Date"
-msgstr "Petit(e) ami(e)"
+msgstr "_xfn_Date"
 
 msgid "_xfn_Sweetheart"
-msgstr "Ami(e)"
+msgstr "_xfn_Sweetheart"
 
 msgid "Nothing to import"
 msgstr "Rien à importer"
 
 msgid "Import operation cancelled."
-msgstr "Importation annulée."
+msgstr "L'importation a été annulée."
 
 msgid "Items order has been successfully updated"
 msgstr "L'ordre des éléments a été mis à jour avec succès"
 
 msgid "Items have been successfully removed."
-msgstr "Éléments supprimés avec succès."
+msgstr "Les éléments ont été retirés avec succès."
 
 msgid "Link has been successfully created."
-msgstr "Lien créé avec succès."
+msgstr "Le lien a été créé avec succès."
 
 msgid "category has been successfully created."
-msgstr "Catégorie mise à jour avec succès."
+msgstr "La catégorie a été créée avec succès."
 
 msgid "links have been successfully imported."
-msgstr "Liens importés avec succès."
+msgstr "Les liens ont été importés avec succès."
 
 msgid "URL"
 msgstr "URL"
@@ -427,7 +432,7 @@ msgid "Delete selected links"
 msgstr "Supprimer les liens sélectionnés"
 
 msgid "Are you sure you want to delete selected links?"
-msgstr "Êtes-vous certain de vouloir supprimer les liens sélectionnés ?"
+msgstr "Êtes-vous sûr de vouloir supprimer ces liens ?"
 
 msgid "The link list is empty."
 msgstr "La liste des liens est vide."
@@ -442,28 +447,28 @@ msgid "Import links"
 msgstr "Importer des liens"
 
 msgid "OPML or XBEL File:"
-msgstr "Fichier OPML ou XBEL :"
+msgstr "Fichier OPML ou XBEL :"
 
 msgid "Import"
-msgstr "Importer"
+msgstr "Importation"
 
 msgid "Light linear gradient"
 msgstr "Dégradé linéaire clair"
 
 msgid "Medium linear gradient"
-msgstr "Dégradé linéaire moyen"
+msgstr "Dégragé linéaire moyen"
 
 msgid "Dark linear gradient"
 msgstr "Dégradé linéaire foncé"
 
 msgid "Solid color"
-msgstr "Couleur unie"
+msgstr "Couleur"
 
 msgid "Custom..."
-msgstr "Personnalisé..."
+msgstr "Personnalisé…"
 
 msgid "Blowup configuration"
-msgstr "Configuration Blowup"
+msgstr "Configuration de Blowup"
 
 msgid "Predefined styles"
 msgstr "Styles prédéfinis"
@@ -475,514 +480,528 @@ msgid "Choose a predefined style"
 msgstr "Sélectionnez un style prédéfini"
 
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "Pour les raisons qui suivent, les images ne pouvant être créées, vous ne pourrez pas changer certaines propriétés."
+msgstr "Pour les raisons suivantes, les images n'ont pu être créées. Vous ne pourrez pas changer certaines propriétés de fond."
 
 msgid "Theme configuration has been successfully updated."
-msgstr "La configuration du thème a été mise à jour avec succès."
+msgstr "La configuration du thème a été enregistrée avec succès."
 
 msgid "General"
 msgstr "Général"
 
 msgid "Background color:"
-msgstr "Couleur de fond&nbsp;:"
+msgstr "Couleur de fond :"
 
 msgid "Background color fill:"
-msgstr "Remplissage de la couleur de fond&nbsp;:"
+msgstr "Couleur de remplissage du fond :"
 
 msgid "Main text font:"
-msgstr "Police du texte principal&nbsp;:"
+msgstr "Police du texte principal :"
 
 msgid "Main text font size:"
-msgstr "Taille du texte principal&nbsp;:"
+msgstr "Taille de police du texte principal :"
 
 msgid "Main text color:"
-msgstr "Couleur du texte principal&nbsp;:"
+msgstr "Couleur du texte principal :"
 
 msgid "Text line height:"
-msgstr "Hauteur des lignes :"
+msgstr "Hauteur des lignes de texte :"
 
 msgid "Links color:"
-msgstr "Couleur des liens&nbsp;:"
+msgstr "Couleur des liens :"
 
 msgid "Visited links color:"
-msgstr "Couleurs des liens visités&nbsp;:"
+msgstr "Couleur des liens visités :"
 
 msgid "Focus links color:"
-msgstr "Couleur des liens survolés&nbsp;:"
+msgstr "Couleur des liens ayant le focus :"
 
 msgid "Page top"
 msgstr "Haut de page"
 
 msgid "Prelude color:"
-msgstr "Couleur du prélude&nbsp;:"
+msgstr "Couleur du prélude :"
 
 msgid "Hide main title"
 msgstr "Cacher le titre principal"
 
 msgid "Main title font:"
-msgstr "Police du titre principal&nbsp;:"
+msgstr "Police du titre principal :"
 
 msgid "Main title font size:"
-msgstr "Taille du titre principal&nbsp;:"
+msgstr "Taille de police du titre principal :"
 
 msgid "Main title color:"
-msgstr "Couleur du titre principal&nbsp;:"
+msgstr "Couleur du titre principal :"
 
 msgid "Main title alignment:"
-msgstr "Alignement du titre principal&nbsp;:"
+msgstr "Alignement du titre principal :"
 
 msgid "center"
-msgstr "centre"
+msgstr "centré"
 
 msgid "left"
-msgstr "gauche"
+msgstr "à gauche"
 
 msgid "right"
-msgstr "droite"
+msgstr "à droite"
 
 msgid "Main title position (x:y)"
 msgstr "Position du titre principal (x:y)"
 
 msgid "Top image"
-msgstr "Image d'en-tête"
+msgstr "Image de haut de page"
 
 msgid "Choose \"Custom...\" to upload your own image."
-msgstr "Choisissez \"Personnalisé...\" pour déposer votre propre image."
+msgstr "Choisissez « Personnalisé… » pour téléverser votre propre image."
 
 msgid "Add your image:"
-msgstr "Ajouter votre image&nbsp;:"
+msgstr "Ajouter votre image :"
 
 #, php-format
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
-msgstr "Fichier JPEG ou PNG, 800 pixels de large et de taille maximale %s"
+msgstr "Fichier JPEG ou PNG, 800 pixels de large maximum, taille maximum de %s"
 
 msgid "Sidebar"
-msgstr "Bandeau"
+msgstr "Volet"
 
 msgid "Sidebar position:"
-msgstr "Position du bandeau"
+msgstr "Position du volet :"
 
 msgid "Sidebar text font:"
-msgstr "Police du texte du bandeau&nbsp;:"
+msgstr "Police du texte du volet :"
 
 msgid "Sidebar text font size:"
-msgstr "Taille du texte du bandeau&nbsp;:"
+msgstr "Taille de police du texte du volet :"
 
 msgid "Sidebar text color:"
-msgstr "Couleur du texte du bandeau&nbsp;:"
+msgstr "Couleur du texte du volet :"
 
 msgid "Sidebar titles font:"
-msgstr "Police des titres du bandeau&nbsp;:"
+msgstr "Police des titres du volet :"
 
 msgid "Sidebar titles font size:"
-msgstr "Taille des titres du bandeau&nbsp;:"
+msgstr "Taille de police des titres du volet :"
 
 msgid "Sidebar titles color:"
-msgstr "Couleur des titres du bandeau&nbsp;:"
+msgstr "Couleur des titres du volet :"
 
 msgid "Sidebar 2nd level titles font:"
-msgstr "Police des titres de niveau 2 du bandeau&nbsp;:"
+msgstr "Police des titres secondaires du volet :"
 
 msgid "Sidebar 2nd level titles font size:"
-msgstr "Taille des titres de niveau 2 du bandeau&nbsp;:"
+msgstr "Taille de police des titres secondaires du volet :"
 
 msgid "Sidebar 2nd level titles color:"
-msgstr "Couleur des titres de niveau 2 du bandeau&nbsp;:"
+msgstr "Couleur des titres secondaires du volet :"
 
 msgid "Sidebar lines color:"
-msgstr "Couleur des lignes du bandeau&nbsp;:"
+msgstr "Couleur des lignes du volet :"
 
 msgid "Sidebar links color:"
-msgstr "Couleur des liens du bandeau&nbsp;:"
+msgstr "Couleur des liens du volet :"
 
 msgid "Sidebar visited links color:"
-msgstr "Couleurs des liens vistés du bandeau&nbsp;:"
+msgstr "Couleur des liens visités du volet :"
 
 msgid "Sidebar focus links color:"
-msgstr "Couleurs des liens survolés du bandeau&nbsp;:"
+msgstr "Couleur des liens du volet ayant le focus :"
 
 msgid "Date title font:"
-msgstr "Police des titres de dates&nbsp;:"
+msgstr "Police du titre des dates :"
 
 msgid "Date title font size:"
-msgstr "Taille des titres de dates&nbsp;:"
+msgstr "Taille de police du titre des dates :"
 
 msgid "Date title color:"
-msgstr "Couleur des titres de date&nbsp;:"
+msgstr "Couleur du titre des dates :"
 
 msgid "Entry title font:"
-msgstr "Police des titres de billet&nbsp;:"
+msgstr "Police du titre des billets :"
 
 msgid "Entry title font size:"
-msgstr "Taille des titres des billets&nbsp;:"
+msgstr "Taille de police du titre des billets :"
 
 msgid "Entry title color:"
-msgstr "Couleur des titres des billets&nbsp;:"
+msgstr "Couleur du titre des billets :"
 
 msgid "Comment background color:"
-msgstr "Couleur du fond des commentaires&nbsp;:"
+msgstr "Couleur de fond des commentaires :"
 
 msgid "Comment text color:"
-msgstr "Couleur du texte des commentaires&nbsp;:"
+msgstr "Couleur du texte des commentaires :"
 
 msgid "My comment background color:"
-msgstr "Couleur du fond de mes commentaires&nbsp;:"
+msgstr "Couleur de fond de mes commentaires :"
 
 msgid "My comment text color:"
-msgstr "Couleur du texte de mes commentaires&nbsp;:"
+msgstr "Couleur du texte de mes commentaires :"
 
 msgid "Footer"
 msgstr "Pied de page"
 
 msgid "Footer font:"
-msgstr "Police du pied de page&nbsp;:"
+msgstr "Police du pied de page :"
 
 msgid "Footer font size:"
-msgstr "Taille du texte du pied de page&nbsp;:"
+msgstr "Taille de police du pied de page :"
 
 msgid "Footer color:"
-msgstr "Couleur du texte du pied de page&nbsp;:"
+msgstr "Couleur du pied de page :"
 
 msgid "Footer links color:"
-msgstr "Couleur des liens du pied de page&nbsp;:"
+msgstr "Couleur des liens du pied de page :"
 
 msgid "Footer background color:"
-msgstr "Couleur de fond du pied de page&nbsp;:"
+msgstr "Couleur de fond du pied de page :"
 
 msgid "Additional CSS"
 msgstr "Style additionnel"
 
 msgid "Configuration import / export"
-msgstr "Import / export de configuration"
+msgstr "Configuration de l'import/export"
 
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr "Vous pouvez partager votre configuration en utilisant le code suivant. Pour appliquer une configuration, copiez le code, cliquez sur \"Appliquer le code\" et enregistrez."
+msgstr "Vous pouvez partager votre configuration en utilisant le code suivant. Pour appliquer une configuration, copiez le code, cliquez sur « Appliquer le code », puis sauvegardez."
 
 msgid "Copy this code:"
 msgstr "Copier ce code :"
 
 msgid "default"
-msgstr "par défaut"
+msgstr "défaut"
 
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "L'une de ces fonctions au moins est indisponible : imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Au moins une des fonctions suivantes n'est pas disponible : imagecreatetruecolor, imagepng et imagecreatefrompng."
 
 msgid "The 'public' directory does not exist."
-msgstr "Le répertoire 'public' n'existe pas."
+msgstr "Le répertoire ‘public’ n'existe pas."
 
 #, php-format
 msgid "The '%s' directory cannot be modified."
-msgstr "Le répertoire '%s' ne peut pas être modifié."
+msgstr "Le répertoire ‘%s’ ne peut être modifié."
 
 msgid "Unable to create images."
-msgstr "Impossible de créer les images."
+msgstr "Impossible de créer des images."
 
 msgid "Invalid file type."
-msgstr "Type de fichier non valide."
+msgstr "Type de fichier invalide."
 
 msgid "Uploaded image is not 800 pixels wide."
-msgstr "L'image fournie de fait pas 800 pixels de large."
+msgstr "L'image soumise ne fait pas 800 pixels de large."
 
 msgid "Unable to open image."
 msgstr "Impossible d'ouvrir l'image."
 
 msgid "Checks trackback source for a link to the post"
-msgstr "Vérifie si la source du rétrolien possède un lien vers le billet"
+msgstr "Contrôle si la source du rétrolien comporte un lien vers le billet"
 
 msgid "Import/Export"
 msgstr "Import/Export"
 
 msgid "Flat file export"
-msgstr "Exporter un fichier texte"
+msgstr "Fichier d'exportation « à plat »"
 
 msgid "Exports a blog or a full Dotclear installation to flat file."
-msgstr "Exporte un blog ou toutes les données de Dotclear dans un fichier texte."
+msgstr "Exporte un blog ou une installation Dotclear complète vers un fichier « à plat »."
 
 msgid "Export file not found."
-msgstr "Fichier d'export non trouvé."
+msgstr "Le fichier d'export n'a pas été trouvé."
 
-msgid "Export a blog"
-msgstr "Exporter un blog"
+msgid "Failed to compress export file."
+msgstr ""
+
+#, fuzzy
+msgid "Single blog"
+msgstr "Importe un blog"
 
 #, php-format
 msgid "This will create an export of your current blog: %s"
-msgstr "Ceci va exporter le contenu du blog en cours : %s."
+msgstr "Cela créera un export du blog courant : %s"
 
-msgid "Export"
-msgstr "Exporter"
+#, fuzzy
+msgid "Compress file"
+msgstr "Fichiers du thème"
 
 msgid "You may also want to download your media directory as a zip file"
-msgstr "Vous pouvez également télécharger votre répertoire de médias au format zip."
+msgstr "Vous pouvez également télécharger votre répertoire de média sous forme de fichier archive zip"
 
-msgid "Export all content"
-msgstr "Exporter tout le contenu"
+msgid "Export"
+msgstr "Export"
+
+msgid "Multiple blogs"
+msgstr ""
+
+#, fuzzy
+msgid "This will create an export of all the content of your database."
+msgstr "Attention : Cela supprimera au préalable tout le contenu de votre base de données à l'exception des utilisateurs."
 
 msgid "Congratulation!"
-msgstr "Félicitations !"
+msgstr "Bravo !"
 
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr "Votre blog a été importé avec succès. Bienvenue sur Dotclear 2 !"
+msgstr "Votre blog a été importé avec succès. Bienvenue sur Dotclear 2 !"
 
 msgid "Why don't you blog this now?"
-msgstr "Pourquoi ne pas le bloguer maintenant ?"
+msgstr "Pourquoi ne bloguez-vous pas cela maintenant ?"
 
 msgid "or"
 msgstr "ou"
 
 msgid "visit your dashboard"
-msgstr "vous rendre sur votre tableau de bord"
+msgstr "voir votre tableau de bord"
 
 msgid "Dotclear 1.2 import"
-msgstr "Importer depuis Dotclear 1.2"
+msgstr "Importation depuis Dotclear 1.2"
 
 msgid "Import a Dotclear 1.2 installation into your current blog."
-msgstr "Importe un blog Dotclear 1.2 dans votre blog en cours."
+msgstr "Importer une installation Dotclear 1.2 dans votre blog courant."
 
 #, php-format
 msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
-msgstr "Ceci va importer votre blog Dotclear 1.2 comme un nouveau contenu dans le blog en cours : %s."
+msgstr "Cela importera votre contenu Dotclear 1.2 comme nouveau contenu dans le blog courant : %s."
 
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
-msgstr "Veuillez noter que cette opération va vider vos catégories, liens, billets et commentaires sur le blog en cours."
+msgstr "Notez que cela supprimera les catégories, liste de liens, billets et commentaires actuels de votre blog courant. "
 
 msgid "Depending on the size of your blog, it could take a few minutes."
-msgstr "Selon la taille de votre blog, ceci peut prendre quelques minutes."
+msgstr "Cela peut prendre plusieurs minutes en fonction de la taille de votre blog."
 
 msgid "General information"
 msgstr "Informations générales"
 
 msgid "Import my blog now"
-msgstr "Importer mon blog"
+msgstr "Importer mon blog maintenant"
 
 msgid "We first need some information about your old Dotclear 1.2 installation."
-msgstr "Nous avons d'abord besoin de renseignements à propos de votre ancienne installation Dotclear 1.2."
+msgstr "Nous avons besoin au préalable de quelques informations à propos de votre installation Dotclear 1.2."
 
 msgid "Entries import options"
 msgstr "Options d'importation des billets"
 
 msgid "Number of entries to import at once:"
-msgstr "Nombre de billets à importer à chaque étape :"
+msgstr "Nombre d'éléments à importer à chaque passe :"
 
 msgid "Importing users"
-msgstr "Importe les utilisateurs"
+msgstr "Importation des utilisateurs"
 
 msgid "Importing categories"
-msgstr "Importe les catégories"
+msgstr "Importation des catégories"
 
 msgid "Importing blogroll"
-msgstr "Importe les liens"
+msgstr "Importation de la liste des liens"
 
 #, php-format
 msgid "Importing entries from %d to %d / %d"
-msgstr "Importation des billets %d à %d"
+msgstr "Importation des éléments %d à %d / %d"
 
 msgid "Please read carefully"
-msgstr "Merci de lire attentivement"
+msgstr "Lisez soigneusement"
 
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
-msgstr "Chaque utilisateur nouvellement importé a reçu un mot de passe aléatoire et devra en demander un nouveau en suivant le lien \"J'ai oublié mon mot de passe\" sur la page de connexion à l'interface d'aministration."
+msgstr "Chaque utilisateur nouvellement importé a reçu un mot de passe aléatoire et devra en demander un nouveau en cliquant sur le lien « J'ai oublié mon mot de passe » sur la page d'authentification (son adresse email doit être valide)."
 
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
-msgstr "Veuillez noter que Dotclear 2 a un nouveau format d'URL. Vous pouvez éviter les liens morts en installant le plugin <a href=\"%s\">DC1 redirect</a> et en l'activant dans la configuration de votre blog."
+msgstr "Notez que Dotclear a un nouveau schéma d'URL. Vous pouvez éviter les liens brisés en installant l'extension <a href=\"%s\">DC1 redirect</a> et en l'activant dans la configuration de votre blog."
 
 msgid "next step"
-msgstr "étape suivante"
+msgstr "Étape suivante"
 
 msgid "Dotclear tables not found"
-msgstr "Tables Dotclear non trouvées"
+msgstr "Les tables Dotclear n'ont pas été trouvées"
 
 msgid "Feed import"
-msgstr "Importer depuis un flux"
+msgstr "Importation de flux"
 
 msgid "Imports a feed as new entries."
-msgstr "Importe un flux comme nouveaux billets."
+msgstr "Importer un flux comme nouveau contenu"
 
 msgid "Cannot retrieve feed URL."
-msgstr "Impossible d'atteindre l'URL du fil."
+msgstr "Impossible de trouver l'URL du flux."
 
 msgid "No items in feed."
-msgstr "Aucun élément dans le feed."
+msgstr "Aucun élément dans le flux"
 
 msgid "Content successfully imported."
-msgstr "Contenu importé avec succès."
-
-msgid "Import from a feed"
-msgstr "Importer depuis un fil de nouvelles"
+msgstr "Le contenu a été importé avec succès."
 
 #, php-format
 msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
-msgstr "Ceci va importer un fil (RSS ou Atom) comme un nouveau contenu dans le blog en cours : %s."
+msgstr "Cela importera un flux (RSS ou ATOM) comme un nouveau contenu dans le blog courant : %s."
 
 msgid "Feed URL:"
-msgstr "URL du fil"
+msgstr "URL du flux :"
 
 msgid "Flat file import"
-msgstr "Importer depuis un fichier texte"
+msgstr "Importation d'un fichier « à plat »"
 
 msgid "Imports a blog or a full Dotclear installation from flat file."
-msgstr "Importe un blog ou toutes les données depuis un fichier texte."
+msgstr "Importe un blog ou une installation Dotclear complète depuis un fichier « à plat »."
 
 msgid "Single blog successfully imported."
 msgstr "Blog importé avec succès."
 
 msgid "Are you sure you want to import a full backup file?"
-msgstr "Êtes-vous certain de vouloir charger un fichier de sauvegarde complet ?"
-
-msgid "Import a single blog"
-msgstr "Importer un blog"
+msgstr "Êtes-vous sûr de vouloir importer un fichier de sauvegarde complet ?"
 
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: %s."
-msgstr "Ceci va charger une sauvegarde de blog comme un nouveau contenu dans le blog en cours : %s."
+msgstr "Cela importera une sauvegarde d'un blog comme nouveau contenu du blog courant : %s."
 
 msgid "Upload a backup file"
-msgstr "Charger un fichier de sauvegarde"
+msgstr "Téléversez un fichier de sauvegarde"
 
 msgid "or pick up a local file in your public directory"
-msgstr "ou choisissez un fichier local dans votre répertoire public"
+msgstr "ou sélectionnez un fichier local présent dans votre répertoire de média"
 
-msgid "Import a full backup file"
-msgstr "Import d'un fichier de sauvegarde complet"
+#, fuzzy
+msgid "This will reset all the content of your database, except users."
+msgstr "Attention : Cela supprimera au préalable tout le contenu de votre base de données à l'exception des utilisateurs."
 
-msgid "Warning: This will reset all the content of your database, except users."
-msgstr "Attention : Ceci va remettre à zéro tout le contenu, sauf les utilisateurs."
+msgid "Another file with same name exists."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to extract backup file."
+msgstr "Téléversez un fichier de sauvegarde"
+
+msgid "No backup in compressed file."
+msgstr ""
 
 msgid "WordPress import"
-msgstr "Importer depuis WordPress"
+msgstr "Importation WordPress"
 
 msgid "Import a WordPress installation into your current blog."
-msgstr "Importe un blog WordPress dans votre blog en cours."
+msgstr "Importe une installation WordPress dans le blog courant."
 
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
-msgstr "Ceci va importer votre blog WordPress comme un nouveau contenu dans le blog en cours : %s."
+msgstr "Cela importera le contenu WordPress comme un nouveau contenu dans le blog courant : %s."
 
 msgid "We first need some information about your old WordPress installation."
-msgstr "Nous avons d'abord besoin de renseignements à propos de votre ancienne installation WordPress."
+msgstr "Nous avons besoin au préalable de quelques informations au sujet de votre ancienne installation WordPress."
 
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
-msgstr "WordPress et Dotclear gèrent les catégories différemment. Dans WordPress, un article peut être classé dans plusieurs catégories, alors que dans Dotclear, on voit ça plutôt comme \"Une catégorie, plusieurs mots-clefs.\" Dotclear ne peut donc importer qu'une seule catégorie par article et choisira dans ce cas la première créée. Si vous désirez garder une trace de chaque catégorie, vous pouvez les importer en tant que mots-clefs, avec un préfixe optionnel."
+msgstr "La gestion des catégories chez WordPress et Dotclear est tout à fait différente. Vous pouvez assigner plusieurs catégories à un seul poste dans WordPress. Dans le monde Dotclear, nous le voyons davantage comme « une catégorie, plusieurs mot-clés ». Par conséquent Dotclear peut seulement importer une catégorie par billet et il choisira celui de plus petit numéro. Si vous voulez conserver une trace de chaque catégorie, vous pouvez les importer sous forme de mot-clés, avec un préfixe optionnel."
 
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr "Par contre, il est impossible dans WordPress de ne pas assigner une catégorie à un article, c'est pourquoi lors de l'installation est créée une première catégorie appelée <i>\"Non classée\"</i>. Si vous n'avez pas modifié cette catégorie, l'importation peut simplement l'ignorer. En effet, Dotclear vous permet d'avoir des articles sans catégorie."
+msgstr "D'autre part, dans WordPress, un billet ne peut pas être sans catégorie, et une installation par défaut possède systématiquement une première catégorie nommée <i>« sans catégorie »</ i>. Si vous n'avez pas changé cette catégorie, vous pouvez simplement l'ignorer lors de l'importation sur votre blog, puisque Dotclear vous permet réellement de conserver votre message sans catégorie."
 
 msgid "Ignore the first category:"
-msgstr "Ignorer la première catégorie :"
+msgstr "Ignorer la première catégorie :"
 
 msgid "Import lowest numbered category on posts:"
-msgstr "Importer la catégorie la plus ancienne sur les articles :"
+msgstr "Importer la catégorie ayant le plus faible numéro dans les billets :"
 
 msgid "Import all categories as tags:"
-msgstr "Importer les catégories comme des mots-clés :"
+msgstr "Importer toutes les catégories comme des mot-clés :"
 
 msgid "Prefix such tags with:"
-msgstr "Préfixer ces mots-clés avec :"
+msgstr "Préfixer les mot-clés avec :"
 
 msgid "Content filters"
 msgstr "Filtres de contenu"
 
 msgid "You may want to process your post and/or comment content with the following filters."
-msgstr "Vous pouvez utiliser les filtres suivants sur vos articles et/ou commentaires."
+msgstr "Vous pouvez formater le contenu de vos billets et commentaires avec les filtres suivants."
 
 msgid "Post content formatter:"
-msgstr "Formatage des articles&nbsp:"
+msgstr "Formatage du contenu des billets :"
 
 msgid "Comment content formatter:"
-msgstr "Formatage des commentaires&nbsp;:"
+msgstr "Formatage du contenu des commentaires :"
 
 msgid "WordPress tables not found"
-msgstr "Tables WordPress non trouvées"
+msgstr "Les tables WordPress n'ont pu être trouvées."
 
 msgid "No file to read."
-msgstr "Aucun fichier lisible."
+msgstr "Aucun fichier à lire."
 
 msgid "File is not a DotClear backup."
-msgstr "Le fichier n'est pas une sauvegarde DotClear."
+msgstr "Ce fichier n'est pas un fichier de sauvegarde Dotclear."
 
 msgid "File is not a single blog export."
-msgstr "Le fichier n'est pas un fichier d'export simple."
+msgstr "Ce fichier n'est pas une exportation d'un blog."
 
 msgid "File is not a full export."
-msgstr "Le fichier n'est pas un fichier d'export complet."
+msgstr "Ce fichier n'est pas un fichier de sauvegarde complet."
 
-msgid "The backup file does not appear to be well formed."
-msgstr "Le fichier de sauvegarde ne semble pas être correctement formaté"
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
 
 msgid "Please wait..."
-msgstr "Veuillez patienter..."
+msgstr "Veuillez patientez…"
 
-# French translation of DotClea"
 msgid "Maintenance"
 msgstr "Maintenance"
 
 msgid "Optimization successful."
-msgstr "Optimisation réalisée avec succès."
+msgstr "Optimisation terminée avec succès."
 
 msgid "Comments and trackback counted."
 msgstr "Commentaires et rétroliens comptés."
 
 msgid "Templates cache directory emptied."
-msgstr "Répertoire du cache des templates vidé."
+msgstr "Le répertoire de cache des « templates » a été vidé."
 
 msgid "Logs deleted."
-msgstr "Journaux effacés."
+msgstr "Les journaux ont été supprimés."
 
 #, php-format
 msgid "Indexing entry %d to %d."
-msgstr "Index des billets %d à %d"
+msgstr "Indexation des billets %d à %d."
 
 msgid "next"
 msgstr "suivant"
 
 msgid "Entries index done."
-msgstr "Index des billets complet."
+msgstr "Indexation des billets effectuée."
 
 msgid "Back"
 msgstr "Retour"
 
 #, php-format
 msgid "Indexing comment %d to %d."
-msgstr "Index des commentaires %d à %d"
+msgstr "Indexation des commentaires %d à %d."
 
 msgid "Comments index done."
-msgstr "Index des commentaires complet."
+msgstr "Indexation des commentaires effectuée."
 
 msgid "Optimize database room"
-msgstr "Optimiser l'espace de la base de données"
+msgstr "Optimise la place occupée par la base de données"
 
 msgid "Vacuum tables"
-msgstr "Nettoyer les tables"
+msgstr "Vidage des tables"
 
 msgid "Counters"
 msgstr "Compteurs"
 
 msgid "Reset comments and ping counters"
-msgstr "Réinitialiser les compteurs des commentaires et rétroliens"
+msgstr "Remet à zéro les compteurs de commentaires et de signalements"
 
 msgid "Search engine index"
 msgstr "Index du moteur de recherche"
 
 msgid "This may take a very long time"
-msgstr "Ceci peut prendre beaucoup de temps"
+msgstr "Cela peut prendre un certain temps"
 
 msgid "Index all posts"
-msgstr "Indexer tous les billets"
+msgstr "Indexation de tous les billets"
 
 msgid "Index all comments"
-msgstr "Indexer tous les commentaires"
+msgstr "Indexation de tous les commentaires"
 
 msgid "Vacuum logs"
-msgstr "Vider les journaux"
+msgstr "Vidages des journaux"
 
 msgid "Delete all logs"
-msgstr "Supprimer tous les journaux"
+msgstr "Suppression de tous les journaux"
 
 msgid "Empty templates cache directory"
-msgstr "Vider le répertoire du cache des templates"
+msgstr "Vidage du répertoire de cache des « templates »"
 
 msgid "Empty directory"
-msgstr "Vider le répertoire"
+msgstr "Vidage du répertoire"
 
 msgid "Pages"
 msgstr "Pages"
@@ -996,16 +1015,16 @@ msgid "%d pages"
 msgstr "%d pages"
 
 msgid "manage pages"
-msgstr "gérer les pages"
+msgstr "gestion des pages"
 
 msgid "Published on"
 msgstr "Publié le"
 
 msgid "This page's comments feed"
-msgstr "Fil des commentaires de cette page"
+msgstr "Flux des commentaires de cette page"
 
 msgid "You must provide a valid email address."
-msgstr "Vous devez indiquer une adresse email valide."
+msgstr "Vous devez indiquer une adresse e-mail valide."
 
 msgid "Page title"
 msgstr "Titre de la page"
@@ -1023,13 +1042,13 @@ msgid "select this page"
 msgstr "sélectionner cette page"
 
 msgid "Are you sure you want to delete selected pages?"
-msgstr "Êtes-vous certain de vouloir supprimer les pages sélectionnées ?"
+msgstr "Êtes-vous sûr de vouloir supprimer les pages sélectionnées ?"
 
 msgid "New page"
 msgstr "Nouvelle page"
 
 msgid "Selected pages action:"
-msgstr "Action sur les pages sélectionnées :"
+msgstr "Action sur les pages sélectionnées :"
 
 msgid "This page does not exist."
 msgstr "Cette page n'existe pas."
@@ -1044,10 +1063,10 @@ msgid "previous page"
 msgstr "page précédente"
 
 msgid "Are you sure you want to delete this page?"
-msgstr "Êtes-vous certain de vouloir supprimer cette page ?"
+msgstr "Êtes-vous sûr de vouloir supprimer cette page ?"
 
 msgid "Page has been successfully updated."
-msgstr "La page a été mise à jour avec succès."
+msgstr "La page a été modifiée avec succès."
 
 msgid "Page has been successfully created."
 msgstr "La page a été créée avec succès."
@@ -1056,52 +1075,52 @@ msgid "Go to this page on the site"
 msgstr "Aller sur cette page"
 
 msgid "Page status:"
-msgstr "État de la page :"
+msgstr "État de la page :"
 
 msgid "Page position:"
-msgstr "Position de la page :"
+msgstr "Position de la page :"
 
 msgid "Page lang:"
-msgstr "Langue de la page :"
+msgstr "Langue de la page :"
 
 msgid "Page password:"
-msgstr "Mot de passe de la page :"
+msgstr "Mot de passe de la page :"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
-msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec une autre page."
+msgstr "Attention : si vous définissez vous-même l'URL, elle peut entrer en conflit avec celle d'une autre page."
 
 msgid "Add files to this page"
-msgstr "Ajouter un fichier à la page"
+msgstr "Ajouter des fichiers à cette page"
 
 msgid "Pings"
-msgstr "Pings"
+msgstr "Signalements"
 
 msgid "Pings configuration"
-msgstr "Configuration des pings"
+msgstr "Configuration des signalements"
 
 msgid "Settings have been successfully updated."
-msgstr "Paramètres enregistrés avec succès."
+msgstr "Les réglages ont été modifiés avec succès."
 
 msgid "Activate pings extension"
-msgstr "Activer le module de ping"
+msgstr "Activer l'extension de signalement"
 
 msgid "Service name:"
-msgstr "Nom du service :"
+msgstr "Nom du service :"
 
 msgid "Service URI:"
-msgstr "URI du service :"
+msgstr "URI du service :"
 
 msgid "error"
 msgstr "erreur"
 
 msgid "Test ping services"
-msgstr "Tester les services de ping"
+msgstr "Tester les services de signalement"
 
 msgid "Check all"
-msgstr "Tout cocher."
+msgstr "Tout sélectionner"
 
 msgid "Pings:"
-msgstr "Pings :"
+msgstr "Signalements :"
 
 msgid "Simple menu"
 msgstr "Menu simple"
@@ -1113,7 +1132,7 @@ msgid "All months"
 msgstr "Tous les mois"
 
 msgid "All tags"
-msgstr "Tous les mots-clés"
+msgstr "Tous les mot-clés"
 
 msgid "Home"
 msgstr "Accueil"
@@ -1125,7 +1144,7 @@ msgid "Page"
 msgstr "Page"
 
 msgid "Tags"
-msgstr "Mots-clés"
+msgstr "Mot-clés"
 
 msgid "User defined"
 msgstr "Saisie libre"
@@ -1233,18 +1252,18 @@ msgid "Currently no menu items"
 msgstr "Aucun item de menu pour l'instant"
 
 msgid "Tags:"
-msgstr "Mots-clés :"
+msgstr "Mot-clés :"
 
 #, php-format
 msgid "Are you sure you want to remove this %s?"
-msgstr "Êtes vous certain de vouloir supprimer ce %s ?"
+msgstr "Êtes-vous sûr de vouloir retirer ce %s ?"
 
 #, php-format
 msgid "Add a %s to this entry"
-msgstr "Ajouter un %s à ce billet"
+msgstr "Ajouter %s à ce billet"
 
 msgid "Choose from list"
-msgstr "Choisir depuis la liste"
+msgstr "Choisir dans la liste"
 
 msgid "all"
 msgstr "tous"
@@ -1262,28 +1281,28 @@ msgid "entries"
 msgstr "billets"
 
 msgid "Enter tags separated by coma"
-msgstr "Entrer les mots-clés séparés par une virgule"
+msgstr "Entrez les mot-clés séparés par des virgules"
 
 msgid "Add tags"
-msgstr "Ajouter des mots-clés"
+msgstr "Ajouter des mot-clés"
 
 msgid "Remove tags"
-msgstr "Supprimer des mots-clés"
+msgstr "Retirer des mot-clés"
 
 msgid "Add tags to entries"
-msgstr "Ajouter des mots-clés aux billets"
+msgstr "Ajouter des mot-clés à des billets"
 
 msgid "Tags to add:"
-msgstr "Mots-clés à ajouter :"
+msgstr "Mot-clés à ajouter :"
 
 msgid "Remove selected tags from entries"
-msgstr "Supprimer les mots-clés sélectionnés des billets"
+msgstr "Retirer les mot-clés sélectionnés des billets"
 
 msgid "No tags for selected entries"
 msgstr "Aucun mot-clé pour les billets sélectionnés"
 
 msgid "Following tags have been found in selected entries:"
-msgstr "Les mots-clés suivants ont été trouvés dans les billets sélectionnés :"
+msgstr "Les mot-clés suivants ont été trouvés pour les billets sélectionnés :"
 
 msgid "short"
 msgstr "court"
@@ -1292,16 +1311,16 @@ msgid "extended"
 msgstr "étendu"
 
 msgid "Tags list format:"
-msgstr "Format de la liste des mots-clés :"
+msgstr "Format de la liste des mot-clés :"
 
 msgid "This tag's comments Atom feed"
-msgstr "Fil Atom des commentaires de ce mot-clé"
+msgstr "Flux Atom des commentaires associés à ce mot-clé"
 
 msgid "This tag's entries Atom feed"
-msgstr "Fil Atom des billets de ce mot-clé"
+msgstr "Flux Atom des billets associés à ce mot-clé"
 
 msgid "Limit (empty means no limit):"
-msgstr "Limite (laisser vide pour aucune limite)"
+msgstr "Limite (laisser vide si pas de limite) :"
 
 msgid "Entries count"
 msgstr "Nombre de billets"
@@ -1310,37 +1329,37 @@ msgid "Tag name"
 msgstr "Nom du mot-clé"
 
 msgid "Link to all tags:"
-msgstr "Lien vers tous les mots-clés :"
+msgstr "Lien vers tous les mot-clés :"
 
 msgid "Edit tag"
 msgstr "Modifier le mot-clé"
 
 msgid "Tag has been successfully renamed"
-msgstr "Mot-clé renommé avec succès"
+msgstr "Le mot-clé a été renommé avec succès"
 
 msgid "Back to tags list"
-msgstr "Retour à la liste des mots-clés"
+msgstr "Retour à la liste des mot-clés"
 
 msgid "Actions for this tag"
 msgstr "Actions pour ce mot-clé"
 
 msgid "Edit tag name:"
-msgstr "Renommer ce mot-clé :"
+msgstr "Renommer ce mot-clé :"
 
 msgid "Rename"
 msgstr "Renommer"
 
 msgid "Delete this tag:"
-msgstr "Supprimer ce mot-clé :"
+msgstr "Supprimer ce mot-clé :"
 
 msgid "List of entries with this tag"
 msgstr "Liste des billets avec ce mot-clé"
 
 msgid "Tag has been successfully removed"
-msgstr "Mot-clé supprimé avec succès"
+msgstr "Le mot-clé a été retiré avec succès"
 
 msgid "No tags on this blog."
-msgstr "Aucun mot-clé sur ce blog"
+msgstr "Aucun mot-clé sur ce blog."
 
 msgid "Theme Editor"
 msgstr "Éditeur de thème"
@@ -1349,7 +1368,7 @@ msgid "No file"
 msgstr "Aucun fichier"
 
 msgid "File does not exist."
-msgstr "Le fichier n'existe pas."
+msgstr "Ce fichier n'existe pas."
 
 #, php-format
 msgid "File %s is not readable"
@@ -1357,39 +1376,39 @@ msgstr "Le fichier %s n'est pas lisible"
 
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "Impossible d'écrire le fichier %s. Veuillez vérifier les permissions des fichiers et répertoires de votre thème."
+msgstr "Impossible d'écrire le fichier %s. Contrôlez les permissions des fichiers et des répertoires de votre thème."
 
 msgid "Saving document..."
-msgstr "Sauvegarde du document..."
+msgstr "Enregistrement du document…"
 
 msgid "Document saved"
-msgstr "Document sauvegardé"
+msgstr "Document enregistré"
 
 msgid "An error occurred:"
-msgstr "Une erreur s'est produite :"
+msgstr "Une erreur est survenue :"
 
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
-msgstr "Le thème utilisé actuellement sur votre blog est \"%s\"."
+msgstr "Actuellement votre thème sur ce blog est « %s »."
 
 msgid "You can't edit default theme."
 msgstr "Vous ne pouvez pas modifier le thème par défaut."
 
 msgid "Please select a file to edit."
-msgstr "Veuillez sélectionner un fichier à modifier."
+msgstr "Sélectionnez un fichier à modifier."
 
 msgid "File editor"
 msgstr "Éditeur de fichier"
 
 #, php-format
 msgid "Editing file %s"
-msgstr "Modification du fichier %s"
+msgstr "Édition du fichier %s"
 
 msgid "This file is not writable. Please check your theme files permissions."
-msgstr "Ce fichier ne peut pas être modifié. Veuillez vérifier les permissions des fichiers de votre thème."
+msgstr "Ce fichier n'est pas modifiable. Contrôlez les permissions de vos fichiers de thème."
 
 msgid "Templates files"
-msgstr "Fichiers template"
+msgstr "Fichiers du thème"
 
 msgid "CSS files"
 msgstr "Fichiers CSS"
@@ -1428,54 +1447,54 @@ msgid "Blog languages"
 msgstr "Langues du blog"
 
 msgid "With entries counts"
-msgstr "Afficher le nombre de billets"
+msgstr "Avec le nombre de billets"
 
 msgid "Subscribe links"
-msgstr "Liens d'abonnement"
+msgstr "Liens de souscription"
 
 msgid "Subscribe"
 msgstr "S'abonner"
 
 msgid "Feeds type:"
-msgstr "Types de fil :"
+msgstr "Type de flux :"
 
 msgid "Feed reader"
-msgstr "Lecteur de fils de nouvelles"
+msgstr "Lecteur de flux"
 
 msgid "Somewhere else"
-msgstr "Ailleurs"
+msgstr "Autre part"
 
 msgid "Entries limit:"
-msgstr "Nombre de billets maximum :"
+msgstr "Limite du nombre de billets :"
 
 msgid "Text"
 msgstr "Texte"
 
 msgid "Text:"
-msgstr "Texte :"
+msgstr "Texte :"
 
 msgid "Last entries"
 msgstr "Derniers billets"
 
 msgid "Uncategorized"
-msgstr "Non catégorisé"
+msgstr "Sans catégorie"
 
 msgid "Tag:"
-msgstr "Mot-clé :"
+msgstr "Mot-clé :"
 
 msgid "Last comments"
 msgstr "Derniers commentaires"
 
 msgid "Comments limit:"
-msgstr "Nombre de commentaires maximum :"
+msgstr "Limite du nombre de commentaires :"
 
 #, php-format
 msgid "This blog's entries %s feed"
-msgstr "Fil %s des billets de ce blog"
+msgstr "Flux %s des billets de ce blog"
 
 #, php-format
 msgid "This blog's comments %s feed"
-msgstr "Fil %s des commentaires de ce blog"
+msgstr "Flux %s des commentaires de ce blog"
 
 msgid "Entries feed"
 msgstr "Fil des billets"
@@ -1496,22 +1515,22 @@ msgid "Widgets"
 msgstr "Widgets"
 
 msgid "Are you sure you want to reset sidebars?"
-msgstr "Êtes-vous certain de vouloir réinitialiser les bandeaux ?"
+msgstr "Êtes-vous sûr de vouloir remettre à zéro les volets ?"
 
 msgid "Available widgets"
 msgstr "Widgets disponibles"
 
 msgid "Append to:"
-msgstr "Ajouter à :"
+msgstr "Ajouter à :"
 
 msgid "Add widgets to sidebars"
 msgstr "Ajouter les widgets aux bandeaux"
 
 msgid "Navigation sidebar"
-msgstr "Bandeau de navigation"
+msgstr "Volet de navigation"
 
 msgid "Extra sidebar"
-msgstr "Bandeau d'extra"
+msgstr "Volet d'extra"
 
 msgid "Custom sidebar"
 msgstr "Bandeau supplémentaire"
@@ -1535,34 +1554,34 @@ msgid "Reset sidebars to get back to default widgets installation."
 msgstr "Réinitialisez les bandeaux pour retrouver les widgets par défaut de votre installation."
 
 msgid "Widget templates tags"
-msgstr "Marqueurs de template des widgets"
+msgstr "Balise de widget"
 
 msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr "Si vous avez le droit de modifier les templates de votre thème, vous pouvez directement ajouter des widgets à l'aide de marqueurs de template, avec leur propre configuration."
+msgstr "Si vous êtes autorisé à modifier vos fichiers de thème, vous pouvez ajouter des widgets sous forme de balise, avec leur propre configuration."
 
 msgid "To add a widget in your template, you need to write code like this:"
-msgstr "Pour ajouter un widget dans votre template, vous devez écrire un code comme ceci :"
+msgstr "Pour ajouter un widget à votre thème, vous devez insérer un code similaire à :"
 
 msgid "Widget ID"
-msgstr "Identifiant du widget"
+msgstr "ID du widget"
 
 msgid "Setting name"
-msgstr "Nom du paramètre"
+msgstr "Nom de l'élément de réglage"
 
 msgid "Setting value"
-msgstr "Valeur du paramètre"
+msgstr "Valeur de l'élément de réglage"
 
 msgid "Here are the following available widgets for your blog:"
-msgstr "Voici les widgets disponibles pour votre blog :"
+msgstr "Voici les widgets disponibles pour votre blog :"
 
 msgid "Widget ID:"
-msgstr "Identifiant du widget :"
+msgstr "Identifiant du widget :"
 
 msgid "No setting for this widget"
-msgstr "Aucun paramètre pour ce widget"
+msgstr "Aucun réglage pour ce widget"
 
 msgid "Setting name:"
-msgstr "Nom du paramètre :"
+msgstr "Nom de l'élément de réglage :"
 
 msgid "No widget."
 msgstr "Aucun widget."
@@ -1571,55 +1590,19 @@ msgid "order"
 msgstr "ordre"
 
 msgid "Remove widget"
-msgstr "Supprimer le widget"
+msgstr "Retirer le widget"
 
-#~ msgid "List"
-#~ msgstr "Liste"
+#~ msgid "Export a blog"
+#~ msgstr "Exporter un blog"
 
-#~ msgid "Return to filters"
-#~ msgstr "Retour aux filtres"
+#~ msgid "Export all content"
+#~ msgstr "Exporte tout le contenu"
 
-#~ msgid "import"
-#~ msgstr "importer"
+#~ msgid "Import from a feed"
+#~ msgstr "Importer depuis un flux"
 
-#~ msgid "Preview"
-#~ msgstr "Prévisualiser"
+#~ msgid "Import a full backup file"
+#~ msgstr "Importer un fichier de sauvegarde complet"
 
-#~ msgid "Send"
-#~ msgstr "Envoyer"
-
-#~ msgid "View page"
-#~ msgstr "Voir la page"
-
-#~ msgid "Preview page"
-#~ msgstr "Prévisualiser la page"
-
-#~ msgid "Save order"
-#~ msgstr "Enregistrer l'ordre"
-
-#~ msgid "External media"
-#~ msgstr "Média externe"
-
-#~ msgid "External media selector"
-#~ msgstr "Sélecteur de médias externes"
-
-#~ msgid "Supported media services"
-#~ msgstr "Services de média supportés"
-
-#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
-#~ msgstr "Entrez l'URL de la page contenant la video que vous voulez intégrer à votre billet."
-
-#~ msgid "Page URL:"
-#~ msgstr "URL de la page :"
-
-#~ msgid "Media alignment"
-#~ msgstr "Alignement du média"
-
-#~ msgid "Media title"
-#~ msgstr "Titre du média"
-
-#~ msgid "Unsupported service"
-#~ msgstr "Service non pris en charge"
-
-#~ msgid "Invalid page URL"
-#~ msgstr "URL de la page non valide"
+#~ msgid "The backup file does not appear to be well formed."
+#~ msgstr "Le fichier de sauvegarde semble mal formaté."
