@@ -5,14 +5,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-06 18:11+0100\n"
+"POT-Creation-Date: 2012-08-13 10:46+0200\n"
 "PO-Revision-Date: 2011-10-13 19:26+0100\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Poedit-Language: French\n"
 
 msgid "Dotclear has been upgraded."
@@ -2404,11 +2404,11 @@ msgstr "Vous n'êtes pas autorisé à modifier des catégories"
 msgid "You are not allowed to delete categories"
 msgstr "Vous n'êtes pas autorisé à supprimer des catégories"
 
-msgid "You are not allowed to reset categories order"
-msgstr "Vous n'êtes pas autorisé à modifier l'ordre des catégories"
-
 msgid "This category is not empty."
 msgstr "Cette catégorie n'est pas vide."
+
+msgid "You are not allowed to reset categories order"
+msgstr "Vous n'êtes pas autorisé à modifier l'ordre des catégories"
 
 msgid "Category URL must be unique."
 msgstr "L'URL de chaque catégorie doit être unique."
@@ -2805,17 +2805,17 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
-msgid "medium"
-msgstr "moyenne"
+#~ msgid "medium"
+#~ msgstr "moyenne"
 
-msgid "small"
-msgstr "petite"
+#~ msgid "small"
+#~ msgstr "petite"
 
-msgid "thumbnail"
-msgstr "miniature"
+#~ msgid "thumbnail"
+#~ msgstr "miniature"
 
-msgid "square"
-msgstr "carrée"
+#~ msgid "square"
+#~ msgstr "carrée"
 
 #~ msgid "Blog themes"
 #~ msgstr "Thèmes du blog"
