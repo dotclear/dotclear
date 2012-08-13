@@ -1,3 +1,12 @@
+Dotclear 2.4.4 - 2012-08-13
+===========================================================
+* Bugfix: Programmed entries works again.
+* Compatibility fix: widgets are now fully php >=5.3 compliant
+* Security fix: potential CSRF in user management
+* has_tag now part of dotclear core, moved from tag plugin.
+* empty title fixed on rss reader widget
+
+
 Dotclear 2.4.3 - 2012-05-18
 ===========================================================
 * Admin: My favorites menu can be hidden
