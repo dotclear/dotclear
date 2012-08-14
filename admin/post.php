@@ -57,19 +57,19 @@ foreach ($core->getFormaters() as $v) {
 }
 
 # Languages combo
-$rs = $core->blog->getLangs(array('order'=>'asc'));
+$langs = $core->blog->getLangs(array('order'=>'asc'));
 $all_langs = l10n::getISOcodes(0,1);
 $lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
-while ($rs->fetch()) {
-	if (isset($all_langs[$rs->post_lang])) {
-		$lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
-		unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
+foreach($langs as $l) {
+	if (isset($all_langs[$l->post_lang])) {
+		$lang_combo[__('Most used')][$all_langs[$l->post_lang]] = $l->post_lang;
+		unset($lang_combo[__('Available')][$all_langs[$l->post_lang]]);
 	} else {
-		$lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
+		$lang_combo[__('Most used')][$l->post_lang] = $l->post_lang;
 	}
 }
 unset($all_langs);
-unset($rs);
+unset($langs);
 
 
 # Get entry informations

@@ -20,16 +20,17 @@ $blog_name = '';
 if (!empty($_POST['blog_id']))
 {
 	try {
-		$rs = $core->getBlog($_POST['blog_id']);
+		$blog = $core->getBlog($_POST['blog_id']);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
 	
-	if ($rs->isEmpty()) {
+	if (count($blog) == 0) {
 		$core->error->add(__('No such blog ID'));
 	} else {
-		$blog_id = $rs->blog_id;
-		$blog_name = $rs->blog_name;
+		$b = $blog->current();
+		$blog_id = $b->blog_id;
+		$blog_name = $b->blog_name;
 	}
 }
 

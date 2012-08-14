@@ -41,16 +41,16 @@ if (!$core->error->flag())
 	# Filter form we'll put in html_block
 	$users_combo = array();
 	$users_combo['-'] = '';
-	while ($users->fetch())
+	foreach ($users as $user)
 	{
-		$user_cn = dcUtils::getUserCN($users->user_id,$users->user_name,
-		$users->user_firstname,$users->user_displayname);
+		$user_cn = dcUtils::getUserCN($user->user_id,$user->user_name,
+		$user->user_firstname,$user->user_displayname);
 		
-		if ($user_cn != $users->user_id) {
-			$user_cn .= ' ('.$users->user_id.')';
+		if ($user_cn != $user->user_id) {
+			$user_cn .= ' ('.$user->user_id.')';
 		}
 		
-		$users_combo[$user_cn] = $users->user_id; 
+		$users_combo[$user_cn] = $user->user_id; 
 	}
 	
 	$status_combo = array(
@@ -68,13 +68,13 @@ if (!$core->error->flag())
 	
 	# Months array
 	$dt_m_combo['-'] = '';
-	while ($dates->fetch()) {
-		$dt_m_combo[dt::str('%B %Y',$dates->ts())] = $dates->year().$dates->month();
+	foreach($dates as $d) {
+		$dt_m_combo[dt::str('%B %Y',$d->ts())] = $d->year().$d->month();
 	}
 	
 	$lang_combo['-'] = '';
-	while ($langs->fetch()) {
-		$lang_combo[$langs->post_lang] = $langs->post_lang;
+	foreach($langs as $l) {
+		$lang_combo[$l->post_lang] = $l->post_lang;
 	}
 	
 	$sortby_combo = array(

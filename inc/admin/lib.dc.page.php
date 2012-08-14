@@ -67,8 +67,8 @@ class dcPage
 		{
 			$rs_blogs = $core->getBlogs(array('order'=>'LOWER(blog_name)','limit'=>20));
 			$blogs = array();
-			while ($rs_blogs->fetch()) {
-				$blogs[html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
+			foreach ($rs_blogs as $rs_blog) {
+				$blogs[html::escapeHTML($rs_blog->blog_name.' - '.$rs_blog->blog_url)] = $rs_blog->blog_id;
 			}
 			$blog_box =
 			'<label for="switchblog" class="classic">'.

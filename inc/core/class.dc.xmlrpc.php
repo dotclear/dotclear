@@ -241,16 +241,16 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 	{
 		$this->setUser($user,$pwd);
 		$this->setBlog();
-		$rs = $this->core->blog->getPosts(array(
+		$posts = $this->core->blog->getPosts(array(
 			'post_id' => (integer) $post_id,
 			'post_type' => $post_type
 		));
 		
-		if ($rs->isEmpty()) {
+		if (count($posts) == 0) {
 			throw new Exception('This entry does not exist');
 		}
 		
-		return $rs;
+		return $posts;
 	}
 	
 	/* Generic methods
@@ -493,26 +493,26 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$posts = $this->core->blog->getPosts($params);
 		
 		$res = array();
-		while ($posts->fetch())
+		foreach ($posts as $p)
 		{
 			$tres = array();
 			
 			$tres['dateCreated'] = new xmlrpcDate($posts->getTS());
-			$tres['userid'] = $posts->user_id;
-			$tres['postid'] = $posts->post_id;
+			$tres['userid'] = $p->user_id;
+			$tres['postid'] = $p->post_id;
 			
 			if ($type == 'blogger') {
-				$tres['content'] = $posts->post_content_xhtml;
+				$tres['content'] = $p->post_content_xhtml;
 			}
 			
 			if ($type == 'mt' || $type == 'mw') {
-				$tres['title'] = $posts->post_title;
+				$tres['title'] = $p->post_title;
 			}
 			
 			if ($type == 'mw') {
-				$tres['description'] = $posts->post_content_xhtml;
-				$tres['link'] = $tres['permaLink'] = $posts->getURL();
-				$tres['mt_excerpt'] = $posts->post_excerpt_xhtml;
+				$tres['description'] = $p->post_content_xhtml;
+				$tres['link'] = $tres['permaLink'] = $p->getURL();
+				$tres['mt_excerpt'] = $p->post_excerpt_xhtml;
 				$tres['mt_text_more'] = '';
 				$tres['mt_convert_breaks'] = '';
 				$tres['mt_keywords'] = '';
@@ -713,28 +713,28 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$posts = $this->core->blog->getPosts($params);
 		
 		$res = array();
-		while ($posts->fetch())
+		foreach ($posts as $post)
 		{
 			$tres = array(
-				"dateCreated"			=> new xmlrpcDate($posts->getTS()),
-				"userid"				=> $posts->user_id,
-				"page_id"				=> $posts->post_id,
-				"page_status"			=> $this->translateWpStatus((integer) $posts->post_status),
-				"description"			=> $posts->post_content_xhtml,
-				"title"				=> $posts->post_title,
-				"link"				=> $posts->getURL(),
-				"permaLink"			=> $posts->getURL(),
-				"excerpt"				=> $posts->post_excerpt_xhtml,
+				"dateCreated"			=> new xmlrpcDate($post->getTS()),
+				"userid"				=> $post->user_id,
+				"page_id"				=> $post->post_id,
+				"page_status"			=> $this->translateWpStatus((integer) $post->post_status),
+				"description"			=> $post->post_content_xhtml,
+				"title"				=> $post->post_title,
+				"link"				=> $post->getURL(),
+				"permaLink"			=> $post->getURL(),
+				"excerpt"				=> $post->post_excerpt_xhtml,
 				"text_more"			=> '',
-				"wp_slug"				=> $posts->post_url,
-				"wp_password"			=> $posts->post_password,
-				"wp_author"			=> $posts->getAuthorCN(),
+				"wp_slug"				=> $post->post_url,
+				"wp_password"			=> $post->post_password,
+				"wp_author"			=> $post->getAuthorCN(),
 				"wp_page_parent_id"		=> 0,
 				"wp_page_parent_title"	=> '',
-				"wp_page_order"		=> $posts->post_position,
-				"wp_author_id"			=> $posts->user_id,
-				"wp_author_display_name"	=> $posts->getAuthorCN(),
-				"date_created_gmt"		=> new xmlrpcDate(dt::iso8601($posts->getTS(),$posts->post_tz)),
+				"wp_page_order"		=> $post->post_position,
+				"wp_author_id"			=> $post->user_id,
+				"wp_author_display_name"	=> $post->getAuthorCN(),
+				"date_created_gmt"		=> new xmlrpcDate(dt::iso8601($post->getTS(),$post->post_tz)),
 				"custom_fields"		=> array(),
 				"wp_page_template"		=> 'default'
 			);
@@ -789,10 +789,10 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$this->setUser($user,$pwd);
 		$this->setBlog();
 		
-		$rs = $this->core->getBlogPermissions($this->core->blog->id);
+		$perms = $this->core->getBlogPermissions($this->core->blog->id);
 		$res = array();
 		
-		foreach($rs as $k => $v)
+		foreach($perms as $k => $v)
 		{
 			$res[] = array(
 				'user_id' => $k,
@@ -816,15 +816,15 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 			$this->core->url->getURLFor('tag','%s');
 		$f_url = $this->core->blog->url.
 			$this->core->url->getURLFor('tag_feed','%s');
-		while ($tags->fetch())
+		foreach ($tags as $tag)
 		{
 			$res[] = array(
-				'tag_id'		=> $tags->meta_id,
-				'name'		=> $tags->meta_id,
-				'count'		=> $tags->count,
-				'slug'		=> $tags->meta_id,
-				'html_url'	=> sprintf($url,$tags->meta_id),
-				'rss_url'		=> sprintf($f_url,$tags->meta_id)
+				'tag_id'		=> $tag->meta_id,
+				'name'		=> $tag->meta_id,
+				'count'		=> $tag->count,
+				'slug'		=> $tag->meta_id,
+				'html_url'	=> sprintf($url,$tag->meta_id),
+				'rss_url'		=> sprintf($f_url,$tag->meta_id)
 			);
 		}
 		return $res;

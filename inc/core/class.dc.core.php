@@ -370,10 +370,10 @@ class dcCore
 		if (!is_array($this->versions))
 		{
 			$strReq = 'SELECT module, version FROM '.$this->prefix.'version';
-			$rs = $this->con->select($strReq);
+			$modules = $this->con->select($strReq);
 			
-			while ($rs->fetch()) {
-				$this->versions[$rs->module] = $rs->version;
+			foreach ($modules as $m) {
+				$this->versions[$m->module] = $m->version;
 			}
 		}
 		
@@ -505,9 +505,9 @@ class dcCore
 			$strReq .= $this->con->limit($params['limit']);
 		}
 		
-		$rs = $this->con->select($strReq);
-		$rs->extend('rsExtUser');
-		return $rs;
+		$users = $this->con->select($strReq);
+		$users->extend('rsExtUser');
+		return $users;
 	}
 	
 	/**
@@ -568,13 +568,13 @@ class dcCore
 		}
 		
 		# Updating all user's blogs
-		$rs = $this->con->select(
+		$blogs = $this->con->select(
 			'SELECT DISTINCT(blog_id) FROM '.$this->prefix.'post '.
 			"WHERE user_id = '".$this->con->escape($id)."' "
 			);
 		
-		while ($rs->fetch()) {
-			$b = new dcBlog($this,$rs->blog_id);
+		foreach ($blogs as $blog) {
+			$b = new dcBlog($this,$blog->blog_id);
 			$b->triggerBlog();
 			unset($b);
 		}
@@ -597,9 +597,9 @@ class dcCore
 			return;
 		}
 		
-		$rs = $this->getUser($id);
+		$user = $this->getUser($id);
 		
-		if ($rs->nb_post > 0) {
+		if ($user->nb_post > 0) {
 			return;
 		}
 		
@@ -623,9 +623,9 @@ class dcCore
 				'FROM '.$this->prefix.'user '.
 				"WHERE user_id = '".$this->con->escape($id)."' ";
 		
-		$rs = $this->con->select($strReq);
+		$users = $this->con->select($strReq);
 		
-		return !$rs->isEmpty();
+		return (count($users) > 0);
 	}
 	
 	/**
@@ -648,16 +648,16 @@ class dcCore
 				'INNER JOIN '.$this->prefix.'blog B ON P.blog_id = B.blog_id '.
 				"WHERE user_id = '".$this->con->escape($id)."' ";
 		
-		$rs = $this->con->select($strReq);
+		$blogs = $this->con->select($strReq);
 		
 		$res = array();
 		
-		while ($rs->fetch())
+		foreach ($blogs as $blog)
 		{
-			$res[$rs->blog_id] = array(
-				'name' => $rs->blog_name,
-				'url' => $rs->blog_url,
-				'p' => $this->auth->parsePermissions($rs->permissions)
+			$res[$blog->blog_id] = array(
+				'name' => $blog->blog_name,
+				'url' => $blog->blog_url,
+				'p' => $this->auth->parsePermissions($blog->permissions)
 			);
 		}
 		
@@ -828,18 +828,18 @@ class dcCore
 			'WHERE user_super = 1 ';
 		}
 		
-		$rs = $this->con->select($strReq);
+		$users = $this->con->select($strReq);
 		
 		$res = array();
 		
-		while ($rs->fetch())
+		foreach ($users as $u)
 		{
-			$res[$rs->user_id] = array(
-				'name' => $rs->user_name,
-				'firstname' => $rs->user_firstname,
-				'displayname' => $rs->user_displayname,
-				'super' => (boolean) $rs->user_super,
-				'p' => $this->auth->parsePermissions($rs->permissions)
+			$res[$u->user_id] = array(
+				'name' => $u->user_name,
+				'firstname' => $u->user_firstname,
+				'displayname' => $u->user_displayname,
+				'super' => (boolean) $u->user_super,
+				'p' => $this->auth->parsePermissions($u->permissions)
 			);
 		}
 		
@@ -1024,9 +1024,9 @@ class dcCore
 				'FROM '.$this->prefix.'blog '.
 				"WHERE blog_id = '".$this->con->escape($id)."' ";
 		
-		$rs = $this->con->select($strReq);
+		$blogs = $this->con->select($strReq);
 		
-		return !$rs->isEmpty();
+		return (count($blogs) > 0);
 	}
 	
 	/**
@@ -1252,8 +1252,9 @@ class dcCore
 	{
 		$strReq = 'SELECT COUNT(post_id) '.
 				'FROM '.$this->prefix.'post';
-		$rs = $this->con->select($strReq);
-		$count = $rs->f(0);
+		$count = $this->con->select($strReq);
+		$count = $count->current();
+		$count = $count->f(0);
 		
 		$strReq = 'SELECT post_id, post_title, post_excerpt_xhtml, post_content_xhtml '.
 				'FROM '.$this->prefix.'post ';
@@ -1262,17 +1263,17 @@ class dcCore
 			$strReq .= $this->con->limit($start,$limit);
 		}
 		
-		$rs = $this->con->select($strReq,true);
+		$posts = $this->con->select($strReq,true);
 		
 		$cur = $this->con->openCursor($this->prefix.'post');
 		
-		while ($rs->fetch())
+		foreach ($posts as $post)
 		{
-			$words = $rs->post_title.' '.	$rs->post_excerpt_xhtml.' '.
-			$rs->post_content_xhtml;
+			$words = $post->post_title.' '.	$post->post_excerpt_xhtml.' '.
+			$post->post_content_xhtml;
 			
 			$cur->post_words = implode(' ',text::splitWords($words));
-			$cur->update('WHERE post_id = '.(integer) $rs->post_id);
+			$cur->update('WHERE post_id = '.(integer) $post->post_id);
 			$cur->clean();
 		}
 		

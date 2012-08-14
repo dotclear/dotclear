@@ -84,8 +84,8 @@ class dcBlog
 			
 			$this->settings = new dcSettings($this->core,$this->id);
 			
-			$this->themes_path = path::fullFromRoot($this->settings->system->themes_path,DC_ROOT);
-			$this->public_path = path::fullFromRoot($this->settings->system->public_path,DC_ROOT);
+			//$this->themes_path = path::fullFromRoot($this->settings->system->themes_path,DC_ROOT);
+			//$this->public_path = path::fullFromRoot($this->settings->system->public_path,DC_ROOT);
 			
 			$this->post_status['-2'] = __('pending');
 			$this->post_status['-1'] = __('scheduled');
@@ -358,14 +358,14 @@ class dcBlog
 			return $strReq;
 		}
 		
-		$rs = $this->con->select($strReq);
-		$rs->core = $this->core;
-		$rs->extend('rsExtPost');
+		$posts = $this->con->select($strReq);
+		$posts->core = $this->core;
+		$posts->extend('rsExtPost');
 		
 		# --BEHAVIOR-- coreBlogGetPosts
-		$this->core->callBehavior('coreBlogGetPosts',$rs);
+		$this->core->callBehavior('coreBlogGetPosts',$posts);
 		
-		return $rs;
+		return $posts;
 	}
 	
 	/**
@@ -405,13 +405,13 @@ class dcBlog
 			$params['sql'] .= $post->post_lang ? 'AND P.post_lang = \''. $this->con->escape($post->post_lang) .'\' ': 'AND P.post_lang IS NULL ';
 		}
 		
-		$rs = $this->getPosts($params);
+		$posts = $this->getPosts($params);
 		
-		if ($rs->isEmpty()) {
+		if (count($posts) == 0) {
 			return null;
 		}
 		
-		return $rs;
+		return $posts;
 	}
 	
 	/**
@@ -577,9 +577,9 @@ class dcBlog
 		'ORDER BY dt '.$order.' '.
 		$limit;
 		
-		$rs = $this->con->select($strReq);
-		$rs->extend('rsExtDates');
-		return $rs;
+		$dates = $this->con->select($strReq);
+		$dates->extend('rsExtDates');
+		return $dates;
 	}
 	
 	/**
@@ -599,12 +599,14 @@ class dcBlog
 		try
 		{
 			# Get ID
-			$rs = $this->con->select(
+			$max = $this->con->select(
 				'SELECT MAX(post_id) '.
 				'FROM '.$this->prefix.'post ' 
 				);
 			
-			$cur->post_id = (integer) $rs->f(0) + 1;
+			$max = $max->current();
+			
+			$cur->post_id = (integer) $max->f(0) + 1;
 			$cur->blog_id = (string) $this->id;
 			$cur->post_creadt = date('Y-m-d H:i:s');
 			$cur->post_upddt = date('Y-m-d H:i:s');
@@ -682,9 +684,9 @@ class dcBlog
 					'WHERE post_id = '.$id.' '.
 					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 			
-			$rs = $this->con->select($strReq);
+			$posts = $this->con->select($strReq);
 			
-			if ($rs->isEmpty()) {
+			if (count($posts) == 0) {
 				throw new Exception(__('You are not allowed to edit this entry'));
 			}
 		}
@@ -724,9 +726,9 @@ class dcBlog
 					"AND blog_id = '".$this->con->escape($this->id)."' ".
 					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 			
-			$rs = $this->con->select($strReq);
+			$posts = $this->con->select($strReq);
 			
-			if ($rs->isEmpty()) {
+			if (count($posts) == 0) {
 				throw new Exception(__('You are not allowed to change this entry status'));
 			}
 		}
@@ -757,9 +759,9 @@ class dcBlog
 					"AND blog_id = '".$this->con->escape($this->id)."' ".
 					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 			
-			$rs = $this->con->select($strReq);
+			$posts = $this->con->select($strReq);
 			
-			if ($rs->isEmpty()) {
+			if (count($posts) == 0) {
 				throw new Exception(__('You are not allowed to mark this entry as selected'));
 			}
 		}
@@ -802,9 +804,9 @@ class dcBlog
 					"AND blog_id = '".$this->con->escape($this->id)."' ".
 					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 			
-			$rs = $this->con->select($strReq);
+			$posts = $this->con->select($strReq);
 			
-			if ($rs->isEmpty()) {
+			if (count($posts) == 0) {
 				throw new Exception(__('You are not allowed to delete this entry'));
 			}
 		}
@@ -828,26 +830,26 @@ class dcBlog
 				'WHERE post_status = -1 '.
 				"AND blog_id = '".$this->con->escape($this->id)."' ";
 		
-		$rs = $this->con->select($strReq);
+		$posts = $this->con->select($strReq);
 		
 		$now = dt::toUTC(time());
 		$to_change = new ArrayObject();
 
-		if ($rs->isEmpty()) {
+		if (count($posts) == 0) {
 			return;
 		}
 		
-		while ($rs->fetch())
+		foreach ($posts as $post)
 		{
 			# Now timestamp with post timezone
-			$now_tz = $now + dt::getTimeOffset($rs->post_tz,$now);
+			$now_tz = $now + dt::getTimeOffset($post->post_tz,$now);
 			
 			# Post timestamp
-			$post_ts = strtotime($rs->post_dt);
+			$post_ts = strtotime($post->post_dt);
 			
 			# If now_tz >= post_ts, we publish the entry
 			if ($now_tz >= $post_ts) {
-				$to_change[] = (integer) $rs->post_id;
+				$to_change[] = (integer) $post->post_id;
 			}
 		}
 		if (count($to_change))
@@ -1039,9 +1041,9 @@ class dcBlog
 				"AND blog_id = '".$this->con->escape($this->id)."' ".
 				'ORDER BY post_url DESC';
 		
-		$rs = $this->con->select($strReq);
+		$urls = $this->con->select($strReq);
 		
-		if (!$rs->isEmpty())
+		if (count($urls) > 0)
 		{
 			if ($this->con->driver() == 'mysql') {
 				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
@@ -1056,10 +1058,10 @@ class dcBlog
 					"AND blog_id = '".$this->con->escape($this->id)."' ".
 					'ORDER BY post_url DESC ';
 			
-			$rs = $this->con->select($strReq);
+			$urls = $this->con->select($strReq);
 			$a = array();
-			while ($rs->fetch()) {
-				$a[] = $rs->post_url;
+			foreach ($urls as $u) {
+				$a[] = $u->post_url;
 			}
 			
 			natsort($a);

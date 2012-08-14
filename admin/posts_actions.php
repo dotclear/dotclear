@@ -71,8 +71,8 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 		
 		try
 		{
-			while ($posts->fetch()) {
-				$core->blog->updPostStatus($posts->post_id,$status);
+			foreach ($posts as $post) {
+				$core->blog->updPostStatus($post->post_id,$status);
 			}
 			
 			http::redirect($redir);
@@ -86,8 +86,8 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	{
 		try
 		{
-			while ($posts->fetch()) {
-				$core->blog->updPostSelected($posts->post_id,$action == 'selected');
+			foreach ($posts as $post) {
+				$core->blog->updPostSelected($post->post_id,$action == 'selected');
 			}
 			
 			http::redirect($redir);
@@ -101,10 +101,10 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	{
 		try
 		{
-			while ($posts->fetch()) {
+			foreach ($posts as $post) {
 				# --BEHAVIOR-- adminBeforePostDelete
-				$core->callBehavior('adminBeforePostDelete',$posts->post_id);				
-				$core->blog->delPost($posts->post_id);
+				$core->callBehavior('adminBeforePostDelete',$post->post_id);				
+				$core->blog->delPost($post->post_id);
 			}
 			
 			http::redirect($redir);
@@ -126,11 +126,11 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 				throw new Exception(__('This user does not exist'));
 			}
 			
-			while ($posts->fetch())
+			foreach ($posts as $post)
 			{
 				$cur = $core->con->openCursor($core->prefix.'post');
 				$cur->user_id = $new_user_id;
-				$cur->update('WHERE post_id = '.(integer) $posts->post_id);
+				$cur->update('WHERE post_id = '.(integer) $post->post_id);
 			}
 			
 			http::redirect($redir);
@@ -157,8 +157,8 @@ if (!isset($action)) {
 }
 
 $hidden_fields = '';
-while ($posts->fetch()) {
-	$hidden_fields .= form::hidden(array('entries[]'),$posts->post_id);
+foreach ($posts as $post) {
+	$hidden_fields .= form::hidden(array('entries[]'),$post->post_id);
 }
 
 if (isset($_POST['redir']) && strpos($_POST['redir'],'://') === false)
