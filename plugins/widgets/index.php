@@ -324,7 +324,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		'<p class="removeWidget js-remove"><label class="classic">'.
 		form::checkbox(array($iname.'[_rem]'),'1',0).' '.__('Remove widget').
 		'</label></p>'.
-		'<div class="widgetSettings">'.$w->formSettings($iname,&$j).'</div>'.
+		'<div class="widgetSettings">'.$w->formSettings($iname,$j).'</div>'.
 		'</div>';
 		
 		$i++;

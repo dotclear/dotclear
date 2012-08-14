@@ -56,10 +56,10 @@ function dcSystemCheck($con,&$err)
 		}
 		else
 		{
-			$rs = $con->select('SHOW ENGINES');
+			$engines = $con->select('SHOW ENGINES');
 			$innodb = false;
-			while ($rs->fetch()) {
-				if (strtolower($rs->f(0)) == 'innodb' && strtolower($rs->f(1)) != 'disabled' && strtolower($rs->f(1)) != 'no') {
+			foreach ($engines as $e) {
+				if (strtolower($e->f(0)) == 'innodb' && strtolower($e->f(1)) != 'disabled' && strtolower($e->f(1)) != 'no') {
 					$innodb = true;
 					break;
 				}

@@ -40,11 +40,11 @@ function dotclearUpgrade($core)
 			if (version_compare($version,'2.0-beta3.3','<'))
 			{
 				$strReq = 'SELECT media_id, media_file FROM '.$core->prefix.'media ';
-				$rs_m = $core->con->select($strReq);
-				while($rs_m->fetch()) {
+				$medias = $core->con->select($strReq);
+				foreach ($medias as $m) {
 					$cur = $core->con->openCursor($core->prefix.'media');
-					$cur->media_dir = dirname($rs_m->media_file);
-					$cur->update('WHERE media_id = '.(integer) $rs_m->media_id);
+					$cur->media_dir = dirname($m->media_file);
+					$cur->update('WHERE media_id = '.(integer) $m->media_id);
 				}
 			}
 			
@@ -60,31 +60,6 @@ function dotclearUpgrade($core)
 				$core->con->execute(sprintf($strReq,'default','blowup'));
 			}
 			
-			if (version_compare($version,'2.1-alpha2-r2383','<'))
-			{
-				$schema = dbSchema::init($core->con);
-				$schema->dropUnique($core->prefix.'category',$core->prefix.'uk_cat_title');
-				
-				# Reindex categories
-				$rs = $core->con->select(
-					'SELECT cat_id, cat_title, blog_id '.
-					'FROM '.$core->prefix.'category '.
-					'ORDER BY blog_id ASC , cat_position ASC '
-				);
-				$cat_blog = $rs->blog_id;
-				$i = 2;
-				while ($rs->fetch()) {
-					if ($cat_blog != $rs->blog_id) {
-						$i = 2;
-					}
-					$core->con->execute(
-						'UPDATE '.$core->prefix.'category SET '
-						.'cat_lft = '.($i++).', cat_rgt = '.($i++).' '.
-						'WHERE cat_id = '.(integer) $rs->cat_id
-					);
-					$cat_blog = $rs->blog_id;
-				}
-			}
 			
 			if (version_compare($version,'2.1.6','<='))
 			{
@@ -130,15 +105,15 @@ function dotclearUpgrade($core)
 					'FROM '.$core->prefix.'setting '.
 					'WHERE (setting_id = \'widgets_nav\' OR setting_id = \'widgets_extra\') '.
 					'AND setting_ns = \'widgets\';';
-				$rs = $core->con->select($sqlstr);
-				while ($rs->fetch()) {
-					$widgetsettings = base64_decode($rs->setting_value);
+				$settings = $core->con->select($sqlstr);
+				foreach ($settings as $s) {
+					$widgetsettings = base64_decode($s->setting_value);
 					$widgetsettings = str_replace ('s:11:"tplMetadata"','s:7:"tplTags"',$widgetsettings);
 					$cur = $core->con->openCursor($core->prefix.'setting');
 					$cur->setting_value = base64_encode($widgetsettings);
-					$sqlstr = 'WHERE setting_id = \''.$rs->setting_id.'\' AND setting_ns = \'widgets\' '.
+					$sqlstr = 'WHERE setting_id = \''.$s->setting_id.'\' AND setting_ns = \'widgets\' '.
 					'AND blog_id ' .
-					($rs->blog_id == NULL ? 'is NULL' : '= \''.$core->con->escape($rs->blog_id).'\'');
+					($s->blog_id == NULL ? 'is NULL' : '= \''.$core->con->escape($s->blog_id).'\'');
 					$cur->update($sqlstr);
 				}
 			}

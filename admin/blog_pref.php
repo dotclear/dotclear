@@ -36,18 +36,18 @@ else
 		if (empty($_REQUEST['id'])) {
 			throw new Exception(__('No given blog id.'));
 		}
-		$rs = $core->getBlog($_REQUEST['id']);
+		$blogs = $core->getBlog($_REQUEST['id']);
 		
-		if (!$rs) {
+		if (count($blogs) == 0) {
 			throw new Exception(__('No such blog.'));
 		}
-		
-		$blog_id = $rs->blog_id;
-		$blog_status = $rs->blog_status;
-		$blog_name = $rs->blog_name;
-		$blog_desc = $rs->blog_desc;
+		$blog = $blogs->current();
+		$blog_id = $blog->blog_id;
+		$blog_status = $blog->blog_status;
+		$blog_name = $blog->blog_name;
+		$blog_desc = $blog->blog_desc;
 		$blog_settings = new dcSettings($core,$blog_id);
-		$blog_url = $rs->blog_url ; 
+		$blog_url = $blog->blog_url ; 
 	}
 	catch (Exception $e)
 	{
@@ -118,9 +118,9 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 	try
 	{
 		if ($cur->blog_id != null && $cur->blog_id != $blog_id) {
-			$rs = $core->getBlog($cur->blog_id);
+			$blogs = $core->getBlog($cur->blog_id);
 			
-			if ($rs) {
+			if (count($blogs)>0) {
 				throw new Exception(__('That blog Id is already in use.'));
 			}
 		}

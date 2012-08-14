@@ -60,7 +60,7 @@ $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 
 try {
 	$counter = $core->getBlogs($params,1);
-	$rs = $core->getBlogs($params);
+	$blogs = $core->getBlogs($params);
 	$nb_blog = $counter->f(0);
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
@@ -138,8 +138,8 @@ if (!$core->error->flag())
 		'<th class="nowrap">'.__('Status').'</th>'.
 		'</tr>';
 		
-		while ($rs->fetch()) {
-			echo blogLine($rs);
+		foreach ($blogs as $blog) {
+			echo blogLine($blog);
 		}
 		
 		echo '</table>';
@@ -150,11 +150,11 @@ if (!$core->error->flag())
 
 dcPage::close();
 
-function blogLine($rs)
+function blogLine($blog)
 {
 	global $core;
 	
-	$blog_id = html::escapeHTML($rs->blog_id);
+	$blog_id = html::escapeHTML($blog->blog_id);
 	$edit_link = '';
 	
 	if ($GLOBALS['core']->auth->isSuperAdmin()) {
@@ -164,19 +164,19 @@ function blogLine($rs)
 		__('edit').'</a>';
 	}
 	
-	$img_status = $rs->blog_status == 1 ? 'check-on' : 'check-off';
-	$txt_status = $GLOBALS['core']->getBlogStatus($rs->blog_status);
+	$img_status = $blog->blog_status == 1 ? 'check-on' : 'check-off';
+	$txt_status = $GLOBALS['core']->getBlogStatus($blog->blog_status);
 	$img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',$img_status,$txt_status);
 	$offset = dt::getTimeOffset($core->auth->getInfo('user_tz'));
-	$blog_upddt = dt::str(__('%Y-%m-%d %H:%M'),strtotime($rs->blog_upddt) + $offset);
+	$blog_upddt = dt::str(__('%Y-%m-%d %H:%M'),strtotime($blog->blog_upddt) + $offset);
 	
 	return
 	'<tr class="line">'.
-	'<td class="maximal"><a href="index.php?switchblog='.$rs->blog_id.'" '.
-	'title="'.sprintf(__('Switch to blog %s'),$rs->blog_id).'">'.
-	html::escapeHTML($rs->blog_name).'</a></td>'.
+	'<td class="maximal"><a href="index.php?switchblog='.$blog->blog_id.'" '.
+	'title="'.sprintf(__('Switch to blog %s'),$blog->blog_id).'">'.
+	html::escapeHTML($blog->blog_name).'</a></td>'.
 	'<td class="nowrap">'.$blog_upddt.'</td>'.
-	'<td class="nowrap">'.$core->countBlogPosts($rs->blog_id).'</td>'.
+	'<td class="nowrap">'.$core->countBlogPosts($blog->blog_id).'</td>'.
 	'<td class="nowrap">'.$blog_id.'</td>'.
 	'<td>'.$edit_link.'</td>'.
 	'<td class="status">'.$img_status.'</td>'.
