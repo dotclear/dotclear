@@ -84,8 +84,8 @@ class dcBlog
 			
 			$this->settings = new dcSettings($this->core,$this->id);
 			
-			//$this->themes_path = path::fullFromRoot($this->settings->system->themes_path,DC_ROOT);
-			//$this->public_path = path::fullFromRoot($this->settings->system->public_path,DC_ROOT);
+			$this->themes_path = path::fullFromRoot($this->settings->system->themes_path,DC_ROOT);
+			$this->public_path = path::fullFromRoot($this->settings->system->public_path,DC_ROOT);
 			
 			$this->post_status['-2'] = __('pending');
 			$this->post_status['-1'] = __('scheduled');
