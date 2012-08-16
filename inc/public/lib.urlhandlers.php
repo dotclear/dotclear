@@ -517,5 +517,38 @@ class dcUrlHandlers extends urlHandler
 		$server = new dcXmlRpc($core,$blog_id);
 		$server->serve();
 	}
+	
+	public static function pluginInclude($args)
+	{
+		preg_match('#^([^/]+)/(.+)$#',$args,$m);
+		if (count($m) < 3) {
+			self::p404();
+			exit;
+		}
+		$p = $m[1];
+		$file = $m[2];
+		$allow_types = array('png','jpg','jpeg','gif','css','js','swf');
+		$pf = DC_PLUGINS_ROOT.'/'.path::clean($p.'/public/'.$file);
+		if (!$GLOBALS['core']->plugins->moduleExists($p) ||
+			$pf === false || !is_file($pf) || !is_readable($pf)) {
+			self::p404();
+			exit;
+		}
+
+		if (!in_array(files::getExtension($pf),$allow_types)) {
+			header('Content-Type: text/plain');
+			http::head(404,'Not Found');
+			exit;
+		}
+
+		http::$cache_max_age = 7200;
+		http::cache(array_merge(array($pf),get_included_files()));
+
+		header('Content-Type: '.files::getMimeType($pf));
+		header('Content-Length: '.filesize($pf));
+		readfile($pf);
+		exit;
+
+	}
 }
 ?>
