@@ -226,7 +226,7 @@ class dcBlog
 			
 			$strReq =
 			'SELECT P.post_id, P.blog_id, P.user_id, post_dt, '.
-			'post_tz, post_creadt, post_upddt, post_format, post_password, '.
+			'post_tz, post_creadt, post_upddt, post_format, '.
 			'post_url, post_lang, post_title, '.$content_req.
 			'post_type, post_meta, post_status, post_selected, post_position, '.
 			'U.user_name, U.user_firstname, U.user_displayname, U.user_email, '.
@@ -245,12 +245,7 @@ class dcBlog
 		"WHERE P.blog_id = '".$this->con->escape($this->id)."' ";
 		
 		if (!$this->core->auth->check('contentadmin',$this->id)) {
-			$strReq .= 'AND ((post_status = 1 ';
-			
-			if ($this->without_password) {
-				$strReq .= 'AND post_password IS NULL ';
-			}
-			$strReq .= ') ';
+			$strReq .= 'AND ((post_status = 1) ';
 			
 			if ($this->core->auth->userID()) {
 				$strReq .= "OR P.user_id = '".$this->con->escape($this->core->auth->userID())."')";
@@ -435,12 +430,7 @@ class dcBlog
 				"AND post_lang IS NOT NULL ";
 		
 		if (!$this->core->auth->check('contentadmin',$this->id)) {
-			$strReq .= 'AND ((post_status = 1 ';
-			
-			if ($this->without_password) {
-				$strReq .= 'AND post_password IS NULL ';
-			}
-			$strReq .= ') ';
+			$strReq .= 'AND ((post_status = 1) ';
 			
 			if ($this->core->auth->userID()) {
 				$strReq .= "OR user_id = '".$this->con->escape($this->core->auth->userID())."')";
@@ -517,12 +507,7 @@ class dcBlog
 				$catReq;
 		
 		if (!$this->core->auth->check('contentadmin',$this->id)) {
-			$strReq .= 'AND ((post_status = 1 ';
-			
-			if ($this->without_password) {
-				$strReq .= 'AND post_password IS NULL ';
-			}
-			$strReq .= ') ';
+			$strReq .= 'AND ((post_status = 1) ';
 			
 			if ($this->core->auth->userID()) {
 				$strReq .= "OR P.user_id = '".$this->con->escape($this->core->auth->userID())."')";
@@ -902,10 +887,6 @@ class dcBlog
 		
 		if ($cur->post_content == '') {
 			throw new Exception(__('No entry content'));
-		}
-		
-		if ($cur->post_password === '') {
-			$cur->post_password = null;
 		}
 		
 		if ($cur->post_dt == '') {

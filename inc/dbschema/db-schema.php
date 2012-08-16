@@ -90,7 +90,6 @@ $_s->post
 	->post_tz				('varchar',	128,	false,	"'UTC'")
 	->post_creadt			('timestamp',	0,	false,	'now()')
 	->post_upddt			('timestamp',	0,	false,	'now()')
-	->post_password		('varchar',	32,	true,	null)
 	->post_type			('varchar',	32,	false,	"'post'")
 	->post_format			('varchar',	32,	false,	"'xhtml'")
 	->post_url			('varchar',	255,	false)

@@ -17,7 +17,6 @@ $redir_url = $p_url.'&act=page';
 $post_id = '';
 $post_dt = '';
 $post_format = $core->auth->getOption('post_format');
-$post_password = '';
 $post_url = '';
 $post_lang = $core->auth->getInfo('user_lang');
 $post_title = '';
@@ -94,7 +93,6 @@ if (!empty($_REQUEST['id']))
 		$post_id = $post->post_id;
 		$post_dt = date('Y-m-d H:i',strtotime($post->post_dt));
 		$post_format = $post->post_format;
-		$post_password = $post->post_password;
 		$post_url = $post->post_url;
 		$post_lang = $post->post_lang;
 		$post_title = $post->post_title;
@@ -160,7 +158,6 @@ if (!empty($_POST) && $can_edit_page)
 	$post_open_comment = !empty($_POST['post_open_comment']);
 	$post_open_tb = !empty($_POST['post_open_tb']);
 	$post_lang = $_POST['post_lang'];
-	$post_password = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
 	$post_position = (integer) $_POST['post_position'];
 	
 	$post_notes = $_POST['post_notes'];
@@ -187,7 +184,6 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page)
 	$cur->post_title = $post_title;
 	$cur->post_dt = $post_dt ? date('Y-m-d H:i:00',strtotime($post_dt)) : '';
 	$cur->post_format = $post_format;
-	$cur->post_password = $post_password;
 	$cur->post_lang = $post_lang;
 	$cur->post_title = $post_title;
 	$cur->post_excerpt = $post_excerpt;
@@ -431,10 +427,6 @@ if ($can_edit_page)
 	
 	'<p><label for="post_lang">'.__('Page lang:').
 	form::combo('post_lang',$lang_combo,$post_lang).'</label></p>'.
-	
-	'<p><label for="post_password">'.__('Page password:').
-	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
-	'</label></p>'.
 	
 	'<div class="lockable">'.
 	'<p><label for="post_url">'.__('Basename:').

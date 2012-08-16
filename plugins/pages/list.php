@@ -78,11 +78,6 @@ class adminPageList extends adminGenericList
 				break;
 		}
 		
-		$protected = '';
-		if ($this->rs->post_password) {
-			$protected = sprintf($img,__('protected'),'locker.png');
-		}
-		
 		$selected = '';
 		if ($this->rs->post_selected) {
 			$selected = sprintf($img,__('selected'),'selected.png');
@@ -108,7 +103,7 @@ class adminPageList extends adminGenericList
 		'<td class="nowrap">'.$this->rs->user_id.'</td>'.
 		'<td class="nowrap">'.$this->rs->nb_comment.'</td>'.
 		'<td class="nowrap">'.$this->rs->nb_trackback.'</td>'.
-		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
+		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$attach.'</td>'.
 		'</tr>';
 		
 		return $res;

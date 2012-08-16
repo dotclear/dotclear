@@ -314,32 +314,6 @@ class dcUrlHandlers extends urlHandler
 			else
 			{
 				$post_id = $_ctx->posts->post_id;
-				$post_password = $_ctx->posts->post_password;
-				
-				# Password protected entry
-				if ($post_password != '' && !$_ctx->preview)
-				{
-					# Get passwords cookie
-					if (isset($_COOKIE['dc_passwd'])) {
-						$pwd_cookie = unserialize($_COOKIE['dc_passwd']);
-					} else {
-						$pwd_cookie = array();
-					}
-					
-					# Check for match
-					if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
-					|| (isset($pwd_cookie[$post_id]) && $pwd_cookie[$post_id] == $post_password))
-					{
-						$pwd_cookie[$post_id] = $post_password;
-						setcookie('dc_passwd',serialize($pwd_cookie),0,'/');
-					}
-					else
-					{
-						self::serveDocument('password-form.html','text/html',false);
-						return;
-					}
-				}
-				
 				# The entry
 				self::serveDocument('post.html');
 			}

@@ -89,11 +89,6 @@ class adminPostList extends adminGenericList
 				break;
 		}
 		
-		$protected = '';
-		if ($item->post_password) {
-			$protected = sprintf($img,__('protected'),'locker.png');
-		}
-		
 		$selected = '';
 		if ($item->post_selected) {
 			$selected = sprintf($img,__('selected'),'selected.png');
@@ -110,7 +105,7 @@ class adminPostList extends adminGenericList
 		html::escapeHTML($item->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$item->post_dt).'</td>'.
 		'<td class="nowrap">'.$item->user_id.'</td>'.
-		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.'</td>'.
+		'<td class="nowrap status">'.$img_status.' '.$selected.'</td>'.
 		'</tr>';
 		
 		return $res;
@@ -179,11 +174,6 @@ class adminPostMiniList extends adminGenericList
 				break;
 		}
 		
-		$protected = '';
-		if ($item->post_password) {
-			$protected = sprintf($img,__('protected'),'locker.png');
-		}
-		
 		$selected = '';
 		if ($item->post_selected) {
 			$selected = sprintf($img,__('selected'),'selected.png');
@@ -199,7 +189,7 @@ class adminPostMiniList extends adminGenericList
 		html::escapeHTML($item->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$item->post_dt).'</td>'.
 		'<td class="nowrap">'.$item->user_id.'</td>'.
-		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.'</td>'.
+		'<td class="nowrap status">'.$img_status.' '.$selected.'</td>'.
 		'</tr>';
 		
 		return $res;

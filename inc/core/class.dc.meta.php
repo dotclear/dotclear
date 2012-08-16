@@ -316,12 +316,7 @@ class dcMeta
 		}
 		
 		if (!$this->core->auth->check('contentadmin',$this->core->blog->id)) {
-			$strReq .= 'AND ((post_status = 1 ';
-			
-			if ($this->core->blog->without_password) {
-				$strReq .= 'AND post_password IS NULL ';
-			}
-			$strReq .= ') ';
+			$strReq .= 'AND ((post_status = 1) ';
 			
 			if ($this->core->auth->userID()) {
 				$strReq .= "OR P.user_id = '".$this->con->escape($this->core->auth->userID())."')";
