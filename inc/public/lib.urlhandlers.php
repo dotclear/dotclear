@@ -502,8 +502,18 @@ class dcUrlHandlers extends urlHandler
 		$p = $m[1];
 		$file = $m[2];
 		$allow_types = array('png','jpg','jpeg','gif','css','js','swf');
-		$pf = DC_PLUGINS_ROOT.'/'.path::clean($p.'/public/'.$file);
-		if (!$GLOBALS['core']->plugins->moduleExists($p) ||
+		$rel_file = path::clean('public/'.$file);
+		$paths = explode(PATH_SEPARATOR, DC_PLUGINS_ROOT);
+		$p_dir = '';
+		foreach ($paths as $path) {
+			if (is_dir($path.'/'.$p)) {
+				$p_dir = $path.'/'.$p;
+				break;
+			}
+		}
+		$pf = $p_dir.'/'.$rel_file;
+		if ($p_dir == '' ||
+			!$GLOBALS['core']->plugins->moduleExists($p) ||
 			$pf === false || !is_file($pf) || !is_readable($pf)) {
 			self::p404();
 			exit;
