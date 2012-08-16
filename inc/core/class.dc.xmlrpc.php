@@ -304,10 +304,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 			$cur->post_url = $struct['wp_slug'];
 		}
 		
-		if (isset($struct['wp_password'])) {
-			$cur->post_password = $struct['wp_password'];
-		}
-		
 		$cur->post_type = 'post';
 		if (!empty($struct['post_type'])) {
 			$cur->post_type = $struct['post_type'];
@@ -397,10 +393,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		
 		if (isset($struct['wp_slug'])) {
 			$cur->post_url = $struct['wp_slug'];
-		}
-		
-		if (isset($struct['wp_password'])) {
-			$cur->post_password = $struct['wp_password'];
 		}
 		
 		if ($cur->post_type == 'post')
@@ -727,7 +719,6 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 				"excerpt"				=> $post->post_excerpt_xhtml,
 				"text_more"			=> '',
 				"wp_slug"				=> $post->post_url,
-				"wp_password"			=> $post->post_password,
 				"wp_author"			=> $post->getAuthorCN(),
 				"wp_page_parent_id"		=> 0,
 				"wp_page_parent_title"	=> '',

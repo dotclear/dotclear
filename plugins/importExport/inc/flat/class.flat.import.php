@@ -439,8 +439,6 @@ class flatImport extends flatBackup
 			$cat_id = null;
 		}
 		
-		$post_password = $post->post_password ? (string) $post->post_password : null;
-		
 		$this->cur_post->post_id            = (integer) $post->post_id;
 		$this->cur_post->blog_id            = (string) $post->blog_id;
 		$this->cur_post->user_id            = (string) $this->getUserId($post->user_id);
@@ -448,7 +446,6 @@ class flatImport extends flatBackup
 		$this->cur_post->post_dt            = (string) $post->post_dt;
 		$this->cur_post->post_creadt        = (string) $post->post_creadt;
 		$this->cur_post->post_upddt         = (string) $post->post_upddt;
-		$this->cur_post->post_password      = $post_password;
 		$this->cur_post->post_type          = (string) $post->post_type;
 		$this->cur_post->post_format        = (string) $post->post_format;
 		$this->cur_post->post_url           = (string) $post->post_url;
