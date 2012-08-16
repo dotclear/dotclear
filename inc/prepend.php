@@ -203,6 +203,7 @@ $core->url->register('archive','archive','^archive(/.+)?$',array('dcUrlHandlers'
 $core->url->register('feed','feed','^feed/(.+)$',array('dcUrlHandlers','feed'));
 $core->url->register('rsd','rsd','^rsd$',array('dcUrlHandlers','rsd'));
 $core->url->register('xmlrpc','xmlrpc','^xmlrpc/(.+)$',array('dcUrlHandlers','xmlrpc'));
+$core->url->register('plugin','plugin','^plugin/(.+)$',array('dcUrlHandlers','pluginInclude'));
 
 $core->setPostType('post','post.php?id=%d',$core->url->getURLFor('post','%s'));
 
