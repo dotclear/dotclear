@@ -48,9 +48,9 @@ class dcNamespace
 		$this->getSettings($rs);
 	}
 	
-	private function getSettings($settings=null)
+	private function getSettings($rs=null)
 	{	
-		if ($settings == null) {
+		if ($rs == null) {
 			$strReq = 'SELECT blog_id, setting_id, setting_value, '.
 					'setting_type, setting_label, setting_ns '.
 					'FROM '.$this->table.' '.
@@ -60,19 +60,19 @@ class dcNamespace
 					'ORDER BY setting_id DESC ';
 		
 			try {
-				$settings = $this->con->select($strReq);
+				$rs = $this->con->select($strReq);
 			} catch (Exception $e) {
 				trigger_error(__('Unable to retrieve settings:').' '.$this->con->error(), E_USER_ERROR);
 			}
 		}
-		foreach ($settings as $s)
+		while ($rs->fetch())
 		{
-			if ($s->f('setting_ns') != $this->ns){
+			if ($rs->f('setting_ns') != $this->ns){
 				break;
 			}
-			$id = trim($s->f('setting_id'));
-			$value = $s->f('setting_value');
-			$type = $s->f('setting_type');
+			$id = trim($rs->f('setting_id'));
+			$value = $rs->f('setting_value');
+			$type = $rs->f('setting_type');
 			
 			if ($type == 'float' || $type == 'double') {
 				$type = 'float';
@@ -82,14 +82,14 @@ class dcNamespace
 			
 			settype($value,$type);
 			
-			$array = $s->blog_id ? 'local' : 'global';
+			$array = $rs->blog_id ? 'local' : 'global';
 			
 			$this->{$array.'_settings'}[$id] = array(
 				'ns' => $this->ns,
 				'value' => $value,
 				'type' => $type,
-				'label' => (string) $s->f('setting_label'),
-				'global' => $s->blog_id == ''
+				'label' => (string) $rs->f('setting_label'),
+				'global' => $rs->blog_id == ''
 			);
 		}
 		
