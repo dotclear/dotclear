@@ -52,9 +52,9 @@ class dcWorkspace
 		}
 	}
 	
-	private function getPrefs($settings=null)
+	private function getPrefs($rs=null)
 	{	
-		if ($settings == null) {
+		if ($rs == null) {
 			$strReq = 'SELECT user_id, pref_id, pref_value, '.
 					'pref_type, pref_label, pref_ws '.
 					'FROM '.$this->table.' '.
@@ -64,19 +64,19 @@ class dcWorkspace
 					'ORDER BY pref_id ASC ';
 		
 			try {
-				$settings = $this->con->select($strReq);
+				$rs = $this->con->select($strReq);
 			} catch (Exception $e) {
 				throw $e;
 			}
 		}
-		foreach ($settings as $s)
+		while ($rs->fetch())
 		{
-			if ($s->f('pref_ws') != $this->ws){
+			if ($rs->f('pref_ws') != $this->ws){
 				break;
 			}
-			$id = trim($s->f('pref_id'));
-			$value = $s->f('pref_value');
-			$type = $s->f('pref_type');
+			$id = trim($rs->f('pref_id'));
+			$value = $rs->f('pref_value');
+			$type = $rs->f('pref_type');
 			
 			if ($type == 'float' || $type == 'double') {
 				$type = 'float';
@@ -86,14 +86,14 @@ class dcWorkspace
 			
 			settype($value,$type);
 			
-			$array = $s->user_id ? 'local' : 'global';
+			$array = $rs->user_id ? 'local' : 'global';
 			
 			$this->{$array.'_prefs'}[$id] = array(
 				'ws' => $this->ws,
 				'value' => $value,
 				'type' => $type,
-				'label' => (string) $s->f('pref_label'),
-				'global' => $s->user_id == ''
+				'label' => (string) $rs->f('pref_label'),
+				'global' => $rs->user_id == ''
 			);
 		}
 		
