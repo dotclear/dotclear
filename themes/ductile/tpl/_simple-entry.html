@@ -68,7 +68,7 @@
 	<tpl:Comments with_pings="1">
 		<tpl:CommentsHeader>
 			<div id="comments">
-				<h3>{{tpl:EntryCommentCount count_all="1" one="%s" more="%s"}} {{tpl:lang reactions}}</h3>
+				<h3>{{tpl:EntryCommentCount count_all="1" none="no reactions" one="one reaction" more="%s reactions"}}</h3>
 				<ul>
 		</tpl:CommentsHeader>
 					<tpl:CommentIf is_ping="0">

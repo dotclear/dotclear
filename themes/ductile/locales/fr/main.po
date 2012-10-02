@@ -4,6 +4,15 @@ msgstr "Directives CSS supplémentaires"
 msgid "reactions"
 msgstr "réactions"
 
+msgid "no reactions"
+msgstr "pas de réaction"
+
+msgid "one reaction"
+msgstr "une réaction"
+
+msgid "%s reactions"
+msgstr "%s réactions"
+
 msgid "Add ping"
 msgstr "Ajouter un rétrolien"
 
