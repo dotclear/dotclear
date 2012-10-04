@@ -1040,7 +1040,6 @@ th, td {
 }
 th {
 	text-align: left;
-	border-bottom-color: #666;
 }
 .noborder td, td.noborder, .noborder th, th.noborder {
 	border-width: 0;
