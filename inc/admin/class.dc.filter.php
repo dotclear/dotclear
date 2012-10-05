@@ -236,7 +236,7 @@ class dcFilterSet {
 					if ($this->eextra != null) {
 						$this->eextra->save();
 					}
-					http::redirect($this->action.'?'.http_build_query($data,'','&'));
+					http::redirect($this->action.(strpos($this->action,'?') === 0 ? '?' : '&').http_build_query($data,'','&'));
 					exit;
 				}
 			}
