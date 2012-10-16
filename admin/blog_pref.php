@@ -98,6 +98,22 @@ if (!in_array($blog_settings->system->media_img_title_pattern,$img_title_combo))
 	$img_title_combo[html::escapeHTML($blog_settings->system->media_img_title_pattern)] = html::escapeHTML($blog_settings->system->media_img_title_pattern);
 }
 
+# Image default size combo
+$img_default_size_combo = array();
+$media = new dcMedia($core);
+$img_default_size_combo[__('original')] = 'o';
+foreach ($media->thumb_sizes as $code => $size) {
+	$img_default_size_combo[__($size[2])] = $code;
+}
+
+# Image default alignment combo
+$img_default_alignment_combo = array(
+	__('None') => 'none',
+	__('Left') => 'left',
+	__('Right') => 'right',
+	__('Center') => 'center'
+);
+
 # Robots policy options
 $robots_policy_options = array(
 	'INDEX,FOLLOW' => __("I would like search engines and archivers to index and archive my blog's content."),
@@ -197,6 +213,9 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
 		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
+		$blog_settings->system->put('media_img_default_size',$_POST['media_img_default_size']);
+		$blog_settings->system->put('media_img_default_alignment',$_POST['media_img_default_alignment']);
+		$blog_settings->system->put('media_img_default_link',!empty($_POST['media_img_default_link']));
 		$blog_settings->system->put('nb_post_per_feed',$nb_post_per_feed);
 		$blog_settings->system->put('nb_comment_per_feed',$nb_comment_per_feed);
 		$blog_settings->system->put('short_feed_items',!empty($_POST['short_feed_items']));
@@ -430,7 +449,22 @@ if ($blog_id)
 	'<p>'.__('This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture\'s metadata.').'</p>'.
 	'<p>'.form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
 	'</div>'.
+
+	'<div class="col">'.
+	'<h4>'.__('Default image insertion attributes').'</h4>'.
+	'<p><label for="media_img_default_size">'.__('Image size:').
+	form::combo('media_img_default_size',$img_default_size_combo,
+		(html::escapeHTML($blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($blog_settings->system->media_img_default_size) : 'm')).
+	'</label></p>'.
+	'<p><label for="media_img_default_alignment">'.__('Image alignment').
+	form::combo('media_img_default_alignment',$img_default_alignment_combo,html::escapeHTML($blog_settings->system->media_img_default_alignment)).
+	'</label></p>'.
+	'<p><label for="media_img_default_link" class="classic">'.
+	form::checkbox('media_img_default_link','1',$blog_settings->system->media_img_default_link).
+	__('As a link to original image').'</label></p>'.
 	'</div>'.
+	'</div>'.
+
 	'</fieldset>';
 	
 	echo
