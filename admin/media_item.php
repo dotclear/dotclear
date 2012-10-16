@@ -201,19 +201,29 @@ if ($popup)
 		if ($media_desc == $file->basename) {
 			$media_desc = '';
 		}
-		
+
+		$media_img_default_size = $core->blog->settings->system->media_img_default_size;
+		if ($media_img_default_size == '') {
+			$media_img_default_size = 'm';
+		}
+		$media_img_default_alignment = $core->blog->settings->system->media_img_default_alignment;
+		if ($media_img_default_alignment == '') {
+			$media_img_default_alignment = 'none';
+		}
+		$media_img_default_link = (boolean)$core->blog->settings->system->media_img_default_link;
+
 		echo
 		'<h3>'.__('Image size:').'</h3> ';
 		
 		$s_checked = false;
 		echo '<p>';
 		foreach (array_reverse($file->media_thumb) as $s => $v) {
-			$s_checked = ($s == 'm');
+			$s_checked = ($s == $media_img_default_size);
 			echo '<label class="classic">'.
 			form::radio(array('src'),html::escapeHTML($v),$s_checked).' '.
 			$core->media->thumb_sizes[$s][2].'</label><br /> ';
 		}
-		$s_checked = (!isset($file->media_thumb['m']));
+		$s_checked = (!isset($file->media_thumb[$media_img_default_size]));
 		echo '<label class="classic">'.
 		form::radio(array('src'),$file->file_url,$s_checked).' '.__('original').'</label><br /> ';
 		echo '</p>';
@@ -221,10 +231,10 @@ if ($popup)
 		
 		echo '<h3>'.__('Image alignment').'</h3>';
 		$i_align = array(
-			'none' => array(__('None'),1),
-			'left' => array(__('Left'),0),
-			'right' => array(__('Right'),0),
-			'center' => array(__('Center'),0)
+			'none' => array(__('None'),($media_img_default_alignment == 'none' ? 1 : 0)),
+			'left' => array(__('Left'),($media_img_default_alignment == 'left' ? 1 : 0)),
+			'right' => array(__('Right'),($media_img_default_alignment == 'right' ? 1 : 0)),
+			'center' => array(__('Center'),($media_img_default_alignment == 'center' ? 1 : 0))
 		);
 		
 		echo '<p>';
@@ -237,9 +247,9 @@ if ($popup)
 		echo
 		'<h3>'.__('Image insertion').'</h3>'.
 		'<p>'.
-		'<label for="insert1" class="classic">'.form::radio(array('insertion','insert1'),'simple',true).
+		'<label for="insert1" class="classic">'.form::radio(array('insertion','insert1'),'simple',!$media_img_default_link).
 		__('As a single image').'</label><br />'.
-		'<label for="insert2" class="classic">'.form::radio(array('insertion','insert2'),'link',false).
+		'<label for="insert2" class="classic">'.form::radio(array('insertion','insert2'),'link',$media_img_default_link).
 		__('As a link to original image').'</label>'.
 		'</p>';
 	}

@@ -2822,3 +2822,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "users"
 #~ msgstr "utilisateurs"
+
+msgid "Default image insertion attributes"
+msgstr "Attributs par défaut pour l'insertion d'image"
