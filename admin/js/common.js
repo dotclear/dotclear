@@ -318,26 +318,7 @@ var dotclear = {
 /* Sticky footer
 -------------------------------------------------------- */
 function positionFooter() {
-	$("#wrapper").css({ overflow: "auto" });
-	var page_height = $("#top").height() + $("#wrapper").height() - $("#footer").height();
-	if( page_height < $(window).height() ){
-		// calcul de la largeur
-		var page_width = $(document).width() - 30;
-		$("#footer").css({
-			position: "absolute",
-			bottom: "10px",
-			width: page_width+"px",
-			padding: ".75em 0",
-			marginbottom: "0"
-		});
-	} else {
-		$("#footer").css({
-			position: "static",
-			padding: ".75em 0",
-			width: "auto"
-		});
-	}
-
+	$('#footer').constantfooter();
 }
 
 /* On document ready
@@ -383,7 +364,6 @@ $(function() {
 		}
 		return true;
 	});
-
 
 	// Sticky footer
 	positionFooter();

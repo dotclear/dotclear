@@ -369,6 +369,7 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.js').
 		self::jsLoad('js/jquery/jquery.biscuit.js').
 		self::jsLoad('js/jquery/jquery.bgFade.js').
+		self::jsLoad('js/jquery/jquery.constantfooter.js').
 		self::jsLoad('js/common.js').
 		self::jsLoad('js/prelude.js').
 		

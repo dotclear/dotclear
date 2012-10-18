@@ -336,12 +336,10 @@ abbr {
 /* ------------------------------------------------------------------ footer */
 #footer {
 	clear: both;
-	padding: .75em 2em;
-	margin: 6em 15px .5em 15px;
+	padding: .75em 0;
 	-webkit-border-radius: .3em;
 	-moz-border-radius: .3em;
-	border-radius: .3em;
-	background: #575859 url(dc_logo_small.png) no-repeat right bottom;
+	background: #575859 url(dc_logo_small.png) no-repeat 8px bottom;
 	color: #fff;
 }
 #footer p {
