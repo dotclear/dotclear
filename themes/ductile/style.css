@@ -275,7 +275,7 @@ h1 a {
 	display: none;
 	}
 .post-title {
-	margin-bottom: .33em;
+	margin-bottom: .66em;
 	color: #14709e;
 	line-height: 1.17;
 	}
@@ -283,6 +283,9 @@ h1 a {
 	text-decoration: none;
 	color: #ad3f4c;
 	}
+.post-content p:first-child {
+	margin-top: 0;
+}
 .post-icon { 	/* for entry short */
 	display: block;
 	float: left;
@@ -294,6 +297,9 @@ h1 a {
 	-o-box-shadow: 2px 2px 3px #ccc;
 	box-shadow: 2px 2px 3px #ccc;
 	}
+.short .post-title {
+	margin-bottom: 0.33em;
+}
 .short .post-content p { 	/* for entry short */
 	margin-top: 0;
 	}
