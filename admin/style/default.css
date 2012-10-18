@@ -337,8 +337,6 @@ abbr {
 #footer {
 	clear: both;
 	padding: .75em 0;
-	-webkit-border-radius: .3em;
-	-moz-border-radius: .3em;
 	background: #575859 url(dc_logo_small.png) no-repeat 8px bottom;
 	color: #fff;
 }
