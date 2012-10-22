@@ -98,7 +98,7 @@ catch (Exception $e)
 ?>
 <html>
 <head>
-  <title><?php echo $page_name; ?></title>
+  <title><?php echo ($filter_gui !== false ? sprintf(__('%s configuration'),$filter->name).' - ' : '').$page_name; ?></title>
   <?php
   echo
   dcPage::jsToolMan().
