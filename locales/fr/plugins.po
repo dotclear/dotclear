@@ -103,6 +103,9 @@ msgstr "Ajouter une adresse IP : "
 msgid "Global IP"
 msgstr "IP globale"
 
+msgid "Global IP (used for all blogs)"
+msgstr "IP globale (valable pour tous les blogs)"
+
 msgid "Add"
 msgstr "Ajouter"
 
@@ -111,6 +114,12 @@ msgstr "Pas d'adresse IP dans la liste."
 
 msgid "IP list"
 msgstr "Liste IP"
+
+msgid "Local IPs (used only for this blog)"
+msgstr "IP locales (valables seulement pour ce blog)"
+
+msgid "Global IPs (used for all blogs)"
+msgstr "IP globales (valables pour tous les blogs)"
 
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "Contrôle l'adresse IP de l'émetteur via les serveurs DNSBL"
@@ -150,11 +159,20 @@ msgstr "Ajouter un mot "
 msgid "Global word"
 msgstr "Mot global"
 
+msgid "Global word (used for all blogs)"
+msgstr "Mot global (valable pour tous les blogs)"
+
 msgid "No word in list."
 msgstr "Aucun mot dans la liste."
 
 msgid "List of bad words"
 msgstr "Liste de mots interdits"
+
+msgid "Local words (used only for this blog)"
+msgstr "Mots locaux (valables seulement pour ce blog)"
+
+msgid "Global words (used for all blogs)"
+msgstr "Mots globaux (valables pour tous les blogs)"
 
 msgid "Delete selected words"
 msgstr "Supprimer les mots sélectionnés"
