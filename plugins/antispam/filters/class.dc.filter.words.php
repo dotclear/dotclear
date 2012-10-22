@@ -123,7 +123,7 @@ class dcFilterWords extends dcSpamFilter
 
 		if ($core->auth->isSuperAdmin()) {
 			$res .= '<label class="classic" for="globalsw">'.form::checkbox('globalsw',1).' '.
-			__('Global word').'</label> ';
+			__('Global word (used for all blogs)').'</label> ';
 		}
 
 		$res .=
@@ -144,6 +144,8 @@ class dcFilterWords extends dcSpamFilter
 			'<h3>' . __('List of bad words') . '</h3>'.
 			'<div style="'.$this->style_list.'">';
 
+			$res_global = '';
+			$res_local = '';
 			while ($rs->fetch())
 			{
 				$disabled_word = false;
@@ -153,12 +155,26 @@ class dcFilterWords extends dcSpamFilter
 					$p_style .= $this->style_global;
 				}
 
-				$res .=
-				'<p style="'.$p_style.'"><label class="classic" for="word-'.$rs->rule_id.'">'.
-				form::checkbox(array('swd[]', 'word-'.$rs->rule_id),$rs->rule_id,false,'','',$disabled_word).' '.
-				html::escapeHTML($rs->rule_content).
-				'</label></p>';
+				$item = '<p style="'.$p_style.'"><label class="classic" for="word-'.$rs->rule_id.'">'.
+					form::checkbox(array('swd[]', 'word-'.$rs->rule_id),$rs->rule_id,false,'','',$disabled_word).' '.
+					html::escapeHTML($rs->rule_content).
+					'</label></p>';
+
+				if ($rs->blog_id) {
+					// local list
+					if ($res_local == '') {
+						$res_local = '<h4>'.__('Local words (used only for this blog)').'</h4>';
+					}
+					$res_local .= $item;
+				} else {
+					// global list
+					if ($res_global == '') {
+						$res_global = '<h4>'.__('Global words (used for all blogs)').'</h4>';
+					}
+					$res_global .= $item;
+				}
 			}
+			$res .= $res_local.$res_global;
 
 			$res .=
 			'</div>'.
