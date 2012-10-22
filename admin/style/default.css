@@ -792,8 +792,8 @@ option.avail10n {
 	z-index: 100;
 }
 #help-button {
-	position: absolute;
-	top: 6.2em;
+	position: fixed;
+	top: 3.2em;
 	right: 0px;
 	cursor: pointer;
 	background: #fc3;
