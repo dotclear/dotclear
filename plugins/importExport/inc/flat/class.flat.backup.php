@@ -60,7 +60,7 @@ class flatBackup
 		elseif (substr($line,0,1) == '"')
 		{
 			$line = preg_replace('/^"|"$/','',$line);
-			$line = preg_split('/(^"|","|"$)/m',$line);
+			$line = preg_split('/(^"|","|(?<!\\\)\"$)/m',$line);
 			
 			if (count($this->line_cols) != count($line)) {
 				throw new Exception(sprintf('Invalid row count at line %s',$this->line_num));
