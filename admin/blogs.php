@@ -132,7 +132,7 @@ if (!$core->error->flag())
 		'<table class="clear"><tr>'.
 		'<th>'.__('Blog name').'</th>'.
 		'<th class="nowrap">'.__('Last update').'</th>'.
-		'<th class="nowrap">'.__('Entries').'</th>'.
+		'<th class="nowrap">'.__('Entries (all types)').'</th>'.
 		'<th class="nowrap">'.__('Blog ID').'</th>'.
 		'<th>&nbsp;</th>'.
 		'<th class="nowrap">'.__('Status').'</th>'.
