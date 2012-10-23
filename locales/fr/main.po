@@ -549,6 +549,9 @@ msgstr "Page(s)"
 msgid "Entries"
 msgstr "Billets"
 
+msgid "Entries (all types)"
+msgstr "Billets & pages"
+
 msgid "Status"
 msgstr "État"
 
