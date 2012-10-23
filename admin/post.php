@@ -313,7 +313,6 @@ if (!empty($_GET['xconv']))
 {
 	$post_excerpt = $post_excerpt_xhtml;
 	$post_content = $post_content_xhtml;
-	$post_title = $post_title_xhtml;
 	$post_format = 'xhtml';
 	
 	echo '<p class="message">'.__('Don\'t forget to validate your XHTML conversion by saving your post.').'</p>';
