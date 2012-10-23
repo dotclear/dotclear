@@ -161,8 +161,8 @@ if (isset($_POST['user_post_format']))
 		
 		$cur->user_options = new ArrayObject($user_options);
 		
-		# --BEHAVIOR-- adminBeforeUserUpdate
-		$core->callBehavior('adminBeforeUserUpdate',$cur,$core->auth->userID());
+		# --BEHAVIOR-- adminBeforeUserOptionsUpdate
+		$core->callBehavior('adminBeforeUserOptionsUpdate',$cur,$core->auth->userID());
 		
 		# Update user prefs
 		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
@@ -180,8 +180,8 @@ if (isset($_POST['user_post_format']))
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
 		
-		# --BEHAVIOR-- adminAfterUserUpdate
-		$core->callBehavior('adminAfterUserUpdate',$cur,$core->auth->userID());
+		# --BEHAVIOR-- adminAfterUserOptionsUpdate
+		$core->callBehavior('adminAfterUserOptionsUpdate',$cur,$core->auth->userID());
 		
 		http::redirect('preferences.php?updated=1');
 	}

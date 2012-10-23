@@ -30,8 +30,9 @@ $core->addBehavior('adminPostsActions',array('tagsBehaviors','adminPostsActions'
 $core->addBehavior('adminPostsActionsContent',array('tagsBehaviors','adminPostsActionsContent'));
 
 $core->addBehavior('adminPreferencesForm',array('tagsBehaviors','adminUserForm'));
-// $core->addBehavior('adminUserForm',array('tagsBehaviors','adminUserForm'));
+$core->addBehavior('adminBeforeUserOptionsUpdate',array('tagsBehaviors','setTagListFormat'));
 
+$core->addBehavior('adminUserForm',array('tagsBehaviors','adminUserForm'));
 $core->addBehavior('adminBeforeUserCreate',array('tagsBehaviors','setTagListFormat'));
 $core->addBehavior('adminBeforeUserUpdate',array('tagsBehaviors','setTagListFormat'));
 
