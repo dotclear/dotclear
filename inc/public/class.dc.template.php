@@ -1600,6 +1600,7 @@ class dcTemplate extends template
 	size			(sq|t|s|m|o)	#IMPLIED	-- Image size to extract
 	class		CDATA		#IMPLIED	-- Class to add on image tag
 	with_category	(1|0)		#IMPLIED	-- Search in entry category description if present (default 0)
+	no_tag	(1|0)	#IMPLIED	-- Return image URL without HTML tag (default 0)
 	>
 	*/
 	public function EntryFirstImage($attr)
@@ -1607,8 +1608,9 @@ class dcTemplate extends template
 		$size = !empty($attr['size']) ? $attr['size'] : '';
 		$class = !empty($attr['class']) ? $attr['class'] : '';
 		$with_category = !empty($attr['with_category']) ? 'true' : 'false';
+		$no_tag = !empty($attr['no_tag']) ? 'true' : 'false';
 		
-		return "<?php echo context::EntryFirstImageHelper('".addslashes($size)."',".$with_category.",'".addslashes($class)."'); ?>";
+		return "<?php echo context::EntryFirstImageHelper('".addslashes($size)."',".$with_category.",'".addslashes($class).",'".$no_tag."'); ?>";
 	}
 	
 	/*dtd
