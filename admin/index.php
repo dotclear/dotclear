@@ -80,13 +80,15 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 	if (!$v['global']) {
 		$fav = unserialize($v['value']);
 		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			$count++;
-			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
-				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-			$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
+			if (dc_valid_fav($fav['url'])) {
+				$count++;
+				$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
+					($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
+				$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
 
-			# Let plugins set their own title for favorite on dashboard
-			$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
+				# Let plugins set their own title for favorite on dashboard
+				$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
+			}
 		}
 	}
 }	
@@ -95,13 +97,15 @@ if (!$count) {
 	foreach ($ws->dumpPrefs() as $k => $v) {
 		$fav = unserialize($v['value']);
 		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			$count++;
-			$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
-				($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-			$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
+			if (dc_valid_fav($fav['url'])) {
+				$count++;
+				$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
+					($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
+				$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
 
-			# Let plugins set their own title for favorite on dashboard
-			$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
+				# Let plugins set their own title for favorite on dashboard
+				$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
+			}
 		}
 	}
 }
