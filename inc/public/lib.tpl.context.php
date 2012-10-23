@@ -340,7 +340,7 @@ class context
 	}
 	
 	# First post image helpers
-	public static function EntryFirstImageHelper($size,$with_category,$class="")
+	public static function EntryFirstImageHelper($size,$with_category,$class="",$no_tag=false)
 	{
 		global $core, $_ctx;
 		
@@ -395,7 +395,11 @@ class context
 		}
 		
 		if ($src) {
-			return '<img alt="'.$alt.'" src="'.$src.'" class="'.$class.'" />';
+			if ($no_tag) {
+				return $src;
+			} else {
+				return '<img alt="'.$alt.'" src="'.$src.'" class="'.$class.'" />';
+			}
 		}
 	}
 	
