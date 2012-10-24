@@ -34,6 +34,7 @@ class blogrollWidgets
 		$w->links->setting('category',__('Category'),'','combo',$categories);
 		
 		$w->links->setting('homeonly',__('Home page only'),1,'check');
+		$w->links->setting('class',__('CSS class:'),'');
 	}
 	
 	public static function initDefaultWidgets($w,$d)

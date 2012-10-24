@@ -20,7 +20,7 @@ class defaultWidgets
 		$value = isset($GLOBALS['_search']) ? html::escapeHTML($GLOBALS['_search']) : '';
 		
 		return
-		'<div id="search">'.
+		'<div id="search'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2><label for="q">'.html::escapeHTML($w->title).'</label></h2>' : '').
 		'<form action="'.$core->blog->url.'" method="get">'.
 		'<fieldset>'.
@@ -36,7 +36,7 @@ class defaultWidgets
 		global $core;
 		
 		$res =
-		'<div id="topnav">'.
+		'<div id="topnav'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -67,7 +67,7 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="categories">'.
+		'<div class="categories'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '');
 		
 		$ref_level = $level = $rs->level-1;
@@ -127,7 +127,7 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="selected">'.
+		'<div class="selected'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -156,7 +156,7 @@ class defaultWidgets
 		
 		$langs = l10n::getISOcodes();
 		$res =
-		'<div class="langs">'.
+		'<div class="langs'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -195,7 +195,7 @@ class defaultWidgets
 		$c_title = __('This blog\'s comments %s feed');
 		
 		$res =
-		'<div class="syndicate">'.
+		'<div class="syndicate'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -243,7 +243,7 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="feed">'.
+		'<div class="feed'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -282,7 +282,7 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="text">'.
+		'<div class="text'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		$w->text.
 		'</div>';
@@ -328,7 +328,7 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="lastposts">'.
+		'<div class="lastposts'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -358,7 +358,7 @@ class defaultWidgets
 			return;
 		}
 		
-		$res = '<div class="lastcomments">'.
+		$res = '<div class="lastcomments'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		

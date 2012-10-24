@@ -282,18 +282,15 @@ foreach ($__widgets->elements() as $w)
 			switch ($s['type']) {
 				case 'check':
 					$s_type = __('boolean').", ".__('possible values:')." <code>0</code> ".__('or')." <code>1</code>";
-//					$s_type = '0|1';
 					break;
 				case 'combo':
 					$s['options'] = array_map("literalNullString", $s['options']);
 					$s_type = __('listitem').", ".__('possible values:')." <code>".implode('</code>, <code>',$s['options'])."</code>";
-//					$s_type = implode('|',$s['options']);
 					break;
 				case 'text':
 				case 'textarea':
 				default:
 					$s_type = __('string');
-//					$s_type = 'text';
 					break;
 			}
 			

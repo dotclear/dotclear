@@ -226,7 +226,7 @@ class tplTags
 		$rs->sort($sort,$order);
 		
 		$res =
-		'<div class="tags">'.
+		'<div class="tags'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		

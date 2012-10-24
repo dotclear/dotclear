@@ -28,6 +28,7 @@ class tagsWidgets
 			array(__('Ascending') => 'asc', __('Descending') => 'desc')
 		);
 		$w->tags->setting('alltagslinktitle',__('Link to all tags:'),__('All tags'));
+		$w->tags->setting('class',__('CSS class:'),'');
 	}
 	
 	public static function initDefaultWidgets($w,$d)

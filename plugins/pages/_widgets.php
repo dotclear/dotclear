@@ -31,6 +31,7 @@ class pagesWidgets
 		$w->pages->setting('orderby',__('Sort:'),'asc','combo',
 			array(__('Ascending') => 'asc', __('Descending') => 'desc')
 		);
+		$w->pages->setting('class',__('CSS class:'),'');
 	}
 	
 	public static function initDefaultWidgets($w,$d)

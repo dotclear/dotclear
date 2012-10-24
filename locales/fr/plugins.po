@@ -1625,6 +1625,9 @@ msgstr "valeurs possibles :"
 msgid "empty string"
 msgstr "chaîne vide"
 
+msgid "CSS class:"
+msgstr "Classe CSS :"
+
 #~ msgid "Export a blog"
 #~ msgstr "Exporter un blog"
 
