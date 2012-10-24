@@ -34,6 +34,14 @@ $append_combo = array(
 	__('custom') => 'custom'
 );
 
+function literalNullString($v)
+{
+	if ($v == '') {
+		return '&lt;'.__('empty string').'&gt;';
+	}
+	return $v;
+}
+
 # Adding widgets to sidebars
 if (!empty($_POST['append']) && is_array($_POST['addw']))
 {
@@ -273,15 +281,19 @@ foreach ($__widgets->elements() as $w)
 		{
 			switch ($s['type']) {
 				case 'check':
-					$s_type = '0|1';
+					$s_type = __('boolean').", ".__('possible values:')." <code>0</code> ".__('or')." <code>1</code>";
+//					$s_type = '0|1';
 					break;
 				case 'combo':
-					$s_type = implode('|',$s['options']);
+					$s['options'] = array_map("literalNullString", $s['options']);
+					$s_type = __('listitem').", ".__('possible values:')." <code>".implode('</code>, <code>',$s['options'])."</code>";
+//					$s_type = implode('|',$s['options']);
 					break;
 				case 'text':
 				case 'textarea':
 				default:
-					$s_type = 'text';
+					$s_type = __('string');
+//					$s_type = 'text';
 					break;
 			}
 			
