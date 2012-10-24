@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */		"Pages",
 	/* Description*/	"Serve entries as simple web pages",
 	/* Author */		"Olivier Meunier",
-	/* Version */		'1.1.1',
+	/* Version */		'1.2',
 	array(
 		'permissions' =>	'contentadmin,pages',
 		'priority' =>	999

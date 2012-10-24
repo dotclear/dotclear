@@ -150,7 +150,7 @@ class tplBlogroll
 		}
 		
 		return
-		'<div class="links">'.
+		'<div class="links'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		$links.
 		'</div>';
