@@ -1610,6 +1610,21 @@ msgstr "ordre"
 msgid "Remove widget"
 msgstr "Retirer le widget"
 
+msgid "boolean"
+msgstr "booléen"
+
+msgid "listitem"
+msgstr "élément de liste"
+
+msgid "string"
+msgstr "chaîne de caractères"
+
+msgid "possible values:"
+msgstr "valeurs possibles :"
+
+msgid "empty string"
+msgstr "chaîne vide"
+
 #~ msgid "Export a blog"
 #~ msgstr "Exporter un blog"
 
