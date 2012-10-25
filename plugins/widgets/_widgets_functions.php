@@ -20,7 +20,7 @@ class defaultWidgets
 		$value = isset($GLOBALS['_search']) ? html::escapeHTML($GLOBALS['_search']) : '';
 		
 		return
-		'<div id="search'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		'<div id="search"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>'.
 		($w->title ? '<h2><label for="q">'.html::escapeHTML($w->title).'</label></h2>' : '').
 		'<form action="'.$core->blog->url.'" method="get">'.
 		'<fieldset>'.
@@ -36,7 +36,7 @@ class defaultWidgets
 		global $core;
 		
 		$res =
-		'<div id="topnav'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		'<div id="topnav"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
