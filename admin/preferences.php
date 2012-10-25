@@ -342,7 +342,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 dcPage::open($page_title,
 	dcPage::jsLoad('js/_preferences.js').
 	($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
-	dcPage::jsLoad('js/jquery/jquery-ui-1.8.12.custom.min.js').
+	dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsConfirmClose('user-form').
 	
