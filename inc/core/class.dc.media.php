@@ -911,8 +911,9 @@ class dcMedia extends filemanager
 				if (!file_exists($thumb_file) && $s[0] > 0 &&
 					($suffix == 'sq' || $w > $s[0] || $h > $s[0]))
 				{
+					$rate = ($s[0] < 100 ? 95 : ($s[0] < 600 ? 90 : 85));
 					$img->resize($s[0],$s[0],$s[1]);
-					$img->output('jpeg',$thumb_file,80);
+					$img->output('jpeg',$thumb_file,$rate);
 				}
 			}
 			$img->close();
