@@ -175,10 +175,10 @@ if ($file === null) {
 }
 
 if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
-	echo '<p class="message">'.__('File has been successfully updated.').'</p>';
+	dcPage::message(__('File has been successfully updated.'));
 }
 if (!empty($_GET['thumbupd'])) {
-	echo '<p class="message">'.__('Thumbnails have been successfully updated.').'</p>';
+	dcPage::message(__('Thumbnails have been successfully updated.'));
 }
 
 echo '<h2><a href="'.html::escapeURL($media_page_url).'">'.__('Media manager').'</a>'.
@@ -257,8 +257,8 @@ if ($popup)
 	{
 		$media_type = 'mp3';
 		
-		echo '<h3>'.__('MP3 disposition').'</h3>'.
-		'<p class="message">'.__("Please note that you cannot insert mp3 files with visual editor.").'</p>';
+		echo '<h3>'.__('MP3 disposition').'</h3>';
+		dcPage::message(__("Please note that you cannot insert mp3 files with visual editor."),false);
 		
 		$i_align = array(
 			'none' => array(__('None'),0),
@@ -282,8 +282,7 @@ if ($popup)
 	{
 		$media_type = 'flv';
 		
-		echo
-		'<p class="message">'.__("Please note that you cannot insert video files with visual editor.").'</p>';
+		dcPage::message(__("Please note that you cannot insert video files with visual editor."),false);
 		
 		echo
 		'<h3>'.__('Video size').'</h3>'.

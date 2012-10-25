@@ -55,16 +55,16 @@ dcPage::open(__('Categories'),
 );
 
 if (!empty($_GET['add'])) {
-	echo '<p class="message">'.__('The category has been successfully created.').'</p>';
+	dcPage::message(__('The category has been successfully created.'));
 }
 if (!empty($_GET['del'])) {
-		echo '<p class="message">'.__('The category has been successfully removed.').'</p>';
+	dcPage::message(__('The category has been successfully removed.'));
 }
 if (!empty($_GET['reord'])) {
-		echo '<p class="message">'.__('Categories have been successfully reordered.').'</p>';
+	dcPage::message(__('Categories have been successfully reordered.'));
 }
 if (!empty($_GET['moved'])) {
-		echo '<p class="message">'.__('The category has been successfully moved.').'</p>';
+	dcPage::message(__('The category has been successfully moved.'));
 }
 
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Categories').'</span></h2>';

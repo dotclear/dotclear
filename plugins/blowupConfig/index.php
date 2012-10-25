@@ -227,13 +227,12 @@ echo
 
 
 if (!$can_write_images) {
-	echo '<div class="message">'.
-		__('For the following reasons, images cannot be created. You won\'t be able to change some background properties.').
-		$notices.'</div>';
+	dcPage::message(__('For the following reasons, images cannot be created. You won\'t be able to change some background properties.').
+		$notices,false,true);
 }
 
 if (!empty($_GET['upd'])) {
-	echo '<p class="message">'.__('Theme configuration has been successfully updated.').'</p>';
+	dcPage::message(__('Theme configuration has been successfully updated.'));
 }
 
 echo '<form id="theme_config" action="'.$p_url.'" method="post" enctype="multipart/form-data">';

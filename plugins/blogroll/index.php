@@ -218,23 +218,23 @@ try {
 
 <?php
 if (!empty($_GET['neworder'])) {
-	echo '<p class="message">'.__('Items order has been successfully updated').'</p>';
+	dcPage::message(__('Items order has been successfully updated'));
 }
 
 if (!empty($_GET['removed'])) {
-		echo '<p class="message">'.__('Items have been successfully removed.').'</p>';
+	dcPage::message(__('Items have been successfully removed.'));
 }
 
 if (!empty($_GET['addlink'])) {
-		echo '<p class="message">'.__('Link has been successfully created.').'</p>';
+	dcPage::message(__('Link has been successfully created.'));
 }
 
 if (!empty($_GET['addcat'])) {
-		echo '<p class="message">'.__('category has been successfully created.').'</p>';
+	dcPage::message(__('category has been successfully created.'));
 }
 
 if (!empty($_GET['importlinks'])) {
-		echo '<p class="message">'.__('links have been successfully imported.').'</p>';
+	dcPage::message(__('links have been successfully imported.'));
 }
 ?>
 

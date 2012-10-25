@@ -177,11 +177,11 @@ dcPage::open($page_title,
 );
 
 if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('User has been successfully updated.').'</p>';
+	dcPage::message(__('User has been successfully updated.'));
 }
 
 if (!empty($_GET['add'])) {
-		echo '<p class="message">'.__('User has been successfully created.').'</p>';
+	dcPage::message(__('User has been successfully created.'));
 }
 
 echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';

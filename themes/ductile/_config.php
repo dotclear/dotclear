@@ -404,10 +404,7 @@ if (!empty($_POST))
 		// Template cache reset
 		$core->emptyTemplatesCache();
 		
-		echo
-		'<div class="message"><p>'.
-		__('Theme configuration upgraded.').
-		'</p></div>';
+		dcPage::message(__('Theme configuration upgraded.'),true,true);
 	}
 	catch (Exception $e)
 	{

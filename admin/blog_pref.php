@@ -265,11 +265,11 @@ if ($blog_id)
 	__('Blog settings').'</span></h2>';
 	
 	if (!empty($_GET['add'])) {
-		echo '<p class="message">'.__('Blog has been successfully created.').'</p>';
+		dcPage::message(__('Blog has been successfully created.'));
 	}
 	
 	if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('Blog has been successfully updated.').'</p>';
+		dcPage::message(__('Blog has been successfully updated.'));
 	}
 	
 	echo

@@ -170,7 +170,7 @@ dcPage::open(__('Edit comment'),
 if ($comment_id)
 {
 	if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('Comment has been successfully updated.').'</p>';
+		dcPage::message(__('Comment has been successfully updated.'));
 	}
 	
 	$comment_mailto = '';

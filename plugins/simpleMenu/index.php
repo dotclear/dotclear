@@ -411,16 +411,16 @@ if ($step) {
 <?php
 
 if (!empty($_GET['added'])) {
-	echo '<p class="message">'.__('Menu item has been successfully added.').'</p>';
+	dcPage::message(__('Menu item has been successfully added.'));
 }
 if (!empty($_GET['removed'])) {
-	echo '<p class="message">'.__('Menu items have been successfully removed.').'</p>';
+	dcPage::message(__('Menu items have been successfully removed.'));
 }
 if (!empty($_GET['neworder'])) {
-	echo '<p class="message">'.__('Menu items have been successfully updated.').'</p>';
+	dcPage::message(__('Menu items have been successfully updated.'));
 }
 if (!empty($_GET['updated'])) {
-	echo '<p class="message">'.__('Menu items have been successfully updated.').'</p>';
+	dcPage::message(__('Menu items have been successfully updated.'));
 }
 
 if ($step) 

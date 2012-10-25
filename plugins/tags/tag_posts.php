@@ -113,7 +113,7 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 
 <?php
 if (!empty($_GET['renamed'])) {
-	echo '<p class="message">'.__('Tag has been successfully renamed').'</p>';
+	dcPage::message(__('Tag has been successfully renamed'));
 }
 
 echo '<p><a href="'.$p_url.'&amp;m=tags">'.__('Back to tags list').'</a></p>';

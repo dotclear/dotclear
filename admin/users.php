@@ -98,10 +98,10 @@ dcPage::open(__('Users'),$starting_script);
 if (!$core->error->flag())
 {
 	if (!empty($_GET['del'])) {
-		echo '<p class="message">'.__('User has been successfully removed.').'</p>';
+		dcPage::message(__('User has been successfully removed.'));
 	}
 	if (!empty($_GET['upd'])) {
-			echo '<p class="message">'.__('The permissions have been successfully updated.').'</p>';
+		dcPage::message(__('The permissions have been successfully updated.'));
 	}
 	
 	echo 

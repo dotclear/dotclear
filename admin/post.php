@@ -292,21 +292,21 @@ dcPage::open($page_title.' - '.__('Entries'),
 );
 
 if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('Entry has been successfully updated.').'</p>';
+	dcPage::message(__('Entry has been successfully updated.'));
 }
 elseif (!empty($_GET['crea'])) {
-		echo '<p class="message">'.__('Entry has been successfully created.').'</p>';
+	dcPage::message(__('Entry has been successfully created.'));
 }
 elseif (!empty($_GET['attached'])) {
-	echo '<p class="message">'.__('File has been successfully attached.').'</p>';
+	dcPage::message(__('File has been successfully attached.'));
 }
 elseif (!empty($_GET['rmattach'])) {
-	echo '<p class="message">'.__('Attachment has been successfully removed.').'</p>';
+	dcPage::message(__('Attachment has been successfully removed.'));
 }
 
 if (!empty($_GET['creaco'])) {
-		echo '<p class="message">'.__('Comment has been successfully created.').'</p>';
-	}
+	dcPage::message(__('Comment has been successfully created.'));
+}
 
 # XHTML conversion
 if (!empty($_GET['xconv']))
@@ -315,7 +315,7 @@ if (!empty($_GET['xconv']))
 	$post_content = $post_content_xhtml;
 	$post_format = 'xhtml';
 	
-	echo '<p class="message">'.__('Don\'t forget to validate your XHTML conversion by saving your post.').'</p>';
+	dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
 }
 
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title;

@@ -108,13 +108,13 @@ class dcFilterWords extends dcSpamFilter
 		$res = '';
 
 		if (!empty($_GET['list'])) {
-			$res .= '<p class="message">'.__('Words have been successfully added.').'</p>';
+			$res .= dcPage::message(__('Words have been successfully added.'),true,false,false);
 		}
 		if (!empty($_GET['added'])) {
-			$res .= '<p class="message">'.__('Word has been successfully added.').'</p>';
+			$res .= dcPage::message(__('Word has been successfully added.'),true,false,false);
 		}
 		if (!empty($_GET['removed'])) {
-			$res .= '<p class="message">'.__('Words have been successfully removed.').'</p>';
+			$res .= dcPage::message(__('Words have been successfully removed.'),true,false,false);
 		}
 
 		$res .=
