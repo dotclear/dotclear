@@ -91,7 +91,7 @@ if (!$can_view_page) {
 }
 
 if (!empty($_GET['sent'])) {
-		echo '<p class="message">'.__('All pings sent.').'</p>';
+	dcPage::message(__('All pings sent.'));
 }
 
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';

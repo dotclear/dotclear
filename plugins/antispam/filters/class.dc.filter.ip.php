@@ -102,10 +102,10 @@ class dcFilterIP extends dcSpamFilter
 		$res = '';
 
 		if (!empty($_GET['added'])) {
-			$res .= '<p class="message">'.__('IP address has been successfully added.').'</p>';
+			$res .= dcPage::message(__('IP address has been successfully added.'),true,false,false);
 		}
 		if (!empty($_GET['removed'])) {
-			$res .= '<p class="message">'.__('IP addresses have been successfully removed.').'</p>';
+			$res .= dcPage::message(__('IP addresses have been successfully removed.'),true,false,false);
 		}
 
 		$res .=

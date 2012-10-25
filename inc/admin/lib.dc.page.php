@@ -254,6 +254,20 @@ class dcPage
 		"</div>\n".		// End of #wrapper
 		'</body></html>';
 	}
+
+	public static function message($msg,$timestamp=true,$div=false,$echo=true)
+	{
+		$res = '';
+		if ($msg != '') {
+			$res = ($div ? '<div class="message">' : '').'<p'.($div ? '' : ' class="message"').'>'.
+				($timestamp ? dt::str(__('%H:%M:%S:')).' ' : '').$msg.
+				'</p>'.($div ? '</div>' : '');
+			if ($echo) {
+				echo $res;
+			}
+		}
+		return $res;
+	}
 	
 	private static function debugInfo()
 	{

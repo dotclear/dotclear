@@ -120,11 +120,11 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 <body>
 <?php
 if (!empty($_GET['upd'])) {
-	echo '<p class="message">'.__('Configuration successfully updated').'</p>';
+	dcPage::message(__('Configuration successfully updated'));
 }
 
 if (!empty($_GET['upda'])) {
-	echo '<p class="message">'.__('Settings definition successfully updated').'</p>';
+	dcPage::message(__('Settings definition successfully updated'));
 }
 ?>
 <h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title">about:config</span></h2>

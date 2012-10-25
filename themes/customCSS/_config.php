@@ -27,10 +27,7 @@ if (isset($_POST['css']))
 	fwrite($fp,$_POST['css']);
 	fclose($fp);
 	
-	echo
-	'<div class="message"><p>'.
-	__('Style sheet upgraded.').
-	'</p></div>';
+	dcPage::message(__('Style sheet upgraded.'),true,true);
 }
 
 $css_content = is_file($css_file) ? file_get_contents($css_file) : '';

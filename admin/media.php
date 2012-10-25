@@ -254,27 +254,27 @@ call_user_func($open_f,__('Media manager'),
 	);
 
 if (!empty($_GET['mkdok'])) {
-	echo '<p class="message">'.__('Directory has been successfully created.').'</p>';
+	dcPage::message(__('Directory has been successfully created.'));
 }
 
 if (!empty($_GET['upok'])) {
-	echo '<p class="message">'.__('Files have been successfully uploaded.').'</p>';
+	dcPage::message(__('Files have been successfully uploaded.'));
 }
 
 if (!empty($_GET['rmfok'])) {
-	echo '<p class="message">'.__('File has been successfully removed.').'</p>';
+	dcPage::message(__('File has been successfully removed.'));
 }
 
 if (!empty($_GET['rmdok'])) {
-	echo '<p class="message">'.__('Directory has been successfully removed.').'</p>';
+	dcPage::message(__('Directory has been successfully removed.'));
 }
 
 if (!empty($_GET['rebuildok'])) {
-	echo '<p class="message">'.__('Directory has been successfully rebuilt.').'</p>';
+	dcPage::message(__('Directory has been successfully rebuilt.'));
 }
 
 if (!empty($_GET['unzipok'])) {
-	echo '<p class="message">'.__('Zip file has been successfully extracted.').'</p>';
+	dcPage::message(__('Zip file has been successfully extracted.'));
 }
 
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; ';

@@ -75,7 +75,7 @@ if (!$show_filters) {
 dcPage::open(__('List of blogs'),$starting_script);
 
 if (!empty($_GET['del'])) {
-	echo '<p class="message">'.__('Blog has been successfully deleted.').'</p>';
+	dcPage::message(__('Blog has been successfully deleted.'));
 }
 
 echo '<h2 class="page-title">'.__('List of blogs').'</h2>';

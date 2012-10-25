@@ -141,12 +141,12 @@ class dcImportFlat extends dcIeModule
 	{
 		if ($this->status == 'single')
 		{
-			echo '<p class="message">'.__('Single blog successfully imported.').'</p>';
+			dcPage::message(__('Single blog successfully imported.'));
 			return;
 		}
 		if ($this->status == 'full')
 		{
-			echo '<p class="message">'.__('Content successfully imported.').'</p>';
+			dcPage::message(__('Content successfully imported.'));
 			return;
 		}
 		

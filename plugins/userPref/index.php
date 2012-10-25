@@ -116,11 +116,11 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
 <body>
 <?php
 if (!empty($_GET['upd'])) {
-	echo '<p class="message">'.__('Preferences successfully updated').'</p>';
+	dcPage::message(__('Preferences successfully updated'));
 }
 
 if (!empty($_GET['upda'])) {
-	echo '<p class="message">'.__('Preferences definition successfully updated').'</p>';
+	dcPage::message(__('Preferences definition successfully updated'));
 }
 ?>
 <h2><?php echo html::escapeHTML($core->auth->userID()); ?> &rsaquo; <span class="page-title">user:preferences</span></h2>

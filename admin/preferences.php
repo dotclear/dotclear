@@ -351,22 +351,22 @@ dcPage::open($page_title,
 );
 
 if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('Personal information has been successfully updated.').'</p>';
+	dcPage::message(__('Personal information has been successfully updated.'));
 }
 if (!empty($_GET['updated'])) {
-		echo '<p class="message">'.__('Personal options has been successfully updated.').'</p>';
+	dcPage::message(__('Personal options has been successfully updated.'));
 }
 if (!empty($_GET['append'])) {
-		echo '<p class="message">'.__('Favorites have been successfully added.').'</p>';
+	dcPage::message(__('Favorites have been successfully added.'));
 }
 if (!empty($_GET['neworder'])) {
-	echo '<p class="message">'.__('Favorites have been successfully updated.').'</p>';
+	dcPage::message(__('Favorites have been successfully updated.'));
 }
 if (!empty($_GET['removed'])) {
-		echo '<p class="message">'.__('Favorites have been successfully removed.').'</p>';
+	dcPage::message(__('Favorites have been successfully removed.'));
 }
 if (!empty($_GET['replaced'])) {
-		echo '<p class="message">'.__('Default favorites have been successfully updated.').'</p>';
+	dcPage::message(__('Default favorites have been successfully updated.'));
 }
 
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';

@@ -175,13 +175,10 @@ echo
 '<h2 class="page-title">'.__('Plugins management').'</h2>';
 
 if (!empty($_GET['removed'])) {
-	echo
-	'<p class="message">'.__('Plugin has been successfully deleted.').'</p>';
+	dcPage::message(__('Plugin has been successfully deleted.'));
 }
 if (!empty($_GET['added'])) {
-	echo	'<p class="message">'.
-	($_GET['added'] == 2 ? __('Plugin has been successfully upgraded') : __('Plugin has been successfully installed.')).
-	'</p>';
+	dcPage::message(($_GET['added'] == 2 ? __('Plugin has been successfully upgraded') : __('Plugin has been successfully installed.')));
 }
 
 # Plugins install messages

@@ -135,13 +135,11 @@ echo
 '<h2 class="page-title">'.__('Languages management').'</h2>';
 
 if (!empty($_GET['removed'])) {
-	echo '<p class="message">'.__('Language has been successfully deleted.').'</p>';
+	dcPage::message(__('Language has been successfully deleted.'));
 }
 
 if (!empty($_GET['added'])) {
-	echo	'<p class="message">'.
-	($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')).
-	'</p>';
+	dcPage::message(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
 }
 
 echo

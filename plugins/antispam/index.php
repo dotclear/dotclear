@@ -131,7 +131,7 @@ else
 	'<h3>'.__('Information').'</h3>';
 
 	if (!empty($_GET['del'])) {
-		echo '<p class="message">'.__('Spam comments have been successfully deleted.').'</p>';
+		dcPage::message(__('Spam comments have been successfully deleted.'));
 	}
 
 	echo
@@ -162,7 +162,7 @@ else
 	'<form action="'.$p_url.'" method="post" class="fieldset">';
 
 	if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('Filters configuration has been successfully saved.').'</p>';
+		dcPage::message(__('Filters configuration has been successfully saved.'));
 	}
 
 	echo
