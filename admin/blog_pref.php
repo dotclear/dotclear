@@ -341,8 +341,26 @@ if ($blog_id)
 	
 	'<p><label for="enable_xmlrpc" class="classic">'.
 	form::checkbox('enable_xmlrpc','1',$blog_settings->system->enable_xmlrpc).
-	__('Enable XML/RPC interface').'</label>'.
-	' - <a href="#xmlrpc">'.__('more information').'</a></p>'.
+	__('Enable XML/RPC interface').'</label></p>';
+
+	echo
+		'<p class="form-note">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';	
+
+	if ($blog_settings->system->enable_xmlrpc) {
+		echo
+		'<p>'.__('XML/RPC interface is active. You should set the following parameters on your XML/RPC client:').'</p>'.
+		'<ul>'.
+		'<li>'.__('Server URL:').' <strong><code>'.
+		sprintf(DC_XMLRPC_URL,$core->blog->url,$core->blog->id).
+		'</code></strong></li>'.
+		'<li>'.__('Blogging system:').' <strong><code>Movable Type</code></strong></li>'.
+		'<li>'.__('User name:').' <strong><code>'.$core->auth->userID().'</code></strong></li>'.
+		'<li>'.__('Password:').' <strong><code>&lt;'.__('your password').'&gt;</code></strong></li>'.
+		'<li>'.__('Blog ID:').' <strong><code>1</code></strong></li>'.
+		'</ul>';
+	}
+
+	echo
 	'</div>'.
 	'</div>'.
 	'<br class="clear" />'. //Opera sucks
@@ -498,30 +516,6 @@ if ($blog_id)
 		form::hidden(array('blog_id'),$blog_id).
 		$core->formNonce().'</p>'.
 		'</form>';
-	}
-	
-	# XML/RPC information
-	echo '<h3 id="xmlrpc">'.__('XML/RPC interface').'</h3>';
-	
-	echo '<p>'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';
-	
-	if (!$blog_settings->system->enable_xmlrpc)
-	{
-		echo '<p>'.__('XML/RPC interface is not active. Change settings to enable it.').'</p>';
-	}
-	else
-	{
-		echo
-		'<p>'.__('XML/RPC interface is active. You should set the following parameters on your XML/RPC client:').'</p>'.
-		'<ul>'.
-		'<li>'.__('Server URL:').' <strong>'.
-		sprintf(DC_XMLRPC_URL,$core->blog->url,$core->blog->id).
-		'</strong></li>'.
-		'<li>'.__('Blogging system:').' <strong>Movable Type</strong></li>'.
-		'<li>'.__('User name:').' <strong>'.$core->auth->userID().'</strong></li>'.
-		'<li>'.__('Password:').' <strong>'.__('your password').'</strong></li>'.
-		'<li>'.__('Blog ID:').' <strong>1</strong></li>'.
-		'</ul>';
 	}
 	
 	echo '</div>';
