@@ -1056,6 +1056,12 @@ msgstr "Date de publication"
 msgid "No page"
 msgstr "Aucune page"
 
+msgid "Warning: Comments are not more accepted for this page."
+msgstr "Attention : les commentaires ne sont plus acceptés pour cette page."
+
+msgid "Warning: Trackbacks are not more accepted for this page."
+msgstr "Attention : les rétroliens ne sont plus acceptés pour cette page."
+
 msgid "select this page"
 msgstr "sélectionner cette page"
 
