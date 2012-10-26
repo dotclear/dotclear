@@ -421,8 +421,20 @@ if ($can_edit_post)
 	
 	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment).' '.
 	__('Accept comments').'</label></p>'.
+	($core->blog->settings->system->allow_comments ? 
+		(isContributionAllowed($post_id,strtotime($post_dt),true) ? 
+			'' :
+			'<p class="form-note warn">'.__('Warning: Comments are not more accepted for this entry.').'</p>') : 
+		'<p class="form-note warn">'.__('Warning: Comments are not accepted on this blog.').'</p>').
+
 	'<p><label for="post_open_tb" class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb).' '.
 	__('Accept trackbacks').'</label></p>'.
+	($core->blog->settings->system->allow_trackbacks ? 
+		(isContributionAllowed($post_id,strtotime($post_dt),false) ? 
+			'' :
+			'<p class="form-note warn">'.__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
+		'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>').
+
 	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
 	__('Selected entry').'</label></p>'.
 	
@@ -566,6 +578,27 @@ if ($post_id)
 	'</div>';
 }
 
+# Controls comments or trakbacks capabilities
+function isContributionAllowed($id,$dt,$com=true)
+{
+	global $core;
+
+	if (!$id) {
+		return true;
+	}
+	if ($com) {
+		if (($core->blog->settings->system->comments_ttl == 0) || 
+			(time() - $core->blog->settings->system->comments_ttl*86400 < $dt)) {
+			return true;
+		}
+	} else {
+		if (($core->blog->settings->system->trackbacks_ttl == 0) || 
+			(time() - $core->blog->settings->system->trackbacks_ttl*86400 < $dt)) {
+			return true;
+		}
+	}
+	return false;
+}
 
 # Show comments or trackbacks
 function showComments($rs,$has_action,$tb=false)
