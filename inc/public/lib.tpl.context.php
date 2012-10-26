@@ -354,7 +354,7 @@ class context
 		$p_root = $core->blog->public_path;
 		
 		$pattern = '(?:'.preg_quote($p_site,'/').')?'.preg_quote($p_url,'/');
-		$pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png))"[^>]+/msu',$pattern);
+		$pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png))"[^>]+/msui',$pattern);
 		
 		$src = '';
 		$alt = '';
@@ -435,6 +435,14 @@ class context
 				$res = $base.'.png';
 			} elseif (file_exists($f.'.gif')) {
 				$res = $base.'.gif';
+			} elseif (file_exists($f.'.JPG')) {
+				$res = $base.'.JPG';
+			} elseif (file_exists($f.'.JPEG')) {
+				$res = $base.'.JPEG';
+			} elseif (file_exists($f.'.PNG')) {
+				$res = $base.'.PNG';
+			} elseif (file_exists($f.'.GIF')) {
+				$res = $base.'.GIF';
 			}
 		}
 		
