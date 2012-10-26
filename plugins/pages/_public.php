@@ -227,6 +227,7 @@ class tplPages
 		$params['post_type'] = 'page';
 		$params['limit'] = abs((integer) $w->limit);
 		$params['no_content'] = true;
+		$params['post_selected'] = false;
 		
 		$sort = $w->sortby;
 		if (!in_array($sort,array('post_title','post_position','post_dt'))) {
