@@ -165,6 +165,16 @@ class rsExtPost
 	{
 		return $rs->nb_trackback > 0;
 	}
+
+	/**
+	Returns whether post has been updated since publication.
+
+	@return <b>boolean</b>
+	*/
+	public static function isRepublished($rs)
+	{
+		return ($rs->getTS('upddt') + dt::getTimeOffset($rs->post_tz)) > $rs->getTS();
+	}
 	
 	/**
 	Returns full post URL.
