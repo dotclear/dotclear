@@ -42,14 +42,22 @@ class dcFilterLinksLookup extends dcSpamFilter
 			if (!isset($b['host']) || !$b['host']) {
 				continue;
 			}
-			
-			$domain = preg_replace('/^(.*\.)([^.]+\.[^.]+)$/','$2',$b['host']);
-			$host = $domain.'.'.$this->server;
-			
-			if (gethostbyname($host) != $host) {
-				$status = substr($domain,0,128);
-				return true;
-			}
+
+			$domain = preg_replace('/^[\w]{2,6}:\/\/([\w\d\.\-]+).*$/','$1',$b['host']);
+			$domain_elem = explode(".",$domain);
+
+			$i = count($domain_elem) - 1;
+			$host = $domain_elem[$i];
+			do
+			{
+				$host = $domain_elem[$i - 1].'.'.$host;
+				$i--;
+				if (substr(gethostbyname($host.'.'.$this->server),0,3) == "127" ) 
+				{
+					$status = substr($domain,0,128);
+					return true;
+				}				
+			} while ($i > 0);
 		}
 	}
 	
