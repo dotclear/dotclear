@@ -1569,6 +1569,18 @@ msgstr "Format du texte :"
 msgid "Convert to XHTML"
 msgstr "Convertir en XHTML"
 
+msgid "Warning: Comments are not more accepted for this entry."
+msgstr "Attention : les commentaires ne sont plus acceptés pour ce billet."
+
+msgid "Warning: Comments are not accepted on this blog."
+msgstr "Attention : les commentaires ne sont pas acceptés sur ce blog."
+
+msgid "Warning: Trackbacks are not more accepted for this entry."
+msgstr "Attention : les rétroliens ne sont plus acceptés pour ce billet."
+
+msgid "Warning: Trackbacks are not accepted on this blog."
+msgstr "Attention : les rétroliens ne sont pas acceptés sur ce blog."
+
 msgid "Selected entry"
 msgstr "Billet sélectionné"
 
