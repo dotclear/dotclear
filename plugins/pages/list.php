@@ -85,7 +85,7 @@ class adminPageList extends adminGenericList
 		
 		$selected = '';
 		if ($this->rs->post_selected) {
-			$selected = sprintf($img,__('selected'),'selected.png');
+			$selected = sprintf($img,__('hidden'),'hidden.png');
 		}
 		
 		$attach = '';

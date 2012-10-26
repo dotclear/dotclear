@@ -30,6 +30,7 @@ $post_status = $core->auth->getInfo('user_post_status');
 $post_position = 0;
 $post_open_comment = false;
 $post_open_tb = false;
+$post_selected = false;
 
 $post_media = array();
 
@@ -107,6 +108,7 @@ if (!empty($_REQUEST['id']))
 		$post_position = (integer) $post->post_position;
 		$post_open_comment = (boolean) $post->post_open_comment;
 		$post_open_tb = (boolean) $post->post_open_tb;
+		$post_selected = (boolean) $post->post_selected;
 		
 		$page_title = __('Edit page');
 		
@@ -159,6 +161,7 @@ if (!empty($_POST) && $can_edit_page)
 	
 	$post_open_comment = !empty($_POST['post_open_comment']);
 	$post_open_tb = !empty($_POST['post_open_tb']);
+	$post_selected = !empty($_POST['post_selected']);
 	$post_lang = $_POST['post_lang'];
 	$post_password = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
 	$post_position = (integer) $_POST['post_position'];
@@ -199,6 +202,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page)
 	$cur->post_position = $post_position;
 	$cur->post_open_comment = (integer) $post_open_comment;
 	$cur->post_open_tb = (integer) $post_open_tb;
+	$cur->post_selected = (integer) $post_selected;
 	
 	if (isset($_POST['post_url'])) {
 		$cur->post_url = $post_url;
@@ -423,9 +427,16 @@ if ($can_edit_page)
 	
 	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment).' '.
 	__('Accept comments').'</label></p>'.
+
 	'<p><label for="post_open_tb" class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb).' '.
 	__('Accept trackbacks').'</label></p>'.
 	
+	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
+	__('Hidden').'</label></p>'.
+	'<p class="form-note">'.
+	__('If checked this page will be active but not listed in widget Pages.').
+	'</p>'.
+
 	'<p><label for="post_position" class="classic">'.__('Page position:').' '.
 	form::field('post_position',3,3,(string) $post_position).
 	'</label></p>'.
