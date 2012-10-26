@@ -257,10 +257,12 @@ class dcPage
 
 	public static function message($msg,$timestamp=true,$div=false,$echo=true)
 	{
+		global $core;
+		
 		$res = '';
 		if ($msg != '') {
 			$res = ($div ? '<div class="message">' : '').'<p'.($div ? '' : ' class="message"').'>'.
-				($timestamp ? dt::str(__('%H:%M:%S:')).' ' : '').$msg.
+				($timestamp ? dt::str(__('%H:%M:%S:'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
 				'</p>'.($div ? '</div>' : '');
 			if ($echo) {
 				echo $res;
