@@ -428,10 +428,25 @@ else
 	{
 		echo '<ul>';
 		while ($rs->fetch()) {
-			echo '<li><a href="'.$core->getPostAdminURL($rs->post_type,$rs->post_id).'">'.
-			$rs->post_title.'</a>'.
-			($rs->post_type != 'post' ? ' ('.html::escapeHTML($rs->post_type).')' : '').
-			' - '.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->post_dt).'</li>';
+			$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+			switch ($rs->post_status) {
+				case 1:
+					$img_status = sprintf($img,__('published'),'check-on.png');
+					break;
+				case 0:
+					$img_status = sprintf($img,__('unpublished'),'check-off.png');
+					break;
+				case -1:
+					$img_status = sprintf($img,__('scheduled'),'scheduled.png');
+					break;
+				case -2:
+					$img_status = sprintf($img,__('pending'),'check-wrn.png');
+					break;
+			}
+			echo '<li>'.$img_status.' '.'<a href="'.$core->getPostAdminURL($rs->post_type,$rs->post_id).'">'.
+				$rs->post_title.'</a>'.
+				($rs->post_type != 'post' ? ' ('.html::escapeHTML($rs->post_type).')' : '').
+				' - '.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->post_dt).'</li>';
 		}
 		echo '</ul>';
 	}
