@@ -1268,6 +1268,7 @@ class dcTemplate extends template
 	pings_active	(0|1)	#IMPLIED	-- trackbacks are active for this post (value : 1) or not (value : 0)
 	show_comments	(0|1)	#IMPLIED	-- there are comments for this post (value : 1) or not (value : 0)
 	show_pings	(0|1)	#IMPLIED	-- there are trackbacks for this post (value : 1) or not (value : 0)
+	republished	(0|1)	#IMPLIED	-- post has been updated since publication (value : 1) or not (value : 0)
 	operator	(and|or)	#IMPLIED	-- combination of conditions, if more than 1 specifiec (default: and)
 	url		CDATA	#IMPLIED	-- post has given url
 	>
@@ -1365,6 +1366,11 @@ class dcTemplate extends template
 			} else {
 				$if[] = '(!$_ctx->posts->hasTrackbacks() && !$_ctx->posts->trackbacksActive())';
 			}
+		}
+		
+		if (isset($attr['republished'])) {
+			$sign = (boolean) $attr['republished'] ? '' : '!';
+			$if[] = $sign.'(boolean)$_ctx->posts->isRepublished()';
 		}
 		
 		$this->core->callBehavior('tplIfConditions','EntryIf',$attr,$content,$if);
