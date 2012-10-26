@@ -84,6 +84,7 @@ class dcTemplate extends template
 		$this->addValue('CategoryShortURL',array($this,'CategoryShortURL'));
 		$this->addValue('CategoryDescription',array($this,'CategoryDescription'));
 		$this->addValue('CategoryTitle',array($this,'CategoryTitle'));
+		$this->addValue('CategoryEntriesCount',array($this,'CategoryEntriesCount'));
 		
 		# Comments
 		$this->addBlock('Comments',array($this,'Comments'));
@@ -1095,6 +1096,15 @@ class dcTemplate extends template
 	{
 		$f = $this->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$_ctx->categories->cat_title').'; ?>';
+	}
+
+	/*dtd
+	<!ELEMENT tpl:CategoryEntriesCount - O -- Category number of entries -->
+	*/
+	public function CategoryEntriesCount($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'$_ctx->categories->nb_post').'; ?>';
 	}
 	
 	/* Entries -------------------------------------------- */
