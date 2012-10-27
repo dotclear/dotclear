@@ -81,7 +81,9 @@ $post_url_combo = array(
 	__('year/month/day/title') => '{y}/{m}/{d}/{t}',
 	__('year/month/title') => '{y}/{m}/{t}',
 	__('year/title') => '{y}/{t}',
-	__('title') => '{t}'
+	__('title') => '{t}',
+	__('post id/title') => '{id}/{t}',
+	__('post id') => '{id}'
 );
 if (!in_array($blog_settings->system->post_url_format,$post_url_combo)) {
 	$post_url_combo[html::escapeHTML($blog_settings->system->post_url_format)] = html::escapeHTML($blog_settings->system->post_url_format);
