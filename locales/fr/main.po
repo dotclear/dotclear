@@ -193,6 +193,12 @@ msgstr "année/titre"
 msgid "title"
 msgstr "titre"
 
+msgid "post id/title"
+msgstr "identificateur du billet/titre"
+
+msgid "post id"
+msgstr "identificateur du billet"
+
 msgid "Title"
 msgstr "Titre"
 
