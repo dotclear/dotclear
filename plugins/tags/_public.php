@@ -22,7 +22,9 @@ $core->tpl->addBlock('Tags',array('tplTags','Tags'));
 $core->tpl->addBlock('TagsHeader',array('tplTags','TagsHeader'));
 $core->tpl->addBlock('TagsFooter',array('tplTags','TagsFooter'));
 $core->tpl->addBlock('EntryTags',array('tplTags','EntryTags'));
+$core->tpl->addBlock('TagIf',array('tplTags','TagIf'));
 $core->tpl->addValue('TagID',array('tplTags','TagID'));
+$core->tpl->addValue('TagCount',array('tplTags','TagCount'));
 $core->tpl->addValue('TagPercent',array('tplTags','TagPercent'));
 $core->tpl->addValue('TagRoundPercent',array('tplTags','TagRoundPercent'));
 $core->tpl->addValue('TagURL',array('tplTags','TagURL'));
@@ -152,13 +154,35 @@ class tplTags
 		
 		return $res;
 	}
-	
+
+	public static function TagIf($attr,$content) 
+	{ 
+		$if = array();
+		$operateur = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
+
+		if (isset($attr['has_entries'])) {
+			$sign = (boolean) $attr['has_entries'] ? '' : '!';
+			$if[] = $sign.'$_ctx->meta->count';
+		}
+
+		if (!empty($if)) {
+			return '<?php if('.implode(' '.$operateur.' ',$if).') : ?>'.$content.'<?php endif; ?>';
+		} else {
+			return $content;
+		}
+	}
+
 	public static function TagID($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$_ctx->meta->meta_id').'; ?>';
 	}
 	
+	public static function TagCount($attr)
+	{
+		return '<?php echo $_ctx->meta->count; ?>';
+	}
+
 	public static function TagPercent($attr)
 	{
 		return '<?php echo $_ctx->meta->percent; ?>';
