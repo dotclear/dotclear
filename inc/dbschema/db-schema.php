@@ -163,7 +163,7 @@ $_s->log
 	->log_table	('varchar',	255,	false)
 	->log_dt		('timestamp',	0,	false,	'now()')
 	->log_ip		('varchar',	39,	false)
-	->log_msg		('varchar',	255,	false)
+	->log_msg		('text',	0,	true,	null)
 	
 	->primary('pk_log','log_id')
 	;
