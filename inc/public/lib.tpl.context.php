@@ -367,7 +367,8 @@ class context
 			{
 				foreach ($m[1] as $i => $img) {
 					if (($src = self::ContentFirstImageLookup($p_root,$img,$size)) !== false) {
-						$src = $p_url.(dirname($img) != '/' ? dirname($img) : '').'/'.$src;
+						$dirname = str_replace('\\', '/', dirname($img)); 
+						$src = $p_url.($dirname != '/' ? $dirname : '').'/'.$src;
 						if (preg_match('/alt="([^"]+)"/',$m[0][$i],$malt)) {
 							$alt = $malt[1];
 						}
@@ -384,7 +385,8 @@ class context
 			{
 				foreach ($m[1] as $i => $img) {
 					if (($src = self::ContentFirstImageLookup($p_root,$img,$size)) !== false) {
-						$src = $p_url.(dirname($img) != '/' ? dirname($img) : '').'/'.$src;
+						$dirname = str_replace('\\', '/', dirname($img)); 
+						$src = $p_url.($dirname != '/' ? $dirname : '').'/'.$src;
 						if (preg_match('/alt="([^"]+)"/',$m[0][$i],$malt)) {
 							$alt = $malt[1];
 						}
