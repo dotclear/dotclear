@@ -487,7 +487,7 @@ class dcTemplate extends template
 		return implode(', ',$res);
 	}
 	
-	public function getAge($attr)
+	public static function getAge($attr)
 	{
 		if (isset($attr['age']) && preg_match('/^(\-[0-9]+|last).*$/i',$attr['age'])) {
 			if (($ts = strtotime($attr['age'])) !== false) {
