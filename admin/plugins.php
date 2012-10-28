@@ -230,17 +230,23 @@ if (!empty($p_available))
 	'<th class="nowrap">'.__('Action').'</th>'.
 	'</tr>';
 	
+	$distrib_plugins = array('aboutConfig','akismet','antispam','attachments','blogroll','blowupConfig','fairTrackbacks',
+		'importExport','maintenance','pages','pings','simpleMenu','tags','themeEditor','userPref','widgets');
+	$distrib_img = '<img src="images/dotclear_pw.png"'.
+		' alt="'.__('Plugin from official distribution').'" title="'.__('Plugin from official distribution').'" />';
+
 	foreach ($p_available as $k => $v)
 	{
 		$is_deletable = $is_writable && preg_match('!^'.$p_path_pat.'!',$v['root']);
 		$is_deactivable = $v['root_writable'];
+		$is_distrib = in_array($k, $distrib_plugins);
 		
 		echo
 		'<tr class="line wide">'.
 		'<td class="minimal nowrap"><strong>'.html::escapeHTML($k).'</strong></td>'.
 		'<td class="minimal">'.html::escapeHTML($v['version']).'</td>'.
-		'<td class="maximal"><strong>'.html::escapeHTML($v['name']).'</strong> '.
-		'<br />'.html::escapeHTML($v['desc']).'</td>'.
+		'<td class="maximal'.($is_distrib ? ' distrib' : '').'"><strong>'.html::escapeHTML($v['name']).'</strong> '.
+		'<br />'.html::escapeHTML($v['desc']).($is_distrib ? ' '.$distrib_img : '').'</td>'.
 		'<td class="nowrap action">';
 		
 		if ($is_deletable || $is_deactivable)

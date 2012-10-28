@@ -999,6 +999,11 @@ ul.nice li {
 	top: 2px;
 	right: 0;
 }
+.distrib img {
+	display: block;
+	float: right;
+	margin-top: -1em;
+}
 /* TABLES
 -------------------------------------------------------- */
 table {

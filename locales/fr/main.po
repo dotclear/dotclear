@@ -1488,6 +1488,9 @@ msgstr "Télécharger l'extension"
 msgid "To enable this function, please give write access to your plugins directory."
 msgstr "Pour activer cette fonction, donnez un accès en écriture à votre répertoire d'extensions."
 
+msgid "Plugin from official distribution"
+msgstr "Extension de la distribution officielle"
+
 msgid "Add a link"
 msgstr "Ajouter un lien"
 
