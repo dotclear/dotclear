@@ -340,7 +340,7 @@ class context
 	}
 	
 	# First post image helpers
-	public static function EntryFirstImageHelper($size,$with_category,$class="",$no_tag=false)
+	public static function EntryFirstImageHelper($size,$with_category,$class="",$no_tag=false,$content_only=false)
 	{
 		global $core, $_ctx;
 		
@@ -362,7 +362,7 @@ class context
 		# We first look in post content
 		if ($_ctx->posts)
 		{
-			$subject = $_ctx->posts->post_excerpt_xhtml.$_ctx->posts->post_content_xhtml;
+			$subject = ($content_only ? '' : $_ctx->posts->post_excerpt_xhtml).$_ctx->posts->post_content_xhtml;
 			if (preg_match_all($pattern,$subject,$m) > 0)
 			{
 				foreach ($m[1] as $i => $img) {
