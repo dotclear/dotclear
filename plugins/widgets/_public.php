@@ -21,15 +21,22 @@ class publicWidgets
 {
 	public static function tplWidgets($attr)
 	{
-		$type = isset($attr['type']) ? $attr['type'] : 'nav';
-		
+		$type = isset($attr['type']) ? $attr['type'] : '';
+
 		# widgets to disable
 		$disable = isset($attr['disable']) ? trim($attr['disable']) : '';
 		
-		return
-		'<?php '.
-		"publicWidgets::widgetsHandler('".addslashes($type)."','".addslashes($disable)."'); ".
-		' ?>';
+		if ($type == '') {
+			$res = "publicWidgets::widgetsHandler('nav','".addslashes($disable)."');"."\n".
+				"   publicWidgets::widgetsHandler('extra','".addslashes($disable)."');"."\n".
+				"   publicWidgets::widgetsHandler('custom','".addslashes($disable)."');"."\n";
+		} else {
+			if (!in_array($type, array('nav','extra','custom'))) {
+				$type = 'nav';
+			}
+			$res = "publicWidgets::widgetsHandler('".addslashes($type)."','".addslashes($disable)."');";
+		}
+		return '<?php '.$res.' ?>';
 	}
 	
 	public static function widgetsHandler($type,$disable='')
