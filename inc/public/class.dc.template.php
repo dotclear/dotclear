@@ -205,6 +205,9 @@ class dcTemplate extends template
 		$this->addValue('SysPoweredBy',array($this,'SysPoweredBy'));
 		$this->addValue('SysSearchString',array($this,'SysSearchString'));
 		$this->addValue('SysSelfURI',array($this,'SysSelfURI'));
+
+		# Generic
+		$this->addValue('else',array($this,'GenericElse'));
 	}
 	
 	public function getData($________)
@@ -2994,6 +2997,14 @@ class dcTemplate extends template
 	{
 		$f = $this->getFilters($attr);
 		return '<?php echo '.sprintf($f,'http::getSelfURI()').'; ?>';
+	}
+
+	/*dtd
+	<!ELEMENT tpl:else - O -- else: statement -->
+	*/
+	public function GenericElse($attr)
+	{
+		return '<?php else: ?>';
 	}
 }
 
