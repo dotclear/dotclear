@@ -84,7 +84,14 @@ if ($is_writable)
 				throw new Exception(__('You don\'t have permissions to deactivate this plugin.'));
 			}
 			
+			# --BEHAVIOR-- pluginBeforeDeactivate
+			$core->callBehavior('pluginsBeforeDeactivate', $plugin);
+				
 			$core->plugins->deactivateModule($plugin_id);
+
+			# --BEHAVIOR-- pluginAfterDeactivate
+			$core->callBehavior('pluginsAfterDeactivate', $plugin);
+				
 			http::redirect('plugins.php');
 		}
 		catch (Exception $e)
@@ -101,7 +108,15 @@ if ($is_writable)
 			if (!isset($p[$plugin_id])) {
 				throw new Exception(__('No such plugin.'));
 			}
+
+			# --BEHAVIOR-- pluginBeforeActivate
+			$core->callBehavior('pluginsBeforeActivate', $plugin);
+			
 			$core->plugins->activateModule($plugin_id);
+
+			# --BEHAVIOR-- pluginAfterActivate
+			$core->callBehavior('pluginsAfterActivate', $plugin);
+			
 			http::redirect('plugins.php');
 		}
 		catch (Exception $e)
@@ -149,8 +164,15 @@ if ($is_writable)
 				
 				unset($client);
 			}
-			
+
+			# --BEHAVIOR-- pluginBeforeAdd
+			$core->callBehavior('pluginsBeforeAdd', $plugin);
+						
 			$ret_code = $core->plugins->installPackage($dest,$core->plugins);
+
+			# --BEHAVIOR-- pluginAfterAdd
+			$core->callBehavior('pluginsAfterAdd', $plugin);
+			
 			http::redirect('plugins.php?added='.$ret_code);
 		}
 		catch (Exception $e)
