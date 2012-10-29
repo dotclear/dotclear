@@ -128,7 +128,7 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
 		$doc_links = '<h3>'.__('Documentation and support').'</h3><ul>';
 	
 		foreach ($__resources['doc'] as $k => $v) {
-			$doc_links .= '<li><a href="'.$v.'">'.$k.'</a></li>';
+			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' '.__('(external link)').'">'.$k.'</a></li>';
 		}
 	
 		$doc_links .= '</ul>';
@@ -155,7 +155,8 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 			$i = 1;
 			foreach ($feed->items as $item)
 			{
-				$dt = isset($item->link) ? '<a href="'.$item->link.'">'.$item->title.'</a>' : $item->title;
+				$dt = isset($item->link) ? '<a href="'.$item->link.'"'.$v.'" title="'.$item->title.' '.__('(external link)').'">'.
+					$item->title.'</a>' : $item->title;
 			
 				if ($i < 3) {
 					$latest_news .=

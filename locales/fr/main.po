@@ -813,6 +813,9 @@ msgstr "Documentation et support"
 msgid "Latest news"
 msgstr "Actualités"
 
+msgid "(external link)"
+msgstr "(lien externe)"
+
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
