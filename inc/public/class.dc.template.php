@@ -391,7 +391,7 @@ class dcTemplate extends template
 		$p[1] = '0';	# remove_html
 		$p[2] = '0';	# cut_string
 		$p[3] = '0';	# lower_case
-		$p[4] = '0';	# upper_case
+		$p[4] = '0';	# upper_case or capitalize
 		
 		$p[0] = (integer) (!empty($attr['encode_xml']) || !empty($attr['encode_html']));
 		$p[1] = (integer) !empty($attr['remove_html']);
@@ -402,6 +402,7 @@ class dcTemplate extends template
 		
 		$p[3] = (integer) !empty($attr['lower_case']);
 		$p[4] = (integer) !empty($attr['upper_case']);
+		$p[4] = (!empty($attr['capitalize']) ? 2 : $p[4]);
 		
 		return "context::global_filter(%s,".implode(",",$p).",'".addslashes($this->current_tag)."')";
 	}
