@@ -350,9 +350,9 @@ class context
 		
 		return preg_replace(array_keys($GLOBALS['__smilies']),array_values($GLOBALS['__smilies']),$str);
 	}
-	
+
 	# First post image helpers
-	public static function EntryFirstImageHelper($size,$with_category,$class="",$no_tag=false,$content_only=false)
+	public static function EntryFirstImageHelper($size,$with_category,$class="",$no_tag=false,$content_only=false,$cat_only=false)
 	{
 		global $core, $_ctx;
 		
@@ -372,7 +372,7 @@ class context
 		$alt = '';
 		
 		# We first look in post content
-		if ($_ctx->posts)
+		if (!$cat_only && $_ctx->posts)
 		{
 			$subject = ($content_only ? '' : $_ctx->posts->post_excerpt_xhtml).$_ctx->posts->post_content_xhtml;
 			if (preg_match_all($pattern,$subject,$m) > 0)

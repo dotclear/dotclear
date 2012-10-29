@@ -1622,6 +1622,7 @@ class dcTemplate extends template
 	with_category	(1|0)		#IMPLIED	-- Search in entry category description if present (default 0)
 	no_tag	(1|0)	#IMPLIED	-- Return image URL without HTML tag (default 0)
 	content_only	(1|0)		#IMPLIED	-- Search in content entry only, not in excerpt (default 0)
+	cat_only	(1|0)		#IMPLIED	-- Search in category description only (default 0)
 	>
 	*/
 	public function EntryFirstImage($attr)
@@ -1631,9 +1632,10 @@ class dcTemplate extends template
 		$with_category = !empty($attr['with_category']) ? 1 : 0;
 		$no_tag = !empty($attr['no_tag']) ? 1 : 0;
 		$content_only = !empty($attr['content_only']) ? 1 : 0;
+		$cat_only = !empty($attr['cat_only']) ? 1 : 0;
 		
 		return "<?php echo context::EntryFirstImageHelper('".addslashes($size)."',".$with_category.",'".addslashes($class)."',".
-			$no_tag.",".$content_only."); ?>";
+			$no_tag.",".$content_only.",".$cat_only."); ?>";
 	}
 	
 	/*dtd
