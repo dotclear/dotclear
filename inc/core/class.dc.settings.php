@@ -91,6 +91,53 @@ class dcSettings
 		}
 		return $this->namespaces[$ns];
 	}
+
+	/**
+	Rename a namespace.
+
+	@param	oldNs 	<b>string</b> 	Old namespace name
+	@param	newNs 	<b>string</b> 	New namespace name
+	@return 	<b>boolean</b>
+	*/
+	public function renNamespace($oldNs,$newNs)
+	{
+		if (!array_key_exists($oldNs, $this->namespaces) || array_key_exists($newNs, $this->namespaces)) {
+			return false;
+		}
+
+		// Rename the namespace in the namespace array
+		$this->namespaces[$newNs] = $this->namespaces[$oldNs];
+		unset($this->namespaces[$oldNs]);
+
+		// Rename the namespace in the database
+		$strReq = 'UPDATE '.$this->table.
+			" SET setting_ns = '".$this->con->escape($newNs)."' ".
+			" WHERE setting_ns = '".$this->con->escape($oldNs)."' ";
+		$this->con->execute($strReq);
+		return true;
+	}
+
+	/**
+	Delete a whole namespace with all settings pertaining to it.
+
+	@param 	ns 	<b>string</b> 	Namespace name
+	@return 	<b>boolean</b>
+	*/
+	public function delNamespace($ns)
+	{
+		if (!array_key_exists($ns, $this->namespaces)) {
+			return false;
+		}
+
+		// Remove the namespace from the namespace array
+		unset($this->namespaces[$ns]);
+
+		// Delete all settings from the namespace in the database
+		$strReq = 'DELETE FROM '.$this->table.
+			" WHERE setting_ns = '".$this->con->escape($ns)."' ";
+		$this->con->execute($strReq);
+		return true;
+	}
 	
 	/**
 	Returns full namespace with all settings pertaining to it.
