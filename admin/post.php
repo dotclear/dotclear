@@ -65,6 +65,7 @@ try {
 foreach ($core->blog->getAllPostStatus() as $k => $v) {
 	$status_combo[$v] = (string) $k;
 }
+$img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
 # Formaters combo
 foreach ($core->getFormaters() as $v) {
@@ -319,10 +320,25 @@ if (!empty($_GET['xconv']))
 }
 
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title;
-
-	if ($post_id) {
-		echo ' &ldquo;'.$post_title.'&rdquo;';
+if ($post_id) {
+	switch ($post_status) {
+		case 1:
+			$img_status = sprintf($img_status_pattern,__('published'),'check-on.png');
+			break;
+		case 0:
+			$img_status = sprintf($img_status_pattern,__('unpublished'),'check-off.png');
+			break;
+		case -1:
+			$img_status = sprintf($img_status_pattern,__('scheduled'),'scheduled.png');
+			break;
+		case -2:
+			$img_status = sprintf($img_status_pattern,__('pending'),'check-wrn.png');
+			break;
+		default:
+			$img_status = '';
 	}
+	echo ' &ldquo;'.$post_title.'&rdquo;'.' '.$img_status;
+}
 echo	'</span></h2>';
 
 if ($post_id && $post->post_status == 1) {
