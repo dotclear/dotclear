@@ -126,7 +126,11 @@ class context
 		if ($lower_case) {
 			$str = self::lower_case($str);
 		} elseif ($upper_case) {
-			$str = self::upper_case($str);
+			if ($upper_case == 2) {
+				$str = self::capitalize($str);
+			} else {
+				$str = self::upper_case($str);
+			}
 		}
 		
 		# --BEHAVIOR-- publicAfterContentFilter
@@ -159,6 +163,14 @@ class context
 	public static function upper_case($str)
 	{
 		return mb_strtoupper($str);
+	}
+
+	public static function capitalize($str)
+	{
+		if ($str != '') {
+		   $str[0] = mb_strtoupper($str[0]);
+		}
+		return $str;
 	}
 	
 	public static function categoryPostParam(&$p)
