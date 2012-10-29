@@ -258,7 +258,7 @@ class tplTags
 		{
 			$res .=
 			'<li><a href="'.$core->blog->url.$core->url->getURLFor('tag',rawurlencode($rs->meta_id)).'" '.
-			'class="tag'.$rs->roundpercent.'" rel="tag">'.
+			'class="tag'.$rs->roundpercent.'">'.
 			$rs->meta_id.'</a> </li>';
 		}
 		
