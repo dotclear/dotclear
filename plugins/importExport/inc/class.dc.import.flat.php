@@ -183,7 +183,8 @@ class dcImportFlat extends dcIeModule
 		'<fieldset><legend>'.__('Single blog').'</legend>'.
 		'<p>'.sprintf(__('This will import a single blog backup as new content in the current blog: %s.'),html::escapeHTML($this->core->blog->name)).'</p>'.
 		
-		'<p><label for="up_single_file">'.__('Upload a backup file').'</label>'.
+		'<p><label for="up_single_file">'.__('Upload a backup file').
+		' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.'</label>'.
 		'<input type="file" id="up_single_file" name="up_single_file" size="20" />'.
 		'</p>';
 		
@@ -211,7 +212,8 @@ class dcImportFlat extends dcIeModule
 			'<fieldset><legend>'.__('Multiple blogs').'</legend>'.
 			'<p>'.__('This will reset all the content of your database, except users.').'</p>'.
 			
-			'<p><label for="up_full_file">'.__('Upload a backup file').'</label>'.
+			'<p><label for="up_full_file">'.__('Upload a backup file').
+			' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.'</label>'.
 			'<input type="file" id="up_full_file" name="up_full_file" size="20" />'.
 			'</p>';
 			
