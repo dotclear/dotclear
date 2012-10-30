@@ -41,11 +41,21 @@ $p_url = 'update.php';
 $step = isset($_GET['step']) ? $_GET['step'] : '';
 $step = in_array($step,array('check','download','backup','unzip')) ? $step : '';
 
+$default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'update';
+if (!empty($_POST['backup_file'])) {
+	$default_tab = 'files';
+}
+
 $archives = array();
 foreach (files::scanDir(DC_BACKUP_PATH) as $v) {
 	if (preg_match('/backup-([0-9A-Za-z\.-]+).zip/',$v)) {
 		$archives[] = $v;
 	}
+}
+if (!empty($archives)) {
+	$archives = array_reverse($archives);
+} else {
+	$default_tab = 'update';
 }
 
 # Revert or delete backup file
@@ -60,7 +70,7 @@ if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'],$archives))
 			if (!@unlink(DC_BACKUP_PATH.'/'.$b_file)) {
 				throw new Exception(sprintf(__('Unable to delete file %s'),html::escapeHTML($b_file)));
 			}
-			http::redirect($p_url);
+			http::redirect($p_url.'?tab=files');
 		}
 		
 		if (!empty($_POST['b_revert']))
@@ -68,7 +78,7 @@ if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'],$archives))
 			$zip = new fileUnzip(DC_BACKUP_PATH.'/'.$b_file);
 			$zip->unzipAll(DC_BACKUP_PATH.'/');
 			@unlink(DC_BACKUP_PATH.'/'.$b_file);
-			http::redirect($p_url);
+			http::redirect($p_url.'?tab=files');
 		}
 	}
 	catch (Exception $e)
@@ -156,7 +166,9 @@ if ($new_v && $step)
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
-dcPage::open(__('Dotclear update'));
+dcPage::open(__('Dotclear update'),
+	(!$step ? dcPage::jsPageTabs($default_tab) : '')
+);
 
 if (!$core->error->flag()) {
 	echo '<h2>'.__('Dotclear update').'</h2>';
@@ -164,6 +176,7 @@ if (!$core->error->flag()) {
 
 if (!$step)
 {
+	echo '<div class="multi-part" id="update" title="'.__('Dotclear update').'">';
 	if (empty($new_v))
 	{
 		echo '<p><strong>'.__('No newer Dotclear version available.').'</strong></p>';
@@ -182,9 +195,12 @@ if (!$step)
 		'<input type="submit" value="'.__('Update Dotclear').'" /></p>'.
 		'</form>';
 	}
+	echo '</div>';
 	
 	if (!empty($archives))
 	{
+		echo '<div class="multi-part" id="files" title="'.__('Manage backup files').'">';
+
 		echo
 		'<h3>'.__('Update backup files').'</h3>'.
 		'<p>'.__('The following files are backups of previously updates. '.
@@ -207,6 +223,8 @@ if (!$step)
 		'<input type="submit" name="b_revert" value="'.__('Revert to selected file').'" />'.
 		$core->formNonce().'</p>'.
 		'</form>';
+
+		echo '</div>';
 	}
 }
 elseif ($step == 'unzip' && !$core->error->flag())

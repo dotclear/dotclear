@@ -1921,6 +1921,9 @@ msgstr "Rétroliens déjà envoyés"
 msgid "Dotclear update"
 msgstr "Mise à jour de Dotclear"
 
+msgid "Manage backup files"
+msgstr "Gestion des fichiers de sauvegarde"
+
 #, php-format
 msgid "Unable to delete file %s"
 msgstr "Impossible de supprimer le fichier %s"
