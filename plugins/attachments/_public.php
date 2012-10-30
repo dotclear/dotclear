@@ -88,7 +88,7 @@ class attachmentTpl {
 	{
 		$if = array();
 		
-		$operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
+		$operator = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
 		
 		if (isset($attr['is_image'])) {
 			$sign = (boolean) $attr['is_image'] ? '' : '!';
