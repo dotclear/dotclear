@@ -166,6 +166,8 @@ class dcPage
 	
 	public static function close()
 	{
+		global $core;
+
 		$menu =& $GLOBALS['_menu'];
 		
 		echo
@@ -178,11 +180,14 @@ class dcPage
 			echo $menu[$k]->draw();
 		}
 		
+		$text = sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>');
+
+		# --BEHAVIOR-- adminPageFooter
+		$text = $core->callBehavior('adminPageFooter',$core,$text);
+
 		echo
 		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><p>'.
-		sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>').
-		'</p></div>'."\n".
+		'<div id="footer"><p>'.$text.'</p></div>'."\n".
 		"</div>\n";		// End of #wrapper
 		
 		if (defined('DC_DEV') && DC_DEV === true) {
