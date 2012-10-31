@@ -305,8 +305,17 @@ msgstr "Liens"
 msgid "All categories"
 msgstr "Toutes les catégories"
 
+msgid "Display on:"
+msgstr "Afficher :"
+
 msgid "Home page only"
 msgstr "En page d'accueil seulement"
+
+msgid "All pages"
+msgstr "Sur toutes les pages"
+
+msgid "Except on home page"
+msgstr "Sauf en page d'accueil"
 
 msgid "You must provide a link title"
 msgstr "Vous devez fournir un titre de lien"

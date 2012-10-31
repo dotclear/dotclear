@@ -33,7 +33,13 @@ class blogrollWidgets
 		unset($br,$h);
 		$w->links->setting('category',__('Category'),'','combo',$categories);
 		
-		$w->links->setting('homeonly',__('Home page only'),1,'check');
+		$w->links->setting('homeonly',__('Display on:'),1,'combo',
+			array(
+				__('All pages') => 0,
+				__('Home page only') => 1,
+				__('Except on home page') => 2
+				)
+		);
 		$w->links->setting('class',__('CSS class:'),'');
 	}
 	

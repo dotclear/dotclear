@@ -28,6 +28,13 @@ class tagsWidgets
 			array(__('Ascending') => 'asc', __('Descending') => 'desc')
 		);
 		$w->tags->setting('alltagslinktitle',__('Link to all tags:'),__('All tags'));
+		$w->tags->setting('homeonly',__('Display on:'),0,'combo',
+			array(
+				__('All pages') => 0,
+				__('Home page only') => 1,
+				__('Except on home page') => 2
+				)
+		);
 		$w->tags->setting('class',__('CSS class:'),'');
 	}
 	
