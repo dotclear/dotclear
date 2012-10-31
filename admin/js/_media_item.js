@@ -62,4 +62,10 @@ $(function() {
 		}
 		return true;
 	});
+
+	// Confirm for deleting current medoa
+	$('#delete-form input[name="delete"]').click(function() {
+		return window.confirm(dotclear.msg.confirm_delete_media);
+	});
+
 });

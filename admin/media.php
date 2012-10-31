@@ -217,7 +217,7 @@ if ($dir && $core->auth->isSuperAdmin() && !empty($_POST['rebuild']))
 
 
 # DISPLAY confirm page for rmdir & rmfile
-if ($dir && !empty($_GET['remove']))
+if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 {
 	call_user_func($open_f,__('Media manager'));
 	

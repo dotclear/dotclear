@@ -158,7 +158,13 @@ function dcGetImageTitle($file,$pattern)
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
-$starting_scripts = dcPage::jsLoad('js/_media_item.js');
+$starting_scripts = 
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA["."\n".
+	dcPage::jsVar('dotclear.msg.confirm_delete_media',__('Are you sure to delete this media?'))."\n".
+	"//]]>".
+	"</script>".
+	dcPage::jsLoad('js/_media_item.js');
 if ($popup) {
 	$starting_scripts .=
 	dcPage::jsLoad('js/jsToolBar/popup_media.js');
@@ -541,6 +547,19 @@ if ($file->editable && $core_media_writable)
 	form::hidden(array('id'),$id).
 	$core->formNonce().'</p>'.
 	'</fieldset></form>';
+
+	if ($file->del) {
+		echo
+		'<form id="delete-form" method="post" action="'.html::escapeURL($media_page_url).
+		'&amp;d='.rawurlencode(dirname($file->relname)).
+		'&amp;remove='.rawurlencode($file->basename).'">'.
+		'<p><input name="delete" type="submit" class="delete" value="'.__('Delete this media').'" />'.
+		form::hidden('remove',rawurlencode($file->basename)).
+		form::hidden('rmyes',1).
+		$core->formNonce().'</p>'.
+		'</form>';
+	}
+
 
 	# --BEHAVIOR-- adminMediaItemForm
 	$core->callBehavior('adminMediaItemForm',$file);
