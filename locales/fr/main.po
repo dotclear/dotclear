@@ -1400,6 +1400,12 @@ msgstr "Date du fichier :"
 msgid "New directory:"
 msgstr "Nouveau répertoire :"
 
+msgid "Delete this media"
+msgstr "Supprimer ce média"
+
+msgid "Are you sure to delete this media?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce média ?"
+
 msgid "Change file"
 msgstr "Changer le fichier"
 
