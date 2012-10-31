@@ -183,11 +183,11 @@ class dcPage
 		$text = sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>');
 
 		# --BEHAVIOR-- adminPageFooter
-		$text = $core->callBehavior('adminPageFooter',$core,$text);
+		$textAlt = $core->callBehavior('adminPageFooter',$core,$text);
 
 		echo
 		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><p>'.$text.'</p></div>'."\n".
+		'<div id="footer"><p>'.($textAlt != '' ? $textAlt : $text).'</p></div>'."\n".
 		"</div>\n";		// End of #wrapper
 		
 		if (defined('DC_DEV') && DC_DEV === true) {
