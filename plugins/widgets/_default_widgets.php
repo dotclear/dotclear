@@ -19,45 +19,56 @@ $__widgets = new dcWidgets;
 
 $__widgets->create('search',__('Search engine'),array('defaultWidgets','search'));
 $__widgets->search->setting('title',__('Title:'),__('Search'));
+$__widgets->search->setting('homeonly',__('Display on:'),0,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->search->setting('class',__('CSS class:'),'');
 
 $__widgets->create('navigation',__('Navigation links'),array('defaultWidgets','navigation'));
 $__widgets->navigation->setting('title',__('Title:'),'');
+$__widgets->navigation->setting('homeonly',__('Display on:'),0,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->navigation->setting('class',__('CSS class:'),'');
 
 $__widgets->create('bestof',__('Selected entries'),array('defaultWidgets','bestof'));
 $__widgets->bestof->setting('title',__('Title:'),__('Best of me'));
 $__widgets->bestof->setting('orderby',__('Sort:'),'asc','combo',array(__('Ascending') => 'asc', __('Descending') => 'desc'));
-$__widgets->bestof->setting('homeonly',__('Home page only'),1,'check');
+$__widgets->bestof->setting('homeonly',__('Display on:'),1,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->bestof->setting('class',__('CSS class:'),'');
 
 $__widgets->create('langs',__('Blog languages'),array('defaultWidgets','langs'));
 $__widgets->langs->setting('title',__('Title:'),__('Languages'));
-$__widgets->langs->setting('homeonly',__('Home page only'),1,'check');
+$__widgets->langs->setting('homeonly',__('Display on:'),1,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->langs->setting('class',__('CSS class:'),'');
 
 $__widgets->create('categories',__('Categories list'),array('defaultWidgets','categories'));
 $__widgets->categories->setting('title',__('Title:'),__('Categories'));
 $__widgets->categories->setting('postcount',__('With entries counts'),0,'check');
+$__widgets->categories->setting('homeonly',__('Display on:'),0,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->categories->setting('class',__('CSS class:'),'');
 
 $__widgets->create('subscribe',__('Subscribe links'),array('defaultWidgets','subscribe'));
 $__widgets->subscribe->setting('title',__('Title:'),__('Subscribe'));
 $__widgets->subscribe->setting('type',__('Feeds type:'),'atom','combo',array('Atom' => 'atom', 'RSS' => 'rss2'));
-$__widgets->subscribe->setting('homeonly',__('Home page only'),0,'check');
+$__widgets->subscribe->setting('homeonly',__('Display on:'),1,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->subscribe->setting('class',__('CSS class:'),'');
 
 $__widgets->create('feed',__('Feed reader'),array('defaultWidgets','feed'));
 $__widgets->feed->setting('title',__('Title:'),__('Somewhere else'));
 $__widgets->feed->setting('url',__('Feed URL:'),'');
 $__widgets->feed->setting('limit',__('Entries limit:'),10);
-$__widgets->feed->setting('homeonly',__('Home page only'),1,'check');
+$__widgets->feed->setting('homeonly',__('Display on:'),1,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->feed->setting('class',__('CSS class:'),'');
 
 $__widgets->create('text',__('Text'),array('defaultWidgets','text'));
 $__widgets->text->setting('title',__('Title:'),'');
 $__widgets->text->setting('text',__('Text:'),'','textarea');
-$__widgets->text->setting('homeonly',__('Home page only'),0,'check');
+$__widgets->text->setting('homeonly',__('Display on:'),0,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->text->setting('class',__('CSS class:'),'');
 
 $__widgets->create('lastposts',__('Last entries'),array('defaultWidgets','lastposts'));
@@ -73,13 +84,15 @@ if ($core->plugins->moduleExists('tags')) {
 	$__widgets->lastposts->setting('tag',__('Tag:'),'');
 }
 $__widgets->lastposts->setting('limit',__('Entries limit:'),10);
-$__widgets->lastposts->setting('homeonly',__('Home page only'),1,'check');
+$__widgets->lastposts->setting('homeonly',__('Display on:'),1,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->lastposts->setting('class',__('CSS class:'),'');
 
 $__widgets->create('lastcomments',__('Last comments'),array('defaultWidgets','lastcomments'));
 $__widgets->lastcomments->setting('title',__('Title:'),__('Last comments'));
 $__widgets->lastcomments->setting('limit',__('Comments limit:'),10);
-$__widgets->lastcomments->setting('homeonly',__('Home page only'),1,'check');
+$__widgets->lastcomments->setting('homeonly',__('Display on:'),1,'combo',
+	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->lastcomments->setting('class',__('CSS class:'),'');
 
 # --BEHAVIOR-- initWidgets

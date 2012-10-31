@@ -19,7 +19,14 @@ class simpleMenuWidgets
 	{
 		$w->create('simplemenu',__('Simple menu'),array('tplSimpleMenu','simpleMenuWidget'));
 		$w->simplemenu->setting('title',__('Title:'),__('Menu'));
-		$w->simplemenu->setting('homeonly',__('Home page only'),1,'check');
+		$w->simplemenu->setting('homeonly',__('Display on:'),0,'combo',
+			array(
+				__('All pages') => 0,
+				__('Home page only') => 1,
+				__('Except on home page') => 2
+				)
+		);
+		$w->simplemenu->setting('class',__('CSS class:'),'');
 	}
 }
 ?>

@@ -41,7 +41,8 @@ class tplSimpleMenu
 	{
 		global $core, $_ctx;
 		
-		if ($w->homeonly && $core->url->type != 'default') {
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 
@@ -50,7 +51,9 @@ class tplSimpleMenu
 			return;
 		}
 
-		return '<div class="simple-menu">'.($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.'</div>';
+		return '<div class="simple-menu'.
+			($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+			($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.'</div>';
 	}
 	
 	public static function displayMenu($class='',$id='',$description='')

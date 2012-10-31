@@ -17,6 +17,11 @@ class defaultWidgets
 	{
 		global $core;
 		
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
+			return;
+		}
+
 		$value = isset($GLOBALS['_search']) ? html::escapeHTML($GLOBALS['_search']) : '';
 		
 		return
@@ -35,6 +40,11 @@ class defaultWidgets
 	{
 		global $core;
 		
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
+			return;
+		}
+
 		$res =
 		'<div id="topnav"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>'.
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
@@ -61,6 +71,11 @@ class defaultWidgets
 	{
 		global $core, $_ctx;
 		
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
+			return;
+		}
+
 		$rs = $core->blog->getCategories(array('post_type'=>'post'));
 		if ($rs->isEmpty()) {
 			return;
@@ -110,7 +125,8 @@ class defaultWidgets
 	{
 		global $core;
 		
-		if ($w->homeonly && $core->url->type != 'default') {
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 		
@@ -144,7 +160,8 @@ class defaultWidgets
 	{
 		global $core, $_ctx;
 		
-		if ($w->homeonly && $core->url->type != 'default' && $core->url->type != 'lang') {
+		if (($w->homeonly == 1 && $core->url->type != 'default' && $core->url->type != 'lang') ||
+			($w->homeonly == 2 && ($core->url->type == 'default' || $core->url->type == 'lang'))) {
 			return;
 		}
 		
@@ -184,7 +201,8 @@ class defaultWidgets
 	{
 		global $core;
 		
-		if ($w->homeonly && $core->url->type != 'default') {
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 		
@@ -227,7 +245,8 @@ class defaultWidgets
 		
 		global $core;
 		
-		if ($w->homeonly && $core->url->type != 'default') {
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 		
@@ -277,7 +296,8 @@ class defaultWidgets
 	{
 		global $core;
 		
-		if ($w->homeonly && $core->url->type != 'default') {
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 		
@@ -294,7 +314,8 @@ class defaultWidgets
 	{
 		global $core;
 		
-		if ($w->homeonly && $core->url->type != 'default') {
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 		
@@ -346,7 +367,8 @@ class defaultWidgets
 	{
 		global $core;
 		
-		if ($w->homeonly && $core->url->type != 'default') {
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 		

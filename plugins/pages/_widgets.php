@@ -20,7 +20,13 @@ class pagesWidgets
 	{
 		$w->create('pages',__('Pages'),array('tplPages','pagesWidget'));
 		$w->pages->setting('title',__('Title:'),__('Pages'));
-		$w->pages->setting('homeonly',__('Home page only'),1,'check');
+		$w->pages->setting('homeonly',__('Display on:'),1,'combo',
+			array(
+				__('All pages') => 0,
+				__('Home page only') => 1,
+				__('Except on home page') => 2
+				)
+		);
 		$w->pages->setting('sortby',__('Order by:'),'post_title','combo',
 			array(
 				__('Page title') => 'post_title',
