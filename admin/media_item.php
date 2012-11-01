@@ -200,6 +200,16 @@ if ($popup)
 	'<div id="media-insert" class="multi-part" title="'.__('Insert media item').'">'.
 	'<form id="media-insert-form" action="" method="get">';
 	
+	$media_img_default_size = $core->blog->settings->system->media_img_default_size;
+	if ($media_img_default_size == '') {
+		$media_img_default_size = 'm';
+	}
+	$media_img_default_alignment = $core->blog->settings->system->media_img_default_alignment;
+	if ($media_img_default_alignment == '') {
+		$media_img_default_alignment = 'none';
+	}
+	$media_img_default_link = (boolean)$core->blog->settings->system->media_img_default_link;
+
 	if ($file->media_type == 'image')
 	{
 		$media_type = 'image';
@@ -207,16 +217,6 @@ if ($popup)
 		if ($media_desc == $file->basename) {
 			$media_desc = '';
 		}
-
-		$media_img_default_size = $core->blog->settings->system->media_img_default_size;
-		if ($media_img_default_size == '') {
-			$media_img_default_size = 'm';
-		}
-		$media_img_default_alignment = $core->blog->settings->system->media_img_default_alignment;
-		if ($media_img_default_alignment == '') {
-			$media_img_default_alignment = 'none';
-		}
-		$media_img_default_link = (boolean)$core->blog->settings->system->media_img_default_link;
 
 		echo
 		'<h3>'.__('Image size:').'</h3> ';
@@ -267,10 +267,10 @@ if ($popup)
 		dcPage::message(__("Please note that you cannot insert mp3 files with visual editor."),false);
 		
 		$i_align = array(
-			'none' => array(__('None'),0),
-			'left' => array(__('Left'),0),
-			'right' => array(__('Right'),0),
-			'center' => array(__('Center'),1)
+			'none' => array(__('None'),($media_img_default_alignment == 'none' ? 1 : 0)),
+			'left' => array(__('Left'),($media_img_default_alignment == 'left' ? 1 : 0)),
+			'right' => array(__('Right'),($media_img_default_alignment == 'right' ? 1 : 0)),
+			'center' => array(__('Center'),($media_img_default_alignment == 'center' ? 1 : 0))
 		);
 		
 		echo '<p>';
@@ -301,10 +301,10 @@ if ($popup)
 		echo '<h3>'.__('Video disposition').'</h3>';
 		
 		$i_align = array(
-			'none' => array(__('None'),0),
-			'left' => array(__('Left'),0),
-			'right' => array(__('Right'),0),
-			'center' => array(__('Center'),1)
+			'none' => array(__('None'),($media_img_default_alignment == 'none' ? 1 : 0)),
+			'left' => array(__('Left'),($media_img_default_alignment == 'left' ? 1 : 0)),
+			'right' => array(__('Right'),($media_img_default_alignment == 'right' ? 1 : 0)),
+			'center' => array(__('Center'),($media_img_default_alignment == 'center' ? 1 : 0))
 		);
 		
 		echo '<p>';
