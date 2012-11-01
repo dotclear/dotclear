@@ -1406,6 +1406,9 @@ msgstr "Aucun mot-clé sur ce blog."
 msgid "Theme Editor"
 msgstr "Éditeur de thème"
 
+msgid "Syntax color"
+msgstr "Coloration syntaxique"
+
 msgid "No file"
 msgstr "Aucun fichier"
 
