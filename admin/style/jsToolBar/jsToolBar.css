@@ -81,7 +81,10 @@
 .jstSwitcher li.jstSwitcherCurrent {
 	color: #fff;
 	background: #999;
+	-o-border-radius: 0 0 2px 2px;
 	-moz-border-radius: 0 0 2px 2px;
+	-webkit-border-radius: 0 0 2px 2px;
+	border-radius: 0 0 2px 2px;
 }
 .jstSwitcher a {
 	font-weight: normal;
