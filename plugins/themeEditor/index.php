@@ -15,6 +15,10 @@ require dirname(__FILE__).'/class.themeEditor.php';
 
 $file_default = $file = array('c'=>null, 'w'=>false, 'type'=>null, 'f'=>null, 'default_file'=>false);
 
+# Get interface setting
+$core->auth->user_prefs->addWorkspace('interface');
+$user_ui_colorsyntax = $core->auth->user_prefs->interface->colorsyntax;
+
 # Loading themes
 $core->themes = new dcThemes($core);
 $core->themes->loadModules($core->blog->themes_path,null);
@@ -61,9 +65,20 @@ catch (Exception $e)
   <?php echo dcPage::jsVar('dotclear.msg.saving_document',__("Saving document...")); ?>
   <?php echo dcPage::jsVar('dotclear.msg.document_saved',__("Document saved")); ?>
   <?php echo dcPage::jsVar('dotclear.msg.error_occurred',__("An error occurred:")); ?>
+  <?php echo dcPage::jsVar('dotclear.colorsyntax',$user_ui_colorsyntax); ?>
   //]]>
   </script>
   <script type="text/javascript" src="index.php?pf=themeEditor/script.js"></script>
+<?php if ($user_ui_colorsyntax) { ?>
+  <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/codemirror/codemirror.css" />
+  <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/codemirror.css" />
+  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/codemirror.js"></script>
+  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/xml.js"></script>
+  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/javascript.js"></script>
+  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/css.js"></script>
+  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/php.js"></script>
+  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/htmlmixed.js"></script>
+<?php } ?>
 </head>
 
 <body>
@@ -107,6 +122,20 @@ else
 	
 	echo
 	'</fieldset></form>';
+
+	if ($user_ui_colorsyntax) {
+		$editorMode = (!empty($_REQUEST['css']) ? "css" : (!empty($_REQUEST['js']) ? "javascript" : "text/html"));
+		echo 
+		'<script>
+	    	var editor = CodeMirror.fromTextArea(document.getElementById("file_content"), {
+	    		mode: "'.$editorMode.'",
+	       		tabMode: "indent",
+	       		lineWrapping: "true",
+	       		lineNumbers: "true",
+	   			matchBrackets: "true"
+	   		});
+	    </script>';
+	}
 }
 ?>
 </div>
