@@ -21,5 +21,8 @@ div.ie-progress div {
 	background: green url(index.php?pf=importExport/progress.png) repeat-x top left;
 	color: white;
 	font-weight: bold;
+	border-radius: 2px;
+	-o-border-radius: 2px;
 	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
 }
