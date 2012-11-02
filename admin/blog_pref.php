@@ -518,6 +518,12 @@ if ($blog_id)
 		form::hidden(array('blog_id'),$blog_id).
 		$core->formNonce().'</p>'.
 		'</form>';
+	} else {
+		if ($blog_id == $core->blog->id) {
+			echo '<p class="message">'.__('The current blog cannot be deleted').'</p>';
+		} else {
+			echo '<p class="message">'.__('Only superadmin can delete a blog').'</p>';
+		}
 	}
 	
 	echo '</div>';
