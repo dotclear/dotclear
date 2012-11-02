@@ -200,7 +200,7 @@ foreach ($__widgets->elements(true) as $w) {
 	echo
 	'<div>'.form::hidden(array('w[void][0][id]'),html::escapeHTML($w->id())).
 	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hideControl').' '.
-	$w->name().'</p>'.
+	$w->name().($w->desc() != '' ? ' <span class="form-note">('.__($w->desc()).')</span>' : '').'</p>'.
 	'<p class="js-remove"><label class="classic">'.__('Append to:').' '.
 	form::combo(array('addw['.$w->id().']'),$append_combo).'</label></p>'.
 	'<div class="widgetSettings">'.$w->formSettings('w[void][0]',$j).'</div>'.
@@ -266,7 +266,8 @@ foreach ($__widgets->elements() as $w)
 {
 	$widget_elements->content .=
 	'<dt><strong>'.html::escapeHTML($w->name()).'</strong> ('.
-	__('Widget ID:').' <strong>'.html::escapeHTML($w->id()).'</strong>)</dt>'.
+	__('Widget ID:').' <strong>'.html::escapeHTML($w->id()).'</strong>)'.
+	($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</dt>'.
 	'<dd>';
 	
 	$w_settings = $w->settings();
@@ -329,7 +330,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$res .=
 		'<div>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
 		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'js-hide','',0,'title="'.__('order').'"').' '.
-		$w->name().'</p>'.
+		$w->name().($w->desc() != '' ? ' <span class="form-note">('.__($w->desc()).')</span>' : '').'</p>'.
 		'<p class="removeWidget js-remove"><label class="classic">'.
 		form::checkbox(array($iname.'[_rem]'),'1',0).' '.__('Remove widget').
 		'</label></p>'.

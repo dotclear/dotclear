@@ -1176,6 +1176,11 @@ p.form-note {
 	margin-top: -.7em;
 	color: #666;
 }
+span.form-note {
+	font-style:italic;
+	font-weight: normal;
+	color: #666;
+}
 p.form-note.warn, p.form-note.info, p.warning {
 	font-style: normal;
 	padding: .2em 1em .1em 24px;
