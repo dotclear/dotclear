@@ -18,7 +18,7 @@ class tagsWidgets
 {
 	public static function initWidgets($w)
 	{
-		$w->create('tags',__('Tags'),array('tplTags','tagsWidget'));
+		$w->create('tags',__('Tags'),array('tplTags','tagsWidget'),null,'Tags cloud');
 		$w->tags->setting('title',__('Title:'),__('Tags'));
 		$w->tags->setting('limit',__('Limit (empty means no limit):'),'20');
 		$w->tags->setting('sortby',__('Order by:'),'meta_id_lower','combo',

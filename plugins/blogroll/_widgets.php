@@ -18,7 +18,7 @@ class blogrollWidgets
 {
 	public static function initWidgets($w)
 	{
-		$w->create('links',__('Blogroll'),array('tplBlogroll','linksWidget'));
+		$w->create('links',__('Blogroll'),array('tplBlogroll','linksWidget'),null,'Blogroll list');
 		$w->links->setting('title',__('Title:'),__('Links'));
 		
 		$br = new dcBlogroll($GLOBALS['core']->blog);
