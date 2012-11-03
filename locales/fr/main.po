@@ -2861,3 +2861,9 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 msgid "Default image insertion attributes"
 msgstr "Attributs par défaut pour l'insertion d'image"
+
+msgid "The current blog cannot be deleted"
+msgstr "Le blog courant ne peut être détruit"
+
+msgid "Only superadmin can delete a blog"
+msgstr "Seul un superadministrateur peut supprimer un blog"
