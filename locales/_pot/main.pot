@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-03 09:58+0100\n"
+"POT-Creation-Date: 2012-11-04 12:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgid "Request a new password"
 msgstr ""
 
 #: admin/auth.php:339 admin/comment.php:202 admin/install/index.php:326
-#: admin/post.php:576 admin/preferences.php:391 admin/user.php:229
+#: admin/post.php:589 admin/preferences.php:391 admin/user.php:229
 #: inc/admin/lib.dc.page.php:419
 msgid "Email:"
 msgstr ""
@@ -177,7 +177,7 @@ msgstr ""
 #: admin/install/wizard.php:190 admin/langs.php:229 admin/langs.php:245
 #: admin/langs.php:247 admin/plugins.php:353 admin/plugins.php:355
 #: admin/plugins.php:367 admin/plugins.php:369 admin/popup_link.php:42
-#: admin/post.php:377 admin/post.php:386 admin/post.php:572 admin/post.php:584
+#: admin/post.php:390 admin/post.php:399 admin/post.php:585 admin/post.php:597
 #: admin/user.php:200 admin/user.php:206 admin/user.php:213 admin/user.php:280
 msgid "Required field"
 msgstr ""
@@ -429,7 +429,7 @@ msgstr ""
 msgid "Comments and trackbacks"
 msgstr ""
 
-#: admin/blog_pref.php:377 admin/post.php:439
+#: admin/blog_pref.php:377 admin/post.php:452
 msgid "Accept comments"
 msgstr ""
 
@@ -450,7 +450,7 @@ msgstr ""
 msgid "Wiki syntax for comments"
 msgstr ""
 
-#: admin/blog_pref.php:396 admin/post.php:447
+#: admin/blog_pref.php:396 admin/post.php:460
 msgid "Accept trackbacks"
 msgstr ""
 
@@ -553,7 +553,7 @@ msgstr ""
 #: admin/blog_pref.php:508 admin/blog_theme.php:349 admin/category.php:216
 #: admin/category.php:234 admin/category.php:248 admin/comment.php:224
 #: admin/index.php:330 admin/install/index.php:339 admin/media_item.php:533
-#: admin/post.php:400 admin/post.php:591 admin/posts_actions.php:235
+#: admin/post.php:413 admin/post.php:604 admin/posts_actions.php:235
 #: admin/posts_actions.php:252 admin/preferences.php:433
 #: admin/preferences.php:520 admin/user.php:282 admin/users_actions.php:274
 msgid "Save"
@@ -804,7 +804,7 @@ msgstr ""
 msgid "Entries (all types)"
 msgstr ""
 
-#: admin/blogs.php:138 admin/comments.php:36 admin/post.php:627
+#: admin/blogs.php:138 admin/comments.php:36 admin/post.php:640
 #: admin/posts.php:99 admin/posts.php:113 admin/users_actions.php:198
 #: inc/admin/lib.pager.php:53 inc/admin/lib.pager.php:165
 #: inc/admin/lib.pager.php:261
@@ -882,7 +882,7 @@ msgid "Add a new category"
 msgstr ""
 
 #: admin/categories.php:126 admin/category.php:186 admin/index.php:321
-#: admin/media.php:356 admin/post.php:377
+#: admin/media.php:356 admin/post.php:390
 msgid "Title:"
 msgstr ""
 
@@ -904,7 +904,7 @@ msgstr ""
 
 #: admin/categories.php:169 admin/comment.php:227 admin/comments.php:132
 #: admin/langs.php:195 admin/media.php:459 admin/plugins.php:282
-#: admin/plugins.php:325 admin/post.php:410 admin/post.php:515
+#: admin/plugins.php:325 admin/post.php:423 admin/post.php:528
 #: admin/posts.php:132 admin/search.php:107 admin/search.php:150
 #: admin/users.php:34
 msgid "Delete"
@@ -974,7 +974,7 @@ msgstr ""
 msgid "Entry does not exist."
 msgstr ""
 
-#: admin/comment.php:93 admin/post.php:542 inc/admin/lib.pager.php:246
+#: admin/comment.php:93 admin/post.php:555 inc/admin/lib.pager.php:246
 msgid "No comment"
 msgstr ""
 
@@ -1022,7 +1022,7 @@ msgstr ""
 msgid "Author:"
 msgstr ""
 
-#: admin/comment.php:207 admin/post.php:580 inc/admin/lib.dc.page.php:417
+#: admin/comment.php:207 admin/post.php:593 inc/admin/lib.dc.page.php:417
 msgid "Web site:"
 msgstr ""
 
@@ -1030,7 +1030,7 @@ msgstr ""
 msgid "Status:"
 msgstr ""
 
-#: admin/comment.php:218 admin/post.php:585
+#: admin/comment.php:218 admin/post.php:598
 msgid "Comment:"
 msgstr ""
 
@@ -1042,7 +1042,7 @@ msgstr ""
 msgid "trackback"
 msgstr ""
 
-#: admin/comments.php:33 admin/post.php:625 admin/posts.php:95
+#: admin/comments.php:33 admin/post.php:638 admin/posts.php:95
 #: inc/admin/lib.pager.php:48 inc/admin/lib.pager.php:163
 #: inc/admin/lib.pager.php:258
 msgid "Date"
@@ -1052,28 +1052,28 @@ msgstr ""
 msgid "Entry title"
 msgstr ""
 
-#: admin/comments.php:35 admin/post.php:624 admin/posts.php:98
+#: admin/comments.php:35 admin/post.php:637 admin/posts.php:98
 #: inc/admin/lib.pager.php:50 inc/admin/lib.pager.php:164
 #: inc/admin/lib.pager.php:259
 msgid "Author"
 msgstr ""
 
-#: admin/comments.php:125 admin/post.php:507 admin/search.php:96
+#: admin/comments.php:125 admin/post.php:520 admin/search.php:96
 #: admin/search.php:143
 msgid "publish"
 msgstr ""
 
-#: admin/comments.php:126 admin/post.php:508 admin/search.php:97
+#: admin/comments.php:126 admin/post.php:521 admin/search.php:97
 #: admin/search.php:144
 msgid "unpublish"
 msgstr ""
 
-#: admin/comments.php:127 admin/post.php:509 admin/search.php:99
+#: admin/comments.php:127 admin/post.php:522 admin/search.php:99
 #: admin/search.php:145
 msgid "mark as pending"
 msgstr ""
 
-#: admin/comments.php:128 admin/post.php:510 admin/search.php:146
+#: admin/comments.php:128 admin/post.php:523 admin/search.php:146
 msgid "mark as junk"
 msgstr ""
 
@@ -1106,7 +1106,7 @@ msgstr ""
 msgid "Show them."
 msgstr ""
 
-#: admin/comments.php:231 admin/post.php:550 admin/search.php:167
+#: admin/comments.php:231 admin/post.php:563 admin/search.php:167
 msgid "Selected comments action:"
 msgstr ""
 
@@ -1114,13 +1114,13 @@ msgstr ""
 msgid "action: "
 msgstr ""
 
-#: admin/comments.php:234 admin/post.php:554 admin/posts.php:305
+#: admin/comments.php:234 admin/post.php:567 admin/posts.php:305
 #: admin/search.php:129 admin/search.php:169 admin/users.php:154
 #: inc/admin/lib.dc.page.php:79
 msgid "ok"
 msgstr ""
 
-#: admin/comments_actions.php:101 admin/post.php:524 admin/post.php:538
+#: admin/comments_actions.php:101 admin/post.php:537 admin/post.php:551
 #: inc/admin/lib.pager.php:51 inc/admin/prepend.php:313
 msgid "Comments"
 msgstr ""
@@ -1210,11 +1210,11 @@ msgstr ""
 msgid "Quick entry"
 msgstr ""
 
-#: admin/index.php:325 admin/post.php:386
+#: admin/index.php:325 admin/post.php:399
 msgid "Content:"
 msgstr ""
 
-#: admin/index.php:328 admin/post.php:420 admin/posts.php:265
+#: admin/index.php:328 admin/post.php:433 admin/posts.php:265
 #: admin/posts_actions.php:227
 msgid "Category:"
 msgstr ""
@@ -1843,26 +1843,26 @@ msgstr ""
 msgid "No entry seems contain this media."
 msgstr ""
 
-#: admin/media_item.php:440 admin/post.php:326 admin/post.php:638
+#: admin/media_item.php:440 admin/post.php:339 admin/post.php:651
 #: inc/admin/lib.pager.php:95 inc/admin/lib.pager.php:194
 #: inc/admin/lib.pager.php:308 inc/core/class.dc.blog.php:96
 #: inc/core/class.dc.blog.php:101
 msgid "published"
 msgstr ""
 
-#: admin/media_item.php:443 admin/post.php:329 admin/post.php:641
+#: admin/media_item.php:443 admin/post.php:342 admin/post.php:654
 #: inc/admin/lib.pager.php:98 inc/admin/lib.pager.php:197
 #: inc/admin/lib.pager.php:311 inc/core/class.dc.blog.php:95
 #: inc/core/class.dc.blog.php:100
 msgid "unpublished"
 msgstr ""
 
-#: admin/media_item.php:446 admin/post.php:332 inc/admin/lib.pager.php:101
+#: admin/media_item.php:446 admin/post.php:345 inc/admin/lib.pager.php:101
 #: inc/admin/lib.pager.php:200 inc/core/class.dc.blog.php:94
 msgid "scheduled"
 msgstr ""
 
-#: admin/media_item.php:449 admin/post.php:335 admin/post.php:644
+#: admin/media_item.php:449 admin/post.php:348 admin/post.php:657
 #: inc/admin/lib.pager.php:104 inc/admin/lib.pager.php:203
 #: inc/admin/lib.pager.php:314 inc/core/class.dc.blog.php:93
 #: inc/core/class.dc.blog.php:99
@@ -2105,163 +2105,167 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: admin/post.php:100 admin/trackbacks.php:44
+#: admin/post.php:102 admin/trackbacks.php:44
 msgid "This entry does not exist."
 msgstr ""
 
-#: admin/post.php:123 admin/post.php:371 inc/admin/lib.dc.page.php:427
+#: admin/post.php:125 admin/post.php:384 inc/admin/lib.dc.page.php:427
 msgid "Edit entry"
 msgstr ""
 
-#: admin/post.php:133
+#: admin/post.php:135
 msgid "next entry"
 msgstr ""
 
-#: admin/post.php:140
+#: admin/post.php:142
 msgid "previous entry"
 msgstr ""
 
-#: admin/post.php:282 admin/post.php:322 admin/posts.php:245
+#: admin/post.php:176
+msgid "Invalid publication date"
+msgstr ""
+
+#: admin/post.php:295 admin/post.php:335 admin/posts.php:245
 #: admin/posts.php:250 admin/posts_actions.php:165 admin/users_actions.php:197
 #: inc/admin/lib.pager.php:369 inc/admin/prepend.php:316
 msgid "Entries"
 msgstr ""
 
-#: admin/post.php:296
+#: admin/post.php:309
 msgid "Entry has been successfully updated."
 msgstr ""
 
-#: admin/post.php:299 inc/admin/lib.dc.page.php:425
+#: admin/post.php:312 inc/admin/lib.dc.page.php:425
 msgid "Entry has been successfully created."
 msgstr ""
 
-#: admin/post.php:302
+#: admin/post.php:315
 msgid "File has been successfully attached."
 msgstr ""
 
-#: admin/post.php:305
+#: admin/post.php:318
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-#: admin/post.php:309
+#: admin/post.php:322
 msgid "Comment has been successfully created."
 msgstr ""
 
-#: admin/post.php:319
+#: admin/post.php:332
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
-#: admin/post.php:345
+#: admin/post.php:358
 msgid "Go to this entry on the site"
 msgstr ""
 
-#: admin/post.php:345 inc/admin/lib.dc.page.php:134
+#: admin/post.php:358 inc/admin/lib.dc.page.php:134
 msgid "new window"
 msgstr ""
 
-#: admin/post.php:381
+#: admin/post.php:394
 msgid "Excerpt:"
 msgstr ""
 
-#: admin/post.php:390
+#: admin/post.php:403
 msgid "Notes:"
 msgstr ""
 
-#: admin/post.php:407
+#: admin/post.php:420
 msgid "Preview"
 msgstr ""
 
-#: admin/post.php:424
+#: admin/post.php:437
 msgid "Entry status:"
 msgstr ""
 
-#: admin/post.php:428
+#: admin/post.php:441
 msgid "Published on:"
 msgstr ""
 
-#: admin/post.php:432
+#: admin/post.php:445
 msgid "Text formating:"
 msgstr ""
 
-#: admin/post.php:436
+#: admin/post.php:449
 msgid "Convert to XHTML"
 msgstr ""
 
-#: admin/post.php:443
+#: admin/post.php:456
 msgid "Warning: Comments are not more accepted for this entry."
 msgstr ""
 
-#: admin/post.php:444
+#: admin/post.php:457
 msgid "Warning: Comments are not accepted on this blog."
 msgstr ""
 
-#: admin/post.php:451
+#: admin/post.php:464
 msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr ""
 
-#: admin/post.php:452
+#: admin/post.php:465
 msgid "Warning: Trackbacks are not accepted on this blog."
 msgstr ""
 
-#: admin/post.php:455
+#: admin/post.php:468
 msgid "Selected entry"
 msgstr ""
 
-#: admin/post.php:457
+#: admin/post.php:470
 msgid "Entry lang:"
 msgstr ""
 
-#: admin/post.php:461
+#: admin/post.php:474
 msgid "Entry password:"
 msgstr ""
 
-#: admin/post.php:466
+#: admin/post.php:479
 msgid "Basename:"
 msgstr ""
 
-#: admin/post.php:470
+#: admin/post.php:483
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr ""
 
-#: admin/post.php:488 admin/trackbacks.php:81 admin/trackbacks.php:119
+#: admin/post.php:501 admin/trackbacks.php:81 admin/trackbacks.php:119
 #: admin/trackbacks.php:130
 msgid "Ping blogs"
 msgstr ""
 
-#: admin/post.php:530 inc/admin/lib.pager.php:52
+#: admin/post.php:543 inc/admin/lib.pager.php:52
 msgid "Trackbacks"
 msgstr ""
 
-#: admin/post.php:535
+#: admin/post.php:548
 msgid "No trackback"
 msgstr ""
 
-#: admin/post.php:567 admin/post.php:568
+#: admin/post.php:580 admin/post.php:581
 msgid "Add a comment"
 msgstr ""
 
-#: admin/post.php:572
+#: admin/post.php:585
 msgid "Name:"
 msgstr ""
 
-#: admin/post.php:626
+#: admin/post.php:639
 msgid "IP address"
 msgstr ""
 
-#: admin/post.php:647 inc/admin/lib.pager.php:317
+#: admin/post.php:660 inc/admin/lib.pager.php:317
 #: inc/core/class.dc.blog.php:98
 msgid "junk"
 msgstr ""
 
-#: admin/post.php:656
+#: admin/post.php:669
 msgid "select this comment"
 msgstr ""
 
-#: admin/post.php:656
+#: admin/post.php:669
 msgid "select this trackback"
 msgstr ""
 
-#: admin/post.php:662 inc/admin/lib.pager.php:340
+#: admin/post.php:675 inc/admin/lib.pager.php:340
 msgid "Edit this comment"
 msgstr ""
 

@@ -1146,6 +1146,11 @@ input, textarea, select {
 	border-style: solid;
 	border-color: #000 #ccc #ccc #000;
 }
+input.invalid, textarea.invalid, select.invalid {
+	border: 1px solid red;
+	background: #fff; 
+	color: red;
+}
 input, textarea, select, option {
 	font: 1em "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
 }
