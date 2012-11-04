@@ -87,6 +87,8 @@ while ($rs->fetch()) {
 unset($all_langs);
 unset($rs);
 
+# Validation flag
+$bad_dt = false;
 
 # Get entry informations
 if (!empty($_REQUEST['id']))
@@ -166,8 +168,19 @@ if (!empty($_POST) && $can_edit_post)
 	if (empty($_POST['post_dt'])) {
 		$post_dt = '';
 	} else {
-		$post_dt = strtotime($_POST['post_dt']);
-		$post_dt = date('Y-m-d H:i',$post_dt);
+		try
+		{
+			$post_dt = strtotime($_POST['post_dt']);
+			if ($post_dt == false || $post_dt == -1) {
+				$bad_dt = true;
+				throw new Exception(__('Invalid publication date'));
+			}
+			$post_dt = date('Y-m-d H:i',$post_dt);
+		}
+		catch (Exception $e)
+		{
+			$core->error->add($e->getMessage());
+		}
 	}
 	
 	$post_open_comment = !empty($_POST['post_open_comment']);
@@ -189,7 +202,7 @@ if (!empty($_POST) && $can_edit_post)
 }
 
 # Create or update post
-if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post)
+if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 {
 	$cur = $core->con->openCursor($core->prefix.'post');
 	
@@ -426,7 +439,7 @@ if ($can_edit_post)
 	'</label></p>'.
 	
 	'<p><label for="post_dt">'.__('Published on:').
-	form::field('post_dt',16,16,$post_dt).
+	form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).
 	'</label></p>'.
 	
 	'<p><label for="post_format">'.__('Text formating:').
