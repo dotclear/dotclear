@@ -54,6 +54,7 @@ function dc_load_locales() {
 		l10n::set(dirname(__FILE__).'/../../locales/en/date');
 	}
 	l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/main');
+	l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/public');
 	l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/plugins');
 }
 
