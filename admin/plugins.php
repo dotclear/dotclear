@@ -110,12 +110,12 @@ if ($is_writable)
 			}
 
 			# --BEHAVIOR-- pluginBeforeActivate
-			$core->callBehavior('pluginsBeforeActivate', $plugin);
+			$core->callBehavior('pluginsBeforeActivate', $plugin_id);
 			
 			$core->plugins->activateModule($plugin_id);
 
 			# --BEHAVIOR-- pluginAfterActivate
-			$core->callBehavior('pluginsAfterActivate', $plugin);
+			$core->callBehavior('pluginsAfterActivate', $plugin_id);
 			
 			http::redirect('plugins.php');
 		}
