@@ -267,8 +267,8 @@ if (!empty($p_available))
 		'<tr class="line wide">'.
 		'<td class="minimal nowrap"><strong>'.html::escapeHTML($k).'</strong></td>'.
 		'<td class="minimal">'.html::escapeHTML($v['version']).'</td>'.
-		'<td class="maximal'.($is_distrib ? ' distrib' : '').'"><strong>'.html::escapeHTML($v['name']).'</strong> '.
-		'<br />'.html::escapeHTML($v['desc']).($is_distrib ? ' '.$distrib_img : '').'</td>'.
+		'<td class="maximal'.($is_distrib ? ' distrib' : '').'"><strong>'.html::escapeHTML(__($v['name'])).'</strong> '.
+		'<br />'.html::escapeHTML(__($v['desc'])).($is_distrib ? ' '.$distrib_img : '').'</td>'.
 		'<td class="nowrap action">';
 		
 		if ($is_deletable || $is_deactivable)
