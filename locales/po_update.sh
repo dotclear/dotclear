@@ -171,7 +171,7 @@ else
 	echo '<?php' >$PO_MODULE/__html_tpl_dummy.php 
 	find $PO_MODULE -name '*.html' -exec grep -o '{{tpl:lang [^}]*}}' {} \; | sed 's/{{tpl:lang \(.*\)}}$/__\("\1")/' | sort -u \
 		>> $PO_MODULE/__html_tpl_dummy.php
-	sed -i 's/\$/\\\$/g' $PO_MODULE/__html_tpl_dummy.php 
+	sed -i "" 's/\$/\\\$/g' $PO_MODULE/__html_tpl_dummy.php 
 	
 	find $PO_MODULE -name '*.php' -print | \
 		extract_strings \
