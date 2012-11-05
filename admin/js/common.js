@@ -351,7 +351,7 @@ $(function() {
 	$('#help').helpViewer();
 
 	$('.message').backgroundFade({sColor:'#cccccc',eColor:'#666666',steps:20});
-	$('.error').backgroundFade({sColor:'#f5e5e5',eColor:'#e5bfbf',steps:20});
+	$('.error').backgroundFade({sColor:'#ffeee3',eColor:'#ffdec8',steps:20});
 
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
 		var e = this.elements['your_pwd'];
