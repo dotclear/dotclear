@@ -885,12 +885,12 @@ p.error, p.message, p.static-msg {
 	padding-bottom: 1em;
 }
 div.error, p.error {
-	background: #e5bfbf url(msg-error.png) no-repeat 5px 5px;
-	color: #600;
+	background: #ffdec8 url(msg-error.png) no-repeat .7em .7em;
+	color: #000;
 }
 div.message, p.message, 
 div.static-msg, p.static-msg {
-	background: #666 url(msg-std.png) no-repeat 5px 5px;
+	background: #666 url(msg-std.png) no-repeat .7em .7em;
 	color: #fff;
 }
 div.message a, p.message a, 
