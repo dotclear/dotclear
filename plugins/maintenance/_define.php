@@ -15,6 +15,6 @@ $this->registerModule(
 	/* Name */			"Maintenance",
 	/* Description*/		"Maintain your database",
 	/* Author */			"Olivier Meunier",
-	/* Version */			'1.1'
+	/* Version */			'1.2'
 );
 ?>
