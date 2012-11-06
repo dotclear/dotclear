@@ -1191,11 +1191,11 @@ p.form-note.warn, p.form-note.info, p.warning {
 	padding: .2em 1em .1em 24px;
 }
 p.form-note.warn, p.warning {
-	background: #ffd url(warning.png) no-repeat .2em .2em;
+	background: #ffd url(warning.png) no-repeat .3em .3em;
 	border: 1px solid #f0c020;
 }
 p.form-note.info {
-	background: #eef url(info.png) no-repeat .2em .2em;
+	background: #eef url(info.png) no-repeat .3em .2em;
 	border: 1px solid #99f;
 }
 .form-note a {border-bottom: 1px solid #99f;}
