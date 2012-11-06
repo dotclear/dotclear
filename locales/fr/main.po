@@ -271,6 +271,15 @@ msgstr "Note de copyright :"
 msgid "New post URL format:"
 msgstr "Format d'URL des nouveaux billets :"
 
+msgid "Note title HTML tag:"
+msgstr "Balise HTML pour le titre des notes :"
+
+msgid "Note"
+msgstr "Note"
+
+msgid "Notes"
+msgstr "Notes"
+
 msgid "Enable XML/RPC interface"
 msgstr "Activer l'interface XML/RPC"
 

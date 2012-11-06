@@ -89,6 +89,13 @@ if (!in_array($blog_settings->system->post_url_format,$post_url_combo)) {
 	$post_url_combo[html::escapeHTML($blog_settings->system->post_url_format)] = html::escapeHTML($blog_settings->system->post_url_format);
 }
 
+# Note title tag combo
+$note_title_tag_combo = array(
+	__('H4') => 0,
+	__('H3') => 1,
+	__('P') => 2
+);
+
 # Image title combo
 $img_title_combo = array(
 	__('Title') => 'Title ;; separator(, )',
@@ -208,6 +215,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('comments_nofollow',!empty($_POST['comments_nofollow']));
 		$blog_settings->system->put('wiki_comments',!empty($_POST['wiki_comments']));
 		$blog_settings->system->put('enable_xmlrpc',!empty($_POST['enable_xmlrpc']));
+		$blog_settings->system->put('note_title_tag',$_POST['note_title_tag']);
 		
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
 		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
@@ -330,17 +338,21 @@ if ($blog_id)
 	'<p><label for="blog_timezone">'.__('Blog timezone:').
 	form::combo('blog_timezone',dt::getZones(true,true),html::escapeHTML($blog_settings->system->blog_timezone)).
 	'</label></p>'.
-	'</div>'.
-	
-	'<div class="col">'.
+
 	'<p><label for="copyright_notice">'.__('Copyright notice:').
 	form::field('copyright_notice',30,255,html::escapeHTML($blog_settings->system->copyright_notice)).
 	'</label></p>'.
+	'</div>'.
 	
+	'<div class="col">'.
 	'<p><label for="post_url_format">'.__('New post URL format:').
 	form::combo('post_url_format',$post_url_combo,html::escapeHTML($blog_settings->system->post_url_format)).
 	'</label></p>'.
-	
+
+	'<p><label for="note_title_tag">'.__('Note title HTML tag:').
+	form::combo('note_title_tag',$note_title_tag_combo,$blog_settings->system->note_title_tag).
+	'</label></p>'.
+		
 	'<p><label for="enable_xmlrpc" class="classic">'.
 	form::checkbox('enable_xmlrpc','1',$blog_settings->system->enable_xmlrpc).
 	__('Enable XML/RPC interface').'</label></p>';
