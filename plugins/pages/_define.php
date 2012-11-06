@@ -12,13 +12,13 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			__("Pages"),
-	/* Description*/	__("Serve entries as simple web pages"),
+	/* Name */		"Pages",
+	/* Description*/	"Serve entries as simple web pages",
 	/* Author */		"Olivier Meunier",
 	/* Version */		'1.2',
 	array(
 		'permissions' =>	'contentadmin,pages',
-		'priority' =>		999
+		'priority' =>	999
 	)
 );
 ?>

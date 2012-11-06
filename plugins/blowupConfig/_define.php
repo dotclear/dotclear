@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */				__("Blowup Config"),
-	/* Description*/		__("Configure your Blowup Theme"),
+	/* Name */			"Blowup Config",
+	/* Description*/		"Configure your Blowup Theme",
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.1',
 	array(

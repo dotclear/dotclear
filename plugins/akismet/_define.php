@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */				__("Akismet"),
-	/* Description*/		__("Akismet spam filter"),
+	/* Name */			"Akismet",
+	/* Description*/		"Akismet interface for Dotclear",
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.1',
 	array(

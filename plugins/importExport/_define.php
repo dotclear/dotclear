@@ -12,10 +12,10 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */				__("Import / Export"),
-	/* Description*/		__("Import and Export your blog"),
+	/* Name */			"Import / Export",
+	/* Description*/		"Import and Export your blog",
 	/* Author */			"Olivier Meunier & Contributors",
 	/* Version */			'3.1',
-	/* Perm */				'admin'
+	/* Perm */			'admin'
 );
 ?>
