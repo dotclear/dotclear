@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-04 12:02+0100\n"
+"POT-Creation-Date: 2012-11-06 09:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/aboutConfig/_define.php:15
+msgid "about:config"
+msgstr ""
+
+#: plugins/aboutConfig/_define.php:16
+msgid "Manage every blog configuration directive"
+msgstr ""
 
 #: plugins/aboutConfig/index.php:78 plugins/userPref/index.php:74
 msgid "no"
@@ -61,6 +69,14 @@ msgstr ""
 msgid "global settings"
 msgstr ""
 
+#: plugins/akismet/_define.php:15
+msgid "Akismet"
+msgstr ""
+
+#: plugins/akismet/_define.php:16
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
 #: plugins/akismet/class.dc.filter.akismet.php:31
 msgid "Akismet spam filter"
 msgstr ""
@@ -86,7 +102,8 @@ msgstr ""
 msgid "Get your own API key"
 msgstr ""
 
-#: plugins/antispam/_admin.php:18 plugins/antispam/index.php:18
+#: plugins/antispam/_admin.php:18 plugins/antispam/_define.php:15
+#: plugins/antispam/index.php:18
 msgid "Antispam"
 msgstr ""
 
@@ -96,6 +113,10 @@ msgstr ""
 
 #: plugins/antispam/_admin.php:62
 msgid "days"
+msgstr ""
+
+#: plugins/antispam/_define.php:16
+msgid "Generic antispam plugin for Dotclear"
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:35
@@ -362,7 +383,8 @@ msgstr ""
 msgid "Published comments RSS feed"
 msgstr ""
 
-#: plugins/attachments/_admin.php:26 plugins/pages/page.php:486
+#: plugins/attachments/_admin.php:26 plugins/attachments/_define.php:15
+#: plugins/pages/page.php:486
 msgid "Attachments"
 msgstr ""
 
@@ -378,14 +400,23 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr ""
 
+#: plugins/attachments/_define.php:16
+msgid "Manage post attachments"
+msgstr ""
+
 #: plugins/blogroll/_admin.php:18 plugins/blogroll/_admin.php:27
-#: plugins/blogroll/_widgets.php:21 plugins/blogroll/index.php:165
-#: plugins/blogroll/index.php:217 plugins/blogroll/index.php:241
+#: plugins/blogroll/_define.php:15 plugins/blogroll/_widgets.php:21
+#: plugins/blogroll/index.php:165 plugins/blogroll/index.php:217
+#: plugins/blogroll/index.php:241
 msgid "Blogroll"
 msgstr ""
 
 #: plugins/blogroll/_admin.php:31
 msgid "manage blogroll"
+msgstr ""
+
+#: plugins/blogroll/_define.php:16
+msgid "Manage your blogroll"
 msgstr ""
 
 #: plugins/blogroll/_widgets.php:22 plugins/blowupConfig/index.php:265
@@ -693,6 +724,14 @@ msgstr ""
 #: plugins/importExport/inc/class.dc.import.flat.php:235
 #: plugins/importExport/index.php:88
 msgid "Import"
+msgstr ""
+
+#: plugins/blowupConfig/_define.php:15
+msgid "Blowup Config"
+msgstr ""
+
+#: plugins/blowupConfig/_define.php:16
+msgid "Configure your Blowup Theme"
 msgstr ""
 
 #: plugins/blowupConfig/index.php:94
@@ -1015,6 +1054,14 @@ msgstr ""
 msgid "Unable to open image."
 msgstr ""
 
+#: plugins/fairTrackbacks/_define.php:15
+msgid "Fair Trackbacks"
+msgstr ""
+
+#: plugins/fairTrackbacks/_define.php:16
+msgid "Trackback validity check"
+msgstr ""
+
 #: plugins/fairTrackbacks/class.dc.filter.fairtrackbacks.php:28
 msgid "Checks trackback source for a link to the post"
 msgstr ""
@@ -1022,6 +1069,14 @@ msgstr ""
 #: plugins/importExport/_admin.php:15 plugins/importExport/_admin.php:28
 #: plugins/importExport/index.php:59
 msgid "Import/Export"
+msgstr ""
+
+#: plugins/importExport/_define.php:15
+msgid "Import / Export"
+msgstr ""
+
+#: plugins/importExport/_define.php:16
+msgid "Import and Export your blog"
 msgstr ""
 
 #: plugins/importExport/inc/class.dc.export.flat.php:19
@@ -1351,9 +1406,13 @@ msgstr ""
 msgid "Please wait..."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:14 plugins/maintenance/index.php:67
-#: plugins/maintenance/index.php:71
+#: plugins/maintenance/_admin.php:14 plugins/maintenance/_define.php:15
+#: plugins/maintenance/index.php:67 plugins/maintenance/index.php:71
 msgid "Maintenance"
+msgstr ""
+
+#: plugins/maintenance/_define.php:16
+msgid "Maintain your installation"
 msgstr ""
 
 #: plugins/maintenance/index.php:75
@@ -1447,9 +1506,10 @@ msgid "Empty directory"
 msgstr ""
 
 #: plugins/pages/_admin.php:19 plugins/pages/_admin.php:44
-#: plugins/pages/_widgets.php:21 plugins/pages/_widgets.php:22
-#: plugins/pages/list.php:168 plugins/pages/list.php:179
-#: plugins/pages/page.php:292 plugins/pages/page.php:339
+#: plugins/pages/_define.php:15 plugins/pages/_widgets.php:21
+#: plugins/pages/_widgets.php:22 plugins/pages/list.php:168
+#: plugins/pages/list.php:179 plugins/pages/page.php:292
+#: plugins/pages/page.php:339
 msgid "Pages"
 msgstr ""
 
@@ -1465,6 +1525,10 @@ msgstr ""
 
 #: plugins/pages/_admin.php:48
 msgid "manage pages"
+msgstr ""
+
+#: plugins/pages/_define.php:16
+msgid "Serve entries as simple web pages"
 msgstr ""
 
 #: plugins/pages/_public.php:15
@@ -1587,8 +1651,13 @@ msgstr ""
 msgid "Add files to this page"
 msgstr ""
 
-#: plugins/pings/_admin.php:14 plugins/pings/index.php:48
+#: plugins/pings/_admin.php:14 plugins/pings/_define.php:15
+#: plugins/pings/index.php:48
 msgid "Pings"
+msgstr ""
+
+#: plugins/pings/_define.php:16
+msgid "Ping services"
 msgstr ""
 
 #: plugins/pings/index.php:53
@@ -1632,6 +1701,14 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+#: plugins/simpleMenu/_define.php:15
+msgid "Simple Menu"
+msgstr ""
+
+#: plugins/simpleMenu/_define.php:16
+msgid "Simple menu for Dotclear"
+msgstr ""
+
 #: plugins/simpleMenu/_widgets.php:21
 msgid "Menu"
 msgstr ""
@@ -1660,9 +1737,10 @@ msgstr ""
 
 #: plugins/simpleMenu/index.php:108 plugins/tags/_admin.php:14
 #: plugins/tags/_admin.php:163 plugins/tags/_admin.php:166
-#: plugins/tags/_admin.php:315 plugins/tags/_widgets.php:21
-#: plugins/tags/_widgets.php:22 plugins/tags/tag_posts.php:95
-#: plugins/tags/tags.php:17 plugins/tags/tags.php:23
+#: plugins/tags/_admin.php:315 plugins/tags/_define.php:15
+#: plugins/tags/_widgets.php:21 plugins/tags/_widgets.php:22
+#: plugins/tags/tag_posts.php:95 plugins/tags/tags.php:17
+#: plugins/tags/tags.php:23
 msgid "Tags"
 msgstr ""
 
@@ -1890,6 +1968,10 @@ msgstr ""
 msgid "Tags list format:"
 msgstr ""
 
+#: plugins/tags/_define.php:16
+msgid "Tags for posts"
+msgstr ""
+
 #: plugins/tags/_public.php:15
 msgid "This tag's comments Atom feed"
 msgstr ""
@@ -1955,6 +2037,7 @@ msgid "No tags on this blog."
 msgstr ""
 
 #: plugins/themeEditor/_admin.php:28 plugins/themeEditor/_admin.php:53
+#: plugins/themeEditor/_define.php:15 plugins/themeEditor/_define.php:16
 #: plugins/themeEditor/index.php:61 plugins/themeEditor/index.php:86
 msgid "Theme Editor"
 msgstr ""
@@ -2030,6 +2113,14 @@ msgstr ""
 
 #: plugins/themeEditor/index.php:151
 msgid "JavaScript files"
+msgstr ""
+
+#: plugins/userPref/_define.php:15
+msgid "user:preferences"
+msgstr ""
+
+#: plugins/userPref/_define.php:16
+msgid "Manage every user preference directive"
 msgstr ""
 
 #: plugins/userPref/index.php:119
@@ -2131,6 +2222,15 @@ msgstr ""
 msgid "Comments limit:"
 msgstr ""
 
+#: plugins/widgets/_define.php:15 plugins/widgets/index.php:163
+#: plugins/widgets/index.php:190
+msgid "Widgets"
+msgstr ""
+
+#: plugins/widgets/_define.php:16
+msgid "Widgets for your blog sidebars"
+msgstr ""
+
 #: plugins/widgets/_widgets_functions.php:212
 #, php-format
 msgid "This blog's entries %s feed"
@@ -2163,10 +2263,6 @@ msgstr ""
 
 #: plugins/widgets/index.php:40
 msgid "empty string"
-msgstr ""
-
-#: plugins/widgets/index.php:163 plugins/widgets/index.php:190
-msgid "Widgets"
 msgstr ""
 
 #: plugins/widgets/index.php:183

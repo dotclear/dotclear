@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"Pings",
-	/* Description*/		"Ping services",
+	/* Name */				__("Pings"),
+	/* Description*/		__("Ping services"),
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.1',
 	array(

@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */		"attachments",
-	/* Description*/	"Manage post attachments",
+	/* Name */			__("Attachments"),
+	/* Description*/	__("Manage post attachments"),
 	/* Author */		"Dotclear Team",
 	/* Version */		'1.0',
 	array(

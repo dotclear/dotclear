@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"Maintenance",
-	/* Description*/		"Maintain your database",
+	/* Name */				__("Maintenance"),
+	/* Description*/		__("Maintain your installation"),
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.1'
 );

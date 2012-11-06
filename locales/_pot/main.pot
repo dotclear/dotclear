@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-04 12:02+0100\n"
+"POT-Creation-Date: 2012-11-06 09:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,7 +159,7 @@ msgstr ""
 msgid "New blog"
 msgstr ""
 
-#: admin/blog.php:72 admin/blog_pref.php:265 inc/admin/prepend.php:335
+#: admin/blog.php:72 admin/blog_pref.php:265 inc/admin/prepend.php:336
 msgid "Blogs"
 msgstr ""
 
@@ -337,7 +337,7 @@ msgstr ""
 msgid "Invalid language code"
 msgstr ""
 
-#: admin/blog_pref.php:244 admin/blog_pref.php:267 inc/admin/prepend.php:301
+#: admin/blog_pref.php:244 admin/blog_pref.php:267 inc/admin/prepend.php:302
 msgid "Blog settings"
 msgstr ""
 
@@ -569,7 +569,7 @@ msgstr ""
 
 #: admin/blog_pref.php:538 admin/user.php:187 admin/users.php:96
 #: admin/users.php:108 admin/users_actions.php:134 admin/users_actions.php:180
-#: admin/users_actions.php:241 inc/admin/prepend.php:332
+#: admin/users_actions.php:241 inc/admin/prepend.php:333
 msgid "Users"
 msgstr ""
 
@@ -634,7 +634,7 @@ msgid "Configure theme"
 msgstr ""
 
 #: admin/blog_theme.php:209 admin/blog_theme.php:218 admin/blog_theme.php:334
-#: inc/admin/prepend.php:298
+#: inc/admin/prepend.php:299
 msgid "Blog appearance"
 msgstr ""
 
@@ -830,7 +830,7 @@ msgid "This category does not exist."
 msgstr ""
 
 #: admin/categories.php:52 admin/categories.php:70 admin/category.php:171
-#: inc/admin/prepend.php:307
+#: inc/admin/prepend.php:308
 msgid "Categories"
 msgstr ""
 
@@ -1121,7 +1121,7 @@ msgid "ok"
 msgstr ""
 
 #: admin/comments_actions.php:101 admin/post.php:537 admin/post.php:551
-#: inc/admin/lib.pager.php:51 inc/admin/prepend.php:313
+#: inc/admin/lib.pager.php:51 inc/admin/prepend.php:314
 msgid "Comments"
 msgstr ""
 
@@ -1136,7 +1136,7 @@ msgid "%d comments"
 msgstr ""
 
 #: admin/index.php:115 admin/index.php:320 admin/post.php:35
-#: admin/posts.php:251 inc/admin/prepend.php:319 inc/admin/prepend.php:370
+#: admin/posts.php:251 inc/admin/prepend.php:320 inc/admin/prepend.php:371
 msgid "New entry"
 msgstr ""
 
@@ -1617,7 +1617,7 @@ msgstr ""
 
 #: admin/media.php:222 admin/media.php:224 admin/media.php:246
 #: admin/media.php:282 admin/media.php:286 admin/media.php:288
-#: admin/media_item.php:172 admin/media_item.php:190 inc/admin/prepend.php:304
+#: admin/media_item.php:172 admin/media_item.php:190 inc/admin/prepend.php:305
 msgid "Media manager"
 msgstr ""
 
@@ -1998,7 +1998,7 @@ msgstr ""
 msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
 msgstr ""
 
-#: admin/plugins.php:240 inc/admin/prepend.php:287 inc/admin/prepend.php:329
+#: admin/plugins.php:240 inc/admin/prepend.php:288 inc/admin/prepend.php:330
 msgid "Plugins"
 msgstr ""
 
@@ -2097,7 +2097,7 @@ msgid "Search entry:"
 msgstr ""
 
 #: admin/popup_posts.php:39 admin/search.php:72 admin/search.php:75
-#: admin/search.php:81 inc/admin/prepend.php:310
+#: admin/search.php:81 inc/admin/prepend.php:311
 msgid "Search"
 msgstr ""
 
@@ -2127,7 +2127,7 @@ msgstr ""
 
 #: admin/post.php:295 admin/post.php:335 admin/posts.php:245
 #: admin/posts.php:250 admin/posts_actions.php:165 admin/users_actions.php:197
-#: inc/admin/lib.pager.php:369 inc/admin/prepend.php:316
+#: inc/admin/lib.pager.php:369 inc/admin/prepend.php:317
 msgid "Entries"
 msgstr ""
 
@@ -2502,7 +2502,7 @@ msgid "Display quick entry form"
 msgstr ""
 
 #: admin/preferences.php:526 admin/preferences.php:531
-#: inc/admin/prepend.php:289
+#: inc/admin/prepend.php:290
 msgid "My favorites"
 msgstr ""
 
@@ -3243,27 +3243,27 @@ msgstr ""
 msgid "superadmin"
 msgstr ""
 
-#: inc/admin/prepend.php:127
+#: inc/admin/prepend.php:128
 msgid "Database error"
 msgstr ""
 
-#: inc/admin/prepend.php:128
+#: inc/admin/prepend.php:129
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-#: inc/admin/prepend.php:285
+#: inc/admin/prepend.php:286
 msgid "System"
 msgstr ""
 
-#: inc/admin/prepend.php:286
+#: inc/admin/prepend.php:287
 msgid "Blog"
 msgstr ""
 
-#: inc/admin/prepend.php:323
+#: inc/admin/prepend.php:324
 msgid "Updates"
 msgstr ""
 
-#: inc/admin/prepend.php:326
+#: inc/admin/prepend.php:327
 msgid "Languages"
 msgstr ""
 

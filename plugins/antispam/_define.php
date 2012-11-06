@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"Antispam",
-	/* Description*/		"Generic antispam plugin for Dotclear",
+	/* Name */				__("Antispam"),
+	/* Description*/		__("Generic antispam plugin for Dotclear"),
 	/* Author */			"Alain Vagner",
 	/* Version */			'1.3.1',
 	array(

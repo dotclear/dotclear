@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"Fair Trackbacks",
-	/* Description*/		"Trackback validity check",
+	/* Name */				__("Fair Trackbacks"),
+	/* Description*/		__("Trackback validity check"),
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.1',
 	array(

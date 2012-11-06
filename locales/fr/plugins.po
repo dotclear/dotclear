@@ -11,14 +11,22 @@ msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-13 09:59+0200\n"
-"PO-Revision-Date: 2012-08-13 07:28+0000\n"
-"Last-Translator: xave <xave@dotclear.net>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
+"PO-Revision-Date: 2012-11-06 10:04+0100\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/"
+"fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+msgid "about:config"
+msgstr "about:config"
+
+msgid "Manage every blog configuration directive"
+msgstr "Gestion des directives de configuration des blogs"
 
 msgid "no"
 msgstr "non"
@@ -50,6 +58,9 @@ msgstr "Ok"
 msgid "global settings"
 msgstr "Réglages généraux"
 
+msgid "Akismet"
+msgstr "Akismet"
+
 msgid "Akismet spam filter"
 msgstr "Filtre d'indésirable Akismet"
 
@@ -77,6 +88,9 @@ msgstr "Supprimer les commentaires indésirables âgés de plus de"
 
 msgid "days"
 msgstr "jours"
+
+msgid "Generic antispam plugin for Dotclear"
+msgstr "Antispam générique pour Dotclear"
 
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "Filtre de liste noire et blanche d'IP"
@@ -240,7 +254,9 @@ msgstr "Supprimer tous les indésirables"
 
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Tous les commentaires indésirables âgés d'au moins %s jour(s) seront supprimés automatiquement."
+msgstr ""
+"Tous les commentaires indésirables âgés d'au moins %s jour(s) seront "
+"supprimés automatiquement."
 
 msgid "You can modify this duration in "
 msgstr "Vous pouvez modifier cet intervalle dans"
@@ -293,11 +309,17 @@ msgstr "Pas de fichier attaché"
 msgid "Add files to this entry"
 msgstr "Ajouter des fichiers à la page"
 
+msgid "Manage post attachments"
+msgstr "Gestion des fichiers attachés"
+
 msgid "Blogroll"
 msgstr "Liste des liens"
 
 msgid "manage blogroll"
 msgstr "Gestion de la liste des liens"
+
+msgid "Manage your blogroll"
+msgstr "Gestion de votre liste de liens"
 
 msgid "Links"
 msgstr "Liens"
@@ -479,6 +501,12 @@ msgstr "Fichier OPML ou XBEL :"
 msgid "Import"
 msgstr "Importation"
 
+msgid "Blowup Config"
+msgstr "Configuration de Blowup"
+
+msgid "Configure your Blowup Theme"
+msgstr "Configurer votre thème Blowup"
+
 msgid "Light linear gradient"
 msgstr "Dégradé linéaire clair"
 
@@ -506,8 +534,12 @@ msgstr "Appliquer le code"
 msgid "Choose a predefined style"
 msgstr "Sélectionnez un style prédéfini"
 
-msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "Pour les raisons suivantes, les images n'ont pu être créées. Vous ne pourrez pas changer certaines propriétés de fond."
+msgid ""
+"For the following reasons, images cannot be created. You won't be able to "
+"change some background properties."
+msgstr ""
+"Pour les raisons suivantes, les images n'ont pu être créées. Vous ne pourrez "
+"pas changer certaines propriétés de fond."
 
 msgid "Theme configuration has been successfully updated."
 msgstr "La configuration du thème a été enregistrée avec succès."
@@ -687,8 +719,13 @@ msgstr "Style additionnel"
 msgid "Configuration import / export"
 msgstr "Configuration de l'import/export"
 
-msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr "Vous pouvez partager votre configuration en utilisant le code suivant. Pour appliquer une configuration, copiez le code, cliquez sur « Appliquer le code », puis sauvegardez."
+msgid ""
+"You can share your configuration using the following code. To apply a "
+"configuration, paste the code, click on \"Apply code\" and save."
+msgstr ""
+"Vous pouvez partager votre configuration en utilisant le code suivant. Pour "
+"appliquer une configuration, copiez le code, cliquez sur « Appliquer le code "
+"», puis sauvegardez."
 
 msgid "Copy this code:"
 msgstr "Copier ce code :"
@@ -696,8 +733,12 @@ msgstr "Copier ce code :"
 msgid "default"
 msgstr "défaut"
 
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Au moins une des fonctions suivantes n'est pas disponible : imagecreatetruecolor, imagepng et imagecreatefrompng."
+msgid ""
+"At least one of the following functions is not available: "
+"imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr ""
+"Au moins une des fonctions suivantes n'est pas disponible : "
+"imagecreatetruecolor, imagepng et imagecreatefrompng."
 
 msgid "The 'public' directory does not exist."
 msgstr "Le répertoire ‘public’ n'existe pas."
@@ -718,48 +759,61 @@ msgstr "L'image soumise ne fait pas 800 pixels de large."
 msgid "Unable to open image."
 msgstr "Impossible d'ouvrir l'image."
 
+msgid "Fair Trackbacks"
+msgstr "Filtre de rétroliens"
+
+msgid "Trackback validity check"
+msgstr "Contrôle de validité des rétroliens"
+
 msgid "Checks trackback source for a link to the post"
 msgstr "Contrôle si la source du rétrolien comporte un lien vers le billet"
 
 msgid "Import/Export"
 msgstr "Import/Export"
 
+msgid "Import / Export"
+msgstr "Import / Export"
+
+msgid "Import and Export your blog"
+msgstr "Importez et exportez votre blog"
+
 msgid "Flat file export"
 msgstr "Fichier d'exportation « à plat »"
 
 msgid "Exports a blog or a full Dotclear installation to flat file."
-msgstr "Exporte un blog ou une installation Dotclear complète vers un fichier « à plat »."
+msgstr ""
+"Exporte un blog ou une installation Dotclear complète vers un fichier « à "
+"plat »."
 
 msgid "Export file not found."
 msgstr "Le fichier d'export n'a pas été trouvé."
 
 msgid "Failed to compress export file."
-msgstr ""
+msgstr "Impossible de compresser le fichier d'export."
 
-#, fuzzy
 msgid "Single blog"
-msgstr "Importe un blog"
+msgstr "Blog simple"
 
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr "Cela créera un export du blog courant : %s"
 
-#, fuzzy
 msgid "Compress file"
-msgstr "Fichiers du thème"
+msgstr "Compresse le fichier"
 
 msgid "You may also want to download your media directory as a zip file"
-msgstr "Vous pouvez également télécharger votre répertoire de média sous forme de fichier archive zip"
+msgstr ""
+"Vous pouvez également télécharger votre répertoire de média sous forme de "
+"fichier archive zip"
 
 msgid "Export"
 msgstr "Export"
 
 msgid "Multiple blogs"
-msgstr ""
+msgstr "Tous les blogs"
 
-#, fuzzy
 msgid "This will create an export of all the content of your database."
-msgstr "Attention : Cela supprimera au préalable tout le contenu de votre base de données à l'exception des utilisateurs."
+msgstr "Cela créera un export avec tout le contenu de votre base de données."
 
 msgid "Congratulation!"
 msgstr "Bravo !"
@@ -783,14 +837,23 @@ msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importer une installation Dotclear 1.2 dans votre blog courant."
 
 #, php-format
-msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
-msgstr "Cela importera votre contenu Dotclear 1.2 comme nouveau contenu dans le blog courant : %s."
+msgid ""
+"This will import your Dotclear 1.2 content as new content in the current "
+"blog: %s."
+msgstr ""
+"Cela importera votre contenu Dotclear 1.2 comme nouveau contenu dans le blog "
+"courant : %s."
 
-msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
-msgstr "Notez que cela supprimera les catégories, liste de liens, billets et commentaires actuels de votre blog courant. "
+msgid ""
+"Please note that this process will empty your categories, blogroll, entries "
+"and comments on the current blog."
+msgstr ""
+"Notez que cela supprimera les catégories, liste de liens, billets et "
+"commentaires actuels de votre blog courant. "
 
 msgid "Depending on the size of your blog, it could take a few minutes."
-msgstr "Cela peut prendre plusieurs minutes en fonction de la taille de votre blog."
+msgstr ""
+"Cela peut prendre plusieurs minutes en fonction de la taille de votre blog."
 
 msgid "General information"
 msgstr "Informations générales"
@@ -798,8 +861,11 @@ msgstr "Informations générales"
 msgid "Import my blog now"
 msgstr "Importer mon blog maintenant"
 
-msgid "We first need some information about your old Dotclear 1.2 installation."
-msgstr "Nous avons besoin au préalable de quelques informations à propos de votre installation Dotclear 1.2."
+msgid ""
+"We first need some information about your old Dotclear 1.2 installation."
+msgstr ""
+"Nous avons besoin au préalable de quelques informations à propos de votre "
+"installation Dotclear 1.2."
 
 msgid "Entries import options"
 msgstr "Options d'importation des billets"
@@ -823,12 +889,25 @@ msgstr "Importation des éléments %d à %d / %d"
 msgid "Please read carefully"
 msgstr "Lisez soigneusement"
 
-msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
-msgstr "Chaque utilisateur nouvellement importé a reçu un mot de passe aléatoire et devra en demander un nouveau en cliquant sur le lien « J'ai oublié mon mot de passe » sur la page d'authentification (son adresse email doit être valide)."
+msgid ""
+"Every newly imported user has received a random password and will need to "
+"ask for a new one by following the \"I forgot my password\" link on the "
+"login page (Their registered email address has to be valid.)"
+msgstr ""
+"Chaque utilisateur nouvellement importé a reçu un mot de passe aléatoire et "
+"devra en demander un nouveau en cliquant sur le lien « J'ai oublié mon mot "
+"de passe » sur la page d'authentification (son adresse email doit être "
+"valide)."
 
 #, php-format
-msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
-msgstr "Notez que Dotclear a un nouveau schéma d'URL. Vous pouvez éviter les liens brisés en installant l'extension <a href=\"%s\">DC1 redirect</a> et en l'activant dans la configuration de votre blog."
+msgid ""
+"Please note that Dotclear 2 has a new URL layout. You can avoid broken links "
+"by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your "
+"blog configuration."
+msgstr ""
+"Notez que Dotclear a un nouveau schéma d'URL. Vous pouvez éviter les liens "
+"brisés en installant l'extension <a href=\"%s\">DC1 redirect</a> et en "
+"l'activant dans la configuration de votre blog."
 
 msgid "next step"
 msgstr "Étape suivante"
@@ -852,8 +931,12 @@ msgid "Content successfully imported."
 msgstr "Le contenu a été importé avec succès."
 
 #, php-format
-msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
-msgstr "Cela importera un flux (RSS ou ATOM) comme un nouveau contenu dans le blog courant : %s."
+msgid ""
+"This will import a feed (RSS or Atom) a as new content in the current blog: "
+"%s."
+msgstr ""
+"Cela importera un flux (RSS ou ATOM) comme un nouveau contenu dans le blog "
+"courant : %s."
 
 msgid "Feed URL:"
 msgstr "URL du flux :"
@@ -862,7 +945,9 @@ msgid "Flat file import"
 msgstr "Importation d'un fichier « à plat »"
 
 msgid "Imports a blog or a full Dotclear installation from flat file."
-msgstr "Importe un blog ou une installation Dotclear complète depuis un fichier « à plat »."
+msgstr ""
+"Importe un blog ou une installation Dotclear complète depuis un fichier « à "
+"plat »."
 
 msgid "Single blog successfully imported."
 msgstr "Blog importé avec succès."
@@ -871,28 +956,32 @@ msgid "Are you sure you want to import a full backup file?"
 msgstr "Êtes-vous sûr de vouloir importer un fichier de sauvegarde complet ?"
 
 #, php-format
-msgid "This will import a single blog backup as new content in the current blog: %s."
-msgstr "Cela importera une sauvegarde d'un blog comme nouveau contenu du blog courant : %s."
+msgid ""
+"This will import a single blog backup as new content in the current blog: %s."
+msgstr ""
+"Cela importera une sauvegarde d'un blog comme nouveau contenu du blog "
+"courant : %s."
 
 msgid "Upload a backup file"
 msgstr "Téléversez un fichier de sauvegarde"
 
 msgid "or pick up a local file in your public directory"
-msgstr "ou sélectionnez un fichier local présent dans votre répertoire de média"
+msgstr ""
+"ou sélectionnez un fichier local présent dans votre répertoire de média"
 
-#, fuzzy
 msgid "This will reset all the content of your database, except users."
-msgstr "Attention : Cela supprimera au préalable tout le contenu de votre base de données à l'exception des utilisateurs."
+msgstr ""
+"Attention : Cela supprimera au préalable tout le contenu de votre base de "
+"données à l'exception des utilisateurs."
 
 msgid "Another file with same name exists."
-msgstr ""
+msgstr "Un autre fichier portant ce nom existe déjà."
 
-#, fuzzy
 msgid "Failed to extract backup file."
-msgstr "Téléversez un fichier de sauvegarde"
+msgstr "Impossible d'extraire le fichier de sauvegarde."
 
 msgid "No backup in compressed file."
-msgstr ""
+msgstr "Aucune sauvegarde dans le fichier compressé."
 
 msgid "WordPress import"
 msgstr "Importation WordPress"
@@ -901,17 +990,47 @@ msgid "Import a WordPress installation into your current blog."
 msgstr "Importe une installation WordPress dans le blog courant."
 
 #, php-format
-msgid "This will import your WordPress content as new content in the current blog: %s."
-msgstr "Cela importera le contenu WordPress comme un nouveau contenu dans le blog courant : %s."
+msgid ""
+"This will import your WordPress content as new content in the current blog: "
+"%s."
+msgstr ""
+"Cela importera le contenu WordPress comme un nouveau contenu dans le blog "
+"courant : %s."
 
 msgid "We first need some information about your old WordPress installation."
-msgstr "Nous avons besoin au préalable de quelques informations au sujet de votre ancienne installation WordPress."
+msgstr ""
+"Nous avons besoin au préalable de quelques informations au sujet de votre "
+"ancienne installation WordPress."
 
-msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
-msgstr "La gestion des catégories chez WordPress et Dotclear est tout à fait différente. Vous pouvez assigner plusieurs catégories à un seul poste dans WordPress. Dans le monde Dotclear, nous le voyons davantage comme « une catégorie, plusieurs mot-clés ». Par conséquent Dotclear peut seulement importer une catégorie par billet et il choisira celui de plus petit numéro. Si vous voulez conserver une trace de chaque catégorie, vous pouvez les importer sous forme de mot-clés, avec un préfixe optionnel."
+msgid ""
+"WordPress and Dotclear's handling of categories are quite different. You can "
+"assign several categories to a single post in WordPress. In the Dotclear "
+"world, we see it more like \"One category, several tags.\" Therefore "
+"Dotclear can only import one category per post and will chose the lowest "
+"numbered one. If you want to keep a trace of every category, you can import "
+"them as tags, with an optional prefix."
+msgstr ""
+"La gestion des catégories chez WordPress et Dotclear est tout à fait "
+"différente. Vous pouvez assigner plusieurs catégories à un seul poste dans "
+"WordPress. Dans le monde Dotclear, nous le voyons davantage comme « une "
+"catégorie, plusieurs mot-clés ». Par conséquent Dotclear peut seulement "
+"importer une catégorie par billet et il choisira celui de plus petit numéro. "
+"Si vous voulez conserver une trace de chaque catégorie, vous pouvez les "
+"importer sous forme de mot-clés, avec un préfixe optionnel."
 
-msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr "D'autre part, dans WordPress, un billet ne peut pas être sans catégorie, et une installation par défaut possède systématiquement une première catégorie nommée <i>« sans catégorie »</ i>. Si vous n'avez pas changé cette catégorie, vous pouvez simplement l'ignorer lors de l'importation sur votre blog, puisque Dotclear vous permet réellement de conserver votre message sans catégorie."
+msgid ""
+"On the other hand, in WordPress, a post can not be uncategorized, and a "
+"default installation has a first category labelised <i>\"Uncategorized\"</"
+"i>. If you did not change that category, you can just ignore it while "
+"importing your blog, as Dotclear allows you to actually keep your posts "
+"uncategorized."
+msgstr ""
+"D'autre part, dans WordPress, un billet ne peut pas être sans catégorie, et "
+"une installation par défaut possède systématiquement une première catégorie "
+"nommée <i>« sans catégorie »</ i>. Si vous n'avez pas changé cette "
+"catégorie, vous pouvez simplement l'ignorer lors de l'importation sur votre "
+"blog, puisque Dotclear vous permet réellement de conserver votre message "
+"sans catégorie."
 
 msgid "Ignore the first category:"
 msgstr "Ignorer la première catégorie :"
@@ -928,8 +1047,12 @@ msgstr "Préfixer les mot-clés avec :"
 msgid "Content filters"
 msgstr "Filtres de contenu"
 
-msgid "You may want to process your post and/or comment content with the following filters."
-msgstr "Vous pouvez formater le contenu de vos billets et commentaires avec les filtres suivants."
+msgid ""
+"You may want to process your post and/or comment content with the following "
+"filters."
+msgstr ""
+"Vous pouvez formater le contenu de vos billets et commentaires avec les "
+"filtres suivants."
 
 msgid "Post content formatter:"
 msgstr "Formatage du contenu des billets :"
@@ -953,14 +1076,20 @@ msgid "File is not a full export."
 msgstr "Ce fichier n'est pas un fichier de sauvegarde complet."
 
 #, php-format
-msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgid ""
+"ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
+"L'ID de \"%3$s\" ne correspond pas dans l'enregistrement \"%1$s\" à la ligne "
+"%2$s du fichier de sauvegarde."
 
 msgid "Please wait..."
 msgstr "Veuillez patientez…"
 
 msgid "Maintenance"
 msgstr "Maintenance"
+
+msgid "Maintain your installation"
+msgstr "Maintenez votre installation"
 
 msgid "Optimization successful."
 msgstr "Optimisation terminée avec succès."
@@ -1044,6 +1173,9 @@ msgstr "%d pages"
 msgid "manage pages"
 msgstr "gestion des pages"
 
+msgid "Serve entries as simple web pages"
+msgstr "Publie des billets comme de simples pages web"
+
 msgid "Published on"
 msgstr "Publié le"
 
@@ -1119,8 +1251,11 @@ msgstr "Langue de la page :"
 msgid "Page password:"
 msgstr "Mot de passe de la page :"
 
-msgid "Warning: If you set the URL manually, it may conflict with another page."
-msgstr "Attention : si vous définissez vous-même l'URL, elle peut entrer en conflit avec celle d'une autre page."
+msgid ""
+"Warning: If you set the URL manually, it may conflict with another page."
+msgstr ""
+"Attention : si vous définissez vous-même l'URL, elle peut entrer en conflit "
+"avec celle d'une autre page."
 
 msgid "Add files to this page"
 msgstr "Ajouter des fichiers à cette page"
@@ -1136,6 +1271,9 @@ msgstr "Si coché cette page sera active mais non listée dans le widget Pages."
 
 msgid "Pings"
 msgstr "Signalements"
+
+msgid "Ping services"
+msgstr "Services de signalement"
 
 msgid "Pings configuration"
 msgstr "Configuration des signalements"
@@ -1166,6 +1304,12 @@ msgstr "Signalements :"
 
 msgid "Simple menu"
 msgstr "Menu simple"
+
+msgid "Simple Menu"
+msgstr "Menu simple"
+
+msgid "Simple menu for Dotclear"
+msgstr "Menu simple pour Dotclear"
 
 msgid "Menu"
 msgstr "Menu"
@@ -1355,6 +1499,9 @@ msgstr "étendu"
 msgid "Tags list format:"
 msgstr "Format de la liste des mot-clés :"
 
+msgid "Tags for posts"
+msgstr "Mots-clés pour les billets"
+
 msgid "This tag's comments Atom feed"
 msgstr "Flux Atom des commentaires associés à ce mot-clé"
 
@@ -1420,8 +1567,12 @@ msgid "File %s is not readable"
 msgstr "Le fichier %s n'est pas lisible"
 
 #, php-format
-msgid "Unable to write file %s. Please check your theme files and folders permissions."
-msgstr "Impossible d'écrire le fichier %s. Contrôlez les permissions des fichiers et des répertoires de votre thème."
+msgid ""
+"Unable to write file %s. Please check your theme files and folders "
+"permissions."
+msgstr ""
+"Impossible d'écrire le fichier %s. Contrôlez les permissions des fichiers et "
+"des répertoires de votre thème."
 
 msgid "Saving document..."
 msgstr "Enregistrement du document…"
@@ -1450,7 +1601,9 @@ msgid "Editing file %s"
 msgstr "Édition du fichier %s"
 
 msgid "This file is not writable. Please check your theme files permissions."
-msgstr "Ce fichier n'est pas modifiable. Contrôlez les permissions de vos fichiers de thème."
+msgstr ""
+"Ce fichier n'est pas modifiable. Contrôlez les permissions de vos fichiers "
+"de thème."
 
 msgid "Templates files"
 msgstr "Fichiers du thème"
@@ -1460,6 +1613,12 @@ msgstr "Fichiers CSS"
 
 msgid "JavaScript files"
 msgstr "Fichiers JavaScript"
+
+msgid "user:preferences"
+msgstr "user:preferences"
+
+msgid "Manage every user preference directive"
+msgstr "Gestion des préférences utilisateur"
 
 msgid "Preferences successfully updated"
 msgstr "Préférences mises à jour avec succès"
@@ -1559,6 +1718,9 @@ msgstr "supplémentaire"
 msgid "Widgets"
 msgstr "Widgets"
 
+msgid "Widgets for your blog sidebars"
+msgstr "Widgets pour les volets de votre blog"
+
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Êtes-vous sûr de vouloir remettre à zéro les volets ?"
 
@@ -1589,23 +1751,47 @@ msgstr "Réinitialiser les bandeaux"
 msgid "Use of widgets"
 msgstr "Utilisation des widgets"
 
-msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
-msgstr "Les widgets sont utilisés pour ajouter des blocs de contenus divers dans vos pages publiques. Pour ajouter un widget, faites-le glisser depuis la liste des Widgets disponibles à gauche jusqu'à l'un des bandeaux sur la droite de la page. Vous pouvez ré-ordonner vos widgets dans un bandeau en le faisant glisser vers le haut ou vers le bas. Vous devez mettre à jour les bandeaux pour enregistrer vos modifications."
+msgid ""
+"Widgets may be used to add various blocks of content to be displayed on your "
+"public pages. To add a widget, drag it from the Available widgets list on "
+"the left to one of the sidebars on the right of this page. You can order "
+"your widgets in a sidebar by dragging them up or down. You must update "
+"sidebars to apply your changes."
+msgstr ""
+"Les widgets sont utilisés pour ajouter des blocs de contenus divers dans vos "
+"pages publiques. Pour ajouter un widget, faites-le glisser depuis la liste "
+"des Widgets disponibles à gauche jusqu'à l'un des bandeaux sur la droite de "
+"la page. Vous pouvez ré-ordonner vos widgets dans un bandeau en le faisant "
+"glisser vers le haut ou vers le bas. Vous devez mettre à jour les bandeaux "
+"pour enregistrer vos modifications."
 
-msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
-msgstr "Une fois inclus dans un bandeau, les widgets ont généralement des options que vous pouvez configurer. Cliquez sur le signe + à côté de leur nom pour y accéder."
+msgid ""
+"Once included in a sidebar, widgets have configuration options that you can "
+"reach by clicking on the + sign next to their name."
+msgstr ""
+"Une fois inclus dans un bandeau, les widgets ont généralement des options "
+"que vous pouvez configurer. Cliquez sur le signe + à côté de leur nom pour y "
+"accéder."
 
 msgid "Reset sidebars to get back to default widgets installation."
-msgstr "Réinitialisez les bandeaux pour retrouver les widgets par défaut de votre installation."
+msgstr ""
+"Réinitialisez les bandeaux pour retrouver les widgets par défaut de votre "
+"installation."
 
 msgid "Widget templates tags"
 msgstr "Balise de widget"
 
-msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr "Si vous êtes autorisé à modifier vos fichiers de thème, vous pouvez ajouter des widgets sous forme de balise, avec leur propre configuration."
+msgid ""
+"If you are allowed to edit your theme templates, you can directly add "
+"widgets as templates tags, with their own configuration."
+msgstr ""
+"Si vous êtes autorisé à modifier vos fichiers de thème, vous pouvez ajouter "
+"des widgets sous forme de balise, avec leur propre configuration."
 
 msgid "To add a widget in your template, you need to write code like this:"
-msgstr "Pour ajouter un widget à votre thème, vous devez insérer un code similaire à :"
+msgstr ""
+"Pour ajouter un widget à votre thème, vous devez insérer un code similaire "
+"à :"
 
 msgid "Widget ID"
 msgstr "ID du widget"
@@ -1655,21 +1841,6 @@ msgstr "chaîne vide"
 msgid "CSS class:"
 msgstr "Classe CSS :"
 
-#~ msgid "Export a blog"
-#~ msgstr "Exporter un blog"
-
-#~ msgid "Export all content"
-#~ msgstr "Exporte tout le contenu"
-
-#~ msgid "Import from a feed"
-#~ msgstr "Importer depuis un flux"
-
-#~ msgid "Import a full backup file"
-#~ msgstr "Importer un fichier de sauvegarde complet"
-
-#~ msgid "The backup file does not appear to be well formed."
-#~ msgstr "Le fichier de sauvegarde semble mal formaté."
-
 msgid "Blogroll list"
 msgstr "Liste de liens"
 
@@ -1711,3 +1882,18 @@ msgstr "Derniers billets publiés"
 
 msgid "List of last comments posted"
 msgstr "Liste des derniers commentaires postés"
+
+#~ msgid "Export a blog"
+#~ msgstr "Exporter un blog"
+
+#~ msgid "Export all content"
+#~ msgstr "Exporte tout le contenu"
+
+#~ msgid "Import from a feed"
+#~ msgstr "Importer depuis un flux"
+
+#~ msgid "Import a full backup file"
+#~ msgstr "Importer un fichier de sauvegarde complet"
+
+#~ msgid "The backup file does not appear to be well formed."
+#~ msgstr "Le fichier de sauvegarde semble mal formaté."
