@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"Tags",
-	/* Description*/		"Tags for posts",
+	/* Name */				__("Tags"),
+	/* Description*/		__("Tags for posts"),
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.3',
 	array(

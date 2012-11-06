@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"Blogroll",
-	/* Description*/		"Manage your blogroll",
+	/* Name */				__("Blogroll"),
+	/* Description*/		__("Manage your blogroll"),
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.3',
 	array(
