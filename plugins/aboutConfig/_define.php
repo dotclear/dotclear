@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */				__("about:config"),
-	/* Description*/		__("Manage every blog configuration directive"),
+	/* Name */			"about:config",
+	/* Description*/		"Manage every blog configuration directive",
 	/* Author */			"Olivier Meunier",
 	/* Version */			'0.4'
 );

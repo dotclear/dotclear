@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */				__("user:preferences"),
-	/* Description*/		__("Manage every user preference directive"),
+	/* Name */			"user:preferences",
+	/* Description*/		"Manage every user preference directive",
 	/* Author */			"Franck Paul",
 	/* Version */			'0.2'
 );

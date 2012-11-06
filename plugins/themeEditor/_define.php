@@ -12,8 +12,8 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */				__("Theme Editor"),
-	/* Description*/		__("Theme Editor"),
+	/* Name */			"themeEditor",
+	/* Description*/		"Theme Editor",
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.0'
 );
