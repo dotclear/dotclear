@@ -1150,6 +1150,7 @@ input.invalid, textarea.invalid, select.invalid {
 	border: 1px solid red;
 	background: #fff; 
 	color: red;
+	box-shadow: 0 0 0 1px rgba(218, 62, 90, 0.3)
 }
 input, textarea, select, option {
 	font: 1em "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
