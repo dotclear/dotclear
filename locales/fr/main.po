@@ -826,7 +826,7 @@ msgid "This blog is offline"
 msgstr "Ce blog est hors ligne"
 
 msgid "This blog is removed"
-msgstr "Ce blog est supprimé"
+msgstr "Ce blog est retiré de la publication"
 
 msgid "is not defined, you should edit your configuration file."
 msgstr "n'est pas défini, vous devriez corriger votre fichier de configuration."
@@ -2535,7 +2535,7 @@ msgid "offline"
 msgstr "hors ligne"
 
 msgid "removed"
-msgstr "supprimé"
+msgstr "retiré"
 
 msgid "You are not an administrator"
 msgstr "Vous n'êtes pas administrateur"
