@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */			"Pings",
 	/* Description*/		"Ping services",
 	/* Author */			"Olivier Meunier",
-	/* Version */			'1.1',
+	/* Version */			'1.2',
 	array(
 		'permissions' =>	'usage,contentadmin'
 	)

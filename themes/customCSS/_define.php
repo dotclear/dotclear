@@ -15,6 +15,6 @@ $this->registerModule(
 	/* Name */			"Custom theme",
 	/* Description*/		"A CSS customizable theme",
 	/* Author */			"Olivier",
-	/* Version */			'1.0'
+	/* Version */			'1.1'
 );
 ?>
