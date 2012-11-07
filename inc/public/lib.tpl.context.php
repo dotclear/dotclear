@@ -347,9 +347,68 @@ class context
 		if (!isset($GLOBALS['__smilies']) || !is_array($GLOBALS['__smilies'])) {
 			return $str;
 		}
-		
-		return preg_replace(array_keys($GLOBALS['__smilies']),array_values($GLOBALS['__smilies']),$str);
+
+		# Process part adapted from SmartyPants engine (J. Gruber et al.) :
+
+		$tokens = self::tokenizeHTML($str);
+		$result = '';
+		$in_pre = 0;  # Keep track of when we're inside <pre> or <code> tags.
+
+		foreach ($tokens as $cur_token) {
+			if ($cur_token[0] == "tag") {
+				# Don't mess with quotes inside tags.
+				$result .= $cur_token[1];
+				if (preg_match('@<(/?)(?:pre|code|kbd|script|math)[\s>]@', $cur_token[1], $matches)) {
+					$in_pre = isset($matches[1]) && $matches[1] == '/' ? 0 : 1;
+				}
+			} else {
+				$t = $cur_token[1];
+				if (!$in_pre) {
+					$t = preg_replace(array_keys($GLOBALS['__smilies']),array_values($GLOBALS['__smilies']),$t);
+				}
+				$result .= $t;
+			}
+		}
+
+		return $result;
 	}
+
+	private static function tokenizeHTML($str)
+	{
+		# Function from SmartyPants engine (J. Gruber et al.)
+		#
+		#   Parameter:  String containing HTML markup.
+		#   Returns:    An array of the tokens comprising the input
+		#               string. Each token is either a tag (possibly with nested,
+		#               tags contained therein, such as <a href="<MTFoo>">, or a
+		#               run of text between tags. Each element of the array is a
+		#               two-element array; the first is either 'tag' or 'text';
+		#               the second is the actual value.
+		#
+		#
+		#   Regular expression derived from the _tokenize() subroutine in 
+		#   Brad Choate's MTRegex plugin.
+		#   <http://www.bradchoate.com/past/mtregex.php>
+		#
+		$index = 0;
+		$tokens = array();
+
+		$match = '(?s:<!(?:--.*?--\s*)+>)|'.	# comment
+				 '(?s:<\?.*?\?>)|'.				# processing instruction
+												# regular tags
+				 '(?:<[/!$]?[-a-zA-Z0-9:]+\b(?>[^"\'>]+|"[^"]*"|\'[^\']*\')*>)'; 
+
+		$parts = preg_split("{($match)}", $str, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+		foreach ($parts as $part) {
+			if (++$index % 2 && $part != '') 
+				$tokens[] = array('text', $part);
+			else
+				$tokens[] = array('tag', $part);
+		}
+		return $tokens;
+	}
+
 
 	# First post image helpers
 	public static function EntryFirstImageHelper($size,$with_category,$class="",$no_tag=false,$content_only=false,$cat_only=false)
