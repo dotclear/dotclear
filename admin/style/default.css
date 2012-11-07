@@ -873,7 +873,7 @@ body.popup #footer p {
 div.error, p.error, 
 div.message, p.message, 
 div.static-msg, p.static-msg {
-	padding: 0.5em 0.5em 0.5em 40px;
+	padding: 0.5em 0.5em 0.5em 48px;
 	margin-bottom: 1em;
 	-o-border-radius: 8px;
 	-moz-border-radius: 8px;
