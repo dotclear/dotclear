@@ -1857,7 +1857,7 @@ msgid "Search engine form"
 msgstr "Formulaire de recherche"
 
 msgid "List of navigation links"
-msgstr "List des liens de navigation"
+msgstr "Liste des liens de navigation"
 
 msgid "List of selected entries"
 msgstr "Liste des billets sélectionnés"
