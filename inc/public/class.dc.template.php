@@ -2974,7 +2974,7 @@ class dcTemplate extends template
 	}
 	
 	/*dtd
-	<!ELEMENT tpl:SysIfFormError - O -- Form error -->
+	<!ELEMENT tpl:SysFormError - O -- Form error -->
 	*/
 	public function SysFormError($attr)
 	{
