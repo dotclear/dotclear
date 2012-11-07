@@ -158,7 +158,7 @@ class dcPage
 		
 		if ($core->error->flag()) {
 			echo
-			'<div class="error"><strong>'.__('Errors:').'</strong>'.
+			'<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</p></strong>'.
 			$core->error->toHTML().
 			'</div>';
 		}
