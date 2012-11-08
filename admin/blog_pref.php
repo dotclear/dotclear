@@ -98,6 +98,7 @@ $note_title_tag_combo = array(
 
 # Image title combo
 $img_title_combo = array(
+	__('(none)') => '',
 	__('Title') => 'Title ;; separator(, )',
 	__('Title, Date') => 'Title ;; Date(%b %Y) ;; separator(, )',
 	__('Title, Country, Date') => 'Title ;; Country ;; Date(%b %Y) ;; separator(, )',
