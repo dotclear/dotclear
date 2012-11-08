@@ -357,7 +357,7 @@ if ($core_media_writable)
 	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
 	__('Private').'</label></p>'.
 	'<p class="form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
-	'<a href="preferences.php?tab=user-options"> '.__('My preferences').'</a></p>'.
+	' <a href="preferences.php?tab=user-options">'.__('My preferences').'</a></p>'.
 	'<p><input type="submit" value="'.__('Send').'" />'.
 	form::hidden(array('d'),$d).'</p>'.
 	'</fieldset>'.
