@@ -199,6 +199,9 @@ msgstr "identificateur du billet/titre"
 msgid "post id"
 msgstr "identificateur du billet"
 
+msgid "(none)"
+msgstr "(aucun)"
+
 msgid "Title"
 msgstr "Titre"
 
