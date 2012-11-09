@@ -1,3 +1,28 @@
+Dotclear 2.5.0 - 201?-??-13
+===========================================================
+* Add (none) option to image insertion title pattern
+* Smileys are not more converted in image in pre,code,kbd,script and math contents
+* Notes' title can be now enclosed in h4 (default), h3 or p HTML tag
+* Now display translated name and desc of plugins
+* Add publication date validation on post and page editing forms
+* Add description to widgets
+* Add syntax color option to theme editor plugin
+* Add delete button on media item page
+* Add/complement display modes (all pages, home page only, except on home page) for all widgets
+* {{tpl:Widgets}} without type attribute set displays now all widgets (from nav, extra and custom)
+* Add {{tpl:else}}, {{tpl:TagCount}}, <tpl:TagIf>, {{tpl:CategoryEntriesCount}} template tags
+* Add cat_only, no_tag and content_only attributes to {{tpl:EntryFirstImage}} tag
+* Add capitalize attribute to template filters' list
+* Enhance links lookup anti spam filter
+* Add hidden optional attribute for pages
+* Adaptative compression rate for thumbnails generation
+* Add timestamp on admin information messages
+* Update to jQuery 1.8.2 and jQuery-UI 1.9 (custom)
+* Add default favicon.ico
+* Add default attributes settings for image,mp3,flv insertion
+* Various bug fixes
+* Various cosmetic updates and contrast adjustments
+
 Dotclear 2.4.4 - 2012-08-13
 ===========================================================
 * Bugfix: Programmed entries works again.
