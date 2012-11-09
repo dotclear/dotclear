@@ -295,6 +295,7 @@ abstract class adminItemsList implements dcFilterExtraInterface
 		$this->html_end = __('end');
 		
 		$this->nb_per_page = 10;
+		$this->page = 1;
 		
 		$this->setColumns();
 		
