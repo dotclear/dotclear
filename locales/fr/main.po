@@ -1832,7 +1832,7 @@ msgid "Dashboard modules"
 msgstr "Modules du tableau de bord"
 
 msgid "Display documentation links"
-msgstr "Display documentation links"
+msgstr "Afficher les liens vers la documentation"
 
 msgid "Display Dotclear news"
 msgstr "Afficher les nouvelles de Dotclear"
