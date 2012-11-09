@@ -77,7 +77,7 @@
 			$This = $(this);
 
 			// Add a div used for body padding
-			$This.before("<div id=\"" + config.classmodifier + "padding\">&nbsp;</div>");
+			// $This.before("<div id=\"" + config.classmodifier + "padding\">&nbsp;</div>");
 			
 			// Hide it
 			$This.hide().addClass(classModifier).css({ position: "fixed", bottom: "0px", left: "0px", width: "100%" })
