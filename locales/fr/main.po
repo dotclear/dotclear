@@ -1808,7 +1808,7 @@ msgstr "Activer l'interface avancée du gestionnaire de médias"
 
 #, fuzzy
 msgid "Hide My favorites menu"
-msgstr "Mes favoris"
+msgstr "Cacher le menu « Mes favoris »"
 
 msgid "Iconset:"
 msgstr "Jeu d'icônes :"
