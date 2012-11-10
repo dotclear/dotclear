@@ -472,7 +472,7 @@ if ($can_edit_page)
 		'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>').
 	
 	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
-	__('Hidden').'</label></p>'.
+	__('Hide').'</label></p>'.
 	'<p class="form-note">'.
 	__('If checked this page will be active but not listed in widget Pages.').
 	'</p>'.

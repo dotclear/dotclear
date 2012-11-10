@@ -1263,8 +1263,8 @@ msgstr "Ajouter des fichiers à cette page"
 msgid "hidden"
 msgstr "masquée"
 
-msgid "Hidden"
-msgstr "Masquée"
+msgid "Hide"
+msgstr "Masquer"
 
 msgid "If checked this page will be active but not listed in widget Pages."
 msgstr "Si coché cette page sera active mais non listée dans le widget Pages."
