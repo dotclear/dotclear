@@ -14,7 +14,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-$query_string = '';
 $q = !empty($_GET['q']) ? $_GET['q'] : null;
 
 $page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
