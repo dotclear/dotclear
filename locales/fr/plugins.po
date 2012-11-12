@@ -716,6 +716,9 @@ msgstr "Couleur de fond du pied de page :"
 msgid "Additional CSS"
 msgstr "Style additionnel"
 
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Styles CSS additionnels (doivent être écrits selon la syntaxe CSS) :"
+
 msgid "Configuration import / export"
 msgstr "Configuration de l'import/export"
 
