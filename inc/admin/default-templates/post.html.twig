@@ -1,0 +1,30 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+{{ parent() }}
+
+<div class="multi-part" title="{{__('Edit entry')}}" id="edit-entry">
+{% form post %}
+<div id="entry-wrapper">
+	<div id="entry-content">
+		<div class="constrained">
+			<p class="col">{{ form_field('post_title',{'class':'maximal'}) }}</p>
+			<p class="area" id="excerpt-area">{{ form_field('post_excerpt',{'rows':5,'cols':50}) }}</p>
+			<p class="area" id="content-area">{{ form_field('post_content',{'rows':edit_size,'cols':5}) }}</p>
+			<p class="area" id="notes-area">{{ form_field('post_notes',{'rows':5,'cols':50}) }}</p>
+		</div>
+	</div>
+</div>
+<div id="entry-sidebar">
+	<p>{{ form_field('cat_id')}}</p>
+	<p>{{ form_field('post_status')}}</p>
+	<p>{{ form_field('post_dt')}}</p>
+	<p>{{ form_field('post_format')}}</p>
+	<p>{{ form_field('post_open_comment')}}</p>
+	<p>{{ form_field('post_open_tb')}}</p>
+	<p>{{ form_field('post_selected')}}</p>
+	<p>{{ form_field('post_lang')}}</p>
+</div>
+{% endform %}
+</div>
+{% endblock %}

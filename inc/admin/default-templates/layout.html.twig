@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	{% block header %}
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
+	<meta name="GOOGLEBOT" content="NOSNIPPET" />
+ 	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
+	{{ page_head() }}
+	{% endblock %}
+</head>
+
+
+<body id="dotclear-admin">
+	<div id="header">
+		<ul id="prelude">
+			<li><a href="#content">{{__('To content')}}</a></li>
+			<li><a href="#main-menu">{{__('To menu')}}</a></li>
+		</ul>
+		<div id="top"><h1><a href="index.php">{{VENDOR_NAME}}</a></h1></div>
+		<div id="info-boxes">
+			<div id="info-box1">
+				<form action="index.php" method="post">
+					Blog : <strong title="http://localhost/dc23/index.php?">Mon premier blog</strong>
+					<a href="http://localhost/dc23/index.php?" onclick="window.open(this.href);return false;" 
+					title="{{ __('Go to site') }} ({{__('new window')}})">{{__('Go to site')}}<img src="images/outgoing.png" alt="" /></a>
+				</form>
+			</div>
+			<div id="info-box2">
+				<a class="active" href="index.php">{{__('My dashboard')}}</a><span> | </span>
+				<a href="preferences.php">{{__('My preferences')}}</a><span> | </span>
+				<a href="index.php?logout=1" class="logout">Déconnecter dsls <img src="images/logout.png" alt="" /></a>
+			</div>
+		</div>
+	</div>
+	<div id="wrapper">
+		<div id="main">
+			<div id="content">
+				{% block content %}
+				<h2>Mon premier blog &rsaquo; <span class="page-title"></span></h2>
+				{% endblock %}					
+			</div>
+		</div>
+		<div id="main-menu">
+			{{ page_menu() }}
+		</div>
+		<div id="footer">
+			{% block footer %}
+			<p>{{ 'Thank you for using %s.'|trans }}</p>
+			{% endblock %}
+		</div>
+	</div>
+	</body>
+</html>
