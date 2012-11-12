@@ -1272,6 +1272,9 @@ msgstr "Masquer"
 msgid "If checked this page will be active but not listed in widget Pages."
 msgstr "Si coché cette page sera active mais non listée dans le widget Pages."
 
+msgid "page"
+msgstr "page"
+
 msgid "Pings"
 msgstr "Signalements"
 

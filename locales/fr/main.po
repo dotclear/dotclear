@@ -1531,10 +1531,16 @@ msgid "Link language:"
 msgstr "Langue du lien :"
 
 msgid "Add a link to an entry"
-msgstr "Ajouter un lien vers un billet"
+msgstr "Ajouter un lien vers une entrée"
 
 msgid "Search entry:"
-msgstr "Rechercher un billet :"
+msgstr "Rechercher une entrée :"
+
+msgid "Entry type:"
+msgstr "Type d'entrées :"
+
+msgid "post"
+msgstr "billet"
 
 msgid "Search"
 msgstr "Recherche"
@@ -2318,7 +2324,7 @@ msgid "Media chooser"
 msgstr "Sélecteur de média"
 
 msgid "Link to an entry"
-msgstr "Lien vers un billet"
+msgstr "Lien vers une entrée"
 
 msgid "Activate enhanced uploader"
 msgstr "Activer l'interface avancée"
