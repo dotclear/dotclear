@@ -51,6 +51,9 @@ $__autoload['rsExtComment']			= dirname(__FILE__).'/core/class.dc.rs.extensions.
 $__autoload['rsExtDates']			= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 $__autoload['rsExtUser']				= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 
+
+$__autoload['dcAdminPage']				= dirname(__FILE__).'/admin/class.dc.adminpage.php';
+$__autoload['dcAdminContext']				= dirname(__FILE__).'/admin/class.dc.adminpage.php';
 $__autoload['dcMenu']				= dirname(__FILE__).'/admin/class.dc.menu.php';
 $__autoload['dcPage']				= dirname(__FILE__).'/admin/lib.dc.page.php';
 $__autoload['adminGenericList']		= dirname(__FILE__).'/admin/lib.pager.php';
@@ -58,10 +61,14 @@ $__autoload['adminPostList']			= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminPostMiniList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminCommentList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminUserList']			= dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['Twig_Autoloader']		= dirname(__FILE__).'/libs/twig/Autoloader.php';
+Twig_Autoloader::register();
 
 $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
 $__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';
 $__autoload['dcUrlHandlers']			= dirname(__FILE__).'/public/lib.urlhandlers.php';
+$__autoload['dcForm']			= dirname(__FILE__).'/admin/class.dc.form.php';
+$__autoload['dcFormExtension']			= dirname(__FILE__).'/admin/class.dc.form.php';
 
 # Clearbricks extensions
 html::$absolute_regs[] = '/(<param\s+name="movie"\s+value=")(.*?)(")/msu';
