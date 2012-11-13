@@ -120,6 +120,9 @@ msgstr "J'ai oublié mon mot de passe"
 msgid "I want to log in in safe mode"
 msgstr "Me connecter en mode sans échec"
 
+msgid "%d %B %Y:"
+msgstr "%d %B %Y :"
+
 msgid "New blog"
 msgstr "Nouveau blog"
 
