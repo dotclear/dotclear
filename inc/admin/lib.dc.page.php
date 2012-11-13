@@ -56,12 +56,13 @@ class dcPage
 		if ($core->auth->blog_count == 1 || $core->auth->blog_count > 20)
 		{
 			$blog_box =
-			__('Blog:').' <strong title="'.html::escapeHTML($core->blog->url).'">'.
+			'<p>'.__('Blog:').' <strong title="'.html::escapeHTML($core->blog->url).'">'.
 			html::escapeHTML($core->blog->name).'</strong>';
 			
 			if ($core->auth->blog_count > 20) {
 				$blog_box .= ' - <a href="blogs.php">'.__('Change blog').'</a>';
 			}
+			$blog_box .= '</p>';
 		}
 		else
 		{
@@ -71,12 +72,12 @@ class dcPage
 				$blogs[html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
 			}
 			$blog_box =
-			'<label for="switchblog" class="classic">'.
+			'<p><label for="switchblog" class="classic">'.
 			__('Blogs:').' '.
 			$core->formNonce().
 			form::combo('switchblog',$blogs,$core->blog->id).
-			'</label>'.
-			'<noscript><div><input type="submit" value="'.__('ok').'" /></div></noscript>';
+			'</label></p>'.
+			'<noscript><p><input type="submit" value="'.__('ok').'" /></p></noscript>';
 		}
 		
 		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
@@ -131,8 +132,8 @@ class dcPage
 		'<div id="info-box1">'.
 		'<form action="index.php" method="post">'.
 		$blog_box.
-		'<a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
-		'</form>'.
+		'<p><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
+		'</p></form>'.
 		'</div>'.
 		'<div id="info-box2">'.
 		'<a'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
