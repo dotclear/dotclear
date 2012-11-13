@@ -12,11 +12,12 @@
 			<p class="area" id="excerpt-area">{{ form_field('post_excerpt',{'rows':5,'cols':50}) }}</p>
 			<p class="area" id="content-area">{{ form_field('post_content',{'rows':edit_size,'cols':5}) }}</p>
 			<p class="area" id="notes-area">{{ form_field('post_notes',{'rows':5,'cols':50}) }}</p>
+			<p>{{ form_field('save')}} {{form_field('delete',{'class':'delete'})}}</p>
 		</div>
 	</div>
 </div>
 <div id="entry-sidebar">
-	<p>{{ form_field('cat_id')}}</p>
+	<p>{{ form_field('cat_id',{'class':'maximal'})}}</p>
 	<p>{{ form_field('post_status')}}</p>
 	<p>{{ form_field('post_dt')}}</p>
 	<p>{{ form_field('post_format')}}</p>
@@ -28,3 +29,4 @@
 {% endform %}
 </div>
 {% endblock %}
+

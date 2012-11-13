@@ -180,6 +180,7 @@ class dcAdminContext extends Twig_Extension {
 			->jsLoad('js/jquery/jquery.js')
 			->jsLoad('js/jquery/jquery.biscuit.js')
 			->jsLoad('js/jquery/jquery.bgFade.js')
+			->jsLoad('js/jquery/jquery.constantfooter.js')
 			->jsLoad('js/common.js')
 			->jsLoad('js/prelude.js');
 	}

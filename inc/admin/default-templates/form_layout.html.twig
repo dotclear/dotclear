@@ -8,6 +8,13 @@
 {% endspaceless %}
 {% endblock field_text %}
 
+{% block field_submit %}
+{% spaceless %}
+	{% set type = type|default('submit') %}
+	{{ block('field_input') }}
+{% endspaceless %}
+{% endblock field_submit %}
+
 {% block field_textarea %}
 {% spaceless %}
 	{{ block('label') }}
