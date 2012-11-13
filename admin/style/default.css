@@ -147,6 +147,10 @@ abbr {
 	background: #575859;
 	height: 2em;
 }
+#info-box1 p {
+	margin: 0;
+	display: inline;
+}
 #info-box1 select {
 	width: 15em;
 }
