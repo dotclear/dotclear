@@ -35,10 +35,10 @@ $categories_combo = array('&nbsp;' => '');
 try {
 	$categories = $core->blog->getCategories(array('post_type'=>'post'));
 	while ($categories->fetch()) {
-		$categories_combo[$categories->cat_id] = 
-			str_repeat('&nbsp;&nbsp;',$categories->level-1).
-			($categories->level-1 == 0 ? '' : '&bull; ').
-			html::escapeHTML($categories->cat_title);;
+		$categories_combo[] = new formSelectOption(
+			str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
+			$categories->cat_id
+		);
 	}
 } catch (Exception $e) { }
 
@@ -92,6 +92,8 @@ $form
 			'label'		=> __("Notes"))))
 	->addField(
 		new dcFieldSubmit('save',__('Save'),array()))
+	->addField(
+		new dcFieldSubmit('delete',__('Delete'),array()))
 	->addField(
 		new dcFieldCombo('post_status',$core->auth->getInfo('user_post_status'),$status_combo,array(
 			'disabled' => !$can_publish,
