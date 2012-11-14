@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 
 /* ------------------------------------------------------------------------------------------- */
-#  ClearBricks, DotClear classes auto-loader
+#  ClearBricks, Twig, DotClear classes auto-loader
 if (@is_dir('/usr/lib/clearbricks')) {
 	define('CLEARBRICKS_PATH','/usr/lib/clearbricks');
 } elseif (is_dir(dirname(__FILE__).'/libs/clearbricks')) {
@@ -61,8 +61,6 @@ $__autoload['adminPostList']			= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminPostMiniList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminCommentList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminUserList']			= dirname(__FILE__).'/admin/lib.pager.php';
-$__autoload['Twig_Autoloader']		= dirname(__FILE__).'/libs/twig/Autoloader.php';
-Twig_Autoloader::register();
 
 $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
 $__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';
@@ -73,6 +71,20 @@ $__autoload['dcFormExtension']			= dirname(__FILE__).'/admin/class.dc.form.php';
 # Clearbricks extensions
 html::$absolute_regs[] = '/(<param\s+name="movie"\s+value=")(.*?)(")/msu';
 html::$absolute_regs[] = '/(<param\s+name="FlashVars"\s+value=".*?(?:mp3|flv)=)(.*?)(&|")/msu';
+
+if (@is_dir('/usr/lib/twig')) {
+	define('TWIG_PATH','/usr/lib/twig');
+} elseif (is_dir(dirname(__FILE__).'/libs/twig')) {
+	define('TWIG_PATH',dirname(__FILE__).'/libs/twig');
+} elseif (isset($_SERVER['TWIG_PATH']) && is_dir($_SERVER['TWIG_PATH'])) {
+	define('TWIG_PATH',$_SERVER['TWIG_PATH']);
+}
+
+if (!defined('TWIG_PATH') || !is_dir(TWIG_PATH)) {
+	exit('No Twig path defined');
+}
+require TWIG_PATH.'/Autoloader.php';
+Twig_Autoloader::register();
 /* ------------------------------------------------------------------------------------------- */
 
 
