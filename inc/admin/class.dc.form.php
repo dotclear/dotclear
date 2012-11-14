@@ -144,7 +144,7 @@ class dcForm {
 		$this->method = $method;
 		$this->action = $action;
 		$this->fields = array();
-		$this->core->twig->getExtension('dc_form')->addForm($this);
+		$this->core->page->getExtension('dc_form')->addForm($this);
 	}
 
 	public function getName() {

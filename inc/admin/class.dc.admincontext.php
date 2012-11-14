@@ -1,6 +1,5 @@
 <?php
 
-
 class dcAdminContext extends Twig_Extension {
 	protected $loaded_js;
 	protected $js;
@@ -22,10 +21,13 @@ class dcAdminContext extends Twig_Extension {
 				$this->blogs[html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
 			}
 		}
-		$this->blog = array(
-			'url' => $core->blog->url,
-			'name' => $core->blog->name
-		);
+		$this->blog = array();
+		if ($this->core->auth->blog_count) { // no blog on auth.php
+			$this->blog = array(
+				'url' => $core->blog->url,
+				'name' => $core->blog->name
+			);
+		}
 	}
 	
 	public function jsLoad($src)
@@ -429,46 +431,4 @@ class dcAdminContext extends Twig_Extension {
 	}
 
 }
-
-class dcAdminPage {
-	protected $loader;
-	protected $twig;
-	protected $context;
-	protected $core;
-
-	public function __construct($core) {
-		$this->core = $core;
-		$this->loader = new Twig_Loader_Filesystem(dirname(__FILE__).'/default-templates');
-		files::makeDir(dirname(DC_TPL_CACHE.'/admtpl'),true);
-		$core->twig = new Twig_Environment (
-			$this->loader,
-			array(
-				'cache' => DC_TPL_CACHE.'/admtpl',
-				//'debug' => true,
-				'auto_reload' => true
-		));
-		//$core->twig->addExtension(new Twig_Extensions_Extension_Debug());
-		$core->twig->addExtension(new Twig_Extension_Optimizer(0));
-		$core->twig->addExtension(new dcFormExtension($GLOBALS['core']));
-		$this->context = new dcAdminContext($GLOBALS['core']);
-		$core->twig->addExtension($this->context);
-		$core->twig->clearCacheFiles();
-	}
-
-	public function getContext() {
-		return $this->context;
-	}
-	
-	public function getTwig() {
-		return $this->twig;
-	}
-	public function render($name,array $context = array()) {
-		$tpl = $this->core->twig->loadTemplate($name);
-		
-		return $tpl->render($context);
-
-	}
-}
-
-
 ?>

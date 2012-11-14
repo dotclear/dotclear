@@ -69,8 +69,6 @@ unset($rs);
 
 
 
-$page = new dcAdminPage($core);
-
 $form = new dcForm($core,'post','post.php');
 $form
 	->addField(
@@ -313,8 +311,7 @@ if (!empty($_GET['co'])) {
 	$default_tab = 'comments';
 }
 
-$ctx = $page->getContext();
-$ctx 
+$core->page->getContext()
 	->jsDatePicker()
 	->jsToolBar()
 	->jsModal()
@@ -323,6 +320,6 @@ $ctx
 	->jsPageTabs($default_tab)
 	->jsConfirmClose('entry-form','comment-form');
 
-echo $page->render('post.html.twig',array(
+echo $core->page->render('post.html.twig',array(
 	'edit_size'=> $core->auth->getOption('edit_size')));
 ?>
