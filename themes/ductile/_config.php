@@ -431,7 +431,7 @@ if ($core->plugins->moduleExists('simpleMenu'))
 {
 	echo '<p>'.sprintf(__('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),'plugin.php?p=simpleMenu').'</p>';
 }
-echo '<p class="field"><label for"logo_src">'.__('Logo URL:').' '.
+echo '<p class="field"><label for="logo_src">'.__('Logo URL:').' '.
 	form::field('logo_src',40,255,$ductile_user['logo_src']).'</label>'.'</p>';
 echo '</fieldset>';
 
