@@ -374,4 +374,18 @@ if ($core->auth->userID() && $core->blog !== null)
 		}
 	}
 }
+
+# Creating template context
+try {
+	$core->page = new dcTwigPage(
+		dirname(__FILE__).'/default-templates',
+		DC_TPL_CACHE.'/admtpl',
+		new dcAdminContext($core),
+		$core
+	);
+} catch (Exception $e) {
+	__error(__('Can\'t create template engine.')
+		,$e->getMessage()
+		,640);
+}
 ?>
