@@ -275,9 +275,9 @@ if ($popup)
 		
 		echo
 		'<h3>'.__('Video size').'</h3>'.
-		'<p><label for="video_w" class="classic">'.__('Width:').' '.
+		'<p><label for="video_w" class="classic">'.__('Width:').'</label> '.
 		form::field('video_w',3,4,400).'  '.
-		'<label for="video_h" class="classic">'.__('Height:').' '.
+		'<label for="video_h" class="classic">'.__('Height:').'</label> '.
 		form::field('video_h',3,4,300).
 		'</p>';
 		
