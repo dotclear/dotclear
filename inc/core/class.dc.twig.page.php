@@ -3,7 +3,7 @@
 // common to public and admin sides @see inc/admin/prepend.php
 class dcTwigPage extends Twig_Environment
 {
-	protected $core; // not in use by now
+	protected $core;
 	protected $context = null;
 	
 	public function __construct($default_tpl_dir,$cache_dir,$context,$core)
@@ -33,7 +33,7 @@ class dcTwigPage extends Twig_Environment
 		}
 		
 		# Add form helper
-		$this->addExtension(new dcFormExtension());
+		$this->addExtension(new dcFormExtension($core));
 		
 		$this->clearCacheFiles();
 	}

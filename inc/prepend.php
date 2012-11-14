@@ -52,9 +52,7 @@ $__autoload['rsExtComment']			= dirname(__FILE__).'/core/class.dc.rs.extensions.
 $__autoload['rsExtDates']			= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 $__autoload['rsExtUser']				= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 
-
-$__autoload['dcAdminPage']				= dirname(__FILE__).'/admin/class.dc.adminpage.php';
-$__autoload['dcAdminContext']				= dirname(__FILE__).'/admin/class.dc.adminpage.php';
+$__autoload['dcAdminContext']				= dirname(__FILE__).'/admin/class.dc.admincontext.php';
 $__autoload['dcMenu']				= dirname(__FILE__).'/admin/class.dc.menu.php';
 $__autoload['dcPage']				= dirname(__FILE__).'/admin/lib.dc.page.php';
 $__autoload['adminGenericList']		= dirname(__FILE__).'/admin/lib.pager.php';
@@ -86,6 +84,7 @@ if (!defined('TWIG_PATH') || !is_dir(TWIG_PATH)) {
 }
 require TWIG_PATH.'/Autoloader.php';
 Twig_Autoloader::register();
+
 /* ------------------------------------------------------------------------------------------- */
 
 
