@@ -34,6 +34,9 @@ if (!empty($_POST['del_cat']))
 			if ($c->isEmpty()) {
 				throw new Exception(__('This category does not exist.'));
 			}
+			if ($mov_cat == $_POST['del_cat']) {
+				throw new Exception(__('The entries cannot be moved to the category you choose to delete.'));
+			}
 			unset($c);
 		}
 		
@@ -184,7 +187,7 @@ if (!$rs->isEmpty())
 	'<fieldset><legend>'.__('Remove a category').'</legend>'.
 	'<p><label for="del_cat">'.__('Choose a category to remove:').' '.
 	form::combo('del_cat',$cats).'</label></p> '.
-	'<p><label for="mov_cat">'.__('Move its content to another category:').' '.
+	'<p><label for="mov_cat">'.__('And choose the category which receive its entries:').' '.
 	form::combo('mov_cat',$dest).'</label></p> '.
 	'<p><input type="submit" value="'.__('Delete').'" class="delete" /></p>'.
 	$core->formNonce().
