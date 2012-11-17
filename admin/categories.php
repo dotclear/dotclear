@@ -187,7 +187,7 @@ if (!$rs->isEmpty())
 	'<fieldset><legend>'.__('Remove a category').'</legend>'.
 	'<p><label for="del_cat">'.__('Choose a category to remove:').' '.
 	form::combo('del_cat',$cats).'</label></p> '.
-	'<p><label for="mov_cat">'.__('And choose the category which receive its entries:').' '.
+	'<p><label for="mov_cat">'.__('And choose the category which will receive its entries:').' '.
 	form::combo('mov_cat',$dest).'</label></p> '.
 	'<p><input type="submit" value="'.__('Delete').'" class="delete" /></p>'.
 	$core->formNonce().
