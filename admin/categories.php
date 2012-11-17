@@ -19,12 +19,30 @@ if (!empty($_POST['del_cat']))
 {
 	try
 	{
+		# Check if category to delete exists
 		$c = $core->blog->getCategory((integer) $_POST['del_cat']);
 		if ($c->isEmpty()) {
 			throw new Exception(__('This category does not exist.'));
 		}
 		unset($c);
+		
+		# Check if category where to move posts exists
+		$mov_cat = (integer) $_POST['mov_cat'];
+		$mov_cat = $mov_cat ? $mov_cat : null;
+		if ($mov_cat !== null) {
+			$c = $core->blog->getCategory((integer) $_POST['del_cat']);
+			if ($c->isEmpty()) {
+				throw new Exception(__('This category does not exist.'));
+			}
+			unset($c);
+		}
+		
+		# Move posts
+		$core->blog->updPostsCategory($_POST['del_cat'],$mov_cat);
+		
+		# Delete category
 		$core->blog->delCategory($_POST['del_cat']);
+		
 		http::redirect('categories.php?del=1');
 	}
 	catch (Exception $e)
@@ -142,7 +160,8 @@ $core->formNonce().
 
 if (!$rs->isEmpty())
 {
-	$deletable = array();
+	$cats = array();
+	$dest = array('&nbsp;' => '');
 	$l = $rs->level;
 	$full_name = array($rs->cat_title);
 	while ($rs->fetch())
@@ -153,24 +172,24 @@ if (!$rs->isEmpty())
 			array_pop($full_name);
 		}
 		$full_name[] = html::escapeHTML($rs->cat_title);
-		if ($rs->nb_post == 0) {
-			$deletable[implode(' / ',$full_name)] = $rs->cat_id;
-		}
+		
+		$cats[implode(' / ',$full_name)] = $rs->cat_id;
+		$dest[implode(' / ',$full_name)] = $rs->cat_id;
+		
 		$l = $rs->level;
 	}
 	
-	if (count($deletable) > 0)
-	{
-		echo
-		'<form action="categories.php" method="post" id="delete-category">'.
-		'<fieldset><legend>'.__('Remove a category').'</legend>'.
-		'<p><label for="del_cat">'.__('Choose a category to remove:').' '.
-		form::combo('del_cat',$deletable).'</label></p> '.
-		'<p><input type="submit" value="'.__('Delete').'" class="delete" /></p>'.
-		$core->formNonce().
-		'</fieldset>'.
-		'</form>';
-	}
+	echo
+	'<form action="categories.php" method="post" id="delete-category">'.
+	'<fieldset><legend>'.__('Remove a category').'</legend>'.
+	'<p><label for="del_cat">'.__('Choose a category to remove:').' '.
+	form::combo('del_cat',$cats).'</label></p> '.
+	'<p><label for="mov_cat">'.__('Move its content to another category:').' '.
+	form::combo('mov_cat',$dest).'</label></p> '.
+	'<p><input type="submit" value="'.__('Delete').'" class="delete" /></p>'.
+	$core->formNonce().
+	'</fieldset>'.
+	'</form>';
 	
 	echo
 	'<form action="categories.php" method="post" id="reset-order">'.

@@ -1338,6 +1338,33 @@ class dcBlog
 	}
 	
 	/**
+	Updates posts category. <var>$new_cat_id</var> can be null.
+	
+	@param	old_cat_id	<b>integer</b>		Old category ID
+	@param	new_cat_id	<b>integer</b>		New category ID
+	*/
+	public function updPostsCategory($old_cat_id,$new_cat_id)
+	{
+		if (!$this->core->auth->check('contentadmin,categories',$this->id)) {
+			throw new Exception(__('You are not allowed to change entries category'));
+		}
+		
+		$old_cat_id = (integer) $old_cat_id;
+		$new_cat_id = (integer) $new_cat_id;
+		
+		$cur = $this->con->openCursor($this->prefix.'post');
+		
+		$cur->cat_id = ($new_cat_id ? $new_cat_id : null);
+		$cur->post_upddt = date('Y-m-d H:i:s');
+		
+		$cur->update(
+			'WHERE cat_id = '.$old_cat_id.' '.
+			"AND blog_id = '".$this->con->escape($this->id)."' "
+		);
+		$this->triggerBlog();
+	}
+	
+	/**
 	Deletes a post.
 	
 	@param	id		<b>integer</b>		Post ID
