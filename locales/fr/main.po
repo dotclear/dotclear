@@ -643,7 +643,7 @@ msgstr "Supprimer une catégorie"
 msgid "Choose a category to remove:"
 msgstr "Choisissez une catégorie à supprimer :"
 
-msgid "And choose the category which receive its entries:"
+msgid "And choose the category which will receive its entries:"
 msgstr "Et sélectionnez la catégorie qui recevra ses (éventuels) billets :"
 
 msgid "The entries cannot be moved to the category you choose to delete."
