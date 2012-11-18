@@ -1872,7 +1872,8 @@ class dcBlog
 		}
 		
 		if (isset($params['comment_ip'])) {
-			$strReq .= "AND comment_ip = '".$this->con->escape($params['comment_ip'])."' ";
+			$comment_ip = $this->con->escape(str_replace('*','%',$params['comment_ip']));
+			$strReq .= "AND comment_ip LIKE '".$comment_ip."' ";
 		}
 		
 		if (isset($params['q_author'])) {
