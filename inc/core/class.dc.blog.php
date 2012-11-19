@@ -1222,27 +1222,31 @@ class dcBlog
 	*/
 	public function updPostStatus($id,$status)
 	{
+		$this->updPostsStatus($id,$status);
+	}
+	
+	/**
+	Updates posts status.
+	
+	@param	ids		<b>mixed</b>		Post(s) ID(s)
+	@param	status	<b>integer</b>		Post status
+	*/
+	public function updPostsStatus($ids,$status)
+	{
 		if (!$this->core->auth->check('publish,contentadmin',$this->id)) {
 			throw new Exception(__('You are not allowed to change this entry status'));
 		}
 		
-		$id = (integer) $id;
+		$posts_ids = dcUtils::cleanIds($ids);
 		$status = (integer) $status;
+		
+		$strReq = "WHERE blog_id = '".$this->con->escape($this->id)."' ".
+				"AND post_id ".$this->con->in($posts_ids);
 		
 		#If user can only publish, we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
-			$strReq = 'SELECT post_id '.
-					'FROM '.$this->prefix.'post '.
-					'WHERE post_id = '.$id.' '.
-					"AND blog_id = '".$this->con->escape($this->id)."' ".
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$rs = $this->con->select($strReq);
-			
-			if ($rs->isEmpty()) {
-				throw new Exception(__('You are not allowed to change this entry status'));
-			}
+			$strReq .= "AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 		}
 		
 		$cur = $this->con->openCursor($this->prefix.'post');
@@ -1250,36 +1254,43 @@ class dcBlog
 		$cur->post_status = $status;
 		$cur->post_upddt = date('Y-m-d H:i:s');
 		
-		$cur->update(
-			'WHERE post_id = '.$id.' '.
-			"AND blog_id = '".$this->con->escape($this->id)."' "
-			);
+		$cur->update($strReq);
 		$this->triggerBlog();
 	}
 	
+	/**
+	Updates post selection.
+	
+	@param	id		<b>integer</b>		Post ID
+	@param	selected	<b>integer</b>		Is selected post
+	*/
 	public function updPostSelected($id,$selected)
+	{
+		$this->updPostsSelected($id,$selected);
+	}
+	
+	/**
+	Updates posts selection.
+	
+	@param	ids		<b>mixed</b>		Post(s) ID(s)
+	@param	selected	<b>integer</b>		Is selected post(s)
+	*/
+	public function updPostsSelected($ids,$selected)
 	{
 		if (!$this->core->auth->check('usage,contentadmin',$this->id)) {
 			throw new Exception(__('You are not allowed to change this entry category'));
 		}
 		
-		$id = (integer) $id;
+		$posts_ids = dcUtils::cleanIds($ids);
 		$selected = (boolean) $selected;
+		
+		$strReq = "WHERE blog_id = '".$this->con->escape($this->id)."' ".
+				"AND post_id ".$this->con->in($posts_ids);
 		
 		# If user is only usage, we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
-			$strReq = 'SELECT post_id '.
-					'FROM '.$this->prefix.'post '.
-					'WHERE post_id = '.$id.' '.
-					"AND blog_id = '".$this->con->escape($this->id)."' ".
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$rs = $this->con->select($strReq);
-			
-			if ($rs->isEmpty()) {
-				throw new Exception(__('You are not allowed to mark this entry as selected'));
-			}
+			$strReq .= "AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 		}
 		
 		$cur = $this->con->openCursor($this->prefix.'post');
@@ -1287,10 +1298,7 @@ class dcBlog
 		$cur->post_selected = (integer) $selected;
 		$cur->post_upddt = date('Y-m-d H:i:s');
 		
-		$cur->update(
-			'WHERE post_id = '.$id.' '.
-			"AND blog_id = '".$this->con->escape($this->id)."' "
-		);
+		$cur->update($strReq);
 		$this->triggerBlog();
 	}
 	
@@ -1302,27 +1310,31 @@ class dcBlog
 	*/
 	public function updPostCategory($id,$cat_id)
 	{
+		$this->updPostsCategory($id,$cat_id);
+	}
+	
+	/**
+	Updates posts category. <var>$cat_id</var> can be null.
+	
+	@param	ids		<b>mixed</b>		Post(s) ID(s)
+	@param	cat_id	<b>integer</b>		Category ID
+	*/
+	public function updPostsCategory($ids,$cat_id)
+	{
 		if (!$this->core->auth->check('usage,contentadmin',$this->id)) {
 			throw new Exception(__('You are not allowed to change this entry category'));
 		}
 		
-		$id = (integer) $id;
+		$posts_ids = dcUtils::cleanIds($ids);
 		$cat_id = (integer) $cat_id;
+		
+		$strReq = "WHERE blog_id = '".$this->con->escape($this->id)."' ".
+				"AND post_id ".$this->con->in($posts_ids);
 		
 		# If user is only usage, we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
-			$strReq = 'SELECT post_id '.
-					'FROM '.$this->prefix.'post '.
-					'WHERE post_id = '.$id.' '.
-					"AND blog_id = '".$this->con->escape($this->id)."' ".
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$rs = $this->con->select($strReq);
-			
-			if ($rs->isEmpty()) {
-				throw new Exception(__('You are not allowed to change this entry category'));
-			}
+			$strReq .= "AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 		}
 		
 		$cur = $this->con->openCursor($this->prefix.'post');
@@ -1330,10 +1342,7 @@ class dcBlog
 		$cur->cat_id = ($cat_id ? $cat_id : null);
 		$cur->post_upddt = date('Y-m-d H:i:s');
 		
-		$cur->update(
-			'WHERE post_id = '.$id.' '.
-			"AND blog_id = '".$this->con->escape($this->id)."' "
-		);
+		$cur->update($strReq);
 		$this->triggerBlog();
 	}
 	
@@ -1343,7 +1352,7 @@ class dcBlog
 	@param	old_cat_id	<b>integer</b>		Old category ID
 	@param	new_cat_id	<b>integer</b>		New category ID
 	*/
-	public function updPostsCategory($old_cat_id,$new_cat_id)
+	public function changePostsCategory($old_cat_id,$new_cat_id)
 	{
 		if (!$this->core->auth->check('contentadmin,categories',$this->id)) {
 			throw new Exception(__('You are not allowed to change entries category'));
@@ -1371,36 +1380,35 @@ class dcBlog
 	*/
 	public function delPost($id)
 	{
+		$this->delPosts($id);
+	}
+	
+	/**
+	Deletes multiple posts.
+	
+	@param	ids		<b>mixed</b>		Post(s) ID(s)
+	*/
+	public function delPosts($ids)
+	{
 		if (!$this->core->auth->check('delete,contentadmin',$this->id)) {
 			throw new Exception(__('You are not allowed to delete entries'));
 		}
 		
-		$id = (integer) $id;
+		$posts_ids = dcUtils::cleanIds($ids);
 		
-		if (empty($id)) {
+		if (empty($posts_ids)) {
 			throw new Exception(__('No such entry ID'));
 		}
+		
+		$strReq = 'DELETE FROM '.$this->prefix.'post '.
+				"WHERE blog_id = '".$this->con->escape($this->id)."' ".
+				"AND post_id ".$this->con->in($posts_ids);
 		
 		#If user can only delete, we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
-			$strReq = 'SELECT post_id '.
-					'FROM '.$this->prefix.'post '.
-					'WHERE post_id = '.$id.' '.
-					"AND blog_id = '".$this->con->escape($this->id)."' ".
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$rs = $this->con->select($strReq);
-			
-			if ($rs->isEmpty()) {
-				throw new Exception(__('You are not allowed to delete this entry'));
-			}
+			$strReq .= "AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 		}
-		
-		
-		$strReq = 'DELETE FROM '.$this->prefix.'post '.
-				'WHERE post_id = '.$id.' '.
-				"AND blog_id = '".$this->con->escape($this->id)."' ";
 		
 		$this->con->execute($strReq);
 		$this->triggerBlog();
