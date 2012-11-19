@@ -73,6 +73,7 @@ catch (Exception $e)
   <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/codemirror/codemirror.css" />
   <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/codemirror.css" />
   <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/codemirror.js"></script>
+  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/multiplex.js"></script>
   <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/xml.js"></script>
   <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/javascript.js"></script>
   <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/css.js"></script>
@@ -127,8 +128,22 @@ else
 		$editorMode = (!empty($_REQUEST['css']) ? "css" : (!empty($_REQUEST['js']) ? "javascript" : "text/html"));
 		echo 
 		'<script>
+			window.CodeMirror.defineMode("dotclear", function(config) {
+				return CodeMirror.multiplexingMode(
+					CodeMirror.getMode(config, "'.$editorMode.'"),
+					{open: "{{tpl:", close: "}}",
+					 mode: CodeMirror.getMode(config, "text/plain"),
+					 delimStyle: "delimit"},
+					{open: "<tpl:", close: ">",
+					 mode: CodeMirror.getMode(config, "text/plain"),
+					 delimStyle: "delimit"},
+					{open: "</tpl:", close: ">",
+					 mode: CodeMirror.getMode(config, "text/plain"),
+					 delimStyle: "delimit"}
+					);
+			});
 	    	var editor = CodeMirror.fromTextArea(document.getElementById("file_content"), {
-	    		mode: "'.$editorMode.'",
+	    		mode: "dotclear",
 	       		tabMode: "indent",
 	       		lineWrapping: "true",
 	       		lineNumbers: "true",

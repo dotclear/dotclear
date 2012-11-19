@@ -52,7 +52,7 @@ class themeEditorBehaviors
 		echo
 		'<fieldset><legend>'.__('Theme Editor').'</legend>'.
 		
-		'<p><label for"colorsyntax" class="classic">'.
+		'<p><label for="colorsyntax" class="classic">'.
 		form::checkbox('colorsyntax',1,$core->auth->user_prefs->interface->colorsyntax).' '.
 		__('Syntax color').'</label></p>'.
 

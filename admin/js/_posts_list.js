@@ -68,6 +68,11 @@ dotclear.viewPostContent = function(img,line) {
 };
 
 $(function() {
+	// Entry type switcher
+	$('#type').change(function() {
+		this.form.submit();
+	});
+
 	$('#form-entries tr.line').each(function() {
 		dotclear.postExpander(this);
 	});

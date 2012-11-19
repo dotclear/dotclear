@@ -120,6 +120,9 @@ msgstr "J'ai oublié mon mot de passe"
 msgid "I want to log in in safe mode"
 msgstr "Me connecter en mode sans échec"
 
+msgid "%d %B %Y:"
+msgstr "%d %B %Y :"
+
 msgid "New blog"
 msgstr "Nouveau blog"
 
@@ -639,6 +642,12 @@ msgstr "Supprimer une catégorie"
 
 msgid "Choose a category to remove:"
 msgstr "Choisissez une catégorie à supprimer :"
+
+msgid "And choose the category which will receive its entries:"
+msgstr "Et sélectionnez la catégorie qui recevra ses (éventuels) billets :"
+
+msgid "The entries cannot be moved to the category you choose to delete."
+msgstr "Vous ne pouvez déplacer les billets vers la catégorie que vous voulez supprimer."
 
 msgid "Delete"
 msgstr "Supprimer"
@@ -1531,10 +1540,16 @@ msgid "Link language:"
 msgstr "Langue du lien :"
 
 msgid "Add a link to an entry"
-msgstr "Ajouter un lien vers un billet"
+msgstr "Ajouter un lien vers une entrée"
 
 msgid "Search entry:"
-msgstr "Rechercher un billet :"
+msgstr "Rechercher une entrée :"
+
+msgid "Entry type:"
+msgstr "Type d'entrées :"
+
+msgid "post"
+msgstr "billet"
 
 msgid "Search"
 msgstr "Recherche"
@@ -1808,7 +1823,7 @@ msgstr "Activer l'interface avancée du gestionnaire de médias"
 
 #, fuzzy
 msgid "Hide My favorites menu"
-msgstr "Mes favoris"
+msgstr "Cacher le menu « Mes favoris »"
 
 msgid "Iconset:"
 msgstr "Jeu d'icônes :"
@@ -2318,7 +2333,7 @@ msgid "Media chooser"
 msgstr "Sélecteur de média"
 
 msgid "Link to an entry"
-msgstr "Lien vers un billet"
+msgstr "Lien vers une entrée"
 
 msgid "Activate enhanced uploader"
 msgstr "Activer l'interface avancée"
