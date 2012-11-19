@@ -308,7 +308,7 @@ while ($rs->fetch())
 echo
 '<div class="multi-part clear" id="add-link" title="'.__('Add a link').'">'.
 '<form action="plugin.php" method="post" id="add-link-form">'.
-'<fieldset class="two-cols"><legend>'.__('Add a new link').'</legend>'.
+'<fieldset><legend>'.__('Add a new link').'</legend>'.
 '<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
 form::field('link_title',30,255,$link_title).
 '</label></p>'.

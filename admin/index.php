@@ -155,18 +155,18 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 			$i = 1;
 			foreach ($feed->items as $item)
 			{
-				$dt = isset($item->link) ? '<a href="'.$item->link.'"'.$v.'" title="'.$item->title.' '.__('(external link)').'">'.
+				$dt = isset($item->link) ? '<a href="'.$item->link.'" title="'.$item->title.' '.__('(external link)').'">'.
 					$item->title.'</a>' : $item->title;
 			
 				if ($i < 3) {
 					$latest_news .=
 					'<dt>'.$dt.'</dt>'.
-					'<dd><p><strong>'.dt::dt2str('%d %B %Y',$item->pubdate,'Europe/Paris').'</strong>: '.
+					'<dd><p><strong>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</strong> '.
 					'<em>'.text::cutString(html::clean($item->content),120).'...</em></p></dd>';
 				} else {
 					$latest_news .=
 					'<dt>'.$dt.'</dt>'.
-					'<dd>'.dt::dt2str('%d %B %Y',$item->pubdate,'Europe/Paris').'</dd>';
+					'<dd>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</dd>';
 				}
 				$i++;
 				if ($i > 3) { break; }

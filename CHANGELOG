@@ -1,5 +1,6 @@
 Dotclear 2.5.0 - 201?-??-13
 ===========================================================
+* Every types of entries may be used to inserted an entry link in current edited post
 * Add (none) option to image insertion title pattern
 * Smileys are not more converted in image in pre,code,kbd,script and math contents
 * Notes' title can be now enclosed in h4 (default), h3 or p HTML tag
