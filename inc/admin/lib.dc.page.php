@@ -399,9 +399,9 @@ class dcPage
 		"//<![CDATA[\n".
 		self::jsVar('dotclear.nonce',$GLOBALS['core']->getNonce()).
 		
-		self::jsVar('dotclear.img_plus_src','images/plus.png').
+		self::jsVar('dotclear.img_plus_src','images/expand.png').
 		self::jsVar('dotclear.img_plus_alt',__('uncover')).
-		self::jsVar('dotclear.img_minus_src','images/minus.png').
+		self::jsVar('dotclear.img_minus_src','images/hide.png').
 		self::jsVar('dotclear.img_minus_alt',__('hide')).
 		self::jsVar('dotclear.img_menu_on','images/menu_on.png').
 		self::jsVar('dotclear.img_menu_off','images/menu_off.png').
