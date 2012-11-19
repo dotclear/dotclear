@@ -41,7 +41,7 @@ if (!empty($_POST['del_cat']))
 		}
 		
 		# Move posts
-		$core->blog->updPostsCategory($_POST['del_cat'],$mov_cat);
+		$core->blog->changePostsCategory($_POST['del_cat'],$mov_cat);
 		
 		# Delete category
 		$core->blog->delCategory($_POST['del_cat']);
