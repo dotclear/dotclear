@@ -58,6 +58,11 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	
 	$posts = $core->blog->getPosts($params);
 	
+	$posts_ids = array();
+	while ($posts->fetch())	{
+		$posts_ids[] = $posts->post_id;
+	}
+	
 	# --BEHAVIOR-- adminPostsActions
 	$core->callBehavior('adminPostsActions',$core,$posts,$action,$redir);
 	
@@ -72,9 +77,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 		
 		try
 		{
-			while ($posts->fetch()) {
-				$core->blog->updPostStatus($posts->post_id,$status);
-			}
+			$core->blog->updPostsStatus($posts_ids,$status);
 			
 			http::redirect($redir);
 		}
@@ -87,9 +90,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	{
 		try
 		{
-			while ($posts->fetch()) {
-				$core->blog->updPostSelected($posts->post_id,$action == 'selected');
-			}
+			$core->blog->updPostsSelected($posts_ids,$action == 'selected');
 			
 			http::redirect($redir);
 		}
@@ -102,11 +103,17 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	{
 		try
 		{
-			while ($posts->fetch()) {
+			// Backward compatibility
+			foreach($posts_ids as $post_id)
+			{
 				# --BEHAVIOR-- adminBeforePostDelete
-				$core->callBehavior('adminBeforePostDelete',$posts->post_id);				
-				$core->blog->delPost($posts->post_id);
+				$core->callBehavior('adminBeforePostDelete',(integer) $post_id);
 			}
+			
+			# --BEHAVIOR-- adminBeforePostsDelete
+			$core->callBehavior('adminBeforePostsDelete',$posts_ids);
+			
+			$core->blog->delPosts($posts_ids);
 			
 			http::redirect($redir);
 		}
@@ -120,11 +127,8 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	{
 		try
 		{
-			while ($posts->fetch())
-			{
-				$new_cat_id = (integer) $_POST['new_cat_id'];
-				$core->blog->updPostCategory($posts->post_id,$new_cat_id);
-			}
+			$core->blog->updPostsCategory($posts_ids,$_POST['new_cat_id']);
+			
 			http::redirect($redir);
 		}
 		catch (Exception $e)
@@ -143,12 +147,9 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 				throw new Exception(__('This user does not exist'));
 			}
 			
-			while ($posts->fetch())
-			{
-				$cur = $core->con->openCursor($core->prefix.'post');
-				$cur->user_id = $new_user_id;
-				$cur->update('WHERE post_id = '.(integer) $posts->post_id);
-			}
+			$cur = $core->con->openCursor($core->prefix.'post');
+			$cur->user_id = $new_user_id;
+			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
 			
 			http::redirect($redir);
 		}
