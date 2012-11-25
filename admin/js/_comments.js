@@ -12,6 +12,35 @@ dotclear.commentExpander = function(line) {
 	td.insertBefore(img,td.firstChild);
 };
 
+dotclear.commentsExpander = function(line) {
+	var td = line.firstChild;
+	
+	var img = document.createElement('img');
+	img.src = dotclear.img_plus_src;
+	img.alt = dotclear.img_plus_alt;
+	img.className = 'expand';
+	$(img).css('cursor','pointer');
+	img.line = line;
+	img.onclick = function() { dotclear.viewCommentsContent(this,this.line); };
+	
+	td.insertBefore(img,td.firstChild);
+};
+
+dotclear.viewCommentsContent = function(img,line) {
+	$('#form-comments tr.line').each(function() {
+		var td = this.firstChild;
+		td.firstChild.click();
+	});
+
+	if (img.alt == dotclear.img_plus_alt) {
+		img.src = dotclear.img_minus_src;
+		img.alt = dotclear.img_minus_alt;
+	} else {
+		img.src = dotclear.img_plus_src;
+		img.alt = dotclear.img_plus_alt;
+	}
+};
+
 dotclear.viewCommentContent = function(img,line) {
 	var commentId = line.id.substr(1);
 	
@@ -74,6 +103,9 @@ dotclear.viewCommentContent = function(img,line) {
 };
 
 $(function() {
+	$('#form-comments tr:not(.line)').each(function() {
+		dotclear.commentsExpander(this);
+	});
 	$('#form-comments tr.line').each(function() {
 		dotclear.commentExpander(this);
 	});
