@@ -162,8 +162,28 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 
 /* DISPLAY
 -------------------------------------------------------- */
+// Get current users list
+$usersList = '';
+if ($action == 'author' && $core->auth->check('admin',$core->blog->id)) {
+	$params = array(
+		'limit' => 100,
+		'order' => 'nb_post DESC'
+		);
+	$rs = $core->getUsers($params);
+	while ($rs->fetch())
+	{
+		$usersList .= ($usersList != '' ? ',' : '').'"'.$rs->user_id.'"';
+	}
+}
 dcPage::open(
 	__('Entries'),
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA[\n".
+	'usersList = ['.$usersList.']'."\n".
+	"\n//]]>\n".
+	"</script>\n".
+	dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
+	dcPage::jsLoad('js/_posts_actions.js').
 	dcPage::jsMetaEditor().
 	# --BEHAVIOR-- adminBeforePostDelete
 	$core->callBehavior('adminPostsActionsHeaders')
