@@ -51,6 +51,11 @@ if (!empty($_POST['action']) && !empty($_POST['comments']))
 	
 	$co = $core->blog->getComments($params);
 	
+	$co_ids = array();
+	while ($co->fetch())	{
+		$co_ids[] = $co->comment_id;
+	}
+	
 	# --BEHAVIOR-- adminCommentsActions
 	$core->callBehavior('adminCommentsActions',$core,$co,$action,$redir);
 	
@@ -63,13 +68,10 @@ if (!empty($_POST['action']) && !empty($_POST['comments']))
 			default : $status = 1; break;
 		}
 		
-		while ($co->fetch())
-		{
-			try {
-				$core->blog->updCommentStatus($co->comment_id,$status);
-			} catch (Exception $e) {
-				$core->error->add($e->getMessage());
-			}
+		try {
+			$core->blog->updCommentsStatus($co_ids,$status);
+		} catch (Exception $e) {
+			$core->error->add($e->getMessage());
 		}
 		
 		if (!$core->error->flag()) {
@@ -78,16 +80,20 @@ if (!empty($_POST['action']) && !empty($_POST['comments']))
 	}
 	elseif ($action == 'delete')
 	{
-		while ($co->fetch())
-		{
-			try {
+		try {
+			// Backward compatibility
+			foreach($co_ids as $comment_id)
+			{
 				# --BEHAVIOR-- adminBeforeCommentDelete
-				$core->callBehavior('adminBeforeCommentDelete',$co->comment_id);				
-				
-				$core->blog->delComment($co->comment_id);
-			} catch (Exception $e) {
-				$core->error->add($e->getMessage());
+				$core->callBehavior('adminBeforeCommentDelete',$comment_id);				
 			}
+			
+			# --BEHAVIOR-- adminBeforeCommentsDelete
+			$core->callBehavior('adminBeforeCommentsDelete',$co_ids);
+			
+			$core->blog->delComments($co_ids);
+		} catch (Exception $e) {
+			$core->error->add($e->getMessage());
 		}
 		
 		if (!$core->error->flag()) {
