@@ -7,12 +7,12 @@ dotclear.postExpander = function(line) {
 	img.className = 'expand';
 	$(img).css('cursor','pointer');
 	img.line = line;
-	img.onclick = function() { dotclear.viewPostContent(this,this.line); positionFooter(); };
+	img.onclick = function() { dotclear.viewPostContent(this,this.line); };
 	
 	td.insertBefore(img,td.firstChild);
 };
 
-dotclear.postsExpander = function(line) {
+dotclear.postsExpander = function(line,lines) {
 	var td = line.firstChild;
 
 	var img = document.createElement('img');
@@ -20,14 +20,14 @@ dotclear.postsExpander = function(line) {
 	img.alt = dotclear.img_plus_alt;
 	img.className = 'expand';
 	$(img).css('cursor','pointer');
-	img.line = line;
-	img.onclick = function() { dotclear.viewPostsContent(this,this.line); };
+	img.lines = lines;
+	img.onclick = function() { dotclear.viewPostsContent(this,this.lines); };
 
 	td.insertBefore(img,td.firstChild);
 };
 
-dotclear.viewPostsContent = function(img,line) {
-	$('#form-entries tr.line').each(function() {
+dotclear.viewPostsContent = function(img,lines) {
+	lines.each(function() {
 		var td = this.firstChild;
 		td.firstChild.click();
 	});
@@ -103,7 +103,7 @@ $(function() {
 	});
 
 	$('#form-entries tr:not(.line)').each(function() {
-		dotclear.postsExpander(this);
+		dotclear.postsExpander(this,$('#form-entries tr.line'));
 	});
 	$('#form-entries tr.line').each(function() {
 		dotclear.postExpander(this);
