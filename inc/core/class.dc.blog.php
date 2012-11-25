@@ -193,42 +193,87 @@ class dcBlog
 	*/
 	public function triggerComment($id,$del=false)
 	{
-		$id = (integer) $id;
+		$this->triggerComments($id,$del);
+	}
+	
+	/**
+	Updates comments and trackbacks counters in post table. Should be called
+	every time comments or trackbacks are added, removed or changed there status.
+	
+	@param	ids		<b>mixed</b>		Comment(s) ID(s)
+	@param	del		<b>boolean</b>		If comment is delete, set this to true
+	*/
+	public function triggerComments($ids,$del=false)
+	{
+		$co_ids = dcUtils::cleanIds($ids);
 		
-		$strReq = 'SELECT post_id, comment_trackback '.
-				'FROM '.$this->prefix.'comment '.
-				'WHERE comment_id = '.$id.' ';
+		# a) Retrieve posts affected by comments edition
+		$strReq = 
+			'SELECT post_id, comment_trackback '.
+			'FROM '.$this->prefix.'comment '.
+			'WHERE comment_id'.$this->con->in($co_ids).
+			'GROUP BY post_id,comment_trackback';
 		
 		$rs = $this->con->select($strReq);
 		
-		$post_id = $rs->post_id;
-		$tb = (boolean) $rs->comment_trackback;
+		$a_ids = $a_tbs = array();
+		while ($rs->fetch()) {
+			$a_ids[] = (integer) $rs->post_id;
+			$a_tbs[] = (integer) $rs->comment_trackback;
+		}
 		
-		$strReq = 'SELECT COUNT(post_id) '.
-				'FROM '.$this->prefix.'comment '.
-				'WHERE post_id = '.(integer) $post_id.' '.
-				'AND comment_trackback = '.(integer) $tb.' '.
-				'AND comment_status = 1 ';
+		# b) Count comments of each posts previously retrieved
+		# Note that this does not return posts without comment
+		$strReq = 
+			'SELECT post_id, COUNT(post_id) AS nb_comment,comment_trackback '.
+			'FROM '.$this->prefix.'comment '.
+			'WHERE post_id'.$this->con->in($a_ids).
+			'AND comment_status = 1 ';
 		
 		if ($del) {
-			$strReq .= 'AND comment_id <> '.$id.' ';
+			$strReq .= 
+				'AND comment_id NOT'.$this->con->in($co_ids);
 		}
+		
+		$strReq .= 
+			'GROUP BY post_id,comment_trackback';
 		
 		$rs = $this->con->select($strReq);
 		
+		$b_ids = $b_tbs = $b_nbs = array();
+		while ($rs->fetch()) {
+			$b_ids[] = (integer) $rs->post_id;
+			$b_tbs[] = (integer) $rs->comment_trackback;
+			$b_nbs[] = (integer) $rs->nb_comment;
+		}
+		
+		# c) Update comments numbers on posts
+		# This compare previous requests to update also posts without comment
 		$cur = $this->con->openCursor($this->prefix.'post');
 		
-		if ($rs->isEmpty()) {
-			return;
+		foreach($a_ids as $a_key => $a_id)
+		{
+			$nb_comment = $nb_trackback = 0;
+			foreach($b_ids as $b_key => $b_id)
+			{
+				if ($a_id != $b_id || $a_tbs[$a_key] != $b_tbs[$b_key]) {
+					continue;
+				}
+				
+				if ($b_tbs[$b_key]) {
+					$nb_trackback = $b_nbs[$b_key];
+				} else {
+					$nb_comment = $b_nbs[$b_key];
+				}
+			}
+			
+			if ($a_tbs[$a_key]) {
+				$cur->nb_trackback = $nb_trackback;
+			} else {
+				$cur->nb_comment = $nb_comment;
+			}
+			$cur->update('WHERE post_id = '.$a_id);
 		}
-		
-		if ($tb) {
-			$cur->nb_trackback = (integer) $rs->f(0);
-		} else {
-			$cur->nb_comment = (integer) $rs->f(0);
-		}
-		
-		$cur->update('WHERE post_id = '.(integer) $post_id);
 	}
 	//@}
 	
@@ -2108,10 +2153,7 @@ class dcBlog
 		}
 		
 		$this->con->execute($strReq);
-		
-		foreach($co_ids as $id) {
-			$this->triggerComment($id);
-		}
+		$this->triggerComments($co_ids);
 		$this->triggerBlog();
 	}
 	
@@ -2169,10 +2211,7 @@ class dcBlog
 		}
 		
 		$this->con->execute($strReq);
-		
-		foreach($co_ids as $id) {
-			$this->triggerComment($id,true);
-		}
+		$this->triggerComments($co_ids,true);
 		$this->triggerBlog();
 	}
 	
