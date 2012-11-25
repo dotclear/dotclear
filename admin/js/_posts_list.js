@@ -12,6 +12,35 @@ dotclear.postExpander = function(line) {
 	td.insertBefore(img,td.firstChild);
 };
 
+dotclear.postsExpander = function(line) {
+	var td = line.firstChild;
+
+	var img = document.createElement('img');
+	img.src = dotclear.img_plus_src;
+	img.alt = dotclear.img_plus_alt;
+	img.className = 'expand';
+	$(img).css('cursor','pointer');
+	img.line = line;
+	img.onclick = function() { dotclear.viewPostsContent(this,this.line); };
+
+	td.insertBefore(img,td.firstChild);
+};
+
+dotclear.viewPostsContent = function(img,line) {
+	$('#form-entries tr.line').each(function() {
+		var td = this.firstChild;
+		td.firstChild.click();
+	});
+
+	if (img.alt == dotclear.img_plus_alt) {
+		img.src = dotclear.img_minus_src;
+		img.alt = dotclear.img_minus_alt;
+	} else {
+		img.src = dotclear.img_plus_src;
+		img.alt = dotclear.img_plus_alt;
+	}
+};
+
 dotclear.viewPostContent = function(img,line) {
 	var postId = line.id.substr(1);
 	var tr = document.getElementById('pe'+postId);
@@ -73,6 +102,9 @@ $(function() {
 		this.form.submit();
 	});
 
+	$('#form-entries tr:not(.line)').each(function() {
+		dotclear.postsExpander(this);
+	});
 	$('#form-entries tr.line').each(function() {
 		dotclear.postExpander(this);
 	});
