@@ -12,7 +12,7 @@ dotclear.commentExpander = function(line) {
 	td.insertBefore(img,td.firstChild);
 };
 
-dotclear.commentsExpander = function(line) {
+dotclear.commentsExpander = function(line,lines) {
 	var td = line.firstChild;
 	
 	var img = document.createElement('img');
@@ -20,14 +20,14 @@ dotclear.commentsExpander = function(line) {
 	img.alt = dotclear.img_plus_alt;
 	img.className = 'expand';
 	$(img).css('cursor','pointer');
-	img.line = line;
-	img.onclick = function() { dotclear.viewCommentsContent(this,this.line); };
+	img.lines = lines;
+	img.onclick = function() { dotclear.viewCommentsContent(this,this.lines); };
 	
 	td.insertBefore(img,td.firstChild);
 };
 
-dotclear.viewCommentsContent = function(img,line) {
-	$('#form-comments tr.line').each(function() {
+dotclear.viewCommentsContent = function(img,lines) {
+	lines.each(function() {
 		var td = this.firstChild;
 		td.firstChild.click();
 	});
@@ -104,7 +104,7 @@ dotclear.viewCommentContent = function(img,line) {
 
 $(function() {
 	$('#form-comments tr:not(.line)').each(function() {
-		dotclear.commentsExpander(this);
+		dotclear.commentsExpander(this,$('#form-comments tr.line'));
 	});
 	$('#form-comments tr.line').each(function() {
 		dotclear.commentExpander(this);
