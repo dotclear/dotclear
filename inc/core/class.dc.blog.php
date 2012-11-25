@@ -2054,13 +2054,65 @@ class dcBlog
 	*/
 	public function updCommentStatus($id,$status)
 	{
+		$this->updCommentsStatus($id,$status);
+	}
+	
+	/**
+	Updates comments status.
+	
+	@param	ids		<b>mixed</b>		Comment(s) ID(s)
+	@param	status	<b>integer</b>		Comment status
+	*/
+	public function updCommentsStatus($ids,$status)
+	{
 		if (!$this->core->auth->check('publish,contentadmin',$this->id)) {
 			throw new Exception(__("You are not allowed to change this comment's status"));
 		}
 		
-		$cur = $this->con->openCursor($this->prefix.'comment');
-		$cur->comment_status = (integer) $status;
-		$this->updComment($id,$cur);
+		$co_ids = dcUtils::cleanIds($ids);
+		$status = (integer) $status;
+		
+		$strReq = 
+			'UPDATE '.$this->prefix.'comment tc ';
+		
+		# mySQL uses "JOIN" synthax
+		if ($this->con->driver() == 'mysql') {
+			$strReq .= 
+				'JOIN '.$this->prefix.'post tp ON tc.post_id = tp.post_id ';
+		}
+		
+		$strReq .= 
+			'SET comment_status = '.$status.' ';
+		
+		# pgSQL uses "FROM" synthax
+		if ($this->con->driver() != 'mysql') {
+			$strReq .= 
+				'FROM '.$this->prefix.'post tp ';
+		}
+		
+		$strReq .=
+			"WHERE blog_id = '".$this->con->escape($this->id)."' ".
+			'AND comment_id'.$this->con->in($co_ids);
+		
+		# add pgSQL "WHERE" clause
+		if ($this->con->driver() != 'mysql') {
+			$strReq .= 
+				'AND tc.post_id = tp.post_id ';
+		}
+		
+		#If user is only usage, we need to check the post's owner
+		if (!$this->core->auth->check('contentadmin',$this->id))
+		{
+			$strReq .= 
+				"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
+		}
+		
+		$this->con->execute($strReq);
+		
+		foreach($co_ids as $id) {
+			$this->triggerComment($id);
+		}
+		$this->triggerBlog();
 	}
 	
 	/**
@@ -2070,38 +2122,57 @@ class dcBlog
 	*/
 	public function delComment($id)
 	{
+		$this->delComments($id);
+	}
+	
+	/**
+	Delete comments
+	
+	@param	ids		<b>mixed</b>		Comment(s) ID(s)
+	*/
+	public function delComments($ids)
+	{
 		if (!$this->core->auth->check('delete,contentadmin',$this->id)) {
 			throw new Exception(__('You are not allowed to delete comments'));
 		}
 		
-		$id = (integer) $id;
+		$co_ids = dcUtils::cleanIds($ids);
 		
-		if (empty($id)) {
+		if (empty($ids)) {
 			throw new Exception(__('No such comment ID'));
 		}
+		
+		# mySQL uses "INNER JOIN" synthax
+		if ($this->con->driver() == 'mysql') {
+			$strReq = 
+				'DELETE FROM tc '.
+				'USING '.$this->prefix.'comment tc '.
+				'INNER JOIN '.$this->prefix.'post tp ';
+		}
+		# pgSQL uses nothing special
+		else {
+			$strReq = 
+				'DELETE FROM '.$this->prefix.'comment tc '.
+				'USING '.$this->prefix.'post tp ';
+		}
+		
+		$strReq .= 
+			'WHERE tc.post_id = tp.post_id '.
+			"AND tp.blog_id = '".$this->con->escape($this->id)."' ".
+			'AND comment_id'.$this->con->in($co_ids);
 		
 		#If user can only delete, we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
-			$strReq = 'SELECT P.post_id '.
-					'FROM '.$this->prefix.'post P, '.$this->prefix.'comment C '.
-					'WHERE P.post_id = C.post_id '.
-					"AND P.blog_id = '".$this->con->escape($this->id)."' ".
-					'AND comment_id = '.$id.' '.
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$rs = $this->con->select($strReq);
-			
-			if ($rs->isEmpty()) {
-				throw new Exception(__('You are not allowed to delete this comment'));
-			}
+			$strReq .= 
+				"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 		}
 		
-		$strReq = 'DELETE FROM '.$this->prefix.'comment '.
-				'WHERE comment_id = '.$id.' ';
-		
-		$this->triggerComment($id,true);
 		$this->con->execute($strReq);
+		
+		foreach($co_ids as $id) {
+			$this->triggerComment($id,true);
+		}
 		$this->triggerBlog();
 	}
 	
