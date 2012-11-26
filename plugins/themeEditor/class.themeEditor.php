@@ -242,13 +242,13 @@ class dcThemeEditor
 		$langs = l10n::getISOcodes(1,1);
 		foreach ($langs as $k => $v) {
 			if ($this->parent_theme) {
-				$this->po = array_merge($this->po,$this->getFilesInDir($this->parent_theme.'/locales/'.$v,'po',$v.'/'));
+				$this->po = array_merge($this->po,$this->getFilesInDir($this->parent_theme.'/locales/'.$v,'po',$v.'/','main.po'));
 			}
-			$this->po = array_merge($this->po,$this->getFilesInDir($this->user_theme.'/locales/'.$v,'po',$v.'/'));
+			$this->po = array_merge($this->po,$this->getFilesInDir($this->user_theme.'/locales/'.$v,'po',$v.'/','main.po'));
 		}
 	}
 	
-	protected function getFilesInDir($dir,$ext=null,$prefix='')
+	protected function getFilesInDir($dir,$ext=null,$prefix='',$model=null)
 	{
 		$dir = path::real($dir);
 		if (!$dir || !is_dir($dir) || !is_readable($dir)) {
@@ -260,7 +260,9 @@ class dcThemeEditor
 		while (($f = $d->read()) !== false)
 		{
 			if (is_file($dir.'/'.$f) && !preg_match('/^\./',$f) && (!$ext || preg_match('/\.'.preg_quote($ext).'$/i',$f))) {
-				$res[$prefix.$f] = $dir.'/'.$f;
+				if (!$model || preg_match('/^'.preg_quote($model).'$/i', $f)) {
+					$res[$prefix.$f] = $dir.'/'.$f;
+				}
 			}
 		}
 		
