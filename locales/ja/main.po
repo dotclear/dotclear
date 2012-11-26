@@ -2331,10 +2331,10 @@ msgstr "メディアセレクタ"
 msgid "Link to an entry"
 msgstr "エントリへのリンク"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "拡張アップローダを有効化"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "拡張アップローダを無効化"
 
 msgid "File successfully uploaded."

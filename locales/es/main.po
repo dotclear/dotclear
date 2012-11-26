@@ -2322,10 +2322,10 @@ msgstr "Selector de elementos multimedia"
 msgid "Link to an entry"
 msgstr "Enlace a una entrada"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Activar la interfaz avanzada"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Inhabilitar la interfaz avanzada"
 
 msgid "File successfully uploaded."

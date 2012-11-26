@@ -2308,10 +2308,10 @@ msgstr "媒体选择"
 msgid "Link to an entry"
 msgstr "链接到一篇文章"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "激活增强的上传工具"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "禁用增强的上传工具"
 
 msgid "File successfully uploaded."

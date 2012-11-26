@@ -2302,10 +2302,10 @@ msgstr "Medienauswahl"
 msgid "Link to an entry"
 msgstr "Link zu einen Blog-Eintrag"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Erweiterten Uploader starten"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Erweiterten Uploader abschalten"
 
 msgid "File successfully uploaded."

@@ -686,8 +686,8 @@ class dcPage
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		"dotclear.candyUpload = {};\n".
-		self::jsVar('dotclear.msg.activate_enhanced_uploader',__('Activate enhanced uploader')).
-		self::jsVar('dotclear.msg.disable_enhanced_uploader',__('Disable enhanced uploader')).
+		self::jsVar('dotclear.msg.activate_enhanced_uploader',__('Temporarily activate enhanced uploader')).
+		self::jsVar('dotclear.msg.disable_enhanced_uploader',__('Temporarily disable enhanced uploader')).
 		self::jsVar('$._candyUpload.prototype.locales.file_uploaded',__('File successfully uploaded.')).
 		self::jsVar('$._candyUpload.prototype.locales.max_file_size',__('Maximum file size allowed:')).
 		self::jsVar('$._candyUpload.prototype.locales.limit_exceeded',__('Limit exceeded.')).

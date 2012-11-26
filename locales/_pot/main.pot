@@ -3137,11 +3137,11 @@ msgid "Link to an entry"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:688
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:689
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:690
