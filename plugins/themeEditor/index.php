@@ -35,6 +35,8 @@ try
 			$file = $o->getFileContent('css',$_REQUEST['css']);
 		} elseif (!empty($_REQUEST['js'])) {
 			$file = $o->getFileContent('js',$_REQUEST['js']);
+		} elseif (!empty($_REQUEST['po'])) {
+			$file = $o->getFileContent('po',$_REQUEST['po']);
 		}
 	}
 	catch (Exception $e)
@@ -125,7 +127,10 @@ else
 	'</fieldset></form>';
 
 	if ($user_ui_colorsyntax) {
-		$editorMode = (!empty($_REQUEST['css']) ? "css" : (!empty($_REQUEST['js']) ? "javascript" : "text/html"));
+		$editorMode = 
+			(!empty($_REQUEST['css']) ? "css" :
+			(!empty($_REQUEST['js']) ? "javascript" :
+			(!empty($_REQUEST['po']) ? "text/plain" : "text/html")));
 		echo 
 		'<script>
 			window.CodeMirror.defineMode("dotclear", function(config) {
@@ -165,6 +170,9 @@ else
 
 <h3><?php echo __('JavaScript files'); ?></h3>
 <?php echo $o->filesList('js','<a href="'.$p_url.'&amp;js=%2$s" class="js-link">%1$s</a>'); ?>
+
+<h3><?php echo __('Locales files'); ?></h3>
+<?php echo $o->filesList('po','<a href="'.$p_url.'&amp;po=%2$s" class="po-link">%1$s</a>'); ?>
 </div>
 
 <?php dcPage::helpBlock('themeEditor'); ?>

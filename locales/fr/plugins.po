@@ -1620,6 +1620,9 @@ msgstr "Fichiers CSS"
 msgid "JavaScript files"
 msgstr "Fichiers JavaScript"
 
+msgid "Locales files"
+msgstr "Fichiers de traduction"
+
 msgid "user:preferences"
 msgstr "user:preferences"
 
