@@ -338,7 +338,7 @@ if ($popup)
 
 echo
 '<div class="multi-part" title="'.__('Media details').'" id="media-details-tab">'.
-'<p id="media-icon"><img src="'.$file->media_icon.'" alt="" /></p>';
+'<p id="media-icon"><img src="'.$file->media_icon.'?'.time()*rand().'" alt="" /></p>';
 
 echo
 '<div id="media-details">';
@@ -362,12 +362,12 @@ if ($file->media_image)
 	echo '</p>';
 	
 	if (isset($file->media_thumb[$thumb_size])) {
-		echo '<p><img src="'.$file->media_thumb[$thumb_size].'" alt="" /></p>';
+		echo '<p><img src="'.$file->media_thumb[$thumb_size].'?'.time()*rand().'" alt="" /></p>';
 	} elseif ($thumb_size == 'o') {
 		$S = getimagesize($file->file);
 		$class = ($S[1] > 500) ? ' class="overheight"' : '';
 		unset($S);
-		echo '<p id="media-original-image"'.$class.'><img src="'.$file->file_url.'" alt="" /></p>';
+		echo '<p id="media-original-image"'.$class.'><img src="'.$file->file_url.'?'.time()*rand().'" alt="" /></p>';
 	}
 }
 
