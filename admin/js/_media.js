@@ -16,7 +16,12 @@ $(function() {
 	}
 	
 	if (!$.browser.opera) {
-		if (dotclear.candyUpload_force_init == '1') {
+		var upldr = $('<a href="#" id="cu-enable">' + dotclear.msg.activate_enhanced_uploader + '</a>').click( function() {
+			candyUploadInit();
+			return false;
+		});
+		$('#media-upload').append($('<div></div>').append(upldr));
+		if ((dotclear.candyUpload_force_init == '1') || (($.cookie('dc_candy_upl') == 1))) {
 			candyUploadInit();
 		}
 	}
@@ -37,6 +42,15 @@ $(function() {
 					var _this = this;
 					this.ctrl.btn_browse.hide();
 					this.ctrl.msg.html(dotclear.msg.load_enhanced_uploader);
+					var l = $('<a href="#">' + dotclear.msg.disable_enhanced_uploader + '</a>').click(function() {
+						_this.upldr.destroy();
+						_this.ctrl.block.empty().remove();
+						$('#media-upload').show();
+						delete _this;
+						$.cookie('dc_candy_upl','',{expires:-1});
+						return false;
+					});
+					this.ctrl.disable = $('<div class="cu-disable"></div>').append(l).appendTo(this.ctrl.block);
 				},
 				flashReady: function() {
 					var _this = this;

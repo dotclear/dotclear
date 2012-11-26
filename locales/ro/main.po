@@ -2260,10 +2260,10 @@ msgstr ""
 msgid "Link to an entry"
 msgstr ""
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr ""
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr ""
 
 msgid "File successfully uploaded."

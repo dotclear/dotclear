@@ -2398,10 +2398,10 @@ msgstr "Seletor de mídia"
 msgid "Link to an entry"
 msgstr "Link para um post"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr ""
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr ""
 
 msgid "File successfully uploaded."

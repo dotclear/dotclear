@@ -250,7 +250,7 @@ call_user_func($open_f,__('Media manager'),
 	"//]]>".
 	"</script>".
 	dcPage::jsLoad('js/_media.js').
-	(($user_ui_enhanceduploader && $core_media_writable) ? dcPage::jsCandyUpload(array('d='.$d)) : '')
+	($core_media_writable ? dcPage::jsCandyUpload(array('d='.$d)) : '')
 	);
 
 if (!empty($_GET['mkdok'])) {
@@ -355,9 +355,13 @@ if ($core_media_writable)
 	'</label></p>'.
 	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
 	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
-	__('Private').'</label></p>'.
-	'<p class="form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
-	' <a href="preferences.php?tab=user-options">'.__('My preferences').'</a></p>'.
+	__('Private').'</label></p>';
+	if (!$user_ui_enhanceduploader) {
+		echo
+		'<p class="form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
+		' <a href="preferences.php?tab=user-options">'.__('My preferences').'</a></p>';
+	}
+	echo
 	'<p><input type="submit" value="'.__('Send').'" />'.
 	form::hidden(array('d'),$d).'</p>'.
 	'</fieldset>'.
