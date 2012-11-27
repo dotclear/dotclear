@@ -233,6 +233,9 @@ msgstr "Ce filtre n'existe pas."
 msgid "Filter has no user interface."
 msgstr "Ce filtre n'a pas de réglages."
 
+msgid "Are you sure you want to delete all spams?"
+msgstr "Êtes-vous sûr de vouloir supprimer tous les indésirables ?"
+
 #, php-format
 msgid "%s configuration"
 msgstr "configuration %s"

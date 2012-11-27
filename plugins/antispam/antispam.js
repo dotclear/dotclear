@@ -3,6 +3,9 @@ $(function() {
 	$("#filters-list").each(function() {
 		dragsort.makeTableSortable(this,dotclear.sortable.setHandle, dotclear.sortable.saveOrder);
 	});
+	$('form input[type=submit][name=delete_all]').click(function(){
+		return window.confirm(dotclear.msg.confirm_spam_delete);
+	});
 });
 
 dotclear.sortable = {
