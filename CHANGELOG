@@ -1,5 +1,9 @@
 Dotclear 2.5.0 - 201?-??-13
 ===========================================================
+* The media enhanced uploader may now be temporarily enabled or disabled
+* Add mass expand on posts and comments lists
+* Allow wildcard for IP address on comments filters
+* Add ability to delete non empty category (and move its content to another category)
 * Every types of entries may be used to inserted an entry link in current edited post
 * Add (none) option to image insertion title pattern
 * Smileys are not more converted in image in pre,code,kbd,script and math contents
