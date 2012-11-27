@@ -193,42 +193,87 @@ class dcBlog
 	*/
 	public function triggerComment($id,$del=false)
 	{
-		$id = (integer) $id;
+		$this->triggerComments($id,$del);
+	}
+	
+	/**
+	Updates comments and trackbacks counters in post table. Should be called
+	every time comments or trackbacks are added, removed or changed there status.
+	
+	@param	ids		<b>mixed</b>		Comment(s) ID(s)
+	@param	del		<b>boolean</b>		If comment is delete, set this to true
+	*/
+	public function triggerComments($ids,$del=false)
+	{
+		$co_ids = dcUtils::cleanIds($ids);
 		
-		$strReq = 'SELECT post_id, comment_trackback '.
-				'FROM '.$this->prefix.'comment '.
-				'WHERE comment_id = '.$id.' ';
+		# a) Retrieve posts affected by comments edition
+		$strReq = 
+			'SELECT post_id, comment_trackback '.
+			'FROM '.$this->prefix.'comment '.
+			'WHERE comment_id'.$this->con->in($co_ids).
+			'GROUP BY post_id,comment_trackback';
 		
 		$rs = $this->con->select($strReq);
 		
-		$post_id = $rs->post_id;
-		$tb = (boolean) $rs->comment_trackback;
+		$a_ids = $a_tbs = array();
+		while ($rs->fetch()) {
+			$a_ids[] = (integer) $rs->post_id;
+			$a_tbs[] = (integer) $rs->comment_trackback;
+		}
 		
-		$strReq = 'SELECT COUNT(post_id) '.
-				'FROM '.$this->prefix.'comment '.
-				'WHERE post_id = '.(integer) $post_id.' '.
-				'AND comment_trackback = '.(integer) $tb.' '.
-				'AND comment_status = 1 ';
+		# b) Count comments of each posts previously retrieved
+		# Note that this does not return posts without comment
+		$strReq = 
+			'SELECT post_id, COUNT(post_id) AS nb_comment,comment_trackback '.
+			'FROM '.$this->prefix.'comment '.
+			'WHERE post_id'.$this->con->in($a_ids).
+			'AND comment_status = 1 ';
 		
 		if ($del) {
-			$strReq .= 'AND comment_id <> '.$id.' ';
+			$strReq .= 
+				'AND comment_id NOT'.$this->con->in($co_ids);
 		}
+		
+		$strReq .= 
+			'GROUP BY post_id,comment_trackback';
 		
 		$rs = $this->con->select($strReq);
 		
+		$b_ids = $b_tbs = $b_nbs = array();
+		while ($rs->fetch()) {
+			$b_ids[] = (integer) $rs->post_id;
+			$b_tbs[] = (integer) $rs->comment_trackback;
+			$b_nbs[] = (integer) $rs->nb_comment;
+		}
+		
+		# c) Update comments numbers on posts
+		# This compare previous requests to update also posts without comment
 		$cur = $this->con->openCursor($this->prefix.'post');
 		
-		if ($rs->isEmpty()) {
-			return;
+		foreach($a_ids as $a_key => $a_id)
+		{
+			$nb_comment = $nb_trackback = 0;
+			foreach($b_ids as $b_key => $b_id)
+			{
+				if ($a_id != $b_id || $a_tbs[$a_key] != $b_tbs[$b_key]) {
+					continue;
+				}
+				
+				if ($b_tbs[$b_key]) {
+					$nb_trackback = $b_nbs[$b_key];
+				} else {
+					$nb_comment = $b_nbs[$b_key];
+				}
+			}
+			
+			if ($a_tbs[$a_key]) {
+				$cur->nb_trackback = $nb_trackback;
+			} else {
+				$cur->nb_comment = $nb_comment;
+			}
+			$cur->update('WHERE post_id = '.$a_id);
 		}
-		
-		if ($tb) {
-			$cur->nb_trackback = (integer) $rs->f(0);
-		} else {
-			$cur->nb_comment = (integer) $rs->f(0);
-		}
-		
-		$cur->update('WHERE post_id = '.(integer) $post_id);
 	}
 	//@}
 	
@@ -2054,13 +2099,62 @@ class dcBlog
 	*/
 	public function updCommentStatus($id,$status)
 	{
+		$this->updCommentsStatus($id,$status);
+	}
+	
+	/**
+	Updates comments status.
+	
+	@param	ids		<b>mixed</b>		Comment(s) ID(s)
+	@param	status	<b>integer</b>		Comment status
+	*/
+	public function updCommentsStatus($ids,$status)
+	{
 		if (!$this->core->auth->check('publish,contentadmin',$this->id)) {
 			throw new Exception(__("You are not allowed to change this comment's status"));
 		}
 		
-		$cur = $this->con->openCursor($this->prefix.'comment');
-		$cur->comment_status = (integer) $status;
-		$this->updComment($id,$cur);
+		$co_ids = dcUtils::cleanIds($ids);
+		$status = (integer) $status;
+		
+		$strReq = 
+			'UPDATE '.$this->prefix.'comment tc ';
+		
+		# mySQL uses "JOIN" synthax
+		if ($this->con->driver() == 'mysql') {
+			$strReq .= 
+				'JOIN '.$this->prefix.'post tp ON tc.post_id = tp.post_id ';
+		}
+		
+		$strReq .= 
+			'SET comment_status = '.$status.' ';
+		
+		# pgSQL uses "FROM" synthax
+		if ($this->con->driver() != 'mysql') {
+			$strReq .= 
+				'FROM '.$this->prefix.'post tp ';
+		}
+		
+		$strReq .=
+			"WHERE blog_id = '".$this->con->escape($this->id)."' ".
+			'AND comment_id'.$this->con->in($co_ids);
+		
+		# add pgSQL "WHERE" clause
+		if ($this->con->driver() != 'mysql') {
+			$strReq .= 
+				'AND tc.post_id = tp.post_id ';
+		}
+		
+		#If user is only usage, we need to check the post's owner
+		if (!$this->core->auth->check('contentadmin',$this->id))
+		{
+			$strReq .= 
+				"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
+		}
+		
+		$this->con->execute($strReq);
+		$this->triggerComments($co_ids);
+		$this->triggerBlog();
 	}
 	
 	/**
@@ -2070,38 +2164,54 @@ class dcBlog
 	*/
 	public function delComment($id)
 	{
+		$this->delComments($id);
+	}
+	
+	/**
+	Delete comments
+	
+	@param	ids		<b>mixed</b>		Comment(s) ID(s)
+	*/
+	public function delComments($ids)
+	{
 		if (!$this->core->auth->check('delete,contentadmin',$this->id)) {
 			throw new Exception(__('You are not allowed to delete comments'));
 		}
 		
-		$id = (integer) $id;
+		$co_ids = dcUtils::cleanIds($ids);
 		
-		if (empty($id)) {
+		if (empty($ids)) {
 			throw new Exception(__('No such comment ID'));
 		}
+		
+		# mySQL uses "INNER JOIN" synthax
+		if ($this->con->driver() == 'mysql') {
+			$strReq = 
+				'DELETE FROM tc '.
+				'USING '.$this->prefix.'comment tc '.
+				'INNER JOIN '.$this->prefix.'post tp ';
+		}
+		# pgSQL uses nothing special
+		else {
+			$strReq = 
+				'DELETE FROM '.$this->prefix.'comment tc '.
+				'USING '.$this->prefix.'post tp ';
+		}
+		
+		$strReq .= 
+			'WHERE tc.post_id = tp.post_id '.
+			"AND tp.blog_id = '".$this->con->escape($this->id)."' ".
+			'AND comment_id'.$this->con->in($co_ids);
 		
 		#If user can only delete, we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
-			$strReq = 'SELECT P.post_id '.
-					'FROM '.$this->prefix.'post P, '.$this->prefix.'comment C '.
-					'WHERE P.post_id = C.post_id '.
-					"AND P.blog_id = '".$this->con->escape($this->id)."' ".
-					'AND comment_id = '.$id.' '.
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$rs = $this->con->select($strReq);
-			
-			if ($rs->isEmpty()) {
-				throw new Exception(__('You are not allowed to delete this comment'));
-			}
+			$strReq .= 
+				"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 		}
 		
-		$strReq = 'DELETE FROM '.$this->prefix.'comment '.
-				'WHERE comment_id = '.$id.' ';
-		
-		$this->triggerComment($id,true);
 		$this->con->execute($strReq);
+		$this->triggerComments($co_ids,true);
 		$this->triggerBlog();
 	}
 	
