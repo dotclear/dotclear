@@ -1,5 +1,6 @@
 Dotclear 2.5.0 - 201?-??-13
 ===========================================================
+* daInstaller plugin is now included in the official distribution
 * The media enhanced uploader may now be temporarily enabled or disabled
 * Add mass expand on posts and comments lists
 * Allow wildcard for IP address on comments filters
