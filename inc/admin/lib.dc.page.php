@@ -432,6 +432,8 @@ class dcPage
 			__("Are you sure you want to delete selected entries (%s)?")).
 		self::jsVar('dotclear.msg.confirm_delete_post',
 			__("Are you sure you want to delete this entry?")).
+		self::jsVar('dotclear.msg.confirm_spam_delete',
+			__('Are you sure you want to delete all spams?')).
 		self::jsVar('dotclear.msg.confirm_delete_comments',
 			__('Are you sure you want to delete selected comments (%s)?')).
 		self::jsVar('dotclear.msg.confirm_delete_comment',

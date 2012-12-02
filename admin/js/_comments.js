@@ -114,4 +114,7 @@ $(function() {
 	});
 	$('#form-comments td input[type=checkbox]').enableShiftClick();
 	dotclear.commentsActionsHelper();
+	$('form input[type=submit][name=delete_all_spam]').click(function(){
+		return window.confirm(dotclear.msg.confirm_spam_delete);
+	});
 });
