@@ -210,12 +210,49 @@ if (!$core->error->flag())
 	
 	if (!$with_spam) {
 		$spam_count = $core->blog->getComments(array('comment_status'=>-2),true)->f(0);
-		if ($spam_count == 1) {
-			echo '<p>'.sprintf(__('You have one spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
-			'<a href="comments.php?status=-2">'.__('Show it.').'</a></p>';
-		} elseif ($spam_count > 1) {
-			echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
-			'<a href="comments.php?status=-2">'.__('Show them.').'</a></p>';
+		
+		if (!empty($_GET['delspam'])) {
+			dcPage::message(__('Spam comments have been successfully deleted.'));
+		}
+		
+		if ($spam_count > 0) {
+			$moderationTTL = $core->blog->settings->antispam->antispam_moderation_ttl;
+			
+			echo 
+			'<form action="plugin.php?p=antispam" method="post" class="fieldset">';
+			
+			if ($spam_count == 1) {
+				echo '<p>'.sprintf(__('You have one spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
+				'<a href="comments.php?status=-2">'.__('Show it.').'</a></p>';
+			} elseif ($spam_count > 1) {
+				echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
+				'<a href="comments.php?status=-2">'.__('Show them.').'</a></p>';
+			}
+			
+			if ($core->plugins->moduleExists('antispam')) {
+				$spam_redir =
+				'comments.php?type='.$type.
+				'&author='.preg_replace('/%/','%%',$author).
+				'&status='.$status.
+				'&sortby='.$sortby.
+				'&ip='.preg_replace('/%/','%%',$ip).
+				'&order='.$order.
+				'&page='.$page.
+				'&nb='.$nb_per_page;
+				
+				echo
+				$core->formNonce().
+				form::hidden('ts',time()).
+				form::hidden('redir',$spam_redir).
+				'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
+			}
+			
+			if ($moderationTTL != null && $moderationTTL >=0) {
+				echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
+				__('You can modify this duration in ').
+				'<a href="blog_pref.php"> '.__('Blog preferences').'</a></p>';
+			}
+			echo '</form>';
 		}
 	}
 	
