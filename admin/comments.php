@@ -249,8 +249,8 @@ if (!$core->error->flag())
 			
 			if ($moderationTTL != null && $moderationTTL >=0) {
 				echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
-				__('You can modify this duration in ').
-				'<a href="blog_pref.php"> '.__('Blog preferences').'</a></p>';
+				sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php"> '.__('Blog preferences').'</a>').
+				'</p>';
 			}
 			echo '</form>';
 		}
