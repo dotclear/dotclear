@@ -18,7 +18,8 @@ if (!empty($_POST['delete_all_spam']))
 {
 	try {
 		$core->blog->delJunkComments();
-		http::redirect('comments.php?delspam=1');
+		$_SESSION['comments_del_spam'] = true;
+		http::redirect('comments.php');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -173,8 +174,9 @@ echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-tit
 
 if (!$core->error->flag())
 {
-	if (!empty($_GET['delspam'])) {
+	if (isset($_SESSION['comments_del_spam'])) {
 		dcPage::message(__('Spam comments have been successfully deleted.'));
+		unset($_SESSION['comments_del_spam']);
 	}
 	
 	# Filters
