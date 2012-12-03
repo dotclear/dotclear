@@ -5,6 +5,7 @@ class dcAdminContext extends Twig_Extension {
 	protected $js;
 	protected $js_var;
 	protected $head;
+	protected $globals;
 	
 	protected $core;
 	public function __construct($core) {
@@ -15,6 +16,7 @@ class dcAdminContext extends Twig_Extension {
 		$this->head = array();
 		$this->jsCommon();
 		$this->blogs = array();
+		$this->globals = array();
 		if ($this->core->auth->blog_count > 1 && $this->core->auth->blog_count < 20) {
 			$rs_blogs = $core->getBlogs(array('order'=>'LOWER(blog_name)','limit'=>20));
 			while ($rs_blogs->fetch()) {
@@ -109,11 +111,24 @@ class dcAdminContext extends Twig_Extension {
 		);
 	}
 	public function getGlobals() {
-		return array();
+		return $this->globals;
 	}
 	public function getName() {
 		return 'AdminPage';
 	}
+
+	public function setMessage($message) {
+		$this->globals['page_message'] = $message;
+		return $this;
+	}
+	
+	public function addError($error) {
+		if (!isset($this->globals['page_errors']))
+			$this->globals['page_errors']=array();
+		$this->globals['page_errors'][] = $error;
+		return $this;
+	}
+
 	public function getFilters()
 	{
 		return array(

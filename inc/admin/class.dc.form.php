@@ -19,6 +19,7 @@ class dcFormNode extends Twig_Node {
             ->write("\$context['dc_form']->beginForm('".
             	 $this->getAttribute('name')."');\n")
             ->subcompile($this->getNode('body'))
+            ->write("\$context['dc_form']->renderHiddenWidgets();\n")
             ->write("\$context['dc_form']->endForm();\n")
         ;
     }
@@ -100,12 +101,18 @@ class dcFormExtension extends Twig_Extension {
 
 	public function renderWidget($name,$attributes=array()) {
 		$field = $this->currentForm->$name;
-		if ($field)
-		echo $this->template->renderBlock(
-			$field->getWidgetBlock(),
-			array_merge($field->getAttributes(),array('attr'=>$attributes)),
-			$this->blocks);
+		if ($field) {
+			echo $this->template->renderBlock(
+				$field->getWidgetBlock(),
+				array_merge($field->getAttributes(),array('attr'=>$attributes)),
+				$this->blocks);
+		}
+	}
 
+	public function renderHiddenWidgets() {
+		foreach ($this->currentForm->getHiddenFields() as $h) {
+			$this->renderWidget($h->getName());
+		}
 	}
 
 	public function getName() {
@@ -131,13 +138,24 @@ class dcFormExtension extends Twig_Extension {
 
 }
 
+class InvalidFieldException extends Exception {
+}
+
 
 class dcForm {
 	protected $name;
 	protected $core;
 	protected $action;
 	protected $fields;
-
+	protected $method;
+	protected $submitfields;
+	protected $hiddenfields;
+	protected $errors;
+	
+	private function addNonce() {
+		$this->addField(new dcFieldHidden(array('xd_check'), $this->core->getNonce()));
+	}
+	
 	public function __construct($core,$name,$action, $method='POST') {
 		$this->core = $core;
 		$this->name = $name;
@@ -145,13 +163,31 @@ class dcForm {
 		$this->action = $action;
 		$this->fields = array();
 		$this->core->page->getExtension('dc_form')->addForm($this);
+		$this->submitfields = array();
+		$this->hiddenfields = array();
+		$this->errors = array();
+		if ($method == 'POST') {
+			$this->addNonce();
+		}
 	}
 
 	public function getName() {
 		return $this->name;
 	}
 
+	public function getErrors() {
+		return $this->errors;
+	}
+	
 	public function addField(dcField $f) {
+		
+		if ($f instanceof dcFieldAction) {
+			$this->submitfields[$f->getName()]=$f;
+		}
+		if ($f instanceof dcFieldHidden) {
+			$this->hiddenfields[$f->getName()]=$f;
+		}
+
 		$this->fields[$f->getName()]=$f;
 		return $this;
 	}
@@ -183,6 +219,38 @@ class dcForm {
 		}
     }
 
+	public function isSubmitted() {
+		$from = ($this->method == 'POST')?$_POST:$_GET;
+		echo "form fields :\n";
+	}
+	
+	public function setup() {
+		$from = ($this->method=='POST')?$_POST:$_GET;
+		foreach ($this->fields as $f) {
+			$f->setup($from);
+		}
+		foreach ($this->submitfields as $f) {
+			if ($f->isDefined()) {
+				$ret = call_user_func ($f->getAction(),$this);
+				return;
+			}
+		}
+	}
+	
+	public function check() {
+		foreach ($this->fields as $f) {
+			try {
+				$f->check();
+			} catch (InvalidFieldException $e) {
+				$this->errors[]=$e->getMessage();
+			}
+		}
+	}
+	
+	public function getHiddenFields() {
+		return $this->hiddenfields;
+	}
+	
 }
 
 abstract class dcField {
@@ -190,6 +258,7 @@ abstract class dcField {
 	protected $name;
 	protected $value;
 	protected $id;
+	protected $defined;
 	
 	protected function getNID($nid) {
 		if (is_array($nid)) {
@@ -207,6 +276,7 @@ abstract class dcField {
 		$this->attributes['name'] = $this->name;
 		$this->attributes['id'] = $this->id;
 		$this->attributes['value'] = $this->value;
+		$this->defined = false;
 
 	}
 
@@ -226,8 +296,23 @@ abstract class dcField {
 	}
 
 	public function check() {
+		if (!$this->defined && $this->attributes['defined']) {
+			throw new InvalidFieldException(sprintf('Field "%s" is mandatory'),$this->attributes['label']);
+		}
 
 	}
+	
+	public function setup($from) {
+		if (isset($from[$this->id])) {
+			$this->value = $from[$this->id];
+			$this->defined = true;
+		}
+	}
+	
+	public function isDefined() {
+		return $this->defined;
+	}
+	
 }
 
 
@@ -263,7 +348,20 @@ class dcFieldCheckbox extends dcField {
 
 }
 
-class dcFieldSubmit extends dcField {
+abstract class dcFieldAction extends dcField {
+	protected $action;
+	public function __construct($name, $value, $attributes = array()) {
+		parent::__construct($name, $value, $attributes);
+		if (isset($attributes['action'])) {
+			$this->action = $attributes['action'];
+		}
+	}
+	public function getAction() {
+		return $this->action;
+	}
+}
+
+class dcFieldSubmit extends dcFieldAction {
 
 	public function getWidgetBlock() {
 		return "field_submit";
