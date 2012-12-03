@@ -2214,6 +2214,42 @@ class dcBlog
 		$this->triggerComments($co_ids,true);
 		$this->triggerBlog();
 	}
+
+	public function delJunkComments()
+	{
+		if (!$this->core->auth->check('delete,contentadmin',$this->id)) {
+			throw new Exception(__('You are not allowed to delete comments'));
+		}
+		
+		# mySQL uses "INNER JOIN" synthax
+		if ($this->con->driver() == 'mysql') {
+			$strReq = 
+				'DELETE FROM tc '.
+				'USING '.$this->prefix.'comment tc '.
+				'INNER JOIN '.$this->prefix.'post tp ';
+		}
+		# pgSQL uses nothing special
+		else {
+			$strReq = 
+				'DELETE FROM '.$this->prefix.'comment tc '.
+				'USING '.$this->prefix.'post tp ';
+		}
+		
+		$strReq .= 
+			'WHERE tc.post_id = tp.post_id '.
+			"AND tp.blog_id = '".$this->con->escape($this->id)."' ".
+			'AND comment_status = -2';
+		
+		#If user can only delete, we need to check the post's owner
+		if (!$this->core->auth->check('contentadmin',$this->id))
+		{
+			$strReq .= 
+				"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
+		}
+		
+		$this->con->execute($strReq);
+		$this->triggerBlog();
+	}
 	
 	private function getCommentCursor($cur)
 	{

@@ -19,9 +19,6 @@ $page_name = __('Antispam');
 $filter_gui = false;
 $default_tab = null;
 
-$redir = isset($_POST['redir']) && strpos($_POST['redir'],'://') === false ?
-	$_POST['redir'] : $p_url;
-
 try
 {
 	# Show filter configuration GUI
@@ -40,12 +37,12 @@ try
 	}
 
 	# Remove all spam
-	if (!empty($_POST['delete_all_spam']))
+	if (!empty($_POST['delete_all']))
 	{
 		$ts = dt::str('%Y-%m-%d %H:%M:%S',$_POST['ts'],$core->blog->settings->system->blog_timezone);
 
 		dcAntispam::delAllSpam($core,$ts);
-		http::redirect($redir.'&delspam=1');
+		http::redirect($p_url.'&del=1');
 	}
 
 	# Update filters
@@ -140,7 +137,7 @@ else
 	'<form action="'.$p_url.'" method="post" class="fieldset">'.
 	'<h3>'.__('Information').'</h3>';
 
-	if (!empty($_GET['delspam'])) {
+	if (!empty($_GET['del'])) {
 		dcPage::message(__('Spam comments have been successfully deleted.'));
 	}
 
@@ -157,7 +154,7 @@ else
 		echo
 		'<p>'.$core->formNonce().
 		form::hidden('ts',time()).
-		'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
+		'<input name="delete_all" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
 	}
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.

@@ -14,6 +14,16 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
+if (!empty($_POST['delete_all_spam']))
+{
+	try {
+		$core->blog->delJunkComments();
+		http::redirect('comments.php?delspam=1');
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
 # Creating filter combo boxes
 # Filter form we'll put in html_block
 $status_combo = array(
@@ -163,6 +173,10 @@ echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-tit
 
 if (!$core->error->flag())
 {
+	if (!empty($_GET['delspam'])) {
+		dcPage::message(__('Spam comments have been successfully deleted.'));
+	}
+	
 	# Filters
 	if (!$show_filters) {
 		echo '<p><a id="filter-control" class="form-control" href="#">'.
@@ -209,18 +223,13 @@ if (!$core->error->flag())
 	'</form>';
 	
 	if (!$with_spam) {
+
 		$spam_count = $core->blog->getComments(array('comment_status'=>-2),true)->f(0);
-		
-		if (!empty($_GET['delspam'])) {
-			dcPage::message(__('Spam comments have been successfully deleted.'));
-		}
 		
 		if ($spam_count > 0) {
 			
-			if ($core->plugins->moduleExists('antispam')) {
-				echo 
-				'<form action="plugin.php?p=antispam" method="post" class="fieldset">';
-			}
+			echo 
+				'<form action="comments.php" method="post" class="fieldset">';
 
 			if ($spam_count == 1) {
 				echo '<p>'.sprintf(__('You have one spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
@@ -230,33 +239,14 @@ if (!$core->error->flag())
 				'<a href="comments.php?status=-2">'.__('Show them.').'</a></p>';
 			}
 			
-			if ($core->plugins->moduleExists('antispam')) {
-
-				$moderationTTL = $core->blog->settings->antispam->antispam_moderation_ttl;
-				$spam_redir =
-					'comments.php?type='.$type.
-					'&author='.preg_replace('/%/','%%',$author).
-					'&status='.$status.
-					'&sortby='.$sortby.
-					'&ip='.preg_replace('/%/','%%',$ip).
-					'&order='.$order.
-					'&page='.$page.
-					'&nb='.$nb_per_page;
-				
-				echo
+			echo
 				$core->formNonce().
-				form::hidden('ts',time()).
-				form::hidden('redir',$spam_redir).
 				'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
 
-				if ($moderationTTL != null && $moderationTTL >=0) {
-					echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
-					sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php"> '.__('Blog preferences').'</a>').
-					'</p>';
-				}
+			# --BEHAVIOR-- adminCommentsSpamForm
+			$core->callBehavior('adminCommentsSpamForm',$core);
 
-				echo '</form>';
-			}
+			echo '</form>';
 		}
 	}
 	
