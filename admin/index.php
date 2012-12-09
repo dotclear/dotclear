@@ -14,6 +14,11 @@ if (!empty($_GET['pf'])) {
 	require dirname(__FILE__).'/../inc/load_plugin_file.php';
 	exit;
 }
+if (!empty($_GET['tf'])) {
+	define('DC_CONTEXT_ADMIN',true);
+	require dirname(__FILE__).'/../inc/load_theme_file.php';
+	exit;
+}
 
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 

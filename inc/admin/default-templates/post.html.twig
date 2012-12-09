@@ -1,4 +1,14 @@
 {% extends "layout.html.twig" %}
+{% import "js_helpers.html.twig" as js %}
+{% block more_header %}
+	{{ js.date_picker }}
+	{{ js.tool_bar }}
+	{{ js.modal }}
+	{{ js.meta_editor }}
+	<script type="text/javascript" src="{{theme_url}}js/_post.js"></script>
+	{{ js.confirm_close(['entry-form','comment-form']) }}
+	{{ js.page_tabs(default_tab) }}
+{% endblock %}
 
 {% block content %}
 {{ parent() }}

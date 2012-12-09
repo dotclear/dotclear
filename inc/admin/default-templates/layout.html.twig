@@ -1,14 +1,20 @@
+{% import "js_helpers.html.twig" as js %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	{% block header %}
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>{% block title %}{% endblock %}</title>
+	<title>{% block title %}{{page_title}} - {% if blog.name is not empty %}{{blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
 	<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
 	<meta name="GOOGLEBOT" content="NOSNIPPET" />
- 	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
-	{{ page_head() }}
+	<link rel="stylesheet" href="{{theme_url}}style/default.css" type="text/css" media="screen" />
+	{% if rtl is not empty %}
+	<link rel="stylesheet" href="{{theme_url}}style/default-rtl.css" type="text/css" media="screen" />
+	{% endif %}
+	{{ js.load_IE7 }}
+	{{ js.common }}
 	{% endblock %}
+	{% block more_header %}{% endblock %}
 </head>
 
 
@@ -18,7 +24,7 @@
 			<li><a href="#content">{{__('To content')}}</a></li>
 			<li><a href="#main-menu">{{__('To menu')}}</a></li>
 		</ul>
-		<div id="top"><h1><a href="index.php">{{VENDOR_NAME}}</a></h1></div>
+		<div id="top"><h1><a href="index.php">{{vendor_name}}</a></h1></div>
 		<div id="info-boxes">
 			<div id="info-box1">
 				<form action="index.php" method="post">
@@ -38,7 +44,7 @@
 		<div id="main">
 			<div id="content">
 				{% block content %}
-				<h2>Mon premier blog &rsaquo; <span class="page-title"></span></h2>
+				<h2>{{blog.name}} &rsaquo; <span class="page-title">{{page_title}}</span></h2>
 				{% if page_message is not empty %}
 					<p class="message">{{page_message}}</p>
 				{% endif %}
@@ -61,7 +67,7 @@
 		</div>
 		<div id="footer">
 			{% block footer %}
-			<p>{{ 'Thank you for using %s.'|trans }}</p>
+			<p>{{ __('Thank you for using %s.')|format(vendor_name) }}</p>
 			{% endblock %}
 		</div>
 	</div>

@@ -1,0 +1,52 @@
+div.jq-modal {
+	line-height: 1;
+	background: #fff;
+}
+div.jq-modal-container {
+	padding: 1px;
+	position: relative;
+}
+div.jq-modal-content {
+	position: relative;
+	overflow: auto;
+}
+div.jq-modal-closer {
+	position: absolute;
+	top: -12px;
+	right: -12px;
+	width: 25px;
+	height: 25px;
+}
+div.jq-modal-closer a {
+	display: block;
+	text-indent: -5000px;
+	width: 25px;
+	height: 25px;
+	outline: none;
+	border: none;
+}
+
+/* modalImage */
+div.jq-modal-content img {
+	display: block;
+}
+span.jq-modal-legend {
+	display: block;
+	padding: 3px 0;
+}
+a.jq-modal-next, a.jq-modal-prev {
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 50%;
+	bottom: 0;
+	outline: none;
+	border: none;
+	text-indent: -5000px;
+}
+a.jq-modal-next {
+	right: 0;
+}
+a.jq-modal-prev {
+	left: 0;
+}

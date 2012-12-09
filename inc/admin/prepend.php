@@ -375,17 +375,12 @@ if ($core->auth->userID() && $core->blog !== null)
 	}
 }
 
-# Creating template context
-try {
-	$core->page = new dcTwigPage(
-		dirname(__FILE__).'/default-templates',
-		DC_TPL_CACHE.'/admtpl',
-		new dcAdminContext($core),
-		$core
-	);
-} catch (Exception $e) {
-	__error(__('Can\'t create template engine.')
-		,$e->getMessage()
-		,640);
-}
+# Add admin default templates path
+$core->tpl->getLoader()->addPath(dirname(__FILE__).'/default-templates');
+# Set admin context
+$_ctx = new dcAdminContext($core);
+$core->tpl->addExtension($_ctx);
+
+# --BEHAVIOR-- adminPrepend
+$core->callBehavior('adminPrepend',$core,$_ctx);
 ?>
