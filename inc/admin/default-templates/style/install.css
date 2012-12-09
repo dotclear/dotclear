@@ -1,0 +1,170 @@
+/*
+	loader.css
+	Simple CSS rules for NetInstall
+	
+	(c) 2008 - Olivier Meunier & contributors - All rights reserved.
+	Please see http://dotclear.net/ for more details.
+*/
+body.install {
+	font: 0.875em Helvetica,Arial,sans-serif;
+	color: #000;
+	background-color: #fff;
+	line-height: 1.5em;
+}
+body.install #content {
+	width:32em;
+	margin:1em auto;
+}
+body.install #main {
+	padding:1em 2em;
+	border:1px #ccc solid;
+	-o-border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius: 8px;
+}
+body.install h1,h2 {
+	font-family: Helvetica,arial,sans-serif;
+}
+body.install h1 {
+	background: url(install/w-logo.png) no-repeat top center;
+	font-size:1.8em;
+	font-weight:normal;
+	text-align:center;
+	color: #666;
+	padding-top: 70px;
+	margin: 0 0 0.75em 0;
+}
+body.install h2 {
+	color: #ff6000;
+}
+body.install h3 {
+	margin-top:0;
+}
+body.install label {
+	color: #555;
+}
+
+body.install .msg {
+	padding:10px 10px 10px 60px;
+	border-radius:8px;
+	-o-border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+}
+body.install .warning {
+	background: #ffc url(install/important.png) no-repeat 10px 10px;
+}
+body.install .notice {
+	background: #eef url(install/note.png) no-repeat 10px 10px;
+}
+a, a:link, a:visited {
+	color: #2373A8;
+	text-decoration: none;
+	border-bottom: 1px dotted #f90;
+}
+a:hover, a:active, a:focus {
+	text-decoration: underline;
+}
+
+div.error, p.error, div.message, p.message, div.static-msg, p.static-msg {
+	padding: 0.5em 0.5em 0.5em 60px;
+	margin-bottom: 1em;
+	border-radius: 8px;
+	-o-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+p.error, p.message, p.static-msg {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+div.error, p.error {
+	background: #e5bfbf url(install/process_warning.png) no-repeat 5px 5px;
+	color: #600;
+}
+div.message, p.message, div.static-msg, p.static-msg {
+	background: #666 url(install/note.png) no-repeat 5px 5px;
+	color: #fff;
+}
+div.message a, p.message a, div.static-msg a, p.static-msg a {
+	color: #fff;
+}
+label {
+	display : block;
+}
+label input, label select, label span {
+	display : block;
+}
+
+label.required {
+	font-weight : bold;
+}
+label.required abbr {
+	color: #dd0000;
+	font-size: 1.3em;
+}
+
+form {
+	display : block;
+	margin : 0;
+	padding : 0;
+}
+
+fieldset {
+	display : block;
+	margin : 0 0 1em 0;
+	padding : 1em 0.5em;
+	border-width : 1px 0;
+	border-style: solid;
+	border-color: #ccc;
+	background: #f5f5f5;
+}
+legend {
+	font-weight : bold;
+	padding: 0.2em 0.6em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ccc;
+	background: #f5f5f5;
+	margin-bottom: 0.5em;
+}
+a#obfus {
+	color: #fff;
+	background-color: #666;
+	padding: 0 10px;
+	border-radius: 2px;
+	-o-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+input[type=submit]{
+	font-size: 1.05em;
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .1em .5em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .2em;
+	-moz-border-radius: .2em;
+	-o-border-radius: .2em;
+	border-radius: .2em;
+	margin-bottom: .1em;
+	color: #fff;
+	border: 1px solid #2373A8;
+	background: #2373A8;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2C8FD1), to(#2373A8));
+	background: -moz-linear-gradient(top,  #2C8FD1,  #2373A8);
+	width: 100%;
+}
+input[type=submit]:hover,
+input[type=submit]:focus {
+	background: #2373A8;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2373A8), to(#2C8FD1));
+	background: -moz-linear-gradient(top,  #2373A8,  #2C8FD1);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#2373A8', endColorstr='#2C8FD1');
+	border: 1px solid #2C8FD1;
+}

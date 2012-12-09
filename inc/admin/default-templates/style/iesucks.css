@@ -1,0 +1,46 @@
+#content {zoom:1;}
+label .maximal, textarea.maximal, input.maximal {
+	width : 98% !important;
+}
+.area textarea {
+	width : 98% !important;
+}
+textarea {
+	padding : 0 !important;
+}
+legend {
+	margin-bottom: 1em !important;
+}
+
+p.area {
+	width: 98% !important;
+}
+p.area textarea {
+	width: 100% !important;
+}
+
+tr.line input {
+	vertical-align: baseline !important;
+}
+
+#dashboard .col {
+	width: 48% !important;
+}
+
+td.status img, tr.line img.expand {
+	margin-bottom: 0 !important;
+}
+
+.wysiwygIframe {
+	width: 98% !important;
+}
+
+div.media-list .media-item {
+	width: 48% !important;
+}
+a.media-icon {
+	border-bottom:none !important;
+}
+#dashboard-main #icons p {
+	display: inline;
+}

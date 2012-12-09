@@ -15,8 +15,8 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 function savePost($form) {
-	global $core;
-	$core->page->getContext()->setMessage('save');
+	global $_ctx;
+	$_ctx->setMessage('save');
 
 }
 
@@ -171,6 +171,24 @@ if (!empty($_REQUEST['id']))
 $form->setup();
 
 
+
+// TODO: Do it better later, required by some javascripts
+$some_globals = array(
+	'rtl' => l10n::getTextDirection($_lang) == 'rtl',
+	'Nonce' => $core->getNonce(),
+	'sess_id' => session_id(),
+	'sess_uid' => $_SESSION['sess_browser_uid'],
+	'media_manage' => $core->auth->check('media,media_admin',$core->blog->id),
+	'enable_wysiwyg' => isset($core->auth) && $core->auth->getOption('enable_wysiwyg'),
+	'edit_size' => $core->auth->getOption('edit_size')
+);
+foreach($some_globals as $name => $value) {
+	$_ctx->$name = $value;
+};
+//
+
+
+
 /* DISPLAY
 -------------------------------------------------------- */
 $default_tab = 'edit-entry';
@@ -180,18 +198,8 @@ if (!$can_edit_post) {
 if (!empty($_GET['co'])) {
 	$default_tab = 'comments';
 }
+$_ctx->default_tab = $default_tab;
+$_ctx->setPageTitle($page_title);
 
-$core->page->getContext()
-	->jsDatePicker()
-	->jsToolBar()
-	->jsModal()
-	->jsMetaEditor()
-	->jsLoad('js/_post.js')
-	->jsPageTabs($default_tab)
-	->jsConfirmClose('entry-form','comment-form');
-
-echo $core->page->render('post.html.twig',array(
-	'edit_size'=> $core->auth->getOption('edit_size')));
-	
-
+$core->tpl->display('post.html.twig');
 ?>

@@ -162,7 +162,7 @@ class dcForm {
 		$this->method = $method;
 		$this->action = $action;
 		$this->fields = array();
-		$this->core->page->getExtension('dc_form')->addForm($this);
+		$this->core->tpl->getExtension('dc_form')->addForm($this);
 		$this->submitfields = array();
 		$this->hiddenfields = array();
 		$this->errors = array();
