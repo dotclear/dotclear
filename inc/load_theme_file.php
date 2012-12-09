@@ -96,9 +96,21 @@ if (!in_array(files::getExtension($file),$allow_types)) {
 # Display file
 http::$cache_max_age = 7200;
 http::cache(array_merge(array($file),get_included_files()));
-
 header('Content-Type: '.files::getMimeType($file));
-header('Content-Length: '.filesize($file));
-readfile($file);
+
+# Temporary hack css files to regain relative path
+if (files::getExtension($file) == 'css') {
+	$content = preg_replace(
+		'/url\((\'|)([^:].*?)(\'|)\)/msi',
+		'url($1?tf='.dirname($f).'/$2$3)',
+		file_get_contents($file)
+	);
+	header('Content-Length: '.strlen($content));
+	echo $content;
+}
+else {
+	header('Content-Length: '.filesize($file));
+	readfile($file);
+}
 exit;
 ?>
