@@ -40,7 +40,9 @@ class dcAdminContext extends Twig_Extension
 			'theme_url' 	=> DC_ADMIN_URL.'index.php?tf=',
 			
 			'version' 		=> DC_VERSION,
-			'vendor_name' 	=> DC_VENDOR_NAME
+			'vendor_name' 	=> DC_VENDOR_NAME,
+			
+			'safe_mode' 	=> isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode']
 		);
 	}
 	
@@ -151,6 +153,12 @@ class dcAdminContext extends Twig_Extension
 		return 'AdminContext';
 	}
 	
+	public function setSafeMode($safe_mode)
+	{
+		$this->protected_globals['safe_mode'] = (boolean) $safe_mode;
+		return $this;
+	}
+	
 	/**
 	Set information message
 	
@@ -209,9 +217,12 @@ class dcAdminContext extends Twig_Extension
 	 */
 	protected function getBlogs()
 	{
+		$blog_id = '';
+		
 		# Blogs list
 		$blogs = array();
 		if ($this->core->auth->blog_count > 1 && $this->core->auth->blog_count < 20) {
+			$blog_id = $this->core->blog->id;
 			$rs_blogs = $this->core->getBlogs(array('order'=>'LOWER(blog_name)','limit'=>20));
 			while ($rs_blogs->fetch()) {
 				$blogs[$rs_blogs->blog_id] = $rs_blogs->blog_name.' - '.$rs_blogs->blog_url;
@@ -230,7 +241,7 @@ class dcAdminContext extends Twig_Extension
 		$form = new dcForm($this->core,'switchblog_menu','index.php');
 		$form
 			->addField(
-				new dcFieldCombo('switchblog',$this->core->blog->id,$blogs,array(
+				new dcFieldCombo('switchblog',$blog_id,$blogs,array(
 				'label' => __('Blogs:'))))
 			->addField(
 				new dcFieldSubmit('switchblog_submit',__('ok'),array(
