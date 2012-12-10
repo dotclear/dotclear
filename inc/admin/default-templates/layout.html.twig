@@ -1,10 +1,10 @@
 {% import "js_helpers.html.twig" as js %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{current_user.lang}}" lang="{{current_user.lang}}">
 <head>
 	{% block header %}
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>{% block title %}{{page_title}} - {% if blog.name is not empty %}{{blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
+	<title>{% block title %}{{page_title}} - {% if current_blog.name is not empty %}{{current_blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
 	<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
 	<meta name="GOOGLEBOT" content="NOSNIPPET" />
 	<link rel="stylesheet" href="{{theme_url}}style/default.css" type="text/css" media="screen" />
@@ -17,7 +17,6 @@
 	{% block more_header %}{% endblock %}
 </head>
 
-
 <body id="dotclear-admin">
 	<div id="header">
 		<ul id="prelude">
@@ -27,16 +26,21 @@
 		<div id="top"><h1><a href="index.php">{{vendor_name}}</a></h1></div>
 		<div id="info-boxes">
 			<div id="info-box1">
-				<form action="index.php" method="post">
-					Blog : <strong title="http://localhost/dc23/index.php?">Mon premier blog</strong>
-					<a href="http://localhost/dc23/index.php?" onclick="window.open(this.href);return false;" 
-					title="{{ __('Go to site') }} ({{__('new window')}})">{{__('Go to site')}}<img src="images/outgoing.png" alt="" /></a>
-				</form>
+			  {% form switchblog_menu %}
+				{% if blog_count > 1 and blog_count < 20 %}
+					{{ form_field('switchblog') }}
+					<noscript><div>{{ form_field('switchblog_submit') }}</div></noscript>
+				{% else %}
+					{{__('Blog:')}} <strong title="{{current_blog.url}}">{{current_blog.name}}</strong>
+					{% if blogs is not empty %} - <a href="blogs.php">{{__('Change blog')}}</a>{% endif %}
+				{% endif %}
+				<a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a>
+			  {% endform %}
 			</div>
 			<div id="info-box2">
-				<a class="active" href="index.php">{{__('My dashboard')}}</a><span> | </span>
-				<a href="preferences.php">{{__('My preferences')}}</a><span> | </span>
-				<a href="index.php?logout=1" class="logout">Déconnecter dsls <img src="images/logout.png" alt="" /></a>
+				<a {%if current_page == 'index' %}class="active" {% endif %}href="index.php">{{__('My dashboard')}}</a><span> | </span>
+				<a {%if current_page == 'preferences' %}class="active" {% endif %}href="preferences.php">{{__('My preferences')}}</a><span> | </span>
+				<a href="index.php?logout=1" class="logout">{{__('Logout %s')|format(current_user.id)}} <img src="images/logout.png" alt="" /></a>
 			</div>
 		</div>
 	</div>
@@ -44,7 +48,7 @@
 		<div id="main">
 			<div id="content">
 				{% block content %}
-				<h2>{{blog.name}} &rsaquo; <span class="page-title">{{page_title}}</span></h2>
+				<h2>{{current_blog.name}} &rsaquo; <span class="page-title">{{page_title}}</span></h2>
 				{% if page_message is not empty %}
 					<p class="message">{{page_message}}</p>
 				{% endif %}

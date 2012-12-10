@@ -40,18 +40,7 @@ class dcAdminContext extends Twig_Extension
 			'theme_url' 	=> DC_ADMIN_URL.'index.php?tf=',
 			
 			'version' 		=> DC_VERSION,
-			'vendor_name' 	=> DC_VENDOR_NAME,
-			
-			# Blogs list (not available yet)
-			'blogs' => array(),
-			
-			# Current blog (not available yet and never available in auth.php)
-			'blog' => array(
-				'id' 	=> '',
-				'host' 	=> '',
-				'url' 	=> '',
-				'name' 	=> ''
-			)
+			'vendor_name' 	=> DC_VENDOR_NAME
 		);
 	}
 	
@@ -139,22 +128,15 @@ class dcAdminContext extends Twig_Extension
     */
 	public function getGlobals()
 	{
-		# Blogs list
-		if ($this->core->auth->blog_count > 1 && $this->core->auth->blog_count < 20) {
-			$rs_blogs = $core->getBlogs(array('order'=>'LOWER(blog_name)','limit'=>20));
-			while ($rs_blogs->fetch()) {
-				$this->protected_globals['blogs'][html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
-			}
-		}
-		# Current blog
-		if ($this->core->auth->blog_count) {
-			$this->protected_globals['blog'] = array(
-				'id' 	=> $this->core->blog->id,
-				'host' 	=> $this->core->blog->host,
-				'url' 	=> $this->core->blog->url,
-				'name' 	=> $this->core->blog->name
-			);
-		}
+		$this->getBlogs();
+		$this->getCurrentBlog();
+		$this->getCurrentUser();
+		
+		# Additional globals
+		$p = path::info($_SERVER['REQUEST_URI']);
+		$this->protected_globals['current_page'] = $p['base'];
+		$this->protected_globals['blog_count'] = $this->core->auth->blog_count;
+		
 		# Keep protected globals safe
 		return array_merge($this->globals,$this->protected_globals);
 	}
@@ -220,6 +202,99 @@ class dcAdminContext extends Twig_Extension
 		foreach ($menu as $k => $v) {
 			echo $menu[$k]->draw();
 		}
+	}
+	
+	/**
+	 * Get list of blogs
+	 */
+	protected function getBlogs()
+	{
+		# Blogs list
+		$blogs = array();
+		if ($this->core->auth->blog_count > 1 && $this->core->auth->blog_count < 20) {
+			$rs_blogs = $this->core->getBlogs(array('order'=>'LOWER(blog_name)','limit'=>20));
+			while ($rs_blogs->fetch()) {
+				$blogs[$rs_blogs->blog_id] = $rs_blogs->blog_name.' - '.$rs_blogs->blog_url;
+				$this->protected_globals['blogs'][$rs_blogs->blog_id] = array(
+					'id' 	=> $rs_blogs->blog_id,
+					'name' 	=> $rs_blogs->blog_name,
+					'desc' 	=> $rs_blogs->blog_desc,
+					'url' 	=> $rs_blogs->blog_url,
+					'creadt'	=> $rs_blogs->blog_creadt,
+					'upddt'	=> $rs_blogs->blog_upddt
+				);
+			}
+		}
+		
+		# Switch blog form
+		$form = new dcForm($this->core,'switchblog_menu','index.php');
+		$form
+			->addField(
+				new dcFieldCombo('switchblog',$this->core->blog->id,$blogs,array(
+				'label' => __('Blogs:'))))
+			->addField(
+				new dcFieldSubmit('switchblog_submit',__('ok'),array(
+				'action' => 'switchblog')))
+			->setup();
+	}
+	
+	/**
+	 * Get current blog information
+	 */
+	protected function getCurrentBlog()
+	{
+		$this->protected_globals['current_blog'] = $this->core->auth->blog_count ?
+			array(
+				'id' 	=> $this->core->blog->id,
+				'name' 	=> $this->core->blog->name,
+				'desc' 	=> $this->core->blog->desc,
+				'url' 	=> $this->core->blog->url,
+				'host' 	=> $this->core->blog->host,
+				'creadt'	=> $this->core->blog->creadt,
+				'upddt'	=> $this->core->blog->upddt
+			) : array(
+				'id' 	=> '',
+				'name' 	=> '',
+				'desc' 	=> '',
+				'url' 	=> '',
+				'host' 	=> '',
+				'creadt'	=> '',
+				'upddt'	=> ''
+			);
+	}
+	
+	/**
+	 * Get current user information
+	 */
+	protected function getCurrentUser()
+	{
+		$this->protected_globals['current_user'] = $this->core->auth->userID() ?
+			array(
+				'id' 	=> $this->core->auth->userID(),
+				'admin' 	=> $this->core->auth->getInfo('user_admin'),
+				'name' 	=> $this->core->auth->getInfo('user_name'),
+				'firstname' 	=> $this->core->auth->getInfo('user_firstname'),
+				'displayname' 	=> $this->core->auth->getInfo('user_displayname'),
+				'url' 	=> $this->core->auth->getInfo('user_url'),
+				'blog' 	=> $this->core->auth->getInfo('user_default_blog'),
+				'lang' 	=> $this->core->auth->getInfo('user_lang'),
+				'tz' 	=> $this->core->auth->getInfo('user_tz'),
+				'creadt' 	=> $this->core->auth->getInfo('user_creadt'),
+				'cn' 	=> $this->core->auth->getInfo('user_cn')
+			) :
+			array(
+				'id' 	=> '',
+				'admin' 	=> '',
+				'name' 	=> '',
+				'firstname' 	=> '',
+				'displayname' 	=> '',
+				'url' 	=> '',
+				'blog' 	=> '',
+				'lang' 	=> 'en',
+				'tz' 	=> '',
+				'creadt' 	=> '',
+				'cn' 	=> '',
+			);
 	}
 }
 ?>
