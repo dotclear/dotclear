@@ -1,0 +1,88 @@
+{% import "js_helpers.html.twig" as js %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $dlang; ?>" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
+  <meta name="GOOGLEBOT" content="NOSNIPPET" />
+  <title>{{vendor_name}}</title>
+  <link rel="stylesheet" href="{{theme_url}}style/default.css" type="text/css" media="screen" />
+  {{ js.load_IE7 }}
+  {{ js.common }}
+  <script type="text/javascript" src="{{theme_url}}js/_auth.js"></script>
+</head>
+
+<body id="dotclear-admin" class="auth">
+
+{% form auth %}
+<div id="login-screen">
+<h1>{{vendor_name}}</h1>
+{% if page_message is not empty %}
+	<p class="message">{{page_message}}</p>
+{% endif %}
+{% if page_errors is not empty %}
+	<div class="error">
+		<p><strong>Errors :</strong></p>
+		<ul>
+		{% for error in page_errors %}
+			<li>{{error}}</li>
+		{% endfor %}
+		</ul>
+	</div>
+{% endif %}
+{% if akey %}
+	<p><a href="auth.php">{{__('Back to login screen')}}</a></p>
+{% elseif recover %}
+	<fieldset><legend>{{__('Request a new password')}}</legend>
+	<p>{{ form_field('user_id') }}</p>
+	<p>{{ form_field('user_email') }}</p>
+	<p>{{ form_field('auth_recover')}}</p>
+	</fieldset>
+	<div id="issue">
+	<p><a href="auth.php">{{__('Back to login screen')}}</a></p></div>
+{% elseif change_pwd %}
+	<fieldset><legend>{{__('Change your password')}}</legend>
+	<p>{{ form_field('new_pwd') }}</p>
+	<p>{{ form_field('new_pwd_c') }}</p>
+	</fieldset>
+	<p>{{ form_field('auth_change') }}</p>
+{% else %}
+	{% if safe_mode %}
+		<fieldset>
+		<legend>{{__('Safe mode login')}}</legend>
+		<p class="form-note info">
+		{{__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems')}}&nbsp;<br />
+		{{__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.')}}
+		</p>
+	{% else %}
+		<div class="fieldset">
+	{% endif %}
+			<p>{{ form_field('user_id') }}</p>
+			<p>{{ form_field('user_pwd') }}</p>
+			<p>{{ form_field('user_remenber') }}</p>
+			<p>{{ form_field('auth_login')}}</p>
+	{% if safe_mode %}
+		</fieldset>
+	{% else %}
+		</div>
+	{% endif %}
+		<p id="cookie_help" class="error">{{__('You must accept cookies in order to use the private area.')}}</p>
+		<div id="issue">
+	{% if safe_mode %}
+		<p><a href="auth.php" id="normal_mode_link">{{__('Get back to normal authentication')}}</a></p>
+	{% else %}
+		<p id="more"><strong>{{__('Connection issue?')}}</strong></p>
+		{% if allow_pass_change %}
+			<p><a href="auth.php?recover=1">{{__('I forgot my password')}}</a></p>
+		{% endif %}
+		<p><a href="auth.php?safe_mode=1" id="safe_mode_link">{{__('I want to log in in safe mode')}}</a></p>
+	{% endif %}
+		</div>
+{% endif %}
+</div>
+{% endform %}
+</body>
+</html>
