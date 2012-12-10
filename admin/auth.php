@@ -302,7 +302,8 @@ $form
 $_ctx->allow_pass_change = $core->auth->allowPassChange();
 $_ctx->change_pwd = $core->auth->allowPassChange() && $form->new_pwd != '' && $form->new_pwd_c != '' && $form->login_data != '';
 $_ctx->recover = $form->recover = $core->auth->allowPassChange() && !empty($_REQUEST['recover']);
-$_ctx->safe_mode = $form->safe_mode = !empty($_REQUEST['safe_mode']);
+$_ctx->setSafeMode(!empty($_REQUEST['safe_mode'])); 
+$form->safe_mode = !empty($_REQUEST['safe_mode']);
 $_ctx->akey = false;
 
 # If we have no POST login informations and have COOKIE login informations, go throug auth process
