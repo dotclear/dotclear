@@ -150,6 +150,10 @@ abbr {
 #info-box1 select {
 	width: 15em;
 }
+#info-box1 label {
+	margin-right: .3em;
+	display: inline;
+}
 #info-box1 a img, #info-box2 a img {
 	vertical-align: middle;
 	padding-left: .3em;
