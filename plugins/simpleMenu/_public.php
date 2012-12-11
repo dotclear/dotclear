@@ -51,9 +51,10 @@ class tplSimpleMenu
 			return;
 		}
 
-		return '<div class="simple-menu'.
-			($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
-			($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.'</div>';
+		return
+			($w->content_only ? '' : '<div class="simple-menu'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
+			($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.
+			($w->content_only ? '' : '</div>');
 	}
 	
 	public static function displayMenu($class='',$id='',$description='')

@@ -248,7 +248,7 @@ class tplPages
 		}
 		
 		$res =
-		'<div class="pages'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		($w->content_only ? '' : '<div class="pages'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -261,7 +261,7 @@ class tplPages
 			html::escapeHTML($rs->post_title).'</a></li>';
 		}
 		
-		$res .= '</ul></div>';
+		$res .= '</ul>'.($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
