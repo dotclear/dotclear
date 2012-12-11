@@ -26,6 +26,7 @@ class simpleMenuWidgets
 				__('Except on home page') => 2
 				)
 		);
+		$w->simplemenu->setting('content_only',__('Content only'),0,'check');
 		$w->simplemenu->setting('class',__('CSS class:'),'');
 	}
 }

@@ -1853,6 +1853,9 @@ msgstr "chaîne vide"
 msgid "CSS class:"
 msgstr "Classe CSS :"
 
+msgid "Content only"
+msgstr "Contenu seul"
+
 msgid "Blogroll list"
 msgstr "Liste de liens"
 
