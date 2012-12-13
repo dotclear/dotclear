@@ -13,15 +13,37 @@ if (!defined('DC_RC_PATH')) { return; }
 
 class dcMenu
 {
+	private $items;
 	private $id;
 	public $title;
+	public $separator;
 	
-	public function __construct($id,$title,$itemSpace='')
+	public function __construct($id,$title,$separator='')
 	{
 		$this->id = $id;
 		$this->title = $title;
-		$this->itemSpace = $itemSpace;
+		$this->separator = $separator;
 		$this->items = array();
+	}
+	
+	public function getID()
+	{
+		return $this->id;
+	}
+	
+	public function getTitle()
+	{
+		return $this->title;
+	}
+	
+	public function getSeparator()
+	{
+		return $this->separator;
+	}
+	
+	public function getItems()
+	{
+		return $this->items;
 	}
 	
 	public function addItem($title,$url,$img,$active,$show=true,$id=null,$class=null)
@@ -38,6 +60,30 @@ class dcMenu
 		}
 	}
 	
+	protected function itemDef($title,$url,$img,$active,$id=null,$class=null)
+	{
+		if (is_array($url)) {
+			$link = $url[0];
+			$ahtml = (!empty($url[1])) ? ' '.$url[1] : '';
+		} else {
+			$link = $url;
+			$ahtml = '';
+		}
+		
+		return array(
+			'title' => $title,
+			'link' => $link,
+			'ahtml' => $ahtml,
+			'img' => dc_admin_icon_url($img),
+			'active' => (boolean) $active,
+			'id' => $id,
+			'class' => $class
+		);
+	}
+	
+	/**
+	@deprecated Use Template engine instead
+	*/
 	public function draw()
 	{
 		if (count($this->items) == 0) {
@@ -51,11 +97,11 @@ class dcMenu
 		
 		for ($i=0; $i<count($this->items); $i++)
 		{
-			if ($i+1 < count($this->items) && $this->itemSpace != '') {
-				$res .= preg_replace('|</li>$|',$this->itemSpace.'</li>',$this->items[$i]);
+			if ($i+1 < count($this->items) && $this->separator != '') {
+				$res .= preg_replace('|</li>$|',$this->separator.'</li>',$this->drawItem($this->items[$i]));
 				$res .= "\n";
 			} else {
-				$res .= $this->items[$i]."\n";
+				$res .= $this->drawItem($this->items[$i])."\n";
 			}
 		}
 		
@@ -64,25 +110,18 @@ class dcMenu
 		return $res;
 	}
 	
-	protected function itemDef($title,$url,$img,$active,$id=null,$class=null)
+	/**
+	@deprecated Use Template engine instead
+	*/
+	protected function drawItem($item)
 	{
-		if (is_array($url)) {
-			$link = $url[0];
-			$ahtml = (!empty($url[1])) ? ' '.$url[1] : '';
-		} else {
-			$link = $url;
-			$ahtml = '';
-		}
-		
-		$img = dc_admin_icon_url($img);
-		
 		return
-		'<li'.(($active || $class) ? ' class="'.(($active) ? 'active ' : '').(($class) ? $class : '').'"' : '').
-		(($id) ? ' id="'.$id.'"' : '').
-		(($img) ? ' style="background-image: url('.$img.');"' : '').
+		'<li'.(($item['active'] || $item['class']) ? ' class="'.(($item['active']) ? 'active ' : '').(($item['class']) ? $item['class'] : '').'"' : '').
+		(($item['id']) ? ' id="'.$item['id'].'"' : '').
+		(($item['img']) ? ' style="background-image: url('.$item['img'].');"' : '').
 		'>'.
 		
-		'<a href="'.$link.'"'.$ahtml.'>'.$title.'</a></li>'."\n";
+		'<a href="'.$item['link'].'"'.$item['ahtml'].'>'.$item['title'].'</a></li>'."\n";
 	}
 }
 ?>

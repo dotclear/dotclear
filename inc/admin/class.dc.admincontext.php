@@ -116,8 +116,8 @@ class dcAdminContext extends Twig_Extension
 	public function getFunctions()
 	{
 		return array(
-			'__' 		=> new Twig_Function_Function("__", array('is_safe' => array('html'))),
-			'page_menu' => new Twig_Function_Method($this, 'pageMenu', array('is_safe' => array('html')))
+			'__' 		=> new Twig_Function_Function("__", array('is_safe' => array('html')))
+			//,'page_menu' => new Twig_Function_Method($this, 'pageMenu', array('is_safe' => array('html')))
 		);
 	}
 	
@@ -133,6 +133,7 @@ class dcAdminContext extends Twig_Extension
 		$this->getBlogs();
 		$this->getCurrentBlog();
 		$this->getCurrentUser();
+		$this->getMenus();
 		
 		# Additional globals
 		$p = path::info($_SERVER['REQUEST_URI']);
@@ -199,17 +200,6 @@ class dcAdminContext extends Twig_Extension
 	public function setPageTitle($title)
 	{
 		$this->protected_globals['page_title'] = $title;
-	}
-	
-	/**
-	pageMenu
-	*/
-	public function pageMenu()
-	{
-		$menu =& $GLOBALS['_menu'];
-		foreach ($menu as $k => $v) {
-			echo $menu[$k]->draw();
-		}
 	}
 	
 	/**
@@ -306,6 +296,26 @@ class dcAdminContext extends Twig_Extension
 				'creadt' 	=> '',
 				'cn' 	=> '',
 			);
+	}
+	
+	protected function getMenus()
+	{
+		global $_menu;
+		
+		$this->protected_globals['menus'] = array();
+		
+		if (!isset($_menu)) {
+			return;
+		}
+		
+		foreach($_menu as $m) {
+			$this->protected_globals['menus'][] = array(
+				'id' 		=> $m->getID(),
+				'title' 		=> $m->getTitle(),
+				'separator' 	=> $m->getSeparator(),
+				'items' 		=> $m->getItems()
+			);
+		}
 	}
 }
 ?>
