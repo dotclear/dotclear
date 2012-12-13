@@ -287,9 +287,6 @@ h1 a {
 	margin: .33em 1em .66em 0;
 	padding: 4px;
 	border: 1px solid #999;
-	-moz-box-shadow: 2px 2px 3px #ccc;
-	-webkit-box-shadow: 2px 2px 3px #ccc;
-	-o-box-shadow: 2px 2px 3px #ccc;
 	box-shadow: 2px 2px 3px #ccc;
 	}
 .short .post-title {
@@ -547,9 +544,6 @@ img.smiley {
 	background: rgb(119,119,119);
 	border: solid 1px #686867;
 	border-radius: 5px;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-o-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(119,119,119,1)), color-stop(100%, rgba(85,85,85,1)));
 	background: -webkit-linear-gradient(top, rgba(119,119,119,1) 0%,rgba(85,85,85,1) 100%);
@@ -643,9 +637,6 @@ img.smiley {
 	background: #ededed;
 	margin-bottom: 1em;
 	padding: 4px 8px;
-	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
-	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
-	-o-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
 	box-shadow: 2px 2px 4px rgba(0,0,0,.2);
 	}
 .category-current {
@@ -1009,9 +1000,6 @@ hr.hidden {
 	margin-bottom: 1em;
 	padding: 4px;
 	border: 1px solid #ccc;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	-o-box-shadow: none;
 	box-shadow: none;
 	}
 .dc-archive #blogextra h2 {
