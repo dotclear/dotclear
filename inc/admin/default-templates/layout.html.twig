@@ -67,7 +67,26 @@
 			</div>
 		</div>
 		<div id="main-menu">
-			{{ page_menu() }}
+			{% block menus %}
+			{% for menu in menus %}
+			{% if menu.items is not empty %}
+			<div id="{{menu.id}}">
+				{% if menu.title is not empty %}<h3>{{menu.title}}</h3>{% endif %}
+				<ul>
+				{% for item in menu.items %}
+				{% spaceless %}
+				<li {% if item.active or item.class is not empty %} class="{% if item.active %}active {% endif %}{{item.class}}"{% endif %}
+				{% if item.id is not empty %}id="{{item.id}}" {% endif %}
+				{% if item.img is not empty %} style="background-image: url({{item.img}});"{% endif %}
+				><a href="{{item.link}}"{{item.ahtml}}>{{item.title}}</a>
+				{% if loop.last %}{{menu.separator}}{% endif %}</li>
+				{% endspaceless %}
+				{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			{% endfor %}
+			{% endblock %}
 		</div>
 		<div id="footer">
 			{% block footer %}
