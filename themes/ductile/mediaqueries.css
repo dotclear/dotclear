@@ -188,11 +188,6 @@
 		padding: 8px 32px 8px 28px;
 		border-right: 1px solid #ccc;
 		min-height: 2.5em;
-		-webkit-border-radius: 0 0 0 4px;
-		-moz-border-radius: 0 0 0 4px;
-		-o-border-radius: 0 0 0 4px;
-		-ms-border-radius: 0 0 0 4px;
-		-khtml-border-radius: 0 0 0 4px;
 		border-radius: 0 0 0 4px;	
 	 	}
 	.supranav li a span {

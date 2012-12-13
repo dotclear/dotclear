@@ -249,11 +249,6 @@ h1 a {
 	background: -ms-linear-gradient(top, rgba(244,244,245,1) 0%,rgba(215,215,220,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f5', endColorstr='#d7d7dc',GradientType=0 );
 	background: linear-gradient(top, rgba(244,244,245,1) 0%,rgba(215,215,220,1) 100%);
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-o-border-radius: 4px;
-	-ms-border-radius: 4px;
-	-khtml-border-radius: 4px;
 	border-radius: 4px;
 	border-right: 1px solid #aaa;
 	border-bottom: 1px solid #ccc;
@@ -529,11 +524,6 @@ img.smiley {
 	border: 1px solid #ccc;
 	padding: 4px;
 	background: #fff;
-	-webkit-border-radius: 3px; 
-	-moz-border-radius: 3px;
-	-o-border-radius: 3px;
-	-ms-border-radius: 3px;
-	-khtml-border-radius: 3px;
 	border-radius: 3px;
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	}
@@ -556,11 +546,6 @@ img.smiley {
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	background: rgb(119,119,119);
 	border: solid 1px #686867;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-khtml-border-radius: 5px;
 	border-radius: 5px;
 	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
