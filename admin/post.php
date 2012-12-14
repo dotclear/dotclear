@@ -201,6 +201,19 @@ if (!empty($_POST) && $can_edit_post)
 	);
 }
 
+# Delete post
+if (!empty($_POST['delete']) && $can_delete)
+{
+	try {
+		# --BEHAVIOR-- adminBeforePostDelete
+		$core->callBehavior('adminBeforePostDelete',$post_id);
+		$core->blog->delPost($post_id);
+		http::redirect('posts.php');
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
 # Create or update post
 if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 {
@@ -267,18 +280,6 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 		{
 			$core->error->add($e->getMessage());
 		}
-	}
-}
-
-if (!empty($_POST['delete']) && $can_delete)
-{
-	try {
-		# --BEHAVIOR-- adminBeforePostDelete
-		$core->callBehavior('adminBeforePostDelete',$post_id);
-		$core->blog->delPost($post_id);
-		http::redirect('posts.php');
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
 	}
 }
 
