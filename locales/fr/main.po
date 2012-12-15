@@ -2864,6 +2864,12 @@ msgstr "Le répertoire n'existe pas"
 msgid "Cannot read directory"
 msgstr "Impossible de lire le répertoire"
 
+msgid "Site temporarily unavailable"
+msgstr "Site temporairement indisponible"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Veuillez nous excuser pour cette indisponibilité momentanée.<br />Merci de votre compréhension.</p>"
+
 msgid "Unable to connect to database"
 msgstr "Connexion à la base de données impossible"
 
