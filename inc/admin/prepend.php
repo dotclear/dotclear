@@ -10,6 +10,8 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
+define('DC_CONTEXT_ADMIN',true);
+
 require_once dirname(__FILE__).'/../prepend.php';
 
 // HTTP/1.1
@@ -18,8 +20,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-ch
 
 // HTTP/1.0
 header("Pragma: no-cache");
-
-define('DC_CONTEXT_ADMIN',true);
 
 function dc_valid_fav($url) {
 	global $core;
