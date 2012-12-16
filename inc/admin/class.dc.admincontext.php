@@ -38,6 +38,7 @@ class dcAdminContext extends Twig_Extension
 			
 			'admin_url' 	=> DC_ADMIN_URL,
 			'theme_url' 	=> DC_ADMIN_URL.'index.php?tf=',
+			'plugin_url' 	=> DC_ADMIN_URL.'index.php?pf=',
 			
 			'version' 		=> DC_VERSION,
 			'vendor_name' 	=> DC_VENDOR_NAME,
@@ -200,6 +201,14 @@ class dcAdminContext extends Twig_Extension
 	public function setPageTitle($title)
 	{
 		$this->protected_globals['page_title'] = $title;
+	}
+	
+	/**
+	Check if a page title is set
+	*/
+	public function hasPageTitle()
+	{
+		return !empty($this->protected_globals['page_title']);
 	}
 	
 	/**

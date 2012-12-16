@@ -1,0 +1,80 @@
+{% extends "layout.html.twig" %}
+{% import "js_helpers.html.twig" as js %}
+
+{% block header %}
+  {{ parent() }}
+  {{ js.page_tabs(default_tab) }}
+  <link rel="stylesheet" href="{{plugin_url}}aboutConfig/style/aboutConfig.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="{{plugin_url}}aboutConfig/js/aboutConfig.js"></script>
+{% endblock %}
+
+{%block content %}
+  {{ parent() }}
+
+  <div id="local" class="multi-part" title="{{__('blog settings')}}">
+    {% if local_settings is not empty %}
+    {% form local_nav_form %}
+	<p class="anchor-nav">{{ form_field('local_nav') }} {{ form_field('local_nav_submit') }}</p>
+    {% endform %}
+    {% endif %}
+
+    {% form local_settings_form %}
+    {% for ns, setting in local_settings %}
+	<table class="settings" id="local_{{ ns }}"><caption>{{ ns }}</caption>
+	<thead>
+	<tr>
+	<th class="nowrap">Setting ID</th>
+	<th>{{__('Value')}}</th>
+	<th>{{__('Type')}}</th>
+	<th class="maximal">{{__('Description')}}</th>
+	</tr>
+	</thead>
+	<tbody>
+    {% for key,value in setting %}
+    {% set fname = 'local_' ~ ns ~ '_' ~ key %}
+	<tr>
+	<td scope="raw"><label for="{{ fname }}">{% if value.global %}<strong>{{ key }}</strong>{% else %}{{ key }}{% endif %}</label></td>
+	<td>{% if value.type == 'boolean' %}{{ form_field(fname) }}{% else %}{{ form_field(fname,{'size':40}) }}{% endif %}</td>
+	<td>{{ value.type }}</td>
+	<td>{{ value.label }}</td>
+	</tr>
+    {% endfor %}
+	</tbody></table>
+    {% endfor %}
+	<p>{{ form_field('local_submit') }} </p>
+    {% endform %}
+	</div>
+
+  <div id="global" class="multi-part" title="{{__('global settings')}}">
+    {% if global_settings is not empty %}
+    {% form global_nav_form %}
+	<p class="anchor-nav">{{ form_field('global_nav') }} {{ form_field('global_nav_submit') }}</p>
+    {% endform %}
+    {% endif %}
+
+    {% form global_settings_form %}
+    {% for ns, setting in global_settings %}
+	<table class="settings" id="global_{{ ns }}"><caption>{{ ns }}</caption>
+	<thead>
+	<tr>
+	<th class="nowrap">Setting ID</th>
+	<th>{{__('Value')}}</th>
+	<th>{{__('Type')}}</th>
+	<th class="maximal">{{__('Description')}}</th>
+	</tr>
+	</thead><tbody>
+    {% for key,value in setting %}
+    {% set fname = 'global_' ~ ns ~ '_' ~ key %}
+	<tr>
+	<td scope="raw"><label for="{{ fname }}">{{ key }}</label></td>
+	<td>{% if value.type == 'boolean' %}{{ form_field(fname) }}{% else %}{{ form_field(fname,{'size':40}) }}{% endif %}</td>
+	<td>{{ value.type }}</td>
+	<td>{{ value.label }}</td>
+	</tr>
+    {% endfor %}
+	</tbody></table>
+    {% endfor %}
+	<p>{{ form_field('global_submit') }} </p>
+    {% endform %}
+  </div>
+{% endblock %}
