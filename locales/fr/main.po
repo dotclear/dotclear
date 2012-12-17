@@ -372,6 +372,9 @@ msgstr "Titres des images insérées"
 msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
 msgstr "Ceci définit le titre de la balise d'une image insérée depuis le gestionnaire de media. Les informations sont obtenues depuis les métadonnées de l'image."
 
+msgid "Use original media date if possible"
+msgstr "Utiliser la date originale du média si possible"
+
 msgid "Search engines robots policy"
 msgstr "Paramètres d'indexation par les moteurs de recherche"
 

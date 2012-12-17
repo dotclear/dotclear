@@ -224,6 +224,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
 		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
+		$blog_settings->system->put('media_img_use_dto_first',!empty($_POST['media_img_use_dto_first']));
 		$blog_settings->system->put('media_img_default_size',$_POST['media_img_default_size']);
 		$blog_settings->system->put('media_img_default_alignment',$_POST['media_img_default_alignment']);
 		$blog_settings->system->put('media_img_default_link',!empty($_POST['media_img_default_link']));
@@ -481,9 +482,10 @@ if ($blog_id)
 	'<h4><label for="media_img_title_pattern">'.__('Inserted image title').'</label></h4>'.
 	'<p>'.__('This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture\'s metadata.').'</p>'.
 	'<p>'.form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
-	'</div>'.
+	'<p><label for="media_img_use_dto_first" class="classic">'.
+	form::checkbox('media_img_use_dto_first','1',$blog_settings->system->media_img_use_dto_first).
+	__('Use original media date if possible').'</label></p>'.
 
-	'<div class="col">'.
 	'<h4>'.__('Default image insertion attributes').'</h4>'.
 	'<p><label for="media_img_default_size">'.__('Image size:').
 	form::combo('media_img_default_size',$img_default_size_combo,
