@@ -17,7 +17,7 @@
 	{% block more_header %}{% endblock %}
 </head>
 
-<body id="dotclear-admin">
+<body id="dotclear-admin{% if safe_mode %} safe-mode{% endif %}">
 	<div id="header">
 		<ul id="prelude">
 			<li><a href="#content">{{__('To content')}}</a></li>
@@ -48,6 +48,11 @@
 		<div id="main">
 			<div id="content">
 				{% block content %}
+				{% if safe_mode %}
+					<div class="error"><h3>{{__('Safe mode')}}</h3>
+					<p>{{__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities')}}</p>
+					</div>
+				{% endif %}
 				<h2>{{current_blog.name}} &rsaquo; <span class="page-title">{{page_title}}</span></h2>
 				{% if page_message is not empty %}
 					<p class="message">{{page_message}}</p>
