@@ -58,8 +58,13 @@ if (file_exists($p_file)) {
 	$res = ob_get_contents();
 	ob_end_clean();
 
+	# Check context and display
+	if ($_ctx->hasPageTitle() && !empty($res)) {
+		$has_content = true;
+		echo $res;
+	}
 //* Keep this for old style plugins using dcPage
-	if (!$_ctx->hasPageTitle()) {
+	elseif (!$_ctx->hasPageTitle()) {
 		
 		if (preg_match('|<head>(.*?)</head|ms',$res,$m)) {
 			if (preg_match('|<title>(.*?)</title>|ms',$m[1],$mt)) {
@@ -96,11 +101,6 @@ if (file_exists($p_file)) {
 		}
 	}
 //*/
-	# Check context and display
-	if ($_ctx->hasPageTitle() && !empty($res)) {
-		$has_content = true;
-		echo $res;
-	}
 }
 # No plugin or content found
 if (!$has_content) {
