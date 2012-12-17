@@ -1,6 +1,7 @@
 {% extends "layout.html.twig" %}
 {% import "js_helpers.html.twig" as js %}
-{% block more_header %}
+{% block header %}
+	{{ parent() }}
 	{{ js.date_picker }}
 	{{ js.tool_bar }}
 	{{ js.modal }}
