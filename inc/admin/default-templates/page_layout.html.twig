@@ -1,0 +1,11 @@
+{# Layout for backward compatibility with scripts which use dcPage #}
+{% extends (popup ? "popup" : "layout") ~ ".html.twig" %}
+
+{% block header %}
+{{ parent() }}
+{{ page_header|raw }}
+{% endblock %}
+
+{% block content %}
+{{ page_content|raw }}
+{% endblock %}

@@ -48,216 +48,41 @@ class dcPage
 	}
 	
 	# Top of admin page
-	public static function open($title='', $head='')
+	public static function open($title='',$head='',$popup=false)
 	{
-		global $core;
+		global $core, $_ctx;
 		
-		# List of user's blogs
-		if ($core->auth->blog_count == 1 || $core->auth->blog_count > 20)
-		{
-			$blog_box =
-			__('Blog:').' <strong title="'.html::escapeHTML($core->blog->url).'">'.
-			html::escapeHTML($core->blog->name).'</strong>';
-			
-			if ($core->auth->blog_count > 20) {
-				$blog_box .= ' - <a href="blogs.php">'.__('Change blog').'</a>';
-			}
-		}
-		else
-		{
-			$rs_blogs = $core->getBlogs(array('order'=>'LOWER(blog_name)','limit'=>20));
-			$blogs = array();
-			while ($rs_blogs->fetch()) {
-				$blogs[html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
-			}
-			$blog_box =
-			'<label for="switchblog" class="classic">'.
-			__('Blogs:').' '.
-			$core->formNonce().
-			form::combo('switchblog',$blogs,$core->blog->id).
-			'</label>'.
-			'<noscript><div><input type="submit" value="'.__('ok').'" /></div></noscript>';
-		}
+		$_ctx->popup = (boolean) $popup;
+		$_ctx->page_header = $head;
+		$_ctx->setPageTitle($title);
 		
-		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
-		
-		# Display
-		header('Content-Type: text/html; charset=UTF-8');
-		echo
-		'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" '.
-		' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
-		'<html xmlns="http://www.w3.org/1999/xhtml" '.
-		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
-		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
-		"<head>\n".
-		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
-		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
-		
-		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
-		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
-		
-		self::jsLoadIE7().
-		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n"; 
-		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
-			echo
-		'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
-		}
-
-		$core->auth->user_prefs->addWorkspace('interface');
-		$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
-		if (!$user_ui_hide_std_favicon) {
-			echo '<link rel="icon" type="image/png" href="images/favicon.png" />';
-		}
-		
-		echo
-		self::jsCommon().
-		$head;
-		
-		# --BEHAVIOR-- adminPageHTMLHead
-		$core->callBehavior('adminPageHTMLHead');
-		
-		echo
-		"</head>\n".
-		'<body id="dotclear-admin'.
-		($safe_mode ? ' safe-mode' : '').
-		'">'."\n".
-		
-		'<div id="header">'.
-		'<ul id="prelude"><li><a href="#content">'.__('Go to the content').'</a></li><li><a href="#main-menu">'.__('Go to the menu').'</a></li></ul>'."\n".
-		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";	
-		
-		echo
-		'<div id="info-boxes">'.
-		'<div id="info-box1">'.
-		'<form action="index.php" method="post">'.
-		$blog_box.
-		'<a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
-		'</form>'.
-		'</div>'.
-		'<div id="info-box2">'.
-		'<a'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
-		'<span> | </span><a'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
-		'<span> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
-		'</div>'.
-		'</div>'.
-		'</div>';
-		
-		echo
-		'<div id="wrapper">'."\n".
-		'<div id="main">'."\n".
-		'<div id="content">'."\n";
-		
-		# Safe mode
-		if ($safe_mode)
-		{
-			echo
-			'<div class="error"><h3>'.__('Safe mode').'</h3>'.
-			'<p>'.__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
-			'</div>';
-		}
-		
-		if ($core->error->flag()) {
-			echo
-			'<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</p></strong>'.
-			$core->error->toHTML().
-			'</div>';
-		}
+		ob_start();
 	}
 	
 	public static function close()
 	{
-		global $core;
-
-		$menu =& $GLOBALS['_menu'];
+		$res = ob_get_contents();
+		ob_end_clean();
 		
-		echo
-		"</div>\n".		// End of #content
-		"</div>\n".		// End of #main
-		
-		'<div id="main-menu">'."\n";
-		
-		foreach ($menu as $k => $v) {
-			echo $menu[$k]->draw();
-		}
-		
-		$text = sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>');
-
-		# --BEHAVIOR-- adminPageFooter
-		$textAlt = $core->callBehavior('adminPageFooter',$core,$text);
-
-		echo
-		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><p>'.($textAlt != '' ? $textAlt : $text).'</p></div>'."\n".
-		"</div>\n";		// End of #wrapper
-		
-		if (defined('DC_DEV') && DC_DEV === true) {
-			echo self::debugInfo();
-		}
-		
-		echo
-		'</body></html>';
-	}
-	
-	public static function openPopup($title='', $head='')
-	{
-		global $core;
-		
-		# Display
-		header('Content-Type: text/html; charset=UTF-8');
-		echo
-		'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" '.
-		' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
-		'<html xmlns="http://www.w3.org/1999/xhtml" '.
-		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
-		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
-		"<head>\n".
-		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
-		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
-		
-		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
-		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
-		
-		self::jsLoadIE7().
-		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n"; 
-		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
-			echo
-			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
-		}
-		
-		echo
-		self::jsCommon().
-		$head;
-		
-		# --BEHAVIOR-- adminPageHTMLHead
-		$core->callBehavior('adminPageHTMLHead');
-		
-		echo
-		"</head>\n".
-		'<body id="dotclear-admin" class="popup">'."\n".
-		
-		'<div id="top"><h1>'.DC_VENDOR_NAME.'</h1></div>'."\n";
-		
-		echo
-		'<div id="wrapper">'."\n".
-		'<div id="main">'."\n".
-		'<div id="content">'."\n";
+		global $core, $_ctx;
 		
 		if ($core->error->flag()) {
-			echo
-			'<div class="error"><strong>'.__('Errors:').'</strong>'.
-			$core->error->toHTML().
-			'</div>';
+			foreach($core->error->getErrors() as $e) {
+				$_ctx->addError($e);
+			}
 		}
+		$_ctx->page_content = $res;
+		$core->tpl->display('page_layout.html.twig');
+	}
+	
+	public static function openPopup($title='',$head='')
+	{
+		self::open($title,$head,true);
 	}
 	
 	public static function closePopup()
 	{
-		echo
-		"</div>\n".		// End of #content
-		"</div>\n".		// End of #main
-		'<div id="footer"><p>&nbsp;</p></div>'."\n".
-		"</div>\n".		// End of #wrapper
-		'</body></html>';
+		self::close();
 	}
 
 	public static function message($msg,$timestamp=true,$div=false,$echo=true)
@@ -273,49 +98,6 @@ class dcPage
 				echo $res;
 			}
 		}
-		return $res;
-	}
-	
-	private static function debugInfo()
-	{
-		$global_vars = implode(', ',array_keys($GLOBALS));
-		
-		$res =
-		'<div id="debug"><div>'.
-		'<p>memory usage: '.memory_get_usage().' ('.files::size(memory_get_usage()).')</p>';
-		
-		if (function_exists('xdebug_get_profiler_filename'))
-		{
-			$res .= '<p>Elapsed time: '.xdebug_time_index().' seconds</p>';
-			
-			$prof_file = xdebug_get_profiler_filename();
-			if ($prof_file) {
-				$res .= '<p>Profiler file : '.xdebug_get_profiler_filename().'</p>';
-			} else {
-				$prof_url = http::getSelfURI();
-				$prof_url .= (strpos($prof_url,'?') === false) ? '?' : '&';
-				$prof_url .= 'XDEBUG_PROFILE';
-				$res .= '<p><a href="'.html::escapeURL($prof_url).'">Trigger profiler</a></p>';
-			}
-			
-			/* xdebug configuration:
-			zend_extension = /.../xdebug.so
-			xdebug.auto_trace = On
-			xdebug.trace_format = 0
-			xdebug.trace_options = 1
-			xdebug.show_mem_delta = On
-			xdebug.profiler_enable = 0
-			xdebug.profiler_enable_trigger = 1
-			xdebug.profiler_output_dir = /tmp
-			xdebug.profiler_append = 0
-			xdebug.profiler_output_name = timestamp
-			*/
-		}
-		
-		$res .=
-		'<p>Global vars: '.$global_vars.'</p>'.
-		'</div></div>';
-		
 		return $res;
 	}
 	
