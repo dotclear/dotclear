@@ -218,7 +218,8 @@ if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {
 if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
 	echo
 	'<p class="static-msg">'.
-	'DC_ADMIN_MAILFROM '.__('is not defined, you should edit your configuration file.').
+	'DC_ADMIN_MAILFROM '.__('is not defined, you should edit your configuration file.').' '.
+	__('See <a href="http://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.').
 	'</p>';
 }
 
