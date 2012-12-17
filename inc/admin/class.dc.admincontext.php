@@ -43,7 +43,8 @@ class dcAdminContext extends Twig_Extension
 			'version' 		=> DC_VERSION,
 			'vendor_name' 	=> DC_VENDOR_NAME,
 			
-			'safe_mode' 	=> isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode']
+			'safe_mode' 	=> isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'],
+			'debug_mode'	=> DC_DEBUG
 		);
 	}
 	
@@ -117,7 +118,8 @@ class dcAdminContext extends Twig_Extension
 	public function getFunctions()
 	{
 		return array(
-			'__' 		=> new Twig_Function_Function("__", array('is_safe' => array('html')))
+			'__' 		=> new Twig_Function_Function("__", array('is_safe' => array('html'))),
+			'debug_info' => new Twig_Function_Method($this, 'getDebugInfo', array('is_safe' => array('html')))
 			//,'page_menu' => new Twig_Function_Method($this, 'pageMenu', array('is_safe' => array('html')))
 		);
 	}
@@ -325,6 +327,53 @@ class dcAdminContext extends Twig_Extension
 				'items' 		=> $m->getItems()
 			);
 		}
+	}
+	
+	/**
+	Get an array of debug/dev infos
+	*/
+	public function getDebugInfo()
+	{
+		if (!DC_DEBUG) {
+			return array();
+		}
+		
+		$di = array(
+			'global_vars' => implode(', ',array_keys($GLOBALS)),
+			'memory' => array(
+				'usage' => memory_get_usage(),
+				'size' => files::size(memory_get_usage())
+			),
+			'xdebug' => array()
+		);
+		
+		if (function_exists('xdebug_get_profiler_filename')) {
+		
+			$url = http::getSelfURI();
+			$url .= strpos($url,'?') === false ? '?' : '&';
+			$url .= 'XDEBUG_PROFILE';
+			
+			$di['xdebug'] = array(
+				'elapse_time' => xdebug_time_index(),
+				'profiler_file' => xdebug_get_profiler_filename(),
+				'profiler_url' =>  $url
+			);
+			
+			/* xdebug configuration:
+			zend_extension = /.../xdebug.so
+			xdebug.auto_trace = On
+			xdebug.trace_format = 0
+			xdebug.trace_options = 1
+			xdebug.show_mem_delta = On
+			xdebug.profiler_enable = 0
+			xdebug.profiler_enable_trigger = 1
+			xdebug.profiler_output_dir = /tmp
+			xdebug.profiler_append = 0
+			xdebug.profiler_output_name = timestamp
+			*/
+		}
+		
+		return $di;
 	}
 }
 ?>

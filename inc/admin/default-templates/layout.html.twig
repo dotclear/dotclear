@@ -94,5 +94,22 @@
 			{% endblock %}
 		</div>
 	</div>
+	{% block debug %}
+	  {% set debug_info = debug_info() %}
+	  {% if debug_info is not empty %}
+		<div id="debug"><div>
+		<p>memory usage: {{ debug_info.memory.usage }} ({{ debug_info.memory.size }})</p>
+		{% if debug_info.xdebug is not empty %}
+		  <p>Elapsed time: {{ debug_info.xdebug.elapse_time }} seconds</p>
+		  {% if debug_info.xdebug.profiler_file is not empty %}
+			<p>Profiler file : {{ debug_info.xdebug.profiler_file }}</p>
+		  {% else %}
+			<p><a href="{{ debug_info.xdebug.profiler_url }}">Trigger profiler</a></p>
+		  {% endif %}
+		{% endif %}
+		<p>Global vars: {{ debug_info.global_vars }}</p>
+		</div></div>
+	  {% endif %}
+	{% endblock %}
 	</body>
 </html>
