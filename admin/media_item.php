@@ -134,7 +134,7 @@ if (!empty($_POST['unzip']) && $file->type == 'application/zip' && $file->editab
 }
 
 # Function to get image title based on meta
-function dcGetImageTitle($file,$pattern)
+function dcGetImageTitle($file,$pattern,$dto_first=false)
 {
 	$res = array();
 	$pattern = preg_split('/\s*;;\s*/',$pattern);
@@ -146,7 +146,11 @@ function dcGetImageTitle($file,$pattern)
 		} elseif ($file->media_meta->{$v}) {
 			$res[] = (string) $file->media_meta->{$v};
 		} elseif (preg_match('/^Date\((.+?)\)$/u',$v,$m)) {
-			$res[] = dt::str($m[1],$file->media_dt);
+			if ($dto_first && $file->media_meta->DateTimeOriginal) {
+				$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
+			} else {
+				$res[] = dt::str($m[1],$file->media_dt);
+			}
 		} elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u',$v,$m) && $file->media_meta->DateTimeOriginal) {
 			$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
 		} elseif (preg_match('/^separator\((.*?)\)$/u',$v,$m)) {
@@ -213,7 +217,9 @@ if ($popup)
 	if ($file->media_type == 'image')
 	{
 		$media_type = 'image';
-		$media_desc = dcGetImageTitle($file,$core->blog->settings->system->media_img_title_pattern);
+		$media_desc = dcGetImageTitle($file,
+			$core->blog->settings->system->media_img_title_pattern,
+			$core->blog->settings->system->media_img_use_dto_first);
 		if ($media_desc == $file->basename) {
 			$media_desc = '';
 		}
