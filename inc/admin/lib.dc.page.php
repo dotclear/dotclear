@@ -180,9 +180,9 @@ class dcPage
 		"//<![CDATA[\n".
 		self::jsVar('dotclear.nonce',$GLOBALS['core']->getNonce()).
 		
-		self::jsVar('dotclear.img_plus_src','images/plus.png').
+		self::jsVar('dotclear.img_plus_src','images/expand.png').
 		self::jsVar('dotclear.img_plus_alt',__('uncover')).
-		self::jsVar('dotclear.img_minus_src','images/minus.png').
+		self::jsVar('dotclear.img_minus_src','images/hide.png').
 		self::jsVar('dotclear.img_minus_alt',__('hide')).
 		self::jsVar('dotclear.img_menu_on','images/menu_on.png').
 		self::jsVar('dotclear.img_menu_off','images/menu_off.png').
@@ -213,6 +213,8 @@ class dcPage
 			__("Are you sure you want to delete selected entries (%s)?")).
 		self::jsVar('dotclear.msg.confirm_delete_post',
 			__("Are you sure you want to delete this entry?")).
+		self::jsVar('dotclear.msg.confirm_spam_delete',
+			__('Are you sure you want to delete all spams?')).
 		self::jsVar('dotclear.msg.confirm_delete_comments',
 			__('Are you sure you want to delete selected comments (%s)?')).
 		self::jsVar('dotclear.msg.confirm_delete_comment',
@@ -467,8 +469,8 @@ class dcPage
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		"dotclear.candyUpload = {};\n".
-		self::jsVar('dotclear.msg.activate_enhanced_uploader',__('Activate enhanced uploader')).
-		self::jsVar('dotclear.msg.disable_enhanced_uploader',__('Disable enhanced uploader')).
+		self::jsVar('dotclear.msg.activate_enhanced_uploader',__('Temporarily activate enhanced uploader')).
+		self::jsVar('dotclear.msg.disable_enhanced_uploader',__('Temporarily disable enhanced uploader')).
 		self::jsVar('$._candyUpload.prototype.locales.file_uploaded',__('File successfully uploaded.')).
 		self::jsVar('$._candyUpload.prototype.locales.max_file_size',__('Maximum file size allowed:')).
 		self::jsVar('$._candyUpload.prototype.locales.limit_exceeded',__('Limit exceeded.')).

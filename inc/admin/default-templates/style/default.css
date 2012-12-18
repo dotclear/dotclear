@@ -147,12 +147,15 @@ abbr {
 	background: #575859;
 	height: 2em;
 }
-#info-box1 select {
-	width: 15em;
+#info-box1 p {
+	margin: 0;
+	display: inline;
 }
 #info-box1 label {
-	margin-right: .3em;
 	display: inline;
+}
+#info-box1 select {
+	width: 15em;
 }
 #info-box1 a img, #info-box2 a img {
 	vertical-align: middle;
@@ -196,9 +199,6 @@ abbr {
 	margin: 1.5em 1.5em 4em 13em;
 	padding: 1em;
 	background: #fff;
-	-webkit-border-radius: .5em;
-	-moz-border-radius: .5em;
-	-o-border-radius: .5em;
 	border-radius: .5em;
 	border: 1px solid #ddd;
 }
@@ -256,10 +256,6 @@ abbr {
 	border-bottom: none;
 	background: #dfdfdf;
 	text-decoration: none;
-	-webkit-border-top-left-radius: .3em;
-	-webkit-border-top-right-radius: .3em;
-	-moz-border-radius-topleft: .3em;
-	-moz-border-radius-topright: .3em;
 	border-top-left-radius: .3em;
 	border-top-right-radius: .3em;
 	color: #000;
@@ -303,7 +299,7 @@ abbr {
 	margin: 0.5em 0 0;
 	padding: .2em 0 0 32px;
 	background-repeat: no-repeat;
-	background-position: 12px .2em;
+	background-position: 12px .4em;
 }
 #main-menu a {
 	font-weight: bold;
@@ -375,9 +371,6 @@ abbr {
 #login-screen fieldset, #login-screen .fieldset {
 	border: 1px solid #999;
 	padding: 1em 1em 0 1em;
-	-o-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
 	border-radius: 4px;
 }
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit] {
@@ -510,9 +503,6 @@ abbr {
 	padding: .3em 1.5em;
 	border: 1px solid #ccc;
 	border-left: 1em solid #E5E3DA;
-	-o-border-radius: .3em;
-	-moz-border-radius: .3em;
-	-webkit-border-radius: .3em;
 	border-radius: .3em;
 }
 #categories h4 {
@@ -663,9 +653,6 @@ li.media-action input {
 	background-color: #f5f5f5;
 	border: 1px solid #ddd;
 	padding: .2em;
-	-o-border-radius: .5em;
-	-moz-border-radius: .5em;
-	-webkit-border-radius: .5em;
 	border-radius: .5em;
 }
 /* -------------------------------------------------------------------- Themes */
@@ -760,9 +747,6 @@ li.media-action input {
 	background: #f3f3f3;
 	border: 1px solid #f3f3f3;
 	cursor: pointer;
-	-o-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
 	border-radius: 4px;
 }
 #themes div.theme-details-js label {
@@ -813,9 +797,6 @@ option.avail10n {
 	text-transform: capitalize;
 	padding: .33em .75em .33em 1em;
 	border-radius: 1em 0 0 1em;
-	-moz-border-radius: 1em 0 0 1em;
-	-webkit-border-top-left-radius: 1em;
-	-webkit-border-bottom-left-radius: 1em;
 	color: #444;
 }
 .help-box {
@@ -879,9 +860,6 @@ div.message, p.message,
 div.static-msg, p.static-msg {
 	padding: 0.5em 0.5em 0.5em 48px;
 	margin-bottom: 1em;
-	-o-border-radius: 8px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
 	border-radius: 8px;
 }
 p.error, p.message, p.static-msg {
@@ -1286,9 +1264,6 @@ a.submit {
 	text-decoration: none;
 	padding: .1em .5em 0 .5em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .2em;
-	-moz-border-radius: .2em;
-	-o-border-radius: .2em;
 	border-radius: .2em;
 	margin-bottom: .1em;
 }
@@ -1370,9 +1345,6 @@ a.back:before {
 	content: "\ab\a0";
 }
 a.button.add {
-	-webkit-border-radius: .5em;
-	-moz-border-radius: .5em;
-	-o-border-radius: .5em;
 	border-radius: .5em;
 	margin-bottom: .1em;	
 	background: #2C8FD1 url(../images/add.png) no-repeat 6px center;
@@ -1382,4 +1354,37 @@ a.button.add {
 }
 a.button.add:hover, a.button.add:focus {
 	background-color: #2373A8;
+}
+
+/* jQuery Autocomplete plugin */
+.ac_results {
+	padding: 0px;
+	border: 1px dotted #f90;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	font: menu;
+	font-size: 1em;
+	line-height: 16px;
+	overflow: hidden;
+}
+.ac_loading {
+	background: transparent url('loader.gif') right center no-repeat;
+}
+.ac_over {
+	background-color: #06c;
+	color: white;
 }
