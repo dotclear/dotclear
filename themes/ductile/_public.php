@@ -249,6 +249,75 @@ class tplDuctileTheme
 			'<script type="text/javascript" src="'.
 			$core->blog->settings->system->themes_url.'/'.$core->blog->settings->system->theme.
 			'/ductile.js"></script>'."\n";
+
+		echo self::ductileWebfontHelper();
+	}
+
+	public static function ductileWebfontHelper()
+	{
+		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_style');
+
+		if ($s === null) {
+			return;
+		}
+
+		$s = @unserialize($s);
+		if (!is_array($s)) {
+			return;
+		}
+
+		$ret = '';
+		$css = array();
+		$uri = array();
+		if (!isset($s['body_font']) || ($s['body_font'] == '')) {
+			// See if webfont defined for main font
+			if (isset($s['body_webfont_api']) && isset($s['body_webfont_family']) && isset($s['body_webfont_url'])) {
+				$uri[] = $s['body_webfont_url'];
+				switch ($s['body_webfont_api']) {
+					case 'js':
+						$ret .= sprintf('<script type="text/javascript" src="%s"></script>',$s['body_webfont_url'])."\n";
+						break;
+					case 'css':
+						$ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />',$s['body_webfont_url'])."\n";
+						break;
+				}
+				# Main font
+				$selectors = 'body, .supranav li a span, #comments.me, a.comment-number';
+				self::prop($css,$selectors,'font-family',$s['body_webfont_family']);
+			}
+		}
+		if (!isset($s['alternate_font']) || ($s['alternate_font'] == '')) {
+			// See if webfont defined for secondary font
+			if (isset($s['alternate_webfont_api']) && isset($s['alternate_webfont_family']) && isset($s['alternate_webfont_url'])) {
+				if (!in_array($s['alternate_webfont_url'], $uri)) {
+					switch ($s['alternate_webfont_api']) {
+						case 'js':
+							$ret .= sprintf('<script type="text/javascript" src="%s"></script>',$s['alternate_webfont_url'])."\n";
+							break;
+						case 'css':
+							$ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />',$s['alternate_webfont_url'])."\n";
+							break;
+					}
+				}
+				# Secondary font
+				$selectors = '#blogdesc, .supranav, #content-info, #subcategories, #comments-feed, #sidebar h2, #sidebar h3, #footer';
+				self::prop($css,$selectors,'font-family',$s['alternate_webfont_family']);
+			}
+		}
+		# Style directives
+		$res = '';
+		foreach ($css as $selector => $values) {
+			$res .= $selector." {\n";
+			foreach ($values as $k => $v) {
+				$res .= $k.':'.$v.";\n";
+			}
+			$res .= "}\n";
+		}
+		if ($res != '') {
+			$ret .= '<style type="text/css">'."\n".$res.'</style>'."\n";
+		}
+
+		return $ret;
 	}
 	
 	public static function ductileStyleHelper()

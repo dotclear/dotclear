@@ -43,8 +43,6 @@ if (is_array($list_types_templates)) {
 	}
 }
 
-
-
 $contexts = array(
 	'default' => __('Home (first page)'),
 	'default-page' => __('Home (other pages)'),
@@ -66,6 +64,12 @@ $fonts = array(
 	__('Trebuchet MS') => 'Trebuchet MS',
 	__('Impact') => 'Impact',
 	__('Monospace') => 'Monospace'
+);
+
+$webfont_apis = array(
+	__('none') => '',
+	__('javascript (Adobe)') => 'js',
+	__('stylesheet (Google)') => 'css'
 );
 
 function adjustFontSize($s)
@@ -226,7 +230,13 @@ $ductile_base = array(
 	'logo_src' => null,
 	// CSS
 	'body_font' => null,
+	'body_webfont_family' => null,
+	'body_webfont_url' => null,
+	'body_webfont_api' => null,
 	'alternate_font' => null,
+	'alternate_webfont_family' => null,
+	'alternate_webfont_url' => null,
+	'alternate_webfont_api' => null,
 	'blog_title_w' => null,
 	'blog_title_s' => null,
 	'blog_title_c' => null,
@@ -367,7 +377,14 @@ if (!empty($_POST))
 		# CSS
 		if ($conf_tab == 'css') {
 			$ductile_user['body_font'] = $_POST['body_font'];
+			$ductile_user['body_webfont_family'] = $_POST['body_webfont_family'];
+			$ductile_user['body_webfont_url'] = $_POST['body_webfont_url'];
+			$ductile_user['body_webfont_api'] = $_POST['body_webfont_api'];
+
 			$ductile_user['alternate_font'] = $_POST['alternate_font'];
+			$ductile_user['alternate_webfont_family'] = $_POST['alternate_webfont_family'];
+			$ductile_user['alternate_webfont_url'] = $_POST['alternate_webfont_url'];
+			$ductile_user['alternate_webfont_api'] = $_POST['alternate_webfont_api'];
 
 			$ductile_user['blog_title_w'] = (integer) !empty($_POST['blog_title_w']);
 			$ductile_user['blog_title_s'] = adjustFontSize($_POST['blog_title_s']);
@@ -506,17 +523,39 @@ echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" encty
 
 echo '<h3>'.__('General settings').'</h3>';
 
-echo '<fieldset><legend>'.__('Fonts').'</legend>'.
+echo '<fieldset><legend>'.__('Fonts').'</legend>';
+
+echo '<div class="two-cols">';
+echo '<div class="col">';
+echo
 '<p class="field"><label for="body_font">'.__('Main:').' '.
 form::combo('body_font',$fonts,$ductile_user['body_font']).'</label>'.
 (!empty($ductile_user['body_font']) ? ' '.fontDef($ductile_user['body_font']) : '').
 '</p>'.
-
+'<p class="form-note">'.__('Set main font to default to use webfont below.').'</p> '.
+'<p class="field"><label for="body_webfont_family">'.__('Webfont family:').'</label> '.
+form::field('body_webfont_family',25,255,$ductile_user['body_webfont_family']).'</p>'.
+'<p class="field"><label for="body_webfont_url">'.__('Webfont URL:').'</label> '.
+form::field('body_webfont_url',50,255,$ductile_user['body_webfont_url']).'</p>'.
+'<p class="field"><label for="body_webfont_url">'.__('Webfont API:').' '.
+form::combo('body_webfont_api',$webfont_apis,$ductile_user['body_webfont_api']).'</label>'.'</p>';
+echo '</div>';
+echo '<div class="col">';
+echo
 '<p class="field"><label for="alternate_font">'.__('Secondary:').' '.
 form::combo('alternate_font',$fonts,$ductile_user['alternate_font']).'</label>'.
 (!empty($ductile_user['alternate_font']) ? ' '.fontDef($ductile_user['alternate_font']) : '').
 '</p>'.
-'</fieldset>';
+'<p class="form-note">'.__('Set secondary font to default to use webfont below.').'</p> '.
+'<p class="field"><label for="alternate_webfont_family">'.__('Webfont family:').'</label> '.
+form::field('alternate_webfont_family',25,255,$ductile_user['alternate_webfont_family']).'</p>'.
+'<p class="field"><label for="alternate_webfont_url">'.__('Webfont URL:').'</label> '.
+form::field('alternate_webfont_url',50,255,$ductile_user['alternate_webfont_url']).'</p>'.
+'<p class="field"><label for="alternate_webfont_api">'.__('Webfont API:').' '.
+form::combo('alternate_webfont_api',$webfont_apis,$ductile_user['alternate_webfont_api']).'</label>'.'</p>';
+echo '</div>';
+echo '</div>';
+echo '</fieldset>';
 
 echo '<div class="two-cols">';
 echo '<div class="col">';
