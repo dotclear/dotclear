@@ -35,6 +35,7 @@ class tagsWidgets
 				__('Except on home page') => 2
 				)
 		);
+		$w->tags->setting('content_only',__('Content only'),0,'check');
 		$w->tags->setting('class',__('CSS class:'),'');
 	}
 	

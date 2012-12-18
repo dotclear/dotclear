@@ -191,7 +191,7 @@ class tplDuctileTheme
 			if (!is_array($s)) {
 				$default = true;
 			} else {
-				$s = array_filter($s,"self::cleanStickers");
+				$s = array_filter($s,array('tplDuctileTheme', 'cleanStickers'));
 				if (count($s) == 0) {
 					$default = true;
 				} else {

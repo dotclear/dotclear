@@ -192,7 +192,20 @@ if (!empty($_POST) && $can_edit_page)
 	);
 }
 
-# Create or update post
+# Delete page
+if (!empty($_POST['delete']) && $can_delete)
+{
+	try {
+		# --BEHAVIOR-- adminBeforePageDelete
+		$core->callBehavior('adminBeforePageDelete',$post_id);
+		$core->blog->delPost($post_id);
+		http::redirect($p_url);
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Create or update page
 if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt)
 {
 	$cur = $core->con->openCursor($core->prefix.'post');
@@ -262,18 +275,6 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt)
 		{
 			$core->error->add($e->getMessage());
 		}
-	}
-}
-
-if (!empty($_POST['delete']) && $can_delete)
-{
-	try {
-		# --BEHAVIOR-- adminBeforePageDelete
-		$core->callBehavior('adminBeforePageDelete',$post_id);
-		$core->blog->delPost($post_id);
-		http::redirect($p_url);
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
 	}
 }
 

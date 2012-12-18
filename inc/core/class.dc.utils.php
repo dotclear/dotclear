@@ -48,6 +48,31 @@ class dcUtils
 		
 		return $user_id;
 	}
+	
+	/**
+	Cleanup a list of IDs
+	
+	@param	ids			<b>mixed</b>	ID(s)
+	@return	<b>array</b>
+	*/
+	public static function cleanIds($ids)
+	{
+		$clean_ids = array();
+		
+		if (!is_array($ids)) {
+			$ids = array($ids);
+		}
+		
+		foreach($ids as $id)
+		{
+			$id = abs((integer) $id);
+			
+			if (!empty($id)) {
+				$clean_ids[] = $id;
+			}
+		}
+		return $clean_ids;
+	}
 }
 
 ?>

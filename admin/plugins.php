@@ -252,8 +252,8 @@ if (!empty($p_available))
 	'<th class="nowrap">'.__('Action').'</th>'.
 	'</tr>';
 	
-	$distrib_plugins = array('aboutConfig','akismet','antispam','attachments','blogroll','blowupConfig','fairTrackbacks',
-		'importExport','maintenance','pages','pings','simpleMenu','tags','themeEditor','userPref','widgets');
+	$distrib_plugins = array('aboutConfig','akismet','antispam','attachments','blogroll','blowupConfig','daInstaller',
+		'fairTrackbacks','importExport','maintenance','pages','pings','simpleMenu','tags','themeEditor','userPref','widgets');
 	$distrib_img = '<img src="images/dotclear_pw.png"'.
 		' alt="'.__('Plugin from official distribution').'" title="'.__('Plugin from official distribution').'" />';
 

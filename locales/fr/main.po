@@ -120,6 +120,9 @@ msgstr "J'ai oublié mon mot de passe"
 msgid "I want to log in in safe mode"
 msgstr "Me connecter en mode sans échec"
 
+msgid "%d %B %Y:"
+msgstr "%d %B %Y :"
+
 msgid "New blog"
 msgstr "Nouveau blog"
 
@@ -368,6 +371,9 @@ msgstr "Titres des images insérées"
 
 msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
 msgstr "Ceci définit le titre de la balise d'une image insérée depuis le gestionnaire de media. Les informations sont obtenues depuis les métadonnées de l'image."
+
+msgid "Use original media date if possible"
+msgstr "Utiliser la date originale du média si possible"
 
 msgid "Search engines robots policy"
 msgstr "Paramètres d'indexation par les moteurs de recherche"
@@ -640,6 +646,12 @@ msgstr "Supprimer une catégorie"
 msgid "Choose a category to remove:"
 msgstr "Choisissez une catégorie à supprimer :"
 
+msgid "And choose the category which will receive its entries:"
+msgstr "Et sélectionnez la catégorie qui recevra ses (éventuels) billets :"
+
+msgid "The entries cannot be moved to the category you choose to delete."
+msgstr "Vous ne pouvez déplacer les billets vers la catégorie que vous voulez supprimer."
+
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -840,8 +852,11 @@ msgstr "Ce blog est hors ligne"
 msgid "This blog is removed"
 msgstr "Ce blog est retiré de la publication"
 
-msgid "is not defined, you should edit your configuration file."
-msgstr "n'est pas défini, vous devriez corriger votre fichier de configuration."
+msgid "%s is not defined, you should edit your configuration file."
+msgstr "%s n'est pas défini, vous devriez corriger votre fichier de configuration."
+
+msgid "See <a href=\"http://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
+msgstr "Voir <a href=\"http://fr.dotclear.org/documentation/2.0/admin/config\">la documentation</a> pour plus d'information."
 
 msgid "Following plugins have been installed:"
 msgstr "Les extensions suivantes ont été installées :"
@@ -1531,10 +1546,16 @@ msgid "Link language:"
 msgstr "Langue du lien :"
 
 msgid "Add a link to an entry"
-msgstr "Ajouter un lien vers un billet"
+msgstr "Ajouter un lien vers une entrée"
 
 msgid "Search entry:"
-msgstr "Rechercher un billet :"
+msgstr "Rechercher une entrée :"
+
+msgid "Entry type:"
+msgstr "Type d'entrées :"
+
+msgid "post"
+msgstr "billet"
 
 msgid "Search"
 msgstr "Recherche"
@@ -2318,13 +2339,13 @@ msgid "Media chooser"
 msgstr "Sélecteur de média"
 
 msgid "Link to an entry"
-msgstr "Lien vers un billet"
+msgstr "Lien vers une entrée"
 
-msgid "Activate enhanced uploader"
-msgstr "Activer l'interface avancée"
+msgid "Temporarily activate enhanced uploader"
+msgstr "Activer temporairement l'interface avancée"
 
-msgid "Disable enhanced uploader"
-msgstr "Désactiver l'interface avancée"
+msgid "Temporarily disable enhanced uploader"
+msgstr "Désactiver temporairement l'interface avancée"
 
 msgid "File successfully uploaded."
 msgstr "Fichier envoyé avec succès."
@@ -2848,6 +2869,12 @@ msgstr "Le répertoire n'existe pas"
 
 msgid "Cannot read directory"
 msgstr "Impossible de lire le répertoire"
+
+msgid "Site temporarily unavailable"
+msgstr "Site temporairement indisponible"
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr "<p>Veuillez nous excuser pour cette indisponibilité momentanée.<br />Merci de votre compréhension.</p>"
 
 msgid "Unable to connect to database"
 msgstr "Connexion à la base de données impossible"

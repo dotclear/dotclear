@@ -2108,10 +2108,10 @@ msgstr "Media pasrinkimas"
 msgid "Link to an entry"
 msgstr "Nuoroda į įrašą"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Įjungti enhanced Uploader"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Išjungti enhanced uploader"
 
 msgid "File successfully uploaded."

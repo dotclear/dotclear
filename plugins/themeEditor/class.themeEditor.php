@@ -23,6 +23,7 @@ class dcThemeEditor
 	public $tpl = array();
 	public $css = array();
 	public $js  = array();
+	public $po  = array();
 	
 	public function __construct($core)
 	{
@@ -38,6 +39,7 @@ class dcThemeEditor
 		$this->findTemplates();
 		$this->findStyles();
 		$this->findScripts();
+		$this->findLocales();
 	}
 	
 	public function filesList($type,$item='%1$s')
@@ -105,6 +107,10 @@ class dcThemeEditor
 				files::makeDir(dirname($dest));
 			}
 			
+			if ($type == 'po' && !is_dir(dirname($dest))) {
+				files::makeDir(dirname($dest));
+			}
+			
 			$fp = @fopen($dest,'wb');
 			if (!$fp) {
 				throw new Exception('tocatch');
@@ -129,6 +135,8 @@ class dcThemeEditor
 	{
 		if ($type == 'tpl') {
 			$dest = $this->user_theme.'/tpl/'.$f;
+		} elseif ($type == 'po') {
+			$dest = $this->user_theme.'/locales/'.$f;
 		} else {
 			$dest = $this->user_theme.'/'.$f;
 		}
@@ -142,7 +150,13 @@ class dcThemeEditor
 				return $dest;
 			}
 		}
-		
+
+		if ($type == 'po' && !is_dir(dirname($dest))) {
+			if (is_writable($this->user_theme)) {
+				return $dest;
+			}
+		}
+
 		if (is_writable(dirname($dest))) {
 			return $dest;
 		}
@@ -160,6 +174,8 @@ class dcThemeEditor
 				return $this->css;
 			case 'js':
 				return $this->js;
+			case 'po':
+				return $this->po;
 			default:
 				return array();
 		}
@@ -177,6 +193,9 @@ class dcThemeEditor
 				break;
 			case 'js':
 				$list =& $this->js;
+				break;
+			case 'po':
+				$list =& $this->po;
 				break;
 			default:
 				return;
@@ -218,7 +237,18 @@ class dcThemeEditor
 		$this->js = array_merge($this->js,$this->getFilesInDir($this->user_theme.'/js','js','js/'));
 	}
 	
-	protected function getFilesInDir($dir,$ext=null,$prefix='')
+	protected function findLocales()
+	{
+		$langs = l10n::getISOcodes(1,1);
+		foreach ($langs as $k => $v) {
+			if ($this->parent_theme) {
+				$this->po = array_merge($this->po,$this->getFilesInDir($this->parent_theme.'/locales/'.$v,'po',$v.'/','main.po'));
+			}
+			$this->po = array_merge($this->po,$this->getFilesInDir($this->user_theme.'/locales/'.$v,'po',$v.'/','main.po'));
+		}
+	}
+	
+	protected function getFilesInDir($dir,$ext=null,$prefix='',$model=null)
 	{
 		$dir = path::real($dir);
 		if (!$dir || !is_dir($dir) || !is_readable($dir)) {
@@ -230,7 +260,9 @@ class dcThemeEditor
 		while (($f = $d->read()) !== false)
 		{
 			if (is_file($dir.'/'.$f) && !preg_match('/^\./',$f) && (!$ext || preg_match('/\.'.preg_quote($ext).'$/i',$f))) {
-				$res[$prefix.$f] = $dir.'/'.$f;
+				if (!$model || preg_match('/^'.preg_quote($model).'$/i', $f)) {
+					$res[$prefix.$f] = $dir.'/'.$f;
+				}
 			}
 		}
 		

@@ -430,7 +430,9 @@ form::field('footer_bg_c',7,7,$blowup_user['footer_bg_c'],'colorpicker').'</labe
 
 echo
 '<fieldset><legend>'.__('Additional CSS').'</legend>'.
-'<p>'.form::textarea('extra_css',72,5,html::escapeHTML($blowup_user['extra_css']),'maximal','',false,'title="'.__('Additional CSS').'"').'</p>'.
+'<p><label for="extra_css">'.__('Any additional CSS styles (must be written using the CSS syntax):').' '.
+form::textarea('extra_css',72,5,html::escapeHTML($blowup_user['extra_css']),'maximal','',false,'title="'.__('Additional CSS').'"').
+'</label></p>'.
 '</fieldset>';
 
 

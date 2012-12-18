@@ -25,7 +25,7 @@ class defaultWidgets
 		$value = isset($GLOBALS['_search']) ? html::escapeHTML($GLOBALS['_search']) : '';
 		
 		return
-		'<div id="search"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>'.
+		($w->content_only ? '' : '<div id="search"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>').
 		($w->title ? '<h2><label for="q">'.html::escapeHTML($w->title).'</label></h2>' : '').
 		'<form action="'.$core->blog->url.'" method="get">'.
 		'<fieldset>'.
@@ -33,7 +33,7 @@ class defaultWidgets
 		'<input type="submit" class="submit" value="ok" /></p>'.
 		'</fieldset>'.
 		'</form>'.
-		'</div>';
+		($w->content_only ? '' : '</div>');
 	}
 	
 	public static function navigation($w)
@@ -46,7 +46,7 @@ class defaultWidgets
 		}
 
 		$res =
-		'<div id="topnav"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>'.
+		($w->content_only ? '' : '<div id="topnav"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -62,7 +62,7 @@ class defaultWidgets
 		'<a href="'.$core->blog->url.$core->url->getURLFor("archive").'">'.
 		__('Archives').'</a></li>'.
 		'</ul>'.
-		'</div>';
+		($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
@@ -82,7 +82,7 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="categories'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		($w->content_only ? '' : '<div class="categories'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '');
 		
 		$ref_level = $level = $rs->level-1;
@@ -116,7 +116,7 @@ class defaultWidgets
 		if ($ref_level - $level < 0) {
 			$res .= str_repeat('</li></ul>',-($ref_level - $level));
 		}
-		$res .= '</div>';
+		$res .= ($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
@@ -143,7 +143,7 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="selected'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		($w->content_only ? '' : '<div class="selected'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -151,7 +151,7 @@ class defaultWidgets
 			$res .= ' <li><a href="'.$rs->getURL().'">'.html::escapeHTML($rs->post_title).'</a></li> ';
 		}
 		
-		$res .= '</ul></div>';
+		$res .= '</ul>'.($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
@@ -173,7 +173,7 @@ class defaultWidgets
 		
 		$langs = l10n::getISOcodes();
 		$res =
-		'<div class="langs'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		($w->content_only ? '' : '<div class="langs'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -192,7 +192,7 @@ class defaultWidgets
 			' </li>';
 		}
 		
-		$res .= '</ul></div>';
+		$res .= '</ul>'.($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
@@ -213,7 +213,7 @@ class defaultWidgets
 		$c_title = __('This blog\'s comments %s feed');
 		
 		$res =
-		'<div class="syndicate'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		($w->content_only ? '' : '<div class="syndicate'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -232,7 +232,7 @@ class defaultWidgets
 			__('Comments feed').'</a></li>';
 		}
 		
-		$res .= '</ul></div>';
+		$res .= '</ul>'.($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
@@ -262,7 +262,7 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="feed'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		($w->content_only ? '' : '<div class="feed'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -287,7 +287,7 @@ class defaultWidgets
 			}
 		}
 		
-		$res .= '</ul></div>';
+		$res .= '</ul>'.($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
@@ -302,10 +302,10 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="text'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		($w->content_only ? '' : '<div class="text'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		$w->text.
-		'</div>';
+		($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
@@ -349,7 +349,7 @@ class defaultWidgets
 		}
 		
 		$res =
-		'<div class="lastposts'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		($w->content_only ? '' : '<div class="lastposts'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -358,7 +358,7 @@ class defaultWidgets
 			html::escapeHTML($rs->post_title).'</a></li>';
 		}
 		
-		$res .= '</ul></div>';
+		$res .= '</ul>'.($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
@@ -380,7 +380,7 @@ class defaultWidgets
 			return;
 		}
 		
-		$res = '<div class="lastcomments'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">'.
+		$res = ($w->content_only ? '' : '<div class="lastcomments'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -394,7 +394,7 @@ class defaultWidgets
 			'</a></li>';
 		}
 		
-		$res .= '</ul></div>';
+		$res .= '</ul>'.($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}
