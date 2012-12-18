@@ -233,6 +233,9 @@ msgstr "Ce filtre n'existe pas."
 msgid "Filter has no user interface."
 msgstr "Ce filtre n'a pas de réglages."
 
+msgid "Are you sure you want to delete all spams?"
+msgstr "Êtes-vous sûr de vouloir supprimer tous les indésirables ?"
+
 #, php-format
 msgid "%s configuration"
 msgstr "configuration %s"
@@ -715,6 +718,9 @@ msgstr "Couleur de fond du pied de page :"
 
 msgid "Additional CSS"
 msgstr "Style additionnel"
+
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr "Styles CSS additionnels (doivent être écrits selon la syntaxe CSS) :"
 
 msgid "Configuration import / export"
 msgstr "Configuration de l'import/export"
@@ -1269,6 +1275,9 @@ msgstr "Masquer"
 msgid "If checked this page will be active but not listed in widget Pages."
 msgstr "Si coché cette page sera active mais non listée dans le widget Pages."
 
+msgid "page"
+msgstr "page"
+
 msgid "Pings"
 msgstr "Signalements"
 
@@ -1614,6 +1623,9 @@ msgstr "Fichiers CSS"
 msgid "JavaScript files"
 msgstr "Fichiers JavaScript"
 
+msgid "Locales files"
+msgstr "Fichiers de traduction"
+
 msgid "user:preferences"
 msgstr "user:preferences"
 
@@ -1841,6 +1853,9 @@ msgstr "chaîne vide"
 msgid "CSS class:"
 msgstr "Classe CSS :"
 
+msgid "Content only"
+msgstr "Contenu seul"
+
 msgid "Blogroll list"
 msgstr "Liste de liens"
 
@@ -1897,3 +1912,6 @@ msgstr "Liste des derniers commentaires postés"
 
 #~ msgid "The backup file does not appear to be well formed."
 #~ msgstr "Le fichier de sauvegarde semble mal formaté."
+
+msgid "You can modify this duration in the %s"
+msgstr "Vous pouvez modifier cette durée dans les %s"

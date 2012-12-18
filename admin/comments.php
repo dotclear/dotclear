@@ -14,6 +14,17 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
+if (!empty($_POST['delete_all_spam']))
+{
+	try {
+		$core->blog->delJunkComments();
+		$_SESSION['comments_del_spam'] = true;
+		http::redirect('comments.php');
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
 # Creating filter combo boxes
 # Filter form we'll put in html_block
 $status_combo = array(
@@ -163,6 +174,11 @@ echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-tit
 
 if (!$core->error->flag())
 {
+	if (isset($_SESSION['comments_del_spam'])) {
+		dcPage::message(__('Spam comments have been successfully deleted.'));
+		unset($_SESSION['comments_del_spam']);
+	}
+	
 	# Filters
 	if (!$show_filters) {
 		echo '<p><a id="filter-control" class="form-control" href="#">'.
@@ -209,13 +225,30 @@ if (!$core->error->flag())
 	'</form>';
 	
 	if (!$with_spam) {
+
 		$spam_count = $core->blog->getComments(array('comment_status'=>-2),true)->f(0);
-		if ($spam_count == 1) {
-			echo '<p>'.sprintf(__('You have one spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
-			'<a href="comments.php?status=-2">'.__('Show it.').'</a></p>';
-		} elseif ($spam_count > 1) {
-			echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
-			'<a href="comments.php?status=-2">'.__('Show them.').'</a></p>';
+		
+		if ($spam_count > 0) {
+			
+			echo 
+				'<form action="comments.php" method="post" class="fieldset">';
+
+			if ($spam_count == 1) {
+				echo '<p>'.sprintf(__('You have one spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
+				'<a href="comments.php?status=-2">'.__('Show it.').'</a></p>';
+			} elseif ($spam_count > 1) {
+				echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
+				'<a href="comments.php?status=-2">'.__('Show them.').'</a></p>';
+			}
+			
+			echo
+				$core->formNonce().
+				'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
+
+			# --BEHAVIOR-- adminCommentsSpamForm
+			$core->callBehavior('adminCommentsSpamForm',$core);
+
+			echo '</form>';
 		}
 	}
 	

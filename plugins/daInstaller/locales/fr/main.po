@@ -1,0 +1,122 @@
+# Language: Français
+# Module: daInstaller - 1.0.3
+# Date: 2011-05-16 11:47:48
+# Translated with translater 1.5
+msgid ""
+msgstr ""
+"Project-Id-Version: daInstaller 1.0.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-13 19:22+0100\n"
+"PO-Revision-Date: 2011-05-16T11:47:48+00:00\n"
+"Last-Translator: Thomas Bouron\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "DotAddict.org Installer"
+msgstr "Installateur DotAddict.org"
+
+msgid "Updates are available"
+msgstr "Des mises à jour sont disponibles"
+
+#, php-format
+msgid "Oops, something went wrong with %s, we are working on it. %s"
+msgstr "Oops, il semble y avoir un problème avec %s, nous travaillons actuellement à sa résolution. %s"
+
+msgid "dotaddict.org website"
+msgstr "le site dotaddict.org"
+
+msgid "Wanna help too?"
+msgstr "Vous voulez nous aider aussi?"
+
+msgid "Impossible to read data feed"
+msgstr "Impossible de lire le flux de données"
+
+msgid "Wrong data feed"
+msgstr "Flux de données incorrect"
+
+msgid "No theme"
+msgstr "Aucun thème disponible"
+
+msgid "No extension"
+msgstr "Aucune extension disponible"
+
+msgid "Lastest Version"
+msgstr "Dernière version"
+
+msgid "Quick description"
+msgstr "Description rapide"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "More details"
+msgstr "En savoir plus"
+
+msgid "Install"
+msgstr "Installer"
+
+msgid "Theme"
+msgstr "Thèmes"
+
+msgid "Update selected modules"
+msgstr "Mettre à jour les modules sélectionnés"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "No support available"
+msgstr "Aucun support disponible"
+
+msgid "The plugin has been successfully installed."
+msgstr "Le plugin a été installé avec succès"
+
+msgid "The theme has been successfully installed."
+msgstr "Le thème a été installé avec succès"
+
+msgid "Following plugins have not been updated:"
+msgstr "Les extensions suivantes n'ont pas été mises à jour :"
+
+msgid "Following plugins have been updated:"
+msgstr "Les extensions suivantes ont été mises à jour :"
+
+msgid "Following themes have not been updated:"
+msgstr "Les thèmes suivants n'ont pas été mis à jour :"
+
+msgid "Following themes have been updated:"
+msgstr "Les thèmes suivants ont été mis à jour :"
+
+msgid "Install and update your extensions live from DotAddict.org"
+msgstr "Installez et mettez à jour vos extensions en direct depuis DotAddict.org"
+
+msgid "Available updates"
+msgstr "Mises à jour disponibles"
+
+msgid "Detected updates for your system"
+msgstr "Mises à jour détectées pour votre système"
+
+msgid "Changes can be required after installation of updates. Click on a support link before to be aware about"
+msgstr "Des changements sont peut être nécessaires après la mise à jour. Pensez à vérifier en cliquant sur le lien de support"
+
+msgid "No update available"
+msgstr "Aucune mise à jour détectée pour votre système"
+
+msgid "Get more plugins"
+msgstr "Obtenir plus d'extensions"
+
+#, php-format
+msgid "Available plugins (%s)"
+msgstr "Plugins disponibles (%s)"
+
+msgid "Get more themes"
+msgstr "Obtenir plus de thèmes"
+
+#, php-format
+msgid "Available themes (%s)"
+msgstr "Thèmes disponibles (%s)"
+
+#, php-format
+msgid "%u %s found"
+msgstr "%u %s trouvé(s)"

@@ -2358,10 +2358,10 @@ msgstr "Médiaválasztó"
 msgid "Link to an entry"
 msgstr "Hivatkozás egy bejegyzésre"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Bővített fájlfeltöltő aktiválása"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Bővített fájlfeltöltő kikapcsolása"
 
 msgid "File successfully uploaded."

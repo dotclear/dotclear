@@ -25,6 +25,7 @@ antispam
 attachments
 blogroll
 blowupConfig
+daInstaller
 fairTrackbacks
 importExport
 maintenance

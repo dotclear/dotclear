@@ -99,6 +99,13 @@ catch (Exception $e)
 <html>
 <head>
   <title><?php echo ($filter_gui !== false ? sprintf(__('%s configuration'),$filter->name).' - ' : '').$page_name; ?></title>
+  <script type="text/javascript">
+  //<![CDATA[
+  <?php
+  echo dcPage::jsVar('dotclear.msg.confirm_spam_delete',__('Are you sure you want to delete all spams?'));
+  ?>
+  //]]>
+  </script>
   <?php
   echo
   dcPage::jsToolMan().

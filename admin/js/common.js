@@ -158,8 +158,8 @@ jQuery.fn.helpViewer = function() {
 
 	var sizeBox = function() {
 		This.css('height','auto');
-		if ($('body').height() > This.height()) {
-			This.css('height',$('body').height() + 'px');
+		if ($('#main').height() > This.height()) {
+			This.css('height',$('#main').height() + 'px');
 		}
 	};
 

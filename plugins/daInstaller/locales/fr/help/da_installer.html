@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Mise à jour d'extension(s)</title>
+</head>
+
+<body>
+
+<h3>Mise à jour d'extension(s)</h3>
+
+<dl>
+  <dd>Il est possible dans Dotclear 2 de spécifier dans sa configuration <em>(PATH)</em>
+  plusieurs chemins de dossiers contenant des extensions. Or, les mises à jour des
+  extensions se font dans <strong>le dernier répertoire</strong> du <em>PATH</em>.
+  Il se peut, pour des raisons variées, que dans un des premiers, il existe une
+  extension avec une version inférieure à celle présente sur DotAddict. <strong>Dans
+  ce cas préçis</strong>, vous avez deux choix possibles : <ul>
+  <li><strong>Autoriser</strong> la multi-installation : la nouvelle version de
+  l’extension sera téléchargée puis installée dans le dernier répertoire du <em>PATH</em>
+  et l’ancienne extension recevera un fichier _disabled afin de la désactiver. L’ancienne
+  version <strong>ne sera pas supprimée</strong></li>
+  <li><strong>Ne pas autoriser</strong> la multi-installation : la nouvelle version
+  ira écraser l’ancienne dans le bon répertoire.</li></ul>
+
+  Par défaut, <strong>la multi-installation est désactivée</strong> mais vous pouvez
+  changer ce comportement en modifiant la variable <em>dainstaller_allow_multi_install</em>
+  dans <a href="?p=aboutConfig">about:config</a></dd>
+</dl>
+
+</body>
+</html>

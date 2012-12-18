@@ -40,6 +40,7 @@ class blogrollWidgets
 				__('Except on home page') => 2
 				)
 		);
+		$w->links->setting('content_only',__('Content only'),0,'check');
 		$w->links->setting('class',__('CSS class:'),'');
 	}
 	

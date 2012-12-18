@@ -48,10 +48,21 @@ function antispamDashboardFavsIcon($core,$name,$icon)
 if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {
 	$core->addBehavior('adminBlogPreferencesForm',array('antispamBehaviors','adminBlogPreferencesForm'));
 	$core->addBehavior('adminBeforeBlogSettingsUpdate',array('antispamBehaviors','adminBeforeBlogSettingsUpdate'));
+	$core->addBehavior('adminCommentsSpamForm',array('antispamBehaviors','adminCommentsSpamForm'));
 }
 
 class antispamBehaviors
 {
+	public static function adminCommentsSpamForm($core)
+	{
+		$ttl = $core->blog->settings->antispam->antispam_moderation_ttl;
+		if ($ttl != null && $ttl >=0) {
+			echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl).' '.
+			sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php"> '.__('Blog preferences').'</a>').
+			'</p>';
+		}
+	}
+
 	public static function adminBlogPreferencesForm($core,$settings)
 	{
 		$ttl = $settings->antispam->antispam_moderation_ttl;

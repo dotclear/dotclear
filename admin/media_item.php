@@ -134,7 +134,7 @@ if (!empty($_POST['unzip']) && $file->type == 'application/zip' && $file->editab
 }
 
 # Function to get image title based on meta
-function dcGetImageTitle($file,$pattern)
+function dcGetImageTitle($file,$pattern,$dto_first=false)
 {
 	$res = array();
 	$pattern = preg_split('/\s*;;\s*/',$pattern);
@@ -146,7 +146,11 @@ function dcGetImageTitle($file,$pattern)
 		} elseif ($file->media_meta->{$v}) {
 			$res[] = (string) $file->media_meta->{$v};
 		} elseif (preg_match('/^Date\((.+?)\)$/u',$v,$m)) {
-			$res[] = dt::str($m[1],$file->media_dt);
+			if ($dto_first && $file->media_meta->DateTimeOriginal) {
+				$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
+			} else {
+				$res[] = dt::str($m[1],$file->media_dt);
+			}
 		} elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u',$v,$m) && $file->media_meta->DateTimeOriginal) {
 			$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
 		} elseif (preg_match('/^separator\((.*?)\)$/u',$v,$m)) {
@@ -213,7 +217,9 @@ if ($popup)
 	if ($file->media_type == 'image')
 	{
 		$media_type = 'image';
-		$media_desc = dcGetImageTitle($file,$core->blog->settings->system->media_img_title_pattern);
+		$media_desc = dcGetImageTitle($file,
+			$core->blog->settings->system->media_img_title_pattern,
+			$core->blog->settings->system->media_img_use_dto_first);
 		if ($media_desc == $file->basename) {
 			$media_desc = '';
 		}
@@ -292,9 +298,9 @@ if ($popup)
 		
 		echo
 		'<h3>'.__('Video size').'</h3>'.
-		'<p><label for="video_w" class="classic">'.__('Width:').' '.
+		'<p><label for="video_w" class="classic">'.__('Width:').'</label> '.
 		form::field('video_w',3,4,400).'  '.
-		'<label for="video_h" class="classic">'.__('Height:').' '.
+		'<label for="video_h" class="classic">'.__('Height:').'</label> '.
 		form::field('video_h',3,4,300).
 		'</p>';
 		
@@ -338,7 +344,7 @@ if ($popup)
 
 echo
 '<div class="multi-part" title="'.__('Media details').'" id="media-details-tab">'.
-'<p id="media-icon"><img src="'.$file->media_icon.'" alt="" /></p>';
+'<p id="media-icon"><img src="'.$file->media_icon.'?'.time()*rand().'" alt="" /></p>';
 
 echo
 '<div id="media-details">';
@@ -362,12 +368,12 @@ if ($file->media_image)
 	echo '</p>';
 	
 	if (isset($file->media_thumb[$thumb_size])) {
-		echo '<p><img src="'.$file->media_thumb[$thumb_size].'" alt="" /></p>';
+		echo '<p><img src="'.$file->media_thumb[$thumb_size].'?'.time()*rand().'" alt="" /></p>';
 	} elseif ($thumb_size == 'o') {
 		$S = getimagesize($file->file);
 		$class = ($S[1] > 500) ? ' class="overheight"' : '';
 		unset($S);
-		echo '<p id="media-original-image"'.$class.'><img src="'.$file->file_url.'" alt="" /></p>';
+		echo '<p id="media-original-image"'.$class.'><img src="'.$file->file_url.'?'.time()*rand().'" alt="" /></p>';
 	}
 }
 

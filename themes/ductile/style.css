@@ -249,11 +249,6 @@ h1 a {
 	background: -ms-linear-gradient(top, rgba(244,244,245,1) 0%,rgba(215,215,220,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f5', endColorstr='#d7d7dc',GradientType=0 );
 	background: linear-gradient(top, rgba(244,244,245,1) 0%,rgba(215,215,220,1) 100%);
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-o-border-radius: 4px;
-	-ms-border-radius: 4px;
-	-khtml-border-radius: 4px;
 	border-radius: 4px;
 	border-right: 1px solid #aaa;
 	border-bottom: 1px solid #ccc;
@@ -292,9 +287,6 @@ h1 a {
 	margin: .33em 1em .66em 0;
 	padding: 4px;
 	border: 1px solid #999;
-	-moz-box-shadow: 2px 2px 3px #ccc;
-	-webkit-box-shadow: 2px 2px 3px #ccc;
-	-o-box-shadow: 2px 2px 3px #ccc;
 	box-shadow: 2px 2px 3px #ccc;
 	}
 .short .post-title {
@@ -529,11 +521,6 @@ img.smiley {
 	border: 1px solid #ccc;
 	padding: 4px;
 	background: #fff;
-	-webkit-border-radius: 3px; 
-	-moz-border-radius: 3px;
-	-o-border-radius: 3px;
-	-ms-border-radius: 3px;
-	-khtml-border-radius: 3px;
 	border-radius: 3px;
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	}
@@ -556,15 +543,7 @@ img.smiley {
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	background: rgb(119,119,119);
 	border: solid 1px #686867;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-o-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-khtml-border-radius: 5px;
 	border-radius: 5px;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-o-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(119,119,119,1)), color-stop(100%, rgba(85,85,85,1)));
 	background: -webkit-linear-gradient(top, rgba(119,119,119,1) 0%,rgba(85,85,85,1) 100%);
@@ -658,9 +637,6 @@ img.smiley {
 	background: #ededed;
 	margin-bottom: 1em;
 	padding: 4px 8px;
-	-webkit-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
-	-moz-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
-	-o-box-shadow: 2px 2px 4px rgba(0,0,0,.2);
 	box-shadow: 2px 2px 4px rgba(0,0,0,.2);
 	}
 .category-current {
@@ -1024,9 +1000,6 @@ hr.hidden {
 	margin-bottom: 1em;
 	padding: 4px;
 	border: 1px solid #ccc;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	-o-box-shadow: none;
 	box-shadow: none;
 	}
 .dc-archive #blogextra h2 {
