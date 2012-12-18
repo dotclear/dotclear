@@ -47,25 +47,146 @@ if (!empty($_GET['logout'])) {
 # Plugin install
 $plugins_install = $core->plugins->installModules();
 
+# Send plugins install messages to templates
+if (!empty($plugins_install['success'])) {
+	$_ctx->addMessagesList(__('Following plugins have been installed:'),$plugins_install['success']);
+}
+if (!empty($plugins_install['failure'])) {
+	$_ctx->addMessagesList(__('Following plugins have not been installed:'),$plugins_install['failure']);
+}
+
+# Send plugins errors messages to templates
+$_ctx->modules_errors = $core->auth->isSuperAdmin() ? $core->plugins->getErrors() : array();
+
+# Send Dotclear updates notifications to tempaltes
+$_ctx->updater = array();
+if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS)) {
+
+	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
+	$new_v = $updater->check(DC_VERSION);
+	$version_info = $new_v ? $updater->getInfoURL() : '';
+	
+	if ($updater->getNotify() && $new_v) {
+		$_ctx->updater = array(
+			'new_version'	=> $new_v,
+			'version_info'	=> $version_info
+		);
+	}
+}
+
 # Check dashboard module prefs
 $ws = $core->auth->user_prefs->addWorkspace('dashboard');
+
+# Doclinks prefs
 if (!$core->auth->user_prefs->dashboard->prefExists('doclinks')) {
 	if (!$core->auth->user_prefs->dashboard->prefExists('doclinks',true)) {
 		$core->auth->user_prefs->dashboard->put('doclinks',true,'boolean','',null,true);
 	}
 	$core->auth->user_prefs->dashboard->put('doclinks',true,'boolean');
 }
+
+# Send doclinks to templates
+$_ctx->dashboard_doclinks = array();
+if ($core->auth->user_prefs->dashboard->doclinks && !empty($__resources['doc'])) {
+	$_ctx->dashboard_doclinks = $__resources['doc'];
+}
+
+# Dcnews prefs
 if (!$core->auth->user_prefs->dashboard->prefExists('dcnews')) {
 	if (!$core->auth->user_prefs->dashboard->prefExists('dcnews',true)) {
 		$core->auth->user_prefs->dashboard->put('dcnews',true,'boolean','',null,true);
 	}
 	$core->auth->user_prefs->dashboard->put('dcnews',true,'boolean');
 }
+
+# Send dcnews to templates
+$_ctx->dashboard_dcnews = array();
+if ($core->auth->user_prefs->dashboard->dcnews && !empty($__resources['rss_news'])) {
+	try
+	{
+		$feed_reader = new feedReader;
+		$feed_reader->setCacheDir(DC_TPL_CACHE);
+		$feed_reader->setTimeout(2);
+		$feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
+		$feed = $feed_reader->parse($__resources['rss_news']);
+		if ($feed) {
+			$items = array();
+			$i = 1;
+			foreach ($feed->items as $item) {
+				$items[] = array(
+					'title' => $item->title,
+					'link' => isset($item->link) ? $item->link : '',
+					'date' => dt::dt2str(__('%d %B %Y'),$item->pubdate,'Europe/Paris'),
+					'content' => html::clean($item->content)
+				);
+				$i++;
+				if ($i > 3) { break; }
+			}
+			$_ctx->dashboard_dcnews = $items;
+		}
+	}
+	catch (Exception $e) {}
+}
+
+# Quick entry prefs
 if (!$core->auth->user_prefs->dashboard->prefExists('quickentry')) {
 	if (!$core->auth->user_prefs->dashboard->prefExists('quickentry',true)) {
 		$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean','',null,true);
 	}
 	$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean');
+}
+
+# Send quick entry to templates
+$_ctx->dashboard_quickentry = false;
+if ($core->auth->user_prefs->dashboard->quickentry &&$core->auth->check('usage,contentadmin',$core->blog->id))
+{
+	$categories_combo = array('&nbsp;' => '');
+	try {
+		$categories = $core->blog->getCategories(array('post_type'=>'post'));
+		while ($categories->fetch()) {
+			$categories_combo[] = new formSelectOption(
+				str_repeat('&nbsp;&nbsp;',$categories->level-1).
+				($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
+				$categories->cat_id
+			);
+		}
+	}
+	catch (Exception $e) { }
+	
+	$form = new dcForm($core,'quickentry','post.php');
+	$form
+		->addField(
+			new dcFieldText('post_title','', array(
+				'size'		=> 20,
+				'required'	=> true,
+				'label'		=> __('Title'))))
+		->addField(
+			new dcFieldTextArea('post_content','', array(
+				'required'	=> true,
+				'label'		=> __("Content:"))))
+		->addField(
+			new dcFieldCombo('cat_id','',$categories_combo,array(
+				"label" => __('Category:'))))
+		->addField(
+			new dcFieldSubmit('save',__('Save'),array(
+				'action' => 'savePost')))
+		->addField(
+			new dcFieldHidden ('post_status',-2))
+		->addField(
+			new dcFieldHidden ('post_format',$core->auth->getOption('post_format')))
+		->addField(
+			new dcFieldHidden ('post_excerpt',''))
+		->addField(
+			new dcFieldHidden ('post_lang',$core->auth->getInfo('user_lang')))
+		->addField(
+			new dcFieldHidden ('post_notes',''))
+	;
+	if ($core->auth->check('publish',$core->blog->id)) {
+		$form->addField(
+			new dcFieldHidden ('save-publish',__('Save and publish')));
+	}
+	
+	$_ctx->dashboard_quickentry = true;
 }
 
 # Dashboard icons
@@ -122,249 +243,68 @@ if (!$count) {
 	$__dashboard_icons['prefs'] = new ArrayObject(array(__('My preferences'),'preferences.php','images/menu/user-pref-b.png'));
 }
 
-# Latest news for dashboard
+# Send dashboard icons to templates
+$icons = array();
+foreach ($__dashboard_icons as $i) {
+	$icons[] = array(
+		'title' 	=> $i[0],
+		'url' 	=> $i[1],
+		'img' 	=> dc_admin_icon_url($i[2])
+	);
+}
+$_ctx->dashboard_icons = $icons;
+
+# Dashboard items
 $__dashboard_items = new ArrayObject(array(new ArrayObject,new ArrayObject));
-
-# Documentation links
-$dashboardItem = 0;
-if ($core->auth->user_prefs->dashboard->doclinks) {
-	if (!empty($__resources['doc']))
-	{
-		$doc_links = '<h3>'.__('Documentation and support').'</h3><ul>';
-	
-		foreach ($__resources['doc'] as $k => $v) {
-			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' '.__('(external link)').'">'.$k.'</a></li>';
-		}
-	
-		$doc_links .= '</ul>';
-		$__dashboard_items[$dashboardItem][] = $doc_links;
-		$dashboardItem++;
-	}
-}
-
-if ($core->auth->user_prefs->dashboard->dcnews) {
-	try
-	{
-		if (empty($__resources['rss_news'])) {
-			throw new Exception();
-		}
-	
-		$feed_reader = new feedReader;
-		$feed_reader->setCacheDir(DC_TPL_CACHE);
-		$feed_reader->setTimeout(2);
-		$feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
-		$feed = $feed_reader->parse($__resources['rss_news']);
-		if ($feed)
-		{
-			$latest_news = '<h3>'.__('Latest news').'</h3><dl id="news">';
-			$i = 1;
-			foreach ($feed->items as $item)
-			{
-				$dt = isset($item->link) ? '<a href="'.$item->link.'"'.$v.'" title="'.$item->title.' '.__('(external link)').'">'.
-					$item->title.'</a>' : $item->title;
-			
-				if ($i < 3) {
-					$latest_news .=
-					'<dt>'.$dt.'</dt>'.
-					'<dd><p><strong>'.dt::dt2str('%d %B %Y',$item->pubdate,'Europe/Paris').'</strong>: '.
-					'<em>'.text::cutString(html::clean($item->content),120).'...</em></p></dd>';
-				} else {
-					$latest_news .=
-					'<dt>'.$dt.'</dt>'.
-					'<dd>'.dt::dt2str('%d %B %Y',$item->pubdate,'Europe/Paris').'</dd>';
-				}
-				$i++;
-				if ($i > 3) { break; }
-			}
-			$latest_news .= '</dl>';
-			$__dashboard_items[$dashboardItem][] = $latest_news;
-			$dashboardItem++;
-		}
-	}
-	catch (Exception $e) {}
-}
-
 $core->callBehavior('adminDashboardItems', $core, $__dashboard_items);
 
+# Send dashboard items to templates
+$items = array();
+foreach ($__dashboard_items as $i) {	
+	if ($i->count() > 0) {
+		foreach ($i as $v) {
+			$items[] = $v;
+		}
+	}
+}
+$_ctx->dashboard_items = $items;
+
 # Dashboard content
-$dashboardContents = '';
 $__dashboard_contents = new ArrayObject(array(new ArrayObject,new ArrayObject));
 $core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
 
-/* DISPLAY
--------------------------------------------------------- */
-dcPage::open(__('Dashboard'),
-	dcPage::jsToolBar().
-	dcPage::jsLoad('js/_index.js').
-	# --BEHAVIOR-- adminDashboardHeaders
-	$core->callBehavior('adminDashboardHeaders')
-);
-
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Dashboard').'</span></h2>';
-
-if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->blog_count > 1) {
-	echo
-	'<p><a href="index.php?default_blog=1" class="button">'.__('Make this blog my default blog').'</a></p>';
+# Send dashboard contents to templates
+$contents = array();
+foreach ($__dashboard_contents as $i) {	
+	if ($i->count() > 0) {
+		foreach ($i as $v) {
+			$contents[] = $v;
+		}
+	}
 }
+$_ctx->dashboard_contents = $contents;
 
+# Blog status message
 if ($core->blog->status == 0) {
-	echo '<p class="static-msg">'.__('This blog is offline').'</p>';
+	$_ctx->addMessageStatic(__('This blog is offline'));
 } elseif ($core->blog->status == -1) {
-	echo '<p class="static-msg">'.__('This blog is removed').'</p>';
+	$_ctx->addMessageStatic(__('This blog is removed'));
 }
 
+# Config errors messages
 if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {
-	echo
-	'<p class="static-msg">'.
-	'DC_ADMIN_URL '.__('is not defined, you should edit your configuration file.').
-	'</p>';
+	$_ctx->addMessageStatic(
+		sprintf(__('%s is not defined, you should edit your configuration file.'),'DC_ADMIN_URL').' '.
+		__('See <a href="http://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.')
+	);
 }
-
 if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
-	echo
-	'<p class="static-msg">'.
-	'DC_ADMIN_MAILFROM '.__('is not defined, you should edit your configuration file.').
-	'</p>';
+	$_ctx->addMessageStatic(
+		sprintf(__('%s is not defined, you should edit your configuration file.'),'DC_ADMIN_MAILFROM').' '.
+		__('See <a href="http://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.')
+	);
 }
 
-# Plugins install messages
-if (!empty($plugins_install['success']))
-{
-	echo '<div class="static-msg">'.__('Following plugins have been installed:').'<ul>';
-	foreach ($plugins_install['success'] as $k => $v) {
-		echo '<li>'.$k.'</li>';
-	}
-	echo '</ul></div>';
-}
-if (!empty($plugins_install['failure']))
-{
-	echo '<div class="error">'.__('Following plugins have not been installed:').'<ul>';
-	foreach ($plugins_install['failure'] as $k => $v) {
-		echo '<li>'.$k.' ('.$v.')</li>';
-	}
-	echo '</ul></div>';
-}
-
-# Dashboard columns (processed first, as we need to know the result before displaying the icons.)
-$dashboardItems = '';
-
-# Dotclear updates notifications
-if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
-{
-	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
-	$new_v = $updater->check(DC_VERSION);
-	$version_info = $new_v ? $updater->getInfoURL() : '';
-	
-	if ($updater->getNotify() && $new_v) {
-		$dashboardItems .=
-		'<div id="upg-notify" class="static-msg"><p>'.sprintf(__('Dotclear %s is available!'),$new_v).'</p> '.
-		'<ul><li><strong><a href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a></strong>'.
-		'</li><li><a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
-		($version_info ? ' </li><li><a href="'.$version_info.'">'.__('information about this version').'</a>' : '').
-		'</li></ul></div>';
-	}
-}
-
-# Errors modules notifications
-if ($core->auth->isSuperAdmin())
-{
-	$list = array();
-	foreach ($core->plugins->getErrors() as $k => $error) {
-		$list[] = '<li>'.$error.'</li>';
-	}
-	
-	if (count($list) > 0) {
-		$dashboardItems .=
-		'<div id="module-errors" class="error"><p>'.__('Some plugins are installed twice:').'</p> '.
-		'<ul>'.implode("\n",$list).'</ul></div>';
-	}
-	
-}
-
-foreach ($__dashboard_items as $i)
-{	
-	if ($i->count() > 0)
-	{
-		$dashboardItems .= '<div>';
-		foreach ($i as $v) {
-			$dashboardItems .= $v;
-		}
-		$dashboardItems .= '</div>';
-	}
-}
-
-# Dashboard icons
-echo '<div id="dashboard-main"'.($dashboardItems ? '' : ' class="fullwidth"').'><div id="icons">';
-foreach ($__dashboard_icons as $i)
-{
-	echo
-	'<p><a href="'.$i[1].'"><img src="'.dc_admin_icon_url($i[2]).'" alt="" />'.
-	'<br /><span>'.$i[0].'</span></a></p>';
-}
-echo '</div>';
-
-if ($core->auth->user_prefs->dashboard->quickentry) {
-	if ($core->auth->check('usage,contentadmin',$core->blog->id))
-	{
-		$categories_combo = array('&nbsp;' => '');
-		try {
-			$categories = $core->blog->getCategories(array('post_type'=>'post'));
-			while ($categories->fetch()) {
-				$categories_combo[] = new formSelectOption(
-					str_repeat('&nbsp;&nbsp;',$categories->level-1).
-					($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-					$categories->cat_id
-				);
-			}
-		} catch (Exception $e) { }
-	
-		echo
-		'<div id="quick">'.
-		'<h3>'.__('Quick entry').'</h3>'.
-		'<form id="quick-entry" action="post.php" method="post">'.
-		'<fieldset><legend>'.__('New entry').'</legend>'.
-		'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
-		form::field('post_title',20,255,'','maximal').
-		'</label></p>'.
-		'<p class="area"><label class="required" '.
-		'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-		form::textarea('post_content',50,7).
-		'</p>'.
-		'<p><label for="cat_id" class="classic">'.__('Category:').' '.
-		form::combo('cat_id',$categories_combo).'</label></p>'.
-		'<p><input type="submit" value="'.__('Save').'" name="save" /> '.
-		($core->auth->check('publish',$core->blog->id)
-			? '<input type="hidden" value="'.__('Save and publish').'" name="save-publish" />'
-			: '').
-		$core->formNonce().
-		form::hidden('post_status',-2).
-		form::hidden('post_format',$core->auth->getOption('post_format')).
-		form::hidden('post_excerpt','').
-		form::hidden('post_lang',$core->auth->getInfo('user_lang')).
-		form::hidden('post_notes','').
-		'</p>'.
-		'</fieldset>'.
-		'</form>'.
-		'</div>';
-	}
-}
-
-foreach ($__dashboard_contents as $i)
-{	
-	if ($i->count() > 0)
-	{
-		$dashboardContents .= '<div>';
-		foreach ($i as $v) {
-			$dashboardContents .= $v;
-		}
-		$dashboardContents .= '</div>';
-	}
-}
-echo ($dashboardContents ? '<div id="dashboard-contents">'.$dashboardContents.'</div>' : '');
-
-echo '</div>';
-
-echo ($dashboardItems ? '<div id="dashboard-items">'.$dashboardItems.'</div>' : '');
-
-dcPage::close();
+$_ctx->setPageTitle(__('Dashboard'));
+$core->tpl->display('index.html.twig');
 ?>
