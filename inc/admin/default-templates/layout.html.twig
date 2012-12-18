@@ -27,13 +27,13 @@
 			<div id="info-box1">
 			  {% form switchblog_menu %}
 				{% if blog_count > 1 and blog_count < 20 %}
-					{{ form_field('switchblog') }}
-					<noscript><div>{{ form_field('switchblog_submit') }}</div></noscript>
+					<p>{{ form_field('switchblog') }}</p>
+					<noscript><p>{{ form_field('switchblog_submit') }}</p></noscript>
 				{% else %}
-					{{__('Blog:')}} <strong title="{{current_blog.url}}">{{current_blog.name}}</strong>
-					{% if blogs is not empty %} - <a href="blogs.php">{{__('Change blog')}}</a>{% endif %}
+					<p>{{__('Blog:')}} <strong title="{{current_blog.url}}">{{current_blog.name}}</strong>
+					{% if blogs is not empty %} - <a href="blogs.php">{{__('Change blog')}}</a>{% endif %}</p>
 				{% endif %}
-				<a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a>
+				<p><a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a></p>
 			  {% endform %}
 			</div>
 			<div id="info-box2">
