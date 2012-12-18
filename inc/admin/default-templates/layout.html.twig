@@ -53,6 +53,20 @@
 					</div>
 				{% endif %}
 				<h2>{{current_blog.name}} &rsaquo; <span class="page-title">{{page_title}}</span></h2>
+				{% if page_messages_static is not empty %}
+					{% for message in page_messages_static %}
+						<p class="static-msg">{{ message }}</p>
+					{% endfor %}
+				{% endif %}
+				{% if page_messages_lists is not empty %}
+					{% for title,messages in page_messages_lists %}
+						<div class="static-msg">{{ title }}<ul>
+						{% for message in messages %}
+							<li>{{ message }}</li>
+						{% endfor %}
+						</ul></div>
+					{% endfor %}
+				{% endif %}
 				{% if page_message is not empty %}
 					<p class="message">{{page_message}}</p>
 				{% endif %}

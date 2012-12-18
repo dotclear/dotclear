@@ -32,6 +32,8 @@ class dcAdminContext extends Twig_Extension
 		
 		# Globals not editable via context
 		$this->protected_globals = array(
+			'page_messages_static'	=> array(),
+			'page_messages_lists'	=> array(),
 			'page_message'	=> '',
 			'page_errors'	=> array(),
 			'page_title'	=> '',
@@ -157,6 +159,13 @@ class dcAdminContext extends Twig_Extension
 		return 'AdminContext';
 	}
 	
+	
+	/**
+	Add an informational message
+	
+	@param string $message A message
+	@return object self
+	*/
 	public function setSafeMode($safe_mode)
 	{
 		$this->protected_globals['safe_mode'] = (boolean) $safe_mode;
@@ -164,7 +173,32 @@ class dcAdminContext extends Twig_Extension
 	}
 	
 	/**
-	Set information message
+	Add an informational message
+	
+	@param string $message A message
+	@return object self
+	*/
+	public function addMessageStatic($message)
+	{
+		$this->protected_globals['page_messages_static'][] = $message;
+		return $this;
+	}
+	
+	/**
+	Add a list of informational messages
+	
+	@param string $message A title
+	@param array $message A list of messages
+	@return object self
+	*/
+	public function addMessagesList($title,$messages)
+	{
+		$this->protected_globals['page_messages_lists'][$title] = $messages;
+		return $this;
+	}
+	
+	/**
+	Set an important message
 	
 	@param string $message A message
 	@return object self
