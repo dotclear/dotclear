@@ -131,7 +131,7 @@ class dcCore
 	protected function loadTemplateEnvironment()
 	{
 		# If cache dir is writable, use it.
-		$cache_dir = dirname(DC_TPL_CACHE.'/twtpl');
+		$cache_dir = path::real(DC_TPL_CACHE.'/twtpl',false);
 		if (!is_dir($cache_dir)) {
 			try {
 				files::makeDir($cache_dir);
