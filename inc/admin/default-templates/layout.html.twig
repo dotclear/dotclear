@@ -39,7 +39,7 @@
 			<div id="info-box2">
 				<a {%if current_page == 'index' %}class="active" {% endif %}href="index.php">{{__('My dashboard')}}</a><span> | </span>
 				<a {%if current_page == 'preferences' %}class="active" {% endif %}href="preferences.php">{{__('My preferences')}}</a><span> | </span>
-				<a href="index.php?logout=1" class="logout">{{__('Logout %s')|format(current_user.id)}} <img src="images/logout.png" alt="" /></a>
+				<a href="index.php?logout=1" class="logout">{{__('Logout %s')|format(current_user.id)}} <img src="{{theme_url}}images/logout.png" alt="" /></a>
 			</div>
 		</div>
 	</div>
