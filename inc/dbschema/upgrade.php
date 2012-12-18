@@ -32,7 +32,7 @@ function dotclearUpgrade($core)
 			require dirname(__FILE__).'/db-schema.php';
 			
 			$si = new dbStruct($core->con,$core->prefix);
-//			$changes = $si->synchronize($_s);
+			$changes = $si->synchronize($_s);
 			
 			/* Some other upgrades
 			------------------------------------ */
@@ -305,7 +305,7 @@ function dotclearUpgrade($core)
 				$core->con->execute($strReq);
 			}
 
-			if (version_compare($version,'3.5','<='))
+			if (version_compare($version,'2.5','<='))
 			{
 				# Try to disable daInstaller plugin if it has been installed outside the default plugins directory
 				$path = explode(PATH_SEPARATOR,DC_PLUGINS_ROOT);
