@@ -7,9 +7,38 @@ dotclear.postExpander = function(line) {
 	img.className = 'expand';
 	$(img).css('cursor','pointer');
 	img.line = line;
-	img.onclick = function() { dotclear.viewPostContent(this,this.line); positionFooter(); };
+	img.onclick = function() { dotclear.viewPostContent(this,this.line); };
 	
 	td.insertBefore(img,td.firstChild);
+};
+
+dotclear.postsExpander = function(line,lines) {
+	var td = line.firstChild;
+
+	var img = document.createElement('img');
+	img.src = dotclear.img_plus_src;
+	img.alt = dotclear.img_plus_alt;
+	img.className = 'expand';
+	$(img).css('cursor','pointer');
+	img.lines = lines;
+	img.onclick = function() { dotclear.viewPostsContent(this,this.lines); };
+
+	td.insertBefore(img,td.firstChild);
+};
+
+dotclear.viewPostsContent = function(img,lines) {
+	lines.each(function() {
+		var td = this.firstChild;
+		td.firstChild.click();
+	});
+
+	if (img.alt == dotclear.img_plus_alt) {
+		img.src = dotclear.img_minus_src;
+		img.alt = dotclear.img_minus_alt;
+	} else {
+		img.src = dotclear.img_plus_src;
+		img.alt = dotclear.img_plus_alt;
+	}
 };
 
 dotclear.viewPostContent = function(img,line) {
@@ -68,6 +97,14 @@ dotclear.viewPostContent = function(img,line) {
 };
 
 $(function() {
+	// Entry type switcher
+	$('#type').change(function() {
+		this.form.submit();
+	});
+
+	$('#form-entries tr:not(.line)').each(function() {
+		dotclear.postsExpander(this,$('#form-entries tr.line'));
+	});
 	$('#form-entries tr.line').each(function() {
 		dotclear.postExpander(this);
 	});

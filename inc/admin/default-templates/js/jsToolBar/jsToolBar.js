@@ -332,11 +332,10 @@ jsToolBar.prototype.elements.blocks = {
 		}
 	},
 	wiki: {
-		list: ['nonebis','h2','h3','h4','h5'],
+		list: ['nonebis','h3','h4','h5'],
 		fn: function(opt) {
 			switch (opt) {
 				case 'nonebis': this.textarea.focus(); break;
-				case 'h2': this.encloseSelection('!!!!'); break;
 				case 'h3': this.encloseSelection('!!!'); break;
 				case 'h4': this.encloseSelection('!!'); break;
 				case 'h5': this.encloseSelection('!'); break;
