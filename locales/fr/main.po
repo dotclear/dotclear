@@ -852,8 +852,8 @@ msgstr "Ce blog est hors ligne"
 msgid "This blog is removed"
 msgstr "Ce blog est retiré de la publication"
 
-msgid "is not defined, you should edit your configuration file."
-msgstr "n'est pas défini, vous devriez corriger votre fichier de configuration."
+msgid "%s is not defined, you should edit your configuration file."
+msgstr "%s n'est pas défini, vous devriez corriger votre fichier de configuration."
 
 msgid "See <a href=\"http://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Voir <a href=\"http://fr.dotclear.org/documentation/2.0/admin/config\">la documentation</a> pour plus d'information."
