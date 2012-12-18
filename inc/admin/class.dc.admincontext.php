@@ -314,33 +314,41 @@ class dcAdminContext extends Twig_Extension
 	 */
 	protected function getCurrentUser()
 	{
-		$this->protected_globals['current_user'] = $this->core->auth->userID() ?
-			array(
-				'id' 	=> $this->core->auth->userID(),
-				'admin' 	=> $this->core->auth->getInfo('user_admin'),
-				'name' 	=> $this->core->auth->getInfo('user_name'),
-				'firstname' 	=> $this->core->auth->getInfo('user_firstname'),
-				'displayname' 	=> $this->core->auth->getInfo('user_displayname'),
-				'url' 	=> $this->core->auth->getInfo('user_url'),
-				'blog' 	=> $this->core->auth->getInfo('user_default_blog'),
-				'lang' 	=> $this->core->auth->getInfo('user_lang'),
-				'tz' 	=> $this->core->auth->getInfo('user_tz'),
-				'creadt' 	=> $this->core->auth->getInfo('user_creadt'),
-				'cn' 	=> $this->core->auth->getInfo('user_cn')
-			) :
-			array(
-				'id' 	=> '',
-				'admin' 	=> '',
-				'name' 	=> '',
-				'firstname' 	=> '',
-				'displayname' 	=> '',
-				'url' 	=> '',
-				'blog' 	=> '',
-				'lang' 	=> 'en',
-				'tz' 	=> '',
-				'creadt' 	=> '',
-				'cn' 	=> '',
+		$infos = array(
+			'pwd','name','firstname','displayname',
+			'email','url','default_blog','lang','tz',
+			'post_status','creadt','upddt','cn'
+		);
+		
+		$user = array(
+			'id' => '',
+			'super' => false,
+			'options' => array(),
+			'prefs' => array()
+		);
+		
+		foreach($infos as $i) {
+			$user[$i] = '';
+		}
+		
+		if ($this->core->auth->userID()) {
+		
+			$user = array(
+				'id' => $this->core->auth->userID(),
+				'super' => $this->core->auth->isSuperAdmin(),
+				'options' => $this->core->auth->getOptions()
 			);
+			
+			foreach($infos as $i) {
+				$user[$i] = $this->core->auth->getInfo('user_'.$i);
+			}
+			
+			foreach($this->core->auth->user_prefs->dumpWorkspaces() as $ws => $prefs) {
+				$user['prefs'][$ws] = $prefs->dumpPrefs();
+			}
+		}
+		
+		$this->protected_globals['current_user'] = $user;
 	}
 	
 	protected function getMenus()
