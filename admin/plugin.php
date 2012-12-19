@@ -14,21 +14,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-//* TODO: Do it better later, required by some javascripts
-$some_globals = array(
-	'rtl' => l10n::getTextDirection($_lang) == 'rtl',
-	'Nonce' => $core->getNonce(),
-	'sess_id' => session_id(),
-	'sess_uid' => $_SESSION['sess_browser_uid'],
-	'media_manage' => $core->auth->check('media,media_admin',$core->blog->id),
-	'enable_wysiwyg' => isset($core->auth) && $core->auth->getOption('enable_wysiwyg'),
-	'edit_size' => $core->auth->getOption('edit_size')
-);
-foreach($some_globals as $name => $value) {
-	$_ctx->$name = $value;
-};
-//*/
-
 $has_content = false;
 $p_file = '';
 $p = !empty($_REQUEST['p']) ? $_REQUEST['p'] : null;

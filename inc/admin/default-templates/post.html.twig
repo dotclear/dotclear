@@ -21,7 +21,7 @@
 		<div class="constrained">
 			<p class="col">{{ form_field('post_title',{'class':'maximal'}) }}</p>
 			<p class="area" id="excerpt-area">{{ form_field('post_excerpt',{'rows':5,'cols':50}) }}</p>
-			<p class="area" id="content-area">{{ form_field('post_content',{'rows':edit_size,'cols':5}) }}</p>
+			<p class="area" id="content-area">{{ form_field('post_content',{'rows':current_user.options.edit_size,'cols':5}) }}</p>
 			<p class="area" id="notes-area">{{ form_field('post_notes',{'rows':5,'cols':50}) }}</p>
 			<p>{{ form_field('save')}} {{form_field('delete',{'class':'delete'})}}</p>
 		</div>

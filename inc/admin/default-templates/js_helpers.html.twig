@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="{{theme_url}}js/prelude.js"></script>
 	<script type="text/javascript">
 	//<![CDATA[
-		dotclear.nonce = '{{Nonce}}';
+		dotclear.nonce = '{{session.nonce}}';
 		dotclear.img_plus_src = '{{theme_url}}images/expand.png';
 		dotclear.img_plus_alt = '{{__('uncover')}}';
 		dotclear.img_minus_src = '{{theme_url}}images/hide.png';
@@ -142,7 +142,7 @@
 	<link rel="stylesheet" type="text/css" href="{{theme_url}}style/jsToolBar/jsToolBar.css" />
 	<script type="text/javascript" src="{{theme_url}}js/jsToolBar/jsToolBar.js"></script>
 	
-	{% if enable_wysiwyg %}
+	{% if current_user.options.enable_wysiwyg %}
 		<script type="text/javascript" src="{{theme_url}}js/jsToolBar/jsToolBar.wysiwyg.js"></script>
 	{% endif %}
 	
@@ -207,7 +207,7 @@
 		jsToolBar.prototype.elements.img_select.title = '{{__('Media chooser')}}';
 		jsToolBar.prototype.elements.post_link.title = '{{__('Link to an entry')}}';
 		
-		{% if media_manage %}
+		{% if current_user.rights.media %}
 			jsToolBar.prototype.elements.img_select.disabled = true;
 		{% endif %}
 	//]]>
@@ -216,7 +216,7 @@
 
 {% macro candy_upload(params) %}
 	{% if params is empty %}{% set params = {} %} {% endif %}
-	{% set params = params|merge(['sess_id={{sess_id}}','sess_uid={{sess_uid}}','xd_check={{Nonce}}']) %}
+	{% set params = params|merge(['sess_id={{session.id}}','sess_uid={{session.uid}}','xd_check={{session.nonce}}']) %}
 	<!-- jsCandyUpload -->
 	<link rel="stylesheet" href="{{theme_url}}style/candyUpload/style.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="{{theme_url}}js/jquery/jquery.candyUpload.js"></script>

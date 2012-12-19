@@ -30,7 +30,7 @@
 			{% form quickentry %}
 				<fieldset><legend>{{__('New entry')}}</legend>
 					<p class="col">{{ form_field('post_title',{'class':'maximal'}) }}</p>
-					<p class="area">{{ form_field('post_content',{'rows':edit_size,'cols':5}) }}</p>
+					<p class="area">{{ form_field('post_content',{'rows':current_user.options.edit_size,'cols':5}) }}</p>
 					<p>{{ form_field('cat_id')}}</p>
 					<p>{{ form_field('save')}}</p>
 				</fieldset>

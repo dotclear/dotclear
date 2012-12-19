@@ -144,6 +144,13 @@ class dcAdminContext extends Twig_Extension
 		$p = path::info($_SERVER['REQUEST_URI']);
 		$this->protected_globals['current_page'] = $p['base'];
 		$this->protected_globals['blog_count'] = $this->core->auth->blog_count;
+		$this->protected_globals['rtl'] = l10n::getTextDirection(
+			$this->protected_globals['current_user']['lang']) == 'rtl';
+		$this->protected_globals['session'] = array(
+			'id' => session_id(),
+			'uid' => isset($_SESSION['sess_browser_uid']) ? $_SESSION['sess_browser_uid'] : '',
+			'nonce' => $this->core->getNonce()
+		);
 		
 		# Keep protected globals safe
 		return array_merge($this->globals,$this->protected_globals);
@@ -323,8 +330,12 @@ class dcAdminContext extends Twig_Extension
 		$user = array(
 			'id' => '',
 			'super' => false,
-			'options' => array(),
-			'prefs' => array()
+			'lang' => 'en',
+			'options' => $this->core->userDefaults(),
+			'prefs' => array(),
+			'rights' => array(
+				'media' => false
+			)
 		);
 		
 		foreach($infos as $i) {
@@ -336,7 +347,10 @@ class dcAdminContext extends Twig_Extension
 			$user = array(
 				'id' => $this->core->auth->userID(),
 				'super' => $this->core->auth->isSuperAdmin(),
-				'options' => $this->core->auth->getOptions()
+				'options' => $this->core->auth->getOptions(),
+				'rights' => array(
+					'media' => $this->core->auth->check('media,media_admin',$this->core->blog->id)
+				)
 			);
 			
 			foreach($infos as $i) {
