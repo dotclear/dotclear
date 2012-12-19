@@ -136,12 +136,12 @@ adminPageAboutConfig::setForms(true);
 
 # Commons
 if (!empty($_GET['upd'])) {
-	$_ctx->setMessage(__('Configuration successfully updated'));
+	$_ctx->setAlert(__('Configuration successfully updated'));
 }
 if (!empty($_GET['upda'])) {
-	$_ctx->setMessage(__('Settings definition successfully updated'));
+	$_ctx->setAlert(__('Settings definition successfully updated'));
 }
 $_ctx->default_tab = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
-$_ctx->setPageTitle('about:config');
+$_ctx->fillPageTitle('about:config');
 $core->tpl->display('@aboutConfig/index.html.twig');
 ?>

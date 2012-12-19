@@ -32,11 +32,15 @@ class dcAdminContext extends Twig_Extension
 		
 		# Globals not editable via context
 		$this->protected_globals = array(
-			'page_messages_static'	=> array(),
-			'page_messages_lists'	=> array(),
-			'page_message'	=> '',
-			'page_errors'	=> array(),
-			'page_title'	=> '',
+			'messages' => array(
+				'static' => array(),
+				'lists' => array(),
+				'alert' => '',
+				'errors' => array()
+			),
+			
+			'page_title'	=> array(),
+			'page_global'	=> false,
 			
 			'admin_url' 	=> DC_ADMIN_URL,
 			'theme_url' 	=> DC_ADMIN_URL.'index.php?tf=',
@@ -72,8 +76,8 @@ class dcAdminContext extends Twig_Extension
 	/**
 	Add a global variable
 	
-    @param string $name Name of the variable
-    @param mixed $value Value of the variable
+	@param string $name Name of the variable
+	@param mixed $value Value of the variable
 	*/
 	public function __set($name,$value)
 	{
@@ -93,18 +97,18 @@ class dcAdminContext extends Twig_Extension
 	Get a global variable
 	
 	@param string $name Name of the variable
-    @return mixed Value of the variable or null
+	@return mixed Value of the variable or null
 	*/
 	public function __get($name)
 	{
 		return isset($this->globals[$name]) ? $this->globals[$name] : null;
 	}
 	
-    /**
-    Returns a list of filters to add to the existing list.
-    
+	/**
+	Returns a list of filters to add to the existing list.
+	
 	@return array An array of filters
-    */
+	*/
 	public function getFilters()
 	{
 		return array(
@@ -112,11 +116,11 @@ class dcAdminContext extends Twig_Extension
 		);
 	}
 	
-    /**
-    Returns a list of functions to add to the existing list.
-    
-    @return array An array of functions
-    */
+	/**
+	Returns a list of functions to add to the existing list.
+	
+	@return array An array of functions
+	*/
 	public function getFunctions()
 	{
 		return array(
@@ -126,13 +130,13 @@ class dcAdminContext extends Twig_Extension
 		);
 	}
 	
-    /**
-    Returns a list of global variables to add to the existing list.
+	/**
+	Returns a list of global variables to add to the existing list.
 	
 	This merges overloaded variables with defined variables.
-    
-    @return array An array of global variables
-    */
+	
+	@return array An array of global variables
+	*/
 	public function getGlobals()
 	{
 		$this->getBlogs();
@@ -156,11 +160,11 @@ class dcAdminContext extends Twig_Extension
 		return array_merge($this->globals,$this->protected_globals);
 	}
 	
-    /**
-     * Returns the name of the extension.
-     *
-     * @return string The extension name
-     */
+	/**
+	Returns the name of the extension.
+	
+	@return string The extension name
+	*/
 	public function getName()
 	{
 		return 'AdminContext';
@@ -187,7 +191,7 @@ class dcAdminContext extends Twig_Extension
 	*/
 	public function addMessageStatic($message)
 	{
-		$this->protected_globals['page_messages_static'][] = $message;
+		$this->protected_globals['messages']['static'][] = $message;
 		return $this;
 	}
 	
@@ -200,7 +204,7 @@ class dcAdminContext extends Twig_Extension
 	*/
 	public function addMessagesList($title,$messages)
 	{
-		$this->protected_globals['page_messages_lists'][$title] = $messages;
+		$this->protected_globals['messages']['lists'][$title] = $messages;
 		return $this;
 	}
 	
@@ -210,12 +214,12 @@ class dcAdminContext extends Twig_Extension
 	@param string $message A message
 	@return object self
 	*/
-	public function setMessage($message)
+	public function setAlert($message)
 	{
-		$this->protected_globals['page_message'] = $message;
+		$this->protected_globals['messages']['alert'] = $message;
 		return $this;
 	}
-
+	
 	/**
 	Add an error message
 	
@@ -224,7 +228,7 @@ class dcAdminContext extends Twig_Extension
 	*/
 	public function addError($error)
 	{
-		$this->protected_globals['page_errors'][] = $error;
+		$this->protected_globals['messages']['errors'][] = $error;
 		return $this;
 	}
 	
@@ -235,15 +239,37 @@ class dcAdminContext extends Twig_Extension
 	*/
 	public function hasError()
 	{
-		return !empty($this->protected_globals['page_errors']);
+		return !empty($this->protected_globals['messages']['errors']);
 	}
 	
 	/**
-	Add page title
+	Fill the page title
+	
+	$title can be: 
+	a string for page title part or 
+	TRUE to add blog name at the begining of title or
+	NULL to empty/reset title
+	
+	@param mixed $title A title part
+	@param boolean $url Link of the title part
+	@return object self
 	*/
-	public function setPageTitle($title)
+	public function fillPageTitle($title,$url='')
 	{
-		$this->protected_globals['page_title'] = $title;
+		if (is_bool($title)) {
+			$this->protected_globals['page_global'] = $title;
+		}
+		elseif (null === $title) {
+			$this->protected_globals['page_global'] = false;
+			$this->protected_globals['page_title'] = array();
+		}
+		else {
+			$this->protected_globals['page_title'][] = array(
+				'title' => $title,
+				'link' => $url
+			);
+		}
+		return $this;
 	}
 	
 	/**
@@ -255,8 +281,8 @@ class dcAdminContext extends Twig_Extension
 	}
 	
 	/**
-	 * Get list of blogs
-	 */
+	Get list of blogs
+	*/
 	protected function getBlogs()
 	{
 		$blog_id = '';
@@ -292,8 +318,8 @@ class dcAdminContext extends Twig_Extension
 	}
 	
 	/**
-	 * Get current blog information
-	 */
+	Get current blog information
+	*/
 	protected function getCurrentBlog()
 	{
 		$this->protected_globals['current_blog'] = $this->core->auth->blog_count ?
@@ -317,8 +343,8 @@ class dcAdminContext extends Twig_Extension
 	}
 	
 	/**
-	 * Get current user information
-	 */
+	Get current user information
+	*/
 	protected function getCurrentUser()
 	{
 		$infos = array(
@@ -365,6 +391,9 @@ class dcAdminContext extends Twig_Extension
 		$this->protected_globals['current_user'] = $user;
 	}
 	
+	/**
+	Get sidebar menus
+	*/
 	protected function getMenus()
 	{
 		global $_menu;

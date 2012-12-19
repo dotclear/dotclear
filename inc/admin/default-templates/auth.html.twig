@@ -20,15 +20,15 @@
 {% form auth %}
 <div id="login-screen">
 <h1>{{vendor_name}}</h1>
-{% if page_message is not empty %}
-	<p class="message">{{page_message}}</p>
+{% if messages.alert is not empty %}
+	<p class="message">{{ messages.alert }}</p>
 {% endif %}
-{% if page_errors is not empty %}
+{% if messages.errors is not empty %}
 	<div class="error">
 		<p><strong>Errors :</strong></p>
 		<ul>
-		{% for error in page_errors %}
-			<li>{{error}}</li>
+		{% for error in messages.errors %}
+			<li>{{ error }}</li>
 		{% endfor %}
 		</ul>
 	</div>
