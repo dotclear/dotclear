@@ -4,7 +4,7 @@
 <head>
 	{% block header %}
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>{% block title %}{{page_title}} - {% if current_blog.name is not empty %}{{current_blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
+	<title>{% block title %}{% for part in page_title %}{{ part.title }} - {% endfor %}{% if current_blog.name is not empty %}{{current_blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
 	<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
 	<meta name="GOOGLEBOT" content="NOSNIPPET" />
 	<link rel="stylesheet" href="{{theme_url}}style/default.css" type="text/css" media="screen" />
@@ -52,14 +52,21 @@
 					<p>{{__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities')}}</p>
 					</div>
 				{% endif %}
-				<h2>{{current_blog.name}} &rsaquo; <span class="page-title">{{page_title}}</span></h2>
-				{% if page_messages_static is not empty %}
-					{% for message in page_messages_static %}
+				<h2>
+					{%- if not page_global %}{{current_blog.name}} &rsaquo; {% endif %}
+					{%- for part in page_title %}
+						{%- if loop.last %}<span class="page-title">{% endif %}
+						{%- if part.link is not empty %}<a href="{{ part.link }}">{{ part.title }}</a>{% else %}{{ part.title }}{% endif %}
+						{%- if loop.last %}</span>{% else %} &rsaquo; {% endif %}
+					{%- endfor -%}
+				</h2>
+				{% if messages.static is not empty %}
+					{% for message in messages.static %}
 						<p class="static-msg">{{ message }}</p>
 					{% endfor %}
 				{% endif %}
-				{% if page_messages_lists is not empty %}
-					{% for title,messages in page_messages_lists %}
+				{% if messages.lists is not empty %}
+					{% for title,messages in messages.lists %}
 						<div class="static-msg">{{ title }}<ul>
 						{% for message in messages %}
 							<li>{{ message }}</li>
@@ -67,15 +74,15 @@
 						</ul></div>
 					{% endfor %}
 				{% endif %}
-				{% if page_message is not empty %}
-					<p class="message">{{page_message}}</p>
+				{% if messages.alert is not empty %}
+					<p class="message">{{ messages.alert }}</p>
 				{% endif %}
-				{% if page_errors is not empty %}
+				{% if messages.errors is not empty %}
 					<div class="error">
 						<p><strong>Errors :</strong></p>
 						<ul>
-						{% for error in page_errors %}
-							<li>{{error}}</li>
+						{% for error in messages.errors %}
+							<li>{{ error }}</li>
 						{% endfor %}
 						</ul>
 					</div>

@@ -305,6 +305,6 @@ if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
 	);
 }
 
-$_ctx->setPageTitle(__('Dashboard'));
+$_ctx->fillPageTitle(__('Dashboard'));
 $core->tpl->display('index.html.twig');
 ?>

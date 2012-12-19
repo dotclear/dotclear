@@ -54,7 +54,7 @@ class dcPage
 		
 		$_ctx->popup = (boolean) $popup;
 		$_ctx->page_header = $head;
-		$_ctx->setPageTitle($title);
+		$_ctx->fillPageTitle($title);
 		
 		ob_start();
 	}

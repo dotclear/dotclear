@@ -16,7 +16,7 @@ dcPage::check('usage,contentadmin');
 
 function savePost($form) {
 	global $_ctx;
-	$_ctx->setMessage('save');
+	$_ctx->setAlert('save');
 
 }
 
@@ -179,8 +179,11 @@ if (!$can_edit_post) {
 if (!empty($_GET['co'])) {
 	$default_tab = 'comments';
 }
-$_ctx->default_tab = $default_tab;
-$_ctx->setPageTitle($page_title);
+
+$_ctx
+	->fillPageTitle(__('Entries'),'posts.php')
+	->fillPageTitle($page_title)
+	->default_tab = $default_tab;
 
 $core->tpl->display('post.html.twig');
 ?>

@@ -23,15 +23,15 @@
 			<div id="content">
 				{% block content %}
 				<h2>{{current_blog.name}} &rsaquo; <span class="page-title">{{page_title}}</span></h2>
-				{% if page_message is not empty %}
-					<p class="message">{{page_message}}</p>
+				{% if messages.alert is not empty %}
+					<p class="message">{{ messages.alert }}</p>
 				{% endif %}
-				{% if page_errors is not empty %}
+				{% if messages.errors is not empty %}
 					<div class="error">
 						<p><strong>Errors :</strong></p>
 						<ul>
-						{% for error in page_errors %}
-							<li>{{error}}</li>
+						{% for error in messages.errors %}
+							<li>{{ error }}</li>
 						{% endfor %}
 						</ul>
 					</div>

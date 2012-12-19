@@ -1,6 +1,6 @@
 $(function() {
-	$("#global_submit").hide();
-	$("#local_submit").hide();
+	$("#global_nav_submit").hide();
+	$("#local_nav_submit").hide();
 	$("#global_nav").change(function() {
 		window.location = $("#global_nav option:selected").val();
 	})

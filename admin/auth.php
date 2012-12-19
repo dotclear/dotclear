@@ -30,7 +30,7 @@ if (empty($_GET) && empty($_POST)) {
 	require dirname(__FILE__).'/../inc/dbschema/upgrade.php';
 	try {
 		if (($changes = dotclearUpgrade($core)) !== false) {
-			$_ctx->setMessage(__('Dotclear has been upgraded.').'<!-- '.$changes.' -->');
+			$_ctx->setAlert(__('Dotclear has been upgraded.').'<!-- '.$changes.' -->');
 		}
 	}
 	catch (Exception $e) {
@@ -63,7 +63,7 @@ class adminPageAuth
 			$headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 			
 			mail::sendMail($recover_res['user_email'],$subject,$message,$headers);
-			$_ctx->setMessage(__('Your new password is in your mailbox.'));
+			$_ctx->setAlert(__('Your new password is in your mailbox.'));
 		}
 		catch (Exception $e) {
 			$_ctx->addError($e->getMessage());
@@ -170,7 +170,7 @@ class adminPageAuth
 			$headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 			
 			mail::sendMail($user_email,$subject,$message,$headers);
-			$_ctx->setMessage(sprintf(__('The e-mail was sent successfully to %s.'),$user_email));
+			$_ctx->setAlert(sprintf(__('The e-mail was sent successfully to %s.'),$user_email));
 		}
 		catch (Exception $e) {
 			$_ctx->addError($e->getMessage());
