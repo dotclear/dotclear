@@ -1,13 +1,21 @@
 {# JS Helpers #}
 
+{% macro load(src,type) -%}
+	{% if not memorized('jsload',src) -%}
+		{{ memorize('jsload',src) -}}
+		{% set type = type|default('text/javascript') -%}
+		<script type="{{ type }}" src="{{ theme_url }}{{ src }}"></script>
+	{%- endif %}
+{%- endmacro %}
+
 {% macro common() %}
 	<!-- jsCommon -->
-	<script type="text/javascript" src="{{theme_url}}js/jquery/jquery.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/jquery/jquery.biscuit.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/jquery/jquery.bgFade.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/jquery/jquery.constantfooter.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/common.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/prelude.js"></script>
+	{{ _self.load('js/jquery/jquery.js') }}
+	{{ _self.load('js/jquery/jquery.biscuit.js') }}
+	{{ _self.load('js/jquery/jquery.bgFade.js') }}
+	{{ _self.load('js/jquery/jquery.constantfooter.js') }}
+	{{ _self.load('js/common.js') }}
+	{{ _self.load('js/prelude.js') }}
 	<script type="text/javascript">
 	//<![CDATA[
 		dotclear.nonce = '{{session.nonce}}';
@@ -57,7 +65,7 @@
 
 {% macro load_IE7() %}
 	<!--[if lt IE 8]>
-	<script type="text/javascript" src="{{theme_url}}js/ie7/IE8.js"></script>
+	{{ _self.load('ie7/IE8.js') }}
 	<link rel="stylesheet" type="text/css" href="{{theme_url}}style/iesucks.css" />
 	<![endif]-->
 {% endmacro %}
@@ -65,7 +73,7 @@
 {% macro confirm_close(values) %}
 	{% if values is not iterable %}{% set values = [values] %} {% endif %}
 	<!-- jsConfirmClose -->
-	<script type="text/javascript" src="{{theme_url}}js/confirm-close.js"></script>
+	{{ _self.load('js/confirm-close.js') }}
 	<script type="text/javascript">
 	//<![CDATA[
 		confirmClosePage = new confirmClose({% for value in values %}'{{value}}'{%if not loop.last %},{% endif %}{% endfor %});
@@ -76,7 +84,7 @@
 
 {% macro page_tabs(default_tab) %}
 	<!-- jsPageTabs -->
-	<script type="text/javascript" src="{{theme_url}}js/jquery/jquery.pageTabs.js"></script>
+	{{ _self.load('js/jquery/jquery.pageTabs.js') }}
 	<script type="text/javascript">
 	//<![CDATA[
 		$(function() {
@@ -89,7 +97,7 @@
 {% macro modal() %}
 	<!-- jsModal -->
 	<link rel="stylesheet" href="{{theme_url}}style/modal/modal.css" type="text/css" media="screen" />
-	<script type="text/javascript" src="{{theme_url}}js/jquery/jquery.modal.js"></script>
+	{{ _self.load('js/jquery/jquery.modal.js') }}
 	<script type="text/javascript">
 	//<![CDATA[
 		$.modal.prototype.params.loader_img = '{{theme_url}}style/modal/loader.gif';
@@ -101,14 +109,14 @@
 {% macro color_picker() %}
 	<!-- jsColorPicker -->
 	<link rel="stylesheet" href="{{theme_url}}style/farbtastic/farbtastic.css" type="text/css" media="screen" />
-	<script type="text/javascript" src="{{theme_url}}js/jquery/jquery.farbtastic.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/color-picker.js"></script>
+	{{ _self.load('js/jquery/jquery.farbtastic.js') }}
+	{{ _self.load('js/color-picker.js') }}
 {% endmacro %}
 
 {% macro date_picker() %}
 	<!-- jsDatePicker -->
 	<link rel="stylesheet" href="{{theme_url}}style/date-picker.css" type="text/css" media="screen" />
-	<script type="text/javascript" src="{{theme_url}}js/date-picker.js"></script>
+	{{ _self.load('js/date-picker.js') }}
 	<script type="text/javascript">
 	//<![CDATA[
 		datePicker.prototype.months[0] = '{{__('January')}}';
@@ -140,13 +148,13 @@
 {% macro tool_bar() %}
 	<!-- jsToolBar -->
 	<link rel="stylesheet" type="text/css" href="{{theme_url}}style/jsToolBar/jsToolBar.css" />
-	<script type="text/javascript" src="{{theme_url}}js/jsToolBar/jsToolBar.js"></script>
+	{{ _self.load('js/jsToolBar/jsToolBar.js') }}
 	
 	{% if current_user.options.enable_wysiwyg %}
-		<script type="text/javascript" src="{{theme_url}}js/jsToolBar/jsToolBar.wysiwyg.js"></script>
+		{{ _self.load('js/jsToolBar/jsToolBar.wysiwyg.js') }}
 	{% endif %}
 	
-	<script type="text/javascript" src="{{theme_url}}js/jsToolBar/jsToolBar.dotclear.js"></script>
+	{{ _self.load('js/jsToolBar/jsToolBar.dotclear.js') }}
 	<script type="text/javascript">
 	//<![CDATA[
 		jsToolBar.prototype.dialog_url = 'popup.php'; 
@@ -219,7 +227,7 @@
 	{% set params = params|merge(['sess_id={{session.id}}','sess_uid={{session.uid}}','xd_check={{session.nonce}}']) %}
 	<!-- jsCandyUpload -->
 	<link rel="stylesheet" href="{{theme_url}}style/candyUpload/style.css" type="text/css" media="screen" />
-	<script type="text/javascript" src="{{theme_url}}js/jquery/jquery.candyUpload.js"></script>
+	{{ _self.load('js/jquery/jquery.candyUpload.js') }}
 	<script type="text/javascript">
 	//<![CDATA[
 		dotclear.candyUpload = {};
@@ -250,16 +258,16 @@
 
 {% macro tool_man() %}
 	<!-- jsToolMan -->
-	<script type="text/javascript" src="{{theme_url}}js/tool-man/core.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/tool-man/events.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/tool-man/css.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/tool-man/coordinates.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/tool-man/drag.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/tool-man/dragsort.js"></script>
-	<script type="text/javascript" src="{{theme_url}}js/dragsort-tablerows.js"></script>
+	{{ _self.load('js/tool-man/core.js') }}
+	{{ _self.load('js/tool-man/events.js') }}
+	{{ _self.load('js/tool-man/css.js') }}
+	{{ _self.load('js/tool-man/coordinates.js') }}
+	{{ _self.load('js/tool-man/drag.js') }}
+	{{ _self.load('js/tool-man/dragsort.js') }}
+	{{ _self.load('js/dragsort-tablerows.js') }}
 {% endmacro %}
 
 {% macro meta_editor() %}
 	<!-- jsMetaEditor -->
-	<script type="text/javascript" src="{{theme_url}}js/meta-editor.js"></script>
+	{{ _self.load('js/meta-editor.js') }}
 {% endmacro %}
