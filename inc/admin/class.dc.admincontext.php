@@ -22,6 +22,7 @@ class dcAdminContext extends Twig_Extension
 	protected $core;
 	protected $globals = array();
 	protected $protected_globals = array();
+	protected $memory = array();
 	
 	public function __construct($core)
 	{
@@ -125,8 +126,9 @@ class dcAdminContext extends Twig_Extension
 	{
 		return array(
 			'__' 		=> new Twig_Function_Function("__", array('is_safe' => array('html'))),
-			'debug_info' => new Twig_Function_Method($this, 'getDebugInfo', array('is_safe' => array('html')))
-			//,'page_menu' => new Twig_Function_Method($this, 'pageMenu', array('is_safe' => array('html')))
+			'debug_info' => new Twig_Function_Method($this, 'getDebugInfo', array('is_safe' => array('html'))),
+			'memorize' => new Twig_Function_Method($this, 'setMemory', array('is_safe' => array('html'))),
+			'memorized' => new Twig_Function_Method($this, 'getMemory', array('is_safe' => array('html')))
 		);
 	}
 	
@@ -459,6 +461,33 @@ class dcAdminContext extends Twig_Extension
 		}
 		
 		return $di;
+	}
+	
+	/**
+	Add a value in a namespace memory
+	
+	This help keep variable when recalling Twig macros
+	
+	@param string $ns A namespace
+	@param string $str A value to memorize in this namespace
+	*/
+	public function setMemory($ns,$str)
+	{
+		if (!array_key_exists($ns,$this->memory) || !in_array($str,$this->memory[$ns])) {
+			$this->memory[$ns][] = $str;
+		}
+	}
+	
+	/**
+	Check if a value is previously memorized in a namespace
+	
+	@param string $ns A namespace
+	@param string $str A value to search in this namespace
+	@return array True if exists
+	*/
+	public function getMemory($ns,$str)
+	{
+		return array_key_exists($ns,$this->memory) && in_array($str,$this->memory[$ns]);
 	}
 }
 ?>
