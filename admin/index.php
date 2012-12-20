@@ -153,7 +153,7 @@ if ($core->auth->user_prefs->dashboard->quickentry &&$core->auth->check('usage,c
 	}
 	catch (Exception $e) { }
 	
-	$form = new dcForm($core,'quickentry','post.php');
+	$form = new dcForm($core,array('quickentry','quick-entry'),'post.php');
 	$form
 		->addField(
 			new dcFieldText('post_title','', array(

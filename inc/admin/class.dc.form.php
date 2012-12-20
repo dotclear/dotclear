@@ -200,6 +200,7 @@ class InvalidFieldException extends Exception {
  */
 class dcForm
 {
+	protected $id;
 	protected $name;
 	protected $core;
 	protected $action;
@@ -217,10 +218,22 @@ class dcForm
 		);
 	}
 	
+	protected function getNID($nid)
+	{
+		if (is_array($nid)) {
+			$this->name = $nid[0];
+			$this->id = !empty($nid[1]) ? $nid[1] : null;
+		}
+		else {
+			$this->id = null;
+			$this->name = $nid;
+		}
+	}
+	
 	public function __construct($core,$name,$action,$method='POST')
 	{
 		$this->core = $core;
-		$this->name = $name;
+		$this->getNID($name);
 		$this->method = $method;
 		$this->action = $action;
 		$this->fields = array();
@@ -259,7 +272,8 @@ class dcForm
 	public function begin()
 	{
 		echo sprintf(
-			'<form method="%s" action="%s">',
+			'<form%s method="%s" action="%s">',
+			empty($this->id) ? '' : ' id="'.$this->id.'"',
 			$this->method,
 			$this->action
 		);
