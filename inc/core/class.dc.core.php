@@ -154,6 +154,7 @@ class dcCore
 			)
 		);
 		$this->tpl->addExtension(new dcFormExtension($this));
+		$this->tpl->addExtension(new dcTabExtension($this));
 	}
 	
 	/// @name Blog init methods

@@ -1,9 +1,8 @@
 {% extends "layout.html.twig" %}
-{% import "js_helpers.html.twig" as js %}
 
 {% block header %}
   {{ parent() }}
-  {{ js.page_tabs(default_tab) }}
+  {{ init_tabs() }}
   <link rel="stylesheet" href="{{plugin_url}}aboutConfig/style/aboutConfig.css" type="text/css" media="screen" />
   <script type="text/javascript" src="{{plugin_url}}aboutConfig/js/aboutConfig.js"></script>
 {% endblock %}
@@ -11,7 +10,7 @@
 {%block content %}
   {{ parent() }}
 
-  <div id="local" class="multi-part" title="{{__('blog settings')}}">
+  {% tab local('local',__('blog settings')) %}
     {% if local_settings is not empty %}
     {% form local_nav_form %}
 	<p class="anchor-nav">{{ form_field('local_nav') }} {{ form_field('local_nav_submit') }}</p>
@@ -43,9 +42,9 @@
     {% endfor %}
 	<p>{{ form_field('local_submit') }}</p>
     {% endform %}
-	</div>
+  {% endtab %}
 
-  <div id="global" class="multi-part" title="{{__('global settings')}}">
+  {% tab global('global',__('global settings')) %}
     {% if global_settings is not empty %}
     {% form global_nav_form %}
 	<p class="anchor-nav">{{ form_field('global_nav') }} {{ form_field('global_nav_submit') }}</p>
@@ -76,5 +75,6 @@
     {% endfor %}
 	<p>{{ form_field('global_submit') }}</p>
     {% endform %}
-  </div>
+  {% endtab %}
+
 {% endblock %}
