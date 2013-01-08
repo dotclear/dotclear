@@ -789,8 +789,8 @@ class flatImport extends flatBackup
 	{
 		$strReq = 'SELECT media_id '.
 				'FROM '.$this->prefix.'media '.
-				"WHERE media_path = '".$this->cur_media->media_path."' ".
-				"AND media_file = '".$this->cur_media->media_file."' ";
+				"WHERE media_path = '".$this->con->escape($this->cur_media->media_path)."' ".
+				"AND media_file = '".$this->con->escape($this->cur_media->media_file)."' ";
 		
 		$rs = $this->con->select($strReq);
 		
