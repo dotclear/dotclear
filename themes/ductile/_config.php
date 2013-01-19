@@ -228,6 +228,7 @@ $ductile_base = array(
 	// HTML
 	'subtitle_hidden' => null,
 	'logo_src' => null,
+	'preview_not_mandatory' => null,
 	// CSS
 	'body_font' => null,
 	'body_webfont_family' => null,
@@ -336,6 +337,7 @@ if (!empty($_POST))
 		if ($conf_tab == 'html') {
 			$ductile_user['subtitle_hidden'] = (integer) !empty($_POST['subtitle_hidden']);
 			$ductile_user['logo_src'] = $_POST['logo_src'];
+			$ductile_user['preview_not_mandatory'] = (integer) !empty($_POST['preview_not_mandatory']);
 
 			$ductile_stickers = array();
 			for ($i = 0; $i < count($_POST['sticker_image']); $i++) {
@@ -507,6 +509,11 @@ echo
 '</tbody>'.
 '</table>';
 
+echo '</fieldset>';
+
+echo '<fieldset><legend>'.__('Miscellaneous options').'</legend>';
+echo '<p class="field"><label for="preview_not_mandatory">'.__('Comment preview is not mandatory:').' '.
+form::checkbox('preview_not_mandatory',1,$ductile_user['preview_not_mandatory']).'</label>'.'</p>';
 echo '</fieldset>';
 
 echo '<input type="hidden" name="conf_tab" value="html">';

@@ -22,6 +22,7 @@ $core->tpl->addValue('ductileEntriesList',array('tplDuctileTheme','ductileEntrie
 $core->tpl->addBlock('EntryIfContentIsCut',array('tplDuctileTheme','EntryIfContentIsCut'));
 $core->tpl->addValue('ductileNbEntryPerPage',array('tplDuctileTheme','ductileNbEntryPerPage'));
 $core->tpl->addValue('ductileLogoSrc',array('tplDuctileTheme','ductileLogoSrc'));
+$core->tpl->addBlock('IfPreviewIsNotMandatory',array('tplDuctileTheme','IfPreviewIsNotMandatory'));
 
 class tplDuctileTheme
 {
@@ -174,6 +175,22 @@ class tplDuctileTheme
 		}
 		
 		return $img_url;
+	}
+
+	public static function IfPreviewIsNotMandatory($attr,$content)
+	{
+		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_style');
+		if ($s !== null) {
+			$s = @unserialize($s);
+			if (is_array($s)) {
+				if (isset($s['preview_not_mandatory'])) {
+					if ($s['preview_not_mandatory']) {
+						return $content;
+					}
+				}
+			}
+		}
+		return '';
 	}
 
 	public static function publicInsideFooter($core)

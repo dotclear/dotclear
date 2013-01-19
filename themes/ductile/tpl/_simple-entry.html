@@ -163,9 +163,9 @@
 		<fieldset>
 			<p class="buttons">
 				<input type="submit" class="preview" name="preview" value="{{tpl:lang preview}}" />
-				<tpl:IfCommentPreview>
+				<tpl:IfPreviewIsNotMandatory>
 					<input type="submit" class="submit" value="{{tpl:lang send}}" />
-				</tpl:IfCommentPreview>
+				</tpl:IfPreviewIsNotMandatory>
 			</p>
 		</fieldset>
 	</form>
