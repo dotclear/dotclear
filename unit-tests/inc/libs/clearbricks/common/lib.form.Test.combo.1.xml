@@ -1,0 +1,4 @@
+<select name="ctrl-combo" id="ctrl-combo">
+	<option value="1">first label</option>
+	<option value="2">second label</option>
+</select>
