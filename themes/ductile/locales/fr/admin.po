@@ -64,6 +64,12 @@ msgstr "Court"
 msgid "Full"
 msgstr "Complet"
 
+msgid "Miscellaneous options"
+msgstr "Options diverses"
+
+msgid "Comment preview is not mandatory:"
+msgstr "Prévisualisation du commentaire optionnelle :"
+
 msgid "Presentation"
 msgstr "Présentation"
 
