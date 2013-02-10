@@ -620,13 +620,13 @@ img.smiley {
 	}
 #sidebar li {
 	padding-left: 16px;
-	background: transparent url(img/squares.png) no-repeat -133px .5em;
+	background: transparent url(img/squares.png) no-repeat -133px 7px;
 	}
 #sidebar ul li ul li {
-	background: transparent url(img/squares.png) no-repeat -70px center;
+	background: transparent url(img/squares.png) no-repeat -70px -59px;
 	}
 #sidebar ul li ul li ul li {
-	background: transparent url(img/squares.png) no-repeat 0 center;
+	background: transparent url(img/squares.png) no-repeat 0 -126px;
 	}
 #sidebar .syndicate li {
 	background-image: none;
