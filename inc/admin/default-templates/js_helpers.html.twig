@@ -17,6 +17,7 @@
 	{{ _self.load('js/common.js') }}
 	{{ _self.load('js/prelude.js') }}
 	<script type="text/javascript">
+	{% autoescape 'js' %}
 	//<![CDATA[
 		dotclear.nonce = '{{session.nonce}}';
 		dotclear.img_plus_src = '{{theme_url}}images/expand.png';
@@ -61,6 +62,7 @@
 		dotclear.msg.load_enhanced_uploader = '{{__('Loading enhanced uploader =>please wait.')}}';
 	//]]>
 	</script>
+	{% endautoescape %}
 {% endmacro %}
 
 {% macro load_IE7() %}
@@ -75,11 +77,13 @@
 	<!-- jsConfirmClose -->
 	{{ _self.load('js/confirm-close.js') }}
 	<script type="text/javascript">
+	{% autoescape 'js' %}
 	//<![CDATA[
 		confirmClosePage = new confirmClose({% for value in values %}'{{value}}'{%if not loop.last %},{% endif %}{% endfor %});
 		confirmClose.prototype.prompt = '{{__('You have unsaved changes.')}}';
 	//]]>
 	</script>
+	{% endautoescape %}
 {% endmacro %}
 
 {% macro page_tabs(default_tab) %}
@@ -118,6 +122,7 @@
 	<link rel="stylesheet" href="{{theme_url}}style/date-picker.css" type="text/css" media="screen" />
 	{{ _self.load('js/date-picker.js') }}
 	<script type="text/javascript">
+	{% autoescape 'js' %}
 	//<![CDATA[
 		datePicker.prototype.months[0] = '{{__('January')}}';
 		datePicker.prototype.months[1] = '{{__('February')}}';
@@ -142,6 +147,7 @@
 		datePicker.prototype.close_msg = '{{__('close')}}';
 		datePicker.prototype.now_msg = '{{__('now')}}';
 	//]]>
+	{% endautoescape %}
 	</script>
 {% endmacro %}
 
@@ -156,6 +162,7 @@
 	
 	{{ _self.load('js/jsToolBar/jsToolBar.dotclear.js') }}
 	<script type="text/javascript">
+	{% autoescape 'js' %}
 	//<![CDATA[
 		jsToolBar.prototype.dialog_url = 'popup.php'; 
 		jsToolBar.prototype.iframe_css = 
@@ -220,6 +227,7 @@
 		{% endif %}
 	//]]>
 	</script>
+	{% endautoescape %}
 {% endmacro %}
 
 {% macro candy_upload(params) %}
@@ -229,6 +237,7 @@
 	<link rel="stylesheet" href="{{theme_url}}style/candyUpload/style.css" type="text/css" media="screen" />
 	{{ _self.load('js/jquery/jquery.candyUpload.js') }}
 	<script type="text/javascript">
+	{% autoescape 'js' %}
 	//<![CDATA[
 		dotclear.candyUpload = {};
 		dotclear.msg.activate_enhanced_uploader = '{{__('Temporarily activate enhanced uploader')}}';
@@ -253,6 +262,7 @@
 		dotclear.candyUpload.movie_url = '{{theme_url}}swfupload.swf';
 		dotclear.candyUpload.params = '{{params|join('&')}}';
 	//]]>
+	{% endautoescape %}
 	</script>
 {% endmacro %}
 
