@@ -41,7 +41,7 @@
 	{% if dashboard_contents is not empty %}
 		<div id="dashboard-contents">
 			{% for content in dashboard_contents %}
-			{{ content|raw }}
+			{{ content }}
 			{% endfor %}
 		</div>
 	{% endif %}
@@ -98,7 +98,7 @@
 		{% if dashboard_items is not empty %}
 			<div>
 			{% for item in dashboard_items %}
-			{{ item|raw }}
+			{{ item }}
 			{% endfor %}
 			</div>
 		{% endif %}

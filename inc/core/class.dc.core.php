@@ -144,7 +144,7 @@ class dcCore
 			new Twig_Loader_Filesystem(dirname(__FILE__).'/../swf'),
 			array(
 				'auto_reload' => true,
-				'autoescape' => 'html',
+				'autoescape' => false,
 				'base_template_class' => 'Twig_Template',
 				'cache' => $cache_dir, 
 				'charset' => 'UTF-8',
