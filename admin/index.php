@@ -144,14 +144,12 @@ if ($core->auth->user_prefs->dashboard->quickentry &&$core->auth->check('usage,c
 	try {
 		$categories = $core->blog->getCategories(array('post_type'=>'post'));
 		while ($categories->fetch()) {
-			$categories_combo[] = new formSelectOption(
+			$categories_combo[$categories->cat_id] = 
 				str_repeat('&nbsp;&nbsp;',$categories->level-1).
-				($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-				$categories->cat_id
-			);
+				($categories->level-1 == 0 ? '' : '&bull; ').
+				html::escapeHTML($categories->cat_title);
 		}
-	}
-	catch (Exception $e) { }
+	} catch (Exception $e) { }
 	
 	$form = new dcForm($core,array('quickentry','quick-entry'),'post.php');
 	$form
