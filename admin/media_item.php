@@ -59,10 +59,8 @@ try
 	
 	# Prepare directories combo box
 	$dirs_combo = array();
-	foreach ($core->media->getRootDirs() as $v) {
-		if ($v->w) {
-			$dirs_combo['/'.$v->relname] = $v->relname;
-		}
+	foreach ($core->media->getDBDirs() as $v) {
+		$dirs_combo['/'.$v] = $v;
 	}
 	ksort($dirs_combo);
 }

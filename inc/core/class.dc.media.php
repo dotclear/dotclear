@@ -820,6 +820,31 @@ class dcMedia extends filemanager
 		
 		$this->callFileHandler(files::getMimeType($media_file),'remove',$f);
 	}
+
+	/**
+	* Root directories
+	*
+	* Returns an array of directory under {@link $root} directory.
+	*
+	* @uses fileItem
+	* @return array
+	*/
+	public function getDBDirs()
+	{
+		$media_dir = $this->relpwd ? $this->relpwd : '.';
+		
+		$strReq =
+		'SELECT distinct media_dir '.
+		'FROM '.$this->table.' '.
+		"WHERE media_path = '".$this->path."'";
+		$rs = $this->con->select($strReq);
+		while ($rs->fetch()) {
+			if (is_dir($this->root.'/'.$rs->media_dir))
+				$dir[] = $rs->media_dir;
+		}
+		
+		return $dir;
+	}
 	
 	/**
 	Extract zip file in current location
