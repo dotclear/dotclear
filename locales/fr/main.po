@@ -1737,6 +1737,9 @@ msgstr "Changer"
 msgid "Change category"
 msgstr "Changer la catégorie"
 
+msgid "Change language"
+msgstr "Changer la langue"
+
 msgid "Change author"
 msgstr "Changer l'auteur"
 
@@ -1760,6 +1763,9 @@ msgstr "Cet utilisateur n'existe pas"
 
 msgid "Change category for entries"
 msgstr "Changer la catégorie des billets"
+
+msgid "Change language for entries"
+msgstr "Changer la langue des billets"
 
 msgid "Change author for entries"
 msgstr "Changer l'auteur des billets"

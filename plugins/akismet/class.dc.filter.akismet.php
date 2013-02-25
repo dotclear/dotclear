@@ -150,7 +150,7 @@ class dcFilterAkismet extends dcSpamFilter
 		$res .= '</p>';
 		
 		$res .=
-		'<p><a href="http://wordpress.com/api-keys/">'.__('Get your own API key').'</a></p>'.
+		'<p><a href="http://akismet.com/">'.__('Get your own API key').'</a></p>'.
 		'<p><input type="submit" value="'.__('Save').'" />'.
 		$this->core->formNonce().'</p>'.
 		'</form>';
