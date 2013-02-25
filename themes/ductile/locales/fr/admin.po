@@ -64,6 +64,12 @@ msgstr "Court"
 msgid "Full"
 msgstr "Complet"
 
+msgid "Miscellaneous options"
+msgstr "Options diverses"
+
+msgid "Comment preview is not mandatory:"
+msgstr "Prévisualisation du commentaire optionnelle :"
+
 msgid "Presentation"
 msgstr "Présentation"
 
@@ -108,6 +114,30 @@ msgstr "Principale :"
 
 msgid "Secondary:"
 msgstr "Secondaire :"
+
+msgid "none"
+msgstr "aucune"
+
+msgid "javascript (Adobe)"
+msgstr "javascript (Adobe)"
+
+msgid "stylesheet (Google)"
+msgstr "feuille de style (Google)"
+
+msgid "Set main font to default to use webfont below."
+msgstr "Mettre la police de caractère principale à Défaut pour utiliser la fonte web ci-dessous."
+
+msgid "Set secondary font to default to use webfont below."
+msgstr "Mettre la police de caractère secondaire à Défaut pour utiliser la fonte web ci-dessous."
+
+msgid "Webfont family:"
+msgstr "Famille"
+
+msgid "Webfont URL:"
+msgstr "URL de la fonte web"
+
+msgid "Webfont API:"
+msgstr "Type d'API"
 
 msgid "Ductile primary"
 msgstr "Principale de Ductile"

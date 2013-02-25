@@ -158,6 +158,22 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 			$core->error->add($e->getMessage());
 		}
 	}
+	elseif ($action == 'lang' && isset($_POST['new_lang']))
+	{
+		$new_lang = $_POST['new_lang'];
+		try
+		{
+			$cur = $core->con->openCursor($core->prefix.'post');
+			$cur->post_lang = $new_lang;
+			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
+			
+			http::redirect($redir);
+		}
+		catch (Exception $e)
+		{
+			$core->error->add($e->getMessages());
+		}
+	}
 }
 
 /* DISPLAY
@@ -255,6 +271,40 @@ if ($action == 'category')
 	form::hidden(array('action'),'category').
 	'<input type="submit" value="'.__('Save').'" /></p>'.
 	'</form>';
+}
+elseif ($action == 'lang')
+{
+	echo '<h2 class="page-title">'.__('Change language for entries').'</h2>';
+	
+	# lang list
+	# Languages combo
+	$rs = $core->blog->getLangs(array('order'=>'asc'));
+	$all_langs = l10n::getISOcodes(0,1);
+	$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
+	while ($rs->fetch()) {
+		if (isset($all_langs[$rs->post_lang])) {
+			$lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
+			unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
+		} else {
+			$lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
+		}
+	}
+	unset($all_langs);
+	unset($rs);
+	
+	echo
+	'<form action="posts_actions.php" method="post">'.
+	'<p><label for="new_lang" class="classic">'.__('Entry lang:').' '.
+	form::combo('new_lang',$lang_combo,'').
+	'</label> ';
+	
+	echo
+	$hidden_fields.
+	$core->formNonce().
+	form::hidden(array('action'),'lang').
+	'<input type="submit" value="'.__('Save').'" /></p>'.
+	'</form>';
+
 }
 elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 {
