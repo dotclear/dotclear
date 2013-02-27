@@ -2309,10 +2309,10 @@ msgstr "Gestor de média"
 msgid "Link to an entry"
 msgstr "Adicionar um link a uma entrada"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Activar o uploader"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Desactivar o uploader"
 
 msgid "File successfully uploaded."

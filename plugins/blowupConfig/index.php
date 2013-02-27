@@ -227,13 +227,12 @@ echo
 
 
 if (!$can_write_images) {
-	echo '<div class="message">'.
-		__('For the following reasons, images cannot be created. You won\'t be able to change some background properties.').
-		$notices.'</div>';
+	dcPage::message(__('For the following reasons, images cannot be created. You won\'t be able to change some background properties.').
+		$notices,false,true);
 }
 
 if (!empty($_GET['upd'])) {
-	echo '<p class="message">'.__('Theme configuration has been successfully updated.').'</p>';
+	dcPage::message(__('Theme configuration has been successfully updated.'));
 }
 
 echo '<form id="theme_config" action="'.$p_url.'" method="post" enctype="multipart/form-data">';
@@ -431,7 +430,9 @@ form::field('footer_bg_c',7,7,$blowup_user['footer_bg_c'],'colorpicker').'</labe
 
 echo
 '<fieldset><legend>'.__('Additional CSS').'</legend>'.
-'<p>'.form::textarea('extra_css',72,5,html::escapeHTML($blowup_user['extra_css']),'maximal','',false,'title="'.__('Additional CSS').'"').'</p>'.
+'<p><label for="extra_css">'.__('Any additional CSS styles (must be written using the CSS syntax):').' '.
+form::textarea('extra_css',72,5,html::escapeHTML($blowup_user['extra_css']),'maximal','',false,'title="'.__('Additional CSS').'"').
+'</label></p>'.
 '</fieldset>';
 
 

@@ -41,7 +41,8 @@ class tplSimpleMenu
 	{
 		global $core, $_ctx;
 		
-		if ($w->homeonly && $core->url->type != 'default') {
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 
@@ -50,11 +51,16 @@ class tplSimpleMenu
 			return;
 		}
 
-		return '<div class="simple-menu">'.($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.'</div>';
+		return
+			($w->content_only ? '' : '<div class="simple-menu'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
+			($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.
+			($w->content_only ? '' : '</div>');
 	}
 	
 	public static function displayMenu($class='',$id='',$description='')
 	{
+		global $core;
+
 		$ret = '';
 
 		$menu = $GLOBALS['core']->blog->settings->system->get('simpleMenu');
@@ -94,12 +100,26 @@ class tplSimpleMenu
 						$span = ' <span>'.__($m['descr']).'</span>';
 					}
 				}
+
+				$item = new ArrayObject(array(
+					'url' => $href,					// URL
+					'label' => __($m['label']),		// <a> link label
+					'title' => $title,				// <a> link title (optional)
+					'span' => $span,				// description (will be displayed after <a> link)
+					'active' => $active,			// status (true/false)
+					'class' => ''					// additional <li> class (optional)
+					));
+
+				# --BEHAVIOR-- publicSimpleMenuItem
+				$core->callBehavior('publicSimpleMenuItem',$i,$item);
+
 				$ret .= '<li class="li'.($i+1).
-							($active ? ' active' : '').
+							($item['active'] ? ' active' : '').
 							($i == 0 ? ' li-first' : '').
 							($i == count($menu)-1 ? ' li-last' : '').
+							($item['class'] ? $item['class'] : '').
 						'">'.
-						'<a href="'.$href.'"'.$title.'>'.__($m['label']).$span.'</a>'.
+						'<a href="'.$href.'"'.$item['title'].'>'.$item['label'].$item['span'].'</a>'.
 						'</li>';
 			}
 			

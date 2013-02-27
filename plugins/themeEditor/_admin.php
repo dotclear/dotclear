@@ -15,12 +15,49 @@ if (!isset($__resources['help']['themeEditor'])) {
 	$__resources['help']['themeEditor'] = dirname(__FILE__).'/help.html';
 }
 
-$core->addBehavior('adminCurrentThemeDetails','theme_editor_details');
+$core->addBehavior('adminCurrentThemeDetails', array('themeEditorBehaviors','theme_editor_details'));
 
-function theme_editor_details($core,$id)
+$core->addBehavior('adminBeforeUserOptionsUpdate',array('themeEditorBehaviors','adminBeforeUserUpdate'));
+$core->addBehavior('adminPreferencesForm',array('themeEditorBehaviors','adminPreferencesForm'));
+
+class themeEditorBehaviors
 {
-	if ($id != 'default' && $core->auth->isSuperAdmin()) {
-		return '<p><a href="plugin.php?p=themeEditor" class="button">'.__('Theme Editor').'</a></p>';
+	public static function theme_editor_details($core,$id)
+	{
+		if ($id != 'default' && $core->auth->isSuperAdmin()) {
+			return '<p><a href="plugin.php?p=themeEditor" class="button">'.__('Theme Editor').'</a></p>';
+		}
+	}
+
+	public static function adminBeforeUserUpdate($cur,$userID)
+	{
+		global $core;
+
+		// Get and store user's prefs for plugin options
+		$core->auth->user_prefs->addWorkspace('interface');
+		try {
+			$core->auth->user_prefs->interface->put('colorsyntax',!empty($_POST['colorsyntax']),'boolean');
+		} 
+		catch (Exception $e)
+		{
+			$core->error->add($e->getMessage());
+		}
+	}
+	
+	public static function adminPreferencesForm($core)
+	{
+		// Add fieldset for plugin options
+		$core->auth->user_prefs->addWorkspace('interface');
+
+		echo
+		'<fieldset><legend>'.__('Theme Editor').'</legend>'.
+		
+		'<p><label for="colorsyntax" class="classic">'.
+		form::checkbox('colorsyntax',1,$core->auth->user_prefs->interface->colorsyntax).' '.
+		__('Syntax color').'</label></p>'.
+
+		'<br class="clear" />'. //Opera sucks
+		'</fieldset>';
 	}
 }
 ?>

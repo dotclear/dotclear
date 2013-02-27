@@ -132,5 +132,8 @@ msgstr "samedi"
 msgid "Sunday"
 msgstr "dimanche"
 
+msgid "%H:%M:%S:"
+msgstr "%H:%M:%S :"
+
 #~ msgid "%A, %B %e %Y"
 #~ msgstr "%A %e %B %Y"

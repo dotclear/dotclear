@@ -21,20 +21,6 @@ $p_url = 'plugin.php?p=simpleMenu';
 # Url du blog
 $blog_url = html::stripHostURL($core->blog->url);
 
-# Liste des catégories
-$categories_combo = array();
-$categories_label = array();
-try {
-	$rs = $core->blog->getCategories(array('post_type'=>'post'));
-	while ($rs->fetch()) {
-		$categories_combo[] = new formSelectOption(
-			str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title),
-			$rs->cat_url
-		);
-		$categories_label[$rs->cat_url] = html::escapeHTML($rs->cat_title);
-	}
-} catch (Exception $e) { }
-
 # Liste des langues utilisées
 $langs_combo = array();
 try {
@@ -92,9 +78,6 @@ $items['home'] = new ArrayObject(array(__('Home'),false));
 
 if (count($langs_combo) > 1) {
 	$items['lang'] = new ArrayObject(array(__('Language'),true));
-}
-if (count($categories_combo)) {
-	$items['category'] = new ArrayObject(array(__('Category'),true));
 }
 if (count($months_combo) > 1) {
 	$items['archive'] = new ArrayObject(array(__('Archive'),true));
@@ -168,12 +151,6 @@ if ($step) {
 					$item_label = $item_select_label;
 					$item_descr = sprintf(__('Switch to %s language'),$item_select_label);
 					$item_url .= $core->url->getURLFor('lang',$item_select);
-					break;
-				case 'category':
-					$item_select_label = $categories_label[$item_select];
-					$item_label = $item_select_label;
-					$item_descr = __('Recent Posts from this category');
-					$item_url .= $core->url->getURLFor('category',$item_select);
 					break;
 				case 'archive':
 					$item_select_label = array_search($item_select,$months_combo);
@@ -411,16 +388,16 @@ if ($step) {
 <?php
 
 if (!empty($_GET['added'])) {
-	echo '<p class="message">'.__('Menu item has been successfully added.').'</p>';
+	dcPage::message(__('Menu item has been successfully added.'));
 }
 if (!empty($_GET['removed'])) {
-	echo '<p class="message">'.__('Menu items have been successfully removed.').'</p>';
+	dcPage::message(__('Menu items have been successfully removed.'));
 }
 if (!empty($_GET['neworder'])) {
-	echo '<p class="message">'.__('Menu items have been successfully updated.').'</p>';
+	dcPage::message(__('Menu items have been successfully updated.'));
 }
 if (!empty($_GET['updated'])) {
-	echo '<p class="message">'.__('Menu items have been successfully updated.').'</p>';
+	dcPage::message(__('Menu items have been successfully updated.'));
 }
 
 if ($step) 
@@ -433,7 +410,7 @@ if ($step)
 			// Selection du type d'item
 			echo '<form id="additem" action="'.$p_url.'&add=2" method="post">';
 			echo '<fieldset><legend>'.__('Select type').'</legend>';
-			echo '<p class="field"><label for"item_type" class="classic">'.__('Type of item menu:').'</label>'.form::combo('item_type',$items_combo,'').'</p>';
+			echo '<p class="field"><label for="item_type" class="classic">'.__('Type of item menu:').'</label>'.form::combo('item_type',$items_combo,'').'</p>';
 			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue...').'" />'.'</p>';
 			echo '</fieldset>';
 			echo '</form>';
@@ -445,23 +422,19 @@ if ($step)
 				echo '<fieldset><legend>'.$item_type_label.'</legend>';
 				switch ($item_type) {
 					case 'lang':
-						echo '<p class="field"><label for"item_select" class="classic">'.__('Select language:').'</label>'.
+						echo '<p class="field"><label for="item_select" class="classic">'.__('Select language:').'</label>'.
 							form::combo('item_select',$langs_combo,'');
 						break;
-					case 'category':
-						echo '<p class="field"><label for"item_select" class="classic">'.__('Select category:').'</label>'.
-							form::combo('item_select',$categories_combo,'');
-						break;
 					case 'archive':
-						echo '<p class="field"><label for"item_select" class="classic">'.__('Select month (if necessary):').'</label>'.
+						echo '<p class="field"><label for="item_select" class="classic">'.__('Select month (if necessary):').'</label>'.
 							form::combo('item_select',$months_combo,'');
 						break;
 					case 'pages':
-						echo '<p class="field"><label for"item_select" class="classic">'.__('Select page:').'</label>'.
+						echo '<p class="field"><label for="item_select" class="classic">'.__('Select page:').'</label>'.
 							form::combo('item_select',$pages_combo,'');
 						break;
 					case 'tags':
-						echo '<p class="field"><label for"item_select" class="classic">'.__('Select tag (if necessary):').'</label>'.
+						echo '<p class="field"><label for="item_select" class="classic">'.__('Select tag (if necessary):').'</label>'.
 							form::combo('item_select',$tags_combo,'');
 						break;
 					default:
@@ -480,11 +453,11 @@ if ($step)
 			// Libellé et description
 			echo '<form id="additem" action="'.$p_url.'&add=4" method="post">';
 			echo '<fieldset><legend>'.$item_type_label.($item_select_label != '' ? ' ('.$item_select_label.')' : '').'</legend>';
-			echo '<p class="field"><label for"item_label" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
+			echo '<p class="field"><label for="item_label" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
 				__('Label of item menu:').'</label>'.form::field('item_label',20,255,$item_label).'</p>';
-			echo '<p class="field"><label for"item_descr" class="classic">'.
+			echo '<p class="field"><label for="item_descr" class="classic">'.
 				__('Description of item menu:').'</label>'.form::field('item_descr',30,255,$item_descr).'</p>';
-			echo '<p class="field"><label for"item_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
+			echo '<p class="field"><label for="item_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
 				__('URL of item menu:').'</label>'.form::field('item_url',40,255,$item_url).'</p>';
 			echo form::hidden('item_type',$item_type).form::hidden('item_select',$item_select);
 			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Add this item').'" /></p>';

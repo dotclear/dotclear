@@ -102,10 +102,10 @@ class dcFilterIP extends dcSpamFilter
 		$res = '';
 
 		if (!empty($_GET['added'])) {
-			$res .= '<p class="message">'.__('IP address has been successfully added.').'</p>';
+			$res .= dcPage::message(__('IP address has been successfully added.'),true,false,false);
 		}
 		if (!empty($_GET['removed'])) {
-			$res .= '<p class="message">'.__('IP addresses have been successfully removed.').'</p>';
+			$res .= dcPage::message(__('IP addresses have been successfully removed.'),true,false,false);
 		}
 
 		$res .=
@@ -129,7 +129,7 @@ class dcFilterIP extends dcSpamFilter
 		'</label>';
 		if ($core->auth->isSuperAdmin()) {
 			$res .= '<label class="classic" for="globalip_'.$type.'">'.form::checkbox(array('globalip', 'globalip_'.$type),1).' '.
-			__('Global IP').'</label> ';
+			__('Global IP (used for all blogs)').'</label> ';
 		}
 
 		$res .=
@@ -151,6 +151,8 @@ class dcFilterIP extends dcSpamFilter
 			'<h3>' . __('IP list') . '</h3>'.
 			'<div style="'.$this->style_list.'">';
 
+			$res_global = '';
+			$res_local = '';
 			while ($rs->fetch())
 			{
 				$bits = explode(':',$rs->rule_content);
@@ -165,12 +167,28 @@ class dcFilterIP extends dcSpamFilter
 					$p_style .= $this->style_global;
 				}
 
-				$res .=
+				$item =
 				'<p style="'.$p_style.'"><label class="classic" for="'.$type.'-ip-'.$rs->rule_id.'">'.
 				form::checkbox(array('delip[]',$type.'-ip-'.$rs->rule_id),$rs->rule_id,false,'','',$disabled_ip).' '.
 				html::escapeHTML($pattern).
 				'</label></p>';
+
+				if ($rs->blog_id) {
+					// local list
+					if ($res_local == '') {
+						$res_local = '<h4>'.__('Local IPs (used only for this blog)').'</h4>';
+					}
+					$res_local .= $item;
+				} else {
+					// global list
+					if ($res_global == '') {
+						$res_global = '<h4>'.__('Global IPs (used for all blogs)').'</h4>';
+					}
+					$res_global .= $item;
+				}
 			}
+			$res .= $res_local.$res_global;
+
 			$res .=
 			'</div>'.
 			'<p><input class="submit delete" type="submit" value="'.__('Delete').'"/>'.

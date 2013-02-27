@@ -218,17 +218,15 @@ if (!$theme_conf_mode)
 	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Blog appearance').'</span></h2>';
 	
 	if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('Theme has been successfully changed.').'</p>';
+		dcPage::message(__('Theme has been successfully changed.'));
 	}
 	
 	if (!empty($_GET['added'])) {
-		echo '<p class="message">'.
-		($_GET['added'] == 2 ? __('Theme has been successfully upgraded') : __('Theme has been successfully installed.')).
-		'</p>';
+		dcPage::message(($_GET['added'] == 2 ? __('Theme has been successfully upgraded') : __('Theme has been successfully installed.')));
 	}
 	
 	if (!empty($_GET['del'])) {
-		echo '<p class="message">'.__('Theme has been successfully deleted.').'</p>';
+		dcPage::message(__('Theme has been successfully deleted.'));
 	}
 	
 	if ($can_install) {

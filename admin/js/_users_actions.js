@@ -38,11 +38,15 @@ jQuery.fn.updatePermissionsForm = function() {
 					perms[blog]['media_admin'].disabled = E.checked;
 					E.onclick = function() { $(this.form).updatePermissionsForm(); };
 				} else if (perm == 'contentadmin' && !E.disabled) {
+					perms[blog]['usage'].checked = E.checked;
+					perms[blog]['publish'].checked = E.checked;
+					perms[blog]['delete'].checked = E.checked;
 					perms[blog]['usage'].disabled = E.checked;
 					perms[blog]['publish'].disabled = E.checked;
 					perms[blog]['delete'].disabled = E.checked;
 					E.onclick = function() { $(this.form).updatePermissionsForm(); };
 				} else if (perm == 'media_admin' && !E.disabled) {
+					perms[blog]['media'].checked = E.checked;
 					perms[blog]['media'].disabled = E.checked;
 					E.onclick = function() { $(this.form).updatePermissionsForm(); };
 				}
@@ -52,5 +56,8 @@ jQuery.fn.updatePermissionsForm = function() {
 };
 
 $(function() {
+	$('.checkboxes-helpers').each(function() {
+		dotclear.checkboxesHelpers(this);
+	});
 	$('#permissions-form').updatePermissionsForm();
 });

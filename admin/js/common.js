@@ -158,8 +158,8 @@ jQuery.fn.helpViewer = function() {
 
 	var sizeBox = function() {
 		This.css('height','auto');
-		if ($('body').height() > This.height()) {
-			This.css('height',$('body').height() + 'px');
+		if ($('#main').height() > This.height()) {
+			This.css('height',$('#main').height() + 'px');
 		}
 	};
 
@@ -318,26 +318,7 @@ var dotclear = {
 /* Sticky footer
 -------------------------------------------------------- */
 function positionFooter() {
-	$("#wrapper").css({ overflow: "auto" });
-	var page_height = $("#top").height() + $("#wrapper").height() - $("#footer").height();
-	if( page_height < $(window).height() ){
-		// calcul de la largeur
-		var page_width = $(document).width() - 30;
-		$("#footer").css({
-			position: "absolute",
-			bottom: "10px",
-			width: page_width+"px",
-			padding: ".75em 0",
-			marginbottom: "0"
-		});
-	} else {
-		$("#footer").css({
-			position: "static",
-			padding: ".75em 0",
-			width: "auto"
-		});
-	}
-
+	$('#footer').constantfooter();
 }
 
 /* On document ready
@@ -370,7 +351,7 @@ $(function() {
 	$('#help').helpViewer();
 
 	$('.message').backgroundFade({sColor:'#cccccc',eColor:'#666666',steps:20});
-	$('.error').backgroundFade({sColor:'#f5e5e5',eColor:'#e5bfbf',steps:20});
+	$('.error').backgroundFade({sColor:'#ffeee3',eColor:'#ffdec8',steps:20});
 
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
 		var e = this.elements['your_pwd'];
@@ -383,7 +364,6 @@ $(function() {
 		}
 		return true;
 	});
-
 
 	// Sticky footer
 	positionFooter();

@@ -97,6 +97,53 @@ class dcPrefs
 	}
 	
 	/**
+	Rename a workspace.
+
+	@param	oldWs 	<b>string</b> 	Old workspace name
+	@param	newws 	<b>string</b> 	New workspace name
+	@return 	<b>boolean</b>
+	*/
+	public function renWorkspace($oldNs,$newNs)
+	{
+		if (!array_key_exists($oldWs, $this->workspaces) || array_key_exists($newWs, $this->workspaces)) {
+			return false;
+		}
+
+		// Rename the workspace in the workspace array
+		$this->workspaces[$newWs] = $this->workspaces[$oldWs];
+		unset($this->workspaces[$oldWs]);
+
+		// Rename the workspace in the database
+		$strReq = 'UPDATE '.$this->table.
+			" SET pref_ws = '".$this->con->escape($newWs)."' ".
+			" WHERE pref_ws = '".$this->con->escape($oldWs)."' ";
+		$this->con->execute($strReq);
+		return true;
+	}
+
+	/**
+	Delete a whole workspace with all preferences pertaining to it.
+
+	@param 	ws 	<b>string</b> 	Workspace name
+	@return 	<b>boolean</b>
+	*/
+	public function delWorkspace($ws)
+	{
+		if (!array_key_exists($ws, $this->workspaces)) {
+			return false;
+		}
+
+		// Remove the workspace from the workspace array
+		unset($this->workspaces[$ws]);
+
+		// Delete all preferences from the workspace in the database
+		$strReq = 'DELETE FROM '.$this->table.
+			" WHERE pref_ws = '".$this->con->escape($ws)."' ";
+		$this->con->execute($strReq);
+		return true;
+	}
+	
+	/**
 	Returns full workspace with all prefs pertaining to it.
 	
 	@param	ws	<b>string</b>		Workspace name

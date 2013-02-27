@@ -2332,10 +2332,10 @@ msgstr "미디어 선택기"
 msgid "Link to an entry"
 msgstr "다른 글꼭지로 링크"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "복수파일 동시전송 모드로 전환"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "기본 모드로 전환"
 
 msgid "File successfully uploaded."

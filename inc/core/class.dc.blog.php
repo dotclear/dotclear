@@ -167,6 +167,8 @@ class dcBlog
 		$this->core->callBehavior('coreBlogAfterTriggerBlog',$cur);
 	}
 	
+
+
 	/// @name Entries management methods
 	//@{
 	/**
@@ -695,27 +697,31 @@ class dcBlog
 	*/
 	public function updPostStatus($id,$status)
 	{
+		$this->updPostsStatus($id,$status);
+	}
+	
+	/**
+	Updates posts status.
+	
+	@param	ids		<b>mixed</b>		Post(s) ID(s)
+	@param	status	<b>integer</b>		Post status
+	*/
+	public function updPostsStatus($ids,$status)
+	{
 		if (!$this->core->auth->check('publish,contentadmin',$this->id)) {
 			throw new Exception(__('You are not allowed to change this entry status'));
 		}
 		
-		$id = (integer) $id;
+		$posts_ids = dcUtils::cleanIds($ids);
 		$status = (integer) $status;
+		
+		$strReq = "WHERE blog_id = '".$this->con->escape($this->id)."' ".
+				"AND post_id ".$this->con->in($posts_ids);
 		
 		#If user can only publish, we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
-			$strReq = 'SELECT post_id '.
-					'FROM '.$this->prefix.'post '.
-					'WHERE post_id = '.$id.' '.
-					"AND blog_id = '".$this->con->escape($this->id)."' ".
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$posts = $this->con->select($strReq);
-			
-			if (count($posts) == 0) {
-				throw new Exception(__('You are not allowed to change this entry status'));
-			}
+			$strReq .= "AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 		}
 		
 		$cur = $this->con->openCursor($this->prefix.'post');
@@ -723,32 +729,39 @@ class dcBlog
 		$cur->post_status = $status;
 		$cur->post_upddt = date('Y-m-d H:i:s');
 		
-		$cur->update(
-			'WHERE post_id = '.$id.' '.
-			"AND blog_id = '".$this->con->escape($this->id)."' "
-			);
+		$cur->update($strReq);
 		$this->triggerBlog();
 	}
 	
+	/**
+	Updates post selection.
+	
+	@param	id		<b>integer</b>		Post ID
+	@param	selected	<b>integer</b>		Is selected post
+	*/
 	public function updPostSelected($id,$selected)
 	{
-		$id = (integer) $id;
+		$this->updPostsSelected($id,$selected);
+	}
+	
+	/**
+	Updates posts selection.
+	
+	@param	ids		<b>mixed</b>		Post(s) ID(s)
+	@param	selected	<b>integer</b>		Is selected post(s)
+	*/
+	public function updPostsSelected($ids,$selected)
+	{
+		$posts_ids = dcUtils::cleanIds($ids);
 		$selected = (boolean) $selected;
+		
+		$strReq = "WHERE blog_id = '".$this->con->escape($this->id)."' ".
+				"AND post_id ".$this->con->in($posts_ids);
 		
 		# If user is only usage, we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
-			$strReq = 'SELECT post_id '.
-					'FROM '.$this->prefix.'post '.
-					'WHERE post_id = '.$id.' '.
-					"AND blog_id = '".$this->con->escape($this->id)."' ".
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$posts = $this->con->select($strReq);
-			
-			if (count($posts) == 0) {
-				throw new Exception(__('You are not allowed to mark this entry as selected'));
-			}
+			$strReq .= "AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 		}
 		
 		$cur = $this->con->openCursor($this->prefix.'post');
@@ -756,10 +769,7 @@ class dcBlog
 		$cur->post_selected = (integer) $selected;
 		$cur->post_upddt = date('Y-m-d H:i:s');
 		
-		$cur->update(
-			'WHERE post_id = '.$id.' '.
-			"AND blog_id = '".$this->con->escape($this->id)."' "
-		);
+		$cur->update($strReq);
 		$this->triggerBlog();
 	}
 	
@@ -770,36 +780,35 @@ class dcBlog
 	*/
 	public function delPost($id)
 	{
+		$this->delPosts($id);
+	}
+	
+	/**
+	Deletes multiple posts.
+	
+	@param	ids		<b>mixed</b>		Post(s) ID(s)
+	*/
+	public function delPosts($ids)
+	{
 		if (!$this->core->auth->check('delete,contentadmin',$this->id)) {
 			throw new Exception(__('You are not allowed to delete entries'));
 		}
 		
-		$id = (integer) $id;
+		$posts_ids = dcUtils::cleanIds($ids);
 		
-		if (empty($id)) {
+		if (empty($posts_ids)) {
 			throw new Exception(__('No such entry ID'));
 		}
+		
+		$strReq = 'DELETE FROM '.$this->prefix.'post '.
+				"WHERE blog_id = '".$this->con->escape($this->id)."' ".
+				"AND post_id ".$this->con->in($posts_ids);
 		
 		#If user can only delete, we need to check the post's owner
 		if (!$this->core->auth->check('contentadmin',$this->id))
 		{
-			$strReq = 'SELECT post_id '.
-					'FROM '.$this->prefix.'post '.
-					'WHERE post_id = '.$id.' '.
-					"AND blog_id = '".$this->con->escape($this->id)."' ".
-					"AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
-			
-			$posts = $this->con->select($strReq);
-			
-			if (count($posts) == 0) {
-				throw new Exception(__('You are not allowed to delete this entry'));
-			}
+			$strReq .= "AND user_id = '".$this->con->escape($this->core->auth->userID())."' ";
 		}
-		
-		
-		$strReq = 'DELETE FROM '.$this->prefix.'post '.
-				'WHERE post_id = '.$id.' '.
-				"AND blog_id = '".$this->con->escape($this->id)."' ";
 		
 		$this->con->execute($strReq);
 		$this->triggerBlog();
@@ -950,6 +959,21 @@ class dcBlog
 		{
 			$this->core->initWikiPost();
 			$this->core->wiki2xhtml->setOpt('note_prefix','pnote-'.$post_id);
+			switch ($this->settings->system->note_title_tag) {
+				case 1:
+					$tag = 'h3';
+					break;
+				case 2:
+					$tag = 'p';
+					break;
+				default:
+					$tag = 'h4';
+					break;
+			}
+			$this->core->wiki2xhtml->setOpt('note_str','<div class="footnotes"><'.$tag.' class="footnotes-title">'.
+				__('Notes').'</'.$tag.'>%s</div>');
+			$this->core->wiki2xhtml->setOpt('note_str_single','<div class="footnotes"><'.$tag.' class="footnotes-title">'.
+				__('Note').'</'.$tag.'>%s</div>');
 			if (strpos($lang,'fr') === 0) {
 				$this->core->wiki2xhtml->setOpt('active_fr_syntax',1);
 			}
@@ -1066,5 +1090,6 @@ class dcBlog
 		return $url;
 	}
 	//@}
+
 }
 ?>

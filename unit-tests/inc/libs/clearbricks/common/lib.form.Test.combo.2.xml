@@ -1,0 +1,11 @@
+<select name="ctrl-name" id="ctrl-id" class="ctrl-class" tabindex="13" disabled="disabled" aria-required="true">
+	<option value="1">first label</option>
+	<option value="2" selected="selected">second label</option>
+	<optgroup label="first group">
+		<option value="3">third label</option>
+	</optgroup>
+	<optgroup label="second group">
+		<option value="4">fourth label</option>
+		<option value="5">fifth label</option>
+	</optgroup>
+</select>

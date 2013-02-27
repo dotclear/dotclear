@@ -3,13 +3,13 @@ $(function() {
 		dotclear.checkboxesHelpers(this);
 	});
 	$('#form-users').submit(function() {
-		var action = $(this).find('select[name="dispatch_action"]').val();
+		var action = $(this).find('select[name="action"]').val();
 		var user_ids = new Array();
 		var nb_posts = new Array();
 		var i;
 		var msg_cannot_delete = false;
 		
-		$(this).find('input[name="user_id[]"]').each(function() {
+		$(this).find('input[name="users[]"]').each(function() {
 			user_ids.push(this);
 		});
 		$(this).find('input[name="nb_post[]"]').each(function() {
@@ -40,7 +40,7 @@ $(function() {
 		}
 		
 		if (action == 'deleteuser') {
-			return window.confirm(dotclear.msg.confirm_delete_user.replace('%s',$('input[name="user_id[]"]:checked').size()));
+			return window.confirm(dotclear.msg.confirm_delete_user.replace('%s',$('input[name="users[]"]:checked').size()));
 		}
 		
 		return true;

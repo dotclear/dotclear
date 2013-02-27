@@ -22,7 +22,9 @@ $core->tpl->addBlock('Tags',array('tplTags','Tags'));
 $core->tpl->addBlock('TagsHeader',array('tplTags','TagsHeader'));
 $core->tpl->addBlock('TagsFooter',array('tplTags','TagsFooter'));
 $core->tpl->addBlock('EntryTags',array('tplTags','EntryTags'));
+$core->tpl->addBlock('TagIf',array('tplTags','TagIf'));
 $core->tpl->addValue('TagID',array('tplTags','TagID'));
+$core->tpl->addValue('TagCount',array('tplTags','TagCount'));
 $core->tpl->addValue('TagPercent',array('tplTags','TagPercent'));
 $core->tpl->addValue('TagRoundPercent',array('tplTags','TagRoundPercent'));
 $core->tpl->addValue('TagURL',array('tplTags','TagURL'));
@@ -43,7 +45,6 @@ $core->tpl->addBlock('EntryMetaData',array('tplTags','EntryTags'));
 
 
 $core->addBehavior('templateBeforeBlock',array('behaviorsTags','templateBeforeBlock'));
-$core->addBehavior('tplSysIfConditions',array('behaviorsTags','tplSysIfConditions'));
 $core->addBehavior('publicBeforeDocument',array('behaviorsTags','addTplPath'));
 
 class behaviorsTags
@@ -69,18 +70,6 @@ class behaviorsTags
 				"\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n".
 				"\$params['sql'] .= \"AND META.meta_id = '\".\$core->con->escape(\$_ctx->meta->meta_id).\"' \";\n".
 			"} ?>\n";
-		}
-	}
-	
-	public static function tplSysIfConditions($tag, $attr,$content,$if)
-	{
-		if ($tag == 'Sys' && isset($attr['has_tag'])) {
-			$sign = '';
-			if (substr($attr['has_tag'],0,1) == '!') {
-				$sign = '!';
-				$attr['has_tag'] = substr($attr['has_tag'],1);
-			}
-			$if[] =  $sign."(\$core->tpl->tagExists('".addslashes($attr['has_tag'])."') )";
 		}
 	}
 	
@@ -165,13 +154,35 @@ class tplTags
 		
 		return $res;
 	}
-	
+
+	public static function TagIf($attr,$content) 
+	{ 
+		$if = array();
+		$operateur = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
+
+		if (isset($attr['has_entries'])) {
+			$sign = (boolean) $attr['has_entries'] ? '' : '!';
+			$if[] = $sign.'$_ctx->meta->count';
+		}
+
+		if (!empty($if)) {
+			return '<?php if('.implode(' '.$operateur.' ',$if).') : ?>'.$content.'<?php endif; ?>';
+		} else {
+			return $content;
+		}
+	}
+
 	public static function TagID($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$_ctx->meta->meta_id').'; ?>';
 	}
 	
+	public static function TagCount($attr)
+	{
+		return '<?php echo $_ctx->meta->count; ?>';
+	}
+
 	public static function TagPercent($attr)
 	{
 		return '<?php echo $_ctx->meta->percent; ?>';
@@ -213,6 +224,11 @@ class tplTags
 	{
 		global $core;
 		
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
+			return;
+		}
+
 		$params = array('meta_type' => 'tag');
 		
 		if ($w->limit !== '') {
@@ -239,7 +255,7 @@ class tplTags
 		$rs->sort($sort,$order);
 		
 		$res =
-		'<div class="tags">'.
+		($w->content_only ? '' : '<div class="tags'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
 		
@@ -247,7 +263,7 @@ class tplTags
 		{
 			$res .=
 			'<li><a href="'.$core->blog->url.$core->url->getURLFor('tag',rawurlencode($rs->meta_id)).'" '.
-			'class="tag'.$rs->roundpercent.'" rel="tag">'.
+			'class="tag'.$rs->roundpercent.'">'.
 			$rs->meta_id.'</a> </li>';
 		}
 		
@@ -260,7 +276,7 @@ class tplTags
 			html::escapeHTML($w->alltagslinktitle).'</a></strong></p>';
 		}
 		
-		$res .= '</div>';
+		$res .= ($w->content_only ? '' : '</div>');
 		
 		return $res;
 	}

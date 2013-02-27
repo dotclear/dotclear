@@ -2305,10 +2305,10 @@ msgstr "Medya seçici"
 msgid "Link to an entry"
 msgstr "Bir yazıya bağlantı"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Gelişmiş yükleyiciyi etkinleştir"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Gelişmiş yükleyiciyi kapat"
 
 msgid "File successfully uploaded."

@@ -23,7 +23,7 @@ $__autoload['dcFilterIpLookup'] = dirname(__FILE__).'/filters/class.dc.filter.ip
 $__autoload['dcFilterLinksLookup'] = dirname(__FILE__).'/filters/class.dc.filter.linkslookup.php';
 $__autoload['dcFilterWords'] = dirname(__FILE__).'/filters/class.dc.filter.words.php';
 
-$core->spamfilters = array('dcFilterIP','dcFilterWords','dcFilterIpLookup','dcFilterLinksLookup');
+$core->spamfilters = array('dcFilterIP','dcFilterIpLookup','dcFilterWords','dcFilterLinksLookup');
 
 $core->url->register('spamfeed','spamfeed','^spamfeed/(.+)$',array('dcAntispamURL','spamFeed'));
 $core->url->register('hamfeed','hamfeed','^hamfeed/(.+)$',array('dcAntispamURL','hamFeed'));

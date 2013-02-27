@@ -18,8 +18,6 @@ body.install #content {
 body.install #main {
 	padding:1em 2em;
 	border:1px #ccc solid;
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
 	border-radius: 8px;
 }
 body.install h1,h2 {
@@ -46,8 +44,7 @@ body.install label {
 
 body.install .msg {
 	padding:10px 10px 10px 60px;
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
+	border-radius:8px;
 }
 body.install .warning {
 	background: #ffc url(install/important.png) no-repeat 10px 10px;
@@ -67,8 +64,7 @@ a:hover, a:active, a:focus {
 div.error, p.error, div.message, p.message, div.static-msg, p.static-msg {
 	padding: 0.5em 0.5em 0.5em 60px;
 	margin-bottom: 1em;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
+	border-radius: 8px;
 }
 p.error, p.message, p.static-msg {
 	padding-top: 1em;
@@ -128,8 +124,7 @@ a#obfus {
 	color: #fff;
 	background-color: #666;
 	padding: 0 10px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
+	border-radius: 2px;
 }
 
 input[type=submit]{
@@ -141,8 +136,6 @@ input[type=submit]{
 	text-decoration: none;
 	padding: .1em .5em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .2em;
-	-moz-border-radius: .2em;
 	border-radius: .2em;
 	margin-bottom: .1em;
 	color: #fff;

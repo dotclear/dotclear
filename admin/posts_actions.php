@@ -57,6 +57,11 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	
 	$posts = $core->blog->getPosts($params);
 	
+	$posts_ids = array();
+	while ($posts->fetch())	{
+		$posts_ids[] = $posts->post_id;
+	}
+	
 	# --BEHAVIOR-- adminPostsActions
 	$core->callBehavior('adminPostsActions',$core,$posts,$action,$redir);
 	
@@ -71,9 +76,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 		
 		try
 		{
-			foreach ($posts as $post) {
-				$core->blog->updPostStatus($post->post_id,$status);
-			}
+			$core->blog->updPostsStatus($posts_ids,$status);
 			
 			http::redirect($redir);
 		}
@@ -86,9 +89,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	{
 		try
 		{
-			foreach ($posts as $post) {
-				$core->blog->updPostSelected($post->post_id,$action == 'selected');
-			}
+			$core->blog->updPostsSelected($posts_ids,$action == 'selected');
 			
 			http::redirect($redir);
 		}
@@ -101,11 +102,17 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	{
 		try
 		{
-			foreach ($posts as $post) {
+			// Backward compatibility
+			foreach($posts_ids as $post_id)
+			{
 				# --BEHAVIOR-- adminBeforePostDelete
-				$core->callBehavior('adminBeforePostDelete',$post->post_id);				
-				$core->blog->delPost($post->post_id);
+				$core->callBehavior('adminBeforePostDelete',(integer) $post_id);
 			}
+			
+			# --BEHAVIOR-- adminBeforePostsDelete
+			$core->callBehavior('adminBeforePostsDelete',$posts_ids);
+			
+			$core->blog->delPosts($posts_ids);
 			
 			http::redirect($redir);
 		}
@@ -126,12 +133,9 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 				throw new Exception(__('This user does not exist'));
 			}
 			
-			foreach ($posts as $post)
-			{
-				$cur = $core->con->openCursor($core->prefix.'post');
-				$cur->user_id = $new_user_id;
-				$cur->update('WHERE post_id = '.(integer) $post->post_id);
-			}
+			$cur = $core->con->openCursor($core->prefix.'post');
+			$cur->user_id = $new_user_id;
+			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
 			
 			http::redirect($redir);
 		}
@@ -140,12 +144,48 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 			$core->error->add($e->getMessage());
 		}
 	}
+	elseif ($action == 'lang' && isset($_POST['new_lang']))
+	{
+		$new_lang = $_POST['new_lang'];
+		try
+		{
+			$cur = $core->con->openCursor($core->prefix.'post');
+			$cur->post_lang = $new_lang;
+			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
+			
+			http::redirect($redir);
+		}
+		catch (Exception $e)
+		{
+			$core->error->add($e->getMessages());
+		}
+	}
 }
 
 /* DISPLAY
 -------------------------------------------------------- */
+// Get current users list
+$usersList = '';
+if ($action == 'author' && $core->auth->check('admin',$core->blog->id)) {
+	$params = array(
+		'limit' => 100,
+		'order' => 'nb_post DESC'
+		);
+	$rs = $core->getUsers($params);
+	while ($rs->fetch())
+	{
+		$usersList .= ($usersList != '' ? ',' : '').'"'.$rs->user_id.'"';
+	}
+}
 dcPage::open(
 	__('Entries'),
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA[\n".
+	'usersList = ['.$usersList.']'."\n".
+	"\n//]]>\n".
+	"</script>\n".
+	dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
+	dcPage::jsLoad('js/_posts_actions.js').
 	dcPage::jsMetaEditor().
 	# --BEHAVIOR-- adminBeforePostDelete
 	$core->callBehavior('adminPostsActionsHeaders')
@@ -188,6 +228,40 @@ $core->callBehavior('adminPostsActionsContent',$core,$action,$hidden_fields);
 
 if ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 {
+}
+elseif ($action == 'lang')
+{
+	echo '<h2 class="page-title">'.__('Change language for entries').'</h2>';
+	
+	# lang list
+	# Languages combo
+	$rs = $core->blog->getLangs(array('order'=>'asc'));
+	$all_langs = l10n::getISOcodes(0,1);
+	$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
+	while ($rs->fetch()) {
+		if (isset($all_langs[$rs->post_lang])) {
+			$lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
+			unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
+		} else {
+			$lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
+		}
+	}
+	unset($all_langs);
+	unset($rs);
+	
+	echo
+	'<form action="posts_actions.php" method="post">'.
+	'<p><label for="new_lang" class="classic">'.__('Entry lang:').' '.
+	form::combo('new_lang',$lang_combo,'').
+	'</label> ';
+	
+	echo
+	$hidden_fields.
+	$core->formNonce().
+	form::hidden(array('action'),'lang').
+	'<input type="submit" value="'.__('Save').'" /></p>'.
+	'</form>';
+
 	echo '<h2 class="page-title">'.__('Change author for entries').'</h2>';
 	
 	echo

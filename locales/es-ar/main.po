@@ -2317,10 +2317,10 @@ msgstr "Selector de medios"
 msgid "Link to an entry"
 msgstr "Enlace a una entrada"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Activar ventajas de subida"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Desactivar ventajas de subida"
 
 msgid "File successfully uploaded."

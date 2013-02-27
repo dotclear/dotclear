@@ -24,7 +24,12 @@
     title="{{tpl:EntryTitle encode_xml="1"}}" />
     <id>{{tpl:EntryFeedID}}</id>
     <published>{{tpl:EntryDate iso8601="1"}}</published>
-    <updated>{{tpl:EntryDate iso8601="1" upddt="1"}}</updated>
+    <tpl:EntryIf republished="1">
+      <updated>{{tpl:EntryDate iso8601="1" upddt="1"}}</updated>
+    </tpl:EntryIf>
+    <tpl:EntryIf republished="0">
+      <updated>{{tpl:EntryDate iso8601="1"}}</updated>
+    </tpl:EntryIf>
     <author><name>{{tpl:EntryAuthorCommonName encode_xml="1"}}</name></author>
     <tpl:EntryIf has_category="1">
     <dc:subject>{{tpl:EntryCategory encode_html="1"}}</dc:subject>

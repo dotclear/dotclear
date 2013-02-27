@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */			"Antispam",
 	/* Description*/		"Generic antispam plugin for Dotclear",
 	/* Author */			"Alain Vagner",
-	/* Version */			'1.3.1',
+	/* Version */			'1.4',
 	array(
 		'permissions' =>	'usage,contentadmin',
 		'priority' =>		10

@@ -67,6 +67,7 @@ class dcTemplate extends template
 		$this->addValue('BlogQmarkURL',array($this,'BlogQmarkURL'));
 		$this->addValue('BlogMetaRobots',array($this,'BlogMetaRobots'));
 		
+
 		# Entries
 		$this->addBlock('DateFooter',array($this,'DateFooter'));
 		$this->addBlock('DateHeader',array($this,'DateHeader'));
@@ -121,6 +122,9 @@ class dcTemplate extends template
 		$this->addValue('SysPoweredBy',array($this,'SysPoweredBy'));
 		$this->addValue('SysSearchString',array($this,'SysSearchString'));
 		$this->addValue('SysSelfURI',array($this,'SysSelfURI'));
+
+		# Generic
+		$this->addValue('else',array($this,'GenericElse'));
 	}
 	
 	public function getData($________)
@@ -304,7 +308,7 @@ class dcTemplate extends template
 		$p[1] = '0';	# remove_html
 		$p[2] = '0';	# cut_string
 		$p[3] = '0';	# lower_case
-		$p[4] = '0';	# upper_case
+		$p[4] = '0';	# upper_case or capitalize
 		
 		$p[0] = (integer) (!empty($attr['encode_xml']) || !empty($attr['encode_html']));
 		$p[1] = (integer) !empty($attr['remove_html']);
@@ -315,6 +319,7 @@ class dcTemplate extends template
 		
 		$p[3] = (integer) !empty($attr['lower_case']);
 		$p[4] = (integer) !empty($attr['upper_case']);
+		$p[4] = (!empty($attr['capitalize']) ? 2 : $p[4]);
 		
 		return "context::global_filter(%s,".implode(",",$p).",'".addslashes($this->current_tag)."')";
 	}
@@ -396,7 +401,7 @@ class dcTemplate extends template
 		return implode(', ',$res);
 	}
 	
-	public function getAge($attr)
+	public static function getAge($attr)
 	{
 		if (isset($attr['age']) && preg_match('/^(\-[0-9]+|last).*$/i',$attr['age'])) {
 			if (($ts = strtotime($attr['age'])) !== false) {
@@ -819,6 +824,8 @@ class dcTemplate extends template
 		return "<?php echo context::robotsPolicy(\$core->blog->settings->system->robots_policy,'".$robots."'); ?>";
 	}
 	
+
+	
 	/* Entries -------------------------------------------- */
 	/*dtd
 	<!ELEMENT tpl:Entries - - -- Blog Entries loop -->
@@ -964,6 +971,7 @@ class dcTemplate extends template
 	extended	(0|1)	#IMPLIED	-- post has an excerpt (value : 1) or not (value : 0)
 	selected	(0|1)	#IMPLIED	-- post is selected (value : 1) or not (value : 0)
 	has_attachment	(0|1)	#IMPLIED	-- post has attachments (value : 1) or not (value : 0) (see Attachment plugin for code)
+	republished	(0|1)	#IMPLIED	-- post has been updated since publication (value : 1) or not (value : 0)
 	operator	(and|or)	#IMPLIED	-- combination of conditions, if more than 1 specifiec (default: and)
 	url		CDATA	#IMPLIED	-- post has given url
 	>
@@ -1009,6 +1017,11 @@ class dcTemplate extends template
 		if (isset($attr['selected'])) {
 			$sign = (boolean) $attr['selected'] ? '' : '!';
 			$if[] = $sign.'(boolean)$_ctx->posts->post_selected';
+		}
+		
+		if (isset($attr['republished'])) {
+			$sign = (boolean) $attr['republished'] ? '' : '!';
+			$if[] = $sign.'(boolean)$_ctx->posts->isRepublished()';
 		}
 		
 		$this->core->callBehavior('tplIfConditions','EntryIf',$attr,$content,$if);
@@ -1198,13 +1211,13 @@ class dcTemplate extends template
 	<!ATTLIST tpl:EntryAuthorEmail
 	size			(sq|t|s|m|o)	#IMPLIED	-- Image size to extract
 	class		CDATA		#IMPLIED	-- Class to add on image tag
+
 	>
 	*/
 	public function EntryFirstImage($attr)
 	{
 		$size = !empty($attr['size']) ? $attr['size'] : '';
 		$class = !empty($attr['class']) ? $attr['class'] : '';
-		$with_category = !empty($attr['with_category']) ? 'true' : 'false';
 		
 		return "<?php echo context::EntryFirstImageHelper('".addslashes($size)."','".addslashes($class)."'); ?>";
 	}
@@ -1587,7 +1600,7 @@ class dcTemplate extends template
 	current_tpl		CDATA	#IMPLIED	-- tests if current template is the one given in paramater
 	current_mode		CDATA	#IMPLIED	-- tests if current URL mode is the one given in parameter
 	has_tpl			CDATA     #IMPLIED  -- tests if a named template exists
-	has_tag			CDATA     #IMPLIED  -- tests if a named template tag exists (see Tag plugin for code)
+	has_tag			CDATA     #IMPLIED  -- tests if a named template block or value exists
 	blog_id			CDATA     #IMPLIED  -- tests if current blog ID is the one given in parameter
 	operator			(and|or)	#IMPLIED	-- combination of conditions, if more than 1 specifiec (default: and)
 	>
@@ -1635,6 +1648,15 @@ class dcTemplate extends template
 			$if[] = $sign."\$core->tpl->getFilePath('".addslashes($attr['has_tpl'])."') !== false";
 		}
 		
+		if (isset($attr['has_tag'])) {
+			$sign = 'true';
+			if (substr($attr['has_tag'],0,1) == '!') {
+				$sign = 'false';
+				$attr['has_tag'] = substr($attr['has_tag'],1);
+			}
+			$if[] =  "\$core->tpl->tagExists('".addslashes($attr['has_tag'])."') === ".$sign;
+		}
+		
 		if (isset($attr['blog_id'])) {
 			$sign = '';
 			if (substr($attr['blog_id'],0,1) == '!') {
@@ -1679,7 +1701,7 @@ class dcTemplate extends template
 	}
 	
 	/*dtd
-	<!ELEMENT tpl:SysIfFormError - O -- Form error -->
+	<!ELEMENT tpl:SysFormError - O -- Form error -->
 	*/
 	public function SysFormError($attr)
 	{
@@ -1705,6 +1727,14 @@ class dcTemplate extends template
 	{
 		$f = $this->getFilters($attr);
 		return '<?php echo '.sprintf($f,'http::getSelfURI()').'; ?>';
+	}
+
+	/*dtd
+	<!ELEMENT tpl:else - O -- else: statement -->
+	*/
+	public function GenericElse($attr)
+	{
+		return '<?php else: ?>';
 	}
 }
 

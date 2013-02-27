@@ -18,11 +18,11 @@ if (!defined('DC_ANTISPAM_CONF_SUPER')) {
 $_menu['Plugins']->addItem(__('Antispam'),'plugin.php?p=antispam','index.php?pf=antispam/icon.png',
 		preg_match('/plugin.php\?p=antispam(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('admin',$core->blog->id));
-
+/*
 $core->addBehavior('coreAfterCommentUpdate',array('dcAntispam','trainFilters'));
 $core->addBehavior('adminAfterCommentDesc',array('dcAntispam','statusMessage'));
 $core->addBehavior('adminDashboardIcons',array('dcAntispam','dashboardIcon'));
-
+*/
 $core->addBehavior('adminDashboardFavs','antispamDashboardFavs');
 $core->addBehavior('adminDashboardFavsIcon','antispamDashboardFavsIcon');
 

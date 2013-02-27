@@ -98,7 +98,14 @@ catch (Exception $e)
 ?>
 <html>
 <head>
-  <title><?php echo $page_name; ?></title>
+  <title><?php echo ($filter_gui !== false ? sprintf(__('%s configuration'),$filter->name).' - ' : '').$page_name; ?></title>
+  <script type="text/javascript">
+  //<![CDATA[
+  <?php
+  echo dcPage::jsVar('dotclear.msg.confirm_spam_delete',__('Are you sure you want to delete all spams?'));
+  ?>
+  //]]>
+  </script>
   <?php
   echo
   dcPage::jsToolMan().
@@ -131,7 +138,7 @@ else
 	'<h3>'.__('Information').'</h3>';
 
 	if (!empty($_GET['del'])) {
-		echo '<p class="message">'.__('Spam comments have been successfully deleted.').'</p>';
+		dcPage::message(__('Spam comments have been successfully deleted.'));
 	}
 
 	echo
@@ -162,7 +169,7 @@ else
 	'<form action="'.$p_url.'" method="post" class="fieldset">';
 
 	if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('Filters configuration has been successfully saved.').'</p>';
+		dcPage::message(__('Filters configuration has been successfully saved.'));
 	}
 
 	echo

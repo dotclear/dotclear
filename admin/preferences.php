@@ -161,8 +161,8 @@ if (isset($_POST['user_post_format']))
 		
 		$cur->user_options = new ArrayObject($user_options);
 		
-		# --BEHAVIOR-- adminBeforeUserUpdate
-		$core->callBehavior('adminBeforeUserUpdate',$cur,$core->auth->userID());
+		# --BEHAVIOR-- adminBeforeUserOptionsUpdate
+		$core->callBehavior('adminBeforeUserOptionsUpdate',$cur,$core->auth->userID());
 		
 		# Update user prefs
 		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
@@ -180,8 +180,8 @@ if (isset($_POST['user_post_format']))
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
 		
-		# --BEHAVIOR-- adminAfterUserUpdate
-		$core->callBehavior('adminAfterUserUpdate',$cur,$core->auth->userID());
+		# --BEHAVIOR-- adminAfterUserOptionsUpdate
+		$core->callBehavior('adminAfterUserOptionsUpdate',$cur,$core->auth->userID());
 		
 		http::redirect('preferences.php?updated=1');
 	}
@@ -342,7 +342,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 dcPage::open($page_title,
 	dcPage::jsLoad('js/_preferences.js').
 	($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
-	dcPage::jsLoad('js/jquery/jquery-ui-1.8.12.custom.min.js').
+	dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsConfirmClose('user-form').
 	
@@ -351,22 +351,22 @@ dcPage::open($page_title,
 );
 
 if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('Personal information has been successfully updated.').'</p>';
+	dcPage::message(__('Personal information has been successfully updated.'));
 }
 if (!empty($_GET['updated'])) {
-		echo '<p class="message">'.__('Personal options has been successfully updated.').'</p>';
+	dcPage::message(__('Personal options has been successfully updated.'));
 }
 if (!empty($_GET['append'])) {
-		echo '<p class="message">'.__('Favorites have been successfully added.').'</p>';
+	dcPage::message(__('Favorites have been successfully added.'));
 }
 if (!empty($_GET['neworder'])) {
-	echo '<p class="message">'.__('Favorites have been successfully updated.').'</p>';
+	dcPage::message(__('Favorites have been successfully updated.'));
 }
 if (!empty($_GET['removed'])) {
-		echo '<p class="message">'.__('Favorites have been successfully removed.').'</p>';
+	dcPage::message(__('Favorites have been successfully removed.'));
 }
 if (!empty($_GET['replaced'])) {
-		echo '<p class="message">'.__('Default favorites have been successfully updated.').'</p>';
+	dcPage::message(__('Default favorites have been successfully updated.'));
 }
 
 echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';

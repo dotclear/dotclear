@@ -10,6 +10,8 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
+define('DC_CONTEXT_ADMIN',true);
+
 require_once dirname(__FILE__).'/../prepend.php';
 
 // HTTP/1.1
@@ -18,8 +20,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-ch
 
 // HTTP/1.0
 header("Pragma: no-cache");
-
-define('DC_CONTEXT_ADMIN',true);
 
 function dc_valid_fav($url) {
 	global $core;
@@ -36,7 +36,7 @@ function dc_valid_fav($url) {
 
 function dc_prepare_url($url) {
 
-	$u = str_replace(array('?','&amp;'),array('\?','&'),$url);
+	$u = str_replace(array('?','&amp;','/'),array('\?','&','\\/'),$url);
 	return (!strpos($u,'\?') ? 
 		'/'.$u.'$/' :
 		(!strpos($u,'&') ? 
@@ -54,6 +54,7 @@ function dc_load_locales() {
 		l10n::set(dirname(__FILE__).'/../../locales/en/date');
 	}
 	l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/main');
+	l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/public');
 	l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/plugins');
 }
 

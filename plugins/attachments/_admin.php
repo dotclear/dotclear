@@ -10,10 +10,10 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
-
+/*
 $core->addBehavior ('adminPostFormSidebar',array('attachmentAdmin','adminPostFormSidebar'));
 $core->addBehavior ('adminPostAfterForm',array('attachmentAdmin','adminPostAfterForm'));
-
+*/
 class attachmentAdmin
 {
 	public static function adminPostFormSidebar($post) 

@@ -139,7 +139,8 @@ class tplBlogroll
 	{
 		global $core;
 		
-		if ($w->homeonly && $core->url->type != 'default') {
+		if (($w->homeonly == 1 && $core->url->type != 'default') ||
+			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 		
@@ -150,10 +151,10 @@ class tplBlogroll
 		}
 		
 		return
-		'<div class="links">'.
+		($w->content_only ? '' : '<div class="links'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		$links.
-		'</div>';
+		($w->content_only ? '' : '</div>');
 	}
 }
 
