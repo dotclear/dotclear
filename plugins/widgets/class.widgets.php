@@ -35,9 +35,9 @@ class dcWidgets
 		return base64_encode(serialize($serialized));
 	}
 	
-	public function create($id,$name,$callback,$append_callback=null)
+	public function create($id,$name,$callback,$append_callback=null,$desc='')
 	{
-		$this->__widgets[$id] = new dcWidget($id,$name,$callback);
+		$this->__widgets[$id] = new dcWidget($id,$name,$callback,$desc);
 		$this->__widgets[$id]->append_callback = $append_callback;
 	}
 	
@@ -134,6 +134,7 @@ class dcWidget
 {
 	private $id;
 	private $name;
+	private $desc;
 	private $public_callback = null;
 	public $append_callback = null;
 	private $settings = array();
@@ -147,11 +148,12 @@ class dcWidget
 		return $values;
 	}
 	
-	public function __construct($id,$name,$callback)
+	public function __construct($id,$name,$callback,$desc='')
 	{
 		$this->public_callback = $callback;
 		$this->id = $id;
 		$this->name = $name;
+		$this->desc = $desc;
 	}
 	
 	public function id()
@@ -162,6 +164,11 @@ class dcWidget
 	public function name()
 	{
 		return $this->name;
+	}
+
+	public function desc()
+	{
+		return $this->desc;
 	}
 	
 	public function getCallback()

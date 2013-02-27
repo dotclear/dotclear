@@ -56,12 +56,13 @@ class dcPage
 		if ($core->auth->blog_count == 1 || $core->auth->blog_count > 20)
 		{
 			$blog_box =
-			__('Blog:').' <strong title="'.html::escapeHTML($core->blog->url).'">'.
+			'<p>'.__('Blog:').' <strong title="'.html::escapeHTML($core->blog->url).'">'.
 			html::escapeHTML($core->blog->name).'</strong>';
 			
 			if ($core->auth->blog_count > 20) {
 				$blog_box .= ' - <a href="blogs.php">'.__('Change blog').'</a>';
 			}
+			$blog_box .= '</p>';
 		}
 		else
 		{
@@ -71,12 +72,12 @@ class dcPage
 				$blogs[html::escapeHTML($rs_blog->blog_name.' - '.$rs_blog->blog_url)] = $rs_blog->blog_id;
 			}
 			$blog_box =
-			'<label for="switchblog" class="classic">'.
+			'<p><label for="switchblog" class="classic">'.
 			__('Blogs:').' '.
 			$core->formNonce().
 			form::combo('switchblog',$blogs,$core->blog->id).
-			'</label>'.
-			'<noscript><div><input type="submit" value="'.__('ok').'" /></div></noscript>';
+			'</label></p>'.
+			'<noscript><p><input type="submit" value="'.__('ok').'" /></p></noscript>';
 		}
 		
 		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
@@ -131,8 +132,8 @@ class dcPage
 		'<div id="info-box1">'.
 		'<form action="index.php" method="post">'.
 		$blog_box.
-		'<a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
-		'</form>'.
+		'<p><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
+		'</p></form>'.
 		'</div>'.
 		'<div id="info-box2">'.
 		'<a'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
@@ -158,7 +159,7 @@ class dcPage
 		
 		if ($core->error->flag()) {
 			echo
-			'<div class="error"><strong>'.__('Errors:').'</strong>'.
+			'<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</p></strong>'.
 			$core->error->toHTML().
 			'</div>';
 		}
@@ -166,6 +167,8 @@ class dcPage
 	
 	public static function close()
 	{
+		global $core;
+
 		$menu =& $GLOBALS['_menu'];
 		
 		echo
@@ -178,11 +181,14 @@ class dcPage
 			echo $menu[$k]->draw();
 		}
 		
+		$text = sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>');
+
+		# --BEHAVIOR-- adminPageFooter
+		$textAlt = $core->callBehavior('adminPageFooter',$core,$text);
+
 		echo
 		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><p>'.
-		sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>').
-		'</p></div>'."\n".
+		'<div id="footer"><p>'.($textAlt != '' ? $textAlt : $text).'</p></div>'."\n".
 		"</div>\n";		// End of #wrapper
 		
 		if (defined('DC_DEV') && DC_DEV === true) {
@@ -253,6 +259,22 @@ class dcPage
 		'<div id="footer"><p>&nbsp;</p></div>'."\n".
 		"</div>\n".		// End of #wrapper
 		'</body></html>';
+	}
+
+	public static function message($msg,$timestamp=true,$div=false,$echo=true)
+	{
+		global $core;
+		
+		$res = '';
+		if ($msg != '') {
+			$res = ($div ? '<div class="message">' : '').'<p'.($div ? '' : ' class="message"').'>'.
+				($timestamp ? dt::str(__('%H:%M:%S:'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
+				'</p>'.($div ? '</div>' : '');
+			if ($echo) {
+				echo $res;
+			}
+		}
+		return $res;
 	}
 	
 	private static function debugInfo()
@@ -369,6 +391,7 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.js').
 		self::jsLoad('js/jquery/jquery.biscuit.js').
 		self::jsLoad('js/jquery/jquery.bgFade.js').
+		self::jsLoad('js/jquery/jquery.constantfooter.js').
 		self::jsLoad('js/common.js').
 		self::jsLoad('js/prelude.js').
 		
@@ -376,9 +399,9 @@ class dcPage
 		"//<![CDATA[\n".
 		self::jsVar('dotclear.nonce',$GLOBALS['core']->getNonce()).
 		
-		self::jsVar('dotclear.img_plus_src','images/plus.png').
+		self::jsVar('dotclear.img_plus_src','images/expand.png').
 		self::jsVar('dotclear.img_plus_alt',__('uncover')).
-		self::jsVar('dotclear.img_minus_src','images/minus.png').
+		self::jsVar('dotclear.img_minus_src','images/hide.png').
 		self::jsVar('dotclear.img_minus_alt',__('hide')).
 		self::jsVar('dotclear.img_menu_on','images/menu_on.png').
 		self::jsVar('dotclear.img_menu_off','images/menu_off.png').
@@ -409,6 +432,8 @@ class dcPage
 			__("Are you sure you want to delete selected entries (%s)?")).
 		self::jsVar('dotclear.msg.confirm_delete_post',
 			__("Are you sure you want to delete this entry?")).
+		self::jsVar('dotclear.msg.confirm_spam_delete',
+			__('Are you sure you want to delete all spams?')).
 		self::jsVar('dotclear.msg.cannot_delete_users',
 			__('Users with posts cannot be deleted.')).
 		self::jsVar('dotclear.msg.confirm_delete_user',

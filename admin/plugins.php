@@ -84,7 +84,14 @@ if ($is_writable)
 				throw new Exception(__('You don\'t have permissions to deactivate this plugin.'));
 			}
 			
+			# --BEHAVIOR-- pluginBeforeDeactivate
+			$core->callBehavior('pluginsBeforeDeactivate', $plugin);
+				
 			$core->plugins->deactivateModule($plugin_id);
+
+			# --BEHAVIOR-- pluginAfterDeactivate
+			$core->callBehavior('pluginsAfterDeactivate', $plugin);
+				
 			http::redirect('plugins.php');
 		}
 		catch (Exception $e)
@@ -101,7 +108,15 @@ if ($is_writable)
 			if (!isset($p[$plugin_id])) {
 				throw new Exception(__('No such plugin.'));
 			}
+
+			# --BEHAVIOR-- pluginBeforeActivate
+			$core->callBehavior('pluginsBeforeActivate', $plugin_id);
+			
 			$core->plugins->activateModule($plugin_id);
+
+			# --BEHAVIOR-- pluginAfterActivate
+			$core->callBehavior('pluginsAfterActivate', $plugin_id);
+			
 			http::redirect('plugins.php');
 		}
 		catch (Exception $e)
@@ -149,8 +164,15 @@ if ($is_writable)
 				
 				unset($client);
 			}
-			
+
+			# --BEHAVIOR-- pluginBeforeAdd
+			$core->callBehavior('pluginsBeforeAdd', $plugin);
+						
 			$ret_code = $core->plugins->installPackage($dest,$core->plugins);
+
+			# --BEHAVIOR-- pluginAfterAdd
+			$core->callBehavior('pluginsAfterAdd', $plugin);
+			
 			http::redirect('plugins.php?added='.$ret_code);
 		}
 		catch (Exception $e)
@@ -175,13 +197,10 @@ echo
 '<h2 class="page-title">'.__('Plugins management').'</h2>';
 
 if (!empty($_GET['removed'])) {
-	echo
-	'<p class="message">'.__('Plugin has been successfully deleted.').'</p>';
+	dcPage::message(__('Plugin has been successfully deleted.'));
 }
 if (!empty($_GET['added'])) {
-	echo	'<p class="message">'.
-	($_GET['added'] == 2 ? __('Plugin has been successfully upgraded') : __('Plugin has been successfully installed.')).
-	'</p>';
+	dcPage::message(($_GET['added'] == 2 ? __('Plugin has been successfully upgraded') : __('Plugin has been successfully installed.')));
 }
 
 # Plugins install messages
@@ -236,17 +255,23 @@ if (!empty($p_available))
 	'</tr></thead>'.
 	'<tbody>';
 	
+	$distrib_plugins = array('aboutConfig','akismet','antispam','attachments','blogroll','blowupConfig','daInstaller',
+		'fairTrackbacks','importExport','maintenance','pages','pings','simpleMenu','tags','themeEditor','userPref','widgets');
+	$distrib_img = '<img src="images/dotclear_pw.png"'.
+		' alt="'.__('Plugin from official distribution').'" title="'.__('Plugin from official distribution').'" />';
+
 	foreach ($p_available as $k => $v)
 	{
 		$is_deletable = $is_writable && preg_match('!^'.$p_path_pat.'!',$v['root']);
 		$is_deactivable = $v['root_writable'];
+		$is_distrib = in_array($k, $distrib_plugins);
 		
 		echo
 		'<tr class="line wide">'.
 		'<th scope="row" class="minimal nowrap"><strong>'.html::escapeHTML($k).'</strong></th>'.
 		'<td class="minimal">'.html::escapeHTML($v['version']).'</td>'.
-		'<td class="maximal"><strong>'.html::escapeHTML($v['name']).'</strong> '.
-		'<br />'.html::escapeHTML($v['desc']).'</td>'.
+		'<td class="maximal'.($is_distrib ? ' distrib' : '').'"><strong>'.html::escapeHTML(__($v['name'])).'</strong> '.
+		'<br />'.html::escapeHTML(__($v['desc'])).($is_distrib ? ' '.$distrib_img : '').'</td>'.
 		'<td class="nowrap action">';
 		
 		if ($is_deletable || $is_deactivable)

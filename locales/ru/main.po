@@ -2302,10 +2302,10 @@ msgstr "Инструмент выбора медиа файлов"
 msgid "Link to an entry"
 msgstr "Ссылка на запись"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Активировать улучшенный аплоадер"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Отключить улучшенный аплоадер"
 
 msgid "File successfully uploaded."

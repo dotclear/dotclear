@@ -2275,10 +2275,10 @@ msgstr "Wybór mediów"
 msgid "Link to an entry"
 msgstr "Odnośnik do wpisu"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Włącz ulepszony uploader"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Wyłącz ulepszony uploader"
 
 msgid "File successfully uploaded."

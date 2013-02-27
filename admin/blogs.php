@@ -75,7 +75,7 @@ if (!$show_filters) {
 dcPage::open(__('List of blogs'),$starting_script);
 
 if (!empty($_GET['del'])) {
-	echo '<p class="message">'.__('Blog has been successfully deleted.').'</p>';
+	dcPage::message(__('Blog has been successfully deleted.'));
 }
 
 echo '<h2 class="page-title">'.__('List of blogs').'</h2>';
@@ -132,7 +132,7 @@ if (!$core->error->flag())
 		'<table class="clear"><tr>'.
 		'<th>'.__('Blog name').'</th>'.
 		'<th class="nowrap">'.__('Last update').'</th>'.
-		'<th class="nowrap">'.__('Entries').'</th>'.
+		'<th class="nowrap">'.__('Entries (all types)').'</th>'.
 		'<th class="nowrap">'.__('Blog ID').'</th>'.
 		'<th>&nbsp;</th>'.
 		'<th class="nowrap">'.__('Status').'</th>'.

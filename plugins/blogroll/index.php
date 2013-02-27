@@ -218,23 +218,23 @@ try {
 
 <?php
 if (!empty($_GET['neworder'])) {
-	echo '<p class="message">'.__('Items order has been successfully updated').'</p>';
+	dcPage::message(__('Items order has been successfully updated'));
 }
 
 if (!empty($_GET['removed'])) {
-		echo '<p class="message">'.__('Items have been successfully removed.').'</p>';
+	dcPage::message(__('Items have been successfully removed.'));
 }
 
 if (!empty($_GET['addlink'])) {
-		echo '<p class="message">'.__('Link has been successfully created.').'</p>';
+	dcPage::message(__('Link has been successfully created.'));
 }
 
 if (!empty($_GET['addcat'])) {
-		echo '<p class="message">'.__('category has been successfully created.').'</p>';
+	dcPage::message(__('category has been successfully created.'));
 }
 
 if (!empty($_GET['importlinks'])) {
-		echo '<p class="message">'.__('links have been successfully imported.').'</p>';
+	dcPage::message(__('links have been successfully imported.'));
 }
 ?>
 
@@ -308,7 +308,7 @@ while ($rs->fetch())
 echo
 '<div class="multi-part clear" id="add-link" title="'.__('Add a link').'">'.
 '<form action="plugin.php" method="post" id="add-link-form">'.
-'<fieldset class="two-cols"><legend>'.__('Add a new link').'</legend>'.
+'<fieldset><legend>'.__('Add a new link').'</legend>'.
 '<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
 form::field('link_title',30,255,$link_title).
 '</label></p>'.

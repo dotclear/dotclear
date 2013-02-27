@@ -30,8 +30,9 @@ $core->addBehavior('adminPostsActions',array('tagsBehaviors','adminPostsActions'
 $core->addBehavior('adminPostsActionsContent',array('tagsBehaviors','adminPostsActionsContent'));
 
 $core->addBehavior('adminPreferencesForm',array('tagsBehaviors','adminUserForm'));
-// $core->addBehavior('adminUserForm',array('tagsBehaviors','adminUserForm'));
+$core->addBehavior('adminBeforeUserOptionsUpdate',array('tagsBehaviors','setTagListFormat'));
 
+$core->addBehavior('adminUserForm',array('tagsBehaviors','adminUserForm'));
 $core->addBehavior('adminBeforeUserCreate',array('tagsBehaviors','setTagListFormat'));
 $core->addBehavior('adminBeforeUserUpdate',array('tagsBehaviors','setTagListFormat'));
 
@@ -103,7 +104,7 @@ class tagsBehaviors
 	{
 		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
 		
-		$opts = $GLOBALS['core']->blog->url.$GLOBALS['core']->auth->getOptions();
+		$opts = $GLOBALS['core']->auth->getOptions();
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
 		
 		return 

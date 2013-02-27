@@ -2344,12 +2344,12 @@ msgstr "Sélecteur de média"
 msgid "Link to an entry"
 msgstr "Lien vers un billet"
 
-msgid "Activate enhanced uploader"
-msgstr "Activer l'interface avancée"
+msgid "Temporarily activate enhanced uploader"
+msgstr "Activer temporairement l'interface avancée"
 
 #, fuzzy
-msgid "Disable enhanced uploader"
-msgstr "Activer l'interface avancée"
+msgid "Temporarily disable enhanced uploader"
+msgstr "Désactiver temporairement l'interface avancée"
 
 msgid "File successfully uploaded."
 msgstr "Fichier envoyé avec succès."

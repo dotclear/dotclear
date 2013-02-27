@@ -98,6 +98,9 @@ msgstr ""
 msgid "Global IP"
 msgstr ""
 
+msgid "Global IP (used for all blogs)"
+msgstr ""
+
 msgid "Add"
 msgstr ""
 
@@ -105,6 +108,12 @@ msgid "No IP address in list."
 msgstr ""
 
 msgid "IP list"
+msgstr ""
+
+msgid "Local IPs (used only for this blog)"
+msgstr ""
+
+msgid "Global IPs (used only for this blog)"
 msgstr ""
 
 msgid "Checks sender IP address against DNSBL servers"
@@ -145,10 +154,19 @@ msgstr ""
 msgid "Global word"
 msgstr ""
 
+msgid "Global word (used for all blogs)"
+msgstr ""
+
 msgid "No word in list."
 msgstr ""
 
 msgid "List of bad words"
+msgstr ""
+
+msgid "Local words (used only for this blog)"
+msgstr ""
+
+msgid "Global words (used for all blogs)"
 msgstr ""
 
 msgid "Delete selected words"

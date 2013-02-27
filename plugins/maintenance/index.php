@@ -72,16 +72,16 @@ elseif ($action == 'log')
 
 <?php
 if (!empty($_GET['vacuum'])) {
-	echo '<p class="message">'.__('Optimization successful.').'</p>';
+	dcPage::message(__('Optimization successful.'));
 }
 if (!empty($_GET['commentscount'])) {
-	echo '<p class="message">'.__('Comments and trackback counted.').'</p>';
+	dcPage::message(__('Comments and trackback counted.'));
 }
 if (!empty($_GET['empty_cache'])) {
-	echo '<p class="message">'.__('Templates cache directory emptied.').'</p>';
+	dcPage::message(__('Templates cache directory emptied.'));
 }
 if (!empty($_GET['delete_logs'])) {
-	echo '<p class="message">'.__('Logs deleted.').'</p>';
+	dcPage::message(__('Logs deleted.'));
 }
 
 if ($action == 'index' && !empty($_GET['indexposts']))
@@ -104,7 +104,7 @@ if ($action == 'index' && !empty($_GET['indexposts']))
 	}
 	else
 	{
-		echo '<p class="message">'.__('Entries index done.').'</p>';
+		dcPage::message(__('Entries index done.'));
 		echo '<p><a class="back" href="'.$p_url.'">'.__('Back').'</a></p>';
 	}
 }
@@ -128,7 +128,7 @@ elseif ($action == 'index' && !empty($_GET['indexcomments']))
 	}
 	else
 	{
-		echo '<p class="message">'.__('Comments index done.').'</p>';
+		dcPage::message(__('Comments index done.'));
 		echo '<p><a class="back" href="'.$p_url.'">'.__('Back').'</a></p>';
 	}
 }

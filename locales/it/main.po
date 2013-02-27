@@ -2301,10 +2301,10 @@ msgstr "Selezione media"
 msgid "Link to an entry"
 msgstr "Link ad un articolo"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Attiva il caricamento avanzato"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Disattiva il caricamento avanzato"
 
 msgid "File successfully uploaded."

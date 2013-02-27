@@ -15,6 +15,6 @@ $this->registerModule(
 	/* Name */			"user:preferences",
 	/* Description*/		"Manage every user preference directive",
 	/* Author */			"Franck Paul",
-	/* Version */			'0.2'
+	/* Version */			'0.3'
 );
 ?>

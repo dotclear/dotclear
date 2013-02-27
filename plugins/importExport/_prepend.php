@@ -11,6 +11,8 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+global $__autoload,$core;
+
 $__autoload['dcIeModule'] = 	dirname(__FILE__).'/inc/class.dc.ieModule.php';
 
 $__autoload['dcImportFlat'] = 	dirname(__FILE__).'/inc/class.dc.import.flat.php';
@@ -29,14 +31,14 @@ $core->addBehavior('importExportModules','registerIeModules');
 
 function registerIeModules($modules)
 {
-	$modules['import'][] = 'dcImportFlat';
-	$modules['import'][] = 'dcImportFeed';
+	$modules['import'] = array_merge($modules['import'],array('dcImportFlat'));
+	$modules['import'] = array_merge($modules['import'],array('dcImportFeed'));
 	
-	$modules['export'][] = 'dcExportFlat';
+	$modules['export'] = array_merge($modules['export'],array('dcExportFlat'));
 	
 	if ($GLOBALS['core']->auth->isSuperAdmin()) {
-		$modules['import'][] = 'dcImportDC1';
-		$modules['import'][] = 'dcImportWP';
+		$modules['import'] = array_merge($modules['import'],array('dcImportDC1'));
+		$modules['import'] = array_merge($modules['import'],array('dcImportWP'));
 	}
 }
 ?>

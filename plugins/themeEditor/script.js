@@ -4,7 +4,7 @@ $(function() {
 		var f = this.form;
 		
 		var data = {
-			file_content: $(f).find('#file_content').get(0).value,
+			file_content: (!dotclear.colorsyntax ? $(f).find('#file_content').get(0).value : editor.getValue()),
 			xd_check: $(f).find('input[name="xd_check"]').get(0).value,
 			write: 1
 		};

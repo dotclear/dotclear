@@ -107,6 +107,7 @@ $combo_action[__('Mark')] = array(
 	__('Mark as unselected') => 'unselected'
 );
 $combo_action[__('Change')] = array();
+
 if ($core->auth->check('admin',$core->blog->id))
 {
 	$combo_action[__('Change')] = array_merge($combo_action[__('Change')],

@@ -258,9 +258,39 @@ class dcNamespace
 			$cur->insert();
 		}
 	}
-	
+
 	/**
-	Removes an existing setting. Namespace 
+	Rename an existing setting in a Namespace
+
+	@param 	$oldId 	<b>string</b> 	Current setting name
+	@param 	$newId 	<b>string</b> 	New setting name
+	@return 	<b>boolean</b>
+	*/
+	public function rename($oldId,$newId)
+	{
+		if (!$this->ns) {
+			throw new Exception(__('No namespace specified'));
+		}
+		
+		if (!array_key_exists($oldId,$this->settings) || array_key_exists($newId,$this->settings)) {
+			return false;
+		}
+
+		// Rename the setting in the settings array
+		$this->settings[$newId] = $this->settings[$oldId];
+		unset($this->settings[$oldId]);
+
+		// Rename the setting in the database
+		$strReq = 'UPDATE '.$this->table.
+			" SET setting_id = '".$this->con->escape($newId)."' ".
+			" WHERE setting_ns = '".$this->con->escape($this->ns)."' ".
+			" AND setting_id = '".$this->con->escape($oldId)."' ";
+		$this->con->execute($strReq);
+		return true;
+	}
+
+	/**
+	Removes an existing setting in a Namespace 
 	
 	@param	id		<b>string</b>		Setting ID
 	*/
@@ -282,6 +312,39 @@ class dcNamespace
 		$strReq .= "AND setting_ns = '".$this->con->escape($this->ns)."' ";
 		
 		$this->con->execute($strReq);
+	}
+	
+	/**
+	Removes all existing settings in a Namespace 
+	
+	@param	force_global	<b>boolean</b>	Force global pref drop
+	*/
+	public function dropAll($force_global=false)
+	{
+		if (!$this->ns) {
+			throw new Exception(__('No namespace specified'));
+		}
+		
+		$strReq =	'DELETE FROM '.$this->table.' ';
+		
+		if (($force_global) || ($this->blog_id === null)) {
+			$strReq .= 'WHERE blog_id IS NULL ';
+			$global = true;
+		} else {
+			$strReq .= "WHERE blog_id = '".$this->con->escape($this->blog_id)."' ";
+			$global = false;
+		}
+		
+		$strReq .= "AND setting_ns = '".$this->con->escape($this->ns)."' ";
+		
+		$this->con->execute($strReq);
+		
+		$array = $global ? 'global' : 'local';
+		unset($this->{$array.'_settings'});
+		$this->{$array.'_settings'} = array();
+		
+		$array = $global ? 'local' : 'global';
+		$this->settings = $this->{$array.'_settings'};
 	}
 	
 	/**

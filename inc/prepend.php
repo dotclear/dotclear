@@ -116,7 +116,7 @@ if (!defined('DC_DEBUG')) {
 
 # Constants
 define('DC_ROOT',path::real(dirname(__FILE__).'/..'));
-define('DC_VERSION','2.5-dev');
+define('DC_VERSION','2.5-RC');
 define('DC_DIGESTS',dirname(__FILE__).'/digests');
 define('DC_L10N_ROOT',dirname(__FILE__).'/../locales');
 define('DC_L10N_UPDATE_URL','http://services.dotclear.net/dc2.l10n/?version=%s');
@@ -155,24 +155,31 @@ try {
 	$core = new dcCore(DC_DBDRIVER,DC_DBHOST,DC_DBNAME,DC_DBUSER,DC_DBPASSWORD,DC_DBPREFIX,DC_DBPERSIST);
 } catch (Exception $e) {
 	init_prepend_l10n();
-	__error(__('Unable to connect to database')
-		,$e->getCode() == 0 ?
-		sprintf(__('<p>This either means that the username and password information in '.
-		'your <strong>config.php</strong> file is incorrect or we can\'t contact '.
-		'the database server at "<em>%s</em>". This could mean your '.
-		'host\'s database server is down.</p> '.
-		'<ul><li>Are you sure you have the correct username and password?</li>'.
-		'<li>Are you sure that you have typed the correct hostname?</li>'.
-		'<li>Are you sure that the database server is running?</li></ul>'.
-		'<p>If you\'re unsure what these terms mean you should probably contact '.
-		'your host. If you still need help you can always visit the '.
-		'<a href="http://forum.dotclear.net/">Dotclear Support Forums</a>.</p>').
-		(DC_DEBUG ?
-			__('The following error was encountered while trying to read the database:').'</p><ul><li>'.$e->getMessage().'</li></ul>' :	'')
-		,(DC_DBHOST != '' ? DC_DBHOST : 'localhost')
-		)
-		: ''
-		,20);
+	if (!defined('DC_CONTEXT_ADMIN')) {
+		__error(__('Site temporarily unavailable'),
+			__('<p>We apologize for this temporary unavailability.<br />'.
+			'Thank you for your understanding.</p>'),
+			20);
+	} else {
+		__error(__('Unable to connect to database')
+			,$e->getCode() == 0 ?
+			sprintf(__('<p>This either means that the username and password information in '.
+			'your <strong>config.php</strong> file is incorrect or we can\'t contact '.
+			'the database server at "<em>%s</em>". This could mean your '.
+			'host\'s database server is down.</p> '.
+			'<ul><li>Are you sure you have the correct username and password?</li>'.
+			'<li>Are you sure that you have typed the correct hostname?</li>'.
+			'<li>Are you sure that the database server is running?</li></ul>'.
+			'<p>If you\'re unsure what these terms mean you should probably contact '.
+			'your host. If you still need help you can always visit the '.
+			'<a href="http://forum.dotclear.net/">Dotclear Support Forums</a>.</p>').
+			(DC_DEBUG ?
+				__('The following error was encountered while trying to read the database:').'</p><ul><li>'.$e->getMessage().'</li></ul>' :	'')
+			,(DC_DBHOST != '' ? DC_DBHOST : 'localhost')
+			)
+			: ''
+			,20);
+	}
 }
 
 # If we have some __top_behaviors, we load them

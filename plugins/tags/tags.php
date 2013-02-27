@@ -24,7 +24,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 <?php
 if (!empty($_GET['del'])) {
-	echo '<p class="message">'.__('Tag has been successfully removed').'</p>';
+	dcPage::message(__('Tag has been successfully removed'));
 }
 
 $tags = $core->meta->getMetadata(array('meta_type' => 'tag'));

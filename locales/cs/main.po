@@ -2302,10 +2302,10 @@ msgstr "Vložit multimeidální soubor"
 msgid "Link to an entry"
 msgstr "Odkaz na článek"
 
-msgid "Activate enhanced uploader"
+msgid "Temporarily activate enhanced uploader"
 msgstr "Zapnout rozšířený uploader"
 
-msgid "Disable enhanced uploader"
+msgid "Temporarily disable enhanced uploader"
 msgstr "Vypnout rozšířený uploader"
 
 msgid "File successfully uploaded."

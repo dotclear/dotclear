@@ -177,11 +177,11 @@ dcPage::open($page_title,
 );
 
 if (!empty($_GET['upd'])) {
-		echo '<p class="message">'.__('User has been successfully updated.').'</p>';
+	dcPage::message(__('User has been successfully updated.'));
 }
 
 if (!empty($_GET['add'])) {
-		echo '<p class="message">'.__('User has been successfully created.').'</p>';
+	dcPage::message(__('User has been successfully created.'));
 }
 
 echo '<h2><a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
@@ -289,7 +289,15 @@ $core->formNonce().
 
 if ($user_id)
 {
-	echo '<div class="clear fieldset"><h3>'.__('Permissions').'</h3>';
+	echo '<div class="clear fieldset"><h3>'.__('Permissions').'</h3>'.
+	'<form action="users_actions.php" method="post">'.
+	'<p><input type="submit" value="'.__('Add new permissions').'" />'.
+	form::hidden(array('redir'),'user.php?id='.$user_id).
+	form::hidden(array('action'),'blogs').
+	form::hidden(array('users[]'),$user_id).
+	$core->formNonce().
+	'</p>'.
+	'</form>';
 	
 	$permissions = $core->getUserPermissions($user_id);
 	$perm_types = $core->auth->getPermissionsTypes();
@@ -304,10 +312,10 @@ if ($user_id)
 		{
 			if (count($v['p']) > 0)
 			{
-				echo '<h4><a href="blog.php?id='.html::escapeHTML($k).'">'.
-				html::escapeHTML($v['name']).'</a> ('.html::escapeHTML($k).') - '.
-				'<a href="permissions.php?blog_id[]='.$k.'&amp;user_id[]='.$user_id.'">'
-				.__('Change permissions').'</a></h4>';
+				echo 
+				'<form action="users_actions.php" method="post">'.
+				'<h4><a href="blog.php?id='.html::escapeHTML($k).'">'.
+				html::escapeHTML($v['name']).'</a> ('.html::escapeHTML($k).')</h4>';
 				
 				echo '<ul>';
 				foreach ($v['p'] as $p => $V) {
@@ -315,15 +323,20 @@ if ($user_id)
 						echo '<li>'.__($perm_types[$p]).'</li>';
 					}
 				}
-				echo '</ul>';
+				echo '</ul>'.
+				'<p><input type="submit" value="'.__('Change permissions').'" />'.
+				form::hidden(array('redir'),'user.php?id='.$user_id).
+				form::hidden(array('action'),'perms').
+				form::hidden(array('users[]'),$user_id).
+				form::hidden(array('blogs[]'),$k).
+				$core->formNonce().
+				'</p>'.
+				'</form>';
 			}
 		}
 	}
 	
-	echo
-	'<p><a href="permissions_blog.php?user_id[]='.$user_id.'">'.
-	__('Add new permissions').'</a></p>'.
-	'</div>';
+	echo '</div>';
 }
 
 dcPage::helpBlock('core_user');
