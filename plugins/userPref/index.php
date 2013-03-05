@@ -71,7 +71,7 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
 {
 	if ($s['type'] == 'boolean') {
 		$field = form::combo(array($field_name.'['.$ws.']['.$id.']',$field_name.'_'.$id),
-		array(__('yes') => 1, __('no') => 0),$s['value']);
+		array(__('yes') => 1, __('no') => 0),$s['value'] ? 1 : 0);
 	} else {
 		$field = form::field(array($field_name.'['.$ws.']['.$id.']',$field_name.'_'.$id),40,null,
 		html::escapeHTML($s['value']));
