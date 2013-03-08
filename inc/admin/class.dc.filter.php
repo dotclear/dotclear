@@ -665,12 +665,11 @@ class textFilter extends dcFilter {
 		if (count($this->fields)>0)
 			return;
 		if ($value === NULL) {
-			$value = 1;
+			$value = '';
 		}
-		$f = new dcFieldCombo(
+		$f = new dcFieldText(
 			$this->getFieldID($pos),
-			$value,
-			$this->options);
+			$value);
 		$this->filterset->addField($f);
 		$this->fields[]=$f;
 	}

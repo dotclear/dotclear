@@ -36,12 +36,14 @@
 {% endblock field_hidden %}
 
 {% block field_input %}
+{% autoescape "html" %}
 {% spaceless %}
     {% set type = type|default('text') %}
     {{ block('startlabel') }}
 	<input type="{{ type }}" {{ block('field_attr') }} {% if value is not empty %}value="{{ value }}" {% endif %} />
     {{ block('endlabel') }}
 {% endspaceless %}
+{% endautoescape %}
 {% endblock field_input %}
 
 {% block field_checkbox %}
