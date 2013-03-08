@@ -67,6 +67,7 @@ $__autoload['dcUrlHandlers']			= dirname(__FILE__).'/public/lib.urlhandlers.php'
 $__autoload['dcForm']			= dirname(__FILE__).'/admin/class.dc.form.php';
 $__autoload['dcFormExtension']			= dirname(__FILE__).'/admin/class.dc.form.php';
 $__autoload['dcTabExtension']			= dirname(__FILE__).'/admin/class.dc.tab.php';
+$__autoload['dcFilterSetExtension']			= dirname(__FILE__).'/admin/class.dc.filter.php';
 
 # Clearbricks extensions
 html::$absolute_regs[] = '/(<param\s+name="movie"\s+value=")(.*?)(")/msu';

@@ -12,12 +12,12 @@
 
   {% tab local('local',__('blog settings')) %}
     {% if local_settings is not empty %}
-    {% form local_nav_form %}
+    {% form 'local_nav_form' %}
 	<p class="anchor-nav">{{ form_field('local_nav') }} {{ form_field('local_nav_submit') }}</p>
     {% endform %}
     {% endif %}
 
-    {% form local_settings_form %}
+    {% form 'local_settings_form' %}
     {% for ns, setting in local_settings %}
 	<table class="settings" id="local_{{ ns }}"><caption>{{ ns }}</caption>
 	<thead>
@@ -46,12 +46,12 @@
 
   {% tab global('global',__('global settings')) %}
     {% if global_settings is not empty %}
-    {% form global_nav_form %}
+    {% form 'global_nav_form' %}
 	<p class="anchor-nav">{{ form_field('global_nav') }} {{ form_field('global_nav_submit') }}</p>
     {% endform %}
     {% endif %}
 
-    {% form global_settings_form %}
+    {% form 'global_settings_form' %}
     {% for ns, setting in global_settings %}
 	<table class="settings" id="global_{{ ns }}"><caption>{{ ns }}</caption>
 	<thead>

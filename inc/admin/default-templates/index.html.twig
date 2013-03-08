@@ -27,7 +27,7 @@
 	{% if dashboard_quickentry %}
 		<div id="quick">
 			<h3>{{__('Quick entry')}}</h3>
-			{% form quickentry %}
+			{% form 'quickentry' %}
 				<fieldset><legend>{{__('New entry')}}</legend>
 					<p class="col">{{ form_field('post_title',{'class':'maximal'}) }}</p>
 					<p class="area">{{ form_field('post_content',{'rows':current_user.options.edit_size,'cols':5}) }}</p>

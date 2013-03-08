@@ -17,8 +17,9 @@
 
 {% block field_textarea %}
 {% spaceless %}
-	{{ block('label') }}
+	{{ block('startlabel') }}
     <textarea {{ block('field_attr') }}>{{ value }}</textarea>
+    {{ block('endlabel') }}
 {% endspaceless %}
 {% endblock field_textarea %}
 
@@ -37,8 +38,9 @@
 {% block field_input %}
 {% spaceless %}
     {% set type = type|default('text') %}
-    {{ block('label') }}
+    {{ block('startlabel') }}
 	<input type="{{ type }}" {{ block('field_attr') }} {% if value is not empty %}value="{{ value }}" {% endif %} />
+    {{ block('endlabel') }}
 {% endspaceless %}
 {% endblock field_input %}
 
@@ -79,13 +81,14 @@
 
 {% block field_combo %}
 {% spaceless %}
-    {{ block('label') }}
+    {{ block('startlabel') }}
     <select {{ block('field_attr') }}>
         {{ block('field_options') }}
     </select>
+    {{ block('endlabel') }}
 {% endspaceless %}
 {% endblock field_combo %}
-
+{#
 {% block label %}
 {% spaceless %}
 	{% if label is not empty %}
@@ -93,3 +96,25 @@
 	{% endif %}
 {% endspaceless %}
 {% endblock label %}
+#}
+
+{% block startlabel %}
+{% spaceless %}
+    {% if label is not empty %}
+        {% if required is not empty %}
+            {% set labelclass = labelclass + " required" %}
+        {% endif %}
+        <label for="{{name}}" {% if labelclass is not empty %}class="{{labelclass}}"{% endif %} {% if required is not empty %}<abbr title="{{__('Required field')}}">*</abbr>{% else %}>{% endif %} {{label}}
+        {% if nestedlabel is empty %}</label> {% endif %}
+    {% endif %}
+{% endspaceless %}
+{% endblock startlabel %}
+
+{% block endlabel %}
+{% spaceless %}
+    {% if label is not empty %}
+        {% if nestedlabel is not empty %}</label>{% endif %}
+    {% endif %}
+{% endspaceless %}
+{% endblock endlabel %}
+

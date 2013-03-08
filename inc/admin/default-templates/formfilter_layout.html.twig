@@ -1,0 +1,82 @@
+{# Form filter default layout #}
+
+
+{% block filterset %}
+<p>
+	<a href="#" id="toggle-filters">{{ __('Toggle filters and display options') }} </a>
+</p>
+<div class="two-cols">
+{% form filtersetname %}
+	{% set fenv = _context['filterset_' ~ filtersetname] %}
+	<div class="col70">
+		<h3>{{__('Entries filters')}}</h3>
+		<table summary="{{__('Query filters')}}" id="tfilters">
+		<tbody>
+			{% for f in fenv.active_filters %}
+				<tr class="{{f.id}}">
+					<td>{{form_field(f.del_id)}}</td>
+					{{block(f.fwidget)}}
+				</tr>
+			{% endfor %}
+		</tbody>
+		</table>
+		<h3 class="margintop">{{ __('Add a filter') }}</h3>
+		<p id="available_filters">
+			{{ form_field(fenv.prefix ~ 'add_filter')}} {{ form_field(fenv.prefix ~ 'add') }}
+		</p>
+		<p class="clear">{{form_field(fenv.prefix ~ 'clear_filters',{'class':'delete'})}} {{form_field(fenv.prefix ~ 'reset')}}</p>
+		<p class="clear margintop">
+		{{ form_field(fenv.prefix ~ 'apply')}}
+		</p>
+	</div>
+	<div class="col30">
+	</div>
+	<p class="clear margintop"></p>
+{% endform %}
+</div>
+{% endblock %}
+
+
+{% block filterenabled %}
+	<tr class="{{ id }}">';
+		<td>
+			<input id="{{ del_id }}" class="delete" type="submit" title="{{__('Delete the following filter : ') }}"
+			value=" - " name=" {{ del_id }}"/>
+		</td>
+		{{ block(filter) }}
+	</tr>
+{% endblock %}
+
+
+{% block filter_combo %}
+	<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title">{{f.desc}} : </td>
+	<td>{{ form_field(f.fverb)}}</td>
+	<td>{{ form_field(f.ffield) }}</td>
+{% endblock %}
+
+{% block filter_combo_cont %}
+	<td id='{{filter_id}}' colspan="2">{{ __('or :') }} </td><td>{{ form_field(f.ffield) }}</td>
+{% endblock %}
+
+{% block filter_boolean %}
+	<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title" colspan="2">{{f.desc}}</td>
+	<td>{{ form_field(f.ffield) }}</td>
+{% endblock %}
+
+
+{% block entrieslist %}
+{% if entries %}
+	<table class="maximal clear">
+	<thead>
+		<tr>
+		{% for h in columns %}
+
+		{% endfor %}
+		</tr>
+	</thead>
+
+{% else %}
+	<p>{{ __('No entries') }}</p>
+{% endif %}
+
+{% endblock %}
