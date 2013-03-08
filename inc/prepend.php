@@ -74,9 +74,9 @@ html::$absolute_regs[] = '/(<param\s+name="movie"\s+value=")(.*?)(")/msu';
 html::$absolute_regs[] = '/(<param\s+name="FlashVars"\s+value=".*?(?:mp3|flv)=)(.*?)(&|")/msu';
 
 if (@is_dir('/usr/lib/twig')) {
-	define('TWIG_PATH','/usr/lib/twig');
-} elseif (is_dir(dirname(__FILE__).'/libs/twig')) {
-	define('TWIG_PATH',dirname(__FILE__).'/libs/twig');
+	define('TWIG_PATH','/usr/lib/Twig');
+} elseif (is_dir(dirname(__FILE__).'/libs/Twig')) {
+	define('TWIG_PATH',dirname(__FILE__).'/libs/Twig');
 } elseif (isset($_SERVER['TWIG_PATH']) && is_dir($_SERVER['TWIG_PATH'])) {
 	define('TWIG_PATH',$_SERVER['TWIG_PATH']);
 }
