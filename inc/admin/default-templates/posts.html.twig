@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+{% import "js_helpers.html.twig" as js %}
+{% block header %}
+	{{ parent() }}
+	{{ js.date_picker }}
+	{{ js.tool_bar }}
+	{{ js.modal }}
+	{{ js.meta_editor }}
+	<script type="text/javascript" src="{{theme_url}}js/_post.js"></script>
+	{{ js.confirm_close(['entry-form','comment-form']) }}
+	{{ js.page_tabs(default_tab) }}
+{% endblock %}
+{% block prelude %}
+	<ul id="prelude">
+		<li><a href="#content">{{__('View this entry on site')}}</a></li>
+		<li><a href="#main-menu">{{__('To site')}}</a></li>
+	</ul>
+{% endblock %}
+
+{% block content %}
+{{ parent() }}
+<p class="top-add"><a class="button add" href="post.php">Nouveau billet</a></p>
+{{ filterset('fposts') }}
+
+<p> Applied filters : {{filters}} </p>
+
+
+
+
+{% endblock %}
+

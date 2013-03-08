@@ -18,22 +18,24 @@
 
 <body id="dotclear-admin{% if safe_mode %} safe-mode{% endif %}">
 	<div id="header">
-		<ul id="prelude">
-			<li><a href="#content">{{__('To content')}}</a></li>
-			<li><a href="#main-menu">{{__('To menu')}}</a></li>
-		</ul>
+		{% block prelude %}
+			<ul id="prelude">
+				<li><a href="#content">{{__('To content')}}</a></li>
+				<li><a href="#main-menu">{{__('To menu')}}</a></li>
+			</ul>
+		{% endblock %}
 		<div id="top"><h1><a href="index.php">{{vendor_name}}</a></h1></div>
 		<div id="info-boxes">
 			<div id="info-box1">
-			  {% form switchblog_menu %}
+			  {% form 'switchblog_menu' %}
 				{% if blog_count > 1 and blog_count < 20 %}
-					<p>{{ form_field('switchblog') }}</p>
-					<noscript><p>{{ form_field('switchblog_submit') }}</p></noscript>
+					{{ form_field('switchblog',{},{'nestedlabel' : true, labelclass:'classic'}) }}
+					<noscript>{{ form_field('switchblog_submit') }}</noscript>
 				{% else %}
-					<p>{{__('Blog:')}} <strong title="{{current_blog.url}}">{{current_blog.name}}</strong>
-					{% if blogs is not empty %} - <a href="blogs.php">{{__('Change blog')}}</a>{% endif %}</p>
+					{{__('Blog:')}} <strong title="{{current_blog.url}}">{{current_blog.name}}</strong>
+					{% if blogs is not empty %} - <a href="blogs.php">{{__('Change blog')}}</a>{% endif %}
 				{% endif %}
-				<p><a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a></p>
+				<a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a>
 			  {% endform %}
 			</div>
 			<div id="info-box2">

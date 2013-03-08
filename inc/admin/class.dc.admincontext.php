@@ -44,7 +44,7 @@ class dcAdminContext extends Twig_Extension
 			'page_global'	=> false,
 			
 			'admin_url' 	=> DC_ADMIN_URL,
-			'theme_url' 	=> DC_ADMIN_URL.'index.php?tf=',
+			'theme_url' 	=> '',
 			'plugin_url' 	=> DC_ADMIN_URL.'index.php?pf=',
 			
 			'version' 		=> DC_VERSION,

@@ -12,8 +12,11 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 /**
- * Template form node
- */
+* dcFormNode
+*
+* @uses     Twig_Node
+*
+*/
 class dcFormNode extends Twig_Node
 {
 	public function __construct($name,Twig_NodeInterface $body,$lineno,$tag=null)
@@ -29,9 +32,12 @@ class dcFormNode extends Twig_Node
 	public function compile(Twig_Compiler $compiler)
 	{
 		$compiler
-			->addDebugInfo($this)
-			->write("\$context['dc_form']->beginForm('".
-				$this->getAttribute('name')."');\n")
+			->addDebugInfo($this);
+		$compiler
+			->write("\$context['dc_form']->beginForm(")
+			->subcompile($this->getAttribute('name'))
+			->write(");\n");
+		$compiler
 			->subcompile($this->getNode('body'))
 			->write("\$context['dc_form']->renderHiddenWidgets();\n")
 			->write("\$context['dc_form']->endForm();\n")
@@ -48,7 +54,7 @@ class dcFormTokenParser extends Twig_TokenParser
 	{
 		$lineno = $token->getLine();
 		$stream = $this->parser->getStream();
-		$name = $stream->expect(Twig_Token::NAME_TYPE)->getValue();
+		$name = $this->parser->getExpressionParser()->parseExpression();
 		$stream->expect(Twig_Token::BLOCK_END_TYPE);
 		$body = $this->parser->subparse(array($this,'decideBlockEnd'),true);
 		$stream->expect(Twig_Token::BLOCK_END_TYPE);
@@ -76,9 +82,9 @@ class dcFormExtension extends Twig_Extension
 	protected $tpl;
 	protected $core;
 	protected $twig;
-	protected $blocks;
 	protected $forms;
 	protected $currentForm;
+	protected $blocks;
 	
 	public function __construct($core)
 	{
@@ -95,6 +101,11 @@ class dcFormExtension extends Twig_Extension
 		$this->blocks = $this->template->getBlocks();
 	}
 	
+	public function addTemplate($tpl) {
+		$t = $this->twig->loadTemplate($tpl);
+		$this->blocks = array_merge($this->blocks,$t->getBlocks());
+	}
+
 	public function getGlobals()
 	{
 		return array('dc_form' => $this);
@@ -136,17 +147,34 @@ class dcFormExtension extends Twig_Extension
 		return array(new dcFormTokenParser());
 	}
 	
-	public function renderWidget($name,$attributes=array())
+	public function renderBlock($name,$attr) {
+		echo $this->template->renderBlock(
+			$name,
+			$attr,
+			$this->blocks
+		);
+	}
+
+	public function getCurrentForm() {
+		return $this->currentForm;
+	}
+
+	public function renderWidget($name,$attributes=array(),$extra=array())
 	{
 		$field = $this->currentForm->$name;
 		if ($field) {
-			echo $this->template->renderBlock(
+			$attr = $field->getAttributes();
+			if (isset($attr['attr'])) {
+				$attr['attr'] = array_merge($attr['attr'],$attributes);
+			} else {
+				$attr['attr'] = $attributes;
+			}
+			$this->renderBlock(
 				$field->getWidgetBlock(),
 				array_merge(
-					$field->getAttributes(),
-					array('attr' => $attributes)
-				),
-				$this->blocks
+					$attr,
+					$extra
+				)
 			);
 		}
 	}
@@ -196,8 +224,9 @@ class InvalidFieldException extends Exception {
 }
 
 /**
- * Template form
- */
+* dcForm - Template form
+*
+*/
 class dcForm
 {
 	protected $id;
@@ -210,7 +239,15 @@ class dcForm
 	protected $hiddenfields;
 	protected $errors;
 	
-	private function addNonce()
+
+    /**
+     * addNonce -- adds dc nonce to form fields
+     * 
+     * @access protected
+     *
+     * @return nothing
+     */
+	protected function addNonce()
 	{
 		$this->addField(
 			new dcFieldHidden(array('xd_check'),
@@ -218,7 +255,17 @@ class dcForm
 		);
 	}
 	
-	protected function getNID($nid)
+
+    /**
+     * Defines Name & ID from field
+     * 
+     * @param mixed $nid either an array (name, id) or a string (name only, id will be set to null).
+     *
+     * @access protected
+     *
+     * @return nothing.
+     */
+	protected function setNID($nid)
 	{
 		if (is_array($nid)) {
 			$this->name = $nid[0];
@@ -230,10 +277,26 @@ class dcForm
 		}
 	}
 	
+	public function getContext() {
+		return array();
+	}
+
+    /**
+     * Class constructor
+     * 
+     * @param mixed  $core   dotclear core
+     * @param mixed  $name   form name
+     * @param mixed  $action form action
+     * @param string $method form method ('GET' or 'POST')
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function __construct($core,$name,$action,$method='POST')
 	{
 		$this->core = $core;
-		$this->getNID($name);
+		$this->setNID($name);
 		$this->method = $method;
 		$this->action = $action;
 		$this->fields = array();
@@ -246,6 +309,14 @@ class dcForm
 		}
 	}
 	
+
+    /**
+     * Returns form name
+     * 
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function getName()
 	{
 		return $this->name;
@@ -269,6 +340,22 @@ class dcForm
 		return $this;
 	}
 	
+	public function removeField(dcField $f) {
+		$n = $f->getName();
+		if (isset($this->fields[$n])){
+			unset($this->fields[$n]);
+		}
+
+	}
+	public function renameField($field,$newname) {
+		$oldname = $field->getName();
+		if (isset($this->fields[$oldname])) {
+			unset($this->fields[$oldname]);
+			$field->setName($newname);
+			$this->fields[$newname] = $field;
+		}
+		//print_r($this->fields);
+	}
 	public function begin()
 	{
 		echo sprintf(
@@ -291,37 +378,55 @@ class dcForm
 	
 	public function __get($name)
 	{
-		return isset($this->fields[$name]) ? 
+		return isset($this->fields[$name]) ?
 			$this->fields[$name] : null;
 	}
-	
+
 	public function __set($name,$value)
 	{
 		if (isset($this->fields[$name])) {
 			$this->fields[$name]->setAttribute('value',$value);
 		}
 	}
-	
+
 	public function isSubmitted()
 	{
 		$from = $this->method == 'POST' ? $_POST : $_GET;
-		echo "form fields :\n";
 	}
-	
-	public function setup()
-	{
+
+	protected function setupFields() {
 		$from = $this->method == 'POST' ? $_POST : $_GET;
 		foreach ($this->fields as $f) {
 			$f->setup($from);
 		}
-		foreach ($this->submitfields as $f) {
-			if ($f->isDefined()) {
-				$ret = call_user_func($f->getAction(),$this);
-				return;
+	}
+
+	protected function handleActions($submitted) {
+		foreach ($submitted as $f) {
+			$action = $f->getAction();
+			if ($action != NULL) {
+				$ret = call_user_func($action,$this);
 			}
 		}
 	}
-	
+
+	protected function getSubmittedFields() {
+		$s = array();
+		foreach ($this->submitfields as $f) {
+			if ($f->isDefined()) {
+				$s[$f->getName()] = $f;
+			}
+		}
+		return $s;
+	}
+
+	public function setup()
+	{
+		$this->setupFields();
+		$submitted = $this->getSubmittedFields();
+		$this->handleActions($submitted);
+	}
+
 	public function check()
 	{
 		foreach ($this->fields as $f) {
@@ -351,7 +456,7 @@ abstract class dcField
 	protected $id;
 	protected $defined;
 	
-	protected function getNID($nid)
+	protected function setNID($nid)
 	{
 		if (is_array($nid)) {
 			$this->name = $nid[0];
@@ -364,15 +469,23 @@ abstract class dcField
 	
 	public function __construct($name,$value,$attributes=array())
 	{
-		$this->getNID($name);
+		$this->setNID($name);
 		$this->attributes = $attributes;
-		$this->value = $value;
+		$this->setValue($value);
 		$this->attributes['name'] = $this->name;
 		$this->attributes['id'] = $this->id;
-		$this->attributes['value'] = $this->value;
 		$this->defined = false;
 	}
 	
+	public function setValue($value) {
+		$this->value = $value;
+		$this->attributes['value'] = $this->value;
+	}
+
+	public function getValue() {
+		return $this->value;
+	}
+
 	public function __toString()
 	{
 		return $this->value;
@@ -394,7 +507,12 @@ abstract class dcField
 	{
 		return $this->name;
 	}
-	
+	public function setName($name) {
+		$this->setNID($name);
+		$this->attributes['name'] = $this->name;
+		$this->attributes['id'] = $this->id;
+	}
+
 	public function check()
 	{
 		if (!$this->defined && $this->attributes['defined']) {
@@ -405,10 +523,18 @@ abstract class dcField
 		}
 	}
 	
+	public function parseValue($from) {
+		if (isset($from[$this->id])) {
+			return $from[$this->id];
+		}
+		return null;
+	}
+
 	public function setup($from)
 	{
-		if (isset($from[$this->id])) {
-			$this->value = $from[$this->id];
+		$value = $this->parseValue($from);
+		if ($value !== null) {
+			$this->setValue($value);
 			$this->defined = true;
 		}
 	}
@@ -487,6 +613,8 @@ abstract class dcFieldAction extends dcField
 		
 		if (isset($attributes['action'])) {
 			$this->action = $attributes['action'];
+		} else {
+			$this->action = NULL;
 		}
 	}
 	
@@ -526,5 +654,14 @@ class dcFieldCombo extends dcField
 		return "field_combo";
 	}
 
+	public function parseValue($from) {
+
+		$v = parent::parseValue($from);
+		if (!isset($this->options[$v])) {
+			return $this->value;
+		} else {
+			return $v;
+		}
+	}
 }
 ?>
