@@ -228,7 +228,7 @@ class dcBlog
 			'SELECT post_id, COUNT(post_id) AS nb_comment,comment_trackback '.
 			'FROM '.$this->prefix.'comment '.
 			'WHERE comment_status = 1 '.
-			(count($a_ids) > 0 ? 'AND post_id'.$this->con->in($a_ids) : '');
+			(count($a_ids) > 0 ? 'AND post_id'.$this->con->in($a_ids) : ' ');
 		
 		if ($del) {
 			$strReq .= 
