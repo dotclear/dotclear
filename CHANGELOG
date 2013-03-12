@@ -1,5 +1,6 @@
-Dotclear 2.5.0 - 2013-02-24
+Dotclear 2.5.0 - 2013-03-12
 ===========================================================
+* Security fix: XSS vulnerabilities in swfupload.swf (media enhanced uploader)
 * Ductile theme may now use webfont (from Google, Adobe and similar providers)
 * daInstaller plugin is now included in the official distribution
 * The media enhanced uploader may now be temporarily enabled or disabled
