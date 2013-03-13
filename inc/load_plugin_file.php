@@ -46,6 +46,17 @@ if (empty($_GET['pf'])) {
 	exit;
 }
 
+// Prevents XSS vulnerabilities in swfupload.swf
+if (((isset($_GET['buttonText']) && strpos($_GET['buttonText'],'<') !== false) ||
+	(isset($_GET['movieName']) && strpos($_GET['movieName'],';') !== false)) &&
+	strpos($_GET['pf'],'swfupload.swf') !== false) {
+	{
+		header('Content-Type: text/plain');
+		http::head(403,'Forbidden');
+		exit;
+	}
+}
+
 $allow_types = array('png','jpg','jpeg','gif','css','js','swf');
 
 $pf = path::clean($_GET['pf']);
