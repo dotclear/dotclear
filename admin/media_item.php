@@ -144,7 +144,7 @@ function dcGetImageTitle($file,$pattern,$dto_first=false)
 		} elseif ($file->media_meta->{$v}) {
 			$res[] = (string) $file->media_meta->{$v};
 		} elseif (preg_match('/^Date\((.+?)\)$/u',$v,$m)) {
-			if ($dto_first && $file->media_meta->DateTimeOriginal) {
+			if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
 				$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
 			} else {
 				$res[] = dt::str($m[1],$file->media_dt);
