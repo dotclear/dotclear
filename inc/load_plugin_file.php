@@ -46,6 +46,14 @@ if (empty($_GET['pf'])) {
 	exit;
 }
 
+// Only $_GET['pf'] is allowed in URL
+if (count($_GET) > 1)
+{
+    header('Content-Type: text/plain');
+    http::head(403,'Forbidden');
+    exit;
+}
+
 $allow_types = array('png','jpg','jpeg','gif','css','js','swf');
 
 $pf = path::clean($_GET['pf']);

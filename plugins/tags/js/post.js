@@ -11,6 +11,7 @@ $(function() {
 				meta_field.val($('#post_tags').val());
 			}
 			var mEdit = new metaEditor(tags_edit,meta_field,'tag');
+			mEdit.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';
 			mEdit.displayMeta('tag',post_id);
 			
 			// mEdit object reference for toolBar
