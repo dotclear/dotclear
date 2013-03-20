@@ -41,6 +41,7 @@ class dcTemplate extends template
 		
 		# Loops test tags
 		$this->addBlock('LoopPosition',array($this,'LoopPosition'));
+		$this->addValue('LoopIndex',array($this,'LoopIndex'));
 		
 		# Archives
 		$this->addBlock('Archives',array($this,'Archives'));
@@ -526,6 +527,12 @@ class dcTemplate extends template
 		'<?php if ($_ctx->loopPosition('.$start.','.$length.','.$even.')) : ?>'.
 		$content.
 		"<?php endif; ?>";
+	}
+
+	public function LoopIndex($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php '.sprintf($f,'(!$_ctx->cur_loop ? 0 : $_ctx->cur_loop->index() + 1)').' ?>';
 	}
 	
 	
