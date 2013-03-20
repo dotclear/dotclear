@@ -840,7 +840,7 @@ class dcMedia extends filemanager
 		$rs = $this->con->select($strReq);
 		while ($rs->fetch()) {
 			if (is_dir($this->root.'/'.$rs->media_dir))
-				$dir[] = $rs->media_dir;
+				$dir[] = ($rs->media_dir == '.' ? '' : $rs->media_dir);
 		}
 		
 		return $dir;
