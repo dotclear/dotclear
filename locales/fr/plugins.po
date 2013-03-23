@@ -261,9 +261,6 @@ msgstr ""
 "Tous les commentaires indésirables âgés d'au moins %s jour(s) seront "
 "supprimés automatiquement."
 
-msgid "You can modify this duration in "
-msgstr "Vous pouvez modifier cet intervalle dans "
-
 msgid "Blog preferences"
 msgstr "Préférences du blog"
 
