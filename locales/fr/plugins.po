@@ -262,7 +262,7 @@ msgstr ""
 "supprimés automatiquement."
 
 msgid "You can modify this duration in "
-msgstr "Vous pouvez modifier cet intervalle dans"
+msgstr "Vous pouvez modifier cet intervalle dans "
 
 msgid "Blog preferences"
 msgstr "Préférences du blog"
