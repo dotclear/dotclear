@@ -109,8 +109,12 @@ catch (Exception $e)
   <?php
   echo
   dcPage::jsToolMan().
-  dcPage::jsPageTabs($default_tab).
-  dcPage::jsLoad('index.php?pf=antispam/antispam.js');
+  dcPage::jsPageTabs($default_tab);
+  $core->auth->user_prefs->addWorkspace('accessibility'); 
+  $user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+  if (!$user_dm_nodragdrop) {
+	echo dcPage::jsLoad('index.php?pf=antispam/antispam.js');
+  }
   ?>
   <link rel="stylesheet" type="text/css" href="index.php?pf=antispam/style.css" />
 </head>
