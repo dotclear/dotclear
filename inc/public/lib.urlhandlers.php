@@ -86,6 +86,11 @@ class dcUrlHandlers extends urlHandler
 			$_ctx->nb_entry_per_page = $core->blog->settings->system->nb_post_per_page;
 		}
 		
+		// Break public template here for now 
+		// just to check if template engine is well loaded.
+		$core->tpl->display($tpl.'.twig');
+		// To be continued...
+		
 		$tpl_file = $core->tpl->getFilePath($tpl);
 		
 		if (!$tpl_file) {

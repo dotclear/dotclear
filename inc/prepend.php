@@ -45,7 +45,9 @@ $__autoload['dcXmlRpc']				= dirname(__FILE__).'/core/class.dc.xmlrpc.php';
 $__autoload['dcLog']				= dirname(__FILE__).'/core/class.dc.log.php';
 $__autoload['dcWorkspace']			= dirname(__FILE__).'/core/class.dc.workspace.php';
 $__autoload['dcPrefs']				= dirname(__FILE__).'/core/class.dc.prefs.php';
-$__autoload['dcTwigPage']			= dirname(__FILE__).'/core/class.dc.twig.page.php';
+//$__autoload['dcTwigPage']			= dirname(__FILE__).'/core/class.dc.twig.page.php';
+$__autoload['dcTemplate']			= dirname(__FILE__).'/core/class.dc.template.php';
+$__autoload['dcContext']			= dirname(__FILE__).'/core/class.dc.context.php';
 
 $__autoload['rsExtPost']				= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 $__autoload['rsExtComment']			= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
@@ -61,8 +63,9 @@ $__autoload['adminPostMiniList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminCommentList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminUserList']			= dirname(__FILE__).'/admin/lib.pager.php';
 
-$__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
-$__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';
+$__autoload['dcPublicContext']				= dirname(__FILE__).'/public/class.dc.publiccontext.php';
+//$__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
+//$__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';
 $__autoload['dcUrlHandlers']			= dirname(__FILE__).'/public/lib.urlhandlers.php';
 $__autoload['dcForm']			= dirname(__FILE__).'/admin/class.dc.form.php';
 $__autoload['dcFormExtension']			= dirname(__FILE__).'/admin/class.dc.form.php';

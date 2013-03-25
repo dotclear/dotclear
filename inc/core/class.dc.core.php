@@ -96,7 +96,7 @@ class dcCore
 		$this->addFormater('xhtml', create_function('$s','return $s;'));
 		$this->addFormater('wiki', array($this,'wikiTransform'));
 		
-		$this->loadTemplateEnvironment();
+		$this->tpl = new dcTemplate(DC_TPL_CACHE,'$core->tpl',$this);
 	}
 	
 	private function authInstance()
@@ -118,43 +118,6 @@ class dcCore
 		}
 		
 		return new $c($this);
-	}
-	
-	/**
-	Create template environment (Twig_Environment instance)
-	
-	default-templates path must be added from admin|public/prepend.php with:
-	$core->tpl->getLoader()->addPath('PATH_TO/default-templates');
-	Selected theme path must be added with:
-	$core->tpl->getLoader()->prependPath('PATH_TO/MY_THEME');
-	*/
-	protected function loadTemplateEnvironment()
-	{
-		# If cache dir is writable, use it.
-		$cache_dir = path::real(DC_TPL_CACHE.'/twtpl',false);
-		if (!is_dir($cache_dir)) {
-			try {
-				files::makeDir($cache_dir);
-			} catch (Exception $e) {
-				$cache_dir = false;
-			}
-		}
-		
-		$this->tpl = new Twig_Environment(
-			new Twig_Loader_Filesystem(dirname(__FILE__).'/../swf'),
-			array(
-				'auto_reload' => true,
-				'autoescape' => false,
-				'base_template_class' => 'Twig_Template',
-				'cache' => $cache_dir, 
-				'charset' => 'UTF-8',
-				'debug' => DC_DEBUG,
-				'optimizations' => -1,
-				'strict_variables' => 0 //DC_DEBUG // Please fix undefined variables!
-			)
-		);
-		$this->tpl->addExtension(new dcFormExtension($this));
-		$this->tpl->addExtension(new dcTabExtension($this));
 	}
 	
 	/// @name Blog init methods
