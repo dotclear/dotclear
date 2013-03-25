@@ -54,6 +54,13 @@ try {
 	$core->media = new dcMedia($core);
 } catch (Exception $e) {}
 
+# Add public default templates path
+$core->tpl->getLoader()->addPath(dirname(__FILE__).'/default-templates');
+# Set public context
+$_ctx = new dcPublicContext($core);
+$core->tpl->addExtension($_ctx);
+
+/*
 # Creating template context
 $_ctx = new context();
 try {
@@ -63,7 +70,7 @@ try {
 		,$e->getMessage()
 		,640);
 }
-
+*/
 # Loading locales
 $_lang = $core->blog->settings->system->lang;
 $_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$_lang) ? $_lang : 'en';
@@ -119,13 +126,23 @@ if ($__parent_theme) {
 $core->themes->loadModuleL10N($__theme,$_lang,'main');
 
 # --BEHAVIOR-- publicPrepend
-$core->callBehavior('publicPrepend',$core);
+$core->callBehavior('publicPrepend',$core,$_ctx);
 
 # Prepare the HTTP cache thing
 $mod_files = get_included_files();
 $mod_ts = array();
 $mod_ts[] = $core->blog->upddt;
 
+
+# Add parent theme path
+if ($__parent_theme && is_dir($core->blog->themes_path.'/'.$__parent_theme.'/tpl')) {
+	$core->tpl->getLoader()->addPath($core->blog->themes_path.'/'.$__parent_theme.'/tpl');
+}
+# Add theme path at the begining of path list
+if (is_dir($core->blog->themes_path.'/'.$__theme.'/tpl')) {
+	$core->tpl->getLoader()->prependPath($core->blog->themes_path.'/'.$__theme.'/tpl');
+}
+/*
 $__theme_tpl_path = array(
 	$core->blog->themes_path.'/'.$__theme.'/tpl'
 );
@@ -137,7 +154,7 @@ $core->tpl->setPath(
 	$__theme_tpl_path,
 	dirname(__FILE__).'/default-templates',
 	$core->tpl->getPath());
-
+*/
 $core->url->mode = $core->blog->settings->system->url_scan;
 
 try {
