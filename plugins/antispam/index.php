@@ -107,13 +107,12 @@ catch (Exception $e)
   //]]>
   </script>
   <?php
-  echo
-  dcPage::jsToolMan().
-  dcPage::jsPageTabs($default_tab);
-  $core->auth->user_prefs->addWorkspace('accessibility'); 
-  $user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
-  if (!$user_dm_nodragdrop) {
-	echo dcPage::jsLoad('index.php?pf=antispam/antispam.js');
+  echo dcPage::jsPageTabs($default_tab);
+  $core->auth->user_prefs->addWorkspace('accessibility');
+  if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+	echo
+		dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+		dcPage::jsLoad('index.php?pf=antispam/antispam.js');
   }
   ?>
   <link rel="stylesheet" type="text/css" href="index.php?pf=antispam/style.css" />
@@ -170,7 +169,7 @@ else
 
 	# Filters
 	echo
-	'<form action="'.$p_url.'" method="post" class="fieldset">';
+	'<form action="'.$p_url.'" method="post" class="fieldset" id="filters-form">';
 
 	if (!empty($_GET['upd'])) {
 		dcPage::message(__('Filters configuration has been successfully saved.'));
@@ -201,7 +200,7 @@ else
 
 		echo
 		'<tr class="line'.($f->active ? '' : ' offline').'" id="f_'.$fid.'">'.
-		'<td class="handle">'.form::field(array('f_order['.$fid.']'),2,5,(string) $i, '', '', false, 'title="'.__('position').'"').'</td>'.
+		'<td class="handle">'.form::field(array('f_order['.$fid.']'),2,5,(string) $i, 'position', '', false, 'title="'.__('position').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_active[]'),$fid,$f->active, '', '', false, 'title="'.__('Active').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_auto_del[]'),$fid,$f->auto_delete, '', '', false, 'title="'.__('Auto Del.').'"').'</td>'.
 		'<td class="nowrap" scope="raw">'.$f->name.'</td>'.
