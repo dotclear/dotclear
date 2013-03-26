@@ -19,52 +19,39 @@ class tplDuctileThemeAdmin
 	public static function adminPageHTMLHead()
 	{
 		global $core;
-		
-		echo "\n".'<!-- Header directives for Ductile configuration -->'."\n";
-		echo dcPage::jsToolMan();
+		if ($core->blog->settings->system->theme != 'ductile') { return; }
 
-		// Need some more Js
-		$core->auth->user_prefs->addWorkspace('accessibility'); 
-		$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
-		if (!$user_dm_nodragdrop) {
-			echo <<<EOT
+		echo "\n".'<!-- Header directives for Ductile configuration -->'."\n";
+		$core->auth->user_prefs->addWorkspace('accessibility');
+		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+			echo
+				dcPage::jsLoad('js/jquery/jquery-ui.custom.js');
+				echo <<<EOT
 <script type="text/javascript">
 //<![CDATA[
-
-var dragsort = ToolMan.dragsort();
 $(function() {
-	dragsort.makeTableSortable($("#stickerslist").get(0),
-	dotclear.sortable.setHandle,dotclear.sortable.saveOrder);
-});
-
-dotclear.sortable = {
-	setHandle: function(item) {
-		var handle = $(item).find('td.handle').get(0);
-		while (handle.firstChild) {
-			handle.removeChild(handle.firstChild);
-		}
-
-		item.toolManDragGroup.setHandle(handle);
-		handle.className = handle.className+' handler';
-	},
-
-	saveOrder: function(item) {
-		var group = item.toolManDragGroup;
-		var order = document.getElementById('ds_order');
-		group.register('dragend', function() {
-			order.value = '';
-			items = item.parentNode.getElementsByTagName('tr');
-
-			for (var i=0; i<items.length; i++) {
-				order.value += items[i].id.substr(2)+',';
-			}
+	$("#stickerslist").sortable({'cursor':'move'});
+	$("#stickerslist tr").hover(function () {
+		$(this).css({'cursor':'move'});
+	}, function () {
+		$(this).css({'cursor':'auto'});
+	});
+	$('#theme_config').submit(function() {
+		var order=[];
+		$("#stickerslist tr td input.position").each(function() {
+			order.push(this.name.replace(/^order\[([^\]]+)\]$/,'$1'));
 		});
-	}
-};
+		$("input[name=ds_order]")[0].value = order.join(',');
+		return true;
+	});
+	$("#stickerslist tr td input.position").hide();
+	$("#stickerslist tr td.handle").addClass('handler');
+});
 //]]>
 </script>
 EOT;
 		}
+
 	}
 }
 ?>
