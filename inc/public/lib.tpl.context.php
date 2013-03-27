@@ -450,9 +450,9 @@ class context
 		}
 		
 		# No src, look in category description if available
-		if (!$src && $with_category && $_ctx->categories)
-		{
-			if (preg_match_all($pattern,$_ctx->categories->cat_desc,$m) > 0)
+        if (!$src && $with_category && $_ctx->posts->cat_desc)
+        {
+			if (preg_match_all($pattern,$_ctx->posts->cat_desc,$m) > 0)
 			{
 				foreach ($m[1] as $i => $img) {
 					if (($src = self::ContentFirstImageLookup($p_root,$img,$size)) !== false) {
