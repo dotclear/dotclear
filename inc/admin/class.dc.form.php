@@ -375,7 +375,7 @@ abstract class dcField
 	
 	public function __toString()
 	{
-		return $this->value;
+		return (string) $this->value;
 	}
 	
 	abstract public function getWidgetBlock();
