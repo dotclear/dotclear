@@ -24,6 +24,7 @@ class dcContext extends Twig_Extension
 	protected $globals = array();
 	protected $protected_globals = array();
 	protected $memory = array();
+	protected $timestamp_messages = true;
 	
 	public function __construct($core)
 	{
@@ -170,7 +171,7 @@ class dcContext extends Twig_Extension
 	 */
 	public function addMessageStatic($message)
 	{
-		$this->protected_globals['messages']['static'][] = $message;
+		$this->protected_globals['messages']['static'][] = $this->timeStamp($message);
 		return $this;
 	}
 	
@@ -183,7 +184,7 @@ class dcContext extends Twig_Extension
 	 */
 	public function addMessagesList($title,$messages)
 	{
-		$this->protected_globals['messages']['lists'][$title] = $messages;
+		$this->protected_globals['messages']['lists'][$title] = $this->timeStamp($messages);
 		return $this;
 	}
 	
@@ -195,7 +196,7 @@ class dcContext extends Twig_Extension
 	 */
 	public function setAlert($message)
 	{
-		$this->protected_globals['messages']['alert'] = $message;
+		$this->protected_globals['messages']['alert'] = $this->timeStamp($message);
 		return $this;
 	}
 	
@@ -207,7 +208,7 @@ class dcContext extends Twig_Extension
 	 */
 	public function addError($error)
 	{
-		$this->protected_globals['messages']['errors'][] = $error;
+		$this->protected_globals['messages']['errors'][] = $this->timeStamp($error);
 		return $this;
 	}
 	
@@ -219,6 +220,47 @@ class dcContext extends Twig_Extension
 	public function hasError()
 	{
 		return !empty($this->protected_globals['messages']['errors']);
+	}
+	
+	/**
+	 * Set use of timestamp on messages
+	 *
+	 * @param boolean $add Add timestamp to messages
+	 * @return object self
+	 */
+	public function setTimestamp($add=true)
+	{
+		$this->timestamp_messages;
+		return $this;
+	}
+	
+	/**
+	 * Prepend message with a timestamp
+	 *
+	 * @param string|array $message Message(s)
+	 * @return string|array Timestamp message(s)
+	 */
+	public function timeStamp($message)
+	{
+		if (!$this->timestamp_messages) {
+			return $message;
+		}
+		
+		$tz = @$this->core->auth->getInfo('user_tz');
+		if (!$tz) {
+			$tz = $this->core->blog->settings->system->blog_timezone;
+		}
+		$dt = dt::str(__('%H:%M:%S:'),null,$tz);
+		
+		if (!is_array($message)) {
+			return $dt.' '.$message;
+		} else {
+			foreach($message as $k => $v)
+			{
+				$message[$k] = $dt.' '.$v;
+			}
+			return $message;
+		}
 	}
 	
 	/**
