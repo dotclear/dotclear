@@ -181,14 +181,17 @@ class dcPage
 			echo $menu[$k]->draw();
 		}
 		
-		$text = sprintf(__('Thank you for using %s.'),'<a href="http://dotclear.org/">Dotclear '.DC_VERSION.'</a>');
+		$text = sprintf(__('Thank you for using %s.'),'Dotclear '.DC_VERSION);
 
 		# --BEHAVIOR-- adminPageFooter
 		$textAlt = $core->callBehavior('adminPageFooter',$core,$text);
+		if ($textAlt != '') {
+			$text = $textAlt;
+		}
 
 		echo
 		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><p>'.($textAlt != '' ? $textAlt : $text).'</p></div>'."\n".
+		'<div id="footer"><a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logo_footer.png" alt="'.$text.'" /></a></div>'."\n".
 		"</div>\n";		// End of #wrapper
 		
 		if (defined('DC_DEV') && DC_DEV === true) {
@@ -391,7 +394,6 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.js').
 		self::jsLoad('js/jquery/jquery.biscuit.js').
 		self::jsLoad('js/jquery/jquery.bgFade.js').
-		self::jsLoad('js/jquery/jquery.constantfooter.js').
 		self::jsLoad('js/common.js').
 		self::jsLoad('js/prelude.js').
 		
