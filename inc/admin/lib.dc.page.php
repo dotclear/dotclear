@@ -188,6 +188,7 @@ class dcPage
 		if ($textAlt != '') {
 			$text = $textAlt;
 		}
+		$text = html::escapeHTML($text);
 
 		echo
 		'</div>'."\n".		// End of #main-menu
