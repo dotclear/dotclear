@@ -125,7 +125,7 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 
 
 
-class monthComboFilter extends comboFilter {
+class monthdcFilterCombo extends dcFilterCombo {
 	public function applyFilter($params) {
 		$month=$this->avalues['values'][0];
 		$params['post_month'] = substr($month,4,2);
@@ -137,27 +137,47 @@ class monthComboFilter extends comboFilter {
 $filterSet = new dcFilterSet($core,'fposts','posts.php');
 
 $filterSet
-	->addFilter(new comboFilter(
-		'users',__('Author'), __('Author'), 'user_id', $users_combo))
-	->addFilter(new comboFilter(
+	->addFilter(new dcFilterRichCombo(
+		'users',__('Author'), __('Author'), 'user_id', $users_combo,array(
+			'multiple' => true)))
+	->addFilter(new dcFilterRichCombo(
 		'category',__('Category'), __('Category'), 'cat_id', $categories_combo))
-	->addFilter(new comboFilter(
+	->addFilter(new dcFilterRichCombo(
 		'post_status',__('Status'), __('Status'), 'post_status', $status_combo))
-	->addFilter(new comboFilter(
+	->addFilter(new dcFilterRichCombo(
 		'lang',__('Lang'), __('Lang'), 'post_lang', $lang_combo))
-	->addFilter(new booleanFilter(
+	->addFilter(new dcFilterCombo(
 		'selected',__('Selected'), __('The post : '),'post_selected', $selected_combo))
-	->addFilter(new monthComboFilter(
+	->addFilter(new monthdcFilterCombo(
 		'month',__('Month'),__('Month'), 'post_month', $dt_m_combo,array('singleval' => 1)))
-	->addFilter(new textFilter(
+	->addFilter(new dcFilterText(
 		'search',__('Contains'),__('The entry contains'), 'search',20,255));
 
+
+
+$lposts = new dcItemList ($core,array('lposts','form-entries'),'posts_actions.php');
+$lposts->addTemplate('posts_cols.html.twig');
+
+$lposts->setFilterSet($filterSet);
+
+$lposts
+	->addColumn(new dcColumn('title',__('Title'),'post_title'))
+	->addColumn(new dcColumn('cat',__('Category'),'cat_title'))
+	->addColumn(new dcColumn('date',__('Date'),'post_date'))
+	->addColumn(new dcColumn('datetime',__('Date and Time'),'post_date'))
+	->addColumn(new dcColumn('author',__('Author'),'post_author'))
+	->addColumn(new dcColumn('status',__('Status'),'post_status'));
+
+
+$lposts->setup();
 $filterSet->setup();
 
 $_ctx
 	->fillPageTitle(__('Entries'),'posts.php');
 $params=new ArrayObject();
 $filterSet->applyFilters($params);
+$posts = $core->blog->getPosts($params);
+$lposts->setEntries($posts);
 $_ctx->filters = '['.print_r($params->getArrayCopy(),true).']';
 
 $core->tpl->display('posts.html.twig');

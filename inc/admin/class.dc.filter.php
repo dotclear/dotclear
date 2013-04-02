@@ -13,61 +13,37 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 
-class dcFilterSetExtension extends Twig_Extension {
-	private $filtersets;
-
-	public function __construct($core)
-	{
-		$this->core = $core;
-		$this->tpl = 'formfilter_layout.html.twig';
-	}
-	
-	public function initRuntime(Twig_Environment $environment)
-	{
-		$this->core->tpl->getExtension('dc_form')->addTemplate($this->tpl);
-	}
-	
-	
-	public function getFunctions()
-	{
-		return array(
-			'filterset' => new Twig_Function_Method(
-				$this,
-				'renderFilterSet',
-				array(
-					'is_safe' => array('html'),
-					'needs_context' => true
-		)));
-	}
-
-	
-
-	public function renderFilterSet($context,$name,$attributes=array())
-	{
-		$context['filtersetname']=$name;
-		echo $this->core->tpl->getExtension('dc_form')->renderBlock(
-			'filterset',
-			$context
-		);
-	}
-	
-
-	public function getName()
-	{
-		return 'dc_filterset';
-	}
-
-}
-
-
 class dcFilterSet extends dcForm {
 	protected $filters;		/// <b>array</b> lists of currently applied filters
+	protected $static_filters;
+	protected $all_filters;
 	protected $form_prefix;		/// <b>string</b> displayed form prefix
 	protected $action; 			/// <b>string</b> form action page
 	protected $hideform;		/// <b>boolean</b> start form display hidden by default or not
 	protected $name;			/// <b>string</b> filterset name
 	protected $core;
 
+	public static function __init__($env) {
+		$env->getExtension('dc_form')->addTemplate('@forms/formfilter_layout.html.twig');
+		$env->addFunction(
+			new Twig_SimpleFunction(
+				'filterset',
+				'dcFilterSet::renderFilterSet',
+				array(
+					'is_safe' => array('html'),
+					'needs_context' => true,
+					'needs_environment' => true
+		)));
+	}
+	
+	public static function renderFilterSet($env,$context,$name,$attributes=array())
+	{
+		$context['filtersetname']=$name;
+		echo $env->getExtension('dc_form')->renderWidget(
+			'filterset',
+			$context
+		);
+	}
 	/**
 	Inits dcFilterSet object
 	
@@ -77,6 +53,8 @@ class dcFilterSet extends dcForm {
 	public function __construct($core,$name,$action,$form_prefix="f_") {
 		$this->form_prefix=$form_prefix;
 		$this->filters = new ArrayObject();
+		$this->static_filters = new ArrayObject();
+		$this->all_filters = new ArrayObject();
 		$this->action = $action;
 		$this->filtered = false;
 		parent::__construct($core,$name,$action,'POST');
@@ -86,8 +64,10 @@ class dcFilterSet extends dcForm {
 	public function setup() {
 		$form_combo = array();
 		$form_combo['-'] = '';
-		foreach ($this->filters as $filter) {
+		foreach ($this->all_filters as $filter) {
 			$filter->init();
+		}
+		foreach ($this->filters as $filter) {
 			$form_combo[$filter->id]=$filter->name;
 		}
 		$p = $this->form_prefix;
@@ -109,7 +89,6 @@ class dcFilterSet extends dcForm {
 				)))
 		;
 		$this->setupFields();
-		$submitted = $this->getSubmittedFields();
 		/* Use cases :
 			(1) $_POST not empty for formfilter fields :
 				* efilters are set from $_POST
@@ -129,28 +108,27 @@ class dcFilterSet extends dcForm {
 			if (strpos($k,$this->form_prefix)===0) {
 				$tmp = substr($k,strlen($this->form_prefix));
 				$count = preg_match($allowed_actions,$tmp,$match);
-				echo $action;
 				if ($count==1) {
 					$action = $match[1];
 					break;
 				}
 			}
 		}
+
 		if ($action !== false) {
 			// Use case (1)
 			if ($action != 'clear_filters' && $action != 'reset')  {
-				$this->setupEditFilters($_POST);
+				$this->setupEditFilters($this->all_filters,$_POST);
 				if ($action == 'add'){
-					if (isset($_POST[$p.'add_filter'])
-						&& isset($this->filters[$_POST[$p.'add_filter']])) {
-					$this->filters[$_POST[$p.'add_filter']]->add();
+					$fname = $p.'add_filter';
+					if (isset($_POST[$fname])
+						&& isset($this->filters[$_POST[$fname]])) {
+					$this->filters[$_POST[$fname]]->add();
 					}
 				} elseif (strpos($action,'del_') === 0) {
 					$count = preg_match('#del_(.+)_([0-9]+)#',$action,$match);
-					echo "action=".$action;
 					if (($count == 1) && isset($this->filters[$match[1]])) {
 						$this->filters[$match[1]]->remove($match[2]);
-						echo "remove";
 					}
 				} elseif ($action=="apply") {
 					$data = $this->saveFilters();
@@ -164,9 +142,14 @@ class dcFilterSet extends dcForm {
 			}
 			if (isset($_POST[$p."query"])) {
 				parse_str($_POST[$p."query"],$out);
-				$this->setupAppliedFilters($out);
+				$this->setupAppliedFilters($this->all_filters,$out);
 				if ($action == 'reset') {
-					$this->setupEditFilters($out);
+					$this->setupEditFilters($this->all_filters,$out);
+				} elseif ($action == 'clear_filters') {
+					$this->setupEditFilters($this->static_filters,$out);
+					foreach ($this->filters as $f) {
+						$f->cleanup();
+					}
 				}
 			}
 			$this->hideform=false;
@@ -183,10 +166,16 @@ class dcFilterSet extends dcForm {
 			if ($load_from_settings) {
 				$get = new ArrayObject(array_merge($this->loadFilters(),$get));
 			}
-			$this->setupEditFilters($get);
-			$this->setupAppliedFilters($get);
+			$this->setupEditFilters($this->all_filters,$get);
+
+			$this->setupAppliedFilters($this->all_filters,$get);
 		}
-		$queryParams = $this->getListedFilters();
+		foreach ($this->static_filters as $f) {
+			if (!$f->isEnabled()) {
+				$f->add();
+			}
+		}
+		$queryParams = $this->getAppliedFilters();
 		$this->addField(
 			new dcFieldHidden($this->form_prefix.'query',
 				http_build_query($queryParams)));
@@ -223,14 +212,14 @@ class dcFilterSet extends dcForm {
 	
 	@param	form_data	<b>array</b>	form values (usually $_GET or $_POST)
 	*/
-	protected function setupEditFilters ($form_data) {
+	protected function setupEditFilters ($filters,$form_data) {
 		$this->hideform = true;
-		foreach ($this->filters as $filter) {
+		foreach ($filters as $filter) {
 			$filter->setupFields ($form_data);
 		}
 	}
-	protected function setupAppliedFilters ($form_data) {
-		foreach ($this->filters as $filter) {
+	protected function setupAppliedFilters ($filters,$form_data) {
+		foreach ($filters as $filter) {
 			$filter->setupAppliedFilter ($form_data);
 		}
 	}
@@ -250,6 +239,9 @@ class dcFilterSet extends dcForm {
 				$f->serialize($arr);
 			}
 		}
+		foreach ($this->static_filters as $f) {
+			$f->serialize($arr);
+		}
 		return $arr;
 	}
 	/**
@@ -260,25 +252,36 @@ class dcFilterSet extends dcForm {
 	public function addFilter (dcFilter $filter) {
 		$filter->setFormPrefix($this->form_prefix);
 		$filter->setFilterSet($this);
-		$this->filters[$filter->id] = $filter;
+		$this->all_filters[$filter->id] = $filter;
+		if ($filter->isStatic()) {
+			$this->static_filters[$filter->id] = $filter;
+		} else {
+			$this->filters[$filter->id] = $filter;
+		}
 		return $this;
 	}
+
 	public function getContext() {
 		$fcontext = new ArrayObject();
+		$sfcontext = new ArrayObject();
 		foreach ($this->filters as $f) {
 			if($f->isEnabled()) {
 				$f->appendEditLines($fcontext);
 			}
 		}
+		foreach ($this->static_filters as $f) {
+			$f->appendEditLines ($sfcontext);
+		}
 		return array(
 			'active_filters' => $fcontext, 
+			'static_filters' => $sfcontext,
 			'prefix'=>$this->form_prefix);
 	}
 
-	protected function getListedFilters() {
+	protected function getAppliedFilters() {
 		$arr = new ArrayObject();
-		foreach ($this->filters as $f) {
-			if ($f->isEnabled())
+		foreach ($this->all_filters as $f) {
+			if ($f->isApplied())
 				$f->updateAppliedValues($arr);
 		}
 		return $arr;
@@ -291,7 +294,7 @@ class dcFilterSet extends dcForm {
 	
 	*/
 	public function applyFilters($params) {
-		foreach ($this->filters as $filter) {
+		foreach ($this->all_filters as $filter) {
 			if ($filter->isApplied()) {
 				$filter->applyFilter($params);
 				$this->filtered = true;
@@ -317,35 +320,30 @@ abstract class dcFilter  {
 	public $id;					///<b>string</b> field id (local to fieldset)
 	public $name;				///<b>string</b> filter name
 	public $desc;				///<b>string</b> field description
-	protected $request_param;	///<b>string</b> resulting parameter array key
-	protected $enabled;			///<b>string</b> true if filter is enabled
-	protected $fields;			///<b>array</b> currently edited values
-	protected $avalues;			///<b>array</b> currently applied values
 	public $filter_id;			///<b>string</b> field id (global to the page)
+	protected $request_param;	///<b>string</b> resulting parameter array key
+	protected $field;			///<b>array</b> currently edited values
+	protected $avalues;			///<b>array</b> currently applied values
+	protected $static;
+	protected $options;
+	protected $multiple;
 
-	public function __construct ($id,$name,$desc,$request_param) {
-		$this->id = $id;
-		$this->name=$name;
-		$this->desc = $desc;
-		$this->request_param = $request_param;
-		$this->enabled=false;
-		$this->avalues = array();
-		$this->filter_id = $this->id;
-		$this->fields = array();
-	}
-
-	public function setupFields($data) {
-		$val = $this->parseData($data);
-		$pos=0;
-		foreach($val['values'] as $v) {
-			$this->addField($pos,$v);
-			$pos++;
+	public function __construct ($id,$name,$desc,$request_param,$options=array()) {
+		$this->id  				= $id;
+		$this->name 			=$name;
+		$this->desc 			= $desc;
+		$this->request_param	= $request_param;
+		$this->avalues   		= array();
+		$this->filter_id 		= $this->id;
+		$this->static    		= false;
+		$this->multiple    		= false;
+		$this->options   		= $options;
+		if (isset($options['static']) && $options['static']) {
+			$this->static 		= true;
 		}
-		$this->enabled = ($pos> 0);
-	}//	abstract public function setupFields($data);
-
-
-	public function init() {
+		if (isset($options['multiple']) && $options['multiple']) {
+			$this->multiple		= true;
+		}
 	}
 
 	/**
@@ -356,23 +354,32 @@ abstract class dcFilter  {
 	
 	*/
 	protected function parseData($data) {
-		$count=0;
-		$arr = array();
-		while (isset($data[$this->getFieldId($count)])) {
-			$arr[] = $data[$this->getFieldId($count)];
-			$count++;
-		}
+		$arr = $this->field->parseValues($data);
 		return array('values' => $arr);
 	}
-	
+
+	public function isStatic() {
+		return $this->static;
+	}
+
+	public function setupFields($data) {
+		$this->field->setup($data);
+	}
+
+
+	public function init() {
+	}
+
+	public function cleanup() {
+		$this->field->setValues(array());
+	}
+
 	public function setupAppliedFilter($data) {
 		$this->avalues = $this->parseData($data);
 	}
 
 	public function updateAppliedValues($arr) {
-		foreach ($this->avalues['values'] as $k=>$v) {
-			$arr[$this->getFieldID($k)]=$v;
-		}
+		$arr[$this->filter_id] = $this->avalues['values'];
 	}
 
 	/**
@@ -395,50 +402,32 @@ abstract class dcFilter  {
 	}
 
 	/**
-	Get a field id
-	
-	@param	pos		<b>integer</b>	position of field, in case of multiple field (0 if only 1 field set, default value)
-	@return	<b>string</b> The field ID
-	*/
-	protected function getFieldId($pos=0) {
-		if ($pos == 0) {
-			return $this->filter_id;
-		} else {
-			return $this->filter_id.'_'.$pos;
-		}
-	}
-	
-	
-	/**
 	Tells whether the filter is enabled or not
 	
 	@return	<b>boolean</b> true if enabled, false otherwise
 	*/
 	public function isEnabled() {
-		return $this->enabled;
+		return count($this->field) != 0;
 	}
 	
-	protected abstract function addField($pos,$value=NULL);
+	protected abstract function addValue($value=NULL);
 
 	/**
 	Adds the current filter to the list
 	*/
 	public function add() {
-		$this->addField(count($this->fields));
-		$this->enabled = true;
+		if (count($this->field) > 1 && !$this->multiple)
+			return;
+		$this->addValue();
 	}
 	
 	/**
 	Removes a value from filter
 	*/
 	public function remove($pos) {
-		if (isset($this->fields[$pos])) {
-			$this->filterset->removeField($this->fields[$pos]);
-			array_splice($this->fields,$pos,1);
-			for ($cur=$pos; $cur<count($this->fields);$cur++) {
-				$this->filterset->renameField($this->fields[$cur],$this->getFieldID($cur));
-			}
-			$this->enabled = (count($this->fields)!=0);
+		$values = $this->field->getValues();
+		if (isset($values[$pos])) {
+			$this->field->delValue($pos);
 		}
 
 	}
@@ -446,7 +435,7 @@ abstract class dcFilter  {
 	abstract protected function appendSingleLine($ctx,$pos);
 
 	public function appendEditLines($ctx) {
-		foreach ($this->fields as $cur => $f) {
+		foreach ($this->field->getValues() as $cur => $f) {
 			$line = new ArrayObject();
 			$line['lineclass'] = $this->id;
 			$line['del_id'] = $this->filterset->getDelName($this->id,$cur);
@@ -464,8 +453,10 @@ abstract class dcFilter  {
 	}
 
 	public function serialize($arr) {
-		for ($cur=0; $cur < count($this->fields); $cur++) {
-			$arr[$this->getFieldId($cur)]=$this->fields[$cur]->getValue();
+		if (count($this->fields) == 1) {
+			$arr[$this->filter_id]=$this->field->getValue();
+		} else {
+			$arr[$this->filter_id]=$this->field->getValues();
 		}
 	}
 	
@@ -491,6 +482,42 @@ abstract class dcFilter  {
 }
 
 
+
+class dcFilterText extends dcFilter {
+
+	public function init() {
+		$this->field = new dcFieldText(
+			$this->filter_id,
+			NULL);
+		$this->filterset->addField($this->field);
+		$this->multiple = false;
+	}
+
+
+	public function appendSingleLine($line,$pos) {
+		$line['ffield'] = $this->field->getName();
+		if ($this->static) {
+			$line['display_inline'] = true;
+		}
+
+		if ($pos == 0) {
+			$line['fwidget']='filter_text';
+			$line['desc']=$this->desc;
+		};
+	}
+
+	protected function addValue($value=NULL) {
+		if ($value === NULL) {
+			$value = '';
+		}
+		$this->field->addValue($value);
+	}
+
+	public function applyFilter($params) {
+		$params[$this->request_param]=$this->avalues['values'][0];
+	}
+	
+}
 /**
 @ingroup DC_CORE
 @nosubgrouping
@@ -498,16 +525,61 @@ abstract class dcFilter  {
 
 Handle combo filter on admin side. Can be single or multi-valued
 */
-class comboFilter extends dcFilter {
-	protected $options;
-	protected $verb;
-	protected $extra;
+class dcFilterCombo extends dcFilter {
+	protected $combo;
 	
-	public function __construct($id,$name,$desc,$request_param,$options,$extra=array()) {
-		parent::__construct($id,$name,$desc,$request_param);
-		$this->options = $options;
-		$this->extra = $extra;
+	public function __construct($id,$name,$desc,$request_param,$combo,$options=array()) {
+		parent::__construct($id,$name,$desc,$request_param,$options);
+		$this->combo = $combo;
 	}
+	public function init() {
+		$this->field = new dcFieldCombo(
+			$this->filter_id,
+			NULL,
+			$this->combo);
+		$this->filterset->addField($this->field);
+	}
+
+	protected function addValue($value=NULL) {
+		if ($value === NULL) {
+			$value = current($this->combo);
+		}
+		$this->field->addValue($value);
+	}
+
+	public function appendSingleLine($line,$pos) {
+		if ($this->static) {
+			$line['display_inline'] = true;
+		}
+		$line['ffield'] = $this->field->getName();
+		$line['foffset'] = $pos;
+		if ($pos == 0) {
+			$line['fwidget']='filter_combo';
+			$line['desc']=$this->desc;
+		} else {
+			$line['fwidget']='filter_combo_cont';
+		};
+	}
+	
+	public function applyFilter($params) {
+		$attr = $this->request_param;
+		if ($this->multiple)
+			$params[$attr]=$this->avalues['values'];
+		else
+			$params[$attr]=$this->avalues['values'][0];
+	}
+
+}
+
+/**
+@ingroup DC_CORE
+@nosubgrouping
+@brief abstract filter class.
+
+Handle combo filter on admin side. Can be single or multi-valued
+*/
+class dcFilterRichCombo extends dcFilterCombo {
+	protected $verb;
 
 	public function init() {
 		parent::init();
@@ -518,61 +590,35 @@ class comboFilter extends dcFilter {
 				'is'=>__('is'),
 				'isnot'=>__('is not'))
 		);
+		$this->filterset->addField($this->verb);
 	}
 
 	protected function parseData($data) {
 		$val = parent::parseData($data);
-		$val['verb'] = $this->verb->parseValue($data);
+		$v = $this->verb->parseValues($data);
+		if (isset($v[0]) && $v[0] === 'isnot')
+			$val['verb'] = 'isnot';
+		else
+			$val['verb'] ='is';
 		return $val;
 	}
 
-	protected function addField($pos,$value=NULL) {
-		if ($value === NULL) {
-			$value = current($this->options);
-		}
-		$f = new dcFieldCombo(
-			$this->getFieldID($pos),
-			$value,
-			$this->options);
-		$this->filterset->addField($f);
-		$this->fields[]=$f;
-	}
-
 	public function setupFields($data) {
-		/*$val = $this->parseData($data);
-		$this->verb->setup($data);
-		$pos=0;
-		foreach($val['values'] as $v) {
-			$this->addField($pos,$v);
-		}
-		$this->enabled = (count($this->fields) != 0);*/
 		parent::setupFields($data);
 		$this->verb->setup($data);
-		$this->filterset->addField($this->verb);
 	}
+
 	public function updateAppliedValues($arr) {
 		parent::updateAppliedValues($arr);
-		if ($this->enabled) {
-			$arr[$this->verb->getName()] = $this->verb->getValue();
-		}
-	}
-	public function add() {
-		if (isset($this->extra['singleval']) && (count($this->fields) > 0))
-			return;
-		parent::add();
+		$arr['verb'] = $this->verb->getValue();
 	}
 
 	public function appendSingleLine($line,$pos) {
-		$f = $this->fields[$pos];
-		$line['ffield'] = $f->getName();
-
+		parent::appendSingleLine($line,$pos);
 		if ($pos == 0) {
-			$line['fwidget']='filter_combo';
 			$line['fverb'] = $this->verb->getName();
-			$line['desc']=$this->desc;
-		} else {
-			$line['fwidget']='filter_combo_cont';
-		};
+			$line['fwidget']='filter_richcombo';
+		} 
 	}
 	
 	public function serialize($arr) {
@@ -581,103 +627,16 @@ class comboFilter extends dcFilter {
 	}
 	
 	public function applyFilter($params) {
+		parent::applyFilter($params);
 		$attr = $this->request_param;
 		if ($this->avalues['verb'] != "is") {
 			$params[$attr."_not"] = true;
 		}
-		if (isset($this->extra['singleval']))
-			$params[$attr]=$this->avalues['values'][0];
-		else
-			$params[$attr]=$this->avalues['values'];
 	}
 
 }
 
-class booleanFilter extends dcFilter {
-	protected $options;
-	protected $verb;
-	
-	public function __construct($id,$name,$desc,$request_param,$options) {
-		parent::__construct($id,$name,$desc,$request_param);
-		$this->options = $options;
-	}
 
 
-
-	public function appendSingleLine($line,$pos) {
-		$f = $this->fields[$pos];
-		$line['ffield'] = $f->getName();
-
-		if ($pos == 0) {
-			$line['fwidget']='filter_boolean';
-			$line['desc']=$this->desc;
-		};
-	}
-
-	protected function addField($pos,$value=NULL) {
-		if (count($this->fields)>0)
-			return;
-		if ($value === NULL) {
-			$value = 1;
-		}
-		$f = new dcFieldCombo(
-			$this->getFieldID($pos),
-			$value,
-			$this->options);
-		$this->filterset->addField($f);
-		$this->fields[]=$f;
-	}
-
-	public function applyFilter($params) {
-		$params[$this->request_param]=$this->avalues['values'][0];
-	}
-	
-}
-
-class textFilter extends dcFilter {
-	protected $options;
-	protected $verb;
-	
-	public function __construct($id,$name,$desc,$request_param,$options) {
-		parent::__construct($id,$name,$desc,$request_param);
-		$this->options = $options;
-	}
-
-	public function setupFields($data) {
-		$val = $this->parseData($data);
-		foreach($val['values'] as $k=>$v) {
-			$this->addField($k,$v);
-		}
-		$this->enabled = (count($this->fields) != 0);
-	}
-
-	public function appendSingleLine($line,$pos) {
-		$f = $this->fields[$pos];
-		$line['ffield'] = $f->getName();
-
-		if ($pos == 0) {
-			$line['fwidget']='filter_boolean';
-			$line['desc']=$this->desc;
-		};
-	}
-
-	protected function addField($pos,$value=NULL) {
-		if (count($this->fields)>0)
-			return;
-		if ($value === NULL) {
-			$value = '';
-		}
-		$f = new dcFieldText(
-			$this->getFieldID($pos),
-			$value);
-		$this->filterset->addField($f);
-		$this->fields[]=$f;
-	}
-
-	public function applyFilter($params) {
-		$params[$this->request_param]=$this->avalues['values'][0];
-	}
-	
-}
-
+dcFilterSet::__init__($GLOBALS['core']->tpl);
 ?>

@@ -1,0 +1,35 @@
+{% block entrieslist -%}
+{% set lenv = _context['list_' ~ listname] %}
+{% if lenv.entries %}
+{% form listname -%}
+{% spaceless %}
+<table class="maximal clear">
+	<caption> {{ caption }} - {{__('Page %s')|format(page)}}</caption>
+		<tr>
+		{% for h in lenv.cols -%}
+			<th scope="col">{{h.name}}</th>
+		{%- endfor %}
+		</tr>
+		{% for e in lenv.entries %}
+			{% block list_line_start %}<tr class="line">{% endblock %}
+			{% for h in lenv.cols %}
+				<td>{{widget(h.widget,{'e':e,'offset':loop.parent.loop.index0})}}</td>
+			{% endfor %}
+			</tr>
+		{% endfor %}
+</table>
+<div class="two-cols">
+	<p class="col checkboxes-helpers"></p>
+	<p class="col right">{{ form_field ('action',{},{'labelclass':'classic'})}} {{form_field('ok')}}</p>
+</div>
+{% endspaceless %}
+{%- endform %}
+{% else %}
+	<p>{{ __('No entries') }}</p>
+{% endif %}
+{%- endblock %}
+
+{% block filter_checkbox %}
+
+{% endblock filter_checkbox %}
+
