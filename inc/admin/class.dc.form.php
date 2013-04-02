@@ -89,21 +89,28 @@ class dcFormExtension extends Twig_Extension
 	public function __construct($core)
 	{
 		$this->core = $core;
-		$this->tpl = 'form_layout.html.twig';
+		$this->tpl = array('@forms/form_layout.html.twig');
 		$this->forms = array();
+		$this->blocks = array();
 		$this->currentForm = null;
 	}
 	
 	public function initRuntime(Twig_Environment $environment)
 	{
 		$this->twig = $environment;
-		$this->template = $this->twig->loadTemplate($this->tpl);
-		$this->blocks = $this->template->getBlocks();
+		$this->twig->getLoader()->addPath(dirname(__FILE__).'/default-templates/forms','forms');
+		foreach ($this->tpl as $tpl) {
+			$this->template = $this->twig->loadTemplate($tpl);
+			$this->blocks = array_merge($this->blocks,$this->template->getBlocks());
+		}
 	}
 	
 	public function addTemplate($tpl) {
-		$t = $this->twig->loadTemplate($tpl);
-		$this->blocks = array_merge($this->blocks,$t->getBlocks());
+		$this->tpl[]=$tpl;
+		if (isset($this->twig)) {
+			$this->template = $this->twig->loadTemplate($tpl);
+			$this->blocks = array_merge($this->blocks,$this->template->getBlocks());
+		}
 	}
 
 	public function getGlobals()
@@ -114,19 +121,29 @@ class dcFormExtension extends Twig_Extension
 	public function getFunctions()
 	{
 		return array(
-			'form_field' => new Twig_Function_Method(
-				$this,
-				'renderWidget',
+			new Twig_SimpleFunction(
+				'widget',
+				array($this,'renderWidget'),
 				array('is_safe' => array('html'))
 			),
-			'_form_is_choice_group' => new Twig_Function_Method(
-				$this,
-				'isChoiceGroup',
+			new Twig_SimpleFunction(
+				'haswidget',
+				array($this,'hasWidget'),
 				array('is_safe' => array('html'))
 			),
-			'_form_is_choice_selected' => new Twig_Function_Method(
-				$this,
-				'isChoiceSelected',
+			new Twig_SimpleFunction(
+				'form_field',
+				array($this,'renderField'),
+				array('is_safe' => array('html'))
+			),
+			new Twig_SimpleFunction(
+				'_form_is_choice_group',
+				array($this,'isChoiceGroup'),
+				array('is_safe' => array('html'))
+			),
+			new Twig_SimpleFunction(
+				'_form_is_choice_selected',
+				array($this,'isChoiceSelected'),
 				array('is_safe' => array('html'))
 			)
 		);
@@ -147,7 +164,12 @@ class dcFormExtension extends Twig_Extension
 		return array(new dcFormTokenParser());
 	}
 	
-	public function renderBlock($name,$attr) {
+	public function hasWidget($name) {
+		return isset($this->blocks[$name]);
+	}
+	public function renderWidget($name,$attr) {
+		if (!isset($this->blocks[$name]))
+			return '';
 		echo $this->template->renderBlock(
 			$name,
 			$attr,
@@ -159,17 +181,17 @@ class dcFormExtension extends Twig_Extension
 		return $this->currentForm;
 	}
 
-	public function renderWidget($name,$attributes=array(),$extra=array())
+	public function renderField($name,$attributes=array(),$extra=array())
 	{
 		$field = $this->currentForm->$name;
 		if ($field) {
-			$attr = $field->getAttributes();
+			$attr = $field->getAttributes($attributes);
 			if (isset($attr['attr'])) {
 				$attr['attr'] = array_merge($attr['attr'],$attributes);
 			} else {
 				$attr['attr'] = $attributes;
 			}
-			$this->renderBlock(
+			$this->renderWidget(
 				$field->getWidgetBlock(),
 				array_merge(
 					$attr,
@@ -182,7 +204,7 @@ class dcFormExtension extends Twig_Extension
 	public function renderHiddenWidgets()
 	{
 		foreach ($this->currentForm->getHiddenFields() as $h) {
-			$this->renderWidget($h->getName());
+			$this->renderField($h->getName());
 		}
 	}
 
@@ -239,6 +261,9 @@ class dcForm
 	protected $hiddenfields;
 	protected $errors;
 	
+	public function addTemplate($t) {
+		$this->core->tpl->getExtension('dc_form')->addTemplate($t);
+	}
 
     /**
      * addNonce -- adds dc nonce to form fields
@@ -354,7 +379,6 @@ class dcForm
 			$field->setName($newname);
 			$this->fields[$newname] = $field;
 		}
-		//print_r($this->fields);
 	}
 	public function begin()
 	{
@@ -385,7 +409,7 @@ class dcForm
 	public function __set($name,$value)
 	{
 		if (isset($this->fields[$name])) {
-			$this->fields[$name]->setAttribute('value',$value);
+			$this->fields[$name]->setValue($value);
 		}
 	}
 
@@ -448,12 +472,13 @@ class dcForm
 /**
  * Template form field
  */
-abstract class dcField
+abstract class dcField implements Countable
 {
-	protected $attributes;
+	protected $options;
 	protected $name;
-	protected $value;
+	protected $values;
 	protected $id;
+	protected $multiple;
 	protected $defined;
 	
 	protected function setNID($nid)
@@ -467,55 +492,98 @@ abstract class dcField
 		}
 	}
 	
-	public function __construct($name,$value,$attributes=array())
+	public function __construct($name,$values,$options=array())
 	{
 		$this->setNID($name);
-		$this->attributes = $attributes;
-		$this->setValue($value);
-		$this->attributes['name'] = $this->name;
-		$this->attributes['id'] = $this->id;
+		$this->options = new ArrayObject($options);
+		if ($values === NULL){
+			$values = array();
+		}
+		$this->setValues($values);
 		$this->defined = false;
+		$this->multiple = (isset($options['multiple']) && $options['multiple']);
+
 	}
 	
-	public function setValue($value) {
-		$this->value = $value;
-		$this->attributes['value'] = $this->value;
+	public function setValue($value,$offset=0) {
+		$this->values[$offset] = $value;
 	}
 
-	public function getValue() {
-		return $this->value;
+	public function setValues($values) {
+		if (is_array($values)) {
+			$this->values = $values;
+		} elseif ($values !== NULL) {
+			$this->values = array($values);
+		}
+
+	}
+
+	public function getValues() {
+		return $this->values;
+	}
+
+	public function getValue($offset=0) {
+		if (isset($this->values[$offset])) {
+			return $this->values[$offset];
+		}
+	}
+
+	public function addValue($value) {
+		$this->values[] = $value;
+	}
+	public function delValue($offset) {
+		if (isset($this->values[$offset])) {
+			array_splice($this->values,$offset,1);
+		}
+	}
+
+	public function count() {
+		return count($this->values);
 	}
 
 	public function __toString()
 	{
-		return $this->value;
+		return join(',',$this->values);
 	}
 	
 	abstract public function getWidgetBlock();
 	
-	public function setAttribute($name,$value)
+	public function getAttributes($options)
 	{
-		$this->attributes[$name] = $value;
+		$offset = isset($options['offset']) ? $options['offset'] : 0;
+
+		$attr = $this->options->getArrayCopy();
+		if (isset($this->values[$offset])) {
+			$attr['value'] = $this->values[$offset];
+		} else {
+			$attr['value'] = $this->getDefaultValue();
+		}
+		if ($offset==0) {
+			$attr['id']=$this->id;
+		}
+		$attr['name'] = $this->name;
+		if ($this->multiple) {
+			$attr['name'] = $attr['name'].'[]';
+		}
+		return $attr;
 	}
 	
-	public function getAttributes()
-	{
-		return $this->attributes;
+	public function getDefaultValue() {
+		return '';
 	}
-	
+
 	public function getName()
 	{
 		return $this->name;
 	}
+
 	public function setName($name) {
 		$this->setNID($name);
-		$this->attributes['name'] = $this->name;
-		$this->attributes['id'] = $this->id;
 	}
 
 	public function check()
 	{
-		if (!$this->defined && $this->attributes['defined']) {
+		if (!$this->defined && $this->options['mandatory']) {
 			throw new InvalidFieldException(sprintf(
 				'Field "%s" is mandatory',
 				$this->attributes['label'])
@@ -523,18 +591,22 @@ abstract class dcField
 		}
 	}
 	
-	public function parseValue($from) {
-		if (isset($from[$this->id])) {
-			return $from[$this->id];
+	public function parseValues($from) {
+		if (isset($from[$this->name])) {
+			$n = $from[$this->name];
+			if (!is_array($n)) {
+				$n = array($n);
+			}
+			return $n;
 		}
-		return null;
+		return array();
 	}
 
 	public function setup($from)
 	{
-		$value = $this->parseValue($from);
-		if ($value !== null) {
-			$this->setValue($value);
+		$values = $this->parseValues($from);
+		if (count($values)) {
+			$this->setValues($values);
 			$this->defined = true;
 		}
 	}
@@ -544,6 +616,7 @@ abstract class dcField
 		return $this->defined;
 	}
 }
+
 
 /**
  * Template form field of type "password"
@@ -598,6 +671,10 @@ class dcFieldCheckbox extends dcField
 	{
 		return "field_checkbox";
 	}
+
+	public function getDefaultValue() {
+		return 0;
+	}
 }
 
 /**
@@ -606,18 +683,18 @@ class dcFieldCheckbox extends dcField
 abstract class dcFieldAction extends dcField
 {
 	protected $action;
-	
-	public function __construct($name,$value,$attributes=array())
+
+	public function __construct($name,$values,$options=array())
 	{
-		parent::__construct($name,$value,$attributes);
-		
-		if (isset($attributes['action'])) {
-			$this->action = $attributes['action'];
+		parent::__construct($name,$values,$options);
+
+		if (isset($options['action'])) {
+			$this->action = $options['action'];
 		} else {
 			$this->action = NULL;
 		}
 	}
-	
+
 	public function getAction()
 	{
 		return $this->action;
@@ -640,13 +717,12 @@ class dcFieldSubmit extends dcFieldAction
  */
 class dcFieldCombo extends dcField
 {
-	protected $options;
+	protected $combo;
 	
-	public function __construct($name,$value,$options,$attributes=array())
+	public function __construct($name,$value,$combo,$options=array())
 	{
-		$this->options = $options;
-		parent::__construct($name,$value,$attributes);
-		$this->attributes['options']=$options;
+		$this->combo = $combo;
+		parent::__construct($name,$value,$options);
 	}
 	
 	public function getWidgetBlock()
@@ -654,14 +730,27 @@ class dcFieldCombo extends dcField
 		return "field_combo";
 	}
 
-	public function parseValue($from) {
+	public function getDefaultValue() {
+		return current($this->combo);
+	}
 
-		$v = parent::parseValue($from);
-		if (!isset($this->options[$v])) {
-			return $this->value;
-		} else {
-			return $v;
+	public function parseValues($from) {
+		$values = parent::parseValues($from);
+		if (!is_array($values)) {
+			$values = array($values);
 		}
+		foreach ($values as &$v) {
+			if (!isset($this->combo[$v]))
+			$v = $this->getDefaultValue();
+		}
+		return $values;
+	}
+
+	public function getAttributes($options) {
+		$attr = parent::getAttributes($options);
+		$attr['options'] = $this->combo;
+		return $attr;
 	}
 }
+
 ?>

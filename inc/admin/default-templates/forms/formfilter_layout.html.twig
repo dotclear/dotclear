@@ -30,6 +30,9 @@
 		</p>
 	</div>
 	<div class="col30">
+		{% for f in fenv.static_filters %}
+			{{block(f.fwidget)}}
+		{% endfor %}
 	</div>
 	<p class="clear margintop"></p>
 {% endform %}
@@ -49,34 +52,42 @@
 
 
 {% block filter_combo %}
+	{% if f.display_inline is defined -%}
+		<p id='{{f.filter_id}}'>{{form_field(f.ffield,{},{'label':f.desc,'nestedlabel': true, 'labelclass':'classic' })}}</p>
+	{%- else -%}
+		<td id='{{f.filter_id}}' title='{{f.desc}}' class="filter-title" colspan="2">{{f.desc}} : </td>
+		<td >{{ form_field(f.ffield) }}</td>
+	{%- endif %}
+{% endblock %}
+
+{% block filter_combo_cont %}
+	{% if f.display_inline is defined -%}
+		<p id='{{filter_id}}'>{{form_field(f.ffield,{'label':__('or :')})}}</p>
+	{%- else -%}
+		<td id='{{filter_id}}' colspan="2">{{ __('or :') }} </td><td>{{ form_field(f.ffield) }}</td>
+	{%- endif %}
+{% endblock %}
+
+
+{% block filter_richcombo %}
 	<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title">{{f.desc}} : </td>
 	<td>{{ form_field(f.fverb)}}</td>
 	<td>{{ form_field(f.ffield) }}</td>
 {% endblock %}
 
-{% block filter_combo_cont %}
-	<td id='{{filter_id}}' colspan="2">{{ __('or :') }} </td><td>{{ form_field(f.ffield) }}</td>
-{% endblock %}
 
 {% block filter_boolean %}
 	<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title" colspan="2">{{f.desc}}</td>
 	<td>{{ form_field(f.ffield) }}</td>
 {% endblock %}
 
-
-{% block entrieslist %}
-{% if entries %}
-	<table class="maximal clear">
-	<thead>
-		<tr>
-		{% for h in columns %}
-
-		{% endfor %}
-		</tr>
-	</thead>
-
-{% else %}
-	<p>{{ __('No entries') }}</p>
-{% endif %}
-
+{% block filter_text %}
+	{% if f.display_inline is defined -%}
+		<p id='{{filter_id}}'>{{form_field(f.ffield,{},{'label':f.desc,'nestedlabel': true, 'labelclass':'classic' })}}</p>
+	{%- else -%}
+		<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title" colspan="2">{{f.desc}}</td>
+		<td>{{ form_field(f.ffield) }}</td>
+	{% endif %}
 {% endblock %}
+
+

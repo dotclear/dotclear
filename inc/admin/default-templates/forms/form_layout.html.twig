@@ -47,7 +47,12 @@
 {% endblock field_input %}
 
 {% block field_checkbox %}
-{% spaceless %}
+{% set type = type|default('checkbox') %}
+{% set nestedlabel = true %}
+{% set labelclass = "classic" %}
+    {{ block('field_input') }}
+{#{% spaceless %}
+
 	{% if label is not empty %}
 		<label for="{{name}}" class="classic">
 	{% endif %}
@@ -55,7 +60,7 @@
 	{% if label is not empty %}
 		{{ label }}</label>
 	{% endif %}
-{% endspaceless %}
+{% endspaceless %}#}
 {% endblock field_checkbox %}
 
 {% block field_attr %}
@@ -104,7 +109,7 @@
 {% spaceless %}
     {% if label is not empty %}
         {% if required is not empty %}
-            {% set labelclass = labelclass + " required" %}
+            {% set labelclass = labelclass ~ " required" %}
         {% endif %}
         <label for="{{name}}" {% if labelclass is not empty %}class="{{labelclass}}"{% endif %} {% if required is not empty %}<abbr title="{{__('Required field')}}">*</abbr>{% else %}>{% endif %} {{label}}
         {% if nestedlabel is empty %}</label> {% endif %}

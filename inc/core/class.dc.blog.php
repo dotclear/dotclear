@@ -804,7 +804,7 @@ class dcBlog
 		}
 		
 		if (!empty($params['user_id'])) {
-			$strReq .= "AND U.user_id = '".$this->con->escape($params['user_id'])."' ";
+			$strReq .= "AND U.user_id ".$this->con->in($params['user_id'])." ";
 		}
 		
 		if (isset($params['cat_id']) && $params['cat_id'] !== '')

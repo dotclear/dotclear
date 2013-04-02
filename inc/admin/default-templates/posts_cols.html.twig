@@ -1,0 +1,43 @@
+
+{% block col_ref %}
+	{{form_field('entries',{'offset':offset})}}
+{% endblock %}
+
+{% block col_title %}
+	{{block('col_ref')}}
+	{{e.post_title}}
+{% endblock %}
+
+{% block col_cat -%}
+	{% if e.exists('cat_title') %}
+		<a href="category.php?id={{e.cat_id}}">{{e.cat_title}}</a>
+	{% else %}
+		{{__('None')}}
+	{% endif %}
+{%- endblock %}
+
+{% block col_date -%}
+	{{e.post_dt|date('Y-m-d')}}
+{%- endblock %}
+
+{% block col_datetime -%}
+	{{e.post_dt|date('Y-m-d h:i')}}
+{%- endblock %}
+
+{% block col_author -%}
+	{{e.user_id}}
+{%- endblock %}
+
+{% block col_status %}
+{% set statuses = {
+	"0": {'img' : 'check-off.png', 'name':__('unpublished')},
+	"1": {'img' : 'check-on.png', 'name':__('published')},
+	"-1": {'img' : 'scheduled.png', 'name':__('scheduled')},
+	"-2": {'img' : 'check-wrn.png', 'name':__('pending')}}
+%}
+<img alt="{{statuses[e.post_status].name}}" src="images/{{statuses[e.post_status].img}}" />
+{% endblock %}
+
+{% block list_line_start %} 
+<tr class="line" id="p{{e.post_id}}">
+{% endblock %}

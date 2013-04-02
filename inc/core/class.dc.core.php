@@ -95,7 +95,6 @@ class dcCore
 		
 		$this->addFormater('xhtml', create_function('$s','return $s;'));
 		$this->addFormater('wiki', array($this,'wikiTransform'));
-		
 		$this->loadTemplateEnvironment();
 	}
 	
@@ -128,9 +127,8 @@ class dcCore
 	Selected theme path must be added with:
 	$core->tpl->getLoader()->prependPath('PATH_TO/MY_THEME');
 	*/
-	protected function loadTemplateEnvironment()
+	public function loadTemplateEnvironment()
 	{
-		# If cache dir is writable, use it.
 		$cache_dir = path::real(DC_TPL_CACHE.'/twtpl',false);
 		if (!is_dir($cache_dir)) {
 			try {
@@ -154,7 +152,6 @@ class dcCore
 			)
 		);
 		$this->tpl->addExtension(new dcFormExtension($this));
-		$this->tpl->addExtension(new dcFilterSetExtension($this));
 		$this->tpl->addExtension(new dcTabExtension($this));
 	}
 	
