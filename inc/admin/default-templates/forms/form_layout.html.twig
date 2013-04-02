@@ -56,7 +56,7 @@
 	{% if label is not empty %}
 		<label for="{{name}}" class="classic">
 	{% endif %}
-    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+    <input type="checkbox" {{ block('field_attr') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
 	{% if label is not empty %}
 		{{ label }}</label>
 	{% endif %}

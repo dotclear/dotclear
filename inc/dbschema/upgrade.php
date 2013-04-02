@@ -304,6 +304,36 @@ function dotclearUpgrade($core)
 						"AND setting_value = '' ";
 				$core->con->execute($strReq);
 			}
+
+			if (version_compare($version,'2.5','<='))
+			{
+				# Try to disable daInstaller plugin if it has been installed outside the default plugins directory
+				$path = explode(PATH_SEPARATOR,DC_PLUGINS_ROOT);
+				$default = path::real(dirname(__FILE__).'/../../plugins/');
+				foreach ($path as $root)
+				{
+					if (!is_dir($root) || !is_readable($root)) {
+						continue;
+					}
+					if (substr($root,-1) != '/') {
+						$root .= '/';
+					}
+					if (($p = @dir($root)) === false) {
+						continue;
+					}
+					if(path::real($root) == $default) {
+						continue;
+					}
+					if (($d = @dir($root.'daInstaller')) === false) {
+						continue;
+					}
+					$f = $root.'/daInstaller/_disabled';
+					if (!file_exists($f))
+					{
+						@file_put_contents($f,'');
+					}
+				}
+			}
 			
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
