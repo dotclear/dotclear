@@ -1,5 +1,6 @@
-Dotclear 2.5.0 - 201?-??-13
+Dotclear 2.5.0 - 2013-02-24
 ===========================================================
+* Ductile theme may now use webfont (from Google, Adobe and similar providers)
 * daInstaller plugin is now included in the official distribution
 * The media enhanced uploader may now be temporarily enabled or disabled
 * Add mass expand on posts and comments lists
@@ -23,7 +24,7 @@ Dotclear 2.5.0 - 201?-??-13
 * Add hidden optional attribute for pages
 * Adaptative compression rate for thumbnails generation
 * Add timestamp on admin information messages
-* Update to jQuery 1.8.2 and jQuery-UI 1.9 (custom)
+* Update to jQuery 1.8.3 and jQuery-UI 1.9.2 (custom)
 * Add default favicon.ico
 * Add default attributes settings for image,mp3,flv insertion
 * Various bug fixes
