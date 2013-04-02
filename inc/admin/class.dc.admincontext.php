@@ -11,6 +11,85 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+
+class dcProxy {
+	protected $object;
+	protected $attributes;
+	protected $methods;
+	protected $default;
+	protected $denyfirst;
+
+    /**
+     * valuesToArray - converts a list of strings to an array having these strings as keys.
+     * 
+     * @param mixed $val the list to convert.
+     * @access protected
+     * @return mixed Value The resulting array
+     */
+	protected function valuesToArray($val) {
+		$arr = array();
+		foreach ($val as $k) {
+			$arr[$k]=true;
+		}
+		return $arr;
+	}
+
+	protected function isAllowed ($name,$list) {
+		if ($this->denyfirst) {
+			return isset($list[$name]);
+		} else {
+			return !isset($list[$name]);
+		}
+	}
+
+	public function __construct($object,$rights,$default='',$denyfirst=true) {
+		$this->object = $object;
+		$this->attributes = array();
+		$this->methods = array();
+		$this->denyfirst = $denyfirst;
+		if (isset($rights['attr'])) {
+			$this->attributes = $this->valuesToArray($rights['attr']);
+		}
+		if (isset($rights['methods'])) {
+			$this->methods = $this->valuesToArray($rights['methods']);
+		}
+	}
+
+	public function __get($name) {
+		if ($this->isAllowed($name,$this->attributes)) {
+			return $this->object->$name;
+		} else {
+			return $this->default;
+		}
+	}
+
+	public function __call($name,$args) {
+		if ($this->isAllowed($name,$this->methods) &&
+			is_callable(array($this->object,$name))) {
+			return call_user_func_array(array($this->object,$name),$args);
+		} else {
+			return $this->default;
+		}
+
+	}
+}
+
+class dcArrayProxy extends dcProxy implements ArrayAccess {
+	public function offsetExists ($offset) {
+		return (isset($this->value[$offset]));
+	}
+	public function offsetGet ($offset) {
+		return new ProxyValue($this->object[$offset],$this->rights);
+	}
+	public function offsetSet ($offset ,$value ) {
+		// Do nothing, we are read only
+	}
+	public function offsetUnset ($offset) {
+		// Do nothing, we are read only
+	}
+}
+
+
 /**
 @ingroup DC_CORE
 @brief Template extension for admin context
@@ -296,14 +375,9 @@ class dcAdminContext extends Twig_Extension
 			$rs_blogs = $this->core->getBlogs(array('order'=>'LOWER(blog_name)','limit'=>20));
 			while ($rs_blogs->fetch()) {
 				$blogs[$rs_blogs->blog_id] = $rs_blogs->blog_name.' - '.$rs_blogs->blog_url;
-				$this->protected_globals['blogs'][$rs_blogs->blog_id] = array(
-					'id' 	=> $rs_blogs->blog_id,
-					'name' 	=> $rs_blogs->blog_name,
-					'desc' 	=> $rs_blogs->blog_desc,
-					'url' 	=> $rs_blogs->blog_url,
-					'creadt'	=> $rs_blogs->blog_creadt,
-					'upddt'	=> $rs_blogs->blog_upddt
-				);
+				$this->protected_globals['blogs'][$rs_blogs->blog_id] = 
+				new dcArrayProxy($rs_blogs, array(
+					'blog_id','blog_name','blog_desc','blog_url','blog_creadt','blog_upddt'));
 			}
 		}
 		
@@ -325,15 +399,9 @@ class dcAdminContext extends Twig_Extension
 	protected function getCurrentBlog()
 	{
 		$this->protected_globals['current_blog'] = $this->core->auth->blog_count ?
-			array(
-				'id' 	=> $this->core->blog->id,
-				'name' 	=> $this->core->blog->name,
-				'desc' 	=> $this->core->blog->desc,
-				'url' 	=> $this->core->blog->url,
-				'host' 	=> $this->core->blog->host,
-				'creadt'	=> $this->core->blog->creadt,
-				'upddt'	=> $this->core->blog->upddt
-			) : array(
+			new dcProxy($this->core->blog,array(
+				'id','name','desc','url','host','creadt','upddt'
+			)) : array(
 				'id' 	=> '',
 				'name' 	=> '',
 				'desc' 	=> '',
