@@ -1,6 +1,7 @@
 {% block entrieslist -%}
 {% set lenv = _context['list_' ~ listname] %}
 {% if lenv.entries %}
+<p>Pages:</p>
 {% form listname -%}
 {% spaceless %}
 <table class="maximal clear">

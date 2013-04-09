@@ -888,10 +888,9 @@ class dcBlog
 			} else {
 				$strReq .= 'ORDER BY post_dt DESC ';
 			}
-		}
-		
-		if (!$count_only && !empty($params['limit'])) {
-			$strReq .= $this->con->limit($params['limit']);
+			if (!empty($params['limit'])) {
+				$strReq .= $this->con->limit($params['limit']);
+			}
 		}
 		
 		if (!empty($params['sql_only'])) {

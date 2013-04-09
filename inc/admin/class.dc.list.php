@@ -15,7 +15,11 @@ class dcItemList extends dcForm {
 	protected $columns;
 	protected $entries;
 	protected $filterset;
+	protected $fetcher;
 	protected $selection;
+	protected $current_page;
+	protected $nb_items;
+	protected $nb_items_per_page;
 
 
 	public static function __init__($env) {
@@ -45,20 +49,22 @@ class dcItemList extends dcForm {
 	@param	core		<b>dcCore</b>		Dotclear core reference
 	@param	form_prefix	<b>string</b>		form prefix to use for parameters
 	*/
-	public function __construct($core,$name,$action,$form_prefix="f_") {
+	public function __construct($core,$name,$filterset,$fetcher,$action,$form_prefix="f_") {
 		parent::__construct($core,$name,$action,'POST');
 		$this->entries = array();
 		$this->columns = array();
 		$this->selection = new dcFieldCheckbox('entries',NULL,array('multiple' => true));
 		$this->addField($this->selection);
+		$this->filterset = $filterset;
+		$this->fetcher = $fetcher;
 	}
 
 	public function setup() {
-		parent::setup();
 		$this
 			->addField(new dcFieldCombo('action',$this->actions_combo, '', array(
 				'label' => __('Selected entries action:'))))
-			->addField(new dcFieldSubmit('ok',__('ok'), array()));
+			->addField(new dcFieldSubmit('ok',__('ok'), array()))
+			->addField(new dcFieldHidden('page','1'));
 		$columns_combo = array();
 		foreach ($this->columns as $c) {
 			$columns_combo[$c->getID()] = $c->getName();
@@ -72,9 +78,27 @@ class dcItemList extends dcForm {
 			'order',
 			__('Order'), 
 			__('Order'), 'orderby', $order_combo,array('singleval'=> true, 'static' => true)));
-		$this->filterset->addFilter(new dcFilterText(
+		$limit = new dcFilterText(
 			'limit',
-			__('Limit'), __('Limit'), 'limit',array('singleval'=> true,'static' =>true)));
+			__('Limit'), __('Limit'), 'limit',array('singleval'=> true,'static' =>true));
+		$this->filterset->addFilter($limit);
+		$this->filterset->setup();
+		parent::setup();
+		$this->nb_items_per_page = $limit->getFields()->getValue();
+		$this->fetchEntries();
+
+	}
+
+	protected function fetchEntries() {
+		$params = new ArrayObject();
+		$offset = $this->nb_items_per_page*($this->page->getValue()-1);
+		$this->filterset->applyFilters($params);
+		$this->nb_items = $this->fetcher->getEntriesCount($params);
+		$entries = $this->fetcher->getEntries($params,$offset,$this->nb_items_per_page);
+		$this->setEntries($entries);
+		/*echo "LIMIT:".$this->nb_items_per_page;
+		echo 'count :'.print_r($this->nb_items,true);
+		echo 'page'.$this->page;*/
 	}
 
 	public function setEntries($entries) {
@@ -103,46 +127,6 @@ class dcItemList extends dcForm {
 
 	public function setFilterSet($fs) {
 		$this->filterset = $fs;
-	}
-
-}
-
-class dcFilterCheckbox extends dcFilter {
-
-	public function __construct($id,$name,$desc) {
-		parent::__construct($id,$name,$desc,$request_param);
-	}
-
-
-
-	public function appendSingleLine($line,$pos) {
-		$f = $this->fields[$pos];
-		$line['ffield'] = $f->getName();
-		if ($this->static) {
-			$line['display_inline'] = true;
-		}
-
-		if ($pos == 0) {
-			$line['fwidget']='filter_checkbox';
-			$line['desc']=$this->desc;
-		};
-	}
-
-	public function addValue($value=NULL) {
-		if (count($this->fields)>0)
-			return;
-		if ($value === NULL) {
-			$value = 1;
-		}
-		$f = new dcFieldCheckbox(
-			$this->getFieldID($pos),
-			$value,
-			array());
-		$this->filterset->addField($f);
-		$this->fields[]=$f;
-	}
-
-	public function applyFilter($params) {
 	}
 
 }
@@ -185,6 +169,15 @@ class dcColumn {
 
 }
 
+abstract class dcListFetcher {
+	protected $core;
+	public function __construct($core) {
+		$this->core = $core;
+	}
+
+	abstract function getEntries($params,$offset,$limit);
+	abstract function getEntriesCount($params);
+}
 
 dcItemList::__init__($GLOBALS['core']->tpl);
 

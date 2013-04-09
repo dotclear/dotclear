@@ -134,6 +134,20 @@ class monthdcFilterCombo extends dcFilterCombo {
 		$params['post_year'] = substr($month,0,4);
 	}
 }
+
+class PostsFetcher extends dcListFetcher {
+
+	public function getEntries($params,$offset,$limit) {
+		$params['limit'] = array($offset,$limit);
+		return $this->core->blog->getPosts($params);
+	}
+
+	public function getEntriesCount($params) {
+		$count = $this->core->blog->getPosts($params,true);
+		return $count->f(0);
+	}
+}
+
 /* DISPLAY
 -------------------------------------------------------- */
 $filterSet = new dcFilterSet($core,'fposts','posts.php');
@@ -156,11 +170,9 @@ $filterSet
 		'search',__('Contains'),__('The entry contains'), 'search',20,255));
 
 
-
-$lposts = new dcItemList ($core,array('lposts','form-entries'),'posts_actions.php');
+$lfetcher = new PostsFetcher($core);
+$lposts = new dcItemList ($core,array('lposts','form-entries'),$filterSet,$lfetcher,'posts_actions.php');
 $lposts->addTemplate('posts_cols.html.twig');
-
-$lposts->setFilterSet($filterSet);
 
 $lposts
 	->addColumn(new dcColumn('title',__('Title'),'post_title'))
@@ -172,15 +184,10 @@ $lposts
 
 
 $lposts->setup();
-$filterSet->setup();
 
 $_ctx
 	->fillPageTitle(__('Entries'),'posts.php');
-$params=new ArrayObject();
-$filterSet->applyFilters($params);
-$posts = $core->blog->getPosts($params);
-$lposts->setEntries($posts);
-$_ctx->filters = '['.print_r($params->getArrayCopy(),true).']';
+
 
 $core->tpl->display('posts.html.twig');
 

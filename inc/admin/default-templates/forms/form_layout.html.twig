@@ -125,3 +125,11 @@
 {% endspaceless %}
 {% endblock endlabel %}
 
+{%- block beginform -%}
+<form {% if class is not empty -%} class="{{class|join(' ')}}" {%- endif %} {% if id is not empty -%} id="{{id}}" {%- endif %}
+ method="{{method}}" action="{{action}}">
+{%- endblock beginform -%}
+
+{% block endform -%}
+</form>
+{%- endblock endform %}
