@@ -19,9 +19,9 @@ if (!defined('DC_RC_PATH')) { return; }
 */
 class dcFormNode extends Twig_Node
 {
-	public function __construct($name,Twig_NodeInterface $body,$lineno,$tag=null)
+	public function __construct($name,Twig_NodeInterface $body,$attr,$lineno,$tag=null)
 	{
-		parent::__construct(array('body' => $body),array('name' => $name),$lineno,$tag);
+		parent::__construct(array('body' => $body),array('name' => $name, 'attr' => $attr),$lineno,$tag);
 	}
 	
 	/**
@@ -35,7 +35,13 @@ class dcFormNode extends Twig_Node
 			->addDebugInfo($this);
 		$compiler
 			->write("\$context['dc_form']->beginForm(")
-			->subcompile($this->getAttribute('name'))
+			->subcompile($this->getAttribute('name'));
+		if ($this->getAttribute('attr') !== null) {
+			$compiler
+				->write(',')
+				->subcompile($this->getAttribute('attr'));
+		}
+		$compiler
 			->write(");\n");
 		$compiler
 			->subcompile($this->getNode('body'))
@@ -55,11 +61,16 @@ class dcFormTokenParser extends Twig_TokenParser
 		$lineno = $token->getLine();
 		$stream = $this->parser->getStream();
 		$name = $this->parser->getExpressionParser()->parseExpression();
+		$attr = null;
+		if ($stream->test(Twig_Token::NAME_TYPE, 'with')) {
+			$stream->next();
+			$attr = $this->parser->getExpressionParser()->parseExpression();
+		}
 		$stream->expect(Twig_Token::BLOCK_END_TYPE);
 		$body = $this->parser->subparse(array($this,'decideBlockEnd'),true);
 		$stream->expect(Twig_Token::BLOCK_END_TYPE);
 		
-		return new dcFormNode($name,$body,$token->getLine(),$this->getTag());
+		return new dcFormNode($name,$body,$attr,$token->getLine(),$this->getTag());
 	}
 	
 	public function decideBlockEnd(Twig_Token $token)
@@ -218,11 +229,11 @@ class dcFormExtension extends Twig_Extension
 		$this->forms[$form->getName()] = $form;
 	}
 
-	public function beginForm($name)
+	public function beginForm($name,$attr=array())
 	{
 		if (isset($this->forms[$name])) {
 			$this->currentForm = $this->forms[$name];
-			$this->currentForm->begin();
+			$this->currentForm->begin($attr);
 		}
 		else {
 			throw new Twig_Error_Runtime(sprintf(
@@ -380,14 +391,16 @@ class dcForm
 			$this->fields[$newname] = $field;
 		}
 	}
-	public function begin()
+	public function begin($attr=array())
 	{
-		echo sprintf(
-			'<form%s method="%s" action="%s">',
-			empty($this->id) ? '' : ' id="'.$this->id.'"',
-			$this->method,
-			$this->action
-		);
+		$attr['method'] = $this->method;
+		$attr['action'] = $this->action;
+		if (!empty($this->id)) {
+			$attr['id'] = $this->id;
+		}
+		$this->core->tpl->getExtension('dc_form')->renderWidget(
+			'beginform',
+			$attr);
 	}
 	
 	public function end()

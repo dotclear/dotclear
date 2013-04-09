@@ -68,6 +68,7 @@ $__autoload['dcForm']			= dirname(__FILE__).'/admin/class.dc.form.php';
 $__autoload['dcFormExtension']			= dirname(__FILE__).'/admin/class.dc.form.php';
 $__autoload['dcTabExtension']			= dirname(__FILE__).'/admin/class.dc.tab.php';
 $__autoload['dcItemList']			= dirname(__FILE__).'/admin/class.dc.list.php';
+$__autoload['dcListFetcher']			= dirname(__FILE__).'/admin/class.dc.list.php';
 
 foreach (array('dcFilterSet', 'dcFilter','dcFilterCombo','dcFilterText','dcFilterBoolean') as $c) {
 	$__autoload[$c] = dirname(__FILE__).'/admin/class.dc.filter.php';

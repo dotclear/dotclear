@@ -19,7 +19,7 @@ class dcFilterSet extends dcForm {
 	protected $all_filters;
 	protected $form_prefix;		/// <b>string</b> displayed form prefix
 	protected $action; 			/// <b>string</b> form action page
-	protected $hideform;		/// <b>boolean</b> start form display hidden by default or not
+	protected $hide_filterset;		/// <b>boolean</b> start form display hidden by default or not
 	protected $name;			/// <b>string</b> filterset name
 	protected $core;
 
@@ -114,7 +114,7 @@ class dcFilterSet extends dcForm {
 				}
 			}
 		}
-
+		$this->hide_filterset = true;
 		if ($action !== false) {
 			// Use case (1)
 			if ($action != 'clear_filters' && $action != 'reset')  {
@@ -125,11 +125,13 @@ class dcFilterSet extends dcForm {
 						&& isset($this->filters[$_POST[$fname]])) {
 					$this->filters[$_POST[$fname]]->add();
 					}
+					$this->hide_filterset = false;
 				} elseif (strpos($action,'del_') === 0) {
 					$count = preg_match('#del_(.+)_([0-9]+)#',$action,$match);
 					if (($count == 1) && isset($this->filters[$match[1]])) {
 						$this->filters[$match[1]]->remove($match[2]);
 					}
+					$this->hide_filterset = false;
 				} elseif ($action=="apply") {
 					$data = $this->saveFilters();
 					$query = http_build_query($data,'','&');
@@ -152,7 +154,7 @@ class dcFilterSet extends dcForm {
 					}
 				}
 			}
-			$this->hideform=false;
+			
 		} else {
 			// Use case (2)
 			$load_from_settings = true;
@@ -180,6 +182,10 @@ class dcFilterSet extends dcForm {
 			new dcFieldHidden($this->form_prefix.'query',
 				http_build_query($queryParams)));
 		$this->core->tpl->addGlobal('filterset_'.$this->name,$this->getContext());
+	}
+
+	public function getURLParams() {
+		return $this->getAppliedFilters();
 	}
 
 	/**
@@ -213,7 +219,6 @@ class dcFilterSet extends dcForm {
 	@param	form_data	<b>array</b>	form values (usually $_GET or $_POST)
 	*/
 	protected function setupEditFilters ($filters,$form_data) {
-		$this->hideform = true;
 		foreach ($filters as $filter) {
 			$filter->setupFields ($form_data);
 		}
@@ -275,7 +280,8 @@ class dcFilterSet extends dcForm {
 		return array(
 			'active_filters' => $fcontext, 
 			'static_filters' => $sfcontext,
-			'prefix'=>$this->form_prefix);
+			'hide_filters'	 => $this->hide_filterset,
+			'prefix'		 => $this->form_prefix);
 	}
 
 	protected function getAppliedFilters() {
@@ -477,6 +483,10 @@ abstract class dcFilter  {
 
 	public function header() {
 		return '';
+	}
+
+	public function getFields() {
+		return $this->field;
 	}
 
 }

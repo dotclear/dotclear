@@ -1,23 +1,23 @@
 {# Form filter default layout #}
 
 
-{% block filterset %}
+{% block filterset -%}
 <p>
 	<a href="#" id="toggle-filters">{{ __('Toggle filters and display options') }} </a>
 </p>
 <div class="two-cols">
-{% form filtersetname %}
-	{% set fenv = _context['filterset_' ~ filtersetname] %}
+{% set fenv = _context['filterset_' ~ filtersetname] %}
+{% form filtersetname with {'class':fenv.hide_filters?'hidden':'opened' } -%}
 	<div class="col70">
 		<h3>{{__('Entries filters')}}</h3>
 		<table summary="{{__('Query filters')}}" id="tfilters">
 		<tbody>
-			{% for f in fenv.active_filters %}
+			{%- for f in fenv.active_filters -%}
 				<tr class="{{f.id}}">
 					<td>{{form_field(f.del_id)}}</td>
 					{{block(f.fwidget)}}
 				</tr>
-			{% endfor %}
+			{%- endfor -%}
 		</tbody>
 		</table>
 		<h3 class="margintop">{{ __('Add a filter') }}</h3>
@@ -30,17 +30,17 @@
 		</p>
 	</div>
 	<div class="col30">
-		{% for f in fenv.static_filters %}
+		{%- for f in fenv.static_filters -%}
 			{{block(f.fwidget)}}
-		{% endfor %}
+		{%- endfor -%}
 	</div>
 	<p class="clear margintop"></p>
-{% endform %}
+{%- endform -%}
 </div>
-{% endblock %}
+{%- endblock %}
 
 
-{% block filterenabled %}
+{% block filterenabled -%}
 	<tr class="{{ id }}">';
 		<td>
 			<input id="{{ del_id }}" class="delete" type="submit" title="{{__('Delete the following filter : ') }}"
@@ -48,46 +48,46 @@
 		</td>
 		{{ block(filter) }}
 	</tr>
-{% endblock %}
+{%- endblock %}
 
 
-{% block filter_combo %}
+{% block filter_combo -%}
 	{% if f.display_inline is defined -%}
 		<p id='{{f.filter_id}}'>{{form_field(f.ffield,{},{'label':f.desc,'nestedlabel': true, 'labelclass':'classic' })}}</p>
 	{%- else -%}
 		<td id='{{f.filter_id}}' title='{{f.desc}}' class="filter-title" colspan="2">{{f.desc}} : </td>
 		<td >{{ form_field(f.ffield) }}</td>
 	{%- endif %}
-{% endblock %}
+{%- endblock %}
 
-{% block filter_combo_cont %}
+{% block filter_combo_cont -%}
 	{% if f.display_inline is defined -%}
 		<p id='{{filter_id}}'>{{form_field(f.ffield,{'label':__('or :')})}}</p>
 	{%- else -%}
 		<td id='{{filter_id}}' colspan="2">{{ __('or :') }} </td><td>{{ form_field(f.ffield) }}</td>
 	{%- endif %}
-{% endblock %}
+{%- endblock %}
 
 
-{% block filter_richcombo %}
+{% block filter_richcombo -%}
 	<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title">{{f.desc}} : </td>
 	<td>{{ form_field(f.fverb)}}</td>
 	<td>{{ form_field(f.ffield) }}</td>
-{% endblock %}
+{%- endblock %}
 
 
-{% block filter_boolean %}
+{% block filter_boolean -%}
 	<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title" colspan="2">{{f.desc}}</td>
 	<td>{{ form_field(f.ffield) }}</td>
-{% endblock %}
+{%- endblock %}
 
-{% block filter_text %}
+{% block filter_text -%}
 	{% if f.display_inline is defined -%}
 		<p id='{{filter_id}}'>{{form_field(f.ffield,{},{'label':f.desc,'nestedlabel': true, 'labelclass':'classic' })}}</p>
 	{%- else -%}
 		<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title" colspan="2">{{f.desc}}</td>
 		<td>{{ form_field(f.ffield) }}</td>
-	{% endif %}
-{% endblock %}
+	{%- endif %}
+{%- endblock %}
 
 
