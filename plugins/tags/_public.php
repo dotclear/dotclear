@@ -55,8 +55,11 @@ class behaviorsTags
 		{
 			return
 			"<?php\n".
-			"@\$params['from'] .= ', '.\$core->prefix.'meta META ';\n".
-			"@\$params['sql'] .= 'AND META.post_id = P.post_id ';\n".
+			"if (!isset(\$params)) { \$params = array(); }\n".
+			"if (!isset(\$params['from'])) { \$params['from'] = ''; }\n".
+			"if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n".
+			"\$params['from'] .= ', '.\$core->prefix.'meta META ';\n".
+			"\$params['sql'] .= 'AND META.post_id = P.post_id ';\n".
 			"\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n".
 			"\$params['sql'] .= \"AND META.meta_id = '".$core->con->escape($attr['tag'])."' \";\n".
 			"?>\n";
@@ -65,8 +68,11 @@ class behaviorsTags
 		{
 			return
 			'<?php if ($_ctx->exists("meta") && ($_ctx->meta->meta_type == "tag")) { '.
-				"@\$params['from'] .= ', '.\$core->prefix.'meta META ';\n".
-				"@\$params['sql'] .= 'AND META.post_id = P.post_id ';\n".
+				"if (!isset(\$params)) { \$params = array(); }\n".
+				"if (!isset(\$params['from'])) { \$params['from'] = ''; }\n".
+				"if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n".
+				"\$params['from'] .= ', '.\$core->prefix.'meta META ';\n".
+				"\$params['sql'] .= 'AND META.post_id = P.post_id ';\n".
 				"\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n".
 				"\$params['sql'] .= \"AND META.meta_id = '\".\$core->con->escape(\$_ctx->meta->meta_id).\"' \";\n".
 			"} ?>\n";

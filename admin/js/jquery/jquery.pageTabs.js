@@ -71,11 +71,11 @@ jQuery._pageTabs.prototype = {
 
 		this.divs.each(function() {
 			if ((this.id != '' && this.id == index) || i == index) {
-				jQuery(this).show(0, positionFooter);
+				jQuery(this).show(0);
 				This.items[i].className = This.params.listClassName+'-active';
 				to_trigger = i;
 			} else {
-				jQuery(this).hide(0, positionFooter);
+				jQuery(this).hide(0);
 				This.items[i].className = '';
 			}
 

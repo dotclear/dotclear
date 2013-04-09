@@ -223,7 +223,7 @@ msgstr "Lösche alle Spams"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "Alle Spam-Kommentare, die älter als %s Tag(e) sind, werden automatisch gelöscht."
 
-msgid "You can modify this duration in "
+msgid "You can modify this duration in the %s"
 msgstr ""
 
 #, fuzzy

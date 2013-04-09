@@ -353,57 +353,14 @@ if ($step) {
 <html>
 <head>
 	<title><?php echo $page_title; ?></title>
-	<?php
-		echo
-			dcPage::jsToolMan().
-			# --BEHAVIOR-- adminPageHeaders
-			$core->callBehavior('adminPageHeaders');
-	?>
 	<?php 
-		$core->auth->user_prefs->addWorkspace('accessibility'); 
-		$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
-	?>
-	<?php if (!$user_dm_nodragdrop) : ?>
-	<script type="text/javascript">
-	//<![CDATA[
-
-	var dragsort = ToolMan.dragsort();
-	$(function() {
-		dragsort.makeTableSortable($("#menuitemslist").get(0),
-		dotclear.sortable.setHandle,dotclear.sortable.saveOrder);
-
-		$('.checkboxes-helpers').each(function() {
-			dotclear.checkboxesHelpers(this);
-		});
-	});
-
-	dotclear.sortable = {
-		setHandle: function(item) {
-			var handle = $(item).find('td.handle').get(0);
-			while (handle.firstChild) {
-				handle.removeChild(handle.firstChild);
-			}
-
-			item.toolManDragGroup.setHandle(handle);
-			handle.className = handle.className+' handler';
-		},
-
-		saveOrder: function(item) {
-			var group = item.toolManDragGroup;
-			var order = document.getElementById('im_order');
-			group.register('dragend', function() {
-				order.value = '';
-				items = item.parentNode.getElementsByTagName('tr');
-
-				for (var i=0; i<items.length; i++) {
-					order.value += items[i].id.substr(2)+',';
-				}
-			});
+		$core->auth->user_prefs->addWorkspace('accessibility');
+		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+			echo
+				dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+				dcPage::jsLoad('index.php?pf=simpleMenu/simplemenu.js');
 		}
-	};
-	//]]>
-	</script>
-	<?php endif; ?>
+	?>
 </head>
 
 <body>

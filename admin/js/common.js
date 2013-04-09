@@ -83,11 +83,11 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 		if (p.hide) {
 			$(i).get(0).src = p.img_on_src;
 			$(i).get(0).alt = p.img_on_alt;
-			target.hide(speed, positionFooter);
+			target.hide(speed);
 		} else {
 			$(i).get(0).src = p.img_off_src;
 			$(i).get(0).alt = p.img_off_alt;
-			target.show(speed, positionFooter);
+			target.show(speed);
 			if (p.fn) {
 				p.fn.apply(target);
 				p.fn = false;
@@ -121,7 +121,7 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 
 		$(ctarget).css('cursor','pointer');
 		$(ctarget).click(function() {
-			toggle(i,p.speed, positionFooter);
+			toggle(i,p.speed);
 			return false;
 		});
 
@@ -315,12 +315,6 @@ var dotclear = {
 	}
 };
 
-/* Sticky footer
--------------------------------------------------------- */
-function positionFooter() {
-	$('#footer').constantfooter();
-}
-
 /* On document ready
 -------------------------------------------------------- */
 $(function() {
@@ -364,9 +358,5 @@ $(function() {
 		}
 		return true;
 	});
-
-	// Sticky footer
-	positionFooter();
-	$(window).resize(positionFooter);
 });
 
