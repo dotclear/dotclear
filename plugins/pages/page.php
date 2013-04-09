@@ -430,7 +430,7 @@ if ($can_edit_page)
 		$core->auth->userID().'/'.
 		http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
 		'/'.$post->post_url);
-		echo '<a id="post-preview" href="'.$preview_url.'" class="button">'.__('Preview').'</a>';
+		echo '<a id="post-preview" href="'.$preview_url.'" class="button" accesskey="p">'.__('Preview').' (p)'.'</a>';
 	}
 	
 	echo

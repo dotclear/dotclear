@@ -222,7 +222,7 @@ msgstr ""
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr ""
 
-msgid "You can modify this duration in "
+msgid "You can modify this duration in the %s"
 msgstr ""
 
 #, fuzzy

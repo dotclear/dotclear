@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */			"Blogroll",
 	/* Description*/		"Manage your blogroll",
 	/* Author */			"Olivier Meunier",
-	/* Version */			'1.3',
+	/* Version */			'1.3.1',
 	array(
 		'permissions' =>	'blogroll'
 	)

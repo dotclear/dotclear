@@ -83,7 +83,7 @@ $(function() {
 					}
 				},
 				fileQueued: function() {
-					positionFooter();
+					;
 				}
 			}
 		});

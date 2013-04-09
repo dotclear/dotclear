@@ -242,9 +242,9 @@ class dcThemeEditor
 		$langs = l10n::getISOcodes(1,1);
 		foreach ($langs as $k => $v) {
 			if ($this->parent_theme) {
-				$this->po = array_merge($this->po,$this->getFilesInDir($this->parent_theme.'/locales/'.$v,'po',$v.'/','main.po'));
+				$this->po = array_merge($this->po,$this->getFilesInDir($this->parent_theme.'/locales/'.$v,'po',$v.'/'));
 			}
-			$this->po = array_merge($this->po,$this->getFilesInDir($this->user_theme.'/locales/'.$v,'po',$v.'/','main.po'));
+			$this->po = array_merge($this->po,$this->getFilesInDir($this->user_theme.'/locales/'.$v,'po',$v.'/'));
 		}
 	}
 	
