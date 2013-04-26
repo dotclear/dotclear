@@ -20,6 +20,8 @@ class dcItemList extends dcForm {
 	protected $current_page;
 	protected $nb_items;
 	protected $nb_items_per_page;
+	protected $nb_pages;
+	protected $page;
 
 
 	public static function __init__($env) {
@@ -61,10 +63,9 @@ class dcItemList extends dcForm {
 
 	public function setup() {
 		$this
-			->addField(new dcFieldCombo('action',$this->actions_combo, '', array(
+			->addField(new dcFieldCombo('action','',array(), array(
 				'label' => __('Selected entries action:'))))
-			->addField(new dcFieldSubmit('ok',__('ok'), array()))
-			->addField(new dcFieldHidden('page','1'));
+			->addField(new dcFieldSubmit('ok',__('ok'), array()));
 		$columns_combo = array();
 		foreach ($this->columns as $c) {
 			$columns_combo[$c->getID()] = $c->getName();
@@ -85,20 +86,29 @@ class dcItemList extends dcForm {
 		$this->filterset->setup();
 		parent::setup();
 		$this->nb_items_per_page = $limit->getFields()->getValue();
+		if ($this->nb_items_per_page == 0)
+			$this->nb_items_per_page = 10;
 		$this->fetchEntries();
 
 	}
 
 	protected function fetchEntries() {
 		$params = new ArrayObject();
-		$offset = $this->nb_items_per_page*($this->page->getValue()-1);
 		$this->filterset->applyFilters($params);
 		$this->nb_items = $this->fetcher->getEntriesCount($params);
+		$this->nb_pages = round($this->nb_items / $this->nb_items_per_page) + 1;
+		if (isset($_GET['page'])) {
+			$this->page = (int)$_GET['page'];
+		} else {
+			$this->page = 1;
+		}
+		if ($this->page > $this->nb_pages) {
+			$this->page = $this->nb_pages;
+		}
+		$offset = $this->nb_items_per_page*($this->page-1);
 		$entries = $this->fetcher->getEntries($params,$offset,$this->nb_items_per_page);
 		$this->setEntries($entries);
-		/*echo "LIMIT:".$this->nb_items_per_page;
-		echo 'count :'.print_r($this->nb_items,true);
-		echo 'page'.$this->page;*/
+
 	}
 
 	public function setEntries($entries) {
@@ -114,9 +124,30 @@ class dcItemList extends dcForm {
 		foreach ($this->columns as $c) {
 			$c->appendEditLines($ccontext);
 		}
+		$page = $this->page;
+		$nb_pages = $this->nb_pages;
+		$nb_pages_around = 2;
+		$pages = array(1);
+		if ($page>$nb_pages_around+2) {
+			$pages[]='...';
+		}
+		for ($p=max(2,$page-$nb_pages_around); 
+			$p<=min($page+$nb_pages_around,$nb_pages-1); $p++) {
+			$pages[]=$p;
+		}
+		if ($page<$nb_pages-$nb_pages_around-1) {
+			$pages[]='...';
+		}
+		$pages[] = $nb_pages;
+
+
 		return array(
+			'url' => array('',$this->filterset->getURLParams()),
 			'cols' => $ccontext,
-			'entries' => $this->entries);
+			'entries' => $this->entries,
+			'nb_entries' => $this->nb_items,
+			'page' => $page,
+			'pages_links' => $pages);
 	}
 
 	public function addColumn($c) {

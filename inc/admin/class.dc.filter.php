@@ -13,18 +13,46 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 
+/**
+* dcFilterSet -- filter handling object
+*
+* @uses     dcForm
+*
+*/
 class dcFilterSet extends dcForm {
-	protected $filters;		/// <b>array</b> lists of currently applied filters
+	/** @var array list of variable filters */
+	protected $filters;
+	/** @var array list of static filters */
 	protected $static_filters;
+	/** @var array list of all filters (union of the 2 previous props) */
 	protected $all_filters;
-	protected $form_prefix;		/// <b>string</b> displayed form prefix
-	protected $action; 			/// <b>string</b> form action page
-	protected $hide_filterset;		/// <b>boolean</b> start form display hidden by default or not
-	protected $name;			/// <b>string</b> filterset name
+	/** @var string prefix to be used for all fields */
+	protected $form_prefix;
+	/** @var string action to perform upon form submission */
+	protected $action;
+	/** @var boolean start form display hidden by default or not */
+	protected $hide_filterset;
+	/** @var string filterset name */
+	protected $name;
+	/** @var dcCore dotclear core object */
 	protected $core;
 
+    /**
+     * __init__ - class static initialiser (called at the very bottom of this
+     * 				page)
+     *
+     * @param mixed $env the twig environment.
+     *
+     * @access public
+     * @static
+     *
+     */
 	public static function __init__($env) {
-		$env->getExtension('dc_form')->addTemplate('@forms/formfilter_layout.html.twig');
+		// filterset widgets are defined in a separate file
+		$env->getExtension('dc_form')->addTemplate(
+			'@forms/formfilter_layout.html.twig'
+		);
+
 		$env->addFunction(
 			new Twig_SimpleFunction(
 				'filterset',
@@ -35,22 +63,20 @@ class dcFilterSet extends dcForm {
 					'needs_environment' => true
 		)));
 	}
-	
-	public static function renderFilterSet($env,$context,$name,$attributes=array())
-	{
-		$context['filtersetname']=$name;
-		echo $env->getExtension('dc_form')->renderWidget(
-			'filterset',
-			$context
-		);
-	}
-	/**
-	Inits dcFilterSet object
-	
-	@param	core		<b>dcCore</b>		Dotclear core reference
-	@param	form_prefix	<b>string</b>		form prefix to use for parameters
-	*/
-	public function __construct($core,$name,$action,$form_prefix="f_") {
+
+    /**
+     * __construct -- constructor
+     *
+     * @param dcCore  $core       dotclear core instance.
+     * @param string  $name       filterset name.
+     * @param string  $action     form action.
+     * @param string $form_prefix form prefix.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
+	public function __construct($core,$name,$action,$form_prefix="f_"){
 		$this->form_prefix=$form_prefix;
 		$this->filters = new ArrayObject();
 		$this->static_filters = new ArrayObject();
@@ -61,6 +87,37 @@ class dcFilterSet extends dcForm {
 		$this->id = "filters";
 	}
 
+
+    /**
+     * renderFilterSet -- binding to twig function "filterset"
+     * 						renders a filterset given its name & context
+     * @param mixed $env        Twig environment (passed by Twig template).
+     * @param mixed $context    Context (passed by Twig template).
+     * @param mixed $name       filterset name.
+     * @param array $attributes filterset attributes.
+     *
+     * @access public
+     * @static
+     *
+     * @return mixed Value.
+     */
+	public static function renderFilterSet($env,$context,$name,
+										   $attributes=array())	{
+		$context['filtersetname']=$name;
+		echo $env->getExtension('dc_form')->renderWidget(
+			'filterset',
+			$context
+		);
+	}
+
+
+    /**
+     * setup - sets up the form filter from http context
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function setup() {
 		$form_combo = array();
 		$form_combo['-'] = '';
@@ -73,37 +130,42 @@ class dcFilterSet extends dcForm {
 		$p = $this->form_prefix;
 		$this
 			->addField (
-				new dcFieldCombo ($p.'add_filter','',$form_combo,array(
-				)))
+				new dcFieldCombo ($p.'add_filter','',$form_combo,
+					array()))
 			->addField (
-				new  dcFieldSubmit($p.'add',__('Add this filter'),array(
-				)))
+				new  dcFieldSubmit($p.'add',__('Add this filter'),
+					array()))
 			->addField (
-				new dcFieldSubmit($p.'clear_filters',__('Delete all filters'),array(
-				)))
+				new dcFieldSubmit($p.'clear_filters',__('Delete all filters'),
+					array()))
 			->addField (
-				new dcFieldSubmit($p.'apply',__('Apply filters and display options'),array(
-				)))
+				new dcFieldSubmit($p.'apply',
+					__('Apply filters and display options'),
+					array()))
 			->addField (
-				new dcFieldSubmit($p.'reset',__('Reset'),array(
-				)))
+				new dcFieldSubmit($p.'reset',__('Reset'),
+					array()))
 		;
 		$this->setupFields();
-		/* Use cases :
+		/*  Since we have specific handling for actions
+		    (for instance "del_*" fields), we do not take advantage of
+		    submitfields features, actions are performed manually here.
+
+			Use cases :
 			(1) $_POST not empty for formfilter fields :
-				* efilters are set from $_POST
-				* lfilters are set from $_GET
+				* filters are set from $_POST
+				* applied filters values are set from $_GET
 				* keep filters div shown
 			(2) $_POST empty :
-				* both efilters and lfilters are set from $_GET
+				* both filters fields & applied values are set from $_GET
 				* hide filter div
 		*/
 		$action = false;
 		//$allowed_actions = array('clear_filters','add','del_.*','apply','reset');
 		$allowed_actions = '#^(clear_filters|add|del_.*|apply|reset)$#';
+
 		// Fetch each $_POST parameter to see whether filters are concerned.
 		// Only 1 action at a time is allowed.
-
 		foreach ($_POST as $k => $v) {
 			if (strpos($k,$this->form_prefix)===0) {
 				$tmp = substr($k,strlen($this->form_prefix));
@@ -118,21 +180,27 @@ class dcFilterSet extends dcForm {
 		if ($action !== false) {
 			// Use case (1)
 			if ($action != 'clear_filters' && $action != 'reset')  {
+				// initialize fields from $_POST
 				$this->setupEditFilters($this->all_filters,$_POST);
 				if ($action == 'add'){
+					// Add a new filter
 					$fname = $p.'add_filter';
 					if (isset($_POST[$fname])
 						&& isset($this->filters[$_POST[$fname]])) {
-					$this->filters[$_POST[$fname]]->add();
+						$this->filters[$_POST[$fname]]->add();
 					}
 					$this->hide_filterset = false;
 				} elseif (strpos($action,'del_') === 0) {
+					// Remove a filter
 					$count = preg_match('#del_(.+)_([0-9]+)#',$action,$match);
 					if (($count == 1) && isset($this->filters[$match[1]])) {
 						$this->filters[$match[1]]->remove($match[2]);
 					}
 					$this->hide_filterset = false;
 				} elseif ($action=="apply") {
+					// Apply all filters
+					// ==> store filter to preferences and redirect to
+					//     page with filter as $_GET attributes
 					$data = $this->saveFilters();
 					$query = http_build_query($data,'','&');
 					if ($query != '') {
@@ -142,10 +210,13 @@ class dcFilterSet extends dcForm {
 					exit;
 				}
 			}
+			// Form as been submitted with POST method, retrieve
+			// applied filter values from "query" field
 			if (isset($_POST[$p."query"])) {
 				parse_str($_POST[$p."query"],$out);
-				$this->setupAppliedFilters($this->all_filters,$out);
+				$this->setupAppliedValues($this->all_filters,$out);
 				if ($action == 'reset') {
+					// RESET action => set fields from query field
 					$this->setupEditFilters($this->all_filters,$out);
 				} elseif ($action == 'clear_filters') {
 					$this->setupEditFilters($this->static_filters,$out);
@@ -154,9 +225,9 @@ class dcFilterSet extends dcForm {
 					}
 				}
 			}
-			
 		} else {
-			// Use case (2)
+			// Use case (2) : GET method; set both filters and applied values
+			// from GET args or from settings if no GET args.
 			$load_from_settings = true;
 			foreach($_GET as $k=>$v) {
 				if (strpos($k,$this->form_prefix)===0) {
@@ -166,77 +237,103 @@ class dcFilterSet extends dcForm {
 			}
 			$get = $_GET;
 			if ($load_from_settings) {
-				$get = new ArrayObject(array_merge($this->loadFilters(),$get));
+				$get = array_merge($this->loadFilters(),$get);
 			}
 			$this->setupEditFilters($this->all_filters,$get);
 
-			$this->setupAppliedFilters($this->all_filters,$get);
+			$this->setupAppliedValues($this->all_filters,$get);
 		}
 		foreach ($this->static_filters as $f) {
 			if (!$f->isEnabled()) {
 				$f->add();
 			}
 		}
-		$queryParams = $this->getAppliedFilters();
+		$queryParams = $this->getAppliedFilterValues();
 		$this->addField(
 			new dcFieldHidden($this->form_prefix.'query',
 				http_build_query($queryParams)));
-		$this->core->tpl->addGlobal('filterset_'.$this->name,$this->getContext());
+		// form context is set through a global twig variable
+		$this->core->tpl->addGlobal(
+			'filterset_'.$this->name,
+			$this->getContext());
 	}
 
 	public function getURLParams() {
-		return $this->getAppliedFilters();
+		return $this->getAppliedFilterValues()->getArrayCopy();
 	}
 
-	/**
-	Saves user filters to preferences
-	*/
+    /**
+     * saveFilters - save user defined filters into preferences
+     *
+     * @access protected
+     */
 	protected function saveFilters() {
 		$ser = array();
 		$ws = $GLOBALS['core']->auth->user_prefs->addWorkspace('filters');
-		$data = new ArrayObject();
 		$data= $this->serialize();
 		$ws->put($this->name,serialize($data->getArrayCopy()),'string');
 		return $data;
 	}
 
-	/**
-	Loads user filters from preferences
-	*/
+    /**
+     * loadFilters - load user filters from preferences
+     *
+     * @access protected
+     *
+     * @return mixed Value.
+     */
 	protected function loadFilters() {
 		$ws = $GLOBALS['core']->auth->user_prefs->addWorkspace('filters');
-		$data = (!is_null($ws->{$this->name})) ? unserialize($ws->{$this->name}) : array();
+		$data = (!is_null($ws->{$this->name}))
+			? unserialize($ws->{$this->name})
+			: array();
 		if (is_array($data))
 			return $data;
 		else
 			return array();
 	}
 
-	/**
-	Updates filters values according to form_data
-	To be called before any call to display() or getForm()
-	
-	@param	form_data	<b>array</b>	form values (usually $_GET or $_POST)
-	*/
+    /**
+     * setupEditFilters - Updates filters fields according to form_data
+     * 					To be called before any call to display() or getForm()
+     *
+     * @param array $filters   list of filters to update
+     * @param array $form_data form values (usually $_GET or $_POST)
+     *
+     * @access protected
+     *
+     * @return mixed Value.
+     */
 	protected function setupEditFilters ($filters,$form_data) {
 		foreach ($filters as $filter) {
 			$filter->setupFields ($form_data);
 		}
 	}
-	protected function setupAppliedFilters ($filters,$form_data) {
+
+    /**
+     * setupAppliedValues - Updates filters applied values according to
+     * 						form_data
+     *
+     * @param array $filters   list of filters to update
+     * @param array $form_data form values (usually $_GET or $_POST)
+     *
+     * @access protected
+     *
+     * @return mixed Value.
+     */
+	protected function setupAppliedValues ($filters,$form_data) {
 		foreach ($filters as $filter) {
-			$filter->setupAppliedFilter ($form_data);
+			$filter->setupAppliedValue ($form_data);
 		}
 	}
-	/**
-	Retrieves the filters values as parameters
-	
-	@param	filters	<b>array</b>	list of concerned filters
-	
-	@return	<b>array</b>	the array of parameters
 
-	*/
-
+    /**
+     * serialize - retrieves filter applied values in a serialized form
+     *
+     * @access protected
+     *
+     * @return ArrayObject serialized data.
+     */
 	protected function serialize() {
 		$arr = new ArrayObject();
 		foreach ($this->filters as $f) {
@@ -249,11 +346,16 @@ class dcFilterSet extends dcForm {
 		}
 		return $arr;
 	}
-	/**
-	Adds a new filter to list
-	
-	@param	filter		<b>dcFilter</b>		the filter to add
-	*/
+
+    /**
+     * addFilter - registers a new filter in filterset
+     *
+     * @param mixed \dcFilter the filter.
+     *
+     * @access public
+     *
+     * @return dcFilterSet the filterset (enabling to chain addFilter).
+     */
 	public function addFilter (dcFilter $filter) {
 		$filter->setFormPrefix($this->form_prefix);
 		$filter->setFilterSet($this);
@@ -266,25 +368,40 @@ class dcFilterSet extends dcForm {
 		return $this;
 	}
 
+    /**
+     * getContext - retrieves current filterset context
+     * 				(to be given to twig template)
+     *
+     * @access public
+     *
+     * @return array the context
+     */
 	public function getContext() {
 		$fcontext = new ArrayObject();
 		$sfcontext = new ArrayObject();
 		foreach ($this->filters as $f) {
 			if($f->isEnabled()) {
-				$f->appendEditLines($fcontext);
+				$f->appendFilterContext($fcontext);
 			}
 		}
 		foreach ($this->static_filters as $f) {
-			$f->appendEditLines ($sfcontext);
+			$f->appendFilterContext($sfcontext);
 		}
 		return array(
-			'active_filters' => $fcontext, 
+			'active_filters' => $fcontext,
 			'static_filters' => $sfcontext,
 			'hide_filters'	 => $this->hide_filterset,
 			'prefix'		 => $this->form_prefix);
 	}
 
-	protected function getAppliedFilters() {
+    /**
+     * getAppliedFilterValues - retrieves the list of applied filter values
+     *
+     * @access protected
+     *
+     * @return ArrayObject the list of applied values
+     */
+	protected function getAppliedFilterValues() {
 		$arr = new ArrayObject();
 		foreach ($this->all_filters as $f) {
 			if ($f->isApplied())
@@ -292,13 +409,16 @@ class dcFilterSet extends dcForm {
 		}
 		return $arr;
 	}
-	/**
-	Applies fieldset and return resulting parameters for request
-	
-	@param	method	<b>string</b>		form method to use (default: "get")
-	@param	method	<b>string</b>		form method to use (default: "get")
-	
-	*/
+
+    /**
+     * applyFilters -- applies filterset
+     *
+     * @param mixed $params the parameters to update.
+     *
+     * @access public
+     *
+     * @return mixed true if at least 1 filter has been applied, false otherwise
+     */
 	public function applyFilters($params) {
 		foreach ($this->all_filters as $filter) {
 			if ($filter->isApplied()) {
@@ -309,31 +429,73 @@ class dcFilterSet extends dcForm {
 		return $this->filtered;
 	}
 
-	public function getDelName($field_id,$pos) {
-		return $this->form_prefix.'del_'.$field_id.'_'.$pos;
+    /**
+     * buildFieldName -- builds a field name given a verb, an id and a position
+     * 					takes the form prefix into consideration
+     * @param mixed $verb     the verb to use (ex  : "del")
+     * @param mixed $field_id the field id
+     * @param mixed $pos      the field position
+     *
+     * @access public
+     *
+     * @return mixed the field name
+     */
+	public function buildFieldName($verb,$field_id,$pos) {
+		return $this->form_prefix.$verb.'_'.$field_id.'_'.$pos;
 	}
 
 }
 
 
-
 /**
-* dcFilter - describes an abstract filter
+* dcFilter -- base filter class
+*
+*  A filter can be edited while being applied with other values
+*  that enables to keep the list of applied filters (to display a list of items)
+*  while modifing the filter itself.
+*  Therefore it contains :
+*   * a Field that tracks the currently edited filter
+*   * an applied values that tracks the currently applied filter
 *
 */
 abstract class dcFilter  {
-	public $filterset;			///<b>string</b> filterset parent
-	public $id;					///<b>string</b> field id (local to fieldset)
-	public $name;				///<b>string</b> filter name
-	public $desc;				///<b>string</b> field description
-	public $filter_id;			///<b>string</b> field id (global to the page)
-	protected $request_param;	///<b>string</b> resulting parameter array key
-	protected $field;			///<b>array</b> currently edited values
-	protected $avalues;			///<b>array</b> currently applied values
+	/** @var dcFilterSet filterset parent */
+	public $filterset;
+	/** @var string filter id */
+	public $id;
+	/** @var string filter name */
+	public $name;
+	/** @var string filter description */
+	public $desc;
+	/** @var string filter id (including form prefix) */
+	public $filter_id;
+	/** @var string resulting parameter array key */
+	protected $request_param;
+	/** @var dcField edited field */
+	protected $field;
+	/** @var array currently applied values */
+	protected $avalues;
+	/** @var boolean true if field is static */
 	protected $static;
+	/** @var array generic field options */
 	protected $options;
+	/** @var boolean true if field can have multiple values */
 	protected $multiple;
 
+    /**
+     * __construct -- filter constructor
+     *
+     * @param mixed $id            filter id.
+     * @param mixed $name          filter name.
+     * @param mixed $desc          filter description.
+     * @param mixed $request_param request parameter (see dcBlog::getPosts for
+     *                             instance).
+     * @param array $options       filter options.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function __construct ($id,$name,$desc,$request_param,$options=array()) {
 		$this->id  				= $id;
 		$this->name 			=$name;
@@ -352,35 +514,79 @@ abstract class dcFilter  {
 		}
 	}
 
-	/**
-	Extract values from data (data being an array, such as $_GET or $_POST)
-	
-	@param	$data	<b>array</b>	data to parse
-	@return	<b>array</b>	field values
-	
-	*/
+
+    /**
+     * parseData - Extract values from data (data being an array, such as $_GET 
+     * 				or $_POST) ; does not update any field, only return parsed
+     * 				data
+     *
+     * @param mixed $data input data.
+     *
+     * @access protected
+     *
+     * @return array an array containing parsed data.
+     */
 	protected function parseData($data) {
 		$arr = $this->field->parseValues($data);
 		return array('values' => $arr);
 	}
 
+    /**
+     * isStatic -- returns whether the filter is static or not
+     *
+     * @access public
+     *
+     * @return boolean true if the filter is static.
+     */
 	public function isStatic() {
 		return $this->static;
 	}
 
+    /**
+     * setupFields -- sets up filter fielt from $_GET or $_POST
+     *
+     * @param mixed $data input data (either $_GET or $_POST).
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function setupFields($data) {
 		$this->field->setup($data);
 	}
 
 
+    /**
+     * init -- initializes filter (called after setup)
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function init() {
 	}
 
+    /**
+     * cleanup - resets filter field to its default value
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function cleanup() {
 		$this->field->setValues(array());
 	}
 
-	public function setupAppliedFilter($data) {
+    /**
+     * setupAppliedValue -- defines field applied values from data
+     *
+     * @param mixed $data data to retrieve values from ($_GET or $_POST).
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
+	public function setupAppliedValue($data) {
 		$this->avalues = $this->parseData($data);
 	}
 
@@ -388,48 +594,67 @@ abstract class dcFilter  {
 		$arr[$this->filter_id] = $this->avalues['values'];
 	}
 
-	/**
-	Defines the filterset containing this filter
-	
-	@param	prefix		<b>dcFilterset</b>	the filterset
-	*/
-	public function setFilterSet($fs) {
+    /**
+     * setFilterSet -- sets filterSet for filter
+     *
+     * @param mixed \dcFilterset Description.
+     *
+     * @access public
+     *
+     */
+	public function setFilterSet(dcFilterset $fs) {
 		$this->filterset = $fs;
 	}
-	
-	/**
-	
-	Defines form prefix for filter
-	
-	@param	prefix		<b>string</b>	the form prefix
-	*/
+
+    /**
+     * setFormPrefix -- sets filter form prefix
+     * 
+     * @param string $prefix the form prefix.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function setFormPrefix($prefix) {
 		$this->filter_id = $prefix.$this->id;
 	}
 
-	/**
-	Tells whether the filter is enabled or not
-	
-	@return	<b>boolean</b> true if enabled, false otherwise
-	*/
+    /**
+     * isEnabled -- Tells whether the filter is enabled or not (ie field has
+     * 				at least 1 value defined)
+     *
+     * @access public
+     *
+     * @return mixed true if the filter is enabled.
+     */
 	public function isEnabled() {
 		return count($this->field) != 0;
 	}
-	
+
 	protected abstract function addValue($value=NULL);
 
-	/**
-	Adds the current filter to the list
-	*/
+    /**
+     * add -- adds a value for the filter
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function add() {
 		if (count($this->field) > 1 && !$this->multiple)
 			return;
 		$this->addValue();
 	}
-	
-	/**
-	Removes a value from filter
-	*/
+
+    /**
+     * remove -- Removes a value from filter
+     *
+     * @param mixed $pos value position.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function remove($pos) {
 		$values = $this->field->getValues();
 		if (isset($values[$pos])) {
@@ -438,26 +663,58 @@ abstract class dcFilter  {
 
 	}
 
-	abstract protected function appendSingleLine($ctx,$pos);
+	abstract protected function appendContextLine($ctx,$pos);
 
-	public function appendEditLines($ctx) {
+    /**
+     * appendFilterContext -- appends current filter context to the given 
+     * 					context.
+     * 	A filter context consists in a list of array elements, one for
+     * 	each field line displayed.
+     * 	If a field has multiple values, there will be as many lines as values
+	 *
+     *  The twig template then iterates through the array to display
+     *  each and every line
+     * @param mixed $ctx the context to enrich
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
+	public function appendFilterContext($ctx) {
 		foreach ($this->field->getValues() as $cur => $f) {
+			/*
+			* each line of context has the following properties :
+			*  * lineclass : <tr> class to use
+			*  * 'del_id' : delete input field name to delete current value
+			*  * other field-type specific values that are set from 
+			*  		appendContextLine method
+			 */
 			$line = new ArrayObject();
 			$line['lineclass'] = $this->id;
-			$line['del_id'] = $this->filterset->getDelName($this->id,$cur);
+			$line['del_id'] = $this->filterset->buildFieldName('del',$this->id,$cur);
+			// Create the delete field for this line
 			$del = new dcFieldSubmit(
-				$this->filterset->getDelName($this->id,$cur),
+				$this->filterset->buildFieldName('del',$this->id,$cur),
 				'-',
 				array(
 					'attr' => array(
 						'title' => __('Delete the following filter')))
 			);
 			$this->filterset->addField($del);
-			$this->appendSingleLine($line,$cur);
+			$this->appendContextLine($line,$cur);
 			$ctx[]=$line;
 		}
 	}
 
+    /**
+     * serialize - serializes field value into given array
+     * 
+     * @param mixed $arr the context to update.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function serialize($arr) {
 		if (count($this->fields) == 1) {
 			$arr[$this->filter_id]=$this->field->getValue();
@@ -465,36 +722,67 @@ abstract class dcFilter  {
 			$arr[$this->filter_id]=$this->field->getValues();
 		}
 	}
-	
+
+    /**
+     * isApplied -- returns true when the filter is applied
+     * 	(ie. has at least 1 applied value)
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function isApplied(){
 		return (count($this->avalues['values']) != 0);
 	}
 
-	/**
-	Convert filter values into a $param filter, used for the upcoming SQL request
-	
-	@param <b>ArrayObject</b> the parameters array to enrich
-
-    @return boolean true if a filter has been applied, false otherwise 
-    */
+    /**
+     * applyFilter -- Converts filter values into a $param filter, used for the
+     * 				 upcoming SQL request
+     *
+     * @param mixed $params Description.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function applyFilter($params) {
 		return false;
 	}
 
+    /**
+     * header -- tbd
+     * 
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function header() {
 		return '';
 	}
 
+    /**
+     * getFields -- returns filter field(s)
+     * 
+     * @access public
+     *
+     * @return dcField the filter field.
+     */
 	public function getFields() {
 		return $this->field;
 	}
 
 }
 
-
-
+/**
+* dcFilterText - basic single field text filter
+*
+* @uses     dcFilter
+*
+*/
 class dcFilterText extends dcFilter {
 
+    /**
+     * @see dcFilter::init()
+     */
 	public function init() {
 		$this->field = new dcFieldText(
 			$this->filter_id,
@@ -504,7 +792,17 @@ class dcFilterText extends dcFilter {
 	}
 
 
-	public function appendSingleLine($line,$pos) {
+    /**
+     * @see dcFilter::appendContextLine()
+     */
+	public function appendContextLine($line,$pos) {
+		/*
+		Extra data provided by this filter :
+		* ffield : field name
+		* display_inline : true if the field is static
+		* fwidget : name of the widget (filter_text)
+		* desc : filter description
+		 */
 		$line['ffield'] = $this->field->getName();
 		if ($this->static) {
 			$line['display_inline'] = true;
@@ -516,32 +814,49 @@ class dcFilterText extends dcFilter {
 		};
 	}
 
-	protected function addValue($value=NULL) {
+    /**
+     * @see dcFilter::addValue()
+     */
+    protected function addValue($value=NULL) {
 		if ($value === NULL) {
 			$value = '';
 		}
 		$this->field->addValue($value);
 	}
 
+    /**
+     * @see dcFilter::applyFilter()
+     */
 	public function applyFilter($params) {
 		$params[$this->request_param]=$this->avalues['values'][0];
 	}
-	
 }
-/**
-@ingroup DC_CORE
-@nosubgrouping
-@brief abstract filter class.
 
-Handle combo filter on admin side. Can be single or multi-valued
+/**
+* dcFilterCombo -- combo filter
+*
+* Enables to filter through a list of values, can be used to check
+* if a value is in a list of items
+*
+* @uses     dcFilter
+*
 */
 class dcFilterCombo extends dcFilter {
+	/** @var combo the list of possible values in combo */
 	protected $combo;
 	
-	public function __construct($id,$name,$desc,$request_param,$combo,$options=array()) {
+    /**
+     * @see dcFilter::__construct()
+     */
+	public function __construct($id,$name,$desc,$request_param,$combo,
+								$options=array()) {
 		parent::__construct($id,$name,$desc,$request_param,$options);
 		$this->combo = $combo;
 	}
+
+    /**
+     * @see dcFilter::init()
+     */
 	public function init() {
 		$this->field = new dcFieldCombo(
 			$this->filter_id,
@@ -550,6 +865,9 @@ class dcFilterCombo extends dcFilter {
 		$this->filterset->addField($this->field);
 	}
 
+    /**
+     * @see dcFilter::addValue()
+     */
 	protected function addValue($value=NULL) {
 		if ($value === NULL) {
 			$value = current($this->combo);
@@ -557,7 +875,19 @@ class dcFilterCombo extends dcFilter {
 		$this->field->addValue($value);
 	}
 
-	public function appendSingleLine($line,$pos) {
+    /**
+     * @see dcFilter::init()
+     */
+	public function appendContextLine($line,$pos) {
+		/*
+		Extra data provided by this filter :
+		* ffield : field name
+		* display_inline : true if the field is static
+		* fwidget : name of the widget (filter_combo or filter_combo_cont)
+		* foffset : field value offset
+		* desc : filter description
+		Only the 1st item contains description.
+		 */
 		if ($this->static) {
 			$line['display_inline'] = true;
 		}
@@ -570,7 +900,10 @@ class dcFilterCombo extends dcFilter {
 			$line['fwidget']='filter_combo_cont';
 		};
 	}
-	
+
+    /**
+     * @see dcFilter::applyFilter()
+     */
 	public function applyFilter($params) {
 		$attr = $this->request_param;
 		if ($this->multiple)
@@ -582,15 +915,20 @@ class dcFilterCombo extends dcFilter {
 }
 
 /**
-@ingroup DC_CORE
-@nosubgrouping
-@brief abstract filter class.
-
-Handle combo filter on admin side. Can be single or multi-valued
+* dcFilterRichCombo -- rich combo filter
+*
+* Same as dcFilterCombo, with the possibility to exclude a list of values
+*
+* @uses     dcFilter
+*
 */
 class dcFilterRichCombo extends dcFilterCombo {
+	/** @var verb verb field ('is' or 'is not') */
 	protected $verb;
 
+    /**
+     * @see dcFilter::init()
+     */
 	public function init() {
 		parent::init();
 		$this->verb = new dcFieldCombo(
@@ -603,6 +941,9 @@ class dcFilterRichCombo extends dcFilterCombo {
 		$this->filterset->addField($this->verb);
 	}
 
+    /**
+     * @see dcFilter::parseData()
+     */
 	protected function parseData($data) {
 		$val = parent::parseData($data);
 		$v = $this->verb->parseValues($data);
@@ -613,29 +954,44 @@ class dcFilterRichCombo extends dcFilterCombo {
 		return $val;
 	}
 
+    /**
+     * @see dcFilter::setupFields()
+     */
 	public function setupFields($data) {
 		parent::setupFields($data);
 		$this->verb->setup($data);
 	}
 
+    /**
+     * @see dcFilter::updateAppliedValues()
+     */
 	public function updateAppliedValues($arr) {
 		parent::updateAppliedValues($arr);
-		$arr['verb'] = $this->verb->getValue();
+		$arr[$this->verb->getName()] = $this->verb->getValue();
 	}
 
-	public function appendSingleLine($line,$pos) {
-		parent::appendSingleLine($line,$pos);
+    /**
+     * @see dcFilter::appendContextLine()
+     */
+	public function appendContextLine($line,$pos) {
+		parent::appendContextLine($line,$pos);
 		if ($pos == 0) {
 			$line['fverb'] = $this->verb->getName();
 			$line['fwidget']='filter_richcombo';
-		} 
+		}
 	}
-	
+
+    /**
+     * @see dcFilter::serialize()
+     */
 	public function serialize($arr) {
 		parent::serialize($arr);
 		$arr[$this->filter_id.'_v']=$this->verb->getValue();
 	}
-	
+
+    /**
+     * @see dcFilter::applyFilter()
+     */
 	public function applyFilter($params) {
 		parent::applyFilter($params);
 		$attr = $this->request_param;
@@ -646,7 +1002,6 @@ class dcFilterRichCombo extends dcFilterCombo {
 
 }
 
-
-
+// Static initializer
 dcFilterSet::__init__($GLOBALS['core']->tpl);
 ?>

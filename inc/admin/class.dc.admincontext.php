@@ -207,10 +207,39 @@ class dcAdminContext extends Twig_Extension
 			'__' 		=> new Twig_Function_Function("__", array('is_safe' => array('html'))),
 			'debug_info' => new Twig_Function_Method($this, 'getDebugInfo', array('is_safe' => array('html'))),
 			'memorize' => new Twig_Function_Method($this, 'setMemory', array('is_safe' => array('html'))),
-			'memorized' => new Twig_Function_Method($this, 'getMemory', array('is_safe' => array('html')))
+			'memorized' => new Twig_Function_Method($this, 'getMemory', array('is_safe' => array('html'))),
+			'build_url' => new Twig_Function_Method($this,'buildUrl', array('is_safe' => array('html')))
 		);
 	}
 	
+
+    /**
+     * Builds an url given a base, and parameters
+     * 
+     * @param mixed $url    the base url as string
+     * @param mixed $params the parameters.
+     *
+     * @access public
+     *
+     * @return string the resulting url.
+     */
+	public function buildUrl($url,$params=array()) {
+		if (is_array($url) && isset($url[0])) {
+			$base = $url[0];
+			if (isset($url[1]) && is_array($url[1])) {
+				$p = array_merge($params,$url[1]);
+			}
+		} else {
+			$base = $url;
+			$p=$params;
+		}
+		if (empty($p)) {
+			return $base;
+		} else {
+			return $base.'?'.http_build_query($p);
+		}
+	}
+
 	/**
 	Returns a list of global variables to add to the existing list.
 	
