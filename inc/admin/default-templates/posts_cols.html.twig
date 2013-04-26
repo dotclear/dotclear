@@ -5,7 +5,7 @@
 
 {% block col_title %}
 	{{block('col_ref')}}
-	{{e.post_title}}
+	<a href="post.php?id={{e.post_id}}">{{e.post_title}}</a>
 {% endblock %}
 
 {% block col_cat -%}

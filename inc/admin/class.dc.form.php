@@ -12,7 +12,7 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 /**
-* dcFormNode
+* dcFormNode Twig Node for Form handling
 *
 * @uses     Twig_Node
 *
@@ -56,12 +56,28 @@ class dcFormNode extends Twig_Node
  */
 class dcFormTokenParser extends Twig_TokenParser
 {
+    /**
+     * parse - parses form tag
+     * General syntax is :
+     *  {% form 'formname' %}
+     *  ... {{ form_field (...)}}
+     *  {% endform %}
+     * Specific attributes can be passed to the form, enabling to set
+     * attributes to the form template :
+     * {% form 'formname' with {'id':'myform'} %}
+     * @param mixed \Twig_Token Description.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function parse(Twig_Token $token)
 	{
 		$lineno = $token->getLine();
 		$stream = $this->parser->getStream();
 		$name = $this->parser->getExpressionParser()->parseExpression();
 		$attr = null;
+		/* parse optional context */
 		if ($stream->test(Twig_Token::NAME_TYPE, 'with')) {
 			$stream->next();
 			$attr = $this->parser->getExpressionParser()->parseExpression();
@@ -69,15 +85,15 @@ class dcFormTokenParser extends Twig_TokenParser
 		$stream->expect(Twig_Token::BLOCK_END_TYPE);
 		$body = $this->parser->subparse(array($this,'decideBlockEnd'),true);
 		$stream->expect(Twig_Token::BLOCK_END_TYPE);
-		
+
 		return new dcFormNode($name,$body,$attr,$token->getLine(),$this->getTag());
 	}
-	
+
 	public function decideBlockEnd(Twig_Token $token)
 	{
 		return $token->test('endform');
 	}
-	
+
 	public function getTag()
 	{
 		return 'form';
@@ -96,7 +112,7 @@ class dcFormExtension extends Twig_Extension
 	protected $forms;
 	protected $currentForm;
 	protected $blocks;
-	
+
 	public function __construct($core)
 	{
 		$this->core = $core;
@@ -105,7 +121,7 @@ class dcFormExtension extends Twig_Extension
 		$this->blocks = array();
 		$this->currentForm = null;
 	}
-	
+
 	public function initRuntime(Twig_Environment $environment)
 	{
 		$this->twig = $environment;
@@ -115,7 +131,7 @@ class dcFormExtension extends Twig_Extension
 			$this->blocks = array_merge($this->blocks,$this->template->getBlocks());
 		}
 	}
-	
+
 	public function addTemplate($tpl) {
 		$this->tpl[]=$tpl;
 		if (isset($this->twig)) {
@@ -128,7 +144,7 @@ class dcFormExtension extends Twig_Extension
 	{
 		return array('dc_form' => $this);
 	}
-	
+
 	public function getFunctions()
 	{
 		return array(
@@ -159,25 +175,73 @@ class dcFormExtension extends Twig_Extension
 			)
 		);
 	}
-	
+
+    /**
+     * isChoiceGroup - binding for twig function "_form_is_choice_group"
+     * 					returns whether a choice is a group or not
+     * @param mixed $choice the choice.
+     *
+     * @access public
+     *
+     * @return boolean true is choice is a group (optgroup).
+     */
 	public function isChoiceGroup($choice)
 	{
 		return is_array($choice);
 	}
-	
+
+    /**
+     * isChoiceSelected - binding for twig function "_form_is_choice_selected"
+     * 					returns whether current choice matches a value or not
+     * @param mixed $choice the choixe.
+     * @param mixed $value  the value to check matching.
+     *
+     * @access public
+     *
+     * @return boolean if choice is matching the value.
+     */
 	public function isChoiceSelected($choice,$value)
 	{
 		return $choice == $value;
 	}
-	
+
+    /**
+     * getTokenParsers returns token parsers
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function getTokenParsers()
 	{
 		return array(new dcFormTokenParser());
 	}
-	
+
+    /**
+     * hasWidget - binding for twig "haswidget" function
+     * 	returns whether a widget is defined or not
+     * 
+     * @param mixed $name the widget name.
+     *
+     * @access public
+     *
+     * @return boolean true if the widget exists.
+     */
 	public function hasWidget($name) {
 		return isset($this->blocks[$name]);
 	}
+
+    /**
+     * renderWidget - binding for 'widget' twig function
+     * behaves exactly like "block" function, except that a context
+     * can be passed to the function
+     * 
+     * @param mixed $name the widget (block) name to render.
+     * @param mixed $attr Description the context for this block.
+     *
+     *
+     * @return mixed Value.
+     */
 	public function renderWidget($name,$attr) {
 		if (!isset($this->blocks[$name]))
 			return '';
@@ -188,10 +252,28 @@ class dcFormExtension extends Twig_Extension
 		);
 	}
 
+    /**
+     * getCurrentForm - returns current form if called within a {% form %} tag
+     *
+     * @access public
+     *
+     * @return string the current form.
+     */
 	public function getCurrentForm() {
 		return $this->currentForm;
 	}
 
+    /**
+     * renderField - binding for 'form_field' twig function; renders a field
+     *
+     * @param mixed $name       field name as defined on php side.
+     * @param array $attributes html attributes for field (ex : class, ...).
+     * @param array $extra      extra attributes that may be template specific.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function renderField($name,$attributes=array(),$extra=array())
 	{
 		$field = $this->currentForm->$name;
@@ -212,6 +294,13 @@ class dcFormExtension extends Twig_Extension
 		}
 	}
 
+    /**
+     * renderHiddenWidgets -- renders all form hidden fields
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function renderHiddenWidgets()
 	{
 		foreach ($this->currentForm->getHiddenFields() as $h) {
@@ -224,11 +313,30 @@ class dcFormExtension extends Twig_Extension
 		return 'dc_form';
 	}
 
+    /**
+     * addForm -- registers a new form
+     *
+     * @param mixed \dcForm Description.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function addForm(dcForm $form)
 	{
 		$this->forms[$form->getName()] = $form;
 	}
 
+    /**
+     * beginForm -- displays form beginning
+     * 
+     * @param mixed $name form name.
+     * @param array $attr extra attributes.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function beginForm($name,$attr=array())
 	{
 		if (isset($this->forms[$name])) {
@@ -242,7 +350,14 @@ class dcFormExtension extends Twig_Extension
 			));
 		}
 	}
-	
+
+    /**
+     * endForm -- displays form ending
+     * 
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function endForm()
 	{
 		$this->currentForm->end();
@@ -262,66 +377,30 @@ class InvalidFieldException extends Exception {
 */
 class dcForm
 {
+	/** @var string form id */
 	protected $id;
+	/** @var string form name */
 	protected $name;
+	/** @var dcCore dcCore instance */
 	protected $core;
+	/** @var string form action */
 	protected $action;
+	/** @var array(dcField) list of form fields */
 	protected $fields;
+	/** @var string form method (GET/POST) */
 	protected $method;
+	/** @var array(dcField) list of submit fields */
 	protected $submitfields;
+	/** @var array(dcField) list of hidden fields */
 	protected $hiddenfields;
+	/** @var array(dcField) list of form errors */
 	protected $errors;
-	
-	public function addTemplate($t) {
-		$this->core->tpl->getExtension('dc_form')->addTemplate($t);
-	}
-
-    /**
-     * addNonce -- adds dc nonce to form fields
-     * 
-     * @access protected
-     *
-     * @return nothing
-     */
-	protected function addNonce()
-	{
-		$this->addField(
-			new dcFieldHidden(array('xd_check'),
-			$this->core->getNonce())
-		);
-	}
-	
-
-    /**
-     * Defines Name & ID from field
-     * 
-     * @param mixed $nid either an array (name, id) or a string (name only, id will be set to null).
-     *
-     * @access protected
-     *
-     * @return nothing.
-     */
-	protected function setNID($nid)
-	{
-		if (is_array($nid)) {
-			$this->name = $nid[0];
-			$this->id = !empty($nid[1]) ? $nid[1] : null;
-		}
-		else {
-			$this->id = null;
-			$this->name = $nid;
-		}
-	}
-	
-	public function getContext() {
-		return array();
-	}
 
     /**
      * Class constructor
      * 
      * @param mixed  $core   dotclear core
-     * @param mixed  $name   form name
+     * @param mixed  $name   form name - can be an array (name,id)
      * @param mixed  $action form action
      * @param string $method form method ('GET' or 'POST')
      *
@@ -344,11 +423,71 @@ class dcForm
 			$this->addNonce();
 		}
 	}
-	
+
+    /**
+     * addTemplate - Adds a template file to enrich form fields
+     * 
+     * @param string $t the template file.
+     *
+     * @access public
+     */
+	public function addTemplate($t) {
+		$this->core->tpl->getExtension('dc_form')->addTemplate($t);
+	}
+
+    /**
+     * addNonce -- adds dc nonce to form fields
+     *
+     * @access protected
+     *
+     * @return nothing
+     */
+	protected function addNonce()
+	{
+		$this->addField(
+			new dcFieldHidden(array('xd_check'),
+			$this->core->getNonce())
+		);
+	}
+
+    /**
+     * Defines Name & ID from field
+     *
+     * @param mixed $nid either an array (name, id) or a string
+     *                   (name only, id will be set to null).
+     *
+     * @access protected
+     *
+     * @return nothing.
+     */
+	protected function setNID($nid)
+	{
+		if (is_array($nid)) {
+			$this->name = $nid[0];
+			$this->id = !empty($nid[1]) ? $nid[1] : null;
+		}
+		else {
+			$this->id = null;
+			$this->name = $nid;
+		}
+	}
+
+    /**
+     * getContext - returns form context (to fill-in twig context for instance),
+     * 				if any
+     *
+     * @access public
+     *
+     * @return array the form context.
+     */
+	public function getContext() {
+		return array();
+	}
+
 
     /**
      * Returns form name
-     * 
+     *
      * @access public
      *
      * @return mixed Value.
@@ -357,12 +496,28 @@ class dcForm
 	{
 		return $this->name;
 	}
-	
+
+    /**
+     * getErrors - returns form errors
+     *
+     * @access public
+     *
+     * @return array the list of errors.
+     */
 	public function getErrors()
 	{
 		return $this->errors;
 	}
-	
+
+    /**
+     * addField - adds a new field to form
+     *
+     * @param mixed \dcField the field to add.
+     *
+     * @access public
+     *
+     * @return dcForm the form instance (therefore addField can be chained)
+     */
 	public function addField(dcField $f)
 	{
 		if ($f instanceof dcFieldAction) {
@@ -372,17 +527,39 @@ class dcForm
 			$this->hiddenfields[$f->getName()] = $f;
 		}
 		$this->fields[$f->getName()] = $f;
-		
+
 		return $this;
 	}
-	
+
+    /**
+     * removeField - removes a field
+     *
+     * @param mixed \dcField the field to remove.
+     *
+     * @access public
+     *
+     * @return dcForm the form instance (therefore addField can be chained)
+     */
 	public function removeField(dcField $f) {
 		$n = $f->getName();
 		if (isset($this->fields[$n])){
 			unset($this->fields[$n]);
 		}
-
+		return $this;
 	}
+
+
+    /**
+     * renameField - renames a field
+     *
+     * @param mixed $field   the field to rename.
+     * @param mixed $newname new field name
+     *
+     * @access public
+     *
+     *
+     * @return dcForm the form instance (therefore addField can be chained)
+     */
 	public function renameField($field,$newname) {
 		$oldname = $field->getName();
 		if (isset($this->fields[$oldname])) {
@@ -390,7 +567,19 @@ class dcForm
 			$field->setName($newname);
 			$this->fields[$newname] = $field;
 		}
+		return $this;
 	}
+
+    /**
+     * begin - begins a form. Should be not be called directly, it is handled
+     * 			by the Twig Form extension.
+     *
+     * @param array $attr form extra attributes, if any.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function begin($attr=array())
 	{
 		$attr['method'] = $this->method;
@@ -402,23 +591,61 @@ class dcForm
 			'beginform',
 			$attr);
 	}
-	
+
+    /**
+     * end - ends a form. Should be not be called directly, it is handled
+     * 			by the Twig Form extension.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function end()
 	{
-		echo '</form>';
+		$this->core->tpl->getExtension('dc_form')->renderWidget(
+			'endform');
 	}
-	
+
+    /**
+     * __isset - magic method isset, checks whether a field exists
+     * 				example : if (isset($form->field1))
+     *
+     * @param mixed $name field name to check.
+     *
+     * @access public
+     *
+     * @return boolean true if the field exists.
+     */
 	public function __isset($name)
 	{
 		return isset($this->fields[$name]);
 	}
-	
+
+    /**
+     * __get -- magic method, retrieves a field from a form
+     * 			example : $f = $form->field1
+     *
+     * @param mixed $name Description.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function __get($name)
 	{
 		return isset($this->fields[$name]) ?
 			$this->fields[$name] : null;
 	}
 
+    /**
+     * __set -- magic method, sets a value for a given form field
+     * 			example : $form->field1 = 'my value';
+     *
+     * @param mixed $name  the field name.
+     * @param mixed $value the field value.
+     *
+     * @access public
+     */
 	public function __set($name,$value)
 	{
 		if (isset($this->fields[$name])) {
@@ -426,11 +653,17 @@ class dcForm
 		}
 	}
 
-	public function isSubmitted()
+/*	public function isSubmitted()
 	{
 		$from = $this->method == 'POST' ? $_POST : $_GET;
 	}
+*/
 
+    /**
+     * setupFields - initializes form & fields from $_GET or $_POST
+     * 
+     * @access protected
+     */
 	protected function setupFields() {
 		$from = $this->method == 'POST' ? $_POST : $_GET;
 		foreach ($this->fields as $f) {
@@ -438,6 +671,13 @@ class dcForm
 		}
 	}
 
+    /**
+     * handleActions - handle appropriate actions, according to submitted fields
+     * 
+     * @param mixed $submitted the fields that have been submitted.
+     *
+     * @access protected
+     */
 	protected function handleActions($submitted) {
 		foreach ($submitted as $f) {
 			$action = $f->getAction();
@@ -447,6 +687,13 @@ class dcForm
 		}
 	}
 
+    /**
+     * getSubmittedFields - retrieves fields that have been submitted, if any
+     *
+     * @access protected
+     *
+     * @return array the list of submitted fields.
+     */
 	protected function getSubmittedFields() {
 		$s = array();
 		foreach ($this->submitfields as $f) {
@@ -457,6 +704,14 @@ class dcForm
 		return $s;
 	}
 
+    /**
+     * setup - sets up the form, given the parameters given to the page
+     * 			should be called after fields have been defined.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function setup()
 	{
 		$this->setupFields();
@@ -464,6 +719,12 @@ class dcForm
 		$this->handleActions($submitted);
 	}
 
+    /**
+     * check - checks if the form is valid, errors are filled in, in case of
+     * 			incorrect fields
+     *
+     * @access public
+     */
 	public function check()
 	{
 		foreach ($this->fields as $f) {
@@ -475,7 +736,14 @@ class dcForm
 			}
 		}
 	}
-	
+
+    /**
+     * getHiddenFields - returns the list of hidden fields
+     *
+     * @access public
+     *
+     * @return array the list of hidden fields.
+     */
 	public function getHiddenFields()
 	{
 		return $this->hiddenfields;
@@ -487,24 +755,32 @@ class dcForm
  */
 abstract class dcField implements Countable
 {
+	/** @var string field options */
 	protected $options;
+	/** @var string field name */
 	protected $name;
+	/** @var string field values */
 	protected $values;
+	/** @var string field id */
 	protected $id;
+	/** @var boolean true if field can contain multiple values */
 	protected $multiple;
+	/** @var boolean true if the field has been defined */
 	protected $defined;
-	
-	protected function setNID($nid)
-	{
-		if (is_array($nid)) {
-			$this->name = $nid[0];
-			$this->id = !empty($nid[1]) ? $nid[1] : null;
-		}
-		else {
-			$this->id = $this->name = $nid;
-		}
-	}
-	
+
+    /**
+     * __construct - constructor
+     *
+     * @param string $name   Name or array(name,id) for field.
+     * @param array $values  field values.
+     * @param array $options options
+     *
+     * Currently globally available options are :
+     *  * multiple : true/false. Enable multiple values for field
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function __construct($name,$values,$options=array())
 	{
 		$this->setNID($name);
@@ -517,11 +793,46 @@ abstract class dcField implements Countable
 		$this->multiple = (isset($options['multiple']) && $options['multiple']);
 
 	}
-	
+
+    /**
+     * setNID - defines fiels name & id
+     *
+     * @param mixed $nid field name (string) or an array containing  name (1st)
+     *                   and id (2nd field).
+     *
+     * @access protected
+     */
+	protected function setNID($nid)
+	{
+		if (is_array($nid)) {
+			$this->name = $nid[0];
+			$this->id = !empty($nid[1]) ? $nid[1] : null;
+		}
+		else {
+			$this->id = $this->name = $nid;
+		}
+	}
+
+    /**
+     * setValue - sets field value
+     *
+     * @param mixed $value  field value.
+     * @param int   $offset value offset to define (default 0).
+     *
+     * @access public
+     */
 	public function setValue($value,$offset=0) {
 		$this->values[$offset] = $value;
 	}
 
+    /**
+     * setValues - set field values
+     *
+     * @param mixed $values the array of values. If not an array, the parameter
+     *                      will be converted to an array containing the value
+     *
+     * @access public
+     */
 	public function setValues($values) {
 		if (is_array($values)) {
 			$this->values = $values;
@@ -531,16 +842,41 @@ abstract class dcField implements Countable
 
 	}
 
+    /**
+     * getValues - return field values
+     *
+     * @access public
+     *
+     * @return mixed the array of values.
+     */
 	public function getValues() {
 		return $this->values;
 	}
 
+    /**
+     * getValue - retrieves a field value
+     *
+     * @param int $offset value offset (by default 1st value is returned).
+     *
+     * @access public
+     *
+     * @return mixed the field value.
+     */
 	public function getValue($offset=0) {
 		if (isset($this->values[$offset])) {
 			return $this->values[$offset];
 		}
 	}
 
+    /**
+     * addValue -- Adds a value to the field values.
+     * 
+     * @param mixed $value Description.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function addValue($value) {
 		$this->values[] = $value;
 	}
@@ -550,6 +886,13 @@ abstract class dcField implements Countable
 		}
 	}
 
+    /**
+     * count -- returns the number of field values
+     * 
+     * @access public
+     *
+     * @return integer the number of values.
+     */
 	public function count() {
 		return count($this->values);
 	}
@@ -561,6 +904,17 @@ abstract class dcField implements Countable
 	
 	abstract public function getWidgetBlock();
 	
+
+    /**
+     * getAttributes - retrieve field attributes that will be given to the
+     * 				twig widget
+     *
+     * @param array $options extra options given to the widget
+     *
+     * @access public
+     *
+     * @return array the attributes.
+     */
 	public function getAttributes($options)
 	{
 		$offset = isset($options['offset']) ? $options['offset'] : 0;
@@ -580,20 +934,46 @@ abstract class dcField implements Countable
 		}
 		return $attr;
 	}
-	
+
+    /**
+     * getDefaultValue - returns field default value
+     * 
+     * @access public
+     *
+     * @return mixed the field default value.
+     */
 	public function getDefaultValue() {
 		return '';
 	}
 
+    /**
+     * getName - returns field name
+     * 
+     * @access public
+     *
+     * @return string the field name.
+     */
 	public function getName()
 	{
 		return $this->name;
 	}
 
+    /**
+     * setName - defines field name and/or field id
+     * 
+     * @param mixed $name the field name or an array containing name and id.
+     *
+     * @access public
+     */
 	public function setName($name) {
 		$this->setNID($name);
 	}
 
+    /**
+     * check - checks whether the field is valid or not - raises an exception 
+     * 			if not valid
+     * @access public
+     */
 	public function check()
 	{
 		if (!$this->defined && $this->options['mandatory']) {
@@ -603,7 +983,18 @@ abstract class dcField implements Countable
 			);
 		}
 	}
-	
+
+    /**
+     * parseValues - parses field value from context (GET or POST)
+     * 				and returns parsed value(s)
+     * 				NOTE : the field is not updated with this method
+     * 				use setup() to also update the field.
+     * @param mixed $from the context (usually $_GET or $_POST).
+     *
+     * @access public
+     *
+     * @return array the list of values (empty array if no value).
+     */
 	public function parseValues($from) {
 		if (isset($from[$this->name])) {
 			$n = $from[$this->name];
@@ -615,6 +1006,15 @@ abstract class dcField implements Countable
 		return array();
 	}
 
+    /**
+     * setup - sets up the field from conetxt (GET or $POST)
+     *
+     * @param mixed $from the context (usually $_GET or $_POST).
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function setup($from)
 	{
 		$values = $this->parseValues($from);
@@ -623,7 +1023,14 @@ abstract class dcField implements Countable
 			$this->defined = true;
 		}
 	}
-	
+
+    /**
+     * isDefined - returns whether the field is defined or not
+     * 				(a field is defined if some values are set after setup())
+     * @access public
+     *
+     * @return mixed Value.
+     */
 	public function isDefined()
 	{
 		return $this->defined;
@@ -731,13 +1138,13 @@ class dcFieldSubmit extends dcFieldAction
 class dcFieldCombo extends dcField
 {
 	protected $combo;
-	
+
 	public function __construct($name,$value,$combo,$options=array())
 	{
 		$this->combo = $combo;
 		parent::__construct($name,$value,$options);
 	}
-	
+
 	public function getWidgetBlock()
 	{
 		return "field_combo";

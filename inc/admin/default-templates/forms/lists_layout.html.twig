@@ -1,11 +1,19 @@
 {% block entrieslist -%}
 {% set lenv = _context['list_' ~ listname] %}
 {% if lenv.entries %}
-<p>Pages:</p>
+{% block list_pagination %}
+<p>Page : {% for p in lenv.pages_links %}
+{% if p == lenv.page or p == '...' %}
+<b>{{p}}</b>
+{% else %}
+<a href="{{build_url(lenv.url,{'page':p})}}">{{p}}</a>
+{% endif %}
+{% endfor %}</p>
+{% endblock %}
 {% form listname -%}
 {% spaceless %}
 <table class="maximal clear">
-	<caption> {{ caption }} - {{__('Page %s')|format(page)}}</caption>
+	<caption> {{ caption }} - {{__('%s entries')|format(lenv.nb_entries)}}</caption>
 		<tr>
 		{% for h in lenv.cols -%}
 			<th scope="col">{{h.name}}</th>
@@ -28,6 +36,7 @@
 {% else %}
 	<p>{{ __('No entries') }}</p>
 {% endif %}
+{{ block('list_pagination')}}
 {%- endblock %}
 
 {% block filter_checkbox %}
