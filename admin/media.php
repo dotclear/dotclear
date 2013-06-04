@@ -10,47 +10,6 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
-/* Upload backend
--------------------------------------------------------- */
-if (!empty($_POST['swfupload']))
-{
-	header('content-type: text/plain');
-	try
-	{
-		if (empty($_POST['sess_id']) || empty($_POST['sess_uid'])) {
-			throw new Exception('No credentials.');
-		}
-		define('DC_AUTH_SESS_ID',$_POST['sess_id']);
-		define('DC_AUTH_SESS_UID',$_POST['sess_uid']);
-		
-		require dirname(__FILE__).'/../inc/admin/prepend.php';
-		
-		if (!$core->auth->check('media,media_admin',$core->blog->id)) {
-			throw new Exception('Permission denied.');
-		}
-		
-		$d = isset($_POST['d']) ? $_POST['d'] : null;
-		$core->media = new dcMedia($core);
-		$core->media->chdir($d);
-		$core->media->getDir();
-		$dir =& $core->media->dir;
-		
-		if (empty($_FILES['Filedata'])) {
-			throw new Exception('No file to upload.');
-		}
-		
-		files::uploadStatus($_FILES['Filedata']);
-		$core->media->uploadFile($_FILES['Filedata']['tmp_name'],$_FILES['Filedata']['name']);
-		
-		echo 'ok';
-	}
-	catch (Exception $e) {
-		echo __('Error:').' '.__($e->getMessage());
-	}
-	exit;
-}
-
-
 /* HTML page
 -------------------------------------------------------- */
 require dirname(__FILE__).'/../inc/admin/prepend.php';
@@ -174,22 +133,42 @@ if ($dir && !empty($_POST['newdir']))
 # Adding a file
 if ($dir && !empty($_FILES['upfile']))
 {
-	try
-	{
-		files::uploadStatus($_FILES['upfile']);
-		
-		$f_title = (isset($_POST['upfiletitle']) ? $_POST['upfiletitle'] : '');
-		$f_private = (isset($_POST['upfilepriv']) ? $_POST['upfilepriv'] : false);
-		
-		$core->media->uploadFile($_FILES['upfile']['tmp_name'],$_FILES['upfile']['name'],$f_title,$f_private);
-		http::redirect($page_url.'&d='.rawurlencode($d).'&upok=1');
-	}
-	catch (Exception $e)
-	{
-		$core->error->add($e->getMessage());
+  $upfile = array('name' => $_FILES['upfile']['name'][0],
+                  'type' => $_FILES['upfile']['type'][0],
+                  'tmp_name' => $_FILES['upfile']['tmp_name'][0],
+                  'error' => $_FILES['upfile']['error'][0],
+                  'size' => $_FILES['upfile']['size'][0]
+                  );
+
+	try {
+    files::uploadStatus($upfile);
+
+    $core->media->uploadFile($upfile['tmp_name'],$upfile['name']);
+
+    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+      header('Content-type: application/json');
+      $message = array();
+      $message['files'][] = array('name' => $upfile['name']);
+
+      echo json_encode($message);
+      exit();
+    } else {
+        http::redirect($page_url.'&d='.rawurlencode($d).'&upok=1');
+    }
+	} catch (Exception $e) {
+    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+      header('Content-type: application/json');
+      $message = array();
+      $message['files'][] = array('name' => $upfile['name'],
+                                  'error' => $e->getMessage()
+                                  );
+      echo json_encode($message);
+      exit();
+    } else {
+      $core->error->add($e->getMessage());
+    }
 	}
 }
-
 
 # Removing item
 if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove']))
@@ -214,7 +193,6 @@ if ($dir && $core->auth->isSuperAdmin() && !empty($_POST['rebuild']))
 		$core->error->add($e->getMessage());
 	}
 }
-
 
 # DISPLAY confirm page for rmdir & rmfile
 if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
@@ -244,13 +222,8 @@ $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 
 call_user_func($open_f,__('Media manager'),
-	'<script type="text/javascript">'."\n".
-	"//<![CDATA["."\n".
-	dcPage::jsVar('dotclear.candyUpload_force_init',$user_ui_enhanceduploader)."\n".
-	"//]]>".
-	"</script>".
 	dcPage::jsLoad('js/_media.js').
-	($core_media_writable ? dcPage::jsCandyUpload(array('d='.$d)) : '')
+	($core_media_writable ? dcPage::jsUpload(array('d='.$d)) : '')
 	);
 
 if (!empty($_GET['mkdok'])) {
@@ -338,35 +311,29 @@ else
 	'</div>';
 }
 
+
 if ($core_media_writable)
 {
 	echo '<div class="two-cols">';
 	
 	echo
-	'<div class="col">'.
-	'<fieldset id="add-file-f"><legend>'.__('Add files').'</legend>'.
-	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
-	'<form id="media-upload" class="clear" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
-	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
-	$core->formNonce().'</div>'.
-	'<p><label for="upfile">'.__('Choose a file:').
-	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.
-	'<input type="file" id="upfile" name="upfile" size="20" />'.
-	'</label></p>'.
-	'<p><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
-	'<p><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
-	__('Private').'</label></p>';
-	if (!$user_ui_enhanceduploader) {
-		echo
-		'<p class="form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
-		' <a href="preferences.php?tab=user-options">'.__('My preferences').'</a></p>';
-	}
-	echo
-	'<p><input type="submit" value="'.__('Send').'" />'.
-	form::hidden(array('d'),$d).'</p>'.
-	'</fieldset>'.
-	'</form>'.
-	'</div>';
+  '<div class="col">'.
+  '<fieldset id="add-file-f"><legend>'.__('Add files').'</legend>'.
+  '<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
+  ' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="POST" enctype="multipart/form-data">'.
+  '<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
+    $core->formNonce().'</div>'.
+  '<div class="fileupload-buttonbar">'.
+  '<span class="button-add button"><label for="upfile">'.__('Add files').'</label>'.
+  '<input type="file" id="upfile" name="upfile[]" size="20" multiple="multiple" data-url="'.html::escapeURL($page_url).'" />'.
+  '</span>'.
+  '<button type="submit" class="button start"><span>'.__('Send').'</span></button>'.
+  '</div>'.
+  '<table role="presentation" class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>'.
+    form::hidden(array('d'),$d).'</p>'.
+  '</fieldset>'.
+  '</form>'.
+  '</div>';
 	
 	echo
 	'<div class="col">'.

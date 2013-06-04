@@ -51,7 +51,7 @@ class dcPage
 	public static function open($title='', $head='')
 	{
 		global $core;
-		
+
 		# List of user's blogs
 		if ($core->auth->blog_count == 1 || $core->auth->blog_count > 20)
 		{
@@ -672,7 +672,7 @@ class dcPage
 		return $res;
 	}
 	
-	public static function jsCandyUpload($params=array(),$base_url=null)
+	public static function jsUpload($params=array(),$base_url=null)
 	{
 		if (!$base_url) {
 			$base_url = path::clean(dirname(preg_replace('/(\?.*$)?/','',$_SERVER['REQUEST_URI']))).'/';
@@ -685,33 +685,89 @@ class dcPage
 		));
 		
 		return
-		'<link rel="stylesheet" type="text/css" href="style/candyUpload/style.css" />'."\n".
-		self::jsLoad('js/jquery/jquery.candyUpload.js').
+		'<link rel="stylesheet" type="text/css" href="style/jsUpload/style.css" />'."\n".
+
+    '<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class="preview"></span>
+        </td>
+        <td>
+            <p class="name">{%=file.name%}</p>
+            {% if (file.error) { %}
+                <div><span class="label label-important">'.__('Error:').'</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <p class="size">{%=o.formatFileSize(file.size)%}</p>
+            {% if (!o.files.error) { %}
+                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div>
+            {% } %}
+        </td>
+        <td>
+            {% if (!o.files.error && !i && !o.options.autoUpload) { %}
+                <button class="btn btn-primary start">
+                    <i class="icon-upload icon-white"></i>
+                    <span>'.__('Send').'</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        <td>
+            <span class="preview">
+                {% if (file.thumbnail_url) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" data-gallery="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
+                {% } %}
+            </span>
+        </td>
+        <td>
+            <p class="name">{%=file.name%}</p>
+            {% if (file.error) { %}
+                <div><span class="label label-important">'.__('Error:').'</span> {%=file.error%}</div>
+            {% } %}
+        </td>
+        <td>
+            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+    </tr>
+{% } %}
+</script>'.
+
+		self::jsLoad('js/jsUpload/vendor/jquery.ui.widget.js').
+    self::jsLoad('js/jsUpload/tmpl.js').
+    self::jsLoad('js/jsUpload/load-image.js').
+		self::jsLoad('js/jsUpload/jquery.iframe-transport.js').
+		self::jsLoad('js/jsUpload/jquery.fileupload.js').
+		self::jsLoad('js/jsUpload/jquery.fileupload-process.js').
+		self::jsLoad('js/jsUpload/jquery.fileupload-resize.js').
+		self::jsLoad('js/jsUpload/jquery.fileupload-ui.js').
 		
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
-		"dotclear.candyUpload = {};\n".
-		self::jsVar('dotclear.msg.activate_enhanced_uploader',__('Temporarily activate enhanced uploader')).
-		self::jsVar('dotclear.msg.disable_enhanced_uploader',__('Temporarily disable enhanced uploader')).
-		self::jsVar('$._candyUpload.prototype.locales.file_uploaded',__('File successfully uploaded.')).
-		self::jsVar('$._candyUpload.prototype.locales.max_file_size',__('Maximum file size allowed:')).
-		self::jsVar('$._candyUpload.prototype.locales.limit_exceeded',__('Limit exceeded.')).
-		self::jsVar('$._candyUpload.prototype.locales.size_limit_exceeded',__('File size exceeds allowed limit.')).
-		self::jsVar('$._candyUpload.prototype.locales.canceled',__('Canceled.')).
-		self::jsVar('$._candyUpload.prototype.locales.http_error',__('HTTP Error:')).
-		self::jsVar('$._candyUpload.prototype.locales.error',__('Error:')).
-		self::jsVar('$._candyUpload.prototype.locales.choose_file',__('Choose file')).
-		self::jsVar('$._candyUpload.prototype.locales.choose_files',__('Choose files')).
-		self::jsVar('$._candyUpload.prototype.locales.cancel',__('Cancel')).
-		self::jsVar('$._candyUpload.prototype.locales.clean',__('Clean')).
-		self::jsVar('$._candyUpload.prototype.locales.upload',__('Upload')).
-		self::jsVar('$._candyUpload.prototype.locales.no_file_in_queue',__('No file in queue.')).
-		self::jsVar('$._candyUpload.prototype.locales.file_in_queue',__('1 file in queue.')).
-		self::jsVar('$._candyUpload.prototype.locales.files_in_queue',__('%d files in queue.')).
-		self::jsVar('$._candyUpload.prototype.locales.queue_error',__('Queue error:')).
-		self::jsVar('dotclear.candyUpload.base_url',$base_url).
-		self::jsVar('dotclear.candyUpload.movie_url',$base_url.'index.php?pf=swfupload.swf').
-		self::jsVar('dotclear.candyUpload.params',implode('&',$params)).
+		"dotclear.jsUpload = {};\n".
+		"dotclear.jsUpload.msg = {};\n".
+		self::jsVar('dotclear.jsUpload.msg.limit_exceeded',__('Limit exceeded.')).
+		self::jsVar('dotclear.jsUpload.msg.size_limit_exceeded',__('File size exceeds allowed limit.')).
+		self::jsVar('dotclear.jsUpload.msg.canceled',__('Canceled.')).
+		self::jsVar('dotclear.jsUpload.msg.http_error',__('HTTP Error:')).
+		self::jsVar('dotclear.jsUpload.msg.error',__('Error:')).
+		self::jsVar('dotclear.jsUpload.msg.choose_file',__('Choose file')).
+		self::jsVar('dotclear.jsUpload.msg.choose_files',__('Choose files')).
+		self::jsVar('dotclear.jsUpload.msg.cancel',__('Cancel')).
+		self::jsVar('dotclear.jsUpload.msg.clean',__('Clean')).
+		self::jsVar('dotclear.jsUpload.msg.upload',__('Upload')).
+		self::jsVar('dotclear.jsUpload.msg.no_file_in_queue',__('No file in queue.')).
+		self::jsVar('dotclear.jsUpload.msg.file_in_queue',__('1 file in queue.')).
+		self::jsVar('dotclear.jsUpload.msg.files_in_queue',__('%d files in queue.')).
+		self::jsVar('dotclear.jsUpload.msg.queue_error',__('Queue error:')).
+		self::jsVar('dotclear.jsUpload.base_url',$base_url).
 		"\n//]]>\n".
 		"</script>\n";
 	}
