@@ -1,7 +1,6 @@
 .button {
   display: inline-block;
   *display: inline;
-  padding: .2em .5em .2em .5em;
   border-radius: .2em;
   background: #2373A8;
   background: -webkit-gradient(linear, left top, left bottom, from(#2373A8), to(#2C8FD1));
@@ -16,17 +15,13 @@
   margin-right: 4px;
 }
 
+.button-add { 
+  position: relative;
+}
+
 .button:hover {
   background: #2373A8;
   border: 1px solid #2C8FD1;
-}
-
-.button-add {
-  padding: .2em .5em .05em .5em;
-}
-
-.button-add label {
-  cursor: pointer;
 }
 
 .button-add input {
@@ -36,6 +31,24 @@
   margin: 0;
   opacity: 0;
   filter: alpha(opacity=0);
-  transform: translate(-300px, 0) scale(4);
   cursor: pointer;
+}
+
+.progress .bar {
+  background: transparent url('loader.png') repeat left top;
+}
+
+.upload-status { 
+  margin-top: 3px;
+  width: 13px;
+  height: 13px;
+  display: block;
+}
+
+.upload-status.ok { 
+  background: transparent url('../../images/check-on.png') no-repeat left top;
+}
+
+.upload-status.error { 
+  background: transparent url('../../images/check-off.png') no-repeat left top;
 }
