@@ -696,7 +696,7 @@ class dcPage
         <td>
             <p class="name">{%=file.name%}</p>
             {% if (file.error) { %}
-                <div><span class="label label-important">'.__('Error:').'</span> {%=file.error%}</div>
+                <div><span class="label label-error">'.__('Error:').'</span> {%=file.error%}</div>
             {% } %}
         </td>
         <td>
@@ -707,10 +707,7 @@ class dcPage
         </td>
         <td>
             {% if (!o.files.error && !i && !o.options.autoUpload) { %}
-                <button class="btn btn-primary start">
-                    <i class="icon-upload icon-white"></i>
-                    <span>'.__('Send').'</span>
-                </button>
+                <input type="submit" class="button start" value="'.__('Send').'"/>
             {% } %}
         </td>
     </tr>
@@ -735,6 +732,13 @@ class dcPage
         </td>
         <td>
             <span class="size">{%=o.formatFileSize(file.size)%}</span>
+        </td>
+        <td>
+            {% if (file.error) { %}
+            <span class="upload-status error"></span>
+            {% } else { %}
+            <span class="upload-status ok"></span>
+            {% } %}
         </td>
     </tr>
 {% } %}

@@ -148,7 +148,9 @@ if ($dir && !empty($_FILES['upfile']))
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
       header('Content-type: application/json');
       $message = array();
-      $message['files'][] = array('name' => $upfile['name']);
+      $message['files'][] = array('name' => $upfile['name'],
+                                  'size' => $upfile['size']
+                                  );
 
       echo json_encode($message);
       exit();
@@ -324,10 +326,11 @@ if ($core_media_writable)
   '<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
     $core->formNonce().'</div>'.
   '<div class="fileupload-buttonbar">'.
-  '<span class="button-add button"><label for="upfile">'.__('Add files').'</label>'.
-  '<input type="file" id="upfile" name="upfile[]" size="20" multiple="multiple" data-url="'.html::escapeURL($page_url).'" />'.
+  '<label class="button-add button" for="upfile">'.__('Add files').
+  '<input type="file" id="upfile" name="upfile[]" multiple="multiple" data-url="'.html::escapeURL($page_url).'" />'.
+  '</label>'.
   '</span>'.
-  '<button type="submit" class="button start"><span>'.__('Send').'</span></button>'.
+  '<input class="button start" type="submit" value="'.__('Send').'"/>'.
   '</div>'.
   '<table role="presentation" class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>'.
     form::hidden(array('d'),$d).'</p>'.
