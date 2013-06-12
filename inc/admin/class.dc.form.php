@@ -600,10 +600,10 @@ class dcForm
      *
      * @return mixed Value.
      */
-	public function end()
+	public function end($attr=array())
 	{
 		$this->core->tpl->getExtension('dc_form')->renderWidget(
-			'endform');
+			'endform',$attr);
 	}
 
     /**

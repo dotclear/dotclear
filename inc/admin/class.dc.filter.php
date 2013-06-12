@@ -36,6 +36,8 @@ class dcFilterSet extends dcForm {
 	protected $name;
 	/** @var dcCore dotclear core object */
 	protected $core;
+	/** @var boolean true if content is filtered */
+	protected $filtered;
 
     /**
      * __init__ - class static initialiser (called at the very bottom of this
@@ -769,7 +771,6 @@ abstract class dcFilter  {
 	public function getFields() {
 		return $this->field;
 	}
-
 }
 
 /**
