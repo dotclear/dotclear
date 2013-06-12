@@ -132,7 +132,7 @@ class adminPostList extends adminGenericList
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
 		'<td class="nowrap">'.$cat_title.'</td>'.
-		'<td class="nowrap">'.$this->rs->user_id.'</td>'.
+		'<td class="nowrap">'.html::escapeHTML($this->rs->user_id).'</td>'.
 		'<td class="nowrap">'.$this->rs->nb_comment.'</td>'.
 		'<td class="nowrap">'.$this->rs->nb_trackback.'</td>'.
 		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
@@ -229,7 +229,7 @@ class adminPostMiniList extends adminGenericList
 		'title="'.html::escapeHTML($this->rs->getURL()).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
-		'<td class="nowrap">'.$this->rs->user_id.'</td>'.
+		'<td class="nowrap">'.html::escapeHTML($this->rs->user_id).'</td>'.
 		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
 		'</tr>';
 		
@@ -333,7 +333,7 @@ class adminCommentList extends adminGenericList
 		html::escapeHTML($this->rs->post_title).'</a>'.
 		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->comment_dt).'</td>'.
-		'<td class="nowrap"><a href="'.$author_url.'">'.$comment_author.'</a></td>'.
+		'<td class="nowrap"><a href="'.$author_url.'">'.html::escapeHTML($comment_author).'</a></td>'.
 		'<td class="nowrap">'.($this->rs->comment_trackback ? __('trackback') : __('comment')).'</td>'.
 		'<td class="nowrap status">'.$img_status.'</td>'.
 		'<td class="nowrap status"><a href="'.$comment_url.'">'.
@@ -409,9 +409,9 @@ class adminUserList extends adminGenericList
 		form::checkbox(array('users[]'),$this->rs->user_id).'</td>'.
 		'<td class="maximal"><a href="user.php?id='.$this->rs->user_id.'">'.
 		$this->rs->user_id.'</a>&nbsp;'.$img_status.'</td>'.
-		'<td class="nowrap">'.$this->rs->user_firstname.'</td>'.
-		'<td class="nowrap">'.$this->rs->user_name.'</td>'.
-		'<td class="nowrap">'.$this->rs->user_displayname.'</td>'.
+		'<td class="nowrap">'.html::escapeHTML($this->rs->user_firstname).'</td>'.
+		'<td class="nowrap">'.html::escapeHTML($this->rs->user_name).'</td>'.
+		'<td class="nowrap">'.html::escapeHTML($this->rs->user_displayname).'</td>'.
 		'<td class="nowrap"><a href="posts.php?user_id='.$this->rs->user_id.'">'.
 		$this->rs->nb_post.'</a></td>'.
 		'</tr>';
