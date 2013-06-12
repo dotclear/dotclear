@@ -22,6 +22,8 @@ class dcItemList extends dcForm {
 	protected $nb_items_per_page;
 	protected $nb_pages;
 	protected $page;
+	protected $sortby;
+	protected $order;
 
 
 	public static function __init__($env) {
@@ -70,18 +72,20 @@ class dcItemList extends dcForm {
 		foreach ($this->columns as $c) {
 			$columns_combo[$c->getID()] = $c->getName();
 		}
-		$this->filterset->addFilter(new dcFilterCombo(
+		$this->sortby = new dcFilterCombo(
 			'sortby',
 			__('Sort By'), 
-			__('Sort by'), 'sortby', $columns_combo,array('singleval'=> true,'static' => true)));
+			__('Sort by'), 'sortby', $columns_combo,array('singleval'=> true,'static' => true));
+		$this->filterset->addFilter($this->sortby);
 		$order_combo = array('asc' => __('Ascending'),'desc' => __('Descending'));
-		$this->filterset->addFilter(new dcFilterCombo(
+		$this->order = new dcFilterCombo(
 			'order',
 			__('Order'), 
-			__('Order'), 'orderby', $order_combo,array('singleval'=> true, 'static' => true)));
+			__('Order'), 'orderby', $order_combo,array('singleval'=> true, 'static' => true));
 		$limit = new dcFilterText(
 			'limit',
 			__('Limit'), __('Limit'), 'limit',array('singleval'=> true,'static' =>true));
+		$this->filterset->addFilter($this->order);
 		$this->filterset->addFilter($limit);
 		$this->filterset->setup();
 		parent::setup();
@@ -106,6 +110,7 @@ class dcItemList extends dcForm {
 			$this->page = $this->nb_pages;
 		}
 		$offset = $this->nb_items_per_page*($this->page-1);
+		$params['order'] = $this->getOrder();
 		$entries = $this->fetcher->getEntries($params,$offset,$this->nb_items_per_page);
 		$this->setEntries($entries);
 
@@ -151,9 +156,15 @@ class dcItemList extends dcForm {
 	}
 
 	public function addColumn($c) {
-		$this->columns[] = $c;
+		$this->columns[$c->getID()] = $c;
 		$c->setForm($this);
 		return $this;
+	}
+
+	public function getOrder() {
+		$id = $this->sortby->getFields()->getValue();
+
+		return $this->columns[$id]->getColID().' '.$this->order->getFields()->getValue();
 	}
 
 	public function setFilterSet($fs) {

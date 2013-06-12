@@ -178,8 +178,8 @@ $lposts
 	->addColumn(new dcColumn('title',__('Title'),'post_title'))
 	->addColumn(new dcColumn('cat',__('Category'),'cat_title'))
 	->addColumn(new dcColumn('date',__('Date'),'post_date'))
-	->addColumn(new dcColumn('datetime',__('Date and Time'),'post_date'))
-	->addColumn(new dcColumn('author',__('Author'),'post_author'))
+	->addColumn(new dcColumn('datetime',__('Date and Time'),'post_dt'))
+	->addColumn(new dcColumn('author',__('Author'),'user_id'))
 	->addColumn(new dcColumn('status',__('Status'),'post_status'));
 
 
