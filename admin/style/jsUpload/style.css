@@ -1,4 +1,4 @@
-.button {
+.enhanced_uploader .button {
   display: inline-block;
   *display: inline;
   border-radius: .2em;
@@ -15,16 +15,16 @@
   margin-right: 4px;
 }
 
-.button-add { 
+.enhanced_uploader .button-add {
   position: relative;
 }
 
-.button:hover {
+.enhanced_uploader .button:hover {
   background: #2373A8;
   border: 1px solid #2C8FD1;
 }
 
-.button-add input {
+.enhanced_uploader .button-add input {
   position: absolute;
   top: 0;
   right: 0;
@@ -34,21 +34,37 @@
   cursor: pointer;
 }
 
-.progress .bar {
+.enhanced_uploader .progress .bar {
   background: transparent url('loader.png') repeat left top;
 }
 
-.upload-status { 
+.enhanced_uploader .upload-status {
   margin-top: 3px;
   width: 13px;
   height: 13px;
   display: block;
 }
 
-.upload-status.ok { 
+.enhanced_uploader .upload-status.ok {
   background: transparent url('../../images/check-on.png') no-repeat left top;
 }
 
-.upload-status.error { 
+.enhanced_uploader .upload-status.error {
   background: transparent url('../../images/check-off.png') no-repeat left top;
+}
+
+.enhanced_uploader .one-file {
+  display: none;
+}
+
+.table-files {
+  display: none;
+}
+
+.enhanced_uploader .table-files {
+  display: block;
+}
+
+label span.one-file {
+  display: inline;
 }

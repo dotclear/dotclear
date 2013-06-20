@@ -757,6 +757,8 @@ class dcPage
 		"//<![CDATA[\n".
 		"dotclear.jsUpload = {};\n".
 		"dotclear.jsUpload.msg = {};\n".
+		self::jsVar('dotclear.msg.enhanced_uploader_activate',__('Temporarily activate enhanced uploader')).
+		self::jsVar('dotclear.msg.enhanced_uploader_disable',__('Temporarily disable enhanced uploader')).
 		self::jsVar('dotclear.jsUpload.msg.limit_exceeded',__('Limit exceeded.')).
 		self::jsVar('dotclear.jsUpload.msg.size_limit_exceeded',__('File size exceeds allowed limit.')).
 		self::jsVar('dotclear.jsUpload.msg.canceled',__('Canceled.')).
