@@ -710,6 +710,11 @@ class dcPage
                 <input type="submit" class="button start" value="'.__('Send').'"/>
             {% } %}
         </td>
+        <td>
+            {% if (!i) { %}
+                <div class="button cancel" title="'.__('Cancel').'"></div>
+            {% } %}
+        </td>
     </tr>
 {% } %}
 </script>

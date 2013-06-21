@@ -150,7 +150,7 @@ if ($dir && !empty($_FILES['upfile'])) {
 
       $message['files'][] = array('name' => $upfile['name'],
                                   'size' => $upfile['size'],
-                                  'html' => mediaItemLine($core->media->getFile($new_file_id), count($dir['files']))
+                                  'html' => mediaItemLine($core->media->getFile($new_file_id), 1)
                                   );
     } catch (Exception $e) {
       $message['files'][] = array('name' => $upfile['name'],
@@ -283,6 +283,7 @@ if ($popup) {
 
 
 $items = array_values(array_merge($dir['dirs'],$dir['files']));
+echo '<div class="media-list">';
 if (count($items) == 0)
 {
 	echo '<p><strong>'.__('No file.').'</strong></p>';
@@ -302,7 +303,6 @@ else
 	'<input type="submit" value="'.__('Sort').'" /></p>'.
 	'</form>'.
 	
-	'<div class="media-list">'.
 	'<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 	
 	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++, $j++)
@@ -311,16 +311,17 @@ else
 	}
 	
 	echo
-	'<p class="clear">'.__('Page(s)').' : '.$pager->getLinks().'</p>'.
-	'</div>';
+     '<p class="clear">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 }
-
+echo
+  '<p class="clear"></p>'.
+  '</div>';
 
 if ($core_media_writable)
 {
-	echo '<div class="two-cols">';
+  echo '<div class="two-cols">';
 	
- 	if ($user_ui_enhanceduploader) {
+  if ($user_ui_enhanceduploader) {
     echo
       '<div class="col enhanced_uploader">';
   } else {
@@ -337,27 +338,27 @@ if ($core_media_writable)
 
   echo
   '<div class="fileupload-buttonbar">'.
-  '<label class="button-add button" for="upfile">'.__('Add files').
+  '<label class="button add" for="upfile"><span>'.__('Add files').'</span>'.
   '<span class="one-file"> ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')</span>'.
     '<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" />'.
   '</label>'.
   '</span>';
 
   echo
-	'<p class="one-file"><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
-	'<p class="one-file"><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
+  '<p class="one-file"><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
+  '<p class="one-file"><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
   __('Private').'</label></p>';
 
-	if (!$user_ui_enhanceduploader) {
-		echo
-		'<p class="one-file form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
-		' <a href="preferences.php?tab=user-options">'.__('My preferences').'</a></p>';
-	}
+  if (!$user_ui_enhanceduploader) {
+       echo
+       '<p class="one-file form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
+       ' <a href="preferences.php?tab=user-options">'.__('My preferences').'</a></p>';
+  }
 
   echo
+  '<button type="reset" class="button cancel"><span>'.__('Cancel').'</span></button>'.
   '<input class="button start" type="submit" value="'.__('Send').'"/>'.
   '</div>';
-
 
   echo
   '<table role="presentation" class="table-files table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>'.
