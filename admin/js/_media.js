@@ -1,45 +1,46 @@
 $(function() {
-    var jqXHR = null;
+    if ($('#fileupload').length==0) {
+	return;
+    }
+
     $('#fileupload').fileupload({
 	url: $('#fileupload').attr('action'),
 	autoUpload: false,
 	disabled: true
     }).bind('fileuploaddone', function(e, data) {
 	if (data.result.files[0].html !==undefined) {
-	    $('.media-list').append(data.result.files[0].html);
+	    $('.media-list p.clear').before(data.result.files[0].html);
 	}
     });
 
-    if (!$.browser.opera) {
-	var $container = $('#fileupload').parent().parent();
-	var $msg;
+    var $container = $('#fileupload').parent().parent();
+    var $msg;
 
-	if ($container.hasClass('enhanced_uploader')) {
-	    $msg = dotclear.msg.enhanced_uploader_disable;
-	    $('#fileupload').fileupload({disabled:false});
-	} else {
-	    $msg = dotclear.msg.enhanced_uploader_activate;
-	}
-
-	$('<div><a href="#">' + $msg + '</a></div>').click( function() {
-	    if ($container.hasClass('enhanced_uploader')) {
-		$msg = dotclear.msg.enhanced_uploader_activate;
-		$('#upfile').attr('multiple', false);
-
-		// when a user has clicked enhanced_uploader, and has added files
-		// We must remove files in table
-		$('.table-files tr', '#fileupload').remove();
-		$('#fileupload').fileupload({disabled:true});
-	    } else {
-		$msg = dotclear.msg.enhanced_uploader_disable;
-		$('#upfile').attr('multiple', true);
-		$('#fileupload').fileupload({disabled:false});
-	    }
-	    $(this).find('a').text($msg);
-
-	    $container.toggleClass('enhanced_uploader');
-	}).appendTo($('#fileupload'));
+    if ($container.hasClass('enhanced_uploader')) {
+	$msg = dotclear.msg.enhanced_uploader_disable;
+	$('#fileupload').fileupload({disabled:false});
+    } else {
+	$msg = dotclear.msg.enhanced_uploader_activate;
     }
+
+    $('<div><a href="#">' + $msg + '</a></div>').click( function() {
+	if ($container.hasClass('enhanced_uploader')) {
+	    $msg = dotclear.msg.enhanced_uploader_activate;
+	    $('#upfile').attr('multiple', false);
+
+	    // when a user has clicked enhanced_uploader, and has added files
+	    // We must remove files in table
+	    $('.table-files tr', '#fileupload').remove();
+	    $('#fileupload').fileupload({disabled:true});
+	} else {
+	    $msg = dotclear.msg.enhanced_uploader_disable;
+	    $('#upfile').attr('multiple', true);
+	    $('#fileupload').fileupload({disabled:false});
+	}
+	$(this).find('a').text($msg);
+
+	$container.toggleClass('enhanced_uploader');
+    }).appendTo($('#fileupload'));
 
     // Replace remove links by a POST on hidden form
     fileRemoveAct();

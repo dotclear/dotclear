@@ -13,9 +13,11 @@
   cursor: pointer;
   color: #fff;
   margin-right: 4px;
+  padding: .1em .5em 0 .5em;
+  font-size: 1em;
 }
 
-.enhanced_uploader .button-add {
+.enhanced_uploader label.button.add {
   position: relative;
 }
 
@@ -24,7 +26,7 @@
   border: 1px solid #2C8FD1;
 }
 
-.enhanced_uploader .button-add input {
+.enhanced_uploader .button.add input {
   position: absolute;
   top: 0;
   right: 0;
@@ -53,16 +55,28 @@
   background: transparent url('../../images/check-off.png') no-repeat left top;
 }
 
+.enhanced_uploader .table-files .button.cancel {
+  background: transparent url('../../images/check-off.png') no-repeat left top;
+  width: 13px;
+  height: 13px;
+  margin-top: 3px;
+  border: none;
+}
+
 .enhanced_uploader .one-file {
   display: none;
 }
 
-.table-files {
+.table-files, .button.cancel {
   display: none;
 }
 
 .enhanced_uploader .table-files {
   display: block;
+}
+
+.enhanced_uploader .button.cancel {
+  display: inline-block;
 }
 
 label span.one-file {
