@@ -101,7 +101,7 @@ class dcPage
 		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n"; 
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo
-		'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
+			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
 		}
 
 		$core->auth->user_prefs->addWorkspace('interface');
@@ -272,8 +272,8 @@ class dcPage
 		$res = '';
 		if ($msg != '') {
 			$res = ($div ? '<div class="message">' : '').'<p'.($div ? '' : ' class="message"').'>'.
-				($timestamp ? dt::str(__('%H:%M:%S:'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
-				'</p>'.($div ? '</div>' : '');
+			($timestamp ? dt::str(__('%H:%M:%S:'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
+			'</p>'.($div ? '</div>' : '');
 			if ($echo) {
 				echo $res;
 			}
@@ -523,282 +523,282 @@ class dcPage
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		"\$(function() {\n".
-		"	\$.pageTabs(".$default.");\n".
-		"});\n".
-		"\n//]]>\n".
-		"</script>\n";
+			"	\$.pageTabs(".$default.");\n".
+			"});\n".
+"\n//]]>\n".
+"</script>\n";
+}
+
+public static function jsModal()
+{
+	return
+	'<link rel="stylesheet" type="text/css" href="style/modal/modal.css" />'."\n".
+	self::jsLoad('js/jquery/jquery.modal.js').
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA[\n".
+	self::jsVar('$.modal.prototype.params.loader_img','style/modal/loader.gif').
+	self::jsVar('$.modal.prototype.params.close_img','style/modal/close.png').
+	"\n//]]>\n".
+	"</script>\n";
+}
+
+public static function jsColorPicker()
+{
+	return
+	'<link rel="stylesheet" type="text/css" href="style/farbtastic/farbtastic.css" />'."\n".
+	self::jsLoad('js/jquery/jquery.farbtastic.js').
+	self::jsLoad('js/color-picker.js');
+}
+
+public static function jsDatePicker()
+{
+	return
+	'<link rel="stylesheet" type="text/css" href="style/date-picker.css" />'."\n".
+	self::jsLoad('js/date-picker.js').
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA[\n".
+	
+	"datePicker.prototype.months[0] = '".html::escapeJS(__('January'))."'; ".
+	"datePicker.prototype.months[1] = '".html::escapeJS(__('February'))."'; ".
+	"datePicker.prototype.months[2] = '".html::escapeJS(__('March'))."'; ".
+	"datePicker.prototype.months[3] = '".html::escapeJS(__('April'))."'; ".
+	"datePicker.prototype.months[4] = '".html::escapeJS(__('May'))."'; ".
+	"datePicker.prototype.months[5] = '".html::escapeJS(__('June'))."'; ".
+	"datePicker.prototype.months[6] = '".html::escapeJS(__('July'))."'; ".
+	"datePicker.prototype.months[7] = '".html::escapeJS(__('August'))."'; ".
+	"datePicker.prototype.months[8] = '".html::escapeJS(__('September'))."'; ".
+	"datePicker.prototype.months[9] = '".html::escapeJS(__('October'))."'; ".
+	"datePicker.prototype.months[10] = '".html::escapeJS(__('November'))."'; ".
+	"datePicker.prototype.months[11] = '".html::escapeJS(__('December'))."'; ".
+	
+	"datePicker.prototype.days[0] = '".html::escapeJS(__('Monday'))."'; ".
+	"datePicker.prototype.days[1] = '".html::escapeJS(__('Tuesday'))."'; ".
+	"datePicker.prototype.days[2] = '".html::escapeJS(__('Wednesday'))."'; ".
+	"datePicker.prototype.days[3] = '".html::escapeJS(__('Thursday'))."'; ".
+	"datePicker.prototype.days[4] = '".html::escapeJS(__('Friday'))."'; ".
+	"datePicker.prototype.days[5] = '".html::escapeJS(__('Saturday'))."'; ".
+	"datePicker.prototype.days[6] = '".html::escapeJS(__('Sunday'))."'; ".
+	
+	"datePicker.prototype.img_src = 'images/date-picker.png'; ".
+	
+	"datePicker.prototype.close_msg = '".html::escapeJS(__('close'))."'; ".
+	"datePicker.prototype.now_msg = '".html::escapeJS(__('now'))."'; ".
+	
+	"\n//]]>\n".
+	"</script>\n";
+}
+
+public static function jsToolBar()
+{
+	$res =
+	'<link rel="stylesheet" type="text/css" href="style/jsToolBar/jsToolBar.css" />'.
+	'<script type="text/javascript" src="js/jsToolBar/jsToolBar.js"></script>';
+	
+	if (isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('enable_wysiwyg')) {
+		$res .= '<script type="text/javascript" src="js/jsToolBar/jsToolBar.wysiwyg.js"></script>';
 	}
 	
-	public static function jsModal()
-	{
-		return
-		'<link rel="stylesheet" type="text/css" href="style/modal/modal.css" />'."\n".
-		self::jsLoad('js/jquery/jquery.modal.js').
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		self::jsVar('$.modal.prototype.params.loader_img','style/modal/loader.gif').
-		self::jsVar('$.modal.prototype.params.close_img','style/modal/close.png').
-		"\n//]]>\n".
-		"</script>\n";
+	$res .=
+	'<script type="text/javascript" src="js/jsToolBar/jsToolBar.dotclear.js"></script>'.
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA[\n".
+	"jsToolBar.prototype.dialog_url = 'popup.php'; ".
+	"jsToolBar.prototype.iframe_css = '".
+	'body{'.
+	'font: 12px "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;'.
+	'color : #000;'.
+	'background: #f9f9f9;'.
+	'margin: 0;'.
+	'padding : 2px;'.
+	'border: none;'.
+	(l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? 'direction:rtl;' : '').
+	'}'.
+	'pre, code, kbd, samp {'.
+	'font-family:"Courier New",Courier,monospace;'.
+	'font-size : 1.1em;'.
+	'}'.
+	'code {'.
+	'color : #666;'.
+	'font-weight : bold;'.
+	'}'.
+	'body > p:first-child {'.
+	'margin-top: 0;'.
+	'}'.
+	"'; ".
+	"jsToolBar.prototype.base_url = '".html::escapeJS($GLOBALS['core']->blog->host)."'; ".
+	"jsToolBar.prototype.switcher_visual_title = '".html::escapeJS(__('visual'))."'; ".
+	"jsToolBar.prototype.switcher_source_title = '".html::escapeJS(__('source'))."'; ".
+	"jsToolBar.prototype.legend_msg = '".
+	html::escapeJS(__('You can use the following shortcuts to format your text.'))."'; ".
+	"jsToolBar.prototype.elements.blocks.options.none = '".html::escapeJS(__('-- none --'))."'; ".
+	"jsToolBar.prototype.elements.blocks.options.nonebis = '".html::escapeJS(__('-- block format --'))."'; ".
+	"jsToolBar.prototype.elements.blocks.options.p = '".html::escapeJS(__('Paragraph'))."'; ".
+	"jsToolBar.prototype.elements.blocks.options.h1 = '".html::escapeJS(__('Level 1 header'))."'; ".
+	"jsToolBar.prototype.elements.blocks.options.h2 = '".html::escapeJS(__('Level 2 header'))."'; ".
+	"jsToolBar.prototype.elements.blocks.options.h3 = '".html::escapeJS(__('Level 3 header'))."'; ".
+	"jsToolBar.prototype.elements.blocks.options.h4 = '".html::escapeJS(__('Level 4 header'))."'; ".
+	"jsToolBar.prototype.elements.blocks.options.h5 = '".html::escapeJS(__('Level 5 header'))."'; ".
+	"jsToolBar.prototype.elements.blocks.options.h6 = '".html::escapeJS(__('Level 6 header'))."'; ".
+	"jsToolBar.prototype.elements.strong.title = '".html::escapeJS(__('Strong emphasis'))."'; ".
+	"jsToolBar.prototype.elements.em.title = '".html::escapeJS(__('Emphasis'))."'; ".
+	"jsToolBar.prototype.elements.ins.title = '".html::escapeJS(__('Inserted'))."'; ".
+	"jsToolBar.prototype.elements.del.title = '".html::escapeJS(__('Deleted'))."'; ".
+	"jsToolBar.prototype.elements.quote.title = '".html::escapeJS(__('Inline quote'))."'; ".
+	"jsToolBar.prototype.elements.code.title = '".html::escapeJS(__('Code'))."'; ".
+	"jsToolBar.prototype.elements.br.title = '".html::escapeJS(__('Line break'))."'; ".
+	"jsToolBar.prototype.elements.blockquote.title = '".html::escapeJS(__('Blockquote'))."'; ".
+	"jsToolBar.prototype.elements.pre.title = '".html::escapeJS(__('Preformated text'))."'; ".
+	"jsToolBar.prototype.elements.ul.title = '".html::escapeJS(__('Unordered list'))."'; ".
+	"jsToolBar.prototype.elements.ol.title = '".html::escapeJS(__('Ordered list'))."'; ".
+	
+	"jsToolBar.prototype.elements.link.title = '".html::escapeJS(__('Link'))."'; ".
+	"jsToolBar.prototype.elements.link.href_prompt = '".html::escapeJS(__('URL?'))."'; ".
+	"jsToolBar.prototype.elements.link.hreflang_prompt = '".html::escapeJS(__('Language?'))."'; ".
+	
+	"jsToolBar.prototype.elements.img.title = '".html::escapeJS(__('External image'))."'; ".
+	"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."'; ".
+	
+	"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."'; ".
+	"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ";
+	
+	if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
+		$res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";
 	}
 	
-	public static function jsColorPicker()
-	{
-		return
-		'<link rel="stylesheet" type="text/css" href="style/farbtastic/farbtastic.css" />'."\n".
-		self::jsLoad('js/jquery/jquery.farbtastic.js').
-		self::jsLoad('js/color-picker.js');
+	$res .=
+	"\n//]]>\n".
+	"</script>\n";
+	
+	return $res;
+}
+
+public static function jsUpload($params=array(),$base_url=null)
+{
+	if (!$base_url) {
+		$base_url = path::clean(dirname(preg_replace('/(\?.*$)?/','',$_SERVER['REQUEST_URI']))).'/';
 	}
 	
-	public static function jsDatePicker()
-	{
-		return
-		'<link rel="stylesheet" type="text/css" href="style/date-picker.css" />'."\n".
-		self::jsLoad('js/date-picker.js').
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		
-		"datePicker.prototype.months[0] = '".html::escapeJS(__('January'))."'; ".
-		"datePicker.prototype.months[1] = '".html::escapeJS(__('February'))."'; ".
-		"datePicker.prototype.months[2] = '".html::escapeJS(__('March'))."'; ".
-		"datePicker.prototype.months[3] = '".html::escapeJS(__('April'))."'; ".
-		"datePicker.prototype.months[4] = '".html::escapeJS(__('May'))."'; ".
-		"datePicker.prototype.months[5] = '".html::escapeJS(__('June'))."'; ".
-		"datePicker.prototype.months[6] = '".html::escapeJS(__('July'))."'; ".
-		"datePicker.prototype.months[7] = '".html::escapeJS(__('August'))."'; ".
-		"datePicker.prototype.months[8] = '".html::escapeJS(__('September'))."'; ".
-		"datePicker.prototype.months[9] = '".html::escapeJS(__('October'))."'; ".
-		"datePicker.prototype.months[10] = '".html::escapeJS(__('November'))."'; ".
-		"datePicker.prototype.months[11] = '".html::escapeJS(__('December'))."'; ".
-		
-		"datePicker.prototype.days[0] = '".html::escapeJS(__('Monday'))."'; ".
-		"datePicker.prototype.days[1] = '".html::escapeJS(__('Tuesday'))."'; ".
-		"datePicker.prototype.days[2] = '".html::escapeJS(__('Wednesday'))."'; ".
-		"datePicker.prototype.days[3] = '".html::escapeJS(__('Thursday'))."'; ".
-		"datePicker.prototype.days[4] = '".html::escapeJS(__('Friday'))."'; ".
-		"datePicker.prototype.days[5] = '".html::escapeJS(__('Saturday'))."'; ".
-		"datePicker.prototype.days[6] = '".html::escapeJS(__('Sunday'))."'; ".
-		
-		"datePicker.prototype.img_src = 'images/date-picker.png'; ".
-		
-		"datePicker.prototype.close_msg = '".html::escapeJS(__('close'))."'; ".
-		"datePicker.prototype.now_msg = '".html::escapeJS(__('now'))."'; ".
-		
-		"\n//]]>\n".
-		"</script>\n";
-	}
-	
-	public static function jsToolBar()
-	{
-		$res =
-		'<link rel="stylesheet" type="text/css" href="style/jsToolBar/jsToolBar.css" />'.
-		'<script type="text/javascript" src="js/jsToolBar/jsToolBar.js"></script>';
-		
-		if (isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('enable_wysiwyg')) {
-			$res .= '<script type="text/javascript" src="js/jsToolBar/jsToolBar.wysiwyg.js"></script>';
-		}
-		
-		$res .=
-		'<script type="text/javascript" src="js/jsToolBar/jsToolBar.dotclear.js"></script>'.
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		"jsToolBar.prototype.dialog_url = 'popup.php'; ".
-		"jsToolBar.prototype.iframe_css = '".
-			'body{'.
-				'font: 12px "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;'.
-				'color : #000;'.
-				'background: #f9f9f9;'.
-				'margin: 0;'.
-				'padding : 2px;'.
-				'border: none;'.
-				(l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? 'direction:rtl;' : '').
-			'}'.
-			'pre, code, kbd, samp {'.
-				'font-family:"Courier New",Courier,monospace;'.
-				'font-size : 1.1em;'.
-			'}'.
-			'code {'.
-				'color : #666;'.
-				'font-weight : bold;'.
-			'}'.
-			'body > p:first-child {'.
-				'margin-top: 0;'.
-			'}'.
-		"'; ".
-		"jsToolBar.prototype.base_url = '".html::escapeJS($GLOBALS['core']->blog->host)."'; ".
-		"jsToolBar.prototype.switcher_visual_title = '".html::escapeJS(__('visual'))."'; ".
-		"jsToolBar.prototype.switcher_source_title = '".html::escapeJS(__('source'))."'; ".
-		"jsToolBar.prototype.legend_msg = '".
-		html::escapeJS(__('You can use the following shortcuts to format your text.'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.none = '".html::escapeJS(__('-- none --'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.nonebis = '".html::escapeJS(__('-- block format --'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.p = '".html::escapeJS(__('Paragraph'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h1 = '".html::escapeJS(__('Level 1 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h2 = '".html::escapeJS(__('Level 2 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h3 = '".html::escapeJS(__('Level 3 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h4 = '".html::escapeJS(__('Level 4 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h5 = '".html::escapeJS(__('Level 5 header'))."'; ".
-		"jsToolBar.prototype.elements.blocks.options.h6 = '".html::escapeJS(__('Level 6 header'))."'; ".
-		"jsToolBar.prototype.elements.strong.title = '".html::escapeJS(__('Strong emphasis'))."'; ".
-		"jsToolBar.prototype.elements.em.title = '".html::escapeJS(__('Emphasis'))."'; ".
-		"jsToolBar.prototype.elements.ins.title = '".html::escapeJS(__('Inserted'))."'; ".
-		"jsToolBar.prototype.elements.del.title = '".html::escapeJS(__('Deleted'))."'; ".
-		"jsToolBar.prototype.elements.quote.title = '".html::escapeJS(__('Inline quote'))."'; ".
-		"jsToolBar.prototype.elements.code.title = '".html::escapeJS(__('Code'))."'; ".
-		"jsToolBar.prototype.elements.br.title = '".html::escapeJS(__('Line break'))."'; ".
-		"jsToolBar.prototype.elements.blockquote.title = '".html::escapeJS(__('Blockquote'))."'; ".
-		"jsToolBar.prototype.elements.pre.title = '".html::escapeJS(__('Preformated text'))."'; ".
-		"jsToolBar.prototype.elements.ul.title = '".html::escapeJS(__('Unordered list'))."'; ".
-		"jsToolBar.prototype.elements.ol.title = '".html::escapeJS(__('Ordered list'))."'; ".
-		
-		"jsToolBar.prototype.elements.link.title = '".html::escapeJS(__('Link'))."'; ".
-		"jsToolBar.prototype.elements.link.href_prompt = '".html::escapeJS(__('URL?'))."'; ".
-		"jsToolBar.prototype.elements.link.hreflang_prompt = '".html::escapeJS(__('Language?'))."'; ".
-		
-		"jsToolBar.prototype.elements.img.title = '".html::escapeJS(__('External image'))."'; ".
-		"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."'; ".
-		
-		"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."'; ".
-		"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ";
-		
-		if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
-			$res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";
-		}
-		
-		$res .=
-		"\n//]]>\n".
-		"</script>\n";
-		
-		return $res;
-	}
-	
-	public static function jsUpload($params=array(),$base_url=null)
-	{
-		if (!$base_url) {
-			$base_url = path::clean(dirname(preg_replace('/(\?.*$)?/','',$_SERVER['REQUEST_URI']))).'/';
-		}
-		
-		$params = array_merge($params,array(
-			'sess_id='.session_id(),
-			'sess_uid='.$_SESSION['sess_browser_uid'],
-			'xd_check='.$GLOBALS['core']->getNonce()
+	$params = array_merge($params,array(
+		'sess_id='.session_id(),
+		'sess_uid='.$_SESSION['sess_browser_uid'],
+		'xd_check='.$GLOBALS['core']->getNonce()
 		));
-		
-		return
-		'<link rel="stylesheet" type="text/css" href="style/jsUpload/style.css" />'."\n".
-
-    '<script id="template-upload" type="text/x-tmpl">
-{% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-upload fade">
-        <td>
-            <span class="preview"></span>
-        </td>
-        <td>
-            <p class="name">{%=file.name%}</p>
-            {% if (file.error) { %}
-                <div><span class="label label-error">'.__('Error:').'</span> {%=file.error%}</div>
-            {% } %}
-        </td>
-        <td>
-            <p class="size">{%=o.formatFileSize(file.size)%}</p>
-            {% if (!o.files.error) { %}
-                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div>
-            {% } %}
-        </td>
-        <td>
-            {% if (!o.files.error && !i && !o.options.autoUpload) { %}
-                <input type="submit" class="button start" value="'.__('Send').'"/>
-            {% } %}
-        </td>
-        <td>
-            {% if (!i) { %}
-                <div class="button cancel" title="'.__('Cancel').'"></div>
-            {% } %}
-        </td>
-    </tr>
-{% } %}
-</script>
-<!-- The template to display files available for download -->
-<script id="template-download" type="text/x-tmpl">
-{% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-download fade">
-        <td>
-            <span class="preview">
-                {% if (file.thumbnail_url) { %}
-                    <a href="{%=file.url%}" title="{%=file.name%}" data-gallery="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
-                {% } %}
-            </span>
-        </td>
-        <td>
-            <p class="name">{%=file.name%}</p>
-            {% if (file.error) { %}
-                <div><span class="label label-important">'.__('Error:').'</span> {%=file.error%}</div>
-            {% } %}
-        </td>
-        <td>
-            <span class="size">{%=o.formatFileSize(file.size)%}</span>
-        </td>
-        <td>
-            {% if (file.error) { %}
-            <span class="upload-status error"></span>
-            {% } else { %}
-            <span class="upload-status ok"></span>
-            {% } %}
-        </td>
-    </tr>
-{% } %}
-</script>'.
-
-		self::jsLoad('js/jsUpload/vendor/jquery.ui.widget.js').
-    self::jsLoad('js/jsUpload/tmpl.js').
-    self::jsLoad('js/jsUpload/load-image.js').
-		self::jsLoad('js/jsUpload/jquery.iframe-transport.js').
-		self::jsLoad('js/jsUpload/jquery.fileupload.js').
-		self::jsLoad('js/jsUpload/jquery.fileupload-process.js').
-		self::jsLoad('js/jsUpload/jquery.fileupload-resize.js').
-		self::jsLoad('js/jsUpload/jquery.fileupload-ui.js').
-		
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		"dotclear.jsUpload = {};\n".
-		"dotclear.jsUpload.msg = {};\n".
-		self::jsVar('dotclear.msg.enhanced_uploader_activate',__('Temporarily activate enhanced uploader')).
-		self::jsVar('dotclear.msg.enhanced_uploader_disable',__('Temporarily disable enhanced uploader')).
-		self::jsVar('dotclear.jsUpload.msg.limit_exceeded',__('Limit exceeded.')).
-		self::jsVar('dotclear.jsUpload.msg.size_limit_exceeded',__('File size exceeds allowed limit.')).
-		self::jsVar('dotclear.jsUpload.msg.canceled',__('Canceled.')).
-		self::jsVar('dotclear.jsUpload.msg.http_error',__('HTTP Error:')).
-		self::jsVar('dotclear.jsUpload.msg.error',__('Error:')).
-		self::jsVar('dotclear.jsUpload.msg.choose_file',__('Choose file')).
-		self::jsVar('dotclear.jsUpload.msg.choose_files',__('Choose files')).
-		self::jsVar('dotclear.jsUpload.msg.cancel',__('Cancel')).
-		self::jsVar('dotclear.jsUpload.msg.clean',__('Clean')).
-		self::jsVar('dotclear.jsUpload.msg.upload',__('Upload')).
-		self::jsVar('dotclear.jsUpload.msg.no_file_in_queue',__('No file in queue.')).
-		self::jsVar('dotclear.jsUpload.msg.file_in_queue',__('1 file in queue.')).
-		self::jsVar('dotclear.jsUpload.msg.files_in_queue',__('%d files in queue.')).
-		self::jsVar('dotclear.jsUpload.msg.queue_error',__('Queue error:')).
-		self::jsVar('dotclear.jsUpload.base_url',$base_url).
-		"\n//]]>\n".
-		"</script>\n";
-	}
 	
-	public static function jsToolMan()
-	{
-		return
-		'<script type="text/javascript" src="js/tool-man/core.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/events.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/css.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/coordinates.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/drag.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/dragsort.js"></script>'.
-		'<script type="text/javascript" src="js/dragsort-tablerows.js"></script>';
-	}
+	return
+	'<link rel="stylesheet" type="text/css" href="style/jsUpload/style.css" />'."\n".
+
+	'<script id="template-upload" type="text/x-tmpl">
+	{% for (var i=0, file; file=o.files[i]; i++) { %}
+	<tr class="template-upload fade">
+	<td>
+	<span class="preview"></span>
+	</td>
+	<td>
+	<p class="name">{%=file.name%}</p>
+	{% if (file.error) { %}
+	<div><span class="label label-error">'.__('Error:').'</span> {%=file.error%}</div>
+	{% } %}
+	</td>
+	<td>
+	<p class="size">{%=o.formatFileSize(file.size)%}</p>
+	{% if (!o.files.error) { %}
+	<div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div>
+	{% } %}
+	</td>
+	<td>
+	{% if (!o.files.error && !i && !o.options.autoUpload) { %}
+	<input type="submit" class="button start" value="'.__('Send').'"/>
+	{% } %}
+	</td>
+	<td>
+	{% if (!i) { %}
+	<div class="button cancel" title="'.__('Cancel').'"></div>
+	{% } %}
+	</td>
+	</tr>
+	{% } %}
+	</script>
+	<!-- The template to display files available for download -->
+	<script id="template-download" type="text/x-tmpl">
+	{% for (var i=0, file; file=o.files[i]; i++) { %}
+	<tr class="template-download fade">
+	<td>
+	<span class="preview">
+	{% if (file.thumbnail_url) { %}
+	<a href="{%=file.url%}" title="{%=file.name%}" data-gallery="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
+	{% } %}
+	</span>
+	</td>
+	<td>
+	<p class="name">{%=file.name%}</p>
+	{% if (file.error) { %}
+	<div><span class="label label-important">'.__('Error:').'</span> {%=file.error%}</div>
+	{% } %}
+	</td>
+	<td>
+	<span class="size">{%=o.formatFileSize(file.size)%}</span>
+	</td>
+	<td>
+	{% if (file.error) { %}
+	<span class="upload-status error"></span>
+	{% } else { %}
+	<span class="upload-status ok"></span>
+	{% } %}
+	</td>
+	</tr>
+	{% } %}
+	</script>'.
+
+	self::jsLoad('js/jsUpload/vendor/jquery.ui.widget.js').
+	self::jsLoad('js/jsUpload/tmpl.js').
+	self::jsLoad('js/jsUpload/load-image.js').
+	self::jsLoad('js/jsUpload/jquery.iframe-transport.js').
+	self::jsLoad('js/jsUpload/jquery.fileupload.js').
+	self::jsLoad('js/jsUpload/jquery.fileupload-process.js').
+	self::jsLoad('js/jsUpload/jquery.fileupload-resize.js').
+	self::jsLoad('js/jsUpload/jquery.fileupload-ui.js').
 	
-	public static function jsMetaEditor()
-	{
-		return
-		'<script type="text/javascript" src="js/meta-editor.js"></script>';
-	}
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA[\n".
+	"dotclear.jsUpload = {};\n".
+	"dotclear.jsUpload.msg = {};\n".
+	self::jsVar('dotclear.msg.enhanced_uploader_activate',__('Temporarily activate enhanced uploader')).
+	self::jsVar('dotclear.msg.enhanced_uploader_disable',__('Temporarily disable enhanced uploader')).
+	self::jsVar('dotclear.jsUpload.msg.limit_exceeded',__('Limit exceeded.')).
+	self::jsVar('dotclear.jsUpload.msg.size_limit_exceeded',__('File size exceeds allowed limit.')).
+	self::jsVar('dotclear.jsUpload.msg.canceled',__('Canceled.')).
+	self::jsVar('dotclear.jsUpload.msg.http_error',__('HTTP Error:')).
+	self::jsVar('dotclear.jsUpload.msg.error',__('Error:')).
+	self::jsVar('dotclear.jsUpload.msg.choose_file',__('Choose file')).
+	self::jsVar('dotclear.jsUpload.msg.choose_files',__('Choose files')).
+	self::jsVar('dotclear.jsUpload.msg.cancel',__('Cancel')).
+	self::jsVar('dotclear.jsUpload.msg.clean',__('Clean')).
+	self::jsVar('dotclear.jsUpload.msg.upload',__('Upload')).
+	self::jsVar('dotclear.jsUpload.msg.no_file_in_queue',__('No file in queue.')).
+	self::jsVar('dotclear.jsUpload.msg.file_in_queue',__('1 file in queue.')).
+	self::jsVar('dotclear.jsUpload.msg.files_in_queue',__('%d files in queue.')).
+	self::jsVar('dotclear.jsUpload.msg.queue_error',__('Queue error:')).
+	self::jsVar('dotclear.jsUpload.base_url',$base_url).
+	"\n//]]>\n".
+	"</script>\n";
+}
+
+public static function jsToolMan()
+{
+	return
+	'<script type="text/javascript" src="js/tool-man/core.js"></script>'.
+	'<script type="text/javascript" src="js/tool-man/events.js"></script>'.
+	'<script type="text/javascript" src="js/tool-man/css.js"></script>'.
+	'<script type="text/javascript" src="js/tool-man/coordinates.js"></script>'.
+	'<script type="text/javascript" src="js/tool-man/drag.js"></script>'.
+	'<script type="text/javascript" src="js/tool-man/dragsort.js"></script>'.
+	'<script type="text/javascript" src="js/dragsort-tablerows.js"></script>';
+}
+
+public static function jsMetaEditor()
+{
+	return
+	'<script type="text/javascript" src="js/meta-editor.js"></script>';
+}
 }
 ?>
