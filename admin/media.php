@@ -346,16 +346,11 @@ if ($core_media_writable)
 
 	echo
 	'<span class="max-size">&nbsp;('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')</span>'.
-	'<label class="button add" for="upfile">';
-
-	if ($user_ui_enhanceduploader) {
-		echo '<span class="add-label">'.__('Choose files').'</span>';
-	} else {
-		echo '<span class="add-label">'.__('Choose file').'</span>';
-	}
-	echo 
+	'<label for="upfile">'.
+	'<span class="add-label one-file">'.__('Choose file').'</span>'.
+	'<button class="button add">'.__('Choose files').'</button>'.
 	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" />'.
-	 '</label>';
+	'</label>';
 
 	echo
 	'<p class="one-file"><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.

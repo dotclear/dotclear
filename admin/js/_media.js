@@ -3,6 +3,12 @@ $(function() {
 		return;
 	}
 
+	$('.button.add').click(function(e) {
+		// Use the native click() of the file input.
+		$('#upfile').click();
+		e.preventDefault();
+	});
+
 	$('button.clean').click(function(e) {
 		$('.fileupload-ctrl .files .upload-file', '#fileupload').slideUp(500);
 		$(this).remove();
@@ -32,7 +38,7 @@ $(function() {
 		label = dotclear.jsUpload.msg.choose_file;
 	}
 
-	$('<div><a href="#">' + $msg + '</a></div>').click( function() {
+	$('<p class="clear"><a href="#">' + $msg + '</a></p>').click( function() {
 		if ($container.hasClass('enhanced_uploader')) {
 			$msg = dotclear.msg.enhanced_uploader_activate;
 			label = dotclear.jsUpload.msg.choose_file;
