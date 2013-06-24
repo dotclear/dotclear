@@ -689,63 +689,45 @@ public static function jsUpload($params=array(),$base_url=null)
 
 	'<script id="template-upload" type="text/x-tmpl">
 	{% for (var i=0, file; file=o.files[i]; i++) { %}
-	<tr class="template-upload fade">
-	<td>
-	<span class="preview"></span>
-	</td>
-	<td>
-	<p class="name">{%=file.name%}</p>
-	{% if (file.error) { %}
-	<div><span class="label label-error">'.__('Error:').'</span> {%=file.error%}</div>
-	{% } %}
-	</td>
-	<td>
-	<p class="size">{%=o.formatFileSize(file.size)%}</p>
+	<div class="template-upload fade">
+	<div class="upload-file">
+	<div class="upload-fileinfo">
+		<span class="upload-filename">{%=file.name%}</span>
+		<span class="upload-filesize">({%=o.formatFileSize(file.size)%})</span>
+		<span class="upload-filecancel cancel">'.__('Cancel').'</span>
+		{% if (!o.files.error && !i && !o.options.autoUpload) { %}
+		<input type="submit" class="button start" value="'.__('Send').'"/>
+		{% } %}
+		<span class="upload-filemsg"></span>
+	</div>
 	{% if (!o.files.error) { %}
-	<div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div>
+	<div class="upload-progress progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
 	{% } %}
-	</td>
-	<td>
-	{% if (!o.files.error && !i && !o.options.autoUpload) { %}
-	<input type="submit" class="button start" value="'.__('Send').'"/>
-	{% } %}
-	</td>
-	<td>
-	{% if (!i) { %}
-	<div class="button cancel" title="'.__('Cancel').'"></div>
-	{% } %}
-	</td>
-	</tr>
+	</div>
 	{% } %}
 	</script>
 	<!-- The template to display files available for download -->
 	<script id="template-download" type="text/x-tmpl">
 	{% for (var i=0, file; file=o.files[i]; i++) { %}
-	<tr class="template-download fade">
-	<td>
-	<span class="preview">
-	{% if (file.thumbnail_url) { %}
-	<a href="{%=file.url%}" title="{%=file.name%}" data-gallery="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
-	{% } %}
-	</span>
-	</td>
-	<td>
-	<p class="name">{%=file.name%}</p>
-	{% if (file.error) { %}
-	<div><span class="label label-important">'.__('Error:').'</span> {%=file.error%}</div>
-	{% } %}
-	</td>
-	<td>
-	<span class="size">{%=o.formatFileSize(file.size)%}</span>
-	</td>
-	<td>
-	{% if (file.error) { %}
-	<span class="upload-status error"></span>
-	{% } else { %}
-	<span class="upload-status ok"></span>
-	{% } %}
-	</td>
-	</tr>
+	<div class="template-download fade">
+	<div class="upload-file">
+	<div class="upload-fileinfo">
+		<span class="upload-filename">{%=file.name%}</span>
+		<span class="upload-filesize">({%=o.formatFileSize(file.size)%})</span>
+		<span class="upload-filemsg{% if (file.error) { %} upload-error{% } %}">
+		{% if (file.error) { %}
+		'.__('Error:').'{%=file.error%}
+		{% } else { %}
+		'.__('File successfully uploaded.').'
+		{% } %}
+		</span>
+	</div>
+	<div class="upload-progress">
+		{% if (!file.error) { %}
+		<div class="bar" style="width:100%;">100%</div>
+		{% } %}
+	</div>
+	</div>
 	{% } %}
 	</script>'.
 

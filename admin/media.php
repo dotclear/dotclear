@@ -154,6 +154,7 @@ if ($dir && !empty($_FILES['upfile'])) {
 				);
 		} catch (Exception $e) {
 			$message['files'][] = array('name' => $upfile['name'],
+				'size' => $upfile['size'],
 				'error' => $e->getMessage()
 				);
 		}
@@ -313,8 +314,11 @@ else
 	echo
 	'<p class="clear">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 }
+if (!isset($pager)) {
+	echo
+	'<p class="clear"></p>';
+}
 echo
-'<p class="clear"></p>'.
 '</div>';
 
 if ($core_media_writable)
@@ -334,15 +338,24 @@ if ($core_media_writable)
 	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="POST" enctype="multipart/form-data">'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
-	$core->formNonce().'</div>';
+	$core->formNonce().'</div>'.
+	'<div class="fileupload-ctrl"><div class="files"></div></div>';
 
 	echo
-	'<div class="fileupload-buttonbar">'.
-	'<label class="button add" for="upfile"><span>'.__('Add files').'</span>'.
-	'<span class="one-file"> ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')</span>'.
+	'<div class="fileupload-buttonbar">';
+
+	echo
+	'<span class="max-size">&nbsp;('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')</span>'.
+	'<label class="button add" for="upfile">';
+
+	if ($user_ui_enhanceduploader) {
+		echo '<span class="add-label">'.__('Choose files').'</span>';
+	} else {
+		echo '<span class="add-label">'.__('Choose file').'</span>';
+	}
+	echo 
 	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" />'.
-	'</label>'.
-	'</span>';
+	 '</label>';
 
 	echo
 	'<p class="one-file"><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
@@ -356,12 +369,12 @@ if ($core_media_writable)
 	}
 
 	echo
-	'<button type="reset" class="button cancel"><span>'.__('Cancel').'</span></button>'.
+	'<button class="button clean">'.__('Clean').'</button>'.
+	'<input class="button cancel" type="reset" value="'.__('Cancel').'"/>'.
 	'<input class="button start" type="submit" value="'.__('Send').'"/>'.
 	'</div>';
 
 	echo
-	'<table role="presentation" class="table-files table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>'.
 	'<div>'.form::hidden(array('d'),$d).'</div>'.
 	'</fieldset>'.
 	'</form>'.
