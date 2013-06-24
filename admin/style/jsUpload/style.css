@@ -15,11 +15,7 @@
   margin-right: 4px;
   padding: .1em .5em 0 .5em;
   font-size: 1em;
-}
-
-.enhanced_uploader .button span {
-  font-size: inherit;
-  padding: 0;
+  float: left;
 }
 
 .enhanced_uploader .button:hover {
@@ -27,34 +23,25 @@
   border: 1px solid #2C8FD1;
 }
 
-.enhanced_uploader .button.add {
-  position: relative;
-  cursor: pointer;
-  font-size: 1em;
-  padding: 0;
+.enhanced_uploader .cancel, .enhanced_uploader .clean, .enhanced_uploader .start {
+  margin-top: 0;
 }
 
-.enhanced_uploader .button.add input {
-  position: absolute;
+.enhanced_uploader #upfile {
   width: 0;
   height: 0;
-  top: 0;
-  left: 0;
+  visibility: hidden;
   margin: 0;
   opacity: 0;
   filter: alpha(opacity=0);
   cursor: pointer;
 }
 
-.enhanced_uploader .add-label, .enhanced_uploader .max-size {
-  float: none;
-}
-
-.button.clean, .button.cancel {
+.button.clean, .button.cancel, .button.add {
   display: none;
 }
 
-.enhanced_uploader .button.cancel {
+.enhanced_uploader .button.clean, .enhanced_uploader .button.cancel, .enhanced_uploader .button.add {
   display: inline-block;
 }
 
