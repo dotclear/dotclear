@@ -3,6 +3,12 @@ $(function() {
 		return;
 	}
 
+	$('button.clean').click(function(e) {
+		$('.fileupload-ctrl .files .upload-file', '#fileupload').slideUp(500);
+		$(this).remove();
+		e.preventDefault();
+	});
+
 	$('#fileupload').fileupload({
 		url: $('#fileupload').attr('action'),
 		autoUpload: false,
@@ -11,36 +17,42 @@ $(function() {
 		if (data.result.files[0].html !==undefined) {
 			$('.media-list p.clear').before(data.result.files[0].html);
 		}
+		$('button.clean').show();
 	});
 
 	var $container = $('#fileupload').parent().parent();
-	var $msg;
+	var $msg,label;
 
 	if ($container.hasClass('enhanced_uploader')) {
 		$msg = dotclear.msg.enhanced_uploader_disable;
+		label = dotclear.jsUpload.msg.choose_files;
 		$('#fileupload').fileupload({disabled:false});
 	} else {
 		$msg = dotclear.msg.enhanced_uploader_activate;
+		label = dotclear.jsUpload.msg.choose_file;
 	}
 
 	$('<div><a href="#">' + $msg + '</a></div>').click( function() {
 		if ($container.hasClass('enhanced_uploader')) {
 			$msg = dotclear.msg.enhanced_uploader_activate;
+			label = dotclear.jsUpload.msg.choose_file;
 			$('#upfile').attr('multiple', false);
 
-		// when a user has clicked enhanced_uploader, and has added files
-		// We must remove files in table
-		$('.table-files tr', '#fileupload').remove();
-		$('#fileupload').fileupload({disabled:true});
-	} else {
-		$msg = dotclear.msg.enhanced_uploader_disable;
-		$('#upfile').attr('multiple', true);
-		$('#fileupload').fileupload({disabled:false});
-	}
-	$(this).find('a').text($msg);
+			// when a user has clicked enhanced_uploader, and has added files
+			// We must remove files in table
+			$('.files .upload-file', '#fileupload').remove();
+			$('#fileupload').fileupload({disabled:true});
+		} else {
+			$msg = dotclear.msg.enhanced_uploader_disable;
+			label = dotclear.jsUpload.msg.choose_files;
+			$('#upfile').attr('multiple', true);
+			$('#fileupload').fileupload({disabled:false});
+		}
+		$(this).find('a').text($msg);
+		$('.add-label', '#fileupload').text(label);
 
-	$container.toggleClass('enhanced_uploader');
-}).appendTo($('#fileupload'));
+		$container.toggleClass('enhanced_uploader');
+	}).appendTo($('#fileupload'));
 
 	// Replace remove links by a POST on hidden form
 	fileRemoveAct();

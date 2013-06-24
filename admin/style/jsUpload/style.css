@@ -17,8 +17,9 @@
   font-size: 1em;
 }
 
-.enhanced_uploader label.button.add {
-  position: relative;
+.enhanced_uploader .button span {
+  font-size: inherit;
+  padding: 0;
 }
 
 .enhanced_uploader .button:hover {
@@ -26,59 +27,106 @@
   border: 1px solid #2C8FD1;
 }
 
+.enhanced_uploader .button.add {
+  position: relative;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0;
+}
+
 .enhanced_uploader .button.add input {
   position: absolute;
+  width: 0;
+  height: 0;
   top: 0;
-  right: 0;
+  left: 0;
   margin: 0;
   opacity: 0;
   filter: alpha(opacity=0);
   cursor: pointer;
 }
 
-.enhanced_uploader .progress .bar {
-  background: transparent url('loader.png') repeat left top;
+.enhanced_uploader .add-label, .enhanced_uploader .max-size {
+  float: none;
 }
 
-.enhanced_uploader .upload-status {
-  margin-top: 3px;
-  width: 13px;
-  height: 13px;
-  display: block;
-}
-
-.enhanced_uploader .upload-status.ok {
-  background: transparent url('../../images/check-on.png') no-repeat left top;
-}
-
-.enhanced_uploader .upload-status.error {
-  background: transparent url('../../images/check-off.png') no-repeat left top;
-}
-
-.enhanced_uploader .table-files .button.cancel {
-  background: transparent url('../../images/check-off.png') no-repeat left top;
-  width: 13px;
-  height: 13px;
-  margin-top: 3px;
-  border: none;
-}
-
-.enhanced_uploader .one-file {
+.button.clean, .button.cancel {
   display: none;
-}
-
-.table-files, .button.cancel {
-  display: none;
-}
-
-.enhanced_uploader .table-files {
-  display: block;
 }
 
 .enhanced_uploader .button.cancel {
   display: inline-block;
 }
 
+.enhanced_uploader .max-size {
+  display: block;
+}
+
+.enhanced_uploader .one-file {
+  display: none;
+}
+
 label span.one-file {
   display: inline;
+}
+
+/* files */
+.upload-msg {
+  font-weight: bold;
+}
+
+.upload-msg.upload-error {
+  color: #c00;
+}
+
+.upload-files {
+  padding: 0 0.5em;
+  margin: 10px 0;
+}
+
+.upload-file {
+  margin: 0 0 8px 0;
+  position: relative;
+}
+
+.upload-fileinfo {
+  margin-left: 16px;
+}
+
+.upload-fileinfo .upload-filecancel {
+  display: block;
+  margin-top: 3px;
+  width: 20px;
+  height: 20px;
+  background: transparent url("cancel.png") no-repeat left top;
+  text-indent: -1000px;
+  cursor: pointer;
+  float: left;
+}
+
+.upload-filemsg {
+  font-weight: bold;
+  color: green;
+}
+
+.upload-filemsg.upload-error {
+  color: #c00;
+}
+
+.upload-progress {
+  padding: 0 1em;
+}
+
+.upload-progress div {
+  height: 10px;
+  width: 0;
+  font-size: 0.8em;
+  line-height: 1em;
+  height: 1em;
+  padding: .2em 0;
+  text-align: right;
+  background: green url(loader.png) repeat-x left top;
+  color: white;
+  font-weight: bold;
+  border-radius: 2px;
 }
