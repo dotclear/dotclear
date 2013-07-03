@@ -41,7 +41,7 @@
   display: none;
 }
 
-.enhanced_uploader .button.clean, .enhanced_uploader .button.cancel, .enhanced_uploader .button.add {
+.enhanced_uploader .button.add {
   display: inline-block;
 }
 

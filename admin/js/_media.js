@@ -9,9 +9,16 @@ $(function() {
 		e.preventDefault();
 	});
 
-	$('button.clean').click(function(e) {
-		$('.fileupload-ctrl .files .upload-file', '#fileupload').slideUp(500);
+	$('.button.cancel', '#fileupload').click(function(e) {
+	 $(this).hide();
+     });
+
+	$('.button.clean', '#fileupload').click(function(e) {
+		$('.fileupload-ctrl .files .upload-file', '#fileupload').slideUp(500, function() {
+			$(this).remove();
+		});
 		$(this).remove();
+		$('.button.cancel','#fileupload').hide();
 		e.preventDefault();
 	});
 
@@ -19,11 +26,13 @@ $(function() {
 		url: $('#fileupload').attr('action'),
 		autoUpload: false,
 		disabled: true
+	}).bind('fileuploadadd', function(e, data) {
+		$('.button.cancel').show();
 	}).bind('fileuploaddone', function(e, data) {
 		if (data.result.files[0].html !==undefined) {
 			$('.media-list p.clear').before(data.result.files[0].html);
 		}
-		$('button.clean').show();
+		$('.button.clean','#fileupload').show();
 	});
 
 	var $container = $('#fileupload').parent().parent();
