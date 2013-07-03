@@ -10,14 +10,14 @@ $(function() {
 	});
 
 	$('.button.cancel', '#fileupload').click(function(e) {
-	 $(this).hide();
-     });
+		$(this).hide();
+	});
 
 	$('.button.clean', '#fileupload').click(function(e) {
 		$('.fileupload-ctrl .files .upload-file', '#fileupload').slideUp(500, function() {
 			$(this).remove();
 		});
-		$(this).remove();
+		$(this).hide();
 		$('.button.cancel','#fileupload').hide();
 		e.preventDefault();
 	});
