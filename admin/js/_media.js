@@ -10,15 +10,14 @@ $(function() {
 	});
 
 	$('.button.cancel', '#fileupload').click(function(e) {
-		$(this).hide();
+		$('.button.cancel, .button.start','#fileupload .fileupload-buttonbar').hide();
 	});
 
 	$('.button.clean', '#fileupload').click(function(e) {
-		$('.fileupload-ctrl .files .upload-file', '#fileupload').slideUp(500, function() {
+		$('.fileupload-ctrl .files .template-download', '#fileupload').slideUp(500, function() {
 			$(this).remove();
 		});
 		$(this).hide();
-		$('.button.cancel','#fileupload').hide();
 		e.preventDefault();
 	});
 
@@ -27,12 +26,16 @@ $(function() {
 		autoUpload: false,
 		disabled: true
 	}).bind('fileuploadadd', function(e, data) {
-		$('.button.cancel').show();
+		$('.button.cancel, .button.start', '#fileupload .fileupload-buttonbar').show();
 	}).bind('fileuploaddone', function(e, data) {
 		if (data.result.files[0].html !==undefined) {
 			$('.media-list p.clear').before(data.result.files[0].html);
 		}
 		$('.button.clean','#fileupload').show();
+	}).bind('fileuploadalways', function(e, data) {
+	    if ($('.fileupload-ctrl .files .template-upload', '#fileupload').length==0) {
+		$('.button.start, .button.cancel','#fileupload .fileupload-buttonbar').hide();
+	    }
 	});
 
 	var $container = $('#fileupload').parent().parent();
@@ -47,7 +50,7 @@ $(function() {
 		label = dotclear.jsUpload.msg.choose_file;
 	}
 
-	$('<p class="clear"><a href="#">' + $msg + '</a></p>').click( function() {
+	$('<p class="clear"><a class="enhanced-toggle" href="#">' + $msg + '</a></p>').click( function() {
 		if ($container.hasClass('enhanced_uploader')) {
 			$msg = dotclear.msg.enhanced_uploader_activate;
 			label = dotclear.jsUpload.msg.choose_file;
