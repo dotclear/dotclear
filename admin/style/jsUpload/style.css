@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 
-.button.clean, .button.cancel, .button.add {
+.button.clean, .button.cancel, .button.add, .enhanced_uploader .fileupload-buttonbar .button.start {
   display: none;
 }
 
