@@ -13,7 +13,7 @@
 	text-align: center;
 	cursor: pointer;
 	color: #fff;
-	font-size: 1em;
+	font: 1em "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
 	margin-right: 4px;
 	margin-bottom: .5em;
 	padding: .1em .5em 0 .5em;
@@ -82,6 +82,16 @@
 
 label span.one-file {
 	display: inline;
+}
+
+.enhanced_uploader p.clear {
+	margin-top: 3em;
+	margin-bottom: 0;
+}
+
+#add-file-f p.clear {
+	margin-top: 1em;
+	margin-bottom: 0;
 }
 
 /* files */
