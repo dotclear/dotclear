@@ -59,11 +59,14 @@ $(function() {
 			// when a user has clicked enhanced_uploader, and has added files
 			// We must remove files in table
 			$('.files .upload-file', '#fileupload').remove();
+			$('.button.cancel, .button.start','#fileupload .fileupload-buttonbar').hide();
+			$('.button.start','#fileupload').show();
 			$('#fileupload').fileupload({disabled:true});
 		} else {
 			$msg = dotclear.msg.enhanced_uploader_disable;
 			label = dotclear.jsUpload.msg.choose_files;
 			$('#upfile').attr('multiple', true);
+			$('.button.start','#fileupload').hide();
 			$('#fileupload').fileupload({disabled:false});
 		}
 		$(this).find('a').text($msg);
