@@ -42,6 +42,10 @@
 	border: 1px solid #CCCCCC;
 }
 
+.enhanced_uploader .fileupload-buttonbar {
+	margin-top: 2em;
+}
+
 .enhanced_uploader .upload-filecancel {
 	border: none;
 }
