@@ -716,7 +716,7 @@ public static function jsUpload($params=array(),$base_url=null)
 		<span class="upload-filesize">({%=o.formatFileSize(file.size)%})</span>
 		<span class="upload-filemsg{% if (file.error) { %} upload-error{% } %}">
 		{% if (file.error) { %}
-		'.__('Error:').'{%=file.error%}
+		'.__('Error:').' {%=file.error%}
 		{% } else { %}
 		'.__('File successfully uploaded.').'
 		{% } %}

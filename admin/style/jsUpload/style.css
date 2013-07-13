@@ -119,6 +119,7 @@ label span.one-file {
 
 .upload-fileinfo {
 	margin-left: 16px;
+	margin-bottom: .4em;
 }
 
 .upload-fileinfo .upload-filecancel {
