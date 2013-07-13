@@ -345,7 +345,7 @@ if ($core_media_writable)
 	'<div class="fileupload-buttonbar">';
 
 	echo
-	'<p class="max-sier form-note info">&nbsp;'.__('Maximum file size allowed:').files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
+	'<p class="max-sier form-note info">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
 	'<label for="upfile">'.
 	'<span class="add-label one-file">'.__('Choose file').'</span>'.
 	'<button class="button add">'.__('Choose files').'</button>'.
