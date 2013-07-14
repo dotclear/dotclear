@@ -364,9 +364,9 @@ if ($core_media_writable)
 	}
 
 	echo
-	'<button class="button clean">'.__('Clean').'</button>'.
-	'<input class="button cancel one-file" type="reset" value="'.__('Cancel').'"/>'.
-	'<input class="button start" type="submit" value="'.__('Send').'"/>'.
+	'<button class="button clean">'.__('Refresh').'</button>'.
+	'<input class="button cancel one-file" type="reset" value="'.__('Clear all').'"/>'.
+	'<input class="button start" type="submit" value="'.__('Upload').'"/>'.
 	'</div>';
 
 	echo
