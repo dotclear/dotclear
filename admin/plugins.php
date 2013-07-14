@@ -166,12 +166,12 @@ if ($is_writable)
 			}
 
 			# --BEHAVIOR-- pluginBeforeAdd
-			$core->callBehavior('pluginsBeforeAdd', $plugin);
+			$core->callBehavior('pluginsBeforeAdd', $plugin_id);
 						
 			$ret_code = $core->plugins->installPackage($dest,$core->plugins);
 
 			# --BEHAVIOR-- pluginAfterAdd
-			$core->callBehavior('pluginsAfterAdd', $plugin);
+			$core->callBehavior('pluginsAfterAdd', $plugin_id);
 			
 			http::redirect('plugins.php?added='.$ret_code);
 		}
