@@ -225,8 +225,12 @@ if (!empty($plugins_install['failure']))
 echo '<p>'.__('Plugins add new functionalities to Dotclear. '.
 'Here you can activate or deactivate installed plugins.').'</p>';
 
-echo '<p><strong>'.sprintf(__('You can find additional plugins for your blog on %s.'),
-'<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>').'</strong> ';
+echo (!$core->plugins->moduleExists('daInstaller') ?
+	sprintf('<p><strong>'.__('You can find additional plugins for your blog on %s.').'</strong></p>',
+		'<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>') :
+	sprintf('<p><strong>'.__('You can find additional plugins for your blog on %s or using the %s.').'</strong></p>',
+		'<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>',
+		'<a href="plugin.php?p=daInstaller">'.__('DotAddict.org Installer').'</a>'));
 
 if ($is_writable) {
 	echo __('To install or upgrade a plugin you generally just need to upload it '.
