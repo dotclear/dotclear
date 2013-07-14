@@ -197,7 +197,7 @@ if ($can_install && !empty($_POST))
 
 		# Add user interface options
 		$core->auth->user_prefs->addWorkspace('interface');
-		$core->auth->user_prefs->interface->put('enhanceduploader',false,'boolean','',null,true);
+		$core->auth->user_prefs->interface->put('enhanceduploader',true,'boolean','',null,true);
 
 		# Add default favorites
 		$core->auth->user_prefs->addWorkspace('favorites');
