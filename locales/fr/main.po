@@ -2380,11 +2380,14 @@ msgstr "Choisir un fichier"
 msgid "Choose files"
 msgstr "Choisir des fichiers"
 
-msgid "Clean"
-msgstr "Nettoyer"
+msgid "Refresh"
+msgstr "Actualiser"
 
 msgid "Upload"
 msgstr "Envoyer"
+
+msgid "Clear all"
+msgstr "Tout annuler"
 
 msgid "No file in queue."
 msgstr "Aucun fichier en file d'attente."
