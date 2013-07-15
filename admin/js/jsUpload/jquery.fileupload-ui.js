@@ -128,7 +128,6 @@
             },
             // Callback for successful uploads:
             done: function (e, data) {
-
                 var that = $(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload'),
                     getFilesFromResponse = data.getFilesFromResponse ||
