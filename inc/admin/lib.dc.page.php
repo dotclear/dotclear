@@ -696,7 +696,7 @@ public static function jsUpload($params=array(),$base_url=null)
 		<span class="upload-filesize">({%=o.formatFileSize(file.size)%})</span>
 		<span class="upload-filecancel cancel">'.__('Cancel').'</span>
 		{% if (!o.files.error && !i && !o.options.autoUpload) { %}
-		<input type="submit" style="visibility: hidden;" class="button start"  value="'.__('Send').'"/>
+		<input type="submit" class="button start"  value="'.__('Send').'"/>
 		{% } %}
 		<span class="upload-filemsg"></span>
 	</div>
