@@ -106,6 +106,7 @@
             },
             // Callback for the start of each file upload request:
             send: function (e, data) {
+                $(this).find('.start').hide();
                 var that = $(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload');
                 if (data.context && data.dataType &&
@@ -127,6 +128,7 @@
             },
             // Callback for successful uploads:
             done: function (e, data) {
+
                 var that = $(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload'),
                     getFilesFromResponse = data.getFilesFromResponse ||
@@ -268,16 +270,19 @@
             // Callback for uploads start, equivalent to the global ajaxStart event:
             start: function (e) {
                 var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload');
+                $(this).find('.start').hide();
                 that._resetFinishedDeferreds();
                 that._transition($(this).find('.fileupload-progress')).done(
+
                     function () {
+
                         that._trigger('started', e);
                     }
                 );
             },
             // Callback for uploads stop, equivalent to the global ajaxStop event:
             stop: function (e) {
+                $(this).find('.start').show();
                 var that = $(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload'),
                     deferred = that._addFinishedDeferreds();
