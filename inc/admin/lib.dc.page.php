@@ -21,23 +21,23 @@ class dcPage
 	public static function check($permissions)
 	{
 		global $core;
-		
+
 		if ($core->blog && $core->auth->check($permissions,$core->blog->id))
 		{
 			return;
 		}
-		
+
 		if (session_id()) {
 			$core->session->destroy();
 		}
 		http::redirect(DC_AUTH_PAGE);
 	}
-	
+
 	# Check super admin
 	public static function checkSuper()
 	{
 		global $core;
-		
+
 		if (!$core->auth->isSuperAdmin())
 		{
 			if (session_id()) {
@@ -46,7 +46,7 @@ class dcPage
 			http::redirect(DC_AUTH_PAGE);
 		}
 	}
-	
+
 	# Top of admin page
 	public static function open($title='', $head='')
 	{
@@ -58,7 +58,7 @@ class dcPage
 			$blog_box =
 			'<p>'.__('Blog:').' <strong title="'.html::escapeHTML($core->blog->url).'">'.
 			html::escapeHTML($core->blog->name).'</strong>';
-			
+
 			if ($core->auth->blog_count > 20) {
 				$blog_box .= ' - <a href="blogs.php">'.__('Change blog').'</a>';
 			}
@@ -79,9 +79,9 @@ class dcPage
 			'</label></p>'.
 			'<noscript><p><input type="submit" value="'.__('ok').'" /></p></noscript>';
 		}
-		
+
 		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
-		
+
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
 		echo
@@ -93,15 +93,15 @@ class dcPage
 		"<head>\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
-		
+
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
-		
+
 		self::jsLoadIE7().
-		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n"; 
+		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo
-			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
+			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n";
 		}
 
 		$core->auth->user_prefs->addWorkspace('interface');
@@ -109,24 +109,24 @@ class dcPage
 		if (!$user_ui_hide_std_favicon) {
 			echo '<link rel="icon" type="image/png" href="images/favicon.png" />';
 		}
-		
+
 		echo
 		self::jsCommon().
 		$head;
-		
+
 		# --BEHAVIOR-- adminPageHTMLHead
 		$core->callBehavior('adminPageHTMLHead');
-		
+
 		echo
 		"</head>\n".
 		'<body id="dotclear-admin'.
 		($safe_mode ? ' safe-mode' : '').
 		'">'."\n".
-		
+
 		'<div id="header">'.
 		'<ul id="prelude"><li><a href="#content">'.__('Go to the content').'</a></li><li><a href="#main-menu">'.__('Go to the menu').'</a></li></ul>'."\n".
-		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";	
-		
+		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
+
 		echo
 		'<div id="info-boxes">'.
 		'<div id="info-box1">'.
@@ -142,12 +142,12 @@ class dcPage
 		'</div>'.
 		'</div>'.
 		'</div>';
-		
+
 		echo
 		'<div id="wrapper">'."\n".
 		'<div id="main">'."\n".
 		'<div id="content">'."\n";
-		
+
 		# Safe mode
 		if ($safe_mode)
 		{
@@ -156,7 +156,7 @@ class dcPage
 			'<p>'.__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
 			'</div>';
 		}
-		
+
 		if ($core->error->flag()) {
 			echo
 			'<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</p></strong>'.
@@ -164,23 +164,23 @@ class dcPage
 			'</div>';
 		}
 	}
-	
+
 	public static function close()
 	{
 		global $core;
 
 		$menu =& $GLOBALS['_menu'];
-		
+
 		echo
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
-		
+
 		'<div id="main-menu">'."\n";
-		
+
 		foreach ($menu as $k => $v) {
 			echo $menu[$k]->draw();
 		}
-		
+
 		$text = sprintf(__('Thank you for using %s.'),'Dotclear '.DC_VERSION);
 
 		# --BEHAVIOR-- adminPageFooter
@@ -194,19 +194,19 @@ class dcPage
 		'</div>'."\n".		// End of #main-menu
 		'<div id="footer"><a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logo_footer.png" alt="'.$text.'" /></a></div>'."\n".
 		"</div>\n";		// End of #wrapper
-		
+
 		if (defined('DC_DEV') && DC_DEV === true) {
 			echo self::debugInfo();
 		}
-		
+
 		echo
 		'</body></html>';
 	}
-	
+
 	public static function openPopup($title='', $head='')
 	{
 		global $core;
-		
+
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
 		echo
@@ -218,35 +218,35 @@ class dcPage
 		"<head>\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
-		
+
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
-		
+
 		self::jsLoadIE7().
-		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n"; 
+		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo
-			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n"; 
+			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n";
 		}
-		
+
 		echo
 		self::jsCommon().
 		$head;
-		
+
 		# --BEHAVIOR-- adminPageHTMLHead
 		$core->callBehavior('adminPageHTMLHead');
-		
+
 		echo
 		"</head>\n".
 		'<body id="dotclear-admin" class="popup">'."\n".
-		
+
 		'<div id="top"><h1>'.DC_VENDOR_NAME.'</h1></div>'."\n";
-		
+
 		echo
 		'<div id="wrapper">'."\n".
 		'<div id="main">'."\n".
 		'<div id="content">'."\n";
-		
+
 		if ($core->error->flag()) {
 			echo
 			'<div class="error"><strong>'.__('Errors:').'</strong>'.
@@ -254,7 +254,7 @@ class dcPage
 			'</div>';
 		}
 	}
-	
+
 	public static function closePopup()
 	{
 		echo
@@ -268,7 +268,7 @@ class dcPage
 	public static function message($msg,$timestamp=true,$div=false,$echo=true)
 	{
 		global $core;
-		
+
 		$res = '';
 		if ($msg != '') {
 			$res = ($div ? '<div class="message">' : '').'<p'.($div ? '' : ' class="message"').'>'.
@@ -280,19 +280,19 @@ class dcPage
 		}
 		return $res;
 	}
-	
+
 	private static function debugInfo()
 	{
 		$global_vars = implode(', ',array_keys($GLOBALS));
-		
+
 		$res =
 		'<div id="debug"><div>'.
 		'<p>memory usage: '.memory_get_usage().' ('.files::size(memory_get_usage()).')</p>';
-		
+
 		if (function_exists('xdebug_get_profiler_filename'))
 		{
 			$res .= '<p>Elapsed time: '.xdebug_time_index().' seconds</p>';
-			
+
 			$prof_file = xdebug_get_profiler_filename();
 			if ($prof_file) {
 				$res .= '<p>Profiler file : '.xdebug_get_profiler_filename().'</p>';
@@ -302,7 +302,7 @@ class dcPage
 				$prof_url .= 'XDEBUG_PROFILE';
 				$res .= '<p><a href="'.html::escapeURL($prof_url).'">Trigger profiler</a></p>';
 			}
-			
+
 			/* xdebug configuration:
 			zend_extension = /.../xdebug.so
 			xdebug.auto_trace = On
@@ -316,31 +316,31 @@ class dcPage
 			xdebug.profiler_output_name = timestamp
 			*/
 		}
-		
+
 		$res .=
 		'<p>Global vars: '.$global_vars.'</p>'.
 		'</div></div>';
-		
+
 		return $res;
 	}
-	
+
 	public static function help($page,$index='')
 	{
 		# Deprecated but we keep this for plugins.
 	}
-	
+
 	public static function helpBlock()
 	{
 		$args = func_get_args();
 		if (empty($args)) {
 			return;
 		};
-		
+
 		global $__resources;
 		if (empty($__resources['help'])) {
 			return;
 		}
-		
+
 		$content = '';
 		foreach ($args as $v)
 		{
@@ -348,7 +348,7 @@ class dcPage
 				$content .= $v->content;
 				continue;
 			}
-			
+
 			if (!isset($__resources['help'][$v])) {
 				continue;
 			}
@@ -356,7 +356,7 @@ class dcPage
 			if (!file_exists($f) || !is_readable($f)) {
 				continue;
 			}
-			
+
 			$fc = file_get_contents($f);
 			if (preg_match('|<body[^>]*?>(.*?)</body>|ms',$fc,$matches)) {
 				$content .= $matches[1];
@@ -364,17 +364,17 @@ class dcPage
 				$content .= $fc;
 			}
 		}
-		
+
 		if (trim($content) == '') {
 			return;
 		}
-		
+
 		echo
 		'<div id="help"><hr /><div class="help-content clear"><h2>'.__('Help').'</h2>'.
 		$content.
 		'</div></div>';
 	}
-	
+
 	public static function jsLoad($src)
 	{
 		$escaped_src = html::escapeHTML($src);
@@ -383,12 +383,12 @@ class dcPage
 			return '<script type="text/javascript" src="'.$escaped_src.'"></script>'."\n";
 		}
 	}
-	
+
 	public static function jsVar($n,$v)
 	{
 		return $n." = '".html::escapeJS($v)."';\n";
 	}
-	
+
 	public static function jsCommon()
 	{
 		return
@@ -397,18 +397,18 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.bgFade.js').
 		self::jsLoad('js/common.js').
 		self::jsLoad('js/prelude.js').
-		
+
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		self::jsVar('dotclear.nonce',$GLOBALS['core']->getNonce()).
-		
+
 		self::jsVar('dotclear.img_plus_src','images/expand.png').
 		self::jsVar('dotclear.img_plus_alt',__('uncover')).
 		self::jsVar('dotclear.img_minus_src','images/hide.png').
 		self::jsVar('dotclear.img_minus_alt',__('hide')).
 		self::jsVar('dotclear.img_menu_on','images/menu_on.png').
 		self::jsVar('dotclear.img_menu_off','images/menu_off.png').
-		
+
 		self::jsVar('dotclear.msg.help',
 			__('help')).
 		self::jsVar('dotclear.msg.no_selection',
@@ -480,7 +480,7 @@ class dcPage
 		"\n//]]>\n".
 		"</script>\n";
 	}
-	
+
 	public static function jsLoadIE7()
 	{
 		return
@@ -489,7 +489,7 @@ class dcPage
 		'<link rel="stylesheet" type="text/css" href="style/iesucks.css" />'."\n".
 		'<![endif]-->'."\n";
 	}
-	
+
 	public static function jsConfirmClose()
 	{
 		$args = func_get_args();
@@ -501,7 +501,7 @@ class dcPage
 		} else {
 			$args = '';
 		}
-		
+
 		return
 		self::jsLoad('js/confirm-close.js').
 		'<script type="text/javascript">'."\n".
@@ -511,13 +511,13 @@ class dcPage
 		"\n//]]>\n".
 		"</script>\n";
 	}
-	
+
 	public static function jsPageTabs($default=null)
 	{
 		if ($default) {
 			$default = "'".html::escapeJS($default)."'";
 		}
-		
+
 		return
 		self::jsLoad('js/jquery/jquery.pageTabs.js').
 		'<script type="text/javascript">'."\n".
@@ -557,7 +557,7 @@ public static function jsDatePicker()
 	self::jsLoad('js/date-picker.js').
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA[\n".
-	
+
 	"datePicker.prototype.months[0] = '".html::escapeJS(__('January'))."'; ".
 	"datePicker.prototype.months[1] = '".html::escapeJS(__('February'))."'; ".
 	"datePicker.prototype.months[2] = '".html::escapeJS(__('March'))."'; ".
@@ -570,7 +570,7 @@ public static function jsDatePicker()
 	"datePicker.prototype.months[9] = '".html::escapeJS(__('October'))."'; ".
 	"datePicker.prototype.months[10] = '".html::escapeJS(__('November'))."'; ".
 	"datePicker.prototype.months[11] = '".html::escapeJS(__('December'))."'; ".
-	
+
 	"datePicker.prototype.days[0] = '".html::escapeJS(__('Monday'))."'; ".
 	"datePicker.prototype.days[1] = '".html::escapeJS(__('Tuesday'))."'; ".
 	"datePicker.prototype.days[2] = '".html::escapeJS(__('Wednesday'))."'; ".
@@ -578,12 +578,12 @@ public static function jsDatePicker()
 	"datePicker.prototype.days[4] = '".html::escapeJS(__('Friday'))."'; ".
 	"datePicker.prototype.days[5] = '".html::escapeJS(__('Saturday'))."'; ".
 	"datePicker.prototype.days[6] = '".html::escapeJS(__('Sunday'))."'; ".
-	
+
 	"datePicker.prototype.img_src = 'images/date-picker.png'; ".
-	
+
 	"datePicker.prototype.close_msg = '".html::escapeJS(__('close'))."'; ".
 	"datePicker.prototype.now_msg = '".html::escapeJS(__('now'))."'; ".
-	
+
 	"\n//]]>\n".
 	"</script>\n";
 }
@@ -593,11 +593,11 @@ public static function jsToolBar()
 	$res =
 	'<link rel="stylesheet" type="text/css" href="style/jsToolBar/jsToolBar.css" />'.
 	'<script type="text/javascript" src="js/jsToolBar/jsToolBar.js"></script>';
-	
+
 	if (isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('enable_wysiwyg')) {
 		$res .= '<script type="text/javascript" src="js/jsToolBar/jsToolBar.wysiwyg.js"></script>';
 	}
-	
+
 	$res .=
 	'<script type="text/javascript" src="js/jsToolBar/jsToolBar.dotclear.js"></script>'.
 	'<script type="text/javascript">'."\n".
@@ -650,25 +650,25 @@ public static function jsToolBar()
 	"jsToolBar.prototype.elements.pre.title = '".html::escapeJS(__('Preformated text'))."'; ".
 	"jsToolBar.prototype.elements.ul.title = '".html::escapeJS(__('Unordered list'))."'; ".
 	"jsToolBar.prototype.elements.ol.title = '".html::escapeJS(__('Ordered list'))."'; ".
-	
+
 	"jsToolBar.prototype.elements.link.title = '".html::escapeJS(__('Link'))."'; ".
 	"jsToolBar.prototype.elements.link.href_prompt = '".html::escapeJS(__('URL?'))."'; ".
 	"jsToolBar.prototype.elements.link.hreflang_prompt = '".html::escapeJS(__('Language?'))."'; ".
-	
+
 	"jsToolBar.prototype.elements.img.title = '".html::escapeJS(__('External image'))."'; ".
 	"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."'; ".
-	
+
 	"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."'; ".
 	"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ";
-	
+
 	if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
 		$res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";
 	}
-	
+
 	$res .=
 	"\n//]]>\n".
 	"</script>\n";
-	
+
 	return $res;
 }
 
@@ -677,13 +677,13 @@ public static function jsUpload($params=array(),$base_url=null)
 	if (!$base_url) {
 		$base_url = path::clean(dirname(preg_replace('/(\?.*$)?/','',$_SERVER['REQUEST_URI']))).'/';
 	}
-	
+
 	$params = array_merge($params,array(
 		'sess_id='.session_id(),
 		'sess_uid='.$_SESSION['sess_browser_uid'],
 		'xd_check='.$GLOBALS['core']->getNonce()
 		));
-	
+
 	return
 	'<link rel="stylesheet" type="text/css" href="style/jsUpload/style.css" />'."\n".
 
@@ -696,7 +696,7 @@ public static function jsUpload($params=array(),$base_url=null)
 		<span class="upload-filesize">({%=o.formatFileSize(file.size)%})</span>
 		<span class="upload-filecancel cancel">'.__('Cancel').'</span>
 		{% if (!o.files.error && !i && !o.options.autoUpload) { %}
-		<input type="submit" class="button start" value="'.__('Send').'"/>
+		<input type="submit" style="visibility: hidden;" class="button start"  value="'.__('Send').'"/>
 		{% } %}
 		<span class="upload-filemsg"></span>
 	</div>
@@ -739,7 +739,7 @@ public static function jsUpload($params=array(),$base_url=null)
 	self::jsLoad('js/jsUpload/jquery.fileupload-process.js').
 	self::jsLoad('js/jsUpload/jquery.fileupload-resize.js').
 	self::jsLoad('js/jsUpload/jquery.fileupload-ui.js').
-	
+
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA[\n".
 	"dotclear.jsUpload = {};\n".
