@@ -24,6 +24,7 @@ $(function() {
 	$('#fileupload').fileupload({
 		url: $('#fileupload').attr('action'),
 		autoUpload: false,
+		sequentialUploads: true,
 		disabled: true
 	}).bind('fileuploadadd', function(e, data) {
 		$('.button.cancel, .button.start', '#fileupload .fileupload-buttonbar').show();
