@@ -1410,7 +1410,7 @@ msgid "Extract mode:"
 msgstr "Mode d'extraction :"
 
 msgid "Extract"
-msgstr "Extrait"
+msgstr "Extraire"
 
 msgid "Change media properties"
 msgstr "Changer les propriétés du média"
