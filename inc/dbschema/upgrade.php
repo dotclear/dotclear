@@ -334,6 +334,12 @@ function dotclearUpgrade($core)
 					}
 				}
 			}
+
+			if (version_compare($version, '2.5.1', '<='))
+			{
+				// Flash enhanced upload no longer needed
+				@unlink(DC_ROOT.'/'.'inc/swf/swfupload.swf');
+			}
 			
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
