@@ -27,7 +27,7 @@
 	border: 1px solid #2C8FD1;
 }
 
-.enhanced_uploader .add, .enhanced_uploader .clean, .enhanced_uploader .cancel {
+.enhanced_uploader .add, .enhanced_uploader .clean, .enhanced_uploader .cancel, .enhanced_uploader .disabled {
 	text-shadow: none;
 	color: #000;
 	background: #F5F5F5;
@@ -35,11 +35,16 @@
 	border: 1px solid #CCCCCC;
 }
 
-.enhanced_uploader .button.add:hover, .enhanced_uploader .button.clean:hover, .enhanced_uploader .button.cancel:hover {
+.enhanced_uploader .button.add:hover, .enhanced_uploader .button.clean:hover, .enhanced_uploader .button.cancel:hover, .enhanced_uploader .disabled:hover {
 	background: #DFDFDF;
 	background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#F5F5F5));
 	background: -moz-linear-gradient(center top , #DFDFDF, #F5F5F5) repeat scroll 0 0 transparent;
 	border: 1px solid #CCCCCC;
+}
+
+.enhanced_uploader .disabled, .enhanced_uploader .disabled:hover {
+	color: #666;
+	background: #dfdfdf;
 }
 
 .enhanced_uploader .fileupload-buttonbar {
