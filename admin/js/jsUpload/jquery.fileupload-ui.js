@@ -103,6 +103,19 @@
                         }
                     );
                 });
+            /*
+             *  Recherche des fichers restants à uploader
+             *  Activation du bouton si un fichier trouvé
+             */
+             var filesList = that.options.filesContainer;
+             if(filesList.find('.start').size() > 0) {
+                var fileUploadButtonBar = that.element.find('.fileupload-buttonbar');
+                fileUploadButtonBar.find('.start').prop('disabled', false);
+                fileUploadButtonBar.find('.start').removeClass('disabled');
+             }
+             /*
+             *
+             */
             },
             // Callback for the start of each file upload request:
             send: function (e, data) {
@@ -299,6 +312,19 @@
                         deferred.resolve();
                     }
                 );
+            /*
+             *  Recherche des fichers restants à uploader
+             *  Désactivation du bouton si plus rien
+             */
+             var filesList = that.options.filesContainer;
+             if(filesList.find('.start').size() == 0) {
+                var fileUploadButtonBar = that.element.find('.fileupload-buttonbar');
+                fileUploadButtonBar.find('.start').prop('disabled', true);
+                fileUploadButtonBar.find('.start').addClass('disabled');
+             }
+            /*
+             *
+             */
             },
             processstart: function () {
                 $(this).addClass('fileupload-processing');
