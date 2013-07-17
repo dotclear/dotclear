@@ -103,16 +103,14 @@
                         }
                     );
                 });
+
             /*
-             *  Recherche des fichers restants à uploader
+             *  
              *  Activation du bouton si un fichier trouvé
              */
-             var filesList = that.options.filesContainer;
-             if(filesList.find('.start').size() > 0) {
                 var fileUploadButtonBar = that.element.find('.fileupload-buttonbar');
                 fileUploadButtonBar.find('.start').prop('disabled', false);
                 fileUploadButtonBar.find('.start').removeClass('disabled');
-             }
              /*
              *
              */
@@ -141,6 +139,7 @@
             },
             // Callback for successful uploads:
             done: function (e, data) {
+
                 var that = $(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload'),
                     getFilesFromResponse = data.getFilesFromResponse ||
