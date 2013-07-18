@@ -1,3 +1,11 @@
+Dotclear 2.5.1 - 2013-07-20
+===========================================================
+* Security fix: Replacement of swfupload.swf by a jQuery plugin
+* Security enhancement: Strenghened lists display
+* Thumbnails quality improved
+* Various bug fixes
+* Various cosmetic adjustments
+
 Dotclear 2.5.0 - 2013-03-12
 ===========================================================
 * Security fix: XSS vulnerabilities in swfupload.swf (media enhanced uploader)
