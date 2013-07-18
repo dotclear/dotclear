@@ -514,7 +514,7 @@ class dcMedia extends filemanager
 		while ($rs->fetch()) {
 			$f = $this->fileRecord($rs);
 			if ($f !== null) {
-				$res[] = $f;
+				$res[] = new ArrayObject($f);
 			}
 		}
 		
