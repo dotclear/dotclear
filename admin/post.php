@@ -421,6 +421,8 @@ if ($can_edit_post)
 		echo '<a id="post-preview" href="'.$preview_url.'" class="button" accesskey="p">'.__('Preview').' (p)'.'</a> ';
 	}
 	echo
+	'<a id="post-cancel" href="index.php" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
+	echo
 	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
 	$core->formNonce().
 	'</p>';
