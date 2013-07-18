@@ -420,9 +420,8 @@ if ($can_edit_post)
 		'/'.$post->post_url);
 		echo '<a id="post-preview" href="'.$preview_url.'" class="button" accesskey="p">'.__('Preview').' (p)'.'</a> ';
 	}
-	$cancel_url = $post_id ? 'posts.php' : 'index.php';
 	echo
-	'<a id="post-cancel" href="'.$cancel_url.'" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
+	'<a id="post-cancel" href="index.php" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
 	echo
 	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
 	$core->formNonce().
