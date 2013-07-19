@@ -434,6 +434,9 @@ if ($can_edit_page)
 	}
 	
 	echo
+	'<a id="post-cancel" href="index.php" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
+
+	echo
 	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
 	$core->formNonce().
 	'</p>';
