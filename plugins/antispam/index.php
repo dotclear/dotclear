@@ -3,7 +3,7 @@
 #
 # This file is part of Antispam, a plugin for Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -107,10 +107,13 @@ catch (Exception $e)
   //]]>
   </script>
   <?php
-  echo
-  dcPage::jsToolMan().
-  dcPage::jsPageTabs($default_tab).
-  dcPage::jsLoad('index.php?pf=antispam/antispam.js');
+  echo dcPage::jsPageTabs($default_tab);
+  $core->auth->user_prefs->addWorkspace('accessibility');
+  if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+	echo
+		dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+		dcPage::jsLoad('index.php?pf=antispam/antispam.js');
+  }
   ?>
   <link rel="stylesheet" type="text/css" href="index.php?pf=antispam/style.css" />
 </head>
@@ -158,15 +161,15 @@ else
 	}
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
-		__('You can modify this duration in ').
-		'<a href="blog_pref.php"> '.__('Blog preferences').'</a></p>';
+		sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog preferences').'</a>').
+			'</p>';
 	}
 	echo '</form>';
 
 
 	# Filters
 	echo
-	'<form action="'.$p_url.'" method="post" class="fieldset">';
+	'<form action="'.$p_url.'" method="post" class="fieldset" id="filters-form">';
 
 	if (!empty($_GET['upd'])) {
 		dcPage::message(__('Filters configuration has been successfully saved.'));
@@ -197,7 +200,7 @@ else
 
 		echo
 		'<tr class="line'.($f->active ? '' : ' offline').'" id="f_'.$fid.'">'.
-		'<td class="handle">'.form::field(array('f_order['.$fid.']'),2,5,(string) $i, '', '', false, 'title="'.__('position').'"').'</td>'.
+		'<td class="handle">'.form::field(array('f_order['.$fid.']'),2,5,(string) $i, 'position', '', false, 'title="'.__('position').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_active[]'),$fid,$f->active, '', '', false, 'title="'.__('Active').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_auto_del[]'),$fid,$f->auto_delete, '', '', false, 'title="'.__('Auto Del.').'"').'</td>'.
 		'<td class="nowrap" scope="raw">'.$f->name.'</td>'.

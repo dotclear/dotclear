@@ -1,9 +1,86 @@
 $(function() {
+	if ($('#fileupload').length==0) {
+		return;
+	}
+
+	$('.button.add').click(function(e) {
+		// Use the native click() of the file input.
+		$('#upfile').click();
+		e.preventDefault();
+	});
+
+	$('.button.cancel', '#fileupload').click(function(e) {
+		$('.button.cancel, .button.start','#fileupload .fileupload-buttonbar').hide();
+	});
+
+	$('.button.clean', '#fileupload').click(function(e) {
+		$('.fileupload-ctrl .files .template-download', '#fileupload').slideUp(500, function() {
+			$(this).remove();
+		});
+		$(this).hide();
+		e.preventDefault();
+	});
+
+	$('#fileupload').fileupload({
+		url: $('#fileupload').attr('action'),
+		autoUpload: false,
+		sequentialUploads: true,
+		disabled: true
+	}).bind('fileuploadadd', function(e, data) {
+		$('.button.cancel, .button.start', '#fileupload .fileupload-buttonbar').show();
+	}).bind('fileuploaddone', function(e, data) {
+		if (data.result.files[0].html !==undefined) {
+			$('.media-list p.clear').before(data.result.files[0].html);
+		}
+		$('.button.clean','#fileupload').show();
+	}).bind('fileuploadalways', function(e, data) {
+	    if ($('.fileupload-ctrl .files .template-upload', '#fileupload').length==0) {
+		$('.button.start, .button.cancel','#fileupload .fileupload-buttonbar').hide();
+	    }
+	});
+
+	var $container = $('#fileupload').parent().parent();
+	var $msg,label;
+
+	if ($container.hasClass('enhanced_uploader')) {
+		$msg = dotclear.msg.enhanced_uploader_disable;
+		label = dotclear.jsUpload.msg.choose_files;
+		$('#fileupload').fileupload({disabled:false});
+	} else {
+		$msg = dotclear.msg.enhanced_uploader_activate;
+		label = dotclear.jsUpload.msg.choose_file;
+	}
+
+	$('<p class="clear"><a class="enhanced-toggle" href="#">' + $msg + '</a></p>').click( function() {
+		if ($container.hasClass('enhanced_uploader')) {
+			$msg = dotclear.msg.enhanced_uploader_activate;
+			label = dotclear.jsUpload.msg.choose_file;
+			$('#upfile').attr('multiple', false);
+
+			// when a user has clicked enhanced_uploader, and has added files
+			// We must remove files in table
+			$('.files .upload-file', '#fileupload').remove();
+			$('.button.cancel, .button.start','#fileupload .fileupload-buttonbar').hide();
+			$('.button.start','#fileupload').show();
+			$('#fileupload').fileupload({disabled:true});
+		} else {
+			$msg = dotclear.msg.enhanced_uploader_disable;
+			label = dotclear.jsUpload.msg.choose_files;
+			$('#upfile').attr('multiple', true);
+			$('.button.start','#fileupload').hide();
+			$('#fileupload').fileupload({disabled:false});
+		}
+		$(this).find('a').text($msg);
+		$('.add-label', '#fileupload').text(label);
+
+		$container.toggleClass('enhanced_uploader');
+	}).appendTo($('#fileupload'));
+
 	// Replace remove links by a POST on hidden form
 	fileRemoveAct();
-	
+
 	function fileRemoveAct() {
-		$('a.media-remove').click(function() {
+		$('a.media-remove').live('click', function() {
 			var m_name = $(this).parents('ul').find('li:first>a').text();
 			if (window.confirm(dotclear.msg.confirm_delete_media.replace('%s',m_name))) {
 				var f = $('#media-remove-hide').get(0);
@@ -12,80 +89,6 @@ $(function() {
 				f.submit();
 			}
 			return false;
-		});
-	}
-	
-	if (!$.browser.opera) {
-		var upldr = $('<a href="#" id="cu-enable">' + dotclear.msg.activate_enhanced_uploader + '</a>').click( function() {
-			candyUploadInit();
-			return false;
-		});
-		$('#media-upload').append($('<div></div>').append(upldr));
-		if ((dotclear.candyUpload_force_init == '1') || (($.cookie('dc_candy_upl') == 1))) {
-			candyUploadInit();
-		}
-	}
-	
-	function candyUploadInit()
-	{
-		var candy_upload_success = false;
-		var candy_upload_form_url = $('#media-upload').attr('action') + '&file_sort=date-desc&d=' + $('#media-upload input[name=d]').val();
-		var candy_upload_limit = $('#media-upload input[name=MAX_FILE_SIZE]').val();
-		$('#media-upload').candyUpload({
-			upload_url: dotclear.candyUpload.base_url + '/media.php',
-			flash_movie: dotclear.candyUpload.movie_url,
-			file_size_limit: candy_upload_limit + 'b',
-			params: 'swfupload=1&amp;' + dotclear.candyUpload.params,
-			
-			callbacks: {
-				createControls: function() {
-					var _this = this;
-					this.ctrl.btn_browse.hide();
-					this.ctrl.msg.html(dotclear.msg.load_enhanced_uploader);
-					var l = $('<a href="#">' + dotclear.msg.disable_enhanced_uploader + '</a>').click(function() {
-						_this.upldr.destroy();
-						_this.ctrl.block.empty().remove();
-						$('#media-upload').show();
-						delete _this;
-						$.cookie('dc_candy_upl','',{expires:-1});
-						return false;
-					});
-					this.ctrl.disable = $('<div class="cu-disable"></div>').append(l).appendTo(this.ctrl.block);
-				},
-				flashReady: function() {
-					var _this = this;
-					this.ctrl.msg.fadeOut('fast',function() {
-						$(this).text(_this.locales.no_file_in_queue).fadeIn('fast');
-						_this.ctrl.btn_browse.fadeIn('fast',function() {
-							_this.upldr.container.children().css({
-								width: $('.cu-btn-browse').width(),
-								height: $('.cu-btn-browse').height()
-							});
-						});
-					});
-				},
-				uploadSuccess: function(o,data) {
-					if (data == 'ok') {
-						candy_upload_success = true;
-						this.fileMsg(o.id,this.locales.file_uploaded);
-					} else {
-						this.fileErrorMsg(o.id,data);
-					}
-					
-					// uploads finished and at least one success
-					if (candy_upload_success && $('div.cu-file:has(span.cu-filecancel a)',this.ctrl.files).length == 0) {
-						$.cookie('dc_candy_upl','1',{expires: 30});
-						$.get(candy_upload_form_url,function(data) {
-							var media = $('div.media-list');
-							media.after($('div.media-list',data)).remove();
-							fileRemoveAct();
-						});
-					}
-				},
-				fileQueued: function() {
-					positionFooter();
-				}
-			}
 		});
 	}
 });

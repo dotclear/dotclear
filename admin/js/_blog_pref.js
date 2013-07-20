@@ -9,7 +9,7 @@ function checkQueryString() {
 	}
 	$("p#urlwarning").remove();
 	if (errorMsg != '') {
-		$("#blog_url").parents('p').before('<p id="urlwarning" class="error">'+errorMsg+'</p>');
+		$("#blog_url").parents('p').after('<p id="urlwarning" class="warning">'+errorMsg+'</p>');
 	}
 }
 

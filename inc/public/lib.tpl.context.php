@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -450,9 +450,9 @@ class context
 		}
 		
 		# No src, look in category description if available
-		if (!$src && $with_category && $_ctx->categories)
-		{
-			if (preg_match_all($pattern,$_ctx->categories->cat_desc,$m) > 0)
+        if (!$src && $with_category && $_ctx->posts->cat_desc)
+        {
+			if (preg_match_all($pattern,$_ctx->posts->cat_desc,$m) > 0)
 			{
 				foreach ($m[1] as $i => $img) {
 					if (($src = self::ContentFirstImageLookup($p_root,$img,$size)) !== false) {

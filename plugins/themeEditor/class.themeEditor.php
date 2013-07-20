@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -242,9 +242,9 @@ class dcThemeEditor
 		$langs = l10n::getISOcodes(1,1);
 		foreach ($langs as $k => $v) {
 			if ($this->parent_theme) {
-				$this->po = array_merge($this->po,$this->getFilesInDir($this->parent_theme.'/locales/'.$v,'po',$v.'/','main.po'));
+				$this->po = array_merge($this->po,$this->getFilesInDir($this->parent_theme.'/locales/'.$v,'po',$v.'/'));
 			}
-			$this->po = array_merge($this->po,$this->getFilesInDir($this->user_theme.'/locales/'.$v,'po',$v.'/','main.po'));
+			$this->po = array_merge($this->po,$this->getFilesInDir($this->user_theme.'/locales/'.$v,'po',$v.'/'));
 		}
 	}
 	

@@ -1410,7 +1410,7 @@ msgid "Extract mode:"
 msgstr "Mode d'extraction :"
 
 msgid "Extract"
-msgstr "Extrait"
+msgstr "Extraire"
 
 msgid "Change media properties"
 msgstr "Changer les propriétés du média"
@@ -1472,6 +1472,9 @@ msgstr "Les extensions ajoutent de nouvelles fonctionnalités à Dotclear. Ici, 
 #, php-format
 msgid "You can find additional plugins for your blog on %s."
 msgstr "Vous pouvez trouver de nouvelles extensions pour votre blog sur %s."
+
+msgid "You can find additional plugins for your blog on %s or using the %s."
+msgstr "Vous pouvez trouver de nouvelles extensions pour votre blog sur %s ou en utilisant l'%s."
 
 msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
 msgstr "Tout ce que vous avez à faire pour installer ou mettre à jour une extension est généralement de la déposer dans la section \"Installer ou mettre à jour une extension\"."
@@ -2377,11 +2380,14 @@ msgstr "Choisir un fichier"
 msgid "Choose files"
 msgstr "Choisir des fichiers"
 
-msgid "Clean"
-msgstr "Nettoyer"
+msgid "Refresh"
+msgstr "Actualiser"
 
 msgid "Upload"
 msgstr "Envoyer"
+
+msgid "Clear all"
+msgstr "Tout annuler"
 
 msgid "No file in queue."
 msgstr "Aucun fichier en file d'attente."

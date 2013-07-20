@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -224,15 +224,13 @@ if (!$core->error->flag())
 	'</fieldset>'.
 	'</form>';
 	
-	if (!$with_spam) {
-
-		$spam_count = $core->blog->getComments(array('comment_status'=>-2),true)->f(0);
+	$spam_count = $core->blog->getComments(array('comment_status'=>-2),true)->f(0);
+	if ($spam_count > 0) {
 		
-		if ($spam_count > 0) {
-			
-			echo 
-				'<form action="comments.php" method="post" class="fieldset">';
+		echo 
+			'<form action="comments.php" method="post" class="fieldset">';
 
+		if (!$with_spam || ($status != -2)) {
 			if ($spam_count == 1) {
 				echo '<p>'.sprintf(__('You have one spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
 				'<a href="comments.php?status=-2">'.__('Show it.').'</a></p>';
@@ -240,16 +238,16 @@ if (!$core->error->flag())
 				echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
 				'<a href="comments.php?status=-2">'.__('Show them.').'</a></p>';
 			}
-			
-			echo
-				$core->formNonce().
-				'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
-
-			# --BEHAVIOR-- adminCommentsSpamForm
-			$core->callBehavior('adminCommentsSpamForm',$core);
-
-			echo '</form>';
 		}
+		
+		echo
+			$core->formNonce().
+			'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
+
+		# --BEHAVIOR-- adminCommentsSpamForm
+		$core->callBehavior('adminCommentsSpamForm',$core);
+
+		echo '</form>';
 	}
 	
 	# Show comments

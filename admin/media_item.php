@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -144,7 +144,7 @@ function dcGetImageTitle($file,$pattern,$dto_first=false)
 		} elseif ($file->media_meta->{$v}) {
 			$res[] = (string) $file->media_meta->{$v};
 		} elseif (preg_match('/^Date\((.+?)\)$/u',$v,$m)) {
-			if ($dto_first && $file->media_meta->DateTimeOriginal) {
+			if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
 				$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
 			} else {
 				$res[] = dt::str($m[1],$file->media_dt);

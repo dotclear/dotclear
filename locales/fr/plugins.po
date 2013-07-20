@@ -261,9 +261,6 @@ msgstr ""
 "Tous les commentaires indésirables âgés d'au moins %s jour(s) seront "
 "supprimés automatiquement."
 
-msgid "You can modify this duration in "
-msgstr "Vous pouvez modifier cet intervalle dans"
-
 msgid "Blog preferences"
 msgstr "Préférences du blog"
 
@@ -1898,6 +1895,9 @@ msgstr "Derniers billets publiés"
 msgid "List of last comments posted"
 msgstr "Liste des derniers commentaires postés"
 
+msgid "You can modify this duration in the %s"
+msgstr "Vous pouvez modifier cette durée dans les %s"
+
 #~ msgid "Export a blog"
 #~ msgstr "Exporter un blog"
 
@@ -1912,6 +1912,3 @@ msgstr "Liste des derniers commentaires postés"
 
 #~ msgid "The backup file does not appear to be well formed."
 #~ msgstr "Le fichier de sauvegarde semble mal formaté."
-
-msgid "You can modify this duration in the %s"
-msgstr "Vous pouvez modifier cette durée dans les %s"

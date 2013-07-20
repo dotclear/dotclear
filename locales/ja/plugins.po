@@ -224,7 +224,7 @@ msgstr "すべてのスパムを削除"
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "%s 日を経過したすべてのスパムコメントは自動的に削除されます。"
 
-msgid "You can modify this duration in "
+msgid "You can modify this duration in the %s"
 msgstr ""
 
 #, fuzzy
