@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -163,53 +163,15 @@ try {
 <html>
 <head>
   <title><?php echo __('Blogroll'); ?></title>
-  <?php echo dcPage::jsToolMan(); ?>
   <?php echo dcPage::jsConfirmClose('links-form','add-link-form','add-category-form'); ?>
   <?php 
-	$core->auth->user_prefs->addWorkspace('accessibility'); 
-	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+	$core->auth->user_prefs->addWorkspace('accessibility');
+	if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+	echo
+		dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+		dcPage::jsLoad('index.php?pf=blogroll/blogroll.js');
+	}
   ?>
-  <?php if (!$user_dm_nodragdrop) : ?>
-  <script type="text/javascript">
-  //<![CDATA[
-  
-  var dragsort = ToolMan.dragsort();
-  $(function() {
-  	dragsort.makeTableSortable($("#links-list").get(0),
-  	dotclear.sortable.setHandle,dotclear.sortable.saveOrder);
-	
-	$('.checkboxes-helpers').each(function() {
-		dotclear.checkboxesHelpers(this);
-	});
-  });
-  
-  dotclear.sortable = {
-	  setHandle: function(item) {
-		var handle = $(item).find('td.handle').get(0);
-		while (handle.firstChild) {
-			handle.removeChild(handle.firstChild);
-		}
-		
-		item.toolManDragGroup.setHandle(handle);
-		handle.className = handle.className+' handler';
-	  },
-	  
-	  saveOrder: function(item) {
-		var group = item.toolManDragGroup;
-		var order = document.getElementById('links_order');
-		group.register('dragend', function() {
-			order.value = '';
-			items = item.parentNode.getElementsByTagName('tr');
-			
-			for (var i=0; i<items.length; i++) {
-				order.value += items[i].id.substr(2)+',';
-			}
-		});
-	  }
-  };
-  //]]>
-  </script>
-  <?php endif; ?>
   <?php echo dcPage::jsPageTabs($default_tab); ?>
 </head>
 
@@ -257,7 +219,7 @@ while ($rs->fetch())
 	
 	echo
 	'<tr class="line" id="l_'.$rs->link_id.'">'.
-	'<td class="handle minimal">'.form::field(array('order['.$rs->link_id.']'),2,5,$position,'','',false,'title="'.__('position').'"').'</td>'.
+	'<td class="handle minimal">'.form::field(array('order['.$rs->link_id.']'),2,5,$position,'position','',false,'title="'.__('position').'"').'</td>'.
 	'<td class="minimal">'.form::checkbox(array('remove[]'),$rs->link_id,'','','',false,'title="'.__('select this link').'"').'</td>';
 	
 	

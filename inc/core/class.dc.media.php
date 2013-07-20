@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -840,7 +840,7 @@ class dcMedia extends filemanager
 		$rs = $this->con->select($strReq);
 		while ($rs->fetch()) {
 			if (is_dir($this->root.'/'.$rs->media_dir))
-				$dir[] = $rs->media_dir;
+				$dir[] = ($rs->media_dir == '.' ? '' : $rs->media_dir);
 		}
 		
 		return $dir;
@@ -939,6 +939,7 @@ class dcMedia extends filemanager
 					$rate = ($s[0] < 100 ? 95 : ($s[0] < 600 ? 90 : 85));
 					$img->resize($s[0],$s[0],$s[1]);
 					$img->output('jpeg',$thumb_file,$rate);
+					$img->loadImage($file);
 				}
 			}
 			$img->close();

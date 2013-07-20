@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -41,6 +41,7 @@ class dcTemplate extends template
 		
 		# Loops test tags
 		$this->addBlock('LoopPosition',array($this,'LoopPosition'));
+		$this->addValue('LoopIndex',array($this,'LoopIndex'));
 		
 		# Archives
 		$this->addBlock('Archives',array($this,'Archives'));
@@ -526,6 +527,12 @@ class dcTemplate extends template
 		'<?php if ($_ctx->loopPosition('.$start.','.$length.','.$even.')) : ?>'.
 		$content.
 		"<?php endif; ?>";
+	}
+
+	public function LoopIndex($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php '.sprintf($f,'(!$_ctx->cur_loop ? 0 : $_ctx->cur_loop->index() + 1)').' ?>';
 	}
 	
 	

@@ -3,7 +3,7 @@
 #
 # This file is part of Antispam, a plugin for Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -58,7 +58,7 @@ class antispamBehaviors
 		$ttl = $core->blog->settings->antispam->antispam_moderation_ttl;
 		if ($ttl != null && $ttl >=0) {
 			echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl).' '.
-			sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php"> '.__('Blog preferences').'</a>').
+			sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog preferences').'</a>').
 			'</p>';
 		}
 	}
