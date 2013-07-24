@@ -301,6 +301,7 @@ if (!empty($_GET['co'])) {
   dcPage::jsDatePicker().
   dcPage::jsToolBar().
   dcPage::jsModal().
+  dcPage::jsMetaEditor().
   dcPage::jsLoad('js/_post.js').
   dcPage::jsConfirmClose('entry-form','comment-form').
   # --BEHAVIOR-- adminPageHeaders
