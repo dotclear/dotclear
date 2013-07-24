@@ -39,14 +39,18 @@ class attachmentTpl {
 		$res =
 		"<?php\n".
 		'if ($_ctx->posts !== null && $core->media) {'."\n".
-			'$_ctx->attachments = new ArrayObject($core->media->getPostMedia($_ctx->posts->post_id));'."\n".
+		'$_ctx->attachments = staticRecord::newFromArray($core->media->getPostMedia($_ctx->posts->post_id));'."\n".
 		"?>\n".
 		
-		'<?php foreach ($_ctx->attachments as $attach_i => $attach_f) : '.
-		'$GLOBALS[\'attach_i\'] = $attach_i; $GLOBALS[\'attach_f\'] = $attach_f;'.
-		'$_ctx->file_url = $attach_f->file_url; ?>'.
+		'<?php $attach_i = 0; ?>'. // LEGACY
+		'<?php while ($_ctx->attachments->fetch()) : ?>'.
+		
+		'<?php $GLOBALS[\'attach_i\'] = $attach_i; $attach_f = $_ctx->attachments->row(); $GLOBALS[\'attach_f\'] = $attach_f;'. // LEGACY
+		'$_ctx->file_url = $attach_f->file_url; ?>'. // LEGACY
 		$content.
-		'<?php endforeach; $_ctx->attachments = null; unset($attach_i,$attach_f,$_ctx->file_url); ?>'.
+		'<?php $attach_i++; ?>'. // LEGACY
+		'<?php endwhile; '.
+		'$_ctx->attachments = null; ?>'.
 		
 		"<?php } ?>\n";
 		
@@ -59,7 +63,7 @@ class attachmentTpl {
 	public static function AttachmentsHeader($attr,$content)
 	{
 		return
-		"<?php if (\$attach_i == 0) : ?>".
+		"<?php if (\$_ctx->attachments->isStart()) : ?>".
 		$content.
 		"<?php endif; ?>";
 	}
@@ -70,7 +74,7 @@ class attachmentTpl {
 	public static function AttachmentsFooter($attr,$content)
 	{
 		return
-		"<?php if (\$attach_i+1 == count(\$_ctx->attachments)) : ?>".
+		"<?php if (\$_ctx->attachments->isEnd()) : ?>".
 		$content.
 		"<?php endif; ?>";
 	}
@@ -92,25 +96,25 @@ class attachmentTpl {
 		
 		if (isset($attr['is_image'])) {
 			$sign = (boolean) $attr['is_image'] ? '' : '!';
-			$if[] = $sign.'$attach_f->media_image';
+			$if[] = $sign.'$_ctx->attachments->media_image';
 		}
 		
 		if (isset($attr['has_thumb'])) {
 			$sign = (boolean) $attr['has_thumb'] ? '' : '!';
-			$if[] = $sign.'isset($attach_f->media_thumb[\'sq\'])';
+			$if[] = $sign.'isset($_ctx->attachments->media_thumb[\'sq\'])';
 		}
 		
 		if (isset($attr['is_mp3'])) {
 			$sign = (boolean) $attr['is_mp3'] ? '==' : '!=';
-			$if[] = '$attach_f->type '.$sign.' "audio/mpeg3"';
+			$if[] = '$_ctx->attachments->type '.$sign.' "audio/mpeg3"';
 		}
 		
 		if (isset($attr['is_flv'])) {
 			$sign = (boolean) $attr['is_flv'] ? '' : '!';
 			$if[] = $sign.
-				'($attach_f->type == "video/x-flv" || '.
-				'$attach_f->type == "video/mp4" || '.
-				'$attach_f->type == "video/x-m4v")';
+				'($_ctx->attachments->type == "video/x-flv" || '.
+				'$_ctx->attachments->type == "video/mp4" || '.
+				'$_ctx->attachments->type == "video/x-m4v")';
 		}
 		
 		if (count($if) != 0) {
@@ -126,7 +130,7 @@ class attachmentTpl {
 	public static function AttachmentMimeType($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->type').'; ?>';
+		return '<?php echo '.sprintf($f,'$_ctx->attachments->type').'; ?>';
 	}
 	
 	/*dtd
@@ -135,7 +139,7 @@ class attachmentTpl {
 	public static function AttachmentType($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->media_type').'; ?>';
+		return '<?php echo '.sprintf($f,'$_ctx->attachments->media_type').'; ?>';
 	}
 	
 	/*dtd
@@ -144,7 +148,7 @@ class attachmentTpl {
 	public static function AttachmentFileName($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->basename').'; ?>';
+		return '<?php echo '.sprintf($f,'$_ctx->attachments->basename').'; ?>';
 	}
 	
 	/*dtd
@@ -157,9 +161,9 @@ class attachmentTpl {
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		if (!empty($attr['full'])) {
-			return '<?php echo '.sprintf($f,'$attach_f->size').'; ?>';
+			return '<?php echo '.sprintf($f,'$_ctx->attachments->size').'; ?>';
 		}
-		return '<?php echo '.sprintf($f,'files::size($attach_f->size)').'; ?>';
+		return '<?php echo '.sprintf($f,'files::size($_ctx->attachments->size)').'; ?>';
 	}
 	
 	/*dtd
@@ -168,7 +172,7 @@ class attachmentTpl {
 	public static function AttachmentTitle($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->media_title').'; ?>';
+		return '<?php echo '.sprintf($f,'$_ctx->attachments->media_title').'; ?>';
 	}
 	
 	/*dtd
@@ -179,8 +183,8 @@ class attachmentTpl {
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return
 		'<?php '.
-		'if (isset($attach_f->media_thumb[\'sq\'])) {'.
-			'echo '.sprintf($f,'$attach_f->media_thumb[\'sq\']').';'.
+		'if (isset($_ctx->attachments->media_thumb[\'sq\'])) {'.
+			'echo '.sprintf($f,'$_ctx->attachments->media_thumb[\'sq\']').';'.
 		'}'.
 		'?>';
 	}
@@ -191,7 +195,7 @@ class attachmentTpl {
 	public static function AttachmentURL($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$attach_f->file_url').'; ?>';
+		return '<?php echo '.sprintf($f,'$_ctx->attachments->file_url').'; ?>';
 	}
 	
 	public static function MediaURL($attr)
