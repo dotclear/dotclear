@@ -1130,13 +1130,13 @@ msgid "Optimize database room"
 msgstr "Optimise la place occupée par la base de données"
 
 msgid "Vacuum tables"
-msgstr "Vidage des tables"
+msgstr "Optimiser les tables"
 
 msgid "Counters"
 msgstr "Compteurs"
 
 msgid "Reset comments and ping counters"
-msgstr "Remet à zéro les compteurs de commentaires et de signalements"
+msgstr "Recalculer les compteurs de commentaires et de signalements"
 
 msgid "Search engine index"
 msgstr "Index du moteur de recherche"
@@ -1145,22 +1145,22 @@ msgid "This may take a very long time"
 msgstr "Cela peut prendre un certain temps"
 
 msgid "Index all posts"
-msgstr "Indexation de tous les billets"
+msgstr "Indexer tous les billets"
 
 msgid "Index all comments"
-msgstr "Indexation de tous les commentaires"
+msgstr "Indexer tous les commentaires"
 
 msgid "Vacuum logs"
 msgstr "Vidages des journaux"
 
 msgid "Delete all logs"
-msgstr "Suppression de tous les journaux"
+msgstr "Supprimer tous les journaux"
 
 msgid "Empty templates cache directory"
 msgstr "Vidage du répertoire de cache des « templates »"
 
 msgid "Empty directory"
-msgstr "Vidage du répertoire"
+msgstr "Vider le répertoire"
 
 msgid "Pages"
 msgstr "Pages"
