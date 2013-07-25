@@ -2266,8 +2266,10 @@ class dcBlog
 		}
 		
 		if ($cur->comment_site !== null && $cur->comment_site != '') {
-			if (!preg_match('|^http(s?)://|',$cur->comment_site)) {
+			if (!preg_match('|^http(s?)://|i',$cur->comment_site, $matches)) {
 				$cur->comment_site = 'http://'.$cur->comment_site;
+			}else{
+				$cur->comment_site = strtolower($matches[0]).substr($cur->comment_site, strlen($matches[0]));
 			}
 		}
 		
