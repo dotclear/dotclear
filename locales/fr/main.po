@@ -1192,6 +1192,12 @@ msgstr "Par dates décroissantes"
 msgid "Media manager"
 msgstr "Gestionnaire de médias"
 
+msgid "Go to %s folder"
+msgstr "Aller au dossier %s"
+
+msgid "Media details of %s"
+msgstr "Détails du média %s"
+
 msgid "confirm removal"
 msgstr "Confirmer la suppression"
 
