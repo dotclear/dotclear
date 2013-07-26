@@ -427,9 +427,11 @@ function mediaItemLine($f,$i)
 	
 	$class = 'media-item media-col-'.($i%2);
 	
+	$alt = (!$f->d ? sprintf(__('Media details of %s'),$fname) : 
+		sprintf(__('Go to %s folder'),($fname == '..' ? __('parent') : $fname)));
 	$res =
 	'<div class="'.$class.'"><a class="media-icon media-link" href="'.$link.'">'.
-	'<img src="'.$f->media_icon.'" alt="" /></a>'.
+	'<img src="'.$f->media_icon.'" alt="'.$alt.'" /></a>'.
 	'<ul>'.
 	'<li><a class="media-link" href="'.$link.'">'.$fname.'</a></li>';
 	
