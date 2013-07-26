@@ -1990,8 +1990,14 @@ msgstr "Les fichiers suivants de votre installation de Dotclear ne peuvent pas �
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
 msgstr "Les fichiers suivants de votre installation de Dotclear ne peuvent pas être écrits. Veuillez corriger la situation ou <a href=\"http://fr.dotclear.org/download\">mettre à jour manuellement</a>."
 
+msgid "Manual checking of update done successfully."
+msgstr "Vérification manuelle de mise à jour effectuée avec succès."
+
 msgid "No newer Dotclear version available."
 msgstr "Aucune nouvelle version de Dotclear n'est disponible."
+
+msgid "Force checking update Dotclear"
+msgstr "Forcer la vérification de mise à jour de Dotclear"
 
 #, php-format
 msgid "Dotclear %s is available."
