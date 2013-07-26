@@ -39,7 +39,7 @@ $(function() {
 	    }
 	});
 
-	var $container = $('#fileupload').parent().parent();
+	var $container = $('#add-file-f').parent().parent();
 	var $msg,label;
 
 	if ($container.hasClass('enhanced_uploader')) {
@@ -74,7 +74,7 @@ $(function() {
 		$('.add-label', '#fileupload').text(label);
 
 		$container.toggleClass('enhanced_uploader');
-	}).appendTo($('#fileupload'));
+	}).appendTo($('#add-file-f'));
 
 	// Replace remove links by a POST on hidden form
 	fileRemoveAct();
