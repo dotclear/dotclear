@@ -704,6 +704,7 @@ class dcBlog
 	- order: Order of results (default "ORDER BY post_dt DES")
 	- limit: Limit parameter
 	- sql_only : return the sql request instead of results. Only ids are selected
+	- exclude_id : (array) Exclude entries with given post_id
 	
 	Please note that on every cat_id or cat_url, you can add ?not to exclude
 	the category and ?sub to get subcategories.
@@ -797,6 +798,10 @@ class dcBlog
 				$params['post_id'] = array((integer) $params['post_id']);
 			}
 			$strReq .= 'AND P.post_id '.$this->con->in($params['post_id']);
+		}
+		
+		if (!empty($params['exclude_id'])) {
+			$strReq .= 'AND post_id not in ('.implode(', ',$params['exclude_id']).') ';
 		}
 		
 		if (isset($params['post_url']) && $params['post_url'] !== '') {
