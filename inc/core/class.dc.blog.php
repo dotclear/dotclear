@@ -684,7 +684,7 @@ class dcBlog
 	
 	- no_content: Don't retrieve entry content (excerpt and content)
 	- post_type: Get only entries with given type (default "post", array for many types and '' for no type)
-	- post_id: (integer) Get entry with given post_id
+	- post_id: (integer or array) Get entry with given post_id
 	- post_url: Get entry with given post_url field
 	- user_id: (integer) Get entries belonging to given user ID
 	- cat_id: (string or array) Get entries belonging to given category ID
@@ -704,7 +704,7 @@ class dcBlog
 	- order: Order of results (default "ORDER BY post_dt DES")
 	- limit: Limit parameter
 	- sql_only : return the sql request instead of results. Only ids are selected
-	- exclude_id : (array) Exclude entries with given post_id
+	- exclude_post_id : (integer or array) Exclude entries with given post_id
 	
 	Please note that on every cat_id or cat_url, you can add ?not to exclude
 	the category and ?sub to get subcategories.
@@ -800,8 +800,13 @@ class dcBlog
 			$strReq .= 'AND P.post_id '.$this->con->in($params['post_id']);
 		}
 		
-		if (!empty($params['exclude_id'])) {
-			$strReq .= 'AND post_id not in ('.implode(', ',$params['exclude_id']).') ';
+		if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
+			if (is_array($params['exclude_post_id'])) {
+				array_walk($params['exclude_post_id'],create_function('&$v,$k','if($v!==null){$v=(integer)$v;}'));
+			} else {
+				$params['exclude_post_id'] = array((integer) $params['exclude_post_id']);
+			}
+			$strReq .= 'AND P.post_id not in ('.$this->con->in($params['exclude_post_id']).') ';
 		}
 		
 		if (isset($params['post_url']) && $params['post_url'] !== '') {
