@@ -80,7 +80,7 @@ class dcBlog
 			$this->name = $b->blog_name;
 			$this->desc = $b->blog_desc;
 			$this->url = $b->blog_url;
-			$this->host = preg_replace('|^([a-z]{3,}://)(.*?)/.*$|','$1$2',$this->url);
+			$this->host = http::getHostFromURL($this->url);
 			$this->creadt = strtotime($b->blog_creadt);
 			$this->upddt = strtotime($b->blog_upddt);
 			$this->status = $b->blog_status;
