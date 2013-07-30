@@ -1037,7 +1037,7 @@ msgstr "Pour les raisons ci-dessus, Dotclear ne peut pas être installé. Réfé
 
 #, fuzzy, php-format
 msgid "Path <strong>%s</strong> is not writable."
-msgstr "Le répertoire de cache %s n'est pas accessible en écriture."
+msgstr "Le répertoire <strong>%s</strong> n'est pas accessible en écriture."
 
 #, fuzzy
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
@@ -2141,11 +2141,11 @@ msgstr "Blogs :"
 
 #, fuzzy
 msgid "Go to the content"
-msgstr "Voir ce billet sur le site"
+msgstr "Aller au contenu"
 
 #, fuzzy
 msgid "Go to the menu"
-msgstr "Aller sur le site"
+msgstr "Aller au menu"
 
 msgid "Go to site"
 msgstr "Aller sur le site"
@@ -2511,7 +2511,7 @@ msgstr "Cette catégorie n'est pas vide."
 
 #, fuzzy
 msgid "You are not allowed to reset categories order"
-msgstr "Vous n'êtes pas autorisé à supprimer des catégories"
+msgstr "Vous n'êtes pas autorisé à réinitialiser l'ordre des catégories"
 
 msgid "Category URL must be unique."
 msgstr "L'URL de chaque catégorie doit être unique."
