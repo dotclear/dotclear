@@ -1122,7 +1122,7 @@ msgstr "Sur cette page, vous pouvez installer, mettre à jour ou supprimer des l
 
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
-msgstr "Vous pouvez changer votre langue d'utilisateur dans vos <a href=\"%1$s\">préférences</a> ou changer la langue principale de votre blog dans vos <a href=\"%2$s\">paramètres de blog</a>."
+msgstr "Vous pouvez changer votre langue d'utilisateur dans vos <a href=\"%1$s\">préférences</a> ou changer la langue principale de votre blog dans vos <a href=\"%2$s\">paramètres du blog</a>."
 
 msgid "Installed languages"
 msgstr "Langues installées"
