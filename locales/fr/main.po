@@ -1037,7 +1037,7 @@ msgstr "Pour les raisons ci-dessus, Dotclear ne peut pas être installé. Réfé
 
 #, fuzzy, php-format
 msgid "Path <strong>%s</strong> is not writable."
-msgstr "Le répertoire de cache %s n'est pas accessible en écriture."
+msgstr "Le répertoire <strong>%s</strong> n'est pas accessible en écriture."
 
 #, fuzzy
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
@@ -1122,7 +1122,7 @@ msgstr "Sur cette page, vous pouvez installer, mettre à jour ou supprimer des l
 
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
-msgstr "Vous pouvez changer votre langue d'utilisateur dans vos <a href=\"%1$s\">préférences</a> ou changer la langue principale de votre blog dans vos <a href=\"%2$s\">paramètres de blog</a>."
+msgstr "Vous pouvez changer votre langue d'utilisateur dans vos <a href=\"%1$s\">préférences</a> ou changer la langue principale de votre blog dans vos <a href=\"%2$s\">paramètres du blog</a>."
 
 msgid "Installed languages"
 msgstr "Langues installées"
@@ -2141,11 +2141,11 @@ msgstr "Blogs :"
 
 #, fuzzy
 msgid "Go to the content"
-msgstr "Voir ce billet sur le site"
+msgstr "Aller au contenu"
 
 #, fuzzy
 msgid "Go to the menu"
-msgstr "Aller sur le site"
+msgstr "Aller au menu"
 
 msgid "Go to site"
 msgstr "Aller sur le site"
@@ -2262,6 +2262,9 @@ msgstr "Il y a des erreurs XHTML."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Vous avez des modifications non sauvegardées. Changer de format vous fera perdre ces modifications. Continuer ?"
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr "Attention : le changement de syntaxe ne transformera pas les balises des contenus déjà saisis. Pensez à les réadapter après cette opération. Confirmez-vous ce changement de syntaxe ?"
 
 msgid "Loading enhanced uploader, please wait."
 msgstr "Chargement de l'interface avancée."
@@ -2511,7 +2514,7 @@ msgstr "Cette catégorie n'est pas vide."
 
 #, fuzzy
 msgid "You are not allowed to reset categories order"
-msgstr "Vous n'êtes pas autorisé à supprimer des catégories"
+msgstr "Vous n'êtes pas autorisé à réinitialiser l'ordre des catégories"
 
 msgid "Category URL must be unique."
 msgstr "L'URL de chaque catégorie doit être unique."

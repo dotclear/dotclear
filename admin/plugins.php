@@ -386,6 +386,11 @@ else
 }
 echo '</div>';
 
+if ($core->plugins->moduleExists('daInstaller')) {
+	echo '<p><a href="plugin.php?p=daInstaller" class="multi-part">'.__('DotAddict.org Installer').'</a></p>';
+}
+
+
 # --BEHAVIOR-- pluginsToolsTabs
 $core->callBehavior('pluginsToolsTabs',$core);
 
