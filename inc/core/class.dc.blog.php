@@ -817,7 +817,7 @@ class dcBlog
 			} else {
 				$params['exclude_post_id'] = array((integer) $params['exclude_post_id']);
 			}
-			$strReq .= 'AND P.post_id not in ('.$this->con->in($params['exclude_post_id']).') ';
+			$strReq .= 'AND P.post_id not ('.$this->con->in($params['exclude_post_id']).') ';
 		}
 		
 		if (isset($params['post_url']) && $params['post_url'] !== '') {
