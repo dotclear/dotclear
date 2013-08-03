@@ -40,25 +40,19 @@ class dcFilterIpLookup extends dcSpamFilter
 	public function isSpam($type,$author,$email,$site,$ip,$content,$post_id,&$status)
 	{
 		if (!$ip || long2ip(ip2long($ip)) != $ip) {
-			return;
+			return false;
 		}
-
-		$match = array();
 
 		$bls = $this->getServers();
 		$bls = preg_split('/\s*,\s*/',$bls);
 
-		foreach ($bls as $bl)
-		{
+		foreach ($bls as $bl) {
 			if ($this->dnsblLookup($ip,$bl)) {
-				$match[] = $bl;
+				return true;
 			}
 		}
 
-		if (!empty($match)) {
-			$status = substr(implode(', ',$match),0,128);
-			return true;
-		}
+		return false;
 	}
 
 	public function gui($url)
