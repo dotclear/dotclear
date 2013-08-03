@@ -504,7 +504,13 @@ class dcBlog
 		# --BEHAVIOR-- coreBeforeCategoryCreate
 		$this->core->callBehavior('coreBeforeCategoryCreate',$this,$cur);
 		
-		$this->categories()->addNode($cur,$parent);
+		$id = $this->categories()->addNode($cur,$parent);
+		# Update category's cursor
+		$rs = $this->getCategory($id);
+		if (!$rs->isEmpty()) {
+			$cur->cat_lft = $rs->cat_lft;
+			$cur->cat_rgt = $rs->cat_rgt;
+		}
 		
 		# --BEHAVIOR-- coreAfterCategoryCreate
 		$this->core->callBehavior('coreAfterCategoryCreate',$this,$cur);
