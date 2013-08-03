@@ -29,6 +29,13 @@ jQuery.fn.updatePermissionsForm = function() {
 				E.onclick = function() {};
 				
 				if (perm == 'admin' && !E.disabled) {
+					perms[blog]['usage'].checked = E.checked;
+					perms[blog]['publish'].checked = E.checked;
+					perms[blog]['delete'].checked = E.checked;
+					perms[blog]['contentadmin'].checked = E.checked;
+					perms[blog]['categories'].checked = E.checked;
+					perms[blog]['media'].checked = E.checked;
+					perms[blog]['media_admin'].checked = E.checked;
 					perms[blog]['usage'].disabled = E.checked;
 					perms[blog]['publish'].disabled = E.checked;
 					perms[blog]['delete'].disabled = E.checked;
