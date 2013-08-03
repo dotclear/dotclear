@@ -202,24 +202,28 @@ class dcBlog
 	
 	@param	ids		<b>mixed</b>		Comment(s) ID(s)
 	@param	del		<b>boolean</b>		If comment is delete, set this to true
+	@param	affected_posts		<b>mixed</b>		Posts(s) ID(s)
 	*/
-	public function triggerComments($ids,$del=false)
+	public function triggerComments($ids, $del=false, $affected_posts=null)
 	{
 		$co_ids = dcUtils::cleanIds($ids);
+		$a_ids = dcUtils::cleanIds($affected_posts);
+		$a_tbs = array();
 		
 		# a) Retrieve posts affected by comments edition
-		$strReq = 
-			'SELECT post_id, comment_trackback '.
-			'FROM '.$this->prefix.'comment '.
-			'WHERE comment_id'.$this->con->in($co_ids).
-			'GROUP BY post_id,comment_trackback';
-		
-		$rs = $this->con->select($strReq);
-		
-		$a_ids = $a_tbs = array();
-		while ($rs->fetch()) {
-			$a_ids[] = (integer) $rs->post_id;
-			$a_tbs[] = (integer) $rs->comment_trackback;
+		if (empty($a_ids)) {
+			$strReq = 
+				'SELECT post_id, comment_trackback '.
+				'FROM '.$this->prefix.'comment '.
+				'WHERE comment_id'.$this->con->in($co_ids).
+				'GROUP BY post_id,comment_trackback';
+			
+			$rs = $this->con->select($strReq);
+			
+			while ($rs->fetch()) {
+				$a_ids[] = (integer) $rs->post_id;
+				$a_tbs[] = (integer) $rs->comment_trackback;
+			}
 		}
 		
 		# b) Count comments of each posts previously retrieved
@@ -254,6 +258,7 @@ class dcBlog
 		foreach($a_ids as $a_key => $a_id)
 		{
 			$nb_comment = $nb_trackback = 0;
+			//$cur->nb_comment = $nb_comment;
 			foreach($b_ids as $b_key => $b_id)
 			{
 				if ($a_id != $b_id || $a_tbs[$a_key] != $b_tbs[$b_key]) {
@@ -2186,8 +2191,21 @@ class dcBlog
 		
 		$co_ids = dcUtils::cleanIds($ids);
 		
-		if (empty($ids)) {
+		if (empty($co_ids)) {
 			throw new Exception(__('No such comment ID'));
+		}
+		
+		# Retrieve posts affected by comments edition
+		$affected_posts = array();
+		$strReq =
+			'SELECT distinct(post_id) '.
+			'FROM '.$this->prefix.'comment '.
+			'WHERE comment_id'.$this->con->in($co_ids);
+		
+		$rs = $this->con->select($strReq);
+		
+		while ($rs->fetch()) {
+			$affected_posts[] = (integer) $rs->post_id;
 		}
 		
 		# mySQL uses "INNER JOIN" synthax
@@ -2217,7 +2235,7 @@ class dcBlog
 		}
 		
 		$this->con->execute($strReq);
-		$this->triggerComments($co_ids,true);
+		$this->triggerComments($co_ids, true, $affected_posts);
 		$this->triggerBlog();
 	}
 
