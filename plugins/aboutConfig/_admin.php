@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$_menu['Plugins']->addItem('about:config','plugin.php?p=aboutConfig','index.php?pf=aboutConfig/icon.png',
+$_menu['System']->addItem('about:config','plugin.php?p=aboutConfig','index.php?pf=aboutConfig/icon.png',
 		preg_match('/plugin.php\?p=aboutConfig(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin());
 ?>

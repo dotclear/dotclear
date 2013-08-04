@@ -99,7 +99,6 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
   <style type="text/css">
   table.settings { border: 1px solid #999; margin-bottom: 2em; }
   table.settings th { background: #f5f5f5; color: #444; padding-top: 0.3em; padding-bottom: 0.3em; }
-  p.anchor-nav {float: right; }
   </style>
 	<script type="text/javascript">
 	//<![CDATA[
@@ -127,11 +126,12 @@ if (!empty($_GET['upda'])) {
 	dcPage::message(__('Settings definition successfully updated'));
 }
 ?>
-<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title">about:config</span></h2>
+<h2><?php echo __('System'); ?> &rsaquo; <span class="page-title">about:config</span></h2>
 
-<div id="local" class="multi-part" title="<?php echo __('blog settings'); ?>">
+<div id="local" class="multi-part" title="<?php echo sprintf(__('Settings for %s'),html::escapeHTML($core->blog->name)); ?>">
 
-<?php 
+
+<?php
 $table_header = '<table class="settings" id="%s"><caption>%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
