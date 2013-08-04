@@ -24,7 +24,7 @@ function simpleMenu_dashboard_favs($core,$favs)
 		'usage,contentadmin',null,null));
 }
 
-$_menu['Plugins']->addItem(__('Simple menu'),'plugin.php?p=simpleMenu','index.php?pf=simpleMenu/icon-small.png',
+$_menu['Blog']->addItem(__('Simple menu'),'plugin.php?p=simpleMenu','index.php?pf=simpleMenu/icon-small.png',
                 preg_match('/plugin.php\?p=simpleMenu(&.*)?$/',$_SERVER['REQUEST_URI']),
                 $core->auth->check('usage,contentadmin',$core->blog->id));
 
