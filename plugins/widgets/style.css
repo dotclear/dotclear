@@ -39,13 +39,13 @@
 }
 
 .widgets p.widget-name {
-	background: #E5E3DA;
+	background: #F0EFEA;
 	color: #000;
 	padding: 4px;
 	margin: 0.5em 0 0 0;
 	border-width: 1px 1px 1px 1px;
 	border-style: solid;
-	border-color: #666;
+	border-color: #bbb;
 	font-weight: bold;
 }
 .widgets p.widget-name img {
