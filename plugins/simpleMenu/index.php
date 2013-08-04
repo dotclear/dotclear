@@ -458,7 +458,7 @@ if (!$step) {
 
 if (!$step) {
 	echo '<form id="menuitemsappend" action="'.$p_url.'&add=1" method="post">';
-	echo '<p>'.$core->formNonce().'<input class="add" type="submit" name="appendaction" value="'.__('Add an item').'" /></p>';
+	echo '<p class="top-add">'.$core->formNonce().'<input class="button add" type="submit" name="appendaction" value="'.__('Add an item').'" /></p>';
 	echo '</form>';
 }
 
