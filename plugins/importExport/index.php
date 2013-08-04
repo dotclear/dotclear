@@ -74,7 +74,7 @@ echo '
 
 if ($type && $module !== null) {
 	echo
-	'<h2><a href="'.$p_url.'">'.$title.'</a>'.
+	'<h2>'.__('Plugins').' &rsaquo; <a href="'.$p_url.'">'.$title.'</a>'.
 	' &rsaquo; <span class="page-title">'.html::escapeHTML($module->name).'</span></h2>'.
 	'<div id="ie-gui">';
 	
@@ -84,7 +84,7 @@ if ($type && $module !== null) {
 }
 else {
 	echo
-	'<h2 class="page-title">'.$title.'</h2>'.
+	'<h2>'.__('Plugins').' &rsaquo; <span class="page-title">'.$title.'</span></h2>'.
 	'<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']).
 	'<h3>'.__('Export').'</h3>'.listImportExportModules($core,$modules['export']);
 }
