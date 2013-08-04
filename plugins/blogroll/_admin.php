@@ -24,7 +24,7 @@ function blogroll_dashboard_favs($core,$favs)
 		'usage,contentadmin',null,null));
 }
 
-$_menu['Plugins']->addItem(__('Blogroll'),'plugin.php?p=blogroll','index.php?pf=blogroll/icon-small.png',
+$_menu['Blog']->addItem(__('Blogroll'),'plugin.php?p=blogroll','index.php?pf=blogroll/icon-small.png',
                 preg_match('/plugin.php\?p=blogroll(&.*)?$/',$_SERVER['REQUEST_URI']),
                 $core->auth->check('usage,contentadmin',$core->blog->id));
 
