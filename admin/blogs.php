@@ -78,7 +78,7 @@ if (!empty($_GET['del'])) {
 	dcPage::message(__('Blog has been successfully deleted.'));
 }
 
-echo '<h2 class="page-title">'.__('List of blogs').'</h2>';
+echo '<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('List of blogs').'</span></h2>';
 
 if (!$core->error->flag())
 {
