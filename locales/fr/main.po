@@ -2048,7 +2048,7 @@ msgid "If you change your username, you will have to log in again."
 msgstr "Si vous changez votre login, vous devrez vous identifier à nouveau."
 
 msgid "Mandatory for password recovering procedure."
-msgstr "Obligatoire pour la procédure de récupération de mot de passe."
+msgstr "Indispensable pour la procédure de récupération de mot de passe."
 
 msgid "Password change required to connect"
 msgstr "Changement de mot de passe requis pour la connexion"
@@ -2157,6 +2157,9 @@ msgstr "Merci d'utiliser %s."
 
 msgid "Help"
 msgstr "Aide"
+
+msgid "Help about this page"
+msgstr "Aide pour cette page"
 
 msgid "uncover"
 msgstr "dévoiler"
@@ -2921,3 +2924,18 @@ msgstr "Seul un superadministrateur peut supprimer un blog"
 
 msgid "Invalid publication date"
 msgstr "Date de publication invalide"
+
+msgid "System settings"
+msgstr "Réglages système"
+
+msgid "Additional plugins"
+msgstr "Modules complémentaires"
+
+msgid "Personal notes:"
+msgstr "Notes personnelles:"
+
+msgid "New user"
+msgstr "Nouvel utilisateur"
+
+msgid "faut virer ça ça ne sert qu'a contourner le bug corrige en 2.5.2"
+msgstr "Notes personnelles :"
