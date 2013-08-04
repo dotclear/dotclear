@@ -122,14 +122,14 @@ catch (Exception $e)
 
 if ($filter_gui !== false)
 {
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <a href="'.$p_url.'">'.$page_name.'</a>'.
+	echo '<h2>'.__('Plugins').' &rsaquo; <a href="'.$p_url.'">'.$page_name.'</a>'.
 		' &rsaquo; <span class="page-title">'.sprintf(__('%s configuration'),$filter->name).'</span></h2>';
 
 	echo $filter_gui;
 }
 else
 {
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_name.'</span></h2>';
+	echo '<h2>'.__('Plugins').' &rsaquo; <span class="page-title">'.$page_name.'</span></h2>';
 
 	# Information
 	$spam_count = dcAntispam::countSpam($core);
