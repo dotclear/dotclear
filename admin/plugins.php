@@ -194,7 +194,7 @@ dcPage::open(__('Plugins management'),
 );
 
 echo
-'<h2 class="page-title">'.__('Plugins management').'</h2>';
+'<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('Plugins management').'</span></h2>';
 
 if (!empty($_GET['removed'])) {
 	dcPage::message(__('Plugin has been successfully deleted.'));

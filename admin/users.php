@@ -105,7 +105,7 @@ if (!$core->error->flag())
 	}
 	
 	echo 
-	'<h2 class="post-title">'.__('Users').'</h2>'.
+	'<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('Users').'</span></h2>'.
 	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('Create a new user').'</a></strong></p>';
 	
 	if (!$show_filters) {

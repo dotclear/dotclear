@@ -132,7 +132,7 @@ dcPage::open(__('Languages management'),
 );
 
 echo
-'<h2 class="page-title">'.__('Languages management').'</h2>';
+'<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('Languages management').'</span></h2>';
 
 if (!empty($_GET['removed'])) {
 	dcPage::message(__('Language has been successfully deleted.'));

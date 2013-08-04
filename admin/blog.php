@@ -69,7 +69,7 @@ else
 	dcPage::open(__('New blog'),dcPage::jsConfirmClose('blog-form'));
 	
 	echo
-	'<h2><a href="blogs.php">'.__('Blogs').'</a> &rsaquo; <span class="page-title">'.__('New blog').'</span></h2>'.
+	'<h2>'.__('System').' &rsaquo; <a href="blogs.php">'.__('Blogs').'</a> &rsaquo; <span class="page-title">'.__('New blog').'</span></h2>'.
 	
 	'<form action="blog.php" method="post" id="blog-form" class="fieldset">'.
 	
