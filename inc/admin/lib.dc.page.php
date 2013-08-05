@@ -96,6 +96,7 @@ class dcPage
 
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
+		'  <meta name="viewport" content="initial-scale=1.0" />'."\n".
 
 		self::jsLoadIE7().
 		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
@@ -136,9 +137,9 @@ class dcPage
 		'</p></form>'.
 		'</div>'.
 		'<div id="info-box2">'.
-		'<a'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
-		'<span> | </span><a'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
-		'<span> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
+		'<a class=" nomobile"'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
+		'<span class="nomobile"> | </span><a class=" nomobile"'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active nomobile"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
+		'<span class="nomobile"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
 		'</div>'.
 		'</div>'.
 		'</div>';
