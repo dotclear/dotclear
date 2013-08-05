@@ -497,7 +497,7 @@ class dcMedia extends filemanager
 	@param	post_id	<b>integer</b>		Post ID
 	@param	media_id	<b>integer</b>		Optionnal media ID
 	@param	rs	<b>boolean</b>		Whether to return a resultset (true) or an array (false, default value).
-	@return	<b>array</b> Array of fileItems
+	@return	<b>array</b> Array or ResultSet of fileItems
 	*/
 	public function getPostMedia($post_id,$media_id=null,$rs=false)
 	{
