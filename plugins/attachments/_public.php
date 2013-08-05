@@ -39,13 +39,13 @@ class attachmentTpl {
 		$res =
 		"<?php\n".
 		'if ($_ctx->posts !== null && $core->media) {'."\n".
-		'$_ctx->attachments = staticRecord::newFromArray($core->media->getPostMedia($_ctx->posts->post_id));'."\n".
+		'$_ctx->attachments = $core->media->getPostMedia($_ctx->posts->post_id, null, true);'."\n".
 		"?>\n".
 		
 		'<?php $attach_i = 0; ?>'. // LEGACY
 		'<?php while ($_ctx->attachments->fetch()) : ?>'.
 		
-		'<?php $GLOBALS[\'attach_i\'] = $attach_i; $attach_f = $_ctx->attachments->row(); $GLOBALS[\'attach_f\'] = $attach_f;'. // LEGACY
+		'<?php $GLOBALS[\'attach_i\'] = $attach_i; $attach_f = $_ctx->attachments; $GLOBALS[\'attach_f\'] = $attach_f;'. // LEGACY
 		'$_ctx->file_url = $attach_f->file_url; ?>'. // LEGACY
 		$content.
 		'<?php $attach_i++; ?>'. // LEGACY
