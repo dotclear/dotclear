@@ -153,8 +153,8 @@ abbr {
 	background: #575859;
 }
 #info-box2 {
-	margin-top: .3rem;
-	padding: .5em 1.3em 4px 0;
+	margin: 0;
+	padding: .8em 1.3em 4px 0;
 	color: #fff;
 	float: right;
 	text-align: right;
@@ -1428,3 +1428,33 @@ a.back:before {
 	background-color: #06c;
 	color: white;
 }
+
+/* ---------------------------------------------------------------------------
+	Media queries vite fait en attendant la reprise complète du layout
+---------------------------------------------------------------------------- */
+@media screen and (max-width: 880px) {
+ #top, #top h1 a {width: 42px;overflow:hidden;}
+ #top, #info-boxes, #info-box1, #info-box2 {
+ 	display:inline-block;
+ 	vertical-align:middle;
+ 	margin:0;
+ 	padding:0;
+ 	line-height: 3.2rem; 
+ 	width:auto; 
+ 	height:auto;
+ }
+ #info-box1 select {width: 14rem;}
+ #help-button {position: absolute;top: 8rem; right:0;}
+}
+@media screen and (max-width: 680px) {
+ .nomobile {display: none;}
+ #main-menu, #main, #content, #entry-wrapper, #entry-sidebar, #entry-content, .two-cols .col, .two-cols .col:first-child {
+    display:block;
+    width: 99% !important;
+    margin:0 auto;
+    padding:0;
+    float:none;
+    text-align: left;
+    clear: both;
+  }
+ }
