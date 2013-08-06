@@ -202,28 +202,24 @@ class dcBlog
 	
 	@param	ids		<b>mixed</b>		Comment(s) ID(s)
 	@param	del		<b>boolean</b>		If comment is delete, set this to true
-	@param	affected_posts		<b>mixed</b>		Posts(s) ID(s)
 	*/
-	public function triggerComments($ids, $del=false, $affected_posts=null)
+	public function triggerComments($ids,$del=false)
 	{
 		$co_ids = dcUtils::cleanIds($ids);
-		$a_ids = dcUtils::cleanIds($affected_posts);
-		$a_tbs = array();
 		
 		# a) Retrieve posts affected by comments edition
-		if (empty($a_ids)) {
-			$strReq = 
-				'SELECT post_id, comment_trackback '.
-				'FROM '.$this->prefix.'comment '.
-				'WHERE comment_id'.$this->con->in($co_ids).
-				'GROUP BY post_id,comment_trackback';
-			
-			$rs = $this->con->select($strReq);
-			
-			while ($rs->fetch()) {
-				$a_ids[] = (integer) $rs->post_id;
-				$a_tbs[] = (integer) $rs->comment_trackback;
-			}
+		$strReq = 
+			'SELECT post_id, comment_trackback '.
+			'FROM '.$this->prefix.'comment '.
+			'WHERE comment_id'.$this->con->in($co_ids).
+			'GROUP BY post_id,comment_trackback';
+		
+		$rs = $this->con->select($strReq);
+		
+		$a_ids = $a_tbs = array();
+		while ($rs->fetch()) {
+			$a_ids[] = (integer) $rs->post_id;
+			$a_tbs[] = (integer) $rs->comment_trackback;
 		}
 		
 		# b) Count comments of each posts previously retrieved
@@ -258,7 +254,6 @@ class dcBlog
 		foreach($a_ids as $a_key => $a_id)
 		{
 			$nb_comment = $nb_trackback = 0;
-			//$cur->nb_comment = $nb_comment;
 			foreach($b_ids as $b_key => $b_id)
 			{
 				if ($a_id != $b_id || $a_tbs[$a_key] != $b_tbs[$b_key]) {
@@ -509,13 +504,7 @@ class dcBlog
 		# --BEHAVIOR-- coreBeforeCategoryCreate
 		$this->core->callBehavior('coreBeforeCategoryCreate',$this,$cur);
 		
-		$id = $this->categories()->addNode($cur,$parent);
-		# Update category's cursor
-		$rs = $this->getCategory($id);
-		if (!$rs->isEmpty()) {
-			$cur->cat_lft = $rs->cat_lft;
-			$cur->cat_rgt = $rs->cat_rgt;
-		}
+		$this->categories()->addNode($cur,$parent);
 		
 		# --BEHAVIOR-- coreAfterCategoryCreate
 		$this->core->callBehavior('coreAfterCategoryCreate',$this,$cur);
@@ -2191,21 +2180,8 @@ class dcBlog
 		
 		$co_ids = dcUtils::cleanIds($ids);
 		
-		if (empty($co_ids)) {
+		if (empty($ids)) {
 			throw new Exception(__('No such comment ID'));
-		}
-		
-		# Retrieve posts affected by comments edition
-		$affected_posts = array();
-		$strReq =
-			'SELECT distinct(post_id) '.
-			'FROM '.$this->prefix.'comment '.
-			'WHERE comment_id'.$this->con->in($co_ids);
-		
-		$rs = $this->con->select($strReq);
-		
-		while ($rs->fetch()) {
-			$affected_posts[] = (integer) $rs->post_id;
 		}
 		
 		# mySQL uses "INNER JOIN" synthax
@@ -2235,7 +2211,7 @@ class dcBlog
 		}
 		
 		$this->con->execute($strReq);
-		$this->triggerComments($co_ids, true, $affected_posts);
+		$this->triggerComments($co_ids,true);
 		$this->triggerBlog();
 	}
 
@@ -2290,10 +2266,8 @@ class dcBlog
 		}
 		
 		if ($cur->comment_site !== null && $cur->comment_site != '') {
-			if (!preg_match('|^http(s?)://|i',$cur->comment_site, $matches)) {
+			if (!preg_match('|^http(s?)://|',$cur->comment_site)) {
 				$cur->comment_site = 'http://'.$cur->comment_site;
-			}else{
-				$cur->comment_site = strtolower($matches[0]).substr($cur->comment_site, strlen($matches[0]));
 			}
 		}
 		

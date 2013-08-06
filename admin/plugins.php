@@ -232,7 +232,6 @@ echo (!$core->plugins->moduleExists('daInstaller') ?
 		'<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>',
 		'<a href="plugin.php?p=daInstaller">'.__('DotAddict.org Installer').'</a>'));
 
-echo '<p>';
 if ($is_writable) {
 	echo __('To install or upgrade a plugin you generally just need to upload it '.
 	'in "Install or upgrade a plugin" section.');
@@ -386,11 +385,6 @@ else
 	'</p>';
 }
 echo '</div>';
-
-if ($core->plugins->moduleExists('daInstaller')) {
-	echo '<p><a href="plugin.php?p=daInstaller" class="multi-part">'.__('DotAddict.org Installer').'</a></p>';
-}
-
 
 # --BEHAVIOR-- pluginsToolsTabs
 $core->callBehavior('pluginsToolsTabs',$core);

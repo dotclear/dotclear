@@ -1030,7 +1030,7 @@ msgid ""
 msgstr ""
 "D'autre part, dans WordPress, un billet ne peut pas être sans catégorie, et "
 "une installation par défaut possède systématiquement une première catégorie "
-"nommée <i>« sans catégorie »</i>. Si vous n'avez pas changé cette "
+"nommée <i>« sans catégorie »</ i>. Si vous n'avez pas changé cette "
 "catégorie, vous pouvez simplement l'ignorer lors de l'importation sur votre "
 "blog, puisque Dotclear vous permet réellement de conserver votre message "
 "sans catégorie."
@@ -1130,13 +1130,13 @@ msgid "Optimize database room"
 msgstr "Optimise la place occupée par la base de données"
 
 msgid "Vacuum tables"
-msgstr "Optimiser les tables"
+msgstr "Vidage des tables"
 
 msgid "Counters"
 msgstr "Compteurs"
 
 msgid "Reset comments and ping counters"
-msgstr "Recalculer les compteurs de commentaires et de signalements"
+msgstr "Remet à zéro les compteurs de commentaires et de signalements"
 
 msgid "Search engine index"
 msgstr "Index du moteur de recherche"
@@ -1145,22 +1145,22 @@ msgid "This may take a very long time"
 msgstr "Cela peut prendre un certain temps"
 
 msgid "Index all posts"
-msgstr "Indexer tous les billets"
+msgstr "Indexation de tous les billets"
 
 msgid "Index all comments"
-msgstr "Indexer tous les commentaires"
+msgstr "Indexation de tous les commentaires"
 
 msgid "Vacuum logs"
 msgstr "Vidages des journaux"
 
 msgid "Delete all logs"
-msgstr "Supprimer tous les journaux"
+msgstr "Suppression de tous les journaux"
 
 msgid "Empty templates cache directory"
 msgstr "Vidage du répertoire de cache des « templates »"
 
 msgid "Empty directory"
-msgstr "Vider le répertoire"
+msgstr "Vidage du répertoire"
 
 msgid "Pages"
 msgstr "Pages"

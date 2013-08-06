@@ -85,7 +85,7 @@ if (!in_array(files::getExtension($PF),$allow_types)) {
 	exit;
 }
 
-http::$cache_max_age = (!defined('DC_CACHE_MAX_AGE') ? 604800 : DC_CACHE_MAX_AGE);
+http::$cache_max_age = 7200;
 http::cache(array_merge(array($PF),get_included_files()));
 
 header('Content-Type: '.files::getMimeType($PF));

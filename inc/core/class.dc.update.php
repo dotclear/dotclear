@@ -31,7 +31,6 @@ class dcUpdate
 	);
 	
 	protected $cache_ttl = '-6 hours';
-	protected $nocache_ttl = '-2 mins';
 	protected $forced_files = array();
 	
 	/**
@@ -55,12 +54,11 @@ class dcUpdate
 	 * Returns latest version if available or false.
 	 * 
 	 * @param version		string	Current version to compare
-	 * @param nocache		boolean	Force checking
 	 * @return string				Latest version if available
 	 */
-	public function check($version, $nocache=false)
+	public function check($version)
 	{
-		$this->getVersionInfo($nocache);
+		$this->getVersionInfo();
 		$v = $this->getVersion();
 		if ($v && version_compare($version,$v,'<')) {
 			return $v;
@@ -69,15 +67,10 @@ class dcUpdate
 		return false;
 	}
 	
-	public function getVersionInfo($nocache=false)
+	public function getVersionInfo()
 	{
-		# Check minimum time without cache (prevents from server flood)
-		if ($nocache && is_readable($this->cache_file) && filemtime($this->cache_file) > strtotime($this->nocache_ttl)) {
-			$nocache = false;
-		}
-		
 		# Check cached file
-		if (is_readable($this->cache_file) && filemtime($this->cache_file) > strtotime($this->cache_ttl) && !$nocache)
+		if (is_readable($this->cache_file) && filemtime($this->cache_file) > strtotime($this->cache_ttl))
 		{
 			$c = @file_get_contents($this->cache_file);
 			$c = @unserialize($c);
