@@ -78,17 +78,9 @@ $(function() {
 	{
 		// Get document format and prepare toolbars
 		var formatField = $('#post_format').get(0);
-		var last_post_format = $(formatField).val();
 		$(formatField).change(function() {
-			// Confirm post format change
-			if(window.confirm(dotclear.msg.confirm_change_post_format_noconvert)){
-				excerptTb.switchMode(this.value);
-				contentTb.switchMode(this.value);
-				last_post_format = $(this).val();
-			}else{
-				// Restore last format if change cancelled
-				$(this).val(last_post_format);
-			}
+			excerptTb.switchMode(this.value);
+			contentTb.switchMode(this.value);
 		});
 		
 		var excerptTb = new jsToolBar(document.getElementById('post_excerpt'));

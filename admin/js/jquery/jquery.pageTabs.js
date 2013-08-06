@@ -38,12 +38,11 @@ jQuery._pageTabs.prototype = {
 			if (this.tagName == "DIV") {
 				li = document.createElement('li');
 				a = document.createElement('a');
-				$(a).html(this.title);
+				a.appendChild(document.createTextNode(this.title));
 				this.title = '';
 				a.href = '#';
 				a.fn = This.showDiv;
 				a.index = this.id || i;
-				li.id = "part-tabs-"+a.index;
 				a.obj = This;
 				jQuery(a).click(function() { this.fn.call(this.obj,this.index); return false; });
 				li.appendChild(a);

@@ -22,8 +22,6 @@ $core->addBehavior('adminPostFormSidebar',array('tagsBehaviors','tagsField'));
 $core->addBehavior('adminAfterPostCreate',array('tagsBehaviors','setTags'));
 $core->addBehavior('adminAfterPostUpdate',array('tagsBehaviors','setTags'));
 
-$core->addBehavior('adminPageHeaders',array('tagsBehaviors','pageHeaders'));
-
 $core->addBehavior('adminPostHeaders',array('tagsBehaviors','postHeaders'));
 $core->addBehavior('adminPostsActionsHeaders',array('tagsBehaviors','postsActionsHeaders'));
 
@@ -100,35 +98,6 @@ class tagsBehaviors
 				$meta->setPostMeta($post_id,'tag',$tag);
 			}
 		}
-	}
-
-	public static function pageHeaders()
-	{
-		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
-		
-		$opts = $GLOBALS['core']->auth->getOptions();
-		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
-		
-		return 
-		'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
-		'<script type="text/javascript" src="index.php?pf=tags/js/page.js"></script>'.
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		"metaEditor.prototype.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';\n".
-		"metaEditor.prototype.meta_type = '".html::escapeJS($type)."';\n".
-		"metaEditor.prototype.text_confirm_remove = '".html::escapeJS(__('Are you sure you want to remove this %s?'))."';\n".
-		"metaEditor.prototype.text_add_meta = '".html::escapeJS(__('Add a %s to this entry'))."';\n".
-		"metaEditor.prototype.text_choose = '".html::escapeJS(__('Choose from list'))."';\n".
-		"metaEditor.prototype.text_all = '".html::escapeJS(__('all'))."';\n".
-		"metaEditor.prototype.text_separation = '';\n".
-		"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
-		"jsToolBar.prototype.elements.tag.url = '".html::escapeJS($tag_url)."';\n".
-		"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
-		"dotclear.msg.entry = '".html::escapeJS(__('entry'))."';\n".
-		"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
-		"\n//]]>\n".
-		"</script>\n".
-		'<link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />';
 	}
 	
 	public static function postHeaders()

@@ -81,7 +81,7 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
 	
 	return
 	'<tr>'.
-	'<td scope="row"><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
+	'<td scope="raw"><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
 	'<td>'.$field.'</td>'.
 	'<td>'.$s['type'].'</td>'.
 	'<td>'.html::escapeHTML($s['label']).'</td>'.

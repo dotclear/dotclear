@@ -203,7 +203,7 @@ else
 		'<td class="handle">'.form::field(array('f_order['.$fid.']'),2,5,(string) $i, 'position', '', false, 'title="'.__('position').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_active[]'),$fid,$f->active, '', '', false, 'title="'.__('Active').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_auto_del[]'),$fid,$f->auto_delete, '', '', false, 'title="'.__('Auto Del.').'"').'</td>'.
-		'<td class="nowrap" scope="row">'.$f->name.'</td>'.
+		'<td class="nowrap" scope="raw">'.$f->name.'</td>'.
 		'<td class="maximal">'.$f->description.'</td>'.
 		'<td class="status">'.$gui_link.'</td>'.
 		'</tr>';
