@@ -73,7 +73,6 @@ else
 	
 	'<form action="blog.php" method="post" id="blog-form" class="fieldset">'.
 	
-	$core->formNonce().
 	'<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').' '.
 	form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</label></p>'.
 	'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
@@ -88,7 +87,9 @@ else
 	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label> '.
 	form::textarea('blog_desc',60,5,html::escapeHTML($blog_desc)).'</p>'.
 	
-	'<p><input type="submit" accesskey="s" value="'.__('Create').'" /></p>'.
+	'<p><input type="submit" accesskey="s" value="'.__('Create').'" />'.
+	$core->formNonce().
+	'</p>'.
 	'</form>';
 
 	dcPage::close();

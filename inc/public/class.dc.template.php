@@ -66,6 +66,7 @@ class dcTemplate extends template
 		$this->addValue('BlogName',array($this,'BlogName'));
 		$this->addValue('BlogLanguage',array($this,'BlogLanguage'));
 		$this->addValue('BlogThemeURL',array($this,'BlogThemeURL'));
+		$this->addValue('BlogParentThemeURL',array($this,'BlogParentThemeURL'));
 		$this->addValue('BlogUpdateDate',array($this,'BlogUpdateDate'));
 		$this->addValue('BlogID',array($this,'BlogID'));
 		$this->addValue('BlogURL',array($this,'BlogURL'));
@@ -838,12 +839,22 @@ class dcTemplate extends template
 	}
 	
 	/*dtd
-	<!ELEMENT tpl:BlogThemeURL - O -- Blog's current Themei URL -->
+	<!ELEMENT tpl:BlogThemeURL - O -- Blog's current Theme URL -->
 	*/
 	public function BlogThemeURL($attr)
 	{
 		$f = $this->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$core->blog->settings->system->themes_url."/".$core->blog->settings->system->theme').'; ?>';
+	}
+	
+	/*dtd
+	<!ELEMENT tpl:BlogParentThemeURL - O -- Blog's current Theme's parent URL -->
+	*/
+	public function BlogParentThemeURL($attr)
+	{
+		$f = $this->getFilters($attr);
+		$parent = '$core->themes->moduleInfo($core->blog->settings->system->theme,\'parent\')';
+		return '<?php echo '.sprintf($f,'$core->blog->settings->system->themes_url."/".('."$parent".' ? '."$parent".' : $core->blog->settings->system->theme)').'; ?>';
 	}
     
 	/*dtd
