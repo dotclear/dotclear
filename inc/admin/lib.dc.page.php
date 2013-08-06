@@ -73,10 +73,10 @@ class dcPage
 			}
 			$blog_box =
 			'<p><label for="switchblog" class="classic">'.
-			__('Blogs:').' '.
+			__('Blogs:').'</label> '.
 			$core->formNonce().
 			form::combo('switchblog',$blogs,$core->blog->id).
-			'</label></p>'.
+			'</p>'.
 			'<noscript><p><input type="submit" value="'.__('ok').'" /></p></noscript>';
 		}
 
@@ -137,9 +137,9 @@ class dcPage
 		'</p></form>'.
 		'</div>'.
 		'<div id="info-box2">'.
-		'<a class=" nomobile"'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
-		'<span class="nomobile"> | </span><a class=" nomobile"'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active nomobile"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
-		'<span class="nomobile"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
+		'<a class="smallscreen"'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
+		'<span class="smallscreen"> | </span><a class="smallscreen"'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active smallscreen"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
+		'<span class="smallscreen"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
 		'</div>'.
 		'</div>'.
 		'</div>';
