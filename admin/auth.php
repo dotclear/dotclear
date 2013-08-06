@@ -264,6 +264,7 @@ xml:lang="<?php echo $dlang; ?>" lang="<?php echo $dlang; ?>">
   <meta http-equiv="Content-Language" content="<?php echo $dlang; ?>" />
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
+  <meta name="viewport" content="initial-scale=1.0" />
   <title><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></title>
   
 <?php
