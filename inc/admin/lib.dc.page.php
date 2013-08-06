@@ -92,11 +92,11 @@ class dcPage
 		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
 		"<head>\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
-		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
-
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 		'  <meta name="viewport" content="initial-scale=1.0" />'."\n".
+		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
+
 
 		self::jsLoadIE7().
 		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
