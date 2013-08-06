@@ -189,7 +189,7 @@ if ($can_install && !empty($_POST))
 		$core->auth->user_prefs->addWorkspace('dashboard');
 		$core->auth->user_prefs->dashboard->put('doclinks',true,'boolean','',null,true);
 		$core->auth->user_prefs->dashboard->put('dcnews',true,'boolean','',null,true);
-		$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean','',null,true);
+		$core->auth->user_prefs->dashboard->put('quickentry',false,'boolean','',null,true);
 
 		# Add accessibility options
 		$core->auth->user_prefs->addWorkspace('accessibility');

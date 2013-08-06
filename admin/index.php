@@ -58,9 +58,9 @@ if (!$core->auth->user_prefs->dashboard->prefExists('dcnews')) {
 }
 if (!$core->auth->user_prefs->dashboard->prefExists('quickentry')) {
 	if (!$core->auth->user_prefs->dashboard->prefExists('quickentry',true)) {
-		$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean','',null,true);
+		$core->auth->user_prefs->dashboard->put('quickentry',false,'boolean','',null,true);
 	}
-	$core->auth->user_prefs->dashboard->put('quickentry',true,'boolean');
+	$core->auth->user_prefs->dashboard->put('quickentry',false,'boolean');
 }
 
 # Dashboard icons
