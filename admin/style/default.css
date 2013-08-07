@@ -52,6 +52,11 @@ h2 a:link, h2 a:visited {
 .page-title {
 	color: #d30e60;
 }
+#content > h2 {
+	padding: 0 1.8rem .6rem;
+	margin: 0 -1.8rem 1rem;
+	background: #fff url(dc_bg_title.png) repeat-x center bottom;
+}
 h3 {
 	color: #575859;
 	font-size: 1.4rem;
@@ -208,7 +213,7 @@ abbr {
 #content {
 	margin: 0 0 0 14.5em;
 	padding: .9rem 1.8rem 1.8rem;
-	background: #fff url(dc_bg_title.png) repeat-x center top;
+	background: #fff;
 }
 	/* Micro clearfix thx to Nicolas Gallagher */
 	#content:before, #content:after {content:"";display:table;}
@@ -786,7 +791,7 @@ option.avail10n {
 }
 /* ------------------------------------------------------------------ contextual help */
 #help {
-	margin-top: 2em;
+	margin-top: 4em;
 	background: #f5f5f5;
 	z-index: 100;
 }
@@ -891,6 +896,9 @@ div.static-msg, p.static-msg {
 div.message a, p.message a, 
 div.static-msg a, p.static-msg a {
 	color: #fff;
+}
+#content > .message, #content > .error {
+	margin-right: 14em
 }
 /* ------------------------------------------------------------------ navigation */
 .anchor-nav {
@@ -1431,7 +1439,7 @@ a.back:before {
 	}
 	#info-box1 select {width: 14rem;}
 	#help-button {position: absolute; top: 8rem; right:0;}
-	#main-menu, #main, #content, #entry-wrapper, #entry-sidebar, #entry-content, .two-cols .col, .two-cols .col:first-child {
+	#main-menu, #main, #content, #content h2, #entry-wrapper, #entry-sidebar, #entry-content, .two-cols .col, .two-cols .col:first-child {
     	display:block;
     	width: 98%;
     	margin:0 auto;
@@ -1449,10 +1457,9 @@ a.back:before {
 	.smallscreen {display: none;}
 }
 @media screen and (max-width: 492px) {
-	#info-boxes {float:right;}
-	#info-box1, #info-box2 {display: block;}
-	#header {height:7.2rem;}
-	#help-button {top: 11rem;}
-	#info-boxes {display: inline-block; height: auto;}
+	#header {min-height:3.6rem;}
+	.page-title, #info-boxes {display: inline-block;}
+	#help-button {top: 9rem;}
 	#top h1 a, #top {height: auto;}
+	#info-box1 p.nomobile, label.nomobile {display: none;}
 }

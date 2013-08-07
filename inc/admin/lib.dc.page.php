@@ -72,7 +72,7 @@ class dcPage
 				$blogs[html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
 			}
 			$blog_box =
-			'<p><label for="switchblog" class="classic">'.
+			'<p><label for="switchblog" class="classic nomobile">'.
 			__('Blogs:').'</label> '.
 			$core->formNonce().
 			form::combo('switchblog',$blogs,$core->blog->id).
@@ -94,7 +94,7 @@ class dcPage
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
-		'  <meta name="viewport" content="initial-scale=1.0" />'."\n".
+		'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
 
 
@@ -133,7 +133,7 @@ class dcPage
 		'<div id="info-box1">'.
 		'<form action="index.php" method="post">'.
 		$blog_box.
-		'<p><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
+		'<p class="nomobile"><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
 		'</p></form>'.
 		'</div>'.
 		'<div id="info-box2">'.
