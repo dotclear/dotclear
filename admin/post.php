@@ -351,7 +351,7 @@ if ($post_id) {
 		default:
 			$img_status = '';
 	}
-	echo ' &ldquo;'.$post_title.'&rdquo;'.' '.$img_status;
+	echo ' &ldquo;'.html::escapeHTML($post_title).'&rdquo;'.' '.$img_status;
 }
 echo	'</span></h2>';
 
