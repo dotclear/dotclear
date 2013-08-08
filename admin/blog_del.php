@@ -48,7 +48,7 @@ if (!$core->error->flag() && $blog_id && !empty($_POST['del']))
 	}
 }
 
-dcPage::open('Delete a blog');
+dcPage::open(__('Delete a blog'));
 
 if (!$core->error->flag())
 {
