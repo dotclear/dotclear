@@ -129,7 +129,7 @@ if (!$core->error->flag())
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'<input type="submit" value="'.__('Rename').'" />'.
 		$core->formNonce().
-		'</form>';
+		'</p></form>';
 		# Remove tag
 		if (!$posts->isEmpty() && $core->auth->check('contentadmin',$core->blog->id)) {
 			echo
@@ -139,7 +139,7 @@ if (!$core->error->flag())
 			$core->formNonce().
 			'</form>';
 		}
-		echo '</p></div>';
+		echo '</div>';
 	}
 	
 	# Show posts
