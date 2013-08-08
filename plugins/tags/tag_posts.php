@@ -129,17 +129,17 @@ if (!$core->error->flag())
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'<input type="submit" value="'.__('Rename').'" />'.
 		$core->formNonce().
-		'</form>';
+		'</p></form>';
 		# Remove tag
 		if (!$posts->isEmpty() && $core->auth->check('contentadmin',$core->blog->id)) {
 			echo
 			'<form id="tag_delete" action="'.$this_url.'" method="post">'.
-			'<p class="no-margin">'.__('Delete this tag:').'</p>'.
-			'<input type="submit" class="delete" name="delete" value="'.__('Delete').'" />'.
+			'<p class="no-margin">'.__('Delete this tag:').
+			'</p><p><input type="submit" class="delete" name="delete" value="'.__('Delete').'" />'.
 			$core->formNonce().
-			'</form>';
+			'</p></form>';
 		}
-		echo '</p></div>';
+		echo '</div>';
 	}
 	
 	# Show posts

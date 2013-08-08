@@ -1016,10 +1016,10 @@ msgstr ""
 "La gestion des catégories chez WordPress et Dotclear est tout à fait "
 "différente. Vous pouvez assigner plusieurs catégories à un seul poste dans "
 "WordPress. Dans le monde Dotclear, nous le voyons davantage comme « une "
-"catégorie, plusieurs mot-clés ». Par conséquent Dotclear peut seulement "
+"catégorie, plusieurs mots-clés ». Par conséquent Dotclear peut seulement "
 "importer une catégorie par billet et il choisira celui de plus petit numéro. "
 "Si vous voulez conserver une trace de chaque catégorie, vous pouvez les "
-"importer sous forme de mot-clés, avec un préfixe optionnel."
+"importer sous forme de mots-clés, avec un préfixe optionnel."
 
 msgid ""
 "On the other hand, in WordPress, a post can not be uncategorized, and a "
@@ -1042,10 +1042,10 @@ msgid "Import lowest numbered category on posts:"
 msgstr "Importer la catégorie ayant le plus faible numéro dans les billets :"
 
 msgid "Import all categories as tags:"
-msgstr "Importer toutes les catégories comme des mot-clés :"
+msgstr "Importer toutes les catégories comme des mots-clés :"
 
 msgid "Prefix such tags with:"
-msgstr "Préfixer les mot-clés avec :"
+msgstr "Préfixer les mots-clés avec :"
 
 msgid "Content filters"
 msgstr "Filtres de contenu"
@@ -1324,7 +1324,7 @@ msgid "All months"
 msgstr "Tous les mois"
 
 msgid "All tags"
-msgstr "Tous les mot-clés"
+msgstr "Tous les mots-clés"
 
 msgid "Home"
 msgstr "Accueil"
@@ -1336,7 +1336,7 @@ msgid "Page"
 msgstr "Page"
 
 msgid "Tags"
-msgstr "Mot-clés"
+msgstr "Mots-clés"
 
 msgid "User defined"
 msgstr "Saisie libre"
@@ -1444,7 +1444,7 @@ msgid "Currently no menu items"
 msgstr "Aucun item de menu pour l'instant"
 
 msgid "Tags:"
-msgstr "Mot-clés :"
+msgstr "Mots-clés :"
 
 #, php-format
 msgid "Are you sure you want to remove this %s?"
@@ -1473,28 +1473,28 @@ msgid "entries"
 msgstr "billets"
 
 msgid "Enter tags separated by coma"
-msgstr "Entrez les mot-clés séparés par des virgules"
+msgstr "Entrez les mots-clés séparés par des virgules"
 
 msgid "Add tags"
-msgstr "Ajouter des mot-clés"
+msgstr "Ajouter des mots-clés"
 
 msgid "Remove tags"
-msgstr "Retirer des mot-clés"
+msgstr "Retirer des mots-clés"
 
 msgid "Add tags to entries"
-msgstr "Ajouter des mot-clés à des billets"
+msgstr "Ajouter des mots-clés à des billets"
 
 msgid "Tags to add:"
-msgstr "Mot-clés à ajouter :"
+msgstr "Mots-clés à ajouter :"
 
 msgid "Remove selected tags from entries"
-msgstr "Retirer les mot-clés sélectionnés des billets"
+msgstr "Retirer les mots-clés sélectionnés des billets"
 
 msgid "No tags for selected entries"
 msgstr "Aucun mot-clé pour les billets sélectionnés"
 
 msgid "Following tags have been found in selected entries:"
-msgstr "Les mot-clés suivants ont été trouvés pour les billets sélectionnés :"
+msgstr "Les mots-clés suivants ont été trouvés pour les billets sélectionnés :"
 
 msgid "short"
 msgstr "court"
@@ -1503,7 +1503,7 @@ msgid "extended"
 msgstr "étendu"
 
 msgid "Tags list format:"
-msgstr "Format de la liste des mot-clés :"
+msgstr "Format de la liste des mots-clés :"
 
 msgid "Tags for posts"
 msgstr "Mots-clés pour les billets"
@@ -1524,7 +1524,7 @@ msgid "Tag name"
 msgstr "Nom du mot-clé"
 
 msgid "Link to all tags:"
-msgstr "Lien vers tous les mot-clés :"
+msgstr "Lien vers tous les mots-clés :"
 
 msgid "Edit tag"
 msgstr "Modifier le mot-clé"
@@ -1533,7 +1533,7 @@ msgid "Tag has been successfully renamed"
 msgstr "Le mot-clé a été renommé avec succès"
 
 msgid "Back to tags list"
-msgstr "Retour à la liste des mot-clés"
+msgstr "Retour à la liste des mots-clés"
 
 msgid "Actions for this tag"
 msgstr "Actions pour ce mot-clé"
