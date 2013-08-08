@@ -53,7 +53,7 @@ foreach (files::scanDir(DC_BACKUP_PATH) as $v) {
 	}
 }
 if (!empty($archives)) {
-	$archives = array_reverse($archives);
+	usort($archives,"version_compare");
 } else {
 	$default_tab = 'update';
 }
@@ -207,7 +207,6 @@ if (!$step)
 		'You can revert your previous installation or delete theses files.').'</p>';
 		
 		echo	'<form action="'.$p_url.'" method="post">';
-		
 		foreach ($archives as $v) {
 			echo
 			'<p><label class="classic">'.form::radio(array('backup_file'),html::escapeHTML($v)).' '.

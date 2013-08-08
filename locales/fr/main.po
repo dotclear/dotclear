@@ -1572,6 +1572,9 @@ msgstr "Ce billet n'existe pas."
 msgid "Edit entry"
 msgstr "Modifier le billet"
 
+msgid "Edit entry &ldquo;%s&rdquo;"
+msgstr "Modifier le billet &ldquo;%s&rdquo;"
+
 msgid "next entry"
 msgstr "billet suivant"
 
