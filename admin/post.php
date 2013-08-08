@@ -382,15 +382,15 @@ if (!$can_view_page) {
 -------------------------------------------------------- */
 if ($can_edit_post)
 {
-	echo '<div class="multi-part" title="'.__('Edit entry').'" id="edit-entry">';
+	echo '<div class="multi-part" title="'.($post_id ? __('Edit entry') : __('New entry')).'" id="edit-entry">';
 	echo '<form action="post.php" method="post" id="entry-form">';
 	echo '<div id="entry-wrapper">';
 	echo '<div id="entry-content"><div class="constrained">';
 	
 	echo
-	'<p class="col"><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
+	'<p class="col"><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
-	'</label></p>'.
+	'</p>'.
 	
 	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'</label> '.
 	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
@@ -401,7 +401,7 @@ if ($can_edit_post)
 	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
 	'</p>'.
 	
-	'<p class="area" id="notes-area"><label for="post_notes">'.__('Notes:').'</label>'.
+	'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'</label>'.
 	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 	'</p>';
 	

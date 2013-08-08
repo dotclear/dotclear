@@ -176,7 +176,12 @@ class dcPage
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
 
-		'<div id="main-menu">'."\n";
+		'<div id="main-menu">'."\n".
+
+		'<form id="search-menu" action="search.php" method="get">'.
+		'<p><label for="q" class="hidden">'.__('Search:').' </label>'.form::field('q',30,255,'').
+		'<input type="submit" value="'.__('OK').'" /></p>'.
+		'</form>';
 
 		foreach ($menu as $k => $v) {
 			echo $menu[$k]->draw();
@@ -216,6 +221,7 @@ class dcPage
 		'<html xmlns="http://www.w3.org/1999/xhtml" '.
 		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
 		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
+		'<meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
 		"<head>\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
@@ -241,7 +247,7 @@ class dcPage
 		"</head>\n".
 		'<body id="dotclear-admin" class="popup">'."\n".
 
-		'<div id="top"><h1>'.DC_VENDOR_NAME.'</h1></div>'."\n";
+		'<div id="top hidden"><h1>'.DC_VENDOR_NAME.'</h1></div>'."\n";
 
 		echo
 		'<div id="wrapper">'."\n".
