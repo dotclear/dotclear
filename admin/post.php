@@ -333,7 +333,7 @@ if (!empty($_GET['xconv']))
 	dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">'.$page_title;
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">';
 if ($post_id) {
 	switch ($post_status) {
 		case 1:
@@ -351,7 +351,10 @@ if ($post_id) {
 		default:
 			$img_status = '';
 	}
-	echo ' &ldquo;'.$post_title.'&rdquo;'.' '.$img_status;
+	$edit_entry_str = __('Edit entry &ldquo;%s&rdquo;');
+	echo sprintf($edit_entry_str, html::escapeHTML($post_title)).' '.$img_status;
+} else {
+	echo $page_title;
 }
 echo	'</span></h2>';
 
