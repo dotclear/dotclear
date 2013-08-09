@@ -187,7 +187,9 @@ class dcPage
 		self::jsVar('dotclear.img_menu_off','images/menu_off.png').
 		
 		self::jsVar('dotclear.msg.help',
-			__('help')).
+			__('Help about this page')).
+		self::jsVar('dotclear.msg.help_hide',
+			__('Hide')).
 		self::jsVar('dotclear.msg.no_selection',
 			__('no selection')).
 		self::jsVar('dotclear.msg.select_all',

@@ -420,6 +420,17 @@ class dcAdminContext extends Twig_Extension
 				new dcFieldSubmit('switchblog_submit',__('ok'),array(
 				'action' => 'switchblog')))
 			->setup();
+		# Switch blog form
+		$sform = new dcForm($this->core,'search-menu','search.php','GET');
+		$sform
+			->addField(
+				new dcFieldText('q','',array(
+				'maxlength'		=> 255,
+				'label' => __('Search:'))))
+			->addField(
+				new dcFieldSubmit('ok',__('OK'),array(
+				)))
+			->setup();
 	}
 	
 	/**
