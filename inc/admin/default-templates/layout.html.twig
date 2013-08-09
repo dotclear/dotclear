@@ -7,6 +7,7 @@
 	<title>{% block title %}{% for part in page_title %}{{ part.title }} - {% endfor %}{% if current_blog.name is not empty %}{{current_blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
 	<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
 	<meta name="GOOGLEBOT" content="NOSNIPPET" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="{{theme_url}}style/default.css" type="text/css" media="screen" />
 	{% if rtl is not empty %}
 	<link rel="stylesheet" href="{{theme_url}}style/default-rtl.css" type="text/css" media="screen" />
@@ -28,19 +29,20 @@
 		<div id="info-boxes">
 			<div id="info-box1">
 			  {% form 'switchblog_menu' %}
+				
 				{% if blog_count > 1 and blog_count < 20 %}
-					{{ form_field('switchblog',{},{'nestedlabel' : true, labelclass:'classic'}) }}
+					{{ form_field('switchblog',{},{'labelclass':'classic nomobile'}) }}
 					<noscript>{{ form_field('switchblog_submit') }}</noscript>
 				{% else %}
 					{{__('Blog:')}} <strong title="{{current_blog.url}}">{{current_blog.name}}</strong>
 					{% if blogs is not empty %} - <a href="blogs.php">{{__('Change blog')}}</a>{% endif %}
 				{% endif %}
-				<a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a>
+				<p class="nomobile"><a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a></p>
 			  {% endform %}
 			</div>
 			<div id="info-box2">
-				<a {%if current_page == 'index' %}class="active" {% endif %}href="index.php">{{__('My dashboard')}}</a><span> | </span>
-				<a {%if current_page == 'preferences' %}class="active" {% endif %}href="preferences.php">{{__('My preferences')}}</a><span> | </span>
+				<a class="smallscreen{%if current_page == 'index' %} active" {% endif %}" href="index.php">{{__('My dashboard')}}</a><span class="smallscreen"> | </span>
+				<a class="smallscreen{%if current_page == 'preferences' %} active" {% endif %}" href="preferences.php">{{__('My preferences')}}</a><span class="smallscreen"> | </span>
 				<a href="index.php?logout=1" class="logout">{{__('Logout %s')|format(current_user.id)}} <img src="{{theme_url}}images/logout.png" alt="" /></a>
 			</div>
 		</div>
@@ -95,6 +97,11 @@
 		</div>
 		<div id="main-menu">
 			{% block menus %}
+			{% form 'search-menu' with {'id':'search-menu'} %}
+				<p> {{ form_field('q',{'size':30},{'labelclass':'hidden'}) }} 
+					{{ form_field('ok') }}
+				</p>
+			{% endform %}
 			{% for menu in menus %}
 			{% if menu.items is not empty %}
 			<div id="{{menu.id}}">
@@ -121,7 +128,7 @@
 			{% endblock %}
 		</div>
 	</div>
-	{% block debug %}
+	{#{% block debug %}
 	  {% set debug_info = debug_info() %}
 	  {% if debug_info is not empty %}
 		<div id="debug"><div>
@@ -137,6 +144,6 @@
 		<p>Global vars: {{ debug_info.global_vars }}</p>
 		</div></div>
 	  {% endif %}
-	{% endblock %}
+	{% endblock %}#}
 	</body>
 </html>

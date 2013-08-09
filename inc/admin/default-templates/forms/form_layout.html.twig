@@ -50,22 +50,13 @@
 {% set type = type|default('checkbox') %}
 {% set nestedlabel = true %}
 {% set labelclass = "classic" %}
+{% set descafter = true %}
     {{ block('field_input') }}
-{#{% spaceless %}
-
-	{% if label is not empty %}
-		<label for="{{name}}" class="classic">
-	{% endif %}
-    <input type="checkbox" {{ block('field_attr') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
-	{% if label is not empty %}
-		{{ label }}</label>
-	{% endif %}
-{% endspaceless %}#}
 {% endblock field_checkbox %}
 
 {% block field_attr %}
 {% spaceless %}
- id="{{id}}" name="{{name}}" {% if read_only %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if max_length %} maxlength="{{ max_length }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
+ id="{{id}}" name="{{name}}" {% if read_only %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if maxlength %} maxlength="{{ maxlength }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
     {% for attrname,attrvalue in attr %}{{attrname}}="{{attrvalue}}" {% endfor %}
 {% endspaceless %}
 {% endblock field_attr %}
@@ -111,7 +102,9 @@
         {% if required is not empty %}
             {% set labelclass = labelclass ~ " required" %}
         {% endif %}
-        <label for="{{name}}" {% if labelclass is not empty %}class="{{labelclass}}"{% endif %} {% if required is not empty %}<abbr title="{{__('Required field')}}">*</abbr>{% else %}>{% endif %} {{label}}
+        <label for="{{name}}" {% if labelclass is not empty %}class="{{labelclass}}"{% endif %}>{% if required is not empty %}<abbr title="{{__('Required field')}}">*</abbr>{% endif %} 
+
+		{% if descafter is empty %} {{label}} {% endif %}
         {% if nestedlabel is empty %}</label> {% endif %}
     {% endif %}
 {% endspaceless %}
@@ -120,6 +113,7 @@
 {% block endlabel %}
 {% spaceless %}
     {% if label is not empty %}
+		{% if descafter %} {{label}} {% endif %}
         {% if nestedlabel is not empty %}</label>{% endif %}
     {% endif %}
 {% endspaceless %}

@@ -8,6 +8,7 @@
   <meta http-equiv="Content-Language" content="en" />
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{vendor_name}}</title>
   <link rel="stylesheet" href="{{theme_url}}style/default.css" type="text/css" media="screen" />
   {{ js.load_IE7 }}
@@ -62,8 +63,8 @@
 	{% endif %}
 			<p>{{ form_field('user_id') }}</p>
 			<p>{{ form_field('user_pwd') }}</p>
-			<p>{{ form_field('user_remenber') }}</p>
-			<p>{{ form_field('auth_login')}}</p>
+			<p>{{ form_field('user_remenber',{},{'nestedlabel':true, 'labelclass':'classic'}) }}</p>
+			<p>{{ form_field('auth_login',{"class":"add button"}) }}</p>
 	{% if safe_mode %}
 		</fieldset>
 	{% else %}
