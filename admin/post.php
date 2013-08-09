@@ -129,6 +129,14 @@ $form
 		new dcFieldCombo ('post_lang',$core->auth->getInfo('user_lang'),$lang_combo, array(
 			"label" => __('Entry lang:'))))
 	->addField(
+		new dcFieldText('post_password','',array(
+			"maxlength" => 32,
+			"label" => __('Entry password:'))))
+	->addField(
+		new dcFieldText('post_url','',array(
+			"maxlength" => 255,
+			"label" => __('Basename:'))))
+	->addField(
 		new dcFieldHidden ('id',''))
 ;
 # Get entry informations
@@ -145,7 +153,7 @@ if (!empty($_REQUEST['id']))
 	}
 	else
 	{
-		$form->id = $post->post_id;
+		$form->id = $post_id = $post->post_id;
 		$form->cat_id = $post->cat_id;
 		$form->post_dt = date('Y-m-d H:i',strtotime($post->post_dt));
 		$form->post_format = $post->post_format;
@@ -164,8 +172,45 @@ if (!empty($_REQUEST['id']))
 		$form->post_open_tb = (boolean) $post->post_open_tb;
 		$form->can_edit_post = $post->isEditable();
 		$form->can_delete= $post->isDeletable();
-		
+		$page_title = __('Edit entry');
+
 	}
+}
+if ($post_id) {
+	$_ctx->post_id = $post->post_id;
+
+	$_ctx->preview_url =
+		$core->blog->url.$core->url->getURLFor('preview',$core->auth->userID().'/'.
+		http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
+		'/'.$post->post_url);
+		
+	
+	$form_comment = new dcForm($core,'add-comment','post.php');
+	$form_comment
+		->addField(
+			new dcFieldText('comment_author','', array(
+				'maxlength'		=> 255,
+				'required'	=> true,
+				'label'		=> __('Name:'))))
+		->addField(
+			new dcFieldText('comment_email','', array(
+				'maxlength'		=> 255,
+				'required'	=> true,
+				'label'		=> __('Email:'))))
+		->addField(
+			new dcFieldText('comment_site','', array(
+				'maxlength'		=> 255,
+				'label'		=> __('Web site:'))))
+		->addField(
+			new dcFieldTextArea('comment_content','', array(
+				'required'	=> true,
+				'label'		=> __('Comment:'))))
+		->addField(
+			new dcFieldSubmit('add',__('Save'),array(
+				'action' => 'addComment')))
+		;
+
+	
 }
 
 $form->setup();
@@ -181,6 +226,7 @@ if (!empty($_GET['co'])) {
 }
 
 $_ctx
+	->fillPageTitle(html::escapeHTML($core->blog->name))
 	->fillPageTitle(__('Entries'),'posts.php')
 	->fillPageTitle($page_title)
 	->default_tab = $default_tab;

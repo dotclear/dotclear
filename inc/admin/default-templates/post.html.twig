@@ -23,7 +23,13 @@
 			<p class="area" id="excerpt-area">{{ form_field('post_excerpt',{'rows':5,'cols':50}) }}</p>
 			<p class="area" id="content-area">{{ form_field('post_content',{'rows':current_user.options.edit_size,'cols':5}) }}</p>
 			<p class="area" id="notes-area">{{ form_field('post_notes',{'rows':5,'cols':50}) }}</p>
-			<p>{{ form_field('save')}} {{form_field('delete',{'class':'delete'})}}</p>
+			<p>{{ form_field('save')}} 
+			{% if preview_url is defined %}
+				<a id="post-preview" href="{{ preview_url}}" class="button" accesskey="p">{{__('Preview')}} (p)</a>
+			{% endif %}
+			
+			{{form_field('delete',{'class':'delete'})}}</p>
+
 		</div>
 	</div>
 </div>
@@ -35,9 +41,36 @@
 	<p>{{ form_field('post_open_comment')}}</p>
 	<p>{{ form_field('post_open_tb')}}</p>
 	<p>{{ form_field('post_selected')}}</p>
-	<p>{{ form_field('post_lang')}}</p>
+	<p>{{ form_field('post_lang',{"class":"maximal"},{'nestedlabel':true})}}</p>
+	<p>{{ form_field('post_password',{"size":10, "class":"maximal"},{'nestedlabel':true})}}</p>
+	<div class="lockable">
+		<p>{{ form_field('post_url',{"size":10, "class":"maximal"})}} </p>
+		<p class="form-note warn">
+		{{ __('Warning: If you set the URL manually, it may conflict with another entry.') }}
+		</p>
+	</div>
 </div>
 {% endform %}
 </div>
+{% if post_id is defined %}
+<p><a href="trackbacks.php?id={{ post_id }}" class="multi-part">{{__('Ping blogs')}}</a></p>
+<div class="multi-part" id="comments" title="{{__('Comments')}}">
+<!-- to be completed -->
+</div>
+<div class="multi-part" id="add-comment" title="{{__('Add a comment')}}">
+<h3>{{__('Add a comment')}}</h3>
+{% form 'add-comment' %}
+<div class="constrained">
+	<p>{{ form_field('comment_author',{'size': 30}) }}</p>
+	<p>{{ form_field('comment_email',{'size': 30})}}</p>
+	<p>{{ form_field('comment_site',{'size': 30})}}</p>
+	<p class="area">{{ form_field('comment_content',{'cols': 50,'rows':8})}}</p>
+	<p>{{ form_field('add') }}</p>
+</div>
+
+{% endform %}
+</div>
+
+{% endif %}
 {% endblock %}
 

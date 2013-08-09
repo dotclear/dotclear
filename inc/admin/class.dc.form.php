@@ -925,7 +925,7 @@ abstract class dcField implements Countable
 		} else {
 			$attr['value'] = $this->getDefaultValue();
 		}
-		if ($offset==0) {
+		if ($offset==0 && !empty($this->id)) {
 			$attr['id']=$this->id;
 		}
 		$attr['name'] = $this->name;
