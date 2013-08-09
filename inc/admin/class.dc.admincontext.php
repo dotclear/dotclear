@@ -428,7 +428,7 @@ class dcAdminContext extends Twig_Extension
 				'maxlength'		=> 255,
 				'label' => __('Search:'))))
 			->addField(
-				new dcFieldSubmit('ok',__('OK'),array(
+				new dcFieldSubmit(array('ok'),__('OK'),array(
 				)))
 			->setup();
 	}
