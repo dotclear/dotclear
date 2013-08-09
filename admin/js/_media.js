@@ -3,14 +3,30 @@ $(function() {
 		return;
 	}
 
+	function enableButton(button) {
+		button.prop('disabled',false).removeClass('disabled');
+	}
+
+	function disableButton(button) {
+		button.prop('disabled',true).addClass('disabled');
+	}
+
 	$('.button.add').click(function(e) {
 		// Use the native click() of the file input.
 		$('#upfile').click();
 		e.preventDefault();
 	});
 
-	$('.button.cancel', '#fileupload').click(function(e) {
-		$('.button.cancel, .button.start','#fileupload .fileupload-buttonbar').hide();
+	$('.button.cancel', '#fileupload .fileupload-buttonbar').click(function(e) {
+		$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
+		disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+	});
+
+	$('.cancel').live('click', function(e) {
+		if ($('.fileupload-ctrl .files .template-upload', '#fileupload').length==0) {
+			$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
+			disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+		}
 	});
 
 	$('.button.clean', '#fileupload').click(function(e) {
@@ -27,7 +43,8 @@ $(function() {
 		sequentialUploads: true,
 		disabled: true
 	}).bind('fileuploadadd', function(e, data) {
-		$('.button.cancel, .button.start', '#fileupload .fileupload-buttonbar').show();
+		$('.button.cancel','#fileupload .fileupload-buttonbar').show();
+		enableButton($('.button.start','#fileupload .fileupload-buttonbar'));
 	}).bind('fileuploaddone', function(e, data) {
 		if (data.result.files[0].html !==undefined) {
 			$('.media-list p.clear').before(data.result.files[0].html);
@@ -35,7 +52,8 @@ $(function() {
 		$('.button.clean','#fileupload').show();
 	}).bind('fileuploadalways', function(e, data) {
 	    if ($('.fileupload-ctrl .files .template-upload', '#fileupload').length==0) {
-		$('.button.start, .button.cancel','#fileupload .fileupload-buttonbar').hide();
+		$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
+		disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
 	    }
 	});
 
@@ -46,6 +64,7 @@ $(function() {
 		$msg = dotclear.msg.enhanced_uploader_disable;
 		label = dotclear.jsUpload.msg.choose_files;
 		$('#fileupload').fileupload({disabled:false});
+		disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
 	} else {
 		$msg = dotclear.msg.enhanced_uploader_activate;
 		label = dotclear.jsUpload.msg.choose_file;
@@ -60,14 +79,15 @@ $(function() {
 			// when a user has clicked enhanced_uploader, and has added files
 			// We must remove files in table
 			$('.files .upload-file', '#fileupload').remove();
-			$('.button.cancel, .button.start','#fileupload .fileupload-buttonbar').hide();
-			$('.button.start','#fileupload').show();
+			$('.button.cancel,.button.clean','#fileupload .fileupload-buttonbar').hide();
 			$('#fileupload').fileupload({disabled:true});
 		} else {
 			$msg = dotclear.msg.enhanced_uploader_disable;
 			label = dotclear.jsUpload.msg.choose_files;
 			$('#upfile').attr('multiple', true);
-			$('.button.start','#fileupload').hide();
+			var startButton = $('.button.start','#fileupload .fileupload-buttonbar');
+			disableButton(startButton);
+			startButton.show();
 			$('#fileupload').fileupload({disabled:false});
 		}
 		$(this).find('a').text($msg);
