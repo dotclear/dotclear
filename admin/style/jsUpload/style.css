@@ -75,7 +75,7 @@
 	cursor: pointer;
 }
 
-.button.clean, .button.cancel, .button.add, .enhanced_uploader .fileupload-buttonbar .button.start {
+.button.clean, .button.cancel, .button.add {
 	display: none;
 }
 
