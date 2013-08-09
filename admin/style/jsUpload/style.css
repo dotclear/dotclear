@@ -1,54 +1,171 @@
-.button {
-  display: inline-block;
-  *display: inline;
-  border-radius: .2em;
-  background: #2373A8;
-  background: -webkit-gradient(linear, left top, left bottom, from(#2373A8), to(#2C8FD1));
-  background: -moz-linear-gradient(top,  #2373A8,  #2C8FD1);
-  outline: none;
-  border: 1px solid #2373A8;
-  text-decoration: none;
-  text-shadow: 0 1px 1px rgba(0,0,0,.3);
-  text-align: center;
-  cursor: pointer;
-  color: #fff;
-  margin-right: 4px;
+.enhanced_uploader .button {
+	display: inline-block;
+	*display: inline;
+
+	border-radius: .2em;
+	background: #2373A8;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2C8FD1), to(#2373A8));
+	background: -moz-linear-gradient(center top , #2C8FD1, #2373A8) repeat scroll 0 0 transparent;
+	outline: none;
+	border: 1px solid #2373A8;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	text-align: center;
+	cursor: pointer;
+	color: #fff;
+	font: 1em "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
+	margin-right: 4px;
+	margin-bottom: .5em;
+	padding: .1em .5em 0 .5em;
+	float: left;
 }
 
-.button-add { 
-  position: relative;
+.enhanced_uploader .button:hover {
+	background: #2373A8;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2373A8), to(#2C8FD1));
+	background: -moz-linear-gradient(center top , #2373A8, #2C8FD1) repeat scroll 0 0 transparent;
+	border: 1px solid #2C8FD1;
 }
 
-.button:hover {
-  background: #2373A8;
-  border: 1px solid #2C8FD1;
+.enhanced_uploader .add, .enhanced_uploader .clean, .enhanced_uploader .cancel, .enhanced_uploader .disabled {
+	text-shadow: none;
+	color: #000;
+	background: #F5F5F5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#F5F5F5));
+	background: -moz-linear-gradient(center top , #F5F5F5, #DFDFDF) repeat scroll 0 0 transparent;
+	border: 1px solid #CCCCCC;
 }
 
-.button-add input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  cursor: pointer;
+.enhanced_uploader .button.add:hover, .enhanced_uploader .button.clean:hover, .enhanced_uploader .button.cancel:hover, .enhanced_uploader .disabled:hover {
+	background: #DFDFDF;
+	background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#F5F5F5));
+	background: -moz-linear-gradient(center top , #DFDFDF, #F5F5F5) repeat scroll 0 0 transparent;
+	border: 1px solid #CCCCCC;
 }
 
-.progress .bar {
-  background: transparent url('loader.png') repeat left top;
+.enhanced_uploader .disabled, .enhanced_uploader .disabled:hover {
+	color: #666;
+	background: #DFDFDF;
+	border: 1px solid #CCCCCC;
 }
 
-.upload-status { 
-  margin-top: 3px;
-  width: 13px;
-  height: 13px;
-  display: block;
+.enhanced_uploader .fileupload-buttonbar {
+	margin-top: 2em;
 }
 
-.upload-status.ok { 
-  background: transparent url('../../images/check-on.png') no-repeat left top;
+.enhanced_uploader .upload-filecancel {
+	border: none;
 }
 
-.upload-status.error { 
-  background: transparent url('../../images/check-off.png') no-repeat left top;
+.enhanced_uploader .add {
+	margin-right: 4em;
+}
+
+.enhanced_uploader .cancel, .enhanced_uploader .clean, .enhanced_uploader .start {
+	margin-left: .5em;
+}
+
+.enhanced_uploader #upfile {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	margin: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor: pointer;
+}
+
+.button.clean, .button.cancel, .button.add, .enhanced_uploader .fileupload-buttonbar .button.start {
+	display: none;
+}
+
+.enhanced_uploader .button.add {
+	display: inline-block;
+}
+
+.enhanced_uploader .max-size {
+	display: block;
+}
+
+.enhanced_uploader .one-file {
+	display: none;
+}
+
+label span.one-file {
+	display: inline;
+}
+
+.enhanced_uploader p.clear {
+	margin-top: 3em;
+	margin-bottom: 0;
+}
+
+#add-file-f p.clear {
+	margin-top: 1em;
+	margin-bottom: 0;
+}
+
+/* files */
+.upload-msg {
+	font-weight: bold;
+}
+
+.upload-msg.upload-error {
+	color: #c00;
+}
+
+.upload-files {
+	padding: 0 0.5em;
+	margin: 10px 0;
+}
+
+.upload-file {
+	margin: 0 0 8px 0;
+	position: relative;
+}
+
+.upload-fileinfo {
+	margin-left: 16px;
+	margin-bottom: .4em;
+}
+
+.upload-fileinfo .upload-filecancel {
+	display: block;
+	margin-top: 3px;
+	width: 20px;
+	height: 20px;
+	background: transparent url("cancel.png") no-repeat left top;
+	text-indent: -1000px;
+	cursor: pointer;
+	float: left;
+}
+
+.upload-filemsg {
+	font-weight: bold;
+	color: green;
+}
+
+.upload-filemsg.upload-error {
+	color: #c00;
+}
+
+.upload-progress {
+	padding: 0 1em;
+}
+
+.upload-progress div {
+	width: 0;
+	height: 1em;
+	padding: .2em 0;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 1em;
+	text-align: right;
+	background: green url("loader.png") repeat-x left top;
+	color: white;
+	border-radius: 2px;
+}
+
+div.template-upload {
+	clear: both;
 }

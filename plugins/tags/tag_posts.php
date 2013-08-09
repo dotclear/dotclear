@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -109,7 +109,7 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 <body>
 
 <h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo;
-<span class="page-title"><?php echo __('Edit tag').' &ldquo;'.html::escapeHTML($tag).'&rdquo;'; ?></span></h2>
+<span class="page-title"><?php echo __('Tag').' &ldquo;'.html::escapeHTML($tag).'&rdquo;'; ?></span></h2>
 
 <?php
 if (!empty($_GET['renamed'])) {
@@ -129,17 +129,17 @@ if (!$core->error->flag())
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'<input type="submit" value="'.__('Rename').'" />'.
 		$core->formNonce().
-		'</form>';
+		'</p></form>';
 		# Remove tag
 		if (!$posts->isEmpty() && $core->auth->check('contentadmin',$core->blog->id)) {
 			echo
 			'<form id="tag_delete" action="'.$this_url.'" method="post">'.
-			'<p class="no-margin">'.__('Delete this tag:').'</p>'.
-			'<input type="submit" class="delete" name="delete" value="'.__('Delete').'" />'.
+			'<p class="no-margin">'.__('Delete this tag:').
+			'</p><p><input type="submit" class="delete" name="delete" value="'.__('Delete').'" />'.
 			$core->formNonce().
-			'</form>';
+			'</p></form>';
 		}
-		echo '</p></div>';
+		echo '</div>';
 	}
 	
 	# Show posts

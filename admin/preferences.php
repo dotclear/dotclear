@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -369,7 +369,7 @@ if (!empty($_GET['replaced'])) {
 	dcPage::message(__('Default favorites have been successfully updated.'));
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
+echo '<h2>'.html::escapeHTML($core->auth->userID()).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
 
 # User profile
 echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';

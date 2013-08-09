@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -197,7 +197,7 @@ if ($can_install && !empty($_POST))
 
 		# Add user interface options
 		$core->auth->user_prefs->addWorkspace('interface');
-		$core->auth->user_prefs->interface->put('enhanceduploader',false,'boolean','',null,true);
+		$core->auth->user_prefs->interface->put('enhanceduploader',true,'boolean','',null,true);
 
 		# Add default favorites
 		$core->auth->user_prefs->addWorkspace('favorites');

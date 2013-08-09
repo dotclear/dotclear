@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -53,7 +53,7 @@ foreach (files::scanDir(DC_BACKUP_PATH) as $v) {
 	}
 }
 if (!empty($archives)) {
-	$archives = array_reverse($archives);
+	usort($archives,"version_compare");
 } else {
 	$default_tab = 'update';
 }
@@ -207,7 +207,6 @@ if (!$step)
 		'You can revert your previous installation or delete theses files.').'</p>';
 		
 		echo	'<form action="'.$p_url.'" method="post">';
-		
 		foreach ($archives as $v) {
 			echo
 			'<p><label class="classic">'.form::radio(array('backup_file'),html::escapeHTML($v)).' '.

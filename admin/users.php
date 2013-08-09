@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -105,7 +105,7 @@ if (!$core->error->flag())
 	}
 	
 	echo 
-	'<h2 class="post-title">'.__('Users').'</h2>'.
+	'<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('Users').'</span></h2>'.
 	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('Create a new user').'</a></strong></p>';
 	
 	if (!$show_filters) {

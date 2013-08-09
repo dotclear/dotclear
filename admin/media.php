@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -60,7 +60,7 @@ $sort_combo = array(
 	__('By names, in descending order') => 'name-desc',
 	__('By dates, in ascending order') => 'date-asc',
 	__('By dates, in descending order') => 'date-desc'
-);
+	);
 
 if (!empty($_GET['file_sort']) && in_array($_GET['file_sort'],$sort_combo)) {
 	$_SESSION['media_file_sort'] = $_GET['file_sort'];
@@ -131,44 +131,47 @@ if ($dir && !empty($_POST['newdir']))
 }
 
 # Adding a file
-if ($dir && !empty($_FILES['upfile']))
-{
-  $upfile = array('name' => $_FILES['upfile']['name'][0],
-                  'type' => $_FILES['upfile']['type'][0],
-                  'tmp_name' => $_FILES['upfile']['tmp_name'][0],
-                  'error' => $_FILES['upfile']['error'][0],
-                  'size' => $_FILES['upfile']['size'][0]
-                  );
+if ($dir && !empty($_FILES['upfile'])) {
+  // only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
+	$upfile = array('name' => $_FILES['upfile']['name'][0],
+		'type' => $_FILES['upfile']['type'][0],
+		'tmp_name' => $_FILES['upfile']['tmp_name'][0],
+		'error' => $_FILES['upfile']['error'][0],
+		'size' => $_FILES['upfile']['size'][0]
+		);
 
-	try {
-    files::uploadStatus($upfile);
+	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+		header('Content-type: application/json');
+		$message = array();
 
-    $core->media->uploadFile($upfile['tmp_name'],$upfile['name']);
+		try {
+			files::uploadStatus($upfile);
+			$new_file_id = $core->media->uploadFile($upfile['tmp_name'], $upfile['name']);
 
-    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
-      header('Content-type: application/json');
-      $message = array();
-      $message['files'][] = array('name' => $upfile['name'],
-                                  'size' => $upfile['size']
-                                  );
+			$message['files'][] = array('name' => $upfile['name'],
+				'size' => $upfile['size'],
+				'html' => mediaItemLine($core->media->getFile($new_file_id), 1)
+				);
+		} catch (Exception $e) {
+			$message['files'][] = array('name' => $upfile['name'],
+				'size' => $upfile['size'],
+				'error' => $e->getMessage()
+				);
+		}
+		echo json_encode($message);
+		exit();
+	} else {
+		try {
+			files::uploadStatus($upfile);
 
-      echo json_encode($message);
-      exit();
-    } else {
-        http::redirect($page_url.'&d='.rawurlencode($d).'&upok=1');
-    }
-	} catch (Exception $e) {
-    if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
-      header('Content-type: application/json');
-      $message = array();
-      $message['files'][] = array('name' => $upfile['name'],
-                                  'error' => $e->getMessage()
-                                  );
-      echo json_encode($message);
-      exit();
-    } else {
-      $core->error->add($e->getMessage());
-    }
+			$f_title = (isset($_POST['upfiletitle']) ? $_POST['upfiletitle'] : '');
+			$f_private = (isset($_POST['upfilepriv']) ? $_POST['upfilepriv'] : false);
+
+			$core->media->uploadFile($upfile['tmp_name'], $upfile['name'], $f_title, $f_private);
+			http::redirect($page_url.'&d='.rawurlencode($d).'&upok=1');
+		} catch (Exception $e) {
+			$core->error->add($e->getMessage());
+		}
 	}
 }
 
@@ -206,7 +209,7 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 	echo
 	'<form action="'.html::escapeURL($page_url).'" method="post">'.
 	'<p>'.sprintf(__('Are you sure you want to remove %s?'),
-	html::escapeHTML($_GET['remove'])).'</p>'.
+		html::escapeHTML($_GET['remove'])).'</p>'.
 	'<p><input type="submit" value="'.__('Cancel').'" /> '.
 	' &nbsp; <input type="submit" name="rmyes" value="'.__('Yes').'" />'.
 	form::hidden('d',$d).
@@ -271,16 +274,17 @@ if (!$dir) {
 
 if ($post_id) {
 	echo '<p><strong>'.sprintf(__('Choose a file to attach to entry %s by clicking on %s.'),
-	'<a href="'.$core->getPostAdminURL($post_type,$post_id).'">'.html::escapeHTML($post_title).'</a>',
-	'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</strong></p>';
+		'<a href="'.$core->getPostAdminURL($post_type,$post_id).'">'.html::escapeHTML($post_title).'</a>',
+		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</strong></p>';
 }
 if ($popup) {
 	echo '<p><strong>'.sprintf(__('Choose a file to insert into entry by clicking on %s.'),
-	'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</strong></p>';
+		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</strong></p>';
 }
 
 
 $items = array_values(array_merge($dir['dirs'],$dir['files']));
+echo '<div class="media-list">';
 if (count($items) == 0)
 {
 	echo '<p><strong>'.__('No file.').'</strong></p>';
@@ -300,7 +304,6 @@ else
 	'<input type="submit" value="'.__('Sort').'" /></p>'.
 	'</form>'.
 	
-	'<div class="media-list">'.
 	'<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 	
 	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++, $j++)
@@ -309,34 +312,66 @@ else
 	}
 	
 	echo
-	'<p class="clear">'.__('Page(s)').' : '.$pager->getLinks().'</p>'.
-	'</div>';
+	'<p class="clear">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 }
-
+if (!isset($pager)) {
+	echo
+	'<p class="clear"></p>';
+}
+echo
+'</div>';
 
 if ($core_media_writable)
 {
 	echo '<div class="two-cols">';
 	
+	if ($user_ui_enhanceduploader) {
+		echo
+		'<div class="col enhanced_uploader">';
+	} else {
+		echo
+		'<div class="col">';
+	}
+
 	echo
-  '<div class="col">'.
-  '<fieldset id="add-file-f"><legend>'.__('Add files').'</legend>'.
-  '<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
-  ' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="POST" enctype="multipart/form-data">'.
-  '<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
-    $core->formNonce().'</div>'.
-  '<div class="fileupload-buttonbar">'.
-  '<label class="button-add button" for="upfile">'.__('Add files').
-  '<input type="file" id="upfile" name="upfile[]" multiple="multiple" data-url="'.html::escapeURL($page_url).'" />'.
-  '</label>'.
-  '</span>'.
-  '<input class="button start" type="submit" value="'.__('Send').'"/>'.
-  '</div>'.
-  '<table role="presentation" class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>'.
-    form::hidden(array('d'),$d).'</p>'.
-  '</fieldset>'.
-  '</form>'.
-  '</div>';
+	'<fieldset id="add-file-f"><legend>'.__('Add files').'</legend>'.
+	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
+	' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="POST" enctype="multipart/form-data">'.
+	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
+	$core->formNonce().'</div>'.
+	'<div class="fileupload-ctrl"><div class="files"></div></div>';
+
+	echo
+	'<div class="fileupload-buttonbar">';
+
+	echo
+	'<p class="max-sier form-note info">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
+	'<label for="upfile">'.'<span class="add-label one-file">'.__('Choose file').'</span>'.'</label>'.
+	'<button class="button add">'.__('Choose files').'</button>'.
+	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" />';
+
+	echo
+	'<p class="one-file"><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
+	'<p class="one-file"><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
+	__('Private').'</label></p>';
+
+	if (!$user_ui_enhanceduploader) {
+		echo
+		'<p class="one-file form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
+		' <a href="preferences.php?tab=user-options">'.__('My preferences').'</a></p>';
+	}
+
+	echo
+	'<button class="button clean">'.__('Refresh').'</button>'.
+	'<input class="button cancel one-file" type="reset" value="'.__('Clear all').'"/>'.
+	'<input class="button start" type="submit" value="'.__('Upload').'"/>'.
+	'</div>';
+
+	echo
+	'<div>'.form::hidden(array('d'),$d).'</div>'.
+	'</fieldset>'.
+	'</form>'.
+	'</div>';
 	
 	echo
 	'<div class="col">'.
