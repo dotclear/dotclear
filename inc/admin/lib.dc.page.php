@@ -137,8 +137,8 @@ class dcPage
 		'</p></form>'.
 		'</div>'.
 		'<div id="info-box2">'.
-		'<a class="smallscreen"'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' class="active"' : '').' href="index.php">'.__('My dashboard').'</a>'.
-		'<span class="smallscreen"> | </span><a class="smallscreen"'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' class="active smallscreen"' : '').' href="preferences.php">'.__('My preferences').'</a>'.
+		'<a class="smallscreen'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a>'.
+		'<span class="smallscreen"> | </span><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="preferences.php">'.__('My preferences').'</a>'.
 		'<span class="smallscreen"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
 		'</div>'.
 		'</div>'.
