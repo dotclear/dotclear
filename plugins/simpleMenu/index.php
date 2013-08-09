@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -458,7 +458,7 @@ if (!$step) {
 
 if (!$step) {
 	echo '<form id="menuitemsappend" action="'.$p_url.'&add=1" method="post">';
-	echo '<p>'.$core->formNonce().'<input class="add" type="submit" name="appendaction" value="'.__('Add an item').'" /></p>';
+	echo '<p class="top-add">'.$core->formNonce().'<input class="button add" type="submit" name="appendaction" value="'.__('Add an item').'" /></p>';
 	echo '</form>';
 }
 

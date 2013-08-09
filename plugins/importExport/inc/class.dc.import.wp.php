@@ -670,11 +670,14 @@ class dcImportWP extends dcIeModule
 		# Create tags
 		$this->importTags($rs->ID,$cur->post_id,$db);
 		
-		if (!$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) 
+		if (isset($old_cat_ids))
 		{
-			$old_cat_ids->moveStart();
-			while ($old_cat_ids->fetch()) {
-				$this->core->meta->setPostMeta($cur->post_id,'tag',$this->cleanStr($this->vars['cat_tags_prefix'].$old_cat_ids->name));
+			if (!$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) 
+			{
+				$old_cat_ids->moveStart();
+				while ($old_cat_ids->fetch()) {
+					$this->core->meta->setPostMeta($cur->post_id,'tag',$this->cleanStr($this->vars['cat_tags_prefix'].$old_cat_ids->name));
+				}
 			}
 		}
 	}

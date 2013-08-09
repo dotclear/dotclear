@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -85,11 +85,6 @@ class dcUrlHandlers extends urlHandler
 		if ($_ctx->nb_entry_per_page === null) {
 			$_ctx->nb_entry_per_page = $core->blog->settings->system->nb_post_per_page;
 		}
-		
-		// Break public template here for now 
-		// just to check if template engine is well loaded.
-		$core->tpl->display($tpl.'.twig');
-		// To be continued...
 		
 		$tpl_file = $core->tpl->getFilePath($tpl);
 		

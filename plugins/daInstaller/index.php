@@ -255,7 +255,7 @@ echo
 '</head>'.
 '<body>'.
 infoMessages().
-'<h2>'.__('DotAddict.org Installer').'</h2>'.
+'<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('DotAddict.org Installer').'</span></h2>'.
 '<p>'.__('Install and update your extensions live from DotAddict.org').'</p>';
 
 echo

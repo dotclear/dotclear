@@ -1410,7 +1410,7 @@ msgid "Extract mode:"
 msgstr "Mode d'extraction :"
 
 msgid "Extract"
-msgstr "Extrait"
+msgstr "Extraire"
 
 msgid "Change media properties"
 msgstr "Changer les propriétés du média"
@@ -1472,6 +1472,9 @@ msgstr "Les extensions ajoutent de nouvelles fonctionnalités à Dotclear. Ici, 
 #, php-format
 msgid "You can find additional plugins for your blog on %s."
 msgstr "Vous pouvez trouver de nouvelles extensions pour votre blog sur %s."
+
+msgid "You can find additional plugins for your blog on %s or using the %s."
+msgstr "Vous pouvez trouver de nouvelles extensions pour votre blog sur %s ou en utilisant l'%s."
 
 msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
 msgstr "Tout ce que vous avez à faire pour installer ou mettre à jour une extension est généralement de la déposer dans la section \"Installer ou mettre à jour une extension\"."
@@ -1568,6 +1571,9 @@ msgstr "Ce billet n'existe pas."
 
 msgid "Edit entry"
 msgstr "Modifier le billet"
+
+msgid "Edit entry &ldquo;%s&rdquo;"
+msgstr "Modifier le billet &ldquo;%s&rdquo;"
 
 msgid "next entry"
 msgstr "billet suivant"
@@ -2045,7 +2051,7 @@ msgid "If you change your username, you will have to log in again."
 msgstr "Si vous changez votre login, vous devrez vous identifier à nouveau."
 
 msgid "Mandatory for password recovering procedure."
-msgstr "Obligatoire pour la procédure de récupération de mot de passe."
+msgstr "Indispensable pour la procédure de récupération de mot de passe."
 
 msgid "Password change required to connect"
 msgstr "Changement de mot de passe requis pour la connexion"
@@ -2154,6 +2160,9 @@ msgstr "Merci d'utiliser %s."
 
 msgid "Help"
 msgstr "Aide"
+
+msgid "Help about this page"
+msgstr "Aide pour cette page"
 
 msgid "uncover"
 msgstr "dévoiler"
@@ -2377,11 +2386,14 @@ msgstr "Choisir un fichier"
 msgid "Choose files"
 msgstr "Choisir des fichiers"
 
-msgid "Clean"
-msgstr "Nettoyer"
+msgid "Refresh"
+msgstr "Actualiser"
 
 msgid "Upload"
 msgstr "Envoyer"
+
+msgid "Clear all"
+msgstr "Tout annuler"
 
 msgid "No file in queue."
 msgstr "Aucun fichier en file d'attente."
@@ -2915,3 +2927,18 @@ msgstr "Seul un superadministrateur peut supprimer un blog"
 
 msgid "Invalid publication date"
 msgstr "Date de publication invalide"
+
+msgid "System settings"
+msgstr "Réglages système"
+
+msgid "Additional plugins"
+msgstr "Modules complémentaires"
+
+msgid "Personal notes:"
+msgstr "Notes personnelles:"
+
+msgid "New user"
+msgstr "Nouvel utilisateur"
+
+msgid "faut virer ça ça ne sert qu'a contourner le bug corrige en 2.5.2"
+msgstr "Notes personnelles :"

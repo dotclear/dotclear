@@ -1,36 +1,94 @@
 $(function() {
-    $('#fileupload')
-	.fileupload({
-	    url: $('#fileupload').attr('action'),
-	    autoUpload: false
+	if ($('#fileupload').length==0) {
+		return;
+	}
+
+	$('.button.add').click(function(e) {
+		// Use the native click() of the file input.
+		$('#upfile').click();
+		e.preventDefault();
 	});
 
-    // Load existing files:
-    $('#fileupload').addClass('fileupload-processing');
-    $.ajax({
-        url: $('#fileupload').fileupload('option', 'url'),
-        dataType: 'json',
-        context: $('#fileupload')[0]
-    }).always(function (result) {
-        $(this).removeClass('fileupload-processing');
-    }).done(function (result) {
-        $(this).fileupload('option', 'done')
-            .call(this, null, {result: result});
-    });
+	$('.button.cancel', '#fileupload').click(function(e) {
+		$('.button.cancel, .button.start','#fileupload .fileupload-buttonbar').hide();
+	});
 
-    // Replace remove links by a POST on hidden form
-    fileRemoveAct();
+	$('.button.clean', '#fileupload').click(function(e) {
+		$('.fileupload-ctrl .files .template-download', '#fileupload').slideUp(500, function() {
+			$(this).remove();
+		});
+		$(this).hide();
+		e.preventDefault();
+	});
 
-    function fileRemoveAct() {
-	$('a.media-remove').click(function() {
-	    var m_name = $(this).parents('ul').find('li:first>a').text();
-	    if (window.confirm(dotclear.msg.confirm_delete_media.replace('%s',m_name))) {
-		var f = $('#media-remove-hide').get(0);
-		f.elements['remove'].value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/,'$2');
-		this.href = '';
-		f.submit();
+	$('#fileupload').fileupload({
+		url: $('#fileupload').attr('action'),
+		autoUpload: false,
+		sequentialUploads: true,
+		disabled: true
+	}).bind('fileuploadadd', function(e, data) {
+		$('.button.cancel, .button.start', '#fileupload .fileupload-buttonbar').show();
+	}).bind('fileuploaddone', function(e, data) {
+		if (data.result.files[0].html !==undefined) {
+			$('.media-list p.clear').before(data.result.files[0].html);
+		}
+		$('.button.clean','#fileupload').show();
+	}).bind('fileuploadalways', function(e, data) {
+	    if ($('.fileupload-ctrl .files .template-upload', '#fileupload').length==0) {
+		$('.button.start, .button.cancel','#fileupload .fileupload-buttonbar').hide();
 	    }
-	    return false;
 	});
-    }
+
+	var $container = $('#fileupload').parent().parent();
+	var $msg,label;
+
+	if ($container.hasClass('enhanced_uploader')) {
+		$msg = dotclear.msg.enhanced_uploader_disable;
+		label = dotclear.jsUpload.msg.choose_files;
+		$('#fileupload').fileupload({disabled:false});
+	} else {
+		$msg = dotclear.msg.enhanced_uploader_activate;
+		label = dotclear.jsUpload.msg.choose_file;
+	}
+
+	$('<p class="clear"><a class="enhanced-toggle" href="#">' + $msg + '</a></p>').click( function() {
+		if ($container.hasClass('enhanced_uploader')) {
+			$msg = dotclear.msg.enhanced_uploader_activate;
+			label = dotclear.jsUpload.msg.choose_file;
+			$('#upfile').attr('multiple', false);
+
+			// when a user has clicked enhanced_uploader, and has added files
+			// We must remove files in table
+			$('.files .upload-file', '#fileupload').remove();
+			$('.button.cancel, .button.start','#fileupload .fileupload-buttonbar').hide();
+			$('.button.start','#fileupload').show();
+			$('#fileupload').fileupload({disabled:true});
+		} else {
+			$msg = dotclear.msg.enhanced_uploader_disable;
+			label = dotclear.jsUpload.msg.choose_files;
+			$('#upfile').attr('multiple', true);
+			$('.button.start','#fileupload').hide();
+			$('#fileupload').fileupload({disabled:false});
+		}
+		$(this).find('a').text($msg);
+		$('.add-label', '#fileupload').text(label);
+
+		$container.toggleClass('enhanced_uploader');
+	}).appendTo($('#fileupload'));
+
+	// Replace remove links by a POST on hidden form
+	fileRemoveAct();
+
+	function fileRemoveAct() {
+		$('a.media-remove').live('click', function() {
+			var m_name = $(this).parents('ul').find('li:first>a').text();
+			if (window.confirm(dotclear.msg.confirm_delete_media.replace('%s',m_name))) {
+				var f = $('#media-remove-hide').get(0);
+				f.elements['remove'].value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/,'$2');
+				this.href = '';
+				f.submit();
+			}
+			return false;
+		});
+	}
 });

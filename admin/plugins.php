@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -166,12 +166,12 @@ if ($is_writable)
 			}
 
 			# --BEHAVIOR-- pluginBeforeAdd
-			$core->callBehavior('pluginsBeforeAdd', $plugin);
+			$core->callBehavior('pluginsBeforeAdd', $plugin_id);
 						
 			$ret_code = $core->plugins->installPackage($dest,$core->plugins);
 
 			# --BEHAVIOR-- pluginAfterAdd
-			$core->callBehavior('pluginsAfterAdd', $plugin);
+			$core->callBehavior('pluginsAfterAdd', $plugin_id);
 			
 			http::redirect('plugins.php?added='.$ret_code);
 		}
@@ -194,7 +194,7 @@ dcPage::open(__('Plugins management'),
 );
 
 echo
-'<h2 class="page-title">'.__('Plugins management').'</h2>';
+'<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('Plugins management').'</span></h2>';
 
 if (!empty($_GET['removed'])) {
 	dcPage::message(__('Plugin has been successfully deleted.'));
@@ -225,8 +225,12 @@ if (!empty($plugins_install['failure']))
 echo '<p>'.__('Plugins add new functionalities to Dotclear. '.
 'Here you can activate or deactivate installed plugins.').'</p>';
 
-echo '<p><strong>'.sprintf(__('You can find additional plugins for your blog on %s.'),
-'<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>').'</strong> ';
+echo (!$core->plugins->moduleExists('daInstaller') ?
+	sprintf('<p><strong>'.__('You can find additional plugins for your blog on %s.').'</strong></p>',
+		'<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>') :
+	sprintf('<p><strong>'.__('You can find additional plugins for your blog on %s or using the %s.').'</strong></p>',
+		'<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>',
+		'<a href="plugin.php?p=daInstaller">'.__('DotAddict.org Installer').'</a>'));
 
 if ($is_writable) {
 	echo __('To install or upgrade a plugin you generally just need to upload it '.

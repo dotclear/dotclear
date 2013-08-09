@@ -3,7 +3,7 @@
 #
 # This file is part of Antispam, a plugin for Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -122,14 +122,14 @@ catch (Exception $e)
 
 if ($filter_gui !== false)
 {
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <a href="'.$p_url.'">'.$page_name.'</a>'.
+	echo '<h2>'.__('Plugins').' &rsaquo; <a href="'.$p_url.'">'.$page_name.'</a>'.
 		' &rsaquo; <span class="page-title">'.sprintf(__('%s configuration'),$filter->name).'</span></h2>';
 
 	echo $filter_gui;
 }
 else
 {
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_name.'</span></h2>';
+	echo '<h2>'.__('Plugins').' &rsaquo; <span class="page-title">'.$page_name.'</span></h2>';
 
 	# Information
 	$spam_count = dcAntispam::countSpam($core);
@@ -161,7 +161,7 @@ else
 	}
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
-		sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php"> '.__('Blog preferences').'</a>').
+		sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog preferences').'</a>').
 			'</p>';
 	}
 	echo '</form>';

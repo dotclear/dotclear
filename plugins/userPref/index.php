@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -95,7 +95,6 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
   <style type="text/css">
 	table.prefs { border: 1px solid #999; margin-bottom: 2em; }
 	table.prefs th { background: #f5f5f5; color: #444; padding-top: 0.3em; padding-bottom: 0.3em; }
-	p.anchor-nav {float: right; }
   </style>
 	<script type="text/javascript">
 	//<![CDATA[
