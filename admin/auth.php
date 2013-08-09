@@ -278,7 +278,7 @@ $form
 		new dcFieldPassword('new_pwd_c','',array(
 			"label" => __('Confirm password:'))))
 	->addField(
-		new dcFieldCheckbox ('user_remenber',1,array(
+		new dcFieldCheckbox ('user_remember',1,array(
 			"label" => __('Remember my ID on this computer'))))
 	->addField(
 		new dcFieldSubmit('auth_login',__('log in'),array(
