@@ -16,7 +16,7 @@ html {
 	font-size: 62.5%;
 }
 body {
-	font: 1.2rem/1.5 Helvetica,Arial,sans-serif;
+	font: 1.2rem/1.5 Arial,Helvetica,sans-serif;
 	color: #333;
 	background: #fff;
 	margin: 0;
@@ -31,7 +31,7 @@ a, a:link, a:visited {
 a:hover, a:active, a:focus {
 	text-decoration: underline;
 }
-a img, a:link img, a:visited img {
+a img, a:link img, a:visited img { 
 	border:none;
 }
 
@@ -55,6 +55,7 @@ h2 a:link, h2 a:visited {
 #content > h2 {
 	padding: 0 1.8rem .6rem;
 	margin: 0 -1.8rem 1rem;
+	background: #fff url(dc_bg_title.png) repeat-x center bottom;
 }
 h3 {
 	color: #575859;
@@ -141,7 +142,7 @@ abbr {
 	color: #fff;
 }
 #top h1 a:hover, #top h1 a:focus {
-	background: transparent url(dc_logo_hover.png) no-repeat 0 50%;
+	background: transparent url(dc_logo_hover.png) no-repeat 0 50%;	
 }
 #info-boxes {
 	background: #575859;
@@ -333,31 +334,40 @@ abbr {
 }
 #search-menu {
 	padding: .3rem .4rem 0;
+	font-size: 100%
 }
 #search-menu p {
 	display: inline-block;
+	border: 1px solid #999;
+	border-radius: .6em;
+	position: relative;
+	height: 2rem;
+	overflow: hidden;
 }
 #search-menu #q {
 	width: 12rem;
 	border-bottom-left-radius: .6em;
 	border-top-left-radius: .6em;
-	border-color: #999;
 	background: transparent url(search.png) no-repeat 4px center;
 	text-indent: 18px;
 	height: 2rem;
-	padding: 0 2px;
+	padding: 0 2px; 
+	border: none;
 }
 #search-menu input[type="submit"] {
-	padding: .1rem .3rem;
+	padding: 0 0.3rem;
 	background: #dfdfdf;
 	border-color: #999;
 	color: #666;
 	border-bottom-right-radius: .6em;
 	border-top-right-radius: .6em;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 	text-shadow: none;
-	height: 2.2rem;
+	height: 2rem;
+	border: none;
+	border-left: 1px solid #aaa;
 	font-size: 1rem;
-	margin-left: -.5em;
 }
 #search-menu input[type="submit"]:hover,
 #search-menu input[type="submit"]:focus {
@@ -915,8 +925,8 @@ body.popup #footer p {
 	border: none;
 }
 /* ------------------------------------------------------------------ messages */
-div.error, p.error,
-div.message, p.message,
+div.error, p.error, 
+div.message, p.message, 
 div.static-msg, p.static-msg {
 	padding: 0.5em 0.5em 0.5em 48px;
 	margin-bottom: 1em;
@@ -930,12 +940,12 @@ div.error, p.error {
 	background: #ffdec8 url(msg-error.png) no-repeat .7em .7em;
 	color: #000;
 }
-div.message, p.message,
+div.message, p.message, 
 div.static-msg, p.static-msg {
 	background: #666 url(msg-std.png) no-repeat .7em .7em;
 	color: #fff;
 }
-div.message a, p.message a,
+div.message a, p.message a, 
 div.static-msg a, p.static-msg a {
 	color: #fff;
 }
@@ -1199,7 +1209,7 @@ input, textarea, select {
 }
 input.invalid, textarea.invalid, select.invalid {
 	border: 1px solid red;
-	background: #fff;
+	background: #fff; 
 	color: red;
 	box-shadow: 0 0 0 1px rgba(218, 62, 90, 0.3)
 }
@@ -1276,6 +1286,7 @@ label.inline {
 }
 p.field {
 	position: relative;
+	
 }
 p.field label {
 	display: block;
