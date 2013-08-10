@@ -339,7 +339,7 @@ if ($core_media_writable)
 	' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="POST" enctype="multipart/form-data">'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</div>'.
-	'<div class="fileupload-ctrl"><div class="files"></div></div>';
+	'<div class="fileupload-ctrl"><div class="queue-message"></div><div class="files"></div></div>';
 
 	echo
 	'<div class="fileupload-buttonbar">';
