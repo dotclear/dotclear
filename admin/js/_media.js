@@ -11,6 +11,19 @@ $(function() {
 		button.prop('disabled',true).addClass('disabled');
 	}
 
+	function displayMessageInQueue(n) {
+		var msg = '';
+		if (n==1) {
+			msg = dotclear.jsUpload.msg.file_in_queue;
+		} else if (n>1) {
+			msg = dotclear.jsUpload.msg.files_in_queue;
+			msg = msg.replace(/%d/,n);
+		} else {
+			msg = dotclear.jsUpload.msg.no_file_in_queue;
+		}
+		$('.queue-message','#fileupload').html(msg);
+	}
+
 	$('.button.add').click(function(e) {
 		// Use the native click() of the file input.
 		$('#upfile').click();
@@ -20,6 +33,7 @@ $(function() {
 	$('.button.cancel', '#fileupload .fileupload-buttonbar').click(function(e) {
 		$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
 		disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+		displayMessageInQueue(0);
 	});
 
 	$('.cancel').live('click', function(e) {
@@ -27,6 +41,7 @@ $(function() {
 			$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
 			disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
 		}
+		displayMessageInQueue($('.files .template-upload','#fileupload').length);
 	});
 
 	$('.button.clean', '#fileupload').click(function(e) {
@@ -45,16 +60,19 @@ $(function() {
 	}).bind('fileuploadadd', function(e, data) {
 		$('.button.cancel','#fileupload .fileupload-buttonbar').show();
 		enableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+	}).bind('fileuploadadded', function(e, data) {
+		displayMessageInQueue($('.files .template-upload','#fileupload').length);
 	}).bind('fileuploaddone', function(e, data) {
 		if (data.result.files[0].html !==undefined) {
 			$('.media-list p.clear').before(data.result.files[0].html);
 		}
 		$('.button.clean','#fileupload').show();
 	}).bind('fileuploadalways', function(e, data) {
-	    if ($('.fileupload-ctrl .files .template-upload', '#fileupload').length==0) {
-		$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
-		disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
-	    }
+		displayMessageInQueue($('.files .template-upload','#fileupload').length);
+		if ($('.fileupload-ctrl .files .template-upload','#fileupload').length==0) {
+			$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
+			disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+		}
 	});
 
 	var $container = $('#fileupload').parent().parent();
@@ -64,6 +82,7 @@ $(function() {
 		$msg = dotclear.msg.enhanced_uploader_disable;
 		label = dotclear.jsUpload.msg.choose_files;
 		$('#fileupload').fileupload({disabled:false});
+		displayMessageInQueue(0);
 		disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
 	} else {
 		$msg = dotclear.msg.enhanced_uploader_activate;
@@ -81,6 +100,7 @@ $(function() {
 			$('.files .upload-file', '#fileupload').remove();
 			$('.button.cancel,.button.clean','#fileupload .fileupload-buttonbar').hide();
 			$('#fileupload').fileupload({disabled:true});
+			$('.queue-message','#fileupload').html('').hide();
 		} else {
 			$msg = dotclear.msg.enhanced_uploader_disable;
 			label = dotclear.jsUpload.msg.choose_files;
@@ -89,6 +109,8 @@ $(function() {
 			disableButton(startButton);
 			startButton.show();
 			$('#fileupload').fileupload({disabled:false});
+			$('.queue-message','#fileupload').show();
+			displayMessageInQueue(0);
 		}
 		$(this).find('a').text($msg);
 		$('.add-label', '#fileupload').text(label);
