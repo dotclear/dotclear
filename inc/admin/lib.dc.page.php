@@ -198,7 +198,7 @@ class dcPage
 
 		echo
 		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logo_footer.png" alt="'.$text.'" /></a></div>'."\n".
+		'<div id="footer"><a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
 		"</div>\n";		// End of #wrapper
 
 		if (defined('DC_DEV') && DC_DEV === true) {

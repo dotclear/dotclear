@@ -55,7 +55,7 @@ h2 a:link, h2 a:visited {
 #content > h2 {
 	padding: 0 1.8rem .6rem;
 	margin: 0 -1.8rem 1rem;
-	background: #fff url(dc_bg_title.png) repeat-x center bottom;
+	background: #fff url(bg_h2.png) repeat-x center bottom;
 }
 h3 {
 	color: #575859;
@@ -92,9 +92,9 @@ abbr {
 /* header */
 #header {
 	background: #575859;
-	height: 3em;
 	position: relative;
 	border-bottom: 4px solid #A2CBE9;
+	width: 100%;
 }
 #prelude {
 	line-height: 1.9;
@@ -123,29 +123,29 @@ abbr {
 	padding: 0;
 	width: 14.5em;
 	float: left;
-	line-height: 3em;
 }
 #top h1 {
 	padding: 0;
 	margin: 0;
 	height: 3.6rem;
 	text-indent: -1000px;
-	background: #575859 url(dc_logo.png) no-repeat 0 50%;
 }
 #top h1 a {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 14.5em;
+	width: 17.4rem;
 	height: 3.6rem;
 	border: none;
 	color: #fff;
 }
+#top h1 a:link {
+	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
+}
 #top h1 a:hover, #top h1 a:focus {
-	background: transparent url(dc_logo_hover.png) no-repeat 0 50%;	
+	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 -94px;	
 }
 #info-boxes {
-	background: #575859;
 	font-size: 1em;
 	line-height: 3em;
 }
@@ -154,7 +154,6 @@ abbr {
 	padding: 0 3px 0 1.8rem;
 	color: #fff;
 	display: inline-block;
-	background: #575859;
 }
 #info-box2 {
 	margin: 0;
@@ -162,7 +161,6 @@ abbr {
 	color: #fff;
 	float: right;
 	text-align: right;
-	background: #575859;
 }
 #info-box1 p {
 	margin: 0;
@@ -176,7 +174,6 @@ abbr {
 	padding-left: .3em;
 	}
 #info-boxes a {
-	background: #575859;
 	font-weight: bold;
 	color: #fff;
 	border-bottom-color: #ccc;
@@ -208,7 +205,7 @@ abbr {
 	float: right;
 	margin-left: -14.5em;
 	margin-top: 0;
-	background: #fff url(dc_bg.png);
+	background: #fff url(bg_menu.png);
 }
 #content {
 	margin: 0 0 0 14.5em;
@@ -394,10 +391,7 @@ abbr {
 #footer p {
 	margin: 0;
 	padding: 0 1em;
-	text-align: center;
 	font-size: 1em;
-}
-#footer a {
 }
 #footer p span.credit {
 	font-size: 1rem;
@@ -412,7 +406,7 @@ abbr {
 }
 #login-screen h1 {
 	text-indent: -2000px;
-	background: transparent url(dotclear-logo2.png) no-repeat top left;
+	background: transparent url(dc_logos/w-dotclear.png) no-repeat top left;
 	height: 50px;
 	margin-bottom: .5em;
 	margin-left: 0;
@@ -1479,7 +1473,15 @@ a.back:before {
 	Media queries vite fait en attendant la reprise complète du layout
 ---------------------------------------------------------------------------- */
 @media screen and (max-width: 920px) {
-	#top, #top h1 a {width: 42px !important;overflow:hidden;}
+	#top, #top h1 a {width: 42px !important; height:100%; overflow: hidden;}
+	#top h1 a:link {
+		background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px; 
+		border-right: 1px solid #ccc;
+	}
+	#top h1 a:hover, #top h1 a:focus {
+		background: url(dc_logos/b-dotclear120.png) no-repeat -180px -94px;
+		border-right: 1px solid #A2CBE9;
+	}
 }
 @media screen and (max-width: 800px) {
 	#top, #info-boxes, #info-box1, #info-box2 {
@@ -1507,13 +1509,13 @@ a.back:before {
 @media screen and (max-width: 720px) {
 	.smallscreen {display: none;}
 	#help-button {width:20px; overflow: hidden;}
+	#info-box1 {margin-left: 1rem;}
 }
 @media screen and (max-width: 492px) {
-	#header {min-height:3.6rem;}
+	#header {height:3.6rem;}
 	#wrapper {font-size: 1.6rem;}
 	.page-title, #info-boxes, .media-item {display: inline-block;}
 	div.media-list .media-item {width: 90%; float: none}
-	#top h1 a, #top {height: auto;}
 	#info-box1 p.nomobile, label.nomobile {display: none;}
 	#help-button {height:26px; width:26px; background-color: #A2CBE9; padding: 0; margin:0;font-size: 1rem;line-height: 68px}
 }
