@@ -1561,7 +1561,7 @@ msgid "post"
 msgstr "billet"
 
 msgid "Search"
-msgstr "Recherche"
+msgstr "Rechercher"
 
 msgid "cancel"
 msgstr "annuler"
@@ -1916,11 +1916,11 @@ msgstr "Options de recherche"
 msgid "Query:"
 msgstr "Requête :"
 
-msgid "Search entries"
-msgstr "Rechercher des billets"
+msgid "Search in entries"
+msgstr "Rechercher dans les billets"
 
-msgid "Search comments"
-msgstr "Rechercher des commentaires"
+msgid "Search in comments"
+msgstr "Rechercher dans les commentaires"
 
 msgid "schedule"
 msgstr "programmer"

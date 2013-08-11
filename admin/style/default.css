@@ -536,6 +536,11 @@ abbr {
 #comments {
 	clear: both;
 }
+.preview_entry a {
+	border: 1px solid #ccc;
+	padding: .2rem .5rem;
+	background: #eef;
+}
 /* ------------------------------------------------------------------ categories */
 #categories {
 	margin: 1em 0 2em;
