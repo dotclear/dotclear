@@ -5,11 +5,15 @@
 	(c) 2008 - Olivier Meunier & contributors - All rights reserved.
 	Please see http://dotclear.net/ for more details.
 */
+html {
+	font-size: 62.5%;
+}
 body.install {
-	font: 0.875em Helvetica,Arial,sans-serif;
-	color: #000;
-	background-color: #fff;
-	line-height: 1.5em;
+	font: 1.2rem/1.5 Arial,Helvetica,sans-serif;
+	color: #333;
+	background: #fff;
+	margin: 0;
+	padding: 0;
 }
 body.install #content {
 	width:32em;
@@ -21,7 +25,7 @@ body.install #main {
 	border-radius: 8px;
 }
 body.install h1,h2 {
-	font-family: Helvetica,arial,sans-serif;
+	font-family: arial,Helvetica,sans-serif;
 }
 body.install h1 {
 	background: url(install/w-logo.png) no-repeat top center;
