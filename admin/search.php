@@ -71,8 +71,13 @@ if ($q)
 
 dcPage::open(__('Search'),$starting_scripts);
 
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		'<span class="page-title">'.__('Search').'</span>' => ''
+	));
+
 echo
-'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Search').'</span></h2>'.
 '<form action="search.php" method="get">'.
 '<div class="fieldset"><h3>'.__('Search options').'</h3>'.
 '<p><label for="q">'.__('Query:').' </label>'.form::field('q',30,255,html::escapeHTML($q)).'</p>'.

@@ -189,9 +189,12 @@ if (!empty($_GET['thumbupd'])) {
 	dcPage::message(__('Thumbnails have been successfully updated.'));
 }
 
-echo '<h2><a href="'.html::escapeURL($media_page_url).'">'.__('Media manager').'</a>'.
-' / '.$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').
-'<span class="page-title">'.$file->basename.'</span></h2>';
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		__('Media manager') => html::escapeURL($media_page_url),
+		$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').'<span class="page-title">'.$file->basename.'</span>' => ''
+	));
 
 # Insertion popup
 if ($popup)
