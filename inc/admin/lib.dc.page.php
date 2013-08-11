@@ -272,6 +272,21 @@ class dcPage
 		'</body></html>';
 	}
 
+	public static function breadcrumb($elements=null,$no_home_link=false)
+	{
+		// First item of array elements should be blog's name, System or Plugins
+		$res = '<h2>'.($no_home_link ?
+			'<img src="style/dashboard-alt.png" alt="" />' :
+			'<a class="go_home" href="index.php"><img src="style/dashboard.png" alt="'.__('Go to dashboard').'" /></a>');
+		$index = 0;
+		foreach ($elements as $element => $url) {
+			$res .= ($no_home_link ? ' ' : ($index == 1 ? ' : ' : ' &rsaquo; ')).($url ? '<a href="'.$url.'">' : '').$element.($url ? '</a>' : '');
+			$index++;
+		}
+		$res .= '</h2>';
+		return $res;
+	}
+
 	public static function message($msg,$timestamp=true,$div=false,$echo=true)
 	{
 		global $core;

@@ -333,7 +333,6 @@ if (!empty($_GET['xconv']))
 	dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; '.'<a href="posts.php">'.__('Entries').'</a> &rsaquo; <span class="page-title">';
 if ($post_id) {
 	switch ($post_status) {
 		case 1:
@@ -352,11 +351,14 @@ if ($post_id) {
 			$img_status = '';
 	}
 	$edit_entry_str = __('Edit entry &ldquo;%s&rdquo;');
-	echo sprintf($edit_entry_str, html::escapeHTML($post_title)).' '.$img_status;
-} else {
-	echo $page_title;
+	$page_title_edit = sprintf($edit_entry_str, html::escapeHTML($post_title)).' '.$img_status;
 }
-echo	'</span></h2>';
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		__('Entries') => 'posts.php',
+		'<span class="page-title">'.($post_id ? $page_title_edit : $page_title).'</span>' => ''
+	));
 
 if ($post_id && $post->post_status == 1) {
 	echo '<p><a href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
