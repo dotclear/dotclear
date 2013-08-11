@@ -166,19 +166,17 @@ if (!empty($_GET['upd'])) {
 	dcPage::message(__('Category has been successfully updated.'));
 }
 
-echo
-'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <a href="categories.php">'.
-__('Categories').'</a> &rsaquo; ';
-
-if ($cat_id)
-{
+$elements = array(
+	html::escapeHTML($core->blog->name) => '',
+	__('Categories') => 'categories.php'
+	);
+if ($cat_id) {
 	while($parents->fetch()) {
-		echo '<a href="category.php?id='.$parents->cat_id.'">'.html::escapeHTML($parents->cat_title).'</a>';
-		echo " &rsaquo; ";
+		$elements[html::escapeHTML($parents->cat_title)] = 'category.php?id='.$parents->cat_id;
 	}
 }
-
-echo '<span class="page-title">'.$title.'</span></h2>';
+$elements['<span class="page-title">'.$title.'</span>'] = '';
+echo dcPage::breadcrumb($elements);
 
 echo
 '<form action="category.php" method="post" id="category-form">'.

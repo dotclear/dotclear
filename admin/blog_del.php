@@ -52,8 +52,14 @@ dcPage::open(__('Delete a blog'));
 
 if (!$core->error->flag())
 {
+	echo dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			__('Blogs') => 'blogs.php',
+			'<span class="page-title">'.__('Delete a blog').'</span>' => ''
+		));
+
 	echo
-	'<h2 class="page-title">'.__('Delete a blog').'</h2>'.
 	'<p class="message">'.__('Warning').'</p>'.
 	'<p>'.sprintf(__('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
 	'<strong>'.$blog_id.' ('.$blog_name.')</strong>').'</p>'.

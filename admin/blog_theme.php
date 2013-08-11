@@ -214,8 +214,11 @@ dcPage::open(__('Blog appearance'),
 
 if (!$theme_conf_mode)
 {
-	echo
-	'<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Blog appearance').'</span></h2>';
+	echo dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.__('Blog appearance').'</span>' => ''
+		));
 	
 	if (!empty($_GET['upd'])) {
 		dcPage::message(__('Theme has been successfully changed.'));
@@ -329,9 +332,15 @@ else
 {
 	$theme_name = $core->themes->moduleInfo($core->blog->settings->system->theme,'name');
 	$core->themes->loadModuleL10Nresources($core->blog->settings->system->theme,$_lang);
+
+	echo dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			__('Blog appearance') => 'blog_theme.php',
+			'<span class="page-title">'.__('Theme configuration').'</span>' => ''
+		));
+
 	echo
-	'<h2>'.html::escapeHTML($core->blog->name).
-	' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; <span class="page-title">'.__('Theme configuration').'<span class="page-title"></h2>'.
 	'<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';
 	
 	try

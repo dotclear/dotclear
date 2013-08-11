@@ -82,8 +82,12 @@ else
 {
 	call_user_func($open_f,__('Plugin not found'));
 	
-	echo '<h2 class="page-title">'.__('Plugin not found').'</h2>';
-	
+	echo dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			'<span class="page-title">'.__('Plugin not found').'</span>' => ''
+		));
+
 	echo '<p>'.__('The plugin you reached does not exist or does not have an admin page.').'</p>';
 	
 	call_user_func($close_f);

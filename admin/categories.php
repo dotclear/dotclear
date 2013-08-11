@@ -88,7 +88,11 @@ if (!empty($_GET['moved'])) {
 	dcPage::message(__('The category has been successfully moved.'));
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Categories').'</span></h2>';
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		'<span class="page-title">'.__('Categories').'</span>' => ''
+	));
 
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 
