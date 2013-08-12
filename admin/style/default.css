@@ -34,6 +34,11 @@ a:hover, a:active, a:focus {
 a img, a:link img, a:visited img { 
 	border:none;
 }
+.preview_link {
+	border: 1px solid #ccc;
+	padding: .2rem .5rem;
+	background-color: #eef;
+}
 
 h1, h2, h3, h4, h5, h6, p {
 	margin-top: 0;
@@ -251,7 +256,7 @@ abbr {
 }
 /* -------------------------------------------------------------- layout - onglets */
 .part-tabs ul {
-	padding: .5em 0 .3em 1em;
+	padding: .5em 0 .3em 1rem;
 	border-bottom: 1px solid #ccc;
 }
 .part-tabs li {
@@ -260,16 +265,13 @@ abbr {
 	display: inline;
 }
 .part-tabs li a {
-	padding: .5em 0.5em;
+	padding: .5em 1em;
 	margin-right: .5em;
 	border: 1px solid #ccc;
 	border-bottom: none;
-	background: #dfdfdf;
+	background: #efefef;
 	text-decoration: none;
 	color: #000;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #fafafa) );
-	background:-moz-linear-gradient( center top, #dfdfdf 5%, #fafafa 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#fafafa');
 	background-color:#ededed;
 }
 .part-tabs li.part-tabs-link a {
@@ -535,11 +537,6 @@ abbr {
 }
 #comments {
 	clear: both;
-}
-.preview_entry a {
-	border: 1px solid #ccc;
-	padding: .2rem .5rem;
-	background: #eef;
 }
 /* ------------------------------------------------------------------ categories */
 #categories {
@@ -957,6 +954,9 @@ div.static-msg a, p.static-msg a {
 	color: #fff;
 	padding: .4rem 1.2rem;
 	float: right;
+}
+.nav_prevnext {
+	margin-bottom: 2em;
 }
 /* ------------------------------------------------------------------ debug */
 #debug {

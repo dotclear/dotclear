@@ -361,13 +361,13 @@ dcPage::breadcrumb(
 	));
 
 if ($post_id && $post->post_status == 1) {
-	echo '<p class="preview_entry"><a href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
+	echo '<p><a class="preview_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
 }
 if ($post_id)
 {
 	echo '<p class="nav_prevnext">';
 	if ($prev_link) { echo $prev_link; }
-	if ($next_link && $prev_link) { echo ' - '; }
+	if ($next_link && $prev_link) { echo ' | '; }
 	if ($next_link) { echo $next_link; }
 	
 	# --BEHAVIOR-- adminPostNavLinks
