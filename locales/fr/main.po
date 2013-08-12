@@ -1483,7 +1483,7 @@ msgid "To install or upgrade a plugin you just need to extract it in your plugin
 msgstr "Tout ce que vous avez à faire pour installer une extension est de l'extraire dans votre répertoire d'extensions."
 
 msgid "Plugins"
-msgstr "Extensions"
+msgstr "Plugins"
 
 msgid "Activated plugins"
 msgstr "Extensions activées"
