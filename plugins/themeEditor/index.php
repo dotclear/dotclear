@@ -85,8 +85,14 @@ catch (Exception $e)
 </head>
 
 <body>
-<?php echo '<h2>'.html::escapeHTML($core->blog->name).
-' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; <span class="page-title">'.__('Theme Editor').'</span></h2>'; ?>
+<?php
+dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		__('Blog appearance') => 'blog_theme.php',
+		'<span class="page-title">'.__('Theme Editor').'</span>' => ''
+	));
+?>
 
 <p><strong><?php echo sprintf(__('Your current theme on this blog is "%s".'),html::escapeHTML($T['name'])); ?></strong></p>
 

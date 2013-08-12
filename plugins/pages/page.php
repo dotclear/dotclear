@@ -337,28 +337,33 @@ if (!empty($_GET['xconv']))
 	dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).
-' &rsaquo; <a href="'.$p_url.'">'.__('Pages').'</a> &rsaquo; <span class="page-title">'.$page_title; 
-	if ($post_id) {
-		switch ($post_status) {
-			case 1:
-				$img_status = sprintf($img_status_pattern,__('published'),'check-on.png');
-				break;
-			case 0:
-				$img_status = sprintf($img_status_pattern,__('unpublished'),'check-off.png');
-				break;
-			case -1:
-				$img_status = sprintf($img_status_pattern,__('scheduled'),'scheduled.png');
-				break;
-			case -2:
-				$img_status = sprintf($img_status_pattern,__('pending'),'check-wrn.png');
-				break;
-			default:
-				$img_status = '';
-		}
-		echo ' &ldquo;'.$post_title.'&rdquo;'.' '.$img_status;
+if ($post_id) {
+	switch ($post_status) {
+		case 1:
+			$img_status = sprintf($img_status_pattern,__('published'),'check-on.png');
+			break;
+		case 0:
+			$img_status = sprintf($img_status_pattern,__('unpublished'),'check-off.png');
+			break;
+		case -1:
+			$img_status = sprintf($img_status_pattern,__('scheduled'),'scheduled.png');
+			break;
+		case -2:
+			$img_status = sprintf($img_status_pattern,__('pending'),'check-wrn.png');
+			break;
+		default:
+			$img_status = '';
 	}
-echo	'</span></h2>';
+	$edit_entry_title = ' &ldquo;'.$post_title.'&rdquo;'.' '.$img_status;
+} else {
+	$edit_entry_title = '';
+}
+dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		__('Pages') => $p_url,
+		'<span class="page-title">'.$page_title.$edit_entry_title.'</span>' => ''
+	));
 
 if ($post_id && $post->post_status == 1) {
 	echo '<p><a class="preview_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this page on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';

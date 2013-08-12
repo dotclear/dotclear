@@ -383,8 +383,13 @@ if (!empty($_GET['updated'])) {
 if ($step) 
 {
 	// Formulaire d'ajout d'un item
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <a href="'.$p_url.'">'.$page_title.'</a> &rsaquo; <span class="page-title">'.__('Add item').'</span></h2>';
-	
+	dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			$page_title => $p_url,
+			'<span class="page-title">'.__('Add item').'</span>' => ''
+		));
+
 	switch ($step) {
 		case 1:
 			// Selection du type d'item
@@ -453,7 +458,11 @@ if ($step)
 
 // Liste des items
 if (!$step) {
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
+	dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.$page_title.'</span>' => ''
+		));
 }
 
 if (!$step) {

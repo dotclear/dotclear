@@ -117,8 +117,14 @@ if (!empty($_GET['upd'])) {
 if (!empty($_GET['upda'])) {
 	dcPage::message(__('Preferences definition successfully updated'));
 }
+
+dcPage::breadcrumb(
+	array(
+		__('System') => '',
+		html::escapeHTML($core->auth->userID()) => '',
+		'<span class="page-title">'.__('user:preferences').'</span>' => ''
+	));
 ?>
-<h2><?php echo html::escapeHTML($core->auth->userID()); ?> &rsaquo; <span class="page-title">user:preferences</span></h2>
 
 <div id="local" class="multi-part" title="<?php echo __('User preferences'); ?>">
 
