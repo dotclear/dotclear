@@ -199,7 +199,7 @@ dcPage::breadcrumb(
 	array(
 	'<span class="page-title">'.__('Dashboard').' : '.html::escapeHTML($core->blog->name).'</span>' => ''
 	),
-	true);
+	false);
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->blog_count > 1) {
 	echo
