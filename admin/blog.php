@@ -68,7 +68,7 @@ else
 {
 	dcPage::open(__('New blog'),dcPage::jsConfirmClose('blog-form'));
 	
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('Blogs') => 'blogs.php',

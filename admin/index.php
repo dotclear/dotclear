@@ -195,7 +195,7 @@ dcPage::open(__('Dashboard'),
 	$core->callBehavior('adminDashboardHeaders')
 );
 
-echo dcPage::breadcrumb(
+dcPage::breadcrumb(
 	array(
 	'<span class="page-title">'.__('Dashboard').' : '.html::escapeHTML($core->blog->name).'</span>' => ''
 	),

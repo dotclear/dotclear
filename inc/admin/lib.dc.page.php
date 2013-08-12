@@ -272,7 +272,7 @@ class dcPage
 		'</body></html>';
 	}
 
-	public static function breadcrumb($elements=null,$no_home_link=false)
+	public static function breadcrumb($elements=null,$no_home_link=false,$echo=true)
 	{
 		// First item of array elements should be blog's name, System or Plugins
 		$res = '<h2>'.($no_home_link ?
@@ -284,6 +284,9 @@ class dcPage
 			$index++;
 		}
 		$res .= '</h2>';
+		if ($echo) {
+			echo $res;
+		}
 		return $res;
 	}
 

@@ -273,13 +273,13 @@ dcPage::open(__('Blog settings'),
 if ($blog_id)
 {
 	if ($standalone) {
-		echo dcPage::breadcrumb(
+		dcPage::breadcrumb(
 			array(
 				html::escapeHTML($blog_name) => '',
 				'<span class="page-title">'.__('Blog settings').'</span>' => ''
 			));
 	} else {
-		echo dcPage::breadcrumb(
+		dcPage::breadcrumb(
 			array(
 				__('System') => '',
 				__('Blogs') => 'blogs.php',

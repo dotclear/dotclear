@@ -171,7 +171,7 @@ dcPage::open(__('Dotclear update'),
 );
 
 if (!$core->error->flag()) {
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			'<span class="page-title">'.__('Dotclear update').'</span>' => ''

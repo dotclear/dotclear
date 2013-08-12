@@ -170,7 +170,7 @@ $starting_script .= $core->callBehavior('adminCommentsHeaders');
 
 dcPage::open(__('Comments and trackbacks'),$starting_script);
 
-echo dcPage::breadcrumb(
+dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		'<span class="page-title">'.__('Comments and trackbacks').'</span>' => ''

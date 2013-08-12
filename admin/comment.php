@@ -183,7 +183,7 @@ if ($comment_id)
 		.'">'.__('Send an e-mail').'</a>';
 	}
 	
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			html::escapeHTML($post_title) => $core->getPostAdminURL($post_type,$post_id).'&amp;co=1#c'.$comment_id,

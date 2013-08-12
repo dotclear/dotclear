@@ -71,7 +71,7 @@ if ($q)
 
 dcPage::open(__('Search'),$starting_scripts);
 
-echo dcPage::breadcrumb(
+dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		'<span class="page-title">'.__('Search').'</span>' => ''

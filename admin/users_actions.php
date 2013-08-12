@@ -176,7 +176,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		$user_list[] = '<a href="user.php?id='.$u.'">'.$u.'</a>';
 	}
 	
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('Users') => 'users.php',

@@ -52,7 +52,7 @@ dcPage::open(__('Delete a blog'));
 
 if (!$core->error->flag())
 {
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('Blogs') => 'blogs.php',

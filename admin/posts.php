@@ -248,7 +248,7 @@ dcPage::open(__('Entries'),$starting_script);
 
 if (!$core->error->flag())
 {
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			'<span class="page-title">'.__('Entries').'</span>' => ''

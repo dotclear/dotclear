@@ -193,7 +193,7 @@ dcPage::open(__('Plugins management'),
 	dcPage::jsPageTabs($default_tab)
 );
 
-echo dcPage::breadcrumb(
+dcPage::breadcrumb(
 	array(
 		__('System') => '',
 		'<span class="page-title">'.__('Plugins management').'</span>' => ''

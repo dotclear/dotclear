@@ -353,7 +353,7 @@ if ($post_id) {
 	$edit_entry_str = __('Edit entry &ldquo;%s&rdquo;');
 	$page_title_edit = sprintf($edit_entry_str, html::escapeHTML($post_title)).' '.$img_status;
 }
-echo dcPage::breadcrumb(
+dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Entries') => 'posts.php',
