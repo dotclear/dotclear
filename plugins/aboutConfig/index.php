@@ -124,6 +124,7 @@ if (!empty($_GET['upda'])) {
 dcPage::breadcrumb(
 	array(
 		__('System') => '',
+		html::escapeHTML($core->blog->name) => '',
 		'<span class="page-title">'.__('about:config').'</span>' => ''
 	));
 ?>

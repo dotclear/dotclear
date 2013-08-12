@@ -220,9 +220,14 @@ if (!empty($_POST))
 
 <body>
 <?php
+dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		__('Blog appearance') => 'blog_theme.php',
+		'<span class="page-title">'.__('Blowup configuration').'</span>' => ''
+	));
+
 echo
-'<h2>'.html::escapeHTML($core->blog->name).
-' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; <span class="page-title">'.__('Blowup configuration').'</span></h2>'.
 '<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';
 
 

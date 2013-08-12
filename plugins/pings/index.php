@@ -50,7 +50,12 @@ catch (Exception $e)
 
 <body>
 <?php
-echo '<h2 class="page-title">'.__('Pings configuration').'</h2>';
+
+dcPage::breadcrumb(
+	array(
+		__('Plugins') => '',
+		'<span class="page-title">'.__('Pings configuration').'</span>' => ''
+	));
 
 if (!empty($_GET['up'])) {
 	dcPage::message(__('Settings have been successfully updated.'));

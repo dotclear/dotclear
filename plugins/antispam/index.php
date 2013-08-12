@@ -122,14 +122,22 @@ catch (Exception $e)
 
 if ($filter_gui !== false)
 {
-	echo '<h2>'.__('Plugins').' &rsaquo; <a href="'.$p_url.'">'.$page_name.'</a>'.
-		' &rsaquo; <span class="page-title">'.sprintf(__('%s configuration'),$filter->name).'</span></h2>';
+	dcPage::breadcrumb(
+		array(
+			__('Plugins') => '',
+			$page_name => $p_url,
+			'<span class="page-title">'.sprintf(__('%s configuration'),$filter->name).'</span>' => ''
+		));
 
 	echo $filter_gui;
 }
 else
 {
-	echo '<h2>'.__('Plugins').' &rsaquo; <span class="page-title">'.$page_name.'</span></h2>';
+	dcPage::breadcrumb(
+		array(
+			__('Plugins') => '',
+			'<span class="page-title">'.$page_name.'</span>' => ''
+		));
 
 	# Information
 	$spam_count = dcAntispam::countSpam($core);

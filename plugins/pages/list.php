@@ -176,7 +176,13 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 
 <body>
 <?php
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Pages').'</span></h2>'.
+dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		'<span class="page-title">'.__('Pages').'</span>' => ''
+	));
+
+echo
 '<p class="top-add"><a class="button add" href="'.$p_url.'&amp;act=page">'.__('New page').'</a></p>';
 
 if (!$core->error->flag())

@@ -19,8 +19,13 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 </head>
 
 <body>
-<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo;
-<span class="page-title"><?php echo __('Tags'); ?></span></h2>
+<?php
+dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		'<span class="page-title">'.__('Tags').'</span>' => ''
+	));
+?>
 
 <?php
 if (!empty($_GET['del'])) {

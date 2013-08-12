@@ -187,7 +187,11 @@ elseif (!empty($_POST['wreset']))
 </head>
 <body>
 <?php
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Widgets').'</span></h2>';
+dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		'<span class="page-title">'.__('Widgets').'</span>' => ''
+	));
 
 # All widgets
 echo
