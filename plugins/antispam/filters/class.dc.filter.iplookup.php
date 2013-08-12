@@ -48,6 +48,8 @@ class dcFilterIpLookup extends dcSpamFilter
 
 		foreach ($bls as $bl) {
 			if ($this->dnsblLookup($ip,$bl)) {
+				// Pass by reference $status to contain matching DNSBL
+				$status = $bl;
 				return true;
 			}
 		}
