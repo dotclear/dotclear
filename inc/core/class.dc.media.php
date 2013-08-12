@@ -496,9 +496,10 @@ class dcMedia extends filemanager
 	
 	@param	post_id	<b>integer</b>		Post ID
 	@param	media_id	<b>integer</b>		Optionnal media ID
-	@return	<b>array</b> Array of fileItems
+	@param	return_rs	<b>boolean</b>		Whether to return a resultset (true) or an array (false, default value).
+	@return	<b>array</b> Array or ResultSet of fileItems
 	*/
-	public function getPostMedia($post_id,$media_id=null)
+	public function getPostMedia($post_id,$media_id=null,$return_rs=false)
 	{
 		$params = array(
 			'post_id' => $post_id,
@@ -514,11 +515,11 @@ class dcMedia extends filemanager
 		while ($rs->fetch()) {
 			$f = $this->fileRecord($rs);
 			if ($f !== null) {
-				$res[] = new ArrayObject($f);
+				$res[] = $return_rs ? new ArrayObject($f) : $f;
 			}
 		}
 		
-		return $res;
+		return $return_rs ? staticRecord::newFromArray($res) : $res;
 	}
 	
 	/**
