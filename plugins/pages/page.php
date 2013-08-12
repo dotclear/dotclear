@@ -368,9 +368,9 @@ echo '';
 
 if ($post_id)
 {
-	echo '<p>';
+	echo '<p class="nav_prevnext">';
 	if ($prev_link) { echo $prev_link; }
-	if ($next_link && $prev_link) { echo ' - '; }
+	if ($next_link && $prev_link) { echo ' | '; }
 	if ($next_link) { echo $next_link; }
 	
 	# --BEHAVIOR-- adminPageNavLinks 

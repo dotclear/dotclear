@@ -34,11 +34,6 @@ a:hover, a:active, a:focus {
 a img, a:link img, a:visited img { 
 	border:none;
 }
-.preview_link {
-	border: 1px solid #ccc;
-	padding: .2rem .5rem;
-	background-color: #eef;
-}
 
 h1, h2, h3, h4, h5, h6, p {
 	margin-top: 0;
@@ -273,9 +268,6 @@ abbr {
 	text-decoration: none;
 	color: #000;
 	background-color:#ededed;
-}
-.part-tabs li.part-tabs-link a {
-	background: #ffe;
 }
 .part-tabs li a:hover, .part-tabs li a:focus {
 	color: #000;
@@ -957,7 +949,17 @@ div.static-msg a, p.static-msg a {
 }
 .nav_prevnext {
 	margin-bottom: 2em;
+	color: #ccc;
 }
+.nav_prevnext a, a.back {
+	border: 1px solid #ccc;
+	padding: .2rem .5rem;
+	background-color: #eef;
+}
+a.back:before {
+	content: "\ab\a0";
+}
+
 /* ------------------------------------------------------------------ debug */
 #debug {
 	position: absolute;
@@ -1324,7 +1326,6 @@ input[type=submit],
 input[type=reset],
 input[type=button],
 a.button,
-a.back,
 a.submit {
 	display: inline-block;
 	outline: none;
@@ -1360,7 +1361,6 @@ a.submit:focus {
 }
 /* suppression et reset */
 a.button,
-a.back,
 input[type=submit].reset,
 input[type=submit].delete {
 	border: 1px solid #ccc;
@@ -1371,12 +1371,10 @@ input[type=submit].delete {
 	text-shadow: none;
 	}
 a.button:hover,
-a.back:hover,
 input[type=reset]:hover,
 input[type=submit].reset:hover,
 input[type=submit].delete:hover,
 a.button:focus,
-a.back:focus,
 input[type=reset]:focus,
 input[type=submit].reset:focus,
 input[type=submit].delete:focus {
@@ -1409,9 +1407,6 @@ input[type=button] {
 #info-box a.button {
 	padding: 0 .5em;
 	margin-left: 2em;
-}
-a.back:before {
-	content: "\ab\a0";
 }
 .button.add {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9dce2c), color-stop(1, #8cb82b) );
