@@ -285,7 +285,7 @@ if ($core->auth->userID() && $core->blog !== null)
 	
 	$_menu['System']->title = __('System settings');
 	$_menu['Blog']->title = __('Blog');
-	$_menu['Plugins']->title = __('Additional plugins');
+	$_menu['Plugins']->title = __('Plugins');
 	if (!$user_ui_nofavmenu)
 		$_menu['Favorites']->title = __('My favorites');
 
