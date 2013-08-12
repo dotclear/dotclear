@@ -1240,7 +1240,7 @@ msgid "Page has been successfully created."
 msgstr "La page a été créée avec succès."
 
 msgid "Go to this page on the site"
-msgstr "Aller sur cette page"
+msgstr "Voir cette page sur le site"
 
 msgid "Page status:"
 msgstr "État de la page :"

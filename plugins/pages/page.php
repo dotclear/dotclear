@@ -361,7 +361,7 @@ echo '<h2>'.html::escapeHTML($core->blog->name).
 echo	'</span></h2>';
 
 if ($post_id && $post->post_status == 1) {
-	echo '<p><a href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this page on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
+	echo '<p><a class="preview_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this page on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
 }
 
 echo '';
