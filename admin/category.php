@@ -176,7 +176,7 @@ if ($cat_id) {
 	}
 }
 $elements['<span class="page-title">'.$title.'</span>'] = '';
-echo dcPage::breadcrumb($elements);
+dcPage::breadcrumb($elements);
 
 echo
 '<form action="category.php" method="post" id="category-form">'.

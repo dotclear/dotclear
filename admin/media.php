@@ -204,7 +204,7 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 {
 	call_user_func($open_f,__('Media manager'));
 	
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Media manager') => '',
@@ -261,7 +261,7 @@ if (!empty($_GET['unzipok'])) {
 }
 
 if (!isset($core->media)) {
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			'<span class="page-title">'.__('Media manager').'</span>' => ''
@@ -269,13 +269,13 @@ if (!isset($core->media)) {
 } else {
 	$breadcrumb = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s','<span class="page-title">%s</span>');
 	if ($breadcrumb == '') {
-		echo dcPage::breadcrumb(
+		dcPage::breadcrumb(
 			array(
 				html::escapeHTML($core->blog->name) => '',
 				'<span class="page-title">'.__('Media manager').'</span>' => ''
 			));
 	} else {
-		echo dcPage::breadcrumb(
+		dcPage::breadcrumb(
 			array(
 				html::escapeHTML($core->blog->name) => '',
 				__('Media manager') => html::escapeURL($page_url.'&d='),

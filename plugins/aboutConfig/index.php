@@ -125,8 +125,12 @@ if (!empty($_GET['upd'])) {
 if (!empty($_GET['upda'])) {
 	dcPage::message(__('Settings definition successfully updated'));
 }
+dcPage::breadcrumb(
+	array(
+		__('System') => '',
+		'<span class="page-title">'.__('about:config').'</span>' => ''
+	));
 ?>
-<h2><?php echo __('System'); ?> &rsaquo; <span class="page-title">about:config</span></h2>
 
 <div id="local" class="multi-part" title="<?php echo sprintf(__('Settings for %s'),html::escapeHTML($core->blog->name)); ?>">
 

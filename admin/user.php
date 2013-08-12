@@ -184,7 +184,7 @@ if (!empty($_GET['add'])) {
 	dcPage::message(__('User has been successfully created.'));
 }
 
-echo dcPage::breadcrumb(
+dcPage::breadcrumb(
 	array(
 		__('System') => '',
 		__('Users') => 'users.php',

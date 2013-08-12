@@ -369,7 +369,7 @@ if (!empty($_GET['replaced'])) {
 	dcPage::message(__('Default favorites have been successfully updated.'));
 }
 
-echo dcPage::breadcrumb(
+dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->auth->userID()) => '',
 		'<span class="page-title">'.$page_title.'</span>' => ''

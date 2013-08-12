@@ -82,7 +82,7 @@ else
 {
 	call_user_func($open_f,__('Plugin not found'));
 	
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			'<span class="page-title">'.__('Plugin not found').'</span>' => ''

@@ -104,7 +104,7 @@ if (!$core->error->flag())
 		dcPage::message(__('The permissions have been successfully updated.'));
 	}
 	
-	echo dcPage::breadcrumb(
+	dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			'<span class="page-title">'.__('Users').'</span>' => ''

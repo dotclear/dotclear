@@ -131,7 +131,7 @@ dcPage::open(__('Languages management'),
 	dcPage::jsLoad('js/_langs.js')
 );
 
-echo dcPage::breadcrumb(
+dcPage::breadcrumb(
 	array(
 		__('System') => '',
 		'<span class="page-title">'.__('Languages management').'</span>' => ''

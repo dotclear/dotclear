@@ -189,7 +189,7 @@ if (!empty($_GET['thumbupd'])) {
 	dcPage::message(__('Thumbnails have been successfully updated.'));
 }
 
-echo dcPage::breadcrumb(
+dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Media manager') => html::escapeURL($media_page_url),
