@@ -16,10 +16,6 @@ class dcFilterIP extends dcSpamFilter
 	public $name = 'IP Filter';
 	public $has_gui = true;
 
-	private $style_list = 'height: 200px; overflow: auto; margin-bottom: 1em; ';
-	private $style_p = 'margin: 1px 0 0 0; padding: 0.2em 0.5em; ';
-	private $style_global = 'background: #ccff99; ';
-
 	private $con;
 	private $table;
 
@@ -149,7 +145,7 @@ class dcFilterIP extends dcSpamFilter
 			$res .=
 			'<form action="'.html::escapeURL($url).'" method="post">'.
 			'<h3>' . __('IP list') . '</h3>'.
-			'<div style="'.$this->style_list.'">';
+			'<div class="antispam">';
 
 			$res_global = '';
 			$res_local = '';
@@ -161,14 +157,14 @@ class dcFilterIP extends dcSpamFilter
 				$bitmask = $bits[2];
 
 				$disabled_ip = false;
-				$p_style = $this->style_p;
+				$p_style = '';
 				if (!$rs->blog_id) {
 					$disabled_ip = !$core->auth->isSuperAdmin();
-					$p_style .= $this->style_global;
+					$p_style .= ' global';
 				}
 
 				$item =
-				'<p style="'.$p_style.'"><label class="classic" for="'.$type.'-ip-'.$rs->rule_id.'">'.
+				'<p class="'.$p_style.'"><label class="classic" for="'.$type.'-ip-'.$rs->rule_id.'">'.
 				form::checkbox(array('delip[]',$type.'-ip-'.$rs->rule_id),$rs->rule_id,false,'','',$disabled_ip).' '.
 				html::escapeHTML($pattern).
 				'</label></p>';
