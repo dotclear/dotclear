@@ -96,11 +96,7 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 <head>
   <title>about:config</title>
   <?php echo dcPage::jsPageTabs($part); ?>
-  <style type="text/css">
-  table.settings { border: 1px solid #999; margin-bottom: 2em; }
-  table.settings th { background: #f5f5f5; color: #444; padding-top: 0.3em; padding-bottom: 0.3em; }
-  </style>
-	<script type="text/javascript">
+  <script type="text/javascript">
 	//<![CDATA[
 	$(function() {
 		$("#gs_submit").hide();

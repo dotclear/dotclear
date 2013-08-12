@@ -1918,3 +1918,10 @@ msgstr "Réglages pour %s"
 
 msgid "Settings for %s"
 msgstr "Réglages pour %s"
+
+msgid "User preferences"
+msgstr "Préférences utilisateur"
+
+msgid "Global preferences"
+msgstr "Préférences globales"
+

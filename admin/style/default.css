@@ -1117,6 +1117,11 @@ table .nowrap {
 }
 table.settings, table.prefs {
 	width: 80%;
+	border: 1px solid #999;
+	margin-bottom: 3em; 
+}
+table.settings th, table.prefs th {
+	background: #eef;
 }
 table.settings th:first-child, table.prefs th:first-child {
 	width: 20%;
@@ -1130,7 +1135,6 @@ table.settings th + th + th, table.prefs th + th + th {
 table.settings th:last-child, table.prefs th:last-child {
 	width: 40%;
 }
-
 td.status {
 	vertical-align: middle;
 }
@@ -1169,7 +1173,6 @@ td.expand {
 	background: transparent url(drag.png) no-repeat 0 50%;
 	padding-left: 15px;
 }
-
 /* ----------------------------------------------------------------- FORMS */
 form {
 	display: block;
