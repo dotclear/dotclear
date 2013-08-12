@@ -177,7 +177,7 @@ else
 
 	# Filters
 	echo
-	'<form action="'.$p_url.'" method="post" class="fieldset" id="filters-form">';
+	'<form action="'.$p_url.'" method="post" id="filters-form">';
 
 	if (!empty($_GET['upd'])) {
 		dcPage::message(__('Filters configuration has been successfully saved.'));
@@ -185,7 +185,7 @@ else
 
 	echo
 	'<table class="dragable">'.
-	'<caption>'.__('Available spam filters').'</caption>'.
+	'<caption class="as_h3">'.__('Available spam filters').'</caption>'.
 	'<thead><tr>'.
 	'<th>'.__('Order').'</th>'.
 	'<th>'.__('Active').'</th>'.

@@ -129,7 +129,7 @@ dcPage::breadcrumb(
 <div id="local" class="multi-part" title="<?php echo __('User preferences'); ?>">
 
 <?php 
-$table_header = '<table class="prefs" id="%s"><caption>%s</caption>'.
+$table_header = '<table class="prefs" id="%s"><caption class="as_h3">%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
 '  <th class="nowrap">Setting ID</th>'."\n".
