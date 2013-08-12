@@ -298,10 +298,6 @@ echo
 '<h1>'.__('Dotclear installation').'</h1>'.
 '<div id="main">';
 
-if (!is_writable(DC_TPL_CACHE)) {
-	echo '<div class="error"><p>'.sprintf(__('Cache directory %s is not writable.'),DC_TPL_CACHE).'</p></div>';
-}
-
 if ($can_install && !empty($err)) {
 	echo '<div class="error"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>';
 }
