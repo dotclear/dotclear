@@ -272,12 +272,20 @@ dcPage::open(__('Blog settings'),
 
 if ($blog_id)
 {
-	echo
-	'<h2>'.($standalone ? 
-			html::escapeHTML($blog_name).' &rsaquo; <span class="page-title">'.__('Blog settings').'</span>' :
-			__('System').' &rsaquo; <a href="blogs.php">'.__('Blogs').'</a> &rsaquo; ' .
-			'<span class="page-title">'.__('Blog settings').' : '.html::escapeHTML($blog_name).'</span>'). 
-	'</h2>';
+	if ($standalone) {
+		echo dcPage::breadcrumb(
+			array(
+				html::escapeHTML($blog_name) => '',
+				'<span class="page-title">'.__('Blog settings').'</span>' => ''
+			));
+	} else {
+		echo dcPage::breadcrumb(
+			array(
+				__('System') => '',
+				__('Blogs') => 'blogs.php',
+				'<span class="page-title">'.__('Blog settings').' : '.html::escapeHTML($blog_name).'</span>' => ''
+			));
+	}
 	
 	if (!empty($_GET['add'])) {
 		dcPage::message(__('Blog has been successfully created.'));

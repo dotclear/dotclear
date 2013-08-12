@@ -193,8 +193,11 @@ dcPage::open(__('Plugins management'),
 	dcPage::jsPageTabs($default_tab)
 );
 
-echo
-'<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('Plugins management').'</span></h2>';
+echo dcPage::breadcrumb(
+	array(
+		__('System') => '',
+		'<span class="page-title">'.__('Plugins management').'</span>' => ''
+	));
 
 if (!empty($_GET['removed'])) {
 	dcPage::message(__('Plugin has been successfully deleted.'));

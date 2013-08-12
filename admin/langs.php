@@ -131,8 +131,11 @@ dcPage::open(__('Languages management'),
 	dcPage::jsLoad('js/_langs.js')
 );
 
-echo
-'<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('Languages management').'</span></h2>';
+echo dcPage::breadcrumb(
+	array(
+		__('System') => '',
+		'<span class="page-title">'.__('Languages management').'</span>' => ''
+	));
 
 if (!empty($_GET['removed'])) {
 	dcPage::message(__('Language has been successfully deleted.'));

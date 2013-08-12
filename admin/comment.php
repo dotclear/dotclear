@@ -183,10 +183,13 @@ if ($comment_id)
 		.'">'.__('Send an e-mail').'</a>';
 	}
 	
-	echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <a href="'.
-		$core->getPostAdminURL($post_type,$post_id).'&amp;co=1#c'.$comment_id.'"> '.
-		$post_title.'</a> &rsaquo; <span class="page-title">'.__('Edit comment').'</span></h2>';
-		
+	echo dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			html::escapeHTML($post_title) => $core->getPostAdminURL($post_type,$post_id).'&amp;co=1#c'.$comment_id,
+			'<span class="page-title">'.__('Edit comment').'</span>' => ''
+		));
+
 	echo
 	'<form action="comment.php" method="post" id="comment-form">'.
 	'<p>'.__('IP address:').'<br /> '.

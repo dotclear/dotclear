@@ -1,5 +1,5 @@
 /*
- * jQuery File Upload User Interface Plugin 8.2.1
+ * jQuery File Upload User Interface Plugin 8.7.1
  * https://github.com/blueimp/jQuery-File-Upload
  *
  * Copyright 2010, Sebastian Tschan
@@ -19,7 +19,9 @@
         define([
             'jquery',
             'tmpl',
-            './jquery.fileupload-resize',
+            './jquery.fileupload-image',
+            './jquery.fileupload-audio',
+            './jquery.fileupload-video',
             './jquery.fileupload-validate'
         ], factory);
     } else {
@@ -103,21 +105,9 @@
                         }
                     );
                 });
-
-            /*
-             *  
-             *  Activation du bouton si un fichier trouvé
-             */
-                var fileUploadButtonBar = that.element.find('.fileupload-buttonbar');
-                fileUploadButtonBar.find('.start').prop('disabled', false);
-                fileUploadButtonBar.find('.start').removeClass('disabled');
-             /*
-             *
-             */
             },
             // Callback for the start of each file upload request:
             send: function (e, data) {
-                $(this).find('.start').hide();
                 var that = $(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload');
                 if (data.context && data.dataType &&
@@ -139,7 +129,6 @@
             },
             // Callback for successful uploads:
             done: function (e, data) {
-
                 var that = $(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload'),
                     getFilesFromResponse = data.getFilesFromResponse ||
@@ -150,8 +139,8 @@
                 if (data.context) {
                     data.context.each(function (index) {
                         var file = files[index] ||
-                                {error: 'Empty file upload result'},
-                            deferred = that._addFinishedDeferreds();
+                                {error: 'Empty file upload result'};
+                        deferred = that._addFinishedDeferreds();
                         that._transition($(this)).done(
                             function () {
                                 var node = $(this);
@@ -170,8 +159,9 @@
                         );
                     });
                 } else {
-                    template = that._renderDownload(files)
-                        .appendTo(that.options.filesContainer);
+                    template = that._renderDownload(files)[
+                        that.options.prependFiles ? 'prependTo' : 'appendTo'
+                    ](that.options.filesContainer);
                     that._forceReflow(template);
                     deferred = that._addFinishedDeferreds();
                     that._transition(template).done(
@@ -226,8 +216,9 @@
                         }
                     });
                 } else if (data.errorThrown !== 'abort') {
-                    data.context = that._renderUpload(data.files)
-                        .appendTo(that.options.filesContainer)
+                    data.context = that._renderUpload(data.files)[
+                        that.options.prependFiles ? 'prependTo' : 'appendTo'
+                    ](that.options.filesContainer)
                         .data('data', data);
                     that._forceReflow(data.context);
                     deferred = that._addFinishedDeferreds();
@@ -280,21 +271,17 @@
             },
             // Callback for uploads start, equivalent to the global ajaxStart event:
             start: function (e) {
-                $(this).find('.start').hide();
                 var that = $(this).data('blueimp-fileupload') ||
-                $(this).data('fileupload');
+                        $(this).data('fileupload');
                 that._resetFinishedDeferreds();
                 that._transition($(this).find('.fileupload-progress')).done(
-
                     function () {
-
                         that._trigger('started', e);
                     }
                 );
             },
             // Callback for uploads stop, equivalent to the global ajaxStop event:
             stop: function (e) {
-                $(this).find('.start').show();
                 var that = $(this).data('blueimp-fileupload') ||
                         $(this).data('fileupload'),
                     deferred = that._addFinishedDeferreds();
@@ -311,19 +298,6 @@
                         deferred.resolve();
                     }
                 );
-            /*
-             *  Recherche des fichers restants à uploader
-             *  Désactivation du bouton si plus rien
-             */
-             var filesList = that.options.filesContainer;
-             if(filesList.find('.start').size() == 0) {
-                var fileUploadButtonBar = that.element.find('.fileupload-buttonbar');
-                fileUploadButtonBar.find('.start').prop('disabled', true);
-                fileUploadButtonBar.find('.start').addClass('disabled');
-             }
-            /*
-             *
-             */
             },
             processstart: function () {
                 $(this).addClass('fileupload-processing');
@@ -334,16 +308,19 @@
             // Callback for file deletion:
             destroy: function (e, data) {
                 var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload');
-                if (data.url) {
-                    $.ajax(data).done(function () {
+                        $(this).data('fileupload'),
+                    removeNode = function () {
                         that._transition(data.context).done(
                             function () {
                                 $(this).remove();
                                 that._trigger('destroyed', e, data);
                             }
                         );
-                    });
+                    };
+                if (data.url) {
+                    $.ajax(data).done(removeNode);
+                } else {
+                    removeNode();
                 }
             }
         },
@@ -636,6 +613,9 @@
         _create: function () {
             this._super();
             this._resetFinishedDeferreds();
+            if (!$.support.fileInput) {
+                this._disableFileInputButton();
+            }
         },
 
         enable: function () {
