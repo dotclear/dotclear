@@ -78,7 +78,7 @@ echo
 '<p><label for="q">'.__('Query:').' </label>'.form::field('q',30,255,html::escapeHTML($q)).'</p>'.
 '<p><label for="qtype1" class="classic">'.form::radio(array('qtype','qtype1'),'p',$qtype == 'p').' '.__('Search entries').'</label> '.
 '<label for="qtype2" class="classic">'.form::radio(array('qtype','qtype2'),'c',$qtype == 'c').' '.__('Search comments').'</label></p>'.
-'</p><input type="submit" value="'.__('Search').'" /></p>'.
+'<p><input type="submit" value="'.__('Search').'" /></p>'.
 '</div>'.
 '</form>';
 
