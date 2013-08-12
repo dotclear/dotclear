@@ -176,8 +176,14 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		$user_list[] = '<a href="user.php?id='.$u.'">'.$u.'</a>';
 	}
 	
-	echo 
-	'<h2><a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.__('Permissions').'</span></h2>'.
+	echo dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			__('Users') => 'users.php',
+			'<span class="page-title">'.__('Permissions').'</span>' => ''
+		));
+
+	echo
 	'<p>'.sprintf(
 		__('Choose one or more blogs to which you want to give permissions to users %s.'),
 		implode(', ',$user_list)

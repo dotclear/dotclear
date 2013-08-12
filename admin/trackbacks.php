@@ -94,7 +94,11 @@ if (!empty($_GET['sent'])) {
 	dcPage::message(__('All pings sent.'));
 }
 
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		'<span class="page-title">'.$page_title.'</span>' => ''
+	));
 
 echo '<p><a class="back" href="'.$core->getPostAdminURL($post->post_type,$id).'">'.
 	sprintf(__('Back to "%s"'),html::escapeHTML($post->post_title)).'</a></p>';

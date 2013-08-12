@@ -184,7 +184,12 @@ if (!empty($_GET['add'])) {
 	dcPage::message(__('User has been successfully created.'));
 }
 
-echo '<h2>'.__('System').' &rsaquo; <a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.$page_title.'</span></h2>';
+echo dcPage::breadcrumb(
+	array(
+		__('System') => '',
+		__('Users') => 'users.php',
+		'<span class="page-title">'.$page_title.'</span>' => ''
+	));
 
 if ($user_id == $core->auth->userID()) {
 	echo

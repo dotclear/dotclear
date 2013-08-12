@@ -75,7 +75,7 @@
 	cursor: pointer;
 }
 
-.button.clean, .button.cancel, .button.add, .enhanced_uploader .fileupload-buttonbar .button.start {
+.button.clean, .button.cancel, .button.add {
 	display: none;
 }
 
@@ -168,4 +168,9 @@ label span.one-file {
 
 div.template-upload {
 	clear: both;
+}
+
+.queue-message {
+	font-weight: bold;
+	margin: 0 0 1em 16px;
 }
