@@ -84,7 +84,7 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 	$slabel = $strong_label ? '<strong>%s</strong>' : '%s';
 	
 	return
-	'<tr>'.
+	'<tr class="line">'.
 	'<td scope="raw"><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
 	'<td>'.$field.'</td>'.
 	'<td>'.$s['type'].'</td>'.
