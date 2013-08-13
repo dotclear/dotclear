@@ -350,7 +350,7 @@ if ($post_id) {
 		default:
 			$img_status = '';
 	}
-	$edit_entry_str = __('Edit entry &ldquo;%s&rdquo;');
+	$edit_entry_str = __('&ldquo;%s&rdquo;');
 	$page_title_edit = sprintf($edit_entry_str, html::escapeHTML($post_title)).' '.$img_status;
 }
 dcPage::breadcrumb(

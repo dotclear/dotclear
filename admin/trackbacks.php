@@ -97,6 +97,7 @@ if (!empty($_GET['sent'])) {
 dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
+		html::escapeHTML($post->post_title) => $core->getPostAdminURL($post->post_type,$id),
 		'<span class="page-title">'.$page_title.'</span>' => ''
 	));
 
