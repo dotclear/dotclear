@@ -133,7 +133,7 @@ dcPage::breadcrumb(
 
 
 <?php
-$table_header = '<table class="settings" id="%s"><caption>%s</caption>'.
+$table_header = '<table class="settings" id="%s"><caption class="as_h3">%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
 '  <th class="nowrap">Setting ID</th>'."\n".
