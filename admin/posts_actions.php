@@ -15,6 +15,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 $params = array();
+$action = '';
 
 /* Actions
 -------------------------------------------------------- */
