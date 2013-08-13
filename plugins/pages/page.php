@@ -354,15 +354,15 @@ if ($post_id) {
 		default:
 			$img_status = '';
 	}
-	$edit_entry_title = ' &ldquo;'.$post_title.'&rdquo;'.' '.$img_status;
+	$edit_entry_title = '&ldquo;'.$post_title.'&rdquo;'.' '.$img_status;
 } else {
-	$edit_entry_title = '';
+	$edit_entry_title = $page_title;
 }
 dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Pages') => $p_url,
-		'<span class="page-title">'.$page_title.$edit_entry_title.'</span>' => ''
+		'<span class="page-title">'.$edit_entry_title.'</span>' => ''
 	));
 
 if ($post_id && $post->post_status == 1) {
