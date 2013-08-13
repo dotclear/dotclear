@@ -126,7 +126,7 @@ if ($filter_gui !== false)
 		array(
 			__('Plugins') => '',
 			$page_name => $p_url,
-			'<span class="page-title">'.sprintf(__('%s configuration'),$filter->name).'</span>' => ''
+			'<span class="page-title">'.sprintf(__('%s filter configuration'),$filter->name).'</span>' => ''
 		));
 
 	echo $filter_gui;

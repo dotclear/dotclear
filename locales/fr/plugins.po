@@ -237,8 +237,8 @@ msgid "Are you sure you want to delete all spams?"
 msgstr "Êtes-vous sûr de vouloir supprimer tous les indésirables ?"
 
 #, php-format
-msgid "%s configuration"
-msgstr "configuration %s"
+msgid "%s filter configuration"
+msgstr "Configuration du filtre %s"
 
 msgid "Information"
 msgstr "Information"
