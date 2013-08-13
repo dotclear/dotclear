@@ -14,10 +14,10 @@ if (!defined('DC_RC_PATH')) { return; }
 $__resources['rss_news'] = 'http://fr.dotclear.org/blog/feed/category/News/atom';
 
 $__resources['doc'] = array(
-	"Accueil de l'aide Dotclear 2" => 'http://doc.dotclear.net/2.0',
-	'Présentation de Dotclear 2' => 'http://doc.dotclear.net/2.0/overview/tour',
+	"Accueil de l'aide Dotclear" => 'http://fr.dotclear.org/documentation/2.0',
+	'Présentation de Dotclear' => 'http://doc.dotclear.net/2.0/overview/tour',
 	"Manuel de l'utilisateur" => 'http://doc.dotclear.net/2.0/usage',
 	"Guide d'installation et d'administration" => 'http://doc.dotclear.net/2.0/admin',
-	"Forum de support de Dotclear 2" => 'http://forum.dotclear.net/'
+	"Forum de support de Dotclear" => 'http://forum.dotclear.net/'
 );
 ?>
