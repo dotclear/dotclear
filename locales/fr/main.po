@@ -2942,3 +2942,18 @@ msgstr "Date de publication invalide"
 
 msgid "(No cat)"
 msgstr "(aucune)"
+
+msgid "very weak"
+msgstr "très faible"
+
+msgid "weak"
+msgstr "faible"
+
+msgid "mediocre"
+msgstr "moyen"
+
+msgid "strong"
+msgstr "fort"
+
+msgid "very strong"
+msgstr "très fort"
