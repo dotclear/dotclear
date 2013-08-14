@@ -2310,7 +2310,7 @@ msgid "Widgets may be used to add various blocks of content to be displayed on y
 msgstr ""
 
 #: plugins/widgets/index.php:250
-msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
+msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next to their name."
 msgstr ""
 
 #: plugins/widgets/index.php:252

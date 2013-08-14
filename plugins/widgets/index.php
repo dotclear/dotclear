@@ -251,7 +251,7 @@ $widget_elements->content =
 '<p>'.__('Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, '.
 'drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order '.
 'your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes.').'</p>'.
-'<p>'.__('Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next '.
+'<p>'.__('Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next '.
 'to their name.').'</p>'.
 '<p>'.__('Reset sidebars to get back to default widgets installation.').'</p>'.
 '<h3 class="clear">'.__('Widget templates tags').'</h3>'.
