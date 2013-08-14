@@ -48,7 +48,7 @@ class dcPage
 	}
 
 	# Top of admin page
-	public static function open($title='', $head='')
+	public static function open($title='', $head='', $breadcrumb='')
 	{
 		global $core;
 
@@ -157,6 +157,9 @@ class dcPage
 			'<p>'.__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
 			'</div>';
 		}
+
+		// Display breadcrumb (if given) before any error message
+		echo $breadcrumb;
 
 		if ($core->error->flag()) {
 			echo
