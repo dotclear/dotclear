@@ -48,7 +48,7 @@ class dcPage
 	}
 
 	# Top of admin page
-	public static function open($title='', $head='', $breadcrumb='')
+	public static function open($title='', $head='', $breadcrumb=null)
 	{
 		global $core;
 
@@ -159,7 +159,9 @@ class dcPage
 		}
 
 		// Display breadcrumb (if given) before any error message
-		echo $breadcrumb;
+		if (is_array($breadcrumb)) {
+			self::breadcrumb($breadcrumb);
+		}
 
 		if ($core->error->flag()) {
 			echo
