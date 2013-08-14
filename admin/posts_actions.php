@@ -15,32 +15,34 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 $params = array();
+$action = $_POST['action'];
+$posts = $core->blog->getPosts($params);
+
+
+if (isset($_POST['redir']) && strpos($_POST['redir'],'://') === false)
+{
+	$redir = $_POST['redir'];
+}
+else
+{
+	$redir =
+	'posts.php?user_id='.$_POST['user_id'].
+	'&cat_id='.$_POST['cat_id'].
+	'&status='.$_POST['status'].
+	'&selected='.$_POST['selected'].
+	'&month='.$_POST['month'].
+	'&lang='.$_POST['lang'].
+	'&sortby='.$_POST['sortby'].
+	'&order='.$_POST['order'].
+	'&page='.$_POST['page'].
+	'&nb='.$_POST['nb'];
+}
 
 /* Actions
 -------------------------------------------------------- */
-if (!empty($_POST['action']) && !empty($_POST['entries']))
+if (!empty($action) && !empty($_POST['entries']))
 {
 	$entries = $_POST['entries'];
-	$action = $_POST['action'];
-	
-	if (isset($_POST['redir']) && strpos($_POST['redir'],'://') === false)
-	{
-		$redir = $_POST['redir'];
-	}
-	else
-	{
-		$redir =
-		'posts.php?user_id='.$_POST['user_id'].
-		'&cat_id='.$_POST['cat_id'].
-		'&status='.$_POST['status'].
-		'&selected='.$_POST['selected'].
-		'&month='.$_POST['month'].
-		'&lang='.$_POST['lang'].
-		'&sortby='.$_POST['sortby'].
-		'&order='.$_POST['order'].
-		'&page='.$_POST['page'].
-		'&nb='.$_POST['nb'];
-	}
 	
 	foreach ($entries as $k => $v) {
 		$entries[$k] = (integer) $v;
