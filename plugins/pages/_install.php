@@ -12,11 +12,16 @@
 
 if (!defined('DC_CONTEXT_ADMIN')){return;}
 
-# Create first page
+$version = $core->plugins->moduleInfo('pages','version');
+if (version_compare($core->getVersion('pages'),$version,'>=')) {
+	return;
+}
+
+/* Create first page
+-------------------------------------------------------- */
 $core->setBlog('default');
 
 $core->blog->settings->addNamespace('pages');
-$core->blog->settings->pages->put('firstpage',false, 'boolean');
 
 $params = array(
 	'post_type' => 'page',
@@ -24,9 +29,9 @@ $params = array(
 );
 $counter = $core->blog->getPosts($params,true);
 
-If( $counter->f(0) == 0 && !$core->blog->settings->pages->get('firstpage') ) {
+If( $counter->f(0) == 0 && $core->blog->settings->pages->firstpage == null ) {
 	
-	$core->blog->settings->pages->put('firstpage',true);
+	$core->blog->settings->pages->put('firstpage',true, 'boolean');
 
 	$cur = $core->con->openCursor($core->prefix.'post');
 	$cur->user_id = $core->auth->userID();
@@ -44,3 +49,6 @@ If( $counter->f(0) == 0 && !$core->blog->settings->pages->get('firstpage') ) {
 	$post_id = $core->blog->addPost($cur);
 	
 }
+
+$core->setVersion('pages',$version);
+return true;
