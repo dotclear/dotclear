@@ -392,6 +392,8 @@ if ($can_edit_post)
 	echo '<form action="post.php" method="post" id="entry-form">';
 	echo '<div id="entry-wrapper">';
 	echo '<div id="entry-content"><div class="constrained">';
+
+	echo '<h3 class="hidden">'.__('Edit post').'</h3>';
 	
 	echo
 	'<p class="col"><label class="required no-margin"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
@@ -443,8 +445,11 @@ if ($can_edit_post)
 	echo '<div id="entry-sidebar">';
 	
 	echo
+	'<div id="status-box" class="box">'.
+	'<h4>Statut</h4>'.
+
 	'<p><label for="post_status">'.__('Entry status:').
-	form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
+	form::combo('post_status',$status_combo,$post_status,'maximal','',!$can_publish).
 	'</label></p>'.
 	
 	'<p><label for="post_dt">'.__('Published on:').
@@ -455,12 +460,29 @@ if ($can_edit_post)
 	form::combo('post_format',$formaters_combo,$post_format,'maximal').
 	'</label>'.
 	'</p>'.
+
 	'<p>'.($post_id && $post_format != 'xhtml' ? '<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').'</p>'.
-	
-	'<p class="border-top"><label for="cat_id">'.__('Category:').
-	form::combo('cat_id',$categories_combo,$cat_id,'maximal').
+
+	'<p><label for="post_lang">'.__('Entry lang:').
+	form::combo('post_lang',$lang_combo,$post_lang).
 	'</label></p>'.
 	
+	'</div>'. // End status box
+	
+	'<div id="metas-box" class="box">'.
+	'<h4>Classement</h4>'.
+
+	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
+	__('Selected entry').'</label></p>'.
+
+	'<p><label for="cat_id">'.__('Category:').
+	form::combo('cat_id',$categories_combo,$cat_id,'maximal').
+	'</label></p>'.
+
+	'</div>'. // End metas box
+	
+	'<div id="options-box" class="box">'.
+	'<h4>Options</h4>'.
 	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment).' '.
 	__('Accept comments').'</label></p>'.
 	($core->blog->settings->system->allow_comments ? 
@@ -477,19 +499,12 @@ if ($can_edit_post)
 			'<p class="form-note warn">'.__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
 		'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>').
 
-	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
-	__('Selected entry').'</label></p>'.
-	
-	'<p><label for="post_lang">'.__('Entry lang:').
-	form::combo('post_lang',$lang_combo,$post_lang).
-	'</label></p>'.
-	
-	'<p><label for="post_password">'.__('Entry password:').
+	'<p><label for="post_password">'.__('Password:').
 	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
 	'</label></p>'.
 	
 	'<div class="lockable">'.
-	'<p><label for="post_url">'.__('Basename:').
+	'<p><label for="post_url">'.__('Edit basename:').
 	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
 	'</label></p>'.
 	'<p class="form-note warn">'.
@@ -499,6 +514,8 @@ if ($can_edit_post)
 	
 	# --BEHAVIOR-- adminPostFormSidebar
 	$core->callBehavior('adminPostFormSidebar',isset($post) ? $post : null);
+
+	echo '</div>'; // End options box
 	
 	echo '</div>';		// End #entry-sidebar
 
