@@ -48,17 +48,17 @@ if (!$core->error->flag() && $blog_id && !empty($_POST['del']))
 	}
 }
 
-dcPage::open(__('Delete a blog'));
-
-if (!$core->error->flag())
-{
+dcPage::open(__('Delete a blog'),'',
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('Blogs') => 'blogs.php',
 			'<span class="page-title">'.__('Delete a blog').'</span>' => ''
-		));
+		))
+);
 
+if (!$core->error->flag())
+{
 	echo
 	'<p class="message">'.__('Warning').'</p>'.
 	'<p>'.sprintf(__('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),

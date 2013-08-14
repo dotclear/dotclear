@@ -93,7 +93,13 @@ if (!$show_filters) {
 	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
 }
 
-dcPage::open(__('Users'),$starting_script);
+dcPage::open(__('Users'),$starting_script,
+	dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			'<span class="page-title">'.__('Users').'</span>' => ''
+		))
+);
 
 if (!$core->error->flag())
 {
@@ -104,12 +110,6 @@ if (!$core->error->flag())
 		dcPage::message(__('The permissions have been successfully updated.'));
 	}
 	
-	dcPage::breadcrumb(
-		array(
-			__('System') => '',
-			'<span class="page-title">'.__('Users').'</span>' => ''
-		));
-
 	echo
 	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('Create a new user').'</a></strong></p>';
 	

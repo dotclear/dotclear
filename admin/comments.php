@@ -168,13 +168,13 @@ if (!$show_filters) {
 # --BEHAVIOR-- adminCommentsHeaders
 $starting_script .= $core->callBehavior('adminCommentsHeaders');
 
-dcPage::open(__('Comments and trackbacks'),$starting_script);
-
-dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('Comments and trackbacks').'</span>' => ''
-	));
+dcPage::open(__('Comments and trackbacks'),$starting_script,
+	dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.__('Comments and trackbacks').'</span>' => ''
+		))
+);
 
 if (!$core->error->flag())
 {

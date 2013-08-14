@@ -254,13 +254,14 @@ echo
 	'<link rel="stylesheet" href="index.php?pf=daInstaller/style.css" type="text/css" />'.
 '</head>'.
 '<body>'.
-infoMessages();
 
 dcPage::breadcrumb(
 	array(
 		__('System') => '',
 		'<span class="page-title">'.__('DotAddict.org Installer').'</span>' => ''
-	));
+	)).
+
+infoMessages();
 
 echo
 '<p>'.__('Install and update your extensions live from DotAddict.org').'</p>';

@@ -122,7 +122,7 @@ catch (Exception $e)
 
 if ($filter_gui !== false)
 {
-	dcPage::breadcrumb(
+	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
 			$page_name => $p_url,
@@ -133,7 +133,7 @@ if ($filter_gui !== false)
 }
 else
 {
-	dcPage::breadcrumb(
+	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
 			'<span class="page-title">'.$page_name.'</span>' => ''

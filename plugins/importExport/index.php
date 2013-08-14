@@ -73,7 +73,7 @@ echo '
 <body>';
 
 if ($type && $module !== null) {
-	dcPage::breadcrumb(
+	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
 			$title => $p_url,
@@ -88,7 +88,7 @@ if ($type && $module !== null) {
 	echo '</div>';
 }
 else {
-	dcPage::breadcrumb(
+	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
 			'<span class="page-title">'.$title.'</span>' => ''

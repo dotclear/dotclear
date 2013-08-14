@@ -66,14 +66,14 @@ if (!empty($_REQUEST['id']))
 }
 else
 {
-	dcPage::open(__('New blog'),dcPage::jsConfirmClose('blog-form'));
-	
-	dcPage::breadcrumb(
-		array(
-			__('System') => '',
-			__('Blogs') => 'blogs.php',
-			'<span class="page-title">'.__('New blog').'</span>' => ''
-		));
+	dcPage::open(__('New blog'),dcPage::jsConfirmClose('blog-form'),
+		dcPage::breadcrumb(
+			array(
+				__('System') => '',
+				__('Blogs') => 'blogs.php',
+				'<span class="page-title">'.__('New blog').'</span>' => ''
+			))
+	);
 	
 	echo
 	'<form action="blog.php" method="post" id="blog-form" class="fieldset">'.

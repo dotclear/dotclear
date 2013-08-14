@@ -293,6 +293,28 @@ if (!empty($_GET['co'])) {
 	$default_tab = 'comments';
 }
 
+if ($post_id) {
+	switch ($post_status) {
+		case 1:
+			$img_status = sprintf($img_status_pattern,__('Published'),'check-on.png');
+			break;
+		case 0:
+			$img_status = sprintf($img_status_pattern,__('Unpublished'),'check-off.png');
+			break;
+		case -1:
+			$img_status = sprintf($img_status_pattern,__('Scheduled'),'scheduled.png');
+			break;
+		case -2:
+			$img_status = sprintf($img_status_pattern,__('Pending'),'check-wrn.png');
+			break;
+		default:
+			$img_status = '';
+	}
+	$edit_entry_str = __('&ldquo;%s&rdquo;');
+	$page_title_edit = sprintf($edit_entry_str, html::escapeHTML($post_title)).' '.$img_status;
+}
+
+
 dcPage::open($page_title.' - '.__('Entries'),
 	dcPage::jsDatePicker().
 	dcPage::jsToolBar().
@@ -303,7 +325,13 @@ dcPage::open($page_title.' - '.__('Entries'),
 	# --BEHAVIOR-- adminPostHeaders
 	$core->callBehavior('adminPostHeaders').
 	dcPage::jsPageTabs($default_tab).
-	$next_headlink."\n".$prev_headlink
+	$next_headlink."\n".$prev_headlink,
+	dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			__('Entries') => 'posts.php',
+			'<span class="page-title">'.($post_id ? $page_title_edit : $page_title).'</span>' => ''
+		))
 );
 
 if (!empty($_GET['upd'])) {
@@ -332,33 +360,6 @@ if (!empty($_GET['xconv']))
 	
 	dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
 }
-
-if ($post_id) {
-	switch ($post_status) {
-		case 1:
-			$img_status = sprintf($img_status_pattern,__('Published'),'check-on.png');
-			break;
-		case 0:
-			$img_status = sprintf($img_status_pattern,__('Unpublished'),'check-off.png');
-			break;
-		case -1:
-			$img_status = sprintf($img_status_pattern,__('Scheduled'),'scheduled.png');
-			break;
-		case -2:
-			$img_status = sprintf($img_status_pattern,__('Pending'),'check-wrn.png');
-			break;
-		default:
-			$img_status = '';
-	}
-	$edit_entry_str = __('&ldquo;%s&rdquo;');
-	$page_title_edit = sprintf($edit_entry_str, html::escapeHTML($post_title)).' '.$img_status;
-}
-dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		__('Entries') => 'posts.php',
-		'<span class="page-title">'.($post_id ? $page_title_edit : $page_title).'</span>' => ''
-	));
 
 if ($post_id && $post->post_status == 1) {
 	echo '<p><a class="onblog_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';

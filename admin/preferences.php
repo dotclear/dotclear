@@ -347,7 +347,13 @@ dcPage::open($page_title,
 	dcPage::jsConfirmClose('user-form').
 	
 	# --BEHAVIOR-- adminPreferencesHeaders
-	$core->callBehavior('adminPreferencesHeaders')
+	$core->callBehavior('adminPreferencesHeaders'),
+
+	dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->auth->userID()) => '',
+		'<span class="page-title">'.$page_title.'</span>' => ''
+	))
 );
 
 if (!empty($_GET['upd'])) {
@@ -368,12 +374,6 @@ if (!empty($_GET['removed'])) {
 if (!empty($_GET['replaced'])) {
 	dcPage::message(__('Default favorites have been successfully updated.'));
 }
-
-dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->auth->userID()) => '',
-		'<span class="page-title">'.$page_title.'</span>' => ''
-	));
 
 # User profile
 echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';

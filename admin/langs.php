@@ -128,14 +128,13 @@ if ($is_writable && !empty($_POST['upload_pkg']))
 /* DISPLAY Main page
 -------------------------------------------------------- */
 dcPage::open(__('Languages management'),
-	dcPage::jsLoad('js/_langs.js')
-);
-
-dcPage::breadcrumb(
+	dcPage::jsLoad('js/_langs.js'),
+	dcPage::breadcrumb(
 	array(
 		__('System') => '',
 		'<span class="page-title">'.__('Languages management').'</span>' => ''
-	));
+	))
+);
 
 if (!empty($_GET['removed'])) {
 	dcPage::message(__('Language has been successfully deleted.'));

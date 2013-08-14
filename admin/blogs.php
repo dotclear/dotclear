@@ -72,17 +72,17 @@ $starting_script = '';
 if (!$show_filters) {
 	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
 }
-dcPage::open(__('List of blogs'),$starting_script);
+dcPage::open(__('List of blogs'),$starting_script,
+	dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			'<span class="page-title">'.__('List of blogs').'</span>' => ''
+		))
+);
 
 if (!empty($_GET['del'])) {
 	dcPage::message(__('Blog has been successfully deleted.'));
 }
-
-dcPage::breadcrumb(
-	array(
-		__('System') => '',
-		'<span class="page-title">'.__('List of blogs').'</span>' => ''
-	));
 
 if (!$core->error->flag())
 {

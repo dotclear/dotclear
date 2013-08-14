@@ -51,7 +51,7 @@ catch (Exception $e)
 <body>
 <?php
 
-dcPage::breadcrumb(
+echo dcPage::breadcrumb(
 	array(
 		__('Plugins') => '',
 		'<span class="page-title">'.__('Pings configuration').'</span>' => ''

@@ -176,7 +176,7 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 
 <body>
 <?php
-dcPage::breadcrumb(
+echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		'<span class="page-title">'.__('Pages').'</span>' => ''

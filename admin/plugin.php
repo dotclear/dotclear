@@ -80,14 +80,14 @@ if (file_exists($p_file))
 }
 else
 {
-	call_user_func($open_f,__('Plugin not found'));
+	call_user_func($open_f,__('Plugin not found'),'',
+		dcPage::breadcrumb(
+			array(
+				__('System') => '',
+				'<span class="page-title">'.__('Plugin not found').'</span>' => ''
+			))
+	);
 	
-	dcPage::breadcrumb(
-		array(
-			__('System') => '',
-			'<span class="page-title">'.__('Plugin not found').'</span>' => ''
-		));
-
 	echo '<p>'.__('The plugin you reached does not exist or does not have an admin page.').'</p>';
 	
 	call_user_func($close_f);

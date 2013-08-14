@@ -159,12 +159,29 @@ if (!$core->error->flag() && isset($rs))
 
 /* DISPLAY
 -------------------------------------------------------- */
+if ($comment_id) {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			html::escapeHTML($post_title) => $core->getPostAdminURL($post_type,$post_id).'&amp;co=1#c'.$comment_id,
+			'<span class="page-title">'.__('Edit comment').'</span>' => ''
+		));
+} else {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			html::escapeHTML($post_title) => $core->getPostAdminURL($post_type,$post_id),
+			'<span class="page-title">'.__('Edit comment').'</span>' => ''
+		));
+}
+
 dcPage::open(__('Edit comment'),
 	dcPage::jsConfirmClose('comment-form').
 	dcPage::jsToolBar().
 	dcPage::jsLoad('js/_comment.js').
 	# --BEHAVIOR-- adminCommentHeaders
-	$core->callBehavior('adminCommentHeaders')
+	$core->callBehavior('adminCommentHeaders'),
+	$breadcrumb
 );
 
 if ($comment_id)
@@ -182,13 +199,6 @@ if ($comment_id)
 		.rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"),$rs->getPostURL()))
 		.'">'.__('Send an e-mail').'</a>';
 	}
-	
-	dcPage::breadcrumb(
-		array(
-			html::escapeHTML($core->blog->name) => '',
-			html::escapeHTML($post_title) => $core->getPostAdminURL($post_type,$post_id).'&amp;co=1#c'.$comment_id,
-			'<span class="page-title">'.__('Edit comment').'</span>' => ''
-		));
 
 	echo
 	'<form action="comment.php" method="post" id="comment-form">'.

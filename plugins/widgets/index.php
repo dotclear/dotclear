@@ -187,7 +187,7 @@ elseif (!empty($_POST['wreset']))
 </head>
 <body>
 <?php
-dcPage::breadcrumb(
+echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		'<span class="page-title">'.__('Widgets').'</span>' => ''

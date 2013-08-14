@@ -244,16 +244,16 @@ if (!$show_filters) {
 	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
 }
 
-dcPage::open(__('Entries'),$starting_script);
-
-if (!$core->error->flag())
-{
+dcPage::open(__('Entries'),$starting_script,
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			'<span class="page-title">'.__('Entries').'</span>' => ''
-		));
+		))
+);
 
+if (!$core->error->flag())
+{
 	echo
 	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>';
 	

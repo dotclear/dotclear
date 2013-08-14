@@ -109,7 +109,7 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 <body>
 
 <?php
-dcPage::breadcrumb(
+echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Tags') => $p_url.'&amp;m=tags',

@@ -156,16 +156,6 @@ if (isset($_POST['cat_title']))
 
 $title = $cat_id ? html::escapeHTML($cat_title) : __('New category');
 
-dcPage::open($title,
-	dcPage::jsConfirmClose('category-form').
-	dcPage::jsToolBar().
-	dcPage::jsLoad('js/_category.js')
-);
-
-if (!empty($_GET['upd'])) {
-	dcPage::message(__('Category has been successfully updated.'));
-}
-
 $elements = array(
 	html::escapeHTML($core->blog->name) => '',
 	__('Categories') => 'categories.php'
@@ -176,7 +166,17 @@ if ($cat_id) {
 	}
 }
 $elements['<span class="page-title">'.$title.'</span>'] = '';
-dcPage::breadcrumb($elements);
+
+dcPage::open($title,
+	dcPage::jsConfirmClose('category-form').
+	dcPage::jsToolBar().
+	dcPage::jsLoad('js/_category.js'),
+	dcPage::breadcrumb($elements)
+);
+
+if (!empty($_GET['upd'])) {
+	dcPage::message(__('Category has been successfully updated.'));
+}
 
 echo
 '<form action="category.php" method="post" id="category-form">'.

@@ -206,20 +206,31 @@ function display_theme_details($id,$details,$current)
 	return $res;
 }
 
-dcPage::open(__('Blog appearance'),
-	(!$theme_conf_mode ? dcPage::jsLoad('js/_blog_theme.js') : '').
-	dcPage::jsPageTabs($default_tab).
-	dcPage::jsColorPicker()
-);
-
 if (!$theme_conf_mode)
 {
-	dcPage::breadcrumb(
+	$breadcrumb = dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			'<span class="page-title">'.__('Blog appearance').'</span>' => ''
 		));
-	
+} else {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			__('Blog appearance') => 'blog_theme.php',
+			'<span class="page-title">'.__('Theme configuration').'</span>' => ''
+		));
+}
+
+dcPage::open(__('Blog appearance'),
+	(!$theme_conf_mode ? dcPage::jsLoad('js/_blog_theme.js') : '').
+	dcPage::jsPageTabs($default_tab).
+	dcPage::jsColorPicker(),
+	$breadcrumb
+);
+
+if (!$theme_conf_mode)
+{
 	if (!empty($_GET['upd'])) {
 		dcPage::message(__('Theme has been successfully changed.'));
 	}
@@ -332,13 +343,6 @@ else
 {
 	$theme_name = $core->themes->moduleInfo($core->blog->settings->system->theme,'name');
 	$core->themes->loadModuleL10Nresources($core->blog->settings->system->theme,$_lang);
-
-	dcPage::breadcrumb(
-		array(
-			html::escapeHTML($core->blog->name) => '',
-			__('Blog appearance') => 'blog_theme.php',
-			'<span class="page-title">'.__('Theme configuration').'</span>' => ''
-		));
 
 	echo
 	'<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';
