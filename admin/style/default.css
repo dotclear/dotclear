@@ -320,6 +320,9 @@ abbr {
 	background-repeat: no-repeat;
 	background-position: 8px .3em;
 }
+#main-menu li.active {
+	background-color: #fff;
+}
 #main-menu a {
 	color: #333;
 	border-bottom-color: #ccc;
