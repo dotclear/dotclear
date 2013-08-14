@@ -2943,6 +2943,9 @@ msgstr "Date de publication invalide"
 msgid "(No cat)"
 msgstr "(aucune)"
 
+msgid "Password strength: %s"
+msgstr "Force du mot de passe : %s"
+
 msgid "very weak"
 msgstr "très faible"
 
