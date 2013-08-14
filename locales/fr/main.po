@@ -2939,3 +2939,6 @@ msgstr "Seul un superadministrateur peut supprimer un blog"
 
 msgid "Invalid publication date"
 msgstr "Date de publication invalide"
+
+msgid "(No cat)"
+msgstr "(aucune)"

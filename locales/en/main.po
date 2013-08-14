@@ -2789,3 +2789,6 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+msgid "(No cat)"
+msgstr "(none)"
