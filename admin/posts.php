@@ -76,8 +76,8 @@ if (!$core->error->flag())
 	
 	$selected_combo = array(
 	'-' => '',
-	__('selected') => '1',
-	__('not selected') => '0'
+	__('Selected') => '1',
+	__('Not selected') => '0'
 	);
 	
 	# Months array

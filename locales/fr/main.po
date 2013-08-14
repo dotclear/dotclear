@@ -1621,7 +1621,7 @@ msgid "Published on:"
 msgstr "Publié le :"
 
 msgid "Text formating:"
-msgstr "Format du texte :"
+msgstr "Syntaxe de saisie :"
 
 msgid "Convert to XHTML"
 msgstr "Convertir en XHTML"
@@ -2246,7 +2246,7 @@ msgid "Zip file content"
 msgstr "Contenu du fichier zip"
 
 msgid "XHTML markup validator"
-msgstr "Validation XHTML"
+msgstr "Vérifier la validité XHTML"
 
 msgid "XHTML content is valid."
 msgstr "Le contenu XHTML est valide."
@@ -2935,10 +2935,50 @@ msgid "Additional plugins"
 msgstr "Modules complémentaires"
 
 msgid "Personal notes:"
-msgstr "Notes personnelles:"
+msgstr "Notes personnelles :"
 
 msgid "New user"
 msgstr "Nouvel utilisateur"
 
-msgid "faut virer ça ça ne sert qu'a contourner le bug corrige en 2.5.2"
-msgstr "Notes personnelles :"
+msgid "Published"
+msgstr "Publié"
+
+msgid "Unpublished"
+msgstr "Non publié"
+
+msgid "Pending"
+msgstr "En attente"
+
+msgid "Junk"
+msgstr "Indésirable"
+
+msgid "Scheduled"
+msgstr "Programmé"
+
+msgid "Protected"
+msgstr "Protégé"
+
+msgid "Publish"
+msgstr "Publier"
+
+msgid "Unpublish"
+msgstr "Mettre hors ligne"
+
+msgid "Mark as pending"
+msgstr "Mettre en attente"
+
+msgid "Mark as junk"
+msgstr "Mettre en indésirable"
+
+msgid "Next entry"
+msgstr "Billet suivant"
+
+msgid "Previous entry"
+msgstr "Billet précédent"
+
+msgid "Add an introduction to the post."
+msgstr "Ajoute une introduction au billet."
+
+msgid "Add unpublished notes."
+msgstr "Ajoute des notes non publiées."
+

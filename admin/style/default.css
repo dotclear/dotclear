@@ -524,6 +524,11 @@ abbr {
 	margin-right: 19em;
 	margin-left: 1.2rem;
 }
+#entry-content label {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 2em;
+}
 #entry-sidebar {
 	width: 17em;
 	float: right;
@@ -984,10 +989,14 @@ a.back:before {
 }
 /* -------------------------------------------------------------------- CLASSES COMMUNES */
 
-.no-margin {
+.no-margin, #entry-content label.no-margin {
 	margin: 0;
 }
-
+.border-top {
+	border-top: 1px solid #999;
+	padding-top: 1em;
+	margin-top:	1em;
+}
 /* paragraphe pour bouton Nouveau bidule */
 p.top-add {
 	text-align: right;
@@ -1251,6 +1260,7 @@ p.form-note {
 span.form-note {
 	font-style:italic;
 	font-weight: normal;
+	text-transform: none;
 	color: #666;
 }
 p.form-note.warn, p.form-note.info, p.warning {
@@ -1344,6 +1354,8 @@ a.submit {
 	border-radius: .2em;
 	margin-bottom: .1em;
 }
+h4 a.button {font-weight: normal;}
+
 /* validation */
 input[type=submit],
 input[type=button],
