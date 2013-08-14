@@ -1446,7 +1446,6 @@ input[type=button] {
 	background-color:#9dce2c;
 	border:1px solid #83c41a;
 	padding:.6rem 1.8rem;
-	text-shadow:1px 1px 0 #689324;
 	color: #000;
 	text-shadow: 1px 1px 0 #BBDB58;
 	font-weight: normal;
@@ -1461,10 +1460,6 @@ input[type=button] {
 }
 .button-add:focus {
 	outline: dotted 1px;
-}
-.button.add:active {
-	position:relative;
-	top:1px;
 }
 
 /* jQuery Autocomplete plugin */
