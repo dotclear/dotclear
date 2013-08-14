@@ -110,6 +110,13 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
 
 <body>
 <?php
+echo dcPage::breadcrumb(
+	array(
+		__('System') => '',
+		html::escapeHTML($core->auth->userID()) => '',
+		'<span class="page-title">'.__('user:preferences').'</span>' => ''
+	));
+
 if (!empty($_GET['upd'])) {
 	dcPage::message(__('Preferences successfully updated'));
 }
@@ -117,13 +124,6 @@ if (!empty($_GET['upd'])) {
 if (!empty($_GET['upda'])) {
 	dcPage::message(__('Preferences definition successfully updated'));
 }
-
-dcPage::breadcrumb(
-	array(
-		__('System') => '',
-		html::escapeHTML($core->auth->userID()) => '',
-		'<span class="page-title">'.__('user:preferences').'</span>' => ''
-	));
 ?>
 
 <div id="local" class="multi-part" title="<?php echo __('User preferences'); ?>">

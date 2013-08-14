@@ -251,6 +251,21 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 	}
 }
 
+if ($standalone) {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			html::escapeHTML($blog_name) => '',
+			'<span class="page-title">'.__('Blog settings').'</span>' => ''
+		));
+} else {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			__('Blogs') => 'blogs.php',
+			'<span class="page-title">'.__('Blog settings').' : '.html::escapeHTML($blog_name).'</span>' => ''
+		));
+}
+
 dcPage::open(__('Blog settings'),
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA["."\n".
@@ -267,26 +282,12 @@ dcPage::open(__('Blog settings'),
 	# --BEHAVIOR-- adminBlogPreferencesHeaders
 	$core->callBehavior('adminBlogPreferencesHeaders').
 	
-	dcPage::jsPageTabs()
+	dcPage::jsPageTabs(),
+	$breadcrumb
 );
 
 if ($blog_id)
 {
-	if ($standalone) {
-		dcPage::breadcrumb(
-			array(
-				html::escapeHTML($blog_name) => '',
-				'<span class="page-title">'.__('Blog settings').'</span>' => ''
-			));
-	} else {
-		dcPage::breadcrumb(
-			array(
-				__('System') => '',
-				__('Blogs') => 'blogs.php',
-				'<span class="page-title">'.__('Blog settings').' : '.html::escapeHTML($blog_name).'</span>' => ''
-			));
-	}
-	
 	if (!empty($_GET['add'])) {
 		dcPage::message(__('Blog has been successfully created.'));
 	}

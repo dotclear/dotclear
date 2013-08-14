@@ -314,6 +314,34 @@ if (!empty($_GET['co'])) {
 
 <?php
 
+if ($post_id) {
+	switch ($post_status) {
+		case 1:
+			$img_status = sprintf($img_status_pattern,__('published'),'check-on.png');
+			break;
+		case 0:
+			$img_status = sprintf($img_status_pattern,__('unpublished'),'check-off.png');
+			break;
+		case -1:
+			$img_status = sprintf($img_status_pattern,__('scheduled'),'scheduled.png');
+			break;
+		case -2:
+			$img_status = sprintf($img_status_pattern,__('pending'),'check-wrn.png');
+			break;
+		default:
+			$img_status = '';
+	}
+	$edit_entry_title = '&ldquo;'.$post_title.'&rdquo;'.' '.$img_status;
+} else {
+	$edit_entry_title = $page_title;
+}
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		__('Pages') => $p_url,
+		'<span class="page-title">'.$edit_entry_title.'</span>' => ''
+	));
+
 if (!empty($_GET['upd'])) {
 	dcPage::message(__('Page has been successfully updated.'));
 }
@@ -336,34 +364,6 @@ if (!empty($_GET['xconv']))
 	
 	dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
 }
-
-if ($post_id) {
-	switch ($post_status) {
-		case 1:
-			$img_status = sprintf($img_status_pattern,__('published'),'check-on.png');
-			break;
-		case 0:
-			$img_status = sprintf($img_status_pattern,__('unpublished'),'check-off.png');
-			break;
-		case -1:
-			$img_status = sprintf($img_status_pattern,__('scheduled'),'scheduled.png');
-			break;
-		case -2:
-			$img_status = sprintf($img_status_pattern,__('pending'),'check-wrn.png');
-			break;
-		default:
-			$img_status = '';
-	}
-	$edit_entry_title = '&ldquo;'.$post_title.'&rdquo;'.' '.$img_status;
-} else {
-	$edit_entry_title = $page_title;
-}
-dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		__('Pages') => $p_url,
-		'<span class="page-title">'.$edit_entry_title.'</span>' => ''
-	));
 
 if ($post_id && $post->post_status == 1) {
 	echo '<p><a class="preview_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this page on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';

@@ -190,14 +190,13 @@ $plugins_install = $core->plugins->installModules();
 -------------------------------------------------------- */
 dcPage::open(__('Plugins management'),
 	dcPage::jsLoad('js/_plugins.js').
-	dcPage::jsPageTabs($default_tab)
+	dcPage::jsPageTabs($default_tab),
+	dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			'<span class="page-title">'.__('Plugins management').'</span>' => ''
+		))
 );
-
-dcPage::breadcrumb(
-	array(
-		__('System') => '',
-		'<span class="page-title">'.__('Plugins management').'</span>' => ''
-	));
 
 if (!empty($_GET['removed'])) {
 	dcPage::message(__('Plugin has been successfully deleted.'));

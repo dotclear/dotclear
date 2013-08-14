@@ -72,7 +72,12 @@ if (!empty($_POST['reset']))
 -------------------------------------------------------- */
 dcPage::open(__('Categories'),
 	dcPage::jsToolMan()."\n".
-	dcPage::jsLoad('js/_categories.js')
+	dcPage::jsLoad('js/_categories.js'),
+	dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.__('Categories').'</span>' => ''
+		))
 );
 
 if (!empty($_GET['add'])) {
@@ -87,12 +92,6 @@ if (!empty($_GET['reord'])) {
 if (!empty($_GET['moved'])) {
 	dcPage::message(__('The category has been successfully moved.'));
 }
-
-dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('Categories').'</span>' => ''
-	));
 
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 

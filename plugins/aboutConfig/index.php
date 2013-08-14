@@ -114,6 +114,12 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 
 <body>
 <?php
+echo dcPage::breadcrumb(
+	array(
+		__('System') => '',
+		html::escapeHTML($core->blog->name) => '',
+		'<span class="page-title">'.__('about:config').'</span>' => ''
+	));
 if (!empty($_GET['upd'])) {
 	dcPage::message(__('Configuration successfully updated'));
 }
@@ -121,12 +127,6 @@ if (!empty($_GET['upd'])) {
 if (!empty($_GET['upda'])) {
 	dcPage::message(__('Settings definition successfully updated'));
 }
-dcPage::breadcrumb(
-	array(
-		__('System') => '',
-		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('about:config').'</span>' => ''
-	));
 ?>
 
 <div id="local" class="multi-part" title="<?php echo sprintf(__('Settings for %s'),html::escapeHTML($core->blog->name)); ?>">

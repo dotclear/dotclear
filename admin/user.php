@@ -173,7 +173,14 @@ dcPage::open($page_title,
 	dcPage::jsConfirmClose('user-form').
 	
 	# --BEHAVIOR-- adminUserHeaders
-	$core->callBehavior('adminUserHeaders')
+	$core->callBehavior('adminUserHeaders'),
+
+	dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			__('Users') => 'users.php',
+			'<span class="page-title">'.$page_title.'</span>' => ''
+		))
 );
 
 if (!empty($_GET['upd'])) {
@@ -183,13 +190,6 @@ if (!empty($_GET['upd'])) {
 if (!empty($_GET['add'])) {
 	dcPage::message(__('User has been successfully created.'));
 }
-
-dcPage::breadcrumb(
-	array(
-		__('System') => '',
-		__('Users') => 'users.php',
-		'<span class="page-title">'.$page_title.'</span>' => ''
-	));
 
 if ($user_id == $core->auth->userID()) {
 	echo

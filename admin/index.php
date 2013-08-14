@@ -192,14 +192,13 @@ dcPage::open(__('Dashboard'),
 	dcPage::jsToolBar().
 	dcPage::jsLoad('js/_index.js').
 	# --BEHAVIOR-- adminDashboardHeaders
-	$core->callBehavior('adminDashboardHeaders')
+	$core->callBehavior('adminDashboardHeaders'),
+	dcPage::breadcrumb(
+		array(
+		'<span class="page-title">'.__('Dashboard').' : '.html::escapeHTML($core->blog->name).'</span>' => ''
+		),
+		false)
 );
-
-dcPage::breadcrumb(
-	array(
-	'<span class="page-title">'.__('Dashboard').' : '.html::escapeHTML($core->blog->name).'</span>' => ''
-	),
-	false);
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->blog_count > 1) {
 	echo

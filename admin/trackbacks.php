@@ -82,7 +82,17 @@ $page_title = __('Ping blogs');
 
 /* DISPLAY
 -------------------------------------------------------- */
-dcPage::open($page_title,dcPage::jsLoad('js/_trackbacks.js'));
+if ($can_view_page) {
+	$breadcrumb = dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		html::escapeHTML($post->post_title) => $core->getPostAdminURL($post->post_type,$id),
+		'<span class="page-title">'.$page_title.'</span>' => ''
+	));
+} else {
+	$breadcrumb = '';
+}
+dcPage::open($page_title,dcPage::jsLoad('js/_trackbacks.js'),$breadcrumb);
 
 # Exit if we cannot view page
 if (!$can_view_page) {
@@ -93,13 +103,6 @@ if (!$can_view_page) {
 if (!empty($_GET['sent'])) {
 	dcPage::message(__('All pings sent.'));
 }
-
-dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		html::escapeHTML($post->post_title) => $core->getPostAdminURL($post->post_type,$id),
-		'<span class="page-title">'.$page_title.'</span>' => ''
-	));
 
 echo '<p><a class="back" href="'.$core->getPostAdminURL($post->post_type,$id).'">'.
 	sprintf(__('Back to "%s"'),html::escapeHTML($post->post_title)).'</a></p>';

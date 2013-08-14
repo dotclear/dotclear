@@ -69,13 +69,13 @@ if ($q)
 }
 
 
-dcPage::open(__('Search'),$starting_scripts);
-
-dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('Search').'</span>' => ''
-	));
+dcPage::open(__('Search'),$starting_scripts,
+	dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.__('Search').'</span>' => ''
+		))
+);
 
 echo
 '<form action="search.php" method="get">'.

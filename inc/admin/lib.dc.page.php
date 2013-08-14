@@ -48,7 +48,7 @@ class dcPage
 	}
 
 	# Top of admin page
-	public static function open($title='', $head='', $breadcrumb='')
+	public static function open($title='',$head='',$breadcrumb='')
 	{
 		global $core;
 
@@ -212,7 +212,7 @@ class dcPage
 		'</body></html>';
 	}
 
-	public static function openPopup($title='', $head='')
+	public static function openPopup($title='',$head='',$breadcrumb='')
 	{
 		global $core;
 
@@ -257,6 +257,9 @@ class dcPage
 		'<div id="main">'."\n".
 		'<div id="content">'."\n";
 
+		// display breadcrumb if given
+		echo $breadcrumb;
+
 		if ($core->error->flag()) {
 			echo
 			'<div class="error"><strong>'.__('Errors:').'</strong>'.
@@ -275,7 +278,7 @@ class dcPage
 		'</body></html>';
 	}
 
-	public static function breadcrumb($elements=null,$with_home_link=true,$echo=true)
+	public static function breadcrumb($elements=null,$with_home_link=true,$echo=false)
 	{
 		// First item of array elements should be blog's name, System or Plugins
 		$res = '<h2>'.($with_home_link ?
@@ -283,7 +286,8 @@ class dcPage
 			'<img src="style/dashboard-alt.png" alt="" />');
 		$index = 0;
 		foreach ($elements as $element => $url) {
-			$res .= ($with_home_link ? ($index == 1 ? ' : ' : ' &rsaquo; ') : ' ').($url ? '<a href="'.$url.'">' : '').$element.($url ? '</a>' : '');
+			$res .= ($with_home_link ? ($index == 1 ? ' : ' : ' &rsaquo; ') : ($index == 0 ? ' ' : ' &rsaquo; ')).
+				($url ? '<a href="'.$url.'">' : '').$element.($url ? '</a>' : '');
 			$index++;
 		}
 		$res .= '</h2>';

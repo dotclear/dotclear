@@ -202,14 +202,14 @@ if ($dir && $core->auth->isSuperAdmin() && !empty($_POST['rebuild']))
 # DISPLAY confirm page for rmdir & rmfile
 if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 {
-	call_user_func($open_f,__('Media manager'));
-	
-	dcPage::breadcrumb(
-		array(
-			html::escapeHTML($core->blog->name) => '',
-			__('Media manager') => '',
-			'<span class="page-title">'.__('confirm removal').'</span>' => ''
-		));
+	call_user_func($open_f,__('Media manager'),'',
+		dcPage::breadcrumb(
+			array(
+				html::escapeHTML($core->blog->name) => '',
+				__('Media manager') => '',
+				'<span class="page-title">'.__('confirm removal').'</span>' => ''
+			),!$popup)
+	);
 	
 	echo
 	'<form action="'.html::escapeURL($page_url).'" method="post">'.
@@ -231,9 +231,35 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 
+
+if (!isset($core->media)) {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.__('Media manager').'</span>' => ''
+		),!$popup);
+} else {
+	$breadcrumb_media = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s','<span class="page-title">%s</span>');
+	if ($breadcrumb_media == '') {
+		$breadcrumb = dcPage::breadcrumb(
+			array(
+				html::escapeHTML($core->blog->name) => '',
+				'<span class="page-title">'.__('Media manager').'</span>' => ''
+			),!$popup);
+	} else {
+		$breadcrumb = dcPage::breadcrumb(
+			array(
+				html::escapeHTML($core->blog->name) => '',
+				__('Media manager') => html::escapeURL($page_url.'&d='),
+				$breadcrumb_media => ''
+			),!$popup);
+	}
+}
+
 call_user_func($open_f,__('Media manager'),
 	dcPage::jsLoad('js/_media.js').
-	($core_media_writable ? dcPage::jsUpload(array('d='.$d)) : '')
+	($core_media_writable ? dcPage::jsUpload(array('d='.$d)) : ''),
+	$breadcrumb
 	);
 
 if (!empty($_GET['mkdok'])) {
@@ -258,30 +284,6 @@ if (!empty($_GET['rebuildok'])) {
 
 if (!empty($_GET['unzipok'])) {
 	dcPage::message(__('Zip file has been successfully extracted.'));
-}
-
-if (!isset($core->media)) {
-	dcPage::breadcrumb(
-		array(
-			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Media manager').'</span>' => ''
-		));
-} else {
-	$breadcrumb = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s','<span class="page-title">%s</span>');
-	if ($breadcrumb == '') {
-		dcPage::breadcrumb(
-			array(
-				html::escapeHTML($core->blog->name) => '',
-				'<span class="page-title">'.__('Media manager').'</span>' => ''
-			));
-	} else {
-		dcPage::breadcrumb(
-			array(
-				html::escapeHTML($core->blog->name) => '',
-				__('Media manager') => html::escapeURL($page_url.'&d='),
-				$breadcrumb => ''
-			));
-	}
 }
 
 if (!$dir) {

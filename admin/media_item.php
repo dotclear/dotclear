@@ -174,7 +174,13 @@ if ($popup) {
 call_user_func($open_f,__('Media manager'),
 	$starting_scripts.
 	dcPage::jsDatePicker().
-	dcPage::jsPageTabs($tab)
+	dcPage::jsPageTabs($tab),
+	dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			__('Media manager') => html::escapeURL($media_page_url),
+			$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').'<span class="page-title">'.$file->basename.'</span>' => ''
+		),!$popup)
 );
 
 if ($file === null) {
@@ -188,13 +194,6 @@ if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
 if (!empty($_GET['thumbupd'])) {
 	dcPage::message(__('Thumbnails have been successfully updated.'));
 }
-
-dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		__('Media manager') => html::escapeURL($media_page_url),
-		$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').'<span class="page-title">'.$file->basename.'</span>' => ''
-	));
 
 # Insertion popup
 if ($popup)
