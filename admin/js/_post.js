@@ -148,6 +148,7 @@ $(function() {
 		var h = document.createElement('h4');
 		var a = document.createElement('a');
 		a.href = '#';
+		a.className = 'button';
 		$(a).click(function() {
 			var params = {
 				xd_check: dotclear.nonce,

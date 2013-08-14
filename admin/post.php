@@ -132,14 +132,14 @@ if (!empty($_REQUEST['id']))
 		
 		if ($next_rs !== null) {
 			$next_link = sprintf($post_link,$next_rs->post_id,
-				html::escapeHTML($next_rs->post_title),__('next entry').'&nbsp;&#187;');
+				html::escapeHTML($next_rs->post_title),__('Next entry').'&nbsp;&#187;');
 			$next_headlink = sprintf($post_headlink,'next',
 				html::escapeHTML($next_rs->post_title),$next_rs->post_id);
 		}
 		
 		if ($prev_rs !== null) {
 			$prev_link = sprintf($post_link,$prev_rs->post_id,
-				html::escapeHTML($prev_rs->post_title),'&#171;&nbsp;'.__('previous entry'));
+				html::escapeHTML($prev_rs->post_title),'&#171;&nbsp;'.__('Previous entry'));
 			$prev_headlink = sprintf($post_headlink,'previous',
 				html::escapeHTML($prev_rs->post_title),$prev_rs->post_id);
 		}
@@ -336,16 +336,16 @@ if (!empty($_GET['xconv']))
 if ($post_id) {
 	switch ($post_status) {
 		case 1:
-			$img_status = sprintf($img_status_pattern,__('published'),'check-on.png');
+			$img_status = sprintf($img_status_pattern,__('Published'),'check-on.png');
 			break;
 		case 0:
-			$img_status = sprintf($img_status_pattern,__('unpublished'),'check-off.png');
+			$img_status = sprintf($img_status_pattern,__('Unpublished'),'check-off.png');
 			break;
 		case -1:
-			$img_status = sprintf($img_status_pattern,__('scheduled'),'scheduled.png');
+			$img_status = sprintf($img_status_pattern,__('Scheduled'),'scheduled.png');
 			break;
 		case -2:
-			$img_status = sprintf($img_status_pattern,__('pending'),'check-wrn.png');
+			$img_status = sprintf($img_status_pattern,__('Pending'),'check-wrn.png');
 			break;
 		default:
 			$img_status = '';
@@ -361,7 +361,7 @@ dcPage::breadcrumb(
 	));
 
 if ($post_id && $post->post_status == 1) {
-	echo '<p><a class="preview_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
+	echo '<p><a class="onblog_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
 }
 if ($post_id)
 {
@@ -393,11 +393,12 @@ if ($can_edit_post)
 	echo '<div id="entry-content"><div class="constrained">';
 	
 	echo
-	'<p class="col"><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
+	'<p class="col"><label class="required no-margin"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
 	'</p>'.
 	
-	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'</label> '.
+	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'<span class="form-note">'.
+	__('Add an introduction to the post.').'</span></label> '.
 	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 	'</p>'.
 	
@@ -406,7 +407,8 @@ if ($can_edit_post)
 	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
 	'</p>'.
 	
-	'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'</label>'.
+	'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'<span class="form-note">'.
+	__('Add unpublished notes.').'</span></label>'.
 	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 	'</p>';
 	
@@ -414,7 +416,7 @@ if ($can_edit_post)
 	$core->callBehavior('adminPostForm',isset($post) ? $post : null);
 	
 	echo
-	'<p>'.
+	'<p class="border-top">'.
 	($post_id ? form::hidden('id',$post_id) : '').
 	'<input type="submit" value="'.__('Save').' (s)" '.
 	'accesskey="s" name="save" /> ';
@@ -440,10 +442,6 @@ if ($can_edit_post)
 	echo '<div id="entry-sidebar">';
 	
 	echo
-	'<p><label for="cat_id">'.__('Category:').
-	form::combo('cat_id',$categories_combo,$cat_id,'maximal').
-	'</label></p>'.
-	
 	'<p><label for="post_status">'.__('Entry status:').
 	form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
 	'</label></p>'.
@@ -453,10 +451,14 @@ if ($can_edit_post)
 	'</label></p>'.
 	
 	'<p><label for="post_format">'.__('Text formating:').
-	form::combo('post_format',$formaters_combo,$post_format).
+	form::combo('post_format',$formaters_combo,$post_format,'maximal').
 	'</label>'.
 	'</p>'.
-	'<p>'.($post_id && $post_format != 'xhtml' ? '<a id="convert-xhtml" class="button" href="post.php?id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').'</p>'.
+	'<p>'.($post_id && $post_format != 'xhtml' ? '<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').'</p>'.
+	
+	'<p class="border-top"><label for="cat_id">'.__('Category:').
+	form::combo('cat_id',$categories_combo,$cat_id,'maximal').
+	'</label></p>'.
 	
 	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment).' '.
 	__('Accept comments').'</label></p>'.
@@ -527,10 +529,10 @@ if ($post_id)
 	$combo_action = array();
 	if ($can_edit_post && $core->auth->check('publish,contentadmin',$core->blog->id))
 	{
-		$combo_action[__('publish')] = 'publish';
-		$combo_action[__('unpublish')] = 'unpublish';
-		$combo_action[__('mark as pending')] = 'pending';
-		$combo_action[__('mark as junk')] = 'junk';
+		$combo_action[__('Publish')] = 'publish';
+		$combo_action[__('Unpublish')] = 'unpublish';
+		$combo_action[__('Mark as pending')] = 'pending';
+		$combo_action[__('Mark as junk')] = 'junk';
 	}
 	
 	if ($can_edit_post && $core->auth->check('delete,contentadmin',$core->blog->id))
