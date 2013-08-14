@@ -23,7 +23,7 @@ class attachmentAdmin
 			$core =& $GLOBALS['core'];
 			$post_media = $core->media->getPostMedia($post->post_id);
 			echo
-			'<h3 class="clear">'.__('Attachments').'</h3>';
+			'<h5 class="clear">'.__('Attachments').'</h5>';
 			foreach ($post_media as $f)
 			{
 				$ftitle = $f->media_title;
@@ -52,7 +52,7 @@ class attachmentAdmin
 			unset($f);
 			
 			if (empty($post_media)) {
-				echo '<p>'.__('No attachment.').'</p>';
+				echo '<p class="form-note">'.__('No attachment.').'</p>';
 			} else {
 			}
 			echo '<p><a class="button" href="media.php?post_id='.$post->post_id.'">'.__('Add files to this entry').'</a></p>';

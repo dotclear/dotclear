@@ -2982,3 +2982,8 @@ msgstr "Ajoute une introduction au billet."
 msgid "Add unpublished notes."
 msgstr "Ajoute des notes non publiées."
 
+msgid "Edit basename:"
+msgstr "Modifier l'URL spécifique :"
+
+msgid "Protect with password"
+msgstr "Protéger par un mot de passe"
