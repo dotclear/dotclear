@@ -246,17 +246,24 @@ if ($action == 'category')
 {
 	echo '<h2 class="page-title">'.__('Change category for entries').'</h2>';
 	
-	# categories list
 	# Getting categories
-	$categories_combo = array('&nbsp;' => '');
+	$categories_combo = array(__('(No cat)') => '');
 	try {
 		$categories = $core->blog->getCategories(array('post_type'=>'post'));
-		while ($categories->fetch()) {
-			$categories_combo[] = new formSelectOption(
-				str_repeat('&nbsp;&nbsp;',$categories->level-1).
-				($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-				$categories->cat_id
-			);
+		if (!$categories->isEmpty()) {
+			$l = $categories->level;
+			$full_name = array($categories->cat_title);
+
+			while ($categories->fetch()) {
+				if ($categories->level < $l) {
+					$full_name = array();
+				} elseif ($categories->level == $l) {
+					array_pop($full_name);
+				}
+				$full_name[] = html::escapeHTML($categories->cat_title);
+				$categories_combo[implode(' / ',$full_name)] = $categories->cat_id;
+				$l = $categories->level;
+			}
 		}
 	} catch (Exception $e) { }
 	
