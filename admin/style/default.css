@@ -496,7 +496,7 @@ abbr {
 	/*background: #eef;*/
 	border-collapse: collapse;
 }
-#dashboard-items div {
+.db-item {
 	display: table-cell;
 	padding: 1em 3em;
 	vertical-align: top;

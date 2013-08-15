@@ -286,7 +286,7 @@ foreach ($__dashboard_items as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardItems .= '<div>';
+		$dashboardItems .= '<div class="db-item">';
 		foreach ($i as $v) {
 			$dashboardItems .= $v;
 		}
