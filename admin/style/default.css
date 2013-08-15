@@ -384,9 +384,6 @@ abbr {
 	font-variant: small-caps;
 	padding-top: .6rem;
 }
-#favorites-menu a {
-	color: #333;
-}
 /* ------------------------------------------------------------------ footer */
 #footer {
 	clear: both;
@@ -470,7 +467,7 @@ abbr {
 	border-radius: 1.6rem;
 	box-shadow: 0 3px 3px 0 #ccc;
 }
-#icons a img:hover {
+#icons a img:hover, #icons a:focus img {
 	background-color: #BBDB58;
 }
 #icons a:focus span, #icons a:hover span {
@@ -491,16 +488,15 @@ abbr {
 	color: #666;
 }
 #dashboard-items {
-	margin: 2em auto;
+	margin: 3em auto;
 	display: table;
-	/*background: #eef;*/
 	border-collapse: collapse;
 }
 .db-item {
 	display: table-cell;
 	padding: 1em 3em;
 	vertical-align: top;
-	border: 1px dashed #A2CBE9;
+	border: 1px solid #ccc;
 }
 #dashboard-items img {
 	vertical-align: middle;
