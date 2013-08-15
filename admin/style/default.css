@@ -1510,7 +1510,8 @@ input[type=button] {
 	Media queries vite fait en attendant la reprise complète du layout
 ---------------------------------------------------------------------------- */
 @media screen and (max-width: 920px) {
-	#top, #top h1 a {width: 42px !important; height:100%; overflow: hidden;}
+	#top, #top h1 a {width: 42px !important; height:100%; overflow: hidden;
+}
 	#top h1 a:link {
 		background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px; 
 		border-right: 1px solid #ccc;
@@ -1528,6 +1529,7 @@ input[type=button] {
 		padding:0;
 		line-height: 3.2rem;
 	}
+	#info-box1 {margin-left: 1rem;}
 	#info-box1 select {width: 14rem;}
 	#main-menu, #main, #content, #content h2, #entry-wrapper, #entry-sidebar, #entry-content, .two-cols .col, .two-cols .col:first-child {
     	display:block;
@@ -1546,14 +1548,15 @@ input[type=button] {
 @media screen and (max-width: 720px) {
 	.smallscreen {display: none;}
 	#help-button {width:20px; overflow: hidden;}
-	#info-box1 {margin-left: 1rem;}
-	#dashboard-items div {display: block;margin-bottom: 1em}
+	#info-box2 {float:none;}
+	#dashboard-items div {display: block;margin-bottom: 1em; padding: 0 1em;}
 }
 @media screen and (max-width: 492px) {
 	#header {height:3.6rem;}
 	#wrapper {font-size: 1.6rem;}
 	.page-title, #info-boxes, .media-item {display: inline-block;}
 	div.media-list .media-item {width: 90%; float: none}
+	#info-box1 select {width: 12rem; margin-right: .6rem;}
 	#info-box1 p.nomobile, label.nomobile {display: none;}
 	#help-button {height:26px; width:26px; background-color: #A2CBE9; padding: 0; margin:0;font-size: 1rem;line-height: 68px}
 }
