@@ -382,6 +382,7 @@ abbr {
 #favorites-menu h3 {
 	color: #000;
 	font-variant: small-caps;
+	padding-top: .6rem;
 }
 #favorites-menu a {
 	color: #333;
@@ -437,15 +438,7 @@ abbr {
 
 /* ------------------------------------------------------------------ dashboard */
 #dashboard-main {
-	float: left;
-	overflow: hidden;
-	padding: 1em 2% 1em 0;
-	width: 70%;
-}
-#dashboard-main.fullwidth {
-	width: 100%;
 	padding: 1em 0;
-	float: none;
 }
 #icons {
 	overflow: hidden;
@@ -455,8 +448,10 @@ abbr {
 #icons p {
 	width: 210px;
 	text-align: center;
-	margin: 2em 0;
+	margin: 1em 0;
+	padding: 1em 0;
 	display:inline-block;
+	vertical-align: top;
 }
 #icons a,
 #icons a:link,
@@ -469,11 +464,19 @@ abbr {
 #icons a span {
 	border-bottom: 1px dotted #f90;
 }
+#icons a img {
+	padding: 2em;
+	background: #eee;
+	border-radius: 1.6rem;
+	box-shadow: 0 3px 3px 0 #ccc;
+}
+#icons a img:hover {
+	background-color: #BBDB58;
+}
 #icons a:focus span, #icons a:hover span {
 	text-decoration: underline;
 }
 #quick {
-	clear: left;
 	margin-top: 2em;
 }
 #quick h3 {
@@ -488,11 +491,16 @@ abbr {
 	color: #666;
 }
 #dashboard-items {
-	float: left;
-	width: 27%;
-	overflow: hidden;
-	padding-bottom: 1em;
-	padding-top: 3em;
+	margin: 2em auto;
+	display: table;
+	/*background: #eef;*/
+	border-collapse: collapse;
+}
+#dashboard-items div {
+	display: table-cell;
+	padding: 1em 3em;
+	vertical-align: top;
+	border: 1px dashed #A2CBE9;
 }
 #dashboard-items img {
 	vertical-align: middle;
@@ -1539,6 +1547,7 @@ input[type=button] {
 	.smallscreen {display: none;}
 	#help-button {width:20px; overflow: hidden;}
 	#info-box1 {margin-left: 1rem;}
+	#dashboard-items div {display: block;margin-bottom: 1em}
 }
 @media screen and (max-width: 492px) {
 	#header {height:3.6rem;}

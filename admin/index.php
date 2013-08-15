@@ -120,22 +120,7 @@ if (!$count) {
 # Latest news for dashboard
 $__dashboard_items = new ArrayObject(array(new ArrayObject,new ArrayObject));
 
-# Documentation links
 $dashboardItem = 0;
-if ($core->auth->user_prefs->dashboard->doclinks) {
-	if (!empty($__resources['doc']))
-	{
-		$doc_links = '<h3>'.__('Documentation and support').'</h3><ul>';
-	
-		foreach ($__resources['doc'] as $k => $v) {
-			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' '.__('(external link)').'">'.$k.'</a></li>';
-		}
-	
-		$doc_links .= '</ul>';
-		$__dashboard_items[$dashboardItem][] = $doc_links;
-		$dashboardItem++;
-	}
-}
 
 if ($core->auth->user_prefs->dashboard->dcnews) {
 	try
@@ -177,6 +162,22 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 		}
 	}
 	catch (Exception $e) {}
+}
+
+# Documentation links
+if ($core->auth->user_prefs->dashboard->doclinks) {
+	if (!empty($__resources['doc']))
+	{
+		$doc_links = '<h3>'.__('Documentation and support').'</h3><ul>';
+	
+		foreach ($__resources['doc'] as $k => $v) {
+			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' '.__('(external link)').'">'.$k.'</a></li>';
+		}
+	
+		$doc_links .= '</ul>';
+		$__dashboard_items[$dashboardItem][] = $doc_links;
+		$dashboardItem++;
+	}
 }
 
 $core->callBehavior('adminDashboardItems', $core, $__dashboard_items);
