@@ -25,7 +25,7 @@ class themeEditorBehaviors
 	public static function theme_editor_details($core,$id)
 	{
 		if ($id != 'default' && $core->auth->isSuperAdmin()) {
-			return '<p><a href="plugin.php?p=themeEditor" class="button">'.__('Theme Editor').'</a></p>';
+			return '<p><a href="plugin.php?p=themeEditor" class="button">'.__('Edit theme files').'</a></p>';
 		}
 	}
 

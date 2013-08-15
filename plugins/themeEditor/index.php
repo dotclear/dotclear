@@ -60,7 +60,7 @@ catch (Exception $e)
 
 <html>
 <head>
-  <title><?php echo __('Theme Editor'); ?></title>
+  <title><?php echo __('Edit theme files'); ?></title>
   <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/style.css" />
   <script type="text/javascript">
   //<![CDATA[
@@ -90,7 +90,7 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Blog appearance') => 'blog_theme.php',
-		'<span class="page-title">'.__('Theme Editor').'</span>' => ''
+		'<span class="page-title">'.__('Edit theme files').'</span>' => ''
 	));
 ?>
 

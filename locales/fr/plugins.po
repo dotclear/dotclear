@@ -1925,3 +1925,5 @@ msgstr "Préférences utilisateur"
 msgid "Global preferences"
 msgstr "Préférences globales"
 
+msgid "Edit theme files"
+msgstr "Modifier les fichiers du thème"
