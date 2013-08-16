@@ -515,8 +515,8 @@ if ($file->editable && $core_media_writable)
 		'<li><strong>'.__('Extract in current directory').'</strong> : '.
 		__('This will extract archive in current directory and will overwrite existing files or directory.').'</li>'.
 		'</ul>'.
-		'<p><label for="inflate_mode" class="classic">'.__('Extract mode:').' '.
-		form::combo('inflate_mode',$inflate_combo,'new').'</label> '.
+		'<p><label for="inflate_mode" class="classic">'.__('Extract mode:').'</label> '.
+		form::combo('inflate_mode',$inflate_combo,'new').
 		'<input type="submit" name="unzip" value="'.__('Extract').'" />'.
 		form::hidden(array('id'),$id).
 		$core->formNonce().'</p>'.
@@ -526,16 +526,16 @@ if ($file->editable && $core_media_writable)
 	echo
 	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
 	'<fieldset><legend>'.__('Change media properties').'</legend>'.
-	'<p><label for="media_file">'.__('File name:').
-	form::field('media_file',30,255,html::escapeHTML($file->basename)).'</label></p>'.
-	'<p><label for="media_title">'.__('File title:').
-	form::field('media_title',30,255,html::escapeHTML($file->media_title)).'</label></p>'.
-	'<p><label for="media_dt">'.__('File date:').
-	form::field('media_dt',16,16,html::escapeHTML($file->media_dtstr)).'</label></p>'.
+	'<p><label for="media_file">'.__('File name:').'</label>'.
+	form::field('media_file',30,255,html::escapeHTML($file->basename)).'</p>'.
+	'<p><label for="media_title">'.__('File title:').'</label>'.
+	form::field('media_title',30,255,html::escapeHTML($file->media_title)).'</p>'.
+	'<p><label for="media_dt">'.__('File date:').'</label>'.
+	form::field('media_dt',16,16,html::escapeHTML($file->media_dtstr)).'</p>'.
 	'<p><label for="media_private" class="classic">'.form::checkbox('media_private',1,$file->media_priv).' '.
 	__('Private').'</label></p>'.
-	'<p><label for="media_path">'.__('New directory:').
-	form::combo('media_path',$dirs_combo,dirname($file->relname)).'</label></p>'.
+	'<p><label for="media_path">'.__('New directory:').'</label>'.
+	form::combo('media_path',$dirs_combo,dirname($file->relname)).'</p>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	form::hidden(array('id'),$id).
 	$core->formNonce().'</p>'.

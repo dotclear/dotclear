@@ -319,21 +319,21 @@ if ($can_install && $step == 0)
 	
 	'<form action="index.php" method="post">'.
 	'<fieldset><legend>'.__('User information').'</legend>'.
-	'<p><label for="u_firstname">'.__('First Name:').' '.
-	form::field('u_firstname',30,255,html::escapeHTML($u_firstname)).'</label></p>'.
-	'<p><label for="u_name">'.__('Last Name:').' '.
-	form::field('u_name',30,255,html::escapeHTML($u_name)).'</label></p>'.
-	'<p><label for="u_email">'.__('Email:').' '.
-	form::field('u_email',30,255,html::escapeHTML($u_email)).'</label></p>'.
+	'<p><label for="u_firstname">'.__('First Name:').'</label> '.
+	form::field('u_firstname',30,255,html::escapeHTML($u_firstname)).'</p>'.
+	'<p><label for="u_name">'.__('Last Name:').'</label> '.
+	form::field('u_name',30,255,html::escapeHTML($u_name)).'</p>'.
+	'<p><label for="u_email">'.__('Email:').'</label> '.
+	form::field('u_email',30,255,html::escapeHTML($u_email)).'</p>'.
 	'</fieldset>'.
 	
 	'<fieldset><legend>'.__('Username and password').'</legend>'.
-	'<p><label for="u_login" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').' '.
-	form::field('u_login',30,32,html::escapeHTML($u_login)).'</label></p>'.
-	'<p><label for="u_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Password:').' '.
-	form::password('u_pwd',30,255).'</label></p>'.
-	'<p><label for="u_pwd2" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Confirm password:').' '.
-	form::password('u_pwd2',30,255).'</label></p>'.
+	'<p><label for="u_login" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').'</label> '.
+	form::field('u_login',30,32,html::escapeHTML($u_login)).'</p>'.
+	'<p><label for="u_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Password:').'</label> '.
+	form::password('u_pwd',30,255).'</p>'.
+	'<p><label for="u_pwd2" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Confirm password:').'</label> '.
+	form::password('u_pwd2',30,255).'</p>'.
 	'</fieldset>'.
 	
 	'<p><input type="submit" value="'.__('Save').'" /></p>'.

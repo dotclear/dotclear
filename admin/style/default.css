@@ -259,8 +259,7 @@ abbr {
 }
 /* -------------------------------------------------------------- layout - onglets */
 .part-tabs ul {
-	padding: .5em 0 .3em 0;
-	margin-left: 1em;
+	padding: .5em 0 .3em 1.2rem;
 	border-bottom: 1px solid #ddd;
 }
 .part-tabs li {
@@ -275,7 +274,7 @@ abbr {
 	border-bottom: none;
 	text-decoration: none;
 	color: #333;
-	background-color:#ededed;
+	background-color:#eef;
 }
 .part-tabs li a:hover, .part-tabs li a:focus {
 	color: #000;
@@ -538,7 +537,10 @@ abbr {
 }
 #entry-content {
 	margin-right: 19em;
-	margin-left: 1.2rem;
+	margin-left: 0;
+}
+.multi-part {
+	padding-left: 1.2rem;
 }
 #entry-content label {
 	text-transform: uppercase;
@@ -979,10 +981,10 @@ div.static-msg a, p.static-msg a {
 	color: #fff;
 }
 .nav_prevnext a, a.back {
-	border: 1px solid #eee;
+	border: 1px solid #ddd;
 	padding: .2rem 2rem;
 	border-radius: 1rem;
-	background-color: #eef;
+	background-color: #eee;
 }
 a.back:before {
 	content: "\ab\a0";
@@ -1438,7 +1440,7 @@ a.delete,
 input.delete,
 input[type=submit].delete {
 	color: #c00;
-	padding-bottom: .1em;
+	padding-bottom: .2rem;
 }
 #entry-content .delete {
 	margin-left: 1em;

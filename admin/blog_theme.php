@@ -306,10 +306,10 @@ if (!$theme_conf_mode)
 			'<form method="post" action="blog_theme.php" id="uploadpkg" enctype="multipart/form-data">'.
 			'<fieldset>'.
 			'<legend>'.__('Upload a zip file').'</legend>'.
-			'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file:').' '.
-			'<input type="file" name="pkg_file" id="pkg_file" /></label></p>'.
-			'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
-			form::password(array('your_pwd','your_pwd1'),20,255).'</label></p>'.
+			'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file:').'</label> '.
+			'<input type="file" name="pkg_file" id="pkg_file" /></p>'.
+			'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
+			form::password(array('your_pwd','your_pwd1'),20,255).'</p>'.
 			'<input type="submit" name="upload_pkg" value="'.__('Upload theme').'" />'.
 			$core->formNonce().
 			'</fieldset>'.
@@ -320,10 +320,10 @@ if (!$theme_conf_mode)
 			'<form method="post" action="blog_theme.php" id="fetchpkg">'.
 			'<fieldset>'.
 			'<legend>'.__('Download a zip file').'</legend>'.
-			'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file URL:').' '.
-			form::field(array('pkg_url','pkg_url'),40,255).'</label></p>'.
-			'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
-			form::password(array('your_pwd','your_pwd2'),20,255).'</label></p>'.
+			'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file URL:').'</label> '.
+			form::field(array('pkg_url','pkg_url'),40,255).'</p>'.
+			'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
+			form::password(array('your_pwd','your_pwd2'),20,255).'</p>'.
 			'<input type="submit" name="fetch_pkg" value="'.__('Download theme').'" />'.
 			$core->formNonce().
 			'</fieldset>'.

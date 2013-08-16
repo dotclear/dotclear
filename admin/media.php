@@ -316,8 +316,8 @@ else
 	
 	echo
 	'<form action="media.php" method="get">'.
-	'<p><label for="file_sort" class="classic">'.__('Sort files:').' '.
-	form::combo('file_sort',$sort_combo,$file_sort).'</label>'.
+	'<p><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
+	form::combo('file_sort',$sort_combo,$file_sort).
 	form::hidden(array('popup'),$popup).
 	form::hidden(array('post_id'),$post_id).
 	'<input type="submit" value="'.__('Sort').'" /></p>'.
@@ -398,8 +398,8 @@ if ($core_media_writable)
 	'<fieldset id="new-dir-f">'.
 	'<legend>'.__('New directory').'</legend>'.
 	$core->formNonce().
-	'<p><label for="newdir">'.__('Directory Name:').
-	form::field(array('newdir','newdir'),35,255).'</label></p>'.
+	'<p><label for="newdir">'.__('Directory Name:').'</label>'.
+	form::field(array('newdir','newdir'),35,255).'</p>'.
 	'<p><input type="submit" value="'.__('Create').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
 	'</fieldset>'.

@@ -39,13 +39,13 @@ unset($rs);
 
 echo
 '<form id="link-insert-form" action="#" method="get">'.
-'<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Link URL:').' '.
-form::field('href',35,512,html::escapeHTML($href)).'</label></p>'.
-'<p><label>'.__('Link title:').' '. 
-form::field('title',35,512,html::escapeHTML($title)).'</label></p>'. 
-'<p><label>'.__('Link language:').' '.
+'<p><label class="required" for="href"><abbr title="'.__('Required field').'">*</abbr> '.__('Link URL:').'</label> '.
+form::field('href',35,512,html::escapeHTML($href)).'</p>'.
+'<p><label for="title">'.__('Link title:').'</label> '. 
+form::field('title',35,512,html::escapeHTML($title)).'</p>'. 
+'<p><label for="hreflang">'.__('Link language:').'</label> '.
 form::combo('hreflang',$lang_combo,$hreflang).
-'</label></p>'.
+'</p>'.
 
 '</form>'.
 

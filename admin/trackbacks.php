@@ -126,12 +126,12 @@ if (!empty($_GET['auto'])) {
 echo
 '<h3>'.__('Ping blogs').'</h3>'.
 '<form action="trackbacks.php" id="trackback-form" method="post">'.
-'<p><label for="tb_urls" class="area">'.__('URLs to ping:').
+'<p><label for="tb_urls" class="area">'.__('URLs to ping:').'</label>'.
 form::textarea('tb_urls',60,5,$tb_urls).
-'</label></p>'.
+'</p>'.
 
-'<p><label for="tb_excerpt" class="area">'.__('Send excerpt:').
-form::textarea('tb_excerpt',60,3,$tb_excerpt).'</label></p>'.
+'<p><label for="tb_excerpt" class="area">'.__('Send excerpt:').'</label>'.
+form::textarea('tb_excerpt',60,3,$tb_excerpt).'</p>'.
 
 '<p>'.form::hidden('id',$id).
 $core->formNonce().
