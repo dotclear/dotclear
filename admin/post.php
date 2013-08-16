@@ -14,18 +14,104 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-function savePost($form) {
-	global $_ctx;
-	$_ctx->setAlert('save');
+class PostActions 
+{
+	public static function savePost($form) {
+		global $_ctx, $core;
+		try {
+			$form->check($_ctx);
+			$_ctx->setAlert('save');
+			$form->cat_id = (integer) $form->cat_id;
+	
+			if (!empty($form->post_dt)) {
+				try
+				{
+					$post_dt = strtotime($form->post_dt);
+					if ($post_dt == false || $post_dt == -1) {
+						$bad_dt = true;
+						throw new Exception(__('Invalid publication date'));
+					}
+					$form->post_dt = date('Y-m-d H:i',$post_dt);
+				}
+				catch (Exception $e)
+				{
+					$core->error->add($e->getMessage());
+				}
+			}
+			$post_excerpt = $form->post_excerpt;
+			$post_content = $form->post_content;
+			$post_excerpt_xhtml = '';
+			$post_content_xhtml = '';
+			$core->blog->setPostContent(
+				$form->id,$form->post_format,$form->post_lang,
+				$post_excerpt,$post_excerpt_xhtml,$post_content,$post_content_xhtml
+			);
+			$form->post_excerpt = $post_excerpt;
+			$form->post_content = $post_content;
+			$form->post_excerpt_xhtml = $post_excerpt_xhtml;
+			$form->post_content_xhtml = $post_content_xhtml;
+			
+			$cur = $core->con->openCursor($core->prefix.'post');
+	
+			$cur->post_title = $form->post_title;
+			$cur->cat_id = $form->cat_id ? $form->cat_id : null;
+			$cur->post_dt = $form->post_dt ? date('Y-m-d H:i:00',strtotime($form->post_dt)) : '';
+			$cur->post_format = $form->post_format;
+			$cur->post_password = $form->post_password;
+			$cur->post_lang = $form->post_lang;
+			$cur->post_title = $form->post_title;
+			$cur->post_excerpt = $form->post_excerpt;
+			$cur->post_excerpt_xhtml = $form->post_excerpt_xhtml;
+			$cur->post_content = $form->post_content;
+			$cur->post_content_xhtml = $form->post_content_xhtml;
+			$cur->post_notes = $form->post_notes;
+			$cur->post_status = $form->post_status;
+			$cur->post_selected = (integer) $form->post_selected;
+			$cur->post_open_comment = (integer) $form->post_open_comment;
+			$cur->post_open_tb = (integer) $form->post_open_tb;
+	
+			if (!empty($form->post_url)) {
+				$cur->post_url = $form->post_url;
+			}
+	
+			# Update post
+			if ($form->id)
+			{
+				# --BEHAVIOR-- adminBeforePostUpdate
+				$core->callBehavior('adminBeforePostUpdate',$cur,$form->id);
+				
+				$core->blog->updPost($form->id,$cur);
+				
+				# --BEHAVIOR-- adminAfterPostUpdate
+				$core->callBehavior('adminAfterPostUpdate',$cur,$form->id);
+				
+				http::redirect('post.php?id='.$form->id.'&upd=1');
+			}
+			else
+			{
+				$cur->user_id = $core->auth->userID();
+								# --BEHAVIOR-- adminBeforePostCreate
+				$core->callBehavior('adminBeforePostCreate',$cur);
+				
+				$return_id = $core->blog->addPost($cur);
+				
+				# --BEHAVIOR-- adminAfterPostCreate
+				$core->callBehavior('adminAfterPostCreate',$cur,$return_id);
+				
+				http::redirect('post.php?id='.$return_id.'&crea=1');
+			}
 
+	} catch (Exception $e) {
+		$ctx->setError($e->getMessage());
+	}
 }
-
-function deletePost($form) {
-	print_r($form); exit;
+	function deletePost($form) {
+		echo $form->id->getValue(); exit;
+	}
 }
 
 $page_title = __('New entry');
-
+$post_id='';
 $can_view_page = true;
 $can_edit_post = $core->auth->check('usage,contentadmin',$core->blog->id);
 $can_publish = $core->auth->check('publish,contentadmin',$core->blog->id);
@@ -66,13 +152,13 @@ foreach ($core->getFormaters() as $v) {
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
 $all_langs = l10n::getISOcodes(0,1);
-$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
+$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(0,1));
 while ($rs->fetch()) {
 	if (isset($all_langs[$rs->post_lang])) {
-		$lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
-		unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
+		$lang_combo[__('Most used')][$rs->post_lang] = $all_langs[$rs->post_lang];
+		unset($lang_combo[__('Available')][$rs->post_lang]);
 	} else {
-		$lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
+		$lang_combo[__('Most used')][$rs->post_lang] = $all_langs[$rs->post_lang];
 	}
 }
 unset($all_langs);
@@ -82,7 +168,7 @@ $form = new dcForm($core,'post','post.php');
 $form
 	->addField(
 		new dcFieldText('post_title','', array(
-			'size'		=> 20,
+			'maxlength'		=> 255,
 			'required'	=> true,
 			'label'		=> __('Title'))))
 	->addField(
@@ -99,7 +185,7 @@ $form
 			'label'		=> __("Notes"))))
 	->addField(
 		new dcFieldSubmit('save',__('Save'),array(
-			'action' => 'savePost')))
+			'action' => array('PostActions','savePost'))))
 	->addField(
 		new dcFieldSubmit('delete',__('Delete'),array(
 			'action' => 'deletePost')))
@@ -123,7 +209,7 @@ $form
 		new dcFieldCheckbox ('post_open_tb',$core->blog->settings->system->allow_trackbacks,array(
 			"label" => __('Accept trackbacks'))))
 	->addField(
-		new dcFieldCheckbox ('post_selected',false,array(
+		new dcFieldCheckbox ('post_selected',array(1=>false),array(
 			"label" => __('Selected entry'))))
 	->addField(
 		new dcFieldCombo ('post_lang',$core->auth->getInfo('user_lang'),$lang_combo, array(
@@ -224,11 +310,14 @@ if (!$can_edit_post) {
 if (!empty($_GET['co'])) {
 	$default_tab = 'comments';
 }
-
+$page_title_edit = __('Edit entry');
 $_ctx
-	->fillPageTitle(html::escapeHTML($core->blog->name))
-	->fillPageTitle(__('Entries'),'posts.php')
-	->fillPageTitle($page_title)
+	->setBreadCrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			__('Entries') => 'posts.php',
+			($post_id ? $page_title_edit : $page_title) => ''
+	))
 	->default_tab = $default_tab;
 
 $core->tpl->display('post.html.twig');

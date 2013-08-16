@@ -89,7 +89,7 @@ if (file_exists($p_file)) {
 }
 # No plugin or content found
 if (!$has_content) {
-	$_ctx->fillPageTitle(__('Plugin not found'));
+	$_ctx->setBreadcrumb(__('Plugin not found'));
 	$_ctx->addError(__('The plugin you reached does not exist or does not have an admin page.'));
 	$core->tpl->display('plugin.html.twig');
 }

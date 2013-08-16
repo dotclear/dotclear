@@ -186,7 +186,7 @@ $lposts
 $lposts->setup();
 
 $_ctx
-	->fillPageTitle(__('Entries'),'posts.php');
+	->setBreadCrumb(array(__('Entries') => 'posts.php'));
 
 
 $core->tpl->display('posts.html.twig');

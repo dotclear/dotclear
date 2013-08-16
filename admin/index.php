@@ -303,6 +303,6 @@ if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
 	);
 }
 
-$_ctx->fillPageTitle(__('Dashboard'));
+$_ctx->setBreadCrumb(__('Dashboard').' : '.html::escapeHTML($core->blog->name), false);
 $core->tpl->display('index.html.twig');
 ?>
