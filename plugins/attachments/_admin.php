@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$core->addBehavior ('adminPostFormSidebarItems',array('attachmentAdmin','adminPostFormSidebarItems'));
+$core->addBehavior ('adminPostFormItems',array('attachmentAdmin','adminPostFormItems'));
 $core->addBehavior ('adminPostAfterForm',array('attachmentAdmin','adminPostAfterForm'));
 $core->addBehavior('adminPostHeaders',array('attachmentAdmin','postHeaders'));
 
@@ -22,7 +22,7 @@ class attachmentAdmin
 		return 
 		'<script type="text/javascript" src="index.php?pf=attachments/js/post.js"></script>';
 	}
-	public static function adminPostFormSidebarItems($items,$post) 
+	public static function adminPostFormItems($main,$sidebar,$post) 
 	{
 		if ($post !== null)
 		{
@@ -60,7 +60,7 @@ class attachmentAdmin
 				$item .= '<p class="form-note s-attachments">'.__('No attachment.').'</p>';
 			} 
 			$item .= '<p class="s-attachments"><a class="button" href="media.php?post_id='.$post->post_id.'">'.__('Add files to this entry').'</a></p>';
-			$items['metas-box']['items']['attachments']= $item;
+			$sidebar['metas-box']['items']['attachments']= $item;
 		}
 	}
 	

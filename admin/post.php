@@ -383,68 +383,11 @@ if (!$can_view_page) {
 	dcPage::close();
 	exit;
 }
-
 /* Post form if we can edit post
 -------------------------------------------------------- */
 if ($can_edit_post)
 {
-	echo '<div class="multi-part" title="'.($post_id ? __('Edit entry') : __('New entry')).'" id="edit-entry">';
-	echo '<form action="post.php" method="post" id="entry-form">';
-	echo '<div id="entry-wrapper">';
-	echo '<div id="entry-content"><div class="constrained">';
-
-	echo '<h3 class="hidden">'.__('Edit post').'</h3>';
-	
-	echo
-	'<p class="col"><label class="required no-margin"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
-	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
-	'</p>'.
-	
-	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'<span class="form-note">'.
-	__('Add an introduction to the post.').'</span></label> '.
-	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
-	'</p>'.
-	
-	'<p class="area"><label class="required" '.
-	'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
-	'</p>'.
-	
-	'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'</label><span class="form-note">'.
-	__('Add unpublished notes.').'</span>'.
-	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
-	'</p>';
-	
-	# --BEHAVIOR-- adminPostForm
-	$core->callBehavior('adminPostForm',isset($post) ? $post : null);
-	
-	echo
-	'<p class="border-top">'.
-	($post_id ? form::hidden('id',$post_id) : '').
-	'<input type="submit" value="'.__('Save').' (s)" '.
-	'accesskey="s" name="save" /> ';
-	if ($post_id) {
-		$preview_url =
-		$core->blog->url.$core->url->getURLFor('preview',$core->auth->userID().'/'.
-		http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
-		'/'.$post->post_url);
-		echo '<a id="post-preview" href="'.$preview_url.'" class="button" accesskey="p">'.__('Preview').' (p)'.'</a> ';
-	} else {
-		echo
-		'<a id="post-cancel" href="index.php" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
-	}
-
-	echo
-	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
-	$core->formNonce().
-	'</p>';
-	
-	echo '</div></div>';		// End #entry-content
-	echo '</div>';		// End #entry-wrapper
-
-	echo '<div id="entry-sidebar">';
-	
-	$post_sidebar = new ArrayObject(array(
+	$sidebar_items = new ArrayObject(array(
 		'status-box' => array(
 			'title' => __('Status'),
 			'items' => array(
@@ -515,8 +458,78 @@ if ($can_edit_post)
 					__('Warning: If you set the URL manually, it may conflict with another entry.').
 					'</p></div>'
 	))));
-	$core->callBehavior('adminPostFormSidebarItems',$post_sidebar, isset($post) ? $post : null);
-	foreach ($post_sidebar as $id => $c) {
+
+	$main_items = new ArrayObject(array(
+		"post_title" =>
+			'<p class="col">'.
+			'<label class="required no-margin"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
+			form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
+			'</p>',
+		
+		"post_excerpt" =>
+			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'<span class="form-note">'.
+			__('Add an introduction to the post.').'</span></label> '.
+			form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
+			'</p>',
+		
+		"post_content" =>
+			'<p class="area"><label class="required" '.
+			'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
+			form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
+			'</p>',
+		
+		"post_notes" =>
+			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'</label><span class="form-note">'.
+			__('Add unpublished notes.').'</span>'.
+			form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
+			'</p>'
+		)
+	);
+	
+	# --BEHAVIOR-- adminPostFormItems
+	$core->callBehavior('adminPostFormItems',$main_items,$sidebar_items, isset($post) ? $post : null);
+
+	echo '<div class="multi-part" title="'.($post_id ? __('Edit entry') : __('New entry')).'" id="edit-entry">';
+	echo '<form action="post.php" method="post" id="entry-form">';
+	echo '<div id="entry-wrapper">';
+	echo '<div id="entry-content"><div class="constrained">';
+
+	echo '<h3 class="hidden">'.__('Edit post').'</h3>';
+	
+	foreach ($main_items as $id => $item) {
+		echo $item;
+	}
+
+	# --BEHAVIOR-- adminPostForm (may be deprecated)
+	$core->callBehavior('adminPostForm',isset($post) ? $post : null);
+	
+	echo
+	'<p class="border-top">'.
+	($post_id ? form::hidden('id',$post_id) : '').
+	'<input type="submit" value="'.__('Save').' (s)" '.
+	'accesskey="s" name="save" /> ';
+	if ($post_id) {
+		$preview_url =
+		$core->blog->url.$core->url->getURLFor('preview',$core->auth->userID().'/'.
+		http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
+		'/'.$post->post_url);
+		echo '<a id="post-preview" href="'.$preview_url.'" class="button" accesskey="p">'.__('Preview').' (p)'.'</a> ';
+	} else {
+		echo
+		'<a id="post-cancel" href="index.php" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
+	}
+
+	echo
+	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
+	$core->formNonce().
+	'</p>';
+	
+	echo '</div></div>';		// End #entry-content
+	echo '</div>';		// End #entry-wrapper
+
+	echo '<div id="entry-sidebar">';
+	
+	foreach ($sidebar_items as $id => $c) {
 		echo '<div id="'.$id.'" class="box">'.
 			'<h4>'.$c['title'].'</h4>';
 		foreach ($c['items'] as $e_name=>$e_content) {
@@ -526,7 +539,7 @@ if ($can_edit_post)
 	}
 	
 	
-	# --BEHAVIOR-- adminPostFormSidebar
+	# --BEHAVIOR-- adminPostFormSidebar (may be deprecated)
 	$core->callBehavior('adminPostFormSidebar',isset($post) ? $post : null);
 	echo '</div>';		// End #entry-sidebar
 

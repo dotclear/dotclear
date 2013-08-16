@@ -40,7 +40,7 @@ class pingsBehaviors
 		return $res;
 	}
 	
-	public static function pingsFormItems($items,$post)
+	public static function pingsFormItems($main,$sidebar,$post)
 	{
 		$core =& $GLOBALS['core'];
 		if (!$core->blog->settings->pings->pings_active) {
@@ -68,7 +68,7 @@ class pingsBehaviors
 			html::escapeHTML($k).'</label></p>';
 			$i++;
 		}
-		$items['options-box']['items']['pings']=$item;
+		$sidebar['options-box']['items']['pings']=$item;
 		
 	}
 	

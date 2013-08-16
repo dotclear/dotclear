@@ -17,7 +17,7 @@ $_menu['Blog']->addItem(__('Tags'),'plugin.php?p=tags&amp;m=tags','index.php?pf=
 
 require dirname(__FILE__).'/_widgets.php';
 
-$core->addBehavior('adminPostFormSidebarItems',array('tagsBehaviors','tagsField'));
+$core->addBehavior('adminPostFormItems',array('tagsBehaviors','tagsField'));
 
 $core->addBehavior('adminAfterPostCreate',array('tagsBehaviors','setTags'));
 $core->addBehavior('adminAfterPostUpdate',array('tagsBehaviors','setTags'));
@@ -70,7 +70,7 @@ class tagsBehaviors
 		return $res;
 	}
 	
-	public static function tagsField($items,$post)
+	public static function tagsField($main,$sidebar,$post)
 	{
 		$meta =& $GLOBALS['core']->meta;
 		
@@ -79,7 +79,7 @@ class tagsBehaviors
 		} else {
 			$value = ($post) ? $meta->getMetaStr($post->post_meta,'tag') : '';
 		}
-		$items['metas-box']['items']['post_tags']=
+		$sidebar['metas-box']['items']['post_tags']=
 		'<h5><label class="s-tags" for="post_tags">'.__('Tags').'</label></h5>'.
 		'<div class="p s-tags" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal').'</div>';
 	}
