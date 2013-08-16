@@ -226,13 +226,13 @@ if (!empty($dc_langs) && $is_writable)
 	'<legend>'.__('Available languages').'</legend>'.
 	'<p>'.sprintf(__('You can download and install a additional language directly from Dotclear.net. '.
 	'Proposed languages are based on your version: %s.'),'<strong>'.DC_VERSION.'</strong>').'</p>'.
-	'<p class="field"><label for="pkg_url" class="classic">'.__('Language:').' '.
-	form::combo(array('pkg_url'),$dc_langs_combo).'</label></p>'.
-	'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
-	form::password(array('your_pwd','your_pwd1'),20,255).'</label></p>'.
-	'<input type="submit" value="'.__('Install language').'" />'.
+	'<p class="field"><label for="pkg_url" class="classic">'.__('Language:').'</label> '.
+	form::combo(array('pkg_url'),$dc_langs_combo).'</p>'.
+	'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
+	form::password(array('your_pwd','your_pwd1'),20,255).'</p>'.
+	'<p><input type="submit" value="'.__('Install language').'" />'.
 	$core->formNonce().
-	'</fieldset>'.
+	'</p></fieldset>'.
 	'</form>';
 }
 
@@ -244,13 +244,13 @@ if ($is_writable)
 	'<fieldset>'.
 	'<legend>'.__('Upload a zip file').'</legend>'.
 	'<p>'.__('You can install languages by uploading zip files.').'</p>'.
-	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Language zip file:').' '.
-	'<input type="file" id="pkg_file" name="pkg_file" /></label></p>'.
-	'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
-	form::password(array('your_pwd','your_pwd2'),20,255).'</label></p>'.
-	'<input type="submit" name="upload_pkg" value="'.__('Upload language').'" />'.
+	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Language zip file:').'</label> '.
+	'<input type="file" id="pkg_file" name="pkg_file" /></p>'.
+	'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
+	form::password(array('your_pwd','your_pwd2'),20,255).'</p>'.
+	'<p><input type="submit" name="upload_pkg" value="'.__('Upload language').'" />'.
 	$core->formNonce().
-	'</fieldset>'.
+	'</p></fieldset>'.
 	'</form>';
 }
 
