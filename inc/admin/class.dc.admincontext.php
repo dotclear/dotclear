@@ -353,6 +353,27 @@ class dcAdminContext extends Twig_Extension
 	}
 	
 	/**
+	Add a section to the breadcrumb
+	
+	$title can be: 
+	a string for page title part or 
+	TRUE to add blog name at the begining of title or
+	NULL to empty/reset title
+	
+	@param mixed $title A title part
+	@param boolean $url Link of the title part
+	@return object self
+	*/
+	public function appendBreadCrumbItem($title,$url='',$class='')
+	{
+		$this->protected_globals['page_title'][] = array(
+			'title' => $title,
+			'link' => $url,
+			'class' => $class
+		);
+	}
+	
+	/**
 	Fill the page title
 	
 	$title can be: 
@@ -364,20 +385,20 @@ class dcAdminContext extends Twig_Extension
 	@param boolean $url Link of the title part
 	@return object self
 	*/
-	public function fillPageTitle($title,$url='')
+	public function setBreadCrumb($breadcrumb, $with_home_link=true)
 	{
-		if (is_bool($title)) {
-			$this->protected_globals['page_global'] = $title;
+		if ($with_home_link) {
+			$this->appendBreadCrumbItem('<img src="style/dashboard.png" alt="" />','index.php','go_home');
+		} else {
+			$this->appendBreadCrumbItem('<img src="style/dashboard-alt.png" alt="" />'.$breadcrumb);
+			return $this;
 		}
-		elseif (null === $title) {
-			$this->protected_globals['page_global'] = false;
-			$this->protected_globals['page_title'] = array();
-		}
-		else {
-			$this->protected_globals['page_title'][] = array(
-				'title' => $title,
-				'link' => $url
-			);
+		if (is_array($breadcrumb)) {
+			foreach ($breadcrumb as $title => $bc) {
+				$this->appendBreadCrumbItem($title,$bc);
+			}
+		} else {
+			$this->appendBreadcrumbItem($breadcrumb);
 		}
 		return $this;
 	}

@@ -276,7 +276,7 @@ class dcFormExtension extends Twig_Extension
      */
 	public function renderField($name,$attributes=array(),$extra=array())
 	{
-		$field = $this->currentForm->$name;
+		$field = $this->currentForm->getField($name);
 		if ($field) {
 			$attr = $field->getAttributes($attributes);
 			if (isset($attr['attr'])) {
@@ -395,7 +395,10 @@ class dcForm
 	protected $hiddenfields;
 	/** @var array(dcField) list of form errors */
 	protected $errors;
-
+	/** @var array() list of form properties */
+	protected $properties;
+	
+	
     /**
      * Class constructor
      * 
@@ -419,11 +422,40 @@ class dcForm
 		$this->submitfields = array();
 		$this->hiddenfields = array();
 		$this->errors = array();
+		$this->properties = array();
 		if ($method == 'POST') {
 			$this->addNonce();
 		}
 	}
 
+	
+    /**
+     * setProperty - sets form property
+     * 
+     * @param string $name the property name.
+     * @param mixed $value the property value.
+     *
+     * @access public
+     */
+	public function setProperty($prop,$value) {
+		$this->properties[$prop]=$value;
+	}
+	
+    /**
+     * getProperty - gets form property
+     * 
+     * @param string $name the property name.
+	 *
+     * @return mixed the property value, null if no property found.
+     * @access public
+     */	
+	public function getProperty($prop) {
+		if (isset($this->properties[$prop])) {
+			return $this->properties[$prop];
+		} else {
+			return null;
+		}
+	}
     /**
      * addTemplate - Adds a template file to enrich form fields
      * 
@@ -532,6 +564,23 @@ class dcForm
 	}
 
     /**
+     * getField - retrieves a field form form
+     *
+     * @param string the field name
+     *
+     * @access public
+     *
+     * @return dcForm the requested field
+     */	
+	 public function getField($name) {
+		if (isset($this->fields[$name])) {
+			return $this->fields[$name];
+		} else {
+			return null;
+		}
+	}
+	
+    /**
      * removeField - removes a field
      *
      * @param mixed \dcField the field to remove.
@@ -633,8 +682,16 @@ class dcForm
      */
 	public function __get($name)
 	{
-		return isset($this->fields[$name]) ?
-			$this->fields[$name] : null;
+		if (isset($this->fields[$name])) {
+			$f = $this->fields[$name];
+			if ($f->isMultiple()) {
+				return $f->getValues();
+			} else {
+				return $f->getValue();
+			}
+		} else {
+			return $this->getProperty($name);
+		}
 	}
 
     /**
@@ -649,15 +706,16 @@ class dcForm
 	public function __set($name,$value)
 	{
 		if (isset($this->fields[$name])) {
-			$this->fields[$name]->setValue($value);
+			$f = $this->fields[$name];
+			if ($f->isMultiple()) {
+				$this->fields[$name]->setValues($value);
+			} else {
+				$this->fields[$name]->setValue($value);
+			}
+		} else {
+			$this->setProperty($name,$value);
 		}
 	}
-
-/*	public function isSubmitted()
-	{
-		$from = $this->method == 'POST' ? $_POST : $_GET;
-	}
-*/
 
     /**
      * setupFields - initializes form & fields from $_GET or $_POST
@@ -666,8 +724,10 @@ class dcForm
      */
 	protected function setupFields() {
 		$from = $this->method == 'POST' ? $_POST : $_GET;
-		foreach ($this->fields as $f) {
-			$f->setup($from);
+		if (!empty($from)) {
+			foreach ($this->fields as $f) {
+				$f->setup($from);
+			}
 		}
 	}
 
@@ -679,11 +739,19 @@ class dcForm
      * @access protected
      */
 	protected function handleActions($submitted) {
+		$hasActions = false;
 		foreach ($submitted as $f) {
 			$action = $f->getAction();
 			if ($action != NULL) {
+				if (!$hasActions) {
+					$this->core->callBehavior('coreBeforeFormSubmit',$this);
+				}
+				$hasActions = true;
 				$ret = call_user_func($action,$this);
 			}
+		}
+		if ($hasActions) {
+			$this->core->callBehavior('coreAfterFormSubmit',$this);
 		}
 	}
 
@@ -705,6 +773,22 @@ class dcForm
 	}
 
     /**
+     * isSubmitted - returns whether form has been submitted or not
+     *
+     * @access public
+     *
+     * @return boolean true if the form has been submitted.
+     */	
+	public function isSubmitted() {
+		foreach ($this->submitfields as $f) {
+			if ($f->isDefined()) {
+				return true;
+			}
+		}
+		return false;		
+	}
+	
+    /**
      * setup - sets up the form, given the parameters given to the page
      * 			should be called after fields have been defined.
      *
@@ -725,15 +809,20 @@ class dcForm
      *
      * @access public
      */
-	public function check()
+	public function check(dcAdminContext $ctx)
 	{
+		$valid = true;
 		foreach ($this->fields as $f) {
 			try {
 				$f->check();
 			}
 			catch (InvalidFieldException $e) {
-				$this->errors[] = $e->getMessage();
+				$valid = false;
+				$ctx->addError($e->getMessage());
 			}
+		}
+		if (!$valid) {
+			throw new InvalidFieldException ("Some fields are missing");
 		}
 	}
 
@@ -792,6 +881,28 @@ abstract class dcField implements Countable
 		$this->defined = false;
 		$this->multiple = (isset($options['multiple']) && $options['multiple']);
 
+	}
+
+    /**
+     * defines whether a field is multiple or not
+     *
+     * @param boolean true if the field is multiple
+	 *
+     * @access public
+     */
+	public function setMultiple($m=true) {
+		$this->multiple = $m;
+	}
+	
+    /**
+     * Returns whether can have multiple values or not
+     *
+     * @return boolean true if the field has multiple values
+	 *
+     * @access public
+     */
+	public function isMultiple($m=true) {
+		return $this->multiple;
 	}
 
     /**
@@ -904,6 +1015,9 @@ abstract class dcField implements Countable
 	
 	abstract public function getWidgetBlock();
 	
+	public function isEmpty() {
+		return (count($this->values) == 0) || empty($this->values[0]);
+	}
 
     /**
      * getAttributes - retrieve field attributes that will be given to the
@@ -976,11 +1090,13 @@ abstract class dcField implements Countable
      */
 	public function check()
 	{
-		if (!$this->defined && $this->options['mandatory']) {
-			throw new InvalidFieldException(sprintf(
-				'Field "%s" is mandatory',
-				$this->attributes['label'])
-			);
+		if (isset($this->options ['required']) && $this->options['required']) {
+			if (!$this->defined || $this->isEmpty()) {
+				throw new InvalidFieldException(sprintf(
+					'Field "%s" is mandatory',
+					$this->options['label'])
+				);
+			}
 		}
 	}
 
@@ -1087,13 +1203,69 @@ class dcFieldHidden extends dcField
  */
 class dcFieldCheckbox extends dcField
 {
+	protected $checked;
+	
+	public function __construct($name,$values,$options=array())
+	{
+		$val = array();
+		if (!is_array($values)) {
+			$values = array("1" => !empty($values));
+		}
+		$this->checked = $values;
+		parent::__construct($name,array_keys($values),$options);
+	}
+
+    /**
+     * setValue - sets field value
+     *
+     * @param mixed $value  field value.
+     * @param int   $offset value offset to define (default 0).
+     *
+     * @access public
+     */
+	public function setValue($value,$offset=0) {
+		$this->checked[$this->values[0]] = $value;
+	}
+	
+	public function getValue($offset=0) {
+		$val = parent::getValue($offset);
+		if (isset($this->checked[$val])) {
+			return $this->checked[$val]?$val:false;
+		} else {
+			return false;
+		}
+	}
+	
+	public function getAttributes($options)
+	{
+		$a = parent::getAttributes($options);
+		
+		$val = $a['value'];
+		if (isset($this->checked[$val]) && $this->checked[$val]) {
+			$a['checked']='checked';
+		}
+		return $a;
+	}
+
+	public function setup($from)
+	{
+		$values = $this->parseValues($from);
+		foreach ($this->checked as $k=>&$v) {
+			$v=false;
+		}
+		foreach ($values as $v) {
+			$this->checked[$v] = true;
+		}
+		$this->setValues(array_keys($this->checked));
+	}
+
 	public function getWidgetBlock()
 	{
 		return "field_checkbox";
 	}
 
 	public function getDefaultValue() {
-		return 0;
+		return false;
 	}
 }
 
@@ -1138,10 +1310,18 @@ class dcFieldSubmit extends dcFieldAction
 class dcFieldCombo extends dcField
 {
 	protected $combo;
+	protected $combo_values;
 
 	public function __construct($name,$value,$combo,$options=array())
 	{
 		$this->combo = $combo;
+		$this->combo_values = $combo;
+		foreach ($combo as $k=>$v) {
+			if (is_array($v)) {
+				unset($this->combo_values[$k]);
+				$this->combo_values = array_merge($v,$this->combo_values);
+			}
+		}
 		parent::__construct($name,$value,$options);
 	}
 
@@ -1160,8 +1340,9 @@ class dcFieldCombo extends dcField
 			$values = array($values);
 		}
 		foreach ($values as &$v) {
-			if (!isset($this->combo[$v]))
-			$v = $this->getDefaultValue();
+			if (!isset($this->combo_values[$v])) {
+				$v = $this->getDefaultValue();
+			}
 		}
 		return $values;
 	}

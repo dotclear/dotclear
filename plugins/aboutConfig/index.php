@@ -142,6 +142,6 @@ if (!empty($_GET['upda'])) {
 	$_ctx->setAlert(__('Settings definition successfully updated'));
 }
 $_ctx->default_tab = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
-$_ctx->fillPageTitle('about:config');
+$_ctx->setBreadCrumb('about:config');
 $core->tpl->display('@aboutConfig/index.html.twig');
 ?>

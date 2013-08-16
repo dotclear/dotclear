@@ -126,7 +126,8 @@ $(function() {
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
 			fn: function() { excerptTb.switchMode(formatField.value); },
 			cookie: 'dcx_post_excerpt',
-			hide: $('#post_excerpt').val() == ''
+			hide: $('#post_excerpt').val() == '',
+			legend_click: true
 		});
 		
 		// Load toolbars

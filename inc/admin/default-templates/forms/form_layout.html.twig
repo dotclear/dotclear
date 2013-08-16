@@ -56,7 +56,7 @@
 
 {% block field_attr %}
 {% spaceless %}
- {% if id %}id="{{id}}"{% endif %} name="{{name}}" {% if read_only %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if maxlength %} maxlength="{{ maxlength }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
+ {% if id %}id="{{id}}"{% endif %} name="{{name}}" {% if read_only %} disabled="disabled"{% endif %}{#{% if required %} required="required"{% endif %}#}{% if maxlength %} maxlength="{{ maxlength }}"{% endif %}{% if checked %} checked="{{ checked }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
     {% for attrname,attrvalue in attr %}{{attrname}}="{{attrvalue}}" {% endfor %}
 {% endspaceless %}
 {% endblock field_attr %}

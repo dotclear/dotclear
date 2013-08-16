@@ -4,7 +4,7 @@
 <head>
 	{% block header %}
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>{% block title %}{% for part in page_title %}{{ part.title }} - {% endfor %}{% if current_blog.name is not empty %}{{current_blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
+	<title>{% block title %}{{  (page_title|last).title|striptags }} - {% if current_blog.name is not empty %}{{current_blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
 	<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
 	<meta name="GOOGLEBOT" content="NOSNIPPET" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,11 +58,11 @@
 					</div>
 				{% endif %}
 				<h2>
-					{%- if not page_global %}{{current_blog.name}} &rsaquo; {% endif %}
+					{#{%- if not page_global %}{{current_blog.name}} &rsaquo; {% endif %}#}
 					{%- for part in page_title %}
 						{%- if loop.last %}<span class="page-title">{% endif %}
-						{%- if part.link is not empty %}<a href="{{ part.link }}">{{ part.title }}</a>{% else %}{{ part.title }}{% endif %}
-						{%- if loop.last %}</span>{% else %} &rsaquo; {% endif %}
+						{%- if part.link is not empty %}<a href="{{ part.link }}"{% if part.class is not empty %} class="{{part.class}}"{% endif %}>{{ part.title }}</a>{% else %}{{ part.title }}{% endif %}
+						{%- if loop.last %}</span>{% else %} {% if loop.index0 == 1 %} : {% else %} &rsaquo; {% endif %}{% endif %}
 					{%- endfor -%}
 				</h2>
 				{% if messages.static is not empty %}
