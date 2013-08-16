@@ -143,18 +143,11 @@ echo '</div>';
 $categories_combo = array();
 if (!$rs->isEmpty())
 {
-	$l = $rs->level;
-	$full_name = array($rs->cat_title);
-
 	while ($rs->fetch()) {
-		if ($rs->level < $l) {
-			$full_name = array();
-		} elseif ($rs->level == $l) {
-			array_pop($full_name);
-		}
-		$full_name[] = html::escapeHTML($rs->cat_title);
-		$categories_combo[implode(' / ',$full_name)] = $rs->cat_id;
-		$l = $rs->level;
+		$catparents_combo[] = $categories_combo[] = new formSelectOption(
+			str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title),
+			$rs->cat_id
+		);
 	}
 }
 
