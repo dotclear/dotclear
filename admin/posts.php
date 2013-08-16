@@ -272,7 +272,7 @@ if (!$core->error->flag())
 	form::combo('user_id',$users_combo,$user_id).'</p>'.
 	'<p><label for="cat_id" class="ib">'.__('Category:').'</label> '.
 	form::combo('cat_id',$categories_combo,$cat_id).'</p>'.
-	'<p><label for="status" class="ib">'.__('Status:').'</label>' .
+	'<p><label for="status" class="ib">'.__('Status:').'</label> ' .
 	form::combo('status',$status_combo,$status).'</p> '.
 	'</div>'.
 	

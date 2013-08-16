@@ -3023,3 +3023,13 @@ msgstr "billets par page"
 
 msgid "Show"
 msgstr "Afficher"
+
+msgid "Filter blogs list"
+msgstr "Filtrer la liste des blogs"
+
+msgid "blogs per page"
+msgstr "blogs par page"
+
+msgid "Filter comments and trackbacks list"
+msgstr "Filtrer la liste des commentaires et rétroliens"
+

@@ -91,33 +91,32 @@ if (!$core->error->flag())
 	}
 	
 	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.__('Filters').'</a></p>';
+		echo '<p><a id="filter-control" class="form-control" href="#">'.__('Filter blogs list').'</a></p>';
 	}
 	
 	echo
 	'<form action="blogs.php" method="get" id="filters-form">'.
-	'<fieldset class="two-cols"><legend>'.__('Filters').'</legend>'.
+	'<h3>'.__('Filter blogs list').'</h3>'.
 	
-	'<div class="col">'.
-	'<p><label for="sortby">'.__('Order by:').' '.
-	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).
-	'</label> '.
-	'<label for="order">'.__('Sort:').' '.
-	form::combo('order',$order_combo,html::escapeHTML($order)).
-	'</label></p>'.
+	'<div class="table">'.
+	'<div class="cell">'.
+	'<p><label for="q" class="ib">'.__('Search:').'</label> '.
+	form::field('q',20,255,html::escapeHTML($q)).'</p>'.
 	'</div>'.
 	
-	'<div class="col">'.
-	'<p><label for="q">'.__('Search:').' '.
-	form::field('q',20,255,html::escapeHTML($q)).
-	'</label></p>'.
-	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Blogs per page').'</label> '.
-	'<input type="submit" value="'.__('Apply filters').'" /></p>'.
+	'<div class="cell filters-options">'.
+	'<p><label for="sortby" class="ib">'.__('Order by:').'</label> '.
+	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).'</p>'.
+	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
+	form::combo('order',$order_combo,html::escapeHTML($order)).'</p>'.
+	'<p><span class="label ib">Afficher</span> <label for="nb" class="classic">'.	
+	form::field('nb',3,3,$nb_per_page).' '.__('blogs per page').'</label></p>'.
 	'</div>'.
+	'</div>'.
+
+	'<p class="no-margin"><input type="submit" value="'.__('Apply filters').'" /></p>'.
 	
 	'<br class="clear" />'. //Opera sucks
-	'</fieldset>'.
 	'</form>';
 	
 	# Show blogs
