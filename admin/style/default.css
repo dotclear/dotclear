@@ -259,8 +259,9 @@ abbr {
 }
 /* -------------------------------------------------------------- layout - onglets */
 .part-tabs ul {
-	padding: .5em 0 .3em 1rem;
-	border-bottom: 1px solid #ccc;
+	padding: .5em 0 .3em 0;
+	margin-left: 1em;
+	border-bottom: 1px solid #ddd;
 }
 .part-tabs li {
 	list-style: none;
@@ -268,13 +269,12 @@ abbr {
 	display: inline;
 }
 .part-tabs li a {
-	padding: .5em 1em;
-	margin-right: .5em;
+	padding: .5em 2em;
+	margin-right: -1px;
 	border: 1px solid #ccc;
 	border-bottom: none;
-	background: #efefef;
 	text-decoration: none;
-	color: #000;
+	color: #333;
 	background-color:#ededed;
 }
 .part-tabs li a:hover, .part-tabs li a:focus {
@@ -284,8 +284,6 @@ abbr {
 }
 .part-tabs li.part-tabs-active a {
 	background: #fff;
-	border: 1px solid #d30e60;
-	color: #d30e60;
 	font-weight: bold;
 	border-bottom-color: #fff;
 }
@@ -360,7 +358,7 @@ abbr {
 	padding: 0 0.3rem;
 	background: #dfdfdf;
 	border-color: #999;
-	color: #666;
+	color: #444;
 	border-bottom-right-radius: .6em;
 	border-top-right-radius: .6em;
 	border-top-left-radius: 0;
@@ -445,7 +443,7 @@ abbr {
 #icons p {
 	width: 210px;
 	text-align: center;
-	margin: 1em 0;
+	margin: 1em 0 2em;
 	padding: 1em 0;
 	display:inline-block;
 	vertical-align: top;
@@ -460,12 +458,14 @@ abbr {
 }
 #icons a span {
 	border-bottom: 1px dotted #f90;
+	color: #333;
 }
 #icons a img {
 	padding: 2em;
 	background: #eee;
 	border-radius: 1.6rem;
 	box-shadow: 0 3px 3px 0 #ccc;
+	margin-bottom: .6rem;
 }
 #icons a img:hover, #icons a:focus img {
 	background-color: #BBDB58;
@@ -490,6 +490,7 @@ abbr {
 #dashboard-items {
 	margin: 3em auto;
 	display: table;
+	width: 100%;
 	border-collapse: collapse;
 }
 .db-item {
@@ -962,9 +963,6 @@ div.message a, p.message a,
 div.static-msg a, p.static-msg a {
 	color: #fff;
 }
-#content > .message, #content > .error {
-	margin-right: 14em
-}
 /* ------------------------------------------------------------------ navigation */
 .anchor-nav {
 	background: #575859;
@@ -974,17 +972,25 @@ div.static-msg a, p.static-msg a {
 }
 .nav_prevnext {
 	margin-bottom: 2em;
-	color: #ccc;
+	color: #fff;
 }
 .nav_prevnext a, a.back {
-	border: 1px solid #ccc;
-	padding: .2rem .5rem;
+	border: 1px solid #eee;
+	padding: .2rem 2rem;
+	border-radius: 1rem;
 	background-color: #eef;
 }
 a.back:before {
 	content: "\ab\a0";
 }
-
+a.onblog_link {
+	color: #333;
+	float: right;
+	border: 1px solid #eee;
+	padding: .2rem 2rem;
+	border-radius: 1rem;
+	background-color: #ffe;
+}
 /* ------------------------------------------------------------------ debug */
 #debug {
 	position: absolute;
