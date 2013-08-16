@@ -130,7 +130,7 @@ if (!$core->error->flag())
 		$pager = new pager($page,$nb_blog,$nb_per_page,10);
 		$pager->var_page = 'page';
 		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+		echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 		
 		echo
 		'<table class="clear"><tr>'.
@@ -148,7 +148,7 @@ if (!$core->error->flag())
 		
 		echo '</table>';
 		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+		echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 	}
 }
 

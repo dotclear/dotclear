@@ -323,7 +323,7 @@ else
 	'<input type="submit" value="'.__('Sort').'" /></p>'.
 	'</form>'.
 	
-	'<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+	'<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 	
 	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++, $j++)
 	{
@@ -331,7 +331,7 @@ else
 	}
 	
 	echo
-	'<p class="clear">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+	'<p class="clear pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 }
 if (!isset($pager)) {
 	echo
