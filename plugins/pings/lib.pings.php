@@ -40,7 +40,7 @@ class pingsBehaviors
 		return $res;
 	}
 	
-	public static function pingsForm($post)
+	public static function pingsFormItems($items,$post)
 	{
 		$core =& $GLOBALS['core'];
 		if (!$core->blog->settings->pings->pings_active) {
@@ -58,16 +58,18 @@ class pingsBehaviors
 			$pings_do = array();
 		}
 		
-		echo '<h5 class="ping-services">'.__('Pings:').'</h5>';
+		$item = '<h5 class="ping-services">'.__('Pings:').'</h5>';
 		$i = 0;
 		foreach ($pings_uris as $k => $v)
 		{
-			echo
+			$item .=
 			'<p class="ping-services"><label for="pings_do-'.$i.'" class="classic">'.
 			form::checkbox(array('pings_do[]','pings_do-'.$i),html::escapeHTML($v),in_array($v,$pings_do)).' '.
 			html::escapeHTML($k).'</label></p>';
 			$i++;
 		}
+		$items['options-box']['items']['pings']=$item;
+		
 	}
 	
 	public static function doPings($cur,$post_id)

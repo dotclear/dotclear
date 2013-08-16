@@ -444,79 +444,90 @@ if ($can_edit_post)
 
 	echo '<div id="entry-sidebar">';
 	
-	echo
-	'<div id="status-box" class="box">'.
-	'<h4>Statut</h4>'.
-
-	'<p><label for="post_status">'.__('Entry status:').
-	form::combo('post_status',$status_combo,$post_status,'maximal','',!$can_publish).
-	'</label></p>'.
+	$post_sidebar = new ArrayObject(array(
+		'status-box' => array(
+			'title' => __('Status'),
+			'items' => array(
+				'post_status' => 
+					'<p><label for="post_status">'.__('Entry status:').
+					form::combo('post_status',$status_combo,$post_status,'maximal','',!$can_publish).
+					'</label></p>',
+				'post_dt' => 
+					'<p><label for="post_dt">'.__('Published on:').
+					form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).
+					'</label></p>',
+				'post_lang' =>
+					'<p><label for="post_lang">'.__('Entry lang:').
+					form::combo('post_lang',$lang_combo,$post_lang).
+					'</label></p>',
+				'post_format' =>
+					'<p><label for="post_format">'.__('Text formating:').
+					form::combo('post_format',$formaters_combo,$post_format,'maximal').
+					'</label></p>'.
+					'<p>'.($post_id && $post_format != 'xhtml' ? 
+					'<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.
+					__('Convert to XHTML').'</a>' : '').'</p>')),
+		'metas-box' => array(
+			'title' => __('Ordering'),
+			'items' => array(
+				'post_selected' => 
+					'<p><label for="post_selected" class="classic">'.
+					form::checkbox('post_selected',1,$post_selected).' '.
+					__('Selected entry').'</label></p>',
+				'cat_id' =>
+					'<p><label for="cat_id">'.__('Category:').
+					form::combo('cat_id',$categories_combo,$cat_id,'maximal').
+					'</label></p>')),
+		'options-box' => array(
+			'title' => __('Options'),
+			'items' => array(
+				'post_open_comment' =>
+					'<p><label for="post_open_comment" class="classic">'.
+					form::checkbox('post_open_comment',1,$post_open_comment).' '.
+					__('Accept comments').'</label></p>'.
+					($core->blog->settings->system->allow_comments ? 
+						(isContributionAllowed($post_id,strtotime($post_dt),true) ? 
+							'' :
+							'<p class="form-note warn">'.
+							__('Warning: Comments are not more accepted for this entry.').'</p>') : 
+						'<p class="form-note warn">'.
+						__('Warning: Comments are not accepted on this blog.').'</p>'),
+				'post_open_tb' =>
+					'<p><label for="post_open_tb" class="classic">'.
+					form::checkbox('post_open_tb',1,$post_open_tb).' '.
+					__('Accept trackbacks').'</label></p>'.
+					($core->blog->settings->system->allow_trackbacks ? 
+						(isContributionAllowed($post_id,strtotime($post_dt),false) ? 
+							'' :
+							'<p class="form-note warn">'.
+							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
+						'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>'),
+				'post_password' =>
+					'<p><label for="post_password">'.__('Password:').
+					form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
+					'</label></p>',
+				'post_url' =>
+					'<div class="lockable">'.
+					'<p><label for="post_url">'.__('Edit basename:').
+					form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
+					'</label></p>'.
+					'<p class="form-note warn">'.
+					__('Warning: If you set the URL manually, it may conflict with another entry.').
+					'</p></div>'
+	))));
+	$core->callBehavior('adminPostFormSidebarItems',$post_sidebar, isset($post) ? $post : null);
+	foreach ($post_sidebar as $id => $c) {
+		echo '<div id="'.$id.'" class="box">'.
+			'<h4>'.$c['title'].'</h4>';
+		foreach ($c['items'] as $e_name=>$e_content) {
+			echo $e_content;
+		}
+		echo '</div>';
+	}
 	
-	'<p><label for="post_dt">'.__('Published on:').
-	form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).
-	'</label></p>'.
-	
-	'<p><label for="post_format">'.__('Text formating:').
-	form::combo('post_format',$formaters_combo,$post_format,'maximal').
-	'</label>'.
-	'</p>'.
-
-	'<p>'.($post_id && $post_format != 'xhtml' ? '<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').'</p>'.
-
-	'<p><label for="post_lang">'.__('Entry lang:').
-	form::combo('post_lang',$lang_combo,$post_lang).
-	'</label></p>'.
-	
-	'</div>'. // End status box
-	
-	'<div id="metas-box" class="box">'.
-	'<h4>Classement</h4>'.
-
-	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
-	__('Selected entry').'</label></p>'.
-
-	'<p><label for="cat_id">'.__('Category:').
-	form::combo('cat_id',$categories_combo,$cat_id,'maximal').
-	'</label></p>'.
-
-	'</div>'. // End metas box
-	
-	'<div id="options-box" class="box">'.
-	'<h4>Options</h4>'.
-	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment).' '.
-	__('Accept comments').'</label></p>'.
-	($core->blog->settings->system->allow_comments ? 
-		(isContributionAllowed($post_id,strtotime($post_dt),true) ? 
-			'' :
-			'<p class="form-note warn">'.__('Warning: Comments are not more accepted for this entry.').'</p>') : 
-		'<p class="form-note warn">'.__('Warning: Comments are not accepted on this blog.').'</p>').
-
-	'<p><label for="post_open_tb" class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb).' '.
-	__('Accept trackbacks').'</label></p>'.
-	($core->blog->settings->system->allow_trackbacks ? 
-		(isContributionAllowed($post_id,strtotime($post_dt),false) ? 
-			'' :
-			'<p class="form-note warn">'.__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
-		'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>').
-
-	'<p><label for="post_password">'.__('Password:').
-	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
-	'</label></p>'.
-	
-	'<div class="lockable">'.
-	'<p><label for="post_url">'.__('Edit basename:').
-	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
-	'</label></p>'.
-	'<p class="form-note warn">'.
-	__('Warning: If you set the URL manually, it may conflict with another entry.').
-	'</p>'.
-	'</div>';
 	
 	# --BEHAVIOR-- adminPostFormSidebar
 	$core->callBehavior('adminPostFormSidebar',isset($post) ? $post : null);
-
-	echo '</div>'; // End options box
-	
 	echo '</div>';		// End #entry-sidebar
 
 	echo '</form>';
