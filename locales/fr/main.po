@@ -3014,3 +3014,12 @@ msgstr "URL spécifique"
 
 msgid "Ordering"
 msgstr "Classement"
+
+msgid "Filter posts list"
+msgstr "Filtrer la liste des billets"
+
+msgid "entries per page"
+msgstr "billets par page"
+
+msgid "Show"
+msgstr "Afficher"
