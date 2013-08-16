@@ -294,18 +294,11 @@ $categories_combo = array(__('(No cat)') => '');
 try {
 	$categories = $core->blog->getCategories(array('post_type'=>'post'));
 	if (!$categories->isEmpty()) {
-		$l = $categories->level;
-		$full_name = array($categories->cat_title);
-
 		while ($categories->fetch()) {
-			if ($categories->level < $l) {
-				$full_name = array();
-			} elseif ($categories->level == $l) {
-				array_pop($full_name);
-			}
-			$full_name[] = html::escapeHTML($categories->cat_title);
-			$categories_combo[implode(' / ',$full_name)] = $categories->cat_id;
-			$l = $categories->level;
+			$catparents_combo[] = $categories_combo[] = new formSelectOption(
+				str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
+				$categories->cat_id
+			);
 		}
 	}
 } catch (Exception $e) { }
