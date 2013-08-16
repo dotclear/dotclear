@@ -69,6 +69,10 @@ h5 {
 	font-size: 1em;
 	color: #575859;
 }
+#entry-sidebar h5 {
+	font-weight: normal;
+	color: #333;
+}
 p, div.p {
 	margin: 0 0 1em 0;
 }
@@ -1360,9 +1364,9 @@ textarea.maximal {
 a.form-control {
 	display: none;
 	font-weight: bold;
-	background: url(magnifier.png) no-repeat 0 0;
-	color: green;
+	background: url(../images/expand.png) no-repeat .6rem center;
 	padding-left: 20px;
+	color: #000;
 }
 .constrained {
 	margin: 0;
@@ -1515,6 +1519,64 @@ input[type=button] {
 .ac_over {
 	background-color: #06c;
 	color: white;
+}
+
+/* ------------------------------------------------------- Filters */
+#filters-form {
+	border: 1px dashed #999;
+	border-radius: .6rem;
+	margin-bottom: 2em;
+	padding: .5em 1em 0;
+}
+#filters-form .table {
+	display: table;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 1em;
+	margin-top: 1.5em;
+}
+#filters-form .cell {
+	padding: 0 2em 0 0;
+	display: table-cell;
+	vertical-align: top;
+}
+#filters-form .filters-options {
+	padding-left: 2em;
+	border-left: 1px solid #ccc;
+}
+#filters-form label.ib, span.ib {
+	width:7em;
+	display: inline-block;
+}
+#filters-form select {
+	width: 14em;
+}
+
+/* ---------------------------------------------------- Pagination */
+.pagination {
+	height: 20px;
+	line-height: 20px;
+	padding: 0 1rem; 
+	border: 1px solid #ccc;
+	overflow: hidden; 
+	background: #e1e1e1; 
+	background: -moz-linear-gradient(center top , #f2f2f2, #e1e1e1); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#e1e1e1)); 
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+	border-radius: 4px; 
+}
+.pagination a, .pagination strong {
+	height: 20px;
+	border: none;
+	padding: 2px 6px; 
+	background-color : transparent;
+	background-position : 50% 50%;
+	background-repeat: no-repeat;
+}
+.pagination a:hover, .pagination strong {
+	border-color : #ccc;
+	background-color: #fff;
 }
 
 /* ---------------------------------------------------------------------------

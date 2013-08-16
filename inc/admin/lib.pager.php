@@ -57,7 +57,7 @@ class adminPostList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -70,7 +70,7 @@ class adminPostList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 		}
 	}
 	
@@ -169,7 +169,7 @@ class adminPostMiniList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -182,7 +182,7 @@ class adminPostMiniList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 		}
 	}
 	
@@ -266,7 +266,7 @@ class adminCommentList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -279,7 +279,7 @@ class adminCommentList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 		}
 	}
 	
@@ -373,7 +373,7 @@ class adminUserList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -386,7 +386,7 @@ class adminUserList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 		}
 	}
 	
