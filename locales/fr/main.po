@@ -2987,3 +2987,30 @@ msgstr "Modifier l'URL spécifique :"
 
 msgid "Protect with password"
 msgstr "Protéger par un mot de passe"
+
+msgid "Information collected"
+msgstr "Informations recueillies"
+
+msgid "Comment submitted"
+msgstr "Commentaire déposé"
+
+msgid "Entry status"
+msgstr "État du billet"
+
+msgid "Publication date and hour"
+msgstr "Date et heure de publication"
+
+msgid "Text formating"
+msgstr "Syntaxe de saisie"
+
+msgid "Entry lang"
+msgstr "Langue du billet"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Edit basename"
+msgstr "URL spécifique"
+
+msgid "Ordering"
+msgstr "Classement"

@@ -80,7 +80,7 @@ class tagsBehaviors
 			$value = ($post) ? $meta->getMetaStr($post->post_meta,'tag') : '';
 		}
 		$items['metas-box']['items']['post_tags']=
-		'<h5><label class="s-tags" for="post_tags">'.__('Tags:').'</label></h5>'.
+		'<h5><label class="s-tags" for="post_tags">'.__('Tags').'</label></h5>'.
 		'<div class="p s-tags" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal').'</div>';
 	}
 	

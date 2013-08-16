@@ -549,8 +549,12 @@ abbr {
 	width: 17em;
 	float: right;
 }
+#entry-sidebar input[type="text"],
+#entry-sidebar select {
+	width: 14em; /* to prevent inline with label */
+}
 .box {
-	border-bottom: 2px solid #A2CBE9;
+	border-bottom: 1px solid #ddd;
 	margin-bottom: 1em;
 }
 #comments {
@@ -1302,6 +1306,9 @@ p.form-note.info {
 }
 .form-note a {border-bottom: 1px solid #99f;}
 
+label.ib {
+	display: inline-block;
+}
 label.classic {
 	display: inline;
 }

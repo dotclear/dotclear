@@ -1276,7 +1276,7 @@ msgid "page"
 msgstr "page"
 
 msgid "Pings"
-msgstr "Signalements"
+msgstr "Signalements (pings)"
 
 msgid "Ping services"
 msgstr "Services de signalement"
