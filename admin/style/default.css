@@ -743,7 +743,7 @@ li.media-action input {
 	padding: 1em 0;
 }
 #themes div.theme-details:hover {
-	background: #eee;
+	background: #f0f0f0;
 }
 #themes div.theme-details div.theme-shot {
 	float: left;
@@ -988,7 +988,7 @@ div.static-msg a, p.static-msg a {
 	border: 1px solid #ddd;
 	padding: .2rem 2rem;
 	border-radius: 1rem;
-	background-color: #eee;
+	background-color: #f0f0f0;
 }
 a.back:before {
 	content: "\ab\a0";
@@ -1363,8 +1363,7 @@ textarea.maximal {
 
 a.form-control {
 	display: none;
-	font-weight: bold;
-	background: url(../images/expand.png) no-repeat .6rem center;
+	background: url(../images/expand.png) no-repeat .4rem center;
 	padding-left: 20px;
 	color: #000;
 }
@@ -1548,16 +1547,21 @@ input[type=button] {
 	width:7em;
 	display: inline-block;
 }
+#filters-form label.ibw, span.ibw {
+	width: 9em;
+	display: inline-block;
+}
 #filters-form select {
 	width: 14em;
 }
 
 /* ---------------------------------------------------- Pagination */
 .pagination {
-	height: 20px;
-	line-height: 20px;
+	height: 22px;
+	margin-top: 1em;
+	line-height: 22px;
 	padding: 0 1rem; 
-	border: 1px solid #ccc;
+	border: 1px solid #ddd;
 	overflow: hidden; 
 	background: #e1e1e1; 
 	background: -moz-linear-gradient(center top , #f2f2f2, #e1e1e1); 
