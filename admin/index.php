@@ -338,6 +338,16 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'</p>'.
 		'<p><label for="cat_id" class="classic">'.__('Category:').' '.
 		form::combo('cat_id',$categories_combo).'</label></p>'.
+		($core->auth->check('categories', $core->blog->id)
+			? '<div>'.
+			'<p id="new_cat">'.__('Add a new category').'</p>'.
+			'<p><label for="new_cat_title">'.__('Title:').' '.
+			form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
+			'<p><label for="new_cat_parent">'.__('Parent:').' '.
+			form::combo('new_cat_parent',$categories_combo,'','maximal').
+			'</label></p>'.
+			'</div>'
+			: '').
 		'<p><input type="submit" value="'.__('Save').'" name="save" /> '.
 		($core->auth->check('publish',$core->blog->id)
 			? '<input type="hidden" value="'.__('Save and publish').'" name="save-publish" />'
