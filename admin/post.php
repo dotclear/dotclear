@@ -410,8 +410,8 @@ if ($can_edit_post)
 	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
 	'</p>'.
 	
-	'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'<span class="form-note">'.
-	__('Add unpublished notes.').'</span></label>'.
+	'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'</label><span class="form-note">'.
+	__('Add unpublished notes.').'</span>'.
 	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 	'</p>';
 	
@@ -449,21 +449,21 @@ if ($can_edit_post)
 			'title' => __('Status'),
 			'items' => array(
 				'post_status' => 
-					'<p><label for="post_status">'.__('Entry status:').
+					'<p><label for="post_status" class="ib">'.__('Entry status').'</label>'.
 					form::combo('post_status',$status_combo,$post_status,'maximal','',!$can_publish).
-					'</label></p>',
+					'</p>',
 				'post_dt' => 
-					'<p><label for="post_dt">'.__('Published on:').
+					'<p><label for="post_dt" class="ib">'.__('Publication date and hour').'</label>'.
 					form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).
-					'</label></p>',
+					'</p>',
 				'post_lang' =>
-					'<p><label for="post_lang">'.__('Entry lang:').
+					'<p><label for="post_lang" class="ib">'.__('Entry lang').'</label>'.
 					form::combo('post_lang',$lang_combo,$post_lang).
-					'</label></p>',
+					'</p>',
 				'post_format' =>
-					'<p><label for="post_format">'.__('Text formating:').
+					'<p><label for="post_format" class="ib">'.__('Text formating').'</label>'.
 					form::combo('post_format',$formaters_combo,$post_format,'maximal').
-					'</label></p>'.
+					'</p>'.
 					'<p>'.($post_id && $post_format != 'xhtml' ? 
 					'<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.
 					__('Convert to XHTML').'</a>' : '').'</p>')),
@@ -475,9 +475,9 @@ if ($can_edit_post)
 					form::checkbox('post_selected',1,$post_selected).' '.
 					__('Selected entry').'</label></p>',
 				'cat_id' =>
-					'<p><label for="cat_id">'.__('Category:').
+					'<p><label for="cat_id" class="ib">'.__('Category').'</label>'.
 					form::combo('cat_id',$categories_combo,$cat_id,'maximal').
-					'</label></p>')),
+					'</p>')),
 		'options-box' => array(
 			'title' => __('Options'),
 			'items' => array(
@@ -503,14 +503,14 @@ if ($can_edit_post)
 							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
 						'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>'),
 				'post_password' =>
-					'<p><label for="post_password">'.__('Password:').
+					'<p><label for="post_password" class="ib">'.__('Password').'</label>'.
 					form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
-					'</label></p>',
+					'</p>',
 				'post_url' =>
 					'<div class="lockable">'.
-					'<p><label for="post_url">'.__('Edit basename:').
+					'<p><label for="post_url" class="ib">'.__('Edit basename').'</label>'.
 					form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
-					'</label></p>'.
+					'</p>'.
 					'<p class="form-note warn">'.
 					__('Warning: If you set the URL manually, it may conflict with another entry.').
 					'</p></div>'
@@ -623,17 +623,17 @@ if ($post_id)
 	
 	'<form action="comment.php" method="post" id="comment-form">'.
 	'<div class="constrained">'.
-	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').
+	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label>'.
 	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn'))).
-	'</label></p>'.
+	'</p>'.
 	
-	'<p><label for="comment_email">'.__('Email:').
+	'<p><label for="comment_email">'.__('Email:').'</label>'.
 	form::field('comment_email',30,255,html::escapeHTML($core->auth->getInfo('user_email'))).
-	'</label></p>'.
+	'</p>'.
 	
-	'<p><label for="comment_site">'.__('Web site:').
+	'<p><label for="comment_site">'.__('Web site:').'</label>'.
 	form::field('comment_site',30,255,html::escapeHTML($core->auth->getInfo('user_url'))).
-	'</label></p>'.
+	'</p>'.
 	
 	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.
 	__('Comment:').'</label> '.

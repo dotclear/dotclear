@@ -58,7 +58,7 @@ class pingsBehaviors
 			$pings_do = array();
 		}
 		
-		$item = '<h5 class="ping-services">'.__('Pings:').'</h5>';
+		$item = '<h5 class="ping-services">'.__('Pings').'</h5>';
 		$i = 0;
 		foreach ($pings_uris as $k => $v)
 		{
