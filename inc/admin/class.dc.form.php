@@ -743,15 +743,9 @@ class dcForm
 		foreach ($submitted as $f) {
 			$action = $f->getAction();
 			if ($action != NULL) {
-				if (!$hasActions) {
-					$this->core->callBehavior('coreBeforeFormSubmit',$this);
-				}
 				$hasActions = true;
 				$ret = call_user_func($action,$this);
 			}
-		}
-		if ($hasActions) {
-			$this->core->callBehavior('coreAfterFormSubmit',$this);
 		}
 	}
 
