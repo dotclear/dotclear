@@ -766,7 +766,7 @@ msgstr "Комментариев на страницу"
 msgid "Comment author:"
 msgstr "Автор комментария:"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "У вас один спам комментарий."
 
 msgid "Show it."

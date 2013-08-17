@@ -762,7 +762,7 @@ msgstr "Kommentare pro Seite"
 msgid "Comment author:"
 msgstr "Autor des Kommentars"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "Du hast Spam in deinen Kommentaren."
 
 msgid "Show it."

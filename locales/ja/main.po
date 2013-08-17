@@ -771,7 +771,7 @@ msgstr "コメント / ページ"
 msgid "Comment author:"
 msgstr "コメントの投稿者："
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "1 のスパムコメントがあります。"
 
 msgid "Show it."

@@ -764,7 +764,7 @@ msgstr "Kommentarer pr. side"
 msgid "Comment author:"
 msgstr "Kommentar ejer:"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "Du har en spam kommentar."
 
 msgid "Show it."
