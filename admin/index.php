@@ -201,6 +201,24 @@ dcPage::open(__('Dashboard'),
 		false)
 );
 
+# Dotclear updates notifications
+if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
+{
+	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
+	$new_v = $updater->check(DC_VERSION);
+	$version_info = $new_v ? $updater->getInfoURL() : '';
+
+	if ($updater->getNotify() && $new_v) {
+		$message =
+		'<div><p>'.sprintf(__('Dotclear %s is available!'),$new_v).'</p> '.
+		'<ul><li><strong><a href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a></strong>'.
+		'</li><li><a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
+		($version_info ? ' </li><li><a href="'.$version_info.'">'.__('information about this version').'</a>' : '').
+		'</li></ul></div>';
+		dcPage::message($message,false,true);
+	}
+}
+
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->blog_count > 1) {
 	echo
 	'<p><a href="index.php?default_blog=1" class="button">'.__('Make this blog my default blog').'</a></p>';
@@ -248,23 +266,6 @@ if (!empty($plugins_install['failure']))
 
 # Dashboard columns (processed first, as we need to know the result before displaying the icons.)
 $dashboardItems = '';
-
-# Dotclear updates notifications
-if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
-{
-	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
-	$new_v = $updater->check(DC_VERSION);
-	$version_info = $new_v ? $updater->getInfoURL() : '';
-	
-	if ($updater->getNotify() && $new_v) {
-		$dashboardItems .=
-		'<div id="upg-notify" class="static-msg"><p>'.sprintf(__('Dotclear %s is available!'),$new_v).'</p> '.
-		'<ul><li><strong><a href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a></strong>'.
-		'</li><li><a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
-		($version_info ? ' </li><li><a href="'.$version_info.'">'.__('information about this version').'</a>' : '').
-		'</li></ul></div>';
-	}
-}
 
 # Errors modules notifications
 if ($core->auth->isSuperAdmin())
