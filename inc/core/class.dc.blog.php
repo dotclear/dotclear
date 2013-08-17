@@ -644,20 +644,57 @@ class dcBlog
 	
 	private function checkCategory($title,$url,$id=null)
 	{
-		$strReq = 'SELECT cat_id '.
-				'FROM '.$this->prefix.'category '.
-				"WHERE cat_url = '".$this->con->escape($url)."' ".
-				"AND blog_id = '".$this->con->escape($this->id)."' ";
-		
-		if ($id !== null) {
-			$strReq .= 'AND cat_id <> '.(integer) $id.' ';
-		}
+		# Let's check if URL is taken...
+		$strReq = 
+			'SELECT cat_url FROM '.$this->prefix.'category '.
+			"WHERE cat_url = '".$this->con->escape($url)."' ".
+			($id ? 'AND cat_id <> '.(integer) $id. ' ' : '').
+			"AND blog_id = '".$this->con->escape($this->id)."' ".
+			'ORDER BY cat_url DESC';
 		
 		$rs = $this->con->select($strReq);
 		
-		if (!$rs->isEmpty()) {
-			throw new Exception(__('Category URL must be unique.'));
+		if (!$rs->isEmpty())
+		{
+			if ($this->con->driver() == 'mysql') {
+				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
+			} elseif ($this->con->driver() == 'pgsql') {
+				$clause = "~ '^".$this->con->escape($url)."[0-9]+$'";
+			} else {
+				$clause = "LIKE '".$this->con->escape($url)."%'";
+			}
+			$strReq = 
+				'SELECT cat_url FROM '.$this->prefix.'category '.
+				"WHERE cat_url ".$clause.' '.
+				($id ? 'AND cat_id <> '.(integer) $id. ' ' : '').
+				"AND blog_id = '".$this->con->escape($this->id)."' ".
+				'ORDER BY cat_url DESC ';
+			
+			$rs = $this->con->select($strReq);
+			$a = array();
+			while ($rs->fetch()) {
+				$a[] = $rs->cat_url;
+			}
+			
+			natsort($a);
+			$t_url = end($a);
+			
+			if (preg_match('/(.*?)([0-9]+)$/',$t_url,$m)) {
+				$i = (integer) $m[2];
+				$url = $m[1];
+			} else {
+				$i = 1;
+			}
+			
+			return $url.($i+1);
 		}
+		
+		# URL is empty?
+		if ($url == '') {
+			throw new Exception(__('Empty category URL'));
+		}
+		
+		return $url;
 	}
 	
 	private function getCategoryCursor($cur,$id=null)
@@ -679,7 +716,7 @@ class dcBlog
 		}
 		
 		# Check if title or url are unique
-		$this->checkCategory($cur->cat_title,$cur->cat_url,$id);
+		$cur->cat_url = $this->checkCategory($cur->cat_title,$cur->cat_url,$id);
 		
 		if ($cur->cat_desc !== null) {
 			$cur->cat_desc = $this->core->HTMLfilter($cur->cat_desc);
