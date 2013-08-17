@@ -741,7 +741,7 @@ msgstr "Komentarų viename puslapyje"
 msgid "Comment author:"
 msgstr "Komentaro autorius:"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "Turite vieną spamo komentarą."
 
 msgid "Show it."

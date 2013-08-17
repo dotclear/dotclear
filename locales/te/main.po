@@ -774,7 +774,7 @@ msgstr "వ్యాఖ్యలు (ఒక పేజీకి)"
 msgid "Comment author:"
 msgstr "వ్యాఖ్యాత:"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "ఒక చెత్త వ్యాఖ్య ఉంది."
 
 msgid "Show it."

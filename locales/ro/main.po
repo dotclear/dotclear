@@ -751,7 +751,7 @@ msgstr ""
 msgid "Comment author:"
 msgstr ""
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr ""
 
 msgid "Show it."
