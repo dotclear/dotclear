@@ -191,7 +191,7 @@ if (!$core->error->flag())
 
 		if (!$with_spam || ($status != -2)) {
 			if ($spam_count == 1) {
-				echo '<p>'.sprintf(__('You have one spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
+				echo '<p>'.sprintf(__('You have one spam comment.'),'<strong>'.$spam_count.'</strong>').' '.
 				'<a href="comments.php?status=-2">'.__('Show it.').'</a></p>';
 			} elseif ($spam_count > 1) {
 				echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
@@ -200,6 +200,7 @@ if (!$core->error->flag())
 		}
 		
 		echo
+			'<p class="no-margin">'.
 			$core->formNonce().
 			'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
 
@@ -207,6 +208,7 @@ if (!$core->error->flag())
 		$core->callBehavior('adminCommentsSpamForm',$core);
 
 		echo '</form>';
+	}
 
 	# Filters
 	if (!$show_filters) {
@@ -244,11 +246,9 @@ if (!$core->error->flag())
 	'</div>'.
 	
 	'</div>'.
-	'<p class="no-margin"><input type="submit" value="'.__('Apply filters').'" /></p>'.
-	'<br class="clear" />'. //Opera sucks
+	'<p><input type="submit" value="'.__('Apply filters').'" />'.
+	'<br class="clear" /></p>'. //Opera sucks
 	'</form>';
-	
-	}
 	
 	# Show comments
 	$comment_list->display($page,$nb_per_page,

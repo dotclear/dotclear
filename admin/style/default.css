@@ -274,11 +274,11 @@ abbr {
 .part-tabs li a {
 	padding: .5em 2em;
 	margin-right: -1px;
-	border: 1px solid #ccc;
+	border: 1px solid #aaa;
 	border-bottom: none;
 	text-decoration: none;
 	color: #333;
-	background-color:#eef;
+	background-color:#E4E0EC;
 }
 .part-tabs li a:hover, .part-tabs li a:focus {
 	color: #000;
@@ -525,14 +525,6 @@ abbr {
 	margin: 0.2em 0 0 0;
 }
 
-#upg-notify {
-}
-#upg-notify ul {
-	padding-left: 15px;
-}
-#upg-notify li {
-	color: #fff;
-}
 /* ------------------------------------------------------------------ post */
 #entry-wrapper {
 	float: left;
@@ -767,8 +759,6 @@ li.media-action input {
 	margin-left: 67px;
 }
 /* Themes list, JS version */
-#themes-wrapper {
-}
 #theme-box {
 	border: 1px solid #999;
 	border-left: none;
@@ -1241,9 +1231,10 @@ legend {
 	padding: 0.2em 0.6em;
 	border-width: 1px;
 	border-style: solid;
-	border-color: #ccc;
-	background: #eef;
+	border-color: #333;
+	background: #fff;
 	margin-bottom: 0.5em;
+	border-radius: 3px;
 }
 optgroup {
 	font-weight: bold;
@@ -1307,10 +1298,10 @@ p.form-note.warn, p.warning {
 	border: 1px solid #f0c020;
 }
 p.form-note.info {
-	background: #eef url(info.png) no-repeat .3em .2em;
-	border: 1px solid #99f;
+	background: #f5eaff url(info.png) no-repeat .3em .2em;
+	border: 1px solid #ddbaff;
 }
-.form-note a {border-bottom: 1px solid #99f;}
+.form-note a {border-bottom: 1px solid #ddbaff;}
 
 label.ib {
 	display: inline-block;
