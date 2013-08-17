@@ -109,7 +109,7 @@ if (!$core->error->flag())
 	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).'</p>'.
 	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
 	form::combo('order',$order_combo,html::escapeHTML($order)).'</p>'.
-	'<p><span class="label ib">Afficher</span> <label for="nb" class="classic">'.	
+	'<p><span class="label ib">'.__('Show').'</span> <label for="nb" class="classic">'.	
 	form::field('nb',3,3,$nb_per_page).' '.__('blogs per page').'</label></p>'.
 	'</div>'.
 	'</div>'.
