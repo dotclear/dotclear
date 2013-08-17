@@ -177,7 +177,7 @@ else
 
 	# Filters
 	echo
-	'<form action="'.$p_url.'" method="post" id="filters-form">';
+	'<form action="'.$p_url.'" method="post" id="filters-list-form">';
 
 	if (!empty($_GET['upd'])) {
 		dcPage::message(__('Filters configuration has been successfully saved.'));
