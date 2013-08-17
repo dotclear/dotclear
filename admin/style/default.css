@@ -52,6 +52,10 @@ h2 a:link, h2 a:visited {
 .page-title {
 	color: #d30e60;
 }
+.page-title img {
+	padding-left: .6rem;
+	vertical-align: middle;
+}
 #content > h2 {
 	padding: 0 1.8rem .6rem;
 	margin: 0 -1.8rem 1rem;
@@ -72,6 +76,10 @@ h5 {
 #entry-sidebar h5 {
 	font-weight: normal;
 	color: #333;
+}
+.entry-status label img {
+	padding-left: .4rem;
+	vertical-align: text-top;
 }
 p, div.p {
 	margin: 0 0 1em 0;
