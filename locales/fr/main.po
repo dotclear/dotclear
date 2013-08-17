@@ -3033,3 +3033,9 @@ msgstr "blogs par page"
 msgid "Filter comments and trackbacks list"
 msgstr "Filtrer la liste des commentaires et rétroliens"
 
+msgid "Filter users list"
+msgstr "Filtrer la liste des utilisateurs"
+
+msgid "users per page"
+msgstr "utilisateurs par page"
+
