@@ -5,7 +5,7 @@ $(function() {
 	}, function () {
 		$(this).css({'cursor':'auto'});
 	});
-	$('#filters-form').submit(function() {
+	$('#filters-list-form').submit(function() {
 		var order=[];
 		$("#filters-list tr td input.position").each(function() {
 			order.push(this.name.replace(/^f_order\[([^\]]+)\]$/,'$1'));
