@@ -312,6 +312,8 @@ if ($post_id) {
 	}
 	$edit_entry_str = __('&ldquo;%s&rdquo;');
 	$page_title_edit = sprintf($edit_entry_str, html::escapeHTML($post_title)).' '.$img_status;
+} else {
+	$img_status = '';
 }
 
 
@@ -392,7 +394,7 @@ if ($can_edit_post)
 			'title' => __('Status'),
 			'items' => array(
 				'post_status' => 
-					'<p><label for="post_status" class="ib">'.__('Entry status').'</label>'.
+					'<p class="entry-status"><label for="post_status" class="ib">'.__('Entry status').' '.$img_status.'</label>'.
 					form::combo('post_status',$status_combo,$post_status,'maximal','',!$can_publish).
 					'</p>',
 				'post_dt' => 
