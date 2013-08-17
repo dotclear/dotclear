@@ -114,9 +114,8 @@ if (!$core->error->flag())
 	'</div>'.
 	'</div>'.
 
-	'<p class="no-margin"><input type="submit" value="'.__('Apply filters').'" /></p>'.
-	
-	'<br class="clear" />'. //Opera sucks
+	'<p><input type="submit" value="'.__('Apply filters').'" />'.
+	'<br class="clear" /></p>'. //Opera sucks
 	'</form>';
 	
 	# Show blogs
