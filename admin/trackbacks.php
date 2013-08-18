@@ -154,5 +154,6 @@ if (!$pings->isEmpty())
 	echo '</ul>';
 }
 
+dcPage::helpBlock('core_trackbacks');
 dcPage::close();
 ?>
