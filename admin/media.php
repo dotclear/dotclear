@@ -353,26 +353,27 @@ if ($core_media_writable)
 	}
 
 	echo
-	'<fieldset id="add-file-f"><legend>'.__('Add files').'</legend>'.
+	'<div class="fieldset">'.
+	'<h3>'.__('Add files').'</h3>'.
 	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
-	' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="POST" enctype="multipart/form-data">'.
-	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
-	$core->formNonce().'</div>'.
-	'<div class="fileupload-ctrl"><div class="queue-message"></div><div class="files"></div></div>';
+	' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="POST" enctype="multipart/form-data" aria-disabled="false">'.
+	'<p>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
+	$core->formNonce().'</p>'.
+	'<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>';
 
 	echo
 	'<div class="fileupload-buttonbar">';
 
 	echo
 	'<p class="max-sier form-note info">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
-	'<label for="upfile">'.'<span class="add-label one-file">'.__('Choose file').'</span>'.'</label>'.
+	'<p><label for="upfile">'.'<span class="add-label one-file">'.__('Choose file').'</span>'.'</label>'.
 	'<button class="button add">'.__('Choose files').'</button>'.
-	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" />';
+	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" /></p>';
 
 	echo
-	'<p class="one-file"><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
-	'<p class="one-file"><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
-	__('Private').'</label></p>';
+	'<p class="one-file"><label for="upfiletitle">'.__('Title:').'</label>'.form::field(array('upfiletitle','upfiletitle'),35,255).'</p>'.
+	'<p class="one-file"><label for="upfilepriv" class="classic">'.__('Private').'</label>'.
+	form::checkbox(array('upfilepriv','upfilepriv'),1).'</p>';
 
 	if (!$user_ui_enhanceduploader) {
 		echo
@@ -381,17 +382,16 @@ if ($core_media_writable)
 	}
 
 	echo
-	'<button class="button clean">'.__('Refresh').'</button>'.
+	'<p><button class="button clean">'.__('Refresh').'</button>'.
 	'<input class="button cancel one-file" type="reset" value="'.__('Clear all').'"/>'.
-	'<input class="button start" type="submit" value="'.__('Upload').'"/>'.
+	'<input class="button start" type="submit" value="'.__('Upload').'"/></p>'.
 	'</div>';
 
 	echo
-	'<div>'.form::hidden(array('d'),$d).'</div>'.
-	'</fieldset>'.
+	'<p>'.form::hidden(array('d'),$d).'</p>'.
 	'</form>'.
 	'</div>';
-	
+
 	echo
 	'<div class="col">'.
 	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
