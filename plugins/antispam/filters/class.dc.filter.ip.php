@@ -123,14 +123,15 @@ class dcFilterIP extends dcSpamFilter
 		'<div class="multi-part" id="tab_'.$type.'" title="'.$title.'">'.
 
 		'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
+
+		'<p>'.
 		form::hidden(array('ip_type'),$type).
-		'<label class="classic" for="addip_'.$type.'">'.__('Add an IP address: ').' '.
-		form::field(array('addip', 'addip_'.$type),18,255).
-		'</label>';
-		if ($core->auth->isSuperAdmin()) {
-			$res .= '<label class="classic" for="globalip_'.$type.'">'.form::checkbox(array('globalip', 'globalip_'.$type),1).' '.
-			__('Global IP (used for all blogs)').'</label> ';
-		}
+		'<label class="classic" for="addip_'.$type.'">'.__('Add an IP address: ').'</label> '.
+		form::field(array('addip', 'addip_'.$type),18,255);
+			if ($core->auth->isSuperAdmin()) {
+				$res .= '<label class="classic" for="globalip_'.$type.'">'.form::checkbox(array('globalip', 'globalip_'.$type),1).' '.
+				__('Global IP (used for all blogs)').'</label> ';
+			}
 
 		$res .=
 		$core->formNonce().

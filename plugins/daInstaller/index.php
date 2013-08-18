@@ -301,9 +301,8 @@ echo
 	'</legend>'.
 	'<form method="get" action="'.$p_url.'">'.
 	'<p>'.form::hidden('p','daInstaller').
-	'<label for="q" class="classic">'.__('Query:').'&nbsp; '.
+	'<label for="q" class="classic">'.__('Query:').'&nbsp;</label> '.
 	form::field('q',30,255,html::escapeHTML($q)).
-	'</label> '.
 	'<label for="mode" class="classic">'.
 	form::radio(array('mode','mode'),'plugins',$mode == 'plugins').
 	' '.__('Plugins').'&nbsp;</label> '.

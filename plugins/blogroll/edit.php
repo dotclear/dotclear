@@ -102,7 +102,7 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat']))
 		));
 ?>
 
-<?php echo '<p><a href="'.$p_url.'">'.__('Return to blogroll').'</a></p>'; ?>
+<?php echo '<p><a class="back" href="'.$p_url.'">'.__('Return to blogroll').'</a></p>'; ?>
 
 <?php
 if (isset($rs) && $rs->is_cat)
@@ -113,16 +113,15 @@ if (isset($rs) && $rs->is_cat)
 	
 	echo
 	'<form action="'.$p_url.'" method="post">'.
-	'<fieldset><legend>'.__('Edit category').'</legend>'.
+	'<h3>'.__('Edit category').'</h3>'.
 	
-	'<p><label for="link_desc" class="required classic"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
-	form::field('link_desc',30,255,html::escapeHTML($link_desc)).'</label> '.
+	'<p><label for="link_desc" class="required classic"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
+	form::field('link_desc',30,255,html::escapeHTML($link_desc)).
 	
 	form::hidden('edit',1).
 	form::hidden('id',$id).
 	$core->formNonce().
 	'<input type="submit" name="edit_cat" value="'.__('Save').'"/></p>'.
-	'</fieldset>'.
 	'</form>';
 }
 if (isset($rs) && !$rs->is_cat)
@@ -132,41 +131,40 @@ if (isset($rs) && !$rs->is_cat)
 	}
 	
 	echo
-	'<form action="plugin.php" method="post">'.
-	'<fieldset class="two-cols"><legend>'.__('Edit link').'</legend>'.
+	'<form action="plugin.php" method="post" class="two-cols">'.
+
+	'<div class="col30 first-col">'.
+	'<div class="fieldset">'.
+	'<h3>'.__('Edit link').'</h3>'.
 	
-	'<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
-	form::field('link_title',30,255,html::escapeHTML($link_title)).'</label></p>'.
+	'<p><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
+	form::field('link_title',30,255,html::escapeHTML($link_title)).'</p>'.
 	
-	'<p class="col"><label for="link_href" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('URL:').' '.
-	form::field('link_href',30,255,html::escapeHTML($link_href)).'</label></p>'.
+	'<p><label for="link_href" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('URL:').'</label> '.
+	form::field('link_href',30,255,html::escapeHTML($link_href)).'</p>'.
 	
-	'<p class="col"><label for="link_desc">'.__('Description:').' '.
-	form::field('link_desc',30,255,html::escapeHTML($link_desc)).'</label></p>'.
+	'<p><label for="link_desc">'.__('Description:').'</label> '.
+	form::field('link_desc',30,255,html::escapeHTML($link_desc)).'</p>'.
 	
-	'<p class="col"><label for="link_lang">'.__('Language:').' '.
-	form::field('link_lang',5,5,html::escapeHTML($link_lang)).'</label></p>'.
-	
-	'<p>'.form::hidden('p','blogroll').
-	form::hidden('edit',1).
-	form::hidden('id',$id).
-	$core->formNonce().
-	'<input type="submit" name="edit_link" value="'.__('Save').'"/></p>'.
-	'</fieldset>'.
+	'<p><label for="link_lang">'.__('Language:').'</label> '.
+	form::field('link_lang',5,5,html::escapeHTML($link_lang)).'</p>'.
+	'</div>'.
+	'</div>'.
 	
 	
 	# XFN nightmare
-	'<fieldset><legend>'.__('XFN').'</legend>'.
+	'<div class="col70 last-col">'.
+	'<h3>'.__('XFN informations').'</h3>'.
 	'<table class="noborder">'.
 	
-	'<tr>'.
+	'<tr class="line">'.
 	'<th>'.__('_xfn_Me').'</th>'.
 	'<td><p>'.'<label class="classic">'.
 	form::checkbox(array('identity'), 'me', ($link_xfn == 'me')).' '.
 	__('_xfn_Another link for myself').'</label></p></td>'.
 	'</tr>'.
 	
-	'<tr>'.
+	'<tr class="line">'.
 	'<th>'.__('_xfn_Friendship').'</th>'.
 	'<td><p>'.
 	'<label class="classic">'.form::radio(array('friendship'),'contact',
@@ -179,7 +177,7 @@ if (isset($rs) && !$rs->is_cat)
 	'</p></td>'.
 	'</tr>'.
 	
-	'<tr>'.
+	'<tr class="line">'.
 	'<th>'.__('_xfn_Physical').'</th>'.
 	'<td><p>'.
 	'<label class="classic">'.form::checkbox(array('physical'),'met',
@@ -187,7 +185,7 @@ if (isset($rs) && !$rs->is_cat)
 	'</p></td>'.
 	'</tr>'.
 	
-	'<tr>'.
+	'<tr class="line">'.
 	'<th>'.__('_xfn_Professional').'</th>'.
 	'<td><p>'.
 	'<label class="classic">'.form::checkbox(array('professional[]'),'co-worker',
@@ -197,7 +195,7 @@ if (isset($rs) && !$rs->is_cat)
 	'</p></td>'.
 	'</tr>'.
 	
-	'<tr>'.
+	'<tr class="line">'.
 	'<th>'.__('_xfn_Geographical').'</th>'.
 	'<td><p>'.
 	'<label class="classic">'.form::radio(array('geographical'),'co-resident',
@@ -208,7 +206,7 @@ if (isset($rs) && !$rs->is_cat)
 	'</p></td>'.
 	'</tr>'.
 	
-	'<tr>'.
+	'<tr class="line">'.
 	'<th>'.__('_xfn_Family').'</th>'.
 	'<td><p>'.
 	'<label class="classic">'.form::radio(array('family'),'child',
@@ -225,7 +223,7 @@ if (isset($rs) && !$rs->is_cat)
 	'</p></td>'.
 	'</tr>'.
 	
-	'<tr>'.
+	'<tr class="line">'.
 	'<th>'.__('_xfn_Romantic').'</th>'.
 	'<td><p>'.
 	'<label class="classic">'.form::checkbox(array('romantic[]'),'muse',
@@ -240,7 +238,12 @@ if (isset($rs) && !$rs->is_cat)
 	'</tr>'.
 	'</table>'.
 	
-	'</fieldset>'.
+	'</div>'.
+	'<p class="clear">'.form::hidden('p','blogroll').
+	form::hidden('edit',1).
+	form::hidden('id',$id).
+	$core->formNonce().
+	'<input type="submit" name="edit_link" value="'.__('Save').'"/></p>'.
 	
 	'</form>';
 }

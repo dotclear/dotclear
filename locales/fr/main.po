@@ -3047,3 +3047,15 @@ msgstr "Vous pouvez aussi installer des thèmes en les déposant ou en télécha
 
 msgid "Add themes to your installation"
 msgstr "Ajouter des thèmes sur votre installation"
+
+msgid "Select this comment"
+msgstr "Sélectionner ce commentaire"
+
+msgid "Next page"
+msgstr "Page suivante"
+
+msgid "Previous page"
+msgstr "Page précédente"
+
+msgid "Add an introduction to the page."
+msgstr "Ajoute une introduction à la page."

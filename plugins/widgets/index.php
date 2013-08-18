@@ -205,8 +205,8 @@ foreach ($__widgets->elements(true) as $w) {
 	'<div>'.form::hidden(array('w[void][0][id]'),html::escapeHTML($w->id())).
 	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hideControl').' '.
 	$w->name().($w->desc() != '' ? ' <span class="form-note">('.__($w->desc()).')</span>' : '').'</p>'.
-	'<p class="js-remove"><label class="classic">'.__('Append to:').' '.
-	form::combo(array('addw['.$w->id().']'),$append_combo).'</label></p>'.
+	'<p class="js-remove"><label class="classic">'.__('Append to:').'</label> '.
+	form::combo(array('addw['.$w->id().']'),$append_combo).'</p>'.
 	'<div class="widgetSettings">'.$w->formSettings('w[void][0]',$j).'</div>'.
 	'</div>';
 	$j++;

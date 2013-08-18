@@ -123,14 +123,14 @@ if (!empty($_REQUEST['id']))
 		
 		if ($next_rs !== null) {
 			$next_link = sprintf($post_link,$next_rs->post_id,
-				html::escapeHTML($next_rs->post_title),__('next page').'&nbsp;&#187;');
+				html::escapeHTML($next_rs->post_title),__('Next page').'&nbsp;&#187;');
 			$next_headlink = sprintf($post_headlink,'next',
 				html::escapeHTML($next_rs->post_title),$next_rs->post_id);
 		}
 		
 		if ($prev_rs !== null) {
 			$prev_link = sprintf($post_link,$prev_rs->post_id,
-				html::escapeHTML($prev_rs->post_title),'&#171;&nbsp;'.__('previous page'));
+				html::escapeHTML($prev_rs->post_title),'&#171;&nbsp;'.__('Previous page'));
 			$prev_headlink = sprintf($post_headlink,'previous',
 				html::escapeHTML($prev_rs->post_title),$prev_rs->post_id);
 		}
@@ -317,16 +317,16 @@ if (!empty($_GET['co'])) {
 if ($post_id) {
 	switch ($post_status) {
 		case 1:
-			$img_status = sprintf($img_status_pattern,__('published'),'check-on.png');
+			$img_status = sprintf($img_status_pattern,__('Published'),'check-on.png');
 			break;
 		case 0:
-			$img_status = sprintf($img_status_pattern,__('unpublished'),'check-off.png');
+			$img_status = sprintf($img_status_pattern,__('Unpublished'),'check-off.png');
 			break;
 		case -1:
-			$img_status = sprintf($img_status_pattern,__('scheduled'),'scheduled.png');
+			$img_status = sprintf($img_status_pattern,__('Scheduled'),'scheduled.png');
 			break;
 		case -2:
-			$img_status = sprintf($img_status_pattern,__('pending'),'check-wrn.png');
+			$img_status = sprintf($img_status_pattern,__('Pending'),'check-wrn.png');
 			break;
 		default:
 			$img_status = '';
@@ -366,7 +366,7 @@ if (!empty($_GET['xconv']))
 }
 
 if ($post_id && $post->post_status == 1) {
-	echo '<p><a class="preview_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this page on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
+	echo '<p><a class="onblog_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this page on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
 }
 
 echo '';
@@ -402,11 +402,12 @@ if ($can_edit_page)
 	echo '<div id="entry-content"><div class="constrained">';
 	
 	echo
-	'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').
+	'<p class="col"><label for="post_title" class="required no-margin"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
-	'</label></p>'.
+	'</p>'.
 	
-	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'</label> '.
+	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').
+	'<span class="form-note">'.__('Add an introduction to the page.').'</span></label> '.
 	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 	'</p>'.
 	
@@ -416,7 +417,8 @@ if ($can_edit_page)
 	'</p>';
 	
 	echo
-	'<p class="area" id="notes-area"><label for="post_notes">'.__('Notes:').'</label>'.
+	'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').
+	'<span class="form-note">'.__('Add unpublished notes.').'</span></label>'.
 	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 	'</p>';
 
@@ -424,7 +426,7 @@ if ($can_edit_page)
 	$core->callBehavior('adminPageForm',isset($post) ? $post : null);
 	
 	echo
-	'<p>'.
+	'<p class="border-top">'.
 	($post_id ? form::hidden('id',$post_id) : '').
 	'<input type="submit" value="'.__('Save').' (s)" '.
 	'accesskey="s" name="save" /> ';
@@ -452,17 +454,17 @@ if ($can_edit_page)
 	echo '<div id="entry-sidebar">';
 	
 	echo
-	'<p><label for="post_status">'.__('Page status:').
+	'<p><label for="post_status">'.__('Page status:').'</label> '.
 	form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
-	'</label></p>'.
+	'</p>'.
 	
-	'<p><label for="post_dt">'.__('Published on:').
-	form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).'</label></p>'.
+	'<p><label for="post_dt">'.__('Published on:').'</label>'.
+	form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).'</p>'.
 	
-	'<p><label for="post_format">'.__('Text formating:').
+	'<p><label for="post_format">'.__('Text formating:').'</label>'.
 	form::combo('post_format',$formaters_combo,$post_format).
-	($post_id && $post_format != 'xhtml' ? '<a href="'.html::escapeURL($redir_url).'&amp;id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').
-	'</label></p>'.
+	($post_id && $post_format != 'xhtml' ? '<a class="button" href="'.html::escapeURL($redir_url).'&amp;id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').
+	'</p>'.
 	
 	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment).' '.
 	__('Accept comments').'</label></p>'.
@@ -486,21 +488,21 @@ if ($can_edit_page)
 	__('If checked this page will be active but not listed in widget Pages.').
 	'</p>'.
 
-	'<p><label for="post_position" class="classic">'.__('Page position:').' '.
+	'<p><label for="post_position" class="classic">'.__('Page position:').'</label> '.
 	form::field('post_position',3,3,(string) $post_position).
-	'</label></p>'.
+	'</p>'.
 	
-	'<p><label for="post_lang">'.__('Page lang:').
-	form::combo('post_lang',$lang_combo,$post_lang).'</label></p>'.
+	'<p><label for="post_lang">'.__('Page lang:').'</label>'.
+	form::combo('post_lang',$lang_combo,$post_lang).'</p>'.
 	
-	'<p><label for="post_password">'.__('Page password:').
+	'<p><label for="post_password">'.__('Page password:').'</label>'.
 	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
-	'</label></p>'.
+	'</p>'.
 	
 	'<div class="lockable">'.
-	'<p><label for="post_url">'.__('Basename:').
+	'<p><label for="post_url">'.__('Basename:').'</label>'.
 	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
-	'</label></p>'.
+	'</p>'.
 	'<p class="form-note warn">'.
 	__('Warning: If you set the URL manually, it may conflict with another page.').
 	'</p>'.
@@ -529,7 +531,7 @@ if ($can_edit_page)
 			
 			'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
 			'href="post_media.php?post_id='.$post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
-			'<img src="images/check-off.png" alt="'.__('remove').'" /></a>'.
+			'<img src="images/check-off.png" alt="'.__('Remove').'" /></a>'.
 			'</li>'.
 			
 			'</ul>'.
@@ -540,7 +542,7 @@ if ($can_edit_page)
 		if (empty($post_media)) {
 			echo '<p>'.__('No attachment.').'</p>';
 		}
-		echo '<p><a href="media.php?post_id='.$post_id.'">'.__('Add files to this page').'</a></p>';
+		echo '<p><a class="button" href="media.php?post_id='.$post_id.'">'.__('Add files to this page').'</a></p>';
 	}
 	
 	# --BEHAVIOR-- adminPageFormSidebar
@@ -576,10 +578,10 @@ if ($post_id)
 	$combo_action = array();
 	if ($can_edit_page && $core->auth->check('publish,contentadmin',$core->blog->id))
 	{
-		$combo_action[__('publish')] = 'publish';
-		$combo_action[__('unpublish')] = 'unpublish';
-		$combo_action[__('mark as pending')] = 'pending';
-		$combo_action[__('mark as junk')] = 'junk';
+		$combo_action[__('Publish')] = 'publish';
+		$combo_action[__('Unpublish')] = 'unpublish';
+		$combo_action[__('Mark as pending')] = 'pending';
+		$combo_action[__('Mark as junk')] = 'junk';
 	}
 	
 	if ($can_edit_page && $core->auth->check('delete,contentadmin',$core->blog->id))
@@ -638,17 +640,17 @@ if ($post_id)
 	
 	'<form action="comment.php" method="post" id="comment-form">'.
 	'<div class="constrained">'.
-	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').
+	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label>'.
 	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn'))).
-	'</label></p>'.
+	'</p>'.
 	
-	'<p><label for="comment_email">'.__('Email:').
+	'<p><label for="comment_email">'.__('Email:').'</label>'.
 	form::field('comment_email',30,255,html::escapeHTML($core->auth->getInfo('user_email'))).
-	'</label></p>'.
+	'</p>'.
 	
-	'<p><label for="comment_site">'.__('Web site:').
+	'<p><label for="comment_site">'.__('Web site:').'</label>'.
 	form::field('comment_site',30,255,html::escapeHTML($core->auth->getInfo('user_url'))).
-	'</label></p>'.
+	'</p>'.
 	
 	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Comment:').'</label> '.
 	form::textarea('comment_content',50,8,html::escapeHTML('')).
@@ -703,16 +705,16 @@ function showComments($rs,$has_action)
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($rs->comment_status) {
 			case 1:
-				$img_status = sprintf($img,__('published'),'check-on.png');
+				$img_status = sprintf($img,__('Published'),'check-on.png');
 				break;
 			case 0:
-				$img_status = sprintf($img,__('unpublished'),'check-off.png');
+				$img_status = sprintf($img,__('Unpublished'),'check-off.png');
 				break;
 			case -1:
-				$img_status = sprintf($img,__('pending'),'check-wrn.png');
+				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
 				break;
 			case -2:
-				$img_status = sprintf($img,__('junk'),'junk.png');
+				$img_status = sprintf($img,__('Junk'),'junk.png');
 				break;
 		}
 		
@@ -721,7 +723,7 @@ function showComments($rs,$has_action)
 		' id="c'.$rs->comment_id.'">'.
 		
 		'<td class="nowrap">'.
-		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0,'title="'.__('select this comment').'"') : '').'</td>'.
+		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0,'title="'.__('Select this comment').'"') : '').'</td>'.
 		'<td class="maximal">'.$rs->comment_author.'</td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
 		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.

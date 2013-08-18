@@ -149,20 +149,20 @@ class dcImportDC1 extends dcIeModule
 				'<p>'.__('Depending on the size of your blog, it could take a few minutes.').'</p>';
 				
 				printf($this->imForm(1,__('General information'),__('Import my blog now')),
-				'<h3>'.__('We first need some information about your old Dotclear 1.2 installation.').'</h3>'.
-				'<p><label for="db_host">'.__('Database Host Name:').' '.
-				form::field('db_host',30,255,html::escapeHTML($this->vars['db_host'])).'</label></p>'.
-				'<p><label for="db_name">'.__('Database Name:',html::escapeHTML($this->vars['db_name'])).' '.
-				form::field('db_name',30,255,html::escapeHTML($this->vars['db_name'])).'</label></p>'.
-				'<p><label for="db_user">'.__('Database User Name:').' '.
-				form::field('db_user',30,255,html::escapeHTML($this->vars['db_user'])).'</label></p>'.
-				'<p><label for="db_pwd">'.__('Database Password:').' '.
-				form::password('db_pwd',30,255).'</label></p>'.
-				'<p><label for="db_prefix">'.__('Database Tables Prefix:').' '.
-				form::field('db_prefix',30,255,html::escapeHTML($this->vars['db_prefix'])).'</label></p>'.
+				'<p class="form-note info">'.__('We first need some information about your old Dotclear 1.2 installation.').'</p>'.
+				'<p><label for="db_host">'.__('Database Host Name:').'</label> '.
+				form::field('db_host',30,255,html::escapeHTML($this->vars['db_host'])).'</p>'.
+				'<p><label for="db_name">'.__('Database Name:',html::escapeHTML($this->vars['db_name'])).'</label> '.
+				form::field('db_name',30,255,html::escapeHTML($this->vars['db_name'])).'</p>'.
+				'<p><label for="db_user">'.__('Database User Name:').'</label> '.
+				form::field('db_user',30,255,html::escapeHTML($this->vars['db_user'])).'</p>'.
+				'<p><label for="db_pwd">'.__('Database Password:').'</label> '.
+				form::password('db_pwd',30,255).'</p>'.
+				'<p><label for="db_prefix">'.__('Database Tables Prefix:').'</label> '.
+				form::field('db_prefix',30,255,html::escapeHTML($this->vars['db_prefix'])).'</p>'.
 				'<h3>'.__('Entries import options').'</h3>'.
-				'<p><label for="post_limit">'.__('Number of entries to import at once:').' '.
-				form::field('post_limit',3,3,html::escapeHTML($this->vars['post_limit'])).'</label></p>'
+				'<p><label for="post_limit">'.__('Number of entries to import at once:').'</label> '.
+				form::field('post_limit',3,3,html::escapeHTML($this->vars['post_limit'])).'</p>'
 				);
 				break;
 			case 2:

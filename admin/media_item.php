@@ -347,7 +347,8 @@ echo
 '<p id="media-icon"><img src="'.$file->media_icon.'?'.time()*rand().'" alt="" /></p>';
 
 echo
-'<div id="media-details">';
+'<div id="media-details">'.
+'<div class="near-icon">';
 
 if ($file->media_image)
 {
@@ -355,6 +356,15 @@ if ($file->media_image)
 	
 	if (!isset($core->media->thumb_sizes[$thumb_size]) && $thumb_size != 'o') {
 		$thumb_size = 's';
+	}
+	
+	if (isset($file->media_thumb[$thumb_size])) {
+		echo '<p><img src="'.$file->media_thumb[$thumb_size].'?'.time()*rand().'" alt="" /></p>';
+	} elseif ($thumb_size == 'o') {
+		$S = getimagesize($file->file);
+		$class = ($S[1] > 500) ? ' class="overheight"' : '';
+		unset($S);
+		echo '<p id="media-original-image"'.$class.'><img src="'.$file->file_url.'?'.time()*rand().'" alt="" /></p>';
 	}
 	
 	echo '<p>'.__('Available sizes:').' ';
@@ -366,15 +376,6 @@ if ($file->media_image)
 	}
 	echo '<a href="'.html::escapeURL($page_url).'&amp;id='.$id.'&amp;size=o&amp;tab=media-details-tab">'.__('original').'</a>';
 	echo '</p>';
-	
-	if (isset($file->media_thumb[$thumb_size])) {
-		echo '<p><img src="'.$file->media_thumb[$thumb_size].'?'.time()*rand().'" alt="" /></p>';
-	} elseif ($thumb_size == 'o') {
-		$S = getimagesize($file->file);
-		$class = ($S[1] > 500) ? ' class="overheight"' : '';
-		unset($S);
-		echo '<p id="media-original-image"'.$class.'><img src="'.$file->file_url.'?'.time()*rand().'" alt="" /></p>';
-	}
 }
 
 if ($file->type == 'audio/mpeg3')
@@ -399,7 +400,7 @@ echo
 if (empty($_GET['find_posts']))
 {
 	echo
-	'<p><strong><a href="'.html::escapeHTML($page_url).'&amp;id='.$id.'&amp;find_posts=1&amp;tab=media-details-tab">'.
+	'<p><strong><a class="button" href="'.html::escapeHTML($page_url).'&amp;id='.$id.'&amp;find_posts=1&amp;tab=media-details-tab">'.
 	__('Show entries containing this media').'</a></strong></p>';
 }
 else
@@ -484,6 +485,8 @@ if ($file->type == 'image/jpeg')
 		echo '</ul>';
 	}
 }
+
+echo '</div>';
 
 if ($file->editable && $core_media_writable)
 {
