@@ -470,7 +470,7 @@ class dcPage
 		self::jsVar('dotclear.msg.confirm_delete_post',
 			__("Are you sure you want to delete this entry?")).
 		self::jsVar('dotclear.msg.click_to_unlock',
-			__("Click here to unlock the field")).			
+			__("Click here to unlock the field")).
 		self::jsVar('dotclear.msg.confirm_spam_delete',
 			__('Are you sure you want to delete all spams?')).
 		self::jsVar('dotclear.msg.confirm_delete_comments',
@@ -725,7 +725,7 @@ public static function jsUpload($params=array(),$base_url=null)
 
 	'<script id="template-upload" type="text/x-tmpl">
 	{% for (var i=0, file; file=o.files[i]; i++) { %}
-	<div class="template-upload fade">
+	<li class="template-upload fade">
 	<div class="upload-file">
 	<div class="upload-fileinfo">
 		<span class="upload-filename">{%=file.name%}</span>
@@ -739,13 +739,13 @@ public static function jsUpload($params=array(),$base_url=null)
 	{% if (!o.files.error) { %}
 	<div class="upload-progress progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
 	{% } %}
-	</div>
+	</li>
 	{% } %}
 	</script>
 	<!-- The template to display files available for download -->
 	<script id="template-download" type="text/x-tmpl">
 	{% for (var i=0, file; file=o.files[i]; i++) { %}
-	<div class="template-download fade">
+	<li class="template-download fade">
 	<div class="upload-file">
 	<div class="upload-fileinfo">
 		<span class="upload-filename">{%=file.name%}</span>
@@ -763,7 +763,7 @@ public static function jsUpload($params=array(),$base_url=null)
 		<div class="bar" style="width:100%;">100%</div>
 		{% } %}
 	</div>
-	</div>
+	</li>
 	{% } %}
 	</script>'.
 
