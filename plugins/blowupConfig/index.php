@@ -14,6 +14,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 require dirname(__FILE__).'/lib/class.blowup.config.php';
 
 $can_write_images = blowupConfig::canWriteImages();
+$can_write_css = blowupConfig::canWriteCss();
 
 if ($core->error->flag()) {
 		$notices = $core->error->toHTML();
@@ -187,6 +188,11 @@ if (!empty($_POST))
 			$blowup_user['post_commentmy_bg_c'] = blowupConfig::adjustColor($_POST['post_commentmy_bg_c']);
 			$blowup_user['prelude_c'] = blowupConfig::adjustColor($_POST['prelude_c']);
 			blowupConfig::createImages($blowup_user,$uploaded);
+		}
+
+		if ($can_write_css)
+		{
+			blowupConfig::createCss($blowup_user);
 		}
 
 		$core->blog->settings->addNamespace('themes');

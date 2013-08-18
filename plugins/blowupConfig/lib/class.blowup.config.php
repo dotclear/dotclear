@@ -140,6 +140,248 @@ class blowupConfig
 		return $css;
 	}
 
+	public static function cssPath()
+	{
+		global $core;
+		return path::real($core->blog->public_path).'/blowup-css';
+	}
+
+	public static function cssURL()
+	{
+		global $core;
+		return $core->blog->settings->system->public_url.'/blowup-css';
+	}
+
+	public static function canWriteCss($create=false)
+	{
+		global $core;
+
+		$public = path::real($core->blog->public_path);
+		$css = self::cssPath();
+
+		if (!is_dir($public)) {
+			$core->error->add(__('The \'public\' directory does not exist.'));
+			return false;
+		}
+
+		if (!is_dir($css)) {
+			if (!is_writable($public)) {
+				$core->error->add(sprintf(__('The \'%s\' directory cannot be modified.'),'public'));
+				return false;
+			}
+			if ($create) {
+				files::makeDir($css);
+			}
+			return true;
+		}
+
+		if (!is_writable($css)) {
+			$core->error->add(sprintf(__('The \'%s\' directory cannot be modified.'),'public/blowup-css'));
+			return false;
+		}
+
+		return true;
+	}
+
+	public static function createCss($s)
+	{
+		global $core;
+		
+		if ($s === null) {
+			return;
+		}
+
+		$css = array();
+
+		/* Sidebar position
+		---------------------------------------------- */
+		if ($s['sidebar_position'] == 'left') {
+			$css['#wrapper']['background-position'] = '-300px 0';
+			$css['#main']['float'] = 'right';
+			$css['#sidebar']['float'] = 'left';
+		}
+
+		/* Properties
+		---------------------------------------------- */
+		self::prop($css,'body','background-color',$s['body_bg_c']);
+
+		self::prop($css,'body','color',$s['body_txt_c']);
+		self::prop($css,'.post-tags li a:link, .post-tags li a:visited, .post-info-co a:link, .post-info-co a:visited','color',$s['body_txt_c']);
+		self::prop($css,'#page','font-size',$s['body_txt_s']);
+		self::prop($css,'body','font-family',self::fontDef($s['body_txt_f']));
+
+		self::prop($css,'.post-content, .post-excerpt, #comments dd, #pings dd, dd.comment-preview','line-height',$s['body_line_height']);
+
+		if (!$s['blog_title_hide'])
+		{
+			self::prop($css,'#top h1 a','color',$s['blog_title_c']);
+			self::prop($css,'#top h1','font-size',$s['blog_title_s']);
+			self::prop($css,'#top h1','font-family',self::fontDef($s['blog_title_f']));
+
+			if ($s['blog_title_a'] == 'right' || $s['blog_title_a'] == 'left') {
+				$css['#top h1'][$s['blog_title_a']] = '0px';
+				$css['#top h1']['width'] = 'auto';
+			}
+
+			if ($s['blog_title_p'])
+			{
+				$_p = explode(':',$s['blog_title_p']);
+				$css['#top h1']['top'] = $_p[1].'px';
+				if ($s['blog_title_a'] != 'center') {
+					$_a = $s['blog_title_a'] == 'right' ? 'right' : 'left';
+					$css['#top h1'][$_a] = $_p[0].'px';
+				}
+			}
+		}
+		else
+		{
+			self::prop($css,'#top h1 span','text-indent','-5000px');
+			self::prop($css,'#top h1','top','0px');
+			$css['#top h1 a'] = array(
+				'display' => 'block',
+				'height' => $s['top_height'] ? ($s['top_height']-10).'px' : '120px',
+				'width' => '800px'
+			);
+		}
+		self::prop($css,'#top','height',$s['top_height']);
+
+		self::prop($css,'.day-date','color',$s['date_title_c']);
+		self::prop($css,'.day-date','font-family',self::fontDef($s['date_title_f']));
+		self::prop($css,'.day-date','font-size',$s['date_title_s']);
+
+		self::prop($css,'a','color',$s['body_link_c']);
+		self::prop($css,'a:visited','color',$s['body_link_v_c']);
+		self::prop($css,'a:hover, a:focus, a:active','color',$s['body_link_f_c']);
+
+		self::prop($css,'#comment-form input, #comment-form textarea','color',$s['body_link_c']);
+		self::prop($css,'#comment-form input.preview','color',$s['body_link_c']);
+		self::prop($css,'#comment-form input.preview:hover','background',$s['body_link_f_c']);
+		self::prop($css,'#comment-form input.preview:hover','border-color',$s['body_link_f_c']);
+		self::prop($css,'#comment-form input.submit','color',$s['body_link_c']);
+		self::prop($css,'#comment-form input.submit:hover','background',$s['body_link_f_c']);
+		self::prop($css,'#comment-form input.submit:hover','border-color',$s['body_link_f_c']);
+
+		self::prop($css,'#sidebar','font-family',self::fontDef($s['sidebar_text_f']));
+		self::prop($css,'#sidebar','font-size',$s['sidebar_text_s']);
+		self::prop($css,'#sidebar','color',$s['sidebar_text_c']);
+
+		self::prop($css,'#sidebar h2','font-family',self::fontDef($s['sidebar_title_f']));
+		self::prop($css,'#sidebar h2','font-size',$s['sidebar_title_s']);
+		self::prop($css,'#sidebar h2','color',$s['sidebar_title_c']);
+
+		self::prop($css,'#sidebar h3','font-family',self::fontDef($s['sidebar_title2_f']));
+		self::prop($css,'#sidebar h3','font-size',$s['sidebar_title2_s']);
+		self::prop($css,'#sidebar h3','color',$s['sidebar_title2_c']);
+
+		self::prop($css,'#sidebar ul','border-top-color',$s['sidebar_line_c']);
+		self::prop($css,'#sidebar li','border-bottom-color',$s['sidebar_line_c']);
+		self::prop($css,'#topnav ul','border-bottom-color',$s['sidebar_line_c']);
+
+		self::prop($css,'#sidebar li a','color',$s['sidebar_link_c']);
+		self::prop($css,'#sidebar li a:visited','color',$s['sidebar_link_v_c']);
+		self::prop($css,'#sidebar li a:hover, #sidebar li a:focus, #sidebar li a:active','color',$s['sidebar_link_f_c']);
+		self::prop($css,'#search input','color',$s['sidebar_link_c']);
+		self::prop($css,'#search .submit','color',$s['sidebar_link_c']);
+		self::prop($css,'#search .submit:hover','background',$s['sidebar_link_f_c']);
+		self::prop($css,'#search .submit:hover','border-color',$s['sidebar_link_f_c']);
+
+		self::prop($css,'.post-title','color',$s['post_title_c']);
+		self::prop($css,'.post-title a, .post-title a:visited','color',$s['post_title_c']);
+		self::prop($css,'.post-title','font-family',self::fontDef($s['post_title_f']));
+		self::prop($css,'.post-title','font-size',$s['post_title_s']);
+
+		self::prop($css,'#comments dd','background-color',$s['post_comment_bg_c']);
+		self::prop($css,'#comments dd','color',$s['post_comment_c']);
+		self::prop($css,'#comments dd.me','background-color',$s['post_commentmy_bg_c']);
+		self::prop($css,'#comments dd.me','color',$s['post_commentmy_c']);
+
+		self::prop($css,'#prelude, #prelude a','color',$s['prelude_c']);
+
+		self::prop($css,'#footer p','background-color',$s['footer_bg_c']);
+		self::prop($css,'#footer p','color',$s['footer_c']);
+		self::prop($css,'#footer p','font-size',$s['footer_s']);
+		self::prop($css,'#footer p','font-family',self::fontDef($s['footer_f']));
+		self::prop($css,'#footer p a','color',$s['footer_l_c']);
+
+		/* Images
+		------------------------------------------------------ */
+		self::backgroundImg($css,'body',$s['body_bg_c'],'body-bg.png');
+		self::backgroundImg($css,'body',$s['body_bg_g'] != 'light','body-bg.png');
+		self::backgroundImg($css,'body',$s['prelude_c'],'body-bg.png');
+		self::backgroundImg($css,'#top',$s['body_bg_c'],'page-t.png');
+		self::backgroundImg($css,'#top',$s['body_bg_g'] != 'light','page-t.png');
+		self::backgroundImg($css,'#top',$s['uploaded'] || $s['top_image'],'page-t.png');
+		self::backgroundImg($css,'#footer',$s['body_bg_c'],'page-b.png');
+		self::backgroundImg($css,'#comments dt',$s['post_comment_bg_c'],'comment-t.png');
+		self::backgroundImg($css,'#comments dd',$s['post_comment_bg_c'],'comment-b.png');
+		self::backgroundImg($css,'#comments dt.me',$s['post_commentmy_bg_c'],'commentmy-t.png');
+		self::backgroundImg($css,'#comments dd.me',$s['post_commentmy_bg_c'],'commentmy-b.png');
+
+		$res = '';
+		foreach ($css as $selector => $values) {
+			$res .= $selector." {\n";
+			foreach ($values as $k => $v) {
+				$res .= $k.':'.$v.";\n";
+			}
+			$res .= "}\n";
+		}
+
+		$res .= $s['extra_css'];
+
+		if (!self::canWriteCss(true)) {
+			throw new Exception(__('Unable to create css file.'));
+		}
+
+		# erase old css file
+		self::dropCss($core->blog->settings->system->theme);
+
+		# create new css file into public blowup-css subdirectory
+		self::writeCss($core->blog->settings->system->theme, $res);
+
+		return $res;
+	}
+
+	protected static function prop(&$css,$selector,$prop,$value)
+	{
+		if ($value) {
+			$css[$selector][$prop] = $value;
+		}
+	}
+
+	protected static function backgroundImg(&$css,$selector,$value,$image)
+	{
+		$file = self::imagesPath().'/'.$image;
+		if ($value && file_exists($file)){
+			$css[$selector]['background-image'] = 'url('.self::imagesURL().'/'.$image.')';
+		}
+	}
+
+	private static function writeCss($theme,$css)
+	{
+		file_put_contents(self::cssPath().'/'.$theme.'.css', $css);
+	}
+	
+	public static function dropCss($theme)
+	{
+		$file = path::real(self::cssPath().'/'.$theme.'.css');
+		if (is_writable(dirname($file))) {
+			@unlink($file);
+		}
+	}
+
+	public static function publicCssUrlHelper()
+	{
+		$theme = $GLOBALS['core']->blog->settings->system->theme;
+		$url = blowupConfig::cssURL();
+		$path = blowupConfig::cssPath();
+
+		if (file_exists($path.'/'.$theme.'.css')) {
+			return $url.'/'.$theme.'.css';
+		}
+
+		return null;
+	}
+
 	public static function imagesPath()
 	{
 		global $core;
