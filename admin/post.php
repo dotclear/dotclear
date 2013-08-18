@@ -481,8 +481,8 @@ if ($can_edit_post)
 			'</p>',
 		
 		"post_notes" =>
-			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'</label><span class="form-note">'.
-			__('Add unpublished notes.').'</span>'.
+			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'<span class="form-note">'.
+			__('Add unpublished notes.').'</span></label>'.
 			form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 			'</p>'
 		)
@@ -704,16 +704,16 @@ function showComments($rs,$has_action,$tb=false)
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($rs->comment_status) {
 			case 1:
-				$img_status = sprintf($img,__('published'),'check-on.png');
+				$img_status = sprintf($img,__('Published'),'check-on.png');
 				break;
 			case 0:
-				$img_status = sprintf($img,__('unpublished'),'check-off.png');
+				$img_status = sprintf($img,__('Unpublished'),'check-off.png');
 				break;
 			case -1:
-				$img_status = sprintf($img,__('pending'),'check-wrn.png');
+				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
 				break;
 			case -2:
-				$img_status = sprintf($img,__('junk'),'junk.png');
+				$img_status = sprintf($img,__('Junk'),'junk.png');
 				break;
 		}
 		
