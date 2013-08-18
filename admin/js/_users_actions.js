@@ -24,49 +24,69 @@ jQuery.fn.updatePermissionsForm = function() {
 			
 			// select related permissions for admin
 			if (prop[2] == 'admin') {
+				if (e.checked) {
+					admin(e,perms,re);
+				}
 				$(e).click(function(){
-					P = this.name.match(re);
-					
-					perms[P[1]]['usage'].checked = this.checked;
-					perms[P[1]]['publish'].checked = this.checked;
-					perms[P[1]]['delete'].checked = this.checked;
-					perms[P[1]]['contentadmin'].checked = this.checked;
-					perms[P[1]]['categories'].checked = this.checked;
-					perms[P[1]]['media'].checked = this.checked;
-					perms[P[1]]['media_admin'].checked = this.checked;
-					perms[P[1]]['usage'].disabled = this.checked;
-					perms[P[1]]['publish'].disabled = this.checked;
-					perms[P[1]]['delete'].disabled = this.checked;
-					perms[P[1]]['contentadmin'].disabled = this.checked;
-					perms[P[1]]['categories'].disabled = this.checked;
-					perms[P[1]]['media'].disabled = this.checked;
-					perms[P[1]]['media_admin'].disabled = this.checked;
-					
+					admin(this,perms,re);
 				});
 			// select related permissions for content admin
 			} else if (prop[2] == 'contentadmin') {
+				if (e.checked) {
+					contentadmin(e,perms,re);
+				}
 				$(e).click(function(){
-					P = this.name.match(re);
-					
-					perms[P[1]]['usage'].checked = this.checked;
-					perms[P[1]]['publish'].checked = this.checked;
-					perms[P[1]]['delete'].checked = this.checked;
-					perms[P[1]]['usage'].disabled = this.checked;
-					perms[P[1]]['publish'].disabled = this.checked;
-					perms[P[1]]['delete'].disabled = this.checked;
-					
+					contentadmin(this,perms,re);
 				});
 			// select related permissions for media admin
 			} else if (prop[2] == 'media_admin') {
+				if (e.checked) {
+					mediaadmin(e,perms,re);
+				}
 				$(e).click(function(){
-					P = this.name.match(re);
-					
-					perms[P[1]]['media'].checked = this.checked;
-					perms[P[1]]['media'].disabled = this.checked;
-					
+					mediaadmin(this,perms,re);
 				});
 			}
 		}
+		
+		function admin(E,perms,re) {
+					P = E.name.match(re);
+					
+					perms[P[1]]['usage'].checked = E.checked;
+					perms[P[1]]['publish'].checked = E.checked;
+					perms[P[1]]['delete'].checked = E.checked;
+					perms[P[1]]['contentadmin'].checked = E.checked;
+					perms[P[1]]['categories'].checked = E.checked;
+					perms[P[1]]['media'].checked = E.checked;
+					perms[P[1]]['media_admin'].checked = E.checked;
+					perms[P[1]]['usage'].disabled = E.checked;
+					perms[P[1]]['publish'].disabled = E.checked;
+					perms[P[1]]['delete'].disabled = E.checked;
+					perms[P[1]]['contentadmin'].disabled = E.checked;
+					perms[P[1]]['categories'].disabled = E.checked;
+					perms[P[1]]['media'].disabled = E.checked;
+					perms[P[1]]['media_admin'].disabled = E.checked;
+		}
+		
+		function contentadmin(E,perms,re) {
+					P = E.name.match(re);
+					
+					perms[P[1]]['usage'].checked = E.checked;
+					perms[P[1]]['publish'].checked = E.checked;
+					perms[P[1]]['delete'].checked = E.checked;
+					perms[P[1]]['usage'].disabled = E.checked;
+					perms[P[1]]['publish'].disabled = E.checked;
+					perms[P[1]]['delete'].disabled = E.checked;
+		}
+		
+		function mediaadmin(E,perms,re) {
+					P = E.name.match(re);
+					
+					perms[P[1]]['media'].checked = E.checked;
+					perms[P[1]]['media'].disabled = E.checked;
+		}
+		
+		
 	});
 };
 
