@@ -1159,17 +1159,21 @@ caption {
 	margin-bottom: .5em;
 }
 
-th, td {
-	border-width: 1px 0;
+td {
+	border-width: 0 0 1px 0;
 	border-style: solid;
 	border-color: #e3e3e3;
 	padding: .4rem .5rem;
 	vertical-align: top;
 }
 th {
-	text-align: left;
-	border-color: #bbb;
+	border-width: 1px 0 1px 0;
+	border-style: solid;
+	border-color: #ccc;
 	background: #f3f3ff;
+	padding: .4rem .5rem;
+	vertical-align: top;
+	text-align: left;
 }
 .noborder td, td.noborder, .noborder th, th.noborder {
 	border-width: 0 0 1px 0;
