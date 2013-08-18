@@ -297,6 +297,7 @@ abbr {
 	background: #fff;
 	font-weight: bold;
 	border-bottom-color: #fff;
+	padding-bottom: .7rem;
 }
 /* ------------------------------------------------------------------ main-menu */
 #main-menu {
@@ -734,28 +735,33 @@ li.media-action input {
 }
 /* -------------------------------------------------------------------- Themes */
 #themes {
-	border-bottom: 1px solid #ccc;
-	margin: 1em 0;
+	margin: 0;
+	width: 100%;
+	padding: 0;
+}
+#themes h3 {
 }
 #themes div.theme-details {
-	clear: left;
 	border-top: 1px solid #ccc;
-	padding: 1em 0;
+	padding: 12px;
+	display: inline-block;
+	vertical-align: top;
+	width: 284px;
+}
+.current-theme {
+	background: #eef;
 }
 #themes div.theme-details:hover {
 	background: #f0f0f0;
 }
 #themes div.theme-details div.theme-shot {
-	float: left;
 }
 #themes div.theme-details div.theme-shot img {
 	display: block;
-	width: 57px;
-	height: 50px;
 	border: 1px solid #ccc;
+	margin-bottom: 1.5em;
 }
 #themes div.theme-details div.theme-info {
-	margin-left: 67px;
 }
 #themes div.theme-details div.theme-info span.theme-desc {
 	display: block;
@@ -764,33 +770,44 @@ li.media-action input {
 	color: #666;
 }
 #themes div.theme-details div.theme-actions {
-	margin-left: 67px;
 }
+#themes-actions {
+	border-bottom: 1px solid #999;
+	margin-bottom: 3em;
+}
+.theme-css {
+	display: block;
+}
+
 /* Themes list, JS version */
+#themes-wrapper {
+	display: table;
+}
+#themes-wrapper #themes {
+	display: table-cell;
+	vertical-align: top;
+}
 #theme-box {
-	border: 1px solid #999;
-	border-left: none;
-	padding: 5px;
-	float: right;
-	height: 420px;
-	width: 320px;
-	overflow: auto;
+	display: table-cell;
+	vertical-align: top;
+	padding: 1rem 0; 
+	width: 312px;
+	background: #eef;
+	border: 1px solid #ccc;
+	border-radius: 3px;
 }
 #theme-box div.theme-shot img {
 	display: block;
-	margin: 0 0 0 10px;
+	margin: 0 16px;
 	width: 280px;
 	height: 245px;
 	border: 1px solid #ccc;
 }
 #theme-box div.theme-info {
-	margin: 1em 0 0 10px;
+	margin: 1em 16px;
 }
-#theme-box h3 {
-	margin: 0;
-}
-#theme-box div.theme-info span {
-	display: block;
+#theme-box h4 {
+	color: #000;
 }
 #theme-box span.theme-version {
 	color: #666;
@@ -803,24 +820,17 @@ li.media-action input {
 	font-weight:bold;
 }
 #theme-box div.theme-actions {
-	margin-left: 10px;
-}
-#themes-wrapper #themes {
-	border: 1px solid #999;
-	overflow: auto;
-	height: 420px;
-	padding: 5px;
-	margin: 0;
+	padding: 0 16px;
 }
 #themes div.theme-details-js {
 	float: left;
 	width: 120px;
 	height: 150px;
-	margin: 0 10px 20px;
-	padding: 10px 10px 0;
+	margin: 0 12px 24px;
+	padding: 12px 12px 0;
 	text-align: center;
 	background: #f3f3f3;
-	border: 1px solid #f3f3f3;
+	border: 1px solid #ddd;
 	cursor: pointer;
 	border-radius: 4px;
 }
@@ -828,19 +838,13 @@ li.media-action input {
 	cursor: pointer;
 }
 #themes div.theme-details-js.theme-selected {
-	background: #E5E3DA;
+	background: #ddd;
 	border: 1px solid #999;
 }
 #themes div.theme-details-js div.theme-shot img {
 	width: 120px;
 	height: 105px;
 	border: 1px solid #fff;
-}
-#themes div.theme-details-js h3 {
-	font-family: inherit;
-	font-weight: normal;
-	margin: 0;
-	padding: 0;
 }
 /* ----------------------------------------------------------  Plugins list */
 #plugins td.action {
