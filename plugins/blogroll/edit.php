@@ -131,10 +131,9 @@ if (isset($rs) && !$rs->is_cat)
 	}
 	
 	echo
-	'<form action="plugin.php" method="post" class="two-cols">'.
+	'<form action="plugin.php" method="post" class="two-cols fieldset">'.
 
 	'<div class="col30 first-col">'.
-	'<div class="fieldset">'.
 	'<h3>'.__('Edit link').'</h3>'.
 	
 	'<p><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
@@ -148,7 +147,6 @@ if (isset($rs) && !$rs->is_cat)
 	
 	'<p><label for="link_lang">'.__('Language:').'</label> '.
 	form::field('link_lang',5,5,html::escapeHTML($link_lang)).'</p>'.
-	'</div>'.
 	'</div>'.
 	
 	
