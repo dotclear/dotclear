@@ -33,6 +33,6 @@ if (isset($_POST['css']))
 $css_content = is_file($css_file) ? file_get_contents($css_file) : '';
 
 echo
-'<p class="area"><label>'.__('Style sheet:').' '.
-form::textarea('css',60,20,html::escapeHTML($css_content)).'</label></p>';
+'<p class="area"><label>'.__('Style sheet:').'</label> '.
+form::textarea('css',60,20,html::escapeHTML($css_content)).'</p>';
 ?>

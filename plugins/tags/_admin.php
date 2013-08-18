@@ -312,9 +312,9 @@ class tagsBehaviors
 		
 		echo
 		'<fieldset><legend>'.__('Tags').'</legend>'.
-		'<p><label for="user_tag_list_format">'.__('Tags list format:').' '.
+		'<p><label for="user_tag_list_format">'.__('Tags list format:').'</label> '.
 		form::combo('user_tag_list_format',$combo,$value).
-		'</label></p></fieldset>';
+		'</p></fieldset>';
 	}
 	
 	public static function setTagListFormat($cur,$user_id = null)

@@ -252,64 +252,64 @@ echo '<fieldset><legend>'.__('General').'</legend>';
 
 if ($can_write_images) {
 	echo
-	'<p class="field"><label for="body_bg_c">'.__('Background color:').' '.
-	form::field('body_bg_c',7,7,$blowup_user['body_bg_c'],'colorpicker').'</label></p>'.
+	'<p class="field"><label for="body_bg_c">'.__('Background color:').'</label> '.
+	form::field('body_bg_c',7,7,$blowup_user['body_bg_c'],'colorpicker').'</p>'.
 
-	'<p class="field"><label for="body_bg_g">'.__('Background color fill:').' '.
-	form::combo('body_bg_g',$gradient_types,$blowup_user['body_bg_g']).'</label></p>';
+	'<p class="field"><label for="body_bg_g">'.__('Background color fill:').'</label> '.
+	form::combo('body_bg_g',$gradient_types,$blowup_user['body_bg_g']).'</p>';
 }
 
 echo
-'<p class="field"><label for="body_txt_f">'.__('Main text font:').' '.
-form::combo('body_txt_f',blowupConfig::fontsList(),$blowup_user['body_txt_f']).'</label></p>'.
+'<p class="field"><label for="body_txt_f">'.__('Main text font:').'</label> '.
+form::combo('body_txt_f',blowupConfig::fontsList(),$blowup_user['body_txt_f']).'</p>'.
 
-'<p class="field"><label for="body_txt_s">'.__('Main text font size:').' '.
-form::field('body_txt_s',7,7,$blowup_user['body_txt_s']).'</label></p>'.
+'<p class="field"><label for="body_txt_s">'.__('Main text font size:').'</label> '.
+form::field('body_txt_s',7,7,$blowup_user['body_txt_s']).'</p>'.
 
-'<p class="field"><label for="body_txt_c">'.__('Main text color:').' '.
-form::field('body_txt_c',7,7,$blowup_user['body_txt_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="body_txt_c">'.__('Main text color:').'</label> '.
+form::field('body_txt_c',7,7,$blowup_user['body_txt_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="body_line_height">'.__('Text line height:').' '.
-form::field('body_line_height',7,7,$blowup_user['body_line_height']).'</label></p>'.
+'<p class="field"><label for="body_line_height">'.__('Text line height:').'</label> '.
+form::field('body_line_height',7,7,$blowup_user['body_line_height']).'</p>'.
 '</fieldset>'.
 
 '<fieldset><legend>'.__('Links').'</legend>'.
-'<p class="field"><label for="body_link_c">'.__('Links color:').' '.
-form::field('body_link_c',7,7,$blowup_user['body_link_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="body_link_c">'.__('Links color:').'</label> '.
+form::field('body_link_c',7,7,$blowup_user['body_link_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="body_link_v_c">'.__('Visited links color:').' '.
-form::field('body_link_v_c',7,7,$blowup_user['body_link_v_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="body_link_v_c">'.__('Visited links color:').'</label> '.
+form::field('body_link_v_c',7,7,$blowup_user['body_link_v_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="body_link_f_c">'.__('Focus links color:').' '.
-form::field('body_link_f_c',7,7,$blowup_user['body_link_f_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="body_link_f_c">'.__('Focus links color:').'</label> '.
+form::field('body_link_f_c',7,7,$blowup_user['body_link_f_c'],'colorpicker').'</p>'.
 '</fieldset>'.
 
 '<fieldset><legend>'.__('Page top').'</legend>';
 
 if ($can_write_images) {
 	echo
-	'<p class="field"><label for="prelude_c">'.__('Prelude color:').' '.
-	form::field('prelude_c',7,7,$blowup_user['prelude_c'],'colorpicker').'</label></p>';
+	'<p class="field"><label for="prelude_c">'.__('Prelude color:').'</label> '.
+	form::field('prelude_c',7,7,$blowup_user['prelude_c'],'colorpicker').'</p>';
 }
 
 echo
 '<p class="field"><label for="blog_title_hide">'.__('Hide main title').' '.
 form::checkbox('blog_title_hide',1,$blowup_user['blog_title_hide']).'</label></p>'.
 
-'<p class="field"><label for="blog_title_f">'.__('Main title font:').' '.
-form::combo('blog_title_f',blowupConfig::fontsList(),$blowup_user['blog_title_f']).'</label></p>'.
+'<p class="field"><label for="blog_title_f">'.__('Main title font:').'</label> '.
+form::combo('blog_title_f',blowupConfig::fontsList(),$blowup_user['blog_title_f']).'</p>'.
 
-'<p class="field"><label for="blog_title_s">'.__('Main title font size:').' '.
-form::field('blog_title_s',7,7,$blowup_user['blog_title_s']).'</label></p>'.
+'<p class="field"><label for="blog_title_s">'.__('Main title font size:').'</label> '.
+form::field('blog_title_s',7,7,$blowup_user['blog_title_s']).'</p>'.
 
-'<p class="field"><label for="blog_title_c">'.__('Main title color:').' '.
-form::field('blog_title_c',7,7,$blowup_user['blog_title_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="blog_title_c">'.__('Main title color:').'</label> '.
+form::field('blog_title_c',7,7,$blowup_user['blog_title_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="blog_title_a">'.__('Main title alignment:').' '.
-form::combo('blog_title_a',array(__('center')=>'center',__('left')=>'left',__('right')=>'right'),$blowup_user['blog_title_a']).'</label></p>'.
+'<p class="field"><label for="blog_title_a">'.__('Main title alignment:').'</label> '.
+form::combo('blog_title_a',array(__('center')=>'center',__('left')=>'left',__('right')=>'right'),$blowup_user['blog_title_a']).'</p>'.
 
-'<p class="field"><label for="blog_title_p">'.__('Main title position (x:y)').' '.
-form::field('blog_title_p',7,7,$blowup_user['blog_title_p']).'</label></p>'.
+'<p class="field"><label for="blog_title_p">'.__('Main title position (x:y)').'</label> '.
+form::field('blog_title_p',7,7,$blowup_user['blog_title_p']).'</p>'.
 '</fieldset>';
 
 if ($can_write_images) {
@@ -321,14 +321,14 @@ if ($can_write_images) {
 
 	echo
 	'<fieldset><legend>'.__('Top image').'</legend>'.
-	'<p class="field"><label for="top_image">'.__('Top image').
-	form::combo('top_image',$top_images,($blowup_user['top_image'] ? $blowup_user['top_image'] : 'default')).'</label></p>'.
+	'<p class="field"><label for="top_image">'.__('Top image').'</label> '.
+	form::combo('top_image',$top_images,($blowup_user['top_image'] ? $blowup_user['top_image'] : 'default')).'</p>'.
 	'<p>'.__('Choose "Custom..." to upload your own image.').'</p>'.
 
-	'<p id="uploader"><label for="upfile">'.__('Add your image:').
+	'<p id="uploader"><label for="upfile">'.__('Add your image:').'</label> '.
 	' ('.sprintf(__('JPEG or PNG file, 800 pixels wide, maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.
 	'<input type="file" name="upfile" id="upfile" size="35" />'.
-	'</label></p>'.
+	'</p>'.
 
 	'<h3>'.__('Preview').'</h3>'.
 	'<div class="grid" style="width:800px;border:1px solid #ccc;">'.
@@ -339,111 +339,111 @@ if ($can_write_images) {
 
 echo
 '<fieldset><legend>'.__('Sidebar').'</legend>'.
-'<p class="field"><label for="sidebar_position">'.__('Sidebar position:').' '.
-form::combo('sidebar_position',array(__('right')=>'right',__('left')=>'left'),$blowup_user['sidebar_position']).'</label></p>'.
+'<p class="field"><label for="sidebar_position">'.__('Sidebar position:').'</label> '.
+form::combo('sidebar_position',array(__('right')=>'right',__('left')=>'left'),$blowup_user['sidebar_position']).'</p>'.
 
-'<p class="field"><label for="sidebar_text_f">'.__('Sidebar text font:').' '.
-form::combo('sidebar_text_f',blowupConfig::fontsList(),$blowup_user['sidebar_text_f']).'</label></p>'.
+'<p class="field"><label for="sidebar_text_f">'.__('Sidebar text font:').'</label> '.
+form::combo('sidebar_text_f',blowupConfig::fontsList(),$blowup_user['sidebar_text_f']).'</p>'.
 
-'<p class="field"><label for="sidebar_text_s">'.__('Sidebar text font size:').' '.
-form::field('sidebar_text_s',7,7,$blowup_user['sidebar_text_s']).'</label></p>'.
+'<p class="field"><label for="sidebar_text_s">'.__('Sidebar text font size:').'</label> '.
+form::field('sidebar_text_s',7,7,$blowup_user['sidebar_text_s']).'</p>'.
 
-'<p class="field"><label for="sidebar_text_c">'.__('Sidebar text color:').' '.
-form::field('sidebar_text_c',7,7,$blowup_user['sidebar_text_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="sidebar_text_c">'.__('Sidebar text color:').'</label> '.
+form::field('sidebar_text_c',7,7,$blowup_user['sidebar_text_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="sidebar_title_f">'.__('Sidebar titles font:').' '.
-form::combo('sidebar_title_f',blowupConfig::fontsList(),$blowup_user['sidebar_title_f']).'</label></p>'.
+'<p class="field"><label for="sidebar_title_f">'.__('Sidebar titles font:').'</label> '.
+form::combo('sidebar_title_f',blowupConfig::fontsList(),$blowup_user['sidebar_title_f']).'</p>'.
 
-'<p class="field"><label for="sidebar_title_s">'.__('Sidebar titles font size:').' '.
-form::field('sidebar_title_s',7,7,$blowup_user['sidebar_title_s']).'</label></p>'.
+'<p class="field"><label for="sidebar_title_s">'.__('Sidebar titles font size:').'</label> '.
+form::field('sidebar_title_s',7,7,$blowup_user['sidebar_title_s']).'</p>'.
 
-'<p class="field"><label for="sidebar_title_c">'.__('Sidebar titles color:').' '.
-form::field('sidebar_title_c',7,7,$blowup_user['sidebar_title_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="sidebar_title_c">'.__('Sidebar titles color:').'</label> '.
+form::field('sidebar_title_c',7,7,$blowup_user['sidebar_title_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="sidebar_title2_f">'.__('Sidebar 2nd level titles font:').' '.
-form::combo('sidebar_title2_f',blowupConfig::fontsList(),$blowup_user['sidebar_title2_f']).'</label></p>'.
+'<p class="field"><label for="sidebar_title2_f">'.__('Sidebar 2nd level titles font:').'</label> '.
+form::combo('sidebar_title2_f',blowupConfig::fontsList(),$blowup_user['sidebar_title2_f']).'</p>'.
 
-'<p class="field"><label for="sidebar_title2_s">'.__('Sidebar 2nd level titles font size:').' '.
-form::field('sidebar_title2_s',7,7,$blowup_user['sidebar_title2_s']).'</label></p>'.
+'<p class="field"><label for="sidebar_title2_s">'.__('Sidebar 2nd level titles font size:').'</label> '.
+form::field('sidebar_title2_s',7,7,$blowup_user['sidebar_title2_s']).'</p>'.
 
-'<p class="field"><label for="sidebar_title2_c">'.__('Sidebar 2nd level titles color:').' '.
-form::field('sidebar_title2_c',7,7,$blowup_user['sidebar_title2_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="sidebar_title2_c">'.__('Sidebar 2nd level titles color:').'</label> '.
+form::field('sidebar_title2_c',7,7,$blowup_user['sidebar_title2_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="sidebar_line_c">'.__('Sidebar lines color:').' '.
-form::field('sidebar_line_c',7,7,$blowup_user['sidebar_line_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="sidebar_line_c">'.__('Sidebar lines color:').'</label> '.
+form::field('sidebar_line_c',7,7,$blowup_user['sidebar_line_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="sidebar_link_c">'.__('Sidebar links color:').' '.
-form::field('sidebar_link_c',7,7,$blowup_user['sidebar_link_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="sidebar_link_c">'.__('Sidebar links color:').'</label> '.
+form::field('sidebar_link_c',7,7,$blowup_user['sidebar_link_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="sidebar_link_v_c">'.__('Sidebar visited links color:').' '.
-form::field('sidebar_link_v_c',7,7,$blowup_user['sidebar_link_v_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="sidebar_link_v_c">'.__('Sidebar visited links color:').'</label> '.
+form::field('sidebar_link_v_c',7,7,$blowup_user['sidebar_link_v_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="sidebar_link_f_c">'.__('Sidebar focus links color:').' '.
-form::field('sidebar_link_f_c',7,7,$blowup_user['sidebar_link_f_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="sidebar_link_f_c">'.__('Sidebar focus links color:').'</label> '.
+form::field('sidebar_link_f_c',7,7,$blowup_user['sidebar_link_f_c'],'colorpicker').'</p>'.
 '</fieldset>'.
 
 '<fieldset><legend>'.__('Entries').'</legend>'.
-'<p class="field"><label for="date_title_f">'.__('Date title font:').' '.
-form::combo('date_title_f',blowupConfig::fontsList(),$blowup_user['date_title_f']).'</label></p>'.
+'<p class="field"><label for="date_title_f">'.__('Date title font:').'</label> '.
+form::combo('date_title_f',blowupConfig::fontsList(),$blowup_user['date_title_f']).'</p>'.
 
-'<p class="field"><label for="date_title_s">'.__('Date title font size:').' '.
-form::field('date_title_s',7,7,$blowup_user['date_title_s']).'</label></p>'.
+'<p class="field"><label for="date_title_s">'.__('Date title font size:').'</label> '.
+form::field('date_title_s',7,7,$blowup_user['date_title_s']).'</p>'.
 
-'<p class="field"><label for="date_title_c">'.__('Date title color:').' '.
-form::field('date_title_c',7,7,$blowup_user['date_title_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="date_title_c">'.__('Date title color:').'</label> '.
+form::field('date_title_c',7,7,$blowup_user['date_title_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="post_title_f">'.__('Entry title font:').' '.
-form::combo('post_title_f',blowupConfig::fontsList(),$blowup_user['post_title_f']).'</label></p>'.
+'<p class="field"><label for="post_title_f">'.__('Entry title font:').'</label> '.
+form::combo('post_title_f',blowupConfig::fontsList(),$blowup_user['post_title_f']).'</p>'.
 
-'<p class="field"><label for="post_title_s">'.__('Entry title font size:').' '.
-form::field('post_title_s',7,7,$blowup_user['post_title_s']).'</label></p>'.
+'<p class="field"><label for="post_title_s">'.__('Entry title font size:').'</label> '.
+form::field('post_title_s',7,7,$blowup_user['post_title_s']).'</p>'.
 
-'<p class="field"><label for="post_title_c">'.__('Entry title color:').' '.
-form::field('post_title_c',7,7,$blowup_user['post_title_c'],'colorpicker').'</label></p>';
-
-if ($can_write_images) {
-	echo
-	'<p class="field"><label for="post_comment_bg_c">'.__('Comment background color:').' '.
-	form::field('post_comment_bg_c',7,7,$blowup_user['post_comment_bg_c'],'colorpicker').'</label></p>';
-}
-
-echo
-'<p class="field"><label for="post_comment_c">'.__('Comment text color:').' '.
-form::field('post_comment_c',7,7,$blowup_user['post_comment_c'],'colorpicker').'</label></p>';
+'<p class="field"><label for="post_title_c">'.__('Entry title color:').'</label> '.
+form::field('post_title_c',7,7,$blowup_user['post_title_c'],'colorpicker').'</p>';
 
 if ($can_write_images) {
 	echo
-	'<p class="field"><label for="post_commentmy_bg_c">'.__('My comment background color:').' '.
-	form::field('post_commentmy_bg_c',7,7,$blowup_user['post_commentmy_bg_c'],'colorpicker').'</label></p>';
+	'<p class="field"><label for="post_comment_bg_c">'.__('Comment background color:').'</label> '.
+	form::field('post_comment_bg_c',7,7,$blowup_user['post_comment_bg_c'],'colorpicker').'</p>';
 }
 
 echo
-'<p class="field"><label for="post_commentmy_c">'.__('My comment text color:').' '.
-form::field('post_commentmy_c',7,7,$blowup_user['post_commentmy_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="post_comment_c">'.__('Comment text color:').'</label> '.
+form::field('post_comment_c',7,7,$blowup_user['post_comment_c'],'colorpicker').'</p>';
+
+if ($can_write_images) {
+	echo
+	'<p class="field"><label for="post_commentmy_bg_c">'.__('My comment background color:').'</label> '.
+	form::field('post_commentmy_bg_c',7,7,$blowup_user['post_commentmy_bg_c'],'colorpicker').'</p>';
+}
+
+echo
+'<p class="field"><label for="post_commentmy_c">'.__('My comment text color:').'</label> '.
+form::field('post_commentmy_c',7,7,$blowup_user['post_commentmy_c'],'colorpicker').'</p>'.
 '</fieldset>'.
 
 '<fieldset><legend>'.__('Footer').'</legend>'.
-'<p class="field"><label for="footer_f">'.__('Footer font:').' '.
-form::combo('footer_f',blowupConfig::fontsList(),$blowup_user['footer_f']).'</label></p>'.
+'<p class="field"><label for="footer_f">'.__('Footer font:').'</label> '.
+form::combo('footer_f',blowupConfig::fontsList(),$blowup_user['footer_f']).'</p>'.
 
-'<p class="field"><label for="footer_s">'.__('Footer font size:').' '.
-form::field('footer_s',7,7,$blowup_user['footer_s']).'</label></p>'.
+'<p class="field"><label for="footer_s">'.__('Footer font size:').'</label> '.
+form::field('footer_s',7,7,$blowup_user['footer_s']).'</p>'.
 
-'<p class="field"><label for="footer_c">'.__('Footer color:').' '.
-form::field('footer_c',7,7,$blowup_user['footer_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="footer_c">'.__('Footer color:').'</label> '.
+form::field('footer_c',7,7,$blowup_user['footer_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="footer_l_c">'.__('Footer links color:').' '.
-form::field('footer_l_c',7,7,$blowup_user['footer_l_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="footer_l_c">'.__('Footer links color:').'</label> '.
+form::field('footer_l_c',7,7,$blowup_user['footer_l_c'],'colorpicker').'</p>'.
 
-'<p class="field"><label for="footer_bg_c">'.__('Footer background color:').' '.
-form::field('footer_bg_c',7,7,$blowup_user['footer_bg_c'],'colorpicker').'</label></p>'.
+'<p class="field"><label for="footer_bg_c">'.__('Footer background color:').'</label> '.
+form::field('footer_bg_c',7,7,$blowup_user['footer_bg_c'],'colorpicker').'</p>'.
 '</fieldset>';
 
 echo
 '<fieldset><legend>'.__('Additional CSS').'</legend>'.
-'<p><label for="extra_css">'.__('Any additional CSS styles (must be written using the CSS syntax):').' '.
+'<p><label for="extra_css">'.__('Any additional CSS styles (must be written using the CSS syntax):').'</label> '.
 form::textarea('extra_css',72,5,html::escapeHTML($blowup_user['extra_css']),'maximal','',false,'title="'.__('Additional CSS').'"').
-'</label></p>'.
+'</p>'.
 '</fieldset>';
 
 
