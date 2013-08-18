@@ -736,6 +736,6 @@ function showComments($rs,$has_action,$tb=false)
 	echo '</table>';
 }
 
-dcPage::helpBlock('core_post','core_wiki');
+dcPage::helpBlock('core_post','core_trackbacks','core_wiki');
 dcPage::close();
 ?>
