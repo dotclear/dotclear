@@ -1165,6 +1165,12 @@ msgstr "Vider le répertoire"
 msgid "Pages"
 msgstr "Pages"
 
+msgid "My first page"
+msgstr "Ma première page"
+
+msgid "This is your first page. When you\'re ready to blog, log in to edit or delete it."
+msgstr "Ceci est votre première page. Quand vous serez prêt à bloguer, connectez-vous pour l'éditer ou la supprimer."
+
 #, php-format
 msgid "%d page"
 msgstr "%d page"
