@@ -2251,6 +2251,9 @@ msgstr "Supprimer ce thème"
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Êtes-vous certain de vouloir supprimer le thème \"%s\" ?"
 
+msgid "Are you sure you want to delete this backup?"
+msgstr "Êtes-vous certain de vouloir supprimer cette sauvegarde ?"
+
 msgid "Zip file content"
 msgstr "Contenu du fichier zip"
 

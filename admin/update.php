@@ -167,7 +167,10 @@ if ($new_v && $step)
 /* DISPLAY Main page
 -------------------------------------------------------- */
 dcPage::open(__('Dotclear update'),
-	(!$step ? dcPage::jsPageTabs($default_tab) : '')
+	(!$step ? 
+		dcPage::jsPageTabs($default_tab).
+		dcPage::jsLoad('js/_update.js')
+	: '')
 );
 
 if (!$core->error->flag()) {
