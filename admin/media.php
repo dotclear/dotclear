@@ -372,7 +372,7 @@ if ($core_media_writable)
 
 	echo
 	'<p class="one-file"><label for="upfiletitle">'.__('Title:').'</label>'.form::field(array('upfiletitle','upfiletitle'),35,255).'</p>'.
-	'<p class="one-file"><label for="upfilepriv" class="classic">'.__('Private').'</label>'.
+	'<p class="one-file"><label for="upfilepriv" class="classic">'.__('Private').'</label> '.
 	form::checkbox(array('upfilepriv','upfilepriv'),1).'</p>';
 
 	if (!$user_ui_enhanceduploader) {
@@ -390,7 +390,7 @@ if ($core_media_writable)
 	echo
 	'<p>'.form::hidden(array('d'),$d).'</p>'.
 	'</form>'.
-	'</div>';
+	'</div></div>';
 
 	echo
 	'<div class="col">'.

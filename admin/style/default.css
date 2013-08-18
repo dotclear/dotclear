@@ -251,23 +251,29 @@ abbr {
 	position: static;
 }
 .two-cols .col {
-	width: 49%;
+	width: 47%;
 	margin-left: 2%;
 	float: left;
 }
-.two-cols .col:first-child {
-	width: 49%;
-	margin-left: 0;
-}
 .two-cols .col70{
-	width: 69%;
+	width: 68%;
 	margin-left: 0;
 	float: left;
 }
-.two-cols .col30 {
+.col30 {
 	width: 28%;
 	margin-left: 2%;
 	float: left;
+}
+.two-cols .col:first-child,
+.two-cols .col30.first-col {
+	margin-left: 0;
+	margin-right: 2%;
+}
+.two-cols .col:last-child,
+.two-cols .col70.last-col {
+	margin-left: 2%;
+	margin-right: 0;
 }
 /* -------------------------------------------------------------- layout - onglets */
 .part-tabs ul {
@@ -600,7 +606,10 @@ select#del_cat {
 	float: left;
 }
 #media-details {
+}
+.near-icon {
 	margin-left: 70px;
+	margin-bottom: 3em;
 }
 #media-details ul {
 	display: block;
@@ -786,6 +795,7 @@ li.media-action input {
 #themes-wrapper #themes {
 	display: table-cell;
 	vertical-align: top;
+	padding-left: 1em;
 }
 #theme-box {
 	display: table-cell;
@@ -1150,7 +1160,13 @@ th {
 	border-bottom-color: #aaa;
 }
 .noborder td, td.noborder, .noborder th, th.noborder {
-	border-width: 0;
+	border-width: 0 0 1px 0;
+	border-color: #ddd;
+	line-height: 2.4rem;
+	padding-bottom: 0;
+}
+.noborder p {
+	margin-bottom: 0;
 }
 table .maximal, table.maximal {
 	width: 100%;
