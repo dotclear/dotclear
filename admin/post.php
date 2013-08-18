@@ -93,6 +93,8 @@ $bad_dt = false;
 # Get entry informations
 if (!empty($_REQUEST['id']))
 {
+	$page_title = __('Edit entry');
+	
 	$params['post_id'] = $_REQUEST['id'];
 	
 	$post = $core->blog->getPosts($params);
@@ -121,8 +123,6 @@ if (!empty($_REQUEST['id']))
 		$post_selected = (boolean) $post->post_selected;
 		$post_open_comment = (boolean) $post->post_open_comment;
 		$post_open_tb = (boolean) $post->post_open_tb;
-		
-		$page_title = __('Edit entry');
 		
 		$can_edit_post = $post->isEditable();
 		$can_delete= $post->isDeletable();
