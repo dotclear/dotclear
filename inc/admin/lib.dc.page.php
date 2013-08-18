@@ -364,6 +364,12 @@ class dcPage
 	public static function helpBlock()
 	{
 		$args = func_get_args();
+
+		$args = new ArrayObject($args);
+
+		# --BEHAVIOR-- adminPageHelpBlock
+		$GLOBALS['core']->callBehavior('adminPageHelpBlock',$args);
+
 		if (empty($args)) {
 			return;
 		};
