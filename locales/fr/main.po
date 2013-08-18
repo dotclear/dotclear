@@ -3039,3 +3039,11 @@ msgstr "Filtrer la liste des utilisateurs"
 msgid "users per page"
 msgstr "utilisateurs par page"
 
+msgid "Available themes in your installation"
+msgstr "Thèmes disponibles sur votre installation"
+
+msgid "You can also install themes by uploading or downloading zip files."
+msgstr "Vous pouvez aussi installer des thèmes en les déposant ou en téléchargeant des fichiers zip."
+
+msgid "Add themes to your installation"
+msgstr "Ajouter des thèmes sur votre installation"
