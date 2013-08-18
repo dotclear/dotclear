@@ -520,8 +520,8 @@ class dcPage
 	public static function jsLoadIE7()
 	{
 		return
-		'<!--[if lt IE 8]>'."\n".
-		self::jsLoad('js/ie7/IE8.js').
+		'<!--[if lt IE 9]>'."\n".
+		self::jsLoad('js/ie7/IE9.js').
 		'<link rel="stylesheet" type="text/css" href="style/iesucks.css" />'."\n".
 		'<![endif]-->'."\n";
 	}
