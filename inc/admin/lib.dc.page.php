@@ -163,7 +163,7 @@ class dcPage
 
 		if ($core->error->flag()) {
 			echo
-			'<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</p></strong>'.
+			'<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</strong></p>'.
 			$core->error->toHTML().
 			'</div>';
 		}
@@ -507,6 +507,8 @@ class dcPage
 			__('Remove this theme')).
 		self::jsVar('dotclear.msg.confirm_delete_theme',
 			__('Are you sure you want to delete "%s" theme?')).
+		self::jsVar('dotclear.msg.confirm_delete_backup',
+			__('Are you sure you want to delete this backup?')).
 		self::jsVar('dotclear.msg.zip_file_content',
 			__('Zip file content')).
 		self::jsVar('dotclear.msg.xhtml_validator',

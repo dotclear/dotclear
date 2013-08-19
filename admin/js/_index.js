@@ -60,6 +60,10 @@ $(function() {
 				$('fieldset',f).prepend(msg);
 			});
 		}
+		$('#new_cat').toggleWithLegend(
+			$('#new_cat').parent().children().not('#new_cat'),
+			{} // no cookie on new category as we don't use this every day
+		);
 	}
 
 	// allow to hide quick entry div, and remember choice
