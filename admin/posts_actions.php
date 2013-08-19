@@ -105,6 +105,20 @@ class FieldsList {
 	}
 	
     /**
+     * getEntriesQS - returns the list of entry fields as query string
+     *
+     * @access public
+	 * @return the list of entry fields, html encoded
+     */
+	public function getEntriesQS() {
+		$ret=array();
+		foreach ($this->entries as $id=>$title) {
+			$ret[] = 'entries[]='.$id;
+		}
+		return join('&',$ret);
+	}
+	
+    /**
      * __toString - magic method. -- DEPRECATED here
 	 *              This method is only used to preserve compatibility with plugins 
 	 *				relying on previous versions of adminPostsActionsContent behavior, 
@@ -117,21 +131,7 @@ class FieldsList {
 	}
 }
 
-
-function listEntries($titles) {
-	$ret = 
-		'<table class="posts-list"><tr>'.
-		'<th colspan="2">'.__('Title').'</th>'.
-		'</tr>';
-	foreach ($titles as $id=>$title) {
-		$ret .= 
-			'<tr><td>'.
-			form::checkbox(array('entries[]'),$id,true,'','').'</td>'.
-			'<td>'.	$title.'</td></tr>';
-	}
-	$ret .= '</table>';
-	return $ret;
-}
+$fields = new FieldsList();
 
 /* Actions
 -------------------------------------------------------- */
@@ -178,7 +178,10 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	$posts_ids = array();
 	while ($posts->fetch())	{
 		$posts_ids[] = $posts->post_id;
+		$fields->addEntry($posts->post_id,$posts->post_title);
 	}
+	// Redirection including selected entries
+	$redir_sel = $redir.'&'.$fields->getEntriesQS();
 	
 	# --BEHAVIOR-- adminPostsActions
 	$core->callBehavior('adminPostsActions',$core,$posts,$action,$redir);
@@ -196,7 +199,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 		{
 			$core->blog->updPostsStatus($posts_ids,$status);
 			
-			http::redirect($redir);
+			http::redirect($redir_sel.'&upd=1');
 		}
 		catch (Exception $e)
 		{
@@ -209,7 +212,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 		{
 			$core->blog->updPostsSelected($posts_ids,$action == 'selected');
 			
-			http::redirect($redir);
+			http::redirect($redir_sel."&upd=1");
 		}
 		catch (Exception $e)
 		{
@@ -232,7 +235,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 			
 			$core->blog->delPosts($posts_ids);
 			
-			http::redirect($redir);
+			http::redirect($redir."&del=1");
 		}
 		catch (Exception $e)
 		{
@@ -265,7 +268,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 			
 			$core->blog->updPostsCategory($posts_ids, $new_cat_id);
 			
-			http::redirect($redir);
+			http::redirect($redir_sel."&upd=1");
 		}
 		catch (Exception $e)
 		{
@@ -287,7 +290,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 			$cur->user_id = $new_user_id;
 			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
 			
-			http::redirect($redir);
+			http::redirect($redir_sel."&upd=1");
 		}
 		catch (Exception $e)
 		{
@@ -303,7 +306,7 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 			$cur->post_lang = $new_lang;
 			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
 			
-			http::redirect($redir);
+			http::redirect($redir_sel."&upd=1");
 		}
 		catch (Exception $e)
 		{
@@ -324,6 +327,8 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 			'<span class="page-title">'.__('Entries actions').'</span>' => ''
 		))
 	);
+	
+	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
 
 	dcPage::close();
 	exit;
@@ -362,11 +367,6 @@ if (!isset($action)) {
 	exit;
 }
 
-$fields = new FieldsList();
-while ($posts->fetch()) {
-	$fields->addEntry($posts->post_id,$posts->post_title);
-}
-
 if (isset($_POST['redir']) && strpos($_POST['redir'],'://') === false)
 {
 	$fields->addHidden(array('redir'),html::escapeURL($_POST['redir']));
@@ -402,6 +402,8 @@ if ($action == 'category')
 			__('Entries') => 'posts.php',
 			__('Change category for entries') => ''
 	));
+	
+	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
 
 	# categories list
 	# Getting categories
@@ -451,7 +453,8 @@ elseif ($action == 'lang')
 			__('Entries') => 'posts.php',
 			'<span class="page-title">'.__('Change language for entries').'</span>' => ''
 	));
-	
+	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
+
 	# lang list
 	# Languages combo
 	$rs = $core->blog->getLangs(array('order'=>'asc'));
@@ -491,7 +494,8 @@ elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 			__('Entries') => 'posts.php',
 			'<span class="page-title">'.__('Change author for entries').'</span>' => ''
 	));
-	
+	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
+
 	echo
 	'<form action="posts_actions.php" method="post">'.
 	$fields->getEntries().
@@ -505,8 +509,6 @@ elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 	'<input type="submit" value="'.__('Save').'" /></p>'.
 	'</form>';
 }
-
-echo '<p><a class="back" href="'.html::escapeURL($redir).'">'.__('back').'</a></p>';
 
 dcPage::close();
 ?>
