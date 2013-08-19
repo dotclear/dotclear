@@ -251,7 +251,11 @@ dcPage::open(__('Entries'),$starting_script,
 			'<span class="page-title">'.__('Entries').'</span>' => ''
 		))
 );
-
+if (!empty($_GET['upd'])) {
+	dcPage::message(__('Selected entries have been successfully updated.'));
+} elseif (!empty($_GET['del'])) {
+	dcPage::message(__('Selected entries have been successfully deleted.'));
+}
 if (!$core->error->flag())
 {
 	echo

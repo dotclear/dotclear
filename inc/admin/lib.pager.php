@@ -41,7 +41,12 @@ class adminPostList extends adminGenericList
 			$pager->html_prev = $this->html_prev;
 			$pager->html_next = $this->html_next;
 			$pager->var_page = 'page';
-			
+			$entries = array();
+			if (isset($_REQUEST['entries'])) {
+				foreach ($_REQUEST['entries'] as $v) {
+					$entries[(integer)$v]=true;
+				}
+			}
 			$html_block =
 			'<table class="clear"><tr>'.
 			'<th colspan="2">'.__('Title').'</th>'.
@@ -65,7 +70,7 @@ class adminPostList extends adminGenericList
 			
 			while ($this->rs->fetch())
 			{
-				echo $this->postLine();
+				echo $this->postLine(isset($entries[$this->rs->post_id]));
 			}
 			
 			echo $blocks[1];
@@ -74,7 +79,7 @@ class adminPostList extends adminGenericList
 		}
 	}
 	
-	private function postLine()
+	private function postLine($checked)
 	{
 		if ($this->core->auth->check('categories',$this->core->blog->id)) {
 			$cat_link = '<a href="category.php?id=%s">%s</a>';
@@ -127,7 +132,7 @@ class adminPostList extends adminGenericList
 		
 		$res .=
 		'<td class="nowrap">'.
-		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable()).'</td>'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,$checked,'','',!$this->rs->isEditable()).'</td>'.
 		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
