@@ -20,3 +20,16 @@ ul.spaminfo .hamcount {
 ul.spaminfo .feed {
 	background-image: url(index.php?pf=antispam/feed.png);
 }
+/* ---------------------------------------------------------- listing of IPs / bad words */
+.antispam {
+	height: 200px;
+	overflow: auto;
+	margin-bottom: 1em;
+}
+.antispam p {
+	margin: 1px 0 0 0;
+	padding: 0.2em 0.5em;
+}
+.antispam p.global {
+	background: #ccff99;
+}
