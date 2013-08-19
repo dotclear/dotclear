@@ -281,7 +281,7 @@ if (!$core->error->flag())
 	form::combo('selected',$selected_combo,$selected).'</p>'.
 	'<p><label for="month" class="ib">'.__('Month:').'</label> '.
 	form::combo('month',$dt_m_combo,$month).'</p>'.
-	'<label for="lang" class="ib">'.__('Lang:').'</label> '.
+	'<p><label for="lang" class="ib">'.__('Lang:').'</label> '.
 	form::combo('lang',$lang_combo,$lang).'</p> '.
 	'</div>'.
 	

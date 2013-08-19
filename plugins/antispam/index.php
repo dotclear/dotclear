@@ -169,7 +169,7 @@ else
 	}
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
-		sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog preferences').'</a>').
+		sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
 			'</p>';
 	}
 	echo '</form>';
@@ -211,7 +211,7 @@ else
 		'<td class="handle">'.form::field(array('f_order['.$fid.']'),2,5,(string) $i, 'position', '', false, 'title="'.__('position').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_active[]'),$fid,$f->active, '', '', false, 'title="'.__('Active').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_auto_del[]'),$fid,$f->auto_delete, '', '', false, 'title="'.__('Auto Del.').'"').'</td>'.
-		'<td class="nowrap" scope="raw">'.$f->name.'</td>'.
+		'<td class="nowrap" scope="row">'.$f->name.'</td>'.
 		'<td class="maximal">'.$f->description.'</td>'.
 		'<td class="status">'.$gui_link.'</td>'.
 		'</tr>';

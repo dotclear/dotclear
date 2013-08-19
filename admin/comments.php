@@ -133,10 +133,10 @@ $combo_action = array();
 $default = '';
 if ($core->auth->check('publish,contentadmin',$core->blog->id))
 {
-	$combo_action[__('publish')] = 'publish';
-	$combo_action[__('unpublish')] = 'unpublish';
-	$combo_action[__('mark as pending')] = 'pending';
-	$combo_action[__('mark as junk')] = 'junk';
+	$combo_action[__('Publish')] = 'publish';
+	$combo_action[__('Unpublish')] = 'unpublish';
+	$combo_action[__('Mark as pending')] = 'pending';
+	$combo_action[__('Mark as junk')] = 'junk';
 }
 if ($core->auth->check('delete,contentadmin',$core->blog->id))
 {

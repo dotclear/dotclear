@@ -225,9 +225,9 @@ form::field('user_name',20,255,html::escapeHTML($user_name)).
 
 '<p><label for="user_firstname">'.__('First Name:').'</label> '.
 form::field('user_firstname',20,255,html::escapeHTML($user_firstname)).
-'</label></p>'.
+'</p>'.
 
-'<p><label for="user_displayname">'.__('Display name:').' '.
+'<p><label for="user_displayname">'.__('Display name:').'</label> '.
 form::field('user_displayname',20,255,html::escapeHTML($user_displayname)).
 '</p>'.
 

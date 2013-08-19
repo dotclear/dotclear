@@ -423,7 +423,6 @@ form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>'.
 
 '</div>'.
 '</div>'.
-'<br class="clear" />'. //Opera sucks
 '</fieldset>';
 
 if ($core->auth->allowPassChange())
@@ -441,7 +440,7 @@ if ($core->auth->allowPassChange())
 	'</div>'.
 	'</div>'.
 	
-	'<p><label for="new_pwd_c">'.__('Confirm password:').'</label>'.
+	'<p><label for="new_pwd_c">'.__('Confirm new password:').'</label>'.
 	form::password('new_pwd_c',20,255).'</p>'.
 	'</fieldset>'.
 	
@@ -499,11 +498,11 @@ if ($core->auth->isSuperAdmin()) {
 	'<p><label for="user_ui_hide_std_favicon" class="classic">'.
 	form::checkbox('user_ui_hide_std_favicon',1,$user_ui_hide_std_favicon).' '.
 	__('Do not use standard favicon').'</label></p>'.
-	'<p class="clear form-note info">'.__('This will be applied for all users').'</p>';
+	'<p class="clear form-note info">'.__('This will be applied for all users').
+	'<br class="clear" /></p>';//Opera sucks;
 }
 
 echo 
-'<br class="clear" />'. //Opera sucks
 '</fieldset>';
 
 echo
@@ -529,9 +528,9 @@ __('Display Dotclear news').'</label></p>'.
 
 '<p><label for="user_dm_quickentry" class="classic">'.
 form::checkbox('user_dm_quickentry',1,$user_dm_quickentry).' '.
-__('Display quick entry form').'</label></p>'.
+__('Display quick entry form').'</label><br class="clear" />'. //Opera sucks
+'</p>'.
 
-'<br class="clear" />'. //Opera sucks
 '</fieldset>';
 
 # --BEHAVIOR-- adminPreferencesForm

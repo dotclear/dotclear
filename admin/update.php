@@ -199,7 +199,7 @@ if (!$step)
 	{
 		echo
 			'<p class="static-msg">'.sprintf(__('Dotclear %s is available.'),$new_v).
-				($version_info ? ' <a href="'.$version_info.'">('.__('information about this version').')</a>' : '').
+				($version_info ? ' <a href="'.$version_info.'">('.__('Information about this version').')</a>' : '').
 				'</p>'.
 		
 		'<p>'.__('To upgrade your Dotclear installation simply click on the following button. '.
@@ -245,7 +245,7 @@ elseif ($step == 'unzip' && !$core->error->flag())
 	echo
 	'<p class="message">'.
 	__("Congratulations, you're one click away from the end of the update.").
-	' <strong><a href="index.php?logout=1">'.__('Finish the update.').'</a></strong>'.
+	' <strong><a href="index.php?logout=1">'.__('Finish the update').'</a>.</strong>'.
 	'</p>';
 }
 

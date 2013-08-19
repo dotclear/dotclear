@@ -38,7 +38,7 @@ $combo_action = array(
 $core->callBehavior('adminUsersActionsCombo',array(&$combo_action));
 
 
-# Get users
+#?Get users
 $page = !empty($_GET['page']) ? $_GET['page'] : 1;
 $nb_per_page =  30;
 
@@ -133,7 +133,7 @@ if (!$core->error->flag())
 	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
 	form::combo('order',$order_combo,$order).'</p>'.
 	'<p><span class="label ib">'.__('Show').'</span> <label for="nb" class="classic">'.	
-	form::field('nb',3,3,$nb_per_page).' '.__('users per page').'</p> '.
+	form::field('nb',3,3,$nb_per_page).' '.__('users per page').'</label></p> '.
 	'</div>'.
 	'</div>'.
 

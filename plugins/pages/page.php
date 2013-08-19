@@ -454,14 +454,14 @@ if ($can_edit_page)
 	echo '<div id="entry-sidebar">';
 	
 	echo
-	'<p><label for="post_status">'.__('Page status:').'</label> '.
+	'<p><label for="post_status" class="ib">'.__('Page status:').'</label> '.
 	form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
 	'</p>'.
 	
-	'<p><label for="post_dt">'.__('Published on:').'</label>'.
+	'<p><label for="post_dt" class="ib">'.__('Published on:').'</label>'.
 	form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).'</p>'.
 	
-	'<p><label for="post_format">'.__('Text formating:').'</label>'.
+	'<p><label for="post_format" class="ib">'.__('Text formating:').'</label>'.
 	form::combo('post_format',$formaters_combo,$post_format).
 	($post_id && $post_format != 'xhtml' ? '<a class="button" href="'.html::escapeURL($redir_url).'&amp;id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').
 	'</p>'.
@@ -492,15 +492,15 @@ if ($can_edit_page)
 	form::field('post_position',3,3,(string) $post_position).
 	'</p>'.
 	
-	'<p><label for="post_lang">'.__('Page lang:').'</label>'.
+	'<p><label for="post_lang" class="ib">'.__('Page lang:').'</label>'.
 	form::combo('post_lang',$lang_combo,$post_lang).'</p>'.
 	
-	'<p><label for="post_password">'.__('Page password:').'</label>'.
+	'<p><label for="post_password" class="ib">'.__('Page password:').'</label>'.
 	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
 	'</p>'.
 	
-	'<div class="lockable">'.
-	'<p><label for="post_url">'.__('Basename:').'</label>'.
+	'<div class="lockable" class="ib">'.
+	'<p><label for="post_url" class="ib">'.__('Basename:').'</label>'.
 	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
 	'</p>'.
 	'<p class="form-note warn">'.
@@ -511,7 +511,7 @@ if ($can_edit_page)
 	if ($post_id)
 	{
 		echo
-		'<h3 class="clear">'.__('Attachments').'</h3>';
+		'<h4 class="clear">'.__('Attachments').'</h4>';
 		foreach ($post_media as $f)
 		{
 			$ftitle = $f->media_title;
@@ -540,7 +540,7 @@ if ($can_edit_page)
 		unset($f);
 		
 		if (empty($post_media)) {
-			echo '<p>'.__('No attachment.').'</p>';
+			echo '<p class="form-note">'.__('No attachment.').'</p>';
 		}
 		echo '<p><a class="button" href="media.php?post_id='.$post_id.'">'.__('Add files to this page').'</a></p>';
 	}

@@ -41,7 +41,7 @@ msgid "Settings definition successfully updated"
 msgstr "Les réglages ont été enregistrés avec succès"
 
 msgid "blog settings"
-msgstr "Réglages du blog"
+msgstr "paramètres du blog"
 
 msgid "Value"
 msgstr "Valeur"
@@ -304,7 +304,7 @@ msgid "remove"
 msgstr "supprimer"
 
 msgid "No attachment."
-msgstr "Pas de fichier attaché"
+msgstr "Pas de fichier attaché."
 
 msgid "Add files to this entry"
 msgstr "Ajouter des fichiers à la page"
@@ -1933,3 +1933,6 @@ msgstr "Préférences globales"
 
 msgid "Edit theme files"
 msgstr "Modifier les fichiers du thème"
+
+msgid "Blog settings"
+msgstr "Paramètres du blog"

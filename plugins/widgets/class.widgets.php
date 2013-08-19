@@ -245,7 +245,7 @@ class dcWidget
 					$res .=
 					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
 					form::textarea(array($iname,$wfid),30,5,html::escapeHTML($s['value']),'maximal').
-					'</label></p>';
+					'</p>';
 					break;
 				case 'check':
 					$res .=
