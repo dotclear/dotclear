@@ -179,8 +179,6 @@ dcPage::open(__('Dotclear update'),
 );
 
 if (!$core->error->flag()) {
-	echo '<h2>'.__('Dotclear update').'</h2>';
-	
 	if (!empty($_GET['nocache'])) {
 		dcPage::message(__('Manual checking of update done successfully.'));
 	}
