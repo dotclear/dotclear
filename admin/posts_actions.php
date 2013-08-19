@@ -16,26 +16,72 @@ dcPage::check('usage,contentadmin');
 
 $params = array();
 
+/**
+* FieldsList - Compatibility class for hidden fields & entries[] fields
+*
+*/
 class FieldsList {
+	/** @var array list of hidden fields */
 	protected $hidden;
+	/** @var array list of selected entries */
 	protected $entries;
+
+
+   /**
+     * Class constructor
+	*/
 	public function __construct() {
 		$this->hidden=array();
 		$this->entries =array();
 	}
-	public function addHidden($name,$value) {
+
+    /**
+     * addHidden - adds a hidden field
+     * 
+     * @param string $name the field name.
+     * @param mixed $value the field value.
+     *
+     * @access public
+	 * @return the FieldsList instance, enabling to chain requests
+     */	
+	 public function addHidden($name,$value) {
 		$this->hidden[] = form::hidden($name,$value);
 		return $this;
 	}
-	public function addEntry($id,$title) {
+
+    /**
+     * addEntry - adds a antry field
+     * 
+     * @param string $id the entry id.
+     * @param mixed $title the entry title.
+     *
+     * @access public
+	 * @return the FieldsList instance, enabling to chain requests
+     */	
+	 public function addEntry($id,$title) {
 		$this->entries[$id]=$title;
 		return $this;
 	}
 
-	public function getHidden() {
+    /**
+     * getHidden - returns the list of hidden fields, html encoded
+     *
+     * @access public
+	 * @return the list of hidden fields, html encoded
+     */
+	 public function getHidden() {
 		return join('',$this->hidden);
 	}
 	
+    /**
+     * getEntries - returns the list of entry fields, html encoded
+     *
+	 * @param boolean $hidden if set to true, returns entries as a list of hidden field
+	 *                if set to false, returns html code displaying the list of entries
+	 *                with a list of checkboxes to enable to select/deselect entries
+     * @access public
+	 * @return the list of entry fields, html encoded
+     */
 	public function getEntries ($hidden=false) {
 		$ret = '';
 		if ($hidden) {
@@ -58,6 +104,14 @@ class FieldsList {
 		return $ret;
 	}
 	
+    /**
+     * __toString - magic method. -- DEPRECATED here
+	 *              This method is only used to preserve compatibility with plugins 
+	 *				relying on previous versions of adminPostsActionsContent behavior, 
+	 *
+     * @access public
+	 * @return the list of hidden fields and entries (as hidden fields too), html encoded
+     */
 	public function __toString() {
 		return join('',$this->hidden).$this->getEntries(true);
 	}
