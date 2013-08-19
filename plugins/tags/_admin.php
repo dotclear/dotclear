@@ -228,13 +228,18 @@ class tagsBehaviors
 	{
 		if ($action == 'tags')
 		{
-			echo
-			'<h2 class="page-title">'.__('Add tags to entries').'</h2>'.
+			echo dcPage::breadcrumb(
+				array(
+					html::escapeHTML($core->blog->name) => '',
+					__('Entries') => 'posts.php',
+					'<span class="page-title">'.__('Add tags to entries').'</span>' => ''
+			)).
 			'<form action="'.$form_uri.'" method="post">'.
+			$hidden_fields->getEntries().
 			'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
 			form::textarea('new_tags',60,3).
 			'</div>'.
-			$hidden_fields.
+			$hidden_fields->getHidden().
 			$core->formNonce().
 			form::hidden(array('action'),'tags').
 			'<p><input type="submit" value="'.__('Save').'" '.
@@ -258,8 +263,12 @@ class tagsBehaviors
 					}
 				}
 			}
-			
-			echo '<h2 class="page-title">'.__('Remove selected tags from entries').'</h2>';
+			echo dcPage::breadcrumb(
+				array(
+					html::escapeHTML($core->blog->name) => '',
+					__('Entries') => 'posts.php',
+					'<span class="page-title">'.__('Remove selected tags from entries').'</span>' => ''
+			));
 			
 			if (empty($tags)) {
 				echo '<p>'.__('No tags for selected entries').'</p>';
