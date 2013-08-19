@@ -499,7 +499,7 @@ if ($can_edit_page)
 	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
 	'</p>'.
 	
-	'<div class="lockable" class="ib">'.
+	'<div class="lockable ib">'.
 	'<p><label for="post_url" class="ib">'.__('Basename:').'</label>'.
 	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
 	'</p>'.
