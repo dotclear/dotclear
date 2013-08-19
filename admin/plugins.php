@@ -235,10 +235,10 @@ echo (!$core->plugins->moduleExists('daInstaller') ?
 		'<a href="plugin.php?p=daInstaller">'.__('DotAddict.org Installer').'</a>'));
 
 if ($is_writable) {
-	echo __('To install or upgrade a plugin you generally just need to upload it '.
+	echo '<p>'.__('To install or upgrade a plugin you generally just need to upload it '.
 	'in "Install or upgrade a plugin" section.');
 } else {
-	echo __('To install or upgrade a plugin you just need to extract it in your plugins directory.');
+	echo '<p>'.__('To install or upgrade a plugin you just need to extract it in your plugins directory.');
 }
 echo '</p>';
 

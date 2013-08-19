@@ -1122,7 +1122,7 @@ msgstr "Sur cette page, vous pouvez installer, mettre à jour ou supprimer des l
 
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
-msgstr "Vous pouvez changer votre langue d'utilisateur dans vos <a href=\"%1$s\">préférences</a> ou changer la langue principale de votre blog dans vos <a href=\"%2$s\">paramètres de blog</a>."
+msgstr "Vous pouvez changer votre langue d'utilisateur dans vos <a href=\"%1$s\">préférences</a> ou changer la langue principale de votre blog dans vos <a href=\"%2$s\">paramètres du blog</a>."
 
 msgid "Installed languages"
 msgstr "Langues installées"
@@ -1789,7 +1789,7 @@ msgid "Default"
 msgstr "Défaut"
 
 msgid "If you want to change your email or password you must provide your current password."
-msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe."
+msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel."
 
 msgid "No favorite selected"
 msgstr "Aucun favori sélectionné"
@@ -1825,7 +1825,7 @@ msgid "User timezone:"
 msgstr "Fuseau horaire de l'utilisateur :"
 
 msgid "If you have changed this user email or password you must provide your current password to save these modifications."
-msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe."
+msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel pour enregistrer ces modifications."
 
 msgid "My options"
 msgstr "Mes options"
@@ -3101,3 +3101,30 @@ msgstr "fort"
 
 msgid "very strong"
 msgstr "très fort"
+
+msgid "Confirm new password:"
+msgstr "Confirmez le nouveau mot de passe :"
+
+msgid "Not selected"
+msgstr "Non sélectionné"
+
+msgid "Back to comments list"
+msgstr "Retour à la liste des commentaires"
+
+msgid "The current blog cannot be deleted."
+msgstr "Le blog courant ne peut être détruit."
+
+msgid "Only superadmin can delete a blog."
+msgstr "Seul un superadministrateur peut supprimer un blog."
+
+msgid "Invalid publication date"
+msgstr "Date de publication invalide."
+
+msgid "Image alignment:"
+msgstr "Alignement de l'image :"
+
+msgid "Finish the update"
+msgstr "Finir la mise à jour"
+
+msgid "Information about this version"
+psgstr "Informations sur cette version"

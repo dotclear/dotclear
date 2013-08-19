@@ -78,7 +78,7 @@ else
 	echo
 	'<form action="blog.php" method="post" id="blog-form">'.
 	
-	$core->formNonce().
+	'<div>'$core->formNonce().'</div>'.
 	'<p><label class="required" for="blog_id"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').'</label> '.
 	form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
 	'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
