@@ -1989,6 +1989,9 @@ msgstr "Impossible de supprimer le fichier %s"
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "L'archive de Dotclear téléchargée semble être corrompue. Essayer de la <a %s>télécharger</a> à nouveau."
 
+msgid "If this problem persists try to <a href="http://dotclear.org/download">update manually</a>."
+msgstr "Si le problème persiste essayer de <a href="http://dotclear.org/download">mettre à jour manuellement</a>."
+
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
 msgstr "Comme les fichiers suivants de votre installation de Dotclear ont été modifiés, votre installation ne peut être mise à jour. Merci de <a href=\"http://fr.dotclear.org/download\">mettre à jour manuellement</a>."
 
