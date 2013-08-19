@@ -40,7 +40,7 @@ class attachmentAdmin
 				'<a class="media-icon" href="media_item.php?id='.$f->media_id.'">'.
 				'<img src="'.$f->media_icon.'" alt="" title="'.$f->basename.'" /></a>'.
 				'<ul>'.
-				'<li><a class="media-link" href="media_item.php?id='.$f->media_id.'"'.
+				'<li><a class="media-link" href="media_item.php?id='.$f->media_id.'" '.
 				'title="'.$f->basename.'">'.$ftitle.'</a></li>'.
 				'<li>'.$f->media_dtstr.'</li>'.
 				'<li>'.files::size($f->size).' - '.
