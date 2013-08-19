@@ -1037,7 +1037,7 @@ msgstr "Pour les raisons ci-dessus, Dotclear ne peut pas être installé. Réfé
 
 #, fuzzy, php-format
 msgid "Path <strong>%s</strong> is not writable."
-msgstr "Le répertoire de cache %s n'est pas accessible en écriture."
+msgstr "Le répertoire de cache <strong>%s</strong> n'est pas accessible en écriture."
 
 #, fuzzy
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
@@ -1191,6 +1191,12 @@ msgstr "Par dates décroissantes"
 
 msgid "Media manager"
 msgstr "Gestionnaire de médias"
+
+msgid "Go to %s folder"
+msgstr "Aller au dossier %s"
+
+msgid "Media details of %s"
+msgstr "Détails du média %s"
 
 msgid "confirm removal"
 msgstr "Confirmer la suppression"
@@ -1993,8 +1999,14 @@ msgstr "Les fichiers suivants de votre installation de Dotclear ne peuvent pas �
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
 msgstr "Les fichiers suivants de votre installation de Dotclear ne peuvent pas être écrits. Veuillez corriger la situation ou <a href=\"http://fr.dotclear.org/download\">mettre à jour manuellement</a>."
 
+msgid "Manual checking of update done successfully."
+msgstr "Vérification manuelle de mise à jour effectuée avec succès."
+
 msgid "No newer Dotclear version available."
 msgstr "Aucune nouvelle version de Dotclear n'est disponible."
+
+msgid "Force checking update Dotclear"
+msgstr "Forcer la vérification de mise à jour de Dotclear"
 
 #, php-format
 msgid "Dotclear %s is available."
@@ -2132,11 +2144,11 @@ msgstr "Blogs :"
 
 #, fuzzy
 msgid "Go to the content"
-msgstr "Voir ce billet sur le site"
+msgstr "Aller au contenu"
 
 #, fuzzy
 msgid "Go to the menu"
-msgstr "Aller sur le site"
+msgstr "Aller au menu"
 
 msgid "Go to site"
 msgstr "Aller sur le site"
@@ -2200,7 +2212,7 @@ msgid "Are you sure you want to delete this comment?"
 msgstr "Êtes-vous certain de vouloir supprimer ce commentaire ?"
 
 msgid "Users with posts cannot be deleted."
-msgstr "Les utilisateurs ayant écrit des billets ne peuvent être effacées."
+msgstr "Les utilisateurs ayant écrit des billets ne peuvent être supprimés."
 
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
@@ -2242,6 +2254,9 @@ msgstr "Supprimer ce thème"
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Êtes-vous certain de vouloir supprimer le thème \"%s\" ?"
 
+msgid "Are you sure you want to delete this backup?"
+msgstr "Êtes-vous certain de vouloir supprimer cette sauvegarde ?"
+
 msgid "Zip file content"
 msgstr "Contenu du fichier zip"
 
@@ -2256,6 +2271,9 @@ msgstr "Il y a des erreurs XHTML."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Vous avez des modifications non sauvegardées. Changer de format vous fera perdre ces modifications. Continuer ?"
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr "Attention : le changement de syntaxe ne transformera pas les balises des contenus déjà saisis. Pensez à les réadapter après cette opération. Confirmez-vous ce changement de syntaxe ?"
 
 msgid "Loading enhanced uploader, please wait."
 msgstr "Chargement de l'interface avancée."
@@ -2505,7 +2523,7 @@ msgstr "Cette catégorie n'est pas vide."
 
 #, fuzzy
 msgid "You are not allowed to reset categories order"
-msgstr "Vous n'êtes pas autorisé à supprimer des catégories"
+msgstr "Vous n'êtes pas autorisé à réinitialiser l'ordre des catégories"
 
 msgid "Category URL must be unique."
 msgstr "L'URL de chaque catégorie doit être unique."
@@ -3059,3 +3077,24 @@ msgstr "Page précédente"
 
 msgid "Add an introduction to the page."
 msgstr "Ajoute une introduction à la page."
+
+msgid "(No cat)"
+msgstr "(aucune)"
+
+msgid "Password strength: %s"
+msgstr "Force du mot de passe : %s"
+
+msgid "very weak"
+msgstr "très faible"
+
+msgid "weak"
+msgstr "faible"
+
+msgid "mediocre"
+msgstr "moyen"
+
+msgid "strong"
+msgstr "fort"
+
+msgid "very strong"
+msgstr "très fort"

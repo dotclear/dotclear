@@ -26,7 +26,7 @@ if (!is_readable(DC_DIGESTS)) {
 }
 
 $updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
-$new_v = $updater->check(DC_VERSION);
+$new_v = $updater->check(DC_VERSION, !empty($_GET['nocache']));
 $zip_file = $new_v ? DC_BACKUP_PATH.'/'.basename($updater->getFileURL()) : '';
 $version_info = $new_v ? $updater->getInfoURL() : '';
 
@@ -167,7 +167,10 @@ if ($new_v && $step)
 /* DISPLAY Main page
 -------------------------------------------------------- */
 dcPage::open(__('Dotclear update'),
-	(!$step ? dcPage::jsPageTabs($default_tab) : ''),
+	(!$step ? 
+		dcPage::jsPageTabs($default_tab).
+		dcPage::jsLoad('js/_update.js')
+		: ''),
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
@@ -175,12 +178,24 @@ dcPage::open(__('Dotclear update'),
 		))
 );
 
+if (!$core->error->flag()) {
+	echo '<h2>'.__('Dotclear update').'</h2>';
+	
+	if (!empty($_GET['nocache'])) {
+		dcPage::message(__('Manual checking of update done successfully.'));
+	}
+}
+
 if (!$step)
 {
 	echo '<div class="multi-part" id="update" title="'.__('Dotclear update').'">';
 	if (empty($new_v))
 	{
-		echo '<p><strong>'.__('No newer Dotclear version available.').'</strong></p>';
+		echo '<p><strong>'.__('No newer Dotclear version available.').'</strong></p>'.
+		'<form action="'.$p_url.'" method="get">'.
+		'<p><input type="hidden" name="nocache" value="1" />'.
+		'<input type="submit" value="'.__('Force checking update Dotclear').'" /></p>'.
+		'</form>';
 	}
 	else
 	{

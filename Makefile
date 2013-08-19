@@ -68,6 +68,7 @@ config:
 	find $(DC)/admin/js/ie7/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jquery/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jsToolBar/*.js -exec ./build-tools/min-js.php \{\} \;
+	find $(DC)/admin/js/jsUpload/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/tool-man/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/plugins -name '*.js' -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/themes/default/js/*.js -exec ./build-tools/min-js.php \{\} \;
