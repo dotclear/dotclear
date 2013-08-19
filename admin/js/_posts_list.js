@@ -87,14 +87,14 @@ dotclear.viewPostContent = function(img,line,action) {
 		$(line).addClass('expand');
 		line.parentNode.insertBefore(tr,line.nextSibling);
 	}
-	else if (tr.style.display == 'none' && ( action == 'toggle' || action == 'open' ) )
+	else if (tr && tr.style.display == 'none' && ( action == 'toggle' || action == 'open' ) )
 	{
 		$(tr).css('display', 'table-row');
 		$(line).addClass('expand');
 		img.src = dotclear.img_minus_src;
 		img.alt = dotclear.img_minus_alt;
 	}
-	else if (tr.style.display != 'none' && ( action == 'toggle' || action == 'close' ) )
+	else if (tr && tr.style.display != 'none' && ( action == 'toggle' || action == 'close' ) )
 	{
 		$(tr).css('display', 'none');
 		$(line).removeClass('expand');
