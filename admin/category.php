@@ -156,16 +156,6 @@ if (isset($_POST['cat_title']))
 
 $title = $cat_id ? html::escapeHTML($cat_title) : __('New category');
 
-dcPage::open($title,
-	dcPage::jsConfirmClose('category-form').
-	dcPage::jsToolBar().
-	dcPage::jsLoad('js/_category.js')
-);
-
-if (!empty($_GET['upd'])) {
-	dcPage::message(__('Category has been successfully updated.'));
-}
-
 $elements = array(
 	html::escapeHTML($core->blog->name) => '',
 	__('Categories') => 'categories.php'
@@ -176,14 +166,24 @@ if ($cat_id) {
 	}
 }
 $elements['<span class="page-title">'.$title.'</span>'] = '';
-echo dcPage::breadcrumb($elements);
+
+dcPage::open($title,
+	dcPage::jsConfirmClose('category-form').
+	dcPage::jsToolBar().
+	dcPage::jsLoad('js/_category.js'),
+	dcPage::breadcrumb($elements)
+);
+
+if (!empty($_GET['upd'])) {
+	dcPage::message(__('Category has been successfully updated.'));
+}
 
 echo
 '<form action="category.php" method="post" id="category-form">'.
-'<fieldset><legend>'.__('Category information').'</legend>'.
-'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
+'<h3>'.__('Category information').'</h3>'.
+'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
 form::field('cat_title',40,255,html::escapeHTML($cat_title)).
-'</label></p>';
+'</p>';
 if (!$cat_id)
 {
 	$rs = $core->blog->getCategories(array('post_type'=>'post'));
@@ -201,8 +201,9 @@ if (!$cat_id)
 }
 echo
 '<div class="lockable">'.
-'<p><label for="cat_url">'.__('URL:').' '.form::field('cat_url',40,255,html::escapeHTML($cat_url)).
-'</label></p>'.
+'<p><label for="cat_url">'.__('URL:').'</label> '
+.form::field('cat_url',40,255,html::escapeHTML($cat_url)).
+'</p>'.
 '<p class="form-note warn" id="note-cat-url">'.
 __('Warning: If you set the URL manually, it may conflict with another category.').'</p>'.
 '</div>'.
@@ -215,20 +216,19 @@ form::textarea('cat_desc',50,8,html::escapeHTML($cat_desc)).
 ($cat_id ? form::hidden('id',$cat_id) : '').
 $core->formNonce().
 '</p>'.
-'</fieldset>'.
 '</form>';
 
 if ($cat_id)
 {
 	echo
-	'<h3>'.__('Move this category').'</h3>'.
+	'<h3 class="border-top">'.__('Move this category').'</h3>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	
 	'<form action="category.php" method="post">'.
 	'<fieldset><legend>'.__('Category parent').'</legend>'.
-	'<p><label for="cat_parent" class="classic">'.__('Parent:').' '.
-	form::combo('cat_parent',$allowed_parents,$cat_parent).'</label></p>'.
+	'<p><label for="cat_parent" class="classic">'.__('Parent:').'</label> '.
+	form::combo('cat_parent',$allowed_parents,$cat_parent).'</p>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	form::hidden(array('id'),$cat_id).$core->formNonce().'</p>'.
 	'</fieldset>'.

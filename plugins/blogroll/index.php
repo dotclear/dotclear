@@ -176,7 +176,13 @@ try {
 </head>
 
 <body>
-<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <span class="page-title"><?php echo __('Blogroll'); ?></span></h2>
+<?php
+	echo dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.__('Blogroll').'</span>' => ''
+		));
+?>
 
 <?php
 if (!empty($_GET['neworder'])) {
@@ -270,39 +276,37 @@ while ($rs->fetch())
 echo
 '<div class="multi-part clear" id="add-link" title="'.__('Add a link').'">'.
 '<form action="plugin.php" method="post" id="add-link-form">'.
-'<fieldset><legend>'.__('Add a new link').'</legend>'.
-'<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
+'<h3>'.__('Add a new link').'</h3>'.
+'<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
 form::field('link_title',30,255,$link_title).
-'</label></p>'.
+'</p>'.
 
-'<p class="col"><label for="link_href" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('URL:').' '.
+'<p class="col"><label for="link_href" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('URL:').'</label> '.
 form::field('link_href',30,255,$link_href).
-'</label></p>'.
+'</p>'.
 
-'<p class="col"><label for="link_desc">'.__('Description:').' '.
+'<p class="col"><label for="link_desc">'.__('Description:').'</label> '.
 form::field('link_desc',30,255,$link_desc).
-'</label></p>'.
+'</p>'.
 
-'<p class="col"><label for="link_lang">'.__('Language:').' '.
+'<p class="col"><label for="link_lang">'.__('Language:').'</label> '.
 form::field('link_lang',5,5,$link_lang).
-'</label></p>'.
+'</p>'.
 '<p>'.form::hidden(array('p'),'blogroll').
 $core->formNonce().
 '<input type="submit" name="add_link" value="'.__('Save').'" /></p>'.
-'</fieldset>'.
 '</form>'.
 '</div>';
 
 echo
 '<div class="multi-part" id="add-cat" title="'.__('Add a category').'">'.
 '<form action="plugin.php" method="post" id="add-category-form">'.
-'<fieldset><legend>'.__('Add a new category').'</legend>'.
-'<p><label for="cat_title" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
-form::field('cat_title',30,255,$cat_title).'</label> '.
+'<h3>'.__('Add a new category').'</h3>'.
+'<p><label for="cat_title" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
+form::field('cat_title',30,255,$cat_title).' '.
 form::hidden(array('p'),'blogroll').
 $core->formNonce().
 '<input type="submit" name="add_cat" value="'.__('Save').'" /></p>'.
-'</fieldset>'.
 '</form>'.
 '</div>';
 
@@ -311,19 +315,18 @@ echo
 if (!isset($imported)) {
 	echo
 	'<form action="plugin.php" method="post" id="import-links-form" enctype="multipart/form-data">'.
-	'<fieldset><legend>'.__('Import links').'</legend>'.
-	'<p><label for="links_file" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('OPML or XBEL File:').' '.
-	'<input type="file" id="links_file" name="links_file" /></label></p>'.
+	'<h3>'.__('Import links').'</h3>'.
+	'<p><label for="links_file" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('OPML or XBEL File:').'</label> '.
+	'<input type="file" id="links_file" name="links_file" /></p>'.
 	'<p>'.form::hidden(array('p'),'blogroll').
 	$core->formNonce().
 	'<input type="submit" name="import_links" value="'.__('Import').'" /></p>'.
-	'</fieldset>'.
 	'</form>';
 }
 else {
 	echo
 	'<form action="plugin.php" method="post" id="import-links-form">'.
-	'<fieldset><legend>'.__('Import links').'</legend>';
+	'<h3>'.__('Import links').'</h3>';
 	if (empty($imported)) {
 		echo '<p>'.__('Nothing to import').'</p>';
 	}
@@ -364,7 +367,6 @@ else {
 		'</div>';
 	}
 	echo
-	'</fieldset>'.
 	'</form>';
 }
 echo '</div>';

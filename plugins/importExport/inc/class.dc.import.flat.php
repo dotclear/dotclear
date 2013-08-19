@@ -190,9 +190,9 @@ class dcImportFlat extends dcIeModule
 		
 		if ($has_files) {
 			echo 
-			'<p><label for="public_single_file" class="classic">'.__('or pick up a local file in your public directory').' '.
+			'<p><label for="public_single_file" class="classic">'.__('or pick up a local file in your public directory').'</label> '.
 			form::combo('public_single_file',$public_files).
-			'</label></p>';
+			'</p>';
 		}
 		
 		echo 

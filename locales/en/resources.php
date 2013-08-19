@@ -14,11 +14,11 @@ if (!defined('DC_RC_PATH')) { return; }
 $__resources['rss_news'] = 'http://dotclear.org/blog/feed/category/News/atom';
 
 $__resources['doc'] = array(
-	"Dotclear 2 documentation" => 'http://dotclear.org/documentation/2.0',
-	'Dotclear 2 presentation' => 'http://dotclear.org/documentation/2.0/overview/tour',
+	"Dotclear documentation" => 'http://dotclear.org/documentation/2.0',
+	'Dotclear presentation' => 'http://dotclear.org/documentation/2.0/overview/tour',
 	"User manual" => 'http://dotclear.org/documentation/2.0/usage',
 	"Installation and administration guides" => 'http://dotclear.org/documentation/2.0/admin',
-	"Dotclear 2 support forum" => 'http://forum.dotclear.net/'
+	"Dotclear support forum" => 'http://forum.dotclear.net/'
 );
 
 $__resources['help'] = array(
@@ -28,6 +28,7 @@ $__resources['help'] = array(
 	'core_media' => dirname(__FILE__).'/help/media.html',
 	'core_post' => dirname(__FILE__).'/help/post.html',
 	'core_posts' => dirname(__FILE__).'/help/posts.html',
+	'core_trackbacks' => dirname(__FILE__).'/help/trackbacks.html',
 	'core_user_pref' => dirname(__FILE__).'/help/user_pref.html',
 	'core_user' => dirname(__FILE__).'/help/user.html',
 	'core_wiki' => dirname(__FILE__).'/help/wiki.html'

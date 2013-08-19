@@ -770,7 +770,7 @@ msgstr "페이지당 댓글 수"
 msgid "Comment author:"
 msgstr "댓글 글쓴이 :"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "스팸댓글이 하나 있습니다."
 
 msgid "Show it."

@@ -130,11 +130,28 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 
 /* DISPLAY
 -------------------------------------------------------- */
+if (!empty($users) && empty($blogs) && $action == 'blogs') {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			__('Users') => 'users.php',
+			'<span class="page-title">'.__('Permissions').'</span>' => ''
+		));
+} else {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			__('Users') => 'users.php',
+			'<span class="page-title">'.__('Actions').'</span>' => ''
+		));
+}
+
 dcPage::open(
 	__('Users'),
 	dcPage::jsLoad('js/_users_actions.js').
 	# --BEHAVIOR-- adminUsersActionsHeaders
-	$core->callBehavior('adminUsersActionsHeaders')
+	$core->callBehavior('adminUsersActionsHeaders'),
+	$breadcrumb
 );
 
 if (!isset($action)) {
@@ -176,13 +193,6 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		$user_list[] = '<a href="user.php?id='.$u.'">'.$u.'</a>';
 	}
 	
-	echo dcPage::breadcrumb(
-		array(
-			__('System') => '',
-			__('Users') => 'users.php',
-			'<span class="page-title">'.__('Permissions').'</span>' => ''
-		));
-
 	echo
 	'<p>'.sprintf(
 		__('Choose one or more blogs to which you want to give permissions to users %s.'),
@@ -274,8 +284,8 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	
 	echo
 	'<fieldset><legend>'.__('Validate permissions').'</legend>'.
-	'<p><label for="your_pwd">'.__('Your password:').
-	form::password('your_pwd',20,255).'</label></p>'.
+	'<p><label for="your_pwd">'.__('Your password:').'</label>'.
+	form::password('your_pwd',20,255).'</p>'.
 	'</fieldset>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	$hidden_fields.

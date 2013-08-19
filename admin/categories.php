@@ -72,7 +72,12 @@ if (!empty($_POST['reset']))
 -------------------------------------------------------- */
 dcPage::open(__('Categories'),
 	dcPage::jsToolMan()."\n".
-	dcPage::jsLoad('js/_categories.js')
+	dcPage::jsLoad('js/_categories.js'),
+	dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.__('Categories').'</span>' => ''
+		))
 );
 
 if (!empty($_GET['add'])) {
@@ -87,12 +92,6 @@ if (!empty($_GET['reord'])) {
 if (!empty($_GET['moved'])) {
 	dcPage::message(__('The category has been successfully moved.'));
 }
-
-echo dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('Categories').'</span>' => ''
-	));
 
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 
@@ -147,10 +146,10 @@ echo '</div>';
 echo '<div class="col">'.
 
 '<form action="category.php" method="post">'.
-'<fieldset><legend>'.__('Add a new category').'</legend>'.
-'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
-form::field('cat_title',30,255).'</label></p>'.
-'<p><label for="new_cat_parent">'.__('Parent:').' '.
+'<h3>'.__('Add a new category').'</h3>'.
+'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
+form::field('cat_title',30,255).'</p>'.
+'<p><label for="new_cat_parent">'.__('Parent:').'</label> '.
 '<select id="new_cat_parent" name="new_cat_parent">'.
 '<option value="0">'.__('Top level').'</option>';
 while ($rs->fetch()) {
@@ -159,10 +158,9 @@ while ($rs->fetch()) {
 		html::escapeHTML($rs->cat_title).'</option>';
 }
 echo
-'</select></label></p>'.
-'<p><input type="submit" value="'.__('Create').'" /></p>'.
-$core->formNonce().
-'</fieldset>'.
+'</select></p>'.
+'<p><input type="submit" value="'.__('Create').'" />'.
+$core->formNonce().'</p>'.
 '</form>';
 
 if (!$rs->isEmpty())
@@ -187,25 +185,23 @@ if (!$rs->isEmpty())
 	}
 	
 	echo
-	'<form action="categories.php" method="post" id="delete-category">'.
-	'<fieldset><legend>'.__('Remove a category').'</legend>'.
-	'<p><label for="del_cat">'.__('Choose a category to remove:').' '.
-	form::combo('del_cat',$cats).'</label></p> '.
-	'<p><label for="mov_cat">'.__('And choose the category which will receive its entries:').' '.
-	form::combo('mov_cat',$dest).'</label></p> '.
-	'<p><input type="submit" value="'.__('Delete').'" class="delete" /></p>'.
-	$core->formNonce().
-	'</fieldset>'.
+	'<form action="categories.php" method="post" id="delete-category" class="border-top">'.
+	'<h3>'.__('Remove a category').'</h3>'.
+	'<p><label for="del_cat">'.__('Choose a category to remove:').'</label> '.
+	form::combo('del_cat',$cats).'</p> '.
+	'<p><label for="mov_cat">'.__('And choose the category which will receive its entries:').'</label> '.
+	form::combo('mov_cat',$dest).'</p> '.
+	'<p><input type="submit" value="'.__('Delete').'" class="delete" />'.
+	$core->formNonce().'</p>'.
 	'</form>';
 	
 	echo
-	'<form action="categories.php" method="post" id="reset-order">'.
-	'<fieldset><legend>'.__('Reorder categories').'</legend>'.
+	'<form action="categories.php" method="post" id="reset-order" class="border-top">'.
+	'<h3>'.__('Reorder categories').'</h3>'.
 	'<p>'.__('This will relocate all categories on the top level').'</p> '.
-	'<p><input type="submit" value="'.__('Reorder').'" /></p>'.
+	'<p><input type="submit" value="'.__('Reorder').'" />'.
 	form::hidden(array('reset'),1).
-	$core->formNonce().
-	'</fieldset>'.
+	$core->formNonce().'</p>'.
 	'</form>';
 }
 echo '</div>';

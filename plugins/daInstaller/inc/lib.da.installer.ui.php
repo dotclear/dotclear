@@ -63,7 +63,7 @@ class daModulesList extends adminGenericList
 				'<tbody>%s</tbody>'.
 				'</table>';
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 			$blocks = explode('%s',$html_block);
 			echo $blocks[0];
 			
@@ -80,7 +80,7 @@ class daModulesList extends adminGenericList
 				}
 			}
 			echo $blocks[1];
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 		}
 	}
 	

@@ -52,16 +52,16 @@ dcPage::openPopup(__('Add a link to an entry'),
 echo '<h2 class="page-title">'.__('Add a link to an entry').'</h2>';
 
 echo '<form action="popup_posts.php" method="post">'.
-	'<p><label for"type" class="classic">'.__('Entry type:').' '.form::combo('type',$type_combo,$type).'</label></p>'.
-	$core->formNonce().
+	'<p><label for"type" class="classic">'.__('Entry type:').'</label> '.form::combo('type',$type_combo,$type).''.
+	$core->formNonce().'</p>'.
 	'<noscript><div><input type="submit" value="'.__('Ok').'" /></div></noscript>'.
 	'</form>';
 
 echo '<form action="popup_posts.php" method="get">'.
-	'<p><label for="q" class="classic">'.__('Search entry:').' '.form::field('q',30,255,html::escapeHTML($q)).'</label> '.
-	' <input type="submit" value="'.__('Search').'" /></p>'.
+	'<p><label for="q" class="classic">'.__('Search entry:').'</label> '.form::field('q',30,255,html::escapeHTML($q)).
+	' <input type="submit" value="'.__('Search').'" />'.
 	form::hidden('type',html::escapeHTML($type)).
-	'</form>';
+	'</p></form>';
 
 try {
 	$posts = $core->blog->getPosts($params);

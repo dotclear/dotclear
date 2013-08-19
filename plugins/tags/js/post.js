@@ -57,6 +57,11 @@ $(function() {
 			}
 		});
 	});
+			
+	$('h5 .s-tags').toggleWithLegend($('.s-tags').not('label'),{
+			cookie: 'post_tags'
+	});
+
 });
 
 // Toolbar button for tags

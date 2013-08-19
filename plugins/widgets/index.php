@@ -187,7 +187,11 @@ elseif (!empty($_POST['wreset']))
 </head>
 <body>
 <?php
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Widgets').'</span></h2>';
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		'<span class="page-title">'.__('Widgets').'</span>' => ''
+	));
 
 # All widgets
 echo
@@ -201,8 +205,8 @@ foreach ($__widgets->elements(true) as $w) {
 	'<div>'.form::hidden(array('w[void][0][id]'),html::escapeHTML($w->id())).
 	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hideControl').' '.
 	$w->name().($w->desc() != '' ? ' <span class="form-note">('.__($w->desc()).')</span>' : '').'</p>'.
-	'<p class="js-remove"><label class="classic">'.__('Append to:').' '.
-	form::combo(array('addw['.$w->id().']'),$append_combo).'</label></p>'.
+	'<p class="js-remove"><label class="classic">'.__('Append to:').'</label> '.
+	form::combo(array('addw['.$w->id().']'),$append_combo).'</p>'.
 	'<div class="widgetSettings">'.$w->formSettings('w[void][0]',$j).'</div>'.
 	'</div>';
 	$j++;
@@ -247,7 +251,7 @@ $widget_elements->content =
 '<p>'.__('Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, '.
 'drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order '.
 'your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes.').'</p>'.
-'<p>'.__('Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next '.
+'<p>'.__('Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next '.
 'to their name.').'</p>'.
 '<p>'.__('Reset sidebars to get back to default widgets installation.').'</p>'.
 '<h3 class="clear">'.__('Widget templates tags').'</h3>'.

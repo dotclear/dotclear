@@ -82,7 +82,17 @@ $page_title = __('Ping blogs');
 
 /* DISPLAY
 -------------------------------------------------------- */
-dcPage::open($page_title,dcPage::jsLoad('js/_trackbacks.js'));
+if ($can_view_page) {
+	$breadcrumb = dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		html::escapeHTML($post->post_title) => $core->getPostAdminURL($post->post_type,$id),
+		'<span class="page-title">'.$page_title.'</span>' => ''
+	));
+} else {
+	$breadcrumb = '';
+}
+dcPage::open($page_title,dcPage::jsLoad('js/_trackbacks.js'),$breadcrumb);
 
 # Exit if we cannot view page
 if (!$can_view_page) {
@@ -93,12 +103,6 @@ if (!$can_view_page) {
 if (!empty($_GET['sent'])) {
 	dcPage::message(__('All pings sent.'));
 }
-
-echo dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.$page_title.'</span>' => ''
-	));
 
 echo '<p><a class="back" href="'.$core->getPostAdminURL($post->post_type,$id).'">'.
 	sprintf(__('Back to "%s"'),html::escapeHTML($post->post_title)).'</a></p>';
@@ -122,12 +126,12 @@ if (!empty($_GET['auto'])) {
 echo
 '<h3>'.__('Ping blogs').'</h3>'.
 '<form action="trackbacks.php" id="trackback-form" method="post">'.
-'<p><label for="tb_urls" class="area">'.__('URLs to ping:').
+'<p><label for="tb_urls" class="area">'.__('URLs to ping:').'</label>'.
 form::textarea('tb_urls',60,5,$tb_urls).
-'</label></p>'.
+'</p>'.
 
-'<p><label for="tb_excerpt" class="area">'.__('Send excerpt:').
-form::textarea('tb_excerpt',60,3,$tb_excerpt).'</label></p>'.
+'<p><label for="tb_excerpt" class="area">'.__('Send excerpt:').'</label>'.
+form::textarea('tb_excerpt',60,3,$tb_excerpt).'</p>'.
 
 '<p>'.form::hidden('id',$id).
 $core->formNonce().
@@ -150,5 +154,6 @@ if (!$pings->isEmpty())
 	echo '</ul>';
 }
 
+dcPage::helpBlock('core_trackbacks');
 dcPage::close();
 ?>

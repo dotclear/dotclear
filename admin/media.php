@@ -202,14 +202,14 @@ if ($dir && $core->auth->isSuperAdmin() && !empty($_POST['rebuild']))
 # DISPLAY confirm page for rmdir & rmfile
 if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 {
-	call_user_func($open_f,__('Media manager'));
-	
-	echo dcPage::breadcrumb(
-		array(
-			html::escapeHTML($core->blog->name) => '',
-			__('Media manager') => '',
-			'<span class="page-title">'.__('confirm removal').'</span>' => ''
-		));
+	call_user_func($open_f,__('Media manager'),'',
+		dcPage::breadcrumb(
+			array(
+				html::escapeHTML($core->blog->name) => '',
+				__('Media manager') => '',
+				'<span class="page-title">'.__('confirm removal').'</span>' => ''
+			),!$popup)
+	);
 	
 	echo
 	'<form action="'.html::escapeURL($page_url).'" method="post">'.
@@ -231,9 +231,35 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 
+
+if (!isset($core->media)) {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.__('Media manager').'</span>' => ''
+		),!$popup);
+} else {
+	$breadcrumb_media = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s','<span class="page-title">%s</span>');
+	if ($breadcrumb_media == '') {
+		$breadcrumb = dcPage::breadcrumb(
+			array(
+				html::escapeHTML($core->blog->name) => '',
+				'<span class="page-title">'.__('Media manager').'</span>' => ''
+			),!$popup);
+	} else {
+		$breadcrumb = dcPage::breadcrumb(
+			array(
+				html::escapeHTML($core->blog->name) => '',
+				__('Media manager') => html::escapeURL($page_url.'&d='),
+				$breadcrumb_media => ''
+			),!$popup);
+	}
+}
+
 call_user_func($open_f,__('Media manager'),
 	dcPage::jsLoad('js/_media.js').
-	($core_media_writable ? dcPage::jsUpload(array('d='.$d)) : '')
+	($core_media_writable ? dcPage::jsUpload(array('d='.$d)) : ''),
+	$breadcrumb
 	);
 
 if (!empty($_GET['mkdok'])) {
@@ -258,30 +284,6 @@ if (!empty($_GET['rebuildok'])) {
 
 if (!empty($_GET['unzipok'])) {
 	dcPage::message(__('Zip file has been successfully extracted.'));
-}
-
-if (!isset($core->media)) {
-	echo dcPage::breadcrumb(
-		array(
-			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Media manager').'</span>' => ''
-		));
-} else {
-	$breadcrumb = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s','<span class="page-title">%s</span>');
-	if ($breadcrumb == '') {
-		echo dcPage::breadcrumb(
-			array(
-				html::escapeHTML($core->blog->name) => '',
-				'<span class="page-title">'.__('Media manager').'</span>' => ''
-			));
-	} else {
-		echo dcPage::breadcrumb(
-			array(
-				html::escapeHTML($core->blog->name) => '',
-				__('Media manager') => html::escapeURL($page_url.'&d='),
-				$breadcrumb => ''
-			));
-	}
 }
 
 if (!$dir) {
@@ -314,14 +316,14 @@ else
 	
 	echo
 	'<form action="media.php" method="get">'.
-	'<p><label for="file_sort" class="classic">'.__('Sort files:').' '.
-	form::combo('file_sort',$sort_combo,$file_sort).'</label>'.
+	'<p><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
+	form::combo('file_sort',$sort_combo,$file_sort).
 	form::hidden(array('popup'),$popup).
 	form::hidden(array('post_id'),$post_id).
 	'<input type="submit" value="'.__('Sort').'" /></p>'.
 	'</form>'.
 	
-	'<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+	'<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 	
 	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++, $j++)
 	{
@@ -329,7 +331,7 @@ else
 	}
 	
 	echo
-	'<p class="clear">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+	'<p class="clear pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 }
 if (!isset($pager)) {
 	echo
@@ -351,26 +353,27 @@ if ($core_media_writable)
 	}
 
 	echo
-	'<fieldset id="add-file-f"><legend>'.__('Add files').'</legend>'.
+	'<div class="fieldset">'.
+	'<h3>'.__('Add files').'</h3>'.
 	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
-	' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="POST" enctype="multipart/form-data">'.
-	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
-	$core->formNonce().'</div>'.
-	'<div class="fileupload-ctrl"><div class="queue-message"></div><div class="files"></div></div>';
+	' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data" aria-disabled="false">'.
+	'<p>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
+	$core->formNonce().'</p>'.
+	'<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>';
 
 	echo
 	'<div class="fileupload-buttonbar">';
 
 	echo
 	'<p class="max-sier form-note info">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
-	'<label for="upfile">'.'<span class="add-label one-file">'.__('Choose file').'</span>'.'</label>'.
+	'<p><label for="upfile">'.'<span class="add-label one-file">'.__('Choose file').'</span>'.'</label>'.
 	'<button class="button add">'.__('Choose files').'</button>'.
-	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" />';
+	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" /></p>';
 
 	echo
-	'<p class="one-file"><label for="upfiletitle">'.__('Title:').form::field(array('upfiletitle','upfiletitle'),35,255).'</label></p>'.
-	'<p class="one-file"><label for="upfilepriv" class="classic">'.form::checkbox(array('upfilepriv','upfilepriv'),1).' '.
-	__('Private').'</label></p>';
+	'<p class="one-file"><label for="upfiletitle">'.__('Title:').'</label>'.form::field(array('upfiletitle','upfiletitle'),35,255).'</p>'.
+	'<p class="one-file"><label for="upfilepriv" class="classic">'.__('Private').'</label> '.
+	form::checkbox(array('upfilepriv','upfilepriv'),1).'</p>';
 
 	if (!$user_ui_enhanceduploader) {
 		echo
@@ -379,25 +382,24 @@ if ($core_media_writable)
 	}
 
 	echo
-	'<button class="button clean">'.__('Refresh').'</button>'.
+	'<p><button class="button clean">'.__('Refresh').'</button>'.
 	'<input class="button cancel one-file" type="reset" value="'.__('Clear all').'"/>'.
-	'<input class="button start" type="submit" value="'.__('Upload').'"/>'.
+	'<input class="button start" type="submit" value="'.__('Upload').'"/></p>'.
 	'</div>';
 
 	echo
-	'<div>'.form::hidden(array('d'),$d).'</div>'.
-	'</fieldset>'.
+	'<p>'.form::hidden(array('d'),$d).'</p>'.
 	'</form>'.
-	'</div>';
-	
+	'</div></div>';
+
 	echo
 	'<div class="col">'.
 	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
 	'<fieldset id="new-dir-f">'.
 	'<legend>'.__('New directory').'</legend>'.
 	$core->formNonce().
-	'<p><label for="newdir">'.__('Directory Name:').
-	form::field(array('newdir','newdir'),35,255).'</label></p>'.
+	'<p><label for="newdir">'.__('Directory Name:').'</label>'.
+	form::field(array('newdir','newdir'),35,255).'</p>'.
 	'<p><input type="submit" value="'.__('Create').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
 	'</fieldset>'.

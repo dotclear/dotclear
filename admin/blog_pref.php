@@ -251,6 +251,21 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 	}
 }
 
+if ($standalone) {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			html::escapeHTML($blog_name) => '',
+			'<span class="page-title">'.__('Blog settings').'</span>' => ''
+		));
+} else {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			__('Blogs') => 'blogs.php',
+			'<span class="page-title">'.__('Blog settings').' : '.html::escapeHTML($blog_name).'</span>' => ''
+		));
+}
+
 dcPage::open(__('Blog settings'),
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA["."\n".
@@ -267,26 +282,12 @@ dcPage::open(__('Blog settings'),
 	# --BEHAVIOR-- adminBlogPreferencesHeaders
 	$core->callBehavior('adminBlogPreferencesHeaders').
 	
-	dcPage::jsPageTabs()
+	dcPage::jsPageTabs(),
+	$breadcrumb
 );
 
 if ($blog_id)
 {
-	if ($standalone) {
-		echo dcPage::breadcrumb(
-			array(
-				html::escapeHTML($blog_name) => '',
-				'<span class="page-title">'.__('Blog settings').'</span>' => ''
-			));
-	} else {
-		echo dcPage::breadcrumb(
-			array(
-				__('System') => '',
-				__('Blogs') => 'blogs.php',
-				'<span class="page-title">'.__('Blog settings').' : '.html::escapeHTML($blog_name).'</span>' => ''
-			));
-	}
-	
 	if (!empty($_GET['add'])) {
 		dcPage::message(__('Blog has been successfully created.'));
 	}
@@ -307,27 +308,27 @@ if ($blog_id)
 	if ($core->auth->isSuperAdmin())
 	{
 		echo
-		'<p><label for="blog_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').
-		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</label></p>'.
+		'<p><label for="blog_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').'</label>'.
+		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
 		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
 		'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
 	}
 	
 	echo
-	'<p><label for="blog_name" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').
-	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</label></p>';
+	'<p><label for="blog_name" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').'</label>'.
+	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</p>';
 	
 	if ($core->auth->isSuperAdmin())
 	{
 		echo
-		'<p><label for="blog_url" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').
-		form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</label></p>'.
+		'<p><label for="blog_url" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').'</label>'.
+		form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</p>'.
 		
-		'<p><label for="url_scan">'.__('URL scan method:').
-		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</label></p>'.
+		'<p><label for="url_scan">'.__('URL scan method:').'</label>'.
+		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</p>'.
 		
-		'<p><label for="blog_status">'.__('Blog status:').
-		form::combo('blog_status',$status_combo,$blog_status).'</label></p>';
+		'<p><label for="blog_status">'.__('Blog status:').'</label>'.
+		form::combo('blog_status',$status_combo,$blog_status).'</p>';
 	}
 	
 	echo
@@ -340,35 +341,35 @@ if ($blog_id)
 	'<fieldset><legend>'.__('Blog configuration').'</legend>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	'<p><label for="editor">'.__('Blog editor name:').
+	'<p><label for="editor">'.__('Blog editor name:').'</label>'.
 	form::field('editor',30,255,html::escapeHTML($blog_settings->system->editor)).
-	'</label></p>'.
+	'</p>'.
 	
-	'<p><label for="lang">'.__('Default language:').
+	'<p><label for="lang">'.__('Default language:').'</label>'.
 	form::combo('lang',$lang_combo,$blog_settings->system->lang,'l10n').
-	'</label></p>'.
+	'</p>'.
 	
-	'<p><label for="blog_timezone">'.__('Blog timezone:').
+	'<p><label for="blog_timezone">'.__('Blog timezone:').'</label>'.
 	form::combo('blog_timezone',dt::getZones(true,true),html::escapeHTML($blog_settings->system->blog_timezone)).
-	'</label></p>'.
+	'</p>'.
 
-	'<p><label for="copyright_notice">'.__('Copyright notice:').
+	'<p><label for="copyright_notice">'.__('Copyright notice:').'</label>'.
 	form::field('copyright_notice',30,255,html::escapeHTML($blog_settings->system->copyright_notice)).
-	'</label></p>'.
+	'</p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<p><label for="post_url_format">'.__('New post URL format:').
+	'<p><label for="post_url_format">'.__('New post URL format:').'</label>'.
 	form::combo('post_url_format',$post_url_combo,html::escapeHTML($blog_settings->system->post_url_format)).
-	'</label></p>'.
+	'</p>'.
 
-	'<p><label for="note_title_tag">'.__('Note title HTML tag:').
+	'<p><label for="note_title_tag">'.__('Note title HTML tag:').'</label>'.
 	form::combo('note_title_tag',$note_title_tag_combo,$blog_settings->system->note_title_tag).
-	'</label></p>'.
+	'</p>'.
 		
-	'<p><label for="enable_xmlrpc" class="classic">'.
+	'<p><label for="enable_xmlrpc" class="classic">'.'</label>'.
 	form::checkbox('enable_xmlrpc','1',$blog_settings->system->enable_xmlrpc).
-	__('Enable XML/RPC interface').'</label></p>';
+	__('Enable XML/RPC interface').'</p>';
 
 	echo
 		'<p class="form-note">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';	
@@ -440,13 +441,13 @@ if ($blog_id)
 	'<fieldset><legend>'.__('Blog presentation').'</legend>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	'<p><label for="date_format">'.__('Date format:').
+	'<p><label for="date_format">'.__('Date format:').'</label>'.
 	form::field('date_format',30,255,html::escapeHTML($blog_settings->system->date_format)).
-	'</label></p>'.
+	'</p>'.
 	
-	'<p><label for="time_format">'.__('Time format:').
+	'<p><label for="time_format">'.__('Time format:').'</label>'.
 	form::field('time_format',30,255,html::escapeHTML($blog_settings->system->time_format)).
-	'</label></p>'.
+	'</p>'.
 	
 	'<p><label for="use_smilies" class="classic">'.
 	form::checkbox('use_smilies','1',$blog_settings->system->use_smilies).
@@ -498,13 +499,13 @@ if ($blog_id)
 	__('Use original media date if possible').'</label></p>'.
 
 	'<h4>'.__('Default image insertion attributes').'</h4>'.
-	'<p><label for="media_img_default_size">'.__('Image size:').
+	'<p><label for="media_img_default_size">'.__('Image size:').'</label>'.
 	form::combo('media_img_default_size',$img_default_size_combo,
 		(html::escapeHTML($blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($blog_settings->system->media_img_default_size) : 'm')).
-	'</label></p>'.
-	'<p><label for="media_img_default_alignment">'.__('Image alignment').
+	'</p>'.
+	'<p><label for="media_img_default_alignment">'.__('Image alignment').'</label>'.
 	form::combo('media_img_default_alignment',$img_default_alignment_combo,html::escapeHTML($blog_settings->system->media_img_default_alignment)).
-	'</label></p>'.
+	'</p>'.
 	'<p><label for="media_img_default_link" class="classic">'.
 	form::checkbox('media_img_default_link','1',$blog_settings->system->media_img_default_link).
 	__('As a link to original image').'</label></p>'.

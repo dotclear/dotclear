@@ -17,7 +17,7 @@ $_menu['Blog']->addItem(__('Tags'),'plugin.php?p=tags&amp;m=tags','index.php?pf=
 
 require dirname(__FILE__).'/_widgets.php';
 
-$core->addBehavior('adminPostFormSidebar',array('tagsBehaviors','tagsField'));
+$core->addBehavior('adminPostFormItems',array('tagsBehaviors','tagsField'));
 
 $core->addBehavior('adminAfterPostCreate',array('tagsBehaviors','setTags'));
 $core->addBehavior('adminAfterPostUpdate',array('tagsBehaviors','setTags'));
@@ -70,7 +70,7 @@ class tagsBehaviors
 		return $res;
 	}
 	
-	public static function tagsField($post)
+	public static function tagsField($main,$sidebar,$post)
 	{
 		$meta =& $GLOBALS['core']->meta;
 		
@@ -79,10 +79,9 @@ class tagsBehaviors
 		} else {
 			$value = ($post) ? $meta->getMetaStr($post->post_meta,'tag') : '';
 		}
-		
-		echo
-		'<h3><label for="post_tags">'.__('Tags:').'</label></h3>'.
-		'<div class="p" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal').'</div>';
+		$sidebar['metas-box']['items']['post_tags']=
+		'<h5><label class="s-tags" for="post_tags">'.__('Tags').'</label></h5>'.
+		'<div class="p s-tags" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal').'</div>';
 	}
 	
 	public static function setTags($cur,$post_id)
@@ -313,9 +312,9 @@ class tagsBehaviors
 		
 		echo
 		'<fieldset><legend>'.__('Tags').'</legend>'.
-		'<p><label for="user_tag_list_format">'.__('Tags list format:').' '.
+		'<p><label for="user_tag_list_format">'.__('Tags list format:').'</label> '.
 		form::combo('user_tag_list_format',$combo,$value).
-		'</label></p></fieldset>';
+		'</p></fieldset>';
 	}
 	
 	public static function setTagListFormat($cur,$user_id = null)

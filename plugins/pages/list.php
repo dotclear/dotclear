@@ -43,7 +43,7 @@ class adminPageList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -56,7 +56,7 @@ class adminPageList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 		}
 	}
 	
@@ -65,27 +65,27 @@ class adminPageList extends adminGenericList
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($this->rs->post_status) {
 			case 1:
-				$img_status = sprintf($img,__('published'),'check-on.png');
+				$img_status = sprintf($img,__('Published'),'check-on.png');
 				break;
 			case 0:
-				$img_status = sprintf($img,__('unpublished'),'check-off.png');
+				$img_status = sprintf($img,__('Unpublished'),'check-off.png');
 				break;
 			case -1:
-				$img_status = sprintf($img,__('scheduled'),'scheduled.png');
+				$img_status = sprintf($img,__('Scheduled'),'scheduled.png');
 				break;
 			case -2:
-				$img_status = sprintf($img,__('pending'),'check-wrn.png');
+				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
 				break;
 		}
 		
 		$protected = '';
 		if ($this->rs->post_password) {
-			$protected = sprintf($img,__('protected'),'locker.png');
+			$protected = sprintf($img,__('Protected'),'locker.png');
 		}
 		
 		$selected = '';
 		if ($this->rs->post_selected) {
-			$selected = sprintf($img,__('hidden'),'hidden.png');
+			$selected = sprintf($img,__('Hidden'),'hidden.png');
 		}
 		
 		$attach = '';
@@ -100,7 +100,7 @@ class adminPageList extends adminGenericList
 		
 		$res .=
 		'<td class="nowrap">'.
-		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable(),'title="'.__('select this page').'"').'</td>'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable(),'title="'.__('Select this page').'"').'</td>'.
 		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
@@ -144,17 +144,17 @@ try {
 $combo_action = array();
 if ($core->auth->check('publish,contentadmin',$core->blog->id))
 {
-	$combo_action[__('publish')] = 'publish';
-	$combo_action[__('unpublish')] = 'unpublish';
-	$combo_action[__('schedule')] = 'schedule';
-	$combo_action[__('mark as pending')] = 'pending';
+	$combo_action[__('Publish')] = 'publish';
+	$combo_action[__('Unpublish')] = 'unpublish';
+	$combo_action[__('Schedule')] = 'schedule';
+	$combo_action[__('Mark as pending')] = 'pending';
 }
 if ($core->auth->check('admin',$core->blog->id)) {
-	$combo_action[__('change author')] = 'author';
+	$combo_action[__('Change author')] = 'author';
 }
 if ($core->auth->check('delete,contentadmin',$core->blog->id))
 {
-	$combo_action[__('delete')] = 'delete';
+	$combo_action[__('Delete')] = 'delete';
 }
 
 # --BEHAVIOR-- adminPagesActionsCombo
@@ -176,7 +176,13 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 
 <body>
 <?php
-echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <span class="page-title">'.__('Pages').'</span></h2>'.
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		'<span class="page-title">'.__('Pages').'</span>' => ''
+	));
+
+echo
 '<p class="top-add"><a class="button add" href="'.$p_url.'&amp;act=page">'.__('New page').'</a></p>';
 
 if (!$core->error->flag())

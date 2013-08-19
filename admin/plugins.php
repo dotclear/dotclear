@@ -190,14 +190,13 @@ $plugins_install = $core->plugins->installModules();
 -------------------------------------------------------- */
 dcPage::open(__('Plugins management'),
 	dcPage::jsLoad('js/_plugins.js').
-	dcPage::jsPageTabs($default_tab)
+	dcPage::jsPageTabs($default_tab),
+	dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			'<span class="page-title">'.__('Plugins management').'</span>' => ''
+		))
 );
-
-echo dcPage::breadcrumb(
-	array(
-		__('System') => '',
-		'<span class="page-title">'.__('Plugins management').'</span>' => ''
-	));
 
 if (!empty($_GET['removed'])) {
 	dcPage::message(__('Plugin has been successfully deleted.'));
@@ -357,13 +356,13 @@ if ($is_writable)
 	'<form method="post" action="plugins.php" id="uploadpkg" enctype="multipart/form-data">'.
 	'<fieldset>'.
 	'<legend>'.__('Upload a zip file').'</legend>'.
-	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Plugin zip file:').' '.
-	'<input type="file" id="pkg_file" name="pkg_file" /></label></p>'.
-	'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
-	form::password(array('your_pwd','your_pwd1'),20,255).'</label></p>'.
-	'<input type="submit" name="upload_pkg" value="'.__('Upload plugin').'" />'.
+	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Plugin zip file:').'</label> '.
+	'<input type="file" id="pkg_file" name="pkg_file" /></p>'.
+	'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
+	form::password(array('your_pwd','your_pwd1'),20,255).'</p>'.
+	'<p><input type="submit" name="upload_pkg" value="'.__('Upload plugin').'" />'.
 	$core->formNonce().
-	'</fieldset>'.
+	'</p></fieldset>'.
 	'</form>';
 	
 	# 'Fetch plugin' form
@@ -371,10 +370,10 @@ if ($is_writable)
 	'<form method="post" action="plugins.php" id="fetchpkg">'.
 	'<fieldset>'.
 	'<legend>'.__('Download a zip file').'</legend>'.
-	'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Plugin zip file URL:').' '.
-	form::field(array('pkg_url','pkg_url'),40,255).'</label></p>'.
-	'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
-	form::password(array('your_pwd','your_pwd2'),20,255).'</label></p>'.
+	'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Plugin zip file URL:').'</label> '.
+	form::field(array('pkg_url','pkg_url'),40,255).'</p>'.
+	'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
+	form::password(array('your_pwd','your_pwd2'),20,255).'</p>'.
 	'<input type="submit" name="fetch_pkg" value="'.__('Download plugin').'" />'.
 	$core->formNonce().
 	'</fieldset>'.

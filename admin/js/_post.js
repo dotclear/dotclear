@@ -121,13 +121,26 @@ $(function() {
 			cookie: 'dcx_post_password',
 			hide: $('#post_password').val() == ''
 		});
-		
+		$('#post_status').parent().toggleWithLegend($('#post_status'),{
+			cookie: 'dcx_post_status'
+		});
+		$('#post_dt').parent().toggleWithLegend($('#post_dt').parent().children().not('label'),{
+			cookie: 'dcx_post_dt'
+		});
+		$('#post_format').parent().toggleWithLegend($('#post_format').parent().children().not('label').add($('#post_format').parents('p').next()),{
+			cookie: 'dcx_post_format'
+		});
+		$('#cat_id').parent().toggleWithLegend($('#cat_id'),{
+			cookie: 'cat_id'
+		});
+		$('#post_url').parent().toggleWithLegend($('#post_url').parent().children().not('label'),{
+			cookie: 'post_url'
+		});
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
 			fn: function() { excerptTb.switchMode(formatField.value); },
 			cookie: 'dcx_post_excerpt',
-			hide: $('#post_excerpt').val() == '',
-			legend_click: true
+			hide: $('#post_excerpt').val() == ''
 		});
 		
 		// Load toolbars
@@ -149,6 +162,7 @@ $(function() {
 		var h = document.createElement('h4');
 		var a = document.createElement('a');
 		a.href = '#';
+		a.className = 'button';
 		$(a).click(function() {
 			var params = {
 				xd_check: dotclear.nonce,

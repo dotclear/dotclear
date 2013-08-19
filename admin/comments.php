@@ -168,13 +168,13 @@ if (!$show_filters) {
 # --BEHAVIOR-- adminCommentsHeaders
 $starting_script .= $core->callBehavior('adminCommentsHeaders');
 
-dcPage::open(__('Comments and trackbacks'),$starting_script);
-
-echo dcPage::breadcrumb(
-	array(
-		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('Comments and trackbacks').'</span>' => ''
-	));
+dcPage::open(__('Comments and trackbacks'),$starting_script,
+	dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.__('Comments and trackbacks').'</span>' => ''
+		))
+);
 
 if (!$core->error->flag())
 {
@@ -182,51 +182,6 @@ if (!$core->error->flag())
 		dcPage::message(__('Spam comments have been successfully deleted.'));
 		unset($_SESSION['comments_del_spam']);
 	}
-	
-	# Filters
-	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.
-		__('Filters').'</a></p>';
-	}
-	
-	echo
-	'<form action="comments.php" method="get" id="filters-form">'.
-	'<fieldset><legend>'.__('Filters').'</legend>'.
-	'<div class="three-cols">'.
-	'<div class="col">'.
-	'<label for="type">'.__('Type:').' '.
-	form::combo('type',$type_combo,$type).
-	'</label> '.
-	'<label for="status">'.__('Status:').' '.
-	form::combo('status',$status_combo,$status).
-	'</label>'.
-	'</div>'.
-	
-	'<div class="col">'.
-	'<p><label for="sortby">'.__('Order by:').' '.
-	form::combo('sortby',$sortby_combo,$sortby).
-	'</label> '.
-	'<label for="order">'.__('Sort:').' '.
-	form::combo('order',$order_combo,$order).
-	'</label></p>'.
-	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Comments per page').'</label></p>'.
-	'</div>'.
-	
-	'<div class="col">'.
-	'<p><label for="author">'.__('Comment author:').' '.
-	form::field('author',20,255,html::escapeHTML($author)).
-	'</label>'.
-	'<label for="ip">'.__('IP address:').' '.
-	form::field('ip',20,39,html::escapeHTML($ip)).
-	'</label></p>'.
-	'<p><input type="submit" value="'.__('Apply filters').'" /></p>'.
-	'</div>'.
-	
-	'</div>'.
-	'<br class="clear" />'. //Opera sucks
-	'</fieldset>'.
-	'</form>';
 	
 	$spam_count = $core->blog->getComments(array('comment_status'=>-2),true)->f(0);
 	if ($spam_count > 0) {
@@ -236,7 +191,7 @@ if (!$core->error->flag())
 
 		if (!$with_spam || ($status != -2)) {
 			if ($spam_count == 1) {
-				echo '<p>'.sprintf(__('You have one spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
+				echo '<p>'.sprintf(__('You have one spam comment.'),'<strong>'.$spam_count.'</strong>').' '.
 				'<a href="comments.php?status=-2">'.__('Show it.').'</a></p>';
 			} elseif ($spam_count > 1) {
 				echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
@@ -245,6 +200,7 @@ if (!$core->error->flag())
 		}
 		
 		echo
+			'<p class="no-margin">'.
 			$core->formNonce().
 			'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
 
@@ -253,6 +209,46 @@ if (!$core->error->flag())
 
 		echo '</form>';
 	}
+
+	# Filters
+	if (!$show_filters) {
+		echo '<p><a id="filter-control" class="form-control" href="#">'.
+		__('Filter comments and trackbacks list').'</a></p>';
+	}
+	
+	echo
+	'<form action="comments.php" method="get" id="filters-form">'.
+	'<h3>'.__('Filter comments and trackbacks list').'</h3>'.
+	'<div class="table">'.
+
+	'<div class="cell">'.
+	'<p><label for="type" class="ib">'.__('Type:').'</label> '.
+	form::combo('type',$type_combo,$type).'</p> '.
+	'<p><label for="status" class="ib">'.__('Status:').'</label> '.
+	form::combo('status',$status_combo,$status).'</p>'.
+	'</div>'.
+	
+	'<div class="cell">'.
+	'<p><label for="author" class="ib">'.__('Author:').'</label> '.
+	form::field('author',20,255,html::escapeHTML($author)).'</p>'.
+	'<p><label for="ip" class="ib">'.__('IP address:').'</label> '.
+	form::field('ip',20,39,html::escapeHTML($ip)).'</p>'.
+	'</div>'.
+	
+	'<div class="cell filters-options">'.
+	'<p><label for="sortby" class="ib">'.__('Order by:').'</label> '.
+	form::combo('sortby',$sortby_combo,$sortby).'</p>'.
+	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
+	form::combo('order',$order_combo,$order).'</p>'.
+	'<p><span class="label ib">Afficher</span> <label for="nb" class="classic">'.
+	form::field('nb',3,3,$nb_per_page).' '.
+	__('comments per page').'</label></p>'.
+	'</div>'.
+	
+	'</div>'.
+	'<p><input type="submit" value="'.__('Apply filters').'" />'.
+	'<br class="clear" /></p>'. //Opera sucks
+	'</form>';
 	
 	# Show comments
 	$comment_list->display($page,$nb_per_page,
