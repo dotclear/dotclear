@@ -2,6 +2,12 @@
 	float: left;
 	width: 33%;
 }
+#listWidgets fieldset {
+	background: #eee;
+}
+#listWidgets #widgets p.widget-name {
+	background: #fff;
+}
 
 #sidebarsWidgets {
 	float: left;
@@ -33,19 +39,17 @@
 
 .widgets fieldset {
 	border: 1px solid #999;
-}
-.widgets legend {
-	border: 1px solid #999;
+	background: #E4E0EC;
 }
 
 .widgets p.widget-name {
-	background: #F0EFEA;
+	background: #f5f5f5;
 	color: #000;
-	padding: 4px;
+	padding: 4px 6px;
 	margin: 0.5em 0 0 0;
 	border-width: 1px 1px 1px 1px;
 	border-style: solid;
-	border-color: #bbb;
+	border-color: #999;
 	font-weight: bold;
 }
 .widgets p.widget-name img {
@@ -57,8 +61,8 @@
 	border-width: 0 1px 1px 1px;
 	border-style: solid;
 	border-color: #666;
-	padding: 4px;
-	background: #E5E3DA;
+	padding: 4px 6px;
+	background: #fff;
 }
 
 #widgets .widgetSettings {

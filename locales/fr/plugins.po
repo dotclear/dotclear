@@ -1755,13 +1755,13 @@ msgid "Extra sidebar"
 msgstr "Volet d'extra"
 
 msgid "Custom sidebar"
-msgstr "Bandeau supplémentaire"
+msgstr "Volet supplémentaire"
 
 msgid "Update sidebars"
-msgstr "Mettre à jour les bandeaux"
+msgstr "Mettre à jour les volets"
 
 msgid "Reset sidebars"
-msgstr "Réinitialiser les bandeaux"
+msgstr "Réinitialiser les volets"
 
 msgid "Use of widgets"
 msgstr "Utilisation des widgets"
