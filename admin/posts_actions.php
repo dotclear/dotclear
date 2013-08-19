@@ -242,9 +242,28 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	}
 	elseif ($action == 'category' && isset($_POST['new_cat_id']))
 	{
+		$new_cat_id = $_POST['new_cat_id'];
+		
 		try
 		{
-			$core->blog->updPostsCategory($posts_ids,$_POST['new_cat_id']);
+			if (!empty($_POST['new_cat_title']) && $core->auth->check('categories', $core->blog->id))
+			{
+				$cur_cat = $core->con->openCursor($core->prefix.'category');
+				$cur_cat->cat_title = $_POST['new_cat_title'];
+				$cur_cat->cat_url = '';
+				
+				$parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
+				
+				# --BEHAVIOR-- adminBeforeCategoryCreate
+				$core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+				
+				$new_cat_id = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
+				
+				# --BEHAVIOR-- adminAfterCategoryCreate
+				$core->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
+			}
+			
+			$core->blog->updPostsCategory($posts_ids, $new_cat_id);
 			
 			http::redirect($redir);
 		}
@@ -386,24 +405,36 @@ if ($action == 'category')
 
 	# categories list
 	# Getting categories
-	$categories_combo = array('&nbsp;' => '');
+	$categories_combo = array(__('(No cat)') => '');
 	try {
 		$categories = $core->blog->getCategories(array('post_type'=>'post'));
+		if (!$categories->isEmpty()) {
 		while ($categories->fetch()) {
-			$categories_combo[] = new formSelectOption(
-				str_repeat('&nbsp;&nbsp;',$categories->level-1).
-				($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
+				$catparents_combo[] = $categories_combo[] = new formSelectOption(
+					str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
 				$categories->cat_id
 			);
+		}
 		}
 	} catch (Exception $e) { }
 	
 	echo
 	'<form action="posts_actions.php" method="post">'.
 	$fields->getEntries().
-	'<p><label for="new_cat_id" class="classic">'.__('Category:').' '.
-	form::combo('new_cat_id',$categories_combo,'').
-	'</label> ';
+	'<p><label for="new_cat_id" class="classic">'.__('Category:').'</label> '.
+	form::combo('new_cat_id',$categories_combo,'');
+	
+	if ($core->auth->check('categories', $core->blog->id)) {
+		echo 
+		'<div>'.
+		'<p id="new_cat">'.__('Add a new category').'</p>'.
+		'<p><label for="new_cat_title">'.__('Title:').' '.
+		form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
+		'<p><label for="new_cat_parent">'.__('Parent:').' '.
+		form::combo('new_cat_parent',$categories_combo,'','maximal').
+		'</label></p>'.
+		'</div>';
+	}
 	
 	echo
 	$fields->getHidden().
@@ -439,10 +470,10 @@ elseif ($action == 'lang')
 	
 	echo
 	'<form action="posts_actions.php" method="post">'.
-	$fields->getEntries().	
-	'<p><label for="new_lang" class="classic">'.__('Entry lang:').' '.
-	form::combo('new_lang',$lang_combo,'').
-	'</label> ';
+	$fields->getEntries().
+	
+	'<p><label for="new_lang" class="classic">'.__('Entry lang:').'</label> '.
+	form::combo('new_lang',$lang_combo,'');
 	
 	echo
 	$fields->getHidden().
@@ -464,9 +495,8 @@ elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 	echo
 	'<form action="posts_actions.php" method="post">'.
 	$fields->getEntries().
-	'<p><label for="new_auth_id" class="classic">'.__('Author ID:').' '.
-	form::field('new_auth_id',20,255).
-	'</label> ';
+	'<p><label for="new_auth_id" class="classic">'.__('Author ID:').'</label> '.
+	form::field('new_auth_id',20,255);
 	
 	echo
 	$fields->getHidden().
