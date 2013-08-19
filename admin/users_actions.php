@@ -254,7 +254,6 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	}
 	
 	echo 
-	'<h2><a href="users.php">'.__('Users').'</a> &rsaquo; <span class="page-title">'.__('Permissions').'</span></h2>'.
 	'<p>'.sprintf(
 		__('You are about to change permissions on the following blogs for users %s.'),
 		implode(', ',$user_list)
