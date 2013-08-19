@@ -60,7 +60,7 @@ catch (Exception $e)
 
 <html>
 <head>
-  <title><?php echo __('Theme Editor'); ?></title>
+  <title><?php echo __('Edit theme files'); ?></title>
   <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/style.css" />
   <script type="text/javascript">
   //<![CDATA[
@@ -85,8 +85,14 @@ catch (Exception $e)
 </head>
 
 <body>
-<?php echo '<h2>'.html::escapeHTML($core->blog->name).
-' &rsaquo; <a href="blog_theme.php">'.__('Blog appearance').'</a> &rsaquo; <span class="page-title">'.__('Theme Editor').'</span></h2>'; ?>
+<?php
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		__('Blog appearance') => 'blog_theme.php',
+		'<span class="page-title">'.__('Edit theme files').'</span>' => ''
+	));
+?>
 
 <p><strong><?php echo sprintf(__('Your current theme on this blog is "%s".'),html::escapeHTML($T['name'])); ?></strong></p>
 

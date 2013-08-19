@@ -763,7 +763,7 @@ msgstr "komentářů na stranu"
 msgid "Comment author:"
 msgstr "Autor komentáře:"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "Máte jeden spam komentář."
 
 msgid "Show it."

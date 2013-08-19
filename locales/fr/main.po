@@ -792,7 +792,7 @@ msgstr "Commentaires par page"
 msgid "Comment author:"
 msgstr "Auteur du commentaire :"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "Vous avez un commentaire indésirable."
 
 msgid "Show it."
@@ -1483,7 +1483,7 @@ msgid "To install or upgrade a plugin you just need to extract it in your plugin
 msgstr "Tout ce que vous avez à faire pour installer une extension est de l'extraire dans votre répertoire d'extensions."
 
 msgid "Plugins"
-msgstr "Extensions"
+msgstr "Plugins"
 
 msgid "Activated plugins"
 msgstr "Extensions activées"
@@ -1621,7 +1621,7 @@ msgid "Published on:"
 msgstr "Publié le :"
 
 msgid "Text formating:"
-msgstr "Format du texte :"
+msgstr "Syntaxe de saisie :"
 
 msgid "Convert to XHTML"
 msgstr "Convertir en XHTML"
@@ -2246,7 +2246,7 @@ msgid "Zip file content"
 msgstr "Contenu du fichier zip"
 
 msgid "XHTML markup validator"
-msgstr "Validation XHTML"
+msgstr "Vérifier la validité XHTML"
 
 msgid "XHTML content is valid."
 msgstr "Le contenu XHTML est valide."
@@ -2935,10 +2935,127 @@ msgid "Additional plugins"
 msgstr "Modules complémentaires"
 
 msgid "Personal notes:"
-msgstr "Notes personnelles:"
+msgstr "Notes personnelles :"
 
 msgid "New user"
 msgstr "Nouvel utilisateur"
 
-msgid "faut virer ça ça ne sert qu'a contourner le bug corrige en 2.5.2"
-msgstr "Notes personnelles :"
+msgid "Published"
+msgstr "Publié"
+
+msgid "Unpublished"
+msgstr "Non publié"
+
+msgid "Pending"
+msgstr "En attente"
+
+msgid "Junk"
+msgstr "Indésirable"
+
+msgid "Scheduled"
+msgstr "Programmé"
+
+msgid "Protected"
+msgstr "Protégé"
+
+msgid "Publish"
+msgstr "Publier"
+
+msgid "Unpublish"
+msgstr "Mettre hors ligne"
+
+msgid "Mark as pending"
+msgstr "Mettre en attente"
+
+msgid "Mark as junk"
+msgstr "Mettre en indésirable"
+
+msgid "Next entry"
+msgstr "Billet suivant"
+
+msgid "Previous entry"
+msgstr "Billet précédent"
+
+msgid "Add an introduction to the post."
+msgstr "Ajoute une introduction au billet."
+
+msgid "Add unpublished notes."
+msgstr "Ajoute des notes non publiées."
+
+msgid "Edit basename:"
+msgstr "Modifier l'URL spécifique :"
+
+msgid "Protect with password"
+msgstr "Protéger par un mot de passe"
+
+msgid "Information collected"
+msgstr "Informations recueillies"
+
+msgid "Comment submitted"
+msgstr "Commentaire déposé"
+
+msgid "Entry status"
+msgstr "État du billet"
+
+msgid "Publication date and hour"
+msgstr "Date et heure de publication"
+
+msgid "Text formating"
+msgstr "Syntaxe de saisie"
+
+msgid "Entry lang"
+msgstr "Langue du billet"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Edit basename"
+msgstr "URL spécifique"
+
+msgid "Ordering"
+msgstr "Classement"
+
+msgid "Filter posts list"
+msgstr "Filtrer la liste des billets"
+
+msgid "entries per page"
+msgstr "billets par page"
+
+msgid "Show"
+msgstr "Afficher"
+
+msgid "Filter blogs list"
+msgstr "Filtrer la liste des blogs"
+
+msgid "blogs per page"
+msgstr "blogs par page"
+
+msgid "Filter comments and trackbacks list"
+msgstr "Filtrer la liste des commentaires et rétroliens"
+
+msgid "Filter users list"
+msgstr "Filtrer la liste des utilisateurs"
+
+msgid "users per page"
+msgstr "utilisateurs par page"
+
+msgid "Available themes in your installation"
+msgstr "Thèmes disponibles sur votre installation"
+
+msgid "You can also install themes by uploading or downloading zip files."
+msgstr "Vous pouvez aussi installer des thèmes en les déposant ou en téléchargeant des fichiers zip."
+
+msgid "Add themes to your installation"
+msgstr "Ajouter des thèmes sur votre installation"
+
+msgid "Select this comment"
+msgstr "Sélectionner ce commentaire"
+
+msgid "Next page"
+msgstr "Page suivante"
+
+msgid "Previous page"
+msgstr "Page précédente"
+
+msgid "Add an introduction to the page."
+msgstr "Ajoute une introduction à la page."

@@ -172,9 +172,9 @@ function display_theme_details($id,$details,$current)
 	'<div class="theme-details'.($current ? ' current-theme' : '').'">'.
 	'<div class="theme-shot"><img src="'.$screenshot.'" alt="" /></div>'.
 	'<div class="theme-info">'.
-		'<h3>'.form::radio(array('theme',$radio_id),html::escapeHTML($id),$current,'','',($has_parent && !$is_parent_present)).' '.
+		'<h4>'.form::radio(array('theme',$radio_id),html::escapeHTML($id),$current,'','',($has_parent && !$is_parent_present)).' '.
 		'<label class="classic" for="'.$radio_id.'">'.
-		html::escapeHTML($details['name']).'</label></h3>'.
+		html::escapeHTML($details['name']).'</label></h4>'.
 		'<p><span class="theme-desc">'.html::escapeHTML($details['desc']).'</span> '.
 		'<span class="theme-author">'.sprintf(__('by %s'),html::escapeHTML($details['author'])).'</span> '.
 		'<span class="theme-version">'.sprintf(__('version %s'),html::escapeHTML($details['version'])).'</span> ';
@@ -186,7 +186,7 @@ function display_theme_details($id,$details,$current)
 			}
 		}
 		if ($has_css) {
-			$res .= '<a class="theme-css" href="'.$theme_url.'/style.css">'.__('Stylesheet').'</a>';
+			$res .= '<span class="theme-css"><a href="'.$theme_url.'/style.css">'.__('Stylesheet').'</a></span>';
 		}
 		$res .= '</p>';
 	$res .=
@@ -206,20 +206,31 @@ function display_theme_details($id,$details,$current)
 	return $res;
 }
 
-dcPage::open(__('Blog appearance'),
-	(!$theme_conf_mode ? dcPage::jsLoad('js/_blog_theme.js') : '').
-	dcPage::jsPageTabs($default_tab).
-	dcPage::jsColorPicker()
-);
-
 if (!$theme_conf_mode)
 {
-	echo dcPage::breadcrumb(
+	$breadcrumb = dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			'<span class="page-title">'.__('Blog appearance').'</span>' => ''
 		));
-	
+} else {
+	$breadcrumb = dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			__('Blog appearance') => 'blog_theme.php',
+			'<span class="page-title">'.__('Theme configuration').'</span>' => ''
+		));
+}
+
+dcPage::open(__('Blog appearance'),
+	(!$theme_conf_mode ? dcPage::jsLoad('js/_blog_theme.js') : '').
+	dcPage::jsPageTabs($default_tab).
+	dcPage::jsColorPicker(),
+	$breadcrumb
+);
+
+if (!$theme_conf_mode)
+{
 	if (!empty($_GET['upd'])) {
 		dcPage::message(__('Theme has been successfully changed.'));
 	}
@@ -232,20 +243,13 @@ if (!$theme_conf_mode)
 		dcPage::message(__('Theme has been successfully deleted.'));
 	}
 	
-	if ($can_install) {
-		echo
-		'<p><strong>'.sprintf(__('You can find additional themes for your blog on %s.'),
-		'<a href="http://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>').'</strong> '.
-		__('To install or upgrade a theme you generally just need to upload it '.
-		'in "Install or upgrade a theme" section.').'</p>';
-	}
-	
 	# Themes list
-	echo '<div class="multi-part" id="themes-list" title="'.__('Themes').'">';
+	echo '<div class="multi-part" id="themes-list" title="'.__('Themes').'">'.
+	'<h3>'.__('Available themes in your installation').'</h3>';
 	
 	$themes = $core->themes->getModules();
 	if (isset($themes[$core->blog->settings->system->theme])) {
-		echo '<h3>'.sprintf(__('You are currently using "%s"'),$themes[$core->blog->settings->system->theme]['name']).'</h3>';
+		echo '<p>'.sprintf(__('You are currently using "%s"'),$themes[$core->blog->settings->system->theme]['name']).'.</p>';
 	}
 	
 	echo
@@ -267,15 +271,14 @@ if (!$theme_conf_mode)
 	echo '</div>';
 	
 	echo
-	'<div class="two-cols clear" id="themes-actions">'.
-	$core->formNonce().
-	'<p class="col"><input type="submit" name="select" value="'.__('Use selected theme').'" /></p>';
+	'<div id="themes-actions">'.
 	
+	'<p>'.$core->formNonce().'<input type="submit" name="select" value="'.__('Use selected theme').'" /> ';	
 	if ($can_install) {
-		echo '<p class="col right"><input type="submit" class="delete" name="remove" value="'.__('Delete selected theme').'" /></p>';
+		echo ' <input type="submit" class="delete" name="remove" value="'.__('Delete selected theme').'" />';
 	}
+	echo '</p>'.
 	
-	echo
 	'</div>'.
 	'</form>'.
 	'</div>';
@@ -284,21 +287,24 @@ if (!$theme_conf_mode)
 	if ($can_install)
 	{
 		echo
-		'<div class="multi-part clear" id="add-theme" title="'.__('Install or upgrade a theme').'">';
+		'<div class="multi-part clear" id="add-theme" title="'.__('Install or upgrade a theme').'">'.
+		'<h3>'.__('Add themes to your installation').'</h3>'.
+		'<p>'.sprintf(__('You can find additional themes for your blog on %s.'),
+		'<a href="http://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>').'</p>';
 		
 		if ($is_writable)
 		{
-			echo '<p>'.__('You can install themes by uploading or downloading zip files.').'</p>';
+			echo '<p>'.__('You can also install themes by uploading or downloading zip files.').'</p>';
 			
 			# 'Upload theme' form
 			echo
 			'<form method="post" action="blog_theme.php" id="uploadpkg" enctype="multipart/form-data">'.
 			'<fieldset>'.
 			'<legend>'.__('Upload a zip file').'</legend>'.
-			'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file:').' '.
-			'<input type="file" name="pkg_file" id="pkg_file" /></label></p>'.
-			'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
-			form::password(array('your_pwd','your_pwd1'),20,255).'</label></p>'.
+			'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file:').'</label> '.
+			'<input type="file" name="pkg_file" id="pkg_file" /></p>'.
+			'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
+			form::password(array('your_pwd','your_pwd1'),20,255).'</p>'.
 			'<input type="submit" name="upload_pkg" value="'.__('Upload theme').'" />'.
 			$core->formNonce().
 			'</fieldset>'.
@@ -309,10 +315,10 @@ if (!$theme_conf_mode)
 			'<form method="post" action="blog_theme.php" id="fetchpkg">'.
 			'<fieldset>'.
 			'<legend>'.__('Download a zip file').'</legend>'.
-			'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file URL:').' '.
-			form::field(array('pkg_url','pkg_url'),40,255).'</label></p>'.
-			'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').' '.
-			form::password(array('your_pwd','your_pwd2'),20,255).'</label></p>'.
+			'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Theme zip file URL:').'</label> '.
+			form::field(array('pkg_url','pkg_url'),40,255).'</p>'.
+			'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
+			form::password(array('your_pwd','your_pwd2'),20,255).'</p>'.
 			'<input type="submit" name="fetch_pkg" value="'.__('Download theme').'" />'.
 			$core->formNonce().
 			'</fieldset>'.
@@ -332,13 +338,6 @@ else
 {
 	$theme_name = $core->themes->moduleInfo($core->blog->settings->system->theme,'name');
 	$core->themes->loadModuleL10Nresources($core->blog->settings->system->theme,$_lang);
-
-	echo dcPage::breadcrumb(
-		array(
-			html::escapeHTML($core->blog->name) => '',
-			__('Blog appearance') => 'blog_theme.php',
-			'<span class="page-title">'.__('Theme configuration').'</span>' => ''
-		));
 
 	echo
 	'<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';

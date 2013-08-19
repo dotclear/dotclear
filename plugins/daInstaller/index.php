@@ -254,8 +254,16 @@ echo
 	'<link rel="stylesheet" href="index.php?pf=daInstaller/style.css" type="text/css" />'.
 '</head>'.
 '<body>'.
-infoMessages().
-'<h2>'.__('System').' &rsaquo; <span class="page-title">'.__('DotAddict.org Installer').'</span></h2>'.
+
+dcPage::breadcrumb(
+	array(
+		__('System') => '',
+		'<span class="page-title">'.__('DotAddict.org Installer').'</span>' => ''
+	)).
+
+infoMessages();
+
+echo
 '<p>'.__('Install and update your extensions live from DotAddict.org').'</p>';
 
 echo
@@ -293,9 +301,8 @@ echo
 	'</legend>'.
 	'<form method="get" action="'.$p_url.'">'.
 	'<p>'.form::hidden('p','daInstaller').
-	'<label for="q" class="classic">'.__('Query:').'&nbsp; '.
+	'<label for="q" class="classic">'.__('Query:').'&nbsp;</label> '.
 	form::field('q',30,255,html::escapeHTML($q)).
-	'</label> '.
 	'<label for="mode" class="classic">'.
 	form::radio(array('mode','mode'),'plugins',$mode == 'plugins').
 	' '.__('Plugins').'&nbsp;</label> '.

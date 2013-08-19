@@ -760,7 +760,7 @@ msgstr "Sayfa başına ahkam"
 msgid "Comment author:"
 msgstr "Ahkamı yazan:"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr ""
 
 msgid "Show it."

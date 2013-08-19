@@ -50,7 +50,12 @@ catch (Exception $e)
 
 <body>
 <?php
-echo '<h2 class="page-title">'.__('Pings configuration').'</h2>';
+
+echo dcPage::breadcrumb(
+	array(
+		__('Plugins') => '',
+		'<span class="page-title">'.__('Pings configuration').'</span>' => ''
+	));
 
 if (!empty($_GET['up'])) {
 	dcPage::message(__('Settings have been successfully updated.'));
@@ -58,25 +63,25 @@ if (!empty($_GET['up'])) {
 
 echo
 '<form action="'.$p_url.'" method="post">'.
-'<p><label for="pings_active" class="classic">'.form::checkbox('pings_active',1,$core->blog->settings->pings->pings_active).' '.
-__('Activate pings extension').'</label></p>';
+'<p><label for="pings_active" class="classic">'.form::checkbox('pings_active',1,$core->blog->settings->pings->pings_active).'</label> '.
+__('Activate pings extension').'</p>';
 
 $i = 0;
 foreach ($pings_uris as $n => $u)
 {
 	echo
-	'<p><label for="pings_srv_name-'.$i.'" class="classic">'.__('Service name:').' '.
-	form::field(array('pings_srv_name[]','pings_srv_name-'.$i),20,128,html::escapeHTML($n)).'</label> '.
-	'<label for="pings_srv_uri-'.$i.'" class="classic">'.__('Service URI:').' '.
-	form::field(array('pings_srv_uri[]','pings_srv_uri-'.$i),40,255,html::escapeHTML($u)).'</label>';
+	'<p><label for="pings_srv_name-'.$i.'" class="classic">'.__('Service name:').'</label> '.
+	form::field(array('pings_srv_name[]','pings_srv_name-'.$i),20,128,html::escapeHTML($n)).' '.
+	'<label for="pings_srv_uri-'.$i.'" class="classic">'.__('Service URI:').'</label> '.
+	form::field(array('pings_srv_uri[]','pings_srv_uri-'.$i),40,255,html::escapeHTML($u));
 	
 	if (!empty($_GET['test']))
 	{
 		try {
 			pingsAPI::doPings($u,'Example site','http://example.com');
-			echo ' <img src="images/check-on.png" alt="ok" />';
+			echo ' <img src="images/check-on.png" alt="OK" />';
 		} catch (Exception $e) {
-			echo ' <img src="images/check-off.png" alt="'.__('error').'" /> '.$e->getMessage();
+			echo ' <img src="images/check-off.png" alt="'.__('Error').'" /> '.$e->getMessage();
 		}
 	}
 	
@@ -85,17 +90,17 @@ foreach ($pings_uris as $n => $u)
 }
 
 echo
-'<p><label for="pings_srv_name2" class="classic">'.__('Service name:').' '.
-form::field(array('pings_srv_name[]','pings_srv_name2'),20,128).'</label> '.
-'<label for="pings_srv_uri2" class="classic">'.__('Service URI:').' '.
-form::field(array('pings_srv_uri[]','pings_srv_uri2'),40,255).'</label>'.
+'<p><label for="pings_srv_name2" class="classic">'.__('Service name:').'</label> '.
+form::field(array('pings_srv_name[]','pings_srv_name2'),20,128).' '.
+'<label for="pings_srv_uri2" class="classic">'.__('Service URI:').'</label> '.
+form::field(array('pings_srv_uri[]','pings_srv_uri2'),40,255).
 '</p>'.
 
 '<p><input type="submit" value="'.__('Save').'" />'.
 $core->formNonce().'</p>'.
 '</form>';
 
-echo '<p><a href="'.$p_url.'&amp;test=1">'.__('Test ping services').'</a></p>';
+echo '<p><a class="button" href="'.$p_url.'&amp;test=1">'.__('Test ping services').'</a></p>';
 ?>
 </body>
 </html>

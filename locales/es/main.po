@@ -768,7 +768,7 @@ msgstr "Comentarios por página"
 msgid "Comment author:"
 msgstr "Autor del comentario:"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "Tiene un comentario no deseado."
 
 msgid "Show it."

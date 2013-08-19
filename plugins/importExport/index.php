@@ -73,9 +73,14 @@ echo '
 <body>';
 
 if ($type && $module !== null) {
+	echo dcPage::breadcrumb(
+		array(
+			__('Plugins') => '',
+			$title => $p_url,
+			'<span class="page-title">'.html::escapeHTML($module->name).'</span>' => ''
+		));
+
 	echo
-	'<h2>'.__('Plugins').' &rsaquo; <a href="'.$p_url.'">'.$title.'</a>'.
-	' &rsaquo; <span class="page-title">'.html::escapeHTML($module->name).'</span></h2>'.
 	'<div id="ie-gui">';
 	
 	$module->gui();
@@ -83,8 +88,13 @@ if ($type && $module !== null) {
 	echo '</div>';
 }
 else {
+	echo dcPage::breadcrumb(
+		array(
+			__('Plugins') => '',
+			'<span class="page-title">'.$title.'</span>' => ''
+		));
+
 	echo
-	'<h2>'.__('Plugins').' &rsaquo; <span class="page-title">'.$title.'</span></h2>'.
 	'<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']).
 	'<h3>'.__('Export').'</h3>'.listImportExportModules($core,$modules['export']);
 }

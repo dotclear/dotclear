@@ -1,15 +1,18 @@
 .jstEditor {
 	border-width : 0 1px 1px 1px;
 	border-style : solid;
-	border-color : #000 #ccc #ccc #000;
-	padding-left: 5px;
+	border-color : #ccc;
 	background : #f9f9f9;
 }
 .jstEditor textarea, .jstEditor iframe {
   margin: 0;
   border: 0;
+  padding: 0;
 }
-
+.jstEditor textarea {
+  width: 99%;
+  padding: 1rem 0 0 1%;
+}
 .jstHandle {
 	height: 8px;
 	background: #ccc url(resize.png) no-repeat center center;
@@ -21,11 +24,19 @@
 }
 
 .jstElements {
-	padding: 3px 3px;
-	border-width: 1px 1px 0 1px;
-	border-style: solid;
-	border-color: #000 #ccc #ccc #000;
-	background: #dfdfdf;
+	height: 28px;
+	padding: 0 1rem; 
+	border: 1px solid #ccc;
+	overflow: hidden; 
+	background: #e1e1e1; 
+	background: -moz-linear-gradient(center top , #f2f2f2, #e1e1e1); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#e1e1e1)); 
+	-moz-border-radius: 4px 4px 0 0; 
+	-webkit-border-radius: 4px 4px 0 0; 
+	border-radius: 4px 4px 0 0; 
+	-webkit-box-shadow: 0 1px 0 #FFF inset; 
+	-moz-box-shadow: 0 1px 0 #FFF inset; 
+	box-shadow: 0 1px 0 #FFF inset;
 }
 
 .jstElements select, .jstElements button {
@@ -33,15 +44,14 @@
 }
 .jstElements select {
 	width: 12em;
+	margin-right: .6rem;
 }
 .jstElements button {
-	margin-right : 2px;
-	width : 20px;
-	height: 20px;
-	padding: 0;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #dfdfdf;
+	width : 30px;
+	height: 28px;
+	border-style: groove;
+	border-width:  0 1px 0 0;
+	border-color: #666;
 	background-color : transparent;
 	background-position : 50% 50%;
 	background-repeat: no-repeat;
@@ -54,13 +64,18 @@
 	display : none;	
 }
 .jstElements span {
-	display : inline;
+	display : inline-block;
+	vertical-align: top;
+	background: #dfdfdf;
 }
 
 .jstSpacer {
-	width : 0px;
-	font-size: 1px;
-	margin-right: 4px;
+	width : 2px;
+	height: 28px;
+	margin-right: 0;
+	border-style: groove;
+	border-width:  0 1px 0 0;
+	border-color: #666;
 }
 
 .jstSwitcher {

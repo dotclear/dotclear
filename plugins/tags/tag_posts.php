@@ -108,8 +108,14 @@ $core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
 </head>
 <body>
 
-<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo;
-<span class="page-title"><?php echo __('Tag').' &ldquo;'.html::escapeHTML($tag).'&rdquo;'; ?></span></h2>
+<?php
+echo dcPage::breadcrumb(
+	array(
+		html::escapeHTML($core->blog->name) => '',
+		__('Tags') => $p_url.'&amp;m=tags',
+		'<span class="page-title">'.__('Tag').' &ldquo;'.html::escapeHTML($tag).'&rdquo;'.'</span>' => ''
+	));
+?>
 
 <?php
 if (!empty($_GET['renamed'])) {

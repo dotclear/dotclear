@@ -122,14 +122,22 @@ catch (Exception $e)
 
 if ($filter_gui !== false)
 {
-	echo '<h2>'.__('Plugins').' &rsaquo; <a href="'.$p_url.'">'.$page_name.'</a>'.
-		' &rsaquo; <span class="page-title">'.sprintf(__('%s configuration'),$filter->name).'</span></h2>';
+	echo dcPage::breadcrumb(
+		array(
+			__('Plugins') => '',
+			$page_name => $p_url,
+			'<span class="page-title">'.sprintf(__('%s filter configuration'),$filter->name).'</span>' => ''
+		));
 
 	echo $filter_gui;
 }
 else
 {
-	echo '<h2>'.__('Plugins').' &rsaquo; <span class="page-title">'.$page_name.'</span></h2>';
+	echo dcPage::breadcrumb(
+		array(
+			__('Plugins') => '',
+			'<span class="page-title">'.$page_name.'</span>' => ''
+		));
 
 	# Information
 	$spam_count = dcAntispam::countSpam($core);
@@ -169,7 +177,7 @@ else
 
 	# Filters
 	echo
-	'<form action="'.$p_url.'" method="post" class="fieldset" id="filters-form">';
+	'<form action="'.$p_url.'" method="post" id="filters-list-form">';
 
 	if (!empty($_GET['upd'])) {
 		dcPage::message(__('Filters configuration has been successfully saved.'));
@@ -177,7 +185,7 @@ else
 
 	echo
 	'<table class="dragable">'.
-	'<caption>'.__('Available spam filters').'</caption>'.
+	'<caption class="as_h3">'.__('Available spam filters').'</caption>'.
 	'<thead><tr>'.
 	'<th>'.__('Order').'</th>'.
 	'<th>'.__('Active').'</th>'.

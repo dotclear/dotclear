@@ -1090,7 +1090,7 @@ msgid "Comment author:"
 msgstr ""
 
 #: admin/comments.php:214
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr ""
 
 #: admin/comments.php:215

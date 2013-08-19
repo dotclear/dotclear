@@ -167,16 +167,13 @@ if ($new_v && $step)
 /* DISPLAY Main page
 -------------------------------------------------------- */
 dcPage::open(__('Dotclear update'),
-	(!$step ? dcPage::jsPageTabs($default_tab) : '')
-);
-
-if (!$core->error->flag()) {
-	echo dcPage::breadcrumb(
+	(!$step ? dcPage::jsPageTabs($default_tab) : ''),
+	dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			'<span class="page-title">'.__('Dotclear update').'</span>' => ''
-		));
-}
+		))
+);
 
 if (!$step)
 {

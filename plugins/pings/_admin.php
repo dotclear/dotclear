@@ -32,7 +32,7 @@ if (!array_key_exists('pings',$core->blog->settings->dumpNamespaces()))
 }
 
 $core->addBehavior('adminPostHeaders',array('pingsBehaviors','pingJS'));
-$core->addBehavior('adminPostFormSidebar',array('pingsBehaviors','pingsForm'));
+$core->addBehavior('adminPostFormItems',array('pingsBehaviors','pingsFormItems'));
 $core->addBehavior('adminAfterPostCreate',array('pingsBehaviors','doPings'));
 $core->addBehavior('adminAfterPostUpdate',array('pingsBehaviors','doPings'));
 

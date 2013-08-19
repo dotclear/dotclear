@@ -56,7 +56,10 @@ $(function() {
 		url: $('#fileupload').attr('action'),
 		autoUpload: false,
 		sequentialUploads: true,
-		disabled: true
+		uploadTemplateId: null,
+		downloadTemplateId: null,
+		uploadTemplate: template_upload,
+		downloadTemplate: template_download
 	}).bind('fileuploadadd', function(e, data) {
 		$('.button.cancel','#fileupload .fileupload-buttonbar').show();
 		enableButton($('.button.start','#fileupload .fileupload-buttonbar'));

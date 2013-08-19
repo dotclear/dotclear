@@ -237,8 +237,8 @@ msgid "Are you sure you want to delete all spams?"
 msgstr "Êtes-vous sûr de vouloir supprimer tous les indésirables ?"
 
 #, php-format
-msgid "%s configuration"
-msgstr "configuration %s"
+msgid "%s filter configuration"
+msgstr "Configuration du filtre %s"
 
 msgid "Information"
 msgstr "Information"
@@ -1023,8 +1023,8 @@ msgstr ""
 
 msgid ""
 "On the other hand, in WordPress, a post can not be uncategorized, and a "
-"default installation has a first category labelised <i>\"Uncategorized\"</"
-"i>. If you did not change that category, you can just ignore it while "
+"default installation has a first category labelised <i>\"Uncategorized\"</i>."
+"If you did not change that category, you can just ignore it while "
 "importing your blog, as Dotclear allows you to actually keep your posts "
 "uncategorized."
 msgstr ""
@@ -1240,7 +1240,7 @@ msgid "Page has been successfully created."
 msgstr "La page a été créée avec succès."
 
 msgid "Go to this page on the site"
-msgstr "Aller sur cette page"
+msgstr "Voir cette page sur le site"
 
 msgid "Page status:"
 msgstr "État de la page :"
@@ -1276,7 +1276,7 @@ msgid "page"
 msgstr "page"
 
 msgid "Pings"
-msgstr "Signalements"
+msgstr "Signalements (pings)"
 
 msgid "Ping services"
 msgstr "Services de signalement"
@@ -1776,10 +1776,10 @@ msgstr ""
 
 msgid ""
 "Once included in a sidebar, widgets have configuration options that you can "
-"reach by clicking on the + sign next to their name."
+"reach by clicking on the arrow next to their name."
 msgstr ""
 "Une fois inclus dans un bandeau, les widgets ont généralement des options "
-"que vous pouvez configurer. Cliquez sur le signe + à côté de leur nom pour y "
+"que vous pouvez configurer. Cliquez sur la flèche à côté de leur nom pour y "
 "accéder."
 
 msgid "Reset sidebars to get back to default widgets installation."
@@ -1918,3 +1918,12 @@ msgstr "Réglages pour %s"
 
 msgid "Settings for %s"
 msgstr "Réglages pour %s"
+
+msgid "User preferences"
+msgstr "Préférences utilisateur"
+
+msgid "Global preferences"
+msgstr "Préférences globales"
+
+msgid "Edit theme files"
+msgstr "Modifier les fichiers du thème"

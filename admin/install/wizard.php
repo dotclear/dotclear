@@ -177,18 +177,18 @@ echo
 '<p>'.__('Please provide the following information needed to create your configuration file.').'</p>'.
 
 '<form action="wizard.php" method="post">'.
-'<p><label class="required" for="DBDRIVER"><abbr title="'.__('Required field').'">*</abbr> '.__('Database type:').' '.
-form::combo('DBDRIVER',array('MySQL'=>'mysql','PostgreSQL'=>'pgsql'),$DBDRIVER).'</label></p>'.
-'<p><label for="DBHOST">'.__('Database Host Name:').' '.
-form::field('DBHOST',30,255,html::escapeHTML($DBHOST)).'</label></p>'.
-'<p><label for="DBNAME">'.__('Database Name:').' '.
-form::field('DBNAME',30,255,html::escapeHTML($DBNAME)).'</label></p>'.
-'<p><label for="DBUSER">'.__('Database User Name:').' '.
-form::field('DBUSER',30,255,html::escapeHTML($DBUSER)).'</label></p>'.
-'<p><label for="DBPASSWORD">'.__('Database Password:').' '.
-form::password('DBPASSWORD',30,255).'</label></p>'.
-'<p><label for="DBPREFIX" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Database Tables Prefix:').' '.
-form::field('DBPREFIX',30,255,html::escapeHTML($DBPREFIX)).'</label></p>'.
+'<p><label class="required" for="DBDRIVER"><abbr title="'.__('Required field').'">*</abbr> '.__('Database type:').'</label> '.
+form::combo('DBDRIVER',array('MySQL'=>'mysql','PostgreSQL'=>'pgsql'),$DBDRIVER).'</p>'.
+'<p><label for="DBHOST">'.__('Database Host Name:').'</label> '.
+form::field('DBHOST',30,255,html::escapeHTML($DBHOST)).'</p>'.
+'<p><label for="DBNAME">'.__('Database Name:').'</label> '.
+form::field('DBNAME',30,255,html::escapeHTML($DBNAME)).'</p>'.
+'<p><label for="DBUSER">'.__('Database User Name:').'</label> '.
+form::field('DBUSER',30,255,html::escapeHTML($DBUSER)).'</p>'.
+'<p><label for="DBPASSWORD">'.__('Database Password:').'</label> '.
+form::password('DBPASSWORD',30,255).'</p>'.
+'<p><label for="DBPREFIX" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Database Tables Prefix:').'</label> '.
+form::field('DBPREFIX',30,255,html::escapeHTML($DBPREFIX)).'</p>'.
 
 '<p><input type="submit" value="'.__('Continue').'" /></p>'.
 '</form>';

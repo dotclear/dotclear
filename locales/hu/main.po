@@ -786,7 +786,7 @@ msgstr "Megjegyések oldalanként"
 msgid "Comment author:"
 msgstr "Megjegyzés szerzője:"
 
-msgid "You have one spam comments."
+msgid "You have one spam comment."
 msgstr "Van egy spam megjegyzésed."
 
 msgid "Show it."

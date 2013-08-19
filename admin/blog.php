@@ -66,29 +66,29 @@ if (!empty($_REQUEST['id']))
 }
 else
 {
-	dcPage::open(__('New blog'),dcPage::jsConfirmClose('blog-form'));
-	
-	echo dcPage::breadcrumb(
-		array(
-			__('System') => '',
-			__('Blogs') => 'blogs.php',
-			'<span class="page-title">'.__('New blog').'</span>' => ''
-		));
+	dcPage::open(__('New blog'),dcPage::jsConfirmClose('blog-form'),
+		dcPage::breadcrumb(
+			array(
+				__('System') => '',
+				__('Blogs') => 'blogs.php',
+				'<span class="page-title">'.__('New blog').'</span>' => ''
+			))
+	);
 	
 	echo
-	'<form action="blog.php" method="post" id="blog-form" class="fieldset">'.
+	'<form action="blog.php" method="post" id="blog-form">'.
 	
 	$core->formNonce().
-	'<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').' '.
-	form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</label></p>'.
+	'<p><label class="required" for="blog_id"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').'</label> '.
+	form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
 	'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
 	'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>'.
 	
-	'<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').' '.
-	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</label></p>'.
+	'<p><label class="required" for="blog_name"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').'</label> '.
+	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</p>'.
 	
-	'<p><label class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').' '.
-	form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</label></p>'.
+	'<p><label class="required" for="blog_url"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').'</label> '.
+	form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</p>'.
 	
 	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label> '.
 	form::textarea('blog_desc',60,5,html::escapeHTML($blog_desc)).'</p>'.

@@ -237,13 +237,13 @@ class dcWidget
 			{
 				case 'text':
 					$res .=
-					'<p><label for="'.$wfid.'">'.$s['title'].' '.
+					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
 					form::field(array($iname,$wfid),20,255,html::escapeHTML($s['value']),'maximal').
-					'</label></p>';
+					'</p>';
 					break;
 				case 'textarea':
 					$res .=
-					'<p><label for="'.$wfid.'">'.$s['title'].' '.
+					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
 					form::textarea(array($iname,$wfid),30,5,html::escapeHTML($s['value']),'maximal').
 					'</label></p>';
 					break;
@@ -256,9 +256,9 @@ class dcWidget
 					break;
 				case 'combo':
 					$res .=
-					'<p><label for="'.$wfid.'">'.$s['title'].' '.
+					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
 					form::combo(array($iname,$wfid),$s['options'],$s['value']).
-					'</label></p>';
+					'</p>';
 					break;
 			}
 			$i++;

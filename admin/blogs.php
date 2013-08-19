@@ -72,17 +72,17 @@ $starting_script = '';
 if (!$show_filters) {
 	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
 }
-dcPage::open(__('List of blogs'),$starting_script);
+dcPage::open(__('List of blogs'),$starting_script,
+	dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			'<span class="page-title">'.__('List of blogs').'</span>' => ''
+		))
+);
 
 if (!empty($_GET['del'])) {
 	dcPage::message(__('Blog has been successfully deleted.'));
 }
-
-echo dcPage::breadcrumb(
-	array(
-		__('System') => '',
-		'<span class="page-title">'.__('List of blogs').'</span>' => ''
-	));
 
 if (!$core->error->flag())
 {
@@ -91,33 +91,31 @@ if (!$core->error->flag())
 	}
 	
 	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.__('Filters').'</a></p>';
+		echo '<p><a id="filter-control" class="form-control" href="#">'.__('Filter blogs list').'</a></p>';
 	}
 	
 	echo
 	'<form action="blogs.php" method="get" id="filters-form">'.
-	'<fieldset class="two-cols"><legend>'.__('Filters').'</legend>'.
+	'<h3>'.__('Filter blogs list').'</h3>'.
 	
-	'<div class="col">'.
-	'<p><label for="sortby">'.__('Order by:').' '.
-	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).
-	'</label> '.
-	'<label for="order">'.__('Sort:').' '.
-	form::combo('order',$order_combo,html::escapeHTML($order)).
-	'</label></p>'.
+	'<div class="table">'.
+	'<div class="cell">'.
+	'<p><label for="q" class="ib">'.__('Search:').'</label> '.
+	form::field('q',20,255,html::escapeHTML($q)).'</p>'.
 	'</div>'.
 	
-	'<div class="col">'.
-	'<p><label for="q">'.__('Search:').' '.
-	form::field('q',20,255,html::escapeHTML($q)).
-	'</label></p>'.
-	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Blogs per page').'</label> '.
-	'<input type="submit" value="'.__('Apply filters').'" /></p>'.
+	'<div class="cell filters-options">'.
+	'<p><label for="sortby" class="ib">'.__('Order by:').'</label> '.
+	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).'</p>'.
+	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
+	form::combo('order',$order_combo,html::escapeHTML($order)).'</p>'.
+	'<p><span class="label ib">'.__('Show').'</span> <label for="nb" class="classic">'.	
+	form::field('nb',3,3,$nb_per_page).' '.__('blogs per page').'</label></p>'.
 	'</div>'.
-	
-	'<br class="clear" />'. //Opera sucks
-	'</fieldset>'.
+	'</div>'.
+
+	'<p><input type="submit" value="'.__('Apply filters').'" />'.
+	'<br class="clear" /></p>'. //Opera sucks
 	'</form>';
 	
 	# Show blogs
@@ -130,7 +128,7 @@ if (!$core->error->flag())
 		$pager = new pager($page,$nb_blog,$nb_per_page,10);
 		$pager->var_page = 'page';
 		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+		echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 		
 		echo
 		'<table class="clear"><tr>'.
@@ -148,7 +146,7 @@ if (!$core->error->flag())
 		
 		echo '</table>';
 		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+		echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 	}
 }
 
