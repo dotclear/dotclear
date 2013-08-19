@@ -36,8 +36,8 @@ foreach ($core->blog->getAllCommentStatus() as $k => $v) {
 
 $type_combo = array(
 '-' => '',
-__('comment') => 'co',
-__('trackback') => 'tb'
+__('Comment') => 'co',
+__('Trackback') => 'tb'
 );
 
 $sortby_combo = array(
@@ -260,7 +260,7 @@ if (!$core->error->flag())
 	'<p class="col checkboxes-helpers"></p>'.
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
-	form::combo('action',$combo_action,$default,'','','','title="'.__('action: ').'"').
+	form::combo('action',$combo_action,$default,'','','','title="'.__('Actions').'"').
 	$core->formNonce().
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('type'),$type).
