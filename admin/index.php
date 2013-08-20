@@ -334,6 +334,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		($core->auth->check('categories', $core->blog->id)
 			? '<div>'.
 			'<p id="new_cat">'.__('Add a new category').'</p>'.
+			'<p class="form-note info clear">'.__('This category will be created when you will save your post.').'</p>'.
 			'<p><label for="new_cat_title">'.__('Title:').' '.
 			form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
 			'<p><label for="new_cat_parent">'.__('Parent:').' '.

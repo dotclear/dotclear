@@ -2966,3 +2966,6 @@ msgstr "fort"
 
 msgid "very strong"
 msgstr "très fort"
+
+msgid "This category will be created when you will save your post."
+msgstr "Cette catégorie sera créée lorsque vous enregistrerez votre billet."
