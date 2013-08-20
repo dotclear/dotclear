@@ -776,7 +776,7 @@ class dcForm
 		$hasActions = false;
 		foreach ($submitted as $f) {
 			$action = $f->getAction();
-			if ($action != NULL) {
+			if ($action != NULL && is_callable($action)) {
 				$hasActions = true;
 				$ret = call_user_func($action,$this);
 			}
