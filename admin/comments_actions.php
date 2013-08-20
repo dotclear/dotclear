@@ -136,7 +136,7 @@ else
 # --BEHAVIOR-- adminCommentsActionsContent
 $core->callBehavior('adminCommentsActionsContent',$core,$action,$hidden_fields);
 
-echo '<p><a class="back" href="'.str_replace('&','&amp;',$redir).'">'.__('back').'</a></p>';
+echo '<p><a class="back" href="'.str_replace('&','&amp;',$redir).'">'.__('Back to comments list').'</a></p>';
 
 dcPage::close();
 ?>

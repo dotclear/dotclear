@@ -129,8 +129,9 @@ if (!$core->error->flag())
 	if (!$posts->isEmpty())
 	{
 		echo
+		'<div class="fieldset">'.
 		'<form action="'.$this_url.'" method="post">'.
-		'<div class="fieldset"><h3>'.__('Actions for this tag').'</h3>'.
+		'<h3>'.__('Actions for this tag').'</h3>'.
 		'<p><label for="new_tag_id">'.__('Edit tag name:').'</label>'.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'<input type="submit" value="'.__('Rename').'" />'.
@@ -160,7 +161,7 @@ if (!$core->error->flag())
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$combo_action).
-	'<input type="submit" value="'.__('ok').'" /></p>'.
+	'<input type="submit" value="'.__('OK').'" /></p>'.
 	form::hidden('post_type','').
 	form::hidden('redir',$p_url.'&amp;m=tag_posts&amp;tag='.
 		str_replace('%','%%',rawurlencode($tag)).'&amp;page='.$page).

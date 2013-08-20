@@ -232,7 +232,7 @@ if ($step) {
 					$core->blog->triggerBlog();
 				
 					// All done successfully, return to menu items list
-					http::redirect($p_url.'&added=1');
+					http::redirect($p_url.'&amp;added=1');
 				} else {
 					throw new Exception(__('Label and URL of menu item are mandatory.'));
 				}
@@ -267,7 +267,7 @@ if ($step) {
 				$core->blog->triggerBlog();
 				
 				// All done successfully, return to menu items list
-				http::redirect($p_url.'&removed=1');
+				http::redirect($p_url.'&amp;removed=1');
 			} else {
 				throw new Exception(__('No menu items selected.'));
 			}
@@ -301,7 +301,7 @@ if ($step) {
 			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
-			http::redirect($p_url.'&updated=1');
+			http::redirect($p_url.'&amp;updated=1');
 		}
 		catch (Exception $e) {
 			$core->error->add($e->getMessage());
@@ -338,7 +338,7 @@ if ($step) {
 			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
-			http::redirect($p_url.'&neworder=1');
+			http::redirect($p_url.'&amp;neworder=1');
 		} 
 		catch (Exception $e) {
 			$core->error->add($e->getMessage());
@@ -401,7 +401,7 @@ if ($step)
 	switch ($step) {
 		case 1:
 			// Selection du type d'item
-			echo '<form id="additem" action="'.$p_url.'&add=2" method="post">';
+			echo '<form id="additem" action="'.$p_url.'&amp;add=2" method="post">';
 			echo '<fieldset><legend>'.__('Select type').'</legend>';
 			echo '<p class="field"><label for="item_type" class="classic">'.__('Type of item menu:').'</label>'.form::combo('item_type',$items_combo,'').'</p>';
 			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue...').'" />'.'</p>';
@@ -411,7 +411,7 @@ if ($step)
 		case 2:
 			if ($items[$item_type][1]) {
 				// Choix à faire
-				echo '<form id="additem" action="'.$p_url.'&add=3" method="post">';
+				echo '<form id="additem" action="'.$p_url.'&amp;add=3" method="post">';
 				echo '<fieldset><legend>'.$item_type_label.'</legend>';
 				switch ($item_type) {
 					case 'lang':
@@ -448,7 +448,7 @@ if ($step)
 			}
 		case 3:
 			// Libellé et description
-			echo '<form id="additem" action="'.$p_url.'&add=4" method="post">';
+			echo '<form id="additem" action="'.$p_url.'&amp;add=4" method="post">';
 			echo '<fieldset><legend>'.$item_type_label.($item_select_label != '' ? ' ('.$item_select_label.')' : '').'</legend>';
 			echo '<p class="field"><label for="item_label" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
 				__('Label of item menu:').'</label>'.form::field('item_label',20,255,$item_label).'</p>';
@@ -466,7 +466,7 @@ if ($step)
 
 // Liste des items
 if (!$step) {
-	echo '<form id="menuitemsappend" action="'.$p_url.'&add=1" method="post">';
+	echo '<form id="menuitemsappend" action="'.$p_url.'&amp;add=1" method="post">';
 	echo '<p class="top-add">'.$core->formNonce().'<input class="button add" type="submit" name="appendaction" value="'.__('Add an item').'" /></p>';
 	echo '</form>';
 }

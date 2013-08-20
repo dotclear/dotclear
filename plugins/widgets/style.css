@@ -1,54 +1,52 @@
 #listWidgets {
 	float: left;
-	width: 33%;
+	width: 45%;
+	background: #eee;
+	padding: 1.5em 1%; 
+	border: 1px solid #ccc;
+	margin-left: 1.5em;
+}
+#widgets .widget-name {
+	background: #fff;
+	min-height: 3em;
+}
+#listWidgets h3 {
+	color: #333;
 }
 
 #sidebarsWidgets {
 	float: left;
-	width: 65%;
-	margin-left: 1%;
+	width: 45%;
+	margin-left: 3%;
+	padding: 0 1%;
 }
-#sidebarNav {
-	float: left;
-	width: 50%;
-	margin-left: 0%;
-}
-#sidebarExtra {
-	float: left;
-	width: 49%;
-	margin-left: 1%;
-}
-#sidebarCustom {
-	float: left;
-	width: 100%;
-}
-
 #sidebarsControl {
 	clear: left;
 }
+.widgets.fieldset {
+	margin-bottom: 2em;
+}
 
-#widgets, #dndnav, #dndextra {
+#widgets, #dndnav, #dndextra, #dndcustom {
 	padding: 1em 0;
 }
 
-.widgets fieldset {
-	border: 1px solid #999;
-}
-.widgets legend {
-	border: 1px solid #999;
-}
-
-.widgets p.widget-name {
-	background: #F0EFEA;
+.widget-name {
+	background: #eef;
 	color: #000;
-	padding: 4px;
+	padding: 4px 6px;
 	margin: 0.5em 0 0 0;
 	border-width: 1px 1px 1px 1px;
 	border-style: solid;
-	border-color: #bbb;
+	border-color: #999;
 	font-weight: bold;
 }
-.widgets p.widget-name img {
+.widget-name span {
+	display: block;
+	font-style: normal;
+	font-size: 1.1rem;
+}
+.widget-name img {
 	cursor: pointer;
 	margin-bottom: -1px;
 }
@@ -57,8 +55,8 @@
 	border-width: 0 1px 1px 1px;
 	border-style: solid;
 	border-color: #666;
-	padding: 4px;
-	background: #E5E3DA;
+	padding: 4px 6px;
+	background: #f5f5f5;
 }
 
 #widgets .widgetSettings {

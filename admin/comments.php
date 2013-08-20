@@ -36,8 +36,8 @@ foreach ($core->blog->getAllCommentStatus() as $k => $v) {
 
 $type_combo = array(
 '-' => '',
-__('comment') => 'co',
-__('trackback') => 'tb'
+__('Comment') => 'co',
+__('Trackback') => 'tb'
 );
 
 $sortby_combo = array(
@@ -133,10 +133,10 @@ $combo_action = array();
 $default = '';
 if ($core->auth->check('publish,contentadmin',$core->blog->id))
 {
-	$combo_action[__('publish')] = 'publish';
-	$combo_action[__('unpublish')] = 'unpublish';
-	$combo_action[__('mark as pending')] = 'pending';
-	$combo_action[__('mark as junk')] = 'junk';
+	$combo_action[__('Publish')] = 'publish';
+	$combo_action[__('Unpublish')] = 'unpublish';
+	$combo_action[__('Mark as pending')] = 'pending';
+	$combo_action[__('Mark as junk')] = 'junk';
 }
 if ($core->auth->check('delete,contentadmin',$core->blog->id))
 {
@@ -260,7 +260,7 @@ if (!$core->error->flag())
 	'<p class="col checkboxes-helpers"></p>'.
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
-	form::combo('action',$combo_action,$default,'','','','title="'.__('action: ').'"').
+	form::combo('action',$combo_action,$default,'','','','title="'.__('Actions').'"').
 	$core->formNonce().
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('type'),$type).

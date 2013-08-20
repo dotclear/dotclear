@@ -26,7 +26,7 @@ if (!is_readable(DC_DIGESTS)) {
 }
 
 $updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
-$new_v = $updater->check(DC_VERSION);
+$new_v = $updater->check(DC_VERSION, !empty($_GET['nocache']));
 $zip_file = $new_v ? DC_BACKUP_PATH.'/'.basename($updater->getFileURL()) : '';
 $version_info = $new_v ? $updater->getInfoURL() : '';
 
@@ -167,7 +167,10 @@ if ($new_v && $step)
 /* DISPLAY Main page
 -------------------------------------------------------- */
 dcPage::open(__('Dotclear update'),
-	(!$step ? dcPage::jsPageTabs($default_tab) : ''),
+	(!$step ? 
+		dcPage::jsPageTabs($default_tab).
+		dcPage::jsLoad('js/_update.js')
+		: ''),
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
@@ -175,18 +178,28 @@ dcPage::open(__('Dotclear update'),
 		))
 );
 
+if (!$core->error->flag()) {
+	if (!empty($_GET['nocache'])) {
+		dcPage::message(__('Manual checking of update done successfully.'));
+	}
+}
+
 if (!$step)
 {
 	echo '<div class="multi-part" id="update" title="'.__('Dotclear update').'">';
 	if (empty($new_v))
 	{
-		echo '<p><strong>'.__('No newer Dotclear version available.').'</strong></p>';
+		echo '<p><strong>'.__('No newer Dotclear version available.').'</strong></p>'.
+		'<form action="'.$p_url.'" method="get">'.
+		'<p><input type="hidden" name="nocache" value="1" />'.
+		'<input type="submit" value="'.__('Force checking update Dotclear').'" /></p>'.
+		'</form>';
 	}
 	else
 	{
 		echo
 			'<p class="static-msg">'.sprintf(__('Dotclear %s is available.'),$new_v).
-				($version_info ? ' <a href="'.$version_info.'">('.__('information about this version').')</a>' : '').
+				($version_info ? ' <a href="'.$version_info.'">('.__('Information about this version').')</a>' : '').
 				'</p>'.
 		
 		'<p>'.__('To upgrade your Dotclear installation simply click on the following button. '.
@@ -232,7 +245,7 @@ elseif ($step == 'unzip' && !$core->error->flag())
 	echo
 	'<p class="message">'.
 	__("Congratulations, you're one click away from the end of the update.").
-	' <strong><a href="index.php?logout=1">'.__('Finish the update.').'</a></strong>'.
+	' <strong><a href="index.php?logout=1">'.__('Finish the update').'</a>.</strong>'.
 	'</p>';
 }
 

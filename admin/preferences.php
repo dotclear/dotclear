@@ -343,6 +343,19 @@ dcPage::open($page_title,
 	dcPage::jsLoad('js/_preferences.js').
 	($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
 	dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+	dcPage::jsLoad('js/jquery/jquery.pwstrength.js').
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA[\n".
+		"\$(function() {\n".
+		"	\$('#new_pwd').pwstrength({texts: ['".
+				sprintf(__('Password strength: %s'),__('very weak'))."', '".
+				sprintf(__('Password strength: %s'),__('weak'))."', '".
+				sprintf(__('Password strength: %s'),__('mediocre'))."', '".
+				sprintf(__('Password strength: %s'),__('strong'))."', '".
+				sprintf(__('Password strength: %s'),__('very strong'))."']});\n".
+		"});\n".
+		"\n//]]>\n".
+		"</script>\n".
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsConfirmClose('user-form').
 	
@@ -410,7 +423,6 @@ form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>'.
 
 '</div>'.
 '</div>'.
-'<br class="clear" />'. //Opera sucks
 '</fieldset>';
 
 if ($core->auth->allowPassChange())
@@ -419,10 +431,16 @@ if ($core->auth->allowPassChange())
 	'<fieldset>'.
 	'<legend>'.__('Change your password').'</legend>'.
 	
-	'<p><label for="new_pwd">'.__('New password:').'</label>'.
-	form::password('new_pwd',20,255).'</p>'.
+	'<div class="pw-table">'.
+	'<p class="pw-cell"><label for="new_pwd">'.__('New password:').'</label>'.
+	form::password('new_pwd',20,255,'','','',false,' data-indicator="pwindicator" ').'</p>'.
+	'<div id="pwindicator">'.
+	'    <div class="bar"></div>'.
+	'    <p class="label no-margin"></p>'.
+	'</div>'.
+	'</div>'.
 	
-	'<p><label for="new_pwd_c">'.__('Confirm password:').'</label>'.
+	'<p><label for="new_pwd_c">'.__('Confirm new password:').'</label>'.
 	form::password('new_pwd_c',20,255).'</p>'.
 	'</fieldset>'.
 	
@@ -480,11 +498,11 @@ if ($core->auth->isSuperAdmin()) {
 	'<p><label for="user_ui_hide_std_favicon" class="classic">'.
 	form::checkbox('user_ui_hide_std_favicon',1,$user_ui_hide_std_favicon).' '.
 	__('Do not use standard favicon').'</label></p>'.
-	'<p class="clear form-note info">'.__('This will be applied for all users').'</p>';
+	'<p class="clear form-note info">'.__('This will be applied for all users').
+	'<br class="clear" /></p>';//Opera sucks;
 }
 
 echo 
-'<br class="clear" />'. //Opera sucks
 '</fieldset>';
 
 echo
@@ -510,9 +528,9 @@ __('Display Dotclear news').'</label></p>'.
 
 '<p><label for="user_dm_quickentry" class="classic">'.
 form::checkbox('user_dm_quickentry',1,$user_dm_quickentry).' '.
-__('Display quick entry form').'</label></p>'.
+__('Display quick entry form').'</label><br class="clear" />'. //Opera sucks
+'</p>'.
 
-'<br class="clear" />'. //Opera sucks
 '</fieldset>';
 
 # --BEHAVIOR-- adminPreferencesForm
