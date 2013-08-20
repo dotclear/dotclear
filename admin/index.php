@@ -325,8 +325,8 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		echo
 		'<div id="quick">'.
 		'<h3>'.__('Quick entry').'</h3>'.
-		'<form id="quick-entry" action="post.php" method="post">'.
-		'<fieldset><legend>'.__('New entry').'</legend>'.
+		'<form id="quick-entry" action="post.php" method="post" class="fieldset">'.
+		'<h4>'.__('New entry').'</h4>'.
 		'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 		form::field('post_title',20,255,'','maximal').
 		'</p>'.
@@ -357,7 +357,6 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		form::hidden('post_lang',$core->auth->getInfo('user_lang')).
 		form::hidden('post_notes','').
 		'</p>'.
-		'</fieldset>'.
 		'</form>'.
 		'</div>';
 	}

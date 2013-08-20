@@ -813,24 +813,27 @@ li.media-action input {
 #theme-box {
 	display: table-cell;
 	vertical-align: top;
-	padding: 1rem 0; 
+	padding: 0; 
 	width: 312px;
-	background: #eef;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
-#theme-box div.theme-shot img {
+#theme-box .theme-shot, 
+#theme-box .theme-info,
+#theme-box .theme-actions {
+	background: #eef;
+	padding: 1em 16px;
+	margin: 0;
+}
+#theme-box .theme-shot img {
 	display: block;
-	margin: 0 16px;
 	width: 280px;
 	height: 245px;
 	border: 1px solid #ccc;
 }
-#theme-box div.theme-info {
-	margin: 1em 16px;
-}
 #theme-box h4 {
 	color: #000;
+	background: #eef;
 }
 #theme-box span.theme-version {
 	color: #666;
@@ -842,10 +845,10 @@ li.media-action input {
 	color: #c00;
 	font-weight:bold;
 }
-#theme-box div.theme-actions {
-	padding: 0 16px;
+#theme-box .theme-actions {
+	border-bottom: 1px solid #ccc;
 }
-#themes div.theme-details-js {
+#themes .theme-details-js {
 	float: left;
 	width: 120px;
 	height: 150px;
@@ -857,14 +860,14 @@ li.media-action input {
 	cursor: pointer;
 	border-radius: 4px;
 }
-#themes div.theme-details-js label {
+#themes .theme-details-js label {
 	cursor: pointer;
 }
-#themes div.theme-details-js.theme-selected {
+#themes .theme-details-js.theme-selected {
 	background: #ddd;
 	border: 1px solid #999;
 }
-#themes div.theme-details-js div.theme-shot img {
+#themes .theme-details-js .theme-shot img {
 	width: 120px;
 	height: 105px;
 	border: 1px solid #fff;

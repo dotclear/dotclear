@@ -488,18 +488,20 @@ if ($file->type == 'image/jpeg')
 
 echo '</div>';
 
+echo '<h3>'.__('Updates and modifications').'</h3>';
+
 if ($file->editable && $core_media_writable)
 {
 	if ($file->media_type == 'image')
 	{
 		echo
-		'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
-		'<fieldset><legend>'.__('Update thumbnails').'</legend>'.
+		'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post">'.
+		'<h4>'.__('Update thumbnails').'</h4>'.
 		'<p>'.__('This will create or update thumbnails for this image.').'</p>'.
 		'<p><input type="submit" name="thumbs" value="'.__('Update thumbnails').'" />'.
 		form::hidden(array('id'),$id).
 		$core->formNonce().'</p>'.
-		'</fieldset></form>';
+		'</form>';
 	}
 	
 	if ($file->type == 'application/zip')
@@ -510,8 +512,8 @@ if ($file->editable && $core_media_writable)
 		);
 		
 		echo
-		'<form class="clear" id="file-unzip" action="'.html::escapeURL($page_url).'" method="post">'.
-		'<fieldset><legend>'.__('Extract archive').'</legend>'.
+		'<form class="clear fieldset" id="file-unzip" action="'.html::escapeURL($page_url).'" method="post">'.
+		'<h4>'.__('Extract archive').'</h4>'.
 		'<ul>'.
 		'<li><strong>'.__('Extract in a new directory').'</strong> : '.
 		__('This will extract archive in a new directory that should not exist yet.').'</li>'.
@@ -523,12 +525,12 @@ if ($file->editable && $core_media_writable)
 		'<input type="submit" name="unzip" value="'.__('Extract').'" />'.
 		form::hidden(array('id'),$id).
 		$core->formNonce().'</p>'.
-		'</fieldset></form>';
+		'</form>';
 	}
 	
 	echo
-	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
-	'<fieldset><legend>'.__('Change media properties').'</legend>'.
+	'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post">'.
+	'<h4>'.__('Change media properties').'</h4>'.
 	'<p><label for="media_file">'.__('File name:').'</label>'.
 	form::field('media_file',30,255,html::escapeHTML($file->basename)).'</p>'.
 	'<p><label for="media_title">'.__('File title:').'</label>'.
@@ -542,11 +544,11 @@ if ($file->editable && $core_media_writable)
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	form::hidden(array('id'),$id).
 	$core->formNonce().'</p>'.
-	'</fieldset></form>';
+	'</form>';
 	
 	echo
-	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
-	'<fieldset><legend>'.__('Change file').'</legend>'.
+	'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
+	'<h4>'.__('Change file').'</h4>'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).'</div>'.
 	'<p><label for="upfile">'.__('Choose a file:').
 	' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).') '.
@@ -555,7 +557,7 @@ if ($file->editable && $core_media_writable)
 	'<p><input type="submit" value="'.__('Send').'" />'.
 	form::hidden(array('id'),$id).
 	$core->formNonce().'</p>'.
-	'</fieldset></form>';
+	'</form>';
 
 	if ($file->del) {
 		echo
