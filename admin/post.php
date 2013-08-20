@@ -301,7 +301,7 @@ if ($post_id) {
 		'/'.$post->post_url);
 		
 	
-	$form_comment = new dcForm($core,'add-comment','post.php');
+	$form_comment = new dcForm($core,'add-comment','comment.php');
 	$form_comment
 		->addField(
 			new dcFieldText('comment_author','', array(
@@ -321,6 +321,8 @@ if ($post_id) {
 			new dcFieldTextArea('comment_content','', array(
 				'required'	=> true,
 				'label'		=> __('Comment:'))))
+		->addField(
+			new dcFieldHidden('post_id',$post_id))
 		->addField(
 			new dcFieldSubmit('add',__('Save'),array(
 				'action' => 'addComment')))

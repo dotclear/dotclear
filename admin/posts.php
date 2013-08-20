@@ -157,7 +157,8 @@ $filterSet
 		'users',__('Author'), __('Author'), 'user_id', $users_combo,array(
 			'multiple' => true)))
 	->addFilter(new dcFilterRichCombo(
-		'category',__('Category'), __('Category'), 'cat_id', $categories_combo))
+		'category',__('Category'), __('Category'), 'cat_id', $categories_combo,array(
+			'multiple' => true)))
 	->addFilter(new dcFilterRichCombo(
 		'post_status',__('Status'), __('Status'), 'post_status', $status_combo))
 	->addFilter(new dcFilterRichCombo(
@@ -171,7 +172,8 @@ $filterSet
 
 
 $lfetcher = new PostsFetcher($core);
-$lposts = new dcItemList ($core,array('lposts','form-entries'),$filterSet,$lfetcher,'posts_actions.php');
+$lposts = new dcItemList ($core,array('lposts','form-entries'),$lfetcher,'posts_actions.php');
+$lposts->setFilterSet($filterSet);
 $lposts->addTemplate('posts_cols.html.twig');
 
 $lposts

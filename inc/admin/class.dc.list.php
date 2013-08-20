@@ -13,6 +13,7 @@
 class dcItemList extends dcForm {
 
 	protected $columns;
+	protected $columns_combo;
 	protected $entries;
 	protected $filterset;
 	protected $fetcher;
@@ -53,29 +54,21 @@ class dcItemList extends dcForm {
 	@param	core		<b>dcCore</b>		Dotclear core reference
 	@param	form_prefix	<b>string</b>		form prefix to use for parameters
 	*/
-	public function __construct($core,$name,$filterset,$fetcher,$action,$form_prefix="f_") {
+	public function __construct($core,$name,$fetcher,$action,$form_prefix="f_") {
 		parent::__construct($core,$name,$action,'POST');
 		$this->entries = array();
 		$this->columns = array();
 		$this->selection = new dcFieldCheckbox('entries',NULL,array('multiple' => true));
 		$this->addField($this->selection);
-		$this->filterset = $filterset;
 		$this->fetcher = $fetcher;
+		$this->filterset = null;
 	}
-
-	public function setup() {
-		$this
-			->addField(new dcFieldCombo('action','',array(), array(
-				'label' => __('Selected entries action:'))))
-			->addField(new dcFieldSubmit('ok',__('ok'), array()));
-		$columns_combo = array();
-		foreach ($this->columns as $c) {
-			$columns_combo[$c->getID()] = $c->getName();
-		}
+	
+	protected function setupFilterset() {
 		$this->sortby = new dcFilterCombo(
 			'sortby',
 			__('Sort By'), 
-			__('Sort by'), 'sortby', $columns_combo,array('singleval'=> true,'static' => true));
+			__('Sort by'), 'sortby', $this->columns_combo,array('singleval'=> true,'static' => true));
 		$this->filterset->addFilter($this->sortby);
 		$order_combo = array('asc' => __('Ascending'),'desc' => __('Descending'));
 		$this->order = new dcFilterCombo(
@@ -87,9 +80,24 @@ class dcItemList extends dcForm {
 			__('Limit'), __('Limit'), 'limit',array('singleval'=> true,'static' =>true));
 		$this->filterset->addFilter($this->order);
 		$this->filterset->addFilter($limit);
-		$this->filterset->setup();
-		parent::setup();
+		$this->filterset->setup();	
 		$this->nb_items_per_page = $limit->getFields()->getValue();
+
+	}
+	
+	public function setup() {
+		$this
+			->addField(new dcFieldCombo('action','',array(), array(
+				'label' => __('Selected entries action:'))))
+			->addField(new dcFieldSubmit('ok',__('ok'), array()));
+		$this->columns_combo = array();
+		foreach ($this->columns as $c) {
+			$this->columns_combo[$c->getID()] = $c->getName();
+		}
+		if ($this->filterset !== null) {
+			$this->setupFilterset();
+		}
+		parent::setup();
 		if ($this->nb_items_per_page == 0)
 			$this->nb_items_per_page = 10;
 		$this->fetchEntries();
@@ -98,7 +106,9 @@ class dcItemList extends dcForm {
 
 	protected function fetchEntries() {
 		$params = new ArrayObject();
-		$this->filterset->applyFilters($params);
+		if ($this->filterset != null) {
+			$this->filterset->applyFilters($params);
+		}
 		$this->nb_items = $this->fetcher->getEntriesCount($params);
 		$this->nb_pages = round($this->nb_items / $this->nb_items_per_page) + 1;
 		if (isset($_GET['page'])) {

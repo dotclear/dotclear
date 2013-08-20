@@ -381,6 +381,7 @@ class dcFilterSet extends dcForm {
 	public function getContext() {
 		$fcontext = new ArrayObject();
 		$sfcontext = new ArrayObject();
+		$afcontext = new ArrayObject();
 		foreach ($this->filters as $f) {
 			if($f->isEnabled()) {
 				$f->appendFilterContext($fcontext);
@@ -389,9 +390,15 @@ class dcFilterSet extends dcForm {
 		foreach ($this->static_filters as $f) {
 			$f->appendFilterContext($sfcontext);
 		}
+		foreach ($this->filters as $f) {
+			if ($f->isApplied()) {
+				$afcontext[] = $f->getAppliedFilterText();
+			}
+		}
 		return array(
 			'active_filters' => $fcontext,
 			'static_filters' => $sfcontext,
+			'applied_filters' => $afcontext,
 			'hide_filters'	 => $this->hide_filterset,
 			'prefix'		 => $this->form_prefix);
 	}
@@ -634,7 +641,8 @@ abstract class dcFilter  {
 	}
 
 	protected abstract function addValue($value=NULL);
-
+	protected abstract function getAppliedFilterText();
+	
     /**
      * add -- adds a value for the filter
      *
@@ -831,6 +839,12 @@ class dcFilterText extends dcFilter {
 	public function applyFilter($params) {
 		$params[$this->request_param]=$this->avalues['values'][0];
 	}
+	
+	public function getAppliedFilterText() {
+		if ($this->isApplied()) {
+			return sprintf(__('%s contains : "%s"'),$this->desc,$this->avalues['values'][0]);
+		}
+	}
 }
 
 /**
@@ -859,10 +873,12 @@ class dcFilterCombo extends dcFilter {
      * @see dcFilter::init()
      */
 	public function init() {
+		echo $this->name.":".($this->multiple?"MULTIPLE":"SIMPLE");
 		$this->field = new dcFieldCombo(
 			$this->filter_id,
 			NULL,
-			$this->combo);
+			$this->combo,array(
+				'multiple' => $this->multiple));
 		$this->filterset->addField($this->field);
 	}
 
@@ -912,7 +928,15 @@ class dcFilterCombo extends dcFilter {
 		else
 			$params[$attr]=$this->avalues['values'][0];
 	}
-
+	public function getAppliedFilterText() {
+		if ($this->isApplied()) {
+			if (count($this->avalues['values'])) {
+				return sprintf(__("%s is %s"),$this->desc,join(__(' OR '), $this->avalues['values']));
+			} else {
+				return sprintf(__('%s is %s'),$this->desc,$this->avalues['values'][0]);
+			}
+		}
+	}
 }
 
 /**
@@ -998,6 +1022,26 @@ class dcFilterRichCombo extends dcFilterCombo {
 		$attr = $this->request_param;
 		if ($this->avalues['verb'] != "is") {
 			$params[$attr."_not"] = true;
+		}
+	}
+	public function getAppliedFilterText() {
+		if ($this->isApplied()) {
+			if ($this->avalues['verb'] == "is") {
+				$txt = __("%s is %s");
+				$or = __(' or ');
+			} else {
+				$txt = __("%s is not %s");
+				$or = __(' nor ');
+			}
+			$texts = array();
+			foreach ($this->avalues['values'] as $v) {
+				$texts[] = $this->field->getTextForValue($v);
+			}
+			if (count($texts)>=1) {
+				return sprintf($txt,$this->desc,join($or, $texts));
+			} else {
+				return sprintf($txt,$this->desc,$texts);
+			}
 		}
 	}
 
