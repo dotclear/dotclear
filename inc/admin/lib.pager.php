@@ -86,7 +86,7 @@ class adminPostList extends adminGenericList
 			$cat_title = sprintf($cat_link,$this->rs->cat_id,
 			html::escapeHTML($this->rs->cat_title));
 		} else {
-			$cat_title = __('None');
+			$cat_title = __('(No cat)');
 		}
 		
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';

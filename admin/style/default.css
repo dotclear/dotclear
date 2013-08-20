@@ -900,7 +900,6 @@ div.static-msg a, p.static-msg a {
 .no-margin {
 	margin: 0;
 }
-
 /* paragraphe pour bouton Nouveau bidule */
 p.top-add {
 	text-align: right;
@@ -1382,4 +1381,44 @@ a.button.add:hover, a.button.add:focus {
 .ac_over {
 	background-color: #06c;
 	color: white;
+}
+
+/* --------------------------------------------------------------- password indcator */
+.pw-table {
+	display: table;
+	margin-bottom: 1em;
+}
+.pw-cell {
+	display: table-cell;
+	margin-bottom: 1em;
+}
+#pwindicator {
+	display: table-cell;
+	vertical-align: bottom;
+	padding-left: 1.5em;
+	height: 3.8em;
+}
+#pwindicator .bar {
+	height: 6px;
+	margin-bottom: 4px;
+}
+.pw-very-weak .bar {
+	background: #900;
+	width: 30px;
+}
+.pw-weak .bar {
+	background: #c00;
+	width: 60px;
+}
+.pw-mediocre .bar {
+	background: #f60;
+	width: 90px;
+}
+.pw-strong .bar {
+	background: #060;
+	width: 120px;
+}
+.pw-very-strong .bar {
+	background: #0c0;
+	width: 150px;
 }

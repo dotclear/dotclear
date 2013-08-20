@@ -325,18 +325,20 @@ echo '</div>';
 if ($core->auth->user_prefs->dashboard->quickentry) {
 	if ($core->auth->check('usage,contentadmin',$core->blog->id))
 	{
-		$categories_combo = array('&nbsp;' => '');
+		# Getting categories
+		$categories_combo = array(__('(No cat)') => '');
 		try {
 			$categories = $core->blog->getCategories(array('post_type'=>'post'));
-			while ($categories->fetch()) {
-				$categories_combo[] = new formSelectOption(
-					str_repeat('&nbsp;&nbsp;',$categories->level-1).
-					($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-					$categories->cat_id
-				);
+			if (!$categories->isEmpty()) {
+				while ($categories->fetch()) {
+					$catparents_combo[] = $categories_combo[] = new formSelectOption(
+						str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
+						$categories->cat_id
+					);
+				}
 			}
 		} catch (Exception $e) { }
-	
+		
 		echo
 		'<div id="quick">'.
 		'<h3>'.__('Quick entry').'</h3>'.
@@ -351,6 +353,17 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'</p>'.
 		'<p><label for="cat_id" class="classic">'.__('Category:').' '.
 		form::combo('cat_id',$categories_combo).'</label></p>'.
+		($core->auth->check('categories', $core->blog->id)
+			? '<div>'.
+			'<p id="new_cat">'.__('Add a new category').'</p>'.
+			'<p class="form-note info clear">'.__('This category will be created when you will save your post.').'</p>'.
+			'<p><label for="new_cat_title">'.__('Title:').' '.
+			form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
+			'<p><label for="new_cat_parent">'.__('Parent:').' '.
+			form::combo('new_cat_parent',$categories_combo,'','maximal').
+			'</label></p>'.
+			'</div>'
+			: '').
 		'<p><input type="submit" value="'.__('Save').'" name="save" /> '.
 		($core->auth->check('publish',$core->blog->id)
 			? '<input type="hidden" value="'.__('Save and publish').'" name="save-publish" />'

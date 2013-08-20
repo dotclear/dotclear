@@ -30,7 +30,7 @@ if (!empty($_POST['del_cat']))
 		$mov_cat = (integer) $_POST['mov_cat'];
 		$mov_cat = $mov_cat ? $mov_cat : null;
 		if ($mov_cat !== null) {
-			$c = $core->blog->getCategory((integer) $_POST['del_cat']);
+			$c = $core->blog->getCategory((integer) $_POST['mov_cat']);
 			if ($c->isEmpty()) {
 				throw new Exception(__('This category does not exist.'));
 			}
@@ -140,22 +140,26 @@ else
 }
 echo '</div>';
 
+$categories_combo = array();
+if (!$rs->isEmpty())
+{
+	while ($rs->fetch()) {
+		$catparents_combo[] = $categories_combo[] = new formSelectOption(
+			str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title),
+			$rs->cat_id
+		);
+	}
+}
+
 echo '<div class="col">'.
 
 '<form action="category.php" method="post">'.
 '<fieldset><legend>'.__('Add a new category').'</legend>'.
 '<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').' '.
-form::field('cat_title',30,255).'</label></p>'.
+form::field('cat_title',30,255,'','maximal').'</label></p>'.
 '<p><label for="new_cat_parent">'.__('Parent:').' '.
-'<select id="new_cat_parent" name="new_cat_parent">'.
-'<option value="0">'.__('Top level').'</option>';
-while ($rs->fetch()) {
-	echo '<option value="'.$rs->cat_id.'">'.
-		str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').
-		html::escapeHTML($rs->cat_title).'</option>';
-}
-echo
-'</select></label></p>'.
+form::combo('new_cat_parent',array_merge(array(__('(No cat)') => 0),$categories_combo),'','maximal').
+'</label></p>'.
 '<p><input type="submit" value="'.__('Create').'" /></p>'.
 $core->formNonce().
 '</fieldset>'.
@@ -163,32 +167,13 @@ $core->formNonce().
 
 if (!$rs->isEmpty())
 {
-	$cats = array();
-	$dest = array('&nbsp;' => '');
-	$l = $rs->level;
-	$full_name = array($rs->cat_title);
-	while ($rs->fetch())
-	{
-		if ($rs->level < $l) {
-			$full_name = array();
-		} elseif ($rs->level == $l) {
-			array_pop($full_name);
-		}
-		$full_name[] = html::escapeHTML($rs->cat_title);
-		
-		$cats[implode(' / ',$full_name)] = $rs->cat_id;
-		$dest[implode(' / ',$full_name)] = $rs->cat_id;
-		
-		$l = $rs->level;
-	}
-	
 	echo
 	'<form action="categories.php" method="post" id="delete-category">'.
 	'<fieldset><legend>'.__('Remove a category').'</legend>'.
 	'<p><label for="del_cat">'.__('Choose a category to remove:').' '.
-	form::combo('del_cat',$cats).'</label></p> '.
+	form::combo('del_cat',$categories_combo,'','maximal').'</label></p> '.
 	'<p><label for="mov_cat">'.__('And choose the category which will receive its entries:').' '.
-	form::combo('mov_cat',$dest).'</label></p> '.
+	form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','maximal').'</label></p> '.
 	'<p><input type="submit" value="'.__('Delete').'" class="delete" /></p>'.
 	$core->formNonce().
 	'</fieldset>'.

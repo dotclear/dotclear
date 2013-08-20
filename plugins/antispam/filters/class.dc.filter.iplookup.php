@@ -43,21 +43,15 @@ class dcFilterIpLookup extends dcSpamFilter
 			return;
 		}
 
-		$match = array();
-
 		$bls = $this->getServers();
 		$bls = preg_split('/\s*,\s*/',$bls);
 
-		foreach ($bls as $bl)
-		{
+		foreach ($bls as $bl) {
 			if ($this->dnsblLookup($ip,$bl)) {
-				$match[] = $bl;
+				// Pass by reference $status to contain matching DNSBL
+				$status = $bl;
+				return true;
 			}
-		}
-
-		if (!empty($match)) {
-			$status = substr(implode(', ',$match),0,128);
-			return true;
 		}
 	}
 

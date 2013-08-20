@@ -343,6 +343,19 @@ dcPage::open($page_title,
 	dcPage::jsLoad('js/_preferences.js').
 	($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
 	dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+	dcPage::jsLoad('js/jquery/jquery.pwstrength.js').
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA[\n".
+		"\$(function() {\n".
+		"	\$('#new_pwd').pwstrength({texts: ['".
+				sprintf(__('Password strength: %s'),__('very weak'))."', '".
+				sprintf(__('Password strength: %s'),__('weak'))."', '".
+				sprintf(__('Password strength: %s'),__('mediocre'))."', '".
+				sprintf(__('Password strength: %s'),__('strong'))."', '".
+				sprintf(__('Password strength: %s'),__('very strong'))."']});\n".
+		"});\n".
+		"\n//]]>\n".
+		"</script>\n".
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsConfirmClose('user-form').
 	
@@ -415,16 +428,22 @@ if ($core->auth->allowPassChange())
 	'<fieldset>'.
 	'<legend>'.__('Change your password').'</legend>'.
 	
-	'<p><label for="new_pwd">'.__('New password:').
-	form::password('new_pwd',20,255).'</label></p>'.
+	'<div class="pw-table">'.
+	'<p class="pw-cell"><label for="new_pwd">'.__('New password:').'</label>'.
+	form::password('new_pwd',20,255,'','','',false,' data-indicator="pwindicator" ').'</p>'.
+    '<div id="pwindicator">'.
+    '    <div class="bar"></div>'.
+    '    <p class="label no-margin"></p>'.
+    '</div>'.
+    '</div>'.
 	
-	'<p><label for="new_pwd_c">'.__('Confirm password:').
-	form::password('new_pwd_c',20,255).'</label></p>'.
+	'<p><label for="new_pwd_c">'.__('Confirm password:').'</label>'.
+	form::password('new_pwd_c',20,255).'</p>'.
 	'</fieldset>'.
 	
 	'<p>'.__('If you have changed this user email or password you must provide your current password to save these modifications.').'</p>'.
-	'<p><label for="cur_pwd">'.__('Your password:').
-	form::password('cur_pwd',20,255).'</label></p>';
+	'<p><label for="cur_pwd">'.__('Your password:').'</label>'.
+	form::password('cur_pwd',20,255).'</p>';
 }
 
 echo
