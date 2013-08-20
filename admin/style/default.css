@@ -419,7 +419,7 @@ abbr {
 /* ---------------------------------------------------------------------------- auth.php */
 #login-screen {
 	display: block;
-	width: 18em;
+	width: 20em;
 	margin: 1.5em auto 0;
 	font-size: 1.4rem;
 }
@@ -430,14 +430,11 @@ abbr {
 	margin-bottom: .5em;
 	margin-left: 0;
 }
-#login-screen fieldset, #login-screen .fieldset {
+#login-screen .fieldset {
 	border: 1px solid #A8DC26;
 	padding: 1em 1em 0 1em;
 	border-radius: 4px;
 	background: #fff;
-}
-#login-screen legend {
-	border: 1px solid #A8DC26;
 }
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit] {
 	width: 100%;
@@ -447,7 +444,6 @@ abbr {
 	font-size: 1.2rem;
 }
 #login-screen #issue strong {font-weight: normal;}
-
 
 /* ------------------------------------------------------------------ dashboard */
 #dashboard-main {
