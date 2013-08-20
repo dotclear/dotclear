@@ -300,6 +300,9 @@ msgstr "Fil RSS des commentaires publiés"
 msgid "Attachments"
 msgstr "Annexes"
 
+msgid "Attachments (%d)"
+msgstr "Annexes (%s)"
+
 msgid "remove"
 msgstr "supprimer"
 

@@ -28,7 +28,9 @@ class attachmentAdmin
 		{
 			$core =& $GLOBALS['core'];
 			$post_media = $core->media->getPostMedia($post->post_id);
-			$item = '<h5 class="clear s-attachments">'.__('Attachments').'</h5>';
+			$nb_media = count($post_media);
+			$title = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'),$nb_media);
+			$item = '<h5 class="clear s-attachments">'.$title.'</h5>';
 			foreach ($post_media as $f)
 			{
 				$ftitle = $f->media_title;

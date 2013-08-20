@@ -279,6 +279,9 @@ msgstr ""
 msgid "Attachments"
 msgstr ""
 
+msgid "Attachments (%d)"
+msgstr ""
+
 msgid "remove"
 msgstr ""
 
