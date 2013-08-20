@@ -13,6 +13,8 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $core->addBehavior('adminDashboardIcons','blogroll_dashboard');
 $core->addBehavior('adminDashboardFavs','blogroll_dashboard_favs');
+$core->addBehavior('adminUsersActionsHeaders','blogroll_users_actions_headers');
+
 function blogroll_dashboard($core,$icons)
 {
 	$icons['blogroll'] = new ArrayObject(array(__('Blogroll'),'plugin.php?p=blogroll','index.php?pf=blogroll/icon.png'));
@@ -22,6 +24,10 @@ function blogroll_dashboard_favs($core,$favs)
 	$favs['blogroll'] = new ArrayObject(array('blogroll','Blogroll','plugin.php?p=blogroll',
 		'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
 		'usage,contentadmin',null,null));
+}
+function blogroll_users_actions_headers()
+{
+	return dcPage::jsLoad('index.php?pf=blogroll/_users_actions.js');
 }
 
 $_menu['Blog']->addItem(__('Blogroll'),'plugin.php?p=blogroll','index.php?pf=blogroll/icon-small.png',
