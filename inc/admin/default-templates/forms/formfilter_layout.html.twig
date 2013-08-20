@@ -3,11 +3,13 @@
 
 {% block filterset -%}
 <p>
-	<a href="#" id="toggle-filters">{{ __('Toggle filters and display options') }} </a>
+	<a href="#" id="filter-control" class="form-control">{{ __('Toggle filters and display options') }} </a>
 </p>
+{% form filtersetname with {'id':'filters-form' } -%}
+<h3>Filtrer la liste des billets</h3>
+<div class="table">
 <div class="two-cols">
 {% set fenv = _context['filterset_' ~ filtersetname] %}
-{% form filtersetname with {'class':fenv.hide_filters?'hidden':'opened' } -%}
 	<div class="col70">
 		<h3>{{__('Entries filters')}}</h3>
 		<table summary="{{__('Query filters')}}" id="tfilters">
@@ -36,6 +38,7 @@
 	</div>
 	<p class="clear margintop"></p>
 {%- endform -%}
+</div>
 </div>
 {%- endblock %}
 

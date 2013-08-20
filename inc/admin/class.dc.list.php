@@ -163,7 +163,6 @@ class dcItemList extends dcForm {
 
 	public function getOrder() {
 		$id = $this->sortby->getFields()->getValue();
-
 		return $this->columns[$id]->getColID().' '.$this->order->getFields()->getValue();
 	}
 

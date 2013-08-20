@@ -90,15 +90,15 @@ class dcBlog
 			$this->themes_path = path::fullFromRoot($this->settings->system->themes_path,DC_ROOT);
 			$this->public_path = path::fullFromRoot($this->settings->system->public_path,DC_ROOT);
 			
-			$this->post_status['-2'] = __('pending');
-			$this->post_status['-1'] = __('scheduled');
-			$this->post_status['0'] = __('unpublished');
-			$this->post_status['1'] = __('published');
+			$this->post_status['-2'] = __('Pending');
+			$this->post_status['-1'] = __('Scheduled');
+			$this->post_status['0'] = __('Unpublished');
+			$this->post_status['1'] = __('Published');
 			
-			$this->comment_status['-2'] = __('junk');
-			$this->comment_status['-1'] = __('pending');
-			$this->comment_status['0'] = __('unpublished');
-			$this->comment_status['1'] = __('published');
+			$this->comment_status['-2'] = __('Junk');
+			$this->comment_status['-1'] = __('Pending');
+			$this->comment_status['0'] = __('Unpublished');
+			$this->comment_status['1'] = __('Published');
 			
 			# --BEHAVIOR-- coreBlogConstruct
 			$this->core->callBehavior('coreBlogConstruct',$this);

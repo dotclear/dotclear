@@ -86,7 +86,7 @@ class dcFilterSet extends dcForm {
 		$this->action = $action;
 		$this->filtered = false;
 		parent::__construct($core,$name,$action,'POST');
-		$this->id = "filters";
+		//$this->id = "filters";
 	}
 
 
@@ -871,7 +871,7 @@ class dcFilterCombo extends dcFilter {
      */
 	protected function addValue($value=NULL) {
 		if ($value === NULL) {
-			$value = current($this->combo);
+			$value = current(array_keys($this->combo));
 		}
 		$this->field->addValue($value);
 	}
