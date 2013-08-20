@@ -49,18 +49,6 @@ if (!$can_publish) {
 	$post_status = -2;
 }
 
-# Getting categories
-$categories_combo = array('&nbsp;' => '');
-try {
-	$categories = $core->blog->getCategories(array('post_type'=>'post'));
-	while ($categories->fetch()) {
-		$categories_combo[] = new formSelectOption(
-			str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-			$categories->cat_id
-		);
-	}
-} catch (Exception $e) { }
-
 # Status combo
 foreach ($core->blog->getAllPostStatus() as $k => $v) {
 	$status_combo[$v] = (string) $k;
@@ -217,6 +205,24 @@ if (!empty($_POST['delete']) && $can_delete)
 # Create or update post
 if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 {
+	# Create category
+	if (!empty($_POST['new_cat_title']) && $core->auth->check('categories', $core->blog->id)) {
+	
+		$cur_cat = $core->con->openCursor($core->prefix.'category');
+		$cur_cat->cat_title = $_POST['new_cat_title'];
+		$cur_cat->cat_url = '';
+		
+		$parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
+		
+		# --BEHAVIOR-- adminBeforeCategoryCreate
+		$core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+		
+		$cat_id = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
+		
+		# --BEHAVIOR-- adminAfterCategoryCreate
+		$core->callBehavior('adminAfterCategoryCreate', $cur_cat, $cat_id);
+	}
+	
 	$cur = $core->con->openCursor($core->prefix.'post');
 	
 	$cur->post_title = $post_title;
@@ -282,6 +288,20 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 		}
 	}
 }
+
+# Getting categories
+$categories_combo = array(__('(No cat)') => '');
+try {
+	$categories = $core->blog->getCategories(array('post_type'=>'post'));
+	if (!$categories->isEmpty()) {
+		while ($categories->fetch()) {
+			$catparents_combo[] = $categories_combo[] = new formSelectOption(
+				str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
+				$categories->cat_id
+			);
+		}
+	}
+} catch (Exception $e) { }
 
 /* DISPLAY
 -------------------------------------------------------- */
@@ -441,6 +461,18 @@ if ($can_edit_post)
 	'<p><label for="cat_id">'.__('Category:').
 	form::combo('cat_id',$categories_combo,$cat_id,'maximal').
 	'</label></p>'.
+	
+	($core->auth->check('categories', $core->blog->id) ?
+		'<div>'.
+		'<p id="new_cat">'.__('Add a new category').'</p>'.
+		'<p class="form-note info clear">'.__('This category will be created when you will save your post.').'</p>'.
+		'<p><label for="new_cat_title">'.__('Title:').' '.
+		form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
+		'<p><label for="new_cat_parent">'.__('Parent:').' '.
+		form::combo('new_cat_parent',$categories_combo,'','maximal').
+		'</label></p>'.
+		'</div>'
+	: '').
 	
 	'<p><label for="post_status">'.__('Entry status:').
 	form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).

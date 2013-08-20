@@ -105,7 +105,10 @@ if ($new_v && $step)
 				if (!$updater->checkDownload($zip_file)) {
 					throw new Exception(
 						sprintf(__('Downloaded Dotclear archive seems to be corrupted. '.
-						'Try <a %s>download it</a> again.'),'href="'.$p_url.'?step=download"')
+						'Try <a %s>download it</a> again.'),'href="'.$p_url.'?step=download"').
+						' '.
+						__('If this problem persists try to '.
+						'<a href="http://dotclear.org/download">update manually</a>.')
 					);
 				}
 				http::redirect($p_url.'?step=backup');
@@ -167,7 +170,10 @@ if ($new_v && $step)
 /* DISPLAY Main page
 -------------------------------------------------------- */
 dcPage::open(__('Dotclear update'),
-	(!$step ? dcPage::jsPageTabs($default_tab) : '')
+	(!$step ? 
+		dcPage::jsPageTabs($default_tab).
+		dcPage::jsLoad('js/_update.js')
+	: '')
 );
 
 if (!$core->error->flag()) {

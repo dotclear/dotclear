@@ -1,3 +1,20 @@
+Dotclear 2.5.2 - 2013-08-14
+===========================================================
+* Security fix: Fixed potential XSS
+* Bugfix: l10n Clearbricks library
+* <tpl:LoopPosition> now works <tpl:Attachments>
+* Dotclear update check may now be forced (ignoring cache)
+* Enforce integration of daInstaller plugin
+* Tags link button is now available on page editor
+* Default cache age is now 1 week instead of 2 hours
+* Quick entry dashboard module is not activated by default on new installation
+* New template {{tpl:BlogParentThemeURL}} (return URL of parent theme of blog's theme if any, URL of blog's theme otherwise)
+* Fix post comments number on comments deletion
+* Fix order of backup files
+* Minor enhancements
+* Various bug fixes
+* Various cosmetic adjustments
+
 Dotclear 2.5.1 - 2013-07-20
 ===========================================================
 * Security fix: Replacement of swfupload.swf by a jQuery plugin

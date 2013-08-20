@@ -122,6 +122,10 @@ $(function() {
 			cookie: 'dcx_post_notes',
 			hide: $('#post_notes').val() == ''
 		});
+		$('#new_cat').toggleWithLegend(
+			$('#new_cat').parent().children().not('#new_cat'),
+			{} // no cookie on new category as we don't use this every day
+		);
 		$('#post_lang').parent().toggleWithLegend($('#post_lang'),{
 			cookie: 'dcx_post_lang'
 		});

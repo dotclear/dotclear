@@ -1916,6 +1916,9 @@ msgstr ""
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr ""
 
+msgid "If this problem persists try to <a href="http://dotclear.org/download">update manually</a>."
+msgstr ""
+
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
 msgstr ""
 
@@ -2136,6 +2139,9 @@ msgstr ""
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr ""
+
+msgid "Are you sure you want to delete this backup?"
 msgstr ""
 
 msgid "Zip file content"
@@ -2789,3 +2795,6 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+msgid "(No cat)"
+msgstr "(none)"
