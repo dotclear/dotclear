@@ -170,12 +170,13 @@ $form
 		new dcFieldText('post_title','', array(
 			'maxlength'		=> 255,
 			'required'	=> true,
-			'label'		=> __('Title'))))
+			'label'		=> __('Title:'))))
 	->addField(
 		new dcFieldTextArea('post_excerpt','', array(
 			'cols'		=> 50,
 			'rows'		=> 5,
-			'label'		=> __("Excerpt:"))))
+			'label'		=> __("Excerpt:").'<span class="form-note">'.
+			__('Add an introduction to the post.').'</span>')))
 	->addField(
 		new dcFieldTextArea('post_content','', array(
 			'required'	=> true,
@@ -266,6 +267,15 @@ if (!empty($_REQUEST['id']))
 		$form->post_open_tb = (boolean) $post->post_open_tb;
 		$form->can_edit_post = $post->isEditable();
 		$form->can_delete= $post->isDeletable();
+		$next_rs = $core->blog->getNextPost($post,1);
+		$prev_rs = $core->blog->getNextPost($post,-1);
+		
+		if ($next_rs !== null) {
+			$_ctx->next_post = array('id' => $next_rs->post_id,'title' => $next_rs->post_title);
+		}
+		if ($prev_rs !== null) {
+			$_ctx->prev_post = array('id' => $prev_rs->post_id,'title' => $prev_rs->post_title);
+		}
 		$page_title = __('Edit entry');
 
 	}
@@ -347,7 +357,11 @@ $_ctx
 			($post_id ? $page_title_edit : $page_title) => ''
 	))
 	->default_tab = $default_tab;
-
+$_ctx->post_status = $form->post_status;
+$_ctx->post_title = $form->post_title;
+if ($form->post_status == 1) {
+	$_ctx->post_url = $post->getURL();
+}
 	
 	
 $core->tpl->display('post.html.twig');
