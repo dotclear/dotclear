@@ -480,8 +480,8 @@ msgid "Themes"
 msgstr "Thèmes"
 
 #, php-format
-msgid "You are currently using \"%s\""
-msgstr "Vous utilisez actuellement \"%s\""
+msgid "You are currently using <strong>%s</strong>"
+msgstr "Vous utilisez actuellement <strong>%s</strong>"
 
 msgid "Use selected theme"
 msgstr "Utiliser le thème sélectionné"
@@ -3127,4 +3127,13 @@ msgid "Finish the update"
 msgstr "Finir la mise à jour"
 
 msgid "Information about this version"
-psgstr "Informations sur cette version"
+msgstr "Informations sur cette version"
+
+msgid "Updates and modifications"
+msgstr "Mises à jour et modifications"
+
+msgid "Back to user profile"
+msgstr "Retour au profil utilisateur"
+
+msgid "Back to Blog themes"
+msgstr "Retour à Apparence du blog"

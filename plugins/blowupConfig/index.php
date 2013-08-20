@@ -234,7 +234,7 @@ echo dcPage::breadcrumb(
 	));
 
 echo
-'<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';
+'<p><a class="back" href="blog_theme.php">'.__('Back to Blog themes').'</a></p>';
 
 
 if (!$can_write_images) {
@@ -248,7 +248,8 @@ if (!empty($_GET['upd'])) {
 
 echo '<form id="theme_config" action="'.$p_url.'" method="post" enctype="multipart/form-data">';
 
-echo '<fieldset><legend>'.__('General').'</legend>';
+echo '<div class="fieldset"><h3>'.__('Customization').'</h3>'.
+'<h4>'.__('General').'</h4>';
 
 if ($can_write_images) {
 	echo
@@ -271,9 +272,8 @@ form::field('body_txt_c',7,7,$blowup_user['body_txt_c'],'colorpicker').'</p>'.
 
 '<p class="field"><label for="body_line_height">'.__('Text line height:').'</label> '.
 form::field('body_line_height',7,7,$blowup_user['body_line_height']).'</p>'.
-'</fieldset>'.
 
-'<fieldset><legend>'.__('Links').'</legend>'.
+'<h4 class="border-top">'.__('Links').'</h4>'.
 '<p class="field"><label for="body_link_c">'.__('Links color:').'</label> '.
 form::field('body_link_c',7,7,$blowup_user['body_link_c'],'colorpicker').'</p>'.
 
@@ -282,9 +282,8 @@ form::field('body_link_v_c',7,7,$blowup_user['body_link_v_c'],'colorpicker').'</
 
 '<p class="field"><label for="body_link_f_c">'.__('Focus links color:').'</label> '.
 form::field('body_link_f_c',7,7,$blowup_user['body_link_f_c'],'colorpicker').'</p>'.
-'</fieldset>'.
 
-'<fieldset><legend>'.__('Page top').'</legend>';
+'<h4 class="border-top">'.__('Page top').'</h4>';
 
 if ($can_write_images) {
 	echo
@@ -309,8 +308,7 @@ form::field('blog_title_c',7,7,$blowup_user['blog_title_c'],'colorpicker').'</p>
 form::combo('blog_title_a',array(__('center')=>'center',__('left')=>'left',__('right')=>'right'),$blowup_user['blog_title_a']).'</p>'.
 
 '<p class="field"><label for="blog_title_p">'.__('Main title position (x:y)').'</label> '.
-form::field('blog_title_p',7,7,$blowup_user['blog_title_p']).'</p>'.
-'</fieldset>';
+form::field('blog_title_p',7,7,$blowup_user['blog_title_p']).'</p>';
 
 if ($can_write_images) {
 	if ($blowup_user['top_image'] == 'custom' && $blowup_user['uploaded']) {
@@ -320,7 +318,7 @@ if ($can_write_images) {
 	}
 
 	echo
-	'<fieldset><legend>'.__('Top image').'</legend>'.
+	'<h4 class="border-top">'.__('Top image').'</h4>'.
 	'<p class="field"><label for="top_image">'.__('Top image').'</label> '.
 	form::combo('top_image',$top_images,($blowup_user['top_image'] ? $blowup_user['top_image'] : 'default')).'</p>'.
 	'<p>'.__('Choose "Custom..." to upload your own image.').'</p>'.
@@ -330,15 +328,14 @@ if ($can_write_images) {
 	'<input type="file" name="upfile" id="upfile" size="35" />'.
 	'</p>'.
 
-	'<h3>'.__('Preview').'</h3>'.
+	'<h5>'.__('Preview').'</h5>'.
 	'<div class="grid" style="width:800px;border:1px solid #ccc;">'.
 	'<img style="display:block;" src="'.$preview_image.'" alt="" id="image-preview" />'.
-	'</div>'.
-	'</fieldset>';
+	'</div>';
 }
 
 echo
-'<fieldset><legend>'.__('Sidebar').'</legend>'.
+'<h4 class="border-top">'.__('Sidebar').'</h4>'.
 '<p class="field"><label for="sidebar_position">'.__('Sidebar position:').'</label> '.
 form::combo('sidebar_position',array(__('right')=>'right',__('left')=>'left'),$blowup_user['sidebar_position']).'</p>'.
 
@@ -382,7 +379,7 @@ form::field('sidebar_link_v_c',7,7,$blowup_user['sidebar_link_v_c'],'colorpicker
 form::field('sidebar_link_f_c',7,7,$blowup_user['sidebar_link_f_c'],'colorpicker').'</p>'.
 '</fieldset>'.
 
-'<fieldset><legend>'.__('Entries').'</legend>'.
+'<h4 class="border-top">'.__('Entries').'</h4>'.
 '<p class="field"><label for="date_title_f">'.__('Date title font:').'</label> '.
 form::combo('date_title_f',blowupConfig::fontsList(),$blowup_user['date_title_f']).'</p>'.
 
@@ -420,9 +417,8 @@ if ($can_write_images) {
 echo
 '<p class="field"><label for="post_commentmy_c">'.__('My comment text color:').'</label> '.
 form::field('post_commentmy_c',7,7,$blowup_user['post_commentmy_c'],'colorpicker').'</p>'.
-'</fieldset>'.
 
-'<fieldset><legend>'.__('Footer').'</legend>'.
+'<h4 class="border-top">'.__('Footer').'</h4>'.
 '<p class="field"><label for="footer_f">'.__('Footer font:').'</label> '.
 form::combo('footer_f',blowupConfig::fontsList(),$blowup_user['footer_f']).'</p>'.
 
@@ -436,15 +432,14 @@ form::field('footer_c',7,7,$blowup_user['footer_c'],'colorpicker').'</p>'.
 form::field('footer_l_c',7,7,$blowup_user['footer_l_c'],'colorpicker').'</p>'.
 
 '<p class="field"><label for="footer_bg_c">'.__('Footer background color:').'</label> '.
-form::field('footer_bg_c',7,7,$blowup_user['footer_bg_c'],'colorpicker').'</p>'.
-'</fieldset>';
+form::field('footer_bg_c',7,7,$blowup_user['footer_bg_c'],'colorpicker').'</p>';
 
 echo
-'<fieldset><legend>'.__('Additional CSS').'</legend>'.
+'<h4 class="border-top">'.__('Additional CSS').'</h4>'.
 '<p><label for="extra_css">'.__('Any additional CSS styles (must be written using the CSS syntax):').'</label> '.
 form::textarea('extra_css',72,5,html::escapeHTML($blowup_user['extra_css']),'maximal','',false,'title="'.__('Additional CSS').'"').
 '</p>'.
-'</fieldset>';
+'</div>';
 
 
 
@@ -460,10 +455,13 @@ foreach ($blowup_user as $k => $v) {
 	}
 }
 echo
-'<h3 id="bu_export">'.__('Configuration import / export').'</h3><fieldset>'.
+'<div class="fieldset">'.
+'<h3 id="bu_export">'.__('Configuration import / export').'</h3>'.
+'<div id="bu_export_content">'.
 '<p>'.__('You can share your configuration using the following code. To apply a configuration, paste the code, click on "Apply code" and save.').'</p>'.
 '<p>'.form::textarea('export_code',72,5,implode('; ',$tmp_array),'maximal','',false,'title="'.__('Copy this code:').'"').'</p>'.
-'</fieldset>';
+'</div>'.
+'</div>';
 
 echo
 '<p class="clear"><input type="submit" value="'.__('Save').'" />'.

@@ -464,7 +464,7 @@ msgid "Themes"
 msgstr "Témák"
 
 #, php-format
-msgid "You are currently using \"%s\""
+msgid "You are currently using <strong>%s</strong>"
 msgstr "A \"%s\"-t használod"
 
 #, fuzzy

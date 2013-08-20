@@ -221,9 +221,8 @@ if (!empty($dc_langs) && $is_writable)
 	}
 	
 	echo
-	'<form method="post" action="langs.php" enctype="multipart/form-data">'.
-	'<fieldset>'.
-	'<legend>'.__('Available languages').'</legend>'.
+	'<form method="post" action="langs.php" enctype="multipart/form-data" class="fieldset">'.
+	'<h4>'.__('Available languages').'</h4>'.
 	'<p>'.sprintf(__('You can download and install a additional language directly from Dotclear.net. '.
 	'Proposed languages are based on your version: %s.'),'<strong>'.DC_VERSION.'</strong>').'</p>'.
 	'<p class="field"><label for="pkg_url" class="classic">'.__('Language:').'</label> '.
@@ -232,7 +231,7 @@ if (!empty($dc_langs) && $is_writable)
 	form::password(array('your_pwd','your_pwd1'),20,255).'</p>'.
 	'<p><input type="submit" value="'.__('Install language').'" />'.
 	$core->formNonce().
-	'</p></fieldset>'.
+	'</p>'.
 	'</form>';
 }
 
@@ -240,9 +239,8 @@ if ($is_writable)
 {
 	# 'Upload language pack' form
 	echo
-	'<form method="post" action="langs.php" enctype="multipart/form-data">'.
-	'<fieldset>'.
-	'<legend>'.__('Upload a zip file').'</legend>'.
+	'<form method="post" action="langs.php" enctype="multipart/form-data" class="fieldset">'.
+	'<h4>'.__('Upload a zip file').'</h4>'.
 	'<p>'.__('You can install languages by uploading zip files.').'</p>'.
 	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Language zip file:').'</label> '.
 	'<input type="file" id="pkg_file" name="pkg_file" /></p>'.
@@ -250,7 +248,7 @@ if ($is_writable)
 	form::password(array('your_pwd','your_pwd2'),20,255).'</p>'.
 	'<p><input type="submit" name="upload_pkg" value="'.__('Upload language').'" />'.
 	$core->formNonce().
-	'</p></fieldset>'.
+	'</p>'.
 	'</form>';
 }
 

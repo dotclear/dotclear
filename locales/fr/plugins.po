@@ -960,10 +960,10 @@ msgstr "Êtes-vous sûr de vouloir importer un fichier de sauvegarde complet ?"
 
 #, php-format
 msgid ""
-"This will import a single blog backup as new content in the current blog: %s."
+"This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr ""
 "Cela importera une sauvegarde d'un blog comme nouveau contenu du blog "
-"courant : %s."
+"courant : <strong>%s</strong>."
 
 msgid "Upload a backup file"
 msgstr "Téléversez un fichier de sauvegarde"

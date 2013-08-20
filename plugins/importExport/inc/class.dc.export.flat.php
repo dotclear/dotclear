@@ -190,8 +190,8 @@ class dcExportFlat extends dcIeModule
 	public function gui()
 	{
 		echo
-		'<form action="'.$this->getURL(true).'" method="post">'.
-		'<fieldset><legend>'.__('Single blog').'</legend>'.
+		'<form action="'.$this->getURL(true).'" method="post" class="fieldset">'.
+		'<h3>'.__('Single blog').'</h3>'.
 		'<p>'.sprintf(__('This will create an export of your current blog: %s'),html::escapeHTML($this->core->blog->name)).'</p>'.
 		
 		'<p><label for="file_name">'.__('File name:').'</label>'.
@@ -210,14 +210,13 @@ class dcExportFlat extends dcIeModule
 		form::hidden(array('do'),'export_blog').
 		$this->core->formNonce().'</p>'.
 		
-		'</fieldset>'.
 		'</form>';
 		
 		if ($this->core->auth->isSuperAdmin())
 		{
 			echo
-			'<form action="'.$this->getURL(true).'" method="post">'.
-			'<fieldset><legend>'.__('Multiple blogs').'</legend>'.
+			'<form action="'.$this->getURL(true).'" method="post" class="fieldset">'.
+			'<h3>'.__('Multiple blogs').'</h3>'.
 			'<p>'.__('This will create an export of all the content of your database.').'</p>'.
 			
 			'<p><label for="file_name2">'.__('File name:').'</label>'.
@@ -233,7 +232,6 @@ class dcExportFlat extends dcIeModule
 			form::hidden(array('do'),'export_all').
 			$this->core->formNonce().'</p>'.
 			
-			'</fieldset>'.
 			'</form>';
 		}
 	}

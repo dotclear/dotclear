@@ -353,23 +353,21 @@ if ($is_writable)
 	
 	# 'Upload plugin' form
 	echo
-	'<form method="post" action="plugins.php" id="uploadpkg" enctype="multipart/form-data">'.
-	'<fieldset>'.
-	'<legend>'.__('Upload a zip file').'</legend>'.
+	'<form method="post" action="plugins.php" id="uploadpkg" enctype="multipart/form-data" class="fieldset">'.
+	'<h3>'.__('Upload a zip file').'</h3>'.
 	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Plugin zip file:').'</label> '.
 	'<input type="file" id="pkg_file" name="pkg_file" /></p>'.
 	'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
 	form::password(array('your_pwd','your_pwd1'),20,255).'</p>'.
 	'<p><input type="submit" name="upload_pkg" value="'.__('Upload plugin').'" />'.
 	$core->formNonce().
-	'</p></fieldset>'.
+	'</p>'.
 	'</form>';
 	
 	# 'Fetch plugin' form
 	echo
-	'<form method="post" action="plugins.php" id="fetchpkg">'.
-	'<fieldset>'.
-	'<legend>'.__('Download a zip file').'</legend>'.
+	'<form method="post" action="plugins.php" id="fetchpkg" class="fieldset">'.
+	'<h3>'.__('Download a zip file').'</h3>'.
 	'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Plugin zip file URL:').'</label> '.
 	form::field(array('pkg_url','pkg_url'),40,255).'</p>'.
 	'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.

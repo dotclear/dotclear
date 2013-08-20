@@ -225,27 +225,25 @@ if ($cat_id)
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	
-	'<form action="category.php" method="post">'.
-	'<fieldset><legend>'.__('Category parent').'</legend>'.
+	'<form action="category.php" method="post" class="fieldset">'.
+	'<h4>'.__('Category parent').'</h4>'.
 	'<p><label for="cat_parent" class="classic">'.__('Parent:').'</label> '.
 	form::combo('cat_parent',$allowed_parents,$cat_parent).'</p>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	form::hidden(array('id'),$cat_id).$core->formNonce().'</p>'.
-	'</fieldset>'.
 	'</form>'.
 	'</div>';
 	
 	if (count($siblings) > 0) {
 		echo
 		'<div class="col">'.
-		'<form action="category.php" method="post">'.
-		'<fieldset><legend>'.__('Category sibling').'</legend>'.
+		'<form action="category.php" method="post" class="fieldset">'.
+		'<h4>'.__('Category sibling').'</h4>'.
 		'<p><label class="classic" for="cat_sibling">'.__('Move current category').'</label> '.
 		form::combo('cat_move',array(__('before')=>'before',__('after')=>'after'),'','','',false,'title="'.__('position: ').'"').' '.
 		form::combo('cat_sibling',$siblings).'</p>'.
 		'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 		form::hidden(array('id'),$cat_id).$core->formNonce().'</p>'.
-		'</fieldset>'.
 		'</form>'.
 		'</div>';
 	}
