@@ -164,6 +164,11 @@ class dcFormExtension extends Twig_Extension
 				array('is_safe' => array('html'))
 			),
 			new Twig_SimpleFunction(
+				'form_field_attr',
+				array($this,'getFieldAttributes'),
+				array('is_safe' => array('html'))
+			),
+			new Twig_SimpleFunction(
 				'_form_is_choice_group',
 				array($this,'isChoiceGroup'),
 				array('is_safe' => array('html'))
@@ -285,12 +290,41 @@ class dcFormExtension extends Twig_Extension
 				$attr['attr'] = $attributes;
 			}
 			$this->renderWidget(
-				$field->getWidgetBlock(),
+			$field->getWidgetBlock(),
 				array_merge(
 					$attr,
 					$extra
 				)
 			);
+		}
+	}
+
+    /**
+     * getFieldAttributes - binding for 'form_field_attr' twig function; returns all field attributes
+     *
+     * @param mixed $name       field name as defined on php side.
+     * @param mixed $name       the attribute name, null to grab all attributes as an array
+     *
+     * @access public
+     *
+     * @return array the field attributes
+     */	
+	public function getFieldAttributes($name,$attr=null)
+	{
+		$field = $this->currentForm->getField($name);
+		if ($field) {
+			$a = $field->getAttributes();
+			if ($attr !== null) {
+				if (isset($a[$attr])) {
+					return $a[$attr];
+				} else {
+					return null;
+				}
+			} else {
+				return $field->getAttributes();
+			}
+		} else {
+			return array();
 		}
 	}
 
@@ -820,6 +854,10 @@ class dcForm
 		}
 	}
 
+	public function getFieldIDs() {
+		return array_keys($this->fields);
+	}
+	
     /**
      * getHiddenFields - returns the list of hidden fields
      *
@@ -1023,7 +1061,7 @@ abstract class dcField implements Countable
      *
      * @return array the attributes.
      */
-	public function getAttributes($options)
+	public function getAttributes($options=array())
 	{
 		$offset = isset($options['offset']) ? $options['offset'] : 0;
 
@@ -1230,7 +1268,7 @@ class dcFieldCheckbox extends dcField
 		}
 	}
 	
-	public function getAttributes($options)
+	public function getAttributes($options=array())
 	{
 		$a = parent::getAttributes($options);
 		
@@ -1243,6 +1281,7 @@ class dcFieldCheckbox extends dcField
 
 	public function setup($from)
 	{
+		$this->defined = true;
 		$values = $this->parseValues($from);
 		foreach ($this->checked as $k=>&$v) {
 			$v=false;
@@ -1325,7 +1364,7 @@ class dcFieldCombo extends dcField
 	}
 
 	public function getDefaultValue() {
-		return current($this->combo);
+		return current(array_keys($this->combo_values));
 	}
 
 	public function parseValues($from) {
@@ -1341,7 +1380,7 @@ class dcFieldCombo extends dcField
 		return $values;
 	}
 
-	public function getAttributes($options) {
+	public function getAttributes($options=array()) {
 		$attr = parent::getAttributes($options);
 		$attr['options'] = $this->combo;
 		return $attr;

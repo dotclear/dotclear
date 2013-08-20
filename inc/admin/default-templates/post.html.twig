@@ -1,5 +1,17 @@
 {% extends "layout.html.twig" %}
 {% import "js_helpers.html.twig" as js %}
+{% macro img_status(status) -%}
+	{% if status == 1 %}
+		{% set title,src = __('Published'),'check-on.png' %}
+	{% elseif status == 0 %}
+		{% set title,src = __('Unpublished'),'check-off.png' %}
+	{% elseif status == -1 %}
+		{% set title,src = __('Pending'),'check-wrn.png' %}
+	{% elseif status == -2 %}
+		{% set title,src = __('Junk'),'junk.png' %}
+	{% endif %}
+	<img alt="{{title}}" title="{{title}}" src="images/{{src}}" />
+{%- endmacro %}
 {% block header %}
 	{{ parent() }}
 	{{ js.date_picker }}
@@ -19,10 +31,9 @@
 <div id="entry-wrapper">
 	<div id="entry-content">
 		<div class="constrained">
-			<p class="col">{{ form_field('post_title',{'class':'maximal'}) }}</p>
-			<p class="area" id="excerpt-area">{{ form_field('post_excerpt',{'rows':5,'cols':50}) }}</p>
-			<p class="area" id="content-area">{{ form_field('post_content',{'rows':current_user.options.edit_size,'cols':5}) }}</p>
-			<p class="area" id="notes-area">{{ form_field('post_notes',{'rows':5,'cols':50}) }}</p>
+			{% for bl in main_blocks %}
+				{{ block(bl) }}
+			{% endfor %}
 			<p>{{ form_field('save')}} 
 			{% if preview_url is defined %}
 				<a id="post-preview" href="{{ preview_url}}" class="button" accesskey="p">{{__('Preview')}} (p)</a>
@@ -34,21 +45,14 @@
 	</div>
 </div>
 <div id="entry-sidebar">
-	<p>{{ form_field('cat_id',{'class':'maximal'})}}</p>
-	<p>{{ form_field('post_status')}}</p>
-	<p>{{ form_field('post_dt')}}</p>
-	<p>{{ form_field('post_format')}}</p>
-	<p>{{ form_field('post_open_comment')}}</p>
-	<p>{{ form_field('post_open_tb')}}</p>
-	<p>{{ form_field('post_selected')}}</p>
-	<p>{{ form_field('post_lang',{"class":"maximal"},{'nestedlabel':true})}}</p>
-	<p>{{ form_field('post_password',{"size":10, "class":"maximal"},{'nestedlabel':true})}}</p>
-	<div class="lockable">
-		<p>{{ form_field('post_url',{"size":10, "class":"maximal"})}} </p>
-		<p class="form-note warn">
-		{{ __('Warning: If you set the URL manually, it may conflict with another entry.') }}
-		</p>
-	</div>
+	{% for id,box in sidebar_blocks  %}
+		<div id="{{id}}" class="box">
+			<h4>{{box.title}}</h4>
+			{% for bl in box.items %}
+				{{ block(bl)}}
+			{% endfor %}
+		</div>
+	{% endfor %}
 </div>
 {% endform %}
 </div>
@@ -73,4 +77,88 @@
 
 {% endif %}
 {% endblock %}
+
+{% block field_post_status %}
+<p>{{ form_field('post_status',{},{'labelclass':'ib'}) }}</p>
+{% endblock %}
+
+{# Field-specific blocks #}
+
+{% block post_title -%}
+	<p class="col">{{ form_field('post_title',{'class':'maximal'}) }}</p>
+{%- endblock %}
+
+{% block post_excerpt -%}
+	<p class="area" id="excerpt-area">{{ form_field('post_excerpt',{'rows':5,'cols':50}) }}</p>
+{%- endblock %}
+
+{% block post_content -%}
+	<p class="area" id="content-area">{{ form_field('post_content',{'rows':current_user.options.edit_size,'cols':5}) }}</p>
+{%- endblock %}
+
+{% block post_notes -%}
+	<p class="area" id="notes-area">{{ form_field('post_notes',{'rows':5,'cols':50}) }}</p>
+{%- endblock %}
+
+{% block post_status -%}
+	<p><label class="ib">{{form_field_attr('post_status','label')}} {{ _self.img_status(form_field_attr('post_status','value'))}}</label>{{ form_field('post_status',{},{'label':'','labelclass':'ib'})}}</p>
+{%- endblock %}
+
+{% block post_dt -%}
+	<p>{{ form_field('post_dt',{},{'labelclass':'ib'})}}</p>
+{%- endblock %}
+
+{% block post_lang -%}
+	<p>{{ form_field('post_lang',{"class":"maximal"},{'nestedlabel':true, 'labelclass':'ib'})}}</p>
+{%- endblock %}
+
+{% block post_format -%}
+	<p>{{ form_field('post_format',{},{'labelclass':'ib'})}}</p>
+	{% if post_id and form_field_attr('post_format','value')=='xhtml' %}
+	<p><a id="convert-xhtml" class="button maximal" href="post.php?id={{post_id}}&amp;xconv=1">
+	{{__('Convert to XHTML')}}</a></p>
+	{% endif %}
+{%- endblock %}
+
+{% block post_selected -%}
+	<p>{{ form_field('post_selected',{},{'labelclass':'ib'})}}</p>
+{%- endblock %}
+
+{% block cat_id -%}
+	<p>{{ form_field('cat_id',{'class':'maximal'},{'labelclass':'ib'}) }}</p>
+	{#{% if can_edit_categories %}#}
+	<div>
+		<p id="new_cat">{{__('Add a new category')}}</p>
+		<p>{{ form_field('new_cat_title') }}</p>
+		<p>{{ form_field('new_cat_parent') }} </p>
+	</div>
+	{#{% endif %}#}
+{%- endblock %}
+
+{% block post_open_comment -%}
+	<p>{{ form_field('post_open_comment')}}</p>
+	{% if post_comment_warning is defined -%}
+	<p class="form-note warn">{{post_comment_warning}}</p>
+	{%- endif %}
+{%- endblock %}
+
+{% block post_open_tb -%}
+	<p>{{ form_field('post_open_tb')}}</p>
+	{% if post_tb_warning is defined -%}
+	<p class="form-note warn">{{post_tb_warning}}</p>
+	{%- endif %}
+{%- endblock %}
+
+{% block post_password -%}
+	<p>{{ form_field('post_password',{"size":10, "class":"maximal"},{'nestedlabel':true, 'labelclass':'ib'})}}</p>
+{%- endblock %}
+
+{% block post_url -%}
+	<div class="lockable">
+		<p>{{ form_field('post_url',{"size":10, "class":"maximal"}, {'labelclass':'ib'})}} </p>
+		<p class="form-note warn">
+		{{ __('Warning: If you set the URL manually, it may conflict with another entry.') }}
+		</p>
+	</div>
+{%- endblock %}
 

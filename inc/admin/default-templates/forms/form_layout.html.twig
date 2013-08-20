@@ -86,15 +86,6 @@
     {{ block('endlabel') }}
 {% endspaceless %}
 {% endblock field_combo %}
-{#
-{% block label %}
-{% spaceless %}
-	{% if label is not empty %}
-		<label for="{{name}}" {% if required is not empty %}class="required"> <abbr title="{{__('Required field')}}">*</abbr>{% else %}>{% endif %} {{label}}</label>
-	{% endif %}
-{% endspaceless %}
-{% endblock label %}
-#}
 
 {% block startlabel %}
 {% spaceless %}

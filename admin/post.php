@@ -192,16 +192,24 @@ $form
 	->addField(
 		new dcFieldCombo('post_status',$core->auth->getInfo('user_post_status'),$status_combo,array(
 			'disabled' => !$can_publish,
-			'label' => __('Entry status:'))))
+			'label' => __('Entry status'))))
 	->addField(
 		new dcFieldCombo('cat_id','',$categories_combo,array(
-			"label" => __('Category:'))))
+			"label" => __('Category'))))
+	->addField(
+		new dcFieldCombo('new_cat_parent','',$categories_combo,array(
+			"label" => __('Parent:'))))
+	->addField(
+		new dcFieldText('new_cat_title','', array(
+			'maxlength'		=> 255,
+			'label'		=> __('Title'))))
+		
 	->addField(
 		new dcFieldText('post_dt','',array(
-			"label" => __('Published on:'))))
+			"label" => __('Publication date and hour'))))
 	->addField(
 		new dcFieldCombo('post_format',$core->auth->getOption('post_format'),$formaters_combo,array(
-			"label" => __('Text formating:'))))
+			"label" => __('Text formating'))))
 	->addField(
 		new dcFieldCheckbox ('post_open_comment',$core->blog->settings->system->allow_comments,array(
 			"label" => __('Accept comments'))))
@@ -301,6 +309,26 @@ if ($post_id) {
 
 $form->setup();
 
+$sidebar_blocks = new ArrayObject(array(
+	'status-box' => array(
+		'title' => __('Status'),
+		'items' => array('post_status','post_dt','post_lang','post_format')),
+	'metas-box' => array(
+		'title' => __('Ordering'),
+		'items' => array('post_selected','cat_id')),
+	'options-box' => array(
+		'title' => __('Options'),
+		'items' => array('post_open_comment','post_open_tb','post_password','post_url'))
+));
+
+$main_blocks = new ArrayObject(array(
+	"post_title","post_excerpt","post_content","post_notes"
+));
+
+
+$_ctx->sidebar_blocks = $sidebar_blocks;
+$_ctx->main_blocks = $main_blocks;
+
 /* DISPLAY
 -------------------------------------------------------- */
 $default_tab = 'edit-entry';
@@ -320,5 +348,7 @@ $_ctx
 	))
 	->default_tab = $default_tab;
 
+	
+	
 $core->tpl->display('post.html.twig');
 ?>
