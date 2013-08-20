@@ -18,9 +18,11 @@ class PostActions
 {
 	public static function savePost($form) {
 		global $_ctx, $core;
+		if (!$form->can_edit_post) {
+			return;
+		}
 		try {
 			$form->check($_ctx);
-			$_ctx->setAlert('save');
 			$form->cat_id = (integer) $form->cat_id;
 	
 			if (!empty($form->post_dt)) {
@@ -84,7 +86,6 @@ class PostActions
 				
 				# --BEHAVIOR-- adminAfterPostUpdate
 				$core->callBehavior('adminAfterPostUpdate',$cur,$form->id);
-				
 				http::redirect('post.php?id='.$form->id.'&upd=1');
 			}
 			else
@@ -101,12 +102,23 @@ class PostActions
 				http::redirect('post.php?id='.$return_id.'&crea=1');
 			}
 
-	} catch (Exception $e) {
-		$ctx->setError($e->getMessage());
+		} catch (Exception $e) {
+			$_ctx->addError($e->getMessage());
+		}
 	}
-}
-	function deletePost($form) {
-		echo $form->id->getValue(); exit;
+	public static function deletePost($form) {
+		global $core,$_ctx;
+		if ($form->can_delete) {
+			try {
+				$post_id = $form->id;
+				$core->callBehavior('adminBeforePostDelete',$post_id);
+				$core->blog->delPost($post_id);
+				http::redirect('posts.php');
+				exit;
+			} catch (Exception $e) {
+				$_ctx->addError($e->getMessage());
+			}
+		}
 	}
 }
 
@@ -189,7 +201,7 @@ $form
 			'action' => array('PostActions','savePost'))))
 	->addField(
 		new dcFieldSubmit('delete',__('Delete'),array(
-			'action' => 'deletePost')))
+			'action' => array('PostActions','deletePost'))))
 	->addField(
 		new dcFieldCombo('post_status',$core->auth->getInfo('user_post_status'),$status_combo,array(
 			'disabled' => !$can_publish,
@@ -362,7 +374,22 @@ $_ctx->post_title = $form->post_title;
 if ($form->post_status == 1) {
 	$_ctx->post_url = $post->getURL();
 }
-	
+
+if (!empty($_GET['upd'])) {
+	$_ctx->setAlert(__('Entry has been successfully updated.'));
+}
+elseif (!empty($_GET['crea'])) {
+	$_ctx->setAlert(__('Entry has been successfully created.'));
+}
+elseif (!empty($_GET['attached'])) {
+	$_ctx->setAlert(__('File has been successfully attached.'));
+}
+elseif (!empty($_GET['rmattach'])) {
+	$_ctx->setAlert(__('Attachment has been successfully removed.'));
+}
+if (!empty($_GET['creaco'])) {
+	$_ctx->setAlert(__('Comment has been successfully created.'));
+}	
 	
 $core->tpl->display('post.html.twig');
 ?>
