@@ -503,7 +503,7 @@ if ($blog_id)
 	form::combo('media_img_default_size',$img_default_size_combo,
 		(html::escapeHTML($blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($blog_settings->system->media_img_default_size) : 'm')).
 	'</p>'.
-	'<p><label for="media_img_default_alignment">'.__('Image alignment').'</label>'.
+	'<p><label for="media_img_default_alignment">'.__('Image alignment:').'</label>'.
 	form::combo('media_img_default_alignment',$img_default_alignment_combo,html::escapeHTML($blog_settings->system->media_img_default_alignment)).
 	'</p>'.
 	'<p><label for="media_img_default_link" class="classic">'.
@@ -547,9 +547,9 @@ if ($blog_id)
 		'</form>';
 	} else {
 		if ($blog_id == $core->blog->id) {
-			echo '<p class="message">'.__('The current blog cannot be deleted').'</p>';
+			echo '<p class="message">'.__('The current blog cannot be deleted.').'</p>';
 		} else {
-			echo '<p class="message">'.__('Only superadmin can delete a blog').'</p>';
+			echo '<p class="message">'.__('Only superadmin can delete a blog.').'</p>';
 		}
 	}
 	

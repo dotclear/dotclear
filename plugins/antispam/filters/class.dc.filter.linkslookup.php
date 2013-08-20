@@ -63,20 +63,10 @@ class dcFilterLinksLookup extends dcSpamFilter
 	
 	private function getLinks($text)
 	{
-		$res = array();
-		
-		# href attribute on "a" tags
-		if (preg_match_all('/<a ([^>]+)>/ms', $text, $match, PREG_SET_ORDER))
-		{
-			for ($i = 0; $i<count($match); $i++)
-			{
-				if (preg_match('/href="(http:\/\/[^"]+)"/ms', $match[$i][1], $matches)) {
-					$res[] = $matches[1];
-				}
-			}
-		}
-		
-		return $res;
+		// href attribute on "a" tags is second match
+		preg_match_all('|<a.*?href="(http.*?)"|', $text, $parts);
+
+		return $parts[1];
 	}
 }
 ?>
