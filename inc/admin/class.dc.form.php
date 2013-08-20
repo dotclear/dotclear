@@ -1063,9 +1063,13 @@ abstract class dcField implements Countable
      */
 	public function getAttributes($options=array())
 	{
-		$offset = isset($options['offset']) ? $options['offset'] : 0;
-
+		$offset = 0;
 		$attr = $this->options->getArrayCopy();
+		if (isset($options['offset'])) {
+			$offset = $options['offset'];
+			unset($attr['offset']);
+		}
+		
 		if (isset($this->values[$offset])) {
 			$attr['value'] = $this->values[$offset];
 		} else {
@@ -1240,11 +1244,19 @@ class dcFieldCheckbox extends dcField
 	public function __construct($name,$values,$options=array())
 	{
 		$val = array();
-		if (!is_array($values)) {
+		if (!is_array($values) && $values !== null) {
 			$values = array("1" => !empty($values));
 		}
-		$this->checked = $values;
-		parent::__construct($name,array_keys($values),$options);
+
+		if (is_array($values)) {
+			$keys = array_keys($values);
+			$this->checked = $values;
+		} else {
+			$keys = array();
+			$this->checked = array();
+		}
+		
+		parent::__construct($name,$keys,$options);
 	}
 
     /**
@@ -1380,6 +1392,13 @@ class dcFieldCombo extends dcField
 		return $values;
 	}
 
+	public function getTextForValue($value) {
+		if (isset($this->combo_values[$value])) {
+			return $this->combo_values[$value];
+		} else {
+			return false;
+		}
+	}
 	public function getAttributes($options=array()) {
 		$attr = parent::getAttributes($options);
 		$attr['options'] = $this->combo;

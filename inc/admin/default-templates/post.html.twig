@@ -1,5 +1,6 @@
 {% extends "layout.html.twig" %}
 {% import "js_helpers.html.twig" as js %}
+
 {% macro img_status(status) -%}
 	{% if status == 1 %}
 		{% set title,src = __('Published'),'check-on.png' %}
@@ -12,6 +13,7 @@
 	{% endif %}
 	<img alt="{{title}}" title="{{title}}" src="images/{{src}}" />
 {%- endmacro %}
+
 {% macro post_link(id,title,link) -%}
 <a href="post.php?id={{id}}" title="{{title}}">{{link}}</a>
 {%- endmacro %}
@@ -74,11 +76,17 @@
 </div>
 {% endform %}
 </div>
+
+{# Trackbacks tab #}
 {% if post_id is defined %}
 <p><a href="trackbacks.php?id={{ post_id }}" class="multi-part">{{__('Ping blogs')}}</a></p>
+
+{# Comments list tab #}
 <div class="multi-part" id="comments" title="{{__('Comments')}}">
 <!-- to be completed -->
 </div>
+
+{# Add a comment tab #}
 <div class="multi-part" id="add-comment" title="{{__('Add a comment')}}">
 <h3>{{__('Add a comment')}}</h3>
 {% form 'add-comment' %}
