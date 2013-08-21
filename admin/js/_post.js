@@ -136,13 +136,13 @@ $(function() {
 		
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
-			fn: function() { excerptTb.switchMode(formatField.value); },
 			cookie: 'dcx_post_excerpt',
 			hide: $('#post_excerpt').val() == ''
 		});
 		
 		// Load toolbars
 		contentTb.switchMode(formatField.value);
+		excerptTb.switchMode(formatField.value);
 		
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {
