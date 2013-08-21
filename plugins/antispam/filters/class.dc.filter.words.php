@@ -16,10 +16,6 @@ class dcFilterWords extends dcSpamFilter
 	public $has_gui = true;
 	public $name = 'Bad Words';
 
-	private $style_list = 'height: 200px; overflow: auto; margin-bottom: 1em; ';
-	private $style_p = 'margin: 1px 0 0 0; padding: 0.2em 0.5em; ';
-	private $style_global = 'background: #ccff99; ';
-
 	private $con;
 	private $table;
 
@@ -142,20 +138,22 @@ class dcFilterWords extends dcSpamFilter
 			$res .=
 			'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
 			'<h3>' . __('List of bad words') . '</h3>'.
-			'<div style="'.$this->style_list.'">';
+			'<div class="antispam">';
 
 			$res_global = '';
 			$res_local = '';
 			while ($rs->fetch())
 			{
 				$disabled_word = false;
-				$p_style = $this->style_p;
+
+				$p_style = '';
+
 				if (!$rs->blog_id) {
 					$disabled_word = !$core->auth->isSuperAdmin();
-					$p_style .= $this->style_global;
+					$p_style .= ' global';
 				}
 
-				$item = '<p style="'.$p_style.'"><label class="classic" for="word-'.$rs->rule_id.'">'.
+				$item = '<p class="'.$p_style.'"><label class="classic" for="word-'.$rs->rule_id.'">'.
 					form::checkbox(array('swd[]', 'word-'.$rs->rule_id),$rs->rule_id,false,'','',$disabled_word).' '.
 					html::escapeHTML($rs->rule_content).
 					'</label></p>';
