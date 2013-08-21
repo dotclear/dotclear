@@ -48,7 +48,7 @@ $(function() {
 	}
 	
 	$('#theme_config').prepend(styles_combo);
-	$(styles_combo).wrap('<fieldset></fieldset>').before('<legend>' + dotclear.msg.predefined_styles + '</legend>').wrap('<p></p>');
+	$(styles_combo).wrap('<div class="fieldset"></div>').before('<h3>' + dotclear.msg.predefined_styles + '</h3>').wrap('<p></p>');
 	
 	$(styles_combo).change(function() {
 		if (this.value == 'none') {
@@ -61,7 +61,7 @@ $(function() {
 	});
 	
 	// Code import
-	var e = $('#bu_export ~ fieldset:first');
+	var e = $('#bu_export_content');
 	e.toggle();
 	
 	var img = document.createElement('img');

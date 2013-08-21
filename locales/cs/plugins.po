@@ -842,7 +842,7 @@ msgid "Import a single blog"
 msgstr "Importovat jeden blog"
 
 #, php-format
-msgid "This will import a single blog backup as new content in the current blog: %s."
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Tímto naimportujete zálohu jednoho blogu jako nový obsah tohoto blogu: %s."
 
 msgid "Upload a backup file"
