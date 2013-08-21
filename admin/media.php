@@ -394,15 +394,15 @@ if ($core_media_writable)
 
 	echo
 	'<div class="col">'.
-	'<form class="clear" action="'.html::escapeURL($page_url).'" method="post">'.
-	'<fieldset id="new-dir-f">'.
-	'<legend>'.__('New directory').'</legend>'.
+	'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post">'.
+	'<div id="new-dir-f">'.
+	'<h3>'.__('New directory').'</h3>'.
 	$core->formNonce().
 	'<p><label for="newdir">'.__('Directory Name:').'</label>'.
 	form::field(array('newdir','newdir'),35,255).'</p>'.
 	'<p><input type="submit" value="'.__('Create').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
-	'</fieldset>'.
+	'</div>'.
 	'</form></div>';
 	
 	echo '</div>';

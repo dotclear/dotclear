@@ -463,7 +463,7 @@ msgid "Themes"
 msgstr "테마"
 
 #, php-format
-msgid "You are currently using \"%s\""
+msgid "You are currently using <strong>%s</strong>"
 msgstr "현재 사용 중인 테마 : \"%s\""
 
 #, fuzzy
