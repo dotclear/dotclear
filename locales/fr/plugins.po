@@ -1942,3 +1942,9 @@ msgstr "Paramètres du blog"
 
 msgid "Move widgets from this list to one of the sidebars."
 msgstr "Déplacez des widgets de cette liste vers l'un des volets."
+
+msgid "Short"
+msgstr "Court"
+
+msgid "Extended"
+msgstr "Étendu"

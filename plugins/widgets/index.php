@@ -197,7 +197,7 @@ echo dcPage::breadcrumb(
 echo
 '<form id="listWidgets" action="'.$p_url.'" method="post"  class="widgets">'.
 '<h3>'.__('Available widgets').'</h3>'.
-__('Move widgets from this list to one of the sidebars.').
+'<p>'.__('Move widgets from this list to one of the sidebars.').'</p>'.
 '<div id="widgets">';
 
 $j = 0;

@@ -251,7 +251,7 @@ abbr {
 	position: static;
 }
 .two-cols .col {
-	width: 47%;
+	width: 48%;
 	margin-left: 2%;
 	float: left;
 }
@@ -1168,6 +1168,9 @@ table {
 	font-size: 1.2rem;
 	border-collapse: collapse;
 	margin: 0 0 1em 0;
+}
+table.posts-list {
+	min-width: 70%;
 }
 tr.line:hover {
 	background: #f3f3f3;
