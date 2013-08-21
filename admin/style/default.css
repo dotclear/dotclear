@@ -1179,7 +1179,7 @@ td {
 	border-width: 0 0 1px 0;
 	border-style: solid;
 	border-color: #e3e3e3;
-	padding: .4rem .5rem;
+	padding: .3em .5em;
 	vertical-align: top;
 }
 th {
@@ -1187,9 +1187,12 @@ th {
 	border-style: solid;
 	border-color: #ccc;
 	background: #f3f3ff;
-	padding: .4rem .5rem;
+	padding: .3em .5em;
 	vertical-align: top;
 	text-align: left;
+}
+th.first img {
+	padding-right: 24px;
 }
 .noborder td, td.noborder, .noborder th, th.noborder {
 	border-width: 0 0 1px 0;
@@ -1239,9 +1242,8 @@ td.status img {
 td.status a {
 	border: none;
 }
-
-tr.line img.expand {
-	margin-right: 10px;
+tr.line img.expand, th img.expand {
+	margin-right: 6px;
 	margin-bottom: -2px;
 }
 tr.line input {
@@ -1719,6 +1721,7 @@ input[type=button] {
 	#help-button {width:20px; overflow: hidden;}
 	#info-box2 {float:none;}
 	#dashboard-items div {display: block;margin-bottom: 1em; padding: 0 1em;}
+	#help-button {height:26px; width:26px; background-color: #A2CBE9; padding: 0; margin:0;font-size: 1rem;line-height: 68px}
 }
 @media screen and (max-width: 492px) {
 	#header {height:3.6rem;}
@@ -1727,5 +1730,4 @@ input[type=button] {
 	div.media-list .media-item {width: 90%; float: none}
 	#info-box1 select {width: 12rem; margin-right: .6rem;}
 	#info-box1 p.nomobile, label.nomobile {display: none;}
-	#help-button {height:26px; width:26px; background-color: #A2CBE9; padding: 0; margin:0;font-size: 1rem;line-height: 68px}
 }

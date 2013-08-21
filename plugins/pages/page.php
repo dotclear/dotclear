@@ -586,7 +586,7 @@ if ($post_id)
 	
 	if ($can_edit_page && $core->auth->check('delete,contentadmin',$core->blog->id))
 	{
-		$combo_action[__('delete')] = 'delete';
+		$combo_action[__('Delete')] = 'delete';
 	}
 	
 	$has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
@@ -618,7 +618,7 @@ if ($post_id)
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
 		
-		'<p class="col right"><label for="action">'.__('Selected comments action:').'</label> '.
+		'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
 		form::combo('action',$combo_action).
 		form::hidden('redir',html::escapeURL($redir_url).'&amp;id='.$post_id.'&amp;co=1').
 		$core->formNonce().
@@ -691,11 +691,11 @@ function showComments($rs,$has_action)
 {
 	echo
 	'<table class="comments-list"><tr>'.
-	'<th colspan="2">'.__('Author').'</th>'.
+	'<th colspan="2" class="nowrap first">'.__('Author').'</th>'.
 	'<th>'.__('Date').'</th>'.
 	'<th class="nowrap">'.__('IP address').'</th>'.
 	'<th>'.__('Status').'</th>'.
-	'<th>&nbsp;</th>'.
+	'<th>'.__('Edit').'</th>'.
 	'</tr>';
 	
 	while($rs->fetch())
@@ -729,7 +729,7 @@ function showComments($rs,$has_action)
 		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.
 		'<td class="nowrap status">'.$img_status.'</td>'.
 		'<td class="nowrap status"><a href="'.$comment_url.'">'.
-		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /></a></td>'.
+		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>'.
 		
 		'</tr>';
 	}
