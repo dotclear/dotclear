@@ -873,7 +873,6 @@ class dcFilterCombo extends dcFilter {
      * @see dcFilter::init()
      */
 	public function init() {
-		echo $this->name.":".($this->multiple?"MULTIPLE":"SIMPLE");
 		$this->field = new dcFieldCombo(
 			$this->filter_id,
 			NULL,

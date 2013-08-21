@@ -59,7 +59,7 @@
 				<a id="post-preview" href="{{ preview_url}}" class="button" accesskey="p">{{__('Preview')}} (p)</a>
 			{% endif %}
 			
-			{{form_field('delete',{'class':'delete'})}}</p>
+			{{form_field('delete',{'class':'delete'})}}{{form_hidden()}}</p>
 
 		</div>
 	</div>
@@ -95,7 +95,7 @@
 	<p>{{ form_field('comment_email',{'size': 30})}}</p>
 	<p>{{ form_field('comment_site',{'size': 30})}}</p>
 	<p class="area">{{ form_field('comment_content',{'cols': 50,'rows':8})}}</p>
-	<p>{{ form_field('add') }}</p>
+	<p>{{ form_field('add') }}{{form_hidden()}}</p>
 </div>
 
 {% endform %}

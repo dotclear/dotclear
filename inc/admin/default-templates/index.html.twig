@@ -32,7 +32,7 @@
 					<p class="col">{{ form_field('post_title',{'class':'maximal'}) }}</p>
 					<p class="area">{{ form_field('post_content',{'rows':current_user.options.edit_size,'cols':5}) }}</p>
 					<p>{{ form_field('cat_id')}}</p>
-					<p>{{ form_field('save')}}</p>
+					<p>{{ form_field('save')}}{{form_hidden()}}</p>
 				</fieldset>
 			{% endform %}
 		</div>

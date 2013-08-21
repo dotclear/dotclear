@@ -38,7 +38,7 @@
 					{{__('Blog:')}} <strong title="{{current_blog.url}}">{{current_blog.name}}</strong>
 					{% if blogs is not empty %} - <a href="blogs.php">{{__('Change blog')}}</a>{% endif %}
 				{% endif %}
-				<p class="nomobile"><a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a></p>
+				<p class="nomobile"><a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a>{{form_hidden()}}</p>
 			  {% endform %}
 			</div>
 			<div id="info-box2">
@@ -100,7 +100,7 @@
 			{% block menus %}
 			{% form 'search-menu' with {'id':'search-menu'} %}
 				<p> {{ form_field('q',{'size':30},{'labelclass':'hidden'}) }} 
-					{{ form_field('ok') }}
+					{{ form_field('ok') }}{{form_hidden()}}
 				</p>
 			{% endform %}
 			{% for menu in menus %}
