@@ -31,8 +31,10 @@
 {% endblock field_password %}
 
 {% block field_hidden %}
+{% spaceless %}
     {% set type = type|default('hidden') %}
     {{ block('field_input') }}
+{% endspaceless %}
 {% endblock field_hidden %}
 
 {% block field_input %}
@@ -47,11 +49,13 @@
 {% endblock field_input %}
 
 {% block field_checkbox %}
+{% spaceless %}
 {% set type = type|default('checkbox') %}
 {% set nestedlabel = true %}
 {% set labelclass = "classic" %}
 {% set descafter = true %}
     {{ block('field_input') }}
+{% endspaceless %}
 {% endblock field_checkbox %}
 
 {% block field_attr %}

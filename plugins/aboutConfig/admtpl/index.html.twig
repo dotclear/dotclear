@@ -13,7 +13,7 @@
   {% tab local('local',__('blog settings')) %}
     {% if local_settings is not empty %}
     {% form 'local_nav_form' %}
-	<p class="anchor-nav">{{ form_field('local_nav') }} {{ form_field('local_nav_submit') }}</p>
+	<p class="anchor-nav">{{ form_field('local_nav') }} {{ form_field('local_nav_submit') }}{{form_hidden()}}</p>
     {% endform %}
     {% endif %}
 
@@ -40,14 +40,14 @@
     {% endfor %}
 	</tbody></table>
     {% endfor %}
-	<p>{{ form_field('local_submit') }}</p>
+	<p>{{ form_field('local_submit') }}{{form_hidden()}}</p>
     {% endform %}
   {% endtab %}
 
   {% tab global('global',__('global settings')) %}
     {% if global_settings is not empty %}
     {% form 'global_nav_form' %}
-	<p class="anchor-nav">{{ form_field('global_nav') }} {{ form_field('global_nav_submit') }}</p>
+	<p class="anchor-nav">{{ form_field('global_nav') }} {{ form_field('global_nav_submit') }}{{form_hidden()}}</p>
     {% endform %}
     {% endif %}
 
@@ -73,7 +73,7 @@
     {% endfor %}
 	</tbody></table>
     {% endfor %}
-	<p>{{ form_field('global_submit') }}</p>
+	<p>{{ form_field('global_submit') }}{{form_hidden()}}</p>
     {% endform %}
   {% endtab %}
 

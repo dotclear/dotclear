@@ -40,7 +40,7 @@
 	<fieldset><legend>{{__('Request a new password')}}</legend>
 	<p>{{ form_field('user_id') }}</p>
 	<p>{{ form_field('user_email') }}</p>
-	<p>{{ form_field('auth_recover')}}</p>
+	<p>{{ form_field('auth_recover')}}{{form_hidden()}}</p>
 	</fieldset>
 	<div id="issue">
 	<p><a href="auth.php">{{__('Back to login screen')}}</a></p></div>

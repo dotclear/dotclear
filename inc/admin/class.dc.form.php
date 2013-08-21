@@ -164,6 +164,11 @@ class dcFormExtension extends Twig_Extension
 				array('is_safe' => array('html'))
 			),
 			new Twig_SimpleFunction(
+				'form_hidden',
+				array($this,'renderHiddenWidgets'),
+				array('is_safe' => array('html'))
+			),
+			new Twig_SimpleFunction(
 				'form_field_attr',
 				array($this,'getFieldAttributes'),
 				array('is_safe' => array('html'))
@@ -298,7 +303,7 @@ class dcFormExtension extends Twig_Extension
 			);
 		}
 	}
-
+	
     /**
      * getFieldAttributes - binding for 'form_field_attr' twig function; returns all field attributes
      *
@@ -336,10 +341,14 @@ class dcFormExtension extends Twig_Extension
      * @return mixed Value.
      */
 	public function renderHiddenWidgets()
-	{
+	{	
+		if ($this->currentForm->areHiddenfieldsDisplayed()) {
+			return;
+		}
 		foreach ($this->currentForm->getHiddenFields() as $h) {
 			$this->renderField($h->getName());
 		}
+		$this->currentForm->setHiddenfieldsDisplayed();
 	}
 
 	public function getName()
@@ -432,6 +441,7 @@ class dcForm
 	/** @var array() list of form properties */
 	protected $properties;
 	
+	protected $hiddendisplayed;
 	
     /**
      * Class constructor
@@ -460,8 +470,28 @@ class dcForm
 		if ($method == 'POST') {
 			$this->addNonce();
 		}
+		$this->hiddendisplayed = false;
 	}
 
+	/**
+     * areHiddenFieldsDisplayed - tells whether hidden fields have been rendered or not
+     * 
+     * @return boolean true if hidden fields have already been displayed, false otherwise
+     * @access public
+     */
+	public function areHiddenFieldsDisplayed() {
+		return $this->hiddendisplayed;
+	}
+	
+	/**
+     * setHiddenFieldsDisplayed - sets whether hidden fields have been rendered or not
+     * 
+     * @param boolean true (default) if hidden fields are to be set as displayed, false otherwise
+     * @access public
+     */
+	public function setHiddenFieldsDisplayed($value=true) {
+		$this->hiddendisplayed = $value;
+	}
 	
     /**
      * setProperty - sets form property
