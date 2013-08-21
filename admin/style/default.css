@@ -883,6 +883,19 @@ select.l10n option {
 option.avail10n {
 	background: transparent url(../images/check-on.png) no-repeat 0 50%;
 }
+/* ----------------------------------------------------------  Antispam extensions */
+.antispam {
+	height: 200px;
+	overflow: auto;
+	margin-bottom: 1em;
+}
+.antispam p {
+	margin: 1px 0 0 0;
+	padding: 0.2em 0.5em;
+}
+.antispam p.global {
+	background: #ccff99;
+}
 /* ------------------------------------------------------------------ contextual help */
 #help {
 	margin-top: 4em;
@@ -1585,12 +1598,15 @@ input[type=button] {
 	width: 100%;
 	padding: 0;
 	margin-bottom: 1em;
-	margin-top: 1.5em;
+	margin-top: .5em;
 }
 #filters-form .cell {
 	padding: 0 2em 0 0;
 	display: table-cell;
 	vertical-align: top;
+}
+#filters-form .filters-sibling-cell {
+	padding-top: 3.8em;
 }
 #filters-form .filters-options {
 	padding-left: 2em;
@@ -1606,6 +1622,10 @@ input[type=button] {
 }
 #filters-form select {
 	width: 14em;
+}
+#filters-form h4 {
+	margin-top: 0;
+	margin-bottom: 2em;
 }
 
 /* ---------------------------------------------------- Pagination */
