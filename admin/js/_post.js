@@ -208,8 +208,8 @@ $(function() {
 					$(div).addClass('error');
 					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
 					$(div).insertAfter(h);
-					$(div).backgroundFade({sColor:'#ffffff',eColor:'#ff9999',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ff9999',eColor:'#ffffff'});
+					$(div).backgroundFade({sColor:'#ffffff',eColor:'#FFBABA',steps:50},function() {
+							$(this).backgroundFade({sColor:'#FFBABA',eColor:'#ffffff'});
 					});
 				}
 				

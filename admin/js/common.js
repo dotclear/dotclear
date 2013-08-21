@@ -347,14 +347,14 @@ $(function() {
 	$('#help').helpViewer();
 
 	$('.message').backgroundFade({sColor:'#cccccc',eColor:'#666666',steps:20});
-	$('.error').backgroundFade({sColor:'#ffeee3',eColor:'#ffdec8',steps:20});
+	$('.error').backgroundFade({sColor:'#ffdec8',eColor:'#ffbaba',steps:20});
 
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
 		var e = this.elements['your_pwd'];
 		if (e.value == '') {
 			e.focus();
-			$(e).backgroundFade({sColor:'#ffffff',eColor:'#ff9999',steps:50},function() {
-				$(this).backgroundFade({sColor:'#ff9999',eColor:'#ffffff'});
+			$(e).backgroundFade({sColor:'#ffffff',eColor:'#ffbaba',steps:50},function() {
+				$(this).backgroundFade({sColor:'#ffbaba',eColor:'#ffffff'});
 			});
 			return false;
 		}

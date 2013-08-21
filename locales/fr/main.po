@@ -796,7 +796,7 @@ msgid "You have one spam comment."
 msgstr "Vous avez un commentaire indésirable."
 
 msgid "Show it."
-msgstr "L'afficher"
+msgstr "L'afficher."
 
 #, php-format
 msgid "You have %s spam comments."

@@ -883,19 +883,6 @@ select.l10n option {
 option.avail10n {
 	background: transparent url(../images/check-on.png) no-repeat 0 50%;
 }
-/* ----------------------------------------------------------  Antispam extensions */
-.antispam {
-	height: 200px;
-	overflow: auto;
-	margin-bottom: 1em;
-}
-.antispam p {
-	margin: 1px 0 0 0;
-	padding: 0.2em 0.5em;
-}
-.antispam p.global {
-	background: #ccff99;
-}
 /* ------------------------------------------------------------------ contextual help */
 #help {
 	margin-top: 4em;
@@ -990,9 +977,7 @@ body.popup #footer p {
 	border: none;
 }
 /* ------------------------------------------------------------------ messages */
-div.error, p.error, 
-div.message, p.message, 
-div.static-msg, p.static-msg {
+.error, .message, .static-msg, .static-msg {
 	padding: 0.5em 0.5em 0.5em 48px;
 	margin-bottom: 1em;
 	border-radius: 8px;
@@ -1001,19 +986,25 @@ p.error, p.message, p.static-msg {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
-div.error, p.error {
-	background: #ffdec8 url(msg-error.png) no-repeat .7em .7em;
+.error {
+	background: #FFBABA url(msg-error.png) no-repeat .7em .7em;
 	color: #000;
 }
-div.message, p.message, 
-div.static-msg, p.static-msg {
+.message, .static-msg {
 	background: #666 url(msg-std.png) no-repeat .7em .7em;
 	color: #fff;
 }
-div.message a, p.message a, 
-div.static-msg a, p.static-msg a {
+.success {
+	background-color: #cf9;
+	color: #000;
+}
+.message a, .static-msg a {
 	color: #fff;
 }
+.success a {
+	color: #666;
+}
+
 /* ------------------------------------------------------------------ navigation */
 .anchor-nav {
 	background: #575859;
