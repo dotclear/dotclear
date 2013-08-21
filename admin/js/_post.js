@@ -209,7 +209,7 @@ $(function() {
 					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
 					$(div).insertAfter(h);
 					$(div).backgroundFade({sColor:'#ffffff',eColor:'#FFBABA',steps:50},function() {
-							$(this).backgroundFade({sColor:'#FFBABA',eColor:'#ffffff'});
+							$(this).backgroundFade({sColor:'#ffbaba',eColor:'#ffffff'});
 					});
 				}
 				

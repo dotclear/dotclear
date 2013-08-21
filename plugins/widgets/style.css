@@ -1,10 +1,10 @@
 #listWidgets {
 	float: left;
-	width: 45%;
+	width: 46%;
 	background: #eee;
-	padding: 1.5em 1%; 
+	padding: 1.5em 1% 0; 
 	border: 1px solid #ccc;
-	margin-left: 1.5em;
+	margin: 0 1% 0 0;
 }
 #widgets .widget-name {
 	background: #fff;
@@ -16,8 +16,8 @@
 
 #sidebarsWidgets {
 	float: left;
-	width: 45%;
-	margin-left: 3%;
+	width: 47%;
+	margin: 0 0 0 1%;
 	padding: 0 1%;
 }
 #sidebarsControl {
@@ -26,7 +26,6 @@
 .widgets.fieldset {
 	margin-bottom: 2em;
 }
-
 #widgets, #dndnav, #dndextra, #dndcustom {
 	padding: 1em 0;
 }

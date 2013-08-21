@@ -314,8 +314,8 @@ class tagsBehaviors
 		}
 		
 		$combo = array();
-		$combo[__('short')] = 'more';
-		$combo[__('extended')] = 'all';
+		$combo[__('Short')] = 'more';
+		$combo[__('Extended')] = 'all';
 		
 		$value = array_key_exists('tag_list_format',$opts) ? $opts['tag_list_format'] : 'more';
 		

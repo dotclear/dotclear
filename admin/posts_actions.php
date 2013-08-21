@@ -499,7 +499,7 @@ elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 	echo
 	'<form action="posts_actions.php" method="post">'.
 	$fields->getEntries().
-	'<p><label for="new_auth_id" class="classic">'.__('Author ID:').'</label> '.
+	'<p><label for="new_auth_id" class="classic">'.__('New author (author ID):').'</label> '.
 	form::field('new_auth_id',20,255);
 	
 	echo
