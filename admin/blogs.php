@@ -96,15 +96,17 @@ if (!$core->error->flag())
 	
 	echo
 	'<form action="blogs.php" method="get" id="filters-form">'.
-	'<h3>'.__('Filter blogs list').'</h3>'.
+	'<h3 class="hidden">'.__('Filter blogs list').'</h3>'.
 	
 	'<div class="table">'.
 	'<div class="cell">'.
+	'<h4>'.__('Filters').'</h4>'.
 	'<p><label for="q" class="ib">'.__('Search:').'</label> '.
 	form::field('q',20,255,html::escapeHTML($q)).'</p>'.
 	'</div>'.
 	
 	'<div class="cell filters-options">'.
+	'<h4>'.__('Display options').'</h4>'.
 	'<p><label for="sortby" class="ib">'.__('Order by:').'</label> '.
 	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).'</p>'.
 	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
@@ -114,7 +116,7 @@ if (!$core->error->flag())
 	'</div>'.
 	'</div>'.
 
-	'<p><input type="submit" value="'.__('Apply filters').'" />'.
+	'<p><input type="submit" value="'.__('Apply filters and display options').'" />'.
 	'<br class="clear" /></p>'. //Opera sucks
 	'</form>';
 	

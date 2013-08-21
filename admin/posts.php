@@ -268,10 +268,11 @@ if (!$core->error->flag())
 	
 	echo
 	'<form action="posts.php" method="get" id="filters-form">'.
-	'<h3>'.__('Filter posts list').'</h3>'.
+	'<h3 class="hidden">'.__('Filter posts list').'</h3>'.
 
 	'<div class="table">'.
 	'<div class="cell">'.
+	'<h4>'.__('Filters').'</h4>'.
 	'<p><label for="user_id" class="ib">'.__('Author:').'</label> '.
 	form::combo('user_id',$users_combo,$user_id).'</p>'.
 	'<p><label for="cat_id" class="ib">'.__('Category:').'</label> '.
@@ -280,7 +281,7 @@ if (!$core->error->flag())
 	form::combo('status',$status_combo,$status).'</p> '.
 	'</div>'.
 	
-	'<div class="cell">'.
+	'<div class="cell filters-sibling-cell">'.
 	'<p><label for="selected" class="ib">'.__('Selected:').'</label> '.
 	form::combo('selected',$selected_combo,$selected).'</p>'.
 	'<p><label for="month" class="ib">'.__('Month:').'</label> '.
@@ -290,6 +291,7 @@ if (!$core->error->flag())
 	'</div>'.
 	
 	'<div class="cell filters-options">'.
+	'<h4>'.__('Display options').'</h4>'.
 	'<p><label for="sortby" class="ib">'.__('Order by:').'</label> '.
 	form::combo('sortby',$sortby_combo,$sortby).'</p>'.
 	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
@@ -300,7 +302,7 @@ if (!$core->error->flag())
 	'</div>'.
 	'</div>'.
 
-	'<p><input type="submit" value="'.__('Apply filters').'" />'.
+	'<p><input type="submit" value="'.__('Apply filters and display options').'" />'.
 	'<br class="clear" /></p>'. //Opera sucks
 	'</form>';
 	

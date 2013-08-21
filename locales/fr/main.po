@@ -3140,3 +3140,9 @@ msgstr "Retour à Apparence du blog"
 
 msgid "Edit"
 msgstr "Modifier"
+
+msgid "Display options"
+msgstr "Options d\'affichage"
+
+msgid "Apply filters and display options"
+msgstr "Appliquer les filtres et options d\'affichage"
