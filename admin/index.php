@@ -334,16 +334,16 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
 		form::textarea('post_content',50,7).
 		'</p>'.
-		'<p><label for="cat_id" class="classic">'.__('Category:').' '.
-		form::combo('cat_id',$categories_combo).'</label></p>'.
+		'<p><label for="cat_id" class="classic">'.__('Category:').'</label> '.
+		form::combo('cat_id',$categories_combo).'</p>'.
 		($core->auth->check('categories', $core->blog->id)
 			? '<div>'.
-			'<p id="new_cat">'.__('Add a new category').'</p>'.
-			'<p><label for="new_cat_title">'.__('Title:').' '.
-			form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
-			'<p><label for="new_cat_parent">'.__('Parent:').' '.
-			form::combo('new_cat_parent',$categories_combo,'','maximal').
-			'</label></p>'.
+			'<p id="new_cat" class="q-cat">'.__('Add a new category').'</p>'.
+			'<p class="q-cat"><label for="new_cat_title">'.__('Title:').'</label> '.
+			form::field('new_cat_title',30,255,'','').'</p>'.
+			'<p class="q-cat"><label for="new_cat_parent">'.__('Parent:').'</label> '.
+			form::combo('new_cat_parent',$categories_combo,'','').
+			'</p>'.
 			'</div>'
 			: '').
 		'<p><input type="submit" value="'.__('Save').'" name="save" /> '.
