@@ -120,6 +120,9 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 		var ctarget = p.legend_click ? this : a;
 
 		$(ctarget).css('cursor','pointer');
+		if (p.legend_click) {
+			$(ctarget).find('label').css('cursor','pointer');
+		}
 		$(ctarget).click(function() {
 			toggle(i,p.speed);
 			return false;
@@ -289,6 +292,27 @@ var dotclear = {
 
 			if (action == 'delete') {
 				return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s',$('input[name="entries[]"]:checked').size()));
+			}
+
+			return true;
+		});
+	},
+
+	categoriesActionsHelper: function() {
+		$('#form-categories').submit(function() {
+			var action = $(this).find('select[name="action"]').val();
+			var checked = false;
+
+			$(this).find('input[name="categories[]"]').each(function() {
+				if (this.checked) {
+					checked = true;
+				}
+			});
+
+			if (!checked) { return false; }
+
+			if (action == 'delete') {
+				return window.confirm(dotclear.msg.confirm_delete_categories.replace('%s',$('input[name="categories[]"]:checked').size()));
 			}
 
 			return true;
