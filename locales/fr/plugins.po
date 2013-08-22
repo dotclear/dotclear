@@ -1948,3 +1948,4 @@ msgstr "Court"
 
 msgid "Extended"
 msgstr "Étendu"
+
