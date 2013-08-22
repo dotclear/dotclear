@@ -55,8 +55,11 @@ msgstr "Aller à : "
 msgid "Ok"
 msgstr "Ok"
 
-msgid "global settings"
+msgid "Global settings"
 msgstr "Réglages généraux"
+
+msgid "global settings"
+msgstr "réglages généraux"
 
 msgid "Akismet"
 msgstr "Akismet"
@@ -1545,7 +1548,7 @@ msgid "Back to tags list"
 msgstr "Retour à la liste des mots-clés"
 
 msgid "Actions for this tag"
-msgstr "Actions pour ce mot-clé"
+msgstr "Actions sur ce mot-clé"
 
 msgid "Edit tag name:"
 msgstr "Renommer ce mot-clé :"
@@ -1949,3 +1952,5 @@ msgstr "Court"
 msgid "Extended"
 msgstr "Étendu"
 
+msgid "List of entries with the tag “%s”"
+msgstr "Liste des billets avec le mot-clé “%s”"

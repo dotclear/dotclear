@@ -100,6 +100,7 @@ label span.one-file {
 #add-file-f p.clear {
 	margin-top: 1em;
 	margin-bottom: 0;
+	clear: both;
 }
 
 /* files */

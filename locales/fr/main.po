@@ -602,9 +602,6 @@ msgstr "Catégorie créée avec succès."
 msgid "The category has been successfully removed."
 msgstr "Catégorie supprimée avec succès."
 
-msgid "The categories have been successfully removed."
-msgstr "Catégories supprimées avec succès."
-
 msgid "Categories have been successfully reordered."
 msgstr "Catégories réordonnées avec succès."
 
@@ -1773,9 +1770,6 @@ msgstr "Billets par page"
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
 
-msgid "Selected categories action:"
-msgstr "Action sur les categories sélectionnés :"
-
 msgid "This user does not exist"
 msgstr "Cet utilisateur n'existe pas"
 
@@ -2206,10 +2200,6 @@ msgstr "voir le billet"
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Êtes-vous certain de vouloir supprimer les billets sélectionnés (%s) ?"
-
-#, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "Êtes-vous certain de vouloir supprimer les categories sélectionnées (%s) ?"
 
 msgid "Are you sure you want to delete this entry?"
 msgstr "Êtes-vous certain de vouloir supprimer ce billet ?"
@@ -3074,7 +3064,7 @@ msgid "Available themes in your installation"
 msgstr "Thèmes disponibles sur votre installation"
 
 msgid "You can also install themes by uploading or downloading zip files."
-msgstr "Vous pouvez aussi installer des thèmes en les déposant ou en téléchargeant des fichiers zip."
+msgstr "Vous pouvez aussi installer des thèmes en déposant ou en téléchargeant des fichiers zip."
 
 msgid "Add themes to your installation"
 msgstr "Ajouter des thèmes sur votre installation"
@@ -3145,7 +3135,7 @@ msgstr "Mises à jour et modifications"
 msgid "Back to user profile"
 msgstr "Retour au profil utilisateur"
 
-msgid "Back to Blog themes"
+msgid "Back to Blog appearance"
 msgstr "Retour à Apparence du blog"
 
 msgid "Edit"

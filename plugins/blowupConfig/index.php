@@ -234,7 +234,7 @@ echo dcPage::breadcrumb(
 	));
 
 echo
-'<p><a class="back" href="blog_theme.php">'.__('Back to Blog themes').'</a></p>';
+'<p><a class="back" href="blog_theme.php">'.__('Back to Blog appearance').'</a></p>';
 
 
 if (!$can_write_images) {
