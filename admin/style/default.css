@@ -350,7 +350,7 @@ abbr {
 	color: #d30e60;
 }
 #main-menu .active {
-	font-weight: bolder;
+	font-weight: bold;
 }
 #search-menu {
 	padding: .3rem .4rem 0;

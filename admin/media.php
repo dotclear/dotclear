@@ -382,13 +382,13 @@ if ($core_media_writable)
 	}
 
 	echo
-	'<p><button class="button clean">'.__('Refresh').'</button>'.
+	'<p class="clear"><button class="button clean">'.__('Refresh').'</button>'.
 	'<input class="button cancel one-file" type="reset" value="'.__('Clear all').'"/>'.
 	'<input class="button start" type="submit" value="'.__('Upload').'"/></p>'.
 	'</div>';
 
 	echo
-	'<p>'.form::hidden(array('d'),$d).'</p>'.
+	'<p style="clear:both;">'.form::hidden(array('d'),$d).'</p>'.
 	'</form>'.
 	'</div></div>';
 

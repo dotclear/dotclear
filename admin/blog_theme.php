@@ -289,7 +289,7 @@ if (!$theme_conf_mode)
 		echo
 		'<div class="multi-part clear" id="add-theme" title="'.__('Install or upgrade a theme').'">'.
 		'<h3>'.__('Add themes to your installation').'</h3>'.
-		'<p>'.sprintf(__('You can find additional themes for your blog on %s.'),
+		'<p class="form-note info">'.sprintf(__('You can find additional themes for your blog on %s.'),
 		'<a href="http://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>').'</p>';
 		
 		if ($is_writable)
@@ -336,7 +336,7 @@ else
 	$core->themes->loadModuleL10Nresources($core->blog->settings->system->theme,$_lang);
 
 	echo
-	'<p><a class="back" href="blog_theme.php">'.__('back').'</a></p>';
+	'<p><a class="back" href="blog_theme.php">'.__('Back to Blog appearance').'</a></p>';
 	
 	try
 	{

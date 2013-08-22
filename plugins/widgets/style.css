@@ -3,12 +3,23 @@
 	width: 46%;
 	background: #eee;
 	padding: 1.5em 1% 0; 
-	border: 1px solid #ccc;
 	margin: 0 1% 0 0;
 }
-#widgets .widget-name {
+#widgets > div {
+	border: 1px solid #ccc;
+	margin-bottom: .5em;
 	background: #fff;
 	min-height: 3em;
+	padding: 0 0 4px 0;
+}
+#widgets .widget-name, #widgets .js-remove {
+	background: #fff;
+	margin-bottom: 0;
+	padding: 4px 8px; 
+}
+#widgets .widget-name {
+	min-height: 3em;
+	padding-bottom: 0;
 }
 #listWidgets h3 {
 	color: #333;
@@ -29,15 +40,17 @@
 #widgets, #dndnav, #dndextra, #dndcustom {
 	padding: 1em 0;
 }
+#dndnav > div, #dndextra > div, #dndcustom > div {
+	padding: O;
+	border: 1px solid #999;
+	margin-bottom: 1em;
+}
 
 .widget-name {
 	background: #eef;
 	color: #000;
 	padding: 4px 6px;
-	margin: 0.5em 0 0 0;
-	border-width: 1px 1px 1px 1px;
-	border-style: solid;
-	border-color: #999;
+	margin: 0;
 	font-weight: bold;
 }
 .widget-name span {
@@ -49,19 +62,19 @@
 	cursor: pointer;
 	margin-bottom: -1px;
 }
-
-.widgetSettings {
-	border-width: 0 1px 1px 1px;
-	border-style: solid;
-	border-color: #666;
-	padding: 4px 6px;
-	background: #f5f5f5;
+.removeWidget {
+	padding: 8px 6px;
+	margin: 0;
 }
 
+.widgetSettings {
+	border-top: 1px solid #ddd;
+	padding: 8px 6px;
+	background: #f5f5f5;
+}
 #widgets .widgetSettings {
 	display: none;
 }
-
 .hideControls .widgetSettings {
 	display: none;
 }
