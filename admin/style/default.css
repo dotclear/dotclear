@@ -510,6 +510,18 @@ abbr {
 	padding: .2em 1em .1em 24px;
 	color: #666;
 }
+#quick #new_cat, .q-cat, .q-cat label {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 1em;
+	margin-top: 0;
+}
+.q-cat label {
+	margin-right: .3em;
+}
+#quick #new_cat {
+	margin-bottom: 2em;
+}
 #dashboard-items {
 	margin: 3em auto;
 	display: table;
@@ -892,6 +904,8 @@ option.avail10n {
 	margin-top: 4em;
 	background: #f5f5f5;
 	z-index: 100;
+	clear: both;
+	padding: 0 1em;
 }
 #help-button {
 	background: transparent url(../images/page_help.png) no-repeat 6px center;
