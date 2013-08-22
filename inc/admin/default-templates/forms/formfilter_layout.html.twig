@@ -32,6 +32,7 @@
 		</p>
 	</div>
 	<div class="col30">
+		<h3>{{__('Displayed information')}}</h3>
 		{%- for f in fenv.static_filters -%}
 			{{block(f.fwidget)}}
 		{%- endfor -%}
@@ -62,7 +63,7 @@
 
 {% block filter_combo -%}
 	{% if f.display_inline is defined -%}
-		<p id='{{f.filter_id}}'>{{form_field(f.ffield,{'offset':f.foffset},{'label':f.desc,'nestedlabel': true, 'labelclass':'classic' })}}</p>
+		<p>{{form_field(f.ffield,{'offset':f.foffset},{'label':f.desc,'nestedlabel': true, 'labelclass':'classic' })}}</p>
 	{%- else -%}
 		<td id='{{f.filter_id}}' title='{{f.desc}}' class="filter-title" colspan="2">{{f.desc}} : </td>
 		<td >{{ form_field(f.ffield,{'offset':f.foffset}) }}</td>
@@ -79,15 +80,20 @@
 
 
 {% block filter_richcombo -%}
-	<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title">{{f.desc}} : </td>
-	<td>{{ form_field(f.fverb)}}</td>
-	<td>{{ form_field(f.ffield,{'offset':f.foffset}) }}</td>
+	{% if f.display_inline is defined -%}
+		<p id='{{f.filter_id}}'>{{ form_field(f.fverb)}}{{form_field(f.ffield,{'offset':f.foffset},{'label':f.desc,'nestedlabel': true, 'labelclass':'classic' })}}</p>
+	{% else %}
+		<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title">{{f.desc}} : </td>
+		<td>{{ form_field(f.fverb)}}</td>
+		<td>{{ form_field(f.ffield,{'offset':f.foffset}) }}</td>
+	{% endif %}
 {%- endblock %}
 
 
 {% block filter_boolean -%}
-	<td id='{{filterd_id}}' title='{{f.desc}}' class="filter-title" colspan="2">{{f.desc}}</td>
-	<td>{{ form_field(f.ffield,{'offset':f.foffset}) }}</td>
+	{% if f.display_inline is defined -%}
+		<p>{{form_field(f.ffield)}}</p>
+	{% endif %}	
 {%- endblock %}
 
 {% block filter_text -%}

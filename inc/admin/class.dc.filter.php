@@ -135,8 +135,9 @@ class dcFilterSet extends dcForm {
 				new dcFieldCombo ($p.'add_filter','',$form_combo,
 					array()))
 			->addField (
-				new  dcFieldSubmit($p.'add',__('Add this filter'),
-					array()))
+				new  dcFieldSubmit($p.'add',' + ',
+					array(
+						'attr' => array('title' => __('Add this filter')))))
 			->addField (
 				new dcFieldSubmit($p.'clear_filters',__('Delete all filters'),
 					array()))
@@ -691,7 +692,8 @@ abstract class dcFilter  {
      * @return mixed Value.
      */
 	public function appendFilterContext($ctx) {
-		foreach ($this->field->getValues() as $cur => $f) {
+		$cur=0;
+		foreach ($this->field->getValues() as $k => $f) {
 			/*
 			* each line of context has the following properties :
 			*  * lineclass : <tr> class to use
@@ -713,6 +715,7 @@ abstract class dcFilter  {
 			$this->filterset->addField($del);
 			$this->appendContextLine($line,$cur);
 			$ctx[]=$line;
+			$cur++;
 		}
 	}
 
@@ -778,6 +781,10 @@ abstract class dcFilter  {
      */
 	public function getFields() {
 		return $this->field;
+	}
+	
+	public function getAppliedValues() {
+		return $this->avalues;
 	}
 }
 

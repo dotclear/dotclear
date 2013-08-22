@@ -24,15 +24,18 @@
 	{{e.user_id}}
 {%- endblock %}
 
-{% block col_status %}
+{% block col_status -%}
 {% set statuses = {
-	"0": {'img' : 'check-off.png', 'name':__('unpublished')},
-	"1": {'img' : 'check-on.png', 'name':__('published')},
-	"-1": {'img' : 'scheduled.png', 'name':__('scheduled')},
-	"-2": {'img' : 'check-wrn.png', 'name':__('pending')}}
+	"0": {'img' : 'check-off.png', 'name':__('Unpublished')},
+	"1": {'img' : 'check-on.png', 'name':__('Published')},
+	"-1": {'img' : 'scheduled.png', 'name':__('Scheduled')},
+	"-2": {'img' : 'check-wrn.png', 'name':__('Pending')}}
 %}
 <img alt="{{statuses[e.post_status].name}}" src="images/{{statuses[e.post_status].img}}" />
-{% endblock %}
+{% if e.post_selected -%}
+	<img alt="{{__('Selected')}}" src="images/selected.png" />
+{%- endif %}
+{%- endblock %}
 
 {% block list_line_start %} 
 <tr class="line" id="p{{e.post_id}}">

@@ -956,7 +956,7 @@ abstract class dcField implements Countable
 		$this->multiple = $m;
 	}
 	
-    /**
+	    /**
      * Returns whether can have multiple values or not
      *
      * @return boolean true if the field has multiple values
@@ -1038,6 +1038,8 @@ abstract class dcField implements Countable
 	public function getValue($offset=0) {
 		if (isset($this->values[$offset])) {
 			return $this->values[$offset];
+		} else {
+			return NULL;
 		}
 	}
 
@@ -1100,10 +1102,9 @@ abstract class dcField implements Countable
 			unset($attr['offset']);
 		}
 		
-		if (isset($this->values[$offset])) {
-			$attr['value'] = $this->values[$offset];
-		} else {
-			$attr['value'] = $this->getDefaultValue();
+		$attr['value'] = $this->getValue($offset);
+		if ($attr['value'] == NULL) {
+			$attr['value']= $this->getDefaultValue();
 		}
 		if ($offset==0 && !empty($this->id)) {
 			$attr['id']=$this->id;
@@ -1269,24 +1270,15 @@ class dcFieldHidden extends dcField
  */
 class dcFieldCheckbox extends dcField
 {
-	protected $checked;
+	//protected $checked;
 	
 	public function __construct($name,$values,$options=array())
 	{
 		$val = array();
 		if (!is_array($values) && $values !== null) {
 			$values = array("1" => !empty($values));
-		}
-
-		if (is_array($values)) {
-			$keys = array_keys($values);
-			$this->checked = $values;
-		} else {
-			$keys = array();
-			$this->checked = array();
-		}
-		
-		parent::__construct($name,$keys,$options);
+		}		
+		parent::__construct($name,$values,$options);
 	}
 
     /**
@@ -1298,13 +1290,20 @@ class dcFieldCheckbox extends dcField
      * @access public
      */
 	public function setValue($value,$offset=0) {
-		$this->checked[$this->values[0]] = $value;
+		$keys = array_keys($this->values);
+		if (isset($keys[$offset])) {
+			$this->values[$keys[$offset]] = $value;
+		}
 	}
 	
+	public function addValue ($value,$checked=false) {
+		$this->values[$value] = $checked;
+	}
+
 	public function getValue($offset=0) {
-		$val = parent::getValue($offset);
-		if (isset($this->checked[$val])) {
-			return $this->checked[$val]?$val:false;
+		$keys = array_keys($this->values);
+		if (isset($keys[$offset])) {
+			return $this->values[$keys[$offset]];
 		} else {
 			return false;
 		}
@@ -1312,27 +1311,37 @@ class dcFieldCheckbox extends dcField
 	
 	public function getAttributes($options=array())
 	{
-		$a = parent::getAttributes($options);
-		
-		$val = $a['value'];
-		if (isset($this->checked[$val]) && $this->checked[$val]) {
-			$a['checked']='checked';
+		$offset = 0;
+		if (isset($options['offset'])) {
+			$offset = $options['offset'];
 		}
+		$a = parent::getAttributes($options);
+		$keys = array_keys($this->values);
+		if (isset( $keys[$offset])) {
+			$val = $keys[$offset];
+			$a['value'] = $val;
+			if (isset($this->values[$val]) && $this->values[$val]) {
+				$a['checked']='checked';
+			}
+		}
+		
 		return $a;
 	}
 
-	public function setup($from)
-	{
-		$this->defined = true;
-		$values = $this->parseValues($from);
-		foreach ($this->checked as $k=>&$v) {
+	public function parseValues($from) {
+		$val = parent::parseValues($from);
+		$arr = $this->values;
+		foreach ($arr as $k=>&$v) {
 			$v=false;
 		}
-		foreach ($values as $v) {
-			$this->checked[$v] = true;
+		foreach ($val as $v) {
+			if (isset($arr[$v])) {
+				$arr[$v]=true;
+			}
 		}
-		$this->setValues(array_keys($this->checked));
+		return $arr;
 	}
+
 
 	public function getWidgetBlock()
 	{
