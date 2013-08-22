@@ -23,7 +23,7 @@
 		</tr>
 		{% for e in lenv.entries %}
 			{% block list_line_start %}<tr class="line">{% endblock %}
-			<td>{{widget('col_ref',{'e':e,'offset':loop.parent.loop.index0})}}</td>
+			<td>{{widget('col_ref',{'e':e,'offset':loop.index0})}}</td>
 			{% for h in lenv.cols %}
 				<td>{{widget(h.widget,{'e':e,'offset':loop.parent.loop.index0})}}</td>
 			{% endfor %}

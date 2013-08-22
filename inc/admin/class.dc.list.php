@@ -65,6 +65,9 @@ class dcItemList extends dcForm {
 	}
 	
 	protected function setupFilterset() {
+		foreach ($this->columns as $c) {
+			$this->filterset->addfilter($c->getFilter());
+		}
 		$this->sortby = new dcFilterCombo(
 			'sortby',
 			__('Sort By'), 
@@ -133,11 +136,13 @@ class dcItemList extends dcForm {
 			$this->selection->addValue($e->post_id);
 		}
 	}
-
+	
 	public function getContext() {
 		$ccontext = new ArrayObject();
 		foreach ($this->columns as $c) {
-			$c->appendEditLines($ccontext);
+			if ($c->isEnabled()) {
+				$c->appendEditLines($ccontext);
+			}
 		}
 		$page = $this->page;
 		$nb_pages = $this->nb_pages;
@@ -165,7 +170,7 @@ class dcItemList extends dcForm {
 			'pages_links' => $pages);
 	}
 
-	public function addColumn($c) {
+	public function addColumn(dcColumn $c) {
 		$this->columns[$c->getID()] = $c;
 		$c->setForm($this);
 		return $this;
@@ -188,13 +193,20 @@ class dcColumn {
 	protected $name;
 	protected $sortable;
 	protected $col_id;
+	protected $filter;
+	protected $locked;
 
 	public function __construct($id, $name, $col_id,$attributes=array()) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->col_id = $col_id;
+		$this->locked = isset($attributes['locked']) && $attributes['locked'];
+		$this->filter = new dcFilterCheckbox('col'.$id,$name,$name,'',array('static'=>true,'locked'=>$this->locked));
 	}
 
+	public function getFilter () {
+		return $this->filter;
+	}
 	public function getName() {
 		return $this->name;
 	}
@@ -211,6 +223,10 @@ class dcColumn {
 		$this->form = $f;
 	}
 
+	public function isEnabled() {
+		$v = $this->filter->getAppliedValues();
+		return $v['values']['1']==1;
+	}
 	public function appendEditLines($line) {
 		$line[] = array (
 			'name' => $this->name,
@@ -228,6 +244,70 @@ abstract class dcListFetcher {
 
 	abstract function getEntries($params,$offset,$limit);
 	abstract function getEntriesCount($params);
+}
+
+/**
+* dcFilterText - basic single field text filter
+*
+* @uses     dcFilter
+*
+*/
+class dcFilterCheckbox extends dcFilter {
+
+    /**
+     * @see dcFilter::init()
+     */
+	public function init() {
+		$foptions = array('label' => $this->name);
+		if (isset($this->options['locked']) && $this->options['locked']){
+			$foptions['read_only']= true;
+		}
+		$this->field = new dcFieldCheckbox($this->filter_id,false,$foptions);
+		$this->filterset->addField($this->field);
+		$this->multiple = false;
+	}
+
+	protected function parseData($data) {
+		return parent::parseData($data);
+	}
+    /**
+     * @see dcFilter::appendContextLine()
+     */
+	public function appendContextLine($line,$pos) {
+		/*
+		Extra data provided by this filter :
+		* ffield : field name
+		* display_inline : true if the field is static
+		* fwidget : name of the widget (filter_text)
+		* desc : filter description
+		 */
+		$line['ffield'] = $this->field->getName();
+		if ($this->static) {
+			$line['display_inline'] = true;
+		}
+		if ($pos == 0) {
+
+			$line['fwidget']='filter_boolean';
+			$line['desc']=$this->desc;
+		};
+	}
+
+    /**
+     * @see dcFilter::addValue()
+     */
+    protected function addValue($value=NULL) {
+		$this->field->addValue($value,true);
+	}
+
+    /**
+     * @see dcFilter::applyFilter()
+     */
+	public function applyFilter($params) {
+	}
+	
+	public function getAppliedFilterText() {
+		return "";
+	}
 }
 
 dcItemList::__init__($GLOBALS['core']->tpl);
