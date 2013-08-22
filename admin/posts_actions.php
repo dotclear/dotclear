@@ -400,7 +400,7 @@ if ($action == 'category')
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Entries') => 'posts.php',
-			__('Change category for entries') => ''
+			'<span class="page-title">'.__('Change category for entries').'</span>' => ''
 	));
 	
 	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
@@ -429,12 +429,12 @@ if ($action == 'category')
 	if ($core->auth->check('categories', $core->blog->id)) {
 		echo 
 		'<div>'.
-		'<p id="new_cat">'.__('Add a new category').'</p>'.
-		'<p><label for="new_cat_title">'.__('Title:').' '.
-		form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
-		'<p><label for="new_cat_parent">'.__('Parent:').' '.
-		form::combo('new_cat_parent',$categories_combo,'','maximal').
-		'</label></p>'.
+		'<p id="new_cat">'.__('Create a new category for the post(s)').'</p>'.
+		'<p><label for="new_cat_title">'.__('Title:').'</label> '.
+		form::field('new_cat_title',30,255,'','').'</p>'.
+		'<p><label for="new_cat_parent">'.__('Parent:').'</label> '.
+		form::combo('new_cat_parent',$categories_combo,'','').
+		'</p>'.
 		'</div>';
 	}
 	

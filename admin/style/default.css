@@ -614,6 +614,10 @@ abbr {
 select#del_cat {
 	width: 100%;
 }
+#new_cat {
+	font-weight: bold;
+	margin-top: 2em;
+}
 /* ------------------------------------------------------------------ media */
 #media-icon {
 	float: left;
@@ -1170,7 +1174,7 @@ table {
 	margin: 0 0 1em 0;
 }
 table.posts-list {
-	min-width: 70%;
+	min-width: 50%;
 }
 tr.line:hover {
 	background: #f3f3f3;

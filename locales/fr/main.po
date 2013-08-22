@@ -3155,3 +3155,6 @@ msgstr "Nouvel auteur (identifiant utilisateur) :"
 
 msgid "Hidden"
 msgstr "Masqué"
+
+msgid "Create a new category for the post(s)"
+msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
