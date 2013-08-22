@@ -356,16 +356,16 @@ if ($core_media_writable)
 	'<div class="fieldset">'.
 	'<h3>'.__('Add files').'</h3>'.
 	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
-	' <form id="fileupload" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data" aria-disabled="false">'.
+	'<p class="max-sizer form-note info">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
+	'<form id="fileupload" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data" aria-disabled="false">'.
 	'<p>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</p>'.
 	'<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>';
 
 	echo
-	'<div class="fileupload-buttonbar">';
+	'<div class="fileupload-buttonbar clear">';
 
 	echo
-	'<p class="max-sier form-note info">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
 	'<p><label for="upfile">'.'<span class="add-label one-file">'.__('Choose file').'</span>'.'</label>'.
 	'<button class="button add">'.__('Choose files').'</button>'.
 	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" /></p>';

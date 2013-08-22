@@ -59,7 +59,7 @@ class antispamBehaviors
 		if ($ttl != null && $ttl >=0) {
 			echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl).' '.
 			sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
-			'</p>';
+			'.</p>';
 		}
 	}
 

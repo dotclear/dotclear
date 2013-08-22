@@ -57,12 +57,9 @@
 	border: none;
 }
 
-.enhanced_uploader .add {
-	margin-right: 4em;
-}
-
-.enhanced_uploader .cancel, .enhanced_uploader .clean, .enhanced_uploader .start {
-	margin-left: .5em;
+.enhanced_uploader .add, .enhanced_uploader .cancel, 
+.enhanced_uploader .clean, .enhanced_uploader .start {
+	margin-right: .4em;
 }
 
 .enhanced_uploader #upfile {
@@ -96,8 +93,8 @@ label span.one-file {
 }
 
 .enhanced_uploader p.clear {
-	margin-top: 3em;
-	margin-bottom: 0;
+	padding-top: 1em;
+	margin-bottom: 1em;
 }
 
 #add-file-f p.clear {
@@ -134,12 +131,15 @@ label span.one-file {
 }
 
 .upload-fileinfo {
-	margin-left: 16px;
+	margin-left: 8px;
 	margin-bottom: .4em;
 }
-
+.upload-fileinfo span {
+	padding-right: 8px;
+}
 .upload-fileinfo .upload-filecancel {
 	display: block;
+	padding-right: 0;
 	margin-top: 3px;
 	width: 20px;
 	height: 20px;
@@ -159,7 +159,7 @@ label span.one-file {
 }
 
 .upload-progress {
-	padding: 0 1em;
+	padding: 0 8px;
 }
 
 .upload-progress div {
@@ -174,12 +174,11 @@ label span.one-file {
 	color: white;
 	border-radius: 2px;
 }
-
 div.template-upload {
 	clear: both;
 }
 
 .queue-message {
 	font-weight: bold;
-	margin: 0 0 1em 16px;
+	margin: 0 0 1em 0;
 }
