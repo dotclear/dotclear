@@ -457,7 +457,7 @@ msgid "Themes"
 msgstr "అలంకారాలు"
 
 #, php-format
-msgid "You are currently using \"%s\""
+msgid "You are currently using <strong>%s</strong>"
 msgstr "మీరు ప్రస్తుతం \"%s\" ని వాడుతున్నారు"
 
 #, fuzzy

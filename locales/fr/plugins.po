@@ -55,8 +55,11 @@ msgstr "Aller à : "
 msgid "Ok"
 msgstr "Ok"
 
-msgid "global settings"
+msgid "Global settings"
 msgstr "Réglages généraux"
+
+msgid "global settings"
+msgstr "réglages généraux"
 
 msgid "Akismet"
 msgstr "Akismet"
@@ -300,6 +303,9 @@ msgstr "Fil RSS des commentaires publiés"
 msgid "Attachments"
 msgstr "Annexes"
 
+msgid "Attachments (%d)"
+msgstr "Annexes (%s)"
+
 msgid "remove"
 msgstr "supprimer"
 
@@ -499,7 +505,7 @@ msgid "OPML or XBEL File:"
 msgstr "Fichier OPML ou XBEL :"
 
 msgid "Import"
-msgstr "Importation"
+msgstr "Importer"
 
 msgid "Blowup Config"
 msgstr "Configuration de Blowup"
@@ -960,10 +966,10 @@ msgstr "Êtes-vous sûr de vouloir importer un fichier de sauvegarde complet ?"
 
 #, php-format
 msgid ""
-"This will import a single blog backup as new content in the current blog: %s."
+"This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr ""
 "Cela importera une sauvegarde d'un blog comme nouveau contenu du blog "
-"courant : %s."
+"courant : <strong>%s</strong>."
 
 msgid "Upload a backup file"
 msgstr "Téléversez un fichier de sauvegarde"
@@ -1542,7 +1548,7 @@ msgid "Back to tags list"
 msgstr "Retour à la liste des mots-clés"
 
 msgid "Actions for this tag"
-msgstr "Actions pour ce mot-clé"
+msgstr "Actions sur ce mot-clé"
 
 msgid "Edit tag name:"
 msgstr "Renommer ce mot-clé :"
@@ -1936,3 +1942,15 @@ msgstr "Modifier les fichiers du thème"
 
 msgid "Blog settings"
 msgstr "Paramètres du blog"
+
+msgid "Move widgets from this list to one of the sidebars."
+msgstr "Déplacez des widgets de cette liste vers l'un des volets."
+
+msgid "Short"
+msgstr "Court"
+
+msgid "Extended"
+msgstr "Étendu"
+
+msgid "List of entries with the tag “%s”"
+msgstr "Liste des billets avec le mot-clé “%s”"

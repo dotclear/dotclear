@@ -132,32 +132,31 @@ class FieldsList {
 }
 
 $fields = new FieldsList();
+$posts_ids = array();
 
-/* Actions
--------------------------------------------------------- */
-if (!empty($_POST['action']) && !empty($_POST['entries']))
+if (isset($_POST['redir']) && strpos($_POST['redir'],'://') === false)
+{
+	$redir = $_POST['redir'];
+}
+else
+{
+	$redir =
+	'posts.php?user_id='.$_POST['user_id'].
+	'&cat_id='.$_POST['cat_id'].
+	'&status='.$_POST['status'].
+	'&selected='.$_POST['selected'].
+	'&month='.$_POST['month'].
+	'&lang='.$_POST['lang'].
+	'&sortby='.$_POST['sortby'].
+	'&order='.$_POST['order'].
+	'&page='.$_POST['page'].
+	'&nb='.$_POST['nb'];
+}
+$redir_sel = $redir;
+
+if (!empty($_POST['entries']))
 {
 	$entries = $_POST['entries'];
-	$action = $_POST['action'];
-	
-	if (isset($_POST['redir']) && strpos($_POST['redir'],'://') === false)
-	{
-		$redir = $_POST['redir'];
-	}
-	else
-	{
-		$redir =
-		'posts.php?user_id='.$_POST['user_id'].
-		'&cat_id='.$_POST['cat_id'].
-		'&status='.$_POST['status'].
-		'&selected='.$_POST['selected'].
-		'&month='.$_POST['month'].
-		'&lang='.$_POST['lang'].
-		'&sortby='.$_POST['sortby'].
-		'&order='.$_POST['order'].
-		'&page='.$_POST['page'].
-		'&nb='.$_POST['nb'];
-	}
 	
 	foreach ($entries as $k => $v) {
 		$entries[$k] = (integer) $v;
@@ -174,151 +173,26 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	}
 	
 	$posts = $core->blog->getPosts($params);
-	
-	$posts_ids = array();
 	while ($posts->fetch())	{
 		$posts_ids[] = $posts->post_id;
 		$fields->addEntry($posts->post_id,$posts->post_title);
 	}
 	// Redirection including selected entries
 	$redir_sel = $redir.'&'.$fields->getEntriesQS();
-	
-	# --BEHAVIOR-- adminPostsActions
-	$core->callBehavior('adminPostsActions',$core,$posts,$action,$redir);
-	
-	if (preg_match('/^(publish|unpublish|schedule|pending)$/',$action))
-	{
-		switch ($action) {
-			case 'unpublish' : $status = 0; break;
-			case 'schedule' : $status = -1; break;
-			case 'pending' : $status = -2; break;
-			default : $status = 1; break;
-		}
-		
-		try
-		{
-			$core->blog->updPostsStatus($posts_ids,$status);
-			
-			http::redirect($redir_sel.'&upd=1');
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}
-	}
-	elseif ($action == 'selected' || $action == 'unselected')
-	{
-		try
-		{
-			$core->blog->updPostsSelected($posts_ids,$action == 'selected');
-			
-			http::redirect($redir_sel."&upd=1");
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}
-	}
-	elseif ($action == 'delete')
-	{
-		try
-		{
-			// Backward compatibility
-			foreach($posts_ids as $post_id)
-			{
-				# --BEHAVIOR-- adminBeforePostDelete
-				$core->callBehavior('adminBeforePostDelete',(integer) $post_id);
-			}
-			
-			# --BEHAVIOR-- adminBeforePostsDelete
-			$core->callBehavior('adminBeforePostsDelete',$posts_ids);
-			
-			$core->blog->delPosts($posts_ids);
-			
-			http::redirect($redir."&del=1");
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}
-		
-	}
-	elseif ($action == 'category' && isset($_POST['new_cat_id']))
-	{
-		$new_cat_id = $_POST['new_cat_id'];
-		
-		try
-		{
-			if (!empty($_POST['new_cat_title']) && $core->auth->check('categories', $core->blog->id))
-			{
-				$cur_cat = $core->con->openCursor($core->prefix.'category');
-				$cur_cat->cat_title = $_POST['new_cat_title'];
-				$cur_cat->cat_url = '';
-				
-				$parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
-				
-				# --BEHAVIOR-- adminBeforeCategoryCreate
-				$core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
-				
-				$new_cat_id = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
-				
-				# --BEHAVIOR-- adminAfterCategoryCreate
-				$core->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
-			}
-			
-			$core->blog->updPostsCategory($posts_ids, $new_cat_id);
-			
-			http::redirect($redir_sel."&upd=1");
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}
-	}
-	elseif ($action == 'author' && isset($_POST['new_auth_id'])
-	&& $core->auth->check('admin',$core->blog->id))
-	{
-		$new_user_id = $_POST['new_auth_id'];
-		
-		try
-		{
-			if ($core->getUser($new_user_id)->isEmpty()) {
-				throw new Exception(__('This user does not exist'));
-			}
-			
-			$cur = $core->con->openCursor($core->prefix.'post');
-			$cur->user_id = $new_user_id;
-			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
-			
-			http::redirect($redir_sel."&upd=1");
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}
-	}
-	elseif ($action == 'lang' && isset($_POST['new_lang']))
-	{
-		$new_lang = $_POST['new_lang'];
-		try
-		{
-			$cur = $core->con->openCursor($core->prefix.'post');
-			$cur->post_lang = $new_lang;
-			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
-			
-			http::redirect($redir_sel."&upd=1");
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessages());
-		}
-	}
+
 } else {
-	if (empty($_POST['entries'])) {
-		$core->error->add(__('At least one entry should be selected'));
-	} else {
-		$core->error->add(__('No action specified.'));
-	}
+	$posts = $core->con->select("SELECT blog_id FROM ".$core->prefix."blog WHERE false");;
+}
+
+/* Actions
+-------------------------------------------------------- */
+if (!empty($_POST['action']))
+{
+	$action = $_POST['action'];
+} 
+else
+{
+	$core->error->add(__('No action specified.'));
 	dcPage::open(
 		__('Entries'),'',dcPage::breadcrumb(
 		array(
@@ -333,6 +207,138 @@ if (!empty($_POST['action']) && !empty($_POST['entries']))
 	dcPage::close();
 	exit;
 }
+
+# --BEHAVIOR-- adminPostsActions
+$core->callBehavior('adminPostsActions',$core,$posts,$action,$redir);
+
+if (preg_match('/^(publish|unpublish|schedule|pending)$/',$action))
+{
+	switch ($action) {
+		case 'unpublish' : $status = 0; break;
+		case 'schedule' : $status = -1; break;
+		case 'pending' : $status = -2; break;
+		default : $status = 1; break;
+	}
+	
+	try
+	{
+		$core->blog->updPostsStatus($posts_ids,$status);
+		
+		http::redirect($redir_sel.'&upd=1');
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+}
+elseif ($action == 'selected' || $action == 'unselected')
+{
+	try
+	{
+		$core->blog->updPostsSelected($posts_ids,$action == 'selected');
+		
+		http::redirect($redir_sel."&upd=1");
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+}
+elseif ($action == 'delete')
+{
+	try
+	{
+		// Backward compatibility
+		foreach($posts_ids as $post_id)
+		{
+			# --BEHAVIOR-- adminBeforePostDelete
+			$core->callBehavior('adminBeforePostDelete',(integer) $post_id);
+		}
+		
+		# --BEHAVIOR-- adminBeforePostsDelete
+		$core->callBehavior('adminBeforePostsDelete',$posts_ids);
+		
+		$core->blog->delPosts($posts_ids);
+		
+		http::redirect($redir."&del=1");
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+	
+}
+elseif ($action == 'category' && isset($_POST['new_cat_id']))
+{
+	$new_cat_id = $_POST['new_cat_id'];
+	
+	try
+	{
+		if (!empty($_POST['new_cat_title']) && $core->auth->check('categories', $core->blog->id))
+		{
+			$cur_cat = $core->con->openCursor($core->prefix.'category');
+			$cur_cat->cat_title = $_POST['new_cat_title'];
+			$cur_cat->cat_url = '';
+			
+			$parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
+			
+			# --BEHAVIOR-- adminBeforeCategoryCreate
+			$core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+			
+			$new_cat_id = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
+			
+			# --BEHAVIOR-- adminAfterCategoryCreate
+			$core->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
+		}
+		
+		$core->blog->updPostsCategory($posts_ids, $new_cat_id);
+		
+		http::redirect($redir_sel."&upd=1");
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+}
+elseif ($action == 'author' && isset($_POST['new_auth_id'])
+&& $core->auth->check('admin',$core->blog->id))
+{
+	$new_user_id = $_POST['new_auth_id'];
+	
+	try
+	{
+		if ($core->getUser($new_user_id)->isEmpty()) {
+			throw new Exception(__('This user does not exist'));
+		}
+		
+		$cur = $core->con->openCursor($core->prefix.'post');
+		$cur->user_id = $new_user_id;
+		$cur->update('WHERE post_id '.$core->con->in($posts_ids));
+		
+		http::redirect($redir_sel."&upd=1");
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+}
+elseif ($action == 'lang' && isset($_POST['new_lang']))
+{
+	$new_lang = $_POST['new_lang'];
+	try
+	{
+		$cur = $core->con->openCursor($core->prefix.'post');
+		$cur->post_lang = $new_lang;
+		$cur->update('WHERE post_id '.$core->con->in($posts_ids));
+		
+		http::redirect($redir_sel."&upd=1");
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessages());
+	}
+}
+
 /* DISPLAY
 -------------------------------------------------------- */
 // Get current users list
@@ -400,7 +406,7 @@ if ($action == 'category')
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Entries') => 'posts.php',
-			__('Change category for entries') => ''
+			'<span class="page-title">'.__('Change category for entries').'</span>' => ''
 	));
 	
 	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
@@ -429,12 +435,12 @@ if ($action == 'category')
 	if ($core->auth->check('categories', $core->blog->id)) {
 		echo 
 		'<div>'.
-		'<p id="new_cat">'.__('Add a new category').'</p>'.
-		'<p><label for="new_cat_title">'.__('Title:').' '.
-		form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
-		'<p><label for="new_cat_parent">'.__('Parent:').' '.
-		form::combo('new_cat_parent',$categories_combo,'','maximal').
-		'</label></p>'.
+		'<p id="new_cat">'.__('Create a new category for the post(s)').'</p>'.
+		'<p><label for="new_cat_title">'.__('Title:').'</label> '.
+		form::field('new_cat_title',30,255,'','').'</p>'.
+		'<p><label for="new_cat_parent">'.__('Parent:').'</label> '.
+		form::combo('new_cat_parent',$categories_combo,'','').
+		'</p>'.
 		'</div>';
 	}
 	
@@ -499,7 +505,7 @@ elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 	echo
 	'<form action="posts_actions.php" method="post">'.
 	$fields->getEntries().
-	'<p><label for="new_auth_id" class="classic">'.__('Author ID:').'</label> '.
+	'<p><label for="new_auth_id" class="classic">'.__('New author (author ID):').'</label> '.
 	form::field('new_auth_id',20,255);
 	
 	echo

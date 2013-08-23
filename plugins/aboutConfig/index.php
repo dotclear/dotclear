@@ -188,7 +188,7 @@ foreach ($settings as $ns => $s)
 </form>
 </div>
 
-<div id="global" class="multi-part" title="<?php echo __('global settings'); ?>">
+<div id="global" class="multi-part" title="<?php echo __('Global settings'); ?>">
 
 <?php
 $settings = array();
@@ -209,8 +209,8 @@ if (count($settings) > 0) {
 	echo 
 		'<form action="plugin.php" method="post">'.
 		'<p class="anchor-nav">'.
-		'<label for="gs_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gs_nav',$ns_combo).
-		' <input type="submit" value="'.__('Ok').'" id="gs_submit" />'.
+		'<label for="gs_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gs_nav',$ns_combo).' '.
+		'<input type="submit" value="'.__('Ok').'" id="gs_submit" />'.
 		'<input type="hidden" name="p" value="aboutConfig" />'.
 		$core->formNonce().'</p></form>';
 }

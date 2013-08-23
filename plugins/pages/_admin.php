@@ -14,6 +14,8 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 $core->addBehavior('adminDashboardIcons','pages_dashboard');
 $core->addBehavior('adminDashboardFavs','pages_dashboard_favs');
 $core->addBehavior('adminDashboardFavsIcon','pages_dashboard_favs_icon');
+$core->addBehavior('adminUsersActionsHeaders','pages_users_actions_headers');
+
 function pages_dashboard($core,$icons)
 {
 	$icons['pages'] = new ArrayObject(array(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/icon-big.png'));
@@ -39,6 +41,10 @@ function pages_dashboard_favs_icon($core,$name,$icon)
 			$icon[0] = sprintf($str_pages,$page_count);
 		}
 	}
+}
+function pages_users_actions_headers()
+{
+	return dcPage::jsLoad('index.php?pf=pages/_users_actions.js');
 }
 
 $_menu['Blog']->addItem(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/icon.png',
