@@ -192,10 +192,10 @@ if (!$core->error->flag())
 		if (!$with_spam || ($status != -2)) {
 			if ($spam_count == 1) {
 				echo '<p>'.sprintf(__('You have one spam comment.'),'<strong>'.$spam_count.'</strong>').' '.
-				'<a href="comments.php?status=-2">'.__('Show it.').'</a></p>';
+				'<a href="comments.php?status=-2">'.__('Show it.').'</a>.</p>';
 			} elseif ($spam_count > 1) {
 				echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
-				'<a href="comments.php?status=-2">'.__('Show them.').'</a></p>';
+				'<a href="comments.php?status=-2">'.__('Show them.').'</a>.</p>';
 			}
 		}
 		
@@ -218,17 +218,18 @@ if (!$core->error->flag())
 	
 	echo
 	'<form action="comments.php" method="get" id="filters-form">'.
-	'<h3>'.__('Filter comments and trackbacks list').'</h3>'.
+	'<h3 class="hidden">'.__('Filter comments and trackbacks list').'</h3>'.
 	'<div class="table">'.
 
 	'<div class="cell">'.
+	'<h4>'.__('Filters').'</h4>'.
 	'<p><label for="type" class="ib">'.__('Type:').'</label> '.
 	form::combo('type',$type_combo,$type).'</p> '.
 	'<p><label for="status" class="ib">'.__('Status:').'</label> '.
 	form::combo('status',$status_combo,$status).'</p>'.
 	'</div>'.
 	
-	'<div class="cell">'.
+	'<div class="cell filters-sibling-cell">'.
 	'<p><label for="author" class="ib">'.__('Author:').'</label> '.
 	form::field('author',20,255,html::escapeHTML($author)).'</p>'.
 	'<p><label for="ip" class="ib">'.__('IP address:').'</label> '.
@@ -236,6 +237,7 @@ if (!$core->error->flag())
 	'</div>'.
 	
 	'<div class="cell filters-options">'.
+	'<h4>'.__('Display options').'</h4>'.
 	'<p><label for="sortby" class="ib">'.__('Order by:').'</label> '.
 	form::combo('sortby',$sortby_combo,$sortby).'</p>'.
 	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
@@ -246,7 +248,7 @@ if (!$core->error->flag())
 	'</div>'.
 	
 	'</div>'.
-	'<p><input type="submit" value="'.__('Apply filters').'" />'.
+	'<p><input type="submit" value="'.__('Apply filters and display options').'" />'.
 	'<br class="clear" /></p>'. //Opera sucks
 	'</form>';
 	

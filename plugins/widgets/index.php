@@ -196,7 +196,8 @@ echo dcPage::breadcrumb(
 # All widgets
 echo
 '<form id="listWidgets" action="'.$p_url.'" method="post"  class="widgets">'.
-'<fieldset><legend>'.__('Available widgets').'</legend>'.
+'<h3>'.__('Available widgets').'</h3>'.
+'<p>'.__('Move widgets from this list to one of the sidebars.').'</p>'.
 '<div id="widgets">';
 
 $j = 0;
@@ -204,7 +205,7 @@ foreach ($__widgets->elements(true) as $w) {
 	echo
 	'<div>'.form::hidden(array('w[void][0][id]'),html::escapeHTML($w->id())).
 	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hideControl').' '.
-	$w->name().($w->desc() != '' ? ' <span class="form-note">('.__($w->desc()).')</span>' : '').'</p>'.
+	$w->name().($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
 	'<p class="js-remove"><label class="classic">'.__('Append to:').'</label> '.
 	form::combo(array('addw['.$w->id().']'),$append_combo).'</p>'.
 	'<div class="widgetSettings">'.$w->formSettings('w[void][0]',$j).'</div>'.
@@ -214,7 +215,6 @@ foreach ($__widgets->elements(true) as $w) {
 
 echo
 '</div>'.
-'</fieldset>'.
 '<p><input type="submit" class="js-remove" name="append" value="'.__('Add widgets to sidebars').'" />'.
 $core->formNonce().'</p>'.
 '</form>';
@@ -222,19 +222,19 @@ $core->formNonce().'</p>'.
 echo '<form id="sidebarsWidgets" action="'.$p_url.'" method="post">';
 # Nav sidebar
 echo
-'<div id="sidebarNav" class="widgets">'.
+'<div id="sidebarNav" class="widgets fieldset">'.
 sidebarWidgets('dndnav',__('Navigation sidebar'),$widgets_nav,'nav',$__default_widgets['nav'],$j).
 '</div>';
 
 # Extra sidebar
 echo
-'<div id="sidebarExtra" class="widgets">'.
+'<div id="sidebarExtra" class="widgets fieldset">'.
 sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra'],$j).
 '</div>';
 
 # Custom sidebar
 echo
-'<div id="sidebarCustom" class="widgets">'.
+'<div id="sidebarCustom" class="widgets fieldset">'.
 sidebarWidgets('dndcustom',__('Custom sidebar'),$widgets_custom,'custom',$__default_widgets['custom'],$j).
 '</div>';
 
@@ -315,7 +315,7 @@ dcPage::helpBlock($widget_elements);
 
 function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 {
-	$res = '<fieldset><legend>'.$title.'</legend><div id="'.$id.'">';
+	$res = '<h3>'.$title.'</h3><div id="'.$id.'">';
 	
 	if (!($widgets instanceof dcWidgets))
 	{
@@ -334,7 +334,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$res .=
 		'<div>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
 		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'js-hide','',0,'title="'.__('order').'"').' '.
-		$w->name().($w->desc() != '' ? ' <span class="form-note">('.__($w->desc()).')</span>' : '').'</p>'.
+		$w->name().($w->desc() != '' ? ' <!-- <span class="form-note">'.__($w->desc()).'</span> -->' : '').'</p>'.
 		'<p class="removeWidget js-remove"><label class="classic">'.
 		form::checkbox(array($iname.'[_rem]'),'1',0).' '.__('Remove widget').
 		'</label></p>'.
@@ -345,7 +345,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$j++;
 	}
 	
-	$res .= '</div></fieldset>';
+	$res .= '</div>';
 	
 	return $res;
 }

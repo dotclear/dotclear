@@ -457,7 +457,7 @@ msgid "Themes"
 msgstr "主题"
 
 #, php-format
-msgid "You are currently using \"%s\""
+msgid "You are currently using <strong>%s</strong>"
 msgstr "您正在使用“%s”"
 
 #, fuzzy

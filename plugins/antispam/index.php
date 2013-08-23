@@ -146,7 +146,7 @@ else
 
 	echo
 	'<form action="'.$p_url.'" method="post" class="fieldset">'.
-	'<h3>'.__('Information').'</h3>';
+	'<h3>'.__('Informations').'</h3>';
 
 	if (!empty($_GET['del'])) {
 		dcPage::message(__('Spam comments have been successfully deleted.'));
@@ -170,7 +170,7 @@ else
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
 		sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
-			'</p>';
+			'.</p>';
 	}
 	echo '</form>';
 

@@ -454,7 +454,7 @@ msgid "Themes"
 msgstr ""
 
 #, php-format
-msgid "You are currently using \"%s\""
+msgid "You are currently using <strong>%s</strong>"
 msgstr ""
 
 msgid "Use selected theme"

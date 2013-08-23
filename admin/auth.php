@@ -333,7 +333,7 @@ if ($akey)
 elseif ($recover)
 {
 	echo
-	'<fieldset><legend>'.__('Request a new password').'</legend>'.
+	'<div class="fieldset"><h2>'.__('Request a new password').'</h2>'.
 	'<p><label for="user_id">'.__('Username:').'</label> '.
 	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</p>'.
 	
@@ -342,21 +342,22 @@ elseif ($recover)
 	
 	'<p><input type="submit" value="'.__('recover').'" />'.
 	form::hidden(array('recover'),1).'</p>'.
-	'</fieldset>'.
+	'</div>'.
 	
 	'<div id="issue">'.
-	'<p><a href="auth.php">'.__('Back to login screen').'</a></p></div>';
+	'<p><a href="auth.php">'.__('Back to login screen').'</a></p>'.
+	'</div>';
 }
 elseif ($change_pwd)
 {
 	echo
-	'<fieldset><legend>'.__('Change your password').'</legend>'.
+	'<div class="fieldset"><h2>'.__('Change your password').'</h2>'.
 	'<p><label for="new_pwd">'.__('New password:').'</label> '.
 	form::password(array('new_pwd','new_pwd'),20,255).'</p>'.
 	
 	'<p><label for="new_pwd_c">'.__('Confirm password:').'</label> '.
 	form::password(array('new_pwd_c','new_pwd_c'),20,255).'</p>'.
-	'</fielset>'.
+	'</div>'.
 	
 	'<p><input type="submit" value="'.__('change').'" />'.
 	form::hidden('login_data',$login_data).'</p>';
@@ -370,12 +371,12 @@ else
 	else
 	{
 		if ($safe_mode) {
-			echo '<fieldset>';
-			echo '<legend>'.__('Safe mode login').'</legend>';
+			echo '<div class="fieldset">';
+			echo '<h2>'.__('Safe mode login').'</h2>';
 			echo 
-				'<p class="form-note info">'.
-				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;<br />'.
-				__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
+				'<p class="form-note">'.
+				__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems').'&nbsp;</p>'.
+				'<p class="form-note">'.__('Disable or delete any plugin suspected to cause trouble, then log out and log back in normally.').
 				'</p>';
 		}
 		else {
@@ -402,7 +403,7 @@ else
 		if($safe_mode) {
 			echo 
 			form::hidden('safe_mode',1).
-			'</fieldset>';
+			'</div>';
 		}
 		else {
 			echo '</div>';

@@ -16,7 +16,9 @@ html {
 	font-size: 62.5%;
 }
 body {
-	font: 1.2rem/1.5 Arial,Helvetica,sans-serif;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	font-family: Arial,Helvetica,sans-serif;
 	color: #333;
 	background: #fff;
 	margin: 0;
@@ -251,7 +253,7 @@ abbr {
 	position: static;
 }
 .two-cols .col {
-	width: 47%;
+	width: 48%;
 	margin-left: 2%;
 	float: left;
 }
@@ -348,7 +350,7 @@ abbr {
 	color: #d30e60;
 }
 #main-menu .active {
-	font-weight: bolder;
+	font-weight: bold;
 }
 #search-menu {
 	padding: .3rem .4rem 0;
@@ -419,7 +421,7 @@ abbr {
 /* ---------------------------------------------------------------------------- auth.php */
 #login-screen {
 	display: block;
-	width: 18em;
+	width: 20em;
 	margin: 1.5em auto 0;
 	font-size: 1.4rem;
 }
@@ -430,14 +432,11 @@ abbr {
 	margin-bottom: .5em;
 	margin-left: 0;
 }
-#login-screen fieldset, #login-screen .fieldset {
+#login-screen .fieldset {
 	border: 1px solid #A8DC26;
 	padding: 1em 1em 0 1em;
 	border-radius: 4px;
 	background: #fff;
-}
-#login-screen legend {
-	border: 1px solid #A8DC26;
 }
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit] {
 	width: 100%;
@@ -447,7 +446,6 @@ abbr {
 	font-size: 1.2rem;
 }
 #login-screen #issue strong {font-weight: normal;}
-
 
 /* ------------------------------------------------------------------ dashboard */
 #dashboard-main {
@@ -513,6 +511,18 @@ abbr {
 	border: 1px solid #99f;
 	padding: .2em 1em .1em 24px;
 	color: #666;
+}
+#quick #new_cat, .q-cat, .q-cat label {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 1em;
+	margin-top: 0;
+}
+.q-cat label {
+	margin-right: .3em;
+}
+#quick #new_cat {
+	margin-bottom: 2em;
 }
 #dashboard-items {
 	margin: 3em auto;
@@ -617,6 +627,10 @@ abbr {
 }
 select#del_cat {
 	width: 100%;
+}
+#new_cat {
+	font-weight: bold;
+	margin-top: 2em;
 }
 /* ------------------------------------------------------------------ media */
 #media-icon {
@@ -817,24 +831,27 @@ li.media-action input {
 #theme-box {
 	display: table-cell;
 	vertical-align: top;
-	padding: 1rem 0; 
+	padding: 0; 
 	width: 312px;
-	background: #eef;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
-#theme-box div.theme-shot img {
+#theme-box .theme-shot, 
+#theme-box .theme-info,
+#theme-box .theme-actions {
+	background: #eef;
+	padding: 1em 16px;
+	margin: 0;
+}
+#theme-box .theme-shot img {
 	display: block;
-	margin: 0 16px;
 	width: 280px;
 	height: 245px;
 	border: 1px solid #ccc;
 }
-#theme-box div.theme-info {
-	margin: 1em 16px;
-}
 #theme-box h4 {
 	color: #000;
+	background: #eef;
 }
 #theme-box span.theme-version {
 	color: #666;
@@ -846,10 +863,10 @@ li.media-action input {
 	color: #c00;
 	font-weight:bold;
 }
-#theme-box div.theme-actions {
-	padding: 0 16px;
+#theme-box .theme-actions {
+	border-bottom: 1px solid #ccc;
 }
-#themes div.theme-details-js {
+#themes .theme-details-js {
 	float: left;
 	width: 120px;
 	height: 150px;
@@ -861,14 +878,14 @@ li.media-action input {
 	cursor: pointer;
 	border-radius: 4px;
 }
-#themes div.theme-details-js label {
+#themes .theme-details-js label {
 	cursor: pointer;
 }
-#themes div.theme-details-js.theme-selected {
+#themes .theme-details-js.theme-selected {
 	background: #ddd;
 	border: 1px solid #999;
 }
-#themes div.theme-details-js div.theme-shot img {
+#themes .theme-details-js .theme-shot img {
 	width: 120px;
 	height: 105px;
 	border: 1px solid #fff;
@@ -889,6 +906,8 @@ option.avail10n {
 	margin-top: 4em;
 	background: #f5f5f5;
 	z-index: 100;
+	clear: both;
+	padding: 0 1em;
 }
 #help-button {
 	background: transparent url(../images/page_help.png) no-repeat 6px center;
@@ -978,9 +997,7 @@ body.popup #footer p {
 	border: none;
 }
 /* ------------------------------------------------------------------ messages */
-div.error, p.error, 
-div.message, p.message, 
-div.static-msg, p.static-msg {
+.error, .message, .static-msg, .static-msg {
 	padding: 0.5em 0.5em 0.5em 48px;
 	margin-bottom: 1em;
 	border-radius: 8px;
@@ -989,19 +1006,25 @@ p.error, p.message, p.static-msg {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
-div.error, p.error {
-	background: #ffdec8 url(msg-error.png) no-repeat .7em .7em;
+.error {
+	background: #FFBABA url(msg-error.png) no-repeat .7em .7em;
 	color: #000;
 }
-div.message, p.message, 
-div.static-msg, p.static-msg {
+.message, .static-msg {
 	background: #666 url(msg-std.png) no-repeat .7em .7em;
 	color: #fff;
 }
-div.message a, p.message a, 
-div.static-msg a, p.static-msg a {
+.success {
+	background-color: #cf9;
+	color: #000;
+}
+.message a, .static-msg a {
 	color: #fff;
 }
+.success a {
+	color: #666;
+}
+
 /* ------------------------------------------------------------------ navigation */
 .anchor-nav {
 	background: #575859;
@@ -1166,6 +1189,9 @@ table {
 	border-collapse: collapse;
 	margin: 0 0 1em 0;
 }
+table.posts-list {
+	min-width: 50%;
+}
 tr.line:hover {
 	background: #f3f3f3;
 }
@@ -1180,7 +1206,7 @@ td {
 	border-width: 0 0 1px 0;
 	border-style: solid;
 	border-color: #e3e3e3;
-	padding: .4rem .5rem;
+	padding: .3em .5em;
 	vertical-align: top;
 }
 th {
@@ -1188,9 +1214,12 @@ th {
 	border-style: solid;
 	border-color: #ccc;
 	background: #f3f3ff;
-	padding: .4rem .5rem;
+	padding: .3em .5em;
 	vertical-align: top;
 	text-align: left;
+}
+th.first img {
+	padding-right: 24px;
 }
 .noborder td, td.noborder, .noborder th, th.noborder {
 	border-width: 0 0 1px 0;
@@ -1240,9 +1269,8 @@ td.status img {
 td.status a {
 	border: none;
 }
-
-tr.line img.expand {
-	margin-right: 10px;
+tr.line img.expand, th img.expand {
+	margin-right: 6px;
 	margin-bottom: -2px;
 }
 tr.line input {
@@ -1584,12 +1612,15 @@ input[type=button] {
 	width: 100%;
 	padding: 0;
 	margin-bottom: 1em;
-	margin-top: 1.5em;
+	margin-top: .5em;
 }
 #filters-form .cell {
 	padding: 0 2em 0 0;
 	display: table-cell;
 	vertical-align: top;
+}
+#filters-form .filters-sibling-cell {
+	padding-top: 3.8em;
 }
 #filters-form .filters-options {
 	padding-left: 2em;
@@ -1605,6 +1636,10 @@ input[type=button] {
 }
 #filters-form select {
 	width: 14em;
+}
+#filters-form h4 {
+	margin-top: 0;
+	margin-bottom: 2em;
 }
 
 /* ---------------------------------------------------- Pagination */
@@ -1720,6 +1755,7 @@ input[type=button] {
 	#help-button {width:20px; overflow: hidden;}
 	#info-box2 {float:none;}
 	#dashboard-items div {display: block;margin-bottom: 1em; padding: 0 1em;}
+	#help-button {height:26px; width:26px; background-color: #A2CBE9; padding: 0; margin:0;font-size: 1rem;line-height: 68px}
 }
 @media screen and (max-width: 492px) {
 	#header {height:3.6rem;}
@@ -1728,5 +1764,4 @@ input[type=button] {
 	div.media-list .media-item {width: 90%; float: none}
 	#info-box1 select {width: 12rem; margin-right: .6rem;}
 	#info-box1 p.nomobile, label.nomobile {display: none;}
-	#help-button {height:26px; width:26px; background-color: #A2CBE9; padding: 0; margin:0;font-size: 1rem;line-height: 68px}
 }
