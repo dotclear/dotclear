@@ -192,10 +192,10 @@ if (!$core->error->flag())
 		if (!$with_spam || ($status != -2)) {
 			if ($spam_count == 1) {
 				echo '<p>'.sprintf(__('You have one spam comment.'),'<strong>'.$spam_count.'</strong>').' '.
-				'<a href="comments.php?status=-2">'.__('Show it.').'</a></p>';
+				'<a href="comments.php?status=-2">'.__('Show it.').'</a>.</p>';
 			} elseif ($spam_count > 1) {
 				echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
-				'<a href="comments.php?status=-2">'.__('Show them.').'</a></p>';
+				'<a href="comments.php?status=-2">'.__('Show them.').'</a>.</p>';
 			}
 		}
 		

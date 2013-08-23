@@ -505,7 +505,7 @@ msgid "OPML or XBEL File:"
 msgstr "Fichier OPML ou XBEL :"
 
 msgid "Import"
-msgstr "Importation"
+msgstr "Importer"
 
 msgid "Blowup Config"
 msgstr "Configuration de Blowup"
