@@ -297,13 +297,13 @@ class dcPage
 		return $res;
 	}
 
-	public static function message($msg,$timestamp=true,$div=false,$echo=true)
+	public static function message($msg,$timestamp=true,$div=false,$echo=true,$class='message')
 	{
 		global $core;
 
 		$res = '';
 		if ($msg != '') {
-			$res = ($div ? '<div class="message">' : '').'<p'.($div ? '' : ' class="message"').'>'.
+			$res = ($div ? '<div class="'.$class.'">' : '').'<p'.($div ? '' : ' class="'.$class.'"').'>'.
 			($timestamp ? dt::str(__('%H:%M:%S:'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
 			'</p>'.($div ? '</div>' : '');
 			if ($echo) {
@@ -311,6 +311,11 @@ class dcPage
 			}
 		}
 		return $res;
+	}
+
+	public static function success($msg,$timestamp=true,$div=false,$echo=true)
+	{
+		self::message($msg,$timestamp,$div,$echo,"success");
 	}
 
 	private static function debugInfo()
