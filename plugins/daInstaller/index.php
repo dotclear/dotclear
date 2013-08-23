@@ -297,21 +297,19 @@ echo
 '</div>'.
 '<!-- Search -->'.
 '<div class="multi-part" id="search" title="'.__('Search').'">'.
-	'<fieldset><legend>'.__('Search options').
-	'</legend>'.
-	'<form method="get" action="'.$p_url.'">'.
+	'<form method="get" action="'.$p_url.'" class="fieldset">'.
+	'<h3>'.__('Search').'</h3>'.
 	'<p>'.form::hidden('p','daInstaller').
 	'<label for="q" class="classic">'.__('Query:').'&nbsp;</label> '.
-	form::field('q',30,255,html::escapeHTML($q)).
-	'<label for="mode" class="classic">'.
+	form::field('q',30,255,html::escapeHTML($q)).'</p>'.
+	'<p><label for="mode" class="classic">'.
 	form::radio(array('mode','mode'),'plugins',$mode == 'plugins').
 	' '.__('Plugins').'&nbsp;</label> '.
 	'<label for="mode2" class="classic">'.
-	form::radio(array('mode','mode2'),'themes',$mode == 'themes')
-	.' '.__('Themes').'&nbsp;</label> '.
-	'<input type="submit" value="'.__('Search').'" /></p>'.
-	'</form>'.
-	'</fieldset>';
+	form::radio(array('mode','mode2'),'themes',$mode == 'themes').
+	' '.__('Themes').'&nbsp;</label></p>'.
+	'<p><input type="submit" value="'.__('Search').'" /></p>'.
+	'</form>';
 if (!empty($q)) {
 	echo '<p><strong>'.sprintf(__('%u %s found'),$s_m_nb,__($mode)).'</strong></p>';
 	if ($s_m_nb > 0) {

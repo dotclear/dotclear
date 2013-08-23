@@ -473,6 +473,8 @@ class dcPage
 			__('view entry')).
 		self::jsVar('dotclear.msg.confirm_delete_posts',
 			__("Are you sure you want to delete selected entries (%s)?")).
+		self::jsVar('dotclear.msg.confirm_delete_categories',
+			__("Are you sure you want to delete selected categories (%s)?")).
 		self::jsVar('dotclear.msg.confirm_delete_post',
 			__("Are you sure you want to delete this entry?")).
 		self::jsVar('dotclear.msg.click_to_unlock',

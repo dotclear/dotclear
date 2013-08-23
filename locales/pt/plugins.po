@@ -848,7 +848,7 @@ msgid "Import a single blog"
 msgstr "Importar um blog simples"
 
 #, php-format
-msgid "This will import a single blog backup as new content in the current blog: %s."
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Isto irá importar uma copia de simples blog como novo conteúdo no blog actual: %s."
 
 msgid "Upload a backup file"

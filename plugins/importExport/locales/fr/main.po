@@ -222,7 +222,7 @@ msgid "Are you sure you want to import a full backup file?"
 msgstr "Êtes-vous certain de vouloir charger un fichier de sauvegarde complet ?"
 
 #: inc/class.dc.import.flat.php:184
-msgid "This will import a single blog backup as new content in the current blog: %s."
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Ceci va charger une sauvegarde de blog comme un nouveau contenu dans le blog en cours : %s."
 
 #: inc/class.dc.import.flat.php:186

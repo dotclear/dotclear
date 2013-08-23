@@ -53,7 +53,7 @@ $contexts = array(
 );
 
 $fonts = array(
-	__('default') => '',
+	__('Default') => '',
 	__('Ductile primary') => 'Ductile body',
 	__('Ductile secondary') => 'Ductile alternate',
 	__('Times New Roman') => 'Times New Roman',
@@ -539,7 +539,7 @@ echo
 form::combo('body_font',$fonts,$ductile_user['body_font']).'</label>'.
 (!empty($ductile_user['body_font']) ? ' '.fontDef($ductile_user['body_font']) : '').
 '</p>'.
-'<p class="form-note">'.__('Set main font to default to use webfont below.').'</p> '.
+'<p class="form-note">'.__('Set main font to Default to use webfont below.').'</p> '.
 '<p class="field"><label for="body_webfont_family">'.__('Webfont family:').'</label> '.
 form::field('body_webfont_family',25,255,$ductile_user['body_webfont_family']).'</p>'.
 '<p class="field"><label for="body_webfont_url">'.__('Webfont URL:').'</label> '.
@@ -553,7 +553,7 @@ echo
 form::combo('alternate_font',$fonts,$ductile_user['alternate_font']).'</label>'.
 (!empty($ductile_user['alternate_font']) ? ' '.fontDef($ductile_user['alternate_font']) : '').
 '</p>'.
-'<p class="form-note">'.__('Set secondary font to default to use webfont below.').'</p> '.
+'<p class="form-note">'.__('Set secondary font to Default to use webfont below.').'</p> '.
 '<p class="field"><label for="alternate_webfont_family">'.__('Webfont family:').'</label> '.
 form::field('alternate_webfont_family',25,255,$ductile_user['alternate_webfont_family']).'</p>'.
 '<p class="field"><label for="alternate_webfont_url">'.__('Webfont URL:').'</label> '.
