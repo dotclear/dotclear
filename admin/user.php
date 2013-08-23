@@ -184,7 +184,7 @@ dcPage::open($page_title,
 );
 
 if (!empty($_GET['upd'])) {
-	dcPage::succes(__('User has been successfully updated.'));
+	dcPage::success(__('User has been successfully updated.'));
 }
 
 if (!empty($_GET['add'])) {
