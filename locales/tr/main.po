@@ -2128,7 +2128,7 @@ msgstr "Seçim yok"
 msgid "select all"
 msgstr "hepsini seç"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "seçimi evir"
 
 msgid "view entry"

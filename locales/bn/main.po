@@ -2121,7 +2121,7 @@ msgstr ""
 msgid "select all"
 msgstr "সব সিলেক্ট করুন"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr ""
 
 msgid "view entry"

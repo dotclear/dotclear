@@ -1934,7 +1934,7 @@ msgstr "be pasirinkimo"
 msgid "select all"
 msgstr "pasirinkti viską"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "atvirkščias pasirinkimas"
 
 msgid "view entry"

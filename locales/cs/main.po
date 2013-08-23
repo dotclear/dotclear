@@ -2125,7 +2125,7 @@ msgstr "Žádný výběr"
 msgid "select all"
 msgstr "vybrat vše"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "obrátit výběr"
 
 msgid "view entry"

@@ -456,12 +456,14 @@ class dcPage
 			__('Help about this page')).
 		self::jsVar('dotclear.msg.help_hide',
 			__('Hide')).
+		self::jsVar('dotclear.msg.to_select',
+			__('Select:')).
 		self::jsVar('dotclear.msg.no_selection',
 			__('no selection')).
 		self::jsVar('dotclear.msg.select_all',
 			__('select all')).
 		self::jsVar('dotclear.msg.invert_sel',
-			__('invert selection')).
+			__('Invert selection')).
 		self::jsVar('dotclear.msg.website',
 			__('Web site:')).
 		self::jsVar('dotclear.msg.email',

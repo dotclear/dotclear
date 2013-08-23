@@ -2180,7 +2180,7 @@ msgstr "Nincs kijelölés"
 msgid "select all"
 msgstr "mindet"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "ellenkezőket"
 
 msgid "view entry"

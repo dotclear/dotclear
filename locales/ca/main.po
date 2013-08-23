@@ -2199,7 +2199,7 @@ msgstr "invertir la selecció"
 msgid "select all"
 msgstr "Seleccionar tot"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "invertir la selecció"
 
 msgid "view entry"

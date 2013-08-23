@@ -2153,7 +2153,7 @@ msgstr "選択されていません"
 msgid "select all"
 msgstr "すべてを選択"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "選択を反転"
 
 msgid "view entry"
