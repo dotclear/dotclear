@@ -151,9 +151,6 @@ else
 	while ($rs->fetch())
 	{
 		$attr = 'id="cat_'.$rs->cat_id.'"';
-		if ($rs->nb_total == 0) {
-			$attr .= ' class="deletable"';
-		}
 
 		if ($rs->level > $level) {
 			echo str_repeat('<ul><li '.$attr.'>',$rs->level - $level);
@@ -167,7 +164,7 @@ else
 
 		echo
 		'<p>'.
-		form::checkbox(array('categories[]','cat-'.$rs->cat_id),$rs->cat_id).
+		form::checkbox(array('categories[]','cat-'.$rs->cat_id),$rs->cat_id,null,$rs->nb_total>0?'notempty':'').
 		'<label class="classic" for="cat-'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label>'.
 		' (<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.

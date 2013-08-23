@@ -19,7 +19,11 @@ $(function() {
 
 	$('#mov_cat').parent().hide();
 	$('input[name="categories[]"]').click(function() {
-		$('#mov_cat').parent().show();
+		if ($('input[name="categories[]"].notempty:checked').length>0) {
+			$('#mov_cat').parent().show().parent().removeClass('two-cols').addClass('three-cols');
+		} else {
+			$('#mov_cat').parent().hide().parent().removeClass('three-cols').addClass('two-cols');
+		}
 	});
 
 	dotclear.categoriesActionsHelper();
