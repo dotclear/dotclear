@@ -268,7 +268,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	
 	echo
 	'<fieldset><legend>'.__('Validate permissions').'</legend>'.
-	'<p><label for="your_pwd">'.__('Your password:').
+	'<p><label for="your_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').
 	form::password('your_pwd',20,255).'</label></p>'.
 	'</fieldset>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
