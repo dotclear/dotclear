@@ -78,9 +78,17 @@ $(function() {
 	{
 		// Get document format and prepare toolbars
 		var formatField = $('#post_format').get(0);
+		var last_post_format = $(formatField).val();
 		$(formatField).change(function() {
-			excerptTb.switchMode(this.value);
-			contentTb.switchMode(this.value);
+			// Confirm post format change
+			if(window.confirm(dotclear.msg.confirm_change_post_format_noconvert)){
+				excerptTb.switchMode(this.value);
+				contentTb.switchMode(this.value);
+				last_post_format = $(this).val();
+			}else{
+				// Restore last format if change cancelled
+				$(this).val(last_post_format);
+			}
 		});
 
 		var excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
@@ -150,14 +158,14 @@ $(function() {
 		});
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
-			fn: function() { excerptTb.switchMode(formatField.value); },
 			cookie: 'dcx_post_excerpt',
 			hide: $('#post_excerpt').val() == ''
 		});
 
 		// Load toolbars
 		contentTb.switchMode(formatField.value);
-
+		excerptTb.switchMode(formatField.value);
+		
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {
 			this.href = '';
