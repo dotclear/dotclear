@@ -611,19 +611,28 @@ abbr {
 }
 #categories li {
 	margin: .5em 0;
-	padding: .3em 1.5em;
+	padding: .5em 1.2em;
 	border: 1px solid #ccc;
-	border-left: 1em solid #E5E3DA;
-	border-radius: .3em;
+	border-left: 8px solid #E5E3DA;
+	border-radius: 3px;
 }
+#categories input[type="checkbox"] {
+	margin-right: .8em;
+} 
 #categories h4 {
 	margin: 0;
+}
+#categories label a {
+	font-weight: bold;
 }
 #categories h4 span {
 	font-weight: normal;
 }
 #categories li p {
 	margin: 0;
+}
+.cat-actions {
+	line-height: 2;
 }
 select#del_cat {
 	width: 100%;
