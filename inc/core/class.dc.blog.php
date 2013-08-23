@@ -554,6 +554,19 @@ class dcBlog
 		
 		$this->triggerBlog();
 	}
+
+        /**
+        Set category position
+
+        @param  id              <b>integer</b>          Category ID
+        @param  left            <b>integer</b>          Category ID before
+        @param  right           <b>integer</b>          Category ID after
+        */
+        public function updCategoryPosition($id,$left,$right)
+        {
+                $this->categories()->updatePosition($id,$left,$right);
+                $this->triggerBlog();
+        }
 	
 	/**
 	DEPRECATED METHOD. Use dcBlog::setCategoryParent and dcBlog::moveCategory
