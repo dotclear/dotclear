@@ -123,8 +123,8 @@ $(function() {
 		        hide: $('#post_notes').val() == '',
 		        legend_click: true
 		});
-		$('#new_cat').toggleWithLegend(
-			$('#new_cat').parent().children().not('#new_cat'),
+		$('#create_cat').toggleWithLegend(
+			$('#create_cat').parent().children().not('#create_cat'),
 			{legend_click: true} // no cookie on new category as we don't use this every day
 		);
 		$('#post_lang').parent().toggleWithLegend($('#post_lang'),{

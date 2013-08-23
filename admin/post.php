@@ -457,7 +457,7 @@ if ($can_edit_post)
 					'</p>'.
 					($core->auth->check('categories', $core->blog->id) ?
 						'<div>'.
-						'<p id="new_cat">'.__('Add a new category').'</p>'.
+						'<h5 id="create_cat">'.__('Add a new category').'</h5>'.
 						'<p><label for="new_cat_title">'.__('Title:').' '.
 						form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
 						'<p><label for="new_cat_parent">'.__('Parent:').' '.
