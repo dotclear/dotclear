@@ -638,10 +638,8 @@ select#del_cat {
 }
 #save-set-order.disabled {
         text-shadow: none;
-        color: #000;
+        color: #666;
         background: #F5F5F5;
-        background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#F5F5F5));
-        background: -moz-linear-gradient(center top , #F5F5F5, #DFDFDF) repeat scroll 0 0 transparent;
         border: 1px solid #CCCCCC;
 }
 #save-set-order.disabled:hover {

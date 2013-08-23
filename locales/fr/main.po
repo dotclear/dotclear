@@ -613,8 +613,8 @@ msgstr "Catégorie déplacée avec succès."
 msgid "No category yet."
 msgstr "Pas encore de catégorie."
 
-msgid "Categories list"
-msgstr "Liste des catégories"
+msgid "List of blog\'s categories"
+msgstr "Liste des catégories du blog"
 
 #, php-format
 msgid "%d entries"
@@ -648,8 +648,11 @@ msgstr "Supprimer une catégorie"
 msgid "Choose a category to remove:"
 msgstr "Choisissez une catégorie à supprimer :"
 
+msgid "Categories order"
+msgstr "Ordonnancement des catégories"
+
 msgid "Save categories order"
-msgstr "Sauver l'ordre des catégories"
+msgstr "Enregistrer l'ordre des catégories"
 
 msgid "And choose the category which will receive its entries:"
 msgstr "Et sélectionnez la catégorie qui recevra ses (éventuels) billets :"
@@ -660,11 +663,14 @@ msgstr "Vous ne pouvez déplacer les billets vers la catégorie que vous voulez 
 msgid "Delete"
 msgstr "Supprimer"
 
-msgid "Reorder categories"
-msgstr "Réordonner les catégories"
+msgid "Reorder all categories on the top level"
+msgstr "Replacer toutes les catégories au premier niveau"
 
 msgid "This will relocate all categories on the top level"
 msgstr "Ceci va déplacer toutes les catégories au premier niveau"
+
+msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
+msgstr "Pour modifier l\'ordre des catégories, déplacez les items par glisser-déposer puis cliquez sur le bouton \"Enregistrer l\'ordre des catégories\"."
 
 msgid "Reorder"
 msgstr "Réordonner"
@@ -3169,3 +3175,6 @@ msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 
 msgid "This category will be created when you will save your post."
 msgstr "Cette catégorie sera créée lorsque vous enregistrerez votre billet."
+
+msgid "Selected categories action:"
+msgstr "Action sur les catégories sélectionnées :"

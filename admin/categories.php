@@ -144,7 +144,7 @@ else
 {
 	echo
 	'<form action="categories.php" method="post" id="form-categories">'.
-	'<h3>'.__('Categories list').'</h3>'.
+	'<h3>'.__('List of blog\'s categories').'</h3>'.
 	'<div id="categories">';
 
 	$ref_level = $level = $rs->level-1;
@@ -167,8 +167,8 @@ else
 
 		echo
 		'<p>'.
-		form::checkbox(array('categories[]'),$rs->cat_id).
-		'<strong><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></strong>'.
+		form::checkbox(array('categories[]','cat-'.$rs->cat_id),$rs->cat_id).
+		'<label class="classic" for="cat-'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label>'.
 		' (<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
 		', '.__('total:').' '.$rs->nb_total.')</p>'.
@@ -199,10 +199,10 @@ else
 
 	echo
 	'<div class="col clear">'.
+	'<h3>'.__('Categories order').'</h3>'.
 	'<form action="categories.php" method="post" id="reset-order">'.
-	'<h3>'.__('Reorder categories').'</h3>'.
-	'<p>'.__('This will relocate all categories on the top level').'</p> '.
-	'<p><input class="reset" type="submit" value="'.__('Reorder').'" />'.
+	'<!-- <p>'.__('This will relocate all categories on the top level').'</p> -->'.
+	'<p><input type="submit" value="'.__('Reorder all categories on the top level').'" />'.
 	form::hidden(array('reset'),1).
 	$core->formNonce().'</p>'.
 	'</form>'.
@@ -212,11 +212,12 @@ else
 		&& $core->auth->check('categories',$core->blog->id)
 		&& $rs->count()>1) {
 		echo
-		'<div class="col clear">'.
+		'<div class="col">'.
 		'<form action="categories.php" method="post">'.
+		'<p>'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>'.
 		'<p>'.
 		'<input type="hidden" id="categories_order" name="categories_order" value=""/>'.
-		'<input id="save-set-order" type="submit" value="'.__('Save categories order').'"/>'.
+		'<input type="submit" id="save-set-order" value="'.__('Save categories order').'" />'.
 		$core->formNonce().'</p>'.
 		'</form>'.
 		'</div>';
