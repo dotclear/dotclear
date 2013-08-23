@@ -632,6 +632,23 @@ select#del_cat {
 	font-weight: bold;
 	margin-top: 2em;
 }
+#categories .placeholder {
+        outline: 1px dashed #4183C4;
+        min-height: 2.5em;
+}
+#save-set-order.disabled {
+        text-shadow: none;
+        color: #000;
+        background: #F5F5F5;
+        background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#F5F5F5));
+        background: -moz-linear-gradient(center top , #F5F5F5, #DFDFDF) repeat scroll 0 0 transparent;
+        border: 1px solid #CCCCCC;
+}
+#save-set-order.disabled:hover {
+        color: #666;
+        background: #DFDFDF;
+        border: 1px solid #CCCCCC;
+}
 /* ------------------------------------------------------------------ media */
 #media-icon {
 	float: left;

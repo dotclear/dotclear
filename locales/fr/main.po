@@ -648,6 +648,9 @@ msgstr "Supprimer une catégorie"
 msgid "Choose a category to remove:"
 msgstr "Choisissez une catégorie à supprimer :"
 
+msgid "Save categories order"
+msgstr "Sauver l'ordre des catégories"
+
 msgid "And choose the category which will receive its entries:"
 msgstr "Et sélectionnez la catégorie qui recevra ses (éventuels) billets :"
 
