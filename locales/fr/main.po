@@ -654,8 +654,8 @@ msgstr "Ordonnancement des catégories"
 msgid "Save categories order"
 msgstr "Enregistrer l'ordre des catégories"
 
-msgid "And choose the category which will receive its entries:"
-msgstr "Et sélectionnez la catégorie qui recevra ses (éventuels) billets :"
+msgid "Choose the category which will receive its entries:"
+msgstr "Sélectionnez la catégorie qui recevra ses éventuels billets :"
 
 msgid "The entries cannot be moved to the category you choose to delete."
 msgstr "Vous ne pouvez déplacer les billets vers la catégorie que vous voulez supprimer."

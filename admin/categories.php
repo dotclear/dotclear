@@ -171,8 +171,8 @@ else
 		'<label class="classic" for="cat-'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label>'.
 		' (<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
-		', '.__('total:').' '.$rs->nb_total.')</p>'.
-		'<p>'.__('URL:').' '.html::escapeHTML($rs->cat_url).'</p>';
+		', '.__('total:').' '.$rs->nb_total.') '.
+		__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></p>';
 
 		$level = $rs->level;
 	}
@@ -187,12 +187,14 @@ else
 		 echo
 		 '<div class="two-cols">'.
 		 '<p class="col checkboxes-helpers"></p>'.
-		 '<p class="col right"><label for="mov_cat">'.__('And choose the category which will receive its entries:').'</label> '.
-		 form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','maximal').'</p> '.
-		 '<p class="col right"><label for="action" class="classic">'.__('Selected categories action:').'</label> '.
-		 form::combo('action',$combo_action).
+		 '<div class="col right">'.
+		 '<p class="cat-actions"><label for="action" class="classic">'.__('Selected categories action:').'</label> '.
+		 form::combo('action',$combo_action).' '.
+		 '<span id="mov-cat"><label for="mov_cat">'.__('Choose the category which will receive its entries:').'</label> '.
+		 form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').' </span>'.
 		 $core->formNonce().
-		 '<input type="submit" value="'.__('ok').'" /></p>'.
+		 '<input type="submit" value="'.__('OK').'" /></p>'.
+		 '</div>'.
 		 '</div>'.
 		 '</form>';
 	}
@@ -201,7 +203,6 @@ else
 	'<div class="col clear">'.
 	'<h3>'.__('Categories order').'</h3>'.
 	'<form action="categories.php" method="post" id="reset-order">'.
-	'<!-- <p>'.__('This will relocate all categories on the top level').'</p> -->'.
 	'<p><input type="submit" value="'.__('Reorder all categories on the top level').'" />'.
 	form::hidden(array('reset'),1).
 	$core->formNonce().'</p>'.
