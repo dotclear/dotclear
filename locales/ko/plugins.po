@@ -845,7 +845,7 @@ msgid "Import a single blog"
 msgstr "단일 블로그 가져오기"
 
 #, php-format
-msgid "This will import a single blog backup as new content in the current blog: %s."
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "이 과정은, 백업된 단일 블로그 내용을 현재 블로그 (%s) 의 새 내용으로 가져옵니다."
 
 msgid "Upload a backup file"

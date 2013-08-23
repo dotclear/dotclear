@@ -732,11 +732,11 @@ function showComments($rs,$has_action,$tb=false)
 {
 	echo
 	'<table class="comments-list"><tr>'.
-	'<th colspan="2">'.__('Author').'</th>'.
+	'<th colspan="2" class="first">'.__('Author').'</th>'.
 	'<th>'.__('Date').'</th>'.
 	'<th class="nowrap">'.__('IP address').'</th>'.
 	'<th>'.__('Status').'</th>'.
-	'<th>&nbsp;</th>'.
+	'<th>'.__('Edit').'</th>'.
 	'</tr>';
 	
 	while($rs->fetch())
@@ -770,7 +770,7 @@ function showComments($rs,$has_action,$tb=false)
 		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.
 		'<td class="nowrap status">'.$img_status.'</td>'.
 		'<td class="nowrap status"><a href="'.$comment_url.'">'.
-		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /></a></td>'.
+		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>'.
 		
 		'</tr>';
 	}

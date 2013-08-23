@@ -81,7 +81,6 @@ class dcImportFeed extends dcIeModule
 		
 		echo
 		'<form action="'.$this->getURL(true).'" method="post">'.
-		'<fieldset><legend>'.__('Single blog').'</legend>'.
 		'<p>'.sprintf(__('This will import a feed (RSS or Atom) a as new content in the current blog: %s.'),html::escapeHTML($this->core->blog->name)).'</p>'.
 		
 		'<p><label for="feed_url">'.__('Feed URL:').'</label>'.
@@ -92,7 +91,6 @@ class dcImportFeed extends dcIeModule
 		form::hidden(array('do'),1).
 		'<input type="submit" value="'.__('Import').'" /></p>'.
 		
-		'</fieldset>'.
 		'</form>';
 	}
 }

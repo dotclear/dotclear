@@ -59,7 +59,7 @@ class antispamBehaviors
 		if ($ttl != null && $ttl >=0) {
 			echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl).' '.
 			sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
-			'</p>';
+			'.</p>';
 		}
 	}
 
@@ -67,12 +67,12 @@ class antispamBehaviors
 	{
 		$ttl = $settings->antispam->antispam_moderation_ttl;
 		echo
-		'<fieldset><legend>Antispam</legend>'.
+		'<div class="fieldset"><h4>Antispam</h4>'.
 		'<p><label for="antispam_moderation_ttl" class="classic">'.__('Delete junk comments older than').' '.
 		form::field('antispam_moderation_ttl', 3, 3, $ttl).
 		' '.__('days').
 		'</label></p>'.
-		'</fieldset>';
+		'</div>';
 	}
 	
 	public static function adminBeforeBlogSettingsUpdate($settings)

@@ -302,7 +302,7 @@ if ($blog_id)
 	'<form action="'.$action.'" method="post" id="blog-form">';
 	
 	echo
-	'<fieldset><legend>'.__('Blog details').'</legend>'.
+	'<div class="fieldset"><h4>'.__('Blog details').'</h4>'.
 	$core->formNonce();
 	
 	if ($core->auth->isSuperAdmin())
@@ -334,11 +334,11 @@ if ($blog_id)
 	echo
 	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label>'.
 	form::textarea('blog_desc',60,5,html::escapeHTML($blog_desc)).'</p>'.
-	'</fieldset>';
+	'</div>';
 	
 	
 	echo
-	'<fieldset><legend>'.__('Blog configuration').'</legend>'.
+	'<div class="fieldset"><h4>'.__('Blog configuration').'</h4>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	'<p><label for="editor">'.__('Blog editor name:').'</label>'.
@@ -392,25 +392,24 @@ if ($blog_id)
 	'</div>'.
 	'</div>'.
 	'<br class="clear" />'. //Opera sucks
-	'</fieldset>';
+	'</div>';
 	
 	echo
-	'<fieldset><legend>'.__('Comments and trackbacks').'</legend>'.
+	'<div class="fieldset"><h4>'.__('Comments and trackbacks').'</h4>'.
+
 	'<div class="two-cols">'.
+
 	'<div class="col">'.
 	'<p><label for="allow_comments" class="classic">'.
 	form::checkbox('allow_comments','1',$blog_settings->system->allow_comments).
-	__('Accept comments').'</label></p>'.
-	
+	__('Accept comments').'</label></p>'.	
 	'<p><label for="comments_pub" class="classic">'.
 	form::checkbox('comments_pub','1',!$blog_settings->system->comments_pub).
-	__('Moderate comments').'</label></p>'.
-	
+	__('Moderate comments').'</label></p>'.	
 	'<p><label for="comments_ttl" class="classic">'.sprintf(__('Leave comments open for %s days'),
 	form::field('comments_ttl',2,3,$blog_settings->system->comments_ttl)).
 	'</label></p>'.
-	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.
-	
+	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.	
 	'<p><label for="wiki_comments" class="classic">'.
 	form::checkbox('wiki_comments','1',$blog_settings->system->wiki_comments).
 	__('Wiki syntax for comments').'</label></p>'.
@@ -419,26 +418,25 @@ if ($blog_id)
 	'<div class="col">'.
 	'<p><label for="allow_trackbacks" class="classic">'.
 	form::checkbox('allow_trackbacks','1',$blog_settings->system->allow_trackbacks).
-	__('Accept trackbacks').'</label></p>'.
-	
+	__('Accept trackbacks').'</label></p>'.	
 	'<p><label for="trackbacks_pub" class="classic">'.
 	form::checkbox('trackbacks_pub','1',!$blog_settings->system->trackbacks_pub).
-	__('Moderate trackbacks').'</label></p>'.
-	
+	__('Moderate trackbacks').'</label></p>'.	
 	'<p><label for="trackbacks_ttl" class="classic">'.sprintf(__('Leave trackbacks open for %s days'),
 	form::field('trackbacks_ttl',2,3,$blog_settings->system->trackbacks_ttl)).'</label></p>'.
-	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.
-	
+	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.	
 	'<p><label for="comments_nofollow" class="classic">'.
 	form::checkbox('comments_nofollow','1',$blog_settings->system->comments_nofollow).
 	__('Add "nofollow" relation on comments and trackbacks links').'</label></p>'.
 	'</div>'.
+	'<br class="clear" />'. //Opera sucks
+
 	'</div>'.
 	'<br class="clear" />'. //Opera sucks
-	'</fieldset>';
+	'</div>';
 	
 	echo
-	'<fieldset><legend>'.__('Blog presentation').'</legend>'.
+	'<div class="fieldset"><h4>'.__('Blog presentation').'</h4>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	'<p><label for="date_format">'.__('Date format:').'</label>'.
@@ -473,13 +471,13 @@ if ($blog_id)
 	'</div>'.
     '</div>'.
 	'<br class="clear" />'. //Opera sucks
-	'</fieldset>';
+	'</div>';
 	
 	echo
-	'<fieldset><legend>'.__('Media and images').'</legend>'.
+	'<div class="fieldset"><h4>'.__('Media and images').'</h4>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	'<h4>'.__('Generated image sizes (in pixels)').'</h4>'.
+	'<h5>'.__('Generated image sizes (in pixels)').'</h5>'.
 	'<p class="field"><label for="media_img_t_size">'.__('Thumbnails:').' '.
 	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</label></p>'.
 	
@@ -491,14 +489,14 @@ if ($blog_id)
 	'</div>'.
 	
 	'<div class="col">'.
-	'<h4><label for="media_img_title_pattern">'.__('Inserted image title').'</label></h4>'.
+	'<h5><label for="media_img_title_pattern">'.__('Inserted image title').'</label></h5>'.
 	'<p>'.__('This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture\'s metadata.').'</p>'.
 	'<p>'.form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
 	'<p><label for="media_img_use_dto_first" class="classic">'.
 	form::checkbox('media_img_use_dto_first','1',$blog_settings->system->media_img_use_dto_first).
 	__('Use original media date if possible').'</label></p>'.
 
-	'<h4>'.__('Default image insertion attributes').'</h4>'.
+	'<h5>'.__('Default image insertion attributes').'</h5>'.
 	'<p><label for="media_img_default_size">'.__('Image size:').'</label>'.
 	form::combo('media_img_default_size',$img_default_size_combo,
 		(html::escapeHTML($blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($blog_settings->system->media_img_default_size) : 'm')).
@@ -511,11 +509,12 @@ if ($blog_id)
 	__('As a link to original image').'</label></p>'.
 	'</div>'.
 	'</div>'.
+	'<br class="clear" />'. //Opera sucks
 
-	'</fieldset>';
+	'</div>';
 	
 	echo
-	'<fieldset><legend>'.__('Search engines robots policy').'</legend>';
+	'<div class="fieldset"><h4>'.__('Search engines robots policy').'</h4>';
 	
 	$i = 0;
 	foreach ($robots_policy_options as $k => $v)
@@ -525,7 +524,7 @@ if ($blog_id)
 		$i++;
 	}
 	
-	echo '</fieldset>';
+	echo '</div>';
 	
 	
 	# --BEHAVIOR-- adminBlogPreferencesForm

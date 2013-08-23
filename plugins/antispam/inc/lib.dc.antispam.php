@@ -74,7 +74,7 @@ class dcAntispam
 	{
 		if (($count = self::countSpam($core)) > 0) {
 			$str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-			$icons['comments'][0] .= '</a> <br /><a href="comments.php?status=-2"><span>'.sprintf($str,$count).'</span>';
+			$icons['comments'][0] .= '</span></a> <br /><a href="comments.php?status=-2"><span>'.sprintf($str,$count);
 		}
 	}
 	
@@ -82,7 +82,7 @@ class dcAntispam
 	{
 		if (($count = self::countSpam($core)) > 0) {
 			$str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-			return '</a> <br /><a href="comments.php?status=-2"><span>'.sprintf($str,$count).'</span>';
+			return '</span></a> <br /><a href="comments.php?status=-2"><span>'.sprintf($str,$count);
 		} else {
 			return '';
 		}

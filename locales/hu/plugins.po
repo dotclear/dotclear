@@ -844,7 +844,7 @@ msgid "Import a single blog"
 msgstr "Egyedüli blog importálása"
 
 #, php-format
-msgid "This will import a single blog backup as new content in the current blog: %s."
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Ezzel egy egyedüli blogot fogok importálni új tartalomként ide: %s"
 
 msgid "Upload a backup file"

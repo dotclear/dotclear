@@ -207,6 +207,9 @@ if (!empty($_GET['importlinks'])) {
 ?>
 
 <div class="multi-part" title="<?php echo __('Blogroll'); ?>">
+
+<?php if (!$rs->isEmpty()) { ?>
+
 <form action="plugin.php" method="post" id="links-form">
 <table class="maximal dragable">
 <thead>
@@ -250,26 +253,29 @@ while ($rs->fetch())
 ?>
 </tbody>
 </table>
+
+<div class="two-cols">
+<p class="col">
 <?php
-	if (!$rs->isEmpty()) {
-		echo
-		'<div class="two-cols">'.
-		'<p class="col">'.form::hidden('links_order','').
-		form::hidden(array('p'),'blogroll').
-		$core->formNonce().
-		'<input type="submit" name="saveorder" value="'.__('Save order').'" /></p>'.
-		
-		'<p class="col right"><input type="submit" class="delete" name="removeaction"'.
-		' value="'.__('Delete selected links').'" '.
-		'onclick="return window.confirm(\''.html::escapeJS(
-			__('Are you sure you want to delete selected links?')).'\');" /></p>'.
-		'</div>';
-	} else {
-		echo
-		'<div><p>'.__('The link list is empty.').'</p></div>';
-	}
+	echo 
+	form::hidden('links_order','').
+	form::hidden(array('p'),'blogroll').
+	$core->formNonce();
 ?>
+<input type="submit" name="saveorder" value="<?php echo __('Save order'); ?>" /></p>
+<p class="col right"><input type="submit" class="delete" name="removeaction"
+	 value="<?php echo __('Delete selected links'); ?>" 
+	 onclick="return window.confirm('
+	 <?php echo html::escapeJS(__('Are you sure you want to delete selected links?')); ?>');" /></p>
+</div>
 </form>
+
+<?php
+} else {
+	echo '<div><p>'.__('The link list is empty.').'</p></div>';
+}
+?>
+
 </div>
 
 <?php
