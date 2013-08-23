@@ -184,11 +184,11 @@ dcPage::open($page_title,
 );
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('User has been successfully updated.'));
+	dcPage::succes(__('User has been successfully updated.'));
 }
 
 if (!empty($_GET['add'])) {
-	dcPage::message(__('User has been successfully created.'));
+	dcPage::success(__('User has been successfully created.'));
 }
 
 if ($user_id == $core->auth->userID()) {

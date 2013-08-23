@@ -199,10 +199,10 @@ dcPage::open(__('Plugins management'),
 );
 
 if (!empty($_GET['removed'])) {
-	dcPage::message(__('Plugin has been successfully deleted.'));
+	dcPage::success(__('Plugin has been successfully deleted.'));
 }
 if (!empty($_GET['added'])) {
-	dcPage::message(($_GET['added'] == 2 ? __('Plugin has been successfully upgraded') : __('Plugin has been successfully installed.')));
+	dcPage::success(($_GET['added'] == 2 ? __('Plugin has been successfully upgraded') : __('Plugin has been successfully installed.')));
 }
 
 # Plugins install messages

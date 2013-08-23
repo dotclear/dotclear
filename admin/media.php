@@ -263,27 +263,27 @@ call_user_func($open_f,__('Media manager'),
 	);
 
 if (!empty($_GET['mkdok'])) {
-	dcPage::message(__('Directory has been successfully created.'));
+	dcPage::success(__('Directory has been successfully created.'));
 }
 
 if (!empty($_GET['upok'])) {
-	dcPage::message(__('Files have been successfully uploaded.'));
+	dcPage::success(__('Files have been successfully uploaded.'));
 }
 
 if (!empty($_GET['rmfok'])) {
-	dcPage::message(__('File has been successfully removed.'));
+	dcPage::success(__('File has been successfully removed.'));
 }
 
 if (!empty($_GET['rmdok'])) {
-	dcPage::message(__('Directory has been successfully removed.'));
+	dcPage::success(__('Directory has been successfully removed.'));
 }
 
 if (!empty($_GET['rebuildok'])) {
-	dcPage::message(__('Directory has been successfully rebuilt.'));
+	dcPage::success(__('Directory has been successfully rebuilt.'));
 }
 
 if (!empty($_GET['unzipok'])) {
-	dcPage::message(__('Zip file has been successfully extracted.'));
+	dcPage::success(__('Zip file has been successfully extracted.'));
 }
 
 if (!$dir) {

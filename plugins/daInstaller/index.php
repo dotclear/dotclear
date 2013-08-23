@@ -134,7 +134,7 @@ $daInstaller->check(false,true);
 function infoMessages()
 {
 	$res = '';
-	$p_msg = '<p class="message success">%s</p>';
+	$p_msg = '<p class="success">%s</p>';
 	$p_err = '<p class="error">%s</p>';
 	
 	# Plugins install message
@@ -162,7 +162,7 @@ function infoMessages()
 			$res .= '<div class="error">'.__('Following plugins have not been updated:').'<ul>'.$err.'</ul></div>';
 		}
 		else {
-			$res .= '<div class="static-msg">'.__('Following plugins have been updated:').'<ul>'.$upd.'</ul></div>';
+			$res .= '<div class="success">'.__('Following plugins have been updated:').'<ul>'.$upd.'</ul></div>';
 		}
 	}
 	# Themes update message
@@ -182,12 +182,12 @@ function infoMessages()
 			$res .= '<div class="error">'.__('Following themes have not been updated:').'<ul>'.$err.'</ul></div>';
 		}
 		else {
-			$res .= '<div class="static-msg">'.__('Following themes have been updated:').'<ul>'.$upd.'</ul></div>';
+			$res .= '<div class="success">'.__('Following themes have been updated:').'<ul>'.$upd.'</ul></div>';
 		}
 	}
 	# Plugins install settings messages
 	if (!empty($plugins_install['success'])) {
-		$res .= '<div class="static-msg">'.__('Following plugins have been installed:').'<ul>';
+		$res .= '<div class="success">'.__('Following plugins have been installed:').'<ul>';
 		foreach ($plugins_install['success'] as $k => $v) {
 			$res .= '<li>'.$k.'</li>';
 		}

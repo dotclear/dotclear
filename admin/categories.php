@@ -110,14 +110,14 @@ dcPage::open(__('Categories'),$starting_script,
 );
 
 if (!empty($_GET['del'])) {
-        dcPage::message(__('The category has been successfully removed.',
+        dcPage::success(__('The category has been successfully removed.',
 			   'The categories have been successfully removed.',
 			   (int) $_GET['del']
 			   )
 			);
 }
 if (!empty($_GET['reord'])) {
-	dcPage::message(__('Categories have been successfully reordered.'));
+	dcPage::success(__('Categories have been successfully reordered.'));
 }
 
 $categories_combo = array();
