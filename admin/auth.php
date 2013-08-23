@@ -323,7 +323,7 @@ if ($err) {
 	echo '<div class="error">'.$err.'</div>';
 }
 if ($msg) {
-	echo '<p class="message">'.$msg.'</p>';
+	echo '<p class="success">'.$msg.'</p>';
 }
 
 if ($akey)
