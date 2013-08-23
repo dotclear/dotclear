@@ -369,20 +369,20 @@ dcPage::open($page_title.' - '.__('Entries'),
 );
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Entry has been successfully updated.'));
+	dcPage::success(__('Entry has been successfully updated.'));
 }
 elseif (!empty($_GET['crea'])) {
-	dcPage::message(__('Entry has been successfully created.'));
+	dcPage::success(__('Entry has been successfully created.'));
 }
 elseif (!empty($_GET['attached'])) {
-	dcPage::message(__('File has been successfully attached.'));
+	dcPage::success(__('File has been successfully attached.'));
 }
 elseif (!empty($_GET['rmattach'])) {
-	dcPage::message(__('Attachment has been successfully removed.'));
+	dcPage::success(__('Attachment has been successfully removed.'));
 }
 
 if (!empty($_GET['creaco'])) {
-	dcPage::message(__('Comment has been successfully created.'));
+	dcPage::success(__('Comment has been successfully created.'));
 }
 
 # XHTML conversion
