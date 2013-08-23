@@ -224,6 +224,28 @@ if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
 	'</p>';
 }
 
+$err = array();
+
+# Check cache directory
+if (!is_dir(DC_TPL_CACHE)) {
+	$err[] = '<p>'.sprintf(__('Cache directory %s does not exist.'),DC_TPL_CACHE).'</p>';
+} else if (!is_writable(DC_TPL_CACHE)) {
+	$err[] = '<p>'.sprintf(__('Cache directory %s is not writable.'),DC_TPL_CACHE).'</p>';
+}
+
+# Check public directory
+if (!is_dir($core->blog->public_path)) {
+	$err[] = '<p>'.sprintf(__('Directory %s does not exist.'),$core->blog->public_path).'</p>';
+} else if (!is_writable($core->blog->public_path)) {
+	$err[] = '<p>'.sprintf(__('Directory %s is not writable.'),$core->blog->public_path).'</p>';
+}
+
+# Error list
+if (count($err) > 0) {
+	echo '<div class="error"><p><strong>Erreur&nbsp;:</strong></p>'.
+	'<ul><li>'.implode("</li><li>",$err).'</li></ul></div>';
+}
+
 # Plugins install messages
 if (!empty($plugins_install['success']))
 {

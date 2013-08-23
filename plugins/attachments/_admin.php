@@ -21,35 +21,37 @@ class attachmentAdmin
 		if ($post !== null)
 		{
 			$core =& $GLOBALS['core'];
-			$post_media = $core->media->getPostMedia($post->post_id);
-			echo
-			'<h3 class="clear">'.__('Attachments').'</h3>';
-			foreach ($post_media as $f)
-			{
-				$ftitle = $f->media_title;
-				if (strlen($ftitle) > 18) {
-					$ftitle = substr($ftitle,0,16).'...';
-				}
+			if ( isset($core->media) ) {
+				$post_media = $core->media->getPostMedia($post->post_id);
 				echo
-				'<div class="media-item">'.
-				'<a class="media-icon" href="media_item.php?id='.$f->media_id.'">'.
-				'<img src="'.$f->media_icon.'" alt="" title="'.$f->basename.'" /></a>'.
-				'<ul>'.
-				'<li><a class="media-link" href="media_item.php?id='.$f->media_id.'" '.
-				'title="'.$f->basename.'">'.$ftitle.'</a></li>'.
-				'<li>'.$f->media_dtstr.'</li>'.
-				'<li>'.files::size($f->size).' - '.
-				'<a href="'.$f->file_url.'">'.__('open').'</a>'.'</li>'.
-				
-				'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
-				'href="post_media.php?post_id='.$post->post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
-				'<img src="images/check-off.png" alt="'.__('remove').'" /></a>'.
-				'</li>'.
-				
-				'</ul>'.
-				'</div>';
+				'<h3 class="clear">'.__('Attachments').'</h3>';
+				foreach ($post_media as $f)
+				{
+					$ftitle = $f->media_title;
+					if (strlen($ftitle) > 18) {
+						$ftitle = substr($ftitle,0,16).'...';
+					}
+					echo
+					'<div class="media-item">'.
+					'<a class="media-icon" href="media_item.php?id='.$f->media_id.'">'.
+					'<img src="'.$f->media_icon.'" alt="" title="'.$f->basename.'" /></a>'.
+					'<ul>'.
+					'<li><a class="media-link" href="media_item.php?id='.$f->media_id.'" '.
+					'title="'.$f->basename.'">'.$ftitle.'</a></li>'.
+					'<li>'.$f->media_dtstr.'</li>'.
+					'<li>'.files::size($f->size).' - '.
+					'<a href="'.$f->file_url.'">'.__('open').'</a>'.'</li>'.
+					
+					'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
+					'href="post_media.php?post_id='.$post->post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
+					'<img src="images/check-off.png" alt="'.__('remove').'" /></a>'.
+					'</li>'.
+					
+					'</ul>'.
+					'</div>';
+				}
+				unset($f);
 			}
-			unset($f);
 			
 			if (empty($post_media)) {
 				echo '<p>'.__('No attachment.').'</p>';
