@@ -395,7 +395,7 @@ else
 		'<label for="user_remember" class="classic">'.
 		__('Remember my ID on this computer').'</label></p>'.
 		
-		'<p><input class="add button" type="submit" value="'.__('log in').'" /></p>';
+		'<p><input type="submit" value="'.__('log in').'" class="login" /></p>';
 		
 		if (!empty($_REQUEST['blog'])) {
 			echo form::hidden('blog',html::escapeHTML($_REQUEST['blog']));

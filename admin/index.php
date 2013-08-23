@@ -225,9 +225,9 @@ if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth-
 }
 
 if ($core->blog->status == 0) {
-	echo '<p class="static-msg">'.__('This blog is offline').'</p>';
+	echo '<p class="static-msg">'.__('This blog is offline').'.</p>';
 } elseif ($core->blog->status == -1) {
-	echo '<p class="static-msg">'.__('This blog is removed').'</p>';
+	echo '<p class="static-msg">'.__('This blog is removed').'.</p>';
 }
 
 if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {

@@ -441,6 +441,11 @@ abbr {
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit] {
 	width: 100%;
 }
+#login-screen input.login {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-size: 1em;
+}
 #login-screen #issue {
 	margin-left: 1.5rem;
 	font-size: 1.2rem;
@@ -1027,8 +1032,8 @@ body.popup #footer p {
 	border-radius: 8px;
 }
 p.error, p.message, p.static-msg, p.success {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 .error {
 	background: #FFBABA url(msg-error.png) no-repeat .7em .7em;
