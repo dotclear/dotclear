@@ -600,7 +600,9 @@ msgid "The category has been successfully created."
 msgstr "Catégorie créée avec succès."
 
 msgid "The category has been successfully removed."
-msgstr "Catégorie supprimée avec succès."
+msgid_plural "The categories have been successfully removed."
+msgstr[0] "Catégorie supprimée avec succès."
+msgstr[1] "Catégories supprimées avec succès."
 
 msgid "Categories have been successfully reordered."
 msgstr "Catégories réordonnées avec succès."
@@ -645,6 +647,9 @@ msgstr "Supprimer une catégorie"
 
 msgid "Choose a category to remove:"
 msgstr "Choisissez une catégorie à supprimer :"
+
+msgid "Save categories order"
+msgstr "Sauver l'ordre des catégories"
 
 msgid "And choose the category which will receive its entries:"
 msgstr "Et sélectionnez la catégorie qui recevra ses (éventuels) billets :"
