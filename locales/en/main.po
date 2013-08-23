@@ -2072,7 +2072,7 @@ msgstr ""
 msgid "help"
 msgstr ""
 
-msgid "select:"
+msgid "Select:"
 msgstr ""
 
 msgid "no selection"
