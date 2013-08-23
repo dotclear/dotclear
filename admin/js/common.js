@@ -372,6 +372,7 @@ $(function() {
 
 	$('.message').backgroundFade({sColor:'#cccccc',eColor:'#666666',steps:20});
 	$('.error').backgroundFade({sColor:'#ffdec8',eColor:'#ffbaba',steps:20});
+	$('.success').backgroundFade({sColor:'#91ff4d',eColor:'#baff8e',steps:20});
 
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
 		var e = this.elements['your_pwd'];

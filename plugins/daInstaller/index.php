@@ -134,7 +134,7 @@ $daInstaller->check(false,true);
 function infoMessages()
 {
 	$res = '';
-	$p_msg = '<p class="message">%s</p>';
+	$p_msg = '<p class="message success">%s</p>';
 	$p_err = '<p class="error">%s</p>';
 	
 	# Plugins install message
