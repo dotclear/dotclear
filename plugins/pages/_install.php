@@ -19,8 +19,6 @@ if (version_compare($core->getVersion('pages'),$version,'>=')) {
 
 /* Create first page
 -------------------------------------------------------- */
-$core->setBlog('default');
-
 $core->blog->settings->addNamespace('pages');
 
 $params = array(
