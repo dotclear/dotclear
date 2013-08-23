@@ -15,7 +15,7 @@ $core->addBehavior('adminDashboardIcons','pages_dashboard');
 $core->addBehavior('adminDashboardFavs','pages_dashboard_favs');
 $core->addBehavior('adminDashboardFavsIcon','pages_dashboard_favs_icon');
 $core->addBehavior('adminUsersActionsHeaders','pages_users_actions_headers');
-$core->addBehavior('adminPostsActionsContent','pages_PostsActionsContent');
+$core->addBehavior('adminPostsActionsContent','pages_posts_actions_content');
 
 function pages_dashboard($core,$icons)
 {
@@ -44,7 +44,7 @@ function pages_dashboard_favs_icon($core,$name,$icon)
 	}
 }
 
-function pages_PostsActionsContent($core,$action,$hidden_fields,$form_uri="posts_actions.php")
+function pages_posts_actions_content($core,$action,$hidden_fields,$form_uri="posts_actions.php")
 {
 	
 	if ($action == 'reorder' && !empty($_POST['order'])) {
