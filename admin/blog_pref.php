@@ -289,11 +289,11 @@ dcPage::open(__('Blog settings'),
 if ($blog_id)
 {
 	if (!empty($_GET['add'])) {
-		dcPage::message(__('Blog has been successfully created.'));
+		dcPage::success(__('Blog has been successfully created.'));
 	}
 	
 	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Blog has been successfully updated.'));
+		dcPage::success(__('Blog has been successfully updated.'));
 	}
 	
 	echo

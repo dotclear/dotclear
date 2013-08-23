@@ -119,7 +119,7 @@ echo dcPage::breadcrumb(
 
 <?php
 if (!empty($_GET['renamed'])) {
-	dcPage::message(__('Tag has been successfully renamed'));
+	dcPage::success(__('Tag has been successfully renamed'));
 }
 
 echo '<p><a class="back" href="'.$p_url.'&amp;m=tags">'.__('Back to tags list').'</a></p>';

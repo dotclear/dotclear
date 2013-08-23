@@ -58,7 +58,7 @@ echo dcPage::breadcrumb(
 	));
 
 if (!empty($_GET['up'])) {
-	dcPage::message(__('Settings have been successfully updated.'));
+	dcPage::success(__('Settings have been successfully updated.'));
 }
 
 echo

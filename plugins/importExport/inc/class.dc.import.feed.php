@@ -76,7 +76,7 @@ class dcImportFeed extends dcIeModule
 	public function gui()
 	{
 		if ($this->status) {
-			dcPage::message(__('Content successfully imported.'));
+			dcPage::success(__('Content successfully imported.'));
 		}
 		
 		echo

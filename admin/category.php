@@ -175,7 +175,7 @@ dcPage::open($title,
 );
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Category has been successfully updated.'));
+	dcPage::success(__('Category has been successfully updated.'));
 }
 
 echo
