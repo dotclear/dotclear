@@ -187,6 +187,24 @@ abstract class nestedTree
 		}
 	}
 	
+        public function updatePosition($id,$left,$right)
+        {
+                $sql = 'UPDATE '.$this->table.' SET '
+                        .$this->f_left.' = '.$left.', '
+                        .$this->f_right.' = '.$right
+                        .' WHERE '.$this->f_id .' = '.(integer) $id
+                        .$this->getCondition();
+
+                $this->con->begin();
+                try {
+                        $this->con->execute($sql);
+                        $this->con->commit();
+                } catch (Exception $e) {
+                        $this->con->rollback();
+                        throw $e;
+                }
+        }
+
 	public function deleteNode($node,$keep_children=true)
 	{
 		$node = (integer) $node;
