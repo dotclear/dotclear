@@ -245,6 +245,9 @@ var dotclear = {
 	},
 
 	checkboxesHelpers: function(e) {
+		$(e).append(document.createTextNode(dotclear.msg.to_select));
+		$(e).append(document.createTextNode(' '));
+
 		var a = document.createElement('a');
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.select_all));
@@ -254,7 +257,7 @@ var dotclear = {
 		};
 		$(e).append(a);
 
-		$(e).append(document.createTextNode(' - '));
+		$(e).append(document.createTextNode(' | '));
 
 		a = document.createElement('a');
 		a.href='#';

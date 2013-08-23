@@ -2125,7 +2125,7 @@ msgstr "Ничего не выбрано"
 msgid "select all"
 msgstr "выбрать все"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "инвертировать выбор"
 
 msgid "view entry"

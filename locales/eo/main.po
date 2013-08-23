@@ -2072,7 +2072,7 @@ msgstr ""
 msgid "select all"
 msgstr ""
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr ""
 
 msgid "view entry"

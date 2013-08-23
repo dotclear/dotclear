@@ -2199,14 +2199,17 @@ msgstr "cacher"
 msgid "help"
 msgstr "aide"
 
+msgid "Select:"
+msgstr "Sélectionner :"
+
 msgid "no selection"
-msgstr "aucune sélection"
+msgstr "aucun"
 
 msgid "select all"
-msgstr "tout sélectionner"
+msgstr "tous"
 
-msgid "invert selection"
-msgstr "inverser la sélection"
+msgid "Invert selection"
+msgstr "Inverser la sélection"
 
 msgid "view entry"
 msgstr "voir le billet"
