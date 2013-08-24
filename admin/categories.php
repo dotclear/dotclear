@@ -182,43 +182,43 @@ else
 
 	if (count($combo_action)>0) {
 		 echo
-		 '<div class="three-cols">'.
+		 '<div class="two-cols">'.
 		 '<p class="col checkboxes-helpers"></p>'.
-		 '<div class="col" id="mov-cat">'.
-		 '<label for="mov_cat">'.__('Choose the category which will receive its entries:').'</label> '.
+		 '<p class="col right" id="mov-cat">'.
+		 '<label for="mov_cat" class="classic">'.__('Category which will receive entries of deleted categories:').'</label> '.
 		 form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').
-		 '</div>'.
-		 '<div class="col">'.
+		 '</p>'.
+		 '<p class="right">'.
 		 $core->formNonce().
-		 '<input type="submit" value="'.__('Delete').'"/>'.
-		 '</div>'.
+		 '<input type="submit" value="'.__('Delete selected categories').'"/>'.
+		 '</p>'.
 		 '</div>'.
 		 '</form>';
 	}
 
-	echo
-	'<div class="col clear">'.
-	'<h3>'.__('Categories order').'</h3>'.
-	'<form action="categories.php" method="post" id="reset-order">'.
-	'<p><input type="submit" value="'.__('Reorder all categories on the top level').'" />'.
-	form::hidden(array('reset'),1).
-	$core->formNonce().'</p>'.
-	'</form>'.
-	'</div>';
+	echo '<h3 class="clear">'.__('Categories order').'</h3>';
 
 	if (!$core->auth->user_prefs->accessibility->nodragdrop
 		&& $core->auth->check('categories',$core->blog->id)
 		&& $rs->count()>1) {
 		echo
-		'<div class="col">'.
 		'<form action="categories.php" method="post">'.
 		'<p>'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>'.
 		'<p>'.
 		'<input type="hidden" id="categories_order" name="categories_order" value=""/>'.
 		'<input type="submit" id="save-set-order" value="'.__('Save categories order').'" />'.
 		$core->formNonce().'</p>'.
-		'</form>'.
-		'</div>';
+		'</form>';
+
+// Pour le cas de js désactivé, phrase du formulaire ci-dessus : 
+// "To rearrange categories order, change position number and click on “Save categories order” button."
+
+	echo
+	'<form action="categories.php" method="post" id="reset-order">'.
+	'<p><input type="submit" value="'.__('Reorder all categories on the top level').'" />'.
+	form::hidden(array('reset'),1).
+	$core->formNonce().'</p>'.
+	'</form>';
 	}
 }
 
