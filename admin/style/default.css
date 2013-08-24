@@ -1410,8 +1410,9 @@ span.form-note {
 }
 p.form-note.warn, p.form-note.info, p.warning {
 	font-style: normal;
-	padding: .2em 1em .1em 30px;
+	padding: .2em 1em .3em 32px;
 	color: #333;
+	display: inline-block;
 }
 p.form-note.warn, p.warning {
 	background: #ffd url(msg-warning.png) no-repeat .3em .3em;
@@ -1419,7 +1420,7 @@ p.form-note.warn, p.warning {
 }
 p.form-note.info {
 	background: #f5eaff url(msg-info.png) no-repeat .3em .3em;
-	border: 1px solid #ddbaff;
+	border: 1px solid #c484ff;
 }
 .form-note a {border-bottom: 1px solid #ddbaff;}
 

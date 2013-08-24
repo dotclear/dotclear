@@ -175,7 +175,7 @@ class dcImportWP extends dcIeModule
 				echo
 				'<p>'.sprintf(__('This will import your WordPress content as new content in the current blog: %s.'),
 				'<strong>'.html::escapeHTML($this->core->blog->name).'</strong>').'</p>'.
-				'<p class="form-note warn">'.__('Please note that this process '.
+				'<p class="warning">'.__('Please note that this process '.
 				'will empty your categories, blogroll, entries and comments on the current blog.').'</p>';
 				
 				printf($this->imForm(1,__('General information'),__('Import my blog now')),

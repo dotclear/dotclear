@@ -1867,10 +1867,10 @@ msgid "Iconset:"
 msgstr "Jeu d'icônes :"
 
 msgid "Do not use standard favicon"
-msgstr "Ne pas utiliser le favicon standard"
+msgstr "Ne pas utiliser le favicon standard de Dotclear"
 
 msgid "This will be applied for all users"
-msgstr "Ce choix sera actif pour tous les utilisateurs"
+msgstr "Ce choix sera appliqué pour tous les utilisateurs"
 
 msgid "Accessibility options"
 msgstr "Options d'accessibilité"

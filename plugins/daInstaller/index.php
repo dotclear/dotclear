@@ -272,7 +272,7 @@ echo
 if ($u_p_nb > 0 || $u_t_nb > 0) {
 	echo
 	'<p><strong>'.__('Detected updates for your system').'</strong></p>'.
-	'<p class="form-note warn">'.
+	'<p class="warning">'.
 		__('Changes can be required after installation of updates. Click on a support link before to be aware about').
 	'</p>';
 }
