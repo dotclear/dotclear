@@ -206,23 +206,26 @@ class dcBlog
 	*/
 	public function triggerComments($ids, $del=false, $affected_posts=null)
 	{
-		$co_ids = dcUtils::cleanIds($ids);
-		$a_ids = dcUtils::cleanIds($affected_posts);
-		$a_tbs = array();
+		$comments_ids = dcUtils::cleanIds($ids);
+		$affected_posts_ids = dcUtils::cleanIds($affected_posts);
+		$affected_is_trackback = 
+		$counted_posts_ids = 
+		$counted_is_trackback = 
+		$counted_nb_comments = array();
 		
 		# a) Retrieve posts affected by comments edition
-		if (empty($a_ids)) {
+		if (empty($affected_posts_ids)) {
 			$strReq = 
 				'SELECT post_id, comment_trackback '.
 				'FROM '.$this->prefix.'comment '.
-				'WHERE comment_id'.$this->con->in($co_ids).
+				'WHERE comment_id'.$this->con->in($comments_ids).
 				'GROUP BY post_id,comment_trackback';
 			
 			$rs = $this->con->select($strReq);
 			
 			while ($rs->fetch()) {
-				$a_ids[] = (integer) $rs->post_id;
-				$a_tbs[] = (integer) $rs->comment_trackback;
+				$affected_posts_ids[] = (integer) $rs->post_id;
+				$affected_is_trackback[] = (boolean) $rs->comment_trackback;
 			}
 		}
 		
@@ -232,11 +235,11 @@ class dcBlog
 			'SELECT post_id, COUNT(post_id) AS nb_comment,comment_trackback '.
 			'FROM '.$this->prefix.'comment '.
 			'WHERE comment_status = 1 '.
-			(count($a_ids) > 0 ? 'AND post_id'.$this->con->in($a_ids) : ' ');
+			(count($affected_posts_ids) > 0 ? 'AND post_id'.$this->con->in($affected_posts_ids) : ' ');
 		
 		if ($del) {
 			$strReq .= 
-				'AND comment_id NOT'.$this->con->in($co_ids);
+				'AND comment_id NOT'.$this->con->in($comments_ids);
 		}
 		
 		$strReq .= 
@@ -244,40 +247,45 @@ class dcBlog
 		
 		$rs = $this->con->select($strReq);
 		
-		$b_ids = $b_tbs = $b_nbs = array();
 		while ($rs->fetch()) {
-			$b_ids[] = (integer) $rs->post_id;
-			$b_tbs[] = (integer) $rs->comment_trackback;
-			$b_nbs[] = (integer) $rs->nb_comment;
+			$counted_posts_ids[] = (integer) $rs->post_id;
+			$counted_is_trackback[] = (boolean) $rs->comment_trackback;
+			$counted_nb_comments[] = (integer) $rs->nb_comment;
 		}
 		
 		# c) Update comments numbers on posts
 		# This compare previous requests to update also posts without comment
 		$cur = $this->con->openCursor($this->prefix.'post');
 		
-		foreach($a_ids as $a_key => $a_id)
+		foreach($affected_posts_ids as $affected_key => $affected_post_id)
 		{
+			if (!array_key_exists($affected_key, $affected_is_trackback)) {
+				$affected_is_trackback[$affected_key] = false;
+			}
 			$nb_comment = $nb_trackback = 0;
-			//$cur->nb_comment = $nb_comment;
-			foreach($b_ids as $b_key => $b_id)
+			
+			foreach($counted_posts_ids as $counted_key => $counted_post_id)
 			{
-				if ($a_id != $b_id || $a_tbs[$a_key] != $b_tbs[$b_key]) {
+				if ($affected_post_id != $counted_post_id 
+				|| $affected_is_trackback[$affected_key] != $counted_is_trackback[$counted_key]) {
 					continue;
 				}
 				
-				if ($b_tbs[$b_key]) {
-					$nb_trackback = $b_nbs[$b_key];
+				if ($counted_is_trackback[$counted_key]) {
+					$nb_trackback = $counted_nb_comments[$counted_key];
 				} else {
-					$nb_comment = $b_nbs[$b_key];
+					$nb_comment = $counted_nb_comments[$counted_key];
 				}
 			}
 			
-			if ($a_tbs[$a_key]) {
+			if ($affected_is_trackback[$affected_key]) {
 				$cur->nb_trackback = $nb_trackback;
 			} else {
 				$cur->nb_comment = $nb_comment;
 			}
-			$cur->update('WHERE post_id = '.$a_id);
+
+			$cur->update('WHERE post_id = '.$affected_post_id);
+			$cur->clean();
 		}
 	}
 	//@}
