@@ -303,22 +303,12 @@ var dotclear = {
 
 	categoriesActionsHelper: function() {
 		$('#form-categories').submit(function() {
-			var action = $(this).find('select[name="action"]').val();
-			var checked = false;
+		    var nb_ckecked = $('input[name="categories[]"]:checked').length;
+		    if (nb_ckecked==0) {
+			return false;
+		    }
 
-			$(this).find('input[name="categories[]"]').each(function() {
-				if (this.checked) {
-					checked = true;
-				}
-			});
-
-			if (!checked) { return false; }
-
-			if (action == 'delete') {
-				return window.confirm(dotclear.msg.confirm_delete_categories.replace('%s',$('input[name="categories[]"]:checked').size()));
-			}
-
-			return true;
+		    return window.confirm(dotclear.msg.confirm_delete_categories.replace('%s',nb_ckecked));
 		});
 	},
 
