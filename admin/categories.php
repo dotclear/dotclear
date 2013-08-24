@@ -182,15 +182,15 @@ else
 
 	if (count($combo_action)>0) {
 		 echo
-		 '<div class="two-cols">'.
+		 '<div class="three-cols">'.
 		 '<p class="col checkboxes-helpers"></p>'.
-		 '<div class="col right">'.
-		 '<p class="cat-actions"><label for="action" class="classic">'.__('Selected categories action:').'</label> '.
-		 form::combo('action',$combo_action).' '.
-		 '<span id="mov-cat"><label for="mov_cat">'.__('Choose the category which will receive its entries:').'</label> '.
-		 form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').' </span>'.
+		 '<div class="col" id="mov-cat">'.
+		 '<label for="mov_cat">'.__('Choose the category which will receive its entries:').'</label> '.
+		 form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').
+		 '</div>'.
+		 '<div class="col">'.
 		 $core->formNonce().
-		 '<input type="submit" value="'.__('OK').'" /></p>'.
+		 '<input type="submit" value="'.__('Delete').'"/>'.
 		 '</div>'.
 		 '</div>'.
 		 '</form>';
