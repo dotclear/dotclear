@@ -175,12 +175,11 @@ class dcImportWP extends dcIeModule
 				echo
 				'<p>'.sprintf(__('This will import your WordPress content as new content in the current blog: %s.'),
 				'<strong>'.html::escapeHTML($this->core->blog->name).'</strong>').'</p>'.
-				'<p class="static-msg">'.__('Please note that this process '.
-				'will empty your categories, blogroll, entries and comments on the current blog.').'</p>'.
-				'<p>'.__('Depending on the size of your blog, it could take a few minutes.').'</p>';
+				'<p class="form-note warn">'.__('Please note that this process '.
+				'will empty your categories, blogroll, entries and comments on the current blog.').'</p>';
 				
 				printf($this->imForm(1,__('General information'),__('Import my blog now')),
-				'<h3>'.__('We first need some information about your old WordPress installation.').'</h3>'.
+				'<p>'.__('We first need some information about your old WordPress installation.').'</p>'.
 				'<p><label for="db_host">'.__('Database Host Name:').'</label> '.
 				form::field('db_host',30,255,html::escapeHTML($this->vars['db_host'])).'</p>'.
 				'<p><label for="db_name">'.__('Database Name:',html::escapeHTML($this->vars['db_name'])).'</label> '.
@@ -198,10 +197,11 @@ class dcImportWP extends dcIeModule
 				'we see it more like "One category, several tags." Therefore Dotclear can only import one '.
 				'category per post and will chose the lowest numbered one. If you want to keep a trace of '.
 				'every category, you can import them as tags, with an optional prefix.').'</p>'.
-				'<p>'.__('On the other hand, in WordPress, a post can not be uncategorized, and a default '.
-				'installation has a first category labelised <i>"Uncategorized"</i>. If you did not change that '.
-				'category, you can just ignore it while importing your blog, as Dotclear allows you to '.
-				'actually keep your posts uncategorized.').'</p>'.
+				'<p>'.__('On the other hand, in WordPress, a post can not be uncategorized, and a '.
+				'default installation has a first category labelised <i>"Uncategorized"</i>.'.
+				'If you did not change that category, you can just ignore it while '.
+				'importing your blog, as Dotclear allows you to actually keep your posts '.
+				'uncategorized.').'</p>'.
 
 				'<p><label for="ignore_first_cat" class="classic">'.form::checkbox('ignore_first_cat',1,$this->vars['ignore_first_cat']).' '.
 				__('Ignore the first category:').'</label></p>'.
@@ -264,12 +264,12 @@ class dcImportWP extends dcIeModule
 		
 		return
 		'<form action="'.$this->getURL(true).'" method="post">'.
-		'<fieldset><legend>'.$legend.'</legend>'.
+		'<h3>'.$legend.'</h3>'.
 		$this->core->formNonce().
 		form::hidden(array('do'),'step'.$step).
 		'%s'.
 		'<p><input type="submit" value="'.$submit_value.'" /></p>'.
-		'</fieldset>'.
+		'<p class="form-note info">'.__('Depending on the size of your blog, it could take a few minutes.').'</p>'.
 		'</form>';
 	}
 	
