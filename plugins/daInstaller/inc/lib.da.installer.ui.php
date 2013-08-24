@@ -33,7 +33,7 @@ class daModulesList extends adminGenericList
 			$lineMethod   = 'themeLine';
 		}
 		else {
-			$msg_no_entry = __('No extension');
+			$msg_no_entry = __('No plugins');
 			$msg_th_label = __('Plugins');
 			$lineMethod   = 'pluginLine';
 		}

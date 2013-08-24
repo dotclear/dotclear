@@ -14,7 +14,7 @@ msgid "Logo URL:"
 msgstr "URL du logo :"
 
 msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr "Pour configurer le menu allez à la <a href=\"%s\">page d'administration de l'extension Menu Simple</a>."
+msgstr "Pour configurer le menu allez à la <a href=\"%s\">page d'administration de Menu Simple</a>."
 
 msgid "Stickers"
 msgstr "Étiquettes"

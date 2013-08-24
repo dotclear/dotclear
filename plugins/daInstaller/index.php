@@ -264,7 +264,7 @@ dcPage::breadcrumb(
 infoMessages();
 
 echo
-'<p>'.__('Install and update your extensions live from DotAddict.org').'</p>';
+'<p>'.__('Install and update your plugins live from DotAddict.org').'</p>';
 
 echo
 '<!-- Available updates -->'.
