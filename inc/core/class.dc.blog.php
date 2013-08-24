@@ -207,85 +207,61 @@ class dcBlog
 	public function triggerComments($ids, $del=false, $affected_posts=null)
 	{
 		$comments_ids = dcUtils::cleanIds($ids);
-		$affected_posts_ids = dcUtils::cleanIds($affected_posts);
-		$affected_is_trackback = 
-		$counted_posts_ids = 
-		$counted_is_trackback = 
-		$counted_nb_comments = array();
 		
-		# a) Retrieve posts affected by comments edition
-		if (empty($affected_posts_ids)) {
+		# Get posts affected by comments edition
+		if (empty($affected_posts)) {
 			$strReq = 
-				'SELECT post_id, comment_trackback '.
+				'SELECT post_id '.
 				'FROM '.$this->prefix.'comment '.
 				'WHERE comment_id'.$this->con->in($comments_ids).
-				'GROUP BY post_id,comment_trackback';
+				'GROUP BY post_id';
 			
 			$rs = $this->con->select($strReq);
 			
+			$affected_posts = array();
 			while ($rs->fetch()) {
-				$affected_posts_ids[] = (integer) $rs->post_id;
-				$affected_is_trackback[] = (boolean) $rs->comment_trackback;
+				$affected_posts[] = (integer) $rs->post_id;
 			}
 		}
 		
-		# b) Count comments of each posts previously retrieved
-		# Note that this does not return posts without comment
-		$strReq = 
-			'SELECT post_id, COUNT(post_id) AS nb_comment,comment_trackback '.
-			'FROM '.$this->prefix.'comment '.
-			'WHERE comment_status = 1 '.
-			(count($affected_posts_ids) > 0 ? 'AND post_id'.$this->con->in($affected_posts_ids) : ' ');
-		
-		if ($del) {
-			$strReq .= 
-				'AND comment_id NOT'.$this->con->in($comments_ids);
+		if (!is_array($affected_posts) || empty($affected_posts)) {
+			return;
 		}
 		
-		$strReq .= 
+		# Count number of comments if exists for affected posts
+		$strReq = 
+			'SELECT post_id, COUNT(post_id) AS nb_comment, comment_trackback '.
+			'FROM '.$this->prefix.'comment '.
+			'WHERE comment_status = 1 '.
+			'AND post_id'.$this->con->in($affected_posts).
 			'GROUP BY post_id,comment_trackback';
 		
 		$rs = $this->con->select($strReq);
 		
+		$posts = array();
 		while ($rs->fetch()) {
-			$counted_posts_ids[] = (integer) $rs->post_id;
-			$counted_is_trackback[] = (boolean) $rs->comment_trackback;
-			$counted_nb_comments[] = (integer) $rs->nb_comment;
+			if ($rs->comment_trackback) {
+				$posts[$rs->post_id]['trackback'] = $rs->nb_comment;
+			} else {
+				$posts[$rs->post_id]['comment'] = $rs->nb_comment;
+			}
 		}
 		
-		# c) Update comments numbers on posts
-		# This compare previous requests to update also posts without comment
+		# Update number of comments on affected posts
 		$cur = $this->con->openCursor($this->prefix.'post');
-		
-		foreach($affected_posts_ids as $affected_key => $affected_post_id)
+		foreach($affected_posts as $post_id)
 		{
-			if (!array_key_exists($affected_key, $affected_is_trackback)) {
-				$affected_is_trackback[$affected_key] = false;
-			}
-			$nb_comment = $nb_trackback = 0;
-			
-			foreach($counted_posts_ids as $counted_key => $counted_post_id)
-			{
-				if ($affected_post_id != $counted_post_id 
-				|| $affected_is_trackback[$affected_key] != $counted_is_trackback[$counted_key]) {
-					continue;
-				}
-				
-				if ($counted_is_trackback[$counted_key]) {
-					$nb_trackback = $counted_nb_comments[$counted_key];
-				} else {
-					$nb_comment = $counted_nb_comments[$counted_key];
-				}
-			}
-			
-			if ($affected_is_trackback[$affected_key]) {
-				$cur->nb_trackback = $nb_trackback;
-			} else {
-				$cur->nb_comment = $nb_comment;
-			}
-
-			$cur->update('WHERE post_id = '.$affected_post_id);
 			$cur->clean();
+			
+			if (!array_key_exists($post_id,$posts)) {
+				$cur->nb_trackback = 0;
+				$cur->nb_comment = 0;
+			} else {
+				$cur->nb_trackback = empty($posts[$post_id]['trackback']) ? 0 : $posts[$post_id]['trackback'];
+				$cur->nb_comment = empty($posts[$post_id]['comment']) ? 0 : $posts[$post_id]['comment'];
+			}
+			
+			$cur->update('WHERE post_id = '.$post_id);
 		}
 	}
 	//@}
@@ -2253,9 +2229,10 @@ class dcBlog
 		# Retrieve posts affected by comments edition
 		$affected_posts = array();
 		$strReq =
-			'SELECT distinct(post_id) '.
+			'SELECT post_id '.
 			'FROM '.$this->prefix.'comment '.
-			'WHERE comment_id'.$this->con->in($co_ids);
+			'WHERE comment_id'.$this->con->in($co_ids).
+			'GROUP BY post_id';
 		
 		$rs = $this->con->select($strReq);
 		
