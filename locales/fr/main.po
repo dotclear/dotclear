@@ -3182,5 +3182,11 @@ msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 msgid "This category will be created when you will save your post."
 msgstr "Cette catégorie sera créée lorsque vous enregistrerez votre billet."
 
-msgid "Selected categories action:"
-msgstr "Action sur les catégories sélectionnées :"
+msgid "Category which will receive entries of deleted categories:"
+msgstr "Catégorie d'accueil pour les billets des catégories supprimées :"
+
+msgid "Delete selected categories"
+msgstr "Supprimer les catégories sélectionnées"
+
+msgid "To rearrange categories order, change position number and click on “Save categories order”."
+msgstr "Pour changer l'ordre des catégories, modifier leur numéro de position et cliquez sur “Enregistrer l'ordre des catégories”."
