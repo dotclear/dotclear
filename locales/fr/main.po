@@ -1273,6 +1273,9 @@ msgstr "Choisir un fichier :"
 msgid "Maximum size %s"
 msgstr "Taille maximale %s"
 
+msgid "maximum size %s"
+msgstr "taille maximale %s"
+
 msgid "Private"
 msgstr "Privé"
 
