@@ -915,7 +915,7 @@ msgid ""
 "blog configuration."
 msgstr ""
 "Notez que Dotclear a un nouveau schéma d'URL. Vous pouvez éviter les liens "
-"brisés en installant l'extension <a href=\"%s\">DC1 redirect</a> et en "
+"brisés en installant le plugin <a href=\"%s\">DC1 redirect</a> et en "
 "l'activant dans la configuration de votre blog."
 
 msgid "next step"
@@ -1300,7 +1300,7 @@ msgid "Settings have been successfully updated."
 msgstr "Les réglages ont été modifiés avec succès."
 
 msgid "Activate pings extension"
-msgstr "Activer l'extension de signalement"
+msgstr "Activer le plugin de signalement"
 
 msgid "Service name:"
 msgstr "Nom du service :"
