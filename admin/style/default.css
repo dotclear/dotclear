@@ -1410,14 +1410,15 @@ span.form-note {
 }
 p.form-note.warn, p.form-note.info, p.warning {
 	font-style: normal;
-	padding: .2em 1em .1em 24px;
+	padding: .2em 1em .1em 30px;
+	color: #333;
 }
 p.form-note.warn, p.warning {
-	background: #ffd url(warning.png) no-repeat .3em .3em;
+	background: #ffd url(msg-warning.png) no-repeat .3em .3em;
 	border: 1px solid #f0c020;
 }
 p.form-note.info {
-	background: #f5eaff url(info.png) no-repeat .3em .3em;
+	background: #f5eaff url(msg-info.png) no-repeat .3em .3em;
 	border: 1px solid #ddbaff;
 }
 .form-note a {border-bottom: 1px solid #ddbaff;}
