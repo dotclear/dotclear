@@ -383,16 +383,16 @@ if ($step) {
 }
 
 if (!empty($_GET['added'])) {
-	dcPage::message(__('Menu item has been successfully added.'));
+	dcPage::success(__('Menu item has been successfully added.'));
 }
 if (!empty($_GET['removed'])) {
-	dcPage::message(__('Menu items have been successfully removed.'));
+	dcPage::success(__('Menu items have been successfully removed.'));
 }
 if (!empty($_GET['neworder'])) {
-	dcPage::message(__('Menu items have been successfully updated.'));
+	dcPage::success(__('Menu items have been successfully updated.'));
 }
 if (!empty($_GET['updated'])) {
-	dcPage::message(__('Menu items have been successfully updated.'));
+	dcPage::success(__('Menu items have been successfully updated.'));
 }
 
 if ($step)

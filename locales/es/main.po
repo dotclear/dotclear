@@ -2138,7 +2138,7 @@ msgstr "Sin selección"
 msgid "select all"
 msgstr "Seleccionar todo"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "Invertir la selección"
 
 msgid "view entry"

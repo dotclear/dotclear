@@ -16,25 +16,55 @@ dcPage::check('categories');
 
 # Remove a categories
 if (!empty($_POST['categories'])) {
-	$error = false;
-	foreach ($_POST['categories'] as $cat_id) {
-		# Check if category to delete exists
-		$c = $core->blog->getCategory((integer) $cat_id);
-		if ($c->isEmpty()) {
-			continue;
-		}
-		unset($c);
+	try {
+		# Check if category where to move posts exists
+		$mov_cat = (int) $_POST['mov_cat'];
+		$mov_cat = $mov_cat ? $mov_cat : null;
+		if ($mov_cat !== null) {
+			$c = $core->blog->getCategory($mov_cat);
+			if ($c->isEmpty()) {
+				throw new Exception(__('Category where to move posts does not exist'));
+			}
+			unset($c);
 
-		try {
+			if (in_array($mov_cat, $_POST['categories'])) {
+				throw new Exception(__('The entries cannot be moved to the category you choose to delete.'));
+			}
+		}
+
+		foreach ($_POST['categories'] as $cat_id) {
+			# Check if category to delete exists
+			$c = $core->blog->getCategory((integer) $cat_id);
+			if ($c->isEmpty()) {
+				continue;
+			}
+			unset($c);
+
+			# Move posts
+			if ($mov_cat != $cat_id) {
+			        $core->blog->changePostsCategory($cat_id,$mov_cat);
+			}
+
 			# Delete category
 			$core->blog->delCategory($cat_id);
-		} catch (Exception $e) {
-			$error = true;
+		}
+		http::redirect('categories.php?del='.count($_POST['categories']));
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Update order
+if (!empty($_POST['categories_order']))
+{
+        $categories = json_decode($_POST['categories_order']);
+
+	foreach ($categories as $category) {
+	        if (!empty($category->item_id)) {
+		        $core->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
 		}
 	}
-	if (!$error) {
-		http::redirect('categories.php?del='.count($_POST['categories']));
-	}
+	http::redirect('categories.php?reord=1');
 }
 
 # Reset order
@@ -51,21 +81,21 @@ if (!empty($_POST['reset']))
 	}
 }
 
-# Actions combo box
-$combo_action = array();
-if ($core->auth->check('categories',$core->blog->id)) {
-	$combo_action[__('Delete')] = 'delete';
-}
-
-# --BEHAVIOR-- adminCategoriesActionsCombo
-$core->callBehavior('adminCategoriesActionsCombo',array(&$combo_action));
-
 
 /* Display
 -------------------------------------------------------- */
-dcPage::open(__('Categories'),
-	dcPage::jsToolMan()."\n".
-	dcPage::jsLoad('js/_categories.js'),
+$rs = $core->blog->getCategories(array('post_type'=>'post'));
+
+$starting_script = dcPage::jsToolMan()."\n";
+if (!$core->auth->user_prefs->accessibility->nodragdrop
+	&& $core->auth->check('categories',$core->blog->id)
+	&& $rs->count()>1) {
+        $starting_script .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js');
+	$starting_script .= dcPage::jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
+}
+$starting_script .= dcPage::jsLoad('js/_categories.js');
+
+dcPage::open(__('Categories'),$starting_script,
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
@@ -73,24 +103,16 @@ dcPage::open(__('Categories'),
 		))
 );
 
-if (!empty($_GET['add'])) {
-	dcPage::message(__('The category has been successfully created.'));
-}
 if (!empty($_GET['del'])) {
-  dcPage::message(__('The category has been successfully removed.',
-		     'The categories have been successfully removed.',
-		     (int) $_GET['del']
-		     )
-		  );
+        dcPage::success(__('The category has been successfully removed.',
+			   'The categories have been successfully removed.',
+			   (int) $_GET['del']
+			   )
+			);
 }
 if (!empty($_GET['reord'])) {
-	dcPage::message(__('Categories have been successfully reordered.'));
+	dcPage::success(__('Categories have been successfully reordered.'));
 }
-if (!empty($_GET['moved'])) {
-	dcPage::message(__('The category has been successfully moved.'));
-}
-
-$rs = $core->blog->getCategories(array('post_type'=>'post'));
 
 $categories_combo = array();
 if (!$rs->isEmpty())
@@ -116,16 +138,13 @@ else
 {
 	echo
 	'<form action="categories.php" method="post" id="form-categories">'.
-	'<h3>'.__('Categories list').'</h3>'.
+	'<h3>'.__('List of blog\'s categories').'</h3>'.
 	'<div id="categories">';
 
 	$ref_level = $level = $rs->level-1;
 	while ($rs->fetch())
 	{
-		$attr = 'id="cat'.$rs->cat_id.'"';
-		if ($rs->nb_total == 0) {
-			$attr .= ' class="deletable"';
-		}
+		$attr = 'id="cat_'.$rs->cat_id.'"';
 
 		if ($rs->level > $level) {
 			echo str_repeat('<ul><li '.$attr.'>',$rs->level - $level);
@@ -138,17 +157,13 @@ else
 		}
 
 		echo
-		'<p>';
-		if ($rs->nb_total == 0) {
-			echo form::checkbox(array('categories[]'),$rs->cat_id);
-		}
-
-		echo
-		'<strong><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></strong>'.
+		'<p>'.
+		form::checkbox(array('categories[]','cat-'.$rs->cat_id),$rs->cat_id,null,$rs->nb_total>0?'notempty':'').
+		'<label class="classic" for="cat-'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label>'.
 		' (<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
-		', '.__('total:').' '.$rs->nb_total.')</p>'.
-		'<p>'.__('URL:').' '.html::escapeHTML($rs->cat_url).'</p>';
+		', '.__('total:').' '.$rs->nb_total.') '.
+		'<span class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></span></p>';
 
 		$level = $rs->level;
 	}
@@ -159,28 +174,43 @@ else
 	echo
 	'</div>';
 
-	if (count($combo_action)>0) {
-		 echo
-		 '<div class="two-cols">'.
-		 '<p class="col checkboxes-helpers"></p>'.
-		 '<p class="col right"><label for="action" class="classic">'.__('Selected categories action:').'</label> '.
-		 form::combo('action',$combo_action).
-		 $core->formNonce().
-		 '<input type="submit" value="'.__('ok').'" /></p>'.
-		 '</div>'.
-		 '</form>';
+	echo
+	'<div class="two-cols">'.
+	'<p class="col checkboxes-helpers"></p>'.
+	'<p class="col right" id="mov-cat">'.
+	'<label for="mov_cat" class="classic">'.__('Category which will receive entries of deleted categories:').'</label> '.
+	form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').
+	'</p>'.
+	'<p class="right">'.
+	$core->formNonce().
+	'<input type="submit" value="'.__('Delete selected categories').'"/>'.
+	'</p>'.
+	'</div>'.
+	'</form>';
+
+	echo '<h3 class="clear">'.__('Categories order').'</h3>';
+
+	if ($core->auth->check('categories',$core->blog->id) && $rs->count()>1) {
+		echo
+		'<form action="categories.php" method="post">';
+		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+		        echo '<p class="no-js-hidden">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
+		}
+		echo
+		'<p class="js-hidden">'.__('To rearrange categories order, change position number and click on “Save categories order” button.').'</p>'.
+		'<p>'.
+		'<input type="hidden" id="categories_order" name="categories_order" value=""/>'.
+		'<input type="submit" id="save-set-order" value="'.__('Save categories order').'" />'.
+		$core->formNonce().'</p>'.
+		'</form>';
 	}
 
 	echo
-	'<div class="col clear">'.
 	'<form action="categories.php" method="post" id="reset-order">'.
-	'<h3>'.__('Reorder categories').'</h3>'.
-	'<p>'.__('This will relocate all categories on the top level').'</p> '.
-	'<p><input class="reset" type="submit" value="'.__('Reorder').'" />'.
+	'<p><input type="submit" value="'.__('Reorder all categories on the top level').'" />'.
 	form::hidden(array('reset'),1).
 	$core->formNonce().'</p>'.
-	'</form>'.
-	'</div>';
+	'</form>';
 }
 
 echo '</div>';

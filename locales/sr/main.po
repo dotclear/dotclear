@@ -1171,7 +1171,7 @@ msgid "By dates, in descending order"
 msgstr "Par dates, décroissantes"
 
 msgid "Media manager"
-msgstr "Gestionnaire de médias"
+msgstr "Médiathèque"
 
 msgid "confirm removal"
 msgstr "Confirmer la suppression"
@@ -2166,7 +2166,7 @@ msgstr "Aucune sélection"
 msgid "select all"
 msgstr "tout sélectionner"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "inverser la sélection"
 
 msgid "view entry"

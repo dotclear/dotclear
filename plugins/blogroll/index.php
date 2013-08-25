@@ -186,23 +186,23 @@ try {
 
 <?php
 if (!empty($_GET['neworder'])) {
-	dcPage::message(__('Items order has been successfully updated'));
+	dcPage::success(__('Items order has been successfully updated'));
 }
 
 if (!empty($_GET['removed'])) {
-	dcPage::message(__('Items have been successfully removed.'));
+	dcPage::success(__('Items have been successfully removed.'));
 }
 
 if (!empty($_GET['addlink'])) {
-	dcPage::message(__('Link has been successfully created.'));
+	dcPage::success(__('Link has been successfully created.'));
 }
 
 if (!empty($_GET['addcat'])) {
-	dcPage::message(__('category has been successfully created.'));
+	dcPage::success(__('category has been successfully created.'));
 }
 
 if (!empty($_GET['importlinks'])) {
-	dcPage::message(__('links have been successfully imported.'));
+	dcPage::success(__('links have been successfully imported.'));
 }
 ?>
 

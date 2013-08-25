@@ -2150,7 +2150,7 @@ msgstr "ఎంపికలు లేవు"
 msgid "select all"
 msgstr "అన్నీ ఎంచుకోండి"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr ""
 
 msgid "view entry"

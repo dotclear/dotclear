@@ -40,8 +40,8 @@ msgstr "Flux de données incorrect"
 msgid "No theme"
 msgstr "Aucun thème disponible"
 
-msgid "No extension"
-msgstr "Aucune extension disponible"
+msgid "No plugin"
+msgstr "Aucun plugin disponible"
 
 msgid "Lastest Version"
 msgstr "Dernière version"
@@ -68,19 +68,19 @@ msgid "Support"
 msgstr "Support"
 
 msgid "No support available"
-msgstr "Aucun support disponible"
+msgstr "Aucun support disponible."
 
 msgid "The plugin has been successfully installed."
-msgstr "Le plugin a été installé avec succès"
+msgstr "Le plugin a été installé avec succès."
 
 msgid "The theme has been successfully installed."
-msgstr "Le thème a été installé avec succès"
+msgstr "Le thème a été installé avec succès."
 
 msgid "Following plugins have not been updated:"
-msgstr "Les extensions suivantes n'ont pas été mises à jour :"
+msgstr "Les plugins suivants n'ont pas été mis à jour :"
 
 msgid "Following plugins have been updated:"
-msgstr "Les extensions suivantes ont été mises à jour :"
+msgstr "Les plugins suivants ont été mis à jour :"
 
 msgid "Following themes have not been updated:"
 msgstr "Les thèmes suivants n'ont pas été mis à jour :"
@@ -88,23 +88,23 @@ msgstr "Les thèmes suivants n'ont pas été mis à jour :"
 msgid "Following themes have been updated:"
 msgstr "Les thèmes suivants ont été mis à jour :"
 
-msgid "Install and update your extensions live from DotAddict.org"
-msgstr "Installez et mettez à jour vos extensions en direct depuis DotAddict.org"
+msgid "Install and update your plugins live from DotAddict.org"
+msgstr "Installez et mettez à jour vos plugins en direct depuis DotAddict.org"
 
 msgid "Available updates"
 msgstr "Mises à jour disponibles"
 
 msgid "Detected updates for your system"
-msgstr "Mises à jour détectées pour votre système"
+msgstr "Mises à jour détectées pour votre système."
 
 msgid "Changes can be required after installation of updates. Click on a support link before to be aware about"
-msgstr "Des changements sont peut être nécessaires après la mise à jour. Pensez à vérifier en cliquant sur le lien de support"
+msgstr "Des changements sont peut-être nécessaires après la mise à jour. Pensez à vérifier en cliquant sur le lien de support."
 
 msgid "No update available"
-msgstr "Aucune mise à jour détectée pour votre système"
+msgstr "Aucune mise à jour détectée pour votre système."
 
 msgid "Get more plugins"
-msgstr "Obtenir plus d'extensions"
+msgstr "Obtenir plus de plugins"
 
 #, php-format
 msgid "Available plugins (%s)"

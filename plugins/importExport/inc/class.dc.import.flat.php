@@ -141,12 +141,12 @@ class dcImportFlat extends dcIeModule
 	{
 		if ($this->status == 'single')
 		{
-			dcPage::message(__('Single blog successfully imported.'));
+			dcPage::success(__('Single blog successfully imported.'));
 			return;
 		}
 		if ($this->status == 'full')
 		{
-			dcPage::message(__('Content successfully imported.'));
+			dcPage::success(__('Content successfully imported.'));
 			return;
 		}
 		
@@ -183,14 +183,14 @@ class dcImportFlat extends dcIeModule
 		'<h3>'.__('Single blog').'</h3>'.
 		'<p>'.sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'),html::escapeHTML($this->core->blog->name)).'</p>'.
 		
-		'<p><label for="up_single_file" class="classic">'.__('Upload a backup file').
-		' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.' </label>'.
+		'<p><label for="up_single_file">'.__('Upload a backup file').
+		' ('.sprintf(__('maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.' </label>'.
 		' <input type="file" id="up_single_file" name="up_single_file" size="20" />'.
 		'</p>';
 		
 		if ($has_files) {
 			echo 
-			'<p><label for="public_single_file" class="classic">'.__('or pick up a local file in your public directory').'</label> '.
+			'<p><label for="public_single_file" class="">'.__('or pick up a local file in your public directory').' </label> '.
 			form::combo('public_single_file',$public_files).
 			'</p>';
 		}
@@ -211,14 +211,14 @@ class dcImportFlat extends dcIeModule
 			'<h3>'.__('Multiple blogs').'</h3>'.
 			'<p class="warning">'.__('This will reset all the content of your database, except users.').'</p>'.
 			
-			'<p><label for="up_full_file" class="classic">'.__('Upload a backup file').' '.
-			' ('.sprintf(__('Maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.' </label>'.
+			'<p><label for="up_full_file">'.__('Upload a backup file').' '.
+			' ('.sprintf(__('maximum size %s'),files::size(DC_MAX_UPLOAD_SIZE)).')'.' </label>'.
 			'<input type="file" id="up_full_file" name="up_full_file" size="20" />'.
 			'</p>';
 			
 			if ($has_files) {
 				echo 
-				'<p><label for="public_full_file" class="classic">'.__('or pick up a local file in your public directory').' </label>'.
+				'<p><label for="public_full_file">'.__('or pick up a local file in your public directory').' </label>'.
 				form::combo('public_full_file',$public_files).
 				'</p>';
 			}

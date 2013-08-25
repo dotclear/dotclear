@@ -369,20 +369,20 @@ dcPage::open($page_title.' - '.__('Entries'),
 );
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Entry has been successfully updated.'));
+	dcPage::success(__('Entry has been successfully updated.'));
 }
 elseif (!empty($_GET['crea'])) {
-	dcPage::message(__('Entry has been successfully created.'));
+	dcPage::success(__('Entry has been successfully created.'));
 }
 elseif (!empty($_GET['attached'])) {
-	dcPage::message(__('File has been successfully attached.'));
+	dcPage::success(__('File has been successfully attached.'));
 }
 elseif (!empty($_GET['rmattach'])) {
-	dcPage::message(__('Attachment has been successfully removed.'));
+	dcPage::success(__('Attachment has been successfully removed.'));
 }
 
 if (!empty($_GET['creaco'])) {
-	dcPage::message(__('Comment has been successfully created.'));
+	dcPage::success(__('Comment has been successfully created.'));
 }
 
 # XHTML conversion
@@ -457,7 +457,7 @@ if ($can_edit_post)
 					'</p>'.
 					($core->auth->check('categories', $core->blog->id) ?
 						'<div>'.
-						'<p id="new_cat">'.__('Add a new category').'</p>'.
+						'<h5 id="create_cat">'.__('Add a new category').'</h5>'.
 						'<p><label for="new_cat_title">'.__('Title:').' '.
 						form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
 						'<p><label for="new_cat_parent">'.__('Parent:').' '.

@@ -232,15 +232,15 @@ dcPage::open(__('Blog appearance'),
 if (!$theme_conf_mode)
 {
 	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Theme has been successfully changed.'));
+		dcPage::success(__('Theme has been successfully changed.'));
 	}
 	
 	if (!empty($_GET['added'])) {
-		dcPage::message(($_GET['added'] == 2 ? __('Theme has been successfully upgraded') : __('Theme has been successfully installed.')));
+		dcPage::success(($_GET['added'] == 2 ? __('Theme has been successfully upgraded') : __('Theme has been successfully installed.')));
 	}
 	
 	if (!empty($_GET['del'])) {
-		dcPage::message(__('Theme has been successfully deleted.'));
+		dcPage::success(__('Theme has been successfully deleted.'));
 	}
 	
 	# Themes list

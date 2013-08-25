@@ -307,7 +307,7 @@ if ($can_install && !empty($err)) {
 }
 
 if (!empty($_GET['wiz'])) {
-	echo '<p class="message">'.__('Configuration file has been successfully created.').'</p>';
+	echo '<p class="success">'.__('Configuration file has been successfully created.').'</p>';
 }
 
 if ($can_install && $step == 0)
@@ -365,7 +365,7 @@ elseif ($can_install && $step == 1)
 	
 	$plugins_install_result.
 	
-	'<p>'.__('Dotclear has been successfully installed. Here is some useful information you should keep.').'</p>'.
+	'<p class="success">'.__('Dotclear has been successfully installed. Here is some useful information you should keep.').'</p>'.
 	
 	'<h3>'.__('Your account').'</h3>'.
 	'<ul>'.

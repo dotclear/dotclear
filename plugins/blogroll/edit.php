@@ -108,7 +108,7 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat']))
 if (isset($rs) && $rs->is_cat)
 {
 	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Category has been successfully updated'));
+		dcPage::success(__('Category has been successfully updated'));
 	}
 	
 	echo
@@ -127,7 +127,7 @@ if (isset($rs) && $rs->is_cat)
 if (isset($rs) && !$rs->is_cat)
 {
 	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Link has been successfully updated'));
+		dcPage::success(__('Link has been successfully updated'));
 	}
 	
 	echo

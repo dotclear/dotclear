@@ -89,7 +89,7 @@ class dcPage
 		' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
 		'<html xmlns="http://www.w3.org/1999/xhtml" '.
 		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
-		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
+		'lang="'.$core->auth->getInfo('user_lang').'" class="no-js">'."\n".
 		"<head>\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
@@ -133,13 +133,13 @@ class dcPage
 		'<div id="info-box1">'.
 		'<form action="index.php" method="post">'.
 		$blog_box.
-		'<p class="nomobile"><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
+		'<p class="nomobile"><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').'<img src="images/outgoing.png" alt="" /></a>'.
 		'</p></form>'.
 		'</div>'.
 		'<div id="info-box2">'.
 		'<a class="smallscreen'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a>'.
 		'<span class="smallscreen"> | </span><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="preferences.php">'.__('My preferences').'</a>'.
-		'<span class="smallscreen"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
+		'<span class="smallscreen"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).'<img src="images/logout.png" alt="" /></a>'.
 		'</div>'.
 		'</div>'.
 		'</div>';
@@ -297,13 +297,13 @@ class dcPage
 		return $res;
 	}
 
-	public static function message($msg,$timestamp=true,$div=false,$echo=true)
+	public static function message($msg,$timestamp=true,$div=false,$echo=true,$class='message')
 	{
 		global $core;
 
 		$res = '';
 		if ($msg != '') {
-			$res = ($div ? '<div class="message">' : '').'<p'.($div ? '' : ' class="message"').'>'.
+			$res = ($div ? '<div class="'.$class.'">' : '').'<p'.($div ? '' : ' class="'.$class.'"').'>'.
 			($timestamp ? dt::str(__('%H:%M:%S:'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
 			'</p>'.($div ? '</div>' : '');
 			if ($echo) {
@@ -311,6 +311,11 @@ class dcPage
 			}
 		}
 		return $res;
+	}
+
+	public static function success($msg,$timestamp=true,$div=false,$echo=true)
+	{
+		self::message($msg,$timestamp,$div,$echo,"success");
 	}
 
 	private static function debugInfo()
@@ -408,7 +413,7 @@ class dcPage
 		}
 
 		echo
-		'<div id="help"><hr /><div class="help-content clear"><h2>'.__('Help').'</h2>'.
+		'<div id="help"><hr /><div class="help-content clear"><h3>'.__('Help about this page').'</h3>'.
 		$content.
 		'</div></div>';
 	}
@@ -451,12 +456,14 @@ class dcPage
 			__('Help about this page')).
 		self::jsVar('dotclear.msg.help_hide',
 			__('Hide')).
+		self::jsVar('dotclear.msg.to_select',
+			__('Select:')).
 		self::jsVar('dotclear.msg.no_selection',
 			__('no selection')).
 		self::jsVar('dotclear.msg.select_all',
 			__('select all')).
 		self::jsVar('dotclear.msg.invert_sel',
-			__('invert selection')).
+			__('Invert selection')).
 		self::jsVar('dotclear.msg.website',
 			__('Web site:')).
 		self::jsVar('dotclear.msg.email',

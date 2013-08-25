@@ -121,11 +121,11 @@ echo dcPage::breadcrumb(
 		'<span class="page-title">'.__('about:config').'</span>' => ''
 	));
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Configuration successfully updated'));
+	dcPage::success(__('Configuration successfully updated'));
 }
 
 if (!empty($_GET['upda'])) {
-	dcPage::message(__('Settings definition successfully updated'));
+	dcPage::success(__('Settings definition successfully updated'));
 }
 ?>
 
