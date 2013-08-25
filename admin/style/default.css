@@ -16,6 +16,7 @@ html {
 	font-size: 62.5%;
 }
 body {
+	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 	line-height: 1.5;
 	font-family: Arial,Helvetica,sans-serif;
@@ -24,7 +25,6 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
 a, a:link, a:visited {
 	color: #2373A8;
 	text-decoration: none;
@@ -33,18 +33,18 @@ a, a:link, a:visited {
 a:hover, a:active, a:focus {
 	text-decoration: underline;
 }
-a img, a:link img, a:visited img { 
+a img, a:link img, a:visited img {
 	border:none;
 }
-
 h1, h2, h3, .as_h3, h4, h5, h6, p {
 	margin-top: 0;
-	margin-bottom: 1rem;
+	margin-bottom: 1em;
 }
 h2 {
 	color: #666;
+	font-size: 18px; /* ie < 9 sucks */
 	font-size: 1.8rem;
-	padding: 0 0 1.8rem;
+	padding: 0 0 1.5em;
 	font-weight: normal;
 }
 h2 a:link, h2 a:visited {
@@ -55,24 +55,29 @@ h2 a:link, h2 a:visited {
 	color: #d30e60;
 }
 .page-title img {
-	padding-left: .6rem;
+	padding-left: .5em;
 	vertical-align: middle;
 }
 #content > h2 {
+	padding: 0 18px 6px; /* ie < 9 sucks */
 	padding: 0 1.8rem .6rem;
+	margin: 0 -18px .5em; /* ie < 9 sucks */
 	margin: 0 -1.8rem 1rem;
 	background: #fff url(bg_h2.png) repeat-x center bottom;
 }
 h3, .as_h3 {
 	color: #575859;
-	font-size: 1.4rem;
+	font-size: 16px; /* ie < 9 sucks */
+	font-size: 1.6rem;
 }
 h4 {
-	font-size: 1.1em;
+	font-size: 14px; /* ie < 9 sucks */
+	font-size: 1.4rem;
 	color: #575859;
 }
 h5 {
-	font-size: 1em;
+	font-size: 12px; /* ie < 9 sucks */
+	font-size: 1.3rem;
 	color: #575859;
 }
 #entry-sidebar h5 {
@@ -80,7 +85,7 @@ h5 {
 	color: #333;
 }
 .entry-status label img {
-	padding-left: .4rem;
+	padding-left: 4px;
 	vertical-align: text-top;
 }
 p, div.p {
@@ -109,6 +114,16 @@ abbr {
 	cursor: help;
 }
 
+.no-js .js-hidden {
+        display: block;
+}
+.no-js .no-js-hidden {
+        display: none;
+}
+.js-hidden {
+        display: none;
+}
+
 /* LAYOUT
 -------------------------------------------------------- */
 /* header */
@@ -135,6 +150,7 @@ abbr {
 	background:transparent;
 }
 #prelude li a {
+	padding-left: 16px; /* ie < 9 sucks */
 	padding-left: 1.6rem;
 	background: #A2CBE9;
 	color: #000;
@@ -149,14 +165,16 @@ abbr {
 #top h1 {
 	padding: 0;
 	margin: 0;
-	height: 3.6rem;
+	height: 36px;
 	text-indent: -1000px;
 }
 #top h1 a {
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 174px; /* ie < 9 sucks */
 	width: 17.4rem;
+	height: 36px; /* ie < 9 sucks */
 	height: 3.6rem;
 	border: none;
 	color: #fff;
@@ -165,21 +183,22 @@ abbr {
 	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 }
 #top h1 a:hover, #top h1 a:focus {
-	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 -94px;	
+	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 -94px;
 }
 #info-boxes {
-	font-size: 1em;
+	font-size: 12px; /* ie < 9 sucks */
+	font-size: 1.2rem;
 	line-height: 3em;
 }
 #info-box1 {
 	margin: 0;
-	padding: 0 3px 0 1.8rem;
+	padding: 0 3px 0 18px;
 	color: #fff;
 	display: inline-block;
 }
 #info-box2 {
 	margin: 0;
-	padding: 0 1.3em 0 0;
+	padding: 0 18px 0 0;
 	color: #fff;
 	float: right;
 	text-align: right;
@@ -189,6 +208,7 @@ abbr {
 	display: inline;
 }
 #info-box1 select {
+	width: 145px; /* ie < 9 sucks */
 	width: 14.5em;
 }
 #info-box1 a img, #info-box2 a img {
@@ -203,6 +223,9 @@ abbr {
 	margin-right: .3em;
 	white-space: nowrap;
 	font-weight: normal;
+}
+#info-boxes .logout {
+	margin-right: 0;
 }
 #info-box1 a {
 	margin-left: 1.33em;
@@ -231,6 +254,7 @@ abbr {
 }
 #content {
 	margin: 0 0 0 14.5em;
+	padding: 9px 18px 18px; /* ie < 9 sucks */
 	padding: .9rem 1.8rem 1.8rem;
 	background: #fff;
 }
@@ -279,7 +303,7 @@ abbr {
 }
 /* -------------------------------------------------------------- layout - onglets */
 .part-tabs ul {
-	padding: .5em 0 .3em 1.2rem;
+	padding: .5em 0 .3em 1em;
 	border-bottom: 1px solid #ddd;
 }
 .part-tabs li {
@@ -305,6 +329,7 @@ abbr {
 	background: #fff;
 	font-weight: bold;
 	border-bottom-color: #fff;
+	padding-bottom: 7px; /* ie < 9 sucks */
 	padding-bottom: .7rem;
 }
 /* ------------------------------------------------------------------ main-menu */
@@ -318,25 +343,28 @@ abbr {
 }
 #main-menu h3 {
 	margin: 0;
-	padding: 1.2rem 0 1rem 2.2rem;
-	text-indent: -1.6rem;
+	padding: 10px 0 10px 8px;
 	color: #666;
+	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 }
 #main-menu h3 img[alt="cacher"] {
 	vertical-align: top;
 }
 #main-menu ul {
-	margin: 0 0 1.8rem 0;
+	margin: 0 0 1.5em 0;
 	padding: 0;
 	list-style: none;
 }
 #main-menu li {
 	display: block;
 	margin: 0.5em 0 0;
-	padding: .3rem 0 0 30px;
+	padding: 3px 0 0 30px;
 	background-repeat: no-repeat;
 	background-position: 8px .3em;
+}
+#main-menu ul li:first-child {
+	margin-top: 0;
 }
 #main-menu li.active {
 	background-color: #fff;
@@ -353,40 +381,44 @@ abbr {
 	font-weight: bold;
 }
 #search-menu {
-	padding: .3rem .4rem 0;
+	padding: 4px 5px 0;
 	font-size: 100%
+}
+#search-menu * {
+	height: 20px; /* ie < 9 sucks */
+	height: 2rem;
 }
 #search-menu p {
 	display: inline-block;
 	border: 1px solid #999;
-	border-radius: .6em;
+	border-radius: .3em;
 	position: relative;
-	height: 2rem;
 	overflow: hidden;
 }
 #search-menu #q {
+	width: 120px; /* ie < 9 sucks */
 	width: 12rem;
-	border-bottom-left-radius: .6em;
-	border-top-left-radius: .6em;
+	border-bottom-left-radius: .3em;
+	border-top-left-radius: .3em;
 	background: transparent url(search.png) no-repeat 4px center;
 	text-indent: 18px;
-	height: 2rem;
-	padding: 0 2px; 
+	padding: 0 2px;
 	border: none;
 }
 #search-menu input[type="submit"] {
-	padding: 0 0.3rem;
+	padding: 0 3px;
+	padding: 0 .3rem;
 	background: #dfdfdf;
 	border-color: #999;
 	color: #444;
-	border-bottom-right-radius: .6em;
-	border-top-right-radius: .6em;
+	border-bottom-right-radius: .3em;
+	border-top-right-radius: .3em;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	text-shadow: none;
-	height: 2rem;
 	border: none;
 	border-left: 1px solid #aaa;
+	font-size: 10px; /* ie < 9 sucks */
 	font-size: 1rem;
 }
 #search-menu input[type="submit"]:hover,
@@ -400,14 +432,14 @@ abbr {
 #favorites-menu h3 {
 	color: #000;
 	font-variant: small-caps;
-	padding-top: .6rem;
+	padding-top: .2em;
 }
 /* ------------------------------------------------------------------ footer */
 #footer {
 	clear: both;
-	padding: .6rem 1.2rem .6rem 0;
+	padding: .5em 1em .5em 0;
 	text-align: right;
-	border-top: .1rem solid #ccc;
+	border-top: 1px solid #ccc;
 }
 #footer p {
 	margin: 0;
@@ -415,7 +447,7 @@ abbr {
 	font-size: 1em;
 }
 #footer p span.credit {
-	font-size: 1rem;
+	font-size: 1em;
 	font-weight: normal;
 }
 /* ---------------------------------------------------------------------------- auth.php */
@@ -423,6 +455,7 @@ abbr {
 	display: block;
 	width: 20em;
 	margin: 1.5em auto 0;
+	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 }
 #login-screen h1 {
@@ -435,18 +468,25 @@ abbr {
 #login-screen .fieldset {
 	border: 1px solid #A8DC26;
 	padding: 1em 1em 0 1em;
-	border-radius: 4px;
+	border-radius: 3px;
 	background: #fff;
 }
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit] {
 	width: 100%;
 }
+#login-screen input.login {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-size: 1em;
+}
 #login-screen #issue {
-	margin-left: 1.5rem;
+	margin-left: 1.33em;
+	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 }
-#login-screen #issue strong {font-weight: normal;}
-
+#login-screen #issue strong {
+	font-weight: normal;
+}
 /* ------------------------------------------------------------------ dashboard */
 #dashboard-main {
 	padding: 1em 0;
@@ -562,7 +602,7 @@ abbr {
 #upg-notify {
 }
 #upg-notify ul {
-	padding-left: 15px;
+	padding-left: 1.5em;
 }
 #upg-notify li {
 	color: #fff;
@@ -578,7 +618,7 @@ abbr {
 	margin-left: 0;
 }
 .multi-part {
-	padding-left: 1.2rem;
+	padding-left: 1em;
 }
 #entry-content label {
 	text-transform: uppercase;
@@ -602,7 +642,7 @@ abbr {
 }
 /* ------------------------------------------------------------------ categories */
 #categories {
-	margin: 1em 0 2em;
+	margin: 1em 0;
 }
 #categories ul {
 	list-style: none;
@@ -611,19 +651,32 @@ abbr {
 }
 #categories li {
 	margin: .5em 0;
-	padding: .3em 1.5em;
+	padding: .5em 1.2em;
 	border: 1px solid #ccc;
-	border-left: 1em solid #E5E3DA;
-	border-radius: .3em;
+	border-left: 8px solid #E5E3DA;
+	border-radius: 3px;
+}
+#categories input[type="checkbox"] {
+	margin-right: .8em;
 }
 #categories h4 {
 	margin: 0;
+}
+#categories label a {
+	font-weight: bold;
 }
 #categories h4 span {
 	font-weight: normal;
 }
 #categories li p {
 	margin: 0;
+	display: inline-block;
+}
+.cat-url {
+	padding-left: 1em;
+}
+.cat-actions {
+	line-height: 2;
 }
 select#del_cat {
 	width: 100%;
@@ -631,6 +684,21 @@ select#del_cat {
 #new_cat {
 	font-weight: bold;
 	margin-top: 2em;
+}
+#categories .placeholder {
+        outline: 1px dashed #4183C4;
+        min-height: 2.5em;
+}
+#save-set-order.disabled {
+        text-shadow: none;
+        color: #666;
+        background: #F5F5F5;
+        border: 1px solid #CCCCCC;
+}
+#save-set-order.disabled:hover {
+        color: #666;
+        background: #DFDFDF;
+        border: 1px solid #CCCCCC;
 }
 /* ------------------------------------------------------------------ media */
 #media-icon {
@@ -818,7 +886,6 @@ li.media-action input {
 .theme-css {
 	display: block;
 }
-
 /* Themes list, JS version */
 #themes-wrapper {
 	display: table;
@@ -831,12 +898,12 @@ li.media-action input {
 #theme-box {
 	display: table-cell;
 	vertical-align: top;
-	padding: 0; 
+	padding: 0;
 	width: 312px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
-#theme-box .theme-shot, 
+#theme-box .theme-shot,
 #theme-box .theme-info,
 #theme-box .theme-actions {
 	background: #eef;
@@ -894,7 +961,6 @@ li.media-action input {
 #plugins td.action {
 	vertical-align: middle;
 }
-
 select.l10n option {
 	padding-left: 16px;
 }
@@ -912,15 +978,17 @@ option.avail10n {
 #help-button {
 	background: transparent url(../images/page_help.png) no-repeat 6px center;
 	position: absolute;
+	top: 36px; /* ie < 9 sucks */
 	top: 3.6rem;
 	right: 0px;
-	padding: 0 2rem 0 3rem;
+	padding: 0 1.5em 0 30px;
 	cursor: pointer;
 	color: #2373A8;
+	line-height: 42px; /* ie < 9 sucks */
 	line-height: 4.2rem;
 }
 #help-button span {
-	padding: .6rem 0 .1rem 0;
+	padding: .5em 0 .1em 0;
 	border-bottom: 1px solid #2373A8;
 }
 .help-box {
@@ -931,29 +999,32 @@ option.avail10n {
 	margin-left: 0;
 }
 #content.with-help #help-button {
+	right: 282px; /* ie < 9 sucks */
 	right: 28.2rem;
 	background-color: #f5f5f5;
 	position: fixed;
 	border-top: 2px solid #FFD478;
 	border-left: 2px solid #FFD478;
 	border-bottom: 2px solid #FFD478;
-	border-bottom-left-radius: 1rem;
-	border-top-left-radius: 1rem;
+	border-bottom-left-radius: 1em;
+	border-top-left-radius: 1em;
 }
 #content.with-help #help {
 	display: block;
 	position: absolute;
+	top: 36px; /* ie < 9 sucks */
 	top: 3.6rem;
 	right: 0;
+	width: 280px; /* ie < 9 sucks */
 	width: 28rem;
 	border-left: 2px solid #FFD478;
 	border-top: 2px solid #FFD478;
 	margin-top: 0;
-	padding: 10px 0 0 0;
+	padding: .5em 0 0 0;
 	overflow: auto;
 }
 #content.with-help .help-content {
-	padding: 0 5px 1em 5px;
+	padding: 0 .5em 1em;
 }
 .help-content dt {
 	font-weight: bold;
@@ -980,7 +1051,7 @@ body.popup h1, body.popup #top {
 	color: #fff;
 	background: #575859;
 	font-size: 1.5em;
-	text-indent: .6rem;
+	text-indent: .5em;
 	line-height: 1.3em;
 }
 body.popup #main {
@@ -988,7 +1059,7 @@ body.popup #main {
 }
 body.popup #content {
 	margin: 0;
-	padding: .6rem 0 !important;
+	padding: .5em 0;
 }
 body.popup #content h2 {
 	margin: 0 0 1em;
@@ -997,14 +1068,14 @@ body.popup #footer p {
 	border: none;
 }
 /* ------------------------------------------------------------------ messages */
-.error, .message, .static-msg, .static-msg {
-	padding: 0.5em 0.5em 0.5em 48px;
+.error, .message, .static-msg, .static-msg, .success {
+	padding: 1em 0.5em 0.5em 48px;
 	margin-bottom: 1em;
 	border-radius: 8px;
 }
-p.error, p.message, p.static-msg {
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+p.error, p.message, p.static-msg, p.success {
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 .error {
 	background: #FFBABA url(msg-error.png) no-repeat .7em .7em;
@@ -1015,7 +1086,7 @@ p.error, p.message, p.static-msg {
 	color: #fff;
 }
 .success {
-	background-color: #cf9;
+	background: #baff8e url(msg-success.png) no-repeat .7em .7em;
 	color: #000;
 }
 .message a, .static-msg a {
@@ -1024,12 +1095,11 @@ p.error, p.message, p.static-msg {
 .success a {
 	color: #666;
 }
-
 /* ------------------------------------------------------------------ navigation */
 .anchor-nav {
 	background: #575859;
 	color: #fff;
-	padding: .4rem 1.2rem;
+	padding: 4px 1em;
 	float: right;
 }
 .nav_prevnext {
@@ -1038,8 +1108,8 @@ p.error, p.message, p.static-msg {
 }
 .nav_prevnext a, a.back {
 	border: 1px solid #ddd;
-	padding: .2rem 2rem;
-	border-radius: 1rem;
+	padding: 2px 1.5em;
+	border-radius: .75em;
 	background-color: #f0f0f0;
 }
 a.back:before {
@@ -1049,8 +1119,8 @@ a.onblog_link {
 	color: #333;
 	float: right;
 	border: 1px solid #eee;
-	padding: .2rem 2rem;
-	border-radius: 1rem;
+	padding: 2px 1.5em;
+	border-radius: .75em;
 	background-color: #ffe;
 }
 /* ------------------------------------------------------------------ debug */
@@ -1075,7 +1145,6 @@ a.onblog_link {
 	display: block;
 }
 /* -------------------------------------------------------------------- CLASSES COMMUNES */
-
 .no-margin, #entry-content label.no-margin {
 	margin: 0;
 }
@@ -1087,14 +1156,19 @@ a.onblog_link {
 .fieldset {
 	background: #fff;
 	border: 1px solid #aaa;
-	border-radius: 6px; 
+	border-radius: 6px;
 	padding: 1em .7em .5em;
 	margin-bottom: 1em;
 }
 .fieldset h3 {
 	color: #333;
 }
-
+.table {
+	display: table;
+}
+.cell {
+	display: table-cell;
+}
 /* paragraphe pour bouton Nouveau bidule */
 p.top-add {
 	text-align: right;
@@ -1164,19 +1238,6 @@ ul.nice li {
 	background: transparent url(package.png) no-repeat 0 50%;
 	padding: 5px 0 5px 20px;
 }
-/* pas trouvé dans le code */
-.comment {
-	border-top: 2px solid #ccc;
-	margin-bottom: 1em;
-	padding: 2em 0 1em 0;
-	position: relative;
-}
-.comment form p {
-	margin: 0;
-	position: absolute;
-	top: 2px;
-	right: 0;
-}
 .distrib img {
 	display: block;
 	float: right;
@@ -1185,6 +1246,7 @@ ul.nice li {
 /* TABLES
 -------------------------------------------------------- */
 table {
+	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 	border-collapse: collapse;
 	margin: 0 0 1em 0;
@@ -1224,7 +1286,7 @@ th.first img {
 .noborder td, td.noborder, .noborder th, th.noborder {
 	border-width: 0 0 1px 0;
 	border-color: #ddd;
-	line-height: 2.4rem;
+	line-height: 2em;
 	padding-bottom: 0;
 }
 .noborder p {
@@ -1243,7 +1305,7 @@ table .nowrap {
 table.settings, table.prefs {
 	width: 80%;
 	border: 1px solid #999;
-	margin-bottom: 3em; 
+	margin-bottom: 3em;
 }
 table.settings th, table.prefs th {
 	background: #f3f3ff;
@@ -1338,7 +1400,7 @@ input, textarea, select {
 }
 input.invalid, textarea.invalid, select.invalid {
 	border: 1px solid red;
-	background: #fff; 
+	background: #fff;
 	color: red;
 	box-shadow: 0 0 0 1px rgba(218, 62, 90, 0.3)
 }
@@ -1357,6 +1419,10 @@ input[type=checkbox], input[type=radio], input[type=file] {
 	margin: 0;
 	padding: 0;
 	background: transparent;
+}
+input[type=file] {
+	margin-top: .3em;
+	margin-bottom: .3em;
 }
 label {
 	display: block;
@@ -1377,15 +1443,17 @@ span.form-note {
 }
 p.form-note.warn, p.form-note.info, p.warning {
 	font-style: normal;
-	padding: .2em 1em .1em 24px;
+	padding: .2em 1em .3em 32px;
+	color: #333;
+	display: inline-block;
 }
 p.form-note.warn, p.warning {
-	background: #ffd url(warning.png) no-repeat .3em .3em;
+	background: #ffd url(msg-warning.png) no-repeat .3em .3em;
 	border: 1px solid #f0c020;
 }
 p.form-note.info {
-	background: #f5eaff url(info.png) no-repeat .3em .3em;
-	border: 1px solid #ddbaff;
+	background: #f5eaff url(msg-info.png) no-repeat .3em .3em;
+	border: 1px solid #c484ff;
 }
 .form-note a {border-bottom: 1px solid #ddbaff;}
 
@@ -1419,7 +1487,7 @@ label.inline {
 }
 p.field {
 	position: relative;
-	
+
 }
 p.field label {
 	display: block;
@@ -1440,7 +1508,7 @@ textarea.maximal {
 
 a.form-control {
 	display: none;
-	background: url(../images/expand.png) no-repeat .4rem center;
+	background: url(../images/expand.png) no-repeat 4px center;
 	padding-left: 20px;
 	color: #000;
 }
@@ -1465,6 +1533,7 @@ a.submit {
 	padding: .1em .5em;
 	border-radius: .2em;
 	margin-bottom: .1em;
+	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
  }
 h4 a.button {font-weight: normal;}
@@ -1523,7 +1592,7 @@ a.delete,
 input.delete,
 input[type=submit].delete {
 	color: #c00;
-	padding-bottom: .2rem;
+	padding-bottom: 2px;
 }
 #entry-content .delete {
 	margin-left: 1em;
@@ -1550,10 +1619,11 @@ input[type=button] {
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c', endColorstr='#8cb82b');
 	background-color:#9dce2c;
 	border:1px solid #83c41a;
-	padding:.6rem 1.8rem;
+	padding:.5em 1.5em;
 	color: #000;
 	text-shadow: 1px 1px 0 #BBDB58;
 	font-weight: normal;
+	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 }
 .button.add:hover, .button.add:active, .button.add:focus {
@@ -1603,7 +1673,7 @@ input[type=button] {
 /* ------------------------------------------------------- Filters */
 #filters-form {
 	border: 1px dashed #999;
-	border-radius: .6rem;
+	border-radius: .5em;
 	margin-bottom: 2em;
 	padding: .5em 1em 0;
 }
@@ -1647,21 +1717,21 @@ input[type=button] {
 	height: 22px;
 	margin-top: 1em;
 	line-height: 22px;
-	padding: 0 1rem; 
+	padding: 0 .75em;
 	border: 1px solid #ddd;
-	overflow: hidden; 
-	background: #e1e1e1; 
-	background: -moz-linear-gradient(center top , #f2f2f2, #e1e1e1); 
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#e1e1e1)); 
-	-moz-border-radius: 4px; 
-	-webkit-border-radius: 4px; 
-	border-radius: 4px; 
+	overflow: hidden;
+	background: #e1e1e1;
+	background: -moz-linear-gradient(center top , #f2f2f2, #e1e1e1);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#e1e1e1));
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
 	clear: left;
 }
 .pagination a, .pagination strong {
 	height: 20px;
 	border: none;
-	padding: 2px 6px; 
+	padding: 2px 6px;
 	background-color : transparent;
 	background-position : 50% 50%;
 	background-repeat: no-repeat;
@@ -1718,7 +1788,7 @@ input[type=button] {
 	#top, #top h1 a {width: 42px !important; height:100%; overflow: hidden;
 }
 	#top h1 a:link {
-		background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px; 
+		background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
 		border-right: 1px solid #ccc;
 	}
 	#top h1 a:hover, #top h1 a:focus {
@@ -1732,10 +1802,11 @@ input[type=button] {
 		vertical-align:middle;
 		margin:0;
 		padding:0;
+		line-height: 32px; /* ie < 9 sucks */
 		line-height: 3.2rem;
 	}
-	#info-box1 {margin-left: 1rem;}
-	#info-box1 select {width: 14rem;}
+	#info-box1 {margin-left: .75em;}
+	#info-box1 select {width: 140px; width: 14rem;}
 	#main-menu, #main, #content, #content h2, #entry-wrapper, #entry-sidebar, #entry-content, .two-cols .col, .two-cols .col:first-child {
     	display:block;
     	width: 98%;
@@ -1755,13 +1826,13 @@ input[type=button] {
 	#help-button {width:20px; overflow: hidden;}
 	#info-box2 {float:none;}
 	#dashboard-items div {display: block;margin-bottom: 1em; padding: 0 1em;}
-	#help-button {height:26px; width:26px; background-color: #A2CBE9; padding: 0; margin:0;font-size: 1rem;line-height: 68px}
+	#help-button {height:26px; width:26px; background-color: #A2CBE9; padding: 0; margin:0;font-size:10px; font-size: 1rem;line-height: 68px}
 }
 @media screen and (max-width: 492px) {
-	#header {height:3.6rem;}
-	#wrapper {font-size: 1.6rem;}
+	#header {height: 36px; height: 3.6rem;}
+	#wrapper {font-size: 16px; font-size: 1.6rem;}
 	.page-title, #info-boxes, .media-item {display: inline-block;}
 	div.media-list .media-item {width: 90%; float: none}
-	#info-box1 select {width: 12rem; margin-right: .6rem;}
+	#info-box1 select {width: 120px; width: 12rem; margin-right: .6rem;}
 	#info-box1 p.nomobile, label.nomobile {display: none;}
 }

@@ -78,16 +78,16 @@ elseif ($action == 'log')
 
 <?php
 if (!empty($_GET['vacuum'])) {
-	dcPage::message(__('Optimization successful.'));
+	dcPage::success(__('Optimization successful.'));
 }
 if (!empty($_GET['commentscount'])) {
-	dcPage::message(__('Comments and trackback counted.'));
+	dcPage::success(__('Comments and trackback counted.'));
 }
 if (!empty($_GET['empty_cache'])) {
-	dcPage::message(__('Templates cache directory emptied.'));
+	dcPage::success(__('Templates cache directory emptied.'));
 }
 if (!empty($_GET['delete_logs'])) {
-	dcPage::message(__('Logs deleted.'));
+	dcPage::success(__('Logs deleted.'));
 }
 
 if ($action == 'index' && !empty($_GET['indexposts']))

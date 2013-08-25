@@ -175,7 +175,7 @@ jQuery.fn.helpViewer = function() {
 		o.prepend(' ').prepend(i);
 		o.click(function() {
 			$(this).nextAll().each(function() {
-				if ($(this).is('h3')) {
+				if ($(this).is('h4')) {
 					return false;
 				}
 				$(this).toggle();
@@ -195,8 +195,8 @@ jQuery.fn.helpViewer = function() {
 	this.addClass('help-box');
 	this.find('>hr').remove();
 
-	this.find('h3').each(function() { textToggler($(this)); });
-	this.find('h3:first').nextAll('*:not(h3)').hide();
+	this.find('h4').each(function() { textToggler($(this)); });
+	this.find('h4:first').nextAll('*:not(h4)').hide();
 	sizeBox();
 
 	var img = $('<p id="help-button"><span>'+dotclear.msg.help+'</span></p>');
@@ -245,6 +245,9 @@ var dotclear = {
 	},
 
 	checkboxesHelpers: function(e) {
+		$(e).append(document.createTextNode(dotclear.msg.to_select));
+		$(e).append(document.createTextNode(' '));
+
 		var a = document.createElement('a');
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.select_all));
@@ -254,7 +257,7 @@ var dotclear = {
 		};
 		$(e).append(a);
 
-		$(e).append(document.createTextNode(' - '));
+		$(e).append(document.createTextNode(' | '));
 
 		a = document.createElement('a');
 		a.href='#';
@@ -300,22 +303,12 @@ var dotclear = {
 
 	categoriesActionsHelper: function() {
 		$('#form-categories').submit(function() {
-			var action = $(this).find('select[name="action"]').val();
-			var checked = false;
+		    var nb_ckecked = $('input[name="categories[]"]:checked').length;
+		    if (nb_ckecked==0) {
+			return false;
+		    }
 
-			$(this).find('input[name="categories[]"]').each(function() {
-				if (this.checked) {
-					checked = true;
-				}
-			});
-
-			if (!checked) { return false; }
-
-			if (action == 'delete') {
-				return window.confirm(dotclear.msg.confirm_delete_categories.replace('%s',$('input[name="categories[]"]:checked').size()));
-			}
-
-			return true;
+		    return window.confirm(dotclear.msg.confirm_delete_categories.replace('%s',nb_ckecked));
 		});
 	},
 
@@ -344,6 +337,9 @@ var dotclear = {
 /* On document ready
 -------------------------------------------------------- */
 $(function() {
+	// remove class no-js from html tag
+	$('html').removeClass('no-js');
+
 	// Blog switcher
 	$('#switchblog').change(function() {
 		this.form.submit();
@@ -372,6 +368,7 @@ $(function() {
 
 	$('.message').backgroundFade({sColor:'#cccccc',eColor:'#666666',steps:20});
 	$('.error').backgroundFade({sColor:'#ffdec8',eColor:'#ffbaba',steps:20});
+	$('.success').backgroundFade({sColor:'#91ff4d',eColor:'#baff8e',steps:20});
 
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
 		var e = this.elements['your_pwd'];
