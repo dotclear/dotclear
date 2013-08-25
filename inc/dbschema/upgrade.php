@@ -335,10 +335,16 @@ function dotclearUpgrade($core)
 				}
 			}
 
-			if (version_compare($version, '2.5.1', '<='))
+			if (version_compare($version,'2.5.1','<='))
 			{
 				// Flash enhanced upload no longer needed
 				@unlink(DC_ROOT.'/'.'inc/swf/swfupload.swf');
+			}
+
+			if (version_compare($version,'2.6','<='))
+			{
+				// README has been replaced by README.md and CONTRIBUTING.md
+				@unlink(DC_ROOT.'/'.'README');
 			}
 			
 			$core->setVersion('core',DC_VERSION);
