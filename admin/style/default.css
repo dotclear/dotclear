@@ -1227,6 +1227,11 @@ ul.nice li {
 	background: transparent url(package.png) no-repeat 0 50%;
 	padding: 5px 0 5px 20px;
 }
+.distrib img {
+	display: block;
+	float: right;
+	margin-top: -1em;
+}
 /* TABLES
 -------------------------------------------------------- */
 table {
