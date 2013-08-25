@@ -370,7 +370,7 @@ msgid "Inserted image title"
 msgstr "Titres des images insérées"
 
 msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
-msgstr "Ceci définit le titre de la balise d'une image insérée depuis le gestionnaire de media. Les informations sont obtenues depuis les métadonnées de l'image."
+msgstr "Ceci définit le titre de la balise d'une image insérée depuis la médiathèque. Les informations sont obtenues depuis les métadonnées de l'image."
 
 msgid "Use original media date if possible"
 msgstr "Utiliser la date originale du média si possible"
@@ -1201,7 +1201,7 @@ msgid "By dates, in descending order"
 msgstr "Par dates décroissantes"
 
 msgid "Media manager"
-msgstr "Gestionnaire de médias"
+msgstr "Médiathèque"
 
 msgid "Go to %s folder"
 msgstr "Aller au dossier %s"
@@ -1857,7 +1857,7 @@ msgid "Enable WYSIWYG mode"
 msgstr "Activer l'éditeur visuel"
 
 msgid "Activate enhanced uploader in media manager"
-msgstr "Activer l'interface avancée du gestionnaire de médias"
+msgstr "Activer l'interface avancée du médiathèque"
 
 #, fuzzy
 msgid "Hide My favorites menu"
