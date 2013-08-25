@@ -5,12 +5,13 @@
 	padding: 1.5em 1% 0; 
 	margin: 0 1% 0 0;
 }
-#widgets > div {
+#widgets > li {
 	border: 1px solid #ccc;
 	margin-bottom: .5em;
 	background: #fff;
 	min-height: 3em;
 	padding: 0 0 4px 0;
+	list-style: none;
 }
 #widgets .widget-name, #widgets .js-remove {
 	background: #fff;
@@ -40,11 +41,16 @@
 #widgets, #dndnav, #dndextra, #dndcustom {
 	padding: 1em 0;
 }
-#dndnav > div, #dndextra > div, #dndcustom > div {
+#dndnav > li, #dndextra > li, #dndcustom > li {
 	padding: O;
 	border: 1px solid #999;
 	margin-bottom: 1em;
+	list-style: none;
 }
+#dndnav .form-note, #dndextra .form-note, #dndcustom .form-note {
+	display: none;
+}
+
 
 .widget-name {
 	background: #eef;

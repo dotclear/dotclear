@@ -1,19 +1,54 @@
-var dragdrop = ToolMan.dragdrop();
-$(function() {
+dotclear.postExpander = function(line) {
+	var title = $(line).find('.widget-name');
+	
+	var img = document.createElement('img');
+	img.src = dotclear.img_plus_src;
+	img.alt = dotclear.img_plus_alt;
+	img.className = 'expand';
+	$(img).css('cursor','pointer');
+	img.line = line;
+	img.onclick = function() { dotclear.viewPostContent(this.line); };
+	
+	title.prepend(img);
+};
+
+dotclear.viewPostContent = function(line,action) {
+	var action = action || 'toogle';
+	var img = $(line).find('.expand');
+	var isopen = img.attr('alt') == dotclear.img_plus_alt;
+	
+	if( action == 'close' || ( action == 'toogle' && !isopen ) ) {
+		$(line).find('.widgetSettings').hide();
+		img.attr('src', dotclear.img_plus_src);
+		img.attr('alt', dotclear.img_plus_alt);
+	} else if ( action == 'open' || ( action == 'toogle' && isopen ) ) {
+		$(line).find('.widgetSettings').show();
+		img.attr('src', dotclear.img_minus_src);
+		img.attr('alt', dotclear.img_minus_alt);
+	}
+	
+};
+
+$(function() {	
 	$('input[name="wreset"]').click(function() {
 		return window.confirm(dotclear.msg.confirm_widgets_reset);
 	});
+	
+	$('#dndnav > li, #dndextra > li, #dndcustom > li').each(function() {
+		dotclear.postExpander(this);
+		dotclear.viewPostContent(this, 'close');
+	});
+	
 });
-
-$(function() {
-	var widgets = document.getElementById('widgets');
+	
+	/*var widgets = document.getElementById('widgets');
 	var w_nav = document.getElementById('dndnav');
 	var w_ext = document.getElementById('dndextra');
 	var w_custom = document.getElementById('dndcustom');
 	
-	w_nav.className = 'hideControls';
-	w_ext.className = 'hideControls';
-	w_custom.className = 'hideControls';
+	$('#dndnav').addClass('hideControls');
+	$('#dndextra').addClass('hideControls');
+	$('#dndcustom').addClass('hideControls');
 	
 	removeElements(document.getElementById('listWidgets'),'input');
 	removeElements(widgets,'p');
@@ -27,15 +62,6 @@ $(function() {
 	configControls(w_nav);
 	configControls(w_ext);
 	configControls(w_custom);
-	
-	dragdrop.makeListContainer(widgets,'div',setHandle);
-	if (!document.all) { widgets.factory = true; }
-	dragdrop.makeListContainer(w_nav,'div',setHandle);
-	w_nav.onDragEnd = navDragEnd;
-	dragdrop.makeListContainer(w_ext,'div',setHandle);
-	w_ext.onDragEnd = extraDragEnd;
-	dragdrop.makeListContainer(w_custom,'div',setHandle);
-	w_custom.onDragEnd = customDragEnd;
 	
 	// Helper to remove some elements
 	function removeElements(p,name) {
@@ -165,13 +191,6 @@ $(function() {
 			this.alt = dotclear.img_minus_alt;
 		}
 	}
-	
-	function setHandle(item) {
-		//var handle = item.getElementsByTagName('h4').item(0);
-		var handle = $('p.widget-name',item).get(0);
-		$(handle).addClass('handler');
-		item.toolManDragGroup.setHandle(handle);
-	}
 });
 
 //
@@ -224,4 +243,4 @@ if (document.childNodes && !document.all && !navigator.taintEnabled)
 			return false;
 		});
 	});
-}
+}*/
