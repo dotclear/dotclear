@@ -192,7 +192,7 @@ class dcExportFlat extends dcIeModule
 		echo
 		'<form action="'.$this->getURL(true).'" method="post" class="fieldset">'.
 		'<h3>'.__('Single blog').'</h3>'.
-		'<p>'.sprintf(__('This will create an export of your current blog: %s'),html::escapeHTML($this->core->blog->name)).'</p>'.
+		'<p>'.sprintf(__('This will create an export of your current blog: %s'),'<strong>'.html::escapeHTML($this->core->blog->name)).'</strong>.</p>'.
 		
 		'<p><label for="file_name">'.__('File name:').'</label>'.
 		form::field(array('file_name','file_name'),50,255,date('Y-m-d-').html::escapeHTML($this->core->blog->id.'-backup.txt')).

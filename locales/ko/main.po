@@ -2153,7 +2153,7 @@ msgstr "선택 없음"
 msgid "select all"
 msgstr "모두 선택하기"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "선택사항 뒤집기"
 
 msgid "view entry"

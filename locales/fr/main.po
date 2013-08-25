@@ -370,7 +370,7 @@ msgid "Inserted image title"
 msgstr "Titres des images insérées"
 
 msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
-msgstr "Ceci définit le titre de la balise d'une image insérée depuis le gestionnaire de media. Les informations sont obtenues depuis les métadonnées de l'image."
+msgstr "Ceci définit le titre de la balise d'une image insérée depuis la médiathèque. Les informations sont obtenues depuis les métadonnées de l'image."
 
 msgid "Use original media date if possible"
 msgstr "Utiliser la date originale du média si possible"
@@ -600,7 +600,9 @@ msgid "The category has been successfully created."
 msgstr "Catégorie créée avec succès."
 
 msgid "The category has been successfully removed."
-msgstr "Catégorie supprimée avec succès."
+msgid_plural "The categories have been successfully removed."
+msgstr[0] "Catégorie supprimée avec succès."
+msgstr[1] "Catégories supprimées avec succès."
 
 msgid "Categories have been successfully reordered."
 msgstr "Catégories réordonnées avec succès."
@@ -611,8 +613,8 @@ msgstr "Catégorie déplacée avec succès."
 msgid "No category yet."
 msgstr "Pas encore de catégorie."
 
-msgid "Categories list"
-msgstr "Liste des catégories"
+msgid "List of blog\'s categories"
+msgstr "Liste des catégories du blog"
 
 #, php-format
 msgid "%d entries"
@@ -646,8 +648,14 @@ msgstr "Supprimer une catégorie"
 msgid "Choose a category to remove:"
 msgstr "Choisissez une catégorie à supprimer :"
 
-msgid "And choose the category which will receive its entries:"
-msgstr "Et sélectionnez la catégorie qui recevra ses (éventuels) billets :"
+msgid "Categories order"
+msgstr "Ordonnancement des catégories"
+
+msgid "Save categories order"
+msgstr "Enregistrer l'ordre des catégories"
+
+msgid "Choose the category which will receive its entries:"
+msgstr "Sélectionnez la catégorie qui recevra ses éventuels billets :"
 
 msgid "The entries cannot be moved to the category you choose to delete."
 msgstr "Vous ne pouvez déplacer les billets vers la catégorie que vous voulez supprimer."
@@ -655,11 +663,14 @@ msgstr "Vous ne pouvez déplacer les billets vers la catégorie que vous voulez 
 msgid "Delete"
 msgstr "Supprimer"
 
-msgid "Reorder categories"
-msgstr "Réordonner les catégories"
+msgid "Reorder all categories on the top level"
+msgstr "Replacer toutes les catégories au premier niveau"
 
 msgid "This will relocate all categories on the top level"
 msgstr "Ceci va déplacer toutes les catégories au premier niveau"
+
+msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
+msgstr "Pour modifier l\'ordre des catégories, déplacez les items par glisser-déposer puis cliquez sur le bouton \"Enregistrer l\'ordre des catégories\"."
 
 msgid "Reorder"
 msgstr "Réordonner"
@@ -859,10 +870,10 @@ msgid "See <a href=\"http://dotclear.org/documentation/2.0/admin/config\">docume
 msgstr "Voir <a href=\"http://fr.dotclear.org/documentation/2.0/admin/config\">la documentation</a> pour plus d'information."
 
 msgid "Following plugins have been installed:"
-msgstr "Les extensions suivantes ont été installées :"
+msgstr "Les plugins suivants ont été installés :"
 
 msgid "Following plugins have not been installed:"
-msgstr "Les extensions suivantes n'ont pas été installées :"
+msgstr "Les plugins suivants n'ont pas été installés :"
 
 #, php-format
 msgid "Dotclear %s is available!"
@@ -878,7 +889,7 @@ msgid "information about this version"
 msgstr "Information à propos de cette version"
 
 msgid "Some plugins are installed twice:"
-msgstr "Ces extensions sont installées en double :"
+msgstr "Ces plugins sont installés en double :"
 
 msgid "Quick entry"
 msgstr "Billet rapide"
@@ -1190,7 +1201,7 @@ msgid "By dates, in descending order"
 msgstr "Par dates décroissantes"
 
 msgid "Media manager"
-msgstr "Gestionnaire de médias"
+msgstr "Médiathèque"
 
 msgid "Go to %s folder"
 msgstr "Aller au dossier %s"
@@ -1261,6 +1272,9 @@ msgstr "Choisir un fichier :"
 #, php-format
 msgid "Maximum size %s"
 msgstr "Taille maximale %s"
+
+msgid "maximum size %s"
+msgstr "taille maximale %s"
 
 msgid "Private"
 msgstr "Privé"
@@ -1443,59 +1457,59 @@ msgid "Change file"
 msgstr "Changer le fichier"
 
 msgid "No content found on this plugin."
-msgstr "Aucun contenu pour cette extension."
+msgstr "Aucun contenu pour ce plugin."
 
 msgid "Plugin not found"
-msgstr "Extension introuvable"
+msgstr "Plugin introuvable"
 
 msgid "The plugin you reached does not exist or does not have an admin page."
-msgstr "L'extension que vous essayez d'atteindre n'existe pas ou n'a pas de page d'administration."
+msgstr "Le plugin que vous essayez d'atteindre n'existe pas ou n'a pas de page d'administration."
 
 msgid "No such plugin."
-msgstr "Extension inexistante."
+msgstr "Plugin inexistant."
 
 msgid "You don't have permissions to delete this plugin."
-msgstr "Vous n'avez pas les permissions pour effacer cette extension."
+msgstr "Vous n'avez pas les permissions pour supprimer ce plugin."
 
 msgid "You don't have permissions to deactivate this plugin."
-msgstr "Vous n'avez pas les permissions pour désactiver cette extension."
+msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
 
 msgid "Plugins management"
-msgstr "Gestion des extensions"
+msgstr "Gestion des plugins"
 
 msgid "Plugin has been successfully deleted."
-msgstr "Extension supprimée avec succès."
+msgstr "Plugin supprimé avec succès."
 
 msgid "Plugin has been successfully installed."
-msgstr "Extension installée avec succès."
+msgstr "Plugin installé avec succès."
 
 msgid "Plugin has been successfully upgraded"
-msgstr "Extension mise à jour avec succès."
+msgstr "Plugin mis à jour avec succès."
 
 msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
-msgstr "Les extensions ajoutent de nouvelles fonctionnalités à Dotclear. Ici, vous pouvez activer ou désactiver les extensions installées."
+msgstr "Les plugins ajoutent de nouvelles fonctionnalités à Dotclear. Ici, vous pouvez activer ou désactiver les plugins installés."
 
 #, php-format
 msgid "You can find additional plugins for your blog on %s."
-msgstr "Vous pouvez trouver de nouvelles extensions pour votre blog sur %s."
+msgstr "Vous pouvez trouver d'autres plugins pour votre blog sur %s."
 
 msgid "You can find additional plugins for your blog on %s or using the %s."
-msgstr "Vous pouvez trouver de nouvelles extensions pour votre blog sur %s ou en utilisant l'%s."
+msgstr "Vous pouvez trouver d'autres plugins pour votre blog sur %s ou en utilisant l'%s."
 
 msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
-msgstr "Tout ce que vous avez à faire pour installer ou mettre à jour une extension est généralement de la déposer dans la section \"Installer ou mettre à jour une extension\"."
+msgstr "Pour installer ou mettre à jour un plugin il suffit de le déposer grâce au formulaire de la section \"Installer ou mettre à jour un plugin\"."
 
 msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
-msgstr "Tout ce que vous avez à faire pour installer une extension est de l'extraire dans votre répertoire d'extensions."
+msgstr "Pour installer un plugin il suffit de l'extraire dans votre répertoire de plugins."
 
 msgid "Plugins"
 msgstr "Plugins"
 
 msgid "Activated plugins"
-msgstr "Extensions activées"
+msgstr "Plugins activés"
 
 msgid "Plugin"
-msgstr "Extension"
+msgstr "Plugin"
 
 msgid "Version"
 msgstr "Version"
@@ -1507,34 +1521,34 @@ msgid "Deactivate"
 msgstr "Désactiver"
 
 msgid "Deactivated plugins"
-msgstr "Extensions désactivées"
+msgstr "Plugins désactivés"
 
 msgid "Activate"
 msgstr "Activer"
 
 msgid "Install or upgrade a plugin"
-msgstr "Installer ou mettre à jour une extension"
+msgstr "Installer ou mettre à jour un plugin"
 
 msgid "You can install plugins by uploading or downloading zip files."
-msgstr "Vous pouvez installer des extensions en déposant ou téléchargeant des fichiers zip."
+msgstr "Vous pouvez installer des plugins en déposant ou téléchargeant des fichiers zip."
 
 msgid "Plugin zip file:"
-msgstr "Fichier zip de l'extension :"
+msgstr "Fichier zip de du plugin :"
 
 msgid "Upload plugin"
-msgstr "Déposer l'extension"
+msgstr "Déposer le plugin"
 
 msgid "Plugin zip file URL:"
-msgstr "URL du fichier zip de l'extension :"
+msgstr "URL du fichier zip du plugin :"
 
 msgid "Download plugin"
-msgstr "Télécharger l'extension"
+msgstr "Télécharger le plugin"
 
 msgid "To enable this function, please give write access to your plugins directory."
-msgstr "Pour activer cette fonction, donnez un accès en écriture à votre répertoire d'extensions."
+msgstr "Pour activer cette fonction, donnez un accès en écriture à votre répertoire de plugins."
 
 msgid "Plugin from official distribution"
-msgstr "Extension de la distribution officielle"
+msgstr "Plugin de la distribution officielle"
 
 msgid "Add a link"
 msgstr "Ajouter un lien"
@@ -1843,7 +1857,7 @@ msgid "Enable WYSIWYG mode"
 msgstr "Activer l'éditeur visuel"
 
 msgid "Activate enhanced uploader in media manager"
-msgstr "Activer l'interface avancée du gestionnaire de médias"
+msgstr "Activer l'interface avancée de la médiathèque"
 
 #, fuzzy
 msgid "Hide My favorites menu"
@@ -1853,10 +1867,10 @@ msgid "Iconset:"
 msgstr "Jeu d'icônes :"
 
 msgid "Do not use standard favicon"
-msgstr "Ne pas utiliser le favicon standard"
+msgstr "Ne pas utiliser le favicon standard de Dotclear"
 
 msgid "This will be applied for all users"
-msgstr "Ce choix sera actif pour tous les utilisateurs"
+msgstr "Ce choix sera appliqué pour tous les utilisateurs"
 
 msgid "Accessibility options"
 msgstr "Options d'accessibilité"
@@ -2188,14 +2202,17 @@ msgstr "cacher"
 msgid "help"
 msgstr "aide"
 
+msgid "Select:"
+msgstr "Sélectionner :"
+
 msgid "no selection"
-msgstr "aucune sélection"
+msgstr "aucun"
 
 msgid "select all"
-msgstr "tout sélectionner"
+msgstr "tous"
 
-msgid "invert selection"
-msgstr "inverser la sélection"
+msgid "Invert selection"
+msgstr "Inverser la sélection"
 
 msgid "view entry"
 msgstr "voir le billet"
@@ -2245,7 +2262,7 @@ msgstr "Êtes-vous certain de vouloir supprimer la langue \"%s\" ?"
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Êtes-vous certain de vouloir supprimer l'extension \"%s\" ?"
+msgstr "Êtes-vous certain de vouloir supprimer le plugin \"%s\" ?"
 
 msgid "Use this theme"
 msgstr "Utiliser ce thème"
@@ -2692,10 +2709,10 @@ msgid "Cannot remove module files"
 msgstr "Impossible de supprimer les fichiers du module"
 
 msgid "Cannot deactivate plugin."
-msgstr "L'extension ne peut pas être désactivée."
+msgstr "Le plugin ne peut pas être désactivé."
 
 msgid "Cannot activate plugin."
-msgstr "L'extension ne peut pas être activée."
+msgstr "Le plugin ne peut pas être activé."
 
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
@@ -3164,3 +3181,12 @@ msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 
 msgid "This category will be created when you will save your post."
 msgstr "Cette catégorie sera créée lorsque vous enregistrerez votre billet."
+
+msgid "Category which will receive entries of deleted categories:"
+msgstr "Catégorie d'accueil pour les billets des catégories supprimées :"
+
+msgid "Delete selected categories"
+msgstr "Supprimer les catégories sélectionnées"
+
+msgid "To rearrange categories order, change position number and click on “Save categories order”."
+msgstr "Pour changer l'ordre des catégories, modifier leur numéro de position et cliquez sur “Enregistrer l'ordre des catégories”."

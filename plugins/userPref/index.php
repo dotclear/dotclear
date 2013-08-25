@@ -118,11 +118,11 @@ echo dcPage::breadcrumb(
 	));
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Preferences successfully updated'));
+	dcPage::success(__('Preferences successfully updated'));
 }
 
 if (!empty($_GET['upda'])) {
-	dcPage::message(__('Preferences definition successfully updated'));
+	dcPage::success(__('Preferences definition successfully updated'));
 }
 ?>
 

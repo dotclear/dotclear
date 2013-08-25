@@ -149,7 +149,7 @@ else
 	'<h3>'.__('Informations').'</h3>';
 
 	if (!empty($_GET['del'])) {
-		dcPage::message(__('Spam comments have been successfully deleted.'));
+		dcPage::success(__('Spam comments have been successfully deleted.'));
 	}
 
 	echo
@@ -180,7 +180,7 @@ else
 	'<form action="'.$p_url.'" method="post" id="filters-list-form">';
 
 	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Filters configuration has been successfully saved.'));
+		dcPage::success(__('Filters configuration has been successfully saved.'));
 	}
 
 	echo

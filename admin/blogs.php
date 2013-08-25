@@ -81,7 +81,7 @@ dcPage::open(__('List of blogs'),$starting_script,
 );
 
 if (!empty($_GET['del'])) {
-	dcPage::message(__('Blog has been successfully deleted.'));
+	dcPage::success(__('Blog has been successfully deleted.'));
 }
 
 if (!$core->error->flag())

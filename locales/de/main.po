@@ -2125,7 +2125,7 @@ msgstr "Keine Auswahl"
 msgid "select all"
 msgstr "alles markieren"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "Auswahl entfernen"
 
 msgid "view entry"

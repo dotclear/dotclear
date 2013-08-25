@@ -370,22 +370,22 @@ dcPage::open($page_title,
 );
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Personal information has been successfully updated.'));
+	dcPage::success(__('Personal information has been successfully updated.'));
 }
 if (!empty($_GET['updated'])) {
-	dcPage::message(__('Personal options has been successfully updated.'));
+	dcPage::success(__('Personal options has been successfully updated.'));
 }
 if (!empty($_GET['append'])) {
-	dcPage::message(__('Favorites have been successfully added.'));
+	dcPage::success(__('Favorites have been successfully added.'));
 }
 if (!empty($_GET['neworder'])) {
-	dcPage::message(__('Favorites have been successfully updated.'));
+	dcPage::success(__('Favorites have been successfully updated.'));
 }
 if (!empty($_GET['removed'])) {
-	dcPage::message(__('Favorites have been successfully removed.'));
+	dcPage::success(__('Favorites have been successfully removed.'));
 }
 if (!empty($_GET['replaced'])) {
-	dcPage::message(__('Default favorites have been successfully updated.'));
+	dcPage::success(__('Default favorites have been successfully updated.'));
 }
 
 # User profile

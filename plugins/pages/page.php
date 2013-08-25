@@ -343,16 +343,16 @@ echo dcPage::breadcrumb(
 	));
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Page has been successfully updated.'));
+	dcPage::success(__('Page has been successfully updated.'));
 }
 elseif (!empty($_GET['crea'])) {
-	dcPage::message(__('Page has been successfully created.'));
+	dcPage::success(__('Page has been successfully created.'));
 }
 elseif (!empty($_GET['attached'])) {
-	dcPage::message(__('File has been successfully attached.'));
+	dcPage::success(__('File has been successfully attached.'));
 }
 elseif (!empty($_GET['rmattach'])) {
-	dcPage::message(__('Attachment has been successfully removed.'));
+	dcPage::success(__('Attachment has been successfully removed.'));
 }
 
 # XHTML conversion

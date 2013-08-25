@@ -134,7 +134,7 @@ $daInstaller->check(false,true);
 function infoMessages()
 {
 	$res = '';
-	$p_msg = '<p class="message">%s</p>';
+	$p_msg = '<p class="success">%s</p>';
 	$p_err = '<p class="error">%s</p>';
 	
 	# Plugins install message
@@ -162,7 +162,7 @@ function infoMessages()
 			$res .= '<div class="error">'.__('Following plugins have not been updated:').'<ul>'.$err.'</ul></div>';
 		}
 		else {
-			$res .= '<div class="static-msg">'.__('Following plugins have been updated:').'<ul>'.$upd.'</ul></div>';
+			$res .= '<div class="success">'.__('Following plugins have been updated:').'<ul>'.$upd.'</ul></div>';
 		}
 	}
 	# Themes update message
@@ -182,12 +182,12 @@ function infoMessages()
 			$res .= '<div class="error">'.__('Following themes have not been updated:').'<ul>'.$err.'</ul></div>';
 		}
 		else {
-			$res .= '<div class="static-msg">'.__('Following themes have been updated:').'<ul>'.$upd.'</ul></div>';
+			$res .= '<div class="success">'.__('Following themes have been updated:').'<ul>'.$upd.'</ul></div>';
 		}
 	}
 	# Plugins install settings messages
 	if (!empty($plugins_install['success'])) {
-		$res .= '<div class="static-msg">'.__('Following plugins have been installed:').'<ul>';
+		$res .= '<div class="success">'.__('Following plugins have been installed:').'<ul>';
 		foreach ($plugins_install['success'] as $k => $v) {
 			$res .= '<li>'.$k.'</li>';
 		}
@@ -264,7 +264,7 @@ dcPage::breadcrumb(
 infoMessages();
 
 echo
-'<p>'.__('Install and update your extensions live from DotAddict.org').'</p>';
+'<p>'.__('Install and update your plugins live from DotAddict.org').'</p>';
 
 echo
 '<!-- Available updates -->'.
@@ -272,7 +272,7 @@ echo
 if ($u_p_nb > 0 || $u_t_nb > 0) {
 	echo
 	'<p><strong>'.__('Detected updates for your system').'</strong></p>'.
-	'<p class="form-note warn">'.
+	'<p class="warning">'.
 		__('Changes can be required after installation of updates. Click on a support link before to be aware about').
 	'</p>';
 }

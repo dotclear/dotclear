@@ -2098,7 +2098,7 @@ msgstr "usuń zaznaczenie"
 msgid "select all"
 msgstr "zaznacz wszystkie"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "odwróć zaznaczenie"
 
 msgid "view entry"

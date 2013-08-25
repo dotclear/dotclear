@@ -2130,7 +2130,7 @@ msgstr "取消全部选择"
 msgid "select all"
 msgstr "选择全部"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "反选"
 
 msgid "view entry"

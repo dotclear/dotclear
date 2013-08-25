@@ -114,47 +114,39 @@ $(function() {
 
 		// Confirm post deletion
 		$('input[name="delete"]').click(function() {
-			return window.confirm(dotclear.msg.confirm_delete_post);
+				return window.confirm(dotclear.msg.confirm_delete_post);
 		});
 
 		// Hide some fields
 		$('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'),{
 			cookie: 'dcx_post_notes',
-		        hide: $('#post_notes').val() == '',
-		        legend_click: true
+			hide: $('#post_notes').val() == ''
 		});
-		$('#new_cat').toggleWithLegend(
-			$('#new_cat').parent().children().not('#new_cat'),
-			{legend_click: true} // no cookie on new category as we don't use this every day
+		$('#create_cat').toggleWithLegend(
+			$('#create_cat').parent().children().not('#create_cat'),
+			{} // no cookie on new category as we don't use this every day
 		);
 		$('#post_lang').parent().toggleWithLegend($('#post_lang'),{
-		    cookie: 'dcx_post_lang',
-		    legend_click: true
+			cookie: 'dcx_post_lang'
 		});
 		$('#post_password').parent().toggleWithLegend($('#post_password'),{
 			cookie: 'dcx_post_password',
-		    hide: $('#post_password').val() == '',
-		    legend_click: true
+			hide: $('#post_password').val() == ''
 		});
 		$('#post_status').parent().toggleWithLegend($('#post_status'),{
-		        cookie: 'dcx_post_status',
-		    legend_click: true
+			cookie: 'dcx_post_status'
 		});
 		$('#post_dt').parent().toggleWithLegend($('#post_dt').parent().children().not('label'),{
-		    cookie: 'dcx_post_dt',
-		    legend_click: true
+			cookie: 'dcx_post_dt'
 		});
 		$('#post_format').parent().toggleWithLegend($('#post_format').parent().children().not('label').add($('#post_format').parents('p').next()),{
-		    cookie: 'dcx_post_format',
-		    legend_click: true
+			cookie: 'dcx_post_format'
 		});
 		$('#cat_id').parent().toggleWithLegend($('#cat_id'),{
-		    cookie: 'cat_id',
-		    legend_click: true
+			cookie: 'cat_id'
 		});
 		$('#post_url').parent().toggleWithLegend($('#post_url').parent().children().not('label'),{
-		    cookie: 'post_url',
-		    legend_click: true
+			cookie: 'post_url'
 		});
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
@@ -165,7 +157,7 @@ $(function() {
 		// Load toolbars
 		contentTb.switchMode(formatField.value);
 		excerptTb.switchMode(formatField.value);
-		
+
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {
 			this.href = '';

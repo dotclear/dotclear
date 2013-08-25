@@ -9,7 +9,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
 	'daInstaller',
-	'Install and update your extensions live from DotAddict.org',
+	'Install and update your plugins live from DotAddict.org',
 	'Tomtom / DotAddict.org',
 	'1.0.3',
 	null,
