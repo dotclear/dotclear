@@ -169,7 +169,7 @@ else
 		' (<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
 		', '.__('total:').' '.$rs->nb_total.') '.
-		__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></p>';
+		'<span class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></span></p>';
 
 		$level = $rs->level;
 	}

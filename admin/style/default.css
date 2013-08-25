@@ -16,6 +16,7 @@ html {
 	font-size: 62.5%;
 }
 body {
+	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 	line-height: 1.5;
 	font-family: Arial,Helvetica,sans-serif;
@@ -39,12 +40,13 @@ a img, a:link img, a:visited img {
 
 h1, h2, h3, .as_h3, h4, h5, h6, p {
 	margin-top: 0;
-	margin-bottom: 1rem;
+	margin-bottom: 1em;
 }
 h2 {
 	color: #666;
+	font-size: 18px; /* ie < 9 sucks */
 	font-size: 1.8rem;
-	padding: 0 0 1.8rem;
+	padding: 0 0 1.5em;
 	font-weight: normal;
 }
 h2 a:link, h2 a:visited {
@@ -55,24 +57,29 @@ h2 a:link, h2 a:visited {
 	color: #d30e60;
 }
 .page-title img {
-	padding-left: .6rem;
+	padding-left: .5em;
 	vertical-align: middle;
 }
 #content > h2 {
+	padding: 0 18px 6px; /* ie < 9 sucks */
 	padding: 0 1.8rem .6rem;
+	margin: 0 -18px .5em; /* ie < 9 sucks */ 
 	margin: 0 -1.8rem 1rem;
 	background: #fff url(bg_h2.png) repeat-x center bottom;
 }
 h3, .as_h3 {
 	color: #575859;
-	font-size: 1.4rem;
+	font-size: 16px; /* ie < 9 sucks */
+	font-size: 1.6rem;
 }
 h4 {
-	font-size: 1.1em;
+	font-size: 14px; /* ie < 9 sucks */
+	font-size: 1.4rem;
 	color: #575859;
 }
 h5 {
-	font-size: 1em;
+	font-size: 12px; /* ie < 9 sucks */
+	font-size: 1.3rem;
 	color: #575859;
 }
 #entry-sidebar h5 {
@@ -80,7 +87,7 @@ h5 {
 	color: #333;
 }
 .entry-status label img {
-	padding-left: .4rem;
+	padding-left: 4px;
 	vertical-align: text-top;
 }
 p, div.p {
@@ -135,6 +142,7 @@ abbr {
 	background:transparent;
 }
 #prelude li a {
+	padding-left: 16px; /* ie < 9 sucks */
 	padding-left: 1.6rem;
 	background: #A2CBE9;
 	color: #000;
@@ -149,14 +157,16 @@ abbr {
 #top h1 {
 	padding: 0;
 	margin: 0;
-	height: 3.6rem;
+	height: 36px;
 	text-indent: -1000px;
 }
 #top h1 a {
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 174px; /* ie < 9 sucks */
 	width: 17.4rem;
+	height: 36px; /* ie < 9 sucks */
 	height: 3.6rem;
 	border: none;
 	color: #fff;
@@ -168,18 +178,19 @@ abbr {
 	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 -94px;	
 }
 #info-boxes {
-	font-size: 1em;
+	font-size: 12px; /* ie < 9 sucks */
+	font-size: 1.2rem;
 	line-height: 3em;
 }
 #info-box1 {
 	margin: 0;
-	padding: 0 3px 0 1.8rem;
+	padding: 0 3px 0 18px;
 	color: #fff;
 	display: inline-block;
 }
 #info-box2 {
 	margin: 0;
-	padding: 0 1.3em 0 0;
+	padding: 0 16px 0 0;
 	color: #fff;
 	float: right;
 	text-align: right;
@@ -189,6 +200,7 @@ abbr {
 	display: inline;
 }
 #info-box1 select {
+	width: 145px; /* ie < 9 sucks */
 	width: 14.5em;
 }
 #info-box1 a img, #info-box2 a img {
@@ -231,6 +243,7 @@ abbr {
 }
 #content {
 	margin: 0 0 0 14.5em;
+	padding: 9px 18px 18px; /* ie < 9 sucks */ 
 	padding: .9rem 1.8rem 1.8rem;
 	background: #fff;
 }
@@ -279,7 +292,7 @@ abbr {
 }
 /* -------------------------------------------------------------- layout - onglets */
 .part-tabs ul {
-	padding: .5em 0 .3em 1.2rem;
+	padding: .5em 0 .3em 1em;
 	border-bottom: 1px solid #ddd;
 }
 .part-tabs li {
@@ -318,8 +331,7 @@ abbr {
 }
 #main-menu h3 {
 	margin: 0;
-	padding: 1.2rem 0 1rem 2.2rem;
-	text-indent: -1.6rem;
+	padding: 10px 0 10px 8px;
 	color: #666;
 	font-size: 1.4rem;
 }
@@ -327,16 +339,19 @@ abbr {
 	vertical-align: top;
 }
 #main-menu ul {
-	margin: 0 0 1.8rem 0;
+	margin: 0 0 1.5em 0;
 	padding: 0;
 	list-style: none;
 }
 #main-menu li {
 	display: block;
 	margin: 0.5em 0 0;
-	padding: .3rem 0 0 30px;
+	padding: 3px 0 0 30px;
 	background-repeat: no-repeat;
 	background-position: 8px .3em;
+}
+#main-menu ul li:first-child {
+	margin-top: 0;
 }
 #main-menu li.active {
 	background-color: #fff;
@@ -359,15 +374,15 @@ abbr {
 #search-menu p {
 	display: inline-block;
 	border: 1px solid #999;
-	border-radius: .6em;
+	border-radius: .3em;
 	position: relative;
 	height: 2rem;
 	overflow: hidden;
 }
 #search-menu #q {
 	width: 12rem;
-	border-bottom-left-radius: .6em;
-	border-top-left-radius: .6em;
+	border-bottom-left-radius: .3em;
+	border-top-left-radius: .3em;
 	background: transparent url(search.png) no-repeat 4px center;
 	text-indent: 18px;
 	height: 2rem;
@@ -379,8 +394,8 @@ abbr {
 	background: #dfdfdf;
 	border-color: #999;
 	color: #444;
-	border-bottom-right-radius: .6em;
-	border-top-right-radius: .6em;
+	border-bottom-right-radius: .3em;
+	border-top-right-radius: .3em;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	text-shadow: none;
@@ -607,7 +622,7 @@ abbr {
 }
 /* ------------------------------------------------------------------ categories */
 #categories {
-	margin: 1em 0 2em;
+	margin: 1em 0;
 }
 #categories ul {
 	list-style: none;
@@ -635,6 +650,10 @@ abbr {
 }
 #categories li p {
 	margin: 0;
+	display: inline-block;
+}
+.cat-url {
+	padding-left: 1em;
 }
 .cat-actions {
 	line-height: 2;
@@ -1122,6 +1141,12 @@ a.onblog_link {
 }
 .fieldset h3 {
 	color: #333;
+}
+.table {
+	display: table;
+}
+.cell {
+	display: table-cell;
 }
 
 /* paragraphe pour bouton Nouveau bidule */
