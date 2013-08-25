@@ -1171,7 +1171,7 @@ msgid "By dates, in descending order"
 msgstr "Par dates, décroissantes"
 
 msgid "Media manager"
-msgstr "Gestionnaire de médias"
+msgstr "Médiathèque"
 
 msgid "confirm removal"
 msgstr "Confirmer la suppression"
