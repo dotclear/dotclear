@@ -1460,7 +1460,7 @@ msgstr "Mots-clés :"
 
 #, php-format
 msgid "Are you sure you want to remove this %s?"
-msgstr "Êtes-vous sûr de vouloir retirer ce %s ?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce %s ?"
 
 #, php-format
 msgid "Add a %s to this entry"
@@ -1743,7 +1743,7 @@ msgid "Widgets for your blog sidebars"
 msgstr "Widgets pour les volets de votre blog"
 
 msgid "Are you sure you want to reset sidebars?"
-msgstr "Êtes-vous sûr de vouloir remettre à zéro les volets ?"
+msgstr "Êtes-vous sûr de vouloir réinitialiser les volets ?"
 
 msgid "Available widgets"
 msgstr "Widgets disponibles"
@@ -1971,3 +1971,6 @@ msgid ""
 msgstr ""
 "Importer le contenu d'un blog Dotclear 1.2 comme nouveau contenu dans le blog "
 "courant : %s."
+
+msgid "Are you sure you want to remove tag: “%s”?"
+msgstr "Êtes-vous sûr de vouloir supprimer le mot-clé “%s” ?"
