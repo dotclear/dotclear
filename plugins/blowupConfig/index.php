@@ -243,7 +243,7 @@ if (!$can_write_images) {
 }
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Theme configuration has been successfully updated.'));
+	dcPage::success(__('Theme configuration has been successfully updated.'));
 }
 
 echo '<form id="theme_config" action="'.$p_url.'" method="post" enctype="multipart/form-data">';

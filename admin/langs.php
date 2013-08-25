@@ -137,11 +137,11 @@ dcPage::open(__('Languages management'),
 );
 
 if (!empty($_GET['removed'])) {
-	dcPage::message(__('Language has been successfully deleted.'));
+	dcPage::success(__('Language has been successfully deleted.'));
 }
 
 if (!empty($_GET['added'])) {
-	dcPage::message(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
+	dcPage::success(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
 }
 
 echo

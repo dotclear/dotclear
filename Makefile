@@ -10,7 +10,7 @@ config:
 	mkdir -p ./$(DC)
 	
 	## Copy needed folders and files
-	cp -pRf ./admin ./inc ./themes ./index.php ./CHANGELOG ./CREDITS ./LICENSE ./README ./$(DC)/
+	cp -pRf ./admin ./inc ./themes ./index.php ./CHANGELOG ./CREDITS ./LICENSE ./README.md ./CONTRIBUTING.md ./$(DC)/
 	
 	## Locales directory
 	mkdir -p ./$(DC)/locales
@@ -87,7 +87,7 @@ config:
 dist: config dist-tgz dist-zip dist-l10n
 
 deb:
-	cp ./README debian/README
+	cp ./README.md debian/README
 	dpkg-buildpackage -rfakeroot
 
 dist-tgz:

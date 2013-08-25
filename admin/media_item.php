@@ -189,10 +189,10 @@ if ($file === null) {
 }
 
 if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
-	dcPage::message(__('File has been successfully updated.'));
+	dcPage::success(__('File has been successfully updated.'));
 }
 if (!empty($_GET['thumbupd'])) {
-	dcPage::message(__('Thumbnails have been successfully updated.'));
+	dcPage::success(__('Thumbnails have been successfully updated.'));
 }
 
 # Insertion popup
