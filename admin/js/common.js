@@ -175,7 +175,7 @@ jQuery.fn.helpViewer = function() {
 		o.prepend(' ').prepend(i);
 		o.click(function() {
 			$(this).nextAll().each(function() {
-				if ($(this).is('h3')) {
+				if ($(this).is('h4')) {
 					return false;
 				}
 				$(this).toggle();
@@ -195,8 +195,8 @@ jQuery.fn.helpViewer = function() {
 	this.addClass('help-box');
 	this.find('>hr').remove();
 
-	this.find('h3').each(function() { textToggler($(this)); });
-	this.find('h3:first').nextAll('*:not(h3)').hide();
+	this.find('h4').each(function() { textToggler($(this)); });
+	this.find('h4:first').nextAll('*:not(h4)').hide();
 	sizeBox();
 
 	var img = $('<p id="help-button"><span>'+dotclear.msg.help+'</span></p>');

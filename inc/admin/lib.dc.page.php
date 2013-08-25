@@ -413,7 +413,7 @@ class dcPage
 		}
 
 		echo
-		'<div id="help"><hr /><div class="help-content clear"><h2>'.__('Help').'</h2>'.
+		'<div id="help"><hr /><div class="help-content clear"><h3>'.__('Help about this page').'</h3>'.
 		$content.
 		'</div></div>';
 	}
