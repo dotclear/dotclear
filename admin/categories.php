@@ -81,12 +81,6 @@ if (!empty($_POST['reset']))
 	}
 }
 
-# Actions combo box
-$combo_action = array();
-if ($core->auth->check('categories',$core->blog->id)) {
-	$combo_action[__('Delete')] = 'delete';
-}
-
 
 /* Display
 -------------------------------------------------------- */
@@ -180,38 +174,36 @@ else
 	echo
 	'</div>';
 
-	if (count($combo_action)>0) {
-		 echo
-		 '<div class="two-cols">'.
-		 '<p class="col checkboxes-helpers"></p>'.
-		 '<p class="col right" id="mov-cat">'.
-		 '<label for="mov_cat" class="classic">'.__('Category which will receive entries of deleted categories:').'</label> '.
-		 form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').
-		 '</p>'.
-		 '<p class="right">'.
-		 $core->formNonce().
-		 '<input type="submit" value="'.__('Delete selected categories').'"/>'.
-		 '</p>'.
-		 '</div>'.
-		 '</form>';
-	}
+	echo
+	'<div class="two-cols">'.
+	'<p class="col checkboxes-helpers"></p>'.
+	'<p class="col right" id="mov-cat">'.
+	'<label for="mov_cat" class="classic">'.__('Category which will receive entries of deleted categories:').'</label> '.
+	form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').
+	'</p>'.
+	'<p class="right">'.
+	$core->formNonce().
+	'<input type="submit" value="'.__('Delete selected categories').'"/>'.
+	'</p>'.
+	'</div>'.
+	'</form>';
 
 	echo '<h3 class="clear">'.__('Categories order').'</h3>';
 
-	if (!$core->auth->user_prefs->accessibility->nodragdrop
-		&& $core->auth->check('categories',$core->blog->id)
-		&& $rs->count()>1) {
+	if ($core->auth->check('categories',$core->blog->id) && $rs->count()>1) {
 		echo
-		'<form action="categories.php" method="post">'.
-		'<p>'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>'.
+		'<form action="categories.php" method="post">';
+		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+		        echo '<p class="no-js-hidden">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
+		}
+		echo
+		'<p class="js-hidden">'.__('To rearrange categories order, change position number and click on “Save categories order” button.').'</p>'.
 		'<p>'.
 		'<input type="hidden" id="categories_order" name="categories_order" value=""/>'.
 		'<input type="submit" id="save-set-order" value="'.__('Save categories order').'" />'.
 		$core->formNonce().'</p>'.
 		'</form>';
-
-// Pour le cas de js désactivé, phrase du formulaire ci-dessus : 
-// "To rearrange categories order, change position number and click on “Save categories order” button."
+	}
 
 	echo
 	'<form action="categories.php" method="post" id="reset-order">'.
@@ -219,7 +211,6 @@ else
 	form::hidden(array('reset'),1).
 	$core->formNonce().'</p>'.
 	'</form>';
-	}
 }
 
 echo '</div>';

@@ -33,7 +33,7 @@ a, a:link, a:visited {
 a:hover, a:active, a:focus {
 	text-decoration: underline;
 }
-a img, a:link img, a:visited img { 
+a img, a:link img, a:visited img {
 	border:none;
 }
 h1, h2, h3, .as_h3, h4, h5, h6, p {
@@ -61,7 +61,7 @@ h2 a:link, h2 a:visited {
 #content > h2 {
 	padding: 0 18px 6px; /* ie < 9 sucks */
 	padding: 0 1.8rem .6rem;
-	margin: 0 -18px .5em; /* ie < 9 sucks */ 
+	margin: 0 -18px .5em; /* ie < 9 sucks */
 	margin: 0 -1.8rem 1rem;
 	background: #fff url(bg_h2.png) repeat-x center bottom;
 }
@@ -113,6 +113,17 @@ pre {
 abbr {
 	cursor: help;
 }
+
+.no-js .js-hidden {
+        display: block;
+}
+.no-js .no-js-hidden {
+        display: none;
+}
+.js-hidden {
+        display: none;
+}
+
 /* LAYOUT
 -------------------------------------------------------- */
 /* header */
@@ -172,7 +183,7 @@ abbr {
 	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 }
 #top h1 a:hover, #top h1 a:focus {
-	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 -94px;	
+	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 -94px;
 }
 #info-boxes {
 	font-size: 12px; /* ie < 9 sucks */
@@ -243,7 +254,7 @@ abbr {
 }
 #content {
 	margin: 0 0 0 14.5em;
-	padding: 9px 18px 18px; /* ie < 9 sucks */ 
+	padding: 9px 18px 18px; /* ie < 9 sucks */
 	padding: .9rem 1.8rem 1.8rem;
 	background: #fff;
 }
@@ -375,7 +386,7 @@ abbr {
 }
 #search-menu * {
 	height: 20px; /* ie < 9 sucks */
-	height: 2rem;	
+	height: 2rem;
 }
 #search-menu p {
 	display: inline-block;
@@ -391,10 +402,10 @@ abbr {
 	border-top-left-radius: .3em;
 	background: transparent url(search.png) no-repeat 4px center;
 	text-indent: 18px;
-	padding: 0 2px; 
+	padding: 0 2px;
 	border: none;
 }
-#search-menu input[type="submit"] { 
+#search-menu input[type="submit"] {
 	padding: 0 3px;
 	padding: 0 .3rem;
 	background: #dfdfdf;
@@ -647,7 +658,7 @@ abbr {
 }
 #categories input[type="checkbox"] {
 	margin-right: .8em;
-} 
+}
 #categories h4 {
 	margin: 0;
 }
@@ -887,12 +898,12 @@ li.media-action input {
 #theme-box {
 	display: table-cell;
 	vertical-align: top;
-	padding: 0; 
+	padding: 0;
 	width: 312px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
-#theme-box .theme-shot, 
+#theme-box .theme-shot,
 #theme-box .theme-info,
 #theme-box .theme-actions {
 	background: #eef;
@@ -1145,7 +1156,7 @@ a.onblog_link {
 .fieldset {
 	background: #fff;
 	border: 1px solid #aaa;
-	border-radius: 6px; 
+	border-radius: 6px;
 	padding: 1em .7em .5em;
 	margin-bottom: 1em;
 }
@@ -1289,7 +1300,7 @@ table .nowrap {
 table.settings, table.prefs {
 	width: 80%;
 	border: 1px solid #999;
-	margin-bottom: 3em; 
+	margin-bottom: 3em;
 }
 table.settings th, table.prefs th {
 	background: #f3f3ff;
@@ -1384,7 +1395,7 @@ input, textarea, select {
 }
 input.invalid, textarea.invalid, select.invalid {
 	border: 1px solid red;
-	background: #fff; 
+	background: #fff;
 	color: red;
 	box-shadow: 0 0 0 1px rgba(218, 62, 90, 0.3)
 }
@@ -1471,7 +1482,7 @@ label.inline {
 }
 p.field {
 	position: relative;
-	
+
 }
 p.field label {
 	display: block;
@@ -1701,21 +1712,21 @@ input[type=button] {
 	height: 22px;
 	margin-top: 1em;
 	line-height: 22px;
-	padding: 0 .75em; 
+	padding: 0 .75em;
 	border: 1px solid #ddd;
-	overflow: hidden; 
-	background: #e1e1e1; 
-	background: -moz-linear-gradient(center top , #f2f2f2, #e1e1e1); 
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#e1e1e1)); 
-	-moz-border-radius: 4px; 
-	-webkit-border-radius: 4px; 
-	border-radius: 4px; 
+	overflow: hidden;
+	background: #e1e1e1;
+	background: -moz-linear-gradient(center top , #f2f2f2, #e1e1e1);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#e1e1e1));
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
 	clear: left;
 }
 .pagination a, .pagination strong {
 	height: 20px;
 	border: none;
-	padding: 2px 6px; 
+	padding: 2px 6px;
 	background-color : transparent;
 	background-position : 50% 50%;
 	background-repeat: no-repeat;
@@ -1772,7 +1783,7 @@ input[type=button] {
 	#top, #top h1 a {width: 42px !important; height:100%; overflow: hidden;
 }
 	#top h1 a:link {
-		background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px; 
+		background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
 		border-right: 1px solid #ccc;
 	}
 	#top h1 a:hover, #top h1 a:focus {
