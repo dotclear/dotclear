@@ -190,10 +190,10 @@ if (!$cat_id)
 	echo
 	'<p><label for="new_cat_parent">'.__('Parent:').' '.
 	'<select id="new_cat_parent" name="new_cat_parent" >'.
-	'<option value="0">'.__('Top level').'</option>';
+	'<option value="0">'.__('(none)').'</option>';
 	while ($rs->fetch()) {
 		echo '<option value="'.$rs->cat_id.'" '.(!empty($_POST['new_cat_parent']) && $_POST['new_cat_parent'] == $rs->cat_id ? 'selected="selected"' : '').'>'.
-		str_repeat('&nbsp;&nbsp;',$rs->level).html::escapeHTML($rs->cat_title).'</option>';
+		str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title).'</option>';	
 	}
 	echo
 	'</select></label></p>';
