@@ -301,17 +301,6 @@ var dotclear = {
 		});
 	},
 
-	categoriesActionsHelper: function() {
-		$('#form-categories').submit(function() {
-		    var nb_ckecked = $('input[name="categories[]"]:checked').length;
-		    if (nb_ckecked==0) {
-			return false;
-		    }
-
-		    return window.confirm(dotclear.msg.confirm_delete_categories.replace('%s',nb_ckecked));
-		});
-	},
-
 	commentsActionsHelper: function() {
 		$('#form-comments').submit(function() {
 			var action = $(this).find('select[name="action"]').val();

@@ -2245,6 +2245,10 @@ msgstr "Êtes-vous certain de vouloir supprimer les utilisateurs sélectionnés�
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Êtes-vous certain de vouloir supprimer la catégorie \"%s\" ?"
 
+#, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "Êtes-vous certain de vouloir supprimer les categories sélectionnées (%s) ?"
+
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Êtes-vous certain de vouloir réinitialiser l'ordre des catégories ?"
 

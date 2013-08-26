@@ -1,5 +1,6 @@
 $(function() {
 	if ($.fn['nestedSortable']!==undefined) {
+		$('.dragdrop-hidden, .cat-rank').hide();
 		$('#categories ul li').css('cursor','move');
 		$('#save-set-order').prop('disabled',true).addClass('disabled');
 		$('#categories ul').nestedSortable({
@@ -17,10 +18,16 @@ $(function() {
 		dotclear.checkboxesHelpers(this);
 	});
 
-	dotclear.categoriesActionsHelper();
+	$('input[name="delete"]').click(function() {
+		var nb_ckecked = $('input[name="categories[]"]:checked').length;
+		if (nb_ckecked==0) {
+			return false;
+		}
 
+		return window.confirm(dotclear.msg.confirm_delete_categories.replace('%s',nb_ckecked));
+	});
 
-	$('form#reset-order').submit(function() {
+	$('input[name="reset"]').click(function() {
 		return window.confirm(dotclear.msg.confirm_reorder_categories);
 	});
 });
