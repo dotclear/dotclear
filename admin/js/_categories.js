@@ -1,6 +1,5 @@
 $(function() {
 	if ($.fn['nestedSortable']!==undefined) {
-		$('.dragdrop-hidden, .cat-rank').hide();
 		$('#categories ul li').css('cursor','move');
 		$('#save-set-order').prop('disabled',true).addClass('disabled');
 		$('#categories ul').nestedSortable({
