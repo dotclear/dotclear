@@ -55,34 +55,12 @@ if (!empty($_POST['categories']) && !empty($_POST['delete'])) {
 }
 
 # Update order
-if (!empty($_POST['save_order']))
-{
-	if (!empty($_POST['categories_order'])) { // js is enable
-	    $categories = json_decode($_POST['categories_order']);
+if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
+	$categories = json_decode($_POST['categories_order']);
 
-	    foreach ($categories as $category) {
-	      if (!empty($category->item_id)) {
-		$core->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
-	      }
-	    }
-	} elseif (!empty($_POST['cat_rank'])) {
-		function countChildren($t, $id) {
-			$c = 0;
-			foreach ($t as $k => $v) {
-				if (preg_match('`^'.$id.'\..*`', $k)) {
-					$c++;
-				}
-			}
-
-			return $c;
-		}
-
-		$i = 1;
-		$ranks = array_flip($_POST['cat_rank']);
-		uksort($ranks, 'version_compare');
-		foreach ($ranks as $str => $id) {
-			$core->blog->updCategoryPosition($id, $i, ($i + 2 * countChildren($ranks, $str) + 1));
-			$i = $i+2;
+	foreach ($categories as $category) {
+		if (!empty($category->item_id)) {
+			$core->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
 		}
 	}
 
@@ -164,27 +142,20 @@ else
 	'<div id="categories">';
 
 	$ref_level = $level = $rs->level-1;
-	$parts = array();
 	while ($rs->fetch())
 	{
 		$attr = 'id="cat_'.$rs->cat_id.'"';
 
 		if ($rs->level > $level) {
 			echo str_repeat('<ul><li '.$attr.'>',$rs->level - $level);
-			$parts[] = 1;
 		} elseif ($rs->level < $level) {
 			echo str_repeat('</li></ul>',-($rs->level - $level));
-			$parts = array_slice($parts,0,(count($parts) - ($level - $rs->level)));
-			$parts[count($parts)-1]++;
-		} else {
-			$parts[count($parts)-1]++;
 		}
 
 		if ($rs->level <= $level) {
 			echo '</li><li '.$attr.'>';
 		}
 
-		$cat_rank = implode('.',$parts);
 		echo
 		'<p>'.
 		form::checkbox(array('categories[]','cat-'.$rs->cat_id),$rs->cat_id,null,$rs->nb_total>0?'notempty':'').
@@ -192,9 +163,7 @@ else
 		' (<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
 		', '.__('total:').' '.$rs->nb_total.') '.
-		'<span class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></span>'.
-		form::field('cat_rank['.$rs->cat_id.']',10,10,$cat_rank,'cat-rank').
-		'</p>';
+		'<span class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></span></p>';
 
 		$level = $rs->level;
 	}
