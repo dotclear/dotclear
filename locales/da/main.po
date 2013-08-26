@@ -2408,7 +2408,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 msgid "Languages"

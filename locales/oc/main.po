@@ -2378,7 +2378,7 @@ msgstr "Sistèm"
 msgid "Blog"
 msgstr "Blòg"
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 #, fuzzy

@@ -2398,7 +2398,7 @@ msgstr "Система"
 msgid "Blog"
 msgstr "Блог"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Обновления"
 
 msgid "Languages"

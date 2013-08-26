@@ -2406,7 +2406,7 @@ msgstr "系统"
 msgid "Blog"
 msgstr "博客"
 
-msgid "Updates"
+msgid "Update"
 msgstr "更新"
 
 msgid "Languages"
