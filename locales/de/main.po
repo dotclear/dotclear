@@ -2399,7 +2399,7 @@ msgstr "System"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Aktualisierungen"
 
 msgid "Languages"

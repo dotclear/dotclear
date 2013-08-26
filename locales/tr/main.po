@@ -2403,7 +2403,7 @@ msgstr "Sistem"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Güncellemeler"
 
 msgid "Languages"

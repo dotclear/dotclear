@@ -2443,7 +2443,7 @@ msgstr "Système"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 msgid "Languages"

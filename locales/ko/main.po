@@ -2430,7 +2430,7 @@ msgstr "시스템관리"
 msgid "Blog"
 msgstr "블로그"
 
-msgid "Updates"
+msgid "Update"
 msgstr "DotClear 갱신"
 
 msgid "Languages"

@@ -2425,7 +2425,7 @@ msgstr "వ్యవస్థ"
 msgid "Blog"
 msgstr "బ్లాగు"
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 msgid "Languages"
