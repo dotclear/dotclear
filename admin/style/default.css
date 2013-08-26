@@ -689,6 +689,10 @@ select#del_cat {
         outline: 1px dashed #4183C4;
         min-height: 2.5em;
 }
+#categories input.cat-rank {
+  float: right;
+  margin-left: 30px;
+}
 #save-set-order.disabled {
         text-shadow: none;
         color: #666;

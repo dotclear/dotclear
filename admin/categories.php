@@ -15,7 +15,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('categories');
 
 # Remove a categories
-if (!empty($_POST['categories'])) {
+if (!empty($_POST['categories']) && !empty($_POST['delete'])) {
 	try {
 		# Check if category where to move posts exists
 		$mov_cat = (int) $_POST['mov_cat'];
@@ -55,15 +55,37 @@ if (!empty($_POST['categories'])) {
 }
 
 # Update order
-if (!empty($_POST['categories_order']))
+if (!empty($_POST['save_order']))
 {
-        $categories = json_decode($_POST['categories_order']);
+	if (!empty($_POST['categories_order'])) { // js is enable
+	    $categories = json_decode($_POST['categories_order']);
 
-	foreach ($categories as $category) {
-	        if (!empty($category->item_id)) {
-		        $core->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
+	    foreach ($categories as $category) {
+	      if (!empty($category->item_id)) {
+		$core->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
+	      }
+	    }
+	} elseif (!empty($_POST['cat_rank'])) {
+		function countChildren($t, $id) {
+			$c = 0;
+			foreach ($t as $k => $v) {
+				if (preg_match('`^'.$id.'\..*`', $k)) {
+					$c++;
+				}
+			}
+
+			return $c;
+		}
+
+		$i = 1;
+		$ranks = array_flip($_POST['cat_rank']);
+		uksort($ranks, 'version_compare');
+		foreach ($ranks as $str => $id) {
+			$core->blog->updCategoryPosition($id, $i, ($i + 2 * countChildren($ranks, $str) + 1));
+			$i = $i+2;
 		}
 	}
+
 	http::redirect('categories.php?reord=1');
 }
 
@@ -142,20 +164,27 @@ else
 	'<div id="categories">';
 
 	$ref_level = $level = $rs->level-1;
+	$parts = array();
 	while ($rs->fetch())
 	{
 		$attr = 'id="cat_'.$rs->cat_id.'"';
 
 		if ($rs->level > $level) {
 			echo str_repeat('<ul><li '.$attr.'>',$rs->level - $level);
+			$parts[] = 1;
 		} elseif ($rs->level < $level) {
 			echo str_repeat('</li></ul>',-($rs->level - $level));
+			$parts = array_slice($parts,0,(count($parts) - ($level - $rs->level)));
+			$parts[count($parts)-1]++;
+		} else {
+			$parts[count($parts)-1]++;
 		}
 
 		if ($rs->level <= $level) {
 			echo '</li><li '.$attr.'>';
 		}
 
+		$cat_rank = implode('.',$parts);
 		echo
 		'<p>'.
 		form::checkbox(array('categories[]','cat-'.$rs->cat_id),$rs->cat_id,null,$rs->nb_total>0?'notempty':'').
@@ -163,7 +192,9 @@ else
 		' (<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
 		', '.__('total:').' '.$rs->nb_total.') '.
-		'<span class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></span></p>';
+		'<span class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></span>'.
+		form::field('cat_rank['.$rs->cat_id.']',10,10,$cat_rank,'cat-rank').
+		'</p>';
 
 		$level = $rs->level;
 	}
@@ -182,33 +213,26 @@ else
 	form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').
 	'</p>'.
 	'<p class="right">'.
-	$core->formNonce().
-	'<input type="submit" value="'.__('Delete selected categories').'"/>'.
+	'<input type="submit" name="delete" value="'.__('Delete selected categories').'"/>'.
 	'</p>'.
-	'</div>'.
-	'</form>';
+	'</div>';
 
 	echo '<h3 class="clear">'.__('Categories order').'</h3>';
 
 	if ($core->auth->check('categories',$core->blog->id) && $rs->count()>1) {
-		echo
-		'<form action="categories.php" method="post">';
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
-		        echo '<p class="no-js-hidden">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
+			echo '<p class="no-js-hidden">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
 		}
 		echo
-		'<p class="js-hidden">'.__('To rearrange categories order, change position number and click on “Save categories order” button.').'</p>'.
+		'<p class="dragdrop-hidden">'.__('To rearrange categories order, change position number and click on “Save categories order” button.').'</p>'.
 		'<p>'.
 		'<input type="hidden" id="categories_order" name="categories_order" value=""/>'.
-		'<input type="submit" id="save-set-order" value="'.__('Save categories order').'" />'.
-		$core->formNonce().'</p>'.
-		'</form>';
+		'<input type="submit" name="save_order" id="save-set-order" value="'.__('Save categories order').'" />'.
+		'</p>';
 	}
 
 	echo
-	'<form action="categories.php" method="post" id="reset-order">'.
-	'<p><input type="submit" value="'.__('Reorder all categories on the top level').'" />'.
-	form::hidden(array('reset'),1).
+	'<p><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
 	$core->formNonce().'</p>'.
 	'</form>';
 }
