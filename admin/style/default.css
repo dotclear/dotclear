@@ -1209,6 +1209,9 @@ div.clearer {
 .right {
 	text-align: right;
 }
+.txt-center {
+	text-align: center;
+}
 .frame-shrink {
 	border: 1px solid #666;
 	padding: 0.5em;

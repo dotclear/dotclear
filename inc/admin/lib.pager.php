@@ -258,15 +258,15 @@ class adminCommentList extends adminGenericList
 			$pager->var_page = 'page';
 			
 			$html_block =
-			'<table><tr>'.
-			'<th colspan="2" class="first">'.__('Author').'</th>'.
-			'<th>'.__('Date').'</th>'.
-			'<th>'.__('Entry title').'</th>'.
-			'<th>'.__('Type').'</th>'.
-			'<th>'.__('Status').'</th>'.
-			'<th>'.__('Edit').'</th>'.
+			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
+			'<th scope="col"><span class="hidden">'.__('Select').'</span></th>'.
+			'<th scope="col"><span class="hidden txt-center">'.__('Edit').'</span></th>'.
+			'<th scope="col" abbr="author">'.__('Type and author').'</th>'.
+			'<th scope="col">'.__('Date').'</th>'.
+			'<th scope="col" class="txt-center">'.__('Status').'</th>'.
+			'<th scope="col" abbr="entry">'.__('Entry title').'</th>'.
 			'</tr>%s</table>';
-			
+
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
 			}
@@ -324,8 +324,8 @@ class adminCommentList extends adminGenericList
 		}
 		
 		$post_title = html::escapeHTML($this->rs->post_title);
-		if (mb_strlen($post_title) > 50) {
-			$post_title = mb_strcut($post_title,0,47).'...';
+		if (mb_strlen($post_title) > 60) {
+			$post_title = mb_strcut($post_title,0,57).'...';
 		}
 		
 		$res = '<tr class="line'.($this->rs->comment_status != 1 ? ' offline' : '').'"'.
@@ -334,15 +334,17 @@ class adminCommentList extends adminGenericList
 		$res .=
 		'<td class="nowrap">'.
 		form::checkbox(array('comments[]'),$this->rs->comment_id,'','','',0).'</td>'.
-		'<td class="maximal"><a href="'.$author_url.'">'.html::escapeHTML($this->rs->comment_author).'</a></td>'.
+		'<td class="status class="txt-center">'.
+			'<a href="'.$comment_url.'">'.
+			'<img src="images/edit-mini.png" alt="" title="'.__('Edit').'" /> '.
+			'</a>'.'</td>'.
+		'<td class="maximal" scope="row">'.($this->rs->comment_trackback ? __('trackback from') : __('comment from')).' '.
+			'<a href="'.$author_url.'">'.html::escapeHTML($this->rs->comment_author).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->comment_dt).'</td>'.
+		'<td class="nowrap status txt-center">'.$img_status.'</td>'.
 		'<td class="nowrap"><a href="'.$post_url.'">'.
 		html::escapeHTML($post_title).'</a>'.
-		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</td>'.
-		'<td class="nowrap">'.($this->rs->comment_trackback ? __('trackback') : __('comment')).'</td>'.
-		'<td class="nowrap status">'.$img_status.'</td>'.
-		'<td class="nowrap status"><a href="'.$comment_url.'">'.
-		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>';
+		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</td>';
 		
 		$res .= '</tr>';
 		
