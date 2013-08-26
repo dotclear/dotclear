@@ -3190,3 +3190,20 @@ msgstr "Supprimer les catégories sélectionnées"
 
 msgid "To rearrange categories order, change position number and click on “Save categories order”."
 msgstr "Pour changer l'ordre des catégories, modifier leur numéro de position et cliquez sur “Enregistrer l'ordre des catégories”."
+
+#test tableau commentaires
+
+msgid "trackback from"
+msgstr "rétrolien de"
+
+msgid "comment from"
+msgstr "commentaire de"
+
+msgid "Type and author"
+msgstr "Type et auteur"
+
+msgid "Edit"
+msgstr "Modifier"
+
+msgid "Select"
+msgstr "Sélectionner"
