@@ -89,7 +89,7 @@ class dcPage
 		' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
 		'<html xmlns="http://www.w3.org/1999/xhtml" '.
 		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
-		'lang="'.$core->auth->getInfo('user_lang').'" class="no-js">'."\n".
+		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
 		"<head>\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
@@ -99,10 +99,10 @@ class dcPage
 
 
 		self::jsLoadIE7().
-		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
+		'  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo
-			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n";
+			'  <link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n";
 		}
 
 		$core->auth->user_prefs->addWorkspace('interface');
@@ -121,8 +121,7 @@ class dcPage
 		echo
 		"</head>\n".
 		'<body id="dotclear-admin'.
-		($safe_mode ? ' safe-mode' : '').
-		'">'."\n".
+		($safe_mode ? ' safe-mode' : '').'" class="no-js">'."\n".
 
 		'<div id="header">'.
 		'<ul id="prelude"><li><a href="#content">'.__('Go to the content').'</a></li><li><a href="#main-menu">'.__('Go to the menu').'</a></li></ul>'."\n".
