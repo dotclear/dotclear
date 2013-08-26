@@ -220,18 +220,21 @@ echo '<form id="sidebarsWidgets" action="'.$p_url.'" method="post">';
 echo
 '<div id="sidebarNav" class="widgets fieldset">'.
 sidebarWidgets('dndnav',__('Navigation sidebar'),$widgets_nav,'nav',$__default_widgets['nav'],$j).
+'<ul class="sortable-delete"></ul>'.
 '</div>';
 
 # Extra sidebar
 echo
 '<div id="sidebarExtra" class="widgets fieldset">'.
 sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra'],$j).
+'<ul class="sortable-delete"></ul>'.
 '</div>';
 
 # Custom sidebar
 echo
 '<div id="sidebarCustom" class="widgets fieldset">'.
 sidebarWidgets('dndcustom',__('Custom sidebar'),$widgets_custom,'custom',$__default_widgets['custom'],$j).
+'<ul class="sortable-delete"></ul>'.
 '</div>';
 
 echo
@@ -332,7 +335,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$iname = 'w['.$pr.']['.$i.']';
 		
 		$res .=
-		'<li>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
+		'<li>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id()), 'blop').
 		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'js-hide','',0,'title="'.__('order').'"').' '.
 		$w->name().($w->desc() != '' ? ' <!-- <span class="form-note">'.__($w->desc()).'</span> -->' : '').'</p>'.
 		'<p class="removeWidget js-remove"><label class="classic">'.
