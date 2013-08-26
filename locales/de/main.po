@@ -840,7 +840,7 @@ msgstr "Jetzt aktualisieren"
 msgid "Remind me later"
 msgstr "Erinnere mich später"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr "Informationen zu dieser Version"
 
 msgid "Some plugins are installed twice:"

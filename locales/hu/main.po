@@ -866,7 +866,7 @@ msgstr "Frissítés"
 msgid "Remind me later"
 msgstr "Értesíts később"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy

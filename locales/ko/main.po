@@ -850,7 +850,7 @@ msgstr "지금 바로 갱신"
 msgid "Remind me later"
 msgstr "나중에 다시 알려줌"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy

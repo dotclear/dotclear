@@ -847,7 +847,7 @@ msgstr "Actualizar agora"
 msgid "Remind me later"
 msgstr "Lembrar-me mais tarde"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
