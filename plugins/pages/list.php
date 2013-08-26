@@ -147,7 +147,6 @@ try {
 $combo_action = array();
 if ($core->auth->check('publish,contentadmin',$core->blog->id))
 {
-	$combo_action[__('Reorder')] = 'reorder';
 	$combo_action[__('Publish')] = 'publish';
 	$combo_action[__('Unpublish')] = 'unpublish';
 	$combo_action[__('Schedule')] = 'schedule';
@@ -196,7 +195,7 @@ if (!$core->error->flag())
 {
 	# Show pages
 	$post_list->display($page,$nb_per_page,
-	'<form action="posts_actions.php" method="post" id="form-entries">'.
+	'<form action="plugin.php?p=pages&act=actions" method="post" id="form-entries">'.
 	
 	'%s'.
 	
@@ -208,8 +207,10 @@ if (!$core->error->flag())
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('post_type'),'page').
 	form::hidden(array('redir'),html::escapeHTML($_SERVER['REQUEST_URI'])).
-	$core->formNonce().
 	'</div>'.
+	$core->formNonce().
+	'<br class="clear"/>'.
+	'<input type="submit" value="'.__('Save categories order').'" name="reorder" class="clear"/>'.
 	'</form>');
 }
 dcPage::helpBlock('pages');
