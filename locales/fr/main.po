@@ -2167,6 +2167,9 @@ msgstr "Aller au contenu"
 msgid "Go to the menu"
 msgstr "Aller au menu"
 
+msgid "Go to search"
+msgstr "Aller à la recherche"
+
 msgid "Go to site"
 msgstr "Aller sur le site"
 

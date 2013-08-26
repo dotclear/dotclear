@@ -124,7 +124,11 @@ class dcPage
 		($safe_mode ? ' safe-mode' : '').'" class="no-js">'."\n".
 
 		'<div id="header">'.
-		'<ul id="prelude"><li><a href="#content">'.__('Go to the content').'</a></li><li><a href="#main-menu">'.__('Go to the menu').'</a></li></ul>'."\n".
+		'<ul id="prelude">'.
+		'<li><a href="#content">'.__('Go to the content').'</a></li>'.
+		'<li><a href="#main-menu">'.__('Go to the menu').'</a></li>'.
+		'<li><a href="#qx">'.__('Go to search').'</a></li>'.
+		'</ul>'."\n".
 		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
 
 		echo
