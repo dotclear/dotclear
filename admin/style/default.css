@@ -395,7 +395,7 @@ abbr {
 	position: relative;
 	overflow: hidden;
 }
-#search-menu #q {
+#search-menu #qx {
 	width: 120px; /* ie < 9 sucks */
 	width: 12rem;
 	border-bottom-left-radius: .3em;

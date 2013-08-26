@@ -181,7 +181,7 @@ class dcPage
 		'<div id="main-menu">'."\n".
 
 		'<form id="search-menu" action="search.php" method="get">'.
-		'<p><label for="q" class="hidden">'.__('Search:').' </label>'.form::field('q',30,255,'').
+		'<p><label for="qx" class="hidden">'.__('Search:').' </label>'.form::field('qx',30,255,'').
 		'<input type="submit" value="'.__('OK').'" /></p>'.
 		'</form>';
 
