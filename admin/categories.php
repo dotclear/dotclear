@@ -15,7 +15,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('categories');
 
 # Remove a categories
-if (!empty($_POST['categories'])) {
+if (!empty($_POST['categories']) && !empty($_POST['delete'])) {
 	try {
 		# Check if category where to move posts exists
 		$mov_cat = (int) $_POST['mov_cat'];
@@ -55,15 +55,15 @@ if (!empty($_POST['categories'])) {
 }
 
 # Update order
-if (!empty($_POST['categories_order']))
-{
-        $categories = json_decode($_POST['categories_order']);
+if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
+	$categories = json_decode($_POST['categories_order']);
 
 	foreach ($categories as $category) {
-	        if (!empty($category->item_id)) {
-		        $core->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
+		if (!empty($category->item_id)) {
+			$core->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
 		}
 	}
+
 	http::redirect('categories.php?reord=1');
 }
 
@@ -182,33 +182,27 @@ else
 	form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').
 	'</p>'.
 	'<p class="right">'.
-	$core->formNonce().
-	'<input type="submit" value="'.__('Delete selected categories').'"/>'.
+	'<input type="submit" class="delete" name="delete" value="'.__('Delete selected categories').'"/>'.
 	'</p>'.
-	'</div>'.
-	'</form>';
+	'</div>';
 
-	echo '<h3 class="clear">'.__('Categories order').'</h3>';
+	echo '<h3 class="clear hidden-if-no-js">'.__('Categories order').'</h3>';
 
 	if ($core->auth->check('categories',$core->blog->id) && $rs->count()>1) {
-		echo
-		'<form action="categories.php" method="post">';
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
-		        echo '<p class="no-js-hidden">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
+			echo '<p class="hidden-if-no-js">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
 		}
 		echo
-		'<p class="js-hidden">'.__('To rearrange categories order, change position number and click on “Save categories order” button.').'</p>'.
-		'<p>'.
+		'<p class="hidden-if-no-js">'.
 		'<input type="hidden" id="categories_order" name="categories_order" value=""/>'.
-		'<input type="submit" id="save-set-order" value="'.__('Save categories order').'" />'.
-		$core->formNonce().'</p>'.
-		'</form>';
+		'<input type="submit" name="save_order" id="save-set-order" value="'.__('Save categories order').'" />'.
+		'</p>';
 	}
 
 	echo
-	'<form action="categories.php" method="post" id="reset-order">'.
-	'<p><input type="submit" value="'.__('Reorder all categories on the top level').'" />'.
-	form::hidden(array('reset'),1).
+	'<p class="hidden-if-js right"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level and delete selected categories').'" />'.
+	$core->formNonce().'</p>'.
+	'<p class="hidden-if-no-js"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
 	$core->formNonce().'</p>'.
 	'</form>';
 }
