@@ -182,26 +182,27 @@ else
 	form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').
 	'</p>'.
 	'<p class="right">'.
-	'<input type="submit" name="delete" value="'.__('Delete selected categories').'"/>'.
+	'<input type="submit" class="delete" name="delete" value="'.__('Delete selected categories').'"/>'.
 	'</p>'.
 	'</div>';
 
-	echo '<h3 class="clear">'.__('Categories order').'</h3>';
+	echo '<h3 class="clear hidden-if-no-js">'.__('Categories order').'</h3>';
 
 	if ($core->auth->check('categories',$core->blog->id) && $rs->count()>1) {
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
-			echo '<p class="no-js-hidden">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
+			echo '<p class="hidden-if-no-js">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
 		}
 		echo
-		'<p class="dragdrop-hidden">'.__('To rearrange categories order, change position number and click on “Save categories order” button.').'</p>'.
-		'<p>'.
+		'<p class="hidden-if-no-js">'.
 		'<input type="hidden" id="categories_order" name="categories_order" value=""/>'.
 		'<input type="submit" name="save_order" id="save-set-order" value="'.__('Save categories order').'" />'.
 		'</p>';
 	}
 
 	echo
-	'<p><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
+	'<p class="hidden-if-js right"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level and delete selected categories').'" />'.
+	$core->formNonce().'</p>'.
+	'<p class="hidden-if-no-js"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
 	$core->formNonce().'</p>'.
 	'</form>';
 }

@@ -205,6 +205,14 @@ class dcPage
 		echo
 		'</div>'."\n".		// End of #main-menu
 		'<div id="footer"><a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
+		'<!-- '."\n".
+'                  .'."\n".
+'               ,;:\'`\'::'."\n".
+'            __||'."\n".
+'      _____/LLLL\_'."\n".
+'      \__________"|'."\n".
+'    ~^~^~^~^~^~^~^~^~^~'."\n".
+' -->'."\n".
 		"</div>\n";		// End of #wrapper
 
 		if (defined('DC_DEV') && DC_DEV === true) {
