@@ -15,41 +15,58 @@ $(function() {
 		placeholder: "ui-sortable-placeholder",
 		connectWith: ".connected, .sortable-delete",
 		start: function( event, ui ) {
-			ui.item.css('left', ui.item.position().left + 30);
+			// petit décalage éstétique
+			ui.item.css('left', ui.item.position().left + 20);
 		},
 		update: function(event, ui) {
 			
-			// mes a zéro le décalage
+			ul = $(this);
+			widget = ui.item;
+			field = ul.parents('.widgets');
+			
+			// met a zéro le décalage
 			ui.item.css('left', 'auto');
 			
-			if( $(this).find('li').length == 0 ) {
-				$(this).parents('.widgets').find('.empty-widgets').show();
-			} else {
-				$(this).parents('.widgets').find('.empty-widgets').hide();
+			// signale les zone vide
+			if( ul.find('li').length == 0 )
+				 field.find('.empty-widgets').show();
+			else field.find('.empty-widgets').hide();
+			
+			// remove
+			if( widget.parents('ul').is('.sortable-delete') ) {
+				widget.hide('slow', function() {
+					$(this).remove();
+				});
 			}
 			
 			// réordonne
-			if( $(this).attr('id') ) {
-				$(this).find('input[title=ordre]').each(function(i){
-					tab = $(this).val(i);
+			if( ul.attr('id') ) {
+				ul.find('li').each(function(i) {
+					
+					// trouve la zone de récéption
+					var name = ul.attr('id').split('dnd').join('');
+					
+					// modifie le name en conséquence
+					$(this).find('*[name^=w]').each(function(){
+						tab = $(this).attr('name').split('][');
+						tab[0] = "w["+name;
+						tab[1] = i;
+						$(this).attr('name', tab.join(']['));
+					});
+					
+					// ainssi que le champ d'ordre sans js (au cas ou)
+					$(this).find('input[title=ordre]').val(i);
+					
 				});
 			}
 			
-			// switch
-			if( $(this).attr('id') != ui.item.parents('ul').attr('id') ) {
-				//oldname = $(this).attr('id').split('dnd').join('');
-				var name = ui.item.parents('ul').attr('id').split('dnd').join('');
-				ui.item.find('*[name^=w]').each(function(){
-					tab = $(this).attr('name').split('][');
-					tab[0] = "w["+name;
-					$(this).attr('name', tab.join(']['));
-				});
+			// expand
+			if(widget.find('img.expand').length == 0) {
+				dotclear.postExpander(widget);
+				dotclear.viewPostContent(widget, 'close');
 			}
 			
-		} //,
-		//change: function( event, ui ) {
-			//ui.helper.css('height', $('#dndnav .widget-name').css('height'));
-		//}
+		}
 	});
 	
 	// add
@@ -61,9 +78,6 @@ $(function() {
 		revert: "invalid",
 		start: function( event, ui ) {
 			ui.helper.css({'width': $('#widgets > li').css('width')});
-			//ui.helper.css({'min-height': $('#dndnav .widget-name').css('height')});
-			//ui.helper.find('.form-note').hide();
-			//ui.helper.find('.widget-name').css({'min-height': $('#dndnav .widget-name').css('height')});
 		}
 	});
 	

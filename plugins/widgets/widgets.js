@@ -38,7 +38,6 @@ $(function() {
 		dotclear.postExpander(this);
 		dotclear.viewPostContent(this, 'close');
 	});
-	
 });
 	
 	/*var widgets = document.getElementById('widgets');
