@@ -84,7 +84,7 @@ h5 {
 	font-weight: normal;
 	color: #333;
 }
-.entry-status label img {
+.entry-status img.img_select_option {
 	padding-left: 4px;
 	vertical-align: text-top;
 }
