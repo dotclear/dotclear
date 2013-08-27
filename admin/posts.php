@@ -60,7 +60,7 @@ if (!$core->error->flag())
 		$users_combo[$user_cn] = $users->user_id; 
 	}
 	
-	$categories_combo[__('None')] = 'NULL';
+	$categories_combo[__('(No cat)')] = 'NULL';
 	while ($categories->fetch()) {
 		$categories_combo[str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').
 			html::escapeHTML($categories->cat_title).

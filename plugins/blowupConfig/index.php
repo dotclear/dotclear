@@ -377,7 +377,6 @@ form::field('sidebar_link_v_c',7,7,$blowup_user['sidebar_link_v_c'],'colorpicker
 
 '<p class="field"><label for="sidebar_link_f_c">'.__('Sidebar focus links color:').'</label> '.
 form::field('sidebar_link_f_c',7,7,$blowup_user['sidebar_link_f_c'],'colorpicker').'</p>'.
-'</fieldset>'.
 
 '<h4 class="border-top">'.__('Entries').'</h4>'.
 '<p class="field"><label for="date_title_f">'.__('Date title font:').'</label> '.

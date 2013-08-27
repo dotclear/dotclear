@@ -2167,6 +2167,9 @@ msgstr "Aller au contenu"
 msgid "Go to the menu"
 msgstr "Aller au menu"
 
+msgid "Go to search"
+msgstr "Aller à la recherche"
+
 msgid "Go to site"
 msgstr "Aller sur le site"
 
@@ -2241,6 +2244,10 @@ msgstr "Êtes-vous certain de vouloir supprimer les utilisateurs sélectionnés�
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Êtes-vous certain de vouloir supprimer la catégorie \"%s\" ?"
+
+#, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "Êtes-vous certain de vouloir supprimer les categories sélectionnées (%s) ?"
 
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Êtes-vous certain de vouloir réinitialiser l'ordre des catégories ?"
@@ -2446,11 +2453,11 @@ msgstr "%d fichiers en attente."
 msgid "Queue error:"
 msgstr "Erreur de file d'attente :"
 
-msgid "&#171;prev."
-msgstr "&#171;préc."
+msgid "&#171; prev."
+msgstr "&#171; préc."
 
-msgid "next&#187;"
-msgstr "suiv.&#187;"
+msgid "next &#187;"
+msgstr "suiv. &#187;"
 
 msgid "No entry"
 msgstr "Pas de billet"
@@ -3190,3 +3197,26 @@ msgstr "Supprimer les catégories sélectionnées"
 
 msgid "To rearrange categories order, change position number and click on “Save categories order”."
 msgstr "Pour changer l'ordre des catégories, modifier leur numéro de position et cliquez sur “Enregistrer l'ordre des catégories”."
+
+msgid "Reorder all categories on the top level and delete selected categories"
+msgstr "Replacer toutes les catégories au premier niveau et supprimer les catégories sélectionnées"
+
+#test tableau commentaires
+
+msgid "trackback from"
+msgstr "rétrolien de"
+
+msgid "comment from"
+msgstr "commentaire de"
+
+msgid "Type and author"
+msgstr "Type et auteur"
+
+msgid "Edit"
+msgstr "Modifier"
+
+msgid "Select"
+msgstr "Sélectionner"
+
+msgid "Click here to unlock the field"
+msgstr "Cliquez ici pour déverrouiller ce champ"
