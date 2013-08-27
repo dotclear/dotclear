@@ -327,7 +327,7 @@ var dotclear = {
 -------------------------------------------------------- */
 $(function() {
 	// remove class no-js from html tag
-	$('html').removeClass('no-js');
+	$('body').removeClass('no-js');
 
 	// Blog switcher
 	$('#switchblog').change(function() {
