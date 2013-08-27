@@ -124,7 +124,7 @@ abbr {
 	width: 100%;
 }
 #prelude {
-	line-height: 1.9;
+	line-height: 1.5;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -132,16 +132,17 @@ abbr {
 	top: 3em;
 	left: 0;
 	background: #A2CBE9;
-	width: 14.5em;
+	width: 100%;
 	}
 #prelude li {
 	list-style-type: none;
 	margin: 0;
 	background:transparent;
+	display: inline;
 }
 #prelude li a {
-	padding-left: 16px; /* ie < 9 sucks */
-	padding-left: 1.6rem;
+	padding: 3px 16px 3px 8px; /* ie < 9 sucks */
+	padding: 3px 1.6rem 3px .8rem;
 	background: #A2CBE9;
 	color: #000;
 	border-bottom-color: #A2CBE9;
@@ -327,7 +328,7 @@ abbr {
 	width: 14.5em;
 	float: left;
 	margin:0;
-	padding-top: 4.5em;
+	padding-top: .5em;
 	padding-bottom: 1em;
 	background: #f7f7f7;
 }

@@ -22,8 +22,8 @@ class adminGenericList
 		$this->core =& $core;
 		$this->rs =& $rs;
 		$this->rs_count = $rs_count;
-		$this->html_prev = __('&#171;prev.');
-		$this->html_next = __('next&#187;');
+		$this->html_prev = __('&#171; prev.');
+		$this->html_next = __('next &#187;');
 	}
 }
 
@@ -48,14 +48,14 @@ class adminPostList extends adminGenericList
 				}
 			}
 			$html_block =
-			'<table class="clear"><tr>'.
+			'<table class="clear"><caption class="hidden">'.__('Entries list').'</caption><tr>'.
 			'<th colspan="2" class="first">'.__('Title').'</th>'.
-			'<th>'.__('Date').'</th>'.
-			'<th>'.__('Category').'</th>'.
-			'<th>'.__('Author').'</th>'.
-			'<th>'.__('Comments').'</th>'.
-			'<th>'.__('Trackbacks').'</th>'.
-			'<th>'.__('Status').'</th>'.
+			'<th scope="col">'.__('Date').'</th>'.
+			'<th scope="col">'.__('Category').'</th>'.
+			'<th scope="col">'.__('Author').'</th>'.
+			'<th scope="col">'.__('Comments').'</th>'.
+			'<th scope="col">'.__('Trackbacks').'</th>'.
+			'<th scope="col">'.__('Status').'</th>'.
 			'</tr>%s</table>';
 			
 			if ($enclose_block) {
@@ -133,7 +133,7 @@ class adminPostList extends adminGenericList
 		$res .=
 		'<td class="nowrap">'.
 		form::checkbox(array('entries[]'),$this->rs->post_id,$checked,'','',!$this->rs->isEditable()).'</td>'.
-		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
+		'<td class="maximal" scope="row"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
 		'<td class="nowrap">'.$cat_title.'</td>'.
@@ -163,11 +163,11 @@ class adminPostMiniList extends adminGenericList
 			$pager->var_page = 'page';
 			
 			$html_block =
-			'<table class="clear"><tr>'.
-			'<th>'.__('Title').'</th>'.
-			'<th>'.__('Date').'</th>'.
-			'<th>'.__('Author').'</th>'.
-			'<th>'.__('Status').'</th>'.
+			'<table class="clear"><caption class="hidden">'.__('Entries list').'</caption><tr>'.
+			'<th scope="col">'.__('Title').'</th>'.
+			'<th scope="col">'.__('Date').'</th>'.
+			'<th scope="col">'.__('Author').'</th>'.
+			'<th scope="col">'.__('Status').'</th>'.
 			'</tr>%s</table>';
 			
 			if ($enclose_block) {
@@ -230,7 +230,7 @@ class adminPostMiniList extends adminGenericList
 		' id="p'.$this->rs->post_id.'">';
 		
 		$res .=
-		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'" '.
+		'<td scope="row" class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'" '.
 		'title="'.html::escapeHTML($this->rs->getURL()).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
@@ -259,9 +259,7 @@ class adminCommentList extends adminGenericList
 			
 			$html_block =
 			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
-			'<th scope="col"><span class="hidden">'.__('Select').'</span></th>'.
-			'<th scope="col"><span class="hidden txt-center">'.__('Edit').'</span></th>'.
-			'<th scope="col" abbr="author">'.__('Type and author').'</th>'.
+			'<th colspan="3" scope="col" abbr="comm" class="first">'.__('Type and author').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col" class="txt-center">'.__('Status').'</th>'.
 			'<th scope="col" abbr="entry">'.__('Entry title').'</th>'.
@@ -368,12 +366,12 @@ class adminUserList extends adminGenericList
 			$pager->var_page = 'page';
 			
 			$html_block =
-			'<table class="clear"><tr>'.
-			'<th colspan="2">'.__('Username').'</th>'.
-			'<th>'.__('First Name').'</th>'.
-			'<th>'.__('Last Name').'</th>'.
-			'<th>'.__('Display name').'</th>'.
-			'<th class="nowrap">'.__('Entries').'</th>'.
+			'<table class="clear"><caption class="hidden">'.__('Users list').'</caption><tr>'.
+			'<th colspan="2" scope="col" class="first">'.__('Username').'</th>'.
+			'<th scope="col">'.__('First Name').'</th>'.
+			'<th scope="col">'.__('Last Name').'</th>'.
+			'<th scope="col">'.__('Display name').'</th>'.
+			'<th scope="col" class="nowrap">'.__('Entries').'</th>'.
 			'</tr>%s</table>';
 			
 			if ($enclose_block) {
@@ -414,7 +412,7 @@ class adminUserList extends adminGenericList
 		'<tr class="line">'.
 		'<td class="nowrap">'.form::hidden(array('nb_post[]'),(integer) $this->rs->nb_post).
 		form::checkbox(array('users[]'),$this->rs->user_id).'</td>'.
-		'<td class="maximal"><a href="user.php?id='.$this->rs->user_id.'">'.
+		'<td class="maximal" scope="row"><a href="user.php?id='.$this->rs->user_id.'">'.
 		$this->rs->user_id.'</a>&nbsp;'.$img_status.'</td>'.
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_firstname).'</td>'.
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_name).'</td>'.
