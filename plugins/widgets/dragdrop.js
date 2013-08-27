@@ -4,6 +4,7 @@ $(function() {
 	$('.js-remove').remove();
 	$('.js-hide').hide();
 	$('.widgetSettings').hide();
+	$('.widgets, .sortable-delete').addClass('drag');
 	
 	// move
 	$( ".connected, .sortable-delete" ).sortable({
@@ -80,7 +81,5 @@ $(function() {
 			ui.helper.css({'width': $('#widgets > li').css('width')});
 		}
 	});
-	
-	//$( "#widgets, .connected, .sortable-delete" ).disableSelection();
 	
 });
