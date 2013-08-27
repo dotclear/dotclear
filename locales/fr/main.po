@@ -3220,3 +3220,6 @@ msgstr "Sélectionner"
 
 msgid "Click here to unlock the field"
 msgstr "Cliquez ici pour déverrouiller ce champ"
+
+msgid "User ID"
+msgstr "Identifiant (login)"
