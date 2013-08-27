@@ -268,7 +268,7 @@ msgid "Blog preferences"
 msgstr "Préférences du blog"
 
 msgid "Filters configuration has been successfully saved."
-msgstr "La configurations des filtres a été enregistrée avec succès."
+msgstr "La configuration des filtres a été enregistrée avec succès."
 
 msgid "Available spam filters"
 msgstr "Filtres d'indésirable disponibles"
