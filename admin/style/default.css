@@ -235,6 +235,7 @@ abbr {
 /* main blocks */
 #wrapper {
 	width: 100%;
+	padding-top: 1em;
 }
 #main {
 	width: 100%;
