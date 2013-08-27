@@ -326,8 +326,14 @@ var dotclear = {
 /* On document ready
 -------------------------------------------------------- */
 $(function() {
-	// remove class no-js from html tag
+	// remove class no-js from html tag; cf style/default.css for examples
 	$('body').removeClass('no-js');
+
+	$('#wrapper').contents().each(function() {
+		if (this.nodeType==8) {
+			$('#footer a').attr('title', $('#footer a').attr('title') + this.data );
+		}
+	});
 
 	// Blog switcher
 	$('#switchblog').change(function() {
