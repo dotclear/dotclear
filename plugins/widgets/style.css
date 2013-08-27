@@ -36,10 +36,12 @@
 	clear: left;
 }
 .widgets.fieldset {
-	margin-bottom: 2em;
+	margin-bottom: 0;
+	border-radius: 6px 6px 0 0;
 }
 #widgets, #dndnav, #dndextra, #dndcustom {
 	padding: 1em 0;
+	margin: 1em 0 0;
 }
 #dndnav > li,
 #dndextra > li,
@@ -61,7 +63,7 @@
 .sortable-delete li.ui-sortable-placeholder {
 	border: 1px dashed #999;
 	height: 2rem;
-	padding: 4px 6px;
+	padding: 3px;
 }
 
 #dndnav .form-note, #dndextra .form-note, #dndcustom .form-note {
@@ -96,13 +98,18 @@
 	background: #f5f5f5;
 }
 
+
 .sortable-delete {
-    background: url("index.php?pf=pages/icon.png") no-repeat 6px 8px #FFBABA;
-    border: 1px solid #999999;
+    background: url("index.php?pf=pages/icon.png") no-repeat scroll 6px 8px #FFBABA;
+    border-color: #999999;
+    border-radius: 0 0 6px 6px;
+    border-right: 1px solid #999999;
+    border-style: solid;
+    border-width: 0 1px 1px;
     color: #000000;
     font-weight: bold;
     list-style: none outside none;
-    margin: 0 0 1em;
+    margin: 0 0 2em;
     min-height: 25px;
     padding: 4px 4px 0 24px;
 }
