@@ -3214,3 +3214,6 @@ msgstr "Modifier"
 
 msgid "Select"
 msgstr "Sélectionner"
+
+msgid "Click here to unlock the field"
+msgstr "Cliquez ici pour déverrouiller ce champ"

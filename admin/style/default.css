@@ -114,16 +114,6 @@ abbr {
 	cursor: help;
 }
 
-.no-js .js-hidden {
-        display: block;
-}
-.no-js .no-js-hidden {
-        display: none;
-}
-.js-hidden {
-        display: none;
-}
-
 /* LAYOUT
 -------------------------------------------------------- */
 /* header */
@@ -1186,17 +1176,7 @@ p.top-add a img {
 	padding-right: .3em;
 	vertical-align: middle;
 }
-/* Si quelque chose a besoin d'être caché sauf pour les revues d'écran */
-.hidden {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0 !important;
-    border: 0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
-    }
+
 .clear {
 	clear: both;
 }
@@ -1206,9 +1186,6 @@ p.top-add a img {
 div.clearer {
 	height: 1px;
 	font-size: 1px;
-}
-.hide {
-	display: none;
 }
 .right {
 	text-align: right;
@@ -1250,6 +1227,7 @@ ul.nice li {
 	float: right;
 	margin-top: -1em;
 }
+
 /* TABLES
 -------------------------------------------------------- */
 table {
@@ -1621,24 +1599,23 @@ input[type=button] {
 	margin-left: 2em;
 }
 .button.add {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9dce2c), color-stop(1, #8cb82b) );
-	background:-moz-linear-gradient( center top, #9dce2c 5%, #8cb82b 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c', endColorstr='#8cb82b');
-	background-color:#9dce2c;
-	border:1px solid #83c41a;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #BBDB58), color-stop(1, #9AC123) );
+	background:-moz-linear-gradient( center top, #BBDB58 5%, #9AC123 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#BBDB58', endColorstr='#9AC123');
+	background-color:#BBDB58;
+	border:1px solid #B2D742;
 	padding:.5em 1.5em;
 	color: #000;
-	text-shadow: 1px 1px 0 #BBDB58;
+	text-shadow:1px 1px 0px #98cf40;
 	font-weight: normal;
 	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 }
 .button.add:hover, .button.add:active, .button.add:focus {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
-	background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
-	background-color:#8cb82b;
-	border:1px solid #83c41a;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9AC123), color-stop(1, #BBDB58) );
+	background:-moz-linear-gradient( center top, #9AC123 5%, #BBDB58 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9AC123', endColorstr='#BBDB58');
+	background-color:#9AC123;
 }
 .button-add:focus {
 	outline: dotted 1px;
@@ -1786,6 +1763,34 @@ input[type=button] {
 .pw-very-strong .bar {
 	background: #0c0;
 	width: 150px;
+}
+/* ------------------------------------------------------------- cachotteries */
+/* caché pour tout le monde */
+.hide {
+	display: none;
+}
+/* Caché sauf pour les revues d'écran */
+.hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+    }
+/* caché si js est inactif */
+.no-js .hidden-if-no-js {
+        display: none;
+}
+/* montré si js est inactif */
+.no-js .hidden-if-js {
+	display: block;
+}
+/* caché si js est actif */
+.hidden-if-js {
+        display: none;
 }
 
 /* ---------------------------------------------------------------------------
