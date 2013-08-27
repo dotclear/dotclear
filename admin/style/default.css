@@ -780,6 +780,10 @@ li.media-action input {
 	border: none;
 }
 /* ------------------------------------------------------------------ preferences */
+#my-favs {
+	border: 2px solid #A8DC26;
+	padding: 1em 2em
+}
 #my-favs ul {
 	list-style-type: none;
 	margin-left: 0;
@@ -836,6 +840,11 @@ li.media-action input {
 	border: 1px solid #ddd;
 	padding: .2em;
 	border-radius: .5em;
+}
+#user-options label.ib {
+	display: inline-block;
+	width: 14em;
+	padding-right: 1em;
 }
 /* -------------------------------------------------------------------- Themes */
 #themes {

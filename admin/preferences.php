@@ -415,10 +415,10 @@ form::field('user_url',30,255,html::escapeHTML($user_url)).'</p>'.
 
 '<div class="col">'.
 
-'<p><label for="user_lang">'.__('User language:').'</label>'.
+'<p><label for="user_lang">'.__('Language for my interface:').'</label>'.
 form::combo('user_lang',$lang_combo,$user_lang,'l10n').'</p>'.
 
-'<p><label for="user_tz">'.__('User timezone:').'</label>'.
+'<p><label for="user_tz">'.__('My timezone:').'</label>'.
 form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>'.
 
 '</div>'.
@@ -429,7 +429,7 @@ if ($core->auth->allowPassChange())
 {
 	echo
 	'<fieldset>'.
-	'<legend>'.__('Change your password').'</legend>'.
+	'<legend>'.__('Change my password').'</legend>'.
 	
 	'<div class="pw-table">'.
 	'<p class="pw-cell"><label for="new_pwd">'.__('New password:').'</label>'.
@@ -444,9 +444,11 @@ if ($core->auth->allowPassChange())
 	form::password('new_pwd_c',20,255).'</p>'.
 	'</fieldset>'.
 	
-	'<p>'.__('If you have changed this user email or password you must provide your current password to save these modifications.').'</p>'.
+	'<div class="fieldset">'.
+	'<p class="form-note warn">'.__('If you have changed your email or password you must provide your current password to save these modifications.').'</p>'.
 	'<p><label for="cur_pwd">'.__('Your password:').'</label>'.
-	form::password('cur_pwd',20,255).'</p>';
+	form::password('cur_pwd',20,255).'</p>'.
+	'</div>';
 }
 
 echo
@@ -464,13 +466,13 @@ echo
 '<form action="preferences.php" method="post" id="opts-forms">'.
 '<fieldset><legend>'.__('My options').'</legend>'.
 
-'<p><label for="user_post_format">'.__('Preferred format:').'</label>'.
+'<p><label class="ib" for="user_post_format">'.__('Preferred format:').'</label>'.
 form::combo('user_post_format',$formaters_combo,$user_options['post_format']).'</p>'.
 
-'<p><label for="user_post_status">'.__('Default entry status:').'</label>'.
+'<p><label class="ib" for="user_post_status">'.__('Default entry status:').'</label>'.
 form::combo('user_post_status',$status_combo,$user_post_status).'</p>'.
 
-'<p><label for="user_edit_size">'.__('Entry edit field height:').'</label>'.
+'<p><label class="ib" for="user_edit_size">'.__('Entry edit field height:').'</label>'.
 form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).'</p>'.
 
 '<p><label for="user_wysiwyg" class="classic">'.
@@ -487,7 +489,7 @@ __('Hide My favorites menu').'</label></p>';
 
 if (count($iconsets_combo) > 1) {
 	echo 
-		'<p><label for="user_ui_iconset">'.__('Iconset:').'</label>'.
+		'<p><label class="ib" for="user_ui_iconset">'.__('Iconset:').'</label>'.
 		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</p>';
 } else {
 	form::hidden('user_ui_iconset','');
@@ -550,7 +552,7 @@ $ws = $core->auth->user_prefs->addWorkspace('favorites');
 echo '<form action="preferences.php" method="post" id="favs-form">';
 echo '<div class="two-cols">';
 echo '<div class="col70">';
-echo '<fieldset id="my-favs"><legend>'.__('My favorites').'</legend>';
+echo '<div id="my-favs" class="fieldset"><h3>'.__('My favorites').'</h3>';
 
 $count = 0;
 foreach ($ws->dumpPrefs() as $k => $v) {
@@ -594,7 +596,7 @@ if ($count > 0) {
 	'<p>'.__('Currently no personal favorites.').'</p>';
 }
 
-echo '</fieldset>';
+echo '</div>';
 
 echo '<div id="default-favs"><h3>'.__('Default favorites').'</h3>';
 echo '<p class="form-note info clear">'.__('Those favorites are displayed when My Favorites list is empty.').'</p>';
@@ -614,9 +616,9 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 if ($count > 0) echo '</ul>';
 echo '</div>';
 echo '</div>';
-echo '<div class="col30" id="available-favs">';
+echo '<div class="col30 fieldset" id="available-favs">';
 # Available favorites
-echo '<fieldset><legend>'.__('Available favorites').'</legend>';
+echo '<h3>'.__('Available favorites').'</h3>';
 $count = 0;
 $array = $_fav;
 function cmp($a,$b) {
@@ -642,7 +644,6 @@ echo
 '<p>'.
 $core->formNonce().
 '<input type="submit" name="appendaction" value="'.__('Add to my favorites').'" /></p>';
-echo '</fieldset>';
 echo '</div>';
 echo '</div>'; # Two-cols
 echo '</form>';
