@@ -1974,3 +1974,6 @@ msgstr ""
 
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Êtes-vous sûr de vouloir supprimer le mot-clé “%s” ?"
+
+msgid "Syntax color for theme editor"
+msgstr "Coloration syntaxique de l'éditeur de thème"
