@@ -86,12 +86,12 @@ if (!empty($_POST['reset']))
 -------------------------------------------------------- */
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 
-$starting_script = dcPage::jsToolMan()."\n";
+$starting_script = "";
 if (!$core->auth->user_prefs->accessibility->nodragdrop
 	&& $core->auth->check('categories',$core->blog->id)
 	&& $rs->count()>1) {
         $starting_script .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js');
-	$starting_script .= dcPage::jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
+		$starting_script .= dcPage::jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
 }
 $starting_script .= dcPage::jsLoad('js/_categories.js');
 
