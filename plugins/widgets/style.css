@@ -62,6 +62,11 @@
 	cursor: pointer;
 	margin-bottom: -1px;
 }
+.widget-name a.aexpand, .widget-name a.aexpand:link, .widget-name a.aexpand:visited {
+    border: 0 none;
+    color: #000000;
+    text-decoration: none;
+}
 .removeWidget {
 	padding: 8px 6px;
 	margin: 0;
