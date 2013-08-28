@@ -332,7 +332,7 @@ if ($popup)
 	
 	echo
 	'<p><a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a> - '.
-	'<strong><a id="media-insert-ok" class="button" href="#">'.__('Insert').'</a></strong>'.
+	'<a id="media-insert-ok" class="button" href="#">'.__('Insert').'</a>'.
 	form::hidden(array('type'),html::escapeHTML($media_type)).
 	form::hidden(array('title'),html::escapeHTML($file->media_title)).
 	form::hidden(array('description'),html::escapeHTML($media_desc)).
@@ -400,8 +400,8 @@ echo
 if (empty($_GET['find_posts']))
 {
 	echo
-	'<p><strong><a class="button" href="'.html::escapeHTML($page_url).'&amp;id='.$id.'&amp;find_posts=1&amp;tab=media-details-tab">'.
-	__('Show entries containing this media').'</a></strong></p>';
+	'<p><a class="button" href="'.html::escapeHTML($page_url).'&amp;id='.$id.'&amp;find_posts=1&amp;tab=media-details-tab">'.
+	__('Show entries containing this media').'</a></p>';
 }
 else
 {

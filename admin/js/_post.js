@@ -114,39 +114,47 @@ $(function() {
 
 		// Confirm post deletion
 		$('input[name="delete"]').click(function() {
-				return window.confirm(dotclear.msg.confirm_delete_post);
+			return window.confirm(dotclear.msg.confirm_delete_post);
 		});
 
 		// Hide some fields
 		$('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'),{
 			cookie: 'dcx_post_notes',
+			legend_click:true,
 			hide: $('#post_notes').val() == ''
 		});
-		$('#create_cat').toggleWithLegend(
-			$('#create_cat').parent().children().not('#create_cat'),
-			{} // no cookie on new category as we don't use this every day
-		);
-		$('#post_lang').parent().toggleWithLegend($('#post_lang'),{
-			cookie: 'dcx_post_lang'
+		$('#create_cat').toggleWithLegend($('#create_cat').parent().children().not('#create_cat'),{
+			// no cookie on new category as we don't use this every day
+			legend_click: true
 		});
-		$('#post_password').parent().toggleWithLegend($('#post_password'),{
+		$('#post_lang').parent().children('label').toggleWithLegend($('#post_lang'),{
+			cookie: 'dcx_post_lang',
+			legend_click: true
+		});
+		$('#post_password').parent().children('label').toggleWithLegend($('#post_password'),{
 			cookie: 'dcx_post_password',
+			legend_click: true,
 			hide: $('#post_password').val() == ''
 		});
-		$('#post_status').parent().toggleWithLegend($('#post_status'),{
-			cookie: 'dcx_post_status'
+		$('#post_status').parent().children('label').toggleWithLegend($('#post_status'),{
+			cookie: 'dcx_post_status',
+			legend_click: true
 		});
-		$('#post_dt').parent().toggleWithLegend($('#post_dt').parent().children().not('label'),{
-			cookie: 'dcx_post_dt'
+		$('#post_dt').parent().children('label').toggleWithLegend($('#post_dt').parent().children().not('label'),{
+			cookie: 'dcx_post_dt',
+			legend_click: true
 		});
-		$('#post_format').parent().toggleWithLegend($('#post_format').parent().children().not('label').add($('#post_format').parents('p').next()),{
-			cookie: 'dcx_post_format'
+		$('#post_format').parent().children('label').toggleWithLegend($('#post_format'),{
+			cookie: 'dcx_post_format',
+			legend_click: true
 		});
-		$('#cat_id').parent().toggleWithLegend($('#cat_id'),{
-			cookie: 'cat_id'
+		$('#cat_id').parent().children('label').toggleWithLegend($('#cat_id'),{
+			cookie: 'cat_id',
+			legend_click: true
 		});
-		$('#post_url').parent().toggleWithLegend($('#post_url').parent().children().not('label'),{
-			cookie: 'post_url'
+		$('#post_url').parent().children('label').toggleWithLegend($('#post_url').parent().children().not('label'),{
+			cookie: 'post_url',
+			legend_click: true
 		});
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
