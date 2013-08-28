@@ -88,7 +88,7 @@ msgid "New password:"
 msgstr "Nouveau mot de passe :"
 
 msgid "Confirm password:"
-msgstr "Confirmez le mot de passe :"
+msgstr "Confirmer le mot de passe :"
 
 msgid "change"
 msgstr "changer"
@@ -1885,7 +1885,7 @@ msgid "Accessibility options"
 msgstr "Options d'accessibilité"
 
 msgid "Disable javascript powered drag and drop for ordering items"
-msgstr "Désactiver le drag and drop javascript pour ordonnancer les éléments"
+msgstr "Désactiver le glisser-déposer pour ordonnancer les éléments"
 
 msgid "Numeric fields will allow to type the elements' ordering number."
 msgstr "Des champs numériques permettront d'indiquer la position des éléments."
@@ -1914,6 +1914,12 @@ msgstr "Enregistrer l'ordre"
 
 msgid "Delete selected favorites"
 msgstr "Retirer les favoris sélectionnés"
+
+msgid "Your current password:"
+msgstr "Votre mot de passe actuel :"
+
+msgid "Update my profile"
+msgstr "Mettre à jour mon profil"
 
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Êtes-vous sûr de vouloir retirer les favoris sélectionnés ?"
@@ -2092,7 +2098,7 @@ msgid "Mandatory for password recovering procedure."
 msgstr "Indispensable pour la procédure de récupération de mot de passe."
 
 msgid "Password change required to connect"
-msgstr "Changement de mot de passe requis pour la connexion"
+msgstr "Changement de mot de passe requis à la prochaine connexion"
 
 msgid "Save and create another"
 msgstr "Enregistrer et créer un nouveau"
@@ -3230,5 +3236,35 @@ msgstr "Sélectionner"
 msgid "Click here to unlock the field"
 msgstr "Cliquez ici pour déverrouiller ce champ"
 
-msgid "User ID"
-msgstr "Identifiant (login)"
+msgid "User profile"
+msgstr "Profil utilisateur"
+
+msgid "User ID:"
+msgstr "Identifiant (login) :"
+
+msgid "Interface"
+msgstr "Interface"
+
+msgid "Edition"
+msgstr "Édition"
+
+msgid "Other options"
+msgstr "Autres options"
+
+msgid "No permissions so far."
+msgstr "Aucune permission pour le moment."
+
+msgid "Accessibility"
+msgstr "Accessibilité"
+
+msgid "Dashboard and menu"
+msgstr "Tableau de bord et menu"
+
+msgid "Dashboard modules"
+msgstr "Modules du tableau de bord"
+
+msgid "If checked, numeric fields will allow to type the elements' ordering number."
+msgstr "Si cette option est cochée, des champs numérique permettront l'ordonnancement des éléments."
+
+msgid "Save my options"
+msgstr "Enregistrer mes options"
