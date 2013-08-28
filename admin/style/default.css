@@ -84,7 +84,7 @@ h5 {
 	font-weight: normal;
 	color: #333;
 }
-.entry-status label img {
+.entry-status img.img_select_option {
 	padding-left: 4px;
 	vertical-align: text-top;
 }
@@ -114,16 +114,6 @@ abbr {
 	cursor: help;
 }
 
-.no-js .js-hidden {
-        display: block;
-}
-.no-js .no-js-hidden {
-        display: none;
-}
-.js-hidden {
-        display: none;
-}
-
 /* LAYOUT
 -------------------------------------------------------- */
 /* header */
@@ -134,7 +124,7 @@ abbr {
 	width: 100%;
 }
 #prelude {
-	line-height: 1.9;
+	line-height: 1.5;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
@@ -142,16 +132,17 @@ abbr {
 	top: 3em;
 	left: 0;
 	background: #A2CBE9;
-	width: 14.5em;
+	width: 100%;
 	}
 #prelude li {
 	list-style-type: none;
 	margin: 0;
 	background:transparent;
+	display: inline;
 }
 #prelude li a {
-	padding-left: 16px; /* ie < 9 sucks */
-	padding-left: 1.6rem;
+	padding: 3px 16px 3px 8px; /* ie < 9 sucks */
+	padding: 3px 1.6rem 3px .8rem;
 	background: #A2CBE9;
 	color: #000;
 	border-bottom-color: #A2CBE9;
@@ -244,6 +235,7 @@ abbr {
 /* main blocks */
 #wrapper {
 	width: 100%;
+	padding-top: 1em;
 }
 #main {
 	width: 100%;
@@ -337,7 +329,7 @@ abbr {
 	width: 14.5em;
 	float: left;
 	margin:0;
-	padding-top: 4.5em;
+	padding-top: .5em;
 	padding-bottom: 1em;
 	background: #f7f7f7;
 }
@@ -395,7 +387,7 @@ abbr {
 	position: relative;
 	overflow: hidden;
 }
-#search-menu #q {
+#search-menu #qx {
 	width: 120px; /* ie < 9 sucks */
 	width: 12rem;
 	border-bottom-left-radius: .3em;
@@ -689,6 +681,10 @@ select#del_cat {
         outline: 1px dashed #4183C4;
         min-height: 2.5em;
 }
+#categories input.cat-rank {
+  float: right;
+  margin-left: 30px;
+}
 #save-set-order.disabled {
         text-shadow: none;
         color: #666;
@@ -784,6 +780,10 @@ li.media-action input {
 	border: none;
 }
 /* ------------------------------------------------------------------ preferences */
+#my-favs {
+	border: 2px solid #A8DC26;
+	padding: 1em 2em
+}
 #my-favs ul {
 	list-style-type: none;
 	margin-left: 0;
@@ -840,6 +840,11 @@ li.media-action input {
 	border: 1px solid #ddd;
 	padding: .2em;
 	border-radius: .5em;
+}
+#user-options label.ib {
+	display: inline-block;
+	width: 14em;
+	padding-right: 1em;
 }
 /* -------------------------------------------------------------------- Themes */
 #themes {
@@ -1182,17 +1187,7 @@ p.top-add a img {
 	padding-right: .3em;
 	vertical-align: middle;
 }
-/* Si quelque chose a besoin d'être caché sauf pour les revues d'écran */
-.hidden {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0 !important;
-    border: 0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
-    }
+
 .clear {
 	clear: both;
 }
@@ -1203,11 +1198,11 @@ div.clearer {
 	height: 1px;
 	font-size: 1px;
 }
-.hide {
-	display: none;
-}
 .right {
 	text-align: right;
+}
+.txt-center {
+	text-align: center;
 }
 .frame-shrink {
 	border: 1px solid #666;
@@ -1243,6 +1238,7 @@ ul.nice li {
 	float: right;
 	margin-top: -1em;
 }
+
 /* TABLES
 -------------------------------------------------------- */
 table {
@@ -1614,24 +1610,23 @@ input[type=button] {
 	margin-left: 2em;
 }
 .button.add {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9dce2c), color-stop(1, #8cb82b) );
-	background:-moz-linear-gradient( center top, #9dce2c 5%, #8cb82b 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c', endColorstr='#8cb82b');
-	background-color:#9dce2c;
-	border:1px solid #83c41a;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #BBDB58), color-stop(1, #9AC123) );
+	background:-moz-linear-gradient( center top, #BBDB58 5%, #9AC123 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#BBDB58', endColorstr='#9AC123');
+	background-color:#BBDB58;
+	border:1px solid #B2D742;
 	padding:.5em 1.5em;
 	color: #000;
-	text-shadow: 1px 1px 0 #BBDB58;
+	text-shadow:1px 1px 0px #98cf40;
 	font-weight: normal;
 	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 }
 .button.add:hover, .button.add:active, .button.add:focus {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
-	background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
-	background-color:#8cb82b;
-	border:1px solid #83c41a;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9AC123), color-stop(1, #BBDB58) );
+	background:-moz-linear-gradient( center top, #9AC123 5%, #BBDB58 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9AC123', endColorstr='#BBDB58');
+	background-color:#9AC123;
 }
 .button-add:focus {
 	outline: dotted 1px;
@@ -1779,6 +1774,34 @@ input[type=button] {
 .pw-very-strong .bar {
 	background: #0c0;
 	width: 150px;
+}
+/* ------------------------------------------------------------- cachotteries */
+/* caché pour tout le monde */
+.hide {
+	display: none;
+}
+/* Caché sauf pour les revues d'écran */
+.hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+    }
+/* caché si js est inactif */
+.no-js .hidden-if-no-js {
+        display: none;
+}
+/* montré si js est inactif */
+.no-js .hidden-if-js {
+	display: block;
+}
+/* caché si js est actif */
+.hidden-if-js {
+        display: none;
 }
 
 /* ---------------------------------------------------------------------------

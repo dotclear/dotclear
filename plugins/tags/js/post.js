@@ -52,14 +52,15 @@ $(function() {
 					) +
 				')</em>';
 			},
-			formatResult: function(tag) { 
-				return tag.result; 
+			formatResult: function(tag) {
+				return tag.result;
 			}
 		});
 	});
-			
+
 	$('h5 .s-tags').toggleWithLegend($('.s-tags').not('label'),{
-			cookie: 'post_tags'
+		cookie: 'post_tags',
+		legend_clik: true
 	});
 
 });

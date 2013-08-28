@@ -14,7 +14,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-$q = !empty($_GET['q']) ? $_GET['q'] : null;
+$q = !empty($_GET['q']) ? $_GET['q'] : (!empty($_GET['qx']) ? $_GET['qx'] : null);
 $qtype = !empty($_GET['qtype']) ? $_GET['qtype'] : 'p';
 if ($qtype != 'c' && $qtype != 'p') {
 	$qtype = 'p';
