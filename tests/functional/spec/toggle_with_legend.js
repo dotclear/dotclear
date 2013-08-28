@@ -31,9 +31,14 @@ describe("Label clickable", function() {
     });
     it("Chick target must not hide target, when legend_click is true", function() {
 	loadFixtures('menu.html');
-	$('#post_status').parent().toggleWithLegend($('#post_status'),{'legend_click':true});
+	var $label = $('#post_status').parent().children('label');
+	$label.toggleWithLegend($('#post_status'),{'legend_click':true, a_container:false});
 
-	$('#post_status').click();
+	$label.click();
+	expect($('#post_status')).toBeVisible();
+
+	var $arrow = $('#post_status').parent().find('img');
+	$arrow.click();
 	expect($('#post_status')).toBeVisible();
 
 	$('#post_status').val(-2).trigger('change');

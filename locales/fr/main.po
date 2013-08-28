@@ -81,6 +81,9 @@ msgstr "récupérer"
 msgid "Change your password"
 msgstr "Changer votre mot de passe"
 
+msgid "Change my password"
+msgstr "Changer mon mot de passe"
+
 msgid "New password:"
 msgstr "Nouveau mot de passe :"
 
@@ -1802,8 +1805,8 @@ msgstr "Identifiant de l'utilisateur :"
 msgid "Default"
 msgstr "Défaut"
 
-msgid "If you want to change your email or password you must provide your current password."
-msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel."
+msgid "If you have changed your email or password you must provide your current password to save these modifications."
+msgstr "Si vous avez modifié votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel pour enregistrer ces modifications."
 
 msgid "No favorite selected"
 msgstr "Aucun favori sélectionné"
@@ -1835,8 +1838,14 @@ msgstr "Pseudonyme :"
 msgid "User language:"
 msgstr "Langue de l'utilisateur :"
 
+msgid "Language for my interface:"
+msgstr "Langue de mon interface :"
+
 msgid "User timezone:"
 msgstr "Fuseau horaire de l'utilisateur :"
+
+msgid "My timezone:"
+msgstr "Mon fuseau horaire :"
 
 msgid "If you have changed this user email or password you must provide your current password to save these modifications."
 msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel pour enregistrer ces modifications."
@@ -3130,7 +3139,7 @@ msgid "very strong"
 msgstr "très fort"
 
 msgid "Confirm new password:"
-msgstr "Confirmez le nouveau mot de passe :"
+msgstr "Confirmer le nouveau mot de passe :"
 
 msgid "Not selected"
 msgstr "Non sélectionné"
@@ -3220,3 +3229,6 @@ msgstr "Sélectionner"
 
 msgid "Click here to unlock the field"
 msgstr "Cliquez ici pour déverrouiller ce champ"
+
+msgid "User ID"
+msgstr "Identifiant (login)"

@@ -202,7 +202,7 @@ echo
 '<fieldset><legend>'.__('User information').'</legend>'.
 '<div class="two-cols">'.
 '<div class="col">'.
-'<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').'</label> '.
+'<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('User ID:').'</label> '.
 form::field('user_id',20,255,html::escapeHTML($user_id)).
 '</p>'.
 '<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p>'.
