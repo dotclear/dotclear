@@ -131,6 +131,9 @@ $(function() {
 		for (i in items) {
 			// Append config control
 			title = $('p.widget-name',items[i]).get(0);
+			order = $(title).find('input[name*=order]');
+			link = $('<a href="#" alt="expand" class="aexpand"/>').append($(title).text());
+			$(title).empty().append(order).append(link);
 			img_ctrl = title.firstChild;
 			
 			// There already an image
@@ -148,6 +151,10 @@ $(function() {
 			img.alt = dotclear.img_plus_alt;
 			img.control = title.nextSibling;
 			img.onclick = function() { widgetConfig.call(this); };
+			link.click(function(e) {
+				e.preventDefault();
+				widgetConfig.call($(this).prevAll('img').get(0));
+			});
 			space = document.createTextNode(' ');
 			title.insertBefore(img,img_ctrl);
 			title.insertBefore(space,img_ctrl);
