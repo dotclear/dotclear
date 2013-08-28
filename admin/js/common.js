@@ -301,17 +301,6 @@ var dotclear = {
 		});
 	},
 
-	categoriesActionsHelper: function() {
-		$('#form-categories').submit(function() {
-		    var nb_ckecked = $('input[name="categories[]"]:checked').length;
-		    if (nb_ckecked==0) {
-			return false;
-		    }
-
-		    return window.confirm(dotclear.msg.confirm_delete_categories.replace('%s',nb_ckecked));
-		});
-	},
-
 	commentsActionsHelper: function() {
 		$('#form-comments').submit(function() {
 			var action = $(this).find('select[name="action"]').val();
@@ -337,8 +326,14 @@ var dotclear = {
 /* On document ready
 -------------------------------------------------------- */
 $(function() {
-	// remove class no-js from html tag
-	$('html').removeClass('no-js');
+	// remove class no-js from html tag; cf style/default.css for examples
+	$('body').removeClass('no-js');
+
+	$('#wrapper').contents().each(function() {
+		if (this.nodeType==8) {
+			$('#footer a').attr('title', $('#footer a').attr('title') + this.data );
+		}
+	});
 
 	// Blog switcher
 	$('#switchblog').change(function() {
