@@ -510,7 +510,6 @@ abbr {
 }
 #icons a img {
 	padding: 2em;
-	margin-bottom: .3em;
 	-moz-box-shadow: 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow: 0px 1px 0px 0px #ffffff;
 	box-shadow: 0px 1px 0px 0px #ffffff;
@@ -524,7 +523,7 @@ abbr {
 	border:1px solid #dcdcdc;
 	display:inline-block;
 }
-#icons a img:hover, #icons a:focus img {
+#icons a:focus img, #icons a:hover img {
 	background: #BBDB58;
 }
 #icons a:focus span, #icons a:hover span {
@@ -1537,7 +1536,12 @@ a.form-control {
 	border: none;
 	background: transparent;
 }
-
+input:focus, textarea:focus, select:focus {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+	border: 2px solid #BBDB58 !important;
+}
 /* --------------------------------------------------------------- buttons */
 /* commun */
 input[type=submit],
