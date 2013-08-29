@@ -781,7 +781,7 @@ li.media-action input {
 }
 /* ------------------------------------------------------------------ preferences */
 #my-favs {
-	border: 2px solid #A8DC26;
+	border: 1px solid #A8DC26;
 	padding: 1em 2em
 }
 #my-favs ul {
@@ -845,6 +845,21 @@ li.media-action input {
 	display: inline-block;
 	width: 14em;
 	padding-right: 1em;
+}
+.blog-perm {
+	margin-top: 2em;
+	font-weight: bold;
+}
+.ul-perm {
+	list-style-type: square;
+	margin-left: 0;
+	padding-left: 3.5em;
+	margin-bottom: 0
+}
+.add-perm {
+	padding-top: .5em;
+	padding-left: 2.5em;
+	margin-left: 0;
 }
 /* -------------------------------------------------------------------- Themes */
 #themes {
@@ -1152,6 +1167,9 @@ a.onblog_link {
 /* -------------------------------------------------------------------- CLASSES COMMUNES */
 .no-margin, #entry-content label.no-margin {
 	margin: 0;
+}
+.vertical-separator {
+	margin-top: 2em;
 }
 .border-top {
 	border-top: 1px solid #999;
