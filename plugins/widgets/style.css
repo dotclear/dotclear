@@ -41,9 +41,10 @@
 .widgets.fieldset {
 	margin-bottom: 2em;
 }
-.widgets.fieldset.drag {
+.widgets.fieldset.if-drag {
 	margin-bottom: 0;
 	border-radius: 6px 6px 0 0;
+    border-bottom: 1px dashed #FF0000;
 }
 #widgets, #dndnav, #dndextra, #dndcustom {
 	padding: 1em 0;
@@ -61,6 +62,13 @@
 
 .sortable-delete > li {
 	margin-bottom: 3px;
+}
+.sortable-delete li.sortable-delete-placeholder {
+    border: 0 none;
+    color: #666666;
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
 }
 
 #dndnav li.ui-sortable-placeholder,
@@ -108,19 +116,16 @@
     display: none;
 }
 
-.sortable-delete.drag {
-    background: url("style/JsToolbar/bt_clean.png") no-repeat scroll 2px 5px #FFBABA;
-    border-color: #999999;
+.sortable-delete.if-drag {
+    border: 1px solid #999999;
+    border-top: 0;
     border-radius: 0 0 6px 6px;
-    border-right: 1px solid #999999;
-    border-style: solid;
-    border-width: 0 1px 1px;
     color: #000000;
     font-weight: bold;
     list-style: none outside none;
     margin: 0 0 2em;
     min-height: 25px;
-    padding: 4px 4px 0 24px;
+    padding: 4px;
     display: block;
 }
 
