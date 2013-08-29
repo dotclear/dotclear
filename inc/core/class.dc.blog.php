@@ -310,7 +310,11 @@ class dcBlog
 		}
 		$counter = $this->getCategoriesCounter($c_params);
 		
-		$without_empty = $this->core->auth->userID() == false; # For public display
+		if (isset($params['without_empty']) && ($params['without_empty'] == false)) {
+			$without_empty = false;
+		} else {
+			$without_empty = $this->core->auth->userID() == false; # Get all categories if in admin display
+		}
 		
 		$start = isset($params['start']) ? (integer) $params['start'] : 0;
 		$l = isset($params['level']) ? (integer) $params['level'] : 0;
