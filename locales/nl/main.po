@@ -210,7 +210,7 @@ msgstr "Zoekmachines mogen mijn blog indexeren, maar niet archiveren."
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Zoekmachines mogen mijn blog niet indexeren en archiveren."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already in use."
 msgstr ""
 
 msgid "Invalid language code"
