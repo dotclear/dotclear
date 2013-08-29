@@ -632,6 +632,9 @@ abbr {
 #comments {
 	clear: both;
 }
+#trackback-form textarea {
+	width: 98%;
+}
 /* ------------------------------------------------------------------ categories */
 #categories {
 	margin: 1em 0;
@@ -1457,9 +1460,11 @@ span.form-note {
 }
 p.form-note.warn, p.form-note.info, p.warning {
 	font-style: normal;
-	padding: .2em 1em .3em 32px;
+	padding: .2em .66em .2em;
+	text-indent: 24px;
 	color: #333;
 	display: inline-block;
+	line-height: 1.5em;
 }
 p.form-note.warn, p.warning {
 	background: #ffd url(msg-warning.png) no-repeat .3em .3em;
