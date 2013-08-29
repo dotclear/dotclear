@@ -219,7 +219,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "검색 및 축적 엔진들에게 블로그 내용물에 대한 검색목록화작업이나 아카이브(시차별 축적)작업을 모두 허락하지 않음."
 
 #, fuzzy
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Dotclear가 이미 설치되어 있습니다."
 
 msgid "Invalid language code"

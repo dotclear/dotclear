@@ -216,7 +216,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Želim da moj blog ne bude ni indeksiran ni arhivisan kroz internet pretraživača."
 
 #, fuzzy
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Dotclear est déjà installé."
 
 msgid "Invalid language code"
@@ -1653,7 +1653,7 @@ msgid "Warning: If you set the URL manually, it may conflict with another entry.
 msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec un autre billet."
 
 msgid "Ping blogs"
-msgstr "Faire des rétroliens"
+msgstr "Envoyer des rétroliens"
 
 msgid "Trackbacks"
 msgstr "Rétroliens"

@@ -217,7 +217,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Quero evitar que os motores de pesquisa e arquivadores indexem ou arquivem o conteúdo do meu blog."
 
 #, fuzzy
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Dotclear já está instalado."
 
 msgid "Invalid language code"

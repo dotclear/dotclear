@@ -213,7 +213,7 @@ msgstr "Povolit vyhledávacím enginům indexovat ale ne archivovat obsah blogu.
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Zakázat vyhledavacím enginům indexovat nebo archivovat obsah blogu."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Blog ID je už použito."
 
 msgid "Invalid language code"

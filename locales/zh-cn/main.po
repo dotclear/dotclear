@@ -214,7 +214,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "我想要阻止搜索引擎和 archivers 来索引或者存档我的博客内容。"
 
 #, fuzzy
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Dotclear 已被安装。"
 
 msgid "Invalid language code"
