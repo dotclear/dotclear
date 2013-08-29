@@ -144,7 +144,7 @@ $(function() {
 			cookie: 'dcx_post_dt',
 			legend_click: true
 		});
-		$('#post_format').parent().children('label').toggleWithLegend($('#post_format'),{
+		$('#label_format').toggleWithLegend($('#label_format').parent().children().not('#label_format'),{
 			cookie: 'dcx_post_format',
 			legend_click: true
 		});
