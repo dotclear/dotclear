@@ -1674,6 +1674,9 @@ msgstr "Langues du blog"
 msgid "With entries counts"
 msgstr "Avec le nombre de billets"
 
+msgid "Include empty categories"
+msgstr "Inclure les catégories vides"
+
 msgid "Subscribe links"
 msgstr "Liens de souscription"
 
@@ -1974,3 +1977,6 @@ msgstr ""
 
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Êtes-vous sûr de vouloir supprimer le mot-clé “%s” ?"
+
+msgid "Syntax color for theme editor"
+msgstr "Coloration syntaxique de l'éditeur de thème"
