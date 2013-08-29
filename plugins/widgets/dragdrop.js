@@ -1,10 +1,9 @@
 $(function() {
 	
 	// clean
-	$('.js-remove').remove();
-	$('.js-hide').hide();
-	$('.widgetSettings').hide();
-	$('.widgets, .sortable-delete').addClass('drag');
+	$('.remove-if-drag').remove();
+	$('.hidden-if-drag').hide();
+	$('.widgets, .sortable-delete').addClass('if-drag');
 	
 	// move
 	$( ".connected, .sortable-delete" ).sortable({
@@ -14,6 +13,7 @@ $(function() {
 		dropOnEmpty: true,
 		handle: ".widget-name",
 		placeholder: "ui-sortable-placeholder",
+		items: "li:not(.sortable-delete-placeholder)",
 		connectWith: ".connected, .sortable-delete",
 		start: function( event, ui ) {
 			// petit décalage éstétique

@@ -200,11 +200,11 @@ $j = 0;
 foreach ($__widgets->elements(true) as $w) {
 	echo
 	'<li>'.form::hidden(array('w[void][0][id]'),html::escapeHTML($w->id())).
-	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'js-hide','',0,'title="'.__('order').'"').' '.$w->name().
+	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hidden-if-drag','',0,'title="'.__('order').'"').' '.$w->name().
 	($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
-	'<p class="js-remove"><label class="classic">'.__('Append to:').'</label> '.
+	'<p class="remove-if-drag"><label class="classic">'.__('Append to:').'</label> '.
 	form::combo(array('addw['.$w->id().']'),$append_combo).'</p>'.
-	'<div class="widgetSettings">'.$w->formSettings('w[void][0]',$j).'</div>'.
+	'<div class="widgetSettings hidden-if-drag">'.$w->formSettings('w[void][0]',$j).'</div>'.
 	'</li>';
 	$j++;
 }
@@ -212,7 +212,7 @@ foreach ($__widgets->elements(true) as $w) {
 echo
 '</ul>'.
 $core->formNonce().
-'<p class="js-remove"><input type="submit" name="append" value="'.__('Add widgets to sidebars').'" /></p>'.
+'<p class="remove-if-drag"><input type="submit" name="append" value="'.__('Add widgets to sidebars').'" /></p>'.
 '</form>';
 
 echo '<form id="sidebarsWidgets" action="'.$p_url.'" method="post">';
@@ -221,21 +221,21 @@ echo
 '<div id="sidebarNav" class="widgets fieldset">'.
 sidebarWidgets('dndnav',__('Navigation sidebar'),$widgets_nav,'nav',$__default_widgets['nav'],$j).
 '</div>'.
-'<ul class="sortable-delete"></ul>';
+'<ul class="sortable-delete"><li class="sortable-delete-placeholder">'.__('Drag here to delete').'</li></ul>';
 
 # Extra sidebar
 echo
 '<div id="sidebarExtra" class="widgets fieldset">'.
 sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra'],$j).
 '</div>'.
-'<ul class="sortable-delete"></ul>';
+'<ul class="sortable-delete"><li class="sortable-delete-placeholder">'.__('Drag here to delete').'</li></ul>';
 
 # Custom sidebar
 echo
 '<div id="sidebarCustom" class="widgets fieldset">'.
 sidebarWidgets('dndcustom',__('Custom sidebar'),$widgets_custom,'custom',$__default_widgets['custom'],$j).
 '</div>'.
-'<ul class="sortable-delete"></ul>';
+'<ul class="sortable-delete"><li class="sortable-delete-placeholder">'.__('Drag here to delete').'</li></ul>';
 
 echo
 '<p id="sidebarsControl">'.
@@ -336,12 +336,12 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		
 		$res .=
 		'<li>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
-		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'js-hide','',0,'title="'.__('order').'"').' '.$w->name().
+		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'hidden-if-drag','',0,'title="'.__('order').'"').' '.$w->name().
 		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
-		'<p class="removeWidget js-remove"><label class="classic">'.
+		'<p class="removeWidget remove-if-drag"><label class="classic">'.
 		form::checkbox(array($iname.'[_rem]'),'1',0).' '.__('Remove widget').
 		'</label></p>'.
-		'<div class="widgetSettings">'.$w->formSettings($iname,$j).'</div>'.
+		'<div class="widgetSettings hidden-if-drag">'.$w->formSettings($iname,$j).'</div>'.
 		'</li>';
 		
 		$i++;
