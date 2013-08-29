@@ -77,7 +77,7 @@ h4 {
 }
 h5 {
 	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 	color: #575859;
 }
 #entry-sidebar h5 {
@@ -624,6 +624,9 @@ abbr {
 #entry-sidebar select {
 	width: 14em; /* to prevent inline with label */
 }
+#entry-sidebar input#post_position {
+	width: 4em;
+}
 .box {
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 1em;
@@ -978,6 +981,10 @@ li.media-action input {
 	width: 120px;
 	height: 105px;
 	border: 1px solid #fff;
+}
+#themes a:focus div, #themes a:hover div,
+#themes a:focus div.current-theme, #themes a:hover div.current-theme {
+	background: #BBDB58;
 }
 /* ----------------------------------------------------------  Plugins list */
 #plugins td.action {

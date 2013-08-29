@@ -438,12 +438,13 @@ if ($can_edit_post)
 					form::combo('post_lang',$lang_combo,$post_lang).
 					'</p>',
 				'post_format' =>
-					'<p><label for="post_format" class="ib">'.__('Text formating').'</label>'.
-					form::combo('post_format',$formaters_combo,$post_format,'maximal').
+					'<div>'.
+					'<h5 id="label_format"><label for="post_format" class="ib">'.__('Text formating').'</label></h5>'.
+					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
 					'</p>'.
 					'<p>'.($post_id && $post_format != 'xhtml' ? 
 					'<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.
-					__('Convert to XHTML').'</a>' : '').'</p>')),
+					__('Convert to XHTML').'</a>' : '').'</p></div>')),
 		'metas-box' => array(
 			'title' => __('Ordering'),
 			'items' => array(

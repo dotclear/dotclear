@@ -391,7 +391,7 @@ if (!$can_view_page) {
 }
 
 
-/* Post form if we can edit post
+/* Post form if we can edit page
 -------------------------------------------------------- */
 if ($can_edit_page)
 {
@@ -412,12 +412,13 @@ if ($can_edit_page)
 					form::combo('post_lang',$lang_combo,$post_lang).
 					'</p>',
 				'post_format' =>
-					'<p><label for="post_format" class="ib">'.__('Text formating').'</label>'.
-					form::combo('post_format',$formaters_combo,$post_format,'maximal').
+					'<div>'.
+					'<h5 id="label_format"><label for="post_format" class="ib">'.__('Text formating').'</label></h5>'.
+					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
 					'</p>'.
 					'<p>'.($post_id && $post_format != 'xhtml' ? 
 					'<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.
-					__('Convert to XHTML').'</a>' : '').'</p>')),
+					__('Convert to XHTML').'</a>' : '').'</p></div>')),
 		'metas-box' => array(
 			'title' => __('Ordering'),
 			'items' => array(
@@ -449,6 +450,10 @@ if ($can_edit_page)
 							'<p class="form-note warn">'.
 							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
 						'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>'),
+				'post_hide' =>	
+					'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
+					__('Hide in widget Pages').'</label></p>'.
+					'</p>',
 				'post_password' =>
 					'<p><label for="post_password" class="ib">'.__('Password').'</label>'.
 					form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
