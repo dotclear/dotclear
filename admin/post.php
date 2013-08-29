@@ -57,7 +57,7 @@ try {
 		$categories_combo[] = new formSelectOption(
 			str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
 			$categories->cat_id
-		);
+	);
 	}
 } catch (Exception $e) { }
 
@@ -630,10 +630,12 @@ if ($post_id)
 	$core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
 	
 	$has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
+	echo 
+		'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a>';
 	
 	echo
 	'<div id="comments" class="multi-part" title="'.__('Comments').'">';
-	
+		
 	if ($has_action) {
 		echo '<form action="comments_actions.php" id="form-comments" method="post">';
 	}
@@ -666,16 +668,10 @@ if ($post_id)
 		'</div>'.
 		'</form>';
 	}
-	
-	echo '</div>';
-}
+	/* Add a comment
+	-------------------------------------------------------- */
 
-/* Add a comment
--------------------------------------------------------- */
-if ($post_id)
-{
-	echo
-	'<div class="multi-part" id="add-comment" title="'.__('Add a comment').'">'.
+		echo
 	'<h3>'.__('Add a comment').'</h3>'.
 	
 	'<form action="comment.php" method="post" id="comment-form">'.
