@@ -1674,6 +1674,9 @@ msgstr "Langues du blog"
 msgid "With entries counts"
 msgstr "Avec le nombre de billets"
 
+msgid "Include empty categories"
+msgstr "Inclure les catégories vides"
+
 msgid "Subscribe links"
 msgstr "Liens de souscription"
 
