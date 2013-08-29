@@ -229,7 +229,7 @@ msgstr "Je souhaite que mon blog soit indexé mais pas archivé par les moteurs 
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Je souhaite que mon blog ne soit ni indexé ni archivé par les moteurs de recherche et archiveurs."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Cet identifiant est déjà utilisé."
 
 msgid "Invalid language code"
@@ -1677,7 +1677,7 @@ msgid "Warning: If you set the URL manually, it may conflict with another entry.
 msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec un autre billet."
 
 msgid "Ping blogs"
-msgstr "Faire des rétroliens"
+msgstr "Envoyer des rétroliens"
 
 msgid "Trackbacks"
 msgstr "Rétroliens"

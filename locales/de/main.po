@@ -211,7 +211,7 @@ msgstr "Erlaube Suchmaschinen das Durchsuchen und Archivieren des Inhaltes, aber
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Erlaube Suchmaschinen weder das Durchsuchen und Archivieren des Inhaltes noch des Archivs dieses Blogs."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Diese Blog-ID wird schon verwendet."
 
 msgid "Invalid language code"

@@ -169,7 +169,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 			$rs = $core->getBlog($cur->blog_id);
 			
 			if ($rs) {
-				throw new Exception(__('That blog Id is already in use.'));
+				throw new Exception(__('This blog ID is already used.'));
 			}
 		}
 		

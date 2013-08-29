@@ -215,7 +215,7 @@ msgstr "Я хочу, чтобы поисковые машины проиндек
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Я не хочу, чтобы мой блог индексировался и архивировался поисковыми машинами."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Dotclear уже установлен."
 
 msgid "Invalid language code"
