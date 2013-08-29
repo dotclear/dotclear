@@ -194,15 +194,15 @@ echo
 '<form id="listWidgets" action="'.$p_url.'" method="post"  class="widgets">'.
 '<h3>'.__('Available widgets').'</h3>'.
 '<p>'.__('Move widgets from this list to one of the sidebars.').'</p>'.
-'<ul id="widgets">';
+'<ul id="widgets-ref">';
 
 $j = 0;
 foreach ($__widgets->elements(true) as $w) {
 	echo
 	'<li>'.form::hidden(array('w[void][0][id]'),html::escapeHTML($w->id())).
-	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hidden-if-drag','',0,'title="'.__('order').'"').' '.$w->name().
+	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hide','',0,'title="'.__('order').'"').' '.$w->name().
 	($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
-	'<p class="remove-if-drag"><label class="classic">'.__('Append to:').'</label> '.
+	'<p class="manual-move remove-if-drag"><label class="classic">'.__('Append to:').'</label> '.
 	form::combo(array('addw['.$w->id().']'),$append_combo).'</p>'.
 	'<div class="widgetSettings hidden-if-drag">'.$w->formSettings('w[void][0]',$j).'</div>'.
 	'</li>';
