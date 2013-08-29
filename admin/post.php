@@ -626,21 +626,21 @@ if ($post_id)
 		$combo_action[__('Delete')] = 'delete';
 	}
 	
+	echo
+	'<div id="comments" class="multi-part" title="'.__('Comments').'">';
+		
 	# --BEHAVIOR-- adminCommentsActionsCombo
 	$core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
 	
 	$has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
 	echo 
-		'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a>';
+	'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a></p>';
 	
-	echo
-	'<div id="comments" class="multi-part" title="'.__('Comments').'">';
-		
 	if ($has_action) {
-		echo '<form action="comments_actions.php" id="form-comments" method="post">';
+		echo '<form action="comments_actions.php" id="form-comments" method="post" class="clear">';
 	}
 	
-	echo '<h3>'.__('Trackbacks').'</h3>';
+	echo '<h3 class="clear">'.__('Trackbacks').'</h3>';
 	
 	if (!$trackbacks->isEmpty()) {
 		showComments($trackbacks,$has_action,true);
@@ -671,7 +671,8 @@ if ($post_id)
 	/* Add a comment
 	-------------------------------------------------------- */
 
-		echo
+	echo
+	'<div class="fieldset clear">'.
 	'<h3>'.__('Add a comment').'</h3>'.
 	
 	'<form action="comment.php" method="post" id="comment-form">'.
@@ -696,9 +697,11 @@ if ($post_id)
 	'<p>'.form::hidden('post_id',$post_id).
 	$core->formNonce().
 	'<input type="submit" name="add" value="'.__('Save').'" /></p>'.
-	'</div>'.
+	'</div>'. #constrained
+
 	'</form>'.
-	'</div>';
+	'</div>'. #add comment
+	'</div>'; #comments
 }
 
 # Controls comments or trakbacks capabilities
