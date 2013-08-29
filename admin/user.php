@@ -191,6 +191,18 @@ if (!empty($_GET['add'])) {
 	dcPage::success(__('User has been successfully created.'));
 }
 
+echo
+'<form action="user.php" method="post" id="user-form" class="fieldset">'.
+'<div class="two-cols">'.
+
+'<div class="col">'.
+'<h3>'.__('User profile').'</h3>'.
+
+'<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('User ID:').'</label> '.
+form::field('user_id',20,255,html::escapeHTML($user_id)).
+'</p>'.
+'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p>';
+
 if ($user_id == $core->auth->userID()) {
 	echo
 	'<p class="warning">'.__('Warning:').' '.
@@ -198,15 +210,6 @@ if ($user_id == $core->auth->userID()) {
 }
 
 echo
-'<form action="user.php" method="post" id="user-form">'.
-'<fieldset><legend>'.__('User information').'</legend>'.
-'<div class="two-cols">'.
-'<div class="col">'.
-'<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('User ID:').'</label> '.
-form::field('user_id',20,255,html::escapeHTML($user_id)).
-'</p>'.
-'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p>'.
-
 '<p><label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').
 ($user_id != '' ? __('New password:') : __('Password:')).'</label> '.
@@ -217,7 +220,19 @@ form::password('new_pwd',20,255).
 '<p><label for="new_pwd_c" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Confirm password:').'</label> '.
 form::password('new_pwd_c',20,255).
-'</p>'.
+'</p>';
+
+if ($core->auth->allowPassChange()) {
+	echo
+	'<p><label for="user_change_pwd" class="classic">'.
+	form::checkbox('user_change_pwd','1',$user_change_pwd).' '.
+	__('Password change required to connect').'</label></p>';
+}
+
+$super_disabled = $user_super && $user_id == $core->auth->userID();
+echo
+'<p><label for="user_super" class="classic">'.form::checkbox('user_super','1',$user_super,'','',$super_disabled).' '.
+__('Super administrator').'</label></p>'.
 
 '<p><label for="user_name">'.__('Last Name:').'</label> '.
 form::field('user_name',20,255,html::escapeHTML($user_name)).
@@ -235,12 +250,24 @@ form::field('user_displayname',20,255,html::escapeHTML($user_displayname)).
 form::field('user_email',20,255,html::escapeHTML($user_email)).
 '</p>'.
 '<p class="form-note">'.__('Mandatory for password recovering procedure.').'</p>'.
-'</div>'.
 
-'<div class="col">'.
 '<p><label for="user_url">'.__('URL:').'</label> '.
 form::field('user_url',30,255,html::escapeHTML($user_url)).
 '</p>'.
+'</div>'.
+
+'<div class="col">'.
+'<h3>'.__('Options').'</h3>'.
+'<h4>'.__('Interface').'</h4>'.
+'<p><label for="user_lang">'.__('Language:').'</label> '.
+form::combo('user_lang',$lang_combo,$user_lang,'l10n').
+'</p>'.
+
+'<p><label for="user_tz">'.__('Timezone:').'</label> '.
+form::combo('user_tz',dt::getZones(true,true),$user_tz).
+'</p>'.
+
+'<h4>'.__('Edition').'</h4>'.
 '<p><label for="user_post_format">'.__('Preferred format:').'</label> '.
 form::combo('user_post_format',$formaters_combo,$user_options['post_format']).
 '</p>'.
@@ -251,38 +278,19 @@ form::combo('user_post_status',$status_combo,$user_post_status).
 
 '<p><label for="user_edit_size">'.__('Entry edit field height:').'</label> '.
 form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).
-'</p>'.
-
-'<p><label for="user_lang">'.__('User language:').'</label> '.
-form::combo('user_lang',$lang_combo,$user_lang,'l10n').
-'</p>'.
-
-'<p><label for="user_tz">'.__('User timezone:').'</label> '.
-form::combo('user_tz',dt::getZones(true,true),$user_tz).
 '</p>';
-
-if ($core->auth->allowPassChange()) {
-	echo
-	'<p><label for="user_change_pwd" class="classic">'.
-	form::checkbox('user_change_pwd','1',$user_change_pwd).' '.
-	__('Password change required to connect').'</label></p>';
-}
-
-$super_disabled = $user_super && $user_id == $core->auth->userID();
-
-echo
-'<p><label for="user_super" class="classic">'.form::checkbox('user_super','1',$user_super,'','',$super_disabled).' '.
-__('Super administrator').'</label></p>'.
-'</div>'.
-'</div>'.
-'</fieldset>';
 
 # --BEHAVIOR-- adminUserForm
 $core->callBehavior('adminUserForm',isset($rs) ? $rs : null);
 
+echo 
+'</div>'.
+'</div>';
+
+
 echo
-'<p><label for="your_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
-($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Your password:').'</label>'.
+'<p class="clear border-top"><label for="your_pwd" class="required">'.
+'<abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
 form::password('your_pwd',20,255).'</p>'.
 '<p class="clear"><input type="submit" name="save" accesskey="s" value="'.__('Save').'" />'.
 ($user_id != '' ? '' : ' <input type="submit" name="saveplus" value="'.__('Save and create another').'" />').
@@ -294,53 +302,63 @@ $core->formNonce().
 
 if ($user_id)
 {
-	echo '<div class="clear fieldset"><h3>'.__('Permissions').'</h3>'.
-	'<form action="users_actions.php" method="post">'.
-	'<p><input type="submit" value="'.__('Add new permissions').'" />'.
-	form::hidden(array('redir'),'user.php?id='.$user_id).
-	form::hidden(array('action'),'blogs').
-	form::hidden(array('users[]'),$user_id).
-	$core->formNonce().
-	'</p>'.
-	'</form>';
-	
-	$permissions = $core->getUserPermissions($user_id);
-	$perm_types = $core->auth->getPermissionsTypes();
-	
-	if (count($permissions) == 0)
+	echo '<div class="clear fieldset">'.
+	'<h3>'.__('Permissions').'</h3>';
+
+	if (!$user_super)
 	{
-		echo '<p>'.__('No permissions.').'</p>';
-	}
-	else
-	{
-		foreach ($permissions as $k => $v)
+		echo
+		'<form action="users_actions.php" method="post">'.
+		'<p><input type="submit" value="'.__('Add new permissions').'" />'.
+		form::hidden(array('redir'),'user.php?id='.$user_id).
+		form::hidden(array('action'),'blogs').
+		form::hidden(array('users[]'),$user_id).
+		$core->formNonce().
+		'</p>'.
+		'</form>';
+		
+		$permissions = $core->getUserPermissions($user_id);
+		$perm_types = $core->auth->getPermissionsTypes();
+		
+		if (count($permissions) == 0)
 		{
-			if (count($v['p']) > 0)
-			{
-				echo 
-				'<form action="users_actions.php" method="post">'.
-				'<h4><a href="blog.php?id='.html::escapeHTML($k).'">'.
-				html::escapeHTML($v['name']).'</a> ('.html::escapeHTML($k).')</h4>';
-				
-				echo '<ul>';
-				foreach ($v['p'] as $p => $V) {
-					if (isset($perm_types[$p])) {
-						echo '<li>'.__($perm_types[$p]).'</li>';
-					}
-				}
-				echo '</ul>'.
-				'<p><input type="submit" value="'.__('Change permissions').'" />'.
-				form::hidden(array('redir'),'user.php?id='.$user_id).
-				form::hidden(array('action'),'perms').
-				form::hidden(array('users[]'),$user_id).
-				form::hidden(array('blogs[]'),$k).
-				$core->formNonce().
-				'</p>'.
-				'</form>';
-			}
+			echo '<p>'.__('No permissions so far.').'</p>';
 		}
-	}
-	
+		else
+		{
+			foreach ($permissions as $k => $v)
+			{
+				if (count($v['p']) > 0)
+				{
+					echo 
+					'<form action="users_actions.php" method="post">'.
+					'<p class="blog-perm">'.__('Blog:').' <a href="blog.php?id='.html::escapeHTML($k).'">'.
+					html::escapeHTML($v['name']).'</a> ('.html::escapeHTML($k).')</p>';
+					
+					echo '<ul class="ul-perm">';
+					foreach ($v['p'] as $p => $V) {
+						if (isset($perm_types[$p])) {
+							echo '<li>'.__($perm_types[$p]).'</li>';
+						}
+					}
+					echo
+					'</ul>'.
+					'<p class="add-perm"><input type="submit" class="reset" value="'.__('Change permissions').'" />'.
+					form::hidden(array('redir'),'user.php?id='.$user_id).
+					form::hidden(array('action'),'perms').
+					form::hidden(array('users[]'),$user_id).
+					form::hidden(array('blogs[]'),$k).
+					$core->formNonce().
+					'</p>'.
+					'</form>';
+				}
+			}
+		}	
+
+	} 
+	else {
+		echo '<p>'.sprintf(__('User %s is super admin.'),$user_id).'</p>';
+	}	
 	echo '</div>';
 }
 
