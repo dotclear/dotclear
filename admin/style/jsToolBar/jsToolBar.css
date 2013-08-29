@@ -10,8 +10,11 @@
   padding: 0;
 }
 .jstEditor textarea {
-  width: 99%;
-  padding: 1rem 0 0 1%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+  	width: 100%;
+  	padding: .5em 0 0 0;
 }
 .jstHandle {
 	height: 8px;
@@ -22,7 +25,9 @@
 	border-width: 0 1px 1px 1px;
 	border-style: solid;
 }
-
+.jstEditor textarea:focus {
+	border: 2px solid #BBDB58;
+}
 .jstElements {
 	height: 28px;
 	padding: 0 1rem; 
@@ -154,7 +159,6 @@
 .jstb_removeFormat {
 	background-image: url(bt_clean.png);
 }
-
 
 /* WYSIWYG Iframe */
 .wysiwygIframe {

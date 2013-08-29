@@ -1540,7 +1540,7 @@ input:focus, textarea:focus, select:focus {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;	
-	border: 2px solid #BBDB58 !important;
+	border: 2px solid #BBDB58;
 }
 /* --------------------------------------------------------------- buttons */
 /* commun */
