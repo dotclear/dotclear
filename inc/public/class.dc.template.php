@@ -955,7 +955,7 @@ class dcTemplate extends template
 			$p .= "\$params['level'] = ".(integer) $attr['level'].";\n";
 		}
 
-		if (isset($attr['without_empty']) && ((boolean) $attr['without_empty'] == false)) {
+		if (isset($attr['with_empty']) && ((boolean) $attr['with_empty'] == true)) {
 			$p .= '$params[\'without_empty\'] = false;';
 		}
 		
