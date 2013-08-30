@@ -640,10 +640,10 @@ if ($post_id)
 	'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a></p>';
 	
 	if ($has_action) {
-		echo '<form action="comments_actions.php" id="form-comments" method="post" class="clear">';
+		echo '<form action="comments_actions.php" id="form-comments" method="post">';
 	}
 	
-	echo '<h3 class="clear">'.__('Trackbacks').'</h3>';
+	echo '<h3>'.__('Trackbacks').'</h3>';
 	
 	if (!$trackbacks->isEmpty()) {
 		showComments($trackbacks,$has_action,true);

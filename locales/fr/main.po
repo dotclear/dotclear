@@ -3243,6 +3243,9 @@ msgstr "Profil utilisateur"
 msgid "User ID:"
 msgstr "Identifiant (login) :"
 
+msgid "%s is super admin (all rights on all blogs)."
+msgstr "%s est super administrateur (tous les droits sur tous les blogs)."
+
 msgid "Interface"
 msgstr "Interface"
 

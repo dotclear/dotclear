@@ -25,6 +25,7 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
 a, a:link, a:visited {
 	color: #2373A8;
 	text-decoration: none;
@@ -377,29 +378,37 @@ abbr {
 	font-size: 100%
 }
 #search-menu * {
-	height: 20px; /* ie < 9 sucks */
-	height: 2rem;
+	height: 22px; /* ie < 9 sucks */
+	height: 2.2rem;
+	display: inline-block;
+	vertical-align: top;
+	line-height: 22px;
 }
 #search-menu p {
-	display: inline-block;
 	border: 1px solid #999;
 	border-radius: .3em;
 	position: relative;
 	overflow: hidden;
 }
-#search-menu #qx {
-	width: 120px; /* ie < 9 sucks */
-	width: 12rem;
+#qx {
+	width: 124px; /* ie < 9 sucks */
+	width: 12.4rem;
 	border-bottom-left-radius: .3em;
 	border-top-left-radius: .3em;
 	background: transparent url(search.png) no-repeat 4px center;
 	text-indent: 18px;
-	padding: 0 2px;
+	padding: 0;
 	border: none;
+	height: 22px;
+	height: 2.2rem;
+}
+#qx:focus {
+	border: 2px solid #BBDB58;
 }
 #search-menu input[type="submit"] {
 	padding: 0 3px;
 	padding: 0 .3rem;
+	margin-left: -4px;
 	background: #dfdfdf;
 	border-color: #999;
 	color: #444;
@@ -620,9 +629,8 @@ abbr {
 	width: 17em;
 	float: right;
 }
-#entry-sidebar input[type="text"],
 #entry-sidebar select {
-	width: 14em; /* to prevent inline with label */
+	width: 100%;
 }
 #entry-sidebar input#post_position {
 	width: 4em;
@@ -1180,6 +1188,9 @@ a.onblog_link {
 .vertical-separator {
 	margin-top: 2em;
 }
+p.clear.vertical-separator {
+	padding-top: 2em;
+}
 .border-top {
 	border-top: 1px solid #999;
 	padding-top: 1em;
@@ -1417,9 +1428,12 @@ option {
 input, textarea, select {
 	background: #f9f9f9;
 	color: #000;
-	border-width: 1px;
+	border-width: 2px;
 	border-style: solid;
-	border-color: #666 #ccc #ccc #999;
+	border-color: #ccc #ddd #ddd #ccc; 
+}
+select {
+	border-right: none;
 }
 input.invalid, textarea.invalid, select.invalid {
 	border: 1px solid red;
@@ -1546,7 +1560,7 @@ a.form-control {
 input:focus, textarea:focus, select:focus {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	box-sizing: border-box;	
+	box-sizing: border-box;
 	border: 2px solid #BBDB58;
 }
 /* --------------------------------------------------------------- buttons */

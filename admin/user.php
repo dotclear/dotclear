@@ -205,7 +205,7 @@ if (!empty($_GET['add'])) {
 }
 
 echo
-'<form action="user.php" method="post" id="user-form" class="fieldset">'.
+'<form action="user.php" method="post" id="user-form">'.
 '<div class="two-cols">'.
 
 '<div class="col">'.
@@ -223,15 +223,6 @@ if ($user_id == $core->auth->userID()) {
 }
 
 echo
-'<form action="user.php" method="post" id="user-form">'.
-'<fieldset><legend>'.__('User information').'</legend>'.
-'<div class="two-cols">'.
-'<div class="col">'.
-'<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').' '.
-form::field('user_id',20,255,html::escapeHTML($user_id)).
-'</label></p>'.
-'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p>'.
-
 '<div class="pw-table">'.
 	'<p class="pw-cell">'.
 		'<label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
@@ -318,7 +309,7 @@ echo
 
 
 echo
-'<p class="clear border-top"><label for="your_pwd" class="required">'.
+'<p class="clear vertical-separator"><label for="your_pwd" class="required">'.
 '<abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
 form::password('your_pwd',20,255).'</p>'.
 '<p class="clear"><input type="submit" name="save" accesskey="s" value="'.__('Save').'" />'.
@@ -386,7 +377,7 @@ if ($user_id)
 
 	} 
 	else {
-		echo '<p>'.sprintf(__('User %s is super admin.'),$user_id).'</p>';
+		echo '<p>'.sprintf(__('%s is super admin (all rights on all blogs).'),'<strong>'.$user_id.'</strong>').'</p>';
 	}	
 	echo '</div>';
 }

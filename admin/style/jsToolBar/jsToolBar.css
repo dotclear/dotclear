@@ -5,14 +5,11 @@
 	background : #f9f9f9;
 }
 .jstEditor textarea, .jstEditor iframe {
-  margin: 0;
-  border: 0;
-  padding: 0;
-}
-.jstEditor textarea {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;	
+	margin: 0;
+	border: 2px solid #f9f9f9;
   	width: 100%;
   	padding: .5em 0 0 0;
 }
@@ -25,7 +22,7 @@
 	border-width: 0 1px 1px 1px;
 	border-style: solid;
 }
-.jstEditor textarea:focus {
+.jstEditor textarea:focus, .jstEditor iframe:focus {
 	border: 2px solid #BBDB58;
 }
 .jstElements {
