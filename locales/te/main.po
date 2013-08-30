@@ -590,7 +590,7 @@ msgid "The category has been successfully moved."
 msgstr "విజయవంతంగా వర్గాన్ని సృష్టించాం."
 
 #, fuzzy
-msgid "No category yet."
+msgid "No category so far."
 msgstr "వర్గాలు లేవు."
 
 #, fuzzy

@@ -1250,7 +1250,7 @@ msgstr "Șterge legăturile selectate"
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Sigur dorești a șterge legăturile selectate?"
 
-msgid "Currently no menu items"
+msgid "No menu items so far."
 msgstr ""
 
 msgid "Tags:"

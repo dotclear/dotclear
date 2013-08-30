@@ -588,7 +588,7 @@ msgstr "As categorias foram reordenadas com sucesso."
 msgid "The category has been successfully moved."
 msgstr "A categoria foi movida com sucesso."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Nenhuma categoria ainda."
 
 msgid "Categories list"

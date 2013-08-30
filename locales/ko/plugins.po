@@ -1269,7 +1269,7 @@ msgstr "선택된 링크들 삭제"
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "선택된 링크들을 삭제하시려는 게 확실합니까 ?"
 
-msgid "Currently no menu items"
+msgid "No menu items so far."
 msgstr ""
 
 msgid "Tags:"

@@ -584,7 +584,7 @@ msgstr "Pořadí kategorií bylo úspěšně aktualizováno."
 msgid "The category has been successfully moved."
 msgstr "Kategorie byla úspěšně přesunuta."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Zatím žádná kategorie."
 
 msgid "Categories list"
