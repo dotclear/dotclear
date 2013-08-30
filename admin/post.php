@@ -146,7 +146,9 @@ if (!empty($_REQUEST['id']))
 		
 		try {
 			$core->media = new dcMedia($core);
-		} catch (Exception $e) {}
+		} catch (Exception $e) {
+			$core->error->add($e->getMessage());
+		}
 	}
 }
 
@@ -438,12 +440,13 @@ if ($can_edit_post)
 					form::combo('post_lang',$lang_combo,$post_lang).
 					'</p>',
 				'post_format' =>
-					'<p><label for="post_format" class="ib">'.__('Text formating').'</label>'.
-					form::combo('post_format',$formaters_combo,$post_format,'maximal').
+					'<div>'.
+					'<h5 id="label_format"><label for="post_format" class="ib">'.__('Text formating').'</label></h5>'.
+					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
 					'</p>'.
 					'<p>'.($post_id && $post_format != 'xhtml' ? 
 					'<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.
-					__('Convert to XHTML').'</a>' : '').'</p>')),
+					__('Convert to XHTML').'</a>' : '').'</p></div>')),
 		'metas-box' => array(
 			'title' => __('Ordering'),
 			'items' => array(
@@ -626,16 +629,16 @@ if ($post_id)
 		$combo_action[__('Delete')] = 'delete';
 	}
 	
+	echo
+	'<div id="comments" class="multi-part" title="'.__('Comments').'">';
+		
 	# --BEHAVIOR-- adminCommentsActionsCombo
 	$core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
 	
 	$has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
 	echo 
-		'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a>';
+	'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a></p>';
 	
-	echo
-	'<div id="comments" class="multi-part" title="'.__('Comments').'">';
-		
 	if ($has_action) {
 		echo '<form action="comments_actions.php" id="form-comments" method="post">';
 	}
@@ -671,7 +674,8 @@ if ($post_id)
 	/* Add a comment
 	-------------------------------------------------------- */
 
-		echo
+	echo
+	'<div class="fieldset clear">'.
 	'<h3>'.__('Add a comment').'</h3>'.
 	
 	'<form action="comment.php" method="post" id="comment-form">'.
@@ -696,9 +700,11 @@ if ($post_id)
 	'<p>'.form::hidden('post_id',$post_id).
 	$core->formNonce().
 	'<input type="submit" name="add" value="'.__('Save').'" /></p>'.
-	'</div>'.
+	'</div>'. #constrained
+
 	'</form>'.
-	'</div>';
+	'</div>'. #add comment
+	'</div>'; #comments
 }
 
 # Controls comments or trakbacks capabilities

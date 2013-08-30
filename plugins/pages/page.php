@@ -138,7 +138,9 @@ if (!empty($_REQUEST['id']))
 		try {
 			$core->media = new dcMedia($core);
 			$post_media = $core->media->getPostMedia($post_id);
-		} catch (Exception $e) {}
+		} catch (Exception $e) {
+			$core->error->add($e->getMessage());
+		}
 	}
 }
 
@@ -391,36 +393,122 @@ if (!$can_view_page) {
 }
 
 
-/* Post form if we can edit post
+/* Post form if we can edit page
 -------------------------------------------------------- */
 if ($can_edit_page)
 {
+	$sidebar_items = new ArrayObject(array(
+		'status-box' => array(
+			'title' => __('Status'),
+			'items' => array(
+				'post_status' => 
+					'<p><label for="post_status" class="ib">'.__('Page status:').'</label> '.
+					form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
+					'</p>',
+				'post_dt' => 
+					'<p><label for="post_dt" class="ib">'.__('Publication date and hour').'</label>'.
+					form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).
+					'</p>',
+				'post_lang' =>
+					'<p><label for="post_lang" class="ib">'.__('Page lang:').'</label>'.
+					form::combo('post_lang',$lang_combo,$post_lang).
+					'</p>',
+				'post_format' =>
+					'<div>'.
+					'<h5 id="label_format"><label for="post_format" class="ib">'.__('Text formating').'</label></h5>'.
+					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
+					'</p>'.
+					'<p>'.($post_id && $post_format != 'xhtml' ? 
+					'<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.
+					__('Convert to XHTML').'</a>' : '').'</p></div>')),
+		'metas-box' => array(
+			'title' => __('Ordering'),
+			'items' => array(
+				'post_position' => 
+					'<p><label for="post_position" class="classic">'.__('Page position:').'</label> '.
+					form::field('post_position',3,3,(string) $post_position).
+					'</p>')),
+		'options-box' => array(
+			'title' => __('Options'),
+			'items' => array(
+				'post_open_comment' =>
+					'<p><label for="post_open_comment" class="classic">'.
+					form::checkbox('post_open_comment',1,$post_open_comment).' '.
+					__('Accept comments').'</label></p>'.
+					($core->blog->settings->system->allow_comments ? 
+						(isContributionAllowed($post_id,strtotime($post_dt),true) ? 
+							'' :
+							'<p class="form-note warn">'.
+							__('Warning: Comments are not more accepted for this entry.').'</p>') : 
+						'<p class="form-note warn">'.
+						__('Warning: Comments are not accepted on this blog.').'</p>'),
+				'post_open_tb' =>
+					'<p><label for="post_open_tb" class="classic">'.
+					form::checkbox('post_open_tb',1,$post_open_tb).' '.
+					__('Accept trackbacks').'</label></p>'.
+					($core->blog->settings->system->allow_trackbacks ? 
+						(isContributionAllowed($post_id,strtotime($post_dt),false) ? 
+							'' :
+							'<p class="form-note warn">'.
+							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
+						'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>'),
+				'post_hide' =>	
+					'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
+					__('Hide in widget Pages').'</label>'.
+					'</p>',
+				'post_password' =>
+					'<p><label for="post_password" class="ib">'.__('Password').'</label>'.
+					form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
+					'</p>',
+				'post_url' =>
+					'<div class="lockable">'.
+					'<p><label for="post_url" class="ib">'.__('Edit basename').'</label>'.
+					form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
+					'</p>'.
+					'<p class="form-note warn">'.
+					__('Warning: If you set the URL manually, it may conflict with another entry.').
+					'</p></div>'
+	))));
+	$main_items = new ArrayObject(array(
+		"post_title" =>
+			'<p class="col">'.
+			'<label class="required no-margin"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
+			form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
+			'</p>',
+		
+		"post_excerpt" =>
+			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'<span class="form-note">'.
+			__('Add an introduction to the post.').'</span></label> '.
+			form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
+			'</p>',
+		
+		"post_content" =>
+			'<p class="area"><label class="required" '.
+			'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
+			form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
+			'</p>',
+		
+		"post_notes" =>
+			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'<span class="form-note">'.
+			__('Add unpublished notes.').'</span></label>'.
+			form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
+			'</p>'
+		)
+	);
+
+	# --BEHAVIOR-- adminPostFormItems
+	$core->callBehavior('adminPageFormItems',$main_items,$sidebar_items, isset($post) ? $post : null);
+
 	echo '<div class="multi-part" title="'.__('Edit page').'" id="edit-entry">';
 	echo '<form action="'.html::escapeURL($redir_url).'" method="post" id="entry-form">';
 
 	echo '<div id="entry-wrapper">';
 	echo '<div id="entry-content"><div class="constrained">';
 	
-	echo
-	'<p class="col"><label for="post_title" class="required no-margin"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
-	form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
-	'</p>'.
 	
-	'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').
-	'<span class="form-note">'.__('Add an introduction to the page.').'</span></label> '.
-	form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
-	'</p>'.
-	
-	'<p class="area"><label class="required" '.
-	'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-	form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
-	'</p>';
-	
-	echo
-	'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').
-	'<span class="form-note">'.__('Add unpublished notes.').'</span></label>'.
-	form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
-	'</p>';
+	foreach ($main_items as $id => $item) {
+		echo $item;
+	}
 
 	# --BEHAVIOR-- adminPageForm
 	$core->callBehavior('adminPageForm',isset($post) ? $post : null);
@@ -453,96 +541,13 @@ if ($can_edit_page)
 
 	echo '<div id="entry-sidebar">';
 	
-	echo
-	'<p><label for="post_status" class="ib">'.__('Page status:').'</label> '.
-	form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
-	'</p>'.
-	
-	'<p><label for="post_dt" class="ib">'.__('Published on:').'</label>'.
-	form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).'</p>'.
-	
-	'<p><label for="post_format" class="ib">'.__('Text formating:').'</label>'.
-	form::combo('post_format',$formaters_combo,$post_format).
-	($post_id && $post_format != 'xhtml' ? '<a class="button" href="'.html::escapeURL($redir_url).'&amp;id='.$post_id.'&amp;xconv=1">'.__('Convert to XHTML').'</a>' : '').
-	'</p>'.
-	
-	'<p><label for="post_open_comment" class="classic">'.form::checkbox('post_open_comment',1,$post_open_comment).' '.
-	__('Accept comments').'</label></p>'.
-	($core->blog->settings->system->allow_comments ? 
-		(isContributionAllowed($post_id,strtotime($post_dt),true) ? 
-			'' :
-			'<p class="form-note warn">'.__('Warning: Comments are not more accepted for this page.').'</p>') : 
-		'<p class="form-note warn">'.__('Warning: Comments are not accepted on this blog.').'</p>').
-
-	'<p><label for="post_open_tb" class="classic">'.form::checkbox('post_open_tb',1,$post_open_tb).' '.
-	__('Accept trackbacks').'</label></p>'.
-	($core->blog->settings->system->allow_trackbacks ? 
-		(isContributionAllowed($post_id,strtotime($post_dt),false) ? 
-			'' :
-			'<p class="form-note warn">'.__('Warning: Trackbacks are not more accepted for this page.').'</p>') : 
-		'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>').
-	
-	'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
-	__('Hide').'</label></p>'.
-	'<p class="form-note">'.
-	__('If checked this page will be active but not listed in widget Pages.').
-	'</p>'.
-
-	'<p><label for="post_position" class="classic">'.__('Page position:').'</label> '.
-	form::field('post_position',3,3,(string) $post_position).
-	'</p>'.
-	
-	'<p><label for="post_lang" class="ib">'.__('Page lang:').'</label>'.
-	form::combo('post_lang',$lang_combo,$post_lang).'</p>'.
-	
-	'<p><label for="post_password" class="ib">'.__('Page password:').'</label>'.
-	form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
-	'</p>'.
-	
-	'<div class="lockable ib">'.
-	'<p><label for="post_url" class="ib">'.__('Basename:').'</label>'.
-	form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
-	'</p>'.
-	'<p class="form-note warn">'.
-	__('Warning: If you set the URL manually, it may conflict with another page.').
-	'</p>'.
-	'</div>';
-	
-	if ($post_id)
-	{
-		echo
-		'<h4 class="clear">'.__('Attachments').'</h4>';
-		foreach ($post_media as $f)
-		{
-			$ftitle = $f->media_title;
-			if (strlen($ftitle) > 18) {
-				$ftitle = substr($ftitle,0,16).'...';
-			}
-			echo
-			'<div class="media-item">'.
-			'<a class="media-icon" href="media_item.php?id='.$f->media_id.'">'.
-			'<img src="'.$f->media_icon.'" alt="" title="'.$f->basename.'" /></a>'.
-			'<ul>'.
-			'<li><a class="media-link" href="media_item.php?id='.$f->media_id.'"'.
-			'title="'.$f->basename.'">'.$ftitle.'</a></li>'.
-			'<li>'.$f->media_dtstr.'</li>'.
-			'<li>'.files::size($f->size).' - '.
-			'<a href="'.$f->file_url.'">'.__('open').'</a>'.'</li>'.
-			
-			'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
-			'href="post_media.php?post_id='.$post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
-			'<img src="images/check-off.png" alt="'.__('Remove').'" /></a>'.
-			'</li>'.
-			
-			'</ul>'.
-			'</div>';
+	foreach ($sidebar_items as $id => $c) {
+		echo '<div id="'.$id.'" class="box">'.
+			'<h4>'.$c['title'].'</h4>';
+		foreach ($c['items'] as $e_name=>$e_content) {
+			echo $e_content;
 		}
-		unset($f);
-		
-		if (empty($post_media)) {
-			echo '<p class="form-note">'.__('No attachment.').'</p>';
-		}
-		echo '<p><a class="button" href="media.php?post_id='.$post_id.'">'.__('Add files to this page').'</a></p>';
+		echo '</div>';
 	}
 	
 	# --BEHAVIOR-- adminPageFormSidebar
@@ -551,7 +556,7 @@ if ($can_edit_page)
 	echo '</div>';		// End #entry-sidebar
 	
 	echo '</form>';
-	echo '</div>';
+	echo '</div>';		// End 
 	
 	if ($post_id && !empty($post_media))
 	{
@@ -594,6 +599,9 @@ if ($post_id)
 	echo
 	'<div id="comments" class="multi-part" title="'.__('Comments').'">';
 	
+	echo
+	'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a></p>';
+
 	if ($has_action) {
 		echo '<form action="comments_actions.php" method="post">';
 	}
@@ -626,16 +634,11 @@ if ($post_id)
 		'</div>'.
 		'</form>';
 	}
-	
-	echo '</div>';
-}
+		/* Add a comment
+	-------------------------------------------------------- */
 
-/* Add a comment
--------------------------------------------------------- */
-if ($post_id)
-{
 	echo
-	'<div class="multi-part" id="add-comment" title="'.__('Add a comment').'">'.
+	'<div class="fieldset clear">'.
 	'<h3>'.__('Add a comment').'</h3>'.
 	
 	'<form action="comment.php" method="post" id="comment-form">'.
@@ -652,16 +655,19 @@ if ($post_id)
 	form::field('comment_site',30,255,html::escapeHTML($core->auth->getInfo('user_url'))).
 	'</p>'.
 	
-	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Comment:').'</label> '.
+	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.
+	__('Comment:').'</label> '.
 	form::textarea('comment_content',50,8,html::escapeHTML('')).
 	'</p>'.
 	
 	'<p>'.form::hidden('post_id',$post_id).
 	$core->formNonce().
 	'<input type="submit" name="add" value="'.__('Save').'" /></p>'.
-	'</div>'.
+	'</div>'. #constrained
+
 	'</form>'.
-	'</div>';
+	'</div>'. #add comment
+	'</div>'; #comments
 }
 
 # Controls comments or trakbacks capabilities
