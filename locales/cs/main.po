@@ -843,7 +843,7 @@ msgstr "Provést upgrade hned"
 msgid "Remind me later"
 msgstr "Připomenout později"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 msgid "Some plugins are installed twice:"
@@ -2398,7 +2398,7 @@ msgstr "Systém"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Aktualizace"
 
 msgid "Languages"

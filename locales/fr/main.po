@@ -888,8 +888,9 @@ msgstr "Mettre à jour maintenant"
 msgid "Remind me later"
 msgstr "Me le rappeler plus tard"
 
-msgid "information about this version"
-msgstr "Information à propos de cette version"
+#, php-format
+msgid "<a href=\"%s\">Information about this version</a>."
+msgstr "<a href=\"%s\">Information à propos de cette version</a>."
 
 msgid "Some plugins are installed twice:"
 msgstr "Ces plugins sont installés en double :"
@@ -2515,8 +2516,8 @@ msgstr "Système"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
-msgstr "Mises à jour"
+msgid "Update"
+msgstr "Mise à jour"
 
 msgid "Languages"
 msgstr "Langues"

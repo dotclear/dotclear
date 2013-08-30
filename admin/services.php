@@ -237,8 +237,10 @@ class dcRestMethods
 			throw new Exception('Permission denied');
 		}
 		
-		$core->media = new dcMedia($core);
-		$file = $core->media->getFile($id);
+		try {
+			$core->media = new dcMedia($core);
+			$file = $core->media->getFile($id);
+		} catch (Exception $e) {}
 		
 		if ($file === null || $file->type != 'application/zip' || !$file->editable) {
 			throw new Exception('Not a valid file');

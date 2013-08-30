@@ -146,7 +146,9 @@ if (!empty($_REQUEST['id']))
 		
 		try {
 			$core->media = new dcMedia($core);
-		} catch (Exception $e) {}
+		} catch (Exception $e) {
+			$core->error->add($e->getMessage());
+		}
 	}
 }
 

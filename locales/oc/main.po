@@ -834,7 +834,7 @@ msgstr ""
 msgid "Remind me later"
 msgstr ""
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 msgid "Some plugins are installed twice:"
@@ -2378,7 +2378,7 @@ msgstr "Sistèm"
 msgid "Blog"
 msgstr "Blòg"
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 #, fuzzy

@@ -171,6 +171,19 @@ if (isset($_POST['user_name']))
 -------------------------------------------------------- */
 dcPage::open($page_title,
 	dcPage::jsConfirmClose('user-form').
+	dcPage::jsLoad('js/jquery/jquery.pwstrength.js').
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA[\n".
+		"\$(function() {\n".
+		"	\$('#new_pwd').pwstrength({texts: ['".
+				sprintf(__('Password strength: %s'),__('very weak'))."', '".
+				sprintf(__('Password strength: %s'),__('weak'))."', '".
+				sprintf(__('Password strength: %s'),__('mediocre'))."', '".
+				sprintf(__('Password strength: %s'),__('strong'))."', '".
+				sprintf(__('Password strength: %s'),__('very strong'))."']});\n".
+		"});\n".
+		"\n//]]>\n".
+		"</script>\n".
 	
 	# --BEHAVIOR-- adminUserHeaders
 	$core->callBehavior('adminUserHeaders'),
@@ -210,11 +223,27 @@ if ($user_id == $core->auth->userID()) {
 }
 
 echo
-'<p><label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
-($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').
-($user_id != '' ? __('New password:') : __('Password:')).'</label> '.
-form::password('new_pwd',20,255).
-'</p>'.
+'<form action="user.php" method="post" id="user-form">'.
+'<fieldset><legend>'.__('User information').'</legend>'.
+'<div class="two-cols">'.
+'<div class="col">'.
+'<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').' '.
+form::field('user_id',20,255,html::escapeHTML($user_id)).
+'</label></p>'.
+'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p>'.
+
+'<div class="pw-table">'.
+	'<p class="pw-cell">'.
+		'<label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
+		($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').
+		($user_id != '' ? __('New password:') : __('Password:')).'</label>'.
+		form::password('new_pwd',20,255,'','','',false,' data-indicator="pwindicator" ').
+	'</p>'.
+	'<div id="pwindicator">'.
+	'    <div class="bar"></div>'.
+    '    <p class="label no-margin"></p>'.
+    '</div>'.
+'</div>'.
 '<p class="form-note">'.__('Password must contain at least 6 characters.').'</p>'.
 
 '<p><label for="new_pwd_c" '.($user_id != '' ? '' : 'class="required"').'>'.

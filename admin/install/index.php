@@ -266,6 +266,7 @@ xml:lang="en" lang="en">
 	<link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" /> 
 
   <script type="text/javascript" src="../js/jquery/jquery.js"></script>
+  <?php echo dcPage::jsLoad('../js/jquery/jquery.pwstrength.js'); ?>
   <script type="text/javascript">
   //<![CDATA[
   $(function() {
@@ -277,6 +278,13 @@ xml:lang="en" lang="en">
     $('#u_login').keyup(function() {
       $(this).val(this.value.replace(login_re,''));
     });
+    
+	<?php echo "\$('#u_pwd').pwstrength({texts: ['".
+				sprintf(__('Password strength: %s'),__('very weak'))."', '".
+				sprintf(__('Password strength: %s'),__('weak'))."', '".
+				sprintf(__('Password strength: %s'),__('mediocre'))."', '".
+				sprintf(__('Password strength: %s'),__('strong'))."', '".
+				sprintf(__('Password strength: %s'),__('very strong'))."']});\n"; ?>
     
     $('#u_login').parent().after($('<input type="hidden" name="u_date" value="' + Date().toLocaleString() + '" />'));
     
@@ -328,12 +336,20 @@ if ($can_install && $step == 0)
 	'</fieldset>'.
 	
 	'<fieldset><legend>'.__('Username and password').'</legend>'.
-	'<p><label for="u_login" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').'</label> '.
-	form::field('u_login',30,32,html::escapeHTML($u_login)).'</p>'.
-	'<p><label for="u_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Password:').'</label> '.
-	form::password('u_pwd',30,255).'</p>'.
-	'<p><label for="u_pwd2" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Confirm password:').'</label> '.
-	form::password('u_pwd2',30,255).'</p>'.
+	'<p><label for="u_login" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').' '.
+	form::field('u_login',30,32,html::escapeHTML($u_login)).'</label></p>'.
+	'<div class="pw-table">'.
+		'<p class="pw-cell">'.
+			'<label for="u_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('New password:').'</label>'.
+			form::password('u_pwd',30,255,'','','',false,' data-indicator="pwindicator" ').
+		'</p>'.
+		'<div id="pwindicator">'.
+		'    <div class="bar"></div>'.
+		'    <p class="label no-margin"></p>'.
+		'</div>'.
+	'</div>'.
+	'<p><label for="u_pwd2" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Confirm password:').' '.
+	form::password('u_pwd2',30,255).'</label></p>'.
 	'</fieldset>'.
 	
 	'<p><input type="submit" value="'.__('Save').'" /></p>'.
