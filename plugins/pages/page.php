@@ -454,7 +454,7 @@ if ($can_edit_page)
 						'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>'),
 				'post_hide' =>	
 					'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
-					__('Hide in widget Pages').'</label></p>'.
+					__('Hide in widget Pages').'</label>'.
 					'</p>',
 				'post_password' =>
 					'<p><label for="post_password" class="ib">'.__('Password').'</label>'.
@@ -556,7 +556,7 @@ if ($can_edit_page)
 	echo '</div>';		// End #entry-sidebar
 	
 	echo '</form>';
-	echo '</div>';
+	echo '</div>';		// End 
 	
 	if ($post_id && !empty($post_media))
 	{
@@ -599,6 +599,9 @@ if ($post_id)
 	echo
 	'<div id="comments" class="multi-part" title="'.__('Comments').'">';
 	
+	echo
+	'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a></p>';
+
 	if ($has_action) {
 		echo '<form action="comments_actions.php" method="post">';
 	}
@@ -631,16 +634,11 @@ if ($post_id)
 		'</div>'.
 		'</form>';
 	}
-	
-	echo '</div>';
-}
+		/* Add a comment
+	-------------------------------------------------------- */
 
-/* Add a comment
--------------------------------------------------------- */
-if ($post_id)
-{
 	echo
-	'<div class="multi-part" id="add-comment" title="'.__('Add a comment').'">'.
+	'<div class="fieldset clear">'.
 	'<h3>'.__('Add a comment').'</h3>'.
 	
 	'<form action="comment.php" method="post" id="comment-form">'.
@@ -657,16 +655,19 @@ if ($post_id)
 	form::field('comment_site',30,255,html::escapeHTML($core->auth->getInfo('user_url'))).
 	'</p>'.
 	
-	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Comment:').'</label> '.
+	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.
+	__('Comment:').'</label> '.
 	form::textarea('comment_content',50,8,html::escapeHTML('')).
 	'</p>'.
 	
 	'<p>'.form::hidden('post_id',$post_id).
 	$core->formNonce().
 	'<input type="submit" name="add" value="'.__('Save').'" /></p>'.
-	'</div>'.
+	'</div>'. #constrained
+
 	'</form>'.
-	'</div>';
+	'</div>'. #add comment
+	'</div>'; #comments
 }
 
 # Controls comments or trakbacks capabilities
