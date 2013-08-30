@@ -1123,7 +1123,7 @@ p.error, p.message, p.static-msg, p.success {
 	color: #fff;
 }
 .success {
-	background: #baff8e url(msg-success.png) no-repeat .7em .7em;
+	background: #bee74b url(msg-success.png) no-repeat .7em .7em;
 	color: #000;
 }
 .message a, .static-msg a {
