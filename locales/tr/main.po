@@ -1745,10 +1745,10 @@ msgstr "Seçilmiş yazılara yap:"
 msgid "This user does not exist"
 msgstr "Bu kullanıcı mevcut değil"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Yazıların kategorisini değiştir"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Yazıların yazarını değiştir"
 
 msgid "Author ID:"

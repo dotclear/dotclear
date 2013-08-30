@@ -1740,10 +1740,10 @@ msgstr "Vybrané články:"
 msgid "This user does not exist"
 msgstr "Tento uživatel neexistuje"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Změnit kategorii pro články"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Změnit autora pro články"
 
 msgid "Author ID:"

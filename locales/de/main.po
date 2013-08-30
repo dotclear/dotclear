@@ -1739,10 +1739,10 @@ msgstr "Wähle eine Aktion für die Einträge:"
 msgid "This user does not exist"
 msgstr "Dieser Benutzer existiert nicht."
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Kategorie für die Einträge ändern"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Autor für die Einträge ändern"
 
 msgid "Author ID:"

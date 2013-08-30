@@ -1739,10 +1739,10 @@ msgstr "Azione sui post selezionati:"
 msgid "This user does not exist"
 msgstr "Questo utente non esiste."
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Cambia categoria degli articoli"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Cambia autore degli articoli"
 
 msgid "Author ID:"
