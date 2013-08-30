@@ -262,7 +262,8 @@ class dcUrlHandlers extends urlHandler
 		{
 			$params = new ArrayObject(array(
 				'cat_url' => $args,
-				'post_type' => 'post'));
+				'post_type' => 'post',
+				'without_empty' => false));
 			
 			$core->callBehavior('publicCategoryBeforeGetCategories',$params,$args);
 			

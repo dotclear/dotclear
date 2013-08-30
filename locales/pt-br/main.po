@@ -218,7 +218,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr ""
 
 #, fuzzy
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "DotClear já está instalado."
 
 msgid "Invalid language code"
@@ -869,7 +869,7 @@ msgstr ""
 msgid "Remind me later"
 msgstr ""
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
@@ -2496,7 +2496,7 @@ msgstr "Sistema"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 #, fuzzy

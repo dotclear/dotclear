@@ -6,7 +6,8 @@ aFocus = function() {
 			aElts[i].className="hidden";
 			aElts[i].onfocus=function() {
 				$('#prelude a').removeClass('hidden');
-				$('#main-menu').css('padding-top', '4.5em');
+				$('#wrapper').css('padding-top', '1em');
+				$('#help-button').css('top', '4em');
 			}
 		}
 	}
@@ -22,5 +23,5 @@ addLoadEvent(aFocus);
 
 // init
 $(function() {
-	$('#main-menu').css('padding-top', '.5em');
+	$('#wrapper').css('padding-top', '0');
 });
