@@ -7,6 +7,7 @@ aFocus = function() {
 			aElts[i].onfocus=function() {
 				$('#prelude a').removeClass('hidden');
 				$('#wrapper').css('padding-top', '1em');
+				$('#help-button').css('top', '4em');
 			}
 		}
 	}

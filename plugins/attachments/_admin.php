@@ -14,6 +14,9 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 $core->addBehavior ('adminPostFormItems',array('attachmentAdmin','adminPostFormItems'));
 $core->addBehavior ('adminPostAfterForm',array('attachmentAdmin','adminPostAfterForm'));
 $core->addBehavior('adminPostHeaders',array('attachmentAdmin','postHeaders'));
+$core->addBehavior ('adminPageFormItems',array('attachmentAdmin','adminPostFormItems'));
+$core->addBehavior ('adminPageAfterForm',array('attachmentAdmin','adminPostAfterForm'));
+$core->addBehavior('adminPageHeaders',array('attachmentAdmin','postHeaders'));
 
 class attachmentAdmin
 {

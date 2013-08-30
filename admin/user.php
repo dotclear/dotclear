@@ -171,6 +171,19 @@ if (isset($_POST['user_name']))
 -------------------------------------------------------- */
 dcPage::open($page_title,
 	dcPage::jsConfirmClose('user-form').
+	dcPage::jsLoad('js/jquery/jquery.pwstrength.js').
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA[\n".
+		"\$(function() {\n".
+		"	\$('#new_pwd').pwstrength({texts: ['".
+				sprintf(__('Password strength: %s'),__('very weak'))."', '".
+				sprintf(__('Password strength: %s'),__('weak'))."', '".
+				sprintf(__('Password strength: %s'),__('mediocre'))."', '".
+				sprintf(__('Password strength: %s'),__('strong'))."', '".
+				sprintf(__('Password strength: %s'),__('very strong'))."']});\n".
+		"});\n".
+		"\n//]]>\n".
+		"</script>\n".
 	
 	# --BEHAVIOR-- adminUserHeaders
 	$core->callBehavior('adminUserHeaders'),
@@ -192,7 +205,7 @@ if (!empty($_GET['add'])) {
 }
 
 echo
-'<form action="user.php" method="post" id="user-form" class="fieldset">'.
+'<form action="user.php" method="post" id="user-form">'.
 '<div class="two-cols">'.
 
 '<div class="col">'.
@@ -210,11 +223,18 @@ if ($user_id == $core->auth->userID()) {
 }
 
 echo
-'<p><label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
-($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').
-($user_id != '' ? __('New password:') : __('Password:')).'</label> '.
-form::password('new_pwd',20,255).
-'</p>'.
+'<div class="pw-table">'.
+	'<p class="pw-cell">'.
+		'<label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
+		($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').
+		($user_id != '' ? __('New password:') : __('Password:')).'</label>'.
+		form::password('new_pwd',20,255,'','','',false,' data-indicator="pwindicator" ').
+	'</p>'.
+	'<div id="pwindicator">'.
+	'    <div class="bar"></div>'.
+    '    <p class="label no-margin"></p>'.
+    '</div>'.
+'</div>'.
 '<p class="form-note">'.__('Password must contain at least 6 characters.').'</p>'.
 
 '<p><label for="new_pwd_c" '.($user_id != '' ? '' : 'class="required"').'>'.
@@ -289,7 +309,7 @@ echo
 
 
 echo
-'<p class="clear border-top"><label for="your_pwd" class="required">'.
+'<p class="clear vertical-separator"><label for="your_pwd" class="required">'.
 '<abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
 form::password('your_pwd',20,255).'</p>'.
 '<p class="clear"><input type="submit" name="save" accesskey="s" value="'.__('Save').'" />'.
@@ -357,7 +377,7 @@ if ($user_id)
 
 	} 
 	else {
-		echo '<p>'.sprintf(__('User %s is super admin.'),$user_id).'</p>';
+		echo '<p>'.sprintf(__('%s is super admin (all rights on all blogs).'),'<strong>'.$user_id.'</strong>').'</p>';
 	}	
 	echo '</div>';
 }

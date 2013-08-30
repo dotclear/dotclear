@@ -470,8 +470,8 @@ foreach ($ductile_stickers as $i => $v) {
 	'<tr class="line" id="l_'.$i.'">'.
 	'<td class="handle minimal">'.form::field(array('order['.$i.']'),2,3,$count,'position','',false).
 		form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>'.
-	'<td>'.form::hidden(array('sticker_image[]'),$v['image']).'<img src="'.$img_url.$v['image'].'" /> '.'</td>'.
-	'<td scope="raw">'.form::field(array('sticker_label[]','dsl-'.$i),20,255,$v['label']).'</td>'.
+	'<td>'.form::hidden(array('sticker_image[]'),$v['image']).'<img src="'.$img_url.$v['image'].'" alt="'.$v['image'].'" /> '.'</td>'.
+	'<td scope="row">'.form::field(array('sticker_label[]','dsl-'.$i),20,255,$v['label']).'</td>'.
 	'<td>'.form::field(array('sticker_url[]','dsu-'.$i),40,255,$v['url']).'</td>'.
 	'</tr>';
 }
@@ -495,7 +495,7 @@ echo '<table id="entrieslist">'.'<caption>'.__('Entries lists').'</caption>'.
 foreach ($ductile_lists as $k => $v) {
 	echo 
 		'<tr>'.
-		'<td scope="raw">'.$contexts[$k].'</td>'.
+		'<td scope="row">'.$contexts[$k].'</td>'.
 		'<td>'.form::hidden(array('list_ctx[]'),$k).form::combo(array('list_type[]'),$list_types,$v).'</td>';
 	if (array_key_exists($k,$ductile_counts)) {
 		echo '<td>'.form::hidden(array('count_ctx[]'),$k).form::field(array('count_nb[]'),2,3,$ductile_counts[$k]).'</td>';
@@ -516,7 +516,7 @@ echo '<p class="field"><label for="preview_not_mandatory">'.__('Comment preview 
 form::checkbox('preview_not_mandatory',1,$ductile_user['preview_not_mandatory']).'</label>'.'</p>';
 echo '</fieldset>';
 
-echo '<input type="hidden" name="conf_tab" value="html">';
+echo '<p><input type="hidden" name="conf_tab" value="html" /></p>';
 echo '<p class="clear">'.form::hidden('ds_order','').'<input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
 echo '</form>';
 
@@ -673,7 +673,7 @@ contrastRatio($ductile_user['post_title_c_m'],'#ffffff',
 echo '</div>';
 echo '</div>';
 
-echo '<input type="hidden" name="conf_tab" value="css">';
+echo '<p><input type="hidden" name="conf_tab" value="css" /></p>';
 echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
 echo '</form>';
 

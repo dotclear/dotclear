@@ -210,7 +210,7 @@ msgstr ""
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr ""
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr ""
 
 msgid "Invalid language code"
@@ -825,7 +825,7 @@ msgstr ""
 msgid "Remind me later"
 msgstr ""
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 msgid "Some plugins are installed twice:"
@@ -2345,7 +2345,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 msgid "Languages"

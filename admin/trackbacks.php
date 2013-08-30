@@ -119,8 +119,8 @@ if (!empty($_GET['auto'])) {
 	flush();
 	$tb_urls = implode("\n",$TB->discover($post->post_excerpt_xhtml.' '.$post->post_content_xhtml));
 } else {
-	$auto_link = '<strong><a class="button" href="trackbacks.php?id='.$id.'&amp;auto=1">'.
-	__('Auto discover ping URLs').'</a></strong>';
+	$auto_link = '<a class="button" href="trackbacks.php?id='.$id.'&amp;auto=1">'.
+	__('Auto discover ping URLs').'</a>';
 }
 
 echo
@@ -131,7 +131,7 @@ form::textarea('tb_urls',60,5,$tb_urls).
 '</p>'.
 
 '<p><label for="tb_excerpt" class="area">'.__('Send excerpt:').'</label>'.
-form::textarea('tb_excerpt',60,3,$tb_excerpt).'</p>'.
+form::textarea('tb_excerpt',60,5,$tb_excerpt).'</p>'.
 
 '<p>'.form::hidden('id',$id).
 $core->formNonce().
