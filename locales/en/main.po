@@ -828,7 +828,8 @@ msgstr ""
 msgid "Remind me later"
 msgstr ""
 
-msgid "information about this version"
+#, php-format
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 msgid "Some plugins are installed twice:"
@@ -2357,7 +2358,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 msgid "Languages"

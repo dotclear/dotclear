@@ -851,7 +851,7 @@ msgstr "ただちにアップグレード"
 msgid "Remind me later"
 msgstr "後で再度知らせる"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
@@ -2429,7 +2429,7 @@ msgstr "システム"
 msgid "Blog"
 msgstr "ブログ"
 
-msgid "Updates"
+msgid "Update"
 msgstr "アップデート"
 
 msgid "Languages"

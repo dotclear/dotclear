@@ -850,7 +850,7 @@ msgstr "지금 바로 갱신"
 msgid "Remind me later"
 msgstr "나중에 다시 알려줌"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
@@ -2430,7 +2430,7 @@ msgstr "시스템관리"
 msgid "Blog"
 msgstr "블로그"
 
-msgid "Updates"
+msgid "Update"
 msgstr "DotClear 갱신"
 
 msgid "Languages"

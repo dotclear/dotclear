@@ -853,7 +853,7 @@ msgstr ""
 msgid "Remind me later"
 msgstr ""
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
@@ -2425,7 +2425,7 @@ msgstr "వ్యవస్థ"
 msgid "Blog"
 msgstr "బ్లాగు"
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 msgid "Languages"
