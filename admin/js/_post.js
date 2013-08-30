@@ -152,6 +152,10 @@ $(function() {
 			cookie: 'cat_id',
 			legend_click: true
 		});
+		$('#label_comment_tb').toggleWithLegend($('#label_comment_tb').parent().children().not('#label_comment_tb'),{
+			cookie: 'dcx_comment_tb',
+			legend_click: true
+		});
 		$('#post_url').parent().children('label').toggleWithLegend($('#post_url').parent().children().not('label'),{
 			cookie: 'post_url',
 			legend_click: true

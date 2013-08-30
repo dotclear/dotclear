@@ -431,7 +431,9 @@ if ($can_edit_page)
 		'options-box' => array(
 			'title' => __('Options'),
 			'items' => array(
-				'post_open_comment' =>
+				'post_open_comment_tb' =>
+					'<div>'.
+					'<h5 id="label_comment_tb">'.__('Commentaires et rétroliens').'</h5>'.
 					'<p><label for="post_open_comment" class="classic">'.
 					form::checkbox('post_open_comment',1,$post_open_comment).' '.
 					__('Accept comments').'</label></p>'.
@@ -441,8 +443,7 @@ if ($can_edit_page)
 							'<p class="form-note warn">'.
 							__('Warning: Comments are not more accepted for this entry.').'</p>') : 
 						'<p class="form-note warn">'.
-						__('Comments are not accepted on this blog so far.').'</p>'),
-				'post_open_tb' =>
+						__('Comments are not accepted on this blog so far.').'</p>').
 					'<p><label for="post_open_tb" class="classic">'.
 					form::checkbox('post_open_tb',1,$post_open_tb).' '.
 					__('Accept trackbacks').'</label></p>'.
@@ -451,7 +452,8 @@ if ($can_edit_page)
 							'' :
 							'<p class="form-note warn">'.
 							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
-						'<p class="form-note warn">'.__('Trackbacks are not accepted on this blog so far.').'</p>'),
+						'<p class="form-note warn">'.__('Trackbacks are not accepted on this blog so far.').'</p>').
+					'</div>',
 				'post_hide' =>	
 					'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
 					__('Hide in widget Pages').'</label>'.
