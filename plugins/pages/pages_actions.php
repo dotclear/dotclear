@@ -34,7 +34,7 @@ class FieldsList {
 	*/
 	public function __construct() {
 		$this->hidden=array();
-		$this->entries =array();
+		$this->entries=array();
 	}
 
     /**
@@ -92,7 +92,7 @@ class FieldsList {
 			}
 		} else {
 			$ret = 
-				'<table class="posts-list"><tr>'.
+				'<table class="pages-list"><tr>'.
 				'<th colspan="2">'.__('Title').'</th>'.
 				'</tr>';
 			foreach ($this->entries as $id=>$title) {
@@ -134,7 +134,7 @@ class FieldsList {
 }
 
 $fields = new FieldsList();
-$posts_ids = array();
+$pages_ids = array();
 
 if (isset($_POST['redir']) && strpos($_POST['redir'],'://') === false)
 {
@@ -142,17 +142,7 @@ if (isset($_POST['redir']) && strpos($_POST['redir'],'://') === false)
 }
 else
 {
-	$redir =
-	'posts.php?user_id='.$_POST['user_id'].
-	'&cat_id='.$_POST['cat_id'].
-	'&status='.$_POST['status'].
-	'&selected='.$_POST['selected'].
-	'&month='.$_POST['month'].
-	'&lang='.$_POST['lang'].
-	'&sortby='.$_POST['sortby'].
-	'&order='.$_POST['order'].
-	'&page='.$_POST['page'].
-	'&nb='.$_POST['nb'];
+	$redir ='plugin.php?p=pages';
 }
 $redir_sel = $redir;
 
@@ -174,16 +164,16 @@ if (!empty($_POST['entries']))
 		$params['post_type'] = $_POST['post_type'];
 	}
 	
-	$posts = $core->blog->getPosts($params);
-	while ($posts->fetch())	{
-		$posts_ids[] = $posts->post_id;
-		$fields->addEntry($posts->post_id,$posts->post_title);
+	$pages = $core->blog->getPosts($params);
+	while ($pages->fetch())	{
+		$pages_ids[] = $pages->post_id;
+		$fields->addEntry($pages->post_id,$pages->post_title);
 	}
 	// Redirection including selected entries
 	$redir_sel = $redir.'&'.$fields->getEntriesQS();
 
 } else {
-	$posts = $core->con->select("SELECT blog_id FROM ".$core->prefix."blog WHERE false");;
+	$pages = $core->con->select("SELECT blog_id FROM ".$core->prefix."blog WHERE false");;
 }
 
 /* Actions
@@ -200,10 +190,10 @@ else
 {
 	$core->error->add(__('No action specified.'));
 	dcPage::open(
-		__('Entries'),'',dcPage::breadcrumb(
+		__('Pages'),'',dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			__('Entries') => 'posts.php',
+			__('Pages') => 'plugin.php?p=pages',
 			'<span class="page-title">'.__('Entries actions').'</span>' => ''
 		))
 	);
@@ -214,8 +204,8 @@ else
 	exit;
 }
 
-# --BEHAVIOR-- adminPostsActions
-$core->callBehavior('adminPostsActions',$core,$posts,$action,$redir);
+# --BEHAVIOR-- adminPagesActions
+$core->callBehavior('adminPagesActions',$core,$pages,$action,$redir);
 
 if (preg_match('/^(publish|unpublish|schedule|pending)$/',$action))
 {
@@ -228,7 +218,7 @@ if (preg_match('/^(publish|unpublish|schedule|pending)$/',$action))
 	
 	try
 	{
-		$core->blog->updPostsStatus($posts_ids,$status);
+		$core->blog->updPostsStatus($pages_ids,$status);
 		
 		http::redirect($redir_sel.'&upd=1');
 	}
@@ -242,16 +232,16 @@ elseif ($action == 'delete')
 	try
 	{
 		// Backward compatibility
-		foreach($posts_ids as $post_id)
+		foreach($pages_ids as $post_id)
 		{
 			# --BEHAVIOR-- adminBeforePostDelete
-			$core->callBehavior('adminBeforePostDelete',(integer) $post_id);
+			$core->callBehavior('adminBeforePagesDelete',(integer) $post_id);
 		}
 		
-		# --BEHAVIOR-- adminBeforePostsDelete
-		$core->callBehavior('adminBeforePostsDelete',$posts_ids);
+		# --BEHAVIOR-- adminBeforePagesDelete
+		$core->callBehavior('adminBeforePagesDelete',$pages_ids);
 		
-		$core->blog->delPosts($posts_ids);
+		$core->blog->delPosts($pages_ids);
 		
 		http::redirect($redir."&del=1");
 	}
@@ -273,7 +263,7 @@ elseif ($action == 'author' && isset($_POST['new_auth_id']) && $core->auth->chec
 		
 		$cur = $core->con->openCursor($core->prefix.'post');
 		$cur->user_id = $new_user_id;
-		$cur->update('WHERE post_id '.$core->con->in($posts_ids));
+		$cur->update('WHERE post_id '.$core->con->in($pages_ids));
 		
 		http::redirect($redir_sel."&upd=1");
 	}
@@ -341,10 +331,10 @@ if ($action == 'author' && $core->auth->check('admin',$core->blog->id)) {
 	"\n//]]>\n".
 	"</script>\n".
 	dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
-	dcPage::jsLoad('js/_posts_actions.js').
+	dcPage::jsLoad('index.php?pf=pages/list.js').
 	dcPage::jsMetaEditor().
 	# --BEHAVIOR-- adminBeforePostDelete
-	$core->callBehavior('adminPostsActionsHeaders');
+	$core->callBehavior('adminPagesActionsHeaders');
   ?>
   <script type="text/javascript">
   //<![CDATA[
@@ -387,21 +377,21 @@ if (isset($_POST['post_type'])) {
 	$fields->addHidden(array('post_type'),$_POST['post_type']);
 }
 
-# --BEHAVIOR-- adminPostsActionsContent
-$core->callBehavior('adminPostsActionsContent',$core,$action,$fields);
+# --BEHAVIOR-- adminPagesActionsContent
+$core->callBehavior('adminPagesActionsContent',$core,$action,$fields);
 
 if ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 {
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			__('Entries') => 'posts.php',
-			'<span class="page-title">'.__('Change author for entries').'</span>' => ''
+			__('Pages') => 'plugin.php?p=pages',
+			'<span class="page-title">'.__('Change author for this selection').'</span>' => ''
 	));
 	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
 
 	echo
-	'<form action="posts_actions.php" method="post">'.
+	'<form action="plugin.php?p=pages&act=actions" method="post">'.
 	$fields->getEntries().
 	'<p><label for="new_auth_id" class="classic">'.__('New author (author ID):').'</label> '.
 	form::field('new_auth_id',20,255);
