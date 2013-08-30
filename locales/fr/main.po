@@ -229,7 +229,7 @@ msgstr "Je souhaite que mon blog soit indexé mais pas archivé par les moteurs 
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Je souhaite que mon blog ne soit ni indexé ni archivé par les moteurs de recherche et archiveurs."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Cet identifiant est déjà utilisé."
 
 msgid "Invalid language code"
@@ -577,7 +577,7 @@ msgid "Entries"
 msgstr "Billets"
 
 msgid "Entries (all types)"
-msgstr "Billets & pages"
+msgstr "Billets &amp; pages"
 
 msgid "Status"
 msgstr "État"
@@ -888,8 +888,9 @@ msgstr "Mettre à jour maintenant"
 msgid "Remind me later"
 msgstr "Me le rappeler plus tard"
 
-msgid "information about this version"
-msgstr "Information à propos de cette version"
+#, php-format
+msgid "<a href=\"%s\">Information about this version</a>."
+msgstr "<a href=\"%s\">Information à propos de cette version</a>."
 
 msgid "Some plugins are installed twice:"
 msgstr "Ces plugins sont installés en double :"
@@ -1653,13 +1654,13 @@ msgid "Warning: Comments are not more accepted for this entry."
 msgstr "Attention : les commentaires ne sont plus acceptés pour ce billet."
 
 msgid "Warning: Comments are not accepted on this blog."
-msgstr "Attention : les commentaires ne sont pas acceptés sur ce blog."
+msgstr "Les commentaires sont fermés sur ce blog pour le moment."
 
 msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr "Attention : les rétroliens ne sont plus acceptés pour ce billet."
 
-msgid "Warning: Trackbacks are not accepted on this blog."
-msgstr "Attention : les rétroliens ne sont pas acceptés sur ce blog."
+msgid "Trackbacks are not accepted on this blog so far."
+msgstr "Les rétroliens sont fermés sur ce blog pour le moment."
 
 msgid "Selected entry"
 msgstr "Billet sélectionné"
@@ -1677,7 +1678,7 @@ msgid "Warning: If you set the URL manually, it may conflict with another entry.
 msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec un autre billet."
 
 msgid "Ping blogs"
-msgstr "Faire des rétroliens"
+msgstr "Envoyer des rétroliens"
 
 msgid "Trackbacks"
 msgstr "Rétroliens"
@@ -2515,8 +2516,8 @@ msgstr "Système"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
-msgstr "Mises à jour"
+msgid "Update"
+msgstr "Mise à jour"
 
 msgid "Languages"
 msgstr "Langues"
@@ -3241,6 +3242,9 @@ msgstr "Profil utilisateur"
 
 msgid "User ID:"
 msgstr "Identifiant (login) :"
+
+msgid "%s is super admin (all rights on all blogs)."
+msgstr "%s est super administrateur (tous les droits sur tous les blogs)."
 
 msgid "Interface"
 msgstr "Interface"

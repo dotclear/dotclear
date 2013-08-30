@@ -191,7 +191,10 @@ class dcImportWP extends dcIeModule
 				'<p><label for="db_prefix">'.__('Database Tables Prefix:').'</label> '.
 				form::field('db_prefix',30,255,html::escapeHTML($this->vars['db_prefix'])).'</p>'.
 
-				'<h3>'.__('Entries import options').'</h3>'.
+				'<h3 class="vertical-separator">'.__('Entries import options').'</h3>'.
+				'<div class="two-cols">'.
+
+				'<div class="col">'.
 				'<p>'.__('WordPress and Dotclear\'s handling of categories are quite different. '.
 				'You can assign several categories to a single post in WordPress. In the Dotclear world, '.
 				'we see it more like "One category, several tags." Therefore Dotclear can only import one '.
@@ -202,7 +205,9 @@ class dcImportWP extends dcIeModule
 				'If you did not change that category, you can just ignore it while '.
 				'importing your blog, as Dotclear allows you to actually keep your posts '.
 				'uncategorized.').'</p>'.
+				'</div>'.
 
+				'<div class="col">'.
 				'<p><label for="ignore_first_cat" class="classic">'.form::checkbox('ignore_first_cat',1,$this->vars['ignore_first_cat']).' '.
 				__('Ignore the first category:').'</label></p>'.
 				'<p><label for="cat_import" class="classic">'.form::checkbox('cat_import',1,$this->vars['cat_import']).' '.
@@ -213,13 +218,16 @@ class dcImportWP extends dcIeModule
 				form::field('cat_tags_prefix',10,20,html::escapeHTML($this->vars['cat_tags_prefix'])).'</p>'.
 				'<p><label for="post_limit">'.__('Number of entries to import at once:').'</label> '.
 				form::field('post_limit',3,3,html::escapeHTML($this->vars['post_limit'])).'</p>'.
+				'</div>'.
 				
-				'<h3>'.__('Content filters').'</h3>'.
+				'</div>'.
+
+				'<h3 class="clear vertical-separator">'.__('Content filters').'</h3>'.
 				'<p>'.__('You may want to process your post and/or comment content with the following filters.').'</p>'.
 				'<p><label for="post_formater">'.__('Post content formatter:').'</label> '.
 				form::combo('post_formater',$this->formaters,$this->vars['post_formater']).'</p>'.
 				'<p><label for="comment_formater">'.__('Comment content formatter:').'</label> '
-				.form::combo('comment_formater',$this->formaters,$this->vars['comment_formater']).'</label></p>'
+				.form::combo('comment_formater',$this->formaters,$this->vars['comment_formater']).'</p>'
 				);
 				break;
 			case 2:
@@ -264,10 +272,10 @@ class dcImportWP extends dcIeModule
 		
 		return
 		'<form action="'.$this->getURL(true).'" method="post">'.
-		'<h3>'.$legend.'</h3>'.
-		$this->core->formNonce().
+		'<h3 class="vertical-separator">'.$legend.'</h3>'.
+		'<div>'.$this->core->formNonce().
 		form::hidden(array('do'),'step'.$step).
-		'%s'.
+		'%s'.'</div>'.
 		'<p><input type="submit" value="'.$submit_value.'" /></p>'.
 		'<p class="form-note info">'.__('Depending on the size of your blog, it could take a few minutes.').'</p>'.
 		'</form>';

@@ -373,8 +373,7 @@ if ($is_writable)
 	'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
 	form::password(array('your_pwd','your_pwd2'),20,255).'</p>'.
 	'<p><input type="submit" name="fetch_pkg" value="'.__('Download plugin').'" />'.
-	$core->formNonce().
-	'</fieldset>'.
+	$core->formNonce().'</p>'.
 	'</form>';
 }
 else

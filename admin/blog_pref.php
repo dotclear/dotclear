@@ -110,10 +110,14 @@ if (!in_array($blog_settings->system->media_img_title_pattern,$img_title_combo))
 
 # Image default size combo
 $img_default_size_combo = array();
-$media = new dcMedia($core);
-$img_default_size_combo[__('original')] = 'o';
-foreach ($media->thumb_sizes as $code => $size) {
-	$img_default_size_combo[__($size[2])] = $code;
+try {
+	$media = new dcMedia($core);
+	$img_default_size_combo[__('original')] = 'o';
+	foreach ($media->thumb_sizes as $code => $size) {
+		$img_default_size_combo[__($size[2])] = $code;
+	}
+} catch (Exception $e) {
+	$core->error->add($e->getMessage());
 }
 
 # Image default alignment combo
@@ -169,7 +173,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 			$rs = $core->getBlog($cur->blog_id);
 			
 			if ($rs) {
-				throw new Exception(__('That blog Id is already in use.'));
+				throw new Exception(__('This blog ID is already used.'));
 			}
 		}
 		

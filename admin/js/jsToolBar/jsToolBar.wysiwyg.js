@@ -208,7 +208,7 @@ jsToolBar.prototype.initWindow = function() {
 		}
 		
 		This.setSwitcher();
-		setTimeout(function(){This.focusEditor();},1);
+		try { This.iwin.document.designMode = 'on'; } catch (e) {}; // Firefox needs this
 		
 		return true;
 	}

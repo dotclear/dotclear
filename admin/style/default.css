@@ -25,6 +25,7 @@ body {
 	margin: 0;
 	padding: 0;
 }
+
 a, a:link, a:visited {
 	color: #2373A8;
 	text-decoration: none;
@@ -77,7 +78,7 @@ h4 {
 }
 h5 {
 	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 	color: #575859;
 }
 #entry-sidebar h5 {
@@ -377,29 +378,37 @@ abbr {
 	font-size: 100%
 }
 #search-menu * {
-	height: 20px; /* ie < 9 sucks */
-	height: 2rem;
+	height: 22px; /* ie < 9 sucks */
+	height: 2.2rem;
+	display: inline-block;
+	vertical-align: top;
+	line-height: 22px;
 }
 #search-menu p {
-	display: inline-block;
 	border: 1px solid #999;
 	border-radius: .3em;
 	position: relative;
 	overflow: hidden;
 }
-#search-menu #qx {
-	width: 120px; /* ie < 9 sucks */
-	width: 12rem;
+#qx {
+	width: 124px; /* ie < 9 sucks */
+	width: 12.4rem;
 	border-bottom-left-radius: .3em;
 	border-top-left-radius: .3em;
 	background: transparent url(search.png) no-repeat 4px center;
 	text-indent: 18px;
-	padding: 0 2px;
+	padding: 0;
 	border: none;
+	height: 22px;
+	height: 2.2rem;
+}
+#qx:focus {
+	border: 2px solid #BBDB58;
 }
 #search-menu input[type="submit"] {
 	padding: 0 3px;
 	padding: 0 .3rem;
+	margin-left: -4px;
 	background: #dfdfdf;
 	border-color: #999;
 	color: #444;
@@ -510,7 +519,6 @@ abbr {
 }
 #icons a img {
 	padding: 2em;
-	margin-bottom: .3em;
 	-moz-box-shadow: 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow: 0px 1px 0px 0px #ffffff;
 	box-shadow: 0px 1px 0px 0px #ffffff;
@@ -524,7 +532,7 @@ abbr {
 	border:1px solid #dcdcdc;
 	display:inline-block;
 }
-#icons a img:hover, #icons a:focus img {
+#icons a:focus img, #icons a:hover img {
 	background: #BBDB58;
 }
 #icons a:focus span, #icons a:hover span {
@@ -621,9 +629,11 @@ abbr {
 	width: 17em;
 	float: right;
 }
-#entry-sidebar input[type="text"],
 #entry-sidebar select {
-	width: 14em; /* to prevent inline with label */
+	width: 100%;
+}
+#entry-sidebar input#post_position {
+	width: 4em;
 }
 .box {
 	border-bottom: 1px solid #ddd;
@@ -631,6 +641,9 @@ abbr {
 }
 #comments {
 	clear: both;
+}
+#trackback-form textarea {
+	width: 98%;
 }
 /* ------------------------------------------------------------------ categories */
 #categories {
@@ -977,6 +990,10 @@ li.media-action input {
 	height: 105px;
 	border: 1px solid #fff;
 }
+#themes a:focus div, #themes a:hover div,
+#themes a:focus div.current-theme, #themes a:hover div.current-theme {
+	background: #BBDB58;
+}
 /* ----------------------------------------------------------  Plugins list */
 #plugins td.action {
 	vertical-align: middle;
@@ -1170,6 +1187,9 @@ a.onblog_link {
 }
 .vertical-separator {
 	margin-top: 2em;
+}
+p.clear.vertical-separator {
+	padding-top: 2em;
 }
 .border-top {
 	border-top: 1px solid #999;
@@ -1408,9 +1428,12 @@ option {
 input, textarea, select {
 	background: #f9f9f9;
 	color: #000;
-	border-width: 1px;
+	border-width: 2px;
 	border-style: solid;
-	border-color: #666 #ccc #ccc #999;
+	border-color: #ccc #ddd #ddd #ccc; 
+}
+select {
+	border-right: none;
 }
 input.invalid, textarea.invalid, select.invalid {
 	border: 1px solid red;
@@ -1457,9 +1480,11 @@ span.form-note {
 }
 p.form-note.warn, p.form-note.info, p.warning {
 	font-style: normal;
-	padding: .2em 1em .3em 32px;
+	padding: .2em .66em .2em;
+	text-indent: 24px;
 	color: #333;
 	display: inline-block;
+	line-height: 1.5em;
 }
 p.form-note.warn, p.warning {
 	background: #ffd url(msg-warning.png) no-repeat .3em .3em;
@@ -1532,7 +1557,12 @@ a.form-control {
 	border: none;
 	background: transparent;
 }
-
+input:focus, textarea:focus, select:focus {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 2px solid #BBDB58;
+}
 /* --------------------------------------------------------------- buttons */
 /* commun */
 input[type=submit],
