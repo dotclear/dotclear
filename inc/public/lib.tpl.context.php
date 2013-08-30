@@ -415,64 +415,69 @@ class context
 	{
 		global $core, $_ctx;
 		
-		$media = new dcMedia($core);
-		$sizes = implode('|',array_keys($media->thumb_sizes)).'|o';
-		if (!preg_match('/^'.$sizes.'$/',$size)) {
-			$size = 's';
-		}
-		$p_url = $core->blog->settings->system->public_url;
-		$p_site = preg_replace('#^(.+?//.+?)/(.*)$#','$1',$core->blog->url);
-		$p_root = $core->blog->public_path;
-		
-		$pattern = '(?:'.preg_quote($p_site,'/').')?'.preg_quote($p_url,'/');
-		$pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png))"[^>]+/msui',$pattern);
-		
-		$src = '';
-		$alt = '';
-		
-		# We first look in post content
-		if (!$cat_only && $_ctx->posts)
-		{
-			$subject = ($content_only ? '' : $_ctx->posts->post_excerpt_xhtml).$_ctx->posts->post_content_xhtml;
-			if (preg_match_all($pattern,$subject,$m) > 0)
+		try {
+			$media = new dcMedia($core);
+			$sizes = implode('|',array_keys($media->thumb_sizes)).'|o';
+			if (!preg_match('/^'.$sizes.'$/',$size)) {
+				$size = 's';
+			}
+			$p_url = $core->blog->settings->system->public_url;
+			$p_site = preg_replace('#^(.+?//.+?)/(.*)$#','$1',$core->blog->url);
+			$p_root = $core->blog->public_path;
+			
+			$pattern = '(?:'.preg_quote($p_site,'/').')?'.preg_quote($p_url,'/');
+			$pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png))"[^>]+/msui',$pattern);
+			
+			$src = '';
+			$alt = '';
+			
+			# We first look in post content
+			if (!$cat_only && $_ctx->posts)
 			{
-				foreach ($m[1] as $i => $img) {
-					if (($src = self::ContentFirstImageLookup($p_root,$img,$size)) !== false) {
-						$dirname = str_replace('\\', '/', dirname($img)); 
-						$src = $p_url.($dirname != '/' ? $dirname : '').'/'.$src;
-						if (preg_match('/alt="([^"]+)"/',$m[0][$i],$malt)) {
-							$alt = $malt[1];
+				$subject = ($content_only ? '' : $_ctx->posts->post_excerpt_xhtml).$_ctx->posts->post_content_xhtml;
+				if (preg_match_all($pattern,$subject,$m) > 0)
+				{
+					foreach ($m[1] as $i => $img) {
+						if (($src = self::ContentFirstImageLookup($p_root,$img,$size)) !== false) {
+							$dirname = str_replace('\\', '/', dirname($img)); 
+							$src = $p_url.($dirname != '/' ? $dirname : '').'/'.$src;
+							if (preg_match('/alt="([^"]+)"/',$m[0][$i],$malt)) {
+								$alt = $malt[1];
+							}
+							break;
 						}
-						break;
 					}
 				}
 			}
-		}
-		
-		# No src, look in category description if available
-        if (!$src && $with_category && $_ctx->posts->cat_desc)
-        {
-			if (preg_match_all($pattern,$_ctx->posts->cat_desc,$m) > 0)
-			{
-				foreach ($m[1] as $i => $img) {
-					if (($src = self::ContentFirstImageLookup($p_root,$img,$size)) !== false) {
-						$dirname = str_replace('\\', '/', dirname($img)); 
-						$src = $p_url.($dirname != '/' ? $dirname : '').'/'.$src;
-						if (preg_match('/alt="([^"]+)"/',$m[0][$i],$malt)) {
-							$alt = $malt[1];
+			
+			# No src, look in category description if available
+	        if (!$src && $with_category && $_ctx->posts->cat_desc)
+	        {
+				if (preg_match_all($pattern,$_ctx->posts->cat_desc,$m) > 0)
+				{
+					foreach ($m[1] as $i => $img) {
+						if (($src = self::ContentFirstImageLookup($p_root,$img,$size)) !== false) {
+							$dirname = str_replace('\\', '/', dirname($img)); 
+							$src = $p_url.($dirname != '/' ? $dirname : '').'/'.$src;
+							if (preg_match('/alt="([^"]+)"/',$m[0][$i],$malt)) {
+								$alt = $malt[1];
+							}
+							break;
 						}
-						break;
 					}
-				}
-			};
-		}
-		
-		if ($src) {
-			if ($no_tag) {
-				return $src;
-			} else {
-				return '<img alt="'.$alt.'" src="'.$src.'" class="'.$class.'" />';
+				};
 			}
+			
+			if ($src) {
+				if ($no_tag) {
+					return $src;
+				} else {
+					return '<img alt="'.$alt.'" src="'.$src.'" class="'.$class.'" />';
+				}
+			}
+			
+		} catch (Exception $e) {
+			$core->error->add($e->getMessage());
 		}
 	}
 	
@@ -484,39 +489,43 @@ class context
 		$info = path::info($img);
 		$base = $info['base'];
 		
-		$media = new dcMedia($core);
-		$sizes = implode('|',array_keys($media->thumb_sizes));
-		if (preg_match('/^\.(.+)_('.$sizes.')$/',$base,$m)) {
-			$base = $m[1];
-		}
-		
-		$res = false;
-		if ($size != 'o' && file_exists($root.'/'.$info['dirname'].'/.'.$base.'_'.$size.'.jpg'))
-		{
-			$res = '.'.$base.'_'.$size.'.jpg';
-		}
-		else
-		{
-			$f = $root.'/'.$info['dirname'].'/'.$base;
-			if (file_exists($f.'.'.$info['extension'])) {
-				$res = $base.'.'.$info['extension'];
-			} elseif (file_exists($f.'.jpg')) {
-				$res = $base.'.jpg';
-			} elseif (file_exists($f.'.jpeg')) {
-				$res = $base.'.jpeg';
-			} elseif (file_exists($f.'.png')) {
-				$res = $base.'.png';
-			} elseif (file_exists($f.'.gif')) {
-				$res = $base.'.gif';
-			} elseif (file_exists($f.'.JPG')) {
-				$res = $base.'.JPG';
-			} elseif (file_exists($f.'.JPEG')) {
-				$res = $base.'.JPEG';
-			} elseif (file_exists($f.'.PNG')) {
-				$res = $base.'.PNG';
-			} elseif (file_exists($f.'.GIF')) {
-				$res = $base.'.GIF';
+		try {
+			$media = new dcMedia($core);
+			$sizes = implode('|',array_keys($media->thumb_sizes));
+			if (preg_match('/^\.(.+)_('.$sizes.')$/',$base,$m)) {
+				$base = $m[1];
 			}
+			
+			$res = false;
+			if ($size != 'o' && file_exists($root.'/'.$info['dirname'].'/.'.$base.'_'.$size.'.jpg'))
+			{
+				$res = '.'.$base.'_'.$size.'.jpg';
+			}
+			else
+			{
+				$f = $root.'/'.$info['dirname'].'/'.$base;
+				if (file_exists($f.'.'.$info['extension'])) {
+					$res = $base.'.'.$info['extension'];
+				} elseif (file_exists($f.'.jpg')) {
+					$res = $base.'.jpg';
+				} elseif (file_exists($f.'.jpeg')) {
+					$res = $base.'.jpeg';
+				} elseif (file_exists($f.'.png')) {
+					$res = $base.'.png';
+				} elseif (file_exists($f.'.gif')) {
+					$res = $base.'.gif';
+				} elseif (file_exists($f.'.JPG')) {
+					$res = $base.'.JPG';
+				} elseif (file_exists($f.'.JPEG')) {
+					$res = $base.'.JPEG';
+				} elseif (file_exists($f.'.PNG')) {
+					$res = $base.'.PNG';
+				} elseif (file_exists($f.'.GIF')) {
+					$res = $base.'.GIF';
+				}
+			}
+		} catch (Exception $e) {
+			$core->error->add($e->getMessage());
 		}
 		
 		if ($res) {

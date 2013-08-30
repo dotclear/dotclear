@@ -1980,3 +1980,6 @@ msgstr "Êtes-vous sûr de vouloir supprimer le mot-clé “%s” ?"
 
 msgid "Syntax color for theme editor"
 msgstr "Coloration syntaxique de l'éditeur de thème"
+
+msgid "Hide in widget Pages"
+msgstr "Ne pas lister dans le widget Pages"

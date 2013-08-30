@@ -192,7 +192,7 @@ msgstr "Noriu, kad paieškos sistemos ir archyvatoriai indeksuotų ir bet ne arc
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Nenoriu, kad paieškos sistemos ir archyvatoriai indeksuotų ir archyvuotų mano blogo turinio."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Šito blogo ID jau yra naudojamas."
 
 msgid "Invalid language code"
@@ -2204,7 +2204,7 @@ msgstr "Sistema"
 msgid "Blog"
 msgstr "Blogas"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Atnaujinimai"
 
 msgid "Languages"

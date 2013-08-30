@@ -157,3 +157,44 @@ input[type=submit]:focus {
 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#2373A8', endColorstr='#2C8FD1');
 	border: 1px solid #2C8FD1;
 }
+
+
+/* --------------------------------------------------------------- password indcator */
+.pw-table {
+	display: table;
+	margin-bottom: 1em;
+}
+.pw-cell {
+	display: table-cell;
+	margin-bottom: 1em;
+}
+#pwindicator {
+	display: table-cell;
+	vertical-align: bottom;
+	padding-left: 1.5em;
+	height: 3.8em;
+}
+#pwindicator .bar {
+	height: 6px;
+	margin-bottom: 4px;
+}
+.pw-very-weak .bar {
+	background: #900;
+	width: 30px;
+}
+.pw-weak .bar {
+	background: #c00;
+	width: 60px;
+}
+.pw-mediocre .bar {
+	background: #f60;
+	width: 90px;
+}
+.pw-strong .bar {
+	background: #060;
+	width: 120px;
+}
+.pw-very-strong .bar {
+	background: #0c0;
+	width: 150px;
+}
