@@ -15,7 +15,6 @@ $core->addBehavior('adminDashboardIcons','pages_dashboard');
 $core->addBehavior('adminDashboardFavs','pages_dashboard_favs');
 $core->addBehavior('adminDashboardFavsIcon','pages_dashboard_favs_icon');
 $core->addBehavior('adminUsersActionsHeaders','pages_users_actions_headers');
-$core->addBehavior('adminPostsActionsContent','pages_posts_actions_content');
 
 function pages_dashboard($core,$icons)
 {
@@ -40,41 +39,6 @@ function pages_dashboard_favs_icon($core,$name,$icon)
 		if ($page_count > 0) {
 			$str_pages = ($page_count > 1) ? __('%d pages') : __('%d page');
 			$icon[0] = sprintf($str_pages,$page_count);
-		}
-	}
-}
-
-function pages_posts_actions_content($core,$action,$hidden_fields,$form_uri="posts_actions.php")
-{
-	
-	if ($action == 'reorder' && !empty($_POST['order'])) {
-		try {
-			
-			foreach($_POST['order'] as $post_id => $value) {
-				
-				if (!$core->auth->check('publish,contentadmin',$core->blog->id))
-					throw new Exception(__('You are not allowed to change this entry status'));
-				
-				$strReq = "WHERE blog_id = '".$core->con->escape($core->blog->id)."' ".
-						"AND post_id ".$core->con->in($post_id);
-				
-				#If user can only publish, we need to check the post's owner
-				if (!$core->auth->check('contentadmin',$core->blog->id))
-					$strReq .= "AND user_id = '".$core->con->escape($core->auth->userID())."' ";
-				
-				$cur = $core->con->openCursor($core->prefix.'post');
-				
-				$cur->post_position = (integer) $value-1;
-				$cur->post_upddt = date('Y-m-d H:i:s');
-				
-				$cur->update($strReq);
-				$core->blog->triggerBlog();
-				
-			}
-
-			http::redirect($_POST['redir']);
-		} catch (Exception $e) {
-			$core->error->add($e->getMessage());
 		}
 	}
 }
