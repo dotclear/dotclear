@@ -441,7 +441,7 @@ if ($can_edit_page)
 							'<p class="form-note warn">'.
 							__('Warning: Comments are not more accepted for this entry.').'</p>') : 
 						'<p class="form-note warn">'.
-						__('Warning: Comments are not accepted on this blog.').'</p>'),
+						__('Comments are not accepted on this blog so far.').'</p>'),
 				'post_open_tb' =>
 					'<p><label for="post_open_tb" class="classic">'.
 					form::checkbox('post_open_tb',1,$post_open_tb).' '.
@@ -451,7 +451,7 @@ if ($can_edit_page)
 							'' :
 							'<p class="form-note warn">'.
 							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
-						'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>'),
+						'<p class="form-note warn">'.__('Trackbacks are not accepted on this blog so far.').'</p>'),
 				'post_hide' =>	
 					'<p><label for="post_selected" class="classic">'.form::checkbox('post_selected',1,$post_selected).' '.
 					__('Hide in widget Pages').'</label>'.
