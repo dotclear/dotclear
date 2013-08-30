@@ -1654,13 +1654,13 @@ msgid "Warning: Comments are not more accepted for this entry."
 msgstr "Attention : les commentaires ne sont plus acceptés pour ce billet."
 
 msgid "Warning: Comments are not accepted on this blog."
-msgstr "Attention : les commentaires ne sont pas acceptés sur ce blog."
+msgstr "Les commentaires sont fermés sur ce blog pour le moment."
 
 msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr "Attention : les rétroliens ne sont plus acceptés pour ce billet."
 
-msgid "Warning: Trackbacks are not accepted on this blog."
-msgstr "Attention : les rétroliens ne sont pas acceptés sur ce blog."
+msgid "Trackbacks are not accepted on this blog so far."
+msgstr "Les rétroliens sont fermés sur ce blog pour le moment."
 
 msgid "Selected entry"
 msgstr "Billet sélectionné"
