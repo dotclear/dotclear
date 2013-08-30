@@ -332,7 +332,7 @@ class adminCommentList extends adminGenericList
 		$res .=
 		'<td class="nowrap">'.
 		form::checkbox(array('comments[]'),$this->rs->comment_id,'','','',0).'</td>'.
-		'<td class="status class="txt-center">'.
+		'<td class="status txt-center">'.
 			'<a href="'.$comment_url.'">'.
 			'<img src="images/edit-mini.png" alt="" title="'.__('Edit').'" /> '.
 			'</a>'.'</td>'.

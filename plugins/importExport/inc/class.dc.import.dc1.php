@@ -159,7 +159,7 @@ class dcImportDC1 extends dcIeModule
 				form::password('db_pwd',30,255).'</p>'.
 				'<p><label for="db_prefix">'.__('Database Tables Prefix:').'</label> '.
 				form::field('db_prefix',30,255,html::escapeHTML($this->vars['db_prefix'])).'</p>'.
-				'<h3>'.__('Entries import options').'</h3>'.
+				'<h3 class="vertical-separator">'.__('Entries import options').'</h3>'.
 				'<p><label for="post_limit">'.__('Number of entries to import at once:').'</label> '.
 				form::field('post_limit',3,3,html::escapeHTML($this->vars['post_limit'])).'</p>'
 				);
@@ -189,7 +189,7 @@ class dcImportDC1 extends dcIeModule
 				break;
 			case 6:
 				echo 
-				'<h3>'.__('Please read carefully').'</h3>'.
+				'<h3 class="vertical-separator">'.__('Please read carefully').'</h3>'.
 				'<ul>'.
 				'<li>'.__('Every newly imported user has received a random password '.
 				'and will need to ask for a new one by following the "I forgot my password" link on the login page '.
@@ -215,11 +215,11 @@ class dcImportDC1 extends dcIeModule
 		
 		return
 		'<form action="'.$this->getURL(true).'" method="post">'.
-		'<h3>'.$legend.'</h3>'.
-		$this->core->formNonce().
+		'<h3 class="vertical-separator">'.$legend.'</h3>'.
+		'<div>'.$this->core->formNonce().
 		form::hidden(array('do'),'step'.$step).
-		'%s'.
-		'<p><input type="submit" value="'.$submit_value.'" /></p>'.
+		'%s'.'</div>'.
+		'<p class="vertical-separator"><input type="submit" value="'.$submit_value.'" /></p>'.
 		'<p class="form-note info">'.__('Depending on the size of your blog, it could take a few minutes.').'</p>'.
 		'</form>';
 	}
