@@ -211,7 +211,7 @@ msgstr "Permetti ai motori di ricerca e ai sistemi di archiviazione di indicizza
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Impedisci ai motori di ricerca e ai sistemi di archiviazione di indicizzare o salvare il contenuto del blog."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "L'ID del blog è già in uso."
 
 msgid "Invalid language code"
@@ -842,7 +842,7 @@ msgstr "Aggiorna ora"
 msgid "Remind me later"
 msgstr "Ricorda in seguito"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 msgid "Some plugins are installed twice:"
@@ -2397,7 +2397,7 @@ msgstr "Sistema"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Aggiornamenti"
 
 msgid "Languages"

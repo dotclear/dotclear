@@ -89,7 +89,7 @@ class dcPage
 		' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
 		'<html xmlns="http://www.w3.org/1999/xhtml" '.
 		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
-		'lang="'.$core->auth->getInfo('user_lang').'" class="no-js">'."\n".
+		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
 		"<head>\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
@@ -99,10 +99,10 @@ class dcPage
 
 
 		self::jsLoadIE7().
-		'  	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
+		'  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo
-			'  	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n";
+			'  <link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n";
 		}
 
 		$core->auth->user_prefs->addWorkspace('interface');
@@ -121,11 +121,14 @@ class dcPage
 		echo
 		"</head>\n".
 		'<body id="dotclear-admin'.
-		($safe_mode ? ' safe-mode' : '').
-		'">'."\n".
+		($safe_mode ? ' safe-mode' : '').'" class="no-js">'."\n".
 
 		'<div id="header">'.
-		'<ul id="prelude"><li><a href="#content">'.__('Go to the content').'</a></li><li><a href="#main-menu">'.__('Go to the menu').'</a></li></ul>'."\n".
+		'<ul id="prelude">'.
+		'<li><a href="#content">'.__('Go to the content').'</a></li>'.
+		'<li><a href="#main-menu">'.__('Go to the menu').'</a></li>'.
+		'<li><a href="#qx">'.__('Go to search').'</a></li>'.
+		'</ul>'."\n".
 		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
 
 		echo
@@ -182,7 +185,7 @@ class dcPage
 		'<div id="main-menu">'."\n".
 
 		'<form id="search-menu" action="search.php" method="get">'.
-		'<p><label for="q" class="hidden">'.__('Search:').' </label>'.form::field('q',30,255,'').
+		'<p><label for="qx" class="hidden">'.__('Search:').' </label>'.form::field('qx',30,255,'').
 		'<input type="submit" value="'.__('OK').'" /></p>'.
 		'</form>';
 
@@ -202,6 +205,14 @@ class dcPage
 		echo
 		'</div>'."\n".		// End of #main-menu
 		'<div id="footer"><a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
+		'<!-- '."\n".
+'                  .'."\n".
+'               ,;:\'`\'::'."\n".
+'            __||'."\n".
+'      _____/LLLL\_'."\n".
+'      \__________"|'."\n".
+'    ~^~^~^~^~^~^~^~^~^~'."\n".
+' -->'."\n".
 		"</div>\n";		// End of #wrapper
 
 		if (defined('DC_DEV') && DC_DEV === true) {
@@ -528,6 +539,8 @@ class dcPage
 			__('There are XHTML markup errors.')).
 		self::jsVar('dotclear.msg.confirm_change_post_format',
 			__('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?')).
+		self::jsVar('dotclear.msg.confirm_change_post_format_noconvert',
+			__("Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?")).
 		self::jsVar('dotclear.msg.load_enhanced_uploader',
 			__('Loading enhanced uploader, please wait.')).
 		"\n//]]>\n".

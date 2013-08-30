@@ -76,7 +76,7 @@ class defaultWidgets
 			return;
 		}
 
-		$rs = $core->blog->getCategories(array('post_type'=>'post'));
+		$rs = $core->blog->getCategories(array('post_type'=>'post','without_empty'=> !$w->with_empty));
 		if ($rs->isEmpty()) {
 			return;
 		}
