@@ -577,7 +577,7 @@ msgid "Entries"
 msgstr "Billets"
 
 msgid "Entries (all types)"
-msgstr "Billets & pages"
+msgstr "Billets &amp; pages"
 
 msgid "Status"
 msgstr "État"

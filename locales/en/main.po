@@ -546,7 +546,7 @@ msgid "Entries"
 msgstr ""
 
 msgid "Entries (all types)"
-msgstr "Entries & pages"
+msgstr "Entries &amp; pages"
 
 msgid "Status"
 msgstr ""
