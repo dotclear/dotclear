@@ -1791,14 +1791,14 @@ msgstr "Action sur les billets sélectionnés :"
 msgid "This user does not exist"
 msgstr "Cet utilisateur n'existe pas"
 
-msgid "Change category for entries"
-msgstr "Changer la catégorie des billets"
+msgid "Change category for this selection"
+msgstr "Changer la catégorie de cette sélection"
 
-msgid "Change language for entries"
-msgstr "Changer la langue des billets"
+msgid "Change language for this selection"
+msgstr "Changer la langue de cette sélection"
 
-msgid "Change author for entries"
-msgstr "Changer l'auteur des billets"
+msgid "Change author for this selection"
+msgstr "Changer l'auteur de cette sélection"
 
 msgid "Author ID:"
 msgstr "Identifiant de l'utilisateur :"

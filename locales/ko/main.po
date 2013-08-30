@@ -1764,10 +1764,10 @@ msgstr "선택된 글꼭지들에 대한 작업 :"
 msgid "This user does not exist"
 msgstr "이 사용자는 존재하지 않습니다."
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "글꼭지들의 분류 변경"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "글꼭지들의 글쓴이 변경"
 
 msgid "Author ID:"

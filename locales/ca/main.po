@@ -1808,10 +1808,10 @@ msgstr "Acció en les entrades seleccionades:"
 msgid "This user does not exist"
 msgstr "Aquest usuari no existeix"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Canviar la categoria per les entrades"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Canviar l'autor per les entrades"
 
 msgid "Author ID:"

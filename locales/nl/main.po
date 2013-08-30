@@ -1714,10 +1714,10 @@ msgstr ""
 msgid "This user does not exist"
 msgstr ""
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr ""
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr ""
 
 msgid "Author ID:"

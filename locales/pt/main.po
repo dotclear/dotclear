@@ -1747,10 +1747,10 @@ msgstr "Acção sobre as entradas seleccionadas:"
 msgid "This user does not exist"
 msgstr "Este utilizador não existe"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Alterar a categoria das entradas"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Alterar o autor das entradas"
 
 msgid "Author ID:"
