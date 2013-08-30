@@ -481,7 +481,7 @@ if ($can_edit_post)
 							'<p class="form-note warn">'.
 							__('Warning: Comments are not more accepted for this entry.').'</p>') : 
 						'<p class="form-note warn">'.
-						__('Warning: Comments are not accepted on this blog.').'</p>'),
+						__('Comments are not accepted on this blog so far.').'</p>'),
 				'post_open_tb' =>
 					'<p><label for="post_open_tb" class="classic">'.
 					form::checkbox('post_open_tb',1,$post_open_tb).' '.
@@ -491,7 +491,7 @@ if ($can_edit_post)
 							'' :
 							'<p class="form-note warn">'.
 							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
-						'<p class="form-note warn">'.__('Warning: Trackbacks are not accepted on this blog.').'</p>'),
+						'<p class="form-note warn">'.__('Trackbacks are not accepted on this blog so far.').'</p>'),
 				'post_password' =>
 					'<p><label for="post_password" class="ib">'.__('Password').'</label>'.
 					form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
