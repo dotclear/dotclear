@@ -553,7 +553,7 @@ msgstr "Kategorijos sėkmingai pertvarkytos."
 msgid "The category has been successfully moved."
 msgstr "Kategorija sėkmingai perkelta."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Kategorijos kolkas nėra."
 
 msgid "Categories list"

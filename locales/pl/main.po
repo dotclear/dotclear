@@ -581,7 +581,7 @@ msgstr "Kolejność kategorii została zapisana."
 msgid "The category has been successfully moved."
 msgstr "Kategoria została przeniesiona."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Brak kategorii."
 
 msgid "Categories list"

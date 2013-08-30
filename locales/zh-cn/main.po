@@ -585,7 +585,7 @@ msgstr "成功重新排序分类目录。"
 msgid "The category has been successfully moved."
 msgstr "成功移动分类目录。"
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "还没有分类目录。"
 
 msgid "Categories list"

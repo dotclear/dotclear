@@ -585,7 +585,7 @@ msgstr "ক্যাটাগরিটি সফলভাবে পুনর্�
 msgid "The category has been successfully moved."
 msgstr "ক্যাটাগরিটি সফলভাবে সরানো হয়েছে।"
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "কোনো ক্যাটাগরি নেই।"
 
 msgid "Categories list"

@@ -600,7 +600,7 @@ msgid "The category has been successfully moved."
 msgstr "La categoria s'ha creat amb èxit."
 
 #, fuzzy
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Cap categoria."
 
 #, fuzzy

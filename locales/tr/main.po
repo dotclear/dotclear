@@ -587,7 +587,7 @@ msgstr "Kategori sıralanımı başarılı."
 msgid "The category has been successfully moved."
 msgstr "Kategori silinimi başarılı."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Henüz kategori yok"
 
 msgid "Categories list"

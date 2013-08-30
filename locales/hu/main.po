@@ -597,7 +597,7 @@ msgid "The category has been successfully moved."
 msgstr "A kategória adatai frissítve."
 
 #, fuzzy
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Kategória létrehozása"
 
 #, fuzzy

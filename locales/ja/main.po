@@ -592,7 +592,7 @@ msgstr "カテゴリは正常に並び替えられました。"
 msgid "The category has been successfully moved."
 msgstr "カテゴリは正常に移動されました。"
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "カテゴリはまだありません。"
 
 msgid "Categories list"
