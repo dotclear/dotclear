@@ -584,7 +584,7 @@ msgstr "Pořadí kategorií bylo úspěšně aktualizováno."
 msgid "The category has been successfully moved."
 msgstr "Kategorie byla úspěšně přesunuta."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Zatím žádná kategorie."
 
 msgid "Categories list"
@@ -1740,10 +1740,10 @@ msgstr "Vybrané články:"
 msgid "This user does not exist"
 msgstr "Tento uživatel neexistuje"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Změnit kategorii pro články"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Změnit autora pro články"
 
 msgid "Author ID:"

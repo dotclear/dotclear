@@ -591,7 +591,7 @@ msgid "The category has been successfully moved."
 msgstr "Catégorie mise à jour avec succès."
 
 #, fuzzy
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Pas de catégorie."
 
 #, fuzzy
@@ -1771,10 +1771,10 @@ msgstr "Action sur les billets sélectionnés :"
 msgid "This user does not exist"
 msgstr "Cet utilisateur n'existe pas"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Changer de catégorie pour les billets"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Changer l'auteur des billets"
 
 msgid "Author ID:"

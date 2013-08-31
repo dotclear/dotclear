@@ -587,7 +587,7 @@ msgstr "Категории были успешно записаны."
 msgid "The category has been successfully moved."
 msgstr "Категория была успешно перенесена."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Нет категории."
 
 msgid "Categories list"
@@ -1741,10 +1741,10 @@ msgstr "Действия над выбранными записями:"
 msgid "This user does not exist"
 msgstr "Этот пользователь не существует"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Изменить категорию для записей"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Изменить автора записей"
 
 msgid "Author ID:"
