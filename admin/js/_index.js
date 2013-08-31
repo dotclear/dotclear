@@ -65,14 +65,15 @@ $(function() {
 				$('fieldset',f).prepend(msg);
 			});
 		}
-		$('#new_cat').toggleWithLegend(
-			$('#new_cat').parent().children().not('#new_cat'),
-			{} // no cookie on new category as we don't use this every day
-		);
+		$('#new_cat').toggleWithLegend($('#new_cat').parent().children().not('#new_cat'), {
+			// no cookie on new category as we don't use this every day
+			legend_click: true
+		});
 	}
 
 	// allow to hide quick entry div, and remember choice
 	$('#quick h3').toggleWithLegend($('#quick').children().not('h3'),{
+		legend_click: true,
 		cookie: 'dcx_quick_entry'
 	});
 });

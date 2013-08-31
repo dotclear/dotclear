@@ -1247,7 +1247,7 @@ msgstr ""
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
 
-msgid "Currently no menu items"
+msgid "No menu items so far."
 msgstr ""
 
 msgid "Tags:"

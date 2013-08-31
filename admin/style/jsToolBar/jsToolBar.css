@@ -23,7 +23,7 @@
 	border-style: solid;
 }
 .jstEditor textarea:focus, .jstEditor iframe:focus {
-	border: 2px solid #BBDB58;
+	border: 2px solid #bee74b;
 }
 .jstElements {
 	height: 28px;

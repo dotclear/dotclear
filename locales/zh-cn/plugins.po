@@ -1261,7 +1261,7 @@ msgstr "删除选定的链接"
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "您确定您要删除选定的链接吗？"
 
-msgid "Currently no menu items"
+msgid "No menu items so far."
 msgstr ""
 
 msgid "Tags:"
