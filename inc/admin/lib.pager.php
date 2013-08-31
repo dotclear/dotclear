@@ -374,7 +374,7 @@ class adminUserList extends adminGenericList
 			'<th scope="col">'.__('First Name').'</th>'.
 			'<th scope="col">'.__('Last Name').'</th>'.
 			'<th scope="col">'.__('Display name').'</th>'.
-			'<th scope="col" class="nowrap">'.__('Entries').'</th>'.
+			'<th scope="col" class="nowrap">'.__('Entries (all types)').'</th>'.
 			'</tr>%s</table>';
 			
 			if ($enclose_block) {
