@@ -79,38 +79,58 @@ class dcTrackback
 			throw new Exception(sprintf(__('%s has still been pinged'),$url));
 		}
 		
-		$data = array(
-			'title' => $post_title,
-			'excerpt' => $post_excerpt,
-			'url' => $post_url,
-			'blog_name' => trim(html::escapeHTML(html::clean($this->core->blog->name)))
-			//,'__debug' => false
-		);
+		$ping_parts = explode('|',$url);
 		
-		# Ping
-		try
-		{
-			$http = self::initHttp($url,$path);
-			$http->post($path,$data,'UTF-8');
-			$res = $http->getContent();
+		# Let's walk by the trackback way
+		if (count($ping_parts) < 2) {
+			$data = array(
+				'title' => $post_title,
+				'excerpt' => $post_excerpt,
+				'url' => $post_url,
+				'blog_name' => trim(html::escapeHTML(html::clean($this->core->blog->name)))
+				//,'__debug' => false
+			);
+			
+			# Ping
+			try
+			{
+				$http = self::initHttp($url,$path);
+				$http->post($path,$data,'UTF-8');
+				$res = $http->getContent();
+			}
+			catch (Exception $e)
+			{
+				throw new Exception(__('Unable to ping URL'));
+			}
+			
+			$pattern =
+			'|<response>.*<error>(.*)</error>(.*)'.
+			'(<message>(.*)</message>(.*))?'.
+			'</response>|msU';
+			
+			if (!preg_match($pattern,$res,$match))
+			{
+				throw new Exception(sprintf(__('%s is not a ping URL'),$url));
+			}
+			
+			$ping_error = trim($match[1]);
+			$ping_msg = (!empty($match[4])) ? $match[4] : '';
 		}
-		catch (Exception $e)
-		{
-			throw new Exception(__('Unable to ping URL'));
+		# Damnit ! Let's play pingback
+		else {
+			try {
+				$xmlrpc = new xmlrpcClient($ping_parts[0]);
+				$res = $xmlrpc->query('pingback.ping', $post_url, $ping_parts[1]);
+				$ping_error = '0';
+			}
+			catch (xmlrpcException $e) {
+				$ping_error = $e->getCode();
+				$ping_msg = $e->getMessage();	
+			}
+			catch (Exception $e) {
+				throw new Exception(__('Unable to ping URL'));
+			}
 		}
-		
-		$pattern =
-		'|<response>.*<error>(.*)</error>(.*)'.
-		'(<message>(.*)</message>(.*))?'.
-		'</response>|msU';
-		
-		if (!preg_match($pattern,$res,$match))
-		{
-			throw new Exception(sprintf(__('%s is not a ping URL'),$url));
-		}
-		
-		$ping_error = trim($match[1]);
-		$ping_msg = (!empty($match[4])) ? $match[4] : '';
 		
 		if ($ping_error != '0') {
 			throw new Exception(sprintf(__('%s, ping error:'),$url).' '.$ping_msg);
@@ -345,7 +365,7 @@ class dcTrackback
 		{
 			for ($i = 0; $i<count($match); $i++)
 			{
-				if (preg_match('/href="(http:\/\/[^"]+)"/ms', $match[$i][1], $matches)) {
+				if (preg_match('/href="(https?:\/\/[^"]+)"/ms', $match[$i][1], $matches)) {
 					$res[$matches[1]] = 1;
 				}
 			}
@@ -357,7 +377,7 @@ class dcTrackback
 		{
 			for ($i = 0; $i<count($match); $i++)
 			{
-				if (preg_match('/cite="(http:\/\/[^"]+)"/ms', $match[$i][2], $matches)) {
+				if (preg_match('/cite="(https?:\/\/[^"]+)"/ms', $match[$i][2], $matches)) {
 					$res[$matches[1]] = 1;
 				}
 			}
@@ -373,12 +393,19 @@ class dcTrackback
 			$http = self::initHttp($url,$path);
 			$http->get($path);
 			$page_content = $http->getContent();
+			$pb_url = $http->getHeader('x-pingback');
 		}
 		catch (Exception $e)
 		{
 			return false;
 		}
 		
+		# If we've got a X-Pingback header and it's a valid URL, it will be enough
+		if ($pb_url && filter_var($pb_url,FILTER_VALIDATE_URL) && preg_match('!^https?:!',$pb_url)) {
+			return $pb_url.'|'.$url;
+		}
+		
+		# No X-Pingback header ? OK, let's check for a trackback data chunk...
 		$pattern_rdf =
 		'/<rdf:RDF.*?>.*?'.
 		'<rdf:Description\s+(.*?)\/>'.
@@ -387,14 +414,27 @@ class dcTrackback
 		
 		preg_match_all($pattern_rdf,$page_content,$rdf_all,PREG_SET_ORDER);
 		
+		$url_path = parse_url($url, PHP_URL_PATH);
+		$sanitized_url = str_replace($url_path, html::sanitizeURL($url_path), $url);
+		
 		for ($i=0; $i<count($rdf_all); $i++)
 		{
 			$rdf = $rdf_all[$i][1];
-			
-			if (preg_match('/dc:identifier="'.preg_quote($url,'/').'"/msi',$rdf)) {
+			if (preg_match('/dc:identifier="'.preg_quote($url,'/').'"/msi',$rdf) ||
+				preg_match('/dc:identifier="'.preg_quote($sanitized_url,'/').'"/msi',$rdf)) {
 				if (preg_match('/trackback:ping="(.*?)"/msi',$rdf,$tb_link)) {
 					return $tb_link[1];
 				}
+			}
+		}
+		
+		# Last call before the point of no return : a link rel=pingback, maybe ?
+		$pattern_pingback = '!<link rel="pingback" href="(.*?)"( /)?>!msi';
+		
+		if (preg_match($pattern_pingback,$page_content,$m)) {
+			$pb_url = $m[1];
+			if (filter_var($pb_url,FILTER_VALIDATE_URL) && preg_match('!^https?:!',$pb_url)) {
+				return $pb_url.'|'.$url;
 			}
 		}
 		
