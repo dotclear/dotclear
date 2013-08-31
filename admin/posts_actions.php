@@ -406,7 +406,7 @@ if ($action == 'category')
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Entries') => 'posts.php',
-			'<span class="page-title">'.__('Change category for entries').'</span>' => ''
+			'<span class="page-title">'.__('Change category for this selection').'</span>' => ''
 	));
 	
 	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
@@ -457,7 +457,7 @@ elseif ($action == 'lang')
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Entries') => 'posts.php',
-			'<span class="page-title">'.__('Change language for entries').'</span>' => ''
+			'<span class="page-title">'.__('Change language for this selection').'</span>' => ''
 	));
 	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
 
@@ -498,7 +498,7 @@ elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Entries') => 'posts.php',
-			'<span class="page-title">'.__('Change author for entries').'</span>' => ''
+			'<span class="page-title">'.__('Change author for this selection').'</span>' => ''
 	));
 	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
 

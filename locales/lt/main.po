@@ -1680,10 +1680,10 @@ msgstr "Pasirinktų įrašų veiksmas:"
 msgid "This user does not exist"
 msgstr "Šis dalyvis neegzistuoja"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Keisti įrašų kategoriją"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Keisti įrašų autorių"
 
 msgid "Author ID:"
