@@ -1762,10 +1762,10 @@ msgstr "ఎంచుకున్న వాటిపై చర్య:"
 msgid "This user does not exist"
 msgstr "ఈ వాడుకరి లేనే లేరు"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr ""
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "టపాలకి రచయితని మార్చండి"
 
 msgid "Author ID:"

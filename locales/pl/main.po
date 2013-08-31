@@ -1728,10 +1728,10 @@ msgstr "Akcja dla wybranych wpisów:"
 msgid "This user does not exist"
 msgstr "Ten użytkownik nie istnieje"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Zmień kategorię dla wpisów"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Zmień autora dla wpisów"
 
 msgid "Author ID:"
