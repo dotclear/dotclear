@@ -600,7 +600,7 @@ msgid "The category has been successfully moved."
 msgstr "La categoria s'ha creat amb èxit."
 
 #, fuzzy
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Cap categoria."
 
 #, fuzzy
@@ -1808,10 +1808,10 @@ msgstr "Acció en les entrades seleccionades:"
 msgid "This user does not exist"
 msgstr "Aquest usuari no existeix"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Canviar la categoria per les entrades"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Canviar l'autor per les entrades"
 
 msgid "Author ID:"

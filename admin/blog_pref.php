@@ -590,7 +590,7 @@ if ($blog_id)
 					$k, $v['name'], $v['firstname'], $v['displayname']
 				)).')</h4>';
 				
-				echo '<ul>';
+				echo '<ul class="nice">';
 				if ($v['super']) {
 					echo '<li>'.__('Super administrator').'</li>';
 				} else {

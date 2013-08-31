@@ -525,7 +525,7 @@ if (count($menu)) {
 	}
 } else {
 	echo
-		'<p>'.__('Currently no menu items').'</p>';
+		'<p>'.__('No menu items so far.').'</p>';
 }
 
 dcPage::helpBlock('simpleMenu');
