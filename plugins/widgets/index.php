@@ -164,8 +164,11 @@ elseif (!empty($_POST['wreset']))
   <style type="text/css">
   <?php echo file_get_contents(dirname(__FILE__).'/style.css'); ?>
   </style>
-	<script type="text/javascript" src="js/jquery/jquery-ui.custom.js"></script>
-  <script type="text/javascript" src="index.php?pf=widgets/widgets.js"></script>
+  <?php
+		echo
+			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+			dcPage::jsLoad('index.php?pf=widgets/widgets.js');
+  ?>
   <?php 
 	$core->auth->user_prefs->addWorkspace('accessibility'); 
 	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
@@ -219,23 +222,20 @@ echo '<form id="sidebarsWidgets" action="'.$p_url.'" method="post">';
 # Nav sidebar
 echo
 '<div id="sidebarNav" class="widgets fieldset">'.
-sidebarWidgets('dndnav',__('Navigation sidebar'),$widgets_nav,'nav',$__default_widgets['nav'],$j).
-'</div>'.
-'<ul class="sortable-delete"><li class="sortable-delete-placeholder">'.__('Drag here to delete').'</li></ul>';
+sidebarWidgets('dndnav',__('Navigation sidebar'),$widgets_nav,'nav',$__default_widgets['nav'],$j);
+echo '</div>';
 
 # Extra sidebar
 echo
 '<div id="sidebarExtra" class="widgets fieldset">'.
-sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra'],$j).
-'</div>'.
-'<ul class="sortable-delete"><li class="sortable-delete-placeholder">'.__('Drag here to delete').'</li></ul>';
+sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra'],$j);
+echo '</div>';
 
 # Custom sidebar
 echo
 '<div id="sidebarCustom" class="widgets fieldset">'.
-sidebarWidgets('dndcustom',__('Custom sidebar'),$widgets_custom,'custom',$__default_widgets['custom'],$j).
-'</div>'.
-'<ul class="sortable-delete"><li class="sortable-delete-placeholder">'.__('Drag here to delete').'</li></ul>';
+sidebarWidgets('dndcustom',__('Custom sidebar'),$widgets_custom,'custom',$__default_widgets['custom'],$j);
+echo '</div>';
 
 echo
 '<p id="sidebarsControl">'.
@@ -321,11 +321,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$widgets = $default_widgets;
 	}
 	
-	if ($widgets->isEmpty()) {
-		$res .= '<p class="empty-widgets">'.__('No widget.').'</p>';
-	} else {
-		$res .= '<p class="empty-widgets" style="display: none;">'.__('No widget.').'</p>';
-	}
+	$res .= '<p class="empty-widgets" '.(!$widgets->isEmpty() ? 'style="display: none;"' : '').'>'.__('No widget.').'</p>';
 	
 	$res .= '<ul id="'.$id.'" class="connected">';
 	
@@ -349,6 +345,11 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 	}
 	
 	$res .= '</ul>';
+
+	if ($i > 0) {
+		$res .= '<ul class="sortable-delete"><li class="sortable-delete-placeholder">'.
+			__('Drag widgets here to remove them from this sidebar.').'</li></ul>';
+	}
 	
 	return $res;
 }

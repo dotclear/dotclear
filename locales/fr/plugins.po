@@ -1983,3 +1983,6 @@ msgstr "Coloration syntaxique de l'éditeur de thème"
 
 msgid "Hide in widget Pages"
 msgstr "Ne pas lister dans le widget Pages"
+
+msgid "Drag widgets here to remove them from this sidebar."
+msgstr "Glisser les widgets ici pour les retirer du volet."
