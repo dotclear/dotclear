@@ -592,7 +592,7 @@ msgstr "カテゴリは正常に並び替えられました。"
 msgid "The category has been successfully moved."
 msgstr "カテゴリは正常に移動されました。"
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "カテゴリはまだありません。"
 
 msgid "Categories list"
@@ -1764,10 +1764,10 @@ msgstr "選択されたエントリに実行："
 msgid "This user does not exist"
 msgstr "このユーザは存在しません"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "エントリのカテゴリを変更"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "エントリの投稿者を変更"
 
 msgid "Author ID:"

@@ -1452,8 +1452,8 @@ msgstr "Supprimer les items de menu sélectionnés"
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Êtes-vous sûr de vouloir supprimer les items de menu sélectionnés ?"
 
-msgid "Currently no menu items"
-msgstr "Aucun item de menu pour l'instant"
+msgid "No menu items so far."
+msgstr "Aucun item de menu pour l'instant."
 
 msgid "Tags:"
 msgstr "Mots-clés :"

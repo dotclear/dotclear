@@ -597,7 +597,7 @@ msgid "The category has been successfully moved."
 msgstr "A kategória adatai frissítve."
 
 #, fuzzy
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Kategória létrehozása"
 
 #, fuzzy
@@ -1789,10 +1789,10 @@ msgstr "Teendő a kijelöltekkel:"
 msgid "This user does not exist"
 msgstr ""
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "A bejegyzések kategóriája nem létezik"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "A szerző megváltoztatása"
 
 msgid "Author ID:"
