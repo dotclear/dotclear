@@ -89,6 +89,13 @@ $(function() {
 				// Restore last format if change cancelled
 				$(this).val(last_post_format);
 			}
+			
+			$('.format_control > *').addClass('hide');
+			if( $(this).val() == 'xhtml' ) {
+				$('.control_xhtml > *').removeClass('hide');
+			} else if ( $(this).val() == 'wiki' ) {
+				$('.control_wiki > *').removeClass('hide');
+			}
 		});
 
 		var excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
@@ -116,6 +123,73 @@ $(function() {
 		$('input[name="delete"]').click(function() {
 			return window.confirm(dotclear.msg.confirm_delete_post);
 		});
+
+		// Markup validator
+		var v = $('<div class="format_control control_xhtml"><p><a id="a-validator"></a></p><div/>').get(0);
+		$('.control_wiki').before(v);
+		var a = $('#a-validator').get(0);
+		a.href = '#';
+		a.className = 'button ';
+		$(a).click(function() {
+			var params = {
+				xd_check: dotclear.nonce,
+				f: 'validatePostMarkup',
+				excerpt: $('#post_excerpt').text(),
+				content: $('#post_content').text(),
+				format: $('#post_format').get(0).value,
+				lang: $('#post_lang').get(0).value
+			};
+
+			$.post('services.php',params,function(data) {
+				if ($(data).find('rsp').attr('status') != 'ok') {
+					alert($(data).find('rsp message').text());
+					return false;
+				}
+
+				if ($(data).find('valid').text() == 1) {
+					var p = document.createElement('p');
+					p.id = 'markup-validator';
+
+					if ($('#markup-validator').length > 0) {
+						$('#markup-validator').remove();
+					}
+
+					$(p).addClass('message');
+					$(p).text(dotclear.msg.xhtml_valid);
+					$(v).append(p);
+					$(p).backgroundFade({sColor:'#666666',eColor:'#ffcc00',steps:50},function() {
+							$(this).backgroundFade({sColor:'#ffcc00',eColor:'#666666'});
+					});
+				} else {
+					var div = document.createElement('div');
+					div.id = 'markup-validator';
+
+					if ($('#markup-validator').length > 0) {
+						$('#markup-validator').remove();
+					}
+
+					$(div).addClass('error');
+					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
+					$(v).append(div);
+					$(div).backgroundFade({sColor:'#ffffff',eColor:'#FFBABA',steps:50},function() {
+							$(this).backgroundFade({sColor:'#ffbaba',eColor:'#ffffff'});
+					});
+				}
+
+				return false;
+			});
+
+			return false;
+		});
+
+		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
+		
+		$('.format_control > *').addClass('hide');
+		if ( last_post_format == 'xhtml' ) {
+			$('.control_xhtml > *').removeClass('hide');
+		} else if ( last_post_format == 'wiki' ) {
+			$('.control_wiki > *').removeClass('hide');
+		}
 
 		// Hide some fields
 		$('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'),{
@@ -178,67 +252,6 @@ $(function() {
 			}
 			return false;
 		});
-
-		// Markup validator
-		var h = document.createElement('h4');
-		var a = document.createElement('a');
-		a.href = '#';
-		a.className = 'button';
-		$(a).click(function() {
-			var params = {
-				xd_check: dotclear.nonce,
-				f: 'validatePostMarkup',
-				excerpt: $('#post_excerpt').text(),
-				content: $('#post_content').text(),
-				format: $('#post_format').get(0).value,
-				lang: $('#post_lang').get(0).value
-			};
-
-			$.post('services.php',params,function(data) {
-				if ($(data).find('rsp').attr('status') != 'ok') {
-					alert($(data).find('rsp message').text());
-					return false;
-				}
-
-				if ($(data).find('valid').text() == 1) {
-					var p = document.createElement('p');
-					p.id = 'markup-validator';
-
-					if ($('#markup-validator').length > 0) {
-						$('#markup-validator').remove();
-					}
-
-					$(p).addClass('message');
-					$(p).text(dotclear.msg.xhtml_valid);
-					$(p).insertAfter(h);
-					$(p).backgroundFade({sColor:'#666666',eColor:'#ffcc00',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ffcc00',eColor:'#666666'});
-					});
-				} else {
-					var div = document.createElement('div');
-					div.id = 'markup-validator';
-
-					if ($('#markup-validator').length > 0) {
-						$('#markup-validator').remove();
-					}
-
-					$(div).addClass('error');
-					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
-					$(div).insertAfter(h);
-					$(div).backgroundFade({sColor:'#ffffff',eColor:'#FFBABA',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ffbaba',eColor:'#ffffff'});
-					});
-				}
-
-				return false;
-			});
-
-			return false;
-		});
-
-		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
-		h.appendChild(a);
-		$(h).appendTo('#entry-content');
 
 		// Check unsaved changes before XHTML conversion
 		var excerpt = $('#post_excerpt').val();
