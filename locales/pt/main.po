@@ -588,7 +588,7 @@ msgstr "As categorias foram reordenadas com sucesso."
 msgid "The category has been successfully moved."
 msgstr "A categoria foi movida com sucesso."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Nenhuma categoria ainda."
 
 msgid "Categories list"
@@ -1747,10 +1747,10 @@ msgstr "Acção sobre as entradas seleccionadas:"
 msgid "This user does not exist"
 msgstr "Este utilizador não existe"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Alterar a categoria das entradas"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Alterar o autor das entradas"
 
 msgid "Author ID:"

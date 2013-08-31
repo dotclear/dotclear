@@ -587,7 +587,7 @@ msgstr "Kategori sıralanımı başarılı."
 msgid "The category has been successfully moved."
 msgstr "Kategori silinimi başarılı."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Henüz kategori yok"
 
 msgid "Categories list"
@@ -1745,10 +1745,10 @@ msgstr "Seçilmiş yazılara yap:"
 msgid "This user does not exist"
 msgstr "Bu kullanıcı mevcut değil"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Yazıların kategorisini değiştir"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Yazıların yazarını değiştir"
 
 msgid "Author ID:"

@@ -159,6 +159,7 @@ $(function() {
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
 			cookie: 'dcx_post_excerpt',
+			legend_click: true,
 			hide: $('#post_excerpt').val() == ''
 		});
 

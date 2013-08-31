@@ -132,7 +132,7 @@ echo
 '<div class="col">';
 if ($rs->isEmpty())
 {
-	echo '<p>'.__('No category yet.').'</p>';
+	echo '<p>'.__('No category so far.').'</p>';
 }
 else
 {

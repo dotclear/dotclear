@@ -586,7 +586,7 @@ msgstr "Kategorierne er sorteret."
 msgid "The category has been successfully moved."
 msgstr "Kategorien er flyttet."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Ingen kategori endnu."
 
 msgid "Categories list"
@@ -1751,10 +1751,10 @@ msgstr ""
 msgid "This user does not exist"
 msgstr ""
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr ""
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr ""
 
 msgid "Author ID:"
