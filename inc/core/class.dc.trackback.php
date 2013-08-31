@@ -365,7 +365,7 @@ class dcTrackback
 		{
 			for ($i = 0; $i<count($match); $i++)
 			{
-				if (preg_match('/href="(https?:\/\/[^"]+)"/ms', $match[$i][1], $matches)) {
+				if (preg_match('/href="((https?:\/)?\/[^"]+)"/ms', $match[$i][1], $matches)) {
 					$res[$matches[1]] = 1;
 				}
 			}
@@ -377,7 +377,7 @@ class dcTrackback
 		{
 			for ($i = 0; $i<count($match); $i++)
 			{
-				if (preg_match('/cite="(https?:\/\/[^"]+)"/ms', $match[$i][2], $matches)) {
+				if (preg_match('/cite="((https?:\/)?\/[^"]+)"/ms', $match[$i][2], $matches)) {
 					$res[$matches[1]] = 1;
 				}
 			}
@@ -388,6 +388,10 @@ class dcTrackback
 	
 	private function getPingURL($url)
 	{
+		if (strpos($url,'/') === 0) {
+			$url = http::getHost().$url;
+		}
+		
 		try
 		{
 			$http = self::initHttp($url,$path);
