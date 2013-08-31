@@ -135,11 +135,11 @@ class adminPostList extends adminGenericList
 		form::checkbox(array('entries[]'),$this->rs->post_id,$checked,'','',!$this->rs->isEditable()).'</td>'.
 		'<td class="maximal" scope="row"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
-		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
+		'<td class="nowrap count">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
 		'<td class="nowrap">'.$cat_title.'</td>'.
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_id).'</td>'.
-		'<td class="nowrap">'.$this->rs->nb_comment.'</td>'.
-		'<td class="nowrap">'.$this->rs->nb_trackback.'</td>'.
+		'<td class="nowrap count">'.$this->rs->nb_comment.'</td>'.
+		'<td class="nowrap count">'.$this->rs->nb_trackback.'</td>'.
 		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
 		'</tr>';
 		
@@ -233,7 +233,7 @@ class adminPostMiniList extends adminGenericList
 		'<td scope="row" class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'" '.
 		'title="'.html::escapeHTML($this->rs->getURL()).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
-		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
+		'<td class="nowrap count">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_id).'</td>'.
 		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
 		'</tr>';
@@ -259,7 +259,8 @@ class adminCommentList extends adminGenericList
 			
 			$html_block =
 			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
-			'<th colspan="3" scope="col" abbr="comm" class="first">'.__('Type and author').'</th>'.
+			'<th colspan="2" scope="col" abbr="comm" class="first">'.__('Type').'</th>'.
+			'<th scope="col">'.__('Author').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col" class="txt-center">'.__('Status').'</th>'.
 			'<th scope="col" abbr="entry">'.__('Entry title').'</th>'.
@@ -325,6 +326,9 @@ class adminCommentList extends adminGenericList
 		if (mb_strlen($post_title) > 60) {
 			$post_title = mb_strcut($post_title,0,57).'...';
 		}
+		$comment_title = sprintf(__('Edit the %1$s from %2$s'),
+			$this->rs->comment_trackback ? __('trackback') : __('comment'),
+			html::escapeHTML($this->rs->comment_author));
 		
 		$res = '<tr class="line'.($this->rs->comment_status != 1 ? ' offline' : '').'"'.
 		' id="c'.$this->rs->comment_id.'">';
@@ -332,13 +336,12 @@ class adminCommentList extends adminGenericList
 		$res .=
 		'<td class="nowrap">'.
 		form::checkbox(array('comments[]'),$this->rs->comment_id,'','','',0).'</td>'.
-		'<td class="status txt-center">'.
-			'<a href="'.$comment_url.'">'.
-			'<img src="images/edit-mini.png" alt="" title="'.__('Edit').'" /> '.
-			'</a>'.'</td>'.
-		'<td class="maximal" scope="row">'.($this->rs->comment_trackback ? __('trackback from') : __('comment from')).' '.
-			'<a href="'.$author_url.'">'.html::escapeHTML($this->rs->comment_author).'</a></td>'.
-		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->comment_dt).'</td>'.
+		'<td class="nowrap" abbr="'.__('Type and author').'" scope="raw">'.
+			'<a href="'.$comment_url.'" title="'.$comment_title.'">'.
+			'<img src="images/edit-mini.png" alt="'.__('Edit').'"/> '.
+			($this->rs->comment_trackback ? __('trackback') : __('comment')).' '.'</a></td>'.
+		'<td class="nowrap maximal"><a href="'.$author_url.'">'.html::escapeHTML($this->rs->comment_author).'</a></td>'.
+		'<td class="nowrap count">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->comment_dt).'</td>'.
 		'<td class="nowrap status txt-center">'.$img_status.'</td>'.
 		'<td class="nowrap"><a href="'.$post_url.'">'.
 		html::escapeHTML($post_title).'</a>'.
@@ -417,7 +420,7 @@ class adminUserList extends adminGenericList
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_firstname).'</td>'.
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_name).'</td>'.
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_displayname).'</td>'.
-		'<td class="nowrap"><a href="posts.php?user_id='.$this->rs->user_id.'">'.
+		'<td class="nowrap count"><a href="posts.php?user_id='.$this->rs->user_id.'">'.
 		$this->rs->nb_post.'</a></td>'.
 		'</tr>';
 	}

@@ -1067,16 +1067,16 @@ msgstr ""
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr ""
 
-msgid "Page position:"
+msgid "Page position"
 msgstr ""
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr ""
 
-msgid "Page password:"
+msgid "Page password"
 msgstr ""
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
