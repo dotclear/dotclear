@@ -34,6 +34,9 @@ a, a:link, a:visited {
 a:hover, a:active, a:focus {
 	text-decoration: underline;
 }
+a.hide, a.button.hide, a.submit.hide {
+	display: none;
+}
 a img, a:link img, a:visited img {
 	border:none;
 }
