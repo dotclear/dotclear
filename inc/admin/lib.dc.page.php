@@ -791,18 +791,6 @@ public static function jsUpload($params=array(),$base_url=null)
 	self::jsLoad('js/jsUpload/jquery.fileupload-ui.js');
 }
 
-public static function jsToolMan()
-{
-	return
-	'<script type="text/javascript" src="js/tool-man/core.js"></script>'.
-	'<script type="text/javascript" src="js/tool-man/events.js"></script>'.
-	'<script type="text/javascript" src="js/tool-man/css.js"></script>'.
-	'<script type="text/javascript" src="js/tool-man/coordinates.js"></script>'.
-	'<script type="text/javascript" src="js/tool-man/drag.js"></script>'.
-	'<script type="text/javascript" src="js/tool-man/dragsort.js"></script>'.
-	'<script type="text/javascript" src="js/dragsort-tablerows.js"></script>';
-}
-
 public static function jsMetaEditor()
 {
 	return
