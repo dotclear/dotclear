@@ -585,7 +585,7 @@ msgstr "成功重新排序分类目录。"
 msgid "The category has been successfully moved."
 msgstr "成功移动分类目录。"
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "还没有分类目录。"
 
 msgid "Categories list"
@@ -1744,10 +1744,10 @@ msgstr "已选择的文章的动作："
 msgid "This user does not exist"
 msgstr "用户不存在"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "改变文章的分类目录"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "改变文章的作者"
 
 msgid "Author ID:"

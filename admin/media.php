@@ -306,7 +306,7 @@ $items = array_values(array_merge($dir['dirs'],$dir['files']));
 echo '<div class="media-list">';
 if (count($items) == 0)
 {
-	echo '<p><strong>'.__('No file.').'</strong></p>';
+	echo '<p>'.__('No file.').'</p>';
 }
 else
 {

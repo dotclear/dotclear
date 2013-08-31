@@ -602,7 +602,7 @@ msgid "The category has been successfully moved."
 msgstr "Categoria atualizada com sucesso."
 
 #, fuzzy
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Nenhum categoria."
 
 #, fuzzy
@@ -1823,10 +1823,10 @@ msgstr "Ação sobre os posts selecionados:"
 msgid "This user does not exist"
 msgstr "Este usuário não existe"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Mudar a categoria para os posts"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Mudar o autor para os posts"
 
 msgid "Author ID:"

@@ -403,7 +403,7 @@ abbr {
 	height: 2.2rem;
 }
 #qx:focus {
-	border: 2px solid #BBDB58;
+	border: 2px solid #bee74b;
 }
 #search-menu input[type="submit"] {
 	padding: 0 3px;
@@ -533,7 +533,7 @@ abbr {
 	display:inline-block;
 }
 #icons a:focus img, #icons a:hover img {
-	background: #BBDB58;
+	background: #bee74b;
 }
 #icons a:focus span, #icons a:hover span {
 	text-decoration: underline;
@@ -992,7 +992,7 @@ li.media-action input {
 }
 #themes a:focus div, #themes a:hover div,
 #themes a:focus div.current-theme, #themes a:hover div.current-theme {
-	background: #BBDB58;
+	background: #bee74b;
 }
 /* ----------------------------------------------------------  Plugins list */
 #plugins td.action {
@@ -1433,7 +1433,7 @@ input, textarea, select {
 	border-color: #ccc #ddd #ddd #ccc; 
 }
 select {
-	border-right: none;
+	border-right: 2px solid #fff;
 }
 input.invalid, textarea.invalid, select.invalid {
 	border: 1px solid red;
@@ -1561,7 +1561,7 @@ input:focus, textarea:focus, select:focus {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	border: 2px solid #BBDB58;
+	border: 2px solid #bee74b;
 }
 /* --------------------------------------------------------------- buttons */
 /* commun */
@@ -1658,10 +1658,10 @@ input[type=button] {
 	margin-left: 2em;
 }
 .button.add {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #BBDB58), color-stop(1, #9AC123) );
-	background:-moz-linear-gradient( center top, #BBDB58 5%, #9AC123 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#BBDB58', endColorstr='#9AC123');
-	background-color:#BBDB58;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bee74b), color-stop(1, #9BCA1C) );
+	background:-moz-linear-gradient( center top, #bee74b 5%, #9BCA1C 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bee74b', endColorstr='#9BCA1C');
+	background-color:#bee74b;
 	border:1px solid #B2D742;
 	padding:.5em 1.5em;
 	color: #000;
@@ -1671,10 +1671,10 @@ input[type=button] {
 	font-size: 1.4rem;
 }
 .button.add:hover, .button.add:active, .button.add:focus {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9AC123), color-stop(1, #BBDB58) );
-	background:-moz-linear-gradient( center top, #9AC123 5%, #BBDB58 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9AC123', endColorstr='#BBDB58');
-	background-color:#9AC123;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9BCA1C), color-stop(1, #bee74b) );
+	background:-moz-linear-gradient( center top, #9BCA1C 5%, #bee74b 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9BCA1C', endColorstr='#bee74b');
+	background-color:#9BCA1C;
 }
 .button-add:focus {
 	outline: dotted 1px;
