@@ -147,17 +147,27 @@ try {
 $combo_action = array();
 if ($core->auth->check('publish,contentadmin',$core->blog->id))
 {
-	$combo_action[__('Publish')] = 'publish';
-	$combo_action[__('Unpublish')] = 'unpublish';
-	$combo_action[__('Schedule')] = 'schedule';
-	$combo_action[__('Mark as pending')] = 'pending';
+	$combo_action[__('Status')] = array(
+		__('Publish') => 'publish',
+		__('Unpublish') => 'unpublish',
+		__('Schedule') => 'schedule',
+		__('Mark as pending') => 'pending'
+	);
 }
-if ($core->auth->check('admin',$core->blog->id)) {
-	$combo_action[__('Change author')] = 'author';
+	$combo_action[__('Change')] = array(
+		__('Change language') => 'lang'
+	);
+if ($core->auth->check('admin',$core->blog->id))
+{
+	$combo_action[__('Change')] = array_merge($combo_action[__('Change')], array(
+		__('Change author') => 'author')
+	);
 }
 if ($core->auth->check('delete,contentadmin',$core->blog->id))
 {
-	$combo_action[__('Delete')] = 'delete';
+	$combo_action[__('Delete')] = array(
+		__('Delete') => 'delete'
+	);
 }
 
 # --BEHAVIOR-- adminPagesActionsCombo

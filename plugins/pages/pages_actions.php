@@ -272,6 +272,22 @@ elseif ($action == 'author' && isset($_POST['new_auth_id']) && $core->auth->chec
 		$core->error->add($e->getMessage());
 	}
 }
+elseif ($action == 'lang' && isset($_POST['new_lang']))
+{
+	$new_lang = $_POST['new_lang'];
+	try
+	{
+		$cur = $core->con->openCursor($core->prefix.'post');
+		$cur->post_lang = $new_lang;
+		$cur->update('WHERE post_id '.$core->con->in($posts_ids));
+		
+		http::redirect($redir_sel."&upd=1");
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessages());
+	}
+}
 elseif ( $action == 'reorder' && isset($_POST['order']))
 {
 	try {
@@ -380,7 +396,48 @@ if (isset($_POST['post_type'])) {
 # --BEHAVIOR-- adminPagesActionsContent
 $core->callBehavior('adminPagesActionsContent',$core,$action,$fields);
 
-if ($action == 'author' && $core->auth->check('admin',$core->blog->id))
+if ($action == 'lang')
+{
+	echo dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			__('Entries') => 'posts.php',
+			'<span class="page-title">'.__('Change language for entries').'</span>' => ''
+	));
+	echo '<p><a class="back" href="'.html::escapeURL($redir_sel).'">'.__('Back to entries list').'</a></p>';
+
+	# lang list
+	# Languages combo
+	$rs = $core->blog->getLangs(array('order'=>'asc'));
+	$all_langs = l10n::getISOcodes(0,1);
+	$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
+	while ($rs->fetch()) {
+		if (isset($all_langs[$rs->post_lang])) {
+			$lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
+			unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
+		} else {
+			$lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
+		}
+	}
+	unset($all_langs);
+	unset($rs);
+	
+	echo
+	'<form action="posts_actions.php" method="post">'.
+	$fields->getEntries().
+	
+	'<p><label for="new_lang" class="classic">'.__('Entry lang:').'</label> '.
+	form::combo('new_lang',$lang_combo,'');
+	
+	echo
+	$fields->getHidden().
+	$core->formNonce().
+	form::hidden(array('action'),'lang').
+	'<input type="submit" value="'.__('Save').'" /></p>'.
+	'</form>';
+
+}
+elseif ($action == 'author' && $core->auth->check('admin',$core->blog->id))
 {
 	echo dcPage::breadcrumb(
 		array(
