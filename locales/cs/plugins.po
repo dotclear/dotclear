@@ -1064,16 +1064,16 @@ msgstr "Stránka byla úspěšně vytvořena."
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "Stav stránky:"
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "Pozice stránky:"
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "Jazyk stránky:"
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "Heslo stránky:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."

@@ -1070,16 +1070,16 @@ msgstr "成功创建页面。"
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "页面状态："
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "页面位置："
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "页面语言："
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "页面密码："
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."

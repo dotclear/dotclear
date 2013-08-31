@@ -1071,16 +1071,16 @@ msgstr "ページは正常に作成されました。"
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "ページの状態："
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "ページの位置："
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "ページの言語："
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "ページのパスワード："
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."

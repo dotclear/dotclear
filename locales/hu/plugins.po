@@ -1076,16 +1076,16 @@ msgstr "Az oldalt sikeresen létrehoztam."
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "Oldal állapota:"
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "Oldal pozíciója:"
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "Oldal nyelve:"
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "Oldal jelszava:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
