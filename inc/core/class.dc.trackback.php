@@ -409,7 +409,17 @@ class dcTrackback
 			return $pb_url.'|'.$url;
 		}
 		
-		# No X-Pingback header ? OK, let's check for a trackback data chunk...
+		# No X-Pingback header. A link rel=pingback, maybe ?
+		$pattern_pingback = '!<link rel="pingback" href="(.*?)"( /)?>!msi';
+		
+		if (preg_match($pattern_pingback,$page_content,$m)) {
+			$pb_url = $m[1];
+			if (filter_var($pb_url,FILTER_VALIDATE_URL) && preg_match('!^https?:!',$pb_url)) {
+				return $pb_url.'|'.$url;
+			}
+		}
+
+		# No pingback ? OK, let's check for a trackback data chunk...
 		$pattern_rdf =
 		'/<rdf:RDF.*?>.*?'.
 		'<rdf:Description\s+(.*?)\/>'.
@@ -429,16 +439,6 @@ class dcTrackback
 				if (preg_match('/trackback:ping="(.*?)"/msi',$rdf,$tb_link)) {
 					return $tb_link[1];
 				}
-			}
-		}
-		
-		# Last call before the point of no return : a link rel=pingback, maybe ?
-		$pattern_pingback = '!<link rel="pingback" href="(.*?)"( /)?>!msi';
-		
-		if (preg_match($pattern_pingback,$page_content,$m)) {
-			$pb_url = $m[1];
-			if (filter_var($pb_url,FILTER_VALIDATE_URL) && preg_match('!^https?:!',$pb_url)) {
-				return $pb_url.'|'.$url;
 			}
 		}
 		
