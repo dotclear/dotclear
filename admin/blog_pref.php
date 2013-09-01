@@ -585,12 +585,13 @@ if ($blog_id)
 			if (count($v['p']) > 0)
 			{
 				echo
+				'<div class="user-perm">'.
 				'<h4>'.sprintf($user_url_p,html::escapeHTML($k)).
 				' ('.html::escapeHTML(dcUtils::getUserCN(
 					$k, $v['name'], $v['firstname'], $v['displayname']
-				)).')</h4>';
-				
-				echo '<ul class="nice">';
+				)).')</h4>'.
+				'<h5>'.__('Permissions:').'</h5>'.
+				'<ul>';
 				if ($v['super']) {
 					echo '<li>'.__('Super administrator').'</li>';
 				} else {
@@ -598,12 +599,13 @@ if ($blog_id)
 						echo '<li>'.__($perm_types[$p]).'</li>';
 					}
 				}
-				echo '</ul>';
+				echo 
+				'</ul>';
 				
 				if (!$v['super'] && $core->auth->isSuperAdmin()) {
 					echo 
 					'<form action="users_actions.php" method="post">'.
-					'<p><input type="submit" value="'.__('Change permissions').'" />'.
+					'<p class="change-user-perm"><input type="submit" class="reset" value="'.__('Change permissions').'" />'.
 					form::hidden(array('redir'),'blog_pref.php?id='.$k).
 					form::hidden(array('action'),'perms').
 					form::hidden(array('users[]'),$k).
@@ -612,6 +614,13 @@ if ($blog_id)
 					'</p>'.
 					'</form>';
 				}
+				echo
+				'<h5>'.__('Publications on this blog:').'</h5>'.
+				'<ul>'.
+				'<li>'.__('Blog entries:').' <a href="#">123</a></li>'.
+				'<li>'.__('Pages:').' <a href="#">2</a></li>'.
+				'</ul>';
+				echo '</div>';
 			}
 		}
 	}
