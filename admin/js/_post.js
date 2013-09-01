@@ -131,11 +131,15 @@ $(function() {
 		a.href = '#';
 		a.className = 'button ';
 		$(a).click(function() {
+			
+			excerpt_content = $('#post_excerpt').css('display') != 'none' ? $('#post_excerpt').val() : $('#excerpt-area iframe').contents().find('body').html();
+			post_content    = $('#post_content').css('display') != 'none' ? $('#post_content').val() : $('#content-area iframe').contents().find('body').html();
+			
 			var params = {
 				xd_check: dotclear.nonce,
 				f: 'validatePostMarkup',
-				excerpt: $('#post_excerpt').text(),
-				content: $('#post_content').text(),
+				excerpt: excerpt_content,
+				content: post_content,
 				format: $('#post_format').get(0).value,
 				lang: $('#post_lang').get(0).value
 			};
@@ -156,7 +160,7 @@ $(function() {
 
 					$(p).addClass('message');
 					$(p).text(dotclear.msg.xhtml_valid);
-					$(v).append(p);
+					$('#entry-content h3').after(p);
 					$(p).backgroundFade({sColor:'#666666',eColor:'#ffcc00',steps:50},function() {
 							$(this).backgroundFade({sColor:'#ffcc00',eColor:'#666666'});
 					});
@@ -170,7 +174,7 @@ $(function() {
 
 					$(div).addClass('error');
 					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
-					$(v).append(div);
+					$('#entry-content h3').after(div);
 					$(div).backgroundFade({sColor:'#ffffff',eColor:'#FFBABA',steps:50},function() {
 							$(this).backgroundFade({sColor:'#ffbaba',eColor:'#ffffff'});
 					});

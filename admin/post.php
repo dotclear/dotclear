@@ -520,7 +520,7 @@ if ($can_edit_post)
 			'</p>',
 		
 		"post_content" =>
-			'<p class="area"><label class="required" '.
+			'<p class="area" id="content-area"><label class="required" '.
 			'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
 			form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
 			'</p>',
