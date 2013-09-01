@@ -1072,16 +1072,16 @@ msgstr "A página foi criada com sucesso."
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "Estatutos da página:"
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "Posição da página:"
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "Língua da página:"
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "Senha da página:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."

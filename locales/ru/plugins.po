@@ -1063,16 +1063,16 @@ msgstr "Страница успешно создана."
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "Статус страницы:"
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "Позиция страницы:"
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "Язык страницы:"
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "Пароль страницы:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."

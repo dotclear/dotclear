@@ -1078,16 +1078,16 @@ msgstr "페이지가 성공적으로 생성되었습니다."
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "페이지 공개상태 :"
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "페이지 위치 :"
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "페이지 언어 :"
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "페이지 비밀번호 :"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."

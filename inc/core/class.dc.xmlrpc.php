@@ -213,6 +213,11 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		$this->addCallback('wp.getCommentStatusList',array($this,'wp_getCommentStatusList'),
 			array('array','integer','string','string'),
 			'Retrieve all of the comment statuses.');
+			
+		# Pingback support
+		$this->addCallback('pingback.ping',array($this,'pingback_ping'),
+			array('string', 'string', 'string'),
+			'Notify a link to a post.');
 	}
 	
 	public function serve($data=false,$encoding='UTF-8')
@@ -269,7 +274,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		return true;
 	}
 	
-	private function setBlog()
+	private function setBlog($bypass = false)
 	{
 		if (!$this->blog_id) {
 			throw new Exception('No blog ID given.');
@@ -287,8 +292,9 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 			throw new Exception('Blog does not exist.');
 		}
 		
-		if (!$this->core->blog->settings->system->enable_xmlrpc ||
-		!$this->core->auth->check('usage,contentadmin',$this->core->blog->id)) {
+		if (!$bypass &&
+			(!$this->core->blog->settings->system->enable_xmlrpc ||
+			!$this->core->auth->check('usage,contentadmin',$this->core->blog->id))) {
 			$this->core->blog = null;
 			throw new Exception('Not enough permissions on this blog.');
 		}
@@ -1627,6 +1633,20 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 			'approve' => 'Approved',
 			'spam' => 'Spam'
 		);
+	}
+
+	/* Pingback support
+	--------------------------------------------------- */
+	public function pingback_ping($from_url, $to_url)
+	{
+		# Come on, buddy! Don't make me waste time with this kind of silliness...
+		if (!(filter_var($from_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!',$from_url))) {
+			throw new Exception(__('No valid source URL provided? Try again!'), 0);
+		}
+		
+		$this->setBlog(true);
+		$tb = new dcTrackback($this->core);
+		return $tb->receive_pb($from_url, $to_url);
 	}
 }
 ?>

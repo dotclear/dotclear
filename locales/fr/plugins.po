@@ -1254,17 +1254,17 @@ msgstr "La page a été créée avec succès."
 msgid "Go to this page on the site"
 msgstr "Voir cette page sur le site"
 
-msgid "Page status:"
-msgstr "État de la page :"
+msgid "Page status"
+msgstr "État de la page"
 
-msgid "Page position:"
-msgstr "Position de la page :"
+msgid "Page position"
+msgstr "Position de la page"
 
-msgid "Page lang:"
-msgstr "Langue de la page :"
+msgid "Page lang"
+msgstr "Langue de la page"
 
-msgid "Page password:"
-msgstr "Mot de passe de la page :"
+msgid "Page password"
+msgstr "Mot de passe de la page"
 
 msgid ""
 "Warning: If you set the URL manually, it may conflict with another page."
@@ -1983,3 +1983,6 @@ msgstr "Coloration syntaxique de l'éditeur de thème"
 
 msgid "Hide in widget Pages"
 msgstr "Ne pas lister dans le widget Pages"
+
+msgid "Drag widgets here to remove them from this sidebar."
+msgstr "Glisser les widgets ici pour les retirer du volet."
