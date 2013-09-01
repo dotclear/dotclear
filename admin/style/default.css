@@ -574,7 +574,11 @@ abbr {
 	display: table-cell;
 	padding: 1em 3em;
 	vertical-align: top;
-	border: 1px solid #ccc;
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+}
+.db-item h3 {
+	font-weight: normal;
 }
 #dashboard-items img {
 	vertical-align: middle;
@@ -748,7 +752,7 @@ select#del_cat {
 .media-list {
 	position: static;
 }
-.media-col-0 {
+/*.media-col-0 {
 	clear: left;
 }
 .media-item {
@@ -775,7 +779,7 @@ a.media-icon {
 	list-style: none;
 	margin: 0 0 0 60px;
 	padding: 0;
-}
+}*/
 li.media-action {
 	display: block;
 	position: absolute;
@@ -791,6 +795,32 @@ li.media-action form {
 }
 li.media-action input {
 	border: none;
+}
+.media-item {
+	position: relative;
+	border: 1px solid #ccc;
+	margin: 1em;
+	padding: 1em;
+	width: 300px;
+	height: 120px;
+	display: inline-block;
+	vertical-align: top;
+}
+div.media-list .media-item {
+}
+a.media-icon {
+	display: block;
+	border-bottom: none;
+	margin: 0 auto; 
+}
+.media-icon img {
+	display: block;
+}
+.media-item ul {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 /* ------------------------------------------------------------------ preferences */
 #my-favs {
@@ -1302,7 +1332,7 @@ td {
 	border-width: 0 0 1px 0;
 	border-style: solid;
 	border-color: #e3e3e3;
-	padding: .3em .5em;
+	padding: .3em 1em .3em .5em;
 	vertical-align: top;
 }
 th {
@@ -1310,7 +1340,7 @@ th {
 	border-style: solid;
 	border-color: #ccc;
 	background: #f3f3ff;
-	padding: .3em .5em;
+	padding: .3em 1em .3em .5em;
 	vertical-align: top;
 	text-align: left;
 }
@@ -1335,6 +1365,10 @@ table .minimal {
 table .nowrap {
 	white-space: nowrap;
 	vertical-align: top;
+}
+table .count {
+	text-align: right;
+	padding-right: 1.5em;
 }
 table.settings, table.prefs {
 	width: 80%;

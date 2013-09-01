@@ -1,51 +1,78 @@
-#listWidgets {
-	float: left;
-	width: 46%;
-	background: #eee;
-	padding: 1.5em 1% 0; 
-	margin: 0 1% 0 0;
-}
-#widgets > div {
-	border: 1px solid #ccc;
-	margin-bottom: .5em;
-	background: #fff;
-	min-height: 3em;
-	padding: 0 0 4px 0;
-}
-#widgets .widget-name, #widgets .js-remove {
-	background: #fff;
-	margin-bottom: 0;
-	padding: 4px 8px; 
-}
-#widgets .widget-name {
-	min-height: 3em;
-	padding-bottom: 0;
-}
-#listWidgets h3 {
-	color: #333;
-}
+/*
+# -- BEGIN LICENSE BLOCK ---------------------------------------
+#
+# This file is part of Dotclear 2.
+#
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Licensed under the GPL version 2.0 license.
+# See LICENSE file or
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+# -- END LICENSE BLOCK -----------------------------------------
+*/
 
+
+/* ------------------------------------------------------------- side bars */
 #sidebarsWidgets {
 	float: left;
 	width: 47%;
 	margin: 0 0 0 1%;
 	padding: 0 1%;
 }
-#sidebarsControl {
-	clear: left;
-}
 .widgets.fieldset {
 	margin-bottom: 2em;
 }
-#widgets, #dndnav, #dndextra, #dndcustom {
-	padding: 1em 0;
+.widgets.fieldset.if-drag {
+	padding-bottom: 0;
+	border-radius: .5em;
 }
-#dndnav > div, #dndextra > div, #dndcustom > div {
-	padding: O;
+#dndnav, #dndextra, #dndcustom {
+	padding: 1em 0;
+	margin: 1em 0 0;
+}
+#dndnav > li,
+#dndextra > li,
+#dndcustom > li {
+	padding: 0;
 	border: 1px solid #999;
 	margin-bottom: 1em;
+	list-style: none;
 }
-
+#dndnav > li.ui-sortable-placeholder,
+#dndextra > li.ui-sortable-placeholder,
+#dndcustom > li.ui-sortable-placeholder,
+.sortable-delete > li.ui-sortable-placeholder {
+	border: 1px dashed #999;
+	height: 2em;
+	padding: .3em;
+}
+.sortable-delete > li.ui-sortable-placeholder {
+	border-width: 2px;
+	border-color: red;
+}
+.sortable-delete {
+	display: none;
+}
+.sortable-delete.if-drag {
+    border: 1px dotted #999;
+    color: #000;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0 0 1em;
+    padding: .5em 1em;
+    display: block;
+    background: #fafafa;
+}
+.sortable-delete > li {
+	margin-bottom: 3px;
+}
+.sortable-delete > li.sortable-delete-placeholder {
+    border: 0 none;
+    color: #aaa;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+}
 .widget-name {
 	background: #eef;
 	color: #000;
@@ -53,40 +80,79 @@
 	margin: 0;
 	font-weight: bold;
 }
-.widget-name span {
-	display: block;
-	font-style: normal;
-	font-size: 1.1rem;
-}
 .widget-name img {
 	cursor: pointer;
 	margin-bottom: -1px;
 }
-.widget-name a.aexpand, .widget-name a.aexpand:link, .widget-name a.aexpand:visited {
+.widget-name a.aexpand,
+.widget-name a.aexpand:link,
+.widget-name a.aexpand:visited {
     border: 0 none;
-    color: #000000;
+    color: #000;
     text-decoration: none;
+}
+#dndnav .form-note,
+#dndextra .form-note,
+#dndcustom .form-note {
+	display: none;
 }
 .removeWidget {
 	padding: 8px 6px;
 	margin: 0;
 }
-
 .widgetSettings {
 	border-top: 1px solid #ddd;
 	padding: 8px 6px;
 	background: #f5f5f5;
 }
-#widgets .widgetSettings {
-	display: none;
+
+#sidebarsControl {
+	clear: left;
 }
-.hideControls .widgetSettings {
-	display: none;
+
+/* ------------------------------------------------------------- list Widgets ref */
+#listWidgets {
+	float: left;
+	width: 46%;
+	background: #eee;
+	padding: 1.5em 1% 0; 
+	margin: 0 1% 0 0;
 }
-.hideControl {
+#listWidgets h3 {
+	color: #333;
+}
+
+#widgets-ref {
+	padding: 1em 0;
+	margin: 1em 0 0;
+}
+#widgets-ref > li {
+	border: 1px solid #ccc;
+	margin-bottom: .5em;
+	background: #fff;
+	min-height: 3em;
+	padding: 0 0 4px 0;
+	list-style: none;
+}
+#widgets-ref .widget-name,
+#widgets-ref .manual-move {
+	background: #fff;
+	margin-bottom: 0;
+	padding: 4px 8px 0;
+}
+#widgets-ref .widget-name {
+	min-height: 3em;
+}
+#widgets-ref .widget-name .form-note {
+	display: block;
+	font-style: normal;
+	font-size: 1.1rem;
+}
+#widgets-ref .widgetSettings {
 	display: none;
 }
 
+/* ------------------------------------------------------------- help */
 #widgets-tpl dt {
 	margin: 1em 0 0 0;
 }

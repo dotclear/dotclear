@@ -421,7 +421,7 @@ if ($core->auth->check('media_admin',$core->blog->id) &&
 	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent)))
 {
 	echo
-	'<p class="zip-dl"><a href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
+	'<p class="zip-dl"><a class="submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
 	__('Download this directory as a zip file').'</a></p>';
 }
 
