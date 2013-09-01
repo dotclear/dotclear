@@ -3285,5 +3285,29 @@ msgstr "Modifier les paramètres du blog"
 msgid "Edit the %1$s from %2$s"
 msgstr "Modifier le %1$s de %2$s"
 
-msgid "Backup"
-msgstr "Sauvegarde"
+msgid "Backup content"
+msgstr "Sauvegarder le contenu"
+
+msgid "Create new directory"
+msgstr "Créer un répertoire"
+
+msgid "In %s:"
+msgstr "Dans %s :"
+
+msgid "Download"
+msgstr "Télécharger"
+
+msgid "Compress this directory with its content as a zip file and download it."
+msgstr "Compressez ce dossier et son contenu dans un fichier zip et téléchargez-le."
+
+msgid "Permissions:"
+msgstr "Permissions :"
+
+msgid "Publications on this blog:"
+msgstr "Publications sur ce blog :"
+
+msgid "Blog entries:"
+msgstr "Billets :"
+
+msgid "Pages:"
+msgstr "Pages :"
