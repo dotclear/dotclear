@@ -1060,16 +1060,16 @@ msgstr "Strona została pomyślnie utworzona."
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "Stan strony:"
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "Pozycja strony:"
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "Język strony:"
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "Hasło strony"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."

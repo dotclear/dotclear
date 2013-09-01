@@ -170,7 +170,7 @@ msgstr "Attention"
 
 #, php-format
 msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
-msgstr "Vous êtes sur le point de supprimer le blog %s. Tous ses billets, commentaires et catégories seront supprimés."
+msgstr "Vous êtes sur le point de supprimer le blog %s. Tous ses billets, pages, commentaires et catégories seront supprimés."
 
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Veuillez indiquer votre mot de passe pour confirmer la suppression du blog."
@@ -337,7 +337,7 @@ msgid "Time format:"
 msgstr "Format des heures :"
 
 msgid "Display smilies on entries and comments"
-msgstr "Afficher des émoticônes dans les billets et commentaires"
+msgstr "Afficher des émoticônes dans les billets, pages et commentaires"
 
 #, php-format
 msgid "Display %s entries per page"
@@ -577,7 +577,7 @@ msgid "Entries"
 msgstr "Billets"
 
 msgid "Entries (all types)"
-msgstr "Billets &amp; pages"
+msgstr "Entrées"
 
 msgid "Status"
 msgstr "État"
@@ -780,7 +780,7 @@ msgid "Date"
 msgstr "Date"
 
 msgid "Entry title"
-msgstr "Titre du billet"
+msgstr "Titre de l'entrée"
 
 msgid "Author"
 msgstr "Auteur"
@@ -1395,13 +1395,13 @@ msgid "File URL:"
 msgstr "URL du fichier :"
 
 msgid "Show entries containing this media"
-msgstr "Afficher les billets contenant ce média"
+msgstr "Afficher les entrées contenant ce média"
 
 msgid "Entries containing this media"
-msgstr "Billets contenant ce média"
+msgstr "Entrées contenant ce média"
 
 msgid "No entry seems contain this media."
-msgstr "Aucun billet ne semble contenir ce média."
+msgstr "Aucune entrée ne semble contenir ce média."
 
 msgid "Image details"
 msgstr "Détails de l'image"
@@ -2126,7 +2126,7 @@ msgid "Display name"
 msgstr "Pseudonyme"
 
 msgid "Number of entries"
-msgstr "Nombre de billets"
+msgstr "Nombre d'entrées"
 
 msgid "Set permissions"
 msgstr "Définir les permissions"
@@ -2251,7 +2251,7 @@ msgid "Are you sure you want to delete this comment?"
 msgstr "Êtes-vous certain de vouloir supprimer ce commentaire ?"
 
 msgid "Users with posts cannot be deleted."
-msgstr "Les utilisateurs ayant écrit des billets ne peuvent être supprimés."
+msgstr "Les utilisateurs ayant écrit des entrées ne peuvent être supprimés."
 
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
@@ -3272,3 +3272,18 @@ msgstr "Si cette option est cochée, des champs numérique permettront l'ordonna
 
 msgid "Save my options"
 msgstr "Enregistrer mes options"
+
+msgid "Blog id"
+msgstr "Identifiant"
+
+msgid "Edit blog settings for %s"
+msgstr "Modifier les paramètres de %s"
+
+msgid "Edit blog settings"
+msgstr "Modifier les paramètres du blog"
+
+msgid "Edit the %1$s from %2$s"
+msgstr "Modifier le %1$s de %2$s"
+
+msgid "Backup"
+msgstr "Sauvegarde"

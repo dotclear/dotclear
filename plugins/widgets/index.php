@@ -164,11 +164,11 @@ elseif (!empty($_POST['wreset']))
   <style type="text/css">
   <?php echo file_get_contents(dirname(__FILE__).'/style.css'); ?>
   </style>
-  <script type="text/javascript" src="js/tool-man/core.js"></script>
-  <script type="text/javascript" src="js/tool-man/events.js"></script>
-  <script type="text/javascript" src="js/tool-man/css.js"></script>
-  <script type="text/javascript" src="js/tool-man/coordinates.js"></script>
-  <script type="text/javascript" src="js/tool-man/drag.js"></script>
+  <?php
+		echo
+			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+			dcPage::jsLoad('index.php?pf=widgets/widgets.js');
+  ?>
   <?php 
 	$core->auth->user_prefs->addWorkspace('accessibility'); 
 	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
@@ -176,7 +176,6 @@ elseif (!empty($_POST['wreset']))
   <?php if (!$user_dm_nodragdrop) : ?>
   <script type="text/javascript" src="index.php?pf=widgets/dragdrop.js"></script>
   <?php endif; ?>
-  <script type="text/javascript" src="index.php?pf=widgets/widgets.js"></script>
   <script type="text/javascript">
   //<![CDATA[
   <?php echo dcPage::jsVar('dotclear.msg.confirm_widgets_reset',
@@ -198,45 +197,45 @@ echo
 '<form id="listWidgets" action="'.$p_url.'" method="post"  class="widgets">'.
 '<h3>'.__('Available widgets').'</h3>'.
 '<p>'.__('Move widgets from this list to one of the sidebars.').'</p>'.
-'<div id="widgets">';
+'<ul id="widgets-ref">';
 
 $j = 0;
 foreach ($__widgets->elements(true) as $w) {
 	echo
-	'<div>'.form::hidden(array('w[void][0][id]'),html::escapeHTML($w->id())).
-	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hideControl').' '.
-	$w->name().($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
-	'<p class="js-remove"><label class="classic">'.__('Append to:').'</label> '.
+	'<li>'.form::hidden(array('w[void][0][id]'),html::escapeHTML($w->id())).
+	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hide','',0,'title="'.__('order').'"').' '.$w->name().
+	($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
+	'<p class="manual-move remove-if-drag"><label class="classic">'.__('Append to:').'</label> '.
 	form::combo(array('addw['.$w->id().']'),$append_combo).'</p>'.
-	'<div class="widgetSettings">'.$w->formSettings('w[void][0]',$j).'</div>'.
-	'</div>';
+	'<div class="widgetSettings hidden-if-drag">'.$w->formSettings('w[void][0]',$j).'</div>'.
+	'</li>';
 	$j++;
 }
 
 echo
-'</div>'.
-'<p><input type="submit" class="js-remove" name="append" value="'.__('Add widgets to sidebars').'" />'.
-$core->formNonce().'</p>'.
+'</ul>'.
+$core->formNonce().
+'<p class="remove-if-drag"><input type="submit" name="append" value="'.__('Add widgets to sidebars').'" /></p>'.
 '</form>';
 
 echo '<form id="sidebarsWidgets" action="'.$p_url.'" method="post">';
 # Nav sidebar
 echo
 '<div id="sidebarNav" class="widgets fieldset">'.
-sidebarWidgets('dndnav',__('Navigation sidebar'),$widgets_nav,'nav',$__default_widgets['nav'],$j).
-'</div>';
+sidebarWidgets('dndnav',__('Navigation sidebar'),$widgets_nav,'nav',$__default_widgets['nav'],$j);
+echo '</div>';
 
 # Extra sidebar
 echo
 '<div id="sidebarExtra" class="widgets fieldset">'.
-sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra'],$j).
-'</div>';
+sidebarWidgets('dndextra',__('Extra sidebar'),$widgets_extra,'extra',$__default_widgets['extra'],$j);
+echo '</div>';
 
 # Custom sidebar
 echo
 '<div id="sidebarCustom" class="widgets fieldset">'.
-sidebarWidgets('dndcustom',__('Custom sidebar'),$widgets_custom,'custom',$__default_widgets['custom'],$j).
-'</div>';
+sidebarWidgets('dndcustom',__('Custom sidebar'),$widgets_custom,'custom',$__default_widgets['custom'],$j);
+echo '</div>';
 
 echo
 '<p id="sidebarsControl">'.
@@ -315,16 +314,16 @@ dcPage::helpBlock($widget_elements);
 
 function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 {
-	$res = '<h3>'.$title.'</h3><div id="'.$id.'">';
+	$res = '<h3>'.$title.'</h3>';
 	
 	if (!($widgets instanceof dcWidgets))
 	{
 		$widgets = $default_widgets;
 	}
 	
-	if ($widgets->isEmpty()) {
-		$res .= '<p class="empty-widgets">'.__('No widget.').'</p>';
-	}
+	$res .= '<p class="empty-widgets" '.(!$widgets->isEmpty() ? 'style="display: none;"' : '').'>'.__('No widget.').'</p>';
+	
+	$res .= '<ul id="'.$id.'" class="connected">';
 	
 	$i = 0;
 	foreach ($widgets->elements() as $w)
@@ -332,20 +331,25 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$iname = 'w['.$pr.']['.$i.']';
 		
 		$res .=
-		'<div>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
-		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'js-hide','',0,'title="'.__('order').'"').' '.
-		$w->name().($w->desc() != '' ? ' <!-- <span class="form-note">'.__($w->desc()).'</span> -->' : '').'</p>'.
-		'<p class="removeWidget js-remove"><label class="classic">'.
+		'<li>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
+		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'hidden-if-drag','',0,'title="'.__('order').'"').' '.$w->name().
+		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
+		'<p class="removeWidget remove-if-drag"><label class="classic">'.
 		form::checkbox(array($iname.'[_rem]'),'1',0).' '.__('Remove widget').
 		'</label></p>'.
-		'<div class="widgetSettings">'.$w->formSettings($iname,$j).'</div>'.
-		'</div>';
+		'<div class="widgetSettings hidden-if-drag">'.$w->formSettings($iname,$j).'</div>'.
+		'</li>';
 		
 		$i++;
 		$j++;
 	}
 	
-	$res .= '</div>';
+	$res .= '</ul>';
+
+	if ($i > 0) {
+		$res .= '<ul class="sortable-delete"><li class="sortable-delete-placeholder">'.
+			__('Drag widgets here to remove them from this sidebar.').'</li></ul>';
+	}
 	
 	return $res;
 }
