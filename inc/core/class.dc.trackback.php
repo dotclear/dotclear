@@ -146,6 +146,22 @@ class dcTrackback
 	}
 	//@}
 	
+	private function pingAlreadyDone($post_id, $from_url)
+	{
+		$params = array(
+			'post_id' => $post_id,
+			'comment_site' => $from_url,
+			'comment_trackback' => 1,
+		);
+		
+		$rs = $this->core->blog->getComments($params, true);
+		if ($rs && !$rs->isEmpty()) {
+			return ($rs->f(0));
+		}
+		
+		return false;
+	}
+	
 	private function addBacklink($post_id, $url, $blog_name, $title, $excerpt, &$comment)
 	{
 		if (empty($blog_name)) {
@@ -205,7 +221,7 @@ class dcTrackback
 		$blog_name = !empty($_POST['blog_name']) ? $_POST['blog_name'] : '';
 		$charset = '';
 		$comment = '';
-		
+				
 		$err = false;
 		$msg = '';
 		
@@ -238,6 +254,12 @@ class dcTrackback
 				$err = true;
 				$msg = 'Trackbacks are not allowed for this post or weblog.';
 			}
+
+			$url = trim(html::clean($url));
+			if ($this->pingAlreadyDone($post->post_id, $url)) {
+				$err = true;
+				$msg = 'The trackback has already been registered';
+			}
 		}
 		
 		if (!$err)
@@ -269,8 +291,6 @@ class dcTrackback
 			$blog_name = html::decodeEntities($blog_name);
 			$blog_name = html::escapeHTML($blog_name);
 			$blog_name = text::cutString($blog_name,60);
-			
-			$url = trim(html::clean($url));
 			
 			try
 			{
@@ -360,6 +380,10 @@ class dcTrackback
 			throw new Exception(__('Sorry, dude. This entry does not accept pingback at the moment.'), 33);
 		}
 
+		if ($this->pingAlreadyDone($posts->post_id, $from_url)) {
+			throw new Exception(__('Don\'t repeat yourself, please.'), 48);
+		}
+		
 		# OK. We've found our champion. Time to check the remote part.
 		try {
 			$http = self::initHttp($from_url, $from_path);
