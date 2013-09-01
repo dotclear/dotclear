@@ -69,6 +69,7 @@ class dcTemplate extends template
 		$this->addValue('BlogUpdateDate',array($this,'BlogUpdateDate'));
 		$this->addValue('BlogID',array($this,'BlogID'));
 		$this->addValue('BlogURL',array($this,'BlogURL'));
+		$this->addValue('BlogXMLRPCURL',array($this,'BlogXMLRPCURL'));
 		$this->addValue('BlogPublicURL',array($this,'BlogPublicURL'));
 		$this->addValue('BlogQmarkURL',array($this,'BlogQmarkURL'));
 		$this->addValue('BlogMetaRobots',array($this,'BlogMetaRobots'));
@@ -902,6 +903,15 @@ class dcTemplate extends template
 	{
 		$f = $this->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor(\'rsd\')').'; ?>';
+	}
+	
+	/*dtd
+	<!ELEMENT tpl:BlogXMLRPCURL - O -- Blog XML-RPC URL -->
+	*/
+	public function BlogXMLRPCURL($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor(\'xmlrpc\',$core->blog->id)').'; ?>';
 	}
 	
 	/*dtd

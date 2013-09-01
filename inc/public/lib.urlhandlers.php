@@ -479,6 +479,9 @@ class dcUrlHandlers extends urlHandler
 				}
 				
 				# The entry
+				if ($_ctx->posts->trackbacksActive()) {
+					header('X-Pingback: '.$core->blog->url.$core->url->getURLFor("xmlrpc",$core->blog->id));
+				}
 				self::serveDocument('post.html');
 			}
 		}
