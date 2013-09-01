@@ -1647,10 +1647,8 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		if (!(filter_var($to_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!',$to_url))) {
 			throw new Exception(__('No valid target URL provided? Try again!'), 0);
 		}
-		
-		$from_url = html::sanitizeURL(urldecode($from_url));
-		$to_url = html::sanitizeURL(urldecode($to_url));
-		if ($from_url == $to_url) {
+
+		if (html::sanitizeURL(urldecode($from_url)) == html::sanitizeURL(urldecode($to_url))) {
 			throw new Exception(__('LOL!'), 0);
 		}
 		
