@@ -796,17 +796,15 @@ li.media-action form {
 li.media-action input {
 	border: none;
 }
-.media-item {
+.media-item, .media-action-box {
 	position: relative;
 	border: 1px solid #ccc;
 	margin: 1em;
 	padding: 1em;
 	width: 300px;
-	height: 120px;
 	display: inline-block;
 	vertical-align: top;
-}
-div.media-list .media-item {
+	min-height: 120px
 }
 a.media-icon {
 	display: block;
@@ -904,6 +902,31 @@ a.media-icon {
 	padding-left: 2.5em;
 	margin-left: 0;
 }
+.user-perm {
+	margin-bottom: 2em;
+	background: transparent url(user.png) no-repeat left top;
+}
+.user-perm h4, .user-perm h5, .user-perm p, .user-perm ul, .user-perm li {
+	margin: 0;
+	padding: 0;
+}
+.user-perm h4 {
+	padding-left: 24px;
+}
+.user-perm ul {
+	list-style-type: inside;
+}
+.user-perm li {
+	margin-left: 1em;
+	padding-left: 0;
+}
+p.change-user-perm {
+	margin: .33em 0;
+}
+.user-perm h5 {
+	margin:	.66em 0 0 0;
+}
+
 /* -------------------------------------------------------------------- Themes */
 #themes {
 	margin: 0;
