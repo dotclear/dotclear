@@ -1060,16 +1060,16 @@ msgstr "పేజీని విజయవంతంగా సృష్టిం�
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "పేజీ స్థితి:"
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "పేజీ స్థానం:"
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "పేజీ భాష:"
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "పేజీ సంకేతపదం:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."

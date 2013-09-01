@@ -402,7 +402,7 @@ if ($can_edit_page)
 			'title' => __('Status'),
 			'items' => array(
 				'post_status' => 
-					'<p><label for="post_status" class="ib">'.__('Page status:').'</label> '.
+					'<p><label for="post_status" class="ib">'.__('Page status').'</label> '.
 					form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
 					'</p>',
 				'post_dt' => 
@@ -410,7 +410,7 @@ if ($can_edit_page)
 					form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).
 					'</p>',
 				'post_lang' =>
-					'<p><label for="post_lang" class="ib">'.__('Page lang:').'</label>'.
+					'<p><label for="post_lang" class="ib">'.__('Page lang').'</label>'.
 					form::combo('post_lang',$lang_combo,$post_lang).
 					'</p>',
 				'post_format' =>
@@ -425,7 +425,7 @@ if ($can_edit_page)
 			'title' => __('Ordering'),
 			'items' => array(
 				'post_position' => 
-					'<p><label for="post_position" class="classic">'.__('Page position:').'</label> '.
+					'<p><label for="post_position" class="classic">'.__('Page position').'</label> '.
 					form::field('post_position',3,3,(string) $post_position).
 					'</p>')),
 		'options-box' => array(

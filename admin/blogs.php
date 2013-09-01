@@ -133,13 +133,12 @@ if (!$core->error->flag())
 		echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 		
 		echo
-		'<table class="clear"><tr>'.
-		'<th>'.__('Blog name').'</th>'.
-		'<th class="nowrap">'.__('Last update').'</th>'.
-		'<th class="nowrap">'.__('Entries (all types)').'</th>'.
-		'<th class="nowrap">'.__('Blog ID').'</th>'.
-		'<th>&nbsp;</th>'.
-		'<th class="nowrap">'.__('Status').'</th>'.
+		'<table class="clear"><caption class="hidden">'.__('Blogs list').'</caption><tr>'.
+		'<th scope="col" class="nowrap">'.__('Blog id').'</th>'.
+		'<th scope="col">'.__('Blog name').'</th>'.
+		'<th scope="col" class="nowrap">'.__('Entries (all types)').'</th>'.
+		'<th scope="col" class="nowrap">'.__('Last update').'</th>'.
+		'<th scope="col" class="nowrap">'.__('Status').'</th>'.
 		'</tr>';
 		
 		while ($rs->fetch()) {
@@ -163,9 +162,8 @@ function blogLine($rs)
 	
 	if ($GLOBALS['core']->auth->isSuperAdmin()) {
 		$edit_link = 
-		'<a href="blog.php?id='.$blog_id.'" '.
-		'title="'.sprintf(__('Edit blog %s'),$blog_id).'">'.
-		__('edit').'</a>';
+		'<a href="blog.php?id='.$blog_id.'"  title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
+		'<img src="images/edit-mini.png" alt="'.__('Edit blog settings').'" /> '.$blog_id.'</a> ';
 	}
 	
 	$img_status = $rs->blog_status == 1 ? 'check-on' : 'check-off';
@@ -176,13 +174,12 @@ function blogLine($rs)
 	
 	return
 	'<tr class="line">'.
+	'<td class="nowrap">'.$edit_link.'</td>'.
 	'<td class="maximal"><a href="index.php?switchblog='.$rs->blog_id.'" '.
 	'title="'.sprintf(__('Switch to blog %s'),$rs->blog_id).'">'.
 	html::escapeHTML($rs->blog_name).'</a></td>'.
-	'<td class="nowrap">'.$blog_upddt.'</td>'.
-	'<td class="nowrap">'.$core->countBlogPosts($rs->blog_id).'</td>'.
-	'<td class="nowrap">'.$blog_id.'</td>'.
-	'<td>'.$edit_link.'</td>'.
+	'<td class="nowrap count">'.$core->countBlogPosts($rs->blog_id).'</td>'.
+	'<td class="nowrap count">'.$blog_upddt.'</td>'.
 	'<td class="status">'.$img_status.'</td>'.
 	'</tr>';
 }
