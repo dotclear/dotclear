@@ -3284,3 +3284,6 @@ msgstr "Modifier les paramètres du blog"
 
 msgid "Edit the %1$s from %2$s"
 msgstr "Modifier le %1$s de %2$s"
+
+msgid "Backup"
+msgstr "Sauvegarde"
