@@ -231,7 +231,6 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 
-
 if (!isset($core->media)) {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
@@ -342,19 +341,20 @@ echo
 
 if ($core_media_writable)
 {
-	echo '<div class="two-cols">';
+	echo 
+	'<h3>'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>'.
+	'<div class="media-action-box">';
 	
 	if ($user_ui_enhanceduploader) {
 		echo
-		'<div class="col enhanced_uploader">';
+		'<div class="enhanced_uploader">';
 	} else {
 		echo
-		'<div class="col">';
+		'<div>';
 	}
 
 	echo
-	'<div class="fieldset">'.
-	'<h3>'.__('Add files').'</h3>'.
+	'<h4>'.__('Add files').'</h4>'.
 	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	'<p class="max-sizer form-note info">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
 	'<form id="fileupload" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data" aria-disabled="false">'.
@@ -390,39 +390,45 @@ if ($core_media_writable)
 	echo
 	'<p style="clear:both;">'.form::hidden(array('d'),$d).'</p>'.
 	'</form>'.
-	'</div></div>';
+	'</div>'.
+	'</div>';
 
 	echo
-	'<div class="col">'.
-	'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post">'.
+	'<div class="media-action-box">'.
+	'<form action="'.html::escapeURL($page_url).'" method="post">'.
 	'<div id="new-dir-f">'.
-	'<h3>'.__('New directory').'</h3>'.
+	'<h4>'.__('Create new directory').'</h4>'.
 	$core->formNonce().
 	'<p><label for="newdir">'.__('Directory Name:').'</label>'.
 	form::field(array('newdir','newdir'),35,255).'</p>'.
 	'<p><input type="submit" value="'.__('Create').'" />'.
 	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
 	'</div>'.
-	'</form></div>';
-	
-	echo '</div>';
-}
+	'</form>'.
+	'</div>';
+	}
 
 # Empty remove form (for javascript actions)
 echo
-'<form id="media-remove-hide" action="'.html::escapeURL($page_url).'" method="post"><div class="clear">'.
+'<form id="media-remove-hide" action="'.html::escapeURL($page_url).'" method="post" class="hidden">'.
+'<div>'.
 form::hidden('rmyes',1).form::hidden('d',html::escapeHTML($d)).
 form::hidden('remove','').
 $core->formNonce().
-'</div></form>';
+'</div>'.
+'</form>';
 
 # Get zip directory
 if ($core->auth->check('media_admin',$core->blog->id) && 
 	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent)))
 {
 	echo
-	'<p class="zip-dl"><a class="submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
-	__('Download this directory as a zip file').'</a></p>';
+	'<div class="media-action-box">'.
+	'<h4>'.__('Backup content').'</h4>'.
+	'<p>'.__('Compress this directory with its content as a zip file and download it.').'</p>'.
+	'<p><a class="submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
+	__('Download').'</a></p>'.
+	'</div>';
 }
 
 call_user_func($close_f);
