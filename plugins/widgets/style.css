@@ -23,9 +23,8 @@
 	margin-bottom: 2em;
 }
 .widgets.fieldset.if-drag {
-	margin-bottom: 0;
-	border-radius: 6px 6px 0 0;
-    border-bottom: 1px dashed #FF0000;
+	padding-bottom: 0;
+	border-radius: .5em;
 }
 #dndnav, #dndextra, #dndcustom {
 	padding: 1em 0;
@@ -33,9 +32,8 @@
 }
 #dndnav > li,
 #dndextra > li,
-#dndcustom > li,
-.sortable-delete > li {
-	padding: O;
+#dndcustom > li {
+	padding: 0;
 	border: 1px solid #999;
 	margin-bottom: 1em;
 	list-style: none;
@@ -45,36 +43,36 @@
 #dndcustom > li.ui-sortable-placeholder,
 .sortable-delete > li.ui-sortable-placeholder {
 	border: 1px dashed #999;
-	height: 2rem;
-	padding: 3px;
+	height: 2em;
+	padding: .3em;
 }
-
+.sortable-delete > li.ui-sortable-placeholder {
+	border-width: 2px;
+	border-color: red;
+}
 .sortable-delete {
 	display: none;
 }
 .sortable-delete.if-drag {
-    border: 1px solid #999999;
-    border-top: 0;
-    border-radius: 0 0 6px 6px;
-    color: #000000;
+    border: 1px dotted #999;
+    color: #000;
     font-weight: bold;
-    list-style: none outside none;
-    margin: 0 0 2em;
-    min-height: 25px;
-    padding: 4px;
+    list-style-type: none;
+    margin: 0 0 1em;
+    padding: .5em 1em;
     display: block;
+    background: #fafafa;
 }
 .sortable-delete > li {
 	margin-bottom: 3px;
 }
 .sortable-delete > li.sortable-delete-placeholder {
     border: 0 none;
-    color: #FF0000;
-    font-size: 1rem;
-    font-weight: normal;
+    color: #aaa;
+    font-size: 1em;
+    font-weight: bold;
     text-align: center;
 }
-
 .widget-name {
 	background: #eef;
 	color: #000;
@@ -90,7 +88,7 @@
 .widget-name a.aexpand:link,
 .widget-name a.aexpand:visited {
     border: 0 none;
-    color: #000000;
+    color: #000;
     text-decoration: none;
 }
 #dndnav .form-note,

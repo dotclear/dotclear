@@ -1023,16 +1023,16 @@ msgstr "Žiūrėti puslapį"
 msgid "Preview page"
 msgstr "Peržiūrėti puslapį"
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "Puslapio statusas:"
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "Puslapio pozicija:"
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "Puslapio kalba:"
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "Puslapio slaptažodis:"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
