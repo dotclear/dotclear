@@ -580,6 +580,12 @@ if ($blog_id)
 			$user_url_p = '%1$s';
 		}
 		
+		$post_type = $core->getPostTypes();
+		$current_blog_id = $core->blog->id;
+		if ($blog_id != $core->blog->id) {
+			$core->setBlog($blog_id);
+		}
+
 		foreach ($blog_users as $k => $v)
 		{
 			if (count($v['p']) > 0)
@@ -616,12 +622,21 @@ if ($blog_id)
 				}
 				echo
 				'<h5>'.__('Publications on this blog:').'</h5>'.
-				'<ul>'.
-				'<li>'.__('Blog entries:').' <a href="#">123</a></li>'.
-				'<li>'.__('Pages:').' <a href="#">2</a></li>'.
+				'<ul>';
+				foreach ($post_type as $type => $pt_info) {
+					$params = array(
+						'post_type' => $type,
+						'user_id' => $k
+						);
+					echo '<li>'.sprintf(__('%1$s: %2$s'),__($pt_info['label']),$core->blog->getPosts($params,true)->f(0)).'</li>';
+				}
+				echo
 				'</ul>';
 				echo '</div>';
 			}
+		}
+		if ($current_blog_id != $core->blog->id) {
+			$core->setBlog($current_blog_id);
 		}
 	}
 	

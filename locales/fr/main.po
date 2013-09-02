@@ -3306,8 +3306,8 @@ msgstr "Permissions :"
 msgid "Publications on this blog:"
 msgstr "Publications sur ce blog :"
 
-msgid "Blog entries:"
-msgstr "Billets :"
+msgid "Posts"
+msgstr "Billets"
 
-msgid "Pages:"
-msgstr "Pages :"
+msgid "%1$s: %2$s"
+msgstr "%1$s : %2$s"
