@@ -47,6 +47,7 @@
 .jstElements select {
 	width: 12em;
 	margin-right: .6rem;
+	border: 1px solid #ccc; 
 }
 .jstElements button {
 	width : 30px;
@@ -70,9 +71,8 @@
 	vertical-align: top;
 	background: #dfdfdf;
 }
-
-.jstSpacer {
-	width : 2px;
+span.jstSpacer {
+	width : 6px;
 	height: 28px;
 	margin-right: 0;
 	border-style: groove;

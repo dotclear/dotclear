@@ -515,7 +515,7 @@ if ($can_edit_post)
 		
 		"post_excerpt" =>
 			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'<span class="form-note">'.
-			__('Add an introduction to the post.').'</span></label> '.
+			__('Introduction to the post.').'</span></label> '.
 			form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 			'</p>',
 		
@@ -527,7 +527,7 @@ if ($can_edit_post)
 		
 		"post_notes" =>
 			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'<span class="form-note">'.
-			__('Add unpublished notes.').'</span></label>'.
+			__('Unpublished notes.').'</span></label>'.
 			form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 			'</p>'
 		)
