@@ -209,13 +209,13 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 	$version_info = $new_v ? $updater->getInfoURL() : '';
 
 	if ($updater->getNotify() && $new_v) {
-		$message =
-		'<div><p>'.sprintf(__('Dotclear %s is available!'),$new_v).'</p> '.
-		'<ul><li><strong><a href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a></strong>'.
-		'</li><li><a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
-		($version_info ? ' </li><li><a href="'.$version_info.'">'.__('information about this version').'</a>' : '').
-		'</li></ul></div>';
-		dcPage::message($message,false,true);
+		echo
+		'<div class="msg dc-update"><h3>'.sprintf(__('Dotclear %s is available!'),$new_v).'</h3> '.
+		'<p><a class="button submit" href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
+		'<a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
+		($version_info ? ' </p>'.
+		'<p><a href="'.$version_info.'" class="info">'.__('information about this version').'</a>' : '').'</p>'.
+		'</div>';
 	}
 }
 

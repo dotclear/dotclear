@@ -1185,6 +1185,21 @@ p.error, p.message, p.static-msg, p.success {
 .success a {
 	color: #666;
 }
+.dc-update {
+	padding: 1em 48px 0.5em 48px;
+	margin-bottom: 1em;
+	border-radius: 8px;
+	background: #A2CBE9 url(msg-success.png) no-repeat .7em .7em;
+}
+.dc-update a {
+	color: #000;
+	border-color: #000;
+	margin-right: 1em;
+}
+a.info {
+	margin-left: 2em;
+	font-weight: bold;
+}
 /* ------------------------------------------------------------------ navigation */
 .anchor-nav {
 	background: #575859;

@@ -3037,11 +3037,11 @@ msgstr "Billet suivant"
 msgid "Previous entry"
 msgstr "Billet précédent"
 
-msgid "Add an introduction to the post."
-msgstr "Ajoute une introduction au billet."
+msgid "Introduction to the post."
+msgstr "Introduction au billet."
 
-msgid "Add unpublished notes."
-msgstr "Ajoute des notes non publiées."
+msgid "Unpublished notes."
+msgstr "Notes non publiées."
 
 msgid "Edit basename:"
 msgstr "Modifier l'URL spécifique :"
