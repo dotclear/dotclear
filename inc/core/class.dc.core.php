@@ -344,11 +344,12 @@ class dcCore
 		return $escaped ? html::escapeURL($url) : $url;
 	}
 	
-	public function setPostType($type,$admin_url,$public_url)
+	public function setPostType($type,$admin_url,$public_url,$label='')
 	{
 		$this->post_types[$type] = array(
 			'admin_url' => $admin_url,
-			'public_url' => $public_url
+			'public_url' => $public_url,
+			'label' => ($label != '' ? $label : $type)
 		);
 	}
 	
