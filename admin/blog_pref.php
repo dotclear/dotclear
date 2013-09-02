@@ -579,7 +579,10 @@ if ($blog_id)
 		} else {
 			$user_url_p = '%1$s';
 		}
-		
+
+		# Sort users list on user_id key
+		ksort($blog_users);
+
 		$post_type = $core->getPostTypes();
 		$current_blog_id = $core->blog->id;
 		if ($blog_id != $core->blog->id) {
