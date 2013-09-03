@@ -985,18 +985,6 @@ msgid "Dotclear installation"
 msgstr "Installation de Dotclear"
 
 #, php-format
-msgid "Dotclear needs a directory write cache to function properly. You need to create a designated area in the line \"DC_TPL_CACHE\" in the file inc/config.php in your system and assign rights to read, write and execute for everyone."
-msgstr "Dotclear a besoin d'un répertoire de cache en écriture pour fonctionner correctement. Vous devez créer un à l'endroit désigné dans la ligne \"DC_TPL_CACHE\" dans le fichier inc/config.php dans votre système et d'attribuer des droits en lecture, écriture et exécution pour tout le monde."
-
-msgid "Dotclear needs a directory write cache to function properly. You must contact your administrator."
-msgstr "Dotclear a besoin d'un répertoire de cache en écriture pour fonctionner correctement. Vous devez contacter votre administrateur."
-
-msgid "There is no directory /public/ write to the location indicated in about:config \"public_path\". You must create this directory in the specified location, or change the settings and assign permissions to read, write and execute for everyone."
-msgstr "Il n'existe pas de répertoire /public/ écriture à l'endroit indiqué dans about:config \"public_path\". Vous devez créer ce répertoire à l'emplacement spécifié, ou modifier les paramètres et attribuer des droits de lecture, écriture et exécution pour tout le monde."
-
-msgid "There is no directory /public/ write to the location indicated in about:config \"public_path\". You must contact your administrator."
-msgstr "Il n'existe pas de répertoire /public/ écriture à l'endroit indiqué dans about:config \"public_path\". Vous devez contacter votre administrateur."
-
 msgid "Cache directory %s is not writable."
 msgstr "Le répertoire de cache %s n'est pas accessible en écriture."
 
@@ -2982,3 +2970,15 @@ msgstr "très fort"
 
 msgid "This category will be created when you will save your post."
 msgstr "Cette catégorie sera créée lorsque vous enregistrerez votre billet."
+
+msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
+msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devez créer ce répertoire avec les droits suffisants et affecter celui-ci à \"DC_TPL_CACHE\" dans le fichier inc/config.php."
+
+msgid "The cache directory does not exist or is not writable. You should contact your administrator."
+msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devriez contacter votre administrateur."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "Il n'existe pas de répertoire /public/ à l'endroit spécifié pour le réglage \"public_path\" dans about:config. Vous devez créer ce répertoire avec les droits suffisants (ou changer ce réglage)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Il n'existe pas de répertoire principal accessible en écriture pour la médiathèque. Vous devriez contacter votre administrateur."
