@@ -598,14 +598,36 @@ if ($blog_id)
 				'<h4>'.sprintf($user_url_p,html::escapeHTML($k)).
 				' ('.html::escapeHTML(dcUtils::getUserCN(
 					$k, $v['name'], $v['firstname'], $v['displayname']
-				)).')</h4>'.
+				)).')</h4>';
+
+				if ($core->auth->isSuperAdmin()) {
+					echo 
+					'<p>'.__('Email:').' '.
+					($v['email'] != '' ? '<a href="mailto:'.$v['email'].'">'.$v['email'].'</a>' : __('(none)')).
+					'</p>';
+				}
+
+				echo
+				'<h5>'.__('Publications on this blog:').'</h5>'.
+				'<ul>';
+				foreach ($post_type as $type => $pt_info) {
+					$params = array(
+						'post_type' => $type,
+						'user_id' => $k
+						);
+					echo '<li>'.sprintf(__('%1$s: %2$s'),__($pt_info['label']),$core->blog->getPosts($params,true)->f(0)).'</li>';
+				}
+				echo
+				'</ul>';
+
+				echo
 				'<h5>'.__('Permissions:').'</h5>'.
 				'<ul>';
 				if ($v['super']) {
-					echo '<li>'.__('Super administrator').'</li>';
+					echo '<li class="user_super">'.__('Super administrator').'</li>';
 				} else {
 					foreach ($v['p'] as $p => $V) {
-						echo '<li>'.__($perm_types[$p]).'</li>';
+						echo '<li '.($p == 'admin' ? 'class="user_admin"' : '').'>'.__($perm_types[$p]).'</li>';
 					}
 				}
 				echo 
@@ -623,18 +645,6 @@ if ($blog_id)
 					'</p>'.
 					'</form>';
 				}
-				echo
-				'<h5>'.__('Publications on this blog:').'</h5>'.
-				'<ul>';
-				foreach ($post_type as $type => $pt_info) {
-					$params = array(
-						'post_type' => $type,
-						'user_id' => $k
-						);
-					echo '<li>'.sprintf(__('%1$s: %2$s'),__($pt_info['label']),$core->blog->getPosts($params,true)->f(0)).'</li>';
-				}
-				echo
-				'</ul>';
 				echo '</div>';
 			}
 		}
