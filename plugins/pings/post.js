@@ -12,7 +12,7 @@ $(function() {
 			$('p.ping-services:last').after(p.append(a));
 		}
 		$('h5.ping-services').toggleWithLegend($('p.ping-services'),{
-			cookie: 'dcx_ping_services',
+			user_pref: 'dcx_ping_services',
 			legend_click: true
 		});
 	});

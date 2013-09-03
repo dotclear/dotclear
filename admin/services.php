@@ -25,6 +25,7 @@ $core->rest->addFunction('getMeta',array('dcRestMethods','getMeta'));
 $core->rest->addFunction('delMeta',array('dcRestMethods','delMeta'));
 $core->rest->addFunction('setPostMeta',array('dcRestMethods','setPostMeta'));
 $core->rest->addFunction('searchMeta',array('dcRestMethods','searchMeta'));
+$core->rest->addFunction('setSectionFold',array('dcRestMethods','setSectionFold'));
 
 $core->rest->serve();
 
@@ -411,5 +412,36 @@ class dcRestMethods
 		
 		return $rsp;
 	}
+	
+	public static function setSectionFold($core,$get,$post)
+	{
+		if (empty($post['section'])) {
+			throw new Exception('No section name');
+		}
+		if ($core->auth->user_prefs->toggles === null) {
+			$core->auth->user_prefs->addWorkspace('toggles');
+		}
+		$section = $post['section'];
+		$status = isset($post['value']) && ($post['value'] != 0);
+		if ($core->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
+			$toggles = explode(',',trim($core->auth->user_prefs->toggles->unfolded_sections));
+		} else {
+			$toggles = array();
+		}
+		$k = array_search($section,$toggles);
+		if ($status) { // true == Fold section ==> remove it from unfolded list
+			if ($k !== false) {
+				unset($toggles[$k]);
+			} 
+		} else { // false == unfold section ==> add it to unfolded list
+			if ($k === false) {
+				$toggles[]=$section;
+			}; 
+		}
+		$core->auth->user_prefs->toggles->put('unfolded_sections',join(',',$toggles));
+		return true;
+	}
+		
+	
 }
 ?>
