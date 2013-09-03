@@ -119,7 +119,7 @@ $(function() {
 
 		// Hide some fields
 		$('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'),{
-			cookie: 'dcx_post_notes',
+			user_pref: 'dcx_post_notes',
 			legend_click:true,
 			hide: $('#post_notes').val() == ''
 		});
@@ -128,28 +128,28 @@ $(function() {
 			legend_click: true
 		});
 		$('#post_lang').parent().children('label').toggleWithLegend($('#post_lang'),{
-			cookie: 'dcx_post_lang',
+			user_pref: 'dcx_post_lang',
 			legend_click: true
 		});
 		$('#post_password').parent().children('label').toggleWithLegend($('#post_password'),{
-			cookie: 'dcx_post_password',
+			user_pref: 'dcx_post_password',
 			legend_click: true,
 			hide: $('#post_password').val() == ''
 		});
 		$('#post_status').parent().children('label').toggleWithLegend($('#post_status'),{
-			cookie: 'dcx_post_status',
+			user_pref: 'dcx_post_status',
 			legend_click: true
 		});
 		$('#post_dt').parent().children('label').toggleWithLegend($('#post_dt').parent().children().not('label'),{
-			cookie: 'dcx_post_dt',
+			user_pref: 'dcx_post_dt',
 			legend_click: true
 		});
 		$('#label_format').toggleWithLegend($('#label_format').parent().children().not('#label_format'),{
-			cookie: 'dcx_post_format',
+			user_pref: 'dcx_post_format',
 			legend_click: true
 		});
 		$('#cat_id').parent().children('label').toggleWithLegend($('#cat_id'),{
-			cookie: 'cat_id',
+			user_pref: 'cat_id',
 			legend_click: true
 		});
 		$('#label_comment_tb').toggleWithLegend($('#label_comment_tb').parent().children().not('#label_comment_tb'),{
@@ -157,12 +157,12 @@ $(function() {
 			legend_click: true
 		});
 		$('#post_url').parent().children('label').toggleWithLegend($('#post_url').parent().children().not('label'),{
-			cookie: 'post_url',
+			user_pref: 'post_url',
 			legend_click: true
 		});
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
-			cookie: 'dcx_post_excerpt',
+			user_pref: 'dcx_post_excerpt',
 			legend_click: true,
 			hide: $('#post_excerpt').val() == ''
 		});
