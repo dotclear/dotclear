@@ -902,16 +902,20 @@ a.media-icon {
 	padding-left: 2.5em;
 	margin-left: 0;
 }
+/* in blog_pref */
 .user-perm {
-	margin-bottom: 2em;
+	margin: 2em 0px;
 	background: transparent url(user.png) no-repeat left top;
+	width: 320px;
+	display: inline-block;
+	vertical-align: top;
 }
 .user-perm h4, .user-perm h5, .user-perm p, .user-perm ul, .user-perm li {
-	margin: 0;
+	margin: .5em 0 .33em;
 	padding: 0;
 }
 .user-perm h4 {
-	padding-left: 24px;
+	padding-left: 28px;
 }
 .user-perm ul {
 	list-style-type: inside;
@@ -920,11 +924,17 @@ a.media-icon {
 	margin-left: 1em;
 	padding-left: 0;
 }
-p.change-user-perm {
-	margin: .33em 0;
-}
 .user-perm h5 {
-	margin:	.66em 0 0 0;
+	margin:	1em 0 0 0;
+}
+li.user_super, li.user_admin {
+	margin-left: 0;
+	padding-left: 1em;
+	list-style: none;
+	background: transparent url(../images/superadmin.png) no-repeat -2px 2px;
+}
+li.user_admin {
+	background-image: url(../images/admin.png);
 }
 
 /* -------------------------------------------------------------------- Themes */

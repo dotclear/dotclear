@@ -210,7 +210,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 
 	if ($updater->getNotify() && $new_v) {
 		echo
-		'<div class="msg dc-update"><h3>'.sprintf(__('Dotclear %s is available!'),$new_v).'</h3> '.
+		'<div class="dc-update"><h3>'.sprintf(__('Dotclear %s is available!'),$new_v).'</h3> '.
 		'<p><a class="button submit" href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
 		'<a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
 		($version_info ? ' </p>'.
