@@ -63,6 +63,13 @@ if (!$core->auth->user_prefs->dashboard->prefExists('quickentry')) {
 	$core->auth->user_prefs->dashboard->put('quickentry',false,'boolean');
 }
 
+// Handle folded/unfolded sections in admin from user preferences
+$ws = $core->auth->user_prefs->addWorkspace('toggles');
+if (!$core->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
+	$core->auth->user_prefs->toggles->put('unfolded_sections','','string','Folded sections in admin',null,true);
+}
+
+
 # Dashboard icons
 $__dashboard_icons = new ArrayObject();
 
