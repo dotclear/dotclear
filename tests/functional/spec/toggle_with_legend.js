@@ -1,4 +1,4 @@
-describe("Label clickable", function() {
+describe("toggleWithLegend method (admin/js/common.js)", function() {
     it("Click arrow must make target visible", function() {
 	loadFixtures('menu.html');
 	$('#post_status').parent().toggleWithLegend($('#post_status'),{	});
