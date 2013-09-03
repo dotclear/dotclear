@@ -227,17 +227,25 @@ if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
 $err = array();
 
 # Check cache directory
-if (!is_dir(DC_TPL_CACHE)) {
-	$err[] = '<p>'.sprintf(__('Cache directory %s does not exist.'),DC_TPL_CACHE).'</p>';
-} else if (!is_writable(DC_TPL_CACHE)) {
-	$err[] = '<p>'.sprintf(__('Cache directory %s is not writable.'),DC_TPL_CACHE).'</p>';
+if ( $core->auth->isSuperAdmin() ) {
+	if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
+		$err[] = '<p>'.__("Dotclear needs a directory write cache to function properly. You need to create a designated area in the line \"DC_TPL_CACHE\" in the file inc/config.php in your system and assign rights to read, write and execute for everyone.").'</p>';
+	}
+} else {
+	if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
+		$err[] = '<p>'.__("Dotclear needs a directory write cache to function properly. You must contact your administrator.").'</p>';
+	}
 }
 
 # Check public directory
-if (!is_dir($core->blog->public_path)) {
-	$err[] = '<p>'.sprintf(__('Directory %s does not exist.'),$core->blog->public_path).'</p>';
-} else if (!is_writable($core->blog->public_path)) {
-	$err[] = '<p>'.sprintf(__('Directory %s is not writable.'),$core->blog->public_path).'</p>';
+if ( $core->auth->isSuperAdmin() ) {
+	if (!is_dir($core->blog->public_path) || !is_writable($core->blog->public_path)) {
+		$err[] = '<p>'.__("There is no directory /public/ write to the location indicated in about:config \"public_path\". You must create this directory in the specified location, or change the settings and assign permissions to read, write and execute for everyone.").'</p>';
+	}
+} else {
+	if (!is_dir($core->blog->public_path) || !is_writable($core->blog->public_path)) {
+		$err[] = '<p>'.__("There is no directory /public/ write to the location indicated in about:config \"public_path\". You must contact your administrator.").'</p>';
+	}
 }
 
 # Error list
