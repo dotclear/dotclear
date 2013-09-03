@@ -321,7 +321,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post');
 	
-	$_menu['System']->prependItem(__('Updates'),'update.php','images/menu/update.png',
+	$_menu['System']->prependItem(__('Update'),'update.php','images/menu/update.png',
 		preg_match('/update.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin() && is_readable(DC_DIGESTS));
 	$_menu['System']->prependItem(__('Languages'),'langs.php','images/menu/langs.png',

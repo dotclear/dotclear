@@ -927,7 +927,7 @@ class dcCore
 		}
 		
 		if (!empty($params['q'])) {
-			$params['q'] = str_replace('*','%',$params['q']);
+			$params['q'] = strtolower(str_replace('*','%',$params['q']));
 			$where .=
 			'AND ('.
 			"LOWER(B.blog_id) LIKE '".$this->con->escape($params['q'])."' ".

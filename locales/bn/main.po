@@ -835,7 +835,7 @@ msgstr "আপগ্রেড করুন"
 msgid "Remind me later"
 msgstr "পড়ে মনে করিয়ে দিও"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
@@ -2396,7 +2396,7 @@ msgstr ""
 msgid "Blog"
 msgstr "ব্লগ"
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 msgid "Languages"

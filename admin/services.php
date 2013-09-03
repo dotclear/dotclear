@@ -140,6 +140,24 @@ class dcRestMethods
 	
 	public static function quickPost($core,$get,$post)
 	{
+		# Create category
+		if (!empty($post['new_cat_title']) && $core->auth->check('categories', $core->blog->id)) {
+		
+			$cur_cat = $core->con->openCursor($core->prefix.'category');
+			$cur_cat->cat_title = $post['new_cat_title'];
+			$cur_cat->cat_url = '';
+			
+			$parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
+			
+			# --BEHAVIOR-- adminBeforeCategoryCreate
+			$core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+			
+			$post['cat_id'] = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
+			
+			# --BEHAVIOR-- adminAfterCategoryCreate
+			$core->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
+		}
+		
 		$cur = $core->con->openCursor($core->prefix.'post');
 		
 		$cur->post_title = !empty($post['post_title']) ? $post['post_title'] : '';

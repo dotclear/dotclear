@@ -206,78 +206,62 @@ class dcBlog
 	*/
 	public function triggerComments($ids, $del=false, $affected_posts=null)
 	{
-		$co_ids = dcUtils::cleanIds($ids);
-		$a_ids = dcUtils::cleanIds($affected_posts);
-		$a_tbs = array();
+		$comments_ids = dcUtils::cleanIds($ids);
 		
-		# a) Retrieve posts affected by comments edition
-		if (empty($a_ids)) {
+		# Get posts affected by comments edition
+		if (empty($affected_posts)) {
 			$strReq = 
-				'SELECT post_id, comment_trackback '.
+				'SELECT post_id '.
 				'FROM '.$this->prefix.'comment '.
-				'WHERE comment_id'.$this->con->in($co_ids).
-				'GROUP BY post_id,comment_trackback';
+				'WHERE comment_id'.$this->con->in($comments_ids).
+				'GROUP BY post_id';
 			
 			$rs = $this->con->select($strReq);
 			
+			$affected_posts = array();
 			while ($rs->fetch()) {
-				$a_ids[] = (integer) $rs->post_id;
-				$a_tbs[] = (integer) $rs->comment_trackback;
+				$affected_posts[] = (integer) $rs->post_id;
 			}
 		}
 		
-		# b) Count comments of each posts previously retrieved
-		# Note that this does not return posts without comment
-		$strReq = 
-			'SELECT post_id, COUNT(post_id) AS nb_comment,comment_trackback '.
-			'FROM '.$this->prefix.'comment '.
-			'WHERE comment_status = 1 '.
-			(count($a_ids) > 0 ? 'AND post_id'.$this->con->in($a_ids) : ' ');
-		
-		if ($del) {
-			$strReq .= 
-				'AND comment_id NOT'.$this->con->in($co_ids);
+		if (!is_array($affected_posts) || empty($affected_posts)) {
+			return;
 		}
 		
-		$strReq .= 
+		# Count number of comments if exists for affected posts
+		$strReq = 
+			'SELECT post_id, COUNT(post_id) AS nb_comment, comment_trackback '.
+			'FROM '.$this->prefix.'comment '.
+			'WHERE comment_status = 1 '.
+			'AND post_id'.$this->con->in($affected_posts).
 			'GROUP BY post_id,comment_trackback';
 		
 		$rs = $this->con->select($strReq);
 		
-		$b_ids = $b_tbs = $b_nbs = array();
+		$posts = array();
 		while ($rs->fetch()) {
-			$b_ids[] = (integer) $rs->post_id;
-			$b_tbs[] = (integer) $rs->comment_trackback;
-			$b_nbs[] = (integer) $rs->nb_comment;
+			if ($rs->comment_trackback) {
+				$posts[$rs->post_id]['trackback'] = $rs->nb_comment;
+			} else {
+				$posts[$rs->post_id]['comment'] = $rs->nb_comment;
+			}
 		}
 		
-		# c) Update comments numbers on posts
-		# This compare previous requests to update also posts without comment
+		# Update number of comments on affected posts
 		$cur = $this->con->openCursor($this->prefix.'post');
-		
-		foreach($a_ids as $a_key => $a_id)
+		foreach($affected_posts as $post_id)
 		{
-			$nb_comment = $nb_trackback = 0;
-			//$cur->nb_comment = $nb_comment;
-			foreach($b_ids as $b_key => $b_id)
-			{
-				if ($a_id != $b_id || $a_tbs[$a_key] != $b_tbs[$b_key]) {
-					continue;
-				}
-				
-				if ($b_tbs[$b_key]) {
-					$nb_trackback = $b_nbs[$b_key];
-				} else {
-					$nb_comment = $b_nbs[$b_key];
-				}
+			$cur->clean();
+			
+			if (!array_key_exists($post_id,$posts)) {
+				$cur->nb_trackback = 0;
+				$cur->nb_comment = 0;
+			} else {
+				$cur->nb_trackback = empty($posts[$post_id]['trackback']) ? 0 : $posts[$post_id]['trackback'];
+				$cur->nb_comment = empty($posts[$post_id]['comment']) ? 0 : $posts[$post_id]['comment'];
 			}
 			
-			if ($a_tbs[$a_key]) {
-				$cur->nb_trackback = $nb_trackback;
-			} else {
-				$cur->nb_comment = $nb_comment;
-			}
-			$cur->update('WHERE post_id = '.$a_id);
+			$cur->update('WHERE post_id = '.$post_id);
 		}
 	}
 	//@}
@@ -732,7 +716,7 @@ class dcBlog
 	
 	- no_content: Don't retrieve entry content (excerpt and content)
 	- post_type: Get only entries with given type (default "post", array for many types and '' for no type)
-	- post_id: (integer) Get entry with given post_id
+	- post_id: (integer or array) Get entry with given post_id
 	- post_url: Get entry with given post_url field
 	- user_id: (integer) Get entries belonging to given user ID
 	- cat_id: (string or array) Get entries belonging to given category ID
@@ -752,6 +736,7 @@ class dcBlog
 	- order: Order of results (default "ORDER BY post_dt DES")
 	- limit: Limit parameter
 	- sql_only : return the sql request instead of results. Only ids are selected
+	- exclude_post_id : (integer or array) Exclude entries with given post_id
 	
 	Please note that on every cat_id or cat_url, you can add ?not to exclude
 	the category and ?sub to get subcategories.
@@ -845,6 +830,15 @@ class dcBlog
 				$params['post_id'] = array((integer) $params['post_id']);
 			}
 			$strReq .= 'AND P.post_id '.$this->con->in($params['post_id']);
+		}
+		
+		if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
+			if (is_array($params['exclude_post_id'])) {
+				array_walk($params['exclude_post_id'],create_function('&$v,$k','if($v!==null){$v=(integer)$v;}'));
+			} else {
+				$params['exclude_post_id'] = array((integer) $params['exclude_post_id']);
+			}
+			$strReq .= 'AND P.post_id NOT '.$this->con->in($params['exclude_post_id']);
 		}
 		
 		if (isset($params['post_url']) && $params['post_url'] !== '') {
@@ -2235,9 +2229,10 @@ class dcBlog
 		# Retrieve posts affected by comments edition
 		$affected_posts = array();
 		$strReq =
-			'SELECT distinct(post_id) '.
+			'SELECT post_id '.
 			'FROM '.$this->prefix.'comment '.
-			'WHERE comment_id'.$this->con->in($co_ids);
+			'WHERE comment_id'.$this->con->in($co_ids).
+			'GROUP BY post_id';
 		
 		$rs = $this->con->select($strReq);
 		
