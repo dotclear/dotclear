@@ -16,7 +16,7 @@ global $core;
 $core->url->register('pages','pages','^pages/(.+)$',array('urlPages','pages'));
 $core->url->register('pagespreview','pagespreview','^pagespreview/(.+)$',array('urlPages','pagespreview'));
 
-$core->setPostType('page','plugin.php?p=pages&act=page&id=%d',$core->url->getURLFor('pages','%s'));
+$core->setPostType('page','plugin.php?p=pages&act=page&id=%d',$core->url->getURLFor('pages','%s'),'Pages');
 
 # We should put this as settings later
 $GLOBALS['page_url_format'] = '{t}';

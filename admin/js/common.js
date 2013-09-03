@@ -62,12 +62,15 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 		img_on_alt: dotclear.img_plus_alt,
 		img_off_src: dotclear.img_minus_src,
 		img_off_alt: dotclear.img_minus_alt,
+		unfolded_sections: dotclear.unfolded_sections,
 		hide: true,
 		speed: 0,
 		legend_click: false,
 		fn: false, // A function called on first display,
-		cookie: false,
-		reverse_cookie: false // Reverse cookie behavior
+		user_pref: false,
+		reverse_user_pref: false, // Reverse cookie behavior
+		user_pref:false,
+		reverse_user_pref: false
 	};
 	var p = jQuery.extend(defaults,s);
 
@@ -77,7 +80,11 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 	if (p.cookie && jQuery.cookie(p.cookie)) {
 		p.hide = p.reverse_cookie;
 	}
-
+	
+	var set_user_pref = p.hide ^ p.reverse_user_pref;
+	if (p.user_pref && (p.user_pref in p.unfolded_sections)) {
+		p.hide = p.reverse_user_pref;
+	}
 	var toggle = function(i,speed) {
 		speed = speed || 0;
 		if (p.hide) {
@@ -101,7 +108,6 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 				jQuery.cookie(p.cookie,1,{expires: 30});
 			}
 		}
-
 		p.hide = !p.hide;
 	};
 
@@ -124,6 +130,18 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 			$(ctarget).find('label').css('cursor','pointer');
 		}
 		$(ctarget).click(function() {
+			if (p.user_pref && set_user_pref) {
+				if (p.hide ^ p.reverse_user_pref) {
+					jQuery.post('services.php', 
+						{'f':'setSectionFold','section':p.user_pref,'value':1,xd_check: dotclear.nonce},
+						function(data) {});
+				} else {
+					jQuery.post('services.php', 
+						{'f':'setSectionFold','section':p.user_pref,'value':0,xd_check: dotclear.nonce},
+						function(data) {});
+				}
+				jQuery.cookie(p.user_pref,'',{expires: -1});
+			}
 			toggle(i,p.speed);
 			return false;
 		});
@@ -347,16 +365,16 @@ $(function() {
 		speed: 100
 	}
 	$('#blog-menu h3:first').toggleWithLegend($('#blog-menu ul:first'),
-		$.extend({cookie:'dc_blog_menu'},menu_settings)
+		$.extend({user_pref:'dc_blog_menu'},menu_settings)
 	);
 	$('#system-menu h3:first').toggleWithLegend($('#system-menu ul:first'),
-		$.extend({cookie:'dc_system_menu'},menu_settings)
+		$.extend({user_pref:'dc_system_menu'},menu_settings)
 	);
 	$('#plugins-menu h3:first').toggleWithLegend($('#plugins-menu ul:first'),
-		$.extend({cookie:'dc_plugins_menu'},menu_settings)
+		$.extend({user_pref:'dc_plugins_menu'},menu_settings)
 	);
 	$('#favorites-menu h3:first').toggleWithLegend($('#favorites-menu ul:first'),
-		$.extend({cookie:'dc_favorites_menu',hide:false,reverse_cookie:true},menu_settings)
+		$.extend({user_pref:'dc_favorites_menu',hide:false,reverse_user_pref:true},menu_settings)
 	);
 
 	$('#help').helpViewer();

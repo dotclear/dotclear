@@ -1986,3 +1986,6 @@ msgstr "Ne pas lister dans le widget Pages"
 
 msgid "Drag widgets here to remove them from this sidebar."
 msgstr "Glisser les widgets ici pour les retirer du volet."
+
+msgid "Pages"
+msgstr "Pages"
