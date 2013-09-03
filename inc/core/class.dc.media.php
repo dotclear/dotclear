@@ -73,7 +73,12 @@ class dcMedia extends filemanager
 		}
 		
 		if (!is_dir($root)) {
-			throw new Exception(sprintf(__('Directory %s does not exist.'),$root));
+			# Check public directory
+			if ( $core->auth->isSuperAdmin() ) {
+				throw new Exception(__("There is no directory /public/ write to the location indicated in about:config \"public_path\". You must create this directory in the specified location, or change the settings and assign permissions to read, write and execute for everyone."));
+			} else {
+				throw new Exception(__("There is no directory /public/ write to the location indicated in about:config \"public_path\". You must contact your administrator."));
+			}
 		}
 		
 		$this->type = $type;
