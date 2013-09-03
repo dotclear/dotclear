@@ -836,7 +836,7 @@ msgstr "Ulepsz teraz"
 msgid "Remind me later"
 msgstr "Przypomnij mi później"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr "informacje o tej wersji"
 
 msgid "Some plugins are installed twice:"
@@ -2371,7 +2371,7 @@ msgstr "System"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Uaktualnienia"
 
 msgid "Languages"

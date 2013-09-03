@@ -32,7 +32,9 @@ $(function() {
 				cat_id: $('#cat_id',f).val(),
 				post_status: status,
 				post_format: $('#post_format',f).val(),
-				post_lang: $('#post_lang',f).val()
+				post_lang: $('#post_lang',f).val(),
+				new_cat_title: $('#new_cat_title',f).val(),
+				new_cat_parent: $('#new_cat_parent',f).val()
 			}
 
 			$('p.qinfo',f).remove();
@@ -55,6 +57,9 @@ $(function() {
 					if (contentTb.getMode() == 'wysiwyg') {
 						contentTb.syncContents('textarea');
 					}
+					$('#cat_id',f).val('0');
+					$('#new_cat_title',f).val('');
+					$('#new_cat_parent',f).val('0');
 				}
 
 				$('fieldset',f).prepend(msg);

@@ -298,17 +298,29 @@ class dcMedia extends filemanager
 			# Thumbnails
 			$f->media_thumb = array();
 			$p = path::info($f->relname);
+
 			$alpha = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');
+
 			$thumb = sprintf(($alpha ? $this->thumb_tp_alpha : $this->thumb_tp),$this->root.'/'.$p['dirname'],$p['base'],'%s');
 			$thumb_url = sprintf(($alpha ? $this->thumb_tp_alpha : $this->thumb_tp),$this->root_url.$p['dirname'],$p['base'],'%s');
 			
 			# Cleaner URLs
 			$thumb_url = preg_replace('#\./#','/',$thumb_url);
 			$thumb_url = preg_replace('#(?<!:)/+#','/',$thumb_url);
+
+			if ($alpha) {
+				$thumb_alt = sprintf($this->thumb_tp,$this->root.'/'.$p['dirname'],$p['base'],'%s');
+				$thumb_url_alt = sprintf($this->thumb_tp,$this->root_url.$p['dirname'],$p['base'],'%s');
+				# Cleaner URLs
+				$thumb_url_alt = preg_replace('#\./#','/',$thumb_url_alt);
+				$thumb_url_alt = preg_replace('#(?<!:)/+#','/',$thumb_url_alt);
+			}
 			
 			foreach ($this->thumb_sizes as $suffix => $s) {
 				if (file_exists(sprintf($thumb,$suffix))) {
 					$f->media_thumb[$suffix] = sprintf($thumb_url,$suffix);
+				} elseif ($alpha && file_exists(sprintf($thumb_alt,$suffix))) {
+					$f->media_thumb[$suffix] = sprintf($thumb_url_alt,$suffix);
 				}
 			}
 			
