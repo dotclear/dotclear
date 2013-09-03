@@ -75,9 +75,9 @@ class dcMedia extends filemanager
 		if (!is_dir($root)) {
 			# Check public directory
 			if ( $core->auth->isSuperAdmin() ) {
-				throw new Exception(__("There is no directory /public/ write to the location indicated in about:config \"public_path\". You must create this directory in the specified location, or change the settings and assign permissions to read, write and execute for everyone."));
+				throw new Exception(__("There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."));
 			} else {
-				throw new Exception(__("There is no directory /public/ write to the location indicated in about:config \"public_path\". You must contact your administrator."));
+				throw new Exception(__("There is no writable root directory for the media manager. You should contact your administrator."));
 			}
 		}
 		

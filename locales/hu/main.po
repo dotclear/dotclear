@@ -980,18 +980,6 @@ msgid "Dotclear installation"
 msgstr "DotClear telepítés"
 
 #, php-format
-msgid "Dotclear needs a directory write cache to function properly. You need to create a designated area in the line \"DC_TPL_CACHE\" in the file inc/config.php in your system and assign rights to read, write and execute for everyone."
-msgstr ""
-
-msgid "Dotclear needs a directory write cache to function properly. You must contact your administrator."
-msgstr ""
-
-msgid "There is no directory /public/ write to the location indicated in about:config \"public_path\". You must create this directory in the specified location, or change the settings and assign permissions to read, write and execute for everyone."
-msgstr ""
-
-msgid "There is no directory /public/ write to the location indicated in about:config \"public_path\". You must contact your administrator."
-msgstr ""
-
 msgid "Cache directory %s is not writable."
 msgstr "%s cache mappa nem írható."
 
