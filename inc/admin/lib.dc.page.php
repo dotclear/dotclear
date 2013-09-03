@@ -113,6 +113,7 @@ class dcPage
 
 		echo
 		self::jsCommon().
+		self::jsToggles().
 		$head;
 
 		# --BEHAVIOR-- adminPageHTMLHead
@@ -252,6 +253,7 @@ class dcPage
 
 		echo
 		self::jsCommon().
+		self::jsToggles().
 		$head;
 
 		# --BEHAVIOR-- adminPageHTMLHead
@@ -443,6 +445,27 @@ class dcPage
 		return $n." = '".html::escapeJS($v)."';\n";
 	}
 
+	public static function jsToggles()
+	{
+		if($GLOBALS['core']->auth->user_prefs->toggles) {
+			$unfolded_sections = explode(',',$GLOBALS['core']->auth->user_prefs->toggles->unfolded_sections);
+			foreach ($unfolded_sections as $k=>&$v) {
+				if ($v == '') {
+					unset($unfolded_sections[$k]);
+				} else {
+					$v = "'".html::escapeJS($v)."':true";
+				}
+			}
+		} else {
+			$unfolded_sections=array();
+		}
+		return '<script type="text/javascript">'."\n".
+					"//<![CDATA[\n".
+					'dotclear.unfolded_sections = {'.join(",",$unfolded_sections)."};\n".
+					"\n//]]>\n".
+				"</script>\n";
+	}
+	
 	public static function jsCommon()
 	{
 		return
@@ -543,7 +566,7 @@ class dcPage
 			__("Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?")).
 		self::jsVar('dotclear.msg.load_enhanced_uploader',
 			__('Loading enhanced uploader, please wait.')).
-		"\n//]]>\n".
+			"\n//]]>\n".
 		"</script>\n";
 	}
 
