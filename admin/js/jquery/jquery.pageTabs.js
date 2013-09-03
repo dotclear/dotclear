@@ -15,6 +15,11 @@ jQuery._pageTabs = function(start_tab,settings) {
 	this.divs = jQuery('div.'+this.params.className);
 	this.createList();
 	this.showDiv(index);
+	var pageTabs = this;
+	
+	window.onhashchange = function (event) {
+		pageTabs.showDiv(document.location.hash.split('#').join(''));
+    }
 };
 
 jQuery._pageTabs.prototype = {
@@ -40,12 +45,11 @@ jQuery._pageTabs.prototype = {
 				a = document.createElement('a');
 				$(a).html(this.title);
 				this.title = '';
-				a.href = '#';
 				a.fn = This.showDiv;
 				a.index = this.id || i;
+				a.href = '#'+a.index;
 				li.id = "part-tabs-"+a.index;
 				a.obj = This;
-				jQuery(a).click(function() { this.fn.call(this.obj,this.index); return false; });
 				li.appendChild(a);
 				This.list.appendChild(li);
 				This.items[i] = li;
