@@ -401,7 +401,14 @@ form::field('user_displayname',20,255,html::escapeHTML($user_displayname)).'</p>
 form::field('user_email',20,255,html::escapeHTML($user_email)).'</p>'.
 
 '<p><label for="user_url">'.__('URL:').'</label>'.
-form::field('user_url',30,255,html::escapeHTML($user_url)).'</p>';
+form::field('user_url',30,255,html::escapeHTML($user_url)).'</p>'.
+
+'<p><label for="user_lang">'.__('Language for my interface:').'</label>'.
+form::combo('user_lang',$lang_combo,$user_lang,'l10n').'</p>'.
+
+'<p><label for="user_tz">'.__('My timezone:').'</label>'.
+form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>';
+
 
 if ($core->auth->allowPassChange())
 {
@@ -447,12 +454,6 @@ echo
 
 '<div class="col">'.
 '<h4>'.__('Interface').'</h4>'.
-
-'<p><label for="user_lang">'.__('Language for my interface:').'</label>'.
-form::combo('user_lang',$lang_combo,$user_lang,'l10n').'</p>'.
-
-'<p><label for="user_tz">'.__('My timezone:').'</label>'.
-form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>'.
 
 '<p><label for="user_ui_enhanceduploader" class="classic">'.
 form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
