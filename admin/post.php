@@ -471,7 +471,9 @@ if ($can_edit_post)
 		'options-box' => array(
 			'title' => __('Options'),
 			'items' => array(
-				'post_open_comment' =>
+				'post_open_comment_tb' =>
+					'<div>'.
+					'<h5 id="label_comment_tb">'.__('Commentaires et rétroliens').'</h5>'.
 					'<p><label for="post_open_comment" class="classic">'.
 					form::checkbox('post_open_comment',1,$post_open_comment).' '.
 					__('Accept comments').'</label></p>'.
@@ -481,8 +483,7 @@ if ($can_edit_post)
 							'<p class="form-note warn">'.
 							__('Warning: Comments are not more accepted for this entry.').'</p>') : 
 						'<p class="form-note warn">'.
-						__('Comments are not accepted on this blog so far.').'</p>'),
-				'post_open_tb' =>
+						__('Comments are not accepted on this blog so far.').'</p>').
 					'<p><label for="post_open_tb" class="classic">'.
 					form::checkbox('post_open_tb',1,$post_open_tb).' '.
 					__('Accept trackbacks').'</label></p>'.
@@ -491,7 +492,8 @@ if ($can_edit_post)
 							'' :
 							'<p class="form-note warn">'.
 							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
-						'<p class="form-note warn">'.__('Trackbacks are not accepted on this blog so far.').'</p>'),
+						'<p class="form-note warn">'.__('Trackbacks are not accepted on this blog so far.').'</p>').
+					'</div>',
 				'post_password' =>
 					'<p><label for="post_password" class="ib">'.__('Password').'</label>'.
 					form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
@@ -515,7 +517,7 @@ if ($can_edit_post)
 		
 		"post_excerpt" =>
 			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'<span class="form-note">'.
-			__('Add an introduction to the post.').'</span></label> '.
+			__('Introduction to the post.').'</span></label> '.
 			form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 			'</p>',
 		
@@ -527,7 +529,7 @@ if ($can_edit_post)
 		
 		"post_notes" =>
 			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'<span class="form-note">'.
-			__('Add unpublished notes.').'</span></label>'.
+			__('Unpublished notes.').'</span></label>'.
 			form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 			'</p>'
 		)

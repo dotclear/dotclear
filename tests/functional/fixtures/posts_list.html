@@ -1,0 +1,21 @@
+<form action="posts_actions.php" method="post" id="form-entries">
+  <p>
+    <input type="checkbox" name="entries[]" value="1"/>
+    <a href="post.php?id=1">title1</a>
+  </p>
+  <p>
+    <input type="checkbox" name="entries[]" value="2"/>
+    <a href="post.php?id=2">title2</a>
+  </p>
+  <p>
+    <input type="checkbox" name="entries[]" value="4"/>
+    <a href="post.php?id=4">title</a>
+  </p>
+  <select name="action" id="action" >
+    <option value="publish">Publier</option>
+    <option value="unpublish">Mettre hors ligne</option>
+    <option value="schedule">Programmer</option>
+    <option value="pending">Mettre en attente</option>
+    <option value="delete">Supprimer</option>
+  </select>
+</form>

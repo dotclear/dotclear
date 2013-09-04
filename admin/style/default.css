@@ -799,17 +799,15 @@ li.media-action form {
 li.media-action input {
 	border: none;
 }
-.media-item {
+.media-item, .media-action-box {
 	position: relative;
 	border: 1px solid #ccc;
 	margin: 1em;
 	padding: 1em;
 	width: 300px;
-	height: 120px;
 	display: inline-block;
 	vertical-align: top;
-}
-div.media-list .media-item {
+	min-height: 120px
 }
 a.media-icon {
 	display: block;
@@ -907,6 +905,41 @@ a.media-icon {
 	padding-left: 2.5em;
 	margin-left: 0;
 }
+/* in blog_pref */
+.user-perm {
+	margin: 2em 0px;
+	background: transparent url(user.png) no-repeat left top;
+	width: 320px;
+	display: inline-block;
+	vertical-align: top;
+}
+.user-perm h4, .user-perm h5, .user-perm p, .user-perm ul, .user-perm li {
+	margin: .5em 0 .33em;
+	padding: 0;
+}
+.user-perm h4 {
+	padding-left: 28px;
+}
+.user-perm ul {
+	list-style-type: inside;
+}
+.user-perm li {
+	margin-left: 1em;
+	padding-left: 0;
+}
+.user-perm h5 {
+	margin:	1em 0 0 0;
+}
+li.user_super, li.user_admin {
+	margin-left: 0;
+	padding-left: 1em;
+	list-style: none;
+	background: transparent url(../images/superadmin.png) no-repeat -2px 2px;
+}
+li.user_admin {
+	background-image: url(../images/admin.png);
+}
+
 /* -------------------------------------------------------------------- Themes */
 #themes {
 	margin: 0;
@@ -1164,6 +1197,21 @@ p.error, p.message, p.static-msg, p.success {
 }
 .success a {
 	color: #666;
+}
+.dc-update {
+	padding: 1em 48px 0.5em 48px;
+	margin-bottom: 1em;
+	border-radius: 8px;
+	background: #A2CBE9 url(msg-success.png) no-repeat .7em .7em;
+}
+.dc-update a {
+	color: #000;
+	border-color: #000;
+	margin-right: 1em;
+}
+a.info {
+	margin-left: 2em;
+	font-weight: bold;
 }
 /* ------------------------------------------------------------------ navigation */
 .anchor-nav {

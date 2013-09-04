@@ -13,9 +13,9 @@ if (!defined('DC_RC_PATH')) { return; }
 
 /**
 @ingroup DC_CORE
-@brief Trackbacks sender and server
+@brief Trackbacks/Pingbacks sender and server
 
-Sends and receives trackbacks. Also handles trackbacks auto discovery.
+Sends and receives trackbacks/pingbacks. Also handles trackbacks/pingbacks auto discovery.
 */
 class dcTrackback
 {
@@ -146,6 +146,52 @@ class dcTrackback
 	}
 	//@}
 	
+	private function pingAlreadyDone($post_id, $from_url)
+	{
+		$params = array(
+			'post_id' => $post_id,
+			'comment_site' => $from_url,
+			'comment_trackback' => 1,
+		);
+		
+		$rs = $this->core->blog->getComments($params, true);
+		if ($rs && !$rs->isEmpty()) {
+			return ($rs->f(0));
+		}
+		
+		return false;
+	}
+	
+	private function addBacklink($post_id, $url, $blog_name, $title, $excerpt, &$comment)
+	{
+		if (empty($blog_name)) {
+			$blog_name = 'Anonymous blog';
+		}
+		
+		$comment =
+		"<!-- TB -->\n".
+		'<p><strong>'.($title ? $title : $blog_name)."</strong></p>\n".
+		'<p>'.$excerpt.'</p>';
+		
+		$cur = $this->core->con->openCursor($this->core->prefix.'comment');
+		$cur->comment_author = (string) $blog_name;
+		$cur->comment_site = (string) $url;
+		$cur->comment_content = (string) $comment;
+		$cur->post_id = $post_id;
+		$cur->comment_trackback = 1;
+		$cur->comment_status = $this->core->blog->settings->system->trackbacks_pub ? 1 : -1;
+		$cur->comment_ip = http::realIP();
+		
+		# --BEHAVIOR-- publicBeforeTrackbackCreate
+		$this->core->callBehavior('publicBeforeTrackbackCreate',$cur);
+		if ($cur->post_id) {
+			$comment_id = $this->core->blog->addComment($cur);
+			
+			# --BEHAVIOR-- publicAfterTrackbackCreate
+			$this->core->callBehavior('publicAfterTrackbackCreate',$cur,$comment_id);
+		}
+	}
+	
 	/// @name Receive trackbacks
 	//@{
 	/**
@@ -175,7 +221,7 @@ class dcTrackback
 		$blog_name = !empty($_POST['blog_name']) ? $_POST['blog_name'] : '';
 		$charset = '';
 		$comment = '';
-		
+				
 		$err = false;
 		$msg = '';
 		
@@ -208,6 +254,12 @@ class dcTrackback
 				$err = true;
 				$msg = 'Trackbacks are not allowed for this post or weblog.';
 			}
+
+			$url = trim(html::clean($url));
+			if ($this->pingAlreadyDone($post->post_id, $url)) {
+				$err = true;
+				$msg = 'The trackback has already been registered';
+			}
 		}
 		
 		if (!$err)
@@ -215,10 +267,7 @@ class dcTrackback
 			$charset = self::getCharsetFromRequest();
 			
 			if (!$charset) {
-				$charset = mb_detect_encoding($title.' '.$excerpt.' '.$blog_name,
-				'UTF-8,ISO-8859-1,ISO-8859-2,ISO-8859-3,'.
-				'ISO-8859-4,ISO-8859-5,ISO-8859-6,ISO-8859-7,ISO-8859-8,'.
-				'ISO-8859-9,ISO-8859-10,ISO-8859-13,ISO-8859-14,ISO-8859-15');
+				$charset = self::detectCharset($title.' '.$excerpt.' '.$blog_name);
 			}
 			
 			if (strtolower($charset) != 'utf-8') {
@@ -243,36 +292,9 @@ class dcTrackback
 			$blog_name = html::escapeHTML($blog_name);
 			$blog_name = text::cutString($blog_name,60);
 			
-			$url = trim(html::clean($url));
-			
-			if (!$blog_name) {
-				$blog_name = 'Anonymous blog';
-			}
-			
-			$comment =
-			"<!-- TB -->\n".
-			'<p><strong>'.($title ? $title : $blog_name)."</strong></p>\n".
-			'<p>'.$excerpt.'</p>';
-			
-			$cur = $this->core->con->openCursor($this->core->prefix.'comment');
-			$cur->comment_author = (string) $blog_name;
-			$cur->comment_site = (string) $url;
-			$cur->comment_content = (string) $comment;
-			$cur->post_id = $post_id;
-			$cur->comment_trackback = 1;
-			$cur->comment_status = $this->core->blog->settings->system->trackbacks_pub ? 1 : -1;
-			$cur->comment_ip = http::realIP();
-			
 			try
 			{
-				# --BEHAVIOR-- publicBeforeTrackbackCreate
-				$this->core->callBehavior('publicBeforeTrackbackCreate',$cur);
-				if ($cur->post_id) {
-					$comment_id = $this->core->blog->addComment($cur);
-					
-					# --BEHAVIOR-- publicAfterTrackbackCreate
-					$this->core->callBehavior('publicAfterTrackbackCreate',$cur,$comment_id);
-				}
+				$this->addBacklink($post_id, $url, $blog_name, $title, $excerpt, $comment);
 			}
 			catch (Exception $e)
 			{
@@ -280,17 +302,6 @@ class dcTrackback
 				$msg = 'Something went wrong : '.$e->getMessage();
 			}
 		}
-		
-		
-		$debug_trace =
-		"  <debug>\n".
-		'    <title>'.$title."</title>\n".
-		'    <excerpt>'.$excerpt."</excerpt>\n".
-		'    <url>'.$url."</url>\n".
-		'    <blog_name>'.$blog_name."</blog_name>\n".
-		'    <charset>'.$charset."</charset>\n".
-		'    <comment>'.$comment."</comment>\n".
-		"  </debug>\n";
 		
 		$resp =
 		'<?xml version="1.0" encoding="utf-8"?>'."\n".
@@ -302,7 +313,15 @@ class dcTrackback
 		}
 		
 		if (!empty($_POST['__debug'])) {
-			$resp .= $debug_trace;
+			$resp .= 
+			"  <debug>\n".
+			'    <title>'.$title."</title>\n".
+			'    <excerpt>'.$excerpt."</excerpt>\n".
+			'    <url>'.$url."</url>\n".
+			'    <blog_name>'.$blog_name."</blog_name>\n".
+			'    <charset>'.$charset."</charset>\n".
+			'    <comment>'.$comment."</comment>\n".
+			"  </debug>\n";
 		}
 		
 		echo	$resp."</response>";
@@ -361,6 +380,10 @@ class dcTrackback
 			throw new Exception(__('Sorry, dude. This entry does not accept pingback at the moment.'), 33);
 		}
 
+		if ($this->pingAlreadyDone($posts->post_id, $from_url)) {
+			throw new Exception(__('Don\'t repeat yourself, please.'), 48);
+		}
+		
 		# OK. We've found our champion. Time to check the remote part.
 		try {
 			$http = self::initHttp($from_url, $from_path);
@@ -380,11 +403,12 @@ class dcTrackback
 			$http->get($from_path);
 			$remote_content = $http->getContent();
 
-			$charset = mb_detect_encoding($remote_content,
-				'UTF-8,ISO-8859-1,ISO-8859-2,ISO-8859-3,'.
-				'ISO-8859-4,ISO-8859-5,ISO-8859-6,ISO-8859-7,ISO-8859-8,'.
-				'ISO-8859-9,ISO-8859-10,ISO-8859-13,ISO-8859-14,ISO-8859-15');
+			$charset = self::getCharsetFromRequest($http->getHeader('content-type'));
 
+			if (!$charset) {
+				$charset = self::detectCharset($remote_content);
+			}
+			
 			if (strtolower($charset) != 'utf-8') {
 				$remote_content = iconv($charset,'UTF-8',$remote_content);
 			}
@@ -415,34 +439,13 @@ class dcTrackback
 				}
 			}
 			if ($excerpt) {
-				$excerpt = '(&#8230;) '.text::cutString(html::escapeHTML($excerpt),255).' (&#8230;)';
+				$excerpt = '(&#8230;) '.text::cutString(html::escapeHTML($excerpt),200).' (&#8230;)';
 			}
 			else {
-				$excerpt = '(??)';
+				$excerpt = '(&#8230;)';
 			}
 
-			$comment =
-			"<!-- TB -->\n".
-			'<p><strong>'.$title."</strong></p>\n".
-			'<p>'.$excerpt.'</p>';
-			
-			$cur = $this->core->con->openCursor($this->core->prefix.'comment');
-			$cur->comment_author = 'Anonymous blog';
-			$cur->comment_site = (string) $from_url;
-			$cur->comment_content = (string) $comment;
-			$cur->post_id = $posts->post_id;
-			$cur->comment_trackback = 1;
-			$cur->comment_status = $this->core->blog->settings->system->trackbacks_pub ? 1 : -1;
-			$cur->comment_ip = http::realIP();
-			
-			# --BEHAVIOR-- publicBeforeTrackbackCreate
-			$this->core->callBehavior('publicBeforeTrackbackCreate',$cur);
-			if ($cur->post_id) {
-				$comment_id = $this->core->blog->addComment($cur);
-				
-				# --BEHAVIOR-- publicAfterTrackbackCreate
-				$this->core->callBehavior('publicAfterTrackbackCreate',$cur,$comment_id);
-			}
+			$this->addBacklink($posts->post_id, $from_url, '', $title, $excerpt, $comment);
 		}
 		catch (Exception $e) {
 			throw new Exception(__('Sorry, an internal problem has occured.'), 0);
@@ -463,18 +466,29 @@ class dcTrackback
 		return $client;
 	}
 	
-	private static function getCharsetFromRequest()
+	private static function getCharsetFromRequest($header = '')
 	{
-		if (isset($_SERVER['CONTENT_TYPE']))
-		{
-			if (preg_match('|charset=([a-zA-Z0-9-]+)|',$_SERVER['CONTENT_TYPE'],$m)) {
+		if (!$header && isset($_SERVER['CONTENT_TYPE'])) {
+			$header = $_SERVER['CONTENT_TYPE'];
+		}
+		
+		if ($header) {
+			if (preg_match('|charset=([a-zA-Z0-9-]+)|',$header,$m)) {
 				return $m[1];
 			}
 		}
 		
 		return null;
 	}
-	
+
+	private static function detectCharset($string)
+	{
+		return mb_detect_encoding($remote_content,
+				'UTF-8,ISO-8859-1,ISO-8859-2,ISO-8859-3,'.
+				'ISO-8859-4,ISO-8859-5,ISO-8859-6,ISO-8859-7,ISO-8859-8,'.
+				'ISO-8859-9,ISO-8859-10,ISO-8859-13,ISO-8859-14,ISO-8859-15');
+	}
+		
 	/// @name Trackbacks auto discovery
 	//@{
 	/**
