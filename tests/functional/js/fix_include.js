@@ -7,3 +7,5 @@ dotclear.img_minus_alt = 'hide';
 jQuery.cookie = function() {};
 jQuery.fn.backgroundFade = function() {};
 
+dotclear.msg.confirm_delete_posts = 'confirm %s delete';
+dotclear.msg.confirm_delete_comments = 'confirm %s delete';
