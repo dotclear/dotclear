@@ -198,7 +198,7 @@ class dcBlog
 	
 	/**
 	Updates comments and trackbacks counters in post table. Should be called
-	every time comments or trackbacks are added, removed or changed there status.
+	every time comments or trackbacks are added, removed or changed their status.
 	
 	@param	ids		<b>mixed</b>		Comment(s) ID(s)
 	@param	del		<b>boolean</b>		If comment is delete, set this to true
@@ -1879,6 +1879,7 @@ class dcBlog
 	- post_id: (integer) Get comments belonging to given post_id
 	- cat_id: (integer or array) Get comments belonging to entries of given category ID
 	- comment_id: (integer) Get comment with given ID
+	- comment_site: (string) Get comments with given comment_site
 	- comment_status: (integer) Get comments with given comment_status
 	- comment_trackback: (integer) Get only comments (0) or trackbacks (1)
 	- comment_ip: (string) Get comments with given IP address
@@ -1968,6 +1969,11 @@ class dcBlog
 		
 		if (isset($params['comment_id']) && $params['comment_id'] !== '') {
 			$strReq .= 'AND comment_id = '.(integer) $params['comment_id'].' ';
+		}
+		
+		if (isset($params['comment_site'])) {
+			$comment_site = $this->con->escape(str_replace('*','%',$params['comment_site']));
+			$strReq .= "AND comment_site LIKE '".$comment_site."' ";
 		}
 		
 		if (isset($params['comment_status'])) {

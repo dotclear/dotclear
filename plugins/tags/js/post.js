@@ -59,7 +59,7 @@ $(function() {
 	});
 
 	$('h5 .s-tags').toggleWithLegend($('.s-tags').not('label'),{
-		cookie: 'post_tags',
+		user_pref: 'post_tags',
 		legend_clik: true
 	});
 

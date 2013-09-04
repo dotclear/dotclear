@@ -1,4 +1,4 @@
-describe("Permissions feature", function() {
+describe("updatePermissionsForm method (admin/js/_users_actions.js)", function() {
     it("Click admin persmission must checked all associated permissions", function() {
 	loadFixtures('normal.html');
 	$('#permissions-form').updatePermissionsForm();
