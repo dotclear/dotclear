@@ -3323,3 +3323,6 @@ msgstr "Il n'existe pas de répertoire /public/ à l'endroit spécifié pour le 
 
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Il n'existe pas de répertoire principal accessible en écriture pour la médiathèque. Vous devriez contacter votre administrateur."
+
+msgid "You do not have sufficient permissions to write to this folder."
+msgstr "Vous n'avez pas les droits suffisants pour écrire dans ce répertoire."

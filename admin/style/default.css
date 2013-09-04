@@ -796,7 +796,7 @@ li.media-action form {
 li.media-action input {
 	border: none;
 }
-.media-item, .media-action-box {
+.media-item {
 	position: relative;
 	border: 1px solid #ccc;
 	margin: 1em;
@@ -805,6 +805,20 @@ li.media-action input {
 	display: inline-block;
 	vertical-align: top;
 	min-height: 120px
+}
+.media-action-box {
+	position: relative;
+	margin: 1em 3em 1em;
+	display: inline-block;
+	vertical-align: top;
+	min-height: 120px
+}
+.media-action-box h4 {
+	font-size: 1em;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #333;
+	margin-top: 2em;
 }
 a.media-icon {
 	display: block;
@@ -1168,12 +1182,12 @@ body.popup #footer p {
 	border: none;
 }
 /* ------------------------------------------------------------------ messages */
-.error, .message, .static-msg, .static-msg, .success {
+.error, .message, .static-msg, .success, .warning-msg {
 	padding: 1em 0.5em 0.5em 48px;
 	margin-bottom: 1em;
 	border-radius: 8px;
 }
-p.error, p.message, p.static-msg, p.success {
+p.error, p.message, p.static-msg, p.success, p.warning-msg {
 	padding-top: 1em;
 	padding-bottom: 1em;
 }
@@ -1189,10 +1203,15 @@ p.error, p.message, p.static-msg, p.success {
 	background: #bee74b url(msg-success.png) no-repeat .7em .7em;
 	color: #000;
 }
+.warning-msg {
+	background: #ffd url(msg-warning.png) no-repeat .7em .7em;
+	color: #666;
+	border: 1px solid #f0c020;
+}
 .message a, .static-msg a {
 	color: #fff;
 }
-.success a {
+.success a, .warning-msg a {
 	color: #666;
 }
 .dc-update {

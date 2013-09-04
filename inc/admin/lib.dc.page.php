@@ -331,6 +331,11 @@ class dcPage
 		self::message($msg,$timestamp,$div,$echo,"success");
 	}
 
+	public static function warning($msg,$timestamp=true,$div=false,$echo=true)
+	{
+		self::message($msg,$timestamp,$div,$echo,"warning-msg");
+	}
+
 	private static function debugInfo()
 	{
 		$global_vars = implode(', ',array_keys($GLOBALS));
