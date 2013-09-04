@@ -3311,3 +3311,15 @@ msgstr "Billets"
 
 msgid "%1$s: %2$s"
 msgstr "%1$s : %2$s"
+
+msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
+msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devez créer ce répertoire avec les droits suffisants et affecter celui-ci à \"DC_TPL_CACHE\" dans le fichier inc/config.php."
+
+msgid "The cache directory does not exist or is not writable. You should contact your administrator."
+msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devriez contacter votre administrateur."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "Il n'existe pas de répertoire /public/ à l'endroit spécifié pour le réglage \"public_path\" dans about:config. Vous devez créer ce répertoire avec les droits suffisants (ou changer ce réglage)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Il n'existe pas de répertoire principal accessible en écriture pour la médiathèque. Vous devriez contacter votre administrateur."
