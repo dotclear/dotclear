@@ -256,17 +256,25 @@ if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
 $err = array();
 
 # Check cache directory
-if (!is_dir(DC_TPL_CACHE)) {
-	$err[] = '<p>'.sprintf(__('Cache directory %s does not exist.'),DC_TPL_CACHE).'</p>';
-} else if (!is_writable(DC_TPL_CACHE)) {
-	$err[] = '<p>'.sprintf(__('Cache directory %s is not writable.'),DC_TPL_CACHE).'</p>';
+if ( $core->auth->isSuperAdmin() ) {
+	if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
+		$err[] = '<p>'.__("The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file.").'</p>';
+	}
+} else {
+	if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
+		$err[] = '<p>'.__("The cache directory does not exist or is not writable. You should contact your administrator.").'</p>';
+	}
 }
 
 # Check public directory
-if (!is_dir($core->blog->public_path)) {
-	$err[] = '<p>'.sprintf(__('Directory %s does not exist.'),$core->blog->public_path).'</p>';
-} else if (!is_writable($core->blog->public_path)) {
-	$err[] = '<p>'.sprintf(__('Directory %s is not writable.'),$core->blog->public_path).'</p>';
+if ( $core->auth->isSuperAdmin() ) {
+	if (!is_dir($core->blog->public_path) || !is_writable($core->blog->public_path)) {
+		$err[] = '<p>'.__("There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting).").'</p>';
+	}
+} else {
+	if (!is_dir($core->blog->public_path) || !is_writable($core->blog->public_path)) {
+		$err[] = '<p>'.__("There is no writable root directory for the media manager. You should contact your administrator.").'</p>';
+	}
 }
 
 # Error list
