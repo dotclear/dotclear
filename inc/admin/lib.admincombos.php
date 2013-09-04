@@ -97,25 +97,26 @@ class dcAdminCombos {
 	@return	<b>array</b> the combo box (form::combo -compatible format)
 	*/	
 	public static function getLangsCombo($langs,$with_available=false) {
+		$all_langs = l10n::getISOcodes(0,1);
 		if ($with_available) {
-			$all_langs = l10n::getISOcodes(0,1);
-			$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
+			$langs_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
 			while ($langs->fetch()) {
 				if (isset($all_langs[$langs->post_lang])) {
-					$lang_combo[__('Most used')][$all_langs[$langs->post_lang]] = $langs->post_lang;
-					unset($lang_combo[__('Available')][$all_langs[$langs->post_lang]]);
+					$langs_combo[__('Most used')][$all_langs[$langs->post_lang]] = $langs->post_lang;
+					unset($langs_combo[__('Available')][$all_langs[$langs->post_lang]]);
 				} else {
-					$lang_combo[__('Most used')][$langs->post_lang] = $langs->post_lang;
+					$langs_combo[__('Most used')][$langs->post_lang] = $langs->post_lang;
 				}
 			}
-			unset($all_langs);
 		} else {
-			$lang_combo = array();
+			$langs_combo = array();
 			while ($langs->fetch()) {
-				$lang_combo[$langs->post_lang] = $langs->post_lang;
+				$lang_name = isset($all_langs[$langs->post_lang]) ? $all_langs[$langs->post_lang] : $langs->post_lang;
+				$langs_combo[$lang_name] = $langs->post_lang;
 			}
 		}
-		return $lang_combo;
+		unset($all_langs);
+		return $langs_combo;
 	}
 	
 	/**
