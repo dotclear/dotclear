@@ -153,7 +153,7 @@ $(function() {
 			legend_click: true
 		});
 		$('#label_comment_tb').toggleWithLegend($('#label_comment_tb').parent().children().not('#label_comment_tb'),{
-			cookie: 'dcx_comment_tb',
+			user_pref: 'dcx_comment_tb',
 			legend_click: true
 		});
 		$('#post_url').parent().children('label').toggleWithLegend($('#post_url').parent().children().not('label'),{
