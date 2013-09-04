@@ -59,16 +59,10 @@ else
 }
 
 # Language codes
-$langs = l10n::getISOcodes(1,1);
-foreach ($langs as $k => $v) {
-	$lang_avail = $v == 'en' || is_dir(DC_L10N_ROOT.'/'.$v);
-	$lang_combo[] = new formSelectOption($k,$v,$lang_avail ? 'avail10n' : '');
-}
+$lang_combo = dcAdminCombos::getAdminLangsCombo();
 
 # Status combo
-foreach ($core->getAllBlogStatus() as $k => $v) {
-	$status_combo[$v] = (string) $k;
-}
+$status_combo = dcAdminCombos::getBlogStatusescombo();
 
 # URL scan modes
 $url_scan_combo = array(
