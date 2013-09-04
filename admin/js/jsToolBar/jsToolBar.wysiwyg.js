@@ -42,17 +42,21 @@ jsToolBar.prototype.draw = function(mode) {
 };
 
 jsToolBar.prototype.switchMode = function(mode) {
-	mode = mode || 'xhtml';
-	
 	if (mode == 'xhtml') {
 		this.draw(mode);
-	} else {
+	} else if (mode == 'wiki')  {
 		if (this.wwg_mode) {
 			this.syncContents('iframe');
 		}
 		this.removeEditor();
 		this.textarea.style.display = '';
 		this.drawToolBar(mode);
+	} else {
+		this.removeEditor();
+		this.textarea.style.display = '';
+		while (this.toolbar.hasChildNodes()) {
+			this.toolbar.removeChild(this.toolbar.firstChild)
+		}
 	}
 };
 
