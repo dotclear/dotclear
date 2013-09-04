@@ -363,18 +363,9 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 	if ($core->auth->check('usage,contentadmin',$core->blog->id))
 	{
 		# Getting categories
-		$categories_combo = array(__('(No cat)') => '');
-		try {
-			$categories = $core->blog->getCategories(array('post_type'=>'post'));
-			if (!$categories->isEmpty()) {
-				while ($categories->fetch()) {
-					$catparents_combo[] = $categories_combo[] = new formSelectOption(
-						str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-						$categories->cat_id
-					);
-				}
-			}
-		} catch (Exception $e) { }
+		$categories_combo = dcAdminCombos::getCategoriesCombo(
+			$core->blog->getCategories(array('post_type'=>'post'))
+		);
 	
 		echo
 		'<div id="quick">'.

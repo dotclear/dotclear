@@ -50,42 +50,20 @@ if (!$can_publish) {
 }
 
 # Getting categories
-$categories_combo = array('&nbsp;' => '');
-try {
-	$categories = $core->blog->getCategories(array('post_type'=>'post'));
-	while ($categories->fetch()) {
-		$categories_combo[] = new formSelectOption(
-			str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-			$categories->cat_id
-	);
-	}
-} catch (Exception $e) { }
+$categories_combo = dcAdminCombos::getCategoriesCombo(
+	$core->blog->getCategories(array('post_type'=>'post'))
+);
 
-# Status combo
-foreach ($core->blog->getAllPostStatus() as $k => $v) {
-	$status_combo[$v] = (string) $k;
-}
+$status_combo = dcAdminCombos::getPostStatusesCombo();
+
 $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
 # Formaters combo
-foreach ($core->getFormaters() as $v) {
-	$formaters_combo[$v] = $v;
-}
+$formaters_combo = dcAdminCombos::getFormatersCombo();
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
-$all_langs = l10n::getISOcodes(0,1);
-$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
-while ($rs->fetch()) {
-	if (isset($all_langs[$rs->post_lang])) {
-		$lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
-		unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
-	} else {
-		$lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
-	}
-}
-unset($all_langs);
-unset($rs);
+$lang_combo = dcAdminCombos::getLangsCombo($rs,true);
 
 # Validation flag
 $bad_dt = false;
@@ -304,19 +282,9 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 }
 
 # Getting categories
-$categories_combo = array(__('(No cat)') => '');
-try {
-	$categories = $core->blog->getCategories(array('post_type'=>'post'));
-	if (!$categories->isEmpty()) {
-		while ($categories->fetch()) {
-			$catparents_combo[] = $categories_combo[] = new formSelectOption(
-				str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-				$categories->cat_id
-			);
-		}
-	}
-} catch (Exception $e) { }
-
+$categories_combo = dcAdminCombos::getCategoriesCombo(
+	$core->blog->getCategories(array('post_type'=>'post'))
+);
 /* DISPLAY
 -------------------------------------------------------- */
 $default_tab = 'edit-entry';

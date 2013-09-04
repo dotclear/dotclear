@@ -46,33 +46,21 @@ try {
 if (!$core->error->flag())
 {
 	# Filter form we'll put in html_block
-	$users_combo = $categories_combo = array();
-	$users_combo['-'] = $categories_combo['-'] = '';
-	while ($users->fetch())
-	{
-		$user_cn = dcUtils::getUserCN($users->user_id,$users->user_name,
-		$users->user_firstname,$users->user_displayname);
-		
-		if ($user_cn != $users->user_id) {
-			$user_cn .= ' ('.$users->user_id.')';
-		}
-		
-		$users_combo[$user_cn] = $users->user_id; 
-	}
-	
-	$categories_combo[__('(No cat)')] = 'NULL';
-	while ($categories->fetch()) {
-		$categories_combo[str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').
-			html::escapeHTML($categories->cat_title).
-			' ('.$categories->nb_post.')'] = $categories->cat_id;
-	}
-	
-	$status_combo = array(
-	'-' => ''
+	$users_combo = array_merge(
+		array('-' => ''),
+		dcAdminCombos::getUsersCombo($users)
 	);
-	foreach ($core->blog->getAllPostStatus() as $k => $v) {
-		$status_combo[$v] = (string) $k;
-	}
+
+	$categories_combo = array_merge(
+		array('-' => ''),
+		dcAdminCombos::getCategoriesCombo($categories)
+	);
+	$categories_combo[__('(No cat)')] = 'NULL';
+	
+	$status_combo = array_merge(
+		array('-' => ''),
+		dcAdminCombos::getPostStatusesCombo()	
+	);
 	
 	$selected_combo = array(
 	'-' => '',
@@ -81,15 +69,15 @@ if (!$core->error->flag())
 	);
 	
 	# Months array
-	$dt_m_combo['-'] = '';
-	while ($dates->fetch()) {
-		$dt_m_combo[dt::str('%B %Y',$dates->ts())] = $dates->year().$dates->month();
-	}
+	$dt_m_combo = array_merge(
+		array('-' => ''),
+		dcAdminCombos::getDatesCombo($dates)
+	);
 	
-	$lang_combo['-'] = '';
-	while ($langs->fetch()) {
-		$lang_combo[$langs->post_lang] = $langs->post_lang;
-	}
+	$lang_combo = array_merge(
+		array('-' => ''),
+		dcAdminCombos::getLangsCombo($langs,false)	
+	);
 	
 	$sortby_combo = array(
 	__('Date') => 'post_dt',
