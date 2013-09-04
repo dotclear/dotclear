@@ -78,7 +78,7 @@ $(function() {
 		}
 	});
 
-	var $container = $('#fileupload').parent().parent();
+	var $container = $('#fileupload').parent();
 	var $msg,label;
 
 	if ($container.hasClass('enhanced_uploader')) {
