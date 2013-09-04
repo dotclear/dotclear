@@ -1,126 +1,133 @@
-$(function() {
-	if ($('#fileupload').length==0) {
-		return;
-	}
+(function($) {
+	$.fn.enhancedUploader = function() {
+		return this.each(function() {
+			var me = $(this);
 
-	function enableButton(button) {
-		button.prop('disabled',false).removeClass('disabled');
-	}
+			function enableButton(button) {
+				button.prop('disabled',false).removeClass('disabled');
+			}
 
-	function disableButton(button) {
-		button.prop('disabled',true).addClass('disabled');
-	}
+			function disableButton(button) {
+				button.prop('disabled',true).addClass('disabled');
+			}
+			
+			function displayMessageInQueue(n) {
+				var msg = '';
+				if (n==1) {
+					msg = dotclear.jsUpload.msg.file_in_queue;
+				} else if (n>1) {
+					msg = dotclear.jsUpload.msg.files_in_queue;
+					msg = msg.replace(/%d/,n);
+				} else {
+					msg = dotclear.jsUpload.msg.no_file_in_queue;
+				}
+				$('.queue-message',me).html(msg);
+			}
+			
+			$('.button.add').click(function(e) {
+				// Use the native click() of the file input.
+				$('#upfile').click();
+				e.preventDefault();
+			});
+			
+			$('.button.cancel', '#fileupload .fileupload-buttonbar').click(function(e) {
+				$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
+				disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+				displayMessageInQueue(0);
+			});
+			
+			$('.cancel').live('click', function(e) {
+				if ($('.fileupload-ctrl .files .template-upload', me).length==0) {
+					$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
+					disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+				}
+				displayMessageInQueue($('.files .template-upload',me).length);
+			});
+			
+			$('.button.clean', me).click(function(e) {
+				$('.fileupload-ctrl .files .template-download', me).slideUp(500, function() {
+					$(this).remove();
+				});
+				$(this).hide();
+				e.preventDefault();
+			});
+			
+			$(me).fileupload({
+				url: $(me).attr('action'),
+				autoUpload: false,
+				sequentialUploads: true,
+				uploadTemplateId: null,
+				downloadTemplateId: null,
+				uploadTemplate: template_upload,
+				downloadTemplate: template_download
+			}).bind('fileuploadadd', function(e, data) {
+				$('.button.cancel','#fileupload .fileupload-buttonbar').show();
+				enableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+			}).bind('fileuploadadded', function(e, data) {
+				displayMessageInQueue($('.files .template-upload',me).length);
+			}).bind('fileuploaddone', function(e, data) {
+				if (data.result.files[0].html !==undefined) {
+					$('.media-list p.clear').before(data.result.files[0].html);
+				}
+				$('.button.clean',me).show();
+			}).bind('fileuploadalways', function(e, data) {
+				displayMessageInQueue($('.files .template-upload',me).length);
+				if ($('.fileupload-ctrl .files .template-upload',me).length==0) {
+					$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
+					disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+				}
+			});
+			
+			var $container = $(me).parent();
+			var $msg,label;
 
-	function displayMessageInQueue(n) {
-		var msg = '';
-		if (n==1) {
-			msg = dotclear.jsUpload.msg.file_in_queue;
-		} else if (n>1) {
-			msg = dotclear.jsUpload.msg.files_in_queue;
-			msg = msg.replace(/%d/,n);
-		} else {
-			msg = dotclear.jsUpload.msg.no_file_in_queue;
-		}
-		$('.queue-message','#fileupload').html(msg);
-	}
+			if ($container.hasClass('enhanced_uploader')) {
+				$msg = dotclear.msg.enhanced_uploader_disable;
+				label = dotclear.jsUpload.msg.choose_files;
+				$(me).fileupload({disabled:false});
+				displayMessageInQueue(0);
+				disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+			} else {
+				$msg = dotclear.msg.enhanced_uploader_activate;
+				label = dotclear.jsUpload.msg.choose_file;
+			}
 
-	$('.button.add').click(function(e) {
-		// Use the native click() of the file input.
-		$('#upfile').click();
-		e.preventDefault();
-	});
-
-	$('.button.cancel', '#fileupload .fileupload-buttonbar').click(function(e) {
-		$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
-		disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
-		displayMessageInQueue(0);
-	});
-
-	$('.cancel').live('click', function(e) {
-		if ($('.fileupload-ctrl .files .template-upload', '#fileupload').length==0) {
-			$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
-			disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
-		}
-		displayMessageInQueue($('.files .template-upload','#fileupload').length);
-	});
-
-	$('.button.clean', '#fileupload').click(function(e) {
-		$('.fileupload-ctrl .files .template-download', '#fileupload').slideUp(500, function() {
-			$(this).remove();
+			$('<p class="clear"><a class="enhanced-toggle" href="#">' + $msg + '</a></p>').click(function() {
+				if ($container.hasClass('enhanced_uploader')) {
+					$msg = dotclear.msg.enhanced_uploader_activate;
+					label = dotclear.jsUpload.msg.choose_file;
+					$('#upfile').attr('multiple', false);
+					enableButton($('.button.start','#fileupload .fileupload-buttonbar'));
+					
+					// when a user has clicked enhanced_uploader, and has added files
+					// We must remove files in table
+					$('.files .upload-file', me).remove();
+					$('.button.cancel,.button.clean','#fileupload .fileupload-buttonbar').hide();
+					$(me).fileupload({disabled:true});
+					$('.queue-message',me).html('').hide();
+				} else {
+					$msg = dotclear.msg.enhanced_uploader_disable;
+					label = dotclear.jsUpload.msg.choose_files;
+					$('#upfile').attr('multiple', true);
+					var startButton = $('.button.start','#fileupload .fileupload-buttonbar');
+					disableButton(startButton);
+					startButton.show();
+					$(me).fileupload({disabled:false});
+					$('.queue-message',me).show();
+					displayMessageInQueue(0);
+				}
+				$(this).find('a').text($msg);
+				$('.add-label', me).text(label);
+				
+				$container.toggleClass('enhanced_uploader');
+			}).appendTo(me);
 		});
-		$(this).hide();
-		e.preventDefault();
-	});
+	};
+})(jQuery);
 
-	$('#fileupload').fileupload({
-		url: $('#fileupload').attr('action'),
-		autoUpload: false,
-		sequentialUploads: true,
-		uploadTemplateId: null,
-		downloadTemplateId: null,
-		uploadTemplate: template_upload,
-		downloadTemplate: template_download
-	}).bind('fileuploadadd', function(e, data) {
-		$('.button.cancel','#fileupload .fileupload-buttonbar').show();
-		enableButton($('.button.start','#fileupload .fileupload-buttonbar'));
-	}).bind('fileuploadadded', function(e, data) {
-		displayMessageInQueue($('.files .template-upload','#fileupload').length);
-	}).bind('fileuploaddone', function(e, data) {
-		if (data.result.files[0].html !==undefined) {
-			$('.media-list p.clear').before(data.result.files[0].html);
-		}
-		$('.button.clean','#fileupload').show();
-	}).bind('fileuploadalways', function(e, data) {
-		displayMessageInQueue($('.files .template-upload','#fileupload').length);
-		if ($('.fileupload-ctrl .files .template-upload','#fileupload').length==0) {
-			$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
-			disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
-		}
-	});
 
-	var $container = $('#fileupload').parent();
-	var $msg,label;
-
-	if ($container.hasClass('enhanced_uploader')) {
-		$msg = dotclear.msg.enhanced_uploader_disable;
-		label = dotclear.jsUpload.msg.choose_files;
-		$('#fileupload').fileupload({disabled:false});
-		displayMessageInQueue(0);
-		disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
-	} else {
-		$msg = dotclear.msg.enhanced_uploader_activate;
-		label = dotclear.jsUpload.msg.choose_file;
-	}
-
-	$('<p class="clear"><a class="enhanced-toggle" href="#">' + $msg + '</a></p>').click( function() {
-		if ($container.hasClass('enhanced_uploader')) {
-			$msg = dotclear.msg.enhanced_uploader_activate;
-			label = dotclear.jsUpload.msg.choose_file;
-			$('#upfile').attr('multiple', false);
-			enableButton($('.button.start','#fileupload .fileupload-buttonbar'));
-
-			// when a user has clicked enhanced_uploader, and has added files
-			// We must remove files in table
-			$('.files .upload-file', '#fileupload').remove();
-			$('.button.cancel,.button.clean','#fileupload .fileupload-buttonbar').hide();
-			$('#fileupload').fileupload({disabled:true});
-			$('.queue-message','#fileupload').html('').hide();
-		} else {
-			$msg = dotclear.msg.enhanced_uploader_disable;
-			label = dotclear.jsUpload.msg.choose_files;
-			$('#upfile').attr('multiple', true);
-			var startButton = $('.button.start','#fileupload .fileupload-buttonbar');
-			disableButton(startButton);
-			startButton.show();
-			$('#fileupload').fileupload({disabled:false});
-			$('.queue-message','#fileupload').show();
-			displayMessageInQueue(0);
-		}
-		$(this).find('a').text($msg);
-		$('.add-label', '#fileupload').text(label);
-
-		$container.toggleClass('enhanced_uploader');
-	}).appendTo($('#fileupload'));
+$(function() {
+	$('#fileupload').enhancedUploader();
 
 	// Replace remove links by a POST on hidden form
 	fileRemoveAct();
