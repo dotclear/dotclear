@@ -97,6 +97,7 @@ $(function() {
 			$msg = dotclear.msg.enhanced_uploader_activate;
 			label = dotclear.jsUpload.msg.choose_file;
 			$('#upfile').attr('multiple', false);
+			enableButton($('.button.start','#fileupload .fileupload-buttonbar'));
 
 			// when a user has clicked enhanced_uploader, and has added files
 			// We must remove files in table
