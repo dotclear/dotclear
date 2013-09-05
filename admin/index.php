@@ -301,27 +301,6 @@ if (!empty($plugins_install['failure']))
 	}
 	echo '</ul></div>';
 }
-
-# Dashboard columns (processed first, as we need to know the result before displaying the icons.)
-$dashboardItems = '';
-
-# Dotclear updates notifications
-if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
-{
-	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
-	$new_v = $updater->check(DC_VERSION);
-	$version_info = $new_v ? $updater->getInfoURL() : '';
-	
-	if ($updater->getNotify() && $new_v) {
-		$dashboardItems .=
-		'<div id="upg-notify" class="static-msg"><p>'.sprintf(__('Dotclear %s is available!'),$new_v).'</p> '.
-		'<ul><li><strong><a href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a></strong>'.
-		'</li><li><a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
-		($version_info ? ' </li><li>'.sprintf(__('<a href=\"%s\">Information about this version</a>.'),$version_info) : '').
-		'</li></ul></div>';
-	}
-}
-
 # Errors modules notifications
 if ($core->auth->isSuperAdmin())
 {
@@ -331,12 +310,14 @@ if ($core->auth->isSuperAdmin())
 	}
 	
 	if (count($list) > 0) {
-		$dashboardItems .=
-		'<div id="module-errors" class="error"><p>'.__('Some plugins are installed twice:').'</p> '.
+		echo 
+		'<div class="error" id="module-errors" class="error"><p>'.__('Some plugins are installed twice:').'</p> '.
 		'<ul>'.implode("\n",$list).'</ul></div>';
 	}
-	
 }
+
+# Dashboard columns (processed first, as we need to know the result before displaying the icons.)
+$dashboardItems = '';
 
 foreach ($__dashboard_items as $i)
 {	
