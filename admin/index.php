@@ -143,12 +143,12 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 		$feed = $feed_reader->parse($__resources['rss_news']);
 		if ($feed)
 		{
-			$latest_news = '<h3>'.__('Latest news').'</h3><dl id="news">';
+			$latest_news = '<h3>'.__('Dotclear news').'</h3><dl id="news">';
 			$i = 1;
 			foreach ($feed->items as $item)
 			{
-				$dt = isset($item->link) ? '<a href="'.$item->link.'" title="'.$item->title.' '.__('(external link)').'">'.
-					$item->title.'</a>' : $item->title;
+				$dt = isset($item->link) ? '<a href="'.$item->link.'" title="'.$item->title.' ('.__('new window').')">'.
+					$item->title.' <img src="images/outgoing-blue.png" alt="" /></a>' : $item->title;
 			
 				if ($i < 3) {
 					$latest_news .=
@@ -178,7 +178,8 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
 		$doc_links = '<h3>'.__('Documentation and support').'</h3><ul>';
 	
 		foreach ($__resources['doc'] as $k => $v) {
-			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' '.__('(external link)').'">'.$k.'</a></li>';
+			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' ('.__('new window').')">'.$k.
+			' <img src="images/outgoing-blue.png" alt="" /></a></li>';
 		}
 	
 		$doc_links .= '</ul>';
@@ -341,7 +342,7 @@ foreach ($__dashboard_items as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardItems .= '<div class="db-item">';
+		$dashboardItems .= '<div class="db-box">';
 		foreach ($i as $v) {
 			$dashboardItems .= $v;
 		}
@@ -350,7 +351,7 @@ foreach ($__dashboard_items as $i)
 }
 
 # Dashboard icons
-echo '<div id="dashboard-main"'.($dashboardItems ? '' : ' class="fullwidth"').'><div id="icons">';
+echo '<div id="dashboard-main"><div id="icons">';
 foreach ($__dashboard_icons as $i)
 {
 	echo
@@ -412,18 +413,26 @@ foreach ($__dashboard_contents as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardContents .= '<div>';
+		$dashboardContents .= '<div class="db-box">';
 		foreach ($i as $v) {
 			$dashboardContents .= $v;
 		}
 		$dashboardContents .= '</div>';
 	}
 }
-echo ($dashboardContents ? '<div id="dashboard-contents">'.$dashboardContents.'</div>' : '');
+
+$class = ' '.(($dashboardItems != '') && ($dashboardContents != '') ? 'two-db' : 'one-db');
+
+if ($dashboardContents != '' || $dashboardItems != '') {
+	echo 
+	'<div id="dashboard-widgets">';
+		echo ($dashboardContents ? '<div class="db-contents'.$class.'">'.$dashboardContents.'</div>' : '');
+		echo ($dashboardItems ? '<div class="db-items'.$class.'">'.$dashboardItems.'</div>' : '');
+	echo
+	'</div>';		
+}
 
 echo '</div>';
-
-echo ($dashboardItems ? '<div id="dashboard-items">'.$dashboardItems.'</div>' : '');
 
 dcPage::close();
 ?>
