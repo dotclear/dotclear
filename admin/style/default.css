@@ -29,7 +29,7 @@ body {
 a, a:link, a:visited {
 	color: #2373A8;
 	text-decoration: none;
-	border-bottom: 1px dotted #f90;
+	border-bottom: 1px dotted #999;
 }
 a:hover, a:active, a:focus {
 	text-decoration: underline;
@@ -352,7 +352,7 @@ abbr {
 #main-menu li {
 	display: block;
 	margin: 0.5em 0 0;
-	padding: 3px 0 0 30px;
+	padding: 4px 0 1px 32px;
 	background-repeat: no-repeat;
 	background-position: 8px .3em;
 }
@@ -360,7 +360,7 @@ abbr {
 	margin-top: 0;
 }
 #main-menu li.active {
-	background-color: #fff;
+background-color: #fff;
 }
 #main-menu a {
 	color: #333;
@@ -368,6 +368,7 @@ abbr {
 }
 #main-menu .active a {
 	border-bottom: none;
+	color: #2373A8;
 	color: #d30e60;
 }
 #main-menu .active {
@@ -403,7 +404,7 @@ abbr {
 	height: 2.2rem;
 }
 #qx:focus {
-	border: 2px solid #bee74b;
+	border-color: #bee74b;
 }
 #search-menu input[type="submit"] {
 	padding: 0 3px;
@@ -564,31 +565,45 @@ abbr {
 #quick #new_cat {
 	margin-bottom: 2em;
 }
-#dashboard-items {
-	margin: 3em auto;
-	display: table;
-	width: 100%;
-	border-collapse: collapse;
+#dashboard-widgets {
+	margin: 2em auto;
 }
-.db-item {
-	display: table-cell;
-	padding: 1em 3em;
+.db-items.two-db {
+	width: 47%;
+	margin-left: 3%;
+	display: inline-block;
 	vertical-align: top;
-	border: 1px solid #ddd;
-	border-collapse: collapse;
 }
-.db-item h3 {
-	font-weight: normal;
+.db-contents.two-db {
+	width: 47%;
+	margin-right: 3%;
+	display: inline-block;
+	vertical-align: top;
 }
-#dashboard-items img {
+.one-db .db-box {
+	display: inline-block;
+	vertical-align: top;
+	padding-right: 3%; 
+}
+.db-box {
+	margin-bottom: 2em;
+}
+.db-box h3 {
+	font-weight: bold;
+	font-size: 1em;
+	text-transform: uppercase;
+	color: #333;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.db-items img {
 	vertical-align: middle;
 }
-#dashboard-items ul {
+.db-box ul {
 	display: block;
 	padding-left: 1.5em;
 	list-style: square;
 }
-#dashboard-items li {
+.db-box li {
 	margin: 0.25em 0 0 0;
 	color: #666;
 }
@@ -752,34 +767,6 @@ select#del_cat {
 .media-list {
 	position: static;
 }
-/*.media-col-0 {
-	clear: left;
-}
-.media-item {
-	position: relative;
-	border-top: 1px solid #ccc;
-	margin-bottom: 1em;
-	padding: 5px 0;
-}
-div.media-list .media-item {
-	width: 49%;
-	float: left;
-	margin-right: 1%;
-}
-a.media-icon {
-	display: block;
-	border-bottom: none;
-	float: left;
-}
-.media-icon img {
-	display: block;
-}
-.media-item ul {
-	display: block;
-	list-style: none;
-	margin: 0 0 0 60px;
-	padding: 0;
-}*/
 li.media-action {
 	display: block;
 	position: absolute;
@@ -808,7 +795,7 @@ li.media-action input {
 }
 .media-action-box {
 	position: relative;
-	margin: 1em 3em 1em;
+	margin: 1em 3em 1em 1em;
 	display: inline-block;
 	vertical-align: top;
 	min-height: 120px
@@ -891,7 +878,7 @@ a.media-icon {
 	position: absolute;
 	bottom: 0;
 	left: 10em;
-	background-color: #f5f5f5;
+	background-color: #f7f7f7;
 	border: 1px solid #ddd;
 	padding: .2em;
 	border-radius: .5em;
@@ -970,7 +957,7 @@ li.user_admin {
 	background: #eef;
 }
 #themes div.theme-details:hover {
-	background: #f0f0f0;
+	background: #f3f3f3;
 }
 #themes div.theme-details div.theme-shot {
 }
@@ -1059,7 +1046,7 @@ li.user_admin {
 	cursor: pointer;
 }
 #themes .theme-details-js.theme-selected {
-	background: #ddd;
+	background: #e7e7e7;
 	border: 1px solid #999;
 }
 #themes .theme-details-js .theme-shot img {
@@ -1295,8 +1282,8 @@ p.clear.vertical-separator {
 }
 .fieldset {
 	background: #fff;
-	border: 1px solid #aaa;
-	border-radius: 6px;
+	border: 1px solid #bbb;
+	border-radius: 3px;
 	padding: 1em .7em .5em;
 	margin-bottom: 1em;
 }
@@ -1399,17 +1386,20 @@ td {
 	border-width: 0 0 1px 0;
 	border-style: solid;
 	border-color: #e3e3e3;
-	padding: .3em 1em .3em .5em;
+	padding: .4em 1em .4em .5em;
 	vertical-align: top;
 }
 th {
 	border-width: 1px 0 1px 0;
 	border-style: solid;
-	border-color: #ccc;
+	border-color: #ddd;
 	background: #f3f3ff;
-	padding: .3em 1em .3em .5em;
+	padding: .4em 1em .4em .5em;
 	vertical-align: top;
 	text-align: left;
+	text-transform: uppercase;
+	font-size: 10px;
+	font-size: 1rem;
 }
 th.first img {
 	padding-right: 24px;
@@ -1439,7 +1429,7 @@ table .count {
 }
 table.settings, table.prefs {
 	width: 80%;
-	border: 1px solid #999;
+	border: 1px solid #ccc;
 	margin-bottom: 3em;
 }
 table.settings th, table.prefs th {
@@ -1507,7 +1497,7 @@ fieldset {
 	border-width: 1px 0;
 	border-style: solid;
 	border-color: #ccc;
-	background: #f5f5f5;
+	background: #f7f7f7;
 }
 legend {
 	font-weight: bold;
@@ -1526,19 +1516,23 @@ optgroup {
 option {
 	font-weight: normal;
 }
-input, textarea, select {
-	background: #f9f9f9;
+input[type=text], input[type=password], textarea, select {
+	background: #fbfbfb;
 	color: #000;
-	border-width: 2px;
+	border-width: 1px;
 	border-style: solid;
-	border-color: #ccc #ddd #ddd #ccc; 
+	border-color: #ddd;
+	border-radius: 3px;
+	box-shadow: 1px 1px 2px #F1F1F1 inset;
+	padding: 3px; 
 }
 select {
-	border-right: 2px solid #fff;
+	padding: 1px 0;
+	height: 1.66em; 
 }
 input.invalid, textarea.invalid, select.invalid {
 	border: 1px solid red;
-	background: #fff;
+	background: #eff;
 	color: red;
 	box-shadow: 0 0 0 1px rgba(218, 62, 90, 0.3)
 }
@@ -1546,7 +1540,6 @@ input, textarea, select, option {
 	font: 100% "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
 }
 input[type=text], input[type=password], textarea {
-	padding: 2px 0;
 	margin-right: .3em;
 }
 textarea {
@@ -1592,7 +1585,7 @@ p.form-note.warn, p.warning {
 	border: 1px solid #f0c020;
 }
 p.form-note.info {
-	background: #f5eaff url(msg-info.png) no-repeat .3em .3em;
+	background: #eef url(msg-info.png) no-repeat .3em .3em;
 	border: 1px solid #c484ff;
 }
 .form-note a {border-bottom: 1px solid #ddbaff;}
@@ -1662,7 +1655,7 @@ input:focus, textarea:focus, select:focus {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	border: 2px solid #bee74b;
+	border-color: #bee74b;
 }
 /* --------------------------------------------------------------- buttons */
 /* commun */
@@ -1711,8 +1704,8 @@ a.submit:focus {
 }
 /* suppression et reset */
 a.button,
-input[type=submit].reset,
-input[type=submit].delete {
+input[type=submit].reset, input.reset,
+input[type=submit].delete, input.delete {
 	border: 1px solid #ccc;
 	background: #f5f5f5;
 	color: #000;
@@ -1723,7 +1716,9 @@ input[type=submit].delete {
 a.button:hover,
 input[type=reset]:hover,
 input[type=submit].reset:hover,
+input.reset:hover,
 input[type=submit].delete:hover,
+input.delete:hover,
 a.button:focus,
 input[type=reset]:focus,
 input[type=submit].reset:focus,
@@ -1862,14 +1857,12 @@ input[type=button] {
 	margin-top: 1em;
 	line-height: 22px;
 	padding: 0 .75em;
-	border: 1px solid #ddd;
+	border: 1px solid #e7e7e7;
 	overflow: hidden;
-	background: #e1e1e1;
-	background: -moz-linear-gradient(center top , #f2f2f2, #e1e1e1);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#e1e1e1));
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
+	background: #f3f3f3;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
 	clear: left;
 }
 .pagination a, .pagination strong {
