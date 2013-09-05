@@ -3312,6 +3312,9 @@ msgstr "Billets"
 msgid "%1$s: %2$s"
 msgstr "%1$s : %2$s"
 
+msgid "Dotclear news"
+msgstr "Actualité de Dotclear"
+
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devez créer ce répertoire avec les droits suffisants et affecter celui-ci à \"DC_TPL_CACHE\" dans le fichier inc/config.php."
 
