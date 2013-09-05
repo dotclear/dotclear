@@ -199,7 +199,7 @@ if (!$step)
 	{
 		echo
 			'<p class="static-msg">'.sprintf(__('Dotclear %s is available.'),$new_v).
-				($version_info ? ' ('.sprintf(__('<a href=\"%s\">Information about this version</a>.'),$version_info).')' : '').
+				($version_info ? ' ('.sprintf(__('<a href="%s">Information about this version</a>.'),$version_info).')' : '').
 				'</p>'.
 		
 		'<p>'.__('To upgrade your Dotclear installation simply click on the following button. '.
