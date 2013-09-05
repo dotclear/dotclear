@@ -307,11 +307,11 @@ abbr {
 .part-tabs li a {
 	padding: .5em 2em;
 	margin-right: -1px;
-	border: 1px solid #aaa;
+	border: 1px solid #ccc;
 	border-bottom: none;
 	text-decoration: none;
 	color: #333;
-	background-color:#E4E0EC;
+	background-color: #ecf0f1;
 }
 .part-tabs li a:hover, .part-tabs li a:focus {
 	color: #000;
@@ -593,7 +593,7 @@ background-color: #fff;
 	font-size: 1em;
 	text-transform: uppercase;
 	color: #333;
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6);
 }
 .db-items img {
 	vertical-align: middle;
@@ -798,7 +798,6 @@ li.media-action input {
 	margin: 1em 3em 1em 1em;
 	display: inline-block;
 	vertical-align: top;
-	min-height: 120px
 }
 .media-action-box h4 {
 	font-size: 1em;
@@ -806,6 +805,7 @@ li.media-action input {
 	font-weight: bold;
 	color: #333;
 	margin-top: 2em;
+	text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6)
 }
 a.media-icon {
 	display: block;
@@ -1181,6 +1181,7 @@ p.error, p.message, p.static-msg, p.success, p.warning-msg {
 .error {
 	background: #FFBABA url(msg-error.png) no-repeat .7em .7em;
 	color: #000;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 .message, .static-msg {
 	background: #666 url(msg-std.png) no-repeat .7em .7em;
@@ -1189,23 +1190,26 @@ p.error, p.message, p.static-msg, p.success, p.warning-msg {
 .success {
 	background: #bee74b url(msg-success.png) no-repeat .7em .7em;
 	color: #000;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6)
 }
 .warning-msg {
-	background: #ffd url(msg-warning.png) no-repeat .7em .7em;
-	color: #666;
-	border: 1px solid #f0c020;
+	background: #F7E07E url(msg-warning.png) no-repeat .7em .7em;
+	color: #000;
+	border: 1px solid #F7E07E;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6)
 }
 .message a, .static-msg a {
 	color: #fff;
 }
 .success a, .warning-msg a {
-	color: #666;
+	color: #333;
 }
 .dc-update {
 	padding: 1em 48px 0.5em 48px;
 	margin-bottom: 1em;
 	border-radius: 8px;
 	background: #A2CBE9 url(msg-success.png) no-repeat .7em .7em;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6)
 }
 .dc-update a {
 	color: #000;
@@ -1267,7 +1271,8 @@ a.onblog_link {
 }
 /* -------------------------------------------------------------------- CLASSES COMMUNES */
 .no-margin, #entry-content label.no-margin {
-	margin: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 .vertical-separator {
 	margin-top: 2em;
@@ -1579,14 +1584,16 @@ p.form-note.warn, p.form-note.info, p.warning {
 	color: #333;
 	display: inline-block;
 	line-height: 1.5em;
+	border-radius: 3px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6)
 }
 p.form-note.warn, p.warning {
-	background: #ffd url(msg-warning.png) no-repeat .3em .3em;
-	border: 1px solid #f0c020;
+	background: #FEFACD url(msg-warning.png) no-repeat .3em .3em;
+	border: 1px solid #F7E07E;
 }
 p.form-note.info {
-	background: #eef url(msg-info.png) no-repeat .3em .3em;
-	border: 1px solid #c484ff;
+	background: #D9EDF7 url(msg-info.png) no-repeat .3em .3em;
+	border: 1px solid #BCE8F1;
 }
 .form-note a {border-bottom: 1px solid #ddbaff;}
 
@@ -1633,7 +1640,7 @@ p.field input, p.field select {
 	top: 0;
 }
 label .maximal, textarea.maximal, input.maximal {
-	width: 100%;
+	width: 99%;
 }
 textarea.maximal {
 	resize: vertical;
@@ -1761,7 +1768,7 @@ input[type=button] {
 	border:1px solid #B2D742;
 	padding:.5em 1.5em;
 	color: #000;
-	text-shadow:1px 1px 0px #98cf40;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 	font-weight: normal;
 	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;

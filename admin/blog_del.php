@@ -60,9 +60,9 @@ dcPage::open(__('Delete a blog'),'',
 if (!$core->error->flag())
 {
 	echo
-	'<p class="message">'.__('Warning').'</p>'.
+	'<div class="warning-msg"><p><strong>'.__('Warning').'</strong></p>'.
 	'<p>'.sprintf(__('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
-	'<strong>'.$blog_id.' ('.$blog_name.')</strong>').'</p>'.
+	'<strong>'.$blog_id.' ('.$blog_name.')</strong>').'</p></div>'.
 	'<p>'.__('Please give your password to confirm the blog deletion.').'</p>';
 	
 	echo
