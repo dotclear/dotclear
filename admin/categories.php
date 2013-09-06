@@ -128,7 +128,6 @@ else
 {
 	echo
 	'<form action="categories.php" method="post" id="form-categories">'.
-	'<h3>'.__('List of blog\'s categories').'</h3>'.
 	'<div id="categories">';
 
 	$ref_level = $level = $rs->level-1;

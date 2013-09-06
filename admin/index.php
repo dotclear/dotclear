@@ -222,7 +222,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 		'<p><a class="button submit" href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
 		'<a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
 		($version_info ? ' </p>'.
-		'<p><a href="'.$version_info.'" class="info">'.__('information about this version').'</a>' : '').'</p>'.
+		'<p><a href="'.$version_info.'" class="updt-info">'.__('information about this version').'</a>' : '').'</p>'.
 		'</div>';
 	}
 }
@@ -323,7 +323,7 @@ foreach ($__dashboard_items as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardItems .= '<div class="db-box">';
+		$dashboardItems .= '<div class="box">';
 		foreach ($i as $v) {
 			$dashboardItems .= $v;
 		}
@@ -394,7 +394,7 @@ foreach ($__dashboard_contents as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardContents .= '<div class="db-box">';
+		$dashboardContents .= '<div class="box">';
 		foreach ($i as $v) {
 			$dashboardContents .= $v;
 		}
@@ -402,11 +402,12 @@ foreach ($__dashboard_contents as $i)
 	}
 }
 
-$class = ' '.(($dashboardItems != '') && ($dashboardContents != '') ? 'two-db' : 'one-db');
+$class = ' '.(($dashboardItems != '') && ($dashboardContents != '') ? 'two-boxes' : 'one-box');
 
 if ($dashboardContents != '' || $dashboardItems != '') {
 	echo 
-	'<div id="dashboard-widgets">';
+	'<hr />'.
+	'<div id="dashboard-boxes">';
 		echo ($dashboardContents ? '<div class="db-contents'.$class.'">'.$dashboardContents.'</div>' : '');
 		echo ($dashboardItems ? '<div class="db-items'.$class.'">'.$dashboardItems.'</div>' : '');
 	echo
