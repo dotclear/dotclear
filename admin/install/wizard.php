@@ -54,7 +54,7 @@ if (!is_writable(dirname(DC_RC_PATH))) {
 		'the documentation</a> to learn how to do this.').'</p>';
 }
 
-$DBDRIVER = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : 'mysql';
+$DBDRIVER = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : 'mysqli';
 $DBHOST = !empty($_POST['DBHOST']) ? $_POST['DBHOST'] : '';
 $DBNAME = !empty($_POST['DBNAME']) ? $_POST['DBNAME'] : '';
 $DBUSER = !empty($_POST['DBUSER']) ? $_POST['DBUSER'] : '';
@@ -178,7 +178,7 @@ echo
 
 '<form action="wizard.php" method="post">'.
 '<p><label class="required" for="DBDRIVER"><abbr title="'.__('Required field').'">*</abbr> '.__('Database type:').'</label> '.
-form::combo('DBDRIVER',array('MySQL'=>'mysql','PostgreSQL'=>'pgsql'),$DBDRIVER).'</p>'.
+form::combo('DBDRIVER',array(__('MySQL (deprecated)')=>'mysql',__('MySQLi')=>'mysqli',__('PostgreSQL')=>'pgsql'),$DBDRIVER).'</p>'.
 '<p><label for="DBHOST">'.__('Database Host Name:').'</label> '.
 form::field('DBHOST',30,255,html::escapeHTML($DBHOST)).'</p>'.
 '<p><label for="DBNAME">'.__('Database Name:').'</label> '.
