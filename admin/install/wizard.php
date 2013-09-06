@@ -54,7 +54,7 @@ if (!is_writable(dirname(DC_RC_PATH))) {
 		'the documentation</a> to learn how to do this.').'</p>';
 }
 
-$DBDRIVER = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : 'mysqli';
+$DBDRIVER = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : (function_exists('mysqli_connect') ? 'mysqli' : 'mysql');
 $DBHOST = !empty($_POST['DBHOST']) ? $_POST['DBHOST'] : '';
 $DBNAME = !empty($_POST['DBNAME']) ? $_POST['DBNAME'] : '';
 $DBUSER = !empty($_POST['DBUSER']) ? $_POST['DBUSER'] : '';
