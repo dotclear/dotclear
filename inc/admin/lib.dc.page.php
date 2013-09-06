@@ -149,9 +149,9 @@ class dcPage
 		'</div>';
 
 		echo
-		'<div id="wrapper">'."\n".
+		'<div id="wrapper" class="clearfix">'."\n".
 		'<div id="main">'."\n".
-		'<div id="content">'."\n";
+		'<div id="content" class="clearfix">'."\n";
 
 		# Safe mode
 		if ($safe_mode)

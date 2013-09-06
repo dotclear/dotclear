@@ -413,7 +413,7 @@ if ($can_edit_post)
 					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
 					'</p>'.
 					'<p>'.($post_id && $post_format != 'xhtml' ? 
-					'<a id="convert-xhtml" class="button maximal" href="post.php?id='.$post_id.'&amp;xconv=1">'.
+					'<a id="convert-xhtml" class="button" href="post.php?id='.$post_id.'&amp;xconv=1">'.
 					__('Convert to XHTML').'</a>' : '').'</p></div>')),
 		'metas-box' => array(
 			'title' => __('Ordering'),
@@ -484,7 +484,7 @@ if ($can_edit_post)
 			'</p>',
 		
 		"post_excerpt" =>
-			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'<span class="form-note">'.
+			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').' <span class="form-note">'.
 			__('Introduction to the post.').'</span></label> '.
 			form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 			'</p>',
@@ -496,7 +496,7 @@ if ($can_edit_post)
 			'</p>',
 		
 		"post_notes" =>
-			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'<span class="form-note">'.
+			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').' <span class="form-note">'.
 			__('Unpublished notes.').'</span></label>'.
 			form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 			'</p>'
@@ -547,7 +547,7 @@ if ($can_edit_post)
 	echo '<div id="entry-sidebar">';
 	
 	foreach ($sidebar_items as $id => $c) {
-		echo '<div id="'.$id.'" class="box">'.
+		echo '<div id="'.$id.'" class="sb-box">'.
 			'<h4>'.$c['title'].'</h4>';
 		foreach ($c['items'] as $e_name=>$e_content) {
 			echo $e_content;
@@ -600,14 +600,14 @@ if ($post_id)
 	}
 	
 	echo
-	'<div id="comments" class="multi-part" title="'.__('Comments').'">';
+	'<div id="comments" class="clear multi-part" title="'.__('Comments').'">';
 		
 	# --BEHAVIOR-- adminCommentsActionsCombo
 	$core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
 	
 	$has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
 	echo 
-	'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a></p>';
+	'<p class="top-add"><a class="button add" href="#comment-form">'.__('Add a comment').'</a></p>';
 	
 	if ($has_action) {
 		echo '<form action="comments_actions.php" id="form-comments" method="post">';
