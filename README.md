@@ -49,7 +49,7 @@ In order to run Dotclear you need:
     * mbstring
     * iconv
     * simplexml
-    * mysql, postgresql or sqlite
+    * mysql, mysqli, postgresql or sqlite
  * A database server (MySQL or PostgreSQL) or SQLite.
 
 

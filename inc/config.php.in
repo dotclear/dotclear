@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-// Database driver (mysql, pgsql, sqlite)
+// Database driver (mysql, mysqli, pgsql, sqlite)
 define('DC_DBDRIVER','');
 
 // Database hostname (usually "localhost")

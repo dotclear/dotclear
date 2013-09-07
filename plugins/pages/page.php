@@ -52,30 +52,17 @@ if (!$can_publish) {
 }
 
 # Status combo
-foreach ($core->blog->getAllPostStatus() as $k => $v) {
-	$status_combo[$v] = (string) $k;
-}
+$status_combo = dcAdminCombos::getPostStatusesCombo();
+
 $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
 # Formaters combo
-foreach ($core->getFormaters() as $v) {
-	$formaters_combo[$v] = $v;
-}
+$formaters_combo = dcAdminCombos::getFormatersCombo();
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
-$all_langs = l10n::getISOcodes(0,1);
-$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
-while ($rs->fetch()) {
-	if (isset($all_langs[$rs->post_lang])) {
-		$lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
-		unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
-	} else {
-		$lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
-	}
-}
-unset($all_langs);
-unset($rs);
+$lang_combo = dcAdminCombos::getLangsCombo($rs,true);
+
 
 # Validation flag
 $bad_dt = false;
@@ -479,8 +466,8 @@ if ($can_edit_page)
 			'</p>',
 		
 		"post_excerpt" =>
-			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').'<span class="form-note">'.
-			__('Add an introduction to the post.').'</span></label> '.
+			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').' <span class="form-note">'.
+			__('Introduction to the post.').'</span></label> '.
 			form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 			'</p>',
 		
@@ -491,8 +478,8 @@ if ($can_edit_page)
 			'</p>',
 		
 		"post_notes" =>
-			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').'<span class="form-note">'.
-			__('Add unpublished notes.').'</span></label>'.
+			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').' <span class="form-note">'.
+			__('Unpublished notes.').'</span></label>'.
 			form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 			'</p>'
 		)
@@ -544,7 +531,7 @@ if ($can_edit_page)
 	echo '<div id="entry-sidebar">';
 	
 	foreach ($sidebar_items as $id => $c) {
-		echo '<div id="'.$id.'" class="box">'.
+		echo '<div id="'.$id.'" class="sb-box">'.
 			'<h4>'.$c['title'].'</h4>';
 		foreach ($c['items'] as $e_name=>$e_content) {
 			echo $e_content;
@@ -602,7 +589,7 @@ if ($post_id)
 	'<div id="comments" class="multi-part" title="'.__('Comments').'">';
 	
 	echo
-	'<p class="top-add"><a class="button add onblog_link" href="#comment-form">'.__('Add a comment').'</a></p>';
+	'<p class="top-add"><a class="button add" href="#comment-form">'.__('Add a comment').'</a></p>';
 
 	if ($has_action) {
 		echo '<form action="comments_actions.php" method="post">';
