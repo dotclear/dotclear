@@ -657,7 +657,7 @@ class dcBlog
 		
 		if (!$rs->isEmpty())
 		{
-			if ($this->con->driver() == 'mysql') {
+			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
 			} elseif ($this->con->driver() == 'pgsql') {
 				$clause = "~ '^".$this->con->escape($url)."[0-9]+$'";
@@ -1827,7 +1827,7 @@ class dcBlog
 		
 		if (!$rs->isEmpty())
 		{
-			if ($this->con->driver() == 'mysql') {
+			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
 			} elseif ($this->con->driver() == 'pgsql') {
 				$clause = "~ '^".$this->con->escape($url)."[0-9]+$'";
@@ -2186,7 +2186,7 @@ class dcBlog
 			'UPDATE '.$this->prefix.'comment tc ';
 		
 		# mySQL uses "JOIN" synthax
-		if ($this->con->driver() == 'mysql') {
+		if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 			$strReq .= 
 				'JOIN '.$this->prefix.'post tp ON tc.post_id = tp.post_id ';
 		}
@@ -2195,7 +2195,7 @@ class dcBlog
 			'SET comment_status = '.$status.' ';
 		
 		# pgSQL uses "FROM" synthax
-		if ($this->con->driver() != 'mysql') {
+		if ($this->con->driver() != 'mysql' || $this->con->driver() == 'mysqli') {
 			$strReq .= 
 				'FROM '.$this->prefix.'post tp ';
 		}
@@ -2205,7 +2205,7 @@ class dcBlog
 			'AND comment_id'.$this->con->in($co_ids);
 		
 		# add pgSQL "WHERE" clause
-		if ($this->con->driver() != 'mysql') {
+		if ($this->con->driver() != 'mysql' || $this->con->driver() == 'mysqli') {
 			$strReq .= 
 				'AND tc.post_id = tp.post_id ';
 		}
@@ -2264,7 +2264,7 @@ class dcBlog
 		}
 		
 		# mySQL uses "INNER JOIN" synthax
-		if ($this->con->driver() == 'mysql') {
+		if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 			$strReq = 
 				'DELETE FROM tc '.
 				'USING '.$this->prefix.'comment tc '.
@@ -2301,7 +2301,7 @@ class dcBlog
 		}
 		
 		# mySQL uses "INNER JOIN" synthax
-		if ($this->con->driver() == 'mysql') {
+		if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 			$strReq = 
 				'DELETE FROM tc '.
 				'USING '.$this->prefix.'comment tc '.

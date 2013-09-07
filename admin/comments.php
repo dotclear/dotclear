@@ -27,12 +27,11 @@ if (!empty($_POST['delete_all_spam']))
 
 # Creating filter combo boxes
 # Filter form we'll put in html_block
-$status_combo = array(
-'-' => ''
+$status_combo = array_merge(
+	array('-' => ''),
+	dcAdminCombos::getCommentStatusescombo()
 );
-foreach ($core->blog->getAllCommentStatus() as $k => $v) {
-	$status_combo[$v] = (string) $k;
-}
+
 
 $type_combo = array(
 '-' => '',

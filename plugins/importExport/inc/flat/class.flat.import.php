@@ -159,13 +159,13 @@ class flatImport extends flatBackup
 				if ($last_line_name != $line->__name) {
 					if (in_array($last_line_name,$constrained)) {
 						# UNDEFER
-						if ($this->con->driver() == 'mysql') $this->con->execute('SET foreign_key_checks = 1');
+						if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') $this->con->execute('SET foreign_key_checks = 1');
 						if ($this->con->driver() == 'pgsql') $this->con->execute('SET CONSTRAINTS ALL DEFERRED');
 					}
 					
 					if (in_array($line->__name,$constrained)) {
 						# DEFER
-						if ($this->con->driver() == 'mysql') $this->con->execute('SET foreign_key_checks = 0');
+						if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') $this->con->execute('SET foreign_key_checks = 0');
 						if ($this->con->driver() == 'pgsql') $this->con->execute('SET CONSTRAINTS ALL IMMEDIATE');
 					}
 					
@@ -204,7 +204,7 @@ class flatImport extends flatBackup
 				$this->core->callBehavior('importSingle',$line,$this,$this->core);
 			}
 			
-			if ($this->con->driver() == 'mysql') $this->con->execute('SET foreign_key_checks = 1');
+			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') $this->con->execute('SET foreign_key_checks = 1');
 			if ($this->con->driver() == 'pgsql') $this->con->execute('SET CONSTRAINTS ALL DEFERRED');
 		}
 		catch (Exception $e)

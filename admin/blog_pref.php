@@ -59,16 +59,10 @@ else
 }
 
 # Language codes
-$langs = l10n::getISOcodes(1,1);
-foreach ($langs as $k => $v) {
-	$lang_avail = $v == 'en' || is_dir(DC_L10N_ROOT.'/'.$v);
-	$lang_combo[] = new formSelectOption($k,$v,$lang_avail ? 'avail10n' : '');
-}
+$lang_combo = dcAdminCombos::getAdminLangsCombo();
 
 # Status combo
-foreach ($core->getAllBlogStatus() as $k => $v) {
-	$status_combo[$v] = (string) $k;
-}
+$status_combo = dcAdminCombos::getBlogStatusescombo();
 
 # URL scan modes
 $url_scan_combo = array(
@@ -326,11 +320,43 @@ if ($blog_id)
 	{
 		echo
 		'<p><label for="blog_url" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').'</label>'.
-		form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</p>'.
+		form::field('blog_url',50,255,html::escapeHTML($blog_url)).'</p>'.
 		
 		'<p><label for="url_scan">'.__('URL scan method:').'</label>'.
-		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</p>'.
+		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</p>';
 		
+		# Test URL of blog by testing it's ATOM feed
+		$file = $blog_url.$core->url->getURLFor('feed','atom');
+		$path = '';
+		$status = '404';
+		$content = '';
+		$client = netHttp::initClient($file,$path);
+		if ($client !== false) {
+			$client->setTimeout(4);
+			$client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+			$client->get($path);
+			$status = $client->getStatus();
+			$content = $client->getContent();
+		}
+		if ($status != '200') {
+			// Might be 404 (URL not found), 670 (blog not online), ...
+			echo
+			'<p class="form-note warn">'.
+			sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
+					$file,$status).
+			'</p>';
+		} else {
+			if (substr($content,0,6) != '<?xml ') {
+				// Not well formed XML feed
+				echo
+				'<p class="form-note warn">'.
+				sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
+						$file).
+				'</p>';
+			}
+		}
+
+		echo
 		'<p><label for="blog_status">'.__('Blog status:').'</label>'.
 		form::combo('blog_status',$status_combo,$blog_status).'</p>';
 	}
