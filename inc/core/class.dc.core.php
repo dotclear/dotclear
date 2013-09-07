@@ -63,6 +63,8 @@ class dcCore
 		# define weak_locks for mysql
 		if ($this->con instanceof mysqlConnection) {
 			mysqlConnection::$weak_locks = true;
+		} elseif ($this->con instanceof mysqliConnection) {
+			mysqliConnection::$weak_locks = true;
 		}
 		
 		# define searchpath for postgresql

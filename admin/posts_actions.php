@@ -413,18 +413,9 @@ if ($action == 'category')
 
 	# categories list
 	# Getting categories
-	$categories_combo = array(__('(No cat)') => '');
-	try {
-		$categories = $core->blog->getCategories(array('post_type'=>'post'));
-		if (!$categories->isEmpty()) {
-		while ($categories->fetch()) {
-				$catparents_combo[] = $categories_combo[] = new formSelectOption(
-					str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-				$categories->cat_id
-			);
-		}
-		}
-	} catch (Exception $e) { }
+	$categories_combo = dcAdminCombos::getCategoriesCombo(
+		$core->blog->getCategories(array('post_type'=>'post'))
+	);
 	
 	echo
 	'<form action="posts_actions.php" method="post">'.
@@ -464,18 +455,7 @@ elseif ($action == 'lang')
 	# lang list
 	# Languages combo
 	$rs = $core->blog->getLangs(array('order'=>'asc'));
-	$all_langs = l10n::getISOcodes(0,1);
-	$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
-	while ($rs->fetch()) {
-		if (isset($all_langs[$rs->post_lang])) {
-			$lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
-			unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
-		} else {
-			$lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
-		}
-	}
-	unset($all_langs);
-	unset($rs);
+	$lang_combo = dcAdminCombos::getLangsCombo($rs,true);
 	
 	echo
 	'<form action="posts_actions.php" method="post">'.

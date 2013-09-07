@@ -8,13 +8,22 @@ jQuery._pageTabs = function(start_tab,settings) {
 		listClassName: 'part-tabs',
 		breakerClassName: 'clear'
 	};
-
+	
 	var index = start_tab ? start_tab : 0;
-
+	var hash = document.location.hash.split('#').join('');
+	if( hash != '' ) {
+		var index = hash;
+	}
+	
 	this.params = jQuery.extend(defaults,settings);
 	this.divs = jQuery('div.'+this.params.className);
 	this.createList();
 	this.showDiv(index);
+	var pageTabs = this;
+	
+	window.onhashchange = function (event) {
+		pageTabs.showDiv(document.location.hash.split('#').join(''));
+    }
 };
 
 jQuery._pageTabs.prototype = {
@@ -38,13 +47,13 @@ jQuery._pageTabs.prototype = {
 			if (this.tagName == "DIV") {
 				li = document.createElement('li');
 				a = document.createElement('a');
-				a.appendChild(document.createTextNode(this.title));
+				$(a).html(this.title);
 				this.title = '';
-				a.href = '#';
 				a.fn = This.showDiv;
 				a.index = this.id || i;
+				a.href = '#'+a.index;
+				li.id = "part-tabs-"+a.index;
 				a.obj = This;
-				jQuery(a).click(function() { this.fn.call(this.obj,this.index); return false; });
 				li.appendChild(a);
 				This.list.appendChild(li);
 				This.items[i] = li;

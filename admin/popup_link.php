@@ -24,18 +24,7 @@ echo '<h2 class="page-title">'.__('Add a link').'</h2>';
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
-$all_langs = l10n::getISOcodes(0,1);
-$lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1,1));
-while ($rs->fetch()) {
-	if (isset($all_langs[$rs->post_lang])) {
-		$lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
-		unset($lang_combo[__('Available')][$all_langs[$rs->post_lang]]);
-	} else {
-		$lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
-	}
-}
-unset($all_langs);
-unset($rs);
+$lang_combo = dcAdminCombos::getLangsCombo($rs,true);
 
 echo
 '<form id="link-insert-form" action="#" method="get">'.
