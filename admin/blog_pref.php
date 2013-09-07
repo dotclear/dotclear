@@ -326,7 +326,7 @@ if ($blog_id)
 		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</p>';
 		
 		# Test URL of blog by testing it's ATOM feed
-		$file = $blog_url.'feed/atom';
+		$file = $blog_url.$core->url->getURLFor('feed','atom');
 		$path = '';
 		$status = '404';
 		$content = '';
