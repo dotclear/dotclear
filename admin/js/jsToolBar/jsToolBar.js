@@ -151,6 +151,7 @@ jsToolBar.prototype = {
 	},
 	
 	switchMode: function(mode) {
+		mode = mode || 'xhtml';
 		this.draw(mode);
 	},
 	
