@@ -18,7 +18,7 @@
 																	LAYOUTS
 ---------------------------------------------------------------------------- */
 #header {
-	background: #677374;
+	background: #676e78;
 	position: relative;
 	border-bottom: 4px solid #A2CBE9;
 	width: 100%;
@@ -84,29 +84,6 @@
 		margin-right: 0;
 		}
 /* ------------------------------------------------- layout: optionnal one/two-boxes */
-.box {
-	margin-bottom: 2em;
-	}
-.box h3 {
-	font-weight: bold;
-	font-size: 1em;
-	text-transform: uppercase;
-	color: #333;
-	text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6);
-}
-.two-boxes:first-child {
-	width: 47%;
-	margin-right: 3%;
-	display: inline-block;
-	vertical-align: top;
-	}
-.two-boxes:last-child {
-	width: 47%;
-	margin-left: 3%;
-	display: inline-block;
-	vertical-align: top;
-	}
-/* alternative si une seule boîte */
 .one-box {
 	text-align: center;
 	width: 100%;
@@ -117,6 +94,34 @@
 		padding-right: 3%; 
 		text-align: left;
 		}
+.two-boxes {
+	width: 47%;
+	display: inline-block;
+	vertical-align: top;
+	}
+	.two-boxes:first-child, .two-boxes.odd, .two-boxes.odd:last-child {
+		margin-right: 3%;
+		}
+	.two-boxes.even:last-child, .two-boxes.even {
+		margin-left: 3%;
+		}
+.three-boxes {
+	width: 30%;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 2.5%;
+	margin-right: 2.5%; 
+	}
+	.three-boxes:first-child {
+		margin-left: 0;
+		}
+	.three-boxes:last-child {
+		margin-right: 0;
+		}
+/* boîtes intérieures */
+.box {
+	margin-bottom: 2em;
+	}
 /* ---------------------------------------------------------------- layout: popups */
 body.popup #wrapper, body.popup #top {
 	width: 100%;
@@ -132,7 +137,7 @@ body.popup h1, body.popup #top {
 	border-bottom: 1px solid;
 	font-weight: normal;
 	color: #fff;
-	background: #677374;
+	background: #676e78;
 	font-size: 1.5em;
 	text-indent: .5em;
 	line-height: 1.3em;
@@ -156,9 +161,6 @@ body.popup #footer p {
 	padding: 0;
 	border: none;
 	background: transparent;
-	}
-.multi-part {
-	padding-left: 1em;
 	}
 .table {
 	display: table;
@@ -229,7 +231,7 @@ h2 {
 		background: #fff url(bg_h2.png) repeat-x center bottom;
 		}
 	h2 a:link, h2 a:visited {
-		color: #677374;
+		color: #676e78;
 		border-color: #000;
 		}
 	.page-title {
@@ -240,19 +242,27 @@ h2 {
 		vertical-align: middle;
 		}
 h3, .as_h3 {
-	color: #677374;
+	margin-top: 1em;
+	color: #676e78;
 	font-size: 16px; /* ie < 9 sucks */
 	font-size: 1.6rem;
 	}
-h4 {
+h4, as_h4 {
 	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
-	color: #677374;
+	color: #676e78;
 	}
+	.smart-title, .box h3, .media-action-box h4 { /* pour les h3 ou les h4 titres de boîtes */
+		font-size: 1em;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: #333;
+		text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6)
+		}
 h5 {
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
-	color: #677374;
+	color: #676e78;
 	}
 	#entry-sidebar h5 {
 		font-weight: normal;
@@ -399,7 +409,6 @@ input[type=text], input[type=password], textarea, select {
 			}
 	select {
 		padding: 2px 0;
-		height: 1.66em; 
 		}
 		select.l10n option {
 			padding-left: 16px;
@@ -411,7 +420,7 @@ input[type=text], input[type=password], textarea, select {
 		border: 1px solid red;
 		background: #FFBABA;
 		color: red;
-		box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3)
+		box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3);
 		}
 	input[type=text], input[type=password], textarea {
 		margin-right: .3em;
@@ -556,6 +565,7 @@ a.delete, a.reset, a.button {
 		a.delete:focus, input[type=delete]:focus, input.delete:focus {		
 			border-color: #c00;
 			}
+		a.button {padding-bottom: 1px}
 	#info-box a.button {
 		padding: 0 .5em;
 		margin-left: 2em;
@@ -636,7 +646,7 @@ input.disabled {
 		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 		}
 	.message, .static-msg {
-		background: #666 url(msg-std.png) no-repeat .7em .7em;
+		background: #676e78 url(msg-std.png) no-repeat .7em .7em;
 		color: #fff;
 		}
 		.message a, .static-msg a {
@@ -661,16 +671,26 @@ input.disabled {
 	margin-bottom: 1em;
 	border-radius: 8px;
 	background: #A2CBE9 url(msg-success.png) no-repeat .7em .7em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6)
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+	color: #34495e;
 	}
+	.dc-update h3 {
+		margin-top: 0;
+		color: #34495e;
+		}
 	.dc-update a {
-		color: #000;
+		color: #34495e;
 		border-color: #000;
 		margin-right: 1em;
 		}
-		a.upd-info {
+		a.updt-info {
 			margin-left: 2em;
 			font-weight: bold;
+			}
+		.dc-update a.button {
+			border-color: #ccc;
+			font-weight: bold;
+			padding: .5em 1em; 
 			}
 /* ---------------------------------------------------------------------------------
  																ELEMENTS PRINCIPAUX
@@ -889,7 +909,7 @@ input.disabled {
 		}
 		#search-menu input[type="submit"]:hover,
 		#search-menu input[type="submit"]:focus {
-			background: #677374;
+			background: #676e78;
 			color: #fff;
 			}
 /* ----------------------------------------------------------------- CONTENT ELEMENTS */
@@ -922,6 +942,9 @@ input.disabled {
 			border-bottom-color: #fff;
 			padding-bottom: 7px; /* ie < 9 sucks */
 			padding-bottom: .7rem;
+		}
+	.multi-part {
+		padding-left: 1em;
 		}
 /* contextual help */
 #help {
@@ -1506,17 +1529,9 @@ tr.expand td {
 			}
 .media-action-box {
 	position: relative;
-	margin: 1em 3em 1em 1em;
+	margin: 3em 3em 1em 1em;
 	display: inline-block;
 	vertical-align: top;
-	}
-.media-action-box h4 {
-	font-size: 1em;
-	text-transform: uppercase;
-	font-weight: bold;
-	color: #333;
-	margin-top: 2em;
-	text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6)
 	}
 li.media-action {
 	display: block;
@@ -1822,6 +1837,18 @@ li.media-action {
 			border-color : #ccc;
 			background-color: #fff;
 			}
+/* Etapes */
+.step {
+	display: inline-block;
+	float: left;
+	margin: 3px 10px 2px 0;
+	padding: 5px .5em;
+	background: #ecf0f1;
+	border-radius: 3px;
+	font-weight: bold;
+	border: 1px solid #bdc3c7;
+	color: #738182;
+	}
 /* ---------------------------------------------------------------- utilisables partout  */
 .fieldset {
 	background: #fff;
