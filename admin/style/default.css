@@ -817,9 +817,6 @@ input.disabled {
 	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 	}
-	#main-menu h3 img[alt="cacher"] {
-		vertical-align: top;
-		}
 	#favorites-menu h3 {
 		color: #000;
 		font-variant: small-caps;
