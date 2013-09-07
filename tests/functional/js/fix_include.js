@@ -9,3 +9,13 @@ jQuery.fn.backgroundFade = function() {};
 
 dotclear.msg.confirm_delete_posts = 'confirm %s delete';
 dotclear.msg.confirm_delete_comments = 'confirm %s delete';
+
+dotclear.jsUpload = {msg:{}};
+dotclear.jsUpload.msg.cancel = 'cancel';
+dotclear.jsUpload.msg.send = 'send';
+dotclear.jsUpload.msg.error = 'error';
+dotclear.jsUpload.msg.file_successfully_uploaded = 'file succesfully uploaded';
+
+dotclear.msg.enhanced_uploader_activate = 'Temporarily activate enhanced uploader';
+dotclear.msg.enhanced_uploader_disable = 'Temporarily disable enhanced uploader';
+

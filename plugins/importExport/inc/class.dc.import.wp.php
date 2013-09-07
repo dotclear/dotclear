@@ -79,10 +79,8 @@ class dcImportWP extends dcIeModule
 		if ($this->vars['post_limit'] > 0) {
 			$this->post_limit = $this->vars['post_limit'];
 		}
-		
-		foreach ($this->core->getFormaters() as $v) {
-			$this->formaters[$v] = $v;
-		}
+
+		$this->formaters = dcAdminCombos::getFormatersCombo();
 	}
 	
 	public function resetVars()

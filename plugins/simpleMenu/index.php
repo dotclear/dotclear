@@ -22,48 +22,32 @@ $p_url = 'plugin.php?p=simpleMenu';
 $blog_url = html::stripHostURL($core->blog->url);
 
 # Liste des catégories
-$categories_combo = array();
 $categories_label = array();
-try {
-	$rs = $core->blog->getCategories(array('post_type'=>'post'));
-	while ($rs->fetch()) {
-		$categories_combo[] = new formSelectOption(
-			str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title),
-			$rs->cat_url
-		);
-		$categories_label[$rs->cat_url] = html::escapeHTML($rs->cat_title);
-	}
-} catch (Exception $e) { }
-
+$rs = $core->blog->getCategories(array('post_type'=>'post'));
+$categories_combo = dcAdminCombos::getCategoriesCombo($rs);
+unset($categories_combo[__('(No cat)')]);
+$rs->moveStart();
+while ($rs->fetch()) {
+	$categories_label[$rs->cat_id] = html::escapeHTML($rs->cat_title);
+}
 # Liste des langues utilisées
-$langs_combo = array();
-try {
-	$rs = $core->blog->getLangs(array('order'=>'asc'));
-	if ($rs->count() > 1)
-	{
-		$all_langs = l10n::getISOcodes(0,1);
-		while ($rs->fetch()) {
-			$lang_name = isset($all_langs[$rs->post_lang]) ? $all_langs[$rs->post_lang] : $rs->post_lang;
-			$langs_combo[$lang_name] = $rs->post_lang;
-		}
-		unset($all_langs);
-	}
-	unset($rs);
-} catch (Exception $e) { }
+$langs_combo = dcAdminCombos::getLangscombo(
+	$core->blog->getLangs(array('order'=>'asc'))
+);
 
 # Liste des mois d'archive
-$months_combo = array();
-try {
-	$rs = $core->blog->getDates(array('type'=>'month'));
-	$months_combo[__('All months')] = '-';
-	$first_year = $last_year = 0;
-	while ($rs->fetch()) {
-		$months_combo[dt::str('%B %Y',$rs->ts())] = $rs->year().$rs->month();
-		if (($first_year == 0) || ($rs->year() < $first_year)) $first_year = $rs->year();
-		if (($last_year == 0) || ($rs->year() > $last_year)) $last_year = $rs->year();
-	}
-	unset($rs);
-} catch (Exception $e) { }
+$rs = $core->blog->getDates(array('type'=>'month'));
+$months_combo = array_merge(
+	array(__('All months') => '-'),
+	dcAdmincombos::getDatesCombo($rs)
+);
+
+$first_year = $last_year = 0;
+while ($rs->fetch()) {
+	if (($first_year == 0) || ($rs->year() < $first_year)) $first_year = $rs->year();
+	if (($last_year == 0) || ($rs->year() > $last_year)) $last_year = $rs->year();
+}
+unset($rs);
 
 # Liste des pages -- Doit être pris en charge plus tard par le plugin ?
 $pages_combo = array();
@@ -394,7 +378,6 @@ if (!empty($_GET['neworder'])) {
 if (!empty($_GET['updated'])) {
 	dcPage::success(__('Menu items have been successfully updated.'));
 }
-
 if ($step)
 {
 	// Formulaire d'ajout d'un item

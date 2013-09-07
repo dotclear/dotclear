@@ -55,13 +55,10 @@ if (($default_tab != 'user-profile') && ($default_tab != 'user-options') && ($de
 	$default_tab = 'user-profile';
 }
 
-foreach ($core->getFormaters() as $v) {
-	$formaters_combo[$v] = $v;
-}
+# Formaters combo
+$formaters_combo = dcAdminCombos::getFormatersCombo();
 
-foreach ($core->blog->getAllPostStatus() as $k => $v) {
-	$status_combo[$v] = $k;
-}
+$status_combo = dcAdminCombos::getPostStatusescombo();
 
 $iconsets_combo = array(__('Default') => '');
 $iconsets_root = dirname(__FILE__).'/images/iconset/';
@@ -76,11 +73,7 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 }
 
 # Language codes
-$langs = l10n::getISOcodes(1,1);
-foreach ($langs as $k => $v) {
-	$lang_avail = $v == 'en' || is_dir(DC_L10N_ROOT.'/'.$v);
-	$lang_combo[] = new formSelectOption($k,$v,$lang_avail ? 'avail10n' : '');
-}
+$lang_combo = dcAdminCombos::getAdminLangsCombo();
 
 # Add or update user
 if (isset($_POST['user_name']))
@@ -408,7 +401,14 @@ form::field('user_displayname',20,255,html::escapeHTML($user_displayname)).'</p>
 form::field('user_email',20,255,html::escapeHTML($user_email)).'</p>'.
 
 '<p><label for="user_url">'.__('URL:').'</label>'.
-form::field('user_url',30,255,html::escapeHTML($user_url)).'</p>';
+form::field('user_url',30,255,html::escapeHTML($user_url)).'</p>'.
+
+'<p><label for="user_lang">'.__('Language for my interface:').'</label>'.
+form::combo('user_lang',$lang_combo,$user_lang,'l10n').'</p>'.
+
+'<p><label for="user_tz">'.__('My timezone:').'</label>'.
+form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>';
+
 
 if ($core->auth->allowPassChange())
 {
@@ -454,12 +454,6 @@ echo
 
 '<div class="col">'.
 '<h4>'.__('Interface').'</h4>'.
-
-'<p><label for="user_lang">'.__('Language for my interface:').'</label>'.
-form::combo('user_lang',$lang_combo,$user_lang,'l10n').'</p>'.
-
-'<p><label for="user_tz">'.__('My timezone:').'</label>'.
-form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>'.
 
 '<p><label for="user_ui_enhanceduploader" class="classic">'.
 form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
