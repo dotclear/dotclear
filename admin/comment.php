@@ -25,10 +25,9 @@ $comment_status = '';
 $comment_trackback = 0;
 $comment_spam_status = '';
 
+
 # Status combo
-foreach ($core->blog->getAllCommentStatus() as $k => $v) {
-	$status_combo[$v] = (string) $k;
-}
+$status_combo = dcAdminCombos::getCommentStatusescombo();
 
 # Adding comment
 if (!empty($_POST['add']) && !empty($_POST['post_id']))
