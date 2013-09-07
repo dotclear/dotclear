@@ -151,7 +151,6 @@ jsToolBar.prototype = {
 	},
 	
 	switchMode: function(mode) {
-		mode = mode || 'xhtml';
 		this.draw(mode);
 	},
 	
@@ -166,6 +165,7 @@ jsToolBar.prototype = {
 	},
 	space: function(toolName) {
 		var tool = new jsSpace(toolName);
+		if (!this.elements[toolName].format[this.mode]) return null;
 		if (this.elements[toolName].width !== undefined) {
 			tool.width = this.elements[toolName].width;
 		}
@@ -173,18 +173,24 @@ jsToolBar.prototype = {
 	},
 	combo: function(toolName) {
 		var tool = this.elements[toolName];
-		var length = tool[this.mode].list.length;
 		
-		if (typeof tool[this.mode].fn != 'function' || length == 0) {
-			return null;
-		} else {
-			var options = {};
-			for (var i=0; i < length; i++) {
-				var opt = tool[this.mode].list[i];
-				options[opt] = tool.options[opt];
+		if( tool[this.mode] != undefined) {
+			
+			var length = tool[this.mode].list.length;
+			
+			if (typeof tool[this.mode].fn != 'function' || length == 0) {
+				return null;
+			} else {
+				var options = {};
+				for (var i=0; i < length; i++) {
+					var opt = tool[this.mode].list[i];
+					options[opt] = tool.options[opt];
+				}
+				return new jsCombo(tool.title, options, this, tool[this.mode].fn);
 			}
-			return new jsCombo(tool.title, options, this, tool[this.mode].fn);
+			
 		}
+		
 	},
 	draw: function(mode) {
 		this.setMode(mode);
@@ -346,7 +352,14 @@ jsToolBar.prototype.elements.blocks = {
 };
 
 // spacer
-jsToolBar.prototype.elements.space0 = {type: 'space'};
+jsToolBar.prototype.elements.space0 = {
+	type:'space', 
+	format:{
+		wysiwyg:true,
+		wiki:true,
+		xhtml:true
+	}
+};
 
 // strong
 jsToolBar.prototype.elements.strong = {
@@ -409,7 +422,14 @@ jsToolBar.prototype.elements.code = {
 };
 
 // spacer
-jsToolBar.prototype.elements.space1 = {type: 'space'};
+jsToolBar.prototype.elements.space1 = {
+	type:'space', 
+	format:{
+		wysiwyg:true,
+		wiki:true,
+		xhtml:true
+	}
+};
 
 // br
 jsToolBar.prototype.elements.br = {
@@ -422,7 +442,14 @@ jsToolBar.prototype.elements.br = {
 };
 
 // spacer
-jsToolBar.prototype.elements.space2 = {type: 'space'};
+jsToolBar.prototype.elements.space2 = {
+	type:'space', 
+	format:{
+		wysiwyg:true,
+		wiki:true,
+		xhtml:true
+	}
+};
 
 // blockquote
 jsToolBar.prototype.elements.blockquote = {
@@ -493,7 +520,14 @@ jsToolBar.prototype.elements.ol = {
 };
 
 // spacer
-jsToolBar.prototype.elements.space3 = {type: 'space'};
+jsToolBar.prototype.elements.space3 = {
+	type:'space', 
+	format:{
+		wysiwyg:true,
+		wiki:true,
+		xhtml:true
+	}
+};
 
 // link
 jsToolBar.prototype.elements.link = {
