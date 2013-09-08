@@ -14,82 +14,39 @@
 	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
 	<style type="text/css">
 		#content > h2 {padding-top: 2.5em;}
-		#content > h3, #content > h4 {padding-top: 2em;}
+		#content > h3, #content > h4 {padding-top: 2em; color: #d30e70;}
 		#content > h2:first-child {padding-top: 0;}
+		.one-box .box {border: 1px solid #ddd; padding: 2px .5em;}
 	</style>
 	<script type="text/javascript" src="js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.pageTabs.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.biscuit.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.bgFade.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="js/prelude.js"></script>
 	<script type="text/javascript">
 	//<![CDATA[
-	dotclear.nonce = '5f7602a68cd19a8613d2dda9b510e1e0e85b417a';
-	dotclear.img_plus_src = 'images/expand.png';
-	dotclear.img_plus_alt = 'dévoiler';
-	dotclear.img_minus_src = 'images/hide.png';
-	dotclear.img_minus_alt = 'cacher';
-	dotclear.img_menu_on = 'images/menu_on.png';
-	dotclear.img_menu_off = 'images/menu_off.png';
-	dotclear.msg.help = 'Aide pour cette page';
-	dotclear.msg.help_hide = 'Masquer';
-	dotclear.msg.to_select = 'Sélectionner :';
-	dotclear.msg.no_selection = 'aucun';
-	dotclear.msg.select_all = 'tous';
-	dotclear.msg.invert_sel = 'Inverser la sélection';
-	dotclear.msg.website = 'Site web :';
-	dotclear.msg.email = 'Email :';
-	dotclear.msg.ip_address = 'Adresse IP :';
-	dotclear.msg.error = 'Erreur :';
-	dotclear.msg.entry_created = 'Billet créé avec succès.';
-	dotclear.msg.edit_entry = 'Modifier le billet';
-	dotclear.msg.view_entry = 'voir le billet';
-	dotclear.msg.confirm_delete_posts = 'Êtes-vous certain de vouloir supprimer les billets sélectionnés (%s) ?';
-	dotclear.msg.confirm_delete_categories = 'Êtes-vous certain de vouloir supprimer les categories sélectionnées (%s) ?';
-	dotclear.msg.confirm_delete_post = 'Êtes-vous certain de vouloir supprimer ce billet ?';
-	dotclear.msg.click_to_unlock = 'Cliquez ici pour déverrouiller ce champ';
-	dotclear.msg.confirm_spam_delete = 'Êtes-vous sûr de vouloir supprimer tous les indésirables ?';
-	dotclear.msg.confirm_delete_comments = 'Êtes-vous certain de vouloir supprimer les commentaires sélectionnés (%s) ?';
-	dotclear.msg.confirm_delete_comment = 'Êtes-vous certain de vouloir supprimer ce commentaire ?';
-	dotclear.msg.cannot_delete_users = 'Les utilisateurs ayant écrit des entrées ne peuvent être supprimés.';
-	dotclear.msg.confirm_delete_user = 'Êtes-vous certain de vouloir supprimer les utilisateurs sélectionnés (%s) ?';
-	dotclear.msg.confirm_delete_category = 'Êtes-vous certain de vouloir supprimer la catégorie \"%s\" ?';
-	dotclear.msg.confirm_reorder_categories = 'Êtes-vous certain de vouloir réinitialiser l\'ordre des catégories ?';
-	dotclear.msg.confirm_delete_media = 'Êtes-vous certain de vouloir supprimer le média \"%s\" ?';
-	dotclear.msg.confirm_extract_current = 'Êtes-vous certain de vouloir extraire l\'archive dans le répertoire actuel ?';
-	dotclear.msg.confirm_remove_attachment = 'Êtes-vous certain de vouloir supprimer l\'annexe \"%s\" ?';
-	dotclear.msg.confirm_delete_lang = 'Êtes-vous certain de vouloir supprimer la langue \"%s\" ?';
-	dotclear.msg.confirm_delete_plugin = 'Êtes-vous certain de vouloir supprimer le plugin \"%s\" ?';
-	dotclear.msg.use_this_theme = 'Utiliser ce thème';
-	dotclear.msg.remove_this_theme = 'Supprimer ce thème';
-	dotclear.msg.confirm_delete_theme = 'Êtes-vous certain de vouloir supprimer le thème \"%s\" ?';
-	dotclear.msg.confirm_delete_backup = 'Êtes-vous certain de vouloir supprimer cette sauvegarde ?';
-	dotclear.msg.zip_file_content = 'Contenu du fichier zip';
-	dotclear.msg.xhtml_validator = 'Vérifier la validité XHTML';
-	dotclear.msg.xhtml_valid = 'Le contenu XHTML est valide.';
-	dotclear.msg.xhtml_not_valid = 'Il y a des erreurs XHTML.';
-	dotclear.msg.confirm_change_post_format = 'Vous avez des modifications non sauvegardées. Changer de format vous fera perdre ces modifications. Continuer ?';
-	dotclear.msg.confirm_change_post_format_noconvert = 'Attention : le changement de syntaxe ne transformera pas les balises des contenus déjà saisis. Pensez à les réadapter après cette opération. Confirmez-vous ce changement de syntaxe ?';
-	dotclear.msg.load_enhanced_uploader = 'Chargement de l\'interface avancée.';
-
+		dotclear.img_plus_alt = 'dévoiler';
+		dotclear.img_minus_alt = 'cacher';
+		dotclear.img_menu_on = 'images/menu_on.png';
+		dotclear.img_menu_off = 'images/menu_off.png';
+		dotclear.msg.help = 'Aide pour cette page';
+		dotclear.msg.help_hide = 'Masquer';
+		dotclear.msg.error = 'Erreur :';
 	//]]>
 	</script>
 	<script type="text/javascript">
 	//<![CDATA[
-	dotclear.unfolded_sections = {'dcx_post_lang':true,'dc_favorites_menu':true,'dc_system_menu':true};
-
+		dotclear.unfolded_sections = {'dc_favorites_menu':true,'dc_system_menu':true};
 	//]]>
 	</script>
-	<link rel="stylesheet" type="text/css" href="style/jsToolBar/jsToolBar.css" />
-	<script type="text/javascript" src="js/jsToolBar/jsToolBar.js"></script>
-	<script type="text/javascript" src="js/jsToolBar/jsToolBar.wysiwyg.js"></script>
-	<script type="text/javascript" src="js/jsToolBar/jsToolBar.dotclear.js"></script>
 	<script type="text/javascript">
 	//<![CDATA[
-	jsToolBar.prototype.dialog_url = 'popup.php'; jsToolBar.prototype.iframe_css = 'body{font: 12px "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;color : #000;background: #f9f9f9;margin: 0;padding : 2px;border: none;}pre, code, kbd, samp {font-family:"Courier New",Courier,monospace;font-size : 1.1em;}code {color : #666;font-weight : bold;}body > p:first-child {margin-top: 0;}'; jsToolBar.prototype.base_url = 'http://localhost'; jsToolBar.prototype.switcher_visual_title = 'visuel'; jsToolBar.prototype.switcher_source_title = 'source'; jsToolBar.prototype.legend_msg = 'Vous pouvez utiliser les raccourcis suivants pour formater votre texte.'; jsToolBar.prototype.elements.blocks.options.none = '-- aucun --'; jsToolBar.prototype.elements.blocks.options.nonebis = '-- format bloc --'; jsToolBar.prototype.elements.blocks.options.p = 'Paragraphe'; jsToolBar.prototype.elements.blocks.options.h1 = 'Titre de niveau 1'; jsToolBar.prototype.elements.blocks.options.h2 = 'Titre de niveau 2'; jsToolBar.prototype.elements.blocks.options.h3 = 'Titre de niveau 3'; jsToolBar.prototype.elements.blocks.options.h4 = 'Titre de niveau 4'; jsToolBar.prototype.elements.blocks.options.h5 = 'Titre de niveau 5'; jsToolBar.prototype.elements.blocks.options.h6 = 'Titre de niveau 6'; jsToolBar.prototype.elements.strong.title = 'Forte emphase'; jsToolBar.prototype.elements.em.title = 'Emphase'; jsToolBar.prototype.elements.ins.title = 'Insertion'; jsToolBar.prototype.elements.del.title = 'Suppression'; jsToolBar.prototype.elements.quote.title = 'Citation en ligne'; jsToolBar.prototype.elements.code.title = 'Code'; jsToolBar.prototype.elements.br.title = 'Passage à la ligne'; jsToolBar.prototype.elements.blockquote.title = 'Bloc de citation'; jsToolBar.prototype.elements.pre.title = 'Texte préformaté'; jsToolBar.prototype.elements.ul.title = 'Liste à puces'; jsToolBar.prototype.elements.ol.title = 'Liste numérotée'; jsToolBar.prototype.elements.link.title = 'Lien'; jsToolBar.prototype.elements.link.href_prompt = 'URL ?'; jsToolBar.prototype.elements.link.hreflang_prompt = 'Langue ?'; jsToolBar.prototype.elements.img.title = 'Image externe'; jsToolBar.prototype.elements.img.src_prompt = 'URL ?'; jsToolBar.prototype.elements.img_select.title = 'Sélecteur de média'; jsToolBar.prototype.elements.post_link.title = 'Lien vers une entrée'; 
+		$(function() {
+			$.pageTabs('two-boxes');
+		});
 	//]]>
 	</script>
-	<script type="text/javascript" src="js/_index.js"></script>
 </head>
 
 <body id="dotclear-admin" class="no-js">
@@ -116,7 +73,7 @@
 				<h3 id="texte">Textes</h3>
 					<p>La font-size de base est à 1.2rem (la valeur <code>1rem</code> correspond à 10px). Si vous utilisez l'unité <code>rem</code> pensez à faire précéder la déclaration par son équivalent 
 					en pixels pour rester compatible avec Internet Explorer. L'interlignage courant est à 1.5.</p>
-					<p>La liste suivante est de class <code>nice</code>. Elle est semblable aux listes ordinaires mais avec des puces carrées.</p>
+					<p>La liste suivante est de class <code>"nice"</code>. Elle est semblable aux listes ordinaires mais avec des puces carrées.</p>
 					<ul class="nice">
 						<li>Les textes courants sont en Arial, Helvetica ou sans-serif. </li>
 						<li>Le code adopte la fonte Andale Mono, Courier New ou monospace.</li>
@@ -124,7 +81,7 @@
 					</ul>
 
 					<h3 id="titres">Titre h3</h3>
-						<p>Le titre de niveau h1 est réservé au titre du site-admin. Le titre de niveau h2 est réservé au breadcrumb/titre de la page courante. On utilise les titres de niveau h3 en premier niveau de titre à l'intérieur de pages, comme sur la page Inport/Export.</p>
+						<p>Le titre de niveau h1 est réservé au titre du site-admin. Le titre de niveau h2 est réservé au breadcrumb/titre de la page courante. On utilise les titres de niveau h3 en premier niveau de titre à l'intérieur des pages, comme sur la page Import/Export.</p>
 						<p>Il ne faut pas choisir un niveau de titre en fonction de son aspect mais respecter une hiérarchie cohérente. On peut obtenir visuellement l'aspect d'un titre h3 en donnant à l'élément la class <code>"as_h3"</code>.</p>
 					<h4>Titre de niveau h4</h4>
 						<p>On peut obtenir visuellement l'aspect d'un titre h4 en donnant à l'élément la class <code>"as_h4"</code>.</p>
@@ -134,68 +91,75 @@
 						items de ce sidebar.</p>
 					<div class="fieldset">
 						<h4 class="smart-title">Variante pour les titres</h4>
-							<p>On peut utiliser une variante aux titres qui regroupent des actions (voir la page de la Médiathèque) ou servent de titre à une boîte encadrée, comme ici où les présentes explications sont placées dans une div de class <code>fieldset</code>.</p>
-							<p>On peut utiliser, quel que soit le niveau hx de cet intertitre la class <code>smart-title</code> pour obtenir l'effet ci-dessus.</p>
+							<p>On peut utiliser une variante aux titres qui regroupent des actions (voir la page de la Médiathèque) ou servent de titre à une boîte encadrée, comme ici où les présentes explications sont placées dans une div de class <code>"fieldset"</code>.</p>
+							<p>On peut utiliser, quel que soit le niveau hx de cet intertitre la class <code>"smart-title"</code> pour obtenir l'effet ci-dessus.</p>
 					</div>
 
 				<h2><span class="page-title">Layouts</span></h2>
 
 				<h3 id="onglets">Onglets</h3>
-					<div class="part-tabs">
-						<ul>
-							<li id="part-tabs-toto" class="part-tabs-active"><a href="#ancre-1">Titre de l'onglet 1</a></li>
-							<li id="part-tabs-titi"><a href="#ancre-2">Titre de l'onglet 2</a></li>
-						</ul>
-					</div>
-					<p class="multi-part">La classe <code>multi-part</code> (qui doit obligatoirement être donnée à la div du contenu de chaque onglet afin que le script jQuery fonctionne) aligne son bord gauche avec celui premier onglet.</p>
-				<hr />
+				<p>Les descriptions des constructions en multi-colonnes ci-dessous présentent un exemple de répartition en onglets.</p>
 
 				<h3 id="multi-colonnage">Multi-colonnage</h3>
-				<h4>Two-cols 50/50</h4>
-					<div class="two-cols clearfix">
-						<div class="col">
-							<p>La div englobante porte la class <code>two-cols</code>, chacune de ses div porte la class <code>col</code>.
-							Sans autre précision les deux colonnes sont d'égale largeur.</p>
+				<div id="one-box" class="multi-part" title="One-box">
+					<h4>Boîtes distribuées horizontalement</h4>
+					<div class="one-box">
+						<div class="box">
+							<p><span class="step">1</span> Toutes les boîtes de class <code>"box"</code> placées à l'intérieur d'une boîte de class <code>"one-box"</code> se distribuent horizontalement (imaginez que chaque boîte est un mot dans un paragraphe). Si les largeurs de ces boîtes ne sont pas spécifiquement définies dans la CSS, elle s'ajustent à leur contenu.</p>
 						</div>
-						<div class="col">
-							<p>Attention : ces colonnes sont construites avec des flottants, il faut donc penser à mettre une class <code>clear</code> à l'élément suivant ou ajouter la class <code>clearfix</code> à la div <code>class="two-cols"</code>.</p>
+						<div class="box">
+							<p><span class="step">2</span> Voici une petite boîte.</p>
+						</div>
+						<div class="box">
+							<p><span class="step">3</span> Une autre petite boîte.</p>
+						</div>
+						<div class="box">
+							<p><span class="step">4</span> Par défaut les « lignes »  de boîtes <code>"box"</code> sont justifiées au sein de la boîte <code>"one-box"</code> et l'espacement se répartit entre elles.</p>
+						</div>
+						<div class="box">
+							<p><span class="step">5</span> Si vous souhaitez un autre alignement des boîtes entre elles vous pouvez ajouter les class : 
+							<ul class="nice clear">
+								<li><code>"txt-left"</code>,</li>
+								<li><code>"txt-right"</code></li> 
+								<li>ou <code>"txt-center"</code></li>
+							</ul>
+							<p> à la class <code>"one-box"</code>.</p>
+						</div>
+						<div class="box">
+							<p><span class="step">6</span> Le cadre placé ici autour de chaque boîte ne fait pas partie des styles par défaut.</p>
 						</div>
 					</div>
-				<h4>Two-cols 70/30</h4>
-					<div class="two-cols clearfix">
-						<div class="col70">
-							<p><span class="step">col70</span> La div englobante porte la class <code>two-cols</code>, chacune de ses div porte la class <code>col</code>.
-							Pour obtenir des colonnes inégales, on dispose des classes <code>col70</code> et <code>col30</code>.</p>
-						</div>
-						<div class="col30">
-							<p><span class="step">col30</span> Penser à mettre une class <code>clear</code> à l'élément suivant ou ajouter la class <code>clearfix</code> à la div <code>class="two-cols"</code>.</p>
-						</div>
-					</div>
-				<h4>Two-boxes</h4>
+				</div>
+				<div id="two-boxes" class="multi-part" title="Two-boxes">
+					<h4>Boîtes distribuées deux par deux</h4>
 					<div>
 						<div class="two-boxes odd">
-							<div class="box">
-								<p><span class="step">1</span> Les boîtes de class <code>two-boxes</code> ont une règle de <code>display:inline-block;</code>. Elles se rangent alternativement à gauche et à droite.</p>
-							</div>
+							<p><span class="step">1</span> Les boîtes de class <code>"two-boxes"</code> ont une règle CSS <code>display:inline-block;</code>. Elles se rangent alternativement à gauche et à droite. Pour plus de clarté, les blocs sont ici numérotés avec leur ordre dans le flux.</p>
+						</div><!--
+						--><div class="two-boxes even">
+							<p><span class="step">2</span> S'il n'y a que deux boîtes, une autre class n'est pas nécessaire. S'il y en a plusieurs, il est conseillé de leur attribuer alternativement les class <code>"odd"</code> et <code>"even"</code> pour que les marges se placent correctement.</p>
+						</div><!--
+						--><div class="two-boxes odd">
+							<p><span class="step">3</span> Attention, il faut soit ne pas retourner à la ligne entre la fermeture d'une boîte <code>"two-boxes"</code> et l'ouverture de la suivante soit adopter la méthode de commentaire vide mise en place ici et expliquée chez <a href="http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html">Alsacréations</a> («&nbsp;Méthode 2&nbsp;»).</p>
 						</div><!--
 						--><div class="two-boxes even">
 							<div class="box">
-								<p><span class="step">2</span> S'il n'y a que deux boîtes, une autre class n'est pas nécessaire. S'il y en a plusieurs, il est conseillé
-								de leur attribuer alternativement les class <code>odd</code> et <code>even</code> pour que les marges se
-								placent correctement.</p>
+								<p><span class="step">4</span> Toutes les boîtes de class <code>"box"</code><br />
+								 placées au sein d'une boîte <code>"two-boxes"</code>…</p>
 							</div>
-						</div><!--
-						--><div class="two-boxes odd">
 							<div class="box">
-								<p><span class="step">3</span> Attention, il faut soit ne pas retourner à la ligne entre la fermeture d'une boîte et l'ouverture de la suivante soit adopter la Méthode 2 mise en place ici expliquée chez <a href="http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html">Alsacréations</a>.</p>
+								<p><span class="step">4 bis</span>… se distribuent horizontalement comme dans <br />
+									une boîte <code>"one-box"</code>.</p>
 							</div>
 						</div>
 					</div>
-				<h4>Three-boxes</h4>
+				</div>
+				<div id="three-boxes" class="multi-part" title="Three-boxes">
+					<h4>Boîtes distribuées trois par trois</h4>
 					<div>
 						<div class="three-boxes">
 							<div class="box">
-								<p>Sur le même principe on peut utiliser des boîtes de class <code>three-boxes</code> pour répartir les contenus sur trois colonnes de 30% chacune (le reste est occupé par les marges).</p>
+								<p>Sur le même principe que les « two-boxes » on peut utiliser des boîtes de class <code>"three-boxes"</code> pour répartir les contenus sur trois colonnes de 30% chacune (le reste est occupé par les marges).</p>
 							</div>
 						</div><!--
 						--><div class="three-boxes">
@@ -205,10 +169,55 @@
 						</div><!--
 						--><div class="three-boxes">
 							<div class="box">
-								<p>Dans les "two-boxes" comme dans les "three-boxes", on peut placer à l'intérieur plusieurs autres div de class="box" qui s'afficheront les unes à côté des autres ou l'une en dessous de l'autre selon la place dont elles disposent.</p>
+								<p>Dans les « two-boxes » comme dans les « three-boxes », on peut placer à l'intérieur plusieurs autres div de class="box" qui s'afficheront les unes à côté des autres ou l'une en dessous de l'autre selon la place dont elles disposent.</p>
 							</div>
 						</div>
 					</div>
+				</div>
+				<div id="two-cols-50-50" class="multi-part" title="Two-cols (50/50)">
+					<h4>Deux colonnes flottantes de largeurs égales</h4>
+					<div class="two-cols clearfix">
+						<div class="col">
+							<p>La div englobante porte la class <code>"two-cols"</code>, chacune de ses div porte la class <code>"col"</code>.
+							Sans autre précision les deux colonnes sont d'égale largeur.</p>
+						</div>
+						<div class="col">
+							<p>Attention : ces colonnes sont construites avec des flottants, il faut donc penser à mettre une class <code>clear</code> à l'élément suivant ou ajouter la class <code>"clearfix"</code> à la <code>div class="two-cols"</code>.</p>
+						</div>
+					</div>
+				</div>
+				<div id="two-cols-70-30" class="multi-part" title="Two-cols (70/30)">
+					<h4>Deux colonnes flottantes de largeurs inégales</h4>
+					<div class="two-cols clearfix">
+						<div class="col70">
+							<p><span class="step">col70</span> La div englobante porte la class <code>"two-cols"</code>.
+							Pour obtenir des colonnes inégales, on dispose des classes <code>"col70"</code> et <code>col30</code> à attribuer à l'une ou à l'autre de ses colonnes.</p>
+						</div>
+						<div class="col30">
+							<p><span class="step">col30</span> Penser à mettre une class <code>"clear"</code> à l'élément suivant ou ajouter la class <code>"clearfix"</code> <code>div class="two-cols"</code>.</p>
+						</div>
+					</div>
+				</div>
+				<div id="three-cols" class="multi-part" title="Three-cols (deprecated)">
+					<h4>Trois colonnes flottantes de largeurs égales</h4>
+					<p class="warning"><strong>Deprecated.</strong> Ces règles sont conservées dans la 2.6 par souci de rétro-compatibilité mais il est recommandé d'utiliser désormais le colonnage <a href="#three-boxes">three-boxes</a>.</p>
+					<div class="three-cols clearfix">
+						<div class="col">
+							<h5>Colonne 1</h5>
+							<p>La div englobante porte la class <code>"three-cols"</code>, chacune de ses div porte la class <code>"col"</code>. Les trois colonnes sont d'égale largeur.</p>
+						</div>
+						<div class="col">
+							<h5>Colonne 2</h5>
+							<p>Voici une deuxième colonne. N'oubliez pas d'ajouter la class <code>"clearfix"</code> à la class <code>"three-cols"</code> ou un élément de class <code>"clear"</code> après cet élément.</p>
+						</div>
+						<div class="col">
+							<h5>Colonne 3</h5>
+							<p>Voilà la troisième colonne.</p>
+						</div>
+					</div>
+				</div>
+				<hr />
+				<p><strong>Note :</strong> les valeurs en pourcentage et les numérotations sont placées dans un <code>span class="step"</code>.</p>
 
 				<h2><span class="page-title">Interactions</span></h2>
 
@@ -322,7 +331,7 @@
 				<h3>Layouts</h3>
 				<ul>
 					<li><a href="#onglets">Onglets</a></li>
-					<li><a href="#multi">Multi-colonnage</a></li>
+					<li><a href="#multi-colonnage">Multi-colonnage</a></li>
 				</ul>
 			</div><!-- /blog-menu -->
 			<div id="system-menu">
