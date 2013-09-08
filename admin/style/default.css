@@ -1894,7 +1894,7 @@ ul.nice {
 	color: #666;
 	}
 /* caché pour tout le monde */
-.hide {
+.hide, .button.hide {
 	display: none;
 	}
 /* Caché sauf pour les revues d'écran */
