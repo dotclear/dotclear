@@ -686,10 +686,10 @@ __('Display Dotclear news').'</label></p>'.
 form::checkbox('user_dm_quickentry',1,$user_dm_quickentry).' '.
 __('Display quick entry form').'</label><br class="clear" />'. //Opera sucks
 '</p>';
+echo '</div>';
 
 # --BEHAVIOR-- adminDashboardOptionsForm
 $core->callBehavior('adminDashboardOptionsForm',$core);
-echo '</div>';
 
 echo
 '<p>'.
