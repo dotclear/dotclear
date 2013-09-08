@@ -1643,57 +1643,48 @@ li.media-action {
 		margin-bottom: 1em;
 		}
 /* ---------------------------------------------------------- preferences.php */
-#my-favs {
-	border: 1px solid #A8DC26;
-	padding: 1em 2em
-}
-#my-favs ul {
-	list-style-type: none;
-	margin-left: 0;
-	padding-left: 0;
-	line-height: 1.2;
-}
-#my-favs li {
-	display: block;
-	float: left;
-	width: 164px;
-	margin-top: 1em;
-	margin-bottom: 1.5em;
-}
-#my-favs label {height: 2.5em;width:140px;margin-top:.3em;}
-#my-favs label input {display:inline;}
-#my-favs img {
-	display: block;
-}
-#my-favs input.position {
-	margin: 0 0 .4em .2em;
-}
-#available-favs input, #available-favs label, #available-favs label span {
-	white-space: normal;
-	display: inline;
-}
-#default-favs h3 {
-	margin-top: 2em;
-	margin-bottom: 1em;
-}
 .fav-list {
+	border-top: 1px solid #eee;
 	list-style-type: none;
 	margin-left: 0;
 	padding-left: 0;
-}
+	}
 .fav-list li {
 	line-height: 2;
 	margin-left: 0;
 	padding-left: 0;
+	border-bottom: 1px solid #eee;
+	padding-top: 3px;
+	padding-bottom: 3px;
 	position: relative;
-}
+	}
 .fav-list img {
 	vertical-align: middle;
 	margin-right: .2em;
-}
+	}
+.fav-list li span.zoom {
+	display: none;
+	}
+.fav-list li:hover span.zoom {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 10em;
+	background-color: #f7f7f7;
+	border: 1px solid #ddd;
+	padding: .2em;
+	border-radius: .5em;
+	}
+#my-favs input.position {
+	margin: 0 0 .4em .2em;
+	}
+#available-favs input, #available-favs label, #available-favs label span {
+	white-space: normal;
+	display: inline;
+	}
 #available-favs label span.zoom {
 	display: none;
-}
+	}
 #available-favs li:hover label span.zoom {
 	display: block;
 	position: absolute;
@@ -1703,7 +1694,7 @@ li.media-action {
 	border: 1px solid #ddd;
 	padding: .2em;
 	border-radius: .5em;
-}
+	}
 #user-options label.ib {
 	display: inline-block;
 	width: 14em;

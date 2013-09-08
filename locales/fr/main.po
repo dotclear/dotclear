@@ -1925,8 +1925,8 @@ msgstr "Mettre à jour mon profil"
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Êtes-vous sûr de vouloir retirer les favoris sélectionnés ?"
 
-msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
-msgstr "Si vous êtes super administrateur, vous pouvez définir ce jeu de favoris comme l'ensemble par défaut pour tous les blogs de l'installation :"
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
+msgstr "Si vous êtes super administrateur, vous pouvez faire de ces favoris le jeu par défaut pour tous les blogs de l'installation."
 
 msgid "Define as default favorites"
 msgstr "Définir comme favoris par défaut"
@@ -3344,3 +3344,12 @@ msgstr "Les options du tableau de bord ont été enregistrées avec succès."
 
 msgid "Save my dashboard options"
 msgstr "Enregistrer les options de mon tableau de bord"
+
+msgid "Favorites"
+msgstr "Favoris"
+
+msgid "Display favorites at the top of the menu"
+msgstr "Afficher les favoris en haut du menu"
+
+msgid "Dashboard icons"
+msgstr "Icônes du tableau de bord"
