@@ -166,7 +166,7 @@ jsToolBar.prototype = {
 	},
 	space: function(toolName) {
 		var tool = new jsSpace(toolName);
-		if (!this.elements[toolName].format[this.mode]) return null;
+		if (this.elements[toolName].format != undefined && !this.elements[toolName].format[this.mode]) return null;
 		if (this.elements[toolName].width !== undefined) {
 			tool.width = this.elements[toolName].width;
 		}
