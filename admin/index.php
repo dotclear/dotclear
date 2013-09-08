@@ -402,7 +402,7 @@ foreach ($__dashboard_contents as $i)
 	}
 }
 
-$class = ' '.(($dashboardItems != '') && ($dashboardContents != '') ? 'two-boxes' : 'one-box');
+$class = ' '.(($dashboardItems != '') && ($dashboardContents != '') ? 'two-boxes' : 'one-box txt-center');
 
 if ($dashboardContents != '' || $dashboardItems != '') {
 	echo 
