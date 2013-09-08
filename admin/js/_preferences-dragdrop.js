@@ -1,10 +1,6 @@
 $(function() {
 	$("#my-favs ul").sortable({'cursor':'move'});
-	$("#my-favs ul").hover(function () {
-		$(this).css({'cursor':'move'});
-	}, function () {
-		$(this).css({'cursor':'auto'});
-	});
+	$("#my-favs ul, #my-favs ul *").css({'cursor':'move'});
 	$('#favs-form').submit(function() {
 		var order=[];
 		$("#my-favs ul li input.position").each(function() {
