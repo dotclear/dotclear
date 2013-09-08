@@ -413,7 +413,7 @@ if ($can_edit_post)
 					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
 					'</p>'.
 					'<p class="format_control control_wiki">'.
-					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? 'hide' : '').'" href="post.php?id='.$post_id.'&amp;xconv=1">'.
+					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').'" href="post.php?id='.$post_id.'&amp;xconv=1">'.
 					__('Convert to XHTML').'</a></p></div>')),
 		'metas-box' => array(
 			'title' => __('Ordering'),

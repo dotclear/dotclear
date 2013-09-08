@@ -125,7 +125,7 @@ $(function() {
 		});
 
 		// Markup validator
-		var v = $('<div class="format_control control_xhtml"><p><a id="a-validator"></a></p><div/>').get(0);
+		var v = $('<div class="format_control control_xhtml control_wiki"><p><a id="a-validator"></a></p><div/>').get(0);
 		$('.control_wiki').before(v);
 		var a = $('#a-validator').get(0);
 		a.href = '#';
