@@ -135,6 +135,9 @@ $(function() {
 			excerpt_content = $('#post_excerpt').css('display') != 'none' ? $('#post_excerpt').val() : $('#excerpt-area iframe').contents().find('body').html();
 			post_content    = $('#post_content').css('display') != 'none' ? $('#post_content').val() : $('#content-area iframe').contents().find('body').html();
 			
+			excerpt_content = excerpt_content.split('<p><br></p>').join('');
+			post_content    =    post_content.split('<p><br></p>').join('');
+			
 			var params = {
 				xd_check: dotclear.nonce,
 				f: 'validatePostMarkup',
