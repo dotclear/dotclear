@@ -167,7 +167,7 @@ else
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	'<p class="col right" id="mov-cat">'.
-	'<label for="mov_cat" class="classic">'.__('Category which will receive entries of deleted categories:').'</label> '.
+	'<label for="mov_cat" class="classic">'.__('Category where entries of deleted categories will be moved:').'</label> '.
 	form::combo('mov_cat',$categories_combo,'','').
 	'</p>'.
 	'<p class="right">'.
@@ -175,7 +175,7 @@ else
 	'</p>'.
 	'</div>';
 
-	echo '<h3 class="clear hidden-if-no-js">'.__('Categories order').'</h3>';
+	echo '<div class="fieldset"><h3 class="clear hidden-if-no-js">'.__('Categories order').'</h3>';
 
 	if ($core->auth->check('categories',$core->blog->id) && $rs->count()>1) {
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
@@ -193,7 +193,7 @@ else
 	$core->formNonce().'</p>'.
 	'<p class="hidden-if-no-js"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
 	$core->formNonce().'</p>'.
-	'</form>';
+	'</div></form>';
 }
 
 echo '</div>';
