@@ -3338,3 +3338,9 @@ msgstr "L'URL du blog ou la méthode de lecture de l'URL ne semblent pas être b
 
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "L'URL du blog ou la méthode de lecture de l'URL ne semblent pas être bien réglées (<code>%s</code> ne retourne pas un flux ATOM)"
+
+msgid "Dashboard options has been successfully updated."
+msgstr "Les options du tableau de bord ont été enregistrées avec succès."
+
+msgid "Save my dashboard options"
+msgstr "Enregistrer les options de mon tableau de bord"
