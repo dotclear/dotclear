@@ -215,8 +215,8 @@ $(function() {
 					$(p).addClass('message');
 					$(p).text(dotclear.msg.xhtml_valid);
 					$(p).insertAfter(h);
-					$(p).backgroundFade({sColor:'#666666',eColor:'#ffcc00',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ffcc00',eColor:'#666666'});
+					$(p).backgroundFade({sColor:'#676e78',eColor:'#ffcc00',steps:50},function() {
+							$(this).backgroundFade({sColor:'#ffcc00',eColor:'#676e78'});
 					});
 				} else {
 					var div = document.createElement('div');

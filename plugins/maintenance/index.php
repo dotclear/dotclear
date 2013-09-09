@@ -141,49 +141,55 @@ elseif ($action == 'index' && !empty($_GET['indexcomments']))
 else
 {
 	echo
+	'<div class="two-boxes">'.
 	'<h3>'.__('Optimize database room').'</h3>'.
 	'<form action="plugin.php" method="post">'.
 	'<p><input type="submit" value="'.__('Vacuum tables').'" /> '.
 	$core->formNonce().
 	form::hidden(array('action'),'vacuum').
 	form::hidden(array('p'),'maintenance').'</p>'.
-	'</form>';
+	'</form></div>';
 	
 	echo
+	'<div class="two-boxes">'.
 	'<h3>'.__('Counters').'</h3>'.
 	'<form action="plugin.php" method="post">'.
 	'<p><input type="submit" value="'.__('Reset comments and ping counters').'" /> '.
 	$core->formNonce().
 	form::hidden(array('action'),'commentscount').
 	form::hidden(array('p'),'maintenance').'</p>'.
-	'</form>';
+	'</form></div>';
 	
 	echo
-	'<h3>'.__('Search engine index').' ('.__('This may take a very long time').')</h3>'.
+	'<div class="two-boxes">'.
+	'<h3>'.__('Search engine index').'</h3>'.
 	'<form action="plugin.php" method="get">'.
 	'<p><input type="submit" name="indexposts" value="'.__('Index all posts').'" /> '.
 	'<input type="submit" name="indexcomments" value="'.__('Index all comments').'" /> '.
 	form::hidden(array('action'),'index').
 	form::hidden(array('p'),'maintenance').'</p>'.
-	'</form>';
+	'<p class="form-note info">'.__('This may take a very long time').'.</p>'.
+	'</form></div>';
 	
 	echo
+	'<div class="two-boxes">'.
 	'<h3>'.__('Vacuum logs').'</h3>'.
 	'<form action="plugin.php" method="post">'.
 	'<p><input type="submit" value="'.__('Delete all logs').'" /> '.
 	$core->formNonce().
 	form::hidden(array('action'),'log').
 	form::hidden(array('p'),'maintenance').'</p>'.
-	'</form>';
+	'</form></div>';
 	
 	echo
+	'<div class="two-boxes">'.
 	'<h3>'.__('Empty templates cache directory').'</h3>'.
 	'<form action="plugin.php" method="post">'.
 	'<p><input type="submit" value="'.__('Empty directory').'" /> '.
 	$core->formNonce().
 	form::hidden(array('action'),'empty_cache').
 	form::hidden(array('p'),'maintenance').'</p>'.
-	'</form>';
+	'</form></div>';
 }
 dcPage::helpBlock('maintenance');
 ?>

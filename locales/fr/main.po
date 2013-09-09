@@ -1925,8 +1925,8 @@ msgstr "Mettre à jour mon profil"
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Êtes-vous sûr de vouloir retirer les favoris sélectionnés ?"
 
-msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
-msgstr "Si vous êtes super administrateur, vous pouvez définir ce jeu de favoris comme l'ensemble par défaut pour tous les blogs de l'installation :"
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
+msgstr "Si vous êtes super administrateur, vous pouvez faire de ces favoris le jeu par défaut pour tous les blogs de l'installation."
 
 msgid "Define as default favorites"
 msgstr "Définir comme favoris par défaut"
@@ -3205,8 +3205,8 @@ msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 msgid "This category will be created when you will save your post."
 msgstr "Cette catégorie sera créée lorsque vous enregistrerez votre billet."
 
-msgid "Category which will receive entries of deleted categories:"
-msgstr "Catégorie d'accueil pour les billets des catégories supprimées :"
+msgid "Category where entries of deleted categories will be moved:"
+msgstr "Catégorie où seront déplacés les billets des catégories supprimées :"
 
 msgid "Delete selected categories"
 msgstr "Supprimer les catégories sélectionnées"
@@ -3311,3 +3311,45 @@ msgstr "Billets"
 
 msgid "%1$s: %2$s"
 msgstr "%1$s : %2$s"
+
+msgid "Dotclear news"
+msgstr "Actualité de Dotclear"
+
+msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
+msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devez créer ce répertoire avec les droits suffisants et affecter celui-ci à \"DC_TPL_CACHE\" dans le fichier inc/config.php."
+
+msgid "The cache directory does not exist or is not writable. You should contact your administrator."
+msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devriez contacter votre administrateur."
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr "Il n'existe pas de répertoire /public/ à l'endroit spécifié pour le réglage \"public_path\" dans about:config. Vous devez créer ce répertoire avec les droits suffisants (ou changer ce réglage)."
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr "Il n'existe pas de répertoire principal accessible en écriture pour la médiathèque. Vous devriez contacter votre administrateur."
+
+msgid "You do not have sufficient permissions to write to this folder."
+msgstr "Vous n'avez pas les droits suffisants pour écrire dans ce répertoire."
+
+msgid "MySQL (deprecated)"
+msgstr "MySQL (obsolète)"
+
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr "L'URL du blog ou la méthode de lecture de l'URL ne semblent pas être bien réglées (<code>%s</code> retourne un statut <strong>%s</strong>)"
+
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr "L'URL du blog ou la méthode de lecture de l'URL ne semblent pas être bien réglées (<code>%s</code> ne retourne pas un flux ATOM)"
+
+msgid "Dashboard options has been successfully updated."
+msgstr "Les options du tableau de bord ont été enregistrées avec succès."
+
+msgid "Save my dashboard options"
+msgstr "Enregistrer les options de mon tableau de bord"
+
+msgid "Favorites"
+msgstr "Favoris"
+
+msgid "Display favorites at the top of the menu"
+msgstr "Afficher les favoris en haut du menu"
+
+msgid "Dashboard icons"
+msgstr "Icônes du tableau de bord"

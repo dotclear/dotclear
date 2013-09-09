@@ -27,7 +27,7 @@ metaEditor.prototype = {
 		this.post_id = post_id;
 		this.target.empty();
 		
-		this.meta_dialog = $('<input type="text" />');
+		this.meta_dialog = $('<input type="text" class="ib" />');
 		this.meta_dialog.attr('title',this.text_add_meta.replace(/%s/,this.meta_type));
 		this.meta_dialog.attr('id','post_meta_input');
 		// Meta dialog input
@@ -41,7 +41,7 @@ metaEditor.prototype = {
 		
 		var This = this;
 		
-		this.submit_button = $('<input type="button" value="ok" />');
+		this.submit_button = $('<input type="button" value="ok" class="ib" />');
 		this.submit_button.click(function() {
 			var v = This.meta_dialog.val();
 			This.addMeta(v);

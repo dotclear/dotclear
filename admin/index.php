@@ -143,12 +143,12 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 		$feed = $feed_reader->parse($__resources['rss_news']);
 		if ($feed)
 		{
-			$latest_news = '<h3>'.__('Latest news').'</h3><dl id="news">';
+			$latest_news = '<h3>'.__('Dotclear news').'</h3><dl id="news">';
 			$i = 1;
 			foreach ($feed->items as $item)
 			{
-				$dt = isset($item->link) ? '<a href="'.$item->link.'" title="'.$item->title.' '.__('(external link)').'">'.
-					$item->title.'</a>' : $item->title;
+				$dt = isset($item->link) ? '<a href="'.$item->link.'" title="'.$item->title.' ('.__('new window').')">'.
+					$item->title.' <img src="images/outgoing-blue.png" alt="" /></a>' : $item->title;
 			
 				if ($i < 3) {
 					$latest_news .=
@@ -178,7 +178,8 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
 		$doc_links = '<h3>'.__('Documentation and support').'</h3><ul>';
 	
 		foreach ($__resources['doc'] as $k => $v) {
-			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' '.__('(external link)').'">'.$k.'</a></li>';
+			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' ('.__('new window').')">'.$k.
+			' <img src="images/outgoing-blue.png" alt="" /></a></li>';
 		}
 	
 		$doc_links .= '</ul>';
@@ -221,7 +222,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 		'<p><a class="button submit" href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
 		'<a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
 		($version_info ? ' </p>'.
-		'<p><a href="'.$version_info.'" class="info">'.__('information about this version').'</a>' : '').'</p>'.
+		'<p><a href="'.$version_info.'" class="updt-info">'.__('information about this version').'</a>' : '').'</p>'.
 		'</div>';
 	}
 }
@@ -256,17 +257,25 @@ if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
 $err = array();
 
 # Check cache directory
-if (!is_dir(DC_TPL_CACHE)) {
-	$err[] = '<p>'.sprintf(__('Cache directory %s does not exist.'),DC_TPL_CACHE).'</p>';
-} else if (!is_writable(DC_TPL_CACHE)) {
-	$err[] = '<p>'.sprintf(__('Cache directory %s is not writable.'),DC_TPL_CACHE).'</p>';
+if ( $core->auth->isSuperAdmin() ) {
+	if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
+		$err[] = '<p>'.__("The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file.").'</p>';
+	}
+} else {
+	if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
+		$err[] = '<p>'.__("The cache directory does not exist or is not writable. You should contact your administrator.").'</p>';
+	}
 }
 
 # Check public directory
-if (!is_dir($core->blog->public_path)) {
-	$err[] = '<p>'.sprintf(__('Directory %s does not exist.'),$core->blog->public_path).'</p>';
-} else if (!is_writable($core->blog->public_path)) {
-	$err[] = '<p>'.sprintf(__('Directory %s is not writable.'),$core->blog->public_path).'</p>';
+if ( $core->auth->isSuperAdmin() ) {
+	if (!is_dir($core->blog->public_path) || !is_writable($core->blog->public_path)) {
+		$err[] = '<p>'.__("There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting).").'</p>';
+	}
+} else {
+	if (!is_dir($core->blog->public_path) || !is_writable($core->blog->public_path)) {
+		$err[] = '<p>'.__("There is no writable root directory for the media manager. You should contact your administrator.").'</p>';
+	}
 }
 
 # Error list
@@ -292,27 +301,6 @@ if (!empty($plugins_install['failure']))
 	}
 	echo '</ul></div>';
 }
-
-# Dashboard columns (processed first, as we need to know the result before displaying the icons.)
-$dashboardItems = '';
-
-# Dotclear updates notifications
-if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
-{
-	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
-	$new_v = $updater->check(DC_VERSION);
-	$version_info = $new_v ? $updater->getInfoURL() : '';
-	
-	if ($updater->getNotify() && $new_v) {
-		$dashboardItems .=
-		'<div id="upg-notify" class="static-msg"><p>'.sprintf(__('Dotclear %s is available!'),$new_v).'</p> '.
-		'<ul><li><strong><a href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a></strong>'.
-		'</li><li><a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
-		($version_info ? ' </li><li>'.sprintf(__('<a href=\"%s\">Information about this version</a>.'),$version_info) : '').
-		'</li></ul></div>';
-	}
-}
-
 # Errors modules notifications
 if ($core->auth->isSuperAdmin())
 {
@@ -322,18 +310,20 @@ if ($core->auth->isSuperAdmin())
 	}
 	
 	if (count($list) > 0) {
-		$dashboardItems .=
-		'<div id="module-errors" class="error"><p>'.__('Some plugins are installed twice:').'</p> '.
+		echo 
+		'<div class="error" id="module-errors" class="error"><p>'.__('Some plugins are installed twice:').'</p> '.
 		'<ul>'.implode("\n",$list).'</ul></div>';
 	}
-	
 }
+
+# Dashboard columns (processed first, as we need to know the result before displaying the icons.)
+$dashboardItems = '';
 
 foreach ($__dashboard_items as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardItems .= '<div class="db-item">';
+		$dashboardItems .= '<div class="box">';
 		foreach ($i as $v) {
 			$dashboardItems .= $v;
 		}
@@ -342,7 +332,7 @@ foreach ($__dashboard_items as $i)
 }
 
 # Dashboard icons
-echo '<div id="dashboard-main"'.($dashboardItems ? '' : ' class="fullwidth"').'><div id="icons">';
+echo '<div id="dashboard-main"><div id="icons">';
 foreach ($__dashboard_icons as $i)
 {
 	echo
@@ -355,18 +345,9 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 	if ($core->auth->check('usage,contentadmin',$core->blog->id))
 	{
 		# Getting categories
-		$categories_combo = array(__('(No cat)') => '');
-		try {
-			$categories = $core->blog->getCategories(array('post_type'=>'post'));
-			if (!$categories->isEmpty()) {
-				while ($categories->fetch()) {
-					$catparents_combo[] = $categories_combo[] = new formSelectOption(
-						str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($categories->cat_title),
-						$categories->cat_id
-					);
-				}
-			}
-		} catch (Exception $e) { }
+		$categories_combo = dcAdminCombos::getCategoriesCombo(
+			$core->blog->getCategories(array('post_type'=>'post'))
+		);
 	
 		echo
 		'<div id="quick">'.
@@ -413,18 +394,27 @@ foreach ($__dashboard_contents as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardContents .= '<div>';
+		$dashboardContents .= '<div class="box">';
 		foreach ($i as $v) {
 			$dashboardContents .= $v;
 		}
 		$dashboardContents .= '</div>';
 	}
 }
-echo ($dashboardContents ? '<div id="dashboard-contents">'.$dashboardContents.'</div>' : '');
+
+$class = ' '.(($dashboardItems != '') && ($dashboardContents != '') ? 'two-boxes' : 'one-box txt-center');
+
+if ($dashboardContents != '' || $dashboardItems != '') {
+	echo 
+	'<hr />'.
+	'<div id="dashboard-boxes">';
+		echo ($dashboardContents ? '<div class="db-contents'.$class.'">'.$dashboardContents.'</div>' : '');
+		echo ($dashboardItems ? '<div class="db-items'.$class.'">'.$dashboardItems.'</div>' : '');
+	echo
+	'</div>';		
+}
 
 echo '</div>';
-
-echo ($dashboardItems ? '<div id="dashboard-items">'.$dashboardItems.'</div>' : '');
 
 dcPage::close();
 ?>

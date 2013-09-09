@@ -1,4 +1,4 @@
-#content {zoom:1;}
+.clearfix, #content {zoom:1;}
 label .maximal, textarea.maximal, input.maximal {
 	width : 98% !important;
 }

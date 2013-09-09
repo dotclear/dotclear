@@ -90,7 +90,7 @@ try {
 	$core_media_writable = $core->media->writable();
 	$dir =& $core->media->dir;
 	if  (!$core_media_writable) {
-		throw new Exception('you do not have sufficient permissions to write to this folder: ');
+//		throw new Exception('you do not have sufficient permissions to write to this folder: ');
 	}
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
@@ -261,6 +261,10 @@ call_user_func($open_f,__('Media manager'),
 	$breadcrumb
 	);
 
+if (!$core_media_writable) {
+	dcPage::warning(__('You do not have sufficient permissions to write to this folder.'));
+}
+
 if (!empty($_GET['mkdok'])) {
 	dcPage::success(__('Directory has been successfully created.'));
 }
@@ -342,8 +346,8 @@ echo
 if ($core_media_writable)
 {
 	echo 
-	'<h3>'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>'.
-	'<div class="media-action-box">';
+	'<h3 class="hidden">'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>'.
+	'<div class="two-boxes odd fieldset">';
 	
 	if ($user_ui_enhanceduploader) {
 		echo
@@ -392,21 +396,43 @@ if ($core_media_writable)
 	'</form>'.
 	'</div>'.
 	'</div>';
+}
 
-	echo
-	'<div class="media-action-box">'.
-	'<form action="'.html::escapeURL($page_url).'" method="post">'.
-	'<div id="new-dir-f">'.
-	'<h4>'.__('Create new directory').'</h4>'.
-	$core->formNonce().
-	'<p><label for="newdir">'.__('Directory Name:').'</label>'.
-	form::field(array('newdir','newdir'),35,255).'</p>'.
-	'<p><input type="submit" value="'.__('Create').'" />'.
-	form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
-	'</div>'.
-	'</form>'.
-	'</div>';
+$core_media_archivable = $core->auth->check('media_admin',$core->blog->id) && 
+	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent));
+
+if ($core_media_writable || $core_media_archivable) {
+
+	echo '<div class="two-boxes even fieldset">';
+
+	# Create directory
+	if ($core_media_writable)
+	{
+		echo
+		'<form action="'.html::escapeURL($page_url).'" method="post">'.
+		'<div id="new-dir-f">'.
+		'<h4>'.__('Create new directory').'</h4>'.
+		$core->formNonce().
+		'<p><label for="newdir">'.__('Directory Name:').'</label>'.
+		form::field(array('newdir','newdir'),35,255).'</p>'.
+		'<p><input type="submit" value="'.__('Create').'" />'.
+		form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
+		'</div>'.
+		'</form>';
 	}
+
+	# Get zip directory
+	if ($core_media_archivable)
+	{
+		echo
+		'<h4>'.__('Backup content').'</h4>'.
+		'<p>'.__('Compress this directory with its content as a zip file and download it.').'</p>'.
+		'<p><a class="button submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
+		__('Download').'</a></p>';
+	}
+
+	echo '</div>';
+}
 
 # Empty remove form (for javascript actions)
 echo
@@ -417,19 +443,6 @@ form::hidden('remove','').
 $core->formNonce().
 '</div>'.
 '</form>';
-
-# Get zip directory
-if ($core->auth->check('media_admin',$core->blog->id) && 
-	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent)))
-{
-	echo
-	'<div class="media-action-box">'.
-	'<h4>'.__('Backup content').'</h4>'.
-	'<p>'.__('Compress this directory with its content as a zip file and download it.').'</p>'.
-	'<p><a class="submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
-	__('Download').'</a></p>'.
-	'</div>';
-}
 
 call_user_func($close_f);
 
