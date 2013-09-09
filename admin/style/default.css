@@ -521,34 +521,49 @@ a.form-control {
 /* ----------------------------------------------------------------------------
 																		BOUTONS
 ---------------------------------------------------------------------------- */
-/* commun */
-input[type=submit], input[type=reset], input[type=button], input[type=delete],
-input.submit, input.reset, input.button, input.delete,
-a.button, a.button.submit, a.delete, a.reset {
+/* Removes inner padding and border in FF3+  - Knacss */
+button::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+	}
+/* tous les boutons */
+button,
+a.button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+	border: 1px solid #ccc;
+	font-family: arial, helvetica, sans-serif;
+	padding: 3px 8px;
+	line-height: normal !important;
 	display: inline-block;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	padding: 2px 6px 2px;
-	border-radius: 3px;
+	vertical-align: top;
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
-	line-height: 1.5em;
- 	}
-	a.button, a.button.submit, a.reset {
-	 	padding-bottom: 1px;
-	 	}
+	text-align: center;
+	text-decoration: none;
+	border-radius: 3px;
+	cursor: pointer;
+	}
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+	-webkit-appearance: button;
+	}
  /* validation */
 input[type=submit], a.button.submit {
 	color: #fff;
-	text-shadow: 0 -1px 0 rgba(100, 100, 100, 0.6);
-	background:#25A6E1;
+	background-color:#25A6E1;
+	border-color: #2C8FD1;
 	background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
 	background:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
-	border: 1px solid #2C8FD1;
- 	padding-bottom: 1px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 	}
 	input[type=submit]:hover, input[type=submit]:focus,
 	a.button.submit:hover, a.button.submit:focus {
@@ -562,9 +577,8 @@ input[type=submit], a.button.submit {
 input[type=reset], input[type=delete], input[type=button],
 input.delete, input.reset, input.button,
 a.delete, a.reset, a.button {
-	border: 1px solid #ccc;
-	background: #f5f5f5;
 	color: #000;
+	background-color: #f5f5f5;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
 	background: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -575,21 +589,23 @@ a.delete, a.reset, a.button {
 	input[type=reset]:focus, input[type=delete]:focus, input[type=button]:focus,
 	input.delete:focus, input.reset:focus, input.button:focus,
 	a.delete:focus, a.reset:focus, a.button:focus {
+		background-color:#e9e9e9;
 		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
 		background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
-		background-color:#e9e9e9;
 		}
 	a.delete, input[type=delete], input.delete {
+		border-color: #ccc;
 		color: #c00;
 		margin-left: 1em;
-		padding-bottom: 2px;
+		}
+	a.delete:first-child, input[type=delete]:first-child, input.delete:first-child {
+		margin-left: 0;
 		}
 		a.delete:hover, input[type=delete]:hover, input.delete:hover,
 		a.delete:focus, input[type=delete]:focus, input.delete:focus {		
 			border-color: #c00;
 			}
-		a.button {padding-bottom: 1px}
 	#info-box a.button {
 		padding: 0 .5em;
 		margin-left: 2em;
@@ -1674,6 +1690,9 @@ li.media-action {
 	border: 1px solid #ddd;
 	padding: .2em;
 	border-radius: .5em;
+	}
+#my-favs {
+	border-color: #A8DC26;
 	}
 #my-favs input.position {
 	margin: 0 0 .4em .2em;
