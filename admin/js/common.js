@@ -243,7 +243,7 @@ var dotclear = {
 				imgE.src = 'images/locker.png';
 				imgE.style.position = 'absolute';
 				imgE.style.top = '1.7em';
-				imgE.style.left = ($(this).width()+4)+'px';
+				imgE.style.left = ($(this).width()+12)+'px';
 				imgE.alt=dotclear.msg.click_to_unlock;
 				$(imgE).css('cursor','pointer');
 
@@ -381,7 +381,7 @@ $(function() {
 
 	$('#help').helpViewer();
 
-	$('.message').backgroundFade({sColor:'#cccccc',eColor:'#666666',steps:20});
+	$('.message').backgroundFade({sColor:'#cccccc',eColor:'#676e78',steps:20});
 	$('.error').backgroundFade({sColor:'#ffdec8',eColor:'#ffbaba',steps:20});
 	$('.success').backgroundFade({sColor:'#9BCA1C',eColor:'#bee74b',steps:20});
 

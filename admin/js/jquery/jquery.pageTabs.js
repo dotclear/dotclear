@@ -77,19 +77,31 @@ jQuery._pageTabs.prototype = {
 		var This = this;
 		var i = 0;
 		var to_trigger = null;
+		var exists = false;
 
 		this.divs.each(function() {
 			if ((this.id != '' && this.id == index) || i == index) {
-				jQuery(this).show(0);
-				This.items[i].className = This.params.listClassName+'-active';
-				to_trigger = i;
-			} else {
-				jQuery(this).hide(0);
-				This.items[i].className = '';
+				exists = true;
 			}
-
 			i++;
 		});
+		
+		i = 0;
+		
+		if( exists ) {
+			this.divs.each(function() {
+				if ((this.id != '' && this.id == index) || i == index) {
+					jQuery(this).show(0);
+					This.items[i].className = This.params.listClassName+'-active';
+					to_trigger = i;
+				} else {
+					jQuery(this).hide(0);
+					This.items[i].className = '';
+				}
+	
+				i++;
+			});
+		}
 
 		if (to_trigger != null) {
 			jQuery(this.divs[to_trigger]).onetabload();

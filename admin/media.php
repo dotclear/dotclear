@@ -347,7 +347,7 @@ if ($core_media_writable)
 {
 	echo 
 	'<h3 class="hidden">'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>'.
-	'<div class="media-action-box">';
+	'<div class="two-boxes odd fieldset">';
 	
 	if ($user_ui_enhanceduploader) {
 		echo
@@ -403,7 +403,7 @@ $core_media_archivable = $core->auth->check('media_admin',$core->blog->id) &&
 
 if ($core_media_writable || $core_media_archivable) {
 
-	echo '<div class="media-action-box">';
+	echo '<div class="two-boxes even fieldset">';
 
 	# Create directory
 	if ($core_media_writable)
@@ -427,7 +427,7 @@ if ($core_media_writable || $core_media_archivable) {
 		echo
 		'<h4>'.__('Backup content').'</h4>'.
 		'<p>'.__('Compress this directory with its content as a zip file and download it.').'</p>'.
-		'<p><a class="submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
+		'<p><a class="button submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
 		__('Download').'</a></p>';
 	}
 
