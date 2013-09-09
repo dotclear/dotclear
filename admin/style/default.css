@@ -574,7 +574,7 @@ input[type=submit], a.button.submit {
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#25A6E1',GradientType=0);
 		}
 /* suppression, reset, "neutres" */
-input[type=reset], input[type=delete], input[type=button],
+input[type=reset], input[type=delete], input[type=submit].delete, input[type=button],
 input.delete, input.reset, input.button,
 a.delete, a.reset, a.button {
 	color: #000;
@@ -584,9 +584,11 @@ a.delete, a.reset, a.button {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 	}
 	input[type=reset]:hover, input[type=delete]:hover, input[type=button]:hover,
+	input[type=submit].delete:hover,
 	input.delete:hover, input.reset:hover, input.button:hover,
 	a.delete:hover, a.reset:hover, a.button:hover,
 	input[type=reset]:focus, input[type=delete]:focus, input[type=button]:focus,
+	input[type=submit].delete:focus,
 	input.delete:focus, input.reset:focus, input.button:focus,
 	a.delete:focus, a.reset:focus, a.button:focus {
 		background-color:#e9e9e9;
@@ -639,13 +641,13 @@ a.delete, a.reset, a.button {
 		}
 
 /* disabled */
-input.disabled {
+input.disabled, input[type=submit].disabled {
  	text-shadow: none;
  	color: #676e78;
  	background: #F5F5F5;
 	border: 1px solid #CCC;
 	}
-	input.disabled:hover {
+	input.disabled:hover, input[type=submit].disabled {
 		color: #676e78;
 		background: #DFDFDF;
 		border: 1px solid #CCC;
