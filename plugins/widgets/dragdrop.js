@@ -29,7 +29,7 @@ $(function() {
 		items: "li:not(.sortable-delete-placeholder)",
 		connectWith: ".connected, .sortable-delete",
 		start: function( event, ui ) {
-			// petit décalage éstétique
+			// petit décalage esthétique
 			ui.item.css('left', ui.item.position().left + 20);
 		},
 		update: function(event, ui) {
@@ -41,7 +41,7 @@ $(function() {
 			// met a zéro le décalage
 			ui.item.css('left', 'auto');
 			
-			// signale les zone vide
+			// signale les zones vides
 			if( ul.find('li').length == 0 )
 				 field.find('.empty-widgets').show();
 			else field.find('.empty-widgets').hide();
@@ -57,7 +57,7 @@ $(function() {
 			if( ul.attr('id') ) {
 				ul.find('li').each(function(i) {
 					
-					// trouve la zone de récéption
+					// trouve la zone de réception
 					var name = ul.attr('id').split('dnd').join('');
 					
 					// modifie le name en conséquence
@@ -94,5 +94,5 @@ $(function() {
 			ui.helper.css({'width': $('#widgets-ref > li').css('width')});
 		}
 	});
-	
+	$("li.ui-draggable, ul.ui-sortable li").css({'cursor':'move'});
 });

@@ -207,28 +207,18 @@ if ($can_install && !empty($_POST))
 		$init_fav['new_post'] = array('new_post','New entry','post.php',
 			'images/menu/edit.png','images/menu/edit-b.png',
 			'usage,contentadmin',null,'menu-new-post');
-		$init_fav['posts'] = array('posts','Entries','posts.php',
-			'images/menu/entries.png','images/menu/entries-b.png',
-			'usage,contentadmin',null,null);
-		$init_fav['comments'] = array('comments','Comments','comments.php',
-			'images/menu/comments.png','images/menu/comments-b.png',
-			'usage,contentadmin',null,null);
-		$init_fav['prefs'] = array('prefs','My preferences','preferences.php',
-			'images/menu/user-pref.png','images/menu/user-pref-b.png',
-			'*',null,null);
-		$init_fav['blog_pref'] = array('blog_pref','Blog settings','blog_pref.php',
-			'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
+		$init_fav['newpage'] = array('newpage','New page','plugin.php?p=pages&amp;act=page',
+			'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
+			'contentadmin,pages',null,null);
+		$init_fav['media'] = array('media','Media manager','media.php',
+			'images/menu/media.png','images/menu/media-b.png',
+			'media,media_admin',null,null);
+		$init_fav['widgets'] = array('widgets','Presentation widgets','plugin.php?p=widgets',
+			'index.php?pf=widgets/icon.png','index.php?pf=widgets/icon-big.png',
 			'admin',null,null);
 		$init_fav['blog_theme'] = array('blog_theme','Blog appearance','blog_theme.php',
 			'images/menu/themes.png','images/menu/blog-theme-b.png',
 			'admin',null,null);
-
-		$init_fav['pages'] = array('pages','Pages','plugin.php?p=pages',
-			'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
-			'contentadmin,pages',null,null);
-		$init_fav['blogroll'] = array('blogroll','Blogroll','plugin.php?p=blogroll',
-			'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
-			'usage,contentadmin',null,null);
 
 		$count = 0;
 		foreach ($init_fav as $k => $f) {

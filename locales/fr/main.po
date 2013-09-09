@@ -1925,8 +1925,8 @@ msgstr "Mettre à jour mon profil"
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Êtes-vous sûr de vouloir retirer les favoris sélectionnés ?"
 
-msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
-msgstr "Si vous êtes super administrateur, vous pouvez définir ce jeu de favoris comme l'ensemble par défaut pour tous les blogs de l'installation :"
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
+msgstr "Si vous êtes super administrateur, vous pouvez faire de ces favoris le jeu par défaut pour tous les blogs de l'installation."
 
 msgid "Define as default favorites"
 msgstr "Définir comme favoris par défaut"
@@ -3205,8 +3205,8 @@ msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 msgid "This category will be created when you will save your post."
 msgstr "Cette catégorie sera créée lorsque vous enregistrerez votre billet."
 
-msgid "Category which will receive entries of deleted categories:"
-msgstr "Catégorie d'accueil pour les billets des catégories supprimées :"
+msgid "Category where entries of deleted categories will be moved:"
+msgstr "Catégorie où seront déplacés les billets des catégories supprimées :"
 
 msgid "Delete selected categories"
 msgstr "Supprimer les catégories sélectionnées"
@@ -3338,3 +3338,18 @@ msgstr "L'URL du blog ou la méthode de lecture de l'URL ne semblent pas être b
 
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "L'URL du blog ou la méthode de lecture de l'URL ne semblent pas être bien réglées (<code>%s</code> ne retourne pas un flux ATOM)"
+
+msgid "Dashboard options has been successfully updated."
+msgstr "Les options du tableau de bord ont été enregistrées avec succès."
+
+msgid "Save my dashboard options"
+msgstr "Enregistrer les options de mon tableau de bord"
+
+msgid "Favorites"
+msgstr "Favoris"
+
+msgid "Display favorites at the top of the menu"
+msgstr "Afficher les favoris en haut du menu"
+
+msgid "Dashboard icons"
+msgstr "Icônes du tableau de bord"
