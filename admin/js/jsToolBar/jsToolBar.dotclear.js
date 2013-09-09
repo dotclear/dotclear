@@ -376,4 +376,11 @@ jsToolBar.prototype.elements.post_link.fn.wysiwyg = function() {
 };
 
 // Last space element
-jsToolBar.prototype.elements.space3 = {type: 'space'};
+jsToolBar.prototype.elements.space3 = {
+	type:'space', 
+	format:{
+		wysiwyg:true,
+		wiki:true,
+		xhtml:true
+	}
+};

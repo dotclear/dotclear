@@ -1,17 +1,18 @@
 .jstEditor {
 	border-width : 0 1px 1px 1px;
 	border-style : solid;
-	border-color : #ccc;
-	background : #f9f9f9;
+	border-color : #ddd;
+	background : #f7f7f7;
 }
 .jstEditor textarea, .jstEditor iframe {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;	
 	margin: 0;
-	border: 2px solid #f9f9f9;
+	border: 1px solid #fbfbfb;
   	width: 100%;
   	padding: .5em 0 0 0;
+  	min-height: 100px;
 }
 .jstHandle {
 	height: 8px;
@@ -23,22 +24,16 @@
 	border-style: solid;
 }
 .jstEditor textarea:focus, .jstEditor iframe:focus {
-	border: 2px solid #bee74b;
+	border-color: #bee74b;
 }
 .jstElements {
-	height: 28px;
 	padding: 0 1rem; 
-	border: 1px solid #ccc;
+	border: 1px solid #dfdfdf;
 	overflow: hidden; 
-	background: #e1e1e1; 
-	background: -moz-linear-gradient(center top , #f2f2f2, #e1e1e1); 
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(100%,#e1e1e1)); 
+	background: #f5f5f5; 
 	-moz-border-radius: 4px 4px 0 0; 
 	-webkit-border-radius: 4px 4px 0 0; 
 	border-radius: 4px 4px 0 0; 
-	-webkit-box-shadow: 0 1px 0 #FFF inset; 
-	-moz-box-shadow: 0 1px 0 #FFF inset; 
-	box-shadow: 0 1px 0 #FFF inset;
 }
 
 .jstElements select, .jstElements button {
@@ -47,20 +42,20 @@
 .jstElements select {
 	width: 12em;
 	margin-right: .6rem;
-	border: 1px solid #ccc; 
+	border: 1px solid #ddd; 
 }
 .jstElements button {
 	width : 30px;
 	height: 28px;
-	border-style: groove;
+	border-style: solid;
 	border-width:  0 1px 0 0;
-	border-color: #666;
-	background-color : transparent;
+	border-color: #e7e7e7;
+	background-color : #f7f7f7;
 	background-position : 50% 50%;
 	background-repeat: no-repeat;
 }
 .jstElements button:hover {
-	border-color : #ccc;
+	border-color : #ddd;
 	background-color: #fff;
 }
 .jstElements button span {
@@ -69,15 +64,12 @@
 .jstElements span {
 	display : inline-block;
 	vertical-align: top;
-	background: #dfdfdf;
+	background: #e5e5e5;
 }
 span.jstSpacer {
 	width : 6px;
 	height: 28px;
 	margin-right: 0;
-	border-style: groove;
-	border-width:  0 1px 0 0;
-	border-color: #666;
 }
 
 .jstSwitcher {
@@ -95,7 +87,7 @@ span.jstSpacer {
 }
 .jstSwitcher li.jstSwitcherCurrent {
 	color: #fff;
-	background: #575859;
+	background: #677374;
 	border-radius: 0 0 2px 2px;
 }
 .jstSwitcher a {

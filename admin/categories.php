@@ -113,17 +113,7 @@ if (!empty($_GET['del'])) {
 if (!empty($_GET['reord'])) {
 	dcPage::success(__('Categories have been successfully reordered.'));
 }
-
-$categories_combo = array();
-if (!$rs->isEmpty())
-{
-	while ($rs->fetch()) {
-		$catparents_combo[] = $categories_combo[] = new formSelectOption(
-			str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title),
-			$rs->cat_id
-		);
-	}
-}
+$categories_combo = dcAdminCombos::getCategoriesCombo($rs);
 
 echo
 '<p class="top-add"><a class="button add" href="category.php">'.__('New category').'</a></p>';
@@ -138,7 +128,6 @@ else
 {
 	echo
 	'<form action="categories.php" method="post" id="form-categories">'.
-	'<h3>'.__('List of blog\'s categories').'</h3>'.
 	'<div id="categories">';
 
 	$ref_level = $level = $rs->level-1;
@@ -178,15 +167,15 @@ else
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	'<p class="col right" id="mov-cat">'.
-	'<label for="mov_cat" class="classic">'.__('Category which will receive entries of deleted categories:').'</label> '.
-	form::combo('mov_cat',array_merge(array(__('(No cat)') => ''),$categories_combo),'','').
+	'<label for="mov_cat" class="classic">'.__('Category where entries of deleted categories will be moved:').'</label> '.
+	form::combo('mov_cat',$categories_combo,'','').
 	'</p>'.
 	'<p class="right">'.
 	'<input type="submit" class="delete" name="delete" value="'.__('Delete selected categories').'"/>'.
 	'</p>'.
 	'</div>';
 
-	echo '<h3 class="clear hidden-if-no-js">'.__('Categories order').'</h3>';
+	echo '<div class="fieldset"><h3 class="clear hidden-if-no-js">'.__('Categories order').'</h3>';
 
 	if ($core->auth->check('categories',$core->blog->id) && $rs->count()>1) {
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
@@ -204,7 +193,7 @@ else
 	$core->formNonce().'</p>'.
 	'<p class="hidden-if-no-js"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
 	$core->formNonce().'</p>'.
-	'</form>';
+	'</div></form>';
 }
 
 echo '</div>';

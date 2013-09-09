@@ -149,9 +149,9 @@ class dcPage
 		'</div>';
 
 		echo
-		'<div id="wrapper">'."\n".
+		'<div id="wrapper" class="clearfix">'."\n".
 		'<div id="main">'."\n".
-		'<div id="content">'."\n";
+		'<div id="content" class="clearfix">'."\n";
 
 		# Safe mode
 		if ($safe_mode)
@@ -329,6 +329,11 @@ class dcPage
 	public static function success($msg,$timestamp=true,$div=false,$echo=true)
 	{
 		self::message($msg,$timestamp,$div,$echo,"success");
+	}
+
+	public static function warning($msg,$timestamp=true,$div=false,$echo=true)
+	{
+		self::message($msg,$timestamp,$div,$echo,"warning-msg");
 	}
 
 	private static function debugInfo()
@@ -612,10 +617,22 @@ class dcPage
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		"\$(function() {\n".
-			"	\$.pageTabs(".$default.");\n".
+			"	pagetabs = \$.pageTabs(".$default.");\n".
 			"});\n".
 "\n//]]>\n".
-"</script>\n";
+"</script>\n".
+		"<!--[if lt IE 8]>\n".
+		self::jsLoad('js/ie7/ie7-hashchange.js').
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA[\n".
+		"\$(function() {".
+			"\$(window).hashchange( function(){".
+				"pagetabs.showDiv(document.location.hash.split('#').join(''));".
+			"});".
+		"});".
+		"\n//]]>\n".
+		"</script>\n".
+		"<![endif]-->\n";
 }
 
 public static function jsModal()

@@ -31,20 +31,13 @@ $user_post_status = '';
 
 $user_options = $core->userDefaults();
 
-foreach ($core->getFormaters() as $v) {
-	$formaters_combo[$v] = $v;
-}
+# Formaters combo
+$formaters_combo = dcAdminCombos::getFormatersCombo();
 
-foreach ($core->blog->getAllPostStatus() as $k => $v) {
-	$status_combo[$v] = $k;
-}
+$status_combo = dcAdminCombos::getPostStatusesCombo();
 
 # Language codes
-$langs = l10n::getISOcodes(1,1);
-foreach ($langs as $k => $v) {
-	$lang_avail = $v == 'en' || is_dir(DC_L10N_ROOT.'/'.$v);
-	$lang_combo[] = new formSelectOption($k,$v,$lang_avail ? 'avail10n' : '');
-}
+$lang_combo = dcAdminCombos::getAdminLangsCombo();
 
 # Get user if we have an ID
 if (!empty($_REQUEST['id']))

@@ -66,7 +66,14 @@ $(function() {
 });
 
 // Toolbar button for tags
-jsToolBar.prototype.elements.tagSpace = {type: 'space'};
+jsToolBar.prototype.elements.tagSpace = {
+	type: 'space', 
+	format:{
+		wysiwyg:true,
+		wiki:true,
+		xhtml:true
+	}
+};
 
 jsToolBar.prototype.elements.tag = {type: 'button', title: 'Keyword', fn:{} };
 jsToolBar.prototype.elements.tag.context = 'post';
