@@ -275,7 +275,13 @@ h4, as_h4 {
 	font-size: 1.4rem;
 	color: #676e78;
 	}
-	.smart-title, .box h3, .fieldset h3, .fieldset h4 { /* pour les h3 ou les h4 titres de boîtes */
+	.fieldset h3, .fieldset h4, .pretty-title {
+		color: #D33800;
+		font-size: 12px;
+		font-size: 1.2rem;
+		font-weight: bold;
+		}
+	.smart-title { /* vairiante */
 		font-size: 1em;
 		text-transform: uppercase;
 		font-weight: bold;
@@ -574,7 +580,7 @@ input[type=submit], a.button.submit {
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#25A6E1',GradientType=0);
 		}
 /* suppression, reset, "neutres" */
-input[type=reset], input[type=delete], input[type=submit].delete, input[type=button],
+input[type=reset], input[type=delete], input[type=submit].delete, input[type=submit].reset, input[type=button],
 input.delete, input.reset, input.button,
 a.delete, a.reset, a.button {
 	color: #000;
@@ -675,6 +681,11 @@ div.warn, div.warning, div.info {
 	.info {
 		background: #D9EDF7 url(msg-info.png) no-repeat .3em .3em;
 		border: 1px solid #BCE8F1;
+		}
+	span.warn, span.warning, span.info {
+		padding-top: 1px;
+		padding-bottom: 1px;
+		background-position: .3em .2em;
 		}
 .error, .message, .static-msg, .success, .warning-msg {
 	padding: 1em 0.5em 0.5em 48px;
@@ -1662,43 +1673,50 @@ li.media-action {
 		}
 /* ---------------------------------------------------------- preferences.php */
 .fav-list {
-	border-top: 1px solid #eee;
 	list-style-type: none;
 	margin-left: 0;
 	padding-left: 0;
 	}
+	#my-favs .fav-list {
+		border-top: 1px solid #eee;
+		}
 .fav-list li {
-	line-height: 2;
 	margin-left: 0;
 	padding-left: 0;
-	border-bottom: 1px solid #eee;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	position: relative;
 	}
-.fav-list img {
-	vertical-align: middle;
-	margin-right: .2em;
-	}
-.fav-list li span.zoom {
-	display: none;
-	}
-.fav-list li:hover span.zoom {
-	display: block;
-	position: absolute;
-	bottom: 0;
-	left: 10em;
-	background-color: #f7f7f7;
-	border: 1px solid #ddd;
-	padding: .2em;
-	border-radius: .5em;
-	}
+	#my-favs .fav-list li {
+		line-height: 2;
+		border-bottom: 1px solid #eee;
+		padding-top: 3px;
+		padding-bottom: 3px;
+		position: relative;
+		}
+	.fav-list img {
+		vertical-align: middle;
+		margin-right: .2em;
+		}
+	.fav-list li span.zoom {
+		display: none;
+		}
+	.fav-list li:hover span.zoom {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 10em;
+		background-color: #f7f7f7;
+		border: 1px solid #ddd;
+		padding: .2em;
+		border-radius: .5em;
+		}
 #my-favs {
 	border-color: #A8DC26;
 	}
-#my-favs input.position {
-	margin: 0 0 .4em .2em;
-	}
+	#my-favs input.position {
+		margin: 0 0 .4em .2em;
+		}
 #available-favs input, #available-favs label, #available-favs label span {
 	white-space: normal;
 	display: inline;
@@ -1980,6 +1998,21 @@ ul.nice {
 #debug:hover div {
 	display: block;
 	}
+
+
+/* 
+				tests dashboard 
+
+#content {width: auto;float:none !important; margin: 0;}
+#main {width: auto; display:inline-block; vertical-align: top; margin: 0;float: none !important}
+#main-menu {clear:both; width: auto}
+#main-menu {margin-top: 8em}
+#favorites-menu {display:none;}
+#plugins-menu, #blog-menu, #system-menu, #dashboard-items {display: inline-block;vertical-align: top; min-width: 17em; margin: 0; clear: none;}
+
+*/
+
+
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
@@ -2052,3 +2085,5 @@ ul.nice {
 		}
 	#info-box1 p.nomobile, label.nomobile { display: none; }
 	}
+}
+
