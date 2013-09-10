@@ -60,15 +60,15 @@ if (!$core->error->flag())
 		$users_combo[$user_cn] = $users->user_id; 
 	}
 	
+	$categories_values = array('NULL' => true);
 	$categories_combo[__('None')] = 'NULL';
 	while ($categories->fetch()) {
-		$label = str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').
-			html::escapeHTML($categories->cat_title).
-			' ('.$categories->nb_post.')';
-		while (array_key_exists($label,$categories_combo)) {
-			$label .= ' ';
-		}
-		$categories_combo[$label] = $categories->cat_id;
+		$categories_combo[] = new formSelectOption(
+			str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').
+			html::escapeHTML($categories->cat_title).' ('.$categories->nb_post.')',
+			$categories->cat_id
+		);
+		$categories_values[$categories->cat_id] = true;
 	}
 
 	$status_combo = array(
@@ -176,7 +176,7 @@ if ($user_id !== '' && in_array($user_id,$users_combo)) {
 }
 
 # - Categories filter
-if ($cat_id !== '' && in_array($cat_id,$categories_combo)) {
+if ($cat_id !== '' && isset($categories_values[$cat_id])) {
 	$params['cat_id'] = $cat_id;
 	$show_filters = true;
 } else {
