@@ -32,7 +32,7 @@ class dcAdminCombos {
 	public static function getCategoriesCombo($categories,$include_empty = true) {
 		$categories_combo = array();
 		if ($include_empty) {
-			$categories_combo = array(new formSelectOption(__('(no cat)'),''));
+			$categories_combo = array(new formSelectOption(__('(No cat)'),''));
 		}
 		while ($categories->fetch()) {
 			$categories_combo[] = new formSelectOption (
