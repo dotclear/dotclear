@@ -222,7 +222,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 		'<p><a class="button submit" href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
 		'<a href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
 		($version_info ? ' </p>'.
-		'<p><a href="'.$version_info.'" class="updt-info">'.__('information about this version').'</a>' : '').'</p>'.
+		'<p><a href="'.$version_info.'" class="updt-info">'.__('Information about this version').'</a>' : '').'</p>'.
 		'</div>';
 	}
 }
