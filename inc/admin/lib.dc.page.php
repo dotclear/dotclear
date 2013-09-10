@@ -473,8 +473,20 @@ class dcPage
 	
 	public static function jsCommon()
 	{
+		$mute_or_no = '';
+		if ($GLOBALS['core']->blog->settings->system->jquery_migrate_mute) {
+			$mute_or_no .=
+				'<script type="text/javascript">'."\n".
+				"//<![CDATA[\n".
+				'jQuery.migrateMute = true;'.
+				"\n//]]>\n".
+				"</script>\n";
+		}
+
 		return
 		self::jsLoad('js/jquery/jquery.js').
+		$mute_or_no.
+		self::jsLoad('js/jquery/jquery-migrate-1.2.1.js').
 		self::jsLoad('js/jquery/jquery.biscuit.js').
 		self::jsLoad('js/jquery/jquery.bgFade.js').
 		self::jsLoad('js/common.js').
@@ -483,7 +495,6 @@ class dcPage
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		self::jsVar('dotclear.nonce',$GLOBALS['core']->getNonce()).
-
 		self::jsVar('dotclear.img_plus_src','images/expand.png').
 		self::jsVar('dotclear.img_plus_alt',__('uncover')).
 		self::jsVar('dotclear.img_minus_src','images/hide.png').
