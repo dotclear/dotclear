@@ -62,11 +62,15 @@ if (!$core->error->flag())
 	
 	$categories_combo[__('None')] = 'NULL';
 	while ($categories->fetch()) {
-		$categories_combo[str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').
+		$label = str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').
 			html::escapeHTML($categories->cat_title).
-			' ('.$categories->nb_post.')'] = $categories->cat_id;
+			' ('.$categories->nb_post.')';
+		while (array_key_exists($label,$categories_combo)) {
+			$label .= ' ';
+		}
+		$categories_combo[$label] = $categories->cat_id;
 	}
-	
+
 	$status_combo = array(
 	'-' => ''
 	);
