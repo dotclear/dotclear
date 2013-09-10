@@ -66,7 +66,7 @@ $iconsets_root = dirname(__FILE__).'/images/iconset/';
 if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 	if (($d = @dir($iconsets_root)) !== false) {
 		while (($entry = $d->read()) !== false) {
-			if ($entry != '.' && $entry != '..' && is_dir($iconsets_root.'/'.$entry)) {
+			if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($iconsets_root.'/'.$entry)) {
 				$iconsets_combo[$entry] = $entry;
 			}
 		}
@@ -552,6 +552,7 @@ echo '<form action="preferences.php" method="post" id="favs-form" class="two-box
 echo '<div id="my-favs" class="fieldset"><h4>'.__('My favorites').'</h4>';
 
 $count = 0;
+$user_fav = array();
 foreach ($ws->dumpPrefs() as $k => $v) {
 	// User favorites only
 	if (!$v['global']) {
@@ -565,6 +566,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 				form::hidden(array('dynorder[]','dynorder-'.$k.''),$k).
 				form::checkbox(array('remove[]','fuk-'.$k),$k).__($fav['title']).'</label>'.
 				'</li>';
+			$user_fav[] = $fav['name'];
 		}
 	}
 }
@@ -595,30 +597,21 @@ if ($count > 0) {
 	'<p>'.__('Currently no personal favorites.').'</p>';
 }
 
-/*
-echo '<div id="default-favs"><h3>'.__('Default favorites').'</h3>';
-echo '<p>'.__('Those favorites are displayed when My Favorites list is empty.').'</p>';
-$count = 0;
+$default_fav = array();
 foreach ($ws->dumpPrefs() as $k => $v) {
 	// Global favorites only
 	if ($v['global']) {
 		$fav = unserialize($v['value']);
 		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			if ($count == 0) echo '<ul class="fav-list">';
-			$count++;
-			echo '<li id="fd-'.$k.'">'.
-			'<img src="'.dc_admin_icon_url($fav['small-icon']).'" alt="" /> '.__($fav['title']).'</li>';
+			$default_fav[] = $fav['name'];
 		}
 	}
-}	
-if ($count > 0) echo '</ul>';
-echo '</div>';
-*/
+}
 
 echo '</div>'; # /box my-fav
 
 echo '<div class="fieldset" id="available-favs">';
-# Available favorites ------------------------------------- Ici, si possible afficher plutôt les Autres favoris disponibles
+# Available favorites
 echo '<h5>'.__('Available favorites').'</h5>';
 $count = 0;
 $array = $_fav;
@@ -632,15 +625,19 @@ $array=$array->getArrayCopy();
 uasort($array,'cmp');
 foreach ($array as $k => $fav) {
 	if (($fav[5] == '*') || $core->auth->check($fav[5],$core->blog->id)) {
-		if ($count == 0) echo '<ul class="fav-list">';
-		$count++;
-		echo '<li id="fa-'.$fav[0].'">'.'<label for="fak-'.$fav[0].'">'.
-			'<img src="'.dc_admin_icon_url($fav[3]).'" alt="" /> '.
-			'<span class="zoom"><img src="'.dc_admin_icon_url($fav[4]).'" alt="" /></span>'.
-			form::checkbox(array('append[]','fak-'.$fav[0]),$k).
-			__($fav[1]).'</label>'.'</li>';
+		if (!in_array($fav[0], $user_fav)) {
+			if ($count == 0) echo '<ul class="fav-list">';
+			$count++;
+			echo '<li id="fa-'.$fav[0].'">'.'<label for="fak-'.$fav[0].'">'.
+				'<img src="'.dc_admin_icon_url($fav[3]).'" alt="" /> '.
+				'<span class="zoom"><img src="'.dc_admin_icon_url($fav[4]).'" alt="" /></span>'.
+				form::checkbox(array('append[]','fak-'.$fav[0]),$k).
+				__($fav[1]).'</label>'.
+				(in_array($fav[0], $default_fav) ? ' <span class="default-fav">'.__('(default favorite)').'</span>' : '').
+				'</li>';
+		}
 	}
-}	
+}
 if ($count > 0) echo '</ul>';
 echo
 '<p>'.
