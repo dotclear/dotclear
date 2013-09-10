@@ -269,26 +269,28 @@ h3, .as_h3 {
 	font-size: 16px; /* ie < 9 sucks */
 	font-size: 1.6rem;
 	}
-	h3:first-child {margin-top: 0;}
 h4, as_h4 {
 	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 	color: #676e78;
 	}
-	.fieldset h3, .fieldset h4, .pretty-title {
+	.fieldset h3, .fieldset h4, .pretty-title { /* variante */
 		color: #D33800;
 		font-size: 12px;
 		font-size: 1.2rem;
 		font-weight: bold;
 		}
-	.smart-title { /* vairiante */
+		.fieldset h3 {
+			font-size: 14px;
+			font-size: 1.4rem;
+			}
+	.fieldset h3.smart-title, .fieldset h4.smart-title, .smart-title { /* variante */
 		font-size: 1em;
 		text-transform: uppercase;
 		font-weight: bold;
 		color: #333;
 		text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6)
 		}
-	h4 label, h5 label {color: #333;}
 h5 {
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
@@ -303,6 +305,10 @@ h5 {
 		padding-left: 4px;
 		vertical-align: text-top;
 		}
+h4 label, h5 label {color: #333;}
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, ul:first-child, p:first-child {
+	margin-top: 0;
+	}
 /* ---------------------------------------------------------------- tableaux */
 table {
 	font-size: 12px; /* ie < 9 sucks */
@@ -735,6 +741,9 @@ div.warn, div.warning, div.info {
 	.dc-update h3 {
 		margin-top: 0;
 		color: #34495e;
+		}
+	.dc-update p {
+		display: inline-block;
 		}
 	.dc-update a {
 		color: #34495e;
