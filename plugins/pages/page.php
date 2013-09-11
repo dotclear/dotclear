@@ -489,11 +489,11 @@ if ($can_edit_page)
 	$core->callBehavior('adminPageFormItems',$main_items,$sidebar_items, isset($post) ? $post : null);
 
 	echo '<div class="multi-part" title="'.__('Edit page').'" id="edit-entry">';
-	echo '<h3 class="hidden">'.__('Edit page').'</h3>';
 	echo '<form action="'.html::escapeURL($redir_url).'" method="post" id="entry-form">';
 
 	echo '<div id="entry-wrapper">';
 	echo '<div id="entry-content"><div class="constrained">';
+	echo '<h3 class="out-of-screen-if-js">'.__('Edit page').'</h3>';
 	
 	
 	foreach ($main_items as $id => $item) {

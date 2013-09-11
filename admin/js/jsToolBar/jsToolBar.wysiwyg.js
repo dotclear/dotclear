@@ -87,7 +87,7 @@ jsToolBar.prototype.syncContents = function(from) {
 			}
 		} else if (window.navigator.product != undefined && 
 							 window.navigator.product == 'Gecko') {
-			This.ibody.innerHTML = '<p><br _moz_editor_blogus_node="TRUE" _moz_dirty=""></p>';
+			This.ibody.innerHTML = '<p><br _moz_editor_blogus_node="TRUE" _moz_dirty=""/></p>';
 		} else {
 			var idoc = This.iwin.document;
 			var para = idoc.createElement('p');
