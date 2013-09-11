@@ -345,9 +345,8 @@ var dotclear = {
 -------------------------------------------------------- */
 $(function() {
 	// remove class no-js from html tag; cf style/default.css for examples
-	$('body').removeClass('no-js');
-	$('body').addClass('with-js');
-
+	$('body').removeClass('no-js').addClass('with-js');
+	
 	$('#wrapper').contents().each(function() {
 		if (this.nodeType==8) {
 			$('#footer a').attr('title', $('#footer a').attr('title') + this.data );
