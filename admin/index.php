@@ -161,7 +161,7 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 					'<dd>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</dd>';
 				}
 				$i++;
-				if ($i > 3) { break; }
+				if ($i > 2) { break; }
 			}
 			$latest_news .= '</dl>';
 			$__dashboard_items[$dashboardItem][] = $latest_news;
@@ -323,7 +323,7 @@ foreach ($__dashboard_items as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardItems .= '<div class="box">';
+		$dashboardItems .= '<div class="box dc-box">';
 		foreach ($i as $v) {
 			$dashboardItems .= $v;
 		}
@@ -402,14 +402,18 @@ foreach ($__dashboard_contents as $i)
 	}
 }
 
-$class = ' '.(($dashboardItems != '') && ($dashboardContents != '') ? 'two-boxes' : 'one-box');
+//$class = ' '.(($dashboardItems != '') && ($dashboardContents != '') ? 'two-boxes' : 'one-box');
 
 if ($dashboardContents != '' || $dashboardItems != '') {
 	echo 
-	'<hr />'.
+	//'<hr />'.
 	'<div id="dashboard-boxes">';
-		echo ($dashboardContents ? '<div class="db-contents'.$class.'">'.$dashboardContents.'</div>' : '');
-		echo ($dashboardItems ? '<div class="db-items'.$class.'">'.$dashboardItems.'</div>' : '');
+		echo 
+			'<div class="db-items">'.
+				$dashboardItems.$dashboardContents.
+			'</div>';
+		//echo ($dashboardContents ? '<div class="db-contents'.$class.'">'.$dashboardContents.'</div>' : '');
+		//echo ($dashboardItems ? '<div class="db-items'.$class.'">'.$dashboardItems.'</div>' : '');
 	echo
 	'</div>';		
 }

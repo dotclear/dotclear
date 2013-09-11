@@ -269,7 +269,10 @@ h3, .as_h3 {
 	font-size: 16px; /* ie < 9 sucks */
 	font-size: 1.6rem;
 	}
-h4, as_h4 {
+	#main-menu h3 {
+		font-weight: bold;
+		}
+h4, .as_h4 {
 	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 	color: #676e78;
@@ -1337,6 +1340,29 @@ tr.expand td {
 	margin: 2em auto 1em;
 	padding-top: 2em;
 	}
+	.db-items, .db-contents {
+		display: inline-block;
+		text-align: center;
+		}
+	#dashboard-boxes .box {
+		min-width: 300px;
+		max-width: 580px;
+		padding: 10px;
+		border:	1px solid #ccc;
+		border-radius: 3px;
+		min-height: 200px;
+		margin: 10px;
+		text-align: left;
+		}
+		.box.small {
+			width: 300px;
+			}
+		.box.large {
+			width: 580px;
+			}
+		.dc-box {
+			background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
+			}
 	.db-items img, .db-contents img {
 		vertical-align: middle;
 		}
