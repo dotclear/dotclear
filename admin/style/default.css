@@ -2047,7 +2047,6 @@ ul.nice {
 
 */
 
-
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
@@ -2120,5 +2119,21 @@ ul.nice {
 		}
 	#info-box1 p.nomobile, label.nomobile { display: none; }
 	}
+
+/* Globalhelp */
+
+/* 1. inside help block */
+#helplink p {
+	padding: 0 0 0 .5em;
 }
 
+/* 2. in footer */
+span.helplink {
+	display: block;
+	float: left;
+	padding: 0 1.5em 0 30px;
+	background: transparent url(../images/page_help.png) no-repeat 6px center;
+}
+span.helplink a {
+	border-bottom: 1px solid #2373A8;
+}

@@ -842,6 +842,18 @@ msgstr "%d commentaires"
 msgid "New entry"
 msgstr "Nouveau billet"
 
+msgid "Global help"
+msgstr "Aide générale"
+
+msgid "See also %s"
+msgstr "Voir également %s"
+
+msgid "the global help"
+msgstr "l'aide générale"
+
+msgid "My dashboard"
+msgstr "Mon tableau de bord"
+
 msgid "My preferences"
 msgstr "Mes préférences"
 
