@@ -2200,6 +2200,9 @@ msgstr "Разметка XHTML не содержит ошибок."
 msgid "There are XHTML markup errors."
 msgstr "В разметке XHTML есть ошибки."
 
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Вы не сохранили изменения. Переключение формата поста  приведет к потере этих изменений. Продолжить?"
 

@@ -576,6 +576,8 @@ class dcPage
 			__('XHTML content is valid.')).
 		self::jsVar('dotclear.msg.xhtml_not_valid',
 			__('There are XHTML markup errors.')).
+		self::jsVar('dotclear.msg.warning_validate_no_save_content',
+			__('Attention: an audit of a content not yet registered.')).
 		self::jsVar('dotclear.msg.confirm_change_post_format',
 			__('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?')).
 		self::jsVar('dotclear.msg.confirm_change_post_format_noconvert',

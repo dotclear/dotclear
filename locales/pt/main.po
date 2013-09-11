@@ -2207,6 +2207,9 @@ msgstr "O conteúdo XHTML é válido."
 msgid "There are XHTML markup errors."
 msgstr "O código XHTML contem erros."
 
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr ""
 
