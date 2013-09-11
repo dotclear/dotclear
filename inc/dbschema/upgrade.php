@@ -335,6 +335,9 @@ function dotclearUpgrade($core)
 			{
 				// README has been replaced by README.md and CONTRIBUTING.md
 				@unlink(DC_ROOT.'/'.'README');
+
+				// trackbacks are now merged into posts
+				@unlink(DC_ROOT.'/'.'admin/trackbacks.php');
 			}
 			
 			$core->setVersion('core',DC_VERSION);

@@ -24,8 +24,8 @@ $blog_url = html::stripHostURL($core->blog->url);
 # Liste des catégories
 $categories_label = array();
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
-$categories_combo = dcAdminCombos::getCategoriesCombo($rs);
-unset($categories_combo[__('(No cat)')]);
+$categories_combo = dcAdminCombos::getCategoriesCombo($rs,false);
+
 $rs->moveStart();
 while ($rs->fetch()) {
 	$categories_label[$rs->cat_id] = html::escapeHTML($rs->cat_title);

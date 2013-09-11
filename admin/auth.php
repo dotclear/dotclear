@@ -288,13 +288,10 @@ echo dcPage::jsCommon();
     
     if (upw.length == 0) { return; }
     
-    if ($.browser.mozilla) {
-      uid.keypress(processKey);
-    } else {
-      uid.keydown(processKey);
-    }
+    uid.keypress(processKey);
+
     function processKey(evt) {
-      if (evt.keyCode == 13 && upw.val() == '') {
+      if (evt.which == 13 && upw.val() == '') {
          upw.focus();
 	    return false;
       }

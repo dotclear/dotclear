@@ -66,7 +66,7 @@ $iconsets_root = dirname(__FILE__).'/images/iconset/';
 if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 	if (($d = @dir($iconsets_root)) !== false) {
 		while (($entry = $d->read()) !== false) {
-			if ($entry != '.' && $entry != '..' && is_dir($iconsets_root.'/'.$entry)) {
+			if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($iconsets_root.'/'.$entry)) {
 				$iconsets_combo[$entry] = $entry;
 			}
 		}
@@ -414,7 +414,7 @@ if (!empty($_GET['replaced'])) {
 echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';
 
 echo
-'<h3 class="hidden-if-js">'.__('My profile').'</h3>'.
+'<h3>'.__('My profile').'</h3>'.
 '<form action="preferences.php" method="post" id="user-form">'.
 
 '<p><label for="user_name">'.__('Last Name:').'</label>'.
@@ -442,7 +442,7 @@ form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>';
 if ($core->auth->allowPassChange())
 {
 	echo
-	'<h4 class="vertical-separator">'.__('Change my password').'</h4>'.
+	'<h4 class="vertical-separator pretty-title">'.__('Change my password').'</h4>'.
 	
 	'<div class="pw-table">'.
 	'<p class="pw-cell"><label for="new_pwd">'.__('New password:').'</label>'.
@@ -476,66 +476,60 @@ echo '<div class="multi-part" id="user-options" title="'.__('My options').'">';
 
 echo
 '<form action="preferences.php" method="post" id="opts-forms">'.
-'<h3 class="hidden-if-js">'.__('My options').'</h3>';
+'<h3>'.__('My options').'</h3>';
 
 echo
-'<div class="two-cols">'.
-
-'<div class="col">'.
+'<div class="fieldset">'.
 '<h4>'.__('Interface').'</h4>'.
 
 '<p><label for="user_ui_enhanceduploader" class="classic">'.
 form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
-__('Activate enhanced uploader in media manager').'</label></p>';
+__('Activate enhanced uploader in media manager').'</label></p>'.
+
+'<p><label for="user_acc_nodragdrop" class="classic">'.
+form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop).' '.
+__('Disable javascript powered drag and drop for ordering items').'</label></p>'.
+'<p class="clear form-note">'.__('If checked, numeric fields will allow to type the elements\' ordering number.').'</p>';
 
 if ($core->auth->isSuperAdmin()) {
 	echo
 	'<p><label for="user_ui_hide_std_favicon" class="classic">'.
 	form::checkbox('user_ui_hide_std_favicon',1,$user_ui_hide_std_favicon).' '.
-	__('Do not use standard favicon').'</label></p>'.
-	'<p class="clear form-note warn">'.__('This will be applied for all users').'.'.
+	__('Do not use standard favicon').'</label> '.
+	'<span class="clear form-note warn">'.__('This will be applied for all users').'.</span>'.
 	'</p>';//Opera sucks;
 }
 
 echo
-'<h5>'.__('Accessibility').'</h5>'.
-
-'<p><label for="user_acc_nodragdrop" class="classic">'.
-form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop).' '.
-__('Disable javascript powered drag and drop for ordering items').'</label></p>'.
-
-'<p class="clear form-note">'.__('If checked, numeric fields will allow to type the elements\' ordering number.').'</p>';
+'</div>';
 
 echo
-'<h4 class="border-top">'.__('Edition').'</h4>'.
+'<div class="fieldset">'.
+'<h4>'.__('Edition').'</h4>'.
 
-'<p><label for="user_post_format">'.__('Preferred format:').'</label>'.
+'<p class="field"><label for="user_post_format">'.__('Preferred format:').'</label>'.
 form::combo('user_post_format',$formaters_combo,$user_options['post_format']).'</p>'.
 
-'<p><label for="user_post_status">'.__('Default entry status:').'</label>'.
+'<p class="field"><label for="user_post_status">'.__('Default entry status:').'</label>'.
 form::combo('user_post_status',$status_combo,$user_post_status).'</p>'.
 
-'<p><label for="user_edit_size">'.__('Entry edit field height:').'</label>'.
+'<p class="field"><label for="user_edit_size">'.__('Entry edit field height:').'</label>'.
 form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).'</p>'.
 
 '<p><label for="user_wysiwyg" class="classic">'.
 form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg']).' '.
-__('Enable WYSIWYG mode').'</label></p>';
+__('Enable WYSIWYG mode').'</label></p>'.
+
+'</div>';
 
 echo
-'<h4 class="border-top">'.__('Other options').'</h4>';
+'<h4 class="pretty-title">'.__('Other options').'</h4>';
 
 # --BEHAVIOR-- adminPreferencesForm
 $core->callBehavior('adminPreferencesForm',$core);
 
 echo
-'</div>';
-
-echo
-'</div>';
-
-echo
-'<p class="clear">'.
+'<p class="clear vertical-separator">'.
 $core->formNonce().
 '<input type="submit" accesskey="s" value="'.__('Save my options').'" /></p>'.
 '</form>';
@@ -545,13 +539,14 @@ echo '</div>';
 # My dashboard
 echo '<div class="multi-part" id="user-favorites" title="'.__('My dashboard').'">';
 $ws = $core->auth->user_prefs->addWorkspace('favorites');
-echo '<h3 class="hidden-if-js">'.__('Mon tableau de bord').'</h3>';
+echo '<h3>'.__('Mon tableau de bord').'</h3>';
 
 echo '<form action="preferences.php" method="post" id="favs-form" class="two-boxes">';
 
 echo '<div id="my-favs" class="fieldset"><h4>'.__('My favorites').'</h4>';
 
 $count = 0;
+$user_fav = array();
 foreach ($ws->dumpPrefs() as $k => $v) {
 	// User favorites only
 	if (!$v['global']) {
@@ -565,6 +560,7 @@ foreach ($ws->dumpPrefs() as $k => $v) {
 				form::hidden(array('dynorder[]','dynorder-'.$k.''),$k).
 				form::checkbox(array('remove[]','fuk-'.$k),$k).__($fav['title']).'</label>'.
 				'</li>';
+			$user_fav[] = $fav['name'];
 		}
 	}
 }
@@ -582,7 +578,6 @@ if ($count > 0) {
 		__('Are you sure you want to remove selected favorites?')).'\');" /></p>'.
 
 	($core->auth->isSuperAdmin() ? 
-		'<hr />'.
 		'<div class="info">'.
 		'<p>'.__('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation.').'</p>'.
 		'<p><input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'" />' : 
@@ -595,31 +590,22 @@ if ($count > 0) {
 	'<p>'.__('Currently no personal favorites.').'</p>';
 }
 
-/*
-echo '<div id="default-favs"><h3>'.__('Default favorites').'</h3>';
-echo '<p>'.__('Those favorites are displayed when My Favorites list is empty.').'</p>';
-$count = 0;
+$default_fav = array();
 foreach ($ws->dumpPrefs() as $k => $v) {
 	// Global favorites only
 	if ($v['global']) {
 		$fav = unserialize($v['value']);
 		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			if ($count == 0) echo '<ul class="fav-list">';
-			$count++;
-			echo '<li id="fd-'.$k.'">'.
-			'<img src="'.dc_admin_icon_url($fav['small-icon']).'" alt="" /> '.__($fav['title']).'</li>';
+			$default_fav[] = $fav['name'];
 		}
 	}
-}	
-if ($count > 0) echo '</ul>';
-echo '</div>';
-*/
+}
 
 echo '</div>'; # /box my-fav
 
 echo '<div class="fieldset" id="available-favs">';
-# Available favorites ------------------------------------- Ici, si possible afficher plutôt les Autres favoris disponibles
-echo '<h5>'.__('Available favorites').'</h5>';
+# Available favorites
+echo '<h5 class="pretty-title">'.__('Other available favorites').'</h5>';
 $count = 0;
 $array = $_fav;
 function cmp($a,$b) {
@@ -632,15 +618,19 @@ $array=$array->getArrayCopy();
 uasort($array,'cmp');
 foreach ($array as $k => $fav) {
 	if (($fav[5] == '*') || $core->auth->check($fav[5],$core->blog->id)) {
-		if ($count == 0) echo '<ul class="fav-list">';
-		$count++;
-		echo '<li id="fa-'.$fav[0].'">'.'<label for="fak-'.$fav[0].'">'.
-			'<img src="'.dc_admin_icon_url($fav[3]).'" alt="" /> '.
-			'<span class="zoom"><img src="'.dc_admin_icon_url($fav[4]).'" alt="" /></span>'.
-			form::checkbox(array('append[]','fak-'.$fav[0]),$k).
-			__($fav[1]).'</label>'.'</li>';
+		if (!in_array($fav[0], $user_fav)) {
+			if ($count == 0) echo '<ul class="fav-list">';
+			$count++;
+			echo '<li id="fa-'.$fav[0].'">'.'<label for="fak-'.$fav[0].'">'.
+				'<img src="'.dc_admin_icon_url($fav[3]).'" alt="" /> '.
+				'<span class="zoom"><img src="'.dc_admin_icon_url($fav[4]).'" alt="" /></span>'.
+				form::checkbox(array('append[]','fak-'.$fav[0]),$k).
+				__($fav[1]).'</label>'.
+				(in_array($fav[0], $default_fav) ? ' <span class="default-fav"><img src="images/selected.png" alt="'.__('(default favorite)').'" /></span>' : '').
+				'</li>';
+		}
 	}
-}	
+}
 if ($count > 0) echo '</ul>';
 echo
 '<p>'.
@@ -654,7 +644,7 @@ echo
 '<form action="preferences.php" method="post" id="db-forms" class="two-boxes even">'.
 
 '<div class="fieldset">'.
-'<h4 class="smart-title">'.__('Menu').'</h4>'.
+'<h4>'.__('Menu').'</h4>'.
 '<p><label for="user_ui_nofavmenu" class="classic">'.
 form::checkbox('user_ui_nofavmenu',1,!$user_ui_nofavmenu).' '.
 __('Display favorites at the top of the menu').'</label></p></div>';
@@ -662,7 +652,7 @@ __('Display favorites at the top of the menu').'</label></p></div>';
 if (count($iconsets_combo) > 1) {
 	echo 
 		'<div class="fieldset">'.
-		'<h4 class="smart-title">'.__('Dashboard icons').'</h4>'.
+		'<h4>'.__('Dashboard icons').'</h4>'.
 		'<p><label for="user_ui_iconset" class="classic">'.__('Iconset:').'</label> '.
 		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</p>'.
 		'</div>';
@@ -672,7 +662,7 @@ if (count($iconsets_combo) > 1) {
 
 echo
 '<div class="fieldset">'.
-'<h4 class="smart-title">'.__('Dashboard modules').'</h4>'.
+'<h4>'.__('Dashboard modules').'</h4>'.
 
 '<p><label for="user_dm_doclinks" class="classic">'.
 form::checkbox('user_dm_doclinks',1,$user_dm_doclinks).' '.
