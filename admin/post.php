@@ -553,7 +553,7 @@ if ($can_edit_post)
 	echo '<div id="entry-wrapper">';
 	echo '<div id="entry-content"><div class="constrained">';
 
-	echo '<h3 class="hidden">'.__('Edit post').'</h3>';
+	echo '<h3 class="out-of-screen-if-js">'.__('Edit post').'</h3>';
 	
 	foreach ($main_items as $id => $item) {
 		echo $item;
