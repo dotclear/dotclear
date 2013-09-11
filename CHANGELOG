@@ -1,3 +1,17 @@
+Dotclear 2.5.3 - 2013-09-13
+===========================================================
+* Bugfix: l10n Clearbricks library
+* Bugfix: post's comments and trackbacks counters
+* Check public and cache directories (existence and permissions)
+* Avoid Categorie's identical URL as far as possible
+* Cope with alpha layers in PNG images for thumbnails generation
+* Add password strength indicators
+* Fix permission form (checkboxes management)
+* Better management of antispam filters
+* Minor enhancements
+* Various bug fixes
+* Various cosmetic adjustments
+
 Dotclear 2.5.2 - 2013-08-14
 ===========================================================
 * Security fix: Fixed potential XSS
