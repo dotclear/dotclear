@@ -67,10 +67,10 @@ function helpPage()
 	return $ret;
 }
 
-$help_page = !empty($_GET['page']) ? html::escapeHTML($_GET['page']) : 'core_main';
+$help_page = !empty($_GET['page']) ? html::escapeHTML($_GET['page']) : 'index';
 $content_array = helpPage($help_page);
-if (($content_array['content'] == '') || ($help_page == 'core_main')) {
-	$content_array = helpPage('core_main');
+if (($content_array['content'] == '') || ($help_page == 'index')) {
+	$content_array = helpPage('index');
 }
 if ($content_array['title'] != '') {
 	$breadcrumb = dcPage::breadcrumb(
