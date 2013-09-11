@@ -573,7 +573,7 @@ input[type=submit] {
 input[type=submit], a.button.submit {
 	color: #fff;
 	background-color:#25A6E1;
-	border-color: #2C8FD1;
+	border: 1px solid #2C8FD1;
 	background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
 	background:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
@@ -588,39 +588,41 @@ input[type=submit], a.button.submit {
 		background:linear-gradient(top,#188BC0 0%,#25A6E1 100%);
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#25A6E1',GradientType=0);
 		}
-/* suppression, reset, "neutres" */
-input[type=reset], input[type=delete], input[type=submit].delete, input[type=submit].reset, input[type=button],
-input.delete, input.reset, input.button,
-a.delete, a.reset, a.button {
+/* suppression, reset, "neutres" fond gris */
+button, input[type=button], input.button,
+input[type=reset], input[type=submit].reset, input.reset, 
+input[type=submit].delete, input.delete,
+a.button.delete, a.button.reset, a.button {
 	color: #000;
 	background-color: #f5f5f5;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
 	background: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 	}
-	input[type=reset]:hover, input[type=delete]:hover, input[type=button]:hover,
-	input[type=submit].delete:hover,
-	input.delete:hover, input.reset:hover, input.button:hover,
-	a.delete:hover, a.reset:hover, a.button:hover,
-	input[type=reset]:focus, input[type=delete]:focus, input[type=button]:focus,
-	input[type=submit].delete:focus,
-	input.delete:focus, input.reset:focus, input.button:focus,
-	a.delete:focus, a.reset:focus, a.button:focus {
+	button:hover, input[type=button]:hover, input.button:hover,
+	button:focus, input[type=button]:focus, input.button:focus,
+	input[type=reset]:hover, input[type=submit].reset:hover, input.reset:hover, 
+	input[type=reset]:focus, input[type=submit].reset:focus, input.reset:focus, 
+	input[type=submit].delete:hover, input.delete:hover,
+	input[type=submit].delete:focus, input.delete:focus,
+	a.button.delete:hover, a.button.reset:hover, a.button:hover,
+	a.button.delete:focus, a.button.reset:focus, a.button:focus {
 		background-color:#e9e9e9;
 		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
 		background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
 		}
-	a.delete, input[type=delete], input.delete {
+	/* suppression */
+	input[type=submit].delete, input.delete, a.button.delete {
 		border-color: #ccc;
 		color: #c00;
 		margin-left: 1em;
 		}
-	a.delete:first-child, input[type=delete]:first-child, input.delete:first-child {
+	a.delete:first-child, input.delete:first-child {
 		margin-left: 0;
 		}
-		a.delete:hover, input[type=delete]:hover, input.delete:hover,
-		a.delete:focus, input[type=delete]:focus, input.delete:focus {		
+	input[type=submit].delete:hover, input.delete:hover, a.button.delete:hover,
+	input[type=submit].delete:focus, input.delete:focus, a.button.delete:focus {
 			border-color: #c00;
 			}
 	#info-box a.button {
@@ -747,6 +749,7 @@ div.warn, div.warning, div.info {
 		}
 	.dc-update p {
 		display: inline-block;
+		vertical-align: middle;
 		}
 	.dc-update a {
 		color: #34495e;
@@ -1078,6 +1081,20 @@ div.warn, div.warning, div.info {
 		.help-content dd {
 			margin: 0.3em 0 1.5em 0;
 			}
+/* 1. inside help block */
+#helplink p {
+	padding: 0 0 0 .5em;
+	}
+/* 2. in footer */
+span.helplink {
+	display: block;
+	float: left;
+	padding: 0 1.5em 0 30px;
+	background: transparent url(../images/page_help.png) no-repeat 6px center;
+	}
+span.helplink a {
+	border-bottom: 1px solid #2373A8;
+	}
 /* ------------------------------------------------------------------ FOOTER ELEMENTS */
 #footer p {
 	margin: 0;
@@ -2033,20 +2050,6 @@ ul.nice {
 #debug:hover div {
 	display: block;
 	}
-
-
-/* 
-				tests dashboard 
-
-#content {width: auto;float:none !important; margin: 0;}
-#main {width: auto; display:inline-block; vertical-align: top; margin: 0;float: none !important}
-#main-menu {clear:both; width: auto}
-#main-menu {margin-top: 8em}
-#favorites-menu {display:none;}
-#plugins-menu, #blog-menu, #system-menu, #dashboard-items {display: inline-block;vertical-align: top; min-width: 17em; margin: 0; clear: none;}
-
-*/
-
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
@@ -2119,21 +2122,3 @@ ul.nice {
 		}
 	#info-box1 p.nomobile, label.nomobile { display: none; }
 	}
-
-/* Globalhelp */
-
-/* 1. inside help block */
-#helplink p {
-	padding: 0 0 0 .5em;
-}
-
-/* 2. in footer */
-span.helplink {
-	display: block;
-	float: left;
-	padding: 0 1.5em 0 30px;
-	background: transparent url(../images/page_help.png) no-repeat 6px center;
-}
-span.helplink a {
-	border-bottom: 1px solid #2373A8;
-}
