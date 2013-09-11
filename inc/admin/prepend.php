@@ -266,6 +266,10 @@ if ($core->auth->userID() && $core->blog !== null)
 	$_fav['langs'] = new ArrayObject(array('langs','Languages','langs.php',
 		'images/menu/langs.png','images/menu/langs-b.png',
 		null,null,null));
+
+	$_fav['help'] = new ArrayObject(array('help','Global help','help.php',
+		'images/menu/help.png','images/menu/help-b.png',
+		'*',null,null));
 	
 	# Menus creation
 	$_menu['Dashboard'] = new dcMenu('dashboard-menu',null);
