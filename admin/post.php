@@ -454,7 +454,7 @@ if ($can_edit_post)
 					'<h5 id="label_format"><label for="post_format" class="ib">'.__('Text formating').'</label></h5>'.
 					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
 					'</p>'.
-					'<p class="format_control control_wiki">'.
+					'<p class="format_control control_no_xhtml">'.
 					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').'" href="post.php?id='.$post_id.'&amp;xconv=1">'.
 					__('Convert to XHTML').'</a></p></div>')),
 		'metas-box' => array(
