@@ -102,35 +102,10 @@ if (!$core->error->flag())
 }
 
 # Actions combo box
-$combo_action = array();
-if ($core->auth->check('publish,contentadmin',$core->blog->id))
-{
-	$combo_action[__('Status')] = array(
-		__('Publish') => 'publish',
-		__('Unpublish') => 'unpublish',
-		__('Schedule') => 'schedule',
-		__('Mark as pending') => 'pending'
-	);
-}
-$combo_action[__('Mark')] = array(
-	__('Mark as selected') => 'selected',
-	__('Mark as unselected') => 'unselected'
-);
-$combo_action[__('Change')] = array(
-	__('Change category') => 'category',
-	__('Change language') => 'lang');
-if ($core->auth->check('admin',$core->blog->id))
-{
-	$combo_action[__('Change')] = array_merge($combo_action[__('Change')],
-		array(__('Change author') => 'author'));
-}
-if ($core->auth->check('delete,contentadmin',$core->blog->id))
-{
-	$combo_action[__('Delete')] = array(__('Delete') => 'delete');
-}
 
-# --BEHAVIOR-- adminPostsActionsCombo
-$core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
+$posts_actionset = new dcPostsActionSet($core,'posts.php');
+
+$posts_actionset->process();
 
 /* Get posts
 -------------------------------------------------------- */
@@ -303,7 +278,7 @@ if (!$core->error->flag())
 	
 	# Show posts
 	$post_list->display($page,$nb_per_page,
-	'<form action="posts_actions.php" method="post" id="form-entries">'.
+	'<form action="posts.php" method="post" id="form-entries">'.
 	
 	'%s'.
 	
@@ -311,7 +286,7 @@ if (!$core->error->flag())
 	'<p class="col checkboxes-helpers"></p>'.
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
-	form::combo('action',$combo_action).
+	form::combo('action',$posts_actionset->getCombo()).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('user_id'),$user_id).
 	form::hidden(array('cat_id'),$cat_id).
