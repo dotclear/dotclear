@@ -2200,6 +2200,9 @@ msgstr "XHTML-Inhalt ist überprüft."
 msgid "There are XHTML markup errors."
 msgstr "Es gibt XHTML-Markup-Fehler."
 
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Du hast Änderungen nicht gespeichert. Wenn du das Format des Eintrags änderst, gehen die Änderungen verloren. Trotzdem fortfahren?"
 

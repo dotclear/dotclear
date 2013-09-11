@@ -2200,6 +2200,9 @@ msgstr "XHTML obsah není validní."
 msgid "There are XHTML markup errors."
 msgstr "Jsou tam XHTML chyby.."
 
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr ""
 

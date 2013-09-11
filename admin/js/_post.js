@@ -145,16 +145,13 @@ $(function() {
 					alert($(data).find('rsp message').text());
 					return false;
 				}
+					
+				$('.message, .success, .error, .warning-msg').remove();
 
 				if ($(data).find('valid').text() == 1) {
 					var p = document.createElement('p');
 					p.id = 'markup-validator';
-
-					if ($('#markup-validator').length > 0) {
-						$('#markup-validator').remove();
-					}
 					
-					$('.message, .success, .error').remove();
 					$(p).addClass('success');
 					$(p).text(dotclear.msg.xhtml_valid);
 					$('#entry-content h3').after(p);
@@ -162,16 +159,18 @@ $(function() {
 				} else {
 					var div = document.createElement('div');
 					div.id = 'markup-validator';
-
-					if ($('#markup-validator').length > 0) {
-						$('#markup-validator').remove();
-					}
 					
-					$('.message, .success, .error').remove();
 					$(div).addClass('error');
 					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
 					$('#entry-content h3').after(div);
 					$(div).backgroundFade({sColor:'#ffdec8',eColor:'#ffbaba',steps:20});
+				}
+				
+				if ( $('#post_excerpt').text() != excerpt_content || $('#post_content').text() != post_content ) {
+					var pn = document.createElement('p');
+					$(pn).addClass('warning-msg');
+					$(pn).text(dotclear.msg.warning_validate_no_save_content);
+					$('#entry-content h3').after(pn);
 				}
 
 				return false;

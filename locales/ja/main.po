@@ -2229,6 +2229,9 @@ msgstr "XHTMLコンテンツは適切です。"
 msgid "There are XHTML markup errors."
 msgstr "XHTMLマークアップエラーがあります。"
 
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr ""
 

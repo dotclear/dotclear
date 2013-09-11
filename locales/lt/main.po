@@ -2009,6 +2009,9 @@ msgstr "XHTML turinys tinkamas."
 msgid "There are XHTML markup errors."
 msgstr "Yra XHTML markup klaidų."
 
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Yra neišsaugotų pakeitimų. Įrašo formato keitimas panaikins visus atnaujinimus. Tęsti?"
 
