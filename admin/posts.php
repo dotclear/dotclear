@@ -52,10 +52,17 @@ if (!$core->error->flag())
 	);
 
 	$categories_combo = array_merge(
-		array('-' => ''),
-		dcAdminCombos::getCategoriesCombo($categories)
+		array(
+			new formSelectOption('-',''),
+			new formSelectOption(__('(No cat)'),'NULL')),		
+		dcAdminCombos::getCategoriesCombo($categories,false)
 	);
-	$categories_combo[__('(No cat)')] = 'NULL';
+	$categories_values = array();
+	foreach ($categories_combo as $cat) {
+		if (isset($cat->value)) {
+			$categories_values[$cat->value]=true;
+		}
+	}
 	
 	$status_combo = array_merge(
 		array('-' => ''),
@@ -160,7 +167,7 @@ if ($user_id !== '' && in_array($user_id,$users_combo)) {
 }
 
 # - Categories filter
-if ($cat_id !== '' && in_array($cat_id,$categories_combo)) {
+if ($cat_id !== '' && isset($categories_values[$cat_id])) {
 	$params['cat_id'] = $cat_id;
 	$show_filters = true;
 } else {

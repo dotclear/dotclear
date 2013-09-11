@@ -36,7 +36,7 @@
 				displayMessageInQueue(0);
 			});
 			
-			$('.cancel').live('click', function(e) {
+			$(me).on('click','.cancel',function(e) {
 				if ($('.fileupload-ctrl .files .template-upload', me).length==0) {
 					$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
 					disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
@@ -133,7 +133,7 @@ $(function() {
 	fileRemoveAct();
 
 	function fileRemoveAct() {
-		$('a.media-remove').live('click', function() {
+		$('body').on('click','a.media-remove',function() {
 			var m_name = $(this).parents('ul').find('li:first>a').text();
 			if (window.confirm(dotclear.msg.confirm_delete_media.replace('%s',m_name))) {
 				var f = $('#media-remove-hide').get(0);
