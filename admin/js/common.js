@@ -82,7 +82,7 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 	}
 	
 	var set_user_pref = p.hide ^ p.reverse_user_pref;
-	if (p.user_pref && (p.user_pref in p.unfolded_sections)) {
+	if (p.user_pref && p.unfolded_sections !== undefined && (p.user_pref in p.unfolded_sections)) {
 		p.hide = p.reverse_user_pref;
 	}
 	var toggle = function(i,speed) {
@@ -348,6 +348,7 @@ var dotclear = {
 $(function() {
 	// remove class no-js from html tag; cf style/default.css for examples
 	$('body').removeClass('no-js');
+	$('body').addClass('with-js');
 
 	$('#wrapper').contents().each(function() {
 		if (this.nodeType==8) {

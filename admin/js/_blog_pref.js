@@ -17,5 +17,5 @@ function checkQueryString() {
 $(function() {
 	checkQueryString();
 	$('#blog_url').focusout(checkQueryString);
-	$('#url_scan').live("change",checkQueryString);
+	$('body').on('change','#url_scan',checkQueryString);
 });

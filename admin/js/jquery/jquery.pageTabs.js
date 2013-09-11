@@ -8,7 +8,7 @@ jQuery._pageTabs = function(start_tab,settings) {
 		listClassName: 'part-tabs',
 		breakerClassName: 'clear'
 	};
-	
+
 	var index = start_tab ? start_tab : 0;
 	var hash = document.location.hash.split('#').join('');
 	if( hash != '' ) {
