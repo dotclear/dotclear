@@ -45,11 +45,13 @@ jsToolBar.prototype.switchMode = function(mode) {
 	mode = mode || 'xhtml';
 	
 	if (mode == 'xhtml') {
+		this.wwg_mode = true;
 		this.draw(mode);
 	} else {
 		if (this.wwg_mode) {
 			this.syncContents('iframe');
 		}
+		this.wwg_mode = false;
 		this.removeEditor();
 		this.textarea.style.display = '';
 		this.drawToolBar(mode);
