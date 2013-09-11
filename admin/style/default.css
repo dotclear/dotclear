@@ -269,20 +269,31 @@ h3, .as_h3 {
 	font-size: 16px; /* ie < 9 sucks */
 	font-size: 1.6rem;
 	}
-	h3:first-child {margin-top: 0;}
-h4, as_h4 {
+	#main-menu h3 {
+		font-weight: bold;
+		}
+h4, .as_h4 {
 	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 	color: #676e78;
 	}
-	.smart-title, .box h3, .fieldset h3, .fieldset h4 { /* pour les h3 ou les h4 titres de boîtes */
+	.fieldset h3, .fieldset h4, .pretty-title { /* variante */
+		color: #D33800;
+		font-size: 12px;
+		font-size: 1.2rem;
+		font-weight: bold;
+		}
+		.fieldset h3 {
+			font-size: 14px;
+			font-size: 1.4rem;
+			}
+	.fieldset h3.smart-title, .fieldset h4.smart-title, .smart-title { /* variante */
 		font-size: 1em;
 		text-transform: uppercase;
 		font-weight: bold;
 		color: #333;
 		text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6)
 		}
-	h4 label, h5 label {color: #333;}
 h5 {
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
@@ -297,6 +308,10 @@ h5 {
 		padding-left: 4px;
 		vertical-align: text-top;
 		}
+h4 label, h5 label {color: #333;}
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, ul:first-child, p:first-child {
+	margin-top: 0;
+	}
 /* ---------------------------------------------------------------- tableaux */
 table {
 	font-size: 12px; /* ie < 9 sucks */
@@ -521,34 +536,49 @@ a.form-control {
 /* ----------------------------------------------------------------------------
 																		BOUTONS
 ---------------------------------------------------------------------------- */
-/* commun */
-input[type=submit], input[type=reset], input[type=button], input[type=delete],
-input.submit, input.reset, input.button, input.delete,
-a.button, a.button.submit, a.delete, a.reset {
+/* Removes inner padding and border in FF3+  - Knacss */
+button::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+	}
+/* tous les boutons */
+button,
+a.button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+	border: 1px solid #ccc;
+	font-family: arial, helvetica, sans-serif;
+	padding: 3px 8px;
+	line-height: normal !important;
 	display: inline-block;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	padding: 2px 6px 2px;
-	border-radius: 3px;
+	vertical-align: top;
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
-	line-height: 1.5em;
- 	}
-	a.button, a.button.submit, a.reset {
-	 	padding-bottom: 1px;
-	 	}
+	text-align: center;
+	text-decoration: none;
+	border-radius: 3px;
+	cursor: pointer;
+	}
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+	-webkit-appearance: button;
+	}
  /* validation */
 input[type=submit], a.button.submit {
 	color: #fff;
-	text-shadow: 0 -1px 0 rgba(100, 100, 100, 0.6);
-	background:#25A6E1;
+	background-color:#25A6E1;
+	border-color: #2C8FD1;
 	background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
 	background:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
-	border: 1px solid #2C8FD1;
- 	padding-bottom: 1px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 	}
 	input[type=submit]:hover, input[type=submit]:focus,
 	a.button.submit:hover, a.button.submit:focus {
@@ -559,37 +589,40 @@ input[type=submit], a.button.submit {
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#25A6E1',GradientType=0);
 		}
 /* suppression, reset, "neutres" */
-input[type=reset], input[type=delete], input[type=button],
+input[type=reset], input[type=delete], input[type=submit].delete, input[type=submit].reset, input[type=button],
 input.delete, input.reset, input.button,
 a.delete, a.reset, a.button {
-	border: 1px solid #ccc;
-	background: #f5f5f5;
 	color: #000;
+	background-color: #f5f5f5;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
 	background: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 	}
 	input[type=reset]:hover, input[type=delete]:hover, input[type=button]:hover,
+	input[type=submit].delete:hover,
 	input.delete:hover, input.reset:hover, input.button:hover,
 	a.delete:hover, a.reset:hover, a.button:hover,
 	input[type=reset]:focus, input[type=delete]:focus, input[type=button]:focus,
+	input[type=submit].delete:focus,
 	input.delete:focus, input.reset:focus, input.button:focus,
 	a.delete:focus, a.reset:focus, a.button:focus {
+		background-color:#e9e9e9;
 		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
 		background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
-		background-color:#e9e9e9;
 		}
 	a.delete, input[type=delete], input.delete {
+		border-color: #ccc;
 		color: #c00;
 		margin-left: 1em;
-		padding-bottom: 2px;
+		}
+	a.delete:first-child, input[type=delete]:first-child, input.delete:first-child {
+		margin-left: 0;
 		}
 		a.delete:hover, input[type=delete]:hover, input.delete:hover,
 		a.delete:focus, input[type=delete]:focus, input.delete:focus {		
 			border-color: #c00;
 			}
-		a.button {padding-bottom: 1px}
 	#info-box a.button {
 		padding: 0 .5em;
 		margin-left: 2em;
@@ -623,13 +656,13 @@ a.delete, a.reset, a.button {
 		}
 
 /* disabled */
-input.disabled {
+input.disabled, input[type=submit].disabled {
  	text-shadow: none;
  	color: #676e78;
  	background: #F5F5F5;
 	border: 1px solid #CCC;
 	}
-	input.disabled:hover {
+	input.disabled:hover, input[type=submit].disabled {
 		color: #676e78;
 		background: #DFDFDF;
 		border: 1px solid #CCC;
@@ -657,6 +690,11 @@ div.warn, div.warning, div.info {
 	.info {
 		background: #D9EDF7 url(msg-info.png) no-repeat .3em .3em;
 		border: 1px solid #BCE8F1;
+		}
+	span.warn, span.warning, span.info {
+		padding-top: 1px;
+		padding-bottom: 1px;
+		background-position: .3em .2em;
 		}
 .error, .message, .static-msg, .success, .warning-msg {
 	padding: 1em 0.5em 0.5em 48px;
@@ -706,6 +744,9 @@ div.warn, div.warning, div.info {
 	.dc-update h3 {
 		margin-top: 0;
 		color: #34495e;
+		}
+	.dc-update p {
+		display: inline-block;
 		}
 	.dc-update a {
 		color: #34495e;
@@ -1226,7 +1267,7 @@ tr.expand td {
 	text-align: center;
 	}
 	#icons p {
-		width: 210px;
+		width: 207px;
 		text-align: center;
 		margin: 1em 0 2em;
 		padding: 1em 0;
@@ -1299,6 +1340,29 @@ tr.expand td {
 	margin: 2em auto 1em;
 	padding-top: 2em;
 	}
+	.db-items, .db-contents {
+		display: inline-block;
+		text-align: center;
+		}
+	#dashboard-boxes .box {
+		min-width: 300px;
+		max-width: 580px;
+		padding: 10px;
+		border:	1px solid #ccc;
+		border-radius: 3px;
+		min-height: 200px;
+		margin: 10px;
+		text-align: left;
+		}
+		.box.small {
+			width: 300px;
+			}
+		.box.large {
+			width: 580px;
+			}
+		.dc-box {
+			background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
+			}
 	.db-items img, .db-contents img {
 		vertical-align: middle;
 		}
@@ -1644,40 +1708,50 @@ li.media-action {
 		}
 /* ---------------------------------------------------------- preferences.php */
 .fav-list {
-	border-top: 1px solid #eee;
 	list-style-type: none;
 	margin-left: 0;
 	padding-left: 0;
 	}
+	#my-favs .fav-list {
+		border-top: 1px solid #eee;
+		}
 .fav-list li {
-	line-height: 2;
 	margin-left: 0;
 	padding-left: 0;
-	border-bottom: 1px solid #eee;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	position: relative;
 	}
-.fav-list img {
-	vertical-align: middle;
-	margin-right: .2em;
+	#my-favs .fav-list li {
+		line-height: 2;
+		border-bottom: 1px solid #eee;
+		padding-top: 3px;
+		padding-bottom: 3px;
+		position: relative;
+		}
+	.fav-list img {
+		vertical-align: middle;
+		margin-right: .2em;
+		}
+	.fav-list li span.zoom {
+		display: none;
+		}
+	.fav-list li:hover span.zoom {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 10em;
+		background-color: #f7f7f7;
+		border: 1px solid #ddd;
+		padding: .2em;
+		border-radius: .5em;
+		}
+#my-favs {
+	border-color: #A8DC26;
 	}
-.fav-list li span.zoom {
-	display: none;
-	}
-.fav-list li:hover span.zoom {
-	display: block;
-	position: absolute;
-	bottom: 0;
-	left: 10em;
-	background-color: #f7f7f7;
-	border: 1px solid #ddd;
-	padding: .2em;
-	border-radius: .5em;
-	}
-#my-favs input.position {
-	margin: 0 0 .4em .2em;
-	}
+	#my-favs input.position {
+		margin: 0 0 .4em .2em;
+		}
 #available-favs input, #available-favs label, #available-favs label span {
 	white-space: normal;
 	display: inline;
@@ -1913,7 +1987,7 @@ ul.nice {
 	display: none;
 	}
 /* Caché sauf pour les revues d'écran */
-.hidden {
+.hidden, .with-js .out-of-screen-if-js {
     position: absolute !important;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
     clip: rect(1px, 1px, 1px, 1px);
@@ -1959,6 +2033,21 @@ ul.nice {
 #debug:hover div {
 	display: block;
 	}
+
+
+/* 
+				tests dashboard 
+
+#content {width: auto;float:none !important; margin: 0;}
+#main {width: auto; display:inline-block; vertical-align: top; margin: 0;float: none !important}
+#main-menu {clear:both; width: auto}
+#main-menu {margin-top: 8em}
+#favorites-menu {display:none;}
+#plugins-menu, #blog-menu, #system-menu, #dashboard-items {display: inline-block;vertical-align: top; min-width: 17em; margin: 0; clear: none;}
+
+*/
+
+
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
@@ -2031,3 +2120,5 @@ ul.nice {
 		}
 	#info-box1 p.nomobile, label.nomobile { display: none; }
 	}
+}
+

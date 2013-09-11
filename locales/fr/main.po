@@ -3268,7 +3268,7 @@ msgid "Dashboard modules"
 msgstr "Modules du tableau de bord"
 
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
-msgstr "Si cette option est cochée, des champs numérique permettront l'ordonnancement des éléments."
+msgstr "Si cette option est cochée, des champs numériques permettront d'indiquer la position des éléments."
 
 msgid "Save my options"
 msgstr "Enregistrer mes options"

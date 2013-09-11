@@ -373,5 +373,9 @@ if ($core->auth->userID() && $core->blog !== null)
 				$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
 		}
 	}
+	
+	if (empty($core->blog->settings->system->jquery_migrate_mute)) {
+		$core->blog->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
+	}
 }
 ?>

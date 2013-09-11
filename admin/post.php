@@ -68,6 +68,10 @@ $lang_combo = dcAdminCombos::getLangsCombo($rs,true);
 # Validation flag
 $bad_dt = false;
 
+# Trackbacks
+$TB = new dcTrackback($core);
+$tb_urls = $tb_excerpt = '';
+
 # Get entry informations
 if (!empty($_REQUEST['id']))
 {
@@ -127,11 +131,43 @@ if (!empty($_REQUEST['id']))
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
+
+		# Sanitize trackbacks excerpt
+		$tb_excerpt = empty($_POST['tb_excerpt']) ? 
+			$post_excerpt_xhtml.' '.$post_content_xhtml :
+			$_POST['tb_excerpt'];
+		$tb_excerpt = html::decodeEntities(html::clean($tb_excerpt));
+		$tb_excerpt = text::cutString(html::escapeHTML($tb_excerpt), 255);
+		$tb_excerpt = preg_replace('/\s+/ms', ' ', $tb_excerpt);
+	}
+}
+
+# Ping blogs
+if (!empty($_POST['ping']))
+{
+	if (!empty($_POST['tb_urls']) && $post_id && $post_status == 1 && $can_edit_post)
+	{
+		$tb_urls = $_POST['tb_urls'];
+		$tb_urls = str_replace("\r", '', $tb_urls);
+		$tb_post_title = html::escapeHTML(trim(html::clean($post_title)));
+		
+		foreach (explode("\n", $tb_urls) as $tb_url)
+		{
+			try {
+				$TB->ping($tb_url, $post_id, $tb_post_title, $tb_excerpt, $post_url);
+			} catch (Exception $e) {
+				$core->error->add($e->getMessage());
+			}
+		}
+		
+		if (!$core->error->flag()) {
+			http::redirect('post.php?id='.$post_id.'&tbsent=1&tb=1');
+		}
 	}
 }
 
 # Format excerpt and content
-if (!empty($_POST) && $can_edit_post)
+elseif (!empty($_POST) && $can_edit_post)
 {
 	$post_format = $_POST['post_format'];
 	$post_excerpt = $_POST['post_excerpt'];
@@ -294,6 +330,9 @@ if (!$can_edit_post) {
 if (!empty($_GET['co'])) {
 	$default_tab = 'comments';
 }
+elseif (!empty($_GET['tb'])) {
+	$default_tab = 'trackbacks';
+}
 
 if ($post_id) {
 	switch ($post_status) {
@@ -353,6 +392,9 @@ elseif (!empty($_GET['rmattach'])) {
 
 if (!empty($_GET['creaco'])) {
 	dcPage::success(__('Comment has been successfully created.'));
+}
+if (!empty($_GET['tbsent'])) {
+	dcPage::success(__('All pings sent.'));
 }
 
 # XHTML conversion
@@ -511,7 +553,7 @@ if ($can_edit_post)
 	echo '<div id="entry-wrapper">';
 	echo '<div id="entry-content"><div class="constrained">';
 
-	echo '<h3 class="hidden">'.__('Edit post').'</h3>';
+	echo '<h3 class="out-of-screen-if-js">'.__('Edit post').'</h3>';
 	
 	foreach ($main_items as $id => $item) {
 		echo $item;
@@ -566,23 +608,16 @@ if ($can_edit_post)
 	$core->callBehavior('adminPostAfterForm',isset($post) ? $post : null);
 	
 	echo '</div>';
-	
-	if ($post_id && $post->post_status == 1) {
-		echo '<p><a href="trackbacks.php?id='.$post_id.'" class="multi-part">'.
-		__('Ping blogs').'</a></p>';
-	}
-	
 }
 
-
-/* Comments and trackbacks
--------------------------------------------------------- */
 if ($post_id)
 {
+	/* Comments
+	-------------------------------------------------------- */
+
 	$params = array('post_id' => $post_id, 'order' => 'comment_dt ASC');
 	
 	$comments = $core->blog->getComments(array_merge($params,array('comment_trackback'=>0)));
-	$trackbacks = $core->blog->getComments(array_merge($params,array('comment_trackback'=>1)));
 	
 	# Actions combo box
 	$combo_action = array();
@@ -605,20 +640,12 @@ if ($post_id)
 	# --BEHAVIOR-- adminCommentsActionsCombo
 	$core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
 	
-	$has_action = !empty($combo_action) && (!$trackbacks->isEmpty() || !$comments->isEmpty());
+	$has_action = !empty($combo_action) && !$comments->isEmpty();
 	echo 
 	'<p class="top-add"><a class="button add" href="#comment-form">'.__('Add a comment').'</a></p>';
 	
 	if ($has_action) {
 		echo '<form action="comments_actions.php" id="form-comments" method="post">';
-	}
-	
-	echo '<h3>'.__('Trackbacks').'</h3>';
-	
-	if (!$trackbacks->isEmpty()) {
-		showComments($trackbacks,$has_action,true);
-	} else {
-		echo '<p>'.__('No trackback').'</p>';
 	}
 	
 	echo '<h3>'.__('Comments').'</h3>';
@@ -675,6 +702,117 @@ if ($post_id)
 	'</form>'.
 	'</div>'. #add comment
 	'</div>'; #comments
+}
+
+if ($post_id && $post_status == 1)
+{
+	/* Trackbacks
+	-------------------------------------------------------- */
+
+	$params = array('post_id' => $post_id, 'order' => 'comment_dt ASC');
+	$trackbacks = $core->blog->getComments(array_merge($params, array('comment_trackback' => 1)));
+	
+	# Actions combo box
+	$combo_action = array();
+	if ($can_edit_post && $core->auth->check('publish,contentadmin', $core->blog->id))
+	{
+		$combo_action[__('Publish')] = 'publish';
+		$combo_action[__('Unpublish')] = 'unpublish';
+		$combo_action[__('Mark as pending')] = 'pending';
+		$combo_action[__('Mark as junk')] = 'junk';
+	}
+	
+	if ($can_edit_post && $core->auth->check('delete,contentadmin', $core->blog->id))
+	{
+		$combo_action[__('Delete')] = 'delete';
+	}
+	
+	# --BEHAVIOR-- adminTrackbacksActionsCombo
+	$core->callBehavior('adminTrackbacksActionsCombo', array(&$combo_action));
+	
+	$has_action = !empty($combo_action) && !$trackbacks->isEmpty();
+	
+	if (!empty($_GET['tb_auto'])) {
+		$tb_urls = implode("\n", $TB->discover($post_excerpt_xhtml.' '.$post_content_xhtml));
+	}
+	
+	# Display tab
+	echo
+	'<div id="trackbacks" class="clear multi-part" title="'.__('Trackbacks').'">';
+	
+	# tracbacks actions
+	if ($has_action) {
+		echo '<form action="comments_actions.php" id="form-trackbacks" method="post">';
+	}
+	
+	echo '<h3>'.__('Trackbacks').'</h3>';
+	
+	if (!$trackbacks->isEmpty()) {
+		showComments($trackbacks, $has_action, true);
+	} else {
+		echo '<p>'.__('No trackback').'</p>';
+	}
+	
+	if ($has_action) {
+		echo
+		'<div class="two-cols">'.
+		'<p class="col checkboxes-helpers"></p>'.
+		
+		'<p class="col right"><label for="action" class="classic">'.__('Selected trackbacks action:').'</label> '.
+		form::combo('action', $combo_action).
+		form::hidden('redir', 'post.php?id='.$post_id.'&amp;tb=1').
+		$core->formNonce().
+		'<input type="submit" value="'.__('ok').'" /></p>'.
+		'</div>'.
+		'</form>';
+	}
+	
+	/* Add trackbacks
+	-------------------------------------------------------- */
+	if ($can_edit_post && $post->post_status) {
+		echo
+		'<div class="fieldset clear">';
+
+		echo
+		'<h3>'.__('Ping blogs').'</h3>'.
+		'<form action="post.php?id='.$post_id.'" id="trackback-form" method="post">'.
+		'<p><label for="tb_urls" class="area">'.__('URLs to ping:').'</label>'.
+		form::textarea('tb_urls', 60, 5, $tb_urls).
+		'</p>'.
+
+		'<p><label for="tb_excerpt" class="area">'.__('Send excerpt:').'</label>'.
+		form::textarea('tb_excerpt', 60, 5, $tb_excerpt).'</p>'.
+
+		'<p>'.
+		$core->formNonce().
+		'<input type="submit" name="ping" value="'.__('Ping blogs').'" />'.
+		(empty($_GET['tb_auto']) ? 
+			'&nbsp;&nbsp;<a class="button" href="'.
+			'post.php?id='.$post_id.'&amp;tb_auto=1&amp;tb=1'.
+			'">'.__('Auto discover ping URLs').'</a>'
+		: '').
+		'</p>'.
+		'</form>';
+
+		$pings = $TB->getPostPings($post_id);
+
+		if (!$pings->isEmpty())
+		{
+			echo '<h3>'.__('Previously sent pings').'</h3>';
+			
+			echo '<ul class="nice">';
+			while ($pings->fetch()) {
+				echo
+				'<li>'.dt::dt2str(__('%Y-%m-%d %H:%M'), $pings->ping_dt).' - '.
+				$pings->ping_url.'</li>';
+			}
+			echo '</ul>';
+		}
+
+		echo '</div>';
+	}
+
+	echo '</div>'; #trackbacks
 }
 
 # Controls comments or trakbacks capabilities
