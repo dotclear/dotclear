@@ -205,7 +205,9 @@ class dcPage
 
 		echo
 		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
+		'<div id="footer">'.
+		'<span class="helplink"><a href="help.php">'.__('Global help').'</a></span> '.
+		'<a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
 		'<!-- '."\n".
 '                  .'."\n".
 '               ,;:\'`\'::'."\n".
@@ -433,6 +435,11 @@ class dcPage
 		echo
 		'<div id="help"><hr /><div class="help-content clear"><h3>'.__('Help about this page').'</h3>'.
 		$content.
+		'</div>'.
+		'<div id="helplink"><hr />'.
+		'<p>'.
+		sprintf(__('See also %s'),sprintf('<a href="help.php">%s</a>',__('the global help'))).
+		'</p>'.
 		'</div></div>';
 	}
 
