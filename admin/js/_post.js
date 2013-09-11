@@ -91,11 +91,7 @@ $(function() {
 			}
 			
 			$('.format_control > *').addClass('hide');
-			if( $(this).val() == 'xhtml' ) {
-				$('.control_xhtml > *').removeClass('hide');
-			} else if ( $(this).val() == 'wiki' ) {
-				$('.control_wiki > *').removeClass('hide');
-			}
+			$('.format_control:not(.control_no_'+$(this).val()+') > *').removeClass('hide');
 		});
 
 		var excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
@@ -125,8 +121,8 @@ $(function() {
 		});
 
 		// Markup validator
-		var v = $('<div class="format_control control_xhtml control_wiki"><p><a id="a-validator"></a></p><div/>').get(0);
-		$('.control_wiki').before(v);
+		var v = $('<div class="format_control"><p><a id="a-validator"></a></p><div/>').get(0);
+		$('.format_control').before(v);
 		var a = $('#a-validator').get(0);
 		a.href = '#';
 		a.className = 'button ';
@@ -157,13 +153,12 @@ $(function() {
 					if ($('#markup-validator').length > 0) {
 						$('#markup-validator').remove();
 					}
-
-					$(p).addClass('message');
+					
+					$('.message, .success, .error').remove();
+					$(p).addClass('success');
 					$(p).text(dotclear.msg.xhtml_valid);
 					$('#entry-content h3').after(p);
-					$(p).backgroundFade({sColor:'#666666',eColor:'#ffcc00',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ffcc00',eColor:'#666666'});
-					});
+					$(p).backgroundFade({sColor:'#9BCA1C',eColor:'#bee74b',steps:20});
 				} else {
 					var div = document.createElement('div');
 					div.id = 'markup-validator';
@@ -171,13 +166,12 @@ $(function() {
 					if ($('#markup-validator').length > 0) {
 						$('#markup-validator').remove();
 					}
-
+					
+					$('.message, .success, .error').remove();
 					$(div).addClass('error');
 					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
 					$('#entry-content h3').after(div);
-					$(div).backgroundFade({sColor:'#ffffff',eColor:'#FFBABA',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ffbaba',eColor:'#ffffff'});
-					});
+					$(div).backgroundFade({sColor:'#ffdec8',eColor:'#ffbaba',steps:20});
 				}
 
 				return false;
@@ -189,11 +183,7 @@ $(function() {
 		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
 		
 		$('.format_control > *').addClass('hide');
-		if ( last_post_format == 'xhtml' ) {
-			$('.control_xhtml > *').removeClass('hide');
-		} else if ( last_post_format == 'wiki' ) {
-			$('.control_wiki > *').removeClass('hide');
-		}
+		$('.format_control:not(.control_no_'+last_post_format+') > *').removeClass('hide');
 
 		// Hide some fields
 		$('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'),{
