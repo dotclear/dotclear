@@ -572,21 +572,19 @@ input[type=submit] {
  /* validation */
 input[type=submit], a.button.submit {
 	color: #fff;
-	background-color:#25A6E1;
 	border: 1px solid #2C8FD1;
 	background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
 	background:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
+	background-color:#25A6E1;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 	}
 	input[type=submit]:hover, input[type=submit]:focus,
 	a.button.submit:hover, a.button.submit:focus {
-		background:#188BC0;
 		background:-moz-linear-gradient(top,#188BC0 0%,#25A6E1 100%);
 		background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#188BC0),color-stop(100%,#25A6E1));
 		background:linear-gradient(top,#188BC0 0%,#25A6E1 100%);
-		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#25A6E1',GradientType=0);
+		background-color:#188BC0;
 		}
 /* suppression, reset, "neutres" fond gris */
 button, input[type=button], input.button,
@@ -594,9 +592,9 @@ input[type=reset], input[type=submit].reset, input.reset,
 input[type=submit].delete, input.delete,
 a.button.delete, a.button.reset, a.button {
 	color: #000;
-	background-color: #f5f5f5;
 	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
 	background: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
+	background-color: #eee;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 	}
 	button:hover, input[type=button]:hover, input.button:hover,
@@ -607,10 +605,9 @@ a.button.delete, a.button.reset, a.button {
 	input[type=submit].delete:focus, input.delete:focus,
 	a.button.delete:hover, a.button.reset:hover, a.button:hover,
 	a.button.delete:focus, a.button.reset:focus, a.button:focus {
-		background-color:#e9e9e9;
 		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
 		background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
-		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+		background-color:#f3f3f3;
 		}
 	/* suppression */
 	input[type=submit].delete, input.delete, a.button.delete {
@@ -664,9 +661,9 @@ input.disabled, input[type=submit].disabled {
  	background: #F5F5F5;
 	border: 1px solid #CCC;
 	}
-	input.disabled:hover, input[type=submit].disabled {
+	input.disabled:hover, input[type=submit].disabled:hover {
 		color: #676e78;
-		background: #DFDFDF;
+		background: #eee;
 		border: 1px solid #CCC;
 		}
 /* ----------------------------------------------------------------------------
@@ -1372,7 +1369,7 @@ tr.expand td {
 		text-align: left;
 		}
 		.box.small {
-			width: 300px;
+			width: 280px;
 			}
 		.box.large {
 			width: 580px;
