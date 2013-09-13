@@ -35,7 +35,6 @@
 	-webkit-border-radius: 4px 4px 0 0; 
 	border-radius: 4px 4px 0 0; 
 }
-
 .jstElements select, .jstElements button {
 	vertical-align: middle;
 }
@@ -54,7 +53,7 @@
 	background-position : 50% 50%;
 	background-repeat: no-repeat;
 }
-.jstElements button:hover {
+.jstElements button:hover, .jstElements button:focus {
 	border-color : #ddd;
 	background-color: #fff;
 }
@@ -71,7 +70,6 @@ span.jstSpacer {
 	height: 28px;
 	margin-right: 0;
 }
-
 .jstSwitcher {
 	display: block;
 	list-style: none;
@@ -97,55 +95,55 @@ span.jstSpacer {
 
 /* Buttons
 -------------------------------------------------------- */
-.jstb_strong {
+button.jstb_strong {
 	background-image: url(bt_strong.png);
 }
-.jstb_em {
+button.jstb_em {
 	background-image: url(bt_em.png);
 }
-.jstb_ins {
+button.jstb_ins {
 	background-image: url(bt_ins.png);
 }
-.jstb_del {
+button.jstb_del {
 	background-image: url(bt_del.png);
 }
-.jstb_quote {
+button.jstb_quote {
 	background-image: url(bt_quote.png);
 }
-.jstb_code {
+button.jstb_code {
 	background-image: url(bt_code.png);
 }
-.jstb_paragraph {
+button.jstb_paragraph {
 	background-image: url(bt_paragraph.png);
 }
-.jstb_br {
+button.jstb_br {
 	background-image: url(bt_br.png);
 }
-.jstb_blockquote {
+button.jstb_blockquote {
 	background-image: url(bt_bquote.png);
 }
-.jstb_pre {
+button.jstb_pre {
 	background-image: url(bt_pre.png);
 }
-.jstb_ul {
+button.jstb_ul {
 	background-image: url(bt_ul.png);
 }
-.jstb_ol {
+button.jstb_ol {
 	background-image: url(bt_ol.png);
 }
-.jstb_link {
+button.jstb_link {
 	background-image: url(bt_link.png);
 }
-.jstb_img {
+button.jstb_img {
 	background-image: url(bt_img.png);
 }
-.jstb_img_select {
+button.jstb_img_select {
 	background-image: url(bt_img_select.png);
 }
-.jstb_post_link {
+button.jstb_post_link {
 	background-image: url(bt_post.png);
 }
-.jstb_removeFormat {
+button.jstb_removeFormat {
 	background-image: url(bt_clean.png);
 }
 
