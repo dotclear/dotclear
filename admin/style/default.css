@@ -375,6 +375,9 @@ pre {
 abbr {
 	cursor: help;
 	}
+input, textarea, select, option, optgroup, legend,label {
+	font-size: 1em;
+	}
 /* ------------------------------------------------------------------ liens */
 a, a:link, a:visited {
 	color: #2373A8;
@@ -397,14 +400,14 @@ form {
 	}
 fieldset {
 	display: block;
-	margin: 0 0 1em 0;
+	margin: 1em 0;
 	padding: 1em 0.5em;
 	border-width: 1px 0;
 	border-style: solid;
 	border-color: #ccc;
 	background: #f7f7f7;
 	}
-input, textarea, select, option, optgroup, legend {
+input[type=text], textarea {
 	font: 100% "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
 	}
 legend {
@@ -466,7 +469,7 @@ input[type=text], input[type=password], textarea, select {
 		}
 	input[type=checkbox], input[type=radio], input[type=file] {
 		border: none;
-		margin: 0;
+		margin: 0 .33em 0 0;
 		padding: 0;
 		background: transparent;
 		}
@@ -507,14 +510,11 @@ p.field {
 	position: relative;
 	}
 	p.field label {
-		display: block;
+		display: inline-block;
 		width: 14em;
 		}
 	p.field input, p.field select {
-		display: inline;
-		position: absolute;
-		left: 14.5em;
-		top: 0;
+		display: inline-block;
 		}
 a.form-control {
 	display: none;
@@ -555,7 +555,7 @@ input[type=submit] {
 	padding: 3px 8px;
 	line-height: normal !important;
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: middle;
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 	text-align: center;
@@ -979,8 +979,9 @@ div.warn, div.warning, div.info {
 			}
 /* ----------------------------------------------------------------- CONTENT ELEMENTS */
 .part-tabs ul {
-	padding: .5em 0 .3em 1em;
+	padding: .5em 0 0 1em;
 	border-bottom: 1px solid #ddd;
+	line-height: 2;
 	}
 	.part-tabs li {
 		list-style: none;
@@ -995,6 +996,7 @@ div.warn, div.warning, div.info {
 			text-decoration: none;
 			color: #333;
 			background-color: #ecf0f1;
+			display: inline-block;
 			}
 		.part-tabs li a:hover, .part-tabs li a:focus {
 			color: #000;
@@ -1005,9 +1007,7 @@ div.warn, div.warning, div.info {
 			background: #fff;
 			font-weight: bold;
 			border-bottom-color: #fff;
-			padding-bottom: 7px; /* ie < 9 sucks */
-			padding-bottom: .7rem;
-		}
+			}
 	.multi-part {
 		padding-left: 1em;
 		}
@@ -1828,7 +1828,6 @@ li.media-action {
 		padding: 2px 5px;
 		cursor: default;
 		display: block;
-		font: menu;
 		font-size: 1em;
 		line-height: 16px;
 		overflow: hidden;
@@ -2076,7 +2075,7 @@ ul.nice {
 		#info-box1 { margin-left: .75em; }
 		#info-box1 select { width: 140px; width: 14rem; }
 	#main-menu, #main, #content, #content h2, #entry-wrapper, #entry-sidebar, #entry-content, 
-	.col, .col30, .col70 {
+	.two-cols .col, .three-cols .col, .two-cols .col30, .two-cols .col70, .two-boxes, .three-boxes {
 		display:block !important;
     	width: 98% !important;
     	margin:0 auto !important;
