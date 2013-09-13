@@ -262,15 +262,17 @@ var dotclear = {
 		});
 	},
 
-	checkboxesHelpers: function(e) {
+	checkboxesHelpers: function(e, target) {
 		$(e).append(document.createTextNode(dotclear.msg.to_select));
 		$(e).append(document.createTextNode(' '));
 
+		target = target || $(e).parents('form').find('input[type="checkbox"]');
+		
 		var a = document.createElement('a');
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.select_all));
 		a.onclick = function() {
-			$(this).parents('form').find('input[type="checkbox"]').check();
+			target.check();
 			return false;
 		};
 		$(e).append(a);
@@ -281,7 +283,7 @@ var dotclear = {
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.no_selection));
 		a.onclick = function() {
-			$(this).parents('form').find('input[type="checkbox"]').unCheck();
+			target.unCheck();
 			return false;
 		};
 		$(e).append(a);
@@ -292,7 +294,7 @@ var dotclear = {
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.invert_sel));
 		a.onclick = function() {
-			$(this).parents('form').find('input[type="checkbox"]').toggleCheck();
+			target.toggleCheck();
 			return false;
 		};
 		$(e).append(a);
