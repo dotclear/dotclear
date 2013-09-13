@@ -35,6 +35,8 @@ abstract class dcActionsPage
 	protected $redirect_fields;
 	/** @var string current action, if any */
 	protected $action;
+	/** @var array list of url parameters (usually $_POST) */
+	protected $from;
 	
 	/** @var string title for checkboxes list, if displayed */
 	protected $cb_title;
@@ -58,6 +60,7 @@ abstract class dcActionsPage
 		$this->redirect_fields = array();
 		$this->action = '';
 		$this->cb_title = __('Title');
+		$this->from = new ArrayObject($_POST);
 	}
 	
     /**
@@ -239,17 +242,17 @@ abstract class dcActionsPage
      * @access public
      */
 	public function process() {
-		$from = new ArrayObject($_POST);
-		$this->setupRedir($from);
-		$this->fetchEntries($from);	
-		if (isset($from['action'])) {
-			$this->action = $from['action'];
+
+		$this->setupRedir($this->from);
+		$this->fetchEntries($this->from);	
+		if (isset($this->from['action'])) {
+			$this->action = $this->from['action'];
 			try {
 				$performed=false;
 				foreach ($this->actions as $k=>$v) {
-					if ($from['action']==$k) {
+					if ($this->from['action']==$k) {
 						$performed = true;
-						call_user_func($v,$this->core,$this,$from);
+						call_user_func($v,$this->core,$this,$this->from);
 					}
 				}
 				if ($performed) {
