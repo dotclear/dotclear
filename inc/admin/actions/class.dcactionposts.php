@@ -11,25 +11,24 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-$GLOBALS['core']->addBehavior('adminPostsActionSet',array('dcDefaultPostActions','adminPostsActionSet'));
-$GLOBALS['core']->addBehavior('adminPostsActionSet',array('dcLegacyPosts','adminPostsActionSet'));
-
-class dcPostsActionSet extends dcActionSet
+class dcPostsActionsPage extends dcActionsPage
 {
 	public function __construct($core,$uri) {
 		parent::__construct($core,$uri);
 		$this->redirect_fields = array('user_id','cat_id','status',
 		'selected','month','lang','sortby','order','page','nb');
-		$core->callBehavior('adminPostsActionSet',$core,$this);
+		// We could have added a behavior here, but we want default action
+		// to be setup first
+		dcDefaultPostActions::adminPostsActionsPage($core,$this);
+		$core->callBehavior('adminPostsActionsPage',$core,$this);
 
 	}
 
 	public function beginPage($breadcrumb='',$head='') {
 		dcPage::open(
 			__('Entries'),
-			dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
+			
 			dcPage::jsLoad('js/_posts_actions.js').
-			dcPage::jsMetaEditor().
 			$head,
 			$breadcrumb
 		);	
@@ -41,10 +40,10 @@ class dcPostsActionSet extends dcActionSet
 	}
 	
 	public function error(Exception $e) {
-		$this->core->erorr->add($e->getMessage());
+		$this->core->error->add($e->getMessage());
 		$this->beginPage(dcPage::breadcrumb(
 			array(
-				html::escapeHTML($core->blog->name) => '',
+				html::escapeHTML($this->core->blog->name) => '',
 				__('Entries') => 'posts.php',
 				'<span class="page-title">'.__('Entries actions').'</span>' => ''
 			))
@@ -52,23 +51,7 @@ class dcPostsActionSet extends dcActionSet
 		$this->endPage();
 	}
 	
-	public function getCheckboxes() {
-		$ret = 
-			'<table class="posts-list"><tr>'.
-			'<th colspan="2">'.__('Title').'</th>'.
-			'</tr>';
-		foreach ($this->entries as $id=>$title) {
-			$ret .= 
-				'<tr><td>'.
-				form::checkbox(array('entries[]'),$id,true,'','').'</td>'.
-				'<td>'.	$title.'</td></tr>';
-		}
-		$ret .= '</table>';
-		return $ret;
-	}
-	
-	
-	public function fetchEntries($from) {
+	protected function fetchEntries($from) {
 		if (!empty($from['entries']))
 		{
 			$entries = $from['entries'];
@@ -89,7 +72,6 @@ class dcPostsActionSet extends dcActionSet
 			
 			$posts = $this->core->blog->getPosts($params);
 			while ($posts->fetch())	{
-				$this->ids[] = $posts->post_id;
 				$this->entries[$posts->post_id] = $posts->post_title;
 			}
 			$this->rs = $posts;			
@@ -101,9 +83,9 @@ class dcPostsActionSet extends dcActionSet
 
 class dcDefaultPostActions 
 {
-	public static function adminPostsActionSet($core, dcPostsActionSet $as) {
+	public static function adminPostsActionsPage($core, dcPostsActionsPage $ap) {
 		if ($core->auth->check('publish,contentadmin',$core->blog->id)) {
-			$as->addAction(
+			$ap->addAction(
 				array(__('Status') => array(
 					__('Publish') => 'publish',
 					__('Unpublish') => 'unpublish',
@@ -113,20 +95,20 @@ class dcDefaultPostActions
 				array('dcDefaultPostActions','doChangePostStatus')
 			);
 		}
-		$as->addAction(
+		$ap->addAction(
 			array(__('Mark')=> array(
 				__('Mark as selected') => 'selected',
 				__('Mark as unselected') => 'unselected'
 			)),
 			array('dcDefaultPostActions','doUpdateSelectedPost')
 		);
-		$as->addAction(
+		$ap->addAction(
 			array(__('Change') => array(
 				__('Change category') => 'category',
 			)),
 			array('dcDefaultPostActions','doChangePostCategory')
 		);
-		$as->addAction(
+		$ap->addAction(
 			array(__('Change') => array(
 				__('Change language') => 'lang',
 			)),
@@ -134,14 +116,14 @@ class dcDefaultPostActions
 		);
 		if ($core->auth->check('admin',$core->blog->id))
 		{
-			$as->addAction(
+			$ap->addAction(
 				array(__('Change') => array(
 					__('Change author') => 'author')),
-				array('dcDefaultPostActions','doChangePostLang')
+				array('dcDefaultPostActions','doChangePostAuthor')
 			);
 		}
 		if ($core->auth->check('delete,contentadmin',$core->blog->id)) {
-			$as->addAction(
+			$ap->addAction(
 				array(__('Delete') => array(
 					__('Delete') => 'delete')),
 				array('dcDefaultPostActions','doDeletePost')
@@ -149,51 +131,36 @@ class dcDefaultPostActions
 		}
 	}
 
-	public static function doChangePostStatus($core, dcPostsActionSet $as, $post) {
-		switch ($as->getAction()) {
+	public static function doChangePostStatus($core, dcPostsActionsPage $ap, $post) {
+		switch ($ap->getAction()) {
 			case 'unpublish' : $status = 0; break;
 			case 'schedule' : $status = -1; break;
 			case 'pending' : $status = -2; break;
 			default : $status = 1; break;
 		}
+		$posts_ids = $ap->getIDs();
+		if (empty($posts_ids)) {
+			throw new Exception(__('No entry selected'));
+		}
+		$core->blog->updPostsStatus($posts_ids,$status);
 		
-		try
-		{
-			$posts_ids = $as->getIDs();
-			if (empty($posts_ids)) {
-				throw new Exception(__('No entry selected'));
-			}
-			$core->blog->updPostsStatus($posts_ids,$status);
-			
-			$as->redirect(array('upd' => 1),true);
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}		
+		$ap->redirect(array('upd' => 1),true);
 	}
 	
-	public static function doUpdateSelectedPost($core, dcPostsActionSet $as, $post) {
-		try
-		{
-			$posts_ids = $as->getIDs();
-			if (empty($posts_ids)) {
-				throw new Exception(__('No entry selected'));
-			}
-			
-			$core->blog->updPostsSelected($posts_ids,$action == 'selected');
-			
-			$as->redirect(array('upd' => 1),true);
+	public static function doUpdateSelectedPost($core, dcPostsActionsPage $ap, $post) {
+		$posts_ids = $ap->getIDs();
+		if (empty($posts_ids)) {
+			throw new Exception(__('No entry selected'));
 		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}
+		$action = $ap->getAction();
+		$core->blog->updPostsSelected($posts_ids,$action == 'selected');
+		
+		$ap->redirect(array('upd' => 1),true);
 	}
 	
-	public static function doDeletePost($core, dcPostsActionSet $as, $post) {
+	public static function doDeletePost($core, dcPostsActionsPage $ap, $post) {
 
-		$posts_ids = $as->getIDs();
+		$posts_ids = $ap->getIDs();
 		if (empty($posts_ids)) {
 			throw new Exception(__('No entry selected'));
 		}
@@ -209,12 +176,12 @@ class dcDefaultPostActions
 		
 		$core->blog->delPosts($posts_ids);
 		
-		$as->redirect(array('del',1),false);
+		$ap->redirect(array('del',1),false);
 	}
 
-	public static function doChangePostCategory($core, dcPostsActionSet $as, $post) {
+	public static function doChangePostCategory($core, dcPostsActionsPage $ap, $post) {
 		if (isset($post['new_cat_id'])) {
-			$posts_ids = $as->getIDs();
+			$posts_ids = $ap->getIDs();
 			if (empty($posts_ids)) {
 				throw new Exception(__('No entry selected'));
 			}
@@ -238,9 +205,9 @@ class dcDefaultPostActions
 			
 			$core->blog->updPostsCategory($posts_ids, $new_cat_id);
 			
-			$as->redirect(array('upd'=>1),true);
+			$ap->redirect(array('upd'=>1),true);
 		} else {
-			$as->beginPage(
+			$ap->beginPage(
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
@@ -255,7 +222,7 @@ class dcDefaultPostActions
 			);			
 			echo
 			'<form action="posts.php" method="post">'.
-			$as->getCheckboxes().
+			$ap->getCheckboxes().
 			'<p><label for="new_cat_id" class="classic">'.__('Category:').'</label> '.
 			form::combo('new_cat_id',$categories_combo,'');
 			
@@ -276,35 +243,27 @@ class dcDefaultPostActions
 			form::hidden(array('action'),'category').
 			'<input type="submit" value="'.__('Save').'" /></p>'.
 			'</form>';
-			$as->endPage();
+			$ap->endPage();
 
 		}
 	
 	}
-	public static function doChangePostAuthor($core, dcPostsActionSet $as, $post) {
+	public static function doChangePostAuthor($core, dcPostsActionsPage $ap, $post) {
 		if (isset($post['new_auth_id']) && $core->auth->check('admin',$core->blog->id)) {
 			$new_user_id = $post['new_auth_id'];
-			$posts_ids = $as->getIDs();
+			$posts_ids = $ap->getIDs();
 			if (empty($posts_ids)) {
 				throw new Exception(__('No entry selected'));
 			}
+			if ($core->getUser($new_user_id)->isEmpty()) {
+				throw new Exception(__('This user does not exist'));
+			}
 			
-			try
-			{
-				if ($core->getUser($new_user_id)->isEmpty()) {
-					throw new Exception(__('This user does not exist'));
-				}
-				
-				$cur = $core->con->openCursor($core->prefix.'post');
-				$cur->user_id = $new_user_id;
-				$cur->update('WHERE post_id '.$core->con->in($posts_ids));
-				
-				$as->redirect(array('upd' => 1),true);
-			}
-			catch (Exception $e)
-			{
-				$core->error->add($e->getMessage());
-			}
+			$cur = $core->con->openCursor($core->prefix.'post');
+			$cur->user_id = $new_user_id;
+			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
+			
+			$ap->redirect(array('upd' => 1),true);
 		} else {
 			$usersList = '';
 			if ($core->auth->check('admin',$core->blog->id)) {
@@ -318,23 +277,23 @@ class dcDefaultPostActions
 					$usersList .= ($usersList != '' ? ',' : '').'"'.$rs->user_id.'"';
 				}
 			}
-			$as->beginPage(
+			$ap->beginPage(
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
 						__('Entries') => 'posts.php',
-						'<span class="page-title">'.__('Change author for entries').'</span>' => ''
-				)),
-				'<script type="text/javascript">'."\n".
-				"//<![CDATA[\n".
-				'usersList = ['.$usersList.']'."\n".
-				"\n//]]>\n".
-				"</script>\n"
+						'<span class="page-title">'.__('Change author for entries').'</span>' => '')),
+					dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
+					'<script type="text/javascript">'."\n".
+					"//<![CDATA[\n".
+					'usersList = ['.$usersList.']'."\n".
+					"\n//]]>\n".
+					"</script>\n"
 			);
 
 			echo
 			'<form action="posts_actions.php" method="post">'.
-			$as->getCheckboxes().
+			$ap->getCheckboxes().
 			'<p><label for="new_auth_id" class="classic">'.__('New author (author ID):').'</label> '.
 			form::field('new_auth_id',20,255);
 			
@@ -343,26 +302,19 @@ class dcDefaultPostActions
 				form::hidden(array('action'),'author').
 				'<input type="submit" value="'.__('Save').'" /></p>'.
 				'</form>';
-			$as->endPage();
+			$ap->endPage();
 		}
 	}
-	public static function doChangePostLang($core, dcPostsActionSet $as, $post) {
+	public static function doChangePostLang($core, dcPostsActionsPage $ap, $post) {
 		if (isset($post['new_lang'])) {
 			$new_lang = $post['new_lang'];
-			try
-			{
-				$cur = $core->con->openCursor($core->prefix.'post');
-				$cur->post_lang = $new_lang;
-				$cur->update('WHERE post_id '.$core->con->in($posts_ids));
-				
-				$as->redirect(array('upd' => 1),true);
-			}
-			catch (Exception $e)
-			{
-				$core->error->add($e->getMessages());
-			}
+			$cur = $core->con->openCursor($core->prefix.'post');
+			$cur->post_lang = $new_lang;
+			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
+			
+			$ap->redirect(array('upd' => 1),true);
 		} else {
-			$as->beginPage(
+			$ap->beginPage(
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
@@ -387,7 +339,7 @@ class dcDefaultPostActions
 			
 			echo
 			'<form action="posts_actions.php" method="post">'.
-			$as->getCheckboxes().
+			$ap->getCheckboxes().
 			
 			'<p><label for="new_lang" class="classic">'.__('Entry lang:').'</label> '.
 			form::combo('new_lang',$lang_combo,'');
@@ -398,25 +350,5 @@ class dcDefaultPostActions
 				'<input type="submit" value="'.__('Save').'" /></p>'.
 				'</form>';
 		}
-	}
-}
-
-
-class dcLegacyPosts
-{
-	public static function adminPostsActionSet($core, dcPostsActionSet $as) {
-		$stub_actions = new ArrayObject();
-		$core->callBehavior('adminPostsActionsCombo',array($stub_actions));
-		if (!empty($stub_actions)) {
-			$as->addAction($stub_actions,array('dcLegacyPosts','onActionLegacy'));
-		}
-	}
-	
-	public static function onActionLegacy($core, dcPostsActionSet $as, $post) {
-		$core->callBehavior('adminPostsActions',$core,$as->getRS(),$as->getAction(),$as->getRedirection());
-		$as->beginPage($core->callBehavior('adminPostsActionsHeaders'),'');
-		$core->callBehavior('adminPostsActionsContent',$core,$as->getAction(),$as->getHiddenFields(true));
-		$as->endPage();
-	
 	}
 }

@@ -103,9 +103,9 @@ if (!$core->error->flag())
 
 # Actions combo box
 
-$posts_actionset = new dcPostsActionSet($core,'posts.php');
+$posts_actions_page = new dcPostsActionsPage($core,'posts.php');
 
-$posts_actionset->process();
+$posts_actions_page->process();
 
 /* Get posts
 -------------------------------------------------------- */
@@ -286,7 +286,7 @@ if (!$core->error->flag())
 	'<p class="col checkboxes-helpers"></p>'.
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
-	form::combo('action',$posts_actionset->getCombo()).
+	form::combo('action',$posts_actions_page->getCombo()).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('user_id'),$user_id).
 	form::hidden(array('cat_id'),$cat_id).
