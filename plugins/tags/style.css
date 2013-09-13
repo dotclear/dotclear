@@ -98,3 +98,13 @@ a.metaRemove:hover, a.metaRemove:focus {
 	background-color: #06c;
 	color: white;
 }
+#post_meta_input {
+    margin: 0 0.5em 0 0;
+    width: 13em;
+}
+#post_meta_input:focus {
+	-moz-box-sizing: content-box;
+}
+#tags-edit input[type=button] {
+	width: 3.5em;
+}
