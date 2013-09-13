@@ -481,8 +481,7 @@ class dcPage
 	public static function jsCommon()
 	{
 		$mute_or_no = '';
-		if (!empty($GLOBALS['core']->blog->settings->system->jquery_migrate_mute) // for initial setting
-			|| $GLOBALS['core']->blog->settings->system->jquery_migrate_mute) {
+		if (empty($GLOBALS['core']->blog) || $GLOBALS['core']->blog->settings->system->jquery_migrate_mute) {
 			$mute_or_no .=
 				'<script type="text/javascript">'."\n".
 				"//<![CDATA[\n".
