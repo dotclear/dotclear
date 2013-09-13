@@ -573,17 +573,17 @@ input[type=submit] {
 input[type=submit], a.button.submit {
 	color: #fff;
 	border: 1px solid #2C8FD1;
-	background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
-	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
-	background:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background-image:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
+	background-image:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background-color:#25A6E1;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 	}
 	input[type=submit]:hover, input[type=submit]:focus,
 	a.button.submit:hover, a.button.submit:focus {
-		background:-moz-linear-gradient(top,#188BC0 0%,#25A6E1 100%);
-		background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#188BC0),color-stop(100%,#25A6E1));
-		background:linear-gradient(top,#188BC0 0%,#25A6E1 100%);
+		background-image:-moz-linear-gradient(top,#188BC0 0%,#25A6E1 100%);
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#188BC0),color-stop(100%,#25A6E1));
+		background-image:linear-gradient(top,#188BC0 0%,#25A6E1 100%);
 		background-color:#188BC0;
 		}
 /* suppression, reset, "neutres" fond gris */
@@ -592,8 +592,8 @@ input[type=reset], input[type=submit].reset, input.reset,
 input[type=submit].delete, input.delete,
 a.button.delete, a.button.reset, a.button {
 	color: #000;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
-	background: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
+	background-image: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
 	background-color: #eee;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 	}
@@ -605,8 +605,8 @@ a.button.delete, a.button.reset, a.button {
 	input[type=submit].delete:focus, input.delete:focus,
 	a.button.delete:hover, a.button.reset:hover, a.button:hover,
 	a.button.delete:focus, a.button.reset:focus, a.button:focus {
-		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
-		background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+		background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+		background-image:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
 		background-color:#f3f3f3;
 		}
 	/* suppression */
@@ -627,8 +627,8 @@ a.button.delete, a.button.reset, a.button {
 		margin-left: 2em;
 		}
 .button.add {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bee74b), color-stop(1, #9BCA1C) );
-	background:-moz-linear-gradient( center top, #bee74b 5%, #9BCA1C 100% );
+	background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bee74b), color-stop(1, #9BCA1C) );
+	background-image:-moz-linear-gradient( center top, #bee74b 5%, #9BCA1C 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bee74b', endColorstr='#9BCA1C');
 	background-color:#bee74b;
 	border:1px solid #B2D742;
@@ -640,8 +640,8 @@ a.button.delete, a.button.reset, a.button {
 	font-size: 1.4rem;
 	}
 	.button.add:hover, .button.add:active, .button.add:focus {
-		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9BCA1C), color-stop(1, #bee74b) );
-		background:-moz-linear-gradient( center top, #9BCA1C 5%, #bee74b 100% );
+		background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9BCA1C), color-stop(1, #bee74b) );
+		background-image:-moz-linear-gradient( center top, #9BCA1C 5%, #bee74b 100% );
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9BCA1C', endColorstr='#bee74b');
 		background-color:#9BCA1C;
 		}
