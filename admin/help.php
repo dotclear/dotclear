@@ -89,7 +89,8 @@ if ($content_array['title'] != '') {
 -------------------------------------------------------- */
 dcPage::open(__('Global help'),
 	# --BEHAVIOR-- adminPostHeaders
-	$core->callBehavior('adminPostHeaders'),
+	$core->callBehavior('adminPostHeaders').
+	dcPage::jsPageTabs('first-step'),
 	$breadcrumb
 );
 

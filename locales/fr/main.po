@@ -3368,3 +3368,6 @@ msgstr "Afficher les favoris en haut du menu"
 
 msgid "Dashboard icons"
 msgstr "Icônes du tableau de bord"
+
+msgid "Go to dashboard"
+msgstr "Tableau de bord"
