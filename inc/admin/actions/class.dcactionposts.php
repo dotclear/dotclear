@@ -306,6 +306,10 @@ class dcDefaultPostActions
 		}
 	}
 	public static function doChangePostLang($core, dcPostsActionsPage $ap, $post) {
+		$posts_ids = $ap->getIDs();
+		if (empty($posts_ids)) {
+			throw new Exception(__('No entry selected'));
+		}
 		if (isset($post['new_lang'])) {
 			$new_lang = $post['new_lang'];
 			$cur = $core->con->openCursor($core->prefix.'post');
