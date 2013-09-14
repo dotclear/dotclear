@@ -461,7 +461,7 @@ class dcMedia extends filemanager
 		
 		$this->dir['files'] = $f_res;
 		foreach ($this->dir['dirs'] as $k => $v) {
-			$v->media_icon = sprintf($this->icon_img,'folder');
+			$v->media_icon = sprintf($this->icon_img,($k == '..' ? 'folder-up' : 'folder'));
 		}
 		
 		# Check files that don't exist in database and create them
