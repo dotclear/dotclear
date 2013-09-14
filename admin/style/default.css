@@ -1608,9 +1608,6 @@ tr.expand td {
 		width: 100%;
 		}
 /* ------------------------------------------------------------------ media.php */
-.media-list {
-	position: static;
-	}
 .media-item {
 	position: relative;
 	border: 1px solid #ccc;
@@ -1621,21 +1618,11 @@ tr.expand td {
 	vertical-align: top;
 	min-height: 120px
 	}
-	.media-folder {
-		background: transparent url(bg_menu.png) repeat-y;
-		border-left-color: #f9b233;
-		}
-	.media-folder-up {
-		border: none;
-		}
 	.media-item ul {
 		display: block;
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		}
-	.media-folder ul, .media-folder img {
-		padding-left: 2em;
 		}
 	a.media-icon {
 		display: block;
@@ -1645,6 +1632,9 @@ tr.expand td {
 		.media-icon img {
 			display: block;
 			}
+	.media-link {
+		font-size: 1.1em;
+		}
 .media-action-box {
 	position: relative;
 	margin: 3em 3em 1em 1em;
@@ -1667,6 +1657,27 @@ li.media-action {
 	li.media-action input {
 		border: none;
 		}
+.folders-group .media-item {
+	min-height: 60px;
+	border-color: #eee #eee #eee #eee;
+	}
+	.folders-group .media-item p {
+		margin-bottom: 0;
+		}
+	.media-folder {
+		background: transparent url(bg_menu.png) repeat-y;
+		}
+	.media-folder-up {
+		border: none;
+		padding-bottom: 0;
+		}
+	.media-folder .media-link {
+		font-size: 1.25em;
+		margin-left: 2em;
+		color: #676e78;
+		border-bottom: none;
+		}
+
 .zip-dl {
 	background: transparent url(package.png) no-repeat 0 50%;
 	padding: 5px 0 5px 20px;
