@@ -1659,6 +1659,116 @@ li.media-action {
 	background: transparent url(package.png) no-repeat 0 50%;
 	padding: 5px 0 5px 20px;
 	}
+
+.enhanced_uploader .add, .enhanced_uploader .cancel, 
+.enhanced_uploader .clean, .enhanced_uploader .start {
+	margin-right: .4em;
+}
+.enhanced_uploader #upfile {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	margin: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor: pointer;
+}
+.button.clean, .button.cancel, .button.add {
+	display: none;
+}
+.enhanced_uploader .button.add {
+	display: inline-block;
+}
+.enhanced_uploader .max-size {
+	display: block;
+}
+.enhanced_uploader .one-file {
+	display: none;
+}
+label span.one-file {
+	display: inline;
+}
+.enhanced_uploader p.clear {
+	padding-top: 1em;
+	margin-bottom: 1em;
+}
+#add-file-f p.clear {
+	margin-top: 1em;
+	margin-bottom: 0;
+	clear: both;
+}
+/* files */
+.files {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+.files li {
+	margin-left: 0;
+	padding-left: 0;
+}
+.upload-msg {
+	font-weight: bold;
+}
+.upload-msg.upload-error {
+	color: #c00;
+}
+.upload-files {
+	padding: 0 0.5em;
+	margin: 10px 0;
+}
+.upload-file {
+	margin: 0 0 8px 0;
+	position: relative;
+}
+.upload-fileinfo {
+	margin-left: 8px;
+	margin-bottom: .4em;
+}
+.upload-fileinfo span {
+	padding-right: 8px;
+}
+.upload-fileinfo .upload-filecancel {
+	display: block;
+	padding-right: 0;
+	margin-top: 3px;
+	width: 20px;
+	height: 20px;
+	background: transparent url("cancel.png") no-repeat left top;
+	text-indent: -1000px;
+	cursor: pointer;
+	float: left;
+}
+.upload-filemsg {
+	font-weight: bold;
+	color: green;
+}
+.upload-filemsg.upload-error {
+	color: #c00;
+}
+.upload-progress {
+	padding: 0 8px;
+}
+.upload-progress div {
+	width: 0;
+	height: 1em;
+	padding: .2em 0;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 1em;
+	text-align: right;
+	background: green url("loader.png") repeat-x left top;
+	color: white;
+	border-radius: 2px;
+}
+div.template-upload {
+	clear: both;
+}
+.queue-message {
+	font-weight: bold;
+	margin: 0 0 1em 0;
+}
+
 /* --------------------------------------------------------------- media-item.php */
 #media-icon {
 	float: left;

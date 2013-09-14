@@ -811,8 +811,6 @@ public static function jsUpload($params=array(),$base_url=null)
 		));
 
 	return
-	'<link rel="stylesheet" type="text/css" href="style/jsUpload/style.css" />'."\n".
-
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA[\n".
 	"dotclear.jsUpload = {};\n".
