@@ -1607,6 +1607,13 @@ tr.expand td {
 	#del_cat {
 		width: 100%;
 		}
+/* ------------------------------------------------------------------ help.php */
+.legible { /* for pages with a lot of text to read */
+	font-size: 1.16em;
+	max-width: 62em;
+	margin-left: 6%;
+	}
+
 /* ------------------------------------------------------------------ media.php */
 .media-item {
 	position: relative;
@@ -1658,18 +1665,18 @@ li.media-action {
 		border: none;
 		}
 .folders-group .media-item {
-	min-height: 60px;
-	border-color: #eee #eee #eee #eee;
+	min-height: 64px;
 	}
 	.folders-group .media-item p {
 		margin-bottom: 0;
 		}
 	.media-folder {
 		background: transparent url(bg_menu.png) repeat-y;
+		border-color: #eee;
 		}
 	.media-folder-up {
-		border: none;
-		padding-bottom: 0;
+		border-color: #fff;
+		padding-bottom: 6px;
 		}
 	.media-folder .media-link {
 		font-size: 1.25em;
