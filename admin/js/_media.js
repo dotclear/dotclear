@@ -24,7 +24,7 @@
 				$('.queue-message',me).html(msg);
 			}
 			
-			$('.button.add').click(function(e) {
+			$('.button.choose_files').click(function(e) {
 				// Use the native click() of the file input.
 				$('#upfile').click();
 				e.preventDefault();
