@@ -1358,6 +1358,9 @@ msgstr "Insertion de l'image"
 msgid "As a single image"
 msgstr "En tant qu'image uniquement"
 
+msgid "As a link to the original image"
+msgstr "En tant que lien vers l'image originale"
+
 msgid "Insert a link to the original image"
 msgstr "Insérer le lien vers l'image originale"
 

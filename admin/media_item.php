@@ -262,7 +262,7 @@ if ($popup)
 		'<label for="insert1" class="classic">'.form::radio(array('insertion','insert1'),'simple',!$media_img_default_link).
 		__('As a single image').'</label><br />'.
 		'<label for="insert2" class="classic">'.form::radio(array('insertion','insert2'),'link',$media_img_default_link).
-		__('As a link to original image').'</label>'.
+		__('As a link to the original image').'</label>'.
 		'</p>';
 	}
 	elseif ($file->type == 'audio/mpeg3')
@@ -281,7 +281,7 @@ if ($popup)
 		
 		echo '<p>';
 		foreach ($i_align as $k => $v) {
-			echo '<label for="alignment" class="classic">'.
+			echo '<label class="classic">'.
 			form::radio(array('alignment'),$k,$v[1]).' '.$v[0].'</label><br /> ';
 		}
 		
@@ -315,7 +315,7 @@ if ($popup)
 		
 		echo '<p>';
 		foreach ($i_align as $k => $v) {
-			echo '<label for="alignment" class="classic">'.
+			echo '<label class="classic">'.
 			form::radio(array('alignment'),$k,$v[1]).' '.$v[0].'</label><br /> ';
 		}
 		
