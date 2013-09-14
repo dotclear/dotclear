@@ -327,11 +327,20 @@ else
 	'</form>'.
 	
 	'<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
-	
-	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++, $j++)
+
+	$dgroup = '';
+	$fgroup = '';
+	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
 	{
-		echo mediaItemLine($items[$i],$j);
+		if ($items[$i]->d) {
+			$dgroup .= mediaItemLine($items[$i],$j);
+		} else {
+			$fgroup .= mediaItemLine($items[$i],$j);
+		}
 	}
+	echo 
+		($dgroup != '' ? '<div class="folders-group">'.$dgroup.'</div>' : '').
+		($fgroup != '' ? '<div class="files-group">'.$fgroup.'</div>' : '');
 	
 	echo
 	'<p class="clear pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
@@ -473,13 +482,13 @@ function mediaItemLine($f,$i)
 	}
 	
 	$res =
-	'<div class="'.$class.'"><a class="media-icon media-link" href="'.$link.'">'.
-	'<img src="'.$f->media_icon.'" alt="" /></a>'.
-	'<ul>'.
-	'<li><a class="media-link" href="'.$link.'">'.$fname.'</a></li>';
+	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.$link.'">'.
+	'<img src="'.$f->media_icon.'" alt="" />'.$fname.'</a></p>';
+
+	$lst = '';
 	
 	if (!$f->d) {
-		$res .=
+		$lst .=
 		'<li>'.$f->media_title.'</li>'.
 		'<li>'.
 		$f->media_dtstr.' - '.
@@ -488,10 +497,11 @@ function mediaItemLine($f,$i)
 		'</li>';
 	}
 	
-	$res .= '<li class="media-action">&nbsp;';
+	$act = '';
 	
 	if ($post_id && !$f->d) {
-		$res .= '<form action="post_media.php" method="post">'.
+		$act .= 
+		'<form action="post_media.php" method="post">'.
 		'<input type="image" src="images/plus.png" alt="'.__('Attach this file to entry').'" '.
 		'title="'.__('Attach this file to entry').'" /> '.
 		form::hidden('media_id',$f->media_id).
@@ -502,24 +512,26 @@ function mediaItemLine($f,$i)
 	}
 	
 	if ($popup && !$f->d) {
-		$res .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
+		$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
 		'title="'.__('Insert this file into entry').'" /></a> ';
 	}
 	
 	if ($f->del) {
-		$res .= '<a class="media-remove" '.
+		$act .= '<a class="media-remove" '.
 		'href="'.html::escapeURL($page_url).'&amp;d='.
 		rawurlencode($GLOBALS['d']).'&amp;remove='.rawurlencode($f->basename).'">'.
 		'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
 	}
 	
-	$res .= '</li>';
+	$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
 	
 	if ($f->type == 'audio/mpeg3') {
-		$res .= '<li>'.dcMedia::mp3player($f->file_url,'index.php?pf=player_mp3.swf').'</li>';
+		$lst .= '<li>'.dcMedia::mp3player($f->file_url,'index.php?pf=player_mp3.swf').'</li>';
 	}
 	
-	$res .= '</ul></div>';
+	$res .=	($lst != '' ? '<ul>'.$lst.'</ul>' : '');
+
+	$res .= '</div>';
 	
 	return $res;
 }
