@@ -168,8 +168,6 @@ if (isset($_POST['user_post_format']))
 			# Applied to all users
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
 		}
-		$core->auth->user_prefs->interface->put('iconset',(!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
-		$core->auth->user_prefs->interface->put('nofavmenu',!empty($_POST['user_ui_nofavmenu']),'boolean');
 		
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
