@@ -453,17 +453,20 @@ function mediaItemLine($f,$i)
 	
 	$fname = $f->basename;
 	
+	$class = 'media-item media-col-'.($i%2);
+	
 	if ($f->d) {
 		$link = html::escapeURL($page_url).'&amp;d='.html::sanitizeURL($f->relname);
 		if ($f->parent) {
 			$fname = '..';
+			$class .= ' media-folder-up';
+		} else {
+			$class .= ' media-folder';
 		}
 	} else {
 		$link =
 		'media_item.php?id='.$f->media_id.'&amp;popup='.$popup.'&amp;post_id='.$post_id;
 	}
-	
-	$class = 'media-item media-col-'.($i%2);
 	
 	$res =
 	'<div class="'.$class.'"><a class="media-icon media-link" href="'.$link.'">'.
