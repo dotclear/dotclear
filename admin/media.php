@@ -371,7 +371,7 @@ if ($core_media_writable)
 
 	echo
 	'<p><label for="upfile">'.'<span class="add-label one-file">'.__('Choose file').'</span>'.'</label>'.
-	'<button class="button add">'.__('Choose files').'</button>'.
+	'<button class="button choose_files">'.__('Choose files').'</button>'.
 	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" /></p>';
 
 	echo
