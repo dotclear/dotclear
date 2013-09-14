@@ -280,8 +280,8 @@ msgstr "Note de copyright :"
 msgid "New post URL format:"
 msgstr "Format d'URL des nouveaux billets :"
 
-msgid "Note title HTML tag:"
-msgstr "Balise HTML pour le titre des notes :"
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr "Balise HTML pour le titre des notes sur le blog :"
 
 msgid "Note"
 msgstr "Note"
@@ -358,7 +358,7 @@ msgid "Media and images"
 msgstr "Médias et images"
 
 msgid "Generated image sizes (in pixels)"
-msgstr "Tailles des images générées (en pixels)"
+msgstr "Tailles des miniatures générées (largeur en pixels)"
 
 msgid "Thumbnails:"
 msgstr "Miniatures :"
@@ -372,8 +372,8 @@ msgstr "Moyennes :"
 msgid "Inserted image title"
 msgstr "Titres des images insérées"
 
-msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
-msgstr "Ceci définit le titre de la balise d'une image insérée depuis la médiathèque. Les informations sont obtenues depuis les métadonnées de l'image."
+msgid "It is retrieved from the picture's metadata."
+msgstr "Ces informations sont obtenues depuis les métadonnées de l'image."
 
 msgid "Use original media date if possible"
 msgstr "Utiliser la date originelle du média si possible"
@@ -3371,3 +3371,6 @@ msgstr "Icônes du tableau de bord"
 
 msgid "Go to dashboard"
 msgstr "Tableau de bord"
+
+msgid "Size of inserted image:"
+msgstr "Taille de l'image insérée :"
