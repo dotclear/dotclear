@@ -508,35 +508,35 @@ if ($blog_id)
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	'<h5>'.__('Generated image sizes (in pixels)').'</h5>'.
-	'<p class="field"><label for="media_img_t_size">'.__('Thumbnails:').' '.
-	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</label></p>'.
+	'<p class="field"><label for="media_img_t_size">'.__('Thumbnails:').'</label> '.
+	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</p>'.
 	
-	'<p class="field"><label for="media_img_s_size">'.__('Small:').' '.
-	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</label></p>'.
+	'<p class="field"><label for="media_img_s_size">'.__('Small:').'</label> '.
+	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</p>'.
 	
-	'<p class="field"><label for="media_img_m_size">'.__('Medium:').' '.
-	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</label></p>'.
+	'<p class="field"><label for="media_img_m_size">'.__('Medium:').'</label> '.
+	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<h5><label for="media_img_title_pattern">'.__('Inserted image title').'</label></h5>'.
-	'<p>'.__('This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture\'s metadata.').'</p>'.
-	'<p>'.form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
+	'<h5>'.__('Default image insertion attributes').'</h5>'.
+	'<p class="field"><label for="media_img_title_pattern">'.__('Inserted image title').'</label>'.
+	form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
+	'<p class="form-note">'.__('This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture\'s metadata.').'</p>'.
 	'<p><label for="media_img_use_dto_first" class="classic">'.
 	form::checkbox('media_img_use_dto_first','1',$blog_settings->system->media_img_use_dto_first).
 	__('Use original media date if possible').'</label></p>'.
 
-	'<h5>'.__('Default image insertion attributes').'</h5>'.
-	'<p><label for="media_img_default_size">'.__('Image size:').'</label>'.
+	'<p class="field"><label for="media_img_default_size">'.__('Image size:').'</label>'.
 	form::combo('media_img_default_size',$img_default_size_combo,
 		(html::escapeHTML($blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($blog_settings->system->media_img_default_size) : 'm')).
 	'</p>'.
-	'<p><label for="media_img_default_alignment">'.__('Image alignment:').'</label>'.
+	'<p class="field"><label for="media_img_default_alignment">'.__('Image alignment:').'</label>'.
 	form::combo('media_img_default_alignment',$img_default_alignment_combo,html::escapeHTML($blog_settings->system->media_img_default_alignment)).
 	'</p>'.
-	'<p><label for="media_img_default_link" class="classic">'.
+	'<p><label for="media_img_default_link">'.
 	form::checkbox('media_img_default_link','1',$blog_settings->system->media_img_default_link).
-	__('As a link to original image').'</label></p>'.
+	__('Insert a link to the original image').'</label></p>'.
 	'</div>'.
 	'</div>'.
 	'<br class="clear" />'. //Opera sucks

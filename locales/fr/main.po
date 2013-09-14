@@ -376,7 +376,7 @@ msgid "This defines image tag title when you insert it in a post from the media 
 msgstr "Ceci définit le titre de la balise d'une image insérée depuis la médiathèque. Les informations sont obtenues depuis les métadonnées de l'image."
 
 msgid "Use original media date if possible"
-msgstr "Utiliser la date originale du média si possible"
+msgstr "Utiliser la date originelle du média si possible"
 
 msgid "Search engines robots policy"
 msgstr "Paramètres d'indexation par les moteurs de recherche"
@@ -1358,8 +1358,8 @@ msgstr "Insertion de l'image"
 msgid "As a single image"
 msgstr "En tant qu'image uniquement"
 
-msgid "As a link to original image"
-msgstr "En tant que lien vers l'image originale"
+msgid "Insert a link to the original image"
+msgstr "Insérer le lien vers l'image originale"
 
 msgid "MP3 disposition"
 msgstr "Disposition du MP3"
