@@ -320,7 +320,7 @@ class tagsBehaviors
 		$value = array_key_exists('tag_list_format',$opts) ? $opts['tag_list_format'] : 'more';
 		
 		echo
-		'<p><label for="user_tag_list_format">'.__('Tags list format:').'</label> '.
+		'<p><label for="user_tag_list_format" class="classic">'.__('Tags list format:').'</label> '.
 		form::combo('user_tag_list_format',$combo,$value).
 		'</p>';
 	}
