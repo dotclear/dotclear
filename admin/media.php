@@ -360,7 +360,6 @@ if ($core_media_writable)
 	echo
 	'<h4>'.__('Add files').'</h4>'.
 	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
-	'<p class="max-sizer form-note info">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
 	'<form id="fileupload" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data" aria-disabled="false">'.
 	'<p>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</p>'.
@@ -375,9 +374,14 @@ if ($core_media_writable)
 	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" /></p>';
 
 	echo
+	'<p class="max-sizer form-note">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>';
+
+	echo
 	'<p class="one-file"><label for="upfiletitle">'.__('Title:').'</label>'.form::field(array('upfiletitle','upfiletitle'),35,255).'</p>'.
 	'<p class="one-file"><label for="upfilepriv" class="classic">'.__('Private').'</label> '.
 	form::checkbox(array('upfilepriv','upfilepriv'),1).'</p>';
+
+
 
 	if (!$user_ui_enhanceduploader) {
 		echo

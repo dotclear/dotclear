@@ -1623,7 +1623,7 @@ tr.expand td {
 	}
 	.media-folder {
 		background: transparent url(bg_menu.png) repeat-y;
-		border-left-color: #f90;
+		border-left-color: #f9b233;
 		}
 	.media-folder-up {
 		border: none;
@@ -1672,7 +1672,7 @@ li.media-action {
 	padding: 5px 0 5px 20px;
 	}
 /* upload multiple */
-.enhanced_uploader .add, .enhanced_uploader .cancel, 
+.enhanced_uploader .choose_files, .enhanced_uploader .cancel, 
 .enhanced_uploader .clean, .enhanced_uploader .start {
 	margin-right: .4em;
 	}
@@ -1685,10 +1685,10 @@ li.media-action {
 	filter: alpha(opacity=0);
 	cursor: pointer;
 	}
-.button.clean, .button.cancel, .button.add {
+.button.clean, .button.cancel, .button.choose_files {
 	display: none;
 	}
-.enhanced_uploader .button.add {
+.enhanced_uploader .button.choose_files {
 	display: inline-block;
 	}
 .enhanced_uploader .max-size {
