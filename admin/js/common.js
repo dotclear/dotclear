@@ -419,7 +419,7 @@ $(function() {
         else {
             hideSidebar();
         }
-    }); // .css('height', objSeparator.parent().outerHeight() + 'px');
+    }).css('height', objSeparator.parent().parent().parent().outerHeight() + 'px');
 	if ( $.cookie('sidebar-pref') == 'hide-mm' ){
 		objMain.addClass('hide-mm');
 	} else {

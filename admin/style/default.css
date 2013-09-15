@@ -26,19 +26,20 @@
 #wrapper {
 	width: 100%;
 	padding-top: 1em;
+	background: #f7f7f7 url(bg_wrapper.png) repeat-y 15.5em;
 	}
 #main {
 	width: 100%;
 	float: right;
 	margin-left: -14.5em;
 	margin-top: 0;
-	background: #fff url(bg_menu.png);
 	}
 #content {
-	margin: 0 0 0 14.5em;
+	margin: 0 0 0 15.5em;
 	padding: 9px 18px 18px; /* ie < 9 sucks */
 	padding: .9rem 1.8rem 1.8rem;
 	background: #fff;
+	overflow: hidden;
 	}
 #main-menu {
 	width: 14.5em;
@@ -53,22 +54,41 @@
 	padding: .5em 1em .5em 0;
 	text-align: right;
 	border-top: 1px solid #ccc;
+	background-color: #fff;
 	}
+/* to hide main-menu */
 #collapser {
+	display: block;
+	float: left;
+	width: 1em;
+	background: #e3e3e3;
+	opacity: .4;
+	margin-left: 14.5em;
+	border: none;
+	text-align: center;
+	overflow: hidden;
+	}
+/* if main-menu is hidden */
+#wrapper.hide-mm {
+	background: #fff;
 	}
 .hide-mm #main {
-	width: 100%;
 	margin-left: 0;
-	float: none;
+	float: left;
 	}
 .hide-mm #content {
-	margin-left: 0;
-	float: none;
+	margin-left: 1em;
 	}
 .hide-mm #main-menu {
 	display: none;
 	}
-.hide #collapser {
+.hide-mm #collapser {
+	margin-left: 0;
+	opacity: 1;
+	}
+/* if no js activated */
+.no-js #content {
+	margin-left: 14.5em;
 	}
 
 /* -------------------------------------------------------------- layout: two-cols */
@@ -569,7 +589,7 @@ input[type=reset],
 input[type=submit] {
 	border: 1px solid #ccc;
 	font-family: arial, helvetica, sans-serif;
-	padding: 3px 8px;
+	padding: 4px 10px;
 	line-height: normal !important;
 	display: inline-block;
 	vertical-align: middle;
@@ -592,7 +612,7 @@ input[type=submit], a.button.submit, input.button.start {
 	color: #fff;
 	border: 1px solid #2C8FD1;
 	background-image:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
-	background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
+	background-image:-webkit-gradient(linear,left top,left bottom, from(#25A6E1), to(#188BC0));
 	background-image:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background-color:#25A6E1;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
@@ -601,7 +621,7 @@ input[type=submit], a.button.submit, input.button.start {
 	input.button.start:hover, input.button.start:focus,
 	a.button.submit:hover, a.button.submit:focus {
 		background-image:-moz-linear-gradient(top,#188BC0 0%,#25A6E1 100%);
-		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#188BC0),color-stop(100%,#25A6E1));
+		background-image:-webkit-gradient(linear,left top,left bottom, from(#188BC0),to(#25A6E1));
 		background-image:linear-gradient(top,#188BC0 0%,#25A6E1 100%);
 		background-color:#188BC0;
 		}
@@ -613,6 +633,7 @@ a.button.delete, a.button.reset, a.button {
 	color: #000;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
 	background-image: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
+	background-image:linear-gradient(top,#f5f5f5 0%,#dfdfdf 100%);
 	background-color: #eee;
 	border: 1px solid #ccc;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -625,8 +646,9 @@ a.button.delete, a.button.reset, a.button {
 	input[type=submit].delete:focus, input.delete:focus,
 	a.button.delete:hover, a.button.reset:hover, a.button:hover,
 	a.button.delete:focus, a.button.reset:focus, a.button:focus {
-		background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
-		background-image:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+		background-image:-webkit-gradient( linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
+		background-image:-moz-linear-gradient(top, #e9e9e9, #f9f9f9);
+		background-image:linear-gradient(top,#e9e9e9 0%,#f9f9f9 100%);
 		background-color:#f3f3f3;
 		}
 	/* suppression */
@@ -648,11 +670,11 @@ a.button.delete, a.button.reset, a.button {
 		}
 .button.add {
 	background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bee74b), color-stop(1, #9BCA1C) );
-	background-image:-moz-linear-gradient( center top, #bee74b 5%, #9BCA1C 100% );
+	background-image:-moz-linear-gradient(center top, #bee74b 5%, #9BCA1C 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bee74b', endColorstr='#9BCA1C');
 	background-color:#bee74b;
 	border:1px solid #B2D742;
-	padding:.33em 1.33em;
+	padding:.33em 1.33em .5em;
 	color: #000;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 	font-weight: normal;
@@ -661,7 +683,8 @@ a.button.delete, a.button.reset, a.button {
 	}
 	.button.add:hover, .button.add:active, .button.add:focus {
 		background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9BCA1C), color-stop(1, #bee74b) );
-		background-image:-moz-linear-gradient( center top, #9BCA1C 5%, #bee74b 100% );
+		background-image:-moz-linear-gradient(center top, #9BCA1C 5%, #bee74b 100%);
+		background-image:linear-gradient(center top, #9BCA1C 5%, #bee74b 100%);
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9BCA1C', endColorstr='#bee74b');
 		background-color:#9BCA1C;
 		}
@@ -677,6 +700,7 @@ a.button.delete, a.button.reset, a.button {
 /* disabled */
 input.disabled, input[type=submit].disabled {
  	text-shadow: none;
+ 	filter: none;
  	color: #676e78;
  	background: #F5F5F5;
 	border: 1px solid #CCC;
@@ -1634,14 +1658,20 @@ tr.expand td {
 /* ------------------------------------------------------------------ media.php */
 .media-item {
 	position: relative;
-	border: 1px solid #ccc;
+	border: 1px solid #ddd;
 	margin: 1em;
-	padding: 1em;
+	padding: 10px 12px 6px;
 	width: 300px;
 	display: inline-block;
 	vertical-align: top;
-	min-height: 120px
+	min-height: 140px;
 	}
+	.media-item p {
+		margin: 0 0 .5em;
+		}
+	.media-item object {
+		margin-top: .5em;
+		}
 	.media-item ul {
 		display: block;
 		list-style: none;
@@ -2136,10 +2166,10 @@ div.template-upload {
 	margin-top: 0;
 	margin-bottom: 0;
 	}
-.vertical-collapser {
+.vertical-separator {
 	margin-top: 2em;
 	}
-	p.clear.vertical-collapser {
+	p.clear.vertical-separator {
 		padding-top: 2em;
 		}
 .border-top {

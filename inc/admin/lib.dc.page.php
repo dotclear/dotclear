@@ -151,6 +151,7 @@ class dcPage
 		echo
 		'<div id="wrapper" class="clearfix">'."\n".
 		'<div id="main">'."\n".
+		'<div class="hidden-if-no-js"><a href="#" id="collapser"><img src="images/collapser.png" alt="'.__('Switch main menu').'" /></a></div>'.
 		'<div id="content" class="clearfix">'."\n";
 
 		# Safe mode
@@ -207,7 +208,6 @@ class dcPage
 		'</div>'."\n".		// End of #main-menu
 
 		'<div id="footer">'.
-		'<a href="#" id="collapser"><span>'.__('Switch main menu').'</span></a>'.
 		'<span class="helplink"><a href="help.php">'.__('Global help').'</a></span> '.
 		'<a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
 		'<!-- '."\n".
