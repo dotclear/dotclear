@@ -28,7 +28,7 @@ foreach ($eres as $f)
 	$dest = dirname($f).'/'.basename($f,'.po').'.lang.php';
 	echo "l10n file ".$dest.": ";
 	
-	if (l10n::generatePhpFileFromPo(dirname($f).'/'.basename($f,'.po'))) {
+	if (l10n::generatePhpFileFromPo(dirname($f).'/'.basename($f,'.po')),$license_block) {
 		echo 'OK';
 	} else {
 		echo 'FAILED';
