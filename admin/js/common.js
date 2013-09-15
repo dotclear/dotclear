@@ -396,5 +396,34 @@ $(function() {
 		}
 		return true;
 	});
-});
 
+	// Main menu collapser
+    var objMain = $('#wrapper');
+    function showSidebar(){
+	    // Show sidebar
+        objMain.removeClass('hide-mm');
+        $.cookie('sidebar-pref',null,{expires:30});
+    }
+    function hideSidebar(){
+	    // Hide sidebar
+        objMain.addClass('hide-mm');
+        $.cookie('sidebar-pref','hide-mm',{expires:30});
+    }
+    // Sidebar separator
+    var objSeparator = $('#collapser');
+    objSeparator.click(function(e){
+        e.preventDefault();
+        if ( objMain.hasClass('hide-mm') ){
+            showSidebar();
+        }
+        else {
+            hideSidebar();
+        }
+    }); // .css('height', objSeparator.parent().outerHeight() + 'px');
+	if ( $.cookie('sidebar-pref') == 'hide-mm' ){
+		objMain.addClass('hide-mm');
+	} else {
+		objMain.removeClass('hide-mm');
+	}
+
+});

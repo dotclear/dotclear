@@ -54,6 +54,23 @@
 	text-align: right;
 	border-top: 1px solid #ccc;
 	}
+#collapser {
+	}
+.hide-mm #main {
+	width: 100%;
+	margin-left: 0;
+	float: none;
+	}
+.hide-mm #content {
+	margin-left: 0;
+	float: none;
+	}
+.hide-mm #main-menu {
+	display: none;
+	}
+.hide #collapser {
+	}
+
 /* -------------------------------------------------------------- layout: two-cols */
 .two-cols {
 	position: static;
@@ -2119,10 +2136,10 @@ div.template-upload {
 	margin-top: 0;
 	margin-bottom: 0;
 	}
-.vertical-separator {
+.vertical-collapser {
 	margin-top: 2em;
 	}
-	p.clear.vertical-separator {
+	p.clear.vertical-collapser {
 		padding-top: 2em;
 		}
 .border-top {
