@@ -151,7 +151,10 @@ class dcPage
 		echo
 		'<div id="wrapper" class="clearfix">'."\n".
 		'<div id="main">'."\n".
-		'<div class="hidden-if-no-js"><a href="#" id="collapser"><img src="images/collapser.png" alt="'.__('Switch main menu').'" /></a></div>'.
+		'<div class="hidden-if-no-js"><a href="#" id="collapser">'.
+		'<img class="collapse-mm" src="images/collapser-hide.png" alt="'.__('Hide main menu').'" />'.
+		'<img class="expand-mm" src="images/collapser-show.png" alt="'.__('Show main menu').'" />'.
+		'</a></div>'.
 		'<div id="content" class="clearfix">'."\n";
 
 		# Safe mode

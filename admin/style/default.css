@@ -47,7 +47,6 @@
 	margin:0;
 	padding-top: .5em;
 	padding-bottom: 1em;
-	background: #f7f7f7;
 	}
 #footer {
 	clear: both;
@@ -61,12 +60,14 @@
 	display: block;
 	float: left;
 	width: 1em;
-	background: #e3e3e3;
-	opacity: .4;
+	background: #f3f3f3;
 	margin-left: 14.5em;
 	border: none;
-	text-align: center;
+	text-align: left;
 	overflow: hidden;
+	}
+.expand-mm {
+	display:none;
 	}
 /* if main-menu is hidden */
 #wrapper.hide-mm {
@@ -84,7 +85,14 @@
 	}
 .hide-mm #collapser {
 	margin-left: 0;
-	opacity: 1;
+	text-align: right;
+	background-color: #e3e3e3; 
+	}
+.hide-mm .collapse-mm {
+	display: none;
+	}
+.hide-mm .expand-mm {
+	display: block;
 	}
 /* if no js activated */
 .no-js #content {
