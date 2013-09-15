@@ -3378,5 +3378,8 @@ msgstr "Tableau de bord"
 msgid "Size of inserted image:"
 msgstr "Taille de l'image insérée :"
 
-msgid "Switch main menu"
-msgstr "Afficher/masquer le menu principal"
+msgid "Hide main menu"
+msgstr "Masquer le menu principal"
+
+msgid "Show main menu"
+msgstr "Afficher le menu principal"

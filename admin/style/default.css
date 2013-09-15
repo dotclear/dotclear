@@ -435,6 +435,9 @@ a:hover, a:active, a:focus {
 a img, a:link img, a:visited img {
 	border:none;
 	}
+h1 a:link, h1 a:visited {
+	border:	none;
+	}
 /* ----------------------------------------------------------------------------
 																	FORMULAIRES
 ---------------------------------------------------------------------------- */
@@ -862,7 +865,6 @@ div.warn, div.warning, div.info {
 			width: 17.4rem;
 			height: 36px; /* ie < 9 sucks */
 			height: 3.6rem;
-			border: none;
 			color: #fff;
 			background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 			}
