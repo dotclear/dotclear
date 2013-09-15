@@ -1689,19 +1689,19 @@ tr.expand td {
 	.media-link {
 		font-size: 1.1em;
 		}
-.media-action-box {
-	position: relative;
-	margin: 3em 3em 1em 1em;
-	display: inline-block;
-	vertical-align: top;
-	}
-li.media-action {
-	display: block;
-	position: absolute;
-	bottom: 4px;
-	right: 8px;
-	height: 16px;
-	}
+	.media-action-box {
+		position: relative;
+		margin: 3em 3em 1em 1em;
+		display: inline-block;
+		vertical-align: top;
+		}
+	li.media-action {
+		display: block;
+		position: absolute;
+		bottom: 4px;
+		right: 8px;
+		height: 16px;
+		}
 	li.media-action a {
 		border: none;
 		}
@@ -1711,6 +1711,16 @@ li.media-action {
 	li.media-action input {
 		border: none;
 		}
+#entry-sidebar .media-item {
+	width: 100%;
+	min-height: 0;
+	padding: 4px;
+	margin: .33em 0;
+	}
+	#entry-sidebar li.media-action {
+		top: 4px;
+		}
+
 .folders-group .media-item {
 	min-height: 64px;
 	}
