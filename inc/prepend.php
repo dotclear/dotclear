@@ -64,6 +64,7 @@ $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
 $__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';
 $__autoload['dcUrlHandlers']			= dirname(__FILE__).'/public/lib.urlhandlers.php';
 $__autoload['dcPostsActionsPage']			= dirname(__FILE__).'/admin/actions/class.dcactionposts.php';
+$__autoload['dcCommentsActionsPage']			= dirname(__FILE__).'/admin/actions/class.dcactioncomments.php';
 $__autoload['dcActionsPage']			= dirname(__FILE__).'/admin/actions/class.dcaction.php';
 
 # Clearbricks extensions
