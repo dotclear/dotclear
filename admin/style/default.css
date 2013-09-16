@@ -2146,6 +2146,9 @@ div.template-upload {
 			border-color : #ccc;
 			background-color: #fff;
 			}
+
+.pagination ul, .pagination li, .pagination p {display:inline-block;}
+
 /* Etapes */
 .step {
 	display: inline-block;

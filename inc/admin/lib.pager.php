@@ -11,6 +11,90 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+class dcPager extends pager
+{
+
+	protected function getLink($li_class,$href,$img_src,$img_alt,$enable_link) {
+		if ($enable_link) {
+			$formatter = '<li class="%s"><a href="%s"><img src="%s" alt="%s"/>'.
+				'<span class="hidden">%s</span></a></li>';
+			return sprintf ($formatter,
+				$li_class,$href,$img_src,$img_alt,$img_alt);
+		} else {
+			$formatter = '<li class="%s"><img src="%s" alt="%s"/>'.
+				'<span class="hidden">%s</span></li>';
+			return sprintf ($formatter,
+				$li_class,$img_src,$img_alt,$img_alt);
+		}
+	}
+
+	/**
+	* Pager Links
+	*
+	* Returns pager links
+	*
+	* @return string
+	*/
+	public function getLinks()
+	{
+		$this->setURL();
+		$htmlFirst = $this->getLink(
+			"first",
+			sprintf($this->page_url,1),
+			"style/page/pagination_1_first.png",
+			__('First page'),
+			($this->env > 1)
+		);
+		$htmlPrev = $this->getLink(
+			"prev",
+			sprintf($this->page_url,$this->env-1),
+			"style/page/pagination_1_previous.png",
+			__('Previous page'),
+			($this->env > 1)
+		);
+		$htmlNext = $this->getLink(
+			"next",
+			sprintf($this->page_url,$this->env+1),
+			"style/page/pagination_1_next.png",
+			__('Next page'),
+			($this->env < $this->nb_pages)
+		);
+		$htmlLast = $this->getLink(
+			"last",
+			sprintf($this->page_url,$this->nb_pages),
+			"style/page/pagination_1_last.png",
+			__('Last page'),
+			($this->env < $this->nb_pages)
+		);
+		$htmlCurrent = 
+			'<li class="active"><strong>'.
+			sprintf(__('Page %s / %s'),$this->env,$this->nb_pages).
+			'</strong></li>';
+			
+		$htmlDirect = 
+			sprintf('<p>'.__('Direct access page %s'),
+				form::field(array('page'),3,10)).
+			'<input type="submit" value="'.__('Ok').'" '.
+			'name="ok" /></p>';
+		
+		$res =	
+			'<form action="'.$this->page_url.'" method="get">'.
+			'<div class="pagination"><ul>'.
+			$htmlFirst.
+			$htmlPrev.
+			$htmlCurrent.
+			$htmlNext.
+			$htmlLast.
+			'</ul>'.
+			$htmlDirect.
+			'</div>'.
+			'</form>'
+		;
+		
+		return $this->nb_elements > 0 ? $res : '';
+	}
+}
+
 class adminGenericList
 {
 	protected $core;
@@ -22,8 +106,6 @@ class adminGenericList
 		$this->core =& $core;
 		$this->rs =& $rs;
 		$this->rs_count = $rs_count;
-		$this->html_prev = __('&#171; prev.');
-		$this->html_next = __('next &#187;');
 	}
 }
 
@@ -37,10 +119,7 @@ class adminPostList extends adminGenericList
 		}
 		else
 		{
-			$pager = new pager($page,$this->rs_count,$nb_per_page,10);
-			$pager->html_prev = $this->html_prev;
-			$pager->html_next = $this->html_next;
-			$pager->var_page = 'page';
+			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			$entries = array();
 			if (isset($_REQUEST['entries'])) {
 				foreach ($_REQUEST['entries'] as $v) {
@@ -62,7 +141,7 @@ class adminPostList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -75,7 +154,7 @@ class adminPostList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 		}
 	}
 	
@@ -158,9 +237,6 @@ class adminPostMiniList extends adminGenericList
 		else
 		{
 			$pager = new pager($page,$this->rs_count,$nb_per_page,10);
-			$pager->html_prev = $this->html_prev;
-			$pager->html_next = $this->html_next;
-			$pager->var_page = 'page';
 			
 			$html_block =
 			'<table class="clear"><caption class="hidden">'.__('Entries list').'</caption><tr>'.
@@ -174,7 +250,7 @@ class adminPostMiniList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -187,7 +263,7 @@ class adminPostMiniList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 		}
 	}
 	
@@ -253,9 +329,6 @@ class adminCommentList extends adminGenericList
 		else
 		{
 			$pager = new pager($page,$this->rs_count,$nb_per_page,10);
-			$pager->html_prev = $this->html_prev;
-			$pager->html_next = $this->html_next;
-			$pager->var_page = 'page';
 			
 			$html_block =
 			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
@@ -270,7 +343,7 @@ class adminCommentList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -283,7 +356,7 @@ class adminCommentList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 		}
 	}
 	
@@ -381,7 +454,7 @@ class adminUserList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -394,7 +467,7 @@ class adminUserList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 		}
 	}
 	
