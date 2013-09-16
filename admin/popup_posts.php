@@ -16,7 +16,7 @@ dcPage::check('usage,contentadmin');
 
 $q = !empty($_GET['q']) ? $_GET['q'] : null;
 
-$page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
+$page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  10;
 
 $post_types = $core->getPostTypes();
