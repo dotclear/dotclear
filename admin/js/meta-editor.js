@@ -145,7 +145,7 @@ metaEditor.prototype = {
 			
 			var pl = $('<p class="addMeta"></p>');
 			
-			$('.addMeta').remove();
+			$(target).find('.addMeta').remove();
 			
 			if ($(data).find('meta').length > 0) {
 				pl.empty();
@@ -182,8 +182,8 @@ metaEditor.prototype = {
 					
 					var a = $('<a href="#" class="metaGetList">' + This.text_choose + '</a>');
 					a.click(function() {
-						$('.addMeta').removeClass('hide');
-						$('.metaGetList').remove();
+						$(this).parent().next().removeClass('hide');
+						$(this).remove();
 						return false;
 					});
 					
