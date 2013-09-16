@@ -37,6 +37,8 @@ abstract class dcActionsPage
 	protected $action;
 	/** @var array list of url parameters (usually $_POST) */
 	protected $from;
+	/** @var string form field name for "entries" (usually "entries") */
+	protected $field_entries;
 	
 	/** @var string title for checkboxes list, if displayed */
 	protected $cb_title;
@@ -62,6 +64,7 @@ abstract class dcActionsPage
 		$this->cb_title = __('Title');
 		$this->entries = array();
 		$this->from = new ArrayObject($_POST);
+		$this->field_entries = 'entries';
 	}
 	
     /**
@@ -87,10 +90,10 @@ abstract class dcActionsPage
 				}
 				$this->combo[$k] = array_merge ($this->combo[$k],$a);
 			} elseif ($a instanceof formSelectOption) {
-				$values = $a->value;
+				$values = array($a->value);
 				$this->combo[$k] = $a->value;
 			} else {
-				$values = $a;
+				$values = array($a);
 				$this->combo[$k] = $a;
 			}
 			// Associate each potential value to the callback
@@ -134,7 +137,7 @@ abstract class dcActionsPage
 	 public function getIDsHidden() {
 		$ret = '';
 		foreach  ($this->entries as $id->$v) {
-			$ret .= form::hidden('entries[]',$id);
+			$ret .= form::hidden($this->field_entries.'[]',$id);
 		}
 		return $ret;
 	}
@@ -205,7 +208,7 @@ abstract class dcActionsPage
 	public function getRedirection($params=array(),$with_selected_entries=false) {
 		$redir_args = array_merge($params,$this->redir_args);
 		if ($with_selected_entries) {
-			$redir_args['entries'] = array_keys($this->entries);
+			$redir_args[$this->field_entries] = array_keys($this->entries);
 		}
 		return $this->uri.'?'.http_build_query($redir_args);
 	}
@@ -281,7 +284,7 @@ abstract class dcActionsPage
 		foreach ($this->entries as $id=>$title) {
 			$ret .= 
 				'<tr><td>'.
-				form::checkbox(array('entries[]'),$id,true,'','').'</td>'.
+				form::checkbox(array($this->field_entries.'[]'),$id,true,'','').'</td>'.
 				'<td>'.	$title.'</td></tr>';
 		}
 		$ret .= '</table>';

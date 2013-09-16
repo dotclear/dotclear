@@ -256,7 +256,12 @@ class adminCommentList extends adminGenericList
 			$pager->html_prev = $this->html_prev;
 			$pager->html_next = $this->html_next;
 			$pager->var_page = 'page';
-			
+			$comments = array();
+			if (isset($_REQUEST['comments'])) {
+				foreach ($_REQUEST['comments'] as $v) {
+					$comments[(integer)$v]=true;
+				}
+			}			
 			$html_block =
 			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
 			'<th colspan="2" scope="col" abbr="comm" class="first">'.__('Type').'</th>'.
@@ -278,7 +283,7 @@ class adminCommentList extends adminGenericList
 			
 			while ($this->rs->fetch())
 			{
-				echo $this->commentLine();
+				echo $this->commentLine(isset($comments[$this->rs->comment_id]));
 			}
 			
 			echo $blocks[1];
@@ -287,7 +292,7 @@ class adminCommentList extends adminGenericList
 		}
 	}
 	
-	private function commentLine()
+	private function commentLine($checked)
 	{
 		global $author, $status, $sortby, $order, $nb_per_page;
 		
@@ -335,7 +340,7 @@ class adminCommentList extends adminGenericList
 		
 		$res .=
 		'<td class="nowrap">'.
-		form::checkbox(array('comments[]'),$this->rs->comment_id,'','','',0).'</td>'.
+		form::checkbox(array('comments[]'),$this->rs->comment_id,$checked,'','',0).'</td>'.
 		'<td class="nowrap" abbr="'.__('Type and author').'" scope="raw">'.
 			'<a href="'.$comment_url.'" title="'.$comment_title.'">'.
 			'<img src="images/edit-mini.png" alt="'.__('Edit').'"/> '.

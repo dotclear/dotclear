@@ -130,23 +130,14 @@ if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 # Actions combo box
 $combo_action = array();
 $default = '';
-if ($core->auth->check('publish,contentadmin',$core->blog->id))
+if ($core->auth->check('delete,contentadmin',$core->blog->id) && $status == -2)
 {
-	$combo_action[__('Publish')] = 'publish';
-	$combo_action[__('Unpublish')] = 'unpublish';
-	$combo_action[__('Mark as pending')] = 'pending';
-	$combo_action[__('Mark as junk')] = 'junk';
-}
-if ($core->auth->check('delete,contentadmin',$core->blog->id))
-{
-	$combo_action[__('Delete')] = 'delete';
-	if ($status == -2) {
-		$default = 'delete';
-	}
+	$default = 'delete';
 }
 
-# --BEHAVIOR-- adminCommentsActionsCombo
-$core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
+$comments_actions_page = new dcCommentsActionsPage($core,'comments.php');
+
+$comments_actions_page->process();
 
 /* Get comments
 -------------------------------------------------------- */
@@ -164,8 +155,6 @@ $starting_script = dcPage::jsLoad('js/_comments.js');
 if (!$show_filters) {
 	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
 }
-# --BEHAVIOR-- adminCommentsHeaders
-$starting_script .= $core->callBehavior('adminCommentsHeaders');
 
 dcPage::open(__('Comments and trackbacks'),$starting_script,
 	dcPage::breadcrumb(
@@ -174,6 +163,11 @@ dcPage::open(__('Comments and trackbacks'),$starting_script,
 			'<span class="page-title">'.__('Comments and trackbacks').'</span>' => ''
 		))
 );
+if (!empty($_GET['upd'])) {
+	dcPage::success(__('Selected comments have been successfully updated.'));
+} elseif (!empty($_GET['del'])) {
+	dcPage::success(__('Selected comments have been successfully deleted.'));
+}
 
 if (!$core->error->flag())
 {
@@ -253,7 +247,7 @@ if (!$core->error->flag())
 	
 	# Show comments
 	$comment_list->display($page,$nb_per_page,
-	'<form action="comments_actions.php" method="post" id="form-comments">'.
+	'<form action="comments.php" method="post" id="form-comments">'.
 	
 	'%s'.
 	
@@ -261,7 +255,7 @@ if (!$core->error->flag())
 	'<p class="col checkboxes-helpers"></p>'.
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
-	form::combo('action',$combo_action,$default,'','','','title="'.__('Actions').'"').
+	form::combo('action',$comments_actions_page->getCombo(),$default,'','','','title="'.__('Actions').'"').
 	$core->formNonce().
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('type'),$type).

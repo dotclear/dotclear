@@ -12,6 +12,7 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $GLOBALS['core']->addBehavior('adminPostsActionsPage',array('dcLegacyPosts','adminPostsActionsPage'));
+$GLOBALS['core']->addBehavior('adminCommentsActionsPage',array('dcLegacyComments','adminCommentsActionsPage'));
 
 /* Handle deprecated behaviors : 
     * adminPostsActionsCombo
@@ -39,4 +40,31 @@ class dcLegacyPosts
 	
 	}
 }
-?>
+
+
+/* Handle deprecated behaviors : 
+    * adminCommentsActionsCombo
+	* adminCommentsActionsHeaders
+	* adminCommentsActionsContent
+*/
+class dcLegacyComments
+{
+	public static function adminCommentsActionsPage($core, dcCommentsActionsPage $as) {
+		$stub_actions = new ArrayObject();
+		$core->callBehavior('adminCommentsActionsCombo',array($stub_actions));
+		if (!empty($stub_actions)) {
+			$as->addAction($stub_actions,array('dcLegacyComments','onActionLegacy'));
+		}
+	}
+	
+	public static function onActionLegacy($core, dcCommentsActionsPage $as, $Comment) {
+		$core->callBehavior('adminCommentsActions',$core,$as->getRS(),$as->getAction(),$as->getRedirection());
+		$as->beginPage('',
+			dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
+			dcPage::jsMetaEditor().
+			$core->callBehavior('adminCommentsActionsHeaders'),'');
+		$core->callBehavior('adminCommentsActionsContent',$core,$as->getAction(),$as->getHiddenFields(true));
+		$as->endPage();
+	
+	}
+}
