@@ -68,9 +68,7 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 		legend_click: false,
 		fn: false, // A function called on first display,
 		user_pref: false,
-		reverse_user_pref: false, // Reverse cookie behavior
-		user_pref:false,
-		reverse_user_pref: false
+		reverse_user_pref: false // Reverse cookie behavior
 	};
 	var p = jQuery.extend(defaults,s);
 
