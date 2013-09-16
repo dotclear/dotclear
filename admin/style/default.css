@@ -312,8 +312,7 @@ h3, .as_h3 {
 	margin-top: 1em;
 	color: #D33800;
 	font-weight: normal;
-	font-size: 16px; /* ie < 9 sucks */
-	font-size: 1.6rem;
+	font-size: 1.34em;
 	}
 	#main-menu h3 {
 		font-weight: bold;
@@ -325,13 +324,11 @@ h4, .as_h4 {
 	}
 	.fieldset h3, .fieldset h4, .pretty-title { /* variante */
 		color: #D33800;
-		font-size: 12px;
-		font-size: 1.2rem;
+		font-size: 1em;
 		font-weight: bold;
 		}
 		.fieldset h3 {
-			font-size: 14px;
-			font-size: 1.4rem;
+			font-size: 1.17em;
 			}
 	.fieldset h3.smart-title, .fieldset h4.smart-title, .smart-title { /* variante */
 		font-size: 1em;
@@ -768,7 +765,7 @@ div.warn, div.warning, div.info {
 		background: #676e78 url(msg-std.png) no-repeat .7em .7em;
 		color: #fff;
 		}
-		.message a, .static-msg a {
+		.message a, .static-msg a, .message h3, .static-msg h3 {
 			color: #fff;
 			}
 	.success, .warning-msg {
