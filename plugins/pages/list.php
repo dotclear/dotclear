@@ -30,14 +30,14 @@ class adminPageList extends adminGenericList
 			$pager->var_page = 'page';
 			
 			$html_block =
-			'<table class="clear"><tr>'.
-			'<th colspan="2">'.__('Title').'</th>'.
+			'<table class="maximal dragable"><thead><tr>'.
+			'<th colspan="3">'.__('Title').'</th>'.
 			'<th>'.__('Date').'</th>'.
 			'<th>'.__('Author').'</th>'.
 			'<th>'.__('Comments').'</th>'.
 			'<th>'.__('Trackbacks').'</th>'.
 			'<th>'.__('Status').'</th>'.
-			'</tr>%s</table>';
+			'</tr></thead><tbody id="pageslist">%s</tbody></table>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
@@ -49,9 +49,11 @@ class adminPageList extends adminGenericList
 			
 			echo $blocks[0];
 			
+			$count = 0;
 			while ($this->rs->fetch())
 			{
-				echo $this->postLine();
+				echo $this->postLine($count);
+				$count ++;
 			}
 			
 			echo $blocks[1];
@@ -60,7 +62,7 @@ class adminPageList extends adminGenericList
 		}
 	}
 	
-	private function postLine()
+	private function postLine($count)
 	{
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($this->rs->post_status) {
@@ -99,6 +101,7 @@ class adminPageList extends adminGenericList
 		' id="p'.$this->rs->post_id.'">';
 		
 		$res .=
+		'<td class="nowrap handle minimal">'.form::field(array('order['.$this->rs->post_id.']'),2,3,$count+1,'position','',false,'title="'.sprintf(__('position of %s'),html::escapeHTML($this->rs->post_title)).'"').'</td>'.
 		'<td class="nowrap">'.
 		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable(),'title="'.__('Select this page').'"').'</td>'.
 		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
@@ -144,17 +147,27 @@ try {
 $combo_action = array();
 if ($core->auth->check('publish,contentadmin',$core->blog->id))
 {
-	$combo_action[__('Publish')] = 'publish';
-	$combo_action[__('Unpublish')] = 'unpublish';
-	$combo_action[__('Schedule')] = 'schedule';
-	$combo_action[__('Mark as pending')] = 'pending';
+	$combo_action[__('Status')] = array(
+		__('Publish') => 'publish',
+		__('Unpublish') => 'unpublish',
+		__('Schedule') => 'schedule',
+		__('Mark as pending') => 'pending'
+	);
 }
-if ($core->auth->check('admin',$core->blog->id)) {
-	$combo_action[__('Change author')] = 'author';
+	$combo_action[__('Change')] = array(
+		__('Change language') => 'lang'
+	);
+if ($core->auth->check('admin',$core->blog->id))
+{
+	$combo_action[__('Change')] = array_merge($combo_action[__('Change')], array(
+		__('Change author') => 'author')
+	);
 }
 if ($core->auth->check('delete,contentadmin',$core->blog->id))
 {
-	$combo_action[__('Delete')] = 'delete';
+	$combo_action[__('Delete')] = array(
+		__('Delete') => 'delete'
+	);
 }
 
 # --BEHAVIOR-- adminPagesActionsCombo
@@ -166,7 +179,10 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 <html>
 <head>
   <title><?php echo __('Pages'); ?></title>
-  <script type="text/javascript" src="js/_posts_list.js"></script>
+  <?php
+  	echo dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+  	     dcPage::jsLoad('index.php?pf=pages/list.js');
+  ?>
   <script type="text/javascript">
   //<![CDATA[
   <?php echo dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")); ?>
@@ -189,7 +205,7 @@ if (!$core->error->flag())
 {
 	# Show pages
 	$post_list->display($page,$nb_per_page,
-	'<form action="posts_actions.php" method="post" id="form-entries">'.
+	'<form action="plugin.php?p=pages&act=actions" method="post" id="form-entries">'.
 	
 	'%s'.
 	
@@ -201,8 +217,10 @@ if (!$core->error->flag())
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('post_type'),'page').
 	form::hidden(array('redir'),html::escapeHTML($_SERVER['REQUEST_URI'])).
-	$core->formNonce().
 	'</div>'.
+	$core->formNonce().
+	'<br class="clear"/>'.
+	'<input type="submit" value="'.__('Save categories order').'" name="reorder" class="clear"/>'.
 	'</form>');
 }
 dcPage::helpBlock('pages');
