@@ -393,7 +393,7 @@ if ($blog_id)
 	form::combo('post_url_format',$post_url_combo,html::escapeHTML($blog_settings->system->post_url_format)).
 	'</p>'.
 
-	'<p><label for="note_title_tag">'.__('Note title HTML tag:').'</label>'.
+	'<p><label for="note_title_tag">'.__('HTML tag for the title of the notes on the blog:').'</label>'.
 	form::combo('note_title_tag',$note_title_tag_combo,$blog_settings->system->note_title_tag).
 	'</p>'.
 		
@@ -402,7 +402,7 @@ if ($blog_id)
 	__('Enable XML/RPC interface').'</p>';
 
 	echo
-		'<p class="form-note">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';	
+		'<p class="form-note info">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';	
 
 	if ($blog_settings->system->enable_xmlrpc) {
 		echo
@@ -508,35 +508,35 @@ if ($blog_id)
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	'<h5>'.__('Generated image sizes (in pixels)').'</h5>'.
-	'<p class="field"><label for="media_img_t_size">'.__('Thumbnails:').' '.
-	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</label></p>'.
+	'<p class="field"><label for="media_img_t_size">Thumbnail</label> '.
+	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</p>'.
 	
-	'<p class="field"><label for="media_img_s_size">'.__('Small:').' '.
-	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</label></p>'.
+	'<p class="field"><label for="media_img_s_size">Small</label> '.
+	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</p>'.
 	
-	'<p class="field"><label for="media_img_m_size">'.__('Medium:').' '.
-	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</label></p>'.
+	'<p class="field"><label for="media_img_m_size">Medium</label> '.
+	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<h5><label for="media_img_title_pattern">'.__('Inserted image title').'</label></h5>'.
-	'<p>'.__('This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture\'s metadata.').'</p>'.
-	'<p>'.form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
-	'<p><label for="media_img_use_dto_first" class="classic">'.
+	'<h5>'.__('Default image insertion attributes').'</h5>'.
+	'<p class="vertical-separator"><label for="media_img_title_pattern">'.__('Inserted image title').'</label>'.
+	form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).' '.
+	'<label for="media_img_use_dto_first" class="classic">'.
 	form::checkbox('media_img_use_dto_first','1',$blog_settings->system->media_img_use_dto_first).
 	__('Use original media date if possible').'</label></p>'.
+	'<p class="form-note info">'.__('It is retrieved from the picture\'s metadata.').'</p>'.
 
-	'<h5>'.__('Default image insertion attributes').'</h5>'.
-	'<p><label for="media_img_default_size">'.__('Image size:').'</label>'.
+	'<p class="field vertical-separator"><label for="media_img_default_size">'.__('Size of inserted image:').'</label>'.
 	form::combo('media_img_default_size',$img_default_size_combo,
 		(html::escapeHTML($blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($blog_settings->system->media_img_default_size) : 'm')).
 	'</p>'.
-	'<p><label for="media_img_default_alignment">'.__('Image alignment:').'</label>'.
+	'<p class="field"><label for="media_img_default_alignment">'.__('Image alignment:').'</label>'.
 	form::combo('media_img_default_alignment',$img_default_alignment_combo,html::escapeHTML($blog_settings->system->media_img_default_alignment)).
 	'</p>'.
-	'<p><label for="media_img_default_link" class="classic">'.
+	'<p><label for="media_img_default_link">'.
 	form::checkbox('media_img_default_link','1',$blog_settings->system->media_img_default_link).
-	__('As a link to original image').'</label></p>'.
+	__('Insert a link to the original image').'</label></p>'.
 	'</div>'.
 	'</div>'.
 	'<br class="clear" />'. //Opera sucks

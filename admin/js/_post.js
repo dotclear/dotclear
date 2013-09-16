@@ -89,6 +89,9 @@ $(function() {
 				// Restore last format if change cancelled
 				$(this).val(last_post_format);
 			}
+			
+			$('.format_control > *').addClass('hide');
+			$('.format_control:not(.control_no_'+$(this).val()+') > *').removeClass('hide');
 		});
 
 		var excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
@@ -116,6 +119,70 @@ $(function() {
 		$('input[name="delete"]').click(function() {
 			return window.confirm(dotclear.msg.confirm_delete_post);
 		});
+
+		// Markup validator
+		var v = $('<div class="format_control"><p><a id="a-validator"></a></p><div/>').get(0);
+		$('.format_control').before(v);
+		var a = $('#a-validator').get(0);
+		a.href = '#';
+		a.className = 'button ';
+		$(a).click(function() {
+			
+			excerpt_content = $('#post_excerpt').css('display') != 'none' ? $('#post_excerpt').val() : $('#excerpt-area iframe').contents().find('body').html();
+			post_content    = $('#post_content').css('display') != 'none' ? $('#post_content').val() : $('#content-area iframe').contents().find('body').html();
+			
+			var params = {
+				xd_check: dotclear.nonce,
+				f: 'validatePostMarkup',
+				excerpt: excerpt_content,
+				content: post_content,
+				format: $('#post_format').get(0).value,
+				lang: $('#post_lang').get(0).value
+			};
+
+			$.post('services.php',params,function(data) {
+				if ($(data).find('rsp').attr('status') != 'ok') {
+					alert($(data).find('rsp message').text());
+					return false;
+				}
+					
+				$('.message, .success, .error, .warning-msg').remove();
+
+				if ($(data).find('valid').text() == 1) {
+					var p = document.createElement('p');
+					p.id = 'markup-validator';
+					
+					$(p).addClass('success');
+					$(p).text(dotclear.msg.xhtml_valid);
+					$('#entry-content h3').after(p);
+					$(p).backgroundFade({sColor:'#9BCA1C',eColor:'#bee74b',steps:20});
+				} else {
+					var div = document.createElement('div');
+					div.id = 'markup-validator';
+					
+					$(div).addClass('error');
+					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
+					$('#entry-content h3').after(div);
+					$(div).backgroundFade({sColor:'#ffdec8',eColor:'#ffbaba',steps:20});
+				}
+				
+				if ( $('#post_excerpt').text() != excerpt_content || $('#post_content').text() != post_content ) {
+					var pn = document.createElement('p');
+					$(pn).addClass('warning-msg');
+					$(pn).text(dotclear.msg.warning_validate_no_save_content);
+					$('#entry-content h3').after(pn);
+				}
+
+				return false;
+			});
+
+			return false;
+		});
+
+		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
+		
+		$('.format_control > *').addClass('hide');
+		$('.format_control:not(.control_no_'+last_post_format+') > *').removeClass('hide');
 
 		// Hide some fields
 		$('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'),{
@@ -182,67 +249,6 @@ $(function() {
 			}
 			return false;
 		});
-
-		// Markup validator
-		var h = document.createElement('h4');
-		var a = document.createElement('a');
-		a.href = '#';
-		a.className = 'button';
-		$(a).click(function() {
-			var params = {
-				xd_check: dotclear.nonce,
-				f: 'validatePostMarkup',
-				excerpt: $('#post_excerpt').text(),
-				content: $('#post_content').text(),
-				format: $('#post_format').get(0).value,
-				lang: $('#post_lang').get(0).value
-			};
-
-			$.post('services.php',params,function(data) {
-				if ($(data).find('rsp').attr('status') != 'ok') {
-					alert($(data).find('rsp message').text());
-					return false;
-				}
-
-				if ($(data).find('valid').text() == 1) {
-					var p = document.createElement('p');
-					p.id = 'markup-validator';
-
-					if ($('#markup-validator').length > 0) {
-						$('#markup-validator').remove();
-					}
-
-					$(p).addClass('message');
-					$(p).text(dotclear.msg.xhtml_valid);
-					$(p).insertAfter(h);
-					$(p).backgroundFade({sColor:'#676e78',eColor:'#ffcc00',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ffcc00',eColor:'#676e78'});
-					});
-				} else {
-					var div = document.createElement('div');
-					div.id = 'markup-validator';
-
-					if ($('#markup-validator').length > 0) {
-						$('#markup-validator').remove();
-					}
-
-					$(div).addClass('error');
-					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
-					$(div).insertAfter(h);
-					$(div).backgroundFade({sColor:'#ffffff',eColor:'#FFBABA',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ffbaba',eColor:'#ffffff'});
-					});
-				}
-
-				return false;
-			});
-
-			return false;
-		});
-
-		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
-		h.appendChild(a);
-		$(h).appendTo('#entry-content');
 
 		// Check unsaved changes before XHTML conversion
 		var excerpt = $('#post_excerpt').val();

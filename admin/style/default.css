@@ -26,19 +26,20 @@
 #wrapper {
 	width: 100%;
 	padding-top: 1em;
+	background: #f7f7f7 url(bg_wrapper.png) repeat-y 15.5em;
 	}
 #main {
 	width: 100%;
 	float: right;
 	margin-left: -14.5em;
 	margin-top: 0;
-	background: #fff url(bg_menu.png);
 	}
 #content {
-	margin: 0 0 0 14.5em;
+	margin: 0 0 0 15.5em;
 	padding: 9px 18px 18px; /* ie < 9 sucks */
 	padding: .9rem 1.8rem 1.8rem;
 	background: #fff;
+	overflow: hidden;
 	}
 #main-menu {
 	width: 14.5em;
@@ -46,14 +47,59 @@
 	margin:0;
 	padding-top: .5em;
 	padding-bottom: 1em;
-	background: #f7f7f7;
+	overflow: hidden;
 	}
 #footer {
 	clear: both;
 	padding: .5em 1em .5em 0;
 	text-align: right;
 	border-top: 1px solid #ccc;
+	background-color: #fff;
 	}
+/* to hide main-menu */
+#collapser {
+	display: block;
+	float: left;
+	width: 1em;
+	background: #f3f3f3;
+	margin-left: 14.5em;
+	border: none;
+	text-align: left;
+	overflow: hidden;
+	padding-top: 22px;
+	}
+.expand-mm {
+	display:none;
+	}
+/* if main-menu is hidden */
+#wrapper.hide-mm {
+	background: #fff;
+	}
+.hide-mm #main {
+	margin-left: 0;
+	}
+.hide-mm #content {
+	margin-left: 1em;
+	}
+.hide-mm #main-menu {
+	display: none;
+	}
+.hide-mm #collapser {
+	margin-left: 0;
+	text-align: right;
+	background-color: #e3e3e3; 
+	}
+.hide-mm .collapse-mm {
+	display: none;
+	}
+.hide-mm .expand-mm {
+	display: block;
+	}
+/* if no js activated */
+.no-js #content {
+	margin-left: 14.5em;
+	}
+
 /* -------------------------------------------------------------- layout: two-cols */
 .two-cols {
 	position: static;
@@ -121,16 +167,16 @@
 	width: 30%;
 	display: inline-block;
 	vertical-align: top;
-	margin-left: 2.5%;
-	margin-right: 2.5%; 
+	margin-left: 1.5%;
+	margin-right: 1.5%; 
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box; 
 	box-sizing: border-box;
 	}
-	.three-boxes:first-child {
+	.three-boxes:first-child, .three-boxes.first-child {
 		margin-left: 0;
 		}
-	.three-boxes:last-child {
+	.three-boxes:last-child, .three-boxes.last-child {
 		margin-right: 0;
 		}
 /* boîtes intérieures distribuées horizontalement */
@@ -375,6 +421,9 @@ pre {
 abbr {
 	cursor: help;
 	}
+input, textarea, select, option, optgroup, legend,label {
+	font-size: 1em;
+	}
 /* ------------------------------------------------------------------ liens */
 a, a:link, a:visited {
 	color: #2373A8;
@@ -387,6 +436,9 @@ a:hover, a:active, a:focus {
 a img, a:link img, a:visited img {
 	border:none;
 	}
+h1 a:link, h1 a:visited {
+	border:	none;
+	}
 /* ----------------------------------------------------------------------------
 																	FORMULAIRES
 ---------------------------------------------------------------------------- */
@@ -397,14 +449,14 @@ form {
 	}
 fieldset {
 	display: block;
-	margin: 0 0 1em 0;
+	margin: 1em 0;
 	padding: 1em 0.5em;
 	border-width: 1px 0;
 	border-style: solid;
 	border-color: #ccc;
 	background: #f7f7f7;
 	}
-input, textarea, select, option, optgroup, legend {
+input[type=text], textarea {
 	font: 100% "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
 	}
 legend {
@@ -466,7 +518,7 @@ input[type=text], input[type=password], textarea, select {
 		}
 	input[type=checkbox], input[type=radio], input[type=file] {
 		border: none;
-		margin: 0;
+		margin: 0 .33em 0 0;
 		padding: 0;
 		background: transparent;
 		}
@@ -507,14 +559,11 @@ p.field {
 	position: relative;
 	}
 	p.field label {
-		display: block;
+		display: inline-block;
 		width: 14em;
 		}
 	p.field input, p.field select {
-		display: inline;
-		position: absolute;
-		left: 14.5em;
-		top: 0;
+		display: inline-block;
 		}
 a.form-control {
 	display: none;
@@ -552,16 +601,17 @@ input[type=reset],
 input[type=submit] {
 	border: 1px solid #ccc;
 	font-family: arial, helvetica, sans-serif;
-	padding: 3px 8px;
+	padding: 4px 10px;
 	line-height: normal !important;
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: middle;
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 	text-align: center;
 	text-decoration: none;
 	border-radius: 3px;
 	cursor: pointer;
+	font: 100% "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
 	}
 button,
 input[type=button],
@@ -570,57 +620,60 @@ input[type=submit] {
 	-webkit-appearance: button;
 	}
  /* validation */
-input[type=submit], a.button.submit {
+input[type=submit], a.button.submit, input.button.start {
 	color: #fff;
+	border: 1px solid #2C8FD1;
+	background-image:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background-image:-webkit-gradient(linear,left top,left bottom, from(#25A6E1), to(#188BC0));
+	background-image:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background-color:#25A6E1;
-	border-color: #2C8FD1;
-	background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
-	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
-	background:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 	}
 	input[type=submit]:hover, input[type=submit]:focus,
+	input.button.start:hover, input.button.start:focus,
 	a.button.submit:hover, a.button.submit:focus {
-		background:#188BC0;
-		background:-moz-linear-gradient(top,#188BC0 0%,#25A6E1 100%);
-		background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#188BC0),color-stop(100%,#25A6E1));
-		background:linear-gradient(top,#188BC0 0%,#25A6E1 100%);
-		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#25A6E1',GradientType=0);
+		background-image:-moz-linear-gradient(top,#188BC0 0%,#25A6E1 100%);
+		background-image:-webkit-gradient(linear,left top,left bottom, from(#188BC0),to(#25A6E1));
+		background-image:linear-gradient(top,#188BC0 0%,#25A6E1 100%);
+		background-color:#188BC0;
 		}
-/* suppression, reset, "neutres" */
-input[type=reset], input[type=delete], input[type=submit].delete, input[type=submit].reset, input[type=button],
-input.delete, input.reset, input.button,
-a.delete, a.reset, a.button {
+/* suppression, reset, "neutres" fond gris */
+button, input[type=button], input.button,
+input[type=reset], input[type=submit].reset, input.reset, 
+input[type=submit].delete, input.delete,
+a.button.delete, a.button.reset, a.button {
 	color: #000;
-	background-color: #f5f5f5;
-	background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
-	background: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
+	background-image: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
+	background-image:linear-gradient(top,#f5f5f5 0%,#dfdfdf 100%);
+	background-color: #eee;
+	border: 1px solid #ccc;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 	}
-	input[type=reset]:hover, input[type=delete]:hover, input[type=button]:hover,
-	input[type=submit].delete:hover,
-	input.delete:hover, input.reset:hover, input.button:hover,
-	a.delete:hover, a.reset:hover, a.button:hover,
-	input[type=reset]:focus, input[type=delete]:focus, input[type=button]:focus,
-	input[type=submit].delete:focus,
-	input.delete:focus, input.reset:focus, input.button:focus,
-	a.delete:focus, a.reset:focus, a.button:focus {
-		background-color:#e9e9e9;
-		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
-		background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
-		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	button:hover, input[type=button]:hover, input.button:hover,
+	button:focus, input[type=button]:focus, input.button:focus,
+	input[type=reset]:hover, input[type=submit].reset:hover, input.reset:hover, 
+	input[type=reset]:focus, input[type=submit].reset:focus, input.reset:focus, 
+	input[type=submit].delete:hover, input.delete:hover,
+	input[type=submit].delete:focus, input.delete:focus,
+	a.button.delete:hover, a.button.reset:hover, a.button:hover,
+	a.button.delete:focus, a.button.reset:focus, a.button:focus {
+		background-image:-webkit-gradient( linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
+		background-image:-moz-linear-gradient(top, #e9e9e9, #f9f9f9);
+		background-image:linear-gradient(top,#e9e9e9 0%,#f9f9f9 100%);
+		background-color:#f3f3f3;
 		}
-	a.delete, input[type=delete], input.delete {
+	/* suppression */
+	input[type=submit].delete, input.delete, a.button.delete {
 		border-color: #ccc;
 		color: #c00;
 		margin-left: 1em;
 		}
-	a.delete:first-child, input[type=delete]:first-child, input.delete:first-child {
+	a.delete:first-child, input.delete:first-child {
 		margin-left: 0;
 		}
-		a.delete:hover, input[type=delete]:hover, input.delete:hover,
-		a.delete:focus, input[type=delete]:focus, input.delete:focus {		
+	input[type=submit].delete:hover, input.delete:hover, a.button.delete:hover,
+	input[type=submit].delete:focus, input.delete:focus, a.button.delete:focus {
 			border-color: #c00;
 			}
 	#info-box a.button {
@@ -628,12 +681,12 @@ a.delete, a.reset, a.button {
 		margin-left: 2em;
 		}
 .button.add {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bee74b), color-stop(1, #9BCA1C) );
-	background:-moz-linear-gradient( center top, #bee74b 5%, #9BCA1C 100% );
+	background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bee74b), color-stop(1, #9BCA1C) );
+	background-image:-moz-linear-gradient(center top, #bee74b 5%, #9BCA1C 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bee74b', endColorstr='#9BCA1C');
 	background-color:#bee74b;
 	border:1px solid #B2D742;
-	padding:.33em 1.33em;
+	padding:.33em 1.33em .5em;
 	color: #000;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 	font-weight: normal;
@@ -641,8 +694,9 @@ a.delete, a.reset, a.button {
 	font-size: 1.4rem;
 	}
 	.button.add:hover, .button.add:active, .button.add:focus {
-		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9BCA1C), color-stop(1, #bee74b) );
-		background:-moz-linear-gradient( center top, #9BCA1C 5%, #bee74b 100% );
+		background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9BCA1C), color-stop(1, #bee74b) );
+		background-image:-moz-linear-gradient(center top, #9BCA1C 5%, #bee74b 100%);
+		background-image:linear-gradient(center top, #9BCA1C 5%, #bee74b 100%);
 		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9BCA1C', endColorstr='#bee74b');
 		background-color:#9BCA1C;
 		}
@@ -658,13 +712,14 @@ a.delete, a.reset, a.button {
 /* disabled */
 input.disabled, input[type=submit].disabled {
  	text-shadow: none;
+ 	filter: none;
  	color: #676e78;
  	background: #F5F5F5;
 	border: 1px solid #CCC;
 	}
-	input.disabled:hover, input[type=submit].disabled {
+	input.disabled:hover, input[type=submit].disabled:hover {
 		color: #676e78;
-		background: #DFDFDF;
+		background: #eee;
 		border: 1px solid #CCC;
 		}
 /* ----------------------------------------------------------------------------
@@ -738,27 +793,28 @@ div.warn, div.warning, div.info {
 	border-radius: 8px;
 	background: #A2CBE9 url(msg-success.png) no-repeat .7em .7em;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-	color: #34495e;
+	color: #000;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1)
 	}
 	.dc-update h3 {
 		margin-top: 0;
-		color: #34495e;
+		color: #000;
 		}
 	.dc-update p {
 		display: inline-block;
+		vertical-align: middle;
 		}
 	.dc-update a {
-		color: #34495e;
-		border-color: #000;
+		color: #000;
 		margin-right: 1em;
 		}
-		a.updt-info {
-			margin-left: 2em;
-			font-weight: bold;
-			}
 		.dc-update a.button {
 			padding: .5em 1em; 
+			}
+		.updt-info a {
+			margin-left: 2em;
+			border-color: #000;
+			font-weight: bold;
 			}
 /* ---------------------------------------------------------------------------------
  																ELEMENTS PRINCIPAUX
@@ -810,7 +866,6 @@ div.warn, div.warning, div.info {
 			width: 17.4rem;
 			height: 36px; /* ie < 9 sucks */
 			height: 3.6rem;
-			border: none;
 			color: #fff;
 			background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 			}
@@ -979,8 +1034,9 @@ div.warn, div.warning, div.info {
 			}
 /* ----------------------------------------------------------------- CONTENT ELEMENTS */
 .part-tabs ul {
-	padding: .5em 0 .3em 1em;
+	padding: .5em 0 0 1em;
 	border-bottom: 1px solid #ddd;
+	line-height: 2;
 	}
 	.part-tabs li {
 		list-style: none;
@@ -995,6 +1051,7 @@ div.warn, div.warning, div.info {
 			text-decoration: none;
 			color: #333;
 			background-color: #ecf0f1;
+			display: inline-block;
 			}
 		.part-tabs li a:hover, .part-tabs li a:focus {
 			color: #000;
@@ -1005,9 +1062,7 @@ div.warn, div.warning, div.info {
 			background: #fff;
 			font-weight: bold;
 			border-bottom-color: #fff;
-			padding-bottom: 7px; /* ie < 9 sucks */
-			padding-bottom: .7rem;
-		}
+			}
 	.multi-part {
 		padding-left: 1em;
 		}
@@ -1078,6 +1133,20 @@ div.warn, div.warning, div.info {
 		.help-content dd {
 			margin: 0.3em 0 1.5em 0;
 			}
+/* 1. inside help block */
+#helplink p {
+	padding: 0 0 0 .5em;
+	}
+/* 2. in footer */
+span.helplink {
+	display: block;
+	float: left;
+	padding: 0 1.5em 0 30px;
+	background: transparent url(../images/page_help.png) no-repeat 6px center;
+	}
+span.helplink a {
+	border-bottom: 1px solid #2373A8;
+	}
 /* ------------------------------------------------------------------ FOOTER ELEMENTS */
 #footer p {
 	margin: 0;
@@ -1355,7 +1424,7 @@ tr.expand td {
 		text-align: left;
 		}
 		.box.small {
-			width: 300px;
+			width: 280px;
 			}
 		.box.large {
 			width: 580px;
@@ -1393,6 +1462,9 @@ tr.expand td {
 		color: #fff;
 		}
 /* ------------------------------------------------------------------- blog_pref.php */
+#media_img_title_pattern {
+	margin-right: 1em;
+	}
 .user-perm {
 	margin: 2em 0px;
 	background: transparent url(user.png) no-repeat left top;
@@ -1587,20 +1659,30 @@ tr.expand td {
 	#del_cat {
 		width: 100%;
 		}
-/* ------------------------------------------------------------------ media.php */
-.media-list {
-	position: static;
+/* ------------------------------------------------------------------ help.php */
+.legible { /* for pages with a lot of text to read */
+	font-size: 1.16em;
+	max-width: 62em;
+	margin-left: 6%;
 	}
+
+/* ------------------------------------------------------------------ media.php */
 .media-item {
 	position: relative;
-	border: 1px solid #ccc;
-	margin: 1em;
-	padding: 1em;
+	border: 1px solid #ddd;
+	margin: 9px;
+	padding: 10px 12px 6px;
 	width: 300px;
 	display: inline-block;
 	vertical-align: top;
-	min-height: 120px
+	min-height: 140px;
 	}
+	.media-item p {
+		margin: 0 0 .5em;
+		}
+	.media-item object {
+		margin-top: .5em;
+		}
 	.media-item ul {
 		display: block;
 		list-style: none;
@@ -1615,19 +1697,22 @@ tr.expand td {
 		.media-icon img {
 			display: block;
 			}
-.media-action-box {
-	position: relative;
-	margin: 3em 3em 1em 1em;
-	display: inline-block;
-	vertical-align: top;
-	}
-li.media-action {
-	display: block;
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	height: 16px;
-	}
+	.media-link {
+		font-size: 1.1em;
+		}
+	.media-action-box {
+		position: relative;
+		margin: 3em 3em 1em 1em;
+		display: inline-block;
+		vertical-align: top;
+		}
+	li.media-action {
+		display: block;
+		position: absolute;
+		bottom: 4px;
+		right: 8px;
+		height: 16px;
+		}
 	li.media-action a {
 		border: none;
 		}
@@ -1637,10 +1722,157 @@ li.media-action {
 	li.media-action input {
 		border: none;
 		}
+#entry-sidebar .media-item {
+	width: 100%;
+	min-height: 0;
+	padding: 4px;
+	margin: .33em 0;
+	}
+	#entry-sidebar li.media-action {
+		top: 4px;
+		}
+
+.folders-group .media-item {
+	min-height: 70px;
+	}
+	.folders-group .media-item p {
+		margin-bottom: 0;
+		}
+	.media-folder {
+		background: transparent url(bg_menu.png) repeat-y;
+		border-color: #eee;
+		}
+	.media-folder-up {
+		border-color: #fff;
+		padding-bottom: 6px;
+		}
+	.media-folder .media-link {
+		font-size: 1.25em;
+		margin-left: 2em;
+		color: #676e78;
+		border-bottom: none;
+		}
+
 .zip-dl {
 	background: transparent url(package.png) no-repeat 0 50%;
 	padding: 5px 0 5px 20px;
 	}
+/* upload multiple */
+.enhanced_uploader .choose_files, .enhanced_uploader .cancel, 
+.enhanced_uploader .clean, .enhanced_uploader .start {
+	margin-right: .4em;
+	}
+.enhanced_uploader #upfile {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	margin: 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	cursor: pointer;
+	}
+.button.clean, .button.cancel, .button.choose_files {
+	display: none;
+	}
+.enhanced_uploader .button.choose_files {
+	display: inline-block;
+	}
+.enhanced_uploader .max-size {
+	display: block;
+	}
+.enhanced_uploader .one-file {
+	display: none;
+	}
+label span.one-file {
+	display: inline;
+	}
+.enhanced_uploader p.clear {
+	padding-top: 1em;
+	margin-bottom: 1em;
+	}
+#add-file-f p.clear {
+	margin-top: 1em;
+	margin-bottom: 0;
+	clear: both;
+	}
+.files {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	border-bottom: 1px solid #ddd;
+	}
+.files li {
+	margin-left: 0;
+	padding-left: 0;
+	}
+.upload-msg {
+	font-weight: bold;
+	}
+.upload-msg.upload-error {
+	color: #c00;
+	}
+.upload-files {
+	padding: 0 0.5em;
+	margin: 1em 0;
+	}
+.upload-file {
+	margin: 0;
+	padding: .3em 0;
+	border-top: 1px solid #ddd;
+	position: relative;
+	}
+.upload-fileinfo {
+	margin-left: 0;
+/*	margin-bottom: .4em;*/
+	}
+.upload-fileinfo input {
+	position: absolute;
+	top: .5em;
+	right: .5em;
+	}
+.upload-fileinfo span {
+	padding-right: 8px;
+	}
+.upload-fileinfo .upload-filecancel {
+	display: block;
+	padding-right: 0;
+	margin-top: 3px;
+	width: 20px;
+	height: 20px;
+	background: transparent url("cancel.png") no-repeat left top;
+	text-indent: -1000px;
+	cursor: pointer;
+	float: left;
+	}
+.upload-filemsg {
+	font-weight: bold;
+	color: green;
+	}
+.upload-filemsg.upload-error {
+	color: #c00;
+	}
+.upload-progress {
+	padding: .3em 0; 
+	}
+.upload-progress div {
+	width: 0;
+	height: 1em;
+	padding: .2em 0;
+	font-size: 0.8em;
+	font-weight: bold;
+	line-height: 1em;
+	text-align: right;
+	background: green url("loader.png") repeat-x left top;
+	color: white;
+	border-radius: 2px;
+	}
+div.template-upload {
+	clear: both;
+	}
+.queue-message {
+	font-weight: bold;
+	}
+
 /* --------------------------------------------------------------- media-item.php */
 #media-icon {
 	float: left;
@@ -1814,7 +2046,6 @@ li.media-action {
 		padding: 2px 5px;
 		cursor: default;
 		display: block;
-		font: menu;
 		font-size: 1em;
 		line-height: 16px;
 		overflow: hidden;
@@ -1983,31 +2214,27 @@ ul.nice {
 	color: #676e78;
 	}
 /* caché pour tout le monde */
-.hide {
+.hide, .button.hide {
 	display: none;
 	}
 /* Caché sauf pour les revues d'écran */
 .hidden, .with-js .out-of-screen-if-js {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0 !important;
-    border: 0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
-    }
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0 !important;
+	border: 0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+	}
 /* caché si js est inactif */
 .no-js .hidden-if-no-js {
-        display: none;
-	}
-/* montré si js est inactif */
-.no-js .hidden-if-js {
-	display: block;
+	display: none;
 	}
 /* caché si js est actif */
-.hidden-if-js {
-        display: none;
+.with-js .hidden-if-js {
+	display: none;
 	}
 /* ------------------------------------------------------------------------------------
 																				UTILS
@@ -2033,20 +2260,6 @@ ul.nice {
 #debug:hover div {
 	display: block;
 	}
-
-
-/* 
-				tests dashboard 
-
-#content {width: auto;float:none !important; margin: 0;}
-#main {width: auto; display:inline-block; vertical-align: top; margin: 0;float: none !important}
-#main-menu {clear:both; width: auto}
-#main-menu {margin-top: 8em}
-#favorites-menu {display:none;}
-#plugins-menu, #blog-menu, #system-menu, #dashboard-items {display: inline-block;vertical-align: top; min-width: 17em; margin: 0; clear: none;}
-
-*/
-
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
@@ -2076,7 +2289,7 @@ ul.nice {
 		#info-box1 { margin-left: .75em; }
 		#info-box1 select { width: 140px; width: 14rem; }
 	#main-menu, #main, #content, #content h2, #entry-wrapper, #entry-sidebar, #entry-content, 
-	.col, .col30, .col70 {
+	.two-cols .col, .three-cols .col, .two-cols .col30, .two-cols .col70, .two-boxes, .three-boxes {
 		display:block !important;
     	width: 98% !important;
     	margin:0 auto !important;
@@ -2119,21 +2332,3 @@ ul.nice {
 		}
 	#info-box1 p.nomobile, label.nomobile { display: none; }
 	}
-
-/* Globalhelp */
-
-/* 1. inside help block */
-#helplink p {
-	padding: 0 0 0 .5em;
-}
-
-/* 2. in footer */
-span.helplink {
-	display: block;
-	float: left;
-	padding: 0 1.5em 0 30px;
-	background: transparent url(../images/page_help.png) no-repeat 6px center;
-}
-span.helplink a {
-	border-bottom: 1px solid #2373A8;
-}
