@@ -5,33 +5,47 @@
 
 <body>
 
+<h3>Maintenance</h3>
+
 <dl>
   <dt>Optimiser l'espace de la base de données</dt>
-  <dd>Au fur et à mesure des suppressions ou modifications dans vos billets, les tables de la 
-  base de données se fragmentent. L'opération d'optimisation permet de compacter celles-ci.<br />
+  <dd>Au fur at à mesure des suppressions ou modifications dans vos billets,
+  les tables de la base de données se fragmentent. L'opération d'optimisation
+  permet de compacter celles-ci.<br />
   Cette opération n'a aucun impact sur l'intégrité de vos données.<br />
-  Il est fortement conseillé d'optimiser la base de données avant tout export de blog.</dd>
+  Il est fortement conseillé d'optimiser la base de données avant tout export
+  de blog.</dd>
   
   <dt>Compteurs</dt>
   <dd>Réinitialiser les compteurs des commentaires et des rétroliens a pour effet
   de donner le nombre exact de ceux-ci pour chaque billet. Cette opération peut se
   révéler utile lors de l'import d'un blog d'une autre plateforme (ou d'une migration
-  de dotclear 1 vers dotclear 2).</dd>
+  de Dotclear 1 vers Dotclear 2).</dd>
   
   <dt>Index du moteur de recherche</dt>
-  <dd>Ces opérations s'effectuent généralement suite à un import afin d'obtenir des résultats lors des recherches, aussi bien depuis l'administration du blog qu'en partie publique.
+  <dd>Ces opérations s'effectuent généralement suite à un import afin d'obtenir
+  des résultats lors des recherches, aussi bien depuis l'administration du blog
+  qu'en partie publique.
     <ul>
-      <li><strong>Indexer tous les billets&nbsp;:</strong> permet d'indexer les billets</li>
-      <li><strong>Indexer tous les commentaires&nbsp;:</strong> permet d'indexer les commentaires</li>
+      <li><strong>Indexer tous les billets&nbsp;:</strong> permet d'indexer les billets.</li>
+      <li><strong>Indexer tous les commentaires&nbsp;:</strong> permet d'indexer les commentaires.</li>
     </ul>
   </dd>
   
   <dt>Vider les journaux</dt>
-  <dd>Sauf si vous avez un besoin précis de conservation des activités de connexion sur votre blog, pensez à vider régulièrement la table des journaux : elle contient l'enregistrement de chaque connexion à l'administration et des opérations qui s'y sont déroulées.</dd>
+  <dd>Sauf si vous avez un besoin précis de conservation des activités de
+  connexion sur votre blog, pensez à vider régulièrement la table des journaux&nbsp;:
+  elle contient l'enregistrement de chaque connexion à l'administration et des
+  opérations qui s'y sont déroulées.</dd>
   
   <dt>Vider le répertoire du cache des templates</dt>
-  <dd>La suppression du répertoire du cache des templates peut se révéler nécessaire lors de modifications dans les fichiers .html ou .css d'un thème (voire lors d'un changement de thème ou de mise à jour de plugin).<br />
-  Attention : chez certains hébergeurs (Free par exemple), le cache du répertoire des templates ne peut pas être vidé grâce au plugin Maintenance, il faut supprimer le répertoire <strong>cbtpl</strong> situé dans le répertoire cache (dotclear/cache par défaut) avec un logiciel FTP.</dd>
+  <dd>La suppression du répertoire du cache des templates peut se révéler
+  nécessaire lors de modifications dans les fichiers .html ou .css d'un thème
+  (voire lors d'un changement de thème ou de mise à jour de plugin).<br />
+  Attention : chez certains hébergeurs (Free par exemple), le cache du répertoire
+  des templates ne peut pas être vidé grâce à l'extension Maintenance, il faut
+  supprimer le répertoire <strong>cbtpl</strong> situé dans le répertoire cache
+  (dotclear/cache par défaut) avec un logiciel FTP.</dd>
 </dl>
 </body>
 </html>
