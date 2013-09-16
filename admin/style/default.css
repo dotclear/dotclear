@@ -66,7 +66,7 @@
 	border: none;
 	text-align: left;
 	overflow: hidden;
-	padding-top: 22px;
+	padding-top: 16px;
 	}
 .expand-mm {
 	display:none;
@@ -271,7 +271,7 @@ body {
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 	line-height: 1.5;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
 	color: #333;
 	background: #fff;
 	margin: 0;
@@ -600,18 +600,16 @@ input[type=button],
 input[type=reset],
 input[type=submit] {
 	border: 1px solid #ccc;
-	font-family: arial, helvetica, sans-serif;
+	font-family: "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
 	padding: 4px 10px;
 	line-height: normal !important;
 	display: inline-block;
 	vertical-align: middle;
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
+	font-size: 100%;
 	text-align: center;
 	text-decoration: none;
 	border-radius: 3px;
 	cursor: pointer;
-	font: 100% "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
 	}
 button,
 input[type=button],
