@@ -7,32 +7,50 @@
 
 <div class="multi-part legible" id="first-step" title="Premiers pas">
 	<h3>Découverte de l'interface</h3>
-	<h4 class="pretty-title">Aides contextuelles</h4>
-	<p>Outre les présentes pages d'aide générale, de nombreuses pages de l'administration disposent d'une aide contextuelle. Si javascript est disponible sur votre navigateur, elle se présente sur le côté de la page après avoir cliqué sur le lien <img src="images/menu/help.png" alt="" /> <strong>Aide pour cette page</strong> (en haut à droite) ; si javascript n'est pas activé elle s'affiche en bas de la page concernée.</p>
+	<div class="fieldset">
+		<h4>Aides contextuelles</h4>
+		<p>Outre les présentes pages d'aide générale, de nombreuses pages de l'administration disposent d'une aide contextuelle. Si javascript est disponible sur votre navigateur, elle se présente sur le côté de la page après avoir cliqué sur le lien <img src="images/menu/help.png" alt="" /> <strong>Besoin d'aide&nbsp;?</strong> (en haut à droite) ; si javascript n'est pas activé elle s'affiche en bas de la page concernée.</p>
+	</div>
 
-	<h4 class="pretty-title">Réglages personnels</h4>
-	<p>Le lien vers les réglages de <a href="preferences.php">vos préférences</a> est disponible en haut de toutes les pages d'administration.</p>
-	<p><strong>Mon tableau de bord.</strong> Le tableau de bord est l'accueil de votre interface d'administration. Les grandes icônes de la partie centrale permettent un accès rapide aux pages favorites de l'administration. Sous ces icônes, figurent des modules d'information. Lors de votre première installation, les deux modules proposés sont les dernières nouvelles de Dotclear et des liens vers la documentation et le support. Pour organiser vos favoris et vos modules, allez sur l'onglet «&nbsp;Mon tableau de bord&nbsp;».</p>
-	<p><strong>Mon profil.</strong> Les deux autres onglets de la page Mes préférences permettent de modifier ou compléter vos informations personnelles.</p>
-	<p class="info"><strong>Astuce.</strong> Si le thème que vous utilisez le prévoit (c'est le cas de la plupart d'entre eux), indiquez la même <em>URL du blog</em> dans votre page de profil et dans le formulaire de commentaire sur votre blog pour obtenir une mise en valeur de vos propres commentaires.</p>
-	<p><strong>Mes options</strong>. Activez ou désactivez des fonctionnalités selon vos goûts ou votre contexte de navigation.</p>
+	<p>Sur chaque page de l'administration, vous retrouverez les mêmes bandeau haut, menu principal et pied de page. <em>(Les emplacements de chacun de ces éléments sont indiqués ici pour une consultation sur ordinateur&nbsp;; sur un mobile ou une tablette, leur emplacement varie selon la place disponible.)</em></p>
 
-	<h4 class="pretty-title">Réglages du blog</h4>
-	<p><strong>Paramètres du blog</strong> (section «&nbsp;Blog&nbsp;» du menu). C'est ici que vous pouvez notamment changer le nom du blog, ajuster le fuseau horaire du blog, décider de la présentation des dates…</p>
+	<h4 class="pretty-title">Bandeau haut</h4>
+	<p>Le bandeau en haut de chaque page est composé de trois éléments :</p>
+	<h5>Le logo</h5>
+	<p>Par défaut, ce logo est celui de Dotclear et son lien conduit vers l'accueil de l'administration. Toutefois, un gestionnaire de plate-forme peut choisir un autre logo et diriger le lien vers autre chose que l'accueil (en général la page d'accueil du service).</p>
 
-	<p><strong>Apparence du blog.</strong> Sélectionnez l'habillage (le <em>thème</em>) du blog. Certains thèmes offrent un configurateur de personnalisation. C'est le cas par exemple de Ductile ou Blowup. Dans ce cas, une fois le thème activé, cliquez sur le bouton "Configurer le thème" pour accéder à ses réglages. Outre les thèmes disponibles lors de l'installation, vous pouvez ajouter d'autres thèmes depuis l'onglet «&nbsp;Ajouter un thème&nbsp;» de cette page. </p>
+	<h5>« Blog(s) »</h5>
+	<p>Le premier élément situé après le logo indique le bloc dit <em>actif</em>, c'est-à-dire celui sur lequel vous êtes en train d'agir. Si vous avez plusieurs blogs sur la même installation, cette information figure dans un menu déroulant qui permet de permuter sur un autre blog.</p>
+	<p>Le lien suivant le nom du blog permet d'aller voir le blog dans une autre fenêtre ou un autre onglet.</p>
 
-	<p><strong>Menu simple.</strong> Si le thème de votre blog a prévu son intégration, le menu principal du blog peut être renseigné sur cette page. Dans la plupart des thèmes il se présente sous forme d'une barre latérale sous l'entête du blog, comme sur Ductile par exemple.</p>
+	<h5>Utilisateur</h5>
+	<p>À l'extrême droite du bandeau haut, le lien <em>Mon tableau de bord</em> permet de revenir à l'accueil du blog.</p>
+	<p>Le lien suivant, <em>Mes préférences</em> dirige vers la page où vous pourrez modifier vos informations personnelles, configurer votre tableau de bord et choisir vos options d'interface et d'édition.</p>
+	<p>Étonnamment, le lien <em>Déconnecter [votre login]</em> permet de… se déconnecter, si si. (Chez Dotclear, on est trop forts en ergo.)</p>
 
-	<p><strong>Widgets de présentation.</strong> Le menu du blog (souvent une barre latérale à droite ou à gauche du contenu principal) rassemble les widgets enregistrés sur cette page. Après avoir glissé le ou les widgets de votre choix dans leur zone d'accueil, vous pouvez les ouvrir en cliquant sur le triangle et compléter les champs et options.</p>
+	<h4 class="pretty-title">Menu principal</h4>
+	<p>Le menu principal est situé à gauche de l'écran. Il peut être rétracté en cliquant sur sa bordure droite (puis déployé en cliquant sur cette même bordure).</p>
+	<p>Il conduit vers les différentes pages d'administration correspondant à vos permissions sur le blog actif. Quatre blocs le composent&nbsp;</p>
+	<ul class="nice">
+		<li><strong>Mes Favoris</strong> liste les pages que vous avez désignées comme telles dans l'onglet <em>Mon tableau de bord</em> de <em>Mes préférences</em>. Si vous n'avez encore choisi aucun favori, cette liste correspond au set par défaut de Dotclear ou celui du gestionnaire de la plate-forme. Si vous ne souhaitez pas afficher ce bloc, décochez la case correspondante dans vos options de tableau de bord.</li>
+		<li><strong>Blog</strong> regroupe la liste de toutes les pages permettant l'alimentation et les réglages du blog actif, de la rédaction d'un article à la gestion de la médiathèque en passant par le choix de la présentation et autres paramétrages.<br />
+		<em>Si vous ne possédez pas de droits d'administration sur le blog actif, il n'y a pas d'autre bloc après celui-ci dans le menu principal.</em></li>
+		<li><strong>Réglages système</strong> offre l'accès aux pages permettant d'administrer l'installation Dotclear : gestion des blogs, utilisateurs et langues disponibles, installation d'extensions, réglages système. Si vous possédez des droits sur plusieurs blogs mais ne disposez pas du statut de super administrateur, il est constitué du seul item <em>Blogs</em>.</li>
+		<li><strong>Plugins</strong> permet d'effectuer les paramétrages des plugins installés. Si les réglages d'un plugin n'impactent qu'un blog à la fois, sa page d'administration est disponible depuis le bloc <em>Blog</em>, mais si les réglages ont des répercussions sur toutes les pages de l'installation ils figurent ici et ne sont accessibles qu'aux utilisateurs disposant des droits de super admin.</li>
+	</ul>
 
-	<h4 class="pretty-title">Aide aux grands débutants</h4>
-	<p>Si vous n'êtes pas familier avec l'univers des blogs, nous vous recommandons notre documentation (sommaire complet dans l'onglet Documentation de cette page) et les tutoriels qui vous sont spécialement dédiés sur le blog <a href="http://abc.dotaddict.org">abc Dotclear</a>. Vous serez peut-être intéressés par exemple par :</p>
+	<h4 class="pretty-title">Pied de page</h4>
+	<p>Une version gratuite de Dotclear est offerte à tout utilisateur découvrant le secret du pied de page.</p>
+
+	<h3>Aide aux grands débutants</h3>
+	<p>Si vous n'êtes pas familier avec l'univers des blogs, nous vous recommandons notre documentation (sommaire complet dans les onglets Documentation de cette page) ainsi que les tutoriels qui vous sont spécialement dédiés sur le blog <a href="http://abc.dotaddict.org">abc Dotclear</a>. Par exemple&nbsp;:</p>
 	<ul>
 		<li><a href="http://fr.dotclear.org/documentation/2.0/usage/beginners">Mon premier billet pas à pas</a></li>
 		<li><a href="http://abc.dotaddict.org/post/2009/07/08/13-Ma-premiere-sauvegarde">Ma première sauvegarde</a></li>
 		<li><a href="http://abc.dotaddict.org/post/1970/01/01/Choisir-un-theme">Choisir un thème</a></li>
 	</ul>
+	<p>Le <a href="http://forum.dotclear.net/">forum</a> est un lieu d'entraide convivial où aucune question n'est considérée comme stupide. N'hésitez pas à y participer pour demander de l'aide et – pourquoi pas – aider d'autres utilisateurs à votre tour.</p>
+	<p class="info">Nous nous efforçons d'utiliser un vocabulaire compréhensible sans connaissances préalables. Toutefois si nous nous sommes laissés aller à employer un terme de jargon, vous en trouverez sans doute l'explication dans le <a href="http://fr.dotclear.org/documentation/glossary">glossaire</a> de notre documentation en ligne.</p>
 </div>
 
 <div class="multi-part" id="users-doc" title="Documentation utilisateurs">
