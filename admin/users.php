@@ -39,7 +39,7 @@ $core->callBehavior('adminUsersActionsCombo',array(&$combo_action));
 
 
 #?Get users
-$page = !empty($_GET['page']) ? $_GET['page'] : 1;
+$page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  30;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
