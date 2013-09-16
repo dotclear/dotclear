@@ -22,7 +22,7 @@ if ($qtype != 'c' && $qtype != 'p') {
 
 $starting_scripts = '';
 
-$page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
+$page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  30;
 
 
