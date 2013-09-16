@@ -11,9 +11,21 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-$this->registerModule(
-	/* Name */			"Maintenance",
-	/* Description*/		"Maintain your installation",
-	/* Author */			"Olivier Meunier & Association Dotclear",
-	/* Version */			'1.3'
-);
+class dcMaintenanceLogs extends dcMaintenanceTask
+{
+	protected $group = 'purge';
+
+	protected function init()
+	{
+		$this->task 		= __('Delete all logs');
+		$this->success 		= __('Logs deleted.');
+		$this->error 		= __('Failed to delete logs.');
+	}
+
+	public function execute()
+	{
+		$this->core->log->delLogs(null, true);
+
+		return true;
+	}
+}

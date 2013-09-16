@@ -936,6 +936,45 @@ msgstr ""
 msgid "Maintenance"
 msgstr ""
 
+msgid "Optimize"
+msgstr ""
+
+msgid "Count and index"
+msgstr ""
+
+msgid "Purge"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+msgid "Task successfully executed."
+msgstr ""
+
+msgid "Failed to execute task."
+msgstr ""
+
+msgid "Failed to empty templates cache directory."
+msgstr ""
+
+msgid "Failed to reset comments and ping counters."
+msgstr ""
+
+msgid "Failed to index comments."
+msgstr ""
+
+msgid "Failed to index entries."
+msgstr ""
+
+msgid "Failed to delete logs."
+msgstr ""
+
+msgid "Failed to vacuum tables."
+msgstr ""
+
 msgid "Optimization successful."
 msgstr ""
 

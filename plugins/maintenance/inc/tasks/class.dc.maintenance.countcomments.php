@@ -11,9 +11,21 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-$this->registerModule(
-	/* Name */			"Maintenance",
-	/* Description*/		"Maintain your installation",
-	/* Author */			"Olivier Meunier & Association Dotclear",
-	/* Version */			'1.3'
-);
+class dcMaintenanceCountcomments extends dcMaintenanceTask
+{
+	protected $group = 'index';
+
+	protected function init()
+	{
+		$this->task 		= __('Reset comments and ping counters');
+		$this->success 		= __('Comments and trackback counted.');
+		$this->error 		= __('Failed to reset comments and ping counters.');
+	}
+
+	public function execute()
+	{
+		$this->core->countAllComments();
+
+		return true;
+	}
+}

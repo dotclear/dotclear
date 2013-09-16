@@ -11,188 +11,178 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$action = !empty($_REQUEST['action']) ? $_REQUEST['action'] : null;
-$start = !empty($_GET['start']) ? abs((integer) $_GET['start']) : 0;
+dcPage::checkSuper();
 
-if ($action == 'vacuum')
-{
-	try
-	{
-		$schema = dbSchema::init($core->con);
-		$db_tables = $schema->getTables();
-		
-		foreach ($db_tables as $t) {
-			if (strpos($t,$core->prefix) === 0) {
-				$core->con->vacuum($t);
-			}
+// main class
+
+$maintenance = new dcMaintenance($core);
+
+// Set var
+
+$headers = '';
+$p_url = 'plugin.php?p=maintenance';
+$task = null;
+
+$code = empty($_POST['code']) ? null : (integer) $_POST['code'];
+$tab = empty($_REQUEST['tab']) ? 'maintenance' : $_REQUEST['tab'];
+
+// Get task object
+
+if (!empty($_REQUEST['task'])) {
+	$task = $maintenance->getTask($_REQUEST['task']);
+
+	if ($task === null) {
+		$core->error->add('Unknow task ID');
+	}
+
+	$task->code($code);
+}
+
+// Execute task
+
+if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
+	try {
+		$code = $task->execute();
+		if (false === $code) {
+			throw new Exception($task->error());
 		}
-		http::redirect($p_url.'&vacuum=1');
+		if (true === $code) {
+			http::redirect($p_url.'&task='.$task->id().'&done=1&tab='.$tab);
+		}
 	}
-	catch (Exception $e)
-	{
-		$core->error->add($e->getMessage());
-	}
-}
-elseif ($action == 'commentscount')
-{
-	try {
-		$core->countAllComments();
-		http::redirect($p_url.'&commentscount=1');
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
-}
-elseif ($action == 'empty_cache')
-{
-	try {
-		$core->emptyTemplatesCache();
-		http::redirect($p_url.'&empty_cache=1');
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
-}
-elseif ($action == 'log')
-{
-	try {
-		$core->log->delLogs(null,true);
-		http::redirect($p_url.'&delete_logs=1');
-	} catch (Exception $e) {
+	catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
 }
 
-?>
-<html>
-<head>
-  <title><?php echo __('Maintenance'); ?></title>
+// Display page
+
+echo '<html><head>
+<title>'.__('Maintenance').'</title>'.
+dcPage::jsPageTabs($tab);
+
+if ($task) {
+	echo 
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA\n".
+	dcPage::jsVar('dotclear.msg.wait', __('Please wait...')).
+	"//]]>\n".
+	'</script>'.
+	dcPage::jsLoad('index.php?pf=maintenance/js/dc.maintenance.js');
+}
+
+echo 
+$maintenance->getHeaders().'
 </head>
+<body>';
 
-<body>
-<?php
+// Success message
+
+if ($task && !empty($_GET['done'])) {
+	dcPage::success($task->success());
+}
+
+if ($task && ($res = $task->step()) !== null) {
+
+	// Page title
+
+	echo dcPage::breadcrumb(
+		array(
+			__('Plugins') => '',
+			'<a href="'.$p_url.'">'.__('Maintenance').'</a>' => '',
+			'<span class="page-title">'.html::escapeHTML($task->name()).'</span>' => ''
+		)
+	);
+
+	// Intermediate task (task required several steps)
+
+	echo 
+	'<div class="step-box" id="'.$task->id().'">'.
+	'<h3>'.html::escapeHTML($task->name()).'</h3>'.
+	'<form action="'.$p_url.'" method="post">'.
+	'<p class="step-msg">'.
+		$res.
+	'</p>'.
+	'<p class="step-submit">'.
+		'<input type="submit" value="'.$task->task().'" /> '.
+		form::hidden(array('task'), $task->id()).
+		form::hidden(array('code'), (integer) $code).
+		$core->formNonce().
+	'</p>'.
+	'</form>'.
+	'<p class="step-back">'.
+		'<a class="back" href="'.$p_url.'">'.__('Back').'</a>'.
+	'</p>'.
+	'</div>';
+}
+else {
+
+	// Page title
+
 	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
 			'<span class="page-title">'.__('Maintenance').'</span>' => ''
-		));
-?>
+		)
+	);
 
-<?php
-if (!empty($_GET['vacuum'])) {
-	dcPage::success(__('Optimization successful.'));
-}
-if (!empty($_GET['commentscount'])) {
-	dcPage::success(__('Comments and trackback counted.'));
-}
-if (!empty($_GET['empty_cache'])) {
-	dcPage::success(__('Templates cache directory emptied.'));
-}
-if (!empty($_GET['delete_logs'])) {
-	dcPage::success(__('Logs deleted.'));
-}
+	// Simple task (with only a button to start it)
 
-if ($action == 'index' && !empty($_GET['indexposts']))
-{
-	$limit = 1000;
-	echo '<p>'.sprintf(__('Indexing entry %d to %d.'),$start,$start+$limit).'</p>';
-	
-	$new_start = $core->indexAllPosts($start,$limit);
-	
-	if ($new_start)
+	echo 
+	'<div id="maintenance" class="multi-part" title="'.__('Maintenance').'">'.
+	'<h3>'.__('Maintenance').'</h3>'.
+	'<form action="'.$p_url.'" method="post">';
+
+	foreach($maintenance->getGroups($core) as $g_id => $g_name)
 	{
-		$new_url = $p_url.'&action=index&indexposts=1&start='.$new_start;
-		echo
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA\n".
-		"window.location = '".$new_url."'\n".
-		"//]]>\n".
-		'</script>'.
-		'<noscript><p><a href="'.html::escapeURL($new_url).'">'.__('next').'</a></p></noscript>';
+		$res = '';
+		foreach($maintenance->getTasks($core) as $t)
+		{
+			if ($t->group() != $g_id) {
+				continue;
+			}
+
+			$res .=  
+			'<p>'.form::radio(array('task', $t->id()),$t->id()).' '.
+			'<label class="classic" for="'.$t->id().'">'.
+			html::escapeHTML($t->task()).'</label></p>';
+		}
+
+		if (!empty($res)) {
+			echo '<div class="fieldset"><h4 id="'.$g_id.'">'.$g_name.'</h4>'.$res.'</div>';
+		}
 	}
-	else
-	{
-		dcPage::message(__('Entries index done.'));
-		echo '<p><a class="back" href="'.$p_url.'">'.__('Back').'</a></p>';
-	}
-}
-elseif ($action == 'index' && !empty($_GET['indexcomments']))
-{
-	$limit = 1000;
-	echo '<p>'.sprintf(__('Indexing comment %d to %d.'),$start,$start+$limit).'</p>';
-	
-	$new_start = $core->indexAllComments($start,$limit);
-	
-	if ($new_start)
-	{
-		$new_url = $p_url.'&action=index&indexcomments=1&start='.$new_start;
-		echo
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA\n".
-		"window.location = '".$new_url."'\n".
-		"//]]>\n".
-		'</script>'.
-		'<noscript><p><a href="'.html::escapeURL($new_url).'">'.__('next').'</a></p></noscript>';
-	}
-	else
-	{
-		dcPage::message(__('Comments index done.'));
-		echo '<p><a class="back" href="'.$p_url.'">'.__('Back').'</a></p>';
-	}
-}
-else
-{
-	echo
-	'<div class="two-boxes">'.
-	'<h3>'.__('Optimize database room').'</h3>'.
-	'<form action="plugin.php" method="post">'.
-	'<p><input type="submit" value="'.__('Vacuum tables').'" /> '.
-	$core->formNonce().
-	form::hidden(array('action'),'vacuum').
-	form::hidden(array('p'),'maintenance').'</p>'.
-	'</form></div>';
-	
-	echo
-	'<div class="two-boxes">'.
-	'<h3>'.__('Counters').'</h3>'.
-	'<form action="plugin.php" method="post">'.
-	'<p><input type="submit" value="'.__('Reset comments and ping counters').'" /> '.
-	$core->formNonce().
-	form::hidden(array('action'),'commentscount').
-	form::hidden(array('p'),'maintenance').'</p>'.
-	'</form></div>';
-	
-	echo
-	'<div class="two-boxes">'.
-	'<h3>'.__('Search engine index').'</h3>'.
-	'<form action="plugin.php" method="get">'.
-	'<p><input type="submit" name="indexposts" value="'.__('Index all posts').'" /> '.
-	'<input type="submit" name="indexcomments" value="'.__('Index all comments').'" /> '.
-	form::hidden(array('action'),'index').
-	form::hidden(array('p'),'maintenance').'</p>'.
+
+	echo 
+	'<p><input type="submit" value="'.__('Execute task').'" /> '.
+	form::hidden(array('tab'), 'maintenance').
+	$core->formNonce().'</p>'.
 	'<p class="form-note info">'.__('This may take a very long time').'.</p>'.
-	'</form></div>';
-	
-	echo
-	'<div class="two-boxes">'.
-	'<h3>'.__('Vacuum logs').'</h3>'.
-	'<form action="plugin.php" method="post">'.
-	'<p><input type="submit" value="'.__('Delete all logs').'" /> '.
-	$core->formNonce().
-	form::hidden(array('action'),'log').
-	form::hidden(array('p'),'maintenance').'</p>'.
-	'</form></div>';
-	
-	echo
-	'<div class="two-boxes">'.
-	'<h3>'.__('Empty templates cache directory').'</h3>'.
-	'<form action="plugin.php" method="post">'.
-	'<p><input type="submit" value="'.__('Empty directory').'" /> '.
-	$core->formNonce().
-	form::hidden(array('action'),'empty_cache').
-	form::hidden(array('p'),'maintenance').'</p>'.
-	'</form></div>';
-}
-dcPage::helpBlock('maintenance');
-?>
+	'</form>'.
+	'</div>';
 
-</body>
-</html>
+	// Advanced tasks (that required a tab)
+
+	foreach($maintenance->getTasks($core) as $t)
+	{
+		if ($t->group() !== null) {
+			continue;
+		}
+
+		echo 
+		'<div id="'.$t->id().'" class="multi-part" title="'.$t->name().'">'.
+		'<h3>'.$t->name().'</h3>'.
+		'<form action="'.$p_url.'" method="post">'.
+		$t->content().
+		'<p><input type="submit" value="'.__('Execute task').'" /> '.
+		form::hidden(array('task'), $t->id()).
+		form::hidden(array('tab'), $t->id()).
+		$core->formNonce().'</p>'.
+		'</form>'.
+		'</div>';
+	}
+}
+
+dcPage::helpBlock('maintenance');
+
+echo '</body></html>';
