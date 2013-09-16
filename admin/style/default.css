@@ -2122,33 +2122,51 @@ div.template-upload {
 			}
 /* Pagination */
 .pagination {
-	height: 22px;
-	margin-top: 1em;
-	line-height: 22px;
-	padding: 0 .75em;
-	border: 1px solid #e7e7e7;
-	overflow: hidden;
-	background: #f3f3f3;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
+	margin: 1em 0;
 	clear: left;
 	}
-	.pagination a, .pagination strong {
-		height: 20px;
-		border: none;
-		padding: 2px 6px;
-		background-color : transparent;
-		background-position : 50% 50%;
-		background-repeat: no-repeat;
+.pagination ul {
+	list-style-type: none;
+	margin: 1em 0;
+	padding: 0;
+	}
+.pagination li, .pagination input {
+	display:inline-block;
+	vertical-align: middle;
+	margin: 0 .25em 0 0;
+	text-align: center;
+	}
+	.pagination .btn {
+		border: 1px solid #ccc;
+		background-color: #fff;
+		color: #738182; 
+		border-radius: 3px;
+		overflow: hidden;
 		}
-		.pagination a:hover, .pagination strong {
-			border-color : #ccc;
-			background-color: #fff;
+		.btn.no-link {
+			border-color: #ddd;
+			padding: 2px 4px 0;
 			}
-
-.pagination ul, .pagination li, .pagination p {display:inline-block;}
-
+	.pagination .active {
+		padding: 4px 12px; 
+		}
+	.pagination .direct-access {
+		margin-left: 2em;
+		}
+	.direct-access input[type=text] {
+		border: 1px solid #ccc;
+		padding: 3px 8px;
+		margin-left: .25em;
+		}
+	.direct-access input[type=submit] {
+		padding: 3px 6px; 
+		}
+.pagination a {
+	display: block;
+	padding: 2px 4px 0;
+	border:none;
+	}
+.pagination a:hover, .pagination a:focus {background-color: #ecf0f1;}
 /* Etapes */
 .step {
 	display: inline-block;

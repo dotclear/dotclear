@@ -3383,3 +3383,9 @@ msgstr "Masquer le menu principal"
 
 msgid "Show main menu"
 msgstr "Afficher le menu principal"
+
+msgid "Direct access page %s"
+msgstr "Aller à la page : %s"
+
+msgid "Page %s / %s"
+msgstr "Page %s / %s"

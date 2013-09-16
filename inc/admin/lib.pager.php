@@ -14,17 +14,15 @@ if (!defined('DC_RC_PATH')) { return; }
 class dcPager extends pager
 {
 
-	protected function getLink($li_class,$href,$img_src,$img_alt,$enable_link) {
+	protected function getLink($li_class,$href,$img_src,$img_src_nolink,$img_alt,$enable_link) {
 		if ($enable_link) {
-			$formatter = '<li class="%s"><a href="%s"><img src="%s" alt="%s"/>'.
-				'<span class="hidden">%s</span></a></li>';
+			$formatter = '<li class="%s btn"><a href="%s"><img src="%s" alt="%s"/></a><span class="hidden">%s</span></li>';
 			return sprintf ($formatter,
 				$li_class,$href,$img_src,$img_alt,$img_alt);
 		} else {
-			$formatter = '<li class="%s"><img src="%s" alt="%s"/>'.
-				'<span class="hidden">%s</span></li>';
+			$formatter = '<li class="%s no-link btn"><img src="%s" alt="%s"/></li>';
 			return sprintf ($formatter,
-				$li_class,$img_src,$img_alt,$img_alt);
+				$li_class,$img_src_nolink,$img_alt,$img_alt);
 		}
 	}
 
@@ -41,28 +39,32 @@ class dcPager extends pager
 		$htmlFirst = $this->getLink(
 			"first",
 			sprintf($this->page_url,1),
-			"style/page/pagination_1_first.png",
+			"images/pagination/first.png",
+			"images/pagination/no-first.png",
 			__('First page'),
 			($this->env > 1)
 		);
 		$htmlPrev = $this->getLink(
 			"prev",
 			sprintf($this->page_url,$this->env-1),
-			"style/page/pagination_1_previous.png",
+			"images/pagination/previous.png",
+			"images/pagination/no-previous.png",
 			__('Previous page'),
 			($this->env > 1)
 		);
 		$htmlNext = $this->getLink(
 			"next",
 			sprintf($this->page_url,$this->env+1),
-			"style/page/pagination_1_next.png",
+			"images/pagination/next.png",
+			"images/pagination/no-next.png",
 			__('Next page'),
 			($this->env < $this->nb_pages)
 		);
 		$htmlLast = $this->getLink(
 			"last",
 			sprintf($this->page_url,$this->nb_pages),
-			"style/page/pagination_1_last.png",
+			"images/pagination/last.png",
+			"images/pagination/no-last.png",
 			__('Last page'),
 			($this->env < $this->nb_pages)
 		);
@@ -72,10 +74,10 @@ class dcPager extends pager
 			'</strong></li>';
 			
 		$htmlDirect = 
-			sprintf('<p>'.__('Direct access page %s'),
+			sprintf('<li class="direct-access">'.__('Direct access page %s'),
 				form::field(array('page'),3,10)).
-			'<input type="submit" value="'.__('Ok').'" '.
-			'name="ok" /></p>';
+			'<input type="submit" value="'.__('ok').'" class="reset" '.
+			'name="ok" /></li>';
 		
 		$res =	
 			'<form action="'.$this->page_url.'" method="get">'.
@@ -85,8 +87,8 @@ class dcPager extends pager
 			$htmlCurrent.
 			$htmlNext.
 			$htmlLast.
-			'</ul>'.
 			$htmlDirect.
+			'</ul>'.
 			'</div>'.
 			'</form>'
 		;
