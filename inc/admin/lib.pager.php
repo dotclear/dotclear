@@ -236,7 +236,7 @@ class adminPostMiniList extends adminGenericList
 		}
 		else
 		{
-			$pager = new pager($page,$this->rs_count,$nb_per_page,10);
+			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
 			$html_block =
 			'<table class="clear"><caption class="hidden">'.__('Entries list').'</caption><tr>'.
@@ -328,7 +328,7 @@ class adminCommentList extends adminGenericList
 		}
 		else
 		{
-			$pager = new pager($page,$this->rs_count,$nb_per_page,10);
+			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
 			$html_block =
 			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
@@ -436,10 +436,7 @@ class adminUserList extends adminGenericList
 		}
 		else
 		{
-			$pager = new pager($page,$this->rs_count,$nb_per_page,10);
-			$pager->html_prev = $this->html_prev;
-			$pager->html_next = $this->html_next;
-			$pager->var_page = 'page';
+			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
 			$html_block =
 			'<table class="clear"><caption class="hidden">'.__('Users list').'</caption><tr>'.
