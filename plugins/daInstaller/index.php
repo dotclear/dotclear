@@ -20,7 +20,7 @@ else {
 # Initialisation des variables
 $p_url 		= 'plugin.php?p=daInstaller';
 $default_tab 	= !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'plugins';
-$page		= !empty($_GET['page']) ? (integer)$_GET['page'] : 1;
+$page		= !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page 	= 10;
 $q			= !empty($_GET['q']) ? trim(html::escapeHTML($_GET['q'])) : '';
 $default_tab 	= !empty($q) ? 'search' : $default_tab;
