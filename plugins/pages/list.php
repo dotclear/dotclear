@@ -143,32 +143,75 @@ try {
 	$core->error->add($e->getMessage());
 }
 
+class dcPagesActionsPage extends dcPostsActionsPage {
+
+	public function __construct($core,$uri,$redirect_args=array()) {
+		parent::__construct($core,$uri,$redirect_args);
+		$this->redirect_fields = array();
+
+	}
+	
+	public function beginPage($breadcrumb='',$header='') {
+		echo '<html><head><title>'.__('Pages').'</title>'.
+			dcPage::jsLoad('index.php?pf=pages/list.js').
+			# --BEHAVIOR-- adminBeforePostDelete
+			$core->callBehavior('adminPagesActionsHeaders').
+			'<script type="text/javascript">'.
+			'//<![CDATA['.
+			dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")).
+			'//]]>'.
+			'</script></head><body>';
+	}
+	
+	public function endPage() {
+		echo '</body></html>';
+	}
+	public function loadDefaults() {
+		parent::loadDefaults();
+		unset ($this->combos[__('Mark')]);
+		unset ($this->actions['selected']);
+		unset ($this->actions['unselected']);
+		$this->actions['reorder']=array('dcPagesActionsPage','doReorderPages');
+	}
+	public function process() {
+		// fake action for pages reordering
+		if (!empty($this->from['reorder'])) {
+			$this->from['action']='reorder';
+		}
+		parent::process();
+	}
+	
+	public static function doReorderPages($core, dcPostsActionsPage $ap, $post) {
+		foreach($post['order'] as $post_id => $value) {
+			if (!$core->auth->check('publish,contentadmin',$core->blog->id))
+				throw new Exception(__('You are not allowed to change this entry status'));
+			
+			$strReq = "WHERE blog_id = '".$core->con->escape($core->blog->id)."' ".
+					"AND post_id ".$core->con->in($post_id);
+			
+			#If user can only publish, we need to check the post's owner
+			if (!$core->auth->check('contentadmin',$core->blog->id))
+				$strReq .= "AND user_id = '".$core->con->escape($core->auth->userID())."' ";
+			
+			$cur = $core->con->openCursor($core->prefix.'post');
+			
+			$cur->post_position = (integer) $value-1;
+			$cur->post_upddt = date('Y-m-d H:i:s');
+			
+			$cur->update($strReq);
+			$core->blog->triggerBlog();
+			
+		}
+		$ap->redirect(array('reo'=>1),false);
+	}	
+}
+
 # Actions combo box
-$combo_action = array();
-if ($core->auth->check('publish,contentadmin',$core->blog->id))
-{
-	$combo_action[__('Status')] = array(
-		__('Publish') => 'publish',
-		__('Unpublish') => 'unpublish',
-		__('Schedule') => 'schedule',
-		__('Mark as pending') => 'pending'
-	);
-}
-	$combo_action[__('Change')] = array(
-		__('Change language') => 'lang'
-	);
-if ($core->auth->check('admin',$core->blog->id))
-{
-	$combo_action[__('Change')] = array_merge($combo_action[__('Change')], array(
-		__('Change author') => 'author')
-	);
-}
-if ($core->auth->check('delete,contentadmin',$core->blog->id))
-{
-	$combo_action[__('Delete')] = array(
-		__('Delete') => 'delete'
-	);
-}
+
+$pages_actions_page = new dcPagesActionsPage($core,'plugin.php',array('p'=>'pages'));
+
+$pages_actions_page->process();
+
 
 # --BEHAVIOR-- adminPagesActionsCombo
 $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
@@ -198,6 +241,13 @@ echo dcPage::breadcrumb(
 		'<span class="page-title">'.__('Pages').'</span>' => ''
 	));
 
+if (!empty($_GET['upd'])) {
+	dcPage::success(__('Selected pages have been successfully updated.'));
+} elseif (!empty($_GET['del'])) {
+	dcPage::success(__('Selected pages have been successfully deleted.'));
+} elseif (!empty($_GET['reo'])) {
+	dcPage::success(__('Selected pages have been successfully reordered.'));
+}
 echo
 '<p class="top-add"><a class="button add" href="'.$p_url.'&amp;act=page">'.__('New page').'</a></p>';
 
@@ -205,7 +255,7 @@ if (!$core->error->flag())
 {
 	# Show pages
 	$post_list->display($page,$nb_per_page,
-	'<form action="plugin.php?p=pages&act=actions" method="post" id="form-entries">'.
+	'<form action="plugin.php" method="post" id="form-entries">'.
 	
 	'%s'.
 	
@@ -213,10 +263,10 @@ if (!$core->error->flag())
 	'<p class="col checkboxes-helpers"></p>'.
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected pages action:').'</label> '.
-	form::combo('action',$combo_action).
+	form::combo('action',$pages_actions_page->getCombo()).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('post_type'),'page').
-	form::hidden(array('redir'),html::escapeHTML($_SERVER['REQUEST_URI'])).
+	form::hidden(array('p'),'pages').
 	'</div>'.
 	$core->formNonce().
 	'<br class="clear"/>'.

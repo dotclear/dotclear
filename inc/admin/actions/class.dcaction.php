@@ -51,15 +51,16 @@ abstract class dcActionsPage
      *
      * @return mixed Value.
      */
-	public function __construct($core,$uri) {
+	public function __construct($core,$uri,$redirect_args=array()) {
 		$this->core = $core;
 		$this->actions = new ArrayObject();
 		$this->combo = array();
 		$this->uri = $uri;
-		$this->redir_args = array();
+		$this->redir_args = $redirect_args;
 		$this->redirect_fields = array();
 		$this->action = '';
 		$this->cb_title = __('Title');
+		$this->entries = array();
 		$this->from = new ArrayObject($_POST);
 	}
 	
