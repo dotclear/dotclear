@@ -16,8 +16,6 @@ $act = !empty($_REQUEST['act']) ? $_REQUEST['act'] : 'list';
 
 if ($act == 'page') {
 	include dirname(__FILE__).'/page.php';
-} else if ($act == 'actions') {
-	include dirname(__FILE__).'/pages_actions.php';
 } else {
 	include dirname(__FILE__).'/list.php';
 }

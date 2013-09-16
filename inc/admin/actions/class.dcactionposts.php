@@ -13,17 +13,20 @@ if (!defined('DC_RC_PATH')) { return; }
 
 class dcPostsActionsPage extends dcActionsPage
 {
-	public function __construct($core,$uri) {
-		parent::__construct($core,$uri);
+	public function __construct($core,$uri,$redirect_args=array()) {
+		parent::__construct($core,$uri,$redirect_args);
 		$this->redirect_fields = array('user_id','cat_id','status',
 		'selected','month','lang','sortby','order','page','nb');
-		// We could have added a behavior here, but we want default action
-		// to be setup first
-		dcDefaultPostActions::adminPostsActionsPage($core,$this);
+		$this->loadDefaults();
 		$core->callBehavior('adminPostsActionsPage',$core,$this);
-
 	}
 
+	protected function loadDefaults() {
+		// We could have added a behavior here, but we want default action
+		// to be setup first
+		dcDefaultPostActions::adminPostsActionsPage($this->core,$this);
+	}
+	
 	public function beginPage($breadcrumb='',$head='') {
 		dcPage::open(
 			__('Entries'),
