@@ -60,7 +60,7 @@ $(function() {
 
 	$('h5 .s-tags').toggleWithLegend($('.s-tags').not('label'),{
 		user_pref: 'post_tags',
-		legend_clik: true
+		legend_click: true
 	});
 
 });
