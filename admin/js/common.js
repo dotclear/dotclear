@@ -351,7 +351,7 @@ $(function() {
 	
 	$('#wrapper').contents().each(function() {
 		if (this.nodeType==8) {
-			$('#footer a').attr('title', $('#footer a').attr('title') + this.data );
+			$('#footer a[href!="help.php"]').attr('title', $('#footer a[href!="help.php"]').attr('title') + this.data );
 		}
 	});
 
