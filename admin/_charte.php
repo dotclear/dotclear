@@ -1,3 +1,19 @@
+<?php
+# -- BEGIN LICENSE BLOCK ---------------------------------------
+#
+# This file is part of Dotclear 2.
+#
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Licensed under the GPL version 2.0 license.
+# See LICENSE file or
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+# -- END LICENSE BLOCK -----------------------------------------
+
+require dirname(__FILE__).'/../inc/admin/prepend.php';
+
+dcPage::check('usage,contentadmin');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
@@ -118,13 +134,13 @@
 							<p><span class="step">4</span> Par défaut les « lignes »  de boîtes <code>"box"</code> sont justifiées au sein de la boîte <code>"one-box"</code> et l'espacement se répartit entre elles.</p>
 						</div>
 						<div class="box">
-							<p><span class="step">5</span> Si vous souhaitez un autre alignement des boîtes entre elles vous pouvez ajouter les class : 
+							<p><span class="step">5</span> Si vous souhaitez un autre alignement des boîtes entre elles vous pouvez ajouter les class :</p>
 							<ul class="nice clear">
 								<li><code>"txt-left"</code>,</li>
 								<li><code>"txt-right"</code></li> 
 								<li>ou <code>"txt-center"</code></li>
 							</ul>
-							<p> à la class <code>"one-box"</code>.</p>
+							<p>à la class <code>"one-box"</code>.</p>
 						</div>
 						<div class="box">
 							<p><span class="step">6</span> Le cadre placé ici autour de chaque boîte ne fait pas partie des styles par défaut.</p>
@@ -218,7 +234,7 @@
 					</div>
 				</div>
 				<hr />
-				<p><strong>Note :</strong> les valeurs en pourcentage et les numérotations sont placées dans un <code>span class="step"</code>.</p>
+				<p><strong>Note :</strong> dans les exemples les valeurs et les numérotations sont placées dans un <code>span class="step"</code> (et ressortent donc dans un petit bloc à fond gris).</p>
 
 				<h2><span class="page-title">Interactions</span></h2>
 
@@ -283,8 +299,8 @@
 					<div class="dc-update">
 						<h3>Dotclear 42 est disponible</h3>
 						<p><a class="button submit" href="#">Mettre à jour maintenant</a>
-						<a href="u#">Me le rappeler plus tard</a>
-						<a href="#" class="updt-info">information sur cette version</a></p>
+						<a class="button" href="u#">Me le rappeler plus tard</a></p>
+						<p class="updt-info"><a href="#">Informations sur cette version</a></p>
 					</div>
 				<h4 class="smart-title">Messages contextuels</h4>
 					<p class="warn">Paragraphe de message d'alerte class warn ou warning.</p>

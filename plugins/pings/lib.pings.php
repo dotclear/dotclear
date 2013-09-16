@@ -64,7 +64,7 @@ class pingsBehaviors
 		{
 			$item .=
 			'<p class="ping-services"><label for="pings_do-'.$i.'" class="classic">'.
-			form::checkbox(array('pings_do[]','pings_do-'.$i),html::escapeHTML($v),in_array($v,$pings_do)).' '.
+			form::checkbox(array('pings_do[]','pings_do-'.$i),html::escapeHTML($v),in_array($v,$pings_do), 'check-ping-services').' '.
 			html::escapeHTML($k).'</label></p>';
 			$i++;
 		}

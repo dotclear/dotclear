@@ -262,15 +262,17 @@ var dotclear = {
 		});
 	},
 
-	checkboxesHelpers: function(e) {
+	checkboxesHelpers: function(e, target) {
 		$(e).append(document.createTextNode(dotclear.msg.to_select));
 		$(e).append(document.createTextNode(' '));
 
+		target = target || $(e).parents('form').find('input[type="checkbox"]');
+		
 		var a = document.createElement('a');
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.select_all));
 		a.onclick = function() {
-			$(this).parents('form').find('input[type="checkbox"]').check();
+			target.check();
 			return false;
 		};
 		$(e).append(a);
@@ -281,7 +283,7 @@ var dotclear = {
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.no_selection));
 		a.onclick = function() {
-			$(this).parents('form').find('input[type="checkbox"]').unCheck();
+			target.unCheck();
 			return false;
 		};
 		$(e).append(a);
@@ -292,7 +294,7 @@ var dotclear = {
 		a.href='#';
 		$(a).append(document.createTextNode(dotclear.msg.invert_sel));
 		a.onclick = function() {
-			$(this).parents('form').find('input[type="checkbox"]').toggleCheck();
+			target.toggleCheck();
 			return false;
 		};
 		$(e).append(a);
@@ -345,9 +347,8 @@ var dotclear = {
 -------------------------------------------------------- */
 $(function() {
 	// remove class no-js from html tag; cf style/default.css for examples
-	$('body').removeClass('no-js');
-	$('body').addClass('with-js');
-
+	$('body').removeClass('no-js').addClass('with-js');
+	
 	$('#wrapper').contents().each(function() {
 		if (this.nodeType==8) {
 			$('#footer a').attr('title', $('#footer a').attr('title') + this.data );
@@ -395,5 +396,34 @@ $(function() {
 		}
 		return true;
 	});
-});
 
+	// Main menu collapser
+    var objMain = $('#wrapper');
+    function showSidebar(){
+	    // Show sidebar
+        objMain.removeClass('hide-mm');
+        $.cookie('sidebar-pref',null,{expires:30});
+    }
+    function hideSidebar(){
+	    // Hide sidebar
+        objMain.addClass('hide-mm');
+        $.cookie('sidebar-pref','hide-mm',{expires:30});
+    }
+    // Sidebar separator
+    var objSeparator = $('#collapser');
+    objSeparator.click(function(e){
+        e.preventDefault();
+        if ( objMain.hasClass('hide-mm') ){
+            showSidebar();
+        }
+        else {
+            hideSidebar();
+        }
+    }).css('height', objSeparator.parent().parent().parent().outerHeight() + 'px');
+	if ( $.cookie('sidebar-pref') == 'hide-mm' ){
+		objMain.addClass('hide-mm');
+	} else {
+		objMain.removeClass('hide-mm');
+	}
+
+});

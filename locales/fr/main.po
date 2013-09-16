@@ -280,8 +280,8 @@ msgstr "Note de copyright :"
 msgid "New post URL format:"
 msgstr "Format d'URL des nouveaux billets :"
 
-msgid "Note title HTML tag:"
-msgstr "Balise HTML pour le titre des notes :"
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr "Balise HTML pour le titre des notes sur le blog :"
 
 msgid "Note"
 msgstr "Note"
@@ -358,7 +358,7 @@ msgid "Media and images"
 msgstr "Médias et images"
 
 msgid "Generated image sizes (in pixels)"
-msgstr "Tailles des images générées (en pixels)"
+msgstr "Tailles des miniatures générées (largeur en pixels)"
 
 msgid "Thumbnails:"
 msgstr "Miniatures :"
@@ -372,11 +372,11 @@ msgstr "Moyennes :"
 msgid "Inserted image title"
 msgstr "Titres des images insérées"
 
-msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
-msgstr "Ceci définit le titre de la balise d'une image insérée depuis la médiathèque. Les informations sont obtenues depuis les métadonnées de l'image."
+msgid "It is retrieved from the picture's metadata."
+msgstr "Ces informations sont obtenues depuis les métadonnées de l'image."
 
 msgid "Use original media date if possible"
-msgstr "Utiliser la date originale du média si possible"
+msgstr "Utiliser la date originelle du média si possible"
 
 msgid "Search engines robots policy"
 msgstr "Paramètres d'indexation par les moteurs de recherche"
@@ -1358,8 +1358,11 @@ msgstr "Insertion de l'image"
 msgid "As a single image"
 msgstr "En tant qu'image uniquement"
 
-msgid "As a link to original image"
+msgid "As a link to the original image"
 msgstr "En tant que lien vers l'image originale"
+
+msgid "Insert a link to the original image"
+msgstr "Insérer le lien vers l'image originale"
 
 msgid "MP3 disposition"
 msgstr "Disposition du MP3"
@@ -2323,6 +2326,9 @@ msgstr "Le contenu XHTML est valide."
 
 msgid "There are XHTML markup errors."
 msgstr "Il y a des erreurs XHTML."
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr "Attention : la vérification porte sur un contenu non encore enregistré."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Vous avez des modifications non sauvegardées. Changer de format vous fera perdre ces modifications. Continuer ?"
@@ -3365,3 +3371,15 @@ msgstr "Afficher les favoris en haut du menu"
 
 msgid "Dashboard icons"
 msgstr "Icônes du tableau de bord"
+
+msgid "Go to dashboard"
+msgstr "Tableau de bord"
+
+msgid "Size of inserted image:"
+msgstr "Taille de l'image insérée :"
+
+msgid "Hide main menu"
+msgstr "Masquer le menu principal"
+
+msgid "Show main menu"
+msgstr "Afficher le menu principal"

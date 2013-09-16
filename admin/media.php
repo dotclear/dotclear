@@ -327,11 +327,20 @@ else
 	'</form>'.
 	
 	'<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
-	
-	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++, $j++)
+
+	$dgroup = '';
+	$fgroup = '';
+	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
 	{
-		echo mediaItemLine($items[$i],$j);
+		if ($items[$i]->d) {
+			$dgroup .= mediaItemLine($items[$i],$j);
+		} else {
+			$fgroup .= mediaItemLine($items[$i],$j);
+		}
 	}
+	echo 
+		($dgroup != '' ? '<div class="folders-group">'.$dgroup.'</div>' : '').
+		($fgroup != '' ? '<div class="files-group">'.$fgroup.'</div>' : '');
 	
 	echo
 	'<p class="clear pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
@@ -360,7 +369,6 @@ if ($core_media_writable)
 	echo
 	'<h4>'.__('Add files').'</h4>'.
 	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
-	'<p class="max-sizer form-note info">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>'.
 	'<form id="fileupload" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data" aria-disabled="false">'.
 	'<p>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</p>'.
@@ -371,13 +379,18 @@ if ($core_media_writable)
 
 	echo
 	'<p><label for="upfile">'.'<span class="add-label one-file">'.__('Choose file').'</span>'.'</label>'.
-	'<button class="button add">'.__('Choose files').'</button>'.
+	'<button class="button choose_files">'.__('Choose files').'</button>'.
 	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" /></p>';
+
+	echo
+	'<p class="max-sizer form-note">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>';
 
 	echo
 	'<p class="one-file"><label for="upfiletitle">'.__('Title:').'</label>'.form::field(array('upfiletitle','upfiletitle'),35,255).'</p>'.
 	'<p class="one-file"><label for="upfilepriv" class="classic">'.__('Private').'</label> '.
 	form::checkbox(array('upfilepriv','upfilepriv'),1).'</p>';
+
+
 
 	if (!$user_ui_enhanceduploader) {
 		echo
@@ -453,26 +466,29 @@ function mediaItemLine($f,$i)
 	
 	$fname = $f->basename;
 	
+	$class = 'media-item media-col-'.($i%2);
+	
 	if ($f->d) {
 		$link = html::escapeURL($page_url).'&amp;d='.html::sanitizeURL($f->relname);
 		if ($f->parent) {
 			$fname = '..';
+			$class .= ' media-folder-up';
+		} else {
+			$class .= ' media-folder';
 		}
 	} else {
 		$link =
 		'media_item.php?id='.$f->media_id.'&amp;popup='.$popup.'&amp;post_id='.$post_id;
 	}
 	
-	$class = 'media-item media-col-'.($i%2);
-	
 	$res =
-	'<div class="'.$class.'"><a class="media-icon media-link" href="'.$link.'">'.
-	'<img src="'.$f->media_icon.'" alt="" /></a>'.
-	'<ul>'.
-	'<li><a class="media-link" href="'.$link.'">'.$fname.'</a></li>';
+	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.$link.'">'.
+	'<img src="'.$f->media_icon.'" alt="" />'.$fname.'</a></p>';
+
+	$lst = '';
 	
 	if (!$f->d) {
-		$res .=
+		$lst .=
 		'<li>'.$f->media_title.'</li>'.
 		'<li>'.
 		$f->media_dtstr.' - '.
@@ -481,10 +497,11 @@ function mediaItemLine($f,$i)
 		'</li>';
 	}
 	
-	$res .= '<li class="media-action">&nbsp;';
+	$act = '';
 	
 	if ($post_id && !$f->d) {
-		$res .= '<form action="post_media.php" method="post">'.
+		$act .= 
+		'<form action="post_media.php" method="post">'.
 		'<input type="image" src="images/plus.png" alt="'.__('Attach this file to entry').'" '.
 		'title="'.__('Attach this file to entry').'" /> '.
 		form::hidden('media_id',$f->media_id).
@@ -495,24 +512,26 @@ function mediaItemLine($f,$i)
 	}
 	
 	if ($popup && !$f->d) {
-		$res .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
+		$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
 		'title="'.__('Insert this file into entry').'" /></a> ';
 	}
 	
 	if ($f->del) {
-		$res .= '<a class="media-remove" '.
+		$act .= '<a class="media-remove" '.
 		'href="'.html::escapeURL($page_url).'&amp;d='.
 		rawurlencode($GLOBALS['d']).'&amp;remove='.rawurlencode($f->basename).'">'.
 		'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
 	}
 	
-	$res .= '</li>';
+	$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
 	
 	if ($f->type == 'audio/mpeg3') {
-		$res .= '<li>'.dcMedia::mp3player($f->file_url,'index.php?pf=player_mp3.swf').'</li>';
+		$lst .= '<li>'.dcMedia::mp3player($f->file_url,'index.php?pf=player_mp3.swf').'</li>';
 	}
 	
-	$res .= '</ul></div>';
+	$res .=	($lst != '' ? '<ul>'.$lst.'</ul>' : '');
+
+	$res .= '</div>';
 	
 	return $res;
 }

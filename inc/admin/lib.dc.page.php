@@ -151,6 +151,10 @@ class dcPage
 		echo
 		'<div id="wrapper" class="clearfix">'."\n".
 		'<div id="main">'."\n".
+		'<div class="hidden-if-no-js"><a href="#" id="collapser">'.
+		'<img class="collapse-mm" src="images/collapser-hide.png" alt="'.__('Hide main menu').'" />'.
+		'<img class="expand-mm" src="images/collapser-show.png" alt="'.__('Show main menu').'" />'.
+		'</a></div>'.
 		'<div id="content" class="clearfix">'."\n";
 
 		# Safe mode
@@ -205,6 +209,7 @@ class dcPage
 
 		echo
 		'</div>'."\n".		// End of #main-menu
+
 		'<div id="footer">'.
 		'<span class="helplink"><a href="help.php">'.__('Global help').'</a></span> '.
 		'<a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
@@ -481,7 +486,7 @@ class dcPage
 	public static function jsCommon()
 	{
 		$mute_or_no = '';
-		if (!empty($GLOBALS['core']->blog->settings->system->jquery_migrate_mute)) {
+		if (empty($GLOBALS['core']->blog) || $GLOBALS['core']->blog->settings->system->jquery_migrate_mute) {
 			$mute_or_no .=
 				'<script type="text/javascript">'."\n".
 				"//<![CDATA[\n".
@@ -583,6 +588,8 @@ class dcPage
 			__('XHTML content is valid.')).
 		self::jsVar('dotclear.msg.xhtml_not_valid',
 			__('There are XHTML markup errors.')).
+		self::jsVar('dotclear.msg.warning_validate_no_save_content',
+			__('Attention: an audit of a content not yet registered.')).
 		self::jsVar('dotclear.msg.confirm_change_post_format',
 			__('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?')).
 		self::jsVar('dotclear.msg.confirm_change_post_format_noconvert',
@@ -809,8 +816,6 @@ public static function jsUpload($params=array(),$base_url=null)
 		));
 
 	return
-	'<link rel="stylesheet" type="text/css" href="style/jsUpload/style.css" />'."\n".
-
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA[\n".
 	"dotclear.jsUpload = {};\n".

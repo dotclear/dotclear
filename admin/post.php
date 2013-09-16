@@ -454,9 +454,9 @@ if ($can_edit_post)
 					'<h5 id="label_format"><label for="post_format" class="ib">'.__('Text formating').'</label></h5>'.
 					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
 					'</p>'.
-					'<p>'.($post_id && $post_format != 'xhtml' ? 
-					'<a id="convert-xhtml" class="button" href="post.php?id='.$post_id.'&amp;xconv=1">'.
-					__('Convert to XHTML').'</a>' : '').'</p></div>')),
+					'<p class="format_control control_no_xhtml">'.
+					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').'" href="post.php?id='.$post_id.'&amp;xconv=1">'.
+					__('Convert to XHTML').'</a></p></div>')),
 		'metas-box' => array(
 			'title' => __('Ordering'),
 			'items' => array(
@@ -532,7 +532,7 @@ if ($can_edit_post)
 			'</p>',
 		
 		"post_content" =>
-			'<p class="area"><label class="required" '.
+			'<p class="area" id="content-area"><label class="required" '.
 			'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
 			form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
 			'</p>',
