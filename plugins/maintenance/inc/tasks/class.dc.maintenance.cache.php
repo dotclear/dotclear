@@ -11,9 +11,21 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-$this->registerModule(
-	/* Name */			"Maintenance",
-	/* Description*/		"Maintain your installation",
-	/* Author */			"Olivier Meunier & Association Dotclear",
-	/* Version */			'1.3'
-);
+class dcMaintenanceCache extends dcMaintenanceTask
+{
+	protected $group = 'purge';
+
+	protected function init()
+	{
+		$this->task 		= __('Empty templates cache directory');
+		$this->success 		= __('Templates cache directory emptied.');
+		$this->error 		= __('Failed to empty templates cache directory.');
+	}
+
+	public function execute()
+	{
+		$this->core->emptyTemplatesCache();
+
+		return true;
+	}
+}

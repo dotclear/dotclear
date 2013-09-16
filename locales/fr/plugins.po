@@ -1097,6 +1097,60 @@ msgstr "Veuillez patientez…"
 msgid "Maintenance"
 msgstr "Maintenance"
 
+msgid "Optimize"
+msgstr "Optimiser"
+
+msgid "Count and index"
+msgstr "Compter et indexer"
+
+msgid "Purge"
+msgstr "Purger"
+
+msgid "Other"
+msgstr "Autre"
+
+msgid "Execute task"
+msgstr "Exécuter la tâche"
+
+msgid "Task successfully executed."
+msgstr "Tâche exécutée avec succès."
+
+msgid "Failed to execute task."
+msgstr "Impossible d'exécuter la tâche."
+
+msgid "Failed to empty templates cache directory."
+msgstr "Impossible de vider le répertoire de cache des « templates »."
+
+msgid "Failed to reset comments and ping counters."
+msgstr "Impossible de remettre à zéro les compteurs de commentaires et de signalements."
+
+msgid "Failed to index comments."
+msgstr "Impossible d'indexer les commentaires."
+
+msgid "Failed to index entries."
+msgstr "Impossible d'indexer les billets."
+
+msgid "Failed to delete logs."
+msgstr "Impossible de supprimer les journaux."
+
+msgid "Failed to vacuum tables."
+msgstr "Impossible de vider les tables."
+
+msgid "Maintain your installation"
+msgstr "Maintenez votre installation"
+
+msgid "Optimization successful."
+msgstr "Optimisation terminée avec succès."
+
+msgid "Comments and trackback counted."
+msgstr "Commentaires et rétroliens comptés."
+
+msgid "Templates cache directory emptied."
+msgstr "Le répertoire de cache des « templates » a été vidé."
+
+msgid "Logs deleted."
+msgstr "Les journaux ont été supprimés."
+
 msgid "Maintain your installation"
 msgstr "Maintenez votre installation"
 
