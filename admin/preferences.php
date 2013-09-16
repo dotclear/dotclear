@@ -575,13 +575,14 @@ if ($count > 0) {
 	'onclick="return window.confirm(\''.html::escapeJS(
 		__('Are you sure you want to remove selected favorites?')).'\');" /></p>'.
 
-	($core->auth->isSuperAdmin() ? 
+	($core->auth->isSuperAdmin() ?
 		'<div class="info">'.
 		'<p>'.__('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation.').'</p>'.
-		'<p><input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'" />' : 
+		'<p><input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'" />'.'</p>'.
+		'</div>'
+		:
 		'').
-		'</p>'.
-		'</div>'.
+
 	'</div>';
 } else {
 	echo
