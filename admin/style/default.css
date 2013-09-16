@@ -2205,6 +2205,18 @@ ul.nice {
 		margin:0;
 		padding: 0;
 		}
+ul.from-left {
+	list-style-type: none;
+	padding-left: 0;
+	margin: 1 0;
+	}
+	ul.from-left > li {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		}
+	ul.from-left ul {
+		list-style-type: square;
+		}
 .offline {
 	color: #676e78;
 	}
