@@ -181,6 +181,12 @@ class dcPage
 	{
 		global $core;
 
+		if (!$GLOBALS['__resources']['ctxhelp']) {
+			// Displau global help link in any contextual help displayed
+			echo
+			'<p id="help-button"><a href="help.php">'.__('Need help?').'</a></p>';
+		}
+
 		$menu =& $GLOBALS['_menu'];
 
 		echo
@@ -437,6 +443,9 @@ class dcPage
 			return;
 		}
 
+		// Set contextual help global flag
+		$GLOBALS['__resources']['ctxhelp'] = true;
+
 		echo
 		'<div id="help"><hr /><div class="help-content clear"><h3>'.__('Help about this page').'</h3>'.
 		$content.
@@ -515,7 +524,7 @@ class dcPage
 		self::jsVar('dotclear.img_menu_off','images/menu_off.png').
 
 		self::jsVar('dotclear.msg.help',
-			__('Help about this page')).
+			__('Need help?')).
 		self::jsVar('dotclear.msg.help_hide',
 			__('Hide')).
 		self::jsVar('dotclear.msg.to_select',
