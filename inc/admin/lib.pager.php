@@ -136,6 +136,8 @@ class adminGenericList
 		$this->core =& $core;
 		$this->rs =& $rs;
 		$this->rs_count = $rs_count;
+		$this->html_prev = __('&#171; prev.');
+		$this->html_next = __('next &#187;');		
 	}
 }
 
