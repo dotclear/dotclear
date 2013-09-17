@@ -102,10 +102,11 @@ class dcPager extends pager
 			'</strong></li>';
 			
 		$htmlDirect = 
-			sprintf('<li class="direct-access">'.__('Direct access page %s'),
-				form::field(array('page'),3,10)).
-			'<input type="submit" value="'.__('ok').'" class="reset" '.
-			'name="ok" />'.$this->form_hidden.'</li>';
+			($this->nb_pages > 1 ?
+				sprintf('<li class="direct-access">'.__('Direct access page %s'),
+					form::field(array('page'),3,10)).
+				'<input type="submit" value="'.__('ok').'" class="reset" '.
+				'name="ok" />'.$this->form_hidden.'</li>' : '');
 		
 		$res =	
 			'<form action="'.$this->form_action.'" method="get">'.
@@ -137,7 +138,7 @@ class adminGenericList
 		$this->rs =& $rs;
 		$this->rs_count = $rs_count;
 		$this->html_prev = __('&#171; prev.');
-		$this->html_next = __('next &#187;');		
+		$this->html_next = __('next &#187;');
 	}
 }
 
