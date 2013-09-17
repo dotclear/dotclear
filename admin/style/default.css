@@ -61,12 +61,12 @@
 	display: block;
 	float: left;
 	width: 1em;
-	background: #f3f3f3;
+	background: #f3f3f3 url(../images/collapser-hide.png) no-repeat center bottom;
 	margin-left: 14.5em;
 	border: none;
 	text-align: left;
 	overflow: hidden;
-	padding-top: 16px;
+	border-right: double #ddd;
 	}
 .expand-mm {
 	display:none;
@@ -87,7 +87,7 @@
 .hide-mm #collapser {
 	margin-left: 0;
 	text-align: right;
-	background-color: #e3e3e3; 
+	background: #e3e3e3 url(../images/collapser-show.png) no-repeat center bottom;
 	}
 .hide-mm .collapse-mm {
 	display: none;
