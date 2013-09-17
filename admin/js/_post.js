@@ -190,10 +190,6 @@ $(function() {
 			legend_click:true,
 			hide: $('#post_notes').val() == ''
 		});
-		$('#create_cat').toggleWithLegend($('#create_cat').parent().children().not('#create_cat'),{
-			// no cookie on new category as we don't use this every day
-			legend_click: true
-		});
 		$('#post_lang').parent().children('label').toggleWithLegend($('#post_lang'),{
 			user_pref: 'dcx_post_lang',
 			legend_click: true
@@ -215,8 +211,8 @@ $(function() {
 			user_pref: 'dcx_post_format',
 			legend_click: true
 		});
-		$('#cat_id').parent().children('label').toggleWithLegend($('#cat_id'),{
-			user_pref: 'cat_id',
+		$('#label_cat_id').toggleWithLegend($('#label_cat_id').parent().children().not('#label_cat_id'),{
+			user_pref: 'dcx_cat_id',
 			legend_click: true
 		});
 		$('#label_comment_tb').toggleWithLegend($('#label_comment_tb').parent().children().not('#label_comment_tb'),{
