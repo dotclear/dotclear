@@ -2121,23 +2121,23 @@ div.template-upload {
 			background-color: #ffe;
 			}
 /* Pagination */
-.pagination {
+.pager {
 	margin: 2em 0 1em 0;
 	clear: left;
 	}
-.pagination ul {
+.pager ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	}
-.pagination li, .pagination input {
+.pager li, .pager input {
 	display:inline-block;
 	vertical-align: middle;
 	margin: 0 .33em 0 0;
 	padding: 0;
 	text-align: center;
 	}
-	.pagination .btn {
+	.pager .btn {
 		border: 1px solid #ddd;
 		background-color: #fcfcfc;
 		color: #738182; 
@@ -2149,11 +2149,11 @@ div.template-upload {
 			background-color: #f9f9f9;
 			padding: 1px 3px 0;
 			}
-	.pagination .active {
+	.pager .active {
 		padding: 4px 12px; 
 		color: #676e78;
 		}
-	.pagination .direct-access {
+	.pager .direct-access {
 		margin-left: 2em;
 		}
 	.direct-access input[type=text] {
@@ -2165,12 +2165,14 @@ div.template-upload {
 	.direct-access input[type=submit] {
 		padding: 3px 6px; 
 		}
-.pagination a {
+.pager a {
 	display: block;
 	padding: 1px 3px 0;
 	border:none;
 	}
-.pagination a:hover, .pagination a:focus {background-color: #ecf0f1;}
+.pager a:hover, .pager a:focus {
+	background-color: #ecf0f1;
+	}
 /* Etapes */
 .step {
 	display: inline-block;

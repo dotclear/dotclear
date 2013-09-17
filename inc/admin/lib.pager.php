@@ -110,7 +110,7 @@ class dcPager extends pager
 		
 		$res =	
 			'<form action="'.$this->form_action.'" method="get">'.
-			'<div class="pagination"><ul>'.
+			'<div class="pager"><ul>'.
 			$htmlFirst.
 			$htmlPrev.
 			$htmlCurrent.
