@@ -441,7 +441,7 @@ class adminCommentList extends adminGenericList
 		$res .=
 		'<td class="nowrap">'.
 		form::checkbox(array('comments[]'),$this->rs->comment_id,'','','',0).'</td>'.
-		'<td class="nowrap" abbr="'.__('Type and author').'" scope="raw">'.
+		'<td class="nowrap" abbr="'.__('Type and author').'" scope="row">'.
 			'<a href="'.$comment_url.'" title="'.$comment_title.'">'.
 			'<img src="images/edit-mini.png" alt="'.__('Edit').'"/> '.
 			($this->rs->comment_trackback ? __('trackback') : __('comment')).' '.'</a></td>'.
