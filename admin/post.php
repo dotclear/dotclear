@@ -465,19 +465,20 @@ if ($can_edit_post)
 					form::checkbox('post_selected',1,$post_selected).' '.
 					__('Selected entry').'</label></p>',
 				'cat_id' =>
-					'<p><label for="cat_id" class="ib">'.__('Category').'</label>'.
+					'<div>'.
+					'<h5 id="label_cat_id">'.__('Category').'</h5>'.
+					'<p><label for="cat_id">'.__('Category:').'</label>'.
 					form::combo('cat_id',$categories_combo,$cat_id,'maximal').
 					'</p>'.
 					($core->auth->check('categories', $core->blog->id) ?
-						'<div>'.
 						'<h5 id="create_cat">'.__('Add a new category').'</h5>'.
 						'<p><label for="new_cat_title">'.__('Title:').' '.
 						form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
 						'<p><label for="new_cat_parent">'.__('Parent:').' '.
 						form::combo('new_cat_parent',$categories_combo,'','maximal').
-						'</label></p>'.
-						'</div>'
-					: ''))),
+						'</label></p>'
+					: '').
+					'</div>')),
 		'options-box' => array(
 			'title' => __('Options'),
 			'items' => array(
