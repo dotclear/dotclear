@@ -335,12 +335,12 @@ class dcPage
 
 	public static function success($msg,$timestamp=true,$div=false,$echo=true)
 	{
-		self::message($msg,$timestamp,$div,$echo,"success");
+		return self::message($msg,$timestamp,$div,$echo,"success");
 	}
 
 	public static function warning($msg,$timestamp=true,$div=false,$echo=true)
 	{
-		self::message($msg,$timestamp,$div,$echo,"warning-msg");
+		return self::message($msg,$timestamp,$div,$echo,"warning-msg");
 	}
 
 	private static function debugInfo()
