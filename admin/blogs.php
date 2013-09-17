@@ -127,10 +127,9 @@ if (!$core->error->flag())
 	}
 	else
 	{
-		$pager = new pager($page,$nb_blog,$nb_per_page,10);
-		$pager->var_page = 'page';
+		$pager = new dcPager($page,$nb_blog,$nb_per_page,10);
 		
-		echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+		echo $pager->getLinks();
 		
 		echo
 		'<table class="clear"><caption class="hidden">'.__('Blogs list').'</caption><tr>'.
@@ -147,7 +146,7 @@ if (!$core->error->flag())
 		
 		echo '</table>';
 		
-		echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+		echo $pager->getLinks();
 	}
 }
 

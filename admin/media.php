@@ -313,9 +313,7 @@ if (count($items) == 0)
 }
 else
 {
-	$pager = new pager($page,count($items),$nb_per_page,10);
-	$pager->html_prev = __($pager->html_prev);
-	$pager->html_next = __($pager->html_next);
+	$pager = new dcPager($page,count($items),$nb_per_page,10);
 	
 	echo
 	'<form action="media.php" method="get">'.
@@ -325,8 +323,7 @@ else
 	form::hidden(array('post_id'),$post_id).
 	'<input type="submit" value="'.__('Sort').'" /></p>'.
 	'</form>'.
-	
-	'<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+	$pager->getLinks();
 
 	$dgroup = '';
 	$fgroup = '';
@@ -342,8 +339,7 @@ else
 		($dgroup != '' ? '<div class="folders-group">'.$dgroup.'</div>' : '').
 		($fgroup != '' ? '<div class="files-group">'.$fgroup.'</div>' : '');
 	
-	echo
-	'<p class="clear pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+	echo $pager->getLinks();
 }
 if (!isset($pager)) {
 	echo

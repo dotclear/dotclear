@@ -13,7 +13,9 @@ if (!defined('DC_RC_PATH')) { return; }
 
 class dcPager extends pager
 {
-
+	protected $form_action;
+	protected $form_hidden;
+	
 	protected function getLink($li_class,$href,$img_src,$img_src_nolink,$img_alt,$enable_link) {
 		if ($enable_link) {
 			$formatter = '<li class="%s btn"><a href="%s"><img src="%s" alt="%s"/></a><span class="hidden">%s</span></li>';
@@ -25,7 +27,33 @@ class dcPager extends pager
 				$li_class,$img_src_nolink,$img_alt,$img_alt);
 		}
 	}
-
+	public function setURL() {
+		parent::setURL();
+		$url = parse_url($_SERVER['REQUEST_URI']);
+		if (isset($url['query'])) {
+			parse_str($url['query'],$args);
+		} else {
+			$args=array();
+		}
+		# Removing session information
+		if (session_id())
+		{
+			if (isset($args[session_name()]))
+				unset($args[session_name()]);
+		}
+		if (isset($args[$this->var_page])) {
+			unset($args[$this->var_page]);
+		}
+		if (isset($args['ok'])) {
+			unset($args['ok']);
+		}
+		$this->form_hidden = '';
+		foreach ($args as $k=>$v) {
+			$this->form_hidden .= form::hidden(array($k),$v);
+		}
+		$this->form_action = $url['path'];
+	}
+	
 	/**
 	* Pager Links
 	*
@@ -77,10 +105,10 @@ class dcPager extends pager
 			sprintf('<li class="direct-access">'.__('Direct access page %s'),
 				form::field(array('page'),3,10)).
 			'<input type="submit" value="'.__('ok').'" class="reset" '.
-			'name="ok" /></li>';
+			'name="ok" />'.$this->form_hidden.'</li>';
 		
 		$res =	
-			'<form action="'.$this->page_url.'" method="get">'.
+			'<form action="'.$this->form_action.'" method="get">'.
 			'<div class="pagination"><ul>'.
 			$htmlFirst.
 			$htmlPrev.
