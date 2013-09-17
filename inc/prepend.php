@@ -58,6 +58,7 @@ $__autoload['adminPostList']			= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminPostMiniList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminCommentList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminUserList']			= dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['dcPager']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['dcAdminCombos']			= dirname(__FILE__).'/admin/lib.admincombos.php';
 
 $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';

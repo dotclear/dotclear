@@ -24,10 +24,7 @@ class adminPageList extends adminGenericList
 		}
 		else
 		{
-			$pager = new pager($page,$this->rs_count,$nb_per_page,10);
-			$pager->html_prev = $this->html_prev;
-			$pager->html_next = $this->html_next;
-			$pager->var_page = 'page';
+			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
 			$html_block =
 			'<table class="clear"><tr>'.
@@ -43,7 +40,7 @@ class adminPageList extends adminGenericList
 				$html_block = sprintf($enclose_block,$html_block);
 			}
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 			
 			$blocks = explode('%s',$html_block);
 			
@@ -56,7 +53,7 @@ class adminPageList extends adminGenericList
 			
 			echo $blocks[1];
 			
-			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+			echo $pager->getLinks();
 		}
 	}
 	
