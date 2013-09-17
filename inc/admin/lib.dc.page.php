@@ -217,7 +217,6 @@ class dcPage
 		'</div>'."\n".		// End of #main-menu
 
 		'<div id="footer">'.
-		'<span class="helplink"><a href="help.php">'.__('Global help').'</a></span> '.
 		'<a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
 		'<!-- '."\n".
 '                  .'."\n".
