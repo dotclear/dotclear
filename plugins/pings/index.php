@@ -63,8 +63,8 @@ if (!empty($_GET['up'])) {
 
 echo
 '<form action="'.$p_url.'" method="post">'.
-'<p><label for="pings_active" class="classic">'.form::checkbox('pings_active',1,$core->blog->settings->pings->pings_active).'</label> '.
-__('Activate pings extension').'</p>';
+'<p><label for="pings_active" class="classic">'.form::checkbox('pings_active',1,$core->blog->settings->pings->pings_active).
+__('Activate pings extension').'</label></p>';
 
 $i = 0;
 foreach ($pings_uris as $n => $u)
