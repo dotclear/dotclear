@@ -215,6 +215,10 @@ $(function() {
 			user_pref: 'dcx_cat_id',
 			legend_click: true
 		});
+		$('#create_cat').toggleWithLegend($('#create_cat').parent().children().not('#create_cat'),{
+			// no cookie on new category as we don't use this every day
+			legend_click: true
+		});
 		$('#label_comment_tb').toggleWithLegend($('#label_comment_tb').parent().children().not('#label_comment_tb'),{
 			user_pref: 'dcx_comment_tb',
 			legend_click: true

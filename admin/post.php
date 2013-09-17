@@ -471,12 +471,14 @@ if ($can_edit_post)
 					form::combo('cat_id',$categories_combo,$cat_id,'maximal').
 					'</p>'.
 					($core->auth->check('categories', $core->blog->id) ?
+						'<div>'.
 						'<h5 id="create_cat">'.__('Add a new category').'</h5>'.
 						'<p><label for="new_cat_title">'.__('Title:').' '.
 						form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
 						'<p><label for="new_cat_parent">'.__('Parent:').' '.
 						form::combo('new_cat_parent',$categories_combo,'','maximal').
-						'</label></p>'
+						'</label></p>'.
+						'</div>'
 					: '').
 					'</div>')),
 		'options-box' => array(
