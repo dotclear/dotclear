@@ -3389,3 +3389,6 @@ msgstr "Aller à la page : %s"
 
 msgid "Page %s / %s"
 msgstr "Page %s / %s"
+
+msgid "Need help?"
+msgstr "Besoin d'aide ?"

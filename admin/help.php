@@ -96,5 +96,8 @@ dcPage::open(__('Global help'),
 
 echo $content_array['content'];
 
+// Prevents global help link display
+$GLOBALS['__resources']['ctxhelp'] = true;
+
 dcPage::close();
 ?>

@@ -215,6 +215,8 @@ if ($core->auth->userID() && $core->blog !== null)
 		}
 	}
 	unset($hfiles,$locales_root);
+	// Contextual help flag
+	$GLOBALS['__resources']['ctxhelp'] = false;
 
 	$core->auth->user_prefs->addWorkspace('interface');
 	$user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
