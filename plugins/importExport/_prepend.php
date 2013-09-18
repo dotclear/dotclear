@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-global $__autoload,$core;
+global $__autoload;
 
 $__autoload['dcIeModule'] = 	dirname(__FILE__).'/inc/class.dc.ieModule.php';
 
@@ -27,7 +27,7 @@ $__autoload['flatBackup'] = 	dirname(__FILE__).'/inc/flat/class.flat.backup.php'
 $__autoload['flatImport'] = 	dirname(__FILE__).'/inc/flat/class.flat.import.php';
 $__autoload['flatExport'] = 	dirname(__FILE__).'/inc/flat/class.flat.export.php';
 
-$core->addBehavior('importExportModules','registerIeModules');
+$this->core->addBehavior('importExportModules','registerIeModules');
 
 function registerIeModules($modules)
 {
@@ -40,5 +40,16 @@ function registerIeModules($modules)
 		$modules['import'] = array_merge($modules['import'],array('dcImportDC1'));
 		$modules['import'] = array_merge($modules['import'],array('dcImportWP'));
 	}
+}
+
+$__autoload['ieMaintenanceExportblog'] = dirname(__FILE__).'/inc/lib.ie.maintenance.php';
+$__autoload['ieMaintenanceExportfull'] = dirname(__FILE__).'/inc/lib.ie.maintenance.php';
+
+$this->core->addBehavior('dcMaintenanceRegister', 'ieMaintenanceRegister');
+
+function ieMaintenanceRegister($core, $tasks, $groups, $tabs)
+{
+	$tasks[] = 'ieMaintenanceExportblog';
+	$tasks[] = 'ieMaintenanceExportfull';
 }
 ?>

@@ -27,6 +27,7 @@ class dcMaintenanceTask
 
 	protected $id;
 	protected $name;
+	protected $tab = 'maintenance';
 	protected $group = 'other';
 
 	protected $task;
@@ -111,6 +112,16 @@ class dcMaintenanceTask
 	public function name()
 	{
 		return $this->name;
+	}
+
+	/**
+	 * Get task tab.
+	 *
+	 * @return	<b>mixed</b>	Task tab ID or null
+	 */
+	public function tab()
+	{
+		return $this->tab;
 	}
 
 	/**
@@ -209,5 +220,18 @@ class dcMaintenanceTask
 	public function execute()
 	{
 		return null;
+	}
+
+	/**
+	 * Log task execution.
+	 *
+	 * Sometimes we need to log task execution 
+	 * direct from task itself.
+	 *
+	 */
+	protected function log()
+	{
+		$maintenance = new dcMaintenance($this->core);
+		$maintenance->setLog($this->id);
 	}
 }

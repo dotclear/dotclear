@@ -860,6 +860,10 @@ msgstr ""
 msgid "Upload a backup file"
 msgstr ""
 
+#, php-format
+msgid "maximum size %s"
+msgstr ""
+
 msgid "or pick up a local file in your public directory"
 msgstr ""
 
@@ -867,6 +871,9 @@ msgid "Import a full backup file"
 msgstr ""
 
 msgid "Warning: This will reset all the content of your database, except users."
+msgstr ""
+
+msgid "File is empty or not a compressed file."
 msgstr ""
 
 msgid "WordPress import"
@@ -930,10 +937,28 @@ msgstr ""
 msgid "The backup file does not appear to be well formed."
 msgstr ""
 
+msgid "Database export"
+msgstr ""
+
+msgid "Download database of current blog"
+msgstr ""
+
+msgid "Zip file ready to download."
+msgstr ""
+
+msgid "Download database of all blogs"
+msgstr ""
+
 msgid "Please wait..."
 msgstr ""
 
 msgid "Maintenance"
+msgstr ""
+
+msgid "Servicing"
+msgstr ""
+
+msgid "Backup"
 msgstr ""
 
 msgid "Optimize"
@@ -946,6 +971,12 @@ msgid "Purge"
 msgstr ""
 
 msgid "Other"
+msgstr ""
+
+msgid "Compressed file for current blog"
+msgstr ""
+
+msgid "Compressed file for all blogs"
 msgstr ""
 
 msgid "Execute task"
@@ -1055,6 +1086,12 @@ msgid "Empty templates cache directory"
 msgstr ""
 
 msgid "Empty directory"
+msgstr ""
+
+msgid "Download media folder of current blog"
+msgstr ""
+
+msgid "Download active theme of current blog"
 msgstr ""
 
 msgid "Pages"

@@ -993,6 +993,10 @@ msgstr "Téléversez un fichier de sauvegarde"
 
 #, php-format
 msgid "maximum size %s"
+msgstr "taille maximum de %s"
+
+#, php-format
+msgid "maximum size %s"
 msgstr ""
 
 msgid "or pick up a local file in your public directory"
@@ -1000,6 +1004,9 @@ msgstr "ou sélectionnez un fichier local présent dans votre répertoire de mé
 
 msgid "This will reset all the content of your database, except users."
 msgstr "Attention : Cela supprimera au préalable tout le contenu de votre base de données à l'exception des utilisateurs."
+
+msgid "File is empty or not a compressed file."
+msgstr "Le fichier est vide ou n'est pas un fichier compressé."
 
 msgid "Another file with same name exists."
 msgstr "Un autre fichier portant ce nom existe déjà."
@@ -1072,11 +1079,29 @@ msgstr "Ce fichier n'est pas un fichier de sauvegarde complet."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "L'ID de \"%3$s\" ne correspond pas dans l'enregistrement \"%1$s\" à la ligne %2$s du fichier de sauvegarde."
 
+msgid "Database export"
+msgstr "Export de base de données"
+
+msgid "Download database of current blog"
+msgstr "Télécharger la base de données du blog courant"
+
+msgid "Zip file ready to be downloaded."
+msgstr "Fichier Zip prêt à être télécharger."
+
+msgid "Download database of all blogs"
+msgstr "Télécharger la base de données de tous les blogs"
+
 msgid "Please wait..."
 msgstr "Veuillez patientez…"
 
 msgid "Maintenance"
 msgstr "Maintenance"
+
+msgid "Servicing"
+msgstr "Entretien"
+
+msgid "Backup"
+msgstr "Sauvegarde"
 
 msgid "Optimize"
 msgstr "Optimiser"
@@ -1089,6 +1114,12 @@ msgstr "Purger"
 
 msgid "Other"
 msgstr "Autre"
+
+msgid "Compressed file for current blog"
+msgstr "Fichier compressé pour le blog courant"
+
+msgid "Compressed file for all blogs"
+msgstr "Fichier compressé pour tous les blogs"
 
 #, php-format
 msgid "One task to update"
@@ -1172,6 +1203,12 @@ msgstr "Optimisation terminée avec succès."
 
 msgid "Failed to vacuum tables."
 msgstr "Impossible de vider les tables."
+
+msgid "Download media folder of current blog"
+msgstr "Télécharger le dossier media du blog courant"
+
+msgid "Download active theme of current blog"
+msgstr "Télécharger le theme actif du blog courant"
 
 msgid "Back"
 msgstr "Retour"
