@@ -29,6 +29,9 @@
 	padding-top: 1em;
 	background: #f7f7f7 url(bg_wrapper.png) repeat-y 15.5em;
 	}
+.with-js #wrapper {
+	padding-top: 0;
+	}
 #main {
 	width: 100%;
 	float: right;
@@ -822,6 +825,7 @@ div.warn, div.warning, div.info {
 	left: 0;
 	background: #A2CBE9;
 	width: 100%;
+	z-index: 100;
 	}
 	#prelude li {
 		list-style-type: none;
@@ -892,12 +896,23 @@ div.warn, div.warning, div.info {
 			margin: 0;
 			display: inline;
 			}
+		.with-js #info-box1 .hidden-if-js {
+			display: none;
+			}
 		#info-box1 select {
 			width: 145px; /* ie < 9 sucks */
 			width: 14.5em;
 			}
 		#info-box1 a {
 			margin-left: 1.33em;
+			}
+		#info-box1 input[type=submit] {
+			background: #000;
+			border-color: #999;
+			margin-left: .33em; 
+			}
+		#info-box1 input[type=submit]:hover {
+			background: #999;
 			}
 	#info-box2 {
 		margin: 0;
@@ -1086,9 +1101,12 @@ div.warn, div.warning, div.info {
 	padding: 0 1.5em 0 30px;
 	cursor: pointer;
 	color: #2373A8;
-	line-height: 42px; /* ie < 9 sucks */
-	line-height: 4.2rem;
+	line-height: 36px; /* ie < 9 sucks */
+	line-height: 3.6rem;
 	}
+	.no-js #help-button {
+		top: 1em;
+		}
 	#help-button span {
 		padding: .5em 0 .1em 0;
 		border-bottom: 1px solid #2373A8;
@@ -1126,16 +1144,6 @@ div.warn, div.warning, div.info {
 /* 1. inside help block */
 #helplink p {
 	padding: 0 0 0 .5em;
-	}
-/* 2. in footer */
-span.helplink {
-	display: block;
-	float: left;
-	padding: 0 1.5em 0 30px;
-	background: transparent url(../images/page_help.png) no-repeat 6px center;
-	}
-span.helplink a {
-	border-bottom: 1px solid #2373A8;
 	}
 /* ------------------------------------------------------------------ FOOTER ELEMENTS */
 #footer p {
@@ -1904,6 +1912,7 @@ div.template-upload {
 		text-transform: uppercase;
 		font-weight: bold;
 		margin-top: 2em;
+		display: inline-block;
 		}
 	#entry-content label:first-child {
 		margin-top: 0;

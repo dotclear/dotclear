@@ -2031,3 +2031,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Blog settings"
 #~ msgstr "Paramètres du blog"
+
+msgid "Introduction to the page."
+msgstr "Introduction à la page."
