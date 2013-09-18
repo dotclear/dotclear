@@ -337,7 +337,7 @@ else
 	}
 	echo 
 		($dgroup != '' ? '<div class="folders-group">'.$dgroup.'</div>' : '').
-		($fgroup != '' ? '<div class="files-group">'.$fgroup.'</div>' : '');
+		'<div class="files-group">'.$fgroup.'</div>';
 	
 	echo $pager->getLinks();
 }
