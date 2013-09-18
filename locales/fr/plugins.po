@@ -1091,7 +1091,9 @@ msgid "Other"
 msgstr "Autre"
 
 msgid "One task to update"
-msgstr "Une tâche à mettre à jour"
+msgid_plural "%s tasks to update"
+msgstr[] "Une tâche à mettre à jour"
+msgstr[] "%s tâches à mettre à jour"
 
 msgid "Show maintenance tasks to update."
 msgstr "Afficher les tâches de maintenance à mettre à jour."
