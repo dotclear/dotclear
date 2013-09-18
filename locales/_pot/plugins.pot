@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-18 10:02+0000\n"
+"POT-Creation-Date: 2013-09-18 11:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: plugins/aboutConfig/index.php:78 plugins/userPref/index.php:74
 msgid "no"
@@ -1561,8 +1562,11 @@ msgid "Other"
 msgstr ""
 
 #: plugins/maintenance/_admin.php:110
+#, php-format
 msgid "One task to update"
-msgstr ""
+msgid_plural "%s tasks to update"
+msgstr[0] ""
+msgstr[1] ""
 
 #: plugins/maintenance/_admin.php:136
 msgid "Show maintenance tasks to update."

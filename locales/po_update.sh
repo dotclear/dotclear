@@ -56,7 +56,7 @@ extract_strings()
 	$XGETTEXT \
 	-f- \
 	--sort-by-file \
-	-L PHP -k__ \
+	-L PHP -k"__:1,2" -k"__:1" \
 	--no-wrap \
 	--foreign-user \
 	--from-code=UTF-8 \

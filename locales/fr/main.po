@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-18 10:02+0000\n"
+"POT-Creation-Date: 2013-09-18 11:57+0000\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -647,8 +647,11 @@ msgstr "Vous ne pouvez déplacer les billets vers la catégorie que vous voulez 
 msgid "Categories"
 msgstr "Catégories"
 
+#, fuzzy
 msgid "The category has been successfully removed."
-msgstr "La catégorie a été supprimée avec succès."
+msgid_plural "The categories have been successfully removed."
+msgstr[0] "Catégorie déplacée avec succès."
+msgstr[1] "Catégories déplacées avec succès."
 
 msgid "Categories have been successfully reordered."
 msgstr "Catégories réordonnées avec succès."
@@ -3259,6 +3262,10 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
+#, fuzzy
+#~ msgid "The categories have been successfully removed."
+#~ msgstr "La catégorie a été supprimée avec succès."
+
 #~ msgid "more information"
 #~ msgstr "plus d'informations"
 
@@ -3300,9 +3307,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "The category has been successfully created."
 #~ msgstr "Catégorie créée avec succès."
-
-#~ msgid "The category has been successfully moved."
-#~ msgstr "Catégorie déplacée avec succès."
 
 #~ msgid "List of blog's categories"
 #~ msgstr "Liste des catégories du blog"

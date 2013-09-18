@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-18 10:02+0000\n"
+"POT-Creation-Date: 2013-09-18 11:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: admin/auth.php:45 inc/libs/clearbricks/tests/unit/common/lib.l10n.php:49
 #: inc/libs/clearbricks/tests/unit/common/lib.l10n.php:103
@@ -906,7 +907,9 @@ msgstr ""
 #: inc/libs/clearbricks/tests/unit/common/lib.l10n.php:90
 #: inc/libs/clearbricks/tests/unit/common/lib.l10n.php:94
 msgid "The category has been successfully removed."
-msgstr ""
+msgid_plural "The categories have been successfully removed."
+msgstr[0] ""
+msgstr[1] ""
 
 #: admin/categories.php:114
 msgid "Categories have been successfully reordered."
