@@ -146,7 +146,7 @@ else
 
 	echo
 	'<form action="'.$p_url.'" method="post" class="fieldset">'.
-	'<h3>'.__('Informations').'</h3>';
+	'<h3>'.__('Information').'</h3>';
 
 	if (!empty($_GET['del'])) {
 		dcPage::success(__('Spam comments have been successfully deleted.'));

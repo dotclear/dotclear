@@ -71,7 +71,7 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 			try
 			{
 				if ($u == $core->auth->userID()) {
-					throw new Exception(__('Not delete yourself.'));
+					throw new Exception(__('You cannot delete yourself.'));
 				}
 				
 				# --BEHAVIOR-- adminBeforeUserDelete
