@@ -288,6 +288,7 @@ function init_prepend_l10n()
 	foreach($dlang as $l)
 	{
 		if ($l == 'en' || l10n::set(dirname(__FILE__).'/../locales/'.$l.'/main') !== false) {
+			l10n::lang($l);
 			break;
 		}
 	}

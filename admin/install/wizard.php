@@ -37,7 +37,7 @@ require CLEARBRICKS_PATH.'/_common.php';
 $dlang = http::getAcceptLanguage();
 if ($dlang != 'en')
 {
-	l10n::init();
+	l10n::init($dlang);
 	l10n::set(dirname(__FILE__).'/../../locales/'.$dlang.'/main');
 }
 
