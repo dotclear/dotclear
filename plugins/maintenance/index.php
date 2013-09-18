@@ -22,6 +22,7 @@ $maintenance = new dcMaintenance($core);
 $headers = '';
 $p_url = 'plugin.php?p=maintenance';
 $task = null;
+$expired = array();
 
 $code = empty($_POST['code']) ? null : (integer) $_POST['code'];
 $tab = empty($_REQUEST['tab']) ? 'maintenance' : $_REQUEST['tab'];
@@ -47,12 +48,19 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 			throw new Exception($task->error());
 		}
 		if (true === $code) {
+			$maintenance->setLog($task->id());
 			http::redirect($p_url.'&task='.$task->id().'&done=1&tab='.$tab);
 		}
 	}
 	catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
+}
+
+// Get expired tasks
+$user_options = $core->auth->getOptions();
+if (!empty($user_options['user_maintenance_expired'])) {
+	$expired = $maintenance->getExpired();
 }
 
 // Display page
@@ -143,9 +151,19 @@ else {
 			}
 
 			$res .=  
-			'<p>'.form::radio(array('task', $t->id()),$t->id()).' '.
+			'<p>'.form::radio(array('task', $t->id()), $t->id()).' '.
 			'<label class="classic" for="'.$t->id().'">'.
-			html::escapeHTML($t->task()).'</label></p>';
+			html::escapeHTML($t->task()).'</label>';
+
+			if (array_key_exists($t->id(), $expired)) {
+				$res .= 
+				' <span class="clear form-note warn">'.sprintf(
+					__('Last execution of this task was on %s. You should execute it again.'),
+					dt::dt2str(__('%Y-%m-%d %H:%M'), $expired[$t->id()])
+				).'</span>';
+			}
+
+			$res .= '</p>';
 		}
 
 		if (!empty($res)) {
