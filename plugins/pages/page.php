@@ -467,7 +467,7 @@ if ($can_edit_page)
 		
 		"post_excerpt" =>
 			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').' <span class="form-note">'.
-			__('Introduction to the post.').'</span></label> '.
+			__('Introduction to the page.').'</span></label> '.
 			form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 			'</p>',
 		

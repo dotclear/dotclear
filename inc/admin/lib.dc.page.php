@@ -77,7 +77,7 @@ class dcPage
 			$core->formNonce().
 			form::combo('switchblog',$blogs,$core->blog->id).
 			'</p>'.
-			'<noscript><p><input type="submit" value="'.__('ok').'" /></p></noscript>';
+			'<p class="hidden-if-js"><input type="submit" value="'.__('ok').'" /></p>';
 		}
 
 		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
@@ -137,13 +137,16 @@ class dcPage
 		'<div id="info-box1">'.
 		'<form action="index.php" method="post">'.
 		$blog_box.
-		'<p class="nomobile"><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').'<img src="images/outgoing.png" alt="" /></a>'.
+		'<p class="nomobile"><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').
+		' ('.__('new window').')'.'">'.__('Go to site').'<img src="images/outgoing.png" alt="" /></a>'.
 		'</p></form>'.
 		'</div>'.
 		'<div id="info-box2">'.
 		'<a class="smallscreen'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a>'.
-		'<span class="smallscreen"> | </span><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="preferences.php">'.__('My preferences').'</a>'.
-		'<span class="smallscreen"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).'<img src="images/logout.png" alt="" /></a>'.
+		'<span class="smallscreen"> | </span><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').
+		'" href="preferences.php">'.__('My preferences').'</a>'.
+		'<span class="smallscreen"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).
+		'<img src="images/logout.png" alt="" /></a>'.
 		'</div>'.
 		'</div>'.
 		'</div>';
