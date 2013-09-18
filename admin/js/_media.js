@@ -67,7 +67,7 @@
 				displayMessageInQueue($('.files .template-upload',me).length);
 			}).bind('fileuploaddone', function(e, data) {
 				if (data.result.files[0].html !==undefined) {
-					$('.media-list p.clear').before(data.result.files[0].html);
+					$('.media-list .files-group').append(data.result.files[0].html);
 				}
 				$('.button.clean',me).show();
 			}).bind('fileuploadalways', function(e, data) {
