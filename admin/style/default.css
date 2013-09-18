@@ -773,6 +773,7 @@ div.warn, div.warning, div.info {
 		}
 		.success {
 			background: #bee74b url(msg-success.png) no-repeat .7em .7em;
+			background-color: #a2f157;
 			}
 		.warning-msg {
 			background: #F7E07E url(msg-warning.png) no-repeat .7em .7em;
@@ -1307,8 +1308,14 @@ tr.expand td {
 	border-radius: 3px;
 	background: #fff;
 	}
-#login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit] {
+#login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit],
+#login-screen input[type=text]:focus, #login-screen input[type=password]:focus, #login-screen input[type=submit]:focus {
 	width: 100%;
+	margin: 0; 
+	padding: 5px 3px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box; 
 	}
 	#login-screen input.login {
 		padding-top: 6px;
