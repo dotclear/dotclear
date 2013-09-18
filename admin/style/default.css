@@ -24,6 +24,7 @@
 	width: 100%;
 	}
 #wrapper {
+	position: relative;
 	width: 100%;
 	padding-top: 1em;
 	background: #f7f7f7 url(bg_wrapper.png) repeat-y 15.5em;
@@ -58,15 +59,16 @@
 	}
 /* to hide main-menu */
 #collapser {
-	display: block;
-	float: left;
+	position: absolute;
+	top: 0;
+	left: 14.5em;
 	width: 1em;
-	background: #f3f3f3 url(../images/collapser-hide.png) no-repeat center bottom;
-	margin-left: 14.5em;
-	border: none;
-	text-align: left;
+	height: 100%;
 	overflow: hidden;
-	border-right: double #ddd;
+	display: block;
+	background: #f3f3f3 url(../images/collapser-hide.png) no-repeat center bottom;
+	border-right: double #dfdfdf;
+	z-index: 1;
 	}
 .expand-mm {
 	display:none;
@@ -85,8 +87,7 @@
 	display: none;
 	}
 .hide-mm #collapser {
-	margin-left: 0;
-	text-align: right;
+	left: 0;
 	background: #e3e3e3 url(../images/collapser-show.png) no-repeat center bottom;
 	}
 .hide-mm .collapse-mm {
@@ -95,11 +96,6 @@
 .hide-mm .expand-mm {
 	display: block;
 	}
-/* if no js activated */
-.no-js #content {
-	margin-left: 14.5em;
-	}
-
 /* -------------------------------------------------------------- layout: two-cols */
 .two-cols {
 	position: static;
@@ -1072,8 +1068,7 @@ div.warn, div.warning, div.info {
 	#content.with-help #help {
 		display: block;
 		position: absolute;
-		top: 36px; /* ie < 9 sucks */
-		top: 3.6rem;
+		top: 0;
 		right: 0;
 		width: 280px; /* ie < 9 sucks */
 		width: 28rem;
@@ -1086,9 +1081,8 @@ div.warn, div.warning, div.info {
 #help-button {
 	background: transparent url(../images/page_help.png) no-repeat 6px center;
 	position: absolute;
-	top: 36px; /* ie < 9 sucks */
-	top: 3.6rem;
-	right: 0px;
+	top: 0;
+	right: 0;
 	padding: 0 1.5em 0 30px;
 	cursor: pointer;
 	color: #2373A8;
@@ -1104,6 +1098,7 @@ div.warn, div.warning, div.info {
 		right: 28.2rem;
 		background-color: #f5f5f5;
 		position: fixed;
+		top: 40px;
 		border-top: 2px solid #FFD478;
 		border-left: 2px solid #FFD478;
 		border-bottom: 2px solid #FFD478;
@@ -1351,17 +1346,11 @@ tr.expand td {
 			color: #333;
 			}
 		#icons a img {
-			padding: 2em;
-			-moz-box-shadow: 0px 1px 0px 0px #ffffff;
-			-webkit-box-shadow: 0px 1px 0px 0px #ffffff;
-			box-shadow: 0px 1px 0px 0px #ffffff;
-			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
-			background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
-			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+			padding: 1.5em;
 			background-color:#f9f9f9;
-			-moz-border-radius:1em;
-			-webkit-border-radius:1em;
-			border-radius:1em;
+			-moz-border-radius:8px;
+			-webkit-border-radius:8px;
+			border-radius:8px;
 			border:1px solid #dcdcdc;
 			display:inline-block;
 			}

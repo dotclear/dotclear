@@ -150,11 +150,11 @@ class dcPage
 
 		echo
 		'<div id="wrapper" class="clearfix">'."\n".
-		'<div id="main">'."\n".
-		'<div class="hidden-if-no-js"><a href="#" id="collapser">'.
+		'<div class="hidden-if-no-js collapser-box"><a href="#" id="collapser">'.
 		'<img class="collapse-mm" src="images/collapser-hide.png" alt="'.__('Hide main menu').'" />'.
 		'<img class="expand-mm" src="images/collapser-show.png" alt="'.__('Show main menu').'" />'.
 		'</a></div>'.
+		'<div id="main">'."\n".
 		'<div id="content" class="clearfix">'."\n";
 
 		# Safe mode
@@ -215,7 +215,9 @@ class dcPage
 
 		echo
 		'</div>'."\n".		// End of #main-menu
+		"</div>\n";		// End of #wrapper
 
+		echo
 		'<div id="footer">'.
 		'<a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
 		'<!-- '."\n".
@@ -225,8 +227,7 @@ class dcPage
 '      _____/LLLL\_'."\n".
 '      \__________"|'."\n".
 '    ~^~^~^~^~^~^~^~^~^~'."\n".
-' -->'."\n".
-		"</div>\n";		// End of #wrapper
+' -->'."\n";
 
 		if (defined('DC_DEV') && DC_DEV === true) {
 			echo self::debugInfo();
