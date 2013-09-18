@@ -13,17 +13,8 @@ $(function() {
 		});
 	}
 
-	$('.checkboxes-helpers').each(function() {
-		dotclear.checkboxesHelpers(this);
-	});
-
-	$('input[name="delete"]').click(function() {
-		var nb_ckecked = $('input[name="categories[]"]:checked').length;
-		if (nb_ckecked==0) {
-			return false;
-		}
-
-		return window.confirm(dotclear.msg.confirm_delete_categories.replace('%s',nb_ckecked));
+	$('input[name^="delete"]').click(function() {
+		return window.confirm(dotclear.msg.confirm_delete_category.replace('%s',$(this).parent().find('label a').text()));
 	});
 
 	$('input[name="reset"]').click(function() {
