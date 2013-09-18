@@ -165,8 +165,8 @@ else
 
 		if ($rs->nb_total>0) {
 			// remove current category
-			echo 
-			form::combo('mov_cat['.$rs->cat_id.']',array_filter($categories_combo, function($cat) use ($rs) {return ($cat->value!=$rs->cat_id);}),'','').
+			echo			   
+			form::combo('mov_cat['.$rs->cat_id.']',array_filter($categories_combo, create_function('$cat', 'return $cat->value!=$GLOBALS[\'rs\']->cat_id;')),'','').
 			'<input type="submit" class="" name="mov['.$rs->cat_id.']" value="'.__('Ok').'"/>';
 		   
 			$attr_disabled = ' disabled="disabled"';
