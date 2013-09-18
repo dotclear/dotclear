@@ -42,13 +42,19 @@ class dcMaintenanceAdmin
 	 * @param	$core	<b>dcCore</b>	dcCore instance
 	 * @param	$tasks	<b>arrayObject</b>	Array of tasks to register
 	 * @param	$groups	<b>arrayObject</b>	Array of groups to register
+	 * @param	$tabs	<b>arrayObject</b>	Array of tabs to register
 	 */
-	 public static function register($core, $tasks, $groups)
+	 public static function register($core, $tasks, $groups, $tabs)
 	{
+		$tabs['maintenance'] = __('Servicing');
+		$tabs['backup'] = __('Backup');
+
 		$groups['optimize'] = __('Optimize');
 		$groups['index'] = __('Count and index');
 		$groups['purge'] = __('Purge');
 		$groups['other'] = __('Other');
+		$groups['zipblog'] = __('Compressed file for current blog');
+		$groups['zipfull'] = __('Compressed file for all blogs');
 
 		$tasks[] = 'dcMaintenanceCache';
 		$tasks[] = 'dcMaintenanceCountcomments';
@@ -56,6 +62,8 @@ class dcMaintenanceAdmin
 		$tasks[] = 'dcMaintenanceIndexposts';
 		$tasks[] = 'dcMaintenanceLogs';
 		$tasks[] = 'dcMaintenanceVacuum';
+		$tasks[] = 'dcMaintenanceZipmedia';
+		$tasks[] = 'dcMaintenanceZiptheme';
 	}
 
 	/**

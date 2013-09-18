@@ -23,5 +23,7 @@ $__autoload['dcMaintenanceIndexcomments'] = dirname(__FILE__).'/inc/tasks/class.
 $__autoload['dcMaintenanceIndexposts'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.indexposts.php';
 $__autoload['dcMaintenanceLogs'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.logs.php';
 $__autoload['dcMaintenanceVacuum'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.vacuum.php';
+$__autoload['dcMaintenanceZipmedia'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.zipmedia.php';
+$__autoload['dcMaintenanceZiptheme'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.ziptheme.php';
 
 $this->core->rest->addFunction('dcMaintenanceStep', array('dcMaintenanceRest', 'step'));

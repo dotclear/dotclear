@@ -26,6 +26,7 @@ class dcMaintenance
 {
 	private $core;
 	private $tasks = array();
+	private $tabs = array();
 	private $groups = array();
 
 	/**
@@ -40,12 +41,13 @@ class dcMaintenance
 		$this->core = $core;
 
 		$tasks = new ArrayObject();
+		$tabs = new ArrayObject();
 		$groups = new ArrayObject();
 
 		# --BEHAVIOR-- dcMaintenanceRegister
-		$core->callBehavior('dcMaintenanceRegister', $core, $tasks, $groups);
+		$core->callBehavior('dcMaintenanceRegister', $core, $tasks, $groups, $tabs);
 
-		$this->init($tasks, $groups);
+		$this->init($tasks, $groups, $tabs);
 	}
 
 	/**
@@ -53,8 +55,9 @@ class dcMaintenance
 	 *
 	 * @param	tasks	<b>arrayObject</b>	Array of task to register
 	 * @param	groups	<b>arrayObject</b>	Array of groups to add
+	 * @param	tabs	<b>arrayObject</b>	Array of tabs to add
 	 */
-	public function init($tasks, $groups)
+	public function init($tasks, $groups, $tabs)
 	{
 		$this->tasks = $this->groups = array();
 
@@ -78,6 +81,32 @@ class dcMaintenance
 		{
 			$this->groups[(string) $id] = (string) $name;
 		}
+
+		foreach($tabs as $id => $name)
+		{
+			$this->tabs[(string) $id] = (string) $name;
+		}
+	}
+
+	/**
+	 * Get a tab name.
+	 *
+	 * @param	id	<b>string</b> Tab ID
+	 * @return	<b>mixed</b> tab name or null if not exists
+	 */
+	public function getTab($id)
+	{
+		return array_key_exists($id, $this->tabs) ? $this->tabs[$id] : null;
+	}
+
+	/**
+	 * Get tabs.
+	 *
+	 * @return	<b>array</b> Array of tabs ID and name
+	 */
+	public function getTabs()
+	{
+		return $this->tabs;
 	}
 
 	/**

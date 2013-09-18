@@ -69,7 +69,7 @@ echo '<html><head>
 <title>'.__('Maintenance').'</title>'.
 dcPage::jsPageTabs($tab);
 
-if ($task) {
+if (0){//$task) {
 	echo 
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA\n".
@@ -136,48 +136,57 @@ else {
 
 	// Simple task (with only a button to start it)
 
-	echo 
-	'<div id="maintenance" class="multi-part" title="'.__('Maintenance').'">'.
-	'<h3>'.__('Maintenance').'</h3>'.
-	'<form action="'.$p_url.'" method="post">';
-
-	foreach($maintenance->getGroups($core) as $g_id => $g_name)
+	foreach($maintenance->getTabs() as $tab_id => $tab_name)
 	{
-		$res = '';
-		foreach($maintenance->getTasks($core) as $t)
+		$res_group = '';
+		foreach($maintenance->getGroups($core) as $group_id => $group_name)
 		{
-			if ($t->group() != $g_id) {
-				continue;
+			$res_task = '';
+			foreach($maintenance->getTasks($core) as $t)
+			{
+				if ($t->group() != $group_id || $t->tab() != $tab_id) {
+					continue;
+				}
+
+				$res_task .=  
+				'<p>'.form::radio(array('task', $t->id()), $t->id()).' '.
+				'<label class="classic" for="'.$t->id().'">'.
+				html::escapeHTML($t->task()).'</label>';
+
+				if (array_key_exists($t->id(), $expired)) {
+					$res_task .= 
+					' <span class="clear form-note warn">'.sprintf(
+						__('Last execution of this task was on %s. You should execute it again.'),
+						dt::dt2str(__('%Y-%m-%d %H:%M'), $expired[$t->id()])
+					).'</span>';
+				}
+
+				$res_task .= '</p>';
 			}
 
-			$res .=  
-			'<p>'.form::radio(array('task', $t->id()), $t->id()).' '.
-			'<label class="classic" for="'.$t->id().'">'.
-			html::escapeHTML($t->task()).'</label>';
-
-			if (array_key_exists($t->id(), $expired)) {
-				$res .= 
-				' <span class="clear form-note warn">'.sprintf(
-					__('Last execution of this task was on %s. You should execute it again.'),
-					dt::dt2str(__('%Y-%m-%d %H:%M'), $expired[$t->id()])
-				).'</span>';
+			if (!empty($res_task)) {
+				$res_group .= 
+				'<div class="fieldset">'.
+				'<h4 id="'.$group_id.'">'.$group_name.'</h4>'.
+				$res_task.
+				'</div>';
 			}
-
-			$res .= '</p>';
 		}
 
-		if (!empty($res)) {
-			echo '<div class="fieldset"><h4 id="'.$g_id.'">'.$g_name.'</h4>'.$res.'</div>';
+		if (!empty($res_group)) {
+			echo 
+			'<div id="'.$tab_id.'" class="multi-part" title="'.$tab_name.'">'.
+			'<h3>'.$tab_name.'</h3>'.
+			'<form action="'.$p_url.'" method="post">'.
+			$res_group.
+			'<p><input type="submit" value="'.__('Execute task').'" /> '.
+			form::hidden(array('tab'), $tab_id).
+			$core->formNonce().'</p>'.
+			'<p class="form-note info">'.__('This may take a very long time').'.</p>'.
+			'</form>'.
+			'</div>';
 		}
 	}
-
-	echo 
-	'<p><input type="submit" value="'.__('Execute task').'" /> '.
-	form::hidden(array('tab'), 'maintenance').
-	$core->formNonce().'</p>'.
-	'<p class="form-note info">'.__('This may take a very long time').'.</p>'.
-	'</form>'.
-	'</div>';
 
 	// Advanced tasks (that required a tab)
 
