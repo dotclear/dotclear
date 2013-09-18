@@ -486,7 +486,7 @@ if ($can_edit_post)
 			'items' => array(
 				'post_open_comment_tb' =>
 					'<div>'.
-					'<h5 id="label_comment_tb">'.__('Commentaires et rétroliens').'</h5>'.
+					'<h5 id="label_comment_tb">'.__('Comments and trackbacks list').'</h5>'.
 					'<p><label for="post_open_comment" class="classic">'.
 					form::checkbox('post_open_comment',1,$post_open_comment).' '.
 					__('Accept comments').'</label></p>'.

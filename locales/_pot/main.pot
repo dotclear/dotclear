@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-18 07:27+0200\n"
+"POT-Creation-Date: 2013-09-18 10:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -601,7 +601,9 @@ msgstr ""
 
 #: admin/blog_pref.php:594 admin/user.php:187 admin/users.php:96
 #: admin/users.php:100 admin/users_actions.php:137 admin/users_actions.php:144
-#: admin/users_actions.php:150 inc/admin/prepend.php:339
+#: admin/users_actions.php:150 inc/admin/actions/class.dcactionusers.php:21
+#: inc/admin/actions/class.dcactionusers.php:34
+#: inc/admin/actions/class.dcactionusers.php:52 inc/admin/prepend.php:339
 msgid "Users"
 msgstr ""
 
@@ -1100,7 +1102,7 @@ msgstr ""
 #: admin/media.php:519 admin/plugins.php:288 admin/plugins.php:331
 #: admin/post.php:585 admin/post.php:637 admin/post.php:730
 #: admin/posts.php:129 admin/search.php:112 admin/search.php:155
-#: admin/users.php:34
+#: admin/users.php:34 inc/admin/actions/class.dcactionusers.php:100
 msgid "Delete"
 msgstr ""
 
@@ -1129,21 +1131,23 @@ msgid "Author"
 msgstr ""
 
 #: admin/comments.php:135 admin/post.php:629 admin/post.php:722
-#: admin/posts.php:109
+#: admin/posts.php:109 inc/admin/actions/class.dcactionusers.php:91
+#: inc/admin/actions/class.dcactionusers.php:92
 msgid "Publish"
 msgstr ""
 
 #: admin/comments.php:136 admin/post.php:630 admin/post.php:723
-#: admin/posts.php:110
+#: admin/posts.php:110 inc/admin/actions/class.dcactionusers.php:93
 msgid "Unpublish"
 msgstr ""
 
 #: admin/comments.php:137 admin/post.php:631 admin/post.php:724
-#: admin/posts.php:112
+#: admin/posts.php:112 inc/admin/actions/class.dcactionusers.php:94
 msgid "Mark as pending"
 msgstr ""
 
 #: admin/comments.php:138 admin/post.php:632 admin/post.php:725
+#: inc/admin/actions/class.dcactionusers.php:95
 msgid "Mark as junk"
 msgstr ""
 
@@ -2443,8 +2447,8 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: admin/post.php:489
-msgid "Commentaires et rétroliens"
+#: admin/post.php:489 inc/admin/lib.pager.php:367
+msgid "Comments and trackbacks list"
 msgstr ""
 
 #: admin/post.php:497
@@ -2668,6 +2672,7 @@ msgstr ""
 
 #: admin/posts_actions.php:205 admin/posts_actions.php:412
 #: admin/posts_actions.php:453 admin/posts_actions.php:483
+#: inc/admin/actions/class.dcactionusers.php:40
 msgid "Back to entries list"
 msgstr ""
 
@@ -2831,12 +2836,9 @@ msgstr ""
 msgid "Save my options"
 msgstr ""
 
-#: admin/preferences.php:538 inc/admin/lib.dc.page.php:144
+#: admin/preferences.php:538 admin/preferences.php:540
+#: inc/admin/lib.dc.page.php:144
 msgid "My dashboard"
-msgstr ""
-
-#: admin/preferences.php:540
-msgid "Mon tableau de bord"
 msgstr ""
 
 #: admin/preferences.php:544 inc/admin/prepend.php:296
@@ -3197,7 +3199,7 @@ msgid "No blog or user given."
 msgstr ""
 
 #: admin/users_actions.php:74
-msgid "Not delete yourself."
+msgid "You cannot delete yourself."
 msgstr ""
 
 #: admin/users_actions.php:181
@@ -3222,12 +3224,27 @@ msgstr ""
 msgid "Validate permissions"
 msgstr ""
 
+#: inc/admin/actions/class.dcactionusers.php:53
+msgid "Users actions"
+msgstr ""
+
+#: inc/admin/actions/class.dcactionusers.php:109
+#: inc/admin/actions/class.dcactionusers.php:125
+msgid "No User selected"
+msgstr ""
+
+#: inc/admin/class.admincombos.php:22
+msgid "(no cat)"
+msgstr ""
+
+#: inc/admin/class.admincombos.php:64 inc/admin/class.admincombos.php:68
 #: inc/admin/lib.admincombos.php:107 inc/admin/lib.admincombos.php:111
 msgid "Available"
 msgstr ""
 
-#: inc/admin/lib.admincombos.php:107 inc/admin/lib.admincombos.php:110
-#: inc/admin/lib.admincombos.php:113
+#: inc/admin/class.admincombos.php:64 inc/admin/class.admincombos.php:67
+#: inc/admin/class.admincombos.php:70 inc/admin/lib.admincombos.php:107
+#: inc/admin/lib.admincombos.php:110 inc/admin/lib.admincombos.php:113
 msgid "Most used"
 msgstr ""
 
@@ -3700,10 +3717,6 @@ msgstr ""
 #: inc/admin/lib.pager.php:238 inc/admin/lib.pager.php:334
 #, php-format
 msgid "%d attachments"
-msgstr ""
-
-#: inc/admin/lib.pager.php:367
-msgid "Comments and trackbacks list"
 msgstr ""
 
 #: inc/admin/lib.pager.php:368

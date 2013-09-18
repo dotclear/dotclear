@@ -152,7 +152,7 @@ if (isset($rs) && !$rs->is_cat)
 	
 	# XFN nightmare
 	'<div class="col70 last-col">'.
-	'<h3>'.__('XFN informations').'</h3>'.
+	'<h3>'.__('XFN information').'</h3>'.
 	'<table class="noborder">'.
 	
 	'<tr class="line">'.

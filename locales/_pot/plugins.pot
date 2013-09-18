@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-18 07:27+0200\n"
+"POT-Creation-Date: 2013-09-18 10:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -301,7 +301,7 @@ msgid "%s filter configuration"
 msgstr ""
 
 #: plugins/antispam/index.php:149
-msgid "Informations"
+msgid "Information"
 msgstr ""
 
 #: plugins/antispam/index.php:157
@@ -530,7 +530,7 @@ msgid "Edit link"
 msgstr ""
 
 #: plugins/blogroll/edit.php:155
-msgid "XFN informations"
+msgid "XFN information"
 msgstr ""
 
 #: plugins/blogroll/edit.php:159
@@ -1534,30 +1534,38 @@ msgstr ""
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
 
-#: plugins/importExport/index.php:69 plugins/maintenance/index.php:68
+#: plugins/importExport/index.php:69 plugins/maintenance/index.php:76
 msgid "Please wait..."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:16 plugins/maintenance/index.php:61
-#: plugins/maintenance/index.php:92 plugins/maintenance/index.php:125
-#: plugins/maintenance/index.php:132 plugins/maintenance/index.php:133
+#: plugins/maintenance/_admin.php:16 plugins/maintenance/index.php:69
+#: plugins/maintenance/index.php:100 plugins/maintenance/index.php:133
+#: plugins/maintenance/index.php:140 plugins/maintenance/index.php:141
 msgid "Maintenance"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:45
+#: plugins/maintenance/_admin.php:48
 msgid "Optimize"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:46
+#: plugins/maintenance/_admin.php:49
 msgid "Count and index"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:47
+#: plugins/maintenance/_admin.php:50
 msgid "Purge"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:48
+#: plugins/maintenance/_admin.php:51
 msgid "Other"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:110
+msgid "One task to update"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:136
+msgid "Show maintenance tasks to update."
 msgstr ""
 
 #: plugins/maintenance/inc/class.dc.maintenance.task.php:58
@@ -1660,15 +1668,20 @@ msgstr ""
 msgid "Failed to vacuum tables."
 msgstr ""
 
-#: plugins/maintenance/index.php:114
+#: plugins/maintenance/index.php:122
 msgid "Back"
 msgstr ""
 
-#: plugins/maintenance/index.php:157 plugins/maintenance/index.php:177
+#: plugins/maintenance/index.php:161
+#, php-format
+msgid "Last execution of this task was on %s. You should execute it again."
+msgstr ""
+
+#: plugins/maintenance/index.php:175 plugins/maintenance/index.php:195
 msgid "Execute task"
 msgstr ""
 
-#: plugins/maintenance/index.php:160
+#: plugins/maintenance/index.php:178
 msgid "This may take a very long time"
 msgstr ""
 
@@ -1693,15 +1706,15 @@ msgstr ""
 msgid "manage pages"
 msgstr ""
 
-#: plugins/pages/_install.php:39
+#: plugins/pages/_install.php:40
 msgid "My first page"
 msgstr ""
 
-#: plugins/pages/_install.php:40
+#: plugins/pages/_install.php:41
 msgid "<p>"
 msgstr ""
 
-#: plugins/pages/_install.php:40
+#: plugins/pages/_install.php:41
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr ""
 
