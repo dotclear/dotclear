@@ -1118,6 +1118,18 @@ msgstr "Tâche exécutée avec succès."
 msgid "Failed to execute task."
 msgstr "Impossible d'exécuter la tâche."
 
+msgid "One task to update"
+msgid_plural "%s tasks to update"
+msgstr[] "Une tâche à mettre à jour"
+msgstr[] "%s tâches à mettre à jour"
+
+msgid "Show maintenance tasks to update."
+msgstr "Afficher les tâches de maintenance à mettre à jour."
+
+#, php-format
+msgid "Last execution of this task was on %s. You should execute it again."
+msgstr "La dernière exécution de cette tâches était le %s. Vous devriez l'exécuter à nouveau."
+
 msgid "Failed to empty templates cache directory."
 msgstr "Impossible de vider le répertoire de cache des « templates »."
 

@@ -957,6 +957,20 @@ msgstr ""
 msgid "Failed to execute task."
 msgstr ""
 
+msgid "one task to update"
+msgstr ""
+
+#, php-format
+msgid "%s tasks to update"
+msgstr ""
+
+msgid "Show maintenance tasks to update."
+msgstr ""
+
+#, php-format
+msgid "Last execution of this task was on %s. You should execute it again."
+msgstr ""
+
 msgid "Failed to empty templates cache directory."
 msgstr ""
 

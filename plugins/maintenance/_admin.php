@@ -23,6 +23,9 @@ $_menu['Plugins']->addItem(
 // Admin behaviors
 $core->addBehavior('dcMaintenanceRegister', array('dcMaintenanceAdmin', 'register'));
 $core->addBehavior('adminDashboardFavs', array('dcMaintenanceAdmin', 'favs'));
+$core->addBehavior('adminDashboardFavsIcon', array('dcMaintenanceAdmin', 'favsicon'));
+$core->addBehavior('adminPreferencesForm',	array('dcMaintenanceAdmin',	'prefform'));
+$core->addBehavior('adminBeforeUserOptionsUpdate',	array('dcMaintenanceAdmin',	'userupd'));
 
 /**
 @ingroup PLUGIN_MAINTENANCE
@@ -34,7 +37,7 @@ Group of methods used on behaviors.
 class dcMaintenanceAdmin
 {
 	/**
-	 * Register default tasks
+	 * Register default tasks.
 	 *
 	 * @param	$core	<b>dcCore</b>	dcCore instance
 	 * @param	$tasks	<b>arrayObject</b>	Array of tasks to register
@@ -56,7 +59,7 @@ class dcMaintenanceAdmin
 	}
 
 	/**
-	 * Dashboard favs
+	 * Dashboard favs.
 	 *
 	 * @param	$core	<b>dcCore</b>	dcCore instance
 	 * @param	$favs	<b>arrayObject</b>	Array of favs
@@ -73,5 +76,76 @@ class dcMaintenanceAdmin
 		));
 	}
 
-	/** @todo Rminder*/
+	/**
+	 * Dashboard favs icon.
+	 *
+	 * This updates maintenance fav icon text 
+	 * if there are tasks required maintenance.
+	 *
+	 * @param	$core	<b>dcCore</b>	dcCore instance
+	 * @param	$name	<b>string</b>	Current fav name
+	 * @param	$icon	<b>arrayObject</b>	Current fav attributes
+	 */
+	public static function favsicon($core, $name, $icon)
+	{
+		// Check icon
+		if ($name !== 'maintenance') {
+			return null;
+		}
+
+		// Check user option
+		$user_options = $core->auth->getOptions();
+		if (empty($user_options['user_maintenance_expired'])) {
+			return null;
+		}
+
+		// Check expired tasks
+		$maintenance = new dcMaintenance($core);
+		$expired = $maintenance->getExpired();
+		$expired = count($expired);
+		if (!$expired) {
+			return null;
+		}
+
+		$icon[0] .= '<br />'.sprintf(__('One task to update', '%s tasks to update', $expired), $expired);
+	}
+
+	/**
+	 * User preferences form.
+	 *
+	 * This add options for superadmin user 
+	 * to show or not expired taks.
+	 *
+	 * @param	$args	<b>object</b>	dcCore instance or record
+	 */
+	public static function prefform($args)
+	{
+		$opts = array();
+		if ($args instanceof dcCore) {
+			$opts = $args->auth->getOptions();
+			$core = $args;
+		}
+		elseif ($args instanceof record) {
+			$opts = $args->options();
+			$core = $args->core;
+		}
+
+		echo 
+		'<p><label for="user_maintenance_expired" class="classic">'.
+		form::checkbox('user_maintenance_expired', 1, !empty($opts['user_maintenance_expired'])).' '.
+		__('Show maintenance tasks to update.').'</label></p>';
+	}
+
+	/**
+	 * User preferences update.
+	 *
+	 * @param	$cur	<b>cursor</b>	Cursor of user options
+	 * @param	$user_id	<b>string</b>	User ID
+	 */
+	public static function userupd($cur, $user_id=null)
+	{
+		if (!is_null($user_id)) {
+			$cur->user_options['user_maintenance_expired'] = !empty($_POST['user_maintenance_expired']);
+		}
+	}
 }

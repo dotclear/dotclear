@@ -136,4 +136,92 @@ class dcMaintenance
 		}
 		return $res;
 	}
+
+	/**
+	 * Set log for a task.
+	 *
+	 * @param	id	<b>string</b>	Task ID
+	 */
+	public function setLog($id)
+	{
+		// Check if taks exists
+		if (!$this->getTask($id)) {
+			return null;
+		}
+
+		// Get logs from this task
+		$rs = $this->core->con->select (
+			'SELECT log_id '.
+			'FROM '.$this->core->prefix.'log '.
+			"WHERE log_msg = '".$this->core->con->escape($id)."' ".
+			"AND log_table = 'maintenance' "
+		);
+
+		$logs = array();
+		while ($rs->fetch()) {
+			$logs[] = $rs->log_id;
+		}
+
+		// Delete old logs
+		if (!empty($logs)) {
+			$this->core->log->delLogs($logs);
+		}
+
+		// Add new log
+		$cur = $this->core->con->openCursor($this->core->prefix.'log');
+
+		$cur->log_msg = $id;
+		$cur->log_table = 'maintenance';
+		$cur->user_id = $this->core->auth->userID();
+
+		$this->core->log->addLog($cur);
+	}
+
+	/**
+	 * Delete all maintenance logs.
+	 */
+	public function delLogs()
+	{
+		// Retrieve logs from this task
+		$rs = $this->core->log->getLogs(array(
+			'log_table' => 'maintenance',
+			'blog_id' => 'all'
+		));
+
+		$logs = array();
+		while ($rs->fetch()) {
+			$logs[] = $rs->log_id;
+		}
+
+		// Delete old logs
+		if (!empty($logs)) {
+			$this->core->log->delLogs($logs);
+		}
+	}
+
+	/**
+	 * Get expired task.
+	 *
+	 * @return	<b>array</b>	Array of expired Task ID / date
+	 */
+	public function getExpired()
+	{
+		// Retrieve logs from this task
+		$rs = $this->core->log->getLogs(array(
+			'log_table' => 'maintenance',
+			'blog_id' => 'all'
+		));
+
+		$logs = array();
+		while ($rs->fetch()) {
+			// Check if task exists
+			if (($task = $this->getTask($rs->log_msg)) !== null) {
+				// Check if tasks expired
+				if (strtotime($rs->log_dt) + $task->ts() < time()) {
+					$logs[$rs->log_msg] = $rs->log_dt;
+				}
+			}
+		}
+		return $logs;
+	}
 }

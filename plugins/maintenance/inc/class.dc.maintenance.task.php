@@ -23,6 +23,7 @@ class dcMaintenanceTask
 	protected $core;
 	protected $p_url;
 	protected $code;
+	protected $ts = 604800; // one week
 
 	protected $id;
 	protected $name;
@@ -32,7 +33,6 @@ class dcMaintenanceTask
 	protected $step;
 	protected $error;
 	protected $success;
-	protected $reminder;
 
 	/**
 	 * Constructor.
@@ -81,6 +81,16 @@ class dcMaintenanceTask
 	public function code($code)
 	{
 		$this->code = (integer) $code;
+	}
+
+	/**
+	 * Get timestamp between maintenances.
+	 *
+	 * @return	<b>intetger</b>	Timestamp
+	 */
+	public function ts()
+	{
+		return abs((integer) $this->ts);
 	}
 
 	/**
@@ -162,12 +172,6 @@ class dcMaintenanceTask
 	public function error()
 	{
 		return $this->error;
-	}
-
-	/** @todo */
-	public function reminder()
-	{
-		return null;
 	}
 
 	/**
