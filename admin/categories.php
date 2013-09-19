@@ -143,7 +143,7 @@ else
 	$ref_level = $level = $rs->level-1;
 	while ($rs->fetch())
 	{
-		$attr = 'id="cat_'.$rs->cat_id.'"';
+		$attr = 'id="cat_'.$rs->cat_id.'" class="cat-line clearfix"';
 
 		if ($rs->level > $level) {
 			echo str_repeat('<ul><li '.$attr.'>',$rs->level - $level);
@@ -155,19 +155,21 @@ else
 			echo '</li><li '.$attr.'>';
 		}
 
-		echo
-		'<p>'.	   
-		'<label class="classic" for="cat-'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label>'.
-		' (<a href="posts.php?cat_id='.$rs->cat_id.'">'.
+		echo   
+		'<p><label class="classic" for="cat-'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label> </p>'.
+		'<p>(<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
-		', '.__('total:').' '.$rs->nb_total.') '.
-			'<span class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></span>';
+		', '.__('total:').' '.$rs->nb_total.')</p>'.
+		'<p><span class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></span></p>';
 
+		echo
+		'<p class="cat-buttons">';
 		if ($rs->nb_total>0) {
 			// remove current category
-			echo			   
+			echo
+			'<label>'.__('Move entries to').'</label> '.			   
 			form::combo('mov_cat['.$rs->cat_id.']',array_filter($categories_combo, create_function('$cat', 'return $cat->value!=$GLOBALS[\'rs\']->cat_id;')),'','').
-			'<input type="submit" class="" name="mov['.$rs->cat_id.']" value="'.__('Ok').'"/>';
+			' <input type="submit" class="reset" name="mov['.$rs->cat_id.']" value="'.__('OK').'"/>';
 		   
 			$attr_disabled = ' disabled="disabled"';
 			$input_class = 'disabled ';
@@ -188,7 +190,7 @@ else
 	echo
 	'</div>';
 
-	echo '<div class="fieldset"><h3 class="clear hidden-if-no-js">'.__('Categories order').'</h3>';
+	echo '<div class="border-top"><h3 class="clear hidden-if-no-js">'.__('Categories order').'</h3>';
 
 	if ($core->auth->check('categories',$core->blog->id) && $rs->count()>1) {
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
@@ -202,7 +204,7 @@ else
 	}
 
 	echo
-	'<p class="hidden-if-js right"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level and delete selected categories').'" />'.
+	'<p class="hidden-if-js right"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
 	$core->formNonce().'</p>'.
 	'<p class="hidden-if-no-js"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
 	$core->formNonce().'</p>'.
