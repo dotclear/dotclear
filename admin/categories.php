@@ -190,23 +190,21 @@ else
 	echo
 	'</div>';
 
-	echo '<div class="border-top"><h3 class="clear hidden-if-no-js">'.__('Categories order').'</h3>';
+	echo '<div class="clear"><p>';
 
 	if ($core->auth->check('categories',$core->blog->id) && $rs->count()>1) {
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
-			echo '<p class="hidden-if-no-js">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
+			echo '<p class="form-note hidden-if-no-js">'.__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.').'</p>';
 		}
 		echo
-		'<p class="hidden-if-no-js">'.
+		'<span class="hidden-if-no-js">'.
 		'<input type="hidden" id="categories_order" name="categories_order" value=""/>'.
 		'<input type="submit" name="save_order" id="save-set-order" value="'.__('Save categories order').'" />'.
-		'</p>';
+		'</span> ';
 	}
 
 	echo
-	'<p class="hidden-if-js right"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
-	$core->formNonce().'</p>'.
-	'<p class="hidden-if-no-js"><input type="submit" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
+	'<input type="submit" class="reset" name="reset" value="'.__('Reorder all categories on the top level').'" />'.
 	$core->formNonce().'</p>'.
 	'</div></form>';
 }
