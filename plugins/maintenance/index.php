@@ -69,10 +69,10 @@ echo '<html><head>
 <title>'.__('Maintenance').'</title>'.
 dcPage::jsPageTabs($tab);
 
-if (0){//$task) {
+if ($task && $task->ajax()) {
 	echo 
 	'<script type="text/javascript">'."\n".
-	"//<![CDATA\n".
+	"//<![CDATA[\n".
 	dcPage::jsVar('dotclear.msg.wait', __('Please wait...')).
 	"//]]>\n".
 	'</script>'.
@@ -86,9 +86,7 @@ $maintenance->getHeaders().'
 
 // Success message
 
-if ($task && !empty($_GET['done'])) {
-	dcPage::success($task->success());
-}
+$msg = $task && !empty($_GET['done']) ? dcPage::success($task->success(),true,true,false) : '';
 
 if ($task && ($res = $task->step()) !== null) {
 
@@ -101,6 +99,8 @@ if ($task && ($res = $task->step()) !== null) {
 			'<span class="page-title">'.html::escapeHTML($task->name()).'</span>' => ''
 		)
 	);
+
+	echo $msg;
 
 	// Intermediate task (task required several steps)
 
@@ -133,6 +133,8 @@ else {
 			'<span class="page-title">'.__('Maintenance').'</span>' => ''
 		)
 	);
+
+	echo $msg;
 
 	// Simple task (with only a button to start it)
 

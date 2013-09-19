@@ -23,7 +23,6 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
 	{
 		$this->name = __('Database export');
 		$this->task = __('Download database of current blog');
-		$this->step = __('Zip file ready to be downloaded.');
 
 		$this->export_name = html::escapeHTML($this->core->blog->id.'-backup.txt');
 		$this->export_type = 'export_blog';
@@ -31,19 +30,23 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
 
 	public function execute()
 	{
-		// 1) Create zip file
-		if (!isset($_SESSION['export_file']) || !file_exists($_SESSION['export_file'])) {
-			// Bad hack to skip one step
-			$_POST['file_name'] = date('Y-m-d-H-i-').$this->export_name;
-			$_POST['file_zip'] = 1;
-
+		// Create zip file
+		if (!empty($_POST['file_name'])) {
 			// This process make an http redirect
 			$ie = new maintenanceDcExportFlat($this->core);
 			$ie->setURL($this->id);
 			$ie->process($this->export_type);
 		}
-		// 2) Download zip file
+		// Go to step and show form
 		else {
+			return 1;
+		}
+	}
+
+	public function step()
+	{
+		// Download zip file
+		if (isset($_SESSION['export_file']) && file_exists($_SESSION['export_file'])) {
 			// Log task execution here as we sent file and stop script
 			$this->log();
 
@@ -52,14 +55,16 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
 			$ie->setURL($this->id);
 			$ie->process('ok');
 		}
-
-		return null;
-	}
-
-	public function step()
-	{
-		return isset($_SESSION['export_file']) && file_exists($_SESSION['export_file']) ?
-			$this->step : null;
+		else {
+			return 
+			'<p><label for="file_name">'.__('File name:').'</label>'.
+			form::field('file_name', 50, 255, date('Y-m-d-H-i-').$this->export_name).
+			'</p>'.
+			'<p><label for="file_zip" class="classic">'.
+			form::checkbox('file_zip', 1).' '.
+			__('Compress file').'</label>'.
+			'</p>';
+		}
 	}
 }
 
@@ -75,7 +80,6 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
 	{
 		$this->name = __('Database export');
 		$this->task = __('Download database of all blogs');
-		$this->step = __('Zip file ready to be downloaded.');
 
 		$this->export_name = 'dotclear-backup.txt';
 		$this->export_type = 'export_all';
@@ -83,19 +87,23 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
 
 	public function execute()
 	{
-		// 1) Create zip file
-		if (!isset($_SESSION['export_file']) || !file_exists($_SESSION['export_file'])) {
-			// Bad hack to skip one step
-			$_POST['file_name'] = date('Y-m-d-H-i-').$this->export_name;
-			$_POST['file_zip'] = 1;
-
+		// Create zip file
+		if (!empty($_POST['file_name'])) {
 			// This process make an http redirect
 			$ie = new maintenanceDcExportFlat($this->core);
 			$ie->setURL($this->id);
 			$ie->process($this->export_type);
 		}
-		// 2) Download zip file
+		// Go to step and show form
 		else {
+			return 1;
+		}
+	}
+
+	public function step()
+	{
+		// Download zip file
+		if (isset($_SESSION['export_file']) && file_exists($_SESSION['export_file'])) {
 			// Log task execution here as we sent file and stop script
 			$this->log();
 
@@ -104,14 +112,16 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
 			$ie->setURL($this->id);
 			$ie->process('ok');
 		}
-
-		return null;
-	}
-
-	public function step()
-	{
-		return isset($_SESSION['export_file']) && file_exists($_SESSION['export_file']) ?
-			$this->step : null;
+		else {
+			return 
+			'<p><label for="file_name">'.__('File name:').'</label>'.
+			form::field('file_name', 50, 255, date('Y-m-d-H-i-').$this->export_name).
+			'</p>'.
+			'<p><label for="file_zip" class="classic">'.
+			form::checkbox('file_zip', 1).' '.
+			__('Compress file').'</label>'.
+			'</p>';
+		}
 	}
 }
 
