@@ -1618,22 +1618,20 @@ tr.expand td {
 	margin: 0;
 	padding: 0;
 	}
-	#categories li {
-		margin: .5em 0;
-		padding: .5em 1.2em;
-		border: 1px solid #ccc;
-		border-left: 8px solid #E5E3DA;
+	.cat-line {
+		position: relative;
+		margin: .66em 0;
+		padding: .66em 1em;
+		border: 1px solid #bbb;
+		border-left: 6px solid #bbb;
 		border-radius: 3px;
 		}
-		#categories label a {
+		.cat-line label a {
 			font-weight: bold;
 			}
-		#categories li p {
+		.cat-line p, .cat-line label {
 			margin: 0;
 			display: inline-block;
-			}
-		#categories input[type="checkbox"] {
-			margin-right: .8em;
 			}
 		.cat-url {
 			padding-left: 1em;
@@ -1642,10 +1640,34 @@ tr.expand td {
 			outline: 1px dashed #4183C4;
 			min-height: 2.5em;
 			}
-		#categories input.cat-rank {
+/*		#categories input.cat-rank {
 			float: right;
 			margin-left: 30px;
 			}
+*/
+.cat-buttons { 
+	float: right; 
+	margin-top: -.2em;
+	}
+.cat-buttons select {
+	padding: 1px 2px 3px 2px;
+	margin-right: .25em;
+	}
+.cat-line label {
+	margin-right: .25em;
+	}
+.cat-buttons .reset {
+	padding-left: 4px;
+	padding-right: 4px;
+	}
+#categories ul ul {
+	margin-right: 2em;
+	margin-top: 1em;
+	}
+.cat-line .cat-line {
+	border: 1px solid #ccc;
+	border-left-width: 3px;
+	}
 #categories h4 {
 	margin: 0;
 	}
