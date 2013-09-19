@@ -24,6 +24,7 @@ class dcMaintenanceTask
 	protected $p_url;
 	protected $code;
 	protected $ts = 604800; // one week
+	protected $ajax = false;
 
 	protected $id;
 	protected $name;
@@ -135,6 +136,19 @@ class dcMaintenanceTask
 	public function group()
 	{
 		return $this->group;
+	}
+
+	/**
+	 * Use ajax
+	 *
+	 * Is task use maintenance ajax script 
+	 * for steps process.
+	 *
+	 * @return	<b>boolean</b>	Use ajax
+	 */
+	public function ajax()
+	{
+		return (boolean) $this->ajax;
 	}
 
 	/**

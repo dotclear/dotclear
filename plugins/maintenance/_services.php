@@ -45,6 +45,7 @@ class dcMaintenanceRest
 
 		$task->code((integer) $post['code']);
 		if (($code = $task->execute()) === true) {
+			$maintenance->setLog($task->id());
 			$code = 0;
 		}
 

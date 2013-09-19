@@ -13,6 +13,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 class dcMaintenanceIndexcomments extends dcMaintenanceTask
 {
+	protected $ajax = true;
 	protected $group = 'index';
 	protected $limit = 500;
 	protected $step_task;
