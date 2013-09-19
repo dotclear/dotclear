@@ -1640,14 +1640,10 @@ tr.expand td {
 			outline: 1px dashed #4183C4;
 			min-height: 2.5em;
 			}
-/*		#categories input.cat-rank {
-			float: right;
-			margin-left: 30px;
-			}
-*/
 .cat-buttons { 
 	float: right; 
 	margin-top: -.2em;
+	font-size: 11px;
 	}
 .cat-buttons select {
 	padding: 1px 2px 3px 2px;
