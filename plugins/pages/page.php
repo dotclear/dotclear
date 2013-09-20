@@ -397,19 +397,19 @@ if ($can_edit_page)
 					form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).
 					'</p>',
 				'post_lang' =>
-					'<p><label for="post_lang" class="ib">'.__('Page lang').'</label>'.
+					'<p><label for="post_lang" class="ib">'.__('Page language').'</label>'.
 					form::combo('post_lang',$lang_combo,$post_lang).
 					'</p>',
 				'post_format' =>
 					'<div>'.
-					'<h5 id="label_format"><label for="post_format" class="ib">'.__('Text formating').'</label></h5>'.
+					'<h5 id="label_format"><label for="post_format" class="ib">'.__('Text formatting').'</label></h5>'.
 					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
 					'</p>'.
 					'<p class="format_control control_wiki">'.
 					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').'" href="post.php?id='.$post_id.'&amp;xconv=1">'.
 					__('Convert to XHTML').'</a></p></div>')),
 		'metas-box' => array(
-			'title' => __('Ordering'),
+			'title' => __('Filing'),
 			'items' => array(
 				'post_position' => 
 					'<p><label for="post_position" class="classic">'.__('Page position').'</label> '.
