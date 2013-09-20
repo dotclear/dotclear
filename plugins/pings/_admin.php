@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$_menu['Plugins']->addItem(__('Pings'),'plugin.php?p=pings','index.php?pf=pings/icon.png',
+$_menu['Blog']->addItem(__('Pings'),'plugin.php?p=pings','index.php?pf=pings/icon.png',
 		preg_match('/plugin.php\?p=pings/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin());
 
