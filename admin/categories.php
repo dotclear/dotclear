@@ -156,7 +156,7 @@ else
 		}
 
 		echo   
-		'<p><label class="classic" for="cat-'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label> </p>'.
+		'<p><label class="classic" for="cat_'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label> </p>'.
 		'<p>(<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
 		', '.__('total:').' '.$rs->nb_total.')</p>'.
@@ -168,7 +168,7 @@ else
 			// remove current category
 			echo
 			'<label>'.__('Move entries to').'</label> '.			   
-			form::combo('mov_cat['.$rs->cat_id.']',array_filter($categories_combo, create_function('$cat', 'return $cat->value!=$GLOBALS[\'rs\']->cat_id;')),'','').
+			form::combo(array('mov_cat['.$rs->cat_id.']', 'mov_cat_'.$rs->cat_id),array_filter($categories_combo, create_function('$cat', 'return $cat->value!=$GLOBALS[\'rs\']->cat_id;')),'','').
 			' <input type="submit" class="reset" name="mov['.$rs->cat_id.']" value="'.__('OK').'"/>';
 		   
 			$attr_disabled = ' disabled="disabled"';
