@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-18 11:57+0000\n"
+"POT-Creation-Date: 2013-09-20 08:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1235,6 +1235,8 @@ msgstr ""
 
 #: plugins/importExport/inc/class.dc.export.flat.php:203
 #: plugins/importExport/inc/class.dc.export.flat.php:228
+#: plugins/importExport/inc/lib.ie.maintenance.php:65
+#: plugins/importExport/inc/lib.ie.maintenance.php:122
 msgid "Compress file"
 msgstr ""
 
@@ -1535,48 +1537,76 @@ msgstr ""
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
 
+#: plugins/importExport/inc/lib.ie.maintenance.php:24
+#: plugins/importExport/inc/lib.ie.maintenance.php:81
+msgid "Database export"
+msgstr ""
+
+#: plugins/importExport/inc/lib.ie.maintenance.php:25
+msgid "Download database of current blog"
+msgstr ""
+
+#: plugins/importExport/inc/lib.ie.maintenance.php:82
+msgid "Download database of all blogs"
+msgstr ""
+
 #: plugins/importExport/index.php:69 plugins/maintenance/index.php:76
 msgid "Please wait..."
 msgstr ""
 
 #: plugins/maintenance/_admin.php:16 plugins/maintenance/index.php:69
-#: plugins/maintenance/index.php:100 plugins/maintenance/index.php:133
-#: plugins/maintenance/index.php:140 plugins/maintenance/index.php:141
+#: plugins/maintenance/index.php:98 plugins/maintenance/index.php:133
 msgid "Maintenance"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:48
-msgid "Optimize"
-msgstr ""
-
 #: plugins/maintenance/_admin.php:49
-msgid "Count and index"
+msgid "Servicing"
 msgstr ""
 
 #: plugins/maintenance/_admin.php:50
+msgid "Backup"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:52
+msgid "Optimize"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:53
+msgid "Count and index"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:54
 msgid "Purge"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:51
+#: plugins/maintenance/_admin.php:55
 msgid "Other"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:110
+#: plugins/maintenance/_admin.php:56
+msgid "Compressed file for current blog"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:57
+msgid "Compressed file for all blogs"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:118
 #, php-format
 msgid "One task to update"
 msgid_plural "%s tasks to update"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:136
+#: plugins/maintenance/_admin.php:144
 msgid "Show maintenance tasks to update."
 msgstr ""
 
-#: plugins/maintenance/inc/class.dc.maintenance.task.php:58
+#: plugins/maintenance/inc/class.dc.maintenance.task.php:60
 msgid "Failed to execute task."
 msgstr ""
 
-#: plugins/maintenance/inc/class.dc.maintenance.task.php:61
+#: plugins/maintenance/inc/class.dc.maintenance.task.php:63
 msgid "Task successfully executed."
 msgstr ""
 
@@ -1604,47 +1634,47 @@ msgstr ""
 msgid "Failed to reset comments and ping counters."
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:22
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:22
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:23
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:23
 msgid "Search engine index"
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:23
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:24
 msgid "Index all comments"
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:24
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:24
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:25
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:25
 msgid "next"
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:25
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:26
 #, php-format
 msgid "Indexing comment %d to %d."
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:26
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:27
 msgid "Comments index done."
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:27
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:28
 msgid "Failed to index comments."
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:23
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:24
 msgid "Index all posts"
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:25
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:26
 #, php-format
 msgid "Indexing entry %d to %d."
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:26
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:27
 msgid "Entries index done."
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:27
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:28
 msgid "Failed to index entries."
 msgstr ""
 
@@ -1672,6 +1702,14 @@ msgstr ""
 msgid "Failed to vacuum tables."
 msgstr ""
 
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.zipmedia.php:21
+msgid "Download media folder of current blog"
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.ziptheme.php:21
+msgid "Download active theme of current blog"
+msgstr ""
+
 #: plugins/maintenance/index.php:122
 msgid "Back"
 msgstr ""
@@ -1681,11 +1719,11 @@ msgstr ""
 msgid "Last execution of this task was on %s. You should execute it again."
 msgstr ""
 
-#: plugins/maintenance/index.php:175 plugins/maintenance/index.php:195
+#: plugins/maintenance/index.php:184 plugins/maintenance/index.php:206
 msgid "Execute task"
 msgstr ""
 
-#: plugins/maintenance/index.php:178
+#: plugins/maintenance/index.php:187
 msgid "This may take a very long time"
 msgstr ""
 
@@ -1763,6 +1801,7 @@ msgid "Are you sure you want to delete selected pages?"
 msgstr ""
 
 #: plugins/pages/list.php:183 plugins/pages/page.php:37
+#: plugins/pages/page.php:491
 msgid "New page"
 msgstr ""
 
@@ -1805,6 +1844,10 @@ msgstr ""
 
 #: plugins/pages/page.php:446
 msgid "Hide in widget Pages"
+msgstr ""
+
+#: plugins/pages/page.php:470
+msgid "Introduction to the page."
 msgstr ""
 
 #: plugins/pages/page.php:722
