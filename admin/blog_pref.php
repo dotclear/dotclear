@@ -436,7 +436,7 @@ if ($blog_id)
 	'<p><label for="comments_pub" class="classic">'.
 	form::checkbox('comments_pub','1',!$blog_settings->system->comments_pub).
 	__('Moderate comments').'</label></p>'.	
-	'<p><label for="comments_ttl" class="classic">'.sprintf(__('Leave comments open for %s days'),
+	'<p><label for="comments_ttl" class="classic">'.sprintf(__('Leave comments open for %s days').'.',
 	form::field('comments_ttl',2,3,$blog_settings->system->comments_ttl)).
 	'</label></p>'.
 	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.	
@@ -452,7 +452,7 @@ if ($blog_id)
 	'<p><label for="trackbacks_pub" class="classic">'.
 	form::checkbox('trackbacks_pub','1',!$blog_settings->system->trackbacks_pub).
 	__('Moderate trackbacks').'</label></p>'.	
-	'<p><label for="trackbacks_ttl" class="classic">'.sprintf(__('Leave trackbacks open for %s days'),
+	'<p><label for="trackbacks_ttl" class="classic">'.sprintf(__('Leave trackbacks open for %s days').'.',
 	form::field('trackbacks_ttl',2,3,$blog_settings->system->trackbacks_ttl)).'</label></p>'.
 	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.	
 	'<p><label for="comments_nofollow" class="classic">'.
