@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-18 11:57+0000\n"
+"POT-Creation-Date: 2013-09-20 08:00+0000\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -995,18 +995,11 @@ msgstr "Téléversez un fichier de sauvegarde"
 msgid "maximum size %s"
 msgstr "taille maximum de %s"
 
-#, php-format
-msgid "maximum size %s"
-msgstr ""
-
 msgid "or pick up a local file in your public directory"
 msgstr "ou sélectionnez un fichier local présent dans votre répertoire de médias"
 
 msgid "This will reset all the content of your database, except users."
 msgstr "Attention : Cela supprimera au préalable tout le contenu de votre base de données à l'exception des utilisateurs."
-
-msgid "File is empty or not a compressed file."
-msgstr "Le fichier est vide ou n'est pas un fichier compressé."
 
 msgid "Another file with same name exists."
 msgstr "Un autre fichier portant ce nom existe déjà."
@@ -1084,9 +1077,6 @@ msgstr "Export de base de données"
 
 msgid "Download database of current blog"
 msgstr "Télécharger la base de données du blog courant"
-
-msgid "Zip file ready to be downloaded."
-msgstr "Fichier Zip prêt à être télécharger."
 
 msgid "Download database of all blogs"
 msgstr "Télécharger la base de données de tous les blogs"
@@ -1308,6 +1298,9 @@ msgstr "Langue de la page"
 
 msgid "Hide in widget Pages"
 msgstr "Ne pas lister dans le widget Pages"
+
+msgid "Introduction to the page."
+msgstr "Introduction à la page."
 
 msgid "Select this comment"
 msgstr "Sélectionner ce commentaire"
@@ -1835,6 +1828,12 @@ msgstr "Retirer le widget"
 msgid "Drag widgets here to remove them from this sidebar."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
+#~ msgid "File is empty or not a compressed file."
+#~ msgstr "Le fichier est vide ou n'est pas un fichier compressé."
+
+#~ msgid "Zip file ready to be downloaded."
+#~ msgstr "Fichier Zip prêt à être télécharger."
+
 #~ msgid "Manage every blog configuration directive"
 #~ msgstr "Gestion des directives de configuration des blogs"
 
@@ -2068,6 +2067,3 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Blog settings"
 #~ msgstr "Paramètres du blog"
-
-msgid "Introduction to the page."
-msgstr "Introduction à la page."
