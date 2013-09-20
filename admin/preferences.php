@@ -159,9 +159,6 @@ if (isset($_POST['user_post_format']))
 		$core->callBehavior('adminBeforeUserOptionsUpdate',$cur,$core->auth->userID());
 		
 		# Update user prefs
-		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
-		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
-		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
 		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_acc_nodragdrop']),'boolean');
 		$core->auth->user_prefs->interface->put('enhanceduploader',!empty($_POST['user_ui_enhanceduploader']),'boolean');
 		if ($core->auth->isSuperAdmin()) {
