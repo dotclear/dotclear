@@ -152,15 +152,18 @@
 	width: 47%;
 	display: inline-block;
 	vertical-align: top;
+	margin-right: 2%;
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box; 
 	box-sizing: border-box;
 	}
 	.two-boxes:first-child, .two-boxes.odd, .two-boxes.odd:last-child {
 		margin-right: 3%;
+		margin-left: 0;
 		}
 	.two-boxes.even:last-child, .two-boxes.even {
 		margin-left: 3%;
+		margin-right: 0;
 		}
 .three-boxes {
 	width: 30%;
@@ -705,10 +708,10 @@ a.button.delete, a.button.reset, a.button {
 
 /* disabled */
 input.disabled, input[type=submit].disabled {
- 	text-shadow: none;
- 	filter: none;
- 	color: #676e78;
- 	background: #F5F5F5;
+	text-shadow: none;
+	filter: none;
+	color: #676e78;
+	background: #F5F5F5;
 	border: 1px solid #CCC;
 	}
 	input.disabled:hover, input[type=submit].disabled:hover {
@@ -812,7 +815,7 @@ div.warn, div.warning, div.info {
 			font-weight: bold;
 			}
 /* ---------------------------------------------------------------------------------
- 																ELEMENTS PRINCIPAUX
+																ELEMENTS PRINCIPAUX
 --------------------------------------------------------------------------------- */
 /* -------------------------------------------------------------- HEADER ELEMENTS */
 /* prelude */
@@ -1615,7 +1618,7 @@ tr.expand td {
 	}
 #categories ul {
 	list-style: none;
-	margin: 0;
+	margin-top: 1em;
 	padding: 0;
 	}
 	.cat-line {
@@ -1658,10 +1661,10 @@ tr.expand td {
 	}
 #categories ul ul {
 	margin-right: 2em;
-	margin-top: 1em;
+	margin-left: 2em;
 	}
 .cat-line .cat-line {
-	border: 1px solid #ccc;
+	border: 1px solid #dfdfdf;
 	border-left-width: 3px;
 	}
 #categories h4 {
@@ -1680,7 +1683,6 @@ tr.expand td {
 .legible { /* for pages with a lot of text to read */
 	font-size: 1.16em;
 	max-width: 62em;
-	margin-left: 6%;
 	}
 
 /* ------------------------------------------------------------------ media.php */
@@ -2348,17 +2350,17 @@ ul.from-left {
 	#main-menu, #main, #content, #content h2, #entry-wrapper, #entry-sidebar, #entry-content, 
 	.two-cols .col, .three-cols .col, .two-cols .col30, .two-cols .col70, .two-boxes, .three-boxes {
 		display:block !important;
-    	width: 98% !important;
-    	margin:0 auto !important;
-    	padding:0;
-    	float:none;
-    	text-align: left;
-    	clear: both;
+		width: 98% !important;
+		margin:0 auto !important;
+		padding:0;
+		float:none;
+		text-align: left;
+		clear: both;
 		}
-  	#content {
+	#content {
 		width: 100%;
 		padding-top: .5em;
-  		}
+		}
 	}
 @media screen and (max-width: 720px) {
 	.smallscreen { display: none; }

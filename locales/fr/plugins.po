@@ -1778,7 +1778,7 @@ msgid "Reset sidebars to get back to default widgets installation."
 msgstr "Réinitialisez les bandeaux pour retrouver les widgets par défaut de votre installation."
 
 msgid "Widget templates tags"
-msgstr "Balise de widget"
+msgstr "Balises de widget"
 
 msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
 msgstr "Si vous êtes autorisé à modifier vos fichiers de thème, vous pouvez ajouter des widgets sous forme de balise, avec leur propre configuration."
