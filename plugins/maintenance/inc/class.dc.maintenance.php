@@ -229,7 +229,7 @@ class dcMaintenance
 	}
 
 	/**
-	 * Get expired task.
+	 * Get expired tasks.
 	 *
 	 * @return	<b>array</b>	Array of expired Task ID / date
 	 */
@@ -245,8 +245,8 @@ class dcMaintenance
 		while ($rs->fetch()) {
 			// Check if task exists
 			if (($task = $this->getTask($rs->log_msg)) !== null) {
-				// Check if tasks expired
-				if (strtotime($rs->log_dt) + $task->ts() < time()) {
+				// Check if remider is used and tasks expired
+				if ($task->ts() && strtotime($rs->log_dt) + $task->ts() < time()) {
 					$logs[$rs->log_msg] = $rs->log_dt;
 				}
 			}

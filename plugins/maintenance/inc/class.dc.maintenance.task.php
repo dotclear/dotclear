@@ -62,6 +62,11 @@ class dcMaintenanceTask
 		if (!$this->success) {
 			$this->success = __('Task successfully executed.');
 		}
+
+		$core->auth->user_prefs->addWorkspace('maintenance');
+		$ts = $core->auth->user_prefs->maintenance->get('ts_'.$this->id);
+		
+		$this->ts = abs((integer) $ts);
 	}
 
 	/**
@@ -92,7 +97,7 @@ class dcMaintenanceTask
 	 */
 	public function ts()
 	{
-		return abs((integer) $this->ts);
+		return $this->ts === false ? false : abs((integer) $this->ts);
 	}
 
 	/**
