@@ -216,7 +216,7 @@ if ($step) {
 					$core->blog->triggerBlog();
 				
 					// All done successfully, return to menu items list
-					http::redirect($p_url.'&amp;added=1');
+					http::redirect($p_url.'&added=1');
 				} else {
 					throw new Exception(__('Label and URL of menu item are mandatory.'));
 				}
@@ -251,7 +251,7 @@ if ($step) {
 				$core->blog->triggerBlog();
 				
 				// All done successfully, return to menu items list
-				http::redirect($p_url.'&amp;removed=1');
+				http::redirect($p_url.'&removed=1');
 			} else {
 				throw new Exception(__('No menu items selected.'));
 			}
@@ -285,7 +285,7 @@ if ($step) {
 			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
-			http::redirect($p_url.'&amp;updated=1');
+			http::redirect($p_url.'&updated=1');
 		}
 		catch (Exception $e) {
 			$core->error->add($e->getMessage());
@@ -322,7 +322,7 @@ if ($step) {
 			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
-			http::redirect($p_url.'&amp;neworder=1');
+			http::redirect($p_url.'&neworder=1');
 		} 
 		catch (Exception $e) {
 			$core->error->add($e->getMessage());
