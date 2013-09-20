@@ -58,8 +58,8 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 }
 
 // Get expired tasks
-$user_options = $core->auth->getOptions();
-if (!empty($user_options['user_maintenance_expired'])) {
+$core->auth->user_prefs->addWorkspace('maintenance');
+if ($core->auth->user_prefs->maintenance->plugin_message) {
 	$expired = $maintenance->getExpired();
 }
 
@@ -157,10 +157,17 @@ else {
 
 				if (array_key_exists($t->id(), $expired)) {
 					$res_task .= 
-					' <span class="clear form-note warn">'.sprintf(
-						__('Last execution of this task was on %s. You should execute it again.'),
+					'<br /> <span class="warn">'.sprintf(
+						__('Last execution of this task was on %s.'),
 						dt::dt2str(__('%Y-%m-%d %H:%M'), $expired[$t->id()])
-					).'</span>';
+					).' '.
+					__('You should execute it now.').'</span>';
+				}
+				elseif ($t->ts()) {
+					$res_task .= 
+					'<br /> <span class="warn">'.
+					__('This task has never been executed.').' '.
+					__('You should execute it now.').'</span>';
 				}
 
 				$res_task .= '</p>';
