@@ -194,7 +194,7 @@ if ($comment_id)
 	{
 		$comment_mailto = '<a href="mailto:'.html::escapeHTML($comment_email)
 		.'?subject='.rawurlencode(sprintf(__('Your comment on my blog %s'),$core->blog->name))
-		.'&body='
+		.'&amp;body='
 		.rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"),$rs->getPostURL()))
 		.'">'.__('Send an e-mail').'</a>';
 	}
