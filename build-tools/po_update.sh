@@ -36,6 +36,7 @@ tags
 themeEditor
 userPref
 widgets
+_fake_plugin
 "
 
 PO_LANG=$1
@@ -112,7 +113,9 @@ if [ -z "$PO_MODULE" ]; then
 	# plugins.pot
 	echo "Building plugins PO template..."
 	for p in $PLUGINS; do
-		find ./plugins/$p -name '*.php' -print
+		if [ -d plugins/$p ]; then
+			find ./plugins/$p -name '*.php' -print
+		fi
 	done | \
 		extract_strings \
 		--package-name="Dotclear 2" \

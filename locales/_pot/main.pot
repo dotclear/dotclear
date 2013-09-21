@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-20 08:00+0000\n"
+"POT-Creation-Date: 2013-09-21 16:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,7 +91,7 @@ msgid "Request a new password"
 msgstr ""
 
 #: admin/auth.php:338 admin/blog_pref.php:631 admin/comment.php:218
-#: admin/install/index.php:324 admin/post.php:687 admin/preferences.php:427
+#: admin/install/index.php:324 admin/post.php:687 admin/preferences.php:424
 #: admin/user.php:262 inc/admin/lib.dc.page.php:544
 msgid "Email:"
 msgstr ""
@@ -104,7 +104,7 @@ msgstr ""
 msgid "Change your password"
 msgstr ""
 
-#: admin/auth.php:353 admin/install/index.php:333 admin/preferences.php:446
+#: admin/auth.php:353 admin/install/index.php:333 admin/preferences.php:443
 #: admin/user.php:223
 msgid "New password:"
 msgstr ""
@@ -364,7 +364,7 @@ msgid "Invalid language code"
 msgstr ""
 
 #: admin/blog_pref.php:256 admin/blog_pref.php:263 admin/blog_pref.php:267
-#: inc/admin/prepend.php:309
+#: inc/admin/prepend.php:309 inc/core/_fake_l10n.php:20
 msgid "Blog settings"
 msgstr ""
 
@@ -602,9 +602,7 @@ msgstr ""
 
 #: admin/blog_pref.php:594 admin/user.php:187 admin/users.php:96
 #: admin/users.php:100 admin/users_actions.php:137 admin/users_actions.php:144
-#: admin/users_actions.php:150 inc/admin/actions/class.dcactionusers.php:21
-#: inc/admin/actions/class.dcactionusers.php:34
-#: inc/admin/actions/class.dcactionusers.php:52 inc/admin/prepend.php:340
+#: admin/users_actions.php:150 inc/admin/prepend.php:340
 msgid "Users"
 msgstr ""
 
@@ -682,7 +680,7 @@ msgid "Configure theme"
 msgstr ""
 
 #: admin/blog_theme.php:214 admin/blog_theme.php:220 admin/blog_theme.php:225
-#: inc/admin/prepend.php:306
+#: inc/admin/prepend.php:306 inc/core/_fake_l10n.php:21
 msgid "Blog appearance"
 msgstr ""
 
@@ -941,7 +939,7 @@ msgstr ""
 msgid "total:"
 msgstr ""
 
-#: admin/categories.php:163 admin/category.php:204 admin/preferences.php:430
+#: admin/categories.php:163 admin/category.php:204 admin/preferences.php:427
 #: admin/user.php:267
 msgid "URL:"
 msgstr ""
@@ -1105,7 +1103,7 @@ msgstr ""
 #: admin/media.php:519 admin/plugins.php:288 admin/plugins.php:331
 #: admin/post.php:585 admin/post.php:637 admin/post.php:730
 #: admin/posts.php:129 admin/search.php:112 admin/search.php:155
-#: admin/users.php:34 inc/admin/actions/class.dcactionusers.php:100
+#: admin/users.php:34
 msgid "Delete"
 msgstr ""
 
@@ -1134,23 +1132,21 @@ msgid "Author"
 msgstr ""
 
 #: admin/comments.php:135 admin/post.php:629 admin/post.php:722
-#: admin/posts.php:109 inc/admin/actions/class.dcactionusers.php:91
-#: inc/admin/actions/class.dcactionusers.php:92
+#: admin/posts.php:109
 msgid "Publish"
 msgstr ""
 
 #: admin/comments.php:136 admin/post.php:630 admin/post.php:723
-#: admin/posts.php:110 inc/admin/actions/class.dcactionusers.php:93
+#: admin/posts.php:110
 msgid "Unpublish"
 msgstr ""
 
 #: admin/comments.php:137 admin/post.php:631 admin/post.php:724
-#: admin/posts.php:112 inc/admin/actions/class.dcactionusers.php:94
+#: admin/posts.php:112
 msgid "Mark as pending"
 msgstr ""
 
 #: admin/comments.php:138 admin/post.php:632 admin/post.php:725
-#: inc/admin/actions/class.dcactionusers.php:95
 msgid "Mark as junk"
 msgstr ""
 
@@ -1208,6 +1204,7 @@ msgstr ""
 
 #: admin/comments_actions.php:107 admin/post.php:641 admin/post.php:654
 #: inc/admin/lib.pager.php:168 inc/admin/prepend.php:321
+#: inc/core/_fake_l10n.php:18
 msgid "Comments"
 msgstr ""
 
@@ -1231,12 +1228,12 @@ msgstr ""
 
 #: admin/index.php:122 admin/index.php:356 admin/post.php:35
 #: admin/post.php:554 admin/posts.php:257 inc/admin/prepend.php:327
-#: inc/admin/prepend.php:378
+#: inc/admin/prepend.php:378 inc/core/_fake_l10n.php:16
 msgid "New entry"
 msgstr ""
 
 #: admin/index.php:124 admin/media.php:394 admin/preferences.php:17
-#: inc/admin/lib.dc.page.php:147
+#: inc/admin/lib.dc.page.php:147 inc/core/_fake_l10n.php:19
 msgid "My preferences"
 msgstr ""
 
@@ -1464,31 +1461,31 @@ msgstr ""
 
 #: admin/install/index.php:273 admin/install/index.php:274
 #: admin/install/index.php:275 admin/install/index.php:276
-#: admin/install/index.php:277 admin/preferences.php:368
-#: admin/preferences.php:369 admin/preferences.php:370
-#: admin/preferences.php:371 admin/preferences.php:372 admin/user.php:172
+#: admin/install/index.php:277 admin/preferences.php:365
+#: admin/preferences.php:366 admin/preferences.php:367
+#: admin/preferences.php:368 admin/preferences.php:369 admin/user.php:172
 #: admin/user.php:173 admin/user.php:174 admin/user.php:175 admin/user.php:176
 #, php-format
 msgid "Password strength: %s"
 msgstr ""
 
-#: admin/install/index.php:273 admin/preferences.php:368 admin/user.php:172
+#: admin/install/index.php:273 admin/preferences.php:365 admin/user.php:172
 msgid "very weak"
 msgstr ""
 
-#: admin/install/index.php:274 admin/preferences.php:369 admin/user.php:173
+#: admin/install/index.php:274 admin/preferences.php:366 admin/user.php:173
 msgid "weak"
 msgstr ""
 
-#: admin/install/index.php:275 admin/preferences.php:370 admin/user.php:174
+#: admin/install/index.php:275 admin/preferences.php:367 admin/user.php:174
 msgid "mediocre"
 msgstr ""
 
-#: admin/install/index.php:276 admin/preferences.php:371 admin/user.php:175
+#: admin/install/index.php:276 admin/preferences.php:368 admin/user.php:175
 msgid "strong"
 msgstr ""
 
-#: admin/install/index.php:277 admin/preferences.php:372 admin/user.php:176
+#: admin/install/index.php:277 admin/preferences.php:369 admin/user.php:176
 msgid "very strong"
 msgstr ""
 
@@ -1523,11 +1520,11 @@ msgstr ""
 msgid "Please provide the following information needed to create the first user."
 msgstr ""
 
-#: admin/install/index.php:320 admin/preferences.php:421 admin/user.php:254
+#: admin/install/index.php:320 admin/preferences.php:418 admin/user.php:254
 msgid "First Name:"
 msgstr ""
 
-#: admin/install/index.php:322 admin/preferences.php:418 admin/user.php:250
+#: admin/install/index.php:322 admin/preferences.php:415 admin/user.php:250
 msgid "Last Name:"
 msgstr ""
 
@@ -2379,6 +2376,7 @@ msgstr ""
 #: admin/posts_actions.php:358 admin/posts_actions.php:408
 #: admin/posts_actions.php:450 admin/posts_actions.php:480
 #: admin/users_actions.php:215 inc/admin/prepend.php:324
+#: inc/core/_fake_l10n.php:17
 msgid "Entries"
 msgstr ""
 
@@ -2423,11 +2421,11 @@ msgid "Publication date and hour"
 msgstr ""
 
 #: admin/post.php:449
-msgid "Entry lang"
+msgid "Entry language"
 msgstr ""
 
 #: admin/post.php:454
-msgid "Text formating"
+msgid "Text formatting"
 msgstr ""
 
 #: admin/post.php:459
@@ -2435,7 +2433,7 @@ msgid "Convert to XHTML"
 msgstr ""
 
 #: admin/post.php:461
-msgid "Ordering"
+msgid "Filing"
 msgstr ""
 
 #: admin/post.php:466
@@ -2675,7 +2673,6 @@ msgstr ""
 
 #: admin/posts_actions.php:205 admin/posts_actions.php:412
 #: admin/posts_actions.php:453 admin/posts_actions.php:483
-#: inc/admin/actions/class.dcactionusers.php:40
 msgid "Back to entries list"
 msgstr ""
 
@@ -2696,7 +2693,7 @@ msgid "Change language for this selection"
 msgstr ""
 
 #: admin/posts_actions.php:464
-msgid "Entry lang:"
+msgid "Entry language:"
 msgstr ""
 
 #: admin/posts_actions.php:481
@@ -2715,213 +2712,213 @@ msgstr ""
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
 
-#: admin/preferences.php:216 admin/preferences.php:259
+#: admin/preferences.php:213 admin/preferences.php:256
 msgid "No favorite selected"
 msgstr ""
 
-#: admin/preferences.php:390
+#: admin/preferences.php:387
 msgid "Personal information has been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:393
+#: admin/preferences.php:390
 msgid "Personal options has been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:396
+#: admin/preferences.php:393
 msgid "Dashboard options has been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:399
+#: admin/preferences.php:396
 msgid "Favorites have been successfully added."
 msgstr ""
 
-#: admin/preferences.php:402
+#: admin/preferences.php:399
 msgid "Favorites have been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:405
+#: admin/preferences.php:402
 msgid "Favorites have been successfully removed."
 msgstr ""
 
-#: admin/preferences.php:408
+#: admin/preferences.php:405
 msgid "Default favorites have been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:412 admin/preferences.php:415
+#: admin/preferences.php:409 admin/preferences.php:412
 msgid "My profile"
 msgstr ""
 
-#: admin/preferences.php:424 admin/user.php:258
+#: admin/preferences.php:421 admin/user.php:258
 msgid "Display name:"
 msgstr ""
 
-#: admin/preferences.php:433
+#: admin/preferences.php:430
 msgid "Language for my interface:"
 msgstr ""
 
-#: admin/preferences.php:436
+#: admin/preferences.php:433
 msgid "My timezone:"
 msgstr ""
 
-#: admin/preferences.php:443
+#: admin/preferences.php:440
 msgid "Change my password"
 msgstr ""
 
-#: admin/preferences.php:454
+#: admin/preferences.php:451
 msgid "Confirm new password:"
 msgstr ""
 
-#: admin/preferences.php:457
+#: admin/preferences.php:454
 msgid "Your current password:"
 msgstr ""
 
-#: admin/preferences.php:460
+#: admin/preferences.php:457
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr ""
 
-#: admin/preferences.php:467
+#: admin/preferences.php:464
 msgid "Update my profile"
 msgstr ""
 
-#: admin/preferences.php:473 admin/preferences.php:477
+#: admin/preferences.php:470 admin/preferences.php:474
 msgid "My options"
 msgstr ""
 
-#: admin/preferences.php:481 admin/user.php:274
+#: admin/preferences.php:478 admin/user.php:274
 msgid "Interface"
 msgstr ""
 
-#: admin/preferences.php:485
+#: admin/preferences.php:482
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
-#: admin/preferences.php:489
+#: admin/preferences.php:486
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr ""
 
-#: admin/preferences.php:490
+#: admin/preferences.php:487
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
-#: admin/preferences.php:496
+#: admin/preferences.php:493
 msgid "Do not use standard favicon"
 msgstr ""
 
-#: admin/preferences.php:497
+#: admin/preferences.php:494
 msgid "This will be applied for all users"
 msgstr ""
 
-#: admin/preferences.php:506 admin/user.php:283
+#: admin/preferences.php:503 admin/user.php:283
 msgid "Edition"
 msgstr ""
 
-#: admin/preferences.php:508 admin/user.php:284
+#: admin/preferences.php:505 admin/user.php:284
 msgid "Preferred format:"
 msgstr ""
 
-#: admin/preferences.php:511 admin/user.php:288
+#: admin/preferences.php:508 admin/user.php:288
 msgid "Default entry status:"
 msgstr ""
 
-#: admin/preferences.php:514 admin/user.php:292
+#: admin/preferences.php:511 admin/user.php:292
 msgid "Entry edit field height:"
 msgstr ""
 
-#: admin/preferences.php:519
+#: admin/preferences.php:516
 msgid "Enable WYSIWYG mode"
 msgstr ""
 
-#: admin/preferences.php:524
+#: admin/preferences.php:521
 msgid "Other options"
 msgstr ""
 
-#: admin/preferences.php:532
+#: admin/preferences.php:529
 msgid "Save my options"
 msgstr ""
 
-#: admin/preferences.php:538 admin/preferences.php:540
+#: admin/preferences.php:535 admin/preferences.php:537
 #: inc/admin/lib.dc.page.php:145
 msgid "My dashboard"
 msgstr ""
 
-#: admin/preferences.php:544 inc/admin/prepend.php:297
+#: admin/preferences.php:541 inc/admin/prepend.php:297
 msgid "My favorites"
 msgstr ""
 
-#: admin/preferences.php:557
+#: admin/preferences.php:554
 #, php-format
 msgid "position of %s"
 msgstr ""
 
-#: admin/preferences.php:571
+#: admin/preferences.php:568
 msgid "Save order"
 msgstr ""
 
-#: admin/preferences.php:574
+#: admin/preferences.php:571
 msgid "Delete selected favorites"
 msgstr ""
 
-#: admin/preferences.php:576
+#: admin/preferences.php:573
 msgid "Are you sure you want to remove selected favorites?"
 msgstr ""
 
-#: admin/preferences.php:580
+#: admin/preferences.php:577
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr ""
 
-#: admin/preferences.php:581
+#: admin/preferences.php:578
 msgid "Define as default favorites"
 msgstr ""
 
-#: admin/preferences.php:589
+#: admin/preferences.php:586
 msgid "Currently no personal favorites."
 msgstr ""
 
-#: admin/preferences.php:607
+#: admin/preferences.php:604
 msgid "Other available favorites"
 msgstr ""
 
-#: admin/preferences.php:628
+#: admin/preferences.php:625
 msgid "(default favorite)"
 msgstr ""
 
-#: admin/preferences.php:637
+#: admin/preferences.php:634
 msgid "Add to my favorites"
 msgstr ""
 
-#: admin/preferences.php:646
+#: admin/preferences.php:643
 msgid "Menu"
 msgstr ""
 
-#: admin/preferences.php:649
+#: admin/preferences.php:646
 msgid "Display favorites at the top of the menu"
 msgstr ""
 
-#: admin/preferences.php:654
+#: admin/preferences.php:651
 msgid "Dashboard icons"
 msgstr ""
 
-#: admin/preferences.php:655
+#: admin/preferences.php:652
 msgid "Iconset:"
 msgstr ""
 
-#: admin/preferences.php:664
+#: admin/preferences.php:661
 msgid "Dashboard modules"
 msgstr ""
 
-#: admin/preferences.php:668
+#: admin/preferences.php:665
 msgid "Display documentation links"
 msgstr ""
 
-#: admin/preferences.php:672
+#: admin/preferences.php:669
 msgid "Display Dotclear news"
 msgstr ""
 
-#: admin/preferences.php:676
+#: admin/preferences.php:673
 msgid "Display quick entry form"
 msgstr ""
 
-#: admin/preferences.php:687
+#: admin/preferences.php:684
 msgid "Save my dashboard options"
 msgstr ""
 
@@ -3227,27 +3224,12 @@ msgstr ""
 msgid "Validate permissions"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionusers.php:53
-msgid "Users actions"
-msgstr ""
-
-#: inc/admin/actions/class.dcactionusers.php:109
-#: inc/admin/actions/class.dcactionusers.php:125
-msgid "No User selected"
-msgstr ""
-
-#: inc/admin/class.admincombos.php:22
-msgid "(no cat)"
-msgstr ""
-
-#: inc/admin/class.admincombos.php:64 inc/admin/class.admincombos.php:68
 #: inc/admin/lib.admincombos.php:107 inc/admin/lib.admincombos.php:111
 msgid "Available"
 msgstr ""
 
-#: inc/admin/class.admincombos.php:64 inc/admin/class.admincombos.php:67
-#: inc/admin/class.admincombos.php:70 inc/admin/lib.admincombos.php:107
-#: inc/admin/lib.admincombos.php:110 inc/admin/lib.admincombos.php:113
+#: inc/admin/lib.admincombos.php:107 inc/admin/lib.admincombos.php:110
+#: inc/admin/lib.admincombos.php:113
 msgid "Most used"
 msgstr ""
 
@@ -3777,6 +3759,34 @@ msgstr ""
 
 #: inc/admin/prepend.php:334
 msgid "Languages"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:4
+msgid "medium"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:5
+msgid "small"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:6
+msgid "thumbnail"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:7
+msgid "square"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:11
+msgid "Posts"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:12 inc/core/_fake_l10n.php:22
+msgid "Pages"
+msgstr ""
+
+#: inc/core/_fake_l10n.php:23
+msgid "Blogroll"
 msgstr ""
 
 #: inc/core/class.dc.auth.php:73
