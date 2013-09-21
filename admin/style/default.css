@@ -25,9 +25,12 @@
 	}
 #wrapper {
 	position: relative;
-	width: 100%;
 	padding-top: 1em;
-	background: #f7f7f7 url(bg_wrapper.png) repeat-y 15.5em;
+	overflow: hidden;
+	float: left;
+	width: 100%;
+	z-index: 10;
+	/*background: #f7f7f7 url(bg_wrapper.png) repeat-y 15.5em;*/
 	}
 .with-js #wrapper {
 	padding-top: 0;
@@ -35,36 +38,41 @@
 #main {
 	width: 100%;
 	float: right;
-	margin-left: -14.5em;
+	margin-left: -15.5em;
 	margin-top: 0;
 	}
 #content {
 	margin: 0 0 0 15.5em;
-	padding: 9px 18px 18px; /* ie < 9 sucks */
-	padding: .9rem 1.8rem 1.8rem;
+	padding: .75em 1em;
 	background: #fff;
-	overflow: hidden;
 	}
 #main-menu {
-	width: 14.5em;
+	width: 14em;
 	float: left;
 	margin:0;
 	padding-top: .5em;
 	padding-bottom: 1em;
 	overflow: hidden;
+	background: #f7f7f7;
 	}
 #footer {
 	clear: both;
+	position: relative;
+	z-index: 20;
 	padding: .5em 1em .5em 0;
 	text-align: right;
 	border-top: 1px solid #ccc;
 	background-color: #fff;
 	}
+#content, #main-menu { /* hauteurs égales */
+	padding-bottom: 200em;
+	margin-bottom: -200em;
+	}
 /* to hide main-menu */
 #collapser {
 	position: absolute;
 	top: 0;
-	left: 14.5em;
+	left: 14em;
 	width: 1em;
 	height: 100%;
 	overflow: hidden;
