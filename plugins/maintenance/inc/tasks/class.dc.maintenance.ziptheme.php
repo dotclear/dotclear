@@ -13,6 +13,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 class dcMaintenanceZiptheme extends dcMaintenanceTask
 {
+	protected $blog = true;
 	protected $tab = 'backup';
 	protected $group = 'zipblog';
 
