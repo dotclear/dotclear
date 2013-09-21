@@ -296,7 +296,7 @@ if ($blog_id)
 	
 	echo
 	'<div class="multi-part" id="params" title="'.__('Parameters').'">'.
-	'<h3>'.__('Parameters').'</h3>'.
+	'<h3 class="out-of-screen-if-js">'.__('Parameters').'</h3>'.
 	'<form action="'.$action.'" method="post" id="blog-form">';
 	
 	echo
@@ -439,7 +439,7 @@ if ($blog_id)
 	'<p><label for="comments_ttl" class="classic">'.sprintf(__('Leave comments open for %s days').'.',
 	form::field('comments_ttl',2,3,$blog_settings->system->comments_ttl)).
 	'</label></p>'.
-	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.	
+	'<p class="form-note">'.__('No limit: leave blank.').'</p>'.	
 	'<p><label for="wiki_comments" class="classic">'.
 	form::checkbox('wiki_comments','1',$blog_settings->system->wiki_comments).
 	__('Wiki syntax for comments').'</label></p>'.
@@ -454,7 +454,7 @@ if ($blog_id)
 	__('Moderate trackbacks').'</label></p>'.	
 	'<p><label for="trackbacks_ttl" class="classic">'.sprintf(__('Leave trackbacks open for %s days').'.',
 	form::field('trackbacks_ttl',2,3,$blog_settings->system->trackbacks_ttl)).'</label></p>'.
-	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.	
+	'<p class="form-note">'.__('No limit: leave blank.').'</p>'.	
 	'<p><label for="comments_nofollow" class="classic">'.
 	form::checkbox('comments_nofollow','1',$blog_settings->system->comments_nofollow).
 	__('Add "nofollow" relation on comments and trackbacks links').'</label></p>'.
@@ -504,7 +504,11 @@ if ($blog_id)
 	'</div>';
 	
 	echo
-	'<div class="fieldset"><h4>'.__('Media and images').'</h4>'.
+	'<div class="fieldset"><h4 id="medias-settings">'.__('Media and images').'</h4>'.
+		'<p class="form-note warning">'.
+	__('Please note that if you change current settings bellow, they will now apply to all new images in the media manager.').
+	' '.__('Be carefull if you share it with other blogs in your installation.').'</p>'.
+
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	'<h5>'.__('Generated image sizes (in pixels)').'</h5>'.
@@ -592,7 +596,7 @@ if ($blog_id)
 	
 	echo
 	'<div class="multi-part" id="users" title="'.__('Users').'">'.
-	'<h3>'.__('Users on this blog').'</h3>';
+	'<h3 class="out-of-screen-if-js">'.__('Users on this blog').'</h3>';
 	
 	if (empty($blog_users))
 	{
@@ -650,10 +654,16 @@ if ($blog_id)
 				'<h5>'.__('Permissions:').'</h5>'.
 				'<ul>';
 				if ($v['super']) {
-					echo '<li class="user_super">'.__('Super administrator').'</li>';
+					echo '<li class="user_super">'.__('Super administrator').'<br />'.
+					'<span class="form-note">'.__('All rights on all blogs.').'</span></li>';
 				} else {
 					foreach ($v['p'] as $p => $V) {
-						echo '<li '.($p == 'admin' ? 'class="user_admin"' : '').'>'.__($perm_types[$p]).'</li>';
+						echo '<li '.($p == 'admin' ? 'class="user_admin"' : '').'>'.__($perm_types[$p]);
+
+						if($p == 'admin') {
+							echo '<br /><span class="form-note">'.__('All rights on this blog.').'</span>';
+						}
+						echo '</li>';
 					}
 				}
 				echo 
