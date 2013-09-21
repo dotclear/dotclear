@@ -100,7 +100,7 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 // Combos
 
 $combo_ts = array(
-	__('Every week') 		=> 1,//604800,
+	__('Every week') 		=> 604800,
 	__('Every two weeks') 	=> 1209600,
 	__('Every month') 		=> 2592000,
 	__('Every two months') 	=> 5184000
