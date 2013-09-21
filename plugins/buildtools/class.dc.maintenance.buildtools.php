@@ -26,12 +26,10 @@ class dcMaintenanceBuildtools extends dcMaintenanceTask
 
 class l10nFaker {
 	protected $core;
-	protected $dest;
 	protected $bundled_plugins;
 	
-	public function __construct($core,$dest) {
+	public function __construct($core) {
 		$this->core = $core;
-		$this->dest = $dest;
 		$this->bundled_plugins = array(
 			"aboutConfig","akismet","antispam","attachments","blogroll",
 			"blowupConfig","daInstaller","fairTrackbacks","importExport",
