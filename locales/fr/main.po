@@ -680,16 +680,14 @@ msgstr "total :"
 msgid "URL:"
 msgstr "URL :"
 
-#, fuzzy
 msgid "Move entries to"
-msgstr "Déplacer cette catégorie"
+msgstr "Déplacer les billets vers"
 
 msgid "OK"
 msgstr "OK"
 
-#, fuzzy
 msgid "Delete category"
-msgstr "Nouvelle catégorie"
+msgstr "Supprimer la catégorie"
 
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
 msgstr "Pour modifier l'ordre des catégories, déplacez les items par glisser-déposer puis cliquez sur le bouton \"Enregistrer l'ordre des catégories\"."
