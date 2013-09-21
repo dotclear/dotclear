@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-20 08:00+0000\n"
+"POT-Creation-Date: 2013-09-21 16:29+0000\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -20,6 +20,99 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.5.4\n"
+
+msgid "Manage every blog configuration directive"
+msgstr "Gestion des directives de configuration des blogs"
+
+msgid "Akismet interface for Dotclear"
+msgstr "Interface Akismet pour Dotclear"
+
+msgid "Generic antispam plugin for Dotclear"
+msgstr "Antispam générique pour Dotclear"
+
+msgid "Manage post attachments"
+msgstr "Gestion des fichiers attachés"
+
+msgid "Manage your blogroll"
+msgstr "Gestion de votre liste de liens"
+
+msgid "Configure your Blowup Theme"
+msgstr "Configurer votre thème Blowup"
+
+msgid "Install and update your plugins live from DotAddict.org"
+msgstr ""
+
+msgid "Trackback validity check"
+msgstr "Contrôle de validité des rétroliens"
+
+msgid "Import and Export your blog"
+msgstr "Importez et exportez votre blog"
+
+msgid "Maintain your installation"
+msgstr "Maintenez votre installation"
+
+msgid "Serve entries as simple web pages"
+msgstr "Publie des billets comme de simples pages web"
+
+msgid "Ping services"
+msgstr "Services de signalement"
+
+msgid "Simple menu for Dotclear"
+msgstr "Menu simple pour Dotclear"
+
+msgid "Tags for posts"
+msgstr "Mots-clés pour les billets"
+
+msgid "Theme Editor"
+msgstr "Éditeur de thème"
+
+msgid "Manage every user preference directive"
+msgstr "Gestion des préférences utilisateur"
+
+msgid "Widgets for your blog sidebars"
+msgstr "Widgets pour les volets de votre blog"
+
+msgid "Search engine form"
+msgstr "Formulaire de recherche"
+
+msgid "List of navigation links"
+msgstr "Liste des liens de navigation"
+
+msgid "List of selected entries"
+msgstr "Liste des billets sélectionnés"
+
+msgid "List of available languages"
+msgstr "Liste des langues disponibles"
+
+msgid "List of categories"
+msgstr "Liste des catégories"
+
+msgid "RSS or Atom feed subscription links"
+msgstr "Liens d'abonnements aux flux RSS ou Atom"
+
+msgid "Last entries from feed"
+msgstr "Derniers billets d'un flux"
+
+msgid "Simple text"
+msgstr "Texte simple"
+
+msgid "List of last entries published"
+msgstr "Derniers billets publiés"
+
+msgid "List of last comments posted"
+msgstr "Liste des derniers commentaires postés"
+
+msgid "Tags cloud"
+msgstr "Nuage de mots-clés"
+
+msgid "List of published pages"
+msgstr "Liste des pages publiées"
+
+msgid "Blogroll list"
+msgstr "Liste de liens"
+
+msgid "List of simple menu items"
+msgstr "Liste des éléments de menu simple"
 
 msgid "no"
 msgstr "non"
@@ -288,9 +381,6 @@ msgstr "Pas de fichier attaché."
 
 msgid "Add files to this entry"
 msgstr "Ajouter des fichiers à la page"
-
-msgid "Blogroll"
-msgstr "Liste des liens"
 
 msgid "manage blogroll"
 msgstr "Gestion de la liste des liens"
@@ -802,9 +892,6 @@ msgstr "Les thèmes suivants n'ont pas été mis à jour :"
 msgid "Following themes have been updated:"
 msgstr "Les thèmes suivants ont été mis à jour :"
 
-msgid "Install and update your plugins live from DotAddict.org"
-msgstr ""
-
 msgid "Available updates"
 msgstr "Mises à jours disponibles"
 
@@ -1117,8 +1204,50 @@ msgid_plural "%s tasks to update"
 msgstr[0] "Une tâche à mettre à jour"
 msgstr[1] "%s tâches à mettre à jour"
 
-msgid "Show maintenance tasks to update."
-msgstr "Afficher les tâches de maintenance à mettre à jour."
+#, php-format
+msgid "Last updated on %s"
+msgstr ""
+
+msgid "There is a task to update."
+msgid_plural "There are %s tasks to update."
+msgstr[0] "Une tâche à mettre à jour"
+msgstr[1] "%s tâches à mettre à jour"
+
+msgid "Manage task"
+msgstr "gestion des tâches"
+
+msgid "Use different periods for each task"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "Display count of expired tasks on maintenance dashboard icon"
+msgstr ""
+
+msgid "Display list of expired tasks on dashboard contents"
+msgstr ""
+
+msgid "Display alert message of expired tasks on plugin page"
+msgstr ""
+
+msgid "Recall time for all tasks"
+msgstr ""
+
+msgid "Recall time per task"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
 
 msgid "Failed to execute task."
 msgstr "Impossible d'exécuter la tâche."
@@ -1204,17 +1333,20 @@ msgid "Back"
 msgstr "Retour"
 
 #, php-format
-msgid "Last execution of this task was on %s. You should execute it again."
-msgstr "La dernière exécution de cette tâches était le %s. Vous devriez l'exécuter à nouveau."
+msgid "Last execution of this task was on %s."
+msgstr "La dernière exécution de cette tâches était le %s."
+
+msgid "You should execute it now."
+msgstr "Vous devriez l'exécuter à nouveau."
+
+msgid "This task has never been executed."
+msgstr ""
 
 msgid "Execute task"
 msgstr "Exécuter la tâche"
 
 msgid "This may take a very long time"
 msgstr "Cela peut prendre un certain temps"
-
-msgid "Pages"
-msgstr "Pages"
 
 #, php-format
 msgid "%d page"
@@ -1293,7 +1425,7 @@ msgstr "Voir cette page sur le site"
 msgid "Page status"
 msgstr "État de la page"
 
-msgid "Page lang"
+msgid "Page language"
 msgstr "Langue de la page"
 
 msgid "Hide in widget Pages"
@@ -1765,6 +1897,9 @@ msgstr "Mettre à jour les volets"
 msgid "Reset sidebars"
 msgstr "Réinitialiser les volets"
 
+msgid "Help for this page"
+msgstr "Aide pour cette page"
+
 msgid "Use of widgets"
 msgstr "Utilisation des widgets"
 
@@ -1828,14 +1963,20 @@ msgstr "Retirer le widget"
 msgid "Drag widgets here to remove them from this sidebar."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
+#~ msgid "Blogroll"
+#~ msgstr "Liste des liens"
+
+#~ msgid "Show maintenance tasks to update."
+#~ msgstr "Afficher les tâches de maintenance à mettre à jour."
+
+#~ msgid "Pages"
+#~ msgstr "Pages"
+
 #~ msgid "File is empty or not a compressed file."
 #~ msgstr "Le fichier est vide ou n'est pas un fichier compressé."
 
 #~ msgid "Zip file ready to be downloaded."
 #~ msgstr "Fichier Zip prêt à être télécharger."
-
-#~ msgid "Manage every blog configuration directive"
-#~ msgstr "Gestion des directives de configuration des blogs"
 
 #~ msgid "blog settings"
 #~ msgstr "paramètres du blog"
@@ -1848,9 +1989,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Akismet"
 #~ msgstr "Akismet"
-
-#~ msgid "Generic antispam plugin for Dotclear"
-#~ msgstr "Antispam générique pour Dotclear"
 
 #~ msgid "Global IP"
 #~ msgstr "IP globale"
@@ -1870,32 +2008,17 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgid "Blog preferences"
 #~ msgstr "Préférences du blog"
 
-#~ msgid "Manage post attachments"
-#~ msgstr "Gestion des fichiers attachés"
-
-#~ msgid "Manage your blogroll"
-#~ msgstr "Gestion de votre liste de liens"
-
 #~ msgid "XFN"
 #~ msgstr "XFN"
 
 #~ msgid "Blowup Config"
 #~ msgstr "Configuration de Blowup"
 
-#~ msgid "Configure your Blowup Theme"
-#~ msgstr "Configurer votre thème Blowup"
-
 #~ msgid "Fair Trackbacks"
 #~ msgstr "Filtre de rétroliens"
 
-#~ msgid "Trackback validity check"
-#~ msgstr "Contrôle de validité des rétroliens"
-
 #~ msgid "Import / Export"
 #~ msgstr "Import / Export"
-
-#~ msgid "Import and Export your blog"
-#~ msgstr "Importez et exportez votre blog"
 
 #~ msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
 #~ msgstr "Cela importera votre contenu Dotclear 1.2 comme nouveau contenu dans le blog courant : %s."
@@ -1909,9 +2032,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
 #~ msgstr "Cela importera un flux (RSS ou ATOM) comme un nouveau contenu dans le blog courant : %s."
 
-#~ msgid "Maintain your installation"
-#~ msgstr "Maintenez votre installation"
-
 #~ msgid "Optimize database room"
 #~ msgstr "Optimise la place occupée par la base de données"
 
@@ -1923,9 +2043,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Empty directory"
 #~ msgstr "Vidage du répertoire"
-
-#~ msgid "Serve entries as simple web pages"
-#~ msgstr "Publie des billets comme de simples pages web"
 
 #~ msgid "Warning: Comments are not more accepted for this page."
 #~ msgstr "Attention : les commentaires ne sont plus acceptés pour cette page."
@@ -1957,17 +2074,11 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgid "page"
 #~ msgstr "page"
 
-#~ msgid "Ping services"
-#~ msgstr "Services de signalement"
-
 #~ msgid "Pings:"
 #~ msgstr "Signalements :"
 
 #~ msgid "Simple Menu"
 #~ msgstr "Menu simple"
-
-#~ msgid "Simple menu for Dotclear"
-#~ msgstr "Menu simple pour Dotclear"
 
 #~ msgid "Menu"
 #~ msgstr "Menu"
@@ -1981,9 +2092,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgid "extended"
 #~ msgstr "étendu"
 
-#~ msgid "Tags for posts"
-#~ msgstr "Mots-clés pour les billets"
-
 #~ msgid "Edit tag"
 #~ msgstr "Modifier le mot-clé"
 
@@ -1993,65 +2101,14 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgid "List of entries with this tag"
 #~ msgstr "Liste des billets avec ce mot-clé"
 
-#~ msgid "Theme Editor"
-#~ msgstr "Éditeur de thème"
-
 #~ msgid "Syntax color"
 #~ msgstr "Coloration syntaxique"
-
-#~ msgid "Manage every user preference directive"
-#~ msgstr "Gestion des préférences utilisateur"
 
 #~ msgid "user preferences"
 #~ msgstr "préférences utilisateur"
 
 #~ msgid "global preferences"
 #~ msgstr "préférences globales"
-
-#~ msgid "Widgets for your blog sidebars"
-#~ msgstr "Widgets pour les volets de votre blog"
-
-#~ msgid "Blogroll list"
-#~ msgstr "Liste de liens"
-
-#~ msgid "List of published pages"
-#~ msgstr "Liste des pages publiées"
-
-#~ msgid "List of simple menu items"
-#~ msgstr "Liste des éléments de menu simple"
-
-#~ msgid "Tags cloud"
-#~ msgstr "Nuage de mots-clés"
-
-#~ msgid "Search engine form"
-#~ msgstr "Formulaire de recherche"
-
-#~ msgid "List of navigation links"
-#~ msgstr "Liste des liens de navigation"
-
-#~ msgid "List of selected entries"
-#~ msgstr "Liste des billets sélectionnés"
-
-#~ msgid "List of available languages"
-#~ msgstr "Liste des langues disponibles"
-
-#~ msgid "List of categories"
-#~ msgstr "Liste des catégories"
-
-#~ msgid "RSS or Atom feed subscription links"
-#~ msgstr "Liens d'abonnements aux flux RSS ou Atom"
-
-#~ msgid "Last entries from feed"
-#~ msgstr "Derniers billets d'un flux"
-
-#~ msgid "Simple text"
-#~ msgstr "Texte simple"
-
-#~ msgid "List of last entries published"
-#~ msgstr "Derniers billets publiés"
-
-#~ msgid "List of last comments posted"
-#~ msgstr "Liste des derniers commentaires postés"
 
 #~ msgid "Export a blog"
 #~ msgstr "Exporter un blog"

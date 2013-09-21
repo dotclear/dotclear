@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-20 08:00+0000\n"
+"POT-Creation-Date: 2013-09-21 16:29+0000\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -644,7 +644,6 @@ msgstr "La catégorie où les entrées seront déplacées n'existe pas."
 msgid "Categories"
 msgstr "Catégories"
 
-#, fuzzy
 msgid "The category has been successfully removed."
 msgid_plural "The categories have been successfully removed."
 msgstr[0] "Catégorie déplacée avec succès."
@@ -656,9 +655,8 @@ msgstr "Catégories réordonnées avec succès."
 msgid "This category does not exist."
 msgstr "Cette catégorie n'existe pas."
 
-#, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
-msgstr "Vous ne pouvez déplacer les billets vers la catégorie que vous voulez supprimer."
+msgstr "Les billets ont été déplacés dans la catégorie choisie avec succès."
 
 msgid "New category"
 msgstr "Nouvelle catégorie"
@@ -1766,17 +1764,17 @@ msgstr "État du billet"
 msgid "Publication date and hour"
 msgstr "Date et heure de publication"
 
-msgid "Entry lang"
+msgid "Entry language"
 msgstr "Langue du billet"
 
-msgid "Text formating"
-msgstr "Syntaxe de saisie"
+msgid "Text formatting"
+msgstr "Formatage du texte"
 
 msgid "Convert to XHTML"
 msgstr "Convertir en XHTML"
 
-msgid "Ordering"
-msgstr "Classement"
+msgid "Filing"
+msgstr ""
 
 msgid "Selected entry"
 msgstr "Billet sélectionné"
@@ -1967,7 +1965,7 @@ msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 msgid "Change language for this selection"
 msgstr "Changer la langue de cette sélection"
 
-msgid "Entry lang:"
+msgid "Entry language:"
 msgstr "Langue du billet :"
 
 msgid "Change author for this selection"
@@ -2367,15 +2365,6 @@ msgstr "Vous allez changer les permissions des utilisateurs %s pour ces blogs."
 
 msgid "Validate permissions"
 msgstr "Valider les permissions"
-
-msgid "Users actions"
-msgstr "Actions sur les utilisateurs"
-
-msgid "No User selected"
-msgstr "Pas d'utilisateur sélectionné"
-
-msgid "(no cat)"
-msgstr "(aucune)"
 
 msgid "Available"
 msgstr "Disponible"
@@ -2782,6 +2771,27 @@ msgstr "Mise à jour"
 
 msgid "Languages"
 msgstr "Langues"
+
+msgid "medium"
+msgstr "moyenne"
+
+msgid "small"
+msgstr "petite"
+
+msgid "thumbnail"
+msgstr "vignettes"
+
+msgid "square"
+msgstr "carrée"
+
+msgid "Posts"
+msgstr "Billets"
+
+msgid "Pages"
+msgstr "Pages"
+
+msgid "Blogroll"
+msgstr ""
 
 msgid "administrator"
 msgstr "administrateur"
@@ -3257,6 +3267,18 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
+#~ msgid "Ordering"
+#~ msgstr "Classement"
+
+#~ msgid "Users actions"
+#~ msgstr "Actions sur les utilisateurs"
+
+#~ msgid "No User selected"
+#~ msgstr "Pas d'utilisateur sélectionné"
+
+#~ msgid "(no cat)"
+#~ msgstr "(aucune)"
+
 #~ msgid "Category where entries of deleted categories will be moved:"
 #~ msgstr "Catégorie où seront déplacés les billets des catégories supprimées :"
 
@@ -3275,15 +3297,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "more information"
 #~ msgstr "plus d'informations"
-
-#~ msgid "Thumbnails:"
-#~ msgstr "Miniatures :"
-
-#~ msgid "Small:"
-#~ msgstr "Petites :"
-
-#~ msgid "Medium:"
-#~ msgstr "Moyennes :"
 
 #~ msgid "XML/RPC interface"
 #~ msgstr "Interface XML/RPC"
@@ -3305,9 +3318,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Apply filters"
 #~ msgstr "Appliquer les filtres"
-
-#~ msgid "Page(s)"
-#~ msgstr "Page(s)"
 
 #~ msgid "edit"
 #~ msgstr "modifier"
@@ -3532,9 +3542,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Dashboard and menu"
 #~ msgstr "Tableau de bord et menu"
-
-#~ msgid "Posts"
-#~ msgstr "Billets"
 
 #~ msgid "Favorites"
 #~ msgstr "Favoris"
