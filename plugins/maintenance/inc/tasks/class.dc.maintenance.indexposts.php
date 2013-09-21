@@ -22,7 +22,7 @@ class dcMaintenanceIndexposts extends dcMaintenanceTask
 	{
 		$this->name 		= __('Search engine index');
 		$this->task 		= __('Index all posts');
-		$this->step_task	= __('next');
+		$this->step_task	= __('Next');
 		$this->step 		= __('Indexing entry %d to %d.');
 		$this->success 		= __('Entries index done.');
 		$this->error 		= __('Failed to index entries.');
