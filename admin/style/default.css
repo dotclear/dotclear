@@ -294,8 +294,7 @@ h1, h2, h3, .as_h3, h4, .as_h4, h5, h6 {
 	}
 h2 {
 	color: #676e78;
-	font-size: 18px; /* ie < 9 sucks */
-	font-size: 1.8rem;
+	font-size: 1.5em;
 	padding: 0 0 1.5em;
 	font-weight: normal;
 	}
@@ -741,6 +740,7 @@ input.disabled, input[type=submit].disabled {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6)
 	}
 div.warn, div.warning, div.info {
+	display: block;
 	padding: 1em 1em .33em 1em;
 	}
 	.warn, .warning {
@@ -1125,10 +1125,11 @@ div.warn, div.warning, div.info {
 		}
 	#content.with-help #help-button {
 		right: 282px; /* ie < 9 sucks */
-		right: 28.2rem;
+		right: 28rem;
 		background-color: #f5f5f5;
 		position: fixed;
-		top: 40px;
+		top: 54px;
+		z-index: 100;
 		border-top: 2px solid #FFD478;
 		border-left: 2px solid #FFD478;
 		border-bottom: 2px solid #FFD478;
