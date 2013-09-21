@@ -309,7 +309,9 @@ $items = array_values(array_merge($dir['dirs'],$dir['files']));
 echo '<div class="media-list">';
 if (count($items) == 0)
 {
-	echo '<p>'.__('No file.').'</p>';
+	echo 
+	'<p>'.__('No file.').'</p>'.
+	'<div class="files-group"></div>'; // need for jsUpload to append new media 
 }
 else
 {
