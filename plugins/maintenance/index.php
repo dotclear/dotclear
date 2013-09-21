@@ -16,9 +16,11 @@ dcPage::checkSuper();
 // main class
 
 $maintenance = new dcMaintenance($core);
+$core->blog->settings->addNamespace('maintenance');
 
 // Set var
 
+$msg = '';
 $headers = '';
 $p_url = 'plugin.php?p=maintenance';
 $task = null;
@@ -26,6 +28,44 @@ $expired = array();
 
 $code = empty($_POST['code']) ? null : (integer) $_POST['code'];
 $tab = empty($_REQUEST['tab']) ? 'maintenance' : $_REQUEST['tab'];
+
+// Save settings
+
+if (!empty($_POST['settings'])) {
+
+	try {
+		$core->blog->settings->maintenance->put(
+			'plugin_message', 
+			!empty($_POST['settings_plugin_message']), 
+			'boolean', 
+			'Display alert message of expired tasks on plugin page', 
+			true, 
+			true
+		);
+
+		foreach($maintenance->getTasks() as $t) {
+			if (!empty($_POST['settings_recall_time']) && $_POST['settings_recall_time'] == 'seperate') {
+				$ts = empty($_POST['settings_ts_'.$t->id()]) ? 0 : $_POST['settings_ts_'.$t->id()];
+			}
+			else {
+				$ts = $_POST['settings_recall_time'];
+			}
+			$core->blog->settings->maintenance->put(
+				'ts_'.$t->id(), 
+				abs((integer) $ts), 
+				'integer', 
+				sprintf('Recall time for task %s', $t->id()), 
+				true, 
+				true
+			);
+		}
+		
+		http::redirect($p_url.'&done=1&tab='.$tab);
+	}
+	catch(Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
 
 // Get task object
 
@@ -57,17 +97,31 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 	}
 }
 
-// Get expired tasks
-$core->auth->user_prefs->addWorkspace('maintenance');
-if ($core->auth->user_prefs->maintenance->plugin_message) {
-	$expired = $maintenance->getExpired();
-}
+// Combos
+
+$combo_ts = array(
+	__('Every week') 		=> 1,//604800,
+	__('Every two weeks') 	=> 1209600,
+	__('Every month') 		=> 2592000,
+	__('Every two months') 	=> 5184000
+);
+
+$full_combo_ts = array_merge(array(
+	__('Use different periods for each task') => 'seperate'), 
+	$combo_ts
+);
+
+$task_combo_ts = array_merge(array(
+	__('Never') => 0), 
+	$combo_ts
+);
 
 // Display page
 
 echo '<html><head>
 <title>'.__('Maintenance').'</title>'.
-dcPage::jsPageTabs($tab);
+dcPage::jsPageTabs($tab).
+dcPage::jsLoad('index.php?pf=maintenance/js/settings.js');;
 
 if ($task && $task->ajax()) {
 	echo 
@@ -86,7 +140,12 @@ $maintenance->getHeaders().'
 
 // Success message
 
-$msg = $task && !empty($_GET['done']) ? dcPage::success($task->success(),true,true,false) : '';
+if (!empty($_GET['done']) && $tab == 'settings') {
+	$msg = dcPage::success(__('Settings successfully updated'), true, true, false);
+}
+elseif (!empty($_GET['done']) && $task) {
+	$msg = dcPage::success($task->success(), true, true, false);
+}
 
 if ($task && ($res = $task->step()) !== null) {
 
@@ -119,7 +178,7 @@ if ($task && ($res = $task->step()) !== null) {
 	'</p>'.
 	'</form>'.
 	'<p class="step-back">'.
-		'<a class="back" href="'.$p_url.'">'.__('Back').'</a>'.
+		'<a class="back" href="'.$p_url.'&tab='.$task->tab().'">'.__('Back').'</a>'.
 	'</p>'.
 	'</div>';
 }
@@ -155,19 +214,24 @@ else {
 				'<label class="classic" for="'.$t->id().'">'.
 				html::escapeHTML($t->task()).'</label>';
 
-				if (array_key_exists($t->id(), $expired)) {
-					$res_task .= 
-					'<br /> <span class="warn">'.sprintf(
-						__('Last execution of this task was on %s.'),
-						dt::dt2str(__('%Y-%m-%d %H:%M'), $expired[$t->id()])
-					).' '.
-					__('You should execute it now.').'</span>';
-				}
-				elseif ($t->ts()) {
-					$res_task .= 
-					'<br /> <span class="warn">'.
-					__('This task has never been executed.').' '.
-					__('You should execute it now.').'</span>';
+				// Expired task alert message
+				$ts = $t->expired();
+				if ($core->blog->settings->maintenance->plugin_message && $ts !== false) {
+					if ($ts === null) {
+						$res_task .= 
+						'<br /> <span class="warn">'.
+						__('This task has never been executed.').' '.
+						__('You should execute it now.').'</span>';
+					}
+					else {
+						$res_task .= 
+						'<br /> <span class="warn">'.sprintf(
+							__('Last execution of this task was on %s.'),
+							dt::str($core->blog->settings->system->date_format, $ts).' '.
+							dt::str($core->blog->settings->system->time_format, $ts)
+						).' '.
+						__('You should execute it now.').'</span>';
+					}
 				}
 
 				$res_task .= '</p>';
@@ -191,7 +255,7 @@ else {
 			'<p><input type="submit" value="'.__('Execute task').'" /> '.
 			form::hidden(array('tab'), $tab_id).
 			$core->formNonce().'</p>'.
-			'<p class="form-note info">'.__('This may take a very long time').'.</p>'.
+			'<p class="form-note info">'.__('This may take a very long time.').'.</p>'.
 			'</form>'.
 			'</div>';
 		}
@@ -217,6 +281,47 @@ else {
 		'</form>'.
 		'</div>';
 	}
+
+	// Settings
+
+	echo 
+	'<div id="settings" class="multi-part" title="'.__('Settings').'">'.
+	'<h3>'.__('Settings').'</h3>'.
+	'<form action="'.$p_url.'" method="post">'.
+
+	'<p><label for="settings_plugin_message" class="classic">'.
+	form::checkbox('settings_plugin_message', 1, $core->blog->settings->maintenance->plugin_message).
+	__('Display alert messages on expired tasks').'</label></p>'.
+
+	'<p><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
+	form::combo('settings_recall_time', $full_combo_ts, 'seperate', 'recall-for-all').
+	'</p>'.
+
+	'<p>'.__('Recall time per task:').'</p>';
+
+	foreach($maintenance->getTasks($core) as $t)
+	{
+		echo
+		'<div class="two-boxes">'.
+
+		'<p><label for="settings_ts_'.$t->id().'">'.$t->task().'</label>'.
+		form::combo('settings_ts_'.$t->id(), $task_combo_ts, $t->ts(), 'recall-per-task').
+		'</p>'.
+
+		'</div>';
+	}
+
+	echo 
+	'<p><input type="submit" value="'.__('Save').'" /> '.
+	form::hidden(array('tab'), 'settings').
+	form::hidden(array('settings'), 1).
+	$core->formNonce().'</p>'.
+	'</form>'.
+	'<p class="info">'.sprintf(
+		__('You can place list of expired tasks on your %s.'),
+		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
+	).'</a></p>'.
+	'</div>';
 }
 
 dcPage::helpBlock('maintenance');
