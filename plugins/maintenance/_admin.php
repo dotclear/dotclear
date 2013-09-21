@@ -22,12 +22,11 @@ $_menu['Plugins']->addItem(
 
 // Admin behaviors
 $core->addBehavior('dcMaintenanceRegister', array('dcMaintenanceAdmin', 'dcMaintenanceRegister'));
-$core->addBehavior('adminPreferencesHeaders', array('dcMaintenanceAdmin', 'adminPreferencesHeaders'));
 $core->addBehavior('adminDashboardFavs', array('dcMaintenanceAdmin', 'adminDashboardFavs'));
 $core->addBehavior('adminDashboardFavsIcon', array('dcMaintenanceAdmin', 'adminDashboardFavsIcon'));
 $core->addBehavior('adminDashboardItems', array('dcMaintenanceAdmin', 'adminDashboardItems'));
-$core->addBehavior('adminPreferencesForm',	array('dcMaintenanceAdmin',	'adminPreferencesForm'));
-$core->addBehavior('adminBeforeUserOptionsUpdate',	array('dcMaintenanceAdmin',	'adminBeforeUserOptionsUpdate'));
+$core->addBehavior('adminDashboardOptionsForm',	array('dcMaintenanceAdmin',	'adminDashboardOptionsForm'));
+$core->addBehavior('adminAfterDashboardOptionsUpdate',	array('dcMaintenanceAdmin',	'adminAfterDashboardOptionsUpdate'));
 
 /**
 @ingroup PLUGIN_MAINTENANCE
@@ -59,23 +58,13 @@ class dcMaintenanceAdmin
 		$groups['zipfull'] = __('Compressed file for all blogs');
 
 		$tasks[] = 'dcMaintenanceCache';
-		$tasks[] = 'dcMaintenanceCountcomments';
-		$tasks[] = 'dcMaintenanceIndexcomments';
 		$tasks[] = 'dcMaintenanceIndexposts';
+		$tasks[] = 'dcMaintenanceIndexcomments';
+		$tasks[] = 'dcMaintenanceCountcomments';
 		$tasks[] = 'dcMaintenanceLogs';
 		$tasks[] = 'dcMaintenanceVacuum';
 		$tasks[] = 'dcMaintenanceZipmedia';
 		$tasks[] = 'dcMaintenanceZiptheme';
-	}
-
-	/**
-	 * Dashboard headers.
-	 *
-	 * Add ajavascript to toggle tasks list.
-	 */
-	public static function adminPreferencesHeaders()
-	{
-		return dcPage::jsLoad('index.php?pf=maintenance/js/preferences.js');
 	}
 
 	/**
@@ -121,13 +110,19 @@ class dcMaintenanceAdmin
 
 		// Check expired tasks
 		$maintenance = new dcMaintenance($core);
-		$expired = $maintenance->getExpired();
-		$expired = count($expired);
-		if (!$expired) {
+		$count = 0;
+		foreach($maintenance->getTasks() as $t)
+		{
+			if ($t->expired() !== false){
+				$count++;
+			}
+		}
+
+		if (!$count) {
 			return null;
 		}
 
-		$icon[0] .= '<br />'.sprintf(__('One task to update', '%s tasks to update', $expired), $expired);
+		$icon[0] .= '<br />'.sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
 	}
 
 	/**
@@ -144,27 +139,36 @@ class dcMaintenanceAdmin
 		}
 
 		$maintenance = new dcMaintenance($core);
-		$tasks = $maintenance->getExpired();
-		if (empty($tasks)) {
-			return null;
-		}
 
 		$lines = array();
-		foreach($tasks as $id => $ts) {
-			$lines[$ts] = 
-			'<li title="'.sprintf(__('Last updated on %s'),
-				dt::dt2str($core->blog->settings->system->date_format, $ts).' '.
-				dt::dt2str($core->blog->settings->system->time_format, $ts)
-			).'">'.$maintenance->getTask($id)->task().'</li>';
+		foreach($maintenance->getTasks() as $t)
+		{
+			$ts = $t->expired();
+			if ($ts === false){
+				continue;
+			}
+
+			$lines[] = 
+			'<li title="'.($ts === null ?
+				__('This task has never been executed.')
+				:
+				sprintf(__('Last execution of this task was on %s.'),
+					dt::dt2str($core->blog->settings->system->date_format, $ts).' '.
+					dt::dt2str($core->blog->settings->system->time_format, $ts)
+				)
+			).'">'.$t->task().'</li>';
 		}
-		ksort($lines);
+
+		if (empty($lines)) {
+			return null;
+		}
 
 		$items[] = new ArrayObject(array(
 			'<div id="maintenance-expired">'.
 			'<h3><img src="index.php?pf=maintenance/icon.png" alt="" /> '.__('Maintenance').'</h3>'.
-			'<p>'.sprintf(__('There is a task to update.', 'There are %s tasks to update.', count($tasks)), count($tasks)).'</p>'.
+			'<p class="warn">'.sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)).'</p>'.
 			'<ul>'.implode('',$lines).'</ul>'.
-			'<p><a href="plugin.php?p=maintenance">'.__('Manage task').'</a></p>'.
+			'<p><a href="plugin.php?p=maintenance">'.__('Manage tasks').'</a></p>'.
 			'</div>'
 			));
 	}
@@ -177,31 +181,13 @@ class dcMaintenanceAdmin
 	 *
 	 * @param	$args	<b>object</b>	dcCore instance or record
 	 */
-	public static function adminPreferencesForm($core)
+	public static function adminDashboardOptionsForm($core)
 	{
 		$core->auth->user_prefs->addWorkspace('maintenance');
-		$maintenance = new dcMaintenance($core);
-
-		$tasks = $maintenance->getTasks();
-		if (empty($tasks)) {
-			return null;
-		}
-
-		$full_combo_ts = array_merge(array(
-			__('Use different periods for each task') => 'seperate'), 
-			self::comboTs()
-		);
-
-		$task_combo_ts = array_merge(array(
-			__('Never') => 0), 
-			self::comboTs()
-		);
 
 		echo
 		'<div class="fieldset">'.
 		'<h4>'.__('Maintenance').'</h4>'.
-
-		'<div class="two-boxes">'.
 
 		'<p><label for="maintenance_dashboard_icon" class="classic">'.
 		form::checkbox('maintenance_dashboard_icon', 1, $core->auth->user_prefs->maintenance->dashboard_icon).
@@ -209,48 +195,17 @@ class dcMaintenanceAdmin
 
 		'<p><label for="maintenance_dashboard_item" class="classic">'.
 		form::checkbox('maintenance_dashboard_item', 1, $core->auth->user_prefs->maintenance->dashboard_item).
-		__('Display list of expired tasks on dashboard contents').'</label></p>'.
+		__('Display list of expired tasks on dashboard items').'</label></p>'.
 
-		'<p><label for="maintenance_plugin_message" class="classic">'.
-		form::checkbox('maintenance_plugin_message', 1, $core->auth->user_prefs->maintenance->plugin_message).
-		__('Display alert message of expired tasks on plugin page').'</label></p>'.
-
-		'</div>'.
-
-		'<div class="two-boxes">'.
-
-		'<p><label for="maintenance_recall_time">'.__('Recall time for all tasks').'</label>'.
-		form::combo('maintenance_recall_time', $full_combo_ts, 'seperate', 'recall-for-all').
-		'</p>'.
-
-		'</div>'.
-
-		'<div id="maintenance-recall-time">'.
-		'<h5>'.__('Recall time per task').'</h5>';
-
-		foreach($tasks as $task) {
-			echo
-			'<div class="two-boxes">'.
-
-			'<p><label for="maintenance_ts_'.$task->id().'">'.$task->task().'</label>'.
-			form::combo('maintenance_ts_'.$task->id(), $task_combo_ts, $task->ts(), 'recall-per-task').
-			'</p>'.
-
-			'</div>';
-		}
-
-		echo 
-		'</div>'.
 		'</div>';
 	}
 
 	/**
 	 * User preferences update.
 	 *
-	 * @param	$cur	<b>cursor</b>	Cursor of user options
 	 * @param	$user_id	<b>string</b>	User ID
 	 */
-	public static function adminBeforeUserOptionsUpdate($cur, $user_id=null)
+	public static function adminAfterDashboardOptionsUpdate($user_id=null)
 	{
 		global $core;
 
@@ -258,36 +213,8 @@ class dcMaintenanceAdmin
 			return null;
 		}
 
-		$maintenance = new dcMaintenance($core);
-		$tasks = $maintenance->getTasks();
-		if (empty($tasks)) {
-			return null;
-		}
-
 		$core->auth->user_prefs->addWorkspace('maintenance');
 		$core->auth->user_prefs->maintenance->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
 		$core->auth->user_prefs->maintenance->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
-		$core->auth->user_prefs->maintenance->put('plugin_message', !empty($_POST['maintenance_plugin_message']), 'boolean');
-
-		foreach($tasks as $task) {
-			if ($_POST['maintenance_recall_time'] == 'seperate') {
-				$ts = empty($_POST['maintenance_ts_'.$task->id()]) ? 0 : $_POST['maintenance_ts_'.$task->id()];
-			}
-			else {
-				$ts = $_POST['maintenance_recall_time'];
-			}
-			$core->auth->user_prefs->maintenance->put('ts_'.$task->id(), abs((integer) $ts), 'integer');
-		}
-	}
-
-	/* @ignore */
-	public static function comboTs()
-	{
-		return array(
-			__('Every week') 		=> 604800,
-			__('Every two weeks') 	=> 1209600,
-			__('Every month') 		=> 2592000,
-			__('Every two months') 	=> 5184000
-		);
 	}
 }
