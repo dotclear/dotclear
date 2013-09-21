@@ -455,7 +455,7 @@ if ($can_edit_page)
 					form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
 					'</p>'.
 					'<p class="form-note warn">'.
-					__('Warning: If you set the URL manually, it may conflict with another entry.').
+					__('Warning: If you set the URL manually, it may conflict with another page.').
 					'</p></div>'
 	))));
 	$main_items = new ArrayObject(array(
