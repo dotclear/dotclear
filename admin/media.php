@@ -348,12 +348,58 @@ if (!isset($pager)) {
 echo
 '</div>';
 
+echo
+'<div class="clearfix"><p class="info">'.sprintf(__('Current settings for medias and images are defined in %s'),
+'<a href="blog_pref.php#medias-settings">'.__('Blog parameters').'</a>').'</p></div>';
+
+if ($core_media_writable || $core_media_archivable) {
+	echo
+	'<div class="vertical-separator">'.
+	'<h3 class="out-of-screen-if-js">'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>';	
+}
+
+$core_media_archivable = $core->auth->check('media_admin',$core->blog->id) && 
+	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent));
+
+if ($core_media_writable || $core_media_archivable) {
+	echo 
+	'<div class="two-boxes odd">';
+
+	# Create directory
+	if ($core_media_writable)
+	{
+		echo
+		'<form action="'.html::escapeURL($page_url).'" method="post" class="fieldset">'.
+		'<div id="new-dir-f">'.
+		'<h4 class="pretty-title">'.__('Create new directory').'</h4>'.
+		$core->formNonce().
+		'<p><label for="newdir">'.__('Directory Name:').'</label>'.
+		form::field(array('newdir','newdir'),35,255).'</p>'.
+		'<p><input type="submit" value="'.__('Create').'" />'.
+		form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
+		'</div>'.
+		'</form>';
+	}
+
+	# Get zip directory
+	if ($core_media_archivable)
+	{
+		echo
+		'<div class="fieldset">'.
+		'<h4 class="pretty-title">'.sprintf(__('Backup content of %s'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h4>'.
+		'<p><a class="button submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
+		__('Download zip file').'</a></p>'.
+		'</div>';
+	}
+
+	echo 
+	'</div>';
+}
+
 if ($core_media_writable)
 {
-	echo 
-	'<h3 class="hidden">'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>'.
-	'<div class="two-boxes odd fieldset">';
-	
+	echo
+	'<div class="two-boxes fieldset">';	
 	if ($user_ui_enhanceduploader) {
 		echo
 		'<div class="enhanced_uploader">';
@@ -386,8 +432,6 @@ if ($core_media_writable)
 	'<p class="one-file"><label for="upfilepriv" class="classic">'.__('Private').'</label> '.
 	form::checkbox(array('upfilepriv','upfilepriv'),1).'</p>';
 
-
-
 	if (!$user_ui_enhanceduploader) {
 		echo
 		'<p class="one-file form-help info">'.__('To send several files at the same time, you can activate the enhanced uploader in').
@@ -407,42 +451,6 @@ if ($core_media_writable)
 	'</div>';
 }
 
-$core_media_archivable = $core->auth->check('media_admin',$core->blog->id) && 
-	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent));
-
-if ($core_media_writable || $core_media_archivable) {
-
-	echo '<div class="two-boxes even fieldset">';
-
-	# Create directory
-	if ($core_media_writable)
-	{
-		echo
-		'<form action="'.html::escapeURL($page_url).'" method="post">'.
-		'<div id="new-dir-f">'.
-		'<h4>'.__('Create new directory').'</h4>'.
-		$core->formNonce().
-		'<p><label for="newdir">'.__('Directory Name:').'</label>'.
-		form::field(array('newdir','newdir'),35,255).'</p>'.
-		'<p><input type="submit" value="'.__('Create').'" />'.
-		form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
-		'</div>'.
-		'</form>';
-	}
-
-	# Get zip directory
-	if ($core_media_archivable)
-	{
-		echo
-		'<h4>'.__('Backup content').'</h4>'.
-		'<p>'.__('Compress this directory with its content as a zip file and download it.').'</p>'.
-		'<p><a class="button submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
-		__('Download').'</a></p>';
-	}
-
-	echo '</div>';
-}
-
 # Empty remove form (for javascript actions)
 echo
 '<form id="media-remove-hide" action="'.html::escapeURL($page_url).'" method="post" class="hidden">'.
@@ -452,6 +460,11 @@ form::hidden('remove','').
 $core->formNonce().
 '</div>'.
 '</form>';
+
+if ($core_media_writable || $core_media_archivable) {
+	echo 
+	'</div>';
+}
 
 call_user_func($close_f);
 
