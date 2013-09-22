@@ -451,7 +451,7 @@ class dcPage
 		'<div id="helplink"><hr />'.
 		'<p>'.
 		sprintf(__('See also %s'),sprintf('<a href="help.php">%s</a>',__('the global help'))).
-		'</p>'.
+		'.</p>'.
 		'</div></div>';
 	}
 
