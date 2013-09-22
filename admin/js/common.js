@@ -220,6 +220,21 @@ jQuery.fn.helpViewer = function() {
 	img.click(function() { return toggle(); });
 
 	$('#content').append(img);
+	
+	// listen for scroll
+	var peInPage = $('#help-button').offset().top;
+	$('#help-button').addClass("floatable");
+	var peInFloat = $('#help-button').offset().top;
+	$('#help-button').removeClass("floatable");
+	$(window).scroll(
+		function() {
+			if ($(window).scrollTop() >= peInPage - peInFloat ) {
+				$('#help-button').addClass("floatable");
+			} else {
+				$('#help-button').removeClass("floatable");
+			}
+		}
+	);
 
 	return this;
 };
