@@ -2083,6 +2083,9 @@ div.template-upload {
 	color: white;
 	}
 /* password indicator */
+.install .pw-table, .install .pw-cell, .install .pwindicator {
+	display: block;
+	}
 .pw-table {
 	display: table;
 	margin-bottom: 1em;
