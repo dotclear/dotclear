@@ -174,7 +174,7 @@ if ($popup) {
 call_user_func($open_f,__('Media manager'),
 	$starting_scripts.
 	dcPage::jsDatePicker().
-	dcPage::jsPageTabs($tab),
+	($popup ? dcPage::jsPageTabs($tab) : ''),
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
@@ -342,8 +342,13 @@ if ($popup)
 	echo '</form></div>';
 }
 
+if ($popup) {
+	echo
+	'<div class="multi-part" title="'.__('Media details').'" id="media-details-tab">';
+} else {
+	echo '<h3 class="out-of-screen-if-js">'.__('Media details').'</h3>';
+}
 echo
-'<div class="multi-part" title="'.__('Media details').'" id="media-details-tab">'.
 '<p id="media-icon"><img src="'.$file->media_icon.'?'.time()*rand().'" alt="" /></p>';
 
 echo
@@ -577,8 +582,11 @@ if ($file->editable && $core_media_writable)
 }
 
 echo
-'</div>'.
 '</div>';
+if ($popup) {
+	echo
+	'</div>';
+}
 
 call_user_func($close_f);
 ?>
