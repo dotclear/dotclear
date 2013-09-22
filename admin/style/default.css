@@ -848,7 +848,10 @@ div.warn, div.warning, div.info {
 		padding: 3px 1.6rem 3px .8rem;
 		background: #A2CBE9;
 		color: #000;
-		border-bottom-color: #A2CBE9;
+		text-decoration: underline;
+		}
+	#prelude li a:hover, #prelude li a:focus {
+		background: #FFF;
 		}
 /* header global h1, form#top-info-blog, ul#top-info-user */
 #header a {
