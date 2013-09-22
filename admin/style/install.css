@@ -161,18 +161,17 @@ input[type=submit]:focus {
 
 /* --------------------------------------------------------------- password indcator */
 .pw-table {
-	display: table;
-	margin-bottom: 1em;
+	display: block;
+	margin-bottom: .25em;
 }
 .pw-cell {
-	display: table-cell;
-	margin-bottom: 1em;
+	display: block;
+	margin-bottom: .25em;
 }
 #pwindicator {
-	display: table-cell;
+	display: block;
 	vertical-align: bottom;
 	padding-left: 1.5em;
-	height: 3.8em;
 }
 #pwindicator .bar {
 	height: 6px;
