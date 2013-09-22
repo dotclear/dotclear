@@ -25,7 +25,12 @@ class adminPageList extends adminGenericList
 		else
 		{
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
-			
+			$entries = array();
+			if (isset($_REQUEST['entries'])) {
+				foreach ($_REQUEST['entries'] as $v) {
+					$entries[(integer)$v]=true;
+				}
+			}			
 			$html_block =
 			'<table class="maximal dragable"><thead><tr>'.
 			'<th colspan="3">'.__('Title').'</th>'.
@@ -49,7 +54,7 @@ class adminPageList extends adminGenericList
 			$count = 0;
 			while ($this->rs->fetch())
 			{
-				echo $this->postLine($count);
+				echo $this->postLine($count,isset($entries[$this->rs->post_id]));
 				$count ++;
 			}
 			
@@ -59,7 +64,7 @@ class adminPageList extends adminGenericList
 		}
 	}
 	
-	private function postLine($count)
+	private function postLine($count,$checked)
 	{
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($this->rs->post_status) {
@@ -100,7 +105,7 @@ class adminPageList extends adminGenericList
 		$res .=
 		'<td class="nowrap handle minimal">'.form::field(array('order['.$this->rs->post_id.']'),2,3,$count+1,'position','',false,'title="'.sprintf(__('position of %s'),html::escapeHTML($this->rs->post_title)).'"').'</td>'.
 		'<td class="nowrap">'.
-		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable(),'title="'.__('Select this page').'"').'</td>'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,$checked,'','',!$this->rs->isEditable(),'title="'.__('Select this page').'"').'</td>'.
 		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
