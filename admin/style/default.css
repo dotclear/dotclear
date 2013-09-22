@@ -24,7 +24,7 @@
 	width: 100%;
 	display: table;
 	}
-#wrapper {
+#wrapper, #wrapper.with-prelude {
 	position: relative;
 	padding-top: 1.5em;
 	float: left;
@@ -864,11 +864,10 @@ h1, #top-info-blog, #top-info-user {
 	padding: 8px 0;
 	margin: 0;
 	font-size: 1em;
+	vertical-align: top;
 	}
 /* h1 */
 h1 {
-	padding: 0;
-	margin: 0;
 	text-indent: -1000px;
 	width: 16.5em;
 	}
@@ -890,8 +889,8 @@ h1 {
 #top-info-blog select {
 	max-width: 20em;
 	}
-#top-info-blog a {
-	margin-left: 1.33em;
+.with-js #top-info-blog select, .no-js #top-info-blog input[type=submit] {
+	margin-right: 1.33em;
 	}
 #top-info-blog input[type=submit] {
 	background: #000;
@@ -907,7 +906,7 @@ h1 {
 	}
 /* top-info-user */
 #top-info-user {
-	padding: 0 18px 0 0;
+	padding-right: 18px;
 	list-style-type: none;
 	text-align: right;
 	}

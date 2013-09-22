@@ -6,6 +6,9 @@ aFocus = function() {
 			aElts[i].className="hidden";
 			aElts[i].onfocus=function() {
 				$('#prelude a').removeClass('hidden');
+				$('#wrapper').css('padding-top', '1em'); // il vaudrait mieux ajouter une class with-prelude …
+				$('#help-button').css('top', '1em'); // … mais addClass ne marche pas (?)
+				$('#collapser').css('top', '1em');
 			}
 		}
 	}
