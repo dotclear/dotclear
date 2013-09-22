@@ -1006,7 +1006,7 @@ h1 {
 		height: 2.2rem;
 		}
 		#qx:focus {
-			border-color: #bee74b;
+			border: 1px solid #bee74b;
 			}
 	#search-menu input[type="submit"] {
 		padding: 0 3px;
