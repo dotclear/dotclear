@@ -348,7 +348,7 @@ class dcDefaultPostActions
 			'<form action="posts_actions.php" method="post">'.
 			$ap->getCheckboxes().
 			
-			'<p><label for="new_lang" class="classic">'.__('Entry lang:').'</label> '.
+			'<p><label for="new_lang" class="classic">'.__('Entry language:').'</label> '.
 			form::combo('new_lang',$lang_combo,'');
 			
 			echo
