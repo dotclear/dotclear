@@ -47,7 +47,7 @@
 			}
 			lis.push('<li id="'+options.idTabPrefix+$(this).attr('id')+'"'+li_class
 				 +'><a href="#'+$(this).attr('id')+'">'+$(this).attr('title')+'</a></li>');
-			$(this).attr('id', options.partPrefix + $(this).attr('id'));
+			$(this).attr('id', options.partPrefix + $(this).attr('id')).prop('title','');
 		});
 		
 		$('<div class="'+options.containerClass+'"><ul>'+lis.join('')+'</ul></div>')
