@@ -1,114 +1,73 @@
-jQuery.pageTabs = function(start_tab,settings) {
-	return new jQuery._pageTabs(start_tab,settings);
-};
+(function($) {
+	'use strict';
+    
+	$.pageTabs = function(start_tab, opts) {
+		var defaults = {
+			containerClass: 'part-tabs',
+			partPrefix: 'part-',
+			contentClass: 'multi-part',
+			activeClass: 'part-tabs-active',
+			idTabPrefix: 'part-tabs-'
+		};
+		
+		var options = $.extend({}, defaults, opts);
+		var active_tab = start_tab || '';
+		var hash = $.pageTabsGetHash();
 
-jQuery._pageTabs = function(start_tab,settings) {
-	var defaults = {
-		className: 'multi-part',
-		listClassName: 'part-tabs',
-		breakerClassName: 'clear'
+		if (hash !== undefined && hash) {
+			$('ul li a[href$="#'+hash+'"]').parent().trigger('click');
+			active_tab = hash;
+		} else { // open first part
+			active_tab = $('.'+options.contentClass+':eq(0)').attr('id');
+		}
+		
+		createTabs(active_tab, options);
+		
+		$('ul li', '.'+options.containerClass).click(function(e) {
+			$(this).parent().find('li.'+options.activeClass).removeClass(options.activeClass);
+			$(this).addClass(options.activeClass);
+			$('.'+options.contentClass+'.active').removeClass('active').hide();
+			$('#'+options.partPrefix+getId($(this).find('a').attr('href'))).addClass('active').show();
+		});
+		
+		return this;
 	};
-
-	var index = start_tab ? start_tab : 0;
-	var hash = document.location.hash.split('#').join('');
-	if( hash != '' ) {
-		var index = hash;
-	}
 	
-	this.params = jQuery.extend(defaults,settings);
-	this.divs = jQuery('div.'+this.params.className);
-	this.createList();
-	this.showDiv(index);
-	var pageTabs = this;
-	
-	window.onhashchange = function (event) {
-		pageTabs.showDiv(document.location.hash.split('#').join(''));
-    }
-};
-
-jQuery._pageTabs.prototype = {
-	items: new Array(),
-
-	createList: function() {
-		if (this.divs.length <= 0) {
-			return;
-		}
-
-		this.block = document.createElement('div');
-		this.block.className = this.params.listClassName;
-		this.list = document.createElement('ul');
-		//this.list.className = this.params.listClassName;
-		this.block.appendChild(this.list);
-		var li, a;
-
-		var This = this;
-		var i=0;
-		jQuery('.'+this.params.className).each(function() {
-			if (this.tagName == "DIV") {
-				li = document.createElement('li');
-				a = document.createElement('a');
-				$(a).html(this.title);
-				this.title = '';
-				a.fn = This.showDiv;
-				a.index = this.id || i;
-				a.href = '#'+a.index;
-				li.id = "part-tabs-"+a.index;
-				a.obj = This;
-				li.appendChild(a);
-				This.list.appendChild(li);
-				This.items[i] = li;
-				i++;
+	var createTabs = function createTabs(start_tab, options) {
+		var lis = [], li_class = '', to_trigger = null;
+		
+		$('.'+options.contentClass).each(function() {
+			if (start_tab != $(this).attr('id')) {
+				$(this).hide();
+				li_class = '';
 			} else {
-				li = document.createElement('li');
-				li.className = This.params.listClassName+'-link';
-				li.appendChild(this);
-				This.list.appendChild(li);
+				$(this).addClass('active');
+				to_trigger = $(this);
+				li_class = ' class="'+options.activeClass+'"';
 			}
-		});
-
-		this.breaker = document.createElement('br');
-		this.breaker.className = this.params.breakerClassName;
-
-		jQuery(this.divs.get(0)).before(this.block);
-		jQuery(this.block).after(this.breaker);
-	},
-
-	showDiv: function(index) {
-		var This = this;
-		var i = 0;
-		var to_trigger = null;
-		var exists = false;
-
-		this.divs.each(function() {
-			if ((this.id != '' && this.id == index) || i == index) {
-				exists = true;
-			}
-			i++;
+			lis.push('<li id="'+options.idTabPrefix+$(this).attr('id')+'"'+li_class
+				 +'><a href="#'+$(this).attr('id')+'">'+$(this).attr('title')+'</a></li>');
+			$(this).attr('id', options.partPrefix + $(this).attr('id'));
 		});
 		
-		i = 0;
-		
-		if( exists ) {
-			this.divs.each(function() {
-				if ((this.id != '' && this.id == index) || i == index) {
-					jQuery(this).show(0);
-					This.items[i].className = This.params.listClassName+'-active';
-					to_trigger = i;
-				} else {
-					jQuery(this).hide(0);
-					This.items[i].className = '';
-				}
-	
-				i++;
-			});
-		}
+		$('<div class="'+options.containerClass+'"><ul>'+lis.join('')+'</ul></div>')
+			.insertBefore($('.'+options.contentClass).get(0));	
 
 		if (to_trigger != null) {
-			jQuery(this.divs[to_trigger]).onetabload();
-			jQuery(this.divs[to_trigger]).tabload();
+			$(to_trigger).onetabload();
+			$(to_trigger).tabload();	
 		}
-	}
-};
+
+	};
+	
+	var getId = function getId(href) {
+		return href.split('#').join('');
+	};
+
+	$.pageTabsGetHash = function() {
+		return document.location.hash.split('#').join('');
+	};
+})(jQuery);
 
 jQuery.fn.tabload = function(f) {
 	this.each(function() {
@@ -121,6 +80,7 @@ jQuery.fn.tabload = function(f) {
 	});
 	return this;
 };
+
 jQuery.fn.onetabload = function(f) {
 	this.each(function() {
 		if (f) {

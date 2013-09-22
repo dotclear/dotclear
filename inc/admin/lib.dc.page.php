@@ -648,24 +648,12 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.pageTabs.js').
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
-		"\$(function() {\n".
-			"	pagetabs = \$.pageTabs(".$default.");\n".
-			"});\n".
-"\n//]]>\n".
-"</script>\n".
-		"<!--[if lt IE 8]>\n".
-		self::jsLoad('js/ie7/ie7-hashchange.js').
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		"\$(function() {".
-			"\$(window).hashchange( function(){".
-				"pagetabs.showDiv(document.location.hash.split('#').join(''));".
-			"});".
-		"});".
+		'$(function() {'."\n".
+		'$.pageTabs(".$default.");'."\n".
+		'});'."\n".
 		"\n//]]>\n".
-		"</script>\n".
-		"<![endif]-->\n";
-}
+		"</script>\n";
+	}
 
 public static function jsModal()
 {
