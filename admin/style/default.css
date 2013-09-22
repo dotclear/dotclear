@@ -2357,6 +2357,7 @@ ul.from-left {
 		display: block;
 		width: 100%;
 		background: #676e78;
+		padding-right: 0;
 		}
 	#top-info-user li:last-child {
 		padding-right: 1em;
