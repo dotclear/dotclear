@@ -399,7 +399,7 @@ class adminCommentList extends adminGenericList
 			
 			while ($this->rs->fetch())
 			{
-				echo $this->commentLine();
+				echo $this->commentLine(isset($comments[$this->rs->comment_id]));
 			}
 			
 			echo $blocks[1];
@@ -408,7 +408,7 @@ class adminCommentList extends adminGenericList
 		}
 	}
 	
-	private function commentLine($checked)
+	private function commentLine($checked=false)
 	{
 		global $author, $status, $sortby, $order, $nb_per_page;
 		
