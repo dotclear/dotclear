@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-21 16:29+0000\n"
+"POT-Creation-Date: 2013-09-22 16:57+0000\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -346,8 +346,8 @@ msgstr "Modérer les commentaires"
 msgid "Leave comments open for %s days"
 msgstr "Laisser les commentaires ouverts durant %s jours"
 
-msgid "Leave blank to disable this feature."
-msgstr "Laissez vide pour annuler ce comportement."
+msgid "No limit: leave blank."
+msgstr ""
 
 msgid "Wiki syntax for comments"
 msgstr "Syntaxe wiki pour les commentaires"
@@ -394,6 +394,12 @@ msgstr "Tronquer les flux de syndication"
 
 msgid "Media and images"
 msgstr "Médias et images"
+
+msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
+msgstr ""
+
+msgid "Be carefull if you share it with other blogs in your installation."
+msgstr ""
 
 msgid "Generated image sizes (in pixels)"
 msgstr "Tailles des miniatures générées (largeur en pixels)"
@@ -452,6 +458,14 @@ msgstr "Permissions :"
 
 msgid "Super administrator"
 msgstr "Super administrateur"
+
+#, fuzzy
+msgid "All rights on all blogs."
+msgstr "%s est super administrateur (tous les droits sur tous les blogs)."
+
+#, fuzzy
+msgid "All rights on this blog."
+msgstr "Utilisateurs de ce blog"
 
 msgid "Change permissions"
 msgstr "Changer les permissions"
@@ -818,17 +832,13 @@ msgstr "Titre de l'entrée"
 msgid "Author"
 msgstr "Auteur"
 
-msgid "Publish"
-msgstr "Publier"
+#, fuzzy
+msgid "Selected comments have been successfully updated."
+msgstr "Les entrées sélectionnées ont été modifiées avec succès."
 
-msgid "Unpublish"
-msgstr "Mettre hors ligne"
-
-msgid "Mark as pending"
-msgstr "Mettre en attente"
-
-msgid "Mark as junk"
-msgstr "Mettre en indésirable"
+#, fuzzy
+msgid "Selected comments have been successfully deleted."
+msgstr "Les entrées sélectionnées ont été supprimées avec succès."
 
 msgid "Spam comments have been successfully deleted."
 msgstr "Indésirables supprimés avec succès."
@@ -866,12 +876,6 @@ msgstr "Actions"
 
 msgid "ok"
 msgstr "ok"
-
-msgid "Comments"
-msgstr "Commentaires"
-
-msgid "Back to comments list"
-msgstr "Retour à la liste des commentaires"
 
 msgid "Global help"
 msgstr "Aide générale"
@@ -1352,8 +1356,30 @@ msgid "Sort"
 msgstr "Trier"
 
 #, php-format
+msgid "Current settings for medias and images are defined in %s"
+msgstr ""
+
+#, fuzzy
+msgid "Blog parameters"
+msgstr "Paramètres"
+
+#, php-format
 msgid "In %s:"
 msgstr "Dans %s :"
+
+msgid "Create new directory"
+msgstr "Créer un répertoire"
+
+msgid "Directory Name:"
+msgstr "Nom du répertoire :"
+
+#, fuzzy, php-format
+msgid "Backup content of %s"
+msgstr "Sauvegarder le contenu"
+
+#, fuzzy
+msgid "Download zip file"
+msgstr "Télécharger un fichier zip"
 
 msgid "Add files"
 msgstr "Ajouter des fichiers"
@@ -1384,21 +1410,6 @@ msgstr "Tout annuler"
 
 msgid "Upload"
 msgstr "Envoyer"
-
-msgid "Create new directory"
-msgstr "Créer un répertoire"
-
-msgid "Directory Name:"
-msgstr "Nom du répertoire :"
-
-msgid "Backup content"
-msgstr "Sauvegarder le contenu"
-
-msgid "Compress this directory with its content as a zip file and download it."
-msgstr "Compressez ce dossier et son contenu dans un fichier zip et téléchargez-le."
-
-msgid "Download"
-msgstr "Télécharger"
 
 msgid "open"
 msgstr "ouvrir"
@@ -1827,6 +1838,21 @@ msgstr "Modifier le billet"
 msgid "Preview"
 msgstr "Prévisualiser"
 
+msgid "Publish"
+msgstr "Publier"
+
+msgid "Unpublish"
+msgstr "Mettre hors ligne"
+
+msgid "Mark as pending"
+msgstr "Mettre en attente"
+
+msgid "Mark as junk"
+msgstr "Mettre en indésirable"
+
+msgid "Comments"
+msgstr "Commentaires"
+
 msgid "Add a comment"
 msgstr "Ajouter un commentaire"
 
@@ -1896,30 +1922,6 @@ msgstr "Sélectionné"
 msgid "Not selected"
 msgstr "Non sélectionné"
 
-msgid "Schedule"
-msgstr "Programmer"
-
-msgid "Mark"
-msgstr "Marquer"
-
-msgid "Mark as selected"
-msgstr "Sélectionner"
-
-msgid "Mark as unselected"
-msgstr "Désélectionner"
-
-msgid "Change"
-msgstr "Changer"
-
-msgid "Change category"
-msgstr "Changer la catégorie"
-
-msgid "Change language"
-msgstr "Changer la langue"
-
-msgid "Change author"
-msgstr "Changer l'auteur"
-
 msgid "Selected entries have been successfully updated."
 msgstr "Les entrées sélectionnées ont été modifiées avec succès."
 
@@ -1943,36 +1945,6 @@ msgstr "billets par page"
 
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
-
-msgid "No action specified."
-msgstr "Aucune action spécifiée."
-
-msgid "Entries actions"
-msgstr "Action sur les entrées"
-
-msgid "Back to entries list"
-msgstr "Retour à la liste des billets"
-
-msgid "This user does not exist"
-msgstr "Cet utilisateur n'existe pas"
-
-msgid "Change category for this selection"
-msgstr "Changer la catégorie de cette sélection"
-
-msgid "Create a new category for the post(s)"
-msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
-
-msgid "Change language for this selection"
-msgstr "Changer la langue de cette sélection"
-
-msgid "Entry language:"
-msgstr "Langue du billet :"
-
-msgid "Change author for this selection"
-msgstr "Changer l'auteur de cette sélection"
-
-msgid "New author (author ID):"
-msgstr "Nouvel auteur (identifiant utilisateur) :"
 
 msgid "Default"
 msgstr "Défaut"
@@ -2366,11 +2338,77 @@ msgstr "Vous allez changer les permissions des utilisateurs %s pour ces blogs."
 msgid "Validate permissions"
 msgstr "Valider les permissions"
 
+msgid "Back to entries list"
+msgstr "Retour à la liste des billets"
+
+#, fuzzy
+msgid "Comments actions"
+msgstr "Action sur les entrées"
+
+#, fuzzy
+msgid "No comment selected"
+msgstr "Non sélectionné"
+
+msgid "Entries actions"
+msgstr "Action sur les entrées"
+
+msgid "Schedule"
+msgstr "Programmer"
+
+msgid "Mark"
+msgstr "Marquer"
+
+msgid "Mark as selected"
+msgstr "Sélectionner"
+
+msgid "Mark as unselected"
+msgstr "Désélectionner"
+
+msgid "Change"
+msgstr "Changer"
+
+msgid "Change category"
+msgstr "Changer la catégorie"
+
+msgid "Change language"
+msgstr "Changer la langue"
+
+msgid "Change author"
+msgstr "Changer l'auteur"
+
+#, fuzzy
+msgid "No entry selected"
+msgstr "Pas d'utilisateur sélectionné"
+
+#, fuzzy
+msgid "Change category for entries"
+msgstr "Changer la catégorie de cette sélection"
+
+msgid "Create a new category for the post(s)"
+msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
+
+msgid "This user does not exist"
+msgstr "Cet utilisateur n'existe pas"
+
+#, fuzzy
+msgid "Change author for entries"
+msgstr "Changer l'auteur de cette sélection"
+
+msgid "New author (author ID):"
+msgstr "Nouvel auteur (identifiant utilisateur) :"
+
+#, fuzzy
+msgid "Change language for entries"
+msgstr "Changer la langue de cette sélection"
+
 msgid "Available"
 msgstr "Disponible"
 
 msgid "Most used"
 msgstr "Plus utilisées"
+
+msgid "Entry language:"
+msgstr "Langue du billet :"
 
 msgid "Change blog"
 msgstr "Changer de blog"
@@ -3222,6 +3260,11 @@ msgstr "Ce répertoire ne peut pas être supprimé."
 msgid "Not enough memory to open image."
 msgstr "Mémoire insuffisante pour ouvrir l'image."
 
+msgid "singular"
+msgid_plural "plural"
+msgstr[0] ""
+msgstr[1] ""
+
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Le fichier %s n'est pas compressé dans le zip."
@@ -3267,14 +3310,26 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
+#~ msgid "Leave blank to disable this feature."
+#~ msgstr "Laissez vide pour annuler ce comportement."
+
+#~ msgid "Back to comments list"
+#~ msgstr "Retour à la liste des commentaires"
+
+#~ msgid "Compress this directory with its content as a zip file and download it."
+#~ msgstr "Compressez ce dossier et son contenu dans un fichier zip et téléchargez-le."
+
+#~ msgid "Download"
+#~ msgstr "Télécharger"
+
+#~ msgid "No action specified."
+#~ msgstr "Aucune action spécifiée."
+
 #~ msgid "Ordering"
 #~ msgstr "Classement"
 
 #~ msgid "Users actions"
 #~ msgstr "Actions sur les utilisateurs"
-
-#~ msgid "No User selected"
-#~ msgstr "Pas d'utilisateur sélectionné"
 
 #~ msgid "(no cat)"
 #~ msgstr "(aucune)"

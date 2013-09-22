@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-21 16:29+0000\n"
+"POT-Creation-Date: 2013-09-22 16:57+0000\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -152,6 +152,9 @@ msgstr "Filtre d'indésirable Akismet"
 msgid "Filtered by %s."
 msgstr "Filtré par %s."
 
+msgid "Filter configuration have been successfully saved."
+msgstr "La configuration du filtre a été enregistrée avec succès."
+
 msgid "Akismet API key:"
 msgstr "Clé API Akismet :"
 
@@ -180,6 +183,10 @@ msgstr "Supprimer les commentaires indésirables âgés de plus de"
 
 msgid "days"
 msgstr "jours"
+
+#, fuzzy
+msgid "Set spam filters on it's page."
+msgstr "Ajouter des fichiers à cette page"
 
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "Filtre de liste noire et blanche d'IP"
@@ -335,9 +342,6 @@ msgstr "Commentaires publiés :"
 
 msgid "Filters configuration has been successfully saved."
 msgstr "La configuration des filtres a été enregistrée avec succès."
-
-msgid "Filter configuration have been successfully saved."
-msgstr "La configuration du filtre a été enregistrée avec succès."
 
 msgid "Available spam filters"
 msgstr "Filtres d'indésirable disponibles"
@@ -1207,16 +1211,18 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "Une tâche à exécuter"
 msgstr[1] "%s tâches à exécuter"
 
+msgid "This task has never been executed."
+msgstr "Cette tâche n'a jamais été exécutée."
+
+#, php-format
+msgid "Last execution of this task was on %s."
+msgstr "La dernière exécution de cette tâches était le %s."
+
+#, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Il y a une tâche à exécuter."
 msgstr[1] "Il y a %s tâches à exécuter."
-
-msgid "This task has never been executed."
-msgstr "Cette tâche n'a jamais été exécutée."
-
-msgid "Last execution of this task was on %s."
-msgstr "La dernière exécution de cette tâches était le %s."
 
 msgid "Manage tasks"
 msgstr "Gérer les tâches"
@@ -1260,6 +1266,7 @@ msgstr "Indexer tous les commentaires pour le moteur de recherche"
 msgid "Next"
 msgstr "Suivant"
 
+#, php-format
 msgid "Indexing comment %d to %d."
 msgstr "Indexation des commentaires %d à %d."
 
@@ -1272,6 +1279,7 @@ msgstr "Impossible d'indexer les commentaires."
 msgid "Index all entries for search engine"
 msgstr "Indexer tous les billets pour le moteur de recherche"
 
+#, php-format
 msgid "Indexing entry %d to %d."
 msgstr "Indexation des billets %d à %d."
 
@@ -1323,11 +1331,16 @@ msgstr "Utiliser une périodicité différente pour chaque tâche"
 msgid "Never"
 msgstr "Jamais"
 
-msgid "You have not sufficient permissions to view this page"
+#, fuzzy
+msgid "You have not sufficient permissions to view this page."
 msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page."
 
 msgid "Settings successfully updated"
 msgstr "Les réglages ont été mis à jour avec succès"
+
+#, fuzzy
+msgid "Back"
+msgstr "Sauvegarde"
 
 msgid "You should execute it now."
 msgstr "Vous devriez l'exécuter dès maintenant."
@@ -1341,8 +1354,19 @@ msgstr "Cela peut prendre un certain temps."
 msgid "Settings"
 msgstr "Paramètres"
 
+#, fuzzy
+msgid "Activation"
+msgstr "Actif"
+
 msgid "Display alert messages on late tasks"
 msgstr "Afficher des messages d'alerte pour les tâches en retard"
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
+
+msgid "Frequency"
+msgstr ""
 
 msgid "Recall time for all tasks:"
 msgstr "Délai de rappel pour toutes les tâches :"
@@ -1350,8 +1374,9 @@ msgstr "Délai de rappel pour toutes les tâches :"
 msgid "Recall time per task:"
 msgstr "Délai de rappel par tâche :"
 
-msgid "You can place list of late tasks on your %s."
-msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
+#, fuzzy
+msgid "Save this settings"
+msgstr "Paramètres"
 
 #, php-format
 msgid "%d page"
@@ -1403,6 +1428,18 @@ msgstr "Sélectionner cette page"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Êtes-vous sûr de vouloir supprimer les pages sélectionnées ?"
 
+#, fuzzy
+msgid "Selected pages have been successfully updated."
+msgstr "Les réglages ont été modifiés avec succès."
+
+#, fuzzy
+msgid "Selected pages have been successfully deleted."
+msgstr "Les commentaires indésirables ont été supprimés avec succès."
+
+#, fuzzy
+msgid "Selected pages have been successfully reordered."
+msgstr "Les éléments ont été retirés avec succès."
+
 msgid "New page"
 msgstr "Nouvelle page"
 
@@ -1435,6 +1472,9 @@ msgstr "Langue de la page"
 
 msgid "Hide in widget Pages"
 msgstr "Ne pas lister dans le widget Pages"
+
+msgid "Warning: If you set the URL manually, it may conflict with another page."
+msgstr "Attention : si vous définissez vous-même l'URL, elle peut entrer en conflit avec celle d'une autre page."
 
 msgid "Introduction to the page."
 msgstr "Introduction à la page."
@@ -1902,9 +1942,6 @@ msgstr "Mettre à jour les volets"
 msgid "Reset sidebars"
 msgstr "Réinitialiser les volets"
 
-msgid "Help for this page"
-msgstr "Aide pour cette page"
-
 msgid "Use of widgets"
 msgstr "Utilisation des widgets"
 
@@ -1968,6 +2005,9 @@ msgstr "Retirer le widget"
 msgid "Drag widgets here to remove them from this sidebar."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
+#~ msgid "Help for this page"
+#~ msgstr "Aide pour cette page"
+
 #~ msgid "Blogroll"
 #~ msgstr "Liste des liens"
 
@@ -2003,9 +2043,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Are you sure you want to delete all spams?"
 #~ msgstr "Êtes-vous sûr de vouloir supprimer tous les indésirables ?"
-
-#~ msgid "Spam comments have been successfully deleted."
-#~ msgstr "Les commentaires indésirables ont été supprimés avec succès."
 
 #~ msgid "Delete all spams"
 #~ msgstr "Supprimer tous les indésirables"
@@ -2063,12 +2100,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Page password"
 #~ msgstr "Mot de passe de la page"
-
-#~ msgid "Warning: If you set the URL manually, it may conflict with another page."
-#~ msgstr "Attention : si vous définissez vous-même l'URL, elle peut entrer en conflit avec celle d'une autre page."
-
-#~ msgid "Add files to this page"
-#~ msgstr "Ajouter des fichiers à cette page"
 
 #~ msgid "Hide"
 #~ msgstr "Masquer"
