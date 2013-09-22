@@ -19,18 +19,18 @@
 ---------------------------------------------------------------------------- */
 #header {
 	background: #676e78;
-	position: relative;
+	color: #FFF;
 	border-bottom: 4px solid #A2CBE9;
 	width: 100%;
+	display: table;
 	}
-#wrapper {
+#wrapper, #wrapper.with-prelude {
 	position: relative;
-	padding-top: 1em;
-	overflow: hidden;
+	padding-top: 1.5em;
 	float: left;
 	width: 100%;
 	z-index: 10;
-	/*background: #f7f7f7 url(bg_wrapper.png) repeat-y 15.5em;*/
+	background: #F7F7F7 url(bg_wrapper.png) repeat-y 15em;
 	}
 .with-js #wrapper {
 	padding-top: 0;
@@ -38,12 +38,12 @@
 #main {
 	width: 100%;
 	float: right;
-	margin-left: -15.5em;
+	margin-left: -14em;
 	margin-top: 0;
 	}
 #content {
-	margin: 0 0 0 15.5em;
-	padding: .75em 1em;
+	margin: 0 0 0 14em;
+	padding: .75em 1.5em .75em 2.5em;
 	background: #fff;
 	}
 #main-menu {
@@ -63,10 +63,6 @@
 	text-align: right;
 	border-top: 1px solid #ccc;
 	background-color: #fff;
-	}
-#content, #main-menu { /* hauteurs égales */
-	padding-bottom: 200em;
-	margin-bottom: -200em;
 	}
 /* to hide main-menu */
 #collapser {
@@ -136,6 +132,9 @@
 		margin-left: 2%;
 		margin-right: 0;
 		}
+	.two-cols table {
+		width: 90%;
+		}
 /* -------------------------------------------------------------- layout: three-cols */
 .three-cols {
 	position: static;
@@ -200,38 +199,40 @@
 	margin-right: 0;
 	}
 /* ---------------------------------------------------------------- layout: popups */
-.popup #wrapper, .popup #top {
+.popup h1 {
+	display: block;
 	width: 100%;
-	padding: 0;
-	}
-.popup h1, .popup #top {
 	margin: 0;
-	border-bottom: 1px solid;
-	font-weight: normal;
-	color: #fff;
 	background: #676e78;
 	font-size: 1.5em;
-	text-indent: .5em;
-	line-height: 1.3em;
+	text-indent: 1em;
+	line-height: 1.5em;
+	font-weight: normal;
+	color: #fff;
 	}
 .popup #wrapper {
-	float: none;
-	margin:0;
 	display: block;
+	float: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-position: 0 0;
 	}
-	.popup #main {
-		margin-bottom: 1em 0;
-		}
-	.popup #content {
-		margin: 0;
-		padding: .5em 0;
-		}
-		.popup #content h2 {
-			margin: 0 0 1em;
-			}
-	.popup #footer p {
-		border: none;
-		}
+.popup #main {
+	margin: 0;
+	padding: 0;
+	}
+.popup #content {
+	margin: 0;
+	padding: 1em;
+	}
+.popup #content h2 {
+	margin: 0 0 1em 0;
+	padding: 0;
+	}
+.popup #footer p {
+	border: none;
+	}
 /* -------------------------------------------------------- layout: classes de complément */
 .constrained {
 	margin: 0;
@@ -300,10 +301,8 @@ h2 {
 	}
 	/* titre de page */
 	#content > h2 {
-		padding: 0 18px 6px; /* ie < 9 sucks */
-		padding: 0 1.8rem .6rem;
-		margin: 0 -18px .5em; /* ie < 9 sucks */
-		margin: 0 -1.8rem 1rem;
+		padding: 0 1em .5em 1em;
+		margin: 0 -1em .5em -1em;
 		background: #fff url(bg_h2.png) repeat-x center bottom;
 		}
 	h2 a:link, h2 a:visited {
@@ -365,11 +364,16 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, ul:first-child, 
 	margin-top: 0;
 	}
 /* ---------------------------------------------------------------- tableaux */
+.table-outer {
+	width: 100%;
+	overflow: auto;
+	}
 table {
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 	border-collapse: collapse;
 	margin: 0 0 1em 0;
+	width: 100%;
 	}
 caption {
 	color: #333;
@@ -437,7 +441,7 @@ a, a:link, a:visited {
 	border-bottom: 1px dotted #999;
 	}
 a:hover, a:active, a:focus {
-	text-decoration: underline;
+	border-bottom-style: solid;
 	}
 a img, a:link img, a:visited img {
 	border:none;
@@ -571,15 +575,6 @@ p.field {
 	p.field input, p.field select {
 		display: inline-block;
 		}
-a.form-control {
-	display: none;
-	background: url(../images/expand.png) no-repeat 4px center;
-	padding-left: 20px;
-	color: #000;
-	}
-a.form-control.open {
-	background: url(../images/hide.png) no-repeat 4px center;
-	}
 .form-note {
 	font-style: italic;
 	font-weight: normal;
@@ -745,6 +740,7 @@ input.disabled, input[type=submit].disabled {
 div.warn, div.warning, div.info {
 	display: block;
 	padding: 1em 1em .33em 1em;
+	margin-bottom: 1em;
 	}
 	.warn, .warning {
 		background: #FEFACD url(msg-warning.png) no-repeat .3em .3em;
@@ -793,7 +789,7 @@ div.warn, div.warning, div.info {
 			background: #F7E07E url(msg-warning.png) no-repeat .7em .7em;
 			border: 1px solid #F7E07E;
 			}
-		.success a, .warning-msg a {
+		.success a, .warning-msg a, .info a {
 			color: #333;
 			}
 .dc-update {
@@ -855,101 +851,82 @@ div.warn, div.warning, div.info {
 		color: #000;
 		border-bottom-color: #A2CBE9;
 		}
-/* top (h1) */
-#top {
+/* header global h1, form#top-info-blog, ul#top-info-user */
+#header a {
+	color: #FFF;
+	}
+#header img {
+	vertical-align: middle;
+	padding-left: .5em;
+	}
+h1, #top-info-blog, #top-info-user {
+	display: table-cell;
+	padding: 8px 0;
 	margin: 0;
-	padding: 0;
-	width: 14.5em;
-	float: left;
+	font-size: 1em;
+	vertical-align: top;
 	}
-	h1 {
-		padding: 0;
-		margin: 0;
-		height: 36px;
-		text-indent: -1000px;
-		}
-		h1 a {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 174px; /* ie < 9 sucks */
-			width: 17.4rem;
-			height: 36px; /* ie < 9 sucks */
-			height: 3.6rem;
-			color: #fff;
-			background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
-			}
-		h1 a:hover, h1 a:focus {
-			background-position: 0 -94px;
-			}
-/* info-boxes */
-#info-boxes {
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
-	line-height: 3em;
+/* h1 */
+h1 {
+	text-indent: -1000px;
+	width: 16.5em;
 	}
-	#info-boxes a {
-		font-weight: bold;
+	h1 a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 174px; /* ie < 9 sucks */
+		width: 17.4rem;
+		height: 36px; /* ie < 9 sucks */
+		height: 3.6rem;
 		color: #fff;
-		border-bottom-color: #ccc;
-		margin-left: .3em;
-		margin-right: .3em;
-		white-space: nowrap;
-		font-weight: normal;
+		background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 		}
-	#info-boxes a img {
-		vertical-align: middle;
-		padding-left: .3em;
+	h1 a:hover, h1 a:focus {
+		background-position: 0 -94px;
 		}
-	#info-box1 {
-		margin: 0;
-		padding: 0 3px 0 18px;
-		color: #fff;
-		display: inline-block;
-		}
-		#info-box1 p {
-			margin: 0;
-			display: inline;
-			}
-		.with-js #info-box1 .hidden-if-js {
-			display: none;
-			}
-		#info-box1 select {
-			width: 145px; /* ie < 9 sucks */
-			width: 14.5em;
-			}
-		#info-box1 a {
-			margin-left: 1.33em;
-			}
-		#info-box1 input[type=submit] {
-			background: #000;
-			border-color: #999;
-			margin-left: .33em; 
-			}
-		#info-box1 input[type=submit]:hover {
-			background: #999;
-			}
-	#info-box2 {
-		margin: 0;
-		padding: 0 18px 0 0;
-		color: #fff;
-		float: right;
-		text-align: right;
-		}
-		#info-box2 span {
-			color: #999;
-			}
-		#info-box2 .logout {
-			margin-right: 0;
-			}
-		#info-box2 a.active {
-			border-bottom-color: #fff;
-			margin: 0;
-			padding: 1.2em .5em;
-			background-color: #fff;
-			color: #333;
-			font-weight: bold;
-			}
+/* top-info-blog */
+#top-info-blog select {
+	max-width: 20em;
+	}
+.with-js #top-info-blog select, .no-js #top-info-blog input[type=submit] {
+	margin-right: 1.33em;
+	}
+#top-info-blog input[type=submit] {
+	background: #000;
+	border-color: #999;
+	margin-left: .33em; 
+	}
+#top-info-blog input[type=submit]:hover {
+	background: #999;
+	}
+#top-info-blog p {
+	display: inline-block;
+	margin: 0;
+	}
+/* top-info-user */
+#top-info-user {
+	padding-right: 18px;
+	list-style-type: none;
+	text-align: right;
+	}
+#top-info-user li {
+	display: inline-block;
+	margin-left: .5em;
+	padding-left: .5em;
+	border-left: 1px solid #999;
+	}
+#top-info-user li:first-child {
+	border-left: none;
+	}
+#top-info-user a.active {
+	border-bottom-color: #fff;
+	margin: 0;
+	padding: 16px .5em;
+	background-color: #fff;
+	color: #333;
+	font-weight: bold;
+	}
 /* ---------------------------------------------------------- MAIN-MENU ELEMENTS */
 #favorites-menu, #blog-menu, #system-menu, #plugins-menu {
 	border-bottom: 1px dashed #A2CBE9;
@@ -1029,7 +1006,7 @@ div.warn, div.warning, div.info {
 		height: 2.2rem;
 		}
 		#qx:focus {
-			border-color: #bee74b;
+			border: 1px solid #bee74b;
 			}
 	#search-menu input[type="submit"] {
 		padding: 0 3px;
@@ -1119,6 +1096,16 @@ div.warn, div.warning, div.info {
 	line-height: 36px; /* ie < 9 sucks */
 	line-height: 3.6rem;
 	}
+     #help-button.floatable {
+		border-top: 2px solid #ccc;
+		border-left: 2px solid #ccc;
+		border-bottom: 2px solid #ccc;
+		border-bottom-left-radius: 1em;
+		border-top-left-radius: 1em;
+        background-color: #f5f5f5;
+        position: fixed;
+        top: 10px;
+        }
 	.no-js #help-button {
 		top: 1em;
 		}
@@ -1127,11 +1114,11 @@ div.warn, div.warning, div.info {
 		border-bottom: 1px solid #2373A8;
 		}
 	#content.with-help #help-button {
-		right: 282px; /* ie < 9 sucks */
+		right: 280px; /* ie < 9 sucks */
 		right: 28rem;
 		background-color: #f5f5f5;
 		position: fixed;
-		top: 54px;
+		top: 50px;
 		z-index: 100;
 		border-top: 2px solid #FFD478;
 		border-left: 2px solid #FFD478;
@@ -1147,7 +1134,7 @@ div.warn, div.warning, div.info {
 		margin-left: 0;
 		}
 	#content.with-help .help-content {
-		padding: 0 .5em 1em;
+		padding: 0 1em 1em;
 		}
 		.help-content dt {
 			font-weight: bold;
@@ -1265,6 +1252,15 @@ tr.expand td {
 	padding-left: 15px;
 	}
 /* ----------------------------------------------------------- BOITES À FILTRES */
+a.form-control {
+	display: none;
+	background: url(../images/expand.png) no-repeat 4px center;
+	padding-left: 20px;
+	color: #000;
+	}
+a.form-control.open {
+	background: url(../images/hide.png) no-repeat 4px center;
+	}
 #filters-form {
 	border: 1px dashed #999;
 	border-radius: .5em;
@@ -1368,7 +1364,7 @@ tr.expand td {
 	#icons a:visited,
 	#icons a:hover,
 	#icons a:focus {
-		border-bottom-width: 0px;
+		border-bottom-width: 0;
 		text-decoration: none;
 		}
 		#icons a span {
@@ -1388,7 +1384,7 @@ tr.expand td {
 				background: #bee74b;
 				}
 			#icons a:focus span, #icons a:hover span {
-				text-decoration: underline;
+				border-bottom-style: solid;
 				}
 /* billet rapide */
 #quick {
@@ -2090,6 +2086,9 @@ div.template-upload {
 	color: white;
 	}
 /* password indicator */
+.install .pw-table, .install .pw-cell, .install .pwindicator {
+	display: block;
+	}
 .pw-table {
 	display: table;
 	margin-bottom: 1em;
@@ -2333,7 +2332,7 @@ ul.from-left {
 	}
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
------------------------------------------------------------------------------------- */
+------------------------------------------------------------------------------------
 @media screen and (max-width: 920px) {
 	#top, #top h1 a {
 		width: 42px !important; 
@@ -2403,3 +2402,4 @@ ul.from-left {
 		}
 	#info-box1 p.nomobile, label.nomobile { display: none; }
 	}
+*/

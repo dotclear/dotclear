@@ -49,7 +49,13 @@ class dcPager extends pager
 		}
 		$this->form_hidden = '';
 		foreach ($args as $k=>$v) {
-			$this->form_hidden .= form::hidden(array($k),$v);
+			if (is_array($v)) {
+				foreach ($v as $k2=>$v2) {
+					$this->form_hidden .= form::hidden(array($k.'[]'),$v2);
+				}
+			} else {
+				$this->form_hidden .= form::hidden(array($k),$v);
+			}
 		}
 		$this->form_action = $url['path'];
 	}
@@ -163,7 +169,9 @@ class adminPostList extends adminGenericList
 					$entries[(integer)$v]=true;
 				}
 			}
-			$html_block  = '<table class="clear">';
+			$html_block  = 
+			'<div class="table-outer">'.
+			'<table class="clear">';
 			
 			if( $filter ) {
 				$html_block .= '<caption>'.sprintf(__('List of %s entries match the filter.'), $this->rs_count).'</caption>';
@@ -179,7 +187,7 @@ class adminPostList extends adminGenericList
 			'<th scope="col">'.__('Comments').'</th>'.
 			'<th scope="col">'.__('Trackbacks').'</th>'.
 			'<th scope="col">'.__('Status').'</th>'.
-			'</tr>%s</table>';
+			'</tr>%s</table></div>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
@@ -283,12 +291,13 @@ class adminPostMiniList extends adminGenericList
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
 			$html_block =
-			'<table class="clear"><caption class="hidden">'.__('Entries list').'</caption><tr>'.
+			'<div class="table-outer clear">'.
+			'<table><caption class="hidden">'.__('Entries list').'</caption><tr>'.
 			'<th scope="col">'.__('Title').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col">'.__('Author').'</th>'.
 			'<th scope="col">'.__('Status').'</th>'.
-			'</tr>%s</table>';
+			'</tr>%s</table></div>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
@@ -374,14 +383,21 @@ class adminCommentList extends adminGenericList
 		{
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
+			$comments = array();
+			if (isset($_REQUEST['comments'])) {
+				foreach ($_REQUEST['comments'] as $v) {
+					$comments[(integer)$v]=true;
+				}
+			}			
 			$html_block =
+			'<div class="table-outer">'.
 			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
 			'<th colspan="2" scope="col" abbr="comm" class="first">'.__('Type').'</th>'.
 			'<th scope="col">'.__('Author').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col" class="txt-center">'.__('Status').'</th>'.
 			'<th scope="col" abbr="entry">'.__('Entry title').'</th>'.
-			'</tr>%s</table>';
+			'</tr>%s</table></div>';
 
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
@@ -395,7 +411,7 @@ class adminCommentList extends adminGenericList
 			
 			while ($this->rs->fetch())
 			{
-				echo $this->commentLine();
+				echo $this->commentLine(isset($comments[$this->rs->comment_id]));
 			}
 			
 			echo $blocks[1];
@@ -404,7 +420,7 @@ class adminCommentList extends adminGenericList
 		}
 	}
 	
-	private function commentLine()
+	private function commentLine($checked=false)
 	{
 		global $author, $status, $sortby, $order, $nb_per_page;
 		
@@ -483,13 +499,14 @@ class adminUserList extends adminGenericList
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
 			$html_block =
-			'<table class="clear"><caption class="hidden">'.__('Users list').'</caption><tr>'.
+			'<div class="table-outer clear">'.
+			'<table><caption class="hidden">'.__('Users list').'</caption><tr>'.
 			'<th colspan="2" scope="col" class="first">'.__('Username').'</th>'.
 			'<th scope="col">'.__('First Name').'</th>'.
 			'<th scope="col">'.__('Last Name').'</th>'.
 			'<th scope="col">'.__('Display name').'</th>'.
 			'<th scope="col" class="nowrap">'.__('Entries (all types)').'</th>'.
-			'</tr>%s</table>';
+			'</tr>%s</table></div>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
