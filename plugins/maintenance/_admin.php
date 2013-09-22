@@ -17,7 +17,7 @@ $_menu['Plugins']->addItem(
 	'plugin.php?p=maintenance',
 	'index.php?pf=maintenance/icon.png',
 	preg_match('/plugin.php\?p=maintenance(&.*)?$/', $_SERVER['REQUEST_URI']),
-	$core->auth->isSuperAdmin()
+	$core->auth->check('admin', $core->blog->id)
 );
 
 // Admin behaviors
@@ -191,11 +191,11 @@ class dcMaintenanceAdmin
 
 		'<p><label for="maintenance_dashboard_icon" class="classic">'.
 		form::checkbox('maintenance_dashboard_icon', 1, $core->auth->user_prefs->maintenance->dashboard_icon).
-		__('Display count of expired tasks on maintenance dashboard icon').'</label></p>'.
+		__('Display count of late tasks on maintenance dashboard icon').'</label></p>'.
 
 		'<p><label for="maintenance_dashboard_item" class="classic">'.
 		form::checkbox('maintenance_dashboard_item', 1, $core->auth->user_prefs->maintenance->dashboard_item).
-		__('Display list of expired tasks on dashboard items').'</label></p>'.
+		__('Display list of late tasks on dashboard items').'</label></p>'.
 
 		'</div>';
 	}

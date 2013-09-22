@@ -13,6 +13,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 class ieMaintenanceExportblog extends dcMaintenanceTask
 {
+	protected $perm = 'admin';
 	protected $tab = 'backup';
 	protected $group = 'zipblog';
 

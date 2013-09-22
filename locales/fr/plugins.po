@@ -1218,11 +1218,11 @@ msgstr "La dernière exécution de cette tâches était le %s."
 msgid "Manage tasks"
 msgstr "Gérer les tâches"
 
-msgid "Display count of expired tasks on maintenance dashboard icon"
-msgstr "Afficher le nombre de tâches expirées sur l'icône maintenance du tableau de bord"
+msgid "Display count of late tasks on maintenance dashboard icon"
+msgstr "Afficher le nombre de tâches en retard sur l'icône maintenance du tableau de bord"
 
-msgid "Display list of expired tasks on dashboard items"
-msgstr "Afficher la liste des tâches expirées dans les éléments du tableau de bord"
+msgid "Display list of late tasks on dashboard items"
+msgstr "Afficher la liste des tâches en retard dans les éléments du tableau de bord"
 
 msgid "Failed to execute task."
 msgstr "Impossible d'exécuter la tâche."
@@ -1251,8 +1251,8 @@ msgstr "Impossible de recompter les commentaires et rétroliens."
 msgid "Search engine index"
 msgstr "Index du moteur de recherche"
 
-msgid "Index all comments"
-msgstr "Indexation de tous les commentaires"
+msgid "Index all comments for search engine"
+msgstr "Indexer tous les commentaires pour le moteur de recherche"
 
 msgid "Next"
 msgstr "Suivant"
@@ -1266,8 +1266,8 @@ msgstr "Indexation des commentaires effectuée."
 msgid "Failed to index comments."
 msgstr "Impossible d'indexer les commentaires."
 
-msgid "Index all posts"
-msgstr "Indexation de tous les billets"
+msgid "Index all entries for search engine"
+msgstr "Indexer tous les billets pour le moteur de recherche"
 
 msgid "Indexing entry %d to %d."
 msgstr "Indexation des billets %d à %d."
@@ -1320,11 +1320,14 @@ msgstr "Utiliser une période diffèrente pour chaque tâche"
 msgid "Never"
 msgstr "Jamais"
 
+msgid "You have not sufficient permissions to view this page"
+msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page"
+
 msgid "Settings successfully updated"
 msgstr "Paramètres mis à jour avec succès"
 
 msgid "You should execute it now."
-msgstr "Vous devriez l'exécuter à nouveau."
+msgstr "Vous devriez l'exécuter dès maintenant."
 
 msgid "Execute task"
 msgstr "Exécuter la tâche"
@@ -1335,8 +1338,8 @@ msgstr "Cela peut prendre un certain temps."
 msgid "Settings"
 msgstr "Paramètres"
 
-msgid "Display alert messages on expired tasks"
-msgstr "Afficher les messages d'alert sur les tâches expirées."
+msgid "Display alert messages on late tasks"
+msgstr "Afficher les messages d'alerte sur les tâches en retard."
 
 msgid "Recall time for all tasks:"
 msgstr "Délai de rappel pour toutes les tâches :"
@@ -1344,8 +1347,8 @@ msgstr "Délai de rappel pour toutes les tâches :"
 msgid "Recall time per task:"
 msgstr "Délai de rappel par tâche :"
 
-msgid "You can place list of expired tasks on your %s."
-msgstr "Vous pouvez placer la liste des tâches expirées sur votre %s."
+msgid "You can place list of late tasks on your %s."
+msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
 
 #, php-format
 msgid "%d page"

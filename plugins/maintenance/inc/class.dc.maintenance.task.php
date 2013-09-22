@@ -28,6 +28,7 @@ class dcMaintenanceTask
 	protected $expired = 0;
 	protected $ajax = false;
 	protected $blog = false;
+	protected $perm = null;
 
 	protected $id;
 	protected $name;
@@ -54,6 +55,11 @@ class dcMaintenanceTask
 		$this->core = $maintenance->core;
 		$this->init();
 
+		if ($this->perm() === null && !$this->core->auth->isSuperAdmin()
+		|| !$this->core->auth->check($this->perm(), $this->core->blog->id)) {
+			return null;
+		}
+
 		$this->p_url = $p_url;
 		$this->id = get_class($this);
 
@@ -71,6 +77,8 @@ class dcMaintenanceTask
 		$ts = $this->core->blog->settings->maintenance->get('ts_'.$this->id);
 
 		$this->ts = abs((integer) $ts);
+
+		return true;
 	}
 
 	/**
@@ -82,6 +90,31 @@ class dcMaintenanceTask
 	protected function init()
 	{
 		return null;
+	}
+
+	/**
+	 * Get task permission.
+	 *
+	 * Return user permission required to run this task 
+	 * or null for super admin.
+	 *
+	 * @return <b>mixed</b> Permission.
+	 */
+	public function perm()
+	{
+		return $this->perm;
+	}
+
+	/**
+	 * Get task scope.
+	 *.
+	 * Is task limited to current blog.
+	 *
+	 * @return <b>boolean</b> Limit to blog
+	 */
+	public function blog()
+	{
+		return $this->blog;
 	}
 
 	/**
