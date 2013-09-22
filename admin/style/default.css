@@ -884,8 +884,7 @@ h1 {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 174px; /* ie < 9 sucks */
-		width: 17.4rem;
+		width: 15em;
 		height: 36px; /* ie < 9 sucks */
 		height: 3.6rem;
 		color: #fff;
@@ -2336,70 +2335,31 @@ ul.from-left {
 	}
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
-------------------------------------------------------------------------------------
-@media screen and (max-width: 920px) {
-	#top, #top h1 a {
-		width: 42px !important; 
-		height:100%; 
-		overflow: hidden;
-		}
-		#top h1 a:link {
-			background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
-			border-right: 1px solid #ccc;
-			}
-		#top h1 a:hover, #top h1 a:focus {
-			background: url(dc_logos/b-dotclear120.png) no-repeat -180px -94px;
-			border-right: 1px solid #A2CBE9;
-			}
-	}
-@media screen and (max-width: 800px) {
-	#top, #info-boxes, #info-box1, #info-box2 {
-		display:inline-block;
-		vertical-align:middle;
-		margin:0;
-		padding:0;
-		line-height: 32px; line-height: 3.2rem;
-		}
-		#info-box1 { margin-left: .75em; }
-		#info-box1 select { width: 140px; width: 14rem; }
-	#main-menu, #main, #content, #content h2, #entry-wrapper, #entry-sidebar, #entry-content, 
-	.two-cols .col, .three-cols .col, .two-cols .col30, .two-cols .col70, .two-boxes, .three-boxes {
-		display:block !important;
-		width: 98% !important;
-		margin:0 auto !important;
-		padding:0;
-		float:none;
-		text-align: left;
-		clear: both;
-		}
-	#content {
-		width: 100%;
-		padding-top: .5em;
-		}
-	}
-
-@media screen and (max-width: 700px) {
+------------------------------------------------------------------------------------ */
+@media screen and (max-width: 1000px) {
 	#header {
 		display: block;
 		width: 100%;
 		text-align: right;
+		background: #333;
 		} 
-	h1, h1 a {
-		width: 42px !important; 
+	#header h1, #header h1 a {
+		width: 120px;
+		padding: 0;
+		margin: 0;
 		}
-		h1 a:link {
-			background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
-			border-right: 1px solid #ccc;
-			border-bottom: 1px solid #ccc;
-			}
-		h1 a:hover, h1 a:focus {
-			background: url(dc_logos/b-dotclear120.png) no-repeat -180px -94px;
-			border-right: 1px solid #A2CBE9;
-			}
-	h1, #top-info-blog, #top-info-user {
+	h1, #top-info-blog {
 		display: inline-block;
 		vertical-align: top;
 		margin-right: 1em;
+		}
+	#top-info-user {
+		display: block;
+		width: 100%;
+		background: #676e78;
+		}
+	#top-info-user li:last-child {
+		padding-right: 1em;
 		}
 	#top-info-user a.active {
 		padding: 2px 8px;
@@ -2410,4 +2370,56 @@ ul.from-left {
 		margin-right: 0; 
 		}
 	}
-*/
+@media screen and (max-width: 600px) {
+	#header h1, #header h1 a {
+		width: 42px !important; 
+		height: 42px;
+		}
+	h1 a:link {
+		background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
+		border-right: 1px solid #ccc;
+		}
+	h1 a:hover, h1 a:focus {
+		background: url(dc_logos/b-dotclear120.png) no-repeat -180px -94px;
+		border-right: 1px solid #A2CBE9;
+		}
+	#wrapper, #main, #main-menu {
+		display: block;
+		float: none;
+		width: 100%;
+		margin: 0;
+		}
+	#content {
+		margin: 0;
+		padding: 0 1em;
+		}
+	#collapser {
+		display: none;
+		}
+	 #help-button {
+		height:26px;
+		width:26px;
+		background-color: #A2CBE9;
+		padding: 0;
+		margin: 0;
+		font-size: 10px; font-size: 1rem;
+		line-height: 68px;
+		overflow: hidden;
+		}
+	}
+@media screen and (max-width: 500px) {
+	h1, h1 a {
+		padding: 0;
+		border-right: #333 !important;
+		}
+	#top-info-blog label, .nomobile {
+		display: none;
+		}
+	#top-info-blog select {
+		margin-bottom: .5em;
+		margin-right: 0 !important;
+		}
+	#top-info-blog p {
+		display: block;
+		}
+	}
