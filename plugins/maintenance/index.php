@@ -310,7 +310,7 @@ else {
 	'<p class="info">'.sprintf(
 		__('You can place list of late tasks on your %s.'),
 		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
-	).'</a></p>'.
+	).'</p>'.
 
 	'<h4 class="pretty-title">'.__('Frequency').'</h4>'.
 
