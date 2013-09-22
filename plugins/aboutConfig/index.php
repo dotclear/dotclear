@@ -133,7 +133,7 @@ if (!empty($_GET['upda'])) {
 
 
 <?php
-$table_header = '<table class="settings" id="%s"><caption class="as_h3">%s</caption>'.
+$table_header = '<div class="table-outer"><table class="settings" id="%s"><caption class="as_h3">%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
 '  <th class="nowrap">Setting ID</th>'."\n".
@@ -143,7 +143,7 @@ $table_header = '<table class="settings" id="%s"><caption class="as_h3">%s</capt
 '</tr>'."\n".
 '</thead>'."\n".
 '<tbody>';
-$table_footer = '</tbody></table>';
+$table_footer = '</tbody></table></div>';
 
 $settings = array();
 foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {

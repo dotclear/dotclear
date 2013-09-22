@@ -51,7 +51,8 @@ class daModulesList extends adminGenericList
 			}
 			
 			$html_block =
-				'<table summary="modules" class="maximal">'.
+				'<div class="table-outer">'.
+				'<table caption="modules" class="maximal">'.
 				'<thead>'.
 				'<tr>'.
 				'<th>'.$msg_th_label.'</th>'.
@@ -61,7 +62,7 @@ class daModulesList extends adminGenericList
 				'</tr>'.
 				'</thead>'.
 				'<tbody>%s</tbody>'.
-				'</table>';
+				'</table></div>';
 			
 			echo '<p class="pagination">'.__('Page(s)').' : '.$pager->getLinks().'</p>';
 			$blocks = explode('%s',$html_block);
@@ -205,7 +206,8 @@ class daModulesUpdateList
 		$items = '';
 		$html_block =
 			'<form action="'.$url.'" method="post">'.
-			'<table summary="upd-%1$s" class="maximal">'.
+			'<div class="table-outer">'.
+			'<table caption="upd-%1$s" class="maximal">'.
 			'<thead>'.
 			'<tr>'.
 			'<th>'.$msg_th_label.'</th>'.
@@ -214,7 +216,7 @@ class daModulesUpdateList
 			'</tr>'.
 			'</thead>'.
 			'<tbody>%2$s</tbody>'.
-			'</table>'.
+			'</table></div>'.
 			'<div class="two-cols">'.
 			'<p class="col checkboxes-helpers"></p>'.
 			'<p class="col right">'.

@@ -32,6 +32,7 @@ class adminPageList extends adminGenericList
 				}
 			}			
 			$html_block =
+			'<div class="table-outer">'.
 			'<table class="maximal dragable"><thead><tr>'.
 			'<th colspan="3">'.__('Title').'</th>'.
 			'<th>'.__('Date').'</th>'.
@@ -39,7 +40,7 @@ class adminPageList extends adminGenericList
 			'<th>'.__('Comments').'</th>'.
 			'<th>'.__('Trackbacks').'</th>'.
 			'<th>'.__('Status').'</th>'.
-			'</tr></thead><tbody id="pageslist">%s</tbody></table>';
+			'</tr></thead><tbody id="pageslist">%s</tbody></table></div>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);

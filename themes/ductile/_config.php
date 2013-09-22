@@ -453,7 +453,9 @@ echo '</fieldset>';
 
 echo '<fieldset><legend>'.__('Stickers').'</legend>';
 
-echo '<table class="dragable">'.'<caption>'.__('Stickers (footer)').'</caption>'.
+echo 
+'<div class="table-outer">'.
+'<table class="dragable">'.'<caption>'.__('Stickers (footer)').'</caption>'.
 '<thead>'.
 '<tr>'.
 '<th scope="col">'.'</th>'.
@@ -477,7 +479,7 @@ foreach ($ductile_stickers as $i => $v) {
 }
 echo
 '</tbody>'.
-'</table>';
+'</table></div>';
 
 echo '</fieldset>';
 

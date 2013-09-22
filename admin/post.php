@@ -844,6 +844,7 @@ function isContributionAllowed($id,$dt,$com=true)
 function showComments($rs,$has_action,$tb=false)
 {
 	echo
+	'<div class="table-outer">'.
 	'<table class="comments-list"><tr>'.
 	'<th colspan="2" class="first">'.__('Author').'</th>'.
 	'<th>'.__('Date').'</th>'.
@@ -888,7 +889,7 @@ function showComments($rs,$has_action,$tb=false)
 		'</tr>';
 	}
 	
-	echo '</table>';
+	echo '</table></div>';
 }
 
 dcPage::helpBlock('core_post','core_trackbacks','core_wiki');

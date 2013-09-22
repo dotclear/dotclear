@@ -172,7 +172,8 @@ if (empty($locales_content))
 else
 {
 	echo
-	'<table class="clear plugins"><tr>'.
+	'<table class="table-outer clear">'.
+	'<table class="plugins"><tr>'.
 	'<th>'.__('Language').'</th>'.
 	'<th class="nowrap">'.__('Action').'</th>'.
 	'</tr>';
@@ -201,7 +202,7 @@ else
 		
 		echo '</td></tr>';
 	}
-	echo '</table>';
+	echo '</table></div>';
 }
 
 echo '<h3>'.__('Install or upgrade languages').'</h3>';
