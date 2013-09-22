@@ -202,6 +202,7 @@ if ($popup)
 	
 	echo
 	'<div id="media-insert" class="multi-part" title="'.__('Insert media item').'">'.
+	'<h3>'.__('Insert media item').'</h3>'.
 	'<form id="media-insert-form" action="" method="get">';
 	
 	$media_img_default_size = $core->blog->settings->system->media_img_default_size;
