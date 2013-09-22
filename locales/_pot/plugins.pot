@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-21 16:29+0000\n"
+"POT-Creation-Date: 2013-09-22 02:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,130 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-
-#: plugins/_fake_plugin/_fake_l10n.php:5
-msgid "Manage every blog configuration directive"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:6
-msgid "Akismet interface for Dotclear"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:7
-msgid "Generic antispam plugin for Dotclear"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:8
-msgid "Manage post attachments"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:9
-msgid "Manage your blogroll"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:10
-msgid "Configure your Blowup Theme"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/daInstaller/index.php:267
-msgid "Install and update your plugins live from DotAddict.org"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:12
-msgid "Trackback validity check"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:13
-msgid "Import and Export your blog"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:14
-msgid "Maintain your installation"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:15
-msgid "Serve entries as simple web pages"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:16
-msgid "Ping services"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:17
-msgid "Simple menu for Dotclear"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:18
-msgid "Tags for posts"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:19
-msgid "Theme Editor"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:20
-msgid "Manage every user preference directive"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:21
-msgid "Widgets for your blog sidebars"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:25
-msgid "Search engine form"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:26
-msgid "List of navigation links"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:27
-msgid "List of selected entries"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:28
-msgid "List of available languages"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:29
-msgid "List of categories"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:30
-msgid "RSS or Atom feed subscription links"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:31
-msgid "Last entries from feed"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:32
-msgid "Simple text"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:33
-msgid "List of last entries published"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:34
-msgid "List of last comments posted"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:35
-msgid "Tags cloud"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:36
-msgid "List of published pages"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:37
-msgid "Blogroll list"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:38
-msgid "List of simple menu items"
-msgstr ""
 
 #: plugins/aboutConfig/index.php:78 plugins/userPref/index.php:74
 msgid "no"
@@ -231,6 +107,10 @@ msgstr ""
 
 #: plugins/antispam/_admin.php:73
 msgid "days"
+msgstr ""
+
+#: plugins/antispam/_admin.php:75
+msgid "Set spam filters on it's page."
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:31
@@ -500,6 +380,13 @@ msgstr ""
 
 #: plugins/attachments/_admin.php:67
 msgid "Add files to this entry"
+msgstr ""
+
+#: plugins/blogroll/_admin.php:20 plugins/blogroll/_admin.php:33
+#: plugins/blogroll/_widgets.php:21 plugins/blogroll/edit.php:101
+#: plugins/blogroll/index.php:165 plugins/blogroll/index.php:183
+#: plugins/blogroll/index.php:209
+msgid "Blogroll"
 msgstr ""
 
 #: plugins/blogroll/_admin.php:37
@@ -1272,6 +1159,10 @@ msgstr ""
 msgid "Following themes have been updated:"
 msgstr ""
 
+#: plugins/daInstaller/index.php:267
+msgid "Install and update your plugins live from DotAddict.org"
+msgstr ""
+
 #: plugins/daInstaller/index.php:271
 msgid "Available updates"
 msgstr ""
@@ -1905,6 +1796,13 @@ msgstr ""
 msgid "This may take a very long time"
 msgstr ""
 
+#: plugins/pages/_admin.php:21 plugins/pages/_admin.php:50
+#: plugins/pages/_widgets.php:21 plugins/pages/_widgets.php:22
+#: plugins/pages/list.php:165 plugins/pages/list.php:179
+#: plugins/pages/page.php:283 plugins/pages/page.php:330
+msgid "Pages"
+msgstr ""
+
 #: plugins/pages/_admin.php:40
 #, php-format
 msgid "%d page"
@@ -2017,6 +1915,10 @@ msgstr ""
 msgid "Hide in widget Pages"
 msgstr ""
 
+#: plugins/pages/page.php:458
+msgid "Warning: If you set the URL manually, it may conflict with another page."
+msgstr ""
+
 #: plugins/pages/page.php:470
 msgid "Introduction to the page."
 msgstr ""
@@ -2072,7 +1974,7 @@ msgid "All months"
 msgstr ""
 
 #: plugins/simpleMenu/index.php:66 plugins/simpleMenu/index.php:183
-#: plugins/tags/_widgets.php:30
+#: plugins/tags/_widgets.php:30 plugins/widgets/_new_widgets_functions.php:59
 msgid "All tags"
 msgstr ""
 
