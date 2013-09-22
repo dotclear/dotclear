@@ -24,10 +24,11 @@ Main class to call everything related to maintenance.
 */
 class dcMaintenance
 {
-	private $core;
+	public $core;
 	private $tasks = array();
 	private $tabs = array();
 	private $groups = array();
+	private $logs = null;
 
 	/**
 	 * Constructor.
@@ -43,6 +44,7 @@ class dcMaintenance
 		$tasks = new ArrayObject();
 		$tabs = new ArrayObject();
 		$groups = new ArrayObject();
+		$logs = $this->getLogs();
 
 		# --BEHAVIOR-- dcMaintenanceRegister
 		$core->callBehavior('dcMaintenanceRegister', $core, $tasks, $groups, $tabs);
@@ -74,7 +76,13 @@ class dcMaintenance
 				continue;
 			}
 
-			$this->tasks[$task] = new $task($this->core, 'plugin.php?p=maintenance');
+			if (($t = new $task($this, 'plugin.php?p=maintenance')) === null
+			|| $t->perm() === null && !$this->core->auth->isSuperAdmin()
+			|| !$this->core->auth->check($t->perm(), $this->core->blog->id)) {
+				continue;
+			}
+
+			$this->tasks[$task] = $t;
 		}
 
 		foreach($groups as $id => $name)
@@ -229,28 +237,34 @@ class dcMaintenance
 	}
 
 	/**
-	 * Get expired tasks.
+	 * Get logs
 	 *
-	 * @return	<b>array</b>	Array of expired Task ID / date
+	 * Return array(
+	 *		task id => array(
+	 *			timestamp of last execution,
+	 *			logged on current blog or not
+	 *		)
+	 * )
+	 *
+	 * @return	<b>array</b> List of logged tasks
 	 */
-	public function getExpired()
+	public function getLogs()
 	{
-		// Retrieve logs from this task
-		$rs = $this->core->log->getLogs(array(
-			'log_table' => 'maintenance',
-			'blog_id' => 'all'
-		));
+		if ($this->logs === null) {
+			$rs = $this->core->log->getLogs(array(
+				'log_table' => 'maintenance',
+				'blog_id' => 'all'
+			));
 
-		$logs = array();
-		while ($rs->fetch()) {
-			// Check if task exists
-			if (($task = $this->getTask($rs->log_msg)) !== null) {
-				// Check if remider is used and tasks expired
-				if ($task->ts() && strtotime($rs->log_dt) + $task->ts() < time()) {
-					$logs[$rs->log_msg] = $rs->log_dt;
-				}
+			$this->logs = array();
+			while ($rs->fetch()) {
+				$this->logs[$rs->log_msg] = array(
+					'ts' => strtotime($rs->log_dt),
+					'blog' => $rs->blog_id == $this->core->blog->id
+				);
 			}
 		}
-		return $logs;
+
+		return $this->logs;
 	}
 }

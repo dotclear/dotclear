@@ -11,21 +11,13 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-class dcMaintenanceCountcomments extends dcMaintenanceTask
-{
-	protected $group = 'index';
-
-	protected function init()
-	{
-		$this->task 		= __('Count again comments and trackbacks');
-		$this->success 		= __('Comments and trackback counted.');
-		$this->error 		= __('Failed to count comments and trackbacks.');
-	}
-
-	public function execute()
-	{
-		$this->core->countAllComments();
-
-		return true;
-	}
-}
+$this->registerModule(
+	/* Name */			"dcLegacy",
+	/* Description*/		"Legacy modules for dotclear",
+	/* Author */			"dc Team",
+	/* Version */			'1.0',
+	array(
+		'priority' =>		500
+	)
+);
+?>

@@ -117,7 +117,7 @@ if (!empty($_GET['reord'])) {
 	dcPage::success(__('Categories have been successfully reordered.'));
 }
 if (!empty($_GET['unknown'])) {
-	dcPage::success(__('This category does not exist.'));
+	dcPage::error(__('This category does not exist.'));
 }
 if (!empty($_GET['move'])) {
 	dcPage::success(__('Entries have been successfully moved to the category you choose.'));

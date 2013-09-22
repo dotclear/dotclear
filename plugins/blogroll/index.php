@@ -211,7 +211,8 @@ if (!empty($_GET['importlinks'])) {
 <?php if (!$rs->isEmpty()) { ?>
 
 <form action="plugin.php" method="post" id="links-form">
-<table class="maximal dragable">
+<div class="table-outer">
+<table class="dragable">
 <thead>
 <tr>
   <th colspan="3"><?php echo __('Title'); ?></th>
@@ -252,7 +253,7 @@ while ($rs->fetch())
 }
 ?>
 </tbody>
-</table>
+</table></div>
 
 <div class="two-cols">
 <p class="col">

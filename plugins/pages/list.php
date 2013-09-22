@@ -25,16 +25,22 @@ class adminPageList extends adminGenericList
 		else
 		{
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
-			
+			$entries = array();
+			if (isset($_REQUEST['entries'])) {
+				foreach ($_REQUEST['entries'] as $v) {
+					$entries[(integer)$v]=true;
+				}
+			}			
 			$html_block =
-			'<table class="clear"><tr>'.
-			'<th colspan="2">'.__('Title').'</th>'.
+			'<div class="table-outer">'.
+			'<table class="maximal dragable"><thead><tr>'.
+			'<th colspan="3">'.__('Title').'</th>'.
 			'<th>'.__('Date').'</th>'.
 			'<th>'.__('Author').'</th>'.
 			'<th>'.__('Comments').'</th>'.
 			'<th>'.__('Trackbacks').'</th>'.
 			'<th>'.__('Status').'</th>'.
-			'</tr>%s</table>';
+			'</tr></thead><tbody id="pageslist">%s</tbody></table></div>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
@@ -46,9 +52,11 @@ class adminPageList extends adminGenericList
 			
 			echo $blocks[0];
 			
+			$count = 0;
 			while ($this->rs->fetch())
 			{
-				echo $this->postLine();
+				echo $this->postLine($count,isset($entries[$this->rs->post_id]));
+				$count ++;
 			}
 			
 			echo $blocks[1];
@@ -57,7 +65,7 @@ class adminPageList extends adminGenericList
 		}
 	}
 	
-	private function postLine()
+	private function postLine($count,$checked)
 	{
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($this->rs->post_status) {
@@ -96,8 +104,9 @@ class adminPageList extends adminGenericList
 		' id="p'.$this->rs->post_id.'">';
 		
 		$res .=
+		'<td class="nowrap handle minimal">'.form::field(array('order['.$this->rs->post_id.']'),2,3,$count+1,'position','',false,'title="'.sprintf(__('position of %s'),html::escapeHTML($this->rs->post_title)).'"').'</td>'.
 		'<td class="nowrap">'.
-		form::checkbox(array('entries[]'),$this->rs->post_id,'','','',!$this->rs->isEditable(),'title="'.__('Select this page').'"').'</td>'.
+		form::checkbox(array('entries[]'),$this->rs->post_id,$checked,'','',!$this->rs->isEditable(),'title="'.__('Select this page').'"').'</td>'.
 		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
@@ -137,22 +146,75 @@ try {
 	$core->error->add($e->getMessage());
 }
 
+class dcPagesActionsPage extends dcPostsActionsPage {
+
+	public function __construct($core,$uri,$redirect_args=array()) {
+		parent::__construct($core,$uri,$redirect_args);
+		$this->redirect_fields = array();
+
+	}
+	
+	public function beginPage($breadcrumb='',$header='') {
+		echo '<html><head><title>'.__('Pages').'</title>'.
+			dcPage::jsLoad('index.php?pf=pages/list.js').
+			# --BEHAVIOR-- adminBeforePostDelete
+			$core->callBehavior('adminPagesActionsHeaders').
+			'<script type="text/javascript">'.
+			'//<![CDATA['.
+			dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")).
+			'//]]>'.
+			'</script></head><body>';
+	}
+	
+	public function endPage() {
+		echo '</body></html>';
+	}
+	public function loadDefaults() {
+		parent::loadDefaults();
+		unset ($this->combos[__('Mark')]);
+		unset ($this->actions['selected']);
+		unset ($this->actions['unselected']);
+		$this->actions['reorder']=array('dcPagesActionsPage','doReorderPages');
+	}
+	public function process() {
+		// fake action for pages reordering
+		if (!empty($this->from['reorder'])) {
+			$this->from['action']='reorder';
+		}
+		parent::process();
+	}
+	
+	public static function doReorderPages($core, dcPostsActionsPage $ap, $post) {
+		foreach($post['order'] as $post_id => $value) {
+			if (!$core->auth->check('publish,contentadmin',$core->blog->id))
+				throw new Exception(__('You are not allowed to change this entry status'));
+			
+			$strReq = "WHERE blog_id = '".$core->con->escape($core->blog->id)."' ".
+					"AND post_id ".$core->con->in($post_id);
+			
+			#If user can only publish, we need to check the post's owner
+			if (!$core->auth->check('contentadmin',$core->blog->id))
+				$strReq .= "AND user_id = '".$core->con->escape($core->auth->userID())."' ";
+			
+			$cur = $core->con->openCursor($core->prefix.'post');
+			
+			$cur->post_position = (integer) $value-1;
+			$cur->post_upddt = date('Y-m-d H:i:s');
+			
+			$cur->update($strReq);
+			$core->blog->triggerBlog();
+			
+		}
+		$ap->redirect(array('reo'=>1),false);
+	}	
+}
+
 # Actions combo box
-$combo_action = array();
-if ($core->auth->check('publish,contentadmin',$core->blog->id))
-{
-	$combo_action[__('Publish')] = 'publish';
-	$combo_action[__('Unpublish')] = 'unpublish';
-	$combo_action[__('Schedule')] = 'schedule';
-	$combo_action[__('Mark as pending')] = 'pending';
-}
-if ($core->auth->check('admin',$core->blog->id)) {
-	$combo_action[__('Change author')] = 'author';
-}
-if ($core->auth->check('delete,contentadmin',$core->blog->id))
-{
-	$combo_action[__('Delete')] = 'delete';
-}
+
+$pages_actions_page = new dcPagesActionsPage($core,'plugin.php',array('p'=>'pages'));
+
+$pages_actions_page->process();
+
 
 # --BEHAVIOR-- adminPagesActionsCombo
 $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
@@ -163,7 +225,10 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 <html>
 <head>
   <title><?php echo __('Pages'); ?></title>
-  <script type="text/javascript" src="js/_posts_list.js"></script>
+  <?php
+  	echo dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+  	     dcPage::jsLoad('index.php?pf=pages/list.js');
+  ?>
   <script type="text/javascript">
   //<![CDATA[
   <?php echo dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")); ?>
@@ -179,6 +244,13 @@ echo dcPage::breadcrumb(
 		'<span class="page-title">'.__('Pages').'</span>' => ''
 	));
 
+if (!empty($_GET['upd'])) {
+	dcPage::success(__('Selected pages have been successfully updated.'));
+} elseif (!empty($_GET['del'])) {
+	dcPage::success(__('Selected pages have been successfully deleted.'));
+} elseif (!empty($_GET['reo'])) {
+	dcPage::success(__('Selected pages have been successfully reordered.'));
+}
 echo
 '<p class="top-add"><a class="button add" href="'.$p_url.'&amp;act=page">'.__('New page').'</a></p>';
 
@@ -186,7 +258,7 @@ if (!$core->error->flag())
 {
 	# Show pages
 	$post_list->display($page,$nb_per_page,
-	'<form action="posts_actions.php" method="post" id="form-entries">'.
+	'<form action="plugin.php" method="post" id="form-entries">'.
 	
 	'%s'.
 	
@@ -194,12 +266,14 @@ if (!$core->error->flag())
 	'<p class="col checkboxes-helpers"></p>'.
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected pages action:').'</label> '.
-	form::combo('action',$combo_action).
+	form::combo('action',$pages_actions_page->getCombo()).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('post_type'),'page').
-	form::hidden(array('redir'),html::escapeHTML($_SERVER['REQUEST_URI'])).
-	$core->formNonce().
+	form::hidden(array('p'),'pages').
 	'</div>'.
+	$core->formNonce().
+	'<br class="clear"/>'.
+	'<input type="submit" value="'.__('Save categories order').'" name="reorder" class="clear"/>'.
 	'</form>');
 }
 dcPage::helpBlock('pages');

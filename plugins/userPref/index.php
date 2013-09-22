@@ -127,9 +127,10 @@ if (!empty($_GET['upda'])) {
 ?>
 
 <div id="local" class="multi-part" title="<?php echo __('User preferences'); ?>">
+<h3 class="out-of-screen-if-js"><?php echo __('User preferences'); ?></h3>
 
 <?php 
-$table_header = '<table class="prefs" id="%s"><caption class="as_h3">%s</caption>'.
+$table_header = '<div class="table-outer"><table class="prefs" id="%s"><caption class="as_h3">%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
 '  <th class="nowrap">Setting ID</th>'."\n".
@@ -139,7 +140,7 @@ $table_header = '<table class="prefs" id="%s"><caption class="as_h3">%s</caption
 '</tr>'."\n".
 '</thead>'."\n".
 '<tbody>';
-$table_footer = '</tbody></table>';
+$table_footer = '</tbody></table></div>';
 
 $prefs = array();
 foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
@@ -185,6 +186,7 @@ foreach ($prefs as $ws => $s)
 </div>
 
 <div id="global" class="multi-part" title="<?php echo __('Global preferences'); ?>">
+<h3 class="out-of-screen-if-js"><?php echo __('Global preferences'); ?></h3>
 
 <?php
 $prefs = array();

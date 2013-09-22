@@ -1,6 +1,6 @@
 describe("updatePermissionsForm method (admin/js/_users_actions.js)", function() {
 	it("Click admin persmission must checked all associated permissions", function() {
-		loadFixtures('normal.html');
+		loadFixtures('form_permissions.html');
 		$('#permissions-form').updatePermissionsForm();
 		var permissions = ['usage','publish','delete','contentadmin','categories'];
 
@@ -12,7 +12,7 @@ describe("updatePermissionsForm method (admin/js/_users_actions.js)", function()
 	});
 
 	it("Click contentadmin persmission must checked all associated permissions", function() {
-		loadFixtures('normal.html');
+		loadFixtures('form_persmissions.html');
 		$('#permissions-form').updatePermissionsForm();
 		var permissions = ['usage','publish','delete'];
 

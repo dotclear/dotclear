@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$act = (!empty($_REQUEST['act']) && $_REQUEST['act'] == 'page') ? 'page' : 'list';
+$act = !empty($_REQUEST['act']) ? $_REQUEST['act'] : 'list';
 
 
 if ($act == 'page') {
@@ -19,5 +19,3 @@ if ($act == 'page') {
 } else {
 	include dirname(__FILE__).'/list.php';
 }
-
-?>

@@ -300,8 +300,8 @@ if ($post_id) {
 		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p>';
 }
 if ($popup) {
-	echo '<p class="form-note info">'.sprintf(__('Choose a file to insert into entry by clicking on %s.'),
-		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p>';
+	echo '<div class="info"><p>'.sprintf(__('Choose a file to insert into entry by clicking on %s.'),
+		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p></div>';
 }
 
 
