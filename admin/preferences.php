@@ -42,6 +42,7 @@ if ($core->auth->isSuperAdmin()) {
 }
 $user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
 $user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
+$user_ui_media_by_page = ($core->auth->user_prefs->interface->media_by_page ? $core->auth->user_prefs->interface->media_by_page : 30);
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
@@ -165,6 +166,7 @@ if (isset($_POST['user_post_format']))
 			# Applied to all users
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
 		}
+		$core->auth->user_prefs->interface->put('media_by_page',(integer)$_POST['user_ui_media_by_page'],'integer');
 		
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
@@ -485,6 +487,10 @@ __('Activate enhanced uploader in media manager').'</label></p>'.
 form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop).' '.
 __('Disable javascript powered drag and drop for ordering items').'</label></p>'.
 '<p class="clear form-note">'.__('If checked, numeric fields will allow to type the elements\' ordering number.').'</p>';
+
+echo
+'<p><label for="user_ui_media_by_page" class="classic">'.__('Number of media displayed per page:').'</label> '.
+form::field('user_ui_media_by_page',5,3,(integer) $user_ui_media_by_page).'</p>';
 
 if ($core->auth->isSuperAdmin()) {
 	echo
