@@ -20,4 +20,12 @@ $(function() {
 		$('#blog_url').focusout(checkQueryString);
 		$('body').on('change','#url_scan',checkQueryString);
 	}
+
+	$('#date_format_select,#time_format_select').change(function() {
+		if ($(this).prop('value') == '') {
+			return;
+		}
+		$('#'+$(this).attr('id').replace('_select','')).prop('value', $(this).prop('value'));
+		$(this).parent().next('.chosen').html($(this).find(':selected').prop('label'));
+	});
 });
