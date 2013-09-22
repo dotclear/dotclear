@@ -336,6 +336,9 @@ msgstr "Commentaires publiés :"
 msgid "Filters configuration has been successfully saved."
 msgstr "La configuration des filtres a été enregistrée avec succès."
 
+msgid "Filter configuration have been successfully saved."
+msgstr "La configuration du filtre a été enregistrée avec succès."
+
 msgid "Available spam filters"
 msgstr "Filtres d'indésirable disponibles"
 
