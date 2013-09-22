@@ -184,9 +184,8 @@ msgstr "Supprimer les commentaires indésirables âgés de plus de"
 msgid "days"
 msgstr "jours"
 
-#, fuzzy
-msgid "Set spam filters on it's page."
-msgstr "Ajouter des fichiers à cette page"
+msgid "Set spam filters."
+msgstr "Régler les filtres de spam."
 
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "Filtre de liste noire et blanche d'IP"
@@ -1331,16 +1330,14 @@ msgstr "Utiliser une périodicité différente pour chaque tâche"
 msgid "Never"
 msgstr "Jamais"
 
-#, fuzzy
 msgid "You have not sufficient permissions to view this page."
 msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page."
 
 msgid "Settings successfully updated"
 msgstr "Les réglages ont été mis à jour avec succès"
 
-#, fuzzy
 msgid "Back"
-msgstr "Sauvegarde"
+msgstr "Retour"
 
 msgid "You should execute it now."
 msgstr "Vous devriez l'exécuter dès maintenant."
@@ -1354,9 +1351,8 @@ msgstr "Cela peut prendre un certain temps."
 msgid "Settings"
 msgstr "Paramètres"
 
-#, fuzzy
 msgid "Activation"
-msgstr "Actif"
+msgstr "Activation"
 
 msgid "Display alert messages on late tasks"
 msgstr "Afficher des messages d'alerte pour les tâches en retard"
@@ -1366,7 +1362,7 @@ msgid "You can place list of late tasks on your %s."
 msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
 
 msgid "Frequency"
-msgstr ""
+msgstr "Périodicité"
 
 msgid "Recall time for all tasks:"
 msgstr "Délai de rappel pour toutes les tâches :"
@@ -1374,9 +1370,8 @@ msgstr "Délai de rappel pour toutes les tâches :"
 msgid "Recall time per task:"
 msgstr "Délai de rappel par tâche :"
 
-#, fuzzy
 msgid "Save this settings"
-msgstr "Paramètres"
+msgstr "Enregistrer ces réglages"
 
 #, php-format
 msgid "%d page"
@@ -1428,17 +1423,14 @@ msgstr "Sélectionner cette page"
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Êtes-vous sûr de vouloir supprimer les pages sélectionnées ?"
 
-#, fuzzy
 msgid "Selected pages have been successfully updated."
-msgstr "Les réglages ont été modifiés avec succès."
+msgstr "Les pages sélectionnées ont été modifiése avec succès."
 
-#, fuzzy
 msgid "Selected pages have been successfully deleted."
-msgstr "Les commentaires indésirables ont été supprimés avec succès."
+msgstr "Les pages sélectionnées ont été supprimées avec succès."
 
-#, fuzzy
 msgid "Selected pages have been successfully reordered."
-msgstr "Les éléments ont été retirés avec succès."
+msgstr "Les pages sélectionnées ont été réordonnées avec succès."
 
 msgid "New page"
 msgstr "Nouvelle page"

@@ -459,13 +459,11 @@ msgstr "Permissions :"
 msgid "Super administrator"
 msgstr "Super administrateur"
 
-#, fuzzy
 msgid "All rights on all blogs."
-msgstr "%s est super administrateur (tous les droits sur tous les blogs)."
+msgstr "Tous les droits sur tous les blogs."
 
-#, fuzzy
 msgid "All rights on this blog."
-msgstr "Utilisateurs de ce blog"
+msgstr "Tous les droits sur ce blog."
 
 msgid "Change permissions"
 msgstr "Changer les permissions"
@@ -832,16 +830,14 @@ msgstr "Titre de l'entrée"
 msgid "Author"
 msgstr "Auteur"
 
-#, fuzzy
 msgid "Selected comments have been successfully updated."
 msgstr "Les entrées sélectionnées ont été modifiées avec succès."
 
-#, fuzzy
 msgid "Selected comments have been successfully deleted."
-msgstr "Les entrées sélectionnées ont été supprimées avec succès."
+msgstr "Les commentaires sélectionnés ont été supprimés avec succès."
 
 msgid "Spam comments have been successfully deleted."
-msgstr "Indésirables supprimés avec succès."
+msgstr "Les commentaires indésirables ont été supprimés avec succès."
 
 msgid "You have one spam comment."
 msgstr "Vous avez un commentaire indésirable."
@@ -1359,9 +1355,8 @@ msgstr "Trier"
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
 
-#, fuzzy
 msgid "Blog parameters"
-msgstr "Paramètres"
+msgstr "Paramètres du blog"
 
 #, php-format
 msgid "In %s:"
@@ -1373,11 +1368,10 @@ msgstr "Créer un répertoire"
 msgid "Directory Name:"
 msgstr "Nom du répertoire :"
 
-#, fuzzy, php-format
+#php-format
 msgid "Backup content of %s"
-msgstr "Sauvegarder le contenu"
+msgstr "Sauvegarder le contenu de %s"
 
-#, fuzzy
 msgid "Download zip file"
 msgstr "Télécharger un fichier zip"
 
@@ -2341,13 +2335,11 @@ msgstr "Valider les permissions"
 msgid "Back to entries list"
 msgstr "Retour à la liste des billets"
 
-#, fuzzy
 msgid "Comments actions"
-msgstr "Action sur les entrées"
+msgstr "Action sur les commentaires"
 
-#, fuzzy
 msgid "No comment selected"
-msgstr "Non sélectionné"
+msgstr "Aucun commentaire sélectionné."
 
 msgid "Entries actions"
 msgstr "Action sur les entrées"
@@ -2376,13 +2368,11 @@ msgstr "Changer la langue"
 msgid "Change author"
 msgstr "Changer l'auteur"
 
-#, fuzzy
 msgid "No entry selected"
-msgstr "Pas d'utilisateur sélectionné"
+msgstr "Aucune entrée sélectionnée"
 
-#, fuzzy
 msgid "Change category for entries"
-msgstr "Changer la catégorie de cette sélection"
+msgstr "Changer la catégorie des billets"
 
 msgid "Create a new category for the post(s)"
 msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
@@ -2390,16 +2380,14 @@ msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 msgid "This user does not exist"
 msgstr "Cet utilisateur n'existe pas"
 
-#, fuzzy
 msgid "Change author for entries"
-msgstr "Changer l'auteur de cette sélection"
+msgstr "Changer l'auteur de ces entrées"
 
 msgid "New author (author ID):"
 msgstr "Nouvel auteur (identifiant utilisateur) :"
 
-#, fuzzy
 msgid "Change language for entries"
-msgstr "Changer la langue de cette sélection"
+msgstr "Changer la langue de ces entrées"
 
 msgid "Available"
 msgstr "Disponible"
@@ -3346,9 +3334,8 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgid "Reorder all categories on the top level and delete selected categories"
 #~ msgstr "Replacer toutes les catégories au premier niveau et supprimer les catégories sélectionnées"
 
-#, fuzzy
 #~ msgid "The categories have been successfully removed."
-#~ msgstr "La catégorie a été supprimée avec succès."
+#~ msgstr "Les catégories ont été supprimées avec succès."
 
 #~ msgid "more information"
 #~ msgstr "plus d'informations"
@@ -3485,7 +3472,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgid "If you have changed this user email or password you must provide your current password to save these modifications."
 #~ msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel pour enregistrer ces modifications."
 
-#, fuzzy
 #~ msgid "Hide My favorites menu"
 #~ msgstr "Cacher le menu « Mes favoris »"
 

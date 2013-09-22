@@ -72,7 +72,7 @@ class antispamBehaviors
 		form::field('antispam_moderation_ttl', 3, 3, $ttl).
 		' '.__('days').
 		'</label></p>'.
-		'<p><a href="plugin.php?p=antispam">'.__('Set spam filters on it\'s page.').'</a></p>'.
+		'<p><a href="plugin.php?p=antispam">'.__('Set spam filters.').'</a></p>'.
 		'</div>';
 	}
 	
