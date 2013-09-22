@@ -24,7 +24,7 @@
 	width: 100%;
 	display: table;
 	}
-#wrapper, #wrapper.with-prelude {
+#wrapper {
 	position: relative;
 	padding-top: 1.5em;
 	float: left;
@@ -853,6 +853,13 @@ div.warn, div.warning, div.info {
 	#prelude li a:hover, #prelude li a:focus {
 		background: #FFF;
 		}
+/* si le prélude est affiché on repousse les trucs dessous */
+#wrapper.with-prelude { 
+	padding-top: 1em;
+	}
+#help-button.with-prelude, #collapser.with-prelude {
+	top: 1em;
+	}
 /* header global h1, form#top-info-blog, ul#top-info-user */
 #header a {
 	color: #FFF;
@@ -924,7 +931,7 @@ h1 {
 #top-info-user a.active {
 	border-bottom-color: #fff;
 	margin: 0;
-	padding: 16px .5em;
+	padding: 18px .5em;
 	background-color: #fff;
 	color: #333;
 	font-weight: bold;
@@ -2086,9 +2093,6 @@ div.template-upload {
 	color: white;
 	}
 /* password indicator */
-.install .pw-table, .install .pw-cell, .install .pwindicator {
-	display: block;
-	}
 .pw-table {
 	display: table;
 	margin-bottom: 1em;
@@ -2373,33 +2377,37 @@ ul.from-left {
 		padding-top: .5em;
 		}
 	}
-@media screen and (max-width: 720px) {
-	.smallscreen { display: none; }
-	#info-box2 { float:none; }
-	#help-button {
-		height:26px; 
-		width:26px; 
-		background-color: #A2CBE9; 
-		padding: 0; 
-		margin: 0;
-		font-size: 10px; font-size: 1rem;
-		line-height: 68px;
-		overflow: hidden;
+
+@media screen and (max-width: 700px) {
+	#header {
+		display: block;
+		width: 100%;
+		text-align: right;
+		} 
+	h1, h1 a {
+		width: 42px !important; 
 		}
+		h1 a:link {
+			background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			}
+		h1 a:hover, h1 a:focus {
+			background: url(dc_logos/b-dotclear120.png) no-repeat -180px -94px;
+			border-right: 1px solid #A2CBE9;
+			}
+	h1, #top-info-blog, #top-info-user {
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 1em;
+		}
+	#top-info-user a.active {
+		padding: 2px 8px;
+		} 
 	.one-box, .two-boxes, .three-boxes {
 		width: 100%;
 		margin-left: 0;
 		margin-right: 0; 
 		}
-	}
-@media screen and (max-width: 492px) {
-	#header { height: 36px; height: 3.6rem; }
-	#wrapper { font-size: 16px; font-size: 1.6rem; }
-	.page-title, #info-boxes { display: inline-block; }
-	#info-box1 select {
-		width: 120px; width: 12rem; 
-		margin-right: .6rem;
-		}
-	#info-box1 p.nomobile, label.nomobile { display: none; }
 	}
 */
