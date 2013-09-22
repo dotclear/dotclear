@@ -199,38 +199,40 @@
 	margin-right: 0;
 	}
 /* ---------------------------------------------------------------- layout: popups */
-.popup #wrapper, .popup #top {
+.popup h1 {
+	display: block;
 	width: 100%;
-	padding: 0;
-	}
-.popup h1, .popup #top {
 	margin: 0;
-	border-bottom: 1px solid;
-	font-weight: normal;
-	color: #fff;
 	background: #676e78;
 	font-size: 1.5em;
-	text-indent: .5em;
-	line-height: 1.3em;
+	text-indent: 1em;
+	line-height: 1.5em;
+	font-weight: normal;
+	color: #fff;
 	}
 .popup #wrapper {
-	float: none;
-	margin:0;
 	display: block;
+	float: none;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-position: 0 0;
 	}
-	.popup #main {
-		margin-bottom: 1em 0;
-		}
-	.popup #content {
-		margin: 0;
-		padding: .5em 0;
-		}
-		.popup #content h2 {
-			margin: 0 0 1em;
-			}
-	.popup #footer p {
-		border: none;
-		}
+.popup #main {
+	margin: 0;
+	padding: 0;
+	}
+.popup #content {
+	margin: 0;
+	padding: 1em;
+	}
+.popup #content h2 {
+	margin: 0 0 1em 0;
+	padding: 0;
+	}
+.popup #footer p {
+	border: none;
+	}
 /* -------------------------------------------------------- layout: classes de complément */
 .constrained {
 	margin: 0;
@@ -738,6 +740,7 @@ input.disabled, input[type=submit].disabled {
 div.warn, div.warning, div.info {
 	display: block;
 	padding: 1em 1em .33em 1em;
+	margin-bottom: 1em;
 	}
 	.warn, .warning {
 		background: #FEFACD url(msg-warning.png) no-repeat .3em .3em;
