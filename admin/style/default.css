@@ -43,7 +43,7 @@
 	}
 #content {
 	margin: 0 0 0 14em;
-	padding: .75em 1.5em .75em 2.5em;
+	padding: .5em 1.5em .75em 2.5em;
 	background: #fff;
 	}
 #main-menu {
@@ -58,7 +58,6 @@
 #footer {
 	clear: both;
 	position: relative;
-	z-index: 20;
 	padding: .5em 1em .5em 0;
 	text-align: right;
 	border-top: 1px solid #ccc;
@@ -1626,7 +1625,7 @@ a.form-control.open {
 	}
 #categories ul {
 	list-style: none;
-	margin-top: 1em;
+	margin-top: 2em;
 	padding: 0;
 	}
 	.cat-line {
