@@ -1196,10 +1196,10 @@ msgid "Other"
 msgstr "Autre"
 
 msgid "Compressed file for current blog"
-msgstr "Fichier compressé pour le blog courant"
+msgstr "Fichiers compressés pour le blog courant (zip)"
 
 msgid "Compressed file for all blogs"
-msgstr "Fichier compressé pour tous les blogs"
+msgstr "Fichier compressé pour tous les blogs (zip)"
 
 #, php-format
 msgid "One task to execute"
@@ -1213,7 +1213,7 @@ msgstr[0] "Il y a une tâche à exécuter."
 msgstr[1] "Il y a %s tâches à exécuter."
 
 msgid "This task has never been executed."
-msgstr "Cette tâches n'a jamais été exécuté."
+msgstr "Cette tâche n'a jamais été exécutée."
 
 msgid "Last execution of this task was on %s."
 msgstr "La dernière exécution de cette tâches était le %s."
@@ -1222,19 +1222,19 @@ msgid "Manage tasks"
 msgstr "Gérer les tâches"
 
 msgid "Display count of late tasks on maintenance dashboard icon"
-msgstr "Afficher le nombre de tâches en retard sur l'icône maintenance du tableau de bord"
+msgstr "Afficher le nombre de tâches en retard sur l'icône Maintenance du tableau de bord"
 
 msgid "Display list of late tasks on dashboard items"
-msgstr "Afficher la liste des tâches en retard dans les éléments du tableau de bord"
+msgstr "Afficher la liste des tâches en retard dans un module du tableau de bord"
 
 msgid "Failed to execute task."
 msgstr "Impossible d'exécuter la tâche."
 
 msgid "Task successfully executed."
-msgstr "Tâche exécutée avec succès."
+msgstr "La tâche a été exécutée avec succès."
 
 msgid "Empty templates cache directory"
-msgstr "Vidage du répertoire de cache des « templates »"
+msgstr "Vider le répertoire de cache des « templates »"
 
 msgid "Templates cache directory emptied."
 msgstr "Le répertoire de cache des « templates » a été vidé."
@@ -1246,7 +1246,7 @@ msgid "Count again comments and trackbacks"
 msgstr "Recompter les commentaires et rétroliens"
 
 msgid "Comments and trackback counted."
-msgstr "Commentaires et rétroliens comptés."
+msgstr "Les commentaires et rétroliens ont été recomptés."
 
 msgid "Failed to count comments and trackbacks."
 msgstr "Impossible de recompter les commentaires et rétroliens."
@@ -1264,7 +1264,7 @@ msgid "Indexing comment %d to %d."
 msgstr "Indexation des commentaires %d à %d."
 
 msgid "Comments index done."
-msgstr "Indexation des commentaires effectuée."
+msgstr "L'indexation des commentaires a été effectuée."
 
 msgid "Failed to index comments."
 msgstr "Impossible d'indexer les commentaires."
@@ -1276,13 +1276,13 @@ msgid "Indexing entry %d to %d."
 msgstr "Indexation des billets %d à %d."
 
 msgid "Entries index done."
-msgstr "Indexation des billets effectuée."
+msgstr "L'indexation des billets a été effectuée."
 
 msgid "Failed to index entries."
 msgstr "Impossible d'indexer les billets."
 
 msgid "Delete all logs"
-msgstr "Suppression de tous les journaux"
+msgstr "Supprimer tous les journaux (logs)"
 
 msgid "Logs deleted."
 msgstr "Les journaux ont été supprimés."
@@ -1300,7 +1300,7 @@ msgid "Failed to optimize tables."
 msgstr "Impossible d'optimiser les tables."
 
 msgid "Download media folder of current blog"
-msgstr "Télécharger le dossier media du blog courant"
+msgstr "Télécharger la médiathèque du blog courant"
 
 msgid "Download active theme of current blog"
 msgstr "Télécharger le theme actif du blog courant"
@@ -1318,22 +1318,22 @@ msgid "Every two months"
 msgstr "Tous les deux mois"
 
 msgid "Use different periods for each task"
-msgstr "Utiliser une période diffèrente pour chaque tâche"
+msgstr "Utiliser une périodicité différente pour chaque tâche"
 
 msgid "Never"
 msgstr "Jamais"
 
 msgid "You have not sufficient permissions to view this page"
-msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page"
+msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page."
 
 msgid "Settings successfully updated"
-msgstr "Paramètres mis à jour avec succès"
+msgstr "Les réglages ont été mis à jour avec succès"
 
 msgid "You should execute it now."
 msgstr "Vous devriez l'exécuter dès maintenant."
 
 msgid "Execute task"
-msgstr "Exécuter la tâche"
+msgstr "Exécuter cette tâche"
 
 msgid "This may take a very long time."
 msgstr "Cela peut prendre un certain temps."
@@ -1342,7 +1342,7 @@ msgid "Settings"
 msgstr "Paramètres"
 
 msgid "Display alert messages on late tasks"
-msgstr "Afficher les messages d'alerte sur les tâches en retard."
+msgstr "Afficher des messages d'alerte pour les tâches en retard"
 
 msgid "Recall time for all tasks:"
 msgstr "Délai de rappel pour toutes les tâches :"

@@ -58,7 +58,6 @@
 #footer {
 	clear: both;
 	position: relative;
-	z-index: 20;
 	padding: .5em 1em .5em 0;
 	text-align: right;
 	border-top: 1px solid #ccc;
