@@ -136,7 +136,7 @@ abstract class dcActionsPage
      */
 	 public function getIDsHidden() {
 		$ret = '';
-		foreach  ($this->entries as $id->$v) {
+		foreach  ($this->entries as $id=>$v) {
 			$ret .= form::hidden($this->field_entries.'[]',$id);
 		}
 		return $ret;
