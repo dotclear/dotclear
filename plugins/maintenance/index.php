@@ -302,15 +302,23 @@ else {
 	'<h3>'.__('Settings').'</h3>'.
 	'<form action="'.$p_url.'" method="post">'.
 
+	'<h4 class="pretty-title">'.__('Activation').'</h4>'.
 	'<p><label for="settings_plugin_message" class="classic">'.
 	form::checkbox('settings_plugin_message', 1, $core->blog->settings->maintenance->plugin_message).
 	__('Display alert messages on late tasks').'</label></p>'.
+
+	'<p class="info">'.sprintf(
+		__('You can place list of late tasks on your %s.'),
+		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
+	).'</a></p>'.
+
+	'<h4 class="pretty-title">'.__('Frequency').'</h4>'.
 
 	'<p><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
 	form::combo('settings_recall_time', $full_combo_ts, 'seperate', 'recall-for-all').
 	'</p>'.
 
-	'<p>'.__('Recall time per task:').'</p>';
+	'<h5 class="vertical-separator">'.__('Recall time per task:').'</h5>';
 
 	foreach($tasks as $t)
 	{
@@ -325,15 +333,11 @@ else {
 	}
 
 	echo 
-	'<p><input type="submit" value="'.__('Save').'" /> '.
+	'<p><input type="submit" value="'.__('Save this settings').'" /> '.
 	form::hidden(array('tab'), 'settings').
 	form::hidden(array('settings'), 1).
 	$core->formNonce().'</p>'.
 	'</form>'.
-	'<p class="info">'.sprintf(
-		__('You can place list of late tasks on your %s.'),
-		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
-	).'</a></p>'.
 	'</div>';
 }
 
