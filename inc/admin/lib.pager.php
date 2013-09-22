@@ -369,6 +369,12 @@ class adminCommentList extends adminGenericList
 		{
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
+			$comments = array();
+			if (isset($_REQUEST['comments'])) {
+				foreach ($_REQUEST['comments'] as $v) {
+					$comments[(integer)$v]=true;
+				}
+			}			
 			$html_block =
 			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
 			'<th colspan="2" scope="col" abbr="comm" class="first">'.__('Type').'</th>'.
@@ -399,7 +405,7 @@ class adminCommentList extends adminGenericList
 		}
 	}
 	
-	private function commentLine()
+	private function commentLine($checked)
 	{
 		global $author, $status, $sortby, $order, $nb_per_page;
 		

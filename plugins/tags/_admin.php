@@ -235,11 +235,11 @@ class tagsBehaviors
 					'<span class="page-title">'.__('Add tags to entries').'</span>' => ''
 			)).
 			'<form action="'.$form_uri.'" method="post">'.
-			$hidden_fields->getEntries().
+			//$hidden_fields->getEntries().
 			'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
 			form::textarea('new_tags',60,3).
 			'</div>'.
-			$hidden_fields->getHidden().
+			$hidden_fields.
 			$core->formNonce().
 			form::hidden(array('action'),'tags').
 			'<p><input type="submit" value="'.__('Save').'" '.
