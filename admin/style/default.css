@@ -19,17 +19,18 @@
 ---------------------------------------------------------------------------- */
 #header {
 	background: #676e78;
-	position: relative;
+	color: #FFF;
 	border-bottom: 4px solid #A2CBE9;
 	width: 100%;
+	display: table;
 	}
 #wrapper {
 	position: relative;
-	padding-top: 1em;
-	overflow: hidden; /* pour les hauteurs égales */
+	padding-top: 1.5em;
 	float: left;
 	width: 100%;
 	z-index: 10;
+	background: #F7F7F7 url(bg_wrapper.png) repeat-y 15em;
 	}
 .with-js #wrapper {
 	padding-top: 0;
@@ -62,10 +63,6 @@
 	text-align: right;
 	border-top: 1px solid #ccc;
 	background-color: #fff;
-	}
-#content, #main-menu { /* hauteurs égales */
-	padding-bottom: 200em;
-	margin-bottom: -200em;
 	}
 /* to hide main-menu */
 #collapser {
@@ -302,8 +299,8 @@ h2 {
 	}
 	/* titre de page */
 	#content > h2 {
-		padding: 0 1.5em .5em 1em;
-		margin: 0 -1.5em .5em -1em;
+		padding: 0 1em .5em 1em;
+		margin: 0 -1em .5em -1em;
 		background: #fff url(bg_h2.png) repeat-x center bottom;
 		}
 	h2 a:link, h2 a:visited {
@@ -851,101 +848,83 @@ div.warn, div.warning, div.info {
 		color: #000;
 		border-bottom-color: #A2CBE9;
 		}
-/* top (h1) */
-#top {
+/* header global h1, form#top-info-blog, ul#top-info-user */
+#header a {
+	color: #FFF;
+	}
+#header img {
+	vertical-align: middle;
+	padding-left: .5em;
+	}
+h1, #top-info-blog, #top-info-user {
+	display: table-cell;
+	padding: 8px 0;
 	margin: 0;
+	font-size: 1em;
+	}
+/* h1 */
+h1 {
 	padding: 0;
-	width: 14.5em;
-	float: left;
+	margin: 0;
+	text-indent: -1000px;
+	width: 16.5em;
 	}
-	h1 {
-		padding: 0;
-		margin: 0;
-		height: 36px;
-		text-indent: -1000px;
+	h1 a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 174px; /* ie < 9 sucks */
+		width: 17.4rem;
+		height: 36px; /* ie < 9 sucks */
+		height: 3.6rem;
+		color: #fff;
+		background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 		}
-		h1 a {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 174px; /* ie < 9 sucks */
-			width: 17.4rem;
-			height: 36px; /* ie < 9 sucks */
-			height: 3.6rem;
-			color: #fff;
-			background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
-			}
-		h1 a:hover, h1 a:focus {
-			background-position: 0 -94px;
-			}
-/* info-boxes */
-#info-boxes {
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
-	line-height: 3em;
+	h1 a:hover, h1 a:focus {
+		background-position: 0 -94px;
+		}
+/* top-info-blog */
+#top-info-blog select {
+	max-width: 20em;
 	}
-	#info-boxes a {
-		font-weight: bold;
-		color: #fff;
-		border-bottom-color: #ccc;
-		margin-left: .3em;
-		margin-right: .3em;
-		white-space: nowrap;
-		font-weight: normal;
-		}
-	#info-boxes a img {
-		vertical-align: middle;
-		padding-left: .3em;
-		}
-	#info-box1 {
-		margin: 0;
-		padding: 0 3px 0 18px;
-		color: #fff;
-		display: inline-block;
-		}
-		#info-box1 p {
-			margin: 0;
-			display: inline;
-			}
-		.with-js #info-box1 .hidden-if-js {
-			display: none;
-			}
-		#info-box1 select {
-			width: 145px; /* ie < 9 sucks */
-			width: 14.5em;
-			}
-		#info-box1 a {
-			margin-left: 1.33em;
-			}
-		#info-box1 input[type=submit] {
-			background: #000;
-			border-color: #999;
-			margin-left: .33em; 
-			}
-		#info-box1 input[type=submit]:hover {
-			background: #999;
-			}
-	#info-box2 {
-		margin: 0;
-		padding: 0 18px 0 0;
-		color: #fff;
-		float: right;
-		text-align: right;
-		}
-		#info-box2 span {
-			color: #999;
-			}
-		#info-box2 .logout {
-			margin-right: 0;
-			}
-		#info-box2 a.active {
-			border-bottom-color: #fff;
-			margin: 0;
-			padding: 1.2em .5em;
-			background-color: #fff;
-			color: #333;
-			font-weight: bold;
-			}
+#top-info-blog a {
+	margin-left: 1.33em;
+	}
+#top-info-blog input[type=submit] {
+	background: #000;
+	border-color: #999;
+	margin-left: .33em; 
+	}
+#top-info-blog input[type=submit]:hover {
+	background: #999;
+	}
+#top-info-blog p {
+	display: inline-block;
+	margin: 0;
+	}
+/* top-info-user */
+#top-info-user {
+	padding: 0 18px 0 0;
+	list-style-type: none;
+	text-align: right;
+	}
+#top-info-user li {
+	display: inline-block;
+	margin-left: .5em;
+	padding-left: .5em;
+	border-left: 1px solid #999;
+	}
+#top-info-user li:first-child {
+	border-left: none;
+	}
+#top-info-user a.active {
+	border-bottom-color: #fff;
+	margin: 0;
+	padding: 16px .5em;
+	background-color: #fff;
+	color: #333;
+	font-weight: bold;
+	}
 /* ---------------------------------------------------------- MAIN-MENU ELEMENTS */
 #favorites-menu, #blog-menu, #system-menu, #plugins-menu {
 	border-bottom: 1px dashed #A2CBE9;
@@ -2415,3 +2394,4 @@ ul.from-left {
 		}
 	#info-box1 p.nomobile, label.nomobile { display: none; }
 	}
+*/
