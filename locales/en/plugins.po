@@ -1002,10 +1002,10 @@ msgstr ""
 msgid "Manage tasks"
 msgstr ""
 
-msgid "Display count of expired tasks on maintenance dashboard icon"
+msgid "Display count of late tasks on maintenance dashboard icon"
 msgstr ""
 
-msgid "Display list of expired tasks on dashboard items"
+msgid "Display list of late tasks on dashboard items"
 msgstr ""
 
 msgid "Failed to execute task."
@@ -1035,7 +1035,7 @@ msgstr ""
 msgid "Search engine index"
 msgstr ""
 
-msgid "Index all comments"
+msgid "Index all comments for search engine"
 msgstr ""
 
 msgid "Next"
@@ -1051,7 +1051,7 @@ msgstr ""
 msgid "Failed to index comments."
 msgstr ""
 
-msgid "Index all posts"
+msgid "Index all entries for search engine"
 msgstr ""
 
 msgid "Indexing entry %d to %d."
@@ -1105,6 +1105,9 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
+msgid "You have not sufficient permissions to view this page"
+msgstr ""
+
 msgid "Settings successfully updated"
 msgstr ""
 
@@ -1120,7 +1123,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-msgid "Display alert messages on expired tasks"
+msgid "Display alert messages on late tasks"
 msgstr ""
 
 msgid "Recall time for all tasks:"
@@ -1129,7 +1132,7 @@ msgstr ""
 msgid "Recall time per task:"
 msgstr ""
 
-msgid "You can place list of expired tasks on your %s."
+msgid "You can place list of late tasks on your %s."
 msgstr ""
 
 msgid "Pages"

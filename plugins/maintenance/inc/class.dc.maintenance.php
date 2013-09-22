@@ -76,7 +76,13 @@ class dcMaintenance
 				continue;
 			}
 
-			$this->tasks[$task] = new $task($this, 'plugin.php?p=maintenance');
+			if (($t = new $task($this, 'plugin.php?p=maintenance')) === null
+			|| $t->perm() === null && !$this->core->auth->isSuperAdmin()
+			|| !$this->core->auth->check($t->perm(), $this->core->blog->id)) {
+				continue;
+			}
+
+			$this->tasks[$task] = $t;
 		}
 
 		foreach($groups as $id => $name)

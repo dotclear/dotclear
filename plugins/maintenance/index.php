@@ -11,14 +11,12 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-dcPage::checkSuper();
+// Set env
 
-// main class
-
-$maintenance = new dcMaintenance($core);
 $core->blog->settings->addNamespace('maintenance');
 
-// Set var
+$maintenance = new dcMaintenance($core);
+$tasks = $maintenance->getTasks();
 
 $msg = '';
 $headers = '';
@@ -27,7 +25,7 @@ $task = null;
 $expired = array();
 
 $code = empty($_POST['code']) ? null : (integer) $_POST['code'];
-$tab = empty($_REQUEST['tab']) ? 'maintenance' : $_REQUEST['tab'];
+$tab = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 
 // Save settings
 
@@ -38,12 +36,12 @@ if (!empty($_POST['settings'])) {
 			'plugin_message', 
 			!empty($_POST['settings_plugin_message']), 
 			'boolean', 
-			'Display alert message of expired tasks on plugin page', 
+			'Display alert message of late tasks on plugin page', 
 			true, 
 			true
 		);
 
-		foreach($maintenance->getTasks() as $t) {
+		foreach($tasks as $t) {
 			if (!empty($_POST['settings_recall_time']) && $_POST['settings_recall_time'] == 'seperate') {
 				$ts = empty($_POST['settings_ts_'.$t->id()]) ? 0 : $_POST['settings_ts_'.$t->id()];
 			}
@@ -56,7 +54,7 @@ if (!empty($_POST['settings'])) {
 				'integer', 
 				sprintf('Recall time for task %s', $t->id()), 
 				true, 
-				true
+				$t->blog()
 			);
 		}
 		
@@ -138,6 +136,21 @@ $maintenance->getHeaders().'
 </head>
 <body>';
 
+// Check if there is somthing to display according to user permissions
+if (empty($tasks)) {
+	echo dcPage::breadcrumb(
+		array(
+			__('Plugins') => '',
+			'<a href="'.$p_url.'">'.__('Maintenance').'</a>' => '',
+			'<span class="page-title">'.html::escapeHTML($task->name()).'</span>' => ''
+		)
+	).
+	'<p class="warn">'.__('You have not sufficient permissions to view this page.').'</p>'.
+	'</body></html>';
+
+	return null;
+}
+
 // Success message
 
 if (!empty($_GET['done']) && $tab == 'settings') {
@@ -200,10 +213,10 @@ else {
 	foreach($maintenance->getTabs() as $tab_id => $tab_name)
 	{
 		$res_group = '';
-		foreach($maintenance->getGroups($core) as $group_id => $group_name)
+		foreach($maintenance->getGroups() as $group_id => $group_name)
 		{
 			$res_task = '';
-			foreach($maintenance->getTasks($core) as $t)
+			foreach($tasks as $t)
 			{
 				if ($t->group() != $group_id || $t->tab() != $tab_id) {
 					continue;
@@ -255,7 +268,7 @@ else {
 			'<p><input type="submit" value="'.__('Execute task').'" /> '.
 			form::hidden(array('tab'), $tab_id).
 			$core->formNonce().'</p>'.
-			'<p class="form-note info">'.__('This may take a very long time.').'.</p>'.
+			'<p class="form-note info">'.__('This may take a very long time.').'</p>'.
 			'</form>'.
 			'</div>';
 		}
@@ -263,7 +276,7 @@ else {
 
 	// Advanced tasks (that required a tab)
 
-	foreach($maintenance->getTasks($core) as $t)
+	foreach($tasks as $t)
 	{
 		if ($t->group() !== null) {
 			continue;
@@ -291,7 +304,7 @@ else {
 
 	'<p><label for="settings_plugin_message" class="classic">'.
 	form::checkbox('settings_plugin_message', 1, $core->blog->settings->maintenance->plugin_message).
-	__('Display alert messages on expired tasks').'</label></p>'.
+	__('Display alert messages on late tasks').'</label></p>'.
 
 	'<p><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
 	form::combo('settings_recall_time', $full_combo_ts, 'seperate', 'recall-for-all').
@@ -299,7 +312,7 @@ else {
 
 	'<p>'.__('Recall time per task:').'</p>';
 
-	foreach($maintenance->getTasks($core) as $t)
+	foreach($tasks as $t)
 	{
 		echo
 		'<div class="two-boxes">'.
@@ -318,7 +331,7 @@ else {
 	$core->formNonce().'</p>'.
 	'</form>'.
 	'<p class="info">'.sprintf(
-		__('You can place list of expired tasks on your %s.'),
+		__('You can place list of late tasks on your %s.'),
 		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
 	).'</a></p>'.
 	'</div>';
