@@ -209,7 +209,8 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 	{
 		echo
 		'<form action="users_actions.php" method="post" id="form-blogs">'.
-		'<table class="clear"><tr>'.
+		'<table class="table-outer clear">'.
+		'<table><tr>'.
 		'<th class="nowrap" colspan="2">'.__('Blog ID').'</th>'.
 		'<th class="nowrap">'.__('Blog name').'</th>'.
 		'<th class="nowrap">'.__('Entries').'</th>'.
@@ -234,7 +235,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		}
 		
 		echo
-		'</table>'.
+		'</table></div>'.
 		'<p class="checkboxes-helpers"></p>'.
 		'<p><input type="submit" value="'.__('Set permissions').'" />'.
 		$hidden_fields.

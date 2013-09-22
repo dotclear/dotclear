@@ -166,7 +166,8 @@ class adminPostList extends adminGenericList
 				}
 			}
 			$html_block =
-			'<table class="clear"><caption class="hidden">'.__('Entries list').'</caption><tr>'.
+			'<div class="table-outer">'.
+			'<table><caption class="hidden">'.__('Entries list').'</caption><tr>'.
 			'<th colspan="2" class="first">'.__('Title').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col">'.__('Category').'</th>'.
@@ -174,7 +175,7 @@ class adminPostList extends adminGenericList
 			'<th scope="col">'.__('Comments').'</th>'.
 			'<th scope="col">'.__('Trackbacks').'</th>'.
 			'<th scope="col">'.__('Status').'</th>'.
-			'</tr>%s</table>';
+			'</tr>%s</table></div>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
@@ -278,12 +279,13 @@ class adminPostMiniList extends adminGenericList
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
 			$html_block =
-			'<table class="clear"><caption class="hidden">'.__('Entries list').'</caption><tr>'.
+			'<div class="table-outer clear">'.
+			'<table><caption class="hidden">'.__('Entries list').'</caption><tr>'.
 			'<th scope="col">'.__('Title').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col">'.__('Author').'</th>'.
 			'<th scope="col">'.__('Status').'</th>'.
-			'</tr>%s</table>';
+			'</tr>%s</table></div>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
@@ -376,13 +378,14 @@ class adminCommentList extends adminGenericList
 				}
 			}			
 			$html_block =
+			'<div class="table-outer">'.
 			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
 			'<th colspan="2" scope="col" abbr="comm" class="first">'.__('Type').'</th>'.
 			'<th scope="col">'.__('Author').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col" class="txt-center">'.__('Status').'</th>'.
 			'<th scope="col" abbr="entry">'.__('Entry title').'</th>'.
-			'</tr>%s</table>';
+			'</tr>%s</table></div>';
 
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
@@ -484,13 +487,14 @@ class adminUserList extends adminGenericList
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 			
 			$html_block =
-			'<table class="clear"><caption class="hidden">'.__('Users list').'</caption><tr>'.
+			'<div class="table-outer clear">'.
+			'<table><caption class="hidden">'.__('Users list').'</caption><tr>'.
 			'<th colspan="2" scope="col" class="first">'.__('Username').'</th>'.
 			'<th scope="col">'.__('First Name').'</th>'.
 			'<th scope="col">'.__('Last Name').'</th>'.
 			'<th scope="col">'.__('Display name').'</th>'.
 			'<th scope="col" class="nowrap">'.__('Entries (all types)').'</th>'.
-			'</tr>%s</table>';
+			'</tr>%s</table></div>';
 			
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);

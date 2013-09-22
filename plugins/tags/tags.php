@@ -61,7 +61,7 @@ while ($tags->fetch())
 	$last_letter = $letter;
 }
 
-$table = '<div class="col"><table class="tags">%s</table></div>';
+$table = '<div class="col"><div class="table-outer"><table class="tags">%s</table></div></div>';
 
 if ($cols[0])
 {

@@ -460,7 +460,8 @@ if (count($menu)) {
 	}
 	// Entête table
 	echo 
-		'<table class="maximal dragable">'.
+		'<div class="table-outer">'.
+		'<table class="dragable">'.
 		'<caption>'.__('Menu items list').'</caption>'.
 		'<thead>'.
 		'<tr>';
@@ -494,7 +495,7 @@ if (count($menu)) {
 		echo '</tr>';
 	}
 	echo '</tbody>'.
-		'</table>';
+		'</table></div>';
 	if (!$step) {
 		echo '<div class="two-cols">';
 		echo '<p class="col">'.form::hidden('im_order','').$core->formNonce();

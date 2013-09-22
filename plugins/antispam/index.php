@@ -184,6 +184,7 @@ else
 	}
 
 	echo
+	'<div class="table-outer">'.
 	'<table class="dragable">'.
 	'<caption class="as_h3">'.__('Available spam filters').'</caption>'.
 	'<thead><tr>'.
@@ -218,7 +219,7 @@ else
 		$i++;
 	}
 	echo
-	'</tbody></table>'.
+	'</tbody></table></div>'.
 	'<p>'.form::hidden('filters_order','').
 	$core->formNonce().
 	'<input type="submit" name="filters_upd" value="'.__('Save').'" /></p>'.

@@ -26,11 +26,10 @@
 #wrapper {
 	position: relative;
 	padding-top: 1em;
-	overflow: hidden;
+	overflow: hidden; /* pour les hauteurs égales */
 	float: left;
 	width: 100%;
 	z-index: 10;
-	/*background: #f7f7f7 url(bg_wrapper.png) repeat-y 15.5em;*/
 	}
 .with-js #wrapper {
 	padding-top: 0;
@@ -38,12 +37,12 @@
 #main {
 	width: 100%;
 	float: right;
-	margin-left: -15.5em;
+	margin-left: -14em;
 	margin-top: 0;
 	}
 #content {
-	margin: 0 0 0 15.5em;
-	padding: .75em 1em;
+	margin: 0 0 0 14em;
+	padding: .75em 1.5em .75em 2.5em;
 	background: #fff;
 	}
 #main-menu {
@@ -300,10 +299,8 @@ h2 {
 	}
 	/* titre de page */
 	#content > h2 {
-		padding: 0 18px 6px; /* ie < 9 sucks */
-		padding: 0 1.8rem .6rem;
-		margin: 0 -18px .5em; /* ie < 9 sucks */
-		margin: 0 -1.8rem 1rem;
+		padding: 0 1.5em .5em 1em;
+		margin: 0 -1.5em .5em -1em;
 		background: #fff url(bg_h2.png) repeat-x center bottom;
 		}
 	h2 a:link, h2 a:visited {
@@ -365,11 +362,16 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, ul:first-child, 
 	margin-top: 0;
 	}
 /* ---------------------------------------------------------------- tableaux */
+.table-outer {
+	width: 100%;
+	overflow: auto;
+	}
 table {
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 	border-collapse: collapse;
 	margin: 0 0 1em 0;
+	width: 100%;
 	}
 caption {
 	color: #333;
@@ -1111,11 +1113,15 @@ div.warn, div.warning, div.info {
 	line-height: 3.6rem;
 	}
      #help-button.floatable {
-          border-radius: 2em;
-          background-color: #f5f5f5;
-          position: fixed;
-          top: 10px;
-          }
+		border-top: 2px solid #ccc;
+		border-left: 2px solid #ccc;
+		border-bottom: 2px solid #ccc;
+		border-bottom-left-radius: 1em;
+		border-top-left-radius: 1em;
+        background-color: #f5f5f5;
+        position: fixed;
+        top: 10px;
+        }
 	.no-js #help-button {
 		top: 1em;
 		}
@@ -1124,11 +1130,11 @@ div.warn, div.warning, div.info {
 		border-bottom: 1px solid #2373A8;
 		}
 	#content.with-help #help-button {
-		right: 282px; /* ie < 9 sucks */
+		right: 280px; /* ie < 9 sucks */
 		right: 28rem;
 		background-color: #f5f5f5;
 		position: fixed;
-		top: 54px;
+		top: 50px;
 		z-index: 100;
 		border-top: 2px solid #FFD478;
 		border-left: 2px solid #FFD478;
@@ -1144,7 +1150,7 @@ div.warn, div.warning, div.info {
 		margin-left: 0;
 		}
 	#content.with-help .help-content {
-		padding: 0 .5em 1em;
+		padding: 0 1em 1em;
 		}
 		.help-content dt {
 			font-weight: bold;
@@ -2336,7 +2342,7 @@ ul.from-left {
 	}
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
------------------------------------------------------------------------------------- */
+------------------------------------------------------------------------------------
 @media screen and (max-width: 920px) {
 	#top, #top h1 a {
 		width: 42px !important; 

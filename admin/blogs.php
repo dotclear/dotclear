@@ -132,6 +132,7 @@ if (!$core->error->flag())
 		echo $pager->getLinks();
 		
 		echo
+		'<div class="table-outer">'.
 		'<table class="clear"><caption class="hidden">'.__('Blogs list').'</caption><tr>'.
 		'<th scope="col" class="nowrap">'.__('Blog id').'</th>'.
 		'<th scope="col">'.__('Blog name').'</th>'.
@@ -144,7 +145,7 @@ if (!$core->error->flag())
 			echo blogLine($rs);
 		}
 		
-		echo '</table>';
+		echo '</table></div>';
 		
 		echo $pager->getLinks();
 	}
