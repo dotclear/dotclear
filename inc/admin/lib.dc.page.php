@@ -451,7 +451,7 @@ class dcPage
 		'<div id="helplink"><hr />'.
 		'<p>'.
 		sprintf(__('See also %s'),sprintf('<a href="help.php">%s</a>',__('the global help'))).
-		'</p>'.
+		'.</p>'.
 		'</div></div>';
 	}
 
@@ -648,24 +648,12 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.pageTabs.js').
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
-		"\$(function() {\n".
-			"	pagetabs = \$.pageTabs(".$default.");\n".
-			"});\n".
-"\n//]]>\n".
-"</script>\n".
-		"<!--[if lt IE 8]>\n".
-		self::jsLoad('js/ie7/ie7-hashchange.js').
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		"\$(function() {".
-			"\$(window).hashchange( function(){".
-				"pagetabs.showDiv(document.location.hash.split('#').join(''));".
-			"});".
-		"});".
+		'$(function() {'."\n".
+		'$.pageTabs(".$default.");'."\n".
+		'});'."\n".
 		"\n//]]>\n".
-		"</script>\n".
-		"<![endif]-->\n";
-}
+		"</script>\n";
+	}
 
 public static function jsModal()
 {
