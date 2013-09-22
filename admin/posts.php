@@ -234,12 +234,17 @@ try {
 
 /* DISPLAY
 -------------------------------------------------------- */
-$starting_script = dcPage::jsLoad('js/_posts_list.js');
-if (!$show_filters) {
-	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
-}
 
-dcPage::open(__('Entries'),$starting_script,
+dcPage::open(__('Entries'),
+	dcPage::jsLoad('js/_posts_list.js').
+	dcPage::jsLoad('js/filter-controls.js').
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA["."\n".
+	dcPage::jsVar('dotclear.msg.show_filters', $show_filters ? 'true':'false')."\n".
+	dcPage::jsVar('dotclear.msg.filter_posts_list',__('Filter posts list'))."\n".
+	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel the filter'))."\n".
+	"//]]>".
+	"</script>",
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
@@ -254,17 +259,10 @@ if (!empty($_GET['upd'])) {
 if (!$core->error->flag())
 {
 	echo
-	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>';
-	
-	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.
-		__('Filter posts list').'</a></p>';
-	}
-	
-	echo
+	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>'.
 	'<form action="posts.php" method="get" id="filters-form">'.
-	'<h3 class="hidden">'.__('Filter posts list').'</h3>'.
-
+	'<h3 class="out-of-screen-if-js">'.__('Filters and display options').'</h3>'.
+	
 	'<div class="table">'.
 	'<div class="cell">'.
 	'<h4>'.__('Filters').'</h4>'.
@@ -325,7 +323,8 @@ if (!$core->error->flag())
 	form::hidden(array('nb'),$nb_per_page).
 	$core->formNonce().
 	'</div>'.
-	'</form>'
+	'</form>',
+	$show_filters
 	);
 }
 

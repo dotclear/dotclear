@@ -577,6 +577,9 @@ a.form-control {
 	padding-left: 20px;
 	color: #000;
 	}
+a.form-control.open {
+	background: url(../images/hide.png) no-repeat 4px center;
+	}
 .form-note {
 	font-style: italic;
 	font-weight: normal;

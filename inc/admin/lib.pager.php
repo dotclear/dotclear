@@ -144,11 +144,15 @@ class adminGenericList
 
 class adminPostList extends adminGenericList
 {
-	public function display($page,$nb_per_page,$enclose_block='')
+	public function display($page,$nb_per_page,$enclose_block='',$filter=false)
 	{
 		if ($this->rs->isEmpty())
 		{
-			echo '<p><strong>'.__('No entry').'</strong></p>';
+			if( $filter ) {
+				echo '<p><strong>'.__('No entry matches the filter').'</strong></p>';
+			} else {
+				echo '<p><strong>'.__('No entry').'</strong></p>';
+			}
 		}
 		else
 		{
@@ -159,8 +163,15 @@ class adminPostList extends adminGenericList
 					$entries[(integer)$v]=true;
 				}
 			}
-			$html_block =
-			'<table class="clear"><caption class="hidden">'.__('Entries list').'</caption><tr>'.
+			$html_block  = '<table class="clear">';
+			
+			if( $filter ) {
+				$html_block .= '<caption>'.sprintf(__('List of %s entries match the filter.'), $this->rs_count).'</caption>';
+			} else {
+				$html_block .= '<caption class="hidden">'.__('Entries list').'</caption>';
+			}
+					
+			$html_block .= '<tr>'.
 			'<th colspan="2" class="first">'.__('Title').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col">'.__('Category').'</th>'.
