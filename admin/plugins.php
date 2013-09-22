@@ -251,7 +251,7 @@ if (!empty($p_available))
 {
 	echo
 	'<h3>'.__('Activated plugins').'</h3>'.
-	'<table class="table-outer clear">'.
+	'<div class="table-outer clear">'.
 	'<table class="plugins"><tr>'.
 	'<th>'.__('Plugin').'</th>'.
 	'<th class="nowrap">'.__('Version').'</th>'.
@@ -305,7 +305,7 @@ if (!empty($p_disabled))
 {
 	echo
 	'<h3>'.__('Deactivated plugins').'</h3>'.
-	'<table class="clear table-outer">'.
+	'<div class="clear table-outer">'.
 	'<table class="plugins"><tr>'.
 	'<th>'.__('Plugin').'</th>'.
 	'<th class="nowrap">'.__('Action').'</th>'.

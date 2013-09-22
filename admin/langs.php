@@ -172,7 +172,7 @@ if (empty($locales_content))
 else
 {
 	echo
-	'<table class="table-outer clear">'.
+	'<div class="table-outer clear">'.
 	'<table class="plugins"><tr>'.
 	'<th>'.__('Language').'</th>'.
 	'<th class="nowrap">'.__('Action').'</th>'.
