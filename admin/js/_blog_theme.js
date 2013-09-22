@@ -64,7 +64,7 @@ $(function() {
 		theme_box.append(img).append(info).append(actions);
 		details.removeClass('theme-selected');
 		$(e).addClass('theme-selected');
-		$('input:radio',e).attr('checked','checked');
+		$('input:radio',e).prop('checked',true);
 	}
 	
 	update_box(details[0]);
