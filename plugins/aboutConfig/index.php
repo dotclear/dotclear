@@ -130,7 +130,7 @@ if (!empty($_GET['upda'])) {
 ?>
 
 <div id="local" class="multi-part" title="<?php echo sprintf(__('Settings for %s'),html::escapeHTML($core->blog->name)); ?>">
-
+<h3 class="out-of-screen-if-js"><?php echo sprintf(__('Settings for %s'),html::escapeHTML($core->blog->name)); ?></h3>
 
 <?php
 $table_header = '<div class="table-outer"><table class="settings" id="%s"><caption class="as_h3">%s</caption>'.
@@ -189,6 +189,7 @@ foreach ($settings as $ns => $s)
 </div>
 
 <div id="global" class="multi-part" title="<?php echo __('Global settings'); ?>">
+<h3 class="out-of-screen-if-js"><?php echo __('Global settings'); ?></h3>
 
 <?php
 $settings = array();

@@ -436,7 +436,8 @@ if (!$standalone_config) echo '</form>';
 
 # HTML Tab
 
-echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">';
+echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">'.
+'<h3 class="out-of-screen-if-js">'.__('Content').'</h3>';
 
 echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
 

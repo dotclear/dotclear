@@ -135,6 +135,9 @@
 		margin-left: 2%;
 		margin-right: 0;
 		}
+	.two-cols table {
+		width: 90%;
+		}
 /* -------------------------------------------------------------- layout: three-cols */
 .three-cols {
 	position: static;
