@@ -437,7 +437,7 @@ a, a:link, a:visited {
 	border-bottom: 1px dotted #999;
 	}
 a:hover, a:active, a:focus {
-	text-decoration: underline;
+	border-bottom-style: solid;
 	}
 a img, a:link img, a:visited img {
 	border:none;
@@ -571,12 +571,6 @@ p.field {
 	p.field input, p.field select {
 		display: inline-block;
 		}
-a.form-control {
-	display: none;
-	background: url(../images/expand.png) no-repeat 4px center;
-	padding-left: 20px;
-	color: #000;
-	}
 .form-note {
 	font-style: italic;
 	font-weight: normal;
@@ -790,7 +784,7 @@ div.warn, div.warning, div.info {
 			background: #F7E07E url(msg-warning.png) no-repeat .7em .7em;
 			border: 1px solid #F7E07E;
 			}
-		.success a, .warning-msg a {
+		.success a, .warning-msg a, .info a {
 			color: #333;
 			}
 .dc-update {
@@ -1136,12 +1130,6 @@ div.warn, div.warning, div.info {
 		border-bottom-left-radius: 1em;
 		border-top-left-radius: 1em;
 		}
-	#help-button.floatable {
-		border-radius: 2em;
-		background-color: #f5f5f5;
-		position: fixed;
-		top: 10px;
-		}
 .help-box {
 	display: none;
 	}
@@ -1268,6 +1256,12 @@ tr.expand td {
 	padding-left: 15px;
 	}
 /* ----------------------------------------------------------- BOITES À FILTRES */
+a.form-control {
+	display: none;
+	background: url(../images/expand.png) no-repeat 4px center;
+	padding-left: 20px;
+	color: #000;
+	}
 #filters-form {
 	border: 1px dashed #999;
 	border-radius: .5em;
@@ -1371,7 +1365,7 @@ tr.expand td {
 	#icons a:visited,
 	#icons a:hover,
 	#icons a:focus {
-		border-bottom-width: 0px;
+		border-bottom-width: 0;
 		text-decoration: none;
 		}
 		#icons a span {
@@ -1391,7 +1385,7 @@ tr.expand td {
 				background: #bee74b;
 				}
 			#icons a:focus span, #icons a:hover span {
-				text-decoration: underline;
+				border-bottom-style: solid;
 				}
 /* billet rapide */
 #quick {
