@@ -30,7 +30,7 @@ $d = isset($_REQUEST['d']) ? $_REQUEST['d'] : null;
 $dir = null;
 
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
-$nb_per_page =  30;
+$nb_per_page = ((integer) $core->auth->user_prefs->interface->media_by_page ? (integer) $core->auth->user_prefs->interface->media_by_page : 30);
 
 # We are on home not comming from media manager
 if ($d === null && isset($_SESSION['media_manager_dir'])) {
