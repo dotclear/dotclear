@@ -17,9 +17,9 @@ class dcMaintenanceVacuum extends dcMaintenanceTask
 
 	protected function init()
 	{
-		$this->task 		= __('Vacuum tables');
+		$this->task 		= __('optimize tables');
 		$this->success 		= __('Optimization successful.');
-		$this->error 		= __('Failed to vacuum tables.');
+		$this->error 		= __('Failed to optimize tables.');
 	}
 
 	public function execute()

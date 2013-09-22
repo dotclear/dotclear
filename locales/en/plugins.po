@@ -979,70 +979,66 @@ msgstr ""
 msgid "Compressed file for all blogs"
 msgstr ""
 
-msgid "Execute task"
+msgid "One task to execute"
 msgstr ""
 
-msgid "Task successfully executed."
+#, php-format
+msgid "%s tasks to execute"
+msgstr ""
+
+msgid "There is a task to execute."
+msgstr ""
+
+#, php-format
+msgid_plural "There are %s tasks to execute."
+msgstr ""
+
+msgid "This task has never been executed."
+msgstr ""
+
+msgid "Last execution of this task was on %s."
+msgstr ""
+
+msgid "Manage tasks"
+msgstr ""
+
+msgid "Display count of late tasks on maintenance dashboard icon"
+msgstr ""
+
+msgid "Display list of late tasks on dashboard items"
 msgstr ""
 
 msgid "Failed to execute task."
 msgstr ""
 
-msgid "one task to update"
+msgid "Task successfully executed."
 msgstr ""
 
-#, php-format
-msgid "%s tasks to update"
-msgstr ""
-
-msgid "Show maintenance tasks to update."
-msgstr ""
-
-#, php-format
-msgid "Last execution of this task was on %s. You should execute it again."
-msgstr ""
-
-msgid "Failed to empty templates cache directory."
-msgstr ""
-
-msgid "Failed to reset comments and ping counters."
-msgstr ""
-
-msgid "Failed to index comments."
-msgstr ""
-
-msgid "Failed to index entries."
-msgstr ""
-
-msgid "Failed to delete logs."
-msgstr ""
-
-msgid "Failed to vacuum tables."
-msgstr ""
-
-msgid "Optimization successful."
-msgstr ""
-
-msgid "Comments and trackback counted."
+msgid "Empty templates cache directory"
 msgstr ""
 
 msgid "Templates cache directory emptied."
 msgstr ""
 
-msgid "Logs deleted."
+msgid "Failed to empty templates cache directory."
 msgstr ""
 
-#, php-format
-msgid "Indexing entry %d to %d."
+msgid "Count again comments and trackbacks"
 msgstr ""
 
-msgid "next"
+msgid "Comments and trackback counted."
 msgstr ""
 
-msgid "Entries index done."
+msgid "Failed to count comments and trackbacks."
 msgstr ""
 
-msgid "Back"
+msgid "Search engine index"
+msgstr ""
+
+msgid "Index all comments for search engine"
+msgstr ""
+
+msgid "Next"
 msgstr ""
 
 #, php-format
@@ -1052,46 +1048,91 @@ msgstr ""
 msgid "Comments index done."
 msgstr ""
 
-msgid "Optimize database room"
+msgid "Failed to index comments."
 msgstr ""
 
-msgid "Vacuum tables"
+msgid "Index all entries for search engine"
 msgstr ""
 
-msgid "Counters"
+msgid "Indexing entry %d to %d."
 msgstr ""
 
-msgid "Reset comments and ping counters"
+msgid "Entries index done."
 msgstr ""
 
-msgid "Search engine index"
-msgstr ""
-
-msgid "This may take a very long time"
-msgstr ""
-
-msgid "Index all posts"
-msgstr ""
-
-msgid "Index all comments"
-msgstr ""
-
-msgid "Vacuum logs"
+msgid "Failed to index entries."
 msgstr ""
 
 msgid "Delete all logs"
 msgstr ""
 
-msgid "Empty templates cache directory"
+msgid "Logs deleted."
 msgstr ""
 
-msgid "Empty directory"
+msgid "Failed to delete logs."
+msgstr ""
+
+msgid "optimize tables"
+msgstr ""
+
+msgid "Optimization successful."
+msgstr ""
+
+msgid "Failed to optimize tables."
 msgstr ""
 
 msgid "Download media folder of current blog"
 msgstr ""
 
 msgid "Download active theme of current blog"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "Use different periods for each task"
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page"
+msgstr ""
+
+msgid "Settings successfully updated"
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+msgid "This may take a very long time."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Recall time per task:"
+msgstr ""
+
+msgid "You can place list of late tasks on your %s."
 msgstr ""
 
 msgid "Pages"

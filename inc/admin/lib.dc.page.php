@@ -72,12 +72,11 @@ class dcPage
 				$blogs[html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
 			}
 			$blog_box =
-			'<p><label for="switchblog" class="classic nomobile">'.
+			'<p><label for="switchblog" class="classic">'.
 			__('Blogs:').'</label> '.
 			$core->formNonce().
 			form::combo('switchblog',$blogs,$core->blog->id).
-			'</p>'.
-			'<p class="hidden-if-js"><input type="submit" value="'.__('ok').'" /></p>';
+			'<input type="submit" value="'.__('ok').'" class="hidden-if-js" /></p>';
 		}
 
 		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
@@ -124,32 +123,28 @@ class dcPage
 		'<body id="dotclear-admin'.
 		($safe_mode ? ' safe-mode' : '').'" class="no-js">'."\n".
 
-		'<div id="header">'.
 		'<ul id="prelude">'.
 		'<li><a href="#content">'.__('Go to the content').'</a></li>'.
 		'<li><a href="#main-menu">'.__('Go to the menu').'</a></li>'.
 		'<li><a href="#qx">'.__('Go to search').'</a></li>'.
 		'</ul>'."\n".
-		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
+		'<div id="header">'.
+		'<h1><a href="index.php"><span class="hidden">'.DC_VENDOR_NAME.'</span></a></h1>'."\n";
 
 		echo
-		'<div id="info-boxes">'.
-		'<div id="info-box1">'.
-		'<form action="index.php" method="post">'.
+		'<form action="index.php" method="post" id="top-info-blog">'.
 		$blog_box.
-		'<p class="nomobile"><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').
+		'<p><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').
 		' ('.__('new window').')'.'">'.__('Go to site').'<img src="images/outgoing.png" alt="" /></a>'.
 		'</p></form>'.
-		'</div>'.
-		'<div id="info-box2">'.
-		'<a class="smallscreen'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a>'.
-		'<span class="smallscreen"> | </span><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').
-		'" href="preferences.php">'.__('My preferences').'</a>'.
-		'<span class="smallscreen"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).
-		'<img src="images/logout.png" alt="" /></a>'.
-		'</div>'.
-		'</div>'.
-		'</div>';
+		'<ul id="top-info-user">'.
+		'<li><a class="'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a></li>'.
+		'<li><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').
+		'" href="preferences.php">'.__('My preferences').'</a></li>'.
+		'<li><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).
+		'<img src="images/logout.png" alt="" /></a></li>'.
+		'</ul>'.
+		'</div>'; // end header
 
 		echo
 		'<div id="wrapper" class="clearfix">'."\n".
@@ -456,7 +451,7 @@ class dcPage
 		'<div id="helplink"><hr />'.
 		'<p>'.
 		sprintf(__('See also %s'),sprintf('<a href="help.php">%s</a>',__('the global help'))).
-		'</p>'.
+		'.</p>'.
 		'</div></div>';
 	}
 
@@ -653,24 +648,12 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.pageTabs.js').
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
-		"\$(function() {\n".
-			"	pagetabs = \$.pageTabs(".$default.");\n".
-			"});\n".
-"\n//]]>\n".
-"</script>\n".
-		"<!--[if lt IE 8]>\n".
-		self::jsLoad('js/ie7/ie7-hashchange.js').
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		"\$(function() {".
-			"\$(window).hashchange( function(){".
-				"pagetabs.showDiv(document.location.hash.split('#').join(''));".
-			"});".
-		"});".
+		'$(function() {'."\n".
+		'$.pageTabs(".$default.");'."\n".
+		'});'."\n".
 		"\n//]]>\n".
-		"</script>\n".
-		"<![endif]-->\n";
-}
+		"</script>\n";
+	}
 
 public static function jsModal()
 {

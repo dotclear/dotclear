@@ -15,5 +15,6 @@ $this->registerModule(
 	/* Name */			"Maintenance",
 	/* Description*/		"Maintain your installation",
 	/* Author */			"Olivier Meunier & Association Dotclear",
-	/* Version */			'1.3'
+	/* Version */			'1.3.1',
+	/* Permission */		'admin'
 );

@@ -13,6 +13,8 @@ if (!defined('DC_RC_PATH')) { return; }
 
 class dcMaintenanceZipmedia extends dcMaintenanceTask
 {
+	protected $perm = 'admin';
+	protected $blog = true;
 	protected $tab = 'backup';
 	protected $group = 'zipblog';
 

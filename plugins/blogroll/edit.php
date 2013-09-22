@@ -153,6 +153,7 @@ if (isset($rs) && !$rs->is_cat)
 	# XFN nightmare
 	'<div class="col70 last-col">'.
 	'<h3>'.__('XFN information').'</h3>'.
+	'<div class="table-outer">'.
 	'<table class="noborder">'.
 	
 	'<tr class="line">'.
@@ -234,7 +235,7 @@ if (isset($rs) && !$rs->is_cat)
 	strpos($link_xfn,'sweetheart') !== false).__('_xfn_Sweetheart').'</label> '.
 	'</p></td>'.
 	'</tr>'.
-	'</table>'.
+	'</table></div>'.
 	
 	'</div>'.
 	'<p class="clear">'.form::hidden('p','blogroll').

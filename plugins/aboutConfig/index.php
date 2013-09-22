@@ -130,10 +130,10 @@ if (!empty($_GET['upda'])) {
 ?>
 
 <div id="local" class="multi-part" title="<?php echo sprintf(__('Settings for %s'),html::escapeHTML($core->blog->name)); ?>">
-
+<h3 class="out-of-screen-if-js"><?php echo sprintf(__('Settings for %s'),html::escapeHTML($core->blog->name)); ?></h3>
 
 <?php
-$table_header = '<table class="settings" id="%s"><caption class="as_h3">%s</caption>'.
+$table_header = '<div class="table-outer"><table class="settings" id="%s"><caption class="as_h3">%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
 '  <th class="nowrap">Setting ID</th>'."\n".
@@ -143,7 +143,7 @@ $table_header = '<table class="settings" id="%s"><caption class="as_h3">%s</capt
 '</tr>'."\n".
 '</thead>'."\n".
 '<tbody>';
-$table_footer = '</tbody></table>';
+$table_footer = '</tbody></table></div>';
 
 $settings = array();
 foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
@@ -189,6 +189,7 @@ foreach ($settings as $ns => $s)
 </div>
 
 <div id="global" class="multi-part" title="<?php echo __('Global settings'); ?>">
+<h3 class="out-of-screen-if-js"><?php echo __('Global settings'); ?></h3>
 
 <?php
 $settings = array();

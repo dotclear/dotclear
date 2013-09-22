@@ -246,7 +246,6 @@ $core->formNonce().
 
 $widget_elements = new stdClass;
 $widget_elements->content =
-'<h3 class="clear">'.__('Help for this page').'</h3>'.
 '<h4>'.__('Use of widgets').'</h4>'.
 '<p>'.__('Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, '.
 'drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order '.

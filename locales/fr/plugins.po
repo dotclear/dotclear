@@ -336,6 +336,9 @@ msgstr "Commentaires publiés :"
 msgid "Filters configuration has been successfully saved."
 msgstr "La configuration des filtres a été enregistrée avec succès."
 
+msgid "Filter configuration have been successfully saved."
+msgstr "La configuration du filtre a été enregistrée avec succès."
+
 msgid "Available spam filters"
 msgstr "Filtres d'indésirable disponibles"
 
@@ -1199,55 +1202,30 @@ msgid "Compressed file for all blogs"
 msgstr "Fichier compressé pour tous les blogs"
 
 #, php-format
-msgid "One task to update"
-msgid_plural "%s tasks to update"
-msgstr[0] "Une tâche à mettre à jour"
-msgstr[1] "%s tâches à mettre à jour"
+msgid "One task to execute"
+msgid_plural "%s tasks to execute"
+msgstr[0] "Une tâche à exécuter"
+msgstr[1] "%s tâches à exécuter"
 
-#, php-format
-msgid "Last updated on %s"
-msgstr ""
+msgid "There is a task to execute."
+msgid_plural "There are %s tasks to execute."
+msgstr[0] "Il y a une tâche à exécuter."
+msgstr[1] "Il y a %s tâches à exécuter."
 
-msgid "There is a task to update."
-msgid_plural "There are %s tasks to update."
-msgstr[0] "Une tâche à mettre à jour"
-msgstr[1] "%s tâches à mettre à jour"
+msgid "This task has never been executed."
+msgstr "Cette tâches n'a jamais été exécuté."
 
-msgid "Manage task"
-msgstr "gestion des tâches"
+msgid "Last execution of this task was on %s."
+msgstr "La dernière exécution de cette tâches était le %s."
 
-msgid "Use different periods for each task"
-msgstr ""
+msgid "Manage tasks"
+msgstr "Gérer les tâches"
 
-msgid "Never"
-msgstr ""
+msgid "Display count of late tasks on maintenance dashboard icon"
+msgstr "Afficher le nombre de tâches en retard sur l'icône maintenance du tableau de bord"
 
-msgid "Display count of expired tasks on maintenance dashboard icon"
-msgstr ""
-
-msgid "Display list of expired tasks on dashboard contents"
-msgstr ""
-
-msgid "Display alert message of expired tasks on plugin page"
-msgstr ""
-
-msgid "Recall time for all tasks"
-msgstr ""
-
-msgid "Recall time per task"
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
+msgid "Display list of late tasks on dashboard items"
+msgstr "Afficher la liste des tâches en retard dans les éléments du tableau de bord"
 
 msgid "Failed to execute task."
 msgstr "Impossible d'exécuter la tâche."
@@ -1264,25 +1242,24 @@ msgstr "Le répertoire de cache des « templates » a été vidé."
 msgid "Failed to empty templates cache directory."
 msgstr "Impossible de vider le répertoire de cache des « templates »."
 
-msgid "Reset comments and ping counters"
-msgstr "Remet à zéro les compteurs de commentaires et de signalements"
+msgid "Count again comments and trackbacks"
+msgstr "Recompter les commentaires et rétroliens"
 
 msgid "Comments and trackback counted."
 msgstr "Commentaires et rétroliens comptés."
 
-msgid "Failed to reset comments and ping counters."
-msgstr "Impossible de remettre à zéro les compteurs de commentaires et de signalements."
+msgid "Failed to count comments and trackbacks."
+msgstr "Impossible de recompter les commentaires et rétroliens."
 
 msgid "Search engine index"
 msgstr "Index du moteur de recherche"
 
-msgid "Index all comments"
-msgstr "Indexation de tous les commentaires"
+msgid "Index all comments for search engine"
+msgstr "Indexer tous les commentaires pour le moteur de recherche"
 
-msgid "next"
-msgstr "suivant"
+msgid "Next"
+msgstr "Suivant"
 
-#, php-format
 msgid "Indexing comment %d to %d."
 msgstr "Indexation des commentaires %d à %d."
 
@@ -1292,10 +1269,9 @@ msgstr "Indexation des commentaires effectuée."
 msgid "Failed to index comments."
 msgstr "Impossible d'indexer les commentaires."
 
-msgid "Index all posts"
-msgstr "Indexation de tous les billets"
+msgid "Index all entries for search engine"
+msgstr "Indexer tous les billets pour le moteur de recherche"
 
-#, php-format
 msgid "Indexing entry %d to %d."
 msgstr "Indexation des billets %d à %d."
 
@@ -1314,14 +1290,14 @@ msgstr "Les journaux ont été supprimés."
 msgid "Failed to delete logs."
 msgstr "Impossible de supprimer les journaux."
 
-msgid "Vacuum tables"
-msgstr "Vidage des tables"
+msgid "optimize tables"
+msgstr "Optimiser les tables"
 
 msgid "Optimization successful."
 msgstr "Optimisation terminée avec succès."
 
-msgid "Failed to vacuum tables."
-msgstr "Impossible de vider les tables."
+msgid "Failed to optimize tables."
+msgstr "Impossible d'optimiser les tables."
 
 msgid "Download media folder of current blog"
 msgstr "Télécharger le dossier media du blog courant"
@@ -1329,24 +1305,53 @@ msgstr "Télécharger le dossier media du blog courant"
 msgid "Download active theme of current blog"
 msgstr "Télécharger le theme actif du blog courant"
 
-msgid "Back"
-msgstr "Retour"
+msgid "Every week"
+msgstr "Chaque semaine"
 
-#, php-format
-msgid "Last execution of this task was on %s."
-msgstr "La dernière exécution de cette tâches était le %s."
+msgid "Every two weeks"
+msgstr "Toutes les deux semaines"
+
+msgid "Every month"
+msgstr "Chaque mois"
+
+msgid "Every two months"
+msgstr "Tous les deux mois"
+
+msgid "Use different periods for each task"
+msgstr "Utiliser une période diffèrente pour chaque tâche"
+
+msgid "Never"
+msgstr "Jamais"
+
+msgid "You have not sufficient permissions to view this page"
+msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page"
+
+msgid "Settings successfully updated"
+msgstr "Paramètres mis à jour avec succès"
 
 msgid "You should execute it now."
-msgstr "Vous devriez l'exécuter à nouveau."
-
-msgid "This task has never been executed."
-msgstr ""
+msgstr "Vous devriez l'exécuter dès maintenant."
 
 msgid "Execute task"
 msgstr "Exécuter la tâche"
 
-msgid "This may take a very long time"
-msgstr "Cela peut prendre un certain temps"
+msgid "This may take a very long time."
+msgstr "Cela peut prendre un certain temps."
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Display alert messages on late tasks"
+msgstr "Afficher les messages d'alerte sur les tâches en retard."
+
+msgid "Recall time for all tasks:"
+msgstr "Délai de rappel pour toutes les tâches :"
+
+msgid "Recall time per task:"
+msgstr "Délai de rappel par tâche :"
+
+msgid "You can place list of late tasks on your %s."
+msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
 
 #, php-format
 msgid "%d page"

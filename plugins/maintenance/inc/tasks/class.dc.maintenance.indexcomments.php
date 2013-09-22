@@ -21,8 +21,8 @@ class dcMaintenanceIndexcomments extends dcMaintenanceTask
 	protected function init()
 	{
 		$this->name 		= __('Search engine index');
-		$this->task 		= __('Index all comments');
-		$this->step_task 	= __('next');
+		$this->task 		= __('Index all comments for search engine');
+		$this->step_task 	= __('Next');
 		$this->step 		= __('Indexing comment %d to %d.');
 		$this->success 		= __('Comments index done.');
 		$this->error 		= __('Failed to index comments.');
