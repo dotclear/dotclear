@@ -16,7 +16,8 @@ function checkQueryString() {
 
 $(function() {
 	if( $('#blog_url').length > 0 ) {
-	checkQueryString();
-	$('#blog_url').focusout(checkQueryString);
-	$('body').on('change','#url_scan',checkQueryString);
+		checkQueryString();
+		$('#blog_url').focusout(checkQueryString);
+		$('body').on('change','#url_scan',checkQueryString);
+	}
 });
