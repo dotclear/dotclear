@@ -272,8 +272,11 @@ if (!$core->error->flag())
 	form::hidden(array('p'),'pages').
 	'</div>'.
 	$core->formNonce().
-	'<br class="clear"/>'.
-	'<input type="submit" value="'.__('Save categories order').'" name="reorder" class="clear"/>'.
+	'<p class="clear form-note hidden-if-js">'.
+	__('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.').'</p>'.
+	'<p class="clear form-note hidden-if-no-js">'.
+	__('To rearrange pages order, move items by drag and drop, then click on “Save pages order” button.').'</p>'.
+	'<input type="submit" value="'.__('Save pages order').'" name="reorder" class="clear"/>'.
 	'</form>');
 }
 dcPage::helpBlock('pages');
