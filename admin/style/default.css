@@ -2365,7 +2365,10 @@ ul.from-left {
 	#top-info-user a.active {
 		padding: 2px 8px;
 		} 
-	.one-box, .two-boxes, .three-boxes {
+	.three-boxes, .three-boxes .box,
+	.three-boxes:first-child, .three-boxes.first-child,
+	.three-boxes:last-child, .three-boxes.last-child,
+	.two-cols .col70, .two-cols .col30 {
 		width: 100%;
 		margin-left: 0;
 		margin-right: 0; 
@@ -2406,6 +2409,15 @@ ul.from-left {
 		font-size: 10px; font-size: 1rem;
 		line-height: 68px;
 		overflow: hidden;
+		}
+	.one-box, .two-boxes,
+	.one-box .box, .two-boxes .box,
+	.two-boxes:first-child, .two-boxes.odd, .two-boxes.odd:last-child,
+	.two-boxes.even:last-child, .two-boxes.even,
+	.two-cols .col {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0; 
 		}
 	}
 @media screen and (max-width: 500px) {
