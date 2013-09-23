@@ -23,11 +23,8 @@ $core->addBehavior('adminAfterPostCreate',array('tagsBehaviors','setTags'));
 $core->addBehavior('adminAfterPostUpdate',array('tagsBehaviors','setTags'));
 
 $core->addBehavior('adminPostHeaders',array('tagsBehaviors','postHeaders'));
-$core->addBehavior('adminPostsActionsHeaders',array('tagsBehaviors','postsActionsHeaders'));
 
-$core->addBehavior('adminPostsActionsCombo',array('tagsBehaviors','adminPostsActionsCombo'));
-$core->addBehavior('adminPostsActions',array('tagsBehaviors','adminPostsActions'));
-$core->addBehavior('adminPostsActionsContent',array('tagsBehaviors','adminPostsActionsContent'));
+$core->addBehavior('adminPostsActionsPage',array('tagsBehaviors','adminPostsActionsPage'));
 
 $core->addBehavior('adminPreferencesForm',array('tagsBehaviors','adminUserForm'));
 $core->addBehavior('adminBeforeUserOptionsUpdate',array('tagsBehaviors','setTagListFormat'));
@@ -99,6 +96,172 @@ class tagsBehaviors
 		}
 	}
 	
+	
+	public static function adminPostsActionsPage($core,$ap)
+	{
+		$ap->addAction(
+			array(__('Tags') => array(__('Add tags') => 'tags')),
+			array('tagsBehaviors','adminAddTags')
+		);
+		
+		if ($core->auth->check('delete,contentadmin',$core->blog->id)) {
+			$ap->addAction(
+				array(__('Tags') => array(__('Remove tags') => 'tags_remove')),
+				array('tagsBehaviors','adminRemoveTags')
+			);
+		}
+	}
+	
+	public static function adminAddTags($core, dcPostsActionsPage $ap, $post)
+	{
+		if (!empty($post['new_tags']))
+		{
+			$meta =& $core->meta;
+			$tags = $meta->splitMetaValues($post['new_tags']);
+			$posts = $ap->getRS();
+			while ($posts->fetch())
+			{
+				echo "post_id".$posts->post_id;
+				# Get tags for post
+				$post_meta = $meta->getMetadata(array(
+					'meta_type' => 'tag',
+					'post_id' => $posts->post_id));
+				$pm = array();
+				while ($post_meta->fetch()) {
+					$pm[] = $post_meta->meta_id;
+				}
+				foreach ($tags as $t) {
+					if (!in_array($t,$pm)) {
+						$meta->setPostMeta($posts->post_id,'tag',$t);
+					}
+				}
+			}
+			$ap->redirect(array('upd' => 1),true);
+		} 
+		else 
+		{
+			$tag_url = $core->blog->url.$core->url->getURLFor('tag');
+
+			$opts = $core->auth->getOptions();
+			$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
+
+			
+			$ap->beginPage(
+				dcPage::breadcrumb(
+					array(
+						html::escapeHTML($core->blog->name) => '',
+						__('Entries') => 'posts.php',
+						'<span class="page-title">'.__('Add tags to entries').'</span>' => ''
+				)),
+				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
+				dcPage::jsMetaEditor().
+				'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
+				'<script type="text/javascript" src="index.php?pf=tags/js/posts_actions.js"></script>'.
+				'<script type="text/javascript">'."\n".
+				"//<![CDATA[\n".
+				"metaEditor.prototype.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';\n".
+				"metaEditor.prototype.meta_type = '".html::escapeJS($type)."';\n".
+				"metaEditor.prototype.text_confirm_remove = '".html::escapeJS(__('Are you sure you want to remove this %s?'))."';\n".
+				"metaEditor.prototype.text_add_meta = '".html::escapeJS(__('Add a %s to this entry'))."';\n".
+				"metaEditor.prototype.text_choose = '".html::escapeJS(__('Choose from list'))."';\n".
+				"metaEditor.prototype.text_all = '".html::escapeJS(__('all'))."';\n".
+				"metaEditor.prototype.text_separation = '".html::escapeJS(__('Enter tags separated by coma'))."';\n".
+				"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
+				"dotclear.msg.entry = '".html::escapeJS(__('entry'))."';\n".
+				"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
+				"\n//]]>\n".
+				"</script>\n".
+				'<link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />'
+			);
+			echo
+				'<form action="'.$ap->getURI().'" method="post">'.
+				$ap->getCheckboxes().
+				'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
+				form::textarea('new_tags',60,3).
+				'</div>'.
+				$core->formNonce().
+				form::hidden(array('action'),'tags').
+				'<p><input type="submit" value="'.__('Save').'" '.
+				'name="save_tags" /></p>'.
+				'</form>';
+			$ap->endPage();
+		}
+	}
+	public static function adminRemoveTags($core, dcPostsActionsPage $ap, $post)
+	{
+		if (!empty($post['meta_id']) && 
+			$core->auth->check('delete,contentadmin',$core->blog->id))
+		{
+			$meta =& $core->meta;
+			$posts = $ap->getRS();
+			while ($posts->fetch())
+			{
+				foreach ($_POST['meta_id'] as $v)
+				{
+					$meta->delPostMeta($posts->post_id,'tag',$v);
+				}
+			}
+			$ap->redirect(array('upd' => 1),true);
+		}
+		else
+		{
+			$meta =& $core->meta;
+			$tags = array();
+			
+			foreach ($ap->getIDS() as $id) {
+				$post_tags = $meta->getMetadata(array(
+					'meta_type' => 'tag',
+					'post_id' => (integer) $id))->toStatic()->rows();
+				foreach ($post_tags as $v) {
+					if (isset($tags[$v['meta_id']])) {
+						$tags[$v['meta_id']]++;
+					} else {
+						$tags[$v['meta_id']] = 1;
+					}
+				}
+			}
+			$ap->beginPage(
+				dcPage::breadcrumb(
+					array(
+						html::escapeHTML($core->blog->name) => '',
+						__('Entries') => 'posts.php',
+						'<span class="page-title">'.__('Remove selected tags from entries').'</span>' => ''
+			)));
+			
+			if (empty($tags)) {
+				echo '<p>'.__('No tags for selected entries').'</p>';
+				return;
+			}
+			
+			$posts_count = count($_POST['entries']);
+			
+			echo
+			'<form action="'.$ap->getURI().'" method="post">'.
+			$ap->getCheckboxes().
+			'<div><p>'.__('Following tags have been found in selected entries:').'</p>';
+			
+			foreach ($tags as $k => $n) {
+				$label = '<label class="classic">%s %s</label>';
+				if ($posts_count == $n) {
+					$label = sprintf($label,'%s','<strong>%s</strong>');
+				}
+				echo '<p>'.sprintf($label,
+						form::checkbox(array('meta_id[]'),html::escapeHTML($k)),
+						html::escapeHTML($k)).
+					'</p>';
+			}
+			
+			echo
+			'<p><input type="submit" value="'.__('ok').'" />'.
+			
+			$core->formNonce().
+			form::hidden(array('action'),'tags_remove').
+			'</p></div></form>';
+			$ap->endPage();
+		}
+		
+	}
+	
 	public static function postHeaders()
 	{
 		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
@@ -126,179 +289,6 @@ class tagsBehaviors
 		"\n//]]>\n".
 		"</script>\n".
 		'<link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />';
-	}
-	
-	public static function postsActionsHeaders()
-	{
-		if (($_POST['action'] == 'tags') || ($_POST['action'] == 'tags_remove')) {
-			$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
-
-			$opts = $GLOBALS['core']->auth->getOptions();
-			$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
-
-			return 
-			'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
-			'<script type="text/javascript" src="index.php?pf=tags/js/posts_actions.js"></script>'.
-			'<script type="text/javascript">'."\n".
-			"//<![CDATA[\n".
-			"metaEditor.prototype.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';\n".
-			"metaEditor.prototype.meta_type = '".html::escapeJS($type)."';\n".
-			"metaEditor.prototype.text_confirm_remove = '".html::escapeJS(__('Are you sure you want to remove this %s?'))."';\n".
-			"metaEditor.prototype.text_add_meta = '".html::escapeJS(__('Add a %s to this entry'))."';\n".
-			"metaEditor.prototype.text_choose = '".html::escapeJS(__('Choose from list'))."';\n".
-			"metaEditor.prototype.text_all = '".html::escapeJS(__('all'))."';\n".
-			"metaEditor.prototype.text_separation = '".html::escapeJS(__('Enter tags separated by coma'))."';\n".
-			"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
-			"dotclear.msg.entry = '".html::escapeJS(__('entry'))."';\n".
-			"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
-			"\n//]]>\n".
-			"</script>\n".
-			'<link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />';
-		}
-	}
-	
-	public static function adminPostsActionsCombo($args)
-	{
-		$args[0][__('Tags')] = array(__('Add tags') => 'tags');
-		
-		if ($GLOBALS['core']->auth->check('delete,contentadmin',$GLOBALS['core']->blog->id)) {
-			$args[0][__('Tags')] = array_merge($args[0][__('Tags')],
-				array(__('Remove tags') => 'tags_remove'));
-		}
-	}
-	
-	public static function adminPostsActions($core,$posts,$action,$redir)
-	{
-		if ($action == 'tags' && !empty($_POST['new_tags']))
-		{
-			try
-			{
-
-				$meta =& $GLOBALS['core']->meta;
-				$tags = $meta->splitMetaValues($_POST['new_tags']);
-				
-				while ($posts->fetch())
-				{
-					# Get tags for post
-					$post_meta = $meta->getMetadata(array(
-						'meta_type' => 'tag',
-						'post_id' => $posts->post_id));
-					$pm = array();
-					while ($post_meta->fetch()) {
-						$pm[] = $post_meta->meta_id;
-					}
-					
-					foreach ($tags as $t) {
-						if (!in_array($t,$pm)) {
-							$meta->setPostMeta($posts->post_id,'tag',$t);
-						}
-					}
-				}
-				
-				http::redirect($redir);
-			}
-			catch (Exception $e)
-			{
-				$core->error->add($e->getMessage());
-			}
-		}
-		elseif ($action == 'tags_remove' && !empty($_POST['meta_id']) && $core->auth->check('delete,contentadmin',$core->blog->id))
-		{
-			try
-			{
-				$meta =& $GLOBALS['core']->meta;
-				while ($posts->fetch())
-				{
-					foreach ($_POST['meta_id'] as $v)
-					{
-						$meta->delPostMeta($posts->post_id,'tag',$v);
-					}
-				}
-				
-				http::redirect($redir);
-			}
-			catch (Exception $e)
-			{
-				$core->error->add($e->getMessage());
-			}
-		}
-	}
-	
-	public static function adminPostsActionsContent($core,$action,$hidden_fields,$form_uri="posts_actions.php")
-	{
-		if ($action == 'tags')
-		{
-			echo dcPage::breadcrumb(
-				array(
-					html::escapeHTML($core->blog->name) => '',
-					__('Entries') => 'posts.php',
-					'<span class="page-title">'.__('Add tags to entries').'</span>' => ''
-			)).
-			'<form action="'.$form_uri.'" method="post">'.
-			//$hidden_fields->getEntries().
-			'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
-			form::textarea('new_tags',60,3).
-			'</div>'.
-			$hidden_fields.
-			$core->formNonce().
-			form::hidden(array('action'),'tags').
-			'<p><input type="submit" value="'.__('Save').'" '.
-			'name="save_tags" /></p>'.
-			'</form>';
-		}
-		elseif ($action == 'tags_remove')
-		{
-			$meta =& $GLOBALS['core']->meta;
-			$tags = array();
-			
-			foreach ($_POST['entries'] as $id) {
-				$post_tags = $meta->getMetadata(array(
-					'meta_type' => 'tag',
-					'post_id' => (integer) $id))->toStatic()->rows();
-				foreach ($post_tags as $v) {
-					if (isset($tags[$v['meta_id']])) {
-						$tags[$v['meta_id']]++;
-					} else {
-						$tags[$v['meta_id']] = 1;
-					}
-				}
-			}
-			echo dcPage::breadcrumb(
-				array(
-					html::escapeHTML($core->blog->name) => '',
-					__('Entries') => 'posts.php',
-					'<span class="page-title">'.__('Remove selected tags from entries').'</span>' => ''
-			));
-			
-			if (empty($tags)) {
-				echo '<p>'.__('No tags for selected entries').'</p>';
-				return;
-			}
-			
-			$posts_count = count($_POST['entries']);
-			
-			echo
-			'<form action="'.$form_uri.'" method="post">'.
-			'<fieldset><legend>'.__('Following tags have been found in selected entries:').'</legend>';
-			
-			foreach ($tags as $k => $n) {
-				$label = '<label class="classic">%s %s</label>';
-				if ($posts_count == $n) {
-					$label = sprintf($label,'%s','<strong>%s</strong>');
-				}
-				echo '<p>'.sprintf($label,
-						form::checkbox(array('meta_id[]'),html::escapeHTML($k)),
-						html::escapeHTML($k)).
-					'</p>';
-			}
-			
-			echo
-			'<p><input type="submit" value="'.__('ok').'" /></p>'.
-			$hidden_fields.
-			$core->formNonce().
-			form::hidden(array('action'),'tags_remove').
-			'</fieldset></form>';
-		}
 	}
 	
 	public static function adminUserForm($args)
