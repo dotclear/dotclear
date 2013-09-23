@@ -26,6 +26,8 @@ class dcMaintenanceIndexposts extends dcMaintenanceTask
 		$this->step 		= __('Indexing entry %d to %d.');
 		$this->success 		= __('Entries index done.');
 		$this->error 		= __('Failed to index entries.');
+
+		$this->description = __('Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages.');
 	}
 
 	public function execute()

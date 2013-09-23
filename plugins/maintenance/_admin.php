@@ -21,12 +21,13 @@ $_menu['Plugins']->addItem(
 );
 
 // Admin behaviors
-$core->addBehavior('dcMaintenanceRegister', array('dcMaintenanceAdmin', 'dcMaintenanceRegister'));
+$core->addBehavior('dcMaintenanceInit', array('dcMaintenanceAdmin', 'dcMaintenanceInit'));
 $core->addBehavior('adminDashboardFavs', array('dcMaintenanceAdmin', 'adminDashboardFavs'));
 $core->addBehavior('adminDashboardFavsIcon', array('dcMaintenanceAdmin', 'adminDashboardFavsIcon'));
 $core->addBehavior('adminDashboardItems', array('dcMaintenanceAdmin', 'adminDashboardItems'));
 $core->addBehavior('adminDashboardOptionsForm',	array('dcMaintenanceAdmin',	'adminDashboardOptionsForm'));
 $core->addBehavior('adminAfterDashboardOptionsUpdate',	array('dcMaintenanceAdmin',	'adminAfterDashboardOptionsUpdate'));
+$core->addBehavior('adminPageHelpBlock',	array('dcMaintenanceAdmin',	'adminPageHelpBlock'));
 
 /**
 @ingroup PLUGIN_MAINTENANCE
@@ -40,31 +41,34 @@ class dcMaintenanceAdmin
 	/**
 	 * Register default tasks.
 	 *
-	 * @param	$core	<b>dcCore</b>	dcCore instance
-	 * @param	$tasks	<b>arrayObject</b>	Array of tasks to register
-	 * @param	$groups	<b>arrayObject</b>	Array of groups to register
-	 * @param	$tabs	<b>arrayObject</b>	Array of tabs to register
+	 * @param	$maintenance	<b>dcMaintenance</b>	dcMaintenance instance
 	 */
-	 public static function dcMaintenanceRegister($core, $tasks, $groups, $tabs)
+	 public static function dcMaintenanceInit($maintenance)
 	{
-		$tabs['maintenance'] = __('Servicing');
-		$tabs['backup'] = __('Backup');
+		$maintenance
+		->addTab('maintenance', __('Servicing'), array('summary' => __('Tools to maintain the performance of your blogs.')))
+		->addTab('backup', __('Backup'), array('summary' => __('Tools to back up your content.')))
+		->addTab('dev', __('Development'), array('summary' => __('Tools to assist in development of plugins, themes and core.')))
 
-		$groups['optimize'] = __('Optimize');
-		$groups['index'] = __('Count and index');
-		$groups['purge'] = __('Purge');
-		$groups['other'] = __('Other');
-		$groups['zipblog'] = __('Compressed file for current blog');
-		$groups['zipfull'] = __('Compressed file for all blogs');
+		->addGroup('optimize', __('Optimize'))
+		->addGroup('index', __('Count and index'))
+		->addGroup('purge', __('Purge'))
+		->addGroup('other', __('Other'))
+		->addGroup('zipblog', __('Compressed file for current blog'))
+		->addGroup('zipfull', __('Compressed file for all blogs'))
 
-		$tasks[] = 'dcMaintenanceCache';
-		$tasks[] = 'dcMaintenanceIndexposts';
-		$tasks[] = 'dcMaintenanceIndexcomments';
-		$tasks[] = 'dcMaintenanceCountcomments';
-		$tasks[] = 'dcMaintenanceLogs';
-		$tasks[] = 'dcMaintenanceVacuum';
-		$tasks[] = 'dcMaintenanceZipmedia';
-		$tasks[] = 'dcMaintenanceZiptheme';
+		->addGroup('l10n', __('Translations'), array('summary' => __('Maintain translations')))
+
+		->addTask('dcMaintenanceCache')
+		->addTask('dcMaintenanceIndexposts')
+		->addTask('dcMaintenanceIndexcomments')
+		->addTask('dcMaintenanceCountcomments')
+		->addTask('dcMaintenanceSynchpostsmeta')
+		->addTask('dcMaintenanceLogs')
+		->addTask('dcMaintenanceVacuum')
+		->addTask('dcMaintenanceZipmedia')
+		->addTask('dcMaintenanceZiptheme')
+		;
 	}
 
 	/**
@@ -216,5 +220,76 @@ class dcMaintenanceAdmin
 		$core->auth->user_prefs->addWorkspace('maintenance');
 		$core->auth->user_prefs->maintenance->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
 		$core->auth->user_prefs->maintenance->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
+	}
+
+
+	/**
+	 * Build a well sorted help for tasks.
+	 *
+	 * This method is not so good if used with lot of tranlsations 
+	 * as it grows memory usage and translations files size, 
+	 * it is better to use help ressource files 
+	 * but keep it for exemple of how to use behavior adminPageHelpBlock.
+	 * Cheers, JC
+	 *
+	 * @param	$block	<b>arrayObject</b>	Called helpblocks
+	 */
+	public static function adminPageHelpBlock($blocks)
+	{
+		$found = false;
+		foreach($blocks as $block) {
+			if ($block == 'maintenancetasks') {
+				$found = true;
+				break;
+			}
+		}
+		if (!$found) {
+			return null;
+		}
+
+		$maintenance = new dcMaintenance($GLOBALS['core']);
+
+		$res_tab = '';
+		foreach($maintenance->getTabs() as $tab_obj)
+		{
+			$res_group = '';
+			foreach($maintenance->getGroups() as $group_obj)
+			{
+				$res_task = '';
+				foreach($maintenance->getTasks() as $t)
+				{
+					if ($t->group() != $group_obj->id() 
+					 || $t->tab() != $tab_obj->id()) {
+						continue;
+					}
+					if (($desc = $t->description()) != '') {
+						$res_task .= 
+						'<dt>'.$t->task().'</dt>'.
+						'<dd>'.$desc.'</dd>';
+					}
+				}
+				if (!empty($res_task)) {
+					$desc = $group_obj->description ? $group_obj->description : $group_obj->summary;
+
+					$res_group .= 
+					'<h5>'.$group_obj->name().'</h5>'.
+					($desc ? '<p>'.$desc.'</p>' : '').
+					'<dl>'.$res_task.'</dl>';
+				}
+			}
+			if (!empty($res_group)) {
+				$desc = $tab_obj->description ? $tab_obj->description : $tab_obj->summary;
+
+				$res_tab .= 
+				'<h4>'.$tab_obj->name().'</h4>'.
+				($desc ? '<p>'.$desc.'</p>' : '').
+				$res_group;
+			}
+		}
+		if (!empty($res_tab)) {
+			$res = new ArrayObject();
+			$res->content = $res_tab;
+			$blocks[] = $res;
+		}
 	}
 }

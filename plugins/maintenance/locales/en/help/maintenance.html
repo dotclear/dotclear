@@ -5,35 +5,17 @@
 
 <body>
 
+<h4>Settings</h4>
+
 <dl>
-  <dt>Optimize database room</dt>
-  <dd>After numerous delete or update operations on Dotclear's database, it gets fragmented.
-  Optimizing will allow to defragment it.<br />
-  It has no incidence on your data's integrity.<br />
-  It is recommended to optimize before any blog export.</dd>
+  <dt>Activation</dt>
+  <dd>If this options is active, on tabs of plugin maintenance, 
+  when a task has expired or has been nerver executed, a alert message is show below this task.<br />
+  Options to display maintenance related tasks on dashboard are available in user preferences.</dd>
   
-  <dt>Counters</dt>
-  <dd>Initializing comments and trackbacks counters allows to check their exact numbers. 
-  This operation can be useful when importing from another blog platform
-  (or when migrating from dotclear 1 to dotclear 2).</dd>
-  
-  <dt>Search engine index</dt>
-  <dd>These operations are necessary, after importing content in your blog, to use internal search engine, on public and private pages.
-    <ul>
-      <li><strong>Index all posts:</strong> allows to index all posts</li>
-      <li><strong>Index all comments:</strong> allows to index all comments and trackbacks</li>
-    </ul>
-  </dd>
-  
-  <dt>Vacuum logs</dt>
-  <dd>Logs record all activity and connection to your blog history. Unless you need to keep this history, 
-  consider deleting these logs from time to time.</dd>
-  
-  <dt>Empty templates cache directory</dt>
-  <dd>It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating 
-  a theme or plugin).<br />
-  Notice : with some hosters, the templates cache cannot be emptied with this plugin. 
-  You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software.</dd>
+  <dt>Frequency</dt>
+  <dd>It is possible to set same recall time for all tasks at one time. <br/>
+  Otherwise this setting can be done per task and so on for exemple deactivate some of them.</dd>
 </dl>
 </body>
 </html>

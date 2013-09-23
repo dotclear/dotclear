@@ -1183,8 +1183,20 @@ msgstr "Maintenance"
 msgid "Servicing"
 msgstr "Entretien"
 
+msgid "Tools to maintain the performance of your blogs."
+msgstr "Outils pour maintenir les performances de vos blogs."
+
 msgid "Backup"
 msgstr "Sauvegarde"
+
+msgid "Tools to back up your content."
+msgstr "Outils de sauvegarde du contenu"
+
+msgid "Development"
+msgstr "Développement"
+
+msgid "Tools to assist in development of plugins, themes and core."
+msgstr "Outils pour aider au developpement de plugins, thèmes et au core."
 
 msgid "Optimize"
 msgstr "Optimiser"
@@ -1203,6 +1215,12 @@ msgstr "Fichiers compressés pour le blog courant (zip)"
 
 msgid "Compressed file for all blogs"
 msgstr "Fichier compressé pour tous les blogs (zip)"
+
+msgid "Translations"
+msgstr "Traductions"
+
+msgid "Maintain translations"
+msgstr "Maintenir les traductions"
 
 #, php-format
 msgid "One task to execute"
@@ -1247,6 +1265,9 @@ msgstr "Le répertoire de cache des « templates » a été vidé."
 msgid "Failed to empty templates cache directory."
 msgstr "Impossible de vider le répertoire de cache des « templates »."
 
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+msgstr "La suppression du répertoire du cache des templates peut se révéler nécessaire lors de modifications dans les fichiers .html ou .css d'un thème (voire lors d'un changement de thème ou de mise à jour de plugin). Attention : chez certains hébergeurs (Free par exemple), le cache du répertoire des templates ne peut pas être vidé grâce à l'extension Maintenance, il faut supprimer le répertoire <strong>cbtpl</strong> situé dans le répertoire cache (dotclear/cache par défaut) avec un logiciel FTP."
+
 msgid "Count again comments and trackbacks"
 msgstr "Recompter les commentaires et rétroliens"
 
@@ -1255,6 +1276,9 @@ msgstr "Les commentaires et rétroliens ont été recomptés."
 
 msgid "Failed to count comments and trackbacks."
 msgstr "Impossible de recompter les commentaires et rétroliens."
+
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr "Recompter commentaires et des rétroliens a pour effet de donner le nombre exact de ceux-ci pour chaque billet. Cette opération peut se révéler utile lors de l'import d'un blog d'une autre plateforme (ou d'une migration de Dotclear 1 vers Dotclear 2)."
 
 msgid "Search engine index"
 msgstr "Index du moteur de recherche"
@@ -1275,6 +1299,9 @@ msgstr "L'indexation des commentaires a été effectuée."
 msgid "Failed to index comments."
 msgstr "Impossible d'indexer les commentaires."
 
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "Indexer tous les commentaires et rétroliens dans le moteur de recherche. Cette opération s'effectue généralement suite à un import afin d'obtenir des résultats lors des recherches, aussi bien depuis l'administration du blog qu'en partie publique."
+
 msgid "Index all entries for search engine"
 msgstr "Indexer tous les billets pour le moteur de recherche"
 
@@ -1288,6 +1315,27 @@ msgstr "L'indexation des billets a été effectuée."
 msgid "Failed to index entries."
 msgstr "Impossible d'indexer les billets."
 
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "Indexer tous les billets dans le moteur de recherche. Cette opération s'effectue généralement suite à un import afin d'obtenir des résultats lors des recherches, aussi bien depuis l'administration du blog qu'en partie publique."
+
+msgid "Entries metadata"
+msgstr "Métadonnées des billets"
+
+msgid "Synchronize entries metadata"
+msgstr "Synchroniser les métadonnées des billets"
+
+msgid "Synchronize entry %d to %d."
+msgstr "Synchronisation des billets %d à %d."
+
+msgid "Entries metadata synchronize done."
+msgstr "La synchronisation des métadonnées des billets a été effectuée."
+
+msgid "Failed to synchronize entries metadata."
+msgstr "Impossible de synchroniser les métadonnées des billets."
+
+msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
+msgstr "La synchronisation des métadonnées des billets peut être utile après l'import de contenu dans votre blog ou après une mauvaise opération sur la base de données."
+
 msgid "Delete all logs"
 msgstr "Supprimer tous les journaux (logs)"
 
@@ -1296,6 +1344,9 @@ msgstr "Les journaux ont été supprimés."
 
 msgid "Failed to delete logs."
 msgstr "Impossible de supprimer les journaux."
+
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
+msgstr "Sauf si vous avez un besoin précis de conservation des activités de connexion sur votre blog, pensez à vider régulièrement la table des journaux : elle contient l'enregistrement de chaque connexion à l'administration et des opérations qui s'y sont déroulées."
 
 msgid "optimize tables"
 msgstr "Optimiser les tables"
@@ -1306,11 +1357,20 @@ msgstr "Optimisation terminée avec succès."
 msgid "Failed to optimize tables."
 msgstr "Impossible d'optimiser les tables."
 
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
+msgstr "Au fur at à mesure des suppressions ou modifications dans vos billets, les tables de la base de données se fragmentent. L'opération d'optimisation permet de compacter celles-ci. Cette opération n'a aucun impact sur l'intégrité de vos données. Il est fortement conseillé d'optimiser la base de données avant tout export de blog."
+
 msgid "Download media folder of current blog"
 msgstr "Télécharger la médiathèque du blog courant"
 
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr "Il peut être utile de sauvegarder votre médiathèque. Ceci comprime tout le contenu du répertoire de média dans un seul fichier Zip. Remarque : chez certains hébergeurs, la médiathèque ne peut pas être compressée avec ce plugin si elle est trop grande."
+
 msgid "Download active theme of current blog"
 msgstr "Télécharger le theme actif du blog courant"
+
+msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
+msgstr "Il peut être utile de sauvegarder le thème courant avant tout changement ou mise à jour. Ceci comprime tout le contenu du répertoire du thème dans un seul fichier Zip."
 
 msgid "Every week"
 msgstr "Chaque semaine"
@@ -1364,8 +1424,14 @@ msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
 msgid "Frequency"
 msgstr "Périodicité"
 
+msgid "Use one recall time for all tasks"
+msgstr "Utiliser le même délai de rappel pour toutes les tâches"
+
 msgid "Recall time for all tasks:"
 msgstr "Délai de rappel pour toutes les tâches :"
+
+msgid "Use one recall time per task"
+msgstr "Utiliser un délai de rappel différent pour chaque tâche"
 
 msgid "Recall time per task:"
 msgstr "Délai de rappel par tâche :"

@@ -26,6 +26,8 @@ class dcMaintenanceIndexcomments extends dcMaintenanceTask
 		$this->step 		= __('Indexing comment %d to %d.');
 		$this->success 		= __('Comments index done.');
 		$this->error 		= __('Failed to index comments.');
+
+		$this->description = __('Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages.');
 	}
 
 	public function execute()
