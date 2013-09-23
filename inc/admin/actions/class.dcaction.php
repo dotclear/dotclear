@@ -222,6 +222,7 @@ abstract class dcActionsPage
      */
 	public function redirect($params=array(),$with_selected_entries=false) {
 		http::redirect($this->getRedirection($params,$with_selected_entries));
+		exit;
 	}	
 	
 	/**
@@ -269,7 +270,7 @@ abstract class dcActionsPage
 					}
 				}
 				if ($performed) {
-					exit;
+					return true;
 				}
 			} catch (Exception $e) {
 				$this->error($e);

@@ -150,7 +150,7 @@ class tagsBehaviors
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => 'posts.php',
+						__('Entries') => $ap->getRedirection(array(),true),
 						'<span class="page-title">'.__('Add tags to entries').'</span>' => ''
 				)),
 				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
@@ -179,7 +179,7 @@ class tagsBehaviors
 				'<div><label for="new_tags" class="area">'.__('Tags to add:').'</label> '.
 				form::textarea('new_tags',60,3).
 				'</div>'.
-				$core->formNonce().
+				$core->formNonce().$ap->getHiddenFields().
 				form::hidden(array('action'),'tags').
 				'<p><input type="submit" value="'.__('Save').'" '.
 				'name="save_tags" /></p>'.

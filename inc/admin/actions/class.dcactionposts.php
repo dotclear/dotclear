@@ -47,7 +47,7 @@ class dcPostsActionsPage extends dcActionsPage
 		$this->beginPage(dcPage::breadcrumb(
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
-				__('Entries') => 'posts.php',
+				__('Entries') => $this->getRedirection(array(),true),
 				'<span class="page-title">'.__('Entries actions').'</span>' => ''
 			))
 		);
@@ -86,7 +86,7 @@ class dcPostsActionsPage extends dcActionsPage
 
 class dcDefaultPostActions 
 {
-	public static function adminPostsActionsPage($core, dcPostsActionsPage $ap) {
+	public static function adminPostsActionsPage($core, $ap) {
 		if ($core->auth->check('publish,contentadmin',$core->blog->id)) {
 			$ap->addAction(
 				array(__('Status') => array(
@@ -210,24 +210,24 @@ class dcDefaultPostActions
 			
 			$ap->redirect(array('upd'=>1),true);
 		} else {
+
 			$ap->beginPage(
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => 'posts.php',
+						__('Entries') => $ap->getRedirection(array(),true),
 						'<span class="page-title">'.__('Change category for entries').'</span>' => ''
 			)));
-			
 			# categories list
 			# Getting categories
 			$categories_combo = dcAdminCombos::getCategoriesCombo(
-				$core->blog->getCategories(array('post_type'=>'post'))
+				$core->blog->getCategories()
 			);			
 			echo
-			'<form action="posts.php" method="post">'.
+			'<form action="'.$ap->getRedirection(array(),true).'" method="post">'.
 			$ap->getCheckboxes().
 			'<p><label for="new_cat_id" class="classic">'.__('Category:').'</label> '.
-			form::combo('new_cat_id',$categories_combo,'');
+			form::combo(array('new_cat_id'),$categories_combo,'');
 			
 			if ($core->auth->check('categories', $core->blog->id)) {
 				echo 
@@ -243,6 +243,7 @@ class dcDefaultPostActions
 			
 			echo
 			$core->formNonce().
+			$ap->getHiddenFields().
 			form::hidden(array('action'),'category').
 			'<input type="submit" value="'.__('Save').'" /></p>'.
 			'</form>';
@@ -284,7 +285,7 @@ class dcDefaultPostActions
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => 'posts.php',
+						__('Entries') => $ap->getRedirection(array(),true),
 						'<span class="page-title">'.__('Change author for entries').'</span>' => '')),
 					dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 					'<script type="text/javascript">'."\n".
@@ -301,7 +302,7 @@ class dcDefaultPostActions
 			form::field('new_auth_id',20,255);
 			
 			echo
-				$core->formNonce().
+				$core->formNonce().$ap->getHiddenFields().
 				form::hidden(array('action'),'author').
 				'<input type="submit" value="'.__('Save').'" /></p>'.
 				'</form>';
@@ -325,7 +326,7 @@ class dcDefaultPostActions
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => 'posts.php',
+						__('Entries') => $ap->getRedirection(array(),true),
 						'<span class="page-title">'.__('Change language for entries').'</span>' => ''
 			)));
 			# lang list
@@ -352,7 +353,7 @@ class dcDefaultPostActions
 			form::combo('new_lang',$lang_combo,'');
 			
 			echo
-				$core->formNonce().
+				$core->formNonce().$ap->getHiddenFields().
 				form::hidden(array('action'),'lang').
 				'<input type="submit" value="'.__('Save').'" /></p>'.
 				'</form>';

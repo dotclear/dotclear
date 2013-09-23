@@ -154,16 +154,16 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 
 	}
 	
-	public function beginPage($breadcrumb='',$header='') {
+	public function beginPage($breadcrumb='',$head='') {
 		echo '<html><head><title>'.__('Pages').'</title>'.
-			dcPage::jsLoad('index.php?pf=pages/list.js').
-			# --BEHAVIOR-- adminBeforePostDelete
-			$core->callBehavior('adminPagesActionsHeaders').
+			dcPage::jsLoad('js/_posts_actions.js').
 			'<script type="text/javascript">'.
 			'//<![CDATA['.
 			dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")).
 			'//]]>'.
+			$head.
 			'</script></head><body>';
+			'</head><body>'.$breadcrumb;
 	}
 	
 	public function endPage() {
@@ -181,7 +181,8 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 		if (!empty($this->from['reorder'])) {
 			$this->from['action']='reorder';
 		}
-		parent::process();
+		$this->from['post_type']='page';
+		return parent::process();
 	}
 	
 	public static function doReorderPages($core, dcPostsActionsPage $ap, $post) {
@@ -213,7 +214,7 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 
 $pages_actions_page = new dcPagesActionsPage($core,'plugin.php',array('p'=>'pages'));
 
-$pages_actions_page->process();
+if (!$pages_actions_page->process()) {
 
 
 # --BEHAVIOR-- adminPagesActionsCombo
@@ -270,6 +271,7 @@ if (!$core->error->flag())
 	'<input type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('post_type'),'page').
 	form::hidden(array('p'),'pages').
+	form::hidden(array('act'),'list').
 	'</div>'.
 	$core->formNonce().
 	'<p class="clear form-note hidden-if-js">'.
@@ -283,3 +285,6 @@ dcPage::helpBlock('pages');
 ?>
 </body>
 </html>
+<?php
+}
+?>
