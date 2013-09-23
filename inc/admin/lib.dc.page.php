@@ -159,7 +159,7 @@ class dcPage
 		if ($safe_mode)
 		{
 			echo
-			'<div class="error"><h3>'.__('Safe mode').'</h3>'.
+			'<div class="warning"><h3>'.__('Safe mode').'</h3>'.
 			'<p>'.__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
 			'</div>';
 		}

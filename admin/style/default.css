@@ -2437,6 +2437,11 @@ ul.from-left {
 		font-size: 10px; font-size: 1rem;
 		line-height: 68px;
 		overflow: hidden;
+		z-index: 200;
+		}
+	#main #content > h2 {
+		margin: 0;
+		padding: 6px 0;
 		}
 	.one-box, .two-boxes,
 	.one-box .box, .two-boxes .box,
@@ -2462,5 +2467,10 @@ ul.from-left {
 		}
 	#top-info-blog p {
 		display: block;
+		}
+	#dashboard-boxes .box {
+		margin: 10px 0;
+		min-width: 280px;
+		width: 280px;
 		}
 	}
