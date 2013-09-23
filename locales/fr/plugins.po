@@ -1214,11 +1214,11 @@ msgstr "Purger"
 msgid "Other"
 msgstr "Autre"
 
-msgid "Compressed file for current blog"
-msgstr "Fichiers compressés pour le blog courant (zip)"
+msgid "Current blog"
+msgstr "Blog courant"
 
-msgid "Compressed file for all blogs"
-msgstr "Fichier compressé pour tous les blogs (zip)"
+msgid "All blogs"
+msgstr "Tous les blogs"
 
 msgid "Translations"
 msgstr "Traductions"

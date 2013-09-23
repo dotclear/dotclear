@@ -988,13 +988,10 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-msgid "Compressed file for current blog"
+msgid "Current blog"
 msgstr ""
 
-msgid "Compressed file for all blogs"
-msgstr ""
-
-msgid "Compressed file for all blogs"
+msgid "All blogs"
 msgstr ""
 
 msgid "Translations"
