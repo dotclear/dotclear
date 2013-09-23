@@ -274,7 +274,7 @@ class dcPage
 		"</head>\n".
 		'<body id="dotclear-admin" class="popup">'."\n".
 
-		'<div id="top hidden"><h1>'.DC_VENDOR_NAME.'</h1></div>'."\n";
+		'<h1>'.DC_VENDOR_NAME.'</h1>'."\n";
 
 		echo
 		'<div id="wrapper">'."\n".
@@ -297,8 +297,8 @@ class dcPage
 		echo
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
-		'<div id="footer"><p>&nbsp;</p></div>'."\n".
 		"</div>\n".		// End of #wrapper
+		'<div id="footer"><p>&nbsp;</p></div>'."\n".
 		'</body></html>';
 	}
 

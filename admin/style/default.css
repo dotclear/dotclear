@@ -489,6 +489,7 @@ input[type=text], input[type=password], textarea, select {
 	border-radius: 3px;
 	box-shadow: 1px 1px 2px #F1F1F1 inset;
 	padding: 3px; 
+	vertical-align: top;
 	}
 	input:focus, textarea:focus, select:focus {
 		-webkit-box-sizing: border-box;
@@ -632,7 +633,7 @@ input[type=reset],
 input[type=submit] {
 	border: 1px solid #ccc;
 	font-family: "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
-	padding: 4px 10px;
+	padding: 3px 10px;
 	line-height: normal !important;
 	display: inline-block;
 	vertical-align: middle;
@@ -2437,7 +2438,6 @@ ul.from-left {
 		font-size: 10px; font-size: 1rem;
 		line-height: 68px;
 		overflow: hidden;
-		z-index: 200;
 		}
 	#main #content > h2 {
 		margin: 0;
