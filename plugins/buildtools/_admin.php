@@ -10,11 +10,11 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
-$core->addBehavior('dcMaintenanceRegister', array('dcBuildTools', 'maintenanceAdmin'));
+$core->addBehavior('dcMaintenanceInit', array('dcBuildTools', 'maintenanceAdmin'));
 
 class dcBuildTools
 {
-	public static function maintenanceAdmin($core, $tasks, $groups, $tabs) {
-		$tasks[] = 'dcMaintenanceBuildtools';
+	public static function maintenanceAdmin($maintenance) {
+		$maintenance->addTask('dcMaintenanceBuildtools');
 	}
 }

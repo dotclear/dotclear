@@ -25,6 +25,8 @@ Main class to call everything related to maintenance.
 class dcMaintenance
 {
 	public $core;
+	public $p_url = 'plugin.php?p=maintenance';
+
 	private $tasks = array();
 	private $tabs = array();
 	private $groups = array();
@@ -33,74 +35,50 @@ class dcMaintenance
 	/**
 	 * Constructor.
 	 *
-	 * Here you register tasks and groups for tasks.
-	 *
 	 * @param	core	<b>dcCore</b>	dcCore instance
 	 */
 	public function __construct($core)
 	{
 		$this->core = $core;
-
-		$tasks = new ArrayObject();
-		$tabs = new ArrayObject();
-		$groups = new ArrayObject();
 		$logs = $this->getLogs();
-
-		# --BEHAVIOR-- dcMaintenanceRegister
-		$core->callBehavior('dcMaintenanceRegister', $core, $tasks, $groups, $tabs);
-
-		$this->init($tasks, $groups, $tabs);
+		$this->init();
 	}
 
 	/**
-	 * Initialize list of groups and tasks.
+	 * Initialize list of tabs and groups and tasks.
 	 *
-	 * @param	tasks	<b>arrayObject</b>	Array of task to register
-	 * @param	groups	<b>arrayObject</b>	Array of groups to add
-	 * @param	tabs	<b>arrayObject</b>	Array of tabs to add
+	 * To register a tab or group or task, 
+	 * use behavior dcMaintenanceInit then a method of
+	 * dcMaintenance like addTab('myTab', ...).
 	 */
-	public function init($tasks, $groups, $tabs)
+	protected function init()
 	{
-		$this->tasks = $this->groups = array();
+		# --BEHAVIOR-- dcMaintenanceInit
+		$this->core->callBehavior('dcMaintenanceInit', $this);
+	}
 
-		foreach($tasks as $task)
-		{
-			if (!class_exists($task)) {
-				continue;
-			}
+	/// @name Tab methods
+	//@{
+	/**
+	 * Add a tab.
+	 *
+	 * @param	id		<b>string<b> Tab ID
+	 * @param	name	<b>string<b> Tab name
+	 * @param	options	<b>string<b> Options
+	 * @return <b>dcMaintenance</b>	Self
+	 */
+	public function addTab($id, $name, $options=array())
+	{
+		$this->tabs[$id] = new dcMaintenanceDescriptor($id, $name, $options);
 
-			$r = new ReflectionClass($task);
-			$p = $r->getParentClass();
-
-			if (!$p || $p->name != 'dcMaintenanceTask') {
-				continue;
-			}
-
-			if (($t = new $task($this, 'plugin.php?p=maintenance')) === null
-			|| $t->perm() === null && !$this->core->auth->isSuperAdmin()
-			|| !$this->core->auth->check($t->perm(), $this->core->blog->id)) {
-				continue;
-			}
-
-			$this->tasks[$task] = $t;
-		}
-
-		foreach($groups as $id => $name)
-		{
-			$this->groups[(string) $id] = (string) $name;
-		}
-
-		foreach($tabs as $id => $name)
-		{
-			$this->tabs[(string) $id] = (string) $name;
-		}
+		return $this;
 	}
 
 	/**
-	 * Get a tab name.
+	 * Get a tab.
 	 *
 	 * @param	id	<b>string</b> Tab ID
-	 * @return	<b>mixed</b> tab name or null if not exists
+	 * @return	<b>object</b> dcMaintenanceDescriptor of a tab
 	 */
 	public function getTab($id)
 	{
@@ -116,12 +94,31 @@ class dcMaintenance
 	{
 		return $this->tabs;
 	}
+	//@}
+
+
+	/// @name Group methods
+	//@{
+	/**
+	 * Add a group.
+	 *
+	 * @param	id		<b>string<b> Group ID
+	 * @param	name	<b>string<b> Group name
+	 * @param	options	<b>string<b> Options
+	 * @return <b>dcMaintenance</b>	Self
+	 */
+	public function addGroup($id, $name, $options=array())
+	{
+		$this->groups[$id] = new dcMaintenanceDescriptor($id, $name, $options);
+
+		return $this;
+	}
 
 	/**
-	 * Get a group name.
+	 * Get a group.
 	 *
 	 * @param	id	<b>string</b> Group ID
-	 * @return	<b>mixed</b> Group name or null if not exists
+	 * @return	<b>object</b> dcMaintenanceDescriptor of a group
 	 */
 	public function getGroup($id)
 	{
@@ -131,11 +128,31 @@ class dcMaintenance
 	/**
 	 * Get groups.
 	 *
-	 * @return	<b>array</b> Array of groups ID and name
+	 * @return	<b>array</b> Array of groups ID and descriptor
 	 */
 	public function getGroups()
 	{
 		return $this->groups;
+	}
+	//@}
+
+
+	/// @name Task methods
+	//@{
+	/**
+	 * Add a task.
+	 *
+	 * @param	task <b>mixed<b> Class name or object
+	 * @return	<b>boolean</b>	True if it is added
+	 * @return <b>dcMaintenance</b>	Self
+	 */
+	public function addTask($task)
+	{
+		if (class_exists($task) && is_subclass_of($task, 'dcMaintenanceTask')) {
+			$this->tasks[$task] = new $task($this);
+		}
+
+		return $this;
 	}
 
 	/**
@@ -173,7 +190,11 @@ class dcMaintenance
 		}
 		return $res;
 	}
+	//@}
 
+
+	/// @name Log methods
+	//@{
 	/**
 	 * Set log for a task.
 	 *
@@ -267,4 +288,5 @@ class dcMaintenance
 
 		return $this->logs;
 	}
+	//@}
 }

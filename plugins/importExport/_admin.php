@@ -32,4 +32,13 @@ function importExportDashboardFavs($core,$favs)
 		'admin',null,null
 	));
 }
-?>
+
+$core->addBehavior('dcMaintenanceInit', 'ieMaintenanceInit');
+
+function ieMaintenanceInit($maintenance)
+{
+	$maintenance
+	->addTask('ieMaintenanceExportblog')
+	->addTask('ieMaintenanceExportfull')
+	;
+}
