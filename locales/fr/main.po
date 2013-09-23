@@ -347,7 +347,7 @@ msgid "Leave comments open for %s days"
 msgstr "Laisser les commentaires ouverts durant %s jours"
 
 msgid "No limit: leave blank."
-msgstr ""
+msgstr "Aucune limite : laisser vide."
 
 msgid "Wiki syntax for comments"
 msgstr "Syntaxe wiki pour les commentaires"
@@ -396,10 +396,10 @@ msgid "Media and images"
 msgstr "Médias et images"
 
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
-msgstr ""
+msgstr "Veuillez noter que si vous changez ces réglages, ils s'appliqueront désormais à toutes les nouvelles images ajoutées à la médiathèque."
 
 msgid "Be carefull if you share it with other blogs in your installation."
-msgstr ""
+msgstr "Soyez prudent si vous plusieurs blogs de l'installation partagent la même médiathèque."
 
 msgid "Generated image sizes (in pixels)"
 msgstr "Tailles des miniatures générées (largeur en pixels)"
@@ -1353,7 +1353,7 @@ msgstr "Trier"
 
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
-msgstr ""
+msgstr "Les réglages actuels pour les médias et les images sont définis sur le %s"
 
 msgid "Blog parameters"
 msgstr "Paramètres du blog"
@@ -1779,7 +1779,7 @@ msgid "Convert to XHTML"
 msgstr "Convertir en XHTML"
 
 msgid "Filing"
-msgstr ""
+msgstr "Classement"
 
 msgid "Selected entry"
 msgstr "Billet sélectionné"
@@ -2817,7 +2817,7 @@ msgid "Pages"
 msgstr "Pages"
 
 msgid "Blogroll"
-msgstr ""
+msgstr "Liste de liens"
 
 msgid "administrator"
 msgstr "administrateur"
