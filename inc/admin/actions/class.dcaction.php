@@ -212,7 +212,7 @@ abstract class dcActionsPage
 		}
 		return $this->uri.'?'.http_build_query($redir_args);
 	}
-
+	
 	/**
      * redirect - redirects to redirection page
      *
@@ -225,10 +225,19 @@ abstract class dcActionsPage
 	}	
 	
 	/**
+     * getURI - returns current form URI, if any
+     *
+     * @access public
+	 *
+     * @return string the form URI
+     */
+	public function getURI() {
+		return $this->uri;
+	}
+
+	/**
      * getAction - returns current action, if any
      *
-	 * @see getRedirection for arguments details
-	 *
      * @access public
 	 *
      * @return string the action
