@@ -42,7 +42,7 @@ if (!empty($_POST['settings'])) {
 		);
 
 		foreach($tasks as $t) {
-			if (!empty($_POST['settings_recall_all'])) {
+			if (!empty($_POST['settings_recall_type']) && $_POST['settings_recall_type'] == 'all') {
 				$ts = $_POST['settings_recall_time'];
 			}
 			else {
@@ -58,7 +58,7 @@ if (!empty($_POST['settings'])) {
 			);
 		}
 		
-		http::redirect($p_url.'&done=1&tab='.$tab);
+		http::redirect($p_url.'&done=1&tab='.$tab.'#'.$tab);
 	}
 	catch(Exception $e) {
 		$core->error->add($e->getMessage());
@@ -87,7 +87,7 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 		}
 		if (true === $code) {
 			$maintenance->setLog($task->id());
-			http::redirect($p_url.'&task='.$task->id().'&done=1&tab='.$tab);
+			http::redirect($p_url.'&task='.$task->id().'&done=1&tab='.$tab.'#'.$tab);
 		}
 	}
 	catch (Exception $e) {
@@ -181,7 +181,7 @@ if ($task && ($res = $task->step()) !== null) {
 	'</p>'.
 	'</form>'.
 	'<p class="step-back">'.
-		'<a class="back" href="'.$p_url.'&tab='.$task->tab().'">'.__('Back').'</a>'.
+		'<a class="back" href="'.$p_url.'&tab='.$task->tab().'#'.$task->tab().'">'.__('Back').'</a>'.
 	'</p>'.
 	'</div>';
 }

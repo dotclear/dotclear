@@ -1110,6 +1110,10 @@ msgid "Import a WordPress installation into your current blog."
 msgstr "Importe une installation WordPress dans le blog courant."
 
 #, php-format
+msgid "Export functions are in the page %s."
+msgstr "Les fonctions d'export sont dans la page de %s."
+
+#, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Cela importera le contenu WordPress comme un nouveau contenu dans le blog courant : %s."
 

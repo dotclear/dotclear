@@ -94,10 +94,15 @@ else {
 			'<span class="page-title">'.$title.'</span>' => ''
 		));
 
-	echo
-	'<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']).
-	'<h3>'.__('Export').'</h3>'.listImportExportModules($core,$modules['export']);
+	echo '<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']);
+	//echo '<h3>'.__('Export').'</h3>'.listImportExportModules($core,$modules['export']);
 }
+
+echo
+'<p class="info">'.sprintf(
+	__('Export functions are in the page %s.'),
+	'<a href="plugin.php?p=maintenance&tab=backup#backup">'.__('Maintenance').'</a>'
+).'</p>';
 
 echo '
 </body>
