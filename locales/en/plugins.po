@@ -882,6 +882,9 @@ msgstr ""
 msgid "Import a WordPress installation into your current blog."
 msgstr ""
 
+msgid "Export functions are in the page %s."
+msgstr ""
+
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr ""
