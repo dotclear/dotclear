@@ -516,6 +516,34 @@ input[type=text], input[type=password], textarea, select {
 		option.avail10n {
 			background: transparent url(../images/check-on.png) no-repeat 0 50%;
 			}
+		option.sub-option1 {
+			margin-left: .5em;
+		}
+		option.sub-option2 {
+			margin-left: 1.5em;
+		}
+		option.sub-option3 {
+			margin-left: 2.5em;
+		}
+		option.sub-option4 {
+			margin-left: 3.5em;
+		}
+		option.sub-option5 {
+			margin-left: 4.5em;
+		}
+		option.sub-option6 {
+			margin-left: 5.5em;
+		}
+		option.sub-option7 {
+			margin-left: 6.5em;
+		}
+		option.sub-option8 {
+			margin-left: 7.5em;
+		}
+		option.sub-option1:before, option.sub-option2:before, option.sub-option3:before, option.sub-option4:before,
+		option.sub-option5:before, option.sub-option6:before, option.sub-option7:before, option.sub-option8:before {
+			content: "\002022\0000a0";
+		}
 	input.invalid, textarea.invalid, select.invalid {
 		border: 1px solid red;
 		background: #FFBABA;
