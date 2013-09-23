@@ -54,8 +54,8 @@ class dcMaintenanceAdmin
 		->addGroup('index', __('Count and index'))
 		->addGroup('purge', __('Purge'))
 		->addGroup('other', __('Other'))
-		->addGroup('zipblog', __('Compressed file for current blog'))
-		->addGroup('zipfull', __('Compressed file for all blogs'))
+		->addGroup('zipblog', __('Current blog'))
+		->addGroup('zipfull', __('All blogs'))
 
 		->addGroup('l10n', __('Translations'), array('summary' => __('Maintain translations')))
 
