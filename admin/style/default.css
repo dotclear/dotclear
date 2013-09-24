@@ -1388,7 +1388,7 @@ a.form-control {
 	text-align: center;
 	}
 	#icons p {
-		width: 207px;
+		width: 170px;
 		text-align: center;
 		margin: 1em 0 2em;
 		padding: 1em 0;
@@ -2483,6 +2483,9 @@ ul.from-left {
 		}
 	#top-info-blog p {
 		display: block;
+		}
+	#icons p {
+		width: 150px;
 		}
 	#dashboard-boxes .box { /* a revoir quand le dashboard sera fini */
 		margin: 10px 0;
