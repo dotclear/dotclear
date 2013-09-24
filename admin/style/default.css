@@ -384,13 +384,10 @@ th {
 	border-width: 1px 0 1px 0;
 	border-style: solid;
 	border-color: #ddd;
-	background: #f3f3ff;
+	background: #eef1ec;
 	padding: .4em 1em .4em .5em;
 	vertical-align: top;
 	text-align: left;
-	text-transform: uppercase;
-	font-size: 10px;
-	font-size: 1rem;
 	}
 td {
 	border-width: 0 0 1px 0;
@@ -1226,8 +1223,14 @@ tr.line img.expand, th img.expand {
 tr.line p {
 	margin: 0;
 	}
-tr.line input {
+tr.line input, tr.line select {
 	vertical-align: middle;
+	background: #FFF;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+	}
+tr.line select {
+	width: 6em;
 	}
 tr.line:hover {
 	background: #f3f3f3;
@@ -1254,13 +1257,8 @@ table.posts-list {
 	min-width: 50%;
 	}
 table.settings, table.prefs {
-	width: 80%;
-	border: 1px solid #ccc;
 	margin-bottom: 3em;
 	}
-	table.settings th, table.prefs th {
-		background: #f3f3ff;
-		}
 	table.settings th:first-child, table.prefs th:first-child {
 		width: 20%;
 		}
@@ -2168,6 +2166,9 @@ div.template-upload {
 	background: #ecf0f1;
 	color: #000;
 	padding: 4px 1em;
+	}
+.anchor-nav label {
+	vertical-align: bottom;
 	}
 /* nav links */
 .nav_prevnext {
