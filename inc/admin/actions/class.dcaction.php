@@ -48,7 +48,10 @@ abstract class dcActionsPage
 	
 	/** @var string title for caller page title */
 	protected $caller_title;
-	
+
+	/** @var boolean true if we are acting inside a plugin (different handling of begin/endpage) */
+	protected $in_plugin;	
+
     /**
      * Class constructor
      * 
@@ -78,6 +81,8 @@ abstract class dcActionsPage
 		} else {
 			$this->redir_anchor='';
 		}
+		$u=explode('?',$_SERVER['REQUEST_URI']);
+		$this->in_plugin = (strpos($u[0],'plugin.php') !== false);
 	}
 	
     /**

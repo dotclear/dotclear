@@ -60,34 +60,11 @@ try {
 	$core->error->add($e->getMessage());
 }
 
-# Actions combo box
-$combo_action = array();
-if ($core->auth->check('publish,contentadmin',$core->blog->id))
-{
-	$combo_action[__('Status')] = array(
-		__('Publish') => 'publish',
-		__('Unpublish') => 'unpublish',
-		__('Schedule') => 'schedule',
-		__('Mark as pending') => 'pending'
-	);
-}
-$combo_action[__('Mark')] = array(
-	__('Mark as selected') => 'selected',
-	__('Mark as unselected') => 'unselected'
-);
-$combo_action[__('Change')] = array(__('Change category') => 'category');
-if ($core->auth->check('admin',$core->blog->id))
-{
-	$combo_action[__('Change')] = array_merge($combo_action[__('Change')],
-		array(__('Change author') => 'author'));
-}
-if ($core->auth->check('delete,contentadmin',$core->blog->id))
-{
-	$combo_action[__('Delete')] = array(__('Delete') => 'delete');
-}
+$posts_actions_page = new dcPostsActionsPage($core,'plugin.php',array('p'=>'tags', 'm'=>'tag_posts', 'tag'=> $tag));
 
-# --BEHAVIOR-- adminPostsActionsCombo
-$core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
+if ($posts_actions_page->process()) {
+	return;
+}
 
 ?>
 <html>
@@ -152,7 +129,7 @@ if (!$core->error->flag())
 	# Show posts
 	echo '<h3>'.sprintf(__('List of entries with the tag “%s”'),html::escapeHTML($tag)).'</h3>';
 	$post_list->display($page,$nb_per_page,
-	'<form action="posts_actions.php" method="post" id="form-entries">'.
+	'<form action="plugin.php" method="post" id="form-entries">'.
 	
 	'%s'.
 	
@@ -160,11 +137,12 @@ if (!$core->error->flag())
 	'<p class="col checkboxes-helpers"></p>'.
 	
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
-	form::combo('action',$combo_action).
+	form::combo('action',$posts_actions_page->getCombo()).
 	'<input type="submit" value="'.__('OK').'" /></p>'.
 	form::hidden('post_type','').
-	form::hidden('redir',$p_url.'&amp;m=tag_posts&amp;tag='.
-		str_replace('%','%%',rawurlencode($tag)).'&amp;page='.$page).
+	form::hidden('p','tags').
+	form::hidden('m','tag_posts').
+	form::hidden('tag',$tag).
 	$core->formNonce().
 	'</div>'.
 	'</form>');
