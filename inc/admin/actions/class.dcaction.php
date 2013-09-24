@@ -43,6 +43,9 @@ abstract class dcActionsPage
 	/** @var string title for checkboxes list, if displayed */
 	protected $cb_title;
 	
+	/** @var string title for caller page title */
+	protected $caller_title;
+	
     /**
      * Class constructor
      * 
@@ -65,6 +68,7 @@ abstract class dcActionsPage
 		$this->entries = array();
 		$this->from = new ArrayObject($_POST);
 		$this->field_entries = 'entries';
+		$this->caller_title = __('Entries');
 	}
 	
     /**
@@ -193,6 +197,7 @@ abstract class dcActionsPage
 		}
 	}
 
+
 	/**
      * getRedirection - returns redirection URL
      *
@@ -237,6 +242,17 @@ abstract class dcActionsPage
 	}
 
 	/**
+     * getCallerTitle - returns current form URI, if any
+     *
+     * @access public
+	 *
+     * @return string the form URI
+     */
+	public function getCallerTitle() {
+		return $this->caller_title;
+	}
+	
+	/**
      * getAction - returns current action, if any
      *
      * @access public
@@ -274,6 +290,7 @@ abstract class dcActionsPage
 				}
 			} catch (Exception $e) {
 				$this->error($e);
+				return true;
 			}
 		}
 	}

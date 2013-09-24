@@ -18,13 +18,14 @@ class dcPostsActionsPage extends dcActionsPage
 		$this->redirect_fields = array('user_id','cat_id','status',
 		'selected','month','lang','sortby','order','page','nb');
 		$this->loadDefaults();
-		$core->callBehavior('adminPostsActionsPage',$core,$this);
 	}
 
 	protected function loadDefaults() {
 		// We could have added a behavior here, but we want default action
 		// to be setup first
 		dcDefaultPostActions::adminPostsActionsPage($this->core,$this);
+		$this->core->callBehavior('adminPostsActionsPage',$this->core,$this);
+
 	}
 	
 	public function beginPage($breadcrumb='',$head='') {
@@ -47,7 +48,7 @@ class dcPostsActionsPage extends dcActionsPage
 		$this->beginPage(dcPage::breadcrumb(
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
-				__('Entries') => $this->getRedirection(array(),true),
+				$this->getCallerTitle() => $this->getRedirection(array(),true),
 				'<span class="page-title">'.__('Entries actions').'</span>' => ''
 			))
 		);
@@ -215,8 +216,8 @@ class dcDefaultPostActions
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Change category for entries').'</span>' => ''
+						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
+						'<span class="page-title">'.__('Change category for this selection').'</span>' => ''
 			)));
 			# categories list
 			# Getting categories
@@ -285,8 +286,8 @@ class dcDefaultPostActions
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Change author for entries').'</span>' => '')),
+						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
+						'<span class="page-title">'.__('Change author for this selection').'</span>' => '')),
 					dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 					'<script type="text/javascript">'."\n".
 					"//<![CDATA[\n".
@@ -296,7 +297,7 @@ class dcDefaultPostActions
 			);
 
 			echo
-			'<form action="posts_actions.php" method="post">'.
+			'<form action="'.$ap->getRedirection(array(),true).'" method="post">'.
 			$ap->getCheckboxes().
 			'<p><label for="new_auth_id" class="classic">'.__('New author (author ID):').'</label> '.
 			form::field('new_auth_id',20,255);
@@ -326,8 +327,8 @@ class dcDefaultPostActions
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Change language for entries').'</span>' => ''
+						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
+						'<span class="page-title">'.__('Change language for this selection').'</span>' => ''
 			)));
 			# lang list
 			# Languages combo
@@ -346,7 +347,7 @@ class dcDefaultPostActions
 			unset($rs);
 			
 			echo
-			'<form action="posts_actions.php" method="post">'.
+			'<form action="'.$ap->getRedirection(array(),true).'" method="post">'.
 			$ap->getCheckboxes().
 			
 			'<p><label for="new_lang" class="classic">'.__('Entry language:').'</label> '.

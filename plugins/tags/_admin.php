@@ -151,7 +151,7 @@ class tagsBehaviors
 					array(
 						html::escapeHTML($core->blog->name) => '',
 						__('Entries') => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Add tags to entries').'</span>' => ''
+						'<span class="page-title">'.__('Add tags to this selection').'</span>' => ''
 				)),
 				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 				dcPage::jsMetaEditor().
@@ -220,19 +220,16 @@ class tagsBehaviors
 					}
 				}
 			}
+			if (empty($tags)) {
+				throw new Exception(__('No tags for selected entries'));
+			}			
 			$ap->beginPage(
 				dcPage::breadcrumb(
-					array(
-						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => 'posts.php',
-						'<span class="page-title">'.__('Remove selected tags from entries').'</span>' => ''
+						array(
+							html::escapeHTML($core->blog->name) => '',
+							__('Entries') => 'posts.php',
+							'<span class="page-title">'.__('Remove selected tags from this selection').'</span>' => ''
 			)));
-			
-			if (empty($tags)) {
-				echo '<p>'.__('No tags for selected entries').'</p>';
-				return;
-			}
-			
 			$posts_count = count($_POST['entries']);
 			
 			echo
@@ -254,7 +251,7 @@ class tagsBehaviors
 			echo
 			'<p><input type="submit" value="'.__('ok').'" />'.
 			
-			$core->formNonce().
+			$core->formNonce().$ap->getHiddenFields().
 			form::hidden(array('action'),'tags_remove').
 			'</p></div></form>';
 			$ap->endPage();
