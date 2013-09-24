@@ -208,11 +208,11 @@ msgstr "Ce commentaire est indésirable :"
 
 #, php-format
 msgid "(including %d spam comment)"
-msgstr "(dont %d commentaire indésirable)"
+msgstr "(dont %d indésirable)"
 
 #, php-format
 msgid "(including %d spam comments)"
-msgstr "(dont %d commentaires indésirables)"
+msgstr "(dont %d indésirables)"
 
 msgid "Spam moderation"
 msgstr "Modération des indésirables"
