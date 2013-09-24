@@ -34,15 +34,22 @@ function dc_valid_fav($url) {
 	return true;
 }
 
-function dc_prepare_url($url) {
-
-	$u = str_replace(array('?','&amp;','/'),array('\?','&','\\/'),$url);
-	return (!strpos($u,'\?') ? 
-		'/'.$u.'$/' :
-		(!strpos($u,'&') ? 
-		'/'.$u.'(\?.*)?$/' :
-		'/'.$u.'(&.*)?$/'));
+function dc_check_active($url) {
+	$u = explode('?',$url,2);
+	if (!preg_match('/'.preg_quote($u[0],"/").'/',$_SERVER['REQUEST_URI'])) {
+		return false;
+	}
+	if (count($u) == 2) {
+		parse_str($u[1],$p);
+		foreach ($p as $k => $v) {
+			if (!isset($_REQUEST[$k]) || $_REQUEST[$k] !== $v) {
+				return false;
+			}
+		}
+	}
+	return true;
 }
+
 
 function dc_load_locales() {
 	global $_lang, $core;
@@ -356,7 +363,7 @@ if ($core->auth->userID() && $core->blog !== null)
 				if (dc_valid_fav($fav['url'])) {
 					$count++;
 					$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-						preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
+						dc_check_active($fav['url']),
 						(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 				}
 			}
@@ -368,7 +375,7 @@ if ($core->auth->userID() && $core->blog !== null)
 				if (dc_valid_fav($fav['url'])) {
 					$count++;
 					$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-						preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
+						dc_check_active($fav['url']),
 						(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
 				}
 			}
