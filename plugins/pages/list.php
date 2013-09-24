@@ -55,7 +55,12 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
   <title><?php echo __('Pages'); ?></title>
   <?php
   	echo dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
-  	     dcPage::jsLoad('index.php?pf=pages/list.js');
+		dcPage::jsLoad('index.php?pf=pages/list.js').
+		'<script type="text/javascript">'.
+		'//<![CDATA['.
+		dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")).
+		'//]]>';
+
   ?>
   <script type="text/javascript">
   //<![CDATA[

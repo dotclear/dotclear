@@ -33,10 +33,6 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 	public function beginPage($breadcrumb='',$head='') {
 		echo '<html><head><title>'.__('Pages').'</title>'.
 			dcPage::jsLoad('js/_posts_actions.js').
-			'<script type="text/javascript">'.
-			'//<![CDATA['.
-			dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")).
-			'//]]>'.
 			$head.
 			'</script></head><body>'.
 			$breadcrumb;
