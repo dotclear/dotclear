@@ -831,6 +831,12 @@ function showComments($rs,$has_action,$tb=false)
 	'<th>'.__('Status').'</th>'.
 	'<th>'.__('Edit').'</th>'.
 	'</tr>';
+	$comments = array();
+	if (isset($_REQUEST['comments'])) {
+		foreach ($_REQUEST['comments'] as $v) {
+			$comments[(integer)$v]=true;
+		}
+	}			
 	
 	while($rs->fetch())
 	{
@@ -857,7 +863,7 @@ function showComments($rs,$has_action,$tb=false)
 		' id="c'.$rs->comment_id.'">'.
 		
 		'<td class="nowrap">'.
-		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
+		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,isset($comments[$rs->comment_id]),'','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
 		'<td class="maximal">'.html::escapeHTML($rs->comment_author).'</td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
 		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.
