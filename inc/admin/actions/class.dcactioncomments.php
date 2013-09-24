@@ -56,6 +56,29 @@ class dcCommentsActionsPage extends dcActionsPage
 		$this->endPage();
 	}
 	
+	/**
+     * getcheckboxes -returns html code for selected entries
+	 * 			as a table containing entries checkboxes
+     *
+     * @access public
+	 *
+     * @return string the html code for checkboxes
+     */
+	public function getCheckboxes() {
+		$ret = 
+			'<table class="posts-list"><tr>'.
+			'<th colspan="2">'.__('Author').'</th><th>'.__('Title').'</th>'.
+			'</tr>';
+		foreach ($this->entries as $id=>$title) {
+			$ret .= 
+				'<tr><td>'.
+				form::checkbox(array($this->field_entries.'[]'),$id,true,'','').'</td>'.
+				'<td>'.	$title['author'].'</td><td>'.$title['title'].'</td></tr>';
+		}
+		$ret .= '</table>';
+		return $ret;
+	}
+
 	protected function fetchEntries($from) {
 		if (!empty($from['comments'])) {
 			$comments = $from['comments'];
@@ -78,6 +101,8 @@ class dcCommentsActionsPage extends dcActionsPage
 				);
 			}
 			$this->rs = $co;
+		} else {
+			$this->rs = $this->core->con->select("SELECT blog_id FROM ".$this->core->prefix."blog WHERE false");;
 		}
 	}
 }
