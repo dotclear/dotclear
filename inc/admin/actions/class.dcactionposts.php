@@ -358,6 +358,7 @@ class dcDefaultPostActions
 				form::hidden(array('action'),'lang').
 				'<input type="submit" value="'.__('Save').'" /></p>'.
 				'</form>';
+			$ap->endPage();
 		}
 	}
 }
