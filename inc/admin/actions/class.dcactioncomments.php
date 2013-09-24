@@ -37,7 +37,7 @@ class dcCommentsActionsPage extends dcActionsPage
 			$head,
 			$breadcrumb
 		);	
-		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to entries list').'</a></p>';
+		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to comments list').'</a></p>';
 	}
 	
 	public function endPage() {
