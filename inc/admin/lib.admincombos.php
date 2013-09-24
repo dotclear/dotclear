@@ -36,9 +36,9 @@ class dcAdminCombos {
 		}
 		while ($categories->fetch()) {
 			$categories_combo[] = new formSelectOption (
-				str_repeat('&nbsp;&nbsp;',$categories->level-1).($categories->level-1 == 0 ? '' : '&bull; ').
 				html::escapeHTML($categories->cat_title).' ('.$categories->nb_post.')',
-				$categories->cat_id
+				$categories->cat_id,
+				($categories->level-1 ? 'sub-option'.($categories->level-1) : '')
 			);
 		}
 		return $categories_combo;

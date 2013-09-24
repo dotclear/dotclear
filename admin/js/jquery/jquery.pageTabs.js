@@ -17,7 +17,7 @@
 		if (hash !== undefined && hash) {
 			$('ul li a[href$="#'+hash+'"]').parent().trigger('click');
 			active_tab = hash;
-		} else { // open first part
+		} else if (active_tab == '') { // open first part
 			active_tab = $('.'+options.contentClass+':eq(0)').attr('id');
 		}
 		

@@ -43,6 +43,9 @@ abstract class dcActionsPage
 	/** @var string title for checkboxes list, if displayed */
 	protected $cb_title;
 	
+	/** @var string title for caller page title */
+	protected $caller_title;
+	
     /**
      * Class constructor
      * 
@@ -65,6 +68,7 @@ abstract class dcActionsPage
 		$this->entries = array();
 		$this->from = new ArrayObject($_POST);
 		$this->field_entries = 'entries';
+		$this->caller_title = __('Entries');
 	}
 	
     /**
@@ -193,6 +197,7 @@ abstract class dcActionsPage
 		}
 	}
 
+
 	/**
      * getRedirection - returns redirection URL
      *
@@ -212,7 +217,7 @@ abstract class dcActionsPage
 		}
 		return $this->uri.'?'.http_build_query($redir_args);
 	}
-
+	
 	/**
      * redirect - redirects to redirection page
      *
@@ -222,13 +227,34 @@ abstract class dcActionsPage
      */
 	public function redirect($params=array(),$with_selected_entries=false) {
 		http::redirect($this->getRedirection($params,$with_selected_entries));
+		exit;
 	}	
+	
+	/**
+     * getURI - returns current form URI, if any
+     *
+     * @access public
+	 *
+     * @return string the form URI
+     */
+	public function getURI() {
+		return $this->uri;
+	}
+
+	/**
+     * getCallerTitle - returns current form URI, if any
+     *
+     * @access public
+	 *
+     * @return string the form URI
+     */
+	public function getCallerTitle() {
+		return $this->caller_title;
+	}
 	
 	/**
      * getAction - returns current action, if any
      *
-	 * @see getRedirection for arguments details
-	 *
      * @access public
 	 *
      * @return string the action
@@ -260,10 +286,11 @@ abstract class dcActionsPage
 					}
 				}
 				if ($performed) {
-					exit;
+					return true;
 				}
 			} catch (Exception $e) {
 				$this->error($e);
+				return true;
 			}
 		}
 	}

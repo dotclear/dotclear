@@ -8,16 +8,16 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		expect($('#user-favorites')).toBeVisible();
 		expect($('.part-tabs')).not.toExist();
  
-		$.pageTabs('user-options');
-		expect($('#part-user-options')).toBeVisible();
+		$.pageTabs('user-favorites');
+		expect($('#part-user-options')).not.toBeVisible();
 		expect($('#part-user-profile')).not.toBeVisible();
-		expect($('#part-user-favorites')).not.toBeVisible();
+		expect($('#part-user-favorites')).toBeVisible();
  
 		expect($('.part-tabs')).toExist();
 		expect($('.part-tabs ul li#part-tabs-user-options')).toExist();
 		expect($('.part-tabs ul li#part-tabs-user-profile')).toExist();
 		expect($('.part-tabs ul li#part-tabs-user-favorites')).toExist();
-		expect($('#part-tabs-user-options')).toHaveClass('part-tabs-active');
+		expect($('#part-tabs-user-favorites')).toHaveClass('part-tabs-active');
 	});
 
 	it("Must open first part if pageTabs called without argument", function() {

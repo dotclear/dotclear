@@ -20,6 +20,8 @@ class dcMaintenanceLogs extends dcMaintenanceTask
 		$this->task 		= __('Delete all logs');
 		$this->success 		= __('Logs deleted.');
 		$this->error 		= __('Failed to delete logs.');
+
+		$this->description = __('Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time.');
 	}
 
 	public function execute()

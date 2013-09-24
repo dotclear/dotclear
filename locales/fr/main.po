@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-22 16:57+0000\n"
+"POT-Creation-Date: 2013-09-24 07:51+0000\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -19,6 +19,138 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
+
+msgid "medium"
+msgstr "moyenne"
+
+msgid "small"
+msgstr "petite"
+
+msgid "thumbnail"
+msgstr "vignettes"
+
+msgid "square"
+msgstr "carrée"
+
+msgid "Manage every blog configuration directive"
+msgstr ""
+
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
+msgid "Generic antispam plugin for Dotclear"
+msgstr ""
+
+msgid "Manage post attachments"
+msgstr "Gérer les annexes"
+
+msgid "Manage your blogroll"
+msgstr "Gérez votre listes de liens"
+
+msgid "Configure your Blowup Theme"
+msgstr "Configurer votre thème Blowup"
+
+msgid "Install and update your plugins live from DotAddict.org"
+msgstr ""
+
+msgid "Trackback validity check"
+msgstr ""
+
+msgid "Import and Export your blog"
+msgstr ""
+
+msgid "Maintain your installation"
+msgstr "Maintenir votre installation"
+
+msgid "Serve entries as simple web pages"
+msgstr ""
+
+msgid "Ping services"
+msgstr ""
+
+msgid "Simple menu for Dotclear"
+msgstr "Menu simple sur Dotclear"
+
+msgid "Tags for posts"
+msgstr ""
+
+msgid "Theme Editor"
+msgstr ""
+
+msgid "Manage every user preference directive"
+msgstr ""
+
+msgid "Widgets for your blog sidebars"
+msgstr ""
+
+msgid "Search engine form"
+msgstr "Formulaire du moteur de recherche"
+
+msgid "List of navigation links"
+msgstr "Liste des liens de navigation"
+
+msgid "List of selected entries"
+msgstr "Entrées sélectionnées"
+
+msgid "List of available languages"
+msgstr "Langues disponibles"
+
+msgid "List of categories"
+msgstr "Liste des catégories du blog"
+
+msgid "RSS or Atom feed subscription links"
+msgstr ""
+
+msgid "Last entries from feed"
+msgstr "Derniers billets du flux"
+
+msgid "Simple text"
+msgstr ""
+
+msgid "List of last entries published"
+msgstr "Derniers billets publiés"
+
+msgid "List of last comments posted"
+msgstr "Derniers commentaires postés"
+
+msgid "Tags cloud"
+msgstr ""
+
+msgid "List of published pages"
+msgstr "Liste des pages publiées"
+
+msgid "Blogroll list"
+msgstr "Liste des liens"
+
+msgid "List of simple menu items"
+msgstr ""
+
+msgid "Posts"
+msgstr "Billets"
+
+msgid "Pages"
+msgstr "Pages"
+
+msgid "New entry"
+msgstr "Nouveau billet"
+
+msgid "Entries"
+msgstr "Billets"
+
+msgid "Comments"
+msgstr "Commentaires"
+
+msgid "My preferences"
+msgstr "Mes préférences"
+
+msgid "Blog settings"
+msgstr "Paramètres du blog"
+
+msgid "Blog appearance"
+msgstr "Apparence du blog"
+
+msgid "Blogroll"
+msgstr "Liste de liens"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear a été mis à jour."
@@ -256,9 +388,6 @@ msgstr "Cet identifiant est déjà utilisé."
 msgid "Invalid language code"
 msgstr "Code langue invalide"
 
-msgid "Blog settings"
-msgstr "Paramètres du blog"
-
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Attention : sauf cas particulier, il est généralement conseillé de terminer l'URL de votre blog par \"/\" en mode PATH_INFO."
 
@@ -347,7 +476,7 @@ msgid "Leave comments open for %s days"
 msgstr "Laisser les commentaires ouverts durant %s jours"
 
 msgid "No limit: leave blank."
-msgstr ""
+msgstr "Aucune limite : laisser vide."
 
 msgid "Wiki syntax for comments"
 msgstr "Syntaxe wiki pour les commentaires"
@@ -371,8 +500,17 @@ msgstr "Présentation du blog"
 msgid "Date format:"
 msgstr "Format des dates :"
 
+msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
+msgstr ""
+
 msgid "Time format:"
 msgstr "Format des heures :"
+
+msgid "Pattern of time"
+msgstr ""
 
 msgid "Display smilies on entries and comments"
 msgstr "Afficher des émoticônes dans les billets, pages et commentaires"
@@ -396,10 +534,10 @@ msgid "Media and images"
 msgstr "Médias et images"
 
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
-msgstr ""
+msgstr "Veuillez noter que si vous changez ces réglages, ils s'appliqueront désormais à toutes les nouvelles images ajoutées à la médiathèque."
 
 msgid "Be carefull if you share it with other blogs in your installation."
-msgstr ""
+msgstr "Soyez prudent si vous plusieurs blogs de l'installation partagent la même médiathèque."
 
 msgid "Generated image sizes (in pixels)"
 msgstr "Tailles des miniatures générées (largeur en pixels)"
@@ -501,9 +639,6 @@ msgstr "Feuille de style"
 
 msgid "Configure theme"
 msgstr "Configurer le thème"
-
-msgid "Blog appearance"
-msgstr "Apparence du blog"
 
 msgid "Theme configuration"
 msgstr "Configuration du thème"
@@ -883,12 +1018,6 @@ msgstr "%d commentaire"
 #, php-format
 msgid "%d comments"
 msgstr "%d commentaires"
-
-msgid "New entry"
-msgstr "Nouveau billet"
-
-msgid "My preferences"
-msgstr "Mes préférences"
 
 msgid "Dotclear news"
 msgstr "Actualité de Dotclear"
@@ -1353,7 +1482,7 @@ msgstr "Trier"
 
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
-msgstr ""
+msgstr "Les réglages actuels pour les médias et les images sont définis sur le %s"
 
 msgid "Blog parameters"
 msgstr "Paramètres du blog"
@@ -1368,7 +1497,8 @@ msgstr "Créer un répertoire"
 msgid "Directory Name:"
 msgstr "Nom du répertoire :"
 
-#php-format
+# php-format
+#, php-format
 msgid "Backup content of %s"
 msgstr "Sauvegarder le contenu de %s"
 
@@ -1736,9 +1866,6 @@ msgstr "En attente"
 msgid "&ldquo;%s&rdquo;"
 msgstr "&ldquo;%s&rdquo;"
 
-msgid "Entries"
-msgstr "Billets"
-
 msgid "Entry has been successfully updated."
 msgstr "Billet mis à jour avec succès."
 
@@ -1779,7 +1906,7 @@ msgid "Convert to XHTML"
 msgstr "Convertir en XHTML"
 
 msgid "Filing"
-msgstr ""
+msgstr "Classement"
 
 msgid "Selected entry"
 msgstr "Billet sélectionné"
@@ -1843,9 +1970,6 @@ msgstr "Mettre en attente"
 
 msgid "Mark as junk"
 msgstr "Mettre en indésirable"
-
-msgid "Comments"
-msgstr "Commentaires"
 
 msgid "Add a comment"
 msgstr "Ajouter un commentaire"
@@ -2011,6 +2135,9 @@ msgstr "Désactiver le glisser-déposer pour ordonnancer les éléments"
 
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Si cette option est cochée, des champs numériques permettront d'indiquer la position des éléments."
+
+msgid "Number of media displayed per page:"
+msgstr ""
 
 msgid "Do not use standard favicon"
 msgstr "Ne pas utiliser le favicon standard de Dotclear"
@@ -2371,8 +2498,8 @@ msgstr "Changer l'auteur"
 msgid "No entry selected"
 msgstr "Aucune entrée sélectionnée"
 
-msgid "Change category for entries"
-msgstr "Changer la catégorie des billets"
+msgid "Change category for this selection"
+msgstr "Changer la catégorie pour cette sélection"
 
 msgid "Create a new category for the post(s)"
 msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
@@ -2380,14 +2507,14 @@ msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 msgid "This user does not exist"
 msgstr "Cet utilisateur n'existe pas"
 
-msgid "Change author for entries"
-msgstr "Changer l'auteur de ces entrées"
+msgid "Change author for this selection"
+msgstr "Changer l'auteur pour cette sélection"
 
 msgid "New author (author ID):"
 msgstr "Nouvel auteur (identifiant utilisateur) :"
 
-msgid "Change language for entries"
-msgstr "Changer la langue de ces entrées"
+msgid "Change language for this selection"
+msgstr "Changer la langue de cette sélection"
 
 msgid "Available"
 msgstr "Disponible"
@@ -2397,6 +2524,15 @@ msgstr "Plus utilisées"
 
 msgid "Entry language:"
 msgstr "Langue du billet :"
+
+msgid "Users actions"
+msgstr "Actions sur les utilisateurs"
+
+msgid "No User selected"
+msgstr "Aucun utilisateur sélectionné"
+
+msgid "(no cat)"
+msgstr "(aucune)"
 
 msgid "Change blog"
 msgstr "Changer de blog"
@@ -2797,27 +2933,6 @@ msgstr "Mise à jour"
 
 msgid "Languages"
 msgstr "Langues"
-
-msgid "medium"
-msgstr "moyenne"
-
-msgid "small"
-msgstr "petite"
-
-msgid "thumbnail"
-msgstr "vignettes"
-
-msgid "square"
-msgstr "carrée"
-
-msgid "Posts"
-msgstr "Billets"
-
-msgid "Pages"
-msgstr "Pages"
-
-msgid "Blogroll"
-msgstr ""
 
 msgid "administrator"
 msgstr "administrateur"
@@ -3316,12 +3431,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgid "Ordering"
 #~ msgstr "Classement"
 
-#~ msgid "Users actions"
-#~ msgstr "Actions sur les utilisateurs"
-
-#~ msgid "(no cat)"
-#~ msgstr "(aucune)"
-
 #~ msgid "Category where entries of deleted categories will be moved:"
 #~ msgstr "Catégorie où seront déplacés les billets des catégories supprimées :"
 
@@ -3366,9 +3475,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "The category has been successfully created."
 #~ msgstr "Catégorie créée avec succès."
-
-#~ msgid "List of blog's categories"
-#~ msgstr "Liste des catégories du blog"
 
 #~ msgid "Remove a category"
 #~ msgstr "Supprimer une catégorie"
@@ -3483,9 +3589,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Those favorites are displayed when My Favorites list is empty."
 #~ msgstr "Favoris affichés quand la liste Mes Favoris est vide."
-
-#~ msgid "This entry does not exist or is not published"
-#~ msgstr "Ce billet n'existe pas ou n'est pas publié"
 
 #~ msgid "Back to \"%s\""
 #~ msgstr "Retour à \"%s\""

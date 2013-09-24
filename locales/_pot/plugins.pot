@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-22 16:57+0000\n"
+"POT-Creation-Date: 2013-09-24 07:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,130 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-
-#: plugins/_fake_plugin/_fake_l10n.php:5
-msgid "Manage every blog configuration directive"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:6
-msgid "Akismet interface for Dotclear"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:7
-msgid "Generic antispam plugin for Dotclear"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:8
-msgid "Manage post attachments"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:9
-msgid "Manage your blogroll"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:10
-msgid "Configure your Blowup Theme"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/daInstaller/index.php:267
-msgid "Install and update your plugins live from DotAddict.org"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:12
-msgid "Trackback validity check"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:13
-msgid "Import and Export your blog"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:14
-msgid "Maintain your installation"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:15
-msgid "Serve entries as simple web pages"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:16
-msgid "Ping services"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:17
-msgid "Simple menu for Dotclear"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:18
-msgid "Tags for posts"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:19
-msgid "Theme Editor"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:20
-msgid "Manage every user preference directive"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:21
-msgid "Widgets for your blog sidebars"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:25
-msgid "Search engine form"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:26
-msgid "List of navigation links"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:27
-msgid "List of selected entries"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:28
-msgid "List of available languages"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:29
-msgid "List of categories"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:30
-msgid "RSS or Atom feed subscription links"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:31
-msgid "Last entries from feed"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:32
-msgid "Simple text"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:33
-msgid "List of last entries published"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:34
-msgid "List of last comments posted"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:35
-msgid "Tags cloud"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:36
-msgid "List of published pages"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:37
-msgid "Blogroll list"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:38
-msgid "List of simple menu items"
-msgstr ""
 
 #: plugins/aboutConfig/index.php:78 plugins/userPref/index.php:74
 msgid "no"
@@ -238,7 +114,7 @@ msgid "days"
 msgstr ""
 
 #: plugins/antispam/_admin.php:75
-msgid "Set spam filters on it's page."
+msgid "Set spam filters."
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:31
@@ -832,7 +708,7 @@ msgstr ""
 #: plugins/importExport/inc/class.dc.import.feed.php:92
 #: plugins/importExport/inc/class.dc.import.flat.php:203
 #: plugins/importExport/inc/class.dc.import.flat.php:234
-#: plugins/importExport/index.php:98
+#: plugins/importExport/index.php:97
 msgid "Import"
 msgstr ""
 
@@ -1367,7 +1243,6 @@ msgstr ""
 
 #: plugins/importExport/inc/class.dc.export.flat.php:209
 #: plugins/importExport/inc/class.dc.export.flat.php:231
-#: plugins/importExport/index.php:99
 msgid "Export"
 msgstr ""
 
@@ -1671,23 +1546,44 @@ msgstr ""
 msgid "Download database of all blogs"
 msgstr ""
 
-#: plugins/importExport/index.php:69 plugins/maintenance/index.php:128
+#: plugins/importExport/index.php:69 plugins/maintenance/index.php:119
 msgid "Please wait..."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:16 plugins/maintenance/_admin.php:168
-#: plugins/maintenance/_admin.php:190 plugins/maintenance/index.php:120
-#: plugins/maintenance/index.php:144 plugins/maintenance/index.php:170
-#: plugins/maintenance/index.php:205
+#: plugins/importExport/index.php:103
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
+#: plugins/importExport/index.php:104 plugins/maintenance/_admin.php:16
+#: plugins/maintenance/_admin.php:172 plugins/maintenance/_admin.php:194
+#: plugins/maintenance/index.php:111 plugins/maintenance/index.php:135
+#: plugins/maintenance/index.php:160 plugins/maintenance/index.php:195
 msgid "Maintenance"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:50
+#: plugins/maintenance/_admin.php:49
 msgid "Servicing"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:51
+#: plugins/maintenance/_admin.php:49
+msgid "Tools to maintain the performance of your blogs."
+msgstr ""
+
+#: plugins/maintenance/_admin.php:50
 msgid "Backup"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:50
+msgid "Tools to back up your content."
+msgstr ""
+
+#: plugins/maintenance/_admin.php:51
+msgid "Development"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:51
+msgid "Tools to assist in development of plugins, themes and core."
 msgstr ""
 
 #: plugins/maintenance/_admin.php:53
@@ -1707,53 +1603,61 @@ msgid "Other"
 msgstr ""
 
 #: plugins/maintenance/_admin.php:57
-msgid "Compressed file for current blog"
+msgid "Current blog"
 msgstr ""
 
 #: plugins/maintenance/_admin.php:58
-msgid "Compressed file for all blogs"
+msgid "All blogs"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:125
+#: plugins/maintenance/_admin.php:60
+msgid "Maintain translations"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:60
+msgid "Translations"
+msgstr ""
+
+#: plugins/maintenance/_admin.php:129
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:153 plugins/maintenance/index.php:236
+#: plugins/maintenance/_admin.php:157 plugins/maintenance/index.php:227
 msgid "This task has never been executed."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:155 plugins/maintenance/index.php:242
+#: plugins/maintenance/_admin.php:159 plugins/maintenance/index.php:233
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:169
+#: plugins/maintenance/_admin.php:173
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:171
+#: plugins/maintenance/_admin.php:175
 msgid "Manage tasks"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:194
+#: plugins/maintenance/_admin.php:198
 msgid "Display count of late tasks on maintenance dashboard icon"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:198
+#: plugins/maintenance/_admin.php:202
 msgid "Display list of late tasks on dashboard items"
 msgstr ""
 
-#: plugins/maintenance/inc/class.dc.maintenance.task.php:70
+#: plugins/maintenance/inc/class.dc.maintenance.task.php:71
 msgid "Failed to execute task."
 msgstr ""
 
-#: plugins/maintenance/inc/class.dc.maintenance.task.php:73
+#: plugins/maintenance/inc/class.dc.maintenance.task.php:74
 msgid "Task successfully executed."
 msgstr ""
 
@@ -1769,6 +1673,10 @@ msgstr ""
 msgid "Failed to empty templates cache directory."
 msgstr ""
 
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.cache.php:24
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+msgstr ""
+
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.countcomments.php:20
 msgid "Count again comments and trackbacks"
 msgstr ""
@@ -1779,6 +1687,10 @@ msgstr ""
 
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.countcomments.php:22
 msgid "Failed to count comments and trackbacks."
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.countcomments.php:24
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr ""
 
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:23
@@ -1792,6 +1704,7 @@ msgstr ""
 
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:25
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:25
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php:25
 msgid "Next"
 msgstr ""
 
@@ -1806,6 +1719,10 @@ msgstr ""
 
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:28
 msgid "Failed to index comments."
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexcomments.php:30
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr ""
 
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:24
@@ -1825,6 +1742,10 @@ msgstr ""
 msgid "Failed to index entries."
 msgstr ""
 
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.indexposts.php:30
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr ""
+
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:20
 msgid "Delete all logs"
 msgstr ""
@@ -1837,104 +1758,149 @@ msgstr ""
 msgid "Failed to delete logs."
 msgstr ""
 
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:24
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php:23
+msgid "Entries metadata"
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php:24
+msgid "Synchronize entries metadata"
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php:26
+#, php-format
+msgid "Synchronize entry %d to %d."
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php:27
+msgid "Entries metadata synchronize done."
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php:28
+msgid "Failed to synchronize entries metadata."
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.synchpostsmeta.php:30
+msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
+msgstr ""
+
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.vacuum.php:20
-msgid "optimize tables"
+msgid "Optimise database"
 msgstr ""
 
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.vacuum.php:21
-msgid "Optimization successful."
+msgid "optimize tables"
 msgstr ""
 
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.vacuum.php:22
+msgid "Optimization successful."
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.vacuum.php:23
 msgid "Failed to optimize tables."
+msgstr ""
+
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.vacuum.php:25
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
 msgstr ""
 
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.zipmedia.php:23
 msgid "Download media folder of current blog"
 msgstr ""
 
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.zipmedia.php:25
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr ""
+
 #: plugins/maintenance/inc/tasks/class.dc.maintenance.ziptheme.php:23
 msgid "Download active theme of current blog"
 msgstr ""
 
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.ziptheme.php:25
+msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
+msgstr ""
+
 #: plugins/maintenance/index.php:101
-msgid "Every week"
-msgstr ""
-
-#: plugins/maintenance/index.php:102
-msgid "Every two weeks"
-msgstr ""
-
-#: plugins/maintenance/index.php:103
-msgid "Every month"
-msgstr ""
-
-#: plugins/maintenance/index.php:104
-msgid "Every two months"
-msgstr ""
-
-#: plugins/maintenance/index.php:108
-msgid "Use different periods for each task"
-msgstr ""
-
-#: plugins/maintenance/index.php:113
 msgid "Never"
 msgstr ""
 
-#: plugins/maintenance/index.php:148
+#: plugins/maintenance/index.php:102
+msgid "Every week"
+msgstr ""
+
+#: plugins/maintenance/index.php:103
+msgid "Every two weeks"
+msgstr ""
+
+#: plugins/maintenance/index.php:104
+msgid "Every month"
+msgstr ""
+
+#: plugins/maintenance/index.php:105
+msgid "Every two months"
+msgstr ""
+
+#: plugins/maintenance/index.php:138
 msgid "You have not sufficient permissions to view this page."
 msgstr ""
 
-#: plugins/maintenance/index.php:157
+#: plugins/maintenance/index.php:147
 msgid "Settings successfully updated"
 msgstr ""
 
-#: plugins/maintenance/index.php:194
+#: plugins/maintenance/index.php:172
 msgid "Back"
 msgstr ""
 
-#: plugins/maintenance/index.php:237 plugins/maintenance/index.php:246
+#: plugins/maintenance/index.php:228 plugins/maintenance/index.php:237
 msgid "You should execute it now."
 msgstr ""
 
-#: plugins/maintenance/index.php:268 plugins/maintenance/index.php:290
+#: plugins/maintenance/index.php:260 plugins/maintenance/index.php:282
 msgid "Execute task"
 msgstr ""
 
-#: plugins/maintenance/index.php:271
+#: plugins/maintenance/index.php:263
 msgid "This may take a very long time."
 msgstr ""
 
-#: plugins/maintenance/index.php:301 plugins/maintenance/index.php:302
-msgid "Settings"
+#: plugins/maintenance/index.php:293 plugins/maintenance/index.php:294
+msgid "Alert settings"
 msgstr ""
 
-#: plugins/maintenance/index.php:305
+#: plugins/maintenance/index.php:297
 msgid "Activation"
 msgstr ""
 
-#: plugins/maintenance/index.php:308
+#: plugins/maintenance/index.php:300
 msgid "Display alert messages on late tasks"
 msgstr ""
 
-#: plugins/maintenance/index.php:311
+#: plugins/maintenance/index.php:303
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr ""
 
-#: plugins/maintenance/index.php:315
+#: plugins/maintenance/index.php:307
 msgid "Frequency"
 msgstr ""
 
-#: plugins/maintenance/index.php:317
+#: plugins/maintenance/index.php:311
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+#: plugins/maintenance/index.php:313
 msgid "Recall time for all tasks:"
 msgstr ""
 
-#: plugins/maintenance/index.php:321
-msgid "Recall time per task:"
+#: plugins/maintenance/index.php:319
+msgid "Use one recall time per task"
 msgstr ""
 
-#: plugins/maintenance/index.php:336
+#: plugins/maintenance/index.php:334
 msgid "Save this settings"
 msgstr ""
 
@@ -1988,41 +1954,61 @@ msgstr ""
 msgid "Publication date"
 msgstr ""
 
-#: plugins/pages/list.php:23
+#: plugins/pages/class.actionpage.php:28
+msgid "Pages actions"
+msgstr ""
+
+#: plugins/pages/class.actionpage.php:39
+msgid "Back to pages list"
+msgstr ""
+
+#: plugins/pages/class.listpage.php:21
 msgid "No page"
 msgstr ""
 
-#: plugins/pages/list.php:93
+#: plugins/pages/class.listpage.php:91
 msgid "Hidden"
 msgstr ""
 
-#: plugins/pages/list.php:109
+#: plugins/pages/class.listpage.php:107
 msgid "Select this page"
 msgstr ""
 
-#: plugins/pages/list.php:164 plugins/pages/list.php:234
+#: plugins/pages/list.php:61 plugins/pages/list.php:67
 msgid "Are you sure you want to delete selected pages?"
 msgstr ""
 
-#: plugins/pages/list.php:248
+#: plugins/pages/list.php:81
 msgid "Selected pages have been successfully updated."
 msgstr ""
 
-#: plugins/pages/list.php:250
+#: plugins/pages/list.php:83
 msgid "Selected pages have been successfully deleted."
 msgstr ""
 
-#: plugins/pages/list.php:252
+#: plugins/pages/list.php:85
 msgid "Selected pages have been successfully reordered."
 msgstr ""
 
-#: plugins/pages/list.php:255 plugins/pages/page.php:37
+#: plugins/pages/list.php:88 plugins/pages/page.php:37
 #: plugins/pages/page.php:491
 msgid "New page"
 msgstr ""
 
-#: plugins/pages/list.php:268
+#: plugins/pages/list.php:101
 msgid "Selected pages action:"
+msgstr ""
+
+#: plugins/pages/list.php:110
+msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
+msgstr ""
+
+#: plugins/pages/list.php:112
+msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
+msgstr ""
+
+#: plugins/pages/list.php:113
+msgid "Save pages order"
 msgstr ""
 
 #: plugins/pages/page.php:80
@@ -2139,8 +2125,8 @@ msgid "Page"
 msgstr ""
 
 #: plugins/simpleMenu/index.php:92 plugins/tags/_admin.php:14
-#: plugins/tags/_admin.php:83 plugins/tags/_admin.php:162
-#: plugins/tags/_admin.php:165 plugins/tags/_widgets.php:21
+#: plugins/tags/_admin.php:80 plugins/tags/_admin.php:103
+#: plugins/tags/_admin.php:109 plugins/tags/_widgets.php:21
 #: plugins/tags/_widgets.php:22 plugins/tags/tag_posts.php:95
 #: plugins/tags/tag_posts.php:115 plugins/tags/tags.php:17
 #: plugins/tags/tags.php:26
@@ -2286,84 +2272,84 @@ msgstr ""
 msgid "No menu items so far."
 msgstr ""
 
-#: plugins/tags/_admin.php:116 plugins/tags/_admin.php:146
+#: plugins/tags/_admin.php:103
+msgid "Add tags"
+msgstr ""
+
+#: plugins/tags/_admin.php:109
+msgid "Remove tags"
+msgstr ""
+
+#: plugins/tags/_admin.php:154
+msgid "Add tags to this selection"
+msgstr ""
+
+#: plugins/tags/_admin.php:164 plugins/tags/_admin.php:276
 #, php-format
 msgid "Are you sure you want to remove this %s?"
 msgstr ""
 
-#: plugins/tags/_admin.php:117 plugins/tags/_admin.php:147
+#: plugins/tags/_admin.php:165 plugins/tags/_admin.php:277
 #, php-format
 msgid "Add a %s to this entry"
 msgstr ""
 
-#: plugins/tags/_admin.php:118 plugins/tags/_admin.php:148
+#: plugins/tags/_admin.php:166 plugins/tags/_admin.php:278
 msgid "Choose from list"
 msgstr ""
 
-#: plugins/tags/_admin.php:119 plugins/tags/_admin.php:149
+#: plugins/tags/_admin.php:167 plugins/tags/_admin.php:279
 msgid "all"
 msgstr ""
 
-#: plugins/tags/_admin.php:121 plugins/tags/_public.php:373
-#: plugins/tags/tag_posts.php:116
-msgid "Tag"
+#: plugins/tags/_admin.php:168
+msgid "Enter tags separated by coma"
 msgstr ""
 
-#: plugins/tags/_admin.php:123 plugins/tags/_admin.php:151
+#: plugins/tags/_admin.php:169 plugins/tags/_admin.php:283
 msgid "used in %e - frequency %p%"
 msgstr ""
 
-#: plugins/tags/_admin.php:124 plugins/tags/_admin.php:152
+#: plugins/tags/_admin.php:170 plugins/tags/_admin.php:284
 #: plugins/tags/tags.php:58
 msgid "entry"
 msgstr ""
 
-#: plugins/tags/_admin.php:125 plugins/tags/_admin.php:153
+#: plugins/tags/_admin.php:171 plugins/tags/_admin.php:285
 #: plugins/tags/tags.php:58
 msgid "entries"
 msgstr ""
 
-#: plugins/tags/_admin.php:150
-msgid "Enter tags separated by coma"
-msgstr ""
-
-#: plugins/tags/_admin.php:162
-msgid "Add tags"
-msgstr ""
-
-#: plugins/tags/_admin.php:166
-msgid "Remove tags"
-msgstr ""
-
-#: plugins/tags/_admin.php:235
-msgid "Add tags to entries"
-msgstr ""
-
-#: plugins/tags/_admin.php:239
+#: plugins/tags/_admin.php:179
 msgid "Tags to add:"
 msgstr ""
 
-#: plugins/tags/_admin.php:270
-msgid "Remove selected tags from entries"
-msgstr ""
-
-#: plugins/tags/_admin.php:274
+#: plugins/tags/_admin.php:224
 msgid "No tags for selected entries"
 msgstr ""
 
-#: plugins/tags/_admin.php:282
+#: plugins/tags/_admin.php:231
+msgid "Remove selected tags from this selection"
+msgstr ""
+
+#: plugins/tags/_admin.php:238
 msgid "Following tags have been found in selected entries:"
 msgstr ""
 
-#: plugins/tags/_admin.php:317
+#: plugins/tags/_admin.php:281 plugins/tags/_public.php:373
+#: plugins/tags/tag_posts.php:116
+msgid "Tag"
+msgstr ""
+
+#: plugins/tags/_admin.php:304
 msgid "Short"
 msgstr ""
 
-#: plugins/tags/_admin.php:318
+#: plugins/tags/_admin.php:305
 msgid "Extended"
 msgstr ""
 
-#: plugins/tags/_admin.php:323
+#: plugins/tags/_admin.php:310
 msgid "Tags list format:"
 msgstr ""
 

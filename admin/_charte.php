@@ -65,22 +65,24 @@ dcPage::check('usage,contentadmin');
 </head>
 
 <body id="dotclear-admin" class="no-js">
-	<div id="header">
 		<ul id="prelude">
 			<li><a href="#content">Aller au contenu</a></li>
 			<li><a href="#main-menu">Aller au menu</a></li>
 			<li><a href="#qx">Aller à la recherche</a></li>
 		</ul>
-		<div id="top"><h1><a href="./index.php">Bibliothèque de styles - Dotclear - 2.6+</a></h1></div>
-		<div id="info-boxes">
-			<div id="info-box1">
-				<p>Informations sur les styles disponibles dans l'admin pour les développeurs de plugins</p>
-			</div>
-			<div id="info-box2">Octobre 2013</div>
-		</div>	
+	<div id="header">
+		<h1><a href="./index.php"><span class="hidden">Dotclear</span></a></h1>
+		<div id="top-info-blog">
+				<p>Bibliothèque de styles - Dotclear - 2.6+</p>
+		</div>
+		<ul id="top-info-user"><li>Octobre 2013</li></ul>
 	</div><!-- /header -->
 
 	<div id="wrapper" class="clearfix">
+		<div class="hidden-if-no-js collapser-box"><a href="#" id="collapser">
+		<img class="collapse-mm" src="images/collapser-hide.png" alt="Cacher le menu" />
+		<img class="expand-mm" src="images/collapser-show.png" alt="Montrer le menu" />
+		</a></div>'.
 		<div id="main">
 			<div id="content" class="clearfix">
 

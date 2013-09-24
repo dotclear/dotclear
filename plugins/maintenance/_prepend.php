@@ -14,13 +14,16 @@ if (!defined('DC_RC_PATH')) { return; }
 global $__autoload;
 
 $__autoload['dcMaintenance'] = dirname(__FILE__).'/inc/class.dc.maintenance.php';
+$__autoload['dcMaintenanceDescriptor'] = dirname(__FILE__).'/inc/class.dc.maintenance.descriptor.php';
 $__autoload['dcMaintenanceTask'] = dirname(__FILE__).'/inc/class.dc.maintenance.task.php';
 $__autoload['dcMaintenanceRest'] = dirname(__FILE__).'/_services.php';
+
 
 $__autoload['dcMaintenanceCache'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.cache.php';
 $__autoload['dcMaintenanceCountcomments'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.countcomments.php';
 $__autoload['dcMaintenanceIndexcomments'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.indexcomments.php';
 $__autoload['dcMaintenanceIndexposts'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.indexposts.php';
+$__autoload['dcMaintenanceSynchpostsmeta'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.synchpostsmeta.php';
 $__autoload['dcMaintenanceLogs'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.logs.php';
 $__autoload['dcMaintenanceVacuum'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.vacuum.php';
 $__autoload['dcMaintenanceZipmedia'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.zipmedia.php';
