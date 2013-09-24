@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-22 16:57+0000\n"
+"POT-Creation-Date: 2013-09-24 07:51+0000\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -20,99 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.5.4\n"
-
-msgid "Manage every blog configuration directive"
-msgstr "Gestion des directives de configuration des blogs"
-
-msgid "Akismet interface for Dotclear"
-msgstr "Interface Akismet pour Dotclear"
-
-msgid "Generic antispam plugin for Dotclear"
-msgstr "Antispam générique pour Dotclear"
-
-msgid "Manage post attachments"
-msgstr "Gestion des fichiers attachés"
-
-msgid "Manage your blogroll"
-msgstr "Gestion de votre liste de liens"
-
-msgid "Configure your Blowup Theme"
-msgstr "Configurer votre thème Blowup"
-
-msgid "Install and update your plugins live from DotAddict.org"
-msgstr ""
-
-msgid "Trackback validity check"
-msgstr "Contrôle de validité des rétroliens"
-
-msgid "Import and Export your blog"
-msgstr "Importez et exportez votre blog"
-
-msgid "Maintain your installation"
-msgstr "Maintenez votre installation"
-
-msgid "Serve entries as simple web pages"
-msgstr "Publie des billets comme de simples pages web"
-
-msgid "Ping services"
-msgstr "Services de signalement"
-
-msgid "Simple menu for Dotclear"
-msgstr "Menu simple pour Dotclear"
-
-msgid "Tags for posts"
-msgstr "Mots-clés pour les billets"
-
-msgid "Theme Editor"
-msgstr "Éditeur de thème"
-
-msgid "Manage every user preference directive"
-msgstr "Gestion des préférences utilisateur"
-
-msgid "Widgets for your blog sidebars"
-msgstr "Widgets pour les volets de votre blog"
-
-msgid "Search engine form"
-msgstr "Formulaire de recherche"
-
-msgid "List of navigation links"
-msgstr "Liste des liens de navigation"
-
-msgid "List of selected entries"
-msgstr "Liste des billets sélectionnés"
-
-msgid "List of available languages"
-msgstr "Liste des langues disponibles"
-
-msgid "List of categories"
-msgstr "Liste des catégories"
-
-msgid "RSS or Atom feed subscription links"
-msgstr "Liens d'abonnements aux flux RSS ou Atom"
-
-msgid "Last entries from feed"
-msgstr "Derniers billets d'un flux"
-
-msgid "Simple text"
-msgstr "Texte simple"
-
-msgid "List of last entries published"
-msgstr "Derniers billets publiés"
-
-msgid "List of last comments posted"
-msgstr "Liste des derniers commentaires postés"
-
-msgid "Tags cloud"
-msgstr "Nuage de mots-clés"
-
-msgid "List of published pages"
-msgstr "Liste des pages publiées"
-
-msgid "Blogroll list"
-msgstr "Liste de liens"
-
-msgid "List of simple menu items"
-msgstr "Liste des éléments de menu simple"
 
 msgid "no"
 msgstr "non"
@@ -611,7 +518,7 @@ msgid "Theme configuration has been successfully updated."
 msgstr "La configuration du thème a été enregistrée avec succès."
 
 msgid "Customization"
-msgstr ""
+msgstr "Personnalisation"
 
 msgid "General"
 msgstr "Général"
@@ -826,7 +733,7 @@ msgid "Unable to open image."
 msgstr "Impossible d'ouvrir l'image."
 
 msgid "Updates are available"
-msgstr ""
+msgstr "Des mises à jour sont disponibles"
 
 #, php-format
 msgid "Oops, something went wrong with %s, we are working on it. %s"
@@ -1110,10 +1017,6 @@ msgid "Import a WordPress installation into your current blog."
 msgstr "Importe une installation WordPress dans le blog courant."
 
 #, php-format
-msgid "Export functions are in the page %s."
-msgstr "Les fonctions d'export sont dans la page de %s."
-
-#, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "Cela importera le contenu WordPress comme un nouveau contenu dans le blog courant : %s."
 
@@ -1181,6 +1084,10 @@ msgstr "Télécharger la base de données de tous les blogs"
 msgid "Please wait..."
 msgstr "Veuillez patientez…"
 
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr "Les fonctions d'export sont dans la page de %s."
+
 msgid "Maintenance"
 msgstr "Maintenance"
 
@@ -1220,11 +1127,11 @@ msgstr "Blog courant"
 msgid "All blogs"
 msgstr "Tous les blogs"
 
-msgid "Translations"
-msgstr "Traductions"
-
 msgid "Maintain translations"
 msgstr "Maintenir les traductions"
+
+msgid "Translations"
+msgstr "Traductions"
 
 #, php-format
 msgid "One task to execute"
@@ -1322,12 +1229,25 @@ msgstr "Impossible d'indexer les billets."
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "Indexer tous les billets dans le moteur de recherche. Cette opération s'effectue généralement suite à un import afin d'obtenir des résultats lors des recherches, aussi bien depuis l'administration du blog qu'en partie publique."
 
+msgid "Delete all logs"
+msgstr "Supprimer tous les journaux (logs)"
+
+msgid "Logs deleted."
+msgstr "Les journaux ont été supprimés."
+
+msgid "Failed to delete logs."
+msgstr "Impossible de supprimer les journaux."
+
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
+msgstr "Sauf si vous avez un besoin précis de conservation des activités de connexion sur votre blog, pensez à vider régulièrement la table des journaux : elle contient l'enregistrement de chaque connexion à l'administration et des opérations qui s'y sont déroulées."
+
 msgid "Entries metadata"
 msgstr "Métadonnées des billets"
 
 msgid "Synchronize entries metadata"
 msgstr "Synchroniser les métadonnées des billets"
 
+#, php-format
 msgid "Synchronize entry %d to %d."
 msgstr "Synchronisation des billets %d à %d."
 
@@ -1340,17 +1260,8 @@ msgstr "Impossible de synchroniser les métadonnées des billets."
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "La synchronisation des métadonnées des billets peut être utile après l'import de contenu dans votre blog ou après une mauvaise opération sur la base de données."
 
-msgid "Delete all logs"
-msgstr "Supprimer tous les journaux (logs)"
-
-msgid "Logs deleted."
-msgstr "Les journaux ont été supprimés."
-
-msgid "Failed to delete logs."
-msgstr "Impossible de supprimer les journaux."
-
-msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
-msgstr "Sauf si vous avez un besoin précis de conservation des activités de connexion sur votre blog, pensez à vider régulièrement la table des journaux : elle contient l'enregistrement de chaque connexion à l'administration et des opérations qui s'y sont déroulées."
+msgid "Optimise database"
+msgstr "Optimise la base de données"
 
 msgid "optimize tables"
 msgstr "Optimiser les tables"
@@ -1376,6 +1287,9 @@ msgstr "Télécharger le theme actif du blog courant"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Il peut être utile de sauvegarder le thème courant avant tout changement ou mise à jour. Ceci comprime tout le contenu du répertoire du thème dans un seul fichier Zip."
 
+msgid "Never"
+msgstr "Jamais"
+
 msgid "Every week"
 msgstr "Chaque semaine"
 
@@ -1387,12 +1301,6 @@ msgstr "Chaque mois"
 
 msgid "Every two months"
 msgstr "Tous les deux mois"
-
-msgid "Use different periods for each task"
-msgstr "Utiliser une périodicité différente pour chaque tâche"
-
-msgid "Never"
-msgstr "Jamais"
 
 msgid "You have not sufficient permissions to view this page."
 msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page."
@@ -1412,8 +1320,8 @@ msgstr "Exécuter cette tâche"
 msgid "This may take a very long time."
 msgstr "Cela peut prendre un certain temps."
 
-msgid "Settings"
-msgstr "Paramètres"
+msgid "Alert settings"
+msgstr "Réglage des alertes"
 
 msgid "Activation"
 msgstr "Activation"
@@ -1436,9 +1344,6 @@ msgstr "Délai de rappel pour toutes les tâches :"
 
 msgid "Use one recall time per task"
 msgstr "Utiliser un délai de rappel différent pour chaque tâche"
-
-msgid "Recall time per task:"
-msgstr "Délai de rappel par tâche :"
 
 msgid "Save this settings"
 msgstr "Enregistrer ces réglages"
@@ -1481,6 +1386,12 @@ msgstr "Position de la page"
 msgid "Publication date"
 msgstr "Date de publication"
 
+msgid "Pages actions"
+msgstr "Action sur les pages"
+
+msgid "Back to pages list"
+msgstr "Retour à la liste des pages"
+
 msgid "No page"
 msgstr "Aucune page"
 
@@ -1494,7 +1405,7 @@ msgid "Are you sure you want to delete selected pages?"
 msgstr "Êtes-vous sûr de vouloir supprimer les pages sélectionnées ?"
 
 msgid "Selected pages have been successfully updated."
-msgstr "Les pages sélectionnées ont été modifiése avec succès."
+msgstr "Les pages sélectionnées ont été modifiées avec succès."
 
 msgid "Selected pages have been successfully deleted."
 msgstr "Les pages sélectionnées ont été supprimées avec succès."
@@ -1507,6 +1418,15 @@ msgstr "Nouvelle page"
 
 msgid "Selected pages action:"
 msgstr "Action sur les pages sélectionnées :"
+
+msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
+msgstr ""
+
+msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
+msgstr ""
+
+msgid "Save pages order"
+msgstr "Sauvegarder l'ordre des pages"
 
 msgid "This page does not exist."
 msgstr "Cette page n'existe pas."
@@ -1697,6 +1617,15 @@ msgstr "Êtes-vous sûr de vouloir supprimer les items de menu sélectionnés ?"
 msgid "No menu items so far."
 msgstr "Aucun item de menu pour l'instant."
 
+msgid "Add tags"
+msgstr "Ajouter des mots-clés"
+
+msgid "Remove tags"
+msgstr "Retirer des mots-clés"
+
+msgid "Add tags to this selection"
+msgstr "Ajouter des mots-clés à cette sélection"
+
 #, php-format
 msgid "Are you sure you want to remove this %s?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce %s ?"
@@ -1711,8 +1640,8 @@ msgstr "Choisir dans la liste"
 msgid "all"
 msgstr "tous"
 
-msgid "Tag"
-msgstr "Mot-clé"
+msgid "Enter tags separated by coma"
+msgstr "Entrez les mots-clés séparés par des virgules"
 
 msgid "used in %e - frequency %p%"
 msgstr "utilisé dans %e - fréquence %p%"
@@ -1723,29 +1652,20 @@ msgstr "billet"
 msgid "entries"
 msgstr "billets"
 
-msgid "Enter tags separated by coma"
-msgstr "Entrez les mots-clés séparés par des virgules"
-
-msgid "Add tags"
-msgstr "Ajouter des mots-clés"
-
-msgid "Remove tags"
-msgstr "Retirer des mots-clés"
-
-msgid "Add tags to entries"
-msgstr "Ajouter des mots-clés à des billets"
-
 msgid "Tags to add:"
 msgstr "Mots-clés à ajouter :"
-
-msgid "Remove selected tags from entries"
-msgstr "Retirer les mots-clés sélectionnés des billets"
 
 msgid "No tags for selected entries"
 msgstr "Aucun mot-clé pour les billets sélectionnés"
 
+msgid "Remove selected tags from this selection"
+msgstr "Retirer les mots-clés de cette sélection"
+
 msgid "Following tags have been found in selected entries:"
 msgstr "Les mots-clés suivants ont été trouvés pour les billets sélectionnés :"
+
+msgid "Tag"
+msgstr "Mot-clé"
 
 msgid "Short"
 msgstr "Court"
@@ -2067,6 +1987,108 @@ msgstr "Retirer le widget"
 msgid "Drag widgets here to remove them from this sidebar."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
+#~ msgid "Manage every blog configuration directive"
+#~ msgstr "Gestion des directives de configuration des blogs"
+
+#~ msgid "Akismet interface for Dotclear"
+#~ msgstr "Interface Akismet pour Dotclear"
+
+#~ msgid "Generic antispam plugin for Dotclear"
+#~ msgstr "Antispam générique pour Dotclear"
+
+#~ msgid "Manage post attachments"
+#~ msgstr "Gestion des fichiers attachés"
+
+#~ msgid "Manage your blogroll"
+#~ msgstr "Gestion de votre liste de liens"
+
+#~ msgid "Configure your Blowup Theme"
+#~ msgstr "Configurer votre thème Blowup"
+
+#~ msgid "Trackback validity check"
+#~ msgstr "Contrôle de validité des rétroliens"
+
+#~ msgid "Import and Export your blog"
+#~ msgstr "Importez et exportez votre blog"
+
+#~ msgid "Maintain your installation"
+#~ msgstr "Maintenez votre installation"
+
+#~ msgid "Serve entries as simple web pages"
+#~ msgstr "Publie des billets comme de simples pages web"
+
+#~ msgid "Ping services"
+#~ msgstr "Services de signalement"
+
+#~ msgid "Simple menu for Dotclear"
+#~ msgstr "Menu simple pour Dotclear"
+
+#~ msgid "Tags for posts"
+#~ msgstr "Mots-clés pour les billets"
+
+#~ msgid "Theme Editor"
+#~ msgstr "Éditeur de thème"
+
+#~ msgid "Manage every user preference directive"
+#~ msgstr "Gestion des préférences utilisateur"
+
+#~ msgid "Widgets for your blog sidebars"
+#~ msgstr "Widgets pour les volets de votre blog"
+
+#~ msgid "Search engine form"
+#~ msgstr "Formulaire de recherche"
+
+#~ msgid "List of navigation links"
+#~ msgstr "Liste des liens de navigation"
+
+#~ msgid "List of selected entries"
+#~ msgstr "Liste des billets sélectionnés"
+
+#~ msgid "List of available languages"
+#~ msgstr "Liste des langues disponibles"
+
+#~ msgid "List of categories"
+#~ msgstr "Liste des catégories"
+
+#~ msgid "RSS or Atom feed subscription links"
+#~ msgstr "Liens d'abonnements aux flux RSS ou Atom"
+
+#~ msgid "Last entries from feed"
+#~ msgstr "Derniers billets d'un flux"
+
+#~ msgid "Simple text"
+#~ msgstr "Texte simple"
+
+#~ msgid "List of last entries published"
+#~ msgstr "Derniers billets publiés"
+
+#~ msgid "List of last comments posted"
+#~ msgstr "Liste des derniers commentaires postés"
+
+#~ msgid "Tags cloud"
+#~ msgstr "Nuage de mots-clés"
+
+#~ msgid "List of published pages"
+#~ msgstr "Liste des pages publiées"
+
+#~ msgid "Blogroll list"
+#~ msgstr "Liste de liens"
+
+#~ msgid "List of simple menu items"
+#~ msgstr "Liste des éléments de menu simple"
+
+#~ msgid "Use different periods for each task"
+#~ msgstr "Utiliser une périodicité différente pour chaque tâche"
+
+#~ msgid "Settings"
+#~ msgstr "Paramètres"
+
+#~ msgid "Recall time per task:"
+#~ msgstr "Délai de rappel par tâche :"
+
+#~ msgid "Add tags to entries"
+#~ msgstr "Ajouter des mots-clés à des billets"
+
 #~ msgid "Help for this page"
 #~ msgstr "Aide pour cette page"
 
@@ -2136,9 +2158,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
 #~ msgstr "Cela importera un flux (RSS ou ATOM) comme un nouveau contenu dans le blog courant : %s."
 
-#~ msgid "Optimize database room"
-#~ msgstr "Optimise la place occupée par la base de données"
-
 #~ msgid "Counters"
 #~ msgstr "Compteurs"
 
@@ -2159,9 +2178,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "previous page"
 #~ msgstr "page précédente"
-
-#~ msgid "Page password"
-#~ msgstr "Mot de passe de la page"
 
 #~ msgid "Hide"
 #~ msgstr "Masquer"
@@ -2222,6 +2238,3 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Blog settings"
 #~ msgstr "Paramètres du blog"
-
-msgid "Alert settings"
-msgstr "Réglage des alertes"
