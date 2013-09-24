@@ -1170,7 +1170,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "L'ID de \"%3$s\" ne correspond pas dans l'enregistrement \"%1$s\" à la ligne %2$s du fichier de sauvegarde."
 
 msgid "Database export"
-msgstr "Export de base de données"
+msgstr "Exporter la base de données"
 
 msgid "Download database of current blog"
 msgstr "Télécharger la base de données du blog courant"
@@ -2143,7 +2143,7 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgstr "Compteurs"
 
 #~ msgid "Vacuum logs"
-#~ msgstr "Vidages des journaux"
+#~ msgstr "Vidage des journaux"
 
 #~ msgid "Empty directory"
 #~ msgstr "Vidage du répertoire"
