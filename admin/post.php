@@ -146,7 +146,8 @@ if (isset($_REQUEST['section']) && $_REQUEST['section']=='trackbacks') {
 } else {
 	$anchor = 'comments';
 }	
-$comments_actions_page = new dcCommentsActionsPage($core,'post.php',array('id' => $post_id, '_ANCHOR'=>$anchor));
+
+$comments_actions_page = new dcCommentsActionsPage($core,'post.php',array('id' => $post_id, '_ANCHOR'=>$anchor,'section' => $anchor));
 
 if ($comments_actions_page->process()) {
 	return;
@@ -657,7 +658,7 @@ if ($post_id)
 		
 		'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
 		form::combo('action',$combo_action).
-		form::hidden('section','comments').
+		form::hidden(array('section'),'comments').
 		form::hidden(array('id'),$post_id).
 		$core->formNonce().
 		'<input type="submit" value="'.__('ok').'" /></p>'.
@@ -742,7 +743,7 @@ if ($post_id && $post_status == 1)
 		'<p class="col right"><label for="action" class="classic">'.__('Selected trackbacks action:').'</label> '.
 		form::combo('action', $combo_action).
 		form::hidden('id',$post_id).
-		form::hidden('section','trackbacks').
+		form::hidden(array('section'),'trackbacks').
 		$core->formNonce().
 		'<input type="submit" value="'.__('ok').'" /></p>'.
 		'</div>'.

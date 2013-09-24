@@ -16,7 +16,7 @@ class dcCommentsActionsPage extends dcActionsPage
 	public function __construct($core,$uri,$redirect_args=array()) {
 		parent::__construct($core,$uri,$redirect_args);
 		$this->redirect_fields = array('type','author','status',
-			'sortby','ip','order','page','nb');
+			'sortby','ip','order','page','nb','section');
 		$this->field_entries = 'comments';
 		$this->title_cb = __('Comments');
 		$this->loadDefaults();
