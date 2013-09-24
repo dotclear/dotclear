@@ -2195,7 +2195,7 @@ class dcBlog
 			'SET comment_status = '.$status.' ';
 		
 		# pgSQL uses "FROM" synthax
-		if ($this->con->driver() != 'mysql' || $this->con->driver() == 'mysqli') {
+		if ($this->con->driver() != 'mysql' && $this->con->driver() != 'mysqli') {
 			$strReq .= 
 				'FROM '.$this->prefix.'post tp ';
 		}
@@ -2205,7 +2205,7 @@ class dcBlog
 			'AND comment_id'.$this->con->in($co_ids);
 		
 		# add pgSQL "WHERE" clause
-		if ($this->con->driver() != 'mysql' || $this->con->driver() == 'mysqli') {
+		if ($this->con->driver() != 'mysql' && $this->con->driver() != 'mysqli') {
 			$strReq .= 
 				'AND tc.post_id = tp.post_id ';
 		}
