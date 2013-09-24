@@ -11,7 +11,10 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-global $core;
+global $core, $__autoload;
+
+$__autoload['dcPagesActionsPage'] = dirname(__FILE__).'/class.actionpage.php';
+$__autoload['adminPageList'] = dirname(__FILE__).'/class.listpage.php';
 
 $core->url->register('pages','pages','^pages/(.+)$',array('urlPages','pages'));
 $core->url->register('pagespreview','pagespreview','^pagespreview/(.+)$',array('urlPages','pagespreview'));

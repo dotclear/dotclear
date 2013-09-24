@@ -12,6 +12,7 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $GLOBALS['core']->addBehavior('adminPostsActionsPage',array('dcLegacyPosts','adminPostsActionsPage'));
+$GLOBALS['core']->addBehavior('adminPagessActionsPage',array('dcLegacyPosts','adminPagesActionsPage'));
 $GLOBALS['core']->addBehavior('adminCommentsActionsPage',array('dcLegacyComments','adminCommentsActionsPage'));
 
 /* Handle deprecated behaviors : 
@@ -66,5 +67,30 @@ class dcLegacyComments
 		$core->callBehavior('adminCommentsActionsContent',$core,$as->getAction(),$as->getHiddenFields(true));
 		$as->endPage();
 	
+	}
+}
+/* Handle deprecated behaviors : 
+    * adminPagesActionsCombo
+	* adminPagesActionsHeaders
+	* adminPagesActionsContent
+*/
+class dcLegacyPages
+{
+	public static function adminPagesActionsPage($core, dcPagesActionsPage $as) {
+		$stub_actions = new ArrayObject();
+		$core->callBehavior('adminPagesActionsCombo',array($stub_actions));
+		if (!empty($stub_actions)) {
+			$as->addAction($stub_actions,array('dcLegacyPages','onActionLegacy'));
+		}
+	}
+	
+	public static function onActionLegacy($core, dcPagesActionsPage $as, $post) {
+		$core->callBehavior('adminPagesActions',$core,$as->getRS(),$as->getAction(),$as->getRedirection());
+		$as->beginPage('',
+			dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
+			dcPage::jsMetaEditor().
+			$core->callBehavior('adminPagesActionsHeaders'),'');
+		$core->callBehavior('adminPagesActionsContent',$core,$as->getAction(),$as->getHiddenFields(true));
+		$as->endPage();
 	}
 }
