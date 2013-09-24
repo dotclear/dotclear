@@ -141,6 +141,16 @@ if (!empty($_REQUEST['id']))
 		$tb_excerpt = preg_replace('/\s+/ms', ' ', $tb_excerpt);
 	}
 }
+if (isset($_REQUEST['section']) && $_REQUEST['section']=='trackbacks') {
+	$anchor = 'trackbacks';
+} else {
+	$anchor = 'comments';
+}	
+$comments_actions_page = new dcCommentsActionsPage($core,'post.php',array('id' => $post_id, '_ANCHOR'=>$anchor));
+
+if ($comments_actions_page->process()) {
+	return;
+}
 
 # Ping blogs
 if (!empty($_POST['ping']))
@@ -357,16 +367,6 @@ if ($post_id) {
 	$img_status = '';
 }
 
-if (isset($_REQUEST['section']) && $_REQUEST['section']=='trackbacks') {
-	$anchor = 'trackbacks';
-} else {
-	$anchor = 'comments';
-}	
-$comments_actions_page = new dcCommentsActionsPage($core,'post.php',array('id' => $post_id, '_ANCHOR'=>$anchor));
-
-if ($comments_actions_page->process()) {
-	return;
-}
 
 dcPage::open($page_title.' - '.__('Entries'),
 	dcPage::jsDatePicker().
