@@ -168,6 +168,9 @@ if ($task && ($res = $task->step()) !== null) {
 
 	echo 
 	'<div class="step-box" id="'.$task->id().'">'.
+	'<p class="step-back">'.
+		'<a class="back" href="'.$p_url.'&tab='.$task->tab().'#'.$task->tab().'">'.__('Back').'</a>'.
+	'</p>'.
 	'<h3>'.html::escapeHTML($task->name()).'</h3>'.
 	'<form action="'.$p_url.'" method="post">'.
 	'<p class="step-msg">'.
@@ -180,9 +183,6 @@ if ($task && ($res = $task->step()) !== null) {
 		$core->formNonce().
 	'</p>'.
 	'</form>'.
-	'<p class="step-back">'.
-		'<a class="back" href="'.$p_url.'&tab='.$task->tab().'#'.$task->tab().'">'.__('Back').'</a>'.
-	'</p>'.
 	'</div>';
 }
 else {
