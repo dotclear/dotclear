@@ -162,8 +162,8 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 			dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")).
 			'//]]>'.
 			$head.
-			'</script></head><body>';
-			'</head><body>'.$breadcrumb;
+			'</script></head><body>'.
+			$breadcrumb;
 	}
 	
 	public function endPage() {
