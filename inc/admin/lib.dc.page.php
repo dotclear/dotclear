@@ -649,7 +649,7 @@ class dcPage
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		'$(function() {'."\n".
-		'$.pageTabs(".$default.");'."\n".
+		'$.pageTabs('.$default.');'."\n".
 		'});'."\n".
 		"\n//]]>\n".
 		"</script>\n";
