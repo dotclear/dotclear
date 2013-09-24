@@ -33,6 +33,9 @@ abstract class dcActionsPage
 	protected $redir_args;
 	/** @var array list of $_POST fields used to build the redirection  */
 	protected $redirect_fields;
+	/** @var string redirection anchor if any  */
+	protected $redir_anchor;
+
 	/** @var string current action, if any */
 	protected $action;
 	/** @var array list of url parameters (usually $_POST) */
@@ -69,6 +72,12 @@ abstract class dcActionsPage
 		$this->from = new ArrayObject($_POST);
 		$this->field_entries = 'entries';
 		$this->caller_title = __('Entries');
+		if (isset($this->redir_args['_ANCHOR'])) {
+			$this->redir_anchor = '#'.$this->redir_args['_ANCHOR'];
+			unset($this->redir_args['_ANCHOR']);
+		} else {
+			$this->redir_anchor='';
+		}
 	}
 	
     /**
@@ -215,7 +224,7 @@ abstract class dcActionsPage
 		if ($with_selected_entries) {
 			$redir_args[$this->field_entries] = array_keys($this->entries);
 		}
-		return $this->uri.'?'.http_build_query($redir_args);
+		return $this->uri.'?'.http_build_query($redir_args).$this->redir_anchor;
 	}
 	
 	/**
