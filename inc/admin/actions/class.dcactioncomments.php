@@ -121,10 +121,9 @@ class dcDefaultCommentActions
 		if ($core->auth->check('publish,contentadmin',$core->blog->id))
 		{
 			$action = array('dcDefaultCommentActions','doChangeCommentStatus');
-			$ap->addAction (array(__('Publish') => 'publish'), $action);
-			$ap->addAction (array(__('Publish') => 'publish'), $action);
-			$ap->addAction (array(__('Unpublish') => 'unpublish'), $action);
-			$ap->addAction (array(__('Mark as pending') => 'pending'), $action);
+			$ap->addAction(array(__('Publish') => 'publish'), $action);
+			$ap->addAction(array(__('Unpublish') => 'unpublish'), $action);
+			$ap->addAction(array(__('Mark as pending') => 'pending'), $action);
 			$ap->addAction(array(__('Mark as junk') => 'junk'), $action);
 		}
 	
