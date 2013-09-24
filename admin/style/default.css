@@ -24,7 +24,7 @@
 	width: 100%;
 	display: table;
 	}
-#wrapper, #wrapper.with-prelude {
+#wrapper {
 	position: relative;
 	padding-top: 1.5em;
 	float: left;
@@ -489,6 +489,7 @@ input[type=text], input[type=password], textarea, select {
 	border-radius: 3px;
 	box-shadow: 1px 1px 2px #F1F1F1 inset;
 	padding: 3px; 
+	vertical-align: top;
 	}
 	input:focus, textarea:focus, select:focus {
 		-webkit-box-sizing: border-box;
@@ -516,6 +517,34 @@ input[type=text], input[type=password], textarea, select {
 		option.avail10n {
 			background: transparent url(../images/check-on.png) no-repeat 0 50%;
 			}
+		option.sub-option1 {
+			margin-left: .5em;
+		}
+		option.sub-option2 {
+			margin-left: 1.5em;
+		}
+		option.sub-option3 {
+			margin-left: 2.5em;
+		}
+		option.sub-option4 {
+			margin-left: 3.5em;
+		}
+		option.sub-option5 {
+			margin-left: 4.5em;
+		}
+		option.sub-option6 {
+			margin-left: 5.5em;
+		}
+		option.sub-option7 {
+			margin-left: 6.5em;
+		}
+		option.sub-option8 {
+			margin-left: 7.5em;
+		}
+		option.sub-option1:before, option.sub-option2:before, option.sub-option3:before, option.sub-option4:before,
+		option.sub-option5:before, option.sub-option6:before, option.sub-option7:before, option.sub-option8:before {
+			content: "\002022\0000a0";
+		}
 	input.invalid, textarea.invalid, select.invalid {
 		border: 1px solid red;
 		background: #FFBABA;
@@ -571,6 +600,9 @@ p.field {
 		display: inline-block;
 		width: 14em;
 		}
+	p.field.wide label {
+		width: 21em;
+		}
 	p.field input, p.field select {
 		display: inline-block;
 		}
@@ -604,7 +636,7 @@ input[type=reset],
 input[type=submit] {
 	border: 1px solid #ccc;
 	font-family: "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
-	padding: 4px 10px;
+	padding: 3px 10px;
 	line-height: normal !important;
 	display: inline-block;
 	vertical-align: middle;
@@ -848,8 +880,18 @@ div.warn, div.warning, div.info {
 		padding: 3px 1.6rem 3px .8rem;
 		background: #A2CBE9;
 		color: #000;
-		border-bottom-color: #A2CBE9;
+		text-decoration: underline;
 		}
+	#prelude li a:hover, #prelude li a:focus {
+		background: #FFF;
+		}
+/* si le prélude est affiché on repousse les trucs dessous */
+#wrapper.with-prelude { 
+	padding-top: 1em;
+	}
+#help-button.with-prelude, #collapser.with-prelude {
+	top: 1em;
+	}
 /* header global h1, form#top-info-blog, ul#top-info-user */
 #header a {
 	color: #FFF;
@@ -874,8 +916,7 @@ h1 {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 174px; /* ie < 9 sucks */
-		width: 17.4rem;
+		width: 15em;
 		height: 36px; /* ie < 9 sucks */
 		height: 3.6rem;
 		color: #fff;
@@ -921,7 +962,7 @@ h1 {
 #top-info-user a.active {
 	border-bottom-color: #fff;
 	margin: 0;
-	padding: 16px .5em;
+	padding: 18px .5em;
 	background-color: #fff;
 	color: #333;
 	font-weight: bold;
@@ -1309,6 +1350,7 @@ a.form-control.open {
 	text-indent: -2000px;
 	background: transparent url(dc_logos/w-dotclear240.png) no-repeat top left;
 	height: 66px;
+	width: 20em;
 	margin-bottom: .5em;
 	margin-left: 0;
 	}
@@ -2085,9 +2127,6 @@ div.template-upload {
 	color: white;
 	}
 /* password indicator */
-.install .pw-table, .install .pw-cell, .install .pwindicator {
-	display: block;
-	}
 .pw-table {
 	display: table;
 	margin-bottom: 1em;
@@ -2331,74 +2370,128 @@ ul.from-left {
 	}
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
-------------------------------------------------------------------------------------
-@media screen and (max-width: 920px) {
-	#top, #top h1 a {
-		width: 42px !important; 
-		height:100%; 
-		overflow: hidden;
-		}
-		#top h1 a:link {
-			background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
-			border-right: 1px solid #ccc;
-			}
-		#top h1 a:hover, #top h1 a:focus {
-			background: url(dc_logos/b-dotclear120.png) no-repeat -180px -94px;
-			border-right: 1px solid #A2CBE9;
-			}
-	}
-@media screen and (max-width: 800px) {
-	#top, #info-boxes, #info-box1, #info-box2 {
-		display:inline-block;
-		vertical-align:middle;
-		margin:0;
-		padding:0;
-		line-height: 32px; line-height: 3.2rem;
-		}
-		#info-box1 { margin-left: .75em; }
-		#info-box1 select { width: 140px; width: 14rem; }
-	#main-menu, #main, #content, #content h2, #entry-wrapper, #entry-sidebar, #entry-content, 
-	.two-cols .col, .three-cols .col, .two-cols .col30, .two-cols .col70, .two-boxes, .three-boxes {
-		display:block !important;
-		width: 98% !important;
-		margin:0 auto !important;
-		padding:0;
-		float:none;
-		text-align: left;
-		clear: both;
-		}
-	#content {
+------------------------------------------------------------------------------------ */
+@media screen and (max-width: 1000px) {
+	#header {
+		display: block;
 		width: 100%;
-		padding-top: .5em;
-		}
-	}
-@media screen and (max-width: 720px) {
-	.smallscreen { display: none; }
-	#info-box2 { float:none; }
-	#help-button {
-		height:26px; 
-		width:26px; 
-		background-color: #A2CBE9; 
-		padding: 0; 
+		text-align: right;
+		background: #333;
+		} 
+	#header h1, #header h1 a {
+		width: 120px;
+		padding: 0;
 		margin: 0;
-		font-size: 10px; font-size: 1rem;
-		line-height: 68px;
-		overflow: hidden;
 		}
-	.one-box, .two-boxes, .three-boxes {
+	h1, #top-info-blog {
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 1em;
+		}
+	#top-info-user {
+		display: block;
+		width: 100%;
+		background: #676e78;
+		padding-right: 0;
+		}
+	#top-info-user li:last-child {
+		padding-right: 1em;
+		}
+	#top-info-user a.active {
+		padding: 2px 8px;
+		} 
+	.three-boxes, .three-boxes .box,
+	.three-boxes:first-child, .three-boxes.first-child,
+	.three-boxes:last-child, .three-boxes.last-child,
+	.two-cols .col70, .two-cols .col30 {
 		width: 100%;
 		margin-left: 0;
 		margin-right: 0; 
 		}
 	}
-@media screen and (max-width: 492px) {
-	#header { height: 36px; height: 3.6rem; }
-	#wrapper { font-size: 16px; font-size: 1.6rem; }
-	.page-title, #info-boxes { display: inline-block; }
-	#info-box1 select {
-		width: 120px; width: 12rem; 
-		margin-right: .6rem;
+@media screen and (max-width: 700px) {
+	 #help-button {
+		height:26px;
+		width:26px;
+		background-color: #A2CBE9;
+		padding: 0;
+		margin: 0;
+		font-size: 10px; font-size: 1rem;
+		line-height: 68px;
+		overflow: hidden;
+		}	
+	#content.with-help #help-button {
+		top: 77px;
 		}
-	#info-box1 p.nomobile, label.nomobile { display: none; }
 	}
-*/
+@media screen and (max-width: 600px) {
+	#header h1, #header h1 a {
+		width: 42px !important; 
+		height: 42px;
+		}
+	h1 a:link {
+		background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
+		border-right: 1px solid #ccc;
+		}
+	h1 a:hover, h1 a:focus {
+		background: url(dc_logos/b-dotclear120.png) no-repeat -180px -94px;
+		border-right: 1px solid #A2CBE9;
+		}
+	#wrapper, #main, #main-menu {
+		display: block;
+		float: none;
+		width: 100%;
+		margin: 0;
+		}
+	#main-menu a {
+		display: block;
+		width: 100%;
+		}
+	#main-menu h3 a {
+		display: inline;
+		}
+	#content {
+		margin: 0;
+		padding: 0 .5em;
+		}
+	#collapser {
+		display: none;
+		}
+	#main #content > h2 {
+		margin: 0;
+		padding: 6px 0;
+		}
+	.one-box, .two-boxes,
+	.one-box .box, .two-boxes .box,
+	.two-boxes:first-child, .two-boxes.odd, .two-boxes.odd:last-child,
+	.two-boxes.even:last-child, .two-boxes.even,
+	.two-cols .col {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0; 
+		}
+	}
+@media screen and (max-width: 500px) {
+	h1, h1 a {
+		padding: 0;
+		border-right: #333 !important;
+		}
+	#top-info-blog label, .nomobile {
+		display: none;
+		}
+	#top-info-blog select {
+		margin-bottom: .5em;
+		margin-right: 0 !important;
+		}
+	#top-info-blog p {
+		display: block;
+		}
+	#dashboard-boxes .box { /* a revoir quand le dashboard sera fini */
+		margin: 10px 0;
+		min-width: 280px;
+		width: 280px;
+		}
+	#content.with-help #help-button {
+		top: 101px;
+		}
+	}

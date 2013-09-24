@@ -157,4 +157,30 @@ $(function() {
 	});
 	$("#pageslist tr td input.position").hide();
 	$("#pageslist tr td.handle").addClass('handler');
+	
+	$("form input[type=submit]").click(function() {
+		$("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+		$(this).attr("clicked", "true");
+	})
+	
+	$('#form-entries').submit(function() {
+		var action = $(this).find('select[name="action"]').val();
+		var checked = false;
+		if ($("input[name=reorder][clicked=true]").val()) {
+			return true;
+		}
+		$(this).find('input[name="entries[]"]').each(function() {
+			if (this.checked) {
+				checked = true;
+			}
+		});
+
+		if (!checked) { return false; }
+
+		if (action == 'delete') {
+			return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s',$('input[name="entries[]"]:checked').size()));
+		}
+
+		return true;
+	});
 });

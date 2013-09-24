@@ -48,7 +48,7 @@ function pages_users_actions_headers()
 }
 
 $_menu['Blog']->addItem(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/icon.png',
-		preg_match('/plugin.php\?p=pages(&.*)?$/',$_SERVER['REQUEST_URI']),
+		preg_match('/plugin.php(.*)$/',$_SERVER['REQUEST_URI']) && $_REQUEST['p']=='pages',
 		$core->auth->check('contentadmin,pages',$core->blog->id));
 
 $core->auth->setPermissionType('pages',__('manage pages'));

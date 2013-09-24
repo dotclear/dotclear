@@ -44,12 +44,3 @@ function registerIeModules($modules)
 
 $__autoload['ieMaintenanceExportblog'] = dirname(__FILE__).'/inc/lib.ie.maintenance.php';
 $__autoload['ieMaintenanceExportfull'] = dirname(__FILE__).'/inc/lib.ie.maintenance.php';
-
-$this->core->addBehavior('dcMaintenanceRegister', 'ieMaintenanceRegister');
-
-function ieMaintenanceRegister($core, $tasks, $groups, $tabs)
-{
-	$tasks[] = 'ieMaintenanceExportblog';
-	$tasks[] = 'ieMaintenanceExportfull';
-}
-?>

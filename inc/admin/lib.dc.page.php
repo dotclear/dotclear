@@ -141,8 +141,8 @@ class dcPage
 		'<li><a class="'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a></li>'.
 		'<li><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').
 		'" href="preferences.php">'.__('My preferences').'</a></li>'.
-		'<li><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).
-		'<img src="images/logout.png" alt="" /></a></li>'.
+		'<li><a href="index.php?logout=1" class="logout"><span class="nomobile">'.sprintf(__('Logout %s'),$core->auth->userID()).
+		'</span><img src="images/logout.png" alt="" /></a></li>'.
 		'</ul>'.
 		'</div>'; // end header
 
@@ -159,7 +159,7 @@ class dcPage
 		if ($safe_mode)
 		{
 			echo
-			'<div class="error"><h3>'.__('Safe mode').'</h3>'.
+			'<div class="warning"><h3>'.__('Safe mode').'</h3>'.
 			'<p>'.__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
 			'</div>';
 		}
@@ -274,7 +274,7 @@ class dcPage
 		"</head>\n".
 		'<body id="dotclear-admin" class="popup">'."\n".
 
-		'<div id="top hidden"><h1>'.DC_VENDOR_NAME.'</h1></div>'."\n";
+		'<h1>'.DC_VENDOR_NAME.'</h1>'."\n";
 
 		echo
 		'<div id="wrapper">'."\n".
@@ -297,8 +297,8 @@ class dcPage
 		echo
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
-		'<div id="footer"><p>&nbsp;</p></div>'."\n".
 		"</div>\n".		// End of #wrapper
+		'<div id="footer"><p>&nbsp;</p></div>'."\n".
 		'</body></html>';
 	}
 
@@ -649,7 +649,7 @@ class dcPage
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		'$(function() {'."\n".
-		'$.pageTabs(".$default.");'."\n".
+		'$.pageTabs('.$default.');'."\n".
 		'});'."\n".
 		"\n//]]>\n".
 		"</script>\n";

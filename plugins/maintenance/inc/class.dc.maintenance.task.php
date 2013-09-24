@@ -32,6 +32,7 @@ class dcMaintenanceTask
 
 	protected $id;
 	protected $name;
+	protected $description;
 	protected $tab = 'maintenance';
 	protected $group = 'other';
 
@@ -49,7 +50,7 @@ class dcMaintenanceTask
 	 * @param	maintenance	<b>dcMaintenance</b>	dcMaintenance instance
 	 * @param	p_url	<b>string</b>	Maintenance plugin url
 	 */
-	public function __construct($maintenance, $p_url)
+	public function __construct($maintenance)
 	{
 		$this->maintenance = $maintenance;
 		$this->core = $maintenance->core;
@@ -60,7 +61,7 @@ class dcMaintenanceTask
 			return null;
 		}
 
-		$this->p_url = $p_url;
+		$this->p_url = $maintenance->p_url;
 		$this->id = get_class($this);
 
 		if (!$this->name) {
@@ -187,6 +188,16 @@ class dcMaintenanceTask
 	public function name()
 	{
 		return $this->name;
+	}
+
+	/**
+	 * Get task description.
+	 *
+	 * @return	<b>string</b>	Description
+	 */
+	public function description()
+	{
+		return $this->description;
 	}
 
 	/**
@@ -320,5 +331,10 @@ class dcMaintenanceTask
 	protected function log()
 	{
 		$this->maintenance->setLog($this->id);
+	}
+
+	public function help()
+	{
+		return null;
 	}
 }

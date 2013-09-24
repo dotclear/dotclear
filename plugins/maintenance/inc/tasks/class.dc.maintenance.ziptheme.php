@@ -21,6 +21,8 @@ class dcMaintenanceZiptheme extends dcMaintenanceTask
 	protected function init()
 	{
 		$this->task = __('Download active theme of current blog');
+
+		$this->description = __('It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file.');
 	}
 
 	public function execute()

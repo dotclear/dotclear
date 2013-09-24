@@ -42,11 +42,11 @@ if (!empty($_POST['settings'])) {
 		);
 
 		foreach($tasks as $t) {
-			if (!empty($_POST['settings_recall_time']) && $_POST['settings_recall_time'] == 'seperate') {
-				$ts = empty($_POST['settings_ts_'.$t->id()]) ? 0 : $_POST['settings_ts_'.$t->id()];
+			if (!empty($_POST['settings_recall_type']) && $_POST['settings_recall_type'] == 'all') {
+				$ts = $_POST['settings_recall_time'];
 			}
 			else {
-				$ts = $_POST['settings_recall_time'];
+				$ts = empty($_POST['settings_ts_'.$t->id()]) ? 0 : $_POST['settings_ts_'.$t->id()];
 			}
 			$core->blog->settings->maintenance->put(
 				'ts_'.$t->id(), 
@@ -58,7 +58,7 @@ if (!empty($_POST['settings'])) {
 			);
 		}
 		
-		http::redirect($p_url.'&done=1&tab='.$tab);
+		http::redirect($p_url.'&done=1&tab='.$tab.'#'.$tab);
 	}
 	catch(Exception $e) {
 		$core->error->add($e->getMessage());
@@ -87,7 +87,7 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 		}
 		if (true === $code) {
 			$maintenance->setLog($task->id());
-			http::redirect($p_url.'&task='.$task->id().'&done=1&tab='.$tab);
+			http::redirect($p_url.'&task='.$task->id().'&done=1&tab='.$tab.'#'.$tab);
 		}
 	}
 	catch (Exception $e) {
@@ -98,20 +98,11 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 // Combos
 
 $combo_ts = array(
+	__('Never') 			=> 0,
 	__('Every week') 		=> 604800,
 	__('Every two weeks') 	=> 1209600,
 	__('Every month') 		=> 2592000,
 	__('Every two months') 	=> 5184000
-);
-
-$full_combo_ts = array_merge(array(
-	__('Use different periods for each task') => 'seperate'), 
-	$combo_ts
-);
-
-$task_combo_ts = array_merge(array(
-	__('Never') => 0), 
-	$combo_ts
 );
 
 // Display page
@@ -119,7 +110,7 @@ $task_combo_ts = array_merge(array(
 echo '<html><head>
 <title>'.__('Maintenance').'</title>'.
 dcPage::jsPageTabs($tab).
-dcPage::jsLoad('index.php?pf=maintenance/js/settings.js');;
+dcPage::jsLoad('index.php?pf=maintenance/js/settings.js');
 
 if ($task && $task->ajax()) {
 	echo 
@@ -141,8 +132,7 @@ if (empty($tasks)) {
 	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
-			'<a href="'.$p_url.'">'.__('Maintenance').'</a>' => '',
-			'<span class="page-title">'.html::escapeHTML($task->name()).'</span>' => ''
+			'<span class="page-title">'.__('Maintenance').'</span>' => ''
 		)
 	).
 	'<p class="warn">'.__('You have not sufficient permissions to view this page.').'</p>'.
@@ -178,6 +168,9 @@ if ($task && ($res = $task->step()) !== null) {
 
 	echo 
 	'<div class="step-box" id="'.$task->id().'">'.
+	'<p class="step-back">'.
+		'<a class="back" href="'.$p_url.'&tab='.$task->tab().'#'.$task->tab().'">'.__('Back').'</a>'.
+	'</p>'.
 	'<h3>'.html::escapeHTML($task->name()).'</h3>'.
 	'<form action="'.$p_url.'" method="post">'.
 	'<p class="step-msg">'.
@@ -190,9 +183,6 @@ if ($task && ($res = $task->step()) !== null) {
 		$core->formNonce().
 	'</p>'.
 	'</form>'.
-	'<p class="step-back">'.
-		'<a class="back" href="'.$p_url.'&tab='.$task->tab().'">'.__('Back').'</a>'.
-	'</p>'.
 	'</div>';
 }
 else {
@@ -210,19 +200,20 @@ else {
 
 	// Simple task (with only a button to start it)
 
-	foreach($maintenance->getTabs() as $tab_id => $tab_name)
+	foreach($maintenance->getTabs() as $tab_obj)
 	{
 		$res_group = '';
-		foreach($maintenance->getGroups() as $group_id => $group_name)
+		foreach($maintenance->getGroups() as $group_obj)
 		{
 			$res_task = '';
 			foreach($tasks as $t)
 			{
-				if ($t->group() != $group_id || $t->tab() != $tab_id) {
+				if ($t->group() != $group_obj->id() 
+				 || $t->tab() != $tab_obj->id()) {
 					continue;
 				}
 
-				$res_task .=  
+				$res_task .= 
 				'<p>'.form::radio(array('task', $t->id()), $t->id()).' '.
 				'<label class="classic" for="'.$t->id().'">'.
 				html::escapeHTML($t->task()).'</label>';
@@ -253,7 +244,7 @@ else {
 			if (!empty($res_task)) {
 				$res_group .= 
 				'<div class="fieldset">'.
-				'<h4 id="'.$group_id.'">'.$group_name.'</h4>'.
+				'<h4 id="'.$group_obj->id().'">'.$group_obj->name().'</h4>'.
 				$res_task.
 				'</div>';
 			}
@@ -261,12 +252,13 @@ else {
 
 		if (!empty($res_group)) {
 			echo 
-			'<div id="'.$tab_id.'" class="multi-part" title="'.$tab_name.'">'.
-			'<h3>'.$tab_name.'</h3>'.
+			'<div id="'.$tab_obj->id().'" class="multi-part" title="'.$tab_obj->name().'">'.
+			'<h3>'.$tab_obj->name().'</h3>'.
+			// ($tab_obj->option('summary') ? '<p>'.$tab_obj->option('summary').'</p>' : '').
 			'<form action="'.$p_url.'" method="post">'.
 			$res_group.
 			'<p><input type="submit" value="'.__('Execute task').'" /> '.
-			form::hidden(array('tab'), $tab_id).
+			form::hidden(array('tab'), $tab_obj->id()).
 			$core->formNonce().'</p>'.
 			'<p class="form-note info">'.__('This may take a very long time.').'</p>'.
 			'</form>'.
@@ -298,8 +290,8 @@ else {
 	// Settings
 
 	echo 
-	'<div id="settings" class="multi-part" title="'.__('Settings').'">'.
-	'<h3>'.__('Settings').'</h3>'.
+	'<div id="settings" class="multi-part" title="'.__('Alert settings').'">'.
+	'<h3>'.__('Alert settings').'</h3>'.
 	'<form action="'.$p_url.'" method="post">'.
 
 	'<h4 class="pretty-title">'.__('Activation').'</h4>'.
@@ -310,30 +302,36 @@ else {
 	'<p class="info">'.sprintf(
 		__('You can place list of late tasks on your %s.'),
 		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
-	).'</a></p>'.
+	).'</p>'.
 
-	'<h4 class="pretty-title">'.__('Frequency').'</h4>'.
+	'<h4 class="pretty-title vertical-separator">'.__('Frequency').'</h4>'.
 
-	'<p><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
-	form::combo('settings_recall_time', $full_combo_ts, 'seperate', 'recall-for-all').
+	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_all'), 'all').' '.
+	'<label class="classic" for="settings_recall_all">'.
+	'<strong>'.__('Use one recall time for all tasks').'</strong></label>'.
+
+	'<p class="field wide vertical-separator"><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
+	form::combo('settings_recall_time', $combo_ts, 'seperate', 'recall-for-all').
 	'</p>'.
 
-	'<h5 class="vertical-separator">'.__('Recall time per task:').'</h5>';
+	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_separate'), 'separate', 1).' '.
+	'<label class="classic" for="settings_recall_separate">'.
+	'<strong>'.__('Use one recall time per task').'</strong></label>';
 
 	foreach($tasks as $t)
 	{
 		echo
 		'<div class="two-boxes">'.
 
-		'<p><label for="settings_ts_'.$t->id().'">'.$t->task().'</label>'.
-		form::combo('settings_ts_'.$t->id(), $task_combo_ts, $t->ts(), 'recall-per-task').
+		'<p class="field wide"><label for="settings_ts_'.$t->id().'">'.$t->task().'</label>'.
+		form::combo('settings_ts_'.$t->id(), $combo_ts, $t->ts(), 'recall-per-task').
 		'</p>'.
 
 		'</div>';
 	}
 
 	echo 
-	'<p><input type="submit" value="'.__('Save this settings').'" /> '.
+	'<p class="field wide"><input type="submit" value="'.__('Save this settings').'" /> '.
 	form::hidden(array('tab'), 'settings').
 	form::hidden(array('settings'), 1).
 	$core->formNonce().'</p>'.
@@ -341,6 +339,6 @@ else {
 	'</div>';
 }
 
-dcPage::helpBlock('maintenance');
+dcPage::helpBlock('maintenance', 'maintenancetasks');
 
 echo '</body></html>';

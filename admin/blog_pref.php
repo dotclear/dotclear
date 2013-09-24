@@ -492,17 +492,17 @@ if ($blog_id)
 	'<div class="fieldset"><h4>'.__('Blog presentation').'</h4>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	'<p><label for="date_format">'.__('Date format:').'</label>'.
+	'<p><label for="date_format">'.__('Date format:').'</label> '.
 	form::field('date_format',30,255,html::escapeHTML($blog_settings->system->date_format)).
-	form::combo('date_format_select',$date_formats_combo).
+	form::combo('date_format_select',$date_formats_combo,'','','',false,'title="'.__('Pattern of date').'"').
 	'</p>'.
-	'<p class="chosen form-note">'.dt::str(html::escapeHTML($blog_settings->system->date_format)).'</p>'.
+	'<p class="chosen form-note">'.__('Sample:').' '.dt::str(html::escapeHTML($blog_settings->system->date_format)).'</p>'.
 
 	'<p><label for="time_format">'.__('Time format:').'</label>'.
 	form::field('time_format',30,255,html::escapeHTML($blog_settings->system->time_format)).
-	form::combo('time_format_select',$time_formats_combo).
+	form::combo('time_format_select',$time_formats_combo,'','','',false,'title="'.__('Pattern of time').'"').
 	'</p>'.
-	'<p class="chosen form-note">'.dt::str(html::escapeHTML($blog_settings->system->time_format)).'</p>'.
+	'<p class="chosen form-note">'.__('Sample:').' '.dt::str(html::escapeHTML($blog_settings->system->time_format)).'</p>'.
 	
 	'<p><label for="use_smilies" class="classic">'.
 	form::checkbox('use_smilies','1',$blog_settings->system->use_smilies).

@@ -882,6 +882,9 @@ msgstr ""
 msgid "Import a WordPress installation into your current blog."
 msgstr ""
 
+msgid "Export functions are in the page %s."
+msgstr ""
+
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr ""
@@ -958,7 +961,19 @@ msgstr ""
 msgid "Servicing"
 msgstr ""
 
+msgid "Tools to maintain the performance of your blogs."
+msgstr ""
+
 msgid "Backup"
+msgstr ""
+
+msgid "Tools to back up your content."
+msgstr ""
+
+msgid "Development"
+msgstr ""
+
+msgid "Tools to assist in development of plugins, themes and core."
 msgstr ""
 
 msgid "Optimize"
@@ -973,13 +988,16 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-msgid "Compressed file for current blog"
+msgid "Current blog"
 msgstr ""
 
-msgid "Compressed file for all blogs"
+msgid "All blogs"
 msgstr ""
 
-msgid "One task to execute"
+msgid "Translations"
+msgstr ""
+
+msgid "Maintain translations"
 msgstr ""
 
 #, php-format
@@ -990,7 +1008,7 @@ msgid "There is a task to execute."
 msgstr ""
 
 #, php-format
-msgid_plural "There are %s tasks to execute."
+msgid "There are %s tasks to execute."
 msgstr ""
 
 msgid "This task has never been executed."
@@ -1023,6 +1041,9 @@ msgstr ""
 msgid "Failed to empty templates cache directory."
 msgstr ""
 
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+msgstr ""
+
 msgid "Count again comments and trackbacks"
 msgstr ""
 
@@ -1030,6 +1051,9 @@ msgid "Comments and trackback counted."
 msgstr ""
 
 msgid "Failed to count comments and trackbacks."
+msgstr ""
+
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr ""
 
 msgid "Search engine index"
@@ -1051,6 +1075,9 @@ msgstr ""
 msgid "Failed to index comments."
 msgstr ""
 
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr ""
+
 msgid "Index all entries for search engine"
 msgstr ""
 
@@ -1063,6 +1090,27 @@ msgstr ""
 msgid "Failed to index entries."
 msgstr ""
 
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr ""
+
+msgid "Entries metadata"
+msgstr ""
+
+msgid "Synchronize entries metadata"
+msgstr ""
+
+msgid "Synchronize entry %d to %d."
+msgstr ""
+
+msgid "Entries metadata synchronize done."
+msgstr ""
+
+msgid "Failed to synchronize entries metadata."
+msgstr ""
+
+msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
+msgstr ""
+
 msgid "Delete all logs"
 msgstr ""
 
@@ -1070,6 +1118,9 @@ msgid "Logs deleted."
 msgstr ""
 
 msgid "Failed to delete logs."
+msgstr ""
+
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr ""
 
 msgid "optimize tables"
@@ -1081,10 +1132,19 @@ msgstr ""
 msgid "Failed to optimize tables."
 msgstr ""
 
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
+msgstr ""
+
 msgid "Download media folder of current blog"
 msgstr ""
 
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr ""
+
 msgid "Download active theme of current blog"
+msgstr ""
+
+msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
 msgid "Every week"
@@ -1123,16 +1183,31 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+msgid "Activation"
+msgstr ""
+
 msgid "Display alert messages on late tasks"
+msgstr ""
+
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr "Périodicité"
+
+msgid "Use one recall time for all tasks"
 msgstr ""
 
 msgid "Recall time for all tasks:"
 msgstr ""
 
+msgid "Use one recall time per task"
+msgstr ""
+
 msgid "Recall time per task:"
 msgstr ""
 
-msgid "You can place list of late tasks on your %s."
+msgid "Save this settings"
 msgstr ""
 
 msgid "Pages"
