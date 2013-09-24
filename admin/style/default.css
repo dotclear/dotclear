@@ -2440,9 +2440,16 @@ ul.from-left {
 		width: 100%;
 		margin: 0;
 		}
+	#main-menu a {
+		display: block;
+		width: 100%;
+		}
+	#main-menu h3 a {
+		display: inline;
+		}
 	#content {
 		margin: 0;
-		padding: 0 1em;
+		padding: 0 .5em;
 		}
 	#collapser {
 		display: none;
@@ -2476,7 +2483,7 @@ ul.from-left {
 	#top-info-blog p {
 		display: block;
 		}
-	#dashboard-boxes .box {
+	#dashboard-boxes .box { /* a revoir quand le dashboard sera fini */
 		margin: 10px 0;
 		min-width: 280px;
 		width: 280px;
