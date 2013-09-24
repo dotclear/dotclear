@@ -30,13 +30,21 @@ class dcCommentsActionsPage extends dcActionsPage
 	}
 	
 	public function beginPage($breadcrumb='',$head='') {
-		dcPage::open(
-			__('Comments'),
-			
-			dcPage::jsLoad('js/_comments_actions.js').
-			$head,
-			$breadcrumb
-		);	
+		if ($this->in_plugin) {
+			echo '<html><head><title>'.__('Comments').'</title>'.
+				dcPage::jsLoad('js/_comments_actions.js').
+				$head.
+				'</script></head><body>'.
+				$breadcrumb;
+		} else {
+			dcPage::open(
+				__('Comments'),
+				dcPage::jsLoad('js/_comments_actions.js').
+				$head,
+				$breadcrumb
+			);	
+
+		}
 		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to comments list').'</a></p>';
 	}
 	
