@@ -12,7 +12,7 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $GLOBALS['core']->addBehavior('adminPostsActionsPage',array('dcLegacyPosts','adminPostsActionsPage'));
-$GLOBALS['core']->addBehavior('adminPagessActionsPage',array('dcLegacyPosts','adminPagesActionsPage'));
+$GLOBALS['core']->addBehavior('adminPagesActionsPage',array('dcLegacyPages','adminPagesActionsPage'));
 $GLOBALS['core']->addBehavior('adminCommentsActionsPage',array('dcLegacyComments','adminCommentsActionsPage'));
 
 /* Handle deprecated behaviors : 
@@ -85,12 +85,17 @@ class dcLegacyPages
 	}
 	
 	public static function onActionLegacy($core, dcPagesActionsPage $as, $post) {
-		$core->callBehavior('adminPagesActions',$core,$as->getRS(),$as->getAction(),$as->getRedirection());
+		$core->callBehavior('adminPostsActions',$core,$as->getRS(),$as->getAction(),$as->getRedirection());
 		$as->beginPage('',
 			dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 			dcPage::jsMetaEditor().
-			$core->callBehavior('adminPagesActionsHeaders'),'');
-		$core->callBehavior('adminPagesActionsContent',$core,$as->getAction(),$as->getHiddenFields(true));
+			$core->callBehavior('adminPostsActionsHeaders'),'');
+		ob_start();
+		$core->callBehavior('adminPostsActionsContent',$core,$as->getAction(),$as->getHiddenFields(true));
+		$res = ob_get_contents();
+		ob_end_clean();
+		$res = str_replace("posts_actions.php","plugin.php",$res);
+		echo $res;
 		$as->endPage();
 	}
 }
