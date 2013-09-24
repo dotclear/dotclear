@@ -2222,3 +2222,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Blog settings"
 #~ msgstr "Paramètres du blog"
+
+msgid "Alert settings"
+msgstr "Réglage des alertes"
