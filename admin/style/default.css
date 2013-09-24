@@ -600,6 +600,9 @@ p.field {
 		display: inline-block;
 		width: 14em;
 		}
+	p.field.wide label {
+		width: 21em;
+		}
 	p.field input, p.field select {
 		display: inline-block;
 		}

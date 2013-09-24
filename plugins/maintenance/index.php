@@ -290,8 +290,8 @@ else {
 	// Settings
 
 	echo 
-	'<div id="settings" class="multi-part" title="'.__('Settings').'">'.
-	'<h3>'.__('Settings').'</h3>'.
+	'<div id="settings" class="multi-part" title="'.__('Alert settings').'">'.
+	'<h3>'.__('Alert settings').'</h3>'.
 	'<form action="'.$p_url.'" method="post">'.
 
 	'<h4 class="pretty-title">'.__('Activation').'</h4>'.
@@ -304,26 +304,26 @@ else {
 		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
 	).'</p>'.
 
-	'<h4 class="pretty-title">'.__('Frequency').'</h4>'.
+	'<h4 class="pretty-title vertical-separator">'.__('Frequency').'</h4>'.
 
-	'<p>'.form::radio(array('settings_recall_type', 'settings_recall_all'), 'all').' '.
+	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_all'), 'all').' '.
 	'<label class="classic" for="settings_recall_all">'.
-	__('Use one recall time for all tasks').'</label>'.
+	'<strong>'.__('Use one recall time for all tasks').'</strong></label>'.
 
-	'<p><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
+	'<p class="field wide vertical-separator"><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
 	form::combo('settings_recall_time', $combo_ts, 'seperate', 'recall-for-all').
 	'</p>'.
 
-	'<p>'.form::radio(array('settings_recall_type', 'settings_recall_separate'), 'separate', 1).' '.
+	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_separate'), 'separate', 1).' '.
 	'<label class="classic" for="settings_recall_separate">'.
-	__('Use one recall time per task').'</label>';
+	'<strong>'.__('Use one recall time per task').'</strong></label>';
 
 	foreach($tasks as $t)
 	{
 		echo
 		'<div class="two-boxes">'.
 
-		'<p><label for="settings_ts_'.$t->id().'">'.$t->task().'</label>'.
+		'<p class="field wide"><label for="settings_ts_'.$t->id().'">'.$t->task().'</label>'.
 		form::combo('settings_ts_'.$t->id(), $combo_ts, $t->ts(), 'recall-per-task').
 		'</p>'.
 
@@ -331,7 +331,7 @@ else {
 	}
 
 	echo 
-	'<p><input type="submit" value="'.__('Save this settings').'" /> '.
+	'<p class="field wide"><input type="submit" value="'.__('Save this settings').'" /> '.
 	form::hidden(array('tab'), 'settings').
 	form::hidden(array('settings'), 1).
 	$core->formNonce().'</p>'.
