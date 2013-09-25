@@ -333,6 +333,102 @@ dcPage::check('usage,contentadmin');
 					<p><a title="Titre du lien (nouvelle fenêtre)" onclick="window.open(this.href);return false;" href="http://fr.dotclear.org/blog" class="onblog_link">Lien vers le blog <img alt="" src="images/outgoing-blue.png" /></a></p>
 					<p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
 
+				<h2><span class="page-title">Les tableaux</span></h2>
+					<p>Il existe deux mises en forme type de tableaux selon que l'on cherche à faire un tableau ordinaire 
+					ou un tableau dont on peut déplacer les lignes par glisser déposer (voir plus bas). Cependant certaines règles
+					sont communes à tout les tableaux.</p>
+
+				<h3 id="communes">Règles communes</h3>
+					<h4>Largeur du tableau</h4>
+						<p>Sauf pour des tableaux particuliers (absents dans l'admin mais qui pourraient être nécessaires 
+						à un plugin,les tableaux occupent toute la largeur de la page. Afin que les tableaux soient consultables 
+						sur un mobile en navigant horizontalement, on englobe le tableau dans une <code>div class="table-outer"</code>, 
+						qui servira de «&nbsp;conteneur&nbsp;».</p>
+					<h4>Accessibilité</h4>
+						<p>Les éléments caption, th, scope sont nécessaires à l'accessibilité. Ne les oubliez pas&nbsp;!&nbsp;». 
+						On peut utiliser la <code>class="hidden"</code> sur l'élément <code>caption</code> (qui accueille 
+						le titre du tableau) si vous ne souhaitez pas qu'il soit affiché sur la page.</p>
+					 <h4>Les classes</h4>
+					 	<p>Des classes particulières peuvent être attribuées aux lignes :</p>
+					 		<ul>
+					 			<li><code>line</code> (systématique) : pour les traits horizontaux et le fond gris léger 
+					 			au survol&nbsp;;</li>
+								<li><code>offline</code> : pour un noir estompé (gris quoi).</li>
+					 		</ul>
+					 	<p>Des classes particulières peuvent être appliquées aux cellules :</p>
+					 	<ul>
+							<li><code>nowrap</code> : pas de retour à la ligne dans la cellule, quelle que soit la 
+							largeur de la page&nbsp;;</li>
+							<li><code>maximal</code> : la cellule prendra toute la largeur restante disponible&nbsp;;</li>
+							<li><code>count</code> : le contenu de la cellule sera aligné à droite avec un petit retrait.</li>
+						</ul>
+				<h3 id="ordinaires">Tableau classique</h3>
+				<div class="table-outer">
+					<table>
+						<caption class="hidden">Liste des entrées</caption>
+						<tr>
+							<th colspan="2" class="first">Titre</th>
+							<th scope="col">Date</th>
+							<th scope="col">Catégorie</th>
+							<th scope="col">Auteur</th>
+							<th scope="col">Commentaires</th>
+							<th scope="col">Rétroliens</th>
+							<th scope="col">État</th>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="name1" value="value1"  /></td>
+							<td class="maximal" scope="row"><a href="#">Mon cher Franck</a></td>
+							<td class="nowrap count">06/08/2013 19:16</td>
+							<td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td><td class="nowrap count">4</td>
+							<td class="nowrap count">0</td><td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" /> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png" />  </td>
+						</tr>
+						<tr class="line offline">
+							<td class="nowrap"><input type="checkbox" name="name2" value="value2"  /></td>
+							<td class="maximal" scope="row"><a href="#">Dotclear 2.3.0</a></td>
+							<td class="nowrap count">16/05/2011 22:29</td>
+							<td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td><td class="nowrap count">5</td>
+							<td class="nowrap count">0</td><td class="nowrap status"><img alt="Non publié" title="Non publié" src="images/check-off.png" /> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png" />  </td>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="entries[]" value="2148" /></td>
+							<td class="maximal" scope="row"><a href="#">Causons opéra au Tamm Bara</a></td>
+							<td class="nowrap count">24/11/2009 23:10</td>
+							<td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td>
+							<td class="nowrap count">4</td><td class="nowrap count">1</td>
+							<td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="entries[]" value="2136"  /></td>
+							<td class="maximal" scope="row"><a href="#">Souffler six bougies</a></td>
+							<td class="nowrap count">14/08/2009 00:00</td><td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td>
+							<td class="nowrap count">4</td><td class="nowrap count">2</td><td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="entries[]" value="2129"  /></td>
+							<td class="maximal" scope="row"><a href="#">Dotclear et grenadine, troisième édition</a></td>
+							<td class="nowrap count">15/06/2009 07:39</td>
+							<td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td>
+							<td class="nowrap count">9</td>
+							<td class="nowrap count">1</td>
+							<td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="entries[]" value="2111"  /></td>
+							<td class="maximal" scope="row"><a href="#">L'abc dotclear est né</a></td>
+							<td class="nowrap count">19/03/2009 10:31</td><td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td>
+							<td class="nowrap count">1</td><td class="nowrap count">0</td>
+							<td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+						</tr>
+					</table>
+				</div>		
+
+
 			</div><!-- /content -->
 		</div><!-- /main -->
 		<div id="main-menu">
