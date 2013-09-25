@@ -1223,9 +1223,11 @@ tr.line img.expand, th img.expand {
 tr.line p {
 	margin: 0;
 	}
+tr.line input[type=text] {
+	background: #FFF;
+	}
 tr.line input, tr.line select {
 	vertical-align: middle;
-	background: #FFF;
 	-webkit-box-shadow: none;
 	        box-shadow: none;
 	}
