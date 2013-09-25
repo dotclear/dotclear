@@ -692,7 +692,7 @@ if ($post_id)
 	'</p>'.
 	
 	'<p>'.
-	form::hidden('id',$post_id).
+	form::hidden('post_id',$post_id).
 	$core->formNonce().
 	'<input type="submit" name="add" value="'.__('Save').'" /></p>'.
 	'</div>'. #constrained
