@@ -169,7 +169,7 @@ class dcMaintenanceAdmin
 
 		$items[] = new ArrayObject(array(
 			'<div id="maintenance-expired" class="box small">'.
-			'<h3><img src="index.php?pf=maintenance/icon.png" alt="" /> '.__('Maintenance').'</h3>'.
+			'<h3><img src="index.php?pf=maintenance/icon-small.png" alt="" /> '.__('Maintenance').'</h3>'.
 			'<p class="warn">'.sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)).'</p>'.
 			'<ul>'.implode('',$lines).'</ul>'.
 			'<p><a href="plugin.php?p=maintenance">'.__('Manage tasks').'</a></p>'.
