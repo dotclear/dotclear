@@ -27,7 +27,10 @@
 			$(this).parent().find('li.'+options.activeClass).removeClass(options.activeClass);
 			$(this).addClass(options.activeClass);
 			$('.'+options.contentClass+'.active').removeClass('active').hide();
-			$('#'+options.partPrefix+getId($(this).find('a').attr('href'))).addClass('active').show();
+			$('#'+options.partPrefix+getId($(this).find('a').attr('href'))).addClass('active')
+				.show()
+				.onetabload()
+				.tabload();
 		});
 		
 		return this;
