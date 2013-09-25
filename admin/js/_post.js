@@ -155,7 +155,9 @@ $(function() {
 					$(p).addClass('success');
 					$(p).text(dotclear.msg.xhtml_valid);
 					$('#entry-content h3').after(p);
-					$(p).backgroundFade({sColor:'#9BCA1C',eColor:'#bee74b',steps:20});
+					$(p).backgroundFade({sColor: dotclear.fadeColor.beginValidatorMsg, eColor: dotclear.fadeColor.endValidatorMsg, steps: 50},function() {
+							$(this).backgroundFade({sColor: dotclear.fadeColor.endValidatorMsg, eColor: dotclear.fadeColor.beginValidatorMsg});
+					});
 				} else {
 					var div = document.createElement('div');
 					div.id = 'markup-validator';
@@ -163,9 +165,10 @@ $(function() {
 					$(div).addClass('error');
 					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
 					$('#entry-content h3').after(div);
-					$(div).backgroundFade({sColor:'#ffdec8',eColor:'#ffbaba',steps:20});
-				}
-				
+					$(div).backgroundFade({sColor: dotclear.fadeColor.beginValidatorErr, eColor: dotclear.fadeColor.endValidatorErr, steps: 50},function() {
+							$(this).backgroundFade({sColor: dotclear.fadeColor.endValidatorErr, eColor: dotclear.fadeColor.beginValidatorErr});	
+					}
+
 				if ( $('#post_excerpt').text() != excerpt_content || $('#post_content').text() != post_content ) {
 					var pn = document.createElement('p');
 					$(pn).addClass('warning-msg');

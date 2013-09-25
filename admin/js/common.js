@@ -353,12 +353,49 @@ var dotclear = {
 
 			return true;
 		});
-	}
-};
+	},
+	getCSSColor : function ( clazz) {
+		$('<div class="'+clazz+'" id="dotclear-obj-test-color" style="display:none"></div>').appendTo(document.body);
+		var tag2 = $('#dotclear-obj-test-color');
+		var color = $.trim(tag2.css("color").toLowerCase());
+		tag2.remove();
+		if ( color.charAt(0) === '#') {
+			return color;
+		}
+		var result = /^rgb\((\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\)$/.exec(color);		
+		if ( result === null) {
+			return '';
+		}
+		var ret = '#';
+		for ( var i = 1; i < 4; i++) {
+			var val = parseInt(result[i],10);
+			ret += (val < 16 ? '0'+val.toString(16) : val.toString(16));
+		}
+		return ret;
+	},
+	initFadeColor : function() {
+		dotclear.fadeColor = {
+			beginPassword : dotclear.getCSSColor('colorBeginPassword'),
+			endPassword : dotclear.getCSSColor('colorEndPassword'),
+			beginMessage : dotclear.getCSSColor('colorBeginMessage'),
+			endMessage : dotclear.getCSSColor('colorEndMessage'),
+			beginError : dotclear.getCSSColor('colorBeginError'),
+			endError : dotclear.getCSSColor('colorEndError'),
+			beginSuccess : dotclear.getCSSColor('colorBeginSuccess'),
+			endSuccess : dotclear.getCSSColor('colorEndSuccess'),
+			beginValidatorMsg : dotclear.getCSSColor('colorBeginValidatorMsg'),
+			endValidatorMsg : dotclear.getCSSColor('colorEndValidatorMsg'),
+			beginValidatorErr : dotclear.getCSSColor('colorBeginValidatorErr'),
+			endValidatorErr : dotclear.getCSSColor('colorEndValidatorErr'),
+			beginUserMail : dotclear.getCSSColor('colorBeginUserMail'),
+			endUserMail : dotclear.getCSSColor('colorEndUserMail')
+		};
+	}};
 
 /* On document ready
 -------------------------------------------------------- */
 $(function() {
+	dotclear.initFadeColor();
 	// remove class no-js from html tag; cf style/default.css for examples
 	$('body').removeClass('no-js').addClass('with-js');
 	
@@ -394,16 +431,16 @@ $(function() {
 
 	$('#help').helpViewer();
 
-	$('.message').backgroundFade({sColor:'#cccccc',eColor:'#676e78',steps:20});
-	$('.error').backgroundFade({sColor:'#ffdec8',eColor:'#ffbaba',steps:20});
-	$('.success').backgroundFade({sColor:'#9BCA1C',eColor:'#bee74b',steps:20});
+	$('.message').backgroundFade({sColor: dotclear.fadeColor.beginMessage, eColor: dotclear.fadeColor.endMessage, steps:20});
+	$('.error').backgroundFade({sColor: dotclear.fadeColor.beginError, eColor: dotclear.fadeColor.endError, steps:20});
+	$('.success').backgroundFade({sColor: dotclear.fadeColor.beginSuccess, eColor: dotclear.fadeColor.endSuccess, steps:20});
 
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
 		var e = this.elements['your_pwd'];
 		if (e.value == '') {
 			e.focus();
-			$(e).backgroundFade({sColor:'#ffffff',eColor:'#ffbaba',steps:50},function() {
-				$(this).backgroundFade({sColor:'#ffbaba',eColor:'#ffffff'});
+			$(e).backgroundFade({sColor: dotclear.fadeColor.beginPassword,eColor: dotclear.fadeColor.endPassword,steps:50},function() {
+				$(this).backgroundFade({sColor: dotclear.fadeColor.endPassword,eColor: dotclear.fadeColor.beginPassword});
 			});
 			return false;
 		}
