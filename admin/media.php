@@ -66,6 +66,10 @@ if (!empty($_GET['file_sort']) && in_array($_GET['file_sort'],$sort_combo)) {
 	$_SESSION['media_file_sort'] = $_GET['file_sort'];
 }
 $file_sort = !empty($_SESSION['media_file_sort']) ? $_SESSION['media_file_sort'] : null;
+$nb_per_page = !empty($_SESSION['nb_per_page']) ? (integer)$_SESSION['nb_per_page'] : $nb_per_page;
+if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
+	$nb_per_page = $_SESSION['nb_per_page'] = (integer)$_GET['nb_per_page'];
+}
 
 $popup = (integer) !empty($_GET['popup']);
 
@@ -320,10 +324,13 @@ else
 	echo
 	'<form action="media.php" method="get">'.
 	'<p><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
-	form::combo('file_sort',$sort_combo,$file_sort).
+	form::combo('file_sort',$sort_combo,$file_sort).' - '.
+	'<label for="nb_per_page" class="classic">'.__('Number of media displayed per page:').'</label> '.
+	form::field('nb_per_page',5,3,(integer) $nb_per_page).' '.
+	'<input type="submit" value="'.__('OK').'" />'.
 	form::hidden(array('popup'),$popup).
 	form::hidden(array('post_id'),$post_id).
-	'<input type="submit" value="'.__('Sort').'" /></p>'.
+	'</p>'.
 	'</form>'.
 	$pager->getLinks();
 
