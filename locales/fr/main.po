@@ -2137,7 +2137,7 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr "Si cette option est cochée, des champs numériques permettront d'indiquer la position des éléments."
 
 msgid "Number of media displayed per page:"
-msgstr ""
+msgstr "Nombre de médias affichés par page :"
 
 msgid "Do not use standard favicon"
 msgstr "Ne pas utiliser le favicon standard de Dotclear"
