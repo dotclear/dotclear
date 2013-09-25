@@ -414,6 +414,9 @@ hr.clearer {
 pre, code {
 	font: 100% "Andale Mono","Courier New",monospace;
 	}
+code {
+	background: #FAFAD1;
+	}
 pre {
 	white-space: pre;
 	white-space: -moz-pre-wrap;
@@ -2351,7 +2354,7 @@ ul.from-left {
 	top: 0;
 	width: 100%;
 	height: 4px;
-	background: #d99;
+	background: #EBEB47;
 	}
 #debug div {
 	display: none;
@@ -2362,6 +2365,8 @@ ul.from-left {
 	}
 #debug:hover {
 	height: auto;
+	padding: 2px 1em;
+	z-index: 100;
 	}
 #debug:hover div {
 	display: block;
@@ -2467,7 +2472,7 @@ ul.from-left {
 		}
 	#content {
 		margin: 0;
-		padding: 0 .5em;
+		padding: 0 .5em !important;
 		}
 	#collapser {
 		display: none;
@@ -2475,6 +2480,12 @@ ul.from-left {
 	#main #content > h2 {
 		margin: 0;
 		padding: 6px 0;
+		}
+	#dashboard-boxes .box.medium,
+	#dashboard-boxes .box.small,
+	#dashboard-boxes .box.large {
+		width: 90%;
+		margin: 10px auto;
 		}
 	}
 @media screen and (max-width: 500px) {
@@ -2494,11 +2505,6 @@ ul.from-left {
 		}
 	#icons p {
 		width: 150px;
-		}
-	#dashboard-boxes .box.small
-	#dashboard-boxes .box.medium {
-		margin: 10px 0;
-		width: 280px;
 		}
 	#content.with-help #help-button {
 		top: 101px;
