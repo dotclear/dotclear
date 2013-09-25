@@ -106,20 +106,19 @@ if (!$core->error->flag())
 	if (!$posts->isEmpty())
 	{
 		echo
-		'<div class="fieldset">'.
+		'<div class="tag-actions vertical-separator">'.
+		'<h3>'.html::escapeHTML($tag).'</h3>'.
 		'<form action="'.$this_url.'" method="post">'.
-		'<h3>'.__('Actions').'</h3>'.
-		'<p><label for="new_tag_id">'.__('Edit tag name:').'</label>'.
+		'<p><label for="new_tag_id" class="classic">'.__('Rename').'</label> '.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
-		'<input type="submit" value="'.__('Rename').'" />'.
+		'<input type="submit" value="'.__('OK').'" />'.
 		$core->formNonce().
 		'</p></form>';
 		# Remove tag
 		if (!$posts->isEmpty() && $core->auth->check('contentadmin',$core->blog->id)) {
 			echo
 			'<form id="tag_delete" action="'.$this_url.'" method="post">'.
-			'<p>'.__('Delete this tag:').' '.
-			'<input type="submit" class="delete" name="delete" value="'.__('Delete').'" />'.
+			'<p><input type="submit" class="delete" name="delete" value="'.__('Delete this tag').'" />'.
 			$core->formNonce().
 			'</p></form>';
 		}
@@ -127,7 +126,7 @@ if (!$core->error->flag())
 	}
 	
 	# Show posts
-	echo '<h3>'.sprintf(__('List of entries with the tag “%s”'),html::escapeHTML($tag)).'</h3>';
+	echo '<h4 class="vertical-separator pretty-title">'.sprintf(__('List of entries with the tag “%s”'),html::escapeHTML($tag)).'</h4>';
 	$post_list->display($page,$nb_per_page,
 	'<form action="plugin.php" method="post" id="form-entries">'.
 	
