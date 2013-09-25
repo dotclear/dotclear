@@ -261,10 +261,21 @@ $(function() {
 	});
 
 	$('#comments').onetabload(function() {
-		$('.comments-list tr.line').each(function() {
+		$('#form-comments .comments-list tr.line').each(function() {
 			dotclear.commentExpander(this);
 		});
-		$('.checkboxes-helpers').each(function() {
+		$('#form-comments .checkboxes-helpers').each(function() {
+			dotclear.checkboxesHelpers(this);
+		});
+
+		dotclear.commentsActionsHelper();
+	});
+
+	$('#trackbacks').onetabload(function() {
+		$('#form-trackbacks .comments-list tr.line').each(function() {
+			dotclear.commentExpander(this);
+		});
+		$('#form-trackbacks .checkboxes-helpers').each(function() {
 			dotclear.checkboxesHelpers(this);
 		});
 
