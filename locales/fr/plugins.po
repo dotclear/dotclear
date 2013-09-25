@@ -1710,8 +1710,8 @@ msgstr "Renommer ce mot-clé :"
 msgid "Rename"
 msgstr "Renommer"
 
-msgid "Delete this tag:"
-msgstr "Supprimer ce mot-clé :"
+msgid "Delete this tag"
+msgstr "Supprimer ce mot-clé"
 
 #, php-format
 msgid "List of entries with the tag “%s”"

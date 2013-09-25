@@ -108,3 +108,7 @@ a.metaRemove:hover, a.metaRemove:focus {
 #tags-edit input[type=button] {
 	width: 3.5em;
 }
+.tag-actions form {
+	display: inline-block;
+	margin-right: 1.5em;
+}
