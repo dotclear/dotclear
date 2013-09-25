@@ -11,7 +11,6 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-$GLOBALS['core']->url->register('tag','tag','^tag/(.+)$',array('urlTags','tag'));
-$GLOBALS['core']->url->register('tags','tags','^tags$',array('urlTags','tags'));
-$GLOBALS['core']->url->register('tag_feed','feed/tag','^feed/tag/(.+)$',array('urlTags','tagFeed'));
-?>
+$core->url->register('tag', 'tag', '^tag/(.+)$', array('urlTags', 'tag'));
+$core->url->register('tags', 'tags', '^tags$', array('urlTags', 'tags'));
+$core->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', array('urlTags', 'tagFeed'));

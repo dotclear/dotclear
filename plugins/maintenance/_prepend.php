@@ -11,8 +11,6 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-global $__autoload;
-
 $__autoload['dcMaintenance'] = dirname(__FILE__).'/inc/class.dc.maintenance.php';
 $__autoload['dcMaintenanceDescriptor'] = dirname(__FILE__).'/inc/class.dc.maintenance.descriptor.php';
 $__autoload['dcMaintenanceTask'] = dirname(__FILE__).'/inc/class.dc.maintenance.task.php';
