@@ -143,7 +143,7 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 		$feed = $feed_reader->parse($__resources['rss_news']);
 		if ($feed)
 		{
-			$latest_news = '<h3>'.__('Dotclear news').'</h3><dl id="news">';
+			$latest_news = '<div class="box medium dc-box"><h3>'.__('Dotclear news').'</h3><dl id="news">';
 			$i = 1;
 			foreach ($feed->items as $item)
 			{
@@ -163,7 +163,7 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 				$i++;
 				if ($i > 2) { break; }
 			}
-			$latest_news .= '</dl>';
+			$latest_news .= '</dl></div>';
 			$__dashboard_items[$dashboardItem][] = $latest_news;
 			$dashboardItem++;
 		}
@@ -175,14 +175,14 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 if ($core->auth->user_prefs->dashboard->doclinks) {
 	if (!empty($__resources['doc']))
 	{
-		$doc_links = '<h3>'.__('Documentation and support').'</h3><ul>';
+		$doc_links = '<div class="box small dc-box"><h3>'.__('Documentation and support').'</h3><ul>';
 	
 		foreach ($__resources['doc'] as $k => $v) {
 			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' ('.__('new window').')">'.$k.
 			' <img src="images/outgoing-blue.png" alt="" /></a></li>';
 		}
 	
-		$doc_links .= '</ul>';
+		$doc_links .= '</ul></div>';
 		$__dashboard_items[$dashboardItem][] = $doc_links;
 		$dashboardItem++;
 	}
@@ -323,11 +323,11 @@ foreach ($__dashboard_items as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardItems .= '<div class="box dc-box">';
+		$dashboardItems .= '';
 		foreach ($i as $v) {
 			$dashboardItems .= $v;
 		}
-		$dashboardItems .= '</div>';
+		$dashboardItems .= '';
 	}
 }
 
@@ -394,11 +394,11 @@ foreach ($__dashboard_contents as $i)
 {	
 	if ($i->count() > 0)
 	{
-		$dashboardContents .= '<div class="box">';
+		$dashboardContents .= '';
 		foreach ($i as $v) {
 			$dashboardContents .= $v;
 		}
-		$dashboardContents .= '</div>';
+		$dashboardContents .= '';
 	}
 }
 

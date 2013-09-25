@@ -1459,8 +1459,6 @@ a.form-control {
 		text-align: center;
 		}
 	#dashboard-boxes .box {
-		min-width: 300px;
-		max-width: 580px;
 		padding: 10px;
 		border:	1px solid #ccc;
 		border-radius: 3px;
@@ -1469,10 +1467,13 @@ a.form-control {
 		text-align: left;
 		}
 		.box.small {
-			width: 280px;
+			width: 300px;
+			}
+		.box.medium {
+			width: 640px;
 			}
 		.box.large {
-			width: 580px;
+			width: 100%;
 			}
 		.dc-box {
 			background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
@@ -2494,9 +2495,9 @@ ul.from-left {
 	#icons p {
 		width: 150px;
 		}
-	#dashboard-boxes .box { /* a revoir quand le dashboard sera fini */
+	#dashboard-boxes .box.small
+	#dashboard-boxes .box.medium {
 		margin: 10px 0;
-		min-width: 280px;
 		width: 280px;
 		}
 	#content.with-help #help-button {
