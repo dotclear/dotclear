@@ -131,6 +131,26 @@ if (!empty($_POST['unzip']) && $file->type == 'application/zip' && $file->editab
 	}
 }
 
+# Save media insertion settings for the blog
+if (!empty($_POST['save_blog_prefs']))
+{
+	if (!empty($_POST['pref_src'])) {
+		foreach (array_reverse($file->media_thumb) as $s => $v) {
+			if ($v == $_POST['pref_src']) {
+				$core->blog->settings->system->put('media_img_default_size',$s);
+				break;
+			}
+		}
+	}
+	if (!empty($_POST['pref_alignment'])) {
+		$core->blog->settings->system->put('media_img_default_alignment',$_POST['pref_alignment']);
+	}
+	if (!empty($_POST['pref_insertion'])) {
+		$core->blog->settings->system->put('media_img_default_link',($_POST['pref_insertion'] == 'link'));
+	}
+	http::redirect($page_url.'&id='.$id.'&blogprefupd=1');
+}
+
 # Function to get image title based on meta
 function dcGetImageTitle($file,$pattern,$dto_first=false)
 {
@@ -193,6 +213,9 @@ if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
 }
 if (!empty($_GET['thumbupd'])) {
 	dcPage::success(__('Thumbnails have been successfully updated.'));
+}
+if (!empty($_GET['blogprefupd'])) {
+	dcPage::success(__('Default media insertion settings have been successfully updated.'));
 }
 
 # Insertion popup
@@ -330,7 +353,7 @@ if ($popup)
 		$media_type = 'default';
 		echo '<p>'.__('Media item will be inserted as a link.').'</p>';
 	}
-	
+
 	echo
 	'<p><a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a> - '.
 	'<a id="media-insert-ok" class="button" href="#">'.__('Insert').'</a>'.
@@ -340,7 +363,21 @@ if ($popup)
 	form::hidden(array('url'),$file->file_url).
 	'</p>';
 	
-	echo '</form></div>';
+	echo '</form>';
+
+	if ($media_type != 'default') {
+		echo
+		'<form id="save_settings" action="'.html::escapeURL($page_url).'" method="post">'.
+		'<p><input type="submit" name="save_blog_prefs" value="'.__('Make current media insertion settings as default').'" />'.
+		form::hidden(array('pref_src'),'').
+		form::hidden(array('pref_alignment'),'').
+		form::hidden(array('pref_insertion'),'').
+		form::hidden(array('id'),$id).
+		$core->formNonce().'</p>'.
+		'</form>';
+	}
+
+	echo '</div>';
 }
 
 if ($popup) {

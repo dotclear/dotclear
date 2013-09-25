@@ -68,4 +68,11 @@ $(function() {
 		return window.confirm(dotclear.msg.confirm_delete_media);
 	});
 
+	// Get current insertion settings
+	$('#save_settings').submit(function() {
+		$('input[name="pref_src"]').val($('input[name="src"][type=radio]:checked').attr('value'));
+		$('input[name="pref_alignment"]').val($('input[name="alignment"][type=radio]:checked').attr('value'));
+		$('input[name="pref_insertion"]').val($('input[name="insertion"][type=radio]:checked').attr('value'));
+	});
+
 });
