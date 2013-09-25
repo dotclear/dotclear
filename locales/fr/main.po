@@ -3689,3 +3689,9 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Favorites"
 #~ msgstr "Favoris"
+
+msgid "Default media insertion settings have been successfully updated."
+msgstr "Les paramètres par défaut d'insertion des médias ont été mis à jour avec succès."
+
+msgid "Make current media insertion settings as default"
+msgstr "Enregistrer ces réglages d'insertion des médias comme ceux par défaut"
