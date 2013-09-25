@@ -30,11 +30,10 @@ $(function() {
 					
 					$(div).css({
 						overflow: 'auto',
-						border: '1px solid #ccc',
 						margin: '1em 0',
 						padding: '1px 0.5em'
 					});
-					
+					$(div).addClass('color-div');
 					$(div).append(list);
 					self.before(div);
 					$(a).hide();

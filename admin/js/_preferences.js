@@ -12,8 +12,8 @@ $(function() {
 		}
 		if ($('#user_email').val() != user_email || $('#new_pwd').val() != '') {
 			e.focus();
-			$(e).backgroundFade({sColor:'#ffffff',eColor:'#ffbaba',steps:50},function() {
-				$(this).backgroundFade({sColor:'#ffbaba',eColor:'#ffffff'});
+			$(e).backgroundFade({sColor: dotclear.fadeColor.beginUserMail, eColor: dotclear.fadeColor.endUserMail, steps: 50},function() {
+				$(this).backgroundFade({sColor: dotclear.fadeColor.endUserMail, eColor: dotclear.fadeColor.beginUserMail});
 			});
 			return false;
 		}

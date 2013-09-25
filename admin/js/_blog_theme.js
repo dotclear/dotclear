@@ -38,7 +38,7 @@ $(function() {
 			var actions = $('<div class="theme-actions"></div>');
 			if (submit_s.length > 0  && !$('input:radio',info).attr('disabled')) {
 				var select = $('<a href="#" class="button">' + dotclear.msg.use_this_theme + '</a>');
-				select.css('font-weight','bold').click(function() {
+				select.addClass('select-button').click(function(){
 					submit_s.click();
 					return false;
 				});
