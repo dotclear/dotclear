@@ -926,8 +926,8 @@ h1 {
 #top-info-blog select {
 	max-width: 20em;
 	}
-.with-js #top-info-blog select, .no-js #top-info-blog input[type=submit] {
-	margin-right: 1.33em;
+#top-info-blog a {
+	margin-left: 1.5em;
 	}
 #top-info-blog input[type=submit] {
 	background: #000;
@@ -1277,9 +1277,6 @@ td.expand {
 	}
 tr.expand td {
 	border-bottom: none;
-	}
-.dragable {
-	border-collapse: separate;
 	}
 .handle {
 	padding: 0;
@@ -2370,6 +2367,14 @@ ul.from-left {
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 @media screen and (max-width: 1000px) {
+	#top-info-blog #switchblog {
+		max-width: 16em;
+		}
+	#top-info-blog a {
+		margin-left: 2em;
+		}
+	}
+@media screen and (max-width: 960px) {
 	#header {
 		display: block;
 		width: 100%;
@@ -2421,6 +2426,15 @@ ul.from-left {
 	#content.with-help #help-button {
 		top: 77px;
 		}
+	.one-box, .two-boxes,
+	.one-box .box, .two-boxes .box, .two-boxes.odd, .two-boxes.even,
+	.two-boxes:first-child, .two-boxes.odd, .two-boxes.odd:last-child,
+	.two-boxes.even:last-child, .two-boxes.even,
+	.two-cols .col {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0; 
+		}
 	}
 @media screen and (max-width: 600px) {
 	#header h1, #header h1 a {
@@ -2458,15 +2472,6 @@ ul.from-left {
 	#main #content > h2 {
 		margin: 0;
 		padding: 6px 0;
-		}
-	.one-box, .two-boxes,
-	.one-box .box, .two-boxes .box,
-	.two-boxes:first-child, .two-boxes.odd, .two-boxes.odd:last-child,
-	.two-boxes.even:last-child, .two-boxes.even,
-	.two-cols .col {
-		width: 100%;
-		margin-left: 0;
-		margin-right: 0; 
 		}
 	}
 @media screen and (max-width: 500px) {
