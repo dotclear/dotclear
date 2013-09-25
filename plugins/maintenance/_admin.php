@@ -24,7 +24,7 @@ $_menu['Plugins']->addItem(
 $core->addBehavior('dcMaintenanceInit', array('dcMaintenanceAdmin', 'dcMaintenanceInit'));
 $core->addBehavior('adminDashboardFavs', array('dcMaintenanceAdmin', 'adminDashboardFavs'));
 $core->addBehavior('adminDashboardFavsIcon', array('dcMaintenanceAdmin', 'adminDashboardFavsIcon'));
-$core->addBehavior('adminDashboardItems', array('dcMaintenanceAdmin', 'adminDashboardItems'));
+$core->addBehavior('adminDashboardContents', array('dcMaintenanceAdmin', 'adminDashboardItems'));
 $core->addBehavior('adminDashboardOptionsForm',	array('dcMaintenanceAdmin',	'adminDashboardOptionsForm'));
 $core->addBehavior('adminAfterDashboardOptionsUpdate',	array('dcMaintenanceAdmin',	'adminAfterDashboardOptionsUpdate'));
 $core->addBehavior('adminPageHelpBlock',	array('dcMaintenanceAdmin',	'adminPageHelpBlock'));
