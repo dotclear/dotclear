@@ -11,5 +11,4 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-$GLOBALS['__autoload']['dcBlogroll'] = dirname(__FILE__).'/class.dc.blogroll.php';
-?>
+$__autoload['dcBlogroll'] = dirname(__FILE__).'/class.dc.blogroll.php';

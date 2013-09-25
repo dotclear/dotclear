@@ -11,8 +11,6 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-global $__autoload, $core;
-
 $__autoload['dcSpamFilter'] = dirname(__FILE__).'/inc/class.dc.spamfilter.php';
 $__autoload['dcSpamFilters'] = dirname(__FILE__).'/inc/class.dc.spamfilters.php';
 $__autoload['dcAntispam'] = dirname(__FILE__).'/inc/lib.dc.antispam.php';
@@ -27,4 +25,3 @@ $core->spamfilters = array('dcFilterIP','dcFilterIpLookup','dcFilterWords','dcFi
 
 $core->url->register('spamfeed','spamfeed','^spamfeed/(.+)$',array('dcAntispamURL','spamFeed'));
 $core->url->register('hamfeed','hamfeed','^hamfeed/(.+)$',array('dcAntispamURL','hamFeed'));
-?>

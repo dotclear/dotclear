@@ -11,5 +11,3 @@ $__autoload['daModulesReader'] 	= dirname(__FILE__).'/inc/class.da.modules.reade
 $__autoload['daModulesParser'] 	= dirname(__FILE__).'/inc/class.da.modules.parser.php';
 $__autoload['daModulesList']		= dirname(__FILE__).'/inc/lib.da.installer.ui.php';
 $__autoload['daModulesUpdateList']	= dirname(__FILE__).'/inc/lib.da.installer.ui.php';
-
-?>

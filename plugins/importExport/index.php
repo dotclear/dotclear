@@ -30,7 +30,7 @@ function listImportExportModules($core,$modules)
 $modules = new ArrayObject(array('import' => array(),'export' => array()));
 
 # --BEHAVIOR-- importExportModules
-$core->callBehavior('importExportModules',$modules);
+$core->callBehavior('importExportModules', $modules, $core);
 
 $type = null;
 if (!empty($_REQUEST['type'])  && in_array($_REQUEST['type'],array('export','import'))) {
