@@ -355,8 +355,9 @@ if ($popup)
 	}
 
 	echo
-	'<p><a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a> - '.
-	'<a id="media-insert-ok" class="button" href="#">'.__('Insert').'</a>'.
+	'<p>'.
+	'<a id="media-insert-ok" class="button submit" href="#">'.__('Insert').'</a> '.
+	'<a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a>'.
 	form::hidden(array('type'),html::escapeHTML($media_type)).
 	form::hidden(array('title'),html::escapeHTML($file->media_title)).
 	form::hidden(array('description'),html::escapeHTML($media_desc)).
@@ -367,14 +368,16 @@ if ($popup)
 
 	if ($media_type != 'default') {
 		echo
+		'<div class="border-top">'.
 		'<form id="save_settings" action="'.html::escapeURL($page_url).'" method="post">'.
-		'<p><input type="submit" name="save_blog_prefs" value="'.__('Make current media insertion settings as default').'" />'.
+		'<p>'.__('Make current settings as default').' '.
+		'<input class="reset" type="submit" name="save_blog_prefs" value="'.__('OK').'" />'.
 		form::hidden(array('pref_src'),'').
 		form::hidden(array('pref_alignment'),'').
 		form::hidden(array('pref_insertion'),'').
 		form::hidden(array('id'),$id).
 		$core->formNonce().'</p>'.
-		'</form>';
+		'</form>'.'</div>';
 	}
 
 	echo '</div>';
