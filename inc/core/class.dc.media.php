@@ -369,7 +369,16 @@ class dcMedia extends filemanager
 		}
 		
 	}
-	
+
+	/**
+	Gets current working directory content (using filesystem)
+
+	*/
+	public function getFSDir()
+	{
+		parent::getDir();
+	}
+
 	/**
 	Gets current working directory content. 
 	
