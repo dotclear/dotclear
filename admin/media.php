@@ -499,6 +499,10 @@ function mediaItemLine($f,$i)
 		'media_item.php?id='.$f->media_id.'&amp;popup='.$popup.'&amp;post_id='.$post_id;
 	}
 	
+	$maxchars = 36;
+	if (strlen($fname) > $maxchars) {
+		$fname = substr($fname, 0, $maxchars-4).'...'.files::getExtension($fname);
+	}
 	$res =
 	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.$link.'">'.
 	'<img src="'.$f->media_icon.'" alt="" />'.$fname.'</a></p>';
