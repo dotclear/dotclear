@@ -1482,7 +1482,7 @@ msgstr "Trier"
 
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
-msgstr "Les réglages actuels pour les médias et les images sont définis sur le %s"
+msgstr "Les réglages actuels pour les médias et les images sont définis dans les %s"
 
 msgid "Blog parameters"
 msgstr "Paramètres du blog"
