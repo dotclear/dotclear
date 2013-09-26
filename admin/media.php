@@ -501,7 +501,7 @@ function mediaItemLine($f,$i)
 	
 	$maxchars = 36;
 	if (strlen($fname) > $maxchars) {
-		$fname = substr($fname, 0, $maxchars-4).'...'.files::getExtension($fname);
+		$fname = substr($fname, 0, $maxchars-4).'...'.($f->d ? '' : files::getExtension($fname));
 	}
 	$res =
 	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.$link.'">'.
