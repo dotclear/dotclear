@@ -34,6 +34,7 @@ dcPage::check('usage,contentadmin');
 		.one-box .box {border: 1px solid #ddd; padding: 2px .5em;}
 	</style>
 	<script type="text/javascript" src="js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui.custom.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.pageTabs.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.biscuit.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.bgFade.js"></script>
@@ -52,24 +53,27 @@ dcPage::check('usage,contentadmin');
 	</script>
 	<script type="text/javascript">
 	//<![CDATA[
-		dotclear.unfolded_sections = {'dc_favorites_menu':true,'dc_system_menu':true};
-	//]]>
-	</script>
-	<script type="text/javascript">
-	//<![CDATA[
 		$(function() {
 			$.pageTabs('two-boxes');
+			$('#pageslist').sortable({'cursor':'move'});
+			$('#pageslist tr').hover(function(){
+				$(this).css({'cursor':'move'});
+			}, function(){
+				$(this).css({'cursor':'auto'});
+			});
+			$('#pageslist tr td input.position').hide();
+			$('#pageslist tr td.handle').addClass('handler');
 		});
 	//]]>
 	</script>
 </head>
 
 <body id="dotclear-admin" class="no-js">
-		<ul id="prelude">
-			<li><a href="#content">Aller au contenu</a></li>
-			<li><a href="#main-menu">Aller au menu</a></li>
-			<li><a href="#qx">Aller à la recherche</a></li>
-		</ul>
+	<ul id="prelude">
+		<li><a href="#content">Aller au contenu</a></li>
+		<li><a href="#main-menu">Aller au menu</a></li>
+		<li><a href="#qx">Aller à la recherche</a></li>
+	</ul>
 	<div id="header">
 		<h1><a href="./index.php"><span class="hidden">Dotclear</span></a></h1>
 		<div id="top-info-blog">
@@ -82,7 +86,7 @@ dcPage::check('usage,contentadmin');
 		<div class="hidden-if-no-js collapser-box"><a href="#" id="collapser">
 		<img class="collapse-mm" src="images/collapser-hide.png" alt="Cacher le menu" />
 		<img class="expand-mm" src="images/collapser-show.png" alt="Montrer le menu" />
-		</a></div>'.
+		</a></div>
 		<div id="main">
 			<div id="content" class="clearfix">
 
@@ -427,8 +431,114 @@ dcPage::check('usage,contentadmin');
 						</tr>
 					</table>
 				</div>		
-
-
+				
+				<h3>Tableau avec ordonnancement</h3>
+				<p>Les tableaux permettant l'ordonnancement doivent offrir la possibilité d'effectuer le classement grâce à
+				des inputs placés en début de ligne pour que le classement soit possible même lorsque cette fonctionnalité est
+				désactivée (via les préférences utilisateurs, voire une désactivation complète du javascript dans le navigateur).</p>
+					<div class="table-outer">
+						<table class="maximal dragable">
+							<thead>
+								<tr>
+									<th colspan="3">Titre</th>
+									<th>Date</th>
+									<th>Auteur</th>
+									<th>Commentaires</th>
+									<th>Rétroliens</th>
+									<th>État</th>
+								</tr>
+							</thead>
+							<tbody id="pageslist">
+								<tr class="line" id="p10899">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[10899]" maxlength="3" value="1" class="position" title="position de Mentions légales" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="10899" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Mentions légales</a>
+									</td>
+									<td class="nowrap">17/12/2008 07:35</td>
+									<td class="nowrap">franck</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="Publié" title="Publié" src="images/check-on.png" />
+									</td>
+								</tr>
+								<tr class="line" id="p10937">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[10937]" maxlength="3" value="2" class="position" title="position de Page active et cachée" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="10937" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Page active et cachée</a>
+									</td>
+									<td class="nowrap">26/10/2012 11:08</td>
+									<td class="nowrap">admin</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="Publié" title="Publié" src="images/check-on.png" />
+										<img alt="Masqué" title="Masqué" src="images/hidden.png" />
+									</td>
+								</tr>
+								<tr class="line offline" id="p11047">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[11047]" maxlength="3" value="3" class="position" title="position de Page révisionnable" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="11047" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Page révisionnable</a>
+									</td>
+									<td class="nowrap">14/12/2012 13:26</td>
+									<td class="nowrap">admin</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="En attente" title="En attente" src="images/check-wrn.png" />
+									</td>
+								</tr>
+								<tr class="line offline" id="p10939">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[10939]" maxlength="3" value="4" class="position" title="position de Programme" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="10939" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Programme</a>
+									</td>
+									<td class="nowrap">26/10/2020 11:23</td>
+									<td class="nowrap">admin</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="Programmé" title="Programmé" src="images/scheduled.png" />
+									</td>
+								</tr>
+								<tr class="line offline" id="p10940">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[10940]" maxlength="3" value="5" class="position" title="position de Protégée" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="10940" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Protégée</a>
+									</td>
+									<td class="nowrap">26/10/2012 11:23</td>
+									<td class="nowrap">admin</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="En attente" title="En attente" src="images/check-wrn.png" />
+										<img alt="Protégé" title="Protégé" src="images/locker.png" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 			</div><!-- /content -->
 		</div><!-- /main -->
 		<div id="main-menu">
