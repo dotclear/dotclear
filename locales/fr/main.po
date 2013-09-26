@@ -2569,7 +2569,7 @@ msgid "You are in safe mode. All plugins have been temporarily disabled. Remind 
 msgstr "Vous êtes en mode de secours. Tous les plugins ont été temporairement désactivés. N'oubliez-pas de vous déconnecter puis de vous reconnecter normalement pour retrouver toutes les fonctionnalités"
 
 msgid "Error:"
-msgstr "Erreur :"
+msgstr "Erreur :"
 
 msgid "Need help?"
 msgstr "Besoin d'aide ?"
@@ -2582,7 +2582,7 @@ msgid "Go to dashboard"
 msgstr "Tableau de bord"
 
 msgid "%H:%M:%S:"
-msgstr "%H:%M:%S:"
+msgstr "%H:%M:%S :"
 
 msgid "Help about this page"
 msgstr "Aide pour cette page"
