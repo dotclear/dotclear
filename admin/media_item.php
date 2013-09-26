@@ -62,6 +62,11 @@ try
 	foreach ($core->media->getDBDirs() as $v) {
 		$dirs_combo['/'.$v] = $v;
 	}
+	# Add parent and direct childs directories if any
+	$core->media->getFSDir();
+	foreach ($core->media->dir['dirs'] as $k => $v) {
+		$dirs_combo['/'.$v->relname] = $v->relname;
+	}
 	ksort($dirs_combo);
 }
 catch (Exception $e)
