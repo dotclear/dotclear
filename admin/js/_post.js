@@ -165,9 +165,10 @@ $(function() {
 					$(div).addClass('error');
 					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
 					$('#entry-content h3').after(div);
-					$(div).backgroundFade({sColor: dotclear.fadeColor.beginValidatorErr, eColor: dotclear.fadeColor.endValidatorErr, steps: 50},function() {
-							$(this).backgroundFade({sColor: dotclear.fadeColor.endValidatorErr, eColor: dotclear.fadeColor.beginValidatorErr});	
-					}
+					$(div).backgroundFade({sColor: dotclear.fadeColor.beginValidatorErr,eColor: dotclear.fadeColor.endValidatorErr, steps: 50},function() {
+							$(this).backgroundFade({sColor: dotclear.fadeColor.endValidatorErr, eColor: dotclear.fadeColor.beginValidatorErr});
+					});
+				}
 
 				if ( $('#post_excerpt').text() != excerpt_content || $('#post_content').text() != post_content ) {
 					var pn = document.createElement('p');
