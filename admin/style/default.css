@@ -411,7 +411,7 @@ hr {
 hr.clearer {
 	clear: both;
 	}
-pre, code {
+pre, code, #debug {
 	font: 100% "Andale Mono","Courier New",monospace;
 	}
 code {
@@ -2355,7 +2355,7 @@ ul.from-left {
 	top: 0;
 	width: 100%;
 	height: 4px;
-	background: #EBEB47;
+	background: #ff6;
 	}
 #debug div {
 	display: none;
@@ -2511,67 +2511,43 @@ ul.from-left {
 		top: 101px;
 		}
 	}
-	
+/* ---------------------------------------------- Couleurs ajoutées via javascript	
 /* color-picker.js */
 .color-color-picker {
 	border: 1px solid #000;
 	width: 195px;
 	background: #fff;
-}
-
+	}
 /* _blog_theme.js */
 .select-button {
 	font-weight: bold;
-}
-
+	}
 /* _media_item.js */
 .color-div {
 	border: 1px solid #ccc;
-}
-
-/* common.js */
-.colorBeginPassword {
+	}
+/* fadings ('color' est utilisé comme variable, pas comme text color) */
+.colorBeginPassword, .colorBeginValidatorErr, .colorBeginUserMail {
 	color: #fff;
-}
-.colorEndPassword {
+	}
+.colorEndPassword, .colorEndError, .colorEndValidatorErr, .colorEndUserMail {
 	color: #ffbaba;
-}
+	}
 .colorBeginMessage {
 	color: #ccc;
-}
-.colorEndMessage {
+	}
+.colorEndMessage, .colorBeginValidatorMsg {
 	color: #676e78;
-}
+	}
 .colorBeginError {
 	color: #ffdec8;
-}
-.colorEndError {
-	color: #ffbaba;
-}
+	}
 .colorBeginSuccess {
 	color: #9BCA1C;
-}
+	}
 .colorEndSuccess {
 	color: #bee74b;
-}
-/* _post.js */
-.colorBeginValidatorMsg {
-	color: #676e78;
-}
-.colorEndValidatorMsg {
+	}
+ .colorEndValidatorMsg {
 	color: #ffcc00;
-}
-.colorBeginValidatorErr {
-	color: #fff;
-}
-.colorEndValidatorErr {
-	color: #ffbaba;
-}
-/* _preferences.js */
-.colorBeginUserMail {
-	color: #fff;
-}
-.colorEndUserMail {
-	color: #ffbaba;
-}
-	
+	}	
