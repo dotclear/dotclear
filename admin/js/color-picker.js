@@ -12,8 +12,8 @@ jQuery.fn.colorPicker = function() {
 			colbox.id = 'jquery-colorpicker';
 			colbox.linkedto = null;
 			
-			$(colbox).css({border: '1px solid #000', width: '195px', background: '#fff', position: 'absolute'});
-			$(colbox).css({display: 'none'});
+			$(colbox).addClass('color-color-picker');
+			$(colbox).css({display: 'none', position: 'absolute'});
 			$('body').append(colbox);
 		}
 		f = $.farbtastic(colbox);

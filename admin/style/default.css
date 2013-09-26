@@ -2511,3 +2511,67 @@ ul.from-left {
 		top: 101px;
 		}
 	}
+	
+/* color-picker.js */
+.color-color-picker {
+	border: 1px solid #000;
+	width: 195px;
+	background: #fff;
+}
+
+/* _blog_theme.js */
+.select-button {
+	font-weight: bold;
+}
+
+/* _media_item.js */
+.color-div {
+	border: 1px solid #ccc;
+}
+
+/* common.js */
+.colorBeginPassword {
+	color: #fff;
+}
+.colorEndPassword {
+	color: #ffbaba;
+}
+.colorBeginMessage {
+	color: #ccc;
+}
+.colorEndMessage {
+	color: #676e78;
+}
+.colorBeginError {
+	color: #ffdec8;
+}
+.colorEndError {
+	color: #ffbaba;
+}
+.colorBeginSuccess {
+	color: #9BCA1C;
+}
+.colorEndSuccess {
+	color: #bee74b;
+}
+/* _post.js */
+.colorBeginValidatorMsg {
+	color: #676e78;
+}
+.colorEndValidatorMsg {
+	color: #ffcc00;
+}
+.colorBeginValidatorErr {
+	color: #fff;
+}
+.colorEndValidatorErr {
+	color: #ffbaba;
+}
+/* _preferences.js */
+.colorBeginUserMail {
+	color: #fff;
+}
+.colorEndUserMail {
+	color: #ffbaba;
+}
+	
