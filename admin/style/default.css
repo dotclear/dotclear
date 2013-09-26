@@ -1742,6 +1742,7 @@ a.form-control {
 	display: inline-block;
 	vertical-align: top;
 	min-height: 140px;
+	word-wrap: break-word;
 	}
 	.media-item p {
 		margin: 0 0 .5em;
