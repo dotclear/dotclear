@@ -520,20 +520,20 @@ if ($file->type == 'image/jpeg')
 {
 	echo '<h3>'.__('Image details').'</h3>';
 	
-	if (count($file->media_meta) == 0)
+	$details = '';
+	if (count($file->media_meta) > 0)
 	{
-		echo '<p>'.__('No detail').'</p>';
-	}
-	else
-	{
-		echo '<ul>';
 		foreach ($file->media_meta as $k => $v)
 		{
 			if ((string) $v) {
-				echo '<li><strong>'.$k.':</strong> '.html::escapeHTML($v).'</li>';
+				$details .= '<li><strong>'.$k.':</strong> '.html::escapeHTML($v).'</li>';
 			}
 		}
-		echo '</ul>';
+	}
+	if ($details) {
+		echo '<ul>'.$details.'</ul>';
+	} else {
+		echo '<p>'.__('No detail').'</p>';
 	}
 }
 
