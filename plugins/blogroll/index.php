@@ -206,7 +206,7 @@ if (!empty($_GET['importlinks'])) {
 }
 ?>
 
-<div class="multi-part" title="<?php echo __('Blogroll'); ?>">
+<div class="multi-part" id="links-list" title="<?php echo __('Blogroll'); ?>">
 
 <?php if (!$rs->isEmpty()) { ?>
 
