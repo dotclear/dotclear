@@ -2235,3 +2235,12 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Pour réordonner les pages, déplacez les items par glisser déposer puis cliquez sur “Enregistrer l'ordre des pages”."
+
+msgid "Step #1"
+msgstr "Étape numéro 1"
+
+msgid "Step #2"
+msgstr "Étape numéro 2"
+
+msgid "Step #3"
+msgstr "Étape numéro 3"
