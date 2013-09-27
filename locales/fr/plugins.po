@@ -2244,3 +2244,6 @@ msgstr "Étape numéro 2"
 
 msgid "Step #3"
 msgstr "Étape numéro 3"
+
+msgid "Back to filters list"
+msgstr "Retour à la liste des filtres"
