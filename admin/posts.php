@@ -211,17 +211,20 @@ try {
 
 /* DISPLAY
 -------------------------------------------------------- */
-
-dcPage::open(__('Entries'),
-	dcPage::jsLoad('js/_posts_list.js').
-	dcPage::jsLoad('js/filter-controls.js').
+$starting_script  = dcPage::jsLoad('js/_posts_list.js');
+$starting_script .= dcPage::jsLoad('js/filter-controls.js');
+$starting_script .=
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA["."\n".
 	dcPage::jsVar('dotclear.msg.show_filters', $show_filters ? 'true':'false')."\n".
-	dcPage::jsVar('dotclear.msg.filter_posts_list',__('Filter posts list'))."\n".
+	dcPage::jsVar('dotclear.msg.filter_posts_list',$form_filter_title)."\n".
 	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel the filter'))."\n".
 	"//]]>".
-	"</script>",
+	"</script>";
+
+$form_filter_title = __('Filter users list and display options');
+
+dcPage::open(__('Entries'),$starting_script,
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
@@ -238,7 +241,7 @@ if (!$core->error->flag())
 	echo
 	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>'.
 	'<form action="posts.php" method="get" id="filters-form">'.
-	'<h3 class="out-of-screen-if-js">'.__('Filters and display options').'</h3>'.
+	'<h3 class="out-of-screen-if-js">'.$form_filter_title.'</h3>'.
 
 	'<div class="table">'.
 	'<div class="cell">'.
