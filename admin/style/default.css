@@ -1976,10 +1976,10 @@ div.template-upload {
 #entry-wrapper {
 	float: left;
 	width: 100%;
-	margin-right: -18em;
+	margin-right: -16em;
 	}
 #entry-content {
-	margin-right: 20em;
+	margin-right: 18em;
 	margin-left: 0;
 	}
 	#entry-content label {
@@ -1992,9 +1992,14 @@ div.template-upload {
 		margin-top: 0;
 		}
 #entry-sidebar {
-	width: 18em;
+	width: 16em;
 	float: right;
 	}
+	#entry-sidebar h4 {
+		font-size: 13px;
+		font-size: 1.3rem;
+		margin-top: .3em;
+		}
 	#entry-sidebar select {
 		width: 100%;
 		}
