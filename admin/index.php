@@ -287,7 +287,7 @@ if (count($err) > 0) {
 # Plugins install messages
 if (!empty($plugins_install['success']))
 {
-	echo '<div class="static-msg">'.__('Following plugins have been installed:').'<ul>';
+	echo '<div class="success">'.__('Following plugins have been installed:').'<ul>';
 	foreach ($plugins_install['success'] as $k => $v) {
 		echo '<li>'.$k.'</li>';
 	}
@@ -331,8 +331,11 @@ foreach ($__dashboard_items as $i)
 	}
 }
 
+# Dashboard elements
+echo '<div id="dashboard-main">';
+
 # Dashboard icons
-echo '<div id="dashboard-main"><div id="icons">';
+echo '<div id="icons">';
 foreach ($__dashboard_icons as $i)
 {
 	echo
@@ -402,23 +405,14 @@ foreach ($__dashboard_contents as $i)
 	}
 }
 
-//$class = ' '.(($dashboardItems != '') && ($dashboardContents != '') ? 'two-boxes' : 'one-box');
-
 if ($dashboardContents != '' || $dashboardItems != '') {
 	echo 
-	//'<hr />'.
-	'<div id="dashboard-boxes">';
-		echo 
-			'<div class="db-items">'.
-				$dashboardItems.$dashboardContents.
-			'</div>';
-		//echo ($dashboardContents ? '<div class="db-contents'.$class.'">'.$dashboardContents.'</div>' : '');
-		//echo ($dashboardItems ? '<div class="db-items'.$class.'">'.$dashboardItems.'</div>' : '');
-	echo
+	'<div id="dashboard-boxes">'.
+	'<div class="db-items">'.$dashboardItems.$dashboardContents.'</div>'.
 	'</div>';		
 }
 
-echo '</div>';
+echo '</div>'; #end dashboard-main
 
 dcPage::close();
 ?>
