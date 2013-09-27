@@ -643,16 +643,24 @@ class dcPage
 		if ($default) {
 			$default = "'".html::escapeJS($default)."'";
 		}
-
+		
 		return
 		self::jsLoad('js/jquery/jquery.pageTabs.js').
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		'$(function() {'."\n".
 		'$.pageTabs('.$default.');'."\n".
-		'});'."\n".
+		'});'.
 		"\n//]]>\n".
-		"</script>\n";
+		"</script>\n".
+		'<!--[if lt IE 8]>'."\n".
+		self::jsLoad('js/ie7/ie7-hashchange.js').
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA[\n".
+		'$(window).hashchange();'.
+		"\n//]]>\n".
+		"</script>\n".
+		'<![endif]-->'."\n";
 	}
 
 public static function jsModal()
