@@ -1491,7 +1491,6 @@ a.form-control {
 		}
 		.db-items li, .db-contents li {
 			margin: 0.25em 0 0 0;
-			color: #676e78;
 			}
 	#news dt {
 		font-weight: bold;
@@ -2563,4 +2562,4 @@ ul.from-left {
 	}
  .colorEndValidatorMsg {
 	color: #ffcc00;
-	}	
+	}
