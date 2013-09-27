@@ -16,7 +16,7 @@ class dcCommentsActionsPage extends dcActionsPage
 	public function __construct($core,$uri,$redirect_args=array()) {
 		parent::__construct($core,$uri,$redirect_args);
 		$this->redirect_fields = array('type','author','status',
-			'sortby','ip','order','page','nb');
+			'sortby','ip','order','page','nb','section');
 		$this->field_entries = 'comments';
 		$this->title_cb = __('Comments');
 		$this->loadDefaults();
@@ -30,14 +30,22 @@ class dcCommentsActionsPage extends dcActionsPage
 	}
 	
 	public function beginPage($breadcrumb='',$head='') {
-		dcPage::open(
-			__('Comments'),
-			
-			dcPage::jsLoad('js/_comments_actions.js').
-			$head,
-			$breadcrumb
-		);	
-		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to entries list').'</a></p>';
+		if ($this->in_plugin) {
+			echo '<html><head><title>'.__('Comments').'</title>'.
+				dcPage::jsLoad('js/_comments_actions.js').
+				$head.
+				'</script></head><body>'.
+				$breadcrumb;
+		} else {
+			dcPage::open(
+				__('Comments'),
+				dcPage::jsLoad('js/_comments_actions.js').
+				$head,
+				$breadcrumb
+			);	
+
+		}
+		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to comments list').'</a></p>';
 	}
 	
 	public function endPage() {
@@ -56,6 +64,29 @@ class dcCommentsActionsPage extends dcActionsPage
 		$this->endPage();
 	}
 	
+	/**
+     * getcheckboxes -returns html code for selected entries
+	 * 			as a table containing entries checkboxes
+     *
+     * @access public
+	 *
+     * @return string the html code for checkboxes
+     */
+	public function getCheckboxes() {
+		$ret = 
+			'<table class="posts-list"><tr>'.
+			'<th colspan="2">'.__('Author').'</th><th>'.__('Title').'</th>'.
+			'</tr>';
+		foreach ($this->entries as $id=>$title) {
+			$ret .= 
+				'<tr><td>'.
+				form::checkbox(array($this->field_entries.'[]'),$id,true,'','').'</td>'.
+				'<td>'.	$title['author'].'</td><td>'.$title['title'].'</td></tr>';
+		}
+		$ret .= '</table>';
+		return $ret;
+	}
+
 	protected function fetchEntries($from) {
 		if (!empty($from['comments'])) {
 			$comments = $from['comments'];
@@ -78,6 +109,8 @@ class dcCommentsActionsPage extends dcActionsPage
 				);
 			}
 			$this->rs = $co;
+		} else {
+			$this->rs = $this->core->con->select("SELECT blog_id FROM ".$this->core->prefix."blog WHERE false");;
 		}
 	}
 }
@@ -88,10 +121,9 @@ class dcDefaultCommentActions
 		if ($core->auth->check('publish,contentadmin',$core->blog->id))
 		{
 			$action = array('dcDefaultCommentActions','doChangeCommentStatus');
-			$ap->addAction (array(__('Publish') => 'publish'), $action);
-			$ap->addAction (array(__('Publish') => 'publish'), $action);
-			$ap->addAction (array(__('Unpublish') => 'unpublish'), $action);
-			$ap->addAction (array(__('Mark as pending') => 'pending'), $action);
+			$ap->addAction(array(__('Publish') => 'publish'), $action);
+			$ap->addAction(array(__('Unpublish') => 'unpublish'), $action);
+			$ap->addAction(array(__('Mark as pending') => 'pending'), $action);
 			$ap->addAction(array(__('Mark as junk') => 'junk'), $action);
 		}
 	

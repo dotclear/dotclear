@@ -384,13 +384,10 @@ th {
 	border-width: 1px 0 1px 0;
 	border-style: solid;
 	border-color: #ddd;
-	background: #f3f3ff;
+	background: #eef1ec;
 	padding: .4em 1em .4em .5em;
 	vertical-align: top;
 	text-align: left;
-	text-transform: uppercase;
-	font-size: 10px;
-	font-size: 1rem;
 	}
 td {
 	border-width: 0 0 1px 0;
@@ -414,8 +411,11 @@ hr {
 hr.clearer {
 	clear: both;
 	}
-pre, code {
+pre, code, #debug {
 	font: 100% "Andale Mono","Courier New",monospace;
+	}
+code {
+	background: #FAFAD1;
 	}
 pre {
 	white-space: pre;
@@ -929,8 +929,8 @@ h1 {
 #top-info-blog select {
 	max-width: 20em;
 	}
-.with-js #top-info-blog select, .no-js #top-info-blog input[type=submit] {
-	margin-right: 1.33em;
+#top-info-blog a {
+	margin-left: 1.5em;
 	}
 #top-info-blog input[type=submit] {
 	background: #000;
@@ -1226,8 +1226,16 @@ tr.line img.expand, th img.expand {
 tr.line p {
 	margin: 0;
 	}
-tr.line input {
+tr.line input[type=text] {
+	background: #FFF;
+	}
+tr.line input, tr.line select {
 	vertical-align: middle;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+	}
+tr.line select {
+	width: 6em;
 	}
 tr.line:hover {
 	background: #f3f3f3;
@@ -1254,13 +1262,8 @@ table.posts-list {
 	min-width: 50%;
 	}
 table.settings, table.prefs {
-	width: 80%;
-	border: 1px solid #ccc;
 	margin-bottom: 3em;
 	}
-	table.settings th, table.prefs th {
-		background: #f3f3ff;
-		}
 	table.settings th:first-child, table.prefs th:first-child {
 		width: 20%;
 		}
@@ -1279,9 +1282,6 @@ td.expand {
 	}
 tr.expand td {
 	border-bottom: none;
-	}
-.dragable {
-	border-collapse: separate;
 	}
 .handle {
 	padding: 0;
@@ -1393,7 +1393,7 @@ a.form-control.open {
 	text-align: center;
 	}
 	#icons p {
-		width: 207px;
+		width: 170px;
 		text-align: center;
 		margin: 1em 0 2em;
 		padding: 1em 0;
@@ -1465,8 +1465,6 @@ a.form-control.open {
 		text-align: center;
 		}
 	#dashboard-boxes .box {
-		min-width: 300px;
-		max-width: 580px;
 		padding: 10px;
 		border:	1px solid #ccc;
 		border-radius: 3px;
@@ -1475,10 +1473,13 @@ a.form-control.open {
 		text-align: left;
 		}
 		.box.small {
-			width: 280px;
+			width: 300px;
+			}
+		.box.medium {
+			width: 640px;
 			}
 		.box.large {
-			width: 580px;
+			width: 100%;
 			}
 		.dc-box {
 			background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
@@ -1744,6 +1745,7 @@ a.form-control.open {
 	display: inline-block;
 	vertical-align: top;
 	min-height: 140px;
+	word-wrap: break-word;
 	}
 	.media-item p {
 		margin: 0 0 .5em;
@@ -2091,7 +2093,20 @@ div.template-upload {
 	padding-left: 2.5em;
 	margin-left: 0;
 	}
-
+/* --------------------------------------------------------------------- _charte.php */
+.guideline #content h2 {
+	color: #D33800;
+	padding: 2em 0 0 0;
+	margin: 1em 0;
+	font-size: 2em;
+	}
+.guideline h3 {
+	margin-top: 2em;
+	}
+.guideline .one-box .box {
+	border: 1px solid #ddd; 
+	padding: 2px .5em;
+	}
 /* ------------------------------------------------------------------------------------
 																				CLASSES
 ------------------------------------------------------------------------------------ */
@@ -2171,6 +2186,9 @@ div.template-upload {
 	background: #ecf0f1;
 	color: #000;
 	padding: 4px 1em;
+	}
+.anchor-nav label {
+	vertical-align: bottom;
 	}
 /* nav links */
 .nav_prevnext {
@@ -2353,7 +2371,7 @@ ul.from-left {
 	top: 0;
 	width: 100%;
 	height: 4px;
-	background: #d99;
+	background: #ff6;
 	}
 #debug div {
 	display: none;
@@ -2364,6 +2382,8 @@ ul.from-left {
 	}
 #debug:hover {
 	height: auto;
+	padding: 2px 1em;
+	z-index: 100;
 	}
 #debug:hover div {
 	display: block;
@@ -2372,6 +2392,14 @@ ul.from-left {
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 @media screen and (max-width: 1000px) {
+	#top-info-blog #switchblog {
+		max-width: 16em;
+		}
+	#top-info-blog a {
+		margin-left: 2em;
+		}
+	}
+@media screen and (max-width: 960px) {
 	#header {
 		display: block;
 		width: 100%;
@@ -2423,6 +2451,15 @@ ul.from-left {
 	#content.with-help #help-button {
 		top: 77px;
 		}
+	.one-box, .two-boxes,
+	.one-box .box, .two-boxes .box, .two-boxes.odd, .two-boxes.even,
+	.two-boxes:first-child, .two-boxes.odd, .two-boxes.odd:last-child,
+	.two-boxes.even:last-child, .two-boxes.even,
+	.two-cols .col {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0; 
+		}
 	}
 @media screen and (max-width: 600px) {
 	#header h1, #header h1 a {
@@ -2452,7 +2489,7 @@ ul.from-left {
 		}
 	#content {
 		margin: 0;
-		padding: 0 .5em;
+		padding: 0 .5em !important;
 		}
 	#collapser {
 		display: none;
@@ -2461,14 +2498,11 @@ ul.from-left {
 		margin: 0;
 		padding: 6px 0;
 		}
-	.one-box, .two-boxes,
-	.one-box .box, .two-boxes .box,
-	.two-boxes:first-child, .two-boxes.odd, .two-boxes.odd:last-child,
-	.two-boxes.even:last-child, .two-boxes.even,
-	.two-cols .col {
-		width: 100%;
-		margin-left: 0;
-		margin-right: 0; 
+	#dashboard-boxes .box.medium,
+	#dashboard-boxes .box.small,
+	#dashboard-boxes .box.large {
+		width: 90%;
+		margin: 10px auto;
 		}
 	}
 @media screen and (max-width: 500px) {
@@ -2486,12 +2520,50 @@ ul.from-left {
 	#top-info-blog p {
 		display: block;
 		}
-	#dashboard-boxes .box { /* a revoir quand le dashboard sera fini */
-		margin: 10px 0;
-		min-width: 280px;
-		width: 280px;
+	#icons p {
+		width: 150px;
 		}
 	#content.with-help #help-button {
 		top: 101px;
 		}
 	}
+/* ---------------------------------------------- Couleurs ajoutées via javascript	
+/* color-picker.js */
+.color-color-picker {
+	border: 1px solid #000;
+	width: 195px;
+	background: #fff;
+	}
+/* _blog_theme.js */
+.select-button {
+	font-weight: bold;
+	}
+/* _media_item.js */
+.color-div {
+	border: 1px solid #ccc;
+	}
+/* fadings ('color' est utilisé comme variable, pas comme text color) */
+.colorBeginPassword, .colorBeginValidatorErr, .colorBeginUserMail {
+	color: #fff;
+	}
+.colorEndPassword, .colorEndError, .colorEndValidatorErr, .colorEndUserMail {
+	color: #ffbaba;
+	}
+.colorBeginMessage {
+	color: #ccc;
+	}
+.colorEndMessage, .colorBeginValidatorMsg {
+	color: #676e78;
+	}
+.colorBeginError {
+	color: #ffdec8;
+	}
+.colorBeginSuccess {
+	color: #9BCA1C;
+	}
+.colorEndSuccess {
+	color: #bee74b;
+	}
+ .colorEndValidatorMsg {
+	color: #ffcc00;
+	}	

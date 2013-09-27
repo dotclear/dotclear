@@ -1482,7 +1482,7 @@ msgstr "Trier"
 
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
-msgstr "Les réglages actuels pour les médias et les images sont définis sur le %s"
+msgstr "Les réglages actuels pour les médias et les images sont définis dans les %s"
 
 msgid "Blog parameters"
 msgstr "Paramètres du blog"
@@ -2137,7 +2137,7 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr "Si cette option est cochée, des champs numériques permettront d'indiquer la position des éléments."
 
 msgid "Number of media displayed per page:"
-msgstr ""
+msgstr "Nombre de médias affichés par page :"
 
 msgid "Do not use standard favicon"
 msgstr "Ne pas utiliser le favicon standard de Dotclear"
@@ -2569,7 +2569,7 @@ msgid "You are in safe mode. All plugins have been temporarily disabled. Remind 
 msgstr "Vous êtes en mode de secours. Tous les plugins ont été temporairement désactivés. N'oubliez-pas de vous déconnecter puis de vous reconnecter normalement pour retrouver toutes les fonctionnalités"
 
 msgid "Error:"
-msgstr "Erreur :"
+msgstr "Erreur :"
 
 msgid "Need help?"
 msgstr "Besoin d'aide ?"
@@ -2582,7 +2582,7 @@ msgid "Go to dashboard"
 msgstr "Tableau de bord"
 
 msgid "%H:%M:%S:"
-msgstr "%H:%M:%S:"
+msgstr "%H:%M:%S :"
 
 msgid "Help about this page"
 msgstr "Aide pour cette page"
@@ -3689,3 +3689,9 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Favorites"
 #~ msgstr "Favoris"
+
+msgid "Default media insertion settings have been successfully updated."
+msgstr "Les paramètres par défaut d'insertion des médias ont été mis à jour avec succès."
+
+msgid "Make current settings as default"
+msgstr "Mémoriser ces réglages d'insertion"

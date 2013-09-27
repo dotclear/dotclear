@@ -64,7 +64,12 @@ class dcLegacyComments
 			dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 			dcPage::jsMetaEditor().
 			$core->callBehavior('adminCommentsActionsHeaders'),'');
+		ob_start();
 		$core->callBehavior('adminCommentsActionsContent',$core,$as->getAction(),$as->getHiddenFields(true));
+		$res = ob_get_contents();
+		ob_end_clean();
+		$res = str_replace("comments_actions.php",$as->getURI(),$res);
+		echo $res;		
 		$as->endPage();
 	
 	}

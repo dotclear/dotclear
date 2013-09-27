@@ -164,6 +164,8 @@ function blogLine($rs)
 		$edit_link = 
 		'<a href="blog.php?id='.$blog_id.'"  title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
 		'<img src="images/edit-mini.png" alt="'.__('Edit blog settings').'" /> '.$blog_id.'</a> ';
+	} else {
+		$edit_link = $blog_id;
 	}
 	
 	$img_status = $rs->blog_status == 1 ? 'check-on' : 'check-off';

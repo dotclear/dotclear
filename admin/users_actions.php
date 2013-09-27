@@ -209,7 +209,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 	{
 		echo
 		'<form action="users_actions.php" method="post" id="form-blogs">'.
-		'<table class="table-outer clear">'.
+		'<div class="table-outer clear">'.
 		'<table><tr>'.
 		'<th class="nowrap" colspan="2">'.__('Blog ID').'</th>'.
 		'<th class="nowrap">'.__('Blog name').'</th>'.
