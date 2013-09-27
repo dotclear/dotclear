@@ -180,9 +180,9 @@ class dcPage
 		global $core;
 
 		if (!$GLOBALS['__resources']['ctxhelp']) {
-			// Displau global help link in any contextual help displayed
 			echo
-			'<p id="help-button"><a href="help.php">'.__('Need help?').'</a></p>';
+			'<p id="help-button"><a href="help.php" onclick="window.open(this.href);return false;" title="'.
+			__('Global help').' ('.__('new window').')">'.__('Global help').'</a></p>';
 		}
 
 		$menu =& $GLOBALS['_menu'];
@@ -643,16 +643,24 @@ class dcPage
 		if ($default) {
 			$default = "'".html::escapeJS($default)."'";
 		}
-
+		
 		return
 		self::jsLoad('js/jquery/jquery.pageTabs.js').
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		'$(function() {'."\n".
 		'$.pageTabs('.$default.');'."\n".
-		'});'."\n".
+		'});'.
 		"\n//]]>\n".
-		"</script>\n";
+		"</script>\n".
+		'<!--[if lt IE 8]>'."\n".
+		self::jsLoad('js/ie7/ie7-hashchange.js').
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA[\n".
+		'$(window).hashchange();'.
+		"\n//]]>\n".
+		"</script>\n".
+		'<![endif]-->'."\n";
 	}
 
 public static function jsModal()

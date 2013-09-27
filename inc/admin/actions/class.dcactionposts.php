@@ -29,18 +29,29 @@ class dcPostsActionsPage extends dcActionsPage
 	}
 	
 	public function beginPage($breadcrumb='',$head='') {
-		dcPage::open(
-			__('Entries'),
-			
-			dcPage::jsLoad('js/_posts_actions.js').
-			$head,
-			$breadcrumb
-		);	
+		if ($this->in_plugin) {
+			echo '<html><head><title>'.__('Entries').'</title>'.
+				dcPage::jsLoad('js/_posts_actions.js').
+				$head.
+				'</script></head><body>'.
+				$breadcrumb;
+		} else {
+			dcPage::open(
+				__('Entries'),
+				dcPage::jsLoad('js/_posts_actions.js').
+				$head,
+				$breadcrumb
+			);
+		}
 		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to entries list').'</a></p>';
 	}
 	
 	public function endPage() {
-		dcPage::close();
+		if ($this->in_plugin) {
+			echo '</body></html>';
+		} else {
+			dcPage::close();
+		}
 	}
 	
 	public function error(Exception $e) {

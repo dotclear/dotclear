@@ -11,16 +11,13 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-global $core, $__autoload;
-
 $__autoload['dcPagesActionsPage'] = dirname(__FILE__).'/class.actionpage.php';
 $__autoload['adminPageList'] = dirname(__FILE__).'/class.listpage.php';
 
-$core->url->register('pages','pages','^pages/(.+)$',array('urlPages','pages'));
-$core->url->register('pagespreview','pagespreview','^pagespreview/(.+)$',array('urlPages','pagespreview'));
+$core->url->register('pages', 'pages', '^pages/(.+)$', array('urlPages', 'pages'));
+$core->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', array('urlPages', 'pagespreview'));
 
-$core->setPostType('page','plugin.php?p=pages&act=page&id=%d',$core->url->getURLFor('pages','%s'),'Pages');
+$core->setPostType('page', 'plugin.php?p=pages&act=page&id=%d', $core->url->getURLFor('pages', '%s'), 'Pages');
 
 # We should put this as settings later
 $GLOBALS['page_url_format'] = '{t}';
-?>

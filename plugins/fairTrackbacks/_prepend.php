@@ -11,8 +11,6 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-global $__autoload;
-
 if (!defined('DC_FAIRTRACKBACKS_FORCE')) {
 	define('DC_FAIRTRACKBACKS_FORCE',false);
 }
@@ -21,4 +19,3 @@ if (!DC_FAIRTRACKBACKS_FORCE) {
 	$__autoload['dcFilterFairTrackbacks'] = dirname(__FILE__).'/class.dc.filter.fairtrackbacks.php';
 	$core->spamfilters[] = 'dcFilterFairTrackbacks';
 }
-?>

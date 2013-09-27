@@ -121,7 +121,6 @@ class tagsBehaviors
 			$posts = $ap->getRS();
 			while ($posts->fetch())
 			{
-				echo "post_id".$posts->post_id;
 				# Get tags for post
 				$post_meta = $meta->getMetadata(array(
 					'meta_type' => 'tag',

@@ -17,7 +17,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-$comments_actions_page = new dcCommentsActionsPage($core,'posts.php');
+$comments_actions_page = new dcCommentsActionsPage($core,'comments.php');
 
 $comments_actions_page->process();
 

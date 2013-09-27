@@ -28,12 +28,8 @@ dcPage::check('usage,contentadmin');
 	<link rel="stylesheet" type="text/css" href="style/iesucks.css" />
 	<![endif]-->
 	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
-	<style type="text/css">
-		#content > h2 {padding-top: 2.5em;}
-		#content > h2:first-child {padding-top: 0}
-		.one-box .box {border: 1px solid #ddd; padding: 2px .5em;}
-	</style>
 	<script type="text/javascript" src="js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-ui.custom.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.pageTabs.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.biscuit.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.bgFade.js"></script>
@@ -45,31 +41,31 @@ dcPage::check('usage,contentadmin');
 		dotclear.img_minus_alt = 'cacher';
 		dotclear.img_menu_on = 'images/menu_on.png';
 		dotclear.img_menu_off = 'images/menu_off.png';
-		dotclear.msg.help = 'Aide pour cette page';
-		dotclear.msg.help_hide = 'Masquer';
-		dotclear.msg.error = 'Erreur :';
-	//]]>
-	</script>
-	<script type="text/javascript">
-	//<![CDATA[
-		dotclear.unfolded_sections = {'dc_favorites_menu':true,'dc_system_menu':true};
 	//]]>
 	</script>
 	<script type="text/javascript">
 	//<![CDATA[
 		$(function() {
 			$.pageTabs('two-boxes');
+			$('#pageslist').sortable({'cursor':'move'});
+			$('#pageslist tr').hover(function(){
+				$(this).css({'cursor':'move'});
+			}, function(){
+				$(this).css({'cursor':'auto'});
+			});
+			$('#pageslist tr td input.position').hide();
+			$('#pageslist tr td.handle').addClass('handler');
 		});
 	//]]>
 	</script>
 </head>
 
-<body id="dotclear-admin" class="no-js">
-		<ul id="prelude">
-			<li><a href="#content">Aller au contenu</a></li>
-			<li><a href="#main-menu">Aller au menu</a></li>
-			<li><a href="#qx">Aller à la recherche</a></li>
-		</ul>
+<body id="dotclear-admin" class="no-js guideline">
+	<ul id="prelude">
+		<li><a href="#content">Aller au contenu</a></li>
+		<li><a href="#main-menu">Aller au menu</a></li>
+		<li><a href="#qx">Aller à la recherche</a></li>
+	</ul>
 	<div id="header">
 		<h1><a href="./index.php"><span class="hidden">Dotclear</span></a></h1>
 		<div id="top-info-blog">
@@ -82,11 +78,16 @@ dcPage::check('usage,contentadmin');
 		<div class="hidden-if-no-js collapser-box"><a href="#" id="collapser">
 		<img class="collapse-mm" src="images/collapser-hide.png" alt="Cacher le menu" />
 		<img class="expand-mm" src="images/collapser-show.png" alt="Montrer le menu" />
-		</a></div>'.
+		</a></div>
 		<div id="main">
 			<div id="content" class="clearfix">
+			<div class="info">
+				<p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
+				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même 
+				une illustration. L'observation de son code source peut donc servir de complément aux descriptions.</p>
+			</div>
 
-				<h2><span class="page-title">Typographie</span></h2>
+				<h2>Typographie</h2>
 				<h3 id="texte">Textes</h3>
 					<p>La font-size de base est à 1.2rem (la valeur <code>1rem</code> correspond à 10px). Si vous utilisez l'unité <code>rem</code> pensez à faire précéder la déclaration par son équivalent 
 					en pixels pour rester compatible avec Internet Explorer. L'interlignage courant est à 1.5.</p>
@@ -114,7 +115,7 @@ dcPage::check('usage,contentadmin');
 					<h4 class="smart-title">Autre variante</h4>
 						<p>On dispose également d'une class <code>"smart-title"</code> pour obtenir une présentation comme celle du titre de ce paragraphe.</p>
 
-				<h2><span class="page-title">Layouts</span></h2>
+				<h2>Layouts</h2>
 
 				<h3 id="onglets">Onglets</h3>
 				<p>Les descriptions des constructions en multi-colonnes ci-dessous présentent un exemple de répartition en onglets.</p>
@@ -238,7 +239,7 @@ dcPage::check('usage,contentadmin');
 				<hr />
 				<p><strong>Note :</strong> dans les exemples les valeurs et les numérotations sont placées dans un <code>span class="step"</code> (et ressortent donc dans un petit bloc à fond gris).</p>
 
-				<h2><span class="page-title">Interactions</span></h2>
+				<h2>Interactions</h2>
 
 				<h3 id="elements">Éléments de formulaire</h3>
 					<form class="two-cols clearfix" action="#">
@@ -309,7 +310,7 @@ dcPage::check('usage,contentadmin');
 					<p class="info">Paragraphe de message de class info.</p>
 					<p>Ces messages sont en display:inline-block. Le fond s'adapte à la longueur du message.</p>
 
-				<h2><span class="page-title">Navigation</span></h2>
+				<h2>Navigation</h2>
 
 				<h3 id="direct">Selecteur d'accès direct</h3>
 					<p>Sur des pages longues et denses comme les pages about:config ou about:preferences, on peut utiliser un sélecteur pour faciliter l'accès direct aux sections.</p>
@@ -333,6 +334,208 @@ dcPage::check('usage,contentadmin');
 					<p><a title="Titre du lien (nouvelle fenêtre)" onclick="window.open(this.href);return false;" href="http://fr.dotclear.org/blog" class="onblog_link">Lien vers le blog <img alt="" src="images/outgoing-blue.png" /></a></p>
 					<p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
 
+				<h2>Tableaux</h2>
+					<p>Il existe deux mises en forme type de tableaux selon que l'on cherche à faire un tableau ordinaire 
+					ou un tableau dont on peut déplacer les lignes par glisser déposer (voir plus bas). Cependant certaines règles
+					sont communes à tout les tableaux.</p>
+
+				<h3 id="communes">Règles communes</h3>
+					<h4>Largeur du tableau</h4>
+						<p>Sauf pour des tableaux particuliers (absents dans l'admin mais qui pourraient être nécessaires 
+						à un plugin,les tableaux occupent toute la largeur de la page. Afin que les tableaux soient consultables 
+						sur un mobile en navigant horizontalement, on englobe le tableau dans une <code>div class="table-outer"</code>, 
+						qui servira de «&nbsp;conteneur&nbsp;».</p>
+					<h4>Accessibilité</h4>
+						<p>Les éléments caption, th, scope sont nécessaires à l'accessibilité. Ne les oubliez pas&nbsp;!&nbsp;». 
+						On peut utiliser la <code>class="hidden"</code> sur l'élément <code>caption</code> (qui accueille 
+						le titre du tableau) si vous ne souhaitez pas qu'il soit affiché sur la page.</p>
+					 <h4>Les classes</h4>
+					 	<p>Des classes particulières peuvent être attribuées aux lignes :</p>
+					 		<ul>
+					 			<li><code>line</code> (systématique) : pour les traits horizontaux et le fond gris léger 
+					 			au survol&nbsp;;</li>
+								<li><code>offline</code> : pour un noir estompé (gris quoi).</li>
+					 		</ul>
+					 	<p>Des classes particulières peuvent être appliquées aux cellules :</p>
+					 	<ul>
+							<li><code>nowrap</code> : pas de retour à la ligne dans la cellule, quelle que soit la 
+							largeur de la page&nbsp;;</li>
+							<li><code>maximal</code> : la cellule prendra toute la largeur restante disponible&nbsp;;</li>
+							<li><code>count</code> : le contenu de la cellule sera aligné à droite avec un petit retrait.</li>
+						</ul>
+				<h3 id="ordinaires">Tableau classique</h3>
+				<div class="table-outer">
+					<table>
+						<caption class="hidden">Liste des entrées</caption>
+						<tr>
+							<th colspan="2" class="first">Titre</th>
+							<th scope="col">Date</th>
+							<th scope="col">Catégorie</th>
+							<th scope="col">Auteur</th>
+							<th scope="col">Commentaires</th>
+							<th scope="col">Rétroliens</th>
+							<th scope="col">État</th>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="name1" value="value1"  /></td>
+							<td class="maximal" scope="row"><a href="#">Mon cher Franck</a></td>
+							<td class="nowrap count">06/08/2013 19:16</td>
+							<td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td><td class="nowrap count">4</td>
+							<td class="nowrap count">0</td><td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" /> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png" />  </td>
+						</tr>
+						<tr class="line offline">
+							<td class="nowrap"><input type="checkbox" name="name2" value="value2"  /></td>
+							<td class="maximal" scope="row"><a href="#">Dotclear 2.3.0</a></td>
+							<td class="nowrap count">16/05/2011 22:29</td>
+							<td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td><td class="nowrap count">5</td>
+							<td class="nowrap count">0</td><td class="nowrap status"><img alt="Non publié" title="Non publié" src="images/check-off.png" /> <img alt="Sélectionné" title="Sélectionné" src="images/selected.png" />  </td>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="entries[]" value="2148" /></td>
+							<td class="maximal" scope="row"><a href="#">Causons opéra au Tamm Bara</a></td>
+							<td class="nowrap count">24/11/2009 23:10</td>
+							<td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td>
+							<td class="nowrap count">4</td><td class="nowrap count">1</td>
+							<td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="entries[]" value="2136"  /></td>
+							<td class="maximal" scope="row"><a href="#">Souffler six bougies</a></td>
+							<td class="nowrap count">14/08/2009 00:00</td><td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td>
+							<td class="nowrap count">4</td><td class="nowrap count">2</td><td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="entries[]" value="2129"  /></td>
+							<td class="maximal" scope="row"><a href="#">Dotclear et grenadine, troisième édition</a></td>
+							<td class="nowrap count">15/06/2009 07:39</td>
+							<td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td>
+							<td class="nowrap count">9</td>
+							<td class="nowrap count">1</td>
+							<td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+						</tr>
+						<tr class="line">
+							<td class="nowrap"><input type="checkbox" name="entries[]" value="2111"  /></td>
+							<td class="maximal" scope="row"><a href="#">L'abc dotclear est né</a></td>
+							<td class="nowrap count">19/03/2009 10:31</td><td class="nowrap"><a href="#">Les aventures du clafoutis</a></td>
+							<td class="nowrap">kozlika</td>
+							<td class="nowrap count">1</td><td class="nowrap count">0</td>
+							<td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
+						</tr>
+					</table>
+				</div>		
+				
+				<h3>Tableau avec ordonnancement</h3>
+				<p>Les tableaux permettant l'ordonnancement doivent offrir la possibilité d'effectuer le classement grâce à
+				des inputs placés en début de ligne pour que le classement soit possible même lorsque cette fonctionnalité est
+				désactivée (via les préférences utilisateurs, voire une désactivation complète du javascript dans le navigateur).</p>
+					<div class="table-outer">
+						<table class="maximal dragable">
+							<thead>
+								<tr>
+									<th colspan="3">Titre</th>
+									<th>Date</th>
+									<th>Auteur</th>
+									<th>Commentaires</th>
+									<th>Rétroliens</th>
+									<th>État</th>
+								</tr>
+							</thead>
+							<tbody id="pageslist">
+								<tr class="line" id="p10899">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[10899]" maxlength="3" value="1" class="position" title="position de Mentions légales" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="10899" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Mentions légales</a>
+									</td>
+									<td class="nowrap">17/12/2008 07:35</td>
+									<td class="nowrap">franck</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="Publié" title="Publié" src="images/check-on.png" />
+									</td>
+								</tr>
+								<tr class="line" id="p10937">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[10937]" maxlength="3" value="2" class="position" title="position de Page active et cachée" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="10937" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Page active et cachée</a>
+									</td>
+									<td class="nowrap">26/10/2012 11:08</td>
+									<td class="nowrap">admin</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="Publié" title="Publié" src="images/check-on.png" />
+										<img alt="Masqué" title="Masqué" src="images/hidden.png" />
+									</td>
+								</tr>
+								<tr class="line offline" id="p11047">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[11047]" maxlength="3" value="3" class="position" title="position de Page révisionnable" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="11047" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Page révisionnable</a>
+									</td>
+									<td class="nowrap">14/12/2012 13:26</td>
+									<td class="nowrap">admin</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="En attente" title="En attente" src="images/check-wrn.png" />
+									</td>
+								</tr>
+								<tr class="line offline" id="p10939">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[10939]" maxlength="3" value="4" class="position" title="position de Programme" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="10939" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Programme</a>
+									</td>
+									<td class="nowrap">26/10/2020 11:23</td>
+									<td class="nowrap">admin</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="Programmé" title="Programmé" src="images/scheduled.png" />
+									</td>
+								</tr>
+								<tr class="line offline" id="p10940">
+									<td class="nowrap handle minimal">
+										<input type="text" size="2" name="order[10940]" maxlength="3" value="5" class="position" title="position de Protégée" />
+									</td>
+									<td class="nowrap">
+										<input type="checkbox" name="entries[]" value="10940" title="Sélectionner cette page" />
+									</td>
+									<td class="maximal"><a href="#">Protégée</a>
+									</td>
+									<td class="nowrap">26/10/2012 11:23</td>
+									<td class="nowrap">admin</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap">0</td>
+									<td class="nowrap status">
+										<img alt="En attente" title="En attente" src="images/check-wrn.png" />
+										<img alt="Protégé" title="Protégé" src="images/locker.png" />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 			</div><!-- /content -->
 		</div><!-- /main -->
 		<div id="main-menu">

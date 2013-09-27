@@ -62,6 +62,11 @@ try
 	foreach ($core->media->getDBDirs() as $v) {
 		$dirs_combo['/'.$v] = $v;
 	}
+	# Add parent and direct childs directories if any
+	$core->media->getFSDir();
+	foreach ($core->media->dir['dirs'] as $k => $v) {
+		$dirs_combo['/'.$v->relname] = $v->relname;
+	}
 	ksort($dirs_combo);
 }
 catch (Exception $e)
@@ -131,6 +136,26 @@ if (!empty($_POST['unzip']) && $file->type == 'application/zip' && $file->editab
 	}
 }
 
+# Save media insertion settings for the blog
+if (!empty($_POST['save_blog_prefs']))
+{
+	if (!empty($_POST['pref_src'])) {
+		foreach (array_reverse($file->media_thumb) as $s => $v) {
+			if ($v == $_POST['pref_src']) {
+				$core->blog->settings->system->put('media_img_default_size',$s);
+				break;
+			}
+		}
+	}
+	if (!empty($_POST['pref_alignment'])) {
+		$core->blog->settings->system->put('media_img_default_alignment',$_POST['pref_alignment']);
+	}
+	if (!empty($_POST['pref_insertion'])) {
+		$core->blog->settings->system->put('media_img_default_link',($_POST['pref_insertion'] == 'link'));
+	}
+	http::redirect($page_url.'&id='.$id.'&blogprefupd=1');
+}
+
 # Function to get image title based on meta
 function dcGetImageTitle($file,$pattern,$dto_first=false)
 {
@@ -193,6 +218,9 @@ if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
 }
 if (!empty($_GET['thumbupd'])) {
 	dcPage::success(__('Thumbnails have been successfully updated.'));
+}
+if (!empty($_GET['blogprefupd'])) {
+	dcPage::success(__('Default media insertion settings have been successfully updated.'));
 }
 
 # Insertion popup
@@ -330,17 +358,34 @@ if ($popup)
 		$media_type = 'default';
 		echo '<p>'.__('Media item will be inserted as a link.').'</p>';
 	}
-	
+
 	echo
-	'<p><a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a> - '.
-	'<a id="media-insert-ok" class="button" href="#">'.__('Insert').'</a>'.
+	'<p>'.
+	'<a id="media-insert-ok" class="button submit" href="#">'.__('Insert').'</a> '.
+	'<a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a>'.
 	form::hidden(array('type'),html::escapeHTML($media_type)).
 	form::hidden(array('title'),html::escapeHTML($file->media_title)).
 	form::hidden(array('description'),html::escapeHTML($media_desc)).
 	form::hidden(array('url'),$file->file_url).
 	'</p>';
 	
-	echo '</form></div>';
+	echo '</form>';
+
+	if ($media_type != 'default') {
+		echo
+		'<div class="border-top">'.
+		'<form id="save_settings" action="'.html::escapeURL($page_url).'" method="post">'.
+		'<p>'.__('Make current settings as default').' '.
+		'<input class="reset" type="submit" name="save_blog_prefs" value="'.__('OK').'" />'.
+		form::hidden(array('pref_src'),'').
+		form::hidden(array('pref_alignment'),'').
+		form::hidden(array('pref_insertion'),'').
+		form::hidden(array('id'),$id).
+		$core->formNonce().'</p>'.
+		'</form>'.'</div>';
+	}
+
+	echo '</div>';
 }
 
 if ($popup) {
@@ -475,20 +520,20 @@ if ($file->type == 'image/jpeg')
 {
 	echo '<h3>'.__('Image details').'</h3>';
 	
-	if (count($file->media_meta) == 0)
+	$details = '';
+	if (count($file->media_meta) > 0)
 	{
-		echo '<p>'.__('No detail').'</p>';
-	}
-	else
-	{
-		echo '<ul>';
 		foreach ($file->media_meta as $k => $v)
 		{
 			if ((string) $v) {
-				echo '<li><strong>'.$k.':</strong> '.html::escapeHTML($v).'</li>';
+				$details .= '<li><strong>'.$k.':</strong> '.html::escapeHTML($v).'</li>';
 			}
 		}
-		echo '</ul>';
+	}
+	if ($details) {
+		echo '<ul>'.$details.'</ul>';
+	} else {
+		echo '<p>'.__('No detail').'</p>';
 	}
 }
 

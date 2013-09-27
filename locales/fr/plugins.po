@@ -208,11 +208,11 @@ msgstr "Ce commentaire est indésirable :"
 
 #, php-format
 msgid "(including %d spam comment)"
-msgstr "(incluant %d commentaire indésirable)"
+msgstr "(dont %d indésirable)"
 
 #, php-format
 msgid "(including %d spam comments)"
-msgstr "(incluant %d commentaires indésirables)"
+msgstr "(dont %d indésirables)"
 
 msgid "Spam moderation"
 msgstr "Modération des indésirables"
@@ -1419,14 +1419,8 @@ msgstr "Nouvelle page"
 msgid "Selected pages action:"
 msgstr "Action sur les pages sélectionnées :"
 
-msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
-msgstr ""
-
-msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
-msgstr ""
-
 msgid "Save pages order"
-msgstr "Sauvegarder l'ordre des pages"
+msgstr "Enregistrer l'ordre des pages"
 
 msgid "This page does not exist."
 msgstr "Cette page n'existe pas."
@@ -1710,8 +1704,8 @@ msgstr "Renommer ce mot-clé :"
 msgid "Rename"
 msgstr "Renommer"
 
-msgid "Delete this tag:"
-msgstr "Supprimer ce mot-clé :"
+msgid "Delete this tag"
+msgstr "Supprimer ce mot-clé"
 
 #, php-format
 msgid "List of entries with the tag “%s”"
@@ -2238,3 +2232,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Blog settings"
 #~ msgstr "Paramètres du blog"
+
+msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
+msgstr "Pour réordonner les pages, déplacez les items par glisser déposer puis cliquez sur “Enregistrer l'ordre des pages”.""

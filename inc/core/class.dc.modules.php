@@ -117,7 +117,7 @@ class dcModules
 		{
 			if (file_exists($m['root'].'/_prepend.php'))
 			{
-				$r = require $m['root'].'/_prepend.php';
+				$r = $this->loadModuleFile($m['root'].'/_prepend.php');
 				
 				# If _prepend.php file returns null (ie. it has a void return statement)
 				if (is_null($r)) {

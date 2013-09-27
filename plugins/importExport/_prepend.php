@@ -11,8 +11,6 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-global $__autoload;
-
 $__autoload['dcIeModule'] = 	dirname(__FILE__).'/inc/class.dc.ieModule.php';
 
 $__autoload['dcImportFlat'] = 	dirname(__FILE__).'/inc/class.dc.import.flat.php';
@@ -27,18 +25,18 @@ $__autoload['flatBackup'] = 	dirname(__FILE__).'/inc/flat/class.flat.backup.php'
 $__autoload['flatImport'] = 	dirname(__FILE__).'/inc/flat/class.flat.import.php';
 $__autoload['flatExport'] = 	dirname(__FILE__).'/inc/flat/class.flat.export.php';
 
-$this->core->addBehavior('importExportModules','registerIeModules');
+$core->addBehavior('importExportModules','registerIeModules');
 
-function registerIeModules($modules)
+function registerIeModules($modules, $core)
 {
-	$modules['import'] = array_merge($modules['import'],array('dcImportFlat'));
-	$modules['import'] = array_merge($modules['import'],array('dcImportFeed'));
+	$modules['import'] = array_merge($modules['import'], array('dcImportFlat'));
+	$modules['import'] = array_merge($modules['import'], array('dcImportFeed'));
 	
-	$modules['export'] = array_merge($modules['export'],array('dcExportFlat'));
+	$modules['export'] = array_merge($modules['export'], array('dcExportFlat'));
 	
-	if ($GLOBALS['core']->auth->isSuperAdmin()) {
-		$modules['import'] = array_merge($modules['import'],array('dcImportDC1'));
-		$modules['import'] = array_merge($modules['import'],array('dcImportWP'));
+	if ($core->auth->isSuperAdmin()) {
+		$modules['import'] = array_merge($modules['import'], array('dcImportDC1'));
+		$modules['import'] = array_merge($modules['import'], array('dcImportWP'));
 	}
 }
 

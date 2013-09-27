@@ -141,6 +141,17 @@ if (!empty($_REQUEST['id']))
 		$tb_excerpt = preg_replace('/\s+/ms', ' ', $tb_excerpt);
 	}
 }
+if (isset($_REQUEST['section']) && $_REQUEST['section']=='trackbacks') {
+	$anchor = 'trackbacks';
+} else {
+	$anchor = 'comments';
+}	
+
+$comments_actions_page = new dcCommentsActionsPage($core,'post.php',array('id' => $post_id, '_ANCHOR'=>$anchor,'section' => $anchor));
+
+if ($comments_actions_page->process()) {
+	return;
+}
 
 # Ping blogs
 if (!empty($_POST['ping']))
@@ -621,34 +632,16 @@ if ($post_id)
 	$params = array('post_id' => $post_id, 'order' => 'comment_dt ASC');
 	
 	$comments = $core->blog->getComments(array_merge($params,array('comment_trackback'=>0)));
-	
-	# Actions combo box
-	$combo_action = array();
-	if ($can_edit_post && $core->auth->check('publish,contentadmin',$core->blog->id))
-	{
-		$combo_action[__('Publish')] = 'publish';
-		$combo_action[__('Unpublish')] = 'unpublish';
-		$combo_action[__('Mark as pending')] = 'pending';
-		$combo_action[__('Mark as junk')] = 'junk';
-	}
-	
-	if ($can_edit_post && $core->auth->check('delete,contentadmin',$core->blog->id))
-	{
-		$combo_action[__('Delete')] = 'delete';
-	}
-	
+		
 	echo
 	'<div id="comments" class="clear multi-part" title="'.__('Comments').'">';
-		
-	# --BEHAVIOR-- adminCommentsActionsCombo
-	$core->callBehavior('adminCommentsActionsCombo',array(&$combo_action));
-	
+	$combo_action = $comments_actions_page->getCombo();	
 	$has_action = !empty($combo_action) && !$comments->isEmpty();
 	echo 
 	'<p class="top-add"><a class="button add" href="#comment-form">'.__('Add a comment').'</a></p>';
 	
 	if ($has_action) {
-		echo '<form action="comments_actions.php" id="form-comments" method="post">';
+		echo '<form action="post.php" id="form-comments" method="post">';
 	}
 	
 	echo '<h3>'.__('Comments').'</h3>';
@@ -665,7 +658,8 @@ if ($post_id)
 		
 		'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
 		form::combo('action',$combo_action).
-		form::hidden('redir','post.php?id='.$post_id.'&amp;co=1').
+		form::hidden(array('section'),'comments').
+		form::hidden(array('id'),$post_id).
 		$core->formNonce().
 		'<input type="submit" value="'.__('ok').'" /></p>'.
 		'</div>'.
@@ -697,7 +691,8 @@ if ($post_id)
 	form::textarea('comment_content',50,8,html::escapeHTML('')).
 	'</p>'.
 	
-	'<p>'.form::hidden('post_id',$post_id).
+	'<p>'.
+	form::hidden('post_id',$post_id).
 	$core->formNonce().
 	'<input type="submit" name="add" value="'.__('Save').'" /></p>'.
 	'</div>'. #constrained
@@ -716,23 +711,7 @@ if ($post_id && $post_status == 1)
 	$trackbacks = $core->blog->getComments(array_merge($params, array('comment_trackback' => 1)));
 	
 	# Actions combo box
-	$combo_action = array();
-	if ($can_edit_post && $core->auth->check('publish,contentadmin', $core->blog->id))
-	{
-		$combo_action[__('Publish')] = 'publish';
-		$combo_action[__('Unpublish')] = 'unpublish';
-		$combo_action[__('Mark as pending')] = 'pending';
-		$combo_action[__('Mark as junk')] = 'junk';
-	}
-	
-	if ($can_edit_post && $core->auth->check('delete,contentadmin', $core->blog->id))
-	{
-		$combo_action[__('Delete')] = 'delete';
-	}
-	
-	# --BEHAVIOR-- adminTrackbacksActionsCombo
-	$core->callBehavior('adminTrackbacksActionsCombo', array(&$combo_action));
-	
+	$combo_action = $comments_actions_page->getCombo();	
 	$has_action = !empty($combo_action) && !$trackbacks->isEmpty();
 	
 	if (!empty($_GET['tb_auto'])) {
@@ -745,7 +724,7 @@ if ($post_id && $post_status == 1)
 	
 	# tracbacks actions
 	if ($has_action) {
-		echo '<form action="comments_actions.php" id="form-trackbacks" method="post">';
+		echo '<form action="post.php" id="form-trackbacks" method="post">';
 	}
 	
 	echo '<h3>'.__('Trackbacks').'</h3>';
@@ -763,7 +742,8 @@ if ($post_id && $post_status == 1)
 		
 		'<p class="col right"><label for="action" class="classic">'.__('Selected trackbacks action:').'</label> '.
 		form::combo('action', $combo_action).
-		form::hidden('redir', 'post.php?id='.$post_id.'&amp;tb=1').
+		form::hidden('id',$post_id).
+		form::hidden(array('section'),'trackbacks').
 		$core->formNonce().
 		'<input type="submit" value="'.__('ok').'" /></p>'.
 		'</div>'.
@@ -852,6 +832,12 @@ function showComments($rs,$has_action,$tb=false)
 	'<th>'.__('Status').'</th>'.
 	'<th>'.__('Edit').'</th>'.
 	'</tr>';
+	$comments = array();
+	if (isset($_REQUEST['comments'])) {
+		foreach ($_REQUEST['comments'] as $v) {
+			$comments[(integer)$v]=true;
+		}
+	}			
 	
 	while($rs->fetch())
 	{
@@ -878,7 +864,7 @@ function showComments($rs,$has_action,$tb=false)
 		' id="c'.$rs->comment_id.'">'.
 		
 		'<td class="nowrap">'.
-		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
+		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,isset($comments[$rs->comment_id]),'','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
 		'<td class="maximal">'.html::escapeHTML($rs->comment_author).'</td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
 		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.
