@@ -2090,7 +2090,20 @@ div.template-upload {
 	padding-left: 2.5em;
 	margin-left: 0;
 	}
-
+/* --------------------------------------------------------------------- _charte.php */
+.guideline #content h2 {
+	color: #D33800;
+	padding: 2em 0 0 0;
+	margin: 1em 0;
+	font-size: 2em;
+	}
+.guideline h3 {
+	margin-top: 2em;
+	}
+.guideline .one-box .box {
+	border: 1px solid #ddd; 
+	padding: 2px .5em;
+	}
 /* ------------------------------------------------------------------------------------
 																				CLASSES
 ------------------------------------------------------------------------------------ */
