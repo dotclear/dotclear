@@ -75,6 +75,7 @@ class dcFilterIpLookup extends dcSpamFilter
 		$res = '';
 
 		$res .=
+		'<p><a href="plugin.php?p=antispam" class="back">'.__('Back to filters list').'</a></p>'.
 		'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
 		'<h3>' . __('IP Lookup servers') . '</h3>'.
 		'<p><label for="bls">'.__('Add here a coma separated list of servers.').'</label>'.
