@@ -28,11 +28,6 @@ dcPage::check('usage,contentadmin');
 	<link rel="stylesheet" type="text/css" href="style/iesucks.css" />
 	<![endif]-->
 	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
-	<style type="text/css">
-		#content > h2 {padding-top: 2.5em;}
-		#content > h2:first-child {padding-top: 0}
-		.one-box .box {border: 1px solid #ddd; padding: 2px .5em;}
-	</style>
 	<script type="text/javascript" src="js/jquery/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery-ui.custom.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.pageTabs.js"></script>
@@ -46,9 +41,6 @@ dcPage::check('usage,contentadmin');
 		dotclear.img_minus_alt = 'cacher';
 		dotclear.img_menu_on = 'images/menu_on.png';
 		dotclear.img_menu_off = 'images/menu_off.png';
-		dotclear.msg.help = 'Aide pour cette page';
-		dotclear.msg.help_hide = 'Masquer';
-		dotclear.msg.error = 'Erreur :';
 	//]]>
 	</script>
 	<script type="text/javascript">
@@ -68,7 +60,7 @@ dcPage::check('usage,contentadmin');
 	</script>
 </head>
 
-<body id="dotclear-admin" class="no-js">
+<body id="dotclear-admin" class="no-js guideline">
 	<ul id="prelude">
 		<li><a href="#content">Aller au contenu</a></li>
 		<li><a href="#main-menu">Aller au menu</a></li>
@@ -89,8 +81,13 @@ dcPage::check('usage,contentadmin');
 		</a></div>
 		<div id="main">
 			<div id="content" class="clearfix">
+			<div class="info">
+				<p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
+				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même 
+				une illustration. L'observation de son code source peut donc servir de complément aux descriptions.</p>
+			</div>
 
-				<h2><span class="page-title">Typographie</span></h2>
+				<h2>Typographie</h2>
 				<h3 id="texte">Textes</h3>
 					<p>La font-size de base est à 1.2rem (la valeur <code>1rem</code> correspond à 10px). Si vous utilisez l'unité <code>rem</code> pensez à faire précéder la déclaration par son équivalent 
 					en pixels pour rester compatible avec Internet Explorer. L'interlignage courant est à 1.5.</p>
@@ -118,7 +115,7 @@ dcPage::check('usage,contentadmin');
 					<h4 class="smart-title">Autre variante</h4>
 						<p>On dispose également d'une class <code>"smart-title"</code> pour obtenir une présentation comme celle du titre de ce paragraphe.</p>
 
-				<h2><span class="page-title">Layouts</span></h2>
+				<h2>Layouts</h2>
 
 				<h3 id="onglets">Onglets</h3>
 				<p>Les descriptions des constructions en multi-colonnes ci-dessous présentent un exemple de répartition en onglets.</p>
@@ -242,7 +239,7 @@ dcPage::check('usage,contentadmin');
 				<hr />
 				<p><strong>Note :</strong> dans les exemples les valeurs et les numérotations sont placées dans un <code>span class="step"</code> (et ressortent donc dans un petit bloc à fond gris).</p>
 
-				<h2><span class="page-title">Interactions</span></h2>
+				<h2>Interactions</h2>
 
 				<h3 id="elements">Éléments de formulaire</h3>
 					<form class="two-cols clearfix" action="#">
@@ -313,7 +310,7 @@ dcPage::check('usage,contentadmin');
 					<p class="info">Paragraphe de message de class info.</p>
 					<p>Ces messages sont en display:inline-block. Le fond s'adapte à la longueur du message.</p>
 
-				<h2><span class="page-title">Navigation</span></h2>
+				<h2>Navigation</h2>
 
 				<h3 id="direct">Selecteur d'accès direct</h3>
 					<p>Sur des pages longues et denses comme les pages about:config ou about:preferences, on peut utiliser un sélecteur pour faciliter l'accès direct aux sections.</p>
@@ -337,7 +334,7 @@ dcPage::check('usage,contentadmin');
 					<p><a title="Titre du lien (nouvelle fenêtre)" onclick="window.open(this.href);return false;" href="http://fr.dotclear.org/blog" class="onblog_link">Lien vers le blog <img alt="" src="images/outgoing-blue.png" /></a></p>
 					<p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
 
-				<h2><span class="page-title">Les tableaux</span></h2>
+				<h2>Tableaux</h2>
 					<p>Il existe deux mises en forme type de tableaux selon que l'on cherche à faire un tableau ordinaire 
 					ou un tableau dont on peut déplacer les lignes par glisser déposer (voir plus bas). Cependant certaines règles
 					sont communes à tout les tableaux.</p>
