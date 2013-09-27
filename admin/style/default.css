@@ -1366,7 +1366,7 @@ a.form-control {
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box; 
 	}
-	#login-screen input.login {
+	#login-screen input.login, #login-screen input.login:focus {
 		padding-top: 6px;
 		padding-bottom: 6px;
 		font-size: 1em;
