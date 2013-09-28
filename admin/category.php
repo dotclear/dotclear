@@ -181,7 +181,7 @@ if (!empty($_GET['upd'])) {
 echo
 '<form action="category.php" method="post" id="category-form">'.
 '<h3>'.__('Category information').'</h3>'.
-'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
+'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label> '.
 form::field('cat_title',40,255,html::escapeHTML($cat_title)).
 '</p>';
 if (!$cat_id)
