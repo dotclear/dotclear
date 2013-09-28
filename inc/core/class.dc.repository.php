@@ -11,15 +11,16 @@ class dcRepository
 	public function __construct(dcModules $modules, $xml_url)
 	{
 		$this->core = $modules->core;
-		$this->modules  = $modules
+		$this->modules = $modules;
+		$this->xml_url = $xml_url;
 	}
 
-	protected function check($force=false)
+	public function check($force=false)
 	{
 		if (!$this->xml_url) {
 			return false;
 		}
-		if (($parser = dcModulesReader::quickParse($this->xml_url, DC_TPL_CACHE, $force)) === false) {
+		if (($parser = dcRepositoryReader::quickParse($this->xml_url, DC_TPL_CACHE, $force)) === false) {
 			return false;
 		}
 
