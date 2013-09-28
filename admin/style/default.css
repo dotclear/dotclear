@@ -1298,6 +1298,9 @@ a.form-control {
 	padding-left: 20px;
 	color: #000;
 	}
+a.form-control.open {
+	background: url(../images/hide.png) no-repeat 4px center;
+	}
 #filters-form {
 	border: 1px dashed #999;
 	border-radius: .5em;
