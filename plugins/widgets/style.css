@@ -38,6 +38,11 @@
 	margin-bottom: 1em;
 	list-style: none;
 }
+#dndnav > li.empty-widgets,
+#dndextra > li.empty-widgets,
+#dndcustom > li.empty-widgets {
+	border: 0;
+}
 #dndnav > li.ui-sortable-placeholder,
 #dndextra > li.ui-sortable-placeholder,
 #dndcustom > li.ui-sortable-placeholder,

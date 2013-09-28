@@ -126,7 +126,7 @@ msgid "RSS or Atom feed subscription links"
 msgstr ""
 
 #: admin/_fake_l10n.php:37
-msgid "Last entries from feed"
+msgid "Last entries from feed ( RSS or Atom )"
 msgstr ""
 
 #: admin/_fake_l10n.php:38

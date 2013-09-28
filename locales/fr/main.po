@@ -101,8 +101,8 @@ msgstr "Liste des catégories du blog"
 msgid "RSS or Atom feed subscription links"
 msgstr ""
 
-msgid "Last entries from feed"
-msgstr "Derniers billets du flux"
+msgid "Last entries from feed ( RSS or Atom )"
+msgstr "Derniers billets du flux (RSS ou Atom)"
 
 msgid "Simple text"
 msgstr ""

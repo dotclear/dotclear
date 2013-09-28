@@ -26,7 +26,7 @@ $(function() {
 		dropOnEmpty: true,
 		handle: ".widget-name",
 		placeholder: "ui-sortable-placeholder",
-		items: "li:not(.sortable-delete-placeholder)",
+		items: "li:not(.sortable-delete-placeholder,.empty-widgets)",
 		connectWith: ".connected, .sortable-delete",
 		start: function( event, ui ) {
 			// petit décalage esthétique
@@ -42,9 +42,13 @@ $(function() {
 			ui.item.css('left', 'auto');
 			
 			// signale les zones vides
-			if( ul.find('li').length == 0 )
-				 field.find('.empty-widgets').show();
-			else field.find('.empty-widgets').hide();
+			if( ul.find('li:not(.empty-widgets)').length == 0 ) {
+				ul.find('li.empty-widgets').show();
+				field.find('ul.sortable-delete').hide();
+			} else {
+				ul.find('li.empty-widgets').hide();
+				field.find('ul.sortable-delete').show();
+			}
 			
 			// remove
 			if( widget.parents('ul').is('.sortable-delete') ) {
@@ -94,5 +98,8 @@ $(function() {
 			ui.helper.css({'width': $('#widgets-ref > li').css('width')});
 		}
 	});
-	$("li.ui-draggable, ul.ui-sortable li").css({'cursor':'move'});
+	
+	$("li.ui-draggable, ul.ui-sortable li")
+		.not('ul.sortable-delete li, li.empty-widgets')
+		.css({'cursor':'move'});
 });

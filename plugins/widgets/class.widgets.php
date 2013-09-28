@@ -138,10 +138,14 @@ class dcWidget
 	private $public_callback = null;
 	public $append_callback = null;
 	private $settings = array();
+	private $advance_id;
+	private $advanced_settings = array();
 	
 	public function serialize($order) {
 		$values = array();
 		foreach ($this->settings as $k=>$v)
+			$values[$k]=$v['value'];
+		foreach ($this->advanced_settings as $k=>$v)
 			$values[$k]=$v['value'];
 		$values['id']=$this->id;
 		$values['order']=$order;
@@ -188,16 +192,21 @@ class dcWidget
 	--------------------------------------------------- */
 	public function __get($n)
 	{
+		$setting = null;
 		if (isset($this->settings[$n])) {
-			return $this->settings[$n]['value'];
+			$setting = $this->settings[$n]['value'];
+		} else if (isset($this->advanced_settings[$n])) {
+			$setting = $this->advanced_settings[$n]['value'];
 		}
-		return null;
+		return $setting;
 	}
 	
 	public function __set($n,$v)
 	{
 		if (isset($this->settings[$n])) {
 			$this->settings[$n]['value'] = $v;
+		} else if (isset($this->advanced_settings[$n])) {
+			$this->advanced_settings[$n]['value'] = $v;
 		}
 	}
 	
@@ -221,6 +230,31 @@ class dcWidget
 		}
 	}
 	
+	public function advanced_setting($name,$title,$value,$type='text')
+	{
+		if ($type == 'combo' || $type == 'radio') {
+			$options = @func_get_arg(4);
+			if (!is_array($options)) {
+				return false;
+			}
+		}
+		
+		$this->advanced_settings[$name] = array(
+			'title' => $title,
+			'type' => $type,
+			'value' => $value
+		);
+		
+		if (isset($options)) {
+			$this->advanced_settings[$name]['options'] = $options;
+		}
+	}
+	
+	public function advance_settings()
+	{
+		return $this->advanced_settings;
+	}
+	
 	public function settings()
 	{
 		return $this->settings;
@@ -231,37 +265,72 @@ class dcWidget
 		$res = '';
 		foreach ($this->settings as $id => $s)
 		{
-			$wfid = "wf-".$i;
-			$iname = $pr ? $pr.'['.$id.']' : $id;
-			switch ($s['type'])
-			{
-				case 'text':
-					$res .=
-					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
-					form::field(array($iname,$wfid),20,255,html::escapeHTML($s['value']),'maximal').
-					'</p>';
-					break;
-				case 'textarea':
-					$res .=
-					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
-					form::textarea(array($iname,$wfid),30,5,html::escapeHTML($s['value']),'maximal').
-					'</p>';
-					break;
-				case 'check':
-					$res .=
-					'<p>'.form::hidden(array($iname),'0').
-					'<label class="classic" for="'.$wfid.'">'.
-					form::checkbox(array($iname,$wfid),'1',$s['value']).' '.$s['title'].
-					'</label></p>';
-					break;
-				case 'combo':
-					$res .=
-					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
-					form::combo(array($iname,$wfid),$s['options'],$s['value']).
-					'</p>';
-					break;
-			}
+			$res .= $this->formSetting($id,$s,$pr,$i=0);
 			$i++;
+		}
+		
+		if ( count($this->advanced_settings) > 0 )
+		{
+			$res .= '<div class="widgetAdvancedSettings">';
+			$res .= '<h5>'.__('Réglages avancés').'</h5>';
+		
+			foreach ($this->advanced_settings as $id => $s)
+			{
+				$res .= $this->formSetting($id,$s,$pr,$i);
+				$i++;
+			}
+			
+			$res .= '</div>';
+		}
+		
+		return $res;
+	}
+	
+	public function formSetting($id,$s,$pr='',&$i=0)
+	{
+		$res = '';
+		$wfid = "wf-".$i;
+		$iname = $pr ? $pr.'['.$id.']' : $id;
+		switch ($s['type'])
+		{
+			case 'text':
+				$res .=
+				'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
+				form::field(array($iname,$wfid),20,255,html::escapeHTML($s['value']),'maximal').
+				'</p>';
+				break;
+			case 'textarea':
+				$res .=
+				'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
+				form::textarea(array($iname,$wfid),30,5,html::escapeHTML($s['value']),'maximal').
+				'</p>';
+				break;
+			case 'check':
+				$res .=
+				'<p>'.form::hidden(array($iname),'0').
+				'<label class="classic" for="'.$wfid.'">'.
+				form::checkbox(array($iname,$wfid),'1',$s['value']).' '.$s['title'].
+				'</label></p>';
+				break;
+			case 'radio':
+				$res .= '<p>'.($s['title'] ? '<label class="classic">'.$s['title'].'</label><br/>' : '');
+				if(!empty($s['options'])) {
+					foreach ($s['options'] as $k => $v) {
+						$res .= $k > 0 ? '<br/>' : '';
+						$res .=
+						'<label class="classic" for="'.$wfid.'-'.$k.'">'.
+						form::radio(array($iname,$wfid.'-'.$k),$v[1],$s['value'] == $v[1]).' '.$v[0].
+						'</label>';
+					}
+				}
+				$res .= '</p>';
+				break;
+			case 'combo':
+				$res .=
+				'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
+				form::combo(array($iname,$wfid),$s['options'],$s['value']).
+				'</p>';
+				break;
 		}
 		
 		return $res;

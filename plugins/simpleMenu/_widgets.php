@@ -26,8 +26,8 @@ class simpleMenuWidgets
 				__('Except on home page') => 2
 				)
 		);
-		$w->simplemenu->setting('content_only',__('Content only'),0,'check');
-		$w->simplemenu->setting('class',__('CSS class:'),'');
+		$w->simplemenu->advanced_setting('content_only','',0,'radio', array(array(__('Content only'), '1'), array(__('Enclosing div'), '0')));
+		$w->simplemenu->advanced_setting('class',__('CSS class:'),'');
 	}
 }
 ?>
