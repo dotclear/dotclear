@@ -68,6 +68,8 @@ try {
 
 /* DISPLAY
 -------------------------------------------------------- */
+
+$form_filter_title = __('Filter blogs list and display options');
 $starting_script  = dcPage::jsLoad('js/filter-controls.js');
 $starting_script .=
 	'<script type="text/javascript">'."\n".
@@ -77,8 +79,6 @@ $starting_script .=
 	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel the filter'))."\n".
 	"//]]>".
 	"</script>";
-
-$form_filter_title = __('Filter blogs list and display options');
 
 dcPage::open(__('List of blogs'),$starting_script,
 	dcPage::breadcrumb(

@@ -88,6 +88,8 @@ try {
 
 /* DISPLAY
 -------------------------------------------------------- */
+
+$form_filter_title = __('Filter users list and display options');
 $starting_script  = dcPage::jsLoad('js/_users.js');
 $starting_script .= dcPage::jsLoad('js/filter-controls.js');
 $starting_script .=
@@ -98,8 +100,6 @@ $starting_script .=
 	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel the filter'))."\n".
 	"//]]>".
 	"</script>";
-
-$form_filter_title = __('Filter users list and display options');
 
 dcPage::open(__('Users'),$starting_script,
 	dcPage::breadcrumb(
