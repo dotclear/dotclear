@@ -151,6 +151,8 @@ try {
 
 /* DISPLAY
 -------------------------------------------------------- */
+
+$form_filter_title = __('Filter comments, trackbacks list and display options');
 $starting_script  = dcPage::jsLoad('js/_comments.js');
 $starting_script .= dcPage::jsLoad('js/filter-controls.js');
 $starting_script .=
@@ -161,8 +163,6 @@ $starting_script .=
 	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel the filter'))."\n".
 	"//]]>".
 	"</script>";
-
-$form_filter_title = __('Filter comments, trackbacks list and display options');
 
 dcPage::open(__('Comments and trackbacks'),$starting_script,
 	dcPage::breadcrumb(
