@@ -32,12 +32,12 @@ class adminPageList extends adminGenericList
 			$html_block =
 			'<div class="table-outer">'.
 			'<table class="maximal dragable"><thead><tr>'.
-			'<th colspan="3">'.__('Title').'</th>'.
-			'<th>'.__('Date').'</th>'.
-			'<th>'.__('Author').'</th>'.
-			'<th>'.__('Comments').'</th>'.
-			'<th>'.__('Trackbacks').'</th>'.
-			'<th>'.__('Status').'</th>'.
+			'<th colspan="3" scope="col" class="first">'.__('Title').'</th>'.
+			'<th scope="col">'.__('Date').'</th>'.
+			'<th scope="col">'.__('Author').'</th>'.
+			'<th scope="col"><img src="images/comments.png" alt="" title="'.__('Comments').'" /><span class="hidden">'.__('Comments').'</span></th>'.
+			'<th scope="col"><img src="images/trackbacks.png" alt="" title="'.__('Trackbacks').'" /><span class="hidden">'.__('Trackbacks').'</span></th>'.
+			'<th scope="col">'.__('Status').'</th>'.
 			'</tr></thead><tbody id="pageslist">%s</tbody></table></div>';
 			
 			if ($enclose_block) {
@@ -105,13 +105,12 @@ class adminPageList extends adminGenericList
 		'<td class="nowrap handle minimal">'.form::field(array('order['.$this->rs->post_id.']'),2,3,$count+1,'position','',false,'title="'.sprintf(__('position of %s'),html::escapeHTML($this->rs->post_title)).'"').'</td>'.
 		'<td class="nowrap">'.
 		form::checkbox(array('entries[]'),$this->rs->post_id,$checked,'','',!$this->rs->isEditable(),'title="'.__('Select this page').'"').'</td>'.
-		'<td class="maximal"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
+		'<td class="maximal" scope="row"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
-		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
-		
+		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.		
 		'<td class="nowrap">'.$this->rs->user_id.'</td>'.
-		'<td class="nowrap">'.$this->rs->nb_comment.'</td>'.
-		'<td class="nowrap">'.$this->rs->nb_trackback.'</td>'.
+		'<td class="nowrap count">'.$this->rs->nb_comment.'</td>'.
+		'<td class="nowrap count">'.$this->rs->nb_trackback.'</td>'.
 		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
 		'</tr>';
 		

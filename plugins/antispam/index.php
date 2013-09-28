@@ -129,6 +129,8 @@ if ($filter_gui !== false)
 			'<span class="page-title">'.sprintf(__('%s filter configuration'),$filter->name).'</span>' => ''
 		));
 
+	echo '<p><a href="plugin.php?p=antispam" class="back">'.__('Back to filters list').'</a></p>';
+
 	echo $filter_gui;
 }
 else

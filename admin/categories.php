@@ -156,11 +156,11 @@ else
 		}
 
 		echo   
-		'<p><label class="classic" for="cat_'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label> </p>'.
-		'<p>(<a href="posts.php?cat_id='.$rs->cat_id.'">'.
+		'<p class="cat-title"><label class="classic" for="cat_'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label> </p>'.
+		'<p class="cat-nb-posts">(<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
 		', '.__('total:').' '.$rs->nb_total.')</p>'.
-		'<p><span class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></span></p>';
+		'<p class="cat-url">'.__('URL:').' <code>'.html::escapeHTML($rs->cat_url).'</code></p>';
 
 		echo
 		'<p class="cat-buttons">';

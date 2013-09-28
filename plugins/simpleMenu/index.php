@@ -352,11 +352,29 @@ if ($step) {
 <?php
 
 if ($step) {
+	switch ($step) {
+		case 1:
+			$step_label = __('Step #1');
+			break;
+		case 2:
+			if ($items[$item_type][1]) {
+				$step_label = __('Step #2');
+				break;
+			}
+		case 3:
+			if ($items[$item_type][1]) {
+				$step_label = __('Step #3');
+			} else {
+				$step_label = __('Step #2');
+			}
+			break;
+	}
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			$page_title => $p_url,
-			'<span class="page-title">'.__('Add item').'</span>' => ''
+			'<span class="page-title">'.__('Add item').'</span>' => '',
+			$step_label => ''
 		));
 } else {
 	echo dcPage::breadcrumb(
