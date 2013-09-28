@@ -172,8 +172,8 @@ class adminPostList extends adminGenericList
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col">'.__('Category').'</th>'.
 			'<th scope="col">'.__('Author').'</th>'.
-			'<th scope="col">'.__('Comments').'</th>'.
-			'<th scope="col">'.__('Trackbacks').'</th>'.
+			'<th scope="col"><img src="images/comments.png" alt="" /><span class="hidden">'.__('Comments').'</span></th>'.
+			'<th scope="col"><img src="images/trackbacks.png" alt="" /><span class="hidden">'.__('Trackbacks').'</span></th>'.
 			'<th scope="col">'.__('Status').'</th>'.
 			'</tr>%s</table></div>';
 			
