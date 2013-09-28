@@ -37,12 +37,16 @@ $combo_action = array(
 # --BEHAVIOR-- adminUsersActionsCombo
 $core->callBehavior('adminUsersActionsCombo',array(&$combo_action));
 
+$show_filters = false;
 
 #?Get users
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  30;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
+	if ($nb_per_page != $_GET['nb']) {
+		$show_filters = true;
+	}
 	$nb_per_page = $_GET['nb'];
 }
 
@@ -52,7 +56,6 @@ $order = !empty($_GET['order']) ?		$_GET['order'] : 'asc';
 
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 
-$show_filters = false;
 
 # - Search filter
 if ($q) {
