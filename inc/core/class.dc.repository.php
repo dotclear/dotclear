@@ -62,18 +62,38 @@ class dcRepository
 		return $this->data[$update ? 'update' : 'new'];
 	}
 
-	public function search($search)
+	public function search($pattern)
 	{
 		$result = array();
 
-		foreach ($this->data['new'] as $module)
-		{
-			if ( preg_match('/'.$search.'/i',$module['id']) ||
-				preg_match('/'.$search.'/i',$module['name']) ||
-				preg_match('/'.$search.'/i',$module['desc']))
-			{
-				$result[] = $module;
+		# Split query into small clean words
+		$patterns = explode(' ', $pattern);
+		array_walk($patterns, array('dcRepository','sanitize'));
+
+		# For each modules
+		foreach ($this->data['new'] as $id => $module) {
+
+			# Split modules infos into small clean word
+			$subjects = explode(' ', $id.' '.$module['name'].' '.$module['desc']);
+			array_walk($subjects, array('dcRepository','sanitize'));
+
+			# Check contents
+			if (!($nb = preg_match_all('/('.implode('|', $patterns).')/', implode(' ', $subjects)))) {
+				continue;
 			}
+
+			# Add module to result
+			if (!isset($sorter[$id])) {
+				$sorter[$id] = 0;
+				$result[$id] = $module;
+			}
+
+			# Increment matches count
+			$sorter[$id] += $nb;
+		}
+		# Sort response by matches count
+		if (!empty($result)) {
+			array_multisort($sorter, SORT_DESC, $result);
 		}
 		return $result;
 	}
@@ -101,6 +121,11 @@ class dcRepository
 	public static function agent()
 	{
 		return sprintf('Dotclear/%s)', DC_VERSION);
+	}
+
+	public static function sanitize(&$str, $_)
+	{
+		$str = strtolower(preg_replace('/[^A-Za-z0-9]/', '', $str));
 	}
 
 	private static function compare($v1,$v2,$op)

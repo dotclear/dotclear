@@ -114,7 +114,7 @@ class adminModulesList
 
 	public function displayNavMenu()
 	{
-		if (empty($this->modules)) {
+		if (empty($this->modules) || $this->getSearchQuery() !== null) {
 			return $this;
 		}
 
@@ -221,6 +221,29 @@ class adminModulesList
 		);
 	}
 
+	public static function isDistributedModule($module)
+	{
+		return in_array($module, array(
+			'aboutConfig',
+			'akismet',
+			'antispam',
+			'attachments',
+			'blogroll',
+			'blowupConfig',
+			'daInstaller',
+			'fairTrackbacks',
+			'importExport',
+			'maintenance',
+			'pages',
+			'pings',
+			'simpleMenu',
+			'tags',
+			'themeEditor',
+			'userPref',
+			'widgets'
+		));
+	}
+
 	public static function sortModules($modules, $field, $asc=true)
 	{
 		$sorter = array();
@@ -269,7 +292,9 @@ class adminModulesList
 		$sort_field = $this->getSortQuery();
 
 		# Sort modules by id
-		$modules = self::sortModules($this->modules, $sort_field, $this->sort_asc);
+		$modules = $this->getSearchQuery() === null ?
+			self::sortModules($this->modules, $sort_field, $this->sort_asc) :
+			$this->modules;
 
 		$count = 0;
 		foreach ($modules as $id => $module)
@@ -302,9 +327,9 @@ class adminModulesList
 				'<td class="nowrap count">'.html::escapeHTML($module['version']).'</td>';
 			}
 
-			if (in_array('old_version', $cols)) {
+			if (in_array('current_version', $cols)) {
 				echo 
-				'<td class="nowrap count">'.html::escapeHTML($module['old_version']).'</td>';
+				'<td class="nowrap count">'.html::escapeHTML($module['current_version']).'</td>';
 			}
 
 			if (in_array('desc', $cols)) {
