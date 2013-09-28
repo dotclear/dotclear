@@ -2651,7 +2651,7 @@ msgid "Available widgets"
 msgstr ""
 
 #: plugins/widgets/index.php:199
-msgid "Move widgets from this list to one of the sidebars."
+msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr ""
 
 #: plugins/widgets/index.php:206 plugins/widgets/index.php:335
@@ -2759,7 +2759,7 @@ msgid "Setting name:"
 msgstr ""
 
 #: plugins/widgets/index.php:324
-msgid "No widget."
+msgid "No widget for now."
 msgstr ""
 
 #: plugins/widgets/index.php:338
@@ -2767,5 +2767,5 @@ msgid "Remove widget"
 msgstr ""
 
 #: plugins/widgets/index.php:351
-msgid "Drag widgets here to remove them from this sidebar."
+msgid "Drag widgets here to remove."
 msgstr ""

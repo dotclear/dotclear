@@ -1891,8 +1891,8 @@ msgstr "Êtes-vous sûr de vouloir réinitialiser les volets ?"
 msgid "Available widgets"
 msgstr "Widgets disponibles"
 
-msgid "Move widgets from this list to one of the sidebars."
-msgstr "Déplacez des widgets de cette liste vers l'un des volets."
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr "Déplacez des widgets de cette liste vers l'un des volets, pour les ajouter."
 
 msgid "order"
 msgstr "ordre"
@@ -1972,14 +1972,14 @@ msgstr "chaîne de caractères"
 msgid "Setting name:"
 msgstr "Nom de l'élément de réglage :"
 
-msgid "No widget."
-msgstr "Aucun widget."
+msgid "No widget for now."
+msgstr "Aucun widget pour le moment."
 
 msgid "Remove widget"
 msgstr "Retirer le widget"
 
-msgid "Drag widgets here to remove them from this sidebar."
-msgstr "Glisser les widgets ici pour les retirer du volet."
+msgid "Drag widgets here to remove."
+msgstr "Glisser les widgets ici pour les retirer."
 
 #~ msgid "Manage every blog configuration directive"
 #~ msgstr "Gestion des directives de configuration des blogs"
@@ -2047,8 +2047,8 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgid "RSS or Atom feed subscription links"
 #~ msgstr "Liens d'abonnements aux flux RSS ou Atom"
 
-#~ msgid "Last entries from feed"
-#~ msgstr "Derniers billets d'un flux"
+#~ msgid "Last entries from feed ( RSS or Atom )"
+#~ msgstr "Derniers billets du flux (RSS ou Atom)"
 
 #~ msgid "Simple text"
 #~ msgstr "Texte simple"
