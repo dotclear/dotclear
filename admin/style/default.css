@@ -1672,15 +1672,23 @@ a.form-control {
 		margin: .66em 0;
 		padding: .66em 1em;
 		border: 1px solid #bbb;
-		border-left: 6px solid #bbb;
 		border-radius: 3px;
 		}
+		.cat-line label {
+			margin-right: .25em;
+			}
 		.cat-line label a {
 			font-weight: bold;
 			}
 		.cat-line p, .cat-line label {
 			margin: 0;
 			display: inline-block;
+			}
+		p.cat-title {
+			margin-right: 1em;
+			}
+		.cat-nb-posts a {
+			color: #333;
 			}
 		.cat-url {
 			padding-left: 1em;
@@ -1698,9 +1706,6 @@ a.form-control {
 	padding: 1px 2px 3px 2px;
 	margin-right: .25em;
 	}
-.cat-line label {
-	margin-right: .25em;
-	}
 .cat-buttons .reset {
 	padding-left: 4px;
 	padding-right: 4px;
@@ -1711,14 +1716,7 @@ a.form-control {
 	}
 .cat-line .cat-line {
 	border: 1px solid #dfdfdf;
-	border-left-width: 3px;
 	}
-#categories h4 {
-	margin: 0;
-	}
-	#categories h4 span {
-		font-weight: normal;
-		}
 .cat-actions {
 	line-height: 2;
 	}
