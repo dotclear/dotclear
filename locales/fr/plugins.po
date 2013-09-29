@@ -767,7 +767,10 @@ msgid "Page(s)"
 msgstr "Page(s)"
 
 msgid "by"
-msgstr ""
+msgstr "par"
+
+msgid "By"
+msgstr "Par"
 
 msgid "More details"
 msgstr ""
