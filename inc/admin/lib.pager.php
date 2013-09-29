@@ -408,7 +408,7 @@ class adminCommentList extends adminGenericList
 			'<th scope="col">'.__('Author').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col" class="txt-center">'.__('Status').'</th>'.
-			'<th scope="col" abbr="entry">'.__('Entry title').'</th>'.
+			'<th scope="col" abbr="entry">'.__('Entry').'</th>'.
 			'</tr>%s</table></div>';
 
 			if ($enclose_block) {
@@ -468,8 +468,8 @@ class adminCommentList extends adminGenericList
 		}
 		
 		$post_title = html::escapeHTML($this->rs->post_title);
-		if (mb_strlen($post_title) > 60) {
-			$post_title = mb_strcut($post_title,0,57).'...';
+		if (mb_strlen($post_title) > 70) {
+			$post_title = mb_strcut($post_title,0,67).'...';
 		}
 		$comment_title = sprintf(__('Edit the %1$s from %2$s'),
 			$this->rs->comment_trackback ? __('trackback') : __('comment'),
@@ -488,7 +488,7 @@ class adminCommentList extends adminGenericList
 		'<td class="nowrap maximal"><a href="'.$author_url.'">'.html::escapeHTML($this->rs->comment_author).'</a></td>'.
 		'<td class="nowrap count">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->comment_dt).'</td>'.
 		'<td class="nowrap status txt-center">'.$img_status.'</td>'.
-		'<td class="nowrap"><a href="'.$post_url.'">'.
+		'<td class="nowrap discrete"><a href="'.$post_url.'">'.
 		html::escapeHTML($post_title).'</a>'.
 		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</td>';
 		
