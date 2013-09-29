@@ -13,6 +13,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 function dotclearUpgrade($core)
 {
+    $cleanup_sessions = false; // update it in a step that needed sessions to be removed
 	$version = $core->getVersion('core');
 	
 	if ($version === null) {
@@ -343,8 +344,10 @@ function dotclearUpgrade($core)
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
 			
-			# Drop content from session table
-			$core->con->execute('DELETE FROM '.$core->prefix.'session ');
+			# Drop content from session table if changes or if needed
+			if ($changes != 0 || $cleanup_sessions) {
+				$core->con->execute('DELETE FROM '.$core->prefix.'session ');
+			}
 			
 			# Empty templates cache directory
 			try {

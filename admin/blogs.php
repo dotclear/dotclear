@@ -30,14 +30,17 @@ $q = !empty($_GET['q']) ? $_GET['q'] : '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'blog_upddt';
 $order = !empty($_GET['order']) ? $_GET['order'] : 'desc';
 
+$show_filters = false;
+
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  30;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
+	if ($nb_per_page != $_GET['nb']) {
+		$show_filters = true;
+	}
 	$nb_per_page = (integer) $_GET['nb'];
 }
-
-$show_filters = false;
 	
 # - Search filter
 if ($q) {
@@ -68,10 +71,18 @@ try {
 
 /* DISPLAY
 -------------------------------------------------------- */
-$starting_script = '';
-if (!$show_filters) {
-	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
-}
+
+$form_filter_title = __('Show filters and display options');
+$starting_script  = dcPage::jsLoad('js/filter-controls.js');
+$starting_script .=
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA["."\n".
+	dcPage::jsVar('dotclear.msg.show_filters', $show_filters ? 'true':'false')."\n".
+	dcPage::jsVar('dotclear.msg.filter_posts_list',$form_filter_title)."\n".
+	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel filters and display options'))."\n".
+	"//]]>".
+	"</script>";
+
 dcPage::open(__('List of blogs'),$starting_script,
 	dcPage::breadcrumb(
 		array(
@@ -88,10 +99,6 @@ if (!$core->error->flag())
 {
 	if ($core->auth->isSuperAdmin()) {
 		echo '<p class="top-add"><a class="button add" href="blog.php">'.__('Create a new blog').'</a></p>';
-	}
-	
-	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.__('Filter blogs list').'</a></p>';
 	}
 	
 	echo
@@ -123,7 +130,11 @@ if (!$core->error->flag())
 	# Show blogs
 	if ($nb_blog == 0)
 	{
-		echo '<p><strong>'.__('No blog').'</strong></p>';
+		if( $show_filters ) {
+			echo '<p><strong>'.__('No blog matches the filter').'</strong></p>';
+		} else {
+			echo '<p><strong>'.__('No blog').'</strong></p>';
+		}
 	}
 	else
 	{
@@ -133,7 +144,16 @@ if (!$core->error->flag())
 		
 		echo
 		'<div class="table-outer">'.
-		'<table class="clear"><caption class="hidden">'.__('Blogs list').'</caption><tr>'.
+		'<table class="clear">';
+		
+		if( $show_filters ) {
+			echo '<caption>'.sprintf(__('List of %s blogs match the filter.'), $nb_blog).'</caption>';
+		} else {
+			echo '<caption class="hidden">'.__('Blogs list').'</caption>';
+		}
+				
+		echo 
+		'<tr>'.
 		'<th scope="col" class="nowrap">'.__('Blog id').'</th>'.
 		'<th scope="col">'.__('Blog name').'</th>'.
 		'<th scope="col" class="nowrap">'.__('Entries (all types)').'</th>'.
