@@ -3698,3 +3698,9 @@ msgstr "Mémoriser ces réglages d'insertion"
 
 msgid "Trackbacks received"
 msgstr "Rétroliens reçus"
+
+msgid "Show filters and display options"
+msgstr "Afficher les filtres et options d'affichage"
+
+msgid "Cancel filters and display options"
+msgstr "Annuler les filtres et options d'affichage"
