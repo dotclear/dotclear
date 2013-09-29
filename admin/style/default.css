@@ -1967,10 +1967,13 @@ div.template-upload {
 #plugins td.action {
 	vertical-align: middle;
 	}
+.icon img {
+	width: 16px;
+	height: 16px;
+	}
 .distrib img {
 	display: block;
 	float: right;
-	margin-top: -1em;
 	}
 /* ---------------------------------------------------------- post.php, page.php */
 #entry-wrapper {

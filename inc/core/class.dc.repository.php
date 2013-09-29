@@ -90,6 +90,7 @@ class dcRepository
 
 			# Increment matches count
 			$sorter[$id] += $nb;
+			$result[$id]['accuracy'] = $sorter[$id];
 		}
 		# Sort response by matches count
 		if (!empty($result)) {
@@ -100,6 +101,12 @@ class dcRepository
 
 	public function process($url, $dest)
 	{
+		$this->download($url, $dest);
+		return $this->install($dest);
+	}
+
+	public function download($url, $dest)
+	{
 		try {
 			$client = netHttp::initClient($url, $path);
 			$client->setUserAgent(self::agent());
@@ -107,15 +114,17 @@ class dcRepository
 			$client->setPersistReferers(false);
 			$client->setOutput($dest);
 			$client->get($path);
+			unset($client);
 		}
 		catch (Exception $e) {
+			unset($client);
 			throw new Exception(__('An error occurred while downloading the file.'));
 		}
+	}
 
-		unset($client);
-		$ret_code = dcModules::installPackage($dest, $this->modules);
-
-		return $ret_code;
+	public function install($path)
+	{
+		return dcModules::installPackage($path, $this->modules);
 	}
 
 	public static function agent()
