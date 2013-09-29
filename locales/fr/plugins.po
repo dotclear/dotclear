@@ -767,7 +767,10 @@ msgid "Page(s)"
 msgstr "Page(s)"
 
 msgid "by"
-msgstr ""
+msgstr "par"
+
+msgid "By"
+msgstr "Par"
 
 msgid "More details"
 msgstr ""
@@ -2236,14 +2239,17 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Pour réordonner les pages, déplacez les items par glisser déposer puis cliquez sur “Enregistrer l'ordre des pages”."
 
+msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
+msgstr "Pour réordonner les pages, modifier le numéro dans le champ au début de la ligne puis cliquez sur “Enregistrer l'ordre des pages”."
+
 msgid "Step #1"
-msgstr "Étape numéro 1"
+msgstr "Étape 1"
 
 msgid "Step #2"
-msgstr "Étape numéro 2"
+msgstr "Étape 2"
 
 msgid "Step #3"
-msgstr "Étape numéro 3"
+msgstr "Étape 3"
 
 msgid "Back to filters list"
 msgstr "Retour à la liste des filtres"

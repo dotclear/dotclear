@@ -150,11 +150,15 @@ class adminGenericList
 
 class adminPostList extends adminGenericList
 {
-	public function display($page,$nb_per_page,$enclose_block='')
+	public function display($page,$nb_per_page,$enclose_block='',$filter=false)
 	{
 		if ($this->rs->isEmpty())
 		{
-			echo '<p><strong>'.__('No entry').'</strong></p>';
+			if( $filter ) {
+				echo '<p><strong>'.__('No entry matches the filter').'</strong></p>';
+			} else {
+				echo '<p><strong>'.__('No entry').'</strong></p>';
+			}
 		}
 		else
 		{
@@ -167,13 +171,21 @@ class adminPostList extends adminGenericList
 			}
 			$html_block =
 			'<div class="table-outer">'.
-			'<table><caption class="hidden">'.__('Entries list').'</caption><tr>'.
+			'<table>';
+			
+			if( $filter ) {
+				$html_block .= '<caption>'.sprintf(__('List of %s entries match the filter.'), $this->rs_count).'</caption>';
+			} else {
+				$html_block .= '<caption class="hidden">'.__('Entries list').'</caption>';
+			}
+					
+			$html_block .= '<tr>'.
 			'<th colspan="2" class="first">'.__('Title').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
 			'<th scope="col">'.__('Category').'</th>'.
 			'<th scope="col">'.__('Author').'</th>'.
-			'<th scope="col">'.__('Comments').'</th>'.
-			'<th scope="col">'.__('Trackbacks').'</th>'.
+			'<th scope="col"><img src="images/comments.png" alt="" title="'.__('Comments').'" /><span class="hidden">'.__('Comments').'</span></th>'.
+			'<th scope="col"><img src="images/trackbacks.png" alt="" title="'.__('Trackbacks').'" /><span class="hidden">'.__('Trackbacks').'</span></th>'.
 			'<th scope="col">'.__('Status').'</th>'.
 			'</tr>%s</table></div>';
 			
@@ -361,11 +373,15 @@ class adminPostMiniList extends adminGenericList
 
 class adminCommentList extends adminGenericList
 {
-	public function display($page,$nb_per_page,$enclose_block='')
+	public function display($page,$nb_per_page,$enclose_block='',$filter=false)
 	{
 		if ($this->rs->isEmpty())
 		{
-			echo '<p><strong>'.__('No comment').'</strong></p>';
+			if( $filter ) {
+				echo '<p><strong>'.__('No comments or trackbacks matches the filter').'</strong></p>';
+			} else {
+				echo '<p><strong>'.__('No comment').'</strong></p>';
+			}
 		}
 		else
 		{
@@ -379,7 +395,15 @@ class adminCommentList extends adminGenericList
 			}			
 			$html_block =
 			'<div class="table-outer">'.
-			'<table><caption class="hidden">'.__('Comments and trackbacks list').'</caption><tr>'.
+			'<table>';
+			
+			if( $filter ) {
+				$html_block .= '<caption>'.sprintf(__('List of %s Comments or trackbacks match the filter.'), $this->rs_count).'</caption>';
+			} else {
+				$html_block .= '<caption class="hidden">'.__('Comments and trackbacks list').'</caption>';
+			}
+					
+			$html_block .= '<tr>'.
 			'<th colspan="2" scope="col" abbr="comm" class="first">'.__('Type').'</th>'.
 			'<th scope="col">'.__('Author').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
@@ -476,11 +500,15 @@ class adminCommentList extends adminGenericList
 
 class adminUserList extends adminGenericList
 {
-	public function display($page,$nb_per_page,$enclose_block='')
+	public function display($page,$nb_per_page,$enclose_block='',$filter=false)
 	{
 		if ($this->rs->isEmpty())
 		{
-			echo '<p><strong>'.__('No user').'</strong></p>';
+			if( $filter ) {
+				echo '<p><strong>'.__('No user matches the filter').'</strong></p>';
+			} else {
+				echo '<p><strong>'.__('No user').'</strong></p>';
+			}
 		}
 		else
 		{
@@ -488,7 +516,15 @@ class adminUserList extends adminGenericList
 			
 			$html_block =
 			'<div class="table-outer clear">'.
-			'<table><caption class="hidden">'.__('Users list').'</caption><tr>'.
+			'<table>';
+			
+			if( $filter ) {
+				$html_block .= '<caption>'.sprintf(__('List of %s users match the filter.'), $this->rs_count).'</caption>';
+			} else {
+				$html_block .= '<caption class="hidden">'.__('Users list').'</caption>';
+			}
+					
+			$html_block .= '<tr>'.
 			'<th colspan="2" scope="col" class="first">'.__('Username').'</th>'.
 			'<th scope="col">'.__('First Name').'</th>'.
 			'<th scope="col">'.__('Last Name').'</th>'.
