@@ -29,7 +29,7 @@ class dcAdminCombos {
 	@param	categories		<b>record</b>		the category record
 	@return	<b>array</b> the combo box (form::combo -compatible format)
 	*/
-	public static function getCategoriesCombo($categories,$include_empty = true) {
+	public static function getCategoriesCombo($categories,$include_empty = true,$use_url = false) {
 		$categories_combo = array();
 		if ($include_empty) {
 			$categories_combo = array(new formSelectOption(__('(No cat)'),''));
@@ -37,7 +37,7 @@ class dcAdminCombos {
 		while ($categories->fetch()) {
 			$categories_combo[] = new formSelectOption (
 				html::escapeHTML($categories->cat_title).' ('.$categories->nb_post.')',
-				$categories->cat_id,
+				($use_url ? $categories->cat_url : $categories->cat_id),
 				($categories->level-1 ? 'sub-option'.($categories->level-1) : '')
 			);
 		}
