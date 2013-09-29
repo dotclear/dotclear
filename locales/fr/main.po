@@ -349,6 +349,9 @@ msgstr "(aucun)"
 msgid "Title"
 msgstr "Titre"
 
+msgid "Title (optional)"
+msgstr "Titre (optionnel)"
+
 msgid "Title, Date"
 msgstr "Titre, date"
 

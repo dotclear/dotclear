@@ -19,7 +19,7 @@ class pagesWidgets
 	public static function initWidgets($w)
 	{
 		$w->create('pages',__('Pages'),array('tplPages','pagesWidget'),null,'List of published pages');
-		$w->pages->setting('title',__('Title:'),__('Pages'));
+		$w->pages->setting('title',__('Title (optional)').' :',__('Pages'));
 		$w->pages->setting('homeonly',__('Display on:'),1,'combo',
 			array(
 				__('All pages') => 0,
