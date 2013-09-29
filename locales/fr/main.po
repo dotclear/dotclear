@@ -501,16 +501,16 @@ msgid "Date format:"
 msgstr "Format des dates :"
 
 msgid "Pattern of date"
-msgstr ""
+msgstr "Modèle de date"
 
 msgid "Sample:"
-msgstr ""
+msgstr "Exemple :"
 
 msgid "Time format:"
 msgstr "Format des heures :"
 
 msgid "Pattern of time"
-msgstr ""
+msgstr "Modèle d'heure"
 
 msgid "Display smilies on entries and comments"
 msgstr "Afficher des émoticônes dans les billets, pages et commentaires"
@@ -1992,8 +1992,8 @@ msgstr "Envoyer des rétroliens"
 msgid "URLs to ping:"
 msgstr "URLs à rétrolier :"
 
-msgid "Send excerpt:"
-msgstr "Envoyer l'extrait :"
+msgid "Excerpt to send:"
+msgstr "Extrait à envoyer :"
 
 msgid "Auto discover ping URLs"
 msgstr "Découverte automatique des URL à rétrolier"
@@ -3695,3 +3695,6 @@ msgstr "Les paramètres par défaut d'insertion des médias ont été mis à jou
 
 msgid "Make current settings as default"
 msgstr "Mémoriser ces réglages d'insertion"
+
+msgid "Trackbacks received"
+msgstr "Rétroliens reçus"

@@ -2011,6 +2011,9 @@ div.template-upload {
 		border-bottom: 1px solid #ddd;
 		margin-bottom: 1em;
 		}
+	#tb_excerpt {
+		width: 100%;
+		}
 /* ---------------------------------------------------------- preferences.php */
 .fav-list {
 	list-style-type: none;
