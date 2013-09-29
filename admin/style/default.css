@@ -1965,16 +1965,27 @@ div.template-upload {
 		height: 500px;
 		}
 /* -------------------------------------------------------------------- plugins.php */
-#plugins td.action {
+.modules td.action, .modules td.icon {
 	vertical-align: middle;
 	}
-.icon img {
+.modules td.icon img:last-child {
 	width: 16px;
 	height: 16px;
 	}
-.distrib img {
+.modules td.distrib img {
 	display: block;
 	float: right;
+	}
+.modules dt {
+	font-weight: bold;
+	}
+.modules a.details {
+	background: transparent url(search.png) no-repeat 2px 2px;
+	padding: 4px 4px 0 20px;
+	}
+.modules a.support {
+	background: transparent url(../images/page_help.png) no-repeat 2px 2px;
+	padding: 4px 4px 0 20px;
 	}
 /* ---------------------------------------------------------- post.php, page.php */
 #entry-wrapper {

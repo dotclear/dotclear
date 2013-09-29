@@ -7,6 +7,8 @@ class adminModulesList
 
 	public static  $allow_multi_install;
 
+	protected $list_id = 'unknow';
+
 	protected $path = false;
 	protected $path_writable = false;
 	protected $path_pattern = false;
@@ -35,6 +37,15 @@ class adminModulesList
 	protected function init()
 	{
 		return null;
+	}
+
+	public function newList($list_id)
+	{
+		$this->modules = array();
+		$this->page_tab = '';
+		$this->list_id = $list_id;
+
+		return $this;
 	}
 
 	protected function setPathInfo($root)
@@ -235,7 +246,7 @@ class adminModulesList
 	{
 		$this->modules = array();
 		foreach($modules as $id => $module) {
-			$this->modules[$id] = $this->setModuleInfo($id, $module);
+			$this->modules[$id] = self::setModuleInfo($id, $module);
 		}
 
 		return $this;
@@ -246,7 +257,7 @@ class adminModulesList
 		return $this->modules;
 	}
 
-	protected function setModuleInfo($id, $module)
+	public static function setModuleInfo($id, $module)
 	{
 		$label = empty($module['label']) ? $id : $module['label'];
 		$name = __(empty($module['name']) ? $label : $module['name']);
@@ -263,7 +274,11 @@ class adminModulesList
 				'permissions' 		=> null,
 				'parent' 			=> null,
 				'priority' 			=> 1000,
-				'standalone_config' => false
+				'standalone_config' => false,
+				'support' 			=> '',
+				'section' 			=> '',
+				'tags' 				=> '',
+				'details' 			=> ''
 			),
 			# Module's values
 			$module,
@@ -316,7 +331,14 @@ class adminModulesList
 	{
 		echo 
 		'<div class="table-outer">'.
-		'<table class="modules"><caption class="hidden">'.html::escapeHTML(__('Modules list')).'</caption><tr>';
+		'<table id="'.html::escapeHTML($this->list_id).'" class="modules'.(in_array('expander', $cols) ? ' expandable' : '').'">'.
+		'<caption class="hidden">'.html::escapeHTML(__('Modules list')).'</caption><tr>';
+/*
+		if (in_array('expander', $cols)) {
+			echo
+			'<th class="minimal"></th>';
+		}
+//*/
 /*
 		if ($this->getSearchQuery() !== null) {
 			echo 
@@ -377,21 +399,27 @@ class adminModulesList
 			}
 
 			echo 
-			'<tr class="line" id="'.$this->getPageTab().'_p_'.html::escapeHTML($id).'">';
-
-			if (in_array('icon', $cols)) {
-				echo 
-				'<td class="nowrap icon">'.sprintf(
-					'<img alt="%1$s" title="%1$s" src="%2$s" />', 
-					html::escapeHTML($id), file_exists($module['root'].'/icon.png') ? 'index.php?pf='.$id.'/icon.png' : 'images/favicon.png'
-				).'</td>';
+			'<tr class="line" id="'.html::escapeHTML($this->list_id).'_m_'.html::escapeHTML($id).'" title="plop">';
+/*
+			if (in_array('expander', $cols)) {
+				echo
+				'<td class="minimal expander" title="'.html::escapeHTML($id).'"></td>';
 			}
+//*/
 /*
 			if ($this->getSearchQuery() !== null) {
 				echo 
 				'<td class="nowrap count">'.$module['accuracy'].'</td>';
 			}
 //*/
+			if (in_array('icon', $cols)) {
+				echo 
+				'<td class="nowrap icon">'.sprintf(
+					'<img alt="%1$s" title="%1$s" src="%2$s" />', 
+					html::escapeHTML($id), file_exists($module['root'].'/icon.png') ? 'index.php?pf='.$id.'/icon.png' : 'images/module.png'
+				).'</td>';
+			}
+
 			# Link to config file
 			$config = in_array('config', $cols) && !empty($module['root']) && file_exists(path::real($module['root'].'/_config.php'));
 
@@ -429,7 +457,7 @@ class adminModulesList
 				echo 
 				'<td class="nowrap">';
 
-				$this->displayInlineActions($id, $module, $actions);
+				$this->displayLineActions($id, $module, $actions);
 
 				echo
 				'</td>';
@@ -449,7 +477,7 @@ class adminModulesList
 		}
 	}
 
-	protected function displayInlineActions($id, $module, $actions)
+	protected function displayLineActions($id, $module, $actions)
 	{
 		$submits = array();
 

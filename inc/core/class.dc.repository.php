@@ -78,7 +78,7 @@ class dcRepository
 			array_walk($subjects, array('dcRepository','sanitize'));
 
 			# Check contents
-			if (!($nb = preg_match_all('/('.implode('|', $patterns).')/', implode(' ', $subjects)))) {
+			if (!($nb = preg_match_all('/('.implode('|', $patterns).')/', implode(' ', $subjects), $_))) {
 				continue;
 			}
 
