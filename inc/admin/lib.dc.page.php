@@ -603,6 +603,19 @@ class dcPage
 			__("Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?")).
 		self::jsVar('dotclear.msg.load_enhanced_uploader',
 			__('Loading enhanced uploader, please wait.')).
+
+		self::jsVar('dotclear.msg.module_author',
+			__('Author:')).
+		self::jsVar('dotclear.msg.module_details',
+			__('Details')).
+		self::jsVar('dotclear.msg.module_support',
+			__('Support:')).
+		self::jsVar('dotclear.msg.module_help',
+			__('Aide:')).
+		self::jsVar('dotclear.msg.module_section',
+			__('Section:')).
+		self::jsVar('dotclear.msg.module_tags',
+			__('Tags:')).
 			"\n//]]>\n".
 		"</script>\n";
 	}

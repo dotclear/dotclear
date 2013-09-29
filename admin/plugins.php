@@ -103,7 +103,10 @@ if (!$core->error->flag()) {
 dcPage::open(__('Plugins management'),
 	dcPage::jsLoad('js/_plugins.js').
 	dcPage::jsPageTabs().
+
+	# --BEHAVIOR-- pluginsToolsHeaders
 	$core->callBehavior('pluginsToolsHeaders', $core),
+
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
@@ -154,10 +157,11 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 		).'</p>';
 
 		$list
+			->newList('plugin-update')
 			->setModules($modules)
 			->setPageTab('update')
 			->displayModulesList(
-				/*cols */	array('icon', 'name', 'version', 'current_version', 'desc'),
+				/*cols */		array('icon', 'name', 'version', 'current_version', 'desc'),
 				/* actions */	array('update')
 			);
 
@@ -178,10 +182,11 @@ if (!empty($modules)) {
 	'<p>'.__('You can manage installed plugins from this list.').'</p>';
 
 	$list
+		->newList('plugin-activate')
 		->setModules($modules)
 		->setPageTab('plugins')
 		->displayModulesList(
-			/* cols */		array('icon', 'name', 'config', 'version', 'desc', 'distrib'),
+			/* cols */		array('expander', 'icon', 'name', 'config', 'version', 'desc', 'distrib'),
 			/* actions */	array('deactivate', 'delete')
 		);
 }
@@ -195,6 +200,7 @@ if (!empty($modules)) {
 	'<p>'.__('Deactivated plugins are installed but not usable. You can activate them from here.').'</p>';
 
 	$list
+		->newList('plugin-deactivate')
 		->setModules($modules)
 		->setPageTab('plugins')
 		->displayModulesList(
@@ -221,12 +227,13 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 	).'</p>';
 
 	$list
+		->newList('plugin-new')
 		->setModules($modules)
 		->setPageTab('new')
 		->displaySearchForm()
 		->displayNavMenu()
 		->displayModulesList(
-			/* cols */		array('name', 'version', 'desc'),
+			/* cols */		array('expander', 'name', 'version', 'desc'),
 			/* actions */	array('install'),
 			/* nav limit */	true
 		);
