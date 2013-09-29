@@ -37,12 +37,16 @@ $combo_action = array(
 # --BEHAVIOR-- adminUsersActionsCombo
 $core->callBehavior('adminUsersActionsCombo',array(&$combo_action));
 
+$show_filters = false;
 
 #?Get users
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  30;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
+	if ($nb_per_page != $_GET['nb']) {
+		$show_filters = true;
+	}
 	$nb_per_page = $_GET['nb'];
 }
 
@@ -52,7 +56,6 @@ $order = !empty($_GET['order']) ?		$_GET['order'] : 'asc';
 
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 
-$show_filters = false;
 
 # - Search filter
 if ($q) {
@@ -88,10 +91,18 @@ try {
 
 /* DISPLAY
 -------------------------------------------------------- */
-$starting_script = dcPage::jsLoad('js/_users.js');
-if (!$show_filters) {
-	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
-}
+
+$form_filter_title = __('Show filters and display options');
+$starting_script  = dcPage::jsLoad('js/_users.js');
+$starting_script .= dcPage::jsLoad('js/filter-controls.js');
+$starting_script .=
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA["."\n".
+	dcPage::jsVar('dotclear.msg.show_filters', $show_filters ? 'true':'false')."\n".
+	dcPage::jsVar('dotclear.msg.filter_posts_list',$form_filter_title)."\n".
+	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel filters and display options'))."\n".
+	"//]]>".
+	"</script>";
 
 dcPage::open(__('Users'),$starting_script,
 	dcPage::breadcrumb(
@@ -111,15 +122,9 @@ if (!$core->error->flag())
 	}
 	
 	echo
-	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('New user').'</a></strong></p>';
-	
-	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.__('Filter users list').'</a></p>';
-	}
-	
-	echo
+	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('New user').'</a></strong></p>'.
 	'<form action="users.php" method="get" id="filters-form">'.
-	'<h3 class="hidden">'.__('Filter users list').'</h3>'.
+	'<h3 class="out-of-screen-if-js">'.$form_filter_title.'</h3>'.
 	
 	'<div class="table">'.
 	'<div class="cell">'.
@@ -165,7 +170,8 @@ if (!$core->error->flag())
 	$core->formNonce().
 	'</p>'.
 	'</div>'.
-	'</form>'
+	'</form>',
+	$show_filters
 	);
 }
 

@@ -151,10 +151,18 @@ try {
 
 /* DISPLAY
 -------------------------------------------------------- */
-$starting_script = dcPage::jsLoad('js/_comments.js');
-if (!$show_filters) {
-	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
-}
+
+$form_filter_title = __('Show filters and display options');
+$starting_script  = dcPage::jsLoad('js/_comments.js');
+$starting_script .= dcPage::jsLoad('js/filter-controls.js');
+$starting_script .=
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA["."\n".
+	dcPage::jsVar('dotclear.msg.show_filters', $show_filters ? 'true':'false')."\n".
+	dcPage::jsVar('dotclear.msg.filter_posts_list',$form_filter_title)."\n".
+	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel filters and display options'))."\n".
+	"//]]>".
+	"</script>";
 
 dcPage::open(__('Comments and trackbacks'),$starting_script,
 	dcPage::breadcrumb(
@@ -201,12 +209,6 @@ if (!$core->error->flag())
 		$core->callBehavior('adminCommentsSpamForm',$core);
 
 		echo '</form>';
-	}
-
-	# Filters
-	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.
-		__('Filter comments and trackbacks list').'</a></p>';
 	}
 	
 	echo
@@ -268,7 +270,8 @@ if (!$core->error->flag())
 	form::hidden(array('nb'),$nb_per_page).
 	'</div>'.
 	
-	'</form>'
+	'</form>',
+	$show_filters
 	);
 }
 
