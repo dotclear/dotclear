@@ -152,7 +152,7 @@ try {
 /* DISPLAY
 -------------------------------------------------------- */
 
-$form_filter_title = __('Filter comments, trackbacks list and display options');
+$form_filter_title = __('Show filters and display options');
 $starting_script  = dcPage::jsLoad('js/_comments.js');
 $starting_script .= dcPage::jsLoad('js/filter-controls.js');
 $starting_script .=
@@ -160,7 +160,7 @@ $starting_script .=
 	"//<![CDATA["."\n".
 	dcPage::jsVar('dotclear.msg.show_filters', $show_filters ? 'true':'false')."\n".
 	dcPage::jsVar('dotclear.msg.filter_posts_list',$form_filter_title)."\n".
-	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel the filter'))."\n".
+	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel filters and display options'))."\n".
 	"//]]>".
 	"</script>";
 
