@@ -267,6 +267,7 @@ xml:lang="<?php echo $dlang; ?>" lang="<?php echo $dlang; ?>">
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></title>
+  <link rel="icon" type="image/png" href="images/favicon-off.png" />
   
 <?php
 echo dcPage::jsLoadIE7();

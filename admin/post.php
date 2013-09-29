@@ -727,7 +727,7 @@ if ($post_id && $post_status == 1)
 		echo '<form action="post.php" id="form-trackbacks" method="post">';
 	}
 	
-	echo '<h3>'.__('Trackbacks').'</h3>';
+	echo '<h3>'.__('Trackbacks received').'</h3>';
 	
 	if (!$trackbacks->isEmpty()) {
 		showComments($trackbacks, $has_action, true);
@@ -763,7 +763,7 @@ if ($post_id && $post_status == 1)
 		form::textarea('tb_urls', 60, 5, $tb_urls).
 		'</p>'.
 
-		'<p><label for="tb_excerpt" class="area">'.__('Send excerpt:').'</label>'.
+		'<p><label for="tb_excerpt" class="area">'.__('Excerpt to send:').'</label>'.
 		form::textarea('tb_excerpt', 60, 5, $tb_excerpt).'</p>'.
 
 		'<p>'.

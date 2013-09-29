@@ -1217,7 +1217,7 @@ table .count {
 	padding-right: 1.5em;
 	}
 th.first img {
-	padding-right: 24px;
+	padding-right: 34px;
 	}
 tr.line img.expand, th img.expand {
 	margin-right: 6px;
@@ -1297,6 +1297,9 @@ a.form-control {
 	background: url(../images/expand.png) no-repeat 4px center;
 	padding-left: 20px;
 	color: #000;
+	}
+a.form-control.open {
+	background: url(../images/hide.png) no-repeat 4px center;
 	}
 #filters-form {
 	border: 1px dashed #999;
@@ -1672,15 +1675,23 @@ a.form-control {
 		margin: .66em 0;
 		padding: .66em 1em;
 		border: 1px solid #bbb;
-		border-left: 6px solid #bbb;
 		border-radius: 3px;
 		}
+		.cat-line label {
+			margin-right: .25em;
+			}
 		.cat-line label a {
 			font-weight: bold;
 			}
 		.cat-line p, .cat-line label {
 			margin: 0;
 			display: inline-block;
+			}
+		p.cat-title {
+			margin-right: 1em;
+			}
+		.cat-nb-posts a {
+			color: #333;
 			}
 		.cat-url {
 			padding-left: 1em;
@@ -1698,9 +1709,6 @@ a.form-control {
 	padding: 1px 2px 3px 2px;
 	margin-right: .25em;
 	}
-.cat-line label {
-	margin-right: .25em;
-	}
 .cat-buttons .reset {
 	padding-left: 4px;
 	padding-right: 4px;
@@ -1711,14 +1719,7 @@ a.form-control {
 	}
 .cat-line .cat-line {
 	border: 1px solid #dfdfdf;
-	border-left-width: 3px;
 	}
-#categories h4 {
-	margin: 0;
-	}
-	#categories h4 span {
-		font-weight: normal;
-		}
 .cat-actions {
 	line-height: 2;
 	}
@@ -2012,6 +2013,9 @@ div.template-upload {
 	.sb-box {
 		border-bottom: 1px solid #ddd;
 		margin-bottom: 1em;
+		}
+	#tb_excerpt {
+		width: 100%;
 		}
 /* ---------------------------------------------------------- preferences.php */
 .fav-list {
