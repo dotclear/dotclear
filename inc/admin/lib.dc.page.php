@@ -609,9 +609,9 @@ class dcPage
 		self::jsVar('dotclear.msg.module_details',
 			__('Details')).
 		self::jsVar('dotclear.msg.module_support',
-			__('Support:')).
+			__('Support')).
 		self::jsVar('dotclear.msg.module_help',
-			__('Aide:')).
+			__('Help:')).
 		self::jsVar('dotclear.msg.module_section',
 			__('Section:')).
 		self::jsVar('dotclear.msg.module_tags',

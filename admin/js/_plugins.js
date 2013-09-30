@@ -77,10 +77,11 @@ dotclear.viewModuleContent = function(img,line,action) {
                                 var details = $(rsp).find('details').text();
                                 var support = $(rsp).find('support').text();
 								var box = document.createElement('div');
-                                var dl = document.createElement('dl');
+                                var dl = document.createElement('ul');
+                                dl.className = "mod-more";
                                 
                                 if (author) {
-                                        $(dl).append($('<dt>'+dotclear.msg.module_author+'</dt><dd>'+author+'</dd>'));
+                                        $(dl).append($('<li>'+dotclear.msg.module_author+' '+author+'</li>'));
                                 }
                                 if (details) {
                                         var dd = '';
@@ -89,24 +90,25 @@ dotclear.viewModuleContent = function(img,line,action) {
                                                 dd += ' - ';
                                                 dd += '<a class="support" href="'+support+'">'+dotclear.msg.module_support+'</a>';
                                         }
-                                        $(dl).append($('<dt>'+dotclear.msg.module_help+'</dt><dd>'+dd+'</dd>'));
+                                        $(dl).append($('<li>'+dotclear.msg.module_help+' '+dd+'</li>'));
                                 }
 
-                                $(td).append($(box).addClass('box').append(dl));
+                                $(td).append($(box).addClass('two-boxes').append(dl));
                                 
                                 var section = $(rsp).find('section').text();
                                 var tags = $(rsp).find('tags').text();
                                 
 								var boxb = document.createElement('div');
-                                var dlb = document.createElement('dl');
+                                var dlb = document.createElement('ul');
+                                dlb.className = "mod-more";
                                 
                                 if (section) {
-                                        $(dlb).append($('<dt>'+dotclear.msg.module_section+'</dt><dd>'+section+'</dd>'));
+                                        $(dlb).append($('<li>'+dotclear.msg.module_section+' '+section+'</li>'));
                                 }
                                 if (tags) {
-                                        $(dlb).append($('<dt>'+dotclear.msg.module_tags+'</dt><dd>'+tags+'</dd>'));
+                                        $(dlb).append($('<li>'+dotclear.msg.module_tags+' '+tags+'</li>'));
                                 }
-                                $(td).append($(boxb).addClass('box').append(dlb));
+                                $(td).append($(boxb).addClass('two-boxes').append(dlb));
                         } else {
                                 alert($(rsp).find('message').text());
                         }

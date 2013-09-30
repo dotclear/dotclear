@@ -123,25 +123,23 @@ class adminModulesList
 		$query = $this->getSearchQuery();
 
 		echo 
-		'<div class="box">'.
-		'<form action="'.$this->getPageURL().'" method="get">'.
-		'<p><label for="m_search" class="classic">'.__('Search:').'&nbsp;</label><br />'.
-		form::field(array('m_search'), 30, 255, html::escapeHTML($query)).
+		'<form action="'.$this->getPageURL().'" method="get" class="fieldset">'.
+		'<p><label for="m_search" class="classic">'.__('Search in repository:').'&nbsp;</label><br />'.
+		form::field(array('m_search','m_search'), 30, 255, html::escapeHTML($query)).
 		'<input type="submit" value="'.__('Search').'" /> '.
 		'</p>';
 
 		if ($query) {
 			echo 
-			'<p class="info">'.sprintf(
+			'<p>'.sprintf(
 				__('Found %d result for search "%s".', 'Found %d results for search "%s".', count($this->modules)), 
 				count($this->modules), html::escapeHTML($query)
-			).' <a href="'.$this->getPageURL().'">'.__('Reset search').'</a>'.
+			).' <a href="'.$this->getPageURL().'" class="button">'.__('Reset search').'</a>'.
 			'</p>';
 		}
 
 		echo 
-		'</form>'.
-		'</div>';
+		'</form>';
 
 		return $this;
 	}
@@ -198,7 +196,7 @@ class adminModulesList
 			}
 		}
 		# Parse navigation menu
-		echo '<div class="pager">'.__('Index:').' <ul>'.implode('',$buttons).'</ul></div>';
+		echo '<div class="pager">'.__('Browse index:').' <ul>'.implode('',$buttons).'</ul></div>';
 
 		return $this;
 	}
