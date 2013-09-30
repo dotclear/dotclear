@@ -88,6 +88,7 @@ if ($conf_file) {
 			'<h3>'.sprintf(__('Configure plugin "%s"'), html::escapeHTML($module['name'])).'</h3>'.
 			'<p><a class="back" href="'.$list->getPageURL().'#plugins">'.__('Back').'</a></p>';
 		}
+		define('DC_CONTEXT_PLUGIN', true);
 
 		include $conf_file;
 
