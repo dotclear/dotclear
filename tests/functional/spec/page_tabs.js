@@ -130,5 +130,27 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		expect($('#part-user-profile')).toBeVisible();
 		expect($('#part-user-favorites')).not.toBeVisible();
 	});
+
+	it("Must open first tab when clicking back until hash is empty", function() {
+		loadFixtures('tabs.html');
+		loadStyleFixtures('default.css');
+
+		var navigation = ['', 'user-profile', 'user-favorites'];
+		var current_index = 0;
+
+		$.pageTabs();
+		current_index++;
+		$.pageTabs.clickTab(navigation[current_index]);
+		// tab is now user-profile
+
+		// simulate back : window.history.back();
+		current_index--;
+		spyOn(jQuery.pageTabs, 'getLocationHash').andReturn(navigation[current_index]);
+		jQuery.event.trigger('hashchange');
+
+		expect($('#part-user-options')).toBeVisible();
+		expect($('#part-user-profile')).not.toBeVisible();
+		expect($('#part-user-favorites')).not.toBeVisible();
+	});
 });
 
