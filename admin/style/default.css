@@ -1972,6 +1972,9 @@ div.template-upload {
 	width: 16px;
 	height: 16px;
 	}
+.modules td.icon img.expand {
+	margin-bottom: 3px;
+	}
 .modules td.distrib img {
 	display: block;
 	float: right;
@@ -1989,21 +1992,26 @@ div.template-upload {
 	}
 #m_search {	
 	background: transparent url(search.png) no-repeat 4px center;
+	padding-left: 20px;
 	}
 .modules tr.expand, .modules td.expand {
-	background: #f5f5f5;
+	background: #f7f7f7;
 	border-color: #bee74b;
 	}
-.modules tr.expand {
+.modules tr.expand td:first-child {
 	font-weight: bold;
+	background: #DFE5E7;
 	}
 .modules td.expand {
 	padding: 0;
 	}
 .mod-more, .mod-more li {
-	margin: 0 0 0 1em;
+	margin: .25em 0 0 1em;
 	padding: 0;
 	list-style-type: none;
+	}
+.mod-more {
+	padding-top: .5em;
 	}
 /* ---------------------------------------------------------- post.php, page.php */
 #entry-wrapper {
