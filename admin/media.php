@@ -264,7 +264,7 @@ if (!isset($core->media)) {
 			),
 			array(
 				'home_link' => !$popup,
-				'highlight_latest' => false
+				'hl' => false
 			)
 		);
 	}

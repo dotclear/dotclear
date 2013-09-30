@@ -208,7 +208,7 @@ call_user_func($open_f,__('Media manager'),
 		),
 		array(
 			'home_link' => !$popup,
-			'highlight_latest' => false
+			'hl' => false
 		)
 	)
 );
