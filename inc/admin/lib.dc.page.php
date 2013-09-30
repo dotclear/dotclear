@@ -107,9 +107,10 @@ class dcPage
 		$core->auth->user_prefs->addWorkspace('interface');
 		$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 		if (!$user_ui_hide_std_favicon) {
-			echo '<link rel="icon" type="image/png" href="images/favicon.png" />';
+  			echo 
+  			'<link rel="icon" type="image/png" href="images/favicon96-login.png" />'.
+  			'<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />;'
 		}
-
 		echo
 		self::jsCommon().
 		self::jsToggles().
