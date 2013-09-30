@@ -60,7 +60,7 @@ class dcPostsActionsPage extends dcActionsPage
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
 				$this->getCallerTitle() => $this->getRedirection(array(),true),
-				'<span class="page-title">'.__('Entries actions').'</span>' => ''
+				__('Entries actions') => ''
 			))
 		);
 		$this->endPage();
@@ -228,7 +228,7 @@ class dcDefaultPostActions
 					array(
 						html::escapeHTML($core->blog->name) => '',
 						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Change category for this selection').'</span>' => ''
+						__('Change category for this selection') => ''
 			)));
 			# categories list
 			# Getting categories
@@ -298,7 +298,7 @@ class dcDefaultPostActions
 					array(
 						html::escapeHTML($core->blog->name) => '',
 						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Change author for this selection').'</span>' => '')),
+						__('Change author for this selection') => '')),
 					dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 					'<script type="text/javascript">'."\n".
 					"//<![CDATA[\n".
@@ -339,7 +339,7 @@ class dcDefaultPostActions
 					array(
 						html::escapeHTML($core->blog->name) => '',
 						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Change language for this selection').'</span>' => ''
+						_('Change language for this selection') => ''
 			)));
 			# lang list
 			# Languages combo

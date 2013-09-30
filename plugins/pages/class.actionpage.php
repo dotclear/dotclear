@@ -25,7 +25,7 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
 				__('Pages') => $this->getRedirection(array(),true),
-				'<span class="page-title">'.__('Pages actions').'</span>' => ''
+				__('Pages actions') => ''
 			))
 		);
 		$this->endPage();

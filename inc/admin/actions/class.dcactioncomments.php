@@ -58,7 +58,7 @@ class dcCommentsActionsPage extends dcActionsPage
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
 				__('Comments') => 'comments.php',
-				'<span class="page-title">'.__('Comments actions').'</span>' => ''
+				__('Comments actions') => ''
 			))
 		);
 		$this->endPage();

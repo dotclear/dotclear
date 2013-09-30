@@ -118,7 +118,7 @@ echo dcPage::breadcrumb(
 	array(
 		__('System') => '',
 		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('about:config').'</span>' => ''
+		__('about:config') => ''
 	));
 if (!empty($_GET['upd'])) {
 	dcPage::success(__('Configuration successfully updated'));

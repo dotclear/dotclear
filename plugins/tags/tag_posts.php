@@ -90,7 +90,7 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Tags') => $p_url.'&amp;m=tags',
-		'<span class="page-title">'.__('Tag').' &ldquo;'.html::escapeHTML($tag).'&rdquo;'.'</span>' => ''
+		__('Tag').' &ldquo;'.html::escapeHTML($tag).'&rdquo;' => ''
 	));
 ?>
 

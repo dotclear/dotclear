@@ -165,7 +165,7 @@ if ($cat_id) {
 		$elements[html::escapeHTML($parents->cat_title)] = 'category.php?id='.$parents->cat_id;
 	}
 }
-$elements['<span class="page-title">'.$title.'</span>'] = '';
+$elements[$title] = '';
 
 dcPage::open($title,
 	dcPage::jsConfirmClose('category-form').

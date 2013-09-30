@@ -150,7 +150,7 @@ class tagsBehaviors
 					array(
 						html::escapeHTML($core->blog->name) => '',
 						__('Entries') => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Add tags to this selection').'</span>' => ''
+						__('Add tags to this selection') => ''
 				)),
 				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 				dcPage::jsMetaEditor().
@@ -227,7 +227,7 @@ class tagsBehaviors
 						array(
 							html::escapeHTML($core->blog->name) => '',
 							__('Entries') => 'posts.php',
-							'<span class="page-title">'.__('Remove selected tags from this selection').'</span>' => ''
+							__('Remove selected tags from this selection') => ''
 			)));
 			$posts_count = count($_POST['entries']);
 			

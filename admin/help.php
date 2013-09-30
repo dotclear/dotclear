@@ -76,12 +76,12 @@ if ($content_array['title'] != '') {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('Global help') => 'help.php',
-			'<span class="page-title">'.$content_array['title'].'</span>' => ''
+			$content_array['title'] => ''
 		));
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
-			'<span class="page-title">'.__('Global help').'</span>' => ''
+			__('Global help') => ''
 		));
 }
 

@@ -132,7 +132,7 @@ if (empty($tasks)) {
 	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
-			'<span class="page-title">'.__('Maintenance').'</span>' => ''
+			__('Maintenance') => ''
 		)
 	).
 	'<p class="warn">'.__('You have not sufficient permissions to view this page.').'</p>'.
@@ -158,7 +158,7 @@ if ($task && ($res = $task->step()) !== null) {
 		array(
 			__('Plugins') => '',
 			'<a href="'.$p_url.'">'.__('Maintenance').'</a>' => '',
-			'<span class="page-title">'.html::escapeHTML($task->name()).'</span>' => ''
+			html::escapeHTML($task->name())=> ''
 		)
 	);
 
@@ -192,7 +192,7 @@ else {
 	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
-			'<span class="page-title">'.__('Maintenance').'</span>' => ''
+			__('Maintenance') => ''
 		)
 	);
 

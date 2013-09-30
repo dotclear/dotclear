@@ -230,7 +230,7 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Blog appearance') => 'blog_theme.php',
-		'<span class="page-title">'.__('Blowup configuration').'</span>' => ''
+		__('Blowup configuration') => ''
 	));
 
 echo

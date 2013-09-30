@@ -71,7 +71,7 @@ else
 			array(
 				__('System') => '',
 				__('Blogs') => 'blogs.php',
-				'<span class="page-title">'.__('New blog').'</span>' => ''
+				__('New blog') => ''
 			))
 	);
 	
