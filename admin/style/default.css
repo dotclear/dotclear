@@ -1987,6 +1987,24 @@ div.template-upload {
 	background: transparent url(../images/page_help.png) no-repeat 2px 2px;
 	padding: 4px 4px 0 20px;
 	}
+#m_search {	
+	background: transparent url(search.png) no-repeat 4px center;
+	}
+.modules tr.expand, .modules td.expand {
+	background: #f5f5f5;
+	border-color: #bee74b;
+	}
+.modules tr.expand {
+	font-weight: bold;
+	}
+.modules td.expand {
+	padding: 0;
+	}
+.mod-more, .mod-more li {
+	margin: 0 0 0 1em;
+	padding: 0;
+	list-style-type: none;
+	}
 /* ---------------------------------------------------------- post.php, page.php */
 #entry-wrapper {
 	float: left;

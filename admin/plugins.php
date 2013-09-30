@@ -219,12 +219,8 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 	$modules = $search ? $repository->search($search) : $repository->get();
 
 	echo
-	'<div class="multi-part" id="new" title="'.__('Add plugins').'">'.
-	'<h3>'.__('Add plugins').'</h3>'.
-	'<p>'.sprintf(
-		__("You can install plugins directly from %s repository."),
-		'<a title="'.__('Visit Dotaddict').'" href="http://dotaddict.org/dc2/plugins">dotaddict.org</a>'
-	).'</p>';
+	'<div class="multi-part" id="new" title="'.__('Add plugins from Dotaddict').'">'.
+	'<h3>'.__('Add plugins from Dotaddict repository').'</h3>';
 
 	$list
 		->newList('plugin-new')
@@ -239,11 +235,16 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 		);
 
 	echo
+	'<div class="info">'.
+	'<p>'.sprintf(
+		__("Visit %s repository, the resources center for Dotclear."),
+		'<a href="http://dotaddict.org/dc2/plugins">Dotaddict</a>'
+	).'</p></div>'.
 	'</div>';
 
 	# Add a new plugin
 	echo
-	'<div class="multi-part" id="addplugin" title="'.__('Install or upgrade a plugin').'">';
+	'<div class="multi-part" id="addplugin" title="'.__('Install or upgrade manually').'">';
 
 	echo '<p>'.__('You can install plugins by uploading or downloading zip files.').'</p>';
 	
