@@ -1531,6 +1531,7 @@ a.form-control.open {
 				background-image: url(../images/admin.png);
 				}
 /* ------------------------------------------------------------------- blog_theme.php */
+/*
 #themes {
 	margin: 0;
 	width: 100%;
@@ -1567,7 +1568,9 @@ a.form-control.open {
 		border-bottom: 1px solid #999;
 		margin-bottom: 3em;
 		}
+*/
 /* Themes list, JS version */
+/*
 #themes-wrapper {
 	display: table;
 	}
@@ -1642,6 +1645,7 @@ a.form-control.open {
 	#themes a:focus div.current-theme, #themes a:hover div.current-theme {
 		background: #bee74b;
 		}
+*/
 /* ------------------------------------------------------------------ categories.php */
 #categories {
 	margin: 1em 0;
@@ -1946,28 +1950,28 @@ div.template-upload {
 		height: 500px;
 		}
 /* -------------------------------------------------------------------- plugins.php */
-.modules td.action, .modules td.icon {
+.modules td.module-actions, .modules td.module-icon {
 	vertical-align: middle;
 	}
-.modules td.icon img:last-child {
+.modules td.module-icon img:last-child {
 	width: 16px;
 	height: 16px;
 	}
-.modules td.icon img.expand {
+.modules td.module-icon img.expand {
 	margin-bottom: 3px;
 	}
-.modules td.distrib img {
+.modules td.module-distrib img {
 	display: block;
 	float: right;
 	}
 .modules dt {
 	font-weight: bold;
 	}
-.modules a.details {
+.modules a.module-details {
 	background: transparent url(search.png) no-repeat 2px 2px;
 	padding: 4px 4px 0 20px;
 	}
-.modules a.support {
+.modules a.module-support {
 	background: transparent url(../images/page_help.png) no-repeat 2px 2px;
 	padding: 4px 4px 0 20px;
 	}

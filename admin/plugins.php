@@ -42,6 +42,25 @@ $list = new adminModulesList(
 	$core->blog->settings->system->plugins_allow_multi_install
 );
 
+$list::setDistributedModules(array(
+	'aboutConfig',
+	'akismet',
+	'antispam',
+	'attachments',
+	'blogroll',
+	'blowupConfig',
+	'daInstaller',
+	'fairTrackbacks',
+	'importExport',
+	'maintenance',
+	'pages',
+	'pings',
+	'simpleMenu',
+	'tags',
+	'themeEditor',
+	'userPref',
+	'widgets'
+));
 
 # -- Check for module configuration --
 $conf_file = false;
@@ -111,53 +130,12 @@ if ($conf_file) {
 }
 
 # -- Execute actions --
-if (empty($_POST['conf']) && $core->auth->isSuperAdmin() && $list->isPathWritable()) {
-
-	# Plugin upload
-	if ((!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])) ||
-		(!empty($_POST['fetch_pkg']) && !empty($_POST['pkg_url'])))
-	{
-		try
-		{
-			if (empty($_POST['your_pwd']) || !$core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY, $_POST['your_pwd']))) {
-				throw new Exception(__('Password verification failed'));
-			}
-			
-			if (!empty($_POST['upload_pkg'])) {
-				files::uploadStatus($_FILES['pkg_file']);
-				
-				$dest = $list->getPath().'/'.$_FILES['pkg_file']['name'];
-				if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
-					throw new Exception(__('Unable to move uploaded file.'));
-				}
-			}
-			else {
-				$url = urldecode($_POST['pkg_url']);
-				$dest = $list->getPath().'/'.basename($url);
-				$repository->download($url, $dest);
-			}
-
-			# --BEHAVIOR-- pluginBeforeAdd
-			$core->callBehavior('pluginsBeforeAdd', $plugin_id);
-						
-			$ret_code = $core->plugins->installPackage($dest, $core->plugins);
-
-			# --BEHAVIOR-- pluginAfterAdd
-			$core->callBehavior('pluginsAfterAdd', $plugin_id);
-			
-			http::redirect('plugins.php?msg='.($ret_code == 2 ? 'update' : 'install').'#plugins');
-		}
-		catch (Exception $e) {
-			$core->error->add($e->getMessage());
-		}
+if (!empty($_POST) && empty($_REQUEST['conf']) && $core->auth->isSuperAdmin() && $list->isPathWritable()) {
+	try {
+		$list->executeAction('plugins', $core->plugins, $repository);
 	}
-	elseif (!empty($_POST['module'])) {
-		try {
-			$list->executeAction('plugins', $core->plugins, $repository);
-		}
-		catch (Exception $e) {
-			$core->error->add($e->getMessage());
-		}
+	catch (Exception $e) {
+		$core->error->add($e->getMessage());
 	}
 }
 
@@ -184,7 +162,7 @@ dcPage::open(__('Plugins management'),
 
 # -- Succes messages --
 if (!empty($_GET['msg'])) {
-	$list->displayMessage($_GET['msg'],__('Plugins'));
+	$list->displayMessage($_GET['msg']);
 }
 
 # -- Plugins install messages --
@@ -317,30 +295,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	echo '<p>'.__('You can install plugins by uploading or downloading zip files.').'</p>';
 	
-	# 'Upload plugin' form
-	echo
-	'<form method="post" action="plugins.php" id="uploadpkg" enctype="multipart/form-data" class="fieldset">'.
-	'<h4>'.__('Upload a zip file').'</h4>'.
-	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Plugin zip file:').'</label> '.
-	'<input type="file" id="pkg_file" name="pkg_file" /></p>'.
-	'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
-	form::password(array('your_pwd','your_pwd1'),20,255).'</p>'.
-	'<p><input type="submit" name="upload_pkg" value="'.__('Upload plugin').'" />'.
-	$core->formNonce().
-	'</p>'.
-	'</form>';
-	
-	# 'Fetch plugin' form
-	echo
-	'<form method="post" action="plugins.php" id="fetchpkg" class="fieldset">'.
-	'<h4>'.__('Download a zip file').'</h4>'.
-	'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Plugin zip file URL:').'</label> '.
-	form::field(array('pkg_url','pkg_url'),40,255).'</p>'.
-	'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
-	form::password(array('your_pwd','your_pwd2'),20,255).'</p>'.
-	'<p><input type="submit" name="fetch_pkg" value="'.__('Download plugin').'" />'.
-	$core->formNonce().'</p>'.
-	'</form>';
+	$list->displayManualForm();
 
 	echo
 	'</div>';
