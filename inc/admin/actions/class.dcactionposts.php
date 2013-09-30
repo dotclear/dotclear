@@ -43,7 +43,7 @@ class dcPostsActionsPage extends dcActionsPage
 				$breadcrumb
 			);
 		}
-		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to entries list').'</a></p>';
+		echo '<p><a class="back" href="'.$this->getRedirection(true).'">'.__('Back to entries list').'</a></p>';
 	}
 	
 	public function endPage() {
@@ -59,7 +59,7 @@ class dcPostsActionsPage extends dcActionsPage
 		$this->beginPage(dcPage::breadcrumb(
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
-				$this->getCallerTitle() => $this->getRedirection(array(),true),
+				$this->getCallerTitle() => $this->getRedirection(true),
 				__('Entries actions') => ''
 			))
 		);
@@ -159,7 +159,7 @@ class dcDefaultPostActions
 		}
 		$core->blog->updPostsStatus($posts_ids,$status);
 		
-		$ap->redirect(array('upd' => 1),true);
+		$ap->redirect(true,array('upd' => 1));
 	}
 	
 	public static function doUpdateSelectedPost($core, dcPostsActionsPage $ap, $post) {
@@ -170,7 +170,7 @@ class dcDefaultPostActions
 		$action = $ap->getAction();
 		$core->blog->updPostsSelected($posts_ids,$action == 'selected');
 		
-		$ap->redirect(array('upd' => 1),true);
+		$ap->redirect(true,array('upd' => 1));
 	}
 	
 	public static function doDeletePost($core, dcPostsActionsPage $ap, $post) {
@@ -191,7 +191,7 @@ class dcDefaultPostActions
 		
 		$core->blog->delPosts($posts_ids);
 		
-		$ap->redirect(array('del',1),false);
+		$ap->redirect(false,array('del',1));
 	}
 
 	public static function doChangePostCategory($core, dcPostsActionsPage $ap, $post) {
@@ -220,14 +220,14 @@ class dcDefaultPostActions
 			
 			$core->blog->updPostsCategory($posts_ids, $new_cat_id);
 			
-			$ap->redirect(array('upd'=>1),true);
+			$ap->redirect(true,array('upd'=>1));
 		} else {
 
 			$ap->beginPage(
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
+						$ap->getCallerTitle() => $ap->getRedirection(true),
 						__('Change category for this selection') => ''
 			)));
 			# categories list
@@ -279,7 +279,7 @@ class dcDefaultPostActions
 			$cur->user_id = $new_user_id;
 			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
 			
-			$ap->redirect(array('upd' => 1),true);
+			$ap->redirect(true,array('upd' => 1));
 		} else {
 			$usersList = '';
 			if ($core->auth->check('admin',$core->blog->id)) {
@@ -297,7 +297,7 @@ class dcDefaultPostActions
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
+						$ap->getCallerTitle() => $ap->getRedirection(true),
 						__('Change author for this selection') => '')),
 					dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 					'<script type="text/javascript">'."\n".
@@ -332,13 +332,13 @@ class dcDefaultPostActions
 			$cur->post_lang = $new_lang;
 			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
 			
-			$ap->redirect(array('upd' => 1),true);
+			$ap->redirect(true,array('upd' => 1));
 		} else {
 			$ap->beginPage(
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
+						$ap->getCallerTitle() => $ap->getRedirection(true),
 						_('Change language for this selection') => ''
 			)));
 			# lang list
