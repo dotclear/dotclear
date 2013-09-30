@@ -42,8 +42,75 @@ $list = new adminModulesList(
 	$core->blog->settings->system->plugins_allow_multi_install
 );
 
+
+# -- Check for module configuration --
+$conf_file = false;
+if (!empty($_REQUEST['conf']) && !empty($_REQUEST['module'])) {
+	if (!$core->plugins->moduleExists($_REQUEST['module'])) {
+		$core->error->add(__('Unknow module ID'));
+	}
+	else {
+		$module = $core->plugins->getModules($_REQUEST['module']);
+		$module = adminModulesList::setModuleInfo($_REQUEST['module'], $module);
+
+		if (!file_exists(path::real($module['root'].'/_config.php'))) {
+			$core->error->add(__('This module has no configuration file.'));
+		}
+		else {
+			$conf_file = path::real($module['root'].'/_config.php');
+		}
+	}
+}
+
+# -- Display module configuration page --
+if ($conf_file) {
+	dcPage::open(__('Plugins management'),
+
+		# --BEHAVIOR-- pluginsToolsHeaders
+		$core->callBehavior('pluginsToolsHeaders', $core, $module['id']),
+
+		dcPage::breadcrumb(
+			array(
+				html::escapeHTML($core->blog->name) => '',
+				'<a href="'.$list->getPageURL().'">'.__('Plugins management').'</a>' => '',
+				'<span class="page-title">'.__('Plugin configuration').'</span>' => ''
+			))
+	);
+
+	if (!empty($_GET['done'])){
+		dcPage::success(__('Plugin successfully configured.'));
+	}
+
+	try {
+		if (!$module['standalone_config']) {
+			echo
+			'<form id="module_config" action="'.$list->getPageURL('conf=1').'" method="post" enctype="multipart/form-data">'.
+			'<h3>'.sprintf(__('Configure plugin "%s"'), html::escapeHTML($module['name'])).'</h3>'.
+			'<p><a class="back" href="'.$list->getPageURL().'#plugins">'.__('Back').'</a></p>';
+		}
+
+		include $conf_file;
+
+		if (!$module['standalone_config']) {
+			echo
+			'<p class="clear"><input type="submit" name="save" value="'.__('Save').'" />'.
+			form::hidden('module', $module['id']).
+			$core->formNonce().'</p>'.
+			'</form>';
+		}
+	}
+	catch (Exception $e) {
+		echo '<div class="error"><p>'.$e->getMessage().'</p></div>';
+	}
+
+	dcPage::close();
+
+	# Stop reading code here
+	return;
+}
+
 # -- Execute actions --
-if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
+if (empty($_POST['conf']) && $core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	# Plugin upload
 	if ((!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])) ||
@@ -105,7 +172,7 @@ dcPage::open(__('Plugins management'),
 	dcPage::jsPageTabs().
 
 	# --BEHAVIOR-- pluginsToolsHeaders
-	$core->callBehavior('pluginsToolsHeaders', $core),
+	$core->callBehavior('pluginsToolsHeaders', $core, false),
 
 	dcPage::breadcrumb(
 		array(

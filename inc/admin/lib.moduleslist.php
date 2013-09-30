@@ -116,11 +116,11 @@ class adminModulesList
 
 	public function displaySearchForm()
 	{
-		if (empty($this->modules)) {
+		$query = $this->getSearchQuery();
+
+		if (empty($this->modules) && $query === null) {
 			return $this;
 		}
-
-		$query = $this->getSearchQuery();
 
 		echo 
 		'<form action="'.$this->getPageURL().'" method="get" class="fieldset">'.
@@ -329,18 +329,7 @@ class adminModulesList
 		'<div class="table-outer">'.
 		'<table id="'.html::escapeHTML($this->list_id).'" class="modules'.(in_array('expander', $cols) ? ' expandable' : '').'">'.
 		'<caption class="hidden">'.html::escapeHTML(__('Modules list')).'</caption><tr>';
-/*
-		if (in_array('expander', $cols)) {
-			echo
-			'<th class="minimal"></th>';
-		}
-//*/
-/*
-		if ($this->getSearchQuery() !== null) {
-			echo 
-			'<th class="nowrap">'.__('Accuracy').'</th>';
-		}
-//*/
+
 		if (in_array('name', $cols)) {
 			echo 
 			'<th class="first nowrap"'.(in_array('icon', $cols) ? ' colspan="2"' : '').'>'.__('Name').'</th>';
@@ -395,19 +384,9 @@ class adminModulesList
 			}
 
 			echo 
-			'<tr class="line" id="'.html::escapeHTML($this->list_id).'_m_'.html::escapeHTML($id).'" title="plop">';
-/*
-			if (in_array('expander', $cols)) {
-				echo
-				'<td class="minimal expander" title="'.html::escapeHTML($id).'"></td>';
-			}
-//*/
-/*
-			if ($this->getSearchQuery() !== null) {
-				echo 
-				'<td class="nowrap count">'.$module['accuracy'].'</td>';
-			}
-//*/
+			'<tr class="line" id="'.html::escapeHTML($this->list_id).'_m_'.html::escapeHTML($id).'" title="'.
+			sprintf(__('Configure module "%"'), html::escapeHTML($module['name'])).'">';
+
 			if (in_array('icon', $cols)) {
 				echo 
 				'<td class="nowrap icon">'.sprintf(
