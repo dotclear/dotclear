@@ -127,6 +127,7 @@ class dcMaintenanceAdmin
 		}
 
 		$icon[0] .= '<br />'.sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
+		$icon[2] = 'index.php?pf=maintenance/icon-big-update.png';
 	}
 
 	/**
