@@ -81,14 +81,14 @@ dotclear.viewModuleContent = function(img,line,action) {
                                 dl.className = "mod-more";
                                 
                                 if (author) {
-                                        $(dl).append($('<li>'+dotclear.msg.module_author+' '+author+'</li>'));
+                                        $(dl).append($('<li class="module-author">'+dotclear.msg.module_author+' '+author+'</li>'));
                                 }
                                 if (details) {
                                         var dd = '';
-                                        dd += '<a class="details" href="'+details+'">'+dotclear.msg.module_details+'</a>';
+                                        dd += '<a class="module-details" href="'+details+'">'+dotclear.msg.module_details+'</a>';
                                         if (support) {
                                                 dd += ' - ';
-                                                dd += '<a class="support" href="'+support+'">'+dotclear.msg.module_support+'</a>';
+                                                dd += '<a class="module-support" href="'+support+'">'+dotclear.msg.module_support+'</a>';
                                         }
                                         $(dl).append($('<li>'+dotclear.msg.module_help+' '+dd+'</li>'));
                                 }
@@ -103,10 +103,10 @@ dotclear.viewModuleContent = function(img,line,action) {
                                 dlb.className = "mod-more";
                                 
                                 if (section) {
-                                        $(dlb).append($('<li>'+dotclear.msg.module_section+' '+section+'</li>'));
+                                        $(dlb).append($('<li class="module-section">'+dotclear.msg.module_section+' '+section+'</li>'));
                                 }
                                 if (tags) {
-                                        $(dlb).append($('<li>'+dotclear.msg.module_tags+' '+tags+'</li>'));
+                                        $(dlb).append($('<li class="module-tags">'+dotclear.msg.module_tags+' '+tags+'</li>'));
                                 }
                                 $(td).append($(boxb).addClass('two-boxes').append(dlb));
                         } else {
