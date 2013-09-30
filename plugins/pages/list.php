@@ -74,7 +74,7 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('Pages').'</span>' => ''
+		__('Pages') => ''
 	));
 
 if (!empty($_GET['upd'])) {

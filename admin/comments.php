@@ -168,7 +168,7 @@ dcPage::open(__('Comments and trackbacks'),$starting_script,
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Comments and trackbacks').'</span>' => ''
+			__('Comments and trackbacks') => ''
 		))
 );
 if (!empty($_GET['upd'])) {

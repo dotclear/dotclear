@@ -108,7 +108,7 @@ dcPage::open(__('Users'),$starting_script,
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			'<span class="page-title">'.__('Users').'</span>' => ''
+			__('Users') => ''
 		))
 );
 

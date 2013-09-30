@@ -373,14 +373,17 @@ if ($step) {
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			$page_title => $p_url,
-			'<span class="page-title">'.__('Add item').'</span>' => '',
+			__('Add item') => '',
 			$step_label => ''
-		));
+		),
+		array(
+			'hl_pos' => -2)
+	);
 } else {
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.$page_title.'</span>' => ''
+			$page_title => ''
 		));
 }
 

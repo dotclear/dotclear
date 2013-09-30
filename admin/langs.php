@@ -132,7 +132,7 @@ dcPage::open(__('Languages management'),
 	dcPage::breadcrumb(
 	array(
 		__('System') => '',
-		'<span class="page-title">'.__('Languages management').'</span>' => ''
+		__('Languages management') => ''
 	))
 );
 

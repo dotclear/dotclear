@@ -53,7 +53,7 @@ dcPage::open(__('Delete a blog'),'',
 		array(
 			__('System') => '',
 			__('Blogs') => 'blogs.php',
-			'<span class="page-title">'.__('Delete a blog').'</span>' => ''
+			__('Delete a blog') => ''
 		))
 );
 

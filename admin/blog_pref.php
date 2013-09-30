@@ -269,14 +269,15 @@ if ($standalone) {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			html::escapeHTML($blog_name) => '',
-			'<span class="page-title">'.__('Blog settings').'</span>' => ''
-		));
+			__('Blog settings') => ''
+		)
+	);
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('Blogs') => 'blogs.php',
-			'<span class="page-title">'.__('Blog settings').' : '.html::escapeHTML($blog_name).'</span>' => ''
+			__('Blog settings').' : '.html::escapeHTML($blog_name) => ''
 		));
 }
 

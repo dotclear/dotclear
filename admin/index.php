@@ -225,9 +225,10 @@ dcPage::open(__('Dashboard'),
 	$core->callBehavior('adminDashboardHeaders'),
 	dcPage::breadcrumb(
 		array(
-		'<span class="page-title">'.__('Dashboard').' : '.html::escapeHTML($core->blog->name).'</span>' => ''
+		__('Dashboard').' : '.html::escapeHTML($core->blog->name) => ''
 		),
-		false)
+		array('home_link' =>false)
+	)
 );
 
 # Dotclear updates notifications

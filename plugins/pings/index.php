@@ -54,7 +54,7 @@ catch (Exception $e)
 echo dcPage::breadcrumb(
 	array(
 		__('Plugins') => '',
-		'<span class="page-title">'.__('Pings configuration').'</span>' => ''
+		__('Pings configuration') => ''
 	));
 
 if (!empty($_GET['up'])) {

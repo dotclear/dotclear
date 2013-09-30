@@ -135,14 +135,14 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
 		array(
 			__('System') => '',
 			__('Users') => 'users.php',
-			'<span class="page-title">'.__('Permissions').'</span>' => ''
+			__('Permissions') => ''
 		));
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('Users') => 'users.php',
-			'<span class="page-title">'.__('Actions').'</span>' => ''
+			__('Actions') => ''
 		));
 }
 

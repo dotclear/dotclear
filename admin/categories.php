@@ -106,7 +106,7 @@ dcPage::open(__('Categories'),$starting_script,
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Categories').'</span>' => ''
+			__('Categories') => ''
 		))
 );
 
