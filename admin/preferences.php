@@ -542,7 +542,7 @@ echo '<div class="multi-part" id="user-favorites" title="'.__('My dashboard').'"
 $ws = $core->auth->user_prefs->addWorkspace('favorites');
 echo '<h3>'.__('My dashboard').'</h3>';
 
-echo '<form action="preferences.php" method="post" id="favs-form" class="two-boxes">';
+echo '<form action="preferences.php" method="post" id="favs-form" class="two-boxes odd">';
 
 echo '<div id="my-favs" class="fieldset"><h4>'.__('My favorites').'</h4>';
 

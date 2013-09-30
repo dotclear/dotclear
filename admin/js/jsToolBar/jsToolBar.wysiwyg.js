@@ -88,7 +88,7 @@ jsToolBar.prototype.syncContents = function(from) {
 		} else {
 			var idoc = This.iwin.document;
 			var para = idoc.createElement('p');
-			para.appendChild(idoc.createTextNode(''));
+			para.appendChild(idoc.createElement('br'));
 			while (idoc.body.hasChildNodes()) {
 				idoc.body.removeChild(idoc.body.lastChild);
 			}

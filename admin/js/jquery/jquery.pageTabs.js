@@ -71,6 +71,10 @@
 	};
 	
 	$.pageTabs.clickTab = function(tab) {
+		if (tab=='') {
+			tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
+		}
+
 		$('ul li a', '.'+$.pageTabs.options.containerClass).filter(function() {
 			return getHash($(this).attr('href'))==tab;
 		}).parent().click();

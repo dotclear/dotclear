@@ -350,7 +350,7 @@ if ($core->auth->userID() && $core->blog !== null)
 	$_menu['System']->prependItem(__('Blogs'),'blogs.php','images/menu/blogs.png',
 		preg_match('/blogs.php$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin() ||
-		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->blog_count > 1);
+		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->getBlogCount() > 1);
 
 	if (!$user_ui_nofavmenu) {
 		// Set favorites menu
