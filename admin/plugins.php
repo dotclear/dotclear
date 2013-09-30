@@ -70,7 +70,7 @@ if (!empty($_REQUEST['conf']) && !empty($_REQUEST['module'])) {
 	}
 	else {
 		$module = $core->plugins->getModules($_REQUEST['module']);
-		$module = adminModulesList::setModuleInfo($_REQUEST['module'], $module);
+		$module = adminModulesList::parseModuleInfo($_REQUEST['module'], $module);
 
 		if (!file_exists(path::real($module['root'].'/_config.php'))) {
 			$core->error->add(__('This module has no configuration file.'));
