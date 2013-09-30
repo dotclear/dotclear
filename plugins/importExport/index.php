@@ -77,7 +77,7 @@ if ($type && $module !== null) {
 		array(
 			__('Plugins') => '',
 			$title => $p_url,
-			'<span class="page-title">'.html::escapeHTML($module->name).'</span>' => ''
+			html::escapeHTML($module->name) => ''
 		));
 
 	echo
@@ -91,7 +91,7 @@ else {
 	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
-			'<span class="page-title">'.$title.'</span>' => ''
+			$title => ''
 		));
 
 	echo '<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']);

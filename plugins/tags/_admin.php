@@ -135,7 +135,7 @@ class tagsBehaviors
 					}
 				}
 			}
-			$ap->redirect(array('upd' => 1),true);
+			$ap->redirect(true,array('upd' => 1));
 		} 
 		else 
 		{
@@ -149,8 +149,8 @@ class tagsBehaviors
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Add tags to this selection').'</span>' => ''
+						__('Entries') => $ap->getRedirection(true),
+						__('Add tags to this selection') => ''
 				)),
 				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 				dcPage::jsMetaEditor().
@@ -200,7 +200,7 @@ class tagsBehaviors
 					$meta->delPostMeta($posts->post_id,'tag',$v);
 				}
 			}
-			$ap->redirect(array('upd' => 1),true);
+			$ap->redirect(true,array('upd' => 1));
 		}
 		else
 		{
@@ -227,7 +227,7 @@ class tagsBehaviors
 						array(
 							html::escapeHTML($core->blog->name) => '',
 							__('Entries') => 'posts.php',
-							'<span class="page-title">'.__('Remove selected tags from this selection').'</span>' => ''
+							__('Remove selected tags from this selection') => ''
 			)));
 			$posts_count = count($_POST['entries']);
 			

@@ -24,8 +24,8 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 		$this->beginPage(dcPage::breadcrumb(
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
-				__('Pages') => $this->getRedirection(array(),true),
-				'<span class="page-title">'.__('Pages actions').'</span>' => ''
+				__('Pages') => $this->getRedirection(true),
+				__('Pages actions') => ''
 			))
 		);
 		$this->endPage();
@@ -36,7 +36,7 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 			$head.
 			'</script></head><body>'.
 			$breadcrumb;
-		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to pages list').'</a></p>';
+		echo '<p><a class="back" href="'.$this->getRedirection(true).'">'.__('Back to pages list').'</a></p>';
 
 	}
 	
@@ -79,7 +79,7 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 			$core->blog->triggerBlog();
 			
 		}
-		$ap->redirect(array('reo'=>1),false);
+		$ap->redirect(false,array('reo'=>1));
 	}	
 }
 

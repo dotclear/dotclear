@@ -84,7 +84,7 @@ else
 		dcPage::breadcrumb(
 			array(
 				__('System') => '',
-				'<span class="page-title">'.__('Plugin not found').'</span>' => ''
+				__('Plugin not found') => ''
 			))
 	);
 	

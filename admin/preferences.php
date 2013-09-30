@@ -381,7 +381,7 @@ dcPage::open($page_title,
 	dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->auth->userID()) => '',
-		'<span class="page-title">'.$page_title.'</span>' => ''
+		$page_title => ''
 	))
 );
 

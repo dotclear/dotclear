@@ -114,7 +114,7 @@ echo dcPage::breadcrumb(
 	array(
 		__('System') => '',
 		html::escapeHTML($core->auth->userID()) => '',
-		'<span class="page-title">'.__('user:preferences').'</span>' => ''
+		__('user:preferences') => ''
 	));
 
 if (!empty($_GET['upd'])) {
@@ -159,7 +159,7 @@ if (count($prefs) > 0) {
 		'<p class="anchor-nav">'.
 		'<label for="lp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('lp_nav',$ws_combo).
 		' <input type="submit" value="'.__('Ok').'" id="lp_submit" />'.
-		'<input type="hidden" name="p" value="aboutConfig" />'.
+		'<input type="hidden" name="p" value="userPref" />'.
 		$core->formNonce().'</p></form>';
 }
 ?>
@@ -209,7 +209,7 @@ if (count($prefs) > 0) {
 		'<p class="anchor-nav">'.
 		'<label for="gp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gp_nav',$ws_combo).
 		' <input type="submit" value="'.__('Ok').'" id="gp_submit" />'.
-		'<input type="hidden" name="p" value="aboutConfig" />'.
+		'<input type="hidden" name="p" value="userPref" />'.
 		$core->formNonce().'</p></form>';
 }
 ?>

@@ -98,7 +98,7 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat']))
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Blogroll').'</span>' => $p_url
+			__('Blogroll') => $p_url
 		));
 ?>
 

@@ -258,7 +258,7 @@ echo
 dcPage::breadcrumb(
 	array(
 		__('System') => '',
-		'<span class="page-title">'.__('DotAddict.org Installer').'</span>' => ''
+		__('DotAddict.org Installer') => ''
 	)).
 
 infoMessages();

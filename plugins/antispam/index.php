@@ -126,7 +126,7 @@ if ($filter_gui !== false)
 		array(
 			__('Plugins') => '',
 			$page_name => $p_url,
-			'<span class="page-title">'.sprintf(__('%s filter configuration'),$filter->name).'</span>' => ''
+			sprintf(__('%s filter configuration'),$filter->name) => ''
 		));
 
 	echo '<p><a href="plugin.php?p=antispam" class="back">'.__('Back to filters list').'</a></p>';
@@ -138,7 +138,7 @@ else
 	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
-			'<span class="page-title">'.$page_name.'</span>' => ''
+			$page_name => ''
 		));
 
 	# Information

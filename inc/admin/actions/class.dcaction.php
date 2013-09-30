@@ -224,7 +224,7 @@ abstract class dcActionsPage
 	 *
      * @return string the redirection url
      */
-	public function getRedirection($params=array(),$with_selected_entries=false) {
+	public function getRedirection($with_selected_entries=false,$params=array()) {
 		$redir_args = array_merge($params,$this->redir_args);
 		if ($with_selected_entries) {
 			$redir_args[$this->field_entries] = array_keys($this->entries);
@@ -239,8 +239,8 @@ abstract class dcActionsPage
 	 *
      * @access public
      */
-	public function redirect($params=array(),$with_selected_entries=false) {
-		http::redirect($this->getRedirection($params,$with_selected_entries));
+	public function redirect($with_selected_entries=false,$params=array()) {
+		http::redirect($this->getRedirection($with_selected_entries,$params));
 		exit;
 	}	
 	
