@@ -242,10 +242,11 @@ class adminModulesList
 	public function setModules($modules)
 	{
 		$this->modules = array();
-		foreach($modules as $id => $module) {
-			$this->modules[$id] = self::setModuleInfo($id, $module);
+		if (!empty($modules) && is_array($modules)) {
+			foreach($modules as $id => $module) {
+				$this->modules[$id] = self::parseModuleInfo($id, $module);
+			}
 		}
-
 		return $this;
 	}
 
@@ -254,7 +255,7 @@ class adminModulesList
 		return $this->modules;
 	}
 
-	public static function setModuleInfo($id, $module)
+	public static function parseModuleInfo($id, $module)
 	{
 		$label = empty($module['label']) ? $id : $module['label'];
 		$name = __(empty($module['name']) ? $label : $module['name']);

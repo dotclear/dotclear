@@ -124,6 +124,27 @@ if (!$count) {
 	$__dashboard_icons['prefs'] = new ArrayObject(array(__('My preferences'),'preferences.php','images/menu/user-pref-b.png'));
 }
 
+# Check plugins and themes update from repository
+function dc_check_repository_update($mod, $url, $img, $icon)
+{
+	$repo = new dcRepository($mod, $url);
+	$repo->check();
+	$upd = $repo->get(true);
+	if (!empty($upd)) {
+		$icon[0] .= '<br />'.sprintf(__('An update is available', '%s updates are available.', count($upd)),count($upd));
+		$icon[1] .= '#update';
+		$icon[2] = 'images/menu/'.$img.'-b-update.png';
+	}
+}
+if (isset($__dashboard_icons['plugins'])) {
+	dc_check_repository_update($core->plugins, $core->blog->settings->system->repository_plugin_url, 'plugins', $__dashboard_icons['plugins']);
+}
+if (isset($__dashboard_icons['blog_theme'])) {
+	$themes = new dcThemes($core);
+	$themes->loadModules($core->blog->themes_path, null);
+	dc_check_repository_update($themes, $core->blog->settings->system->repository_theme_url, 'blog-theme', $__dashboard_icons['blog_theme']);
+}
+
 # Latest news for dashboard
 $__dashboard_items = new ArrayObject(array(new ArrayObject,new ArrayObject));
 
