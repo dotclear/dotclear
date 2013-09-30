@@ -135,7 +135,7 @@ class tagsBehaviors
 					}
 				}
 			}
-			$ap->redirect(array('upd' => 1),true);
+			$ap->redirect(true,array('upd' => 1));
 		} 
 		else 
 		{
@@ -149,7 +149,7 @@ class tagsBehaviors
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => $ap->getRedirection(array(),true),
+						__('Entries') => $ap->getRedirection(true),
 						__('Add tags to this selection') => ''
 				)),
 				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
@@ -200,7 +200,7 @@ class tagsBehaviors
 					$meta->delPostMeta($posts->post_id,'tag',$v);
 				}
 			}
-			$ap->redirect(array('upd' => 1),true);
+			$ap->redirect(true,array('upd' => 1));
 		}
 		else
 		{
