@@ -22,7 +22,7 @@ dcPage::check('usage,contentadmin');
 	<meta name="GOOGLEBOT" content="NOSNIPPET" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Bibliothèque de styles - Dotclear - 2.6</title>
-	<link rel="icon" type="image/png" href="images/favicon.png" />
+	<link rel="icon" type="image/png" href="images/favicon96-login.png" />
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="js/ie7/IE9.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/iesucks.css" />
@@ -157,7 +157,7 @@ dcPage::check('usage,contentadmin');
 							<p><span class="step">1</span> Les boîtes de class <code>"two-boxes"</code> ont une règle CSS <code>display:inline-block;</code>. Elles se rangent alternativement à gauche et à droite. Pour plus de clarté, les blocs sont ici numérotés avec leur ordre dans le flux.</p>
 						</div><!--
 						--><div class="two-boxes even">
-							<p><span class="step">2</span> S'il n'y a que deux boîtes, une autre class n'est pas nécessaire. S'il y en a plusieurs, il est conseillé de leur attribuer alternativement les class <code>"odd"</code> et <code>"even"</code> pour que les marges se placent correctement.</p>
+							<p><span class="step">2</span> On peut assortir une boîte des class <code>"odd"</code> (nothing left) et <code>"even"</code> pour que les marges se placent correctement.</p>
 						</div><!--
 						--><div class="two-boxes odd">
 							<p><span class="step">3</span> Attention, il faut soit ne pas retourner à la ligne entre la fermeture d'une boîte <code>"two-boxes"</code> et l'ouverture de la suivante soit adopter la méthode de commentaire vide mise en place ici et expliquée chez <a href="http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html">Alsacréations</a> («&nbsp;Méthode 2&nbsp;»).</p>

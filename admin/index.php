@@ -227,7 +227,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 	}
 }
 
-if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->blog_count > 1) {
+if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->getBlogCount() > 1) {
 	echo
 	'<p><a href="index.php?default_blog=1" class="button">'.__('Make this blog my default blog').'</a></p>';
 }

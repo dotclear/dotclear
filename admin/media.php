@@ -408,7 +408,7 @@ if ($core_media_writable || $core_media_archivable) {
 if ($core_media_writable)
 {
 	echo
-	'<div class="two-boxes fieldset">';	
+	'<div class="two-boxes fieldset even">';	
 	if ($user_ui_enhanceduploader) {
 		echo
 		'<div class="enhanced_uploader">';
