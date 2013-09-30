@@ -163,14 +163,14 @@ if ($comment_id) {
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			html::escapeHTML($post_title) => $core->getPostAdminURL($post_type,$post_id).'&amp;co=1#c'.$comment_id,
-			'<span class="page-title">'.__('Edit comment').'</span>' => ''
+			__('Edit comment') => ''
 		));
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			html::escapeHTML($post_title) => $core->getPostAdminURL($post_type,$post_id),
-			'<span class="page-title">'.__('Edit comment').'</span>' => ''
+			__('Edit comment') => ''
 		));
 }
 

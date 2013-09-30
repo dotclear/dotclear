@@ -211,14 +211,14 @@ if (!$theme_conf_mode)
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Blog appearance').'</span>' => ''
+			__('Blog appearance') => ''
 		));
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Blog appearance') => 'blog_theme.php',
-			'<span class="page-title">'.__('Theme configuration').'</span>' => ''
+			__('Theme configuration') => ''
 		));
 }
 

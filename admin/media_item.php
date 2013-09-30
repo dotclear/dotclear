@@ -205,7 +205,12 @@ call_user_func($open_f,__('Media manager'),
 			html::escapeHTML($core->blog->name) => '',
 			__('Media manager') => html::escapeURL($media_page_url),
 			$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').'<span class="page-title">'.$file->basename.'</span>' => ''
-		),!$popup)
+		),
+		array(
+			'home_link' => !$popup,
+			'highlight_latest' => false
+		)
+	)
 );
 
 if ($file === null) {

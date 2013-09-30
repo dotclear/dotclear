@@ -328,7 +328,7 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Pages') => $p_url,
-		'<span class="page-title">'.$edit_entry_title.'</span>' => ''
+		$edit_entry_title => ''
 	));
 
 if (!empty($_GET['upd'])) {

@@ -384,7 +384,7 @@ dcPage::open($page_title.' - '.__('Entries'),
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Entries') => 'posts.php',
-			'<span class="page-title">'.($post_id ? $page_title_edit : $page_title).'</span>' => ''
+			($post_id ? $page_title_edit : $page_title) => ''
 		))
 );
 

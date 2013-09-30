@@ -185,7 +185,7 @@ dcPage::open($page_title,
 		array(
 			__('System') => '',
 			__('Users') => 'users.php',
-			'<span class="page-title">'.$page_title.'</span>' => ''
+			$page_title => ''
 		))
 );
 

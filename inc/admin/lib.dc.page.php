@@ -303,22 +303,28 @@ class dcPage
 		'</body></html>';
 	}
 
-	public static function breadcrumb($elements=null,$with_home_link=true,$echo=false)
+	public static function breadcrumb($elements=null,$options=array())
 	{
+		$with_home_link = isset($options['home_link'])?$options['home_link']:true;
+		$highlight_latest = isset($options['highlight_latest'])?$options['highlight_latest']:true;
+		$highlight_pos = isset($options['highlight_pos'])?$options['highlight_pos']:-1;
 		// First item of array elements should be blog's name, System or Plugins
 		$res = '<h2>'.($with_home_link ?
 			'<a class="go_home" href="index.php"><img src="style/dashboard.png" alt="'.__('Go to dashboard').'" /></a>' :
 			'<img src="style/dashboard-alt.png" alt="" />');
 		$index = 0;
+		if ($highlight_pos < 0) {
+			$highlight_pos = count($elements)+$highlight_pos;
+		}
 		foreach ($elements as $element => $url) {
+			if ($highlight_latest && $index == $highlight_pos) {
+				$element = sprintf('<span class="page-title">%s</span>',$element);
+			}
 			$res .= ($with_home_link ? ($index == 1 ? ' : ' : ' &rsaquo; ') : ($index == 0 ? ' ' : ' &rsaquo; ')).
 				($url ? '<a href="'.$url.'">' : '').$element.($url ? '</a>' : '');
 			$index++;
 		}
 		$res .= '</h2>';
-		if ($echo) {
-			echo $res;
-		}
 		return $res;
 	}
 

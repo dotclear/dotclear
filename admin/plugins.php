@@ -194,7 +194,7 @@ dcPage::open(__('Plugins management'),
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			'<span class="page-title">'.__('Plugins management').'</span>' => ''
+			__('Plugins management') => ''
 		))
 );
 

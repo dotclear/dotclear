@@ -114,7 +114,7 @@ echo dcPage::breadcrumb(
 	array(
 		__('System') => '',
 		html::escapeHTML($core->auth->userID()) => '',
-		'<span class="page-title">'.__('user:preferences').'</span>' => ''
+		__('user:preferences') => ''
 	));
 
 if (!empty($_GET['upd'])) {
