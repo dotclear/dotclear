@@ -53,13 +53,13 @@ class dcPage
 		global $core;
 
 		# List of user's blogs
-		if ($core->auth->blog_count == 1 || $core->auth->blog_count > 20)
+		if ($core->auth->getBlogCount() == 1 || $core->auth->getBlogCount() > 20)
 		{
 			$blog_box =
 			'<p>'.__('Blog:').' <strong title="'.html::escapeHTML($core->blog->url).'">'.
 			html::escapeHTML($core->blog->name).'</strong>';
 
-			if ($core->auth->blog_count > 20) {
+			if ($core->auth->getBlogCount() > 20) {
 				$blog_box .= ' - <a href="blogs.php">'.__('Change blog').'</a>';
 			}
 			$blog_box .= '</p>';
