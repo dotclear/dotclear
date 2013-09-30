@@ -377,7 +377,7 @@ if ($step) {
 			$step_label => ''
 		),
 		array(
-			'highlight_pos' => -2)
+			'hl_pos' => -2)
 	);
 } else {
 	echo dcPage::breadcrumb(
