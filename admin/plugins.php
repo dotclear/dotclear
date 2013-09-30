@@ -153,7 +153,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 		'<p>'.sprintf(
 			__('There is one plugin to update available from %2$s.', 'There are %s plugins to update available from %s.', count($modules)),
 			count($modules),
-			'<a title="'.__('Visit Dotaddict').'" href="http://dotaddict.org/dc2/plugins">dotaddict.org</a>'
+			'<a href="http://dotaddict.org/dc2/plugins">Dotaddict</a>'
 		).'</p>';
 
 		$list
@@ -179,7 +179,7 @@ if (!empty($modules)) {
 
 	echo
 	'<h3>'.__('Activated plugins').'</h3>'.
-	'<p>'.__('You can manage installed plugins from this list.').'</p>';
+	'<p>'.__('Manage installed plugins from this list.').'</p>';
 
 	$list
 		->newList('plugin-activate')
@@ -235,11 +235,12 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 		);
 
 	echo
-	'<div class="info">'.
-	'<p>'.sprintf(
+	'<p class="info vertical-separator">'.sprintf(
 		__("Visit %s repository, the resources center for Dotclear."),
 		'<a href="http://dotaddict.org/dc2/plugins">Dotaddict</a>'
-	).'</p></div>'.
+		).
+	'</p>'.
+
 	'</div>';
 
 	# Add a new plugin

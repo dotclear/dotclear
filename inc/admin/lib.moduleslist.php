@@ -126,21 +126,19 @@ class adminModulesList
 		'<form action="'.$this->getPageURL().'" method="get" class="fieldset">'.
 		'<p><label for="m_search" class="classic">'.__('Search in repository:').'&nbsp;</label><br />'.
 		form::field(array('m_search','m_search'), 30, 255, html::escapeHTML($query)).
-		'<input type="submit" value="'.__('Search').'" /> '.
-		'</p>';
+		'<input type="submit" value="'.__('Search').'" /> ';
+		if ($query) { echo ' <a href="'.$this->getPageURL().'" class="button">'.__('Reset search').'</a>'; }
+		echo '</p>'.
+		'</form>';
 
 		if ($query) {
 			echo 
-			'<p>'.sprintf(
-				__('Found %d result for search "%s".', 'Found %d results for search "%s".', count($this->modules)), 
+			'<p class="message">'.sprintf(
+				__('Found %d result for search "%s":', 'Found %d results for search "%s":', count($this->modules)), 
 				count($this->modules), html::escapeHTML($query)
-			).' <a href="'.$this->getPageURL().'" class="button">'.__('Reset search').'</a>'.
+				).
 			'</p>';
 		}
-
-		echo 
-		'</form>';
-
 		return $this;
 	}
 
@@ -471,7 +469,7 @@ class adminModulesList
 
 		if(!$count) {
 			echo 
-			'<p>'.__('There is no module.').'</p>';
+			'<p class="message">'.__('No module matches your search.').'</p>';
 		}
 	}
 
