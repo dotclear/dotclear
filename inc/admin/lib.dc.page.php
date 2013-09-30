@@ -109,7 +109,7 @@ class dcPage
 		if (!$user_ui_hide_std_favicon) {
   			echo 
   			'<link rel="icon" type="image/png" href="images/favicon96-login.png" />'.
-  			'<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />;'
+  			'<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />';
 		}
 		echo
 		self::jsCommon().
