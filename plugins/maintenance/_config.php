@@ -9,7 +9,7 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_CONTEXT_PLUGIN')) { return; }
+if (!defined('DC_CONTEXT_MODULE')) { return; }
 
 $core->blog->settings->addNamespace('maintenance');
 $maintenance = new dcMaintenance($core);
