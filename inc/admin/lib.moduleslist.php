@@ -441,7 +441,7 @@ class adminModulesList
 		echo 
 		'</table></div>';
 
-		if(!$count) {
+		if(!$count && $this->getSearchQuery() === null) {
 			echo 
 			'<p class="message">'.__('No module matches your search.').'</p>';
 		}
@@ -450,6 +450,21 @@ class adminModulesList
 	protected function displayLineActions($id, $module, $actions, $echo=true)
 	{
 		$submits = array();
+
+		# Update (from repository)
+		if (in_array('update', $actions) && $this->path_writable) {
+			$submits[] = '<input type="submit" name="update" value="'.__('Update').'" />';
+		}
+
+		# Install (form repository)
+		if (in_array('install', $actions) && $this->path_writable) {
+			$submits[] = '<input type="submit" name="install" value="'.__('Install').'" />';
+		}
+		
+		$tmp = $this->displayOtherLineAction($id, $module, $actions);
+		if (!empty($tmp) && is_array($tmp)) {
+			$submits = array_merge($submits, $tmp);
+		}
 
 		# Activate
 		if (in_array('deactivate', $actions) && $module['root_writable']) {
@@ -464,21 +479,6 @@ class adminModulesList
 		# Delete
 		if (in_array('delete', $actions) && $this->isPathDeletable($module['root'])) {
 			$submits[] = '<input type="submit" class="delete" name="delete" value="'.__('Delete').'" />';
-		}
-
-		# Install (form repository)
-		if (in_array('install', $actions) && $this->path_writable) {
-			$submits[] = '<input type="submit" name="install" value="'.__('Install').'" />';
-		}
-
-		# Update (from repository)
-		if (in_array('update', $actions) && $this->path_writable) {
-			$submits[] = '<input type="submit" name="update" value="'.__('Update').'" />';
-		}
-
-		# Select (from repository)
-		if (in_array('choose', $actions) && $this->path_writable) {
-			$submits[] = '<input type="submit" name="choose" value="'.__('Choose').'" />';
 		}
 
 		# Parse form
@@ -500,6 +500,11 @@ class adminModulesList
 		}
 	}
 
+	protected function displayOtherLineAction($id, $module, $actions)
+	{
+		return null;
+	}
+
 	public function executeAction($prefix, dcModules $modules, dcRepository $repository)
 	{
 		if (!$this->core->auth->isSuperAdmin() || !$this->isPathWritable()) {
@@ -519,17 +524,17 @@ class adminModulesList
 				}
 
 				# --BEHAVIOR-- moduleBeforeActivate
-				$this->core->callBehavior($type.'BeforeActivate', $id);
+				$this->core->callBehavior($prefix.'BeforeActivate', $id);
 
 				$modules->activateModule($id);
 
 				# --BEHAVIOR-- moduleAfterActivate
-				$this->core->callBehavior($type.'AfterActivate', $id);
+				$this->core->callBehavior($prefix.'AfterActivate', $id);
 
 				http::redirect($this->getPageURL('msg=activate'));
 			}
 
-			if (!empty($_POST['deactivate'])) {
+			elseif (!empty($_POST['deactivate'])) {
 
 				if (!$modules->moduleExists($id)) {
 					throw new Exception(__('No such module.'));
@@ -553,7 +558,7 @@ class adminModulesList
 				http::redirect($this->getPageURL('msg=deactivate'));
 			}
 
-			if (!empty($_POST['delete'])) {
+			elseif (!empty($_POST['delete'])) {
 
 				$disabled = $modules->getDisabledModules();
 				if (!isset($disabled[$id])) {
@@ -584,7 +589,7 @@ class adminModulesList
 				http::redirect($this->getPageURL('msg=delete'));
 			}
 
-			if (!empty($_POST['update'])) {
+			elseif (!empty($_POST['update'])) {
 
 				$updated = $repository->get();
 				if (!isset($updated[$id])) {
@@ -609,17 +614,17 @@ class adminModulesList
 				}
 
 				# --BEHAVIOR-- moduleBeforeUpdate
-				$this->core->callBehavior($type.'BeforeUpdate', $module);
+				$this->core->callBehavior($prefix.'BeforeUpdate', $module);
 
 				$repository->process($module['file'], $dest);
 
 				# --BEHAVIOR-- moduleAfterUpdate
-				$this->core->callBehavior($type.'AfterUpdate', $module);
+				$this->core->callBehavior($prefix.'AfterUpdate', $module);
 
 				http::redirect($this->getPageURL('msg=upadte'));
 			}
 
-			if (!empty($_POST['install'])) {
+			elseif (!empty($_POST['install'])) {
 
 				$updated = $repository->get();
 				if (!isset($updated[$id])) {
@@ -632,12 +637,12 @@ class adminModulesList
 				$dest = $this->getPath().'/'.basename($module['file']);
 
 				# --BEHAVIOR-- moduleBeforeAdd
-				$this->core->callBehavior($type.'BeforeAdd', $module);
+				$this->core->callBehavior($prefix.'BeforeAdd', $module);
 
 				$ret_code = $repository->process($module['file'], $dest);
 
 				# --BEHAVIOR-- moduleAfterAdd
-				$this->core->callBehavior($type.'AfterAdd', $module);
+				$this->core->callBehavior($prefix.'AfterAdd', $module);
 
 				http::redirect($this->getPageURL('msg='.($ret_code == 2 ? 'update' : 'install')));
 			}
@@ -674,6 +679,17 @@ class adminModulesList
 
 			http::redirect($this->getPageURL('msg='.($ret_code == 2 ? 'update' : 'install')).'#'.$prefix);
 		}
+
+		return $this->executeOtherAction($prefix, $modules, $repository);
+	}
+
+	/**
+	 * 
+	 * Way for child class to execute their own actions 
+	 * whitout rewriting all standard actions.
+	 */
+	protected function executeOtherAction($prefix, dcModules $modules, dcRepository $repository)
+	{
 		return null;
 	}
 
@@ -862,24 +878,6 @@ class adminThemesList extends adminModulesList
 			$line = 
 			'<div class="box small '.($current ? 'current-theme' : 'theme').'">';
 
-			if (in_array('sshot', $cols)) {
-				# Screenshot from url
-				if (preg_match('#^http(s)?://#', $module['sshot'])) {
-					$sshot = $module['sshot'];
-				}
-				# Screenshot from installed module
-				elseif (file_exists($this->core->blog->themes_path.'/'.$id.'/screenshot.jpg')) {
-					$sshot = $this->getPageURL('shot='.rawurlencode($id));
-				}
-				# Default screenshot
-				else {
-					$sshot = 'images/noscreenshot.png';
-				}
-
-				$line .= 
-				'<div class="module-sshot"><img src="'.$sshot.'" alt="'.__('screenshot.').'" /></div>';
-			}
-
 			if (in_array('name', $cols)) {
 				$line .= 
 				'<h4 class="module-name">'.html::escapeHTML($module['name']).'</h4>';
@@ -919,23 +917,37 @@ class adminThemesList extends adminModulesList
 			'</p>'.
 			'</div>';
 
+			if (in_array('sshot', $cols)) {
+				# Screenshot from url
+				if (preg_match('#^http(s)?://#', $module['sshot'])) {
+					$sshot = $module['sshot'];
+				}
+				# Screenshot from installed module
+				elseif (file_exists($this->core->blog->themes_path.'/'.$id.'/screenshot.jpg')) {
+					$sshot = $this->getPageURL('shot='.rawurlencode($id));
+				}
+				# Default screenshot
+				else {
+					$sshot = 'images/noscreenshot.png';
+				}
+
+				$line .= 
+				'<div class="module-sshot"><img src="'.$sshot.'" alt="'.__('screenshot.').'" /></div>';
+			}
+
 			$line .= 
 			'<div class="modules-actions">';
 			
 			# _GET actions
-			$line .= 
-			'<p>';
 
 			if ($current && $has_css) {
 				$line .= 
-				'<a href="'.$theme_url.'/style.css" class="button">'.__('View stylesheet').'</a> ';
+				'<p><a href="'.$theme_url.'/style.css" class="button">'.__('View stylesheet').'</a></p>';
 			}
 			if ($current && $has_conf) {
 				$line .= 
-				'<a href="'.$this->getPageURL('module='.$id.'&conf=1', false).'" class="button">'.__('Configure theme').'</a> ';
+				'<p><a href="'.$this->getPageURL('module='.$id.'&conf=1', false).'" class="button">'.__('Configure theme').'</a></p>';
 			}
-			$line .= 
-			'</p>';
 
 			# Plugins actions
 			if ($current) {
@@ -964,9 +976,46 @@ class adminThemesList extends adminModulesList
 		$res.
 		'</div>';
 
-		if(!$count) {
+		if(!$count && $this->getSearchQuery() === null) {
 			echo 
 			'<p class="message">'.__('No module matches your search.').'</p>';
 		}
+	}
+
+	protected function displayOtherLineAction($id, $module, $actions)
+	{
+		$submits = array();
+
+		$this->core->blog->settings->addNamespace('system');
+		if ($id == $this->core->blog->settings->system->theme) {
+			return null;
+		}
+
+		# Select theme to use on curent blog
+		if (in_array('select', $actions) && $this->path_writable) {
+			$submits[] = '<input type="submit" name="select" value="'.__('Choose').'" />';
+		}
+
+		return $submits;
+	}
+	
+	protected function executeOtherAction($prefix, dcModules $modules, dcRepository $repository)
+	{
+		# Select theme to use on curent blog
+		if (!empty($_POST['module']) && !empty($_POST['select'])) {
+			$id = $_POST['module'];
+
+			if (!$modules->moduleExists($id)) {
+				throw new Exception(__('No such module.'));
+			}
+
+			$this->core->blog->settings->addNamespace('system');
+			$this->core->blog->settings->system->put('theme',$id);
+			$this->core->blog->triggerBlog();
+
+			http::redirect($this->getPageURL('msg=select').'#themes');
+		}
+
+		return null;
 	}
 }

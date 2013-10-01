@@ -115,7 +115,7 @@ if (!empty($_POST) && empty($_REQUEST['conf']) && $core->auth->isSuperAdmin() &&
 
 # -- Page header --
 dcPage::open(__('Themes management'),
-//	(!$conf_file ? dcPage::jsLoad('js/_blog_theme.js') : '').
+	dcPage::jsLoad('js/_blog_theme.js').
 	dcPage::jsPageTabs().
 	dcPage::jsColorPicker(),
 
@@ -180,7 +180,24 @@ if (!empty($modules)) {
 		->setPageTab('themes')
 		->displayModulesList(
 			/* cols */		array('sshot', 'name', 'config', 'desc', 'author', 'version', 'parent'),
-			/* actions */	array('deactivate', 'delete')
+			/* actions */	array('select', 'deactivate', 'delete')
+		);
+}
+
+$modules = $core->themes->getDisabledModules();
+if (!empty($modules)) {
+
+	echo
+	'<h3>'.__('Deactivated themes').'</h3>'.
+	'<p>'.__('Deactivated themes are installed but not usable. You can activate them from here.').'</p>';
+
+	$list
+		->newList('theme-deactivate')
+		->setModules($modules)
+		->setPageTab('themes')
+		->displayModulesList(
+			/* cols */		array('name', 'distrib'),
+			/* actions */	array('activate', 'delete')
 		);
 }
 
@@ -204,7 +221,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 		->displaySearchForm()
 		->displayNavMenu()
 		->displayModulesList(
-			/* cols */		array('expander', 'sshot', 'name', 'config', 'desc', 'author', 'version', 'parent'),
+			/* cols */		array('expander', 'sshot', 'name', 'config', 'desc', 'author', 'version', 'parent', 'distrib'),
 			/* actions */	array('install'),
 			/* nav limit */	true
 		);
