@@ -755,7 +755,7 @@ class adminThemesList extends adminModulesList
 			}
 
 			$line = 
-			'<div class="box '.($current ? 'current-theme' : 'theme').'">';
+			'<div class="box small '.($current ? 'current-theme' : 'theme').'">';
 
 			if (in_array('sshot', $cols)) {
 				# Screenshot from url

@@ -157,7 +157,8 @@
 	margin: 0 1.5% 1em;
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box; 
-	box-sizing: border-box;	
+	box-sizing: border-box;
+	text-align: left;
 	}
 .two-boxes {
 	width: 47%;
@@ -1531,121 +1532,19 @@ a.form-control.open {
 				background-image: url(../images/admin.png);
 				}
 /* ------------------------------------------------------------------- blog_theme.php */
-/*
-#themes {
-	margin: 0;
-	width: 100%;
-	padding: 0;
-	}
-	.theme-details {
-		border-top: 1px solid #ccc;
-		padding: 12px;
-		display: inline-block;
-		vertical-align: top;
-		width: 284px;
-		}
-		.theme-details.current-theme {
-			background: #eef;
-			}
-		.theme-details:hover {
-			background: #f3f3f3;
-			}
-		.theme-shot img {
-			display: block;
-			border: 1px solid #ccc;
-			margin-bottom: 1.5em;
-			}
-		span.theme-desc {
-			display: block;
-			}
-		span.theme-version {
-			color: #676e78;
-			}
-		.theme-css {
-			display: block;
-			}
-	#themes-actions {
-		border-bottom: 1px solid #999;
-		margin-bottom: 3em;
-		}
-*/
-/* Themes list, JS version */
-/*
-#themes-wrapper {
-	display: table;
-	}
-	#themes-wrapper #themes {
-		display: table-cell;
-		vertical-align: top;
-		padding-left: 1em;
-		}
-	#theme-box {
-		display: table-cell;
-		vertical-align: top;
-		padding: 0;
-		width: 312px;
-		border: 1px solid #ccc;
-		border-radius: 3px;
-		}
-		#theme-box .theme-shot,
-		#theme-box .theme-info,
-		#theme-box .theme-actions {
-			background: #eef;
-			padding: 1em 16px;
-			margin: 0;
-			}
-		#theme-box .theme-shot img {
-			display: block;
-			width: 280px;
-			height: 245px;
-			border: 1px solid #ccc;
-			}
-		#theme-box h4 {
-			color: #000;
-			background: #eef;
-			}
-		#theme-box span.theme-version {
-			color: #676e78;
-			}
-		#theme-box span.theme-parent-ok {
-			color: #676e78;
-			}
-		#theme-box span.theme-parent-missing {
-			color: #c00;
-			font-weight:bold;
-			}
-		#theme-box .theme-actions {
-			border-bottom: 1px solid #ccc;
-			}
-#themes .theme-details-js {
-	float: left;
-	width: 120px;
-	height: 150px;
-	margin: 0 12px 24px;
-	padding: 12px 12px 0;
-	text-align: center;
-	background: #f3f3f3;
+.box.theme {
+	margin: 1em;
+	padding: 1em;
 	border: 1px solid #ddd;
-	cursor: pointer;
-	border-radius: 4px;
 	}
-	#themes .theme-details-js label {
-		cursor: pointer;
-		}
-	#themes .theme-details-js.theme-selected {
-		background: #e7e7e7;
-		border: 1px solid #999;
-		}
-	#themes .theme-details-js .theme-shot img {
-		width: 120px;
-		height: 105px;
-		border: 1px solid #fff;
-		}
-	#themes a:focus div, #themes a:hover div,
-	#themes a:focus div.current-theme, #themes a:hover div.current-theme {
-		background: #bee74b;
-		}
-*/
+#theme-new .box.theme {
+	width: 280px;
+	}
+.module-sshot img {
+	border: 1px solid #ddd;
+	padding: .5em;
+	background: #fff;
+	}
 /* ------------------------------------------------------------------ categories.php */
 #categories {
 	margin: 1em 0;
