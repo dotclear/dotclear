@@ -1566,6 +1566,9 @@ a.form-control.open {
 	margin-right: 2em;
 	margin-bottom: 1em;
 	}
+.bloc-toggler {
+	text-align: center;
+}
 /* ------------------------------------------------------------------ categories.php */
 #categories {
 	margin: 1em 0;

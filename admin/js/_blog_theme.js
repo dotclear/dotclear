@@ -1,19 +1,13 @@
 $(function() {
-	$('.module-name').not('.current-theme .module-name').each(function(){
-		$(this)
-			.toggleWithLegend($(this).parent().children('.module-infos'),{legend_click: true})
-			.toggleWithLegend($(this).parent().children('.module-actions'),{legend_click: true,
-				img_on_src: '', img_on_alt: '', img_off_src: '', img_off_alt: ''});
-	});
-/* Exemple for toggle on screenshot
-	$('.module-sshot').not('.current-theme .module-name').each(function(){
-		$(this).toggleWithLegend($(this).parent().children('.module-infos'),{
-			img_on_src: '',
-			img_on_alt: '',
-			img_off_src: '',
-			img_off_alt: '', 
+	$('.module-sshot').not('.current-theme .module-sshot').each(function(){
+		var bar = $('<div>').addClass('bloc-toggler');
+		$(this).after(
+		$(bar).toggleWithLegend($(this).parent().children('.toggle-bloc'),{
+			img_on_src: dotclear.img_plus_theme_src,
+			img_on_alt: dotclear.img_plus_theme_alt,
+			img_off_src: dotclear.img_minus_theme_src,
+			img_off_alt: dotclear.img_minus_theme_alt, 
 			legend_click: true
-		});
+		}));
 	});
-*/
 });

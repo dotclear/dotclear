@@ -883,8 +883,26 @@ class adminThemesList extends adminModulesList
 				'<h4 class="module-name">'.html::escapeHTML($module['name']).'</h4>';
 			}
 
+			if (in_array('sshot', $cols)) {
+				# Screenshot from url
+				if (preg_match('#^http(s)?://#', $module['sshot'])) {
+					$sshot = $module['sshot'];
+				}
+				# Screenshot from installed module
+				elseif (file_exists($this->core->blog->themes_path.'/'.$id.'/screenshot.jpg')) {
+					$sshot = $this->getPageURL('shot='.rawurlencode($id));
+				}
+				# Default screenshot
+				else {
+					$sshot = 'images/noscreenshot.png';
+				}
+
+				$line .= 
+				'<div class="module-sshot"><img src="'.$sshot.'" alt="'.__('screenshot.').'" /></div>';
+			}
+
 			$line .= 
-			'<div class="module-infos">'.
+			'<div class="module-infos toggle-bloc">'.
 			'<p>';
 
 			if (in_array('desc', $cols)) {
@@ -917,26 +935,8 @@ class adminThemesList extends adminModulesList
 			'</p>'.
 			'</div>';
 
-			if (in_array('sshot', $cols)) {
-				# Screenshot from url
-				if (preg_match('#^http(s)?://#', $module['sshot'])) {
-					$sshot = $module['sshot'];
-				}
-				# Screenshot from installed module
-				elseif (file_exists($this->core->blog->themes_path.'/'.$id.'/screenshot.jpg')) {
-					$sshot = $this->getPageURL('shot='.rawurlencode($id));
-				}
-				# Default screenshot
-				else {
-					$sshot = 'images/noscreenshot.png';
-				}
-
-				$line .= 
-				'<div class="module-sshot"><img src="'.$sshot.'" alt="'.__('screenshot.').'" /></div>';
-			}
-
 			$line .= 
-			'<div class="module-actions">';
+			'<div class="module-actions toggle-bloc">';
 			
 			# _GET actions
 
