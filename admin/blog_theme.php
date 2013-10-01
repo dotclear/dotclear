@@ -55,7 +55,6 @@ if (!empty($_POST['theme']) && !empty($_POST['select']) && empty($_REQUEST['conf
 	$theme = $core->themes->getModules($_POST['theme']);
 	dcPage::addSuccessNotice(sprintf(
 		__('Current theme has been successfully changed to "%s".'),
-		__('Current theme has been successfully changed to "%s".'),
 		html::escapeHTML($theme['name']))
 	);
 
