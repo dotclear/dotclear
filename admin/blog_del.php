@@ -41,7 +41,9 @@ if (!$core->error->flag() && $blog_id && !empty($_POST['del']))
 	} else {
 		try {
 			$core->delBlog($blog_id);
-			http::redirect('blogs.php?del=1');
+			dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), html::escapeHTML($blog_name)));
+
+			http::redirect('blogs.php');
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}

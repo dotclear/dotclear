@@ -26,7 +26,7 @@ if ($standalone)
 	$blog_url = $core->blog->url;
 	
 	$action = 'blog_pref.php';
-	$redir = 'blog_pref.php?upd=1';
+	$redir = 'blog_pref.php';
 }
 else
 {
@@ -55,7 +55,7 @@ else
 	}
 	
 	$action = 'blog.php';
-	$redir = 'blog.php?id=%s&upd=1';
+	$redir = 'blog.php?id=%s';
 }
 
 # Language codes
@@ -256,7 +256,8 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		if ($core->auth->isSuperAdmin() && in_array($_POST['url_scan'],$url_scan_combo)) {
 			$blog_settings->system->put('url_scan',$_POST['url_scan']);
 		}
-		
+		dcPage::addSuccessNotice(__('Blog has been successfully updated.'));
+
 		http::redirect(sprintf($redir,$blog_id));
 	}
 	catch (Exception $e)

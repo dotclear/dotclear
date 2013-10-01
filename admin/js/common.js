@@ -88,11 +88,11 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 		if (p.hide) {
 			$(i).get(0).src = p.img_on_src;
 			$(i).get(0).alt = p.img_on_alt;
-			target.hide(speed);
+			target.addClass('hide');
 		} else {
 			$(i).get(0).src = p.img_off_src;
 			$(i).get(0).alt = p.img_off_alt;
-			target.show(speed);
+			target.removeClass('hide');
 			if (p.fn) {
 				p.fn.apply(target);
 				p.fn = false;
