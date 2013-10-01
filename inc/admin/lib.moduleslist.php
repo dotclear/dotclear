@@ -10,6 +10,10 @@ class adminModulesList
 
 	protected $list_id = 'unknow';
 
+	protected $config_module = '';
+	protected $config_file = '';
+	protected $config_content = '';
+
 	protected $path = false;
 	protected $path_writable = false;
 	protected $path_pattern = false;
@@ -472,6 +476,11 @@ class adminModulesList
 			$submits[] = '<input type="submit" name="update" value="'.__('Update').'" />';
 		}
 
+		# Select (from repository)
+		if (in_array('choose', $actions) && $this->path_writable) {
+			$submits[] = '<input type="submit" name="choose" value="'.__('Choose').'" />';
+		}
+
 		# Parse form
 		if (!empty($submits)) {
 			$res = 
@@ -701,6 +710,102 @@ class adminModulesList
 		'</form>';
 	}
 
+	/**
+	 *
+	 * We need to get configuration content in three steps
+	 * and out of this class to keep backward compatibility.
+	 *
+	 * if ($xxx->setConfigurationFile()) {
+	 *	include $xxx->getConfigurationFile();
+	 * }
+	 * $xxx->setConfigurationContent();
+	 * ... [put here page headers and other stuff]
+	 * $xxx->getConfigurationContent();
+	 *
+	 */
+	public function setConfigurationFile(dcModules $modules, $id=null)
+	{
+		if (empty($_REQUEST['conf']) || empty($_REQUEST['module']) && !$id) {
+			return false;
+		}
+		
+		if (!empty($_REQUEST['module']) && empty($id)) {
+			$id = $_REQUEST['module'];
+		}
+
+		if (!$modules->moduleExists($id)) {
+			$core->error->add(__('Unknow module ID'));
+			return false;
+		}
+
+		$module = $modules->getModules($id);
+		$module = self::parseModuleInfo($id, $module);
+		$file = path::real($module['root'].'/_config.php');
+
+		if (!file_exists($file)) {
+			$core->error->add(__('This module has no configuration file.'));
+			return false;
+		}
+
+		$this->config_module = $module;
+		$this->config_file = $file;
+		$this->config_content = '';
+
+		if (!defined('DC_CONTEXT_MODULE')) {
+			define('DC_CONTEXT_MODULE', true);
+		}
+
+		return true;
+	}
+
+	public function getConfigurationFile()
+	{
+		if (!$this->config_file) {
+			return null;
+		}
+
+		ob_start();
+
+		return $this->config_file;
+	}
+
+	public function setConfigurationContent()
+	{
+		if ($this->config_file) {
+			$this->config_content = ob_get_contents();
+		}
+
+		ob_end_clean();
+
+		return !empty($this->file_content);
+	}
+
+	public function getConfigurationContent()
+	{
+		if (!$this->config_file) {
+			return null;
+		}
+
+		if (!$this->config_module['standalone_config']) {
+			echo
+			'<form id="module_config" action="'.$this->getPageURL('conf=1').'" method="post" enctype="multipart/form-data">'.
+			'<h3>'.sprintf(__('Configure plugin "%s"'), html::escapeHTML($this->config_module['name'])).'</h3>'.
+			'<p><a class="back" href="'.$this->getPageURL().'#plugins">'.__('Back').'</a></p>';
+		}
+
+		echo $this->config_content;
+
+		if (!$this->config_module['standalone_config']) {
+			echo
+			'<p class="clear"><input type="submit" name="save" value="'.__('Save').'" />'.
+			form::hidden('module', $this->config_module['id']).
+			$this->core->formNonce().'</p>'.
+			'</form>';
+		}
+
+		return true;
+	}
+
 	public static function sanitizeString($str)
 	{
 		return preg_replace('/[^A-Za-z0-9\@\#+_-]/', '', strtolower($str));
@@ -827,7 +932,7 @@ class adminThemesList extends adminModulesList
 			}
 			if ($current && $has_conf) {
 				$line .= 
-				'<a href="'.$this->getPageURL('conf=1').'" class="button">'.__('Configure theme').'</a> ';
+				'<a href="'.$this->getPageURL('module='.$id.'&conf=1', false).'" class="button">'.__('Configure theme').'</a> ';
 			}
 			$line .= 
 			'</p>';

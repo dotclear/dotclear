@@ -65,31 +65,22 @@ if (!empty($_GET['shot']) && $core->themes->moduleExists($_GET['shot']))
 	exit;
 }
 
-# -- Check for module configuration --
-$conf_file = false;
-if (!empty($_REQUEST['conf']) && !empty($_REQUEST['module'])) {
-	if (!$core->themes->moduleExists($_REQUEST['module'])) {
-		$core->error->add(__('Unknow module ID'));
-	}
-	else {
-		$module = $core->themes->getModules($_REQUEST['module']);
-		$module = adminModulesList::parseModuleInfo($_REQUEST['module'], $module);
-
-		if (!file_exists(path::real($module['root'].'/_config.php'))) {
-			$core->error->add(__('This module has no configuration file.'));
-		}
-		else {
-			$conf_file = path::real($module['root'].'/_config.php');
-		}
-	}
-}
-
 # -- Display module configuration page --
-if ($conf_file) {
+if ($list->setConfigurationFile($core->themes, $core->blog->settings->system->theme)) {
+
+	# Get content before page headers
+	include $list->getConfigurationFile();
+
+	# Gather content
+	$list->setConfigurationContent();
+
+	# Display page
 	dcPage::open(__('Blog appearance'),
+		dcPage::jsPageTabs().
+		dcPage::jsColorPicker().
 
 		# --BEHAVIOR-- themesToolsHeaders
-		$core->callBehavior('themesToolsHeaders', $core, $module['id']),
+		$core->callBehavior('themesToolsHeaders', $core, true),
 
 		dcPage::breadcrumb(
 			array(
@@ -103,28 +94,8 @@ if ($conf_file) {
 		dcPage::success(__('Theme successfully configured.'));
 	}
 
-	try {
-		if (!$module['standalone_config']) {
-			echo
-			'<form id="module_config" action="'.$list->getPageURL('conf=1').'" method="post" enctype="multipart/form-data">'.
-			'<h3>'.sprintf(__('Configure theme "%s"'), html::escapeHTML($module['name'])).'</h3>'.
-			'<p><a class="back" href="'.$list->getPageURL().'#themes">'.__('Back').'</a></p>';
-		}
-		define('DC_CONTEXT_THEME', true);
-
-		include $conf_file;
-
-		if (!$module['standalone_config']) {
-			echo
-			'<p class="clear"><input type="submit" name="save" value="'.__('Save').'" />'.
-			form::hidden('module', $module['id']).
-			$core->formNonce().'</p>'.
-			'</form>';
-		}
-	}
-	catch (Exception $e) {
-		echo '<div class="error"><p>'.$e->getMessage().'</p></div>';
-	}
+	# Display previously gathered content
+	$list->getConfigurationContent();
 
 	dcPage::close();
 
