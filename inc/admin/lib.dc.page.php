@@ -174,6 +174,49 @@ class dcPage
 			$core->error->toHTML().
 			'</div>';
 		}
+
+		if (isset($_SESSION['notifications'])) {
+			$types = array("success" => "success", "warning" => "warning-msg", "error" => "error");
+			$notifications = $_SESSION['notifications'];
+			foreach ($types as $type => $class) {
+				if (isset($notifications[$type])) {
+					foreach ($notifications[$type] as $n) {
+						echo self::getNotification($n,$class);
+					}
+				}
+			}
+			unset($_SESSION['notifications']);
+		}
+	}
+
+	public static function AddNotice($type,$message)
+	{
+		$notification = isset($_SESSION['notifications']) ? $_SESSION['notifications'] : array();
+		$notification[$type][] = array('ts' => time(), 'text' => $message);
+		$_SESSION['notifications'] = $notification;
+	}
+
+	public static function addSuccessNotice($message)
+	{
+		self::addNotice("success",$message);
+	}
+
+	public static function addWarningNotice($message)
+	{
+		self::addNotice("warning",$message);
+	}
+
+	public static function addErrorNotice($message)
+	{
+		self::addNotice("error",$message);
+	}
+
+	protected static function getNotification($msg,$class)
+	{
+		global $core;
+
+		$res = '<p class="'.$class.'">'.dt::str(__('[%H:%M:%S]'),$msg['ts'],$core->auth->getInfo('user_tz')).' '.$msg['text'].'</p>';
+		return $res;
 	}
 
 	public static function close()
@@ -335,7 +378,7 @@ class dcPage
 		$res = '';
 		if ($msg != '') {
 			$res = ($div ? '<div class="'.$class.'">' : '').'<p'.($div ? '' : ' class="'.$class.'"').'>'.
-			($timestamp ? dt::str(__('%H:%M:%S:'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
+			($timestamp ? dt::str(__('[%H:%M:%S]'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
 			'</p>'.($div ? '</div>' : '');
 			if ($echo) {
 				echo $res;

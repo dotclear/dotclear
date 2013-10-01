@@ -25,6 +25,7 @@ $(function() {
 			},
 			delay: 1000,
 			multiple: true,
+			multipleSeparator: ", ",
 			matchSubset: false,
 			matchContains: true,
 			parse: function(xml) { 
