@@ -13,16 +13,24 @@ if (!defined('DC_RC_PATH')) { return; }
 
 /**
 @ingroup DC_CORE
-@brief Rpeository modules feed parser
+@brief Repository modules XML feed parser
 
-Provides an object to parse feed of modules from repository.
+Provides an object to parse XML feed of modules from a repository.
 */
 class dcRepositoryParser
 {
+	/** @var	object	XML object of feed contents */
 	protected $xml;
+	/** @var	array	Array of feed contents */
 	protected $items;
+	/** @var	string	XML bloc tag */
 	protected static $bloc = 'http://dotaddict.org/da/';
 
+	/**
+	 * Constructor.
+	 *
+	 * @param	string		Feed content
+	 */
 	public function __construct($data)
 	{
 		if (!is_string($data)) {
@@ -42,14 +50,16 @@ class dcRepositoryParser
 		unset($this->xml);
 	}
 
+	/**
+	 * Parse XML into array
+	 */
 	protected function _parse()
 	{
 		if (empty($this->xml->module)) {
 			return;
 		}
 
-		foreach ($this->xml->module as $i)
-		{
+		foreach ($this->xml->module as $i) {
 			$attrs = $i->attributes();
 
 			$item = array();
@@ -69,21 +79,25 @@ class dcRepositoryParser
 			$item['section'] 	= (string) $i->children(self::$bloc)->section;
 			$item['support'] 	= (string) $i->children(self::$bloc)->support;
 			$item['sshot']		= (string) $i->children(self::$bloc)->sshot;
-			
+
 			$tags = array();
-			foreach($i->children(self::$bloc)->tags as $t)
-			{
+			foreach($i->children(self::$bloc)->tags as $t) {
 				$tags[] = (string) $t->tag;
 			}
 			$item['tags']		= implode(', ',$tags);
 			
-			# First filter right now
+			# First filter right now. If DC_DEV is set all modules are parse
 			if (defined('DC_DEV') && DC_DEV === true || version_compare(DC_VERSION,$item['dc_min'],'>=')) {
 				$this->items[$item['id']] = $item;
 			}
 		}
 	}
 
+	/**
+	 * Get modules.
+	 *
+	 * @return	array		Modules list
+	 */
 	public function getModules()
 	{
 		return $this->items;

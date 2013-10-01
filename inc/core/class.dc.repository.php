@@ -1,20 +1,56 @@
 <?php
+# -- BEGIN LICENSE BLOCK ---------------------------------------
+#
+# This file is part of Dotclear 2.
+#
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Licensed under the GPL version 2.0 license.
+# See LICENSE file or
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+# -- END LICENSE BLOCK -----------------------------------------
+if (!defined('DC_RC_PATH')) { return; }
 
+/**
+@ingroup DC_CORE
+@brief Repository modules XML feed reader
+
+Provides an object to parse XML feed of modules from repository.
+*/
 class dcRepository
 {
+	/** @var	object	dcCore instance */
 	public $core;
+	/** @var	object	dcModules instance */
 	public $modules;
 
+	/** @var	string	User agent used to query repository */
+	protected $user_agent = 'DotClear.org RepoBrowser/0.1';
+	/** @var	string	XML feed URL */
 	protected $xml_url;
+	/** @var	array	Array of new/update modules from repository */
 	protected $data;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param	object	$modules		dcModules instance
+	 * @param	string	$xml_url		XML feed URL
+	 */
 	public function __construct(dcModules $modules, $xml_url)
 	{
 		$this->core = $modules->core;
 		$this->modules = $modules;
 		$this->xml_url = $xml_url;
+		$this->user_agent = sprintf('Dotclear/%s)', DC_VERSION);
 	}
 
+	/**
+	 * Check repository.
+	 *
+	 * @param	boolean	$force		Force query repository
+	 * @return	boolean	True if get feed or cache
+	 */
 	public function check($force=false)
 	{
 		if (!$this->xml_url) {
@@ -57,11 +93,31 @@ class dcRepository
 		return true;
 	}
 
+	/**
+	 * Get a list of modules.
+	 *
+	 * @param	boolean	$update	True to get update modules, false for new ones
+	 * @return	array	List of update/new modules
+	 */
 	public function get($update=false)
 	{
 		return $this->data[$update ? 'update' : 'new'];
 	}
 
+	/**
+	 * Search a module.
+	 *
+	 * Search string is cleaned, split and compare to split:
+	 * - module id and clean id,
+	 * - module name, clean name,
+	 * - module desccription.
+	 *
+	 * Every time a part of query is find on module,
+	 * result accuracy grow. Result is sorted by acuracy.
+	 *
+	 * @param	string	$pattern	String to search
+	 * @return	array	Match modules
+	 */
 	public function search($pattern)
 	{
 		$result = array();
@@ -99,12 +155,25 @@ class dcRepository
 		return $result;
 	}
 
+	/**
+	 * Quick download and install module.
+	 *
+	 * @param	string	$url	Module package URL
+	 * @param	string	$dest	Path to install module
+	 * @return	integer		1 = installed, 2 = update
+	 */
 	public function process($url, $dest)
 	{
 		$this->download($url, $dest);
 		return $this->install($dest);
 	}
 
+	/**
+	 * Download a module.
+	 *
+	 * @param	string	$url	Module package URL
+	 * @param	string	$dest	Path to put module package
+	 */
 	public function download($url, $dest)
 	{
 		try {
@@ -122,28 +191,63 @@ class dcRepository
 		}
 	}
 
+	/**
+	 * Install a previously downloaded module.
+	 *
+	 * @param	string	$path	Module package URL
+	 * @param	string	$path	Path to module package
+	 * @return	integer		1 = installed, 2 = update
+	 */
 	public function install($path)
 	{
 		return dcModules::installPackage($path, $this->modules);
 	}
 
-	public static function agent()
+	/**
+	 * User Agent String.
+	 *
+	 * @param	string	$str		User agent string
+	 */
+	public function agent($str)
 	{
-		return sprintf('Dotclear/%s)', DC_VERSION);
+		$this->user_agent = $str;
 	}
 
+	/**
+	 * Sanitize string.
+	 *
+	 * @param	string	$str		String to sanitize
+	 * @param	null	$_		Unused	param
+	 */
 	public static function sanitize(&$str, $_)
 	{
 		$str = strtolower(preg_replace('/[^A-Za-z0-9]/', '', $str));
 	}
 
-	private static function compare($v1,$v2,$op)
+	/**
+	 * Compare version.
+	 *
+	 * @param	string	$v1		Version
+	 * @param	string	$v2		Version
+	 * @param	string	$op		Comparison operator
+	 * @return	boolean	True is comparison is true, dude!
+	 */
+	private static function compare($v1, $v2, $op)
 	{
-		$v1 = preg_replace('!-r(\d+)$!','-p$1',$v1);
-		$v2 = preg_replace('!-r(\d+)$!','-p$1',$v2);
-		return version_compare($v1,$v2,$op);
+		return version_compare(
+			preg_replace('!-r(\d+)$!', '-p$1', $v1), 
+			preg_replace('!-r(\d+)$!', '-p$1', $v2), 
+			$op
+		);
 	}
 
+	/** 
+	 * Sort modules list.
+	 *
+	 * @param	array	$a		A module
+	 * @param	array	$b		A module
+	 * @return	integer
+	 */
 	private static function sort($a,$b)
 	{
 		$c = strtolower($a['id']); 
