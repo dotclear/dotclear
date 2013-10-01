@@ -236,7 +236,7 @@ class dcDefaultPostActions
 				$core->blog->getCategories()
 			);			
 			echo
-			'<form action="'.$ap->getRedirection(array(),true).'" method="post">'.
+			'<form action="'.$ap->getURI().'" method="post">'.
 			$ap->getCheckboxes().
 			'<p><label for="new_cat_id" class="classic">'.__('Category:').'</label> '.
 			form::combo(array('new_cat_id'),$categories_combo,'');
@@ -308,7 +308,7 @@ class dcDefaultPostActions
 			);
 
 			echo
-			'<form action="'.$ap->getRedirection(array(),true).'" method="post">'.
+			'<form action="'.$ap->getURI().'" method="post">'.
 			$ap->getCheckboxes().
 			'<p><label for="new_auth_id" class="classic">'.__('New author (author ID):').'</label> '.
 			form::field('new_auth_id',20,255);
@@ -358,7 +358,7 @@ class dcDefaultPostActions
 			unset($rs);
 			
 			echo
-			'<form action="'.$ap->getRedirection(array(),true).'" method="post">'.
+			'<form action="'.$ap->getURI().'" method="post">'.
 			$ap->getCheckboxes().
 			
 			'<p><label for="new_lang" class="classic">'.__('Entry language:').'</label> '.
