@@ -158,8 +158,16 @@ class dcDefaultPostActions
 			throw new Exception(__('No entry selected'));
 		}
 		$core->blog->updPostsStatus($posts_ids,$status);
-		
-		$ap->redirect(true,array('upd' => 1));
+		dcPage::addSuccessNotice(sprintf(
+			__(
+				'%d entry has been successfully updated to status : "%s"',
+				'%d entries have been successfully updated to status : "%s"',
+				count($posts_ids)
+			),
+			count($posts_ids),
+			$core->blog->getPostStatus($status))
+		);
+		$ap->redirect(true);
 	}
 	
 	public static function doUpdateSelectedPost($core, dcPostsActionsPage $ap, $post) {
@@ -169,8 +177,26 @@ class dcDefaultPostActions
 		}
 		$action = $ap->getAction();
 		$core->blog->updPostsSelected($posts_ids,$action == 'selected');
-		
-		$ap->redirect(true,array('upd' => 1));
+		if ($action == 'selected') {
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully marked as selected',
+					'%d entries have been successfully marked as selected',
+					count($posts_ids)
+				),
+				count($posts_ids))
+			);
+		} else {
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully marked as unselected',
+					'%d entries have been successfully marked as unselected',
+					count($posts_ids)
+				),
+				count($posts_ids))
+			);
+		}
+		$ap->redirect(true);
 	}
 	
 	public static function doDeletePost($core, dcPostsActionsPage $ap, $post) {
@@ -190,8 +216,16 @@ class dcDefaultPostActions
 		$core->callBehavior('adminBeforePostsDelete',$posts_ids);
 		
 		$core->blog->delPosts($posts_ids);
+		dcPage::addSuccessNotice(sprintf(
+			__(
+				'%d entry has been successfully deleted',
+				'%d entries have been successfully deleted',
+				count($posts_ids)
+			),
+			count($posts_ids))
+		);
 		
-		$ap->redirect(false,array('del',1));
+		$ap->redirect(false);
 	}
 
 	public static function doChangePostCategory($core, dcPostsActionsPage $ap, $post) {
@@ -206,6 +240,7 @@ class dcDefaultPostActions
 				$cur_cat = $core->con->openCursor($core->prefix.'category');
 				$cur_cat->cat_title = $post['new_cat_title'];
 				$cur_cat->cat_url = '';
+				$title = $cur_cat->cat_title;
 				
 				$parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 				
@@ -219,8 +254,18 @@ class dcDefaultPostActions
 			}
 			
 			$core->blog->updPostsCategory($posts_ids, $new_cat_id);
-			
-			$ap->redirect(true,array('upd'=>1));
+			$title = $core->blog->getCategory($new_cat_id);
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully moved to category "%s"',
+					'%d entries have been successfully moved to category "%s"',
+					count($posts_ids)
+				),
+				count($posts_ids),
+				html::escapeHTML($title->cat_title))
+			);
+
+			$ap->redirect(true);
 		} else {
 
 			$ap->beginPage(
@@ -278,8 +323,18 @@ class dcDefaultPostActions
 			$cur = $core->con->openCursor($core->prefix.'post');
 			$cur->user_id = $new_user_id;
 			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
-			
-			$ap->redirect(true,array('upd' => 1));
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully set to user "%s"',
+					'%d entries have been successfully set to user "%s"',
+					count($posts_ids)
+				),
+				count($posts_ids),
+				html::escapeHTML($new_user_id))
+			);
+
+
+			$ap->redirect(true);
 		} else {
 			$usersList = '';
 			if ($core->auth->check('admin',$core->blog->id)) {
@@ -331,8 +386,16 @@ class dcDefaultPostActions
 			$cur = $core->con->openCursor($core->prefix.'post');
 			$cur->post_lang = $new_lang;
 			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
-			
-			$ap->redirect(true,array('upd' => 1));
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully set to language "%s"',
+					'%d entries have been successfully set to language "%s"',
+					count($posts_ids)
+				),
+				count($posts_ids),
+				html::escapeHTML(l10n::getLanguageName($new_lang)))
+			);
+			$ap->redirect(true);
 		} else {
 			$ap->beginPage(
 				dcPage::breadcrumb(

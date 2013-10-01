@@ -297,8 +297,8 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			
 			# --BEHAVIOR-- adminAfterPostUpdate
 			$core->callBehavior('adminAfterPostUpdate',$cur,$post_id);
-			
-			http::redirect('post.php?id='.$post_id.'&upd=1');
+			dcPage::addSuccessNotice (sprintf('The post "%s" has been successfully updated',html::escapeHTML($cur->post_title)));
+			http::redirect('post.php?id='.$post_id);
 		}
 		catch (Exception $e)
 		{
