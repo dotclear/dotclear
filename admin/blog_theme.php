@@ -52,7 +52,14 @@ if (!empty($_POST['theme']) && !empty($_POST['select']) && empty($_REQUEST['conf
 	$core->blog->settings->addNamespace('system');
 	$core->blog->settings->system->put('theme',$_POST['theme']);
 	$core->blog->triggerBlog();
-	http::redirect('blog_theme.php?upd=1');
+	$theme = $core->themes->getModules($_POST['theme']);
+	dcPage::addSuccessNotice(sprintf(
+		__('Current theme has been successfully changed to "%s".'),
+		__('Current theme has been successfully changed to "%s".'),
+		html::escapeHTML($theme['name']))
+	);
+
+	http::redirect('blog_theme.php');
 }
 
 if ($can_install && !empty($_POST['theme']) && !empty($_POST['remove']) && empty($_REQUEST['conf']))
@@ -77,7 +84,7 @@ if ($can_install && !empty($_POST['theme']) && !empty($_POST['remove']) && empty
 		# --BEHAVIOR-- themeAfterDelete
 		$core->callBehavior('themeAfterDelete',$theme);
 		
-		http::redirect('blog_theme.php?del=1');
+		http::redirect('blog_theme.php');
 	}
 	catch (Exception $e)
 	{
@@ -127,7 +134,12 @@ if ($can_install && $is_writable && ((!empty($_POST['upload_pkg']) && !empty($_F
 		}
 		
 		$ret_code = dcModules::installPackage($dest,$core->themes);
-		http::redirect('blog_theme.php?added='.$ret_code);
+		if ($ret_code == 2) {
+			dcPage::addSuccessNotice(__('Theme has been successfully upgraded.'));
+		} else {
+			dcPage::addSuccessNotice(__('Theme has been successfully installed.'));
+		}
+		http::redirect('blog_theme.php');
 	}
 	catch (Exception $e)
 	{
