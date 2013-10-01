@@ -936,7 +936,7 @@ class adminThemesList extends adminModulesList
 			}
 
 			$line .= 
-			'<div class="modules-actions">';
+			'<div class="module-actions">';
 			
 			# _GET actions
 
