@@ -50,8 +50,8 @@ if (!isset($_POST['id']) && !empty($_POST['blog_id']))
 		
 		# --BEHAVIOR-- adminAfterBlogCreate
 		$core->callBehavior('adminAfterBlogCreate',$cur,$blog_id,$blog_settings);
-		
-		http::redirect('blog.php?id='.$cur->blog_id.'&add=1');
+		dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), html::escapeHTML($cur->blog_name)));
+		http::redirect('blog.php?id='.$cur->blog_id);
 	}
 	catch (Exception $e)
 	{

@@ -22,14 +22,17 @@ if (!empty($_POST['delete'])) {
 	# Check if category to delete exists
 	$c = $core->blog->getCategory((integer) $cat_id);
 	if ($c->isEmpty()) {
-		http::redirect('categories.php?unknown=1');
+		dcPage::addErrorNotice(__('This category does not exist.'));
+		http::redirect('categories.php');
 	}
+	$name = $c->cat_title;
 	unset($c);
 
 	try {
 		# Delete category
 		$core->blog->delCategory($cat_id);
-		http::redirect('categories.php?del=1');
+		dcPage::addSuccessNotice(sprintf(__('The category "%s" has been successfully deleted.'),html::escapeHTML($name)));
+		http::redirect('categories.php');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -49,13 +52,16 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
 			if ($c->isEmpty()) {
 				throw new Exception(__('Category where to move posts does not exist'));
 			}
+			$name = $c->cat_title;
 			unset($c);
 		}
 		# Move posts
 		if ($mov_cat != $cat_id) {
 			$core->blog->changePostsCategory($cat_id,$mov_cat);
 		}
-		http::redirect('categories.php?move=1');
+		dcPage::addSuccessNotice(sprintf(__('The entries have been successfully moved to category "%s"'),
+			html::escapeHTML($name)));
+		http::redirect('categories.php');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -80,7 +86,8 @@ if (!empty($_POST['reset']))
 	try
 	{
 		$core->blog->resetCategoriesOrder();
-		http::redirect('categories.php?reord=1');
+		dcPage::addSuccessNotice(__('Categories have been successfully reordered.'));
+		http::redirect('categories.php');
 	}
 	catch (Exception $e)
 	{
@@ -115,9 +122,6 @@ if (!empty($_GET['del'])) {
 }
 if (!empty($_GET['reord'])) {
 	dcPage::success(__('Categories have been successfully reordered.'));
-}
-if (!empty($_GET['unknown'])) {
-	dcPage::error(__('This category does not exist.'));
 }
 if (!empty($_GET['move'])) {
 	dcPage::success(__('Entries have been successfully moved to the category you choose.'));

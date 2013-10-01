@@ -176,7 +176,7 @@ class dcPage
 		}
 		
 		if (isset($_SESSION['notifications'])) {
-			$types = array("success" => "success", "warning" => "warning-msg");
+			$types = array("success" => "success", "warning" => "warning-msg", "error" => "error");
 			$notifications = $_SESSION['notifications'];
 			foreach ($types as $type => $class) {
 				if (isset($notifications[$type])) {
@@ -200,11 +200,13 @@ class dcPage
 	public static function addWarningNotice($message) {
 		self::addNotice("warning",$message);
 	}
-	
+	public static function addErrorNotice($message) {
+		self::addNotice("error",$message);
+	}	
 	protected static function getNotification($msg,$class) {
 		global $core;
 		$res = '<p class="'.$class.'">'.
-		dt::str(__('[%H:%M:%S] '),$msg['ts'],$core->auth->getInfo('user_tz')).' '.$msg['text'].
+		dt::str(__('[%H:%M:%S]'),$msg['ts'],$core->auth->getInfo('user_tz')).' '.$msg['text'].
 		'</p>';
 		return $res;	
 	}
