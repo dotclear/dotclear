@@ -468,7 +468,7 @@ class adminModulesList
 
 		# Activate
 		if (in_array('deactivate', $actions) && $module['root_writable']) {
-			$submits[] = '<input type="submit" name="deactivate" value="'.__('Deactivate').'" />';
+			$submits[] = '<input type="submit" name="deactivate" value="'.__('Deactivate').'" class="reset" />';
 		}
 
 		# Deactivate
@@ -876,7 +876,7 @@ class adminThemesList extends adminModulesList
 			}
 
 			$line = 
-			'<div class="box small '.($current ? 'current-theme' : 'theme').'">';
+			'<div class="box '.($current ? 'medium current-theme' : 'small theme').'">';
 
 			if (in_array('name', $cols)) {
 				$line .= 
