@@ -60,7 +60,7 @@ if (!empty($_POST['save'])) {
 }
 
 	echo 
-	'<p>'.__('Manage alert for maintenance task.').'</p>'.
+	'<p>'.__('Setup alert for maintenance task.').'</p>'.
 
 	'<h4 class="pretty-title">'.__('Activation').'</h4>'.
 	'<p><label for="settings_plugin_message" class="classic">'.

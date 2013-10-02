@@ -43,6 +43,8 @@ class dcRepository
 		$this->modules = $modules;
 		$this->xml_url = $xml_url;
 		$this->user_agent = sprintf('Dotclear/%s)', DC_VERSION);
+
+		$this->check();
 	}
 
 	/**

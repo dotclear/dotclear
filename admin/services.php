@@ -446,10 +446,10 @@ class dcRestMethods
 	public static function getModuleById($core, $get, $post)
 	{
 		if (empty($get['id'])) {
-				throw new Exception('No module ID');
+			throw new Exception('No module ID');
 		}
 		if (empty($get['list'])) {
-				throw new Exception('No list ID');
+			throw new Exception('No list ID');
 		}
 
 		$id = $get['id'];
@@ -481,14 +481,14 @@ class dcRestMethods
 		}
 
 		if (empty($module)) {
-				throw new Exception('Unknow module ID');
+			throw new Exception('Unknow module ID');
 		}
 
 		$module = adminModulesList::parseModuleInfo($id, $module);
 
 		$rsp = new xmlTag('module');
 		$rsp->id = $id;
-		
+
 		foreach($module as $k => $v) {
 			$rsp->{$k}((string) $v);
 		}

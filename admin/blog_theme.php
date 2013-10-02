@@ -14,59 +14,54 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('admin');
 
-# --------------------------------------------------
-# @todo Add settings to Dotclear update features
+# -- "First time" settings setup --
 if ($core->blog->settings->system->repository_theme_url === null) {
 	$core->blog->settings->system->put(
 		'repository_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true
 	);
 }
-# --------------------------------------------------
 
 # -- Loading themes --
 $core->themes = new dcThemes($core);
 $core->themes->loadModules($core->blog->themes_path, null);
 
-# -- Repository helper --
-$repository = new dcRepository(
-	$core->themes, 
-	$core->blog->settings->system->repository_theme_url
-);
-$repository->check();
-
 # -- Page helper --
 $list = new adminThemesList(
-	$core, 
+	$core->themes, 
 	$core->blog->themes_path,
-	false
+	$core->blog->settings->system->repository_theme_url
+);
+$list::$distributed_modules = array(
+	'blueSilence',
+	'blowupConfig',
+	'customCSS',
+	'default',
+	'ductile'
 );
 
 # -- Theme screenshot --
-if (!empty($_GET['shot']) && $core->themes->moduleExists($_GET['shot']))
-{
-	if (empty($_GET['src'])) {
-		$f = $core->blog->themes_path.'/'.$_GET['shot'].'/screenshot.jpg';
-	} else {
-		$f = $core->blog->themes_path.'/'.$_GET['shot'].'/'.path::clean($_GET['src']);
-	}
-	
-	$f = path::real($f);
-	
+if (!empty($_GET['shot']) && $list->modules->moduleExists($_GET['shot'])) {
+
+	$f= path::real(empty($_GET['src']) ?
+		$core->blog->themes_path.'/'.$_GET['shot'].'/screenshot.jpg' :
+		$core->blog->themes_path.'/'.$_GET['shot'].'/'.path::clean($_GET['src'])
+	);
+
 	if (!file_exists($f)) {
 		$f = dirname(__FILE__).'/images/noscreenshot.png';
 	}
-	
-	http::cache(array_merge(array($f),get_included_files()));
-	
+
+	http::cache(array_merge(array($f), get_included_files()));
+
 	header('Content-Type: '.files::getMimeType($f));
 	header('Content-Length: '.filesize($f));
 	readfile($f);
-	
+
 	exit;
 }
 
 # -- Display module configuration page --
-if ($list->setConfigurationFile($core->themes, $core->blog->settings->system->theme)) {
+if ($list->setConfigurationFile($core->blog->settings->system->theme)) {
 
 	# Get content before page headers
 	include $list->getConfigurationFile();
@@ -104,13 +99,11 @@ if ($list->setConfigurationFile($core->themes, $core->blog->settings->system->th
 }
 
 # -- Execute actions --
-if (!empty($_POST) && empty($_REQUEST['conf']) && $core->auth->isSuperAdmin() && $list->isPathWritable()) {
-	try {
-		$list->executeAction('themes', $core->themes, $repository);
-	}
-	catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
+try {
+	$list->doActions('themes');
+}
+catch (Exception $e) {
+	$core->error->add($e->getMessage());
 }
 
 # -- Page header --
@@ -138,7 +131,7 @@ if (!empty($_GET['msg'])) {
 if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	# Updated modules from repo
-	$modules = $repository->get(true);
+	$modules = $list->repository->get(true);
 	if (!empty($modules)) {
 		echo 
 		'<div class="multi-part" id="update" title="'.html::escapeHTML(__('Update themes')).'">'.
@@ -167,7 +160,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 echo
 '<div class="multi-part" id="themes" title="'.__('Installed themes').'">';
 
-$modules = $core->themes->getModules();
+$modules = $list->modules->getModules();
 if (!empty($modules)) {
 
 	echo
@@ -179,12 +172,12 @@ if (!empty($modules)) {
 		->setModules($modules)
 		->setPageTab('themes')
 		->displayModulesList(
-			/* cols */		array('sshot', 'name', 'config', 'desc', 'author', 'version', 'parent'),
+			/* cols */		array('sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'),
 			/* actions */	array('select', 'deactivate', 'delete')
 		);
 }
 
-$modules = $core->themes->getDisabledModules();
+$modules = $list->modules->getDisabledModules();
 if (!empty($modules)) {
 
 	echo
@@ -208,39 +201,40 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	# New modules from repo
 	$search = $list->getSearchQuery();
-	$modules = $search ? $repository->search($search) : $repository->get();
+	$modules = $search ? $list->repository->search($search) : $list->repository->get();
 
-	echo
-	'<div class="multi-part" id="new" title="'.__('Add themes from Dotaddict').'">'.
-	'<h3>'.__('Add themes from Dotaddict repository').'</h3>';
+	if (!empty($search) || !empty($modules)) {
+		echo
+		'<div class="multi-part" id="new" title="'.__('Add themes from Dotaddict').'">'.
+		'<h3>'.__('Add themes from Dotaddict repository').'</h3>';
 
-	$list
-		->newList('theme-new')
-		->setModules($modules)
-		->setPageTab('new')
-		->displaySearchForm()
-		->displayNavMenu()
-		->displayModulesList(
-			/* cols */		array('expander', 'sshot', 'name', 'config', 'desc', 'author', 'version', 'parent', 'distrib'),
-			/* actions */	array('install'),
-			/* nav limit */	true
-		);
+		$list
+			->newList('theme-new')
+			->setModules($modules)
+			->setPageTab('new')
+			->displaySearchForm()
+			->displayNavMenu()
+			->displayModulesList(
+				/* cols */		array('expander', 'sshot', 'name', 'config', 'desc', 'author', 'version', 'parent', 'details', 'support'),
+				/* actions */	array('install'),
+				/* nav limit */	true
+			);
 
-	echo
-	'<p class="info vertical-separator">'.sprintf(
-		__("Visit %s repository, the resources center for Dotclear."),
-		'<a href="http://dotaddict.org/dc2/themes">Dotaddict</a>'
-		).
-	'</p>'.
+		echo
+		'<p class="info vertical-separator">'.sprintf(
+			__("Visit %s repository, the resources center for Dotclear."),
+			'<a href="http://dotaddict.org/dc2/themes">Dotaddict</a>'
+			).
+		'</p>'.
 
-	'</div>';
+		'</div>';
+	}
 
 	# Add a new plugin
 	echo
-	'<div class="multi-part" id="addtheme" title="'.__('Install or upgrade manually').'">';
+	'<div class="multi-part" id="addtheme" title="'.__('Install or upgrade manually').'">'.
+	'<p>'.__('You can install themes by uploading or downloading zip files.').'</p>';
 
-	echo '<p>'.__('You can install themes by uploading or downloading zip files.').'</p>';
-	
 	$list->displayManualForm();
 
 	echo
@@ -248,4 +242,3 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 }
 
 dcPage::close();
-?>

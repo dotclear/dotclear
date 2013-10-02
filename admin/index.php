@@ -128,7 +128,6 @@ if (!$count) {
 function dc_check_repository_update($mod, $url, $img, $icon)
 {
 	$repo = new dcRepository($mod, $url);
-	$repo->check();
 	$upd = $repo->get(true);
 	if (!empty($upd)) {
 		$icon[0] .= '<br />'.sprintf(__('An update is available', '%s updates are available.', count($upd)),count($upd));
