@@ -344,11 +344,16 @@ $items = array_values(array_merge($dir['dirs'],$dir['files']));
 
 $fmt_form_media = '<form action="media.php" method="post" id="form-medias">'.
 	'<div class="files-group">%s</div>'.
-	'<p>'.$core->formNonce() . form::hidden(array('d'),$d).'</p>'.
+	'<p>'.$core->formNonce() . form::hidden(array('d'),$d).'</p>';
+
+if (!$popup) {
+	$fmt_form_media .=
 	'<div class="two-cols%s">'.
 	'<p class="col checkboxes-helpers"></p>'.
 	'<p class="col right"><input type="submit" class="delete" name="delete_medias" value="'.__('Remove selected medias').'"/></p>'.
-	'</div>'.
+	'</div>';
+}
+$fmt_form_media .=
 	'</form>';
 
 echo '<div class="media-list">';
