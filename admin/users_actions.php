@@ -267,7 +267,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	{
 		echo '<h3>'.('Blog:').' <a href="blog.php?id='.html::escapeHTML($b).'">'.html::escapeHTML($b).'</a>'.
 		form::hidden(array('blogs[]'),$b).'</h3>';
-		
+		$unknown_perms = $user_perm;
 		foreach ($core->auth->getPermissionsTypes() as $perm_id => $perm)
 		{
 			$checked = false;
@@ -275,12 +275,28 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 			if (count($users) == 1) {
 				$checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
 			}
+			if (isset($unknown_perms[$b]['p'][$perm_id])) {
+				unset ($unknown_perms[$b]['p'][$perm_id]);
+			}
 			
 			echo
 			'<p><label for="perm'.html::escapeHTML($b).html::escapeHTML($perm_id).'" class="classic">'.
 			form::checkbox(array('perm['.html::escapeHTML($b).']['.html::escapeHTML($perm_id).']','perm'.html::escapeHTML($b).html::escapeHTML($perm_id)),
 			1,$checked).' '.
 			__($perm).'</label></p>';
+		}
+		if (isset($unknown_perms[$b])) {
+		
+			foreach ($unknown_perms[$b]['p'] as $perm_id => $v) {
+				$checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
+				echo
+				'<p><label for="perm'.html::escapeHTML($b).html::escapeHTML($perm_id).'" class="classic">'.
+				form::checkbox(
+					array('perm['.html::escapeHTML($b).']['.html::escapeHTML($perm_id).']',
+						'perm'.html::escapeHTML($b).html::escapeHTML($perm_id)),
+					1,$checked).' '.
+				sprintf(__('[%s] (unreferenced permission)'),$perm_id).'</label></p>';
+			}
 		}
 	}
 	
