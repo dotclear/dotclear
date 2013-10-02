@@ -489,7 +489,7 @@ __('Disable javascript powered drag and drop for ordering items').'</label></p>'
 '<p class="clear form-note">'.__('If checked, numeric fields will allow to type the elements\' ordering number.').'</p>';
 
 echo
-'<p><label for="user_ui_media_by_page" class="classic">'.__('Number of media displayed per page:').'</label> '.
+'<p><label for="user_ui_media_by_page" class="classic">'.__('Number of elements displayed per page in media manager:').'</label> '.
 form::field('user_ui_media_by_page',5,3,(integer) $user_ui_media_by_page).'</p>';
 
 if ($core->auth->isSuperAdmin()) {
