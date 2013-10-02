@@ -165,9 +165,13 @@ function dcGetImageTitle($file,$pattern,$dto_first=false)
 	
 	foreach ($pattern as $v) {
 		if ($v == 'Title') {
-			$res[] = $file->media_title;
+			if ($file->media_title != '') {
+				$res[] = $file->media_title;
+			}
 		} elseif ($file->media_meta->{$v}) {
-			$res[] = (string) $file->media_meta->{$v};
+			if ((string) $file->media_meta->{$v} != '') {
+				$res[] = (string) $file->media_meta->{$v};
+			}
 		} elseif (preg_match('/^Date\((.+?)\)$/u',$v,$m)) {
 			if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
 				$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
