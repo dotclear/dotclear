@@ -14,6 +14,7 @@ if (!defined('DC_RC_PATH')) { return; }
 /**
 @ingroup DC_CORE
 @brief Repository modules XML feed parser
+@since 2.6
 
 Provides an object to parse XML feed of modules from a repository.
 */

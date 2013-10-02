@@ -136,10 +136,10 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 		$list
 			->newList('theme-update')
 			->setModules($modules)
-			->setPageTab('update')
+			->setPageTab('themes')
 			->displayModulesList(
 				/*cols */		array('sshot', 'name', 'desc', 'author', 'version', 'current_version', 'parent'),
-				/* actions */	array('update')
+				/* actions */	array('update', 'delete')
 			);
 
 		echo
@@ -206,7 +206,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 			->displaySearchForm()
 			->displayNavMenu()
 			->displayModulesList(
-				/* cols */		array('expander', 'sshot', 'name', 'config', 'desc', 'author', 'version', 'parent', 'details', 'support'),
+				/* cols */		array('expander', 'sshot', 'name', 'score', 'config', 'desc', 'author', 'version', 'parent', 'details', 'support'),
 				/* actions */	array('install'),
 				/* nav limit */	true
 			);

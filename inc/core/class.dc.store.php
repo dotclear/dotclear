@@ -14,6 +14,7 @@ if (!defined('DC_RC_PATH')) { return; }
 /**
 @ingroup DC_CORE
 @brief Repository modules XML feed reader
+@since 2.6
 
 Provides an object to parse XML feed of modules from repository.
 */
@@ -23,6 +24,9 @@ class dcStore
 	public $core;
 	/** @var	object	dcModules instance */
 	public $modules;
+
+	/** @var	array	Modules fields to search on and their weighting */
+	public static $weighting = array('id' => 10, 'name' => 8, 'author' => 6, 'tags' => 4, 'desc' => 2);
 
 	/** @var	string	User agent used to query repository */
 	protected $user_agent = 'DotClear.org RepoBrowser/0.1';
@@ -125,30 +129,42 @@ class dcStore
 		$result = array();
 
 		# Split query into small clean words
-		$patterns = explode(' ', $pattern);
-		array_walk($patterns, array('dcStore','sanitize'));
+		if (!($patterns = self::patternize($pattern))) {
+			return $result;
+		}
 
 		# For each modules
 		foreach ($this->data['new'] as $id => $module) {
+			$module['id'] = $id;
 
-			# Split modules infos into small clean word
-			$subjects = explode(' ', $id.' '.$module['name'].' '.$module['desc']);
-			array_walk($subjects, array('dcStore','sanitize'));
+			# Loop through required module fields
+			foreach(self::$weighting as $field => $weight) {
 
-			# Check contents
-			if (!($nb = preg_match_all('/('.implode('|', $patterns).')/', implode(' ', $subjects), $_))) {
-				continue;
+				# Skip fields which not exsist on module
+				if (empty($module[$field])) {
+					continue;
+				}
+
+				# Split field value into small clean word
+				if (!($subjects = self::patternize($module[$field]))) {
+					continue;
+				}
+
+				# Check contents
+				if (!($nb = preg_match_all('/('.implode('|', $patterns).')/', implode(' ', $subjects), $_))) {
+					continue;
+				}
+
+				# Add module to result
+				if (!isset($sorter[$id])) {
+					$sorter[$id] = 0;
+					$result[$id] = $module;
+				}
+
+				# Increment score by matches count * field weight
+				$sorter[$id] += $nb * $weight;
+				$result[$id]['score'] = $sorter[$id];
 			}
-
-			# Add module to result
-			if (!isset($sorter[$id])) {
-				$sorter[$id] = 0;
-				$result[$id] = $module;
-			}
-
-			# Increment matches count
-			$sorter[$id] += $nb;
-			$result[$id]['accuracy'] = $sorter[$id];
 		}
 		# Sort response by matches count
 		if (!empty($result)) {
@@ -216,14 +232,23 @@ class dcStore
 	}
 
 	/**
-	 * Sanitize string.
+	 * Split and clean pattern.
 	 *
 	 * @param	string	$str		String to sanitize
-	 * @param	null	$_		Unused	param
+	 * @return	array	Array of cleaned pieces of string or false if none
 	 */
-	public static function sanitize(&$str, $_)
+	public static function patternize($str)
 	{
-		$str = strtolower(preg_replace('/[^A-Za-z0-9]/', '', $str));
+		$arr = array();
+
+		foreach(explode(' ', $str) as $_) {
+			$_ = strtolower(preg_replace('/[^A-Za-z0-9]/', '', $_));
+			if (strlen($_) > 2) {
+				$arr[] = $_;
+			}
+		}
+
+		return empty($arr) ? false : $arr;
 	}
 
 	/**

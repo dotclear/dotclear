@@ -268,7 +268,8 @@ class adminModulesList
 				'section' 			=> '',
 				'tags' 				=> '',
 				'details' 			=> '',
-				'sshot' 			=> ''
+				'sshot' 			=> '',
+				'score'				=> 0
 			),
 			# Module's values
 			$module,
@@ -311,6 +312,11 @@ class adminModulesList
 		if (in_array('name', $cols)) {
 			echo 
 			'<th class="first nowrap"'.(in_array('icon', $cols) ? ' colspan="2"' : '').'>'.__('Name').'</th>';
+		}
+
+		if (in_array('score', $cols) && $this->getSearchQuery() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+			echo 
+			'<th class="nowrap">'.__('Score').'</th>';
 		}
 
 		if (in_array('version', $cols)) {
@@ -380,6 +386,12 @@ class adminModulesList
 				'<a href="'.$this->getPageURL('module='.$id.'&conf=1').'" title"'.sprintf(__('Configure module "%s"'), html::escapeHTML($module['name'])).'">'.html::escapeHTML($module['name']).'</a>' : 
 				html::escapeHTML($module['name'])
 			).'</td>';
+
+			# Display score only for debug purpose
+			if (in_array('score', $cols) && $this->getSearchQuery() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+				echo 
+				'<td class="module-version nowrap count"><span class="debug">'.$module['score'].'</span></td>';
+			}
 
 			if (in_array('version', $cols)) {
 				echo 
@@ -862,6 +874,12 @@ class adminThemesList extends adminModulesList
 				'<h4 class="module-name">'.html::escapeHTML($module['name']).'</h4>';
 			}
 
+			# Display score only for debug purpose
+			if (in_array('score', $cols) && $this->getSearchQuery() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+				$line .= 
+				'<p class="module-score debug">'.sprintf(__('Score: %s'), $module['score']).'</p>';
+			}
+
 			if (in_array('sshot', $cols)) {
 				# Screenshot from url
 				if (preg_match('#^http(s)?://#', $module['sshot'])) {
@@ -900,6 +918,11 @@ class adminThemesList extends adminModulesList
 				'<span class="module-version">'.sprintf(__('version %s'),html::escapeHTML($module['version'])).'</span> ';
 			}
 
+			if (in_array('current_version', $cols)) {
+				$line .= 
+				'<span class="module-current-version">'.sprintf(__('(current version %s)'),html::escapeHTML($module['current_version'])).'</span> ';
+			}
+
 			if (in_array('parent', $cols) && $has_parent) {
 				if ($is_parent_present) {
 					$line .= 
@@ -909,11 +932,6 @@ class adminThemesList extends adminModulesList
 					$line .= 
 					'<span class="module-parent-missing">'.sprintf(__('(requires "%s")'),html::escapeHTML($parent)).'</span> ';
 				}
-			}
-
-			if (in_array('version', $cols)) {
-				$line .= 
-				'<span class="module-version">'.sprintf(__('version %s'),html::escapeHTML($module['version'])).'</span> ';
 			}
 
 			$has_details = in_array('details', $cols) && !empty($module['details']);
