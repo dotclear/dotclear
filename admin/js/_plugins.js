@@ -77,11 +77,11 @@ dotclear.viewModuleContent = function(img,line,action) {
                                 var details = $(rsp).find('details').text();
                                 var support = $(rsp).find('support').text();
 								var box = document.createElement('div');
-                                var dl = document.createElement('ul');
-                                dl.className = "mod-more";
+                                var bloc = document.createElement('ul');
+                                bloc.className = "mod-more";
                                 
                                 if (author) {
-                                        $(dl).append($('<li class="module-author">'+dotclear.msg.module_author+' '+author+'</li>'));
+                                        $(bloc).append($('<li class="module-author">'+dotclear.msg.module_author+' '+author+'</li>'));
                                 }
                                 if (details) {
                                         var dd = '';
@@ -90,25 +90,25 @@ dotclear.viewModuleContent = function(img,line,action) {
                                                 dd += ' - ';
                                                 dd += '<a class="module-support" href="'+support+'">'+dotclear.msg.module_support+'</a>';
                                         }
-                                        $(dl).append($('<li>'+dotclear.msg.module_help+' '+dd+'</li>'));
+                                        $(bloc).append($('<li>'+dotclear.msg.module_help+' '+dd+'</li>'));
                                 }
 
-                                $(td).append($(box).addClass('two-boxes').append(dl));
+                                $(td).append($(box).addClass('two-boxes').append(bloc));
                                 
                                 var section = $(rsp).find('section').text();
                                 var tags = $(rsp).find('tags').text();
                                 
 								var boxb = document.createElement('div');
-                                var dlb = document.createElement('ul');
-                                dlb.className = "mod-more";
+                                var blocb = document.createElement('ul');
+                                blocb.className = "mod-more";
                                 
                                 if (section) {
-                                        $(dlb).append($('<li class="module-section">'+dotclear.msg.module_section+' '+section+'</li>'));
+                                        $(blocb).append($('<li class="module-section">'+dotclear.msg.module_section+' '+section+'</li>'));
                                 }
                                 if (tags) {
-                                        $(dlb).append($('<li class="module-tags">'+dotclear.msg.module_tags+' '+tags+'</li>'));
+                                        $(blocb).append($('<li class="module-tags">'+dotclear.msg.module_tags+' '+tags+'</li>'));
                                 }
-                                $(td).append($(boxb).addClass('two-boxes').append(dlb));
+                                $(td).append($(boxb).addClass('two-boxes').append(blocb));
                         } else {
                                 alert($(rsp).find('message').text());
                         }
@@ -150,7 +150,7 @@ dotclear.viewModuleContent = function(img,line,action) {
 
 $(function() {
         $('table.modules.expandable tr:not(.line)').each(function() {
-                dotclear.modulesExpander(this,$('table.modules tr.line'));
+                dotclear.modulesExpander(this,$('table.modules.expandable tr.line'));
         });
         $('table.modules.expandable tr.line').each(function() {
                 dotclear.moduleExpander(this);

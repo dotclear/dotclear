@@ -228,7 +228,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 			->displaySearchForm()
 			->displayNavMenu()
 			->displayModulesList(
-				/* cols */		array('expander', 'name', 'version', 'desc'),
+				/* cols */		array('expander', 'name', 'score', 'version', 'desc'),
 				/* actions */	array('install'),
 				/* nav limit */	true
 			);

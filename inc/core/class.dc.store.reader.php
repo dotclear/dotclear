@@ -14,6 +14,7 @@ if (!defined('DC_RC_PATH')) { return; }
 /**
 @ingroup DC_CORE
 @brief Repository modules XML feed reader
+@since 2.6
 
 Provides an object to parse XML feed of modules from repository.
 This class extends clearbricks netHttp class.
