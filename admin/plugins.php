@@ -14,8 +14,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('admin');
 
-# --------------------------------------------------
-# @todo Add settings to Dotclear update features
+# -- "First time" settings setup --
 if ($core->blog->settings->system->plugins_allow_multi_install === null) {
 	$core->blog->settings->system->put(
 		'plugins_allow_multi_install', false, 'boolean', 'Allow multi-installation for plugins', true, true
@@ -26,23 +25,16 @@ if ($core->blog->settings->system->repository_plugin_url === null) {
 		'repository_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true
 	);
 }
-# --------------------------------------------------
-
-# -- Repository helper --
-$repository = new dcRepository(
-	$core->plugins, 
-	$core->blog->settings->system->repository_plugin_url
-);
-$repository->check();
 
 # -- Page helper --
 $list = new adminModulesList(
-	$core, 
-	DC_PLUGINS_ROOT,
-	$core->blog->settings->system->plugins_allow_multi_install
+	$core->plugins, 
+	DC_PLUGINS_ROOT, 
+	$core->blog->settings->system->repository_plugin_url
 );
 
-$list::setDistributedModules(array(
+$list::$allow_multi_install = $core->blog->settings->system->plugins_allow_multi_install;
+$list::$distributed_modules = array(
 	'aboutConfig',
 	'akismet',
 	'antispam',
@@ -60,10 +52,10 @@ $list::setDistributedModules(array(
 	'themeEditor',
 	'userPref',
 	'widgets'
-));
+);
 
 # -- Display module configuration page --
-if ($list->setConfigurationFile($core->plugins)) {
+if ($list->setConfigurationFile()) {
 
 	# Get content before page headers
 	include $list->getConfigurationFile();
@@ -100,13 +92,11 @@ if ($list->setConfigurationFile($core->plugins)) {
 }
 
 # -- Execute actions --
-if (!empty($_POST) && empty($_REQUEST['conf']) && $core->auth->isSuperAdmin() && $list->isPathWritable()) {
-	try {
-		$list->executeAction('plugins', $core->plugins, $repository);
-	}
-	catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
+try {
+	$list->doActions('plugins');
+}
+catch (Exception $e) {
+	$core->error->add($e->getMessage());
 }
 
 # -- Plugin install --
@@ -139,20 +129,24 @@ if (!empty($_GET['msg'])) {
 if (!empty($plugins_install['success'])) {
 	echo 
 	'<div class="static-msg">'.__('Following plugins have been installed:').'<ul>';
+
 	foreach ($plugins_install['success'] as $k => $v) {
 		echo 
 		'<li>'.$k.'</li>';
 	}
 	echo 
+
 	'</ul></div>';
 }
 if (!empty($plugins_install['failure'])) {
 	echo 
 	'<div class="error">'.__('Following plugins have not been installed:').'<ul>';
+
 	foreach ($plugins_install['failure'] as $k => $v) {
 		echo 
 		'<li>'.$k.' ('.$v.')</li>';
 	}
+
 	echo 
 	'</ul></div>';
 }
@@ -161,7 +155,7 @@ if (!empty($plugins_install['failure'])) {
 if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	# Updated modules from repo
-	$modules = $repository->get(true);
+	$modules = $list->repository->get(true);
 	if (!empty($modules)) {
 		echo 
 		'<div class="multi-part" id="update" title="'.html::escapeHTML(__('Update plugins')).'">'.
@@ -190,9 +184,8 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 echo
 '<div class="multi-part" id="plugins" title="'.__('Installed plugins').'">';
 
-$modules = $core->plugins->getModules();
+$modules = $list->modules->getModules();
 if (!empty($modules)) {
-
 	echo
 	'<h3>'.__('Activated plugins').'</h3>'.
 	'<p>'.__('Manage installed plugins from this list.').'</p>';
@@ -208,9 +201,8 @@ if (!empty($modules)) {
 }
 
 # Deactivated modules
-$modules = $core->plugins->getDisabledModules();
+$modules = $list->modules->getDisabledModules();
 if (!empty($modules)) {
-
 	echo
 	'<h3>'.__('Deactivated plugins').'</h3>'.
 	'<p>'.__('Deactivated plugins are installed but not usable. You can activate them from here.').'</p>';
@@ -232,39 +224,40 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	# New modules from repo
 	$search = $list->getSearchQuery();
-	$modules = $search ? $repository->search($search) : $repository->get();
+	$modules = $search ? $list->repository->search($search) : $list->repository->get();
 
-	echo
-	'<div class="multi-part" id="new" title="'.__('Add plugins from Dotaddict').'">'.
-	'<h3>'.__('Add plugins from Dotaddict repository').'</h3>';
+	if (!empty($search) || !empty($modules)) {
+		echo
+		'<div class="multi-part" id="new" title="'.__('Add plugins from Dotaddict').'">'.
+		'<h3>'.__('Add plugins from Dotaddict repository').'</h3>';
 
-	$list
-		->newList('plugin-new')
-		->setModules($modules)
-		->setPageTab('new')
-		->displaySearchForm()
-		->displayNavMenu()
-		->displayModulesList(
-			/* cols */		array('expander', 'name', 'version', 'desc'),
-			/* actions */	array('install'),
-			/* nav limit */	true
-		);
+		$list
+			->newList('plugin-new')
+			->setModules($modules)
+			->setPageTab('new')
+			->displaySearchForm()
+			->displayNavMenu()
+			->displayModulesList(
+				/* cols */		array('expander', 'name', 'version', 'desc'),
+				/* actions */	array('install'),
+				/* nav limit */	true
+			);
 
-	echo
-	'<p class="info vertical-separator">'.sprintf(
-		__("Visit %s repository, the resources center for Dotclear."),
-		'<a href="http://dotaddict.org/dc2/plugins">Dotaddict</a>'
-		).
-	'</p>'.
+		echo
+		'<p class="info vertical-separator">'.sprintf(
+			__("Visit %s repository, the resources center for Dotclear."),
+			'<a href="http://dotaddict.org/dc2/plugins">Dotaddict</a>'
+			).
+		'</p>'.
 
-	'</div>';
+		'</div>';
+	}
 
 	# Add a new plugin
 	echo
-	'<div class="multi-part" id="addplugin" title="'.__('Install or upgrade manually').'">';
+	'<div class="multi-part" id="addplugin" title="'.__('Install or upgrade manually').'">'.
+	'<p>'.__('You can install plugins by uploading or downloading zip files.').'</p>';
 
-	echo '<p>'.__('You can install plugins by uploading or downloading zip files.').'</p>';
-	
 	$list->displayManualForm();
 
 	echo
@@ -281,4 +274,3 @@ if ($core->auth->isSuperAdmin() && !$list->isPathWritable()) {
 }
 
 dcPage::close();
-?>
