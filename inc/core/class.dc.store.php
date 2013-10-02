@@ -17,7 +17,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 Provides an object to parse XML feed of modules from repository.
 */
-class dcRepository
+class dcStore
 {
 	/** @var	object	dcCore instance */
 	public $core;
@@ -58,7 +58,7 @@ class dcRepository
 		if (!$this->xml_url) {
 			return false;
 		}
-		if (($parser = dcRepositoryReader::quickParse($this->xml_url, DC_TPL_CACHE, $force)) === false) {
+		if (($parser = dcStoreReader::quickParse($this->xml_url, DC_TPL_CACHE, $force)) === false) {
 			return false;
 		}
 
@@ -115,7 +115,7 @@ class dcRepository
 	 * - module desccription.
 	 *
 	 * Every time a part of query is find on module,
-	 * result accuracy grow. Result is sorted by acuracy.
+	 * result accuracy grow. Result is sorted by accuracy.
 	 *
 	 * @param	string	$pattern	String to search
 	 * @return	array	Match modules
@@ -126,14 +126,14 @@ class dcRepository
 
 		# Split query into small clean words
 		$patterns = explode(' ', $pattern);
-		array_walk($patterns, array('dcRepository','sanitize'));
+		array_walk($patterns, array('dcStore','sanitize'));
 
 		# For each modules
 		foreach ($this->data['new'] as $id => $module) {
 
 			# Split modules infos into small clean word
 			$subjects = explode(' ', $id.' '.$module['name'].' '.$module['desc']);
-			array_walk($subjects, array('dcRepository','sanitize'));
+			array_walk($subjects, array('dcStore','sanitize'));
 
 			# Check contents
 			if (!($nb = preg_match_all('/('.implode('|', $patterns).')/', implode(' ', $subjects), $_))) {

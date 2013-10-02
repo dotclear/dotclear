@@ -464,13 +464,13 @@ class dcRestMethods
 			$module = $modules[$id];
 		}
 		elseif ($list == 'plugin-new') {
-			$repository = new dcRepository(
+			$store = new dcStore(
 				$core->plugins, 
-				$core->blog->settings->system->repository_plugin_url
+				$core->blog->settings->system->store_plugin_url
 			);
-			$repository->check();
+			$store->check();
 
-			$modules = $repository->get();
+			$modules = $store->get();
 			if (empty($modules) || !isset($modules[$id])) {
 				throw new Exception('Unknow module ID');
 			}
