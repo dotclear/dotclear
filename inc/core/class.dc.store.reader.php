@@ -18,7 +18,7 @@ if (!defined('DC_RC_PATH')) { return; }
 Provides an object to parse XML feed of modules from repository.
 This class extends clearbricks netHttp class.
 */
-class dcRepositoryReader extends netHttp
+class dcStoreReader extends netHttp
 {
 	/** @var	string	User agent used to query repository */
 	protected $user_agent = 'DotClear.org RepoBrowser/0.1';
@@ -52,7 +52,7 @@ class dcRepositoryReader extends netHttp
 	 * Parse modules feed.
 	 *
 	 * @param	string	$url		XML feed URL
-	 * @return	object	dcRepository instance
+	 * @return	object	dcStore instance
 	 */
 	public function parse($url)
 	{
@@ -65,7 +65,7 @@ class dcRepositoryReader extends netHttp
 			return false;
 		}
 
-		return new dcRepositoryParser($this->getContent());
+		return new dcStoreParser($this->getContent());
 	}
 
 	/**
@@ -122,7 +122,7 @@ class dcRepositoryReader extends netHttp
 	}
 
 	/**
-	 * Set force query reposiory.
+	 * Set force query repository.
 	 *
 	 * @param	boolean	$force	True to force query
 	 */
@@ -201,7 +201,7 @@ class dcRepositoryReader extends netHttp
 				return unserialize(file_get_contents($cached_file));
 			# Ok, parse feed
 			case '200':
-				if ($modules = new dcRepositoryParser($this->getContent())) {
+				if ($modules = new dcStoreParser($this->getContent())) {
 					try {
 						files::makeDir(dirname($cached_file), true);
 					}

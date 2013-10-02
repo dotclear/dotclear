@@ -17,7 +17,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 Provides an object to parse XML feed of modules from a repository.
 */
-class dcRepositoryParser
+class dcStoreParser
 {
 	/** @var	object	XML object of feed contents */
 	protected $xml;
@@ -29,7 +29,7 @@ class dcRepositoryParser
 	/**
 	 * Constructor.
 	 *
-	 * @param	string		Feed content
+	 * @param	string	$data		Feed content
 	 */
 	public function __construct($data)
 	{

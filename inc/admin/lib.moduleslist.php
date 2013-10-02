@@ -15,7 +15,7 @@ class adminModulesList
 {
 	public $core;
 	public $modules;
-	public $repository;
+	public $store;
 
 	public static $allow_multi_install = false;
 	public static $distributed_modules = array();
@@ -46,7 +46,7 @@ class adminModulesList
 	{
 		$this->core = $modules->core;
 		$this->modules = $modules;
-		$this->repository = new dcRepository($modules, $xml_url);
+		$this->store = new dcStore($modules, $xml_url);
 
 		$this->setPathInfo($modules_root);
 		$this->setNavSpecial(__('other'));
@@ -230,6 +230,7 @@ class adminModulesList
 		//not yet implemented
 	}
 
+	/** @todo Use new mesasge system **/
 	public function displayMessage($action)
 	{
 		switch($action) {
@@ -486,13 +487,13 @@ class adminModulesList
 					'<input type="submit" class="delete" name="delete" value="'.__('Delete').'" />';
 				} break;
 
-				# Install (from repository)
+				# Install (from store)
 				case 'install': if ($this->path_writable) {
 					$submits[] = 
 					'<input type="submit" name="install" value="'.__('Install').'" />';
 				} break;
 
-				# Update (from repository)
+				# Update (from store)
 				case 'update': if ($this->path_writable) {
 					$submits[] = 
 					'<input type="submit" name="update" value="'.__('Update').'" />';
@@ -590,7 +591,7 @@ class adminModulesList
 
 			elseif (!empty($_POST['install'])) {
 
-				$updated = $this->repository->get();
+				$updated = $this->store->get();
 				if (!isset($updated[$id])) {
 					throw new Exception(__('No such module.'));
 				}
@@ -603,7 +604,7 @@ class adminModulesList
 				# --BEHAVIOR-- moduleBeforeAdd
 				$this->core->callBehavior($prefix.'BeforeAdd', $module);
 
-				$ret_code = $this->repository->process($module['file'], $dest);
+				$ret_code = $this->store->process($module['file'], $dest);
 
 				# --BEHAVIOR-- moduleAfterAdd
 				$this->core->callBehavior($prefix.'AfterAdd', $module);
@@ -613,7 +614,7 @@ class adminModulesList
 
 			elseif (!empty($_POST['update'])) {
 
-				$updated = $repository->get();
+				$updated = $store->get();
 				if (!isset($updated[$id])) {
 					throw new Exception(__('No such module.'));
 				}
@@ -638,7 +639,7 @@ class adminModulesList
 				# --BEHAVIOR-- moduleBeforeUpdate
 				$this->core->callBehavior($prefix.'BeforeUpdate', $module);
 
-				$this->repository->process($module['file'], $dest);
+				$this->store->process($module['file'], $dest);
 
 				# --BEHAVIOR-- moduleAfterUpdate
 				$this->core->callBehavior($prefix.'AfterUpdate', $module);
@@ -665,13 +666,13 @@ class adminModulesList
 			else {
 				$url = urldecode($_POST['pkg_url']);
 				$dest = $this->getPath().'/'.basename($url);
-				$this->repository->download($url, $dest);
+				$this->store->download($url, $dest);
 			}
 
 			# --BEHAVIOR-- moduleBeforeAdd
 			$this->core->callBehavior($prefix.'BeforeAdd', null);
 
-			$ret_code = $this->repository->install($dest);
+			$ret_code = $this->store->install($dest);
 
 			# --BEHAVIOR-- moduleAfterAdd
 			$this->core->callBehavior($prefix.'AfterAdd', null);
@@ -860,7 +861,7 @@ class adminThemesList extends adminModulesList
 			$parent = $module['parent'];
 			$has_parent = !empty($module['parent']);
 			if ($has_parent) {
-				$is_parent_present = $this->core->themes->moduleExists($parent);
+				$is_parent_present = $this->modules->moduleExists($parent);
 			}
 
 			$line = 

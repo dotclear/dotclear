@@ -15,9 +15,9 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('admin');
 
 # -- "First time" settings setup --
-if ($core->blog->settings->system->repository_theme_url === null) {
+if ($core->blog->settings->system->store_theme_url === null) {
 	$core->blog->settings->system->put(
-		'repository_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true
+		'store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true
 	);
 }
 
@@ -29,7 +29,7 @@ $core->themes->loadModules($core->blog->themes_path, null);
 $list = new adminThemesList(
 	$core->themes, 
 	$core->blog->themes_path,
-	$core->blog->settings->system->repository_theme_url
+	$core->blog->settings->system->store_theme_url
 );
 $list::$distributed_modules = array(
 	'blueSilence',
@@ -131,7 +131,7 @@ if (!empty($_GET['msg'])) {
 if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	# Updated modules from repo
-	$modules = $list->repository->get(true);
+	$modules = $list->store->get(true);
 	if (!empty($modules)) {
 		echo 
 		'<div class="multi-part" id="update" title="'.html::escapeHTML(__('Update themes')).'">'.
@@ -201,7 +201,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	# New modules from repo
 	$search = $list->getSearchQuery();
-	$modules = $search ? $list->repository->search($search) : $list->repository->get();
+	$modules = $search ? $list->store->search($search) : $list->store->get();
 
 	if (!empty($search) || !empty($modules)) {
 		echo

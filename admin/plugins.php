@@ -20,9 +20,9 @@ if ($core->blog->settings->system->plugins_allow_multi_install === null) {
 		'plugins_allow_multi_install', false, 'boolean', 'Allow multi-installation for plugins', true, true
 	);
 }
-if ($core->blog->settings->system->repository_plugin_url === null) {
+if ($core->blog->settings->system->store_plugin_url === null) {
 	$core->blog->settings->system->put(
-		'repository_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true
+		'store_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true
 	);
 }
 
@@ -30,7 +30,7 @@ if ($core->blog->settings->system->repository_plugin_url === null) {
 $list = new adminModulesList(
 	$core->plugins, 
 	DC_PLUGINS_ROOT, 
-	$core->blog->settings->system->repository_plugin_url
+	$core->blog->settings->system->store_plugin_url
 );
 
 $list::$allow_multi_install = $core->blog->settings->system->plugins_allow_multi_install;
@@ -155,7 +155,7 @@ if (!empty($plugins_install['failure'])) {
 if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	# Updated modules from repo
-	$modules = $list->repository->get(true);
+	$modules = $list->store->get(true);
 	if (!empty($modules)) {
 		echo 
 		'<div class="multi-part" id="update" title="'.html::escapeHTML(__('Update plugins')).'">'.
@@ -224,7 +224,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 
 	# New modules from repo
 	$search = $list->getSearchQuery();
-	$modules = $search ? $list->repository->search($search) : $list->repository->get();
+	$modules = $search ? $list->store->search($search) : $list->store->get();
 
 	if (!empty($search) || !empty($modules)) {
 		echo
