@@ -207,7 +207,7 @@ call_user_func($open_f,__('Media manager'),
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			__('Media manager') => html::escapeURL($media_page_url),
+			__('Media manager') => html::escapeURL($media_page_url).'&amp;d=',
 			$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').'<span class="page-title">'.$file->basename.'</span>' => ''
 		),
 		array(
