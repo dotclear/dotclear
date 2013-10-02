@@ -280,28 +280,34 @@ var dotclear = {
 		$(e).append(document.createTextNode(' '));
 
 		$('<a href="#">'+dotclear.msg.select_all+'</a>').click(function() {
-			if (target === undefined) {
-				target = $(e).parents('form').find('input[type="checkbox"]');
+			if (target !== undefined) {
+				target.check();
+			} else {
+				$(e).parents('form').find('input[type="checkbox"]').check();
 			}
-			target.check();
+
 			return false;
 		}).appendTo($(e));
 		$(e).append(document.createTextNode(' | '));
 
 		$('<a href="#">'+dotclear.msg.no_selection+'</a>').click(function() {
-			if (target === undefined) {
-				target = $(e).parents('form').find('input[type="checkbox"]');
+			if (target !== undefined) {
+				target.unCheck();
+			} else {
+				$(e).parents('form').find('input[type="checkbox"]').unCheck();
 			}
-			target.unCheck();
+
 			return false;
 		}).appendTo($(e));
 		$(e).append(document.createTextNode(' - '));
 
 		$('<a href="#">'+dotclear.msg.invert_sel+'</a>').click(function() {
-			if (target === undefined) {
-				target = $(e).parents('form').find('input[type="checkbox"]');
+			if (target !== undefined) {
+				target.toggleCheck();
+			} else {
+				$(e).parents('form').find('input[type="checkbox"]').toggleCheck();
 			}
-			target.toggleCheck();
+
 			return false;
 		}).appendTo($(e));
 	},
