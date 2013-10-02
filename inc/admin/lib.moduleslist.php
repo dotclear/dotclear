@@ -947,7 +947,7 @@ class adminThemesList extends adminModulesList
 
 			if ($current && $has_css) {
 				$line .= 
-				'<p><a href="'.$theme_url.'/style.css" class="button">'.__('View stylesheet').'</a></p>';
+				'<p><a href="'.$theme_url.'/style.css">'.__('View stylesheet').'</a></p>';
 			}
 			if ($current && $has_conf) {
 				$line .= 
