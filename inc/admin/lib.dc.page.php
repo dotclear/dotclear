@@ -175,21 +175,30 @@ class dcPage
 			'</div>';
 		}
 
+		// Display notices
+		echo self::notices();
+	}
+
+	public static function notices()
+	{
+		// return notices if any
+		$res = '';
 		if (isset($_SESSION['notifications'])) {
 			$types = array("success" => "success", "warning" => "warning-msg", "error" => "error");
 			$notifications = $_SESSION['notifications'];
 			foreach ($types as $type => $class) {
 				if (isset($notifications[$type])) {
 					foreach ($notifications[$type] as $n) {
-						echo self::getNotification($n,$class);
+						$res .= self::getNotification($n,$class);
 					}
 				}
 			}
 			unset($_SESSION['notifications']);
 		}
+		return $res;
 	}
 
-	public static function AddNotice($type,$message)
+	public static function addNotice($type,$message)
 	{
 		$notification = isset($_SESSION['notifications']) ? $_SESSION['notifications'] : array();
 		$notification[$type][] = array('ts' => time(), 'text' => $message);
