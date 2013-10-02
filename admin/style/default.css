@@ -1537,15 +1537,6 @@ a.form-control.open {
 	padding: 1em 1em .5em 1em;
 	border: 1px solid #ccc;
 	}
-.box.current-theme {
-	width: 652px;
-	margin: .5em;
-	padding: 1em 0 .5em 1em;
-	background: #FCFDFD;
-	border: 1px solid #9AC123;
-	-webkit-border-radius: .5em;
-		        border-radius: .5em;	
-	}
 #theme-new .box.theme {
 	width: 280px;
 	}
@@ -1561,14 +1552,29 @@ a.form-control.open {
 .module-actions {
 	margin-top: 1em;
 	}
+.bloc-toggler {
+	text-align: right;
+	}
+.box.current-theme {
+	width: 652px;
+	margin: .5em;
+	padding: 1em 0 .5em 1em;
+	background: #FCFDFD;
+	border: 1px solid #9AC123;
+	-webkit-border-radius: .5em;
+	border-radius: .5em;
+	min-height: 330px;	
+	}
 .current-theme .module-sshot img {
 	float: left;
 	margin-right: 2em;
 	margin-bottom: 1em;
 	}
-.bloc-toggler {
-	text-align: center;
-}
+.current-theme .module-name {
+	color: #D33800;
+	margin-bottom: 1em;
+	font-size: 1.33em;
+	}
 /* ------------------------------------------------------------------ categories.php */
 #categories {
 	margin: 1em 0;
