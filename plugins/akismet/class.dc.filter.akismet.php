@@ -116,7 +116,8 @@ class dcFilterAkismet extends dcSpamFilter
 				$blog->settings->addNamespace('akismet');
 				$blog->settings->akismet->put('ak_key',$ak_key,'string');
 				
-				http::redirect($url.'&upd=1');
+				dcPage::addSuccessNotice(__('Filter configuration have been successfully saved.'));
+				http::redirect($url);
 			}
 			catch (Exception $e)
 			{
@@ -134,10 +135,7 @@ class dcFilterAkismet extends dcSpamFilter
 			}
 		}
 
-		$res = '';
-		if (!empty($_GET['upd'])) {
-			$res .= dcPage::success(__('Filter configuration have been successfully saved.'),true,false,false);
-		}
+		$res = dcPage::notices();
 		
 		$res .=
 		'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.

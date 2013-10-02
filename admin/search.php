@@ -14,8 +14,8 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-$q = !empty($_GET['q']) ? $_GET['q'] : (!empty($_GET['qx']) ? $_GET['qx'] : null);
-$qtype = !empty($_GET['qtype']) ? $_GET['qtype'] : 'p';
+$q = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
+$qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
 if ($qtype != 'c' && $qtype != 'p') {
 	$qtype = 'p';
 }
@@ -68,6 +68,19 @@ if ($q)
 	}
 }
 
+if ($qtype == 'p') {
+	$posts_actions_page = new dcPostsActionsPage($core,'search.php',array('q'=>$q,'qtype'=>$qtype));
+
+	if ($posts_actions_page->process()) {
+		return;
+	}
+} else {
+	$comments_actions_page = new dcCommentsActionsPage($core,'search.php',array('q'=>$q,'qtype'=>$qtype));
+
+	if ($comments_actions_page->process()) {
+		return;
+	}
+}
 
 dcPage::open(__('Search'),$starting_scripts,
 	dcPage::breadcrumb(
@@ -94,27 +107,7 @@ if ($q && !$core->error->flag())
 	# Show posts
 	if ($qtype == 'p')
 	{
-		# Actions combo box
-		$combo_action = array();
-		if ($core->auth->check('publish,contentadmin',$core->blog->id))
-		{
-			$combo_action[__('publish')] = 'publish';
-			$combo_action[__('unpublish')] = 'unpublish';
-			$combo_action[__('schedule')] = 'schedule';
-			$combo_action[__('mark as pending')] = 'pending';
-		}
-		$combo_action[__('change category')] = 'category';
-		if ($core->auth->check('admin',$core->blog->id)) {
-			$combo_action[__('change author')] = 'author';
-		}
-		if ($core->auth->check('delete,contentadmin',$core->blog->id))
-		{
-			$combo_action[__('Delete')] = 'delete';
-		}
-		
-		# --BEHAVIOR-- adminPostsActionsCombo
-		$core->callBehavior('adminPostsActionsCombo',array(&$combo_action));
-		
+	
 		if ($counter->f(0) > 0) {
 			printf('<h3>'.
 			($counter->f(0) == 1 ? __('%d entry found') : __('%d entries found')).
@@ -122,7 +115,7 @@ if ($q && !$core->error->flag())
 		}
 		
 		$post_list->display($page,$nb_per_page,
-		'<form action="posts_actions.php" method="post" id="form-entries">'.
+		'<form action="search.php" method="post" id="form-entries">'.
 		
 		'%s'.
 		
@@ -130,10 +123,10 @@ if ($q && !$core->error->flag())
 		'<p class="col checkboxes-helpers"></p>'.
 		
 		'<p class="col right"><label for="action1" class="classic">'.__('Selected entries action:').'</label> '.
-		form::combo(array('action','action1'),$combo_action).
+		form::combo(array('action','action1'),$posts_actions_page->getCombo()).
 		'<input type="submit" value="'.__('ok').'" /></p>'.
-		form::hidden('redir',preg_replace('/%/','%%',$redir)).
 		$core->formNonce().
+		$posts_actions_page->getHiddenFields().
 		'</div>'.
 		'</form>'
 		);
@@ -142,18 +135,6 @@ if ($q && !$core->error->flag())
 	elseif ($qtype == 'c')
 	{
 		# Actions combo box
-		$combo_action = array();
-		if ($core->auth->check('publish,contentadmin',$core->blog->id))
-		{
-			$combo_action[__('publish')] = 'publish';
-			$combo_action[__('unpublish')] = 'unpublish';
-			$combo_action[__('mark as pending')] = 'pending';
-			$combo_action[__('mark as junk')] = 'junk';
-		}
-		if ($core->auth->check('delete,contentadmin',$core->blog->id))
-		{
-			$combo_action[__('Delete')] = 'delete';
-		}
 		
 		if ($counter->f(0) > 0) {
 			printf('<h3>'.
@@ -162,7 +143,7 @@ if ($q && !$core->error->flag())
 		}
 		
 		$comment_list->display($page,$nb_per_page,
-		'<form action="comments_actions.php" method="post" id="form-comments">'.
+		'<form action="search.php" method="post" id="form-comments">'.
 		
 		'%s'.
 		
@@ -170,10 +151,10 @@ if ($q && !$core->error->flag())
 		'<p class="col checkboxes-helpers"></p>'.
 		
 		'<p class="col right"><label for="action2" class="classic">'.__('Selected comments action:').'</label> '.
-		form::combo(array('action','action2'),$combo_action).
+		form::combo(array('action','action2'),$comments_actions_page->getCombo()).
 		'<input type="submit" value="'.__('ok').'" /></p>'.
-		form::hidden('redir',preg_replace('/%/','%%',$redir)).
 		$core->formNonce().
+		$comments_actions_page->getHiddenFields().
 		'</div>'.
 		'</form>'
 		);
