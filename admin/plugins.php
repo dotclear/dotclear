@@ -77,11 +77,6 @@ if ($list->setConfigurationFile()) {
 			))
 	);
 
-	# Message
-	if (!empty($_GET['done'])){
-		dcPage::success(__('Plugin successfully configured.'));
-	}
-
 	# Display previously gathered content
 	$list->getConfigurationContent();
 
@@ -119,11 +114,6 @@ dcPage::open(__('Plugins management'),
 			__('Plugins management') => ''
 		))
 );
-
-# -- Succes messages --
-if (!empty($_GET['msg'])) {
-	$list->displayMessage($_GET['msg']);
-}
 
 # -- Plugins install messages --
 if (!empty($plugins_install['success'])) {

@@ -85,10 +85,6 @@ if ($list->setConfigurationFile($core->blog->settings->system->theme)) {
 			))
 	);
 
-	if (!empty($_GET['done'])){
-		dcPage::success(__('Theme successfully configured.'));
-	}
-
 	# Display previously gathered content
 	$list->getConfigurationContent();
 
@@ -121,10 +117,6 @@ dcPage::open(__('Themes management'),
 			'<span class="page-title">'.__('Blog appearance').'</span>' => ''
 		))
 );
-
-# -- Succes messages --
-if (!empty($_GET['msg'])) {
-	$list->displayMessage($_GET['msg']);
 }
 
 # -- Display modules lists --
