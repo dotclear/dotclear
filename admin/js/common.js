@@ -279,38 +279,37 @@ var dotclear = {
 		$(e).append(document.createTextNode(dotclear.msg.to_select));
 		$(e).append(document.createTextNode(' '));
 
-		target = target || $(e).parents('form').find('input[type="checkbox"]');
-		
-		var a = document.createElement('a');
-		a.href='#';
-		$(a).append(document.createTextNode(dotclear.msg.select_all));
-		a.onclick = function() {
-			target.check();
-			return false;
-		};
-		$(e).append(a);
+		$('<a href="#">'+dotclear.msg.select_all+'</a>').click(function() {
+			if (target !== undefined) {
+				target.check();
+			} else {
+				$(e).parents('form').find('input[type="checkbox"]').check();
+			}
 
+			return false;
+		}).appendTo($(e));
 		$(e).append(document.createTextNode(' | '));
 
-		a = document.createElement('a');
-		a.href='#';
-		$(a).append(document.createTextNode(dotclear.msg.no_selection));
-		a.onclick = function() {
-			target.unCheck();
-			return false;
-		};
-		$(e).append(a);
+		$('<a href="#">'+dotclear.msg.no_selection+'</a>').click(function() {
+			if (target !== undefined) {
+				target.unCheck();
+			} else {
+				$(e).parents('form').find('input[type="checkbox"]').unCheck();
+			}
 
+			return false;
+		}).appendTo($(e));
 		$(e).append(document.createTextNode(' - '));
 
-		a = document.createElement('a');
-		a.href='#';
-		$(a).append(document.createTextNode(dotclear.msg.invert_sel));
-		a.onclick = function() {
-			target.toggleCheck();
+		$('<a href="#">'+dotclear.msg.invert_sel+'</a>').click(function() {
+			if (target !== undefined) {
+				target.toggleCheck();
+			} else {
+				$(e).parents('form').find('input[type="checkbox"]').toggleCheck();
+			}
+
 			return false;
-		};
-		$(e).append(a);
+		}).appendTo($(e));
 	},
 
 	postsActionsHelper: function() {

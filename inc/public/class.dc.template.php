@@ -1210,7 +1210,7 @@ class dcTemplate extends template
 			{
 				$p .=
 				'if ($_ctx->exists("categories")) { '.
-					"\$params['cat_id'] = \$_ctx->categories->cat_id; ".
+					"\$params['cat_id'] = \$_ctx->categories->cat_id.(\$core->blog->settings->system->inc_subcats?' ?sub':'');".
 				"}\n";
 			}
 			

@@ -165,9 +165,13 @@ function dcGetImageTitle($file,$pattern,$dto_first=false)
 	
 	foreach ($pattern as $v) {
 		if ($v == 'Title') {
-			$res[] = $file->media_title;
+			if ($file->media_title != '') {
+				$res[] = $file->media_title;
+			}
 		} elseif ($file->media_meta->{$v}) {
-			$res[] = (string) $file->media_meta->{$v};
+			if ((string) $file->media_meta->{$v} != '') {
+				$res[] = (string) $file->media_meta->{$v};
+			}
 		} elseif (preg_match('/^Date\((.+?)\)$/u',$v,$m)) {
 			if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
 				$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
@@ -203,7 +207,7 @@ call_user_func($open_f,__('Media manager'),
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			__('Media manager') => html::escapeURL($media_page_url),
+			__('Media manager') => html::escapeURL($media_page_url).'&amp;d=',
 			$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').'<span class="page-title">'.$file->basename.'</span>' => ''
 		),
 		array(

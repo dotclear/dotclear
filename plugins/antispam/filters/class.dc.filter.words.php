@@ -69,7 +69,8 @@ class dcFilterWords extends dcSpamFilter
 		{
 			try {
 				$this->defaultWordsList();
-				http::redirect($url.'&list=1');
+				dcPage::addSuccessNotice(__('Words have been successfully added.'));
+				http::redirect($url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
@@ -82,7 +83,8 @@ class dcFilterWords extends dcSpamFilter
 
 			try {
 				$this->addRule($_POST['swa'],$globalsw);
-				http::redirect($url.'&added=1');
+				dcPage::addSuccessNotice(__('Word has been successfully added.'));
+				http::redirect($url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
@@ -93,7 +95,8 @@ class dcFilterWords extends dcSpamFilter
 		{
 			try {
 				$this->removeRule($_POST['swd']);
-				http::redirect($url.'&removed=1');
+				dcPage::addSuccessNotice(__('Words have been successfully removed.'));
+				http::redirect($url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
@@ -101,17 +104,7 @@ class dcFilterWords extends dcSpamFilter
 
 		/* DISPLAY
 		---------------------------------------------- */
-		$res = '';
-
-		if (!empty($_GET['list'])) {
-			$res .= dcPage::message(__('Words have been successfully added.'),true,false,false);
-		}
-		if (!empty($_GET['added'])) {
-			$res .= dcPage::message(__('Word has been successfully added.'),true,false,false);
-		}
-		if (!empty($_GET['removed'])) {
-			$res .= dcPage::message(__('Words have been successfully removed.'),true,false,false);
-		}
+		$res = dcPage::notices();
 
 		$res .=
 		'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.

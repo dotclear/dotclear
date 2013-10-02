@@ -179,7 +179,27 @@ if ($dir && !empty($_FILES['upfile'])) {
 	}
 }
 
-# Removing item
+# Removing items
+if ($dir && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
+	try {
+		foreach ($_POST['medias'] as $media) {
+			$core->media->removeItem(rawurldecode($media));
+		}
+		dcPage::addSuccessNotice(
+			sprintf(__('Successfully delete one media.',
+					   'Successfully delete %d medias.',
+					   count($_POST['medias'])
+					   ),
+					   count($_POST['medias'])
+			)
+		);
+		http::redirect($page_url.'&d='.rawurlencode($d));
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Removing item from popup only
 if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove']))
 {
 	$_POST['remove'] = rawurldecode($_POST['remove']);
@@ -321,12 +341,27 @@ if ($popup) {
 
 
 $items = array_values(array_merge($dir['dirs'],$dir['files']));
+
+$fmt_form_media = '<form action="media.php" method="post" id="form-medias">'.
+	'<div class="files-group">%s</div>'.
+	'<p>'.$core->formNonce() . form::hidden(array('d'),$d).'</p>';
+
+if (!$popup) {
+	$fmt_form_media .=
+	'<div class="two-cols%s">'.
+	'<p class="col checkboxes-helpers"></p>'.
+	'<p class="col right"><input type="submit" class="delete" name="delete_medias" value="'.__('Remove selected medias').'"/></p>'.
+	'</div>';
+}
+$fmt_form_media .=
+	'</form>';
+
 echo '<div class="media-list">';
 if (count($items) == 0)
 {
 	echo 
 	'<p>'.__('No file.').'</p>'.
-	'<div class="files-group"></div>'; // need for jsUpload to append new media 
+	sprintf($fmt_form_media,'',' hide'); // need for jsUpload to append new media
 }
 else
 {
@@ -336,7 +371,7 @@ else
 	'<form action="media.php" method="get">'.
 	'<p><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
 	form::combo('file_sort',$sort_combo,$file_sort).' - '.
-	'<label for="nb_per_page" class="classic">'.__('Number of media displayed per page:').'</label> '.
+	'<label for="nb_per_page" class="classic">'.__('Number of elements displayed per page:').'</label> '.
 	form::field('nb_per_page',5,3,(integer) $nb_per_page).' '.
 	'<input type="submit" value="'.__('OK').'" />'.
 	form::hidden(array('popup'),$popup).
@@ -355,9 +390,10 @@ else
 			$fgroup .= mediaItemLine($items[$i],$j);
 		}
 	}
+	
 	echo 
-		($dgroup != '' ? '<div class="folders-group">'.$dgroup.'</div>' : '').
-		'<div class="files-group">'.$fgroup.'</div>';
+	($dgroup != '' ? '<div class="folders-group">'.$dgroup.'</div>' : '').
+	sprintf($fmt_form_media,$fgroup,'');
 	
 	echo $pager->getLinks();
 }
@@ -550,10 +586,14 @@ function mediaItemLine($f,$i)
 	}
 	
 	if ($f->del) {
-		$act .= '<a class="media-remove" '.
-		'href="'.html::escapeURL($page_url).'&amp;d='.
-		rawurlencode($GLOBALS['d']).'&amp;remove='.rawurlencode($f->basename).'">'.
-		'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
+		if (!$popup && !$f->d) {
+			$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($f->basename)),rawurlencode($f->basename));
+		} else {
+			$act .= '<a class="media-remove" '.
+			'href="'.html::escapeURL($page_url).'&amp;d='.
+			rawurlencode($GLOBALS['d']).'&amp;remove='.rawurlencode($f->basename).'">'.
+			'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
+		}
 	}
 	
 	$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
