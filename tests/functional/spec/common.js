@@ -80,4 +80,57 @@ describe("Others common methods (admin/js/common.js)", function() {
 			expect(window.confirm).not.toHaveBeenCalled();
 		});
 	});
+
+	describe("checkboxesHelpers", function() {
+		it("Must add links to select all,none or invert selection", function() {
+			loadFixtures('entries_list.html');
+			dotclear.checkboxesHelpers($('.checkboxes-helpers', '#form-entries'));
+
+			expect($('.checkboxes-helpers a', '#form-entries').length).toBe(3);
+			expect($('.checkboxes-helpers a:eq(0)', '#form-entries').text()).toBe(dotclear.msg.select_all);
+			expect($('.checkboxes-helpers a:eq(1)', '#form-entries').text()).toBe(dotclear.msg.no_selection);
+			expect($('.checkboxes-helpers a:eq(2)', '#form-entries').text()).toBe(dotclear.msg.invert_sel);
+		});
+
+		it("Click all must select all checkboxes", function() {
+			loadFixtures('entries_list.html');
+			dotclear.checkboxesHelpers($('.checkboxes-helpers', '#form-entries'));
+			
+			$('.checkboxes-helpers a:eq(0)').click();
+			expect($('#form-entries input[name="entries[]"]:checked').length).toBe(4);
+		});
+
+		it("Click 'no selection'  must uncheck all checkboxes", function() {
+			loadFixtures('entries_list.html');
+			dotclear.checkboxesHelpers($('.checkboxes-helpers', '#form-entries'));
+
+			$('input[name="entries[]"]:eq(1)').click();
+			$('input[name="entries[]"]:eq(3)').click();
+			$('.checkboxes-helpers a:eq(1)').click();
+			expect($('#form-entries input[name="entries[]"]:checked').length).toBe(0);
+		});
+
+		it("Click invert must select all uncheck checkboxes", function() {
+			loadFixtures('entries_list.html');
+			dotclear.checkboxesHelpers($('.checkboxes-helpers', '#form-entries'));
+			
+			$('input[name="entries[]"]:eq(1)').click();
+			$('.checkboxes-helpers a:eq(2)').click();
+			expect($('#form-entries input[name="entries[]"]:checked').length).toBe(3);
+			expect($('input[name="entries[]"]:eq(0)')).toBeChecked();
+			expect($('input[name="entries[]"]:eq(1)')).not.toBeChecked();
+			expect($('input[name="entries[]"]:eq(2)')).toBeChecked();
+			expect($('input[name="entries[]"]:eq(3)')).toBeChecked();
+		});
+
+		it("Must take in consideration checkbox added dynamically", function() {
+			loadFixtures('entries_list.html');
+			dotclear.checkboxesHelpers($('.checkboxes-helpers', '#form-entries'));
+
+			$('<li><input type="checkbox" name="entries[]" value="5"/><p>title 5</p></li>').appendTo('#form-entries ul');
+
+			$('.checkboxes-helpers a:eq(0)').click();
+			expect($('#form-entries input[name="entries[]"]:checked').length).toBe(5);
+		});
+	});
 });

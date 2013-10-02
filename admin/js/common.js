@@ -279,38 +279,31 @@ var dotclear = {
 		$(e).append(document.createTextNode(dotclear.msg.to_select));
 		$(e).append(document.createTextNode(' '));
 
-		target = target || $(e).parents('form').find('input[type="checkbox"]');
-		
-		var a = document.createElement('a');
-		a.href='#';
-		$(a).append(document.createTextNode(dotclear.msg.select_all));
-		a.onclick = function() {
+		$('<a href="#">'+dotclear.msg.select_all+'</a>').click(function() {
+			if (target === undefined) {
+				target = $(e).parents('form').find('input[type="checkbox"]');
+			}
 			target.check();
 			return false;
-		};
-		$(e).append(a);
-
+		}).appendTo($(e));
 		$(e).append(document.createTextNode(' | '));
 
-		a = document.createElement('a');
-		a.href='#';
-		$(a).append(document.createTextNode(dotclear.msg.no_selection));
-		a.onclick = function() {
+		$('<a href="#">'+dotclear.msg.no_selection+'</a>').click(function() {
+			if (target === undefined) {
+				target = $(e).parents('form').find('input[type="checkbox"]');
+			}
 			target.unCheck();
 			return false;
-		};
-		$(e).append(a);
-
+		}).appendTo($(e));
 		$(e).append(document.createTextNode(' - '));
 
-		a = document.createElement('a');
-		a.href='#';
-		$(a).append(document.createTextNode(dotclear.msg.invert_sel));
-		a.onclick = function() {
+		$('<a href="#">'+dotclear.msg.invert_sel+'</a>').click(function() {
+			if (target === undefined) {
+				target = $(e).parents('form').find('input[type="checkbox"]');
+			}
 			target.toggleCheck();
 			return false;
-		};
-		$(e).append(a);
+		}).appendTo($(e));
 	},
 
 	postsActionsHelper: function() {

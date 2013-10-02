@@ -19,3 +19,7 @@ dotclear.jsUpload.msg.file_successfully_uploaded = 'file succesfully uploaded';
 dotclear.msg.enhanced_uploader_activate = 'Temporarily activate enhanced uploader';
 dotclear.msg.enhanced_uploader_disable = 'Temporarily disable enhanced uploader';
 
+dotclear.msg.to_select = 'Select:';
+dotclear.msg.select_all = 'select all';
+dotclear.msg.no_selection = 'no selection';
+dotclear.msg.invert_sel = 'invert selection';
