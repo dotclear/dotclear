@@ -117,7 +117,6 @@ dcPage::open(__('Themes management'),
 			'<span class="page-title">'.__('Blog appearance').'</span>' => ''
 		))
 );
-}
 
 # -- Display modules lists --
 if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
