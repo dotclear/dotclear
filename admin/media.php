@@ -371,7 +371,7 @@ else
 	'<form action="media.php" method="get">'.
 	'<p><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
 	form::combo('file_sort',$sort_combo,$file_sort).' - '.
-	'<label for="nb_per_page" class="classic">'.__('Number of media displayed per page:').'</label> '.
+	'<label for="nb_per_page" class="classic">'.__('Number of elements displayed per page:').'</label> '.
 	form::field('nb_per_page',5,3,(integer) $nb_per_page).' '.
 	'<input type="submit" value="'.__('OK').'" />'.
 	form::hidden(array('popup'),$popup).
