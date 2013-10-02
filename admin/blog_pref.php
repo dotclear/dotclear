@@ -234,6 +234,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
 		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
+		$blog_settings->system->put('inc_subcats',!empty($_POST['inc_subcats']));
 		$blog_settings->system->put('media_img_t_size',$media_img_t_size);
 		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
@@ -527,6 +528,10 @@ if ($blog_id)
 	'<p><label for="short_feed_items" class="classic">'.
 	form::checkbox('short_feed_items','1',$blog_settings->system->short_feed_items).
 	__('Truncate feeds').'</label></p>'.
+	
+	'<p><label for="inc_subcats" class="classic">'.
+	form::checkbox('inc_subcats','1',$blog_settings->system->inc_subcats).
+	__('Include sub-categories in category page and category posts feed').'</label></p>'.
 	'</div>'.
     '</div>'.
 	'<br class="clear" />'. //Opera sucks

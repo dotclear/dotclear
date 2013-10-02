@@ -49,6 +49,7 @@ $__widgets->langs->setting('class',__('CSS class:'),'');
 $__widgets->create('categories',__('Categories'),array('defaultWidgets','categories'),null,'List of categories');
 $__widgets->categories->setting('title',__('Title:'),__('Categories'));
 $__widgets->categories->setting('postcount',__('With entries counts'),0,'check');
+$__widgets->categories->setting('subcatscount', __('Include sub cats in count'), false, 'check');
 $__widgets->categories->setting('with_empty',__('Include empty categories'),0,'check');
 $__widgets->categories->setting('homeonly',__('Display on:'),0,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
