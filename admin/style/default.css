@@ -1200,6 +1200,9 @@ table .count {
 th.first img {
 	padding-right: 34px;
 	}
+.line img {
+	vertical-align: middle;
+	}
 tr.line img.expand, th img.expand {
 	margin-right: 6px;
 	margin-bottom: -2px;
@@ -1523,9 +1526,9 @@ a.form-control.open {
 			}
 			li.user_super, li.user_admin {
 				margin-left: 0;
-				padding-left: 1em;
+				padding-left: 20px;
 				list-style: none;
-				background: transparent url(../images/superadmin.png) no-repeat -2px 2px;
+				background: transparent url(../images/superadmin.png) no-repeat 0 .3em;
 				}
 			li.user_admin {
 				background-image: url(../images/admin.png);
