@@ -230,28 +230,6 @@ class adminModulesList
 		//not yet implemented
 	}
 
-	/** @todo Use new mesasge system **/
-	public function displayMessage($action)
-	{
-		switch($action) {
-			case 'activate': 
-				$str = __('Module successfully activated.'); break;
-			case 'deactivate': 
-				$str = __('Module successfully deactivated.'); break;
-			case 'delete': 
-				$str = __('Module successfully deleted.'); break;
-			case 'install': 
-				$str = __('Module successfully installed.'); break;
-			case 'update': 
-				$str = __('Module successfully updated.'); break;
-			default:
-				$str = ''; break;
-		}
-		if (!empty($str)) {
-			dcPage::success($str);
-		}
-	}
-
 	public function setModules($modules)
 	{
 		$this->data = array();
@@ -531,7 +509,8 @@ class adminModulesList
 				# --BEHAVIOR-- moduleAfterActivate
 				$this->core->callBehavior($prefix.'AfterActivate', $id);
 
-				http::redirect($this->getPageURL('msg=activate'));
+				dcPage::addSuccessNotice(__('Module has been successfully activated.'));
+				http::redirect($this->getPageURL());
 			}
 
 			elseif (!empty($_POST['deactivate'])) {
@@ -555,7 +534,8 @@ class adminModulesList
 				# --BEHAVIOR-- moduleAfterDeactivate
 				$this->core->callBehavior($prefix.'AfterDeactivate', $module);
 
-				http::redirect($this->getPageURL('msg=deactivate'));
+				dcPage::addSuccessNotice(__('Module has been successfully deactivated.'));
+				http::redirect($this->getPageURL());
 			}
 
 			elseif (!empty($_POST['delete'])) {
@@ -586,7 +566,8 @@ class adminModulesList
 					$this->modules->deleteModule($id, true);
 				}
 
-				http::redirect($this->getPageURL('msg=delete'));
+				dcPage::addSuccessNotice(__('Module has been successfully deleted.'));
+				http::redirect($this->getPageURL());
 			}
 
 			elseif (!empty($_POST['install'])) {
@@ -609,7 +590,11 @@ class adminModulesList
 				# --BEHAVIOR-- moduleAfterAdd
 				$this->core->callBehavior($prefix.'AfterAdd', $module);
 
-				http::redirect($this->getPageURL('msg='.($ret_code == 2 ? 'update' : 'install')));
+				dcPage::addSuccessNotice($ret_code == 2 ?
+					__('Module has been successfully updated.') :
+					__('Module has been successfully installed.')
+				);
+				http::redirect($this->getPageURL());
 			}
 
 			elseif (!empty($_POST['update'])) {
@@ -644,7 +629,8 @@ class adminModulesList
 				# --BEHAVIOR-- moduleAfterUpdate
 				$this->core->callBehavior($prefix.'AfterUpdate', $module);
 
-				http::redirect($this->getPageURL('msg=upadte'));
+				dcPage::addSuccessNotice(__('Module has been successfully updated.'));
+				http::redirect($this->getPageURL());
 			}
 		}
 		# Manual actions
@@ -677,7 +663,11 @@ class adminModulesList
 			# --BEHAVIOR-- moduleAfterAdd
 			$this->core->callBehavior($prefix.'AfterAdd', null);
 
-			http::redirect($this->getPageURL('msg='.($ret_code == 2 ? 'update' : 'install')).'#'.$prefix);
+			dcPage::addSuccessNotice($ret_code == 2 ?
+				__('Module has been successfully updated.') :
+				__('Module has been successfully installed.')
+			);
+			http::redirect($this->getPageURL().'#'.$prefix);
 		}
 
 		return null;
@@ -1041,7 +1031,8 @@ class adminThemesList extends adminModulesList
 				$this->core->blog->settings->system->put('theme',$id);
 				$this->core->blog->triggerBlog();
 
-				http::redirect($this->getPageURL('msg=select').'#themes');
+				dcPage::addSuccessNotice(__('Module has been successfully selected.'));
+				http::redirect($this->getPageURL().'#themes');
 			}
 		}
 
