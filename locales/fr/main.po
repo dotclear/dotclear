@@ -1550,6 +1550,10 @@ msgstr "Fichier invalide"
 msgid "Are you sure to delete this media?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce média ?"
 
+#, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr "Êtes-vous sûr de vouloir supprimer les médias sélectionnés (%d) ?"
+
 msgid "File has been successfully updated."
 msgstr "Fichier mis à jour avec succès."
 
@@ -1603,6 +1607,14 @@ msgstr "Insérer"
 
 msgid "Media details"
 msgstr "Détails du média"
+
+msgid "Remove selected medias"
+msgstr "Suppression des médias sélectionnés"
+
+msgid "Successfully delete one media."
+msgid_plural "Successfully delete %d medias."
+msgstr[0] "Suppression d'un média avec succès."
+msgstr[1] "Suppression de %d médias avec succès."
 
 msgid "Available sizes:"
 msgstr "Tailles disponibles :"
