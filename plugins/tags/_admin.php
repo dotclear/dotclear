@@ -47,6 +47,7 @@ class tagsBehaviors
 			'url' => 'plugin.php?p=tags&amp;m=tags',
 			'small-icon' => 'index.php?pf=tags/icon.png',
 			'large-icon' => 'index.php?pf=tags/icon-big.png',
+			'permissions' => 'usage,contentadmin'
 		));
 	}
 
