@@ -1449,6 +1449,9 @@ a.form-control.open {
 		display: inline-block;
 		text-align: center;
 		}
+        .no-js .outgoing img {
+                display: none;
+        }
 	#dashboard-boxes .box {
 		padding: 10px;
 		border:	1px solid #ccc;
