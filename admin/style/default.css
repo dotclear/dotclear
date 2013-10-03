@@ -1108,7 +1108,7 @@ h1 {
 		overflow: auto;
 		}
 #help-button {
-	background: transparent url(../images/page_help.png) no-repeat 6px center;
+	background: transparent url(help-mini.png) no-repeat 6px center;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -1901,7 +1901,7 @@ div.template-upload {
 	padding: 4px 4px 0 20px;
 	}
 .modules a.module-support {
-	background: transparent url(../images/page_help.png) no-repeat 2px 2px;
+	background: transparent url(help12.png) no-repeat 2px 2px;
 	padding: 4px 4px 0 20px;
 	}
 #m_search {	

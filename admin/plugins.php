@@ -228,7 +228,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		echo
 		'<div class="multi-part" id="new" title="'.__('Add plugins').'">'.
 		'<h3>'.__('Add plugins from repository').'</h3>'.
-		'<p>'.__('You can search and install plugins directly from repository.').'</p>';
+		'<p>'.__('Search and install plugins directly from repository.').'</p>';
 
 		$list
 			->initList('plugin-new')
