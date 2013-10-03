@@ -33,8 +33,7 @@ function antispamDashboardFavorites($core,$favs)
 		'url' => 'plugin.php?p=antispam',
 		'small-icon' => 'index.php?pf=antispam/icon.png',
 		'large-icon' => 'index.php?pf=antispam/icon-big.png',
-		'permissions' => 'admin',
-		'dashboard_cb' => 'antispamDashboard')
+		'permissions' => 'admin')
 	);
 }
 
