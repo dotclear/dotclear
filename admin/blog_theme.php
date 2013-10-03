@@ -61,13 +61,13 @@ if (!empty($_GET['shot']) && $list->modules->moduleExists($_GET['shot'])) {
 }
 
 # -- Display module configuration page --
-if ($list->setConfigurationFile($core->blog->settings->system->theme)) {
+if ($list->setConfiguration($core->blog->settings->system->theme)) {
 
 	# Get content before page headers
-	include $list->getConfigurationFile();
+	include $list->includeConfiguration();
 
 	# Gather content
-	$list->setConfigurationContent();
+	$list->getConfiguration();
 
 	# Display page
 	dcPage::open(__('Blog appearance'),
@@ -80,13 +80,13 @@ if ($list->setConfigurationFile($core->blog->settings->system->theme)) {
 		dcPage::breadcrumb(
 			array(
 				html::escapeHTML($core->blog->name) => '',
-				__('Blog appearance') => 'blog_theme.php',
+				__('Blog appearance') => $list->getURL('',false),
 				'<span class="page-title">'.__('Theme configuration').'</span>' => ''
 			))
 	);
 
 	# Display previously gathered content
-	$list->getConfigurationContent();
+	$list->displayConfiguration();
 
 	dcPage::close();
 
@@ -106,7 +106,7 @@ catch (Exception $e) {
 dcPage::open(__('Themes management'),
 	dcPage::jsLoad('js/_blog_theme.js').
 	dcPage::jsPageTabs().
-	dcPage::jsColorPicker(),
+	dcPage::jsColorPicker().
 
 	# --BEHAVIOR-- themesToolsHeaders
 	$core->callBehavior('themesToolsHeaders', $core, false),
@@ -119,7 +119,7 @@ dcPage::open(__('Themes management'),
 );
 
 # -- Display modules lists --
-if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
+if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
 	# Updated modules from repo
 	$modules = $list->store->get(true);
@@ -128,84 +128,93 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 		'<div class="multi-part" id="update" title="'.html::escapeHTML(__('Update themes')).'">'.
 		'<h3>'.html::escapeHTML(__('Update themes')).'</h3>'.
 		'<p>'.sprintf(
-			__('There is one theme to update available from %2$s.', 'There are %s themes to update available from %s.', count($modules)),
-			count($modules),
-			'<a href="http://dotaddict.org/dc2/themes">Dotaddict</a>'
+			__('There is one theme to update available from repository.', 'There are %s themes to update available from repository.', count($modules)),
+			count($modules)
 		).'</p>';
 
 		$list
-			->newList('theme-update')
+			->initList('theme-update')
+			->setTab('themes')
 			->setModules($modules)
-			->setPageTab('themes')
-			->displayModulesList(
+			->displayModules(
 				/*cols */		array('sshot', 'name', 'desc', 'author', 'version', 'current_version', 'parent'),
 				/* actions */	array('update', 'delete')
 			);
 
 		echo
+		'<p class="info vertical-separator">'.sprintf(
+			__("Visit %s repository, the resources center for Dotclear."),
+			'<a href="http://dotaddict.org/dc2/themes">Dotaddict</a>'
+			).
+		'</p>'.
+
 		'</div>';
 	}
 }
 
-# List all active plugins
-echo
-'<div class="multi-part" id="themes" title="'.__('Installed themes').'">';
-
+# Activated modules
 $modules = $list->modules->getModules();
 if (!empty($modules)) {
 
 	echo
-	'<h3>'.__('Activated themes').'</h3>'.
-	'<p>'.__('Manage installed themes from this list.').'</p>';
+	'<div class="multi-part" id="themes" title="'.__('Installed themes').'">'.
+	'<h3>'.__('Installed themes').'</h3>'.
+	'<p>'.__('You can configure and manage installed themes from this list.').'</p>';
 
 	$list
-		->newList('theme-activate')
+		->initList('theme-activate')
+		->setTab('themes')
 		->setModules($modules)
-		->setPageTab('themes')
-		->displayModulesList(
+		->displayModules(
 			/* cols */		array('sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'),
 			/* actions */	array('select', 'deactivate', 'delete')
 		);
+
+	echo 
+	'</div>';
 }
 
+# Deactivated modules
 $modules = $list->modules->getDisabledModules();
 if (!empty($modules)) {
 
 	echo
+	'<div class="multi-part" id="deactivate" title="'.__('Deactivated themes').'">'.
 	'<h3>'.__('Deactivated themes').'</h3>'.
 	'<p>'.__('Deactivated themes are installed but not usable. You can activate them from here.').'</p>';
 
 	$list
-		->newList('theme-deactivate')
+		->initList('theme-deactivate')
+		->setTab('themes')
 		->setModules($modules)
-		->setPageTab('themes')
-		->displayModulesList(
+		->displayModules(
 			/* cols */		array('name', 'distrib'),
 			/* actions */	array('activate', 'delete')
 		);
+
+	echo 
+	'</div>';
 }
 
-echo 
-'</div>';
-
-if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
+if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
 	# New modules from repo
-	$search = $list->getSearchQuery();
+	$search = $list->getSearch();
 	$modules = $search ? $list->store->search($search) : $list->store->get();
 
 	if (!empty($search) || !empty($modules)) {
 		echo
-		'<div class="multi-part" id="new" title="'.__('Add themes from Dotaddict').'">'.
-		'<h3>'.__('Add themes from Dotaddict repository').'</h3>';
+		'<div class="multi-part" id="new" title="'.__('Add themes').'">'.
+		'<h3>'.__('Add themes from repository').'</h3>'.
+		'<p>'.__('You can search and install themes directly from repository.').'</p>';
 
 		$list
-			->newList('theme-new')
+			->initList('theme-new')
+			->setTab('new')
 			->setModules($modules)
-			->setPageTab('new')
-			->displaySearchForm()
-			->displayNavMenu()
-			->displayModulesList(
+			->displaySearch()
+			->displayIndex()
+			->displayModules(
 				/* cols */		array('expander', 'sshot', 'name', 'score', 'config', 'desc', 'author', 'version', 'parent', 'details', 'support'),
 				/* actions */	array('install'),
 				/* nav limit */	true
@@ -224,6 +233,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 	# Add a new plugin
 	echo
 	'<div class="multi-part" id="addtheme" title="'.__('Install or upgrade manually').'">'.
+	'<h3>'.__('Add themes from a package').'</h3>'.
 	'<p>'.__('You can install themes by uploading or downloading zip files.').'</p>';
 
 	$list->displayManualForm();
