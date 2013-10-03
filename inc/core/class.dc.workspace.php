@@ -126,7 +126,36 @@ class dcWorkspace
 		
 		return null;
 	}
+
+	/**
+	Returns global pref value if exists.
 	
+	@param	n		<b>string</b>		Pref name
+	@return	<b>mixed</b>
+	*/
+	public function getGlobal($n)
+	{
+		if (isset($this->global_prefs[$n]['value'])) {
+			return $this->global_prefs[$n]['value'];
+		}
+		
+		return null;
+	}
+	
+	/**
+	Returns local pref value if exists.
+	
+	@param	n		<b>string</b>		Pref name
+	@return	<b>mixed</b>
+	*/
+	public function getLocal($n)
+	{
+		if (isset($this->local_prefs[$n]['value'])) {
+			return $this->local_prefs[$n]['value'];
+		}
+		
+		return null;
+	}	
 	/**
 	Magic __get method.
 	@copydoc ::get

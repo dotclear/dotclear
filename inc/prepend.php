@@ -45,6 +45,7 @@ $__autoload['dcXmlRpc']				= dirname(__FILE__).'/core/class.dc.xmlrpc.php';
 $__autoload['dcLog']				= dirname(__FILE__).'/core/class.dc.log.php';
 $__autoload['dcWorkspace']			= dirname(__FILE__).'/core/class.dc.workspace.php';
 $__autoload['dcPrefs']				= dirname(__FILE__).'/core/class.dc.prefs.php';
+$__autoload['dcFavorites']			= dirname(__FILE__).'/admin/class.dC.favorites.php';
 
 $__autoload['rsExtPost']				= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 $__autoload['rsExtComment']			= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
