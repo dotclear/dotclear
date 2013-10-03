@@ -206,7 +206,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		echo
 		'<div class="multi-part" id="new" title="'.__('Add themes').'">'.
 		'<h3>'.__('Add themes from repository').'</h3>'.
-		'<p>'.__('You can search and install themes directly from repository.').'</p>';
+		'<p>'.__('Search and install themes directly from repository.').'</p>';
 
 		$list
 			->initList('theme-new')
