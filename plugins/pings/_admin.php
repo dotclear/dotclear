@@ -36,12 +36,15 @@ $core->addBehavior('adminPostFormItems',array('pingsBehaviors','pingsFormItems')
 $core->addBehavior('adminAfterPostCreate',array('pingsBehaviors','doPings'));
 $core->addBehavior('adminAfterPostUpdate',array('pingsBehaviors','doPings'));
 
-$core->addBehavior('adminDashboardFavs','pingDashboardFavs');
+$core->addBehavior('adminDashboardFavorites','pingDashboardFavorites');
 
-function pingDashboardFavs($core,$favs)
+function pingDashboardFavorites($core,$favs)
 {
-	$favs['pings'] = new ArrayObject(array('pings','Pings','plugin.php?p=pings',
-		'index.php?pf=pings/icon.png','index.php?pf=pings/icon-big.png',
-		null,null,null));
+	$favs->register('pings', array(
+		'title' => __('Pings'),
+		'url' => 'plugin.php?p=pings',
+		'small-icon' => 'index.php?pf=pings/icon.png',
+		'large-icon' => 'index.php?pf=pings/icon-big.png',
+	));
 }
 ?>
