@@ -106,11 +106,15 @@ class dcFavorites
 			$fattr = $this->fav_defs[$p];
 		}
 		$fattr = array_merge (array('id' => null,'class'=>null),$fattr);
-		if (!isset($fattr['permissions']) || $this->core->auth->check($fattr['permissions'],$this->core->blog->id)) {
-			return $fattr;
-		} else {
-			return false;
+		if (isset($fattr['permissions'])) {
+			if (is_bool($fattr['permissions']) && !$fattr['permissions'] ) {
+				return false;
+			}
+			if (!$this->core->auth->check($fattr['permissions'],$this->core->blog->id)) {
+				return false;
+			}
 		}
+		return $fattr;
 	}
 	
    /**
