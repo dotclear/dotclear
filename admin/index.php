@@ -147,7 +147,7 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 			$i = 1;
 			foreach ($feed->items as $item)
 			{
-				$dt = isset($item->link) ? '<a href="'.$item->link.'" title="'.$item->title.' ('.__('new window').')">'.
+				$dt = isset($item->link) ? '<a href="'.$item->link.'" class="outgoing" title="'.$item->title.'">'.
 					$item->title.' <img src="images/outgoing-blue.png" alt="" /></a>' : $item->title;
 			
 				if ($i < 3) {
@@ -178,7 +178,7 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
 		$doc_links = '<div class="box small dc-box"><h3>'.__('Documentation and support').'</h3><ul>';
 	
 		foreach ($__resources['doc'] as $k => $v) {
-			$doc_links .= '<li><a href="'.$v.'" title="'.$k.' ('.__('new window').')">'.$k.
+			$doc_links .= '<li><a class="outgoing" href="'.$v.'" title="'.$k.'">'.$k.
 			' <img src="images/outgoing-blue.png" alt="" /></a></li>';
 		}
 	

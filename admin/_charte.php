@@ -41,6 +41,7 @@ dcPage::check('usage,contentadmin');
 		dotclear.img_minus_alt = 'cacher';
 		dotclear.img_menu_on = 'images/menu_on.png';
 		dotclear.img_menu_off = 'images/menu_off.png';
+		dotclear.msg.new_window = 'nouvelle fenêtre';
 	//]]>
 	</script>
 	<script type="text/javascript">
@@ -331,7 +332,7 @@ dcPage::check('usage,contentadmin');
 						<input type="hidden" value="aboutConfig" name="p" />
 					</p>
 				<h3 id="prevnext">Navigation contextuelle</h3>
-					<p><a title="Titre du lien (nouvelle fenêtre)" onclick="window.open(this.href);return false;" href="http://fr.dotclear.org/blog" class="onblog_link">Lien vers le blog <img alt="" src="images/outgoing-blue.png" /></a></p>
+					<p><a title="Titre du lien" href="http://fr.dotclear.org/blog" class="onblog_link outgoing">Lien vers le blog <img alt="" src="images/outgoing-blue.png" /></a></p>
 					<p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
 
 				<h2>Tableaux</h2>

@@ -239,6 +239,7 @@ jQuery.fn.helpViewer = function() {
 	return this;
 };
 
+
 /* Dotclear common object
 -------------------------------------------------------- */
 var dotclear = {
@@ -402,6 +403,14 @@ $(function() {
 		if (this.nodeType==8) {
 			$('#footer a[href!="help.php"]').attr('title', $('#footer a[href!="help.php"]').attr('title') + this.data );
 		}
+	});
+
+	// manage outgoing links
+	$('.outgoing').each(function() {
+		$(this).prop('title',$(this).attr('title')+' ('+dotclear.msg.new_window+')');
+	}).click(function(e) {
+		e.preventDefault();
+		window.open($(this).attr('href'));
 	});
 
 	// Blog switcher
