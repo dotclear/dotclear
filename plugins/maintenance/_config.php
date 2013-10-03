@@ -51,49 +51,50 @@ if (!empty($_POST['save'])) {
 				$t->blog()
 			);
 		}
-		
-		http::redirect($list->getPageURL('module=maintenance&conf=1&done=1'));
+
+		dcPage::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
+		http::redirect($list->getURL('module=maintenance&conf=1'));
 	}
 	catch(Exception $e) {
 		$core->error->add($e->getMessage());
 	}
 }
 
-	echo 
-	'<p>'.__('Setup alert for maintenance task.').'</p>'.
+echo 
+'<p>'.__('Set up reminders for maintenance tasks.').'</p>'.
 
-	'<h4 class="pretty-title">'.__('Activation').'</h4>'.
-	'<p><label for="settings_plugin_message" class="classic">'.
-	form::checkbox('settings_plugin_message', 1, $core->blog->settings->maintenance->plugin_message).
-	__('Display alert messages on late tasks').'</label></p>'.
+'<h4 class="pretty-title">'.__('Activation').'</h4>'.
+'<p><label for="settings_plugin_message" class="classic">'.
+form::checkbox('settings_plugin_message', 1, $core->blog->settings->maintenance->plugin_message).
+__('Display alert messages on late tasks').'</label></p>'.
 
-	'<p class="info">'.sprintf(
-		__('You can place list of late tasks on your %s.'),
-		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
-	).'</p>'.
+'<p class="info">'.sprintf(
+	__('You can place list of late tasks on your %s.'),
+	'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
+).'</p>'.
 
-	'<h4 class="pretty-title vertical-separator">'.__('Frequency').'</h4>'.
+'<h4 class="pretty-title vertical-separator">'.__('Frequency').'</h4>'.
 
-	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_all'), 'all').' '.
-	'<label class="classic" for="settings_recall_all">'.
-	'<strong>'.__('Use one recall time for all tasks').'</strong></label>'.
+'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_all'), 'all').' '.
+'<label class="classic" for="settings_recall_all">'.
+'<strong>'.__('Use one recall time for all tasks').'</strong></label>'.
 
-	'<p class="field wide vertical-separator"><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
-	form::combo('settings_recall_time', $combo_ts, 'seperate', 'recall-for-all').
+'<p class="field wide vertical-separator"><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
+form::combo('settings_recall_time', $combo_ts, 'seperate', 'recall-for-all').
+'</p>'.
+
+'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_separate'), 'separate', 1).' '.
+'<label class="classic" for="settings_recall_separate">'.
+'<strong>'.__('Use one recall time per task').'</strong></label>';
+
+foreach($tasks as $t)
+{
+	echo
+	'<div class="two-boxes">'.
+
+	'<p class="field wide"><label for="settings_ts_'.$t->id().'">'.$t->task().'</label>'.
+	form::combo('settings_ts_'.$t->id(), $combo_ts, $t->ts(), 'recall-per-task').
 	'</p>'.
 
-	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_separate'), 'separate', 1).' '.
-	'<label class="classic" for="settings_recall_separate">'.
-	'<strong>'.__('Use one recall time per task').'</strong></label>';
-
-	foreach($tasks as $t)
-	{
-		echo
-		'<div class="two-boxes">'.
-
-		'<p class="field wide"><label for="settings_ts_'.$t->id().'">'.$t->task().'</label>'.
-		form::combo('settings_ts_'.$t->id(), $combo_ts, $t->ts(), 'recall-per-task').
-		'</p>'.
-
-		'</div>';
-	}
+	'</div>';
+}

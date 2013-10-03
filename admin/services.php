@@ -484,7 +484,7 @@ class dcRestMethods
 			throw new Exception('Unknow module ID');
 		}
 
-		$module = adminModulesList::parseModuleInfo($id, $module);
+		$module = adminModulesList::sanitizeModule($id, $module);
 
 		$rsp = new xmlTag('module');
 		$rsp->id = $id;

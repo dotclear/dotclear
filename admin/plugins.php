@@ -55,13 +55,13 @@ $list::$distributed_modules = array(
 );
 
 # -- Display module configuration page --
-if ($list->setConfigurationFile()) {
+if ($list->setConfiguration()) {
 
 	# Get content before page headers
-	include $list->getConfigurationFile();
+	include $list->includeConfiguration();
 
 	# Gather content
-	$list->setConfigurationContent();
+	$list->getConfiguration();
 
 	# Display page
 	dcPage::open(__('Plugins management'),
@@ -72,13 +72,13 @@ if ($list->setConfigurationFile()) {
 		dcPage::breadcrumb(
 			array(
 				html::escapeHTML($core->blog->name) => '',
-				'<a href="'.$list->getPageURL().'">'.__('Plugins management').'</a>' => '',
+				__('Plugins management') => $list->getURL('',false),
 				'<span class="page-title">'.__('Plugin configuration').'</span>' => ''
 			))
 	);
 
 	# Display previously gathered content
-	$list->getConfigurationContent();
+	$list->displayConfiguration();
 
 	dcPage::close();
 
@@ -124,8 +124,8 @@ if (!empty($plugins_install['success'])) {
 		echo 
 		'<li>'.$k.'</li>';
 	}
-	echo 
 
+	echo 
 	'</ul></div>';
 }
 if (!empty($plugins_install['failure'])) {
@@ -142,7 +142,7 @@ if (!empty($plugins_install['failure'])) {
 }
 
 # -- Display modules lists --
-if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
+if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
 	# Updated modules from repo
 	$modules = $list->store->get(true);
@@ -151,83 +151,92 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 		'<div class="multi-part" id="update" title="'.html::escapeHTML(__('Update plugins')).'">'.
 		'<h3>'.html::escapeHTML(__('Update plugins')).'</h3>'.
 		'<p>'.sprintf(
-			__('There is one plugin to update available from %2$s.', 'There are %s plugins to update available from %s.', count($modules)),
-			count($modules),
-			'<a href="http://dotaddict.org/dc2/plugins">Dotaddict</a>'
+			__('There is one plugin to update available from repository.', 'There are %s plugins to update available from repository.', count($modules)),
+			count($modules)
 		).'</p>';
 
 		$list
-			->newList('plugin-update')
+			->initList('plugin-update')
+			->setTab('update')
 			->setModules($modules)
-			->setPageTab('update')
-			->displayModulesList(
+			->displayModules(
 				/*cols */		array('icon', 'name', 'version', 'current_version', 'desc'),
 				/* actions */	array('update')
 			);
 
 		echo
+		'<p class="info vertical-separator">'.sprintf(
+			__("Visit %s repository, the resources center for Dotclear."),
+			'<a href="http://dotaddict.org/dc2/plugins">Dotaddict</a>'
+			).
+		'</p>'.
+
 		'</div>';
 	}
 }
 
-# List all active plugins
 echo
 '<div class="multi-part" id="plugins" title="'.__('Installed plugins').'">';
 
+# Activated modules
 $modules = $list->modules->getModules();
 if (!empty($modules)) {
-	echo
-	'<h3>'.__('Activated plugins').'</h3>'.
-	'<p>'.__('Manage installed plugins from this list.').'</p>';
+	
+	echo 
+	'<h3>'.($core->auth->isSuperAdmin() ?__('Activated plugins') : __('Installed plugins')).'</h3>'.
+	'<p>'.__('You can configure and manage installed plugins from this list.').'</p>';
 
 	$list
-		->newList('plugin-activate')
+		->initList('plugin-activate')
+		->setTab('plugins')
 		->setModules($modules)
-		->setPageTab('plugins')
-		->displayModulesList(
+		->displayModules(
 			/* cols */		array('expander', 'icon', 'name', 'config', 'version', 'desc', 'distrib'),
 			/* actions */	array('deactivate', 'delete')
 		);
 }
 
 # Deactivated modules
-$modules = $list->modules->getDisabledModules();
-if (!empty($modules)) {
-	echo
-	'<h3>'.__('Deactivated plugins').'</h3>'.
-	'<p>'.__('Deactivated plugins are installed but not usable. You can activate them from here.').'</p>';
+if ($core->auth->isSuperAdmin()) {
+	$modules = $list->modules->getDisabledModules();
+	if (!empty($modules)) {
+		echo
+		'<h3>'.__('Deactivated plugins').'</h3>'.
+		'<p>'.__('Deactivated plugins are installed but not usable. You can activate them from here.').'</p>';
 
-	$list
-		->newList('plugin-deactivate')
-		->setModules($modules)
-		->setPageTab('plugins')
-		->displayModulesList(
-			/* cols */		array('icon', 'name', 'distrib'),
-			/* actions */	array('activate', 'delete')
-		);
+		$list
+			->initList('plugin-deactivate')
+			->setTab('plugins')
+			->setModules($modules)
+			->displayModules(
+				/* cols */		array('icon', 'name', 'distrib'),
+				/* actions */	array('activate', 'delete')
+			);
+	}
 }
 
 echo 
 '</div>';
 
-if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
+if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
 	# New modules from repo
-	$search = $list->getSearchQuery();
+	$search = $list->getSearch();
 	$modules = $search ? $list->store->search($search) : $list->store->get();
 
 	if (!empty($search) || !empty($modules)) {
 		echo
-		'<div class="multi-part" id="new" title="'.__('Add plugins from Dotaddict').'">'.
-		'<h3>'.__('Add plugins from Dotaddict repository').'</h3>';
+		'<div class="multi-part" id="new" title="'.__('Add plugins').'">'.
+		'<h3>'.__('Add plugins from repository').'</h3>'.
+		'<p>'.__('You can search and install plugins directly from repository.').'</p>';
 
 		$list
-			->newList('plugin-new')
+			->initList('plugin-new')
+			->setTab('new')
 			->setModules($modules)
-			->setPageTab('new')
-			->displaySearchForm()
-			->displayNavMenu()
-			->displayModulesList(
+			->displaySearch()
+			->displayIndex()
+			->displayModules(
 				/* cols */		array('expander', 'name', 'score', 'version', 'desc'),
 				/* actions */	array('install'),
 				/* nav limit */	true
@@ -246,6 +255,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 	# Add a new plugin
 	echo
 	'<div class="multi-part" id="addplugin" title="'.__('Install or upgrade manually').'">'.
+	'<h3>'.__('Add plugins from a package').'</h3>'.
 	'<p>'.__('You can install plugins by uploading or downloading zip files.').'</p>';
 
 	$list->displayManualForm();
@@ -258,7 +268,7 @@ if ($core->auth->isSuperAdmin() && $list->isPathWritable()) {
 $core->callBehavior('pluginsToolsTabs', $core);
 
 # -- Notice for super admin --
-if ($core->auth->isSuperAdmin() && !$list->isPathWritable()) {
+if ($core->auth->isSuperAdmin() && !$list->isWritablePath()) {
 	echo 
 	'<p class="warning">'.__('Some functions are disabled, please give write access to your plugins directory to enable them.').'</p>';
 }

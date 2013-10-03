@@ -2347,6 +2347,10 @@ ul.from-left {
 #debug:hover div {
 	display: block;
 	}
+.debug {
+	background: #ff6;
+	padding: 3px 0.5em 2px;
+	}
 /* ---------------------------------------------- Couleurs ajoutées via javascript	
 /* color-picker.js */
 .color-color-picker {
