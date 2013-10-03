@@ -1287,7 +1287,7 @@ a.form-control.open {
 	}
 #filters-form {
 	border: 1px dashed #999;
-	border-radius: .5em;
+	border-radius: .3em;
 	margin-bottom: 2em;
 	padding: .5em 1em 0;
 	}
@@ -1316,6 +1316,7 @@ a.form-control.open {
 	}
 #filters-form select {
 	width: 14em;
+	vertical-align: middle;
 	}
 #filters-form h4 {
 	margin-top: 0;
@@ -2377,6 +2378,10 @@ ul.from-left {
 #debug:hover div {
 	display: block;
 	}
+.debug {
+ 	background: #FF6;
+	padding: 3px 0.5em 2px;
+ 	}
 /* ---------------------------------------------- Couleurs ajoutées via javascript	
 /* color-picker.js */
 .color-color-picker {

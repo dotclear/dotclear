@@ -1609,7 +1609,7 @@ msgid "Media details"
 msgstr "Détails du média"
 
 msgid "Remove selected medias"
-msgstr "Suppression des médias sélectionnés"
+msgstr "Supprimer les médias sélectionnés"
 
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
@@ -3716,3 +3716,6 @@ msgstr "Afficher les filtres et options d'affichage"
 
 msgid "Cancel filters and display options"
 msgstr "Annuler les filtres et options d'affichage"
+
+msgid "Number of elements displayed per page:"
+msgstr "Nombre d'éléments affichés par page :"
