@@ -257,15 +257,11 @@ if (!empty($plugins_install['failure']))
 # Errors modules notifications
 if ($core->auth->isSuperAdmin())
 {
-	$list = array();
-	foreach ($core->plugins->getErrors() as $k => $error) {
-		$list[] = '<li>'.$error.'</li>';
-	}
-	
-	if (count($list) > 0) {
+	$list = $core->plugins->getErrors();
+	if (!empty($list)) {
 		echo 
-		'<div class="error" id="module-errors" class="error"><p>'.__('Some plugins are installed twice:').'</p> '.
-		'<ul>'.implode("\n",$list).'</ul></div>';
+		'<div class="error" id="module-errors" class="error"><p>'.__('Errors have occured with following plugins:').'</p> '.
+		'<ul><li>'.implode("</li>\n<li>", $list).'</li></ul></div>';
 	}
 }
 
