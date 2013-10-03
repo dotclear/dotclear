@@ -73,59 +73,11 @@ if (!$core->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
 # Dashboard icons
 $__dashboard_icons = new ArrayObject();
 
-# Dashboard favorites
-$post_count = $core->blog->getPosts(array(),true)->f(0);
-$str_entries = ($post_count > 1) ? __('%d entries') : __('%d entry');
-
-$comment_count = $core->blog->getComments(array(),true)->f(0);
-$str_comments = ($comment_count > 1) ? __('%d comments') : __('%d comment');
-
-$ws = $core->auth->user_prefs->addWorkspace('favorites');
-$count = 0;
-foreach ($ws->dumpPrefs() as $k => $v) {
-	// User favorites only
-	if (!$v['global']) {
-		$fav = unserialize($v['value']);
-		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			if (dc_valid_fav($fav['url'])) {
-				$count++;
-				$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
-					($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-				$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
-
-				# Let plugins set their own title for favorite on dashboard
-				$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
-			}
-		}
-	}
-}	
-if (!$count) {
-	// Global favorites if any
-	foreach ($ws->dumpPrefs() as $k => $v) {
-		$fav = unserialize($v['value']);
-		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			if (dc_valid_fav($fav['url'])) {
-				$count++;
-				$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
-					($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-				$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
-
-				# Let plugins set their own title for favorite on dashboard
-				$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
-			}
-		}
-	}
-}
-if (!$count) {
-	// No user or global favorites, add "user pref" and "new entry" fav
-	if ($core->auth->check('usage,contentadmin',$core->blog->id)) {
-		$__dashboard_icons['new_post'] = new ArrayObject(array(__('New entry'),'post.php','images/menu/edit-b.png'));
-	}
-	$__dashboard_icons['prefs'] = new ArrayObject(array(__('My preferences'),'preferences.php','images/menu/user-pref-b.png'));
-}
+$favs = $core->favs->getUserFavorites();
+$core->favs->appendDashboardIcons($__dashboard_icons);
 
 # Latest news for dashboard
-$__dashboard_items = new ArrayObject(array(new ArrayObject,new ArrayObject));
+$__dashboard_items = new ArrayObject(array(new ArrayObject(),new ArrayObject()));
 
 $dashboardItem = 0;
 

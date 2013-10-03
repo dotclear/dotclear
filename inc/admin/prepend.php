@@ -21,36 +21,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-ch
 // HTTP/1.0
 header("Pragma: no-cache");
 
-function dc_valid_fav($url) {
-	global $core;
-
-	if (preg_match('#plugin\.php\?p=([^&]+)#',$url,$matches)) {
-		if (isset($matches[1])) {
-			if (!$core->plugins->moduleExists($matches[1])) {
-				return false;
-			}
-		}
-	}
-	return true;
-}
-
-function dc_check_active($url) {
-	$u = explode('?',$url,2);
-	if (!preg_match('/'.preg_quote($u[0],"/").'/',$_SERVER['REQUEST_URI'])) {
-		return false;
-	}
-	if (count($u) == 2) {
-		parse_str($u[1],$p);
-		foreach ($p as $k => $v) {
-			if (!isset($_REQUEST[$k]) || $_REQUEST[$k] !== $v) {
-				return false;
-			}
-		}
-	}
-	return true;
-}
-
-
 function dc_load_locales() {
 	global $_lang, $core;
 	
@@ -229,79 +199,37 @@ if ($core->auth->userID() && $core->blog !== null)
 	$core->auth->user_prefs->addWorkspace('interface');
 	$user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
 
-	# Standard favorites
-	$_fav = new ArrayObject();
+	$core->favs = new dcFavorites($core);
+
 
 	# [] : Title, URL, small icon, large icon, permissions, id, class
 	# NB : '*' in permissions means any, null means super admin only
 	
-	$_fav['prefs'] = new ArrayObject(array('prefs','My preferences','preferences.php',
-		'images/menu/user-pref.png','images/menu/user-pref-b.png',
-		'*',null,null));
-
-	$_fav['new_post'] = new ArrayObject(array('new_post','New entry','post.php',
-		'images/menu/edit.png','images/menu/edit-b.png',
-		'usage,contentadmin',null,'menu-new-post'));
-	$_fav['posts'] = new ArrayObject(array('posts','Entries','posts.php',
-		'images/menu/entries.png','images/menu/entries-b.png',
-		'usage,contentadmin',null,null));
-	$_fav['comments'] = new ArrayObject(array('comments','Comments','comments.php',
-		'images/menu/comments.png','images/menu/comments-b.png',
-		'usage,contentadmin',null,null));
-	$_fav['search'] = new ArrayObject(array('search','Search','search.php',
-		'images/menu/search.png','images/menu/search-b.png',
-		'usage,contentadmin',null,null));
-	$_fav['categories'] = new ArrayObject(array('categories','Categories','categories.php',
-		'images/menu/categories.png','images/menu/categories-b.png',
-		'categories',null,null));
-	$_fav['media'] = new ArrayObject(array('media','Media manager','media.php',
-		'images/menu/media.png','images/menu/media-b.png',
-		'media,media_admin',null,null));
-	$_fav['blog_pref'] = new ArrayObject(array('blog_pref','Blog settings','blog_pref.php',
-		'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
-		'admin',null,null));
-	$_fav['blog_theme'] = new ArrayObject(array('blog_theme','Blog appearance','blog_theme.php',
-		'images/menu/themes.png','images/menu/blog-theme-b.png',
-		'admin',null,null));
-
-	$_fav['blogs'] = new ArrayObject(array('blogs','Blogs','blogs.php',
-		'images/menu/blogs.png','images/menu/blogs-b.png',
-		'usage,contentadmin',null,null));
-	$_fav['users'] = new ArrayObject(array('users','Users','users.php',
-		'images/menu/users.png','images/menu/users-b.png',
-		null,null,null));
-	$_fav['plugins'] = new ArrayObject(array('plugins','Plugins management','plugins.php',
-		'images/menu/plugins.png','images/menu/plugins-b.png',
-		null,null,null));
-	$_fav['langs'] = new ArrayObject(array('langs','Languages','langs.php',
-		'images/menu/langs.png','images/menu/langs-b.png',
-		null,null,null));
-
-	$_fav['help'] = new ArrayObject(array('help','Global help','help.php',
-		'images/menu/help.png','images/menu/help-b.png',
-		'*',null,null));
 	
 	# Menus creation
+	$_menu = new ArrayObject();
 	$_menu['Dashboard'] = new dcMenu('dashboard-menu',null);
-	if (!$user_ui_nofavmenu)
-		$_menu['Favorites'] = new dcMenu('favorites-menu','My favorites');
+	if (!$user_ui_nofavmenu) {
+		$core->favs->appendMenuTitle($_menu);
+	}
 	$_menu['Blog'] = new dcMenu('blog-menu','Blog');
 	$_menu['System'] = new dcMenu('system-menu','System');
 	$_menu['Plugins'] = new dcMenu('plugins-menu','Plugins');
-	
 	# Loading plugins
 	$core->plugins->loadModules(DC_PLUGINS_ROOT,'admin',$_lang);
+	$core->favs->setup();
+	
+	if (!$user_ui_nofavmenu) {
+		$core->favs->appendMenu($_menu);
+	}
 
-	# Loading favorites info from plugins
-	$core->callBehavior('adminDashboardFavs', $core, $_fav);
 	
 	# Set menu titles
 	
 	$_menu['System']->title = __('System settings');
 	$_menu['Blog']->title = __('Blog');
 	$_menu['Plugins']->title = __('Plugins');
-	if (!$user_ui_nofavmenu)
-		$_menu['Favorites']->title = __('My favorites');
+
 
 /*	
 	if (!preg_match('/index.php$/',$_SERVER['REQUEST_URI'])) {
@@ -351,42 +279,6 @@ if ($core->auth->userID() && $core->blog !== null)
 		preg_match('/blogs.php$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin() ||
 		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->getBlogCount() > 1);
-
-	if (!$user_ui_nofavmenu) {
-		// Set favorites menu
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		$count = 0;
-		foreach ($ws->dumpPrefs() as $k => $v) {
-			// User favorites only
-			if (!$v['global']) {
-				$fav = unserialize($v['value']);
-				if (dc_valid_fav($fav['url'])) {
-					$count++;
-					$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-						dc_check_active($fav['url']),
-						(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
-				}
-			}
-		}	
-		if (!$count) {
-			// Global favorites if any
-			foreach ($ws->dumpPrefs() as $k => $v) {
-				$fav = unserialize($v['value']);
-				if (dc_valid_fav($fav['url'])) {
-					$count++;
-					$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-						dc_check_active($fav['url']),
-						(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
-				}
-			}
-		}
-		if (!$count) {
-			// No user or global favorites, add "new entry" fav
-			$_menu['Favorites']->addItem(__('New entry'),'post.php','images/menu/edit.png',
-				preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
-				$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
-		}
-	}
 	
 	if (empty($core->blog->settings->system->jquery_migrate_mute)) {
 		$core->blog->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
