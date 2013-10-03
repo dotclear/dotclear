@@ -347,7 +347,7 @@ $fmt_form_media = '<form action="media.php" method="post" id="form-medias">'.
 
 if (!$popup) {
 	$fmt_form_media .=
-	'<div class="medias-delete">'.
+	'<div class="medias-delete%s">'.
 	'<p class="box small checkboxes-helpers"></p>'.
 	'<p class="box small"><input type="submit" class="delete" name="delete_medias" value="'.__('Remove selected medias').'"/></p>'.
 	'</div>';
