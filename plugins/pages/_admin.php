@@ -12,36 +12,58 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $core->addBehavior('adminDashboardIcons','pages_dashboard');
-$core->addBehavior('adminDashboardFavs','pages_dashboard_favs');
+$core->addBehavior('adminDashboardFavorites',array('pagesDashboard','pagesDashboardFavs'));
 $core->addBehavior('adminDashboardFavsIcon','pages_dashboard_favs_icon');
 $core->addBehavior('adminUsersActionsHeaders','pages_users_actions_headers');
 
-function pages_dashboard($core,$icons)
+class pagesDashboard
 {
-	$icons['pages'] = new ArrayObject(array(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/icon-big.png'));
-}
-function pages_dashboard_favs($core,$favs)
-{
-	$favs['pages'] = new ArrayObject(array('pages','Pages','plugin.php?p=pages',
-		'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
-		'contentadmin,pages',null,null));
-	$favs['newpage'] = new ArrayObject(array('newpage','New page','plugin.php?p=pages&amp;act=page',
-		'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
-		'contentadmin,pages',null,null));
-}
-function pages_dashboard_favs_icon($core,$name,$icon)
-{
-	// Check if it is one of my own favs
-	if ($name == 'pages') {
+	public static function pagesDashboardFavs($core,$favs)
+	{
+		$favs->register('pages', array(
+			'title' => __('Pages'),
+			'url' => 'plugin.php?p=pages',
+			'small-icon' => 'index.php?pf=pages/icon.png',
+			'large-icon' => 'index.php?pf=pages/icon-big.png',
+			'permissions' => 'contentadmin,pages',
+			'dashboard_cb' => array('pagesDashboard','pagesDashboardCB'),
+			'active_cb' => array('pagesDashboard','pagesActiveCB')
+		));
+		$favs->register('newpage', array(
+			'title' => __('New page'),
+			'url' => 'plugin.php?p=pages&amp;act=page',
+			'small-icon' => 'index.php?pf=pages/icon-np.png',
+			'large-icon' => 'index.php?pf=pages/icon-np-big.png',
+			'permissions' => 'contentadmin,pages',
+			'active_cb' => array('pagesDashboard','newPageActiveCB')
+		));
+	}
+	
+	public static function pagesDashboardCB($core,$v) {
 		$params = new ArrayObject();
 		$params['post_type'] = 'page';
 		$page_count = $core->blog->getPosts($params,true)->f(0);
 		if ($page_count > 0) {
 			$str_pages = ($page_count > 1) ? __('%d pages') : __('%d page');
-			$icon[0] = sprintf($str_pages,$page_count);
+			$v['title'] = sprintf($str_pages,$page_count);
 		}
 	}
+	
+	public static function pagesActiveCB($request,$params) {
+		return ($request == "plugin.php") &&
+			isset($params['p']) && $params['p'] == 'pages'
+			&& !(isset($params['act']) && $params['act']=='page');
+	}
+	
+	public static function newPageActiveCB($request,$params) {
+		return ($request == "plugin.php") &&
+			isset($params['p']) && $params['p'] == 'pages'
+			&& isset($params['act']) && $params['act']=='page';
+	}
+	
 }
+
+
 function pages_users_actions_headers()
 {
 	return dcPage::jsLoad('index.php?pf=pages/_users_actions.js');

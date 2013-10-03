@@ -77,6 +77,7 @@ class dcFavorites
      */
 	 public function setup() {
 		$this->legacyFavorites();
+		$this->core->callBehavior('adminDashboardFavorites', $this->core, $this);
 		$this->setUserPrefs();
 	}
 
@@ -150,12 +151,12 @@ class dcFavorites
 		if (!count($this->user_prefs)) {
 			$this->user_prefs = $this->getFavorites(array('new_post'));
 		}
-
+		$u = explode('?',$_SERVER['REQUEST_URI']);
 		// Loop over prefs to enable active favorites
 		foreach ($this->user_prefs as $k=>&$v) {
 			if (isset($v['active_cb']) && is_callable($v['active_cb'])) {
 				// Use callback if defined to match whether favorite is active or not
-				$v['active'] = call_user_func($v['active_cb'],$_SERVER['REQUEST_URI'],$_REQUEST);
+				$v['active'] = call_user_func($v['active_cb'],$u[0],$_REQUEST);
 			} else {
 				// Failback active detection. We test against URI name & parameters
 				$v['active']=true; // true until something proves it is false
@@ -323,12 +324,11 @@ class dcFavorites
      */
 	public function appendDashboardIcons($icons) {
 		foreach ($this->user_prefs as $k=>$v) {
-			if (isset($v['title_cb']) && is_callable($v['title_cb'])) {
-				$title = call_user_func($v['title_cb'],$this->core);
-			} else {
-				$title = $v['title'];
+			if (isset($v['dashboard_cb']) && is_callable($v['dashboard_cb'])) {
+				$v = new ArrayObject($v);
+				call_user_func($v['dashboard_cb'],$this->core,$v);
 			}
-			$icons[$k]=new ArrayObject(array($title,$v['url'],$v['large-icon']));
+			$icons[$k]=new ArrayObject(array($v['title'],$v['url'],$v['large-icon']));
 			$this->core->callBehavior('adminDashboardFavsIcon',$this->core,$k,$icons[$k]);
 		}		
 	}
@@ -343,7 +343,7 @@ class dcFavorites
 	 *	'small-icon' => favorite small icon (for menu)
 	 *	'large-icon' => favorite large icon (for dashboard)
 	 *	'permissions' => (optional) comma-separated list of permissions for thie fav, if not set : no restriction
-	 *	'title_cb' => (optional) callback to modify title if dynamic, if not set : title is taken as is
+	 *	'dashboard_cb' => (optional) callback to modify title if dynamic, if not set : title is taken as is
 	 *	'active_cb' => (optional) callback to tell whether current page matches favorite or not, for complex pages
 	 *
      * @access public
@@ -409,14 +409,14 @@ class defaultFavorites
 				'small-icon' => 'images/menu/entries.png',
 				'large-icon' => 'images/menu/entries-b.png',
 				'permissions' => 'usage,contentadmin',
-				'title_cb' => array('defaultFavorites','postsTitle')),
+				'dashboard_cb' => array('defaultFavorites','postsDashboard')),
 			'comments' => array(
 				'title' => __('Comments'),
 				'url' => 'comments.php',
 				'small-icon' => 'images/menu/comments.png',
 				'large-icon' => 'images/menu/comments-b.png',
 				'permissions' => 'usage,contentadmin',
-				'title_cb' => array('defaultFavorites','commentsTitle')),
+				'dashboard_cb' => array('defaultFavorites','commentsDashboard')),
 			'search' => array(
 				'title' => __('Search'),
 				'url' => 'search.php',
@@ -476,16 +476,16 @@ class defaultFavorites
 		));
 	}
 	
-	public static function postsTitle($core) {
+	public static function postsDashboard($core,$v) {
 		$post_count = $core->blog->getPosts(array(),true)->f(0);
 		$str_entries = __('%d entry', '%d entries',$post_count);
-		return sprintf($str_entries,$post_count);
+		$v['title'] = sprintf($str_entries,$post_count);
 	}
 	
-	public static function commentsTitle($core) {
+	public static function commentsDashboard($core,$v) {
 		$comment_count = $core->blog->getComments(array(),true)->f(0);
 		$str_comments = __('%d comments', '%d comments',$comment_count);
-		return sprintf($str_comments,$comment_count);
+		$v['title']= sprintf($str_comments,$comment_count);
 	}
 
 
