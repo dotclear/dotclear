@@ -40,7 +40,6 @@ config:
 	./plugins/attachments \
 	./plugins/blogroll \
 	./plugins/blowupConfig \
-	./plugins/daInstaller \
 	./plugins/fairTrackbacks \
 	./plugins/importExport \
 	./plugins/maintenance \
