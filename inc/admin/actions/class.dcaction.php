@@ -51,6 +51,9 @@ abstract class dcActionsPage
 
 	/** @var boolean true if we are acting inside a plugin (different handling of begin/endpage) */
 	protected $in_plugin;	
+	
+	/** @var boolean true if we enable to keep selection when redirecting */
+	protected $enable_redir_selection;	
 
     /**
      * Class constructor
@@ -83,6 +86,19 @@ abstract class dcActionsPage
 		}
 		$u=explode('?',$_SERVER['REQUEST_URI']);
 		$this->in_plugin = (strpos($u[0],'plugin.php') !== false);
+		$this->enable_redir_selection = true;
+	}
+	
+    /**
+     * setEnableRedirSelection - define whether to keep selection when redirecting
+	 *							Can be usefull to be disabled to preserve some compatibility.
+     *
+     * @param boolean $enable true to enable, false otherwise
+	 *
+     * @access public
+     */
+	public function setEnableRedirSelection($enable) {
+		$this->enable_redir_selection = $enable;
 	}
 	
     /**
@@ -226,7 +242,11 @@ abstract class dcActionsPage
      */
 	public function getRedirection($with_selected_entries=false,$params=array()) {
 		$redir_args = array_merge($params,$this->redir_args);
-		if ($with_selected_entries) {
+		if (isset($redir_args['redir'])) {
+			unset($redir_args['redir']);
+		}
+		
+		if ($with_selected_entries && $this->enable_redir_selection) {
 			$redir_args[$this->field_entries] = array_keys($this->entries);
 		}
 		return $this->uri.'?'.http_build_query($redir_args).$this->redir_anchor;
