@@ -405,8 +405,7 @@ class defaultFavorites
 				'url' => 'post.php',
 				'small-icon' => 'images/menu/edit.png',
 				'large-icon' => 'images/menu/edit-b.png',
-				'permissions' =>'usage,contentadmin',
-				'id' => 'menu-new-post'),
+				'permissions' =>'usage,contentadmin'),
 			'posts' => array(
 				'title' => __('Entries'),
 				'url' => 'posts.php',
@@ -466,7 +465,7 @@ class defaultFavorites
 				'title' => __('Plugins management'),
 				'url' => 'plugins.php',
 				'small-icon' => 'images/menu/plugins.png',
-				'large-icon' => 'images/menu/plugins-b.png'), 
+				'large-icon' => 'images/menu/plugins-b.png'),
 			'langs' => array(
 				'title' => __('Languages'),
 				'url' => 'langs.php',
@@ -479,18 +478,18 @@ class defaultFavorites
 				'large-icon' => 'images/menu/help-b.png')
 		));
 	}
-	
-	public static function postsDashboard($core,$v) {
+
+	public static function postsDashboard($core,$v)
+	{
 		$post_count = $core->blog->getPosts(array(),true)->f(0);
 		$str_entries = __('%d entry', '%d entries',$post_count);
 		$v['title'] = sprintf($str_entries,$post_count);
 	}
-	
-	public static function commentsDashboard($core,$v) {
+
+	public static function commentsDashboard($core,$v)
+	{
 		$comment_count = $core->blog->getComments(array(),true)->f(0);
 		$str_comments = __('%d comments', '%d comments',$comment_count);
 		$v['title']= sprintf($str_comments,$comment_count);
 	}
-
-
 }
