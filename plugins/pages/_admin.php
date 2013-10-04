@@ -11,9 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$core->addBehavior('adminDashboardIcons','pages_dashboard');
 $core->addBehavior('adminDashboardFavorites',array('pagesDashboard','pagesDashboardFavs'));
-$core->addBehavior('adminDashboardFavsIcon','pages_dashboard_favs_icon');
 $core->addBehavior('adminUsersActionsHeaders','pages_users_actions_headers');
 
 class pagesDashboard
@@ -38,8 +36,9 @@ class pagesDashboard
 			'active_cb' => array('pagesDashboard','newPageActiveCB')
 		));
 	}
-	
-	public static function pagesDashboardCB($core,$v) {
+
+	public static function pagesDashboardCB($core,$v)
+	{
 		$params = new ArrayObject();
 		$params['post_type'] = 'page';
 		$page_count = $core->blog->getPosts($params,true)->f(0);
@@ -48,19 +47,20 @@ class pagesDashboard
 			$v['title'] = sprintf($str_pages,$page_count);
 		}
 	}
-	
-	public static function pagesActiveCB($request,$params) {
+
+	public static function pagesActiveCB($request,$params)
+	{
 		return ($request == "plugin.php") &&
 			isset($params['p']) && $params['p'] == 'pages'
 			&& !(isset($params['act']) && $params['act']=='page');
 	}
-	
-	public static function newPageActiveCB($request,$params) {
+
+	public static function newPageActiveCB($request,$params)
+	{
 		return ($request == "plugin.php") &&
 			isset($params['p']) && $params['p'] == 'pages'
 			&& isset($params['act']) && $params['act']=='page';
 	}
-	
 }
 
 
