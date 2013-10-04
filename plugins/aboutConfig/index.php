@@ -74,10 +74,10 @@ $part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
 function settingLine($id,$s,$ns,$field_name,$strong_label)
 {
 	if ($s['type'] == 'boolean') {
-		$field = form::combo(array($field_name.'['.$ns.']['.$id.']',$field_name.'_'.$id),
+		$field = form::combo(array($field_name.'['.$ns.']['.$id.']',$field_name.'_'.$ns.'_'.$id),
 		array(__('yes') => 1, __('no') => 0),$s['value'] ? 1 : 0);
 	} else {
-		$field = form::field(array($field_name.'['.$ns.']['.$id.']',$field_name.'_'.$id),40,null,
+		$field = form::field(array($field_name.'['.$ns.']['.$id.']',$field_name.'_'.$ns.'_'.$id),40,null,
 		html::escapeHTML($s['value']));
 	}
 	
@@ -85,7 +85,7 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 	
 	return
 	'<tr class="line">'.
-	'<td scope="row"><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
+	'<td scope="row"><label for="'.$field_name.'_'.$ns.'_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
 	'<td>'.$field.'</td>'.
 	'<td>'.$s['type'].'</td>'.
 	'<td>'.html::escapeHTML($s['label']).'</td>'.
