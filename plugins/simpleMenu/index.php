@@ -496,7 +496,7 @@ if (count($menu)) {
 		'<th scope="col">'.__('URL').'</th>'.
 		'</tr>'.
 		'</thead>'.
-		'<tbody '.(!$step ? 'id="menuitemslist"' : '>');
+		'<tbody'.(!$step ? ' id="menuitemslist"' : '').'>';
 	$count = 0;
 	foreach ($menu as $i => $m) {
 		echo '<tr class="line" id="l_'.$i.'">';
