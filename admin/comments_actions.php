@@ -23,13 +23,13 @@ if (isset($_REQUEST['redir'])) {
 	}
 	$args['redir'] = $_REQUEST['redir'];
 } else {
-	$uri = 'posts.php';
+	$uri = 'comments.php';
 	$args=array();
 }
 
 dcPage::check('usage,contentadmin');
 
-$comments_actions_page = new dcCommentsActionsPage($core,'comments.php');
+$comments_actions_page = new dcCommentsActionsPage($core,$uri,$args);
 $comments_actions_page->setEnableRedirSelection(false);
 
 $comments_actions_page->process();
