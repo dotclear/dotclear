@@ -1582,7 +1582,7 @@ a.form-control.open {
 	margin-bottom: 1em;
 	font-size: 1.33em;
 	}
-input {
+.box.theme input {
 	margin-bottom: 1em;
 	}
 /* ------------------------------------------------------------------ categories.php */
