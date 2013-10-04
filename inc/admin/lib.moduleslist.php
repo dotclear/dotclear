@@ -41,6 +41,7 @@ class adminModulesList
 	protected $page_url = 'plugins.php';	/**< @var	string	Page URL */
 	protected $page_qs = '?';				/**< @var	string	Page query string */
 	protected $page_tab = '';				/**< @var	string	Page tab */
+	protected $page_redir = '';				/**< @var	string	Page redirection */
 
 	public static $nav_indexes = 'abcdefghijklmnopqrstuvwxyz0123456789'; /**< @var	string	Index list */
 	protected $nav_list = array();		/**< @var	array	Index list with special index */
@@ -202,6 +203,29 @@ class adminModulesList
 	public function getTab()
 	{
 		return $this->page_tab;
+	}
+
+	/**
+	 * Set page redirection.
+	 *
+	 * @param	string	$default		Default redirection
+	 * @return	adminModulesList self instance
+	 */
+	public function setRedir($default='')
+	{
+		$this->page_redir = empty($_REQUEST['redir']) ? $default : $_REQUEST['redir'];
+
+		return $this;
+	}
+
+	/**
+	 * Get page redirection.
+	 *
+	 * @return	Page redirection
+	 */
+	public function getRedir()
+	{
+		return empty($this->page_redir) ? $this->getURL() : $this->page_redir;
 	}
 	//@}
 
@@ -1003,6 +1027,7 @@ class adminModulesList
 		if (!$this->config_file) {
 			return null;
 		}
+		$this->setRedir($this->getURL().'#plugins');
 
 		ob_start();
 
@@ -1035,13 +1060,12 @@ class adminModulesList
 	public function displayConfiguration()
 	{
 		if ($this->config_file) {
-			$redir = empty($_REQUEST['redir']) ? $this->getURL().'#plugins' : $_REQUEST['redir'];
 
 			if (!$this->config_module['standalone_config']) {
 				echo
 				'<form id="module_config" action="'.$this->getURL('conf=1').'" method="post" enctype="multipart/form-data">'.
 				'<h3>'.sprintf(__('Configure plugin "%s"'), html::escapeHTML($this->config_module['name'])).'</h3>'.
-				'<p><a class="back" href="'.$redir.'">'.__('Back').'</a></p>';
+				'<p><a class="back" href="'.$this->getRedir().'">'.__('Back').'</a></p>';
 			}
 
 			echo $this->config_content;
@@ -1050,7 +1074,7 @@ class adminModulesList
 				echo
 				'<p class="clear"><input type="submit" name="save" value="'.__('Save').'" />'.
 				form::hidden('module', $this->config_module['id']).
-				form::hidden('redir', $redir).
+				form::hidden('redir', $this->getRedir()).
 				$this->core->formNonce().'</p>'.
 				'</form>';
 			}
