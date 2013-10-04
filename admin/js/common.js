@@ -406,8 +406,14 @@ $(function() {
 	});
 
 	// manage outgoing links
-	$('.outgoing').each(function() {
-		$(this).prop('title',$(this).attr('title')+' ('+dotclear.msg.new_window+')');
+	$('a').filter(function() {
+		return ((this.hostname && this.hostname!=location.hostname)
+			|| $(this).hasClass('outgoing'));
+	}).each(function() {
+		$(this).prop('title',$(this).prop('title')+' ('+dotclear.msg.new_window+')');
+		if (!$(this).hasClass('outgoing')) {
+			$(this).append(' <img src="images/outgoing-blue.png" alt=""/>');
+		}
 	}).click(function(e) {
 		e.preventDefault();
 		window.open($(this).attr('href'));
