@@ -24,13 +24,11 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Tags') => ''
-	));
+	)).
+	dcPage::notices();
 ?>
 
 <?php
-if (!empty($_GET['del'])) {
-	dcPage::message(__('Tag has been successfully removed'));
-}
 
 $tags = $core->meta->getMetadata(array('meta_type' => 'tag'));
 $tags = $core->meta->computeMetaStats($tags);

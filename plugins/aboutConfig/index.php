@@ -36,8 +36,9 @@ if (!empty($_POST['s']) && is_array($_POST['s']))
 			
 			$core->blog->triggerBlog();
 		}
-		
-		http::redirect($p_url.'&upd=1');
+
+		dcPage::addSuccessNotice(__('Configuration successfully updated'));
+		http::redirect($p_url);
 	}
 	catch (Exception $e)
 	{
@@ -61,7 +62,8 @@ if (!empty($_POST['gs']) && is_array($_POST['gs']))
 			$core->blog->triggerBlog();
 		}
 		
-		http::redirect($p_url.'&upd=1&part=global');
+		dcPage::addSuccessNotice(__('Configuration successfully updated'));
+		http::redirect($p_url.'&part=global');
 	}
 	catch (Exception $e)
 	{
@@ -119,14 +121,8 @@ echo dcPage::breadcrumb(
 		__('System') => '',
 		html::escapeHTML($core->blog->name) => '',
 		__('about:config') => ''
-	));
-if (!empty($_GET['upd'])) {
-	dcPage::success(__('Configuration successfully updated'));
-}
-
-if (!empty($_GET['upda'])) {
-	dcPage::success(__('Settings definition successfully updated'));
-}
+	)).
+	dcPage::notices();
 ?>
 
 <div id="local" class="multi-part" title="<?php echo sprintf(__('Settings for %s'),html::escapeHTML($core->blog->name)); ?>">

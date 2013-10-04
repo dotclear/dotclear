@@ -77,7 +77,8 @@ if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
 		}
 	}
 
-	http::redirect('categories.php?reord=1');
+	dcPage::addSuccessNotice(__('Categories have been successfully reordered.'));
+	http::redirect('categories.php');
 }
 
 # Reset order
@@ -86,7 +87,7 @@ if (!empty($_POST['reset']))
 	try
 	{
 		$core->blog->resetCategoriesOrder();
-		dcPage::addSuccessNotice(__('Categories have been successfully reordered.'));
+		dcPage::addSuccessNotice(__('Categories order has been successfully reset.'));
 		http::redirect('categories.php');
 	}
 	catch (Exception $e)

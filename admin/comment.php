@@ -56,7 +56,8 @@ if (!empty($_POST['add']) && !empty($_POST['post_id']))
 		# --BEHAVIOR-- adminAfterCommentCreate
 		$core->callBehavior('adminAfterCommentCreate',$cur,$comment_id);
 		
-		http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id,false).'&co=1&creaco=1');
+		dcPage::addSuccessNotice(__('Comment has been successfully created.'));
+		http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id,false).'&co=1');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -130,7 +131,8 @@ if (!$core->error->flag() && isset($rs))
 			# --BEHAVIOR-- adminAfterCommentUpdate
 			$core->callBehavior('adminAfterCommentUpdate',$cur,$comment_id);
 			
-			http::redirect('comment.php?id='.$comment_id.'&upd=1');
+			dcPage::addSuccessNotice(__('Comment has been successfully updated.'));
+			http::redirect('comment.php?id='.$comment_id);
 		}
 		catch (Exception $e)
 		{
@@ -145,7 +147,9 @@ if (!$core->error->flag() && isset($rs))
 			$core->callBehavior('adminBeforeCommentDelete',$comment_id);
 			
 			$core->blog->delComment($comment_id);
-			http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id).'&co=1#c'.$comment_id,false);
+			
+			dcPage::addSuccessNotice(__('Comment has been successfully deleted.'));
+			http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id).'&co=1',false);
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}

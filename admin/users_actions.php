@@ -85,7 +85,8 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 			}
 		}
 		if (!$core->error->flag()) {
-			http::redirect($redir.'&del=1');
+			dcPage::addSuccessNotice(__('User has been successfully deleted.'));
+			http::redirect($redir);
 		}
 	}
 	
@@ -123,7 +124,8 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 			$core->error->add($e->getMessage());
 		}
 		if (!$core->error->flag()) {
-			http::redirect($redir.'&upd=1');
+			dcPage::addSuccessNotice(__('User has been successfully updated.'));
+			http::redirect($redir);
 		}
 	}
 }

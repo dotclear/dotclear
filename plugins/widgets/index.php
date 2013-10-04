@@ -190,7 +190,8 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Widgets') => ''
-	));
+	)).
+	dcPage::notices();
 
 # All widgets
 echo

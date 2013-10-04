@@ -91,7 +91,8 @@ echo dcPage::breadcrumb(
 		html::escapeHTML($core->blog->name) => '',
 		__('Blog appearance') => 'blog_theme.php',
 		__('Edit theme files') => ''
-	));
+	)).
+	dcPage::notices();
 ?>
 
 <p><strong><?php echo sprintf(__('Your current theme on this blog is "%s".'),html::escapeHTML($T['name'])); ?></strong></p>

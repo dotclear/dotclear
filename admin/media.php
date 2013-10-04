@@ -128,7 +128,11 @@ if ($dir && !empty($_POST['newdir']))
 {
 	try {
 		$core->media->makeDir($_POST['newdir']);
-		http::redirect($page_url.'&d='.rawurlencode($d).'&mkdok=1');
+		dcPage::addSuccessNotice(sprintf(
+			__('Directory "%s" has been successfully created.'),
+			html::escapeHTML($_POST['newdir']))
+		);
+		http::redirect($page_url.'&d='.rawurlencode($d));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -172,7 +176,9 @@ if ($dir && !empty($_FILES['upfile'])) {
 			$f_private = (isset($_POST['upfilepriv']) ? $_POST['upfilepriv'] : false);
 
 			$core->media->uploadFile($upfile['tmp_name'], $upfile['name'], $f_title, $f_private);
-			http::redirect($page_url.'&d='.rawurlencode($d).'&upok=1');
+
+			dcPage::addSuccessNotice(__('Files have been successfully uploaded.'));
+			http::redirect($page_url.'&d='.rawurlencode($d));
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -206,7 +212,9 @@ if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove']))
 	
 	try {
 		$core->media->removeItem($_POST['remove']);
-		http::redirect($page_url.'&d='.rawurlencode($d).'&rmfok=1');
+
+		dcPage::addSuccessNotice(__('File has been successfully removed.'));
+		http::redirect($page_url.'&d='.rawurlencode($d));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -217,7 +225,12 @@ if ($dir && $core->auth->isSuperAdmin() && !empty($_POST['rebuild']))
 {
 	try {
 		$core->media->rebuild($d);
-		http::redirect($page_url.'&d='.rawurlencode($d).'&rebuildok=1');
+
+		dcPage::success(sprintf(
+			__('Directory "%s" has been successfully rebuilt.'),
+			html::escapeHTML($d))
+		);
+		http::redirect($page_url.'&d='.rawurlencode($d));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}

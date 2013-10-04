@@ -60,8 +60,9 @@ if ($is_writable)
 			{
 				$core->plugins->deleteModule($plugin_id,true);
 			}
-			
-			http::redirect('plugins.php?removed=1');
+
+			dcPage::addSuccessNotice(__('Plugin has been successfully deleted.'));
+			http::redirect('plugins.php');
 		}
 		catch (Exception $e)
 		{
@@ -172,8 +173,12 @@ if ($is_writable)
 
 			# --BEHAVIOR-- pluginAfterAdd
 			$core->callBehavior('pluginsAfterAdd', $plugin_id);
-			
-			http::redirect('plugins.php?added='.$ret_code);
+			if ($ret_code == 2) {
+				dcPage::addSuccessNotice(__('Plugin has been successfully upgraded'));
+			} else {
+				dcPage::addSuccessNotice(__('Plugin has been successfully installed.'));
+			}
+			http::redirect('plugins.php');
 		}
 		catch (Exception $e)
 		{

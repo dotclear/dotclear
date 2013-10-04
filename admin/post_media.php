@@ -50,7 +50,9 @@ if (($post_id && $media_id) || $core->error->flag())
 	if (!empty($_POST['remove']))
 	{
 		$core->media->removePostMedia($post_id,$media_id);
-		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false).'&rmattach=1');
+		
+		dcPage::addSuccessNotice(__('Attachment has been successfully removed.'));
+		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
 	}
 	elseif (isset($_POST['post_id'])) {
 		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));

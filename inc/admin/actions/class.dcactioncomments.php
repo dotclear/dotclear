@@ -148,7 +148,9 @@ class dcDefaultCommentActions
 		}
 		
 		$core->blog->updCommentsStatus($co_ids,$status);
-		$ap->redirect(true,array('upd'=>1));
+
+		dcPage::addSuccessNotice(__('Selected comments have been successfully updated.'));
+		$ap->redirect(true);
 	}
 
 	public static function doDeleteComment($core, dcCommentsActionsPage $ap, $post) {
@@ -167,6 +169,7 @@ class dcDefaultCommentActions
 		$core->callBehavior('adminBeforeCommentsDelete',$co_ids);
 		
 		$core->blog->delComments($co_ids);
-		$ap->redirect(false,array('del'=>1));
+		dcPage::addSuccessNotice(__('Selected comments have been successfully deleted.'));
+		$ap->redirect(false);
 	}
 }

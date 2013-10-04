@@ -122,7 +122,9 @@ if (isset($_POST['user_name']))
 		# --BEHAVIOR-- adminAfterUserUpdate
 		$core->callBehavior('adminAfterUserProfileUpdate',$cur,$core->auth->userID());
 		
-		http::redirect('preferences.php?upd=1');
+		dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
+
+		http::redirect('preferences.php');
 	}
 	catch (Exception $e)
 	{
@@ -174,7 +176,8 @@ if (isset($_POST['user_post_format']))
 		# --BEHAVIOR-- adminAfterUserOptionsUpdate
 		$core->callBehavior('adminAfterUserOptionsUpdate',$cur,$core->auth->userID());
 		
-		http::redirect('preferences.php?updated=1');
+		dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
+		http::redirect('preferences.php');
 	}
 	catch (Exception $e)
 	{
@@ -199,7 +202,8 @@ if (isset($_POST['db-options'])) {
 		# --BEHAVIOR-- adminAfterUserOptionsUpdate
 		$core->callBehavior('adminAfterDashboardOptionsUpdate',$core->auth->userID());
 		
-		http::redirect('preferences.php?db-updated=1');
+		dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
+		http::redirect('preferences.php');
 	}
 	catch (Exception $e)
 	{
@@ -224,7 +228,8 @@ if (!empty($_POST['appendaction']))
 		$core->favs->setFavoriteIDs($user_favs,false);
 
 		if (!$core->error->flag()) {
-			http::redirect('preferences.php?append=1');
+			dcPage::addSuccessNotice(__('Favorites have been successfully added.'));
+			http::redirect('preferences.php');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -250,7 +255,8 @@ if (!empty($_POST['removeaction']))
 		}
 		$core->favs->setFavoriteIDs(array_keys($user_fav_ids),false);
 		if (!$core->error->flag()) {
-			http::redirect('preferences.php?removed=1');
+			dcPage::addSuccessNotice(__('Favorites have been successfully removed.'));
+			http::redirect('preferences.php');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -276,7 +282,8 @@ if (!empty($_POST['saveorder']) && !empty($order))
 	}	
 	$core->favs->setFavoriteIDs($order,false);
 	if (!$core->error->flag()) {
-		http::redirect('preferences.php?&neworder=1');
+		dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
+		http::redirect('preferences.php');
 	}
 }
 
@@ -286,7 +293,8 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 	$core->favs->setFavoriteIDs($user_favs,true);
 
 	if (!$core->error->flag()) {
-		http::redirect('preferences.php?&replaced=1');
+		dcPage::addSuccessNotice(__('Default favorites have been successfully updated.'));
+		http::redirect('preferences.php');
 	}
 }
 

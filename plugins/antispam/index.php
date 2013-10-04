@@ -42,7 +42,9 @@ try
 		$ts = dt::str('%Y-%m-%d %H:%M:%S',$_POST['ts'],$core->blog->settings->system->blog_timezone);
 
 		dcAntispam::delAllSpam($core,$ts);
-		http::redirect($p_url.'&del=1');
+
+		dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
+		http::redirect($p_url);
 	}
 
 	# Update filters
@@ -88,7 +90,9 @@ try
 		}
 
 		dcAntispam::$filters->saveFilterOpts($filters_opt);
-		http::redirect($p_url.'&upd=1');
+
+		dcPage::addSuccessNotice(__('Filters configuration has been successfully saved.'));
+		http::redirect($p_url);
 	}
 }
 catch (Exception $e)
@@ -127,7 +131,8 @@ if ($filter_gui !== false)
 			__('Plugins') => '',
 			$page_name => $p_url,
 			sprintf(__('%s filter configuration'),$filter->name) => ''
-		));
+		)).
+		dcPage::notices();
 
 	echo '<p><a href="plugin.php?p=antispam" class="back">'.__('Back to filters list').'</a></p>';
 
@@ -139,7 +144,8 @@ else
 		array(
 			__('Plugins') => '',
 			$page_name => ''
-		));
+		)).
+		dcPage::notices();
 
 	# Information
 	$spam_count = dcAntispam::countSpam($core);
@@ -149,10 +155,6 @@ else
 	echo
 	'<form action="'.$p_url.'" method="post" class="fieldset">'.
 	'<h3>'.__('Information').'</h3>';
-
-	if (!empty($_GET['del'])) {
-		dcPage::success(__('Spam comments have been successfully deleted.'));
-	}
 
 	echo
 	'<ul class="spaminfo">'.
