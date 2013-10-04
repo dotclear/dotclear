@@ -844,7 +844,7 @@ class adminModulesList
 
 			elseif (!empty($_POST['update'])) {
 
-				$updated = $this->store->get();
+				$updated = $this->store->get(true);
 				if (!isset($updated[$id])) {
 					throw new Exception(__('No such module.'));
 				}
