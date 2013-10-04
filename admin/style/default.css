@@ -1543,6 +1543,9 @@ a.form-control.open {
 	padding: 1em 1em .5em 1em;
 	border: 1px solid #ccc;
 	}
+.box.theme:hover {
+	background: #ecf0f1 url(stripe.png);
+	}
 #theme-new .box.theme {
 	width: 280px;
 	}
@@ -1578,11 +1581,12 @@ span.module-version:before {
 	width: 652px;
 	margin: .5em;
 	padding: 1em 0 .5em 1em;
-	background: #FCFDFD;
-	border: 1px solid #9AC123;
+	background: #fff url(stripe.png);
+	border: 1px solid #eee;
 	-webkit-border-radius: .5em;
 	border-radius: .5em;
 	min-height: 330px;	
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	}
 .current-theme .module-sshot img {
 	float: left;
@@ -1591,7 +1595,7 @@ span.module-version:before {
 	}
 .current-theme .module-name {
 	color: #D33800;
-	margin-bottom: 1em;
+	margin-bottom: .8em;
 	font-size: 1.33em;
 	}
 .box.theme input {
