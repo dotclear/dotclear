@@ -26,6 +26,7 @@ $core->rest->addFunction('delMeta',array('dcRestMethods','delMeta'));
 $core->rest->addFunction('setPostMeta',array('dcRestMethods','setPostMeta'));
 $core->rest->addFunction('searchMeta',array('dcRestMethods','searchMeta'));
 $core->rest->addFunction('setSectionFold',array('dcRestMethods','setSectionFold'));
+$core->rest->addFunction('getModuleById',array('dcRestMethods','getModuleById'));
 
 $core->rest->serve();
 
@@ -441,7 +442,58 @@ class dcRestMethods
 		$core->auth->user_prefs->toggles->put('unfolded_sections',join(',',$toggles));
 		return true;
 	}
-		
 	
+	public static function getModuleById($core, $get, $post)
+	{
+		if (empty($get['id'])) {
+			throw new Exception('No module ID');
+		}
+		if (empty($get['list'])) {
+			throw new Exception('No list ID');
+		}
+
+		$id = $get['id'];
+		$list = $get['list'];
+		$module = array();
+
+		if ($list == 'plugin-activate') {
+			$modules = $core->plugins->getModules();
+			if (empty($modules) || !isset($modules[$id])) {
+				throw new Exception('Unknow module ID');
+			}
+			$module = $modules[$id];
+		}
+		elseif ($list == 'plugin-new') {
+			$store = new dcStore(
+				$core->plugins, 
+				$core->blog->settings->system->store_plugin_url
+			);
+			$store->check();
+
+			$modules = $store->get();
+			if (empty($modules) || !isset($modules[$id])) {
+				throw new Exception('Unknow module ID');
+			}
+			$module = $modules[$id];
+		}
+		else {
+			// behavior not implemented yet
+		}
+
+		if (empty($module)) {
+			throw new Exception('Unknow module ID');
+		}
+
+		$module = adminModulesList::sanitizeModule($id, $module);
+
+		$rsp = new xmlTag('module');
+		$rsp->id = $id;
+
+		foreach($module as $k => $v) {
+			$rsp->{$k}((string) $v);
+		}
+
+		return $rsp;
+	}
 }
 ?>

@@ -45,6 +45,9 @@ $__autoload['dcXmlRpc']				= dirname(__FILE__).'/core/class.dc.xmlrpc.php';
 $__autoload['dcLog']				= dirname(__FILE__).'/core/class.dc.log.php';
 $__autoload['dcWorkspace']			= dirname(__FILE__).'/core/class.dc.workspace.php';
 $__autoload['dcPrefs']				= dirname(__FILE__).'/core/class.dc.prefs.php';
+$__autoload['dcStore']			= dirname(__FILE__).'/core/class.dc.store.php';
+$__autoload['dcStoreReader']		= dirname(__FILE__).'/core/class.dc.store.reader.php';
+$__autoload['dcStoreParser']		= dirname(__FILE__).'/core/class.dc.store.parser.php';
 $__autoload['dcFavorites']			= dirname(__FILE__).'/admin/class.dc.favorites.php';
 
 $__autoload['rsExtPost']				= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
@@ -61,6 +64,8 @@ $__autoload['adminCommentList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminUserList']			= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['dcPager']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['dcAdminCombos']			= dirname(__FILE__).'/admin/lib.admincombos.php';
+$__autoload['adminModulesList']			= dirname(__FILE__).'/admin/lib.moduleslist.php';
+$__autoload['adminThemesList']			= dirname(__FILE__).'/admin/lib.moduleslist.php';
 
 $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
 $__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';
