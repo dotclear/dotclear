@@ -1540,11 +1540,14 @@ a.form-control.open {
 /* ------------------------------------------------------------------- blog_theme.php */
 .box.theme {
 	margin: .5em;
-	padding: 1em 1em .5em 1em;
-	border: 1px solid #ccc;
+	padding: 10px 10px 5px 10px;
+	border: 1px solid #ddd;
 	}
 .box.theme:hover {
 	background: #ecf0f1 url(stripe.png);
+	}
+.dc-box.box.theme:hover {
+	background: url(stripe.png), url(dc_logos/sq-logo-32.png) no-repeat top right;
 	}
 #theme-new .box.theme {
 	width: 280px;
@@ -1552,11 +1555,15 @@ a.form-control.open {
 .module-name {
 	margin-bottom: .5em;
 	}
+.module-sshot {
+	text-align: center;
+	}
 .module-sshot img {
-	border: 1px solid #ddd;
 	padding: .5em;
 	background: #f7f7f7;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	border: 3px solid #fff;
+	padding: .5em;
 	}
 .module-actions {
 	margin-top: 1em;
@@ -1570,6 +1577,9 @@ a.form-control.open {
 .bloc-toggler img:hover {
 	opacity: 1;
 	}
+.bloc-toggler a:focus img {
+	opacity: 1;
+	}
 span.module-version:before {
 	content: "- ";
 	}
@@ -1580,7 +1590,7 @@ span.module-version:before {
 .box.current-theme {
 	width: 652px;
 	margin: .5em;
-	padding: 1em 0 .5em 1em;
+	padding: 10px;
 	background: #fff url(stripe.png);
 	border: 1px solid #eee;
 	-webkit-border-radius: .5em;
@@ -1592,10 +1602,11 @@ span.module-version:before {
 	float: left;
 	margin-right: 2em;
 	margin-bottom: 1em;
+	border: 3px solid #fff;
+	padding: .5em;
 	}
 .current-theme .module-name {
 	color: #D33800;
-	margin-bottom: .8em;
 	font-size: 1.33em;
 	}
 .box.theme input {
