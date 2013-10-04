@@ -579,6 +579,11 @@ class dcPage
 		self::jsVar('dotclear.img_minus_alt',__('hide')).
 		self::jsVar('dotclear.img_menu_on','images/menu_on.png').
 		self::jsVar('dotclear.img_menu_off','images/menu_off.png').
+		
+		self::jsVar('dotclear.img_plus_theme_src','images/plus-theme.png').
+		self::jsVar('dotclear.img_plus_theme_alt',__('uncover')).
+		self::jsVar('dotclear.img_minus_theme_src','images/minus-theme.png').
+		self::jsVar('dotclear.img_minus_theme_alt',__('hide')).
 
 		self::jsVar('dotclear.msg.help',
 			__('Need help?')).
@@ -666,6 +671,19 @@ class dcPage
 			__("Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?")).
 		self::jsVar('dotclear.msg.load_enhanced_uploader',
 			__('Loading enhanced uploader, please wait.')).
+
+		self::jsVar('dotclear.msg.module_author',
+			__('Author:')).
+		self::jsVar('dotclear.msg.module_details',
+			__('Details')).
+		self::jsVar('dotclear.msg.module_support',
+			__('Support')).
+		self::jsVar('dotclear.msg.module_help',
+			__('Help:')).
+		self::jsVar('dotclear.msg.module_section',
+			__('Section:')).
+		self::jsVar('dotclear.msg.module_tags',
+			__('Tags:')).
 			"\n//]]>\n".
 		"</script>\n";
 	}

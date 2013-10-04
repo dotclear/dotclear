@@ -28,6 +28,7 @@ $core->addBehavior('adminDashboardContents', array('dcMaintenanceAdmin', 'adminD
 $core->addBehavior('adminDashboardOptionsForm',	array('dcMaintenanceAdmin',	'adminDashboardOptionsForm'));
 $core->addBehavior('adminAfterDashboardOptionsUpdate',	array('dcMaintenanceAdmin',	'adminAfterDashboardOptionsUpdate'));
 $core->addBehavior('adminPageHelpBlock',	array('dcMaintenanceAdmin',	'adminPageHelpBlock'));
+$core->addBehavior('pluginsToolsHeaders',	array('dcMaintenanceAdmin',	'pluginsToolsHeaders'));
 
 /**
 @ingroup PLUGIN_MAINTENANCE
@@ -223,7 +224,6 @@ class dcMaintenanceAdmin
 		$core->auth->user_prefs->maintenance->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
 	}
 
-
 	/**
 	 * Build a well sorted help for tasks.
 	 *
@@ -291,6 +291,20 @@ class dcMaintenanceAdmin
 			$res = new ArrayObject();
 			$res->content = $res_tab;
 			$blocks[] = $res;
+		}
+	}
+
+	/**
+	 * Add javascript for plugin configuration.
+	 *
+	 * @param	$core	<b>dcCore</b>	dcCore instance
+	 * @param	$module	<b>mixed</b>	Module ID or false if none
+	 * @return	<b>string</b>	Header code for js inclusion
+	 */
+	public static function pluginsToolsHeaders($core, $module)
+	{
+		if ($module == 'maintenance') {
+			return dcPage::jsLoad('index.php?pf=maintenance/js/settings.js');
 		}
 	}
 }
