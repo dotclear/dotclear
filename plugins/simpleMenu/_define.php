@@ -17,7 +17,8 @@ $this->registerModule(
 	/* Author */			"Franck Paul",
 	/* Version */			'1.1.1',
 	array(
-		'permissions' =>	'admin'
+		'permissions' =>	'admin',
+		'type'		=>		'plugin'
 	)
 );
 ?>

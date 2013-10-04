@@ -15,6 +15,9 @@ $this->registerModule(
 	/* Name */			"Blowup",
 	/* Description*/		"Default Dotclear theme, fully customizable",
 	/* Author */			"Marco & Olivier",
-	/* Version */			'1.0'
+	/* Version */			'1.0',
+	array(
+		'type'		=>		'theme'
+	)
 );
 ?>

@@ -17,7 +17,8 @@ $this->registerModule(
 	/* Author */			"dc Team",
 	/* Version */			'1.0',
 	array(
-		'priority' =>		500
+		'priority' =>		500,
+		'type'		=>		'plugin'
 	)
 );
 ?>
