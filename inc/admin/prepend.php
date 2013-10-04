@@ -261,7 +261,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		$core->auth->check('usage,contentadmin',$core->blog->id));
 	$_menu['Blog']->prependItem(__('New entry'),'post.php','images/menu/edit.png',
 		preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
-		$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post');
+		$core->auth->check('usage,contentadmin',$core->blog->id));
 	
 	$_menu['System']->prependItem(__('Update'),'update.php','images/menu/update.png',
 		preg_match('/update.php(\?.*)?$/',$_SERVER['REQUEST_URI']),

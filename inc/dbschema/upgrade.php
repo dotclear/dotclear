@@ -151,7 +151,7 @@ function dotclearUpgrade($core)
 
 				$init_fav['new_post'] = array('new_post','New entry','post.php',
 					'images/menu/edit.png','images/menu/edit-b.png',
-					'usage,contentadmin',null,'menu-new-post');
+					'usage,contentadmin',null,null);
 				$init_fav['newpage'] = array('newpage','New page','plugin.php?p=pages&amp;act=page',
 					'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
 					'contentadmin,pages',null,null);
