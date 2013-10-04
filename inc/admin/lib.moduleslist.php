@@ -1209,7 +1209,7 @@ class adminThemesList extends adminModulesList
 			$has_support = in_array('support', $cols) && !empty($module['support']);
 			if ($has_details || $has_support) {
 				$line .=
-				'<span class="mod-more">'.__('Help:').' ';
+				'<span class="mod-more">';
 
 				if ($has_details) {
 					$line .= 
@@ -1244,6 +1244,8 @@ class adminThemesList extends adminModulesList
 					'<p><a href="'.$theme_url.'/style.css">'.__('View stylesheet').'</a></p>';
 				}
 
+				$line .= '<div class="current-actions">';
+
 				if (file_exists(path::real($this->core->blog->themes_path.'/'.$id).'/_config.php')) {
 					$line .= 
 					'<p><a href="'.$this->getURL('module='.$id.'&conf=1', false).'" class="button">'.__('Configure theme').'</a></p>';
@@ -1252,6 +1254,8 @@ class adminThemesList extends adminModulesList
 				# --BEHAVIOR-- adminCurrentThemeDetails
 				$line .= 
 				$this->core->callBehavior('adminCurrentThemeDetails', $this->core, $id, $module);
+
+				$line .= '</div>';
 			}
 
 			# _POST actions

@@ -1562,6 +1562,19 @@ a.form-control.open {
 .bloc-toggler {
 	text-align: right;
 	}
+.bloc-toggler img {
+	opacity: .4;
+	}
+.bloc-toggler img:hover {
+	opacity: 1;
+	}
+span.module-version:before {
+	content: "- ";
+	}
+.toggle-bloc .mod-more {
+	display: block;
+	margin-left: 0;
+	}
 .box.current-theme {
 	width: 652px;
 	margin: .5em;
@@ -1584,6 +1597,13 @@ a.form-control.open {
 	}
 .box.theme input {
 	margin-bottom: 1em;
+	}
+.current-actions {
+	width: auto;
+	overflow: hidden;
+	padding-top: 3em;
+	margin: 1.5em 0 2em;
+	background: transparent url(../images/minus-theme.png) no-repeat left top;
 	}
 /* ------------------------------------------------------------------ categories.php */
 #categories {
@@ -1928,6 +1948,7 @@ div.template-upload {
 	}
 .modules td.expand {
 	padding: 0;
+	border-top: 1px solid #e5e5e5;
 	}
 .mod-more, .mod-more li {
 	margin: .25em 0 0 1em;
