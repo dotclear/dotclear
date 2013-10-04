@@ -243,7 +243,7 @@ class dcModules
 	public static function installPackage($zip_file,dcModules &$modules)
 	{
 		$zip = new fileUnzip($zip_file);
-		$zip->getList(false,'#(^|/)(__MACOSX|\.svn|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+		$zip->getList(false,'#(^|/)(__MACOSX|\.svn|\.hg|\.git|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 		
 		$zip_root_dir = $zip->getRootDir();
 		$define = '';
