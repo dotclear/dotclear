@@ -339,7 +339,6 @@ if ($popup) {
 		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p></div>';
 }
 
-
 $items = array_values(array_merge($dir['dirs'],$dir['files']));
 
 $fmt_form_media = '<form action="media.php" method="post" id="form-medias">'.
@@ -348,9 +347,9 @@ $fmt_form_media = '<form action="media.php" method="post" id="form-medias">'.
 
 if (!$popup) {
 	$fmt_form_media .=
-	'<div class="two-cols%s">'.
-	'<p class="col checkboxes-helpers"></p>'.
-	'<p class="col right"><input type="submit" class="delete" name="delete_medias" value="'.__('Remove selected medias').'"/></p>'.
+	'<div class="medias-delete%s">'.
+	'<p class="box small checkboxes-helpers"></p>'.
+	'<p class="box small"><input type="submit" class="delete" name="delete_medias" value="'.__('Remove selected medias').'"/></p>'.
 	'</div>';
 }
 $fmt_form_media .=
@@ -368,10 +367,10 @@ else
 	$pager = new dcPager($page,count($items),$nb_per_page,10);
 	
 	echo
-	'<form action="media.php" method="get">'.
-	'<p><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
-	form::combo('file_sort',$sort_combo,$file_sort).' - '.
-	'<label for="nb_per_page" class="classic">'.__('Number of elements displayed per page:').'</label> '.
+	'<form action="media.php" method="get" id="filters-form">'.
+	'<p class="two-boxes"><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
+	form::combo('file_sort',$sort_combo,$file_sort).'</p>'.
+	'<p class="two-boxes"><label for="nb_per_page" class="classic">'.__('Number of elements displayed per page:').'</label> '.
 	form::field('nb_per_page',5,3,(integer) $nb_per_page).' '.
 	'<input type="submit" value="'.__('OK').'" />'.
 	form::hidden(array('popup'),$popup).
@@ -403,10 +402,6 @@ if (!isset($pager)) {
 }
 echo
 '</div>';
-
-echo
-'<div class="clearfix"><p class="info">'.sprintf(__('Current settings for medias and images are defined in %s'),
-'<a href="blog_pref.php#medias-settings">'.__('Blog parameters').'</a>').'</p></div>';
 
 if ($core_media_writable || $core_media_archivable) {
 	echo
@@ -520,6 +515,11 @@ $core->formNonce().
 if ($core_media_writable || $core_media_archivable) {
 	echo 
 	'</div>';
+}
+
+if (!$popup) {
+	echo '<div class="info"><p>'.sprintf(__('Current settings for medias and images are defined in %s'),
+	'<a href="blog_pref.php#medias-settings">'.__('Blog parameters').'</a>').'</p></div>';
 }
 
 call_user_func($close_f);

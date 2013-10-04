@@ -35,16 +35,20 @@ $core->addBehavior('adminBeforeUserUpdate',array('tagsBehaviors','setTagListForm
 
 $core->addBehavior('coreInitWikiPost',array('tagsBehaviors','coreInitWikiPost'));
 
-$core->addBehavior('adminDashboardFavs',array('tagsBehaviors','dashboardFavs'));
+$core->addBehavior('adminDashboardFavorites',array('tagsBehaviors','dashboardFavorites'));
 
 # BEHAVIORS
 class tagsBehaviors
 {
-	public static function dashboardFavs($core,$favs)
+	public static function dashboardFavorites($core,$favs)
 	{
-		$favs['tags'] = new ArrayObject(array('tags','Tags','plugin.php?p=tags&amp;m=tags',
-			'index.php?pf=tags/icon.png','index.php?pf=tags/icon-big.png',
-			'usage,contentadmin',null,null));
+		$favs->register('tags', array(
+			'title' => __('Tags'),
+			'url' => 'plugin.php?p=tags&amp;m=tags',
+			'small-icon' => 'index.php?pf=tags/icon.png',
+			'large-icon' => 'index.php?pf=tags/icon-big.png',
+			'permissions' => 'usage,contentadmin'
+		));
 	}
 
 	public static function coreInitWikiPost($wiki2xhtml)
