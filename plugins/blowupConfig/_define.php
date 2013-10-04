@@ -17,7 +17,8 @@ $this->registerModule(
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.2',
 	array(
-		'permissions' =>	'admin'
+		'permissions' =>	'admin',
+		'type'		=>		'plugin'
 	)
 );
 ?>

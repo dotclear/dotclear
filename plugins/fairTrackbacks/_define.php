@@ -18,7 +18,8 @@ $this->registerModule(
 	/* Version */			'1.1',
 	array(
 		'permissions' =>	'usage,contentadmin',
-		'priority' =>		200
+		'priority' =>		200,
+		'type'		=>		'plugin'
 	)
 );
 ?>
