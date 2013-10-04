@@ -32,7 +32,7 @@ $params['order'] = 'post_position ASC, post_title ASC';
 try {
 	$pages = $core->blog->getPosts($params);
 	$counter = $core->blog->getPosts($params,true);
-	$post_list = new adminPageList($core,$pages,$counter->f(0));
+	$post_list = new adminPagesList($core,$pages,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }

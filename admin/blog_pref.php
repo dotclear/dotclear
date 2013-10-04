@@ -692,7 +692,11 @@ if ($blog_id)
 					'<span class="form-note">'.__('All rights on all blogs.').'</span></li>';
 				} else {
 					foreach ($v['p'] as $p => $V) {
-						echo '<li '.($p == 'admin' ? 'class="user_admin"' : '').'>'.__($perm_types[$p]);
+						if (isset($perm_types[$p])) {
+							echo '<li '.($p == 'admin' ? 'class="user_admin"' : '').'>'.__($perm_types[$p]);
+						} else {
+							echo '<li>'.sprintf(__('[%s] (unreferenced permission)'),$p);
+						}
 
 						if($p == 'admin') {
 							echo '<br /><span class="form-note">'.__('All rights on this blog.').'</span>';

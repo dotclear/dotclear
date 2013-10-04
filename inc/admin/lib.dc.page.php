@@ -135,8 +135,8 @@ class dcPage
 		echo
 		'<form action="index.php" method="post" id="top-info-blog">'.
 		$blog_box.
-		'<p><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').
-		' ('.__('new window').')'.'">'.__('Go to site').'<img src="images/outgoing.png" alt="" /></a>'.
+		'<p><a href="'.$core->blog->url.'" class="outgoing" title="'.__('Go to site').
+		'">'.__('Go to site').'<img src="images/outgoing.png" alt="" /></a>'.
 		'</p></form>'.
 		'<ul id="top-info-user">'.
 		'<li><a class="'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a></li>'.
@@ -587,6 +587,8 @@ class dcPage
 
 		self::jsVar('dotclear.msg.help',
 			__('Need help?')).
+		self::jsVar('dotclear.msg.new_window',
+			__('new window')).
 		self::jsVar('dotclear.msg.help_hide',
 			__('Hide')).
 		self::jsVar('dotclear.msg.to_select',

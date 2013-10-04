@@ -12,18 +12,22 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $core->addBehavior('adminDashboardIcons','blogroll_dashboard');
-$core->addBehavior('adminDashboardFavs','blogroll_dashboard_favs');
+$core->addBehavior('adminDashboardFavorites','blogroll_dashboard_favorites');
 $core->addBehavior('adminUsersActionsHeaders','blogroll_users_actions_headers');
 
 function blogroll_dashboard($core,$icons)
 {
 	$icons['blogroll'] = new ArrayObject(array(__('Blogroll'),'plugin.php?p=blogroll','index.php?pf=blogroll/icon.png'));
 }
-function blogroll_dashboard_favs($core,$favs)
+function blogroll_dashboard_favorites($core,$favs)
 {
-	$favs['blogroll'] = new ArrayObject(array('blogroll','Blogroll','plugin.php?p=blogroll',
-		'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
-		'usage,contentadmin',null,null));
+	$favs->register('blogroll', array(
+		'title' => __('Blogroll'),
+		'url' => 'plugin.php?p=blogroll',
+		'small-icon' => 'index.php?pf=blogroll/icon-small.png',
+		'large-icon' => 'index.php?pf=blogroll/icon.png',
+		'permissions' => 'usage,contentadmin'
+	));
 }
 function blogroll_users_actions_headers()
 {

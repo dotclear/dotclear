@@ -48,6 +48,7 @@ $__autoload['dcPrefs']				= dirname(__FILE__).'/core/class.dc.prefs.php';
 $__autoload['dcStore']			= dirname(__FILE__).'/core/class.dc.store.php';
 $__autoload['dcStoreReader']		= dirname(__FILE__).'/core/class.dc.store.reader.php';
 $__autoload['dcStoreParser']		= dirname(__FILE__).'/core/class.dc.store.parser.php';
+$__autoload['dcFavorites']			= dirname(__FILE__).'/admin/class.dc.favorites.php';
 
 $__autoload['rsExtPost']				= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 $__autoload['rsExtComment']			= dirname(__FILE__).'/core/class.dc.rs.extensions.php';

@@ -34,6 +34,8 @@ class dcModules
 	protected static $superglobals = array('GLOBALS','_SERVER','_GET','_POST','_COOKIE','_FILES','_ENV','_REQUEST','_SESSION');
 	protected static $_k;
 	protected static $_n;
+
+	protected static $type = 'plugin';
 	
 	public $core;	///< <b>dcCore</b>	dcCore instance
 	
@@ -176,9 +178,22 @@ class dcModules
 		$properties = array_merge(
 			array(
 				'permissions' => null,
-				'priority' => 1000
+				'priority' => 1000,
+				'standalone_config' => false,
+				'type' => null
 			), $properties
 		);
+
+		if ($properties['type'] !== null && $properties['type'] != self::$type) {
+			$this->errors[] = sprintf(
+				__('Module "%s" has type "%s" that mismatch required module type "%s".'),
+				'<strong>'.html::escapeHTML($name).'</strong>',
+				'<em>'.html::escapeHTML($properties['type']).'</em>',
+				'<em>'.html::escapeHTML(self::$type).'</em>'
+			);
+			return;
+		}
+
 		$permissions = $properties['permissions'];
 		if ($this->ns == 'admin') {
 			if ($permissions == '' && !$this->core->auth->isSuperAdmin()) {
@@ -209,7 +224,7 @@ class dcModules
 				$path1 = path::real($this->moduleInfo($name,'root'));
 				$path2 = path::real($this->mroot);
 				$this->errors[] = sprintf(
-					__('%s: in [%s] and [%s]'),
+					__('Module "%s" is installed twice in "%s" and "%s".'),
 					'<strong>'.$name.'</strong>',
 					'<em>'.$path1.'</em>',
 					'<em>'.$path2.'</em>'
@@ -222,6 +237,7 @@ class dcModules
 	{
 		$this->modules = array();
 		$this->modules_names = array();
+		$this->errors = array();
 	}	
 	
 	public static function installPackage($zip_file,dcModules &$modules)
@@ -257,7 +273,35 @@ class dcModules
 		
 		$ret_code = 1;
 		
-		if (is_dir($destination))
+		if (!is_dir($destination))
+		{
+			try {
+				files::makeDir($destination,true);
+				
+				$sandbox = clone $modules;
+				$zip->unzip($define, $target.'/_define.php');
+				
+				$sandbox->resetModulesList();
+				$sandbox->requireDefine($target,basename($destination));
+				unlink($target.'/_define.php');
+				
+				$new_errors = $sandbox->getErrors();
+				if (!empty($new_errors)) {
+					$new_errors = is_array($new_errors) ? implode(" \n",$new_errors) : $new_errors;
+					throw new Exception($new_errors);
+				}
+				
+				files::deltree($destination);
+			}
+			catch(Exception $e)
+			{
+				$zip->close();
+				unlink($zip_file);
+				files::deltree($destination);
+				throw new Exception($e->getMessage());		
+			}
+		}
+		else
 		{
 			# test for update
 			$sandbox = clone $modules;
