@@ -341,9 +341,23 @@ function dotclearUpgrade($core)
 				@unlink(DC_ROOT.'/'.'admin/trackbacks.php');
 
 				# daInstaller has been integrated to the core.
-				$core->plugins->loadModules(DC_PLUGINS_ROOT);
-				if ($core->plugins->moduleExists('daInstaller')) {
-					$core->plugins->deleteModule('daInstaller');
+				# Try to remove it
+				$path = explode(PATH_SEPARATOR,DC_PLUGINS_ROOT);
+				foreach ($path as $root)
+				{
+					if (!is_dir($root) || !is_readable($root)) {
+						continue;
+					}
+					if (substr($root,-1) != '/') {
+						$root .= '/';
+					}
+					if (($p = @dir($root)) === false) {
+						continue;
+					}
+					if (($d = @dir($root.'daInstaller')) === false) {
+						continue;
+					}
+					files::deltree($root.'/daInstaller');
 				}
 			}
 			
