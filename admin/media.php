@@ -356,13 +356,13 @@ $items = array_values(array_merge($dir['dirs'],$dir['files']));
 
 $fmt_form_media = '<form action="media.php" method="post" id="form-medias">'.
 	'<div class="files-group">%s</div>'.
-	'<p>'.$core->formNonce() . form::hidden(array('d'),$d).'</p>';
+	'<p class="hidden">'.$core->formNonce() . form::hidden(array('d'),$d).'</p>';
 
 if (!$popup) {
 	$fmt_form_media .=
 	'<div class="medias-delete%s">'.
-	'<p class="box small checkboxes-helpers"></p>'.
-	'<p class="box small"><input type="submit" class="delete" name="delete_medias" value="'.__('Remove selected medias').'"/></p>'.
+	'<p class="checkboxes-helpers"></p>'.
+	'<p><input type="submit" class="delete" name="delete_medias" value="'.__('Remove selected medias').'"/></p>'.
 	'</div>';
 }
 $fmt_form_media .=
@@ -446,7 +446,7 @@ if ($core_media_writable || $core_media_archivable) {
 	}
 
 	# Get zip directory
-	if ($core_media_archivable)
+	if ($core_media_archivable && !$popup)
 	{
 		echo
 		'<div class="fieldset">'.
