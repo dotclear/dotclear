@@ -129,7 +129,8 @@ if (isset($_POST['user_name']))
 				$core->session->destroy();
 			}
 			
-			http::redirect('user.php?id='.$new_id.'&upd=1');
+			dcPage::addSuccessNotice(__('User has been successfully updated.'));
+			http::redirect('user.php?id='.$new_id);
 		}
 		# Add user
 		else
@@ -146,10 +147,11 @@ if (isset($_POST['user_name']))
 			# --BEHAVIOR-- adminAfterUserCreate
 			$core->callBehavior('adminAfterUserCreate',$cur,$new_id);
 			
+			dcPage::addSuccessNotice(__('User has been successfully created.'));
 			if (!empty($_POST['saveplus'])) {
-				http::redirect('user.php?add=1');
+				http::redirect('user.php');
 			} else {
-				http::redirect('user.php?id='.$new_id.'&add=1');
+				http::redirect('user.php?id='.$new_id);
 			}
 		}
 	}

@@ -172,7 +172,8 @@ if (!empty($_POST['ping']))
 		}
 		
 		if (!$core->error->flag()) {
-			http::redirect('post.php?id='.$post_id.'&tbsent=1&tb=1');
+			dcPage::addSuccessNotice(__('All pings sent.'));
+			http::redirect('post.php?id='.$post_id.'&tb=1');
 		}
 	}
 }
@@ -318,8 +319,9 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			
 			# --BEHAVIOR-- adminAfterPostCreate
 			$core->callBehavior('adminAfterPostCreate',$cur,$return_id);
-			
-			http::redirect('post.php?id='.$return_id.'&crea=1');
+
+			dcPage::addSuccessNotice(__('Entry has been successfully created.'));
+			http::redirect('post.php?id='.$return_id);
 		}
 		catch (Exception $e)
 		{

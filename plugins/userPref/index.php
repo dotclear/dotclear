@@ -35,7 +35,8 @@ if (!empty($_POST['s']) && is_array($_POST['s']))
 			}
 		}
 		
-		http::redirect($p_url.'&upd=1');
+		dcPage::addSuccessNotice(__('Preferences successfully updated'));
+		http::redirect($p_url);
 	}
 	catch (Exception $e)
 	{
@@ -57,7 +58,8 @@ if (!empty($_POST['gs']) && is_array($_POST['gs']))
 			}
 		}
 		
-		http::redirect($p_url.'&upd=1&part=global');
+		dcPage::addSuccessNotice(__('Preferences successfully updated'));
+		http::redirect($p_url.'&part=global');
 	}
 	catch (Exception $e)
 	{
@@ -115,15 +117,9 @@ echo dcPage::breadcrumb(
 		__('System') => '',
 		html::escapeHTML($core->auth->userID()) => '',
 		__('user:preferences') => ''
-	));
+	)).
+	dcPage::notices();
 
-if (!empty($_GET['upd'])) {
-	dcPage::success(__('Preferences successfully updated'));
-}
-
-if (!empty($_GET['upda'])) {
-	dcPage::success(__('Preferences definition successfully updated'));
-}
 ?>
 
 <div id="local" class="multi-part" title="<?php echo __('User preferences'); ?>">

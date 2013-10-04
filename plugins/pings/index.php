@@ -35,7 +35,8 @@ try
 		$core->blog->settings->addNamespace('pings');
 		$core->blog->settings->pings->put('pings_active',!empty($_POST['pings_active']),null,null,true,true);
 		$core->blog->settings->pings->put('pings_uris',serialize($pings_uris),null,null,true,true);
-		http::redirect($p_url.'&up=1');
+		dcPage::addSuccessNotice(__('Settings have been successfully updated.'));
+		http::redirect($p_url);
 	}
 }
 catch (Exception $e)
@@ -56,10 +57,6 @@ echo dcPage::breadcrumb(
 		__('Plugins') => '',
 		__('Pings configuration') => ''
 	));
-
-if (!empty($_GET['up'])) {
-	dcPage::success(__('Settings have been successfully updated.'));
-}
 
 echo
 '<form action="'.$p_url.'" method="post">'.

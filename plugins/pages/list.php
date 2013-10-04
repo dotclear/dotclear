@@ -71,7 +71,7 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Pages') => ''
-	));
+	)).dcPage::notices();
 
 if (!empty($_GET['upd'])) {
 	dcPage::success(__('Selected pages have been successfully updated.'));

@@ -139,7 +139,14 @@ class tagsBehaviors
 					}
 				}
 			}
-			$ap->redirect(true,array('upd' => 1));
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'Tag has been successfully added to selected entries',
+					'Tags have been successfully added to selected entries',
+					count($tags))
+				)
+			);
+			$ap->redirect(true);
 		} 
 		else 
 		{
@@ -204,7 +211,14 @@ class tagsBehaviors
 					$meta->delPostMeta($posts->post_id,'tag',$v);
 				}
 			}
-			$ap->redirect(true,array('upd' => 1));
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'Tag has been successfully removed from selected entries',
+					'Tags have been successfully removed from selected entries',
+					count($_POST['meta_id']))
+				)
+			);
+			$ap->redirect(true);
 		}
 		else
 		{

@@ -79,7 +79,9 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 			$core->blog->triggerBlog();
 			
 		}
-		$ap->redirect(false,array('reo'=>1));
+		
+		dcPage::addSuccessNotice(__('Selected pages have been successfully reordered.'));
+		$ap->redirect(false);
 	}	
 }
 
