@@ -136,7 +136,6 @@ $(function() {
 
 	$('#form-medias').submit(function() {
 		var count_checked = $('input[name="medias[]"]:checked', $(this)).length;
-		console.log('count: ', count_checked);
 		if (count_checked==0) {
 			return false;
 		}
