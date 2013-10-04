@@ -2334,7 +2334,7 @@ ul.from-left {
 	}
 /* caché pour tout le monde */
 .hide, .button.hide {
-	display: none;
+	display: none !important;
 	}
 /* Caché sauf pour les revues d'écran */
 .hidden, .with-js .out-of-screen-if-js {
