@@ -196,7 +196,7 @@ class dcStore
 	{
 		try {
 			$client = netHttp::initClient($url, $path);
-			$client->setUserAgent(self::agent());
+			$client->setUserAgent($this->user_agent);
 			$client->useGzip(false);
 			$client->setPersistReferers(false);
 			$client->setOutput($dest);

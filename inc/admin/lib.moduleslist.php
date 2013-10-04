@@ -853,6 +853,8 @@ class adminModulesList
 					throw new Exception(__('No such module.'));
 				}
 
+				$tab = count($updated) > 1 ? '' : '#'.$prefix;
+
 				$module = $updated[$id];
 				$module['id'] = $id;
 
@@ -875,7 +877,7 @@ class adminModulesList
 				$this->core->callBehavior($prefix.'AfterUpdate', $module);
 
 				dcPage::addSuccessNotice(__('Module has been successfully updated.'));
-				http::redirect($this->getURL());
+				http::redirect($this->getURL().$tab);
 			}
 			else {
 
