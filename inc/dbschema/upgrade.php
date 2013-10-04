@@ -339,6 +339,12 @@ function dotclearUpgrade($core)
 
 				// trackbacks are now merged into posts
 				@unlink(DC_ROOT.'/'.'admin/trackbacks.php');
+
+				# daInstaller has been integrated to the core.
+				$core->plugins->loadModules(DC_PLUGINS_ROOT);
+				if ($core->plugins->moduleExists('daInstaller')) {
+					$core->plugins->deleteModule('daInstaller');
+				}
 			}
 			
 			$core->setVersion('core',DC_VERSION);

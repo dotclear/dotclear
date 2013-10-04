@@ -41,7 +41,6 @@ $list::$distributed_modules = array(
 	'attachments',
 	'blogroll',
 	'blowupConfig',
-	'daInstaller',
 	'fairTrackbacks',
 	'importExport',
 	'maintenance',
