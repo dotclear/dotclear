@@ -133,7 +133,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		).'</p>';
 
 		$list
-			->initList('theme-update')
+			->setList('theme-update')
 			->setTab('themes')
 			->setModules($modules)
 			->displayModules(
@@ -162,12 +162,12 @@ if (!empty($modules)) {
 	'<p>'.__('You can configure and manage installed themes from this list.').'</p>';
 
 	$list
-		->initList('theme-activate')
+		->setList('theme-activate')
 		->setTab('themes')
 		->setModules($modules)
 		->displayModules(
 			/* cols */		array('sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'),
-			/* actions */	array('select', 'deactivate', 'delete')
+			/* actions */	array('select', 'behavior', 'deactivate', 'delete')
 		);
 
 	echo 
@@ -184,7 +184,7 @@ if (!empty($modules)) {
 	'<p>'.__('Deactivated themes are installed but not usable. You can activate them from here.').'</p>';
 
 	$list
-		->initList('theme-deactivate')
+		->setList('theme-deactivate')
 		->setTab('themes')
 		->setModules($modules)
 		->displayModules(
@@ -209,7 +209,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		'<p>'.__('Search and install themes directly from repository.').'</p>';
 
 		$list
-			->initList('theme-new')
+			->setList('theme-new')
 			->setTab('new')
 			->setModules($modules)
 			->displaySearch()

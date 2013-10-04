@@ -74,13 +74,23 @@ class adminModulesList
 	 * @param	string	$id		New list ID
 	 * @return	adminModulesList self instance
 	 */
-	public function initList($id)
+	public function setList($id)
 	{
 		$this->data = array();
 		$this->page_tab = '';
 		$this->list_id = $id;
 
 		return $this;
+	}
+
+	/**
+	 * Get list ID.
+	 *
+	 * @return	List ID
+	 */
+	public function getList()
+	{
+		return $this->list_id;
 	}
 
 	/// @name Modules root directory methods
@@ -135,7 +145,7 @@ class adminModulesList
 	public function isDeletablePath($root)
 	{
 		return $this->path_writable 
-			&& preg_match('!^'.$this->path_pattern.'!', $root) 
+			&& (preg_match('!^'.$this->path_pattern.'!', $root) || defined('DC_DEV') && DC_DEV) 
 			&& $this->core->auth->isSuperAdmin();
 	}
 	//@}
@@ -651,8 +661,9 @@ class adminModulesList
 
 				# Delete
 				case 'delete': if ($this->isDeletablePath($module['root'])) {
+					$dev = !preg_match('!^'.$this->path_pattern.'!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
 					$submits[] = 
-					'<input type="submit" class="delete" name="delete" value="'.__('Delete').'" />';
+					'<input type="submit" class="delete '.$dev.'" name="delete" value="'.__('Delete').'" />';
 				} break;
 
 				# Install (from store)
@@ -666,8 +677,20 @@ class adminModulesList
 					$submits[] = 
 					'<input type="submit" name="update" value="'.__('Update').'" />';
 				} break;
+
+				# Behavior
+				case 'behavior':
+
+					# --BEHAVIOR-- adminModulesListGetActions
+					$tmp = $this->core->callBehavior('adminModulesListGetActions', $this, $id, $module);
+
+					if (!empty($tmp)) {
+						$submits[] = $tmp;
+					}
+				break;
 			}
 		}
+
 
 		return $submits;
 	}
@@ -797,7 +820,7 @@ class adminModulesList
 
 			elseif (!empty($_POST['update'])) {
 
-				$updated = $store->get();
+				$updated = $this->store->get();
 				if (!isset($updated[$id])) {
 					throw new Exception(__('No such module.'));
 				}
@@ -829,6 +852,12 @@ class adminModulesList
 
 				dcPage::addSuccessNotice(__('Module has been successfully updated.'));
 				http::redirect($this->getURL());
+			}
+			else {
+
+				# --BEHAVIOR-- adminModulesListDoActions
+				$this->core->callBehavior('adminModulesListDoActions', $this, $id, $prefix);
+
 			}
 		}
 		# Manual actions

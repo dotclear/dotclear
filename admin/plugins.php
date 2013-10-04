@@ -156,7 +156,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		).'</p>';
 
 		$list
-			->initList('plugin-update')
+			->setList('plugin-update')
 			->setTab('update')
 			->setModules($modules)
 			->displayModules(
@@ -187,12 +187,12 @@ if (!empty($modules)) {
 	'<p>'.__('You can configure and manage installed plugins from this list.').'</p>';
 
 	$list
-		->initList('plugin-activate')
+		->setList('plugin-activate')
 		->setTab('plugins')
 		->setModules($modules)
 		->displayModules(
 			/* cols */		array('expander', 'icon', 'name', 'config', 'version', 'desc', 'distrib'),
-			/* actions */	array('deactivate', 'delete')
+			/* actions */	array('deactivate', 'delete', 'behavior')
 		);
 }
 
@@ -205,7 +205,7 @@ if ($core->auth->isSuperAdmin()) {
 		'<p>'.__('Deactivated plugins are installed but not usable. You can activate them from here.').'</p>';
 
 		$list
-			->initList('plugin-deactivate')
+			->setList('plugin-deactivate')
 			->setTab('plugins')
 			->setModules($modules)
 			->displayModules(
@@ -231,7 +231,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		'<p>'.__('Search and install plugins directly from repository.').'</p>';
 
 		$list
-			->initList('plugin-new')
+			->setList('plugin-new')
 			->setTab('new')
 			->setModules($modules)
 			->displaySearch()

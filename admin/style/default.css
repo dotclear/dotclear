@@ -1582,6 +1582,9 @@ a.form-control.open {
 	margin-bottom: 1em;
 	font-size: 1.33em;
 	}
+input {
+	margin-bottom: 1em;
+	}
 /* ------------------------------------------------------------------ categories.php */
 #categories {
 	margin: 1em 0;
@@ -2357,6 +2360,9 @@ ul.from-left {
 .debug {
 	background: #ff6;
 	padding: 3px 0.5em 2px;
+	}
+input[type=submit].delete.debug, a.delete.debug {
+	background: #ff6;
 	}
 /* ---------------------------------------------- Couleurs ajoutées via javascript	
 /* color-picker.js */
