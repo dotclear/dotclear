@@ -837,32 +837,30 @@ msgstr "Ce blog est hors ligne"
 msgid "This blog is removed"
 msgstr "Ce blog est supprimé"
 
-#, fuzzy
 msgid "is not defined, you should edit your configuration file."
-msgstr "DC_ADMIN_URL n'est pas défini, vous devriez corriger votre fichier de configuration."
+msgstr "n'est pas défini, vous devriez modifier votre fichier de configuration."
 
 msgid "Following plugins have been installed:"
-msgstr "Les extensions suivantes ont été installés :"
+msgstr "Les plugins suivants ont été installés :"
 
 msgid "Following plugins have not been installed:"
-msgstr "Les extensions suivantes suivants n'ont pas été installés :"
+msgstr "Les plugins suivants n'ont pas été installés :"
 
-#, fuzzy, php-format
+#php-format
 msgid "Dotclear %s is available!"
-msgstr "Dotclear est déjà installé."
+msgstr "Dotclear %s est disponible."
 
 msgid "Upgrade now"
-msgstr ""
+msgstr "Mettre à jour maintenant"
 
 msgid "Remind me later"
-msgstr ""
+msgstr "Me le rappeler plus tard"
 
 msgid "<a href=\"%s\">Information about this version</a>."
-msgstr ""
+msgstr "<a href=\"%s\">Information sur cette version</a>."
 
-#, fuzzy
 msgid "Some plugins are installed twice:"
-msgstr "Les extensions suivantes ont été installés :"
+msgstr "Les plugins suivants ont été installés deux fois :"
 
 msgid "Quick entry"
 msgstr "Billet rapide"
@@ -873,9 +871,8 @@ msgstr "Contenu :"
 msgid "Category:"
 msgstr "Catégorie :"
 
-#, fuzzy
 msgid "Save and publish"
-msgstr "enregister et publier"
+msgstr "Enregister et publier"
 
 #, php-format
 msgid "PHP version is %s (5.0 or earlier needed)."
@@ -957,12 +954,11 @@ msgid ""
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr "<p>Ceci est un commentaire</p><p>Pour le supprimer, connectez-vous et affichez les commentaires de votre blog. Vous pourrez alors le supprimer ou le modifier.</p>"
 
-#, fuzzy
 msgid "Dotclear Install"
 msgstr "Installation de Dotclear"
 
 msgid "show"
-msgstr ""
+msgstr "montrer"
 
 msgid "Dotclear installation"
 msgstr "Installation de Dotclear"
@@ -983,17 +979,14 @@ msgstr "Informations utilisateur"
 msgid "Please provide the following information needed to create the first user."
 msgstr "Merci de fournir les informations suivantes pour créer le premier utilisateur."
 
-#, fuzzy
 msgid "First Name:"
 msgstr "Prénom :"
 
-#, fuzzy
 msgid "Last Name:"
-msgstr "Dernière mise à jour"
+msgstr "Nom"
 
-#, fuzzy
 msgid "Username and password"
-msgstr "Korisnik ili lozinka je pogrešna"
+msgstr "Login et mot de passe"
 
 msgid "All done!"
 msgstr "Terminé !"
@@ -1034,14 +1027,13 @@ msgid "Dotclear installation wizard"
 msgstr "Assistant d'installation de Dotclear"
 
 msgid "Welcome"
-msgstr ""
+msgstr "Bienvenue"
 
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr ""
 
-#, fuzzy
 msgid "Attention:"
-msgstr "Action"
+msgstr "Attention :"
 
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr ""
@@ -1070,9 +1062,8 @@ msgstr "Mot de passe de la base de données :"
 msgid "Database Tables Prefix:"
 msgstr "Préfixe des tables de la base de données :"
 
-#, fuzzy
 msgid "Continue"
-msgstr "Contenu :"
+msgstr "Poursuivre :"
 
 msgid "No such installed language"
 msgstr "Cette langue n'est pas installée"
@@ -1183,9 +1174,8 @@ msgstr "Êtes-vous certain de vouloir supprimer %s ?"
 msgid "Cancel"
 msgstr "Annuler"
 
-#, fuzzy
 msgid "Yes"
-msgstr "oui"
+msgstr "Oui"
 
 msgid "Directory has been successfully created."
 msgstr "Répertoire créé avec succès."
@@ -1222,9 +1212,8 @@ msgstr "Aucun fichier."
 msgid "Sort files:"
 msgstr "Trier les fichiers :"
 
-#, fuzzy
 msgid "Sort"
-msgstr "Trier :"
+msgstr "Trier"
 
 msgid "Add files"
 msgstr "Ajouter des fichiers"
@@ -1233,7 +1222,7 @@ msgid "Please take care to publish media that you own and that are not protected
 msgstr "Veuillez prendre garde à ne publier que des médias que vous possédez ou qui ne sont pas protégés contre la copie."
 
 msgid "Choose a file:"
-msgstr "Choisissez un fichier :"
+msgstr "Choisir un fichier :"
 
 #, php-format
 msgid "Maximum size %s"
@@ -1243,17 +1232,16 @@ msgid "Private"
 msgstr "Privé"
 
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
-msgstr ""
+msgstr "Pour envoyer plusieurs fichiers à la fois, vous pouvez activer l'interface avancée dans"
 
 msgid "Send"
-msgstr ""
+msgstr "Envoyer"
 
 msgid "New directory"
 msgstr "Nouveau répertoire"
 
-#, fuzzy
 msgid "Directory Name:"
-msgstr "Nouveau répertoire :"
+msgstr "Nom du répertoire :"
 
 msgid "Download this directory as a zip file"
 msgstr "Télécharger ce répertoire dans un fichier zip"
@@ -1264,9 +1252,8 @@ msgstr "ouvrir"
 msgid "Insert this file into entry"
 msgstr "Insérer ce fichier dans le billet"
 
-#, fuzzy
 msgid "delete"
-msgstr "Supprimer"
+msgstr "supprimer"
 
 msgid "Not a valid file"
 msgstr "Fichier invalide"
@@ -1299,7 +1286,7 @@ msgid "Right"
 msgstr "Droite"
 
 msgid "Center"
-msgstr "Centre"
+msgstr "Centré"
 
 msgid "Image insertion"
 msgstr "Insertion de l'image"
@@ -1319,20 +1306,17 @@ msgstr "Merci de noter que vous ne pouvez pas insérer de fichier mp3 avec l'éd
 msgid "Please note that you cannot insert video files with visual editor."
 msgstr "Merci de noter que vous ne pouvez pas insérer de fichier vidéo avec l'éditeur visuel."
 
-#, fuzzy
 msgid "Video size"
-msgstr "Voir le site"
+msgstr "Taille de la vidéo"
 
 msgid "Width:"
-msgstr ""
+msgstr "Largeur :"
 
-#, fuzzy
 msgid "Height:"
-msgstr "Droite"
+msgstr "Hauteur :"
 
-#, fuzzy
 msgid "Video disposition"
-msgstr "Disposition de la vidéo FLV"
+msgstr "Disposition de la vidéo"
 
 msgid "Media item will be inserted as a link."
 msgstr "Le média sera inséré en tant que lien."
@@ -1388,7 +1372,6 @@ msgstr "Extraire dans le répertoire actuel"
 msgid "Extract archive"
 msgstr "Extraire l'archive"
 
-#, fuzzy
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Ceci va extraire l'archive dans un nouveau répertoire qui ne doit pas encore exister."
 
@@ -1398,9 +1381,8 @@ msgstr "Ceci va extraire l'archive dans le répertoire actuel et va écraser les
 msgid "Extract mode:"
 msgstr "Mode d'extraction :"
 
-#, fuzzy
 msgid "Extract"
-msgstr "extraire"
+msgstr "Extraire"
 
 msgid "Change media properties"
 msgstr "Changer les propriétés du média"
@@ -1436,22 +1418,21 @@ msgstr "Permissions mises à jour avec succès."
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Vous allez changer les permissions des utilisateurs %s pour ces blogs."
 
-#, fuzzy
 msgid "Validate permissions"
-msgstr "définir les permissions"
+msgstr "Enregistrer les permissions"
 
 msgid "choose a blog"
-msgstr "choisissez un blog"
+msgstr "choisir un blog"
 
 msgid "Choose a blog"
-msgstr "Choisissez un blog"
+msgstr "Choisir un blog"
 
 msgid "Entries per page"
 msgstr "Billets par page"
 
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
-msgstr "Choisissez un ou plusieurs blogs pour lesquels les utilisateurs suivants auront des permissions : %s."
+msgstr "Choisir un ou plusieurs blogs pour lesquels les utilisateurs suivants auront des permissions : %s."
 
 msgid "Set permissions"
 msgstr "Définir les permissions"
@@ -1461,56 +1442,56 @@ msgid "select"
 msgstr "sélectionné"
 
 msgid "No content found on this plugin."
-msgstr "Aucun contenu pour cette extension."
+msgstr "Aucun contenu pour ce plugin."
 
 msgid "Plugin not found"
-msgstr "Extension introuvable"
+msgstr "Plugin introuvable"
 
 msgid "The plugin you reached does not exist or does not have an admin page."
-msgstr "L'extension que vous essayez d'atteindre n'existe pas ou n'a pas de page d'administration."
+msgstr "Le plugin que vous essayez d'atteindre n'existe pas ou n'a pas de page d'administration."
 
 msgid "No such plugin."
-msgstr "Extension inexistante."
+msgstr "Plugin inexistant."
 
 msgid "You don't have permissions to delete this plugin."
-msgstr "Vous n'avez pas les permissions pour effacer cette extension"
+msgstr "Vous n'avez pas les permissions pour effacer ce plugin"
 
 msgid "You don't have permissions to deactivate this plugin."
-msgstr "Vous n'avez pas les permissions pour désactiver cette extension."
+msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
 
 msgid "Plugins management"
-msgstr "Gestion des extensions"
+msgstr "Gestion des plugins"
 
 msgid "Plugin has been successfully deleted."
-msgstr "L'extension a été supprimée avec succès."
+msgstr "Le plugin a été supprimé avec succès."
 
 msgid "Plugin has been successfully installed."
-msgstr "L'extension a été installée avec succès."
+msgstr "Le plugin a été installé avec succès."
 
 msgid "Plugin has been successfully upgraded"
-msgstr "L'extension a été mise à jour avec succès."
+msgstr "Le plugin a été mis à jour avec succès."
 
 msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
-msgstr "Les extensions ajoutent de nouvelles fonctionnalités à Dotclear. Ici, vous pouvez activer ou désactiver les extensions installées."
+msgstr "Les plugins ajoutent de nouvelles fonctionnalités à Dotclear. Ici, vous pouvez activer ou désactiver les plugins installés."
 
 #, php-format
 msgid "You can find additional plugins for your blog on %s."
-msgstr "Vous pouvez trouver de nouvelles extensions pour votre blog sur %s."
+msgstr "Vous pouvez trouver de nouveaux plugins pour votre blog sur %s."
 
 msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
-msgstr "Tout ce que vous avez à faire pour installer ou mettre à jour une extension est généralement de la déposer dans la section \"Installer ou mettre à jour une extension\"."
+msgstr "Pour installer ou mettre à jour un plugin, il suffit de la déposer dans la section \"Installer ou mettre à jour une extension\"."
 
 msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
-msgstr "Tout ce que vous avez à faire pour installer une extension est de l'extraire dans votre répertoire d'extensions."
+msgstr "Tout ce que vous avez à faire pour installer un plugin est de l'extraire dans votre répertoire de plugins."
 
 msgid "Plugins"
-msgstr "Extensions"
+msgstr "Plugins"
 
 msgid "Activated plugins"
-msgstr "Extensions activées"
+msgstr "Plugins activés"
 
 msgid "Plugin"
-msgstr "Extension"
+msgstr "Plugin"
 
 msgid "Version"
 msgstr "Version"
@@ -1522,31 +1503,31 @@ msgid "Deactivate"
 msgstr "Désactiver"
 
 msgid "Deactivated plugins"
-msgstr "Extensions désactivées"
+msgstr "Plugins désactivées"
 
 msgid "Activate"
 msgstr "Activer"
 
 msgid "Install or upgrade a plugin"
-msgstr "Installer ou mettre à jour une extension"
+msgstr "Installer ou mettre à jour un plugin"
 
 msgid "You can install plugins by uploading or downloading zip files."
-msgstr "Vous pouvez installer des extensions en déposant ou téléchargeant des fichier zip."
+msgstr "Vous pouvez installer des plugins en déposant ou en téléchargeant des fichiers zip."
 
 msgid "Plugin zip file:"
-msgstr "Fichier zip de l'extension :"
+msgstr "Fichier zip du plugin :"
 
 msgid "Upload plugin"
-msgstr "Déposer l'extension"
+msgstr "Déposer le plugin"
 
 msgid "Plugin zip file URL:"
-msgstr "URL du fichier zip de l'extension :"
+msgstr "URL du fichier zip du plugin :"
 
 msgid "Download plugin"
-msgstr "Télécharger l'extension"
+msgstr "Télécharger le plugin"
 
 msgid "To enable this function, please give write access to your plugins directory."
-msgstr "Pour activer cette fonction, donnez un accès en écriture à votre répertoire d'extensions."
+msgstr "Pour activer cette fonction, donnez un accès en écriture à votre répertoire de plugins."
 
 msgid "Add a link"
 msgstr "Ajouter un lien"
@@ -1560,9 +1541,8 @@ msgstr "Plus utilisées"
 msgid "Link URL:"
 msgstr "URL du lien :"
 
-#, fuzzy
 msgid "Link title:"
-msgstr "Titre du fichier :"
+msgstr "Intitulé du lien :"
 
 msgid "Link language:"
 msgstr "Langue du lien :"
@@ -1610,10 +1590,10 @@ msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Enregistrez votre billet pour valider la transformation en XHTML."
 
 msgid "Go to this entry on the site"
-msgstr ""
+msgstr "Voir ce billet sur le site"
 
 msgid "new window"
-msgstr ""
+msgstr "nouvelle fenêtre"
 
 msgid "Excerpt:"
 msgstr "Extrait :"
@@ -1621,9 +1601,8 @@ msgstr "Extrait :"
 msgid "Notes:"
 msgstr "Notes :"
 
-#, fuzzy
 msgid "Preview"
-msgstr "Prévisualiser le billet"
+msgstr "Prévisualiser"
 
 msgid "Entry status:"
 msgstr "État du billet :"
@@ -1632,7 +1611,7 @@ msgid "Published on:"
 msgstr "Publié le :"
 
 msgid "Text formating:"
-msgstr "Format du texte :"
+msgstr "Syntaxe de saisie :"
 
 msgid "Convert to XHTML"
 msgstr "Convertir en XHTML"
@@ -1650,7 +1629,7 @@ msgid "Basename:"
 msgstr "URL spécifique :"
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
-msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec un autre billet."
+msgstr "Attention si vous indiquez l'URL manuellement : celle-ci peut entrer en conflit avec celle d'un autre billet."
 
 msgid "Ping blogs"
 msgstr "Envoyer des rétroliens"
@@ -1674,7 +1653,7 @@ msgid "published"
 msgstr "publié"
 
 msgid "unpublished"
-msgstr "non publié"
+msgstr "hors ligne"
 
 msgid "pending"
 msgstr "en attente"
@@ -1682,13 +1661,11 @@ msgstr "en attente"
 msgid "junk"
 msgstr "indésirable"
 
-#, fuzzy
 msgid "select this comment"
-msgstr "Modifier ce commentaire"
+msgstr "Sélectionner ce commentaire"
 
-#, fuzzy
 msgid "select this trackback"
-msgstr "Prihvatiti retro linkovi"
+msgstr "sélectionner ce rétrolien"
 
 msgid "Edit this comment"
 msgstr "Modifier ce commentaire"
@@ -1717,44 +1694,35 @@ msgstr "Catégorie"
 msgid "Selected"
 msgstr "Sélectionné"
 
-#, fuzzy
 msgid "Publish"
-msgstr "publier"
+msgstr "Publier"
 
-#, fuzzy
 msgid "Unpublish"
-msgstr "hors ligne"
+msgstr "Mettre hors ligne"
 
-#, fuzzy
 msgid "Schedule"
-msgstr "programmer"
+msgstr "Programmer"
 
-#, fuzzy
 msgid "Mark as pending"
-msgstr "en attente"
+msgstr "Mettre en attente"
 
 msgid "Mark"
-msgstr ""
+msgstr "Marquer"
 
-#, fuzzy
 msgid "Mark as selected"
-msgstr "marquer sélectionné"
+msgstr "Marquer comme sélectionné"
 
-#, fuzzy
 msgid "Mark as unselected"
-msgstr "marquer non sélectionné"
+msgstr "Marquer comme non sélectionné"
 
-#, fuzzy
 msgid "Change"
-msgstr "Changer le fichier"
+msgstr "Changer"
 
-#, fuzzy
 msgid "Change category"
-msgstr "changer la catégorie"
+msgstr "Changer la catégorie"
 
-#, fuzzy
 msgid "Change author"
-msgstr "changer l'auteur"
+msgstr "Changer l'auteur"
 
 msgid "Selected:"
 msgstr "Sélectionné :"
@@ -1772,49 +1740,43 @@ msgid "This user does not exist"
 msgstr "Cet utilisateur n'existe pas"
 
 msgid "Change category for this selection"
-msgstr "Changer de catégorie pour les billets"
+msgstr "Changer la catégorie pour cette sélection"
 
 msgid "Change author for this selection"
-msgstr "Changer l'auteur des billets"
+msgstr "Changer l'auteur pour cette sélection"
 
 msgid "Author ID:"
 msgstr "Identifiant de l'utilisateur"
 
 msgid "Default"
-msgstr ""
+msgstr "Par défaut"
 
 msgid "If you want to change your email or password you must provide your current password."
-msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe."
+msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel."
 
-#, fuzzy
 msgid "No favorite selected"
-msgstr "non sélectionné"
+msgstr "Aucun favori sélectionné"
 
 msgid "Personal information has been successfully updated."
-msgstr "Informations personnelles mises à jour avec succès."
+msgstr "Les informations personnelles ont été mises à jour avec succès."
 
-#, fuzzy
 msgid "Personal options has been successfully updated."
-msgstr "Informations personnelles mises à jour avec succès."
+msgstr "Les options personnelles ont été mises à jour avec succès."
 
-#, fuzzy
 msgid "Favorites have been successfully added."
-msgstr "Fichier chargé avec succès."
+msgstr "Les favoris ont été ajoutés avec succès."
 
-#, fuzzy
 msgid "Favorites have been successfully updated."
-msgstr "Fichier mis à jour avec succès."
+msgstr "Les favoris ont été actualisés avec succès."
 
-#, fuzzy
 msgid "Favorites have been successfully removed."
-msgstr "Fichier supprimé avec succès."
+msgstr "Les favoris ont été correctement retirés."
 
-#, fuzzy
 msgid "Default favorites have been successfully updated."
-msgstr "Les miniatures ont été mises à jour avec succès."
+msgstr "Les favoris par défaut ont été actualisés avec succès."
 
 msgid "My profile"
-msgstr ""
+msgstr "Mon profil"
 
 msgid "Display name:"
 msgstr "Pseudonyme :"
@@ -1825,16 +1787,14 @@ msgstr "Langue de l'utilisateur :"
 msgid "User timezone:"
 msgstr "Fuseau horaire de l'utilisateur :"
 
-#, fuzzy
 msgid "If you have changed this user email or password you must provide your current password to save these modifications."
-msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe."
+msgstr "Si vous avez modifié l'adresse email ou le mot de passe de cet utilisateur, vous devez indiquer votre mot de passe pour valider ces changements."
 
-#, fuzzy
 msgid "My options"
-msgstr "Options de recherche"
+msgstr "Mes options"
 
 msgid "Preferred format:"
-msgstr "Format d'édition préféré :"
+msgstr "Syntaxe de saisie préférée :"
 
 msgid "Default entry status:"
 msgstr "État des billets par défaut :"
@@ -1845,97 +1805,87 @@ msgstr "Taille de la zone d'édition :"
 msgid "Enable WYSIWYG mode"
 msgstr "Activer l'éditeur visuel"
 
-#, fuzzy
 msgid "Activate enhanced uploader in media manager"
-msgstr "Activer l'interface avancée"
+msgstr "Activer l'interface avancée de la médiathèque"
 
 msgid "Iconset:"
-msgstr ""
+msgstr "Jeu d'icônes :"
 
 msgid "Do not use standard favicon"
-msgstr ""
+msgstr "Ne pas utiliser le favicon standard"
 
 msgid "This will be applied for all users"
-msgstr ""
+msgstr "Ce choix s'appliquera pour tous les utilisateurs"
 
 msgid "Accessibility options"
-msgstr ""
+msgstr "Options d'accessibilité"
 
 msgid "Disable javascript powered drag and drop for ordering items"
-msgstr ""
+msgstr "Désactiver le glisser-déposer pour l'ordonnancement des éléments"
 
 msgid "Numeric fields will allow to type the elements' ordering number."
-msgstr ""
+msgstr "Des champs numériques permettront d'ordonner les éléments"
 
-#, fuzzy
 msgid "Dashboard modules"
-msgstr "Tableau de bord"
+msgstr "Modules du tableau de bord"
 
-#, fuzzy
 msgid "Display documentation links"
-msgstr "Documentation"
+msgstr "Afficher les liens de la documentation"
 
-#, fuzzy
 msgid "Display Dotclear news"
-msgstr "Pseudonyme"
+msgstr "Afficher les actualités de Dotclear"
 
 msgid "Display quick entry form"
-msgstr ""
+msgstr "Afficher le formulaire de billet rapide"
 
 msgid "My favorites"
-msgstr ""
+msgstr "Mes favoris"
 
-#, php-format
 msgid "position of %s"
-msgstr ""
+msgstr "position de %s"
 
-#, fuzzy
 msgid "Save order"
 msgstr "Enregistrer l'ordre"
 
-#, fuzzy
 msgid "Delete selected favorites"
-msgstr "Supprimer les catégories sélectionnées"
+msgstr "Supprimer les favoris sélectionnés"
 
-#, fuzzy
 msgid "Are you sure you want to remove selected favorites?"
-msgstr "Êtes-vous certain de vouloir supprimer cet élément ?"
+msgstr "Êtes-vous certain de vouloir retirer les favoris sélectionnés ?"
 
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
-msgstr ""
+msgstr "Si vous êtes super administrateur vous pouvez définir cet ensemble comme jeu de favoris par défaut pour tous les blogs de cette installation."
 
 msgid "Define as default favorites"
-msgstr ""
+msgstr "Définir comme favoris par défaut"
 
 msgid "Currently no personal favorites."
-msgstr ""
+msgstr "Aucun favori personnel."
 
 msgid "Default favorites"
-msgstr ""
+msgstr "Favoris par défaut"
 
 msgid "Those favorites are displayed when My Favorites list is empty."
-msgstr ""
+msgstr "Ces favoris sont affichés lorsque la liste de Mes favoris est vide."
 
-#, fuzzy
 msgid "Available favorites"
-msgstr "Tailles disponibles :"
+msgstr "Favoris disponibles :"
 
 msgid "Add to my favorites"
-msgstr ""
+msgstr "Ajouter à mes favoris"
 
 msgid "Search options"
 msgstr "Options de recherche"
 
 msgid "Query:"
-msgstr "Requête :"
+msgstr "Recherche :"
 
-#, fuzzy
 msgid "Search entries"
-msgstr "rechercher des billets"
+msgstr "Rechercher dans les billets"
 
 #, fuzzy
 msgid "Search comments"
-msgstr "recherche des commentaires"
+msgstr "Rechercher dans les commentaires"
 
 msgid "schedule"
 msgstr "programmer"
@@ -1979,75 +1929,70 @@ msgid "URLs to ping:"
 msgstr "URLs à rétrolier :"
 
 msgid "Send excerpt:"
-msgstr "Envoyer l'extrait :"
+msgstr "Envoyer cet extrait :"
 
 msgid "Previously sent pings"
 msgstr "Rétroliens déjà envoyés"
 
-#, fuzzy
 msgid "Dotclear update"
-msgstr "L'équipe Dotclear"
+msgstr "Mise à jour de Dotclear"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to delete file %s"
-msgstr "Impossible de renommer le fichier."
+msgstr "Impossible de supprimer le fichier %s."
 
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
-msgstr ""
+msgstr "L'archive compressée de Dotclear semble endommagée. Essayez de l<a %s>a télécharger</a> à nouveau."
 
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr ""
+msgstr "Les fichiers suivants de votre installation ont été modifiés. Il n'est pas possible de mettre à jour automatiquement Dotclear. Nous vous recommandons de procéder à une <a href=\"http://dotclear.org/download\">mise à jour manuelle</a>."
 
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
-msgstr ""
+msgstr "Les fichiers suivants de votre installation ne sont pas accessibles en lecture. Veuillez corriger leurs permissions ou tenter de faire une sauvegarde manuelle de %s."
 
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr ""
+msgstr "Les fichiers suivants de votre installation ne sont pas accessibles en écriture. Veuillez corriger leurs permissions ou tenter une <a href=\"http://dotclear.org/download\">mise à jour manuelle</a>."
 
-#, fuzzy
 msgid "No newer Dotclear version available."
-msgstr "Le module iconv n'est pas disponible."
-
-#, fuzzy, php-format
-msgid "Dotclear %s is available."
-msgstr "Dotclear est déjà installé."
-
-msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
-msgstr ""
-
-msgid "Update Dotclear"
-msgstr ""
-
-#, fuzzy
-msgid "Update backup files"
-msgstr "Mettre à jour les miniatures"
-
-msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
-msgstr ""
-
-msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
-msgstr ""
+msgstr "Il n'y a pas de version de Dotclear plus récente."
 
 #, php-format
-msgid "You should not revert to version prior to last one (%s)."
-msgstr ""
+msgid "Dotclear %s is available."
+msgstr "Dotclear %s est disponible."
 
-#, fuzzy
+msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
+msgstr "Pour mettre à jour votre installation de Dotclear, cliquez sur le bouton suivant. Un fichier de sauvegarde de votre installation actuelle sera généré et déposé dans le dossier de votre installation."
+
+msgid "Update Dotclear"
+msgstr "Mettre à jour Dotclear"
+
+msgid "Update backup files"
+msgstr "Mettre à jour les fichiers de sauvegarde"
+
+msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
+msgstr "Les fichiers suivants sont des sauvegardes réalisées lors de mises à jour antérieures. Vous pouvez les utiliser pour revenir à une ancienne version ou supprimer ces fichiers."
+
+msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
+msgstr "Veuillez noter que revenir à une version plus ancienne peut avoir des conséquences indésirables. N'envisagez cette opération que dans le cas d'un dysfonctionnement très important de la version actuelle."
+
+#, php-format, fuzzy
+msgid "You should not revert to version prior to last one (%s)."
+msgstr "Vous ne pouvez pas rétrograder vers une version plus récente (%s)."
+
 msgid "Delete selected file"
-msgstr "Supprimer les catégories sélectionnées"
+msgstr "Supprimer les fichiers sélectionnés"
 
 #, fuzzy
 msgid "Revert to selected file"
-msgstr "Supprimer le thème sélectionné"
+msgstr "Rétablir à la version sélectionnée"
 
 msgid "Congratulations, you're one click away from the end of the update."
-msgstr ""
+msgstr "Bravo, vous n'êtes plus qu'à un clic de la fin de la mise à jour."
 
-#, fuzzy
 msgid "Finish the update."
-msgstr "Dernière mise à jour"
+msgstr "Finir la mise à jour"
 
 msgid "new user"
 msgstr "nouvel utilisateur"
@@ -2057,7 +2002,7 @@ msgid "User \"%s\" already exists."
 msgstr "L'utilisateur \"%s\" existe déjà."
 
 msgid "User has been successfully updated."
-msgstr "Utilisateur mis à jour avec succès."
+msgstr "Le profil utilisateur a été mis à jour avec succès."
 
 msgid "User has been successfully created."
 msgstr "Utilisateur créé avec succès."
@@ -2065,18 +2010,17 @@ msgstr "Utilisateur créé avec succès."
 msgid "Warning:"
 msgstr "Attention :"
 
-#, fuzzy
 msgid "If you change your username, you will have to log in again."
 msgstr "Si vous changez votre login, vous devrez vous identifier à nouveau."
 
 msgid "Mandatory for password recovering procedure."
-msgstr ""
+msgstr "Indispensable pour la procédure de récupération du mot de passe."
 
 msgid "Password change required to connect"
-msgstr ""
+msgstr "Modification du mot de passe requise à la connexion"
 
 msgid "Save and create another"
-msgstr ""
+msgstr "Enregistrer et créer un nouvel utilisateur"
 
 msgid "No permissions."
 msgstr "Aucune permission."
@@ -2084,15 +2028,12 @@ msgstr "Aucune permission."
 msgid "Add new permissions"
 msgstr "Ajouter de nouvelles permissions"
 
-#, fuzzy
 msgid "Username"
-msgstr "Ime korisnika :"
+msgstr "Nom d'utilisateur (login) :"
 
-#, fuzzy
 msgid "Last Name"
-msgstr "Dernière mise à jour"
+msgstr "Nom"
 
-#, fuzzy
 msgid "First Name"
 msgstr "Prénom"
 
@@ -2100,13 +2041,13 @@ msgid "Display name"
 msgstr "Pseudonyme"
 
 msgid "Number of entries"
-msgstr "Nombre de billets"
+msgstr "Nombre d'entrées'"
 
 msgid "users"
 msgstr "utilisateurs"
 
 msgid "User has been successfully removed."
-msgstr "Utilisateur supprimé avec succès."
+msgstr "L'utilisateur a été supprimé avec succès."
 
 msgid "Create a new user"
 msgstr "Créer un nouvel utilisateur"
@@ -2127,21 +2068,20 @@ msgid "Blogs:"
 msgstr "Blogs :"
 
 msgid "Go to site"
-msgstr ""
+msgstr "Aller sur le site"
 
-#, fuzzy
 msgid "My dashboard"
 msgstr "Tableau de bord"
 
 #, fuzzy, php-format
 msgid "Logout %s"
-msgstr "Déconnexion"
+msgstr "Déconnecter %s"
 
 msgid "Safe mode"
-msgstr ""
+msgstr "Mode sans échec"
 
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
-msgstr ""
+msgstr "Vous êtes connecté en mode sans échec. Tous les plugins ont été provisoirement désactivés. Pensez à vous déconnecter puis reconnecter pour retrouver toutes les fonctionnalités."
 
 #, php-format
 msgid "Thank you for using %s."
@@ -2159,27 +2099,26 @@ msgstr "cacher"
 msgid "help"
 msgstr "aide"
 
-#, fuzzy
 msgid "no selection"
-msgstr "Aucune sélection"
+msgstr "aucune sélection"
 
 msgid "select all"
 msgstr "tout sélectionner"
 
 msgid "Invert selection"
-msgstr "inverser la sélection"
+msgstr "Inverser la sélection"
 
 msgid "view entry"
 msgstr "voir le billet"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Êtes-vous certain de vouloir supprimer les billets sélectionnés ?"
 
 msgid "Are you sure you want to delete this entry?"
 msgstr "Êtes-vous certain de vouloir supprimer ce billet ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Êtes-vous certain de vouloir supprimer les commentaires sélectionnés ?"
 
@@ -2187,38 +2126,37 @@ msgid "Are you sure you want to delete this comment?"
 msgstr "Êtes-vous certain de vouloir supprimer ce commentaire ?"
 
 msgid "Users with posts cannot be deleted."
-msgstr ""
+msgstr "Les auteurs de billets ne peuvent être supprimés."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "Êtes-vous certain de vouloir supprimer les utilisateurs sélectionnés ?"
+msgstr "Êtes-vous certain de vouloir supprimer ces utilisateurs (%s)?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "Êtes-vous certain de vouloir supprimer ce billet ?"
+msgstr "Êtes-vous certain de vouloir supprimer la catégorie \"%s\" ?"
 
-#, fuzzy
 msgid "Are you sure you want to reorder all categories?"
-msgstr "Êtes vous certain de vouloir supprimer les catégories sélectionnées ?"
+msgstr "Êtes vous certain de vouloir réordonner toutes les catégories ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Êtes-vous certain de vouloir supprimer %s ?"
 
 msgid "Are you sure you want to extract archive in current directory?"
-msgstr "Êtes-vous certain de vouloir extraire l'archive dans le répertoire actuel ?"
+msgstr "Êtes-vous certain de vouloir extraire l'archive dans ce répertoire et écraser son contenu actuel ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "Êtes-vous certain de vouloir supprimer cette pièce jointe ?"
+msgstr "Êtes-vous certain de vouloir supprimer cette pièce jointe (%s) ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "Êtes-vous certain de vouloir supprimer cette langue ?"
+msgstr "Êtes-vous certain de vouloir supprimer cette langue (%s) ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Êtes-vous certain de vouloir supprimer cette extension ?"
+msgstr "Êtes-vous certain de vouloir supprimer le plugin \"%s\" ?"
 
 msgid "Use this theme"
 msgstr "Utiliser ce thème"
@@ -2226,9 +2164,9 @@ msgstr "Utiliser ce thème"
 msgid "Remove this theme"
 msgstr "Supprimer ce thème"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "Êtes-vous certain de vouloir supprimer le thème sélectionné ?"
+msgstr "Êtes-vous certain de vouloir supprimer le thème \"%s\" ?"
 
 msgid "Zip file content"
 msgstr "Contenu du fichier zip"
@@ -2243,10 +2181,10 @@ msgid "There are XHTML markup errors."
 msgstr "Il y a des erreurs XHTML."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr ""
+msgstr "Vous n'avez pas enregistré les modifications. Elles seront perdues en changeant de syntaxe de saisie. Voulez-vous procéder à ce changement quand même ?"
 
 msgid "Loading enhanced uploader, please wait."
-msgstr ""
+msgstr "Chargement de l'interface avancée. Veuillez patienter."
 
 msgid "You have unsaved changes."
 msgstr "Vous n'avez pas enregistré vos modifications."
@@ -2347,7 +2285,6 @@ msgstr "Lien vers un billet"
 msgid "Temporarily activate enhanced uploader"
 msgstr "Activer temporairement l'interface avancée"
 
-#, fuzzy
 msgid "Temporarily disable enhanced uploader"
 msgstr "Désactiver temporairement l'interface avancée"
 
@@ -2411,11 +2348,11 @@ msgstr "protégé"
 
 #, php-format
 msgid "%d attachment"
-msgstr "%d annexe"
+msgstr "%d pièce jointe"
 
 #, php-format
 msgid "%d attachments"
-msgstr "%d annexes"
+msgstr "%d pièces jointes"
 
 msgid "Type"
 msgstr "Type"
@@ -2424,18 +2361,16 @@ msgid "No user"
 msgstr "Pas d'utilisateur"
 
 msgid "admin"
-msgstr ""
+msgstr "administrateur"
 
-#, fuzzy
 msgid "superadmin"
-msgstr "Super administrator"
+msgstr "super administrator"
 
-#, fuzzy
 msgid "Database error"
-msgstr "Type de base de données :"
+msgstr "Erreur de la base de données :"
 
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
-msgstr ""
+msgstr "Il semble que la table Sessions soit manquante dans votre base de données. L'installation de Dotclear a-t-elle été complète ?"
 
 msgid "System"
 msgstr "Système"
@@ -2444,7 +2379,7 @@ msgid "Blog"
 msgstr "Blog"
 
 msgid "Update"
-msgstr ""
+msgstr "Mise à jour"
 
 msgid "Languages"
 msgstr "Langues"
@@ -2491,12 +2426,11 @@ msgstr "Vous n'êtes pas autorisé à supprimer des catégories"
 msgid "This category is not empty."
 msgstr "Cette catégorie n'est pas vide."
 
-#, fuzzy
 msgid "Category URL must be unique."
-msgstr "Le titre et l'URL de chaque catégorie doivent être uniques."
+msgstr "L'URL de chaque catégorie doivent être uniques."
 
 msgid "You must provide a category title"
-msgstr "Vous devez indiquer un titre de catégorie"
+msgstr "Vous devez indiquer un nom de catégorie"
 
 msgid "You must provide a category URL"
 msgstr "Vous devez indiquer une URL de catégorie"
@@ -2534,9 +2468,8 @@ msgstr "Pas de titre de billet"
 msgid "No entry content"
 msgstr "Pas de contenu de billet"
 
-#, fuzzy
 msgid "Empty entry URL"
-msgstr "Modifier le billet"
+msgstr "URL du billet vide"
 
 msgid "You are not allowed to update comments"
 msgstr "Vous n'êtes pas autorisé à modifier des commentaires"
@@ -2589,13 +2522,11 @@ msgstr "Pas de nom de blog"
 msgid "No blog URL"
 msgstr "Pas d'URL de blog"
 
-#, fuzzy
 msgid "No log message"
-msgstr "Pas de nom de blog"
+msgstr "Pas de logs"
 
-#, fuzzy
 msgid "unknown"
-msgstr "maintenant"
+msgstr "inconnu"
 
 msgid "No blog defined."
 msgstr "Aucun blog défini."
@@ -2613,9 +2544,8 @@ msgstr "Permission refusée."
 msgid "You are not the file owner."
 msgstr "Vous n'êtes pas le propriétaire de ce fichier."
 
-#, fuzzy
 msgid "This file is not allowed."
-msgstr "L'envoi de ce fichier n'est pas autorisé."
+msgstr "Ce fichier n'est pas autorisé."
 
 msgid "New file already exists."
 msgstr "Le nouveau fichier existe déjà."
@@ -2628,20 +2558,20 @@ msgid "Extract destination directory %s already exists."
 msgstr "Le répertoire de destination d'extraction %s existe déjà."
 
 msgid "Embedded Audio Player"
-msgstr ""
+msgstr "Lecteur audio intégré"
 
 msgid "Embedded Video Player"
-msgstr ""
+msgstr "Lecteur vidéo intégré"
 
 #, php-format
 msgid "%s: in [%s] and [%s]"
-msgstr ""
+msgstr "%s : dans [%s] et [%s]"
 
 msgid "Empty module zip file."
 msgstr "Fichier zip de module vide."
 
 msgid "The zip file does not appear to be a valid Dotclear module."
-msgstr "Le fichier zip ne semble pas être un fichier valide de module Dotclear."
+msgstr "Ce fichier zip ne semble pas être un fichier valide de module Dotclear."
 
 msgid "An error occurred during module deletion."
 msgstr "Une erreur est survenue durant la suppression du module."
@@ -2665,9 +2595,9 @@ msgstr "L'extension ne peut pas être désactivée."
 msgid "Cannot activate plugin."
 msgstr "L'extension ne peut pas être activée."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid setting dcNamespace: %s"
-msgstr "Adresse email incorrecte"
+msgstr "Paramètre dcNamespace %s invalide"
 
 msgid "Unable to retrieve settings:"
 msgstr "Impossible d'obtenir les paramètres :"
@@ -2687,9 +2617,9 @@ msgstr "Impossible d'obtenir les paramètres :"
 msgid "Unable to retrieve namespaces:"
 msgstr "Impossible d'obtenir les paramètres :"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid setting namespace: %s"
-msgstr "Adresse email incorrecte"
+msgstr ""
 
 #, php-format
 msgid "%s has still been pinged"
@@ -2706,25 +2636,20 @@ msgstr "%s n'est pas une URL de rétrolien"
 msgid "%s, ping error:"
 msgstr "%s, erreur de rétrolien :"
 
-#, fuzzy
 msgid "Digests file not found."
-msgstr "Extension introuvable"
+msgstr ""
 
-#, fuzzy
 msgid "No file to download"
-msgstr "Aucun fichier chargé."
+msgstr "Aucun fichier à télécharger."
 
-#, fuzzy
 msgid "Root directory is not writable."
-msgstr "Le répertoire de cache %s n'est pas accessible en écriture."
+msgstr ""
 
-#, fuzzy
 msgid "An error occurred while downloading archive."
-msgstr "Greška u toku preuzimanja fajla."
+msgstr "Une erreur est intervenue pendant le téléchargement de l'archive"
 
-#, fuzzy
 msgid "Archive not found."
-msgstr "Extension introuvable"
+msgstr "Archive introuvable"
 
 #, fuzzy
 msgid "Unable to read current digests file."
@@ -2735,7 +2660,7 @@ msgid "Downloaded file does not seem to be a valid archive."
 msgstr "Le fichier zip ne semble pas être un fichier valide de module Dotclear."
 
 msgid "Incomplete archive."
-msgstr ""
+msgstr "Archive incomplète"
 
 #, fuzzy
 msgid "Unable to read digests file."
@@ -2833,9 +2758,8 @@ msgstr "L'envoi de ce fichier n'est pas autorisé."
 msgid "Destination directory is not in jail."
 msgstr "Le répertoire cible n'est pas en jail."
 
-#, fuzzy
 msgid "File already exists."
-msgstr "Le nouveau fichier existe déjà."
+msgstr "Ce fichier existe déjà."
 
 msgid "Cannot write in this directory."
 msgstr "Impossible d'écrire dans ce répertoire."
