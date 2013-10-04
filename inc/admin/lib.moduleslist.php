@@ -1035,12 +1035,13 @@ class adminModulesList
 	public function displayConfiguration()
 	{
 		if ($this->config_file) {
+			$redir = empty($_REQUEST['redir']) ? $this->getURL().'#plugins' : $_REQUEST['redir'];
 
 			if (!$this->config_module['standalone_config']) {
 				echo
 				'<form id="module_config" action="'.$this->getURL('conf=1').'" method="post" enctype="multipart/form-data">'.
 				'<h3>'.sprintf(__('Configure plugin "%s"'), html::escapeHTML($this->config_module['name'])).'</h3>'.
-				'<p><a class="back" href="'.$this->getURL().'#plugins">'.__('Back').'</a></p>';
+				'<p><a class="back" href="'.$redir.'">'.__('Back').'</a></p>';
 			}
 
 			echo $this->config_content;
@@ -1049,6 +1050,7 @@ class adminModulesList
 				echo
 				'<p class="clear"><input type="submit" name="save" value="'.__('Save').'" />'.
 				form::hidden('module', $this->config_module['id']).
+				form::hidden('redir', $redir).
 				$this->core->formNonce().'</p>'.
 				'</form>';
 			}
