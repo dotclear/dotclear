@@ -101,7 +101,7 @@ else {
 echo
 '<p class="info">'.sprintf(
 	__('Export functions are in the page %s.'),
-	'<a href="plugin.php?p=maintenance&tab=backup#backup">'.__('Maintenance').'</a>'
+	'<a href="plugin.php?p=maintenance&amp;tab=backup#backup">'.__('Maintenance').'</a>'
 ).'</p>';
 
 echo '
