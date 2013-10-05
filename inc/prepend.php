@@ -137,6 +137,8 @@ define('DC_VERSION','2.6-dev');
 define('DC_DIGESTS',dirname(__FILE__).'/digests');
 define('DC_L10N_ROOT',dirname(__FILE__).'/../locales');
 define('DC_L10N_UPDATE_URL','http://services.dotclear.net/dc2.l10n/?version=%s');
+define('DC_DISTRIB_PLUGINS','aboutConfig,akismet,antispam,attachments,blogroll,blowupConfig,dclegacy,fairTrackbacks,importExport,maintenance,pages,pings,simpleMenu,tags,themeEditor,userPref,widgets');
+define('DC_DISTRIB_THEMES','blueSilence,blowupConfig,customCSS,default,ductile');
 
 if (!defined('DC_VENDOR_NAME')) {
 	define('DC_VENDOR_NAME','Dotclear');
