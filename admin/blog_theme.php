@@ -31,7 +31,7 @@ $list = new adminThemesList(
 	$core->blog->themes_path,
 	$core->blog->settings->system->store_theme_url
 );
-$list::$distributed_modules = array(
+adminThemesList::$distributed_modules = array(
 	'blueSilence',
 	'blowupConfig',
 	'customCSS',
