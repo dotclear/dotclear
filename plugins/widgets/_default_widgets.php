@@ -56,7 +56,7 @@ $__widgets->categories->setting('homeonly',__('Display on:'),0,'combo',
 $__widgets->categories->advanced_setting('content_only','',0,'radio', array(array(__('Content only'), '1'), array(__('Enclosing div'), '0')));
 $__widgets->categories->advanced_setting('class',__('CSS class:'),'');
 
-$__widgets->create('subscribe',__('Subscribe links'),array('defaultWidgets','subscribe'),null,'RSS or Atom feed subscription links');
+$__widgets->create('subscribe',__('Subscribe links'),array('defaultWidgets','subscribe'),null,'Feed subscription links (RSS or Atom)');
 $__widgets->subscribe->setting('title',__('Title (optional)').' :',__('Subscribe'));
 $__widgets->subscribe->setting('type',__('Feeds type:'),'atom','combo',array('Atom' => 'atom', 'RSS' => 'rss2'));
 $__widgets->subscribe->setting('homeonly',__('Display on:'),1,'combo',
@@ -64,7 +64,7 @@ $__widgets->subscribe->setting('homeonly',__('Display on:'),1,'combo',
 $__widgets->subscribe->advanced_setting('content_only','',0,'radio', array(array(__('Content only'), '1'), array(__('Enclosing div'), '0')));
 $__widgets->subscribe->advanced_setting('class',__('CSS class:'),'');
 
-$__widgets->create('feed',__('Feed reader'),array('defaultWidgets','feed'),null,'Last entries from feed ( RSS or Atom )');
+$__widgets->create('feed',__('Feed reader'),array('defaultWidgets','feed'),null,'List of last entries from feed (RSS or Atom)');
 $__widgets->feed->setting('title',__('Title (optional)').' :',__('Somewhere else'));
 $__widgets->feed->setting('url',__('Feed URL:'),'');
 $__widgets->feed->setting('limit',__('Entries limit:'),10);
@@ -99,7 +99,7 @@ $__widgets->lastposts->setting('homeonly',__('Display on:'),1,'combo',
 $__widgets->lastposts->advanced_setting('content_only','',0,'radio', array(array(__('Content only'), '1'), array(__('Enclosing div'), '0')));
 $__widgets->lastposts->advanced_setting('class',__('CSS class:'),'');
 
-$__widgets->create('lastcomments',__('Last comments'),array('defaultWidgets','lastcomments'),null,'List of last comments posted');
+$__widgets->create('lastcomments',__('Last comments'),array('defaultWidgets','lastcomments'),null,'List of last comments published');
 $__widgets->lastcomments->setting('title',__('Title (optional)').' :',__('Last comments'));
 $__widgets->lastcomments->setting('limit',__('Comments limit:'),10);
 $__widgets->lastcomments->setting('homeonly',__('Display on:'),1,'combo',
