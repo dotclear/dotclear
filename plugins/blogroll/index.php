@@ -68,7 +68,9 @@ if (!empty($_POST['import_links_do'])) {
 			$default_tab = 'import-links';
 		}
 	}
-	http::redirect($p_url.'&importlinks=1');	
+	
+	dcPage::addSuccessNotice(__('links have been successfully imported.'));
+	http::redirect($p_url);	
 }
 
 if (!empty($_POST['cancel_import'])) {
@@ -86,7 +88,9 @@ if (!empty($_POST['add_link']))
 	
 	try {
 		$blogroll->addLink($link_title,$link_href,$link_desc,$link_lang);
-		http::redirect($p_url.'&addlink=1');
+
+		dcPage::addSuccessNotice(__('Link has been successfully created.'));
+		http::redirect($p_url);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 		$default_tab = 'add-link';
@@ -100,7 +104,8 @@ if (!empty($_POST['add_cat']))
 	
 	try {
 		$blogroll->addCategory($cat_title);
-		http::redirect($p_url.'&addcat=1');
+		dcPage::addSuccessNotice(__('category has been successfully created.'));
+		http::redirect($p_url);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 		$default_tab = 'add-cat';
@@ -120,7 +125,8 @@ if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
 	}
 	
 	if (!$core->error->flag()) {
-		http::redirect($p_url.'&removed=1');
+		dcPage::addSuccessNotice(__('Items have been successfully removed.'));
+		http::redirect($p_url);
 	}
 }
 
@@ -147,7 +153,8 @@ if (!empty($_POST['saveorder']) && !empty($order))
 	}
 	
 	if (!$core->error->flag()) {
-		http::redirect($p_url.'&neworder=1');
+		dcPage::addSuccessNotice(__('Items order has been successfully updated'));
+		http::redirect($p_url);
 	}
 }
 
@@ -180,33 +187,12 @@ try {
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Blogroll').'</span>' => ''
-		));
+			__('Blogroll') => ''
+		)).
+		dcPage::notices();
 ?>
 
-<?php
-if (!empty($_GET['neworder'])) {
-	dcPage::success(__('Items order has been successfully updated'));
-}
-
-if (!empty($_GET['removed'])) {
-	dcPage::success(__('Items have been successfully removed.'));
-}
-
-if (!empty($_GET['addlink'])) {
-	dcPage::success(__('Link has been successfully created.'));
-}
-
-if (!empty($_GET['addcat'])) {
-	dcPage::success(__('category has been successfully created.'));
-}
-
-if (!empty($_GET['importlinks'])) {
-	dcPage::success(__('links have been successfully imported.'));
-}
-?>
-
-<div class="multi-part" id="links-list" title="<?php echo __('Blogroll'); ?>">
+<div class="multi-part" id="main-list" title="<?php echo __('Blogroll'); ?>">
 
 <?php if (!$rs->isEmpty()) { ?>
 

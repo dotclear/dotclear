@@ -45,7 +45,7 @@ class dcCommentsActionsPage extends dcActionsPage
 			);	
 
 		}
-		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to comments list').'</a></p>';
+		echo '<p><a class="back" href="'.$this->getRedirection(true).'">'.__('Back to comments list').'</a></p>';
 	}
 	
 	public function endPage() {
@@ -58,7 +58,7 @@ class dcCommentsActionsPage extends dcActionsPage
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
 				__('Comments') => 'comments.php',
-				'<span class="page-title">'.__('Comments actions').'</span>' => ''
+				__('Comments actions') => ''
 			))
 		);
 		$this->endPage();
@@ -148,7 +148,9 @@ class dcDefaultCommentActions
 		}
 		
 		$core->blog->updCommentsStatus($co_ids,$status);
-		$ap->redirect(array('upd'=>1),true);
+
+		dcPage::addSuccessNotice(__('Selected comments have been successfully updated.'));
+		$ap->redirect(true);
 	}
 
 	public static function doDeleteComment($core, dcCommentsActionsPage $ap, $post) {
@@ -167,6 +169,7 @@ class dcDefaultCommentActions
 		$core->callBehavior('adminBeforeCommentsDelete',$co_ids);
 		
 		$core->blog->delComments($co_ids);
-		$ap->redirect(array('del'=>1), false);
+		dcPage::addSuccessNotice(__('Selected comments have been successfully deleted.'));
+		$ap->redirect(false);
 	}
 }

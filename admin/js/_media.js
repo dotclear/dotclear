@@ -68,6 +68,7 @@
 			}).bind('fileuploaddone', function(e, data) {
 				if (data.result.files[0].html !==undefined) {
 					$('.media-list .files-group').append(data.result.files[0].html);
+					$('#form-medias .hide').removeClass('hide');
 				}
 				$('.button.clean',me).show();
 			}).bind('fileuploadalways', function(e, data) {
@@ -129,12 +130,25 @@
 $(function() {
 	$('#fileupload').enhancedUploader();
 
+	$('.checkboxes-helpers').each(function() {
+		dotclear.checkboxesHelpers(this);
+	});
+
+	$('#form-medias').submit(function() {
+		var count_checked = $('input[name="medias[]"]:checked', $(this)).length;
+		if (count_checked==0) {
+			return false;
+		}
+
+		return window.confirm(dotclear.msg.confirm_delete_medias.replace('%d',count_checked));
+	});
+
 	// Replace remove links by a POST on hidden form
 	fileRemoveAct();
 
 	function fileRemoveAct() {
 		$('body').on('click','a.media-remove',function() {
-			var m_name = $(this).parents('ul').find('li:first>a').text();
+			var m_name = $(this).parents('.media-item').find('a.media-link').text();
 			if (window.confirm(dotclear.msg.confirm_delete_media.replace('%s',m_name))) {
 				var f = $('#media-remove-hide').get(0);
 				f.elements['remove'].value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/,'$2');

@@ -26,7 +26,7 @@ if ($standalone)
 	$blog_url = $core->blog->url;
 	
 	$action = 'blog_pref.php';
-	$redir = 'blog_pref.php?upd=1';
+	$redir = 'blog_pref.php';
 }
 else
 {
@@ -55,7 +55,7 @@ else
 	}
 	
 	$action = 'blog.php';
-	$redir = 'blog.php?id=%s&upd=1';
+	$redir = 'blog.php?id=%s';
 }
 
 # Language codes
@@ -234,6 +234,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
 		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
+		$blog_settings->system->put('inc_subcats',!empty($_POST['inc_subcats']));
 		$blog_settings->system->put('media_img_t_size',$media_img_t_size);
 		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
@@ -256,7 +257,8 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		if ($core->auth->isSuperAdmin() && in_array($_POST['url_scan'],$url_scan_combo)) {
 			$blog_settings->system->put('url_scan',$_POST['url_scan']);
 		}
-		
+		dcPage::addSuccessNotice(__('Blog has been successfully updated.'));
+
 		http::redirect(sprintf($redir,$blog_id));
 	}
 	catch (Exception $e)
@@ -269,14 +271,15 @@ if ($standalone) {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			html::escapeHTML($blog_name) => '',
-			'<span class="page-title">'.__('Blog settings').'</span>' => ''
-		));
+			__('Blog settings') => ''
+		)
+	);
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('Blogs') => 'blogs.php',
-			'<span class="page-title">'.__('Blog settings').' : '.html::escapeHTML($blog_name).'</span>' => ''
+			__('Blog settings').' : '.html::escapeHTML($blog_name) => ''
 		));
 }
 
@@ -525,6 +528,10 @@ if ($blog_id)
 	'<p><label for="short_feed_items" class="classic">'.
 	form::checkbox('short_feed_items','1',$blog_settings->system->short_feed_items).
 	__('Truncate feeds').'</label></p>'.
+	
+	'<p><label for="inc_subcats" class="classic">'.
+	form::checkbox('inc_subcats','1',$blog_settings->system->inc_subcats).
+	__('Include sub-categories in category page and category posts feed').'</label></p>'.
 	'</div>'.
     '</div>'.
 	'<br class="clear" />'. //Opera sucks
@@ -685,7 +692,11 @@ if ($blog_id)
 					'<span class="form-note">'.__('All rights on all blogs.').'</span></li>';
 				} else {
 					foreach ($v['p'] as $p => $V) {
-						echo '<li '.($p == 'admin' ? 'class="user_admin"' : '').'>'.__($perm_types[$p]);
+						if (isset($perm_types[$p])) {
+							echo '<li '.($p == 'admin' ? 'class="user_admin"' : '').'>'.__($perm_types[$p]);
+						} else {
+							echo '<li>'.sprintf(__('[%s] (unreferenced permission)'),$p);
+						}
 
 						if($p == 'admin') {
 							echo '<br /><span class="form-note">'.__('All rights on this blog.').'</span>';

@@ -23,14 +23,18 @@ $core->addBehavior('coreAfterCommentUpdate',array('dcAntispam','trainFilters'));
 $core->addBehavior('adminAfterCommentDesc',array('dcAntispam','statusMessage'));
 $core->addBehavior('adminDashboardIcons',array('dcAntispam','dashboardIcon'));
 
-$core->addBehavior('adminDashboardFavs','antispamDashboardFavs');
+$core->addBehavior('adminDashboardFavorites','antispamDashboardFavorites');
 $core->addBehavior('adminDashboardFavsIcon','antispamDashboardFavsIcon');
 
-function antispamDashboardFavs($core,$favs)
+function antispamDashboardFavorites($core,$favs)
 {
-	$favs['antispam'] = new ArrayObject(array('antispam','Antispam','plugin.php?p=antispam',
-		'index.php?pf=antispam/icon.png','index.php?pf=antispam/icon-big.png',
-		'admin',null,null));
+	$favs->register('antispam', array(
+		'title' => __('Antispam'),
+		'url' => 'plugin.php?p=antispam',
+		'small-icon' => 'index.php?pf=antispam/icon.png',
+		'large-icon' => 'index.php?pf=antispam/icon-big.png',
+		'permissions' => 'admin')
+	);
 }
 
 function antispamDashboardFavsIcon($core,$name,$icon)

@@ -328,7 +328,7 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Pages') => $p_url,
-		'<span class="page-title">'.$edit_entry_title.'</span>' => ''
+		$edit_entry_title => ''
 	));
 
 if (!empty($_GET['upd'])) {
@@ -355,7 +355,7 @@ if (!empty($_GET['xconv']))
 }
 
 if ($post_id && $post->post_status == 1) {
-	echo '<p><a class="onblog_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this page on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
+	echo '<p><a class="onblog_link outgoing" href="'.$post->getURL().'" title="'.$post_title.'">'.__('Go to this page on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
 }
 
 echo '';

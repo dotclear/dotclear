@@ -198,8 +198,9 @@ if (!empty($_POST))
 		$core->blog->settings->addNamespace('themes');
 		$core->blog->settings->themes->put('blowup_style',serialize($blowup_user));
 		$core->blog->triggerBlog();
-
-		http::redirect($p_url.'&upd=1');
+		
+		dcPage::addSuccessNotice(__('Theme configuration has been successfully updated.'));
+		http::redirect($p_url);
 	}
 	catch (Exception $e)
 	{
@@ -230,8 +231,8 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Blog appearance') => 'blog_theme.php',
-		'<span class="page-title">'.__('Blowup configuration').'</span>' => ''
-	));
+		__('Blowup configuration') => ''
+	)).dcPage::notices();
 
 echo
 '<p><a class="back" href="blog_theme.php">'.__('Back to Blog appearance').'</a></p>';
@@ -240,10 +241,6 @@ echo
 if (!$can_write_images) {
 	dcPage::message(__('For the following reasons, images cannot be created. You won\'t be able to change some background properties.').
 		$notices,false,true);
-}
-
-if (!empty($_GET['upd'])) {
-	dcPage::success(__('Theme configuration has been successfully updated.'));
 }
 
 echo '<form id="theme_config" action="'.$p_url.'" method="post" enctype="multipart/form-data">';

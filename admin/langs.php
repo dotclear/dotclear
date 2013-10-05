@@ -48,7 +48,8 @@ if ($is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id']))
 			throw new Exception(__('Permissions to delete language denied.'));
 		}
 		
-		http::redirect('langs.php?removed=1');
+		dcPage::addSuccessNotice(__('Language has been successfully deleted.'));
+		http::redirect('langs.php');
 	}
 	catch (Exception $e)
 	{
@@ -86,7 +87,12 @@ if ($is_writable && !empty($_POST['pkg_url']))
 		}
 		
 		@unlink($dest);
-		http::redirect('langs.php?added='.$ret_code);
+		if ($ret_code == 2) {
+			dcPage::addSuccessNotice( __('Language has been successfully upgraded'));
+		} else {
+			dcPage::addSuccessNotice($__('Language has been successfully installed.'));
+		}
+		http::redirect('langs.php');
 	}
 	catch (Exception $e)
 	{
@@ -117,7 +123,12 @@ if ($is_writable && !empty($_POST['upload_pkg']))
 		}
 		
 		@unlink($dest);
-		http::redirect('langs.php?added='.$ret_code);
+		if ($ret_code == 2) {
+			dcPage::addSuccessNotice( __('Language has been successfully upgraded'));
+		} else {
+			dcPage::addSuccessNotice($__('Language has been successfully installed.'));
+		}
+		http::redirect('langs.php');
 	}
 	catch (Exception $e)
 	{
@@ -132,7 +143,7 @@ dcPage::open(__('Languages management'),
 	dcPage::breadcrumb(
 	array(
 		__('System') => '',
-		'<span class="page-title">'.__('Languages management').'</span>' => ''
+		__('Languages management') => ''
 	))
 );
 

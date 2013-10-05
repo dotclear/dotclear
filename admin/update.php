@@ -177,7 +177,7 @@ dcPage::open(__('Dotclear update'),
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			'<span class="page-title">'.__('Dotclear update').'</span>' => ''
+			__('Dotclear update') => ''
 		))
 );
 

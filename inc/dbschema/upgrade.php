@@ -151,7 +151,7 @@ function dotclearUpgrade($core)
 
 				$init_fav['new_post'] = array('new_post','New entry','post.php',
 					'images/menu/edit.png','images/menu/edit-b.png',
-					'usage,contentadmin',null,'menu-new-post');
+					'usage,contentadmin',null,null);
 				$init_fav['newpage'] = array('newpage','New page','plugin.php?p=pages&amp;act=page',
 					'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
 					'contentadmin,pages',null,null);
@@ -339,6 +339,26 @@ function dotclearUpgrade($core)
 
 				// trackbacks are now merged into posts
 				@unlink(DC_ROOT.'/'.'admin/trackbacks.php');
+
+				# daInstaller has been integrated to the core.
+				# Try to remove it
+				$path = explode(PATH_SEPARATOR,DC_PLUGINS_ROOT);
+				foreach ($path as $root)
+				{
+					if (!is_dir($root) || !is_readable($root)) {
+						continue;
+					}
+					if (substr($root,-1) != '/') {
+						$root .= '/';
+					}
+					if (($p = @dir($root)) === false) {
+						continue;
+					}
+					if (($d = @dir($root.'daInstaller')) === false) {
+						continue;
+					}
+					files::deltree($root.'/daInstaller');
+				}
 			}
 			
 			$core->setVersion('core',DC_VERSION);

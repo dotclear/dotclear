@@ -16,7 +16,8 @@ $this->registerModule(
 	/* Author */			"Dotclear Team",
 	/* Version */			'1.3.1',
 	/* Properties */		array(
-								'standalone_config' => true
+								'standalone_config' => true,
+								'type' => 'theme'
 							)
 );
 ?>
