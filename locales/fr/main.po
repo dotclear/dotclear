@@ -3504,10 +3504,10 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Derniers billets du flux"
 
 #~ msgid "List of last entries published"
-#~ msgstr "Derniers billets publiés"
+#~ msgstr "Liste des derniers billets publiés"
 
-#~ msgid "List of last comments posted"
-#~ msgstr "Derniers commentaires postés"
+#~ msgid "List of last comments published"
+#~ msgstr "Liste des derniers commentaires publiés"
 
 #~ msgid "List of published pages"
 #~ msgstr "Liste des pages publiées"
