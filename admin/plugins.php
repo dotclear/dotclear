@@ -41,6 +41,7 @@ adminModulesList::$distributed_modules = array(
 	'attachments',
 	'blogroll',
 	'blowupConfig',
+	'dclegacy',
 	'fairTrackbacks',
 	'importExport',
 	'maintenance',
