@@ -149,10 +149,20 @@ dotclear.viewModuleContent = function(img,line,action) {
 
 
 $(function() {
-        $('table.modules.expandable tr:not(.line)').each(function() {
-                dotclear.modulesExpander(this,$('table.modules.expandable tr.line'));
-        });
-        $('table.modules.expandable tr.line').each(function() {
-                dotclear.moduleExpander(this);
-        });
+/*
+	// expand all modules lines
+	$('table.modules.expandable tr:not(.line)').each(function() {
+		dotclear.modulesExpander(this,$('table.modules.expandable tr.line'));
+	});
+*/
+	// expand a module line
+	$('table.modules.expandable tr.line').each(function() {
+		dotclear.moduleExpander(this);
+	});
+
+	// confirm module deletion
+	$('div.module-actions form input[type=submit][name=delete]').click(function() {
+		var module_id = $('input[name=module]',$(this).parent()).val();
+		return window.confirm(dotclear.msg.confirm_delete_plugin.replace('%s',module_id));
+	});
 });
