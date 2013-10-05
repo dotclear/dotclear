@@ -34,25 +34,7 @@ $list = new adminModulesList(
 );
 
 adminModulesList::$allow_multi_install = $core->blog->settings->system->plugins_allow_multi_install;
-adminModulesList::$distributed_modules = array(
-	'aboutConfig',
-	'akismet',
-	'antispam',
-	'attachments',
-	'blogroll',
-	'blowupConfig',
-	'dclegacy',
-	'fairTrackbacks',
-	'importExport',
-	'maintenance',
-	'pages',
-	'pings',
-	'simpleMenu',
-	'tags',
-	'themeEditor',
-	'userPref',
-	'widgets'
-);
+adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
 # -- Display module configuration page --
 if ($list->setConfiguration()) {

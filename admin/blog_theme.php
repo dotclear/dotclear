@@ -31,13 +31,7 @@ $list = new adminThemesList(
 	$core->blog->themes_path,
 	$core->blog->settings->system->store_theme_url
 );
-adminThemesList::$distributed_modules = array(
-	'blueSilence',
-	'blowupConfig',
-	'customCSS',
-	'default',
-	'ductile'
-);
+adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
 # -- Theme screenshot --
 if (!empty($_GET['shot']) && $list->modules->moduleExists($_GET['shot'])) {
