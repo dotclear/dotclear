@@ -16,9 +16,9 @@ dotclear.postExpander = function(line) {
 	title.find('.form-note').remove();
 	order = title.find('input[name*=order]');
 	link = $('<a href="#" alt="expand" class="aexpand"/>').append(title.text());
-	rem = title.find('input[name*=_rem]');
+	tools = title.find('.toolsWidget');
 	br = title.find('br');
-	title.empty().append(order).append(link).append(rem).append(br);
+	title.empty().append(order).append(link).append(tools).append(br);
 	
 	var img = document.createElement('img');
 	img.src = dotclear.img_plus_src;
@@ -51,7 +51,48 @@ dotclear.viewPostContent = function(line,action) {
 	
 };
 
-$(function() {	
+function reorder(ul) {
+	// réordonne
+	if( ul.attr('id') ) {
+		$list = ul.find('li').not('.empty-widgets');
+		$list.each(function(i) {
+			$this = $(this);
+			
+			// trouve la zone de réception
+			var name = ul.attr('id').split('dnd').join('');
+			
+			// modifie le name en conséquence
+			$this.find('*[name^=w]').each(function(){
+				tab = $(this).attr('name').split('][');
+				tab[0] = "w["+name;
+				tab[1] = i;
+				$(this).attr('name', tab.join(']['));
+			});
+			
+			// ainsi que le champ d'ordre sans js (au cas ou)
+			$this.find('input[title=ordre]').val(i);
+			
+			// active ou désactive les fléches
+			if( i == 0 ) {
+				$this.find('input.upWidget').prop('disabled', true);
+				$this.find('input.upWidget').prop('src', 'images/disabled_up.png' );
+			} else {
+				$this.find('input.upWidget').removeAttr('disabled');
+				$this.find('input.upWidget').prop('src', 'images/up.png' );
+			}
+			if( i == $list.length-1 ) {
+				$this.find('input.downWidget').prop('disabled', true);
+				$this.find('input.downWidget').prop('src', 'images/disabled_down.png' );
+			} else {
+				$this.find('input.downWidget').removeAttr('disabled');
+				$this.find('input.downWidget').prop('src', 'images/down.png' );
+			}
+			
+		});
+	}
+}
+
+$(function() {
 	// reset
 	$('input[name="wreset"]').click(function() {
 		return window.confirm(dotclear.msg.confirm_widgets_reset);
@@ -64,10 +105,24 @@ $(function() {
 	});
 	
 	// remove
-	$('input[name*=rem]').change(function () {
-	    if ($(this).attr("checked")) {
-	        $(this).parents('li').remove();
-	    }
+	$('input[name*=rem]').click(function (e) {
+		e.preventDefault();
+		$(this).parents('li').remove();
 	});
 	
+	// move
+	$('input[name*=down]').click(function (e) {
+		e.preventDefault();
+		$this = $(this);
+		$li = $this.parents('li');
+		$li.next().after($li);
+		reorder($this.parents('ul.connected'));
+	});
+	$('input[name*=up]').click(function (e) {
+		e.preventDefault();
+		$this = $(this);
+		$li = $this.parents('li');
+		$li.prev().before($li);
+		reorder($this.parents('ul.connected'));
+	});
 });

@@ -146,8 +146,35 @@ if ( isset($_POST['w']) && is_array($_POST['w']) ) {
 	}
 }
 
+# Move ?
+$move = false;
+if ( isset($_POST['w']) && is_array($_POST['w']) ) {
+	foreach ($_POST['w'] as $nsid => $nsw) {
+		foreach ($nsw as $i => $v) {
+			if (!empty($v['down'])) {
+				$oldorder = $_POST['w'][$nsid][$i]['order'];
+				$neworder = $oldorder + 1;
+				if( isset($_POST['w'][$nsid][$neworder]) ) {
+					$_POST['w'][$nsid][$i]['order'] = $neworder;
+					$_POST['w'][$nsid][$neworder]['order'] = $oldorder;
+					$move = true;
+				}
+			}
+			if (!empty($v['up'])) {
+				$oldorder = $_POST['w'][$nsid][$i]['order'];
+				$neworder = $oldorder - 1;
+				if( isset($_POST['w'][$nsid][$neworder]) ) {
+					$_POST['w'][$nsid][$i]['order'] = $neworder;
+					$_POST['w'][$nsid][$neworder]['order'] = $oldorder;
+					$move = true;
+				}
+			}
+		}
+	}
+}
+
 # Update sidebars
-if (!empty($_POST['wup']) || $removing )
+if (!empty($_POST['wup']) || $removing || $move )
 {
 	if (!isset($_POST['w']) || !is_array($_POST['w'])) {
 		$_POST['w'] = array();
@@ -383,13 +410,21 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 	$i = 0;
 	foreach ($widgets->elements() as $w)
 	{
+		$upDisabled = $i == 0 ? '" disabled="" src="images/disabled_' : '" src="images/';
+		$downDisabled = $i == count($widgets->elements())-1 ? '" disabled="" src="images/disabled_' : '" src="images/';
+		
 		$iname = 'w['.$pr.']['.$i.']';
 		
 		$res .=
 		'<li>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
-		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'hidden-if-drag','',0,'title="'.__('order').'"').' '.$w->name().
+		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'hidden','',0,'title="'.__('order').'"').
+		' '.$w->name().
 		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').
-		'<input type="image" src="images/trash.png" class="removeWidget remove-if-drag" name="'.$iname.'[_rem]" value="'.__('Remove widget').'" />'.
+		'<span class="toolsWidget remove-if-drag">'.
+		'<input type="image" class="upWidget'.$upDisabled.'up.png" name="'.$iname.'[up]" value="'.__('Up the widget').'" />'.
+		'<input type="image" class="downWidget'.$downDisabled.'down.png" name="'.$iname.'[down]" value="'.__('Down the widget').'" />'.' '.
+		'<input type="image" class="removeWidget" src="images/trash.png" name="'.$iname.'[_rem]" value="'.__('Remove widget').'" />'.
+		'</span>'.
 		'<br class="clear"/></p>'.
 		'<div class="widgetSettings hidden-if-drag">'.$w->formSettings($iname,$j).'</div>'.
 		'</li>';

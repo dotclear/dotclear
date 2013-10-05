@@ -58,25 +58,7 @@ $(function() {
 			}
 			
 			// réordonne
-			if( ul.attr('id') ) {
-				ul.find('li').each(function(i) {
-					
-					// trouve la zone de réception
-					var name = ul.attr('id').split('dnd').join('');
-					
-					// modifie le name en conséquence
-					$(this).find('*[name^=w]').each(function(){
-						tab = $(this).attr('name').split('][');
-						tab[0] = "w["+name;
-						tab[1] = i;
-						$(this).attr('name', tab.join(']['));
-					});
-					
-					// ainssi que le champ d'ordre sans js (au cas ou)
-					$(this).find('input[title=ordre]').val(i);
-					
-				});
-			}
+			reorder(ul);
 			
 			// expand
 			if(widget.find('img.expand').length == 0) {
