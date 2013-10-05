@@ -256,12 +256,22 @@ class adminModulesList
 		}
 
 		echo 
+		'<div class="modules-search">'.
 		'<form action="'.$this->getURL().'" method="get" class="fieldset">'.
 		'<p><label for="m_search" class="classic">'.__('Search in repository:').'&nbsp;</label><br />'.
 		form::field(array('m_search','m_search'), 30, 255, html::escapeHTML($query)).
 		'<input type="submit" value="'.__('Search').'" /> ';
-		if ($query) { echo ' <a href="'.$this->getURL().'" class="button">'.__('Reset search').'</a>'; }
-		echo '</p>'.
+
+		if ($query) { 
+			echo 
+			' <a href="'.$this->getURL().'" class="button">'.__('Reset search').'</a>';
+		}
+
+		echo 
+		'</p>'.
+		'<p class="form-note">'.
+		__('Search is allowed on multiple terms longer than 2 chars, terms must be separated by space.').
+		'</p>'.
 		'</form>';
 
 		if ($query) {
@@ -272,6 +282,8 @@ class adminModulesList
 				).
 			'</p>';
 		}
+		echo '</div>';
+
 		return $this;
 	}
 	//@}
@@ -450,7 +462,8 @@ class adminModulesList
 				'tags' 				=> '',
 				'details' 			=> '',
 				'sshot' 			=> '',
-				'score'				=> 0
+				'score'				=> 0,
+				'type' 				=> null
 			),
 			# Module's values
 			$module,

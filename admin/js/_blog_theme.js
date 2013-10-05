@@ -1,4 +1,5 @@
 $(function() {
+	// expend theme info
 	$('.module-sshot').not('.current-theme .module-sshot').each(function(){
 		var bar = $('<div>').addClass('bloc-toggler');
 		$(this).after(
@@ -9,5 +10,17 @@ $(function() {
 			img_off_alt: dotclear.img_minus_theme_alt, 
 			legend_click: true
 		}));
+	});
+
+	// confirm module deletion
+	$('div.module-actions form input[type=submit][name=delete]').click(function() {
+		var module_id = $('input[name=module]',$(this).parent()).val();
+		return window.confirm(dotclear.msg.confirm_delete_theme.replace('%s',module_id));
+	});
+
+	// dirty short search blocker
+	$('div.modules-search form input[type=submit]').click(function(){
+		var mlen = $('input[name=m_search]',$(this).parent()).val();
+		if (mlen.length > 2){return true;}else{return false;}
 	});
 });
