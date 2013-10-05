@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-04 13:51+0000\n"
+"POT-Creation-Date: 2013-10-05 19:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,8 +41,8 @@ msgstr ""
 msgid "Configure your Blowup Theme"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/daInstaller/index.php:267
-msgid "Install and update your plugins live from DotAddict.org"
+#: plugins/_fake_plugin/_fake_l10n.php:11
+msgid "Legacy modules for dotclear"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:12
@@ -888,6 +888,10 @@ msgstr ""
 msgid "Choose a predefined style"
 msgstr ""
 
+#: plugins/blowupConfig/index.php:238
+msgid "Back to Blog appearance"
+msgstr ""
+
 #: plugins/blowupConfig/index.php:242
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr ""
@@ -1183,161 +1187,8 @@ msgstr ""
 msgid "Unable to open image."
 msgstr ""
 
-#: plugins/daInstaller/_admin.php:38
-msgid "Updates are available"
-msgstr ""
-
-#: plugins/daInstaller/inc/class.da.installer.php:175
-#, php-format
-msgid "Oops, something went wrong with %s, we are working on it. %s"
-msgstr ""
-
-#: plugins/daInstaller/inc/class.da.installer.php:176
-msgid "dotaddict.org website"
-msgstr ""
-
-#: plugins/daInstaller/inc/class.da.installer.php:177
-msgid "Wanna help too?"
-msgstr ""
-
-#: plugins/daInstaller/inc/class.da.modules.parser.php:25
-msgid "Impossible to read data feed"
-msgstr ""
-
-#: plugins/daInstaller/inc/class.da.modules.parser.php:32
-msgid "Wrong data feed"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:31
-msgid "No theme"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:36
-msgid "No plugins"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:59
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:214
-msgid "Lastest Version"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:60
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:215
-msgid "Quick description"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:67
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:84
-msgid "Page(s)"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:111
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:150
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:267
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:304
-msgid "by"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:112
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:151
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:269
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:306
-msgid "More details"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:120
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:159
-msgid "Install"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:197
-msgid "Theme"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:224
-msgid "Update selected modules"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:249
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:285
-msgid "Support"
-msgstr ""
-
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:250
-#: plugins/daInstaller/inc/lib.da.installer.ui.php:286
-msgid "No support available"
-msgstr ""
-
-#: plugins/daInstaller/index.php:142
-msgid "The plugin has been successfully installed."
-msgstr ""
-
-#: plugins/daInstaller/index.php:146
-msgid "The theme has been successfully installed."
-msgstr ""
-
-#: plugins/daInstaller/index.php:162
-msgid "Following plugins have not been updated:"
-msgstr ""
-
-#: plugins/daInstaller/index.php:165
-msgid "Following plugins have been updated:"
-msgstr ""
-
-#: plugins/daInstaller/index.php:182
-msgid "Following themes have not been updated:"
-msgstr ""
-
-#: plugins/daInstaller/index.php:185
-msgid "Following themes have been updated:"
-msgstr ""
-
-#: plugins/daInstaller/index.php:271
-msgid "Available updates"
-msgstr ""
-
-#: plugins/daInstaller/index.php:274
-msgid "Detected updates for your system"
-msgstr ""
-
-#: plugins/daInstaller/index.php:276
-msgid "Changes can be required after installation of updates. Click on a support link before to be aware about"
-msgstr ""
-
-#: plugins/daInstaller/index.php:280
-msgid "No update available"
-msgstr ""
-
-#: plugins/daInstaller/index.php:287
-msgid "Get more plugins"
-msgstr ""
-
-#: plugins/daInstaller/index.php:288
-#, php-format
-msgid "Available plugins (%s)"
-msgstr ""
-
-#: plugins/daInstaller/index.php:293
-msgid "Get more themes"
-msgstr ""
-
-#: plugins/daInstaller/index.php:294
-#, php-format
-msgid "Available themes (%s)"
-msgstr ""
-
-#: plugins/daInstaller/index.php:314
-#, php-format
-msgid "%u %s found"
-msgstr ""
-
 #: plugins/fairTrackbacks/class.dc.filter.fairtrackbacks.php:28
 msgid "Checks trackback source for a link to the post"
-msgstr ""
-
-#: plugins/importExport/_admin.php:15 plugins/importExport/_admin.php:27
-#: plugins/importExport/index.php:59
-msgid "Import/Export"
 msgstr ""
 
 #: plugins/importExport/inc/class.dc.export.flat.php:19
@@ -1682,7 +1533,7 @@ msgstr ""
 msgid "Download database of all blogs"
 msgstr ""
 
-#: plugins/importExport/index.php:69 plugins/maintenance/index.php:119
+#: plugins/importExport/index.php:69 plugins/maintenance/index.php:81
 msgid "Please wait..."
 msgstr ""
 
@@ -1691,102 +1542,152 @@ msgstr ""
 msgid "Export functions are in the page %s."
 msgstr ""
 
-#: plugins/importExport/index.php:106 plugins/maintenance/_admin.php:16
-#: plugins/maintenance/_admin.php:173 plugins/maintenance/_admin.php:195
-#: plugins/maintenance/index.php:111 plugins/maintenance/index.php:135
-#: plugins/maintenance/index.php:160 plugins/maintenance/index.php:195
-msgid "Maintenance"
-msgstr ""
-
-#: plugins/maintenance/_admin.php:49
+#: plugins/maintenance/_admin.php:50
 msgid "Servicing"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:49
+#: plugins/maintenance/_admin.php:50
 msgid "Tools to maintain the performance of your blogs."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:50
+#: plugins/maintenance/_admin.php:51
 msgid "Backup"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:50
+#: plugins/maintenance/_admin.php:51
 msgid "Tools to back up your content."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:51
+#: plugins/maintenance/_admin.php:52
 msgid "Development"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:51
+#: plugins/maintenance/_admin.php:52
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:53
+#: plugins/maintenance/_admin.php:54
 msgid "Optimize"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:54
+#: plugins/maintenance/_admin.php:55
 msgid "Count and index"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:55
+#: plugins/maintenance/_admin.php:56
 msgid "Purge"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:56
+#: plugins/maintenance/_admin.php:57
 msgid "Other"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:57
+#: plugins/maintenance/_admin.php:58
 msgid "Current blog"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:58
+#: plugins/maintenance/_admin.php:59
 msgid "All blogs"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:60
+#: plugins/maintenance/_admin.php:61
 msgid "Maintain translations"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:60
+#: plugins/maintenance/_admin.php:61
 msgid "Translations"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:129
+#: plugins/maintenance/_admin.php:130
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:158 plugins/maintenance/index.php:227
+#: plugins/maintenance/_admin.php:159 plugins/maintenance/index.php:189
 msgid "This task has never been executed."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:160 plugins/maintenance/index.php:233
+#: plugins/maintenance/_admin.php:161 plugins/maintenance/index.php:195
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:174
+#: plugins/maintenance/_admin.php:175
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:176
+#: plugins/maintenance/_admin.php:177
 msgid "Manage tasks"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:199
+#: plugins/maintenance/_admin.php:200
 msgid "Display count of late tasks on maintenance dashboard icon"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:203
+#: plugins/maintenance/_admin.php:204
 msgid "Display list of late tasks on dashboard items"
+msgstr ""
+
+#: plugins/maintenance/_config.php:19 plugins/maintenance/index.php:63
+msgid "Never"
+msgstr ""
+
+#: plugins/maintenance/_config.php:20 plugins/maintenance/index.php:64
+msgid "Every week"
+msgstr ""
+
+#: plugins/maintenance/_config.php:21 plugins/maintenance/index.php:65
+msgid "Every two weeks"
+msgstr ""
+
+#: plugins/maintenance/_config.php:22 plugins/maintenance/index.php:66
+msgid "Every month"
+msgstr ""
+
+#: plugins/maintenance/_config.php:23 plugins/maintenance/index.php:67
+msgid "Every two months"
+msgstr ""
+
+#: plugins/maintenance/_config.php:55
+msgid "Maintenance plugin has been successfully configured."
+msgstr ""
+
+#: plugins/maintenance/_config.php:64
+msgid "Set up reminders for maintenance tasks."
+msgstr ""
+
+#: plugins/maintenance/_config.php:66
+msgid "Activation"
+msgstr ""
+
+#: plugins/maintenance/_config.php:69
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#: plugins/maintenance/_config.php:72
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+#: plugins/maintenance/_config.php:76
+msgid "Frequency"
+msgstr ""
+
+#: plugins/maintenance/_config.php:80
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+#: plugins/maintenance/_config.php:82
+msgid "Recall time for all tasks:"
+msgstr ""
+
+#: plugins/maintenance/_config.php:88
+msgid "Use one recall time per task"
 msgstr ""
 
 #: plugins/maintenance/inc/class.dc.maintenance.task.php:71
@@ -1959,85 +1860,24 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#: plugins/maintenance/index.php:101
-msgid "Never"
-msgstr ""
-
-#: plugins/maintenance/index.php:102
-msgid "Every week"
-msgstr ""
-
-#: plugins/maintenance/index.php:103
-msgid "Every two weeks"
-msgstr ""
-
-#: plugins/maintenance/index.php:104
-msgid "Every month"
-msgstr ""
-
-#: plugins/maintenance/index.php:105
-msgid "Every two months"
-msgstr ""
-
-#: plugins/maintenance/index.php:138
+#: plugins/maintenance/index.php:100
 msgid "You have not sufficient permissions to view this page."
 msgstr ""
 
-#: plugins/maintenance/index.php:147
+#: plugins/maintenance/index.php:109
 msgid "Settings successfully updated"
 msgstr ""
 
-#: plugins/maintenance/index.php:172
-msgid "Back"
-msgstr ""
-
-#: plugins/maintenance/index.php:228 plugins/maintenance/index.php:237
+#: plugins/maintenance/index.php:190 plugins/maintenance/index.php:199
 msgid "You should execute it now."
 msgstr ""
 
-#: plugins/maintenance/index.php:260 plugins/maintenance/index.php:282
+#: plugins/maintenance/index.php:222 plugins/maintenance/index.php:244
 msgid "Execute task"
 msgstr ""
 
-#: plugins/maintenance/index.php:263
+#: plugins/maintenance/index.php:225
 msgid "This may take a very long time."
-msgstr ""
-
-#: plugins/maintenance/index.php:293 plugins/maintenance/index.php:294
-msgid "Alert settings"
-msgstr ""
-
-#: plugins/maintenance/index.php:297
-msgid "Activation"
-msgstr ""
-
-#: plugins/maintenance/index.php:300
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#: plugins/maintenance/index.php:303
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-#: plugins/maintenance/index.php:307
-msgid "Frequency"
-msgstr ""
-
-#: plugins/maintenance/index.php:311
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-#: plugins/maintenance/index.php:313
-msgid "Recall time for all tasks:"
-msgstr ""
-
-#: plugins/maintenance/index.php:319
-msgid "Use one recall time per task"
-msgstr ""
-
-#: plugins/maintenance/index.php:334
-msgid "Save this settings"
 msgstr ""
 
 #: plugins/pages/_admin.php:31 plugins/pages/list.php:84
@@ -2233,8 +2073,9 @@ msgstr ""
 msgid "Check all"
 msgstr ""
 
-#: plugins/simpleMenu/_admin.php:18 plugins/simpleMenu/_admin.php:27
-#: plugins/simpleMenu/_widgets.php:20 plugins/simpleMenu/index.php:16
+#: plugins/simpleMenu/_admin.php:18 plugins/simpleMenu/_admin.php:23
+#: plugins/simpleMenu/_admin.php:31 plugins/simpleMenu/_widgets.php:20
+#: plugins/simpleMenu/index.php:16
 msgid "Simple menu"
 msgstr ""
 
@@ -2258,15 +2099,6 @@ msgstr ""
 
 #: plugins/simpleMenu/index.php:88
 msgid "Page"
-msgstr ""
-
-#: plugins/simpleMenu/index.php:92 plugins/tags/_admin.php:14
-#: plugins/tags/_admin.php:46 plugins/tags/_admin.php:84
-#: plugins/tags/_admin.php:107 plugins/tags/_admin.php:113
-#: plugins/tags/_widgets.php:21 plugins/tags/_widgets.php:22
-#: plugins/tags/tag_posts.php:74 plugins/tags/tag_posts.php:94
-#: plugins/tags/tags.php:17 plugins/tags/tags.php:26
-msgid "Tags"
 msgstr ""
 
 #: plugins/simpleMenu/index.php:99
@@ -2667,10 +2499,6 @@ msgstr ""
 
 #: plugins/userPref/index.php:184 plugins/userPref/index.php:185
 msgid "Global preferences"
-msgstr ""
-
-#: plugins/widgets/_admin.php:19 plugins/widgets/_admin.php:26
-msgid "Presentation widgets"
 msgstr ""
 
 #: plugins/widgets/_default_widgets.php:20

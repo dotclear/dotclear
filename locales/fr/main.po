@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-04 13:51+0000\n"
+"POT-Creation-Date: 2013-10-05 19:46+0200\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -492,117 +492,57 @@ msgstr "Tous les droits sur ce blog."
 msgid "Change permissions"
 msgstr "Changer les permissions"
 
-#, php-format
-msgid "Current theme has been successfully changed to \"%s\"."
-msgstr "Thème changé avec succès en \"%s\"."
-
-msgid "You can't remove default theme."
-msgstr "Vous ne pouvez pas supprimer le thème par défaut."
-
-msgid "Theme does not exist."
-msgstr "Ce thème n'existe pas."
-
-msgid "Unable to move uploaded file."
-msgstr "Impossible de déplacer le fichier téléchargé."
-
-msgid "An error occurred while downloading the file."
-msgstr "Une erreur est survenue pendant le téléchargement du fichier."
-
-msgid "Theme has been successfully upgraded."
-msgstr "Thème mis à jour avec succès."
-
-msgid "Theme has been successfully installed."
-msgstr "Thème installé avec succès."
-
-#, php-format
-msgid "by %s"
-msgstr "par %s"
-
-#, php-format
-msgid "version %s"
-msgstr "version %s"
-
-#, php-format
-msgid "(built on \"%s\")"
-msgstr "(basé sur \"%s\")"
-
-#, php-format
-msgid "(requires \"%s\")"
-msgstr "(nécessite \"%s\")"
-
-msgid "Stylesheet"
-msgstr "Feuille de style"
-
-msgid "Configure theme"
-msgstr "Configurer le thème"
-
 msgid "Blog appearance"
 msgstr "Apparence du blog"
 
 msgid "Theme configuration"
 msgstr "Configuration du thème"
 
-msgid "Theme has been successfully changed."
-msgstr "Thème changé avec succès."
+msgid "Themes management"
+msgstr "Gestion des thèmes"
 
-msgid "Theme has been successfully upgraded"
-msgstr "Thème mis à jour avec succès."
-
-msgid "Theme has been successfully deleted."
-msgstr "Thème supprimé avec succès."
-
-msgid "Themes"
-msgstr "Thèmes"
-
-msgid "Available themes in your installation"
-msgstr "Thèmes disponibles sur votre installation"
+msgid "Update themes"
+msgstr "Mettre à jour les thèmes"
 
 #, php-format
-msgid "You are currently using <strong>%s</strong>"
-msgstr "Vous utilisez actuellement <strong>%s</strong>"
-
-msgid "Use selected theme"
-msgstr "Utiliser le thème sélectionné"
-
-msgid "Delete selected theme"
-msgstr "Supprimer le thème sélectionné"
-
-msgid "Install or upgrade a theme"
-msgstr "Installer ou mettre à jour un thème"
-
-msgid "Add themes to your installation"
-msgstr "Ajouter des thèmes sur votre installation"
+msgid "There is one theme to update available from repository."
+msgid_plural "There are %s themes to update available from repository."
+msgstr[0] ""
+msgstr[1] ""
 
 #, php-format
-msgid "You can find additional themes for your blog on %s."
-msgstr "Vous pouvez trouver d'autres thèmes pour votre blog sur %s."
+msgid "Visit %s repository, the resources center for Dotclear."
+msgstr ""
 
-msgid "You can also install themes by uploading or downloading zip files."
-msgstr "Vous pouvez aussi installer des thèmes en déposant ou en téléchargeant des fichiers zip."
+msgid "Installed themes"
+msgstr "Thèmes installés"
 
-msgid "Upload a zip file"
-msgstr "Déposer un fichier zip"
+msgid "You can configure and manage installed themes from this list."
+msgstr ""
 
-msgid "Theme zip file:"
-msgstr "Fichier zip du thème :"
+msgid "Deactivated themes"
+msgstr "Thèmes désactivés"
 
-msgid "Upload theme"
-msgstr "Déposer un thème"
+msgid "Deactivated themes are installed but not usable. You can activate them from here."
+msgstr ""
 
-msgid "Download a zip file"
-msgstr "Télécharger un fichier zip"
+msgid "Add themes"
+msgstr "Ajouter des thèmes"
 
-msgid "Theme zip file URL:"
-msgstr "URL du fichier zip du thème :"
+msgid "Add themes from repository"
+msgstr ""
 
-msgid "Download theme"
-msgstr "Télécharger le thème"
+msgid "Search and install themes directly from repository."
+msgstr ""
 
-msgid "To enable this function, please give write access to your themes directory."
-msgstr "Pour activer cette fonction, donnez un accès en écriture à votre répertoire de thèmes."
+msgid "Install or upgrade manually"
+msgstr "Installer ou mettre à jour manuellement"
 
-msgid "Back to Blog appearance"
-msgstr "Retour à Apparence du blog"
+msgid "Add themes from a package"
+msgstr ""
+
+msgid "You can install themes by uploading or downloading zip files."
+msgstr "Vous pouvez installer des thèmes en déposant ou téléchargeant des fichiers zip."
 
 msgid "Last update"
 msgstr "Dernière mise à jour"
@@ -949,6 +889,12 @@ msgstr "ok"
 msgid "Global help"
 msgstr "Aide générale"
 
+#, php-format
+msgid "An update is available"
+msgid_plural "%s updates are available."
+msgstr[0] "Une mise à jour est disponible."
+msgstr[1] "%s mises à jour sont disponibles."
+
 msgid "Dotclear news"
 msgstr "Actualité de Dotclear"
 
@@ -1284,6 +1230,9 @@ msgstr "Langue mise à jour avec succès."
 msgid "Language has been successfully installed."
 msgstr "Langue installée avec succès."
 
+msgid "Unable to move uploaded file."
+msgstr "Impossible de déplacer le fichier téléchargé."
+
 msgid "Languages management"
 msgstr "Gestion des langues"
 
@@ -1325,6 +1274,9 @@ msgstr "Langue :"
 
 msgid "Install language"
 msgstr "Installer la langue"
+
+msgid "Upload a zip file"
+msgstr "Déposer un fichier zip"
 
 msgid "You can install languages by uploading zip files."
 msgstr "Vous pouvez installer des langues en déposant des fichiers zip."
@@ -1675,94 +1627,53 @@ msgstr "Plugin introuvable"
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "Le plugin que vous essayez d'atteindre n'existe pas ou n'a pas de page d'administration."
 
-msgid "No such plugin."
-msgstr "Plugin inexistant."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "Vous n'avez pas les permissions pour supprimer ce plugin."
-
-msgid "Plugin has been successfully deleted."
-msgstr "Plugin supprimé avec succès."
-
-msgid "You don't have permissions to deactivate this plugin."
-msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
-
-msgid "Plugin has been successfully upgraded"
-msgstr "Plugin mis à jour avec succès."
-
-msgid "Plugin has been successfully installed."
-msgstr "Plugin installé avec succès."
-
 msgid "Plugins management"
 msgstr "Gestion des plugins"
 
-msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
-msgstr "Les plugins ajoutent de nouvelles fonctionnalités à Dotclear. Ici, vous pouvez activer ou désactiver les plugins installés."
+msgid "Plugin configuration"
+msgstr "Configuration du plugin"
+
+msgid "Update plugins"
+msgstr "Mise à jour des plugins"
 
 #, php-format
-msgid "You can find additional plugins for your blog on %s."
-msgstr "Vous pouvez trouver d'autres plugins pour votre blog sur %s."
+msgid "There is one plugin to update available from repository."
+msgid_plural "There are %s plugins to update available from repository."
+msgstr[0] ""
+msgstr[1] ""
 
-#, php-format
-msgid "You can find additional plugins for your blog on %s or using the %s."
-msgstr "Vous pouvez trouver d'autres plugins pour votre blog sur %s ou en utilisant l'%s."
-
-msgid "DotAddict.org Installer"
-msgstr "Installeur DotAddict.org"
-
-msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
-msgstr "Pour installer ou mettre à jour un plugin il suffit de le déposer grâce au formulaire de la section \"Installer ou mettre à jour un plugin\"."
-
-msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
-msgstr "Pour installer un plugin il suffit de l'extraire dans votre répertoire de plugins."
-
-msgid "Plugins"
-msgstr "Plugins"
+msgid "Installed plugins"
+msgstr "Plugins installés"
 
 msgid "Activated plugins"
 msgstr "Plugins activés"
 
-msgid "Plugin"
-msgstr "Plugin"
-
-msgid "Version"
-msgstr "Version"
-
-msgid "Details"
-msgstr "Détails"
-
-msgid "Plugin from official distribution"
-msgstr "Plugin de la distribution officielle"
-
-msgid "Deactivate"
-msgstr "Désactiver"
+msgid "You can configure and manage installed plugins from this list."
+msgstr ""
 
 msgid "Deactivated plugins"
 msgstr "Plugins désactivés"
 
-msgid "Activate"
-msgstr "Activer"
+msgid "Deactivated plugins are installed but not usable. You can activate them from here."
+msgstr ""
 
-msgid "Install or upgrade a plugin"
-msgstr "Installer ou mettre à jour un plugin"
+msgid "Add plugins"
+msgstr "Ajouter des plugins"
+
+msgid "Add plugins from repository"
+msgstr ""
+
+msgid "Search and install plugins directly from repository."
+msgstr ""
+
+msgid "Add plugins from a package"
+msgstr ""
 
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Vous pouvez installer des plugins en déposant ou téléchargeant des fichiers zip."
 
-msgid "Plugin zip file:"
-msgstr "Fichier zip de du plugin :"
-
-msgid "Upload plugin"
-msgstr "Déposer le plugin"
-
-msgid "Plugin zip file URL:"
-msgstr "URL du fichier zip du plugin :"
-
-msgid "Download plugin"
-msgstr "Télécharger le plugin"
-
-msgid "To enable this function, please give write access to your plugins directory."
-msgstr "Pour activer cette fonction, donnez un accès en écriture à votre répertoire de plugins."
+msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
+msgstr "Certaines fonctions sont désactivées, donnez un accès en écriture à votre répertoire de plugins pour les activer."
 
 msgid "Add a link"
 msgstr "Ajouter un lien"
@@ -2439,26 +2350,31 @@ msgstr "Changer l'auteur"
 msgid "No entry selected"
 msgstr "Aucune entrée sélectionnée"
 
+#, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] "%s billet positionné au statut \"%s\" avec succès."
 msgstr[1] "%s billets positionnés au statut \"%s\" avec succès."
 
+#, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] "%s billet marqué sélectionné avec succès."
 msgstr[1] "%s billets marqués sélectionnés avec succès."
 
+#, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
 msgstr[0] "%s billet marqué désélectionné avec succès."
 msgstr[1] "%s billets marqués désélectionnés avec succès."
 
+#, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "%s entrée supprimée avec succès."
 msgstr[1] "%s entrées supprimées avec succès."
 
+#, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
 msgstr[0] "%s billet a été déplacé dans la catégorie \"%s\" avec succès."
@@ -2473,6 +2389,7 @@ msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 msgid "This user does not exist"
 msgstr "Cet utilisateur n'existe pas"
 
+#, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
 msgstr[0] "%s billet affecté à l'utilisateur \"%s\" avec succès."
@@ -2484,6 +2401,7 @@ msgstr "Changer l'auteur pour cette sélection"
 msgid "New author (author ID):"
 msgstr "Nouvel auteur (identifiant utilisateur) :"
 
+#, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
 msgstr[0] "%s billet mis à jour avec la langue \"%s\"."
@@ -2500,15 +2418,6 @@ msgstr "Plus utilisées"
 
 msgid "Entry language:"
 msgstr "Langue du billet :"
-
-msgid "Users actions"
-msgstr "Actions sur les utilisateurs"
-
-msgid "No User selected"
-msgstr "Aucun utilisateur sélectionné"
-
-msgid "(no cat)"
-msgstr "(aucune)"
 
 msgid "Languages"
 msgstr "Langues"
@@ -2704,6 +2613,21 @@ msgstr "Attention : le changement de syntaxe ne transformera pas les balises des
 msgid "Loading enhanced uploader, please wait."
 msgstr "Chargement de l'interface avancée."
 
+msgid "Details"
+msgstr "Détails"
+
+msgid "Support"
+msgstr ""
+
+msgid "Help:"
+msgstr "Aide :"
+
+msgid "Section:"
+msgstr "Section : "
+
+msgid "Tags:"
+msgstr ""
+
 msgid "You have unsaved changes."
 msgstr "Vous n'avez pas enregistré vos modifications."
 
@@ -2837,6 +2761,165 @@ msgstr "%d fichiers en attente."
 msgid "Queue error:"
 msgstr "Erreur de file d'attente :"
 
+msgid "other"
+msgstr ""
+
+msgid "Search in repository:"
+msgstr "Rechercher dans le dépôt :"
+
+msgid "Reset search"
+msgstr "réinitialiser la recherche"
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] "%d résultat trouvé pour la recherche \"%s\" :"
+msgstr[1] "%d résultats trouvés pour la recherche \"%s\" :"
+
+msgid "current selection"
+msgstr "sélection courante"
+
+#, php-format
+msgid "%d module"
+msgid_plural "%d modules"
+msgstr[0] "%d plugin"
+msgstr[1] "%d plugins"
+
+msgid "no module"
+msgstr "pas de plugins"
+
+msgid "Browse index:"
+msgstr "Parcourir l'index :"
+
+msgid "Modules list"
+msgstr "Liste des plugins"
+
+msgid "Name"
+msgstr "Nom :"
+
+msgid "Score"
+msgstr "Score"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Current version"
+msgstr "Version courante"
+
+#, php-format
+msgid "Configure module \"%s\""
+msgstr "Configurer le plugin \"%s\""
+
+msgid "Module from official distribution"
+msgstr "Plugin de la distribution officielle"
+
+msgid "module from official distribution"
+msgstr "plugin de la distribution officielle"
+
+msgid "No module matches your search."
+msgstr "Aucun plugin ne correspond à votre recherche."
+
+msgid "Activate"
+msgstr "Activer"
+
+msgid "Deactivate"
+msgstr "Désactiver"
+
+msgid "Install"
+msgstr "Installation"
+
+msgid "Update"
+msgstr "Mise à jour"
+
+msgid "No such module."
+msgstr "Module inexistant."
+
+msgid "Module has been successfully activated."
+msgstr "Le plugin a été activé avec succès."
+
+msgid "You don't have permissions to deactivate this module."
+msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
+
+msgid "Module has been successfully deactivated."
+msgstr "Le plugin a été désactivé avec succès."
+
+msgid "You don't have permissions to delete this module."
+msgstr "Vous n'avez pas les permissions pour supprimer ce plugin."
+
+msgid "Module has been successfully deleted."
+msgstr "Ce plugin a été supprimé avec succès."
+
+msgid "Module has been successfully updated."
+msgstr "Ce plugin a été mis à jour avec succès."
+
+msgid "Module has been successfully installed."
+msgstr "Ce plugin a été installé avec succès."
+
+msgid "Zip file path:"
+msgstr "Chemin du fichier zip :"
+
+msgid "Download a zip file"
+msgstr "Télécharger un fichier zip"
+
+msgid "Zip file URL:"
+msgstr "URL du fichier zip :"
+
+msgid "Download"
+msgstr "Télécharger"
+
+msgid "Unknow module ID"
+msgstr "ID de plugin inconnu"
+
+msgid "This module has no configuration file."
+msgstr "Ce plugin n'a pas de fichier de configuration."
+
+#, php-format
+msgid "Configure plugin \"%s\""
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+#, php-format
+msgid "Score: %s"
+msgstr ""
+
+#, php-format
+msgid "%s screenshot."
+msgstr ""
+
+#, php-format
+msgid "by %s"
+msgstr "par %s"
+
+#, php-format
+msgid "version %s"
+msgstr "version %s"
+
+#, php-format
+msgid "(current version %s)"
+msgstr "(version courante %s)"
+
+#, php-format
+msgid "(built on \"%s\")"
+msgstr "(basé sur \"%s\")"
+
+#, php-format
+msgid "(requires \"%s\")"
+msgstr "(nécessite \"%s\")"
+
+msgid "View stylesheet"
+msgstr "Feuille de style"
+
+msgid "Configure theme"
+msgstr "Configurer le thème"
+
+msgid "Use this one"
+msgstr "Utiliser celui-ci"
+
+msgid "Module has been successfully selected."
+msgstr "Ce plugin a été supprimé avec succès."
+
 msgid "First page"
 msgstr "Première page"
 
@@ -2944,8 +3027,8 @@ msgstr "Réglages système"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Update"
-msgstr "Mise à jour"
+msgid "Plugins"
+msgstr "Plugins"
 
 msgid "moyenne"
 msgstr ""
@@ -2964,6 +3047,62 @@ msgstr "Billets"
 
 msgid "Pages"
 msgstr "Pages"
+
+msgid "Nouveau billet"
+msgstr ""
+
+msgid "Billets"
+msgstr ""
+
+msgid "Commentaires"
+msgstr "Commentaires"
+
+msgid "Gestionnaire de médias"
+msgstr ""
+
+msgid "Tags"
+msgstr ""
+
+msgid "Import/Export"
+msgstr ""
+
+msgid "Apparence du blog"
+msgstr ""
+
+msgid "Presentation widgets"
+msgstr ""
+
+msgid "Installateur DotAddict.org"
+msgstr ""
+
+msgid "Maintenance"
+msgstr ""
+
+#, fuzzy
+msgid "System info"
+msgstr "Informations système"
+
+#, fuzzy
+msgid "Tidy Administration"
+msgstr "administrateur"
+
+#, fuzzy
+msgid "Series"
+msgstr "Catégories"
+
+msgid "pacKman"
+msgstr ""
+
+#, fuzzy
+msgid "Categories orders"
+msgstr "Enregistrer l'ordre des catégories"
+
+#, fuzzy
+msgid "Discrete category"
+msgstr "Supprimer la catégorie"
+
+msgid "Typographic replacements"
+msgstr ""
 
 msgid "administrator"
 msgstr "administrateur"
@@ -3167,9 +3306,6 @@ msgstr "Impossible de mettre à jour \"%s\" (même version)."
 msgid "Unable to read new _define.php file"
 msgstr "Impossible de lire le nouveau fichier _define.php."
 
-msgid "No such module."
-msgstr "Module inexistant."
-
 msgid "Cannot remove module files"
 msgstr "Impossible de supprimer les fichiers du module"
 
@@ -3202,6 +3338,15 @@ msgstr "Impossible d'obtenir les espaces de nom :"
 #, php-format
 msgid "Invalid setting namespace: %s"
 msgstr "Espace de nom du paramètre invalide : %s"
+
+msgid "Failed to read data feed"
+msgstr "Impossible de lire les données du flux."
+
+msgid "Wrong data feed"
+msgstr "Données du flux incorrectes"
+
+msgid "An error occurred while downloading the file."
+msgstr "Une erreur est survenue pendant le téléchargement du fichier."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -3448,13 +3593,6 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
-
-#~ msgid "Blogroll"
-#~ msgstr "Liste de liens"
-
-#~ msgid "Simple menu"
-#~ msgstr "Menu simple sur Dotclear"
-
 #~ msgid "medium"
 #~ msgstr "moyenne"
 
@@ -3466,6 +3604,126 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "square"
 #~ msgstr "carrée"
+
+#~ msgid "Current theme has been successfully changed to \"%s\"."
+#~ msgstr "Thème changé avec succès en \"%s\"."
+
+#~ msgid "You can't remove default theme."
+#~ msgstr "Vous ne pouvez pas supprimer le thème par défaut."
+
+#~ msgid "Theme does not exist."
+#~ msgstr "Ce thème n'existe pas."
+
+#~ msgid "Theme has been successfully upgraded."
+#~ msgstr "Thème mis à jour avec succès."
+
+#~ msgid "Theme has been successfully changed."
+#~ msgstr "Thème changé avec succès."
+
+#~ msgid "Theme has been successfully upgraded"
+#~ msgstr "Thème mis à jour avec succès."
+
+#~ msgid "Theme has been successfully deleted."
+#~ msgstr "Thème supprimé avec succès."
+
+#~ msgid "Themes"
+#~ msgstr "Thèmes"
+
+#~ msgid "Available themes in your installation"
+#~ msgstr "Thèmes disponibles sur votre installation"
+
+#~ msgid "You are currently using <strong>%s</strong>"
+#~ msgstr "Vous utilisez actuellement <strong>%s</strong>"
+
+#~ msgid "Use selected theme"
+#~ msgstr "Utiliser le thème sélectionné"
+
+#~ msgid "Delete selected theme"
+#~ msgstr "Supprimer le thème sélectionné"
+
+#~ msgid "Install or upgrade a theme"
+#~ msgstr "Installer ou mettre à jour un thème"
+
+#~ msgid "Add themes to your installation"
+#~ msgstr "Ajouter des thèmes sur votre installation"
+
+#~ msgid "You can find additional themes for your blog on %s."
+#~ msgstr "Vous pouvez trouver d'autres thèmes pour votre blog sur %s."
+
+#~ msgid "You can also install themes by uploading or downloading zip files."
+#~ msgstr "Vous pouvez aussi installer des thèmes en déposant ou en téléchargeant des fichiers zip."
+
+#~ msgid "Theme zip file:"
+#~ msgstr "Fichier zip du thème :"
+
+#~ msgid "Download theme"
+#~ msgstr "Télécharger le thème"
+
+#~ msgid "To enable this function, please give write access to your themes directory."
+#~ msgstr "Pour activer cette fonction, donnez un accès en écriture à votre répertoire de thèmes."
+
+#~ msgid "Back to Blog appearance"
+#~ msgstr "Retour à Apparence du blog"
+
+#~ msgid "No such plugin."
+#~ msgstr "Plugin inexistant."
+
+#~ msgid "Plugin has been successfully deleted."
+#~ msgstr "Plugin supprimé avec succès."
+
+#~ msgid "Plugin has been successfully upgraded"
+#~ msgstr "Plugin mis à jour avec succès."
+
+#~ msgid "Plugin has been successfully installed."
+#~ msgstr "Plugin installé avec succès."
+
+#~ msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
+#~ msgstr "Les plugins ajoutent de nouvelles fonctionnalités à Dotclear. Ici, vous pouvez activer ou désactiver les plugins installés."
+
+#~ msgid "You can find additional plugins for your blog on %s."
+#~ msgstr "Vous pouvez trouver d'autres plugins pour votre blog sur %s."
+
+#~ msgid "You can find additional plugins for your blog on %s or using the %s."
+#~ msgstr "Vous pouvez trouver d'autres plugins pour votre blog sur %s ou en utilisant l'%s."
+
+#~ msgid "DotAddict.org Installer"
+#~ msgstr "Installeur DotAddict.org"
+
+#~ msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
+#~ msgstr "Pour installer ou mettre à jour un plugin il suffit de le déposer grâce au formulaire de la section \"Installer ou mettre à jour un plugin\"."
+
+#~ msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
+#~ msgstr "Pour installer un plugin il suffit de l'extraire dans votre répertoire de plugins."
+
+#~ msgid "Plugin"
+#~ msgstr "Plugin"
+
+#~ msgid "Install or upgrade a plugin"
+#~ msgstr "Installer ou mettre à jour un plugin"
+
+#~ msgid "Plugin zip file:"
+#~ msgstr "Fichier zip de du plugin :"
+
+#~ msgid "Plugin zip file URL:"
+#~ msgstr "URL du fichier zip du plugin :"
+
+#~ msgid "Download plugin"
+#~ msgstr "Télécharger le plugin"
+
+#~ msgid "Users actions"
+#~ msgstr "Actions sur les utilisateurs"
+
+#~ msgid "No User selected"
+#~ msgstr "Aucun utilisateur sélectionné"
+
+#~ msgid "(no cat)"
+#~ msgstr "(aucune)"
+
+#~ msgid "Blogroll"
+#~ msgstr "Liste de liens"
+
+#~ msgid "Simple menu"
+#~ msgstr "Menu simple sur Dotclear"
 
 #~ msgid "Manage post attachments"
 #~ msgstr "Gérer les annexes"
@@ -3560,9 +3818,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgid "Compress this directory with its content as a zip file and download it."
 #~ msgstr "Compressez ce dossier et son contenu dans un fichier zip et téléchargez-le."
 
-#~ msgid "Download"
-#~ msgstr "Télécharger"
-
 #~ msgid "No action specified."
 #~ msgstr "Aucune action spécifiée."
 
@@ -3574,9 +3829,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Delete selected categories"
 #~ msgstr "Supprimer les catégories sélectionnées"
-
-#~ msgid "Categories order"
-#~ msgstr "Ordonnancement des catégories"
 
 #~ msgid "Reorder all categories on the top level and delete selected categories"
 #~ msgstr "Replacer toutes les catégories au premier niveau et supprimer les catégories sélectionnées"
@@ -3595,9 +3847,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "Tout ce que vous avez à faire pour installer ou mettre à jour un thème est généralement de le déposer dans la section \"Installer ou mettre à jour un thème\"."
-
-#~ msgid "You can install themes by uploading or downloading zip files."
-#~ msgstr "Vous pouvez installer des thèmes en déposant ou téléchargeant des fichiers zip."
 
 #~ msgid "back"
 #~ msgstr "retour"
@@ -3631,9 +3880,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Comment author:"
 #~ msgstr "Auteur du commentaire :"
-
-#~ msgid "action: "
-#~ msgstr "action : "
 
 #~ msgid "Latest news"
 #~ msgstr "Actualités"
@@ -3740,9 +3986,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgid "Users per page"
 #~ msgstr "Utilisateurs par page"
 
-#~ msgid "Help"
-#~ msgstr "Aide"
-
 #~ msgid "help"
 #~ msgstr "aide"
 
@@ -3781,9 +4024,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Only superadmin can delete a blog"
 #~ msgstr "Seul un superadministrateur peut supprimer un blog"
-
-#~ msgid "Additional plugins"
-#~ msgstr "Modules complémentaires"
 
 #~ msgid "Edit basename:"
 #~ msgstr "Modifier l'URL spécifique :"
