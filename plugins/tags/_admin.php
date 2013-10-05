@@ -35,16 +35,20 @@ $core->addBehavior('adminBeforeUserUpdate',array('tagsBehaviors','setTagListForm
 
 $core->addBehavior('coreInitWikiPost',array('tagsBehaviors','coreInitWikiPost'));
 
-$core->addBehavior('adminDashboardFavs',array('tagsBehaviors','dashboardFavs'));
+$core->addBehavior('adminDashboardFavorites',array('tagsBehaviors','dashboardFavorites'));
 
 # BEHAVIORS
 class tagsBehaviors
 {
-	public static function dashboardFavs($core,$favs)
+	public static function dashboardFavorites($core,$favs)
 	{
-		$favs['tags'] = new ArrayObject(array('tags','Tags','plugin.php?p=tags&amp;m=tags',
-			'index.php?pf=tags/icon.png','index.php?pf=tags/icon-big.png',
-			'usage,contentadmin',null,null));
+		$favs->register('tags', array(
+			'title' => __('Tags'),
+			'url' => 'plugin.php?p=tags&amp;m=tags',
+			'small-icon' => 'index.php?pf=tags/icon.png',
+			'large-icon' => 'index.php?pf=tags/icon-big.png',
+			'permissions' => 'usage,contentadmin'
+		));
 	}
 
 	public static function coreInitWikiPost($wiki2xhtml)
@@ -135,7 +139,14 @@ class tagsBehaviors
 					}
 				}
 			}
-			$ap->redirect(array('upd' => 1),true);
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'Tag has been successfully added to selected entries',
+					'Tags have been successfully added to selected entries',
+					count($tags))
+				)
+			);
+			$ap->redirect(true);
 		} 
 		else 
 		{
@@ -149,8 +160,8 @@ class tagsBehaviors
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						__('Entries') => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Add tags to this selection').'</span>' => ''
+						__('Entries') => $ap->getRedirection(true),
+						__('Add tags to this selection') => ''
 				)),
 				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 				dcPage::jsMetaEditor().
@@ -200,7 +211,14 @@ class tagsBehaviors
 					$meta->delPostMeta($posts->post_id,'tag',$v);
 				}
 			}
-			$ap->redirect(array('upd' => 1),true);
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'Tag has been successfully removed from selected entries',
+					'Tags have been successfully removed from selected entries',
+					count($_POST['meta_id']))
+				)
+			);
+			$ap->redirect(true);
 		}
 		else
 		{
@@ -227,7 +245,7 @@ class tagsBehaviors
 						array(
 							html::escapeHTML($core->blog->name) => '',
 							__('Entries') => 'posts.php',
-							'<span class="page-title">'.__('Remove selected tags from this selection').'</span>' => ''
+							__('Remove selected tags from this selection') => ''
 			)));
 			$posts_count = count($_POST['entries']);
 			

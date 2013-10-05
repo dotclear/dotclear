@@ -157,7 +157,8 @@
 	margin: 0 1.5% 1em;
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box; 
-	box-sizing: border-box;	
+	box-sizing: border-box;
+	text-align: left;
 	}
 .two-boxes {
 	width: 47%;
@@ -1107,7 +1108,7 @@ h1 {
 		overflow: auto;
 		}
 #help-button {
-	background: transparent url(../images/page_help.png) no-repeat 6px center;
+	background: transparent url(help-mini.png) no-repeat 6px center;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -1132,7 +1133,6 @@ h1 {
 		}
 	#help-button span {
 		padding: .5em 0 .1em 0;
-		border-bottom: 1px solid #2373A8;
 		}
 	#content.with-help #help-button {
 		right: 280px; /* ie < 9 sucks */
@@ -1199,6 +1199,9 @@ table .count {
 	}
 th.first img {
 	padding-right: 34px;
+	}
+.line img {
+	vertical-align: middle;
 	}
 tr.line img.expand, th img.expand {
 	margin-right: 6px;
@@ -1284,7 +1287,7 @@ a.form-control.open {
 	}
 #filters-form {
 	border: 1px dashed #999;
-	border-radius: .5em;
+	border-radius: .3em;
 	margin-bottom: 2em;
 	padding: .5em 1em 0;
 	}
@@ -1313,6 +1316,7 @@ a.form-control.open {
 	}
 #filters-form select {
 	width: 14em;
+	vertical-align: middle;
 	}
 #filters-form h4 {
 	margin-top: 0;
@@ -1445,6 +1449,9 @@ a.form-control.open {
 		display: inline-block;
 		text-align: center;
 		}
+        .no-js .outgoing img {
+                display: none;
+        }
 	#dashboard-boxes .box {
 		padding: 10px;
 		border:	1px solid #ccc;
@@ -1523,125 +1530,95 @@ a.form-control.open {
 			}
 			li.user_super, li.user_admin {
 				margin-left: 0;
-				padding-left: 1em;
+				padding-left: 20px;
 				list-style: none;
-				background: transparent url(../images/superadmin.png) no-repeat -2px 2px;
+				background: transparent url(../images/superadmin.png) no-repeat 0 .3em;
 				}
 			li.user_admin {
 				background-image: url(../images/admin.png);
 				}
 /* ------------------------------------------------------------------- blog_theme.php */
-#themes {
-	margin: 0;
-	width: 100%;
-	padding: 0;
-	}
-	.theme-details {
-		border-top: 1px solid #ccc;
-		padding: 12px;
-		display: inline-block;
-		vertical-align: top;
-		width: 284px;
-		}
-		.theme-details.current-theme {
-			background: #eef;
-			}
-		.theme-details:hover {
-			background: #f3f3f3;
-			}
-		.theme-shot img {
-			display: block;
-			border: 1px solid #ccc;
-			margin-bottom: 1.5em;
-			}
-		span.theme-desc {
-			display: block;
-			}
-		span.theme-version {
-			color: #676e78;
-			}
-		.theme-css {
-			display: block;
-			}
-	#themes-actions {
-		border-bottom: 1px solid #999;
-		margin-bottom: 3em;
-		}
-/* Themes list, JS version */
-#themes-wrapper {
-	display: table;
-	}
-	#themes-wrapper #themes {
-		display: table-cell;
-		vertical-align: top;
-		padding-left: 1em;
-		}
-	#theme-box {
-		display: table-cell;
-		vertical-align: top;
-		padding: 0;
-		width: 312px;
-		border: 1px solid #ccc;
-		border-radius: 3px;
-		}
-		#theme-box .theme-shot,
-		#theme-box .theme-info,
-		#theme-box .theme-actions {
-			background: #eef;
-			padding: 1em 16px;
-			margin: 0;
-			}
-		#theme-box .theme-shot img {
-			display: block;
-			width: 280px;
-			height: 245px;
-			border: 1px solid #ccc;
-			}
-		#theme-box h4 {
-			color: #000;
-			background: #eef;
-			}
-		#theme-box span.theme-version {
-			color: #676e78;
-			}
-		#theme-box span.theme-parent-ok {
-			color: #676e78;
-			}
-		#theme-box span.theme-parent-missing {
-			color: #c00;
-			font-weight:bold;
-			}
-		#theme-box .theme-actions {
-			border-bottom: 1px solid #ccc;
-			}
-#themes .theme-details-js {
-	float: left;
-	width: 120px;
-	height: 150px;
-	margin: 0 12px 24px;
-	padding: 12px 12px 0;
-	text-align: center;
-	background: #f3f3f3;
+.box.theme {
+	margin: .5em;
+	padding: 10px 10px 5px 10px;
 	border: 1px solid #ddd;
-	cursor: pointer;
-	border-radius: 4px;
 	}
-	#themes .theme-details-js label {
-		cursor: pointer;
-		}
-	#themes .theme-details-js.theme-selected {
-		background: #e7e7e7;
-		border: 1px solid #999;
-		}
-	#themes .theme-details-js .theme-shot img {
-		width: 120px;
-		height: 105px;
-		border: 1px solid #fff;
-		}
-	#themes a:focus div, #themes a:hover div,
-	#themes a:focus div.current-theme, #themes a:hover div.current-theme {
-		background: #bee74b;
-		}
+.box.theme:hover {
+	background: #ecf0f1 url(stripe.png);
+	}
+.dc-box.box.theme:hover {
+	background: url(stripe.png), url(dc_logos/sq-logo-32.png) no-repeat top right;
+	}
+#theme-new .box.theme {
+	width: 280px;
+	}
+.module-name {
+	margin-bottom: .5em;
+	}
+.module-sshot {
+	text-align: center;
+	}
+.module-sshot img {
+	padding: .5em;
+	background: #f7f7f7;
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	border: 3px solid #fff;
+	padding: .5em;
+	}
+.module-actions {
+	margin-top: 1em;
+	}
+.bloc-toggler {
+	text-align: right;
+	}
+.bloc-toggler img {
+	opacity: .4;
+	}
+.bloc-toggler img:hover {
+	opacity: 1;
+	}
+.bloc-toggler a:focus img {
+	opacity: 1;
+	}
+span.module-version:before {
+	content: "- ";
+	}
+.toggle-bloc .mod-more {
+	display: block;
+	margin-left: 0;
+	}
+.box.current-theme {
+	width: 652px;
+	margin: .5em;
+	padding: 10px;
+	background: #fff url(stripe.png);
+	border: 1px solid #eee;
+	-webkit-border-radius: .5em;
+	border-radius: .5em;
+	min-height: 330px;	
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	}
+.current-theme .module-sshot img {
+	float: left;
+	margin-right: 2em;
+	margin-bottom: 1em;
+	border: 3px solid #fff;
+	padding: .5em;
+	}
+.current-theme .module-name {
+	color: #D33800;
+	font-size: 1.33em;
+	}
+.box.theme input {
+	margin-bottom: 1em;
+	}
+.current-actions {
+	width: auto;
+	overflow: hidden;
+	padding-top: 3em;
+	margin: 1.5em 0 2em;
+	background: transparent url(../images/minus-theme.png) no-repeat left top;
+	}
 /* ------------------------------------------------------------------ categories.php */
 #categories {
 	margin: 1em 0;
@@ -1800,7 +1777,9 @@ a.form-control.open {
 		color: #676e78;
 		border-bottom: none;
 		}
-
+.medias-delete {
+	text-align: right;
+	}
 .zip-dl {
 	background: transparent url(package.png) no-repeat 0 50%;
 	padding: 5px 0 5px 20px;
@@ -1871,7 +1850,6 @@ label span.one-file {
 	}
 .upload-fileinfo {
 	margin-left: 0;
-/*	margin-bottom: .4em;*/
 	}
 .upload-fileinfo input {
 	position: absolute;
@@ -1946,13 +1924,54 @@ div.template-upload {
 		height: 500px;
 		}
 /* -------------------------------------------------------------------- plugins.php */
-#plugins td.action {
+.modules td.module-actions, .modules td.module-icon {
 	vertical-align: middle;
 	}
-.distrib img {
+.modules td.module-icon img:last-child {
+	width: 16px;
+	height: 16px;
+	}
+.modules td.module-icon img.expand {
+	margin-bottom: 3px;
+	}
+.modules td.module-distrib img {
 	display: block;
 	float: right;
-	margin-top: -1em;
+	}
+.modules dt {
+	font-weight: bold;
+	}
+.modules a.module-details {
+	background: transparent url(search.png) no-repeat 2px 2px;
+	padding: 4px 4px 0 20px;
+	}
+.modules a.module-support {
+	background: transparent url(help12.png) no-repeat 2px 2px;
+	padding: 4px 4px 0 20px;
+	}
+#m_search {	
+	background: transparent url(search.png) no-repeat 4px center;
+	padding-left: 20px;
+	}
+.modules tr.expand, .modules td.expand {
+	background: #f7f7f7;
+	border-color: #bee74b;
+	}
+.modules tr.expand td:first-child {
+	font-weight: bold;
+	background: #DFE5E7;
+	}
+.modules td.expand {
+	padding: 0;
+	border-top: 1px solid #e5e5e5;
+	}
+.mod-more, .mod-more li {
+	margin: .25em 0 0 1em;
+	padding: 0;
+	list-style-type: none;
+	}
+.mod-more {
+	padding-top: .5em;
 	}
 /* ---------------------------------------------------------- post.php, page.php */
 #entry-wrapper {
@@ -2327,7 +2346,7 @@ ul.from-left {
 	}
 /* caché pour tout le monde */
 .hide, .button.hide {
-	display: none;
+	display: none !important;
 	}
 /* Caché sauf pour les revues d'écran */
 .hidden, .with-js .out-of-screen-if-js {
@@ -2373,6 +2392,13 @@ ul.from-left {
 	}
 #debug:hover div {
 	display: block;
+	}
+.debug {
+	background: #ff6;
+	padding: 3px 0.5em 2px;
+	}
+input[type=submit].delete.debug, a.delete.debug {
+	background: #ff6;
 	}
 /* ---------------------------------------------- Couleurs ajoutées via javascript	
 /* color-picker.js */

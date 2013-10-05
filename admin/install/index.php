@@ -145,7 +145,11 @@ if ($can_install && !empty($_POST))
 		$blog_settings->system->put('lang',$dlang);
 		$blog_settings->system->put('public_url',$root_url.'/public');
 		$blog_settings->system->put('themes_url',$root_url.'/themes');
-		$blog_settings->system->put('date_format',__('%A, %B %e %Y'));
+		$formatDate = __('%A, %B %e %Y');
+		if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+		    $formatDate = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $formatDate);
+		}
+		$blog_settings->system->put('date_format', $formatDate);
 		
 		# Add Dotclear version
 		$cur = $core->con->openCursor($core->prefix.'version');
@@ -206,7 +210,7 @@ if ($can_install && !empty($_POST))
 		
 		$init_fav['new_post'] = array('new_post','New entry','post.php',
 			'images/menu/edit.png','images/menu/edit-b.png',
-			'usage,contentadmin',null,'menu-new-post');
+			'usage,contentadmin',null,null);
 		$init_fav['newpage'] = array('newpage','New page','plugin.php?p=pages&amp;act=page',
 			'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
 			'contentadmin,pages',null,null);

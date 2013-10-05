@@ -14,7 +14,7 @@ $(function() {
 	}
 
 	$('input[name^="delete"]').click(function() {
-		return window.confirm(dotclear.msg.confirm_delete_category.replace('%s',$(this).parent().find('label a').text()));
+		return window.confirm(dotclear.msg.confirm_delete_category.replace('%s',$(this).parents('li').first().find('.cat-title label a').text()));
 	});
 
 	$('input[name="reset"]').click(function() {

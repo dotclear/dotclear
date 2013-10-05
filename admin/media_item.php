@@ -80,7 +80,9 @@ if ($file && !empty($_FILES['upfile']) && $file->editable && $core_media_writabl
 	try {
 		files::uploadStatus($_FILES['upfile']);
 		$core->media->uploadFile($_FILES['upfile']['tmp_name'],$file->basename,null,false,true);
-		http::redirect($page_url.'&id='.$id.'&fupl=1');
+
+		dcPage::addSuccessNotice(__('File has been successfully updated.'));
+		http::redirect($page_url.'&id='.$id);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -107,7 +109,9 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
 	
 	try {
 		$core->media->updateFile($file,$newFile);
-		http::redirect($page_url.'&id='.$id.'&fupd=1&tab=media-details-tab');
+
+		dcPage::addSuccessNotice(__('File has been successfully updated.'));
+		http::redirect($page_url.'&id='.$id.'&tab=media-details-tab');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -119,7 +123,9 @@ if (!empty($_POST['thumbs']) && $file->media_type == 'image' && $file->editable 
 	try {
 		$foo = null;
 		$core->media->mediaFireRecreateEvent($file);
-		http::redirect($page_url.'&id='.$id.'&thumbupd=1&tab=media-details-tab');
+		
+		dcPage::addSuccessNotice(__('Thumbnails have been successfully updated.'));
+		http::redirect($page_url.'&id='.$id.'&tab=media-details-tab');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -130,7 +136,9 @@ if (!empty($_POST['unzip']) && $file->type == 'application/zip' && $file->editab
 {
 	try {
 		$unzip_dir = $core->media->inflateZipFile($file,$_POST['inflate_mode'] == 'new');
-		http::redirect($media_page_url.'&d='.$unzip_dir.'&unzipok=1');
+		
+		dcPage::addSuccessNotice(__('Zip file has been successfully extracted.'));
+		http::redirect($media_page_url.'&d='.$unzip_dir);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -153,7 +161,9 @@ if (!empty($_POST['save_blog_prefs']))
 	if (!empty($_POST['pref_insertion'])) {
 		$core->blog->settings->system->put('media_img_default_link',($_POST['pref_insertion'] == 'link'));
 	}
-	http::redirect($page_url.'&id='.$id.'&blogprefupd=1');
+	
+	dcPage::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
+	http::redirect($page_url.'&id='.$id);
 }
 
 # Function to get image title based on meta
@@ -165,9 +175,13 @@ function dcGetImageTitle($file,$pattern,$dto_first=false)
 	
 	foreach ($pattern as $v) {
 		if ($v == 'Title') {
-			$res[] = $file->media_title;
+			if ($file->media_title != '') {
+				$res[] = $file->media_title;
+			}
 		} elseif ($file->media_meta->{$v}) {
-			$res[] = (string) $file->media_meta->{$v};
+			if ((string) $file->media_meta->{$v} != '') {
+				$res[] = (string) $file->media_meta->{$v};
+			}
 		} elseif (preg_match('/^Date\((.+?)\)$/u',$v,$m)) {
 			if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
 				$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
@@ -203,9 +217,14 @@ call_user_func($open_f,__('Media manager'),
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			__('Media manager') => html::escapeURL($media_page_url),
+			__('Media manager') => html::escapeURL($media_page_url).'&amp;d=',
 			$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').'<span class="page-title">'.$file->basename.'</span>' => ''
-		),!$popup)
+		),
+		array(
+			'home_link' => !$popup,
+			'hl' => false
+		)
+	)
 );
 
 if ($file === null) {

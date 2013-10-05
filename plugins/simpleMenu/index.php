@@ -216,7 +216,8 @@ if ($step) {
 					$core->blog->triggerBlog();
 				
 					// All done successfully, return to menu items list
-					http::redirect($p_url.'&added=1');
+					dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
+					http::redirect($p_url);
 				} else {
 					throw new Exception(__('Label and URL of menu item are mandatory.'));
 				}
@@ -251,7 +252,8 @@ if ($step) {
 				$core->blog->triggerBlog();
 				
 				// All done successfully, return to menu items list
-				http::redirect($p_url.'&removed=1');
+				dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
+				http::redirect($p_url);
 			} else {
 				throw new Exception(__('No menu items selected.'));
 			}
@@ -285,7 +287,8 @@ if ($step) {
 			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
-			http::redirect($p_url.'&updated=1');
+			dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
+			http::redirect($p_url);
 		}
 		catch (Exception $e) {
 			$core->error->add($e->getMessage());
@@ -322,7 +325,8 @@ if ($step) {
 			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
-			http::redirect($p_url.'&neworder=1');
+			dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
+			http::redirect($p_url);
 		} 
 		catch (Exception $e) {
 			$core->error->add($e->getMessage());
@@ -373,28 +377,20 @@ if ($step) {
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			$page_title => $p_url,
-			'<span class="page-title">'.__('Add item').'</span>' => '',
+			__('Add item') => '',
 			$step_label => ''
-		));
+		),
+		array(
+			'hl_pos' => -2)
+	).
+	dcPage::notices();
 } else {
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.$page_title.'</span>' => ''
-		));
-}
-
-if (!empty($_GET['added'])) {
-	dcPage::success(__('Menu item has been successfully added.'));
-}
-if (!empty($_GET['removed'])) {
-	dcPage::success(__('Menu items have been successfully removed.'));
-}
-if (!empty($_GET['neworder'])) {
-	dcPage::success(__('Menu items have been successfully updated.'));
-}
-if (!empty($_GET['updated'])) {
-	dcPage::success(__('Menu items have been successfully updated.'));
+			$page_title => ''
+		)).
+		dcPage::notices();
 }
 if ($step)
 {
@@ -493,7 +489,7 @@ if (count($menu)) {
 		'<th scope="col">'.__('URL').'</th>'.
 		'</tr>'.
 		'</thead>'.
-		'<tbody '.(!$step ? 'id="menuitemslist"' : '>');
+		'<tbody'.(!$step ? ' id="menuitemslist"' : '').'>';
 	$count = 0;
 	foreach ($menu as $i => $m) {
 		echo '<tr class="line" id="l_'.$i.'">';

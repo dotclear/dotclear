@@ -228,7 +228,7 @@ dcPage::open(__('Entries'),$starting_script,
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Entries').'</span>' => ''
+			__('Entries') => ''
 		))
 );
 if (!empty($_GET['upd'])) {

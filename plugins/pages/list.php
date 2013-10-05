@@ -32,7 +32,7 @@ $params['order'] = 'post_position ASC, post_title ASC';
 try {
 	$pages = $core->blog->getPosts($params);
 	$counter = $core->blog->getPosts($params,true);
-	$post_list = new adminPageList($core,$pages,$counter->f(0));
+	$post_list = new adminPagesList($core,$pages,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
@@ -57,16 +57,12 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
   	echo dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 		dcPage::jsLoad('index.php?pf=pages/list.js').
 		'<script type="text/javascript">'.
-		'//<![CDATA['.
+		"\n".'//<![CDATA['."\n".
 		dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")).
-		'//]]>';
+		"\n".'//]]>'."\n".
+		'</script>';
 
   ?>
-  <script type="text/javascript">
-  //<![CDATA[
-  <?php echo dcPage::jsVar('dotclear.msg.confirm_delete_posts',__("Are you sure you want to delete selected pages?")); ?>
-  //]]>
-  </script>
 </head>
 
 <body>
@@ -74,8 +70,8 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('Pages').'</span>' => ''
-	));
+		__('Pages') => ''
+	)).dcPage::notices();
 
 if (!empty($_GET['upd'])) {
 	dcPage::success(__('Selected pages have been successfully updated.'));

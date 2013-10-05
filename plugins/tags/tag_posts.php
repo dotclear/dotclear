@@ -25,7 +25,8 @@ if (!empty($_POST['new_tag_id']) || $_POST['new_tag_id'] == '0')
 	$new_id = dcMeta::sanitizeMetaID($_POST['new_tag_id']);
 	try {
 		if ($core->meta->updateMeta($tag,$new_id,'tag')) {
-			http::redirect($p_url.'&m=tag_posts&tag='.$new_id.'&renamed=1');
+			dcPage::addSuccessNotice(__('Tag has been successfully renamed'));
+			http::redirect($p_url.'&m=tag_posts&tag='.$new_id);
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -37,7 +38,8 @@ if (!empty($_POST['delete']) && $core->auth->check('publish,contentadmin',$core-
 {
 	try {
 		$core->meta->delMeta($tag,'tag');
-		http::redirect($p_url.'&m=tags&del=1');
+		dcPage::addSuccessNotice(__('Tag has been successfully removed'));
+		http::redirect($p_url.'&m=tags');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -90,15 +92,12 @@ echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
 		__('Tags') => $p_url.'&amp;m=tags',
-		'<span class="page-title">'.__('Tag').' &ldquo;'.html::escapeHTML($tag).'&rdquo;'.'</span>' => ''
-	));
+		__('Tag').' &ldquo;'.html::escapeHTML($tag).'&rdquo;' => ''
+	)).
+	dcPage::notices();
 ?>
 
 <?php
-if (!empty($_GET['renamed'])) {
-	dcPage::success(__('Tag has been successfully renamed'));
-}
-
 echo '<p><a class="back" href="'.$p_url.'&amp;m=tags">'.__('Back to tags list').'</a></p>';
 
 if (!$core->error->flag())

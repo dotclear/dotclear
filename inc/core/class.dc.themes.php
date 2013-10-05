@@ -22,6 +22,8 @@ This class extends dcModules.
 */
 class dcThemes extends dcModules
 {	
+	protected static $type = 'theme';
+
 	/**
 	This method registers a theme in modules list. You should use this to
 	register a new theme.
@@ -57,9 +59,21 @@ class dcThemes extends dcModules
 			array(
 				'parent' => null,
 				'priority' => 1000,
-				'standalone_config' => false
+				'standalone_config' => false,
+				'type' => null
 			), $properties
 		);
+
+		if ($properties['type'] !== null && $properties['type'] != self::$type) {
+			$this->errors[] = sprintf(
+				__('Module "%s" has type "%s" that mismatch required module type "%s".'),
+				'<strong>'.html::escapeHTML($name).'</strong>',
+				'<em>'.html::escapeHTML($properties['type']).'</em>',
+				'<em>'.html::escapeHTML(self::$type).'</em>'
+			);
+			return;
+		}
+
 		if ($this->id) {
 			$this->modules[$this->id] = array_merge(
 				$properties,

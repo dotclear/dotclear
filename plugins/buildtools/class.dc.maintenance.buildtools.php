@@ -34,7 +34,7 @@ class l10nFaker {
 		$this->core = $core;
 		$this->bundled_plugins = array(
 			"aboutConfig","akismet","antispam","attachments","blogroll",
-			"blowupConfig","daInstaller","fairTrackbacks","importExport",
+			"blowupConfig","fairTrackbacks","importExport",
 			"maintenance","pages","pings","simpleMenu","tags","themeEditor",
 			"userPref","widgets"
 		);

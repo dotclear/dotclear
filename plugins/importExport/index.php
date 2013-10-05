@@ -77,8 +77,9 @@ if ($type && $module !== null) {
 		array(
 			__('Plugins') => '',
 			$title => $p_url,
-			'<span class="page-title">'.html::escapeHTML($module->name).'</span>' => ''
-		));
+			html::escapeHTML($module->name) => ''
+		)).
+		dcPage::notices();
 
 	echo
 	'<div id="ie-gui">';
@@ -91,8 +92,9 @@ else {
 	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
-			'<span class="page-title">'.$title.'</span>' => ''
-		));
+			$title => ''
+		)).
+		dcPage::notices();
 
 	echo '<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']);
 	//echo '<h3>'.__('Export').'</h3>'.listImportExportModules($core,$modules['export']);
@@ -101,7 +103,7 @@ else {
 echo
 '<p class="info">'.sprintf(
 	__('Export functions are in the page %s.'),
-	'<a href="plugin.php?p=maintenance&tab=backup#backup">'.__('Maintenance').'</a>'
+	'<a href="plugin.php?p=maintenance&amp;tab=backup#backup">'.__('Maintenance').'</a>'
 ).'</p>';
 
 echo '

@@ -74,7 +74,8 @@ class dcFilterIP extends dcSpamFilter
 				$global = !empty($_POST['globalip']) && $core->auth->isSuperAdmin();
 
 				$this->addIP($ip_type,$_POST['addip'],$global);
-				http::redirect($url.'&added=1&ip_type='.$ip_type);
+				dcPage::addSuccessNotice(__('IP address has been successfully added.'));
+				http::redirect($url.'&ip_type='.$ip_type);
 			}
 			catch (Exception $e)
 			{
@@ -87,7 +88,8 @@ class dcFilterIP extends dcSpamFilter
 		{
 			try {
 				$this->removeRule($_POST['delip']);
-				http::redirect($url.'&removed=1&ip_type='.$ip_type);
+				dcPage::addSuccessNotice(__('IP addresses have been successfully removed.'));
+				http::redirect($url.'&ip_type='.$ip_type);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
@@ -95,14 +97,7 @@ class dcFilterIP extends dcSpamFilter
 
 		/* DISPLAY
 		---------------------------------------------- */
-		$res = '';
-
-		if (!empty($_GET['added'])) {
-			$res .= dcPage::success(__('IP address has been successfully added.'),true,false,false);
-		}
-		if (!empty($_GET['removed'])) {
-			$res .= dcPage::success(__('IP addresses have been successfully removed.'),true,false,false);
-		}
+		$res = dcPage::notices();
 
 		$res .=
 		$this->displayForms($url,'black',__('Blacklist')).

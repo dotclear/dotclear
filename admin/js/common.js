@@ -88,11 +88,11 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 		if (p.hide) {
 			$(i).get(0).src = p.img_on_src;
 			$(i).get(0).alt = p.img_on_alt;
-			target.hide(speed);
+			target.addClass('hide');
 		} else {
 			$(i).get(0).src = p.img_off_src;
 			$(i).get(0).alt = p.img_off_alt;
-			target.show(speed);
+			target.removeClass('hide');
 			if (p.fn) {
 				p.fn.apply(target);
 				p.fn = false;
@@ -171,7 +171,7 @@ jQuery.fn.helpViewer = function() {
 				select.show();
 			}
 		}
-		$('p#help-button span').text($('#content').hasClass('with-help') ? dotclear.msg.help_hide : dotclear.msg.help);
+		$('p#help-button span a').text($('#content').hasClass('with-help') ? dotclear.msg.help_hide : dotclear.msg.help);
 		sizeBox();
 		return false;
 	};
@@ -215,7 +215,7 @@ jQuery.fn.helpViewer = function() {
 	this.find('h4:first').nextAll('*:not(h4)').hide();
 	sizeBox();
 
-	var img = $('<p id="help-button"><span>'+dotclear.msg.help+'</span></p>');
+	var img = $('<p id="help-button"><span><a href="">'+dotclear.msg.help+'</a></span></p>');
 	var select = $();
 	img.click(function() { return toggle(); });
 
@@ -238,6 +238,7 @@ jQuery.fn.helpViewer = function() {
 
 	return this;
 };
+
 
 /* Dotclear common object
 -------------------------------------------------------- */
@@ -279,38 +280,37 @@ var dotclear = {
 		$(e).append(document.createTextNode(dotclear.msg.to_select));
 		$(e).append(document.createTextNode(' '));
 
-		target = target || $(e).parents('form').find('input[type="checkbox"]');
-		
-		var a = document.createElement('a');
-		a.href='#';
-		$(a).append(document.createTextNode(dotclear.msg.select_all));
-		a.onclick = function() {
-			target.check();
-			return false;
-		};
-		$(e).append(a);
+		$('<a href="#">'+dotclear.msg.select_all+'</a>').click(function() {
+			if (target !== undefined) {
+				target.check();
+			} else {
+				$(e).parents('form').find('input[type="checkbox"]').check();
+			}
 
+			return false;
+		}).appendTo($(e));
 		$(e).append(document.createTextNode(' | '));
 
-		a = document.createElement('a');
-		a.href='#';
-		$(a).append(document.createTextNode(dotclear.msg.no_selection));
-		a.onclick = function() {
-			target.unCheck();
-			return false;
-		};
-		$(e).append(a);
+		$('<a href="#">'+dotclear.msg.no_selection+'</a>').click(function() {
+			if (target !== undefined) {
+				target.unCheck();
+			} else {
+				$(e).parents('form').find('input[type="checkbox"]').unCheck();
+			}
 
+			return false;
+		}).appendTo($(e));
 		$(e).append(document.createTextNode(' - '));
 
-		a = document.createElement('a');
-		a.href='#';
-		$(a).append(document.createTextNode(dotclear.msg.invert_sel));
-		a.onclick = function() {
-			target.toggleCheck();
+		$('<a href="#">'+dotclear.msg.invert_sel+'</a>').click(function() {
+			if (target !== undefined) {
+				target.toggleCheck();
+			} else {
+				$(e).parents('form').find('input[type="checkbox"]').toggleCheck();
+			}
+
 			return false;
-		};
-		$(e).append(a);
+		}).appendTo($(e));
 	},
 
 	postsActionsHelper: function() {
@@ -403,6 +403,20 @@ $(function() {
 		if (this.nodeType==8) {
 			$('#footer a[href!="help.php"]').attr('title', $('#footer a[href!="help.php"]').attr('title') + this.data );
 		}
+	});
+
+	// manage outgoing links
+	$('a').filter(function() {
+		return ((this.hostname && this.hostname!=location.hostname)
+			|| $(this).hasClass('outgoing'));
+	}).each(function() {
+		$(this).prop('title',$(this).prop('title')+' ('+dotclear.msg.new_window+')');
+		if (!$(this).hasClass('outgoing')) {
+			$(this).append(' <img src="images/outgoing-blue.png" alt=""/>');
+		}
+	}).click(function(e) {
+		e.preventDefault();
+		window.open($(this).attr('href'));
 	});
 
 	// Blog switcher

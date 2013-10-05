@@ -172,7 +172,8 @@ if (!empty($_POST['ping']))
 		}
 		
 		if (!$core->error->flag()) {
-			http::redirect('post.php?id='.$post_id.'&tbsent=1&tb=1');
+			dcPage::addSuccessNotice(__('All pings sent.'));
+			http::redirect('post.php?id='.$post_id.'&tb=1');
 		}
 	}
 }
@@ -297,8 +298,8 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			
 			# --BEHAVIOR-- adminAfterPostUpdate
 			$core->callBehavior('adminAfterPostUpdate',$cur,$post_id);
-			
-			http::redirect('post.php?id='.$post_id.'&upd=1');
+			dcPage::addSuccessNotice (sprintf('The post "%s" has been successfully updated',html::escapeHTML($cur->post_title)));
+			http::redirect('post.php?id='.$post_id);
 		}
 		catch (Exception $e)
 		{
@@ -318,8 +319,9 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			
 			# --BEHAVIOR-- adminAfterPostCreate
 			$core->callBehavior('adminAfterPostCreate',$cur,$return_id);
-			
-			http::redirect('post.php?id='.$return_id.'&crea=1');
+
+			dcPage::addSuccessNotice(__('Entry has been successfully created.'));
+			http::redirect('post.php?id='.$return_id);
 		}
 		catch (Exception $e)
 		{
@@ -384,7 +386,7 @@ dcPage::open($page_title.' - '.__('Entries'),
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Entries') => 'posts.php',
-			'<span class="page-title">'.($post_id ? $page_title_edit : $page_title).'</span>' => ''
+			($post_id ? $page_title_edit : $page_title) => ''
 		))
 );
 
@@ -419,7 +421,7 @@ if (!empty($_GET['xconv']))
 }
 
 if ($post_id && $post->post_status == 1) {
-	echo '<p><a class="onblog_link" href="'.$post->getURL().'" onclick="window.open(this.href);return false;" title="'.$post_title.' ('.__('new window').')'.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
+	echo '<p><a class="onblog_link outgoing" href="'.$post->getURL().'" title="'.$post_title.'">'.__('Go to this entry on the site').' <img src="images/outgoing-blue.png" alt="" /></a></p>';
 }
 if ($post_id)
 {

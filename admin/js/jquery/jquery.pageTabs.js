@@ -15,7 +15,7 @@
 		var hash = $.pageTabs.getLocationHash();
 
 		if (hash !== undefined && hash) {
-			$('ul li a[href$="#'+hash+'"]').parent().trigger('click');
+			window.scrollTo(0,0);
 			active_tab = hash;
 		} else if (active_tab == '') { // open first part
 			active_tab = $('.'+$.pageTabs.options.contentClass+':eq(0)').attr('id');
@@ -71,6 +71,10 @@
 	};
 	
 	$.pageTabs.clickTab = function(tab) {
+		if (tab=='') {
+			tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
+		}
+
 		$('ul li a', '.'+$.pageTabs.options.containerClass).filter(function() {
 			return getHash($(this).attr('href'))==tab;
 		}).parent().click();

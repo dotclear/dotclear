@@ -19,17 +19,16 @@ $_menu['Plugins']->addItem(
 	$core->auth->check('admin',$core->blog->id)
 );
 
-$core->addBehavior('adminDashboardFavs','importExportDashboardFavs');
+$core->addBehavior('adminDashboardFavorites','importExportDashboardFavorites');
 
-function importExportDashboardFavs($core,$favs)
+function importExportDashboardFavorites($core,$favs)
 {
-	$favs['importExport'] = new ArrayObject(array(
-		'importExport',
-		__('Import/Export'),
-		'plugin.php?p=importExport',
-		'index.php?pf=importExport/icon.png',
-		'index.php?pf=importExport/icon-big.png',
-		'admin',null,null
+	$favs->register('importExport', array(
+		'title' => __('Import/Export'),
+		'url' => 'plugin.php?p=importExport',
+		'small-icon' => 'index.php?pf=importExport/icon.png',
+		'large-icon' => 'index.php?pf=importExport/icon-big.png',
+		'permissions' => 'admin'
 	));
 }
 

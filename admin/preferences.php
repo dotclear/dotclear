@@ -122,7 +122,9 @@ if (isset($_POST['user_name']))
 		# --BEHAVIOR-- adminAfterUserUpdate
 		$core->callBehavior('adminAfterUserProfileUpdate',$cur,$core->auth->userID());
 		
-		http::redirect('preferences.php?upd=1');
+		dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
+
+		http::redirect('preferences.php');
 	}
 	catch (Exception $e)
 	{
@@ -174,7 +176,8 @@ if (isset($_POST['user_post_format']))
 		# --BEHAVIOR-- adminAfterUserOptionsUpdate
 		$core->callBehavior('adminAfterUserOptionsUpdate',$cur,$core->auth->userID());
 		
-		http::redirect('preferences.php?updated=1');
+		dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
+		http::redirect('preferences.php');
 	}
 	catch (Exception $e)
 	{
@@ -199,7 +202,8 @@ if (isset($_POST['db-options'])) {
 		# --BEHAVIOR-- adminAfterUserOptionsUpdate
 		$core->callBehavior('adminAfterDashboardOptionsUpdate',$core->auth->userID());
 		
-		http::redirect('preferences.php?db-updated=1');
+		dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
+		http::redirect('preferences.php');
 	}
 	catch (Exception $e)
 	{
@@ -214,36 +218,18 @@ if (!empty($_POST['appendaction']))
 		if (empty($_POST['append'])) {
 			throw new Exception(__('No favorite selected'));
 		}
-
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		$user_favs = $ws->DumpLocalPrefs();
-		$count = count($user_favs);
+		$user_favs = $core->favs->getFavoriteIDs(false);
 		foreach ($_POST['append'] as $k => $v)
 		{
-			try {
-				$found = false;
-				foreach ($user_favs as $f) {
-					$f = unserialize($f['value']);
-					if ($f['name'] == $v) {
-						$found = true;
-						break;
-					}
-				}
-				if (!$found) {
-					$uid = sprintf("u%03s",$count);
-					$fav = array('name' => $_fav[$v][0],'title' => $_fav[$v][1],'url' => $_fav[$v][2],'small-icon' => $_fav[$v][3],
-						'large-icon' => $_fav[$v][4],'permissions' => $_fav[$v][5],'id' => $_fav[$v][6],'class' => $_fav[$v][7]);
-					$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string');
-					$count++;
-				}
-			} catch (Exception $e) {
-				$core->error->add($e->getMessage());
-				break;
+			if ($core->favs->exists($v)) {
+				$user_favs[] = $v;
 			}
 		}
-	
+		$core->favs->setFavoriteIDs($user_favs,false);
+
 		if (!$core->error->flag()) {
-			http::redirect('preferences.php?append=1');
+			dcPage::addSuccessNotice(__('Favorites have been successfully added.'));
+			http::redirect('preferences.php');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -257,37 +243,20 @@ if (!empty($_POST['removeaction']))
 		if (empty($_POST['remove'])) {
 			throw new Exception(__('No favorite selected'));
 		}
-		
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		foreach ($_POST['remove'] as $k => $v)
+		$user_fav_ids = array();
+		foreach ($core->favs->getFavoriteIDs(false) as $v) {
+			$user_fav_ids[$v]=true;
+		}
+		foreach ($_POST['remove'] as $v)
 		{
-			try {
-				$core->auth->user_prefs->favorites->drop($v);
-			} catch (Exception $e) {
-				$core->error->add($e->getMessage());
-				break;
+			if (isset($user_fav_ids[$v])) {
+				unset($user_fav_ids[$v]);
 			}
 		}
-		// Update pref_id values
-		try {
-			$user_favs = $ws->DumpLocalPrefs();
-			$core->auth->user_prefs->favorites->dropAll();
-			$count = 0;
-			foreach ($user_favs as $k => $v)
-			{
-				$uid = sprintf("u%03s",$count);
-				$f = unserialize($v['value']);
-				$fav = array('name' => $f['name'],'title' => $f['title'],'url' => $f['url'],'small-icon' => $f['small-icon'],
-					'large-icon' => $f['large-icon'],'permissions' => $f['permissions'],'id' => $f['id'],'class' => $f['class']);
-				$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string');
-				$count++;
-			}
-		} catch (Exception $e) {
-			$core->error->add($e->getMessage());
-		}
-	
+		$core->favs->setFavoriteIDs(array_keys($user_fav_ids),false);
 		if (!$core->error->flag()) {
-			http::redirect('preferences.php?removed=1');
+			dcPage::addSuccessNotice(__('Favorites have been successfully removed.'));
+			http::redirect('preferences.php');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -306,50 +275,26 @@ if (empty($_POST['favs_order']) && !empty($_POST['order'])) {
 
 if (!empty($_POST['saveorder']) && !empty($order))
 {
-	try {
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		$user_favs = $ws->DumpLocalPrefs();
-		$core->auth->user_prefs->favorites->dropAll();
-		$count = 0;
-		foreach ($order as $i => $k) {
-			$uid = sprintf("u%03s",$count);
-			$f = unserialize($user_favs[$k]['value']);
-			$fav = array('name' => $f['name'],'title' => $f['title'],'url' => $f['url'],'small-icon' => $f['small-icon'],
-				'large-icon' => $f['large-icon'],'permissions' => $f['permissions'],'id' => $f['id'],'class' => $f['class']);
-			$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string');
-			$count++;
+	foreach ($order as $k => $v) {
+		if (!$core->favs->exists($v)) {
+			unset($order[$k]);
 		}
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
-
+	}	
+	$core->favs->setFavoriteIDs($order,false);
 	if (!$core->error->flag()) {
-		http::redirect('preferences.php?&neworder=1');
+		dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
+		http::redirect('preferences.php');
 	}
 }
 
 # Replace default favorites by current set (super admin only)
 if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
-	try {
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		$user_favs = $ws->DumpLocalPrefs();
-		$core->auth->user_prefs->favorites->dropAll(true);
-		$count = 0;
-		foreach ($user_favs as $k => $v)
-		{
-			$uid = sprintf("g%03s",$count);
-			$f = unserialize($v['value']);
-			$fav = array('name' => $f['name'],'title' => $f['title'],'url' => $f['url'],'small-icon' => $f['small-icon'],
-				'large-icon' => $f['large-icon'],'permissions' => $f['permissions'],'id' => $f['id'],'class' => $f['class']);
-			$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string',null,null,true);
-			$count++;
-		}
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
+	$user_favs = $core->favs->getFavoriteIDs(false);
+	$core->favs->setFavoriteIDs($user_favs,true);
 
 	if (!$core->error->flag()) {
-		http::redirect('preferences.php?&replaced=1');
+		dcPage::addSuccessNotice(__('Default favorites have been successfully updated.'));
+		http::redirect('preferences.php');
 	}
 }
 
@@ -381,7 +326,7 @@ dcPage::open($page_title,
 	dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->auth->userID()) => '',
-		'<span class="page-title">'.$page_title.'</span>' => ''
+		$page_title => ''
 	))
 );
 
@@ -489,7 +434,7 @@ __('Disable javascript powered drag and drop for ordering items').'</label></p>'
 '<p class="clear form-note">'.__('If checked, numeric fields will allow to type the elements\' ordering number.').'</p>';
 
 echo
-'<p><label for="user_ui_media_by_page" class="classic">'.__('Number of media displayed per page:').'</label> '.
+'<p><label for="user_ui_media_by_page" class="classic">'.__('Number of elements displayed per page in media manager:').'</label> '.
 form::field('user_ui_media_by_page',5,3,(integer) $user_ui_media_by_page).'</p>';
 
 if ($core->auth->isSuperAdmin()) {
@@ -547,22 +492,19 @@ echo '<form action="preferences.php" method="post" id="favs-form" class="two-box
 echo '<div id="my-favs" class="fieldset"><h4>'.__('My favorites').'</h4>';
 
 $count = 0;
-$user_fav = array();
-foreach ($ws->dumpPrefs() as $k => $v) {
-	// User favorites only
-	if (!$v['global']) {
-		$fav = unserialize($v['value']);
-		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			if ($count == 0) echo '<ul class="fav-list">';
-			$count++;
-			echo '<li id="fu-'.$k.'">'.'<label for="fuk-'.$k.'">'.
-				'<img src="'.dc_admin_icon_url($fav['small-icon']).'" alt="" /> '.'<span class="zoom"><img src="'.dc_admin_icon_url($fav['large-icon']).'" alt="" /></span>'.
-				form::field(array('order['.$k.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),$fav['title']).'"').
-				form::hidden(array('dynorder[]','dynorder-'.$k.''),$k).
-				form::checkbox(array('remove[]','fuk-'.$k),$k).__($fav['title']).'</label>'.
-				'</li>';
-			$user_fav[] = $fav['name'];
-		}
+$user_fav = $core->favs->getFavoriteIDs(false);
+foreach ($user_fav as $id) {
+	$fav = $core->favs->getFavorite($id);
+	if ($fav != false) {
+		// User favorites only
+		if ($count == 0) echo '<ul class="fav-list">';
+		$count++;
+		echo '<li id="fu-'.$id.'">'.'<label for="fuk-'.$id.'">'.
+			'<img src="'.dc_admin_icon_url($fav['small-icon']).'" alt="" /> '.'<span class="zoom"><img src="'.dc_admin_icon_url($fav['large-icon']).'" alt="" /></span>'.
+			form::field(array('order['.$id.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),$fav['title']).'"').
+			form::hidden(array('dynorder[]','dynorder-'.$id.''),$id).
+			form::checkbox(array('remove[]','fuk-'.$id),$id).__($fav['title']).'</label>'.
+			'</li>';
 	}
 }
 if ($count > 0) echo '</ul>';
@@ -592,46 +534,40 @@ if ($count > 0) {
 	'<p>'.__('Currently no personal favorites.').'</p>';
 }
 
-$default_fav = array();
-foreach ($ws->dumpPrefs() as $k => $v) {
-	// Global favorites only
-	if ($v['global']) {
-		$fav = unserialize($v['value']);
-		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			$default_fav[] = $fav['name'];
-		}
-	}
+$avail_fav = $core->favs->getFavorites($core->favs->getAvailableFavoritesIDs());
+$default_fav_ids = array();
+foreach($core->favs->getFavoriteIDs(true) as $v) {
+	$default_fav_ids[$v]=true;
 }
-
 echo '</div>'; # /box my-fav
 
 echo '<div class="fieldset" id="available-favs">';
 # Available favorites
 echo '<h5 class="pretty-title">'.__('Other available favorites').'</h5>';
 $count = 0;
-$array = $_fav;
 function cmp($a,$b) {
-    if (__($a[1]) == __($b[1])) {
+    if ($a['title'] == $b['title']) {
         return 0;
     }
-    return (__($a[1]) < __($b[1])) ? -1 : 1;
+    return ($a['title'] < $b['title']) ? -1 : 1;
 }
-$array=$array->getArrayCopy();
-uasort($array,'cmp');
-foreach ($array as $k => $fav) {
-	if (($fav[5] == '*') || $core->auth->check($fav[5],$core->blog->id)) {
-		if (!in_array($fav[0], $user_fav)) {
-			if ($count == 0) echo '<ul class="fav-list">';
-			$count++;
-			echo '<li id="fa-'.$fav[0].'">'.'<label for="fak-'.$fav[0].'">'.
-				'<img src="'.dc_admin_icon_url($fav[3]).'" alt="" /> '.
-				'<span class="zoom"><img src="'.dc_admin_icon_url($fav[4]).'" alt="" /></span>'.
-				form::checkbox(array('append[]','fak-'.$fav[0]),$k).
-				__($fav[1]).'</label>'.
-				(in_array($fav[0], $default_fav) ? ' <span class="default-fav"><img src="images/selected.png" alt="'.__('(default favorite)').'" /></span>' : '').
-				'</li>';
-		}
+uasort($avail_fav,'cmp');
+
+foreach ($avail_fav as $k => $v) {
+	if (in_array($k,$user_fav)) {
+		unset($avail_fav[$k]);
 	}
+}
+foreach ($avail_fav as $k=>$fav) {
+	if ($count == 0) echo '<ul class="fav-list">';
+	$count++;
+	echo '<li id="fa-'.$k.'">'.'<label for="fak-'.$k.'">'.
+		'<img src="'.dc_admin_icon_url($fav['small-icon']).'" alt="" /> '.
+		'<span class="zoom"><img src="'.dc_admin_icon_url($fav['large-icon']).'" alt="" /></span>'.
+		form::checkbox(array('append[]','fak-'.$k),$k).
+		$fav['title'].'</label>'.
+		(isset($default_fav_ids[$k]) ? ' <span class="default-fav"><img src="images/selected.png" alt="'.__('(default favorite)').'" /></span>' : '').
+		'</li>';
 }
 if ($count > 0) echo '</ul>';
 echo

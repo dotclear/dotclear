@@ -12,16 +12,20 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $core->addBehavior('adminDashboardIcons','simpleMenu_dashboard');
-$core->addBehavior('adminDashboardFavs','simpleMenu_dashboard_favs');
+$core->addBehavior('adminDashboardFavorites','simpleMenu_dashboard_favs');
 function simpleMenu_dashboard($core,$icons)
 {
 	$icons['simpleMenu'] = new ArrayObject(array(__('Simple menu'),'plugin.php?p=simpleMenu','index.php?pf=simpleMenu/icon.png'));
 }
 function simpleMenu_dashboard_favs($core,$favs)
 {
-	$favs['simpleMenu'] = new ArrayObject(array('simpleMenu','Simple menu','plugin.php?p=simpleMenu',
-		'index.php?pf=simpleMenu/icon-small.png','index.php?pf=simpleMenu/icon.png',
-		'usage,contentadmin',null,null));
+	$favs->register('simpleMenu', array(
+		'title' => __('Simple menu'),
+		'url' => 'plugin.php?p=simpleMenu',
+		'small-icon' => 'index.php?pf=simpleMenu/icon-small.png',
+		'large-icon' => 'index.php?pf=simpleMenu/icon.png',
+		'permissions' => 'usage,contentadmin'
+	));
 }
 
 $_menu['Blog']->addItem(__('Simple menu'),'plugin.php?p=simpleMenu','index.php?pf=simpleMenu/icon-small.png',

@@ -43,7 +43,7 @@ class dcPostsActionsPage extends dcActionsPage
 				$breadcrumb
 			);
 		}
-		echo '<p><a class="back" href="'.$this->getRedirection(array(),true).'">'.__('Back to entries list').'</a></p>';
+		echo '<p><a class="back" href="'.$this->getRedirection(true).'">'.__('Back to entries list').'</a></p>';
 	}
 	
 	public function endPage() {
@@ -59,8 +59,8 @@ class dcPostsActionsPage extends dcActionsPage
 		$this->beginPage(dcPage::breadcrumb(
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
-				$this->getCallerTitle() => $this->getRedirection(array(),true),
-				'<span class="page-title">'.__('Entries actions').'</span>' => ''
+				$this->getCallerTitle() => $this->getRedirection(true),
+				__('Entries actions') => ''
 			))
 		);
 		$this->endPage();
@@ -158,8 +158,16 @@ class dcDefaultPostActions
 			throw new Exception(__('No entry selected'));
 		}
 		$core->blog->updPostsStatus($posts_ids,$status);
-		
-		$ap->redirect(array('upd' => 1),true);
+		dcPage::addSuccessNotice(sprintf(
+			__(
+				'%d entry has been successfully updated to status : "%s"',
+				'%d entries have been successfully updated to status : "%s"',
+				count($posts_ids)
+			),
+			count($posts_ids),
+			$core->blog->getPostStatus($status))
+		);
+		$ap->redirect(true);
 	}
 	
 	public static function doUpdateSelectedPost($core, dcPostsActionsPage $ap, $post) {
@@ -169,8 +177,26 @@ class dcDefaultPostActions
 		}
 		$action = $ap->getAction();
 		$core->blog->updPostsSelected($posts_ids,$action == 'selected');
-		
-		$ap->redirect(array('upd' => 1),true);
+		if ($action == 'selected') {
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully marked as selected',
+					'%d entries have been successfully marked as selected',
+					count($posts_ids)
+				),
+				count($posts_ids))
+			);
+		} else {
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully marked as unselected',
+					'%d entries have been successfully marked as unselected',
+					count($posts_ids)
+				),
+				count($posts_ids))
+			);
+		}
+		$ap->redirect(true);
 	}
 	
 	public static function doDeletePost($core, dcPostsActionsPage $ap, $post) {
@@ -190,8 +216,16 @@ class dcDefaultPostActions
 		$core->callBehavior('adminBeforePostsDelete',$posts_ids);
 		
 		$core->blog->delPosts($posts_ids);
+		dcPage::addSuccessNotice(sprintf(
+			__(
+				'%d entry has been successfully deleted',
+				'%d entries have been successfully deleted',
+				count($posts_ids)
+			),
+			count($posts_ids))
+		);
 		
-		$ap->redirect(array('del',1),false);
+		$ap->redirect(false);
 	}
 
 	public static function doChangePostCategory($core, dcPostsActionsPage $ap, $post) {
@@ -206,6 +240,7 @@ class dcDefaultPostActions
 				$cur_cat = $core->con->openCursor($core->prefix.'category');
 				$cur_cat->cat_title = $post['new_cat_title'];
 				$cur_cat->cat_url = '';
+				$title = $cur_cat->cat_title;
 				
 				$parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 				
@@ -219,16 +254,26 @@ class dcDefaultPostActions
 			}
 			
 			$core->blog->updPostsCategory($posts_ids, $new_cat_id);
-			
-			$ap->redirect(array('upd'=>1),true);
+			$title = $core->blog->getCategory($new_cat_id);
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully moved to category "%s"',
+					'%d entries have been successfully moved to category "%s"',
+					count($posts_ids)
+				),
+				count($posts_ids),
+				html::escapeHTML($title->cat_title))
+			);
+
+			$ap->redirect(true);
 		} else {
 
 			$ap->beginPage(
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Change category for this selection').'</span>' => ''
+						$ap->getCallerTitle() => $ap->getRedirection(true),
+						__('Change category for this selection') => ''
 			)));
 			# categories list
 			# Getting categories
@@ -236,7 +281,7 @@ class dcDefaultPostActions
 				$core->blog->getCategories()
 			);			
 			echo
-			'<form action="'.$ap->getRedirection(array(),true).'" method="post">'.
+			'<form action="'.$ap->getURI().'" method="post">'.
 			$ap->getCheckboxes().
 			'<p><label for="new_cat_id" class="classic">'.__('Category:').'</label> '.
 			form::combo(array('new_cat_id'),$categories_combo,'');
@@ -278,8 +323,18 @@ class dcDefaultPostActions
 			$cur = $core->con->openCursor($core->prefix.'post');
 			$cur->user_id = $new_user_id;
 			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
-			
-			$ap->redirect(array('upd' => 1),true);
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully set to user "%s"',
+					'%d entries have been successfully set to user "%s"',
+					count($posts_ids)
+				),
+				count($posts_ids),
+				html::escapeHTML($new_user_id))
+			);
+
+
+			$ap->redirect(true);
 		} else {
 			$usersList = '';
 			if ($core->auth->check('admin',$core->blog->id)) {
@@ -297,8 +352,8 @@ class dcDefaultPostActions
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Change author for this selection').'</span>' => '')),
+						$ap->getCallerTitle() => $ap->getRedirection(true),
+						__('Change author for this selection') => '')),
 					dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 					'<script type="text/javascript">'."\n".
 					"//<![CDATA[\n".
@@ -308,7 +363,7 @@ class dcDefaultPostActions
 			);
 
 			echo
-			'<form action="'.$ap->getRedirection(array(),true).'" method="post">'.
+			'<form action="'.$ap->getURI().'" method="post">'.
 			$ap->getCheckboxes().
 			'<p><label for="new_auth_id" class="classic">'.__('New author (author ID):').'</label> '.
 			form::field('new_auth_id',20,255);
@@ -331,15 +386,23 @@ class dcDefaultPostActions
 			$cur = $core->con->openCursor($core->prefix.'post');
 			$cur->post_lang = $new_lang;
 			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
-			
-			$ap->redirect(array('upd' => 1),true);
+			dcPage::addSuccessNotice(sprintf(
+				__(
+					'%d entry has been successfully set to language "%s"',
+					'%d entries have been successfully set to language "%s"',
+					count($posts_ids)
+				),
+				count($posts_ids),
+				html::escapeHTML(l10n::getLanguageName($new_lang)))
+			);
+			$ap->redirect(true);
 		} else {
 			$ap->beginPage(
 				dcPage::breadcrumb(
 					array(
 						html::escapeHTML($core->blog->name) => '',
-						$ap->getCallerTitle() => $ap->getRedirection(array(),true),
-						'<span class="page-title">'.__('Change language for this selection').'</span>' => ''
+						$ap->getCallerTitle() => $ap->getRedirection(true),
+						_('Change language for this selection') => ''
 			)));
 			# lang list
 			# Languages combo
@@ -358,7 +421,7 @@ class dcDefaultPostActions
 			unset($rs);
 			
 			echo
-			'<form action="'.$ap->getRedirection(array(),true).'" method="post">'.
+			'<form action="'.$ap->getURI().'" method="post">'.
 			$ap->getCheckboxes().
 			
 			'<p><label for="new_lang" class="classic">'.__('Entry language:').'</label> '.

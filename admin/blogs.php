@@ -87,7 +87,7 @@ dcPage::open(__('List of blogs'),$starting_script,
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			'<span class="page-title">'.__('List of blogs').'</span>' => ''
+			__('List of blogs') => ''
 		))
 );
 
