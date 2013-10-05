@@ -479,9 +479,11 @@ $(function() {
         e.preventDefault();
         if ( objMain.hasClass('hide-mm') ){
             showSidebar();
+	        $('#main-menu input#qx').focus();
         }
         else {
             hideSidebar();
+            $('#content a.go_home').focus();
         }
     });
 	if ( $.cookie('sidebar-pref') == 'hide-mm' ){
