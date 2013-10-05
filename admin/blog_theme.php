@@ -242,4 +242,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 	'</div>';
 }
 
+# --BEHAVIOR-- themesToolsTabs
+$core->callBehavior('themesToolsTabs', $core);
+
 dcPage::close();
