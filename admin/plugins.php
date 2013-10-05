@@ -33,8 +33,8 @@ $list = new adminModulesList(
 	$core->blog->settings->system->store_plugin_url
 );
 
-$list::$allow_multi_install = $core->blog->settings->system->plugins_allow_multi_install;
-$list::$distributed_modules = array(
+adminModulesList::$allow_multi_install = $core->blog->settings->system->plugins_allow_multi_install;
+adminModulesList::$distributed_modules = array(
 	'aboutConfig',
 	'akismet',
 	'antispam',
