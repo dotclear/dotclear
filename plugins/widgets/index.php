@@ -12,35 +12,7 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 include dirname(__FILE__).'/_default_widgets.php';
-?>
-<html>
-<head>
-  <title><?php echo __('Widgets'); ?></title>
-  <style type="text/css">
-  <?php echo file_get_contents(dirname(__FILE__).'/style.css'); ?>
-  </style>
-  <?php
-		echo
-			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
-			dcPage::jsLoad('index.php?pf=widgets/widgets.js');
-  ?>
-  <?php 
-	$core->auth->user_prefs->addWorkspace('accessibility'); 
-	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
-  ?>
-  <?php if (!$user_dm_nodragdrop) : ?>
-  <script type="text/javascript" src="index.php?pf=widgets/dragdrop.js"></script>
-  <?php endif; ?>
-  <script type="text/javascript">
-  //<![CDATA[
-  <?php echo dcPage::jsVar('dotclear.msg.confirm_widgets_reset',
-  	__('Are you sure you want to reset sidebars?')); ?>
-  //]]>
-  </script>
-  <?php echo(dcPage::jsConfirmClose('sidebarsWidgets')); ?>
-</head>
-<body>
-<?php
+
 # Loading navigation, extra widgets and custom widgets
 $widgets_nav = null;
 if ($core->blog->settings->widgets->widgets_nav) {
@@ -237,7 +209,7 @@ elseif (!empty($_POST['wreset']))
 		$core->error->add($e->getMessage());
 	}
 }
-/*?>
+?>
 <html>
 <head>
   <title><?php echo __('Widgets'); ?></title>
@@ -265,7 +237,7 @@ elseif (!empty($_POST['wreset']))
   <?php echo(dcPage::jsConfirmClose('sidebarsWidgets')); ?>
 </head>
 <body>
-<?php*/
+<?php
 echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
