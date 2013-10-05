@@ -1544,10 +1544,7 @@ a.form-control.open {
 	border: 1px solid #ddd;
 	}
 .box.theme:hover {
-	background: #ecf0f1 url(stripe.png);
-	}
-.dc-box.box.theme:hover {
-	background: url(stripe.png), url(dc_logos/sq-logo-32.png) no-repeat top right;
+	background: #ecf0f1 url(texture.png);
 	}
 #theme-new .box.theme {
 	width: 280px;
@@ -1590,8 +1587,8 @@ span.module-version:before {
 .box.current-theme {
 	width: 652px;
 	margin: .5em;
-	padding: 10px;
-	background: #fff url(stripe.png);
+	padding: 10px 18px;
+	background: #fff url(texture.png);
 	border: 1px solid #eee;
 	-webkit-border-radius: .5em;
 	border-radius: .5em;
@@ -1779,10 +1776,6 @@ span.module-version:before {
 		}
 .medias-delete {
 	text-align: right;
-	}
-.zip-dl {
-	background: transparent url(package.png) no-repeat 0 50%;
-	padding: 5px 0 5px 20px;
 	}
 /* upload multiple */
 .enhanced_uploader .choose_files, .enhanced_uploader .cancel, 
