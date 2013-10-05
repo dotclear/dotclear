@@ -133,8 +133,21 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 	}
 }
 
+# Removing ?
+$removing = false;
+if ( isset($_POST['w']) && is_array($_POST['w']) ) {
+	foreach ($_POST['w'] as $nsid => $nsw) {
+		foreach ($nsw as $i => $v) {
+			if (!empty($v['_rem'])) {
+				$removing = true;
+				break 2;
+			}
+		}
+	}
+}
+
 # Update sidebars
-if (!empty($_POST['wup']))
+if (!empty($_POST['wup']) || $removing )
 {
 	if (!isset($_POST['w']) || !is_array($_POST['w'])) {
 		$_POST['w'] = array();
@@ -142,6 +155,7 @@ if (!empty($_POST['wup']))
 	
 	try
 	{
+		
 		# Removing mark as _rem widgets
 		foreach ($_POST['w'] as $nsid => $nsw) {
 			foreach ($nsw as $i => $v) {
@@ -374,10 +388,9 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$res .=
 		'<li>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
 		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'hidden-if-drag','',0,'title="'.__('order').'"').' '.$w->name().
-		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
-		'<p class="removeWidget remove-if-drag"><label class="classic">'.
-		form::checkbox(array($iname.'[_rem]'),'1',0).' '.__('Remove widget').
-		'</label></p>'.
+		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').
+		'<input type="image" src="images/trash.png" class="removeWidget remove-if-drag" name="'.$iname.'[_rem]" value="'.__('Remove widget').'" />'.
+		'<br class="clear"/></p>'.
 		'<div class="widgetSettings hidden-if-drag">'.$w->formSettings($iname,$j).'</div>'.
 		'</li>';
 		

@@ -102,8 +102,7 @@
 	display: none;
 }
 .removeWidget {
-	padding: 8px 6px;
-	margin: 0;
+	float: right;
 }
 .widgetSettings {
 	border-top: 1px solid #ddd;

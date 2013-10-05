@@ -16,7 +16,9 @@ dotclear.postExpander = function(line) {
 	title.find('.form-note').remove();
 	order = title.find('input[name*=order]');
 	link = $('<a href="#" alt="expand" class="aexpand"/>').append(title.text());
-	title.empty().append(order).append(link);
+	rem = title.find('input[name*=_rem]');
+	br = title.find('br');
+	title.empty().append(order).append(link).append(rem).append(br);
 	
 	var img = document.createElement('img');
 	img.src = dotclear.img_plus_src;
