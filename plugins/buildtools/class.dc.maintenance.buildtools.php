@@ -32,12 +32,7 @@ class l10nFaker {
 	
 	public function __construct($core) {
 		$this->core = $core;
-		$this->bundled_plugins = array(
-			"aboutConfig","akismet","antispam","attachments","blogroll",
-			"blowupConfig","fairTrackbacks","importExport",
-			"maintenance","pages","pings","simpleMenu","tags","themeEditor",
-			"userPref","widgets"
-		);
+		$this->bundled_plugins = explode(',', DC_DISTRIB_PLUGINS);
 		$this->core->media = new dcMedia($this->core);
 	}
 

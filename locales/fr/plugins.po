@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-04 13:51+0000\n"
+"POT-Creation-Date: 2013-10-05 19:46+0200\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -39,8 +39,8 @@ msgstr "Gestion de votre liste de liens"
 msgid "Configure your Blowup Theme"
 msgstr "Configurer votre thème Blowup"
 
-msgid "Install and update your plugins live from DotAddict.org"
-msgstr ""
+msgid "Legacy modules for dotclear"
+msgstr "Plugin de compatibilité pour Dotclear"
 
 msgid "Trackback validity check"
 msgstr "Contrôle de validité des rétroliens"
@@ -613,6 +613,9 @@ msgstr "Appliquer le code"
 msgid "Choose a predefined style"
 msgstr "Sélectionnez un style prédéfini"
 
+msgid "Back to Blog appearance"
+msgstr ""
+
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr "Pour les raisons suivantes, les images n'ont pu être créées. Vous ne pourrez pas changer certaines propriétés de fond."
 
@@ -831,114 +834,8 @@ msgstr "L'image soumise ne fait pas 800 pixels de large."
 msgid "Unable to open image."
 msgstr "Impossible d'ouvrir l'image."
 
-msgid "Updates are available"
-msgstr "Des mises à jour sont disponibles"
-
-#, php-format
-msgid "Oops, something went wrong with %s, we are working on it. %s"
-msgstr ""
-
-msgid "dotaddict.org website"
-msgstr ""
-
-msgid "Wanna help too?"
-msgstr ""
-
-msgid "Impossible to read data feed"
-msgstr "Impossible de lire le flux de données"
-
-msgid "Wrong data feed"
-msgstr ""
-
-msgid "No theme"
-msgstr ""
-
-msgid "No plugins"
-msgstr ""
-
-msgid "Lastest Version"
-msgstr ""
-
-msgid "Quick description"
-msgstr "Description rapide"
-
-msgid "Page(s)"
-msgstr "Page(s)"
-
-msgid "by"
-msgstr "par"
-
-msgid "More details"
-msgstr ""
-
-msgid "Install"
-msgstr ""
-
-msgid "Theme"
-msgstr ""
-
-msgid "Update selected modules"
-msgstr "Mettre à jour les modules sélectionnés"
-
-msgid "Support"
-msgstr "Assistance"
-
-msgid "No support available"
-msgstr ""
-
-msgid "The plugin has been successfully installed."
-msgstr "Le plugin a été installé avec succès"
-
-msgid "The theme has been successfully installed."
-msgstr "Le thème a été installé avec succès."
-
-msgid "Following plugins have not been updated:"
-msgstr "Les extensions suivantes n'ont pas été mises à jour :"
-
-msgid "Following plugins have been updated:"
-msgstr "Les extensions suivantes ont été mises à jour :"
-
-msgid "Following themes have not been updated:"
-msgstr "Les thèmes suivants n'ont pas été mis à jour :"
-
-msgid "Following themes have been updated:"
-msgstr "Les thèmes suivants ont été mis à jour :"
-
-msgid "Available updates"
-msgstr "Mises à jours disponibles"
-
-msgid "Detected updates for your system"
-msgstr ""
-
-msgid "Changes can be required after installation of updates. Click on a support link before to be aware about"
-msgstr ""
-
-msgid "No update available"
-msgstr ""
-
-msgid "Get more plugins"
-msgstr ""
-
-#, php-format
-msgid "Available plugins (%s)"
-msgstr "Extensions disponibles (%s)"
-
-msgid "Get more themes"
-msgstr ""
-
-#, php-format
-msgid "Available themes (%s)"
-msgstr "Thèmes disponibles (%s)"
-
-#, php-format
-msgid "%u %s found"
-msgstr ""
-
 msgid "Checks trackback source for a link to the post"
 msgstr "Contrôle si la source du rétrolien comporte un lien vers le billet"
-
-msgid "Import/Export"
-msgstr "Import/Export"
 
 msgid "Flat file export"
 msgstr "Fichier d'exportation « à plat »"
@@ -1187,9 +1084,6 @@ msgstr "Veuillez patientez…"
 msgid "Export functions are in the page %s."
 msgstr "Les fonctions d'export sont dans la page de %s."
 
-msgid "Maintenance"
-msgstr "Maintenance"
-
 msgid "Servicing"
 msgstr "Entretien"
 
@@ -1259,6 +1153,49 @@ msgstr "Afficher le nombre de tâches en retard sur l'icône Maintenance du tabl
 
 msgid "Display list of late tasks on dashboard items"
 msgstr "Afficher la liste des tâches en retard dans un module du tableau de bord"
+
+msgid "Never"
+msgstr "Jamais"
+
+msgid "Every week"
+msgstr "Chaque semaine"
+
+msgid "Every two weeks"
+msgstr "Toutes les deux semaines"
+
+msgid "Every month"
+msgstr "Chaque mois"
+
+msgid "Every two months"
+msgstr "Tous les deux mois"
+
+msgid "Maintenance plugin has been successfully configured."
+msgstr "Le plugin de maintenance a été configuré avec succès"
+
+msgid "Set up reminders for maintenance tasks."
+msgstr ""
+
+msgid "Activation"
+msgstr "Activation"
+
+msgid "Display alert messages on late tasks"
+msgstr "Afficher des messages d'alerte pour les tâches en retard"
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
+
+msgid "Frequency"
+msgstr "Périodicité"
+
+msgid "Use one recall time for all tasks"
+msgstr "Utiliser le même délai de rappel pour toutes les tâches"
+
+msgid "Recall time for all tasks:"
+msgstr "Délai de rappel pour toutes les tâches :"
+
+msgid "Use one recall time per task"
+msgstr "Utiliser un délai de rappel différent pour chaque tâche"
 
 msgid "Failed to execute task."
 msgstr "Impossible d'exécuter la tâche."
@@ -1386,29 +1323,11 @@ msgstr "Télécharger le theme actif du blog courant"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Il peut être utile de sauvegarder le thème courant avant tout changement ou mise à jour. Ceci comprime tout le contenu du répertoire du thème dans un seul fichier Zip."
 
-msgid "Never"
-msgstr "Jamais"
-
-msgid "Every week"
-msgstr "Chaque semaine"
-
-msgid "Every two weeks"
-msgstr "Toutes les deux semaines"
-
-msgid "Every month"
-msgstr "Chaque mois"
-
-msgid "Every two months"
-msgstr "Tous les deux mois"
-
 msgid "You have not sufficient permissions to view this page."
 msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page."
 
 msgid "Settings successfully updated"
 msgstr "Les réglages ont été mis à jour avec succès"
-
-msgid "Back"
-msgstr "Retour"
 
 msgid "You should execute it now."
 msgstr "Vous devriez l'exécuter dès maintenant."
@@ -1418,34 +1337,6 @@ msgstr "Exécuter cette tâche"
 
 msgid "This may take a very long time."
 msgstr "Cela peut prendre un certain temps."
-
-msgid "Alert settings"
-msgstr "Réglage des alertes"
-
-msgid "Activation"
-msgstr "Activation"
-
-msgid "Display alert messages on late tasks"
-msgstr "Afficher des messages d'alerte pour les tâches en retard"
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
-
-msgid "Frequency"
-msgstr "Périodicité"
-
-msgid "Use one recall time for all tasks"
-msgstr "Utiliser le même délai de rappel pour toutes les tâches"
-
-msgid "Recall time for all tasks:"
-msgstr "Délai de rappel pour toutes les tâches :"
-
-msgid "Use one recall time per task"
-msgstr "Utiliser un délai de rappel différent pour chaque tâche"
-
-msgid "Save this settings"
-msgstr "Enregistrer ces réglages"
 
 msgid "New page"
 msgstr "Nouvelle page"
@@ -1607,9 +1498,6 @@ msgstr "Archive"
 
 msgid "Page"
 msgstr "Page"
-
-msgid "Tags"
-msgstr "Mots-clés"
 
 msgid "User defined"
 msgstr "Saisie libre"
@@ -1911,9 +1799,6 @@ msgstr "Préférences utilisateur"
 msgid "Global preferences"
 msgstr "Préférences globales"
 
-msgid "Presentation widgets"
-msgstr "Widgets de présentation"
-
 msgid "Search engine"
 msgstr "Moteur de recherche"
 
@@ -2101,6 +1986,72 @@ msgstr "Retirer le widget"
 
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer."
+
+#~ msgid "Updates are available"
+#~ msgstr "Des mises à jour sont disponibles"
+
+#~ msgid "Impossible to read data feed"
+#~ msgstr "Impossible de lire le flux de données"
+
+#~ msgid "Quick description"
+#~ msgstr "Description rapide"
+
+#~ msgid "Page(s)"
+#~ msgstr "Page(s)"
+
+#~ msgid "by"
+#~ msgstr "par"
+
+#~ msgid "Update selected modules"
+#~ msgstr "Mettre à jour les modules sélectionnés"
+
+#~ msgid "Support"
+#~ msgstr "Assistance"
+
+#~ msgid "The theme has been successfully installed."
+#~ msgstr "Le thème a été installé avec succès."
+
+#~ msgid "Following plugins have not been updated:"
+#~ msgstr "Les extensions suivantes n'ont pas été mises à jour :"
+
+#~ msgid "Following plugins have been updated:"
+#~ msgstr "Les extensions suivantes ont été mises à jour :"
+
+#~ msgid "Following themes have not been updated:"
+#~ msgstr "Les thèmes suivants n'ont pas été mis à jour :"
+
+#~ msgid "Following themes have been updated:"
+#~ msgstr "Les thèmes suivants ont été mis à jour :"
+
+#~ msgid "Available updates"
+#~ msgstr "Mises à jours disponibles"
+
+#~ msgid "Available plugins (%s)"
+#~ msgstr "Extensions disponibles (%s)"
+
+#~ msgid "Available themes (%s)"
+#~ msgstr "Thèmes disponibles (%s)"
+
+#~ msgid "Import/Export"
+#~ msgstr "Import/Export"
+
+#~ msgid "Maintenance"
+#~ msgstr "Maintenance"
+
+#~ msgid "Back"
+#~ msgstr "Retour"
+
+#~ msgid "Alert settings"
+#~ msgstr "Réglage des alertes"
+
+#~ msgid "Save this settings"
+#~ msgstr "Enregistrer ces réglages"
+
+#~ msgid "Tags"
+#~ msgstr "Mots-clés"
+
+#~ msgid "Presentation widgets"
+#~ msgstr "Widgets de présentation"
 
 #~ msgid "Pages"
 #~ msgstr "Pages"

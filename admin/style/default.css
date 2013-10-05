@@ -627,6 +627,10 @@ input[type=submit] {
 	text-decoration: none;
 	border-radius: 3px;
 	cursor: pointer;
+	position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-style: solid;
+    border-width: 1px;
 	}
 button,
 input[type=button],
@@ -637,20 +641,21 @@ input[type=submit] {
  /* validation */
 input[type=submit], a.button.submit, input.button.start {
 	color: #fff;
-	border: 1px solid #2C8FD1;
+	background-color:#25A6E1;
 	background-image:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background-image:-webkit-gradient(linear,left top,left bottom, from(#25A6E1), to(#188BC0));
 	background-image:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
-	background-color:#25A6E1;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+	border-color: #25A6E1;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	}
 	input[type=submit]:hover, input[type=submit]:focus,
 	input.button.start:hover, input.button.start:focus,
 	a.button.submit:hover, a.button.submit:focus {
+		background-color:#188BC0;
 		background-image:-moz-linear-gradient(top,#188BC0 0%,#25A6E1 100%);
 		background-image:-webkit-gradient(linear,left top,left bottom, from(#188BC0),to(#25A6E1));
 		background-image:linear-gradient(top,#188BC0 0%,#25A6E1 100%);
-		background-color:#188BC0;
+		border-color: #188BC0;
 		}
 /* suppression, reset, "neutres" fond gris */
 button, input[type=button], input.button,
@@ -658,12 +663,13 @@ input[type=reset], input[type=submit].reset, input.reset,
 input[type=submit].delete, input.delete,
 a.button.delete, a.button.reset, a.button {
 	color: #000;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#dfdfdf));
-	background-image: -moz-linear-gradient(top,  #f5f5f5,  #dfdfdf);
-	background-image:linear-gradient(top,#f5f5f5 0%,#dfdfdf 100%);
-	background-color: #eee;
-	border: 1px solid #ccc;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    background-color: #EAEAEA;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FAFAFA), to(#EAEAEA));
+	background-image: -moz-linear-gradient(top,  #FAFAFA,  #EAEAEA);
+	background-image:linear-gradient(#FAFAFA,#EAEAEA);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #DDDDDD #C5C5C5;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
 	}
 	button:hover, input[type=button]:hover, input.button:hover,
 	button:focus, input[type=button]:focus, input.button:focus,
@@ -673,47 +679,51 @@ a.button.delete, a.button.reset, a.button {
 	input[type=submit].delete:focus, input.delete:focus,
 	a.button.delete:hover, a.button.reset:hover, a.button:hover,
 	a.button.delete:focus, a.button.reset:focus, a.button:focus {
-		background-image:-webkit-gradient( linear, left top, left bottom, from(#e9e9e9), to(#f9f9f9));
-		background-image:-moz-linear-gradient(top, #e9e9e9, #f9f9f9);
-		background-image:linear-gradient(top,#e9e9e9 0%,#f9f9f9 100%);
-		background-color:#f3f3f3;
+	    background-color: #DADADA;
+		background-image:-webkit-gradient( linear, left top, left bottom, from(#EAEAEA), to(#DADADA));
+		background-image:-moz-linear-gradient(top, #EAEAEA, #DADADA);
+	    background-image: linear-gradient(#EAEAEA, #DADADA);
+	    background-repeat: repeat-x;
+	    border-color: #CCCCCC #CCCCCC #B5B5B5;
 		}
 	/* suppression */
 	input[type=submit].delete, input.delete, a.button.delete {
-		border-color: #ccc;
-		color: #c00;
-		margin-left: 1em;
-		}
-	a.delete:first-child, input.delete:first-child {
-		margin-left: 0;
+		color: #900;
 		}
 	input[type=submit].delete:hover, input.delete:hover, a.button.delete:hover,
 	input[type=submit].delete:focus, input.delete:focus, a.button.delete:focus {
-			border-color: #c00;
-			}
+	    color: #FFFFFF;
+	    background-color: #B33630;
+		background-image:-webkit-gradient( linear, left top, left bottom, from(#DC5F59), to(#B33630));
+		background-image:-moz-linear-gradient(top, #DC5F59, #B33630);
+	    background-image: linear-gradient(#DC5F59, #B33630);
+	    background-repeat: repeat-x;
+	    border-color: #CD504A;
+	    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+		}
 	#info-box a.button {
 		padding: 0 .5em;
 		margin-left: 2em;
 		}
 .button.add {
+	color: #000;
+	background-color:#bee74b;
 	background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #bee74b), color-stop(1, #9BCA1C) );
 	background-image:-moz-linear-gradient(center top, #bee74b 5%, #9BCA1C 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bee74b', endColorstr='#9BCA1C');
-	background-color:#bee74b;
-	border:1px solid #B2D742;
+	background-image:linear-gradient(center top, #bee74b 5%, #9BCA1C 100%);
+	border-color: #B2D742;
 	padding:.33em 1.33em .5em;
-	color: #000;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 	font-weight: normal;
 	font-size: 14px; /* ie < 9 sucks */
 	font-size: 1.4rem;
 	}
 	.button.add:hover, .button.add:active, .button.add:focus {
+		background-color:#9BCA1C;
 		background-image:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9BCA1C), color-stop(1, #bee74b) );
 		background-image:-moz-linear-gradient(center top, #9BCA1C 5%, #bee74b 100%);
 		background-image:linear-gradient(center top, #9BCA1C 5%, #bee74b 100%);
-		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9BCA1C', endColorstr='#bee74b');
-		background-color:#9BCA1C;
+		border-color: #9BCA1C;
 		}
 	.button-add:focus {
 		outline: dotted 1px;
@@ -1544,10 +1554,7 @@ a.form-control.open {
 	border: 1px solid #ddd;
 	}
 .box.theme:hover {
-	background: #ecf0f1 url(stripe.png);
-	}
-.dc-box.box.theme:hover {
-	background: url(stripe.png), url(dc_logos/sq-logo-32.png) no-repeat top right;
+	background: #ecf0f1 url(texture.png);
 	}
 #theme-new .box.theme {
 	width: 280px;
@@ -1590,8 +1597,8 @@ span.module-version:before {
 .box.current-theme {
 	width: 652px;
 	margin: .5em;
-	padding: 10px;
-	background: #fff url(stripe.png);
+	padding: 10px 18px;
+	background: #fff url(texture.png);
 	border: 1px solid #eee;
 	-webkit-border-radius: .5em;
 	border-radius: .5em;
@@ -1779,10 +1786,6 @@ span.module-version:before {
 		}
 .medias-delete {
 	text-align: right;
-	}
-.zip-dl {
-	background: transparent url(package.png) no-repeat 0 50%;
-	padding: 5px 0 5px 20px;
 	}
 /* upload multiple */
 .enhanced_uploader .choose_files, .enhanced_uploader .cancel, 
@@ -2398,7 +2401,12 @@ ul.from-left {
 	padding: 3px 0.5em 2px;
 	}
 input[type=submit].delete.debug, a.delete.debug {
+	border-color: #ff6;
+	}
+input[type=submit].delete.debug:hover, a.delete.debug:hover {
 	background: #ff6;
+	color: #c00;
+	border-color: #ff6;
 	}
 /* ---------------------------------------------- Couleurs ajoutées via javascript	
 /* color-picker.js */
