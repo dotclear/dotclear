@@ -224,8 +224,9 @@ class dcFavorites
 				'url' => $v[2],
 				'small-icon' => $v[3],
 				'large-icon' => $v[4],
-				'id' => $v[5],
-				'class' => $v[6]
+				'permissions' => $v[5],
+				'id' => $v[6],
+				'class' => $v[7]
 			);
 			$this->register ($v[0], $fav);
 		}
