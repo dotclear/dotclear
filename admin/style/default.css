@@ -2401,7 +2401,12 @@ ul.from-left {
 	padding: 3px 0.5em 2px;
 	}
 input[type=submit].delete.debug, a.delete.debug {
+	border-color: #ff6;
+	}
+input[type=submit].delete.debug:hover, a.delete.debug:hover {
 	background: #ff6;
+	color: #c00;
+	border-color: #ff6;
 	}
 /* ---------------------------------------------- Couleurs ajoutées via javascript	
 /* color-picker.js */
