@@ -231,13 +231,6 @@ if ($core->auth->userID() && $core->blog !== null)
 	$_menu['Plugins']->title = __('Plugins');
 
 
-/*	
-	if (!preg_match('/index.php$/',$_SERVER['REQUEST_URI'])) {
-		# Admin index can't be add in fav's
-		$_menu['Dashboard']->prependItem(__('Add this page to my favorites'),'#','images/menu/add_to_favorites.png',
-			false,$core->auth->check('usage,contentadmin',$core->blog->id),'fav-add');
-	}
-*/
 	$_menu['Blog']->prependItem(__('Blog appearance'),'blog_theme.php','images/menu/themes.png',
 		preg_match('/blog_theme.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('admin',$core->blog->id));
