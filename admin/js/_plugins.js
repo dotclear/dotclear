@@ -90,15 +90,15 @@ dotclear.viewModuleContent = function(img,line,action) {
                                                 dd += ' - ';
                                                 dd += '<a class="module-support" href="'+support+'">'+dotclear.msg.module_support+'</a>';
                                         }
-                                        $(bloc).append($('<li>'+dotclear.msg.module_help+' '+dd+'</li>'));
+                                        $(bloc).append($('<li>'+dd+'</li>'));
                                 }
 
-                                $(td).append($(box).addClass('two-boxes').append(bloc));
+                                $(td).append($(box).append(bloc));
                                 
                                 var section = $(rsp).find('section').text();
                                 var tags = $(rsp).find('tags').text();
                                 
-								var boxb = document.createElement('div');
+				var boxb = document.createElement('div');
                                 var blocb = document.createElement('ul');
                                 blocb.className = "mod-more";
                                 
@@ -108,7 +108,7 @@ dotclear.viewModuleContent = function(img,line,action) {
                                 if (tags) {
                                         $(blocb).append($('<li class="module-tags">'+dotclear.msg.module_tags+' '+tags+'</li>'));
                                 }
-                                $(td).append($(boxb).addClass('two-boxes').append(blocb));
+                                $(td).append($(boxb).append(blocb));
                         } else {
                                 alert($(rsp).find('message').text());
                         }
