@@ -260,7 +260,8 @@ body {
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
 	line-height: 1.5;
-	font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+	/* font-family: Arial,"Helvetica Neue",Helvetica,sans-serif; */	
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	color: #333;
 	background: #fff;
 	margin: 0;
@@ -2272,6 +2273,24 @@ div.template-upload {
 	}
 .pager a:hover, .pager a:focus {
 	background-color: #ecf0f1;
+	}
+.index .btn.no-link, .index a {
+	padding: 2px 8px 3px;
+	font-variant: small-caps;
+	}
+.index a {
+	font-weight: bold;
+	}
+.index .btn.no-link {
+	color: #ccc;
+	}
+.pager .active {
+	padding: 4px 8px; 
+	color: #fff;
+	background: #676e78;
+	-webkit-border-radius: 3px;
+	        border-radius: 3px;
+	font-variant: small-caps;
 	}
 /* Etapes */
 .step {

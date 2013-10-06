@@ -257,10 +257,10 @@ class adminModulesList
 
 		echo 
 		'<div class="modules-search">'.
-		'<form action="'.$this->getURL().'" method="get" class="fieldset">'.
+		'<form action="'.$this->getURL().'" method="get">'.
 		'<p><label for="m_search" class="classic">'.__('Search in repository:').'&nbsp;</label><br />'.
 		form::field(array('m_search','m_search'), 30, 255, html::escapeHTML($query)).
-		'<input type="submit" value="'.__('Search').'" /> ';
+		'<input type="submit" value="'.__('OK').'" /> ';
 
 		if ($query) { 
 			echo 
@@ -357,7 +357,7 @@ class adminModulesList
 			}
 		}
 		# Parse navigation menu
-		echo '<div class="pager">'.__('Browse index:').' <ul>'.implode('',$buttons).'</ul></div>';
+		echo '<div class="pager">'.__('Browse index:').' <ul class="index">'.implode('',$buttons).'</ul></div>';
 
 		return $this;
 	}

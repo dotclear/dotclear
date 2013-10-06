@@ -1877,13 +1877,13 @@ msgid "Comments feed"
 msgstr "Fil des commentaires"
 
 msgid "navigation"
-msgstr "navigation"
+msgstr "Volet de navigation"
 
 msgid "extra"
-msgstr "extra"
+msgstr "Volet d'extra"
 
 msgid "custom"
-msgstr "supplémentaire"
+msgstr "Volet supplémentaire"
 
 msgid "empty string"
 msgstr "chaîne vide"

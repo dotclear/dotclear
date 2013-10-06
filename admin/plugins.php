@@ -209,8 +209,8 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 	if (!empty($search) || !empty($modules)) {
 		echo
 		'<div class="multi-part" id="new" title="'.__('Add plugins').'">'.
-		'<h3>'.__('Add plugins from repository').'</h3>'.
-		'<p>'.__('Search and install plugins directly from repository.').'</p>';
+		'<h3>'.__('Add plugins from repository').'</h3>';
+//		'<p>'.__('Search and install plugins directly from repository.').'</p>';
 
 		$list
 			->setList('plugin-new')
