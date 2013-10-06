@@ -1583,6 +1583,9 @@ a.form-control.open {
 #theme-new .box.theme {
 	width: 280px;
 	}
+#theme-activate .box.theme {
+	min-height: 330px;
+	}
 .module-name {
 	margin-bottom: .5em;
 	}
@@ -1595,6 +1598,12 @@ a.form-control.open {
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	border: 3px solid #fff;
 	padding: .5em;
+	}
+.theme .module-sshot img { /* pour ceux qui n'ont pas de miniature */
+	max-width: 280px;
+	}
+#theme-new .theme .module-sshot img { /* pour ceux qui n'ont pas de miniature */
+	max-width: 240px;
 	}
 .module-actions {
 	margin-top: 1em;
