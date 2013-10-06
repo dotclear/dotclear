@@ -271,23 +271,10 @@ class dcPage
 		echo
 		'<div id="footer">'.
 		'<a href="http://dotclear.org/" title="'.$text.'">'.
-		'<span class="tooltip">'.
-		'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</br>'.
-		'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,;:\'`\'::</br>'.
-		'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__||</br>'.
-		'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_____/LLLL\_</br>'.
-		'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\__________"| '.$text.' <3 </br>'.
-		'~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~^~</br>'.
-		'</span>'.
 		'<img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
-		 		'<!-- '."\n".
-		'                  .'."\n".
-		'               ,;:\'`\'::'."\n".
-		'            __||'."\n".
-		'      _____/LLLL\_'."\n".
-		'      \__________"|'."\n".
-		'    ~^~^~^~^~^~^~^~^~^~'."\n".
-		' -->'."\n";
+        "<!-- \n                  \n               ,;:'`'::\n".
+		"            __||\n      _____/LLLL\_\n      \__________\"|\n".
+        "    ~^~^~^~^~^~^~^~^~^~\n -->\n";
 
 		if (defined('DC_DEV') && DC_DEV === true) {
 			echo self::debugInfo();
