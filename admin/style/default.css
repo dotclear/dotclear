@@ -1553,6 +1553,8 @@ a.form-control.open {
 	margin: .5em;
 	padding: 10px 10px 5px 10px;
 	border: 1px solid #ddd;
+	min-height: 295px;
+	position: relative;
 	}
 .box.theme:hover {
 	background: #ecf0f1 url(texture.png);
@@ -1590,6 +1592,26 @@ a.form-control.open {
 	}
 span.module-version:before {
 	content: "- ";
+	}
+.with-js #theme-new .module-infos.toggle-bloc,
+.with-js #theme-new .module-actions.toggle-bloc {
+	position: absolute;
+	top: 138px;
+	left: 10px;
+	width: 239px;
+	padding: 10px;
+	background: rgba(250, 250, 250, .9);
+	}
+.with-js #theme-new .module-infos.toggle-bloc {
+	top: 138px;
+	height: 80px;
+	border-top: 1px solid #e3e3e3;
+	}
+.with-js #theme-new .module-actions.toggle-bloc {
+	top: 228px;
+	height: 18px;
+	margin: 0;
+	border-bottom: 1px solid #e3e3e3;
 	}
 .toggle-bloc .mod-more {
 	display: block;

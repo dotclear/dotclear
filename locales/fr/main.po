@@ -2826,7 +2826,7 @@ msgid "Deactivate"
 msgstr "Désactiver"
 
 msgid "Install"
-msgstr "Installation"
+msgstr "Installer"
 
 msgid "Update"
 msgstr "Mise à jour"
