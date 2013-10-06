@@ -359,6 +359,37 @@ function dotclearUpgrade($core)
 					}
 					files::deltree($root.'/daInstaller');
 				}
+
+				# add new settings for date and time formats
+				$date_formats = array('%Y-%m-%d','%m/%d/%Y','%d/%m/%Y','%Y/%m/%d','%d.%m.%Y','%b %e %Y','%e %b %Y','%Y %b %e',
+				'%a, %Y-%m-%d','%a, %m/%d/%Y','%a, %d/%m/%Y','%a, %Y/%m/%d','%B %e, %Y','%e %B, %Y','%Y, %B %e','%e. %B %Y',
+				'%A, %B %e, %Y','%A, %e %B, %Y','%A, %Y, %B %e','%A, %Y, %B %e','%A, %e. %B %Y');
+				$time_formats = array('%H:%M','%I:%M','%l:%M','%Hh%M','%Ih%M','%lh%M');
+				if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+					$date_formats = array_map(create_function('$f',
+											  'return str_replace(\'%e\',\'%#d\',$f);'
+											  ),$date_formats);
+				}
+
+				$strReqFormat = 'INSERT INTO '.$core->prefix.'setting';
+				$strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
+				$strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
+				
+				$strReqSelect = 'SELECT count(1) FROM '.$core->prefix.'setting';
+				$strReqSelect .= ' WHERE setting_id = \'%s\'';
+				$strReqSelect .= ' AND setting_ns = \'system\'';
+				$strReqSelect .= ' AND blog_id IS NULL';
+
+				$rs = $core->con->select(sprintf($strReqSelect,'date_formats'));
+				if ($rs->f(0)==0) {
+					$strReq = sprintf($strReqFormat,'date_formats',serialize($date_formats),'Date formats examples');
+					$core->con->execute($strReq);					 
+				}
+				$rs = $core->con->select(sprintf($strReqSelect,'time_formats'));
+				if ($rs->f(0)==0) {
+					$strReq = sprintf($strReqFormat,'time_formats',serialize($time_formats),'Time formats examples');
+					$core->con->execute($strReq);
+				}
 			}
 			
 			$core->setVersion('core',DC_VERSION);

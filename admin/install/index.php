@@ -145,12 +145,23 @@ if ($can_install && !empty($_POST))
 		$blog_settings->system->put('lang',$dlang);
 		$blog_settings->system->put('public_url',$root_url.'/public');
 		$blog_settings->system->put('themes_url',$root_url.'/themes');
-		$formatDate = __('%A, %B %e %Y');
-		if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
-		    $formatDate = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $formatDate);
-		}
-		$blog_settings->system->put('date_format', $formatDate);
 		
+		# date and time formats
+		$formatDate = __('%A, %B %e %Y');
+		$date_formats = array('%Y-%m-%d','%m/%d/%Y','%d/%m/%Y','%Y/%m/%d','%d.%m.%Y','%b %e %Y','%e %b %Y','%Y %b %e',
+		'%a, %Y-%m-%d','%a, %m/%d/%Y','%a, %d/%m/%Y','%a, %Y/%m/%d','%B %e, %Y','%e %B, %Y','%Y, %B %e','%e. %B %Y',
+		'%A, %B %e, %Y','%A, %e %B, %Y','%A, %Y, %B %e','%A, %Y, %B %e','%A, %e. %B %Y');
+		$time_formats = array('%H:%M','%I:%M','%l:%M','%Hh%M','%Ih%M','%lh%M');
+		if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+			$formatDate = preg_replace('#(?<!%)((?:%%)*)%e#','\1%#d',$formatDate);
+			$date_formats = array_map(create_function('$f',
+									  'return str_replace(\'%e\',\'%#d\',$f);'
+									  ),$date_formats);
+		}
+		$blog_settings->system->put('date_format',$formatDate);
+		$blog_settings->system->put('date_formats',serialize($date_formats),'string','Date formats examples',true);
+		$blog_settings->system->put('time_formats',serialize($time_formats),'string','Time formats examples',true);
+
 		# Add Dotclear version
 		$cur = $core->con->openCursor($core->prefix.'version');
 		$cur->module = 'core';
