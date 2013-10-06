@@ -37,7 +37,7 @@ body.install h1 {
 	margin: 0 0 0.75em 0;
 }
 body.install h2 {
-	color: #ff6000;
+	color: #f90;
 }
 body.install h3 {
 	margin-top:0;
@@ -96,7 +96,7 @@ label.required {
 	font-weight : bold;
 }
 label.required abbr {
-	color: #dd0000;
+	color: #900;
 	font-size: 1.3em;
 }
 
@@ -186,11 +186,11 @@ input[type=submit]:focus {
 	width: 60px;
 }
 .pw-mediocre .bar {
-	background: #f60;
+	background: #f90;
 	width: 90px;
 }
 .pw-strong .bar {
-	background: #060;
+	background: #080;
 	width: 120px;
 }
 .pw-very-strong .bar {
