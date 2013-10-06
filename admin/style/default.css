@@ -1190,6 +1190,27 @@ h1 {
 		font-size: 1em;
 		font-weight: normal;
 		}
+	span.tooltip {
+		position: absolute;
+		padding: 0;
+		border: 0;
+		height: 1px;
+		width: 1px;
+		overflow: hidden;
+		}
+	#footer a:hover span.tooltip {
+		padding: 10px 10px 0 40px;
+		color: #d30e60;
+		height: auto;
+		width: auto;
+		right: 0;
+		bottom: 0;
+		background: #FFF; 
+		z-index: 99;
+		font-family: monospace; 
+		border: none;
+		text-align: left;
+		}
 /* ---------------------------------------------------------------------------------------
 																	RÈGLES SPÉCIFIQUES
 ---------------------------------------------------------------------------------------- */
