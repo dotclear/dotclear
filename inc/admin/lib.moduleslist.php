@@ -1007,7 +1007,7 @@ class adminModulesList
 		}
 
 		if (!$this->modules->moduleExists($id)) {
-			$core->error->add(__('Unknow module ID'));
+			$this->core->error->add(__('Unknow module ID'));
 			return false;
 		}
 
@@ -1016,7 +1016,7 @@ class adminModulesList
 		$file = path::real($module['root'].'/_config.php');
 
 		if (!file_exists($file)) {
-			$core->error->add(__('This module has no configuration file.'));
+			$this->core->error->add(__('This module has no configuration file.'));
 			return false;
 		}
 
