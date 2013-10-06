@@ -1946,11 +1946,11 @@ div.template-upload {
 	font-weight: bold;
 	}
 .modules a.module-details {
-	background: transparent url(search.png) no-repeat 2px 2px;
+	background: transparent url(search.png) no-repeat 2px center;
 	padding: 4px 4px 0 20px;
 	}
 .modules a.module-support {
-	background: transparent url(help12.png) no-repeat 2px 2px;
+	background: transparent url(help12.png) no-repeat 2px center;
 	padding: 4px 4px 0 20px;
 	}
 #m_search {	
@@ -1966,8 +1966,13 @@ div.template-upload {
 	background: #DFE5E7;
 	}
 .modules td.expand {
-	padding: 0;
+	padding: 0 0 1em;
 	border-top: 1px solid #e5e5e5;
+	}
+.modules td.expand div {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 3em;
 	}
 .mod-more, .mod-more li {
 	margin: .25em 0 0 1em;
