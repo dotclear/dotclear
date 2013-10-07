@@ -147,18 +147,9 @@
 	width: 33.3%;
 	margin-left: 0;
 	}
-/* ------------------------------------------------- layout: optionnal one/two-boxes */
+/* ------------------------------------------------- layout: optionnal one/two/three-boxes */
 .one-box {
 	text-align: justify;
-	}
-.two-boxes, .three-boxes, .box {
-	display: inline-block;
-	vertical-align: top;
-	margin: 0 1.5% 1em;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	text-align: left;
 	}
 .two-boxes {
 	width: 47%;
@@ -166,15 +157,14 @@
 .three-boxes {
 	width: 30%;
 	}
-.box {
-	margin-left: 0;
-	margin-right: 0;
-	}
-.odd {
-	margin-left: 0;
-	}
-.even {
-	margin-right: 0;
+.two-boxes, .three-boxes {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 1.5% 1em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: left;
 	}
 /* ---------------------------------------------------------------- layout: popups */
 .popup h1 {
@@ -250,6 +240,30 @@
 	height: 120px;
 	overflow: auto;
 	}
+.box {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 1.5% 1em;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: left;
+	}
+.box.small {
+	width: 320px;
+	}
+.box.medium {
+	width: 660px;
+	}
+.box.large {
+	width: 100%;
+	}
+.odd {
+	margin-left: 0;
+	}
+.even {
+	margin-right: 0;
+	}
 /* ---------------------------------------------------------------------------
 																	HTML TAGS
 ---------------------------------------------------------------------------- */
@@ -277,7 +291,7 @@ h2 {
 	padding: 0 0 1.5em;
 	font-weight: normal;
 	}
-/* titre de page */
+/* fil d'ariane */
 #content > h2 {
 	padding: 0 1em .5em 1em;
 	margin: 0 -1em .5em -1em;
@@ -287,6 +301,7 @@ h2 a:link, h2 a:visited {
 	color: #676e78;
 	border-color: #000;
 	}
+/* page courante dans le fil d'ariane */
 .page-title {
 	color: #d30e60;
 	}
@@ -294,6 +309,7 @@ h2 a:link, h2 a:visited {
 	padding-left: .5em;
 	vertical-align: middle;
 	}
+/* autres titres */
 h3, .as_h3 {
 	margin-top: 1em;
 	color: #D33800;
@@ -344,6 +360,8 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, ul:first-child, 
 	margin-top: 0;
 	}
 /* ---------------------------------------------------------------- tableaux */
+/* 	Pour autoriser le scroll sur les petites largeurs
+	envelopper les tableaux dans une div.table-outer */
 .table-outer {
 	width: 100%;
 	overflow: auto;
@@ -434,6 +452,10 @@ h1 a:link, h1 a:visited {
 /* ----------------------------------------------------------------------------
 																	FORMULAIRES
 ---------------------------------------------------------------------------- */
+input[type=text], input[type=password], input[type=submit], 
+input[type=button], input[type=reset], a.button, button, textarea, select, legend {
+	border-radius: 3px;	
+	}
 form {
 	display: block;
 	margin: 0;
@@ -458,7 +480,6 @@ legend {
 	border-color: #676e78;
 	background: #fff;
 	margin-bottom: 0.5em;
-	border-radius: 3px;
 	}
 label .maximal, textarea.maximal, input.maximal {
 	width: 99%;
@@ -469,7 +490,6 @@ input[type=text], input[type=password], textarea, select {
 	border-width: 1px;
 	border-style: solid;
 	border-color: #dfdfdf;
-	border-radius: 3px;
 	box-shadow: 1px 1px 2px #f3f3f3 inset;
 	padding: 3px;
 	vertical-align: top;
@@ -626,7 +646,6 @@ input[type=submit] {
 	font-size: 100%;
 	text-align: center;
 	text-decoration: none;
-	border-radius: 3px;
 	cursor: pointer;
 	position: relative;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -643,9 +662,8 @@ input[type=submit] {
 input[type=submit], a.button.submit, input.button.start {
 	color: #fff;
 	background-color: #25A6E1;
-	background-image: -moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background-image: -webkit-gradient(linear,left top,left bottom, from(#25A6E1), to(#188BC0));
-	background-image: linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background-image: linear-gradient(#25A6E1,#188BC0);
 	border-color: #25A6E1;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	}
@@ -653,7 +671,6 @@ input[type=submit]:hover, input[type=submit]:focus,
 	input.button.start:hover, input.button.start:focus,
 	a.button.submit:hover, a.button.submit:focus {
 	background-color: #188BC0;
-	background-image: -moz-linear-gradient(top,#188BC0 0%,#25A6E1 100%);
 	background-image: -webkit-gradient(linear,left top,left bottom, from(#188BC0),to(#25A6E1));
 	background-image: linear-gradient(#188BC0,#25A6E1);
 	border-color: #188BC0;
@@ -662,11 +679,10 @@ input[type=submit]:hover, input[type=submit]:focus,
 button, input[type=button], input.button,
 input[type=reset], input[type=submit].reset, input.reset, 
 input[type=submit].delete, input.delete,
-a.button.delete, a.button.reset, a.button {
+ a.button, a.button.delete, a.button.reset {
 	color: #000;
 	background-color: #EAEAEA;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#EAEAEA));
-	background-image: -moz-linear-gradient(top,  #f9f9f9,  #EAEAEA);
 	background-image: linear-gradient(#f9f9f9,#EAEAEA);
 	background-repeat: repeat-x;
 	border-color: #dfdfdf #dfdfdf #C5C5C5;
@@ -682,7 +698,6 @@ button:hover, input[type=button]:hover, input.button:hover,
 	a.button.delete:focus, a.button.reset:focus, a.button:focus {
 	background-color: #DADADA;
 	background-image: -webkit-gradient( linear, left top, left bottom, from(#EAEAEA), to(#DADADA));
-	background-image: -moz-linear-gradient(top, #EAEAEA, #DADADA);
 	background-image: linear-gradient(#EAEAEA, #DADADA);
 	background-repeat: repeat-x;
 	border-color: #CCCCCC #CCCCCC #B5B5B5;
@@ -696,7 +711,6 @@ input[type=submit].delete:hover, input.delete:hover, a.button.delete:hover,
 	color: #FFFFFF;
 	background-color: #B33630;
 	background-image: -webkit-gradient( linear, left top, left bottom, from(#DC5F59), to(#B33630));
-	background-image: -moz-linear-gradient(top, #DC5F59, #B33630);
 	background-image: linear-gradient(#DC5F59, #B33630);
 	background-repeat: repeat-x;
 	border-color: #CD504A;
@@ -710,7 +724,6 @@ input[type=submit].delete:hover, input.delete:hover, a.button.delete:hover,
 	color: #000;
 	background-color: #bee74b;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#bee74b), to(#9BCA1C));
-	background-image: -moz-linear-gradient(top, #bee74b, #9BCA1C);
 	background-image: linear-gradient(#bee74b, #9BCA1C);
 	border-color: #bee74b;
 	padding: .33em 1.33em .5em;
@@ -722,7 +735,6 @@ input[type=submit].delete:hover, input.delete:hover, a.button.delete:hover,
 .button.add:hover, .button.add:active, .button.add:focus {
 	background-color: #9BCA1C;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#9BCA1C), to(#bee74b));
-	background-image: -moz-linear-gradient(top, #9BCA1C, #bee74b);
 	background-image: linear-gradient(top, #9BCA1C, #bee74b);
 	border-color: #9BCA1C;
 	}
@@ -1109,7 +1121,7 @@ h1 a:hover, h1 a:focus {
 	top: 0;
 	right: 0;
 	width: 280px; /* ie < 9 sucks */
-		width: 28rem;
+	width: 28rem;
 	border-left: 2px solid #FFD478;
 	border-top: 2px solid #FFD478;
 	margin-top: 0;
@@ -1174,7 +1186,7 @@ h1 a:hover, h1 a:focus {
 .help-content dd {
 	margin: 0.3em 0 1.5em 0;
 	}
-/* 1. inside help block */
+/* lien d'aide générale dans le help content */
 #helplink p {
 	padding: 0 0 0 .5em;
 	}
@@ -1372,7 +1384,6 @@ a.form-control.open {
 #login-screen .fieldset {
 	border: 1px solid #9bca1c;
 	padding: 1em 1em 0 1em;
-	border-radius: 3px;
 	background: #fff;
 	}
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit],
@@ -1430,8 +1441,6 @@ a.form-control.open {
 #icons a img {
 	padding: 1.5em;
 	background-color: #f9f9f9;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
 	border-radius: 8px;
 	border: 1px solid #dadada;
 	display: inline-block;
@@ -1489,15 +1498,6 @@ a.form-control.open {
 	min-height: 200px;
 	margin: 10px;
 	text-align: left;
-	}
-.box.small {
-	width: 320px;
-	}
-.box.medium {
-	width: 660px;
-	}
-.box.large {
-	width: 100%;
 	}
 .dc-box {
 	background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
@@ -1653,7 +1653,6 @@ span.module-version:before {
 	padding: 10px 18px;
 	background: #fff url(texture.png);
 	border: 1px solid #eee;
-	-webkit-border-radius: .5em;
 	border-radius: .5em;
 	min-height: 330px;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -1937,9 +1936,9 @@ label span.one-file {
 	font-weight: bold;
 	line-height: 1em;
 	text-align: right;
-	background: green url("loader.png") repeat-x left top;
+	background: green url(loader.png) repeat-x left top;
 	color: white;
-	border-radius: 2px;
+	border-radius: 3px;
 	}
 div.template-upload {
 	clear: both;
@@ -2161,6 +2160,9 @@ div.template-upload {
 .guideline h3 {
 	margin-top: 2em;
 	}
+.guideline .dc-update h3 {
+	margin-top: 0;
+	}
 .guideline .one-box .box {
 	border: 1px solid #dfdfdf;
 	padding: 2px .5em;
@@ -2269,7 +2271,6 @@ a.onblog_link {
 	padding: 2px 1.5em;
 	border-radius: .75em;
 	background-color: #ECF0F1;
-	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 	}
 /* Pagination */
@@ -2339,7 +2340,6 @@ a.onblog_link {
 	padding: 4px 8px;
 	color: #fff;
 	background: #676e78;
-	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	font-variant: small-caps;
 	}
@@ -2485,44 +2485,30 @@ input[type=submit].delete.debug:hover, a.delete.debug:hover {
 	}
 /* ---------------------------------------------- Couleurs ajoutées via javascript	
 /* color-picker.js */
-.color-color-picker {
+.color-color-picker { 
 	border: 1px solid #000;
-	width: 195px;
-	background: #fff;
-	}
-/* _blog_theme.js */
-.select-button {
-	font-weight: bold;
+	width: 195px; 
+	background: #fff; 
 	}
 /* _media_item.js */
-.color-div {
+.color-div { 
 	border: 1px solid #ccc;
 	}
 /* fadings ('color' est utilisé comme variable, pas comme text color) */
-.colorBeginPassword, .colorBeginValidatorErr, .colorBeginUserMail {
-	color: #fff;
-	}
-.colorEndPassword, .colorEndError, .colorEndValidatorErr, .colorEndUserMail {
-	color: #ffbaba;
-	}
-.colorBeginMessage {
-	color: #ccc;
-	}
-.colorEndMessage, .colorBeginValidatorMsg {
-	color: #676e78;
-	}
-.colorBeginError {
-	color: #fefacd;
-	}
-.colorBeginSuccess {
-	color: #9BCA1C;
-	}
-.colorEndSuccess {
-	color: #bee74b;
-	}
-.colorEndValidatorMsg {
-	color: #ffcc00;
-	}
+.colorBeginPassword, 
+.colorBeginValidatorErr, 
+.colorBeginUserMail 		{ color: #fff; }
+.colorEndPassword, 
+.colorEndError, 
+.colorEndValidatorErr, 
+.colorEndUserMail 			{ color: #ffbaba; }
+.colorBeginMessage 			{ color: #ccc; }
+.colorEndMessage, 
+.colorBeginValidatorMsg 	{ color: #676e78; }
+.colorBeginError 			{ color: #fefacd; }
+.colorBeginSuccess 			{ color: #9BCA1C; }
+.colorEndSuccess 			{ color: #bee74b; }
+.colorEndValidatorMsg 		{ color: #ffcc00; }
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
@@ -2565,7 +2551,6 @@ h1, #top-info-blog {
 	background: #999;
 	color: #FFF;
 	border-width: 0;
-	-webkit-border-radius: 6px;
 	border-radius: 6px;
 	}
 .three-boxes, .three-boxes .box,

@@ -164,11 +164,11 @@ dcPage::check('usage,contentadmin');
 							<p><span class="step">3</span> Attention, il faut soit ne pas retourner à la ligne entre la fermeture d'une boîte <code>"two-boxes"</code> et l'ouverture de la suivante soit adopter la méthode de commentaire vide mise en place ici et expliquée chez <a href="http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html">Alsacréations</a> («&nbsp;Méthode 2&nbsp;»).</p>
 						</div><!--
 						--><div class="two-boxes even">
-							<div class="box">
+							<div class="box odd">
 								<p><span class="step">4</span> Toutes les boîtes de class <code>"box"</code><br />
 								 placées au sein d'une boîte <code>"two-boxes"</code>…</p>
 							</div>
-							<div class="box">
+							<div class="box even">
 								<p><span class="step">4 bis</span>… se distribuent horizontalement comme dans <br />
 									une boîte <code>"one-box"</code>.</p>
 							</div>
