@@ -128,6 +128,7 @@ class dcPage
 		'<li><a href="#content">'.__('Go to the content').'</a></li>'.
 		'<li><a href="#main-menu">'.__('Go to the menu').'</a></li>'.
 		'<li><a href="#qx">'.__('Go to search').'</a></li>'.
+		'<li><a href="#help">'.__('Go to help').'</a></li>'.
 		'</ul>'."\n".
 		'<div id="header">'.
 		'<h1><a href="index.php"><span class="hidden">'.DC_VENDOR_NAME.'</span></a></h1>'."\n";
@@ -234,7 +235,7 @@ class dcPage
 
 		if (!$GLOBALS['__resources']['ctxhelp']) {
 			echo
-			'<p id="help-button"><a href="help.php" onclick="window.open(this.href);return false;" title="'.
+			'<p id="help-button"><a href="help.php" class="outgoing" title="'.
 			__('Global help').' ('.__('new window').')">'.__('Global help').'</a></p>';
 		}
 
@@ -952,4 +953,3 @@ class dcPage
 		'<script type="text/javascript" src="js/meta-editor.js"></script>';
 	}
 }
-?>
