@@ -215,6 +215,7 @@ if ($can_install && !empty($_POST))
 		$core->auth->user_prefs->interface->put('enhanceduploader',true,'boolean','',null,true);
 
 		# Add default favorites
+		$core->favs = new dcFavorites($core);
 		$init_favs = array('posts','new_post','newpage','comments','categories','media','blog_theme','widgets','simpleMenu','prefs','help');
 		$core->favs->setFavoriteIDs($init_favs,true);
 
