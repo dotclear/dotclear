@@ -38,7 +38,7 @@ if ($core->getVersion('pages') == null) {
 		$cur->post_format = 'xhtml';
 		$cur->post_lang = $core->blog->settings->system->lang;
 		$cur->post_title = __('My first page');
-		$cur->post_content = __('<p>'.__('This is your first page. When you\'re ready to blog, log in to edit or delete it.').'</p>');
+		$cur->post_content = '<p>'.__('This is your first page. When you\'re ready to blog, log in to edit or delete it.').'</p>';
 		$cur->post_content_xhtml = $cur->post_content;
 		$cur->post_excerpt = '';
 		$cur->post_excerpt_xhtml = $cur->post_excerpt;

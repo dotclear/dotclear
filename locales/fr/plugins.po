@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 19:46+0200\n"
+"POT-Creation-Date: 2013-10-07 13:44+0000\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -163,9 +163,6 @@ msgstr "Clé API non vérifiée"
 
 msgid "Get your own API key"
 msgstr "Obtenez votre propre clé API"
-
-msgid "Antispam"
-msgstr "Antispam"
 
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
@@ -391,9 +388,6 @@ msgstr "Pas de fichier attaché."
 msgid "Add files to this entry"
 msgstr "Ajouter des fichiers à la page"
 
-msgid "Blogroll"
-msgstr "Liste des liens"
-
 msgid "manage blogroll"
 msgstr "Gestion de la liste des liens"
 
@@ -614,7 +608,7 @@ msgid "Choose a predefined style"
 msgstr "Sélectionnez un style prédéfini"
 
 msgid "Back to Blog appearance"
-msgstr ""
+msgstr "Retour à l'apparence du blog"
 
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr "Pour les raisons suivantes, les images n'ont pu être créées. Vous ne pourrez pas changer certaines propriétés de fond."
@@ -1173,7 +1167,7 @@ msgid "Maintenance plugin has been successfully configured."
 msgstr "Le plugin de maintenance a été configuré avec succès"
 
 msgid "Set up reminders for maintenance tasks."
-msgstr ""
+msgstr "Définir les rappels pour les tâches de maintenance."
 
 msgid "Activation"
 msgstr "Activation"
@@ -1338,9 +1332,6 @@ msgstr "Exécuter cette tâche"
 msgid "This may take a very long time."
 msgstr "Cela peut prendre un certain temps."
 
-msgid "New page"
-msgstr "Nouvelle page"
-
 #, php-format
 msgid "%d page"
 msgstr "%d page"
@@ -1354,9 +1345,6 @@ msgstr "gestion des pages"
 
 msgid "My first page"
 msgstr "Ma première page"
-
-msgid "<p>"
-msgstr ""
 
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Ceci est votre première page. Quand vous serez prêt à bloguer, connectez-vous pour l'éditer ou la supprimer."
@@ -1480,9 +1468,6 @@ msgstr "Tester les services de signalement"
 
 msgid "Check all"
 msgstr "Tout sélectionner"
-
-msgid "Simple menu"
-msgstr "Menu simple"
 
 msgid "All months"
 msgstr "Tous les mois"
@@ -1818,7 +1803,7 @@ msgid "With entries counts"
 msgstr "Avec le nombre de billets"
 
 msgid "Include sub cats in count"
-msgstr ""
+msgstr "Inclure les sous-catégories dans les compteurs"
 
 msgid "Include empty categories"
 msgstr "Inclure les catégories vides"
@@ -1987,6 +1972,27 @@ msgstr "Retirer le widget"
 msgid "Drag widgets here to remove them from this sidebar."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
+#~ msgid "Antispam"
+#~ msgstr "Antispam"
+
+#~ msgid "Blogroll"
+#~ msgstr "Liste des liens"
+
+#~ msgid "Import/Export"
+#~ msgstr "Import/Export"
+
+#~ msgid "Maintenance"
+#~ msgstr "Maintenance"
+
+#~ msgid "Tags"
+#~ msgstr "Mots-clés"
+
+#~ msgid "New page"
+#~ msgstr "Nouvelle page"
+
+#~ msgid "Simple menu"
+#~ msgstr "Menu simple"
+
 #~ msgid "Updates are available"
 #~ msgstr "Des mises à jour sont disponibles"
 
@@ -2032,12 +2038,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgid "Available themes (%s)"
 #~ msgstr "Thèmes disponibles (%s)"
 
-#~ msgid "Import/Export"
-#~ msgstr "Import/Export"
-
-#~ msgid "Maintenance"
-#~ msgstr "Maintenance"
-
 #~ msgid "Back"
 #~ msgstr "Retour"
 
@@ -2046,9 +2046,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Save this settings"
 #~ msgstr "Enregistrer ces réglages"
-
-#~ msgid "Tags"
-#~ msgstr "Mots-clés"
 
 #~ msgid "Presentation widgets"
 #~ msgstr "Widgets de présentation"

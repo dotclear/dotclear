@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 19:46+0200\n"
+"POT-Creation-Date: 2013-10-07 13:44+0000\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -410,7 +410,7 @@ msgid "Truncate feeds"
 msgstr "Tronquer les flux de syndication"
 
 msgid "Include sub-categories in category page and category posts feed"
-msgstr ""
+msgstr "Inlure les sous-catégories dans la page des catégories et dans les flux de billets pour une catégorie"
 
 msgid "Media and images"
 msgstr "Médias et images"
@@ -484,7 +484,7 @@ msgstr "Tous les droits sur tous les blogs."
 
 #, php-format
 msgid "[%s] (unreferenced permission)"
-msgstr ""
+msgstr "[%s] (permission non référencée)"
 
 msgid "All rights on this blog."
 msgstr "Tous les droits sur ce blog."
@@ -507,39 +507,36 @@ msgstr "Mettre à jour les thèmes"
 #, php-format
 msgid "There is one theme to update available from repository."
 msgid_plural "There are %s themes to update available from repository."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Il y a un thème à mettre à jour depuis le dépôt."
+msgstr[1] "Il y a %s thème à mettre à jour depuis le dépôt."
 
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
-msgstr ""
+msgstr "Visitez le dépôt %s, le centre de ressources pour Dotclear"
 
 msgid "Installed themes"
 msgstr "Thèmes installés"
 
 msgid "You can configure and manage installed themes from this list."
-msgstr ""
+msgstr "Vous pouvez configurer et gérer les thèmes de cette liste."
 
 msgid "Deactivated themes"
 msgstr "Thèmes désactivés"
 
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
-msgstr ""
+msgstr "Les thèmes désactivés sont installés mais non utilisables. Vous pouvez les activer depuis cette page."
 
 msgid "Add themes"
 msgstr "Ajouter des thèmes"
 
 msgid "Add themes from repository"
-msgstr ""
-
-msgid "Search and install themes directly from repository."
-msgstr ""
+msgstr "Ajouter des thèmes depuis le dépôt"
 
 msgid "Install or upgrade manually"
 msgstr "Installer ou mettre à jour manuellement"
 
 msgid "Add themes from a package"
-msgstr ""
+msgstr "Ajouter des thèmes depuis un package"
 
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Vous pouvez installer des thèmes en déposant ou téléchargeant des fichiers zip."
@@ -602,14 +599,17 @@ msgid "Apply filters and display options"
 msgstr "Appliquer les filtres et options d'affichage"
 
 msgid "No blog matches the filter"
-msgstr ""
+msgstr "Aucun blog correspondant au filtre"
 
 msgid "No blog"
 msgstr "Pas de blog"
 
+# php-format
 #, php-format
-msgid "List of %s blogs match the filter."
-msgstr ""
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d blog correspondant au filtre"
+msgstr[1] "%d blogs correspondant au filtre"
 
 msgid "Blogs list"
 msgstr "Liste des blogs"
@@ -955,7 +955,7 @@ msgid "Following plugins have not been installed:"
 msgstr "Les plugins suivants n'ont pas été installés :"
 
 msgid "Errors have occured with following plugins:"
-msgstr ""
+msgstr "Des erreurs se sont produites avec les plugins suivants :"
 
 msgid "Quick entry"
 msgstr "Billet rapide"
@@ -1639,8 +1639,8 @@ msgstr "Mise à jour des plugins"
 #, php-format
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Il y a un plugin à mettre à jour depuis le dépôt"
+msgstr[1] "Il y a %s plugins à mettre à jour depuis le dépôt"
 
 msgid "Installed plugins"
 msgstr "Plugins installés"
@@ -1649,25 +1649,22 @@ msgid "Activated plugins"
 msgstr "Plugins activés"
 
 msgid "You can configure and manage installed plugins from this list."
-msgstr ""
+msgstr "Vous pouvez configurer et gérer les plugins installés depuis cette liste."
 
 msgid "Deactivated plugins"
 msgstr "Plugins désactivés"
 
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
-msgstr ""
+msgstr "Les plugins désactivés sont installés mais non utilisables. Vous pouvez les activer depuis cette page."
 
 msgid "Add plugins"
 msgstr "Ajouter des plugins"
 
 msgid "Add plugins from repository"
-msgstr ""
-
-msgid "Search and install plugins directly from repository."
-msgstr ""
+msgstr "Ajouter des plugins depuis le dépôt"
 
 msgid "Add plugins from a package"
-msgstr ""
+msgstr "Ajouter des plugins depuis un package"
 
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Vous pouvez installer des plugins en déposant ou téléchargeant des fichiers zip."
@@ -2419,8 +2416,14 @@ msgstr "Plus utilisées"
 msgid "Entry language:"
 msgstr "Langue du billet :"
 
-msgid "Languages"
-msgstr "Langues"
+msgid "New page"
+msgstr "Nouvelle page"
+
+msgid "Presentation widgets"
+msgstr "Widgets de présentation"
+
+msgid "Simple menu"
+msgstr "Menu simple sur Dotclear"
 
 #, php-format
 msgid "%d comments"
@@ -2617,7 +2620,7 @@ msgid "Details"
 msgstr "Détails"
 
 msgid "Support"
-msgstr ""
+msgstr "Assistance"
 
 msgid "Help:"
 msgstr "Aide :"
@@ -2626,7 +2629,7 @@ msgid "Section:"
 msgstr "Section : "
 
 msgid "Tags:"
-msgstr ""
+msgstr "Mots-clés:"
 
 msgid "You have unsaved changes."
 msgstr "Vous n'avez pas enregistré vos modifications."
@@ -2762,13 +2765,16 @@ msgid "Queue error:"
 msgstr "Erreur de file d'attente :"
 
 msgid "other"
-msgstr ""
+msgstr "autres"
 
 msgid "Search in repository:"
 msgstr "Rechercher dans le dépôt :"
 
 msgid "Reset search"
 msgstr "réinitialiser la recherche"
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr "La recherche est autorisée sur plusieurs mots de 2 caractères minimum, séparés par un espace."
 
 #, php-format
 msgid "Found %d result for search \"%s\":"
@@ -2875,18 +2881,18 @@ msgstr "Ce plugin n'a pas de fichier de configuration."
 
 #, php-format
 msgid "Configure plugin \"%s\""
-msgstr ""
+msgstr "Configurer le plugin \"%s\""
 
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #, php-format
 msgid "Score: %s"
-msgstr ""
+msgstr "Score: %s"
 
 #, php-format
 msgid "%s screenshot."
-msgstr ""
+msgstr "Capture d'écran de %s."
 
 #, php-format
 msgid "by %s"
@@ -2997,14 +3003,14 @@ msgid "Type and author"
 msgstr "Type et auteur"
 
 msgid "No user matches the filter"
-msgstr ""
+msgstr "Aucun utilisateur correspondant au filtre"
 
 msgid "No user"
 msgstr "Aucun utilisateur"
 
 #, php-format
 msgid "List of %s users match the filter."
-msgstr ""
+msgstr "%s utilisateurs correspondent au filtre."
 
 msgid "Users list"
 msgstr "Liste des utilisateurs"
@@ -3030,17 +3036,20 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Plugins"
 
-msgid "moyenne"
-msgstr ""
+msgid "Languages"
+msgstr "Langues"
 
-msgid "petite"
-msgstr ""
+msgid "medium"
+msgstr "moyenne"
 
-msgid "vignettes"
-msgstr ""
+msgid "small"
+msgstr "petite"
 
-msgid "carrée"
-msgstr ""
+msgid "thumbnail"
+msgstr "vignettes"
+
+msgid "square"
+msgstr "carrée"
 
 msgid "Posts"
 msgstr "Billets"
@@ -3048,61 +3057,24 @@ msgstr "Billets"
 msgid "Pages"
 msgstr "Pages"
 
-msgid "Nouveau billet"
-msgstr ""
-
-msgid "Billets"
-msgstr ""
-
-msgid "Commentaires"
-msgstr "Commentaires"
-
-msgid "Gestionnaire de médias"
-msgstr ""
-
-msgid "Tags"
-msgstr ""
-
-msgid "Import/Export"
-msgstr ""
-
-msgid "Apparence du blog"
-msgstr ""
-
-msgid "Presentation widgets"
-msgstr ""
-
-msgid "Installateur DotAddict.org"
-msgstr ""
-
-msgid "Maintenance"
-msgstr ""
+msgid "Antispam"
+msgstr "Antispam"
 
 #, fuzzy
-msgid "System info"
-msgstr "Informations système"
-
-#, fuzzy
-msgid "Tidy Administration"
-msgstr "administrateur"
-
-#, fuzzy
-msgid "Series"
+msgid "Galeries"
 msgstr "Catégories"
 
-msgid "pacKman"
-msgstr ""
+msgid "Import/Export"
+msgstr "Import/Export"
 
-#, fuzzy
-msgid "Categories orders"
-msgstr "Enregistrer l'ordre des catégories"
+msgid "Blogroll"
+msgstr "Liste de liens"
 
-#, fuzzy
-msgid "Discrete category"
-msgstr "Supprimer la catégorie"
+msgid "Maintenance"
+msgstr "Maintenance"
 
-msgid "Typographic replacements"
-msgstr ""
+msgid "Tags"
+msgstr "Mots-clés"
 
 msgid "administrator"
 msgstr "administrateur"
@@ -3284,11 +3256,11 @@ msgstr "Lecteur vidéo intégré"
 
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
-msgstr ""
+msgstr "Le module \"%s\" est de type \"%s\" incompatible avec \"%s\"."
 
 #, php-format
 msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
-msgstr ""
+msgstr "Le module \"%s\" est installé en double dans \"%s\" et \"%s\"."
 
 msgid "Empty module zip file."
 msgstr "Fichier zip de module vide."
@@ -3370,7 +3342,7 @@ msgid "Sorry but you can not ping this type of content."
 msgstr "Désolé, vous ne pouvez pas pinger ce type de contenu."
 
 msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
-msgstr ""
+msgstr "Oops, non trouvé. Vérifiez à nouveau l'URL cible."
 
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
@@ -3543,11 +3515,6 @@ msgstr "Ce répertoire ne peut pas être supprimé."
 msgid "Not enough memory to open image."
 msgstr "Mémoire insuffisante pour ouvrir l'image."
 
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Le fichier %s n'est pas compressé dans le zip."
@@ -3593,17 +3560,33 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
-#~ msgid "medium"
-#~ msgstr "moyenne"
+#~ msgid "Users actions"
+#~ msgstr "Actions sur les utilisateurs"
 
-#~ msgid "small"
-#~ msgstr "petite"
+#~ msgid "No User selected"
+#~ msgstr "Aucun utilisateur sélectionné"
 
-#~ msgid "thumbnail"
-#~ msgstr "vignettes"
+#~ msgid "(no cat)"
+#~ msgstr "(aucune)"
 
-#~ msgid "square"
-#~ msgstr "carrée"
+#~ msgid "Commentaires"
+#~ msgstr "Commentaires"
+
+#, fuzzy
+#~ msgid "System info"
+#~ msgstr "Informations système"
+
+#, fuzzy
+#~ msgid "Tidy Administration"
+#~ msgstr "administrateur"
+
+#, fuzzy
+#~ msgid "Categories orders"
+#~ msgstr "Enregistrer l'ordre des catégories"
+
+#, fuzzy
+#~ msgid "Discrete category"
+#~ msgstr "Supprimer la catégorie"
 
 #~ msgid "Current theme has been successfully changed to \"%s\"."
 #~ msgstr "Thème changé avec succès en \"%s\"."
@@ -3709,21 +3692,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Download plugin"
 #~ msgstr "Télécharger le plugin"
-
-#~ msgid "Users actions"
-#~ msgstr "Actions sur les utilisateurs"
-
-#~ msgid "No User selected"
-#~ msgstr "Aucun utilisateur sélectionné"
-
-#~ msgid "(no cat)"
-#~ msgstr "(aucune)"
-
-#~ msgid "Blogroll"
-#~ msgstr "Liste de liens"
-
-#~ msgid "Simple menu"
-#~ msgstr "Menu simple sur Dotclear"
 
 #~ msgid "Manage post attachments"
 #~ msgstr "Gérer les annexes"

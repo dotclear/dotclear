@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 19:46+0200\n"
+"POT-Creation-Date: 2013-10-07 13:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,11 +209,6 @@ msgstr ""
 
 #: plugins/akismet/class.dc.filter.akismet.php:156
 msgid "Get your own API key"
-msgstr ""
-
-#: plugins/antispam/_admin.php:18 plugins/antispam/_admin.php:32
-#: plugins/antispam/index.php:18
-msgid "Antispam"
 msgstr ""
 
 #: plugins/antispam/_admin.php:64 plugins/antispam/index.php:175
@@ -513,13 +508,6 @@ msgstr ""
 
 #: plugins/attachments/_admin.php:67
 msgid "Add files to this entry"
-msgstr ""
-
-#: plugins/blogroll/_admin.php:20 plugins/blogroll/_admin.php:25
-#: plugins/blogroll/_admin.php:37 plugins/blogroll/_widgets.php:21
-#: plugins/blogroll/edit.php:103 plugins/blogroll/index.php:172
-#: plugins/blogroll/index.php:190 plugins/blogroll/index.php:195
-msgid "Blogroll"
 msgstr ""
 
 #: plugins/blogroll/_admin.php:41
@@ -1880,11 +1868,6 @@ msgstr ""
 msgid "This may take a very long time."
 msgstr ""
 
-#: plugins/pages/_admin.php:31 plugins/pages/list.php:84
-#: plugins/pages/page.php:37 plugins/pages/page.php:491
-msgid "New page"
-msgstr ""
-
 #: plugins/pages/_admin.php:46
 #, php-format
 msgid "%d page"
@@ -1901,10 +1884,6 @@ msgstr ""
 
 #: plugins/pages/_install.php:40
 msgid "My first page"
-msgstr ""
-
-#: plugins/pages/_install.php:41
-msgid "<p>"
 msgstr ""
 
 #: plugins/pages/_install.php:41
@@ -2071,12 +2050,6 @@ msgstr ""
 
 #: plugins/pings/lib.pings.php:37
 msgid "Check all"
-msgstr ""
-
-#: plugins/simpleMenu/_admin.php:18 plugins/simpleMenu/_admin.php:23
-#: plugins/simpleMenu/_admin.php:31 plugins/simpleMenu/_widgets.php:20
-#: plugins/simpleMenu/index.php:16
-msgid "Simple menu"
 msgstr ""
 
 #: plugins/simpleMenu/index.php:41
