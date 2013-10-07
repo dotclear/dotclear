@@ -147,7 +147,7 @@ if (!$core->error->flag())
 		'<table class="clear">';
 		
 		if( $show_filters ) {
-			echo '<caption>'.sprintf(__('List of %s blogs match the filter.'), $nb_blog).'</caption>';
+			echo '<caption>'.sprintf(__('%d blog matches the filter.','%d blogs match the filter.', $nb_blog)).'</caption>';
 		} else {
 			echo '<caption class="hidden">'.__('Blogs list').'</caption>';
 		}
