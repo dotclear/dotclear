@@ -236,7 +236,7 @@ class dcPage
 		if (!$GLOBALS['__resources']['ctxhelp']) {
 			echo
 			'<p id="help-button"><a href="help.php" class="outgoing" title="'.
-			__('Global help').' ('.__('new window').')">'.__('Global help').'</a></p>';
+			__('Global help').'">'.__('Global help').'</a></p>';
 		}
 
 		$menu =& $GLOBALS['_menu'];

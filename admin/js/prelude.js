@@ -7,7 +7,8 @@ $(function() {
 				$('#wrapper, #help-button, #collapser').addClass('with-prelude');
 			});
 		
-		$('#prelude a[href="#help"]').click(function() {
+		$('body').on('click', '#prelude a[href="#help"]', function(e) {
+			e.preventDefault();
 			$('#help-button a').focus();
 		});
 	}
