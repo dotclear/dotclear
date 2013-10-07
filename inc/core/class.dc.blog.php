@@ -805,6 +805,14 @@ class dcBlog
 		'FROM '.$this->prefix.'post P '.
 		'INNER JOIN '.$this->prefix.'user U ON U.user_id = P.user_id '.
 		'LEFT OUTER JOIN '.$this->prefix.'category C ON P.cat_id = C.cat_id ';
+
+		if (isset($params['media'])) {
+			if ($params['media'] == '0') {
+				$strReq .= 'LEFT OUTER JOIN '.$this->prefix.'post_media M on P.post_id = M.post_id ';
+			} else {
+				$strReq .= 'INNER JOIN '.$this->prefix.'post_media M on P.post_id = M.post_id ';
+			}
+		}
 		
 		if (!empty($params['from'])) {
 			$strReq .= $params['from'].' ';
@@ -936,10 +944,20 @@ class dcBlog
 			}
 		}
 		
+		if (isset($params['media'])) {
+			if ($params['media'] == '0') {
+				$strReq .= ' AND M.post_id IS NULL ';
+			}
+		}
+
 		if (!empty($params['sql'])) {
 			$strReq .= $params['sql'].' ';
 		}
 		
+		if (!$count_only && isset($params['media'])) {
+			$strReq .= ' GROUP BY P.post_id ';
+		}
+
 		if (!$count_only)
 		{
 			if (!empty($params['order'])) {
@@ -956,7 +974,7 @@ class dcBlog
 		if (!empty($params['sql_only'])) {
 			return $strReq;
 		}
-		
+
 		$rs = $this->con->select($strReq);
 		$rs->core = $this->core;
 		$rs->_nb_media = array();

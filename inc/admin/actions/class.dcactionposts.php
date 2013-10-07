@@ -16,7 +16,7 @@ class dcPostsActionsPage extends dcActionsPage
 	public function __construct($core,$uri,$redirect_args=array()) {
 		parent::__construct($core,$uri,$redirect_args);
 		$this->redirect_fields = array('user_id','cat_id','status',
-		'selected','month','lang','sortby','order','page','nb');
+		'selected','attachment','month','lang','sortby','order','page','nb');
 		$this->loadDefaults();
 	}
 
