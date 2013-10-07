@@ -396,6 +396,17 @@ class defaultFavorites
 {
 	public static function initDefaultFavorites($favs) {
 		$favs->registerMultiple(array(
+			'prefs' => array(
+				'title' => __('My preferences'),
+				'url' => 'preferences.php',
+				'small-icon' => 'images/menu/user-pref.png',
+				'large-icon' => 'images/menu/user-pref-b.png'),
+			'new_post' => array(
+				'title' => __('New entry'),
+				'url' => 'post.php',
+				'small-icon' => 'images/menu/edit.png',
+				'large-icon' => 'images/menu/edit-b.png',
+				'permissions' =>'usage,contentadmin'),
 			'posts' => array(
 				'title' => __('Entries'),
 				'url' => 'posts.php',
@@ -403,19 +414,6 @@ class defaultFavorites
 				'large-icon' => 'images/menu/entries-b.png',
 				'permissions' => 'usage,contentadmin',
 				'dashboard_cb' => array('defaultFavorites','postsDashboard')),
-			'new_post' => array(
-				'title' => __('New entry'),
-				'url' => 'post.php',
-				'small-icon' => 'images/menu/edit.png',
-				'large-icon' => 'images/menu/edit-b.png',
-				'permissions' =>'usage,contentadmin'),
-			'newpage' => array(
-				'title' => __('New page'),
-				'url' => 'plugin.php?p=pages&amp;act=page',
-				'small-icon' => 'index.php?pf=pages/icon-np.png',
-				'large-icon' => 'index.php?pf=pages/icon-np-big.png',
-				'permissions' => 'contentadmin,pages',
-				'active_cb' => array('pagesDashboard','newPageActiveCB')),
 			'comments' => array(
 				'title' => __('Comments'),
 				'url' => 'comments.php',
@@ -423,6 +421,12 @@ class defaultFavorites
 				'large-icon' => 'images/menu/comments-b.png',
 				'permissions' => 'usage,contentadmin',
 				'dashboard_cb' => array('defaultFavorites','commentsDashboard')),
+			'search' => array(
+				'title' => __('Search'),
+				'url' => 'search.php',
+				'small-icon' => 'images/menu/search.png',
+				'large-icon' => 'images/menu/search-b.png',
+				'permissions' => 'usage,contentadmin'),
 			'categories' => array(
 				'title' => __('Categories'),
 				'url' => 'categories.php',
@@ -435,28 +439,39 @@ class defaultFavorites
 				'small-icon' => 'images/menu/media.png',
 				'large-icon' => 'images/menu/media-b.png',
 				'permissions' => 'media, media_admin'),
+			'blog_pref' => array(
+				'title' => __('Blog settings'),
+				'url' => 'blog_pref.php',
+				'small-icon' => 'images/menu/blog-pref.png',
+				'large-icon' => 'images/menu/blog-pref-b.png',
+				'permissions' => 'admin'),
 			'blog_theme' => array(
 				'title' => __('Blog appearance'),
 				'url' => 'blog_theme.php',
 				'small-icon' => 'images/menu/themes.png',
 				'large-icon' => 'images/menu/blog-theme-b.png',
 				'permissions' => 'admin'),
-			'widgets' => array(
-				'title' => __('Presentation widgets'),
-				'url' => 'plugin.php?p=widgets',
-				'small-icon' => 'index.php?pf=widgets/icon.png',
-				'large-icon' => 'index.php?pf=widgets/icon-big.png'),
-			'simpleMenu' => array(
-				'title' => __('Simple menu'),
-				'url' => 'plugin.php?p=simpleMenu',
-				'small-icon' => 'index.php?pf=simpleMenu/icon-small.png',
-				'large-icon' => 'index.php?pf=simpleMenu/icon.png',
-				'permissions' => 'usage,contentadmin'),
-			'prefs' => array(
-				'title' => __('My preferences'),
-				'url' => 'preferences.php',
-				'small-icon' => 'images/menu/user-pref.png',
-				'large-icon' => 'images/menu/user-pref-b.png'),
+			'blogs' => array(
+				'title' => __('Blogs'),
+				'url' => 'blogs.php',
+				'small-icon' => 'images/menu/blogs.png',
+				'large-icon' => 'images/menu/blogs-b.png',
+				'permissions' =>'usage,contentadmin'),
+			'users' => array(
+				'title' => __('Users'),
+				'url' => 'users.php',
+				'small-icon' => 'images/menu/users.png',
+				'large-icon' => 'images/menu/users-b.png'),
+			'plugins' => array(
+				'title' => __('Plugins management'),
+				'url' => 'plugins.php',
+				'small-icon' => 'images/menu/plugins.png',
+				'large-icon' => 'images/menu/plugins-b.png'),
+			'langs' => array(
+				'title' => __('Languages'),
+				'url' => 'langs.php',
+				'small-icon' => 'images/menu/langs.png',
+				'large-icon' => 'images/menu/langs-b.png'),
 			'help' => array(
 				'title' => __('Global help'),
 				'url' => 'help.php',

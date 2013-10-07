@@ -215,34 +215,9 @@ if ($can_install && !empty($_POST))
 		$core->auth->user_prefs->interface->put('enhanceduploader',true,'boolean','',null,true);
 
 		# Add default favorites
-		$core->auth->user_prefs->addWorkspace('favorites');
+		$init_favs = array('posts','new_post','newpage','comments','categories','media','blog_theme','widgets','simpleMenu','prefs','help');
+		$core->favs->setFavoriteIDs($init_favs,true);
 
-		$init_fav = array();
-		
-		$init_fav['new_post'] = array('new_post','New entry','post.php',
-			'images/menu/edit.png','images/menu/edit-b.png',
-			'usage,contentadmin',null,null);
-		$init_fav['newpage'] = array('newpage','New page','plugin.php?p=pages&amp;act=page',
-			'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
-			'contentadmin,pages',null,null);
-		$init_fav['media'] = array('media','Media manager','media.php',
-			'images/menu/media.png','images/menu/media-b.png',
-			'media,media_admin',null,null);
-		$init_fav['widgets'] = array('widgets','Presentation widgets','plugin.php?p=widgets',
-			'index.php?pf=widgets/icon.png','index.php?pf=widgets/icon-big.png',
-			'admin',null,null);
-		$init_fav['blog_theme'] = array('blog_theme','Blog appearance','blog_theme.php',
-			'images/menu/themes.png','images/menu/blog-theme-b.png',
-			'admin',null,null);
-
-		$count = 0;
-		foreach ($init_fav as $k => $f) {
-			$t = array('name' => $f[0],'title' => $f[1],'url' => $f[2], 'small-icon' => $f[3],
-				'large-icon' => $f[4],'permissions' => $f[5],'id' => $f[6],'class' => $f[7]);
-			$core->auth->user_prefs->favorites->put(sprintf("g%03s",$count),serialize($t),'string',null,true,true);
-			$count++;
-		}
-		
 		$step = 1;
 	}
 	catch (Exception $e)
