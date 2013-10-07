@@ -92,7 +92,9 @@ if (!$core->error->flag())
 	__('Category') => 'cat_title',
 	__('Author') => 'user_id',
 	__('Status') => 'post_status',
-	__('Selected') => 'post_selected'
+	__('Selected') => 'post_selected',
+	__('Number of comments') => 'nb_comment',
+	__('Number of trackbacks') => 'nb_trackback'
 	);
 	
 	$order_combo = array(

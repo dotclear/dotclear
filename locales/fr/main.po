@@ -4064,3 +4064,9 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Favorites"
 #~ msgstr "Favoris"
+
+msgid "Number of comments"
+msgstr "Nombre de commentaires"
+
+msgid "Number of trackbacks"
+msgstr "Nombre de rétroliens"
