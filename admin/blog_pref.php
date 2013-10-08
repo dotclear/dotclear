@@ -26,7 +26,7 @@ if ($standalone)
 	$blog_url = $core->blog->url;
 	
 	$action = 'blog_pref.php';
-	$redir = 'blog_pref.php?upd=1';
+	$redir = 'blog_pref.php';
 }
 else
 {
@@ -55,20 +55,28 @@ else
 	}
 	
 	$action = 'blog.php';
-	$redir = 'blog.php?id=%s&upd=1';
+	$redir = 'blog.php?id=%s';
 }
 
 # Language codes
-$langs = l10n::getISOcodes(1,1);
-foreach ($langs as $k => $v) {
-	$lang_avail = $v == 'en' || is_dir(DC_L10N_ROOT.'/'.$v);
-	$lang_combo[] = new formSelectOption($k,$v,$lang_avail ? 'avail10n' : '');
-}
+$lang_combo = dcAdminCombos::getAdminLangsCombo();
 
 # Status combo
-foreach ($core->getAllBlogStatus() as $k => $v) {
-	$status_combo[$v] = (string) $k;
+$status_combo = dcAdminCombos::getBlogStatusescombo();
+
+# Date format combo
+$now = time();
+$date_formats = unserialize($blog_settings->system->date_formats);
+$time_formats = unserialize($blog_settings->system->time_formats);
+$date_formats_combo = array('' => '');
+foreach ($date_formats as $format) {
+    $date_formats_combo[dt::str($format, $now)] = $format;
 }
+$time_formats_combo = array('' => '');
+foreach ($time_formats as $format) {
+    $time_formats_combo[dt::str($format, $now)] = $format;
+}
+
 
 # URL scan modes
 $url_scan_combo = array(
@@ -110,10 +118,14 @@ if (!in_array($blog_settings->system->media_img_title_pattern,$img_title_combo))
 
 # Image default size combo
 $img_default_size_combo = array();
-$media = new dcMedia($core);
-$img_default_size_combo[__('original')] = 'o';
-foreach ($media->thumb_sizes as $code => $size) {
-	$img_default_size_combo[__($size[2])] = $code;
+try {
+	$media = new dcMedia($core);
+	$img_default_size_combo[__('original')] = 'o';
+	foreach ($media->thumb_sizes as $code => $size) {
+		$img_default_size_combo[__($size[2])] = $code;
+	}
+} catch (Exception $e) {
+	$core->error->add($e->getMessage());
 }
 
 # Image default alignment combo
@@ -169,7 +181,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 			$rs = $core->getBlog($cur->blog_id);
 			
 			if ($rs) {
-				throw new Exception(__('That blog Id is already in use.'));
+				throw new Exception(__('This blog ID is already used.'));
 			}
 		}
 		
@@ -220,6 +232,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
 		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
+		$blog_settings->system->put('inc_subcats',!empty($_POST['inc_subcats']));
 		$blog_settings->system->put('media_img_t_size',$media_img_t_size);
 		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
@@ -242,7 +255,8 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		if ($core->auth->isSuperAdmin() && in_array($_POST['url_scan'],$url_scan_combo)) {
 			$blog_settings->system->put('url_scan',$_POST['url_scan']);
 		}
-		
+		dcPage::addSuccessNotice(__('Blog has been successfully updated.'));
+
 		http::redirect(sprintf($redir,$blog_id));
 	}
 	catch (Exception $e)
@@ -255,14 +269,15 @@ if ($standalone) {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			html::escapeHTML($blog_name) => '',
-			'<span class="page-title">'.__('Blog settings').'</span>' => ''
-		));
+			__('Blog settings') => ''
+		)
+	);
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('Blogs') => 'blogs.php',
-			'<span class="page-title">'.__('Blog settings').' : '.html::escapeHTML($blog_name).'</span>' => ''
+			__('Blog settings').' : '.html::escapeHTML($blog_name) => ''
 		));
 }
 
@@ -289,16 +304,16 @@ dcPage::open(__('Blog settings'),
 if ($blog_id)
 {
 	if (!empty($_GET['add'])) {
-		dcPage::message(__('Blog has been successfully created.'));
+		dcPage::success(__('Blog has been successfully created.'));
 	}
 	
 	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Blog has been successfully updated.'));
+		dcPage::success(__('Blog has been successfully updated.'));
 	}
 	
 	echo
 	'<div class="multi-part" id="params" title="'.__('Parameters').'">'.
-	'<h3>'.__('Parameters').'</h3>'.
+	'<h3 class="out-of-screen-if-js">'.__('Parameters').'</h3>'.
 	'<form action="'.$action.'" method="post" id="blog-form">';
 	
 	echo
@@ -322,11 +337,50 @@ if ($blog_id)
 	{
 		echo
 		'<p><label for="blog_url" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').'</label>'.
-		form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</p>'.
+		form::field('blog_url',50,255,html::escapeHTML($blog_url)).'</p>'.
 		
 		'<p><label for="url_scan">'.__('URL scan method:').'</label>'.
-		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</p>'.
+		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</p>';
 		
+		try
+		{
+			# Test URL of blog by testing it's ATOM feed
+			$file = $blog_url.$core->url->getURLFor('feed','atom');
+			$path = '';
+			$status = '404';
+			$content = '';
+
+			$client = netHttp::initClient($file,$path);
+			if ($client !== false) {
+				$client->setTimeout(4);
+				$client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+				$client->get($path);
+				$status = $client->getStatus();
+				$content = $client->getContent();
+			}
+			if ($status != '200') {
+				// Might be 404 (URL not found), 670 (blog not online), ...
+				echo
+				'<p class="form-note warn">'.
+				sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
+						$file,$status).
+				'</p>';
+			} else {
+				if (substr($content,0,6) != '<?xml ') {
+					// Not well formed XML feed
+					echo
+					'<p class="form-note warn">'.
+					sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
+							$file).
+					'</p>';
+				}
+			}
+		}
+		catch (Exception $e)
+		{
+			$core->error->add($e->getMessage());
+		}
+		echo
 		'<p><label for="blog_status">'.__('Blog status:').'</label>'.
 		form::combo('blog_status',$status_combo,$blog_status).'</p>';
 	}
@@ -363,7 +417,7 @@ if ($blog_id)
 	form::combo('post_url_format',$post_url_combo,html::escapeHTML($blog_settings->system->post_url_format)).
 	'</p>'.
 
-	'<p><label for="note_title_tag">'.__('Note title HTML tag:').'</label>'.
+	'<p><label for="note_title_tag">'.__('HTML tag for the title of the notes on the blog:').'</label>'.
 	form::combo('note_title_tag',$note_title_tag_combo,$blog_settings->system->note_title_tag).
 	'</p>'.
 		
@@ -372,7 +426,7 @@ if ($blog_id)
 	__('Enable XML/RPC interface').'</p>';
 
 	echo
-		'<p class="form-note">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';	
+		'<p class="form-note info">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';	
 
 	if ($blog_settings->system->enable_xmlrpc) {
 		echo
@@ -406,10 +460,10 @@ if ($blog_id)
 	'<p><label for="comments_pub" class="classic">'.
 	form::checkbox('comments_pub','1',!$blog_settings->system->comments_pub).
 	__('Moderate comments').'</label></p>'.	
-	'<p><label for="comments_ttl" class="classic">'.sprintf(__('Leave comments open for %s days'),
+	'<p><label for="comments_ttl" class="classic">'.sprintf(__('Leave comments open for %s days').'.',
 	form::field('comments_ttl',2,3,$blog_settings->system->comments_ttl)).
 	'</label></p>'.
-	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.	
+	'<p class="form-note">'.__('No limit: leave blank.').'</p>'.	
 	'<p><label for="wiki_comments" class="classic">'.
 	form::checkbox('wiki_comments','1',$blog_settings->system->wiki_comments).
 	__('Wiki syntax for comments').'</label></p>'.
@@ -422,9 +476,9 @@ if ($blog_id)
 	'<p><label for="trackbacks_pub" class="classic">'.
 	form::checkbox('trackbacks_pub','1',!$blog_settings->system->trackbacks_pub).
 	__('Moderate trackbacks').'</label></p>'.	
-	'<p><label for="trackbacks_ttl" class="classic">'.sprintf(__('Leave trackbacks open for %s days'),
+	'<p><label for="trackbacks_ttl" class="classic">'.sprintf(__('Leave trackbacks open for %s days').'.',
 	form::field('trackbacks_ttl',2,3,$blog_settings->system->trackbacks_ttl)).'</label></p>'.
-	'<p class="form-note">'.__('Leave blank to disable this feature.').'</p>'.	
+	'<p class="form-note">'.__('No limit: leave blank.').'</p>'.	
 	'<p><label for="comments_nofollow" class="classic">'.
 	form::checkbox('comments_nofollow','1',$blog_settings->system->comments_nofollow).
 	__('Add "nofollow" relation on comments and trackbacks links').'</label></p>'.
@@ -439,13 +493,17 @@ if ($blog_id)
 	'<div class="fieldset"><h4>'.__('Blog presentation').'</h4>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	'<p><label for="date_format">'.__('Date format:').'</label>'.
+	'<p><label for="date_format">'.__('Date format:').'</label> '.
 	form::field('date_format',30,255,html::escapeHTML($blog_settings->system->date_format)).
+	form::combo('date_format_select',$date_formats_combo,'','','',false,'title="'.__('Pattern of date').'"').
 	'</p>'.
-	
+	'<p class="chosen form-note">'.__('Sample:').' '.dt::str(html::escapeHTML($blog_settings->system->date_format)).'</p>'.
+
 	'<p><label for="time_format">'.__('Time format:').'</label>'.
 	form::field('time_format',30,255,html::escapeHTML($blog_settings->system->time_format)).
+	form::combo('time_format_select',$time_formats_combo,'','','',false,'title="'.__('Pattern of time').'"').
 	'</p>'.
+	'<p class="chosen form-note">'.__('Sample:').' '.dt::str(html::escapeHTML($blog_settings->system->time_format)).'</p>'.
 	
 	'<p><label for="use_smilies" class="classic">'.
 	form::checkbox('use_smilies','1',$blog_settings->system->use_smilies).
@@ -468,45 +526,53 @@ if ($blog_id)
 	'<p><label for="short_feed_items" class="classic">'.
 	form::checkbox('short_feed_items','1',$blog_settings->system->short_feed_items).
 	__('Truncate feeds').'</label></p>'.
+	
+	'<p><label for="inc_subcats" class="classic">'.
+	form::checkbox('inc_subcats','1',$blog_settings->system->inc_subcats).
+	__('Include sub-categories in category page and category posts feed').'</label></p>'.
 	'</div>'.
     '</div>'.
 	'<br class="clear" />'. //Opera sucks
 	'</div>';
 	
 	echo
-	'<div class="fieldset"><h4>'.__('Media and images').'</h4>'.
+	'<div class="fieldset"><h4 id="medias-settings">'.__('Media and images').'</h4>'.
+		'<p class="form-note warning">'.
+	__('Please note that if you change current settings bellow, they will now apply to all new images in the media manager.').
+	' '.__('Be carefull if you share it with other blogs in your installation.').'</p>'.
+
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	'<h5>'.__('Generated image sizes (in pixels)').'</h5>'.
-	'<p class="field"><label for="media_img_t_size">'.__('Thumbnails:').' '.
-	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</label></p>'.
+	'<p class="field"><label for="media_img_t_size">Thumbnail</label> '.
+	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</p>'.
 	
-	'<p class="field"><label for="media_img_s_size">'.__('Small:').' '.
-	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</label></p>'.
+	'<p class="field"><label for="media_img_s_size">Small</label> '.
+	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</p>'.
 	
-	'<p class="field"><label for="media_img_m_size">'.__('Medium:').' '.
-	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</label></p>'.
+	'<p class="field"><label for="media_img_m_size">Medium</label> '.
+	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</p>'.
 	'</div>'.
 	
 	'<div class="col">'.
-	'<h5><label for="media_img_title_pattern">'.__('Inserted image title').'</label></h5>'.
-	'<p>'.__('This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture\'s metadata.').'</p>'.
-	'<p>'.form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
-	'<p><label for="media_img_use_dto_first" class="classic">'.
+	'<h5>'.__('Default image insertion attributes').'</h5>'.
+	'<p class="vertical-separator"><label for="media_img_title_pattern">'.__('Inserted image title').'</label>'.
+	form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).' '.
+	'<label for="media_img_use_dto_first" class="classic">'.
 	form::checkbox('media_img_use_dto_first','1',$blog_settings->system->media_img_use_dto_first).
 	__('Use original media date if possible').'</label></p>'.
+	'<p class="form-note info">'.__('It is retrieved from the picture\'s metadata.').'</p>'.
 
-	'<h5>'.__('Default image insertion attributes').'</h5>'.
-	'<p><label for="media_img_default_size">'.__('Image size:').'</label>'.
+	'<p class="field vertical-separator"><label for="media_img_default_size">'.__('Size of inserted image:').'</label>'.
 	form::combo('media_img_default_size',$img_default_size_combo,
 		(html::escapeHTML($blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($blog_settings->system->media_img_default_size) : 'm')).
 	'</p>'.
-	'<p><label for="media_img_default_alignment">'.__('Image alignment:').'</label>'.
+	'<p class="field"><label for="media_img_default_alignment">'.__('Image alignment:').'</label>'.
 	form::combo('media_img_default_alignment',$img_default_alignment_combo,html::escapeHTML($blog_settings->system->media_img_default_alignment)).
 	'</p>'.
-	'<p><label for="media_img_default_link" class="classic">'.
+	'<p><label for="media_img_default_link">'.
 	form::checkbox('media_img_default_link','1',$blog_settings->system->media_img_default_link).
-	__('As a link to original image').'</label></p>'.
+	__('Insert a link to the original image').'</label></p>'.
 	'</div>'.
 	'</div>'.
 	'<br class="clear" />'. //Opera sucks
@@ -562,7 +628,7 @@ if ($blog_id)
 	
 	echo
 	'<div class="multi-part" id="users" title="'.__('Users').'">'.
-	'<h3>'.__('Users on this blog').'</h3>';
+	'<h3 class="out-of-screen-if-js">'.__('Users on this blog').'</h3>';
 	
 	if (empty($blog_users))
 	{
@@ -575,31 +641,74 @@ if ($blog_id)
 		} else {
 			$user_url_p = '%1$s';
 		}
-		
+
+		# Sort users list on user_id key
+		ksort($blog_users);
+
+		$post_type = $core->getPostTypes();
+		$current_blog_id = $core->blog->id;
+		if ($blog_id != $core->blog->id) {
+			$core->setBlog($blog_id);
+		}
+
 		foreach ($blog_users as $k => $v)
 		{
 			if (count($v['p']) > 0)
 			{
 				echo
+				'<div class="user-perm">'.
 				'<h4>'.sprintf($user_url_p,html::escapeHTML($k)).
 				' ('.html::escapeHTML(dcUtils::getUserCN(
 					$k, $v['name'], $v['firstname'], $v['displayname']
 				)).')</h4>';
-				
-				echo '<ul>';
+
+				if ($core->auth->isSuperAdmin()) {
+					echo 
+					'<p>'.__('Email:').' '.
+					($v['email'] != '' ? '<a href="mailto:'.$v['email'].'">'.$v['email'].'</a>' : __('(none)')).
+					'</p>';
+				}
+
+				echo
+				'<h5>'.__('Publications on this blog:').'</h5>'.
+				'<ul>';
+				foreach ($post_type as $type => $pt_info) {
+					$params = array(
+						'post_type' => $type,
+						'user_id' => $k
+						);
+					echo '<li>'.sprintf(__('%1$s: %2$s'),__($pt_info['label']),$core->blog->getPosts($params,true)->f(0)).'</li>';
+				}
+				echo
+				'</ul>';
+
+				echo
+				'<h5>'.__('Permissions:').'</h5>'.
+				'<ul>';
 				if ($v['super']) {
-					echo '<li>'.__('Super administrator').'</li>';
+					echo '<li class="user_super">'.__('Super administrator').'<br />'.
+					'<span class="form-note">'.__('All rights on all blogs.').'</span></li>';
 				} else {
 					foreach ($v['p'] as $p => $V) {
-						echo '<li>'.__($perm_types[$p]).'</li>';
+						if (isset($perm_types[$p])) {
+							echo '<li '.($p == 'admin' ? 'class="user_admin"' : '').'>'.__($perm_types[$p]);
+						} else {
+							echo '<li>'.sprintf(__('[%s] (unreferenced permission)'),$p);
+						}
+
+						if($p == 'admin') {
+							echo '<br /><span class="form-note">'.__('All rights on this blog.').'</span>';
+						}
+						echo '</li>';
 					}
 				}
-				echo '</ul>';
+				echo 
+				'</ul>';
 				
 				if (!$v['super'] && $core->auth->isSuperAdmin()) {
 					echo 
 					'<form action="users_actions.php" method="post">'.
-					'<p><input type="submit" value="'.__('Change permissions').'" />'.
+					'<p class="change-user-perm"><input type="submit" class="reset" value="'.__('Change permissions').'" />'.
 					form::hidden(array('redir'),'blog_pref.php?id='.$k).
 					form::hidden(array('action'),'perms').
 					form::hidden(array('users[]'),$k).
@@ -608,7 +717,11 @@ if ($blog_id)
 					'</p>'.
 					'</form>';
 				}
+				echo '</div>';
 			}
+		}
+		if ($current_blog_id != $core->blog->id) {
+			$core->setBlog($current_blog_id);
 		}
 	}
 	

@@ -27,7 +27,7 @@ metaEditor.prototype = {
 		this.post_id = post_id;
 		this.target.empty();
 		
-		this.meta_dialog = $('<input type="text" />');
+		this.meta_dialog = $('<input type="text" class="ib" />');
 		this.meta_dialog.attr('title',this.text_add_meta.replace(/%s/,this.meta_type));
 		this.meta_dialog.attr('id','post_meta_input');
 		// Meta dialog input
@@ -41,7 +41,7 @@ metaEditor.prototype = {
 		
 		var This = this;
 		
-		this.submit_button = $('<input type="button" value="ok" />');
+		this.submit_button = $('<input type="button" value="ok" class="ib" />');
 		this.submit_button.click(function() {
 			var v = This.meta_dialog.val();
 			This.addMeta(v);
@@ -112,7 +112,6 @@ metaEditor.prototype = {
 	},
 	
 	addMetaDialog: function() {
-		var This = this;
 		
 		if (this.submit_button == null) {
 			this.target.append($('<p></p>').append(this.meta_dialog));
@@ -120,22 +119,15 @@ metaEditor.prototype = {
 			this.target.append($('<p></p>').append(this.meta_dialog).append(' ').append(this.submit_button));
 		}
 		
-		// View meta list
-		var a = $('<a href="#">' + this.text_choose + '</a>');
-		a.click(function() {
-			This.showMetaList(metaEditor.prototype.meta_type,$(this).parent());
-			return false;
-		});
 		if (this.text_separation != '') {
 			this.target.append($('<p></p>').addClass('form-note').append(this.text_separation.replace(/%s/,this.meta_type)));
 		}
-		this.target.append($('<p></p>').append(a));
+		
+		this.showMetaList(metaEditor.prototype.meta_type,this.target);
+		
 	},
 	
 	showMetaList: function(type,target) {
-		target.empty();
-		target.append('...');
-		target.addClass('addMeta');
 		
 		var params = {
 			f: 'getMeta',
@@ -150,8 +142,13 @@ metaEditor.prototype = {
 		var This = this;
 		
 		$.get(this.service_uri,params,function(data) {
+			
+			var pl = $('<p class="addMeta"></p>');
+			
+			$(target).find('.addMeta').remove();
+			
 			if ($(data).find('meta').length > 0) {
-				target.empty();
+				pl.empty();
 				var meta_link;
 				
 				$(data).find('meta').each(function(i) {
@@ -164,9 +161,9 @@ metaEditor.prototype = {
 					});
 					
 					if (i>0) {
-						target.append(', ');
+						pl.append(', ');
 					}
-					target.append(meta_link);
+					pl.append(meta_link);
 				});
 				
 				if (type == 'more') {
@@ -176,10 +173,27 @@ metaEditor.prototype = {
 						This.showMetaList('all',target);
 						return false;
 					});
-					target.append(', ').append(a_more);
+					pl.append(', ').append(a_more);
+					
+					pl.addClass('hide');
+					
+					var pa = $('<p></p>');
+					target.append(pa);
+					
+					var a = $('<a href="#" class="metaGetList">' + This.text_choose + '</a>');
+					a.click(function() {
+						$(this).parent().next().removeClass('hide');
+						$(this).remove();
+						return false;
+					});
+					
+					pa.append(a);
 				}
+				
+				target.append(pl);
+				
 			} else {
-				target.empty();
+				pl.empty();
 			}
 		});
 	},

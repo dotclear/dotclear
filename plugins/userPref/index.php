@@ -35,7 +35,8 @@ if (!empty($_POST['s']) && is_array($_POST['s']))
 			}
 		}
 		
-		http::redirect($p_url.'&upd=1');
+		dcPage::addSuccessNotice(__('Preferences successfully updated'));
+		http::redirect($p_url);
 	}
 	catch (Exception $e)
 	{
@@ -57,7 +58,8 @@ if (!empty($_POST['gs']) && is_array($_POST['gs']))
 			}
 		}
 		
-		http::redirect($p_url.'&upd=1&part=global');
+		dcPage::addSuccessNotice(__('Preferences successfully updated'));
+		http::redirect($p_url.'&part=global');
 	}
 	catch (Exception $e)
 	{
@@ -70,10 +72,10 @@ $part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
 function prefLine($id,$s,$ws,$field_name,$strong_label)
 {
 	if ($s['type'] == 'boolean') {
-		$field = form::combo(array($field_name.'['.$ws.']['.$id.']',$field_name.'_'.$id),
+		$field = form::combo(array($field_name.'['.$ws.']['.$id.']',$field_name.'_'.$ws.'_'.$id),
 		array(__('yes') => 1, __('no') => 0),$s['value'] ? 1 : 0);
 	} else {
-		$field = form::field(array($field_name.'['.$ws.']['.$id.']',$field_name.'_'.$id),40,null,
+		$field = form::field(array($field_name.'['.$ws.']['.$id.']',$field_name.'_'.$ws.'_'.$id),40,null,
 		html::escapeHTML($s['value']));
 	}
 	
@@ -81,7 +83,7 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
 	
 	return
 	'<tr class="line">'.
-	'<td scope="row"><label for="s_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
+	'<td scope="row"><label for="'.$field_name.'_'.$ws.'_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
 	'<td>'.$field.'</td>'.
 	'<td>'.$s['type'].'</td>'.
 	'<td>'.html::escapeHTML($s['label']).'</td>'.
@@ -114,22 +116,17 @@ echo dcPage::breadcrumb(
 	array(
 		__('System') => '',
 		html::escapeHTML($core->auth->userID()) => '',
-		'<span class="page-title">'.__('user:preferences').'</span>' => ''
-	));
+		__('user:preferences') => ''
+	)).
+	dcPage::notices();
 
-if (!empty($_GET['upd'])) {
-	dcPage::message(__('Preferences successfully updated'));
-}
-
-if (!empty($_GET['upda'])) {
-	dcPage::message(__('Preferences definition successfully updated'));
-}
 ?>
 
 <div id="local" class="multi-part" title="<?php echo __('User preferences'); ?>">
+<h3 class="out-of-screen-if-js"><?php echo __('User preferences'); ?></h3>
 
 <?php 
-$table_header = '<table class="prefs" id="%s"><caption class="as_h3">%s</caption>'.
+$table_header = '<div class="table-outer"><table class="prefs" id="%s"><caption class="as_h3">%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
 '  <th class="nowrap">Setting ID</th>'."\n".
@@ -139,7 +136,7 @@ $table_header = '<table class="prefs" id="%s"><caption class="as_h3">%s</caption
 '</tr>'."\n".
 '</thead>'."\n".
 '<tbody>';
-$table_footer = '</tbody></table>';
+$table_footer = '</tbody></table></div>';
 
 $prefs = array();
 foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
@@ -158,7 +155,7 @@ if (count($prefs) > 0) {
 		'<p class="anchor-nav">'.
 		'<label for="lp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('lp_nav',$ws_combo).
 		' <input type="submit" value="'.__('Ok').'" id="lp_submit" />'.
-		'<input type="hidden" name="p" value="aboutConfig" />'.
+		'<input type="hidden" name="p" value="userPref" />'.
 		$core->formNonce().'</p></form>';
 }
 ?>
@@ -185,6 +182,7 @@ foreach ($prefs as $ws => $s)
 </div>
 
 <div id="global" class="multi-part" title="<?php echo __('Global preferences'); ?>">
+<h3 class="out-of-screen-if-js"><?php echo __('Global preferences'); ?></h3>
 
 <?php
 $prefs = array();
@@ -207,7 +205,7 @@ if (count($prefs) > 0) {
 		'<p class="anchor-nav">'.
 		'<label for="gp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gp_nav',$ws_combo).
 		' <input type="submit" value="'.__('Ok').'" id="gp_submit" />'.
-		'<input type="hidden" name="p" value="aboutConfig" />'.
+		'<input type="hidden" name="p" value="userPref" />'.
 		$core->formNonce().'</p></form>';
 }
 ?>

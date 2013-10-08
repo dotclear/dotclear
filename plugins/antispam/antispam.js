@@ -15,4 +15,8 @@ $(function() {
 	});
 	$("#filters-list tr td input.position").hide();
 	$("#filters-list tr td.handle").addClass('handler');
+
+	$('form input[type=submit][name=delete_all]').click(function(){
+		return window.confirm(dotclear.msg.confirm_spam_delete);
+	});
 });

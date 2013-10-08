@@ -68,6 +68,7 @@ try {
 $_lang = $core->blog->settings->system->lang;
 $_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$_lang) ? $_lang : 'en';
 
+l10n::lang($_lang);
 if (l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/date') === false && $_lang != 'en') {
 	l10n::set(dirname(__FILE__).'/../../locales/en/date');
 }

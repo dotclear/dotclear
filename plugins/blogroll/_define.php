@@ -17,7 +17,8 @@ $this->registerModule(
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.3.1',
 	array(
-		'permissions' =>	'blogroll'
+		'permissions' =>	'blogroll',
+		'type'		=>		'plugin'
 	)
 );
 ?>

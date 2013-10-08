@@ -49,15 +49,11 @@ class themeEditorBehaviors
 		// Add fieldset for plugin options
 		$core->auth->user_prefs->addWorkspace('interface');
 
-		echo
-		'<fieldset><legend>'.__('Theme Editor').'</legend>'.
-		
+		echo		
 		'<p><label for="colorsyntax" class="classic">'.
 		form::checkbox('colorsyntax',1,$core->auth->user_prefs->interface->colorsyntax).'</label>'.
-		__('Syntax color').
-		'<br class="clear" />'. //Opera sucks
-		'</p>'.
-		'</fieldset>';
+		__('Syntax color for theme editor').
+		'</p>';
 	}
 }
 ?>

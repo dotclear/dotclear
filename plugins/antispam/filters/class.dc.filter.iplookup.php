@@ -64,7 +64,8 @@ class dcFilterIpLookup extends dcSpamFilter
 			try {
 				$this->core->blog->settings->addNamespace('antispam');
 				$this->core->blog->settings->antispam->put('antispam_dnsbls',$_POST['bls'],'string','Antispam DNSBL servers',true,false);
-				http::redirect($url.'&upd=1');
+				dcPage::addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
+				http::redirect($url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
@@ -72,7 +73,7 @@ class dcFilterIpLookup extends dcSpamFilter
 
 		/* DISPLAY
 		---------------------------------------------- */
-		$res = '';
+		$res = dcPage::notices();
 
 		$res .=
 		'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
@@ -80,7 +81,7 @@ class dcFilterIpLookup extends dcSpamFilter
 		'<p><label for="bls">'.__('Add here a coma separated list of servers.').'</label>'.
 		form::textarea('bls',40,3,html::escapeHTML($bls),'maximal').
 		'</p>'.
-		'<p><input type="submit" value="'.__('Save').'" /></p>'.
+		'<p><input type="submit" value="'.__('Save').'" />'.
 		$this->core->formNonce().'</p>'.
 		'</form>';
 

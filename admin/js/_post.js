@@ -1,6 +1,6 @@
 dotclear.commentExpander = function(line) {
 	var td = line.firstChild;
-	
+
 	var img = document.createElement('img');
 	img.src = dotclear.img_plus_src;
 	img.alt = dotclear.img_plus_alt;
@@ -8,15 +8,15 @@ dotclear.commentExpander = function(line) {
 	$(img).css('cursor','pointer');
 	img.line = line;
 	img.onclick = function() { dotclear.viewCommentContent(this,this.line); };
-	
+
 	td.insertBefore(img,td.firstChild);
 };
 
 dotclear.viewCommentContent = function(img,line) {
 	var commentId = line.id.substr(1);
-	
+
 	var tr = document.getElementById('ce'+commentId);
-	
+
 	if (!tr) {
 		tr = document.createElement('tr');
 		tr.id = 'ce'+commentId;
@@ -24,24 +24,24 @@ dotclear.viewCommentContent = function(img,line) {
 		td.colSpan = 6;
 		td.className = 'expand';
 		tr.appendChild(td);
-		
+
 		img.src = dotclear.img_minus_src;
 		img.alt = dotclear.img_minus_alt;
-		
+
 		// Get comment content
 		$.get('services.php',{f:'getCommentById',id: commentId},function(data) {
 			var rsp = $(data).children('rsp')[0];
-			
+
 			if (rsp.attributes[0].value == 'ok') {
 				var comment = $(rsp).find('comment_display_content').text();
-				
+
 				if (comment) {
 					$(td).append(comment);
 					var comment_email = $(rsp).find('comment_email').text();
 					var comment_site = $(rsp).find('comment_site').text();
 					var comment_ip = $(rsp).find('comment_ip').text();
 					var comment_spam_disp = $(rsp).find('comment_spam_disp').text();
-					
+
 					$(td).append('<p><strong>' + dotclear.msg.website +
 					'</strong> ' + comment_site + '<br />' +
 					'<strong>' + dotclear.msg.email + '</strong> ' +
@@ -51,7 +51,7 @@ dotclear.viewCommentContent = function(img,line) {
 				alert($(rsp).find('message').text());
 			}
 		});
-		
+
 		$(line).toggleClass('expand');
 		line.parentNode.insertBefore(tr,line.nextSibling);
 	}
@@ -73,83 +73,175 @@ dotclear.viewCommentContent = function(img,line) {
 
 $(function() {
 	if (!document.getElementById) { return; }
-	
+
 	if (document.getElementById('edit-entry'))
 	{
 		// Get document format and prepare toolbars
 		var formatField = $('#post_format').get(0);
+		var last_post_format = $(formatField).val();
 		$(formatField).change(function() {
-			excerptTb.switchMode(this.value);
-			contentTb.switchMode(this.value);
+			// Confirm post format change
+			if(window.confirm(dotclear.msg.confirm_change_post_format_noconvert)){
+				excerptTb.switchMode(this.value);
+				contentTb.switchMode(this.value);
+				last_post_format = $(this).val();
+			}else{
+				// Restore last format if change cancelled
+				$(this).val(last_post_format);
+			}
+			
+			$('.format_control > *').addClass('hide');
+			$('.format_control:not(.control_no_'+$(this).val()+') > *').removeClass('hide');
 		});
-		
+
 		var excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
 		var contentTb = new jsToolBar(document.getElementById('post_content'));
 		excerptTb.context = contentTb.context = 'post';
 	}
-	
+
 	if (document.getElementById('comment_content')) {
 		var commentTb = new jsToolBar(document.getElementById('comment_content'));
 	}
-	
+
 	// Post preview
 	$('#post-preview').modalWeb($(window).width()-40,$(window).height()-40);
-	
+
 	// Tabs events
 	$('#edit-entry').onetabload(function() {
 		dotclear.hideLockable();
-		
+
 		// Add date picker
 		var post_dtPick = new datePicker($('#post_dt').get(0));
 		post_dtPick.img_top = '1.5em';
 		post_dtPick.draw();
-		
+
 		// Confirm post deletion
 		$('input[name="delete"]').click(function() {
-				return window.confirm(dotclear.msg.confirm_delete_post);
+			return window.confirm(dotclear.msg.confirm_delete_post);
 		});
+
+		// Markup validator
+		var v = $('<div class="format_control"><p><a id="a-validator"></a></p><div/>').get(0);
+		$('.format_control').before(v);
+		var a = $('#a-validator').get(0);
+		a.href = '#';
+		a.className = 'button ';
+		$(a).click(function() {
+			
+			excerpt_content = $('#post_excerpt').css('display') != 'none' ? $('#post_excerpt').val() : $('#excerpt-area iframe').contents().find('body').html();
+			post_content    = $('#post_content').css('display') != 'none' ? $('#post_content').val() : $('#content-area iframe').contents().find('body').html();
+			
+			var params = {
+				xd_check: dotclear.nonce,
+				f: 'validatePostMarkup',
+				excerpt: excerpt_content,
+				content: post_content,
+				format: $('#post_format').get(0).value,
+				lang: $('#post_lang').get(0).value
+			};
+
+			$.post('services.php',params,function(data) {
+				if ($(data).find('rsp').attr('status') != 'ok') {
+					alert($(data).find('rsp message').text());
+					return false;
+				}
+					
+				$('.message, .success, .error, .warning-msg').remove();
+
+				if ($(data).find('valid').text() == 1) {
+					var p = document.createElement('p');
+					p.id = 'markup-validator';
+					
+					$(p).addClass('success');
+					$(p).text(dotclear.msg.xhtml_valid);
+					$('#entry-content h3').after(p);
+					$(p).backgroundFade({sColor: dotclear.fadeColor.beginValidatorMsg, eColor: dotclear.fadeColor.endValidatorMsg, steps: 50},function() {
+							$(this).backgroundFade({sColor: dotclear.fadeColor.endValidatorMsg, eColor: dotclear.fadeColor.beginValidatorMsg});
+					});
+				} else {
+					var div = document.createElement('div');
+					div.id = 'markup-validator';
+					
+					$(div).addClass('error');
+					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
+					$('#entry-content h3').after(div);
+					$(div).backgroundFade({sColor: dotclear.fadeColor.beginValidatorErr,eColor: dotclear.fadeColor.endValidatorErr, steps: 50},function() {
+							$(this).backgroundFade({sColor: dotclear.fadeColor.endValidatorErr, eColor: dotclear.fadeColor.beginValidatorErr});
+					});
+				}
+
+				if ( $('#post_excerpt').text() != excerpt_content || $('#post_content').text() != post_content ) {
+					var pn = document.createElement('p');
+					$(pn).addClass('warning-msg');
+					$(pn).text(dotclear.msg.warning_validate_no_save_content);
+					$('#entry-content h3').after(pn);
+				}
+
+				return false;
+			});
+
+			return false;
+		});
+
+		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
 		
+		$('.format_control > *').addClass('hide');
+		$('.format_control:not(.control_no_'+last_post_format+') > *').removeClass('hide');
+
 		// Hide some fields
 		$('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'),{
-			cookie: 'dcx_post_notes',
+			user_pref: 'dcx_post_notes',
+			legend_click:true,
 			hide: $('#post_notes').val() == ''
 		});
-		$('#new_cat').toggleWithLegend(
-			$('#new_cat').parent().children().not('#new_cat'),
-			{} // no cookie on new category as we don't use this every day
-		);
-		$('#post_lang').parent().toggleWithLegend($('#post_lang'),{
-			cookie: 'dcx_post_lang'
+		$('#post_lang').parent().children('label').toggleWithLegend($('#post_lang'),{
+			user_pref: 'dcx_post_lang',
+			legend_click: true
 		});
-		$('#post_password').parent().toggleWithLegend($('#post_password'),{
-			cookie: 'dcx_post_password',
+		$('#post_password').parent().children('label').toggleWithLegend($('#post_password'),{
+			user_pref: 'dcx_post_password',
+			legend_click: true,
 			hide: $('#post_password').val() == ''
 		});
-		$('#post_status').parent().toggleWithLegend($('#post_status'),{
-			cookie: 'dcx_post_status'
+		$('#post_status').parent().children('label').toggleWithLegend($('#post_status'),{
+			user_pref: 'dcx_post_status',
+			legend_click: true
 		});
-		$('#post_dt').parent().toggleWithLegend($('#post_dt').parent().children().not('label'),{
-			cookie: 'dcx_post_dt'
+		$('#post_dt').parent().children('label').toggleWithLegend($('#post_dt').parent().children().not('label'),{
+			user_pref: 'dcx_post_dt',
+			legend_click: true
 		});
-		$('#post_format').parent().toggleWithLegend($('#post_format').parent().children().not('label').add($('#post_format').parents('p').next()),{
-			cookie: 'dcx_post_format'
+		$('#label_format').toggleWithLegend($('#label_format').parent().children().not('#label_format'),{
+			user_pref: 'dcx_post_format',
+			legend_click: true
 		});
-		$('#cat_id').parent().toggleWithLegend($('#cat_id'),{
-			cookie: 'cat_id'
+		$('#label_cat_id').toggleWithLegend($('#label_cat_id').parent().children().not('#label_cat_id'),{
+			user_pref: 'dcx_cat_id',
+			legend_click: true
 		});
-		$('#post_url').parent().toggleWithLegend($('#post_url').parent().children().not('label'),{
-			cookie: 'post_url'
+		$('#create_cat').toggleWithLegend($('#create_cat').parent().children().not('#create_cat'),{
+			// no cookie on new category as we don't use this every day
+			legend_click: true
+		});
+		$('#label_comment_tb').toggleWithLegend($('#label_comment_tb').parent().children().not('#label_comment_tb'),{
+			user_pref: 'dcx_comment_tb',
+			legend_click: true
+		});
+		$('#post_url').parent().children('label').toggleWithLegend($('#post_url').parent().children().not('label'),{
+			user_pref: 'post_url',
+			legend_click: true
 		});
 		// We load toolbar on excerpt only when it's ready
 		$('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'),{
-			fn: function() { excerptTb.switchMode(formatField.value); },
-			cookie: 'dcx_post_excerpt',
+			user_pref: 'dcx_post_excerpt',
+			legend_click: true,
 			hide: $('#post_excerpt').val() == ''
 		});
-		
+
 		// Load toolbars
 		contentTb.switchMode(formatField.value);
-		
+		excerptTb.switchMode(formatField.value);
+
 		// Replace attachment remove links by a POST form submit
 		$('a.attachment-remove').click(function() {
 			this.href = '';
@@ -161,89 +253,39 @@ $(function() {
 			}
 			return false;
 		});
-		
-		// Markup validator
-		var h = document.createElement('h4');
-		var a = document.createElement('a');
-		a.href = '#';
-		a.className = 'button';
-		$(a).click(function() {
-			var params = {
-				xd_check: dotclear.nonce,
-				f: 'validatePostMarkup',
-				excerpt: $('#post_excerpt').text(),
-				content: $('#post_content').text(),
-				format: $('#post_format').get(0).value,
-				lang: $('#post_lang').get(0).value
-			};
-			
-			$.post('services.php',params,function(data) {
-				if ($(data).find('rsp').attr('status') != 'ok') {
-					alert($(data).find('rsp message').text());
-					return false;
-				}
-				
-				if ($(data).find('valid').text() == 1) {
-					var p = document.createElement('p');
-					p.id = 'markup-validator';
-					
-					if ($('#markup-validator').length > 0) {
-						$('#markup-validator').remove();
-					}
-					
-					$(p).addClass('message');
-					$(p).text(dotclear.msg.xhtml_valid);
-					$(p).insertAfter(h);
-					$(p).backgroundFade({sColor:'#666666',eColor:'#ffcc00',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ffcc00',eColor:'#666666'});
-					});
-				} else {
-					var div = document.createElement('div');
-					div.id = 'markup-validator';
-					
-					if ($('#markup-validator').length > 0) {
-						$('#markup-validator').remove();
-					}
-					
-					$(div).addClass('error');
-					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
-					$(div).insertAfter(h);
-					$(div).backgroundFade({sColor:'#ffffff',eColor:'#ff9999',steps:50},function() {
-							$(this).backgroundFade({sColor:'#ff9999',eColor:'#ffffff'});
-					});
-				}
-				
-				return false;
-			});
-			
-			return false;
-		});
-		
-		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
-		h.appendChild(a);
-		$(h).appendTo('#entry-content');
-		
+
 		// Check unsaved changes before XHTML conversion
 		var excerpt = $('#post_excerpt').val();
 		var content = $('#post_content').val();
 		$('#convert-xhtml').click(function() {
 			if (excerpt != $('#post_excerpt').val() || content != $('#post_content').val()) {
 				return window.confirm(dotclear.msg.confirm_change_post_format);
-			}	
+			}
 		});
 	});
-	
+
 	$('#comments').onetabload(function() {
-		$('.comments-list tr.line').each(function() {
+		$('#form-comments .comments-list tr.line').each(function() {
 			dotclear.commentExpander(this);
 		});
-		$('.checkboxes-helpers').each(function() {
+		$('#form-comments .checkboxes-helpers').each(function() {
 			dotclear.checkboxesHelpers(this);
 		});
-		
+
 		dotclear.commentsActionsHelper();
 	});
-	
+
+	$('#trackbacks').onetabload(function() {
+		$('#form-trackbacks .comments-list tr.line').each(function() {
+			dotclear.commentExpander(this);
+		});
+		$('#form-trackbacks .checkboxes-helpers').each(function() {
+			dotclear.checkboxesHelpers(this);
+		});
+
+		dotclear.commentsActionsHelper();
+	});
+
 	$('#add-comment').onetabload(function() {
 		commentTb.draw('xhtml');
 	});

@@ -19,8 +19,8 @@ class dcImportFeed extends dcIeModule
 	public function setInfo()
 	{
 		$this->type = 'import';
-		$this->name = __('Feed import');
-		$this->description = __('Imports a feed as new entries.');
+		$this->name = __('RSS or Atom feed import');
+		$this->description = __('Add a feed content to the blog.');
 	}
 	
 	public function process($do)
@@ -76,13 +76,12 @@ class dcImportFeed extends dcIeModule
 	public function gui()
 	{
 		if ($this->status) {
-			dcPage::message(__('Content successfully imported.'));
+			dcPage::success(__('Content successfully imported.'));
 		}
 		
 		echo
 		'<form action="'.$this->getURL(true).'" method="post">'.
-		'<fieldset><legend>'.__('Single blog').'</legend>'.
-		'<p>'.sprintf(__('This will import a feed (RSS or Atom) a as new content in the current blog: %s.'),html::escapeHTML($this->core->blog->name)).'</p>'.
+		'<p>'.sprintf(__('Add a feed content to the current blog: <strong>%s</strong>.'),html::escapeHTML($this->core->blog->name)).'</p>'.
 		
 		'<p><label for="feed_url">'.__('Feed URL:').'</label>'.
 		form::field('feed_url',50,300,html::escapeHTML($this->feed_url)).'</p>'.
@@ -92,7 +91,6 @@ class dcImportFeed extends dcIeModule
 		form::hidden(array('do'),1).
 		'<input type="submit" value="'.__('Import').'" /></p>'.
 		
-		'</fieldset>'.
 		'</form>';
 	}
 }

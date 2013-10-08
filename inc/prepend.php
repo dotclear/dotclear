@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -46,6 +46,10 @@ $__autoload['dcLog']				= dirname(__FILE__).'/core/class.dc.log.php';
 $__autoload['dcWorkspace']			= dirname(__FILE__).'/core/class.dc.workspace.php';
 $__autoload['dcPrefs']				= dirname(__FILE__).'/core/class.dc.prefs.php';
 $__autoload['dcTwigPage']			= dirname(__FILE__).'/core/class.dc.twig.page.php';
+$__autoload['dcStore']			= dirname(__FILE__).'/core/class.dc.store.php';
+$__autoload['dcStoreReader']		= dirname(__FILE__).'/core/class.dc.store.reader.php';
+$__autoload['dcStoreParser']		= dirname(__FILE__).'/core/class.dc.store.parser.php';
+$__autoload['dcFavorites']			= dirname(__FILE__).'/admin/class.dc.favorites.php';
 
 $__autoload['rsExtPost']				= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 $__autoload['rsExtComment']			= dirname(__FILE__).'/core/class.dc.rs.extensions.php';
@@ -60,10 +64,17 @@ $__autoload['adminPostList']			= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminPostMiniList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminCommentList']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminUserList']			= dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['dcPager']		= dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['dcAdminCombos']			= dirname(__FILE__).'/admin/lib.admincombos.php';
+$__autoload['adminModulesList']			= dirname(__FILE__).'/admin/lib.moduleslist.php';
+$__autoload['adminThemesList']			= dirname(__FILE__).'/admin/lib.moduleslist.php';
 
 $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
 $__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';
 $__autoload['dcUrlHandlers']			= dirname(__FILE__).'/public/lib.urlhandlers.php';
+$__autoload['dcPostsActionsPage']			= dirname(__FILE__).'/admin/actions/class.dcactionposts.php';
+$__autoload['dcCommentsActionsPage']			= dirname(__FILE__).'/admin/actions/class.dcactioncomments.php';
+$__autoload['dcActionsPage']			= dirname(__FILE__).'/admin/actions/class.dcaction.php';
 $__autoload['dcForm']			= dirname(__FILE__).'/admin/class.dc.form.php';
 $__autoload['dcFormExtension']			= dirname(__FILE__).'/admin/class.dc.form.php';
 $__autoload['dcTabExtension']			= dirname(__FILE__).'/admin/class.dc.tab.php';
@@ -152,6 +163,8 @@ define('DC_VERSION','2.99-dev');
 define('DC_DIGESTS',dirname(__FILE__).'/digests');
 define('DC_L10N_ROOT',dirname(__FILE__).'/../locales');
 define('DC_L10N_UPDATE_URL','http://services.dotclear.net/dc2.l10n/?version=%s');
+define('DC_DISTRIB_PLUGINS','aboutConfig,akismet,antispam,attachments,blogroll,blowupConfig,dclegacy,fairTrackbacks,importExport,maintenance,pages,pings,simpleMenu,tags,themeEditor,userPref,widgets');
+define('DC_DISTRIB_THEMES','blueSilence,blowupConfig,customCSS,default,ductile');
 
 if (!defined('DC_VENDOR_NAME')) {
 	define('DC_VENDOR_NAME','Dotclear');
@@ -245,7 +258,7 @@ $core->url->register('trackback','trackback','^trackback/(.+)$',array('dcUrlHand
 $core->url->register('rsd','rsd','^rsd$',array('dcUrlHandlers','rsd'));
 $core->url->register('xmlrpc','xmlrpc','^xmlrpc/(.+)$',array('dcUrlHandlers','xmlrpc'));
 
-$core->setPostType('post','post.php?id=%d',$core->url->getURLFor('post','%s'));
+$core->setPostType('post','post.php?id=%d',$core->url->getURLFor('post','%s'),'Posts');
 
 # Store upload_max_filesize in bytes
 $u_max_size = files::str2bytes(ini_get('upload_max_filesize'));
@@ -312,6 +325,7 @@ function init_prepend_l10n()
 	foreach($dlang as $l)
 	{
 		if ($l == 'en' || l10n::set(dirname(__FILE__).'/../locales/'.$l.'/main') !== false) {
+			l10n::lang($l);
 			break;
 		}
 	}

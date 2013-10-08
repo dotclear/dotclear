@@ -62,6 +62,11 @@ try
 	foreach ($core->media->getDBDirs() as $v) {
 		$dirs_combo['/'.$v] = $v;
 	}
+	# Add parent and direct childs directories if any
+	$core->media->getFSDir();
+	foreach ($core->media->dir['dirs'] as $k => $v) {
+		$dirs_combo['/'.$v->relname] = $v->relname;
+	}
 	ksort($dirs_combo);
 }
 catch (Exception $e)
@@ -75,7 +80,9 @@ if ($file && !empty($_FILES['upfile']) && $file->editable && $core_media_writabl
 	try {
 		files::uploadStatus($_FILES['upfile']);
 		$core->media->uploadFile($_FILES['upfile']['tmp_name'],$file->basename,null,false,true);
-		http::redirect($page_url.'&id='.$id.'&fupl=1');
+
+		dcPage::addSuccessNotice(__('File has been successfully updated.'));
+		http::redirect($page_url.'&id='.$id);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -102,7 +109,9 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
 	
 	try {
 		$core->media->updateFile($file,$newFile);
-		http::redirect($page_url.'&id='.$id.'&fupd=1&tab=media-details-tab');
+
+		dcPage::addSuccessNotice(__('File has been successfully updated.'));
+		http::redirect($page_url.'&id='.$id.'&tab=media-details-tab');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -114,7 +123,9 @@ if (!empty($_POST['thumbs']) && $file->media_type == 'image' && $file->editable 
 	try {
 		$foo = null;
 		$core->media->mediaFireRecreateEvent($file);
-		http::redirect($page_url.'&id='.$id.'&thumbupd=1&tab=media-details-tab');
+		
+		dcPage::addSuccessNotice(__('Thumbnails have been successfully updated.'));
+		http::redirect($page_url.'&id='.$id.'&tab=media-details-tab');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -125,10 +136,34 @@ if (!empty($_POST['unzip']) && $file->type == 'application/zip' && $file->editab
 {
 	try {
 		$unzip_dir = $core->media->inflateZipFile($file,$_POST['inflate_mode'] == 'new');
-		http::redirect($media_page_url.'&d='.$unzip_dir.'&unzipok=1');
+		
+		dcPage::addSuccessNotice(__('Zip file has been successfully extracted.'));
+		http::redirect($media_page_url.'&d='.$unzip_dir);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
+}
+
+# Save media insertion settings for the blog
+if (!empty($_POST['save_blog_prefs']))
+{
+	if (!empty($_POST['pref_src'])) {
+		foreach (array_reverse($file->media_thumb) as $s => $v) {
+			if ($v == $_POST['pref_src']) {
+				$core->blog->settings->system->put('media_img_default_size',$s);
+				break;
+			}
+		}
+	}
+	if (!empty($_POST['pref_alignment'])) {
+		$core->blog->settings->system->put('media_img_default_alignment',$_POST['pref_alignment']);
+	}
+	if (!empty($_POST['pref_insertion'])) {
+		$core->blog->settings->system->put('media_img_default_link',($_POST['pref_insertion'] == 'link'));
+	}
+	
+	dcPage::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
+	http::redirect($page_url.'&id='.$id);
 }
 
 # Function to get image title based on meta
@@ -140,9 +175,13 @@ function dcGetImageTitle($file,$pattern,$dto_first=false)
 	
 	foreach ($pattern as $v) {
 		if ($v == 'Title') {
-			$res[] = $file->media_title;
+			if ($file->media_title != '') {
+				$res[] = $file->media_title;
+			}
 		} elseif ($file->media_meta->{$v}) {
-			$res[] = (string) $file->media_meta->{$v};
+			if ((string) $file->media_meta->{$v} != '') {
+				$res[] = (string) $file->media_meta->{$v};
+			}
 		} elseif (preg_match('/^Date\((.+?)\)$/u',$v,$m)) {
 			if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
 				$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
@@ -174,13 +213,18 @@ if ($popup) {
 call_user_func($open_f,__('Media manager'),
 	$starting_scripts.
 	dcPage::jsDatePicker().
-	dcPage::jsPageTabs($tab),
+	($popup ? dcPage::jsPageTabs($tab) : ''),
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			__('Media manager') => html::escapeURL($media_page_url),
+			__('Media manager') => html::escapeURL($media_page_url).'&amp;d=',
 			$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').'<span class="page-title">'.$file->basename.'</span>' => ''
-		),!$popup)
+		),
+		array(
+			'home_link' => !$popup,
+			'hl' => false
+		)
+	)
 );
 
 if ($file === null) {
@@ -189,10 +233,13 @@ if ($file === null) {
 }
 
 if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
-	dcPage::message(__('File has been successfully updated.'));
+	dcPage::success(__('File has been successfully updated.'));
 }
 if (!empty($_GET['thumbupd'])) {
-	dcPage::message(__('Thumbnails have been successfully updated.'));
+	dcPage::success(__('Thumbnails have been successfully updated.'));
+}
+if (!empty($_GET['blogprefupd'])) {
+	dcPage::success(__('Default media insertion settings have been successfully updated.'));
 }
 
 # Insertion popup
@@ -202,6 +249,7 @@ if ($popup)
 	
 	echo
 	'<div id="media-insert" class="multi-part" title="'.__('Insert media item').'">'.
+	'<h3>'.__('Insert media item').'</h3>'.
 	'<form id="media-insert-form" action="" method="get">';
 	
 	$media_img_default_size = $core->blog->settings->system->media_img_default_size;
@@ -262,7 +310,7 @@ if ($popup)
 		'<label for="insert1" class="classic">'.form::radio(array('insertion','insert1'),'simple',!$media_img_default_link).
 		__('As a single image').'</label><br />'.
 		'<label for="insert2" class="classic">'.form::radio(array('insertion','insert2'),'link',$media_img_default_link).
-		__('As a link to original image').'</label>'.
+		__('As a link to the original image').'</label>'.
 		'</p>';
 	}
 	elseif ($file->type == 'audio/mpeg3')
@@ -281,7 +329,7 @@ if ($popup)
 		
 		echo '<p>';
 		foreach ($i_align as $k => $v) {
-			echo '<label for="alignment" class="classic">'.
+			echo '<label class="classic">'.
 			form::radio(array('alignment'),$k,$v[1]).' '.$v[0].'</label><br /> ';
 		}
 		
@@ -315,7 +363,7 @@ if ($popup)
 		
 		echo '<p>';
 		foreach ($i_align as $k => $v) {
-			echo '<label for="alignment" class="classic">'.
+			echo '<label class="classic">'.
 			form::radio(array('alignment'),$k,$v[1]).' '.$v[0].'</label><br /> ';
 		}
 		
@@ -329,21 +377,43 @@ if ($popup)
 		$media_type = 'default';
 		echo '<p>'.__('Media item will be inserted as a link.').'</p>';
 	}
-	
+
 	echo
-	'<p><a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a> - '.
-	'<strong><a id="media-insert-ok" class="button" href="#">'.__('Insert').'</a></strong>'.
+	'<p>'.
+	'<a id="media-insert-ok" class="button submit" href="#">'.__('Insert').'</a> '.
+	'<a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a>'.
 	form::hidden(array('type'),html::escapeHTML($media_type)).
 	form::hidden(array('title'),html::escapeHTML($file->media_title)).
 	form::hidden(array('description'),html::escapeHTML($media_desc)).
 	form::hidden(array('url'),$file->file_url).
 	'</p>';
 	
-	echo '</form></div>';
+	echo '</form>';
+
+	if ($media_type != 'default') {
+		echo
+		'<div class="border-top">'.
+		'<form id="save_settings" action="'.html::escapeURL($page_url).'" method="post">'.
+		'<p>'.__('Make current settings as default').' '.
+		'<input class="reset" type="submit" name="save_blog_prefs" value="'.__('OK').'" />'.
+		form::hidden(array('pref_src'),'').
+		form::hidden(array('pref_alignment'),'').
+		form::hidden(array('pref_insertion'),'').
+		form::hidden(array('id'),$id).
+		$core->formNonce().'</p>'.
+		'</form>'.'</div>';
+	}
+
+	echo '</div>';
 }
 
+if ($popup) {
+	echo
+	'<div class="multi-part" title="'.__('Media details').'" id="media-details-tab">';
+} else {
+	echo '<h3 class="out-of-screen-if-js">'.__('Media details').'</h3>';
+}
 echo
-'<div class="multi-part" title="'.__('Media details').'" id="media-details-tab">'.
 '<p id="media-icon"><img src="'.$file->media_icon.'?'.time()*rand().'" alt="" /></p>';
 
 echo
@@ -400,8 +470,8 @@ echo
 if (empty($_GET['find_posts']))
 {
 	echo
-	'<p><strong><a class="button" href="'.html::escapeHTML($page_url).'&amp;id='.$id.'&amp;find_posts=1&amp;tab=media-details-tab">'.
-	__('Show entries containing this media').'</a></strong></p>';
+	'<p><a class="button" href="'.html::escapeHTML($page_url).'&amp;id='.$id.'&amp;find_posts=1&amp;tab=media-details-tab">'.
+	__('Show entries containing this media').'</a></p>';
 }
 else
 {
@@ -469,20 +539,20 @@ if ($file->type == 'image/jpeg')
 {
 	echo '<h3>'.__('Image details').'</h3>';
 	
-	if (count($file->media_meta) == 0)
+	$details = '';
+	if (count($file->media_meta) > 0)
 	{
-		echo '<p>'.__('No detail').'</p>';
-	}
-	else
-	{
-		echo '<ul>';
 		foreach ($file->media_meta as $k => $v)
 		{
 			if ((string) $v) {
-				echo '<li><strong>'.$k.':</strong> '.html::escapeHTML($v).'</li>';
+				$details .= '<li><strong>'.$k.':</strong> '.html::escapeHTML($v).'</li>';
 			}
 		}
-		echo '</ul>';
+	}
+	if ($details) {
+		echo '<ul>'.$details.'</ul>';
+	} else {
+		echo '<p>'.__('No detail').'</p>';
 	}
 }
 
@@ -577,8 +647,11 @@ if ($file->editable && $core_media_writable)
 }
 
 echo
-'</div>'.
 '</div>';
+if ($popup) {
+	echo
+	'</div>';
+}
 
 call_user_func($close_f);
 ?>

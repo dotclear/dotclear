@@ -64,6 +64,8 @@ class dcCore
 		# define weak_locks for mysql
 		if ($this->con instanceof mysqlConnection) {
 			mysqlConnection::$weak_locks = true;
+		} elseif ($this->con instanceof mysqliConnection) {
+			mysqliConnection::$weak_locks = true;
 		}
 		
 		# define searchpath for postgresql
@@ -381,11 +383,12 @@ class dcCore
 		return $escaped ? html::escapeURL($url) : $url;
 	}
 	
-	public function setPostType($type,$admin_url,$public_url)
+	public function setPostType($type,$admin_url,$public_url,$label='')
 	{
 		$this->post_types[$type] = array(
 			'admin_url' => $admin_url,
-			'public_url' => $public_url
+			'public_url' => $public_url,
+			'label' => ($label != '' ? $label : $type)
 		);
 	}
 	
@@ -853,7 +856,7 @@ class dcCore
 	{
 		$strReq =
 		'SELECT U.user_id AS user_id, user_super, user_name, user_firstname, '.
-		'user_displayname, permissions '.
+		'user_displayname, user_email, permissions '.
 		'FROM '.$this->prefix.'user U '.
 		'JOIN '.$this->prefix.'permissions P ON U.user_id = P.user_id '.
 		"WHERE blog_id = '".$this->con->escape($id)."' ";
@@ -862,7 +865,7 @@ class dcCore
 			$strReq .=
 			'UNION '.
 			'SELECT U.user_id AS user_id, user_super, user_name, user_firstname, '.
-			"user_displayname, NULL AS permissions ".
+			"user_displayname, user_email, NULL AS permissions ".
 			'FROM '.$this->prefix.'user U '.
 			'WHERE user_super = 1 ';
 		}
@@ -877,6 +880,7 @@ class dcCore
 				'name' => $rs->user_name,
 				'firstname' => $rs->user_firstname,
 				'displayname' => $rs->user_displayname,
+				'email' => $rs->user_email,
 				'super' => (boolean) $rs->user_super,
 				'p' => $this->auth->parsePermissions($rs->permissions)
 			);
@@ -964,7 +968,7 @@ class dcCore
 		}
 		
 		if (!empty($params['q'])) {
-			$params['q'] = str_replace('*','%',$params['q']);
+			$params['q'] = strtolower(str_replace('*','%',$params['q']));
 			$where .=
 			'AND ('.
 			"LOWER(B.blog_id) LIKE '".$this->con->escape($params['q'])."' ".
@@ -1374,6 +1378,8 @@ class dcCore
 				'URL handle mode (path_info or query_string)'),
 				array('use_smilies','boolean',false,
 				'Show smilies on entries and comments'),
+				array('inc_subcats','boolean',false,
+				'Include sub-categories in category page and category posts feed'),
 				array('wiki_comments','boolean',false,
 				'Allow commenters to use a subset of wiki syntax')
 			);

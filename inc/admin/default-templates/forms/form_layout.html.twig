@@ -37,31 +37,29 @@
 {% endspaceless %}
 {% endblock field_hidden %}
 
-{% block field_input %}
+{% block field_input -%}
 {% autoescape "html" %}
 {% spaceless %}
     {% set type = type|default('text') %}
-    {{ block('startlabel') }}
-	<input type="{{ type }}" {{ block('field_attr') }} {% if value is not empty %}value="{{ value }}" {% endif %} />
-    {{ block('endlabel') }}
+    {{- block('startlabel') -}}
+	<input type="{{ type }}" {{ block('field_attr') }} {% if value is not empty %}value="{{ value }}" {%- endif -%} />
+    {{- block('endlabel') -}}
 {% endspaceless %}
 {% endautoescape %}
-{% endblock field_input %}
+{%- endblock field_input %}
 
-{% block field_checkbox %}
-{% spaceless %}
+{% block field_checkbox -%}
 {% set type = type|default('checkbox') %}
 {% set nestedlabel = true %}
 {% set labelclass = "classic" %}
-{% set descafter = true %}
+{% set descafter = true -%}
     {{ block('field_input') }}
-{% endspaceless %}
-{% endblock field_checkbox %}
+{%- endblock field_checkbox %}
 
 {% block field_attr %}
 {% spaceless %}
- {% if id %}id="{{id}}"{% endif %} name="{{name}}" {% if read_only %} disabled="disabled"{% endif %}{#{% if required %} required="required"{% endif %}#}{% if maxlength %} maxlength="{{ maxlength }}"{% endif %}{% if checked %} checked="{{ checked }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
-    {% for attrname,attrvalue in attr %}{{attrname}}="{{attrvalue}}" {% endfor %}
+ {% if id %}id="{{id}}"{% endif %} name="{{name}}" {% if read_only %} disabled="disabled"{% endif %}{#{% if required %} required="required"{% endif %}#}{% if maxlength %} maxlength="{{ maxlength }}"{% endif %}{% if checked %} checked="{{ checked }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif -%}
+    {%- for attrname,attrvalue in attr -%}{{attrname}}="{{attrvalue}}" {%- endfor -%}
 {% endspaceless %}
 {% endblock field_attr %}
 
@@ -91,26 +89,25 @@
 {% endspaceless %}
 {% endblock field_combo %}
 
-{% block startlabel %}
+{% block startlabel -%}
 {% spaceless %}
-    {% if label is not empty %}
-        {% if required is not empty %}
-            {% set labelclass = labelclass ~ " required" %}
-        {% endif %}
-        <label for="{{name}}" {% if labelclass is not empty %}class="{{labelclass}}"{% endif %}>{% if required is not empty %}<abbr title="{{__('Required field')}}">*</abbr>{% endif %} 
-
-		{% if descafter is empty %} {{label}} {% endif %}
-        {% if nestedlabel is empty %}</label> {% endif %}
-    {% endif %}
+    {%- if label is not empty -%}
+        {%- if required is not empty -%}
+            {%- set labelclass = labelclass ~ " required" -%}
+        {%- endif -%}
+        <label for="{{name}}" {% if labelclass is not empty %}class="{{labelclass}}"{% endif %}>{% if required is not empty %}<abbr title="{{__('Required field')}}">*</abbr>{% endif -%}
+		{%- if descafter is empty -%} {{label}} {%- endif -%}
+        {%- if nestedlabel is empty -%}</label> {%- endif -%}
+    {%- endif -%}
 {% endspaceless %}
-{% endblock startlabel %}
+{%- endblock startlabel %}
 
 {% block endlabel %}
 {% spaceless %}
-    {% if label is not empty %}
-		{% if descafter %} {{label}} {% endif %}
-        {% if nestedlabel is not empty %}</label>{% endif %}
-    {% endif %}
+    {%- if label is not empty -%}
+		{%- if descafter -%} {{label}} {%- endif -%}
+        {%- if nestedlabel is not empty -%}</label>{%- endif -%}
+    {%- endif %}
 {% endspaceless %}
 {% endblock endlabel %}
 

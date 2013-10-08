@@ -28,7 +28,7 @@ $err = '';
 $dlang = http::getAcceptLanguage();
 if ($dlang != 'en')
 {
-	l10n::init();
+	l10n::init($dlang);
 	l10n::set(dirname(__FILE__).'/../../locales/'.$dlang.'/date');
 	l10n::set(dirname(__FILE__).'/../../locales/'.$dlang.'/main');
 	l10n::set(dirname(__FILE__).'/../../locales/'.$dlang.'/plugins');
@@ -145,8 +145,23 @@ if ($can_install && !empty($_POST))
 		$blog_settings->system->put('lang',$dlang);
 		$blog_settings->system->put('public_url',$root_url.'/public');
 		$blog_settings->system->put('themes_url',$root_url.'/themes');
-		$blog_settings->system->put('date_format',__('%A, %B %e %Y'));
 		
+		# date and time formats
+		$formatDate = __('%A, %B %e %Y');
+		$date_formats = array('%Y-%m-%d','%m/%d/%Y','%d/%m/%Y','%Y/%m/%d','%d.%m.%Y','%b %e %Y','%e %b %Y','%Y %b %e',
+		'%a, %Y-%m-%d','%a, %m/%d/%Y','%a, %d/%m/%Y','%a, %Y/%m/%d','%B %e, %Y','%e %B, %Y','%Y, %B %e','%e. %B %Y',
+		'%A, %B %e, %Y','%A, %e %B, %Y','%A, %Y, %B %e','%A, %Y, %B %e','%A, %e. %B %Y');
+		$time_formats = array('%H:%M','%I:%M','%l:%M','%Hh%M','%Ih%M','%lh%M');
+		if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+			$formatDate = preg_replace('#(?<!%)((?:%%)*)%e#','\1%#d',$formatDate);
+			$date_formats = array_map(create_function('$f',
+									  'return str_replace(\'%e\',\'%#d\',$f);'
+									  ),$date_formats);
+		}
+		$blog_settings->system->put('date_format',$formatDate);
+		$blog_settings->system->put('date_formats',serialize($date_formats),'string','Date formats examples',true);
+		$blog_settings->system->put('time_formats',serialize($time_formats),'string','Time formats examples',true);
+
 		# Add Dotclear version
 		$cur = $core->con->openCursor($core->prefix.'version');
 		$cur->module = 'core';
@@ -200,44 +215,10 @@ if ($can_install && !empty($_POST))
 		$core->auth->user_prefs->interface->put('enhanceduploader',true,'boolean','',null,true);
 
 		# Add default favorites
-		$core->auth->user_prefs->addWorkspace('favorites');
+		$core->favs = new dcFavorites($core);
+		$init_favs = array('posts','new_post','newpage','comments','categories','media','blog_theme','widgets','simpleMenu','prefs','help');
+		$core->favs->setFavoriteIDs($init_favs,true);
 
-		$init_fav = array();
-		
-		$init_fav['new_post'] = array('new_post','New entry','post.php',
-			'images/menu/edit.png','images/menu/edit-b.png',
-			'usage,contentadmin',null,'menu-new-post');
-		$init_fav['posts'] = array('posts','Entries','posts.php',
-			'images/menu/entries.png','images/menu/entries-b.png',
-			'usage,contentadmin',null,null);
-		$init_fav['comments'] = array('comments','Comments','comments.php',
-			'images/menu/comments.png','images/menu/comments-b.png',
-			'usage,contentadmin',null,null);
-		$init_fav['prefs'] = array('prefs','My preferences','preferences.php',
-			'images/menu/user-pref.png','images/menu/user-pref-b.png',
-			'*',null,null);
-		$init_fav['blog_pref'] = array('blog_pref','Blog settings','blog_pref.php',
-			'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
-			'admin',null,null);
-		$init_fav['blog_theme'] = array('blog_theme','Blog appearance','blog_theme.php',
-			'images/menu/themes.png','images/menu/blog-theme-b.png',
-			'admin',null,null);
-
-		$init_fav['pages'] = array('pages','Pages','plugin.php?p=pages',
-			'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
-			'contentadmin,pages',null,null);
-		$init_fav['blogroll'] = array('blogroll','Blogroll','plugin.php?p=blogroll',
-			'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
-			'usage,contentadmin',null,null);
-
-		$count = 0;
-		foreach ($init_fav as $k => $f) {
-			$t = array('name' => $f[0],'title' => $f[1],'url' => $f[2], 'small-icon' => $f[3],
-				'large-icon' => $f[4],'permissions' => $f[5],'id' => $f[6],'class' => $f[7]);
-			$core->auth->user_prefs->favorites->put(sprintf("g%03s",$count),serialize($t),'string',null,true,true);
-			$count++;
-		}
-		
 		$step = 1;
 	}
 	catch (Exception $e)
@@ -266,6 +247,7 @@ xml:lang="en" lang="en">
 	<link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" /> 
 
   <script type="text/javascript" src="../js/jquery/jquery.js"></script>
+  <?php echo dcPage::jsLoad('../js/jquery/jquery.pwstrength.js'); ?>
   <script type="text/javascript">
   //<![CDATA[
   $(function() {
@@ -277,6 +259,13 @@ xml:lang="en" lang="en">
     $('#u_login').keyup(function() {
       $(this).val(this.value.replace(login_re,''));
     });
+    
+	<?php echo "\$('#u_pwd').pwstrength({texts: ['".
+				sprintf(__('Password strength: %s'),__('very weak'))."', '".
+				sprintf(__('Password strength: %s'),__('weak'))."', '".
+				sprintf(__('Password strength: %s'),__('mediocre'))."', '".
+				sprintf(__('Password strength: %s'),__('strong'))."', '".
+				sprintf(__('Password strength: %s'),__('very strong'))."']});\n"; ?>
     
     $('#u_login').parent().after($('<input type="hidden" name="u_date" value="' + Date().toLocaleString() + '" />'));
     
@@ -307,7 +296,7 @@ if ($can_install && !empty($err)) {
 }
 
 if (!empty($_GET['wiz'])) {
-	echo '<p class="message">'.__('Configuration file has been successfully created.').'</p>';
+	echo '<p class="success">'.__('Configuration file has been successfully created.').'</p>';
 }
 
 if ($can_install && $step == 0)
@@ -328,12 +317,20 @@ if ($can_install && $step == 0)
 	'</fieldset>'.
 	
 	'<fieldset><legend>'.__('Username and password').'</legend>'.
-	'<p><label for="u_login" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').'</label> '.
-	form::field('u_login',30,32,html::escapeHTML($u_login)).'</p>'.
-	'<p><label for="u_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Password:').'</label> '.
-	form::password('u_pwd',30,255).'</p>'.
-	'<p><label for="u_pwd2" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Confirm password:').'</label> '.
-	form::password('u_pwd2',30,255).'</p>'.
+	'<p><label for="u_login" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').' '.
+	form::field('u_login',30,32,html::escapeHTML($u_login)).'</label></p>'.
+	'<div class="pw-table">'.
+		'<p class="pw-cell">'.
+			'<label for="u_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('New password:').'</label>'.
+			form::password('u_pwd',30,255,'','','',false,' data-indicator="pwindicator" ').
+		'</p>'.
+		'<div id="pwindicator">'.
+		'    <div class="bar"></div>'.
+		'    <p class="label no-margin"></p>'.
+		'</div>'.
+	'</div>'.
+	'<p><label for="u_pwd2" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Confirm password:').' '.
+	form::password('u_pwd2',30,255).'</label></p>'.
 	'</fieldset>'.
 	
 	'<p><input type="submit" value="'.__('Save').'" /></p>'.
@@ -365,7 +362,7 @@ elseif ($can_install && $step == 1)
 	
 	$plugins_install_result.
 	
-	'<p>'.__('Dotclear has been successfully installed. Here is some useful information you should keep.').'</p>'.
+	'<p class="success">'.__('Dotclear has been successfully installed. Here is some useful information you should keep.').'</p>'.
 	
 	'<h3>'.__('Your account').'</h3>'.
 	'<ul>'.

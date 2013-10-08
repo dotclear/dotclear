@@ -1,25 +1,55 @@
 {% import "js_helpers.html.twig" as js %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $dlang; ?>" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{dlang}}" lang="{{dlang}}">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta http-equiv="Content-Language" content="en" />
+  <meta http-equiv="Content-Language" content="{{dlang}}" />
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{vendor_name}}</title>
-  <link rel="stylesheet" href="{{theme_url}}style/default.css" type="text/css" media="screen" />
+  <link rel="icon" type="image/png" href="images/favicon96-logout.png" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
   {{ js.load_IE7 }}
   {{ js.common }}
-  <script type="text/javascript" src="{{theme_url}}js/_auth.js"></script>
+  <link rel="stylesheet" href="{{theme_url}}style/default.css" type="text/css" media="screen" />
+   <script type="text/javascript">
+  //<![CDATA[
+  $(window).load(function() {
+    var uid = $('input[name=user_id]');
+    var upw = $('input[name=user_pwd]');
+    uid.focus();
+    
+    if (upw.length == 0) { return; }
+    
+    uid.keypress(processKey);
+
+    function processKey(evt) {
+      if (evt.which == 13 && upw.val() == '') {
+         upw.focus();
+	    return false;
+      }
+	 return true;
+    };
+    $.cookie('dc_admin_test_cookie',true);
+    if ($.cookie('dc_admin_test_cookie')) {
+      $('#cookie_help').hide();
+      $.cookie('dc_admin_test_cookie', '', {'expires': -1});
+    } else {
+      $('#cookie_help').show();
+    }
+    $('#issue #more').toggleWithLegend($('#issue').children().not('#more'));
+  });
+  //]]>
+  </script>
 </head>
 
 <body id="dotclear-admin" class="auth">
 
-{% form 'auth' %}
-<div id="login-screen">
+{% form 'auth' with {'id':'login-screen'} %}
+
 <h1>{{vendor_name}}</h1>
 {% if messages.alert is not empty %}
 	<p class="message">{{ messages.alert }}</p>
@@ -63,8 +93,8 @@
 	{% endif %}
 			<p>{{ form_field('user_id') }}</p>
 			<p>{{ form_field('user_pwd') }}</p>
-			<p>{{ form_field('user_remember',{},{'nestedlabel':true, 'labelclass':'classic'}) }}</p>
-			<p>{{ form_field('auth_login',{"class":"add button"}) }}</p>
+			<p>{{ form_field('user_remember',{},{'nestedlabel':false}) }}</p>
+			<p>{{ form_field('auth_login',{"class":"login"}) }}{{ form_hidden() }}</p>
 	{% if safe_mode %}
 		</fieldset>
 	{% else %}
@@ -83,7 +113,6 @@
 	{% endif %}
 		</div>
 {% endif %}
-</div>
 {% endform %}
 </body>
 </html>

@@ -25,6 +25,8 @@ $core->rest->addFunction('getMeta',array('dcRestMethods','getMeta'));
 $core->rest->addFunction('delMeta',array('dcRestMethods','delMeta'));
 $core->rest->addFunction('setPostMeta',array('dcRestMethods','setPostMeta'));
 $core->rest->addFunction('searchMeta',array('dcRestMethods','searchMeta'));
+$core->rest->addFunction('setSectionFold',array('dcRestMethods','setSectionFold'));
+$core->rest->addFunction('getModuleById',array('dcRestMethods','getModuleById'));
 
 $core->rest->serve();
 
@@ -140,6 +142,24 @@ class dcRestMethods
 	
 	public static function quickPost($core,$get,$post)
 	{
+		# Create category
+		if (!empty($post['new_cat_title']) && $core->auth->check('categories', $core->blog->id)) {
+		
+			$cur_cat = $core->con->openCursor($core->prefix.'category');
+			$cur_cat->cat_title = $post['new_cat_title'];
+			$cur_cat->cat_url = '';
+			
+			$parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
+			
+			# --BEHAVIOR-- adminBeforeCategoryCreate
+			$core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+			
+			$post['cat_id'] = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
+			
+			# --BEHAVIOR-- adminAfterCategoryCreate
+			$core->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
+		}
+		
 		$cur = $core->con->openCursor($core->prefix.'post');
 		
 		$cur->post_title = !empty($post['post_title']) ? $post['post_title'] : '';
@@ -219,8 +239,10 @@ class dcRestMethods
 			throw new Exception('Permission denied');
 		}
 		
-		$core->media = new dcMedia($core);
-		$file = $core->media->getFile($id);
+		try {
+			$core->media = new dcMedia($core);
+			$file = $core->media->getFile($id);
+		} catch (Exception $e) {}
 		
 		if ($file === null || $file->type != 'application/zip' || !$file->editable) {
 			throw new Exception('Not a valid file');
@@ -389,6 +411,88 @@ class dcRestMethods
 			}
 		}
 		
+		return $rsp;
+	}
+	
+	public static function setSectionFold($core,$get,$post)
+	{
+		if (empty($post['section'])) {
+			throw new Exception('No section name');
+		}
+		if ($core->auth->user_prefs->toggles === null) {
+			$core->auth->user_prefs->addWorkspace('toggles');
+		}
+		$section = $post['section'];
+		$status = isset($post['value']) && ($post['value'] != 0);
+		if ($core->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
+			$toggles = explode(',',trim($core->auth->user_prefs->toggles->unfolded_sections));
+		} else {
+			$toggles = array();
+		}
+		$k = array_search($section,$toggles);
+		if ($status) { // true == Fold section ==> remove it from unfolded list
+			if ($k !== false) {
+				unset($toggles[$k]);
+			} 
+		} else { // false == unfold section ==> add it to unfolded list
+			if ($k === false) {
+				$toggles[]=$section;
+			}; 
+		}
+		$core->auth->user_prefs->toggles->put('unfolded_sections',join(',',$toggles));
+		return true;
+	}
+	
+	public static function getModuleById($core, $get, $post)
+	{
+		if (empty($get['id'])) {
+			throw new Exception('No module ID');
+		}
+		if (empty($get['list'])) {
+			throw new Exception('No list ID');
+		}
+
+		$id = $get['id'];
+		$list = $get['list'];
+		$module = array();
+
+		if ($list == 'plugin-activate') {
+			$modules = $core->plugins->getModules();
+			if (empty($modules) || !isset($modules[$id])) {
+				throw new Exception('Unknow module ID');
+			}
+			$module = $modules[$id];
+		}
+		elseif ($list == 'plugin-new') {
+			$store = new dcStore(
+				$core->plugins, 
+				$core->blog->settings->system->store_plugin_url
+			);
+			$store->check();
+
+			$modules = $store->get();
+			if (empty($modules) || !isset($modules[$id])) {
+				throw new Exception('Unknow module ID');
+			}
+			$module = $modules[$id];
+		}
+		else {
+			// behavior not implemented yet
+		}
+
+		if (empty($module)) {
+			throw new Exception('Unknow module ID');
+		}
+
+		$module = adminModulesList::sanitizeModule($id, $module);
+
+		$rsp = new xmlTag('module');
+		$rsp->id = $id;
+
+		foreach($module as $k => $v) {
+			$rsp->{$k}((string) $v);
+		}
+
 		return $rsp;
 	}
 }

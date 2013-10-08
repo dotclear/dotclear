@@ -9,66 +9,93 @@
 {%- endmacro %}
 
 {% macro common() %}
-	<!-- jsCommon -->
-	{{ _self.load('js/jquery/jquery.js') }}
-	{{ _self.load('js/jquery/jquery.biscuit.js') }}
-	{{ _self.load('js/jquery/jquery.bgFade.js') }}
-	{{ _self.load('js/common.js') }}
-	{{ _self.load('js/prelude.js') }}
+<!-- jsCommon -->
+{{ _self.load('js/jquery/jquery.js') }}
+{% if current_blog is defined and jquery_migrate_mute -%}
 	<script type="text/javascript">
-	{% autoescape 'js' %}
 	//<![CDATA[
-		dotclear.nonce = '{{session.nonce}}';
-		dotclear.img_plus_src = '{{theme_url}}images/expand.png';
-		dotclear.img_plus_alt = '{{__('uncover')}}';
-		dotclear.img_minus_src = '{{theme_url}}images/hide.png';
-		dotclear.img_minus_alt = '{{__('hide')}}';
-		dotclear.img_menu_on = '{{theme_url}}images/menu_on.png';
-		dotclear.img_menu_off = '{{theme_url}}images/menu_off.png';
-		dotclear.msg.help = '{{__('help')}}';
-		dotclear.msg.no_selection = '{{__('no selection')}}';
-		dotclear.msg.select_all = '{{__('select all')}}';
-		dotclear.msg.invert_sel = '{{__('invert selection')}}';
-		dotclear.msg.website = '{{__('Web site:')}}';
-		dotclear.msg.email = '{{__('Email:')}}';
-		dotclear.msg.ip_address = '{{__('IP address:')}}';
-		dotclear.msg.error = '{{__('Error:')}}';
-		dotclear.msg.entry_created = '{{__('Entry has been successfully created.')}}';
-		dotclear.msg.edit_entry = '{{__('Edit entry')}}';
-		dotclear.msg.view_entry = '{{__('view entry')}}';
-		dotclear.msg.confirm_delete_posts = '{{__("Are you sure you want to delete selected entries (%s)?")}}';
-		dotclear.msg.confirm_delete_post = '{{__("Are you sure you want to delete this entry?")}}';
-		dotclear.msg.confirm_spam_delete = '{{__('Are you sure you want to delete all spams?')}}';
-		dotclear.msg.confirm_delete_comments = '{{__('Are you sure you want to delete selected comments (%s)?')}}';
-		dotclear.msg.confirm_delete_comment = '{{__('Are you sure you want to delete this comment?')}}';
-		dotclear.msg.cannot_delete_users = '{{__('Users with posts cannot be deleted.')}}';
-		dotclear.msg.confirm_delete_user = '{{__('Are you sure you want to delete selected users (%s)?')}}';
-		dotclear.msg.confirm_delete_category = '{{__('Are you sure you want to delete category "%s"?')}}';
-		dotclear.msg.confirm_reorder_categories = '{{__('Are you sure you want to reorder all categories?')}}';
-		dotclear.msg.confirm_delete_media = '{{__('Are you sure you want to remove media "%s"?')}}';
-		dotclear.msg.confirm_extract_current = '{{__('Are you sure you want to extract archive in current directory?')}}';
-		dotclear.msg.confirm_remove_attachment = '{{__('Are you sure you want to remove attachment "%s"?')}}';
-		dotclear.msg.confirm_delete_lang = '{{__('Are you sure you want to delete "%s" language?')}}';
-		dotclear.msg.confirm_delete_plugin = '{{__('Are you sure you want to delete "%s" plugin?')}}';
-		dotclear.msg.use_this_theme = '{{__('Use this theme')}}';
-		dotclear.msg.remove_this_theme = '{{__('Remove this theme')}}';
-		dotclear.msg.confirm_delete_theme = '{{__('Are you sure you want to delete "%s" theme?')}}';
-		dotclear.msg.zip_file_content = '{{__('Zip file content')}}';
-		dotclear.msg.xhtml_validator = '{{__('XHTML markup validator')}}';
-		dotclear.msg.xhtml_valid = '{{__('XHTML content is valid.')}}';
-		dotclear.msg.xhtml_not_valid = '{{__('There are XHTML markup errors.')}}';
-		dotclear.msg.confirm_change_post_format = '{{__('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?')}}';
-		dotclear.msg.load_enhanced_uploader = '{{__('Loading enhanced uploader =>please wait.')}}';
+	jQuery.migrateMute = true
 	//]]>
 	</script>
-	{% endautoescape %}
+{%- endif %}
+{{ _self.load('js/jquery/jquery-migrate-1.2.1.js') }}
+{{ _self.load('js/jquery/jquery.biscuit.js') }}
+{{ _self.load('js/jquery/jquery.bgFade.js') }}
+{{ _self.load('js/common.js') }}
+{{ _self.load('js/prelude.js') }}
+<script type="text/javascript">
+{% autoescape 'js' %}
+//<![CDATA[
+dotclear.nonce = '{{session.nonce}}';
+dotclear.img_plus_src = 'images/expand.png';
+dotclear.img_plus_alt = '{{ __('uncover') }}';
+dotclear.img_minus_src = 'images/hide.png';
+dotclear.img_minus_alt = '{{ __('hide') }}';
+dotclear.img_menu_on = 'images/menu_on.png';
+dotclear.img_menu_off = 'images/menu_off.png';
+dotclear.img_plus_theme_src = 'images/plus-theme.png';
+dotclear.img_plus_theme_alt = '{{ __('uncover') }}';
+dotclear.img_minus_theme_src = 'images/minus-theme.png';
+dotclear.img_minus_theme_alt = '{{ __('hide') }}';
+dotclear.msg.help  = '{{ __('Need help?') }}';
+dotclear.msg.new_window  =  '{{ __('new window') }}';
+dotclear.msg.help_hide  =  '{{ __('Hide') }}';
+dotclear.msg.to_select  =  '{{ __('Select:') }}';
+dotclear.msg.no_selection  =  '{{ __('no selection') }}';
+dotclear.msg.select_all  =  '{{ __('select all') }}';
+dotclear.msg.invert_sel  =  '{{ __('Invert selection') }}';
+dotclear.msg.website  =  '{{ __('Web site:') }}';
+dotclear.msg.email  =  '{{ __('Email:') }}';
+dotclear.msg.ip_address  =  '{{ __('IP address:') }}';
+dotclear.msg.error  =  '{{ __('Error:') }}';
+dotclear.msg.entry_created  =  '{{ __('Entry has been successfully created.') }}';
+dotclear.msg.edit_entry  =  '{{ __('Edit entry') }}';
+dotclear.msg.view_entry  =  '{{ __('view entry') }}';
+dotclear.msg.confirm_delete_posts  =  '{{ __("Are you sure you want to delete selected entries (%s)?") }}';
+dotclear.msg.confirm_delete_medias  =  '{{ __("Are you sure you want to delete selected medias (%d)?") }}';
+dotclear.msg.confirm_delete_categories  =  '{{ __("Are you sure you want to delete selected categories (%s)?") }}';
+dotclear.msg.confirm_delete_post  =  '{{ __("Are you sure you want to delete this entry?") }}';
+dotclear.msg.click_to_unlock  =  '{{ __("Click here to unlock the field") }}';
+dotclear.msg.confirm_spam_delete  =  '{{ __('Are you sure you want to delete all spams?') }}';
+dotclear.msg.confirm_delete_comments  =  '{{ __('Are you sure you want to delete selected comments (%s)?') }}';
+dotclear.msg.confirm_delete_comment  =  '{{ __('Are you sure you want to delete this comment?') }}';
+dotclear.msg.cannot_delete_users  =  '{{ __('Users with posts cannot be deleted.') }}';
+dotclear.msg.confirm_delete_user  =  '{{ __('Are you sure you want to delete selected users (%s)?') }}';
+dotclear.msg.confirm_delete_category  =  '{{ __('Are you sure you want to delete category "%s"?') }}';
+dotclear.msg.confirm_reorder_categories  =  '{{ __('Are you sure you want to reorder all categories?') }}';
+dotclear.msg.confirm_delete_media  =  '{{ __('Are you sure you want to remove media "%s"?') }}';
+dotclear.msg.confirm_extract_current  =  '{{ __('Are you sure you want to extract archive in current directory?') }}';
+dotclear.msg.confirm_remove_attachment  =  '{{ __('Are you sure you want to remove attachment "%s"?') }}';
+dotclear.msg.confirm_delete_lang  =  '{{ __('Are you sure you want to delete "%s" language?') }}';
+dotclear.msg.confirm_delete_plugin  =  '{{ __('Are you sure you want to delete "%s" plugin?') }}';
+dotclear.msg.use_this_theme  =  '{{ __('Use this theme') }}';
+dotclear.msg.remove_this_theme  =  '{{ __('Remove this theme') }}';
+dotclear.msg.confirm_delete_theme  =  '{{ __('Are you sure you want to delete "%s" theme?') }}';
+dotclear.msg.confirm_delete_backup  =  '{{ __('Are you sure you want to delete this backup?') }}';
+dotclear.msg.zip_file_content  =  '{{ __('Zip file content') }}';
+dotclear.msg.xhtml_validator  =  '{{ __('XHTML markup validator') }}';
+dotclear.msg.xhtml_valid  =  '{{ __('XHTML content is valid.') }}';
+dotclear.msg.xhtml_not_valid  =  '{{ __('There are XHTML markup errors.') }}';
+dotclear.msg.warning_validate_no_save_content  =  '{{ __('Attention: an audit of a content not yet registered.') }}';
+dotclear.msg.confirm_change_post_format  =  '{{ __('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?') }}';
+dotclear.msg.confirm_change_post_format_noconvert  =  '{{ __("Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?") }}';
+dotclear.msg.load_enhanced_uploader  =  '{{ __('Loading enhanced uploader, please wait.') }}';
+dotclear.msg.module_author  =  '{{ __('Author:') }}';
+dotclear.msg.module_details  =  '{{ __('Details') }}';
+dotclear.msg.module_support  =  '{{ __('Support') }}';
+dotclear.msg.module_help  =  '{{ __('Help:') }}';
+dotclear.msg.module_section  =  '{{ __('Section:') }}';
+dotclear.msg.module_tags  =  '{{ __('Tags:') }}';
+//]]>
+</script>
+{% endautoescape %}
 {% endmacro %}
 
 {% macro load_IE7() %}
-	<!--[if lt IE 8]>
-	{{ _self.load('ie7/IE8.js') }}
-	<link rel="stylesheet" type="text/css" href="{{theme_url}}style/iesucks.css" />
-	<![endif]-->
+<!--[if lt IE 9]>
+{{ _self.load('js/ie7/IE9.js') }}
+<link rel="stylesheet" type="text/css" href="style/iesucks.css" />
+<![endif]-->
 {% endmacro %}
 
 {% macro confirm_close(values) %}

@@ -262,7 +262,8 @@ class dcUrlHandlers extends urlHandler
 		{
 			$params = new ArrayObject(array(
 				'cat_url' => $args,
-				'post_type' => 'post'));
+				'post_type' => 'post',
+				'without_empty' => false));
 			
 			$core->callBehavior('publicCategoryBeforeGetCategories',$params,$args);
 			
@@ -478,6 +479,9 @@ class dcUrlHandlers extends urlHandler
 				}
 				
 				# The entry
+				if ($_ctx->posts->trackbacksActive()) {
+					header('X-Pingback: '.$core->blog->url.$core->url->getURLFor("xmlrpc",$core->blog->id));
+				}
 				self::serveDocument('post.html');
 			}
 		}

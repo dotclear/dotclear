@@ -69,6 +69,7 @@ class dcTemplate extends template
 		$this->addValue('BlogUpdateDate',array($this,'BlogUpdateDate'));
 		$this->addValue('BlogID',array($this,'BlogID'));
 		$this->addValue('BlogURL',array($this,'BlogURL'));
+		$this->addValue('BlogXMLRPCURL',array($this,'BlogXMLRPCURL'));
 		$this->addValue('BlogPublicURL',array($this,'BlogPublicURL'));
 		$this->addValue('BlogQmarkURL',array($this,'BlogQmarkURL'));
 		$this->addValue('BlogMetaRobots',array($this,'BlogMetaRobots'));
@@ -905,6 +906,15 @@ class dcTemplate extends template
 	}
 	
 	/*dtd
+	<!ELEMENT tpl:BlogXMLRPCURL - O -- Blog XML-RPC URL -->
+	*/
+	public function BlogXMLRPCURL($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor(\'xmlrpc\',$core->blog->id)').'; ?>';
+	}
+	
+	/*dtd
 	<!ELEMENT tpl:BlogURL - O -- Blog URL -->
 	*/
 	public function BlogURL($attr)
@@ -953,6 +963,10 @@ class dcTemplate extends template
 		
 		if (!empty($attr['level'])) {
 			$p .= "\$params['level'] = ".(integer) $attr['level'].";\n";
+		}
+
+		if (isset($attr['with_empty']) && ((boolean) $attr['with_empty'] == true)) {
+			$p .= '$params[\'without_empty\'] = false;';
 		}
 		
 		$res = "<?php\n";
@@ -1196,7 +1210,7 @@ class dcTemplate extends template
 			{
 				$p .=
 				'if ($_ctx->exists("categories")) { '.
-					"\$params['cat_id'] = \$_ctx->categories->cat_id; ".
+					"\$params['cat_id'] = \$_ctx->categories->cat_id.(\$core->blog->settings->system->inc_subcats?' ?sub':'');".
 				"}\n";
 			}
 			

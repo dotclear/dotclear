@@ -221,7 +221,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "検索エンジンとアーカイバに、ブログのコンテンツの索引付けとアーカイブをしてもらいたくない"
 
 #, fuzzy
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Dotclear はすでにインストールされています。"
 
 msgid "Invalid language code"
@@ -592,7 +592,7 @@ msgstr "カテゴリは正常に並び替えられました。"
 msgid "The category has been successfully moved."
 msgstr "カテゴリは正常に移動されました。"
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "カテゴリはまだありません。"
 
 msgid "Categories list"
@@ -851,7 +851,7 @@ msgstr "ただちにアップグレード"
 msgid "Remind me later"
 msgstr "後で再度知らせる"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
@@ -1764,10 +1764,10 @@ msgstr "選択されたエントリに実行："
 msgid "This user does not exist"
 msgstr "このユーザは存在しません"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "エントリのカテゴリを変更"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "エントリの投稿者を変更"
 
 msgid "Author ID:"
@@ -2153,7 +2153,7 @@ msgstr "選択されていません"
 msgid "select all"
 msgstr "すべてを選択"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "選択を反転"
 
 msgid "view entry"
@@ -2429,7 +2429,7 @@ msgstr "システム"
 msgid "Blog"
 msgstr "ブログ"
 
-msgid "Updates"
+msgid "Update"
 msgstr "アップデート"
 
 msgid "Languages"

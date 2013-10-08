@@ -42,7 +42,9 @@ try
 		$ts = dt::str('%Y-%m-%d %H:%M:%S',$_POST['ts'],$core->blog->settings->system->blog_timezone);
 
 		dcAntispam::delAllSpam($core,$ts);
-		http::redirect($p_url.'&del=1');
+
+		dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
+		http::redirect($p_url);
 	}
 
 	# Update filters
@@ -88,7 +90,9 @@ try
 		}
 
 		dcAntispam::$filters->saveFilterOpts($filters_opt);
-		http::redirect($p_url.'&upd=1');
+
+		dcPage::addSuccessNotice(__('Filters configuration has been successfully saved.'));
+		http::redirect($p_url);
 	}
 }
 catch (Exception $e)
@@ -126,8 +130,11 @@ if ($filter_gui !== false)
 		array(
 			__('Plugins') => '',
 			$page_name => $p_url,
-			'<span class="page-title">'.sprintf(__('%s filter configuration'),$filter->name).'</span>' => ''
-		));
+			sprintf(__('%s filter configuration'),$filter->name) => ''
+		)).
+		dcPage::notices();
+
+	echo '<p><a href="plugin.php?p=antispam" class="back">'.__('Back to filters list').'</a></p>';
 
 	echo $filter_gui;
 }
@@ -136,8 +143,9 @@ else
 	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
-			'<span class="page-title">'.$page_name.'</span>' => ''
-		));
+			$page_name => ''
+		)).
+		dcPage::notices();
 
 	# Information
 	$spam_count = dcAntispam::countSpam($core);
@@ -147,10 +155,6 @@ else
 	echo
 	'<form action="'.$p_url.'" method="post" class="fieldset">'.
 	'<h3>'.__('Information').'</h3>';
-
-	if (!empty($_GET['del'])) {
-		dcPage::message(__('Spam comments have been successfully deleted.'));
-	}
 
 	echo
 	'<ul class="spaminfo">'.
@@ -170,7 +174,7 @@ else
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
 		sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
-			'</p>';
+			'.</p>';
 	}
 	echo '</form>';
 
@@ -180,10 +184,11 @@ else
 	'<form action="'.$p_url.'" method="post" id="filters-list-form">';
 
 	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Filters configuration has been successfully saved.'));
+		dcPage::success(__('Filters configuration has been successfully saved.'));
 	}
 
 	echo
+	'<div class="table-outer">'.
 	'<table class="dragable">'.
 	'<caption class="as_h3">'.__('Available spam filters').'</caption>'.
 	'<thead><tr>'.
@@ -218,7 +223,7 @@ else
 		$i++;
 	}
 	echo
-	'</tbody></table>'.
+	'</tbody></table></div>'.
 	'<p>'.form::hidden('filters_order','').
 	$core->formNonce().
 	'<input type="submit" name="filters_upd" value="'.__('Save').'" /></p>'.

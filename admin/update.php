@@ -105,7 +105,10 @@ if ($new_v && $step)
 				if (!$updater->checkDownload($zip_file)) {
 					throw new Exception(
 						sprintf(__('Downloaded Dotclear archive seems to be corrupted. '.
-						'Try <a %s>download it</a> again.'),'href="'.$p_url.'?step=download"')
+						'Try <a %s>download it</a> again.'),'href="'.$p_url.'?step=download"').
+						' '.
+						__('If this problem persists try to '.
+						'<a href="http://dotclear.org/download">update manually</a>.')
 					);
 				}
 				http::redirect($p_url.'?step=backup');
@@ -174,13 +177,13 @@ dcPage::open(__('Dotclear update'),
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			'<span class="page-title">'.__('Dotclear update').'</span>' => ''
+			__('Dotclear update') => ''
 		))
 );
 
 if (!$core->error->flag()) {
 	if (!empty($_GET['nocache'])) {
-		dcPage::message(__('Manual checking of update done successfully.'));
+		dcPage::success(__('Manual checking of update done successfully.'));
 	}
 }
 
@@ -245,7 +248,7 @@ elseif ($step == 'unzip' && !$core->error->flag())
 	echo
 	'<p class="message">'.
 	__("Congratulations, you're one click away from the end of the update.").
-	' <strong><a href="index.php?logout=1">'.__('Finish the update').'</a>.</strong>'.
+	' <strong><a href="index.php?logout=1">'.__('Finish the update.').'</a></strong>'.
 	'</p>';
 }
 

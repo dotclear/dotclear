@@ -42,11 +42,13 @@ if ($core->auth->isSuperAdmin()) {
 }
 $user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
 $user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
+$user_ui_media_by_page = ($core->auth->user_prefs->interface->media_by_page ? $core->auth->user_prefs->interface->media_by_page : 30);
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
 if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || 
-	!empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction'])) {
+	!empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) || 
+	!empty($_GET['db-updated'])) {
 	$default_tab = 'user-favorites';
 } elseif (!empty($_GET['updated'])) {
 	$default_tab = 'user-options';
@@ -55,20 +57,17 @@ if (($default_tab != 'user-profile') && ($default_tab != 'user-options') && ($de
 	$default_tab = 'user-profile';
 }
 
-foreach ($core->getFormaters() as $v) {
-	$formaters_combo[$v] = $v;
-}
+# Formaters combo
+$formaters_combo = dcAdminCombos::getFormatersCombo();
 
-foreach ($core->blog->getAllPostStatus() as $k => $v) {
-	$status_combo[$v] = $k;
-}
+$status_combo = dcAdminCombos::getPostStatusescombo();
 
 $iconsets_combo = array(__('Default') => '');
 $iconsets_root = dirname(__FILE__).'/images/iconset/';
 if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 	if (($d = @dir($iconsets_root)) !== false) {
 		while (($entry = $d->read()) !== false) {
-			if ($entry != '.' && $entry != '..' && is_dir($iconsets_root.'/'.$entry)) {
+			if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($iconsets_root.'/'.$entry)) {
 				$iconsets_combo[$entry] = $entry;
 			}
 		}
@@ -76,11 +75,7 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 }
 
 # Language codes
-$langs = l10n::getISOcodes(1,1);
-foreach ($langs as $k => $v) {
-	$lang_avail = $v == 'en' || is_dir(DC_L10N_ROOT.'/'.$v);
-	$lang_combo[] = new formSelectOption($k,$v,$lang_avail ? 'avail10n' : '');
-}
+$lang_combo = dcAdminCombos::getAdminLangsCombo();
 
 # Add or update user
 if (isset($_POST['user_name']))
@@ -127,7 +122,9 @@ if (isset($_POST['user_name']))
 		# --BEHAVIOR-- adminAfterUserUpdate
 		$core->callBehavior('adminAfterUserProfileUpdate',$cur,$core->auth->userID());
 		
-		http::redirect('preferences.php?upd=1');
+		dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
+
+		http::redirect('preferences.php');
 	}
 	catch (Exception $e)
 	{
@@ -165,17 +162,13 @@ if (isset($_POST['user_post_format']))
 		$core->callBehavior('adminBeforeUserOptionsUpdate',$cur,$core->auth->userID());
 		
 		# Update user prefs
-		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
-		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
-		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
 		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_acc_nodragdrop']),'boolean');
 		$core->auth->user_prefs->interface->put('enhanceduploader',!empty($_POST['user_ui_enhanceduploader']),'boolean');
 		if ($core->auth->isSuperAdmin()) {
 			# Applied to all users
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
 		}
-		$core->auth->user_prefs->interface->put('iconset',(!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
-		$core->auth->user_prefs->interface->put('nofavmenu',!empty($_POST['user_ui_nofavmenu']),'boolean');
+		$core->auth->user_prefs->interface->put('media_by_page',(integer)$_POST['user_ui_media_by_page'],'integer');
 		
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
@@ -183,7 +176,34 @@ if (isset($_POST['user_post_format']))
 		# --BEHAVIOR-- adminAfterUserOptionsUpdate
 		$core->callBehavior('adminAfterUserOptionsUpdate',$cur,$core->auth->userID());
 		
-		http::redirect('preferences.php?updated=1');
+		dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
+		http::redirect('preferences.php#user-options');
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Dashboard options
+if (isset($_POST['db-options'])) {
+	try
+	{
+		# --BEHAVIOR-- adminBeforeUserOptionsUpdate
+		$core->callBehavior('adminBeforeDashboardOptionsUpdate',$core->auth->userID());
+		
+		# Update user prefs
+		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
+		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
+		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
+		$core->auth->user_prefs->interface->put('iconset',(!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
+		$core->auth->user_prefs->interface->put('nofavmenu',empty($_POST['user_ui_nofavmenu']),'boolean');
+		
+		# --BEHAVIOR-- adminAfterUserOptionsUpdate
+		$core->callBehavior('adminAfterDashboardOptionsUpdate',$core->auth->userID());
+		
+		dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
+		http::redirect('preferences.php#user-favorites');
 	}
 	catch (Exception $e)
 	{
@@ -198,36 +218,18 @@ if (!empty($_POST['appendaction']))
 		if (empty($_POST['append'])) {
 			throw new Exception(__('No favorite selected'));
 		}
-
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		$user_favs = $ws->DumpLocalPrefs();
-		$count = count($user_favs);
+		$user_favs = $core->favs->getFavoriteIDs(false);
 		foreach ($_POST['append'] as $k => $v)
 		{
-			try {
-				$found = false;
-				foreach ($user_favs as $f) {
-					$f = unserialize($f['value']);
-					if ($f['name'] == $v) {
-						$found = true;
-						break;
-					}
-				}
-				if (!$found) {
-					$uid = sprintf("u%03s",$count);
-					$fav = array('name' => $_fav[$v][0],'title' => $_fav[$v][1],'url' => $_fav[$v][2],'small-icon' => $_fav[$v][3],
-						'large-icon' => $_fav[$v][4],'permissions' => $_fav[$v][5],'id' => $_fav[$v][6],'class' => $_fav[$v][7]);
-					$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string');
-					$count++;
-				}
-			} catch (Exception $e) {
-				$core->error->add($e->getMessage());
-				break;
+			if ($core->favs->exists($v)) {
+				$user_favs[] = $v;
 			}
 		}
-	
+		$core->favs->setFavoriteIDs($user_favs,false);
+
 		if (!$core->error->flag()) {
-			http::redirect('preferences.php?append=1');
+			dcPage::addSuccessNotice(__('Favorites have been successfully added.'));
+			http::redirect('preferences.php#user-favorites');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -241,37 +243,20 @@ if (!empty($_POST['removeaction']))
 		if (empty($_POST['remove'])) {
 			throw new Exception(__('No favorite selected'));
 		}
-		
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		foreach ($_POST['remove'] as $k => $v)
+		$user_fav_ids = array();
+		foreach ($core->favs->getFavoriteIDs(false) as $v) {
+			$user_fav_ids[$v]=true;
+		}
+		foreach ($_POST['remove'] as $v)
 		{
-			try {
-				$core->auth->user_prefs->favorites->drop($v);
-			} catch (Exception $e) {
-				$core->error->add($e->getMessage());
-				break;
+			if (isset($user_fav_ids[$v])) {
+				unset($user_fav_ids[$v]);
 			}
 		}
-		// Update pref_id values
-		try {
-			$user_favs = $ws->DumpLocalPrefs();
-			$core->auth->user_prefs->favorites->dropAll();
-			$count = 0;
-			foreach ($user_favs as $k => $v)
-			{
-				$uid = sprintf("u%03s",$count);
-				$f = unserialize($v['value']);
-				$fav = array('name' => $f['name'],'title' => $f['title'],'url' => $f['url'],'small-icon' => $f['small-icon'],
-					'large-icon' => $f['large-icon'],'permissions' => $f['permissions'],'id' => $f['id'],'class' => $f['class']);
-				$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string');
-				$count++;
-			}
-		} catch (Exception $e) {
-			$core->error->add($e->getMessage());
-		}
-	
+		$core->favs->setFavoriteIDs(array_keys($user_fav_ids),false);
 		if (!$core->error->flag()) {
-			http::redirect('preferences.php?removed=1');
+			dcPage::addSuccessNotice(__('Favorites have been successfully removed.'));
+			http::redirect('preferences.php#user-favorites');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -290,50 +275,26 @@ if (empty($_POST['favs_order']) && !empty($_POST['order'])) {
 
 if (!empty($_POST['saveorder']) && !empty($order))
 {
-	try {
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		$user_favs = $ws->DumpLocalPrefs();
-		$core->auth->user_prefs->favorites->dropAll();
-		$count = 0;
-		foreach ($order as $i => $k) {
-			$uid = sprintf("u%03s",$count);
-			$f = unserialize($user_favs[$k]['value']);
-			$fav = array('name' => $f['name'],'title' => $f['title'],'url' => $f['url'],'small-icon' => $f['small-icon'],
-				'large-icon' => $f['large-icon'],'permissions' => $f['permissions'],'id' => $f['id'],'class' => $f['class']);
-			$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string');
-			$count++;
+	foreach ($order as $k => $v) {
+		if (!$core->favs->exists($v)) {
+			unset($order[$k]);
 		}
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
-
+	}	
+	$core->favs->setFavoriteIDs($order,false);
 	if (!$core->error->flag()) {
-		http::redirect('preferences.php?&neworder=1');
+		dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
+		http::redirect('preferences.php#user-favorites');
 	}
 }
 
 # Replace default favorites by current set (super admin only)
 if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
-	try {
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		$user_favs = $ws->DumpLocalPrefs();
-		$core->auth->user_prefs->favorites->dropAll(true);
-		$count = 0;
-		foreach ($user_favs as $k => $v)
-		{
-			$uid = sprintf("g%03s",$count);
-			$f = unserialize($v['value']);
-			$fav = array('name' => $f['name'],'title' => $f['title'],'url' => $f['url'],'small-icon' => $f['small-icon'],
-				'large-icon' => $f['large-icon'],'permissions' => $f['permissions'],'id' => $f['id'],'class' => $f['class']);
-			$core->auth->user_prefs->favorites->put($uid,serialize($fav),'string',null,null,true);
-			$count++;
-		}
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
+	$user_favs = $core->favs->getFavoriteIDs(false);
+	$core->favs->setFavoriteIDs($user_favs,true);
 
 	if (!$core->error->flag()) {
-		http::redirect('preferences.php?&replaced=1');
+		dcPage::addSuccessNotice(__('Default favorites have been successfully updated.'));
+		http::redirect('preferences.php#user-favorites');
 	}
 }
 
@@ -365,37 +326,39 @@ dcPage::open($page_title,
 	dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->auth->userID()) => '',
-		'<span class="page-title">'.$page_title.'</span>' => ''
+		$page_title => ''
 	))
 );
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Personal information has been successfully updated.'));
+	dcPage::success(__('Personal information has been successfully updated.'));
 }
 if (!empty($_GET['updated'])) {
-	dcPage::message(__('Personal options has been successfully updated.'));
+	dcPage::success(__('Personal options has been successfully updated.'));
+}
+if (!empty($_GET['db-updated'])) {
+	dcPage::success(__('Dashboard options has been successfully updated.'));
 }
 if (!empty($_GET['append'])) {
-	dcPage::message(__('Favorites have been successfully added.'));
+	dcPage::success(__('Favorites have been successfully added.'));
 }
 if (!empty($_GET['neworder'])) {
-	dcPage::message(__('Favorites have been successfully updated.'));
+	dcPage::success(__('Favorites have been successfully updated.'));
 }
 if (!empty($_GET['removed'])) {
-	dcPage::message(__('Favorites have been successfully removed.'));
+	dcPage::success(__('Favorites have been successfully removed.'));
 }
 if (!empty($_GET['replaced'])) {
-	dcPage::message(__('Default favorites have been successfully updated.'));
+	dcPage::success(__('Default favorites have been successfully updated.'));
 }
 
 # User profile
 echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';
 
 echo
+'<h3>'.__('My profile').'</h3>'.
 '<form action="preferences.php" method="post" id="user-form">'.
-'<fieldset><legend>'.__('My profile').'</legend>'.
-'<div class="two-cols">'.
-'<div class="col">'.
+
 '<p><label for="user_name">'.__('Last Name:').'</label>'.
 form::field('user_name',20,255,html::escapeHTML($user_name)).'</p>'.
 
@@ -411,25 +374,17 @@ form::field('user_email',20,255,html::escapeHTML($user_email)).'</p>'.
 '<p><label for="user_url">'.__('URL:').'</label>'.
 form::field('user_url',30,255,html::escapeHTML($user_url)).'</p>'.
 
-'</div>'.
-
-'<div class="col">'.
-
-'<p><label for="user_lang">'.__('User language:').'</label>'.
+'<p><label for="user_lang">'.__('Language for my interface:').'</label>'.
 form::combo('user_lang',$lang_combo,$user_lang,'l10n').'</p>'.
 
-'<p><label for="user_tz">'.__('User timezone:').'</label>'.
-form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>'.
+'<p><label for="user_tz">'.__('My timezone:').'</label>'.
+form::combo('user_tz',dt::getZones(true,true),$user_tz).'</p>';
 
-'</div>'.
-'</div>'.
-'</fieldset>';
 
 if ($core->auth->allowPassChange())
 {
 	echo
-	'<fieldset>'.
-	'<legend>'.__('Change your password').'</legend>'.
+	'<h4 class="vertical-separator pretty-title">'.__('Change my password').'</h4>'.
 	
 	'<div class="pw-table">'.
 	'<p class="pw-cell"><label for="new_pwd">'.__('New password:').'</label>'.
@@ -442,131 +397,114 @@ if ($core->auth->allowPassChange())
 	
 	'<p><label for="new_pwd_c">'.__('Confirm new password:').'</label>'.
 	form::password('new_pwd_c',20,255).'</p>'.
-	'</fieldset>'.
 	
-	'<p>'.__('If you have changed this user email or password you must provide your current password to save these modifications.').'</p>'.
-	'<p><label for="cur_pwd">'.__('Your password:').'</label>'.
-	form::password('cur_pwd',20,255).'</p>';
+	'<p><label for="cur_pwd">'.__('Your current password:').'</label>'.
+	form::password('cur_pwd',20,255).'</p>'.
+	'<p class="form-note warn">'.
+	__('If you have changed your email or password you must provide your current password to save these modifications.').
+	'</p>';
 }
 
 echo
-'<p class="clear">'.
+'<p class="clear vertical-separator">'.
 $core->formNonce().
-'<input type="submit" accesskey="s" value="'.__('Save').'" /></p>'.
-'</form>';
+'<input type="submit" accesskey="s" value="'.__('Update my profile').'" /></p>'.
+'</form>'.
 
-echo '</div>';
+'</div>';
 
 # User options : some from actual user profile, dashboard modules, ...
 echo '<div class="multi-part" id="user-options" title="'.__('My options').'">';
 
 echo
 '<form action="preferences.php" method="post" id="opts-forms">'.
-'<fieldset><legend>'.__('My options').'</legend>'.
+'<h3>'.__('My options').'</h3>';
 
-'<p><label for="user_post_format">'.__('Preferred format:').'</label>'.
+echo
+'<div class="fieldset">'.
+'<h4>'.__('Interface').'</h4>'.
+
+'<p><label for="user_ui_enhanceduploader" class="classic">'.
+form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
+__('Activate enhanced uploader in media manager').'</label></p>'.
+
+'<p><label for="user_acc_nodragdrop" class="classic">'.
+form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop).' '.
+__('Disable javascript powered drag and drop for ordering items').'</label></p>'.
+'<p class="clear form-note">'.__('If checked, numeric fields will allow to type the elements\' ordering number.').'</p>';
+
+echo
+'<p><label for="user_ui_media_by_page" class="classic">'.__('Number of elements displayed per page in media manager:').'</label> '.
+form::field('user_ui_media_by_page',5,3,(integer) $user_ui_media_by_page).'</p>';
+
+if ($core->auth->isSuperAdmin()) {
+	echo
+	'<p><label for="user_ui_hide_std_favicon" class="classic">'.
+	form::checkbox('user_ui_hide_std_favicon',1,$user_ui_hide_std_favicon).' '.
+	__('Do not use standard favicon').'</label> '.
+	'<span class="clear form-note warn">'.__('This will be applied for all users').'.</span>'.
+	'</p>';//Opera sucks;
+}
+
+echo
+'</div>';
+
+echo
+'<div class="fieldset">'.
+'<h4>'.__('Edition').'</h4>'.
+
+'<p class="field"><label for="user_post_format">'.__('Preferred format:').'</label>'.
 form::combo('user_post_format',$formaters_combo,$user_options['post_format']).'</p>'.
 
-'<p><label for="user_post_status">'.__('Default entry status:').'</label>'.
+'<p class="field"><label for="user_post_status">'.__('Default entry status:').'</label>'.
 form::combo('user_post_status',$status_combo,$user_post_status).'</p>'.
 
-'<p><label for="user_edit_size">'.__('Entry edit field height:').'</label>'.
+'<p class="field"><label for="user_edit_size">'.__('Entry edit field height:').'</label>'.
 form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).'</p>'.
 
 '<p><label for="user_wysiwyg" class="classic">'.
 form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg']).' '.
 __('Enable WYSIWYG mode').'</label></p>'.
 
-'<p><label for="user_ui_enhanceduploader" class="classic">'.
-form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
-__('Activate enhanced uploader in media manager').'</label></p>'.
-
-'<p><label for="user_ui_nofavmenu" class="classic">'.
-form::checkbox('user_ui_nofavmenu',1,$user_ui_nofavmenu).' '.
-__('Hide My favorites menu').'</label></p>';
-
-if (count($iconsets_combo) > 1) {
-	echo 
-		'<p><label for="user_ui_iconset">'.__('Iconset:').'</label>'.
-		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</p>';
-} else {
-	form::hidden('user_ui_iconset','');
-}
-
-if ($core->auth->isSuperAdmin()) {
-	echo
-	'<p><label for="user_ui_hide_std_favicon" class="classic">'.
-	form::checkbox('user_ui_hide_std_favicon',1,$user_ui_hide_std_favicon).' '.
-	__('Do not use standard favicon').'</label></p>'.
-	'<p class="clear form-note info">'.__('This will be applied for all users').
-	'<br class="clear" /></p>';//Opera sucks;
-}
-
-echo 
-'</fieldset>';
+'</div>';
 
 echo
-'<fieldset><legend>'.__('Accessibility options').'</legend>'.
-
-'<p><label for="user_acc_nodragdrop" class="classic">'.
-form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop).' '.
-__('Disable javascript powered drag and drop for ordering items').'</label></p>'.
-
-'<p class="clear form-note info">'.__('Numeric fields will allow to type the elements\' ordering number.').'</p>'.
-'</fieldset>';
-
-echo
-'<fieldset><legend>'.__('Dashboard modules').'</legend>'.
-
-'<p><label for="user_dm_doclinks" class="classic">'.
-form::checkbox('user_dm_doclinks',1,$user_dm_doclinks).' '.
-__('Display documentation links').'</label></p>'.
-
-'<p><label for="user_dm_dcnews" class="classic">'.
-form::checkbox('user_dm_dcnews',1,$user_dm_dcnews).' '.
-__('Display Dotclear news').'</label></p>'.
-
-'<p><label for="user_dm_quickentry" class="classic">'.
-form::checkbox('user_dm_quickentry',1,$user_dm_quickentry).' '.
-__('Display quick entry form').'</label><br class="clear" />'. //Opera sucks
-'</p>'.
-
-'</fieldset>';
+'<h4 class="pretty-title">'.__('Other options').'</h4>';
 
 # --BEHAVIOR-- adminPreferencesForm
 $core->callBehavior('adminPreferencesForm',$core);
 
 echo
-'<p class="clear">'.
+'<p class="clear vertical-separator">'.
 $core->formNonce().
-'<input type="submit" accesskey="s" value="'.__('Save').'" /></p>'.
+'<input type="submit" accesskey="s" value="'.__('Save my options').'" /></p>'.
 '</form>';
 
 echo '</div>';
 
-# User favorites
-echo '<div class="multi-part" id="user-favorites" title="'.__('My favorites').'">';
+# My dashboard
+echo '<div class="multi-part" id="user-favorites" title="'.__('My dashboard').'">';
 $ws = $core->auth->user_prefs->addWorkspace('favorites');
-echo '<form action="preferences.php" method="post" id="favs-form">';
-echo '<div class="two-cols">';
-echo '<div class="col70">';
-echo '<fieldset id="my-favs"><legend>'.__('My favorites').'</legend>';
+echo '<h3>'.__('My dashboard').'</h3>';
+
+echo '<form action="preferences.php" method="post" id="favs-form" class="two-boxes odd">';
+
+echo '<div id="my-favs" class="fieldset"><h4>'.__('My favorites').'</h4>';
 
 $count = 0;
-foreach ($ws->dumpPrefs() as $k => $v) {
-	// User favorites only
-	if (!$v['global']) {
-		$fav = unserialize($v['value']);
-		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			if ($count == 0) echo '<ul>';
-			$count++;
-			echo '<li id="fu-'.$k.'">'.
-				'<img src="'.dc_admin_icon_url($fav['large-icon']).'" alt="" /> '.
-				form::field(array('order['.$k.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),$fav['title']).'"').
-				form::hidden(array('dynorder[]','dynorder-'.$k.''),$k).
-				'<label for="fuk-'.$k.'">'.form::checkbox(array('remove[]','fuk-'.$k),$k).__($fav['title']).'</label>'.
-				'</li>';
-		}
+$user_fav = $core->favs->getFavoriteIDs(false);
+foreach ($user_fav as $id) {
+	$fav = $core->favs->getFavorite($id);
+	if ($fav != false) {
+		// User favorites only
+		if ($count == 0) echo '<ul class="fav-list">';
+		$count++;
+		echo '<li id="fu-'.$id.'">'.'<label for="fuk-'.$id.'">'.
+			'<img src="'.dc_admin_icon_url($fav['small-icon']).'" alt="" /> '.'<span class="zoom"><img src="'.dc_admin_icon_url($fav['large-icon']).'" alt="" /></span>'.
+			form::field(array('order['.$id.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),$fav['title']).'"').
+			form::hidden(array('dynorder[]','dynorder-'.$id.''),$id).
+			form::checkbox(array('remove[]','fuk-'.$id),$id).__($fav['title']).'</label>'.
+			'</li>';
 	}
 }
 if ($count > 0) echo '</ul>';
@@ -582,71 +520,113 @@ if ($count > 0) {
 	'onclick="return window.confirm(\''.html::escapeJS(
 		__('Are you sure you want to remove selected favorites?')).'\');" /></p>'.
 
-	($core->auth->isSuperAdmin() ? 
-		'<hr />'.
-		'<p>'.__('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:').'</p>'.
-		'<p><input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'" />' : 
+	($core->auth->isSuperAdmin() ?
+		'<div class="info">'.
+		'<p>'.__('If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation.').'</p>'.
+		'<p><input class="reset" type="submit" name="replace" value="'.__('Define as default favorites').'" />'.'</p>'.
+		'</div>'
+		:
 		'').
-		'</p>'.
+
 	'</div>';
 } else {
 	echo
 	'<p>'.__('Currently no personal favorites.').'</p>';
 }
 
-echo '</fieldset>';
+$avail_fav = $core->favs->getFavorites($core->favs->getAvailableFavoritesIDs());
+$default_fav_ids = array();
+foreach($core->favs->getFavoriteIDs(true) as $v) {
+	$default_fav_ids[$v]=true;
+}
+echo '</div>'; # /box my-fav
 
-echo '<div id="default-favs"><h3>'.__('Default favorites').'</h3>';
-echo '<p class="form-note info clear">'.__('Those favorites are displayed when My Favorites list is empty.').'</p>';
-$count = 0;
-foreach ($ws->dumpPrefs() as $k => $v) {
-	// Global favorites only
-	if ($v['global']) {
-		$fav = unserialize($v['value']);
-		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			if ($count == 0) echo '<ul class="fav-list">';
-			$count++;
-			echo '<li id="fd-'.$k.'">'.
-			'<img src="'.dc_admin_icon_url($fav['small-icon']).'" alt="" /> '.__($fav['title']).'</li>';
-		}
-	}
-}	
-if ($count > 0) echo '</ul>';
-echo '</div>';
-echo '</div>';
-echo '<div class="col30" id="available-favs">';
+echo '<div class="fieldset" id="available-favs">';
 # Available favorites
-echo '<fieldset><legend>'.__('Available favorites').'</legend>';
+echo '<h5 class="pretty-title">'.__('Other available favorites').'</h5>';
 $count = 0;
-$array = $_fav;
 function cmp($a,$b) {
-    if (__($a[1]) == __($b[1])) {
+    if ($a['title'] == $b['title']) {
         return 0;
     }
-    return (__($a[1]) < __($b[1])) ? -1 : 1;
+    return ($a['title'] < $b['title']) ? -1 : 1;
 }
-$array=$array->getArrayCopy();
-uasort($array,'cmp');
-foreach ($array as $k => $fav) {
-	if (($fav[5] == '*') || $core->auth->check($fav[5],$core->blog->id)) {
-		if ($count == 0) echo '<ul class="fav-list">';
-		$count++;
-		echo '<li id="fa-'.$fav[0].'">'.'<label for="fak-'.$fav[0].'">'.
-			form::checkbox(array('append[]','fak-'.$fav[0]),$k).
-			'<img src="'.dc_admin_icon_url($fav[3]).'" alt="" /> '.'<span class="zoom"><img src="'.dc_admin_icon_url($fav[4]).'" alt="" /></span>'.
-			__($fav[1]).'</label>'.'</li>';
+uasort($avail_fav,'cmp');
+
+foreach ($avail_fav as $k => $v) {
+	if (in_array($k,$user_fav)) {
+		unset($avail_fav[$k]);
 	}
-}	
+}
+foreach ($avail_fav as $k=>$fav) {
+	if ($count == 0) echo '<ul class="fav-list">';
+	$count++;
+	echo '<li id="fa-'.$k.'">'.'<label for="fak-'.$k.'">'.
+		'<img src="'.dc_admin_icon_url($fav['small-icon']).'" alt="" /> '.
+		'<span class="zoom"><img src="'.dc_admin_icon_url($fav['large-icon']).'" alt="" /></span>'.
+		form::checkbox(array('append[]','fak-'.$k),$k).
+		$fav['title'].'</label>'.
+		(isset($default_fav_ids[$k]) ? ' <span class="default-fav"><img src="images/selected.png" alt="'.__('(default favorite)').'" /></span>' : '').
+		'</li>';
+}
 if ($count > 0) echo '</ul>';
 echo
 '<p>'.
 $core->formNonce().
 '<input type="submit" name="appendaction" value="'.__('Add to my favorites').'" /></p>';
-echo '</fieldset>';
-echo '</div>';
-echo '</div>'; # Two-cols
+echo '</div>'; # /available favorites
+
 echo '</form>';
-echo '</div>'; # user-favorites
+
+echo
+'<form action="preferences.php" method="post" id="db-forms" class="two-boxes even">'.
+
+'<div class="fieldset">'.
+'<h4>'.__('Menu').'</h4>'.
+'<p><label for="user_ui_nofavmenu" class="classic">'.
+form::checkbox('user_ui_nofavmenu',1,!$user_ui_nofavmenu).' '.
+__('Display favorites at the top of the menu').'</label></p></div>';
+
+if (count($iconsets_combo) > 1) {
+	echo 
+		'<div class="fieldset">'.
+		'<h4>'.__('Dashboard icons').'</h4>'.
+		'<p><label for="user_ui_iconset" class="classic">'.__('Iconset:').'</label> '.
+		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</p>'.
+		'</div>';
+} else {
+	echo form::hidden('user_ui_iconset','');
+}
+
+echo
+'<div class="fieldset">'.
+'<h4>'.__('Dashboard modules').'</h4>'.
+
+'<p><label for="user_dm_doclinks" class="classic">'.
+form::checkbox('user_dm_doclinks',1,$user_dm_doclinks).' '.
+__('Display documentation links').'</label></p>'.
+
+'<p><label for="user_dm_dcnews" class="classic">'.
+form::checkbox('user_dm_dcnews',1,$user_dm_dcnews).' '.
+__('Display Dotclear news').'</label></p>'.
+
+'<p><label for="user_dm_quickentry" class="classic">'.
+form::checkbox('user_dm_quickentry',1,$user_dm_quickentry).' '.
+__('Display quick entry form').'</label><br class="clear" />'. //Opera sucks
+'</p>';
+echo '</div>';
+
+# --BEHAVIOR-- adminDashboardOptionsForm
+$core->callBehavior('adminDashboardOptionsForm',$core);
+
+echo
+'<p>'.
+form::hidden('db-options','-').
+$core->formNonce().
+'<input type="submit" accesskey="s" value="'.__('Save my dashboard options').'" /></p>'.
+'</form>';
+
+echo '</div>'; # /multipart-user-favorites
 
 dcPage::helpBlock('core_user_pref');
 dcPage::close();

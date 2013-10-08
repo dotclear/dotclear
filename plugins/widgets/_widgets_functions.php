@@ -76,7 +76,7 @@ class defaultWidgets
 			return;
 		}
 
-		$rs = $core->blog->getCategories(array('post_type'=>'post'));
+		$rs = $core->blog->getCategories(array('post_type'=>'post','without_empty'=> !$w->with_empty));
 		if ($rs->isEmpty()) {
 			return;
 		}
@@ -107,7 +107,7 @@ class defaultWidgets
 			$res .=
 			'<a href="'.$core->blog->url.$core->url->getURLFor('category', $rs->cat_url).'">'.
 			html::escapeHTML($rs->cat_title).'</a>'.
-			($w->postcount ? ' <span>('.$rs->nb_post.')</span>' : '');
+			($w->postcount ? ' <span>('.($w->subcatscount ? $rs->nb_total : $rs->nb_post).')</span>' : '');
 			
 			
 			$level = $rs->level;

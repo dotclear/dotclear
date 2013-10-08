@@ -180,6 +180,9 @@ class urlPages extends dcUrlHandlers
 				}
 				
 				# The entry
+				if ($_ctx->posts->trackbacksActive()) {
+					header('X-Pingback: '.$core->blog->url.$core->url->getURLFor("xmlrpc",$core->blog->id));
+				}
 				$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates');
 				self::serveDocument('page.html');
 			}

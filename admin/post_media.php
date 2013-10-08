@@ -25,14 +25,14 @@ if ($rs->isEmpty()) {
 	exit;
 }
 
-if ($post_id && $media_id && !empty($_POST['attach']))
-{
-	$core->media = new dcMedia($core);
-	$core->media->addPostMedia($post_id,$media_id);
-	http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
-}
-
 try {
+	if ($post_id && $media_id && !empty($_POST['attach']))
+	{
+		$core->media = new dcMedia($core);
+		$core->media->addPostMedia($post_id,$media_id);
+		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
+	}
+
 	$core->media = new dcMedia($core);
 	$f = $core->media->getPostMedia($post_id,$media_id);
 	if (empty($f)) {
@@ -50,7 +50,9 @@ if (($post_id && $media_id) || $core->error->flag())
 	if (!empty($_POST['remove']))
 	{
 		$core->media->removePostMedia($post_id,$media_id);
-		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false).'&rmattach=1');
+		
+		dcPage::addSuccessNotice(__('Attachment has been successfully removed.'));
+		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
 	}
 	elseif (isset($_POST['post_id'])) {
 		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));

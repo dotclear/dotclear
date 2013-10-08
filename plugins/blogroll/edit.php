@@ -67,7 +67,8 @@ if (isset($rs) && !$rs->is_cat && !empty($_POST['edit_link']))
 	
 	try {
 		$blogroll->updateLink($id,$link_title,$link_href,$link_desc,$link_lang,trim($link_xfn));
-		http::redirect($p_url.'&edit=1&id='.$id.'&upd=1');
+		dcPage::addSuccessNotice(__('Link has been successfully updated'));
+		http::redirect($p_url.'&edit=1&id='.$id);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -81,7 +82,8 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat']))
 	
 	try {
 		$blogroll->updateCategory($id,$link_desc);
-		http::redirect($p_url.'&edit=1&id='.$id.'&upd=1');
+		dcPage::addSuccessNotice(__('Category has been successfully updated'));
+		http::redirect($p_url.'&edit=1&id='.$id);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -98,8 +100,9 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat']))
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Blogroll').'</span>' => $p_url
-		));
+			__('Blogroll') => $p_url
+		)).
+		dcPage::notices();
 ?>
 
 <?php echo '<p><a class="back" href="'.$p_url.'">'.__('Return to blogroll').'</a></p>'; ?>
@@ -107,10 +110,6 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat']))
 <?php
 if (isset($rs) && $rs->is_cat)
 {
-	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Category has been successfully updated'));
-	}
-	
 	echo
 	'<form action="'.$p_url.'" method="post">'.
 	'<h3>'.__('Edit category').'</h3>'.
@@ -126,10 +125,7 @@ if (isset($rs) && $rs->is_cat)
 }
 if (isset($rs) && !$rs->is_cat)
 {
-	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Link has been successfully updated'));
-	}
-	
+
 	echo
 	'<form action="plugin.php" method="post" class="two-cols fieldset">'.
 
@@ -152,7 +148,8 @@ if (isset($rs) && !$rs->is_cat)
 	
 	# XFN nightmare
 	'<div class="col70 last-col">'.
-	'<h3>'.__('XFN informations').'</h3>'.
+	'<h3>'.__('XFN information').'</h3>'.
+	'<div class="table-outer">'.
 	'<table class="noborder">'.
 	
 	'<tr class="line">'.
@@ -234,7 +231,7 @@ if (isset($rs) && !$rs->is_cat)
 	strpos($link_xfn,'sweetheart') !== false).__('_xfn_Sweetheart').'</label> '.
 	'</p></td>'.
 	'</tr>'.
-	'</table>'.
+	'</table></div>'.
 	
 	'</div>'.
 	'<p class="clear">'.form::hidden('p','blogroll').

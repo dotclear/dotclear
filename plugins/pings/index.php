@@ -35,7 +35,8 @@ try
 		$core->blog->settings->addNamespace('pings');
 		$core->blog->settings->pings->put('pings_active',!empty($_POST['pings_active']),null,null,true,true);
 		$core->blog->settings->pings->put('pings_uris',serialize($pings_uris),null,null,true,true);
-		http::redirect($p_url.'&up=1');
+		dcPage::addSuccessNotice(__('Settings have been successfully updated.'));
+		http::redirect($p_url);
 	}
 }
 catch (Exception $e)
@@ -54,17 +55,13 @@ catch (Exception $e)
 echo dcPage::breadcrumb(
 	array(
 		__('Plugins') => '',
-		'<span class="page-title">'.__('Pings configuration').'</span>' => ''
+		__('Pings configuration') => ''
 	));
-
-if (!empty($_GET['up'])) {
-	dcPage::message(__('Settings have been successfully updated.'));
-}
 
 echo
 '<form action="'.$p_url.'" method="post">'.
-'<p><label for="pings_active" class="classic">'.form::checkbox('pings_active',1,$core->blog->settings->pings->pings_active).'</label> '.
-__('Activate pings extension').'</p>';
+'<p><label for="pings_active" class="classic">'.form::checkbox('pings_active',1,$core->blog->settings->pings->pings_active).
+__('Activate pings extension').'</label></p>';
 
 $i = 0;
 foreach ($pings_uris as $n => $u)

@@ -215,7 +215,7 @@ msgstr "Я хочу, чтобы поисковые машины проиндек
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Я не хочу, чтобы мой блог индексировался и архивировался поисковыми машинами."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Dotclear уже установлен."
 
 msgid "Invalid language code"
@@ -587,7 +587,7 @@ msgstr "Категории были успешно записаны."
 msgid "The category has been successfully moved."
 msgstr "Категория была успешно перенесена."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Нет категории."
 
 msgid "Categories list"
@@ -846,7 +846,7 @@ msgstr "Обновить сейчас"
 msgid "Remind me later"
 msgstr "Напомнить мне позже"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 msgid "Some plugins are installed twice:"
@@ -1741,10 +1741,10 @@ msgstr "Действия над выбранными записями:"
 msgid "This user does not exist"
 msgstr "Этот пользователь не существует"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Изменить категорию для записей"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Изменить автора записей"
 
 msgid "Author ID:"
@@ -2125,7 +2125,7 @@ msgstr "Ничего не выбрано"
 msgid "select all"
 msgstr "выбрать все"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "инвертировать выбор"
 
 msgid "view entry"
@@ -2398,7 +2398,7 @@ msgstr "Система"
 msgid "Blog"
 msgstr "Блог"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Обновления"
 
 msgid "Languages"

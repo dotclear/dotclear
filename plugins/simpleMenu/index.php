@@ -22,48 +22,32 @@ $p_url = 'plugin.php?p=simpleMenu';
 $blog_url = html::stripHostURL($core->blog->url);
 
 # Liste des catégories
-$categories_combo = array();
 $categories_label = array();
-try {
-	$rs = $core->blog->getCategories(array('post_type'=>'post'));
-	while ($rs->fetch()) {
-		$categories_combo[] = new formSelectOption(
-			str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title),
-			$rs->cat_url
-		);
-		$categories_label[$rs->cat_url] = html::escapeHTML($rs->cat_title);
-	}
-} catch (Exception $e) { }
+$rs = $core->blog->getCategories(array('post_type'=>'post'));
+$categories_combo = dcAdminCombos::getCategoriesCombo($rs,false,true);
+$rs->moveStart();
+while ($rs->fetch()) {
+	$categories_label[$rs->cat_url] = html::escapeHTML($rs->cat_title);
+}
 
 # Liste des langues utilisées
-$langs_combo = array();
-try {
-	$rs = $core->blog->getLangs(array('order'=>'asc'));
-	if ($rs->count() > 1)
-	{
-		$all_langs = l10n::getISOcodes(0,1);
-		while ($rs->fetch()) {
-			$lang_name = isset($all_langs[$rs->post_lang]) ? $all_langs[$rs->post_lang] : $rs->post_lang;
-			$langs_combo[$lang_name] = $rs->post_lang;
-		}
-		unset($all_langs);
-	}
-	unset($rs);
-} catch (Exception $e) { }
+$langs_combo = dcAdminCombos::getLangscombo(
+	$core->blog->getLangs(array('order'=>'asc'))
+);
 
 # Liste des mois d'archive
-$months_combo = array();
-try {
-	$rs = $core->blog->getDates(array('type'=>'month'));
-	$months_combo[__('All months')] = '-';
-	$first_year = $last_year = 0;
-	while ($rs->fetch()) {
-		$months_combo[dt::str('%B %Y',$rs->ts())] = $rs->year().$rs->month();
-		if (($first_year == 0) || ($rs->year() < $first_year)) $first_year = $rs->year();
-		if (($last_year == 0) || ($rs->year() > $last_year)) $last_year = $rs->year();
-	}
-	unset($rs);
-} catch (Exception $e) { }
+$rs = $core->blog->getDates(array('type'=>'month'));
+$months_combo = array_merge(
+	array(__('All months') => '-'),
+	dcAdmincombos::getDatesCombo($rs)
+);
+
+$first_year = $last_year = 0;
+while ($rs->fetch()) {
+	if (($first_year == 0) || ($rs->year() < $first_year)) $first_year = $rs->year();
+	if (($last_year == 0) || ($rs->year() > $last_year)) $last_year = $rs->year();
+}
+unset($rs);
 
 # Liste des pages -- Doit être pris en charge plus tard par le plugin ?
 $pages_combo = array();
@@ -232,7 +216,8 @@ if ($step) {
 					$core->blog->triggerBlog();
 				
 					// All done successfully, return to menu items list
-					http::redirect($p_url.'&amp;added=1');
+					dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
+					http::redirect($p_url);
 				} else {
 					throw new Exception(__('Label and URL of menu item are mandatory.'));
 				}
@@ -267,7 +252,8 @@ if ($step) {
 				$core->blog->triggerBlog();
 				
 				// All done successfully, return to menu items list
-				http::redirect($p_url.'&amp;removed=1');
+				dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
+				http::redirect($p_url);
 			} else {
 				throw new Exception(__('No menu items selected.'));
 			}
@@ -301,7 +287,8 @@ if ($step) {
 			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
-			http::redirect($p_url.'&amp;updated=1');
+			dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
+			http::redirect($p_url);
 		}
 		catch (Exception $e) {
 			$core->error->add($e->getMessage());
@@ -338,7 +325,8 @@ if ($step) {
 			$core->blog->triggerBlog();
 
 			// All done successfully, return to menu items list
-			http::redirect($p_url.'&amp;neworder=1');
+			dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
+			http::redirect($p_url);
 		} 
 		catch (Exception $e) {
 			$core->error->add($e->getMessage());
@@ -368,33 +356,42 @@ if ($step) {
 <?php
 
 if ($step) {
+	switch ($step) {
+		case 1:
+			$step_label = __('Step #1');
+			break;
+		case 2:
+			if ($items[$item_type][1]) {
+				$step_label = __('Step #2');
+				break;
+			}
+		case 3:
+			if ($items[$item_type][1]) {
+				$step_label = __('Step #3');
+			} else {
+				$step_label = __('Step #2');
+			}
+			break;
+	}
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			$page_title => $p_url,
-			'<span class="page-title">'.__('Add item').'</span>' => ''
-		));
+			__('Add item') => '',
+			$step_label => ''
+		),
+		array(
+			'hl_pos' => -2)
+	).
+	dcPage::notices();
 } else {
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.$page_title.'</span>' => ''
-		));
+			$page_title => ''
+		)).
+		dcPage::notices();
 }
-
-if (!empty($_GET['added'])) {
-	dcPage::message(__('Menu item has been successfully added.'));
-}
-if (!empty($_GET['removed'])) {
-	dcPage::message(__('Menu items have been successfully removed.'));
-}
-if (!empty($_GET['neworder'])) {
-	dcPage::message(__('Menu items have been successfully updated.'));
-}
-if (!empty($_GET['updated'])) {
-	dcPage::message(__('Menu items have been successfully updated.'));
-}
-
 if ($step)
 {
 	// Formulaire d'ajout d'un item
@@ -477,7 +474,8 @@ if (count($menu)) {
 	}
 	// Entête table
 	echo 
-		'<table class="maximal dragable">'.
+		'<div class="table-outer">'.
+		'<table class="dragable">'.
 		'<caption>'.__('Menu items list').'</caption>'.
 		'<thead>'.
 		'<tr>';
@@ -491,7 +489,7 @@ if (count($menu)) {
 		'<th scope="col">'.__('URL').'</th>'.
 		'</tr>'.
 		'</thead>'.
-		'<tbody id="menuitemslist">';
+		'<tbody'.(!$step ? ' id="menuitemslist"' : '').'>';
 	$count = 0;
 	foreach ($menu as $i => $m) {
 		echo '<tr class="line" id="l_'.$i.'">';
@@ -500,9 +498,9 @@ if (count($menu)) {
 			echo '<td class="handle minimal">'.form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),__($m['label'])).'"').
 				form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>';
 			echo '<td class="minimal">'.form::checkbox(array('items_selected[]','ims-'.$i),$i).'</td>';
-			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),20,255,__($m['label'])).'</td>';
-			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),30,255,__($m['descr'])).'</td>';
-			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),40,255,$m['url']).'</td>';
+			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),'',255,__($m['label'])).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),'30',255,__($m['descr'])).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),'30',255,$m['url']).'</td>';
 		} else {
 			echo '<td class="nowrap" scope="row">'.__($m['label']).'</td>';
 			echo '<td class="nowrap">'.__($m['descr']).'</td>';
@@ -511,7 +509,7 @@ if (count($menu)) {
 		echo '</tr>';
 	}
 	echo '</tbody>'.
-		'</table>';
+		'</table></div>';
 	if (!$step) {
 		echo '<div class="two-cols">';
 		echo '<p class="col">'.form::hidden('im_order','').$core->formNonce();
@@ -525,7 +523,7 @@ if (count($menu)) {
 	}
 } else {
 	echo
-		'<p>'.__('Currently no menu items').'</p>';
+		'<p>'.__('No menu items so far.').'</p>';
 }
 
 dcPage::helpBlock('simpleMenu');

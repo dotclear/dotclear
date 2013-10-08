@@ -30,11 +30,10 @@ $(function() {
 					
 					$(div).css({
 						overflow: 'auto',
-						border: '1px solid #ccc',
 						margin: '1em 0',
 						padding: '1px 0.5em'
 					});
-					
+					$(div).addClass('color-div');
 					$(div).append(list);
 					self.before(div);
 					$(a).hide();
@@ -66,6 +65,13 @@ $(function() {
 	// Confirm for deleting current medoa
 	$('#delete-form input[name="delete"]').click(function() {
 		return window.confirm(dotclear.msg.confirm_delete_media);
+	});
+
+	// Get current insertion settings
+	$('#save_settings').submit(function() {
+		$('input[name="pref_src"]').val($('input[name="src"][type=radio]:checked').attr('value'));
+		$('input[name="pref_alignment"]').val($('input[name="alignment"][type=radio]:checked').attr('value'));
+		$('input[name="pref_insertion"]').val($('input[name="insertion"][type=radio]:checked').attr('value'));
 	});
 
 });

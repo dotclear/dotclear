@@ -37,12 +37,12 @@ header("HTTP/1.0 ".$code." ".$summary);
 	  font-size: 1.2em;
   }
   a, a:link, a:visited {
-	color : #06c;
+	color : #2373A8;
 	text-decoration : none;
 	border-bottom : 1px dotted #f90;
   }
   h1 {
-  	color: #06c;
+  	color: #2373A8;
   	font-size: 2.5em;
   	font-weight: normal;
   }

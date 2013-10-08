@@ -13,6 +13,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 function dotclearUpgrade($core)
 {
+    $cleanup_sessions = false; // update it in a step that needed sessions to be removed
 	$version = $core->getVersion('core');
 	
 	if ($version === null) {
@@ -150,29 +151,19 @@ function dotclearUpgrade($core)
 
 				$init_fav['new_post'] = array('new_post','New entry','post.php',
 					'images/menu/edit.png','images/menu/edit-b.png',
-					'usage,contentadmin',null,'menu-new-post');
-				$init_fav['posts'] = array('posts','Entries','posts.php',
-					'images/menu/entries.png','images/menu/entries-b.png',
 					'usage,contentadmin',null,null);
-				$init_fav['comments'] = array('comments','Comments','comments.php',
-					'images/menu/comments.png','images/menu/comments-b.png',
-					'usage,contentadmin',null,null);
-				$init_fav['prefs'] = array('prefs','My preferences','preferences.php',
-					'images/menu/user-pref.png','images/menu/user-pref-b.png',
-					'*',null,null);
-				$init_fav['blog_pref'] = array('blog_pref','Blog settings','blog_pref.php',
-					'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
+				$init_fav['newpage'] = array('newpage','New page','plugin.php?p=pages&amp;act=page',
+					'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
+					'contentadmin,pages',null,null);
+				$init_fav['media'] = array('media','Media manager','media.php',
+					'images/menu/media.png','images/menu/media-b.png',
+					'media,media_admin',null,null);
+				$init_fav['widgets'] = array('widgets','Presentation widgets','plugin.php?p=widgets',
+					'index.php?pf=widgets/icon.png','index.php?pf=widgets/icon-big.png',
 					'admin',null,null);
 				$init_fav['blog_theme'] = array('blog_theme','Blog appearance','blog_theme.php',
 					'images/menu/themes.png','images/menu/blog-theme-b.png',
 					'admin',null,null);
-
-				$init_fav['pages'] = array('pages','Pages','plugin.php?p=pages',
-					'index.php?pf=pages/icon.png','index.php?pf=pages/icon-big.png',
-					'contentadmin,pages',null,null);
-				$init_fav['blogroll'] = array('blogroll','Blogroll','plugin.php?p=blogroll',
-					'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
-					'usage,contentadmin',null,null);
 
 				$count = 0;
 				foreach ($init_fav as $k => $f) {
@@ -335,17 +326,79 @@ function dotclearUpgrade($core)
 				}
 			}
 
-			if (version_compare($version, '2.5.1', '<='))
+			if (version_compare($version,'2.5.1','<='))
 			{
 				// Flash enhanced upload no longer needed
 				@unlink(DC_ROOT.'/'.'inc/swf/swfupload.swf');
+			}
+
+			if (version_compare($version,'2.6','<='))
+			{
+				// README has been replaced by README.md and CONTRIBUTING.md
+				@unlink(DC_ROOT.'/'.'README');
+
+				// trackbacks are now merged into posts
+				@unlink(DC_ROOT.'/'.'admin/trackbacks.php');
+
+				# daInstaller has been integrated to the core.
+				# Try to remove it
+				$path = explode(PATH_SEPARATOR,DC_PLUGINS_ROOT);
+				foreach ($path as $root)
+				{
+					if (!is_dir($root) || !is_readable($root)) {
+						continue;
+					}
+					if (substr($root,-1) != '/') {
+						$root .= '/';
+					}
+					if (($p = @dir($root)) === false) {
+						continue;
+					}
+					if (($d = @dir($root.'daInstaller')) === false) {
+						continue;
+					}
+					files::deltree($root.'/daInstaller');
+				}
+
+				# add new settings for date and time formats
+				$date_formats = array('%Y-%m-%d','%m/%d/%Y','%d/%m/%Y','%Y/%m/%d','%d.%m.%Y','%b %e %Y','%e %b %Y','%Y %b %e',
+				'%a, %Y-%m-%d','%a, %m/%d/%Y','%a, %d/%m/%Y','%a, %Y/%m/%d','%B %e, %Y','%e %B, %Y','%Y, %B %e','%e. %B %Y',
+				'%A, %B %e, %Y','%A, %e %B, %Y','%A, %Y, %B %e','%A, %Y, %B %e','%A, %e. %B %Y');
+				$time_formats = array('%H:%M','%I:%M','%l:%M','%Hh%M','%Ih%M','%lh%M');
+				if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
+					$date_formats = array_map(create_function('$f',
+											  'return str_replace(\'%e\',\'%#d\',$f);'
+											  ),$date_formats);
+				}
+
+				$strReqFormat = 'INSERT INTO '.$core->prefix.'setting';
+				$strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
+				$strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
+				
+				$strReqSelect = 'SELECT count(1) FROM '.$core->prefix.'setting';
+				$strReqSelect .= ' WHERE setting_id = \'%s\'';
+				$strReqSelect .= ' AND setting_ns = \'system\'';
+				$strReqSelect .= ' AND blog_id IS NULL';
+
+				$rs = $core->con->select(sprintf($strReqSelect,'date_formats'));
+				if ($rs->f(0)==0) {
+					$strReq = sprintf($strReqFormat,'date_formats',serialize($date_formats),'Date formats examples');
+					$core->con->execute($strReq);					 
+				}
+				$rs = $core->con->select(sprintf($strReqSelect,'time_formats'));
+				if ($rs->f(0)==0) {
+					$strReq = sprintf($strReqFormat,'time_formats',serialize($time_formats),'Time formats examples');
+					$core->con->execute($strReq);
+				}
 			}
 			
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
 			
-			# Drop content from session table
-			$core->con->execute('DELETE FROM '.$core->prefix.'session ');
+			# Drop content from session table if changes or if needed
+			if ($changes != 0 || $cleanup_sessions) {
+				$core->con->execute('DELETE FROM '.$core->prefix.'session ');
+			}
 			
 			# Empty templates cache directory
 			try {
