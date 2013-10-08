@@ -257,6 +257,6 @@ if ($cat_id)
 	echo '</div>';
 }
 
-dcPage::helpBlock('core_categories');
+dcPage::helpBlock('core_category');
 dcPage::close();
 ?>

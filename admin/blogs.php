@@ -170,7 +170,7 @@ if (!$core->error->flag())
 		echo $pager->getLinks();
 	}
 }
-
+dcPage::helpBlock('core_blogs');
 dcPage::close();
 
 function blogLine($rs)

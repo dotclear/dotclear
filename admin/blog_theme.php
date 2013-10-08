@@ -238,5 +238,5 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
 # --BEHAVIOR-- themesToolsTabs
 $core->callBehavior('themesToolsTabs', $core);
-
+dcPage::helpBlock('core_blog_theme');
 dcPage::close();

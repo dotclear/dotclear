@@ -255,4 +255,5 @@ if ($core->auth->isSuperAdmin() && !$list->isWritablePath()) {
 	'<p class="warning">'.__('Some functions are disabled, please give write access to your plugins directory to enable them.').'</p>';
 }
 
+dcPage::helpBlock('core_plugins');
 dcPage::close();

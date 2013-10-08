@@ -174,6 +174,6 @@ if (!$core->error->flag())
 	$show_filters
 	);
 }
-
+dcPage::helpBlock('core_users');
 dcPage::close();
 ?>
