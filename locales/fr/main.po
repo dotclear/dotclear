@@ -4038,3 +4038,12 @@ msgstr "Nombre de commentaires"
 
 msgid "Number of trackbacks"
 msgstr "Nombre de rétroliens"
+
+msgid "Attachments:"
+msgstr "Annexes :"
+
+msgid "With attachments"
+msgstr "Avec annexe(s)"
+
+msgid "Without attachments"
+msgstr "Sans annexes"

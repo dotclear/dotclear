@@ -75,6 +75,12 @@ if (!$core->error->flag())
 	__('Not selected') => '0'
 	);
 	
+	$attachment_combo = array(
+	'-' => '',
+	__('With attachments') => '1',
+	__('Without attachments') => '0'
+	);
+
 	# Months array
 	$dt_m_combo = array_merge(
 		array('-' => ''),
@@ -117,6 +123,7 @@ $user_id = !empty($_GET['user_id']) ?	$_GET['user_id'] : '';
 $cat_id = !empty($_GET['cat_id']) ?	$_GET['cat_id'] : '';
 $status = isset($_GET['status']) ?	$_GET['status'] : '';
 $selected = isset($_GET['selected']) ?	$_GET['selected'] : '';
+$attachment = isset($_GET['attachment']) ?	$_GET['attachment'] : '';
 $month = !empty($_GET['month']) ?		$_GET['month'] : '';
 $lang = !empty($_GET['lang']) ?		$_GET['lang'] : '';
 $sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'post_dt';
@@ -167,6 +174,14 @@ if ($selected !== '' && in_array($selected,$selected_combo)) {
 	$show_filters = true;
 } else {
 	$selected='';
+}
+
+# - Selected filter
+if ($attachment !== '' && in_array($attachment,$attachment_combo)) {
+	$params['media'] = $attachment;
+	$show_filters = true;
+} else {
+	$attachment='';
 }
 
 # - Month filter
@@ -259,6 +274,8 @@ if (!$core->error->flag())
 	'<div class="cell filters-sibling-cell">'.
 	'<p><label for="selected" class="ib">'.__('Selected:').'</label> '.
 	form::combo('selected',$selected_combo,$selected).'</p>'.
+	'<p><label for="attachment" class="ib">'.__('Attachments:').'</label> '.
+	form::combo('attachment',$attachment_combo,$attachment).'</p>'.
 	'<p><label for="month" class="ib">'.__('Month:').'</label> '.
 	form::combo('month',$dt_m_combo,$month).'</p>'.
 	'<p><label for="lang" class="ib">'.__('Lang:').'</label> '.
@@ -297,6 +314,7 @@ if (!$core->error->flag())
 	form::hidden(array('cat_id'),$cat_id).
 	form::hidden(array('status'),$status).
 	form::hidden(array('selected'),$selected).
+	form::hidden(array('attachment'),$attachment).
 	form::hidden(array('month'),$month).
 	form::hidden(array('lang'),$lang).
 	form::hidden(array('sortby'),$sortby).
