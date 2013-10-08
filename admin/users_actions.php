@@ -71,7 +71,7 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 			try
 			{
 				if ($u == $core->auth->userID()) {
-					throw new Exception(__('Not delete yourself.'));
+					throw new Exception(__('You cannot delete yourself.'));
 				}
 				
 				# --BEHAVIOR-- adminBeforeUserDelete
@@ -85,7 +85,8 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 			}
 		}
 		if (!$core->error->flag()) {
-			http::redirect($redir.'&del=1');
+			dcPage::addSuccessNotice(__('User has been successfully deleted.'));
+			http::redirect($redir);
 		}
 	}
 	
@@ -123,7 +124,8 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 			$core->error->add($e->getMessage());
 		}
 		if (!$core->error->flag()) {
-			http::redirect($redir.'&upd=1');
+			dcPage::addSuccessNotice(__('User has been successfully updated.'));
+			http::redirect($redir);
 		}
 	}
 }
@@ -135,14 +137,14 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
 		array(
 			__('System') => '',
 			__('Users') => 'users.php',
-			'<span class="page-title">'.__('Permissions').'</span>' => ''
+			__('Permissions') => ''
 		));
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('Users') => 'users.php',
-			'<span class="page-title">'.__('Actions').'</span>' => ''
+			__('Actions') => ''
 		));
 }
 
@@ -209,7 +211,8 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 	{
 		echo
 		'<form action="users_actions.php" method="post" id="form-blogs">'.
-		'<table class="clear"><tr>'.
+		'<div class="table-outer clear">'.
+		'<table><tr>'.
 		'<th class="nowrap" colspan="2">'.__('Blog ID').'</th>'.
 		'<th class="nowrap">'.__('Blog name').'</th>'.
 		'<th class="nowrap">'.__('Entries').'</th>'.
@@ -234,7 +237,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		}
 		
 		echo
-		'</table>'.
+		'</table></div>'.
 		'<p class="checkboxes-helpers"></p>'.
 		'<p><input type="submit" value="'.__('Set permissions').'" />'.
 		$hidden_fields.
@@ -266,13 +269,16 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	{
 		echo '<h3>'.('Blog:').' <a href="blog.php?id='.html::escapeHTML($b).'">'.html::escapeHTML($b).'</a>'.
 		form::hidden(array('blogs[]'),$b).'</h3>';
-		
+		$unknown_perms = $user_perm;
 		foreach ($core->auth->getPermissionsTypes() as $perm_id => $perm)
 		{
 			$checked = false;
 			
 			if (count($users) == 1) {
 				$checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
+			}
+			if (isset($unknown_perms[$b]['p'][$perm_id])) {
+				unset ($unknown_perms[$b]['p'][$perm_id]);
 			}
 			
 			echo
@@ -281,12 +287,25 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 			1,$checked).' '.
 			__($perm).'</label></p>';
 		}
+		if (isset($unknown_perms[$b])) {
+		
+			foreach ($unknown_perms[$b]['p'] as $perm_id => $v) {
+				$checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
+				echo
+				'<p><label for="perm'.html::escapeHTML($b).html::escapeHTML($perm_id).'" class="classic">'.
+				form::checkbox(
+					array('perm['.html::escapeHTML($b).']['.html::escapeHTML($perm_id).']',
+						'perm'.html::escapeHTML($b).html::escapeHTML($perm_id)),
+					1,$checked).' '.
+				sprintf(__('[%s] (unreferenced permission)'),$perm_id).'</label></p>';
+			}
+		}
 	}
 	
 	echo
 	'<div class="fieldset">'.
 	'<h3>'.__('Validate permissions').'</h3>'.
-	'<p><label for="your_pwd">'.__('Your password:').'</label>'.
+	'<p><label for="your_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
 	form::password('your_pwd',20,255).'</p>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	$hidden_fields.

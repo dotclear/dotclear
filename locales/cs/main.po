@@ -213,7 +213,7 @@ msgstr "Povolit vyhledávacím enginům indexovat ale ne archivovat obsah blogu.
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Zakázat vyhledavacím enginům indexovat nebo archivovat obsah blogu."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Blog ID je už použito."
 
 msgid "Invalid language code"
@@ -584,7 +584,7 @@ msgstr "Pořadí kategorií bylo úspěšně aktualizováno."
 msgid "The category has been successfully moved."
 msgstr "Kategorie byla úspěšně přesunuta."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Zatím žádná kategorie."
 
 msgid "Categories list"
@@ -843,7 +843,7 @@ msgstr "Provést upgrade hned"
 msgid "Remind me later"
 msgstr "Připomenout později"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 msgid "Some plugins are installed twice:"
@@ -1740,10 +1740,10 @@ msgstr "Vybrané články:"
 msgid "This user does not exist"
 msgstr "Tento uživatel neexistuje"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Změnit kategorii pro články"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Změnit autora pro články"
 
 msgid "Author ID:"
@@ -2125,7 +2125,7 @@ msgstr "Žádný výběr"
 msgid "select all"
 msgstr "vybrat vše"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "obrátit výběr"
 
 msgid "view entry"
@@ -2398,7 +2398,7 @@ msgstr "Systém"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Aktualizace"
 
 msgid "Languages"

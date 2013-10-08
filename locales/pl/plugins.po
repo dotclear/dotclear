@@ -1060,16 +1060,16 @@ msgstr "Strona została pomyślnie utworzona."
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "Stan strony:"
 
-msgid "Page position:"
+msgid "Page position"
 msgstr "Pozycja strony:"
 
-msgid "Page lang:"
+msgid "Page lang"
 msgstr "Język strony:"
 
-msgid "Page password:"
+msgid "Page password"
 msgstr "Hasło strony"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
@@ -1252,7 +1252,7 @@ msgstr "Usuń wybrane odnośniki"
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Jesteś pewien, że chcesz usunąć wybrane odnośniki?"
 
-msgid "Currently no menu items"
+msgid "No menu items so far."
 msgstr ""
 
 msgid "Tags:"

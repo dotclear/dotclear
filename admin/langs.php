@@ -48,7 +48,8 @@ if ($is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id']))
 			throw new Exception(__('Permissions to delete language denied.'));
 		}
 		
-		http::redirect('langs.php?removed=1');
+		dcPage::addSuccessNotice(__('Language has been successfully deleted.'));
+		http::redirect('langs.php');
 	}
 	catch (Exception $e)
 	{
@@ -86,7 +87,12 @@ if ($is_writable && !empty($_POST['pkg_url']))
 		}
 		
 		@unlink($dest);
-		http::redirect('langs.php?added='.$ret_code);
+		if ($ret_code == 2) {
+			dcPage::addSuccessNotice( __('Language has been successfully upgraded'));
+		} else {
+			dcPage::addSuccessNotice($__('Language has been successfully installed.'));
+		}
+		http::redirect('langs.php');
 	}
 	catch (Exception $e)
 	{
@@ -117,7 +123,12 @@ if ($is_writable && !empty($_POST['upload_pkg']))
 		}
 		
 		@unlink($dest);
-		http::redirect('langs.php?added='.$ret_code);
+		if ($ret_code == 2) {
+			dcPage::addSuccessNotice( __('Language has been successfully upgraded'));
+		} else {
+			dcPage::addSuccessNotice($__('Language has been successfully installed.'));
+		}
+		http::redirect('langs.php');
 	}
 	catch (Exception $e)
 	{
@@ -132,16 +143,16 @@ dcPage::open(__('Languages management'),
 	dcPage::breadcrumb(
 	array(
 		__('System') => '',
-		'<span class="page-title">'.__('Languages management').'</span>' => ''
+		__('Languages management') => ''
 	))
 );
 
 if (!empty($_GET['removed'])) {
-	dcPage::message(__('Language has been successfully deleted.'));
+	dcPage::success(__('Language has been successfully deleted.'));
 }
 
 if (!empty($_GET['added'])) {
-	dcPage::message(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
+	dcPage::success(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
 }
 
 echo
@@ -172,7 +183,8 @@ if (empty($locales_content))
 else
 {
 	echo
-	'<table class="clear plugins"><tr>'.
+	'<div class="table-outer clear">'.
+	'<table class="plugins"><tr>'.
 	'<th>'.__('Language').'</th>'.
 	'<th class="nowrap">'.__('Action').'</th>'.
 	'</tr>';
@@ -201,7 +213,7 @@ else
 		
 		echo '</td></tr>';
 	}
-	echo '</table>';
+	echo '</table></div>';
 }
 
 echo '<h3>'.__('Install or upgrade languages').'</h3>';

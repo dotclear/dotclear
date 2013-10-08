@@ -83,7 +83,8 @@ if ($cat_id && isset($_POST['cat_parent']))
 	{
 		try {
 			$core->blog->setCategoryParent($cat_id,$new_parent);
-			http::redirect('categories.php?moved=1');
+			dcPage::addSuccessNotice(__('The category has been successfully moved'));
+			http::redirect('categories.php');
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -95,7 +96,8 @@ if ($cat_id && isset($_POST['cat_sibling']))
 {
 	try {
 		$core->blog->setCategoryPosition($cat_id,(integer) $_POST['cat_sibling'],$_POST['cat_move']);
-		http::redirect('categories.php?moved=1');
+		dcPage::addSuccessNotice(__('The category has been successfully moved'));
+		http::redirect('categories.php');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -131,7 +133,9 @@ if (isset($_POST['cat_title']))
 			# --BEHAVIOR-- adminAfterCategoryUpdate
 			$core->callBehavior('adminAfterCategoryUpdate',$cur,$cat_id);
 			
-			http::redirect('category.php?id='.$_POST['id'].'&upd=1');
+			dcPage::addSuccessNotice(__('The category has been successfully updated.'));
+
+			http::redirect('category.php?id='.$_POST['id']);
 		}
 		# Create category
 		else
@@ -144,7 +148,9 @@ if (isset($_POST['cat_title']))
 			# --BEHAVIOR-- adminAfterCategoryCreate
 			$core->callBehavior('adminAfterCategoryCreate',$cur,$id);
 			
-			http::redirect('categories.php?add=1');
+			dcPage::addSuccessNotice(sprintf(__('The category "%s" has been successfully created.'),
+				html::escapeHTML($cur->cat_title)));
+			http::redirect('categories.php');
 		}
 	}
 	catch (Exception $e)
@@ -165,7 +171,7 @@ if ($cat_id) {
 		$elements[html::escapeHTML($parents->cat_title)] = 'category.php?id='.$parents->cat_id;
 	}
 }
-$elements['<span class="page-title">'.$title.'</span>'] = '';
+$elements[$title] = '';
 
 dcPage::open($title,
 	dcPage::jsConfirmClose('category-form').
@@ -175,13 +181,13 @@ dcPage::open($title,
 );
 
 if (!empty($_GET['upd'])) {
-	dcPage::message(__('Category has been successfully updated.'));
+	dcPage::success(__('Category has been successfully updated.'));
 }
 
 echo
 '<form action="category.php" method="post" id="category-form">'.
 '<h3>'.__('Category information').'</h3>'.
-'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
+'<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label> '.
 form::field('cat_title',40,255,html::escapeHTML($cat_title)).
 '</p>';
 if (!$cat_id)
@@ -190,10 +196,10 @@ if (!$cat_id)
 	echo
 	'<p><label for="new_cat_parent">'.__('Parent:').' '.
 	'<select id="new_cat_parent" name="new_cat_parent" >'.
-	'<option value="0">'.__('Top level').'</option>';
+	'<option value="0">'.__('(none)').'</option>';
 	while ($rs->fetch()) {
 		echo '<option value="'.$rs->cat_id.'" '.(!empty($_POST['new_cat_parent']) && $_POST['new_cat_parent'] == $rs->cat_id ? 'selected="selected"' : '').'>'.
-		str_repeat('&nbsp;&nbsp;',$rs->level).html::escapeHTML($rs->cat_title).'</option>';
+		str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title).'</option>';	
 	}
 	echo
 	'</select></label></p>';

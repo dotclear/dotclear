@@ -211,7 +211,7 @@ msgstr "Chcę, aby wyszukiwarki i archiwizery indeksowały ale nie archiwizował
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Chcę, aby wyszukiwarki i archiwizery nie indeksowały i nie archiwizowały zawartości mojego bloga."
 
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Ten identyfikator bloga jest już używany."
 
 msgid "Invalid language code"
@@ -581,7 +581,7 @@ msgstr "Kolejność kategorii została zapisana."
 msgid "The category has been successfully moved."
 msgstr "Kategoria została przeniesiona."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Brak kategorii."
 
 msgid "Categories list"
@@ -836,7 +836,7 @@ msgstr "Ulepsz teraz"
 msgid "Remind me later"
 msgstr "Przypomnij mi później"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr "informacje o tej wersji"
 
 msgid "Some plugins are installed twice:"
@@ -1728,10 +1728,10 @@ msgstr "Akcja dla wybranych wpisów:"
 msgid "This user does not exist"
 msgstr "Ten użytkownik nie istnieje"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Zmień kategorię dla wpisów"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Zmień autora dla wpisów"
 
 msgid "Author ID:"
@@ -2098,7 +2098,7 @@ msgstr "usuń zaznaczenie"
 msgid "select all"
 msgstr "zaznacz wszystkie"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "odwróć zaznaczenie"
 
 msgid "view entry"
@@ -2371,7 +2371,7 @@ msgstr "System"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Uaktualnienia"
 
 msgid "Languages"

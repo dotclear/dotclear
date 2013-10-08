@@ -32,7 +32,9 @@ $(function() {
 				cat_id: $('#cat_id',f).val(),
 				post_status: status,
 				post_format: $('#post_format',f).val(),
-				post_lang: $('#post_lang',f).val()
+				post_lang: $('#post_lang',f).val(),
+				new_cat_title: $('#new_cat_title',f).val(),
+				new_cat_parent: $('#new_cat_parent',f).val()
 			}
 
 			$('p.qinfo',f).remove();
@@ -55,19 +57,23 @@ $(function() {
 					if (contentTb.getMode() == 'wysiwyg') {
 						contentTb.syncContents('textarea');
 					}
+					$('#cat_id',f).val('0');
+					$('#new_cat_title',f).val('');
+					$('#new_cat_parent',f).val('0');
 				}
 
 				$('fieldset',f).prepend(msg);
 			});
 		}
-		$('#new_cat').toggleWithLegend(
-			$('#new_cat').parent().children().not('#new_cat'),
-			{} // no cookie on new category as we don't use this every day
-		);
+		$('#new_cat').toggleWithLegend($('#new_cat').parent().children().not('#new_cat'), {
+			// no cookie on new category as we don't use this every day
+			legend_click: true
+		});
 	}
 
 	// allow to hide quick entry div, and remember choice
 	$('#quick h3').toggleWithLegend($('#quick').children().not('h3'),{
-		cookie: 'dcx_quick_entry'
+		legend_click: true,
+		user_pref: 'dcx_quick_entry'
 	});
 });

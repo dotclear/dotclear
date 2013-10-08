@@ -112,6 +112,7 @@ class dcAuth
 		}		
 		
 		if ($rs->isEmpty()) {
+			sleep(rand(2,5));
 			return false;
 		}
 		
@@ -376,11 +377,7 @@ class dcAuth
 		if (isset($this->blogs[$blog_id])) {
 			return $this->blogs[$blog_id];
 		}
-		
-		if ($this->blog_count === null) {
-			$this->blog_count = $this->core->getBlogs(array(),true)->f(0);
-		}
-		
+
 		if ($this->user_admin) {
 			$strReq = 'SELECT blog_id '.
 				'from '.$this->blog_table.' '.
@@ -403,6 +400,14 @@ class dcAuth
 		
 		return $this->blogs[$blog_id];
 	}
+
+    public function getBlogCount() {
+		if ($this->blog_count === null) {
+			$this->blog_count = $this->core->getBlogs(array(),true)->f(0);
+		}
+
+        return $this->blog_count;
+    }
 	
 	public function findUserBlog($blog_id=null)
 	{

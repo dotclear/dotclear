@@ -23,14 +23,18 @@ $core->addBehavior('coreAfterCommentUpdate',array('dcAntispam','trainFilters'));
 $core->addBehavior('adminAfterCommentDesc',array('dcAntispam','statusMessage'));
 $core->addBehavior('adminDashboardIcons',array('dcAntispam','dashboardIcon'));
 
-$core->addBehavior('adminDashboardFavs','antispamDashboardFavs');
+$core->addBehavior('adminDashboardFavorites','antispamDashboardFavorites');
 $core->addBehavior('adminDashboardFavsIcon','antispamDashboardFavsIcon');
 
-function antispamDashboardFavs($core,$favs)
+function antispamDashboardFavorites($core,$favs)
 {
-	$favs['antispam'] = new ArrayObject(array('antispam','Antispam','plugin.php?p=antispam',
-		'index.php?pf=antispam/icon.png','index.php?pf=antispam/icon-big.png',
-		'admin',null,null));
+	$favs->register('antispam', array(
+		'title' => __('Antispam'),
+		'url' => 'plugin.php?p=antispam',
+		'small-icon' => 'index.php?pf=antispam/icon.png',
+		'large-icon' => 'index.php?pf=antispam/icon-big.png',
+		'permissions' => 'admin')
+	);
 }
 
 function antispamDashboardFavsIcon($core,$name,$icon)
@@ -59,7 +63,7 @@ class antispamBehaviors
 		if ($ttl != null && $ttl >=0) {
 			echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl).' '.
 			sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
-			'</p>';
+			'.</p>';
 		}
 	}
 
@@ -72,6 +76,7 @@ class antispamBehaviors
 		form::field('antispam_moderation_ttl', 3, 3, $ttl).
 		' '.__('days').
 		'</label></p>'.
+		'<p><a href="plugin.php?p=antispam">'.__('Set spam filters.').'</a></p>'.
 		'</div>';
 	}
 	

@@ -198,81 +198,70 @@ class dcBlog
 	
 	/**
 	Updates comments and trackbacks counters in post table. Should be called
-	every time comments or trackbacks are added, removed or changed there status.
+	every time comments or trackbacks are added, removed or changed their status.
 	
 	@param	ids		<b>mixed</b>		Comment(s) ID(s)
 	@param	del		<b>boolean</b>		If comment is delete, set this to true
+	@param	affected_posts		<b>mixed</b>		Posts(s) ID(s)
 	*/
-	public function triggerComments($ids,$del=false)
+	public function triggerComments($ids, $del=false, $affected_posts=null)
 	{
-		$co_ids = dcUtils::cleanIds($ids);
+		$comments_ids = dcUtils::cleanIds($ids);
 		
-		# a) Retrieve posts affected by comments edition
-		$strReq = 
-			'SELECT post_id, comment_trackback '.
-			'FROM '.$this->prefix.'comment '.
-			'WHERE comment_id'.$this->con->in($co_ids).
-			'GROUP BY post_id,comment_trackback';
-		
-		$rs = $this->con->select($strReq);
-		
-		$a_ids = $a_tbs = array();
-		while ($rs->fetch()) {
-			$a_ids[] = (integer) $rs->post_id;
-			$a_tbs[] = (integer) $rs->comment_trackback;
+		# Get posts affected by comments edition
+		if (empty($affected_posts)) {
+			$strReq = 
+				'SELECT post_id '.
+				'FROM '.$this->prefix.'comment '.
+				'WHERE comment_id'.$this->con->in($comments_ids).
+				'GROUP BY post_id';
+			
+			$rs = $this->con->select($strReq);
+			
+			$affected_posts = array();
+			while ($rs->fetch()) {
+				$affected_posts[] = (integer) $rs->post_id;
+			}
 		}
 		
-		# b) Count comments of each posts previously retrieved
-		# Note that this does not return posts without comment
+		if (!is_array($affected_posts) || empty($affected_posts)) {
+			return;
+		}
+		
+		# Count number of comments if exists for affected posts
 		$strReq = 
-			'SELECT post_id, COUNT(post_id) AS nb_comment,comment_trackback '.
+			'SELECT post_id, COUNT(post_id) AS nb_comment, comment_trackback '.
 			'FROM '.$this->prefix.'comment '.
 			'WHERE comment_status = 1 '.
-			(count($a_ids) > 0 ? 'AND post_id'.$this->con->in($a_ids) : ' ');
-		
-		if ($del) {
-			$strReq .= 
-				'AND comment_id NOT'.$this->con->in($co_ids);
-		}
-		
-		$strReq .= 
+			'AND post_id'.$this->con->in($affected_posts).
 			'GROUP BY post_id,comment_trackback';
 		
 		$rs = $this->con->select($strReq);
 		
-		$b_ids = $b_tbs = $b_nbs = array();
+		$posts = array();
 		while ($rs->fetch()) {
-			$b_ids[] = (integer) $rs->post_id;
-			$b_tbs[] = (integer) $rs->comment_trackback;
-			$b_nbs[] = (integer) $rs->nb_comment;
+			if ($rs->comment_trackback) {
+				$posts[$rs->post_id]['trackback'] = $rs->nb_comment;
+			} else {
+				$posts[$rs->post_id]['comment'] = $rs->nb_comment;
+			}
 		}
 		
-		# c) Update comments numbers on posts
-		# This compare previous requests to update also posts without comment
+		# Update number of comments on affected posts
 		$cur = $this->con->openCursor($this->prefix.'post');
-		
-		foreach($a_ids as $a_key => $a_id)
+		foreach($affected_posts as $post_id)
 		{
-			$nb_comment = $nb_trackback = 0;
-			foreach($b_ids as $b_key => $b_id)
-			{
-				if ($a_id != $b_id || $a_tbs[$a_key] != $b_tbs[$b_key]) {
-					continue;
-				}
-				
-				if ($b_tbs[$b_key]) {
-					$nb_trackback = $b_nbs[$b_key];
-				} else {
-					$nb_comment = $b_nbs[$b_key];
-				}
+			$cur->clean();
+			
+			if (!array_key_exists($post_id,$posts)) {
+				$cur->nb_trackback = 0;
+				$cur->nb_comment = 0;
+			} else {
+				$cur->nb_trackback = empty($posts[$post_id]['trackback']) ? 0 : $posts[$post_id]['trackback'];
+				$cur->nb_comment = empty($posts[$post_id]['comment']) ? 0 : $posts[$post_id]['comment'];
 			}
 			
-			if ($a_tbs[$a_key]) {
-				$cur->nb_trackback = $nb_trackback;
-			} else {
-				$cur->nb_comment = $nb_comment;
-			}
-			$cur->update('WHERE post_id = '.$a_id);
+			$cur->update('WHERE post_id = '.$post_id);
 		}
 	}
 	//@}
@@ -310,7 +299,11 @@ class dcBlog
 		}
 		$counter = $this->getCategoriesCounter($c_params);
 		
-		$without_empty = $this->core->auth->userID() == false; # For public display
+		if (isset($params['without_empty']) && ($params['without_empty'] == false)) {
+			$without_empty = false;
+		} else {
+			$without_empty = $this->core->auth->userID() == false; # Get all categories if in admin display
+		}
 		
 		$start = isset($params['start']) ? (integer) $params['start'] : 0;
 		$l = isset($params['level']) ? (integer) $params['level'] : 0;
@@ -504,7 +497,13 @@ class dcBlog
 		# --BEHAVIOR-- coreBeforeCategoryCreate
 		$this->core->callBehavior('coreBeforeCategoryCreate',$this,$cur);
 		
-		$this->categories()->addNode($cur,$parent);
+		$id = $this->categories()->addNode($cur,$parent);
+		# Update category's cursor
+		$rs = $this->getCategory($id);
+		if (!$rs->isEmpty()) {
+			$cur->cat_lft = $rs->cat_lft;
+			$cur->cat_rgt = $rs->cat_rgt;
+		}
 		
 		# --BEHAVIOR-- coreAfterCategoryCreate
 		$this->core->callBehavior('coreAfterCategoryCreate',$this,$cur);
@@ -554,6 +553,19 @@ class dcBlog
 		
 		$this->triggerBlog();
 	}
+
+        /**
+        Set category position
+
+        @param  id              <b>integer</b>          Category ID
+        @param  left            <b>integer</b>          Category ID before
+        @param  right           <b>integer</b>          Category ID after
+        */
+        public function updCategoryPosition($id,$left,$right)
+        {
+                $this->categories()->updatePosition($id,$left,$right);
+                $this->triggerBlog();
+        }
 	
 	/**
 	DEPRECATED METHOD. Use dcBlog::setCategoryParent and dcBlog::moveCategory
@@ -645,7 +657,7 @@ class dcBlog
 		
 		if (!$rs->isEmpty())
 		{
-			if ($this->con->driver() == 'mysql') {
+			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
 			} elseif ($this->con->driver() == 'pgsql') {
 				$clause = "~ '^".$this->con->escape($url)."[0-9]+$'";
@@ -721,7 +733,7 @@ class dcBlog
 	
 	- no_content: Don't retrieve entry content (excerpt and content)
 	- post_type: Get only entries with given type (default "post", array for many types and '' for no type)
-	- post_id: (integer) Get entry with given post_id
+	- post_id: (integer or array) Get entry with given post_id
 	- post_url: Get entry with given post_url field
 	- user_id: (integer) Get entries belonging to given user ID
 	- cat_id: (string or array) Get entries belonging to given category ID
@@ -741,6 +753,7 @@ class dcBlog
 	- order: Order of results (default "ORDER BY post_dt DES")
 	- limit: Limit parameter
 	- sql_only : return the sql request instead of results. Only ids are selected
+	- exclude_post_id : (integer or array) Exclude entries with given post_id
 	
 	Please note that on every cat_id or cat_url, you can add ?not to exclude
 	the category and ?sub to get subcategories.
@@ -792,6 +805,17 @@ class dcBlog
 		'FROM '.$this->prefix.'post P '.
 		'INNER JOIN '.$this->prefix.'user U ON U.user_id = P.user_id '.
 		'LEFT OUTER JOIN '.$this->prefix.'category C ON P.cat_id = C.cat_id ';
+
+		if (isset($params['media'])) {
+			if ($params['media'] == '0') {
+				$strReq .= 'LEFT OUTER JOIN '.$this->prefix.'post_media M on P.post_id = M.post_id ';
+			} else {
+				$strReq .= 'INNER JOIN '.$this->prefix.'post_media M on P.post_id = M.post_id ';
+			}
+			if (isset($params['link_type'])) {
+				$strReq .= " and M.link_type ".$this->con->in($params['link_type'])." ";
+			}
+		}
 		
 		if (!empty($params['from'])) {
 			$strReq .= $params['from'].' ';
@@ -834,6 +858,15 @@ class dcBlog
 				$params['post_id'] = array((integer) $params['post_id']);
 			}
 			$strReq .= 'AND P.post_id '.$this->con->in($params['post_id']);
+		}
+		
+		if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
+			if (is_array($params['exclude_post_id'])) {
+				array_walk($params['exclude_post_id'],create_function('&$v,$k','if($v!==null){$v=(integer)$v;}'));
+			} else {
+				$params['exclude_post_id'] = array((integer) $params['exclude_post_id']);
+			}
+			$strReq .= 'AND P.post_id NOT '.$this->con->in($params['exclude_post_id']);
 		}
 		
 		if (isset($params['post_url']) && $params['post_url'] !== '') {
@@ -914,10 +947,20 @@ class dcBlog
 			}
 		}
 		
+		if (isset($params['media'])) {
+			if ($params['media'] == '0') {
+				$strReq .= ' AND M.post_id IS NULL ';
+			}
+		}
+
 		if (!empty($params['sql'])) {
 			$strReq .= $params['sql'].' ';
 		}
 		
+		if (!$count_only && isset($params['media'])) {
+			$strReq .= ' GROUP BY P.post_id ';
+		}
+
 		if (!$count_only)
 		{
 			if (!empty($params['order'])) {
@@ -933,7 +976,7 @@ class dcBlog
 		if (!empty($params['sql_only'])) {
 			return $strReq;
 		}
-		
+
 		$rs = $this->con->select($strReq);
 		$rs->core = $this->core;
 		$rs->_nb_media = array();
@@ -1804,7 +1847,7 @@ class dcBlog
 		
 		if (!$rs->isEmpty())
 		{
-			if ($this->con->driver() == 'mysql') {
+			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
 			} elseif ($this->con->driver() == 'pgsql') {
 				$clause = "~ '^".$this->con->escape($url)."[0-9]+$'";
@@ -1856,6 +1899,7 @@ class dcBlog
 	- post_id: (integer) Get comments belonging to given post_id
 	- cat_id: (integer or array) Get comments belonging to entries of given category ID
 	- comment_id: (integer) Get comment with given ID
+	- comment_site: (string) Get comments with given comment_site
 	- comment_status: (integer) Get comments with given comment_status
 	- comment_trackback: (integer) Get only comments (0) or trackbacks (1)
 	- comment_ip: (string) Get comments with given IP address
@@ -1945,6 +1989,11 @@ class dcBlog
 		
 		if (isset($params['comment_id']) && $params['comment_id'] !== '') {
 			$strReq .= 'AND comment_id = '.(integer) $params['comment_id'].' ';
+		}
+		
+		if (isset($params['comment_site'])) {
+			$comment_site = $this->con->escape(str_replace('*','%',$params['comment_site']));
+			$strReq .= "AND comment_site LIKE '".$comment_site."' ";
 		}
 		
 		if (isset($params['comment_status'])) {
@@ -2157,7 +2206,7 @@ class dcBlog
 			'UPDATE '.$this->prefix.'comment tc ';
 		
 		# mySQL uses "JOIN" synthax
-		if ($this->con->driver() == 'mysql') {
+		if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 			$strReq .= 
 				'JOIN '.$this->prefix.'post tp ON tc.post_id = tp.post_id ';
 		}
@@ -2166,7 +2215,7 @@ class dcBlog
 			'SET comment_status = '.$status.' ';
 		
 		# pgSQL uses "FROM" synthax
-		if ($this->con->driver() != 'mysql') {
+		if ($this->con->driver() != 'mysql' && $this->con->driver() != 'mysqli') {
 			$strReq .= 
 				'FROM '.$this->prefix.'post tp ';
 		}
@@ -2176,7 +2225,7 @@ class dcBlog
 			'AND comment_id'.$this->con->in($co_ids);
 		
 		# add pgSQL "WHERE" clause
-		if ($this->con->driver() != 'mysql') {
+		if ($this->con->driver() != 'mysql' && $this->con->driver() != 'mysqli') {
 			$strReq .= 
 				'AND tc.post_id = tp.post_id ';
 		}
@@ -2216,12 +2265,26 @@ class dcBlog
 		
 		$co_ids = dcUtils::cleanIds($ids);
 		
-		if (empty($ids)) {
+		if (empty($co_ids)) {
 			throw new Exception(__('No such comment ID'));
 		}
 		
+		# Retrieve posts affected by comments edition
+		$affected_posts = array();
+		$strReq =
+			'SELECT post_id '.
+			'FROM '.$this->prefix.'comment '.
+			'WHERE comment_id'.$this->con->in($co_ids).
+			'GROUP BY post_id';
+		
+		$rs = $this->con->select($strReq);
+		
+		while ($rs->fetch()) {
+			$affected_posts[] = (integer) $rs->post_id;
+		}
+		
 		# mySQL uses "INNER JOIN" synthax
-		if ($this->con->driver() == 'mysql') {
+		if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 			$strReq = 
 				'DELETE FROM tc '.
 				'USING '.$this->prefix.'comment tc '.
@@ -2247,7 +2310,7 @@ class dcBlog
 		}
 		
 		$this->con->execute($strReq);
-		$this->triggerComments($co_ids,true);
+		$this->triggerComments($co_ids, true, $affected_posts);
 		$this->triggerBlog();
 	}
 
@@ -2258,7 +2321,7 @@ class dcBlog
 		}
 		
 		# mySQL uses "INNER JOIN" synthax
-		if ($this->con->driver() == 'mysql') {
+		if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
 			$strReq = 
 				'DELETE FROM tc '.
 				'USING '.$this->prefix.'comment tc '.
@@ -2302,8 +2365,10 @@ class dcBlog
 		}
 		
 		if ($cur->comment_site !== null && $cur->comment_site != '') {
-			if (!preg_match('|^http(s?)://|',$cur->comment_site)) {
+			if (!preg_match('|^http(s?)://|i',$cur->comment_site, $matches)) {
 				$cur->comment_site = 'http://'.$cur->comment_site;
+			}else{
+				$cur->comment_site = strtolower($matches[0]).substr($cur->comment_site, strlen($matches[0]));
 			}
 		}
 		

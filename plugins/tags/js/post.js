@@ -25,6 +25,7 @@ $(function() {
 			},
 			delay: 1000,
 			multiple: true,
+			multipleSeparator: ", ",
 			matchSubset: false,
 			matchContains: true,
 			parse: function(xml) { 
@@ -52,20 +53,28 @@ $(function() {
 					) +
 				')</em>';
 			},
-			formatResult: function(tag) { 
-				return tag.result; 
+			formatResult: function(tag) {
+				return tag.result;
 			}
 		});
 	});
-			
+
 	$('h5 .s-tags').toggleWithLegend($('.s-tags').not('label'),{
-			cookie: 'post_tags'
+		user_pref: 'post_tags',
+		legend_click: true
 	});
 
 });
 
 // Toolbar button for tags
-jsToolBar.prototype.elements.tagSpace = {type: 'space'};
+jsToolBar.prototype.elements.tagSpace = {
+	type: 'space', 
+	format:{
+		wysiwyg:true,
+		wiki:true,
+		xhtml:true
+	}
+};
 
 jsToolBar.prototype.elements.tag = {type: 'button', title: 'Keyword', fn:{} };
 jsToolBar.prototype.elements.tag.context = 'post';

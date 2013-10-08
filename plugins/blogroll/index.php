@@ -68,7 +68,9 @@ if (!empty($_POST['import_links_do'])) {
 			$default_tab = 'import-links';
 		}
 	}
-	http::redirect($p_url.'&importlinks=1');	
+	
+	dcPage::addSuccessNotice(__('links have been successfully imported.'));
+	http::redirect($p_url);	
 }
 
 if (!empty($_POST['cancel_import'])) {
@@ -86,7 +88,9 @@ if (!empty($_POST['add_link']))
 	
 	try {
 		$blogroll->addLink($link_title,$link_href,$link_desc,$link_lang);
-		http::redirect($p_url.'&addlink=1');
+
+		dcPage::addSuccessNotice(__('Link has been successfully created.'));
+		http::redirect($p_url);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 		$default_tab = 'add-link';
@@ -100,7 +104,8 @@ if (!empty($_POST['add_cat']))
 	
 	try {
 		$blogroll->addCategory($cat_title);
-		http::redirect($p_url.'&addcat=1');
+		dcPage::addSuccessNotice(__('category has been successfully created.'));
+		http::redirect($p_url);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 		$default_tab = 'add-cat';
@@ -120,7 +125,8 @@ if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
 	}
 	
 	if (!$core->error->flag()) {
-		http::redirect($p_url.'&removed=1');
+		dcPage::addSuccessNotice(__('Items have been successfully removed.'));
+		http::redirect($p_url);
 	}
 }
 
@@ -147,7 +153,8 @@ if (!empty($_POST['saveorder']) && !empty($order))
 	}
 	
 	if (!$core->error->flag()) {
-		http::redirect($p_url.'&neworder=1');
+		dcPage::addSuccessNotice(__('Items order has been successfully updated'));
+		http::redirect($p_url);
 	}
 }
 
@@ -180,35 +187,18 @@ try {
 	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.__('Blogroll').'</span>' => ''
-		));
+			__('Blogroll') => ''
+		)).
+		dcPage::notices();
 ?>
 
-<?php
-if (!empty($_GET['neworder'])) {
-	dcPage::message(__('Items order has been successfully updated'));
-}
+<div class="multi-part" id="main-list" title="<?php echo __('Blogroll'); ?>">
 
-if (!empty($_GET['removed'])) {
-	dcPage::message(__('Items have been successfully removed.'));
-}
+<?php if (!$rs->isEmpty()) { ?>
 
-if (!empty($_GET['addlink'])) {
-	dcPage::message(__('Link has been successfully created.'));
-}
-
-if (!empty($_GET['addcat'])) {
-	dcPage::message(__('category has been successfully created.'));
-}
-
-if (!empty($_GET['importlinks'])) {
-	dcPage::message(__('links have been successfully imported.'));
-}
-?>
-
-<div class="multi-part" title="<?php echo __('Blogroll'); ?>">
 <form action="plugin.php" method="post" id="links-form">
-<table class="maximal dragable">
+<div class="table-outer">
+<table class="dragable">
 <thead>
 <tr>
   <th colspan="3"><?php echo __('Title'); ?></th>
@@ -249,27 +239,30 @@ while ($rs->fetch())
 }
 ?>
 </tbody>
-</table>
+</table></div>
+
+<div class="two-cols">
+<p class="col">
 <?php
-	if (!$rs->isEmpty()) {
-		echo
-		'<div class="two-cols">'.
-		'<p class="col">'.form::hidden('links_order','').
-		form::hidden(array('p'),'blogroll').
-		$core->formNonce().
-		'<input type="submit" name="saveorder" value="'.__('Save order').'" /></p>'.
-		
-		'<p class="col right"><input type="submit" class="delete" name="removeaction"'.
-		' value="'.__('Delete selected links').'" '.
-		'onclick="return window.confirm(\''.html::escapeJS(
-			__('Are you sure you want to delete selected links?')).'\');" /></p>'.
-		'</div>';
-	} else {
-		echo
-		'<div><p>'.__('The link list is empty.').'</p></div>';
-	}
+	echo 
+	form::hidden('links_order','').
+	form::hidden(array('p'),'blogroll').
+	$core->formNonce();
 ?>
+<input type="submit" name="saveorder" value="<?php echo __('Save order'); ?>" /></p>
+<p class="col right"><input type="submit" class="delete" name="removeaction"
+	 value="<?php echo __('Delete selected links'); ?>" 
+	 onclick="return window.confirm('
+	 <?php echo html::escapeJS(__('Are you sure you want to delete selected links?')); ?>');" /></p>
+</div>
 </form>
+
+<?php
+} else {
+	echo '<div><p>'.__('The link list is empty.').'</p></div>';
+}
+?>
+
 </div>
 
 <?php

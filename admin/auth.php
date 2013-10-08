@@ -264,7 +264,8 @@ $form = new dcForm($core,'auth','auth.php');
 $form
 	->addField(
 		new dcFieldText('user_id','',array(
-			"label" => __('Username:'))))
+			"label" => __('Username:'),
+			"maxlength" => 32)))
 	->addField(
 		new dcFieldPassword('user_pwd','',array(
 			"label" => __('Password:'))))
@@ -305,6 +306,7 @@ $_ctx->recover = $form->recover = $core->auth->allowPassChange() && !empty($_REQ
 $_ctx->setSafeMode(!empty($_REQUEST['safe_mode'])); 
 $form->safe_mode = !empty($_REQUEST['safe_mode']);
 $_ctx->akey = false;
+$_ctx->dlang = $dlang;
 
 # If we have no POST login informations and have COOKIE login informations, go throug auth process
 if ($form->user_id == '' && $form->user_pwd == '' 

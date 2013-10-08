@@ -214,7 +214,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr ""
 
 #, fuzzy
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
 
 msgid "Invalid language code"
@@ -590,7 +590,7 @@ msgid "The category has been successfully moved."
 msgstr "విజయవంతంగా వర్గాన్ని సృష్టించాం."
 
 #, fuzzy
-msgid "No category yet."
+msgid "No category so far."
 msgstr "వర్గాలు లేవు."
 
 #, fuzzy
@@ -853,7 +853,7 @@ msgstr ""
 msgid "Remind me later"
 msgstr ""
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
@@ -1762,10 +1762,10 @@ msgstr "ఎంచుకున్న వాటిపై చర్య:"
 msgid "This user does not exist"
 msgstr "ఈ వాడుకరి లేనే లేరు"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr ""
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "టపాలకి రచయితని మార్చండి"
 
 msgid "Author ID:"
@@ -2150,7 +2150,7 @@ msgstr "ఎంపికలు లేవు"
 msgid "select all"
 msgstr "అన్నీ ఎంచుకోండి"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr ""
 
 msgid "view entry"
@@ -2425,7 +2425,7 @@ msgstr "వ్యవస్థ"
 msgid "Blog"
 msgstr "బ్లాగు"
 
-msgid "Updates"
+msgid "Update"
 msgstr ""
 
 msgid "Languages"

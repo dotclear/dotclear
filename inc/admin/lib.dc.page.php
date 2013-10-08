@@ -48,18 +48,18 @@ class dcPage
 	}
 
 	# Top of admin page
-	public static function open($title='', $head='')
+	public static function open($title='',$head='',$breadcrumb='')
 	{
 		global $core;
 
 		# List of user's blogs
-		if ($core->auth->blog_count == 1 || $core->auth->blog_count > 20)
+		if ($core->auth->getBlogCount() == 1 || $core->auth->getBlogCount() > 20)
 		{
 			$blog_box =
 			'<p>'.__('Blog:').' <strong title="'.html::escapeHTML($core->blog->url).'">'.
 			html::escapeHTML($core->blog->name).'</strong>';
 
-			if ($core->auth->blog_count > 20) {
+			if ($core->auth->getBlogCount() > 20) {
 				$blog_box .= ' - <a href="blogs.php">'.__('Change blog').'</a>';
 			}
 			$blog_box .= '</p>';
@@ -72,12 +72,11 @@ class dcPage
 				$blogs[html::escapeHTML($rs_blogs->blog_name.' - '.$rs_blogs->blog_url)] = $rs_blogs->blog_id;
 			}
 			$blog_box =
-			'<p><label for="switchblog" class="classic nomobile">'.
+			'<p><label for="switchblog" class="classic">'.
 			__('Blogs:').'</label> '.
 			$core->formNonce().
 			form::combo('switchblog',$blogs,$core->blog->id).
-			'</p>'.
-			'<noscript><p><input type="submit" value="'.__('ok').'" /></p></noscript>';
+			'<input type="submit" value="'.__('ok').'" class="hidden-if-js" /></p>';
 		}
 
 		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
@@ -108,11 +107,14 @@ class dcPage
 		$core->auth->user_prefs->addWorkspace('interface');
 		$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 		if (!$user_ui_hide_std_favicon) {
-			echo '<link rel="icon" type="image/png" href="images/favicon.png" />';
+			echo 
+			'<link rel="icon" type="image/png" href="images/favicon96-login.png" />'.
+			'<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />';
 		}
 
 		echo
 		self::jsCommon().
+		self::jsToggles().
 		$head;
 
 		# --BEHAVIOR-- adminPageHTMLHead
@@ -121,54 +123,122 @@ class dcPage
 		echo
 		"</head>\n".
 		'<body id="dotclear-admin'.
-		($safe_mode ? ' safe-mode' : '').
-		'">'."\n".
+		($safe_mode ? ' safe-mode' : '').'" class="no-js">'."\n".
 
+		'<ul id="prelude">'.
+		'<li><a href="#content">'.__('Go to the content').'</a></li>'.
+		'<li><a href="#main-menu">'.__('Go to the menu').'</a></li>'.
+		'<li><a href="#qx">'.__('Go to search').'</a></li>'.
+		'<li><a href="#help">'.__('Go to help').'</a></li>'.
+		'</ul>'."\n".
 		'<div id="header">'.
-		'<ul id="prelude"><li><a href="#content">'.__('Go to the content').'</a></li><li><a href="#main-menu">'.__('Go to the menu').'</a></li></ul>'."\n".
-		'<div id="top"><h1><a href="index.php">'.DC_VENDOR_NAME.'</a></h1></div>'."\n";
+		'<h1><a href="index.php"><span class="hidden">'.DC_VENDOR_NAME.'</span></a></h1>'."\n";
 
 		echo
-		'<div id="info-boxes">'.
-		'<div id="info-box1">'.
-		'<form action="index.php" method="post">'.
+		'<form action="index.php" method="post" id="top-info-blog">'.
 		$blog_box.
-		'<p class="nomobile"><a href="'.$core->blog->url.'" onclick="window.open(this.href);return false;" title="'.__('Go to site').' ('.__('new window').')'.'">'.__('Go to site').' <img src="images/outgoing.png" alt="" /></a>'.
+		'<p><a href="'.$core->blog->url.'" class="outgoing" title="'.__('Go to site').
+		'">'.__('Go to site').'<img src="images/outgoing.png" alt="" /></a>'.
 		'</p></form>'.
-		'</div>'.
-		'<div id="info-box2">'.
-		'<a class="smallscreen'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a>'.
-		'<span class="smallscreen"> | </span><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="preferences.php">'.__('My preferences').'</a>'.
-		'<span class="smallscreen"> | </span><a href="index.php?logout=1" class="logout">'.sprintf(__('Logout %s'),$core->auth->userID()).' <img src="images/logout.png" alt="" /></a>'.
-		'</div>'.
-		'</div>'.
-		'</div>';
+		'<ul id="top-info-user">'.
+		'<li><a class="'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a></li>'.
+		'<li><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').
+		'" href="preferences.php">'.__('My preferences').'</a></li>'.
+		'<li><a href="index.php?logout=1" class="logout"><span class="nomobile">'.sprintf(__('Logout %s'),$core->auth->userID()).
+		'</span><img src="images/logout.png" alt="" /></a></li>'.
+		'</ul>'.
+		'</div>'; // end header
 
 		echo
-		'<div id="wrapper">'."\n".
+		'<div id="wrapper" class="clearfix">'."\n".
+		'<div class="hidden-if-no-js collapser-box"><a href="#" id="collapser">'.
+		'<img class="collapse-mm" src="images/collapser-hide.png" alt="'.__('Hide main menu').'" />'.
+		'<img class="expand-mm" src="images/collapser-show.png" alt="'.__('Show main menu').'" />'.
+		'</a></div>'.
 		'<div id="main">'."\n".
-		'<div id="content">'."\n";
+		'<div id="content" class="clearfix">'."\n";
 
 		# Safe mode
 		if ($safe_mode)
 		{
 			echo
-			'<div class="error"><h3>'.__('Safe mode').'</h3>'.
+			'<div class="warning"><h3>'.__('Safe mode').'</h3>'.
 			'<p>'.__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
 			'</div>';
 		}
 
+		// Display breadcrumb (if given) before any error message
+		echo $breadcrumb;
+
 		if ($core->error->flag()) {
 			echo
-			'<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</p></strong>'.
+			'<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</strong></p>'.
 			$core->error->toHTML().
 			'</div>';
 		}
+
+		// Display notices
+		echo self::notices();
+	}
+
+	public static function notices()
+	{
+		// return notices if any
+		$res = '';
+		if (isset($_SESSION['notifications'])) {
+			$types = array("success" => "success", "warning" => "warning-msg", "error" => "error");
+			$notifications = $_SESSION['notifications'];
+			foreach ($types as $type => $class) {
+				if (isset($notifications[$type])) {
+					foreach ($notifications[$type] as $n) {
+						$res .= self::getNotification($n,$class);
+					}
+				}
+			}
+			unset($_SESSION['notifications']);
+		}
+		return $res;
+	}
+
+	public static function addNotice($type,$message)
+	{
+		$notification = isset($_SESSION['notifications']) ? $_SESSION['notifications'] : array();
+		$notification[$type][] = array('ts' => time(), 'text' => $message);
+		$_SESSION['notifications'] = $notification;
+	}
+
+	public static function addSuccessNotice($message)
+	{
+		self::addNotice("success",$message);
+	}
+
+	public static function addWarningNotice($message)
+	{
+		self::addNotice("warning",$message);
+	}
+
+	public static function addErrorNotice($message)
+	{
+		self::addNotice("error",$message);
+	}
+
+	protected static function getNotification($msg,$class)
+	{
+		global $core;
+
+		$res = '<p class="'.$class.'">'.dt::str(__('[%H:%M:%S]'),$msg['ts'],$core->auth->getInfo('user_tz')).' '.$msg['text'].'</p>';
+		return $res;
 	}
 
 	public static function close()
 	{
 		global $core;
+
+		if (!$GLOBALS['__resources']['ctxhelp']) {
+			echo
+			'<p id="help-button"><a href="help.php" class="outgoing" title="'.
+			__('Global help').'">'.__('Global help').'</a></p>';
+		}
 
 		$menu =& $GLOBALS['_menu'];
 
@@ -179,7 +249,7 @@ class dcPage
 		'<div id="main-menu">'."\n".
 
 		'<form id="search-menu" action="search.php" method="get">'.
-		'<p><label for="q" class="hidden">'.__('Search:').' </label>'.form::field('q',30,255,'').
+		'<p><label for="qx" class="hidden">'.__('Search:').' </label>'.form::field('qx',30,255,'').
 		'<input type="submit" value="'.__('OK').'" /></p>'.
 		'</form>';
 
@@ -198,8 +268,15 @@ class dcPage
 
 		echo
 		'</div>'."\n".		// End of #main-menu
-		'<div id="footer"><a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
 		"</div>\n";		// End of #wrapper
+
+		echo
+		'<div id="footer">'.
+		'<a href="http://dotclear.org/" title="'.$text.'">'.
+		'<img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
+        "<!-- \n                  \n               ,;:'`'::\n".
+		"            __||\n      _____/LLLL\_\n      \__________\"|\n".
+        "    ~^~^~^~^~^~^~^~^~^~\n -->\n";
 
 		if (defined('DC_DEV') && DC_DEV === true) {
 			echo self::debugInfo();
@@ -209,7 +286,7 @@ class dcPage
 		'</body></html>';
 	}
 
-	public static function openPopup($title='', $head='')
+	public static function openPopup($title='',$head='',$breadcrumb='')
 	{
 		global $core;
 
@@ -238,6 +315,7 @@ class dcPage
 
 		echo
 		self::jsCommon().
+		self::jsToggles().
 		$head;
 
 		# --BEHAVIOR-- adminPageHTMLHead
@@ -247,12 +325,15 @@ class dcPage
 		"</head>\n".
 		'<body id="dotclear-admin" class="popup">'."\n".
 
-		'<div id="top hidden"><h1>'.DC_VENDOR_NAME.'</h1></div>'."\n";
+		'<h1>'.DC_VENDOR_NAME.'</h1>'."\n";
 
 		echo
 		'<div id="wrapper">'."\n".
 		'<div id="main">'."\n".
 		'<div id="content">'."\n";
+
+		// display breadcrumb if given
+		echo $breadcrumb;
 
 		if ($core->error->flag()) {
 			echo
@@ -267,40 +348,60 @@ class dcPage
 		echo
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
-		'<div id="footer"><p>&nbsp;</p></div>'."\n".
 		"</div>\n".		// End of #wrapper
+		'<div id="footer"><p>&nbsp;</p></div>'."\n".
 		'</body></html>';
 	}
 
-	public static function breadcrumb($elements=null,$no_home_link=false)
+	public static function breadcrumb($elements=null,$options=array())
 	{
+		$with_home_link = isset($options['home_link'])?$options['home_link']:true;
+		$hl = isset($options['hl'])?$options['hl']:true;
+		$hl_pos = isset($options['hl_pos'])?$options['hl_pos']:-1;
 		// First item of array elements should be blog's name, System or Plugins
-		$res = '<h2>'.($no_home_link ?
-			'<img src="style/dashboard-alt.png" alt="" />' :
-			'<a class="go_home" href="index.php"><img src="style/dashboard.png" alt="'.__('Go to dashboard').'" /></a>');
+		$res = '<h2>'.($with_home_link ?
+			'<a class="go_home" href="index.php"><img src="style/dashboard.png" alt="'.__('Go to dashboard').'" /></a>' :
+			'<img src="style/dashboard-alt.png" alt="" />');
 		$index = 0;
+		if ($hl_pos < 0) {
+			$hl_pos = count($elements)+$hl_pos;
+		}
 		foreach ($elements as $element => $url) {
-			$res .= ($no_home_link ? ' ' : ($index == 1 ? ' : ' : ' &rsaquo; ')).($url ? '<a href="'.$url.'">' : '').$element.($url ? '</a>' : '');
+			if ($hl && $index == $hl_pos) {
+				$element = sprintf('<span class="page-title">%s</span>',$element);
+			}
+			$res .= ($with_home_link ? ($index == 1 ? ' : ' : ' &rsaquo; ') : ($index == 0 ? ' ' : ' &rsaquo; ')).
+				($url ? '<a href="'.$url.'">' : '').$element.($url ? '</a>' : '');
 			$index++;
 		}
 		$res .= '</h2>';
 		return $res;
 	}
 
-	public static function message($msg,$timestamp=true,$div=false,$echo=true)
+	public static function message($msg,$timestamp=true,$div=false,$echo=true,$class='message')
 	{
 		global $core;
 
 		$res = '';
 		if ($msg != '') {
-			$res = ($div ? '<div class="message">' : '').'<p'.($div ? '' : ' class="message"').'>'.
-			($timestamp ? dt::str(__('%H:%M:%S:'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
+			$res = ($div ? '<div class="'.$class.'">' : '').'<p'.($div ? '' : ' class="'.$class.'"').'>'.
+			($timestamp ? dt::str(__('[%H:%M:%S]'),null,$core->auth->getInfo('user_tz')).' ' : '').$msg.
 			'</p>'.($div ? '</div>' : '');
 			if ($echo) {
 				echo $res;
 			}
 		}
 		return $res;
+	}
+
+	public static function success($msg,$timestamp=true,$div=false,$echo=true)
+	{
+		return self::message($msg,$timestamp,$div,$echo,"success");
+	}
+
+	public static function warning($msg,$timestamp=true,$div=false,$echo=true)
+	{
+		return self::message($msg,$timestamp,$div,$echo,"warning-msg");
 	}
 
 	private static function debugInfo()
@@ -354,6 +455,12 @@ class dcPage
 	public static function helpBlock()
 	{
 		$args = func_get_args();
+
+		$args = new ArrayObject($args);
+
+		# --BEHAVIOR-- adminPageHelpBlock
+		$GLOBALS['core']->callBehavior('adminPageHelpBlock',$args);
+
 		if (empty($args)) {
 			return;
 		};
@@ -391,9 +498,17 @@ class dcPage
 			return;
 		}
 
+		// Set contextual help global flag
+		$GLOBALS['__resources']['ctxhelp'] = true;
+
 		echo
-		'<div id="help"><hr /><div class="help-content clear"><h2>'.__('Help').'</h2>'.
+		'<div id="help"><hr /><div class="help-content clear"><h3>'.__('Help about this page').'</h3>'.
 		$content.
+		'</div>'.
+		'<div id="helplink"><hr />'.
+		'<p>'.
+		sprintf(__('See also %s'),sprintf('<a href="help.php">%s</a>',__('the global help'))).
+		'.</p>'.
 		'</div></div>';
 	}
 
@@ -411,10 +526,43 @@ class dcPage
 		return $n." = '".html::escapeJS($v)."';\n";
 	}
 
+	public static function jsToggles()
+	{
+		if($GLOBALS['core']->auth->user_prefs->toggles) {
+			$unfolded_sections = explode(',',$GLOBALS['core']->auth->user_prefs->toggles->unfolded_sections);
+			foreach ($unfolded_sections as $k=>&$v) {
+				if ($v == '') {
+					unset($unfolded_sections[$k]);
+				} else {
+					$v = "'".html::escapeJS($v)."':true";
+				}
+			}
+		} else {
+			$unfolded_sections=array();
+		}
+		return '<script type="text/javascript">'."\n".
+					"//<![CDATA[\n".
+					'dotclear.unfolded_sections = {'.join(",",$unfolded_sections)."};\n".
+					"\n//]]>\n".
+				"</script>\n";
+	}
+	
 	public static function jsCommon()
 	{
+		$mute_or_no = '';
+		if (empty($GLOBALS['core']->blog) || $GLOBALS['core']->blog->settings->system->jquery_migrate_mute) {
+			$mute_or_no .=
+				'<script type="text/javascript">'."\n".
+				"//<![CDATA[\n".
+				'jQuery.migrateMute = true;'.
+				"\n//]]>\n".
+				"</script>\n";
+		}
+
 		return
 		self::jsLoad('js/jquery/jquery.js').
+		$mute_or_no.
+		self::jsLoad('js/jquery/jquery-migrate-1.2.1.js').
 		self::jsLoad('js/jquery/jquery.biscuit.js').
 		self::jsLoad('js/jquery/jquery.bgFade.js').
 		self::jsLoad('js/common.js').
@@ -431,16 +579,25 @@ class dcPage
 		self::jsVar('dotclear.img_menu_on','images/menu_on.png').
 		self::jsVar('dotclear.img_menu_off','images/menu_off.png').
 
+		self::jsVar('dotclear.img_plus_theme_src','images/plus-theme.png').
+		self::jsVar('dotclear.img_plus_theme_alt',__('uncover')).
+		self::jsVar('dotclear.img_minus_theme_src','images/minus-theme.png').
+		self::jsVar('dotclear.img_minus_theme_alt',__('hide')).
+
 		self::jsVar('dotclear.msg.help',
-			__('Help about this page')).
+			__('Need help?')).
+		self::jsVar('dotclear.msg.new_window',
+			__('new window')).
 		self::jsVar('dotclear.msg.help_hide',
 			__('Hide')).
+		self::jsVar('dotclear.msg.to_select',
+			__('Select:')).
 		self::jsVar('dotclear.msg.no_selection',
 			__('no selection')).
 		self::jsVar('dotclear.msg.select_all',
 			__('select all')).
 		self::jsVar('dotclear.msg.invert_sel',
-			__('invert selection')).
+			__('Invert selection')).
 		self::jsVar('dotclear.msg.website',
 			__('Web site:')).
 		self::jsVar('dotclear.msg.email',
@@ -457,8 +614,14 @@ class dcPage
 			__('view entry')).
 		self::jsVar('dotclear.msg.confirm_delete_posts',
 			__("Are you sure you want to delete selected entries (%s)?")).
+		self::jsVar('dotclear.msg.confirm_delete_medias',
+			__("Are you sure you want to delete selected medias (%d)?")).
+		self::jsVar('dotclear.msg.confirm_delete_categories',
+			__("Are you sure you want to delete selected categories (%s)?")).
 		self::jsVar('dotclear.msg.confirm_delete_post',
 			__("Are you sure you want to delete this entry?")).
+		self::jsVar('dotclear.msg.click_to_unlock',
+			__("Click here to unlock the field")).
 		self::jsVar('dotclear.msg.confirm_spam_delete',
 			__('Are you sure you want to delete all spams?')).
 		self::jsVar('dotclear.msg.confirm_delete_comments',
@@ -489,6 +652,8 @@ class dcPage
 			__('Remove this theme')).
 		self::jsVar('dotclear.msg.confirm_delete_theme',
 			__('Are you sure you want to delete "%s" theme?')).
+		self::jsVar('dotclear.msg.confirm_delete_backup',
+			__('Are you sure you want to delete this backup?')).
 		self::jsVar('dotclear.msg.zip_file_content',
 			__('Zip file content')).
 		self::jsVar('dotclear.msg.xhtml_validator',
@@ -497,10 +662,27 @@ class dcPage
 			__('XHTML content is valid.')).
 		self::jsVar('dotclear.msg.xhtml_not_valid',
 			__('There are XHTML markup errors.')).
+		self::jsVar('dotclear.msg.warning_validate_no_save_content',
+			__('Attention: an audit of a content not yet registered.')).
 		self::jsVar('dotclear.msg.confirm_change_post_format',
 			__('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?')).
+		self::jsVar('dotclear.msg.confirm_change_post_format_noconvert',
+			__("Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?")).
 		self::jsVar('dotclear.msg.load_enhanced_uploader',
 			__('Loading enhanced uploader, please wait.')).
+
+		self::jsVar('dotclear.msg.module_author',
+			__('Author:')).
+		self::jsVar('dotclear.msg.module_details',
+			__('Details')).
+		self::jsVar('dotclear.msg.module_support',
+			__('Support')).
+		self::jsVar('dotclear.msg.module_help',
+			__('Help:')).
+		self::jsVar('dotclear.msg.module_section',
+			__('Section:')).
+		self::jsVar('dotclear.msg.module_tags',
+			__('Tags:')).
 		"\n//]]>\n".
 		"</script>\n";
 	}
@@ -508,8 +690,8 @@ class dcPage
 	public static function jsLoadIE7()
 	{
 		return
-		'<!--[if lt IE 8]>'."\n".
-		self::jsLoad('js/ie7/IE8.js').
+		'<!--[if lt IE 9]>'."\n".
+		self::jsLoad('js/ie7/IE9.js').
 		'<link rel="stylesheet" type="text/css" href="style/iesucks.css" />'."\n".
 		'<![endif]-->'."\n";
 	}
@@ -546,15 +728,23 @@ class dcPage
 		self::jsLoad('js/jquery/jquery.pageTabs.js').
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
-		"\$(function() {\n".
-			"	\$.pageTabs(".$default.");\n".
-			"});\n".
-"\n//]]>\n".
-"</script>\n";
-}
+		'$(function() {'."\n".
+		'$.pageTabs('.$default.');'."\n".
+		'});'.
+		"\n//]]>\n".
+		"</script>\n".
+		'<!--[if lt IE 8]>'."\n".
+		self::jsLoad('js/ie7/ie7-hashchange.js').
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA[\n".
+		'$(window).hashchange();'.
+		"\n//]]>\n".
+		"</script>\n".
+		'<![endif]-->'."\n";
+	}
 
-public static function jsModal()
-{
+	public static function jsModal()
+	{
 	return
 	'<link rel="stylesheet" type="text/css" href="style/modal/modal.css" />'."\n".
 	self::jsLoad('js/jquery/jquery.modal.js').
@@ -564,18 +754,18 @@ public static function jsModal()
 	self::jsVar('$.modal.prototype.params.close_img','style/modal/close.png').
 	"\n//]]>\n".
 	"</script>\n";
-}
+	}
 
-public static function jsColorPicker()
-{
+	public static function jsColorPicker()
+	{
 	return
 	'<link rel="stylesheet" type="text/css" href="style/farbtastic/farbtastic.css" />'."\n".
 	self::jsLoad('js/jquery/jquery.farbtastic.js').
 	self::jsLoad('js/color-picker.js');
-}
+	}
 
-public static function jsDatePicker()
-{
+	public static function jsDatePicker()
+	{
 	return
 	'<link rel="stylesheet" type="text/css" href="style/date-picker.css" />'."\n".
 	self::jsLoad('js/date-picker.js').
@@ -610,10 +800,10 @@ public static function jsDatePicker()
 
 	"\n//]]>\n".
 	"</script>\n";
-}
+	}
 
-public static function jsToolBar()
-{
+	public static function jsToolBar()
+	{
 	$res =
 	'<link rel="stylesheet" type="text/css" href="style/jsToolBar/jsToolBar.css" />'.
 	'<script type="text/javascript" src="js/jsToolBar/jsToolBar.js"></script>';
@@ -694,10 +884,10 @@ public static function jsToolBar()
 	"</script>\n";
 
 	return $res;
-}
+	}
 
-public static function jsUpload($params=array(),$base_url=null)
-{
+	public static function jsUpload($params=array(),$base_url=null)
+	{
 	if (!$base_url) {
 		$base_url = path::clean(dirname(preg_replace('/(\?.*$)?/','',$_SERVER['REQUEST_URI']))).'/';
 	}
@@ -709,61 +899,6 @@ public static function jsUpload($params=array(),$base_url=null)
 		));
 
 	return
-	'<link rel="stylesheet" type="text/css" href="style/jsUpload/style.css" />'."\n".
-
-	'<script id="template-upload" type="text/x-tmpl">
-	{% for (var i=0, file; file=o.files[i]; i++) { %}
-	<div class="template-upload fade">
-	<div class="upload-file">
-	<div class="upload-fileinfo">
-		<span class="upload-filename">{%=file.name%}</span>
-		<span class="upload-filesize">({%=o.formatFileSize(file.size)%})</span>
-		<span class="upload-filecancel cancel">'.__('Cancel').'</span>
-		{% if (!o.files.error && !i && !o.options.autoUpload) { %}
-		<input type="submit" class="button start"  value="'.__('Send').'"/>
-		{% } %}
-		<span class="upload-filemsg"></span>
-	</div>
-	{% if (!o.files.error) { %}
-	<div class="upload-progress progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
-	{% } %}
-	</div>
-	{% } %}
-	</script>
-	<!-- The template to display files available for download -->
-	<script id="template-download" type="text/x-tmpl">
-	{% for (var i=0, file; file=o.files[i]; i++) { %}
-	<div class="template-download fade">
-	<div class="upload-file">
-	<div class="upload-fileinfo">
-		<span class="upload-filename">{%=file.name%}</span>
-		<span class="upload-filesize">({%=o.formatFileSize(file.size)%})</span>
-		<span class="upload-filemsg{% if (file.error) { %} upload-error{% } %}">
-		{% if (file.error) { %}
-		'.__('Error:').' {%=file.error%}
-		{% } else { %}
-		'.__('File successfully uploaded.').'
-		{% } %}
-		</span>
-	</div>
-	<div class="upload-progress">
-		{% if (!file.error) { %}
-		<div class="bar" style="width:100%;">100%</div>
-		{% } %}
-	</div>
-	</div>
-	{% } %}
-	</script>'.
-
-	self::jsLoad('js/jsUpload/vendor/jquery.ui.widget.js').
-	self::jsLoad('js/jsUpload/tmpl.js').
-	self::jsLoad('js/jsUpload/load-image.js').
-	self::jsLoad('js/jsUpload/jquery.iframe-transport.js').
-	self::jsLoad('js/jsUpload/jquery.fileupload.js').
-	self::jsLoad('js/jsUpload/jquery.fileupload-process.js').
-	self::jsLoad('js/jsUpload/jquery.fileupload-resize.js').
-	self::jsLoad('js/jsUpload/jquery.fileupload-ui.js').
-
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA[\n".
 	"dotclear.jsUpload = {};\n".
@@ -780,17 +915,30 @@ public static function jsUpload($params=array(),$base_url=null)
 	self::jsVar('dotclear.jsUpload.msg.cancel',__('Cancel')).
 	self::jsVar('dotclear.jsUpload.msg.clean',__('Clean')).
 	self::jsVar('dotclear.jsUpload.msg.upload',__('Upload')).
+		self::jsVar('dotclear.jsUpload.msg.send',__('Send')).
+		self::jsVar('dotclear.jsUpload.msg.file_successfully_uploaded',__('File successfully uploaded.')).
 	self::jsVar('dotclear.jsUpload.msg.no_file_in_queue',__('No file in queue.')).
 	self::jsVar('dotclear.jsUpload.msg.file_in_queue',__('1 file in queue.')).
 	self::jsVar('dotclear.jsUpload.msg.files_in_queue',__('%d files in queue.')).
 	self::jsVar('dotclear.jsUpload.msg.queue_error',__('Queue error:')).
 	self::jsVar('dotclear.jsUpload.base_url',$base_url).
 	"\n//]]>\n".
-	"</script>\n";
-}
+		"</script>\n".
 
-public static function jsToolMan()
-{
+		self::jsLoad('js/jsUpload/vendor/jquery.ui.widget.js').
+		self::jsLoad('js/jsUpload/tmpl.js').
+		self::jsLoad('js/jsUpload/template-upload.js').
+		self::jsLoad('js/jsUpload/template-download.js').
+		self::jsLoad('js/jsUpload/load-image.js').
+		self::jsLoad('js/jsUpload/jquery.iframe-transport.js').
+		self::jsLoad('js/jsUpload/jquery.fileupload.js').
+		self::jsLoad('js/jsUpload/jquery.fileupload-process.js').
+		self::jsLoad('js/jsUpload/jquery.fileupload-resize.js').
+		self::jsLoad('js/jsUpload/jquery.fileupload-ui.js');
+	}
+
+	public static function jsToolMan()
+	{
 	return
 	'<script type="text/javascript" src="js/tool-man/core.js"></script>'.
 	'<script type="text/javascript" src="js/tool-man/events.js"></script>'.
@@ -799,12 +947,11 @@ public static function jsToolMan()
 	'<script type="text/javascript" src="js/tool-man/drag.js"></script>'.
 	'<script type="text/javascript" src="js/tool-man/dragsort.js"></script>'.
 	'<script type="text/javascript" src="js/dragsort-tablerows.js"></script>';
-}
+	}
 
-public static function jsMetaEditor()
-{
+	public static function jsMetaEditor()
+	{
 	return
 	'<script type="text/javascript" src="js/meta-editor.js"></script>';
+	}
 }
-}
-?>

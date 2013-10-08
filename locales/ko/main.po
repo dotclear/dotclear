@@ -219,7 +219,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "검색 및 축적 엔진들에게 블로그 내용물에 대한 검색목록화작업이나 아카이브(시차별 축적)작업을 모두 허락하지 않음."
 
 #, fuzzy
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Dotclear가 이미 설치되어 있습니다."
 
 msgid "Invalid language code"
@@ -591,7 +591,7 @@ msgstr "분류 정렬초기화 완료."
 msgid "The category has been successfully moved."
 msgstr "분류 이동 완료."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "분류가 아직 없습니다."
 
 msgid "Categories list"
@@ -850,7 +850,7 @@ msgstr "지금 바로 갱신"
 msgid "Remind me later"
 msgstr "나중에 다시 알려줌"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
@@ -1764,10 +1764,10 @@ msgstr "선택된 글꼭지들에 대한 작업 :"
 msgid "This user does not exist"
 msgstr "이 사용자는 존재하지 않습니다."
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "글꼭지들의 분류 변경"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "글꼭지들의 글쓴이 변경"
 
 msgid "Author ID:"
@@ -2153,7 +2153,7 @@ msgstr "선택 없음"
 msgid "select all"
 msgstr "모두 선택하기"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "선택사항 뒤집기"
 
 msgid "view entry"
@@ -2430,7 +2430,7 @@ msgstr "시스템관리"
 msgid "Blog"
 msgstr "블로그"
 
-msgid "Updates"
+msgid "Update"
 msgstr "DotClear 갱신"
 
 msgid "Languages"

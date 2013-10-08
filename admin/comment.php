@@ -25,10 +25,9 @@ $comment_status = '';
 $comment_trackback = 0;
 $comment_spam_status = '';
 
+
 # Status combo
-foreach ($core->blog->getAllCommentStatus() as $k => $v) {
-	$status_combo[$v] = (string) $k;
-}
+$status_combo = dcAdminCombos::getCommentStatusescombo();
 
 # Adding comment
 if (!empty($_POST['add']) && !empty($_POST['post_id']))
@@ -57,7 +56,8 @@ if (!empty($_POST['add']) && !empty($_POST['post_id']))
 		# --BEHAVIOR-- adminAfterCommentCreate
 		$core->callBehavior('adminAfterCommentCreate',$cur,$comment_id);
 		
-		http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id,false).'&co=1&creaco=1');
+		dcPage::addSuccessNotice(__('Comment has been successfully created.'));
+		http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id,false).'&co=1');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -131,7 +131,8 @@ if (!$core->error->flag() && isset($rs))
 			# --BEHAVIOR-- adminAfterCommentUpdate
 			$core->callBehavior('adminAfterCommentUpdate',$cur,$comment_id);
 			
-			http::redirect('comment.php?id='.$comment_id.'&upd=1');
+			dcPage::addSuccessNotice(__('Comment has been successfully updated.'));
+			http::redirect('comment.php?id='.$comment_id);
 		}
 		catch (Exception $e)
 		{
@@ -146,7 +147,9 @@ if (!$core->error->flag() && isset($rs))
 			$core->callBehavior('adminBeforeCommentDelete',$comment_id);
 			
 			$core->blog->delComment($comment_id);
-			http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id).'&co=1#c'.$comment_id,false);
+			
+			dcPage::addSuccessNotice(__('Comment has been successfully deleted.'));
+			http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id).'&co=1',false);
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -164,14 +167,14 @@ if ($comment_id) {
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			html::escapeHTML($post_title) => $core->getPostAdminURL($post_type,$post_id).'&amp;co=1#c'.$comment_id,
-			'<span class="page-title">'.__('Edit comment').'</span>' => ''
+			__('Edit comment') => ''
 		));
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			html::escapeHTML($post_title) => $core->getPostAdminURL($post_type,$post_id),
-			'<span class="page-title">'.__('Edit comment').'</span>' => ''
+			__('Edit comment') => ''
 		));
 }
 
@@ -187,7 +190,7 @@ dcPage::open(__('Edit comment'),
 if ($comment_id)
 {
 	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Comment has been successfully updated.'));
+		dcPage::success(__('Comment has been successfully updated.'));
 	}
 	
 	$comment_mailto = '';
@@ -195,7 +198,7 @@ if ($comment_id)
 	{
 		$comment_mailto = '<a href="mailto:'.html::escapeHTML($comment_email)
 		.'?subject='.rawurlencode(sprintf(__('Your comment on my blog %s'),$core->blog->name))
-		.'&body='
+		.'&amp;body='
 		.rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"),$rs->getPostURL()))
 		.'">'.__('Send an e-mail').'</a>';
 	}

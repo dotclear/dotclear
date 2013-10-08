@@ -217,7 +217,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Quero evitar que os motores de pesquisa e arquivadores indexem ou arquivem o conteúdo do meu blog."
 
 #, fuzzy
-msgid "That blog Id is already in use."
+msgid "This blog ID is already used."
 msgstr "Dotclear já está instalado."
 
 msgid "Invalid language code"
@@ -588,7 +588,7 @@ msgstr "As categorias foram reordenadas com sucesso."
 msgid "The category has been successfully moved."
 msgstr "A categoria foi movida com sucesso."
 
-msgid "No category yet."
+msgid "No category so far."
 msgstr "Nenhuma categoria ainda."
 
 msgid "Categories list"
@@ -847,7 +847,7 @@ msgstr "Actualizar agora"
 msgid "Remind me later"
 msgstr "Lembrar-me mais tarde"
 
-msgid "information about this version"
+msgid "<a href=\"%s\">Information about this version</a>."
 msgstr ""
 
 #, fuzzy
@@ -1747,10 +1747,10 @@ msgstr "Acção sobre as entradas seleccionadas:"
 msgid "This user does not exist"
 msgstr "Este utilizador não existe"
 
-msgid "Change category for entries"
+msgid "Change category for this selection"
 msgstr "Alterar a categoria das entradas"
 
-msgid "Change author for entries"
+msgid "Change author for this selection"
 msgstr "Alterar o autor das entradas"
 
 msgid "Author ID:"
@@ -2132,7 +2132,7 @@ msgstr "Nenhuma selecção"
 msgid "select all"
 msgstr "seleccionar tudo"
 
-msgid "invert selection"
+msgid "Invert selection"
 msgstr "inverter selecção"
 
 msgid "view entry"
@@ -2407,7 +2407,7 @@ msgstr "Sistema"
 msgid "Blog"
 msgstr "Blog"
 
-msgid "Updates"
+msgid "Update"
 msgstr "Actualizações"
 
 msgid "Languages"

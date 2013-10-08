@@ -28,26 +28,7 @@ foreach ($eres as $f)
 	$dest = dirname($f).'/'.basename($f,'.po').'.lang.php';
 	echo "l10n file ".$dest.": ";
 	
-	$l = l10n::getPoFile($f);
-	
-	$fcontent =
-	"<?php\n".
-	$license_block.
-	"#\n#\n#\n".
-	"#        DOT NOT MODIFY THIS FILE !\n\n\n\n\n";
-	
-	foreach (l10n::getPoFile($f) as $vo => $tr) {
-		$vo = str_replace("'","\\'",$vo);
-		$tr = str_replace("'","\\'",$tr);
-		$fcontent .= '$GLOBALS[\'__l10n\'][\''.$vo.'\'] = \''.$tr.'\';'."\n";
-	}
-	
-	$fcontent .= "?>";
-	
-	echo $dest.' : ';
-	if (($fp = fopen($dest,'w')) !== false) {
-		fwrite($fp,$fcontent,strlen($fcontent));
-		fclose($fp);
+	if (l10n::generatePhpFileFromPo(dirname($f).'/'.basename($f,'.po'),$license_block)) {
 		echo 'OK';
 	} else {
 		echo 'FAILED';
