@@ -812,6 +812,9 @@ class dcBlog
 			} else {
 				$strReq .= 'INNER JOIN '.$this->prefix.'post_media M on P.post_id = M.post_id ';
 			}
+			if (isset($params['link_type'])) {
+				$strReq .= " and M.link_type ".$this->con->in($params['link_type'])." ";
+			}
 		}
 		
 		if (!empty($params['from'])) {

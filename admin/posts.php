@@ -179,6 +179,7 @@ if ($selected !== '' && in_array($selected,$selected_combo)) {
 # - Selected filter
 if ($attachment !== '' && in_array($attachment,$attachment_combo)) {
 	$params['media'] = $attachment;
+	$params['link_type'] = 'attachment';
 	$show_filters = true;
 } else {
 	$attachment='';
