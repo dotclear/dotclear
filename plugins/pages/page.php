@@ -732,7 +732,7 @@ function showComments($rs,$has_action)
 	
 	echo '</table>';
 }
-dcPage::helpBlock('page');
+dcPage::helpBlock('page','core_wiki');
 ?>
 </body>
 </html>

@@ -382,6 +382,6 @@ if ($dashboardContents != '' || $dashboardItems != '') {
 }
 
 echo '</div>'; #end dashboard-main
-
+dcPage::helpBlock('core_dashboard');
 dcPage::close();
 ?>

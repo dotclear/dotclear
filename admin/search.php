@@ -161,6 +161,6 @@ if ($q && !$core->error->flag())
 	}
 }
 
-
+dcPage::helpBlock('core_search');
 dcPage::close();
 ?>
