@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-07 13:44+0000\n"
+"POT-Creation-Date: 2013-10-08 07:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1868,6 +1868,11 @@ msgstr ""
 msgid "This may take a very long time."
 msgstr ""
 
+#: plugins/pages/_admin.php:31 plugins/pages/list.php:84
+#: plugins/pages/page.php:37 plugins/pages/page.php:491
+msgid "New page"
+msgstr ""
+
 #: plugins/pages/_admin.php:46
 #, php-format
 msgid "%d page"
@@ -2472,6 +2477,10 @@ msgstr ""
 
 #: plugins/userPref/index.php:184 plugins/userPref/index.php:185
 msgid "Global preferences"
+msgstr ""
+
+#: plugins/widgets/_admin.php:19 plugins/widgets/_admin.php:26
+msgid "Presentation widgets"
 msgstr ""
 
 #: plugins/widgets/_default_widgets.php:20

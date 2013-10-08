@@ -195,12 +195,17 @@ elseif ($change_pwd)
 elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 {
 	# We check the user
-	$check_user = $core->auth->checkUser($user_id,$user_pwd,$user_key) === true;
+	$check_user = $core->auth->checkUser($user_id,$user_pwd,$user_key,false) === true;
+	if ($check_user) {
+		$check_perms = $core->auth->findUserBlog() !== false;
+	} else {
+		$check_perms = false;
+	}
 	
 	$cookie_admin = http::browserUID(DC_MASTER_KEY.$user_id.
 		crypt::hmac(DC_MASTER_KEY,$user_pwd)).bin2hex(pack('a32',$user_id));
 	
-	if ($check_user && $core->auth->mustChangePassword())
+	if ($check_perms && $core->auth->mustChangePassword())
 	{
 		$login_data = join('/',array(
 			base64_encode($user_id),
@@ -215,11 +220,11 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 			$change_pwd = true;
 		}
 	}
-	elseif ($check_user && !empty($_POST['safe_mode']) && !$core->auth->isSuperAdmin()) 
+	elseif ($check_perms && !empty($_POST['safe_mode']) && !$core->auth->isSuperAdmin()) 
 	{
 		$err = __('Safe Mode can only be used for super administrators.');
 	}
-	elseif ($check_user)
+	elseif ($check_perms)
 	{
 		$core->session->start();
 		$_SESSION['sess_user_id'] = $user_id;
@@ -245,7 +250,11 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 			unset($_COOKIE['dc_admin']);
 			setcookie('dc_admin',false,-600,'','',DC_ADMIN_SSL);
 		}
-		$err = __('Wrong username or password');
+		if ($check_user) {
+			$err = __('Insufficient permissions');
+		} else {
+			$err = __('Wrong username or password');
+		}
 	}
 }
 

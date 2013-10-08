@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-07 13:44+0000\n"
+"POT-Creation-Date: 2013-10-08 07:23+0000\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -1332,6 +1332,9 @@ msgstr "Exécuter cette tâche"
 msgid "This may take a very long time."
 msgstr "Cela peut prendre un certain temps."
 
+msgid "New page"
+msgstr "Nouvelle page"
+
 #, php-format
 msgid "%d page"
 msgstr "%d page"
@@ -1784,6 +1787,9 @@ msgstr "Préférences utilisateur"
 msgid "Global preferences"
 msgstr "Préférences globales"
 
+msgid "Presentation widgets"
+msgstr "Widgets de présentation"
+
 msgid "Search engine"
 msgstr "Moteur de recherche"
 
@@ -1987,9 +1993,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgid "Tags"
 #~ msgstr "Mots-clés"
 
-#~ msgid "New page"
-#~ msgstr "Nouvelle page"
-
 #~ msgid "Simple menu"
 #~ msgstr "Menu simple"
 
@@ -2046,9 +2049,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Save this settings"
 #~ msgstr "Enregistrer ces réglages"
-
-#~ msgid "Presentation widgets"
-#~ msgstr "Widgets de présentation"
 
 #~ msgid "Pages"
 #~ msgstr "Pages"

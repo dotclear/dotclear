@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-07 13:44+0000\n"
+"POT-Creation-Date: 2013-10-08 07:23+0000\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -62,6 +62,9 @@ msgstr "Afin de vous connecter, vous devez changer votre mot de passe."
 
 msgid "Safe Mode can only be used for super administrators."
 msgstr "Le mode sans échec ne peut être utilisé que par un super administrateur."
+
+msgid "Insufficient permissions"
+msgstr "Permissions insuffisantes"
 
 msgid "Wrong username or password"
 msgstr "Nom d'utilisateur ou mot de passe incorrect"
@@ -1898,6 +1901,12 @@ msgstr "Sélectionné"
 msgid "Not selected"
 msgstr "Non sélectionné"
 
+msgid "Number of comments"
+msgstr "Nombre de commentaires"
+
+msgid "Number of trackbacks"
+msgstr "Nombre de rétroliens"
+
 msgid "Selected entries have been successfully updated."
 msgstr "Les entrées sélectionnées ont été modifiées avec succès."
 
@@ -2416,14 +2425,8 @@ msgstr "Plus utilisées"
 msgid "Entry language:"
 msgstr "Langue du billet :"
 
-msgid "New page"
-msgstr "Nouvelle page"
-
-msgid "Presentation widgets"
-msgstr "Widgets de présentation"
-
-msgid "Simple menu"
-msgstr "Menu simple sur Dotclear"
+msgid "Languages"
+msgstr "Langues"
 
 #, php-format
 msgid "%d comments"
@@ -2445,6 +2448,9 @@ msgstr "Aller au menu"
 
 msgid "Go to search"
 msgstr "Aller à la recherche"
+
+msgid "Go to help"
+msgstr "Aller à l'aide"
 
 msgid "Go to site"
 msgstr "Aller sur le site"
@@ -2471,9 +2477,6 @@ msgstr "Erreur :"
 msgid "[%H:%M:%S]"
 msgstr "[%H:%M:%S]"
 
-msgid "new window"
-msgstr "nouvelle fenêtre"
-
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Merci d'utiliser %s."
@@ -2499,6 +2502,9 @@ msgstr "cacher"
 
 msgid "Need help?"
 msgstr "Besoin d'aide ?"
+
+msgid "new window"
+msgstr "nouvelle fenêtre"
 
 msgid "Hide"
 msgstr "Cacher"
@@ -3036,9 +3042,6 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Plugins"
 
-msgid "Languages"
-msgstr "Langues"
-
 msgid "medium"
 msgstr "moyenne"
 
@@ -3060,10 +3063,6 @@ msgstr "Pages"
 msgid "Antispam"
 msgstr "Antispam"
 
-#, fuzzy
-msgid "Galeries"
-msgstr "Catégories"
-
 msgid "Import/Export"
 msgstr "Import/Export"
 
@@ -3072,6 +3071,9 @@ msgstr "Liste de liens"
 
 msgid "Maintenance"
 msgstr "Maintenance"
+
+msgid "Simple menu"
+msgstr "Menu simple sur Dotclear"
 
 msgid "Tags"
 msgstr "Mots-clés"
@@ -3560,6 +3562,21 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
+msgid "Attachments:"
+msgstr "Annexes :"
+
+msgid "With attachments"
+msgstr "Avec annexe(s)"
+
+msgid "Without attachments"
+msgstr "Sans annexes"
+
+#~ msgid "New page"
+#~ msgstr "Nouvelle page"
+
+#~ msgid "Presentation widgets"
+#~ msgstr "Widgets de présentation"
+
 #~ msgid "Users actions"
 #~ msgstr "Actions sur les utilisateurs"
 
@@ -4032,18 +4049,3 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Favorites"
 #~ msgstr "Favoris"
-
-msgid "Number of comments"
-msgstr "Nombre de commentaires"
-
-msgid "Number of trackbacks"
-msgstr "Nombre de rétroliens"
-
-msgid "Attachments:"
-msgstr "Annexes :"
-
-msgid "With attachments"
-msgstr "Avec annexe(s)"
-
-msgid "Without attachments"
-msgstr "Sans annexes"

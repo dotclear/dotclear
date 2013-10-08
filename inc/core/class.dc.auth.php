@@ -112,6 +112,7 @@ class dcAuth
 		}		
 		
 		if ($rs->isEmpty()) {
+			sleep(rand(2,5));
 			return false;
 		}
 		
