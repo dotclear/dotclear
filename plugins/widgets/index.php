@@ -123,7 +123,7 @@ $move = false;
 if ( isset($_POST['w']) && is_array($_POST['w']) ) {
 	foreach ($_POST['w'] as $nsid => $nsw) {
 		foreach ($nsw as $i => $v) {
-			if (!empty($v['down'])) {
+			if (!empty($v['_down'])) {
 				$oldorder = $_POST['w'][$nsid][$i]['order'];
 				$neworder = $oldorder + 1;
 				if( isset($_POST['w'][$nsid][$neworder]) ) {
@@ -132,7 +132,7 @@ if ( isset($_POST['w']) && is_array($_POST['w']) ) {
 					$move = true;
 				}
 			}
-			if (!empty($v['up'])) {
+			if (!empty($v['_up'])) {
 				$oldorder = $_POST['w'][$nsid][$i]['order'];
 				$neworder = $oldorder - 1;
 				if( isset($_POST['w'][$nsid][$neworder]) ) {
@@ -393,8 +393,8 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		' '.$w->name().
 		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').
 		'<span class="toolsWidget remove-if-drag">'.
-		'<input type="image" class="upWidget'.$upDisabled.'up.png" name="'.$iname.'[up]" value="'.__('Up the widget').'" />'.
-		'<input type="image" class="downWidget'.$downDisabled.'down.png" name="'.$iname.'[down]" value="'.__('Down the widget').'" />'.' '.
+		'<input type="image" class="upWidget'.$upDisabled.'up.png" name="'.$iname.'[_up]" value="'.__('Up the widget').'" />'.
+		'<input type="image" class="downWidget'.$downDisabled.'down.png" name="'.$iname.'[_down]" value="'.__('Down the widget').'" />'.' '.
 		'<input type="image" class="removeWidget" src="images/trash.png" name="'.$iname.'[_rem]" value="'.__('Remove widget').'" />'.
 		'</span>'.
 		'<br class="clear"/></p>'.
