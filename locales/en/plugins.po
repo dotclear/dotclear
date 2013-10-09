@@ -83,10 +83,10 @@ msgstr ""
 msgid "List of categories"
 msgstr ""
 
-msgid "RSS or Atom feed subscription links"
+msgid "Feed subscription links (RSS or Atom)"
 msgstr ""
 
-msgid "Last entries from feed"
+msgid "List of last entries from feed (RSS or Atom)"
 msgstr ""
 
 msgid "Simple text"
@@ -95,7 +95,7 @@ msgstr ""
 msgid "List of last entries published"
 msgstr ""
 
-msgid "List of last comments posted"
+msgid "List of last comments published"
 msgstr ""
 
 msgid "Tags cloud"
@@ -1893,7 +1893,7 @@ msgstr ""
 msgid "Available widgets"
 msgstr ""
 
-msgid "Move widgets from this list to one of the sidebars."
+msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr ""
 
 msgid "order"
@@ -1974,11 +1974,11 @@ msgstr ""
 msgid "Setting name:"
 msgstr ""
 
-msgid "No widget."
+msgid "No widget for now."
 msgstr ""
 
 msgid "Remove widget"
 msgstr ""
 
-msgid "Drag widgets here to remove them from this sidebar."
+msgid "Drag widgets here to remove."
 msgstr ""
