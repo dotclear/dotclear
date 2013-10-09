@@ -11,14 +11,14 @@
 	{{ js.confirm_close(['entry-form','comment-form']) }}
 	{{ js.page_tabs(default_tab) }}
 {% endblock %}
-{% block prelude %}
+{#{% block prelude %}
 	<ul id="prelude">
 		<li><a href="#content">{{__('View this entry on site')}}</a></li>
 		<li><a href="#main-menu">{{__('To site')}}</a></li>
 	</ul>
 {% endblock %}
 
-
+#}
 
 {% block content %}
 {{ parent() }}
