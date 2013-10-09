@@ -568,6 +568,9 @@ msgstr ""
 msgid "List of blogs"
 msgstr ""
 
+msgid "List of categories"
+msgstr ""
+
 msgid "Blog has been successfully deleted."
 msgstr ""
 
