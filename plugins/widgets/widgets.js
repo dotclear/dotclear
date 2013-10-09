@@ -105,20 +105,20 @@ $(function() {
 	});
 	
 	// remove
-	$('input[name*=rem]').click(function (e) {
+	$('input[name*=_rem]').click(function (e) {
 		e.preventDefault();
 		$(this).parents('li').remove();
 	});
 	
 	// move
-	$('input[name*=down]').click(function (e) {
+	$('input[name*=_down]').click(function (e) {
 		e.preventDefault();
 		$this = $(this);
 		$li = $this.parents('li');
 		$li.next().after($li);
 		reorder($this.parents('ul.connected'));
 	});
-	$('input[name*=up]').click(function (e) {
+	$('input[name*=_up]').click(function (e) {
 		e.preventDefault();
 		$this = $(this);
 		$li = $this.parents('li');
