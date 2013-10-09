@@ -14,13 +14,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('admin');
 
-# -- "First time" settings setup --
-if ($core->blog->settings->system->store_theme_url === null) {
-	$core->blog->settings->system->put(
-		'store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true
-	);
-}
-
 # -- Loading themes --
 $core->themes = new dcThemes($core);
 $core->themes->loadModules($core->blog->themes_path, null);
