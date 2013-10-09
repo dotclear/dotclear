@@ -234,5 +234,7 @@ foreach ($settings as $ns => $s)
 </form>
 </div>
 
+<?php dcPage::helpBlock('aboutConfig'); ?>
+
 </body>
 </html>
