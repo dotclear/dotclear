@@ -168,6 +168,10 @@ if (!defined('DC_UPDATE_VERSION')) {
 	define('DC_UPDATE_VERSION','stable');
 }
 
+if (!defined('DC_ALLOW_MULTI_MODULES')) {
+	define('DC_ALLOW_MULTI_MODULES',false);
+}
+
 l10n::init();
 
 try {
