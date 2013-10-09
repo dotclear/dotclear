@@ -571,6 +571,9 @@ msgstr "Annuler les filtres et options d'affichage"
 msgid "List of blogs"
 msgstr "Liste des blogs"
 
+msgid "List of categories"
+msgstr "Liste des catégories"
+
 msgid "Blog has been successfully deleted."
 msgstr "Blog supprimé avec succès."
 
