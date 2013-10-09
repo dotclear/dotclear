@@ -774,11 +774,7 @@ class dcBlog
 		}
 		elseif (!empty($params['sql_only'])) 
 		{
-			if ($this->core->con->driver() == 'pgsql' && isset($params['media'])) {
-				$strReq = 'SELECT DISTINCT ON (P.post_id) P.post_id ';
-			} else {
-				$strReq = 'SELECT P.post_id ';
-			}
+			$strReq = 'SELECT P.post_id ';
 		}
 		else
 		{
@@ -815,17 +811,6 @@ class dcBlog
 		'INNER JOIN '.$this->prefix.'user U ON U.user_id = P.user_id '.
 		'LEFT OUTER JOIN '.$this->prefix.'category C ON P.cat_id = C.cat_id ';
 
-		if (isset($params['media'])) {
-			if ($params['media'] == '0') {
-				$strReq .= 'LEFT OUTER JOIN '.$this->prefix.'post_media M on P.post_id = M.post_id ';
-			} else {
-				$strReq .= 'INNER JOIN '.$this->prefix.'post_media M on P.post_id = M.post_id ';
-			}
-			if (isset($params['link_type'])) {
-				$strReq .= " and M.link_type ".$this->con->in($params['link_type'])." ";
-			}
-		}
-		
 		if (!empty($params['from'])) {
 			$strReq .= $params['from'].' ';
 		}
@@ -957,17 +942,19 @@ class dcBlog
 		}
 		
 		if (isset($params['media'])) {
+			$strReq .= 'AND P.post_id ';
 			if ($params['media'] == '0') {
-				$strReq .= ' AND M.post_id IS NULL ';
+				$strReq .= 'NOT ';
 			}
+			$strReq .= 'IN (SELECT M.post_id FROM '.$this->prefix.'post_media M ';
+			if (isset($params['link_type'])) {
+				$strReq .= " WHERE M.link_type ".$this->con->in($params['link_type'])." ";
+			}
+			$strReq .= ")";
 		}
 
 		if (!empty($params['sql'])) {
 			$strReq .= $params['sql'].' ';
-		}
-		
-		if ($this->core->con->driver() != 'pgsql' && !$count_only && isset($params['media'])) {
-			$strReq .= ' GROUP BY P.post_id ';
 		}
 
 		if (!$count_only)
