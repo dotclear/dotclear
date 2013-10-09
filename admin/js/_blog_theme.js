@@ -7,9 +7,12 @@ $(function() {
 			img_on_src: dotclear.img_plus_theme_src,
 			img_on_alt: dotclear.img_plus_theme_alt,
 			img_off_src: dotclear.img_minus_theme_src,
-			img_off_alt: dotclear.img_minus_theme_alt, 
+			img_off_alt: dotclear.img_minus_theme_alt,
 			legend_click: true
 		}));
+		$(this).children('img').click(function(){
+			$(this).parent().parent().children('.bloc-toggler').click();
+		});
 	});
 
 	// confirm module deletion

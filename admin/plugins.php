@@ -14,18 +14,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('admin');
 
-# -- "First time" settings setup --
-if ($core->blog->settings->system->plugins_allow_multi_install === null) {
-	$core->blog->settings->system->put(
-		'plugins_allow_multi_install', false, 'boolean', 'Allow multi-installation for plugins', true, true
-	);
-}
-if ($core->blog->settings->system->store_plugin_url === null) {
-	$core->blog->settings->system->put(
-		'store_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true
-	);
-}
-
 # -- Page helper --
 $list = new adminModulesList(
 	$core->plugins, 
@@ -33,7 +21,7 @@ $list = new adminModulesList(
 	$core->blog->settings->system->store_plugin_url
 );
 
-adminModulesList::$allow_multi_install = $core->blog->settings->system->plugins_allow_multi_install;
+adminModulesList::$allow_multi_install = (boolean) DC_ALLOW_MULTI_MODULES;
 adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
 # -- Display module configuration page --
@@ -209,8 +197,8 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 	if (!empty($search) || !empty($modules)) {
 		echo
 		'<div class="multi-part" id="new" title="'.__('Add plugins').'">'.
-		'<h3>'.__('Add plugins from repository').'</h3>'.
-		'<p>'.__('Search and install plugins directly from repository.').'</p>';
+		'<h3>'.__('Add plugins from repository').'</h3>';
+//		'<p>'.__('Search and install plugins directly from repository.').'</p>';
 
 		$list
 			->setList('plugin-new')
@@ -255,4 +243,5 @@ if ($core->auth->isSuperAdmin() && !$list->isWritablePath()) {
 	'<p class="warning">'.__('Some functions are disabled, please give write access to your plugins directory to enable them.').'</p>';
 }
 
+dcPage::helpBlock('core_plugins');
 dcPage::close();
