@@ -292,6 +292,14 @@ dotclear.msg.module_tags  =  '{{ __('Tags:') }}';
 	</script>
 {% endmacro %}
 
+{% macro toggles() %}
+<script type="text/javascript">
+	//<![CDATA[
+	dotclear.unfolded_sections = { {% for section in unfolded_sections %} '{{section}}':true {% if not loop.last %},{% endif %}{% endfor %} };
+	//]]>
+</script>
+{% endmacro %}
+
 {% macro tool_man() %}
 	<!-- jsToolMan -->
 	{{ _self.load('js/tool-man/core.js') }}

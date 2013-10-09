@@ -62,6 +62,15 @@ class dcProxy {
 			return $this->default;
 		}
 	}
+	
+	public function __isset($name) {
+		if ($this->isAllowed($name,$this->attributes)) {
+			return isset($this->object->$name);
+		} else {
+			return false;
+		}
+	}
+	
 
 	public function __call($name,$args) {
 		if ($this->isAllowed($name,$this->methods) &&
@@ -257,7 +266,7 @@ class dcAdminContext extends Twig_Extension
 		# Additional globals
 		$p = path::info($_SERVER['REQUEST_URI']);
 		$this->protected_globals['current_page'] = $p['base'];
-		$this->protected_globals['blog_count'] = $this->core->auth->blog_count;
+		$this->protected_globals['blog_count'] = $this->core->auth->getBlogCount();
 		$this->protected_globals['rtl'] = l10n::getTextDirection(
 			$this->protected_globals['current_user']['lang']) == 'rtl';
 		$this->protected_globals['session'] = array(
@@ -265,7 +274,6 @@ class dcAdminContext extends Twig_Extension
 			'uid' => isset($_SESSION['sess_browser_uid']) ? $_SESSION['sess_browser_uid'] : '',
 			'nonce' => $this->core->getNonce()
 		);
-		
 		# Keep protected globals safe
 		return array_merge($this->globals,$this->protected_globals);
 	}
@@ -420,7 +428,8 @@ class dcAdminContext extends Twig_Extension
 		
 		# Blogs list
 		$blogs = array();
-		if ($this->core->auth->blog_count > 1 && $this->core->auth->blog_count < 20) {
+		$blog_count = $this->core->auth->getBlogCount();
+		if ($blog_count > 1 && $blog_count < 20) {
 			$blog_id = $this->core->blog->id;
 			$rs_blogs = $this->core->getBlogs(array('order'=>'LOWER(blog_name)','limit'=>20));
 			while ($rs_blogs->fetch()) {
@@ -445,7 +454,7 @@ class dcAdminContext extends Twig_Extension
 		$sform = new dcForm($this->core,'search-menu','search.php','GET');
 		$sform
 			->addField(
-				new dcFieldText('q','',array(
+				new dcFieldText('qx','',array(
 				'maxlength'		=> 255,
 				'label' => __('Search:'))))
 			->addField(
@@ -459,10 +468,10 @@ class dcAdminContext extends Twig_Extension
 	*/
 	protected function getCurrentBlog()
 	{
-		$this->protected_globals['current_blog'] = $this->core->auth->blog_count ?
-			new dcProxy($this->core->blog,array(
+		$this->protected_globals['current_blog'] = $this->core->auth->getBlogCount() ?
+			new dcProxy($this->core->blog,array('attr' => array(
 				'id','name','desc','url','host','creadt','upddt'
-			)) : array(
+			))) : array(
 				'id' 	=> '',
 				'name' 	=> '',
 				'desc' 	=> '',

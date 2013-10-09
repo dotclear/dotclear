@@ -4,56 +4,57 @@
 <head>
 	{% block header %}
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>{% block title %}{{  (page_title|last).title|striptags }} - {% if current_blog.name is not empty %}{{current_blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
 	<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
 	<meta name="GOOGLEBOT" content="NOSNIPPET" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{% block title %}{{  (page_title|last).title|striptags }} - {% if current_blog.name is not empty %}{{current_blog.name}} - {% endif %}{{vendor_name}} - {{version}}{% endblock %}</title>
+	{{ js.load_IE7 }}
 	<link rel="stylesheet" href="{{theme_url}}style/default.css" type="text/css" media="screen" />
 	<link rel="icon" type="image/png" href="images/favicon.png" />
 	{% if rtl is not empty %}
 	<link rel="stylesheet" href="{{theme_url}}style/default-rtl.css" type="text/css" media="screen" />
 	{% endif %}
-	{{ js.load_IE7 }}
 	{{ js.common }}
+	{{ js.toggles }}
 	{% endblock %}
 </head>
 
-<body id="dotclear-admin{% if safe_mode %} safe-mode{% endif %}">
+<body id="dotclear-admin{% if safe_mode %} safe-mode{% endif %}" class="no-js">
+	{% block prelude %}
+		<ul id="prelude">
+			<li><a href="#content">{{__('Go to the content')}}</a></li>
+			<li><a href="#main-menu">{{__('Go to the menu')}}</a></li>
+			<li><a href="#qx">{{__('Go to the search')}}</a></li>
+			<li><a href="#help">{{__('Go to help')}}</a></li>
+		</ul>
+	{% endblock %}
 	<div id="header">
-		{% block prelude %}
-			<ul id="prelude">
-				<li><a href="#content">{{__('To content')}}</a></li>
-				<li><a href="#main-menu">{{__('To menu')}}</a></li>
-			</ul>
-		{% endblock %}
-		<div id="top"><h1><a href="index.php">{{vendor_name}}</a></h1></div>
-		<div id="info-boxes">
-			<div id="info-box1">
-			  {% form 'switchblog_menu' %}
-				
-				{% if blog_count > 1 and blog_count < 20 %}
-					{{ form_field('switchblog',{},{'labelclass':'classic nomobile'}) }}
-					<noscript>{{ form_field('switchblog_submit') }}</noscript>
-				{% else %}
-					{{__('Blog:')}} <strong title="{{current_blog.url}}">{{current_blog.name}}</strong>
-					{% if blogs is not empty %} - <a href="blogs.php">{{__('Change blog')}}</a>{% endif %}
-				{% endif %}
-				<p class="nomobile"><a href="{{current_blog.url}}" onclick="window.open(this.href);return false;" title="{{__('Go to site')}} ({{__('new window')}})">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a>{{form_hidden()}}</p>
-			  {% endform %}
-			</div>
-			<div id="info-box2">
-				<a class="smallscreen{%if current_page == 'index' %} active" {% endif %}" href="index.php">{{__('My dashboard')}}</a><span class="smallscreen"> | </span>
-				<a class="smallscreen{%if current_page == 'preferences' %} active" {% endif %}" href="preferences.php">{{__('My preferences')}}</a><span class="smallscreen"> | </span>
-				<a href="index.php?logout=1" class="logout">{{__('Logout %s')|format(current_user.id)}} <img src="{{theme_url}}images/logout.png" alt="" /></a>
-			</div>
-		</div>
+	<h1><a href="index.php"><span class="hidden">{{vendor_name}}</span></a></h1>
+		{% form 'switchblog_menu' with {"id":"top-info-blog"} %}
+		{% if blog_count > 1 and blog_count < 20 %}
+			<p>{{ form_field('switchblog',{},{'labelclass':'classic '}) }} {{ form_field('switchblog_submit', {"class":"hidden-if-js"}) }}</p>
+		{% else %}
+			{{__('Blog:')}} <strong title="{{current_blog.blog_url}}">{{current_blog.blog_name}}</strong>
+			{% if blogs is not empty %} - <a href="blogs.php">{{__('Change blog')}}</a>{% endif %}
+		{% endif %}
+		<p><a class="outgoing" href="{{current_blog.url}}" title="{{__('Go to site')}}">{{__('Go to site')}} <img src="{{theme_url}}images/outgoing.png" alt="" /></a>{{form_hidden()}}</p>
+		{% endform %}
+		<ul id="top-info-user">
+		<li> <a class="smallscreen{%if current_page == 'index' %} active" {% endif %}" href="index.php">{{__('My dashboard')}}</a></li>
+		<li> <a class="smallscreen{%if current_page == 'preferences' %} active" {% endif %}" href="preferences.php">{{__('My preferences')}}</a></li>
+		<li><a href="index.php?logout=1" class="logout"><span class="nomobile">{{__('Logout %s')|format(current_user.id)}}</span> <img src="{{theme_url}}images/logout.png" alt="" /></a></li>
+		</ul>
 	</div>
-	<div id="wrapper">
+	<div id="wrapper" class="clearfix">
+		<div class="hidden-if-no-js collapser-box">
+			<a href="#" id="collapser"><img class="collapse-mm" src="images/collapser-hide.png" alt="{{ __('Hide main menu') }}" />
+			<img class="expand-mm" src="images/collapser-show.png" alt="{{__('Show main menu') }}" /></a>
+		</div>
 		<div id="main">
-			<div id="content">
+			<div id="content" class="clearfix">
 				{% block content %}
 				{% if safe_mode %}
-					<div class="error"><h3>{{__('Safe mode')}}</h3>
+					<div class="warning"><h3>{{__('Safe mode')}}</h3>
 					<p>{{__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities')}}</p>
 					</div>
 				{% endif %}
@@ -99,7 +100,7 @@
 		<div id="main-menu">
 			{% block menus %}
 			{% form 'search-menu' with {'id':'search-menu'} %}
-				<p> {{ form_field('q',{'size':30},{'labelclass':'hidden'}) }} 
+				<p> {{ form_field('qx',{'size':30},{'labelclass':'hidden'}) }} 
 					{{ form_field('ok') }}{{form_hidden()}}
 				</p>
 			{% endform %}
@@ -125,10 +126,20 @@
 		</div>
 		<div id="footer">
 			{% block footer %}
-			<p>{{ __('Thank you for using %s.')|format(vendor_name) }}</p>
+			{% set text= __('Thank you for using %s.')|format(vendor_name~' '~version) %}
+			<a href="http://dotclear.org/" title="{{ text }}">
+			<img src="style/dc_logos/w-dotclear90.png" alt="{{ text }}" /></a>
 			{% endblock %}
 		</div>
 	</div>
+<!-- 
+                  
+               ,;:'`'::
+            __||
+      _____/LLLL\_
+      \__________"|
+    ~^~^~^~^~^~^~^~^~^~
+ -->
 	{#{% block debug %}
 	  {% set debug_info = debug_info() %}
 	  {% if debug_info is not empty %}
