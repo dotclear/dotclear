@@ -790,13 +790,9 @@ class dcBlog
 				$content_req .= implode(', ',$params['columns']).', ';
 			}
 			
-			if ($this->core->con->driver() == 'pgsql' && isset($params['media'])) {
-				$strReq = 'SELECT DISTINCT ON (P.post_id) ';
-			} else {
-				$strReq = 'SELECT ';
-			}
-			$strReq .=
-			'P.post_id, P.blog_id, P.user_id, P.cat_id, post_dt, '.
+
+			$strReq =
+			'SELECT P.post_id, P.blog_id, P.user_id, P.cat_id, post_dt, '.
 			'post_tz, post_creadt, post_upddt, post_format, post_password, '.
 			'post_url, post_lang, post_title, '.$content_req.
 			'post_type, post_meta, post_status, post_selected, post_position, '.
@@ -942,13 +938,15 @@ class dcBlog
 		}
 		
 		if (isset($params['media'])) {
-			$strReq .= 'AND P.post_id ';
 			if ($params['media'] == '0') {
-				$strReq .= 'NOT ';
+				$strReq .= 'AND NOT ';
+			} else {
+				$strReq .= 'AND ';				
 			}
-			$strReq .= 'IN (SELECT M.post_id FROM '.$this->prefix.'post_media M ';
+			$strReq .= 'EXISTS (SELECT M.post_id FROM '.$this->prefix.'post_media M '.
+				'WHERE M.post_id = P.post_id ';
 			if (isset($params['link_type'])) {
-				$strReq .= " WHERE M.link_type ".$this->con->in($params['link_type'])." ";
+				$strReq .= " AND M.link_type ".$this->con->in($params['link_type'])." ";
 			}
 			$strReq .= ")";
 		}
