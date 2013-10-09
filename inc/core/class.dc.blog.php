@@ -770,7 +770,7 @@ class dcBlog
 
 		if ($count_only)
 		{
-			$strReq = 'SELECT count(P.post_id) ';
+			$strReq = 'SELECT count(DISTINCT P.post_id) ';
 		}
 		elseif (!empty($params['sql_only'])) 
 		{
