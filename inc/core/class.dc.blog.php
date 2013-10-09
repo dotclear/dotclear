@@ -774,7 +774,11 @@ class dcBlog
 		}
 		elseif (!empty($params['sql_only'])) 
 		{
-			$strReq = 'SELECT P.post_id ';
+			if ($this->core->con->driver() == 'pgsql' && isset($params['media'])) {
+				$strReq = 'SELECT DISTINCT ON (P.post_id) P.post_id ';
+			} else {
+				$strReq = 'SELECT P.post_id ';
+			}
 		}
 		else
 		{
@@ -790,8 +794,13 @@ class dcBlog
 				$content_req .= implode(', ',$params['columns']).', ';
 			}
 			
-			$strReq =
-			'SELECT P.post_id, P.blog_id, P.user_id, P.cat_id, post_dt, '.
+			if ($this->core->con->driver() == 'pgsql' && isset($params['media'])) {
+				$strReq = 'SELECT DISTINCT ON (P.post_id) ';
+			} else {
+				$strReq = 'SELECT ';
+			}
+			$strReq .=
+			'P.post_id, P.blog_id, P.user_id, P.cat_id, post_dt, '.
 			'post_tz, post_creadt, post_upddt, post_format, post_password, '.
 			'post_url, post_lang, post_title, '.$content_req.
 			'post_type, post_meta, post_status, post_selected, post_position, '.
@@ -957,7 +966,7 @@ class dcBlog
 			$strReq .= $params['sql'].' ';
 		}
 		
-		if (!$count_only && isset($params['media'])) {
+		if ($this->core->con->driver() != 'pgsql' && !$count_only && isset($params['media'])) {
 			$strReq .= ' GROUP BY P.post_id ';
 		}
 
