@@ -1794,6 +1794,9 @@ li.media-action {
 li.media-action a {
 	border: none;
 	}
+li.media-action a.attach-media {
+	margin-right: 5px;
+	}
 li.media-action form {
 	display: inline;
 	}
