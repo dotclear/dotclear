@@ -252,5 +252,6 @@ elseif ($step == 'unzip' && !$core->error->flag())
 	'</p>';
 }
 
+dcPage::helpBlock('core_update');
 dcPage::close();
 ?>

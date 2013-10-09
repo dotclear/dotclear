@@ -14,13 +14,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('admin');
 
-# -- "First time" settings setup --
-if ($core->blog->settings->system->store_theme_url === null) {
-	$core->blog->settings->system->put(
-		'store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true
-	);
-}
-
 # -- Loading themes --
 $core->themes = new dcThemes($core);
 $core->themes->loadModules($core->blog->themes_path, null);
@@ -199,8 +192,8 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 	if (!empty($search) || !empty($modules)) {
 		echo
 		'<div class="multi-part" id="new" title="'.__('Add themes').'">'.
-		'<h3>'.__('Add themes from repository').'</h3>'.
-		'<p>'.__('Search and install themes directly from repository.').'</p>';
+		'<h3>'.__('Add themes from repository').'</h3>';
+//		'<p>'.__('Search and install themes directly from repository.').'</p>';
 
 		$list
 			->setList('theme-new')
@@ -238,5 +231,5 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
 # --BEHAVIOR-- themesToolsTabs
 $core->callBehavior('themesToolsTabs', $core);
-
+dcPage::helpBlock('core_blog_theme');
 dcPage::close();

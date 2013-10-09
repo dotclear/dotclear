@@ -128,6 +128,7 @@ class dcPage
 		'<li><a href="#content">'.__('Go to the content').'</a></li>'.
 		'<li><a href="#main-menu">'.__('Go to the menu').'</a></li>'.
 		'<li><a href="#qx">'.__('Go to search').'</a></li>'.
+		'<li><a href="#help">'.__('Go to help').'</a></li>'.
 		'</ul>'."\n".
 		'<div id="header">'.
 		'<h1><a href="index.php"><span class="hidden">'.DC_VENDOR_NAME.'</span></a></h1>'."\n";
@@ -234,8 +235,8 @@ class dcPage
 
 		if (!$GLOBALS['__resources']['ctxhelp']) {
 			echo
-			'<p id="help-button"><a href="help.php" onclick="window.open(this.href);return false;" title="'.
-			__('Global help').' ('.__('new window').')">'.__('Global help').'</a></p>';
+			'<p id="help-button"><a href="help.php" class="outgoing" title="'.
+			__('Global help').'">'.__('Global help').'</a></p>';
 		}
 
 		$menu =& $GLOBALS['_menu'];
@@ -270,15 +271,11 @@ class dcPage
 
 		echo
 		'<div id="footer">'.
-		'<a href="http://dotclear.org/" title="'.$text.'"><img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
- 		'<!-- '."\n".
-'                  .'."\n".
-'               ,;:\'`\'::'."\n".
-'            __||'."\n".
-'      _____/LLLL\_'."\n".
-'      \__________"|'."\n".
-'    ~^~^~^~^~^~^~^~^~^~'."\n".
-' -->'."\n";
+		'<a href="http://dotclear.org/" title="'.$text.'">'.
+		'<img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
+        "<!-- \n                  \n               ,;:'`'::\n".
+		"            __||\n      _____/LLLL\_\n      \__________\"|\n".
+        "    ~^~^~^~^~^~^~^~^~^~\n -->\n";
 
 		if (defined('DC_DEV') && DC_DEV === true) {
 			echo self::debugInfo();
@@ -956,4 +953,3 @@ class dcPage
 		'<script type="text/javascript" src="js/meta-editor.js"></script>';
 	}
 }
-?>

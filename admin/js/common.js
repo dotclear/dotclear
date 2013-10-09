@@ -399,9 +399,11 @@ $(function() {
 	// remove class no-js from html tag; cf style/default.css for examples
 	$('body').removeClass('no-js').addClass('with-js');
 	
-	$('#wrapper').contents().each(function() {
+	$('body').contents().each(function() {
 		if (this.nodeType==8) {
-			$('#footer a[href!="help.php"]').attr('title', $('#footer a[href!="help.php"]').attr('title') + this.data );
+			var data = this.data;
+			data = data.replace(/ /g,'&nbsp;').replace(/\n/g,'<br/>');
+			$('<span class="tooltip">'+$('#footer a').prop('title')+data+'</span>').appendTo('#footer a');
 		}
 	});
 
@@ -412,7 +414,7 @@ $(function() {
 	}).each(function() {
 		$(this).prop('title',$(this).prop('title')+' ('+dotclear.msg.new_window+')');
 		if (!$(this).hasClass('outgoing')) {
-			$(this).append(' <img src="images/outgoing-blue.png" alt=""/>');
+			$(this).append('&nbsp;<img src="images/outgoing-blue.png" alt=""/>');
 		}
 	}).click(function(e) {
 		e.preventDefault();

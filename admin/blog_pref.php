@@ -66,10 +66,8 @@ $status_combo = dcAdminCombos::getBlogStatusescombo();
 
 # Date format combo
 $now = time();
-$date_formats = array('%G-%m-%d', '%m/%d/%G', '%d/%m/%G', '%G/%m/%d','%d.%m.%G', '%b %e %G', '%e %b %G', '%G %b %e',
-'%a, %G-%m-d', '%a, %m/%d/%G', '%a, %d/%m/%G', '%a, %G/%m/%d', '%B %e, %G', '%e %B, %G', '%G, %B %e', '%e. %B %G',
-'%A, %B %e, %G', '%A, %e %B, %G', '%A, %G, %B %e','%A, %G, %B %e', '%A, %e. %B %G');
-$time_formats = array('%H:%M','%I:%M','%l:%M', '%Hh%M', '%Ih%M', '%lh%M');
+$date_formats = unserialize($blog_settings->system->date_formats);
+$time_formats = unserialize($blog_settings->system->time_formats);
 $date_formats_combo = array('' => '');
 foreach ($date_formats as $format) {
     $date_formats_combo[dt::str($format, $now)] = $format;

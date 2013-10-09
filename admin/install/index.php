@@ -145,11 +145,26 @@ if ($can_install && !empty($_POST))
 		$blog_settings->system->put('lang',$dlang);
 		$blog_settings->system->put('public_url',$root_url.'/public');
 		$blog_settings->system->put('themes_url',$root_url.'/themes');
+		
+		# date and time formats
 		$formatDate = __('%A, %B %e %Y');
+		$date_formats = array('%Y-%m-%d','%m/%d/%Y','%d/%m/%Y','%Y/%m/%d','%d.%m.%Y','%b %e %Y','%e %b %Y','%Y %b %e',
+		'%a, %Y-%m-%d','%a, %m/%d/%Y','%a, %d/%m/%Y','%a, %Y/%m/%d','%B %e, %Y','%e %B, %Y','%Y, %B %e','%e. %B %Y',
+		'%A, %B %e, %Y','%A, %e %B, %Y','%A, %Y, %B %e','%A, %Y, %B %e','%A, %e. %B %Y');
+		$time_formats = array('%H:%M','%I:%M','%l:%M','%Hh%M','%Ih%M','%lh%M');
 		if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
-		    $formatDate = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $formatDate);
+			$formatDate = preg_replace('#(?<!%)((?:%%)*)%e#','\1%#d',$formatDate);
+			$date_formats = array_map(create_function('$f',
+									  'return str_replace(\'%e\',\'%#d\',$f);'
+									  ),$date_formats);
 		}
-		$blog_settings->system->put('date_format', $formatDate);
+		$blog_settings->system->put('date_format',$formatDate);
+		$blog_settings->system->put('date_formats',serialize($date_formats),'string','Date formats examples',true);
+		$blog_settings->system->put('time_formats',serialize($time_formats),'string','Time formats examples',true);
+		
+		# Add repository URL for themes and plugins
+		$blog_settings->system->put('store_plugin_url','http://update.dotaddict.org/dc2/plugins.xml','string','Plugins XML feed location',true);
+		$blog_settings->system->put('store_theme_url','http://update.dotaddict.org/dc2/themes.xml','string','Themes XML feed location',true);
 		
 		# Add Dotclear version
 		$cur = $core->con->openCursor($core->prefix.'version');
@@ -204,34 +219,10 @@ if ($can_install && !empty($_POST))
 		$core->auth->user_prefs->interface->put('enhanceduploader',true,'boolean','',null,true);
 
 		# Add default favorites
-		$core->auth->user_prefs->addWorkspace('favorites');
+		$core->favs = new dcFavorites($core);
+		$init_favs = array('posts','new_post','newpage','comments','categories','media','blog_theme','widgets','simpleMenu','prefs','help');
+		$core->favs->setFavoriteIDs($init_favs,true);
 
-		$init_fav = array();
-		
-		$init_fav['new_post'] = array('new_post','New entry','post.php',
-			'images/menu/edit.png','images/menu/edit-b.png',
-			'usage,contentadmin',null,null);
-		$init_fav['newpage'] = array('newpage','New page','plugin.php?p=pages&amp;act=page',
-			'index.php?pf=pages/icon-np.png','index.php?pf=pages/icon-np-big.png',
-			'contentadmin,pages',null,null);
-		$init_fav['media'] = array('media','Media manager','media.php',
-			'images/menu/media.png','images/menu/media-b.png',
-			'media,media_admin',null,null);
-		$init_fav['widgets'] = array('widgets','Presentation widgets','plugin.php?p=widgets',
-			'index.php?pf=widgets/icon.png','index.php?pf=widgets/icon-big.png',
-			'admin',null,null);
-		$init_fav['blog_theme'] = array('blog_theme','Blog appearance','blog_theme.php',
-			'images/menu/themes.png','images/menu/blog-theme-b.png',
-			'admin',null,null);
-
-		$count = 0;
-		foreach ($init_fav as $k => $f) {
-			$t = array('name' => $f[0],'title' => $f[1],'url' => $f[2], 'small-icon' => $f[3],
-				'large-icon' => $f[4],'permissions' => $f[5],'id' => $f[6],'class' => $f[7]);
-			$core->auth->user_prefs->favorites->put(sprintf("g%03s",$count),serialize($t),'string',null,true,true);
-			$count++;
-		}
-		
 		$step = 1;
 	}
 	catch (Exception $e)
