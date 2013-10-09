@@ -1076,16 +1076,22 @@ h1 a:hover, h1 a:focus {
 /* ----------------------------------------------------------------- CONTENT ELEMENTS */
 .part-tabs ul {
 	padding: .5em 0 0 1em;
-	border-bottom: 1px solid #dfdfdf;
-	line-height: 2;
+	border-bottom: 1px solid #ccc;
+	line-height: 1.8;
 	}
 .part-tabs li {
 	list-style: none;
 	margin: 0;
 	display: inline;
 	}
+.part-tabs li:first-child a {
+	border-top-left-radius: 3px;
+	}
+.part-tabs li:last-child a {
+	border-top-right-radius: 3px;
+	}
 .part-tabs li a {
-	padding: .5em 2em;
+	padding: .33em 1.5em;
 	margin-right: -1px;
 	border: 1px solid #ccc;
 	border-bottom: none;
