@@ -413,7 +413,7 @@ msgid "Truncate feeds"
 msgstr "Tronquer les flux de syndication"
 
 msgid "Include sub-categories in category page and category posts feed"
-msgstr "Inlure les sous-catégories dans la page des catégories et dans les flux de billets pour une catégorie"
+msgstr "Inclure les sous-catégories dans la page des catégories et dans les flux de billets pour une catégorie"
 
 msgid "Media and images"
 msgstr "Médias et images"
@@ -2847,25 +2847,25 @@ msgid "No such module."
 msgstr "Module inexistant."
 
 msgid "Module has been successfully activated."
-msgstr "Le plugin a été activé avec succès."
+msgstr "Ce module a été activé avec succès."
 
 msgid "You don't have permissions to deactivate this module."
-msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
+msgstr "Vous n'avez pas les permissions pour désactiver ce module."
 
 msgid "Module has been successfully deactivated."
-msgstr "Le plugin a été désactivé avec succès."
+msgstr "Ce module a été désactivé avec succès."
 
 msgid "You don't have permissions to delete this module."
-msgstr "Vous n'avez pas les permissions pour supprimer ce plugin."
+msgstr "Vous n'avez pas les permissions pour supprimer ce module."
 
 msgid "Module has been successfully deleted."
-msgstr "Ce plugin a été supprimé avec succès."
+msgstr "Ce module a été supprimé avec succès."
 
 msgid "Module has been successfully updated."
-msgstr "Ce plugin a été mis à jour avec succès."
+msgstr "Ce module a été mis à jour avec succès."
 
 msgid "Module has been successfully installed."
-msgstr "Ce plugin a été installé avec succès."
+msgstr "Ce module a été installé avec succès."
 
 msgid "Zip file path:"
 msgstr "Chemin du fichier zip :"
