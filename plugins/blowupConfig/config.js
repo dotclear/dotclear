@@ -51,11 +51,11 @@ $(function() {
 	$(styles_combo).wrap('<div class="fieldset"></div>').before('<h3>' + dotclear.msg.predefined_styles + '</h3>').wrap('<p></p>');
 	
 	$(styles_combo).change(function() {
-		if (this.value == 'none') {
-			$(this.form).find('input[type=text]').val('').css({backgroundColor: '#FFF', color: '#000'});
-			$(this.form).find('select').not($(this)).val('');
-			$('#top_image').val('default');
-		} else {
+		$(this.form).find('input[type=text]').val('').css({backgroundColor: '#FFF', color: '#000'});
+		$(this.form).find('select').not($(this)).val('');
+		$(this.form).find('#extra_css').val('');
+		$('#top_image').val('default');
+		if (this.value != 'none') {
 			applyBlowupValues(this.value);
 		}
 	});
