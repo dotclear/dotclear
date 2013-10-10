@@ -2044,6 +2044,10 @@ div.template-upload {
 	margin-right: 18em;
 	margin-left: 0;
 	}
+#entry-sidebar {
+	width: 16em;
+	float: right;
+	}
 #entry-content label {
 	text-transform: uppercase;
 	font-weight: bold;
@@ -2052,10 +2056,6 @@ div.template-upload {
 	}
 #entry-content label:first-child {
 	margin-top: 0;
-	}
-#entry-sidebar {
-	width: 16em;
-	float: right;
 	}
 #entry-sidebar h4 {
 	font-size: 13px;
@@ -2339,6 +2339,7 @@ a.onblog_link {
 	padding: 2px 8px 3px;
 	font-variant: small-caps;
 	}
+.index li {margin-bottom: 3px;}
 .index a {
 	font-weight: bold;
 	}
@@ -2589,6 +2590,19 @@ h1, #top-info-blog {
 	width: 100%;
 	margin-left: 0;
 	margin-right: 0;
+	}
+#entry-wrapper {
+	float: none;
+	width: 100%;
+	margin-right: 0;
+	}
+#entry-content {
+	margin-right: 0;
+	margin-left: 0;
+	}
+#entry-sidebar {
+	width: 100%;
+	float: none;
 	}
 }
 @media screen and (max-width: 600px) {
