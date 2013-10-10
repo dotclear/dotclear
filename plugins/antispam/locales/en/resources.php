@@ -30,5 +30,7 @@ if (!isset($__resources['help']['words-filter']))
 {
 	$__resources['help']['words-filter'] = dirname(__FILE__).'/help/words.html';
 }
-
-?>
+if (!isset($__resources['help']['antispam_comments']))
+{
+	$__resources['help']['antispam_comments'] = dirname(__FILE__).'/help/comments.html';
+}

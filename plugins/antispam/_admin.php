@@ -53,10 +53,26 @@ if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {
 	$core->addBehavior('adminBlogPreferencesForm',array('antispamBehaviors','adminBlogPreferencesForm'));
 	$core->addBehavior('adminBeforeBlogSettingsUpdate',array('antispamBehaviors','adminBeforeBlogSettingsUpdate'));
 	$core->addBehavior('adminCommentsSpamForm',array('antispamBehaviors','adminCommentsSpamForm'));
+	$core->addBehavior('adminPageHelpBlock',array('antispamBehaviors','adminPageHelpBlock'));
 }
 
 class antispamBehaviors
 {
+	function adminPageHelpBlock($blocks)
+	{
+		$found = false;
+		foreach($blocks as $block) {
+			if ($block == 'core_comments') {
+				$found = true;
+				break;
+			}
+		}
+		if (!$found) {
+			return null;
+		}
+		$blocks[] = 'antispam_comments';
+	}
+
 	public static function adminCommentsSpamForm($core)
 	{
 		$ttl = $core->blog->settings->antispam->antispam_moderation_ttl;
