@@ -1,6 +1,6 @@
 $(function() {
 	// Hide main title
-	if ($('#blog_title_hide').attr('checked')) {
+	if ($('#blog_title_hide').prop('checked')) {
 		toggleDisable($('#blog_title_f'));
 		toggleDisable($('#blog_title_s'));
 		toggleDisable($('#blog_title_c'));
@@ -107,13 +107,13 @@ $(function() {
 	
 	function applyBlowupValues(code) {
 		code = code.replace("\n","");
-		var re = /(^| )([a-zA-Z0-9_]+):"(.*?)"(;|$)/g;
+		var re = /(^| )([a-zA-Z0-9_]+):"([^"]*?)"(;|$)/g;
+		var reg = /^(.+):"([^"]*)"(;?)\s*$/;
 		var s = code.match(re);
 		
 		if (typeof(s) == 'object' && s.length > 0) {
 			var member, target, value, t_e;
-			var reg = new RegExp('^(.+):"(.*)"(;?)\s*$');
-			for (var i=0; i<s.length; i++) {
+			for (var i=0,s_length=s.length; i<s_length; i++) {
 				member = reg.exec(s[i]);
 				target = member[1].replace(' ','');
 				value = member[2].replace(' ','');
