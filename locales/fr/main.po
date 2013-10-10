@@ -3073,7 +3073,7 @@ msgid "Maintenance"
 msgstr "Maintenance"
 
 msgid "Simple menu"
-msgstr "Menu simple sur Dotclear"
+msgstr "Menu simple"
 
 msgid "Tags"
 msgstr "Mots-clés"
