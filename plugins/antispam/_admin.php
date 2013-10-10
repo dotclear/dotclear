@@ -58,7 +58,7 @@ if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {
 
 class antispamBehaviors
 {
-	function adminPageHelpBlock($blocks)
+	public static function adminPageHelpBlock($blocks)
 	{
 		$found = false;
 		foreach($blocks as $block) {
