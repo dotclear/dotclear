@@ -587,7 +587,7 @@ msgid "Dark linear gradient"
 msgstr "Dégradé linéaire foncé"
 
 msgid "Solid color"
-msgstr "Couleur"
+msgstr "Couleur pleine"
 
 msgid "Custom..."
 msgstr "Personnalisé…"
@@ -623,7 +623,7 @@ msgid "Background color:"
 msgstr "Couleur de fond :"
 
 msgid "Background color fill:"
-msgstr "Couleur de remplissage du fond :"
+msgstr "Remplissage de la couleur du fond :"
 
 msgid "Main text font:"
 msgstr "Police du texte principal :"
