@@ -1590,6 +1590,12 @@ li.user_admin {
 #theme-activate .box.theme {
 	min-height: 330px;
 	}
+#theme-deactivate .box.theme {
+	min-height: 90px;
+	}
+#theme-deactivate .box.theme:hover {
+	background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
+	}
 .module-name {
 	margin-bottom: .5em;
 	}
