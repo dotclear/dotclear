@@ -499,7 +499,7 @@ msgid "Blog appearance"
 msgstr "Apparence du blog"
 
 msgid "Theme configuration"
-msgstr "Configuration du thème"
+msgstr "Personnaliser ce thème"
 
 msgid "Themes management"
 msgstr "Gestion des thèmes"
@@ -2924,7 +2924,7 @@ msgid "View stylesheet"
 msgstr "Feuille de style"
 
 msgid "Configure theme"
-msgstr "Configurer le thème"
+msgstr "Personnaliser le thème"
 
 msgid "Use this one"
 msgstr "Utiliser celui-ci"
