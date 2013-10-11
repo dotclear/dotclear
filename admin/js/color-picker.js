@@ -33,7 +33,7 @@ jQuery.fn.colorPicker = function() {
 		} else {
 			span.css('position','relative');
 		}
-		span.css('display','block');
+		span.css('display','inline-block');
 		
 		/*ligne supprimée car elle ne fait pas le calcul
 		du width de l'input et ça fout la merde */
