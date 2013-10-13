@@ -168,6 +168,12 @@
 	margin: 0 1.5% 1em;
 	text-align: left;
 	}
+.two-boxes:nth-of-type(odd), .three-boxes:nth-of-type(3n+1) {
+	margin-left: 0;
+	}
+.two-boxes:nth-of-type(even), .three-boxes:nth-of-type(3n) {
+	margin-right: 0;
+	}
 /* ---------------------------------------------------------------- layout: popups */
 .popup h1 {
 	display: block;
