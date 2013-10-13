@@ -1155,7 +1155,7 @@ class adminThemesList extends adminModulesList
 			$line = 
 			'<div class="box '.($current ? 'medium current-theme' : 'small theme').$distrib.'">';
 
-			if (in_array('name', $cols)) {
+			if (in_array('name', $cols) && !$current) {
 				$line .= 
 				'<h4 class="module-name">'.html::escapeHTML($module['name']).'</h4>';
 			}
@@ -1186,7 +1186,14 @@ class adminThemesList extends adminModulesList
 			}
 
 			$line .= 
-			'<div class="module-infos toggle-bloc">'.
+			'<div class="module-infos toggle-bloc">';
+
+			if (in_array('name', $cols) && $current) {
+				$line .= 
+				'<h4 class="module-name">'.html::escapeHTML($module['name']).'</h4>';
+			}
+
+			$line .=
 			'<p>';
 
 			if (in_array('desc', $cols)) {
