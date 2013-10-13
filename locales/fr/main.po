@@ -422,7 +422,7 @@ msgid "Please note that if you change current settings bellow, they will now app
 msgstr "Veuillez noter que si vous changez ces réglages, ils s'appliqueront désormais à toutes les nouvelles images ajoutées à la médiathèque."
 
 msgid "Be carefull if you share it with other blogs in your installation."
-msgstr "Soyez prudent si vous plusieurs blogs de l'installation partagent la même médiathèque."
+msgstr "Soyez prudent si plusieurs blogs de l'installation partagent la même médiathèque."
 
 msgid "Generated image sizes (in pixels)"
 msgstr "Tailles des miniatures générées (largeur en pixels)"

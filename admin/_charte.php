@@ -327,12 +327,12 @@ dcPage::check('usage,contentadmin');
 					<p><a title="Titre du lien" href="http://fr.dotclear.org/blog" class="onblog_link outgoing">Lien vers le blog <img alt="" src="images/outgoing-blue.png" /></a></p>
 					<p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
 
-				<h2>Tableaux</h2>
+				<h2 id="common">Tableaux</h2>
 					<p>Il existe deux mises en forme type de tableaux selon que l'on cherche à faire un tableau ordinaire 
 					ou un tableau dont on peut déplacer les lignes par glisser déposer (voir plus bas). Cependant certaines règles
 					sont communes à tout les tableaux.</p>
 
-				<h3 id="communes">Règles communes</h3>
+				<h3>Règles communes</h3>
 					<h4>Largeur du tableau</h4>
 						<p>Sauf pour des tableaux particuliers (absents dans l'admin mais qui pourraient être nécessaires 
 						à un plugin,les tableaux occupent toute la largeur de la page. Afin que les tableaux soient consultables 
@@ -356,7 +356,7 @@ dcPage::check('usage,contentadmin');
 							<li><code>maximal</code> : la cellule prendra toute la largeur restante disponible&nbsp;;</li>
 							<li><code>count</code> : le contenu de la cellule sera aligné à droite avec un petit retrait.</li>
 						</ul>
-				<h3 id="ordinaires">Tableau classique</h3>
+				<h3 id="courants">Tableau classique</h3>
 				<div class="table-outer">
 					<table>
 						<caption class="hidden">Liste des entrées</caption>
@@ -422,7 +422,7 @@ dcPage::check('usage,contentadmin');
 					</table>
 				</div>		
 				
-				<h3>Tableau avec ordonnancement</h3>
+				<h3 id="dragable">Tableau avec ordonnancement</h3>
 				<p>Les tableaux permettant l'ordonnancement doivent offrir la possibilité d'effectuer le classement grâce à
 				des inputs placés en début de ligne pour que le classement soit possible même lorsque cette fonctionnalité est
 				désactivée (via les préférences utilisateurs, voire une désactivation complète du javascript dans le navigateur).</p>
@@ -532,40 +532,44 @@ dcPage::check('usage,contentadmin');
 			</div><!-- /content -->
 		</div><!-- /main -->
 		<div id="main-menu">
-			<div class="info">
-				<p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
-				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même 
-				une illustration. L'observation de son code source peut donc servir de complément aux descriptions.</p>
-			</div>
-			<div id="favorites-menu">
-				<h3>Typo</h3>
+			<ul><li class="pretty-title">Typographie
 				<ul>
 					<li><a href="#texte">Texte</a></li>
 					<li><a href="#titres">Titres hx</a></li>
 				</ul>
-			</div><!-- /favorites-menu -->
-			<div id="blog-menu">
-				<h3>Layouts</h3>
+				</li>
+				<li class="pretty-title">Layouts
 				<ul>
 					<li><a href="#onglets">Onglets</a></li>
 					<li><a href="#multi-colonnage">Multi-colonnage</a></li>
 				</ul>
-			</div><!-- /blog-menu -->
-			<div id="system-menu">
-				<h3>Interactions</h3>
+				</li>
+				<li class="pretty-title">Interactions
 				<ul>
 					<li><a href="#elements">Éléments de formulaire</a></li>
 					<li><a href="#boutons">Boutons</a></li>
 					<li><a href="#messages">Messages</a></li>
 				</ul>
-			</div><!-- /system-menu -->
-			<div id="plugins-menu">
-				<h3>Navigation</h3>
+				</li>
+				<li class="pretty-title">Navigation
 				<ul>
 					<li><a href="#direct">Accès direct</a></li>
 					<li><a href="#prevnext">Précédent, suivant</a></li>
 				</ul>
-			</div><!-- /plugins-menu -->
+				</li>
+				<li class="pretty-title">Tableaux
+				<ul>
+					<li><a href="#commons">Règles communes</a></li>
+					<li><a href="#courants">Tableaux courants</a></li>
+					<li><a href="#dragables">Tableaux ordonnancés</a></li>
+				</ul>
+				</li>
+			</ul>
+			<div class="info vertical-separator">
+				<p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
+				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même 
+				une illustration. L'observation de son code source peut donc servir de complément aux descriptions.</p>
+			</div>
 		</div><!-- /main-menu -->
 
 		<div id="footer">
