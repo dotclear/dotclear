@@ -346,7 +346,7 @@ if ($user_id)
 				if (count($v['p']) > 0)
 				{
 					echo 
-					'<form action="users_actions.php" method="post">'.
+					'<form action="users_actions.php" method="post" class="perm-block">'.
 					'<p class="blog-perm">'.__('Blog:').' <a href="blog.php?id='.html::escapeHTML($k).'">'.
 					html::escapeHTML($v['name']).'</a> ('.html::escapeHTML($k).')</p>';
 					

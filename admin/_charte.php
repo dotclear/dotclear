@@ -82,12 +82,6 @@ dcPage::check('usage,contentadmin');
 		</a></div>
 		<div id="main">
 			<div id="content" class="clearfix">
-			<div class="info">
-				<p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
-				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même 
-				une illustration. L'observation de son code source peut donc servir de complément aux descriptions.</p>
-			</div>
-
 				<h2>Typographie</h2>
 				<h3 id="texte">Textes</h3>
 					<p>La font-size de base est à 1.2rem (la valeur <code>1rem</code> correspond à 10px). Si vous utilisez l'unité <code>rem</code> pensez à faire précéder la déclaration par son équivalent 
@@ -164,13 +158,11 @@ dcPage::check('usage,contentadmin');
 							<p><span class="step">3</span> Attention, il faut soit ne pas retourner à la ligne entre la fermeture d'une boîte <code>"two-boxes"</code> et l'ouverture de la suivante soit adopter la méthode de commentaire vide mise en place ici et expliquée chez <a href="http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html">Alsacréations</a> («&nbsp;Méthode 2&nbsp;»).</p>
 						</div><!--
 						--><div class="two-boxes even">
-							<div class="box odd">
-								<p><span class="step">4</span> Toutes les boîtes de class <code>"box"</code><br />
-								 placées au sein d'une boîte <code>"two-boxes"</code>…</p>
-							</div>
-							<div class="box even">
-								<p><span class="step">4 bis</span>… se distribuent horizontalement comme dans <br />
-									une boîte <code>"one-box"</code>.</p>
+							<div class="two-boxes odd">
+								<p><span class="step">4</span> On peut bien sûr imbriquer des boîtes de class <code>"two-boxes"</code>
+								 au sein d'une boîte <code>"two-boxes" afin qu'elles…</code>…</p>
+							</div><div class="two-boxes even">
+								<p><span class="step">4 bis</span>… se distribuent horizontalement comme dans une boîte <code>"one-box"</code>.</p>
 							</div>
 						</div>
 					</div>
@@ -540,9 +532,11 @@ dcPage::check('usage,contentadmin');
 			</div><!-- /content -->
 		</div><!-- /main -->
 		<div id="main-menu">
-			<form id="search-menu" action="search.php" method="get">
-				<p><label for="qx" class="hidden">Chercher : </label><input type="text" size="30" name="qx" id="qx" maxlength="255"  /><input type="submit" value="OK" /></p>
-			</form>
+			<div class="info">
+				<p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
+				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même 
+				une illustration. L'observation de son code source peut donc servir de complément aux descriptions.</p>
+			</div>
 			<div id="favorites-menu">
 				<h3>Typo</h3>
 				<ul>
