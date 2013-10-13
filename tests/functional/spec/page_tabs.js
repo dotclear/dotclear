@@ -152,5 +152,17 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		expect($('#part-user-profile')).not.toBeVisible();
 		expect($('#part-user-favorites')).not.toBeVisible();
 	});
+
+	/* ticket 1723 */
+	it("Must open first tab when hash does not refer to an existing div content", function() {
+		loadFixtures('tabs.html');
+		loadStyleFixtures('default.css');
+
+		spyOn(jQuery.pageTabs, 'getLocationHash').andReturn('dummy');
+		$.pageTabs();
+		expect($('#part-user-options')).toBeVisible();
+		expect($('#part-user-profile')).not.toBeVisible();
+		expect($('#part-user-favorites')).not.toBeVisible();
+	});
 });
 
