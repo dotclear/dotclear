@@ -551,7 +551,8 @@ class adminModulesList
 		}
 
 		if (in_array('distrib', $cols)) {
-			echo '<th'.(in_array('desc', $cols) ? '' : ' class="maximal"').'></th>';
+			echo 
+			'<th'.(in_array('desc', $cols) ? '' : ' class="maximal"').'></th>';
 		}
 
 		if (!empty($actions) && $this->core->auth->isSuperAdmin()) {
@@ -585,8 +586,11 @@ class adminModulesList
 
 			echo 
 			'<tr class="line" id="'.html::escapeHTML($this->list_id).'_m_'.html::escapeHTML($id).'">';
+			
+			$tds = 0;
 
 			if (in_array('icon', $cols)) {
+				$tds++;
 				echo 
 				'<td class="module-icon nowrap">'.sprintf(
 					'<img alt="%1$s" title="%1$s" src="%2$s" />', 
@@ -594,37 +598,37 @@ class adminModulesList
 				).'</td>';
 			}
 
-			# Link to config file
-			$config = in_array('config', $cols) && !empty($module['root']) && file_exists(path::real($module['root'].'/_config.php'));
-
+			$tds++;
 			echo 
-			'<td class="module-name nowrap" scope="row">'.($config ? 
-				'<a href="'.$this->getURL('module='.$id.'&amp;conf=1').'" title"'.sprintf(__('Configure module "%s"'), html::escapeHTML($module['name'])).'">'.html::escapeHTML($module['name']).'</a>' : 
-				html::escapeHTML($module['name'])
-			).'</td>';
+			'<td class="module-name nowrap" scope="row">'.html::escapeHTML($module['name']).'</td>';
 
 			# Display score only for debug purpose
 			if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+				$tds++;
 				echo 
 				'<td class="module-version nowrap count"><span class="debug">'.$module['score'].'</span></td>';
 			}
 
 			if (in_array('version', $cols)) {
+				$tds++;
 				echo 
 				'<td class="module-version nowrap count">'.html::escapeHTML($module['version']).'</td>';
 			}
 
 			if (in_array('current_version', $cols)) {
+				$tds++;
 				echo 
 				'<td class="module-current-version nowrap count">'.html::escapeHTML($module['current_version']).'</td>';
 			}
 
 			if (in_array('desc', $cols)) {
+				$tds++;
 				echo 
 				'<td class="module-desc maximal">'.html::escapeHTML($module['desc']).'</td>';
 			}
 
 			if (in_array('distrib', $cols)) {
+				$tds++;
 				echo 
 				'<td class="module-distrib">'.(self::isDistributedModule($id) ? 
 					'<img src="images/dotclear_pw.png" alt="'.
@@ -636,6 +640,7 @@ class adminModulesList
 			if (!empty($actions) && $this->core->auth->isSuperAdmin()) {
 				$buttons = $this->getActions($id, $module, $actions);
 
+				$tds++;
 				echo 
 				'<td class="module-actions nowrap">'.
 
@@ -654,6 +659,67 @@ class adminModulesList
 
 			echo 
 			'</tr>';
+
+			# Other informations
+			if (in_array('expander', $cols)) {
+				echo
+				'<tr class="module-more"><td colspan="'.$tds.'" class="expand">';
+
+				if (!empty($module['author']) || !empty($module['details']) || !empty($module['support'])) {
+					echo 
+					'<div><ul class="mod-more">';
+
+					if (!empty($module['author'])) {
+						echo
+						'<li class="module-author">'.__('Author:').' '.html::escapeHTML($module['author']).'</li>';
+					}
+
+					$more = array();
+					if (!empty($module['details'])) {
+						$more[] = '<a class="module-details" href="'.$module['details'].'">'.__('Details').'</a>';
+					}
+
+					if (!empty($module['support'])) {
+						$more[] = '<a class="module-support" href="'.$module['support'].'">'.__('Support').'</a>';
+					}
+					
+					if (!empty($more)) {
+						echo
+						'<li>'.implode(' - ', $more).'</li>';
+					}
+
+					echo
+					'</ul></div>';
+				}
+
+				$config = !empty($module['root']) && file_exists(path::real($module['root'].'/_config.php'));
+
+				if ($config || !empty($module['section']) || !empty($module['section'])) {
+					echo 
+					'<div><ul class="mod-more">';
+
+					if ($config) {
+						echo
+						'<li><a class="module-config" href="'.$this->getURL('module='.$id.'&amp;conf=1').'">'.__('Configure plugin').'</a></li>';
+					}
+
+					if (!empty($module['section'])) {
+						echo
+						'<li class="module-section">'.__('Section:').' '.html::escapeHTML($module['section']).'</li>';
+					}
+
+					if (!empty($module['section'])) {
+						echo
+						'<li class="module-tags">'.__('Tags:').' '.html::escapeHTML($module['tags']).'</li>';
+					}
+
+					echo
+					'</ul></div>';
+				}
+
+				echo
+				'</td></tr>';
+			}
 
 			$count++;
 		}

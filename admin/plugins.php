@@ -161,7 +161,7 @@ if (!empty($modules)) {
 		->setTab('plugins')
 		->setModules($modules)
 		->displayModules(
-			/* cols */		array('expander', 'icon', 'name', 'config', 'version', 'desc', 'distrib'),
+			/* cols */		array('expander', 'icon', 'name', 'version', 'desc', 'distrib'),
 			/* actions */	array('deactivate', 'delete', 'behavior')
 		);
 }
