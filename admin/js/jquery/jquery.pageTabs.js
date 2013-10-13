@@ -71,7 +71,7 @@
 	};
 	
 	$.pageTabs.clickTab = function(tab) {
-		if (tab=='') {
+		if (tab=='' || $('#'+$.pageTabs.options.idTabPrefix+tab, '.'+$.pageTabs.options.containerClass).length==0) {
 			tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
 		}
 
