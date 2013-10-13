@@ -2905,7 +2905,7 @@ msgstr ""
 msgid "Use this one"
 msgstr ""
 
-msgid "Module has been successfully selected."
+msgid "Theme has been successfully selected."
 msgstr ""
 
 msgid "First page"

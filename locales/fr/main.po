@@ -2929,8 +2929,8 @@ msgstr "Personnaliser le thème"
 msgid "Use this one"
 msgstr "Utiliser celui-ci"
 
-msgid "Module has been successfully selected."
-msgstr "Ce plugin a été supprimé avec succès."
+msgid "Theme has been successfully selected."
+msgstr "Ce thème a été selectionné avec succès."
 
 msgid "First page"
 msgstr "Première page"
