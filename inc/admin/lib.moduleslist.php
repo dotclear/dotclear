@@ -1350,7 +1350,7 @@ class adminThemesList extends adminModulesList
 				$this->core->blog->settings->system->put('theme',$id);
 				$this->core->blog->triggerBlog();
 
-				dcPage::addSuccessNotice(__('Module has been successfully selected.'));
+				dcPage::addSuccessNotice(__('Theme has been successfully selected.'));
 				http::redirect($this->getURL().'#themes');
 			}
 		}
