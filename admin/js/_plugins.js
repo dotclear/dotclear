@@ -161,7 +161,7 @@ $(function() {
 	});
 
 	// confirm module deletion
-	$('div.module-actions form input[type=submit][name=delete]').click(function() {
+	$('td.module-actions form input[type=submit][name=delete]').click(function() {
 		var module_id = $('input[name=module]',$(this).parent()).val();
 		return window.confirm(dotclear.msg.confirm_delete_plugin.replace('%s',module_id));
 	});
