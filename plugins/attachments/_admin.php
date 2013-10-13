@@ -53,7 +53,7 @@ class attachmentAdmin
 				
 				'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
 				'href="post_media.php?post_id='.$post->post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
-				'<img src="images/check-off.png" alt="'.__('remove').'" /></a>'.
+				'<img src="images/trash.png" alt="'.__('remove').'" /></a>'.
 				'</li>'.
 				
 				'</ul>'.

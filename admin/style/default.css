@@ -1573,27 +1573,19 @@ li.user_admin {
 	background-image: url(../images/admin.png);
 	}
 /* ------------------------------------------------------------------- blog_theme.php */
+/* pour les alignements verticaux */
+#theme-new, #theme-activate, #theme-deactivate {
+	margin-left: -10px;
+	margin-right: -10px;
+	}
 .box.theme {
-	margin: .5em;
+	margin: 5px;
 	padding: 10px 10px 5px 10px;
 	border: 1px solid #dfdfdf;
-	min-height: 275px;
 	position: relative;
 	}
 .box.theme:hover {
 	background: #ecf0f1 url(texture.png);
-	}
-#theme-new .box.theme {
-	width: 260px;
-	}
-#theme-activate .box.theme {
-	min-height: 300px;
-	}
-#theme-deactivate .box.theme {
-	min-height: 90px;
-	}
-#theme-deactivate .box.theme:hover {
-	background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
 	}
 .module-name {
 	margin-bottom: .5em;
@@ -1601,26 +1593,11 @@ li.user_admin {
 .module-sshot {
 	text-align: center;
 	}
-.with-js .module-sshot:hover {
-	cursor: pointer;
-	}
-.current-theme .module-sshot:hover {
-	cursor: auto;
-	}
 .module-sshot img {
-	padding: .5em;
+	padding: 5px;
 	background: #f7f7f7;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	border: 3px solid #fff;
-	padding: .5em;
-	}
-.theme .module-sshot img {
-	max-width: 260px; /* pour ceux qui n'ont pas de miniature */
-	}
-#theme-new .theme .module-sshot img {
-	max-width: 240px; /* pour ceux qui n'ont pas de miniature */
-	max-height: 210px;
-	overflow: hidden;
 	}
 .module-actions {
 	margin-top: 1em;
@@ -1640,12 +1617,45 @@ li.user_admin {
 span.module-version:before {
 	content: "- ";
 	}
+.toggle-bloc .mod-more {
+	display: block;
+	margin-left: 0;
+	}
+.box.theme input {
+	margin-bottom: 1em;
+	}
+/**
+Les screenshots des thèmes ont deux tailles possibles :
+- dans Ajouter des thèmes : 240px (+ 10 padding image + 20 padding boîte + 6 bordure + 2 ombrage = 278)
+- dans Thèmes installés : 280px (+ 10 padding-image + 20 padding-boîte + 2 ombrage = 318)
+On adapte largeur et hauteur en fonction 
+*/
+#theme-new .box.theme { /* Ajouter un thème */
+	width: 278px;
+	min-height: 275px;
+	}
+#theme-new .module-sshot img { /* Pour ceux qui n'ont pas de miniature on contraint l'image */
+	max-width: 240px;
+	max-height: 210px;
+	overflow: hidden;
+	}
+#theme-deactivate .box.theme { /* Thèmes désactivés */
+	width: 278px;
+	}
+#theme-activate .box.theme { /* Thèmes installés */
+	width: 318px;
+	min-height: 304px;
+	}
+#theme-deactivate .box.theme:hover {
+	background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
+	}
+/* si js est là, les infos viennent par dessus le screenshot */
 .with-js #theme-new .module-infos.toggle-bloc,
 .with-js #theme-new .module-actions.toggle-bloc {
 	position: absolute;
-	top: 128px;
 	left: 10px;
 	width: 239px;
+	margin: 0;
 	padding: 10px;
 	background: rgba(250, 250, 250, .95);
 	}
@@ -1657,44 +1667,48 @@ span.module-version:before {
 .with-js #theme-new .module-actions.toggle-bloc {
 	top: 208px;
 	height: 40px;
-	margin: 0;
 	border-bottom: 1px solid #e3e3e3;
-	background: rgba(250, 250, 250, .95);
 	}
-.toggle-bloc .mod-more {
-	display: block;
-	margin-left: 0;
+.with-js .module-sshot:hover {
+	cursor: pointer;
 	}
-.box.current-theme {
-	width: 652px;
-	margin: .5em;
-	padding: 20px 18px 10px;
+/* mise en forme pour la boîte du thème courant */
+.box.current-theme { /* Thème courant */
+	width: 646px;
+	margin: 5px;
+	padding: 20px 18px 6px;
 	background: #fff url(texture.png);
 	border: 1px solid #eee;
 	border-radius: .5em;
-	min-height: 300px;
+	min-height: 326px;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	position: relative;
+	}
+.current-theme .module-sshot:hover {
+	cursor: auto;
 	}
 .current-theme .module-sshot img {
 	float: left;
 	margin-right: 2em;
-	margin-bottom: 1em;
-	border: 3px solid #fff;
-	padding: .5em;
+	border: 9px solid #fff;
+	padding: 5px;
 	}
 .current-theme .module-name {
 	color: #D33800;
-	font-size: 1.33em;
-	}
-.box.theme input {
+	font-size: 1.5em;
 	margin-bottom: 1em;
 	}
 .current-actions {
 	width: auto;
 	overflow: hidden;
-	padding-top: 3em;
+	padding-top: 2em;
 	margin: 1.5em 0 2em;
 	background: transparent url(../images/minus-theme.png) no-repeat left top;
+	}
+.current-theme .actions-buttons {
+	position: absolute;
+	bottom: 0;
+	right: 18px;
 	}
 /* ------------------------------------------------------------------ categories.php */
 #categories {
@@ -2193,6 +2207,14 @@ div.template-upload {
 	border: 1px solid #dfdfdf;
 	padding: 2px .5em;
 	}
+.guideline #main-menu ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	}
+.guideline #main-menu li {
+	padding-left: 1em;
+}
 /* ------------------------------------------------------------------------------------
 																				CLASSES
 ------------------------------------------------------------------------------------ */

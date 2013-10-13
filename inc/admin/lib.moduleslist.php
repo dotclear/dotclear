@@ -1153,7 +1153,7 @@ class adminThemesList extends adminModulesList
 			$distrib = self::isDistributedModule($id) ? ' dc-box' : '';
 
 			$line = 
-			'<div class="box '.($current ? 'medium current-theme' : 'small theme').$distrib.'">';
+			'<div class="box '.($current ? 'medium current-theme' : 'theme').$distrib.'">';
 
 			if (in_array('name', $cols) && !$current) {
 				$line .= 
@@ -1270,7 +1270,7 @@ class adminThemesList extends adminModulesList
 
 				if (file_exists(path::real($this->core->blog->themes_path.'/'.$id).'/_config.php')) {
 					$line .= 
-					'<p><a href="'.$this->getURL('module='.$id.'&conf=1', false).'" class="button">'.__('Configure theme').'</a></p>';
+					'<p><a href="'.$this->getURL('module='.$id.'&conf=1', false).'" class="button submit">'.__('Configure theme').'</a></p>';
 				}
 
 				# --BEHAVIOR-- adminCurrentThemeDetails
@@ -1283,14 +1283,14 @@ class adminThemesList extends adminModulesList
 			# _POST actions
 			if (!empty($actions)) {
 				$line .=
-				'<form action="'.$this->getURL().'" method="post">'.
-				'<div>'.
+				'<form action="'.$this->getURL().'" method="post" class="actions-buttons">'.
+				'<p>'.
 				$this->core->formNonce().
 				form::hidden(array('module'), html::escapeHTML($id)).
 
 				implode(' ', $this->getActions($id, $module, $actions)).
  
-				'</div>'.
+				'</p>'.
 				'</form>';
 			}
 
@@ -1350,7 +1350,7 @@ class adminThemesList extends adminModulesList
 				$this->core->blog->settings->system->put('theme',$id);
 				$this->core->blog->triggerBlog();
 
-				dcPage::addSuccessNotice(__('Theme has been successfully selected.'));
+				dcPage::addSuccessNotice(__('Module has been successfully selected.'));
 				http::redirect($this->getURL().'#themes');
 			}
 		}
