@@ -17,6 +17,11 @@
 /* ---------------------------------------------------------------------------
 																	LAYOUTS
 ---------------------------------------------------------------------------- */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 #header {
 	background: #676e78;
 	color: #FFF;
@@ -152,7 +157,7 @@
 	text-align: justify;
 	}
 .two-boxes {
-	width: 47%;
+	width: 48.5%;
 	}
 .three-boxes {
 	width: 30%;
@@ -161,9 +166,6 @@
 	display: inline-block;
 	vertical-align: top;
 	margin: 0 1.5% 1em;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
 	text-align: left;
 	}
 /* ---------------------------------------------------------------- layout: popups */
@@ -243,10 +245,7 @@
 .box {
 	display: inline-block;
 	vertical-align: top;
-	margin: 0 1.5% 1em;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	margin: 0 10px 10px;
 	text-align: left;
 	}
 .box.small {
@@ -495,9 +494,6 @@ input[type=text], input[type=password], textarea, select {
 	vertical-align: top;
 	}
 input:focus, textarea:focus, select:focus {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 	border-color: #9bca1c;
 	}
 textarea {
@@ -798,6 +794,7 @@ span.warn, span.warning, span.info {
 p.error, p.message, p.static-msg, p.success, p.warning-msg {
 	padding-top: 1em;
 	padding-bottom: 1em;
+	margin-top: .5em;
 	}
 .error {
 	background: #FFBABA url(msg-error.png) no-repeat .7em .7em;
@@ -1392,15 +1389,13 @@ a.form-control.open {
 	border: 1px solid #9bca1c;
 	padding: 1em 1em 0 1em;
 	background: #fff;
+	margin-bottom: 0;
 	}
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit],
 #login-screen input[type=text]:focus, #login-screen input[type=password]:focus, #login-screen input[type=submit]:focus {
 	width: 100%;
 	margin: 0;
 	padding: 5px 3px;
-	-webkit-box-sizing: border-box;	
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 	}
 #login-screen input.login, #login-screen input.login:focus {
 	padding-top: 6px;
@@ -1411,6 +1406,9 @@ a.form-control.open {
 	margin-left: 1.33em;
 	font-size: 12px; /* ie < 9 sucks */
 	font-size: 1.2rem;
+	}
+#issue p:first-child {
+	text-align: right;
 	}
 #login-screen #issue strong {
 	font-weight: normal;
@@ -1426,7 +1424,7 @@ a.form-control.open {
 	text-align: center;
 	}
 #icons p {
-	width: 170px;
+	width: 200px;
 	text-align: center;
 	margin: 1em 0 2em;
 	padding: 1em 0;
@@ -1762,7 +1760,7 @@ p.cat-title {
 	border: 1px solid #dfdfdf;
 	margin: 9px;
 	padding: 10px 12px 6px;
-	width: 300px;
+	width: 320px;
 	display: inline-block;
 	vertical-align: top;
 	min-height: 140px;
@@ -1946,11 +1944,9 @@ label span.one-file {
 	}
 .upload-progress div {
 	width: 0;
-	height: 1em;
-	padding: .2em 0;
-	font-size: 0.8em;
+	height: 1.2em;
 	font-weight: bold;
-	line-height: 1em;
+	line-height: 1.2em;
 	text-align: right;
 	background: green url(loader.png) repeat-x left top;
 	color: white;
@@ -2152,6 +2148,9 @@ div.template-upload {
 	}
 /* --------------------------------------------------------------------- user.php */
 .blog-perm {
+	padding-top: 2em;
+	}
+.blog-perm {
 	margin-top: 2em;
 	font-weight: bold;
 	}
@@ -2172,6 +2171,10 @@ div.template-upload {
 	padding: 2em 0 0 0;
 	margin: 1em 0;
 	font-size: 2em;
+	}
+.guideline #content h2:first-child {
+	margin-top: 0;
+	padding-top: .5em;
 	}
 .guideline h3 {
 	margin-top: 2em;

@@ -183,7 +183,7 @@ else
 			$input_class = '';
 		}
 		echo 
-		'<input type="submit"'.$attr_disabled.' class="'.$input_class.'delete" name="delete['.$rs->cat_id.']" value="'.__('Delete category').'"/>'.
+		' <input type="submit"'.$attr_disabled.' class="'.$input_class.'delete" name="delete['.$rs->cat_id.']" value="'.__('Delete category').'"/>'.
 		'</p>';
 
 		$level = $rs->level;
