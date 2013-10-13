@@ -1154,6 +1154,7 @@ h1 a:hover, h1 a:focus {
 	background-color: #f5f5f5;
 	position: fixed;
 	top: 10px;
+	-webkit-transform:translateZ(0);	/* Let GPU doing his job */
 	}
 .no-js #help-button {
 	top: 1em;
