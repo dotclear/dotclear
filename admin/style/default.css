@@ -2035,6 +2035,10 @@ div.template-upload {
 	background: transparent url(help12.png) no-repeat 2px center;
 	padding: 4px 4px 0 20px;
 	}
+.modules a.module-config {
+	/* todo: add icon here */
+	padding: 4px 4px 0 20px;
+	}
 #m_search {
 	background: transparent url(search.png) no-repeat 4px center;
 	padding-left: 20px;
