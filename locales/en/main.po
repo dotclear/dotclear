@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 19:46+0200\n"
+"POT-Creation-Date: 2013-10-14 07:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,6 +58,9 @@ msgid "In order to login, you have to change your password now."
 msgstr ""
 
 msgid "Safe Mode can only be used for super administrators."
+msgstr ""
+
+msgid "Insufficient permissions"
 msgstr ""
 
 msgid "Wrong username or password"
@@ -529,9 +532,6 @@ msgstr ""
 msgid "Add themes from repository"
 msgstr ""
 
-msgid "Search and install themes directly from repository."
-msgstr ""
-
 msgid "Install or upgrade manually"
 msgstr ""
 
@@ -605,8 +605,10 @@ msgid "No blog"
 msgstr ""
 
 #, php-format
-msgid "List of %s blogs match the filter."
-msgstr ""
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Blogs list"
 msgstr ""
@@ -1651,9 +1653,6 @@ msgstr ""
 msgid "Add plugins from repository"
 msgstr ""
 
-msgid "Search and install plugins directly from repository."
-msgstr ""
-
 msgid "Add plugins from a package"
 msgstr ""
 
@@ -1889,6 +1888,18 @@ msgstr ""
 msgid "Not selected"
 msgstr ""
 
+msgid "With attachments"
+msgstr ""
+
+msgid "Without attachments"
+msgstr ""
+
+msgid "Number of comments"
+msgstr ""
+
+msgid "Number of trackbacks"
+msgstr ""
+
 msgid "Selected entries have been successfully updated."
 msgstr ""
 
@@ -1896,6 +1907,9 @@ msgid "Selected entries have been successfully deleted."
 msgstr ""
 
 msgid "Selected:"
+msgstr ""
+
+msgid "Attachments:"
 msgstr ""
 
 msgid "Month:"
@@ -2431,6 +2445,9 @@ msgstr ""
 msgid "Go to search"
 msgstr ""
 
+msgid "Go to help"
+msgstr ""
+
 msgid "Go to site"
 msgstr ""
 
@@ -2454,9 +2471,6 @@ msgid "Error:"
 msgstr ""
 
 msgid "[%H:%M:%S]"
-msgstr ""
-
-msgid "new window"
 msgstr ""
 
 #, php-format
@@ -2483,6 +2497,9 @@ msgid "hide"
 msgstr ""
 
 msgid "Need help?"
+msgstr ""
+
+msgid "new window"
 msgstr ""
 
 msgid "Hide"
@@ -2758,6 +2775,9 @@ msgstr ""
 msgid "Reset search"
 msgstr ""
 
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr ""
+
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
@@ -2794,14 +2814,13 @@ msgstr ""
 msgid "Current version"
 msgstr ""
 
-#, php-format
-msgid "Configure module \"%s\""
-msgstr ""
-
 msgid "Module from official distribution"
 msgstr ""
 
 msgid "module from official distribution"
+msgstr ""
+
+msgid "Configure plugin"
 msgstr ""
 
 msgid "No module matches your search."
@@ -2905,7 +2924,7 @@ msgstr ""
 msgid "Use this one"
 msgstr ""
 
-msgid "Theme has been successfully selected."
+msgid "Module has been successfully selected."
 msgstr ""
 
 msgid "First page"
@@ -3034,57 +3053,6 @@ msgid "Posts"
 msgstr ""
 
 msgid "Pages"
-msgstr ""
-
-msgid "Nouveau billet"
-msgstr ""
-
-msgid "Billets"
-msgstr ""
-
-msgid "Commentaires"
-msgstr ""
-
-msgid "Gestionnaire de médias"
-msgstr ""
-
-msgid "Tags"
-msgstr ""
-
-msgid "Import/Export"
-msgstr ""
-
-msgid "Apparence du blog"
-msgstr ""
-
-msgid "Presentation widgets"
-msgstr ""
-
-msgid "Installateur DotAddict.org"
-msgstr ""
-
-msgid "Maintenance"
-msgstr ""
-
-msgid "System info"
-msgstr ""
-
-msgid "Tidy Administration"
-msgstr ""
-
-msgid "Series"
-msgstr ""
-
-msgid "pacKman"
-msgstr ""
-
-msgid "Categories orders"
-msgstr ""
-
-msgid "Discrete category"
-msgstr ""
-
-msgid "Typographic replacements"
 msgstr ""
 
 msgid "administrator"

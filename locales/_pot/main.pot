@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-08 07:23+0000\n"
+"POT-Creation-Date: 2013-10-14 07:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgid "Someone has requested to reset the password for the following site and us
 msgstr ""
 
 #: admin/auth.php:89 admin/auth.php:113 admin/auth.php:347 admin/auth.php:397
-#: admin/install/index.php:320 admin/install/index.php:369
+#: admin/install/index.php:324 admin/install/index.php:373
 msgid "Username:"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgid "Your new password"
 msgstr ""
 
 #: admin/auth.php:114 admin/auth.php:400 admin/blog_pref.php:440
-#: admin/install/index.php:370 admin/user.php:225
+#: admin/install/index.php:374 admin/user.php:225
 msgid "Password:"
 msgstr ""
 
@@ -95,8 +95,8 @@ msgid "Request a new password"
 msgstr ""
 
 #: admin/auth.php:350 admin/blog_pref.php:667 admin/comment.php:222
-#: admin/install/index.php:315 admin/post.php:683 admin/preferences.php:371
-#: admin/user.php:264 inc/admin/lib.dc.page.php:602
+#: admin/install/index.php:319 admin/post.php:683 admin/preferences.php:371
+#: admin/user.php:264 inc/admin/lib.dc.page.php:622
 msgid "Email:"
 msgstr ""
 
@@ -108,12 +108,12 @@ msgstr ""
 msgid "Change your password"
 msgstr ""
 
-#: admin/auth.php:365 admin/install/index.php:324 admin/preferences.php:390
+#: admin/auth.php:365 admin/install/index.php:328 admin/preferences.php:390
 #: admin/user.php:225
 msgid "New password:"
 msgstr ""
 
-#: admin/auth.php:368 admin/install/index.php:332 admin/user.php:236
+#: admin/auth.php:368 admin/install/index.php:336 admin/user.php:236
 msgid "Confirm password:"
 msgstr ""
 
@@ -172,14 +172,13 @@ msgstr ""
 
 #: admin/blog.php:72 admin/blog_del.php:56 admin/blog_pref.php:278
 #: admin/blogs.php:89 admin/langs.php:145 admin/plugin.php:86
-#: admin/plugins.php:95 admin/update.php:179 admin/user.php:188
+#: admin/plugins.php:83 admin/update.php:179 admin/user.php:188
 #: admin/users.php:110 admin/users_actions.php:138 admin/users_actions.php:145
 msgid "System"
 msgstr ""
 
 #: admin/blog.php:73 admin/blog_del.php:57 admin/blog_pref.php:279
 #: inc/admin/class.dc.favorites.php:455 inc/admin/prepend.php:271
-#: inc/core/_fake_l10n.php:20 inc/core/_fake_l10n.php:27
 msgid "Blogs"
 msgstr ""
 
@@ -190,15 +189,15 @@ msgstr ""
 #: admin/blog.php:82 admin/blog.php:92 admin/blog.php:95
 #: admin/blog_pref.php:326 admin/blog_pref.php:333 admin/blog_pref.php:339
 #: admin/category.php:190 admin/comment.php:218 admin/index.php:329
-#: admin/index.php:333 admin/install/index.php:320 admin/install/index.php:324
-#: admin/install/index.php:332 admin/install/wizard.php:180
+#: admin/index.php:333 admin/install/index.php:324 admin/install/index.php:328
+#: admin/install/index.php:336 admin/install/wizard.php:180
 #: admin/install/wizard.php:190 admin/langs.php:242 admin/langs.php:257
 #: admin/langs.php:259 admin/popup_link.php:31 admin/post.php:540
 #: admin/post.php:552 admin/post.php:679 admin/post.php:691 admin/user.php:209
 #: admin/user.php:224 admin/user.php:236 admin/user.php:308
-#: admin/users_actions.php:308 inc/admin/lib.moduleslist.php:957
-#: inc/admin/lib.moduleslist.php:959 inc/admin/lib.moduleslist.php:969
-#: inc/admin/lib.moduleslist.php:971
+#: admin/users_actions.php:308 inc/admin/lib.moduleslist.php:1023
+#: inc/admin/lib.moduleslist.php:1025 inc/admin/lib.moduleslist.php:1035
+#: inc/admin/lib.moduleslist.php:1037
 msgid "Required field"
 msgstr ""
 
@@ -232,7 +231,7 @@ msgstr ""
 
 #: admin/blog_del.php:40 admin/langs.php:66 admin/langs.php:109
 #: admin/user.php:75 admin/users_actions.php:99
-#: inc/admin/lib.moduleslist.php:907
+#: inc/admin/lib.moduleslist.php:973
 msgid "Password verification failed"
 msgstr ""
 
@@ -260,7 +259,7 @@ msgstr ""
 
 #: admin/blog_del.php:73 admin/langs.php:242 admin/langs.php:259
 #: admin/user.php:308 admin/users_actions.php:308
-#: inc/admin/lib.moduleslist.php:959 inc/admin/lib.moduleslist.php:971
+#: inc/admin/lib.moduleslist.php:1025 inc/admin/lib.moduleslist.php:1037
 msgid "Your password:"
 msgstr ""
 
@@ -316,7 +315,7 @@ msgstr ""
 msgid "(none)"
 msgstr ""
 
-#: admin/blog_pref.php:110 admin/posts.php:91
+#: admin/blog_pref.php:110 admin/posts.php:97
 #: inc/admin/actions/class.dcaction.php:76
 #: inc/admin/actions/class.dcactioncomments.php:78 inc/admin/lib.pager.php:183
 #: inc/admin/lib.pager.php:296
@@ -625,12 +624,12 @@ msgstr ""
 
 #: admin/blog_pref.php:600 admin/category.php:221 admin/category.php:238
 #: admin/category.php:251 admin/comment.php:244 admin/index.php:349
-#: admin/install/index.php:336 admin/media_item.php:614 admin/post.php:584
+#: admin/install/index.php:340 admin/media_item.php:614 admin/post.php:584
 #: admin/post.php:699 admin/user.php:310 admin/users_actions.php:310
 #: inc/admin/actions/class.dcactionposts.php:305
 #: inc/admin/actions/class.dcactionposts.php:374
 #: inc/admin/actions/class.dcactionposts.php:433
-#: inc/admin/lib.moduleslist.php:1090
+#: inc/admin/lib.moduleslist.php:1156
 msgid "Save"
 msgstr ""
 
@@ -691,70 +690,69 @@ msgstr ""
 msgid "Change permissions"
 msgstr ""
 
-#: admin/blog_theme.php:67 admin/blog_theme.php:77 admin/blog_theme.php:111
+#: admin/blog_theme.php:60 admin/blog_theme.php:70 admin/blog_theme.php:104
 #: inc/admin/class.dc.favorites.php:449 inc/admin/prepend.php:234
-#: inc/core/_fake_l10n.php:18 inc/core/_fake_l10n.php:25
 msgid "Blog appearance"
 msgstr ""
 
-#: admin/blog_theme.php:78
+#: admin/blog_theme.php:71
 msgid "Theme configuration"
 msgstr ""
 
-#: admin/blog_theme.php:100
+#: admin/blog_theme.php:93
 msgid "Themes management"
 msgstr ""
 
-#: admin/blog_theme.php:122 admin/blog_theme.php:123
+#: admin/blog_theme.php:115 admin/blog_theme.php:116
 msgid "Update themes"
 msgstr ""
 
-#: admin/blog_theme.php:125
+#: admin/blog_theme.php:118
 #, php-format
 msgid "There is one theme to update available from repository."
 msgid_plural "There are %s themes to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/blog_theme.php:140 admin/blog_theme.php:219 admin/plugins.php:151
-#: admin/plugins.php:229
+#: admin/blog_theme.php:133 admin/blog_theme.php:212 admin/plugins.php:139
+#: admin/plugins.php:217
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
 
-#: admin/blog_theme.php:154 admin/blog_theme.php:155
+#: admin/blog_theme.php:147 admin/blog_theme.php:148
 msgid "Installed themes"
 msgstr ""
 
-#: admin/blog_theme.php:156
+#: admin/blog_theme.php:149
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
 
-#: admin/blog_theme.php:176 admin/blog_theme.php:177
+#: admin/blog_theme.php:169 admin/blog_theme.php:170
 msgid "Deactivated themes"
 msgstr ""
 
-#: admin/blog_theme.php:178
+#: admin/blog_theme.php:171
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr ""
 
-#: admin/blog_theme.php:201
+#: admin/blog_theme.php:194
 msgid "Add themes"
 msgstr ""
 
-#: admin/blog_theme.php:202
+#: admin/blog_theme.php:195
 msgid "Add themes from repository"
 msgstr ""
 
-#: admin/blog_theme.php:229 admin/plugins.php:239
+#: admin/blog_theme.php:222 admin/plugins.php:227
 msgid "Install or upgrade manually"
 msgstr ""
 
-#: admin/blog_theme.php:230
+#: admin/blog_theme.php:223
 msgid "Add themes from a package"
 msgstr ""
 
-#: admin/blog_theme.php:231
+#: admin/blog_theme.php:224
 msgid "You can install themes by uploading or downloading zip files."
 msgstr ""
 
@@ -770,22 +768,22 @@ msgstr ""
 msgid "Blog ID"
 msgstr ""
 
-#: admin/blogs.php:25 admin/comments.php:50 admin/posts.php:101
+#: admin/blogs.php:25 admin/comments.php:50 admin/posts.php:107
 #: admin/users.php:27
 msgid "Descending"
 msgstr ""
 
-#: admin/blogs.php:26 admin/comments.php:51 admin/posts.php:102
+#: admin/blogs.php:26 admin/comments.php:51 admin/posts.php:108
 #: admin/users.php:28
 msgid "Ascending"
 msgstr ""
 
-#: admin/blogs.php:75 admin/comments.php:155 admin/posts.php:217
+#: admin/blogs.php:75 admin/comments.php:155 admin/posts.php:233
 #: admin/users.php:95
 msgid "Show filters and display options"
 msgstr ""
 
-#: admin/blogs.php:82 admin/comments.php:163 admin/posts.php:225
+#: admin/blogs.php:82 admin/comments.php:163 admin/posts.php:241
 #: admin/users.php:103
 msgid "Cancel filters and display options"
 msgstr ""
@@ -806,31 +804,31 @@ msgstr ""
 msgid "Filter blogs list"
 msgstr ""
 
-#: admin/blogs.php:110 admin/comments.php:220 admin/posts.php:250
+#: admin/blogs.php:110 admin/comments.php:220 admin/posts.php:266
 #: admin/users.php:131
 msgid "Filters"
 msgstr ""
 
-#: admin/blogs.php:111 admin/users.php:132 inc/admin/lib.dc.page.php:251
+#: admin/blogs.php:111 admin/users.php:132 inc/admin/lib.dc.page.php:271
 msgid "Search:"
 msgstr ""
 
-#: admin/blogs.php:116 admin/comments.php:235 admin/posts.php:269
+#: admin/blogs.php:116 admin/comments.php:235 admin/posts.php:287
 #: admin/users.php:137
 msgid "Display options"
 msgstr ""
 
-#: admin/blogs.php:117 admin/comments.php:236 admin/posts.php:270
+#: admin/blogs.php:117 admin/comments.php:236 admin/posts.php:288
 #: admin/users.php:138
 msgid "Order by:"
 msgstr ""
 
-#: admin/blogs.php:119 admin/comments.php:238 admin/posts.php:272
+#: admin/blogs.php:119 admin/comments.php:238 admin/posts.php:290
 #: admin/users.php:140
 msgid "Sort:"
 msgstr ""
 
-#: admin/blogs.php:121 admin/posts.php:274 admin/users.php:142
+#: admin/blogs.php:121 admin/posts.php:292 admin/users.php:142
 msgid "Show"
 msgstr ""
 
@@ -838,7 +836,7 @@ msgstr ""
 msgid "blogs per page"
 msgstr ""
 
-#: admin/blogs.php:126 admin/comments.php:246 admin/posts.php:280
+#: admin/blogs.php:126 admin/comments.php:246 admin/posts.php:298
 #: admin/users.php:147
 msgid "Apply filters and display options"
 msgstr ""
@@ -871,7 +869,7 @@ msgid "Entries (all types)"
 msgstr ""
 
 #: admin/blogs.php:161 admin/comments.php:46 admin/post.php:451
-#: admin/post.php:834 admin/posts.php:94 admin/users_actions.php:219
+#: admin/post.php:834 admin/posts.php:100 admin/users_actions.php:219
 #: inc/admin/actions/class.dcactionposts.php:104 inc/admin/lib.pager.php:189
 #: inc/admin/lib.pager.php:299 inc/admin/lib.pager.php:410
 msgid "Status"
@@ -919,7 +917,6 @@ msgstr ""
 
 #: admin/categories.php:113 admin/categories.php:117 admin/category.php:167
 #: inc/admin/class.dc.favorites.php:431 inc/admin/prepend.php:243
-#: inc/core/_fake_l10n.php:21 inc/core/_fake_l10n.php:28
 msgid "Categories"
 msgstr ""
 
@@ -973,7 +970,7 @@ msgid "Move entries to"
 msgstr ""
 
 #: admin/categories.php:177 admin/media.php:388 admin/media_item.php:398
-#: inc/admin/lib.dc.page.php:252 inc/admin/lib.moduleslist.php:263
+#: inc/admin/lib.dc.page.php:272 inc/admin/lib.moduleslist.php:263
 msgid "OK"
 msgstr ""
 
@@ -1115,7 +1112,7 @@ msgstr ""
 msgid "Information collected"
 msgstr ""
 
-#: admin/comment.php:210 admin/comments.php:230 inc/admin/lib.dc.page.php:604
+#: admin/comment.php:210 admin/comments.php:230 inc/admin/lib.dc.page.php:624
 msgid "IP address:"
 msgstr ""
 
@@ -1127,16 +1124,16 @@ msgstr ""
 msgid "Comment submitted"
 msgstr ""
 
-#: admin/comment.php:218 admin/comments.php:228 admin/posts.php:251
-#: inc/admin/lib.dc.page.php:673
+#: admin/comment.php:218 admin/comments.php:228 admin/posts.php:267
+#: inc/admin/lib.dc.page.php:693 inc/admin/lib.moduleslist.php:674
 msgid "Author:"
 msgstr ""
 
-#: admin/comment.php:227 admin/post.php:687 inc/admin/lib.dc.page.php:600
+#: admin/comment.php:227 admin/post.php:687 inc/admin/lib.dc.page.php:620
 msgid "Web site:"
 msgstr ""
 
-#: admin/comment.php:231 admin/comments.php:223 admin/posts.php:255
+#: admin/comment.php:231 admin/comments.php:223 admin/posts.php:271
 msgid "Status:"
 msgstr ""
 
@@ -1144,12 +1141,12 @@ msgstr ""
 msgid "Comment:"
 msgstr ""
 
-#: admin/comment.php:247 admin/langs.php:209 admin/media.php:608
+#: admin/comment.php:247 admin/langs.php:209 admin/media.php:604
 #: admin/post.php:598 admin/users.php:34
 #: inc/admin/actions/class.dcactioncomments.php:132
 #: inc/admin/actions/class.dcactionposts.php:142
 #: inc/admin/actions/class.dcactionposts.php:143
-#: inc/admin/lib.moduleslist.php:703
+#: inc/admin/lib.moduleslist.php:769
 msgid "Delete"
 msgstr ""
 
@@ -1161,7 +1158,7 @@ msgstr ""
 msgid "Trackback"
 msgstr ""
 
-#: admin/comments.php:43 admin/post.php:832 admin/posts.php:90
+#: admin/comments.php:43 admin/post.php:832 admin/posts.php:96
 #: inc/admin/lib.pager.php:184 inc/admin/lib.pager.php:297
 #: inc/admin/lib.pager.php:409
 msgid "Date"
@@ -1171,7 +1168,7 @@ msgstr ""
 msgid "Entry title"
 msgstr ""
 
-#: admin/comments.php:45 admin/post.php:831 admin/posts.php:93
+#: admin/comments.php:45 admin/post.php:831 admin/posts.php:99
 #: inc/admin/actions/class.dcactioncomments.php:78 inc/admin/lib.pager.php:186
 #: inc/admin/lib.pager.php:298 inc/admin/lib.pager.php:408
 msgid "Author"
@@ -1231,15 +1228,14 @@ msgid "Actions"
 msgstr ""
 
 #: admin/comments.php:262 admin/post.php:666 admin/post.php:750
-#: admin/posts.php:295 admin/search.php:127 admin/search.php:155
-#: admin/users.php:164 inc/admin/lib.dc.page.php:79
+#: admin/posts.php:313 admin/search.php:127 admin/search.php:155
+#: admin/users.php:164 inc/admin/lib.dc.page.php:85
 #: inc/admin/lib.pager.php:114
 msgid "ok"
 msgstr ""
 
 #: admin/help.php:78 admin/help.php:84 admin/help.php:90
-#: inc/admin/class.dc.favorites.php:476 inc/admin/lib.dc.page.php:239
-#: inc/core/_fake_l10n.php:16 inc/core/_fake_l10n.php:23
+#: inc/admin/class.dc.favorites.php:476 inc/admin/lib.dc.page.php:259
 msgid "Global help"
 msgstr ""
 
@@ -1320,11 +1316,11 @@ msgstr ""
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr ""
 
-#: admin/index.php:263 admin/install/index.php:345 admin/plugins.php:103
+#: admin/index.php:263 admin/install/index.php:349 admin/plugins.php:91
 msgid "Following plugins have been installed:"
 msgstr ""
 
-#: admin/index.php:271 admin/install/index.php:353 admin/plugins.php:115
+#: admin/index.php:271 admin/install/index.php:357 admin/plugins.php:103
 msgid "Following plugins have not been installed:"
 msgstr ""
 
@@ -1337,8 +1333,8 @@ msgid "Quick entry"
 msgstr ""
 
 #: admin/index.php:328 admin/post.php:35 admin/post.php:567
-#: admin/posts.php:244 inc/admin/class.dc.favorites.php:405
-#: inc/admin/prepend.php:255 inc/core/_fake_l10n.php:41
+#: admin/posts.php:260 inc/admin/class.dc.favorites.php:405
+#: inc/admin/prepend.php:255
 msgid "New entry"
 msgstr ""
 
@@ -1352,7 +1348,7 @@ msgstr ""
 msgid "Content:"
 msgstr ""
 
-#: admin/index.php:336 admin/post.php:483 admin/posts.php:253
+#: admin/index.php:336 admin/post.php:483 admin/posts.php:269
 #: inc/admin/actions/class.dcactionposts.php:286
 msgid "Category:"
 msgstr ""
@@ -1457,31 +1453,31 @@ msgstr ""
 msgid "%A, %B %e %Y"
 msgstr ""
 
-#: admin/install/index.php:178
+#: admin/install/index.php:182
 msgid "Welcome to Dotclear!"
 msgstr ""
 
-#: admin/install/index.php:179
+#: admin/install/index.php:183
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr ""
 
-#: admin/install/index.php:191
+#: admin/install/index.php:195
 msgid "Dotclear Team"
 msgstr ""
 
-#: admin/install/index.php:194
+#: admin/install/index.php:198
 msgid ""
 "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr ""
 
-#: admin/install/index.php:245
+#: admin/install/index.php:249
 msgid "Dotclear Install"
 msgstr ""
 
-#: admin/install/index.php:264 admin/install/index.php:265
-#: admin/install/index.php:266 admin/install/index.php:267
-#: admin/install/index.php:268 admin/preferences.php:312
+#: admin/install/index.php:268 admin/install/index.php:269
+#: admin/install/index.php:270 admin/install/index.php:271
+#: admin/install/index.php:272 admin/preferences.php:312
 #: admin/preferences.php:313 admin/preferences.php:314
 #: admin/preferences.php:315 admin/preferences.php:316 admin/user.php:174
 #: admin/user.php:175 admin/user.php:176 admin/user.php:177 admin/user.php:178
@@ -1489,102 +1485,102 @@ msgstr ""
 msgid "Password strength: %s"
 msgstr ""
 
-#: admin/install/index.php:264 admin/preferences.php:312 admin/user.php:174
+#: admin/install/index.php:268 admin/preferences.php:312 admin/user.php:174
 msgid "very weak"
 msgstr ""
 
-#: admin/install/index.php:265 admin/preferences.php:313 admin/user.php:175
+#: admin/install/index.php:269 admin/preferences.php:313 admin/user.php:175
 msgid "weak"
 msgstr ""
 
-#: admin/install/index.php:266 admin/preferences.php:314 admin/user.php:176
+#: admin/install/index.php:270 admin/preferences.php:314 admin/user.php:176
 msgid "mediocre"
 msgstr ""
 
-#: admin/install/index.php:267 admin/preferences.php:315 admin/user.php:177
+#: admin/install/index.php:271 admin/preferences.php:315 admin/user.php:177
 msgid "strong"
 msgstr ""
 
-#: admin/install/index.php:268 admin/preferences.php:316 admin/user.php:178
+#: admin/install/index.php:272 admin/preferences.php:316 admin/user.php:178
 msgid "very strong"
 msgstr ""
 
-#: admin/install/index.php:272
+#: admin/install/index.php:276
 msgid "show"
 msgstr ""
 
-#: admin/install/index.php:287
+#: admin/install/index.php:291
 msgid "Dotclear installation"
 msgstr ""
 
-#: admin/install/index.php:291
+#: admin/install/index.php:295
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr ""
 
-#: admin/install/index.php:295 admin/install/index.php:389
-#: admin/install/wizard.php:161 inc/admin/lib.dc.page.php:174
-#: inc/admin/lib.dc.page.php:339
+#: admin/install/index.php:299 admin/install/index.php:393
+#: admin/install/wizard.php:161 inc/admin/lib.dc.page.php:180
+#: inc/admin/lib.dc.page.php:359
 msgid "Errors:"
 msgstr ""
 
-#: admin/install/index.php:299
+#: admin/install/index.php:303
 msgid "Configuration file has been successfully created."
 msgstr ""
 
-#: admin/install/index.php:305 admin/install/index.php:310
+#: admin/install/index.php:309 admin/install/index.php:314
 msgid "User information"
 msgstr ""
 
-#: admin/install/index.php:307
+#: admin/install/index.php:311
 msgid "Please provide the following information needed to create the first user."
 msgstr ""
 
-#: admin/install/index.php:311 admin/preferences.php:365 admin/user.php:256
+#: admin/install/index.php:315 admin/preferences.php:365 admin/user.php:256
 msgid "First Name:"
 msgstr ""
 
-#: admin/install/index.php:313 admin/preferences.php:362 admin/user.php:252
+#: admin/install/index.php:317 admin/preferences.php:362 admin/user.php:252
 msgid "Last Name:"
 msgstr ""
 
-#: admin/install/index.php:319
+#: admin/install/index.php:323
 msgid "Username and password"
 msgstr ""
 
-#: admin/install/index.php:361
+#: admin/install/index.php:365
 msgid "All done!"
 msgstr ""
 
-#: admin/install/index.php:365
+#: admin/install/index.php:369
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr ""
 
-#: admin/install/index.php:367
+#: admin/install/index.php:371
 msgid "Your account"
 msgstr ""
 
-#: admin/install/index.php:373
+#: admin/install/index.php:377
 msgid "Your blog"
 msgstr ""
 
-#: admin/install/index.php:375
+#: admin/install/index.php:379
 msgid "Blog address:"
 msgstr ""
 
-#: admin/install/index.php:376
+#: admin/install/index.php:380
 msgid "Administration interface:"
 msgstr ""
 
-#: admin/install/index.php:380
+#: admin/install/index.php:384
 msgid "Manage your blog now"
 msgstr ""
 
-#: admin/install/index.php:388
+#: admin/install/index.php:392
 msgid "Installation can not be completed"
 msgstr ""
 
-#: admin/install/index.php:390
+#: admin/install/index.php:394
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr ""
 
@@ -1703,7 +1699,7 @@ msgstr ""
 msgid "Language has been successfully installed."
 msgstr ""
 
-#: admin/langs.php:115 inc/admin/lib.moduleslist.php:915
+#: admin/langs.php:115 inc/admin/lib.moduleslist.php:981
 msgid "Unable to move uploaded file."
 msgstr ""
 
@@ -1732,7 +1728,7 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: admin/langs.php:189 inc/admin/lib.moduleslist.php:559
+#: admin/langs.php:189 inc/admin/lib.moduleslist.php:560
 msgid "Action"
 msgstr ""
 
@@ -1762,7 +1758,7 @@ msgstr ""
 msgid "Install language"
 msgstr ""
 
-#: admin/langs.php:255 inc/admin/lib.moduleslist.php:956
+#: admin/langs.php:255 inc/admin/lib.moduleslist.php:1022
 msgid "Upload a zip file"
 msgstr ""
 
@@ -1778,15 +1774,15 @@ msgstr ""
 msgid "Upload language"
 msgstr ""
 
-#: admin/langs.php:277
+#: admin/langs.php:276
 msgid "Invalid language zip file."
 msgstr ""
 
-#: admin/langs.php:281
+#: admin/langs.php:280
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr ""
 
-#: admin/langs.php:291
+#: admin/langs.php:290
 msgid "An error occurred during language upgrade."
 msgstr ""
 
@@ -1835,11 +1831,11 @@ msgstr ""
 #: admin/media.php:287 admin/media.php:295 admin/media.php:306
 #: admin/media.php:422 admin/media.php:453 admin/media_item.php:213
 #: admin/media_item.php:220 inc/admin/class.dc.favorites.php:437
-#: inc/admin/prepend.php:240 inc/core/_fake_l10n.php:40
+#: inc/admin/prepend.php:240
 msgid "Media manager"
 msgstr ""
 
-#: admin/media.php:247 admin/post_media.php:65
+#: admin/media.php:247 admin/post_media.php:71
 msgid "confirm removal"
 msgstr ""
 
@@ -1849,11 +1845,11 @@ msgid "Are you sure you want to remove %s?"
 msgstr ""
 
 #: admin/media.php:257 admin/media_item.php:384 admin/popup_link.php:41
-#: admin/post.php:594 admin/post_media.php:70 inc/admin/lib.dc.page.php:913
+#: admin/post.php:594 admin/post_media.php:76 inc/admin/lib.dc.page.php:933
 msgid "Cancel"
 msgstr ""
 
-#: admin/media.php:258 admin/post_media.php:71
+#: admin/media.php:258 admin/post_media.php:77
 msgid "Yes"
 msgstr ""
 
@@ -1882,7 +1878,7 @@ msgstr ""
 msgid "Choose a file to attach to entry %s by clicking on %s."
 msgstr ""
 
-#: admin/media.php:348 admin/media.php:352 admin/media.php:587
+#: admin/media.php:348 admin/media.php:352 admin/media.php:586
 #: admin/media.php:588
 msgid "Attach this file to entry"
 msgstr ""
@@ -1938,11 +1934,11 @@ msgstr ""
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr ""
 
-#: admin/media.php:487 inc/admin/lib.dc.page.php:911
+#: admin/media.php:487 inc/admin/lib.dc.page.php:931
 msgid "Choose file"
 msgstr ""
 
-#: admin/media.php:488 inc/admin/lib.dc.page.php:912
+#: admin/media.php:488 inc/admin/lib.dc.page.php:932
 msgid "Choose files"
 msgstr ""
 
@@ -1959,8 +1955,7 @@ msgid "To send several files at the same time, you can activate the enhanced upl
 msgstr ""
 
 #: admin/media.php:502 admin/preferences.php:17
-#: inc/admin/class.dc.favorites.php:400 inc/admin/lib.dc.page.php:145
-#: inc/core/_fake_l10n.php:38
+#: inc/admin/class.dc.favorites.php:400 inc/admin/lib.dc.page.php:151
 msgid "My preferences"
 msgstr ""
 
@@ -1972,8 +1967,8 @@ msgstr ""
 msgid "Clear all"
 msgstr ""
 
-#: admin/media.php:508 inc/admin/lib.dc.page.php:915
-#: inc/admin/lib.moduleslist.php:961
+#: admin/media.php:508 inc/admin/lib.dc.page.php:935
+#: inc/admin/lib.moduleslist.php:1027
 msgid "Upload"
 msgstr ""
 
@@ -1990,11 +1985,11 @@ msgstr ""
 msgid "open"
 msgstr ""
 
-#: admin/media.php:597 admin/media.php:598
+#: admin/media.php:593 admin/media.php:594
 msgid "Insert this file into entry"
 msgstr ""
 
-#: admin/media.php:608
+#: admin/media.php:604
 msgid "delete"
 msgstr ""
 
@@ -2215,7 +2210,7 @@ msgstr ""
 msgid "Maximum size %s"
 msgstr ""
 
-#: admin/media_item.php:627 inc/admin/lib.dc.page.php:916
+#: admin/media_item.php:627 inc/admin/lib.dc.page.php:936
 msgid "Send"
 msgstr ""
 
@@ -2235,64 +2230,64 @@ msgstr ""
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr ""
 
-#: admin/plugins.php:49 admin/plugins.php:57 admin/plugins.php:86
-#: admin/plugins.php:96 inc/admin/class.dc.favorites.php:466
-#: inc/admin/prepend.php:265 inc/core/_fake_l10n.php:31
+#: admin/plugins.php:37 admin/plugins.php:45 admin/plugins.php:74
+#: admin/plugins.php:84 inc/admin/class.dc.favorites.php:466
+#: inc/admin/prepend.php:265
 msgid "Plugins management"
 msgstr ""
 
-#: admin/plugins.php:58
+#: admin/plugins.php:46
 msgid "Plugin configuration"
 msgstr ""
 
-#: admin/plugins.php:133 admin/plugins.php:134
+#: admin/plugins.php:121 admin/plugins.php:122
 msgid "Update plugins"
 msgstr ""
 
-#: admin/plugins.php:136
+#: admin/plugins.php:124
 #, php-format
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/plugins.php:161 admin/plugins.php:168
+#: admin/plugins.php:149 admin/plugins.php:156
 msgid "Installed plugins"
 msgstr ""
 
-#: admin/plugins.php:168
+#: admin/plugins.php:156
 msgid "Activated plugins"
 msgstr ""
 
-#: admin/plugins.php:169
+#: admin/plugins.php:157
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
-#: admin/plugins.php:186
+#: admin/plugins.php:174
 msgid "Deactivated plugins"
 msgstr ""
 
-#: admin/plugins.php:187
+#: admin/plugins.php:175
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr ""
 
-#: admin/plugins.php:211
+#: admin/plugins.php:199
 msgid "Add plugins"
 msgstr ""
 
-#: admin/plugins.php:212
+#: admin/plugins.php:200
 msgid "Add plugins from repository"
 msgstr ""
 
-#: admin/plugins.php:240
+#: admin/plugins.php:228
 msgid "Add plugins from a package"
 msgstr ""
 
-#: admin/plugins.php:241
+#: admin/plugins.php:229
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr ""
 
-#: admin/plugins.php:255
+#: admin/plugins.php:243
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr ""
 
@@ -2338,7 +2333,7 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: admin/post.php:78 admin/post.php:567 inc/admin/lib.dc.page.php:610
+#: admin/post.php:78 admin/post.php:567 inc/admin/lib.dc.page.php:630
 msgid "Edit entry"
 msgstr ""
 
@@ -2362,7 +2357,7 @@ msgstr ""
 msgid "Invalid publication date"
 msgstr ""
 
-#: admin/post.php:323 admin/post.php:397 inc/admin/lib.dc.page.php:608
+#: admin/post.php:323 admin/post.php:397 inc/admin/lib.dc.page.php:628
 msgid "Entry has been successfully created."
 msgstr ""
 
@@ -2394,13 +2389,12 @@ msgstr ""
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
-#: admin/post.php:374 admin/post.php:388 admin/posts.php:229
-#: admin/posts.php:233 admin/users_actions.php:218
+#: admin/post.php:374 admin/post.php:388 admin/posts.php:245
+#: admin/posts.php:249 admin/users_actions.php:218
 #: inc/admin/actions/class.dcaction.php:80
 #: inc/admin/actions/class.dcactionposts.php:33
 #: inc/admin/actions/class.dcactionposts.php:40
 #: inc/admin/class.dc.favorites.php:411 inc/admin/prepend.php:252
-#: inc/core/_fake_l10n.php:19 inc/core/_fake_l10n.php:26
 msgid "Entries"
 msgstr ""
 
@@ -2412,7 +2406,7 @@ msgstr ""
 msgid "File has been successfully attached."
 msgstr ""
 
-#: admin/post.php:403 admin/post_media.php:54
+#: admin/post.php:403 admin/post_media.php:60
 msgid "Attachment has been successfully removed."
 msgstr ""
 
@@ -2452,7 +2446,7 @@ msgstr ""
 msgid "Selected entry"
 msgstr ""
 
-#: admin/post.php:482 admin/posts.php:92 inc/admin/lib.pager.php:185
+#: admin/post.php:482 admin/posts.php:98 inc/admin/lib.pager.php:185
 msgid "Category"
 msgstr ""
 
@@ -2522,8 +2516,7 @@ msgstr ""
 #: inc/admin/actions/class.dcactioncomments.php:41
 #: inc/admin/actions/class.dcactioncomments.php:60
 #: inc/admin/class.dc.favorites.php:418 inc/admin/lib.pager.php:187
-#: inc/admin/prepend.php:249 inc/core/_fake_l10n.php:22
-#: inc/core/_fake_l10n.php:29
+#: inc/admin/prepend.php:249
 msgid "Comments"
 msgstr ""
 
@@ -2592,19 +2585,19 @@ msgstr ""
 msgid "Edit this comment"
 msgstr ""
 
-#: admin/post_media.php:40
+#: admin/post_media.php:46
 msgid "This attachment does not exist"
 msgstr ""
 
-#: admin/post_media.php:63
+#: admin/post_media.php:69
 msgid "Remove attachment"
 msgstr ""
 
-#: admin/post_media.php:65
+#: admin/post_media.php:71
 msgid "Attachment"
 msgstr ""
 
-#: admin/post_media.php:69
+#: admin/post_media.php:75
 msgid "Are you sure you want to remove this attachment?"
 msgstr ""
 
@@ -2613,7 +2606,7 @@ msgstr ""
 msgid "(No cat)"
 msgstr ""
 
-#: admin/posts.php:74 admin/posts.php:95 inc/admin/lib.pager.php:251
+#: admin/posts.php:74 admin/posts.php:101 inc/admin/lib.pager.php:251
 #: inc/admin/lib.pager.php:348
 msgid "Selected"
 msgstr ""
@@ -2622,39 +2615,51 @@ msgstr ""
 msgid "Not selected"
 msgstr ""
 
-#: admin/posts.php:96
+#: admin/posts.php:80
+msgid "With attachments"
+msgstr ""
+
+#: admin/posts.php:81
+msgid "Without attachments"
+msgstr ""
+
+#: admin/posts.php:102
 msgid "Number of comments"
 msgstr ""
 
-#: admin/posts.php:97
+#: admin/posts.php:103
 msgid "Number of trackbacks"
 msgstr ""
 
-#: admin/posts.php:237
+#: admin/posts.php:253
 msgid "Selected entries have been successfully updated."
 msgstr ""
 
-#: admin/posts.php:239
+#: admin/posts.php:255
 msgid "Selected entries have been successfully deleted."
 msgstr ""
 
-#: admin/posts.php:260
+#: admin/posts.php:276
 msgid "Selected:"
 msgstr ""
 
-#: admin/posts.php:262
+#: admin/posts.php:278
+msgid "Attachments:"
+msgstr ""
+
+#: admin/posts.php:280
 msgid "Month:"
 msgstr ""
 
-#: admin/posts.php:264
+#: admin/posts.php:282
 msgid "Lang:"
 msgstr ""
 
-#: admin/posts.php:276
+#: admin/posts.php:294
 msgid "entries per page"
 msgstr ""
 
-#: admin/posts.php:293 admin/search.php:125
+#: admin/posts.php:311 admin/search.php:125
 msgid "Selected entries action:"
 msgstr ""
 
@@ -2795,7 +2800,7 @@ msgid "Save my options"
 msgstr ""
 
 #: admin/preferences.php:486 admin/preferences.php:488
-#: inc/admin/lib.dc.page.php:143
+#: inc/admin/lib.dc.page.php:149
 msgid "My dashboard"
 msgstr ""
 
@@ -3071,7 +3076,7 @@ msgstr ""
 msgid "No permissions so far."
 msgstr ""
 
-#: admin/user.php:350 inc/admin/lib.dc.page.php:59
+#: admin/user.php:350 inc/admin/lib.dc.page.php:65
 msgid "Blog:"
 msgstr ""
 
@@ -3329,7 +3334,6 @@ msgid "Entry language:"
 msgstr ""
 
 #: inc/admin/class.dc.favorites.php:471 inc/admin/prepend.php:262
-#: inc/core/_fake_l10n.php:34
 msgid "Languages"
 msgstr ""
 
@@ -3340,448 +3344,449 @@ msgid_plural "%d comments"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/admin/lib.dc.page.php:63
+#: inc/admin/lib.dc.page.php:69
 msgid "Change blog"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:76
+#: inc/admin/lib.dc.page.php:82
 msgid "Blogs:"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:128
+#: inc/admin/lib.dc.page.php:134
 msgid "Go to the content"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:129
+#: inc/admin/lib.dc.page.php:135
 msgid "Go to the menu"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:130
+#: inc/admin/lib.dc.page.php:136
 msgid "Go to search"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:131
+#: inc/admin/lib.dc.page.php:137
 msgid "Go to help"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:139 inc/admin/lib.dc.page.php:140
+#: inc/admin/lib.dc.page.php:145 inc/admin/lib.dc.page.php:146
 msgid "Go to site"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:146
+#: inc/admin/lib.dc.page.php:152
 #, php-format
 msgid "Logout %s"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:154
+#: inc/admin/lib.dc.page.php:160
 msgid "Hide main menu"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:155
+#: inc/admin/lib.dc.page.php:161
 msgid "Show main menu"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:164
+#: inc/admin/lib.dc.page.php:170
 msgid "Safe mode"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:165
+#: inc/admin/lib.dc.page.php:171
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:174 inc/admin/lib.dc.page.php:606
-#: inc/admin/lib.dc.page.php:910
+#: inc/admin/lib.dc.page.php:180 inc/admin/lib.dc.page.php:626
+#: inc/admin/lib.dc.page.php:930
 msgid "Error:"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:228 inc/admin/lib.dc.page.php:387
+#: inc/admin/lib.dc.page.php:246 inc/admin/lib.dc.page.php:407
 msgid "[%H:%M:%S]"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:259
+#: inc/admin/lib.dc.page.php:279
 #, php-format
 msgid "Thank you for using %s."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:362
+#: inc/admin/lib.dc.page.php:382
 msgid "Go to dashboard"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:504
+#: inc/admin/lib.dc.page.php:524
 msgid "Help about this page"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:509
+#: inc/admin/lib.dc.page.php:529
 #, php-format
 msgid "See also %s"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:509
+#: inc/admin/lib.dc.page.php:529
 msgid "the global help"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:574 inc/admin/lib.dc.page.php:581
+#: inc/admin/lib.dc.page.php:594 inc/admin/lib.dc.page.php:601
 msgid "uncover"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:576 inc/admin/lib.dc.page.php:583
+#: inc/admin/lib.dc.page.php:596 inc/admin/lib.dc.page.php:603
 msgid "hide"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:586
+#: inc/admin/lib.dc.page.php:606
 msgid "Need help?"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:588
+#: inc/admin/lib.dc.page.php:608
 msgid "new window"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:590
+#: inc/admin/lib.dc.page.php:610
 msgid "Hide"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:592
+#: inc/admin/lib.dc.page.php:612
 msgid "Select:"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:594
+#: inc/admin/lib.dc.page.php:614
 msgid "no selection"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:596
+#: inc/admin/lib.dc.page.php:616
 msgid "select all"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:598
+#: inc/admin/lib.dc.page.php:618
 msgid "Invert selection"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:612
-msgid "view entry"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:614
-#, php-format
-msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:616
-#, php-format
-msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:618
-#, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:620
-msgid "Are you sure you want to delete this entry?"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:622
-msgid "Click here to unlock the field"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:624
-msgid "Are you sure you want to delete all spams?"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:626
-#, php-format
-msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:628
-msgid "Are you sure you want to delete this comment?"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:630
-msgid "Users with posts cannot be deleted."
-msgstr ""
-
 #: inc/admin/lib.dc.page.php:632
-#, php-format
-msgid "Are you sure you want to delete selected users (%s)?"
+msgid "view entry"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:634
 #, php-format
-msgid "Are you sure you want to delete category \"%s\"?"
+msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:636
-msgid "Are you sure you want to reorder all categories?"
+#, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:638
 #, php-format
-msgid "Are you sure you want to remove media \"%s\"?"
+msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:640
-msgid "Are you sure you want to extract archive in current directory?"
+msgid "Are you sure you want to delete this entry?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:642
-#, php-format
-msgid "Are you sure you want to remove attachment \"%s\"?"
+msgid "Click here to unlock the field"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:644
-#, php-format
-msgid "Are you sure you want to delete \"%s\" language?"
+msgid "Are you sure you want to delete all spams?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:646
 #, php-format
-msgid "Are you sure you want to delete \"%s\" plugin?"
+msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:648
-msgid "Use this theme"
+msgid "Are you sure you want to delete this comment?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:650
-msgid "Remove this theme"
+msgid "Users with posts cannot be deleted."
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:652
 #, php-format
-msgid "Are you sure you want to delete \"%s\" theme?"
+msgid "Are you sure you want to delete selected users (%s)?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:654
-msgid "Are you sure you want to delete this backup?"
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:656
-msgid "Zip file content"
+msgid "Are you sure you want to reorder all categories?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:658
-msgid "XHTML markup validator"
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:660
-msgid "XHTML content is valid."
+msgid "Are you sure you want to extract archive in current directory?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:662
-msgid "There are XHTML markup errors."
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:664
-msgid "Attention: an audit of a content not yet registered."
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:666
-msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:668
-msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgid "Use this theme"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:670
+msgid "Remove this theme"
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:672
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:674
+msgid "Are you sure you want to delete this backup?"
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:676
+msgid "Zip file content"
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:678
+msgid "XHTML markup validator"
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:680
+msgid "XHTML content is valid."
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:682
+msgid "There are XHTML markup errors."
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:684
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:686
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:688
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:690
 msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:675 inc/admin/lib.moduleslist.php:550
-#: inc/admin/lib.moduleslist.php:1231
+#: inc/admin/lib.dc.page.php:695 inc/admin/lib.moduleslist.php:550
+#: inc/admin/lib.moduleslist.php:679 inc/admin/lib.moduleslist.php:1304
 msgid "Details"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:677 inc/admin/lib.moduleslist.php:1236
+#: inc/admin/lib.dc.page.php:697 inc/admin/lib.moduleslist.php:683
+#: inc/admin/lib.moduleslist.php:1309
 msgid "Support"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:679
+#: inc/admin/lib.dc.page.php:699
 msgid "Help:"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:681
+#: inc/admin/lib.dc.page.php:701 inc/admin/lib.moduleslist.php:708
 msgid "Section:"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:683
+#: inc/admin/lib.dc.page.php:703 inc/admin/lib.moduleslist.php:713
 msgid "Tags:"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:714
+#: inc/admin/lib.dc.page.php:734
 msgid "You have unsaved changes."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:796
+#: inc/admin/lib.dc.page.php:816
 msgid "close"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:797
+#: inc/admin/lib.dc.page.php:817
 msgid "now"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:841
+#: inc/admin/lib.dc.page.php:861
 msgid "visual"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:842
+#: inc/admin/lib.dc.page.php:862
 msgid "source"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:844
+#: inc/admin/lib.dc.page.php:864
 msgid "You can use the following shortcuts to format your text."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:845
+#: inc/admin/lib.dc.page.php:865
 msgid "-- none --"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:846
+#: inc/admin/lib.dc.page.php:866
 msgid "-- block format --"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:847
+#: inc/admin/lib.dc.page.php:867
 msgid "Paragraph"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:848
+#: inc/admin/lib.dc.page.php:868
 msgid "Level 1 header"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:849
+#: inc/admin/lib.dc.page.php:869
 msgid "Level 2 header"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:850
+#: inc/admin/lib.dc.page.php:870
 msgid "Level 3 header"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:851
+#: inc/admin/lib.dc.page.php:871
 msgid "Level 4 header"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:852
+#: inc/admin/lib.dc.page.php:872
 msgid "Level 5 header"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:853
+#: inc/admin/lib.dc.page.php:873
 msgid "Level 6 header"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:854
+#: inc/admin/lib.dc.page.php:874
 msgid "Strong emphasis"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:855
+#: inc/admin/lib.dc.page.php:875
 msgid "Emphasis"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:856
+#: inc/admin/lib.dc.page.php:876
 msgid "Inserted"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:857
+#: inc/admin/lib.dc.page.php:877
 msgid "Deleted"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:858
+#: inc/admin/lib.dc.page.php:878
 msgid "Inline quote"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:859
+#: inc/admin/lib.dc.page.php:879
 msgid "Code"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:860
+#: inc/admin/lib.dc.page.php:880
 msgid "Line break"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:861
+#: inc/admin/lib.dc.page.php:881
 msgid "Blockquote"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:862
+#: inc/admin/lib.dc.page.php:882
 msgid "Preformated text"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:863
+#: inc/admin/lib.dc.page.php:883
 msgid "Unordered list"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:864
+#: inc/admin/lib.dc.page.php:884
 msgid "Ordered list"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:866
+#: inc/admin/lib.dc.page.php:886
 msgid "Link"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:867 inc/admin/lib.dc.page.php:871
+#: inc/admin/lib.dc.page.php:887 inc/admin/lib.dc.page.php:891
 msgid "URL?"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:868
+#: inc/admin/lib.dc.page.php:888
 msgid "Language?"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:870
+#: inc/admin/lib.dc.page.php:890
 msgid "External image"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:873
+#: inc/admin/lib.dc.page.php:893
 msgid "Media chooser"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:874
+#: inc/admin/lib.dc.page.php:894
 msgid "Link to an entry"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:904
+#: inc/admin/lib.dc.page.php:924
 msgid "Temporarily activate enhanced uploader"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:905
+#: inc/admin/lib.dc.page.php:925
 msgid "Temporarily disable enhanced uploader"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:906
+#: inc/admin/lib.dc.page.php:926
 msgid "Limit exceeded."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:907
+#: inc/admin/lib.dc.page.php:927
 msgid "File size exceeds allowed limit."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:908
+#: inc/admin/lib.dc.page.php:928
 msgid "Canceled."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:909
+#: inc/admin/lib.dc.page.php:929
 msgid "HTTP Error:"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:914
+#: inc/admin/lib.dc.page.php:934
 msgid "Clean"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:917
+#: inc/admin/lib.dc.page.php:937
 msgid "File successfully uploaded."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:918
+#: inc/admin/lib.dc.page.php:938
 msgid "No file in queue."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:919
+#: inc/admin/lib.dc.page.php:939
 msgid "1 file in queue."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:920
+#: inc/admin/lib.dc.page.php:940
 #, php-format
 msgid "%d files in queue."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:921
+#: inc/admin/lib.dc.page.php:941
 msgid "Queue error:"
 msgstr ""
 
@@ -3847,157 +3852,156 @@ msgstr ""
 msgid "Current version"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:602
-#, php-format
-msgid "Configure module \"%s\""
-msgstr ""
-
-#: inc/admin/lib.moduleslist.php:631
+#: inc/admin/lib.moduleslist.php:635
 msgid "Module from official distribution"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:632
+#: inc/admin/lib.moduleslist.php:636
 msgid "module from official distribution"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:665 inc/admin/lib.moduleslist.php:1306
+#: inc/admin/lib.moduleslist.php:703
+msgid "Configure plugin"
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:731 inc/admin/lib.moduleslist.php:1379
 msgid "No module matches your search."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:690
+#: inc/admin/lib.moduleslist.php:756
 msgid "Activate"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:696
+#: inc/admin/lib.moduleslist.php:762
 msgid "Deactivate"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:709
+#: inc/admin/lib.moduleslist.php:775
 msgid "Install"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:715 inc/admin/prepend.php:259
+#: inc/admin/lib.moduleslist.php:781 inc/admin/prepend.php:259
 msgid "Update"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:759 inc/admin/lib.moduleslist.php:777
-#: inc/admin/lib.moduleslist.php:805 inc/admin/lib.moduleslist.php:835
-#: inc/admin/lib.moduleslist.php:862 inc/admin/lib.moduleslist.php:866
-#: inc/admin/lib.moduleslist.php:1339 inc/core/class.dc.modules.php:404
+#: inc/admin/lib.moduleslist.php:825 inc/admin/lib.moduleslist.php:843
+#: inc/admin/lib.moduleslist.php:871 inc/admin/lib.moduleslist.php:901
+#: inc/admin/lib.moduleslist.php:928 inc/admin/lib.moduleslist.php:932
+#: inc/admin/lib.moduleslist.php:1412 inc/core/class.dc.modules.php:404
 #: inc/core/class.dc.modules.php:415 inc/core/class.dc.modules.php:430
 msgid "No such module."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:770
+#: inc/admin/lib.moduleslist.php:836
 msgid "Module has been successfully activated."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:784
+#: inc/admin/lib.moduleslist.php:850
 msgid "You don't have permissions to deactivate this module."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:795
+#: inc/admin/lib.moduleslist.php:861
 msgid "Module has been successfully deactivated."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:812
+#: inc/admin/lib.moduleslist.php:878
 msgid "You don't have permissions to delete this module."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:827
+#: inc/admin/lib.moduleslist.php:893
 msgid "Module has been successfully deleted."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:852 inc/admin/lib.moduleslist.php:892
-#: inc/admin/lib.moduleslist.php:933
+#: inc/admin/lib.moduleslist.php:918 inc/admin/lib.moduleslist.php:958
+#: inc/admin/lib.moduleslist.php:999
 msgid "Module has been successfully updated."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:853 inc/admin/lib.moduleslist.php:934
+#: inc/admin/lib.moduleslist.php:919 inc/admin/lib.moduleslist.php:1000
 msgid "Module has been successfully installed."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:957
+#: inc/admin/lib.moduleslist.php:1023
 msgid "Zip file path:"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:968
+#: inc/admin/lib.moduleslist.php:1034
 msgid "Download a zip file"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:969
+#: inc/admin/lib.moduleslist.php:1035
 msgid "Zip file URL:"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:973
+#: inc/admin/lib.moduleslist.php:1039
 msgid "Download"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1010
+#: inc/admin/lib.moduleslist.php:1076
 msgid "Unknow module ID"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1019
+#: inc/admin/lib.moduleslist.php:1085
 msgid "This module has no configuration file."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1082
+#: inc/admin/lib.moduleslist.php:1148
 #, php-format
 msgid "Configure plugin \"%s\""
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1083
+#: inc/admin/lib.moduleslist.php:1149
 msgid "Back"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1166
+#: inc/admin/lib.moduleslist.php:1232
 #, php-format
 msgid "Score: %s"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1185
+#: inc/admin/lib.moduleslist.php:1251
 #, php-format
 msgid "%s screenshot."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1199
+#: inc/admin/lib.moduleslist.php:1272
 #, php-format
 msgid "by %s"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1204
+#: inc/admin/lib.moduleslist.php:1277
 #, php-format
 msgid "version %s"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1209
+#: inc/admin/lib.moduleslist.php:1282
 #, php-format
 msgid "(current version %s)"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1215
+#: inc/admin/lib.moduleslist.php:1288
 #, php-format
 msgid "(built on \"%s\")"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1219
+#: inc/admin/lib.moduleslist.php:1292
 #, php-format
 msgid "(requires \"%s\")"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1259
+#: inc/admin/lib.moduleslist.php:1332
 msgid "View stylesheet"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1266
+#: inc/admin/lib.moduleslist.php:1339
 msgid "Configure theme"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1320
+#: inc/admin/lib.moduleslist.php:1393
 msgid "Use this one"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1346
+#: inc/admin/lib.moduleslist.php:1419
 msgid "Module has been successfully selected."
 msgstr ""
 
@@ -4146,19 +4150,19 @@ msgid "Plugins"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:4
-msgid "medium"
+msgid "moyenne"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:5
-msgid "small"
+msgid "petite"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:6
-msgid "thumbnail"
+msgid "vignettes"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:7
-msgid "square"
+msgid "carrée"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:11
@@ -4167,38 +4171,6 @@ msgstr ""
 
 #: inc/core/_fake_l10n.php:12
 msgid "Pages"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:17 inc/core/_fake_l10n.php:24
-msgid "Antispam"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:30
-msgid "Galeries"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:32
-msgid "Import/Export"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:33
-msgid "Installateur DotAddict.org"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:35
-msgid "Blogroll"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:36
-msgid "Maintenance"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:37
-msgid "Simple menu"
-msgstr ""
-
-#: inc/core/_fake_l10n.php:39
-msgid "Tags"
 msgstr ""
 
 #: inc/core/class.dc.auth.php:73
@@ -4273,89 +4245,89 @@ msgstr ""
 msgid "You must provide a category URL"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1213
+#: inc/core/class.dc.blog.php:1228
 msgid "You are not allowed to create an entry"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1271
+#: inc/core/class.dc.blog.php:1286
 msgid "You are not allowed to update entries"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1277 inc/core/class.dc.blog.php:1504
+#: inc/core/class.dc.blog.php:1292 inc/core/class.dc.blog.php:1519
 msgid "No such entry ID"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1306
+#: inc/core/class.dc.blog.php:1321
 msgid "You are not allowed to edit this entry"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1341 inc/core/class.dc.meta.php:168
+#: inc/core/class.dc.blog.php:1356 inc/core/class.dc.meta.php:168
 #: inc/core/class.dc.meta.php:182
 msgid "You are not allowed to change this entry status"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1385 inc/core/class.dc.blog.php:1429
+#: inc/core/class.dc.blog.php:1400 inc/core/class.dc.blog.php:1444
 msgid "You are not allowed to change this entry category"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1462
+#: inc/core/class.dc.blog.php:1477
 msgid "You are not allowed to change entries category"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1498
+#: inc/core/class.dc.blog.php:1513
 msgid "You are not allowed to delete entries"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1667
+#: inc/core/class.dc.blog.php:1682
 msgid "No entry title"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1671 inc/core/class.dc.blog.php:1687
+#: inc/core/class.dc.blog.php:1686 inc/core/class.dc.blog.php:1702
 msgid "No entry content"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1751
+#: inc/core/class.dc.blog.php:1766
 msgid "Notes"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1753
+#: inc/core/class.dc.blog.php:1768
 msgid "Note"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:1864
+#: inc/core/class.dc.blog.php:1879
 msgid "Empty entry URL"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:2116
+#: inc/core/class.dc.blog.php:2131
 msgid "You are not allowed to update comments"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:2122 inc/core/class.dc.blog.php:2128
-#: inc/core/class.dc.blog.php:2249
+#: inc/core/class.dc.blog.php:2137 inc/core/class.dc.blog.php:2143
+#: inc/core/class.dc.blog.php:2264
 msgid "No such comment ID"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:2135
+#: inc/core/class.dc.blog.php:2150
 msgid "You are not allowed to update this comment"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:2179
+#: inc/core/class.dc.blog.php:2194
 msgid "You are not allowed to change this comment's status"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:2243 inc/core/class.dc.blog.php:2300
+#: inc/core/class.dc.blog.php:2258 inc/core/class.dc.blog.php:2315
 msgid "You are not allowed to delete comments"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:2336
+#: inc/core/class.dc.blog.php:2351
 msgid "You must provide a comment"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:2340
+#: inc/core/class.dc.blog.php:2355
 msgid "You must provide an author name"
 msgstr ""
 
-#: inc/core/class.dc.blog.php:2344
+#: inc/core/class.dc.blog.php:2359
 msgid "Email address is not valid."
 msgstr ""
 
@@ -4663,7 +4635,7 @@ msgstr ""
 msgid "SQLite Database Schema cannot be upgraded."
 msgstr ""
 
-#: inc/dbschema/upgrade.php:412
+#: inc/dbschema/upgrade.php:425
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
@@ -4852,23 +4824,23 @@ msgstr ""
 msgid "Cannot read directory"
 msgstr ""
 
-#: inc/prepend.php:178
+#: inc/prepend.php:182
 msgid "Site temporarily unavailable"
 msgstr ""
 
-#: inc/prepend.php:179
+#: inc/prepend.php:183
 msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
 msgstr ""
 
-#: inc/prepend.php:183
+#: inc/prepend.php:187
 msgid "Unable to connect to database"
 msgstr ""
 
-#: inc/prepend.php:185
+#: inc/prepend.php:189
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 msgstr ""
 
-#: inc/prepend.php:196
+#: inc/prepend.php:200
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
