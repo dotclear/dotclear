@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 07:20+0200\n"
+"POT-Creation-Date: 2013-10-14 13:18+0200\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -115,7 +115,7 @@ msgid "List of simple menu items"
 msgstr "Liste des éléments de menu simple"
 
 msgid "Configuration successfully updated"
-msgstr "La configuration a été mise à jour avec succès"
+msgstr "La configuration a été mise à jour"
 
 msgid "no"
 msgstr "non"
@@ -150,7 +150,7 @@ msgid "Filtered by %s."
 msgstr "Filtré par %s."
 
 msgid "Filter configuration have been successfully saved."
-msgstr "La configuration du filtre a été enregistrée avec succès."
+msgstr "La configuration du filtre a été enregistrée."
 
 msgid "Akismet API key:"
 msgstr "Clé API Akismet :"
@@ -192,10 +192,10 @@ msgid "Filtered by %1$s with rule %2$s."
 msgstr "Flitré par %1$s avec la règle %2$s."
 
 msgid "IP address has been successfully added."
-msgstr "L'adresse IP a été ajoutée avec succès."
+msgstr "L'adresse IP a été ajoutée."
 
 msgid "IP addresses have been successfully removed."
-msgstr "L'adresse IP a été retirée avec succès."
+msgstr "L'adresse IP a été retirée."
 
 msgid "Blacklist"
 msgstr "Liste noire"
@@ -232,7 +232,7 @@ msgid "Filtered by %1$s with server %2$s."
 msgstr "Filtré par %1$s par le serveur %2$s."
 
 msgid "The list of DNSBL servers has been succesfully updated."
-msgstr "La liste des serveurs DNSBL a été mise à jour avec succès"
+msgstr "La liste des serveurs DNSBL a été mise à jour."
 
 msgid "IP Lookup servers"
 msgstr "Serveurs de contrôle d'IP"
@@ -251,13 +251,13 @@ msgid "Filtered by %1$s with word %2$s."
 msgstr "Filtré par %1$s à cause du mot %2$s."
 
 msgid "Words have been successfully added."
-msgstr "Les mots ont été ajoutés avec succès."
+msgstr "Les mots ont été ajoutés."
 
 msgid "Word has been successfully added."
-msgstr "Le mot a été ajouté avec succès."
+msgstr "Le mot a été ajouté."
 
 msgid "Words have been successfully removed."
-msgstr "Les mots ont été retirés avec succès."
+msgstr "Les mots ont été retirés."
 
 msgid "Add a word "
 msgstr "Ajouter un mot "
@@ -323,7 +323,7 @@ msgid "Filter has no user interface."
 msgstr "Ce filtre n'a pas de réglages."
 
 msgid "Filters configuration has been successfully saved."
-msgstr "La configuration des filtres a été enregistrée avec succès."
+msgstr "La configuration des filtres a été enregistrée."
 
 #, php-format
 msgid "%s configuration"
@@ -437,10 +437,10 @@ msgid "No such link or title"
 msgstr "Pas de lien ou de titre"
 
 msgid "Link has been successfully updated"
-msgstr "Le lien a été mis à jour avec succès"
+msgstr "Le lien a été mis à jour."
 
 msgid "Category has been successfully updated"
-msgstr "La catégorie a été mise à jour avec succès"
+msgstr "La catégorie a été mise à jour."
 
 msgid "Return to blogroll"
 msgstr "Retourner à la liste des liens"
@@ -533,22 +533,22 @@ msgid "Nothing to import"
 msgstr "Rien à importer"
 
 msgid "links have been successfully imported."
-msgstr "Les liens ont été importés avec succès."
+msgstr "Les liens ont été importés."
 
 msgid "Import operation cancelled."
 msgstr "L'importation a été annulée."
 
 msgid "Link has been successfully created."
-msgstr "Le lien a été créé avec succès."
+msgstr "Le lien a été créé."
 
 msgid "category has been successfully created."
-msgstr "La catégorie a été créée avec succès."
+msgstr "La catégorie a été créée."
 
 msgid "Items have been successfully removed."
-msgstr "Les éléments ont été retirés avec succès."
+msgstr "Les éléments ont été retirés."
 
 msgid "Items order has been successfully updated"
-msgstr "L'ordre des éléments a été mis à jour avec succès"
+msgstr "L'ordre des éléments a été mis à jour."
 
 msgid "URL"
 msgstr "URL"
@@ -599,7 +599,7 @@ msgid "Custom..."
 msgstr "Personnalisé…"
 
 msgid "Theme configuration has been successfully updated."
-msgstr "La configuration du thème a été enregistrée avec succès."
+msgstr "La configuration du thème a été enregistrée."
 
 msgid "Blowup configuration"
 msgstr "Configuration de Blowup"
@@ -878,7 +878,7 @@ msgid "Congratulation!"
 msgstr "Bravo !"
 
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
-msgstr "Votre blog a été importé avec succès. Bienvenue sur Dotclear 2 !"
+msgstr "Votre blog a été importé. Bienvenue sur Dotclear 2 !"
 
 msgid "Why don't you blog this now?"
 msgstr "Pourquoi ne bloguez-vous pas cela maintenant ?"
@@ -962,7 +962,7 @@ msgid "No items in feed."
 msgstr "Aucun élément dans le flux"
 
 msgid "Content successfully imported."
-msgstr "Le contenu a été importé avec succès."
+msgstr "Le contenu a été importé."
 
 #, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
@@ -978,7 +978,7 @@ msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "Importe un blog ou une installation Dotclear complète depuis un fichier « à plat »."
 
 msgid "Single blog successfully imported."
-msgstr "Blog importé avec succès."
+msgstr "Le blog a été importé."
 
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Êtes-vous sûr de vouloir importer un fichier de sauvegarde complet ?"
@@ -1176,7 +1176,7 @@ msgid "Every two months"
 msgstr "Tous les deux mois"
 
 msgid "Maintenance plugin has been successfully configured."
-msgstr "Le plugin de maintenance a été configuré avec succès"
+msgstr "La configuration du plugin de maintenance a été enregistrée."
 
 msgid "Set up reminders for maintenance tasks."
 msgstr "Définir les rappels pour les tâches de maintenance."
@@ -1207,7 +1207,7 @@ msgid "Failed to execute task."
 msgstr "Impossible d'exécuter la tâche."
 
 msgid "Task successfully executed."
-msgstr "La tâche a été exécutée avec succès."
+msgstr "La tâche a été exécutée."
 
 msgid "Empty templates cache directory"
 msgstr "Vider le répertoire de cache des « templates »"
@@ -1309,7 +1309,7 @@ msgid "optimize tables"
 msgstr "Optimiser les tables"
 
 msgid "Optimization successful."
-msgstr "Optimisation terminée avec succès."
+msgstr "L'optimisation a été effectuée."
 
 msgid "Failed to optimize tables."
 msgstr "Impossible d'optimiser les tables."
@@ -1333,7 +1333,7 @@ msgid "You have not sufficient permissions to view this page."
 msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page."
 
 msgid "Settings successfully updated"
-msgstr "Les réglages ont été mis à jour avec succès"
+msgstr "Les réglages ont été mis à jour."
 
 msgid "You should execute it now."
 msgstr "Vous devriez l'exécuter dès maintenant."
@@ -1389,7 +1389,7 @@ msgid "Back to pages list"
 msgstr "Retour à la liste des pages"
 
 msgid "Selected pages have been successfully reordered."
-msgstr "Les pages sélectionnées ont été réordonnées avec succès."
+msgstr "Les pages sélectionnées ont été réordonnées."
 
 msgid "No page"
 msgstr "Aucune page"
@@ -1404,10 +1404,10 @@ msgid "Are you sure you want to delete selected pages?"
 msgstr "Êtes-vous sûr de vouloir supprimer les pages sélectionnées ?"
 
 msgid "Selected pages have been successfully updated."
-msgstr "Les pages sélectionnées ont été modifiées avec succès."
+msgstr "Les pages sélectionnées ont été modifiées."
 
 msgid "Selected pages have been successfully deleted."
-msgstr "Les pages sélectionnées ont été supprimées avec succès."
+msgstr "Les pages sélectionnées ont été supprimées."
 
 msgid "Selected pages action:"
 msgstr "Action sur les pages sélectionnées :"
@@ -1431,10 +1431,10 @@ msgid "Are you sure you want to delete this page?"
 msgstr "Êtes-vous sûr de vouloir supprimer cette page ?"
 
 msgid "Page has been successfully updated."
-msgstr "La page a été modifiée avec succès."
+msgstr "La page a été modifiée."
 
 msgid "Page has been successfully created."
-msgstr "La page a été créée avec succès."
+msgstr "La page a été créée."
 
 msgid "Go to this page on the site"
 msgstr "Voir cette page sur le site"
@@ -1461,7 +1461,7 @@ msgid "Pings"
 msgstr "Signalements (pings)"
 
 msgid "Settings have been successfully updated."
-msgstr "Les réglages ont été modifiés avec succès."
+msgstr "Les réglages ont été enregistrés."
 
 msgid "Pings configuration"
 msgstr "Configuration des signalements"
@@ -1533,13 +1533,13 @@ msgid "Recent posts for %s tag"
 msgstr "Billets récent pour le mot-clé %s"
 
 msgid "Menu item has been successfully added."
-msgstr "L'item de menu a été ajouté avec succès."
+msgstr "L'item de menu a été ajouté."
 
 msgid "Label and URL of menu item are mandatory."
 msgstr "Les libellés et URL sont obligatoires."
 
 msgid "Menu items have been successfully removed."
-msgstr "Le ou les items de menu ont été supprimés avec succès."
+msgstr "Le ou les items de menu ont été supprimés."
 
 msgid "No menu items selected."
 msgstr "Aucun item de menu sélectionné."
@@ -1551,7 +1551,7 @@ msgid "URL is mandatory."
 msgstr "l’URL est obligatoire."
 
 msgid "Menu items have been successfully updated."
-msgstr "Le ou les items de menu ont été mis à jour avec succès."
+msgstr "Le ou les items de menu ont été mis à jour."
 
 msgid "Step #1"
 msgstr "Étape 1"
@@ -1627,8 +1627,8 @@ msgstr "Retirer des mots-clés"
 
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] "Le mot-clé a été ajouté avec succès des entrées sélectionnées"
-msgstr[1] "Les mot-clés ont été ajoutés avec succès des entrées sélectionnées"
+msgstr[0] "Le mot-clé a été ajouté aux entrées sélectionnées"
+msgstr[1] "Les mot-clés ont été ajoutés aux entrées sélectionnées"
 
 msgid "Add tags to this selection"
 msgstr "Ajouter des mots-clés à cette sélection"
@@ -1664,8 +1664,8 @@ msgstr "Mots-clés à ajouter :"
 
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] "Le mot-clé a été retiré avec succès des entrées sélectionnées"
-msgstr[1] "Les mot-clés ont été retirés avec succès des entrées sélectionnées"
+msgstr[0] "Le mot-clé a été retiré des entrées sélectionnées"
+msgstr[1] "Les mot-clés ont été retirés des entrées sélectionnées"
 
 msgid "No tags for selected entries"
 msgstr "Aucun mot-clé pour les billets sélectionnés"
@@ -1707,10 +1707,10 @@ msgid "Link to all tags:"
 msgstr "Lien vers tous les mots-clés :"
 
 msgid "Tag has been successfully renamed"
-msgstr "Le mot-clé a été renommé avec succès"
+msgstr "Le mot-clé a été renommé."
 
 msgid "Tag has been successfully removed"
-msgstr "Le mot-clé a été retiré avec succès"
+msgstr "Le mot-clé a été retiré."
 
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
@@ -1794,7 +1794,7 @@ msgid "Locales files"
 msgstr "Fichiers de traduction"
 
 msgid "Preferences successfully updated"
-msgstr "Préférences mises à jour avec succès"
+msgstr "Les préférences ont été mises à jour."
 
 msgid "user:preferences"
 msgstr "user:preferences"
@@ -2018,7 +2018,7 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgstr "Assistance"
 
 #~ msgid "The theme has been successfully installed."
-#~ msgstr "Le thème a été installé avec succès."
+#~ msgstr "Le thème a été installé."
 
 #~ msgid "Following plugins have not been updated:"
 #~ msgstr "Les extensions suivantes n'ont pas été mises à jour :"
@@ -2054,7 +2054,7 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgstr "Pages"
 
 #~ msgid "Settings definition successfully updated"
-#~ msgstr "Les réglages ont été enregistrés avec succès"
+#~ msgstr "Les réglages ont été enregistrés."
 
 #~ msgid "By"
 #~ msgstr "Par"
@@ -2063,7 +2063,7 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgstr "Renommer ce mot-clé :"
 
 #~ msgid "Preferences definition successfully updated"
-#~ msgstr "Définition des préférences mise à jour avec succès"
+#~ msgstr "La définition des préférences a été enregistrée."
 
 #~ msgid "Use different periods for each task"
 #~ msgstr "Utiliser une périodicité différente pour chaque tâche"
