@@ -15,6 +15,20 @@
 			MEDIA QUERIES
 */
 /* ---------------------------------------------------------------------------
+																		START
+---------------------------------------------------------------------------- */
+html {
+	font-size: 62.5%;
+	}
+body {
+	font-size: 12px; /* ie < 9 sucks */
+	font-size: 1.2rem;
+	line-height: 1.5;
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	margin: 0;
+	padding: 0;
+	}
+/* ---------------------------------------------------------------------------
 																	LAYOUTS
 ---------------------------------------------------------------------------- */
 *, *:before, *:after {
@@ -127,12 +141,12 @@
 	float: left;
 	}
 .two-cols .col:first-child,
-	.two-cols .col30.first-col {
+.two-cols .col30.first-col {
 	margin-left: 0;
 	margin-right: 2%;
 	}
 .two-cols .col:last-child,
-	.two-cols .col70.last-col {
+.two-cols .col70.last-col {
 	margin-left: 2%;
 	margin-right: 0;
 	}
@@ -149,7 +163,6 @@
 	margin-left: 1%;
 	}
 .three-cols .col:first-child {
-	width: 33.3%;
 	margin-left: 0;
 	}
 /* ------------------------------------------------- layout: optionnal one/two/three-boxes */
@@ -272,18 +285,9 @@
 /* ---------------------------------------------------------------------------
 																	HTML TAGS
 ---------------------------------------------------------------------------- */
-html {
-	font-size: 62.5%;
-	}
 body {
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
-	line-height: 1.5;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	color: #333;
 	background: #fff;
-	margin: 0;
-	padding: 0;
 	}
 /* ------------------------------------------------------------------ titres */
 h1, h2, h3, .as_h3, h4, .as_h4, h5, h6 {
@@ -423,9 +427,6 @@ code {
 pre {
 	white-space: pre;
 	white-space: -moz-pre-wrap;
-	white-space: -hp-pre-wrap;
-	white-space: -o-pre-wrap;
-	white-space: -pre-wrap;
 	white-space: pre-wrap;
 	white-space: pre-line;
 	word-wrap: break-word;
@@ -1116,6 +1117,38 @@ h1 a:hover, h1 a:focus {
 .multi-part {
 	padding-left: 1em;
 	}
+.pseudo-tabs {
+	margin: -.75em 0 2em 0;
+	border-bottom: 1px solid #bbb;
+	display: table;
+	width: 100%;
+	padding: 0;
+	line-height: 24px;
+	border-collapse: collapse;
+	}
+.pseudo-tabs li {
+	display: table-cell;
+	border-width: 0 1px;
+	border-style: solid;
+	border-color: #ccc;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	}
+.pseudo-tabs a {
+	display: block;
+	font-weight: bold;
+	padding: 0 24px;
+	border-bottom: none;
+	}
+.pseudo-tabs a:hover, .pseudo-tabs a:focus {
+	background-color: #ecf0f1;
+	color: #333;
+	}
+.pseudo-tabs a.active {
+	background-color: #ecf0f1;
+	color: #d30e60;
+	}
 /* contextual help */
 #help {
 	margin-top: 4em;
@@ -1421,7 +1454,7 @@ a.form-control.open {
 	}
 /* ------------------------------------------------------------------------- index.php */
 #dashboard-main {
-	padding: 1em 0;
+	padding: 1em;
 	}
 /* raccourcis */
 #icons {
@@ -1464,8 +1497,11 @@ a.form-control.open {
 	}
 /* billet rapide */
 #quick {
-	margin-top: 1em;
-	padding-top: 1em;
+	padding: 1em;
+	max-width: 1000px;
+	margin: 0 auto;
+	background: #f5f5f5;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
 	}
 #quick h3 {
 	margin-bottom: 0.2em;
@@ -1492,7 +1528,7 @@ a.form-control.open {
 	}
 /* modules additionnels */
 #dashboard-boxes {
-	margin: 2em auto 1em;
+	margin: 1em auto 1em;
 	padding-top: 2em;
 	}
 .db-items, .db-contents {
