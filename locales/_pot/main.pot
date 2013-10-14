@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 07:20+0200\n"
+"POT-Creation-Date: 2013-10-14 13:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4150,19 +4150,19 @@ msgid "Plugins"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:4
-msgid "moyenne"
+msgid "medium"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:5
-msgid "petite"
+msgid "small"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:6
-msgid "vignettes"
+msgid "thumbnail"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:7
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #: inc/core/_fake_l10n.php:11
