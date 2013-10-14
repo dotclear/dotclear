@@ -331,7 +331,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'</p>'.
 		'<p class="area"><label class="required" '.
 		'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-		form::textarea('post_content',50,7).
+		form::textarea('post_content',50,10).
 		'</p>'.
 		'<p><label for="cat_id" class="classic">'.__('Category:').'</label> '.
 		form::combo('cat_id',$categories_combo).'</p>'.
