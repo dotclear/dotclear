@@ -21,7 +21,7 @@ $core->addBehavior('adminPageHelpBlock',array('attachmentAdmin','adminPageHelpBl
 
 class attachmentAdmin
 {
-	function adminPageHelpBlock($blocks)
+	public static function adminPageHelpBlock($blocks)
 	{
 		$found = false;
 		foreach($blocks as $block) {
