@@ -131,7 +131,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		echo
 		'<p class="info vertical-separator">'.sprintf(
 			__("Visit %s repository, the resources center for Dotclear."),
-			'<a href="http://themes.dotaddict.org/dc2/"</a>'
+			'<a href="http://themes.dotaddict.org/dc2/">Dotaddict</a>'
 			).
 		'</p>'.
 
