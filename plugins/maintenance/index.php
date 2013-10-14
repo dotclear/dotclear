@@ -252,4 +252,9 @@ else {
 
 dcPage::helpBlock('maintenance', 'maintenancetasks');
 
-echo '</body></html>';
+echo 
+'<p class="info">'.sprintf(
+     __('You can configure common options through the <a href="%s">plugins manager</a>.'),
+     'plugins.php?module=maintenance&amp;conf=1&amp;redir='.urlencode('plugin.php?p=maintenance')
+).'</p>'.
+'</body></html>';
