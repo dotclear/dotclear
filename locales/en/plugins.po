@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 19:46+0200\n"
+"POT-Creation-Date: 2013-10-14 07:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -833,6 +833,9 @@ msgstr ""
 msgid "Checks trackback source for a link to the post"
 msgstr ""
 
+msgid "Import/Export"
+msgstr ""
+
 msgid "Flat file export"
 msgstr ""
 
@@ -1078,6 +1081,9 @@ msgstr ""
 
 #, php-format
 msgid "Export functions are in the page %s."
+msgstr ""
+
+msgid "Maintenance"
 msgstr ""
 
 msgid "Servicing"
@@ -1351,9 +1357,6 @@ msgstr ""
 msgid "My first page"
 msgstr ""
 
-msgid "<p>"
-msgstr ""
-
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr ""
 
@@ -1493,6 +1496,9 @@ msgid "Archive"
 msgstr ""
 
 msgid "Page"
+msgstr ""
+
+msgid "Tags"
 msgstr ""
 
 msgid "User defined"
@@ -1793,6 +1799,9 @@ msgid "User preferences"
 msgstr ""
 
 msgid "Global preferences"
+msgstr ""
+
+msgid "Presentation widgets"
 msgstr ""
 
 msgid "Search engine"

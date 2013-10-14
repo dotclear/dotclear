@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-08 07:23+0000\n"
+"POT-Creation-Date: 2013-10-14 07:20+0200\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -163,6 +163,9 @@ msgstr "Clé API non vérifiée"
 
 msgid "Get your own API key"
 msgstr "Obtenez votre propre clé API"
+
+msgid "Antispam"
+msgstr "Antispam"
 
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
@@ -387,6 +390,9 @@ msgstr "Pas de fichier attaché."
 
 msgid "Add files to this entry"
 msgstr "Ajouter des fichiers à la page"
+
+msgid "Blogroll"
+msgstr "Liste des liens"
 
 msgid "manage blogroll"
 msgstr "Gestion de la liste des liens"
@@ -831,6 +837,9 @@ msgstr "Impossible d'ouvrir l'image."
 msgid "Checks trackback source for a link to the post"
 msgstr "Contrôle si la source du rétrolien comporte un lien vers le billet"
 
+msgid "Import/Export"
+msgstr "Import/Export"
+
 msgid "Flat file export"
 msgstr "Fichier d'exportation « à plat »"
 
@@ -1077,6 +1086,9 @@ msgstr "Veuillez patientez…"
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Les fonctions d'export sont dans la page de %s."
+
+msgid "Maintenance"
+msgstr "Maintenance"
 
 msgid "Servicing"
 msgstr "Entretien"
@@ -1472,6 +1484,9 @@ msgstr "Tester les services de signalement"
 msgid "Check all"
 msgstr "Tout sélectionner"
 
+msgid "Simple menu"
+msgstr "Menu simple"
+
 msgid "All months"
 msgstr "Tous les mois"
 
@@ -1486,6 +1501,9 @@ msgstr "Archive"
 
 msgid "Page"
 msgstr "Page"
+
+msgid "Tags"
+msgstr "Mots-clés"
 
 msgid "User defined"
 msgstr "Saisie libre"
@@ -1977,24 +1995,6 @@ msgstr "Retirer le widget"
 
 msgid "Drag widgets here to remove them from this sidebar."
 msgstr "Glisser les widgets ici pour les retirer du volet."
-
-#~ msgid "Antispam"
-#~ msgstr "Antispam"
-
-#~ msgid "Blogroll"
-#~ msgstr "Liste des liens"
-
-#~ msgid "Import/Export"
-#~ msgstr "Import/Export"
-
-#~ msgid "Maintenance"
-#~ msgstr "Maintenance"
-
-#~ msgid "Tags"
-#~ msgstr "Mots-clés"
-
-#~ msgid "Simple menu"
-#~ msgstr "Menu simple"
 
 #~ msgid "Updates are available"
 #~ msgstr "Des mises à jour sont disponibles"
