@@ -2801,18 +2801,18 @@ msgid "current selection"
 msgstr "sélection courante"
 
 #, php-format
-msgid "%d module"
-msgid_plural "%d modules"
-msgstr[0] "%d plugin"
-msgstr[1] "%d plugins"
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] "%d résultat"
+msgstr[1] "%d résultats"
 
-msgid "no module"
-msgstr "pas de plugins"
+msgid "no results"
+msgstr "pas de résultats"
 
 msgid "Browse index:"
 msgstr "Parcourir l'index :"
 
-msgid "Modules list"
+msgid "Plugins list"
 msgstr "Liste des plugins"
 
 msgid "Name"
@@ -2827,16 +2827,13 @@ msgstr "Version"
 msgid "Current version"
 msgstr "Version courante"
 
-msgid "Module from official distribution"
+msgid "Plugin from official distribution"
 msgstr "Plugin de la distribution officielle"
-
-msgid "module from official distribution"
-msgstr "plugin de la distribution officielle"
 
 msgid "Configure plugin"
 msgstr "Configurer le plugin"
 
-msgid "No module matches your search."
+msgid "No plugins matched your search."
 msgstr "Aucun plugin ne correspond à votre recherche."
 
 msgid "Activate"
@@ -2851,29 +2848,29 @@ msgstr "Installer"
 msgid "Update"
 msgstr "Mise à jour"
 
-msgid "No such module."
-msgstr "Module inexistant."
+msgid "No such plugin."
+msgstr "Plugin inexistant."
 
-msgid "Module has been successfully activated."
-msgstr "Ce module a été activé."
+msgid "Plugin has been successfully activated."
+msgstr "Ce plugin a été activé."
 
-msgid "You don't have permissions to deactivate this module."
-msgstr "Vous n'avez pas les permissions pour désactiver ce module."
+msgid "You don't have permissions to deactivate this plugin."
+msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
 
-msgid "Module has been successfully deactivated."
-msgstr "Ce module a été désactivé."
+msgid "Plugin has been successfully deactivated."
+msgstr "Ce plugin a été désactivé."
 
-msgid "You don't have permissions to delete this module."
-msgstr "Vous n'avez pas les permissions pour supprimer ce module."
+msgid "You don't have permissions to delete this plugin."
+msgstr "Vous n'avez pas les permissions pour supprimer ce plugin."
 
-msgid "Module has been successfully deleted."
-msgstr "Ce module a été supprimé."
+msgid "Plugin has been successfully deleted."
+msgstr "Ce plugin a été supprimé."
 
-msgid "Module has been successfully updated."
-msgstr "Ce module a été mis à jour."
+msgid "Plugin has been successfully updated."
+msgstr "Ce plugin a été mis à jour."
 
-msgid "Module has been successfully installed."
-msgstr "Ce module a été installé."
+msgid "Plugin has been successfully installed."
+msgstr "Ce plugin a été installé."
 
 msgid "Zip file path:"
 msgstr "Chemin du fichier zip :"
@@ -2887,15 +2884,15 @@ msgstr "URL du fichier zip :"
 msgid "Download"
 msgstr "Télécharger"
 
-msgid "Unknow module ID"
+msgid "Unknow plugin ID"
 msgstr "ID de plugin inconnu"
 
-msgid "This module has no configuration file."
+msgid "This plugin has no configuration file."
 msgstr "Ce plugin n'a pas de fichier de configuration."
 
 #, php-format
-msgid "Configure plugin \"%s\""
-msgstr "Configurer le plugin \"%s\""
+msgid "Configure \"%s\""
+msgstr "Configurer \"%s\""
 
 msgid "Back"
 msgstr "Retour"
@@ -2934,11 +2931,38 @@ msgstr "Feuille de style"
 msgid "Configure theme"
 msgstr "Personnaliser le thème"
 
+msgid "No themes matched your search."
+msgstr "Aucun thème ne correspond à votre recherche."
+
 msgid "Use this one"
 msgstr "Utiliser celui-ci"
 
-msgid "Module has been successfully selected."
-msgstr "Ce module a été sélectionné."
+msgid "No such theme."
+msgstr "Thème inexistant."
+
+msgid "Theme has been successfully selected."
+msgstr "Ce thème a été sélectionné."
+
+msgid "Theme has been successfully activated."
+msgstr "Ce thème a été activé."
+
+msgid "You don't have permissions to deactivate this theme."
+msgstr "Vous n'avez pas les permissions pour désactiver ce thème."
+
+msgid "Theme has been successfully deactivated."
+msgstr "Ce thème a été désactivé."
+
+msgid "You don't have permissions to delete this theme."
+msgstr "Vous n'avez pas les permissions pour supprimer ce thème."
+
+msgid "Theme has been successfully deleted."
+msgstr "Ce thème a été supprimé."
+
+msgid "Theme has been successfully updated."
+msgstr "Ce thème a été mis à jour."
+
+msgid "Theme has been successfully installed."
+msgstr "Ce thème a été installé."
 
 msgid "First page"
 msgstr "Première page"
