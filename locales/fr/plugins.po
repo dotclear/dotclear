@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 13:18+0200\n"
+"POT-Creation-Date: 2013-10-15 10:10+0200\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -1344,6 +1344,10 @@ msgstr "Exécuter cette tâche"
 msgid "This may take a very long time."
 msgstr "Cela peut prendre un certain temps."
 
+#, php-format
+msgid "You can configure common options through the <a href=\"%s\">plugins manager</a>."
+msgstr "Vous pouvez configurer les options communes via le <a href=\"%s\">gestionnaire de plugins</a>."
+
 msgid "New page"
 msgstr "Nouvelle page"
 
@@ -1933,39 +1937,6 @@ msgstr "Mettre à jour les volets"
 msgid "Reset sidebars"
 msgstr "Réinitialiser les volets"
 
-msgid "Use of widgets"
-msgstr "Utilisation des widgets"
-
-msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
-msgstr "Les widgets sont utilisés pour ajouter des blocs de contenus divers dans vos pages publiques. Pour ajouter un widget, faites-le glisser depuis la liste des Widgets disponibles à gauche jusqu'à l'un des bandeaux sur la droite de la page. Vous pouvez ré-ordonner vos widgets dans un bandeau en le faisant glisser vers le haut ou vers le bas. Vous devez mettre à jour les bandeaux pour enregistrer vos modifications."
-
-msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next to their name."
-msgstr "Une fois inclus dans un bandeau, les widgets ont généralement des options que vous pouvez configurer. Cliquez sur la flèche à côté de leur nom pour y accéder."
-
-msgid "Reset sidebars to get back to default widgets installation."
-msgstr "Réinitialisez les bandeaux pour retrouver les widgets par défaut de votre installation."
-
-msgid "Widget templates tags"
-msgstr "Balises de widget"
-
-msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr "Si vous êtes autorisé à modifier vos fichiers de thème, vous pouvez ajouter des widgets sous forme de balise, avec leur propre configuration."
-
-msgid "To add a widget in your template, you need to write code like this:"
-msgstr "Pour ajouter un widget à votre thème, vous devez insérer un code similaire à :"
-
-msgid "Widget ID"
-msgstr "ID du widget"
-
-msgid "Setting name"
-msgstr "Nom de l'élément de réglage"
-
-msgid "Setting value"
-msgstr "Valeur de l'élément de réglage"
-
-msgid "Here are the following available widgets for your blog:"
-msgstr "Voici les widgets disponibles pour votre blog :"
-
 msgid "Widget ID:"
 msgstr "Identifiant du widget :"
 
@@ -1995,6 +1966,39 @@ msgstr "Retirer le widget"
 
 msgid "Drag widgets here to remove them from this sidebar."
 msgstr "Glisser les widgets ici pour les retirer du volet."
+
+#~ msgid "Use of widgets"
+#~ msgstr "Utilisation des widgets"
+
+#~ msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
+#~ msgstr "Les widgets sont utilisés pour ajouter des blocs de contenus divers dans vos pages publiques. Pour ajouter un widget, faites-le glisser depuis la liste des Widgets disponibles à gauche jusqu'à l'un des bandeaux sur la droite de la page. Vous pouvez ré-ordonner vos widgets dans un bandeau en le faisant glisser vers le haut ou vers le bas. Vous devez mettre à jour les bandeaux pour enregistrer vos modifications."
+
+#~ msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next to their name."
+#~ msgstr "Une fois inclus dans un bandeau, les widgets ont généralement des options que vous pouvez configurer. Cliquez sur la flèche à côté de leur nom pour y accéder."
+
+#~ msgid "Reset sidebars to get back to default widgets installation."
+#~ msgstr "Réinitialisez les bandeaux pour retrouver les widgets par défaut de votre installation."
+
+#~ msgid "Widget templates tags"
+#~ msgstr "Balises de widget"
+
+#~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
+#~ msgstr "Si vous êtes autorisé à modifier vos fichiers de thème, vous pouvez ajouter des widgets sous forme de balise, avec leur propre configuration."
+
+#~ msgid "To add a widget in your template, you need to write code like this:"
+#~ msgstr "Pour ajouter un widget à votre thème, vous devez insérer un code similaire à :"
+
+#~ msgid "Widget ID"
+#~ msgstr "ID du widget"
+
+#~ msgid "Setting name"
+#~ msgstr "Nom de l'élément de réglage"
+
+#~ msgid "Setting value"
+#~ msgstr "Valeur de l'élément de réglage"
+
+#~ msgid "Here are the following available widgets for your blog:"
+#~ msgstr "Voici les widgets disponibles pour votre blog :"
 
 #~ msgid "Updates are available"
 #~ msgstr "Des mises à jour sont disponibles"

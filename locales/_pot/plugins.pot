@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 13:18+0200\n"
+"POT-Creation-Date: 2013-10-15 10:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -494,24 +494,24 @@ msgstr ""
 msgid "Published comments RSS feed"
 msgstr ""
 
-#: plugins/attachments/_admin.php:35
+#: plugins/attachments/_admin.php:50
 msgid "Attachments"
 msgstr ""
 
-#: plugins/attachments/_admin.php:35
+#: plugins/attachments/_admin.php:50
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
 
-#: plugins/attachments/_admin.php:56
+#: plugins/attachments/_admin.php:71
 msgid "remove"
 msgstr ""
 
-#: plugins/attachments/_admin.php:65
+#: plugins/attachments/_admin.php:80
 msgid "No attachment."
 msgstr ""
 
-#: plugins/attachments/_admin.php:67
+#: plugins/attachments/_admin.php:82
 msgid "Add files to this entry"
 msgstr ""
 
@@ -1260,7 +1260,7 @@ msgid "Why don't you blog this now?"
 msgstr ""
 
 #: plugins/importExport/inc/class.dc.ieModule.php:77
-#: plugins/widgets/index.php:289
+#: plugins/widgets/index.php:270
 msgid "or"
 msgstr ""
 
@@ -1890,6 +1890,11 @@ msgstr ""
 
 #: plugins/maintenance/index.php:225
 msgid "This may take a very long time."
+msgstr ""
+
+#: plugins/maintenance/index.php:257
+#, php-format
+msgid "You can configure common options through the <a href=\"%s\">plugins manager</a>."
 msgstr ""
 
 #: plugins/pages/_admin.php:31 plugins/pages/list.php:84
@@ -2659,7 +2664,7 @@ msgstr ""
 msgid "Move widgets from this list to one of the sidebars."
 msgstr ""
 
-#: plugins/widgets/index.php:207 plugins/widgets/index.php:336
+#: plugins/widgets/index.php:207 plugins/widgets/index.php:317
 msgid "order"
 msgstr ""
 
@@ -2691,86 +2696,42 @@ msgstr ""
 msgid "Reset sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:250
-msgid "Use of widgets"
-msgstr ""
-
-#: plugins/widgets/index.php:251
-msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
-msgstr ""
-
 #: plugins/widgets/index.php:254
-msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next to their name."
-msgstr ""
-
-#: plugins/widgets/index.php:256
-msgid "Reset sidebars to get back to default widgets installation."
-msgstr ""
-
-#: plugins/widgets/index.php:257
-msgid "Widget templates tags"
-msgstr ""
-
-#: plugins/widgets/index.php:259
-msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr ""
-
-#: plugins/widgets/index.php:261
-msgid "To add a widget in your template, you need to write code like this:"
-msgstr ""
-
-#: plugins/widgets/index.php:262
-msgid "Widget ID"
-msgstr ""
-
-#: plugins/widgets/index.php:263
-msgid "Setting name"
-msgstr ""
-
-#: plugins/widgets/index.php:263
-msgid "Setting value"
-msgstr ""
-
-#: plugins/widgets/index.php:266
-msgid "Here are the following available widgets for your blog:"
-msgstr ""
-
-#: plugins/widgets/index.php:273
 msgid "Widget ID:"
 msgstr ""
 
-#: plugins/widgets/index.php:280
+#: plugins/widgets/index.php:261
 msgid "No setting for this widget"
 msgstr ""
 
-#: plugins/widgets/index.php:289
+#: plugins/widgets/index.php:270
 msgid "boolean"
 msgstr ""
 
-#: plugins/widgets/index.php:289 plugins/widgets/index.php:293
+#: plugins/widgets/index.php:270 plugins/widgets/index.php:274
 msgid "possible values:"
 msgstr ""
 
-#: plugins/widgets/index.php:293
+#: plugins/widgets/index.php:274
 msgid "listitem"
 msgstr ""
 
-#: plugins/widgets/index.php:298
+#: plugins/widgets/index.php:279
 msgid "string"
 msgstr ""
 
-#: plugins/widgets/index.php:304
+#: plugins/widgets/index.php:285
 msgid "Setting name:"
 msgstr ""
 
-#: plugins/widgets/index.php:325
+#: plugins/widgets/index.php:306
 msgid "No widget."
 msgstr ""
 
-#: plugins/widgets/index.php:339
+#: plugins/widgets/index.php:320
 msgid "Remove widget"
 msgstr ""
 
-#: plugins/widgets/index.php:352
+#: plugins/widgets/index.php:333
 msgid "Drag widgets here to remove them from this sidebar."
 msgstr ""
