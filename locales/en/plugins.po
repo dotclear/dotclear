@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 13:18+0200\n"
+"POT-Creation-Date: 2013-10-15 10:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1340,6 +1340,10 @@ msgstr ""
 msgid "This may take a very long time."
 msgstr ""
 
+#, php-format
+msgid "You can configure common options through the <a href=\"%s\">plugins manager</a>."
+msgstr ""
+
 msgid "New page"
 msgstr ""
 
@@ -1927,39 +1931,6 @@ msgid "Update sidebars"
 msgstr ""
 
 msgid "Reset sidebars"
-msgstr ""
-
-msgid "Use of widgets"
-msgstr ""
-
-msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
-msgstr ""
-
-msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next to their name."
-msgstr ""
-
-msgid "Reset sidebars to get back to default widgets installation."
-msgstr ""
-
-msgid "Widget templates tags"
-msgstr ""
-
-msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr ""
-
-msgid "To add a widget in your template, you need to write code like this:"
-msgstr ""
-
-msgid "Widget ID"
-msgstr ""
-
-msgid "Setting name"
-msgstr ""
-
-msgid "Setting value"
-msgstr ""
-
-msgid "Here are the following available widgets for your blog:"
 msgstr ""
 
 msgid "Widget ID:"
