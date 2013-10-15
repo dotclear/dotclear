@@ -35,7 +35,7 @@ body {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
+	}
 #header {
 	background: #676e78;
 	color: #FFF;
@@ -87,7 +87,7 @@ body {
 	position: absolute;
 	top: 0;
 	left: 14em;
-	width: 1em;
+	width: 15px;
 	height: 100%;
 	overflow: hidden;
 	display: block;
@@ -329,8 +329,7 @@ h3, .as_h3 {
 	font-weight: bold;
 	}
 h4, .as_h4 {
-	font-size: 14px; /* ie < 9 sucks */
-	font-size: 1.4rem;
+	font-size: 1.16em;
 	color: #676e78;
 	}
 .fieldset h3, .fieldset h4, .pretty-title {
@@ -349,8 +348,7 @@ h4, .as_h4 {
 	text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6)
 	}
 h5 {
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
+	font-size: 1em;
 	font-weight: bold;
 	color: #676e78;
 	}
@@ -376,8 +374,7 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, ul:first-child, 
 	overflow: auto;
 	}
 table {
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
+	font-size: 1em;
 	border-collapse: collapse;
 	margin: 0 0 1em 0;
 	width: 100%;
@@ -732,8 +729,7 @@ input[type=submit].delete:hover, input.delete:hover, a.button.delete:hover,
 	padding: .33em 1.33em .5em;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 	font-weight: normal;
-	font-size: 14px; /* ie < 9 sucks */
-	font-size: 1.4rem;
+	font-size: 1.16em;
 	}
 .button.add:hover, .button.add:active, .button.add:focus {
 	background-color: #9BCA1C;
@@ -882,8 +878,7 @@ p.error, p.message, p.static-msg, p.success, p.warning-msg {
 	display: inline;
 	}
 #prelude li a {
-	padding: 3px 16px 3px 8px; /* ie < 9 sucks */
-		padding: 3px 1.6rem 3px .8rem;
+	padding: 3px 16px 3px 8px;
 	background: #A2CBE9;
 	color: #000;
 	text-decoration: underline;
@@ -923,9 +918,7 @@ h1 a {
 	top: 0;
 	left: 0;
 	width: 15em;
-	height: 36px;
-	/* ie < 9 sucks */
-	height: 3.6rem;
+	height: 3em;
 	color: #fff;
 	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 	}
@@ -982,8 +975,7 @@ h1 a:hover, h1 a:focus {
 	margin: 0;
 	padding: 10px 0 10px 8px;
 	color: #676e78;
-	font-size: 14px; /* ie < 9 sucks */
-	font-size: 1.4rem;
+	font-size: 1.15em;
 	}
 #favorites-menu h3 {
 	color: #000;
@@ -1028,11 +1020,11 @@ h1 a:hover, h1 a:focus {
 	font-size: 100%
 	}
 #search-menu * {
-	height: 22px; /* ie < 9 sucks */
-	height: 2.2rem;
+	height: 24px; /* ie < 9 sucks */
+	height: 2em;
 	display: inline-block;
 	vertical-align: top;
-	line-height: 22px;
+	line-height: 24px;
 	}
 #search-menu p {
 	border: 1px solid #999;
@@ -1041,24 +1033,21 @@ h1 a:hover, h1 a:focus {
 	overflow: hidden;
 	}
 #qx {
-	width: 124px; /* ie < 9 sucks */
-	width: 12.4rem;
+	width: 10em;
 	border-bottom-left-radius: .3em;
 	border-top-left-radius: .3em;
 	background: transparent url(search.png) no-repeat 4px center;
 	text-indent: 18px;
 	padding: 0;
 	border: none;
-	height: 22px;
-	height: 2.2rem;
+	height: 2em;
 	}
 #qx:focus {
 	border: 1px solid #bee74b;
 	}
 #search-menu input[type="submit"] {
-	padding: 0 3px;
-	padding: 0 .3rem;
-	margin-left: -4px;
+	padding: 0 .25em;
+	margin-left: .33em;
 	background: #dfdfdf;
 	border-color: #999;
 	color: #333;
@@ -1069,8 +1058,7 @@ h1 a:hover, h1 a:focus {
 	text-shadow: none;
 	border: none;
 	border-left: 1px solid #999;
-	font-size: 10px; /* ie < 9 sucks */
-	font-size: 1rem;
+	font-size: .91em;
 	}
 #search-menu input[type="submit"]:hover,
 #search-menu input[type="submit"]:focus {
@@ -1162,8 +1150,7 @@ h1 a:hover, h1 a:focus {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 280px; /* ie < 9 sucks */
-	width: 28rem;
+	width: 24em;
 	border-left: 2px solid #FFD478;
 	border-top: 2px solid #FFD478;
 	margin-top: 0;
@@ -1178,8 +1165,7 @@ h1 a:hover, h1 a:focus {
 	padding: 0 1.5em 0 30px;
 	cursor: pointer;
 	color: #2373A8;
-	line-height: 36px; /* ie < 9 sucks */
-	line-height: 3.6rem;
+	line-height: 3;
 	}
 #help-button.floatable {
 	border-top: 2px solid #ccc;
@@ -1199,8 +1185,7 @@ h1 a:hover, h1 a:focus {
 	padding: .5em 0 .1em 0;
 	}
 #content.with-help #help-button {
-	right: 280px; /* ie < 9 sucks */
-	right: 28rem;
+	right: 24em;
 	background-color: #f5f5f5;
 	position: fixed;
 	top: 50px;
@@ -1413,8 +1398,7 @@ a.form-control.open {
 	display: block;
 	width: 20em;
 	margin: 1.5em auto 0;
-	font-size: 14px; /* ie < 9 sucks */
-	font-size: 1.4rem;
+	font-size: 1.16em;
 	}
 #login-screen h1 {
 	text-indent: -2000px;
@@ -1443,8 +1427,7 @@ a.form-control.open {
 	}
 #login-screen #issue {
 	margin-left: 1.33em;
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
+	font-size: .91em;
 	}
 #issue p:first-child {
 	text-align: right;
@@ -1794,7 +1777,7 @@ p.cat-title {
 .cat-buttons {
 	float: right;
 	margin-top: -.2em;
-	font-size: 11px;
+	font-size: .91em;
 	}
 .cat-buttons select {
 	padding: 1px 2px 3px 2px;
@@ -2128,8 +2111,7 @@ div.template-upload {
 	margin-top: 0;
 	}
 #entry-sidebar h4 {
-	font-size: 13px;
-	font-size: 1.3rem;
+	font-size: 1.08em;
 	margin-top: .3em;
 	}
 #entry-sidebar select {
@@ -2662,8 +2644,7 @@ h1, #top-info-blog {
 	background-color: #A2CBE9;
 	padding: 0;
 	margin: 0;
-	font-size: 10px;
-	font-size: 1rem;
+	font-size: .83em;
 	line-height: 68px;
 	overflow: hidden;
 	}
