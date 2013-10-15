@@ -197,11 +197,11 @@ class dcMaintenanceAdmin
 
 		'<p><label for="maintenance_dashboard_icon" class="classic">'.
 		form::checkbox('maintenance_dashboard_icon', 1, $core->auth->user_prefs->maintenance->dashboard_icon).
-		__('Display count of late tasks on maintenance dashboard icon').'</label></p>'.
+		__('Display overdue tasks counter on maintenance dashboard icon').'</label></p>'.
 
 		'<p><label for="maintenance_dashboard_item" class="classic">'.
 		form::checkbox('maintenance_dashboard_item', 1, $core->auth->user_prefs->maintenance->dashboard_item).
-		__('Display list of late tasks on dashboard items').'</label></p>'.
+		__('Display overdue tasks list on dashboard items').'</label></p>'.
 
 		'</div>';
 	}

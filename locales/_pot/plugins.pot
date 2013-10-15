@@ -1638,11 +1638,11 @@ msgid "Manage tasks"
 msgstr ""
 
 #: plugins/maintenance/_admin.php:200
-msgid "Display count of late tasks on maintenance dashboard icon"
+msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr ""
 
 #: plugins/maintenance/_admin.php:204
-msgid "Display list of late tasks on dashboard items"
+msgid "Display overdue tasks list on dashboard items"
 msgstr ""
 
 #: plugins/maintenance/_config.php:19 plugins/maintenance/index.php:63
@@ -2431,7 +2431,7 @@ msgid "Edit theme files"
 msgstr ""
 
 #: plugins/themeEditor/_admin.php:55
-msgid "Syntax color for theme editor"
+msgid "Syntax highlighting in theme editor"
 msgstr ""
 
 #: plugins/themeEditor/class.themeEditor.php:50
