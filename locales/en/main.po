@@ -2788,18 +2788,18 @@ msgid "current selection"
 msgstr ""
 
 #, php-format
-msgid "%d module"
-msgid_plural "%d modules"
+msgid "%d result"
+msgid_plural "%d results"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "no module"
+msgid "no results"
 msgstr ""
 
 msgid "Browse index:"
 msgstr ""
 
-msgid "Modules list"
+msgid "Plugins list"
 msgstr ""
 
 msgid "Name"
@@ -2814,16 +2814,13 @@ msgstr ""
 msgid "Current version"
 msgstr ""
 
-msgid "Module from official distribution"
-msgstr ""
-
-msgid "module from official distribution"
+msgid "Plugin from official distribution"
 msgstr ""
 
 msgid "Configure plugin"
 msgstr ""
 
-msgid "No module matches your search."
+msgid "No plugins matched your search."
 msgstr ""
 
 msgid "Activate"
@@ -2838,28 +2835,28 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-msgid "No such module."
+msgid "No such plugin."
 msgstr ""
 
-msgid "Module has been successfully activated."
+msgid "Plugin has been successfully activated."
 msgstr ""
 
-msgid "You don't have permissions to deactivate this module."
+msgid "You don't have permissions to deactivate this plugin."
 msgstr ""
 
-msgid "Module has been successfully deactivated."
+msgid "Plugin has been successfully deactivated."
 msgstr ""
 
-msgid "You don't have permissions to delete this module."
+msgid "You don't have permissions to delete this plugin."
 msgstr ""
 
-msgid "Module has been successfully deleted."
+msgid "Plugin has been successfully deleted."
 msgstr ""
 
-msgid "Module has been successfully updated."
+msgid "Plugin has been successfully updated."
 msgstr ""
 
-msgid "Module has been successfully installed."
+msgid "Plugin has been successfully installed."
 msgstr ""
 
 msgid "Zip file path:"
@@ -2874,14 +2871,14 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-msgid "Unknow module ID"
+msgid "Unknow plugin ID"
 msgstr ""
 
-msgid "This module has no configuration file."
+msgid "This plugin has no configuration file."
 msgstr ""
 
 #, php-format
-msgid "Configure plugin \"%s\""
+msgid "Configure \"%s\""
 msgstr ""
 
 msgid "Back"
@@ -2921,10 +2918,37 @@ msgstr ""
 msgid "Configure theme"
 msgstr ""
 
+msgid "No themes matched your search."
+msgstr ""
+
 msgid "Use this one"
 msgstr ""
 
-msgid "Module has been successfully selected."
+msgid "No such theme."
+msgstr ""
+
+msgid "Theme has been successfully selected."
+msgstr ""
+
+msgid "Theme has been successfully activated."
+msgstr ""
+
+msgid "You don't have permissions to deactivate this theme."
+msgstr ""
+
+msgid "Theme has been successfully deactivated."
+msgstr ""
+
+msgid "You don't have permissions to delete this theme."
+msgstr ""
+
+msgid "Theme has been successfully deleted."
+msgstr ""
+
+msgid "Theme has been successfully updated."
+msgstr ""
+
+msgid "Theme has been successfully installed."
 msgstr ""
 
 msgid "First page"

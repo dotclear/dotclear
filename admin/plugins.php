@@ -58,7 +58,7 @@ if ($list->setConfiguration()) {
 
 # -- Execute actions --
 try {
-	$list->doActions('plugins');
+	$list->doActions();
 }
 catch (Exception $e) {
 	$core->error->add($e->getMessage());

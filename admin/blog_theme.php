@@ -83,7 +83,7 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
 
 # -- Execute actions --
 try {
-	$list->doActions('themes');
+	$list->doActions();
 }
 catch (Exception $e) {
 	$core->error->add($e->getMessage());
