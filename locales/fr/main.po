@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-15 10:10+0200\n"
+"POT-Creation-Date: 2013-10-15 15:55+0200\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -2438,7 +2438,7 @@ msgid "Languages"
 msgstr "Langues"
 
 #, php-format
-msgid "%d comments"
+msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d commentaire"
 msgstr[1] "%d commentaires"
@@ -3557,6 +3557,11 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
+#~ msgid "%d comments"
+#~ msgid_plural "%d comments"
+#~ msgstr[0] "%d commentaire"
+#~ msgstr[1] "%d commentaires"
+
 #~ msgid "Configure module \"%s\""
 #~ msgstr "Configurer le plugin \"%s\""
 
@@ -3748,9 +3753,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Blogroll list"
 #~ msgstr "Liste des liens"
-
-#~ msgid "%d comment"
-#~ msgstr "%d commentaire"
 
 #~ msgid "Some plugins are installed twice:"
 #~ msgstr "Ces plugins sont installés en double :"
