@@ -490,7 +490,7 @@ class defaultFavorites
 	public static function commentsDashboard($core,$v)
 	{
 		$comment_count = $core->blog->getComments(array(),true)->f(0);
-		$str_comments = __('%d comments', '%d comments',$comment_count);
+		$str_comments = __('%d comment', '%d comments',$comment_count);
 		$v['title']= sprintf($str_comments,$comment_count);
 	}
 }
