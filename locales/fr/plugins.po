@@ -1154,10 +1154,10 @@ msgstr[1] "Il y a %s tâches à exécuter."
 msgid "Manage tasks"
 msgstr "Gérer les tâches"
 
-msgid "Display count of late tasks on maintenance dashboard icon"
+msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Afficher le nombre de tâches en retard sur l'icône Maintenance du tableau de bord"
 
-msgid "Display list of late tasks on dashboard items"
+msgid "Display overdue tasks list on dashboard items"
 msgstr "Afficher la liste des tâches en retard dans un module du tableau de bord"
 
 msgid "Never"
@@ -1739,7 +1739,7 @@ msgstr "Aucun mot-clé sur ce blog."
 msgid "Edit theme files"
 msgstr "Modifier les fichiers du thème"
 
-msgid "Syntax color for theme editor"
+msgid "Syntax highlighting in theme editor"
 msgstr "Coloration syntaxique de l'éditeur de thème"
 
 msgid "No file"

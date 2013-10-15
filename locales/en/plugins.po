@@ -1150,10 +1150,10 @@ msgstr[1] ""
 msgid "Manage tasks"
 msgstr ""
 
-msgid "Display count of late tasks on maintenance dashboard icon"
+msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr ""
 
-msgid "Display list of late tasks on dashboard items"
+msgid "Display overdue tasks list on dashboard items"
 msgstr ""
 
 msgid "Never"
@@ -1735,7 +1735,7 @@ msgstr ""
 msgid "Edit theme files"
 msgstr ""
 
-msgid "Syntax color for theme editor"
+msgid "Syntax highlighting in theme editor"
 msgstr ""
 
 msgid "No file"
