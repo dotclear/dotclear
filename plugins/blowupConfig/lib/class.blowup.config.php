@@ -48,6 +48,7 @@ class blowupConfig
 		'flourish-1' => 'Flourished 1',
 		'flourish-2' => 'Flourished 2',
 		'animals' => 'Animals',
+		'plumetis' => 'Plumetis',
 		'flamingo' => 'Flamingo',
 		'rabbit' => 'Rabbit',
 		'roadrunner-1' => 'Road Runner 1',

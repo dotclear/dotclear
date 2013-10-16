@@ -15,6 +15,7 @@ class dcFilterWords extends dcSpamFilter
 {
 	public $has_gui = true;
 	public $name = 'Bad Words';
+	public $help = 'words-filter';
 
 	private $con;
 	private $table;

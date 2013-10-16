@@ -99,5 +99,8 @@ $core->formNonce().'</p>'.
 
 echo '<p><a class="button" href="'.$p_url.'&amp;test=1">'.__('Test ping services').'</a></p>';
 ?>
+
+<?php dcPage::helpBlock('pings'); ?>
+
 </body>
 </html>
