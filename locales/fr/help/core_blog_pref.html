@@ -26,13 +26,13 @@
       <li><strong>Hors ligne</strong>&nbsp;: blog inaccessible aux visiteurs
       mais les rédacteurs peuvent se connecter.</li>
       <li><strong>Retiré</strong>&nbsp;: blog inaccessible aux visiteurs
-      comme aux rédacteurs, seuls les super-administrateurs peuvent y accéder.</li>
+      comme aux rédacteurs, seuls les super administrateurs peuvent y accéder.</li>
     </ul>
   </dd>
 
   <dt>Description du blog</dt>
   <dd>Texte libre de description du blog. Il s'agit d'un texte simple, sans
-  formatage quelconque.</dd>
+  formatage quelconque. Si le thème le prévoit, le contenu de ce champ peut s'afficher sur le blog.</dd>
 </dl>
 
 <h4>Configuration du blog</h4>
@@ -48,17 +48,17 @@
   en anglais.</dd>
 
   <dt>Fuseau horaire du blog</dt>
-  <dd>Définit le fuseau horaire qui sera utilisé pour dater les commentaires et
-  trackbacks entrant sur le blog.</dd>
+  <dd>Définit le fuseau horaire qui sera utilisé pour dater les entrées, commentaires et
+  trackbacks entrants sur le blog.</dd>
 
   <dt>Note de copyright</dt>
   <dd>Note indiquant les droits de reproduction autorisés pour le blog.</dd>
 
   <dt>Format d'URL des nouveaux billets</dt>
-  <dd>Liste déroulante permettant de choisir la forme d'URL souhaité.</dd>
+  <dd>Liste déroulante permettant de choisir la forme d'URL souhaitée.</dd>
 
   <dt>Balise HTML pour le titre des notes</dt>
-  <dd>Liste déroulante permettant de choisir une balise différente que la valeur par défaut : H4.</dd>
+  <dd>Liste déroulante permettant de choisir le niveau de titre ou une balise différente que la valeur par défaut (h4) pour l'intitulé des notes de bas de page d'un billet.</dd>
 
   <dt>Interface XML/RPC</dt>
   <dd>Permet à un client externe d'interagir avec votre blog via le protocole XML/RPC. À l'activation,
@@ -68,33 +68,29 @@
 <h4>Commentaires et rétroliens</h4>
 <dl>
   <dt>Accepter les commentaires</dt>
-  <dd>Accepter globalement les commentaires sur le blog. Ce paramètre est
-  prioritaire à celui autorisant ou non les commentaires sur un billet.</dd>
+  <dd>Accepter globalement les commentaires sur le blog. Si cette option est décochée les commentaires ne seront autorisés sur aucun billet même si le réglage individuel d'un billet indique que les commentaires sont permis.</dd>
 
   <dt>Modérer les commentaires</dt>
   <dd>Si cette option est activée, les commentaires ne seront publiés qu'après
   l'approbation d'un rédacteur.</dd>
 
-  <dt>Laisser les commentaires ouverts durant X jours</dt>
+  <dt>Laisser les commentaires ouverts durant <em>x</em> jours</dt>
   <dd>Permet d'indiquer le nombre de jours durant lesquels les commentaires
-  sont possibles sur un billet après sa publication. Aucune valeur laissera
-  les commentaires toujours ouverts.</dd>
+  sont possibles sur un billet après sa publication. Laisser ce champ vide pour ne fixer aucune limite.</dd>
 
   <dt>Syntaxe wiki pour les commentaires</dt>
   <dd>Autoriser quelques éléments de la syntaxe wiki dans les commentaires.</dd>
 
   <dt>Accepter les rétroliens</dt>
-  <dd>Accepter globalement les rétroliens sur le blog. Ce paramètre est
-  prioritaire à celui autorisant ou non les rétroliens sur un billet.</dd>
+  <dd>Accepter globalement les rétroliens sur le blog. Si cette option est décochée les rétroliens ne seront acceptés sur aucun billet même si le réglage individuel d'un billet indique qu'ils sont permis.</dd>
 
   <dt>Modérer les rétroliens</dt>
   <dd>Si cette option est activée, les rétroliens ne seront publiés qu'après
   l'approbation d'un rédacteur.</dd>
 
-  <dt>Laisser les rétroliens ouverts durant X jours</dt>
+  <dt>Laisser les rétroliens ouverts durant <em>x</em> jours</dt>
   <dd>Permet d'indiquer le nombre de jours durant lesquels les rétroliens
-  sont possibles sur un billet après sa publication. Aucune valeur laissera
-  les rétroliens toujours ouverts.</dd>
+  sont possibles sur un billet après sa publication. Laisser ce champ vide pour ne fixer aucune limite.</dd>
 
   <dt>Ajouter la relation "nofollow" aux liens des commentaires et rétroliens</dt>
   <dd>Ajoute un attribut sur les liens des commentaires et rétroliens indiquant
@@ -116,15 +112,15 @@
   <dt>Afficher des émoticônes dans les billets et commentaires</dt>
   <dd>Remplacer certaines suites de caractères comme :-) ou ;-) par des images.</dd>
 
-  <dt>Afficher X billets par page</dt>
+  <dt>Afficher <em>x</em> billets par page</dt>
   <dd>Le nombre donné sera utilisé comme limite d'affichage des billets sur la
   page d'accueil et la première page de chaque catégorie.</dd>
 
-  <dt>Afficher X billets par flux de syndication</dt>
+  <dt>Afficher <em>x</em> billets par flux de syndication</dt>
   <dd>Le nombre donné sera utilisé comme limite d'affichage des billets dans
   les flux de syndication.</dd>
 
-  <dt>Afficher X commentaires par flux de syndication</dt>
+  <dt>Afficher <em>x</em> commentaires par flux de syndication</dt>
   <dd>Le nombre donné sera utilisé comme limite d'affichage des commentaires dans
   les flux de syndication.</dd>
 
@@ -135,17 +131,16 @@
 
 <h4>Médias et images</h4>
 <dl>
-  <dt>Tailles des miniature générées (en pixels)</dt>
+  <dt>Tailles des miniatures générées (en pixels)</dt>
   <dd>Lorsque vous ajoutez une image dans la médiathèque, d'autres tailles
   sont automatiquement générées. Vous pouvez ajuster ici la dimension du plus
-  grand côté de chaque type d'image générée. En laissant le champ de saisie libre, cela indique à la médiathèque de ne pas créer le format de miniature  correspondante.</dd>
+  grand côté de chaque type d'image générée. Laisser le champ de saisie vide pour que la médiathèque ne crée pas le format de miniature  correspondante.</dd>
 
   <dt>Titres des images insérées</dt>
-  <dd>Ce champ vous permet de définir le format des titres ajoutés automatiquement à partir d'éléments des métadonnées aux balises des images.
-  de l'image.</dd>
+  <dd>Ce champ vous permet de définir le modèle des titres ajoutés automatiquement à partir d'éléments des métadonnées des images.</dd>
 
   <dt>Attributs par défaut pour l'insertion d'image</dt>
-  <dd>Les réglages choisis s'appliqueront à tous les nouvelles images insérées.</dd>
+  <dd>Les réglages choisis s'appliqueront à toutes les nouvelles images insérées.</dd>
 </dl>
 
 <h4>Paramètres d'indexation par les moteurs de recherche</h4>
@@ -155,7 +150,7 @@ que l'on trouve votre blog par le biais d'un moteur de recherche.</p>
 
 <h4>Antispam</h4>
 <p>Indiquez ici le nombre de jours après lequel vous souhaitez que les commentaires
-indésirables soient automatiquement supprimés. Un champ de saisie libre ou la valeur 0 signifie que ce mécanisme est inactive.</p>
+indésirables soient automatiquement supprimés. Laisser ce champ de saisie vide ou mettre la valeur à 0 pour ne fixer aucune limite dans le temps.</p>
 
 <h4>Formatage des dates et des heures</h4>
 <p>Certains champs permettent de formater les dates ou les heures avec des caractères particuliers dont voici la définition&nbsp;:</p>
@@ -223,7 +218,7 @@ indésirables soient automatiquement supprimés. Un champ de saisie libre ou la 
 </ul>
 
 <h4>Utilisateurs de ce blog</h4>
-<p>Liste les utilisateurs de ce blog, ainsi que leurs permissions.</p>
+<p>Liste les utilisateurs de ce blog, ainsi que leurs permissions. Si l'utilisateur n'est ni super administrateur ni administrateur, le bouton <strong>Changer les permissions</strong> permet de lui en ajouter ou supprimer.</p>
 
 </body>
 </html>
