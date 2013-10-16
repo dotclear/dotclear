@@ -239,9 +239,11 @@ dcPage::check('usage,contentadmin');
 						<div class="col">
 							<p><label for="ex1">Label simple + input text :</label><input id="ex1" type="text" /></p>
 							<p class="form-note">p class="form-note".</p>
-							<p><label for="ex2" class="required"><abbr title="'.__('Required field').'">*</abbr> Label class="required" :</label> <input id="ex2" type="text" /></p>
+							<p><label for="ex4" class="classic">Label class="classic" + input text :</label> <input id="ex4" type="text" /></p>
+							<p><label for="ex2" class="required"><abbr title="'.__('Required field').'">*</abbr> Label class="required" :</label> <input id="ex2" type="text" /><span class="form-note">span class="form-note"</span></p>
+							<p><label for="ex11" class="bold">Label class="bold" :</label> <input id="ex11" type="text" /></p>
+							<p class="form-note">La class="bold" est bien sûr à écrire en minuscules.</p>
 							<p><label for="ex3">Input class="maximal" :</label> <input id="ex3" type="text" class="maximal" /></p>
-							<p><label for="ex4" class="classic">Label class="classic" :</label> <input id="ex4" type="text" /></p>
 						</div>
 						<div class="col">
 							<p class="field"><label for="ex5">p.field label + input :</label><input id="ex5" type="text" /></p>
@@ -252,9 +254,12 @@ dcPage::check('usage,contentadmin');
 								Checkbox (label.classic)</label></p>
 							<p><label class="classic" for="ex8-1"><input type="radio" checked="checked" id="ex8-1" value="ex8-1" name="ex8-1" />
 							 Bouton radio 1 (label.classic)</label></p>
-							 <p><label class="classic" for="ex8-2"><input type="radio" id="ex8-2" value="ex8-2" name="ex8-2" />
+							<p><label class="classic" for="ex8-2"><input type="radio" id="ex8-2" value="ex8-2" name="ex8-2" />
 							 Bouton radio 2 (label.classic)</label></p>
-							 <p class="form-note">Les checkboxes et les boutons radio sont dans la balise &lt;label&gt;.</p>
+							<p class="form-note">Les checkboxes et les boutons radio sont dans la balise &lt;label&gt;.</p>
+							<p><label class="classic" for="ex9"><input type="checkbox"
+							checked="checked" id="ex9" value="1" title="intitulé du champ" /></label> <label
+							for="ex10" class="classic">checkbox.classic + label class="classic" :</label> <input id="ex10" type="text" /></p>
 						</div>
 					</form>
 					<form action="#" class="clear">
@@ -539,6 +544,9 @@ dcPage::check('usage,contentadmin');
 							</tbody>
 						</table>
 					</div>
+
+				<p>Test pour Bruno et Michel</p>
+
 			</div><!-- /content -->
 		</div><!-- /main -->
 		<div id="main-menu">
