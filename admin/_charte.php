@@ -332,15 +332,16 @@ dcPage::check('usage,contentadmin');
 					<p><a title="Titre du lien" href="http://fr.dotclear.org/blog" class="onblog_link outgoing">Lien vers le blog <img alt="" src="images/outgoing-blue.png" /></a></p>
 					<p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
 
-				<h2> Pseudo-onglets </h2>
+				<h3 id="pseudo-tabs">Pseudo-onglets </h3>
+					<p>Les pseudo-onglets permettent d'ajouter des sous-pages qui sont des liens vers d'autres pages, par opposition aux onglets qui sont des sections internes à la page.</p>
+					<p>Les pseudo-onglets sont à positionner immédiatement après le breadcrumb (ici un hr simule le trait sous le breadcrumb).</p>
+					<hr style="margin-bottom: .75em;" />
 					<ul class="pseudo-tabs">
 					  <li><a href="#">Page 1</a></li>
 					  <li><a href="#">Autre faux onglet</a></li>
 					  <li><a href="#" class="active">Onglet actif</a></li>
 					  <li><a href="#">Liste 4</a></li>
 					</ul>
-					<p>Les pseudo-onglets permettent d'ajouter des sous-pages qui sont des liens vers d'autres pages, par opposition aux onglets qui sont des sections internes à la page.</p>
-					<p>Les pseudo-onglets sont à positionner immédiatement après le breadcrumb.</p>
 
 				<h2 id="common">Tableaux</h2>
 					<p>Il existe deux mises en forme type de tableaux selon que l'on cherche à faire un tableau ordinaire
@@ -545,8 +546,15 @@ dcPage::check('usage,contentadmin');
 						</table>
 					</div>
 
-				<p>Test pour Bruno et Michel</p>
-
+				<h2 id="iconset">Icônes</h2>
+				<p>Les icônes utilisées dans l'administration sont présentes en deux formats&nbsp; 64*64px pour les grandes 
+				(qui sont affichées sur le tableau de bord si la page correspondante est choisie en favori par l'utilisateur) et 
+				16*16px pour les petits formats.</p>
+				<p>La plupart sont dérivées de la fonte d'icônes <a href="http://www.elegantthemes.com/blog/resources/elegant-icon-font">Elegant Font</a>. Les autres sont des images vectorielles réalisées 
+				par la DC Team. Nous les avons nommées <em>Traviata</em>. La palette de couleurs utilisée est la suivante&nbsp;:</p>
+				<p class="txt-center"><img src="images/palette-traviata.png" alt="palette des couleurs utilisées pour les icônes" /></p>
+				<p class="txt-center">Bleu&nbsp;: #137bbb - Vert&nbsp;: #9ac123 - Rouge&nbsp;: #c44d58 - Bleu ciel&nbsp;: #a2cbe9 - Gris clair&nbsp;: #ececec - 
+				Gris moyen&nbsp;: #b2b2b2 - Gris foncé&nbsp;: #676e78.</p>
 			</div><!-- /content -->
 		</div><!-- /main -->
 		<div id="main-menu">
@@ -573,6 +581,7 @@ dcPage::check('usage,contentadmin');
 				<ul>
 					<li><a href="#direct">Accès direct</a></li>
 					<li><a href="#prevnext">Précédent, suivant</a></li>
+					<li><a href="#pseudo-tabs">Pseudo-onglets</a></li>
 				</ul>
 				</li>
 				<li class="pretty-title">Tableaux
