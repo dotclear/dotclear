@@ -1020,7 +1020,6 @@ h1 a:hover, h1 a:focus {
 	font-size: 100%
 	}
 #search-menu * {
-	height: 24px; /* ie < 9 sucks */
 	height: 2em;
 	display: inline-block;
 	vertical-align: top;
@@ -2651,7 +2650,7 @@ h1, #top-info-blog {
 #content.with-help #help-button {
 	top: 77px;
 	}
-.one-box, .two-boxes, .two-boxes.odd, .two-boxes.even, .box,
+.one-box, .two-boxes, .box,
 	.two-cols .col {
 	width: 100%;
 	margin-left: 0;
@@ -2708,9 +2707,9 @@ h1 a:hover, h1 a:focus {
 	margin: 0;
 	padding: 6px 30px 6px 0;
 	}
-#dashboard-boxes .box.medium,
-	#dashboard-boxes .box.small,
-	#dashboard-boxes .box.large {
+#dashboard-boxes .box.medium, .box.medium,
+	#dashboard-boxes .box.small, .box.small,
+	#dashboard-boxes .box.large, .box.large {
 	width: 100%;
 	margin: 10px auto;
 	}
