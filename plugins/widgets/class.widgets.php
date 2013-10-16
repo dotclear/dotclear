@@ -138,14 +138,10 @@ class dcWidget
 	private $public_callback = null;
 	public $append_callback = null;
 	private $settings = array();
-	private $advance_id;
-	private $advanced_settings = array();
 	
 	public function serialize($order) {
 		$values = array();
 		foreach ($this->settings as $k=>$v)
-			$values[$k]=$v['value'];
-		foreach ($this->advanced_settings as $k=>$v)
 			$values[$k]=$v['value'];
 		$values['id']=$this->id;
 		$values['order']=$order;
@@ -192,21 +188,16 @@ class dcWidget
 	--------------------------------------------------- */
 	public function __get($n)
 	{
-		$setting = null;
 		if (isset($this->settings[$n])) {
-			$setting = $this->settings[$n]['value'];
-		} else if (isset($this->advanced_settings[$n])) {
-			$setting = $this->advanced_settings[$n]['value'];
+			return $this->settings[$n]['value'];
 		}
-		return $setting;
+		return null;
 	}
 	
 	public function __set($n,$v)
 	{
 		if (isset($this->settings[$n])) {
 			$this->settings[$n]['value'] = $v;
-		} else if (isset($this->advanced_settings[$n])) {
-			$this->advanced_settings[$n]['value'] = $v;
 		}
 	}
 	
@@ -230,31 +221,6 @@ class dcWidget
 		}
 	}
 	
-	public function advanced_setting($name,$title,$value,$type='text')
-	{
-		if ($type == 'combo' || $type == 'radio') {
-			$options = @func_get_arg(4);
-			if (!is_array($options)) {
-				return false;
-			}
-		}
-		
-		$this->advanced_settings[$name] = array(
-			'title' => $title,
-			'type' => $type,
-			'value' => $value
-		);
-		
-		if (isset($options)) {
-			$this->advanced_settings[$name]['options'] = $options;
-		}
-	}
-	
-	public function advance_settings()
-	{
-		return $this->advanced_settings;
-	}
-	
 	public function settings()
 	{
 		return $this->settings;
@@ -267,20 +233,6 @@ class dcWidget
 		{
 			$res .= $this->formSetting($id,$s,$pr,$i=0);
 			$i++;
-		}
-		
-		if ( count($this->advanced_settings) > 0 )
-		{
-			$res .= '<div class="widgetAdvancedSettings">';
-			$res .= '<h5>'.__('Réglages avancés').'</h5>';
-		
-			foreach ($this->advanced_settings as $id => $s)
-			{
-				$res .= $this->formSetting($id,$s,$pr,$i);
-				$i++;
-			}
-			
-			$res .= '</div>';
 		}
 		
 		return $res;
