@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-15 15:55+0200\n"
+"POT-Creation-Date: 2013-10-16 11:00+0200\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -1723,6 +1723,10 @@ msgstr "Tous les rétroliens ont été envoyés."
 msgid "Invalid publication date"
 msgstr "Date de publication invalide"
 
+#, php-format
+msgid "The post \"%s\" has been successfully updated"
+msgstr "Le billet \"%s\" a été mis à jour."
+
 msgid "Entry has been successfully created."
 msgstr "Le billet a été créé."
 
@@ -2952,6 +2956,9 @@ msgstr "Vous n'avez pas les permissions pour désactiver ce thème."
 msgid "Theme has been successfully deactivated."
 msgstr "Ce thème a été désactivé."
 
+msgid "No such module."
+msgstr "Thème inexistant."
+
 msgid "You don't have permissions to delete this theme."
 msgstr "Vous n'avez pas les permissions pour supprimer ce thème."
 
@@ -3589,9 +3596,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgid "Configure module \"%s\""
 #~ msgstr "Configurer le plugin \"%s\""
 
-#~ msgid "Theme has been successfully selected."
-#~ msgstr "Ce thème a été selectionné."
-
 #~ msgid "Antispam"
 #~ msgstr "Antispam"
 
@@ -3646,12 +3650,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgid "Theme has been successfully upgraded"
 #~ msgstr "Le thème a été mis à jour."
 
-#~ msgid "Theme has been successfully deleted."
-#~ msgstr "Le thème a été supprimé."
-
-#~ msgid "Themes"
-#~ msgstr "Thèmes"
-
 #~ msgid "Available themes in your installation"
 #~ msgstr "Thèmes disponibles sur votre installation"
 
@@ -3687,33 +3685,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Back to Blog appearance"
 #~ msgstr "Retour à Apparence du blog"
-
-#~ msgid "No such plugin."
-#~ msgstr "Plugin inexistant."
-
-#~ msgid "Plugin has been successfully deleted."
-#~ msgstr "Le plugin a été supprimé."
-
-#~ msgid "Plugin has been successfully upgraded"
-#~ msgstr "Le plugin a été mis à jour."
-
-#~ msgid "Plugin has been successfully installed."
-#~ msgstr "Le plugin a été installé."
-
-#~ msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
-#~ msgstr "Les plugins ajoutent de nouvelles fonctionnalités à Dotclear. Ici, vous pouvez activer ou désactiver les plugins installés."
-
-#~ msgid "You can find additional plugins for your blog on %s."
-#~ msgstr "Vous pouvez trouver d'autres plugins pour votre blog sur %s."
-
-#~ msgid "You can find additional plugins for your blog on %s or using the %s."
-#~ msgstr "Vous pouvez trouver d'autres plugins pour votre blog sur %s ou en utilisant l'%s."
-
-#~ msgid "DotAddict.org Installer"
-#~ msgstr "Installeur DotAddict.org"
-
-#~ msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
-#~ msgstr "Pour installer ou mettre à jour un plugin il suffit de le déposer grâce au formulaire de la section \"Installer ou mettre à jour un plugin\"."
 
 #~ msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
 #~ msgstr "Pour installer un plugin il suffit de l'extraire dans votre répertoire de plugins."

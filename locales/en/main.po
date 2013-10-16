@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-15 15:55+0200\n"
+"POT-Creation-Date: 2013-10-16 10:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1710,6 +1710,10 @@ msgstr ""
 msgid "Invalid publication date"
 msgstr ""
 
+#, php-format
+msgid "The post \"%s\" has been successfully updated"
+msgstr ""
+
 msgid "Entry has been successfully created."
 msgstr ""
 
@@ -2937,6 +2941,9 @@ msgid "You don't have permissions to deactivate this theme."
 msgstr ""
 
 msgid "Theme has been successfully deactivated."
+msgstr ""
+
+msgid "No such module."
 msgstr ""
 
 msgid "You don't have permissions to delete this theme."
