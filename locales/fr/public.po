@@ -37,12 +37,6 @@ msgstr "le"
 msgid "On"
 msgstr "Le"
 
-msgid "in"
-msgstr "dans"
-
-msgid "In"
-msgstr "Dans"
-
 msgid "Continue reading"
 msgstr "Lire la suite"
 
@@ -246,3 +240,9 @@ msgstr "Vous devez indiquer une adresse e-mail valide."
 
 msgid "Read"
 msgstr "Lire"
+
+#~ msgid "in"
+#~ msgstr "dans"
+
+#~ msgid "In"
+#~ msgstr "Dans"
