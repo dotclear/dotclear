@@ -88,7 +88,7 @@ class dcStoreParser
 			$item['tags']		= implode(', ',$tags);
 			
 			# First filter right now. If DC_DEV is set all modules are parse
-			if (defined('DC_DEV') && DC_DEV === true || version_compare(DC_VERSION,$item['dc_min'],'>=')) {
+			if (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare(DC_VERSION, $item['dc_min'], '>=', false)) {
 				$this->items[$item['id']] = $item;
 			}
 		}
