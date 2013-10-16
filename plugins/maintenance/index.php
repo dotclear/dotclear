@@ -18,7 +18,6 @@ $core->blog->settings->addNamespace('maintenance');
 $maintenance = new dcMaintenance($core);
 $tasks = $maintenance->getTasks();
 
-$msg = '';
 $headers = '';
 $p_url = 'plugin.php?p=maintenance';
 $task = null;
@@ -49,10 +48,51 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 		}
 		if (true === $code) {
 			$maintenance->setLog($task->id());
-			http::redirect($p_url.'&task='.$task->id().'&done=1&tab='.$tab.'#'.$tab);
+
+			dcPage::addSuccessNotice($task->success());
+			http::redirect($p_url.'&task='.$task->id().'&tab='.$tab.'#'.$tab);
 		}
 	}
 	catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+// Save settings
+
+if (!empty($_POST['save_settings'])) {
+
+	try {
+		$core->blog->settings->maintenance->put(
+			'plugin_message', 
+			!empty($_POST['settings_plugin_message']), 
+			'boolean', 
+			'Display alert message of late tasks on plugin page', 
+			true, 
+			true
+		);
+
+		foreach($tasks as $t) {
+			if (!empty($_POST['settings_recall_type']) && $_POST['settings_recall_type'] == 'all') {
+				$ts = $_POST['settings_recall_time'];
+			}
+			else {
+				$ts = empty($_POST['settings_ts_'.$t->id()]) ? 0 : $_POST['settings_ts_'.$t->id()];
+			}
+			$core->blog->settings->maintenance->put(
+				'ts_'.$t->id(), 
+				abs((integer) $ts), 
+				'integer', 
+				sprintf('Recall time for task %s', $t->id()), 
+				true, 
+				$t->blog()
+			);
+		}
+
+		dcPage::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
+		http::redirect($p_url.'&tab='.$tab.'#'.$tab);
+	}
+	catch(Exception $e) {
 		$core->error->add($e->getMessage());
 	}
 }
@@ -103,15 +143,6 @@ if (empty($tasks)) {
 	return null;
 }
 
-// Success message
-
-if (!empty($_GET['done']) && $tab == 'settings') {
-	$msg = dcPage::success(__('Settings successfully updated'), true, true, false);
-}
-elseif (!empty($_GET['done']) && $task) {
-	$msg = dcPage::success($task->success(), true, true, false);
-}
-
 if ($task && ($res = $task->step()) !== null) {
 
 	// Page title
@@ -123,8 +154,6 @@ if ($task && ($res = $task->step()) !== null) {
 			html::escapeHTML($task->name())=> ''
 		)
 	);
-
-	echo $msg;
 
 	// Intermediate task (task required several steps)
 
@@ -157,8 +186,6 @@ else {
 			__('Maintenance') => ''
 		)
 	);
-
-	echo $msg;
 
 	// Simple task (with only a button to start it)
 
@@ -248,13 +275,60 @@ else {
 		'</form>'.
 		'</div>';
 	}
+
+	// Settings
+
+	echo 
+	'<div id="settings" class="multi-part" title="'.__('Alert settings').'">'.
+	'<h3>'.__('Alert settings').'</h3>'.
+	'<form action="'.$p_url.'" method="post">'.
+
+	'<h4 class="pretty-title">'.__('Activation').'</h4>'.
+	'<p><label for="settings_plugin_message" class="classic">'.
+	form::checkbox('settings_plugin_message', 1, $core->blog->settings->maintenance->plugin_message).
+	__('Display alert messages on late tasks').'</label></p>'.
+
+	'<p class="info">'.sprintf(
+		__('You can place list of late tasks on your %s.'),
+		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
+	).'</p>'.
+
+	'<h4 class="pretty-title vertical-separator">'.__('Frequency').'</h4>'.
+
+	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_all'), 'all').' '.
+	'<label class="classic" for="settings_recall_all">'.
+	'<strong>'.__('Use one recall time for all tasks').'</strong></label>'.
+
+	'<p class="field wide vertical-separator"><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
+	form::combo('settings_recall_time', $combo_ts, 'seperate', 'recall-for-all').
+	'</p>'.
+
+	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_separate'), 'separate', 1).' '.
+	'<label class="classic" for="settings_recall_separate">'.
+	'<strong>'.__('Use one recall time per task').'</strong></label>';
+
+	foreach($tasks as $t)
+	{
+		echo
+		'<div class="two-boxes">'.
+
+		'<p class="field wide"><label for="settings_ts_'.$t->id().'">'.$t->task().'</label>'.
+		form::combo('settings_ts_'.$t->id(), $combo_ts, $t->ts(), 'recall-per-task').
+		'</p>'.
+
+		'</div>';
+	}
+
+	echo 
+	'<p class="field wide"><input type="submit" value="'.__('Save').'" /> '.
+	form::hidden(array('tab'), 'settings').
+	form::hidden(array('save_settings'), 1).
+	$core->formNonce().'</p>'.
+	'</form>'.
+	'</div>';
 }
 
 dcPage::helpBlock('maintenance', 'maintenancetasks');
 
 echo 
-'<p class="info">'.sprintf(
-     __('You can configure common options through the <a href="%s">plugins manager</a>.'),
-     'plugins.php?module=maintenance&amp;conf=1&amp;redir='.urlencode('plugin.php?p=maintenance')
-).'</p>'.
 '</body></html>';
