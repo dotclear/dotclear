@@ -37,6 +37,12 @@ msgstr "le"
 msgid "On"
 msgstr "Le"
 
+msgid "in"
+msgstr "dans"
+
+msgid "In"
+msgstr "Dans"
+
 msgid "Continue reading"
 msgstr "Lire la suite"
 
