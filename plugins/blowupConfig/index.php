@@ -289,8 +289,8 @@ if ($can_write_images) {
 }
 
 echo
-'<p class="field"><label for="blog_title_hide">'.__('Hide main title').' '.
-form::checkbox('blog_title_hide',1,$blowup_user['blog_title_hide']).'</label></p>'.
+'<p class="field"><label for="blog_title_hide">'.__('Hide main title').'</label> '.
+form::checkbox('blog_title_hide',1,$blowup_user['blog_title_hide']).'</p>'.
 
 '<p class="field"><label for="blog_title_f">'.__('Main title font:').'</label> '.
 form::combo('blog_title_f',blowupConfig::fontsList(),$blowup_user['blog_title_f']).'</p>'.
@@ -315,7 +315,7 @@ if ($can_write_images) {
 	}
 
 	echo
-	'<h4 class="border-top">'.__('Top image').'</h4>'.
+	'<h5 class="pretty-title">'.__('Top image').'</h4>'.
 	'<p class="field"><label for="top_image">'.__('Top image').'</label> '.
 	form::combo('top_image',$top_images,($blowup_user['top_image'] ? $blowup_user['top_image'] : 'default')).'</p>'.
 	'<p>'.__('Choose "Custom..." to upload your own image.').'</p>'.

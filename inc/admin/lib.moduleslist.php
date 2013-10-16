@@ -161,7 +161,7 @@ class adminModulesList
 	 */
 	public function setURL($url)
 	{
-		$this->page_qs = strpos('?', $url) ? '&' : '?';
+		$this->page_qs = strpos('?', $url) ? '&amp;' : '?';
 		$this->page_url = $url;
 
 		return $this;
@@ -599,7 +599,7 @@ class adminModulesList
 
 			echo 
 			'<td class="module-name nowrap" scope="row">'.($config ? 
-				'<a href="'.$this->getURL('module='.$id.'&conf=1').'" title"'.sprintf(__('Configure module "%s"'), html::escapeHTML($module['name'])).'">'.html::escapeHTML($module['name']).'</a>' : 
+				'<a href="'.$this->getURL('module='.$id.'&amp;conf=1').'" title"'.sprintf(__('Configure module "%s"'), html::escapeHTML($module['name'])).'">'.html::escapeHTML($module['name']).'</a>' : 
 				html::escapeHTML($module['name'])
 			).'</td>';
 

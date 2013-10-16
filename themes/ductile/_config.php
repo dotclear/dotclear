@@ -437,22 +437,21 @@ if (!$standalone_config) echo '</form>';
 # HTML Tab
 
 echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">'.
-'<h3 class="out-of-screen-if-js">'.__('Content').'</h3>';
+'<h3>'.__('Content').'</h3>';
 
 echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
 
-echo '<fieldset><legend>'.__('Header').'</legend>'.
-'<p class="field"><label for="subtitle_hidden">'.__('Hide blog description:').' '.
-form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.'</p>';
+echo '<h4>'.__('Header').'</h4>'.
+'<p class="field"><label for="subtitle_hidden">'.__('Hide blog description:').'</label> '.
+form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</p>';
+echo '<p class="field"><label for="logo_src">'.__('Logo URL:').'</label> '.
+	form::field('logo_src',40,255,$ductile_user['logo_src']).'</p>';
 if ($core->plugins->moduleExists('simpleMenu'))
 {
 	echo '<p>'.sprintf(__('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),'plugin.php?p=simpleMenu').'</p>';
 }
-echo '<p class="field"><label for="logo_src">'.__('Logo URL:').' '.
-	form::field('logo_src',40,255,$ductile_user['logo_src']).'</label>'.'</p>';
-echo '</fieldset>';
 
-echo '<fieldset><legend>'.__('Stickers').'</legend>';
+echo '<h4 class="border-top pretty-title">'.__('Stickers').'</h4>';
 
 echo 
 '<div class="table-outer">'.
@@ -482,11 +481,9 @@ echo
 '</tbody>'.
 '</table></div>';
 
-echo '</fieldset>';
+echo '<h4 class="border-top pretty-title">'.__('Entries list types and limits').'</h4>';
 
-echo '<fieldset><legend>'.__('Entries list types and limits').'</legend>';
-
-echo '<table id="entrieslist">'.'<caption>'.__('Entries lists').'</caption>'.
+echo '<table id="entrieslist">'.'<caption class="hidden">'.__('Entries lists').'</caption>'.
 '<thead>'.
 '<tr>'.
 '<th scope="col">'.__('Context').'</th>'.
@@ -512,12 +509,9 @@ echo
 '</tbody>'.
 '</table>';
 
-echo '</fieldset>';
-
-echo '<fieldset><legend>'.__('Miscellaneous options').'</legend>';
-echo '<p class="field"><label for="preview_not_mandatory">'.__('Comment preview is not mandatory:').' '.
-form::checkbox('preview_not_mandatory',1,$ductile_user['preview_not_mandatory']).'</label>'.'</p>';
-echo '</fieldset>';
+echo '<h4 class="border-top pretty-title">'.__('Miscellaneous options').'</h4>';
+echo '<p><label for="preview_not_mandatory" class="classic">'.__('Comment preview is not mandatory:').'</label> '.
+form::checkbox('preview_not_mandatory',1,$ductile_user['preview_not_mandatory']).'</p>';
 
 echo '<p><input type="hidden" name="conf_tab" value="html" /></p>';
 echo '<p class="clear">'.form::hidden('ds_order','').'<input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
@@ -533,46 +527,47 @@ echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" encty
 
 echo '<h3>'.__('General settings').'</h3>';
 
-echo '<fieldset><legend>'.__('Fonts').'</legend>';
+echo '<h4 class="pretty-title">'.__('Fonts').'</h4>';
 
 echo '<div class="two-cols">';
 echo '<div class="col">';
 echo
-'<p class="field"><label for="body_font">'.__('Main:').' '.
-form::combo('body_font',$fonts,$ductile_user['body_font']).'</label>'.
+'<h5>'.__('Main text').'</h5>'.
+'<p class="field"><label for="body_font">'.__('Main font:').'</label> '.
+form::combo('body_font',$fonts,$ductile_user['body_font']).
 (!empty($ductile_user['body_font']) ? ' '.fontDef($ductile_user['body_font']) : '').
+' <span class="form-note">'.__('Set to Default to use a webfont.').'</span>'.
 '</p>'.
-'<p class="form-note">'.__('Set main font to Default to use webfont below.').'</p> '.
 '<p class="field"><label for="body_webfont_family">'.__('Webfont family:').'</label> '.
 form::field('body_webfont_family',25,255,$ductile_user['body_webfont_family']).'</p>'.
 '<p class="field"><label for="body_webfont_url">'.__('Webfont URL:').'</label> '.
 form::field('body_webfont_url',50,255,$ductile_user['body_webfont_url']).'</p>'.
-'<p class="field"><label for="body_webfont_url">'.__('Webfont API:').' '.
-form::combo('body_webfont_api',$webfont_apis,$ductile_user['body_webfont_api']).'</label>'.'</p>';
+'<p class="field"><label for="body_webfont_url">'.__('Webfont API:').'</label> '.
+form::combo('body_webfont_api',$webfont_apis,$ductile_user['body_webfont_api']).'</p>';
 echo '</div>';
 echo '<div class="col">';
 echo
-'<p class="field"><label for="alternate_font">'.__('Secondary:').' '.
-form::combo('alternate_font',$fonts,$ductile_user['alternate_font']).'</label>'.
+'<h5>'.__('Secondary text').'</h5>'.
+'<p class="field"><label for="alternate_font">'.__('Secondary font:').'</label> '.
+form::combo('alternate_font',$fonts,$ductile_user['alternate_font']).
 (!empty($ductile_user['alternate_font']) ? ' '.fontDef($ductile_user['alternate_font']) : '').
+' <span class="form-note">'.__('Set to Default to use a webfont.').'</span>'.
 '</p>'.
-'<p class="form-note">'.__('Set secondary font to Default to use webfont below.').'</p> '.
 '<p class="field"><label for="alternate_webfont_family">'.__('Webfont family:').'</label> '.
 form::field('alternate_webfont_family',25,255,$ductile_user['alternate_webfont_family']).'</p>'.
 '<p class="field"><label for="alternate_webfont_url">'.__('Webfont URL:').'</label> '.
 form::field('alternate_webfont_url',50,255,$ductile_user['alternate_webfont_url']).'</p>'.
-'<p class="field"><label for="alternate_webfont_api">'.__('Webfont API:').' '.
-form::combo('alternate_webfont_api',$webfont_apis,$ductile_user['alternate_webfont_api']).'</label>'.'</p>';
+'<p class="field"><label for="alternate_webfont_api">'.__('Webfont API:').'</label> '.
+form::combo('alternate_webfont_api',$webfont_apis,$ductile_user['alternate_webfont_api']).'</p>';
 echo '</div>';
 echo '</div>';
-echo '</fieldset>';
 
+echo '<h4 class="clear border-top pretty-title">'.__('Titles').'</h4>';
 echo '<div class="two-cols">';
 echo '<div class="col">';
-
-echo '<fieldset><legend>'.__('Blog title').'</legend>'.
-'<p class="field"><label for="blog_title_w">'.__('In bold:').' '.
-form::checkbox('blog_title_w',1,$ductile_user['blog_title_w']).'</label>'.'</p>'.
+echo '<h5>'.__('Blog title').'</h5>'.
+'<p class="field"><label for="blog_title_w">'.__('In bold:').'</label> '.
+form::checkbox('blog_title_w',1,$ductile_user['blog_title_w']).'</p>'.
 
 '<p class="field"><label for="blog_title_s">'.__('Font size (in em by default):').'</label> '.
 form::field('blog_title_s',7,7,$ductile_user['blog_title_s']).'</p>'.
@@ -582,15 +577,14 @@ form::field('blog_title_c',7,7,$ductile_user['blog_title_c'],'colorpicker').
 contrastRatio($ductile_user['blog_title_c'],'#ffffff',
 	(!empty($ductile_user['blog_title_s']) ? $ductile_user['blog_title_s'] : '2em'),
 	$ductile_user['blog_title_w']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
 echo '</div>';
 echo '<div class="col">';
 
-echo '<fieldset><legend>'.__('Post title').'</legend>'.
-'<p class="field"><label for="post_title_w">'.__('In bold:').' '.
-form::checkbox('post_title_w',1,$ductile_user['post_title_w']).'</label>'.'</p>'.
+echo '<h5>'.__('Post title').'</h5>'.
+'<p class="field"><label for="post_title_w">'.__('In bold:').'</label> '.
+form::checkbox('post_title_w',1,$ductile_user['post_title_w']).'</p>'.
 
 '<p class="field"><label for="post_title_s">'.__('Font size (in em by default):').'</label> '.
 form::field('post_title_s',7,7,$ductile_user['post_title_s']).'</p>'.
@@ -600,25 +594,23 @@ form::field('post_title_c',7,7,$ductile_user['post_title_c'],'colorpicker').
 contrastRatio($ductile_user['post_title_c'],'#ffffff',
 	(!empty($ductile_user['post_title_s']) ? $ductile_user['post_title_s'] : '2.5em'),
 	$ductile_user['post_title_w']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
 echo '</div>';
 echo '</div>';
 
-echo '<fieldset><legend>'.__('Titles without link').'</legend>'.
+echo '<h5>'.__('Titles without link').'</h5>'.
 
 '<p class="field picker"><label for="post_simple_title_c">'.__('Color:').'</label> '.
 form::field('post_simple_title_c',7,7,$ductile_user['post_simple_title_c'],'colorpicker').
 contrastRatio($ductile_user['post_simple_title_c'],'#ffffff',
 	'1.1em',	// H5 minimum size
 	false).
-'</p>'.
-'</fieldset>';
+'</p>';
 
-echo '<fieldset><legend>'.__('Inside posts links').'</legend>'.
-'<p class="field"><label for="post_link_w">'.__('In bold:').' '.
-form::checkbox('post_link_w',1,$ductile_user['post_link_w']).'</label>'.'</p>'.
+echo '<h4 class="border-top pretty-title">'.__('Inside posts links').'</h4>'.
+'<p class="field"><label for="post_link_w">'.__('In bold:').'</label> '.
+form::checkbox('post_link_w',1,$ductile_user['post_link_w']).'</p>'.
 
 '<p class="field picker"><label for="post_link_v_c">'.__('Normal and visited links color:').'</label> '.
 form::field('post_link_v_c',7,7,$ductile_user['post_link_v_c'],'colorpicker').
@@ -632,17 +624,16 @@ form::field('post_link_f_c',7,7,$ductile_user['post_link_f_c'],'colorpicker').
 contrastRatio($ductile_user['post_link_f_c'],'#ebebee',
 	'1em',
 	$ductile_user['post_link_w']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
-echo '<h3>'.__('Mobile specific settings').'</h3>';
+echo '<h3 class="border-top">'.__('Mobile specific settings').'</h3>';
 
 echo '<div class="two-cols">';
 echo '<div class="col">';
 
-echo '<fieldset><legend>'.__('Blog title').'</legend>'.
-'<p class="field"><label for="blog_title_w_m">'.__('In bold:').' '.
-form::checkbox('blog_title_w_m',1,$ductile_user['blog_title_w_m']).'</label>'.'</p>'.
+echo '<h4 class="pretty-title">'.__('Blog title').'</h4>'.
+'<p class="field"><label for="blog_title_w_m">'.__('In bold:').'</label> '.
+form::checkbox('blog_title_w_m',1,$ductile_user['blog_title_w_m']).'</p>'.
 
 '<p class="field"><label for="blog_title_s_m">'.__('Font size (in em by default):').'</label> '.
 form::field('blog_title_s_m',7,7,$ductile_user['blog_title_s_m']).'</p>'.
@@ -652,15 +643,14 @@ form::field('blog_title_c_m',7,7,$ductile_user['blog_title_c_m'],'colorpicker').
 contrastRatio($ductile_user['blog_title_c_m'],'#d7d7dc',
 	(!empty($ductile_user['blog_title_s_m']) ? $ductile_user['blog_title_s_m'] : '1.8em'),
 	$ductile_user['blog_title_w_m']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
 echo '</div>';
 echo '<div class="col">';
 
-echo '<fieldset><legend>'.__('Post title').'</legend>'.
-'<p class="field"><label for="post_title_w_m">'.__('In bold:').' '.
-form::checkbox('post_title_w_m',1,$ductile_user['post_title_w_m']).'</label>'.'</p>'.
+echo '<h4 class="pretty-title">'.__('Post title').'</h4>'.
+'<p class="field"><label for="post_title_w_m">'.__('In bold:').'</label> '.
+form::checkbox('post_title_w_m',1,$ductile_user['post_title_w_m']).'</p>'.
 
 '<p class="field"><label for="post_title_s_m">'.__('Font size (in em by default):').'</label> '.
 form::field('post_title_s_m',7,7,$ductile_user['post_title_s_m']).'</p>'.
@@ -670,14 +660,13 @@ form::field('post_title_c_m',7,7,$ductile_user['post_title_c_m'],'colorpicker').
 contrastRatio($ductile_user['post_title_c_m'],'#ffffff',
 	(!empty($ductile_user['post_title_s_m']) ? $ductile_user['post_title_s_m'] : '1.5em'),
 	$ductile_user['post_title_w_m']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
 echo '</div>';
 echo '</div>';
 
 echo '<p><input type="hidden" name="conf_tab" value="css" /></p>';
-echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
+echo '<p class="clear border-top"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
 echo '</form>';
 
 echo '</div>'; // Close tab

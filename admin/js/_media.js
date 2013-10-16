@@ -93,7 +93,7 @@
 				label = dotclear.jsUpload.msg.choose_file;
 			}
 
-			$('<p class="clear"><a class="enhanced-toggle" href="#">' + $msg + '</a></p>').click(function() {
+			$('<p class="clear"><a class="enhanced-toggle" href="#">' + $msg + '</a></p>').click(function(e) {
 				if ($container.hasClass('enhanced_uploader')) {
 					$msg = dotclear.msg.enhanced_uploader_activate;
 					label = dotclear.jsUpload.msg.choose_file;
@@ -121,6 +121,7 @@
 				$('.add-label', me).text(label);
 				
 				$container.toggleClass('enhanced_uploader');
+				e.preventDefault();
 			}).appendTo(me);
 		});
 	};

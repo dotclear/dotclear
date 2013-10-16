@@ -15,6 +15,7 @@ class dcFilterIP extends dcSpamFilter
 {
 	public $name = 'IP Filter';
 	public $has_gui = true;
+	public $help = 'ip-filter';
 
 	private $con;
 	private $table;

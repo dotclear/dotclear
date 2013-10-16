@@ -16,6 +16,12 @@ define('DC_AUTH_PAGE','auth.php');
 class dcPage
 {
 	private static $loaded_js=array();
+	private static $N_TYPES = array(
+		"success" => "success", 
+		"warning" => "warning-msg", 
+		"error" => "error", 
+		"message" => "message", 
+		"static" => "static-msg");
 
 	# Auth check
 	public static function check($permissions)
@@ -185,47 +191,61 @@ class dcPage
 		// return notices if any
 		$res = '';
 		if (isset($_SESSION['notifications'])) {
-			$types = array("success" => "success", "warning" => "warning-msg", "error" => "error");
 			$notifications = $_SESSION['notifications'];
-			foreach ($types as $type => $class) {
-				if (isset($notifications[$type])) {
-					foreach ($notifications[$type] as $n) {
-						$res .= self::getNotification($n,$class);
-					}
-				}
+			foreach ($_SESSION['notifications'] as $notification) {
+				$res .= self::getNotification($notification);
 			}
 			unset($_SESSION['notifications']);
 		}
 		return $res;
 	}
 
-	public static function addNotice($type,$message)
+	public static function addNotice($type,$message,$options=array())
 	{
-		$notification = isset($_SESSION['notifications']) ? $_SESSION['notifications'] : array();
-		$notification[$type][] = array('ts' => time(), 'text' => $message);
-		$_SESSION['notifications'] = $notification;
+		if (isset(self::$N_TYPES[$type])){
+			$class = self::$N_TYPES[$type];
+		} else {
+			$class=$type;
+		}
+		if (isset($_SESSION['notifications']) && is_array($_SESSION['notifications'])) {
+			$notifications = $_SESSION['notifications'];
+		} else {
+			$notifications = array();
+		}
+		
+		$n = array_merge($options,array('class' => $class,'ts' => time(), 'text' => $message));
+		if ($type != "static") {
+			$notifications[] = $n;
+		} else {
+			array_unshift($notifications, $n);
+		}
+		$_SESSION['notifications'] = $notifications;
 	}
 
-	public static function addSuccessNotice($message)
+	public static function addSuccessNotice($message,$options=array())
 	{
-		self::addNotice("success",$message);
+		self::addNotice("success",$message,$options);
 	}
 
-	public static function addWarningNotice($message)
+	public static function addWarningNotice($message,$options=array())
 	{
-		self::addNotice("warning",$message);
+		self::addNotice("warning",$message,$options);
 	}
 
-	public static function addErrorNotice($message)
+	public static function addErrorNotice($message,$options=array())
 	{
-		self::addNotice("error",$message);
+		self::addNotice("error",$message,$options);
 	}
 
-	protected static function getNotification($msg,$class)
+	protected static function getNotification($n)
 	{
 		global $core;
-
-		$res = '<p class="'.$class.'">'.dt::str(__('[%H:%M:%S]'),$msg['ts'],$core->auth->getInfo('user_tz')).' '.$msg['text'].'</p>';
+		$tag = (isset($n['divtag'])&& $n['divtag'])?'div':'p';
+		$ts = '';
+		if (!isset($n['with_ts']) || ($n['with_ts'] == true)) {
+			$ts = dt::str(__('[%H:%M:%S]'),$n['ts'],$core->auth->getInfo('user_tz')).' ';
+		}
+		$res = '<'.$tag.' class="'.$n['class'].'">'.$ts.$n['text'].'</'.$tag.'>';
 		return $res;
 	}
 

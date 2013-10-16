@@ -137,6 +137,10 @@ if ($filter_gui !== false)
 	echo '<p><a href="plugin.php?p=antispam" class="back">'.__('Back to filters list').'</a></p>';
 
 	echo $filter_gui;
+
+	if ($filter->help) {
+		dcPage::helpBlock($filter->help);
+	}
 }
 else
 {
@@ -249,7 +253,10 @@ else
 		'<li class="feed"><a href="'.$ham_feed.'">'.__('Published comments RSS feed').'</a></li>'.
 		'</ul>';
 	}
+
+	dcPage::helpBlock('antispam','antispam-filters');
 }
+
 ?>
 
 </body>

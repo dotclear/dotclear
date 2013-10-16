@@ -15,6 +15,7 @@ class dcFilterIpLookup extends dcSpamFilter
 {
 	public $name = 'IP Lookup';
 	public $has_gui = true;
+	public $help = 'iplookup-filter';
 
 	private $default_bls = 'sbl-xbl.spamhaus.org , bsb.spamlookup.net';
 

@@ -145,6 +145,7 @@ if (!$core->error->flag())
 	'</div>'.
 	'</form>');
 }
+dcPage::helpBlock('tag_posts');
 ?>
 </body>
 </html>

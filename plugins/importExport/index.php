@@ -106,7 +106,6 @@ echo
 	'<a href="plugin.php?p=maintenance&amp;tab=backup#backup">'.__('Maintenance').'</a>'
 ).'</p>';
 
-echo '
-</body>
-</html>';
-?>
+dcPage::helpBlock('import');
+
+echo '</body></html>';
