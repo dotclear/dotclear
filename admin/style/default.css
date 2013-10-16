@@ -594,6 +594,11 @@ label.required abbr {
 	color: #900;
 	font-size: 1.3em;
 	}
+label.bold {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 2em;
+	}
 label.area, p.area {
 	width: inherit !important;
 	}
@@ -2099,15 +2104,6 @@ div.template-upload {
 #entry-sidebar {
 	width: 16em;
 	float: right;
-	}
-#entry-content label {
-	text-transform: uppercase;
-	font-weight: bold;
-	margin-top: 2em;
-	display: inline-block;
-	}
-#entry-content label:first-child {
-	margin-top: 0;
 	}
 #entry-sidebar h4 {
 	font-size: 1.08em;
