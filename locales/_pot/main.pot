@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-15 15:55+0200\n"
+"POT-Creation-Date: 2013-10-16 11:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -195,9 +195,9 @@ msgstr ""
 #: admin/langs.php:259 admin/popup_link.php:31 admin/post.php:540
 #: admin/post.php:552 admin/post.php:679 admin/post.php:691 admin/user.php:209
 #: admin/user.php:224 admin/user.php:236 admin/user.php:308
-#: admin/users_actions.php:308 inc/admin/lib.moduleslist.php:1023
-#: inc/admin/lib.moduleslist.php:1025 inc/admin/lib.moduleslist.php:1035
-#: inc/admin/lib.moduleslist.php:1037
+#: admin/users_actions.php:308 inc/admin/lib.moduleslist.php:1022
+#: inc/admin/lib.moduleslist.php:1024 inc/admin/lib.moduleslist.php:1034
+#: inc/admin/lib.moduleslist.php:1036
 msgid "Required field"
 msgstr ""
 
@@ -231,7 +231,7 @@ msgstr ""
 
 #: admin/blog_del.php:40 admin/langs.php:66 admin/langs.php:109
 #: admin/user.php:75 admin/users_actions.php:99
-#: inc/admin/lib.moduleslist.php:973
+#: inc/admin/lib.moduleslist.php:972 inc/admin/lib.moduleslist.php:1579
 msgid "Password verification failed"
 msgstr ""
 
@@ -259,7 +259,7 @@ msgstr ""
 
 #: admin/blog_del.php:73 admin/langs.php:242 admin/langs.php:259
 #: admin/user.php:308 admin/users_actions.php:308
-#: inc/admin/lib.moduleslist.php:1025 inc/admin/lib.moduleslist.php:1037
+#: inc/admin/lib.moduleslist.php:1024 inc/admin/lib.moduleslist.php:1036
 msgid "Your password:"
 msgstr ""
 
@@ -629,7 +629,7 @@ msgstr ""
 #: inc/admin/actions/class.dcactionposts.php:305
 #: inc/admin/actions/class.dcactionposts.php:374
 #: inc/admin/actions/class.dcactionposts.php:433
-#: inc/admin/lib.moduleslist.php:1156
+#: inc/admin/lib.moduleslist.php:1155
 msgid "Save"
 msgstr ""
 
@@ -1275,7 +1275,7 @@ msgstr ""
 msgid "Remind me later"
 msgstr ""
 
-#: admin/index.php:198 admin/update.php:205
+#: admin/index.php:198 admin/update.php:205 admin/update.php:206
 msgid "Information about this version"
 msgstr ""
 
@@ -1699,7 +1699,8 @@ msgstr ""
 msgid "Language has been successfully installed."
 msgstr ""
 
-#: admin/langs.php:115 inc/admin/lib.moduleslist.php:981
+#: admin/langs.php:115 inc/admin/lib.moduleslist.php:980
+#: inc/admin/lib.moduleslist.php:1587
 msgid "Unable to move uploaded file."
 msgstr ""
 
@@ -1758,7 +1759,7 @@ msgstr ""
 msgid "Install language"
 msgstr ""
 
-#: admin/langs.php:255 inc/admin/lib.moduleslist.php:1022
+#: admin/langs.php:255 inc/admin/lib.moduleslist.php:1021
 msgid "Upload a zip file"
 msgstr ""
 
@@ -1968,7 +1969,7 @@ msgid "Clear all"
 msgstr ""
 
 #: admin/media.php:508 inc/admin/lib.dc.page.php:935
-#: inc/admin/lib.moduleslist.php:1027
+#: inc/admin/lib.moduleslist.php:1026
 msgid "Upload"
 msgstr ""
 
@@ -2355,6 +2356,11 @@ msgstr ""
 
 #: admin/post.php:204
 msgid "Invalid publication date"
+msgstr ""
+
+#: admin/post.php:301
+#, php-format
+msgid "The post \"%s\" has been successfully updated"
 msgstr ""
 
 #: admin/post.php:323 admin/post.php:397 inc/admin/lib.dc.page.php:628
@@ -2970,48 +2976,48 @@ msgstr ""
 msgid "Dotclear %s is available."
 msgstr ""
 
-#: admin/update.php:208
+#: admin/update.php:209
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr ""
 
-#: admin/update.php:212
+#: admin/update.php:213
 msgid "Update Dotclear"
 msgstr ""
 
-#: admin/update.php:219
+#: admin/update.php:220
 msgid "Manage backup files"
 msgstr ""
 
-#: admin/update.php:222
+#: admin/update.php:223
 msgid "Update backup files"
 msgstr ""
 
-#: admin/update.php:223
+#: admin/update.php:224
 msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
 msgstr ""
 
-#: admin/update.php:234
+#: admin/update.php:235
 msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
 msgstr ""
 
-#: admin/update.php:236
+#: admin/update.php:237
 #, php-format
 msgid "You should not revert to version prior to last one (%s)."
 msgstr ""
 
-#: admin/update.php:238
+#: admin/update.php:239
 msgid "Delete selected file"
 msgstr ""
 
-#: admin/update.php:239
+#: admin/update.php:240
 msgid "Revert to selected file"
 msgstr ""
 
-#: admin/update.php:250
+#: admin/update.php:251
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr ""
 
-#: admin/update.php:251
+#: admin/update.php:252
 msgid "Finish the update."
 msgstr ""
 
@@ -3592,12 +3598,12 @@ msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:695 inc/admin/lib.moduleslist.php:550
-#: inc/admin/lib.moduleslist.php:679 inc/admin/lib.moduleslist.php:1304
+#: inc/admin/lib.moduleslist.php:679 inc/admin/lib.moduleslist.php:1303
 msgid "Details"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:697 inc/admin/lib.moduleslist.php:683
-#: inc/admin/lib.moduleslist.php:1309
+#: inc/admin/lib.moduleslist.php:1308
 msgid "Support"
 msgstr ""
 
@@ -3819,13 +3825,13 @@ msgstr ""
 
 #: inc/admin/lib.moduleslist.php:351
 #, php-format
-msgid "%d module"
-msgid_plural "%d modules"
+msgid "%d result"
+msgid_plural "%d results"
 msgstr[0] ""
 msgstr[1] ""
 
 #: inc/admin/lib.moduleslist.php:356
-msgid "no module"
+msgid "no results"
 msgstr ""
 
 #: inc/admin/lib.moduleslist.php:360
@@ -3833,7 +3839,7 @@ msgid "Browse index:"
 msgstr ""
 
 #: inc/admin/lib.moduleslist.php:526
-msgid "Modules list"
+msgid "Plugins list"
 msgstr ""
 
 #: inc/admin/lib.moduleslist.php:530
@@ -3852,20 +3858,16 @@ msgstr ""
 msgid "Current version"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:635
-msgid "Module from official distribution"
-msgstr ""
-
-#: inc/admin/lib.moduleslist.php:636
-msgid "module from official distribution"
+#: inc/admin/lib.moduleslist.php:635 inc/admin/lib.moduleslist.php:636
+msgid "Plugin from official distribution"
 msgstr ""
 
 #: inc/admin/lib.moduleslist.php:703
 msgid "Configure plugin"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:731 inc/admin/lib.moduleslist.php:1379
-msgid "No module matches your search."
+#: inc/admin/lib.moduleslist.php:731
+msgid "No plugins matched your search."
 msgstr ""
 
 #: inc/admin/lib.moduleslist.php:756
@@ -3884,125 +3886,167 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:825 inc/admin/lib.moduleslist.php:843
-#: inc/admin/lib.moduleslist.php:871 inc/admin/lib.moduleslist.php:901
-#: inc/admin/lib.moduleslist.php:928 inc/admin/lib.moduleslist.php:932
-#: inc/admin/lib.moduleslist.php:1412 inc/core/class.dc.modules.php:404
-#: inc/core/class.dc.modules.php:415 inc/core/class.dc.modules.php:430
-msgid "No such module."
+#: inc/admin/lib.moduleslist.php:824 inc/admin/lib.moduleslist.php:842
+#: inc/admin/lib.moduleslist.php:870 inc/admin/lib.moduleslist.php:900
+#: inc/admin/lib.moduleslist.php:927 inc/admin/lib.moduleslist.php:931
+msgid "No such plugin."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:836
-msgid "Module has been successfully activated."
+#: inc/admin/lib.moduleslist.php:835
+msgid "Plugin has been successfully activated."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:850
-msgid "You don't have permissions to deactivate this module."
+#: inc/admin/lib.moduleslist.php:849
+msgid "You don't have permissions to deactivate this plugin."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:861
-msgid "Module has been successfully deactivated."
+#: inc/admin/lib.moduleslist.php:860
+msgid "Plugin has been successfully deactivated."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:878
-msgid "You don't have permissions to delete this module."
+#: inc/admin/lib.moduleslist.php:877
+msgid "You don't have permissions to delete this plugin."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:893
-msgid "Module has been successfully deleted."
+#: inc/admin/lib.moduleslist.php:892
+msgid "Plugin has been successfully deleted."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:918 inc/admin/lib.moduleslist.php:958
-#: inc/admin/lib.moduleslist.php:999
-msgid "Module has been successfully updated."
+#: inc/admin/lib.moduleslist.php:917 inc/admin/lib.moduleslist.php:957
+#: inc/admin/lib.moduleslist.php:998
+msgid "Plugin has been successfully updated."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:919 inc/admin/lib.moduleslist.php:1000
-msgid "Module has been successfully installed."
+#: inc/admin/lib.moduleslist.php:918 inc/admin/lib.moduleslist.php:999
+msgid "Plugin has been successfully installed."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1023
+#: inc/admin/lib.moduleslist.php:1022
 msgid "Zip file path:"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1034
+#: inc/admin/lib.moduleslist.php:1033
 msgid "Download a zip file"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1035
+#: inc/admin/lib.moduleslist.php:1034
 msgid "Zip file URL:"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1039
+#: inc/admin/lib.moduleslist.php:1038
 msgid "Download"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1076
-msgid "Unknow module ID"
+#: inc/admin/lib.moduleslist.php:1075
+msgid "Unknow plugin ID"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1085
-msgid "This module has no configuration file."
+#: inc/admin/lib.moduleslist.php:1084
+msgid "This plugin has no configuration file."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1147
+#, php-format
+msgid "Configure \"%s\""
 msgstr ""
 
 #: inc/admin/lib.moduleslist.php:1148
-#, php-format
-msgid "Configure plugin \"%s\""
-msgstr ""
-
-#: inc/admin/lib.moduleslist.php:1149
 msgid "Back"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1232
+#: inc/admin/lib.moduleslist.php:1231
 #, php-format
 msgid "Score: %s"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1251
+#: inc/admin/lib.moduleslist.php:1250
 #, php-format
 msgid "%s screenshot."
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1272
+#: inc/admin/lib.moduleslist.php:1271
 #, php-format
 msgid "by %s"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1277
+#: inc/admin/lib.moduleslist.php:1276
 #, php-format
 msgid "version %s"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1282
+#: inc/admin/lib.moduleslist.php:1281
 #, php-format
 msgid "(current version %s)"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1288
+#: inc/admin/lib.moduleslist.php:1287
 #, php-format
 msgid "(built on \"%s\")"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1292
+#: inc/admin/lib.moduleslist.php:1291
 #, php-format
 msgid "(requires \"%s\")"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1332
+#: inc/admin/lib.moduleslist.php:1331
 msgid "View stylesheet"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1339
+#: inc/admin/lib.moduleslist.php:1338
 msgid "Configure theme"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1393
+#: inc/admin/lib.moduleslist.php:1378
+msgid "No themes matched your search."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1392
 msgid "Use this one"
 msgstr ""
 
-#: inc/admin/lib.moduleslist.php:1419
-msgid "Module has been successfully selected."
+#: inc/admin/lib.moduleslist.php:1417 inc/admin/lib.moduleslist.php:1431
+#: inc/admin/lib.moduleslist.php:1449 inc/admin/lib.moduleslist.php:1507
+#: inc/admin/lib.moduleslist.php:1534 inc/admin/lib.moduleslist.php:1538
+msgid "No such theme."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1424
+msgid "Theme has been successfully selected."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1442
+msgid "Theme has been successfully activated."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1456
+msgid "You don't have permissions to deactivate this theme."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1467
+msgid "Theme has been successfully deactivated."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1477 inc/core/class.dc.modules.php:404
+#: inc/core/class.dc.modules.php:415 inc/core/class.dc.modules.php:430
+msgid "No such module."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1484
+msgid "You don't have permissions to delete this theme."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1499
+msgid "Theme has been successfully deleted."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1524 inc/admin/lib.moduleslist.php:1564
+#: inc/admin/lib.moduleslist.php:1605
+msgid "Theme has been successfully updated."
+msgstr ""
+
+#: inc/admin/lib.moduleslist.php:1525 inc/admin/lib.moduleslist.php:1606
+msgid "Theme has been successfully installed."
 msgstr ""
 
 #: inc/admin/lib.pager.php:78
