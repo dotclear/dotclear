@@ -11,17 +11,13 @@
   super administrateur.</dd>
 
   <dt>Nom du blog</dt>
-  <dd>Nom du blog, obligatoire. Il peut être modifié à tout moment sans incidence sur
-  le fonctionnement du blog.</dd>
+  <dd>Nom du blog, obligatoire. Il peut être modifié à tout moment sans incidence sur le fonctionnement du blog.</dd>
 
   <dt>URL du blog</dt>
-  <dd>URL complète du blog. Obligatoire, ne peut être modifiée que par un super
-  administrateur.</dd>
+  <dd>URL complète du blog. Obligatoire, ne peut être modifiée que par un super administrateur.</dd>
 
   <dt>Méthode de lecture de l'URL</dt>
-  <dd>Définit le mode de lecture de l'URL. PATH_INFO est conseillé, QUERY_STRING
-  doit être utilisé si le premier ne fonctionne pas. En mode PATH_INFO, l'URL du
-  blog doit se terminer par un "/" et en mode QUERY_STRING, par un "?".</dd>
+  <dd>Définit le mode de lecture de l'URL. PATH_INFO est conseillé, QUERY_STRING doit être utilisé si le premier ne fonctionne pas. En mode PATH_INFO, l'URL du blog doit se terminer par un "/" et en mode QUERY_STRING, par un "?".</dd>
 
   <dt>État du blog</dt>
   <dd>
@@ -59,10 +55,10 @@
   <dd>Note indiquant les droits de reproduction autorisés pour le blog.</dd>
 
   <dt>Format d'URL des nouveaux billets</dt>
-  <dd>A rédiger.</dd>
+  <dd>Liste déroulante permettant de choisir la forme d'URL souhaité.</dd>
 
   <dt>Balise HTML pour le titre des notes</dt>
-  <dd>A rédiger.</dd>
+  <dd>Liste déroulante permettant de choisir une balise différente que la valeur par défaut : H4.</dd>
 
   <dt>Interface XML/RPC</dt>
   <dd>Permet à un client externe d'interagir avec votre blog via le protocole XML/RPC. À l'activation,
@@ -73,13 +69,13 @@
 <dl>
   <dt>Accepter les commentaires</dt>
   <dd>Accepter globalement les commentaires sur le blog. Ce paramètre est
-  supérieur à celui autorisant ou non les commentaires sur un billet.</dd>
+  prioritaire à celui autorisant ou non les commentaires sur un billet.</dd>
 
   <dt>Modérer les commentaires</dt>
   <dd>Si cette option est activée, les commentaires ne seront publiés qu'après
   l'approbation d'un rédacteur.</dd>
 
-  <dt>Laisser les commentaires ouverts durant .. jours</dt>
+  <dt>Laisser les commentaires ouverts durant X jours</dt>
   <dd>Permet d'indiquer le nombre de jours durant lesquels les commentaires
   sont possibles sur un billet après sa publication. Aucune valeur laissera
   les commentaires toujours ouverts.</dd>
@@ -89,13 +85,13 @@
 
   <dt>Accepter les rétroliens</dt>
   <dd>Accepter globalement les rétroliens sur le blog. Ce paramètre est
-  supérieur à celui autorisant ou non les rétroliens sur un billet.</dd>
+  prioritaire à celui autorisant ou non les rétroliens sur un billet.</dd>
 
   <dt>Modérer les rétroliens</dt>
   <dd>Si cette option est activée, les rétroliens ne seront publiés qu'après
   l'approbation d'un rédacteur.</dd>
 
-  <dt>Laisser les rétroliens ouverts durant .. jours</dt>
+  <dt>Laisser les rétroliens ouverts durant X jours</dt>
   <dd>Permet d'indiquer le nombre de jours durant lesquels les rétroliens
   sont possibles sur un billet après sa publication. Aucune valeur laissera
   les rétroliens toujours ouverts.</dd>
@@ -111,24 +107,24 @@
 <dl>
   <dt>Format des dates</dt>
   <dd>Indique le format de la date d'un billet sur le blog. Voir la section
-  "formatage des dates" pour plus détails.</dd>
+  "Formatage des dates et des heures" pour plus détails.</dd>
 
   <dt>Format des heures</dt>
   <dd>Indique le format de l'heure d'un billet sur le blog. Voir la section
-  "formatage des dates" pour plus détails.</dd>
+  "Formatage des dates et des heures" pour plus détails.</dd>
 
   <dt>Afficher des émoticônes dans les billets et commentaires</dt>
   <dd>Remplacer certaines suites de caractères comme :-) ou ;-) par des images.</dd>
 
-  <dt>Afficher .. billets par page</dt>
+  <dt>Afficher X billets par page</dt>
   <dd>Le nombre donné sera utilisé comme limite d'affichage des billets sur la
   page d'accueil et la première page de chaque catégorie.</dd>
 
-  <dt>Afficher .. billets par flux de syndication</dt>
+  <dt>Afficher X billets par flux de syndication</dt>
   <dd>Le nombre donné sera utilisé comme limite d'affichage des billets dans
   les flux de syndication.</dd>
 
-  <dt>Afficher .. commentaires par flux de syndication</dt>
+  <dt>Afficher X commentaires par flux de syndication</dt>
   <dd>Le nombre donné sera utilisé comme limite d'affichage des commentaires dans
   les flux de syndication.</dd>
 
@@ -139,19 +135,17 @@
 
 <h4>Médias et images</h4>
 <dl>
-  <dt>Tailles des images générées (en pixels)</dt>
-  <dd>Lorsque vous ajoutez une image au gestionnaire de médias, d'autres tailles
+  <dt>Tailles des miniature générées (en pixels)</dt>
+  <dd>Lorsque vous ajoutez une image dans la médiathèque, d'autres tailles
   sont automatiquement générées. Vous pouvez ajuster ici la dimension du plus
-  grand côté de chaque type d'image générée. Rien ou 0 (zéro) indique au
-  gestionnaire de médias de ne pas créer la vignette correspondante.</dd>
+  grand côté de chaque type d'image générée. En laissant le champ de saisie libre, cela indique à la médiathèque de ne pas créer le format de miniature  correspondante.</dd>
 
   <dt>Titres des images insérées</dt>
-  <dd>Ce champ vous permet de définir le format des titres ajoutés automatiquement
-  aux balises des images. Le titre est composé à partir d'éléments des métadonnées
+  <dd>Ce champ vous permet de définir le format des titres ajoutés automatiquement à partir d'éléments des métadonnées aux balises des images.
   de l'image.</dd>
 
   <dt>Attributs par défaut pour l'insertion d'image</dt>
-  <dd>A rédiger et détailler.</dd>
+  <dd>Les réglages choisis s'appliqueront à tous les nouvelles images insérées.</dd>
 </dl>
 
 <h4>Paramètres d'indexation par les moteurs de recherche</h4>
@@ -160,13 +154,11 @@ et/ou archivent vos pages. Choisissez la dernière option si vous ne voulez pas
 que l'on trouve votre blog par le biais d'un moteur de recherche.</p>
 
 <h4>Antispam</h4>
-<p>Indiquez ici le délai après lequel vous souhaitez que les commentaires
-indésirables soient automatiquement supprimés. Un 0 (zéro) signifie "suppression
-immédiate", un nombre négatif désactive le mécanisme de suppression.</p>
+<p>Indiquez ici le nombre de jours après lequel vous souhaitez que les commentaires
+indésirables soient automatiquement supprimés. Un champ de saisie libre ou la valeur 0 signifie que ce mécanisme est inactive.</p>
 
-<h4>Formatage des dates</h4>
-<p>Certains champs permettent de formater les dates avec des caractères
-particuliers dont voici la définition&nbsp;:</p>
+<h4>Formatage des dates et des heures</h4>
+<p>Certains champs permettent de formater les dates ou les heures avec des caractères particuliers dont voici la définition&nbsp;:</p>
 
 <ul>
   <li><strong>%a</strong>&nbsp;: nom abrégé du jour de la semaine (local),</li>
