@@ -37,8 +37,8 @@ class pagesWidgets
 		$w->pages->setting('orderby',__('Sort:'),'asc','combo',
 			array(__('Ascending') => 'asc', __('Descending') => 'desc')
 		);
-		$w->pages->advanced_setting('content_only','',0,'radio', array(array(__('Content only'), '1'), array(__('Enclosing div'), '0')));
-		$w->pages->advanced_setting('class',__('CSS class:'),'');
+		$w->pages->setting('content_only',__('Content only'),0,'check');
+		$w->pages->setting('class',__('CSS class:'),'');
 	}
 	
 	public static function initDefaultWidgets($w,$d)

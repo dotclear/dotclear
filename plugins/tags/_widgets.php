@@ -35,8 +35,8 @@ class tagsWidgets
 				__('Except on home page') => 2
 				)
 		);
-		$w->tags->advanced_setting('content_only','',0,'radio', array(array(__('Content only'), '1'), array(__('Enclosing div'), '0')));
-		$w->tags->advanced_setting('class',__('CSS class:'),'');
+		$w->tags->setting('content_only',__('Content only'),0,'check');
+		$w->tags->setting('class',__('CSS class:'),'');
 	}
 	
 	public static function initDefaultWidgets($w,$d)

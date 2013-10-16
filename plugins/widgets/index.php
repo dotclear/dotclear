@@ -89,7 +89,6 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 						break;
 				}
 			}
-			
 		}
 		
 		try {
@@ -154,7 +153,6 @@ if (!empty($_POST['wup']) || $removing || $move )
 	
 	try
 	{
-		
 		# Removing mark as _rem widgets
 		foreach ($_POST['w'] as $nsid => $nsw) {
 			foreach ($nsw as $i => $v) {
