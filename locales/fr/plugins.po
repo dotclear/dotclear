@@ -1178,8 +1178,8 @@ msgstr "Tous les deux mois"
 msgid "Maintenance plugin has been successfully configured."
 msgstr "La configuration du plugin de maintenance a été enregistrée."
 
-msgid "Set up reminders for maintenance tasks."
-msgstr "Définir les rappels pour les tâches de maintenance."
+msgid "Alert settings"
+msgstr "Réglage des alertes"
 
 msgid "Activation"
 msgstr "Activation"
@@ -1343,10 +1343,6 @@ msgstr "Exécuter cette tâche"
 
 msgid "This may take a very long time."
 msgstr "Cela peut prendre un certain temps."
-
-#, php-format
-msgid "You can configure common options through the <a href=\"%s\">plugins manager</a>."
-msgstr "Vous pouvez configurer les options communes via le <a href=\"%s\">gestionnaire de plugins</a>."
 
 msgid "New page"
 msgstr "Nouvelle page"
