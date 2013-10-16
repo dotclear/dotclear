@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-16 11:00+0200\n"
+"POT-Creation-Date: 2013-10-16 11:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -864,14 +864,14 @@ msgstr ""
 msgid "Blog id"
 msgstr ""
 
-#: admin/blogs.php:159 inc/admin/lib.pager.php:532
+#: admin/blogs.php:159 inc/admin/lib.pager.php:537
 msgid "Entries (all types)"
 msgstr ""
 
 #: admin/blogs.php:161 admin/comments.php:46 admin/post.php:451
 #: admin/post.php:834 admin/posts.php:100 admin/users_actions.php:219
 #: inc/admin/actions/class.dcactionposts.php:104 inc/admin/lib.pager.php:189
-#: inc/admin/lib.pager.php:299 inc/admin/lib.pager.php:410
+#: inc/admin/lib.pager.php:299 inc/admin/lib.pager.php:415
 msgid "Status"
 msgstr ""
 
@@ -1160,7 +1160,7 @@ msgstr ""
 
 #: admin/comments.php:43 admin/post.php:832 admin/posts.php:96
 #: inc/admin/lib.pager.php:184 inc/admin/lib.pager.php:297
-#: inc/admin/lib.pager.php:409
+#: inc/admin/lib.pager.php:414
 msgid "Date"
 msgstr ""
 
@@ -1170,7 +1170,7 @@ msgstr ""
 
 #: admin/comments.php:45 admin/post.php:831 admin/posts.php:99
 #: inc/admin/actions/class.dcactioncomments.php:78 inc/admin/lib.pager.php:186
-#: inc/admin/lib.pager.php:298 inc/admin/lib.pager.php:408
+#: inc/admin/lib.pager.php:298 inc/admin/lib.pager.php:413
 msgid "Author"
 msgstr ""
 
@@ -2368,13 +2368,13 @@ msgid "Entry has been successfully created."
 msgstr ""
 
 #: admin/post.php:353 admin/post.php:851 inc/admin/lib.pager.php:231
-#: inc/admin/lib.pager.php:328 inc/admin/lib.pager.php:457
+#: inc/admin/lib.pager.php:328 inc/admin/lib.pager.php:462
 #: inc/core/class.dc.blog.php:96 inc/core/class.dc.blog.php:101
 msgid "Published"
 msgstr ""
 
 #: admin/post.php:356 admin/post.php:854 inc/admin/lib.pager.php:234
-#: inc/admin/lib.pager.php:331 inc/admin/lib.pager.php:460
+#: inc/admin/lib.pager.php:331 inc/admin/lib.pager.php:465
 #: inc/core/class.dc.blog.php:95 inc/core/class.dc.blog.php:100
 msgid "Unpublished"
 msgstr ""
@@ -2385,7 +2385,7 @@ msgid "Scheduled"
 msgstr ""
 
 #: admin/post.php:362 admin/post.php:857 inc/admin/lib.pager.php:240
-#: inc/admin/lib.pager.php:337 inc/admin/lib.pager.php:463
+#: inc/admin/lib.pager.php:337 inc/admin/lib.pager.php:468
 #: inc/core/class.dc.blog.php:93 inc/core/class.dc.blog.php:99
 msgid "Pending"
 msgstr ""
@@ -2460,7 +2460,7 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: admin/post.php:502 inc/admin/lib.pager.php:403
+#: admin/post.php:502 inc/admin/lib.pager.php:408
 msgid "Comments and trackbacks list"
 msgstr ""
 
@@ -2570,11 +2570,11 @@ msgstr ""
 msgid "IP address"
 msgstr ""
 
-#: admin/post.php:835 admin/post.php:875 inc/admin/lib.pager.php:486
+#: admin/post.php:835 admin/post.php:875 inc/admin/lib.pager.php:491
 msgid "Edit"
 msgstr ""
 
-#: admin/post.php:860 inc/admin/lib.pager.php:466
+#: admin/post.php:860 inc/admin/lib.pager.php:471
 #: inc/core/class.dc.blog.php:98
 msgid "Junk"
 msgstr ""
@@ -3091,19 +3091,19 @@ msgstr ""
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
-#: admin/users.php:19 inc/admin/lib.pager.php:528
+#: admin/users.php:19 inc/admin/lib.pager.php:533
 msgid "Username"
 msgstr ""
 
-#: admin/users.php:20 inc/admin/lib.pager.php:530
+#: admin/users.php:20 inc/admin/lib.pager.php:535
 msgid "Last Name"
 msgstr ""
 
-#: admin/users.php:21 inc/admin/lib.pager.php:529
+#: admin/users.php:21 inc/admin/lib.pager.php:534
 msgid "First Name"
 msgstr ""
 
-#: admin/users.php:22 inc/admin/lib.pager.php:531
+#: admin/users.php:22 inc/admin/lib.pager.php:536
 msgid "Display name"
 msgstr ""
 
@@ -4118,58 +4118,60 @@ msgstr ""
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
-#: inc/admin/lib.pager.php:401
+#: inc/admin/lib.pager.php:403
 #, php-format
-msgid "List of %s Comments or trackbacks match the filter."
-msgstr ""
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
 
-#: inc/admin/lib.pager.php:407
+#: inc/admin/lib.pager.php:412
 msgid "Type"
 msgstr ""
 
-#: inc/admin/lib.pager.php:411
+#: inc/admin/lib.pager.php:416
 msgid "Entry"
 msgstr ""
 
-#: inc/admin/lib.pager.php:474
+#: inc/admin/lib.pager.php:479
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr ""
 
-#: inc/admin/lib.pager.php:475 inc/admin/lib.pager.php:487
+#: inc/admin/lib.pager.php:480 inc/admin/lib.pager.php:492
 msgid "comment"
 msgstr ""
 
-#: inc/admin/lib.pager.php:475 inc/admin/lib.pager.php:487
+#: inc/admin/lib.pager.php:480 inc/admin/lib.pager.php:492
 msgid "trackback"
 msgstr ""
 
-#: inc/admin/lib.pager.php:484
+#: inc/admin/lib.pager.php:489
 msgid "Type and author"
 msgstr ""
 
-#: inc/admin/lib.pager.php:508
+#: inc/admin/lib.pager.php:513
 msgid "No user matches the filter"
 msgstr ""
 
-#: inc/admin/lib.pager.php:510
+#: inc/admin/lib.pager.php:515
 msgid "No user"
 msgstr ""
 
-#: inc/admin/lib.pager.php:522
+#: inc/admin/lib.pager.php:527
 #, php-format
 msgid "List of %s users match the filter."
 msgstr ""
 
-#: inc/admin/lib.pager.php:524
+#: inc/admin/lib.pager.php:529
 msgid "Users list"
 msgstr ""
 
-#: inc/admin/lib.pager.php:564
+#: inc/admin/lib.pager.php:569
 msgid "admin"
 msgstr ""
 
-#: inc/admin/lib.pager.php:567
+#: inc/admin/lib.pager.php:572
 msgid "superadmin"
 msgstr ""
 

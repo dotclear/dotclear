@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-16 11:00+0200\n"
+"POT-Creation-Date: 2013-10-16 11:07+0200\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -3022,11 +3022,13 @@ msgid "%d attachments"
 msgstr "%d annexes"
 
 msgid "No comments or trackbacks matches the filter"
-msgstr "aucun commentaire ou rétrolien correspondant au filtre"
+msgstr "aucun commentaire ou rétrolien ne correspond au filtre"
 
 #, php-format
-msgid "List of %s Comments or trackbacks match the filter."
-msgstr "Liste des %s commentaires ou rétroliens correspondant au filtre"
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] "Commentaire ou rétrolien correspondant au filtre."
+msgstr[1] "Liste des %s commentaires ou rétroliens correspondants au filtre."
 
 msgid "Type"
 msgstr "Type"
@@ -3587,6 +3589,9 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
+#~ msgid "List of %s Comments or trackbacks match the filter."
+#~ msgstr "Liste des %s commentaires ou rétroliens correspondant au filtre"
 
 #~ msgid "%d comments"
 #~ msgid_plural "%d comments"

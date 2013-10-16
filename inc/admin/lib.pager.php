@@ -398,7 +398,12 @@ class adminCommentList extends adminGenericList
 			'<table>';
 			
 			if( $filter ) {
-				$html_block .= '<caption>'.sprintf(__('List of %s Comments or trackbacks match the filter.'), $this->rs_count).'</caption>';
+				$html_block .= '<caption>'.
+					sprintf(__(
+						'Comment or trackback matching the filter.',
+						'List of %s comments or trackbacks matching the filter.',
+						$this->rs_count), $this->rs_count).
+					'</caption>';
 			} else {
 				$html_block .= '<caption class="hidden">'.__('Comments and trackbacks list').'</caption>';
 			}
