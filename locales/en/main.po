@@ -2863,6 +2863,27 @@ msgstr ""
 msgid "Plugin has been successfully installed."
 msgstr ""
 
+msgid "Activate all plugins from this list"
+msgstr ""
+
+msgid "Plugins have been successfully activated."
+msgstr ""
+
+msgid "Deactivate all plugins from this list"
+msgstr ""
+
+msgid "Plugins have been successfully deactivated."
+msgstr ""
+
+msgid "Some plugins have not been deactivated."
+msgstr ""
+
+msgid "Update all plugins from this list"
+msgstr ""
+
+msgid "Plugins have been successfully updated."
+msgstr ""
+
 msgid "Zip file path:"
 msgstr ""
 
@@ -2953,6 +2974,12 @@ msgid "Theme has been successfully deleted."
 msgstr ""
 
 msgid "Theme has been successfully updated."
+msgstr ""
+
+msgid "Update all theme from this list"
+msgstr ""
+
+msgid "Themes have been successfully updated."
 msgstr ""
 
 msgid "Theme has been successfully installed."

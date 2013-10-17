@@ -731,6 +731,21 @@ class adminModulesList
 			'<p class="message">'.__('No plugins matched your search.').'</p>';
 		}
 
+		if ($count > 1 && !empty($actions) && $this->core->auth->isSuperAdmin()) {
+			$buttons = $this->getGlobalActions($actions);
+
+			echo 
+			'<form action="'.$this->getURL().'" method="post" class="global-actions-buttons">'.
+			'<div>'.
+			$this->core->formNonce().
+			form::hidden(array('modules'), '1').
+
+			implode(' ', $buttons).
+
+			'</div>'.
+			'</form>';
+		}
+
 		return $this;
 	}
 
@@ -794,6 +809,53 @@ class adminModulesList
 			}
 		}
 
+		return $submits;
+	}
+
+	/**
+	 * Get global action buttons to add to modules list.
+	 *
+	 * @param	array	$actions	Actions keys
+	 * @return	Array of actions buttons
+	 */
+	protected function getGlobalActions($actions)
+	{
+		$submits = array();
+
+		# Use loop to keep requested order
+		foreach($actions as $action) {
+			switch($action) {
+
+				# Deactivate
+				case 'activate': if ($this->path_writable) {
+					$submits[] = 
+					'<input type="submit" name="activate" value="'.__('Activate all plugins from this list').'" />';
+				} break;
+
+				# Activate
+				case 'deactivate': if ($this->path_writable) {
+					$submits[] = 
+					'<input type="submit" name="deactivate" value="'.__('Deactivate all plugins from this list').'" class="reset" />';
+				} break;
+
+				# Update (from store)
+				case 'update': if ($this->path_writable) {
+					$submits[] = 
+					'<input type="submit" name="update" value="'.__('Update all plugins from this list').'" />';
+				} break;
+
+				# Behavior
+				case 'behavior':
+
+					# --BEHAVIOR-- adminModulesListGetGlobalActions
+					$tmp = $this->core->callBehavior('adminModulesListGetGlobalActions', $this);
+
+					if (!empty($tmp)) {
+						$submits[] = $tmp;
+					}
+				break;
+			}
+		}
 
 		return $submits;
 	}
@@ -812,7 +874,7 @@ class adminModulesList
 			return null;
 		}
 
-		# List actions
+		# Actions per module
 		if (!empty($_POST['module'])) {
 
 			$id = $_POST['module'];
@@ -892,7 +954,6 @@ class adminModulesList
 				dcPage::addSuccessNotice(__('Plugin has been successfully deleted.'));
 				http::redirect($this->getURL());
 			}
-
 			elseif (!empty($_POST['install'])) {
 
 				$updated = $this->store->get();
@@ -962,6 +1023,98 @@ class adminModulesList
 				# --BEHAVIOR-- adminModulesListDoActions
 				$this->core->callBehavior('adminModulesListDoActions', $this, $id, 'plugin');
 
+			}
+		}
+		# Global actions
+		elseif (!empty($_POST['modules'])) {
+
+			if (!empty($_POST['activate'])) {
+
+				$modules = $this->modules->getDisabledModules();
+				if (empty($modules)) {
+					throw new Exception(__('No such plugin.'));
+				}
+
+				foreach($modules as $id => $module) {
+
+					# --BEHAVIOR-- moduleBeforeActivate
+					$this->core->callBehavior('pluginBeforeActivate', $id);
+
+					$this->modules->activateModule($id);
+
+					# --BEHAVIOR-- moduleAfterActivate
+					$this->core->callBehavior('pluginAfterActivate', $id);
+
+				}
+
+				dcPage::addSuccessNotice(__('Plugins have been successfully activated.'));
+				http::redirect($this->getURL());
+			}
+
+			elseif (!empty($_POST['deactivate'])) {
+
+				$modules = $this->modules->getModules();
+				if (empty($modules)) {
+					throw new Exception(__('No such plugin.'));
+				}
+
+				$failed = false;
+				foreach($modules as $id => $module) {
+					$module[$id] = $id;
+
+					if (!$module['root_writable']) {
+						$failed = true;
+						continue;
+					}
+
+					# --BEHAVIOR-- moduleBeforeDeactivate
+					$this->core->callBehavior('pluginBeforeDeactivate', $module);
+
+					$this->modules->deactivateModule($id);
+
+					# --BEHAVIOR-- moduleAfterDeactivate
+					$this->core->callBehavior('pluginAfterDeactivate', $module);
+				}
+
+				if ($failed) {
+					dcPage::addWarningNotice(__('Some plugins have not been deactivated.'));
+				}
+				else {
+					dcPage::addSuccessNotice(__('Plugins have been successfully deactivated.'));
+				}
+				http::redirect($this->getURL());
+			}
+
+			elseif (!empty($_POST['update'])) {
+
+				$updated = $this->store->get(true);
+				if (empty($updated)) {
+					throw new Exception(__('No such plugin.'));
+				}
+
+				foreach($updated as $module) {
+
+					if (!self::$allow_multi_install) {
+						$dest = $module['root'].'/../'.basename($module['file']);
+					}
+					else {
+						$dest = $this->getPath().'/'.basename($module['file']);
+						if ($module['root'] != $dest) {
+							@file_put_contents($module['root'].'/_disabled', '');
+						}
+					}
+
+					# --BEHAVIOR-- moduleBeforeUpdate
+					$this->core->callBehavior('pluginBeforeUpdate', $module);
+
+					$this->store->process($module['file'], $dest);
+
+					# --BEHAVIOR-- moduleAfterUpdate
+					$this->core->callBehavior('pluginAfterUpdate', $module);
+				}
+
+				dcPage::addSuccessNotice(__('Plugins have been successfully updated.'));
+				http::redirect($this->getURL().'#plugins');
 			}
 		}
 		# Manual actions
@@ -1377,6 +1530,21 @@ class adminThemesList extends adminModulesList
 			echo 
 			'<p class="message">'.__('No themes matched your search.').'</p>';
 		}
+
+		if ($count > 1 && !empty($actions) && $this->core->auth->isSuperAdmin()) {
+			$buttons = $this->getGlobalActions($actions);
+
+			echo 
+			'<form action="'.$this->getURL().'" method="post" class="global-actions-buttons">'.
+			'<div>'.
+			$this->core->formNonce().
+			form::hidden(array('modules'), '1').
+
+			implode(' ', $buttons).
+
+			'</div>'.
+			'</form>';
+		}
 	}
 
 	protected function getActions($id, $module, $actions)
@@ -1397,6 +1565,36 @@ class adminThemesList extends adminModulesList
 			$submits,
 			parent::getActions($id, $module, $actions)
 		);
+	}
+
+	protected function getGlobalActions($actions)
+	{
+		$submits = array();
+
+		foreach($actions as $action) {
+			switch($action) {
+
+
+				# Update (from store)
+				case 'update': if ($this->path_writable) {
+					$submits[] = 
+					'<input type="submit" name="update" value="'.__('Update all themes from this list').'" />';
+				} break;
+
+				# Behavior
+				case 'behavior':
+
+					# --BEHAVIOR-- adminModulesListGetGlobalActions
+					$tmp = $this->core->callBehavior('adminModulesListGetGlobalActions', $this);
+
+					if (!empty($tmp)) {
+						$submits[] = $tmp;
+					}
+				break;
+			}
+		}
+
+		return $submits;
 	}
 
 	public function doActions()
@@ -1569,6 +1767,41 @@ class adminThemesList extends adminModulesList
 				# --BEHAVIOR-- adminModulesListDoActions
 				$this->core->callBehavior('adminModulesListDoActions', $this, $id, 'theme');
 
+			}
+		}
+		# Global actions
+		elseif (!empty($_POST['modules'])) {
+
+			if (!empty($_POST['update'])) {
+
+				$updated = $this->store->get(true);
+				if (empty($updated)) {
+					throw new Exception(__('No such theme.'));
+				}
+
+				foreach($updated as $module) {
+
+					if (!self::$allow_multi_install) {
+						$dest = $module['root'].'/../'.basename($module['file']);
+					}
+					else {
+						$dest = $this->getPath().'/'.basename($module['file']);
+						if ($module['root'] != $dest) {
+							@file_put_contents($module['root'].'/_disabled', '');
+						}
+					}
+
+					# --BEHAVIOR-- moduleBeforeUpdate
+					$this->core->callBehavior('themesBeforeUpdate', $module);
+
+					$this->store->process($module['file'], $dest);
+
+					# --BEHAVIOR-- moduleAfterUpdate
+					$this->core->callBehavior('themesAfterUpdate', $module);
+				}
+
+				dcPage::addSuccessNotice(__('Themes have been successfully updated.'));
+				http::redirect($this->getURL().'#themes');
 			}
 		}
 		# Manual actions
