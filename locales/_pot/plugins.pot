@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 07:12+0200\n"
+"POT-Creation-Date: 2013-10-17 09:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,11 +107,11 @@ msgid "List of categories"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:30
-msgid "RSS or Atom feed subscription links"
+msgid "Feed subscription links (RSS or Atom)"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:31
-msgid "Last entries from feed"
+msgid "List of last entries from feed (RSS or Atom)"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:32
@@ -123,7 +123,7 @@ msgid "List of last entries published"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:34
-msgid "List of last comments posted"
+msgid "List of last comments published"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:35
