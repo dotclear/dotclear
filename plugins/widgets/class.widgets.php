@@ -231,37 +231,58 @@ class dcWidget
 		$res = '';
 		foreach ($this->settings as $id => $s)
 		{
-			$wfid = "wf-".$i;
-			$iname = $pr ? $pr.'['.$id.']' : $id;
-			switch ($s['type'])
-			{
-				case 'text':
-					$res .=
-					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
-					form::field(array($iname,$wfid),20,255,html::escapeHTML($s['value']),'maximal').
-					'</p>';
-					break;
-				case 'textarea':
-					$res .=
-					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
-					form::textarea(array($iname,$wfid),30,5,html::escapeHTML($s['value']),'maximal').
-					'</p>';
-					break;
-				case 'check':
-					$res .=
-					'<p>'.form::hidden(array($iname),'0').
-					'<label class="classic" for="'.$wfid.'">'.
-					form::checkbox(array($iname,$wfid),'1',$s['value']).' '.$s['title'].
-					'</label></p>';
-					break;
-				case 'combo':
-					$res .=
-					'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
-					form::combo(array($iname,$wfid),$s['options'],$s['value']).
-					'</p>';
-					break;
-			}
+			$res .= $this->formSetting($id,$s,$pr,$i=0);
 			$i++;
+		}
+		
+		return $res;
+	}
+	
+	public function formSetting($id,$s,$pr='',&$i=0)
+	{
+		$res = '';
+		$wfid = "wf-".$i;
+		$iname = $pr ? $pr.'['.$id.']' : $id;
+		switch ($s['type'])
+		{
+			case 'text':
+				$res .=
+				'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
+				form::field(array($iname,$wfid),20,255,html::escapeHTML($s['value']),'maximal').
+				'</p>';
+				break;
+			case 'textarea':
+				$res .=
+				'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
+				form::textarea(array($iname,$wfid),30,5,html::escapeHTML($s['value']),'maximal').
+				'</p>';
+				break;
+			case 'check':
+				$res .=
+				'<p>'.form::hidden(array($iname),'0').
+				'<label class="classic" for="'.$wfid.'">'.
+				form::checkbox(array($iname,$wfid),'1',$s['value']).' '.$s['title'].
+				'</label></p>';
+				break;
+			case 'radio':
+				$res .= '<p>'.($s['title'] ? '<label class="classic">'.$s['title'].'</label><br/>' : '');
+				if(!empty($s['options'])) {
+					foreach ($s['options'] as $k => $v) {
+						$res .= $k > 0 ? '<br/>' : '';
+						$res .=
+						'<label class="classic" for="'.$wfid.'-'.$k.'">'.
+						form::radio(array($iname,$wfid.'-'.$k),$v[1],$s['value'] == $v[1]).' '.$v[0].
+						'</label>';
+					}
+				}
+				$res .= '</p>';
+				break;
+			case 'combo':
+				$res .=
+				'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
+				form::combo(array($iname,$wfid),$s['options'],$s['value']).
+				'</p>';
+				break;
 		}
 		
 		return $res;

@@ -222,6 +222,9 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
+msgid "Title (optional)"
+msgstr ""
+
 msgid "Title, Date"
 msgstr ""
 
@@ -563,6 +566,9 @@ msgid "Cancel filters and display options"
 msgstr ""
 
 msgid "List of blogs"
+msgstr ""
+
+msgid "List of categories"
 msgstr ""
 
 msgid "Blog has been successfully deleted."
