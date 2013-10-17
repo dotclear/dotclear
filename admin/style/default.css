@@ -458,6 +458,7 @@ h1 a:link, h1 a:visited {
 input[type=text], input[type=password], input[type=submit], 
 input[type=button], input[type=reset], a.button, button, textarea, select, legend {
 	border-radius: 3px;	
+	max-width: 100%;
 	}
 form {
 	display: block;
@@ -1450,7 +1451,7 @@ a.form-control.open {
 	text-align: center;
 	}
 #icons p {
-	width: 180px;
+	width: 14em;
 	text-align: center;
 	margin: 1em 0 2em;
 	padding: 1em 0;
@@ -1627,6 +1628,7 @@ li.user_admin {
 	background: #f7f7f7;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	border: 3px solid #fff;
+	max-width: 100%;
 	}
 .module-actions {
 	margin-top: 1em;
@@ -1674,6 +1676,7 @@ On adapte largeur et hauteur en fonction
 #theme-activate .box.theme { /* Thèmes installés */
 	width: 318px;
 	min-height: 304px;
+	max-width: 100%;
 	}
 #theme-deactivate .box.theme:hover {
 	background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
@@ -2646,7 +2649,7 @@ h1, #top-info-blog {
 	}
 .one-box, .two-boxes, .box,
 	.two-cols .col {
-	width: 100%;
+	width: 96%;
 	margin-left: 0;
 	margin-right: 0;
 	}
@@ -2683,6 +2686,9 @@ h1 a:hover, h1 a:focus {
 	width: 100%;
 	margin: 0;
 	}
+#dashboard-main {
+	padding: 0;
+	}
 #main-menu a {
 	display: block;
 	width: 100%;
@@ -2704,7 +2710,7 @@ h1 a:hover, h1 a:focus {
 #dashboard-boxes .box.medium, .box.medium,
 	#dashboard-boxes .box.small, .box.small,
 	#dashboard-boxes .box.large, .box.large {
-	width: 100%;
+	width: 90%;
 	margin: 10px auto;
 	}
 }
@@ -2723,10 +2729,13 @@ h1, h1 a {
 #top-info-blog select {
 	margin-bottom: .5em;
 	}
-#icons p {
-	width: 150px;
-	}
 #content.with-help #help-button {
 	top: 101px;
+	}
+#icons p {
+	width: 12em;
+	}
+.media-item {
+	width: 90%;
 	}
 }
