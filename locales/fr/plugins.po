@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-16 11:07+0200\n"
+"POT-Creation-Date: 2013-10-17 07:12+0200\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -88,19 +88,19 @@ msgid "List of categories"
 msgstr "Liste des catégories"
 
 msgid "RSS or Atom feed subscription links"
-msgstr "Liens d'abonnements aux flux RSS ou Atom"
+msgstr "Liens d'abonnement aux flux RSS ou Atom"
 
 msgid "Last entries from feed"
-msgstr "Derniers billets d'un flux"
+msgstr "Flux des derniers billets"
 
 msgid "Simple text"
 msgstr "Texte simple"
 
 msgid "List of last entries published"
-msgstr "Derniers billets publiés"
+msgstr "Liste des derniers billets publiés"
 
 msgid "List of last comments posted"
-msgstr "Liste des derniers commentaires postés"
+msgstr "Liste des derniers commentaires publiés"
 
 msgid "Tags cloud"
 msgstr "Nuage de mots-clés"
@@ -399,6 +399,9 @@ msgstr "Gestion de la liste des liens"
 
 msgid "Links"
 msgstr "Liens"
+
+msgid "Title (optional)"
+msgstr ""
 
 msgid "All categories"
 msgstr "Toutes les catégories"
@@ -1160,49 +1163,6 @@ msgstr "Afficher le nombre de tâches en retard sur l'icône Maintenance du tabl
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Afficher la liste des tâches en retard dans un module du tableau de bord"
 
-msgid "Never"
-msgstr "Jamais"
-
-msgid "Every week"
-msgstr "Chaque semaine"
-
-msgid "Every two weeks"
-msgstr "Toutes les deux semaines"
-
-msgid "Every month"
-msgstr "Chaque mois"
-
-msgid "Every two months"
-msgstr "Tous les deux mois"
-
-msgid "Maintenance plugin has been successfully configured."
-msgstr "La configuration du plugin de maintenance a été enregistrée."
-
-msgid "Alert settings"
-msgstr "Réglage des alertes"
-
-msgid "Activation"
-msgstr "Activation"
-
-msgid "Display alert messages on late tasks"
-msgstr "Afficher des messages d'alerte pour les tâches en retard"
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
-
-msgid "Frequency"
-msgstr "Périodicité"
-
-msgid "Use one recall time for all tasks"
-msgstr "Utiliser le même délai de rappel pour toutes les tâches"
-
-msgid "Recall time for all tasks:"
-msgstr "Délai de rappel pour toutes les tâches :"
-
-msgid "Use one recall time per task"
-msgstr "Utiliser un délai de rappel différent pour chaque tâche"
-
 msgid "Failed to execute task."
 msgstr "Impossible d'exécuter la tâche."
 
@@ -1329,11 +1289,26 @@ msgstr "Télécharger le theme actif du blog courant"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Il peut être utile de sauvegarder le thème courant avant tout changement ou mise à jour. Ceci comprime tout le contenu du répertoire du thème dans un seul fichier Zip."
 
+msgid "Maintenance plugin has been successfully configured."
+msgstr "La configuration du plugin de maintenance a été enregistrée."
+
+msgid "Never"
+msgstr "Jamais"
+
+msgid "Every week"
+msgstr "Chaque semaine"
+
+msgid "Every two weeks"
+msgstr "Toutes les deux semaines"
+
+msgid "Every month"
+msgstr "Chaque mois"
+
+msgid "Every two months"
+msgstr "Tous les deux mois"
+
 msgid "You have not sufficient permissions to view this page."
 msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page."
-
-msgid "Settings successfully updated"
-msgstr "Les réglages ont été mis à jour."
 
 msgid "You should execute it now."
 msgstr "Vous devriez l'exécuter dès maintenant."
@@ -1343,6 +1318,31 @@ msgstr "Exécuter cette tâche"
 
 msgid "This may take a very long time."
 msgstr "Cela peut prendre un certain temps."
+
+msgid "Alert settings"
+msgstr "Réglage des alertes"
+
+msgid "Activation"
+msgstr "Activation"
+
+msgid "Display alert messages on late tasks"
+msgstr "Afficher des messages d'alerte pour les tâches en retard"
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
+
+msgid "Frequency"
+msgstr "Périodicité"
+
+msgid "Use one recall time for all tasks"
+msgstr "Utiliser le même délai de rappel pour toutes les tâches"
+
+msgid "Recall time for all tasks:"
+msgstr "Délai de rappel pour toutes les tâches :"
+
+msgid "Use one recall time per task"
+msgstr "Utiliser un délai de rappel différent pour chaque tâche"
 
 msgid "New page"
 msgstr "Nouvelle page"
@@ -1906,7 +1906,7 @@ msgstr "Êtes-vous sûr de vouloir réinitialiser les volets ?"
 msgid "Available widgets"
 msgstr "Widgets disponibles"
 
-msgid "Move widgets from this list to one of the sidebars."
+msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Déplacez des widgets de cette liste vers l'un des volets."
 
 msgid "order"
@@ -1916,7 +1916,7 @@ msgid "Append to:"
 msgstr "Ajouter à :"
 
 msgid "Add widgets to sidebars"
-msgstr "Ajouter les widgets aux bandeaux"
+msgstr "Ajouter les widgets aux volets"
 
 msgid "Navigation sidebar"
 msgstr "Volet de navigation"
@@ -1954,26 +1954,38 @@ msgstr "chaîne de caractères"
 msgid "Setting name:"
 msgstr "Nom de l'élément de réglage :"
 
-msgid "No widget."
-msgstr "Aucun widget."
+msgid "No widget for now."
+msgstr "Aucun widget pour le moment."
+
+msgid "Up the widget"
+msgstr "Monter le widget"
+
+msgid "Down the widget"
+msgstr "Descendre le widget"
 
 msgid "Remove widget"
 msgstr "Retirer le widget"
 
-msgid "Drag widgets here to remove them from this sidebar."
+msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
-#~ msgid "Use of widgets"
-#~ msgstr "Utilisation des widgets"
+#~ msgid "Feed subscription links (RSS or Atom)"
+#~ msgstr "Liens de souscription aux flux (RSS ou Atom)"
+
+#~ msgid "List of last entries from feed (RSS or Atom)"
+#~ msgstr "Liste des derniers billets d'un flux (RSS or Atom)"
+
+#~ msgid "Settings successfully updated"
+#~ msgstr "Les réglages ont été mis à jour."
 
 #~ msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
-#~ msgstr "Les widgets sont utilisés pour ajouter des blocs de contenus divers dans vos pages publiques. Pour ajouter un widget, faites-le glisser depuis la liste des Widgets disponibles à gauche jusqu'à l'un des bandeaux sur la droite de la page. Vous pouvez ré-ordonner vos widgets dans un bandeau en le faisant glisser vers le haut ou vers le bas. Vous devez mettre à jour les bandeaux pour enregistrer vos modifications."
+#~ msgstr "Les widgets sont utilisés pour ajouter des blocs de contenus divers dans vos pages publiques. Pour ajouter un widget, faites-le glisser depuis la liste des Widgets disponibles à gauche jusqu'à l'un des volets sur la droite de la page. Vous pouvez ré-ordonner vos widgets dans un volet en le faisant glisser vers le haut ou vers le bas. Vous devez mettre à jour les volets pour enregistrer vos modifications."
 
 #~ msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next to their name."
-#~ msgstr "Une fois inclus dans un bandeau, les widgets ont généralement des options que vous pouvez configurer. Cliquez sur la flèche à côté de leur nom pour y accéder."
+#~ msgstr "Une fois inclus dans un volet, les widgets ont généralement des options que vous pouvez configurer. Cliquez sur la flèche à côté de leur nom pour y accéder."
 
 #~ msgid "Reset sidebars to get back to default widgets installation."
-#~ msgstr "Réinitialisez les bandeaux pour retrouver les widgets par défaut de votre installation."
+#~ msgstr "Réinitialisez les volets pour retrouver les widgets par défaut de votre installation."
 
 #~ msgid "Widget templates tags"
 #~ msgstr "Balises de widget"
@@ -2043,9 +2055,6 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 
 #~ msgid "Back"
 #~ msgstr "Retour"
-
-#~ msgid "Alert settings"
-#~ msgstr "Réglage des alertes"
 
 #~ msgid "Save this settings"
 #~ msgstr "Enregistrer ces réglages"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-16 11:07+0200\n"
+"POT-Creation-Date: 2013-10-17 07:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,6 +102,7 @@ msgid "List of available languages"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:29
+#: plugins/widgets/_default_widgets.php:49
 msgid "List of categories"
 msgstr ""
 
@@ -273,6 +274,7 @@ msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:131
 #: plugins/antispam/filters/class.dc.filter.words.php:122
+#: plugins/widgets/index.php:261
 msgid "Add"
 msgstr ""
 
@@ -528,6 +530,21 @@ msgstr ""
 
 #: plugins/blogroll/_widgets.php:22 plugins/blowupConfig/index.php:273
 msgid "Links"
+msgstr ""
+
+#: plugins/blogroll/_widgets.php:22 plugins/pages/_widgets.php:22
+#: plugins/simpleMenu/_widgets.php:21 plugins/tags/_widgets.php:22
+#: plugins/widgets/_default_widgets.php:21
+#: plugins/widgets/_default_widgets.php:28
+#: plugins/widgets/_default_widgets.php:35
+#: plugins/widgets/_default_widgets.php:43
+#: plugins/widgets/_default_widgets.php:50
+#: plugins/widgets/_default_widgets.php:60
+#: plugins/widgets/_default_widgets.php:68
+#: plugins/widgets/_default_widgets.php:77
+#: plugins/widgets/_default_widgets.php:85
+#: plugins/widgets/_default_widgets.php:103
+msgid "Title (optional)"
 msgstr ""
 
 #: plugins/blogroll/_widgets.php:27
@@ -1261,7 +1278,7 @@ msgid "Why don't you blog this now?"
 msgstr ""
 
 #: plugins/importExport/inc/class.dc.ieModule.php:77
-#: plugins/widgets/index.php:270
+#: plugins/widgets/index.php:321
 msgid "or"
 msgstr ""
 
@@ -1539,7 +1556,7 @@ msgstr ""
 msgid "Download database of all blogs"
 msgstr ""
 
-#: plugins/importExport/index.php:69 plugins/maintenance/index.php:81
+#: plugins/importExport/index.php:69 plugins/maintenance/index.php:121
 msgid "Please wait..."
 msgstr ""
 
@@ -1549,158 +1566,102 @@ msgid "Export functions are in the page %s."
 msgstr ""
 
 #: plugins/importExport/index.php:106 plugins/maintenance/_admin.php:16
-#: plugins/maintenance/_admin.php:174 plugins/maintenance/_admin.php:196
-#: plugins/maintenance/index.php:73 plugins/maintenance/index.php:97
-#: plugins/maintenance/index.php:122 plugins/maintenance/index.php:157
+#: plugins/maintenance/_admin.php:83 plugins/maintenance/_admin.php:179
+#: plugins/maintenance/_admin.php:201 plugins/maintenance/index.php:113
+#: plugins/maintenance/index.php:137 plugins/maintenance/index.php:153
+#: plugins/maintenance/index.php:186
 msgid "Maintenance"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:50
+#: plugins/maintenance/_admin.php:49
 msgid "Servicing"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:50
+#: plugins/maintenance/_admin.php:49
 msgid "Tools to maintain the performance of your blogs."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:51
+#: plugins/maintenance/_admin.php:50
 msgid "Backup"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:51
+#: plugins/maintenance/_admin.php:50
 msgid "Tools to back up your content."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:52
+#: plugins/maintenance/_admin.php:51
 msgid "Development"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:52
+#: plugins/maintenance/_admin.php:51
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:54
+#: plugins/maintenance/_admin.php:53
 msgid "Optimize"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:55
+#: plugins/maintenance/_admin.php:54
 msgid "Count and index"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:56
+#: plugins/maintenance/_admin.php:55
 msgid "Purge"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:57
+#: plugins/maintenance/_admin.php:56
 msgid "Other"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:58
+#: plugins/maintenance/_admin.php:57
 msgid "Current blog"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:59
+#: plugins/maintenance/_admin.php:58
 msgid "All blogs"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:61
+#: plugins/maintenance/_admin.php:60
 msgid "Maintain translations"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:61
+#: plugins/maintenance/_admin.php:60
 msgid "Translations"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:130
+#: plugins/maintenance/_admin.php:135
 #, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:159 plugins/maintenance/index.php:189
+#: plugins/maintenance/_admin.php:164 plugins/maintenance/index.php:216
 msgid "This task has never been executed."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:161 plugins/maintenance/index.php:195
+#: plugins/maintenance/_admin.php:166 plugins/maintenance/index.php:222
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:175
+#: plugins/maintenance/_admin.php:180
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:177
+#: plugins/maintenance/_admin.php:182
 msgid "Manage tasks"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:200
+#: plugins/maintenance/_admin.php:205
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:204
+#: plugins/maintenance/_admin.php:209
 msgid "Display overdue tasks list on dashboard items"
-msgstr ""
-
-#: plugins/maintenance/_config.php:19 plugins/maintenance/index.php:63
-msgid "Never"
-msgstr ""
-
-#: plugins/maintenance/_config.php:20 plugins/maintenance/index.php:64
-msgid "Every week"
-msgstr ""
-
-#: plugins/maintenance/_config.php:21 plugins/maintenance/index.php:65
-msgid "Every two weeks"
-msgstr ""
-
-#: plugins/maintenance/_config.php:22 plugins/maintenance/index.php:66
-msgid "Every month"
-msgstr ""
-
-#: plugins/maintenance/_config.php:23 plugins/maintenance/index.php:67
-msgid "Every two months"
-msgstr ""
-
-#: plugins/maintenance/_config.php:55
-msgid "Maintenance plugin has been successfully configured."
-msgstr ""
-
-#: plugins/maintenance/_config.php:64
-msgid "Set up reminders for maintenance tasks."
-msgstr ""
-
-#: plugins/maintenance/_config.php:66
-msgid "Activation"
-msgstr ""
-
-#: plugins/maintenance/_config.php:69
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#: plugins/maintenance/_config.php:72
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-#: plugins/maintenance/_config.php:76
-msgid "Frequency"
-msgstr ""
-
-#: plugins/maintenance/_config.php:80
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-#: plugins/maintenance/_config.php:82
-msgid "Recall time for all tasks:"
-msgstr ""
-
-#: plugins/maintenance/_config.php:88
-msgid "Use one recall time per task"
 msgstr ""
 
 #: plugins/maintenance/inc/class.dc.maintenance.task.php:71
@@ -1873,29 +1834,77 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#: plugins/maintenance/index.php:100
+#: plugins/maintenance/index.php:92
+msgid "Maintenance plugin has been successfully configured."
+msgstr ""
+
+#: plugins/maintenance/index.php:103
+msgid "Never"
+msgstr ""
+
+#: plugins/maintenance/index.php:104
+msgid "Every week"
+msgstr ""
+
+#: plugins/maintenance/index.php:105
+msgid "Every two weeks"
+msgstr ""
+
+#: plugins/maintenance/index.php:106
+msgid "Every month"
+msgstr ""
+
+#: plugins/maintenance/index.php:107
+msgid "Every two months"
+msgstr ""
+
+#: plugins/maintenance/index.php:140
 msgid "You have not sufficient permissions to view this page."
 msgstr ""
 
-#: plugins/maintenance/index.php:109
-msgid "Settings successfully updated"
-msgstr ""
-
-#: plugins/maintenance/index.php:190 plugins/maintenance/index.php:199
+#: plugins/maintenance/index.php:217 plugins/maintenance/index.php:226
 msgid "You should execute it now."
 msgstr ""
 
-#: plugins/maintenance/index.php:222 plugins/maintenance/index.php:244
+#: plugins/maintenance/index.php:249 plugins/maintenance/index.php:271
 msgid "Execute task"
 msgstr ""
 
-#: plugins/maintenance/index.php:225
+#: plugins/maintenance/index.php:252
 msgid "This may take a very long time."
 msgstr ""
 
-#: plugins/maintenance/index.php:257
+#: plugins/maintenance/index.php:282 plugins/maintenance/index.php:283
+msgid "Alert settings"
+msgstr ""
+
+#: plugins/maintenance/index.php:286
+msgid "Activation"
+msgstr ""
+
+#: plugins/maintenance/index.php:289
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#: plugins/maintenance/index.php:292
 #, php-format
-msgid "You can configure common options through the <a href=\"%s\">plugins manager</a>."
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+#: plugins/maintenance/index.php:296
+msgid "Frequency"
+msgstr ""
+
+#: plugins/maintenance/index.php:300
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+#: plugins/maintenance/index.php:302
+msgid "Recall time for all tasks:"
+msgstr ""
+
+#: plugins/maintenance/index.php:308
+msgid "Use one recall time per task"
 msgstr ""
 
 #: plugins/pages/_admin.php:31 plugins/pages/list.php:84
@@ -2649,90 +2658,98 @@ msgstr ""
 msgid "empty string"
 msgstr ""
 
-#: plugins/widgets/index.php:163 plugins/widgets/index.php:192
+#: plugins/widgets/index.php:213 plugins/widgets/index.php:242
 msgid "Widgets"
 msgstr ""
 
-#: plugins/widgets/index.php:182
+#: plugins/widgets/index.php:232
 msgid "Are you sure you want to reset sidebars?"
 msgstr ""
 
-#: plugins/widgets/index.php:199
+#: plugins/widgets/index.php:249
 msgid "Available widgets"
 msgstr ""
 
-#: plugins/widgets/index.php:200
-msgid "Move widgets from this list to one of the sidebars."
+#: plugins/widgets/index.php:250
+msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr ""
 
-#: plugins/widgets/index.php:207 plugins/widgets/index.php:317
+#: plugins/widgets/index.php:257 plugins/widgets/index.php:371
 msgid "order"
 msgstr ""
 
-#: plugins/widgets/index.php:209
+#: plugins/widgets/index.php:259
 msgid "Append to:"
 msgstr ""
 
-#: plugins/widgets/index.php:219
+#: plugins/widgets/index.php:270
 msgid "Add widgets to sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:226
+#: plugins/widgets/index.php:277
 msgid "Navigation sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:232
+#: plugins/widgets/index.php:283
 msgid "Extra sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:238
+#: plugins/widgets/index.php:289
 msgid "Custom sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:244
+#: plugins/widgets/index.php:295
 msgid "Update sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:245
+#: plugins/widgets/index.php:296
 msgid "Reset sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:254
+#: plugins/widgets/index.php:305
 msgid "Widget ID:"
 msgstr ""
 
-#: plugins/widgets/index.php:261
+#: plugins/widgets/index.php:312
 msgid "No setting for this widget"
 msgstr ""
 
-#: plugins/widgets/index.php:270
+#: plugins/widgets/index.php:321
 msgid "boolean"
 msgstr ""
 
-#: plugins/widgets/index.php:270 plugins/widgets/index.php:274
+#: plugins/widgets/index.php:321 plugins/widgets/index.php:325
 msgid "possible values:"
 msgstr ""
 
-#: plugins/widgets/index.php:274
+#: plugins/widgets/index.php:325
 msgid "listitem"
 msgstr ""
 
-#: plugins/widgets/index.php:279
+#: plugins/widgets/index.php:330
 msgid "string"
 msgstr ""
 
-#: plugins/widgets/index.php:285
+#: plugins/widgets/index.php:336
 msgid "Setting name:"
 msgstr ""
 
-#: plugins/widgets/index.php:306
-msgid "No widget."
+#: plugins/widgets/index.php:359
+msgid "No widget for now."
 msgstr ""
 
-#: plugins/widgets/index.php:320
+#: plugins/widgets/index.php:375
+msgid "Up the widget"
+msgstr ""
+
+#: plugins/widgets/index.php:376
+msgid "Down the widget"
+msgstr ""
+
+#: plugins/widgets/index.php:377
 msgid "Remove widget"
 msgstr ""
 
-#: plugins/widgets/index.php:333
-msgid "Drag widgets here to remove them from this sidebar."
+#: plugins/widgets/index.php:390
+msgid "Drag widgets here to remove."
 msgstr ""
