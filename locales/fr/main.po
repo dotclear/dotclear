@@ -2876,6 +2876,27 @@ msgstr "Ce plugin a été mis à jour."
 msgid "Plugin has been successfully installed."
 msgstr "Ce plugin a été installé."
 
+msgid "Activate all plugins from this list"
+msgstr "Activer tous les plugins de cette liste"
+
+msgid "Plugins have been successfully activated."
+msgstr "Ces plugins ont été activés."
+
+msgid "Deactivate all plugins from this list"
+msgstr "Désactiver tous les plugins de cette liste"
+
+msgid "Plugins have been successfully deactivated."
+msgstr "Ces plugins ont été désactivés."
+
+msgid "Some plugins have not been deactivated."
+msgstr "Certains plugins n'ont pas pu être désactivés."
+
+msgid "Update all plugins from this list"
+msgstr "Mettre à jour tous les plugins de cette liste"
+
+msgid "Plugins have been successfully updated."
+msgstr "Ces plugins ont été mis à jour."
+
 msgid "Zip file path:"
 msgstr "Chemin du fichier zip :"
 
@@ -2967,6 +2988,12 @@ msgstr "Ce thème a été supprimé."
 
 msgid "Theme has been successfully updated."
 msgstr "Ce thème a été mis à jour."
+
+msgid "Update all theme from this list"
+msgstr "Mettre à jour tous les thèmes de cette liste"
+
+msgid "Themes have been successfully updated."
+msgstr "Ces thèmes ont été mis à jour."
 
 msgid "Theme has been successfully installed."
 msgstr "Ce thème a été installé."
