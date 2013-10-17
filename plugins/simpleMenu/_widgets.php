@@ -18,7 +18,7 @@ class simpleMenuWidgets
 	public static function initWidgets($w)
 	{
 		$w->create('simplemenu',__('Simple menu'),array('tplSimpleMenu','simpleMenuWidget'),null,'List of simple menu items');
-		$w->simplemenu->setting('title',__('Title:'),__('Menu'));
+		$w->simplemenu->setting('title',__('Title (optional)').' :',__('Menu'));
 		$w->simplemenu->setting('homeonly',__('Display on:'),0,'combo',
 			array(
 				__('All pages') => 0,

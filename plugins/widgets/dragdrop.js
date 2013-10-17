@@ -26,7 +26,7 @@ $(function() {
 		dropOnEmpty: true,
 		handle: ".widget-name",
 		placeholder: "ui-sortable-placeholder",
-		items: "li:not(.sortable-delete-placeholder)",
+		items: "li:not(.sortable-delete-placeholder,.empty-widgets)",
 		connectWith: ".connected, .sortable-delete",
 		start: function( event, ui ) {
 			// petit décalage esthétique
@@ -42,9 +42,13 @@ $(function() {
 			ui.item.css('left', 'auto');
 			
 			// signale les zones vides
-			if( ul.find('li').length == 0 )
-				 field.find('.empty-widgets').show();
-			else field.find('.empty-widgets').hide();
+			if( ul.find('li:not(.empty-widgets)').length == 0 ) {
+				ul.find('li.empty-widgets').show();
+				field.find('ul.sortable-delete').hide();
+			} else {
+				ul.find('li.empty-widgets').hide();
+				field.find('ul.sortable-delete').show();
+			}
 			
 			// remove
 			if( widget.parents('ul').is('.sortable-delete') ) {
@@ -54,25 +58,7 @@ $(function() {
 			}
 			
 			// réordonne
-			if( ul.attr('id') ) {
-				ul.find('li').each(function(i) {
-					
-					// trouve la zone de réception
-					var name = ul.attr('id').split('dnd').join('');
-					
-					// modifie le name en conséquence
-					$(this).find('*[name^=w]').each(function(){
-						tab = $(this).attr('name').split('][');
-						tab[0] = "w["+name;
-						tab[1] = i;
-						$(this).attr('name', tab.join(']['));
-					});
-					
-					// ainssi que le champ d'ordre sans js (au cas ou)
-					$(this).find('input[title=ordre]').val(i);
-					
-				});
-			}
+			reorder(ul);
 			
 			// expand
 			if(widget.find('img.expand').length == 0) {
@@ -94,5 +80,8 @@ $(function() {
 			ui.helper.css({'width': $('#widgets-ref > li').css('width')});
 		}
 	});
-	$("li.ui-draggable, ul.ui-sortable li").css({'cursor':'move'});
+	
+	$("li.ui-draggable, ul.ui-sortable li")
+		.not('ul.sortable-delete li, li.empty-widgets')
+		.css({'cursor':'move'});
 });

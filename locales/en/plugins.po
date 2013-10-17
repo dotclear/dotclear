@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-16 11:07+0200\n"
+"POT-Creation-Date: 2013-10-17 07:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -394,6 +394,9 @@ msgid "manage blogroll"
 msgstr ""
 
 msgid "Links"
+msgstr ""
+
+msgid "Title (optional)"
 msgstr ""
 
 msgid "All categories"
@@ -1156,49 +1159,6 @@ msgstr ""
 msgid "Display overdue tasks list on dashboard items"
 msgstr ""
 
-msgid "Never"
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
-
-msgid "Maintenance plugin has been successfully configured."
-msgstr ""
-
-msgid "Alert settings"
-msgstr ""
-
-msgid "Activation"
-msgstr ""
-
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-msgid "Frequency"
-msgstr "Périodicité"
-
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-msgid "Recall time for all tasks:"
-msgstr ""
-
-msgid "Use one recall time per task"
-msgstr ""
-
 msgid "Failed to execute task."
 msgstr ""
 
@@ -1325,10 +1285,25 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-msgid "You have not sufficient permissions to view this page."
+msgid "Maintenance plugin has been successfully configured."
 msgstr ""
 
-msgid "Settings successfully updated"
+msgid "Never"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
 msgstr ""
 
 msgid "You should execute it now."
@@ -1338,6 +1313,31 @@ msgid "Execute task"
 msgstr ""
 
 msgid "This may take a very long time."
+msgstr ""
+
+msgid "Alert settings"
+msgstr ""
+
+msgid "Activation"
+msgstr ""
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr "Périodicité"
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
 msgstr ""
 
 msgid "New page"
@@ -1902,7 +1902,7 @@ msgstr ""
 msgid "Available widgets"
 msgstr ""
 
-msgid "Move widgets from this list to one of the sidebars."
+msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr ""
 
 msgid "order"
@@ -1950,11 +1950,17 @@ msgstr ""
 msgid "Setting name:"
 msgstr ""
 
-msgid "No widget."
+msgid "No widget for now."
+msgstr ""
+
+msgid "Up the widget"
+msgstr ""
+
+msgid "Down the widget"
 msgstr ""
 
 msgid "Remove widget"
 msgstr ""
 
-msgid "Drag widgets here to remove them from this sidebar."
+msgid "Drag widgets here to remove."
 msgstr ""
