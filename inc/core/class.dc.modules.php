@@ -317,7 +317,7 @@ class dcModules
 				$tmp = array_keys($new_modules);
 				$id = $tmp[0];
 				$cur_module = $modules->getModules($id);
-				if (!empty($cur_module) && $new_modules[$id]['version'] != $cur_module['version'])
+				if (!empty($cur_module) && (defined('DC_DEV') && DC_DEV === true || dcUtils::versionsCompare($new_modules[$id]['version'], $cur_module['version'], '>', true)))
 				{
 					# delete old module
 					if (!files::deltree($destination)) {
@@ -329,7 +329,7 @@ class dcModules
 				{
 					$zip->close();
 					unlink($zip_file);
-					throw new Exception(sprintf(__('Unable to upgrade "%s". (same version)'),basename($destination)));		
+					throw new Exception(sprintf(__('Unable to upgrade "%s". (older or same version)'),basename($destination)));		
 				}
 			}
 			else

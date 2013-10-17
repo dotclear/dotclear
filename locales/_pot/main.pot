@@ -4487,7 +4487,7 @@ msgstr ""
 
 #: inc/core/class.dc.modules.php:332
 #, php-format
-msgid "Unable to upgrade \"%s\". (same version)"
+msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr ""
 
 #: inc/core/class.dc.modules.php:339

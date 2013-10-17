@@ -2598,7 +2598,7 @@ msgid "An error occurred during module deletion."
 msgstr "Během odstraňování modulu nastala chyba."
 
 #, php-format
-msgid "Unable to upgrade \"%s\". (same version)"
+msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Není možné provést aktualizaci \"%s\". (stejná verze)"
 
 msgid "Unable to read new _define.php file"

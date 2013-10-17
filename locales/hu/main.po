@@ -2659,7 +2659,7 @@ msgid "An error occurred during module deletion."
 msgstr "Hiba történt a modul törlése közben."
 
 #, php-format
-msgid "Unable to upgrade \"%s\". (same version)"
+msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Nem lehet \"%s\"-re frissíteni (ugyanaz a verzió)"
 
 msgid "Unable to read new _define.php file"
