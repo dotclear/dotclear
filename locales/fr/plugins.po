@@ -401,7 +401,7 @@ msgid "Links"
 msgstr "Liens"
 
 msgid "Title (optional)"
-msgstr ""
+msgstr "Titre (optionnel)"
 
 msgid "All categories"
 msgstr "Toutes les catégories"
