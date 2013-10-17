@@ -915,14 +915,14 @@ h1, #top-info-blog, #top-info-user {
 	}
 /* h1 */
 h1 {
-	text-indent: -1000px;
+	text-indent: 100%;
 	width: 16.5em;
 	}
 h1 a {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 15em;
+	width: 150px;
 	height: 3em;
 	color: #fff;
 	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
@@ -2672,11 +2672,11 @@ h1, #top-info-blog {
 	height: 42px;
 	}
 h1 a:link {
-	background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
+	background: transparent url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
 	border-right: 1px solid #ccc;
 	}
 h1 a:hover, h1 a:focus {
-	background: url(dc_logos/b-dotclear120.png) no-repeat -180px -94px;
+	background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px;
 	border-right: 1px solid #A2CBE9;
 	}
 #wrapper, #main, #main-menu {
