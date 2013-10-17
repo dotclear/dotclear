@@ -419,10 +419,10 @@ msgid "Except on home page"
 msgstr "Sauf en page d'accueil"
 
 msgid "Content only"
-msgstr "Contenu seul"
+msgstr "Contenu seul (sans boîte englobante)"
 
 msgid "CSS class:"
-msgstr "Classe CSS :"
+msgstr "Classe CSS supplémentaire pour la boîte englobante :"
 
 msgid "You must provide a link title"
 msgstr "Vous devez fournir un titre de lien"
@@ -1954,7 +1954,7 @@ msgstr "chaîne de caractères"
 msgid "Setting name:"
 msgstr "Nom de l'élément de réglage :"
 
-msgid "No widget for now."
+msgid "No widget as far."
 msgstr "Aucun widget pour le moment."
 
 msgid "Up the widget"

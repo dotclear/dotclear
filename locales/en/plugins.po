@@ -1950,7 +1950,7 @@ msgstr ""
 msgid "Setting name:"
 msgstr ""
 
-msgid "No widget for now."
+msgid "No widget as far."
 msgstr ""
 
 msgid "Up the widget"
