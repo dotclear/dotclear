@@ -356,13 +356,15 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 	
 	$res .= '<ul id="'.$id.'" class="connected">';
 	
-	$res .= '<li class="empty-widgets" '.(!$widgets->isEmpty() ? 'style="display: none;"' : '').'>'.__('No widget for now.').'</li>';
+	$res .= '<li class="empty-widgets" '.(!$widgets->isEmpty() ? 'style="display: none;"' : '').'>'.__('No widget as far.').'</li>';
 	
 	$i = 0;
 	foreach ($widgets->elements() as $w)
 	{
 		$upDisabled = $i == 0 ? '" disabled="" src="images/disabled_' : '" src="images/';
 		$downDisabled = $i == count($widgets->elements())-1 ? '" disabled="" src="images/disabled_' : '" src="images/';
+		$altUp = $i == 0 ? ' alt=""' : ' alt="'.__('Up the widget').'"';
+		$altDown = $i == count($widgets->elements())-1 ? ' alt=""' : ' alt="'.__('Down the widget').'"';
 		
 		$iname = 'w['.$pr.']['.$i.']';
 		
@@ -372,9 +374,9 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		' '.$w->name().
 		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').
 		'<span class="toolsWidget remove-if-drag">'.
-		'<input type="image" class="upWidget'.$upDisabled.'up.png" name="'.$iname.'[_up]" value="'.__('Up the widget').'" />'.
-		'<input type="image" class="downWidget'.$downDisabled.'down.png" name="'.$iname.'[_down]" value="'.__('Down the widget').'" />'.' '.
-		'<input type="image" class="removeWidget" src="images/trash.png" name="'.$iname.'[_rem]" value="'.__('Remove widget').'" />'.
+		'<input type="image" class="upWidget'.$upDisabled.'up.png" name="'.$iname.'[_up]" value="'.__('Up the widget').'"'.$altUp.' /> '.
+		'<input type="image" class="downWidget'.$downDisabled.'down.png" name="'.$iname.'[_down]" value="'.__('Down the widget').'"'.$altDown.' /> '.' '.
+		'<input type="image" class="removeWidget" src="images/trash.png" name="'.$iname.'[_rem]" value="'.__('Remove widget').'" alt="'.__('Remove the widget').'" />'.
 		'</span>'.
 		'<br class="clear"/></p>'.
 		'<div class="widgetSettings hidden-if-drag">'.$w->formSettings($iname,$j).'</div>'.

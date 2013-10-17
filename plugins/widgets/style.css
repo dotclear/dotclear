@@ -155,7 +155,9 @@
 #widgets-ref .widgetSettings {
 	display: none;
 }
-
+.removeWidget {
+	margin-left: 1em;
+}
 /* ------------------------------------------------------------- help */
 #widgets-tpl dt {
 	margin: 1em 0 0 0;
