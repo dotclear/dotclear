@@ -228,6 +228,9 @@ msgstr "(aucun)"
 msgid "Title"
 msgstr "Titre"
 
+msgid "Title (optional)"
+msgstr "Titre (optionnel)"
+
 msgid "Title, Date"
 msgstr "Titre, date"
 
@@ -567,6 +570,9 @@ msgstr "Annuler les filtres et options d'affichage"
 
 msgid "List of blogs"
 msgstr "Liste des blogs"
+
+msgid "List of categories"
+msgstr "Liste des catégories"
 
 msgid "Blog has been successfully deleted."
 msgstr "Blog supprimé avec succès."
@@ -3744,10 +3750,10 @@ msgstr "Sans annexes"
 #~ msgstr "Derniers billets du flux"
 
 #~ msgid "List of last entries published"
-#~ msgstr "Derniers billets publiés"
+#~ msgstr "Liste des derniers billets publiés"
 
-#~ msgid "List of last comments posted"
-#~ msgstr "Derniers commentaires postés"
+#~ msgid "List of last comments published"
+#~ msgstr "Liste des derniers commentaires publiés"
 
 #~ msgid "List of published pages"
 #~ msgstr "Liste des pages publiées"

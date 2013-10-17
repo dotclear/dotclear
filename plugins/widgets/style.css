@@ -38,6 +38,11 @@
 	margin-bottom: 1em;
 	list-style: none;
 }
+#dndnav > li.empty-widgets,
+#dndextra > li.empty-widgets,
+#dndcustom > li.empty-widgets {
+	border: 0;
+}
 #dndnav > li.ui-sortable-placeholder,
 #dndextra > li.ui-sortable-placeholder,
 #dndcustom > li.ui-sortable-placeholder,
@@ -96,9 +101,8 @@
 #dndcustom .form-note {
 	display: none;
 }
-.removeWidget {
-	padding: 8px 6px;
-	margin: 0;
+.toolsWidget {
+	float: right;
 }
 .widgetSettings {
 	border-top: 1px solid #ddd;
