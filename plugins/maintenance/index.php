@@ -297,7 +297,7 @@ else {
 
 	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_all'), 'all').' '.
 	'<label class="classic" for="settings_recall_all">'.
-	'<strong>'.__('Use one recall time for all tasks').'</strong></label>'.
+	'<strong>'.__('Use one recall time for all tasks').'</strong></label></p>'.
 
 	'<p class="field wide vertical-separator"><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
 	form::combo('settings_recall_time', $combo_ts, 'seperate', 'recall-for-all').
@@ -305,7 +305,7 @@ else {
 
 	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_separate'), 'separate', 1).' '.
 	'<label class="classic" for="settings_recall_separate">'.
-	'<strong>'.__('Use one recall time per task').'</strong></label>';
+	'<strong>'.__('Use one recall time per task').'</strong></label></p>';
 
 	foreach($tasks as $t)
 	{
