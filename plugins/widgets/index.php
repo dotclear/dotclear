@@ -211,9 +211,7 @@ elseif (!empty($_POST['wreset']))
 <html>
 <head>
   <title><?php echo __('Widgets'); ?></title>
-  <style type="text/css">
-  <?php echo file_get_contents(dirname(__FILE__).'/style.css'); ?>
-  </style>
+  <link type="text/css" rel="stylesheet" href="index.php?pf=widgets/style.css"/>
   <?php
 		echo
 			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
