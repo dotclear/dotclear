@@ -315,5 +315,6 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	'</form>';
 }
 
+dcPage::helpBlock('core_users');
 dcPage::close();
 ?>
