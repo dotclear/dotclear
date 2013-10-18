@@ -2731,7 +2731,7 @@ h1 a:hover, h1 a:focus {
 #dashboard-boxes .box.medium, .box.medium,
 	#dashboard-boxes .box.small, .box.small,
 	#dashboard-boxes .box.large, .box.large {
-	width: 90%;
+	width: 95%;
 	margin: 10px auto;
 	}
 .cell, #filters-form .cell {
@@ -2756,8 +2756,15 @@ h1, h1 a {
 #top-info-blog select {
 	margin-bottom: .5em;
 	}
+#wrapper {
+	font-size: 1.4em;
+	}
 #content.with-help #help-button {
-	top: 101px;
+	top: 120px;
+	right: 20.5em;
+	}
+#content.with-help #help {
+	font-size: 12px;
 	}
 .multi-part {
 	padding-left: 0;
@@ -2771,7 +2778,8 @@ h1, h1 a {
 	width: 100%;
 	}
 #icons p {
-	width: 12em;
+	width: 9em;
+	padding: 1em .25em;
 	}
 .media-item {
 	width: 90%;
