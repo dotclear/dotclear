@@ -1035,10 +1035,11 @@ h1 a:hover, h1 a:focus {
 	border: 1px solid #999;
 	border-radius: .3em;
 	position: relative;
+	width: 95%;
 	overflow: hidden;
 	}
 #qx {
-	width: 10em;
+	width: 80%;
 	border-bottom-left-radius: .3em;
 	border-top-left-radius: .3em;
 	background: transparent url(search.png) no-repeat 4px center;
@@ -1064,6 +1065,7 @@ h1 a:hover, h1 a:focus {
 	border: none;
 	border-left: 1px solid #999;
 	font-size: .91em;
+	float: right;
 	}
 #search-menu input[type="submit"]:hover,
 #search-menu input[type="submit"]:focus {
@@ -2587,6 +2589,23 @@ input[type=submit].delete.debug:hover, a.delete.debug:hover {
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
+@media screen and (min-width: 80em) {
+#main {
+	margin-left: -18em;
+	}
+#content {
+	margin: 0 0 0 18em;
+	}
+#main-menu {
+	width: 18em;
+	}
+#collapser {
+	left: 18em;
+	}
+h1 {
+	width: 20.5em;
+	}
+}
 @media screen and (max-width: 61em) {
 #top-info-blog #switchblog {
 	max-width: 16em;
