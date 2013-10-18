@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$tag = (!empty($_REQUEST['tag']) || $_REQUEST['tag'] == '0') ? $_REQUEST['tag'] : '';
+$tag = isset($_REQUEST['tag']) ? $_REQUEST['tag'] : '';
 
 $this_url = $p_url.'&amp;m=tag_posts&amp;tag='.rawurlencode($tag);
 
@@ -20,7 +20,7 @@ $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  30;
 
 # Rename a tag
-if (!empty($_POST['new_tag_id']) || $_POST['new_tag_id'] == '0')
+if (isset($_POST['new_tag_id']))
 {
 	$new_id = dcMeta::sanitizeMetaID($_POST['new_tag_id']);
 	try {
@@ -123,17 +123,17 @@ if (!$core->error->flag())
 		}
 		echo '</div>';
 	}
-	
+
 	# Show posts
 	echo '<h4 class="vertical-separator pretty-title">'.sprintf(__('List of entries with the tag “%s”'),html::escapeHTML($tag)).'</h4>';
 	$post_list->display($page,$nb_per_page,
 	'<form action="plugin.php" method="post" id="form-entries">'.
-	
+
 	'%s'.
-	
+
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
-	
+
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$posts_actions_page->getCombo()).
 	'<input type="submit" value="'.__('OK').'" /></p>'.
