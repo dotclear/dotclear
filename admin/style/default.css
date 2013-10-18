@@ -2591,19 +2591,19 @@ input[type=submit].delete.debug:hover, a.delete.debug:hover {
 ------------------------------------------------------------------------------------ */
 @media screen and (min-width: 80em) {
 #main {
-	margin-left: -18em;
+	margin-left: -16em;
 	}
 #content {
-	margin: 0 0 0 18em;
+	margin: 0 0 0 16em;
 	}
 #main-menu {
-	width: 18em;
+	width: 16em;
 	}
 #collapser {
-	left: 18em;
+	left: 16em;
 	}
 h1 {
-	width: 20.5em;
+	width: 18.5em;
 	}
 }
 @media screen and (max-width: 61em) {
@@ -2731,6 +2731,12 @@ h1 a:hover, h1 a:focus {
 	#dashboard-boxes .box.large, .box.large {
 	width: 90%;
 	margin: 10px auto;
+	}
+.cell, #filters-form .cell {
+	display: inline-block;
+	border: none;
+	padding: 1em;
+	vertical-align: bottom;
 	}
 }
 @media screen and (max-width: 26.5em) {
