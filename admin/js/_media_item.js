@@ -1,13 +1,10 @@
 $(function() {
-	if ($('#media-details-tab').length) {
-		$('#media-details-tab').onetabload(function() {
-			// Add date picker
-			var media_dt = document.getElementById('media_dt');
-			if (media_dt == undefined) { return; }
-			var post_dtPick = new datePicker(media_dt);
-			post_dtPick.img_top = '1.5em';
-			post_dtPick.draw();
-		});
+	// Add datePicker if possible
+	var media_dt = document.getElementById('media_dt');
+	if (media_dt != undefined) {
+		var post_dtPick = new datePicker(media_dt);
+		post_dtPick.img_top = '1.5em';
+		post_dtPick.draw();
 	}
 
 	// Display zip file content
