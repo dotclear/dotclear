@@ -266,7 +266,7 @@ foreach ($__widgets->elements(true) as $w) {
 
 echo
 '</ul>'.
-$core->formNonce().
+'<p>'.$core->formNonce().'</p>'.
 '<p class="remove-if-drag"><input type="submit" name="append" value="'.__('Add widgets to sidebars').'" /></p>'.
 '</form>';
 
@@ -361,8 +361,8 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 	$i = 0;
 	foreach ($widgets->elements() as $w)
 	{
-		$upDisabled = $i == 0 ? '" disabled="" src="images/disabled_' : '" src="images/';
-		$downDisabled = $i == count($widgets->elements())-1 ? '" disabled="" src="images/disabled_' : '" src="images/';
+		$upDisabled = $i == 0 ? ' disabled" src="images/disabled_' : '" src="images/';
+		$downDisabled = $i == count($widgets->elements())-1 ? ' disabled" src="images/disabled_' : '" src="images/';
 		$altUp = $i == 0 ? ' alt=""' : ' alt="'.__('Up the widget').'"';
 		$altDown = $i == count($widgets->elements())-1 ? ' alt=""' : ' alt="'.__('Down the widget').'"';
 		
