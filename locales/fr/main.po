@@ -642,7 +642,7 @@ msgstr "Cette catégorie n'existe pas."
 
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
-msgstr "La catégorie \"%s\" a été créée."
+msgstr "La catégorie \"%s\" a été supprimée."
 
 msgid "Category where to move posts does not exist"
 msgstr "La catégorie où les entrées seront déplacées n'existe pas."
