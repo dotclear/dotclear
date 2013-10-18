@@ -231,7 +231,7 @@ class dcWidget
 		$res = '';
 		foreach ($this->settings as $id => $s)
 		{
-			$res .= $this->formSetting($id,$s,$pr,$i=0);
+			$res .= $this->formSetting($id,$s,$pr,$i);
 			$i++;
 		}
 		
@@ -284,7 +284,6 @@ class dcWidget
 				'</p>';
 				break;
 		}
-		
 		return $res;
 	}
 }
