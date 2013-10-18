@@ -1726,6 +1726,8 @@ On adapte largeur et hauteur en fonction
 	margin-right: 2em;
 	border: 9px solid #fff;
 	padding: 5px;
+	max-width: 308px;
+	max-height: 273px;
 	}
 .current-theme .module-name {
 	color: #D33800;
@@ -2757,10 +2759,31 @@ h1, h1 a {
 #content.with-help #help-button {
 	top: 101px;
 	}
+.multi-part {
+	padding-left: 0;
+	}
+.part-tabs ul {
+	margin: 1em 0;
+	padding: 0 .5em;
+	}
+.part-tabs li a {
+	display: block;
+	width: 100%;
+	}
 #icons p {
 	width: 12em;
 	}
 .media-item {
 	width: 90%;
+	}
+.box.current-theme {
+	margin: 5px;
+	padding: 10px;
+	width: 100%;
+	}
+.current-theme .module-sshot img {
+	margin: 0;
+	float: none;
+	max-width: 100%;
 	}
 }
