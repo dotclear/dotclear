@@ -42,6 +42,7 @@ body {
 	border-bottom: 4px solid #A2CBE9;
 	width: 100%;
 	display: table;
+	position: relative;
 	}
 #wrapper {
 	position: relative;
@@ -299,11 +300,12 @@ h2 {
 	font-size: 1.5em;
 	padding: 0 0 1.5em;
 	font-weight: normal;
+	line-height: 1.25;
 	}
 /* fil d'ariane */
 #content > h2 {
 	padding: 0 1em .5em 1em;
-	margin: 0 -1em .5em -1em;
+	margin: 0 -1em 1em -1em;
 	background: #fff url(bg_h2.png) repeat-x center bottom;
 	}
 h2 a:link, h2 a:visited {
@@ -2592,20 +2594,27 @@ input[type=submit].delete.debug:hover, a.delete.debug:hover {
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 @media screen and (min-width: 80em) {
+html {
+	background: #676e78;
+	}
+body {
+	max-width: 140em;
+	margin: 0 auto;
+	}
 #main {
-	margin-left: -16em;
+	margin-left: -17em;
 	}
 #content {
-	margin: 0 0 0 16em;
+	margin: 0 0 0 17em;
 	}
 #main-menu {
-	width: 16em;
+	width: 17em;
 	}
 #collapser {
-	left: 16em;
+	left: 17em;
 	}
 h1 {
-	width: 18.5em;
+	width: 19.5em;
 	}
 }
 @media screen and (max-width: 61em) {
@@ -2725,8 +2734,8 @@ h1 a:hover, h1 a:focus {
 	display: none;
 	}
 #main #content > h2 {
-	margin: 0;
-	padding: 6px 30px 6px 0;
+	margin: 0 -.5em 1em;
+	padding: 6px 30px 4px .5em;
 	}
 #dashboard-boxes .box.medium, .box.medium,
 	#dashboard-boxes .box.small, .box.small,
@@ -2765,6 +2774,10 @@ h1, h1 a {
 	}
 #content.with-help #help {
 	font-size: 12px;
+	}
+p.top-add {
+	margin-bottom: .5em;
+	text-align: center;
 	}
 .multi-part {
 	padding-left: 0;
