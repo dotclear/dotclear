@@ -67,6 +67,8 @@
 	};
 	
 	var getHash = function getHash(href) {
+		var href = href || '';
+
 		return href.replace(/.*#/, '');
 	};
 	
