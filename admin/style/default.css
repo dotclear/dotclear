@@ -2797,6 +2797,10 @@ p.top-add {
 .media-item {
 	width: 90%;
 	}
+#theme-new, #theme-activate, #theme-deactivate {
+	margin-left: 0;
+	margin-right: 0;
+	}
 .box.current-theme {
 	margin: 5px;
 	padding: 10px;
@@ -2806,5 +2810,11 @@ p.top-add {
 	margin: 0;
 	float: none;
 	max-width: 100%;
+	}
+table .maximal {
+	min-width: 15em;
+	}
+th, td {
+	padding: 0.3em 1em 0.3em 0;
 	}
 }
