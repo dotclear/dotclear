@@ -203,7 +203,7 @@ if ($step) {
 		case 4:
 			// Fourth step, menu item to be added
 			try {
-				if (($item_label != '') && ($item_url != '')) 
+				if (($item_label != '') && ($item_url != ''))
 				{
 					// Add new item menu in menu array
 					$menu[] = array(
@@ -214,7 +214,7 @@ if ($step) {
 					// Save menu in blog settings
 					$core->blog->settings->system->put('simpleMenu',serialize($menu));
 					$core->blog->triggerBlog();
-				
+
 					// All done successfully, return to menu items list
 					dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
 					http::redirect($p_url);
@@ -228,7 +228,7 @@ if ($step) {
 			break;
 	}
 } else {
-	
+
 	# Remove selected menu items
 	if (!empty($_POST['removeaction']))
 	{
@@ -250,7 +250,7 @@ if ($step) {
 				// Save menu in blog settings
 				$core->blog->settings->system->put('simpleMenu',serialize($menu));
 				$core->blog->triggerBlog();
-				
+
 				// All done successfully, return to menu items list
 				dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
 				http::redirect($p_url);
@@ -294,7 +294,7 @@ if ($step) {
 			$core->error->add($e->getMessage());
 		}
 	}
-	
+
 	# Order menu items
 	$order = array();
 	if (empty($_POST['im_order']) && !empty($_POST['order'])) {
@@ -327,12 +327,12 @@ if ($step) {
 			// All done successfully, return to menu items list
 			dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
 			http::redirect($p_url);
-		} 
+		}
 		catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
 	}
-	
+
 }
 
 # Display
@@ -341,13 +341,14 @@ if ($step) {
 <html>
 <head>
 	<title><?php echo $page_title; ?></title>
-	<?php 
+	<?php
 		$core->auth->user_prefs->addWorkspace('accessibility');
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 			echo
 				dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 				dcPage::jsLoad('index.php?pf=simpleMenu/simplemenu.js');
 		}
+		echo dcPage::jsConfirmClose('additem','menuitems');
 	?>
 </head>
 
@@ -473,7 +474,7 @@ if (count($menu)) {
 		echo '<form id="menuitems" action="'.$p_url.'" method="post">';
 	}
 	// Entête table
-	echo 
+	echo
 		'<div class="table-outer">'.
 		'<table class="dragable">'.
 		'<caption>'.__('Menu items list').'</caption>'.
