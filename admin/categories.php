@@ -45,7 +45,7 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
 		$keys = array_keys($_POST['mov']);
 		$cat_id = (int) $keys[0];
 		$mov_cat = (int) $_POST['mov_cat'][$cat_id];
-		
+
 		$mov_cat = $mov_cat ? $mov_cat : null;
 		if ($mov_cat !== null) {
 			$c = $core->blog->getCategory($mov_cat);
@@ -102,6 +102,8 @@ if (!empty($_POST['reset']))
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 
 $starting_script = "";
+
+$core->auth->user_prefs->addWorkspace('accessibility');
 if (!$core->auth->user_prefs->accessibility->nodragdrop
 	&& $core->auth->check('categories',$core->blog->id)
 	&& $rs->count()>1) {
@@ -160,7 +162,7 @@ else
 			echo '</li><li '.$attr.'>';
 		}
 
-		echo   
+		echo
 		'<p class="cat-title"><label class="classic" for="cat_'.$rs->cat_id.'"><a href="category.php?id='.$rs->cat_id.'">'.html::escapeHTML($rs->cat_title).'</a></label> </p>'.
 		'<p class="cat-nb-posts">(<a href="posts.php?cat_id='.$rs->cat_id.'">'.
 		sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry') ),$rs->nb_post).'</a>'.
@@ -172,17 +174,17 @@ else
 		if ($rs->nb_total>0) {
 			// remove current category
 			echo
-			'<label>'.__('Move entries to').'</label> '.			   
+			'<label>'.__('Move entries to').'</label> '.
 			form::combo(array('mov_cat['.$rs->cat_id.']', 'mov_cat_'.$rs->cat_id),array_filter($categories_combo, create_function('$cat', 'return $cat->value!=$GLOBALS[\'rs\']->cat_id;')),'','').
 			' <input type="submit" class="reset" name="mov['.$rs->cat_id.']" value="'.__('OK').'"/>';
-		   
+
 			$attr_disabled = ' disabled="disabled"';
 			$input_class = 'disabled ';
 		} else {
 			$attr_disabled = '';
 			$input_class = '';
 		}
-		echo 
+		echo
 		' <input type="submit"'.$attr_disabled.' class="'.$input_class.'delete" name="delete['.$rs->cat_id.']" value="'.__('Delete category').'"/>'.
 		'</p>';
 
