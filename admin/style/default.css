@@ -457,9 +457,9 @@ h1 a:link, h1 a:visited {
 /* ----------------------------------------------------------------------------
 																	FORMULAIRES
 ---------------------------------------------------------------------------- */
-input[type=text], input[type=password], input[type=submit],
+input[type=text], input[type=password], input[type=submit], 
 input[type=button], input[type=reset], a.button, button, textarea, select, legend {
-	border-radius: 3px;
+	border-radius: 3px;	
 	max-width: 100%;
 	}
 form {
@@ -685,7 +685,7 @@ input[type=submit]:hover, input[type=submit]:focus,
 	}
 /* suppression, reset, "neutres" fond gris */
 button, input[type=button], input.button,
-input[type=reset], input[type=submit].reset, input.reset,
+input[type=reset], input[type=submit].reset, input.reset, 
 input[type=submit].delete, input.delete,
  a.button, a.button.delete, a.button.reset {
 	color: #000;
@@ -698,8 +698,8 @@ input[type=submit].delete, input.delete,
 	}
 button:hover, input[type=button]:hover, input.button:hover,
 	button:focus, input[type=button]:focus, input.button:focus,
-	input[type=reset]:hover, input[type=submit].reset:hover, input.reset:hover,
-	input[type=reset]:focus, input[type=submit].reset:focus, input.reset:focus,
+	input[type=reset]:hover, input[type=submit].reset:hover, input.reset:hover, 
+	input[type=reset]:focus, input[type=submit].reset:focus, input.reset:focus, 
 	input[type=submit].delete:hover, input.delete:hover,
 	input[type=submit].delete:focus, input.delete:focus,
 	a.button.delete:hover, a.button.reset:hover, a.button:hover,
@@ -1663,7 +1663,7 @@ span.module-version:before {
 Les screenshots des thèmes ont deux tailles possibles :
 - dans Ajouter des thèmes : 240px (+ 10 padding image + 20 padding boîte + 6 bordure + 2 ombrage = 278)
 - dans Thèmes installés : 280px (+ 10 padding-image + 20 padding-boîte + 2 ombrage = 318)
-On adapte largeur et hauteur en fonction
+On adapte largeur et hauteur en fonction 
 */
 #theme-new .box.theme { /* Ajouter un thème */
 	width: 278px;
@@ -1906,7 +1906,7 @@ li.media-action input {
 	text-align: right;
 	}
 /* upload multiple */
-.enhanced_uploader .choose_files, .enhanced_uploader .cancel,
+.enhanced_uploader .choose_files, .enhanced_uploader .cancel, 
 .enhanced_uploader .clean, .enhanced_uploader .start {
 	margin-right: .4em;
 	}
@@ -2564,27 +2564,27 @@ input[type=submit].delete.debug:hover, a.delete.debug:hover {
 	color: #900;
 	border-color: #ffd478;
 	}
-/* ---------------------------------------------- Couleurs ajoutées via javascript
+/* ---------------------------------------------- Couleurs ajoutées via javascript	
 /* color-picker.js */
-.color-color-picker {
+.color-color-picker { 
 	border: 1px solid #000;
-	width: 195px;
-	background: #fff;
+	width: 195px; 
+	background: #fff; 
 	}
 /* _media_item.js */
-.color-div {
+.color-div { 
 	border: 1px solid #ccc;
 	}
 /* fadings ('color' est utilisé comme variable, pas comme text color) */
-.colorBeginPassword,
-.colorBeginValidatorErr,
+.colorBeginPassword, 
+.colorBeginValidatorErr, 
 .colorBeginUserMail 		{ color: #fff; }
-.colorEndPassword,
-.colorEndError,
-.colorEndValidatorErr,
+.colorEndPassword, 
+.colorEndError, 
+.colorEndValidatorErr, 
 .colorEndUserMail 			{ color: #ffbaba; }
 .colorBeginMessage 			{ color: #ccc; }
-.colorEndMessage,
+.colorEndMessage, 
 .colorBeginValidatorMsg 	{ color: #676e78; }
 .colorBeginError 			{ color: #fefacd; }
 .colorBeginSuccess 			{ color: #9BCA1C; }
@@ -2664,6 +2664,14 @@ h1, #top-info-blog {
 	width: 100%;
 	margin-left: 0;
 	margin-right: 0;
+	}
+}
+@media screen and (max-width: 48em) {
+	#dashboard-boxes .box.medium, .box.medium,
+	#dashboard-boxes .box.small, .box.small,
+	#dashboard-boxes .box.large, .box.large {
+	width: 95%;
+	margin: 10px auto;
 	}
 }
 @media screen and (max-width: 44em) {
@@ -2815,7 +2823,7 @@ p.top-add {
 	max-width: 100%;
 	}
 table .maximal {
-	min-width: 15em;
+	min-width: 14em;
 	}
 th, td {
 	padding: 0.3em 1em 0.3em 0;
