@@ -133,7 +133,7 @@ if (!defined('DC_DEBUG')) {
 
 # Constants
 define('DC_ROOT',path::real(dirname(__FILE__).'/..'));
-define('DC_VERSION','2.6-dev');
+define('DC_VERSION','2.6-RC');
 define('DC_DIGESTS',dirname(__FILE__).'/digests');
 define('DC_L10N_ROOT',dirname(__FILE__).'/../locales');
 define('DC_L10N_UPDATE_URL','http://services.dotclear.net/dc2.l10n/?version=%s');
@@ -279,7 +279,7 @@ function __error($summary,$message,$code=0)
 	# 50 : no default theme
 	# 60 : template processing error
 	# 70 : blog is offline
-	
+
 	if (CLI_MODE)
 	{
 		trigger_error($summary,E_USER_ERROR);
