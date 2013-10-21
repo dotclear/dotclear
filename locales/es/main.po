@@ -2623,7 +2623,7 @@ msgid "An error occurred during module deletion."
 msgstr "Se produjo un error durante el borrado del módulo."
 
 #, php-format
-msgid "Unable to upgrade \"%s\". (same version)"
+msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "No es posible actualizar «%s» (misma versión)."
 
 msgid "Unable to read new _define.php file"

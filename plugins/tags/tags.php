@@ -74,6 +74,8 @@ else
 {
 	echo '<p>'.__('No tags on this blog.').'</p>';
 }
+
+dcPage::helpBlock('tags');
 ?>
 
 </body>

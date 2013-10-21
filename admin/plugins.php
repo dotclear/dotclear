@@ -14,18 +14,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('admin');
 
-# -- "First time" settings setup --
-if ($core->blog->settings->system->plugins_allow_multi_install === null) {
-	$core->blog->settings->system->put(
-		'plugins_allow_multi_install', false, 'boolean', 'Allow multi-installation for plugins', true, true
-	);
-}
-if ($core->blog->settings->system->store_plugin_url === null) {
-	$core->blog->settings->system->put(
-		'store_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true
-	);
-}
-
 # -- Page helper --
 $list = new adminModulesList(
 	$core->plugins, 
@@ -33,7 +21,7 @@ $list = new adminModulesList(
 	$core->blog->settings->system->store_plugin_url
 );
 
-adminModulesList::$allow_multi_install = $core->blog->settings->system->plugins_allow_multi_install;
+adminModulesList::$allow_multi_install = (boolean) DC_ALLOW_MULTI_MODULES;
 adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
 # -- Display module configuration page --
@@ -70,7 +58,7 @@ if ($list->setConfiguration()) {
 
 # -- Execute actions --
 try {
-	$list->doActions('plugins');
+	$list->doActions();
 }
 catch (Exception $e) {
 	$core->error->add($e->getMessage());
@@ -149,7 +137,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		echo
 		'<p class="info vertical-separator">'.sprintf(
 			__("Visit %s repository, the resources center for Dotclear."),
-			'<a href="http://dotaddict.org/dc2/plugins">Dotaddict</a>'
+			'<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>'
 			).
 		'</p>'.
 
@@ -173,7 +161,7 @@ if (!empty($modules)) {
 		->setTab('plugins')
 		->setModules($modules)
 		->displayModules(
-			/* cols */		array('expander', 'icon', 'name', 'config', 'version', 'desc', 'distrib'),
+			/* cols */		array('expander', 'icon', 'name', 'version', 'desc', 'distrib'),
 			/* actions */	array('deactivate', 'delete', 'behavior')
 		);
 }
@@ -227,7 +215,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		echo
 		'<p class="info vertical-separator">'.sprintf(
 			__("Visit %s repository, the resources center for Dotclear."),
-			'<a href="http://dotaddict.org/dc2/plugins">Dotaddict</a>'
+			'<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>'
 			).
 		'</p>'.
 
@@ -255,4 +243,5 @@ if ($core->auth->isSuperAdmin() && !$list->isWritablePath()) {
 	'<p class="warning">'.__('Some functions are disabled, please give write access to your plugins directory to enable them.').'</p>';
 }
 
+dcPage::helpBlock('core_plugins');
 dcPage::close();

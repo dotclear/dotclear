@@ -25,7 +25,7 @@ if (!array_key_exists('pings',$core->blog->settings->dumpNamespaces()))
 		'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
 		'Google Blog Search' => 'http://blogsearch.google.com/ping/RPC2'
 	);
-		
+
 	$core->blog->settings->addNamespace('pings');
 	$core->blog->settings->pings->put('pings_active',1,'boolean','Activate pings plugin',true,true);
 	$core->blog->settings->pings->put('pings_uris',serialize($default_pings_uris),'string','Pings services URIs',true,true);
@@ -47,4 +47,20 @@ function pingDashboardFavorites($core,$favs)
 		'large-icon' => 'index.php?pf=pings/icon-big.png',
 	));
 }
-?>
+
+$core->addBehavior('adminPageHelpBlock', 'pingsPageHelpBlock');
+
+function pingsPageHelpBlock($blocks)
+{
+	$found = false;
+	foreach($blocks as $block) {
+		if ($block == 'core_post') {
+			$found = true;
+			break;
+		}
+	}
+	if (!$found) {
+		return null;
+	}
+	$blocks[] = 'pings_post';
+}

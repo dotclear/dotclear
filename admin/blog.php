@@ -101,6 +101,7 @@ else
 	'<p><input type="submit" accesskey="s" value="'.__('Create').'" /></p>'.
 	'</form>';
 
+	dcPage::helpBlock('core_blog_new');
 	dcPage::close();
 }
 ?>

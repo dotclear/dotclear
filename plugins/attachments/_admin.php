@@ -11,15 +11,30 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$core->addBehavior ('adminPostFormItems',array('attachmentAdmin','adminPostFormItems'));
-$core->addBehavior ('adminPostAfterForm',array('attachmentAdmin','adminPostAfterForm'));
+$core->addBehavior('adminPostFormItems',array('attachmentAdmin','adminPostFormItems'));
+$core->addBehavior('adminPostAfterForm',array('attachmentAdmin','adminPostAfterForm'));
 $core->addBehavior('adminPostHeaders',array('attachmentAdmin','postHeaders'));
-$core->addBehavior ('adminPageFormItems',array('attachmentAdmin','adminPostFormItems'));
-$core->addBehavior ('adminPageAfterForm',array('attachmentAdmin','adminPostAfterForm'));
+$core->addBehavior('adminPageFormItems',array('attachmentAdmin','adminPostFormItems'));
+$core->addBehavior('adminPageAfterForm',array('attachmentAdmin','adminPostAfterForm'));
 $core->addBehavior('adminPageHeaders',array('attachmentAdmin','postHeaders'));
+$core->addBehavior('adminPageHelpBlock',array('attachmentAdmin','adminPageHelpBlock'));
 
 class attachmentAdmin
 {
+	public static function adminPageHelpBlock($blocks)
+	{
+		$found = false;
+		foreach($blocks as $block) {
+			if ($block == 'core_post') {
+				$found = true;
+				break;
+			}
+		}
+		if (!$found) {
+			return null;
+		}
+		$blocks[] = 'attachments';
+	}
 	public static function postHeaders()
 	{
 		return 
@@ -53,7 +68,7 @@ class attachmentAdmin
 				
 				'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
 				'href="post_media.php?post_id='.$post->post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
-				'<img src="images/check-off.png" alt="'.__('remove').'" /></a>'.
+				'<img src="images/trash.png" alt="'.__('remove').'" /></a>'.
 				'</li>'.
 				
 				'</ul>'.

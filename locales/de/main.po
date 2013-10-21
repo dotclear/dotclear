@@ -2599,7 +2599,7 @@ msgid "An error occurred during module deletion."
 msgstr "Ein Fehler ist aufgetreten während der Löschung des Moduls."
 
 #, php-format
-msgid "Unable to upgrade \"%s\". (same version)"
+msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Untauglich zum Aktualisieren \"%s\". (gleiche Version)"
 
 msgid "Unable to read new _define.php file"

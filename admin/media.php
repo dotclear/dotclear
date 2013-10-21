@@ -343,9 +343,9 @@ if (!$dir) {
 }
 
 if ($post_id) {
-	echo '<p class="form-note info">'.sprintf(__('Choose a file to attach to entry %s by clicking on %s.'),
+	echo '<div class="form-note info"><p>'.sprintf(__('Choose a file to attach to entry %s by clicking on %s.'),
 		'<a href="'.$core->getPostAdminURL($post_type,$post_id).'">'.html::escapeHTML($post_title).'</a>',
-		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p>';
+		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p></div>';
 }
 if ($popup) {
 	echo '<div class="info"><p>'.sprintf(__('Choose a file to insert into entry by clicking on %s.'),
@@ -583,14 +583,10 @@ function mediaItemLine($f,$i)
 	
 	if ($post_id && !$f->d) {
 		$act .= 
-		'<form action="post_media.php" method="post">'.
-		'<input type="image" src="images/plus.png" alt="'.__('Attach this file to entry').'" '.
-		'title="'.__('Attach this file to entry').'" /> '.
-		form::hidden('media_id',$f->media_id).
-		form::hidden('post_id',$post_id).
-		form::hidden('attach',1).
-		$core->formNonce().
-		'</form>';
+		'<a class="attach-media" title="'.__('Attach this file to entry').'" href="post_media.php?media_id='.$f->media_id.
+		'&amp;post_id='.$post_id.'&amp;attach=1">'.
+		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'"/>'.
+		'</a>';
 	}
 	
 	if ($popup && !$f->d) {
@@ -621,4 +617,3 @@ function mediaItemLine($f,$i)
 	
 	return $res;
 }
-?>

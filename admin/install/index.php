@@ -161,7 +161,11 @@ if ($can_install && !empty($_POST))
 		$blog_settings->system->put('date_format',$formatDate);
 		$blog_settings->system->put('date_formats',serialize($date_formats),'string','Date formats examples',true);
 		$blog_settings->system->put('time_formats',serialize($time_formats),'string','Time formats examples',true);
-
+		
+		# Add repository URL for themes and plugins
+		$blog_settings->system->put('store_plugin_url','http://update.dotaddict.org/dc2/plugins.xml','string','Plugins XML feed location',true);
+		$blog_settings->system->put('store_theme_url','http://update.dotaddict.org/dc2/themes.xml','string','Themes XML feed location',true);
+		
 		# Add Dotclear version
 		$cur = $core->con->openCursor($core->prefix.'version');
 		$cur->module = 'core';

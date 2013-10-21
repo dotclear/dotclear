@@ -37,9 +37,26 @@ $core->addBehavior('coreInitWikiPost',array('tagsBehaviors','coreInitWikiPost'))
 
 $core->addBehavior('adminDashboardFavorites',array('tagsBehaviors','dashboardFavorites'));
 
+$core->addBehavior('adminPageHelpBlock', array('tagsBehaviors', 'adminPageHelpBlock'));
+
 # BEHAVIORS
 class tagsBehaviors
 {
+	public static function adminPageHelpBlock($blocks)
+	{
+		$found = false;
+		foreach($blocks as $block) {
+			if ($block == 'core_post') {
+				$found = true;
+				break;
+			}
+		}
+		if (!$found) {
+			return null;
+		}
+		$blocks[] = 'tag_post';
+	}
+
 	public static function dashboardFavorites($core,$favs)
 	{
 		$favs->register('tags', array(

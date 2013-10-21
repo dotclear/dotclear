@@ -263,9 +263,8 @@ if ($is_writable)
 	'</p>'.
 	'</form>';
 }
-
+dcPage::helpBlock('core_langs');
 dcPage::close();
-
 
 # Language installation function
 function dc_lang_install($file)

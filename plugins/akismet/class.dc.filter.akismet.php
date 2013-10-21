@@ -16,6 +16,7 @@ class dcFilterAkismet extends dcSpamFilter
 	public $name = 'Akismet';
 	public $has_gui = true;
 	public $active = false;
+	public $help = 'akismet-filter';
 	
 	public function __construct($core)
 	{
