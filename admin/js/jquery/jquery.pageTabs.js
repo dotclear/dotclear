@@ -73,7 +73,10 @@
 	};
 	
 	$.pageTabs.clickTab = function(tab) {
-		if (tab=='' || $('#'+$.pageTabs.options.idTabPrefix+tab, '.'+$.pageTabs.options.containerClass).length==0) {
+		if (tab=='') {
+			tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
+		} else if (($('#'+$.pageTabs.options.idTabPrefix+tab, '.'+$.pageTabs.options.containerClass).length==0)
+			   && ($('ul li.'+$.pageTabs.options.activeClass, '.'+$.pageTabs.options.containerClass).length==0)){
 			tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
 		}
 
