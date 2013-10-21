@@ -231,5 +231,7 @@ foreach ($prefs as $ws => $s)
 </form>
 </div>
 
+<?php dcPage::helpBlock('userPref'); ?>
+
 </body>
 </html>

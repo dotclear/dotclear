@@ -147,7 +147,13 @@ class dcStoreReader extends netHttp
 		$this->useSSL($ssl);
 		$this->setAuthorization($user, $pass);
 
-		return $this->get($path);
+		try {
+			return $this->get($path);
+		}
+		catch(Exception $e) {
+			// @todo Log error when repository query fail
+			return false;
+		}
 	}
 
 	/**

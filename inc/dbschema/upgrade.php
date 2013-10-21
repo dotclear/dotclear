@@ -360,7 +360,17 @@ function dotclearUpgrade($core)
 					files::deltree($root.'/daInstaller');
 				}
 
-				# add new settings for date and time formats
+				# Some settings change, prepare db queries
+				$strReqFormat = 'INSERT INTO '.$core->prefix.'setting';
+				$strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
+				$strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
+
+				$strReqSelect = 'SELECT count(1) FROM '.$core->prefix.'setting';
+				$strReqSelect .= ' WHERE setting_id = \'%s\'';
+				$strReqSelect .= ' AND setting_ns = \'system\'';
+				$strReqSelect .= ' AND blog_id IS NULL';
+
+				# Add date and time formats
 				$date_formats = array('%Y-%m-%d','%m/%d/%Y','%d/%m/%Y','%Y/%m/%d','%d.%m.%Y','%b %e %Y','%e %b %Y','%Y %b %e',
 				'%a, %Y-%m-%d','%a, %m/%d/%Y','%a, %d/%m/%Y','%a, %Y/%m/%d','%B %e, %Y','%e %B, %Y','%Y, %B %e','%e. %B %Y',
 				'%A, %B %e, %Y','%A, %e %B, %Y','%A, %Y, %B %e','%A, %Y, %B %e','%A, %e. %B %Y');
@@ -371,15 +381,6 @@ function dotclearUpgrade($core)
 											  ),$date_formats);
 				}
 
-				$strReqFormat = 'INSERT INTO '.$core->prefix.'setting';
-				$strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
-				$strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
-				
-				$strReqSelect = 'SELECT count(1) FROM '.$core->prefix.'setting';
-				$strReqSelect .= ' WHERE setting_id = \'%s\'';
-				$strReqSelect .= ' AND setting_ns = \'system\'';
-				$strReqSelect .= ' AND blog_id IS NULL';
-
 				$rs = $core->con->select(sprintf($strReqSelect,'date_formats'));
 				if ($rs->f(0)==0) {
 					$strReq = sprintf($strReqFormat,'date_formats',serialize($date_formats),'Date formats examples');
@@ -389,6 +390,18 @@ function dotclearUpgrade($core)
 				if ($rs->f(0)==0) {
 					$strReq = sprintf($strReqFormat,'time_formats',serialize($time_formats),'Time formats examples');
 					$core->con->execute($strReq);
+				}
+
+				# Add repository URL for themes and plugins as daInstaller move to core
+				$rs = $core->con->select(sprintf($strReqSelect,'store_plugin_url'));
+				if ($rs->f(0)==0) {
+					$strReq = sprintf($strReqFormat,'store_plugin_url','http://update.dotaddict.org/dc2/plugins.xml','Plugins XML feed location');
+					$core->con->execute($strReq);					 
+				}
+				$rs = $core->con->select(sprintf($strReqSelect,'store_theme_url'));
+				if ($rs->f(0)==0) {
+					$strReq = sprintf($strReqFormat,'store_theme_url','http://update.dotaddict.org/dc2/themes.xml','Themes XML feed location');
+					$core->con->execute($strReq);					 
 				}
 			}
 			

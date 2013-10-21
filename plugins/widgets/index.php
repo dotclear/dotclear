@@ -52,6 +52,13 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 			$addw[$k] = $v;
 		}
 	}
+		
+	# Append 1 widget
+	$wid = false;
+	if( gettype($_POST['append']) == 'array' && count($_POST['append']) == 1 ) {
+		$wid = array_keys($_POST['append']);
+		$wid = $wid[0];
+	}
 	
 	# Append widgets
 	if (!empty($addw))
@@ -68,16 +75,19 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 		
 		foreach ($addw as $k => $v)
 		{
-			switch ($v) {
-				case 'nav':
-					$widgets_nav->append($__widgets->{$k});
-					break;
-				case 'extra':
-					$widgets_extra->append($__widgets->{$k});
-					break;
-				case 'custom':
-					$widgets_custom->append($__widgets->{$k});
-					break;
+			if( !$wid || $wid == $k )
+			{
+				switch ($v) {
+					case 'nav':
+						$widgets_nav->append($__widgets->{$k});
+						break;
+					case 'extra':
+						$widgets_extra->append($__widgets->{$k});
+						break;
+					case 'custom':
+						$widgets_custom->append($__widgets->{$k});
+						break;
+				}
 			}
 		}
 		
@@ -94,8 +104,48 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 	}
 }
 
+# Removing ?
+$removing = false;
+if ( isset($_POST['w']) && is_array($_POST['w']) ) {
+	foreach ($_POST['w'] as $nsid => $nsw) {
+		foreach ($nsw as $i => $v) {
+			if (!empty($v['_rem'])) {
+				$removing = true;
+				break 2;
+			}
+		}
+	}
+}
+
+# Move ?
+$move = false;
+if ( isset($_POST['w']) && is_array($_POST['w']) ) {
+	foreach ($_POST['w'] as $nsid => $nsw) {
+		foreach ($nsw as $i => $v) {
+			if (!empty($v['_down'])) {
+				$oldorder = $_POST['w'][$nsid][$i]['order'];
+				$neworder = $oldorder + 1;
+				if( isset($_POST['w'][$nsid][$neworder]) ) {
+					$_POST['w'][$nsid][$i]['order'] = $neworder;
+					$_POST['w'][$nsid][$neworder]['order'] = $oldorder;
+					$move = true;
+				}
+			}
+			if (!empty($v['_up'])) {
+				$oldorder = $_POST['w'][$nsid][$i]['order'];
+				$neworder = $oldorder - 1;
+				if( isset($_POST['w'][$nsid][$neworder]) ) {
+					$_POST['w'][$nsid][$i]['order'] = $neworder;
+					$_POST['w'][$nsid][$neworder]['order'] = $oldorder;
+					$move = true;
+				}
+			}
+		}
+	}
+}
+
 # Update sidebars
-if (!empty($_POST['wup']))
+if (!empty($_POST['wup']) || $removing || $move )
 {
 	if (!isset($_POST['w']) || !is_array($_POST['w'])) {
 		$_POST['w'] = array();
@@ -161,9 +211,7 @@ elseif (!empty($_POST['wreset']))
 <html>
 <head>
   <title><?php echo __('Widgets'); ?></title>
-  <style type="text/css">
-  <?php echo file_get_contents(dirname(__FILE__).'/style.css'); ?>
-  </style>
+  <link type="text/css" rel="stylesheet" href="index.php?pf=widgets/style.css"/>
   <?php
 		echo
 			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
@@ -197,7 +245,7 @@ echo dcPage::breadcrumb(
 echo
 '<form id="listWidgets" action="'.$p_url.'" method="post"  class="widgets">'.
 '<h3>'.__('Available widgets').'</h3>'.
-'<p>'.__('Move widgets from this list to one of the sidebars.').'</p>'.
+'<p>'.__('Drag widgets from this list to one of the sidebars, for add.').'</p>'.
 '<ul id="widgets-ref">';
 
 $j = 0;
@@ -207,7 +255,8 @@ foreach ($__widgets->elements(true) as $w) {
 	'<p class="widget-name">'.form::field(array('w[void][0][order]'),2,3,0,'hide','',0,'title="'.__('order').'"').' '.$w->name().
 	($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
 	'<p class="manual-move remove-if-drag"><label class="classic">'.__('Append to:').'</label> '.
-	form::combo(array('addw['.$w->id().']'),$append_combo).'</p>'.
+	form::combo(array('addw['.$w->id().']'),$append_combo).
+	'<input type="submit" name="append['.$w->id().']" value="'.__('Add').'" /></p>'.
 	'<div class="widgetSettings hidden-if-drag">'.$w->formSettings('w[void][0]',$j).'</div>'.
 	'</li>';
 	$j++;
@@ -215,7 +264,7 @@ foreach ($__widgets->elements(true) as $w) {
 
 echo
 '</ul>'.
-$core->formNonce().
+'<p>'.$core->formNonce().'</p>'.
 '<p class="remove-if-drag"><input type="submit" name="append" value="'.__('Add widgets to sidebars').'" /></p>'.
 '</form>';
 
@@ -246,26 +295,7 @@ $core->formNonce().
 '</form>';
 
 $widget_elements = new stdClass;
-$widget_elements->content =
-'<h4>'.__('Use of widgets').'</h4>'.
-'<p>'.__('Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, '.
-'drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order '.
-'your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes.').'</p>'.
-'<p>'.__('Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next '.
-'to their name.').'</p>'.
-'<p>'.__('Reset sidebars to get back to default widgets installation.').'</p>'.
-'<h4>'.__('Widget templates tags').'</h4>'.
-'<div id="widgets-tpl">'.
-'<p>'.__('If you are allowed to edit your theme templates, you can directly add widgets as '.
-'templates tags, with their own configuration.').'</p>'.
-'<p>'.__('To add a widget in your template, you need to write code like this:').'</p>'.
-'<pre>&lt;tpl:Widget id="<strong>'.__('Widget ID').'</strong>"&gt;
-  &lt;setting name="<strong>'.__('Setting name').'</strong>"&gt;<strong>'.__('Setting value').'</strong>&lt;/setting&gt;
-  ...
-&lt;/tpl:Widget&gt;</pre>'.
-'<p>'.__('Here are the following available widgets for your blog:').'</p>';
-
-$widget_elements->content .= '<dl>';
+$widget_elements->content = '<dl>';
 foreach ($__widgets->elements() as $w)
 {
 	$widget_elements->content .=
@@ -311,7 +341,7 @@ foreach ($__widgets->elements() as $w)
 }
 $widget_elements->content .= '</dl></div>';
 
-dcPage::helpBlock($widget_elements);
+dcPage::helpBlock('widgets',$widget_elements);
 
 function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 {
@@ -322,22 +352,31 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$widgets = $default_widgets;
 	}
 	
-	$res .= '<p class="empty-widgets" '.(!$widgets->isEmpty() ? 'style="display: none;"' : '').'>'.__('No widget.').'</p>';
-	
 	$res .= '<ul id="'.$id.'" class="connected">';
+	
+	$res .= '<li class="empty-widgets" '.(!$widgets->isEmpty() ? 'style="display: none;"' : '').'>'.__('No widget as far.').'</li>';
 	
 	$i = 0;
 	foreach ($widgets->elements() as $w)
 	{
+		$upDisabled = $i == 0 ? ' disabled" src="images/disabled_' : '" src="images/';
+		$downDisabled = $i == count($widgets->elements())-1 ? ' disabled" src="images/disabled_' : '" src="images/';
+		$altUp = $i == 0 ? ' alt=""' : ' alt="'.__('Up the widget').'"';
+		$altDown = $i == count($widgets->elements())-1 ? ' alt=""' : ' alt="'.__('Down the widget').'"';
+		
 		$iname = 'w['.$pr.']['.$i.']';
 		
 		$res .=
 		'<li>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
-		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'hidden-if-drag','',0,'title="'.__('order').'"').' '.$w->name().
-		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</p>'.
-		'<p class="removeWidget remove-if-drag"><label class="classic">'.
-		form::checkbox(array($iname.'[_rem]'),'1',0).' '.__('Remove widget').
-		'</label></p>'.
+		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'hidden','',0,'title="'.__('order').'"').
+		' '.$w->name().
+		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').
+		'<span class="toolsWidget remove-if-drag">'.
+		'<input type="image" class="upWidget'.$upDisabled.'up.png" name="'.$iname.'[_up]" value="'.__('Up the widget').'"'.$altUp.' /> '.
+		'<input type="image" class="downWidget'.$downDisabled.'down.png" name="'.$iname.'[_down]" value="'.__('Down the widget').'"'.$altDown.' /> '.' '.
+		'<input type="image" class="removeWidget" src="images/trash.png" name="'.$iname.'[_rem]" value="'.__('Remove widget').'" alt="'.__('Remove the widget').'" />'.
+		'</span>'.
+		'<br class="clear"/></p>'.
 		'<div class="widgetSettings hidden-if-drag">'.$w->formSettings($iname,$j).'</div>'.
 		'</li>';
 		
@@ -346,11 +385,9 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 	}
 	
 	$res .= '</ul>';
-
-	if ($i > 0) {
-		$res .= '<ul class="sortable-delete"><li class="sortable-delete-placeholder">'.
-			__('Drag widgets here to remove them from this sidebar.').'</li></ul>';
-	}
+	
+	$res .= '<ul class="sortable-delete"'.($i > 0 ? '':' style="display: none;"').'><li class="sortable-delete-placeholder">'.
+			__('Drag widgets here to remove.').'</li></ul>';
 	
 	return $res;
 }

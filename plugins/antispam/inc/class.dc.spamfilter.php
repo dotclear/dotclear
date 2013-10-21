@@ -18,6 +18,7 @@ class dcSpamFilter
 	public $active = true;
 	public $order = 100;
 	public $auto_delete = false;
+	public $help = null;
 	
 	protected $has_gui = false;
 	protected $gui_url = null;
@@ -156,6 +157,10 @@ class dcSpamFilter
 		}
 		
 		return sprintf($link,$this->name,$url);
+	}
+
+	public function help()
+	{
 	}
 }
 ?>

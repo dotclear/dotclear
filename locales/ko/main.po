@@ -2632,7 +2632,7 @@ msgid "An error occurred during module deletion."
 msgstr "모듈 삭제중 오류가 발생했습니다."
 
 #, php-format
-msgid "Unable to upgrade \"%s\". (same version)"
+msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "\"%s\"를 갱신할 수 없습니다. (동일 버전)."
 
 msgid "Unable to read new _define.php file"

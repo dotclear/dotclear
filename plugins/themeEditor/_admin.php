@@ -52,7 +52,7 @@ class themeEditorBehaviors
 		echo		
 		'<p><label for="colorsyntax" class="classic">'.
 		form::checkbox('colorsyntax',1,$core->auth->user_prefs->interface->colorsyntax).'</label>'.
-		__('Syntax color for theme editor').
+		__('Syntax highlighting in theme editor').
 		'</p>';
 	}
 }

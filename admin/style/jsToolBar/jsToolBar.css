@@ -27,14 +27,16 @@
 	border-color: #bee74b;
 }
 .jstElements {
-	padding: 0 1rem; 
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;	
+	padding: 0 32px 0 1rem; 
 	border: 1px solid #dfdfdf;
 	overflow: hidden; 
 	background: #f5f5f5; 
-	-moz-border-radius: 4px 4px 0 0; 
-	-webkit-border-radius: 4px 4px 0 0; 
 	border-radius: 4px 4px 0 0; 
 	position: relative;
+	line-height: 30px;
 }
 .jstElements select, .jstElements button {
 	vertical-align: middle;
@@ -45,11 +47,13 @@
 	border: 1px solid #ddd; 
 }
 .jstElements button {
-	width : 30px;
+	width: 30px;
 	height: 28px;
 	border-style: solid;
-	border-width:  0 1px 0 0;
-	border-color: #e7e7e7;
+	border-width: 1px;
+	margin-left: 2px;
+	margin-bottom: 2px;
+	border-color: #e5e5e5 #ccc #ccc #e5e5e5;
 	background-color : #f7f7f7;
 	background-position : 50% 50%;
 	background-repeat: no-repeat;
@@ -59,17 +63,14 @@
 	background-color: #fff;
 }
 .jstElements button span {
-	display : none;	
+	display: none;	
 }
 .jstElements span {
 	display : inline-block;
 	vertical-align: top;
-	background: #e5e5e5;
 }
 span.jstSpacer {
-	width : 6px;
-	height: 28px;
-	margin-right: 0;
+	width : 8px;
 }
 .jstSwitcher {
 	display: block;
@@ -148,7 +149,9 @@ button.jstb_removeFormat {
 	background-color: #e5e5e5;
 	background-image: url(bt_clean.png);
 	position: absolute;
-	right: 0;
+	right: 2px;
+	top: 1px;
+	border-color: #ccc;
 }
 
 /* WYSIWYG Iframe */

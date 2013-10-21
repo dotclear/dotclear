@@ -26,11 +26,17 @@ if ($rs->isEmpty()) {
 }
 
 try {
-	if ($post_id && $media_id && !empty($_POST['attach']))
+	if ($post_id && $media_id && !empty($_REQUEST['attach']))
 	{
 		$core->media = new dcMedia($core);
 		$core->media->addPostMedia($post_id,$media_id);
-		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+            header('Content-type: application/json');
+            echo json_encode(array('url' => $core->getPostAdminURL($rs->post_type,$post_id,false)));
+            exit();
+        } else {
+            http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
+        }
 	}
 
 	$core->media = new dcMedia($core);
@@ -78,4 +84,3 @@ if (($post_id && $media_id) || $core->error->flag())
 		exit;
 	}
 }
-?>

@@ -770,7 +770,7 @@ class dcBlog
 
 		if ($count_only)
 		{
-			$strReq = 'SELECT count(P.post_id) ';
+			$strReq = 'SELECT count(DISTINCT P.post_id) ';
 		}
 		elseif (!empty($params['sql_only'])) 
 		{
@@ -790,6 +790,7 @@ class dcBlog
 				$content_req .= implode(', ',$params['columns']).', ';
 			}
 			
+
 			$strReq =
 			'SELECT P.post_id, P.blog_id, P.user_id, P.cat_id, post_dt, '.
 			'post_tz, post_creadt, post_upddt, post_format, post_password, '.
@@ -806,17 +807,6 @@ class dcBlog
 		'INNER JOIN '.$this->prefix.'user U ON U.user_id = P.user_id '.
 		'LEFT OUTER JOIN '.$this->prefix.'category C ON P.cat_id = C.cat_id ';
 
-		if (isset($params['media'])) {
-			if ($params['media'] == '0') {
-				$strReq .= 'LEFT OUTER JOIN '.$this->prefix.'post_media M on P.post_id = M.post_id ';
-			} else {
-				$strReq .= 'INNER JOIN '.$this->prefix.'post_media M on P.post_id = M.post_id ';
-			}
-			if (isset($params['link_type'])) {
-				$strReq .= " and M.link_type ".$this->con->in($params['link_type'])." ";
-			}
-		}
-		
 		if (!empty($params['from'])) {
 			$strReq .= $params['from'].' ';
 		}
@@ -949,16 +939,20 @@ class dcBlog
 		
 		if (isset($params['media'])) {
 			if ($params['media'] == '0') {
-				$strReq .= ' AND M.post_id IS NULL ';
+				$strReq .= 'AND NOT ';
+			} else {
+				$strReq .= 'AND ';				
 			}
+			$strReq .= 'EXISTS (SELECT M.post_id FROM '.$this->prefix.'post_media M '.
+				'WHERE M.post_id = P.post_id ';
+			if (isset($params['link_type'])) {
+				$strReq .= " AND M.link_type ".$this->con->in($params['link_type'])." ";
+			}
+			$strReq .= ")";
 		}
 
 		if (!empty($params['sql'])) {
 			$strReq .= $params['sql'].' ';
-		}
-		
-		if (!$count_only && isset($params['media'])) {
-			$strReq .= ' GROUP BY P.post_id ';
 		}
 
 		if (!$count_only)

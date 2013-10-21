@@ -14,13 +14,6 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('admin');
 
-# -- "First time" settings setup --
-if ($core->blog->settings->system->store_theme_url === null) {
-	$core->blog->settings->system->put(
-		'store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true
-	);
-}
-
 # -- Loading themes --
 $core->themes = new dcThemes($core);
 $core->themes->loadModules($core->blog->themes_path, null);
@@ -90,7 +83,7 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
 
 # -- Execute actions --
 try {
-	$list->doActions('themes');
+	$list->doActions();
 }
 catch (Exception $e) {
 	$core->error->add($e->getMessage());
@@ -138,7 +131,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		echo
 		'<p class="info vertical-separator">'.sprintf(
 			__("Visit %s repository, the resources center for Dotclear."),
-			'<a href="http://dotaddict.org/dc2/themes">Dotaddict</a>'
+			'<a href="http://themes.dotaddict.org/dc2/">Dotaddict</a>'
 			).
 		'</p>'.
 
@@ -217,7 +210,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		echo
 		'<p class="info vertical-separator">'.sprintf(
 			__("Visit %s repository, the resources center for Dotclear."),
-			'<a href="http://dotaddict.org/dc2/themes">Dotaddict</a>'
+			'<a href="http://themes.dotaddict.org/dc2/">Dotaddict</a>'
 			).
 		'</p>'.
 
@@ -238,5 +231,5 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
 # --BEHAVIOR-- themesToolsTabs
 $core->callBehavior('themesToolsTabs', $core);
-
+dcPage::helpBlock('core_blog_theme');
 dcPage::close();

@@ -93,7 +93,7 @@
 				label = dotclear.jsUpload.msg.choose_file;
 			}
 
-			$('<p class="clear"><a class="enhanced-toggle" href="#">' + $msg + '</a></p>').click(function() {
+			$('<p class="clear"><a class="enhanced-toggle" href="#">' + $msg + '</a></p>').click(function(e) {
 				if ($container.hasClass('enhanced_uploader')) {
 					$msg = dotclear.msg.enhanced_uploader_activate;
 					label = dotclear.jsUpload.msg.choose_file;
@@ -121,6 +121,7 @@
 				$('.add-label', me).text(label);
 				
 				$container.toggleClass('enhanced_uploader');
+				e.preventDefault();
 			}).appendTo(me);
 		});
 	};
@@ -141,6 +142,27 @@ $(function() {
 		}
 
 		return window.confirm(dotclear.msg.confirm_delete_medias.replace('%d',count_checked));
+	});
+
+	// attach media
+	$('#form-medias').on('click', '.media-item .attach-media', function(e) {
+		var parts = $(this).prop('href').split('?');
+		var str_params = parts[1].split('&');
+		var postData = {};
+
+		for (var n=0;n<str_params.length;n++) {
+			kv = str_params[n].split('=');
+			postData[kv[0]] = kv[1];
+		}
+		postData.xd_check = dotclear.nonce;
+
+		$.post(parts[0], postData, function(data) {
+			if (data.url !== undefined) {
+				document.location = data.url;
+			}
+		});
+
+		e.preventDefault();
 	});
 
 	// Replace remove links by a POST on hidden form
