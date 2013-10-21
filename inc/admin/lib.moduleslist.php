@@ -624,7 +624,7 @@ class adminModulesList
 			if (in_array('desc', $cols)) {
 				$tds++;
 				echo
-				'<td class="module-desc maximal">'.html::escapeHTML($module['desc']).'</td>';
+				'<td class="module-desc maximal">'.html::escapeHTML(__($module['desc'])).'</td>';
 			}
 
 			if (in_array('distrib', $cols)) {
@@ -1416,7 +1416,7 @@ class adminThemesList extends adminModulesList
 
 			if (in_array('desc', $cols)) {
 				$line .=
-				'<span class="module-desc">'.html::escapeHTML($module['desc']).'</span> ';
+				'<span class="module-desc">'.html::escapeHTML(__($module['desc'])).'</span> ';
 			}
 
 			if (in_array('author', $cols)) {
