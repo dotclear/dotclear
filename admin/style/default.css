@@ -2595,20 +2595,7 @@ input[type=submit].delete.debug:hover, a.delete.debug:hover {
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (min-width: 117em) {
-body {
-	border: 1px solid #ccc;
-	border-top-width: 0;
-	}
-}
 @media screen and (min-width: 80em) {
-html {
-	background: #fff;
-	}
-body {
-	max-width: 140em;
-	margin: 0 auto;
-	}
 #wrapper {
 	background: #F7F7F7 url(bg_wrapper.png) repeat-y 18em;
 	}
