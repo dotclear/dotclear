@@ -78,7 +78,8 @@ if ($type && $module !== null) {
 			__('Plugins') => '',
 			$title => $p_url,
 			html::escapeHTML($module->name) => ''
-		));
+		)).
+		dcPage::notices();
 
 	echo
 	'<div id="ie-gui">';
@@ -92,7 +93,8 @@ else {
 		array(
 			__('Plugins') => '',
 			$title => ''
-		));
+		)).
+		dcPage::notices();
 
 	echo '<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']);
 
