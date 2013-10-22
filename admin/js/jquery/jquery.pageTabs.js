@@ -75,9 +75,18 @@
 	$.pageTabs.clickTab = function(tab) {
 		if (tab=='') {
 			tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
-		} else if (($('#'+$.pageTabs.options.idTabPrefix+tab, '.'+$.pageTabs.options.containerClass).length==0)
-			   && ($('ul li.'+$.pageTabs.options.activeClass, '.'+$.pageTabs.options.containerClass).length==0)){
-			tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
+		} else if ($('#'+$.pageTabs.options.idTabPrefix+tab, '.'+$.pageTabs.options.containerClass).length==0) {
+			// try to find anchor in a .multi-part div
+			if ($('#'+tab).length==1) {
+				var div_content = $('#'+tab).parents('.'+$.pageTabs.options.contentClass);
+				if (div_content.length==1) {
+					tab = div_content.attr('id').replace($.pageTabs.options.partPrefix,'');
+				} else {
+					tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
+				}
+			} else {
+				tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
+			}
 		}
 
 		$('ul li a', '.'+$.pageTabs.options.containerClass).filter(function() {
