@@ -155,18 +155,21 @@ if ($task && ($res = $task->step()) !== null) {
 		)
 	);
 
+	// content
+	if (substr($res, 0, 1) != '<') {
+		$res = sprintf('<p class="step-msg">%s</p>', $res);
+	}
+
 	// Intermediate task (task required several steps)
 
 	echo 
 	'<div class="step-box" id="'.$task->id().'">'.
 	'<p class="step-back">'.
-		'<a class="back" href="'.$p_url.'&tab='.$task->tab().'#'.$task->tab().'">'.__('Back').'</a>'.
+		'<a class="back" href="'.$p_url.'&amp;tab='.$task->tab().'#'.$task->tab().'">'.__('Back').'</a>'.
 	'</p>'.
 	'<h3>'.html::escapeHTML($task->name()).'</h3>'.
 	'<form action="'.$p_url.'" method="post">'.
-	'<p class="step-msg">'.
-		$res.
-	'</p>'.
+	$res.
 	'<p class="step-submit">'.
 		'<input type="submit" value="'.$task->task().'" /> '.
 		form::hidden(array('task'), $task->id()).
