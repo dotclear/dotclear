@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 09:38+0200\n"
+"POT-Creation-Date: 2013-10-23 13:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1534,11 +1534,17 @@ msgstr ""
 msgid "File is not a single blog export."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:222
+#: plugins/importExport/inc/flat/class.flat.import.php:218
+#: plugins/importExport/inc/flat/class.flat.import.php:301
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
+#: plugins/importExport/inc/flat/class.flat.import.php:227
 msgid "File is not a full export."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:704
+#: plugins/importExport/inc/flat/class.flat.import.php:711
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
@@ -1560,17 +1566,9 @@ msgstr ""
 msgid "Please wait..."
 msgstr ""
 
-#: plugins/importExport/index.php:105
+#: plugins/importExport/index.php:104
 #, php-format
 msgid "Export functions are in the page %s."
-msgstr ""
-
-#: plugins/importExport/index.php:106 plugins/maintenance/_admin.php:16
-#: plugins/maintenance/_admin.php:83 plugins/maintenance/_admin.php:179
-#: plugins/maintenance/_admin.php:201 plugins/maintenance/index.php:113
-#: plugins/maintenance/index.php:137 plugins/maintenance/index.php:153
-#: plugins/maintenance/index.php:186
-msgid "Maintenance"
 msgstr ""
 
 #: plugins/maintenance/_admin.php:49
