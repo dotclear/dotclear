@@ -124,7 +124,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 			->setTab('themes')
 			->setModules($modules)
 			->displayModules(
-				/*cols */		array('sshot', 'name', 'desc', 'author', 'version', 'current_version', 'parent'),
+				/*cols */		array('checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'parent'),
 				/* actions */	array('update', 'delete')
 			);
 

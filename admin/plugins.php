@@ -130,7 +130,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 			->setTab('update')
 			->setModules($modules)
 			->displayModules(
-				/*cols */		array('icon', 'name', 'version', 'current_version', 'desc'),
+				/*cols */		array('checkbox', 'icon', 'name', 'version', 'current_version', 'desc'),
 				/* actions */	array('update')
 			);
 
