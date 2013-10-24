@@ -73,6 +73,10 @@ if (!empty($_POST['save_settings'])) {
 		);
 
 		foreach($tasks as $t) {
+			if (!$t->id()) {
+				continue;
+			}
+
 			if (!empty($_POST['settings_recall_type']) && $_POST['settings_recall_type'] == 'all') {
 				$ts = $_POST['settings_recall_time'];
 			}
@@ -200,7 +204,8 @@ else {
 			$res_task = '';
 			foreach($tasks as $t)
 			{
-				if ($t->group() != $group_obj->id() 
+				if (!$t->id() 
+				 || $t->group() != $group_obj->id() 
 				 || $t->tab() != $tab_obj->id()) {
 					continue;
 				}
@@ -262,7 +267,7 @@ else {
 
 	foreach($tasks as $t)
 	{
-		if ($t->group() !== null) {
+		if (!$t->id() || $t->group() !== null) {
 			continue;
 		}
 
@@ -312,6 +317,9 @@ else {
 
 	foreach($tasks as $t)
 	{
+		if (!$t->id()) {
+			continue;
+		} 
 		echo
 		'<div class="two-boxes">'.
 
