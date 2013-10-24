@@ -794,32 +794,32 @@ class adminModulesList
 			switch($action) {
 
 				# Deactivate
-				case 'activate': if ($module['root_writable']) {
+				case 'activate': if ($this->core->auth->isSuperAdmin() && $module['root_writable']) {
 					$submits[] =
 					'<input type="submit" name="activate['.html::escapeHTML($id).']" value="'.__('Activate').'" />';
 				} break;
 
 				# Activate
-				case 'deactivate': if ($module['root_writable']) {
+				case 'deactivate': if ($this->core->auth->isSuperAdmin() && $module['root_writable']) {
 					$submits[] =
 					'<input type="submit" name="deactivate['.html::escapeHTML($id).']" value="'.__('Deactivate').'" class="reset" />';
 				} break;
 
 				# Delete
-				case 'delete': if ($this->isDeletablePath($module['root'])) {
+				case 'delete': if ($this->core->auth->isSuperAdmin() && $this->isDeletablePath($module['root'])) {
 					$dev = !preg_match('!^'.$this->path_pattern.'!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
 					$submits[] =
 					'<input type="submit" class="delete '.$dev.'" name="delete['.html::escapeHTML($id).']" value="'.__('Delete').'" />';
 				} break;
 
 				# Install (from store)
-				case 'install': if ($this->path_writable) {
+				case 'install': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
 					$submits[] =
 					'<input type="submit" name="install['.html::escapeHTML($id).']" value="'.__('Install').'" />';
 				} break;
 
 				# Update (from store)
-				case 'update': if ($this->path_writable) {
+				case 'update': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
 					$submits[] =
 					'<input type="submit" name="update['.html::escapeHTML($id).']" value="'.__('Update').'" />';
 				} break;
@@ -856,7 +856,7 @@ class adminModulesList
 			switch($action) {
 
 				# Deactivate
-				case 'activate': if ($this->path_writable) {
+				case 'activate': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
 					$submits[] =
 					'<input type="submit" name="activate" value="'.($with_selection ?
 						__('Activate selected plugins') :
@@ -865,7 +865,7 @@ class adminModulesList
 				} break;
 
 				# Activate
-				case 'deactivate': if ($this->path_writable) {
+				case 'deactivate': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
 					$submits[] =
 					'<input type="submit" name="deactivate" value="'.($with_selection ?
 						__('Deactivate selected plugins') :
@@ -874,7 +874,7 @@ class adminModulesList
 				} break;
 
 				# Update (from store)
-				case 'update': if ($this->path_writable) {
+				case 'update': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
 					$submits[] =
 					'<input type="submit" name="update" value="'.($with_selection ?
 						__('Update selected plugins') :
@@ -908,13 +908,13 @@ class adminModulesList
 	public function doActions()
 	{
 		if (empty($_POST) || !empty($_REQUEST['conf'])
-		|| !$this->core->auth->isSuperAdmin() || !$this->isWritablePath()) {
+		|| !$this->isWritablePath()) {
 			return null;
 		}
 
 		$modules = !empty($_POST['modules']) && is_array($_POST['modules']) ? array_values($_POST['modules']) : array();
 
-		if (!empty($_POST['delete'])) {
+		if ($this->core->auth->isSuperAdmin() && !empty($_POST['delete'])) {
 
 			if (is_array($_POST['delete'])) {
 				$modules = array_keys($_POST['delete']);
@@ -969,7 +969,7 @@ class adminModulesList
 			http::redirect($this->getURL());
 		}
 
-		elseif (!empty($_POST['install'])) {
+		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['install'])) {
 
 			if (is_array($_POST['install'])) {
 				$modules = array_keys($_POST['install']);
@@ -1007,7 +1007,7 @@ class adminModulesList
 			http::redirect($this->getURL());
 		}
 
-		elseif (!empty($_POST['activate'])) {
+		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['activate'])) {
 
 			if (is_array($_POST['activate'])) {
 				$modules = array_keys($_POST['activate']);
@@ -1042,7 +1042,7 @@ class adminModulesList
 			http::redirect($this->getURL());
 		}
 
-		elseif (!empty($_POST['deactivate'])) {
+		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
 
 			if (is_array($_POST['deactivate'])) {
 				$modules = array_keys($_POST['deactivate']);
@@ -1090,7 +1090,7 @@ class adminModulesList
 			http::redirect($this->getURL());
 		}
 
-		elseif (!empty($_POST['update'])) {
+		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['update'])) {
 
 			if (is_array($_POST['update'])) {
 				$modules = array_keys($_POST['update']);
@@ -1632,7 +1632,7 @@ class adminThemesList extends adminModulesList
 			switch($action) {
 
 				# Update (from store)
-				case 'update': if ($this->path_writable) {
+				case 'update': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
 					$submits[] =
 					'<input type="submit" name="update" value="'.($with_selection ?
 						__('Update selected themes') :
@@ -1658,8 +1658,7 @@ class adminThemesList extends adminModulesList
 
 	public function doActions()
 	{
-		if (empty($_POST) || !empty($_REQUEST['conf'])
-		|| !$this->core->auth->isSuperAdmin() || !$this->isWritablePath()) {
+		if (empty($_POST) || !empty($_REQUEST['conf']) || !$this->isWritablePath()) {
 			return null;
 		}
 
@@ -1685,7 +1684,7 @@ class adminThemesList extends adminModulesList
 			}
 		}
 
-		elseif (!empty($_POST['activate'])) {
+		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['activate'])) {
 
 			if (is_array($_POST['activate'])) {
 				$modules = array_keys($_POST['activate']);
@@ -1720,7 +1719,7 @@ class adminThemesList extends adminModulesList
 			http::redirect($this->getURL());
 		}
 
-		elseif (!empty($_POST['deactivate'])) {
+		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
 
 			if (is_array($_POST['deactivate'])) {
 				$modules = array_keys($_POST['deactivate']);
@@ -1768,7 +1767,7 @@ class adminThemesList extends adminModulesList
 			http::redirect($this->getURL());
 		}
 
-		elseif (!empty($_POST['delete'])) {
+		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['delete'])) {
 
 			if (is_array($_POST['delete'])) {
 				$modules = array_keys($_POST['delete']);
@@ -1823,7 +1822,7 @@ class adminThemesList extends adminModulesList
 			http::redirect($this->getURL());
 		}
 
-		elseif (!empty($_POST['install'])) {
+		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['install'])) {
 
 			if (is_array($_POST['install'])) {
 				$modules = array_keys($_POST['install']);
@@ -1861,7 +1860,7 @@ class adminThemesList extends adminModulesList
 			http::redirect($this->getURL());
 		}
 
-		elseif (!empty($_POST['update'])) {
+		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['update'])) {
 
 			if (is_array($_POST['update'])) {
 				$modules = array_keys($_POST['update']);
