@@ -1590,6 +1590,10 @@ class adminThemesList extends adminModulesList
 			$buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols));
 
 			if (!empty($buttons)) {
+				if (in_array('checkbox', $cols)) {
+					echo 
+					'<p class="checkboxes-helpers"></p>';
+				}
 				echo '<div>'.implode(' ', $buttons).'</div>';
 			}
 		}
