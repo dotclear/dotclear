@@ -55,6 +55,7 @@ class dcMaintenanceTask
 		$this->maintenance = $maintenance;
 		$this->core = $maintenance->core;
 		$this->init();
+		$this->id = null;
 
 		if ($this->perm() === null && !$this->core->auth->isSuperAdmin()
 		|| !$this->core->auth->check($this->perm(), $this->core->blog->id)) {
