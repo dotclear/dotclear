@@ -1610,7 +1610,7 @@ li.user_admin {
 	}
 /* ------------------------------------------------------------------- blog_theme.php */
 /* pour les alignements verticaux */
-#theme-new, #theme-activate, #theme-deactivate {
+#theme-new, #theme-activate, #theme-deactivate, #theme-update {
 	margin-left: -10px;
 	margin-right: -10px;
 	}
@@ -1623,8 +1623,9 @@ li.user_admin {
 .box.theme:hover {
 	background: #ecf0f1 url(texture.png);
 	}
-.module-name {
+.module-name, .module-name label {
 	margin-bottom: .5em;
+	color: #676e78;
 	}
 .module-sshot {
 	text-align: center;
@@ -1661,13 +1662,16 @@ span.module-version:before {
 .box.theme input {
 	margin-bottom: 1em;
 	}
+.module-name input[type="checkbox"] {
+	margin-bottom: 0;
+	}
 /**
 Les screenshots des thèmes ont deux tailles possibles :
 - dans Ajouter des thèmes : 240px (+ 10 padding image + 20 padding boîte + 6 bordure + 2 ombrage = 278)
 - dans Thèmes installés : 280px (+ 10 padding-image + 20 padding-boîte + 2 ombrage = 318)
 On adapte largeur et hauteur en fonction 
 */
-#theme-new .box.theme { /* Ajouter un thème */
+#theme-new .box.theme, #theme-update .box.theme { /* Ajouter un thème */
 	width: 278px;
 	min-height: 275px;
 	}
@@ -2070,8 +2074,8 @@ div.template-upload {
 	padding: 4px 4px 0 20px;
 	}
 .modules a.module-config {
-	/* todo: add icon here */
-	padding: 4px 4px 0 20px;
+	background: transparent url(settings.png) no-repeat 2px 6px;
+	padding: 4px 4px 0 18px;
 	}
 #m_search {
 	background: transparent url(search.png) no-repeat 4px center;
@@ -2101,6 +2105,9 @@ div.template-upload {
 	}
 .mod-more {
 	padding-top: .5em;
+	}
+#plugin-update td {
+	vertical-align: baseline;
 	}
 /* ---------------------------------------------------------- post.php, page.php */
 #entry-wrapper {
