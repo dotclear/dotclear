@@ -15,8 +15,7 @@ if (!defined('DC_RC_PATH')) { return; }
 @ingroup DC_CORE
 @brief Modules handler
 
-Provides an object to handle modules (themes or plugins). An instance of this
-class is provided by dcCore $plugins property and used for plugins.
+Provides an object to handle modules (themes or plugins). 
 */
 class dcModules
 {
@@ -35,7 +34,7 @@ class dcModules
 	protected static $_k;
 	protected static $_n;
 
-	protected static $type = 'plugin';
+	protected static $type = null;
 	
 	public $core;	///< <b>dcCore</b>	dcCore instance
 	
@@ -160,12 +159,13 @@ class dcModules
 	@param	desc			<b>string</b>		Module description
 	@param	author		<b>string</b>		Module author name
 	@param	version		<b>string</b>		Module version
-	@param	properties	<b>array</b>		extra properties (currently available keys : permissions, priority)
+	@param	properties	<b>array</b>		extra properties 
+	(currently available keys : permissions, priority, type)
 	*/
 	public function registerModule($name,$desc,$author,$version, $properties = array())
 	{
+		# Fallback to legacy registerModule parameters
 		if (!is_array($properties)) {
-			//Fallback to legacy registerModule parameters
 			$args = func_get_args();
 			$properties = array();
 			if (isset($args[4])) {
@@ -175,6 +175,8 @@ class dcModules
 				$properties['priority']= (integer)$args[5];
 			}
 		}
+
+		# Default module properties
 		$properties = array_merge(
 			array(
 				'permissions' => null,
@@ -184,7 +186,8 @@ class dcModules
 			), $properties
 		);
 
-		if ($properties['type'] !== null && $properties['type'] != self::$type) {
+		# Check module type
+		if (self::$type !== null && $properties['type'] !== null && $properties['type'] != self::$type) {
 			$this->errors[] = sprintf(
 				__('Module "%s" has type "%s" that mismatch required module type "%s".'),
 				'<strong>'.html::escapeHTML($name).'</strong>',
@@ -194,6 +197,7 @@ class dcModules
 			return;
 		}
 
+		# Check module perms on admin side
 		$permissions = $properties['permissions'];
 		if ($this->ns == 'admin') {
 			if ($permissions == '' && !$this->core->auth->isSuperAdmin()) {
@@ -203,6 +207,7 @@ class dcModules
 			}
 		}
 		
+		# Check module install on multiple path
 		if ($this->id) {
 			$module_exists = array_key_exists($name,$this->modules_names);
 			$module_overwrite = $module_exists ? version_compare($this->modules_names[$name],$version,'<') : false;
