@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 19:46+0200\n"
+"POT-Creation-Date: 2013-10-17 09:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -394,6 +394,9 @@ msgid "manage blogroll"
 msgstr ""
 
 msgid "Links"
+msgstr ""
+
+msgid "Title (optional)"
 msgstr ""
 
 msgid "All categories"
@@ -833,6 +836,9 @@ msgstr ""
 msgid "Checks trackback source for a link to the post"
 msgstr ""
 
+msgid "Import/Export"
+msgstr ""
+
 msgid "Flat file export"
 msgstr ""
 
@@ -1080,6 +1086,9 @@ msgstr ""
 msgid "Export functions are in the page %s."
 msgstr ""
 
+msgid "Maintenance"
+msgstr ""
+
 msgid "Servicing"
 msgstr ""
 
@@ -1144,53 +1153,10 @@ msgstr[1] ""
 msgid "Manage tasks"
 msgstr ""
 
-msgid "Display count of late tasks on maintenance dashboard icon"
+msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr ""
 
-msgid "Display list of late tasks on dashboard items"
-msgstr ""
-
-msgid "Never"
-msgstr ""
-
-msgid "Every week"
-msgstr ""
-
-msgid "Every two weeks"
-msgstr ""
-
-msgid "Every month"
-msgstr ""
-
-msgid "Every two months"
-msgstr ""
-
-msgid "Maintenance plugin has been successfully configured."
-msgstr ""
-
-msgid "Set up reminders for maintenance tasks."
-msgstr ""
-
-msgid "Activation"
-msgstr ""
-
-msgid "Display alert messages on late tasks"
-msgstr ""
-
-#, php-format
-msgid "You can place list of late tasks on your %s."
-msgstr ""
-
-msgid "Frequency"
-msgstr "Périodicité"
-
-msgid "Use one recall time for all tasks"
-msgstr ""
-
-msgid "Recall time for all tasks:"
-msgstr ""
-
-msgid "Use one recall time per task"
+msgid "Display overdue tasks list on dashboard items"
 msgstr ""
 
 msgid "Failed to execute task."
@@ -1319,10 +1285,25 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-msgid "You have not sufficient permissions to view this page."
+msgid "Maintenance plugin has been successfully configured."
 msgstr ""
 
-msgid "Settings successfully updated"
+msgid "Never"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
 msgstr ""
 
 msgid "You should execute it now."
@@ -1332,6 +1313,31 @@ msgid "Execute task"
 msgstr ""
 
 msgid "This may take a very long time."
+msgstr ""
+
+msgid "Alert settings"
+msgstr ""
+
+msgid "Activation"
+msgstr ""
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr "Périodicité"
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
 msgstr ""
 
 msgid "New page"
@@ -1349,9 +1355,6 @@ msgid "manage pages"
 msgstr ""
 
 msgid "My first page"
-msgstr ""
-
-msgid "<p>"
 msgstr ""
 
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
@@ -1493,6 +1496,9 @@ msgid "Archive"
 msgstr ""
 
 msgid "Page"
+msgstr ""
+
+msgid "Tags"
 msgstr ""
 
 msgid "User defined"
@@ -1725,7 +1731,7 @@ msgstr ""
 msgid "Edit theme files"
 msgstr ""
 
-msgid "Syntax color for theme editor"
+msgid "Syntax highlighting in theme editor"
 msgstr ""
 
 msgid "No file"
@@ -1793,6 +1799,9 @@ msgid "User preferences"
 msgstr ""
 
 msgid "Global preferences"
+msgstr ""
+
+msgid "Presentation widgets"
 msgstr ""
 
 msgid "Search engine"
@@ -1920,39 +1929,6 @@ msgstr ""
 msgid "Reset sidebars"
 msgstr ""
 
-msgid "Use of widgets"
-msgstr ""
-
-msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
-msgstr ""
-
-msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next to their name."
-msgstr ""
-
-msgid "Reset sidebars to get back to default widgets installation."
-msgstr ""
-
-msgid "Widget templates tags"
-msgstr ""
-
-msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr ""
-
-msgid "To add a widget in your template, you need to write code like this:"
-msgstr ""
-
-msgid "Widget ID"
-msgstr ""
-
-msgid "Setting name"
-msgstr ""
-
-msgid "Setting value"
-msgstr ""
-
-msgid "Here are the following available widgets for your blog:"
-msgstr ""
-
 msgid "Widget ID:"
 msgstr ""
 
@@ -1974,7 +1950,13 @@ msgstr ""
 msgid "Setting name:"
 msgstr ""
 
-msgid "No widget for now."
+msgid "No widget as far."
+msgstr ""
+
+msgid "Up the widget"
+msgstr ""
+
+msgid "Down the widget"
 msgstr ""
 
 msgid "Remove widget"

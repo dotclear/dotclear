@@ -596,7 +596,7 @@ if (count($iconsets_combo) > 1) {
 		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</p>'.
 		'</div>';
 } else {
-	echo form::hidden('user_ui_iconset','');
+	echo '<p class="hidden">'.form::hidden('user_ui_iconset','').'</p>';
 }
 
 echo

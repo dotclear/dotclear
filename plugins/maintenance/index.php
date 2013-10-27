@@ -18,7 +18,6 @@ $core->blog->settings->addNamespace('maintenance');
 $maintenance = new dcMaintenance($core);
 $tasks = $maintenance->getTasks();
 
-$msg = '';
 $headers = '';
 $p_url = 'plugin.php?p=maintenance';
 $task = null;
@@ -49,10 +48,55 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 		}
 		if (true === $code) {
 			$maintenance->setLog($task->id());
-			http::redirect($p_url.'&task='.$task->id().'&done=1&tab='.$tab.'#'.$tab);
+
+			dcPage::addSuccessNotice($task->success());
+			http::redirect($p_url.'&task='.$task->id().'&tab='.$tab.'#'.$tab);
 		}
 	}
 	catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+// Save settings
+
+if (!empty($_POST['save_settings'])) {
+
+	try {
+		$core->blog->settings->maintenance->put(
+			'plugin_message', 
+			!empty($_POST['settings_plugin_message']), 
+			'boolean', 
+			'Display alert message of late tasks on plugin page', 
+			true, 
+			true
+		);
+
+		foreach($tasks as $t) {
+			if (!$t->id()) {
+				continue;
+			}
+
+			if (!empty($_POST['settings_recall_type']) && $_POST['settings_recall_type'] == 'all') {
+				$ts = $_POST['settings_recall_time'];
+			}
+			else {
+				$ts = empty($_POST['settings_ts_'.$t->id()]) ? 0 : $_POST['settings_ts_'.$t->id()];
+			}
+			$core->blog->settings->maintenance->put(
+				'ts_'.$t->id(), 
+				abs((integer) $ts), 
+				'integer', 
+				sprintf('Recall time for task %s', $t->id()), 
+				true, 
+				$t->blog()
+			);
+		}
+
+		dcPage::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
+		http::redirect($p_url.'&tab='.$tab.'#'.$tab);
+	}
+	catch(Exception $e) {
 		$core->error->add($e->getMessage());
 	}
 }
@@ -103,15 +147,6 @@ if (empty($tasks)) {
 	return null;
 }
 
-// Success message
-
-if (!empty($_GET['done']) && $tab == 'settings') {
-	$msg = dcPage::success(__('Settings successfully updated'), true, true, false);
-}
-elseif (!empty($_GET['done']) && $task) {
-	$msg = dcPage::success($task->success(), true, true, false);
-}
-
 if ($task && ($res = $task->step()) !== null) {
 
 	// Page title
@@ -124,20 +159,21 @@ if ($task && ($res = $task->step()) !== null) {
 		)
 	);
 
-	echo $msg;
+	// content
+	if (substr($res, 0, 1) != '<') {
+		$res = sprintf('<p class="step-msg">%s</p>', $res);
+	}
 
 	// Intermediate task (task required several steps)
 
 	echo 
 	'<div class="step-box" id="'.$task->id().'">'.
 	'<p class="step-back">'.
-		'<a class="back" href="'.$p_url.'&tab='.$task->tab().'#'.$task->tab().'">'.__('Back').'</a>'.
+		'<a class="back" href="'.$p_url.'&amp;tab='.$task->tab().'#'.$task->tab().'">'.__('Back').'</a>'.
 	'</p>'.
 	'<h3>'.html::escapeHTML($task->name()).'</h3>'.
 	'<form action="'.$p_url.'" method="post">'.
-	'<p class="step-msg">'.
-		$res.
-	'</p>'.
+	$res.
 	'<p class="step-submit">'.
 		'<input type="submit" value="'.$task->task().'" /> '.
 		form::hidden(array('task'), $task->id()).
@@ -158,8 +194,6 @@ else {
 		)
 	);
 
-	echo $msg;
-
 	// Simple task (with only a button to start it)
 
 	foreach($maintenance->getTabs() as $tab_obj)
@@ -170,7 +204,8 @@ else {
 			$res_task = '';
 			foreach($tasks as $t)
 			{
-				if ($t->group() != $group_obj->id() 
+				if (!$t->id() 
+				 || $t->group() != $group_obj->id() 
 				 || $t->tab() != $tab_obj->id()) {
 					continue;
 				}
@@ -232,7 +267,7 @@ else {
 
 	foreach($tasks as $t)
 	{
-		if ($t->group() !== null) {
+		if (!$t->id() || $t->group() !== null) {
 			continue;
 		}
 
@@ -248,8 +283,63 @@ else {
 		'</form>'.
 		'</div>';
 	}
+
+	// Settings
+
+	echo 
+	'<div id="settings" class="multi-part" title="'.__('Alert settings').'">'.
+	'<h3>'.__('Alert settings').'</h3>'.
+	'<form action="'.$p_url.'" method="post">'.
+
+	'<h4 class="pretty-title">'.__('Activation').'</h4>'.
+	'<p><label for="settings_plugin_message" class="classic">'.
+	form::checkbox('settings_plugin_message', 1, $core->blog->settings->maintenance->plugin_message).
+	__('Display alert messages on late tasks').'</label></p>'.
+
+	'<p class="info">'.sprintf(
+		__('You can place list of late tasks on your %s.'),
+		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
+	).'</p>'.
+
+	'<h4 class="pretty-title vertical-separator">'.__('Frequency').'</h4>'.
+
+	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_all'), 'all').' '.
+	'<label class="classic" for="settings_recall_all">'.
+	'<strong>'.__('Use one recall time for all tasks').'</strong></label></p>'.
+
+	'<p class="field wide vertical-separator"><label for="settings_recall_time">'.__('Recall time for all tasks:').'</label>'.
+	form::combo('settings_recall_time', $combo_ts, 'seperate', 'recall-for-all').
+	'</p>'.
+
+	'<p class="vertical-separator">'.form::radio(array('settings_recall_type', 'settings_recall_separate'), 'separate', 1).' '.
+	'<label class="classic" for="settings_recall_separate">'.
+	'<strong>'.__('Use one recall time per task').'</strong></label></p>';
+
+	foreach($tasks as $t)
+	{
+		if (!$t->id()) {
+			continue;
+		} 
+		echo
+		'<div class="two-boxes">'.
+
+		'<p class="field wide"><label for="settings_ts_'.$t->id().'">'.$t->task().'</label>'.
+		form::combo('settings_ts_'.$t->id(), $combo_ts, $t->ts(), 'recall-per-task').
+		'</p>'.
+
+		'</div>';
+	}
+
+	echo 
+	'<p class="field wide"><input type="submit" value="'.__('Save').'" /> '.
+	form::hidden(array('tab'), 'settings').
+	form::hidden(array('save_settings'), 1).
+	$core->formNonce().'</p>'.
+	'</form>'.
+	'</div>';
 }
 
 dcPage::helpBlock('maintenance', 'maintenancetasks');
 
-echo '</body></html>';
+echo 
+'</body></html>';

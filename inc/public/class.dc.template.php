@@ -533,7 +533,7 @@ class dcTemplate extends template
 	public function LoopIndex($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php '.sprintf($f,'(!$_ctx->cur_loop ? 0 : $_ctx->cur_loop->index() + 1)').' ?>';
+		return '<?php echo '.sprintf($f,'(!$_ctx->cur_loop ? 0 : $_ctx->cur_loop->index() + 1)').'; ?>';
 	}
 	
 	

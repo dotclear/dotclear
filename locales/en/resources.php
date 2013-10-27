@@ -21,17 +21,4 @@ $__resources['doc'] = array(
 	"Dotclear support forum" => 'http://forum.dotclear.net/'
 );
 
-$__resources['help'] = array(
-	'core_main' => dirname(__FILE__).'/help/main.html',
-	'core_blog_pref' => dirname(__FILE__).'/help/blog_pref.html',
-	'core_categories' => dirname(__FILE__).'/help/categories.html',
-	'core_comments' => dirname(__FILE__).'/help/comments.html',
-	'core_media' => dirname(__FILE__).'/help/media.html',
-	'core_post' => dirname(__FILE__).'/help/post.html',
-	'core_posts' => dirname(__FILE__).'/help/posts.html',
-	'core_trackbacks' => dirname(__FILE__).'/help/trackbacks.html',
-	'core_user_pref' => dirname(__FILE__).'/help/user_pref.html',
-	'core_user' => dirname(__FILE__).'/help/user.html',
-	'core_wiki' => dirname(__FILE__).'/help/wiki.html'
-);
 ?>

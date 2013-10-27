@@ -27,7 +27,7 @@ class dcPostsActionsPage extends dcActionsPage
 		$this->core->callBehavior('adminPostsActionsPage',$this->core,$this);
 
 	}
-	
+
 	public function beginPage($breadcrumb='',$head='') {
 		if ($this->in_plugin) {
 			echo '<html><head><title>'.__('Entries').'</title>'.
@@ -45,7 +45,7 @@ class dcPostsActionsPage extends dcActionsPage
 		}
 		echo '<p><a class="back" href="'.$this->getRedirection(true).'">'.__('Back to entries list').'</a></p>';
 	}
-	
+
 	public function endPage() {
 		if ($this->in_plugin) {
 			echo '</body></html>';
@@ -53,7 +53,7 @@ class dcPostsActionsPage extends dcActionsPage
 			dcPage::close();
 		}
 	}
-	
+
 	public function error(Exception $e) {
 		$this->core->error->add($e->getMessage());
 		$this->beginPage(dcPage::breadcrumb(
@@ -65,38 +65,38 @@ class dcPostsActionsPage extends dcActionsPage
 		);
 		$this->endPage();
 	}
-	
+
 	protected function fetchEntries($from) {
 		if (!empty($from['entries']))
 		{
 			$entries = $from['entries'];
-			
+
 			foreach ($entries as $k => $v) {
 				$entries[$k] = (integer) $v;
 			}
-			
+
 			$params['sql'] = 'AND P.post_id IN('.implode(',',$entries).') ';
-			
+
 			if (!isset($from['full_content']) || empty($from['full_content'])) {
 				$params['no_content'] = true;
 			}
-			
+
 			if (isset($from['post_type'])) {
 				$params['post_type'] = $from['post_type'];
 			}
-			
+
 			$posts = $this->core->blog->getPosts($params);
 			while ($posts->fetch())	{
 				$this->entries[$posts->post_id] = $posts->post_title;
 			}
-			$this->rs = $posts;			
+			$this->rs = $posts;
 		} else {
 			$this->rs = $this->core->con->select("SELECT blog_id FROM ".$this->core->prefix."blog WHERE false");;
 		}
 	}
 }
 
-class dcDefaultPostActions 
+class dcDefaultPostActions
 {
 	public static function adminPostsActionsPage($core, $ap) {
 		if ($core->auth->check('publish,contentadmin',$core->blog->id)) {
@@ -169,7 +169,7 @@ class dcDefaultPostActions
 		);
 		$ap->redirect(true);
 	}
-	
+
 	public static function doUpdateSelectedPost($core, dcPostsActionsPage $ap, $post) {
 		$posts_ids = $ap->getIDs();
 		if (empty($posts_ids)) {
@@ -198,7 +198,7 @@ class dcDefaultPostActions
 		}
 		$ap->redirect(true);
 	}
-	
+
 	public static function doDeletePost($core, dcPostsActionsPage $ap, $post) {
 
 		$posts_ids = $ap->getIDs();
@@ -211,10 +211,10 @@ class dcDefaultPostActions
 			# --BEHAVIOR-- adminBeforePostDelete
 			$core->callBehavior('adminBeforePostDelete',(integer) $post_id);
 		}
-		
+
 		# --BEHAVIOR-- adminBeforePostsDelete
 		$core->callBehavior('adminBeforePostsDelete',$posts_ids);
-		
+
 		$core->blog->delPosts($posts_ids);
 		dcPage::addSuccessNotice(sprintf(
 			__(
@@ -224,7 +224,7 @@ class dcDefaultPostActions
 			),
 			count($posts_ids))
 		);
-		
+
 		$ap->redirect(false);
 	}
 
@@ -241,18 +241,18 @@ class dcDefaultPostActions
 				$cur_cat->cat_title = $post['new_cat_title'];
 				$cur_cat->cat_url = '';
 				$title = $cur_cat->cat_title;
-				
+
 				$parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
-				
+
 				# --BEHAVIOR-- adminBeforeCategoryCreate
 				$core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
-				
+
 				$new_cat_id = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
-				
+
 				# --BEHAVIOR-- adminAfterCategoryCreate
 				$core->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
 			}
-			
+
 			$core->blog->updPostsCategory($posts_ids, $new_cat_id);
 			$title = $core->blog->getCategory($new_cat_id);
 			dcPage::addSuccessNotice(sprintf(
@@ -279,15 +279,15 @@ class dcDefaultPostActions
 			# Getting categories
 			$categories_combo = dcAdminCombos::getCategoriesCombo(
 				$core->blog->getCategories()
-			);			
+			);
 			echo
 			'<form action="'.$ap->getURI().'" method="post">'.
 			$ap->getCheckboxes().
 			'<p><label for="new_cat_id" class="classic">'.__('Category:').'</label> '.
 			form::combo(array('new_cat_id'),$categories_combo,'');
-			
+
 			if ($core->auth->check('categories', $core->blog->id)) {
-				echo 
+				echo
 				'<div>'.
 				'<p id="new_cat">'.__('Create a new category for the post(s)').'</p>'.
 				'<p><label for="new_cat_title">'.__('Title:').'</label> '.
@@ -297,7 +297,7 @@ class dcDefaultPostActions
 				'</p>'.
 				'</div>';
 			}
-			
+
 			echo
 			$core->formNonce().
 			$ap->getHiddenFields().
@@ -307,7 +307,7 @@ class dcDefaultPostActions
 			$ap->endPage();
 
 		}
-	
+
 	}
 	public static function doChangePostAuthor($core, dcPostsActionsPage $ap, $post) {
 		if (isset($post['new_auth_id']) && $core->auth->check('admin',$core->blog->id)) {
@@ -319,7 +319,7 @@ class dcDefaultPostActions
 			if ($core->getUser($new_user_id)->isEmpty()) {
 				throw new Exception(__('This user does not exist'));
 			}
-			
+
 			$cur = $core->con->openCursor($core->prefix.'post');
 			$cur->user_id = $new_user_id;
 			$cur->update('WHERE post_id '.$core->con->in($posts_ids));
@@ -367,7 +367,7 @@ class dcDefaultPostActions
 			$ap->getCheckboxes().
 			'<p><label for="new_auth_id" class="classic">'.__('New author (author ID):').'</label> '.
 			form::field('new_auth_id',20,255);
-			
+
 			echo
 				$core->formNonce().$ap->getHiddenFields().
 				form::hidden(array('action'),'author').
@@ -402,7 +402,7 @@ class dcDefaultPostActions
 					array(
 						html::escapeHTML($core->blog->name) => '',
 						$ap->getCallerTitle() => $ap->getRedirection(true),
-						_('Change language for this selection') => ''
+						__('Change language for this selection') => ''
 			)));
 			# lang list
 			# Languages combo
@@ -419,14 +419,14 @@ class dcDefaultPostActions
 			}
 			unset($all_langs);
 			unset($rs);
-			
+
 			echo
 			'<form action="'.$ap->getURI().'" method="post">'.
 			$ap->getCheckboxes().
-			
+
 			'<p><label for="new_lang" class="classic">'.__('Entry language:').'</label> '.
 			form::combo('new_lang',$lang_combo,'');
-			
+
 			echo
 				$core->formNonce().$ap->getHiddenFields().
 				form::hidden(array('action'),'lang').

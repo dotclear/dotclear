@@ -664,12 +664,16 @@ class dcPage
 			__('Are you sure you want to delete "%s" language?')).
 		self::jsVar('dotclear.msg.confirm_delete_plugin',
 			__('Are you sure you want to delete "%s" plugin?')).
+		self::jsVar('dotclear.msg.confirm_delete_plugins',
+			__('Are you sure you want to delete selected plugins?')).
 		self::jsVar('dotclear.msg.use_this_theme',
 			__('Use this theme')).
 		self::jsVar('dotclear.msg.remove_this_theme',
 			__('Remove this theme')).
 		self::jsVar('dotclear.msg.confirm_delete_theme',
 			__('Are you sure you want to delete "%s" theme?')).
+		self::jsVar('dotclear.msg.confirm_delete_themes',
+			__('Are you sure you want to delete selected themes?')).
 		self::jsVar('dotclear.msg.confirm_delete_backup',
 			__('Are you sure you want to delete this backup?')).
 		self::jsVar('dotclear.msg.zip_file_content',

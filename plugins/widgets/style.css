@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier and Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -15,7 +15,7 @@
 /* ------------------------------------------------------------- side bars */
 #sidebarsWidgets {
 	float: left;
-	width: 47%;
+	width: 49%;
 	margin: 0 0 0 1%;
 	padding: 0 1%;
 }
@@ -117,7 +117,7 @@
 /* ------------------------------------------------------------- list Widgets ref */
 #listWidgets {
 	float: left;
-	width: 46%;
+	width: 49%;
 	background: #eee;
 	padding: 1.5em 1% 0; 
 	margin: 0 1% 0 0;
@@ -155,7 +155,9 @@
 #widgets-ref .widgetSettings {
 	display: none;
 }
-
+.removeWidget {
+	margin-left: 1em;
+}
 /* ------------------------------------------------------------- help */
 #widgets-tpl dt {
 	margin: 1em 0 0 0;

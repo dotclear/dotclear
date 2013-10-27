@@ -98,17 +98,17 @@ if (!$core->error->flag())
 
 	'<p class="col right"><label for="action" class="classic">'.__('Selected pages action:').'</label> '.
 	form::combo('action',$pages_actions_page->getCombo()).
-	'<input type="submit" value="'.__('ok').'" /></p>'.
+	'<input type="submit" value="'.__('ok').'" />'.
 	form::hidden(array('post_type'),'page').
 	form::hidden(array('p'),'pages').
 	form::hidden(array('act'),'list').
-	'</div>'.
 	$core->formNonce().
+	'</p></div>'.
 	'<p class="clear form-note hidden-if-js">'.
 	__('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.').'</p>'.
 	'<p class="clear form-note hidden-if-no-js">'.
 	__('To rearrange pages order, move items by drag and drop, then click on “Save pages order” button.').'</p>'.
-	'<input type="submit" value="'.__('Save pages order').'" name="reorder" class="clear"/>'.
+	'<p><input type="submit" value="'.__('Save pages order').'" name="reorder" class="clear" /></p>'.
 	'</form>');
 }
 dcPage::helpBlock('pages');

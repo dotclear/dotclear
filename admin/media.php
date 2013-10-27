@@ -343,9 +343,9 @@ if (!$dir) {
 }
 
 if ($post_id) {
-	echo '<p class="form-note info">'.sprintf(__('Choose a file to attach to entry %s by clicking on %s.'),
+	echo '<div class="form-note info"><p>'.sprintf(__('Choose a file to attach to entry %s by clicking on %s.'),
 		'<a href="'.$core->getPostAdminURL($post_type,$post_id).'">'.html::escapeHTML($post_title).'</a>',
-		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p>';
+		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p></div>';
 }
 if ($popup) {
 	echo '<div class="info"><p>'.sprintf(__('Choose a file to insert into entry by clicking on %s.'),

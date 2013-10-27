@@ -22,8 +22,7 @@ $_menu['Plugins']->addItem(
 
 // Admin behaviors
 $core->addBehavior('dcMaintenanceInit', array('dcMaintenanceAdmin', 'dcMaintenanceInit'));
-$core->addBehavior('adminDashboardFavs', array('dcMaintenanceAdmin', 'adminDashboardFavs'));
-$core->addBehavior('adminDashboardFavsIcon', array('dcMaintenanceAdmin', 'adminDashboardFavsIcon'));
+$core->addBehavior('adminDashboardFavorites', array('dcMaintenanceAdmin', 'adminDashboardFavorites'));
 $core->addBehavior('adminDashboardContents', array('dcMaintenanceAdmin', 'adminDashboardItems'));
 $core->addBehavior('adminDashboardOptionsForm',	array('dcMaintenanceAdmin',	'adminDashboardOptionsForm'));
 $core->addBehavior('adminAfterDashboardOptionsUpdate',	array('dcMaintenanceAdmin',	'adminAfterDashboardOptionsUpdate'));
@@ -73,40 +72,46 @@ class dcMaintenanceAdmin
 	}
 
 	/**
-	 * Dashboard favs.
+	 * Favorites.
 	 *
 	 * @param	$core	<b>dcCore</b>	dcCore instance
 	 * @param	$favs	<b>arrayObject</b>	Array of favs
 	 */
-	public static function adminDashboardFavs($core, $favs)
+	public static function adminDashboardFavorites($core, $favs)
 	{
-		$favs['maintenance'] = new ArrayObject(array(
-			'maintenance',
-			'Maintenance',
-			'plugin.php?p=maintenance',
-			'index.php?pf=maintenance/icon.png',
-			'index.php?pf=maintenance/icon-big.png',
-			null,null,null
+		$favs->register('maintenance', array(
+			'title' => __('Maintenance'),
+			'url' => 'plugin.php?p=maintenance',
+			'small-icon' => 'index.php?pf=maintenance/icon.png',
+			'large-icon' => 'index.php?pf=maintenance/icon-big.png',
+			'permissions' => 'admin',
+			'active_cb' => array('dcMaintenanceAdmin', 'adminDashboardFavoritesActive'),
+			'dashboard_cb' => array('dcMaintenanceAdmin', 'adminDashboardFavoritesCallback')
 		));
 	}
 
 	/**
-	 * Dashboard favs icon.
+	 * Favorites selection.
+	 *
+	 * @param	$request	<b>string</b>	Requested page
+	 * @param	$params		<b>array</b>	Requested parameters
+	 */
+	public static function adminDashboardFavoritesActive($request, $params)
+	{
+		return $request == 'plugin.php' && isset($params['p']) && $params['p'] == 'maintenance';
+	}
+
+	/**
+	 * Favorites hack.
 	 *
 	 * This updates maintenance fav icon text 
 	 * if there are tasks required maintenance.
 	 *
 	 * @param	$core	<b>dcCore</b>	dcCore instance
-	 * @param	$name	<b>string</b>	Current fav name
-	 * @param	$icon	<b>arrayObject</b>	Current fav attributes
+	 * @param	$fav	<b>arrayObject</b>	fav attributes
 	 */
-	public static function adminDashboardFavsIcon($core, $name, $icon)
+	public static function adminDashboardFavoritesCallback($core, $fav)
 	{
-		// Check icon
-		if ($name !== 'maintenance') {
-			return null;
-		}
-
 		// Check user option
 		$core->auth->user_prefs->addWorkspace('maintenance');
 		if (!$core->auth->user_prefs->maintenance->dashboard_icon) {
@@ -127,8 +132,8 @@ class dcMaintenanceAdmin
 			return null;
 		}
 
-		$icon[0] .= '<br />'.sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
-		$icon[2] = 'index.php?pf=maintenance/icon-big-update.png';
+		$fav['title'] .= '<br />'.sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
+		$fav['large-icon'] = 'index.php?pf=maintenance/icon-big-update.png';
 	}
 
 	/**
@@ -197,11 +202,11 @@ class dcMaintenanceAdmin
 
 		'<p><label for="maintenance_dashboard_icon" class="classic">'.
 		form::checkbox('maintenance_dashboard_icon', 1, $core->auth->user_prefs->maintenance->dashboard_icon).
-		__('Display count of late tasks on maintenance dashboard icon').'</label></p>'.
+		__('Display overdue tasks counter on maintenance dashboard icon').'</label></p>'.
 
 		'<p><label for="maintenance_dashboard_item" class="classic">'.
 		form::checkbox('maintenance_dashboard_item', 1, $core->auth->user_prefs->maintenance->dashboard_item).
-		__('Display list of late tasks on dashboard items').'</label></p>'.
+		__('Display overdue tasks list on dashboard items').'</label></p>'.
 
 		'</div>';
 	}

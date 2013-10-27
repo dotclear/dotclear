@@ -211,9 +211,7 @@ elseif (!empty($_POST['wreset']))
 <html>
 <head>
   <title><?php echo __('Widgets'); ?></title>
-  <style type="text/css">
-  <?php echo file_get_contents(dirname(__FILE__).'/style.css'); ?>
-  </style>
+  <link type="text/css" rel="stylesheet" href="index.php?pf=widgets/style.css"/>
   <?php
 		echo
 			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
@@ -267,7 +265,7 @@ foreach ($__widgets->elements(true) as $w) {
 
 echo
 '</ul>'.
-$core->formNonce().
+'<p>'.$core->formNonce().'</p>'.
 '<p class="remove-if-drag"><input type="submit" name="append" value="'.__('Add widgets to sidebars').'" /></p>'.
 '</form>';
 
@@ -298,26 +296,7 @@ $core->formNonce().
 '</form>';
 
 $widget_elements = new stdClass;
-$widget_elements->content =
-'<h4>'.__('Use of widgets').'</h4>'.
-'<p>'.__('Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, '.
-'drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order '.
-'your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes.').'</p>'.
-'<p>'.__('Once included in a sidebar, widgets have configuration options that you can reach by clicking on the arrow next '.
-'to their name.').'</p>'.
-'<p>'.__('Reset sidebars to get back to default widgets installation.').'</p>'.
-'<h4>'.__('Widget templates tags').'</h4>'.
-'<div id="widgets-tpl">'.
-'<p>'.__('If you are allowed to edit your theme templates, you can directly add widgets as '.
-'templates tags, with their own configuration.').'</p>'.
-'<p>'.__('To add a widget in your template, you need to write code like this:').'</p>'.
-'<pre>&lt;tpl:Widget id="<strong>'.__('Widget ID').'</strong>"&gt;
-  &lt;setting name="<strong>'.__('Setting name').'</strong>"&gt;<strong>'.__('Setting value').'</strong>&lt;/setting&gt;
-  ...
-&lt;/tpl:Widget&gt;</pre>'.
-'<p>'.__('Here are the following available widgets for your blog:').'</p>';
-
-$widget_elements->content .= '<dl>';
+$widget_elements->content = '<dl>';
 foreach ($__widgets->elements() as $w)
 {
 	$widget_elements->content .=
@@ -363,7 +342,7 @@ foreach ($__widgets->elements() as $w)
 }
 $widget_elements->content .= '</dl></div>';
 
-dcPage::helpBlock($widget_elements);
+dcPage::helpBlock('widgets',$widget_elements);
 
 function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 {
@@ -381,9 +360,11 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 	$i = 0;
 	foreach ($widgets->elements() as $w)
 	{
-		$upDisabled = $i == 0 ? '" disabled="" src="images/disabled_' : '" src="images/';
-		$downDisabled = $i == count($widgets->elements())-1 ? '" disabled="" src="images/disabled_' : '" src="images/';
-
+		$upDisabled = $i == 0 ? ' disabled" src="images/disabled_' : '" src="images/';
+		$downDisabled = $i == count($widgets->elements())-1 ? ' disabled" src="images/disabled_' : '" src="images/';
+		$altUp = $i == 0 ? ' alt=""' : ' alt="'.__('Up the widget').'"';
+		$altDown = $i == count($widgets->elements())-1 ? ' alt=""' : ' alt="'.__('Down the widget').'"';
+		
 		$iname = 'w['.$pr.']['.$i.']';
 
 		$res .=
@@ -392,9 +373,9 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		' '.$w->name().
 		($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').
 		'<span class="toolsWidget remove-if-drag">'.
-		'<input type="image" class="upWidget'.$upDisabled.'up.png" name="'.$iname.'[_up]" value="'.__('Up the widget').'" />'.
-		'<input type="image" class="downWidget'.$downDisabled.'down.png" name="'.$iname.'[_down]" value="'.__('Down the widget').'" />'.' '.
-		'<input type="image" class="removeWidget" src="images/trash.png" name="'.$iname.'[_rem]" value="'.__('Remove widget').'" />'.
+		'<input type="image" class="upWidget'.$upDisabled.'up.png" name="'.$iname.'[_up]" value="'.__('Up the widget').'"'.$altUp.' /> '.
+		'<input type="image" class="downWidget'.$downDisabled.'down.png" name="'.$iname.'[_down]" value="'.__('Down the widget').'"'.$altDown.' /> '.' '.
+		'<input type="image" class="removeWidget" src="images/trash.png" name="'.$iname.'[_rem]" value="'.__('Remove widget').'" alt="'.__('Remove the widget').'" />'.
 		'</span>'.
 		'<br class="clear"/></p>'.
 		'<div class="widgetSettings hidden-if-drag">'.$w->formSettings($iname,$j).'</div>'.

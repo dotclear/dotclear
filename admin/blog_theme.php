@@ -83,7 +83,7 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
 
 # -- Execute actions --
 try {
-	$list->doActions('themes');
+	$list->doActions();
 }
 catch (Exception $e) {
 	$core->error->add($e->getMessage());
@@ -124,14 +124,14 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 			->setTab('themes')
 			->setModules($modules)
 			->displayModules(
-				/*cols */		array('sshot', 'name', 'desc', 'author', 'version', 'current_version', 'parent'),
+				/*cols */		array('checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'parent'),
 				/* actions */	array('update', 'delete')
 			);
 
 		echo
 		'<p class="info vertical-separator">'.sprintf(
 			__("Visit %s repository, the resources center for Dotclear."),
-			'<a href="http://themes.dotaddict.org/dc2/"</a>'
+			'<a href="http://themes.dotaddict.org/dc2/">Dotaddict</a>'
 			).
 		'</p>'.
 

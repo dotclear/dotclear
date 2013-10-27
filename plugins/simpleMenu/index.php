@@ -349,6 +349,7 @@ if ($step) {
 				dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
 				dcPage::jsLoad('index.php?pf=simpleMenu/simplemenu.js');
 		}
+		echo dcPage::jsConfirmClose('additem','menuitems');
 	?>
 </head>
 

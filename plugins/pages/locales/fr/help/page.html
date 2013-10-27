@@ -26,7 +26,7 @@
     <ul>
     <li><strong>En attente</strong>&nbsp;: en attente de publication.</li>
     <li><strong>Programmé</strong>&nbsp;: la page sera mise en ligne à la date et à l'heure
-    indiquées dans le champ <em>Publiée le</em>.</li>
+    indiquée dans le champ <em>Publiée le</em>.</li>
     <li><strong>Non publié</strong>&nbsp;: page hors ligne.</li>
     <li><strong>Publié</strong>&nbsp;: page en ligne.</li>
     </ul>
@@ -34,14 +34,23 @@
   
   <dt>Publié le</dt>
   <dd>Permet de modifier la date et l'heure de publication de la page. Si vous avez
-  choisi le statut <em>Programmée</em> elle sera mise en ligne aux date et heure
+  choisi le statut <em>Programmée</em> elle sera mise en ligne aux dates et heures
   définis dans ce champ.</dd>
   
-  <dt>Syntaxe de saisie</dt>
+  <dt>Langue de la page</dt>
+  <dd>Code langue de votre page. Par défaut, il s'agit du code de votre
+  langue. Vous pouvez le changer, par le code d'une autre langue, par
+  exemple "en", "fr-qc".</dd>
+  
+  <dt>Formatage du texte</dt>
   <dd>Permet de choisir la syntaxe de saisie de la page. Le wiki est une syntaxe
   simplifiée et sera converti en xhtml valide ; à moins que vous maîtrisiez
   parfaitement le xhtml nous vous conseillons de la choisir de préférence.<br />
   Consultez la référence de la syntaxe Wiki pour plus d'informations.</dd>
+  
+  <dt>Position de la page</dt>
+  <dd>Permet de classer les différentes pages en fonction de leur numéro d'ordre.
+  Ce champ est utilisé par le widget Pages (<em>Trier par position de la page</em>).</dd>
   
   <dt>Accepter les commentaires</dt>
   <dd>Cochez ou décochez la case selon que vous souhaitez permettre ou interdire
@@ -56,18 +65,8 @@
   générale les rétroliens se situe dans le menu Paramètres du blog. Une page peut
   recevoir des rétroliens mais ne peut pas en faire.</dd>
 
-  <dt>Masquer</dt>
+  <dt>Ne pas lister dans le widget Pages</dt>
   <dd>Si coché cette page sera active mais non listée dans le widget Pages.</dd>
-
-  <dt>Position de la page</dt>
-  <dd>Permet de classer les différentes pages en fonction de leur numéro d'ordre.
-  Ce champ est utilisé par le widget Pages (<em>Trier par position de la page</em>).</dd>
-
-  <dt>Langue de la page</dt>
-  <dd>Code langue de votre page. Par défaut, il s'agit du code de votre
-  langue. Vous pouvez le changer, par le code d'une autre langue, par
-  exemple "en", "fr-qc". Ce code est libre, il sera utilisé lors de l'affichage
-  des pages.</dd>
   
   <dt>Mot de passe de la page</dt>
   <dd>Permet de déterminer un mot de passe d'accès à une page dans le blog. Une
@@ -80,11 +79,12 @@
   après avoir cliqué sur le petit verrou placé à sa droite. Si vous essayez
   d'utiliser une URL déjà existante, celle-ci se verra incrémentée d'un chiffre.</dd>
 
-  <dt>Annexes</dt>
-  <dd>Les annexes sont tous les médias attachés à la page. Le lien
-  d'ajout d'une annexe permet de choisir un fichier à ajouter à la page.
-  Pensez à sauvegarder votre page avant de choisir une annexe. Consultez
-  l'aide du gestionnaire de médias pour plus de détails.</dd>
+  <dt>Fichiers attachés</dt>
+  <dd>Les fichiers attachés sont tous les médias ajoutés à la page. Le lien
+  d'ajout d'un fichier attaché permet de choisir un fichier à ajouter à la page.
+  L'option apparaîtra après le première enregistrement de votre 
+  billet 
+  Consultez l'aide du gestionnaire de médias pour plus de détails.</dd>
 </dl>
 
 <h4>Commentaires</h4>
@@ -96,7 +96,7 @@
   indésirable.</dd>
   
   <dt>Ajouter un commentaire</dt>
-  <dd>Depuis l'onglet <em>Ajouter un commentaire</em> vous pouvez répondre
+  <dd>Depuis l'onglet <em>Ajouter un commentaire</em> vous pouvez ajouter ou répondre
   directement à un commentaire sans passer par votre blog. Cette interface vous
   permet également de saisir votre commentaire en XHTML, sans limitation. Vous
   devrez remplir les champs de la même manière qu'en modifiant un commentaire.</dd>

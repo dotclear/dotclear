@@ -73,6 +73,29 @@ class dcUtils
 		}
 		return $clean_ids;
 	}
+
+	/**
+	 * Compare two versions with option of using only main numbers.
+	 *
+	 * @param  string	$current_version	Current version
+	 * @param  string	$required_version	Required version
+	 * @param  string	$operator			Comparison operand
+	 * @param  boolean	$strict				Use full version
+	 * @return boolean	True if comparison success
+	 */
+	public static function versionsCompare($current_version, $required_version, $operator='>=', $strict=true)
+	{
+		if ($strict) {
+			$current_version = preg_replace('!-r(\d+)$!', '-p$1', $current_version);
+			$required_version = preg_replace('!-r(\d+)$!', '-p$1', $required_version);
+		}
+		else {
+			$current_version = preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $current_version);
+			$required_version = preg_replace('/^([0-9\.]+)(.*?)$/', '$1', $required_version);
+		}
+
+		return (boolean) version_compare($current_version, $required_version, $operator);
+	}
 }
 
 ?>

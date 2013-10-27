@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-05 19:46+0200\n"
+"POT-Creation-Date: 2013-10-17 09:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,6 +58,9 @@ msgid "In order to login, you have to change your password now."
 msgstr ""
 
 msgid "Safe Mode can only be used for super administrators."
+msgstr ""
+
+msgid "Insufficient permissions"
 msgstr ""
 
 msgid "Wrong username or password"
@@ -220,9 +223,6 @@ msgid "(none)"
 msgstr ""
 
 msgid "Title"
-msgstr ""
-
-msgid "Title (optional)"
 msgstr ""
 
 msgid "Title, Date"
@@ -532,9 +532,6 @@ msgstr ""
 msgid "Add themes from repository"
 msgstr ""
 
-msgid "Search and install themes directly from repository."
-msgstr ""
-
 msgid "Install or upgrade manually"
 msgstr ""
 
@@ -566,9 +563,6 @@ msgid "Cancel filters and display options"
 msgstr ""
 
 msgid "List of blogs"
-msgstr ""
-
-msgid "List of categories"
 msgstr ""
 
 msgid "Blog has been successfully deleted."
@@ -611,8 +605,10 @@ msgid "No blog"
 msgstr ""
 
 #, php-format
-msgid "List of %s blogs match the filter."
-msgstr ""
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Blogs list"
 msgstr ""
@@ -1657,9 +1653,6 @@ msgstr ""
 msgid "Add plugins from repository"
 msgstr ""
 
-msgid "Search and install plugins directly from repository."
-msgstr ""
-
 msgid "Add plugins from a package"
 msgstr ""
 
@@ -1715,6 +1708,10 @@ msgid "All pings sent."
 msgstr ""
 
 msgid "Invalid publication date"
+msgstr ""
+
+#, php-format
+msgid "The post \"%s\" has been successfully updated"
 msgstr ""
 
 msgid "Entry has been successfully created."
@@ -1895,6 +1892,18 @@ msgstr ""
 msgid "Not selected"
 msgstr ""
 
+msgid "With attachments"
+msgstr ""
+
+msgid "Without attachments"
+msgstr ""
+
+msgid "Number of comments"
+msgstr ""
+
+msgid "Number of trackbacks"
+msgstr ""
+
 msgid "Selected entries have been successfully updated."
 msgstr ""
 
@@ -1902,6 +1911,9 @@ msgid "Selected entries have been successfully deleted."
 msgstr ""
 
 msgid "Selected:"
+msgstr ""
+
+msgid "Attachments:"
 msgstr ""
 
 msgid "Month:"
@@ -2417,7 +2429,7 @@ msgid "Languages"
 msgstr ""
 
 #, php-format
-msgid "%d comments"
+msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] ""
 msgstr[1] ""
@@ -2435,6 +2447,9 @@ msgid "Go to the menu"
 msgstr ""
 
 msgid "Go to search"
+msgstr ""
+
+msgid "Go to help"
 msgstr ""
 
 msgid "Go to site"
@@ -2462,9 +2477,6 @@ msgstr ""
 msgid "[%H:%M:%S]"
 msgstr ""
 
-msgid "new window"
-msgstr ""
-
 #, php-format
 msgid "Thank you for using %s."
 msgstr ""
@@ -2489,6 +2501,9 @@ msgid "hide"
 msgstr ""
 
 msgid "Need help?"
+msgstr ""
+
+msgid "new window"
 msgstr ""
 
 msgid "Hide"
@@ -2570,6 +2585,9 @@ msgstr ""
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr ""
 
+msgid "Are you sure you want to delete selected plugins?"
+msgstr ""
+
 msgid "Use this theme"
 msgstr ""
 
@@ -2578,6 +2596,9 @@ msgstr ""
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr ""
+
+msgid "Are you sure you want to delete selected themes?"
 msgstr ""
 
 msgid "Are you sure you want to delete this backup?"
@@ -2764,6 +2785,9 @@ msgstr ""
 msgid "Reset search"
 msgstr ""
 
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr ""
+
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
@@ -2774,18 +2798,18 @@ msgid "current selection"
 msgstr ""
 
 #, php-format
-msgid "%d module"
-msgid_plural "%d modules"
+msgid "%d result"
+msgid_plural "%d results"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "no module"
+msgid "no results"
 msgstr ""
 
 msgid "Browse index:"
 msgstr ""
 
-msgid "Modules list"
+msgid "Plugins list"
 msgstr ""
 
 msgid "Name"
@@ -2800,17 +2824,13 @@ msgstr ""
 msgid "Current version"
 msgstr ""
 
-#, php-format
-msgid "Configure module \"%s\""
+msgid "Plugin from official distribution"
 msgstr ""
 
-msgid "Module from official distribution"
+msgid "Configure plugin"
 msgstr ""
 
-msgid "module from official distribution"
-msgstr ""
-
-msgid "No module matches your search."
+msgid "No plugins matched your search."
 msgstr ""
 
 msgid "Activate"
@@ -2825,28 +2845,71 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-msgid "No such module."
+msgid "No such plugin."
 msgstr ""
 
-msgid "Module has been successfully activated."
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successfully activated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "You don't have permissions to deactivate this plugin."
 msgstr ""
 
-msgid "You don't have permissions to deactivate this module."
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successfully deactivated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "You don't have permissions to delete this plugin."
 msgstr ""
 
-msgid "Module has been successfully deactivated."
+msgid "Some plugins have not been deleted."
 msgstr ""
 
-msgid "You don't have permissions to delete this module."
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successfully deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successfully updated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successfully installed."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Activate selected plugins"
 msgstr ""
 
-msgid "Module has been successfully deleted."
+msgid "Activate all plugins from this list"
 msgstr ""
 
-msgid "Module has been successfully updated."
+msgid "Plugins have been successfully activated."
 msgstr ""
 
-msgid "Module has been successfully installed."
+msgid "Deactivate selected plugins"
+msgstr ""
+
+msgid "Deactivate all plugins from this list"
+msgstr ""
+
+msgid "Plugins have been successfully deactivated."
+msgstr ""
+
+msgid "Some plugins have not been deactivated."
+msgstr ""
+
+msgid "Update selected plugins"
+msgstr ""
+
+msgid "Update all plugins from this list"
+msgstr ""
+
+msgid "Plugins have been successfully updated."
 msgstr ""
 
 msgid "Zip file path:"
@@ -2861,14 +2924,14 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-msgid "Unknow module ID"
+msgid "Unknow plugin ID"
 msgstr ""
 
-msgid "This module has no configuration file."
+msgid "This plugin has no configuration file."
 msgstr ""
 
 #, php-format
-msgid "Configure plugin \"%s\""
+msgid "Configure \"%s\""
 msgstr ""
 
 msgid "Back"
@@ -2908,11 +2971,63 @@ msgstr ""
 msgid "Configure theme"
 msgstr ""
 
+msgid "No themes matched your search."
+msgstr ""
+
 msgid "Use this one"
 msgstr ""
 
-msgid "Module has been successfully selected."
+msgid "Update selected themes"
 msgstr ""
+
+msgid "Update all themes from this list"
+msgstr ""
+
+msgid "No such theme."
+msgstr ""
+
+msgid "Theme has been successfully selected."
+msgstr ""
+
+msgid "Theme has been successfully activated."
+msgid_plural "Themes have been successfully activated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "You don't have permissions to deactivate this theme."
+msgstr ""
+
+msgid "Some themes have not been deactivated."
+msgstr ""
+
+msgid "Theme has been successfully deactivated."
+msgid_plural "Themes have been successfully deactivated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "You don't have permissions to delete this theme."
+msgstr ""
+
+msgid "Some themes have not been delete."
+msgstr ""
+
+msgid "Theme has been successfully deleted."
+msgid_plural "Themes have been successfully deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Theme has been successfully updated."
+msgid_plural "Themes have been successfully updated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Update all theme from this list"
+msgstr ""
+
+msgid "Theme has been successfully installed."
+msgid_plural "Themes have been successfully installed."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "First page"
 msgstr ""
@@ -2968,8 +3083,10 @@ msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
 #, php-format
-msgid "List of %s Comments or trackbacks match the filter."
-msgstr ""
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Type"
 msgstr ""
@@ -3024,73 +3141,22 @@ msgstr ""
 msgid "Plugins"
 msgstr ""
 
-msgid "moyenne"
+msgid "medium"
 msgstr ""
 
-msgid "petite"
+msgid "small"
 msgstr ""
 
-msgid "vignettes"
+msgid "thumbnail"
 msgstr ""
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 msgid "Posts"
 msgstr ""
 
 msgid "Pages"
-msgstr ""
-
-msgid "Nouveau billet"
-msgstr ""
-
-msgid "Billets"
-msgstr ""
-
-msgid "Commentaires"
-msgstr ""
-
-msgid "Gestionnaire de médias"
-msgstr ""
-
-msgid "Tags"
-msgstr ""
-
-msgid "Import/Export"
-msgstr ""
-
-msgid "Apparence du blog"
-msgstr ""
-
-msgid "Presentation widgets"
-msgstr ""
-
-msgid "Installateur DotAddict.org"
-msgstr ""
-
-msgid "Maintenance"
-msgstr ""
-
-msgid "System info"
-msgstr ""
-
-msgid "Tidy Administration"
-msgstr ""
-
-msgid "Series"
-msgstr ""
-
-msgid "pacKman"
-msgstr ""
-
-msgid "Categories orders"
-msgstr ""
-
-msgid "Discrete category"
-msgstr ""
-
-msgid "Typographic replacements"
 msgstr ""
 
 msgid "administrator"
@@ -3289,7 +3355,7 @@ msgid "An error occurred during module deletion."
 msgstr ""
 
 #, php-format
-msgid "Unable to upgrade \"%s\". (same version)"
+msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr ""
 
 msgid "Unable to read new _define.php file"
