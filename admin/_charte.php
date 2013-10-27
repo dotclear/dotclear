@@ -30,6 +30,7 @@ dcPage::check('usage,contentadmin');
 	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="js/jquery/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery-ui.custom.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery.ui.touch-punch.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.pageTabs.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.biscuit.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.bgFade.js"></script>
@@ -84,13 +85,13 @@ dcPage::check('usage,contentadmin');
 			<div id="content" class="clearfix">
 			<div class="info">
 				<p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
-				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même 
+				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même
 				une illustration. L'observation de son code source peut donc servir de complément aux descriptions.</p>
 			</div>
 
 				<h2>Typographie</h2>
 				<h3 id="texte">Textes</h3>
-					<p>La font-size de base est à 1.2rem (la valeur <code>1rem</code> correspond à 10px). Si vous utilisez l'unité <code>rem</code> pensez à faire précéder la déclaration par son équivalent 
+					<p>La font-size de base est à 1.2rem (la valeur <code>1rem</code> correspond à 10px). Si vous utilisez l'unité <code>rem</code> pensez à faire précéder la déclaration par son équivalent
 					en pixels pour rester compatible avec Internet Explorer. L'interlignage courant est à 1.5.</p>
 					<p>La liste suivante est de class <code>"nice"</code>. Elle est semblable aux listes ordinaires mais avec des puces carrées.</p>
 					<ul class="nice">
@@ -141,7 +142,7 @@ dcPage::check('usage,contentadmin');
 							<p><span class="step">5</span> Si vous souhaitez un autre alignement des boîtes entre elles vous pouvez ajouter les class :</p>
 							<ul class="nice clear">
 								<li><code>"txt-left"</code>,</li>
-								<li><code>"txt-right"</code></li> 
+								<li><code>"txt-right"</code></li>
 								<li>ou <code>"txt-center"</code></li>
 							</ul>
 							<p>à la class <code>"one-box"</code>.</p>
@@ -316,7 +317,7 @@ dcPage::check('usage,contentadmin');
 				<h3 id="direct">Selecteur d'accès direct</h3>
 					<p>Sur des pages longues et denses comme les pages about:config ou about:preferences, on peut utiliser un sélecteur pour faciliter l'accès direct aux sections.</p>
 					<p class="anchor-nav">
-						<label class="classic" for="lp_nav">Aller à : </label> 
+						<label class="classic" for="lp_nav">Aller à : </label>
 						<select id="lp_nav" name="lp_nav">
 							<option value="#l_accessibility">accessibility</option>
 							<option value="#l_dashboard">dashboard</option>
@@ -336,30 +337,30 @@ dcPage::check('usage,contentadmin');
 					<p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
 
 				<h2>Tableaux</h2>
-					<p>Il existe deux mises en forme type de tableaux selon que l'on cherche à faire un tableau ordinaire 
+					<p>Il existe deux mises en forme type de tableaux selon que l'on cherche à faire un tableau ordinaire
 					ou un tableau dont on peut déplacer les lignes par glisser déposer (voir plus bas). Cependant certaines règles
 					sont communes à tout les tableaux.</p>
 
 				<h3 id="communes">Règles communes</h3>
 					<h4>Largeur du tableau</h4>
-						<p>Sauf pour des tableaux particuliers (absents dans l'admin mais qui pourraient être nécessaires 
-						à un plugin,les tableaux occupent toute la largeur de la page. Afin que les tableaux soient consultables 
-						sur un mobile en navigant horizontalement, on englobe le tableau dans une <code>div class="table-outer"</code>, 
+						<p>Sauf pour des tableaux particuliers (absents dans l'admin mais qui pourraient être nécessaires
+						à un plugin,les tableaux occupent toute la largeur de la page. Afin que les tableaux soient consultables
+						sur un mobile en navigant horizontalement, on englobe le tableau dans une <code>div class="table-outer"</code>,
 						qui servira de «&nbsp;conteneur&nbsp;».</p>
 					<h4>Accessibilité</h4>
-						<p>Les éléments caption, th, scope sont nécessaires à l'accessibilité. Ne les oubliez pas&nbsp;!&nbsp;». 
-						On peut utiliser la <code>class="hidden"</code> sur l'élément <code>caption</code> (qui accueille 
+						<p>Les éléments caption, th, scope sont nécessaires à l'accessibilité. Ne les oubliez pas&nbsp;!&nbsp;».
+						On peut utiliser la <code>class="hidden"</code> sur l'élément <code>caption</code> (qui accueille
 						le titre du tableau) si vous ne souhaitez pas qu'il soit affiché sur la page.</p>
 					 <h4>Les classes</h4>
 					 	<p>Des classes particulières peuvent être attribuées aux lignes :</p>
 					 		<ul>
-					 			<li><code>line</code> (systématique) : pour les traits horizontaux et le fond gris léger 
+					 			<li><code>line</code> (systématique) : pour les traits horizontaux et le fond gris léger
 					 			au survol&nbsp;;</li>
 								<li><code>offline</code> : pour un noir estompé (gris quoi).</li>
 					 		</ul>
 					 	<p>Des classes particulières peuvent être appliquées aux cellules :</p>
 					 	<ul>
-							<li><code>nowrap</code> : pas de retour à la ligne dans la cellule, quelle que soit la 
+							<li><code>nowrap</code> : pas de retour à la ligne dans la cellule, quelle que soit la
 							largeur de la page&nbsp;;</li>
 							<li><code>maximal</code> : la cellule prendra toute la largeur restante disponible&nbsp;;</li>
 							<li><code>count</code> : le contenu de la cellule sera aligné à droite avec un petit retrait.</li>
@@ -428,8 +429,8 @@ dcPage::check('usage,contentadmin');
 							<td class="nowrap status"><img alt="Publié" title="Publié" src="images/check-on.png" />   </td>
 						</tr>
 					</table>
-				</div>		
-				
+				</div>
+
 				<h3>Tableau avec ordonnancement</h3>
 				<p>Les tableaux permettant l'ordonnancement doivent offrir la possibilité d'effectuer le classement grâce à
 				des inputs placés en début de ligne pour que le classement soit possible même lorsque cette fonctionnalité est
@@ -577,7 +578,7 @@ dcPage::check('usage,contentadmin');
 		<div id="footer">
 			<a href="http://dotclear.org/" title="Merci de manger des clafoutis."><img src="style/dc_logos/w-dotclear90.png" alt="Merci d'utiliser Dotclear 2.6-dev." /></a>
 		</div><!-- /footer -->
-												<!-- 
+												<!--
 												                  .
 												               ,;:'`'::
 												            __||

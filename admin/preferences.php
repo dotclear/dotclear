@@ -46,8 +46,8 @@ $user_ui_media_by_page = ($core->auth->user_prefs->interface->media_by_page ? $c
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
-if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || 
-	!empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) || 
+if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) ||
+	!empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) ||
 	!empty($_GET['db-updated'])) {
 	$default_tab = 'user-favorites';
 } elseif (!empty($_GET['updated'])) {
@@ -83,13 +83,13 @@ if (isset($_POST['user_name']))
 	try
 	{
 		$pwd_check = !empty($_POST['cur_pwd']) && $core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['cur_pwd']));
-		
+
 		if ($core->auth->allowPassChange() && !$pwd_check && $user_email != $_POST['user_email']) {
 			throw new Exception(__('If you want to change your email or password you must provide your current password.'));
 		}
-		
+
 		$cur = $core->con->openCursor($core->prefix.'user');
-		
+
 		$cur->user_name = $user_name = $_POST['user_name'];
 		$cur->user_firstname = $user_firstname = $_POST['user_firstname'];
 		$cur->user_displayname = $user_displayname = $_POST['user_displayname'];
@@ -99,29 +99,29 @@ if (isset($_POST['user_name']))
 		$cur->user_tz = $user_tz = $_POST['user_tz'];
 
 		$cur->user_options = new ArrayObject($user_options);
-		
+
 		if ($core->auth->allowPassChange() && !empty($_POST['new_pwd']))
 		{
 			if (!$pwd_check) {
 				throw new Exception(__('If you want to change your email or password you must provide your current password.'));
 			}
-			
+
 			if ($_POST['new_pwd'] != $_POST['new_pwd_c']) {
 				throw new Exception(__("Passwords don't match"));
 			}
-			
+
 			$cur->user_pwd = $_POST['new_pwd'];
 		}
-		
+
 		# --BEHAVIOR-- adminBeforeUserUpdate
 		$core->callBehavior('adminBeforeUserProfileUpdate',$cur,$core->auth->userID());
-		
+
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
-		
+
 		# --BEHAVIOR-- adminAfterUserUpdate
 		$core->callBehavior('adminAfterUserProfileUpdate',$cur,$core->auth->userID());
-		
+
 		dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
 
 		http::redirect('preferences.php');
@@ -133,12 +133,12 @@ if (isset($_POST['user_name']))
 }
 
 # Update user options
-if (isset($_POST['user_post_format'])) 
+if (isset($_POST['user_post_format']))
 {
 	try
 	{
 		$cur = $core->con->openCursor($core->prefix.'user');
-		
+
 		$cur->user_name = $user_name;
 		$cur->user_firstname = $user_firstname;
 		$cur->user_displayname = $user_displayname;
@@ -148,19 +148,19 @@ if (isset($_POST['user_post_format']))
 		$cur->user_tz = $user_tz;
 
 		$cur->user_post_status = $user_post_status = $_POST['user_post_status'];
-		
+
 		$user_options['edit_size'] = (integer) $_POST['user_edit_size'];
 		if ($user_options['edit_size'] < 1) {
 			$user_options['edit_size'] = 10;
 		}
 		$user_options['post_format'] = $_POST['user_post_format'];
 		$user_options['enable_wysiwyg'] = !empty($_POST['user_wysiwyg']);
-		
+
 		$cur->user_options = new ArrayObject($user_options);
-		
+
 		# --BEHAVIOR-- adminBeforeUserOptionsUpdate
 		$core->callBehavior('adminBeforeUserOptionsUpdate',$cur,$core->auth->userID());
-		
+
 		# Update user prefs
 		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_acc_nodragdrop']),'boolean');
 		$core->auth->user_prefs->interface->put('enhanceduploader',!empty($_POST['user_ui_enhanceduploader']),'boolean');
@@ -169,13 +169,13 @@ if (isset($_POST['user_post_format']))
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
 		}
 		$core->auth->user_prefs->interface->put('media_by_page',(integer)$_POST['user_ui_media_by_page'],'integer');
-		
+
 		# Udate user
 		$core->updUser($core->auth->userID(),$cur);
-		
+
 		# --BEHAVIOR-- adminAfterUserOptionsUpdate
 		$core->callBehavior('adminAfterUserOptionsUpdate',$cur,$core->auth->userID());
-		
+
 		dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
 		http::redirect('preferences.php#user-options');
 	}
@@ -191,17 +191,17 @@ if (isset($_POST['db-options'])) {
 	{
 		# --BEHAVIOR-- adminBeforeUserOptionsUpdate
 		$core->callBehavior('adminBeforeDashboardOptionsUpdate',$core->auth->userID());
-		
+
 		# Update user prefs
 		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
 		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
 		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
 		$core->auth->user_prefs->interface->put('iconset',(!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
 		$core->auth->user_prefs->interface->put('nofavmenu',empty($_POST['user_ui_nofavmenu']),'boolean');
-		
+
 		# --BEHAVIOR-- adminAfterUserOptionsUpdate
 		$core->callBehavior('adminAfterDashboardOptionsUpdate',$core->auth->userID());
-		
+
 		dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
 		http::redirect('preferences.php#user-favorites');
 	}
@@ -212,7 +212,7 @@ if (isset($_POST['db-options'])) {
 }
 
 # Add selected favorites
-if (!empty($_POST['appendaction'])) 
+if (!empty($_POST['appendaction']))
 {
 	try {
 		if (empty($_POST['append'])) {
@@ -279,7 +279,7 @@ if (!empty($_POST['saveorder']) && !empty($order))
 		if (!$core->favs->exists($v)) {
 			unset($order[$k]);
 		}
-	}	
+	}
 	$core->favs->setFavoriteIDs($order,false);
 	if (!$core->error->flag()) {
 		dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
@@ -304,6 +304,7 @@ dcPage::open($page_title,
 	dcPage::jsLoad('js/_preferences.js').
 	($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')).
 	dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+	dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
 	dcPage::jsLoad('js/jquery/jquery.pwstrength.js').
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
@@ -319,7 +320,7 @@ dcPage::open($page_title,
 		"</script>\n".
 	dcPage::jsPageTabs($default_tab).
 	dcPage::jsConfirmClose('user-form').
-	
+
 	# --BEHAVIOR-- adminPreferencesHeaders
 	$core->callBehavior('adminPreferencesHeaders'),
 
@@ -385,7 +386,7 @@ if ($core->auth->allowPassChange())
 {
 	echo
 	'<h4 class="vertical-separator pretty-title">'.__('Change my password').'</h4>'.
-	
+
 	'<div class="pw-table">'.
 	'<p class="pw-cell"><label for="new_pwd">'.__('New password:').'</label>'.
 	form::password('new_pwd',20,255,'','','',false,' data-indicator="pwindicator" ').'</p>'.
@@ -394,10 +395,10 @@ if ($core->auth->allowPassChange())
 	'    <p class="label no-margin"></p>'.
 	'</div>'.
 	'</div>'.
-	
+
 	'<p><label for="new_pwd_c">'.__('Confirm new password:').'</label>'.
 	form::password('new_pwd_c',20,255).'</p>'.
-	
+
 	'<p><label for="cur_pwd">'.__('Your current password:').'</label>'.
 	form::password('cur_pwd',20,255).'</p>'.
 	'<p class="form-note warn">'.
@@ -588,7 +589,7 @@ form::checkbox('user_ui_nofavmenu',1,!$user_ui_nofavmenu).' '.
 __('Display favorites at the top of the menu').'</label></p></div>';
 
 if (count($iconsets_combo) > 1) {
-	echo 
+	echo
 		'<div class="fieldset">'.
 		'<h4>'.__('Dashboard icons').'</h4>'.
 		'<p><label for="user_ui_iconset" class="classic">'.__('Iconset:').'</label> '.
