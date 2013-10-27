@@ -137,7 +137,9 @@ if ($core->auth->check('delete,contentadmin',$core->blog->id) && $status == -2)
 
 $comments_actions_page = new dcCommentsActionsPage($core,'comments.php');
 
-$comments_actions_page->process();
+if ($comments_actions_page->process()) {
+	return;
+}
 
 /* Get comments
 -------------------------------------------------------- */
