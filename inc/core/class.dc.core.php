@@ -86,7 +86,7 @@ class dcCore
 		$this->session = new sessionDB($this->con,$this->prefix.'session',DC_SESSION_NAME,'',null,DC_ADMIN_SSL);
 		$this->url = new dcUrlHandlers();
 		
-		$this->plugins = new dcModules($this);
+		$this->plugins = new dcPlugins($this);
 		
 		$this->rest = new dcRestServer($this);
 		

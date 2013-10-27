@@ -389,20 +389,20 @@ if ($can_edit_page)
 			'title' => __('Status'),
 			'items' => array(
 				'post_status' => 
-					'<p><label for="post_status" class="ib">'.__('Page status').'</label> '.
+					'<p><label for="post_status">'.__('Page status').'</label> '.
 					form::combo('post_status',$status_combo,$post_status,'','',!$can_publish).
 					'</p>',
 				'post_dt' => 
-					'<p><label for="post_dt" class="ib">'.__('Publication date and hour').'</label>'.
+					'<p><label for="post_dt">'.__('Publication date and hour').'</label>'.
 					form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).
 					'</p>',
 				'post_lang' =>
-					'<p><label for="post_lang" class="ib">'.__('Page language').'</label>'.
+					'<p><label for="post_lang">'.__('Page language').'</label>'.
 					form::combo('post_lang',$lang_combo,$post_lang).
 					'</p>',
 				'post_format' =>
 					'<div>'.
-					'<h5 id="label_format"><label for="post_format" class="ib">'.__('Text formatting').'</label></h5>'.
+					'<h5 id="label_format"><label for="post_format" class="classic">'.__('Text formatting').'</label></h5>'.
 					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
 					'</p>'.
 					'<p class="format_control control_wiki">'.
@@ -446,12 +446,12 @@ if ($can_edit_page)
 					__('Hide in widget Pages').'</label>'.
 					'</p>',
 				'post_password' =>
-					'<p><label for="post_password" class="ib">'.__('Password').'</label>'.
+					'<p><label for="post_password">'.__('Password').'</label>'.
 					form::field('post_password',10,32,html::escapeHTML($post_password),'maximal').
 					'</p>',
 				'post_url' =>
 					'<div class="lockable">'.
-					'<p><label for="post_url" class="ib">'.__('Edit basename').'</label>'.
+					'<p><label for="post_url">'.__('Edit basename').'</label>'.
 					form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
 					'</p>'.
 					'<p class="form-note warn">'.
@@ -461,24 +461,24 @@ if ($can_edit_page)
 	$main_items = new ArrayObject(array(
 		"post_title" =>
 			'<p class="col">'.
-			'<label class="required no-margin"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
+			'<label class="required no-margin bold"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 			form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
 			'</p>',
 		
 		"post_excerpt" =>
-			'<p class="area" id="excerpt-area"><label for="post_excerpt">'.__('Excerpt:').' <span class="form-note">'.
+			'<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">'.__('Excerpt:').' <span class="form-note">'.
 			__('Introduction to the page.').'</span></label> '.
 			form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 			'</p>',
 		
 		"post_content" =>
-			'<p class="area" id="content-area"><label class="required" '.
+			'<p class="area" id="content-area"><label class="required bold" '.
 			'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
 			form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
 			'</p>',
 		
 		"post_notes" =>
-			'<p class="area" id="notes-area"><label for="post_notes">'.__('Personal notes:').' <span class="form-note">'.
+			'<p class="area" id="notes-area"><label for="post_notes" class="bold">'.__('Personal notes:').' <span class="form-note">'.
 			__('Unpublished notes.').'</span></label>'.
 			form::textarea('post_notes',50,5,html::escapeHTML($post_notes)).
 			'</p>'

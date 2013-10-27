@@ -83,12 +83,6 @@ dcPage::check('usage,contentadmin');
 		</a></div>
 		<div id="main">
 			<div id="content" class="clearfix">
-			<div class="info">
-				<p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
-				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même
-				une illustration. L'observation de son code source peut donc servir de complément aux descriptions.</p>
-			</div>
-
 				<h2>Typographie</h2>
 				<h3 id="texte">Textes</h3>
 					<p>La font-size de base est à 1.2rem (la valeur <code>1rem</code> correspond à 10px). Si vous utilisez l'unité <code>rem</code> pensez à faire précéder la déclaration par son équivalent
@@ -165,13 +159,11 @@ dcPage::check('usage,contentadmin');
 							<p><span class="step">3</span> Attention, il faut soit ne pas retourner à la ligne entre la fermeture d'une boîte <code>"two-boxes"</code> et l'ouverture de la suivante soit adopter la méthode de commentaire vide mise en place ici et expliquée chez <a href="http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html">Alsacréations</a> («&nbsp;Méthode 2&nbsp;»).</p>
 						</div><!--
 						--><div class="two-boxes even">
-							<div class="box odd">
-								<p><span class="step">4</span> Toutes les boîtes de class <code>"box"</code><br />
-								 placées au sein d'une boîte <code>"two-boxes"</code>…</p>
-							</div>
-							<div class="box even">
-								<p><span class="step">4 bis</span>… se distribuent horizontalement comme dans <br />
-									une boîte <code>"one-box"</code>.</p>
+							<div class="two-boxes odd">
+								<p><span class="step">4</span> On peut bien sûr imbriquer des boîtes de class <code>"two-boxes"</code>
+								 au sein d'une boîte <code>"two-boxes" afin qu'elles…</code>…</p>
+							</div><div class="two-boxes even">
+								<p><span class="step">4 bis</span>… se distribuent horizontalement comme dans une boîte <code>"one-box"</code>.</p>
 							</div>
 						</div>
 					</div>
@@ -248,9 +240,11 @@ dcPage::check('usage,contentadmin');
 						<div class="col">
 							<p><label for="ex1">Label simple + input text :</label><input id="ex1" type="text" /></p>
 							<p class="form-note">p class="form-note".</p>
-							<p><label for="ex2" class="required"><abbr title="'.__('Required field').'">*</abbr> Label class="required" :</label> <input id="ex2" type="text" /></p>
+							<p><label for="ex4" class="classic">Label class="classic" + input text :</label> <input id="ex4" type="text" /></p>
+							<p><label for="ex2" class="required"><abbr title="'.__('Required field').'">*</abbr> Label class="required" :</label> <input id="ex2" type="text" /><span class="form-note">span class="form-note"</span></p>
+							<p><label for="ex11" class="bold">Label class="bold" :</label> <input id="ex11" type="text" /></p>
+							<p class="form-note">La class="bold" est bien sûr à écrire en minuscules.</p>
 							<p><label for="ex3">Input class="maximal" :</label> <input id="ex3" type="text" class="maximal" /></p>
-							<p><label for="ex4" class="classic">Label class="classic" :</label> <input id="ex4" type="text" /></p>
 						</div>
 						<div class="col">
 							<p class="field"><label for="ex5">p.field label + input :</label><input id="ex5" type="text" /></p>
@@ -261,9 +255,12 @@ dcPage::check('usage,contentadmin');
 								Checkbox (label.classic)</label></p>
 							<p><label class="classic" for="ex8-1"><input type="radio" checked="checked" id="ex8-1" value="ex8-1" name="ex8-1" />
 							 Bouton radio 1 (label.classic)</label></p>
-							 <p><label class="classic" for="ex8-2"><input type="radio" id="ex8-2" value="ex8-2" name="ex8-2" />
+							<p><label class="classic" for="ex8-2"><input type="radio" id="ex8-2" value="ex8-2" name="ex8-2" />
 							 Bouton radio 2 (label.classic)</label></p>
-							 <p class="form-note">Les checkboxes et les boutons radio sont dans la balise &lt;label&gt;.</p>
+							<p class="form-note">Les checkboxes et les boutons radio sont dans la balise &lt;label&gt;.</p>
+							<p><label class="classic" for="ex9"><input type="checkbox"
+							checked="checked" id="ex9" value="1" title="intitulé du champ" /></label> <label
+							for="ex10" class="classic">checkbox.classic + label class="classic" :</label> <input id="ex10" type="text" /></p>
 						</div>
 					</form>
 					<form action="#" class="clear">
@@ -336,12 +333,23 @@ dcPage::check('usage,contentadmin');
 					<p><a title="Titre du lien" href="http://fr.dotclear.org/blog" class="onblog_link outgoing">Lien vers le blog <img alt="" src="images/outgoing-blue.png" /></a></p>
 					<p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
 
-				<h2>Tableaux</h2>
+				<h3 id="pseudo-tabs">Pseudo-onglets </h3>
+					<p>Les pseudo-onglets permettent d'ajouter des sous-pages qui sont des liens vers d'autres pages, par opposition aux onglets qui sont des sections internes à la page.</p>
+					<p>Les pseudo-onglets sont à positionner immédiatement après le breadcrumb (ici un hr simule le trait sous le breadcrumb).</p>
+					<hr style="margin-bottom: .75em;" />
+					<ul class="pseudo-tabs">
+					  <li><a href="#">Page 1</a></li>
+					  <li><a href="#">Autre faux onglet</a></li>
+					  <li><a href="#" class="active">Onglet actif</a></li>
+					  <li><a href="#">Liste 4</a></li>
+					</ul>
+
+				<h2 id="common">Tableaux</h2>
 					<p>Il existe deux mises en forme type de tableaux selon que l'on cherche à faire un tableau ordinaire
 					ou un tableau dont on peut déplacer les lignes par glisser déposer (voir plus bas). Cependant certaines règles
 					sont communes à tout les tableaux.</p>
 
-				<h3 id="communes">Règles communes</h3>
+				<h3>Règles communes</h3>
 					<h4>Largeur du tableau</h4>
 						<p>Sauf pour des tableaux particuliers (absents dans l'admin mais qui pourraient être nécessaires
 						à un plugin,les tableaux occupent toute la largeur de la page. Afin que les tableaux soient consultables
@@ -365,7 +373,7 @@ dcPage::check('usage,contentadmin');
 							<li><code>maximal</code> : la cellule prendra toute la largeur restante disponible&nbsp;;</li>
 							<li><code>count</code> : le contenu de la cellule sera aligné à droite avec un petit retrait.</li>
 						</ul>
-				<h3 id="ordinaires">Tableau classique</h3>
+				<h3 id="courants">Tableau classique</h3>
 				<div class="table-outer">
 					<table>
 						<caption class="hidden">Liste des entrées</caption>
@@ -431,7 +439,7 @@ dcPage::check('usage,contentadmin');
 					</table>
 				</div>
 
-				<h3>Tableau avec ordonnancement</h3>
+				<h3 id="dragable">Tableau avec ordonnancement</h3>
 				<p>Les tableaux permettant l'ordonnancement doivent offrir la possibilité d'effectuer le classement grâce à
 				des inputs placés en début de ligne pour que le classement soit possible même lorsque cette fonctionnalité est
 				désactivée (via les préférences utilisateurs, voire une désactivation complète du javascript dans le navigateur).</p>
@@ -538,41 +546,58 @@ dcPage::check('usage,contentadmin');
 							</tbody>
 						</table>
 					</div>
+
+				<h2 id="iconset">Icônes</h2>
+				<p>Les icônes utilisées dans l'administration sont présentes en deux formats&nbsp; 64*64px pour les grandes 
+				(qui sont affichées sur le tableau de bord si la page correspondante est choisie en favori par l'utilisateur) et 
+				16*16px pour les petits formats.</p>
+				<p>La plupart sont dérivées de la fonte d'icônes <a href="http://www.elegantthemes.com/blog/resources/elegant-icon-font">Elegant Font</a>. Les autres sont des images vectorielles réalisées 
+				par la DC Team. Nous les avons nommées <em>Traviata</em>. La palette de couleurs utilisée est la suivante&nbsp;:</p>
+				<p class="txt-center"><img src="images/palette-traviata.png" alt="palette des couleurs utilisées pour les icônes" /></p>
+				<p class="txt-center">Bleu&nbsp;: #137bbb - Vert&nbsp;: #9ac123 - Rouge&nbsp;: #c44d58 - Bleu ciel&nbsp;: #a2cbe9 - Gris clair&nbsp;: #ececec - 
+				Gris moyen&nbsp;: #b2b2b2 - Gris foncé&nbsp;: #676e78.</p>
 			</div><!-- /content -->
 		</div><!-- /main -->
 		<div id="main-menu">
-			<form id="search-menu" action="search.php" method="get">
-				<p><label for="qx" class="hidden">Chercher : </label><input type="text" size="30" name="qx" id="qx" maxlength="255"  /><input type="submit" value="OK" /></p>
-			</form>
-			<div id="favorites-menu">
-				<h3>Typo</h3>
+			<ul><li class="pretty-title">Typographie
 				<ul>
 					<li><a href="#texte">Texte</a></li>
 					<li><a href="#titres">Titres hx</a></li>
 				</ul>
-			</div><!-- /favorites-menu -->
-			<div id="blog-menu">
-				<h3>Layouts</h3>
+				</li>
+				<li class="pretty-title">Layouts
 				<ul>
 					<li><a href="#onglets">Onglets</a></li>
 					<li><a href="#multi-colonnage">Multi-colonnage</a></li>
 				</ul>
-			</div><!-- /blog-menu -->
-			<div id="system-menu">
-				<h3>Interactions</h3>
+				</li>
+				<li class="pretty-title">Interactions
 				<ul>
 					<li><a href="#elements">Éléments de formulaire</a></li>
 					<li><a href="#boutons">Boutons</a></li>
 					<li><a href="#messages">Messages</a></li>
 				</ul>
-			</div><!-- /system-menu -->
-			<div id="plugins-menu">
-				<h3>Navigation</h3>
+				</li>
+				<li class="pretty-title">Navigation
 				<ul>
 					<li><a href="#direct">Accès direct</a></li>
 					<li><a href="#prevnext">Précédent, suivant</a></li>
+					<li><a href="#pseudo-tabs">Pseudo-onglets</a></li>
 				</ul>
-			</div><!-- /plugins-menu -->
+				</li>
+				<li class="pretty-title">Tableaux
+				<ul>
+					<li><a href="#commons">Règles communes</a></li>
+					<li><a href="#courants">Tableaux courants</a></li>
+					<li><a href="#dragables">Tableaux ordonnancés</a></li>
+				</ul>
+				</li>
+			</ul>
+			<div class="info vertical-separator">
+				<p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
+				d'une installation Dotclear, à l'usage des contributeurs et développeurs d'extensions. Elle en est elle-même
+				une illustration. L'observation de son code source peut donc servir de complément aux descriptions.</p>
+			</div>
 		</div><!-- /main-menu -->
 
 		<div id="footer">

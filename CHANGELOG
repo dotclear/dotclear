@@ -1,3 +1,25 @@
+Dotclear 2.6-RC - 2013-10-18
+===========================================================
+* PHP 5.2 required
+* jQuery upgraded to 1.10.2 (including jQuery migrate plugin 1.2.1)
+* mySQLi support (now proposed by default rather than mySQL)
+* Administration revamped, relooked, redesigned, new icons, new ergonomic's behaviours
+* Administration is now responsive (easier to cope with it on small devices)
+* Administration menu re-organized
+* a11y (accessibility) everywhere, with and whithout Js
+* Success, notice and warning messages have been harmonized
+* daInstaller has been dispatched in core (in plugins and blog themes management)
+* Global help is now available, contextual help is available on every page
+* Media manager enhanced
+* Maintenance plugin revamped and enhanced (now includes export features)
+* Categories management enhanced
+* Plugins and themes management revamped
+* New “Plumetis” variation for Blowup theme
+* Jasmine is now used for unit testing of js components
+* A lot of bug fixes
+* A lot of cosmetics adjustments
+* A lot of enhancements
+
 Dotclear 2.5.3 - 2013-09-13
 ===========================================================
 * Bugfix: l10n Clearbricks library
@@ -190,7 +212,7 @@ Dotclear 2.2 - 2010-07-01
 * Templates: blocks can now be recursive.
 * Templates: Entries & Comments tags can now be sorted.
 * Templates: The template subsystem is quicker, linier, and ready to be extended.
-* Complete reworking of the settings system 
+* Complete reworking of the settings system
 * Correct handling of postgresql non default schemas.
 * Admin: Autocompletion and further enhancing to tags handling.
 * Admin: Accessibility & ergonomic tweaks.

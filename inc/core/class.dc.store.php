@@ -81,7 +81,7 @@ class dcStore
 		$current = $this->modules->getModules();
 		foreach ($current as $p_id => $p_infos) {
 			if (isset($raw_datas[$p_id])) {
-				if (self::compare($raw_datas[$p_id]['version'],$p_infos['version'],'>')) {
+				if (dcUtils::versionsCompare($raw_datas[$p_id]['version'],$p_infos['version'],'>')) {
 					$updates[$p_id] = $raw_datas[$p_id];
 					$updates[$p_id]['root'] = $p_infos['root'];
 					$updates[$p_id]['root_writable'] = $p_infos['root_writable'];

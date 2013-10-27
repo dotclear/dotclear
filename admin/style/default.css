@@ -15,14 +15,34 @@
 			MEDIA QUERIES
 */
 /* ---------------------------------------------------------------------------
+																		START
+---------------------------------------------------------------------------- */
+html {
+	font-size: 62.5%;
+	}
+body {
+	font-size: 12px; /* ie < 9 sucks */
+	font-size: 1.2rem;
+	line-height: 1.5;
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	margin: 0;
+	padding: 0;
+	}
+/* ---------------------------------------------------------------------------
 																	LAYOUTS
 ---------------------------------------------------------------------------- */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	}
 #header {
 	background: #676e78;
 	color: #FFF;
 	border-bottom: 4px solid #A2CBE9;
 	width: 100%;
 	display: table;
+	position: relative;
 	}
 #wrapper {
 	position: relative;
@@ -68,7 +88,7 @@
 	position: absolute;
 	top: 0;
 	left: 14em;
-	width: 1em;
+	width: 15px;
 	height: 100%;
 	overflow: hidden;
 	display: block;
@@ -122,12 +142,12 @@
 	float: left;
 	}
 .two-cols .col:first-child,
-	.two-cols .col30.first-col {
+.two-cols .col30.first-col {
 	margin-left: 0;
 	margin-right: 2%;
 	}
 .two-cols .col:last-child,
-	.two-cols .col70.last-col {
+.two-cols .col70.last-col {
 	margin-left: 2%;
 	margin-right: 0;
 	}
@@ -144,7 +164,6 @@
 	margin-left: 1%;
 	}
 .three-cols .col:first-child {
-	width: 33.3%;
 	margin-left: 0;
 	}
 /* ------------------------------------------------- layout: optionnal one/two/three-boxes */
@@ -152,7 +171,7 @@
 	text-align: justify;
 	}
 .two-boxes {
-	width: 47%;
+	width: 48.5%;
 	}
 .three-boxes {
 	width: 30%;
@@ -161,10 +180,13 @@
 	display: inline-block;
 	vertical-align: top;
 	margin: 0 1.5% 1em;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
 	text-align: left;
+	}
+.two-boxes:nth-of-type(odd), .three-boxes:nth-of-type(3n+1) {
+	margin-left: 0;
+	}
+.two-boxes:nth-of-type(even), .three-boxes:nth-of-type(3n) {
+	margin-right: 0;
 	}
 /* ---------------------------------------------------------------- layout: popups */
 .popup h1 {
@@ -243,17 +265,14 @@
 .box {
 	display: inline-block;
 	vertical-align: top;
-	margin: 0 1.5% 1em;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	margin: 0 10px 10px;
 	text-align: left;
 	}
 .box.small {
-	width: 320px;
+	width: 312px;
 	}
 .box.medium {
-	width: 660px;
+	width: 644px;
 	}
 .box.large {
 	width: 100%;
@@ -267,18 +286,9 @@
 /* ---------------------------------------------------------------------------
 																	HTML TAGS
 ---------------------------------------------------------------------------- */
-html {
-	font-size: 62.5%;
-	}
 body {
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
-	line-height: 1.5;
-	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	color: #333;
 	background: #fff;
-	margin: 0;
-	padding: 0;
 	}
 /* ------------------------------------------------------------------ titres */
 h1, h2, h3, .as_h3, h4, .as_h4, h5, h6 {
@@ -290,11 +300,12 @@ h2 {
 	font-size: 1.5em;
 	padding: 0 0 1.5em;
 	font-weight: normal;
+	line-height: 1.25;
 	}
 /* fil d'ariane */
 #content > h2 {
 	padding: 0 1em .5em 1em;
-	margin: 0 -1em .5em -1em;
+	margin: 0 -1em 1em -1em;
 	background: #fff url(bg_h2.png) repeat-x center bottom;
 	}
 h2 a:link, h2 a:visited {
@@ -320,8 +331,7 @@ h3, .as_h3 {
 	font-weight: bold;
 	}
 h4, .as_h4 {
-	font-size: 14px; /* ie < 9 sucks */
-	font-size: 1.4rem;
+	font-size: 1.16em;
 	color: #676e78;
 	}
 .fieldset h3, .fieldset h4, .pretty-title {
@@ -340,8 +350,7 @@ h4, .as_h4 {
 	text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6)
 	}
 h5 {
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
+	font-size: 1em;
 	font-weight: bold;
 	color: #676e78;
 	}
@@ -367,8 +376,7 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, ul:first-child, 
 	overflow: auto;
 	}
 table {
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
+	font-size: 1em;
 	border-collapse: collapse;
 	margin: 0 0 1em 0;
 	width: 100%;
@@ -418,9 +426,6 @@ code {
 pre {
 	white-space: pre;
 	white-space: -moz-pre-wrap;
-	white-space: -hp-pre-wrap;
-	white-space: -o-pre-wrap;
-	white-space: -pre-wrap;
 	white-space: pre-wrap;
 	white-space: pre-line;
 	word-wrap: break-word;
@@ -455,6 +460,7 @@ h1 a:link, h1 a:visited {
 input[type=text], input[type=password], input[type=submit], 
 input[type=button], input[type=reset], a.button, button, textarea, select, legend {
 	border-radius: 3px;	
+	max-width: 100%;
 	}
 form {
 	display: block;
@@ -495,9 +501,6 @@ input[type=text], input[type=password], textarea, select {
 	vertical-align: top;
 	}
 input:focus, textarea:focus, select:focus {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 	border-color: #9bca1c;
 	}
 textarea {
@@ -593,6 +596,11 @@ label.required {
 label.required abbr {
 	color: #900;
 	font-size: 1.3em;
+	}
+label.bold {
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 2em;
 	}
 label.area, p.area {
 	width: inherit !important;
@@ -729,13 +737,12 @@ input[type=submit].delete:hover, input.delete:hover, a.button.delete:hover,
 	padding: .33em 1.33em .5em;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 	font-weight: normal;
-	font-size: 14px; /* ie < 9 sucks */
-	font-size: 1.4rem;
+	font-size: 1.16em;
 	}
 .button.add:hover, .button.add:active, .button.add:focus {
 	background-color: #9BCA1C;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#9BCA1C), to(#bee74b));
-	background-image: linear-gradient(top, #9BCA1C, #bee74b);
+	background-image: linear-gradient(#9BCA1C, #bee74b);
 	border-color: #9BCA1C;
 	}
 .button-add:focus {
@@ -798,6 +805,7 @@ span.warn, span.warning, span.info {
 p.error, p.message, p.static-msg, p.success, p.warning-msg {
 	padding-top: 1em;
 	padding-bottom: 1em;
+	margin-top: .5em;
 	}
 .error {
 	background: #FFBABA url(msg-error.png) no-repeat .7em .7em;
@@ -878,8 +886,7 @@ p.error, p.message, p.static-msg, p.success, p.warning-msg {
 	display: inline;
 	}
 #prelude li a {
-	padding: 3px 16px 3px 8px; /* ie < 9 sucks */
-		padding: 3px 1.6rem 3px .8rem;
+	padding: 3px 16px 3px 8px;
 	background: #A2CBE9;
 	color: #000;
 	text-decoration: underline;
@@ -911,17 +918,15 @@ h1, #top-info-blog, #top-info-user {
 	}
 /* h1 */
 h1 {
-	text-indent: -1000px;
+	text-indent: 100%;
 	width: 16.5em;
 	}
 h1 a {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 15em;
-	height: 36px;
-	/* ie < 9 sucks */
-	height: 3.6rem;
+	width: 150px;
+	height: 3em;
 	color: #fff;
 	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 	}
@@ -978,8 +983,7 @@ h1 a:hover, h1 a:focus {
 	margin: 0;
 	padding: 10px 0 10px 8px;
 	color: #676e78;
-	font-size: 14px; /* ie < 9 sucks */
-	font-size: 1.4rem;
+	font-size: 1.15em;
 	}
 #favorites-menu h3 {
 	color: #000;
@@ -1024,37 +1028,34 @@ h1 a:hover, h1 a:focus {
 	font-size: 100%
 	}
 #search-menu * {
-	height: 22px; /* ie < 9 sucks */
-	height: 2.2rem;
+	height: 2em;
 	display: inline-block;
 	vertical-align: top;
-	line-height: 22px;
+	line-height: 24px;
 	}
 #search-menu p {
 	border: 1px solid #999;
 	border-radius: .3em;
 	position: relative;
+	width: 95%;
 	overflow: hidden;
 	}
 #qx {
-	width: 124px; /* ie < 9 sucks */
-	width: 12.4rem;
+	width: 80%;
 	border-bottom-left-radius: .3em;
 	border-top-left-radius: .3em;
 	background: transparent url(search.png) no-repeat 4px center;
 	text-indent: 18px;
 	padding: 0;
 	border: none;
-	height: 22px;
-	height: 2.2rem;
+	height: 2em;
 	}
 #qx:focus {
 	border: 1px solid #bee74b;
 	}
 #search-menu input[type="submit"] {
-	padding: 0 3px;
-	padding: 0 .3rem;
-	margin-left: -4px;
+	padding: 0 .25em;
+	margin-left: .33em;
 	background: #dfdfdf;
 	border-color: #999;
 	color: #333;
@@ -1065,8 +1066,8 @@ h1 a:hover, h1 a:focus {
 	text-shadow: none;
 	border: none;
 	border-left: 1px solid #999;
-	font-size: 10px; /* ie < 9 sucks */
-	font-size: 1rem;
+	font-size: .91em;
+	float: right;
 	}
 #search-menu input[type="submit"]:hover,
 #search-menu input[type="submit"]:focus {
@@ -1113,6 +1114,38 @@ h1 a:hover, h1 a:focus {
 .multi-part {
 	padding-left: 1em;
 	}
+.pseudo-tabs {
+	margin: -.75em 0 2em 0;
+	border-bottom: 1px solid #bbb;
+	display: table;
+	width: 100%;
+	padding: 0;
+	line-height: 24px;
+	border-collapse: collapse;
+	}
+.pseudo-tabs li {
+	display: table-cell;
+	border-width: 0 1px;
+	border-style: solid;
+	border-color: #ccc;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	}
+.pseudo-tabs a {
+	display: block;
+	font-weight: bold;
+	padding: 0 24px;
+	border-bottom: none;
+	}
+.pseudo-tabs a:hover, .pseudo-tabs a:focus {
+	background-color: #ecf0f1;
+	color: #333;
+	}
+.pseudo-tabs a.active {
+	background-color: #ecf0f1;
+	color: #d30e60;
+	}
 /* contextual help */
 #help {
 	margin-top: 4em;
@@ -1126,8 +1159,7 @@ h1 a:hover, h1 a:focus {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 280px; /* ie < 9 sucks */
-	width: 28rem;
+	width: 24em;
 	border-left: 2px solid #FFD478;
 	border-top: 2px solid #FFD478;
 	margin-top: 0;
@@ -1142,8 +1174,7 @@ h1 a:hover, h1 a:focus {
 	padding: 0 1.5em 0 30px;
 	cursor: pointer;
 	color: #2373A8;
-	line-height: 36px; /* ie < 9 sucks */
-	line-height: 3.6rem;
+	line-height: 3;
 	}
 #help-button.floatable {
 	border-top: 2px solid #ccc;
@@ -1163,8 +1194,7 @@ h1 a:hover, h1 a:focus {
 	padding: .5em 0 .1em 0;
 	}
 #content.with-help #help-button {
-	right: 280px; /* ie < 9 sucks */
-	right: 28rem;
+	right: 24em;
 	background-color: #f5f5f5;
 	position: fixed;
 	top: 50px;
@@ -1377,8 +1407,7 @@ a.form-control.open {
 	display: block;
 	width: 20em;
 	margin: 1.5em auto 0;
-	font-size: 14px; /* ie < 9 sucks */
-	font-size: 1.4rem;
+	font-size: 1.16em;
 	}
 #login-screen h1 {
 	text-indent: -2000px;
@@ -1392,15 +1421,13 @@ a.form-control.open {
 	border: 1px solid #9bca1c;
 	padding: 1em 1em 0 1em;
 	background: #fff;
+	margin-bottom: 0;
 	}
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit],
 #login-screen input[type=text]:focus, #login-screen input[type=password]:focus, #login-screen input[type=submit]:focus {
 	width: 100%;
 	margin: 0;
 	padding: 5px 3px;
-	-webkit-box-sizing: border-box;	
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 	}
 #login-screen input.login, #login-screen input.login:focus {
 	padding-top: 6px;
@@ -1409,15 +1436,18 @@ a.form-control.open {
 	}
 #login-screen #issue {
 	margin-left: 1.33em;
-	font-size: 12px; /* ie < 9 sucks */
-	font-size: 1.2rem;
+	font-size: .91em;
+	}
+#issue p:first-child {
+	text-align: right;
 	}
 #login-screen #issue strong {
 	font-weight: normal;
 	}
 /* ------------------------------------------------------------------------- index.php */
 #dashboard-main {
-	padding: 1em 0;
+	padding: 1em;
+	text-align: center;
 	}
 /* raccourcis */
 #icons {
@@ -1426,7 +1456,7 @@ a.form-control.open {
 	text-align: center;
 	}
 #icons p {
-	width: 170px;
+	width: 14em;
 	text-align: center;
 	margin: 1em 0 2em;
 	padding: 1em 0;
@@ -1460,8 +1490,12 @@ a.form-control.open {
 	}
 /* billet rapide */
 #quick {
-	margin-top: 1em;
-	padding-top: 1em;
+	padding: 1em;
+	max-width: 976px;
+	margin: 0 auto;
+	background: #f5f5f5;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	text-align: left;
 	}
 #quick h3 {
 	margin-bottom: 0.2em;
@@ -1488,7 +1522,7 @@ a.form-control.open {
 	}
 /* modules additionnels */
 #dashboard-boxes {
-	margin: 2em auto 1em;
+	margin: 1em auto 1em;
 	padding-top: 2em;
 	}
 .db-items, .db-contents {
@@ -1575,48 +1609,33 @@ li.user_admin {
 	background-image: url(../images/admin.png);
 	}
 /* ------------------------------------------------------------------- blog_theme.php */
+/* pour les alignements verticaux */
+#theme-new, #theme-activate, #theme-deactivate, #theme-update {
+	margin-left: -10px;
+	margin-right: -10px;
+	}
 .box.theme {
-	margin: .5em;
+	margin: 5px;
 	padding: 10px 10px 5px 10px;
 	border: 1px solid #dfdfdf;
-	min-height: 295px;
 	position: relative;
 	}
 .box.theme:hover {
 	background: #ecf0f1 url(texture.png);
 	}
-#theme-new .box.theme {
-	width: 280px;
-	}
-#theme-activate .box.theme {
-	min-height: 330px;
-	}
-#theme-deactivate .box.theme {
-	min-height: 90px;
-	}
-#theme-deactivate .box.theme:hover {
-	background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
-	}
-.module-name {
+.module-name, .module-name label {
 	margin-bottom: .5em;
+	color: #676e78;
 	}
 .module-sshot {
 	text-align: center;
 	}
 .module-sshot img {
-	padding: .5em;
+	padding: 5px;
 	background: #f7f7f7;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 	border: 3px solid #fff;
-	padding: .5em;
-	}
-.theme .module-sshot img {
-	max-width: 280px; /* pour ceux qui n'ont pas de miniature */
-	}
-#theme-new .theme .module-sshot img {
-	max-width: 240px; /* pour ceux qui n'ont pas de miniature */
-	max-height: 210px;
-	overflow: hidden;
+	max-width: 100%;
 	}
 .module-actions {
 	margin-top: 1em;
@@ -1636,60 +1655,104 @@ li.user_admin {
 span.module-version:before {
 	content: "- ";
 	}
-.with-js #theme-new .module-infos.toggle-bloc,
-.with-js #theme-new .module-actions.toggle-bloc {
-	position: absolute;
-	top: 138px;
-	left: 10px;
-	width: 239px;
-	padding: 10px;
-	background: rgba(250, 250, 250, .95);
-	}
-.with-js #theme-new .module-infos.toggle-bloc {
-	top: 138px;
-	height: 80px;
-	border-top: 1px solid #e3e3e3;
-	}
-.with-js #theme-new .module-actions.toggle-bloc {
-	top: 228px;
-	height: 18px;
-	margin: 0;
-	border-bottom: 1px solid #e3e3e3;
-	}
 .toggle-bloc .mod-more {
 	display: block;
 	margin-left: 0;
 	}
-.box.current-theme {
-	width: 652px;
-	margin: .5em;
-	padding: 10px 18px;
+.box.theme input {
+	margin-bottom: 1em;
+	}
+.module-name input[type="checkbox"] {
+	margin-bottom: 0;
+	}
+/**
+Les screenshots des thèmes ont deux tailles possibles :
+- dans Ajouter des thèmes : 240px (+ 10 padding image + 20 padding boîte + 6 bordure + 2 ombrage = 278)
+- dans Thèmes installés : 280px (+ 10 padding-image + 20 padding-boîte + 2 ombrage = 318)
+On adapte largeur et hauteur en fonction 
+*/
+#theme-new .box.theme, #theme-update .box.theme { /* Ajouter un thème */
+	width: 278px;
+	min-height: 275px;
+	}
+#theme-new .module-sshot img { /* Pour ceux qui n'ont pas de miniature on contraint l'image */
+	max-width: 240px;
+	max-height: 210px;
+	overflow: hidden;
+	}
+#theme-deactivate .box.theme { /* Thèmes désactivés */
+	width: 278px;
+	}
+#theme-activate .box.theme { /* Thèmes installés */
+	width: 318px;
+	min-height: 304px;
+	max-width: 100%;
+	}
+#theme-deactivate .box.theme:hover {
+	background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
+	}
+/* si js est là, les infos viennent par dessus le screenshot */
+.with-js #theme-new .module-infos.toggle-bloc,
+.with-js #theme-new .module-actions.toggle-bloc {
+	position: absolute;
+	left: 10px;
+	width: 239px;
+	margin: 0;
+	padding: 10px;
+	background: rgba(250, 250, 250, .95);
+	}
+.with-js #theme-new .module-infos.toggle-bloc {
+	top: 128px;
+	height: 80px;
+	border-top: 1px solid #e3e3e3;
+	}
+.with-js #theme-new .module-actions.toggle-bloc {
+	top: 208px;
+	height: 40px;
+	border-bottom: 1px solid #e3e3e3;
+	}
+.with-js .module-sshot:hover {
+	cursor: pointer;
+	}
+/* mise en forme pour la boîte du thème courant */
+.box.current-theme { /* Thème courant */
+	width: 646px;
+	margin: 5px;
+	padding: 20px 18px 6px;
 	background: #fff url(texture.png);
 	border: 1px solid #eee;
 	border-radius: .5em;
-	min-height: 330px;
+	min-height: 326px;
 	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	position: relative;
+	}
+.current-theme .module-sshot:hover {
+	cursor: auto;
 	}
 .current-theme .module-sshot img {
 	float: left;
 	margin-right: 2em;
-	margin-bottom: 1em;
-	border: 3px solid #fff;
-	padding: .5em;
+	border: 9px solid #fff;
+	padding: 5px;
+	max-width: 308px;
+	max-height: 273px;
 	}
 .current-theme .module-name {
 	color: #D33800;
-	font-size: 1.33em;
-	}
-.box.theme input {
+	font-size: 1.5em;
 	margin-bottom: 1em;
 	}
 .current-actions {
 	width: auto;
 	overflow: hidden;
-	padding-top: 3em;
+	padding-top: 2em;
 	margin: 1.5em 0 2em;
 	background: transparent url(../images/minus-theme.png) no-repeat left top;
+	}
+.current-theme .actions-buttons {
+	position: absolute;
+	bottom: 0;
+	right: 18px;
 	}
 /* ------------------------------------------------------------------ categories.php */
 #categories {
@@ -1733,7 +1796,7 @@ p.cat-title {
 .cat-buttons {
 	float: right;
 	margin-top: -.2em;
-	font-size: 11px;
+	font-size: .91em;
 	}
 .cat-buttons select {
 	padding: 1px 2px 3px 2px;
@@ -1762,7 +1825,7 @@ p.cat-title {
 	border: 1px solid #dfdfdf;
 	margin: 9px;
 	padding: 10px 12px 6px;
-	width: 300px;
+	width: 320px;
 	display: inline-block;
 	vertical-align: top;
 	min-height: 140px;
@@ -1946,11 +2009,9 @@ label span.one-file {
 	}
 .upload-progress div {
 	width: 0;
-	height: 1em;
-	padding: .2em 0;
-	font-size: 0.8em;
+	height: 1.2em;
 	font-weight: bold;
-	line-height: 1em;
+	line-height: 1.2em;
 	text-align: right;
 	background: green url(loader.png) repeat-x left top;
 	color: white;
@@ -2012,6 +2073,10 @@ div.template-upload {
 	background: transparent url(help12.png) no-repeat 2px center;
 	padding: 4px 4px 0 20px;
 	}
+.modules a.module-config {
+	background: transparent url(settings.png) no-repeat 2px 6px;
+	padding: 4px 4px 0 18px;
+	}
 #m_search {
 	background: transparent url(search.png) no-repeat 4px center;
 	padding-left: 20px;
@@ -2041,6 +2106,9 @@ div.template-upload {
 .mod-more {
 	padding-top: .5em;
 	}
+#plugin-update td {
+	vertical-align: baseline;
+	}
 /* ---------------------------------------------------------- post.php, page.php */
 #entry-wrapper {
 	float: left;
@@ -2055,18 +2123,8 @@ div.template-upload {
 	width: 16em;
 	float: right;
 	}
-#entry-content label {
-	text-transform: uppercase;
-	font-weight: bold;
-	margin-top: 2em;
-	display: inline-block;
-	}
-#entry-content label:first-child {
-	margin-top: 0;
-	}
 #entry-sidebar h4 {
-	font-size: 13px;
-	font-size: 1.3rem;
+	font-size: 1.08em;
 	margin-top: .3em;
 	}
 #entry-sidebar select {
@@ -2152,6 +2210,9 @@ div.template-upload {
 	}
 /* --------------------------------------------------------------------- user.php */
 .blog-perm {
+	padding-top: 2em;
+	}
+.blog-perm {
 	margin-top: 2em;
 	font-weight: bold;
 	}
@@ -2173,6 +2234,10 @@ div.template-upload {
 	margin: 1em 0;
 	font-size: 2em;
 	}
+.guideline #content h2:first-child {
+	margin-top: 0;
+	padding-top: .5em;
+	}
 .guideline h3 {
 	margin-top: 2em;
 	}
@@ -2183,6 +2248,14 @@ div.template-upload {
 	border: 1px solid #dfdfdf;
 	padding: 2px .5em;
 	}
+.guideline #main-menu ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	}
+.guideline #main-menu li {
+	padding-left: 1em;
+}
 /* ------------------------------------------------------------------------------------
 																				CLASSES
 ------------------------------------------------------------------------------------ */
@@ -2529,15 +2602,33 @@ input[type=submit].delete.debug:hover, a.delete.debug:hover {
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 80em) {
+#wrapper {
+	background: #F7F7F7 url(bg_wrapper.png) repeat-y 18em;
+	}
+#main {
+	margin-left: -17em;
+	}
+#content {
+	margin: 0 0 0 17em;
+	}
+#main-menu {
+	width: 17em;
+	}
+#collapser {
+	left: 17em;
+	}
+h1 {
+	width: 19.5em;
+	}
+}
+@media screen and (max-width: 61em) {
 #top-info-blog #switchblog {
 	max-width: 16em;
 	}
 #top-info-blog a {
 	margin-left: 2em;
 	}
-}
-@media screen and (max-width: 960px) {
 #header {
 	display: block;
 	width: 100%;
@@ -2577,24 +2668,31 @@ h1, #top-info-blog {
 	margin-right: 0;
 	}
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 48em) {
+	#dashboard-boxes .box.medium, .box.medium,
+	#dashboard-boxes .box.small, .box.small,
+	#dashboard-boxes .box.large, .box.large {
+	width: 95%;
+	margin: 10px auto;
+	}
+}
+@media screen and (max-width: 44em) {
 #help-button {
 	height: 26px;
 	width: 26px;
 	background-color: #A2CBE9;
 	padding: 0;
 	margin: 0;
-	font-size: 10px;
-	font-size: 1rem;
+	font-size: .83em;
 	line-height: 68px;
 	overflow: hidden;
 	}
 #content.with-help #help-button {
 	top: 77px;
 	}
-.one-box, .two-boxes, .two-boxes.odd, .two-boxes.even, .box,
+.one-box, .two-boxes, .box,
 	.two-cols .col {
-	width: 100%;
+	width: 96%;
 	margin-left: 0;
 	margin-right: 0;
 	}
@@ -2612,17 +2710,17 @@ h1, #top-info-blog {
 	float: none;
 	}
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 38em) {
 #header h1, #header h1 a {
 	width: 42px !important;
 	height: 42px;
 	}
 h1 a:link {
-	background: transparent url(dc_logos/b-dotclear120.png) no-repeat -180px 6px;
+	background: transparent url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
 	border-right: 1px solid #ccc;
 	}
 h1 a:hover, h1 a:focus {
-	background: url(dc_logos/b-dotclear120.png) no-repeat -180px -94px;
+	background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px;
 	border-right: 1px solid #A2CBE9;
 	}
 #wrapper, #main, #main-menu {
@@ -2630,6 +2728,9 @@ h1 a:hover, h1 a:focus {
 	float: none;
 	width: 100%;
 	margin: 0;
+	}
+#dashboard-main {
+	padding: 0;
 	}
 #main-menu a {
 	display: block;
@@ -2646,17 +2747,23 @@ h1 a:hover, h1 a:focus {
 	display: none;
 	}
 #main #content > h2 {
-	margin: 0;
-	padding: 6px 30px 6px 0;
+	margin: 0 -.5em 1em;
+	padding: 6px 30px 4px .5em;
 	}
-#dashboard-boxes .box.medium,
-	#dashboard-boxes .box.small,
-	#dashboard-boxes .box.large {
-	width: 100%;
+#dashboard-boxes .box.medium, .box.medium,
+	#dashboard-boxes .box.small, .box.small,
+	#dashboard-boxes .box.large, .box.large {
+	width: 95%;
 	margin: 10px auto;
 	}
+.cell, #filters-form .cell {
+	display: inline-block;
+	border: none;
+	padding: 1em;
+	vertical-align: bottom;
+	}
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 26.5em) {
 h1, h1 a {
 	padding: 0;
 	border-right: #333 !important;
@@ -2671,10 +2778,56 @@ h1, h1 a {
 #top-info-blog select {
 	margin-bottom: .5em;
 	}
-#icons p {
-	width: 150px;
+#wrapper {
+	font-size: 1.4em;
 	}
 #content.with-help #help-button {
-	top: 101px;
+	top: 120px;
+	right: 20.5em;
+	}
+#content.with-help #help {
+	font-size: 12px;
+	}
+p.top-add {
+	margin-bottom: .5em;
+	text-align: center;
+	}
+.multi-part {
+	padding-left: 0;
+	}
+.part-tabs ul {
+	margin: 1em 0;
+	padding: 0 .5em;
+	}
+.part-tabs li a {
+	display: block;
+	width: 100%;
+	}
+#icons p {
+	width: 9em;
+	padding: 1em .25em;
+	}
+.media-item {
+	width: 90%;
+	}
+#theme-new, #theme-activate, #theme-deactivate {
+	margin-left: 0;
+	margin-right: 0;
+	}
+.box.current-theme {
+	margin: 5px;
+	padding: 10px;
+	width: 100%;
+	}
+.current-theme .module-sshot img {
+	margin: 0;
+	float: none;
+	max-width: 100%;
+	}
+table .maximal {
+	min-width: 14em;
+	}
+th, td {
+	padding: 0.3em 1em 0.3em 0;
 	}
 }

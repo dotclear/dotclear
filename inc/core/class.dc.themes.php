@@ -40,12 +40,13 @@ class dcThemes extends dcModules
 	@param	desc			<b>string</b>		Module description
 	@param	author		<b>string</b>		Module author name
 	@param	version		<b>string</b>		Module version
-	@param	properties	<b>array</b>		extra properties (currently available keys : parent, priority, standalone_config)
+	@param	properties	<b>array</b>		extra properties 
+	(currently available keys : parent, priority, standalone_config, type)
 	*/
 	public function registerModule($name,$desc,$author,$version,$properties = array())
 	{
+		# Fallback to legacy registerModule parameters
 		if (!is_array($properties)) {
-			//Fallback to legacy registerModule parameters
 			$args = func_get_args();
 			$properties = array();
 			if (isset($args[4])) {
@@ -55,38 +56,14 @@ class dcThemes extends dcModules
 				$properties['priority']= (integer)$args[5];
 			}
 		}
+		# Themes specifics properties
 		$properties = array_merge(
-			array(
-				'parent' => null,
-				'priority' => 1000,
-				'standalone_config' => false,
-				'type' => null
-			), $properties
+			array('parent' => null),
+			$properties,
+			array('permissions' => 'admin') // force themes perms
 		);
 
-		if ($properties['type'] !== null && $properties['type'] != self::$type) {
-			$this->errors[] = sprintf(
-				__('Module "%s" has type "%s" that mismatch required module type "%s".'),
-				'<strong>'.html::escapeHTML($name).'</strong>',
-				'<em>'.html::escapeHTML($properties['type']).'</em>',
-				'<em>'.html::escapeHTML(self::$type).'</em>'
-			);
-			return;
-		}
-
-		if ($this->id) {
-			$this->modules[$this->id] = array_merge(
-				$properties,
-				array(
-					'root' => $this->mroot,
-					'name' => $name,
-					'desc' => $desc,
-					'author' => $author,
-					'version' => $version,
-					'root_writable' => is_writable($this->mroot)
-				)
-			);
-		}
+		parent::registerModule($name, $desc, $author, $version, $properties);
 	}	
 	
 	/**
@@ -113,4 +90,3 @@ class dcThemes extends dcModules
 		}
 	}
 }
-?>

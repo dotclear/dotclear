@@ -152,8 +152,30 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		expect($('#part-user-profile')).not.toBeVisible();
 		expect($('#part-user-favorites')).not.toBeVisible();
 	});
+	
+	/* ticket 1723 and 1794
+	 *
+	 * The problem occurs when cliking an anchor in the page 
+	 */
+	it("Must try to find tab to open in page when hash refer ton an anchor and not to an existing div content", function() {
+		loadFixtures('tabs.html');
+		loadStyleFixtures('default.css');
+		
+		var anchor_name = 'anchor-in-favorites';
+		$('<div id="anchor-in-favorites"></div>').appendTo($('#user-favorites'));
+		
+		$.pageTabs('user-profile');
+		expect($('#part-user-options')).not.toBeVisible();
+		expect($('#part-user-profile')).toBeVisible();
+		expect($('#part-user-favorites')).not.toBeVisible();
 
-	/* ticket 1723 */
+		spyOn(jQuery.pageTabs, 'getLocationHash').andReturn(anchor_name);
+		jQuery.event.trigger('hashchange');
+		expect($('#part-user-options')).not.toBeVisible();
+		expect($('#part-user-profile')).not.toBeVisible();
+		expect($('#part-user-favorites')).toBeVisible();
+	});
+
 	it("Must open first tab when hash does not refer to an existing div content", function() {
 		loadFixtures('tabs.html');
 		loadStyleFixtures('default.css');
@@ -163,6 +185,6 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		expect($('#part-user-options')).toBeVisible();
 		expect($('#part-user-profile')).not.toBeVisible();
 		expect($('#part-user-favorites')).not.toBeVisible();
-	});
+	});	
 });
 

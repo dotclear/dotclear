@@ -55,7 +55,6 @@ réduit au minimum, permettant de couvrir les besoins les plus courants
     <br />La position peut prendre les valeurs L ou G (gauche), R ou D (droite) ou C (centré).</li>
   <li><strong>Ancre</strong>&nbsp;: <code>~ancre~</code></li>
   <li><strong>Acronyme</strong>&nbsp;: <code>??acronyme|titre??</code></li>
-  <li><strong>Code HTML en ligne</strong>: deux apostrophes inversées <code>``code html``</code></li>
   <li><strong>Citation en ligne</strong>&nbsp;: <code>{{citation}}</code>,
     <code>{{citation|langue}}</code> ou <code>{{citation|langue|url}}</code></li>
   <li><strong>Code</strong>&nbsp;: <code>@@code ici@@</code></li>
@@ -71,15 +70,18 @@ de formatage, ajoutez le caractère <code>\</code> avant celui-ci. Par exemple&n
 
 <dt>Insérer du code HTML</dt>
 <dd>Vous pouvez ponctuellement avoir besoin d'insérer du code HTML dans votre
-texte au format Wiki. Pour cela, utilisez le code suivant&nbsp;:
+texte au format Wiki. Pour cela, pour insérer du code sous forme de bloc (<code>div</code>, <code>p</code>, …) utilisez le code suivant&nbsp;:
 <pre>
 ///html
 &lt;p style="color:red"&gt;mon texte en rouge&lt;/p&gt;
 ///
 </pre>
+Et pour insérer du code HTML en ligne (<code>span</code>, …) utilisez deux apostrophes inversées comme dans le code suivant&nbsp;:
+<pre>
+``&lt;span style="color:blue"&gt;mon texte en bleu&lt;/span&gt;``
+</pre>
 </dd>
 </dl>
-
 
 </body>
 </html>

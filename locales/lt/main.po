@@ -2514,7 +2514,7 @@ msgid "An error occurred during module deletion."
 msgstr "Modulio trynimo metu įvykl klaida."
 
 #, php-format
-msgid "Unable to upgrade \"%s\". (same version)"
+msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "Nepavyko atnaujinti \"%s\". (ta pati versija)"
 
 msgid "Unable to read new _define.php file"

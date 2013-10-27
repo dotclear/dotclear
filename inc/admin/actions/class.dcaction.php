@@ -42,22 +42,22 @@ abstract class dcActionsPage
 	protected $from;
 	/** @var string form field name for "entries" (usually "entries") */
 	protected $field_entries;
-	
+
 	/** @var string title for checkboxes list, if displayed */
 	protected $cb_title;
-	
+
 	/** @var string title for caller page title */
 	protected $caller_title;
 
 	/** @var boolean true if we are acting inside a plugin (different handling of begin/endpage) */
-	protected $in_plugin;	
-	
+	protected $in_plugin;
+
 	/** @var boolean true if we enable to keep selection when redirecting */
-	protected $enable_redir_selection;	
+	protected $enable_redir_selection;
 
     /**
      * Class constructor
-     * 
+     *
      * @param mixed  $core   dotclear core
      * @param mixed  $uri   form uri
      *
@@ -88,7 +88,7 @@ abstract class dcActionsPage
 		$this->in_plugin = (strpos($u[0],'plugin.php') !== false);
 		$this->enable_redir_selection = true;
 	}
-	
+
     /**
      * setEnableRedirSelection - define whether to keep selection when redirecting
 	 *							Can be usefull to be disabled to preserve some compatibility.
@@ -100,7 +100,7 @@ abstract class dcActionsPage
 	public function setEnableRedirSelection($enable) {
 		$this->enable_redir_selection = $enable;
 	}
-	
+
     /**
      * addAction - adds an action
      *
@@ -137,7 +137,7 @@ abstract class dcActionsPage
 		}
 		return $this;
 	}
-	
+
     /**
      * getCombo - returns the actions combo, useable through form::combo
      *
@@ -148,8 +148,8 @@ abstract class dcActionsPage
 	public function getCombo() {
 		return $this->combo;
 	}
-	
-	
+
+
     /**
      * getIDS() - returns the list of selected entries
      *
@@ -160,7 +160,7 @@ abstract class dcActionsPage
 	public function getIDs() {
 		return array_keys($this->entries);
 	}
-	
+
     /**
      * getIDS() - returns the list of selected entries as HTML hidden fields string
      *
@@ -175,7 +175,7 @@ abstract class dcActionsPage
 		}
 		return $ret;
 	}
-	
+
     /**
      * getHiddenFields() - returns all redirection parameters as HTML hidden fields
      *
@@ -184,7 +184,7 @@ abstract class dcActionsPage
      * @access public
 	 *
      * @return string the HTML code for hidden fields
-     */	
+     */
 	public function getHiddenFields($with_ids = false) {
 		$ret = '';
 		foreach ($this->redir_args as $k => $v) {
@@ -195,8 +195,8 @@ abstract class dcActionsPage
 		}
 		return $ret;
 	}
-	
-	
+
+
 	/**
      * getRS() - get record from DB Query containing requested IDs
      *
@@ -209,7 +209,7 @@ abstract class dcActionsPage
 	public function getRS() {
 		return $this->rs;
 	}
-	
+
 	/**
      * setupRedir - setup redirection arguments
 	 *  by default, $_POST fields as defined in redirect_fields attributes
@@ -232,7 +232,7 @@ abstract class dcActionsPage
      * getRedirection - returns redirection URL
      *
      * @param array $params extra parameters to append to redirection
-	 *						must be an array : each key is the name, 
+	 *						must be an array : each key is the name,
 	 *						each value is the wanted value
      * @param boolean $with_selected_entries if true, add selected entries in url
 	 *
@@ -245,13 +245,13 @@ abstract class dcActionsPage
 		if (isset($redir_args['redir'])) {
 			unset($redir_args['redir']);
 		}
-		
+
 		if ($with_selected_entries && $this->enable_redir_selection) {
 			$redir_args[$this->field_entries] = array_keys($this->entries);
 		}
 		return $this->uri.'?'.http_build_query($redir_args).$this->redir_anchor;
 	}
-	
+
 	/**
      * redirect - redirects to redirection page
      *
@@ -262,8 +262,8 @@ abstract class dcActionsPage
 	public function redirect($with_selected_entries=false,$params=array()) {
 		http::redirect($this->getRedirection($with_selected_entries,$params));
 		exit;
-	}	
-	
+	}
+
 	/**
      * getURI - returns current form URI, if any
      *
@@ -285,7 +285,7 @@ abstract class dcActionsPage
 	public function getCallerTitle() {
 		return $this->caller_title;
 	}
-	
+
 	/**
      * getAction - returns current action, if any
      *
@@ -308,7 +308,7 @@ abstract class dcActionsPage
 	public function process() {
 
 		$this->setupRedir($this->from);
-		$this->fetchEntries($this->from);	
+		$this->fetchEntries($this->from);
 		if (isset($this->from['action'])) {
 			$this->action = $this->from['action'];
 			try {
@@ -338,20 +338,20 @@ abstract class dcActionsPage
      * @return string the html code for checkboxes
      */
 	public function getCheckboxes() {
-		$ret = 
+		$ret =
 			'<table class="posts-list"><tr>'.
 			'<th colspan="2">'.$this->cb_title.'</th>'.
 			'</tr>';
 		foreach ($this->entries as $id=>$title) {
-			$ret .= 
-				'<tr><td>'.
+			$ret .=
+				'<tr><td class="minimal">'.
 				form::checkbox(array($this->field_entries.'[]'),$id,true,'','').'</td>'.
 				'<td>'.	$title.'</td></tr>';
 		}
 		$ret .= '</table>';
 		return $ret;
 	}
-	
+
 	/**
      * beginPage, endPage - displays the beginning/ending of a page, if action does not redirects dirtectly
      *

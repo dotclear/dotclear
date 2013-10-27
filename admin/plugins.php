@@ -58,7 +58,7 @@ if ($list->setConfiguration()) {
 
 # -- Execute actions --
 try {
-	$list->doActions('plugins');
+	$list->doActions();
 }
 catch (Exception $e) {
 	$core->error->add($e->getMessage());
@@ -130,7 +130,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 			->setTab('update')
 			->setModules($modules)
 			->displayModules(
-				/*cols */		array('icon', 'name', 'version', 'current_version', 'desc'),
+				/*cols */		array('checkbox', 'icon', 'name', 'version', 'current_version', 'desc'),
 				/* actions */	array('update')
 			);
 
@@ -161,7 +161,7 @@ if (!empty($modules)) {
 		->setTab('plugins')
 		->setModules($modules)
 		->displayModules(
-			/* cols */		array('expander', 'icon', 'name', 'config', 'version', 'desc', 'distrib'),
+			/* cols */		array('expander', 'icon', 'name', 'version', 'desc', 'distrib'),
 			/* actions */	array('deactivate', 'delete', 'behavior')
 		);
 }

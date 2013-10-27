@@ -102,6 +102,8 @@ if (!empty($_POST['reset']))
 $rs = $core->blog->getCategories(array('post_type'=>'post'));
 
 $starting_script = "";
+
+$core->auth->user_prefs->addWorkspace('accessibility');
 if (!$core->auth->user_prefs->accessibility->nodragdrop
 	&& $core->auth->check('categories',$core->blog->id)
 	&& $rs->count()>1) {
@@ -184,7 +186,7 @@ else
 			$input_class = '';
 		}
 		echo
-		'<input type="submit"'.$attr_disabled.' class="'.$input_class.'delete" name="delete['.$rs->cat_id.']" value="'.__('Delete category').'"/>'.
+		' <input type="submit"'.$attr_disabled.' class="'.$input_class.'delete" name="delete['.$rs->cat_id.']" value="'.__('Delete category').'"/>'.
 		'</p>';
 
 		$level = $rs->level;

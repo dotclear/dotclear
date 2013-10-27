@@ -13,12 +13,14 @@ if (!defined('DC_RC_PATH')) { return; }
 
 class dcMaintenanceLogs extends dcMaintenanceTask
 {
+	public static $keep_maintenance_logs = true;
+
 	protected $group = 'purge';
 
 	protected function init()
 	{
 		$this->task 		= __('Delete all logs');
-		$this->success 		= __('Logs deleted.');
+		$this->success 	= __('Logs deleted.');
 		$this->error 		= __('Failed to delete logs.');
 
 		$this->description = __('Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time.');
@@ -26,7 +28,15 @@ class dcMaintenanceLogs extends dcMaintenanceTask
 
 	public function execute()
 	{
-		$this->core->log->delLogs(null, true);
+		if (dcMaintenanceLogs::$keep_maintenance_logs) {
+			$this->core->con->execute(
+				'DELETE FROM '.$this->core->prefix.'log '.
+				"WHERE log_table <> 'maintenance' "
+			);
+		}
+		else {
+			$this->core->log->delLogs(null, true);
+		}
 
 		return true;
 	}

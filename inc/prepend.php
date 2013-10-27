@@ -34,6 +34,7 @@ $__autoload['dcMeta']				= dirname(__FILE__).'/core/class.dc.meta.php';
 $__autoload['dcMedia']				= dirname(__FILE__).'/core/class.dc.media.php';
 $__autoload['dcPostMedia']				= dirname(__FILE__).'/core/class.dc.postmedia.php';
 $__autoload['dcModules']				= dirname(__FILE__).'/core/class.dc.modules.php';
+$__autoload['dcPlugins']				= dirname(__FILE__).'/core/class.dc.plugins.php';
 $__autoload['dcThemes']				= dirname(__FILE__).'/core/class.dc.themes.php';
 $__autoload['dcRestServer']			= dirname(__FILE__).'/core/class.dc.rest.php';
 $__autoload['dcNamespace']			= dirname(__FILE__).'/core/class.dc.namespace.php';
@@ -279,7 +280,7 @@ function __error($summary,$message,$code=0)
 	# 50 : no default theme
 	# 60 : template processing error
 	# 70 : blog is offline
-	
+
 	if (CLI_MODE)
 	{
 		trigger_error($summary,E_USER_ERROR);

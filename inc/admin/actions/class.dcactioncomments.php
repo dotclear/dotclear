@@ -28,7 +28,7 @@ class dcCommentsActionsPage extends dcActionsPage
 		// to be setup first
 		dcDefaultCommentActions::adminCommentsActionsPage($this->core,$this);
 	}
-	
+
 	public function beginPage($breadcrumb='',$head='') {
 		if ($this->in_plugin) {
 			echo '<html><head><title>'.__('Comments').'</title>'.
@@ -42,12 +42,12 @@ class dcCommentsActionsPage extends dcActionsPage
 				dcPage::jsLoad('js/_comments_actions.js').
 				$head,
 				$breadcrumb
-			);	
+			);
 
 		}
 		echo '<p><a class="back" href="'.$this->getRedirection(true).'">'.__('Back to comments list').'</a></p>';
 	}
-	
+
 	public function endPage() {
 		dcPage::close();
 	}
@@ -63,7 +63,7 @@ class dcCommentsActionsPage extends dcActionsPage
 		);
 		$this->endPage();
 	}
-	
+
 	/**
      * getcheckboxes -returns html code for selected entries
 	 * 			as a table containing entries checkboxes
@@ -73,13 +73,13 @@ class dcCommentsActionsPage extends dcActionsPage
      * @return string the html code for checkboxes
      */
 	public function getCheckboxes() {
-		$ret = 
+		$ret =
 			'<table class="posts-list"><tr>'.
 			'<th colspan="2">'.__('Author').'</th><th>'.__('Title').'</th>'.
 			'</tr>';
 		foreach ($this->entries as $id=>$title) {
-			$ret .= 
-				'<tr><td>'.
+			$ret .=
+				'<tr><td class="minimal">'.
 				form::checkbox(array($this->field_entries.'[]'),$id,true,'','').'</td>'.
 				'<td>'.	$title['author'].'</td><td>'.$title['title'].'</td></tr>';
 		}
@@ -90,17 +90,17 @@ class dcCommentsActionsPage extends dcActionsPage
 	protected function fetchEntries($from) {
 		if (!empty($from['comments'])) {
 			$comments = $from['comments'];
-			
+
 			foreach ($comments as $k => $v) {
 				$comments[$k] = (integer) $v;
 			}
-			
+
 			$params['sql'] = 'AND C.comment_id IN('.implode(',',$comments).') ';
-			
+
 			if (!isset($from['full_content']) || empty($from['full_content'])) {
 				$params['no_content'] = true;
 			}
-			
+
 			$co = $this->core->blog->getComments($params);
 			while ($co->fetch())	{
 				$this->entries[$co->comment_id] = array(
@@ -115,7 +115,7 @@ class dcCommentsActionsPage extends dcActionsPage
 	}
 }
 
-class dcDefaultCommentActions 
+class dcDefaultCommentActions
 {
 	public static function adminCommentsActionsPage($core, dcCommentsActionsPage $ap) {
 		if ($core->auth->check('publish,contentadmin',$core->blog->id))
@@ -126,7 +126,7 @@ class dcDefaultCommentActions
 			$ap->addAction(array(__('Mark as pending') => 'pending'), $action);
 			$ap->addAction(array(__('Mark as junk') => 'junk'), $action);
 		}
-	
+
 		if ($core->auth->check('delete,contentadmin',$core->blog->id))
 		{
 			$ap->addAction(array(__('Delete') => 'delete'),
@@ -146,7 +146,7 @@ class dcDefaultCommentActions
 			case 'junk' : $status = -2; break;
 			default : $status = 1; break;
 		}
-		
+
 		$core->blog->updCommentsStatus($co_ids,$status);
 
 		dcPage::addSuccessNotice(__('Selected comments have been successfully updated.'));
@@ -162,12 +162,12 @@ class dcDefaultCommentActions
 		foreach($co_ids as $comment_id)
 		{
 			# --BEHAVIOR-- adminBeforeCommentDelete
-			$core->callBehavior('adminBeforeCommentDelete',$comment_id);				
+			$core->callBehavior('adminBeforeCommentDelete',$comment_id);
 		}
-		
+
 		# --BEHAVIOR-- adminBeforeCommentsDelete
 		$core->callBehavior('adminBeforeCommentsDelete',$co_ids);
-		
+
 		$core->blog->delComments($co_ids);
 		dcPage::addSuccessNotice(__('Selected comments have been successfully deleted.'));
 		$ap->redirect(false);
