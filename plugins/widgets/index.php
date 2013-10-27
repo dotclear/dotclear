@@ -52,14 +52,14 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 			$addw[$k] = $v;
 		}
 	}
-		
+
 	# Append 1 widget
 	$wid = false;
 	if( gettype($_POST['append']) == 'array' && count($_POST['append']) == 1 ) {
 		$wid = array_keys($_POST['append']);
 		$wid = $wid[0];
 	}
-	
+
 	# Append widgets
 	if (!empty($addw))
 	{
@@ -72,7 +72,7 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 		if (!($widgets_custom instanceof dcWidgets)) {
 			$widgets_custom = new dcWidgets();
 		}
-		
+
 		foreach ($addw as $k => $v)
 		{
 			if( !$wid || $wid == $k )
@@ -90,7 +90,7 @@ if (!empty($_POST['append']) && is_array($_POST['addw']))
 				}
 			}
 		}
-		
+
 		try {
 			$core->blog->settings->addNamespace('widgets');
 			$core->blog->settings->widgets->put('widgets_nav',$widgets_nav->store());
@@ -150,7 +150,7 @@ if (!empty($_POST['wup']) || $removing || $move )
 	if (!isset($_POST['w']) || !is_array($_POST['w'])) {
 		$_POST['w'] = array();
 	}
-	
+
 	try
 	{
 		# Removing mark as _rem widgets
@@ -162,7 +162,7 @@ if (!empty($_POST['wup']) || $removing || $move )
 				}
 			}
 		}
-		
+
 		if (!isset($_POST['w']['nav'])) {
 			$_POST['w']['nav'] = array();
 		}
@@ -172,17 +172,17 @@ if (!empty($_POST['wup']) || $removing || $move )
 		if (!isset($_POST['w']['custom'])) {
 			$_POST['w']['custom'] = array();
 		}
-		
+
 		$widgets_nav = dcWidgets::loadArray($_POST['w']['nav'],$__widgets);
 		$widgets_extra = dcWidgets::loadArray($_POST['w']['extra'],$__widgets);
 		$widgets_custom = dcWidgets::loadArray($_POST['w']['custom'],$__widgets);
-		
+
 		$core->blog->settings->addNamespace('widgets');
 		$core->blog->settings->widgets->put('widgets_nav',$widgets_nav->store());
 		$core->blog->settings->widgets->put('widgets_extra',$widgets_extra->store());
 		$core->blog->settings->widgets->put('widgets_custom',$widgets_custom->store());
 		$core->blog->triggerBlog();
-		
+
 		http::redirect($p_url);
 	}
 	catch (Exception $e)
@@ -199,7 +199,7 @@ elseif (!empty($_POST['wreset']))
 		$core->blog->settings->widgets->put('widgets_extra','');
 		$core->blog->settings->widgets->put('widgets_custom','');
 		$core->blog->triggerBlog();
-		
+
 		http::redirect($p_url);
 	}
 	catch (Exception $e)
@@ -217,10 +217,11 @@ elseif (!empty($_POST['wreset']))
   <?php
 		echo
 			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+			dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
 			dcPage::jsLoad('index.php?pf=widgets/widgets.js');
   ?>
-  <?php 
-	$core->auth->user_prefs->addWorkspace('accessibility'); 
+  <?php
+	$core->auth->user_prefs->addWorkspace('accessibility');
 	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
   ?>
   <?php if (!$user_dm_nodragdrop) : ?>
@@ -324,7 +325,7 @@ foreach ($__widgets->elements() as $w)
 	__('Widget ID:').' <strong>'.html::escapeHTML($w->id()).'</strong>)'.
 	($w->desc() != '' ? ' <span class="form-note">'.__($w->desc()).'</span>' : '').'</dt>'.
 	'<dd>';
-	
+
 	$w_settings = $w->settings();
 	if (empty($w_settings))
 	{
@@ -349,7 +350,7 @@ foreach ($__widgets->elements() as $w)
 					$s_type = __('string');
 					break;
 			}
-			
+
 			$widget_elements->content .=
 			'<li>'.
 			__('Setting name:').' <strong>'.html::escapeHTML($n).'</strong>'.
@@ -367,24 +368,24 @@ dcPage::helpBlock($widget_elements);
 function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 {
 	$res = '<h3>'.$title.'</h3>';
-	
+
 	if (!($widgets instanceof dcWidgets))
 	{
 		$widgets = $default_widgets;
 	}
-	
+
 	$res .= '<ul id="'.$id.'" class="connected">';
-	
+
 	$res .= '<li class="empty-widgets" '.(!$widgets->isEmpty() ? 'style="display: none;"' : '').'>'.__('No widget for now.').'</li>';
-	
+
 	$i = 0;
 	foreach ($widgets->elements() as $w)
 	{
 		$upDisabled = $i == 0 ? '" disabled="" src="images/disabled_' : '" src="images/';
 		$downDisabled = $i == count($widgets->elements())-1 ? '" disabled="" src="images/disabled_' : '" src="images/';
-		
+
 		$iname = 'w['.$pr.']['.$i.']';
-		
+
 		$res .=
 		'<li>'.form::hidden(array($iname.'[id]'),html::escapeHTML($w->id())).
 		'<p class="widget-name">'.form::field(array($iname.'[order]'),2,3,(string) $i,'hidden','',0,'title="'.__('order').'"').
@@ -398,16 +399,16 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		'<br class="clear"/></p>'.
 		'<div class="widgetSettings hidden-if-drag">'.$w->formSettings($iname,$j).'</div>'.
 		'</li>';
-		
+
 		$i++;
 		$j++;
 	}
-	
+
 	$res .= '</ul>';
-	
+
 	$res .= '<ul class="sortable-delete"'.($i > 0 ? '':' style="display: none;"').'><li class="sortable-delete-placeholder">'.
 			__('Drag widgets here to remove.').'</li></ul>';
-	
+
 	return $res;
 }
 ?>
