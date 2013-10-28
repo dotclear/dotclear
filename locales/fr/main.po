@@ -2863,7 +2863,7 @@ msgstr "Plugin inexistant."
 
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successfully activated."
-msgstr[0] "Ce plugin a été désactivé."
+msgstr[0] "Ce plugin a été activé."
 msgstr[1] "Ces plugins ont été activé."
 
 msgid "You don't have permissions to deactivate this plugin."
