@@ -114,6 +114,7 @@ dcPage::check('usage,contentadmin');
 
 				<h3 id="onglets">Onglets</h3>
 				<p>Les descriptions des constructions en multi-colonnes ci-dessous présentent un exemple de répartition en onglets.</p>
+				<p>Chacun de ces onglets doit être défini à l'aide d'une <code>&lt;div class="multi-part"&gt;</code>. Ils seront alors automatiquement présentés sous forme d'onglets.</p>
 
 				<h3 id="multi-colonnage">Multi-colonnage</h3>
 				<div id="one-box" class="multi-part" title="One-box">
@@ -335,6 +336,7 @@ dcPage::check('usage,contentadmin');
 				<h3 id="pseudo-tabs">Pseudo-onglets </h3>
 					<p>Les pseudo-onglets permettent d'ajouter des sous-pages qui sont des liens vers d'autres pages, par opposition aux onglets qui sont des sections internes à la page.</p>
 					<p>Les pseudo-onglets sont à positionner immédiatement après le breadcrumb (ici un hr simule le trait sous le breadcrumb).</p>
+					<p>Ces pseudo-onglets doivent être définis avec un <code>&lt;ul class="pseudo-tabs"&gt;</code> et des <code>&lt;li&gt;</code>.</p>
 					<hr style="margin-bottom: .75em;" />
 					<ul class="pseudo-tabs">
 					  <li><a href="#">Page 1</a></li>
@@ -547,13 +549,13 @@ dcPage::check('usage,contentadmin');
 					</div>
 
 				<h2 id="iconset">Icônes</h2>
-				<p>Les icônes utilisées dans l'administration sont présentes en deux formats&nbsp; 64*64px pour les grandes 
-				(qui sont affichées sur le tableau de bord si la page correspondante est choisie en favori par l'utilisateur) et 
+				<p>Les icônes utilisées dans l'administration sont présentes en deux formats&nbsp; 64*64px pour les grandes
+				(qui sont affichées sur le tableau de bord si la page correspondante est choisie en favori par l'utilisateur) et
 				16*16px pour les petits formats.</p>
-				<p>La plupart sont dérivées de la fonte d'icônes <a href="http://www.elegantthemes.com/blog/resources/elegant-icon-font">Elegant Font</a>. Les autres sont des images vectorielles réalisées 
+				<p>La plupart sont dérivées de la fonte d'icônes <a href="http://www.elegantthemes.com/blog/resources/elegant-icon-font">Elegant Font</a>. Les autres sont des images vectorielles réalisées
 				par la DC Team. Nous les avons nommées <em>Traviata</em>. La palette de couleurs utilisée est la suivante&nbsp;:</p>
 				<p class="txt-center"><img src="images/palette-traviata.png" alt="palette des couleurs utilisées pour les icônes" /></p>
-				<p class="txt-center">Bleu&nbsp;: #137bbb - Vert&nbsp;: #9ac123 - Rouge&nbsp;: #c44d58 - Bleu ciel&nbsp;: #a2cbe9 - Gris clair&nbsp;: #ececec - 
+				<p class="txt-center">Bleu&nbsp;: #137bbb - Vert&nbsp;: #9ac123 - Rouge&nbsp;: #c44d58 - Bleu ciel&nbsp;: #a2cbe9 - Gris clair&nbsp;: #ececec -
 				Gris moyen&nbsp;: #b2b2b2 - Gris foncé&nbsp;: #676e78.</p>
 			</div><!-- /content -->
 		</div><!-- /main -->
