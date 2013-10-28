@@ -75,6 +75,7 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
 	# Display previously gathered content
 	$list->displayConfiguration();
 
+	dcPage::helpBlock('core_blog_theme_conf');
 	dcPage::close();
 
 	# Stop reading code here
