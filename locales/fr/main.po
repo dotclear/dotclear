@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 09:38+0200\n"
+"POT-Creation-Date: 2013-10-29 16:28+0100\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -2617,6 +2617,9 @@ msgstr "Êtes-vous certain de vouloir supprimer les thèmes sélectionnés ?"
 msgid "Are you sure you want to delete this backup?"
 msgstr "Êtes-vous certain de vouloir supprimer cette sauvegarde ?"
 
+msgid "Are you sure you want to revert to this backup?"
+msgstr "Êtes-vous certain de vouloir restaurer cette sauvegarde ?"
+
 msgid "Zip file content"
 msgstr "Contenu du fichier zip"
 
@@ -2858,51 +2861,11 @@ msgstr "Installer"
 msgid "Update"
 msgstr "Mise à jour"
 
-msgid "No such plugin."
-msgstr "Plugin inexistant."
-
-msgid "Plugin has been successfully activated."
-msgid_plural "Plugins have been successfully activated."
-msgstr[0] "Ce plugin a été activé."
-msgstr[1] "Ces plugins ont été activé."
-
-msgid "You don't have permissions to deactivate this plugin."
-msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
-
-msgid "Plugin has been successfully deactivated."
-msgid_plural "Plugins have been successfully deactivated."
-msgstr[0] "Ce plugin a été désactivé."
-msgstr[1] "Ces plugins ont été désactivé."
-
-msgid "You don't have permissions to delete this plugin."
-msgstr "Vous n'avez pas les permissions pour supprimer ce plugin."
-
-msgid "Some plugins have not been deleted."
-msgstr "Certains plugins n'ont pas pu être supprimés."
-
-msgid "Plugin has been successfully deleted."
-msgid_plural "Plugins have been successfully deleted."
-msgstr[0] "Ce plugin a été supprimé."
-msgstr[1] "Ces plugins ont été supprimé."
-
-msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successfully updated."
-msgstr[0] "Ce plugin a été mis à jour."
-msgstr[1] "Ces plugins ont été mis à jour."
-
-msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successfully installed."
-msgstr[0] "Ce plugin a été installé."
-msgstr[1] "Ces plugins ont été installé."
-
 msgid "Activate selected plugins"
 msgstr "Activer les plugins sélectionnés"
 
 msgid "Activate all plugins from this list"
 msgstr "Activer tous les plugins de cette liste"
-
-msgid "Plugins have been successfully activated."
-msgstr "Ces plugins ont été activés."
 
 msgid "Deactivate selected plugins"
 msgstr "Désactiver les plugins sélectionnés"
@@ -2910,20 +2873,48 @@ msgstr "Désactiver les plugins sélectionnés"
 msgid "Deactivate all plugins from this list"
 msgstr "Désactiver tous les plugins de cette liste"
 
-msgid "Plugins have been successfully deactivated."
-msgstr "Ces plugins ont été désactivés."
-
-msgid "Some plugins have not been deactivated."
-msgstr "Certains plugins n'ont pas pu être désactivés."
-
 msgid "Update selected plugins"
 msgstr "Mettre à jour les plugins sélectionnés"
 
 msgid "Update all plugins from this list"
 msgstr "Mettre à jour tous les plugins de cette liste"
 
-msgid "Plugins have been successfully updated."
-msgstr "Ces plugins ont été mis à jour."
+msgid "No such plugin."
+msgstr "Plugin inexistant."
+
+msgid "You don't have permissions to delete this plugin."
+msgstr "Vous n'avez pas les permissions pour supprimer ce plugin."
+
+msgid "Some plugins have not been delete."
+msgstr "Certains plugins n'ont pas pu être supprimés."
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] "Ce plugin a été supprimé."
+msgstr[1] "Ces plugins ont été supprimés."
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successuflly installed."
+msgstr[0] "Ce plugin a été installé."
+msgstr[1] "Ces plugins ont été installés."
+
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "Ce plugin a été activé."
+msgstr[1] "Ces plugins ont été activés."
+
+msgid "Some plugins have not been deactivated."
+msgstr "Certains plugins n'ont pas pu être désactivés."
+
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "Ce plugin a été désactivé."
+msgstr[1] "Ces plugins ont été désactivés."
+
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successuflly updated."
+msgstr[0] "Ce plugin a été mis à jour."
+msgstr[1] "Ces plugins ont été mis à jour."
 
 msgid "Zip file path:"
 msgstr "Chemin du fichier zip :"
@@ -3002,19 +2993,16 @@ msgstr "Thème inexistant."
 msgid "Theme has been successfully selected."
 msgstr "Ce thème a été sélectionné."
 
-msgid "Theme has been successfully deactivated."
-msgid_plural "Themes have been successfully deactivated."
+msgid "Theme has been successfully activated."
+msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Ce thème a été activé."
 msgstr[1] "Ces thèmes ont été activé."
-
-msgid "You don't have permissions to deactivate this theme."
-msgstr "Vous n'avez pas les permissions pour désactiver ce thème."
 
 msgid "Some themes have not been deactivated."
 msgstr "Certains thèmes n'ont pas pu être desactivé."
 
 msgid "Theme has been successfully deactivated."
-msgid_plural "Themes have been successfully deactivated."
+msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Ce thème a été désactivé."
 msgstr[1] "Ces thèmes ont été désactivé."
 
@@ -3025,25 +3013,19 @@ msgid "Some themes have not been delete."
 msgstr "Certains thèmes n'ont pas pu être effacé."
 
 msgid "Theme has been successfully deleted."
-msgid_plural "Themes have been successfully deleted."
+msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Ce thème a été supprimé."
 msgstr[1] "Ces thèmes ont été supprimé."
 
-msgid "Theme has been successfully updated."
-msgstr "Ce thème a été mis à jour."
-
-msgid "Update all theme from this list"
-msgstr "Mettre à jour tous les thèmes de cette liste"
-
-msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successfully updated."
-msgstr[0] "Ce thème a été mis à jour."
-msgstr[1] "Ces thèmes ont été mis à jour."
-
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successfully installed."
+msgid_plural "Themes have been successuflly installed."
 msgstr[0] "Ce thème a été installé."
 msgstr[1] "Ces thèmes ont été installé."
+
+msgid "Theme has been successfully updated."
+msgid_plural "Themes have been successuflly updated."
+msgstr[0] "Ce thème a été mis à jour."
+msgstr[1] "Ces thèmes ont été mis à jour."
 
 msgid "First page"
 msgstr "Première page"
@@ -3377,6 +3359,9 @@ msgstr "Impossible de mettre à jour \"%s\" (plus ancienne ou même version)."
 msgid "Unable to read new _define.php file"
 msgstr "Impossible de lire le nouveau fichier _define.php."
 
+msgid "No such module."
+msgstr "Module inexistant."
+
 msgid "Cannot remove module files"
 msgstr "Impossible de supprimer les fichiers du module"
 
@@ -3663,6 +3648,24 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
+#~ msgid "You don't have permissions to deactivate this plugin."
+#~ msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
+
+#~ msgid "Plugins have been successfully activated."
+#~ msgstr "Ces plugins ont été activés."
+
+#~ msgid "Plugins have been successfully deactivated."
+#~ msgstr "Ces plugins ont été désactivés."
+
+#~ msgid "Plugins have been successfully updated."
+#~ msgstr "Ces plugins ont été mis à jour."
+
+#~ msgid "You don't have permissions to deactivate this theme."
+#~ msgstr "Vous n'avez pas les permissions pour désactiver ce thème."
+
+#~ msgid "Update all theme from this list"
+#~ msgstr "Mettre à jour tous les thèmes de cette liste"
 
 #~ msgid "Title (optional)"
 #~ msgstr "Titre (optionnel)"
