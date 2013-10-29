@@ -15,12 +15,12 @@ define('DC_AUTH_PAGE','auth.php');
 
 class dcPage
 {
-	private static $loaded_js=array();
+	private static $loaded_js = array();
 	private static $N_TYPES = array(
-		"success" => "success", 
-		"warning" => "warning-msg", 
-		"error" => "error", 
-		"message" => "message", 
+		"success" => "success",
+		"warning" => "warning-msg",
+		"error" => "error",
+		"message" => "message",
 		"static" => "static-msg");
 
 	# Auth check
@@ -28,8 +28,7 @@ class dcPage
 	{
 		global $core;
 
-		if ($core->blog && $core->auth->check($permissions,$core->blog->id))
-		{
+		if ($core->blog && $core->auth->check($permissions,$core->blog->id)) {
 			return;
 		}
 
@@ -113,7 +112,7 @@ class dcPage
 		$core->auth->user_prefs->addWorkspace('interface');
 		$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 		if (!$user_ui_hide_std_favicon) {
-			echo 
+			echo
 			'<link rel="icon" type="image/png" href="images/favicon96-login.png" />'.
 			'<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />';
 		}
@@ -212,7 +211,7 @@ class dcPage
 		} else {
 			$notifications = array();
 		}
-		
+
 		$n = array_merge($options,array('class' => $class,'ts' => time(), 'text' => $message));
 		if ($type != "static") {
 			$notifications[] = $n;
@@ -565,7 +564,7 @@ class dcPage
 					"\n//]]>\n".
 				"</script>\n";
 	}
-	
+
 	public static function jsCommon()
 	{
 		$mute_or_no = '';
@@ -596,7 +595,7 @@ class dcPage
 		self::jsVar('dotclear.img_minus_alt',__('hide')).
 		self::jsVar('dotclear.img_menu_on','images/menu_on.png').
 		self::jsVar('dotclear.img_menu_off','images/menu_off.png').
-		
+
 		self::jsVar('dotclear.img_plus_theme_src','images/plus-theme.png').
 		self::jsVar('dotclear.img_plus_theme_alt',__('uncover')).
 		self::jsVar('dotclear.img_minus_theme_src','images/minus-theme.png').
@@ -676,6 +675,8 @@ class dcPage
 			__('Are you sure you want to delete selected themes?')).
 		self::jsVar('dotclear.msg.confirm_delete_backup',
 			__('Are you sure you want to delete this backup?')).
+		self::jsVar('dotclear.msg.confirm_revert_backup',
+			__('Are you sure you want to revert to this backup?')).
 		self::jsVar('dotclear.msg.zip_file_content',
 			__('Zip file content')).
 		self::jsVar('dotclear.msg.xhtml_validator',
@@ -745,7 +746,7 @@ class dcPage
 		if ($default) {
 			$default = "'".html::escapeJS($default)."'";
 		}
-		
+
 		return
 		self::jsLoad('js/jquery/jquery.pageTabs.js').
 		'<script type="text/javascript">'."\n".

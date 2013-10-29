@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-23 13:44+0000\n"
+"POT-Creation-Date: 2013-10-29 16:28+0100\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -1966,6 +1966,9 @@ msgstr "Monter le widget"
 
 msgid "Down the widget"
 msgstr "Descendre le widget"
+
+msgid "Remove the widget"
+msgstr "Retirer le widget"
 
 msgid "Remove widget"
 msgstr "Retirer le widget"
