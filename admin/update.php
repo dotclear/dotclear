@@ -62,7 +62,7 @@ if (!empty($archives)) {
 if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'],$archives))
 {
 	$b_file = $_POST['backup_file'];
-	
+
 	try
 	{
 		if (!empty($_POST['b_del']))
@@ -72,7 +72,7 @@ if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'],$archives))
 			}
 			http::redirect($p_url.'?tab=files');
 		}
-		
+
 		if (!empty($_POST['b_revert']))
 		{
 			$zip = new fileUnzip(DC_BACKUP_PATH.'/'.$b_file);
@@ -93,7 +93,7 @@ if ($new_v && $step)
 	try
 	{
 		$updater->setForcedFiles('inc/digests');
-		
+
 		switch ($step)
 		{
 			case 'check':
@@ -132,7 +132,7 @@ if ($new_v && $step)
 	catch (Exception $e)
 	{
 		$msg = $e->getMessage();
-		
+
 		if ($e->getCode() == dcUpdate::ERR_FILES_CHANGED)
 		{
 			$msg =
@@ -153,16 +153,16 @@ if ($new_v && $step)
 			__('The following files of your Dotclear installation cannot be written. '.
 			'Please fix this or try to <a href="http://dotclear.org/download">update manually</a>.');
 		}
-		
+
 		if (isset($e->bad_files)) {
 			$msg .=
 			'<ul><li><strong>'.
 			implode('</strong></li><li><strong>',$e->bad_files).
 			'</strong></li></ul>';
 		}
-		
+
 		$core->error->add($msg);
-		
+
 		$core->callBehavior('adminDCUpdateException',$e);
 	}
 }
@@ -170,7 +170,7 @@ if ($new_v && $step)
 /* DISPLAY Main page
 -------------------------------------------------------- */
 dcPage::open(__('Dotclear update'),
-	(!$step ? 
+	(!$step ?
 		dcPage::jsPageTabs($default_tab).
 		dcPage::jsLoad('js/_update.js')
 		: ''),
@@ -205,7 +205,7 @@ if (!$step)
 				($version_info ? ' <a href="'.$version_info.'" class="outgoing" title="'.__('Information about this version').'">('.
 					__('Information about this version').')&nbsp;<img src="images/outgoing.png" alt=""/></a>' : '').
 				'</p>'.
-		
+
 		'<p>'.__('To upgrade your Dotclear installation simply click on the following button. '.
 			'A backup file of your current installation will be created in your root directory.').'</p>'.
 		'<form action="'.$p_url.'" method="get">'.
@@ -214,7 +214,7 @@ if (!$step)
 		'</form>';
 	}
 	echo '</div>';
-	
+
 	if (!empty($archives))
 	{
 		echo '<div class="multi-part" id="files" title="'.__('Manage backup files').'">';
@@ -223,14 +223,14 @@ if (!$step)
 		'<h3>'.__('Update backup files').'</h3>'.
 		'<p>'.__('The following files are backups of previously updates. '.
 		'You can revert your previous installation or delete theses files.').'</p>';
-		
+
 		echo	'<form action="'.$p_url.'" method="post">';
 		foreach ($archives as $v) {
 			echo
 			'<p><label class="classic">'.form::radio(array('backup_file'),html::escapeHTML($v)).' '.
 			html::escapeHTML($v).'</label></p>';
 		}
-		
+
 		echo
 		'<p><strong>'.__('Please note that reverting your Dotclear version may have some '.
 		'unwanted side-effects. Consider reverting only if you experience strong issues with this new version.').'</strong> '.
@@ -255,4 +255,3 @@ elseif ($step == 'unzip' && !$core->error->flag())
 
 dcPage::helpBlock('core_update');
 dcPage::close();
-?>
