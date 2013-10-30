@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-23 13:44+0000\n"
+"POT-Creation-Date: 2013-10-29 16:28+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,7 +169,7 @@ msgstr ""
 
 #: plugins/aboutConfig/index.php:138 plugins/antispam/index.php:203
 #: plugins/blogroll/index.php:205 plugins/blogroll/index.php:330
-#: plugins/simpleMenu/index.php:143 plugins/simpleMenu/index.php:488
+#: plugins/simpleMenu/index.php:143 plugins/simpleMenu/index.php:489
 #: plugins/userPref/index.php:135
 msgid "Description"
 msgstr ""
@@ -274,7 +274,7 @@ msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:131
 #: plugins/antispam/filters/class.dc.filter.words.php:122
-#: plugins/widgets/index.php:261
+#: plugins/widgets/index.php:259
 msgid "Add"
 msgstr ""
 
@@ -816,7 +816,7 @@ msgstr ""
 msgid "Items order has been successfully updated"
 msgstr ""
 
-#: plugins/blogroll/index.php:206 plugins/simpleMenu/index.php:489
+#: plugins/blogroll/index.php:206 plugins/simpleMenu/index.php:490
 msgid "URL"
 msgstr ""
 
@@ -1252,7 +1252,7 @@ msgstr ""
 
 #: plugins/importExport/inc/class.dc.export.flat.php:209
 #: plugins/importExport/inc/class.dc.export.flat.php:231
-#: plugins/importExport/index.php:103
+#: plugins/importExport/index.php:102
 msgid "Export"
 msgstr ""
 
@@ -1278,7 +1278,7 @@ msgid "Why don't you blog this now?"
 msgstr ""
 
 #: plugins/importExport/inc/class.dc.ieModule.php:77
-#: plugins/widgets/index.php:321
+#: plugins/widgets/index.php:319
 msgid "or"
 msgstr ""
 
@@ -1526,11 +1526,11 @@ msgstr ""
 msgid "No file to read."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:54
+#: plugins/importExport/inc/flat/class.flat.import.php:55
 msgid "File is not a DotClear backup."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:105
+#: plugins/importExport/inc/flat/class.flat.import.php:106
 msgid "File is not a single blog export."
 msgstr ""
 
@@ -1562,13 +1562,21 @@ msgstr ""
 msgid "Download database of all blogs"
 msgstr ""
 
-#: plugins/importExport/index.php:69 plugins/maintenance/index.php:121
+#: plugins/importExport/index.php:69 plugins/maintenance/index.php:125
 msgid "Please wait..."
 msgstr ""
 
 #: plugins/importExport/index.php:104
 #, php-format
 msgid "Export functions are in the page %s."
+msgstr ""
+
+#: plugins/importExport/index.php:105 plugins/maintenance/_admin.php:16
+#: plugins/maintenance/_admin.php:83 plugins/maintenance/_admin.php:179
+#: plugins/maintenance/_admin.php:201 plugins/maintenance/index.php:117
+#: plugins/maintenance/index.php:141 plugins/maintenance/index.php:157
+#: plugins/maintenance/index.php:193
+msgid "Maintenance"
 msgstr ""
 
 #: plugins/maintenance/_admin.php:49
@@ -1634,11 +1642,11 @@ msgid_plural "%s tasks to execute"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:164 plugins/maintenance/index.php:216
+#: plugins/maintenance/_admin.php:164 plugins/maintenance/index.php:224
 msgid "This task has never been executed."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:166 plugins/maintenance/index.php:222
+#: plugins/maintenance/_admin.php:166 plugins/maintenance/index.php:230
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr ""
@@ -1662,11 +1670,11 @@ msgstr ""
 msgid "Display overdue tasks list on dashboard items"
 msgstr ""
 
-#: plugins/maintenance/inc/class.dc.maintenance.task.php:71
+#: plugins/maintenance/inc/class.dc.maintenance.task.php:72
 msgid "Failed to execute task."
 msgstr ""
 
-#: plugins/maintenance/inc/class.dc.maintenance.task.php:74
+#: plugins/maintenance/inc/class.dc.maintenance.task.php:75
 msgid "Task successfully executed."
 msgstr ""
 
@@ -1755,19 +1763,19 @@ msgstr ""
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:20
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:22
 msgid "Delete all logs"
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:21
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:23
 msgid "Logs deleted."
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:22
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:24
 msgid "Failed to delete logs."
 msgstr ""
 
-#: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:24
+#: plugins/maintenance/inc/tasks/class.dc.maintenance.logs.php:26
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr ""
 
@@ -1832,76 +1840,76 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#: plugins/maintenance/index.php:92
+#: plugins/maintenance/index.php:96
 msgid "Maintenance plugin has been successfully configured."
 msgstr ""
 
-#: plugins/maintenance/index.php:103
+#: plugins/maintenance/index.php:107
 msgid "Never"
 msgstr ""
 
-#: plugins/maintenance/index.php:104
+#: plugins/maintenance/index.php:108
 msgid "Every week"
 msgstr ""
 
-#: plugins/maintenance/index.php:105
+#: plugins/maintenance/index.php:109
 msgid "Every two weeks"
 msgstr ""
 
-#: plugins/maintenance/index.php:106
+#: plugins/maintenance/index.php:110
 msgid "Every month"
 msgstr ""
 
-#: plugins/maintenance/index.php:107
+#: plugins/maintenance/index.php:111
 msgid "Every two months"
 msgstr ""
 
-#: plugins/maintenance/index.php:140
+#: plugins/maintenance/index.php:144
 msgid "You have not sufficient permissions to view this page."
 msgstr ""
 
-#: plugins/maintenance/index.php:217 plugins/maintenance/index.php:226
+#: plugins/maintenance/index.php:225 plugins/maintenance/index.php:234
 msgid "You should execute it now."
 msgstr ""
 
-#: plugins/maintenance/index.php:249 plugins/maintenance/index.php:271
+#: plugins/maintenance/index.php:257 plugins/maintenance/index.php:279
 msgid "Execute task"
 msgstr ""
 
-#: plugins/maintenance/index.php:252
+#: plugins/maintenance/index.php:260
 msgid "This may take a very long time."
 msgstr ""
 
-#: plugins/maintenance/index.php:282 plugins/maintenance/index.php:283
+#: plugins/maintenance/index.php:290 plugins/maintenance/index.php:291
 msgid "Alert settings"
 msgstr ""
 
-#: plugins/maintenance/index.php:286
+#: plugins/maintenance/index.php:294
 msgid "Activation"
 msgstr ""
 
-#: plugins/maintenance/index.php:289
+#: plugins/maintenance/index.php:297
 msgid "Display alert messages on late tasks"
 msgstr ""
 
-#: plugins/maintenance/index.php:292
+#: plugins/maintenance/index.php:300
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr ""
 
-#: plugins/maintenance/index.php:296
+#: plugins/maintenance/index.php:304
 msgid "Frequency"
 msgstr ""
 
-#: plugins/maintenance/index.php:300
+#: plugins/maintenance/index.php:308
 msgid "Use one recall time for all tasks"
 msgstr ""
 
-#: plugins/maintenance/index.php:302
+#: plugins/maintenance/index.php:310
 msgid "Recall time for all tasks:"
 msgstr ""
 
-#: plugins/maintenance/index.php:308
+#: plugins/maintenance/index.php:316
 msgid "Use one recall time per task"
 msgstr ""
 
@@ -2135,7 +2143,7 @@ msgstr ""
 msgid "User defined"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:142 plugins/simpleMenu/index.php:487
+#: plugins/simpleMenu/index.php:142 plugins/simpleMenu/index.php:488
 msgid "Label"
 msgstr ""
 
@@ -2194,91 +2202,91 @@ msgstr ""
 msgid "Menu items have been successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:361
+#: plugins/simpleMenu/index.php:362
 msgid "Step #1"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:365 plugins/simpleMenu/index.php:372
+#: plugins/simpleMenu/index.php:366 plugins/simpleMenu/index.php:373
 msgid "Step #2"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:370
+#: plugins/simpleMenu/index.php:371
 msgid "Step #3"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:380
+#: plugins/simpleMenu/index.php:381
 msgid "Add item"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:402
+#: plugins/simpleMenu/index.php:403
 msgid "Select type"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:403
+#: plugins/simpleMenu/index.php:404
 msgid "Type of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:404 plugins/simpleMenu/index.php:441
+#: plugins/simpleMenu/index.php:405 plugins/simpleMenu/index.php:442
 msgid "Continue..."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:415
+#: plugins/simpleMenu/index.php:416
 msgid "Select language:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:419
+#: plugins/simpleMenu/index.php:420
 msgid "Select category:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:423
+#: plugins/simpleMenu/index.php:424
 msgid "Select month (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:427
+#: plugins/simpleMenu/index.php:428
 msgid "Select page:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:431
+#: plugins/simpleMenu/index.php:432
 msgid "Select tag (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:451
+#: plugins/simpleMenu/index.php:452
 msgid "Label of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:453
+#: plugins/simpleMenu/index.php:454
 msgid "Description of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:455
+#: plugins/simpleMenu/index.php:456
 msgid "URL of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:457
+#: plugins/simpleMenu/index.php:458
 msgid "Add this item"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:467
+#: plugins/simpleMenu/index.php:468
 msgid "Add an item"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:479
+#: plugins/simpleMenu/index.php:480
 msgid "Menu items list"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:516
+#: plugins/simpleMenu/index.php:517
 msgid "Update menu"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:518
+#: plugins/simpleMenu/index.php:519
 msgid "Delete selected menu items"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:519
+#: plugins/simpleMenu/index.php:520
 msgid "Are you sure you want to remove selected menu items?"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:526
+#: plugins/simpleMenu/index.php:527
 msgid "No menu items so far."
 msgstr ""
 
@@ -2656,92 +2664,96 @@ msgstr ""
 msgid "empty string"
 msgstr ""
 
-#: plugins/widgets/index.php:213 plugins/widgets/index.php:242
+#: plugins/widgets/index.php:213 plugins/widgets/index.php:240
 msgid "Widgets"
 msgstr ""
 
-#: plugins/widgets/index.php:232
+#: plugins/widgets/index.php:230
 msgid "Are you sure you want to reset sidebars?"
 msgstr ""
 
-#: plugins/widgets/index.php:249
+#: plugins/widgets/index.php:247
 msgid "Available widgets"
 msgstr ""
 
-#: plugins/widgets/index.php:250
+#: plugins/widgets/index.php:248
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr ""
 
-#: plugins/widgets/index.php:257 plugins/widgets/index.php:371
+#: plugins/widgets/index.php:255 plugins/widgets/index.php:371
 msgid "order"
 msgstr ""
 
-#: plugins/widgets/index.php:259
+#: plugins/widgets/index.php:257
 msgid "Append to:"
 msgstr ""
 
-#: plugins/widgets/index.php:270
+#: plugins/widgets/index.php:268
 msgid "Add widgets to sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:277
+#: plugins/widgets/index.php:275
 msgid "Navigation sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:283
+#: plugins/widgets/index.php:281
 msgid "Extra sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:289
+#: plugins/widgets/index.php:287
 msgid "Custom sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:295
+#: plugins/widgets/index.php:293
 msgid "Update sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:296
+#: plugins/widgets/index.php:294
 msgid "Reset sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:305
+#: plugins/widgets/index.php:303
 msgid "Widget ID:"
 msgstr ""
 
-#: plugins/widgets/index.php:312
+#: plugins/widgets/index.php:310
 msgid "No setting for this widget"
 msgstr ""
 
-#: plugins/widgets/index.php:321
+#: plugins/widgets/index.php:319
 msgid "boolean"
 msgstr ""
 
-#: plugins/widgets/index.php:321 plugins/widgets/index.php:325
+#: plugins/widgets/index.php:319 plugins/widgets/index.php:323
 msgid "possible values:"
 msgstr ""
 
-#: plugins/widgets/index.php:325
+#: plugins/widgets/index.php:323
 msgid "listitem"
 msgstr ""
 
-#: plugins/widgets/index.php:330
+#: plugins/widgets/index.php:328
 msgid "string"
 msgstr ""
 
-#: plugins/widgets/index.php:336
+#: plugins/widgets/index.php:334
 msgid "Setting name:"
 msgstr ""
 
-#: plugins/widgets/index.php:359
-msgid "No widget for now."
+#: plugins/widgets/index.php:357
+msgid "No widget as far."
 msgstr ""
 
-#: plugins/widgets/index.php:375
+#: plugins/widgets/index.php:364 plugins/widgets/index.php:375
 msgid "Up the widget"
 msgstr ""
 
-#: plugins/widgets/index.php:376
+#: plugins/widgets/index.php:365 plugins/widgets/index.php:376
 msgid "Down the widget"
+msgstr ""
+
+#: plugins/widgets/index.php:377
+msgid "Remove the widget"
 msgstr ""
 
 #: plugins/widgets/index.php:377

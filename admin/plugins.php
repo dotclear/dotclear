@@ -50,6 +50,7 @@ if ($list->setConfiguration()) {
 	# Display previously gathered content
 	$list->displayConfiguration();
 
+	dcPage::helpBlock('core_plugins_conf');
 	dcPage::close();
 
 	# Stop reading code here

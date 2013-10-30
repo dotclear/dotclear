@@ -241,8 +241,8 @@ msgstr "Vous devez indiquer une adresse e-mail valide."
 msgid "Read"
 msgstr "Lire"
 
-#~ msgid "in"
-#~ msgstr "dans"
+msgid "in"
+msgstr "dans"
 
-#~ msgid "In"
-#~ msgstr "Dans"
+msgid "In"
+msgstr "Dans"
