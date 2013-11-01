@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-01 08:06+0100\n"
+"POT-Creation-Date: 2013-11-01 14:23+0100\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -1900,6 +1900,12 @@ msgstr "Volet supplémentaire"
 
 msgid "empty string"
 msgstr "chaîne vide"
+
+msgid "Sidebars and their widgets have been saved."
+msgstr "Les volets et leurs widgets ont été enregistrés."
+
+msgid "Sidebars have been resetting."
+msgstr "Les volets ont été réinitialisés."
 
 msgid "Widgets"
 msgstr "Widgets"
