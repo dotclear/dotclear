@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-29 16:28+0100\n"
+"POT-Creation-Date: 2013-11-01 08:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1846,7 +1846,7 @@ msgid "Are you sure you want to remove %s?"
 msgstr ""
 
 #: admin/media.php:257 admin/media_item.php:384 admin/popup_link.php:41
-#: admin/post.php:594 admin/post_media.php:76 inc/admin/lib.dc.page.php:938
+#: admin/post.php:594 admin/post_media.php:76 inc/admin/lib.dc.page.php:940
 msgid "Cancel"
 msgstr ""
 
@@ -1935,11 +1935,11 @@ msgstr ""
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr ""
 
-#: admin/media.php:487 inc/admin/lib.dc.page.php:936
+#: admin/media.php:487 inc/admin/lib.dc.page.php:938
 msgid "Choose file"
 msgstr ""
 
-#: admin/media.php:488 inc/admin/lib.dc.page.php:937
+#: admin/media.php:488 inc/admin/lib.dc.page.php:939
 msgid "Choose files"
 msgstr ""
 
@@ -1968,7 +1968,7 @@ msgstr ""
 msgid "Clear all"
 msgstr ""
 
-#: admin/media.php:508 inc/admin/lib.dc.page.php:940
+#: admin/media.php:508 inc/admin/lib.dc.page.php:942
 #: inc/admin/lib.moduleslist.php:1206
 msgid "Upload"
 msgstr ""
@@ -2211,7 +2211,7 @@ msgstr ""
 msgid "Maximum size %s"
 msgstr ""
 
-#: admin/media_item.php:627 inc/admin/lib.dc.page.php:941
+#: admin/media_item.php:627 inc/admin/lib.dc.page.php:943
 msgid "Send"
 msgstr ""
 
@@ -3400,7 +3400,7 @@ msgid "You are in safe mode. All plugins have been temporarily disabled. Remind 
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:179 inc/admin/lib.dc.page.php:625
-#: inc/admin/lib.dc.page.php:935
+#: inc/admin/lib.dc.page.php:937
 msgid "Error:"
 msgstr ""
 
@@ -3759,52 +3759,56 @@ msgstr ""
 msgid "Link to an entry"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:929
-msgid "Temporarily activate enhanced uploader"
-msgstr ""
-
-#: inc/admin/lib.dc.page.php:930
-msgid "Temporarily disable enhanced uploader"
+#: inc/admin/lib.dc.page.php:901
+msgid "Remove text formating"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:931
-msgid "Limit exceeded."
+msgid "Temporarily activate enhanced uploader"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:932
-msgid "File size exceeds allowed limit."
+msgid "Temporarily disable enhanced uploader"
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:933
-msgid "Canceled."
+msgid "Limit exceeded."
 msgstr ""
 
 #: inc/admin/lib.dc.page.php:934
+msgid "File size exceeds allowed limit."
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:935
+msgid "Canceled."
+msgstr ""
+
+#: inc/admin/lib.dc.page.php:936
 msgid "HTTP Error:"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:939
+#: inc/admin/lib.dc.page.php:941
 msgid "Clean"
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:942
+#: inc/admin/lib.dc.page.php:944
 msgid "File successfully uploaded."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:943
+#: inc/admin/lib.dc.page.php:945
 msgid "No file in queue."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:944
+#: inc/admin/lib.dc.page.php:946
 msgid "1 file in queue."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:945
+#: inc/admin/lib.dc.page.php:947
 #, php-format
 msgid "%d files in queue."
 msgstr ""
 
-#: inc/admin/lib.dc.page.php:946
+#: inc/admin/lib.dc.page.php:948
 msgid "Queue error:"
 msgstr ""
 
