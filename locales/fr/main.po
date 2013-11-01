@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-29 16:28+0100\n"
+"POT-Creation-Date: 2013-11-01 08:06+0100\n"
 "PO-Revision-Date: 2012-08-13 07:13+0000\n"
 "Last-Translator: xave <xave@dotclear.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -2755,6 +2755,9 @@ msgstr "Sélecteur de média"
 msgid "Link to an entry"
 msgstr "Lien vers une entrée"
 
+msgid "Remove text formating"
+msgstr "Retirer le formatage du texte"
+
 msgid "Temporarily activate enhanced uploader"
 msgstr "Activer temporairement l'interface avancée"
 
@@ -3983,9 +3986,6 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 
 #~ msgid "Published on:"
 #~ msgstr "Publié le :"
-
-#~ msgid "Text formating:"
-#~ msgstr "Syntaxe de saisie :"
 
 #~ msgid "Warning: Comments are not accepted on this blog."
 #~ msgstr "Les commentaires sont fermés sur ce blog pour le moment."
