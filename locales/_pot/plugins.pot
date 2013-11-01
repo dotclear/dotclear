@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-01 08:06+0100\n"
+"POT-Creation-Date: 2013-11-01 14:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -274,7 +274,7 @@ msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:131
 #: plugins/antispam/filters/class.dc.filter.words.php:122
-#: plugins/widgets/index.php:259
+#: plugins/widgets/index.php:261
 msgid "Add"
 msgstr ""
 
@@ -1278,7 +1278,7 @@ msgid "Why don't you blog this now?"
 msgstr ""
 
 #: plugins/importExport/inc/class.dc.ieModule.php:77
-#: plugins/widgets/index.php:319
+#: plugins/widgets/index.php:321
 msgid "or"
 msgstr ""
 
@@ -2664,102 +2664,110 @@ msgstr ""
 msgid "empty string"
 msgstr ""
 
-#: plugins/widgets/index.php:213 plugins/widgets/index.php:240
+#: plugins/widgets/index.php:186
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+#: plugins/widgets/index.php:204
+msgid "Sidebars have been resetting."
+msgstr ""
+
+#: plugins/widgets/index.php:215 plugins/widgets/index.php:242
 msgid "Widgets"
 msgstr ""
 
-#: plugins/widgets/index.php:230
+#: plugins/widgets/index.php:232
 msgid "Are you sure you want to reset sidebars?"
 msgstr ""
 
-#: plugins/widgets/index.php:247
+#: plugins/widgets/index.php:249
 msgid "Available widgets"
 msgstr ""
 
-#: plugins/widgets/index.php:248
+#: plugins/widgets/index.php:250
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr ""
 
-#: plugins/widgets/index.php:255 plugins/widgets/index.php:371
+#: plugins/widgets/index.php:257 plugins/widgets/index.php:373
 msgid "order"
 msgstr ""
 
-#: plugins/widgets/index.php:257
+#: plugins/widgets/index.php:259
 msgid "Append to:"
 msgstr ""
 
-#: plugins/widgets/index.php:268
+#: plugins/widgets/index.php:270
 msgid "Add widgets to sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:275
+#: plugins/widgets/index.php:277
 msgid "Navigation sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:281
+#: plugins/widgets/index.php:283
 msgid "Extra sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:287
+#: plugins/widgets/index.php:289
 msgid "Custom sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:293
+#: plugins/widgets/index.php:295
 msgid "Update sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:294
+#: plugins/widgets/index.php:296
 msgid "Reset sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:303
+#: plugins/widgets/index.php:305
 msgid "Widget ID:"
 msgstr ""
 
-#: plugins/widgets/index.php:310
+#: plugins/widgets/index.php:312
 msgid "No setting for this widget"
 msgstr ""
 
-#: plugins/widgets/index.php:319
+#: plugins/widgets/index.php:321
 msgid "boolean"
 msgstr ""
 
-#: plugins/widgets/index.php:319 plugins/widgets/index.php:323
+#: plugins/widgets/index.php:321 plugins/widgets/index.php:325
 msgid "possible values:"
 msgstr ""
 
-#: plugins/widgets/index.php:323
+#: plugins/widgets/index.php:325
 msgid "listitem"
 msgstr ""
 
-#: plugins/widgets/index.php:328
+#: plugins/widgets/index.php:330
 msgid "string"
 msgstr ""
 
-#: plugins/widgets/index.php:334
+#: plugins/widgets/index.php:336
 msgid "Setting name:"
 msgstr ""
 
-#: plugins/widgets/index.php:357
+#: plugins/widgets/index.php:359
 msgid "No widget as far."
 msgstr ""
 
-#: plugins/widgets/index.php:364 plugins/widgets/index.php:375
+#: plugins/widgets/index.php:366 plugins/widgets/index.php:377
 msgid "Up the widget"
 msgstr ""
 
-#: plugins/widgets/index.php:365 plugins/widgets/index.php:376
+#: plugins/widgets/index.php:367 plugins/widgets/index.php:378
 msgid "Down the widget"
 msgstr ""
 
-#: plugins/widgets/index.php:377
+#: plugins/widgets/index.php:379
 msgid "Remove the widget"
 msgstr ""
 
-#: plugins/widgets/index.php:377
+#: plugins/widgets/index.php:379
 msgid "Remove widget"
 msgstr ""
 
-#: plugins/widgets/index.php:390
+#: plugins/widgets/index.php:392
 msgid "Drag widgets here to remove."
 msgstr ""
