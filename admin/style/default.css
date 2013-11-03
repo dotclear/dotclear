@@ -1422,6 +1422,7 @@ a.form-control.open {
 	padding: 1em 1em 0 1em;
 	background: #fff;
 	margin-bottom: 0;
+	margin-top: 1em;
 	}
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit],
 #login-screen input[type=text]:focus, #login-screen input[type=password]:focus, #login-screen input[type=submit]:focus {
