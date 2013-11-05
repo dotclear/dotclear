@@ -655,6 +655,8 @@ class dcPage
 			__('Are you sure you want to reorder all categories?')).
 		self::jsVar('dotclear.msg.confirm_delete_media',
 			__('Are you sure you want to remove media "%s"?')).
+		self::jsVar('dotclear.msg.confirm_delete_directory',
+			__('Are you sure you want to remove directory "%s"?')).
 		self::jsVar('dotclear.msg.confirm_extract_current',
 			__('Are you sure you want to extract archive in current directory?')).
 		self::jsVar('dotclear.msg.confirm_remove_attachment',
