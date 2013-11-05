@@ -10,7 +10,7 @@
 			function disableButton(button) {
 				button.prop('disabled',true).addClass('disabled');
 			}
-			
+
 			function displayMessageInQueue(n) {
 				var msg = '';
 				if (n==1) {
@@ -23,19 +23,19 @@
 				}
 				$('.queue-message',me).html(msg);
 			}
-			
+
 			$('.button.choose_files').click(function(e) {
 				// Use the native click() of the file input.
 				$('#upfile').click();
 				e.preventDefault();
 			});
-			
+
 			$('.button.cancel', '#fileupload .fileupload-buttonbar').click(function(e) {
 				$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
 				disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
 				displayMessageInQueue(0);
 			});
-			
+
 			$(me).on('click','.cancel',function(e) {
 				if ($('.fileupload-ctrl .files .template-upload', me).length==0) {
 					$('.button.cancel','#fileupload .fileupload-buttonbar').hide();
@@ -43,7 +43,7 @@
 				}
 				displayMessageInQueue($('.files .template-upload',me).length);
 			});
-			
+
 			$('.button.clean', me).click(function(e) {
 				$('.fileupload-ctrl .files .template-download', me).slideUp(500, function() {
 					$(this).remove();
@@ -51,7 +51,7 @@
 				$(this).hide();
 				e.preventDefault();
 			});
-			
+
 			$(me).fileupload({
 				url: $(me).attr('action'),
 				autoUpload: false,
@@ -78,7 +78,7 @@
 					disableButton($('.button.start','#fileupload .fileupload-buttonbar'));
 				}
 			});
-			
+
 			var $container = $(me).parent();
 			var $msg,label;
 
@@ -99,7 +99,7 @@
 					label = dotclear.jsUpload.msg.choose_file;
 					$('#upfile').attr('multiple', false);
 					enableButton($('.button.start','#fileupload .fileupload-buttonbar'));
-					
+
 					// when a user has clicked enhanced_uploader, and has added files
 					// We must remove files in table
 					$('.files .upload-file', me).remove();
@@ -119,7 +119,7 @@
 				}
 				$(this).find('a').text($msg);
 				$('.add-label', me).text(label);
-				
+
 				$container.toggleClass('enhanced_uploader');
 				e.preventDefault();
 			}).appendTo(me);
@@ -171,7 +171,13 @@ $(function() {
 	function fileRemoveAct() {
 		$('body').on('click','a.media-remove',function() {
 			var m_name = $(this).parents('.media-item').find('a.media-link').text();
-			if (window.confirm(dotclear.msg.confirm_delete_media.replace('%s',m_name))) {
+			var m_text='';
+			if ($(this).parents('div.media-folder').length == 0) {
+				m_text = dotclear.msg.confirm_delete_media.replace('%s',m_name);
+			} else {
+				m_text = dotclear.msg.confirm_delete_directory.replace('%s',m_name);
+			}
+			if (window.confirm(m_text)) {
 				var f = $('#media-remove-hide').get(0);
 				f.elements['remove'].value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/,'$2');
 				this.href = '';

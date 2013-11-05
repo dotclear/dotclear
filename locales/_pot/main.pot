@@ -3529,6 +3529,11 @@ msgstr ""
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr ""
 
+#: inc/admin/lib.dc.page.php:657
+#, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr ""
+
 #: inc/admin/lib.dc.page.php:659
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr ""

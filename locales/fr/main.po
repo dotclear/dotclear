@@ -2580,6 +2580,10 @@ msgid "Are you sure you want to reorder all categories?"
 msgstr "Êtes-vous certain de vouloir réinitialiser l'ordre des catégories ?"
 
 #, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "Êtes-vous certain de vouloir supprimer le répertoire \"%s\" ?"
+
+#, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Êtes-vous certain de vouloir supprimer le média \"%s\" ?"
 
