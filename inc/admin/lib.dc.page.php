@@ -316,8 +316,8 @@ class dcPage
 		'<html xmlns="http://www.w3.org/1999/xhtml" '.
 		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
 		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
-		'<meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
 		"<head>\n".
+		'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
 
