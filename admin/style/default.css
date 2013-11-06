@@ -441,12 +441,14 @@ a, a:link, a:visited {
 	color: #2373A8;
 	text-decoration: none;
 	border-bottom: 1px dotted #999;
+ 	background-color: inherit;
 	}
-a:hover, a:active, a:focus {
+a:hover, a:active {
 	border-bottom-style: solid;
 	}
 a img, a:link img, a:visited img {
 	border: none;
+	background: inherit;
 	}
 h1 a:link, h1 a:visited {
 	border: none;
@@ -454,6 +456,18 @@ h1 a:link, h1 a:visited {
 .discrete a {
 	color: #333;
 	}
+a:link {
+  transition: .5s;
+}
+a:visited {
+  color: inherit;
+}
+a:focus, a:focus img {
+  outline: 2px ridge red;
+  border-bottom: none;
+  text-decoration: none;
+}
+
 /* ----------------------------------------------------------------------------
 																	FORMULAIRES
 ---------------------------------------------------------------------------- */
@@ -932,6 +946,7 @@ h1 a {
 	}
 h1 a:hover, h1 a:focus {
 	background-position: 0 -94px;
+	background-color: transparent;
 	}
 /* top-info-blog */
 #top-info-blog select {
@@ -1486,7 +1501,7 @@ a.form-control.open {
 #icons a:focus img, #icons a:hover img {
 	background: #bee74b;
 	}
-#icons a:focus span, #icons a:hover span {
+#icons a:hover span {
 	border-bottom-style: solid;
 	}
 /* billet rapide */
