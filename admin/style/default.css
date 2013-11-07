@@ -463,11 +463,10 @@ a:visited {
   color: inherit;
 }
 a:focus, a:focus img {
-  outline: 2px ridge red;
+  outline: 2px solid #bee74b;
   border-bottom: none;
   text-decoration: none;
 }
-
 /* ----------------------------------------------------------------------------
 																	FORMULAIRES
 ---------------------------------------------------------------------------- */
@@ -1500,10 +1499,17 @@ a.form-control.open {
 	}
 #icons a:focus img, #icons a:hover img {
 	background: #bee74b;
+	outline: 0;
+	border-color: #dadada;
+	}
+#icons a:focus {
+	outline: 0;
+	border-color: #fff;	
 	}
 #icons a:hover span {
 	border-bottom-style: solid;
 	}
+
 /* billet rapide */
 #quick {
 	padding: 1em;
