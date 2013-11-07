@@ -54,11 +54,12 @@ class dcUpdate
 	 * Returns latest version if available or false.
 	 * 
 	 * @param version		string	Current version to compare
+	 * @param nocache        boolean   Force checking
 	 * @return string				Latest version if available
 	 */
-	public function check($version)
+	public function check($version, $nocache=false)
 	{
-		$this->getVersionInfo();
+		$this->getVersionInfo($nocache);
 		$v = $this->getVersion();
 		if ($v && version_compare($version,$v,'<')) {
 			return $v;
@@ -67,10 +68,10 @@ class dcUpdate
 		return false;
 	}
 	
-	public function getVersionInfo()
+	public function getVersionInfo($nocache=false)
 	{
 		# Check cached file
-		if (is_readable($this->cache_file) && filemtime($this->cache_file) > strtotime($this->cache_ttl))
+		if (is_readable($this->cache_file) && filemtime($this->cache_file) > strtotime($this->cache_ttl) && !$nocache)
 		{
 			$c = @file_get_contents($this->cache_file);
 			$c = @unserialize($c);
