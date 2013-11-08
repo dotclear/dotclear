@@ -1,20 +1,22 @@
 dotclear.commentExpander = function(line) {
 	$('<a href="#"><img src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/></a>')
-		.click(function() {
+		.click(function(e) {
 			dotclear.toggleArrow(this);
 			dotclear.viewCommentContent(line);
+			e.preventDefault();
 		})
 		.prependTo($(line).children().get(0)); // first td
 };
 
 dotclear.commentsExpander = function(line,lines) {
 	$('<a href="#"><img src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/></a>')
-		.click(function() {
+		.click(function(e) {
 			dotclear.toggleArrow(this);
 			lines.each(function() {
 				var action = dotclear.toggleArrow(this.firstChild.firstChild);
 				dotclear.viewCommentContent(this,action);
 			});
+			e.preventDefault();
 		})
 		.prependTo($(line).children().get(0)); // first td
 };
