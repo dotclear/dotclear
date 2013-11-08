@@ -1,20 +1,37 @@
 dotclear.commentExpander = function(line) {
-	var td = line.firstChild;
-
-	var img = document.createElement('img');
-	img.src = dotclear.img_plus_src;
-	img.alt = dotclear.img_plus_alt;
-	img.className = 'expand';
-	$(img).css('cursor','pointer');
-	img.line = line;
-	img.onclick = function() { dotclear.viewCommentContent(this,this.line); };
-
-	td.insertBefore(img,td.firstChild);
+	$('<a href="#"><img src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/></a>')
+		.click(function(e) {
+			dotclear.toggleArrow(this);
+			dotclear.viewCommentContent(line);
+			e.preventDefault();
+		})
+		.prependTo($(line).children().get(0)); // first td
 };
 
-dotclear.viewCommentContent = function(img,line) {
-	var commentId = line.id.substr(1);
+dotclear.toggleArrow = function(link,action) {
+	action = action || '';
+	var img = $(link).children().get(0);
+	if (action=='') {
+		if (img.alt==dotclear.img_plus_alt) {
+			action = 'open';
+		} else {
+			action = 'close';
+		}
+	}
 
+	if (action=='open') {
+		img.src = dotclear.img_minus_src;
+		img.alt = dotclear.img_minus_alt;
+	} else {
+		img.src = dotclear.img_plus_src;
+		img.alt = dotclear.img_plus_alt;
+	}
+
+	return action;
+}
+
+dotclear.viewCommentContent = function(line,action) {
+	var commentId = $(line).attr('id').substr(1);
 	var tr = document.getElementById('ce'+commentId);
 
 	if (!tr) {
@@ -24,9 +41,6 @@ dotclear.viewCommentContent = function(img,line) {
 		td.colSpan = 6;
 		td.className = 'expand';
 		tr.appendChild(td);
-
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
 
 		// Get comment content
 		$.get('services.php',{f:'getCommentById',id: commentId},function(data) {
@@ -59,15 +73,11 @@ dotclear.viewCommentContent = function(img,line) {
 	{
 		$(tr).toggle();
 		$(line).toggleClass('expand');
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
 	}
 	else
 	{
 		$(tr).toggle();
 		$(line).toggleClass('expand');
-		img.src = dotclear.img_plus_src;
-		img.alt = dotclear.img_plus_alt;
 	}
 };
 
