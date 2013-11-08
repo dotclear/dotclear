@@ -316,8 +316,8 @@ class dcPage
 		'<html xmlns="http://www.w3.org/1999/xhtml" '.
 		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
 		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
-		'<meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
 		"<head>\n".
+		'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
 
@@ -655,6 +655,8 @@ class dcPage
 			__('Are you sure you want to reorder all categories?')).
 		self::jsVar('dotclear.msg.confirm_delete_media',
 			__('Are you sure you want to remove media "%s"?')).
+		self::jsVar('dotclear.msg.confirm_delete_directory',
+			__('Are you sure you want to remove directory "%s"?')).
 		self::jsVar('dotclear.msg.confirm_extract_current',
 			__('Are you sure you want to extract archive in current directory?')).
 		self::jsVar('dotclear.msg.confirm_remove_attachment',
@@ -896,7 +898,9 @@ class dcPage
 		"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."'; ".
 
 		"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."'; ".
-		"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ";
+		"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ".
+
+		"jsToolBar.prototype.elements.removeFormat.title = '".html::escapeJS(__('Remove text formating'))."'; ";
 
 		if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
 			$res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";

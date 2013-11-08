@@ -183,6 +183,7 @@ if (!empty($_POST['wup']) || $removing || $move )
 		$core->blog->settings->widgets->put('widgets_custom',$widgets_custom->store());
 		$core->blog->triggerBlog();
 
+		dcPage::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
 		http::redirect($p_url);
 	}
 	catch (Exception $e)
@@ -200,6 +201,7 @@ elseif (!empty($_POST['wreset']))
 		$core->blog->settings->widgets->put('widgets_custom','');
 		$core->blog->triggerBlog();
 
+		dcPage::addSuccessNotice(__('Sidebars have been resetting.'));
 		http::redirect($p_url);
 	}
 	catch (Exception $e)
@@ -355,7 +357,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 
 	$res .= '<ul id="'.$id.'" class="connected">';
 
-	$res .= '<li class="empty-widgets" '.(!$widgets->isEmpty() ? 'style="display: none;"' : '').'>'.__('No widget for now.').'</li>';
+	$res .= '<li class="empty-widgets" '.(!$widgets->isEmpty() ? 'style="display: none;"' : '').'>'.__('No widget as far.').'</li>';
 
 	$i = 0;
 	foreach ($widgets->elements() as $w)

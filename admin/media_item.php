@@ -288,8 +288,9 @@ if ($popup)
 		form::radio(array('src'),$file->file_url,$s_checked).' '.__('original').'</label><br /> ';
 		echo '</p>';
 		
-		
-		echo '<h3>'.__('Image alignment').'</h3>';
+		echo
+		'<div class="two-boxes">'.		
+		'<h3>'.__('Image alignment').'</h3>';
 		$i_align = array(
 			'none' => array(__('None'),($media_img_default_alignment == 'none' ? 1 : 0)),
 			'left' => array(__('Left'),($media_img_default_alignment == 'left' ? 1 : 0)),
@@ -303,21 +304,26 @@ if ($popup)
 			form::radio(array('alignment'),$k,$v[1]).' '.$v[0].'</label><br /> ';
 		}
 		echo '</p>';
+		echo '</div>';
 		
 		echo
+		'<div class="two-boxes">'.
 		'<h3>'.__('Image insertion').'</h3>'.
 		'<p>'.
 		'<label for="insert1" class="classic">'.form::radio(array('insertion','insert1'),'simple',!$media_img_default_link).
 		__('As a single image').'</label><br />'.
 		'<label for="insert2" class="classic">'.form::radio(array('insertion','insert2'),'link',$media_img_default_link).
 		__('As a link to the original image').'</label>'.
-		'</p>';
+		'</p>'.
+		'</div>';
 	}
 	elseif ($file->type == 'audio/mpeg3')
 	{
 		$media_type = 'mp3';
 		
-		echo '<h3>'.__('MP3 disposition').'</h3>';
+		echo 
+		'<div class="two-boxes">'.
+		'<h3>'.__('MP3 disposition').'</h3>';
 		dcPage::message(__("Please note that you cannot insert mp3 files with visual editor."),false);
 		
 		$i_align = array(
@@ -337,6 +343,7 @@ if ($popup)
 		$public_player = dcMedia::mp3player($file->file_url,$core->blog->getQmarkURL().'pf=player_mp3.swf',$public_player_style);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
 		echo '</p>';
+		echo '</div>';
 	}
 	elseif ($file->type == 'video/x-flv' || $file->type == 'video/mp4' || $file->type == 'video/x-m4v')
 	{
@@ -345,14 +352,19 @@ if ($popup)
 		dcPage::message(__("Please note that you cannot insert video files with visual editor."),false);
 		
 		echo
+		'<div class="two-boxes">'.
 		'<h3>'.__('Video size').'</h3>'.
 		'<p><label for="video_w" class="classic">'.__('Width:').'</label> '.
 		form::field('video_w',3,4,400).'  '.
 		'<label for="video_h" class="classic">'.__('Height:').'</label> '.
 		form::field('video_h',3,4,300).
-		'</p>';
+		'</p>'.
+		'</div>';
+
 		
-		echo '<h3>'.__('Video disposition').'</h3>';
+		echo 
+		'<div class="two-boxes">'.
+		'<h3>'.__('Video disposition').'</h3>';
 		
 		$i_align = array(
 			'none' => array(__('None'),($media_img_default_alignment == 'none' ? 1 : 0)),
@@ -371,6 +383,7 @@ if ($popup)
 		$public_player = dcMedia::flvplayer($file->file_url,$core->blog->getQmarkURL().'pf=player_flv.swf',$public_player_style);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
 		echo '</p>';
+		echo '</div>';
 	}
 	else
 	{

@@ -253,7 +253,7 @@ if ( $core->auth->isSuperAdmin() ) {
 
 # Error list
 if (count($err) > 0) {
-	echo '<div class="error"><p><strong>Erreur&nbsp;:</strong></p>'.
+	echo '<div class="error"><p><strong>'.__('Error:').'</strong></p>'.
 	'<ul><li>'.implode("</li><li>",$err).'</li></ul></div>';
 }
 
