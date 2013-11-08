@@ -442,6 +442,7 @@ a, a:link, a:visited {
 	text-decoration: none;
 	border-bottom: 1px dotted #999;
  	background-color: inherit;
+ 	outline: 0;
 	}
 a:hover, a:active {
 	border-bottom-style: solid;
@@ -1506,10 +1507,12 @@ a.form-control.open {
 	outline: 0;
 	border-color: #fff;	
 	}
-#icons a:hover span {
+#icons a:hover span, #icons a:focus span {
 	border-bottom-style: solid;
 	}
-
+#icons a:focus span {
+	border: 2px solid #bee74b;
+	}
 /* billet rapide */
 #quick {
 	padding: 1em;
