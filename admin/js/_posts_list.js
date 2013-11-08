@@ -1,55 +1,50 @@
 dotclear.postExpander = function(line) {
-	var td = line.firstChild;
-	
-	var img = document.createElement('img');
-	img.src = dotclear.img_plus_src;
-	img.alt = dotclear.img_plus_alt;
-	img.className = 'expand';
-	$(img).css('cursor','pointer');
-	img.line = line;
-	img.onclick = function() { dotclear.viewPostContent(this,this.line); };
-	
-	td.insertBefore(img,td.firstChild);
+	$('<a href="#"><img src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/></a>')
+		.click(function() {
+			dotclear.toggleArrow(this);
+			dotclear.viewPostContent(line);
+		})
+		.prependTo($(line).children().get(0)); // first td
 };
 
 dotclear.postsExpander = function(line,lines) {
-	var td = line.firstChild;
-
-	var img = document.createElement('img');
-	img.src = dotclear.img_plus_src;
-	img.alt = dotclear.img_plus_alt;
-	img.className = 'expand';
-	$(img).css('cursor','pointer');
-	img.lines = lines;
-	img.onclick = function() { dotclear.viewPostsContent(this,this.lines); };
-
-	td.insertBefore(img,td.firstChild);
+	$('<a href="#"><img src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/></a>')
+		.click(function() {
+			var action = dotclear.toggleArrow(this);
+			lines.each(function() {
+				dotclear.toggleArrow(this.firstChild.firstChild,action);
+				dotclear.viewPostContent(this,action);
+			});
+		})
+		.prependTo($(line).children().get(0)); // first td
 };
 
-dotclear.viewPostsContent = function(img,lines) {
-	
-	action = 'toggle';
+dotclear.toggleArrow = function(link,action) {
+	action = action || '';
+	var img = $(link).children().get(0);
+	if (action=='') {
+		if (img.alt==dotclear.img_plus_alt) {
+			action = 'open';
+		} else {
+			action = 'close';
+		}
+	}
 
-	if (img.alt == dotclear.img_plus_alt) {
+	if (action=='open') {
 		img.src = dotclear.img_minus_src;
 		img.alt = dotclear.img_minus_alt;
-		action = 'open';
 	} else {
 		img.src = dotclear.img_plus_src;
 		img.alt = dotclear.img_plus_alt;
-		action = 'close';
 	}
-	
-	lines.each(function() {
-		var td = this.firstChild;
-		dotclear.viewPostContent(td.firstChild,td.firstChild.line,action);
-	});
-};
 
-dotclear.viewPostContent = function(img,line,action) {
-	
+	return action;
+}
+
+
+dotclear.viewPostContent = function(line,action) {
 	var action = action || 'toggle';
-	var postId = line.id.substr(1);
+	var postId = $(line).attr('id').substr(1);
 	var tr = document.getElementById('pe'+postId);
 	
 	if ( !tr && ( action == 'toggle' || action == 'open' ) ) {
@@ -59,9 +54,6 @@ dotclear.viewPostContent = function(img,line,action) {
 		td.colSpan = 8;
 		td.className = 'expand';
 		tr.appendChild(td);
-		
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
 		
 		// Get post content
 		$.get('services.php',{f:'getPostById', id: postId, post_type: ''},function(data) {
@@ -91,30 +83,21 @@ dotclear.viewPostContent = function(img,line,action) {
 	{
 		$(tr).css('display', 'table-row');
 		$(line).addClass('expand');
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
 	}
 	else if (tr && tr.style.display != 'none' && ( action == 'toggle' || action == 'close' ) )
 	{
 		$(tr).css('display', 'none');
 		$(line).removeClass('expand');
-		img.src = dotclear.img_plus_src;
-		img.alt = dotclear.img_plus_alt;
 	}
 	
 	parentTable = $(line).parents('table');
 	if( parentTable.find('tr.expand').length == parentTable.find('tr.line').length ) {
 		img = parentTable.find('tr:not(.line) th:first img');
-		img.attr('src',dotclear.img_minus_src);
-		img.attr('alt',dotclear.img_minus_alt);
 	}
 	
 	if( parentTable.find('tr.expand').length == 0 ) {
 		img = parentTable.find('tr:not(.line) th:first img');
-		img.attr('src',dotclear.img_plus_src);
-		img.attr('alt',dotclear.img_plus_alt);
-	}
-	
+	}	
 };
 
 $(function() {
