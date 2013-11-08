@@ -10,9 +10,9 @@ dotclear.postExpander = function(line) {
 dotclear.postsExpander = function(line,lines) {
 	$('<a href="#"><img src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/></a>')
 		.click(function() {
-			var action = dotclear.toggleArrow(this);
+			dotclear.toggleArrow(this);
 			lines.each(function() {
-				dotclear.toggleArrow(this.firstChild.firstChild,action);
+				var action = dotclear.toggleArrow(this.firstChild.firstChild);
 				dotclear.viewPostContent(this,action);
 			});
 		})
