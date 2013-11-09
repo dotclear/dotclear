@@ -501,7 +501,7 @@ legend {
 	background: #fff;
 	margin-bottom: 0.5em;
 	}
-label .maximal, textarea.maximal, input.maximal {
+label .maximal, textarea.maximal, input.maximal, select.maximal {
 	width: 99%;
 	}
 input[type=text], input[type=password], textarea, select {
