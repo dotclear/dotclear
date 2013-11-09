@@ -2788,6 +2788,16 @@ h1 a:hover, h1 a:focus {
 	padding: 1em;
 	vertical-align: bottom;
 	}
+.pseudo-tabs li {
+	display: block;
+	float: left;
+	width: 50%;
+	border-top: 1px solid #ddd;
+	padding: .25em;
+	}
+.pseudo-tabs li:first-child, .pseudo-tabs li:nth-of-type(2) {
+	border-top: none;
+	}
 }
 @media screen and (max-width: 26.5em) {
 h1, h1 a {
@@ -2855,5 +2865,14 @@ table .maximal {
 	}
 th, td {
 	padding: 0.3em 1em 0.3em 0;
+	}
+.pseudo-tabs li {
+	display: block;
+	width: 100%;
+	float: none;
+	border-top: 1px solid #ddd !important;
+	}
+.pseudo-tabs li:first-child {
+	border-top: none;
 	}
 }
