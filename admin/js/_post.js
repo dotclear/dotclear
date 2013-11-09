@@ -1,35 +1,3 @@
-dotclear.commentExpander = function(line) {
-	$('<a href="#"><img src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/></a>')
-		.click(function(e) {
-			dotclear.toggleArrow(this);
-			dotclear.viewCommentContent(line);
-			e.preventDefault();
-		})
-		.prependTo($(line).children().get(0)); // first td
-};
-
-dotclear.toggleArrow = function(link,action) {
-	action = action || '';
-	var img = $(link).children().get(0);
-	if (action=='') {
-		if (img.alt==dotclear.img_plus_alt) {
-			action = 'open';
-		} else {
-			action = 'close';
-		}
-	}
-
-	if (action=='open') {
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
-	} else {
-		img.src = dotclear.img_plus_src;
-		img.alt = dotclear.img_plus_alt;
-	}
-
-	return action;
-}
-
 dotclear.viewCommentContent = function(line,action) {
 	var commentId = $(line).attr('id').substr(1);
 	var tr = document.getElementById('ce'+commentId);
@@ -139,7 +107,7 @@ $(function() {
 		$(a).click(function() {
 			
 			excerpt_content = $('#post_excerpt').css('display') != 'none' ? $('#post_excerpt').val() : $('#excerpt-area iframe').contents().find('body').html();
-			post_content    = $('#post_content').css('display') != 'none' ? $('#post_content').val() : $('#content-area iframe').contents().find('body').html();
+			post_content	= $('#post_content').css('display') != 'none' ? $('#post_content').val() : $('#content-area iframe').contents().find('body').html();
 			
 			var params = {
 				xd_check: dotclear.nonce,
@@ -275,8 +243,9 @@ $(function() {
 	});
 
 	$('#comments').onetabload(function() {
-		$('#form-comments .comments-list tr.line').each(function() {
-			dotclear.commentExpander(this);
+		$.expandContent({
+			lines:$('#form-comments .comments-list tr.line'),
+			callback:dotclear.viewCommentContent
 		});
 		$('#form-comments .checkboxes-helpers').each(function() {
 			dotclear.checkboxesHelpers(this);
@@ -286,8 +255,9 @@ $(function() {
 	});
 
 	$('#trackbacks').onetabload(function() {
-		$('#form-trackbacks .comments-list tr.line').each(function() {
-			dotclear.commentExpander(this);
+		$.expandContent({
+			lines:$('#form-trackbacks .comments-list tr.line'),
+			callback:dotclear.viewCommentContent
 		});
 		$('#form-trackbacks .checkboxes-helpers').each(function() {
 			dotclear.checkboxesHelpers(this);
