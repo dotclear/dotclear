@@ -1,48 +1,3 @@
-dotclear.postExpander = function(line) {
-	$('<a href="#"><img src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/></a>')
-		.click(function(e) {
-			dotclear.toggleArrow(this);
-			dotclear.viewPostContent(line);
-			e.preventDefault();
-		})
-		.prependTo($(line).children().get(0)); // first td
-};
-
-dotclear.postsExpander = function(line,lines) {
-	$('<a href="#"><img src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/></a>')
-		.click(function(e) {
-			dotclear.toggleArrow(this);
-			lines.each(function() {
-				var action = dotclear.toggleArrow(this.firstChild.firstChild);
-				dotclear.viewPostContent(this,action);
-			});
-			e.preventDefault();
-		})
-		.prependTo($(line).children().get(0)); // first td
-};
-
-dotclear.toggleArrow = function(link,action) {
-	action = action || '';
-	var img = $(link).children().get(0);
-	if (action=='') {
-		if (img.alt==dotclear.img_plus_alt) {
-			action = 'open';
-		} else {
-			action = 'close';
-		}
-	}
-
-	if (action=='open') {
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
-	} else {
-		img.src = dotclear.img_plus_src;
-		img.alt = dotclear.img_plus_alt;
-	}
-
-	return action;
-}
-
 dotclear.viewPostContent = function(line,action) {
 	var action = action || 'toggle';
 	var postId = $(line).attr('id').substr(1);
@@ -90,27 +45,15 @@ dotclear.viewPostContent = function(line,action) {
 		$(tr).css('display', 'none');
 		$(line).removeClass('expand');
 	}
-	
-	parentTable = $(line).parents('table');
-	if( parentTable.find('tr.expand').length == parentTable.find('tr.line').length ) {
-		img = parentTable.find('tr:not(.line) th:first img');
-	}
-	
-	if( parentTable.find('tr.expand').length == 0 ) {
-		img = parentTable.find('tr:not(.line) th:first img');
-	}
-	
 };
 
 $(function() {
-
 	$('#pageslist tr.line').prepend('<td class="expander"></td>');
 	$('#form-entries tr:not(.line) th:first').attr('colspan',4);
-	$('#form-entries tr:not(.line)').each(function() {
-		dotclear.postsExpander(this,$('#form-entries tr.line'));
-	});
-	$('#pageslist tr.line').each(function() {
-		dotclear.postExpander(this);
+	$.expandContent({
+		line:$('#form-entries tr:not(.line)'),
+		lines:$('#form-entries tr.line'),
+		callback:dotclear.viewPostContent
 	});
 	$('.checkboxes-helpers').each(function() {
 		p = $('<p></p>');
