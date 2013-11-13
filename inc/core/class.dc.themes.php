@@ -21,26 +21,26 @@ class should be created when needed.
 This class extends dcModules.
 */
 class dcThemes extends dcModules
-{	
+{
 	protected static $type = 'theme';
 
 	/**
 	This method registers a theme in modules list. You should use this to
 	register a new theme.
-	
+
 	<var>$parent</var> is a optional value to indicate them inheritance.
-	If <var>$parent</var> is null / not set, we simply fall back to 
+	If <var>$parent</var> is null / not set, we simply fall back to
 	the standard behavior, by using 'default'.
-	
+
 	<var>$priority</var> is an integer. Modules are sorted by priority and name.
 	Lowest priority comes first. This property is currently ignored when dealing
 	with themes.
-	
+
 	@param	name			<b>string</b>		Module name
 	@param	desc			<b>string</b>		Module description
 	@param	author		<b>string</b>		Module author name
 	@param	version		<b>string</b>		Module version
-	@param	properties	<b>array</b>		extra properties 
+	@param	properties	<b>array</b>		extra properties
 	(currently available keys : parent, priority, standalone_config, type)
 	*/
 	public function registerModule($name,$desc,$author,$version,$properties = array())
@@ -58,19 +58,19 @@ class dcThemes extends dcModules
 		}
 		# Themes specifics properties
 		$properties = array_merge(
-			array('parent' => null),
+			array('parent' => null, 'tplset' => 'legacy'),
 			$properties,
 			array('permissions' => 'admin') // force themes perms
 		);
 
 		parent::registerModule($name, $desc, $author, $version, $properties);
-	}	
-	
+	}
+
 	/**
 	Loads namespace <var>$ns</var> specific file for module with ID
 	<var>$id</var>
 	Note : actually, only 'public' namespace is supported with themes.
-	
+
 	@param	id		<b>string</b>		Module ID
 	@param	ns		<b>string</b>		Namespace name
 	*/
