@@ -460,9 +460,6 @@ h1 a:link, h1 a:visited {
 a:link {
   transition: .5s;
 }
-a:visited {
-  color: inherit;
-}
 a:focus, a:focus img {
   outline: 2px solid #bee74b;
   border-bottom: none;
@@ -943,10 +940,12 @@ h1 a {
 	height: 3em;
 	color: #fff;
 	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
+	transition: none;
 	}
 h1 a:hover, h1 a:focus {
 	background-position: 0 -94px;
 	background-color: transparent;
+	transition: none;
 	}
 /* top-info-blog */
 #top-info-blog select {
