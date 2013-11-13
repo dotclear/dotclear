@@ -32,12 +32,6 @@ config:
 	## Remove config file if any
 	rm -f ./$(DC)/inc/config.php
 
-	## Remove test files and folders, and makefile of Clearbricks
- 	rm -rf ./$(DC)/inc/libs/clearbricks/tests
-	rm -f ./$(DC)/inc/libs/clearbricks/.atoum.*
-	rm -f ./$(DC)/inc/libs/clearbricks/composer.*
-	rm -f ./$(DC)/inc/libs/clearbricks/Makefile
-
 	## Copy built-in plugins
 	cp -pRf \
 	./plugins/aboutConfig \
