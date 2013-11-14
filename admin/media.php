@@ -313,6 +313,11 @@ call_user_func($open_f,__('Media manager'),
 	$breadcrumb
 	);
 
+if ($popup) {
+	// Display notices
+	echo dcPage::notices();
+}
+
 if (!$core_media_writable) {
 	dcPage::warning(__('You do not have sufficient permissions to write to this folder.'));
 }

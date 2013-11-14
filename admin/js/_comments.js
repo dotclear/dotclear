@@ -1,61 +1,15 @@
-dotclear.commentExpander = function(line) {
-	var td = line.firstChild;
-	
-	var img = document.createElement('img');
-	img.src = dotclear.img_plus_src;
-	img.alt = dotclear.img_plus_alt;
-	img.className = 'expand';
-	$(img).css('cursor','pointer');
-	img.line = line;
-	img.onclick = function() { dotclear.viewCommentContent(this,this.line); };
-	
-	td.insertBefore(img,td.firstChild);
-};
-
-dotclear.commentsExpander = function(line,lines) {
-	var td = line.firstChild;
-	
-	var img = document.createElement('img');
-	img.src = dotclear.img_plus_src;
-	img.alt = dotclear.img_plus_alt;
-	img.className = 'expand';
-	$(img).css('cursor','pointer');
-	img.lines = lines;
-	img.onclick = function() { dotclear.viewCommentsContent(this,this.lines); };
-	
-	td.insertBefore(img,td.firstChild);
-};
-
-dotclear.viewCommentsContent = function(img,lines) {
-	lines.each(function() {
-		var td = this.firstChild;
-		td.firstChild.click();
-	});
-
-	if (img.alt == dotclear.img_plus_alt) {
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
-	} else {
-		img.src = dotclear.img_plus_src;
-		img.alt = dotclear.img_plus_alt;
-	}
-};
-
-dotclear.viewCommentContent = function(img,line) {
-	var commentId = line.id.substr(1);
-	
+dotclear.viewCommentContent = function(line,action) {
+	var action = action || 'toggle';
+	var commentId = $(line).attr('id').substr(1);	
 	var tr = document.getElementById('ce'+commentId);
-	
-	if (!tr) {
+
+	if ( !tr && ( action == 'toggle' || action == 'open' ) ) {
 		tr = document.createElement('tr');
 		tr.id = 'ce'+commentId;
 		var td = document.createElement('td');
 		td.colSpan = 6;
 		td.className = 'expand';
 		tr.appendChild(td);
-		
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
 		
 		// Get comment content
 		$.get('services.php',{f:'getCommentById',id: commentId},function(data) {
@@ -86,28 +40,23 @@ dotclear.viewCommentContent = function(img,line) {
 		$(line).toggleClass('expand');
 		line.parentNode.insertBefore(tr,line.nextSibling);
 	}
-	else if (tr.style.display == 'none')
+	else if (tr && tr.style.display == 'none' && ( action == 'toggle' || action == 'open' ) )
 	{
-		$(tr).toggle();
-		$(line).toggleClass('expand');
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
+		$(tr).css('display', 'table-row');
+		$(line).addClass('expand');
 	}
-	else
+	else if (tr && tr.style.display != 'none' && ( action == 'toggle' || action == 'close' ) )
 	{
-		$(tr).toggle();
-		$(line).toggleClass('expand');
-		img.src = dotclear.img_plus_src;
-		img.alt = dotclear.img_plus_alt;
+		$(tr).css('display', 'none');
+		$(line).removeClass('expand');
 	}
 };
 
 $(function() {
-	$('#form-comments tr:not(.line)').each(function() {
-		dotclear.commentsExpander(this,$('#form-comments tr.line'));
-	});
-	$('#form-comments tr.line').each(function() {
-		dotclear.commentExpander(this);
+	$.expandContent({
+		line:$('#form-comments tr:not(.line)'),
+		lines:$('#form-comments tr.line'),
+		callback:dotclear.viewCommentContent
 	});
 	$('.checkboxes-helpers').each(function() {
 		dotclear.checkboxesHelpers(this);

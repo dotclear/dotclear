@@ -45,18 +45,18 @@ $core_media_writable = false;
 try
 {
 	$core->media = new dcMedia($core);
-	
+
 	if ($id) {
 		$file = $core->media->getFile($id);
 	}
-	
+
 	if ($file === null) {
 		throw new Exception(__('Not a valid file'));
 	}
-	
+
 	$core->media->chdir(dirname($file->relname));
 	$core_media_writable = $core->media->writable();
-	
+
 	# Prepare directories combo box
 	$dirs_combo = array();
 	foreach ($core->media->getDBDirs() as $v) {
@@ -92,9 +92,9 @@ if ($file && !empty($_FILES['upfile']) && $file->editable && $core_media_writabl
 if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writable)
 {
 	$newFile = clone $file;
-	
+
 	$newFile->basename = $_POST['media_file'];
-	
+
 	if ($_POST['media_path']) {
 		$newFile->dir = $_POST['media_path'];
 		$newFile->relname = $_POST['media_path'].'/'.$newFile->basename;
@@ -106,7 +106,7 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
 	$newFile->media_dt = strtotime($_POST['media_dt']);
 	$newFile->media_dtstr = $_POST['media_dt'];
 	$newFile->media_priv = !empty($_POST['media_private']);
-	
+
 	try {
 		$core->media->updateFile($file,$newFile);
 
@@ -123,7 +123,7 @@ if (!empty($_POST['thumbs']) && $file->media_type == 'image' && $file->editable 
 	try {
 		$foo = null;
 		$core->media->mediaFireRecreateEvent($file);
-		
+
 		dcPage::addSuccessNotice(__('Thumbnails have been successfully updated.'));
 		http::redirect($page_url.'&id='.$id.'&tab=media-details-tab');
 	} catch (Exception $e) {
@@ -136,7 +136,7 @@ if (!empty($_POST['unzip']) && $file->type == 'application/zip' && $file->editab
 {
 	try {
 		$unzip_dir = $core->media->inflateZipFile($file,$_POST['inflate_mode'] == 'new');
-		
+
 		dcPage::addSuccessNotice(__('Zip file has been successfully extracted.'));
 		http::redirect($media_page_url.'&d='.$unzip_dir);
 	} catch (Exception $e) {
@@ -161,7 +161,7 @@ if (!empty($_POST['save_blog_prefs']))
 	if (!empty($_POST['pref_insertion'])) {
 		$core->blog->settings->system->put('media_img_default_link',($_POST['pref_insertion'] == 'link'));
 	}
-	
+
 	dcPage::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
 	http::redirect($page_url.'&id='.$id);
 }
@@ -172,7 +172,7 @@ function dcGetImageTitle($file,$pattern,$dto_first=false)
 	$res = array();
 	$pattern = preg_split('/\s*;;\s*/',$pattern);
 	$sep = ', ';
-	
+
 	foreach ($pattern as $v) {
 		if ($v == 'Title') {
 			if ($file->media_title != '') {
@@ -199,7 +199,7 @@ function dcGetImageTitle($file,$pattern,$dto_first=false)
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
-$starting_scripts = 
+$starting_scripts =
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA["."\n".
 	dcPage::jsVar('dotclear.msg.confirm_delete_media',__('Are you sure to delete this media?'))."\n".
@@ -227,6 +227,11 @@ call_user_func($open_f,__('Media manager'),
 	)
 );
 
+if ($popup) {
+	// Display notices
+	echo dcPage::notices();
+}
+
 if ($file === null) {
 	call_user_func($close_f);
 	exit;
@@ -246,12 +251,12 @@ if (!empty($_GET['blogprefupd'])) {
 if ($popup)
 {
 	$media_desc = $file->media_title;
-	
+
 	echo
 	'<div id="media-insert" class="multi-part" title="'.__('Insert media item').'">'.
 	'<h3>'.__('Insert media item').'</h3>'.
 	'<form id="media-insert-form" action="" method="get">';
-	
+
 	$media_img_default_size = $core->blog->settings->system->media_img_default_size;
 	if ($media_img_default_size == '') {
 		$media_img_default_size = 'm';
@@ -274,7 +279,7 @@ if ($popup)
 
 		echo
 		'<h3>'.__('Image size:').'</h3> ';
-		
+
 		$s_checked = false;
 		echo '<p>';
 		foreach (array_reverse($file->media_thumb) as $s => $v) {
@@ -287,9 +292,9 @@ if ($popup)
 		echo '<label class="classic">'.
 		form::radio(array('src'),$file->file_url,$s_checked).' '.__('original').'</label><br /> ';
 		echo '</p>';
-		
+
 		echo
-		'<div class="two-boxes">'.		
+		'<div class="two-boxes">'.
 		'<h3>'.__('Image alignment').'</h3>';
 		$i_align = array(
 			'none' => array(__('None'),($media_img_default_alignment == 'none' ? 1 : 0)),
@@ -297,7 +302,7 @@ if ($popup)
 			'right' => array(__('Right'),($media_img_default_alignment == 'right' ? 1 : 0)),
 			'center' => array(__('Center'),($media_img_default_alignment == 'center' ? 1 : 0))
 		);
-		
+
 		echo '<p>';
 		foreach ($i_align as $k => $v) {
 			echo '<label class="classic">'.
@@ -305,7 +310,7 @@ if ($popup)
 		}
 		echo '</p>';
 		echo '</div>';
-		
+
 		echo
 		'<div class="two-boxes">'.
 		'<h3>'.__('Image insertion').'</h3>'.
@@ -320,25 +325,25 @@ if ($popup)
 	elseif ($file->type == 'audio/mpeg3')
 	{
 		$media_type = 'mp3';
-		
-		echo 
+
+		echo
 		'<div class="two-boxes">'.
 		'<h3>'.__('MP3 disposition').'</h3>';
 		dcPage::message(__("Please note that you cannot insert mp3 files with visual editor."),false);
-		
+
 		$i_align = array(
 			'none' => array(__('None'),($media_img_default_alignment == 'none' ? 1 : 0)),
 			'left' => array(__('Left'),($media_img_default_alignment == 'left' ? 1 : 0)),
 			'right' => array(__('Right'),($media_img_default_alignment == 'right' ? 1 : 0)),
 			'center' => array(__('Center'),($media_img_default_alignment == 'center' ? 1 : 0))
 		);
-		
+
 		echo '<p>';
 		foreach ($i_align as $k => $v) {
 			echo '<label class="classic">'.
 			form::radio(array('alignment'),$k,$v[1]).' '.$v[0].'</label><br /> ';
 		}
-		
+
 		$public_player_style = unserialize($core->blog->settings->themes->mp3player_style);
 		$public_player = dcMedia::mp3player($file->file_url,$core->blog->getQmarkURL().'pf=player_mp3.swf',$public_player_style);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
@@ -348,9 +353,9 @@ if ($popup)
 	elseif ($file->type == 'video/x-flv' || $file->type == 'video/mp4' || $file->type == 'video/x-m4v')
 	{
 		$media_type = 'flv';
-		
+
 		dcPage::message(__("Please note that you cannot insert video files with visual editor."),false);
-		
+
 		echo
 		'<div class="two-boxes">'.
 		'<h3>'.__('Video size').'</h3>'.
@@ -361,24 +366,24 @@ if ($popup)
 		'</p>'.
 		'</div>';
 
-		
-		echo 
+
+		echo
 		'<div class="two-boxes">'.
 		'<h3>'.__('Video disposition').'</h3>';
-		
+
 		$i_align = array(
 			'none' => array(__('None'),($media_img_default_alignment == 'none' ? 1 : 0)),
 			'left' => array(__('Left'),($media_img_default_alignment == 'left' ? 1 : 0)),
 			'right' => array(__('Right'),($media_img_default_alignment == 'right' ? 1 : 0)),
 			'center' => array(__('Center'),($media_img_default_alignment == 'center' ? 1 : 0))
 		);
-		
+
 		echo '<p>';
 		foreach ($i_align as $k => $v) {
 			echo '<label class="classic">'.
 			form::radio(array('alignment'),$k,$v[1]).' '.$v[0].'</label><br /> ';
 		}
-		
+
 		$public_player_style = unserialize($core->blog->settings->themes->flvplayer_style);
 		$public_player = dcMedia::flvplayer($file->file_url,$core->blog->getQmarkURL().'pf=player_flv.swf',$public_player_style);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
@@ -400,7 +405,7 @@ if ($popup)
 	form::hidden(array('description'),html::escapeHTML($media_desc)).
 	form::hidden(array('url'),$file->file_url).
 	'</p>';
-	
+
 	echo '</form>';
 
 	if ($media_type != 'default') {
@@ -436,11 +441,11 @@ echo
 if ($file->media_image)
 {
 	$thumb_size = !empty($_GET['size']) ? $_GET['size'] : 's';
-	
+
 	if (!isset($core->media->thumb_sizes[$thumb_size]) && $thumb_size != 'o') {
 		$thumb_size = 's';
 	}
-	
+
 	if (isset($file->media_thumb[$thumb_size])) {
 		echo '<p><img src="'.$file->media_thumb[$thumb_size].'?'.time()*rand().'" alt="" /></p>';
 	} elseif ($thumb_size == 'o') {
@@ -449,7 +454,7 @@ if ($file->media_image)
 		unset($S);
 		echo '<p id="media-original-image"'.$class.'><img src="'.$file->file_url.'?'.time()*rand().'" alt="" /></p>';
 	}
-	
+
 	echo '<p>'.__('Available sizes:').' ';
 	foreach (array_reverse($file->media_thumb) as $s => $v)
 	{
@@ -497,7 +502,7 @@ else
 			"OR post_content_xhtml LIKE '%".$core->con->escape($file->relname)."%' ".
 			"OR post_excerpt_xhtml LIKE '%".$core->con->escape($file->relname)."%' "
 	);
-	
+
 	if ($file->media_image)
 	{ # We look for thumbnails too
 		if (preg_match('#^http(s)?://#',$core->blog->settings->system->public_url)) {
@@ -511,11 +516,11 @@ else
 			$params['sql'] .= "OR post_excerpt_xhtml LIKE '%".$core->con->escape($v)."%' ";
 		}
 	}
-	
+
 	$params['sql'] .= ') ';
-	
+
 	$rs = $core->blog->getPosts($params);
-	
+
 	if ($rs->isEmpty())
 	{
 		echo '<p>'.__('No entry seems contain this media.').'</p>';
@@ -551,7 +556,7 @@ else
 if ($file->type == 'image/jpeg')
 {
 	echo '<h3>'.__('Image details').'</h3>';
-	
+
 	$details = '';
 	if (count($file->media_meta) > 0)
 	{
@@ -586,14 +591,14 @@ if ($file->editable && $core_media_writable)
 		$core->formNonce().'</p>'.
 		'</form>';
 	}
-	
+
 	if ($file->type == 'application/zip')
 	{
 		$inflate_combo = array(
 			__('Extract in a new directory') => 'new',
 			__('Extract in current directory') => 'current'
 		);
-		
+
 		echo
 		'<form class="clear fieldset" id="file-unzip" action="'.html::escapeURL($page_url).'" method="post">'.
 		'<h4>'.__('Extract archive').'</h4>'.
@@ -610,7 +615,7 @@ if ($file->editable && $core_media_writable)
 		$core->formNonce().'</p>'.
 		'</form>';
 	}
-	
+
 	echo
 	'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post">'.
 	'<h4>'.__('Change media properties').'</h4>'.
@@ -628,7 +633,7 @@ if ($file->editable && $core_media_writable)
 	form::hidden(array('id'),$id).
 	$core->formNonce().'</p>'.
 	'</form>';
-	
+
 	echo
 	'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
 	'<h4>'.__('Change file').'</h4>'.
