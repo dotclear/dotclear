@@ -1,8 +1,16 @@
 //~ metaEditor & metaEditor.prototype should go to the core.
-function metaEditor(target,meta_field,meta_type) {
+function metaEditor(target,meta_field,meta_type,meta_options) {
 	this.target = target;
+
 	this.meta_field = meta_field;
 	this.meta_type = meta_type;
+	this.meta_url = meta_options.meta_url || this.meta_url;
+	this.list_type = meta_options.list_type || this.list_type;
+	this.text_confirm_remove = meta_options.text_confirm_remove || this.text_confirm_remove;
+	this.text_add_meta = meta_options.text_add_meta || this.text_add_meta;
+	this.text_choose = meta_options.text_choose || this.text_choose;
+	this.text_all = meta_options.text_all || this.text_all;
+	this.text_separation = meta_options.text_separation || this.text_separation;
 };
 
 metaEditor.prototype = {
@@ -12,6 +20,7 @@ metaEditor.prototype = {
 	text_choose: 'Choose from list',
 	text_all: 'all',
 	text_separation: 'Separate each %s by comas',
+	list_type: 'more',
 
 	target: null,
 	meta_type: null,
@@ -123,11 +132,11 @@ metaEditor.prototype = {
 			this.target.append($('<p></p>').addClass('form-note').append(this.text_separation.replace(/%s/,this.meta_type)));
 		}
 
-		this.showMetaList(metaEditor.prototype.meta_type,this.target);
+		this.showMetaList(this.list_type,this.target);
 
 	},
 
-	showMetaList: function(type,target) {
+	showMetaList: function(list_type,target) {
 
 		var params = {
 			f: 'getMeta',
@@ -135,7 +144,7 @@ metaEditor.prototype = {
 			sortby: 'metaId,asc'
 		};
 
-		if (type == 'more') {
+		if (list_type == 'more') {
 			params.limit = '30';
 		}
 
@@ -166,7 +175,7 @@ metaEditor.prototype = {
 					pl.append(meta_link);
 				});
 
-				if (type == 'more') {
+				if (list_type == 'more') {
 					var a_more = $('<a href="#" class="metaGetMore"></a>');
 					a_more.append(This.text_all + String.fromCharCode(160)+String.fromCharCode(187));
 					a_more.click(function() {
@@ -176,7 +185,7 @@ metaEditor.prototype = {
 					pl.append(', ').append(a_more);
 				}
 
-				if (type != 'more-all') {
+				if (list_type != 'more-all') {
 					pl.addClass('hide');
 
 					var pa = $('<p></p>');
