@@ -76,11 +76,11 @@ $tb_urls = $tb_excerpt = '';
 if (!empty($_REQUEST['id']))
 {
 	$page_title = __('Edit entry');
-	
+
 	$params['post_id'] = $_REQUEST['id'];
-	
+
 	$post = $core->blog->getPosts($params);
-	
+
 	if ($post->isEmpty())
 	{
 		$core->error->add(__('This entry does not exist.'));
@@ -105,27 +105,27 @@ if (!empty($_REQUEST['id']))
 		$post_selected = (boolean) $post->post_selected;
 		$post_open_comment = (boolean) $post->post_open_comment;
 		$post_open_tb = (boolean) $post->post_open_tb;
-		
+
 		$can_edit_post = $post->isEditable();
 		$can_delete= $post->isDeletable();
-		
+
 		$next_rs = $core->blog->getNextPost($post,1);
 		$prev_rs = $core->blog->getNextPost($post,-1);
-		
+
 		if ($next_rs !== null) {
 			$next_link = sprintf($post_link,$next_rs->post_id,
 				html::escapeHTML($next_rs->post_title),__('Next entry').'&nbsp;&#187;');
 			$next_headlink = sprintf($post_headlink,'next',
 				html::escapeHTML($next_rs->post_title),$next_rs->post_id);
 		}
-		
+
 		if ($prev_rs !== null) {
 			$prev_link = sprintf($post_link,$prev_rs->post_id,
 				html::escapeHTML($prev_rs->post_title),'&#171;&nbsp;'.__('Previous entry'));
 			$prev_headlink = sprintf($post_headlink,'previous',
 				html::escapeHTML($prev_rs->post_title),$prev_rs->post_id);
 		}
-		
+
 		try {
 			$core->media = new dcMedia($core);
 		} catch (Exception $e) {
@@ -133,7 +133,7 @@ if (!empty($_REQUEST['id']))
 		}
 
 		# Sanitize trackbacks excerpt
-		$tb_excerpt = empty($_POST['tb_excerpt']) ? 
+		$tb_excerpt = empty($_POST['tb_excerpt']) ?
 			$post_excerpt_xhtml.' '.$post_content_xhtml :
 			$_POST['tb_excerpt'];
 		$tb_excerpt = html::decodeEntities(html::clean($tb_excerpt));
@@ -145,7 +145,7 @@ if (isset($_REQUEST['section']) && $_REQUEST['section']=='trackbacks') {
 	$anchor = 'trackbacks';
 } else {
 	$anchor = 'comments';
-}	
+}
 
 $comments_actions_page = new dcCommentsActionsPage($core,'post.php',array('id' => $post_id, '_ANCHOR'=>$anchor,'section' => $anchor));
 
@@ -161,16 +161,17 @@ if (!empty($_POST['ping']))
 		$tb_urls = $_POST['tb_urls'];
 		$tb_urls = str_replace("\r", '', $tb_urls);
 		$tb_post_title = html::escapeHTML(trim(html::clean($post_title)));
-		
+		$tb_post_url = $post->getURL();
+
 		foreach (explode("\n", $tb_urls) as $tb_url)
 		{
 			try {
-				$TB->ping($tb_url, $post_id, $tb_post_title, $tb_excerpt, $post_url);
+				$TB->ping($tb_url, $post_id, $tb_post_title, $tb_excerpt, $tb_post_url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
 		}
-		
+
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('All pings sent.'));
 			http::redirect('post.php?id='.$post_id.'&tb=1');
@@ -184,15 +185,15 @@ elseif (!empty($_POST) && $can_edit_post)
 	$post_format = $_POST['post_format'];
 	$post_excerpt = $_POST['post_excerpt'];
 	$post_content = $_POST['post_content'];
-	
+
 	$post_title = $_POST['post_title'];
-	
+
 	$cat_id = (integer) $_POST['cat_id'];
-	
+
 	if (isset($_POST['post_status'])) {
 		$post_status = (integer) $_POST['post_status'];
 	}
-	
+
 	if (empty($_POST['post_dt'])) {
 		$post_dt = '';
 	} else {
@@ -210,19 +211,19 @@ elseif (!empty($_POST) && $can_edit_post)
 			$core->error->add($e->getMessage());
 		}
 	}
-	
+
 	$post_open_comment = !empty($_POST['post_open_comment']);
 	$post_open_tb = !empty($_POST['post_open_tb']);
 	$post_selected = !empty($_POST['post_selected']);
 	$post_lang = $_POST['post_lang'];
 	$post_password = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
-	
+
 	$post_notes = $_POST['post_notes'];
-	
+
 	if (isset($_POST['post_url'])) {
 		$post_url = $_POST['post_url'];
 	}
-	
+
 	$core->blog->setPostContent(
 		$post_id,$post_format,$post_lang,
 		$post_excerpt,$post_excerpt_xhtml,$post_content,$post_content_xhtml
@@ -247,24 +248,24 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 {
 	# Create category
 	if (!empty($_POST['new_cat_title']) && $core->auth->check('categories', $core->blog->id)) {
-	
+
 		$cur_cat = $core->con->openCursor($core->prefix.'category');
 		$cur_cat->cat_title = $_POST['new_cat_title'];
 		$cur_cat->cat_url = '';
-		
+
 		$parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
-		
+
 		# --BEHAVIOR-- adminBeforeCategoryCreate
 		$core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
-		
+
 		$cat_id = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
-		
+
 		# --BEHAVIOR-- adminAfterCategoryCreate
 		$core->callBehavior('adminAfterCategoryCreate', $cur_cat, $cat_id);
 	}
-	
+
 	$cur = $core->con->openCursor($core->prefix.'post');
-	
+
 	$cur->post_title = $post_title;
 	$cur->cat_id = ($cat_id ? $cat_id : null);
 	$cur->post_dt = $post_dt ? date('Y-m-d H:i:00',strtotime($post_dt)) : '';
@@ -281,11 +282,11 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 	$cur->post_selected = (integer) $post_selected;
 	$cur->post_open_comment = (integer) $post_open_comment;
 	$cur->post_open_tb = (integer) $post_open_tb;
-	
+
 	if (isset($_POST['post_url'])) {
 		$cur->post_url = $post_url;
 	}
-	
+
 	# Update post
 	if ($post_id)
 	{
@@ -293,9 +294,9 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 		{
 			# --BEHAVIOR-- adminBeforePostUpdate
 			$core->callBehavior('adminBeforePostUpdate',$cur,$post_id);
-			
+
 			$core->blog->updPost($post_id,$cur);
-			
+
 			# --BEHAVIOR-- adminAfterPostUpdate
 			$core->callBehavior('adminAfterPostUpdate',$cur,$post_id);
 			dcPage::addSuccessNotice (sprintf(__('The post "%s" has been successfully updated'),html::escapeHTML($cur->post_title)));
@@ -309,14 +310,14 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 	else
 	{
 		$cur->user_id = $core->auth->userID();
-		
+
 		try
 		{
 			# --BEHAVIOR-- adminBeforePostCreate
 			$core->callBehavior('adminBeforePostCreate',$cur);
-			
+
 			$return_id = $core->blog->addPost($cur);
-			
+
 			# --BEHAVIOR-- adminAfterPostCreate
 			$core->callBehavior('adminAfterPostCreate',$cur,$return_id);
 
@@ -416,7 +417,7 @@ if (!empty($_GET['xconv']))
 	$post_excerpt = $post_excerpt_xhtml;
 	$post_content = $post_content_xhtml;
 	$post_format = 'xhtml';
-	
+
 	dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
 }
 
@@ -429,10 +430,10 @@ if ($post_id)
 	if ($prev_link) { echo $prev_link; }
 	if ($next_link && $prev_link) { echo ' | '; }
 	if ($next_link) { echo $next_link; }
-	
+
 	# --BEHAVIOR-- adminPostNavLinks
 	$core->callBehavior('adminPostNavLinks',isset($post) ? $post : null);
-	
+
 	echo '</p>';
 }
 
@@ -450,11 +451,11 @@ if ($can_edit_post)
 		'status-box' => array(
 			'title' => __('Status'),
 			'items' => array(
-				'post_status' => 
+				'post_status' =>
 					'<p class="entry-status"><label for="post_status">'.__('Entry status').' '.$img_status.'</label>'.
 					form::combo('post_status',$status_combo,$post_status,'maximal','',!$can_publish).
 					'</p>',
-				'post_dt' => 
+				'post_dt' =>
 					'<p><label for="post_dt">'.__('Publication date and hour').'</label>'.
 					form::field('post_dt',16,16,$post_dt,($bad_dt ? 'invalid' : '')).
 					'</p>',
@@ -473,7 +474,7 @@ if ($can_edit_post)
 		'metas-box' => array(
 			'title' => __('Filing'),
 			'items' => array(
-				'post_selected' => 
+				'post_selected' =>
 					'<p><label for="post_selected" class="classic">'.
 					form::checkbox('post_selected',1,$post_selected).' '.
 					__('Selected entry').'</label></p>',
@@ -503,21 +504,21 @@ if ($can_edit_post)
 					'<p><label for="post_open_comment" class="classic">'.
 					form::checkbox('post_open_comment',1,$post_open_comment).' '.
 					__('Accept comments').'</label></p>'.
-					($core->blog->settings->system->allow_comments ? 
-						(isContributionAllowed($post_id,strtotime($post_dt),true) ? 
+					($core->blog->settings->system->allow_comments ?
+						(isContributionAllowed($post_id,strtotime($post_dt),true) ?
 							'' :
 							'<p class="form-note warn">'.
-							__('Warning: Comments are not more accepted for this entry.').'</p>') : 
+							__('Warning: Comments are not more accepted for this entry.').'</p>') :
 						'<p class="form-note warn">'.
 						__('Comments are not accepted on this blog so far.').'</p>').
 					'<p><label for="post_open_tb" class="classic">'.
 					form::checkbox('post_open_tb',1,$post_open_tb).' '.
 					__('Accept trackbacks').'</label></p>'.
-					($core->blog->settings->system->allow_trackbacks ? 
-						(isContributionAllowed($post_id,strtotime($post_dt),false) ? 
+					($core->blog->settings->system->allow_trackbacks ?
+						(isContributionAllowed($post_id,strtotime($post_dt),false) ?
 							'' :
 							'<p class="form-note warn">'.
-							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') : 
+							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') :
 						'<p class="form-note warn">'.__('Trackbacks are not accepted on this blog so far.').'</p>').
 					'</div>',
 				'post_password' =>
@@ -540,19 +541,19 @@ if ($can_edit_post)
 			'<label class="required no-margin bold"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 			form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
 			'</p>',
-		
+
 		"post_excerpt" =>
 			'<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">'.__('Excerpt:').' <span class="form-note">'.
 			__('Introduction to the post.').'</span></label> '.
 			form::textarea('post_excerpt',50,5,html::escapeHTML($post_excerpt)).
 			'</p>',
-		
+
 		"post_content" =>
 			'<p class="area" id="content-area"><label class="required bold" '.
 			'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
 			form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
 			'</p>',
-		
+
 		"post_notes" =>
 			'<p class="area" id="notes-area"><label for="post_notes" class="bold">'.__('Personal notes:').' <span class="form-note">'.
 			__('Unpublished notes.').'</span></label>'.
@@ -560,7 +561,7 @@ if ($can_edit_post)
 			'</p>'
 		)
 	);
-	
+
 	# --BEHAVIOR-- adminPostFormItems
 	$core->callBehavior('adminPostFormItems',$main_items,$sidebar_items, isset($post) ? $post : null);
 
@@ -570,14 +571,14 @@ if ($can_edit_post)
 	echo '<div id="entry-content"><div class="constrained">';
 
 	echo '<h3 class="out-of-screen-if-js">'.__('Edit post').'</h3>';
-	
+
 	foreach ($main_items as $id => $item) {
 		echo $item;
 	}
 
 	# --BEHAVIOR-- adminPostForm (may be deprecated)
 	$core->callBehavior('adminPostForm',isset($post) ? $post : null);
-	
+
 	echo
 	'<p class="border-top">'.
 	($post_id ? form::hidden('id',$post_id) : '').
@@ -598,12 +599,12 @@ if ($can_edit_post)
 	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
 	$core->formNonce().
 	'</p>';
-	
+
 	echo '</div></div>';		// End #entry-content
 	echo '</div>';		// End #entry-wrapper
 
 	echo '<div id="entry-sidebar">';
-	
+
 	foreach ($sidebar_items as $id => $c) {
 		echo '<div id="'.$id.'" class="sb-box">'.
 			'<h4>'.$c['title'].'</h4>';
@@ -612,17 +613,17 @@ if ($can_edit_post)
 		}
 		echo '</div>';
 	}
-	
-	
+
+
 	# --BEHAVIOR-- adminPostFormSidebar (may be deprecated)
 	$core->callBehavior('adminPostFormSidebar',isset($post) ? $post : null);
 	echo '</div>';		// End #entry-sidebar
 
 	echo '</form>';
-	
+
 	# --BEHAVIOR-- adminPostForm
 	$core->callBehavior('adminPostAfterForm',isset($post) ? $post : null);
-	
+
 	echo '</div>';
 }
 
@@ -632,32 +633,32 @@ if ($post_id)
 	-------------------------------------------------------- */
 
 	$params = array('post_id' => $post_id, 'order' => 'comment_dt ASC');
-	
+
 	$comments = $core->blog->getComments(array_merge($params,array('comment_trackback'=>0)));
-		
+
 	echo
 	'<div id="comments" class="clear multi-part" title="'.__('Comments').'">';
-	$combo_action = $comments_actions_page->getCombo();	
+	$combo_action = $comments_actions_page->getCombo();
 	$has_action = !empty($combo_action) && !$comments->isEmpty();
-	echo 
+	echo
 	'<p class="top-add"><a class="button add" href="#comment-form">'.__('Add a comment').'</a></p>';
-	
+
 	if ($has_action) {
 		echo '<form action="post.php" id="form-comments" method="post">';
 	}
-	
+
 	echo '<h3>'.__('Comments').'</h3>';
 	if (!$comments->isEmpty()) {
 		showComments($comments,$has_action);
 	} else {
 		echo '<p>'.__('No comment').'</p>';
 	}
-	
+
 	if ($has_action) {
 		echo
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
-		
+
 		'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
 		form::combo('action',$combo_action).
 		form::hidden(array('section'),'comments').
@@ -673,26 +674,26 @@ if ($post_id)
 	echo
 	'<div class="fieldset clear">'.
 	'<h3>'.__('Add a comment').'</h3>'.
-	
+
 	'<form action="comment.php" method="post" id="comment-form">'.
 	'<div class="constrained">'.
 	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label>'.
 	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn'))).
 	'</p>'.
-	
+
 	'<p><label for="comment_email">'.__('Email:').'</label>'.
 	form::field('comment_email',30,255,html::escapeHTML($core->auth->getInfo('user_email'))).
 	'</p>'.
-	
+
 	'<p><label for="comment_site">'.__('Web site:').'</label>'.
 	form::field('comment_site',30,255,html::escapeHTML($core->auth->getInfo('user_url'))).
 	'</p>'.
-	
+
 	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.
 	__('Comment:').'</label> '.
 	form::textarea('comment_content',50,8,html::escapeHTML('')).
 	'</p>'.
-	
+
 	'<p>'.
 	form::hidden('post_id',$post_id).
 	$core->formNonce().
@@ -711,37 +712,37 @@ if ($post_id && $post_status == 1)
 
 	$params = array('post_id' => $post_id, 'order' => 'comment_dt ASC');
 	$trackbacks = $core->blog->getComments(array_merge($params, array('comment_trackback' => 1)));
-	
+
 	# Actions combo box
-	$combo_action = $comments_actions_page->getCombo();	
+	$combo_action = $comments_actions_page->getCombo();
 	$has_action = !empty($combo_action) && !$trackbacks->isEmpty();
-	
+
 	if (!empty($_GET['tb_auto'])) {
 		$tb_urls = implode("\n", $TB->discover($post_excerpt_xhtml.' '.$post_content_xhtml));
 	}
-	
+
 	# Display tab
 	echo
 	'<div id="trackbacks" class="clear multi-part" title="'.__('Trackbacks').'">';
-	
+
 	# tracbacks actions
 	if ($has_action) {
 		echo '<form action="post.php" id="form-trackbacks" method="post">';
 	}
-	
+
 	echo '<h3>'.__('Trackbacks received').'</h3>';
-	
+
 	if (!$trackbacks->isEmpty()) {
 		showComments($trackbacks, $has_action, true);
 	} else {
 		echo '<p>'.__('No trackback').'</p>';
 	}
-	
+
 	if ($has_action) {
 		echo
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
-		
+
 		'<p class="col right"><label for="action" class="classic">'.__('Selected trackbacks action:').'</label> '.
 		form::combo('action', $combo_action).
 		form::hidden('id',$post_id).
@@ -751,7 +752,7 @@ if ($post_id && $post_status == 1)
 		'</div>'.
 		'</form>';
 	}
-	
+
 	/* Add trackbacks
 	-------------------------------------------------------- */
 	if ($can_edit_post && $post->post_status) {
@@ -771,7 +772,7 @@ if ($post_id && $post_status == 1)
 		'<p>'.
 		$core->formNonce().
 		'<input type="submit" name="ping" value="'.__('Ping blogs').'" />'.
-		(empty($_GET['tb_auto']) ? 
+		(empty($_GET['tb_auto']) ?
 			'&nbsp;&nbsp;<a class="button" href="'.
 			'post.php?id='.$post_id.'&amp;tb_auto=1&amp;tb=1'.
 			'">'.__('Auto discover ping URLs').'</a>'
@@ -784,7 +785,7 @@ if ($post_id && $post_status == 1)
 		if (!$pings->isEmpty())
 		{
 			echo '<h3>'.__('Previously sent pings').'</h3>';
-			
+
 			echo '<ul class="nice">';
 			while ($pings->fetch()) {
 				echo
@@ -809,12 +810,12 @@ function isContributionAllowed($id,$dt,$com=true)
 		return true;
 	}
 	if ($com) {
-		if (($core->blog->settings->system->comments_ttl == 0) || 
+		if (($core->blog->settings->system->comments_ttl == 0) ||
 			(time() - $core->blog->settings->system->comments_ttl*86400 < $dt)) {
 			return true;
 		}
 	} else {
-		if (($core->blog->settings->system->trackbacks_ttl == 0) || 
+		if (($core->blog->settings->system->trackbacks_ttl == 0) ||
 			(time() - $core->blog->settings->system->trackbacks_ttl*86400 < $dt)) {
 			return true;
 		}
@@ -839,12 +840,12 @@ function showComments($rs,$has_action,$tb=false)
 		foreach ($_REQUEST['comments'] as $v) {
 			$comments[(integer)$v]=true;
 		}
-	}			
-	
+	}
+
 	while($rs->fetch())
 	{
 		$comment_url = 'comment.php?id='.$rs->comment_id;
-		
+
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($rs->comment_status) {
 			case 1:
@@ -860,11 +861,11 @@ function showComments($rs,$has_action,$tb=false)
 				$img_status = sprintf($img,__('Junk'),'junk.png');
 				break;
 		}
-		
+
 		echo
 		'<tr class="line'.($rs->comment_status != 1 ? ' offline' : '').'"'.
 		' id="c'.$rs->comment_id.'">'.
-		
+
 		'<td class="nowrap">'.
 		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,isset($comments[$rs->comment_id]),'','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
 		'<td class="maximal">'.html::escapeHTML($rs->comment_author).'</td>'.
@@ -873,10 +874,10 @@ function showComments($rs,$has_action,$tb=false)
 		'<td class="nowrap status">'.$img_status.'</td>'.
 		'<td class="nowrap status"><a href="'.$comment_url.'">'.
 		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>'.
-		
+
 		'</tr>';
 	}
-	
+
 	echo '</table></div>';
 }
 

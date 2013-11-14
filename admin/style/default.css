@@ -460,9 +460,6 @@ h1 a:link, h1 a:visited {
 a:link {
   transition: .5s;
 }
-a:visited {
-  color: inherit;
-}
 a:focus, a:focus img {
   outline: 2px solid #bee74b;
   border-bottom: none;
@@ -501,7 +498,7 @@ legend {
 	background: #fff;
 	margin-bottom: 0.5em;
 	}
-label .maximal, textarea.maximal, input.maximal {
+label .maximal, textarea.maximal, input.maximal, select.maximal {
 	width: 99%;
 	}
 input[type=text], input[type=password], textarea, select {
@@ -943,10 +940,12 @@ h1 a {
 	height: 3em;
 	color: #fff;
 	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
+	transition: none;
 	}
 h1 a:hover, h1 a:focus {
 	background-position: 0 -94px;
 	background-color: transparent;
+	transition: none;
 	}
 /* top-info-blog */
 #top-info-blog select {
@@ -1291,7 +1290,7 @@ table .count {
 	text-align: right;
 	padding-right: 1.5em;
 	}
-th.first img {
+th.first input {
 	padding-right: 34px;
 	}
 .line img {
@@ -2370,6 +2369,7 @@ div.template-upload {
 	color: #fff;
 	}
 .nav_prevnext a, a.back {
+	color: #2373A8;
 	border: 1px solid #dfdfdf;
 	padding: 2px 1.5em;
 	border-radius: .75em;
@@ -2787,6 +2787,16 @@ h1 a:hover, h1 a:focus {
 	padding: 1em;
 	vertical-align: bottom;
 	}
+.pseudo-tabs li {
+	display: block;
+	float: left;
+	width: 50%;
+	border-top: 1px solid #ddd;
+	padding: .25em;
+	}
+.pseudo-tabs li:first-child, .pseudo-tabs li:nth-of-type(2) {
+	border-top: none;
+	}
 }
 @media screen and (max-width: 26.5em) {
 h1, h1 a {
@@ -2854,5 +2864,14 @@ table .maximal {
 	}
 th, td {
 	padding: 0.3em 1em 0.3em 0;
+	}
+.pseudo-tabs li {
+	display: block;
+	width: 100%;
+	float: none;
+	border-top: 1px solid #ddd !important;
+	}
+.pseudo-tabs li:first-child {
+	border-top: none;
 	}
 }
