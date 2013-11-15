@@ -67,7 +67,7 @@ $(function() {
 				// Restore last format if change cancelled
 				$(this).val(last_post_format);
 			}
-			
+
 			$('.format_control > *').addClass('hide');
 			$('.format_control:not(.control_no_'+$(this).val()+') > *').removeClass('hide');
 		});
@@ -79,6 +79,7 @@ $(function() {
 
 	if (document.getElementById('comment_content')) {
 		var commentTb = new jsToolBar(document.getElementById('comment_content'));
+		commentTb.draw('xhtml');
 	}
 
 	// Post preview
@@ -105,10 +106,10 @@ $(function() {
 		a.href = '#';
 		a.className = 'button ';
 		$(a).click(function() {
-			
+
 			excerpt_content = $('#post_excerpt').css('display') != 'none' ? $('#post_excerpt').val() : $('#excerpt-area iframe').contents().find('body').html();
 			post_content	= $('#post_content').css('display') != 'none' ? $('#post_content').val() : $('#content-area iframe').contents().find('body').html();
-			
+
 			var params = {
 				xd_check: dotclear.nonce,
 				f: 'validatePostMarkup',
@@ -123,13 +124,13 @@ $(function() {
 					alert($(data).find('rsp message').text());
 					return false;
 				}
-					
+
 				$('.message, .success, .error, .warning-msg').remove();
 
 				if ($(data).find('valid').text() == 1) {
 					var p = document.createElement('p');
 					p.id = 'markup-validator';
-					
+
 					$(p).addClass('success');
 					$(p).text(dotclear.msg.xhtml_valid);
 					$('#entry-content h3').after(p);
@@ -139,7 +140,7 @@ $(function() {
 				} else {
 					var div = document.createElement('div');
 					div.id = 'markup-validator';
-					
+
 					$(div).addClass('error');
 					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
 					$('#entry-content h3').after(div);
@@ -162,7 +163,7 @@ $(function() {
 		});
 
 		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
-		
+
 		$('.format_control > *').addClass('hide');
 		$('.format_control:not(.control_no_'+last_post_format+') > *').removeClass('hide');
 
