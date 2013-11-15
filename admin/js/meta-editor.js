@@ -180,13 +180,13 @@ metaEditor.prototype = {
 					var a_more = $('<a href="#" class="metaGetMore"></a>');
 					a_more.append(This.text_all + String.fromCharCode(160)+String.fromCharCode(187));
 					a_more.click(function() {
-						This.showMetaList('all',target);
+						This.showMetaList('more-all',target);
 						return false;
 					});
 					pl.append(', ').append(a_more);
 				}
 
-				if (list_type == 'all') {
+				if (list_type != 'more-all') {
 					pl.addClass('hide');
 
 					var pa = $('<p></p>');
