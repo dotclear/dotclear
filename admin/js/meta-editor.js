@@ -1,9 +1,11 @@
 //~ metaEditor & metaEditor.prototype should go to the core.
 function metaEditor(target,meta_field,meta_type,meta_options) {
 	this.target = target;
-
 	this.meta_field = meta_field;
 	this.meta_type = meta_type;
+
+	// options
+	meta_options = meta_options || {};
 	this.meta_url = meta_options.meta_url || this.meta_url;
 	this.list_type = meta_options.list_type || this.list_type;
 	this.text_confirm_remove = meta_options.text_confirm_remove || this.text_confirm_remove;
@@ -137,7 +139,6 @@ metaEditor.prototype = {
 	},
 
 	showMetaList: function(list_type,target) {
-
 		var params = {
 			f: 'getMeta',
 			metaType: this.meta_type,
