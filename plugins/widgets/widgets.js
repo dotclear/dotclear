@@ -70,7 +70,6 @@ function reorder(ul) {
 			});
 
 			// ainsi que le champ d'ordre sans js (au cas ou)
-//			$this.find('input[title=ordre]').val(i);
 			$this.find('input[name*=order]').val(i);
 
 			// active ou désactive les fléches
