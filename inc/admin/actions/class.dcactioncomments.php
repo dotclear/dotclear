@@ -120,17 +120,24 @@ class dcDefaultCommentActions
 	public static function adminCommentsActionsPage($core, dcCommentsActionsPage $ap) {
 		if ($core->auth->check('publish,contentadmin',$core->blog->id))
 		{
-			$action = array('dcDefaultCommentActions','doChangeCommentStatus');
-			$ap->addAction(array(__('Publish') => 'publish'), $action);
-			$ap->addAction(array(__('Unpublish') => 'unpublish'), $action);
-			$ap->addAction(array(__('Mark as pending') => 'pending'), $action);
-			$ap->addAction(array(__('Mark as junk') => 'junk'), $action);
+			$ap->addAction(
+				array(__('Status') => array(
+					__('Publish') => 'publish',
+					__('Unpublish') => 'unpublish',
+					__('Mark as pending') => 'pending',
+					__('Mark as junk') => 'junk'
+				)),
+				array('dcDefaultCommentActions','doChangeCommentStatus')
+			);
 		}
 
 		if ($core->auth->check('delete,contentadmin',$core->blog->id))
 		{
-			$ap->addAction(array(__('Delete') => 'delete'),
-				array('dcDefaultCommentActions','doDeleteComment'));
+			$ap->addAction(
+				array(__('Delete') => array(
+					__('Delete') => 'delete')),
+				array('dcDefaultCommentActions','doDeleteComment')
+			);
 		}
 	}
 
