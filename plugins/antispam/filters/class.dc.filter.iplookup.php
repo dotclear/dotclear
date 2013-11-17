@@ -113,4 +113,3 @@ class dcFilterIpLookup extends dcSpamFilter
 		return false;
 	}
 }
-?>

@@ -37,23 +37,22 @@ class themeEditorBehaviors
 		$core->auth->user_prefs->addWorkspace('interface');
 		try {
 			$core->auth->user_prefs->interface->put('colorsyntax',!empty($_POST['colorsyntax']),'boolean');
-		} 
+		}
 		catch (Exception $e)
 		{
 			$core->error->add($e->getMessage());
 		}
 	}
-	
+
 	public static function adminPreferencesForm($core)
 	{
 		// Add fieldset for plugin options
 		$core->auth->user_prefs->addWorkspace('interface');
 
-		echo		
+		echo
 		'<p><label for="colorsyntax" class="classic">'.
 		form::checkbox('colorsyntax',1,$core->auth->user_prefs->interface->colorsyntax).'</label>'.
 		__('Syntax highlighting in theme editor').
 		'</p>';
 	}
 }
-?>

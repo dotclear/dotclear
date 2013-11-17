@@ -28,7 +28,7 @@ class adminPagesList extends adminGenericList
 				foreach ($_REQUEST['entries'] as $v) {
 					$entries[(integer)$v]=true;
 				}
-			}			
+			}
 			$html_block =
 			'<div class="table-outer">'.
 			'<table class="maximal dragable"><thead><tr>'.
@@ -39,30 +39,30 @@ class adminPagesList extends adminGenericList
 			'<th scope="col"><img src="images/trackbacks.png" alt="" title="'.__('Trackbacks').'" /><span class="hidden">'.__('Trackbacks').'</span></th>'.
 			'<th scope="col">'.__('Status').'</th>'.
 			'</tr></thead><tbody id="pageslist">%s</tbody></table></div>';
-			
+
 			if ($enclose_block) {
 				$html_block = sprintf($enclose_block,$html_block);
 			}
-			
+
 			echo $pager->getLinks();
-			
+
 			$blocks = explode('%s',$html_block);
-			
+
 			echo $blocks[0];
-			
+
 			$count = 0;
 			while ($this->rs->fetch())
 			{
 				echo $this->postLine($count,isset($entries[$this->rs->post_id]));
 				$count ++;
 			}
-			
+
 			echo $blocks[1];
-			
+
 			echo $pager->getLinks();
 		}
 	}
-	
+
 	private function postLine($count,$checked)
 	{
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
@@ -80,40 +80,40 @@ class adminPagesList extends adminGenericList
 				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
 				break;
 		}
-		
+
 		$protected = '';
 		if ($this->rs->post_password) {
 			$protected = sprintf($img,__('Protected'),'locker.png');
 		}
-		
+
 		$selected = '';
 		if ($this->rs->post_selected) {
 			$selected = sprintf($img,__('Hidden'),'hidden.png');
 		}
-		
+
 		$attach = '';
 		$nb_media = $this->rs->countMedia();
 		if ($nb_media > 0) {
 			$attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
 			$attach = sprintf($img,sprintf($attach_str,$nb_media),'attach.png');
 		}
-		
+
 		$res = '<tr class="line'.($this->rs->post_status != 1 ? ' offline' : '').'"'.
 		' id="p'.$this->rs->post_id.'">';
-		
+
 		$res .=
 		'<td class="nowrap handle minimal">'.form::field(array('order['.$this->rs->post_id.']'),2,3,$count+1,'position','',false,'title="'.sprintf(__('position of %s'),html::escapeHTML($this->rs->post_title)).'"').'</td>'.
 		'<td class="nowrap">'.
 		form::checkbox(array('entries[]'),$this->rs->post_id,$checked,'','',!$this->rs->isEditable(),'title="'.__('Select this page').'"').'</td>'.
 		'<td class="maximal" scope="row"><a href="'.$this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id).'">'.
 		html::escapeHTML($this->rs->post_title).'</a></td>'.
-		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.		
+		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->post_dt).'</td>'.
 		'<td class="nowrap">'.$this->rs->user_id.'</td>'.
 		'<td class="nowrap count">'.$this->rs->nb_comment.'</td>'.
 		'<td class="nowrap count">'.$this->rs->nb_trackback.'</td>'.
 		'<td class="nowrap status">'.$img_status.' '.$selected.' '.$protected.' '.$attach.'</td>'.
 		'</tr>';
-		
+
 		return $res;
 	}
 }

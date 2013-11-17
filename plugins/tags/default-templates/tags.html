@@ -4,12 +4,12 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}" />
-  
+
   <title>{{tpl:lang Tags}} - {{tpl:BlogName encode_html="1"}}</title>
   <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
   <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
   <meta name="date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
-  
+
   <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
   <meta name="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Tags}} - {{tpl:BlogName encode_html="1"}}" />
   <meta name="dc.language" content="{{tpl:BlogLanguage}}" />
@@ -18,12 +18,12 @@
   <meta name="dc.date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
   <meta name="dc.type" content="text" />
   <meta name="dc.format" content="text/html" />
-  
+
   <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
   <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
-  
+
   <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
-  
+
   {{tpl:include src="_head.html"}}
 </head>
 
@@ -35,19 +35,19 @@
 
 <div id="main">
   <div id="content">
-  
+
   <div id="content-info">
     <h2>{{tpl:lang Tags}}</h2>
   </div>
-  
-  <div class="content-inner">  
+
+  <div class="content-inner">
   <ul class="tags">
     <tpl:Tags>
       <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
     </tpl:Tags>
     </ul>
   </div>
-  
+
   </div>
 </div> <!-- End #main -->
 
@@ -55,7 +55,7 @@
   <div id="blognav">
     {{tpl:Widgets type="nav"}}
   </div> <!-- End #blognav -->
-  
+
   <div id="blogextra">
     {{tpl:Widgets type="extra"}}
   </div> <!-- End #blogextra -->

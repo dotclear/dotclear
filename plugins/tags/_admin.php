@@ -365,4 +365,3 @@ class tagsBehaviors
 		}
 	}
 }
-?>

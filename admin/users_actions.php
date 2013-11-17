@@ -41,7 +41,7 @@ if (!empty($_POST['blogs']) && is_array($_POST['blogs']))
 if (!empty($_POST['action']) && !empty($_POST['users']))
 {
 	$action = $_POST['action'];
-	
+
 	if (isset($_POST['redir']) && strpos($_POST['redir'],'://') === false)
 	{
 		$redir = $_POST['redir'];
@@ -55,14 +55,14 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 		'&page='.$_POST['page'].
 		'&nb='.$_POST['nb'];
 	}
-	
+
 	if (empty($users)) {
 		$core->error->add(__('No blog or user given.'));
 	}
-	
+
 	# --BEHAVIOR-- adminUsersActions
 	$core->callBehavior('adminUsersActions',$core,$users,$blogs,$action,$redir);
-	
+
 	# Delete users
 	if ($action == 'deleteuser' && !empty($users))
 	{
@@ -73,10 +73,10 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 				if ($u == $core->auth->userID()) {
 					throw new Exception(__('You cannot delete yourself.'));
 				}
-				
+
 				# --BEHAVIOR-- adminBeforeUserDelete
 				$core->callBehavior('adminBeforeUserDelete',$u);
-				
+
 				$core->delUser($u);
 			}
 			catch (Exception $e)
@@ -89,7 +89,7 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 			http::redirect($redir);
 		}
 	}
-	
+
 	# Update users perms
 	if ($action == 'updateperm' && !empty($users) && !empty($blogs))
 	{
@@ -98,13 +98,13 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 			if (empty($_POST['your_pwd']) || !$core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['your_pwd']))) {
 				throw new Exception(__('Password verification failed'));
 			}
-			
+
 			foreach ($users as $u)
 			{
 				foreach ($blogs as $b)
 				{
 					$set_perms = array();
-					
+
 					if (!empty($_POST['perm'][$b]))
 					{
 						foreach ($_POST['perm'][$b] as $perm_id => $v)
@@ -114,7 +114,7 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 							}
 						}
 					}
-					
+
 					$core->setUserBlogPermissions($u,$b,$set_perms,true);
 				}
 			}
@@ -192,17 +192,17 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		$rs = $core->getBlogs();
 		$nb_blog = $rs->count();
 	} catch (Exception $e) { }
-	
+
 	foreach ($users as $u) {
 		$user_list[] = '<a href="user.php?id='.$u.'">'.$u.'</a>';
 	}
-	
+
 	echo
 	'<p>'.sprintf(
 		__('Choose one or more blogs to which you want to give permissions to users %s.'),
 		implode(', ',$user_list)
 	).'</p>';
-	
+
 	if ($nb_blog == 0)
 	{
 		echo '<p><strong>'.__('No blog').'</strong></p>';
@@ -218,13 +218,13 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		'<th class="nowrap">'.__('Entries').'</th>'.
 		'<th class="nowrap">'.__('Status').'</th>'.
 		'</tr>';
-		
+
 		while ($rs->fetch())
 		{
 			$img_status = $rs->blog_status == 1 ? 'check-on' : 'check-off';
 			$txt_status = $core->getBlogStatus($rs->blog_status);
 			$img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',$img_status,$txt_status);
-			
+
 			echo
 			'<tr class="line">'.
 			'<td class="nowrap">'.
@@ -235,7 +235,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 			'<td class="status">'.$img_status.'</td>'.
 			'</tr>';
 		}
-		
+
 		echo
 		'</table></div>'.
 		'<p class="checkboxes-helpers"></p>'.
@@ -251,20 +251,20 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 {
 	$user_perm = array();
 	if (count($users) == 1) {
-			$user_perm = $core->getUserPermissions($users[0]);	
+			$user_perm = $core->getUserPermissions($users[0]);
 	}
-	
+
 	foreach ($users as $u) {
 		$user_list[] = '<a href="user.php?id='.$u.'">'.$u.'</a>';
 	}
-	
-	echo 
+
+	echo
 	'<p>'.sprintf(
 		__('You are about to change permissions on the following blogs for users %s.'),
 		implode(', ',$user_list)
 	).'</p>'.
 	'<form id="permissions-form" action="users_actions.php" method="post">';
-	
+
 	foreach ($blogs as $b)
 	{
 		echo '<h3>'.('Blog:').' <a href="blog.php?id='.html::escapeHTML($b).'">'.html::escapeHTML($b).'</a>'.
@@ -273,14 +273,14 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 		foreach ($core->auth->getPermissionsTypes() as $perm_id => $perm)
 		{
 			$checked = false;
-			
+
 			if (count($users) == 1) {
 				$checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
 			}
 			if (isset($unknown_perms[$b]['p'][$perm_id])) {
 				unset ($unknown_perms[$b]['p'][$perm_id]);
 			}
-			
+
 			echo
 			'<p><label for="perm'.html::escapeHTML($b).html::escapeHTML($perm_id).'" class="classic">'.
 			form::checkbox(array('perm['.html::escapeHTML($b).']['.html::escapeHTML($perm_id).']','perm'.html::escapeHTML($b).html::escapeHTML($perm_id)),
@@ -288,7 +288,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 			__($perm).'</label></p>';
 		}
 		if (isset($unknown_perms[$b])) {
-		
+
 			foreach ($unknown_perms[$b]['p'] as $perm_id => $v) {
 				$checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
 				echo
@@ -301,7 +301,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 			}
 		}
 	}
-	
+
 	echo
 	'<div class="fieldset">'.
 	'<h3>'.__('Validate permissions').'</h3>'.
@@ -317,4 +317,3 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 
 dcPage::helpBlock('core_users');
 dcPage::close();
-?>

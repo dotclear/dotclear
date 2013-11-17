@@ -20,19 +20,19 @@ class tagsXMLRPCbehaviors
 	public static function getPostInfo($x,$type,$res)
 	{
 		$res =& $res[0];
-		
+
 		$rs = $x->core->meta->getMetadata(array(
 			'meta_type' => 'tag',
 			'post_id' => $res['postid']));
-		
+
 		$m = array();
 		while($rs->fetch()) {
 			$m[] = $rs->meta_id;
 		}
-		
+
 		$res['mt_keywords'] = implode(', ',$m);
 	}
-	
+
 	# Same function for newPost and editPost
 	public static function editPost($x,$post_id,$cur,$content,$struct,$publish)
 	{
@@ -40,11 +40,10 @@ class tagsXMLRPCbehaviors
 		if (isset($struct['mt_keywords']))
 		{
 			$x->core->meta->delPostMeta($post_id,'tag');
-			
+
 			foreach ($x->core->meta->splitMetaValues($struct['mt_keywords']) as $m) {
 				$x->core->meta->setPostMeta($post_id,'tag',$m);
 			}
 		}
 	}
 }
-?>

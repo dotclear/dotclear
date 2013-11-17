@@ -22,4 +22,3 @@ $this->registerModule(
 		'type'		=>		'plugin'
 	)
 );
-?>

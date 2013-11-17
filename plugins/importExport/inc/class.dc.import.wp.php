@@ -16,16 +16,16 @@ class dcImportWP extends dcIeModule
 	protected $con;
 	protected $prefix;
 	protected $blog_id;
-	
+
 	protected $action = null;
 	protected $step = 1;
-	
+
 	protected $post_offset = 0;
 	protected $post_limit = 20;
 	protected $post_count = 0;
-	
+
 	protected $has_table = array();
-	
+
 	protected $vars;
 	protected $base_vars = array(
 		'db_host' => '',
@@ -44,56 +44,56 @@ class dcImportWP extends dcIeModule
 		'cat_ids' => array(),
 		'permalink_template' => 'p=%post_id%',
 		'permalink_tags' => array(
-			'%year%', 
-			'%monthnum%', 
-			'%day%', 
-			'%hour%', 
-			'%minute%', 
-			'%second%', 
-			'%postname%', 
-			'%post_id%', 
-			'%category%', 
+			'%year%',
+			'%monthnum%',
+			'%day%',
+			'%hour%',
+			'%minute%',
+			'%second%',
+			'%postname%',
+			'%post_id%',
+			'%category%',
 			'%author%'
 		)
 	);
 	protected $formaters;
-	
+
 	protected function setInfo()
 	{
 		$this->type = 'import';
 		$this->name = __('WordPress import');
 		$this->description = __('Import a WordPress installation into your current blog.');
 	}
-	
+
 	public function init()
 	{
 		$this->con =& $this->core->con;
 		$this->prefix = $this->core->prefix;
 		$this->blog_id = $this->core->blog->id;
-		
+
 		if (!isset($_SESSION['wp_import_vars'])) {
 			$_SESSION['wp_import_vars'] = $this->base_vars;
 		}
 		$this->vars =& $_SESSION['wp_import_vars'];
-		
+
 		if ($this->vars['post_limit'] > 0) {
 			$this->post_limit = $this->vars['post_limit'];
 		}
 
 		$this->formaters = dcAdminCombos::getFormatersCombo();
 	}
-	
+
 	public function resetVars()
 	{
 		$this->vars = $this->base_vars;;
 		unset($_SESSION['wp_import_vars']);
 	}
-	
+
 	public function process($do)
 	{
 		$this->action = $do;
 	}
-	
+
 	# We handle process in another way to always display something to
 	# user
 	protected function guiprocess($do)
@@ -158,7 +158,7 @@ class dcImportWP extends dcIeModule
 				break;
 		}
 	}
-	
+
 	public function gui()
 	{
 		try {
@@ -166,7 +166,7 @@ class dcImportWP extends dcIeModule
 		} catch (Exception $e) {
 			$this->error($e);
 		}
-		
+
 		switch ($this->step)
 		{
 			case 1:
@@ -175,7 +175,7 @@ class dcImportWP extends dcIeModule
 				'<strong>'.html::escapeHTML($this->core->blog->name).'</strong>').'</p>'.
 				'<p class="warning">'.__('Please note that this process '.
 				'will empty your categories, blogroll, entries and comments on the current blog.').'</p>';
-				
+
 				printf($this->imForm(1,__('General information'),__('Import my blog now')),
 				'<p>'.__('We first need some information about your old WordPress installation.').'</p>'.
 				'<p><label for="db_host">'.__('Database Host Name:').'</label> '.
@@ -217,7 +217,7 @@ class dcImportWP extends dcIeModule
 				'<p><label for="post_limit">'.__('Number of entries to import at once:').'</label> '.
 				form::field('post_limit',3,3,html::escapeHTML($this->vars['post_limit'])).'</p>'.
 				'</div>'.
-				
+
 				'</div>'.
 
 				'<h3 class="clear vertical-separator">'.__('Content filters').'</h3>'.
@@ -252,7 +252,7 @@ class dcImportWP extends dcIeModule
 				);
 				break;
 			case 6:
-				echo 
+				echo
 				'<p class="message">'.__('Every newly imported user has received a random password '.
 				'and will need to ask for a new one by following the "I forgot my password" link on the login page '.
 				'(Their registered email address has to be valid.)').'</p>'.
@@ -260,14 +260,14 @@ class dcImportWP extends dcIeModule
 				break;
 		}
 	}
-	
+
 	# Simple form for step by step process
 	protected function imForm($step,$legend,$submit_value=null)
 	{
 		if (!$submit_value) {
 			$submit_value = __('next step').' >';
 		}
-		
+
 		return
 		'<form action="'.$this->getURL(true).'" method="post">'.
 		'<h3 class="vertical-separator">'.$legend.'</h3>'.
@@ -278,63 +278,63 @@ class dcImportWP extends dcIeModule
 		'<p class="form-note info">'.__('Depending on the size of your blog, it could take a few minutes.').'</p>'.
 		'</form>';
 	}
-	
+
 	# Error display
 	protected function error($e)
 	{
 		echo '<div class="error"><strong>'.__('Errors:').'</strong>'.
 		'<p>'.$e->getMessage().'</p></div>';
 	}
-	
+
 	# Database init
 	protected function db()
 	{
 		$db = dbLayer::init('mysql',$this->vars['db_host'],$this->vars['db_name'],$this->vars['db_user'],$this->vars['db_pwd']);
-		
+
 		$rs = $db->select("SHOW TABLES LIKE '".$this->vars['db_prefix']."%'");
 		if ($rs->isEmpty()) {
 			throw new Exception(__('WordPress tables not found'));
 		}
-		
+
 		while ($rs->fetch()) {
 			$this->has_table[$rs->f(0)] = true;
 		}
-		
+
 		# Set this to read data as they were written
 		try {
 			$db->execute('SET NAMES DEFAULT');
 		} catch (Exception $e) {}
-		
+
 		$db->execute('SET CHARACTER SET DEFAULT');
 		$db->execute("SET COLLATION_CONNECTION = DEFAULT");
 		$db->execute("SET COLLATION_SERVER = DEFAULT");
 		$db->execute("SET CHARACTER_SET_SERVER = DEFAULT");
 		$db->execute("SET CHARACTER_SET_DATABASE = DEFAULT");
-		
+
 		$this->post_count = $db->select(
 			'SELECT COUNT(ID) FROM '.$this->vars['db_prefix'].'posts '.
 			'WHERE post_type = \'post\' OR post_type = \'page\''
 		)->f(0);
-		
+
 		return $db;
 	}
-	
+
 	protected function cleanStr($str)
 	{
 		return text::cleanUTF8(@text::toUTF8($str));
 	}
-	
+
 	# Users import
 	protected function importUsers()
 	{
 		$db = $this->db();
 		$prefix = $this->vars['db_prefix'];
 		$rs = $db->select('SELECT * FROM '.$prefix.'users');
-		
+
 		try
 		{
 			$this->con->begin();
-			
+
 			while ($rs->fetch())
 			{
 				$user_login = preg_replace('/[^A-Za-z0-9@._-]/','-',$rs->user_login);
@@ -351,7 +351,7 @@ class dcImportWP extends dcIeModule
 					$cur->user_lang        = $this->core->blog->settings->system->lang;
 					$cur->user_tz          = $this->core->blog->settings->system->blog_timezone;
 					$permissions           = array();
-					
+
 					$rs_meta = $db->select('SELECT * FROM '.$prefix.'usermeta WHERE user_id = '.$rs->ID);
 					while ($rs_meta->fetch())
 					{
@@ -424,7 +424,7 @@ class dcImportWP extends dcIeModule
 			throw $e;
 		}
 	}
-	
+
 	# Categories import
 	protected function importCategories()
 	{
@@ -437,14 +437,14 @@ class dcImportWP extends dcIeModule
 			($this->vars['ignore_first_cat'] ? 'AND t.term_id <> 1 ' : '').
 			'ORDER BY t.term_id ASC'
 		);
-		
+
 		try
 		{
 			$this->con->execute(
 				'DELETE FROM '.$this->prefix.'category '.
 				"WHERE blog_id = '".$this->con->escape($this->blog_id)."' "
 			);
-			
+
 			$ord = 2;
 			while ($rs->fetch())
 			{
@@ -455,14 +455,14 @@ class dcImportWP extends dcIeModule
 				$cur->cat_url      = $this->cleanStr($rs->slug);
 				$cur->cat_lft      = $ord++;
 				$cur->cat_rgt      = $ord++;
-				
+
 				$cur->cat_id = $this->con->select(
 					'SELECT MAX(cat_id) FROM '.$this->prefix.'category'
 					)->f(0) + 1;
 				$this->vars['cat_ids'][$rs->term_id] = $cur->cat_id;
 				$cur->insert();
 			}
-			
+
 			$db->close();
 		}
 		catch (Exception $e)
@@ -471,21 +471,21 @@ class dcImportWP extends dcIeModule
 			throw $e;
 		}
 	}
-	
+
 	# Blogroll import
 	protected function importLinks()
 	{
 		$db = $this->db();
 		$prefix = $this->vars['db_prefix'];
 		$rs = $db->select('SELECT * FROM '.$prefix.'links ORDER BY link_id ASC');
-		
+
 		try
 		{
 			$this->con->execute(
 				'DELETE FROM '.$this->prefix.'link '.
 				"WHERE blog_id = '".$this->con->escape($this->blog_id)."' "
 			);
-			
+
 			while ($rs->fetch())
 			{
 				$cur = $this->con->openCursor($this->prefix.'link');
@@ -494,13 +494,13 @@ class dcImportWP extends dcIeModule
 				$cur->link_title    = $this->cleanStr($rs->link_name);
 				$cur->link_desc     = $this->cleanStr($rs->link_description);
 				$cur->link_xfn      = $this->cleanStr($rs->link_rel);
-				
+
 				$cur->link_id = $this->con->select(
 					'SELECT MAX(link_id) FROM '.$this->prefix.'link'
 					)->f(0) + 1;
 				$cur->insert();
 			}
-			
+
 			$db->close();
 		}
 		catch (Exception $e)
@@ -509,13 +509,13 @@ class dcImportWP extends dcIeModule
 			throw $e;
 		}
 	}
-	
+
 	# Entries import
 	protected function importPosts(&$percent)
 	{
 		$db = $this->db();
 		$prefix = $this->vars['db_prefix'];
-		
+
 		$plink = $db->select(
 				'SELECT option_value FROM '.$prefix.'options '.
 				"WHERE option_name = 'permalink_structure'"
@@ -523,14 +523,14 @@ class dcImportWP extends dcIeModule
 		if ($plink) {
 			$this->vars['permalink_template'] = substr($plink,1);
 		}
-		
+
 		$rs = $db->select(
 			'SELECT * FROM '.$prefix.'posts '.
 			'WHERE post_type = \'post\' OR post_type = \'page\' '.
 			'ORDER BY ID ASC '.
 			$db->limit($this->post_offset,$this->post_limit)
 		);
-		
+
 		try
 		{
 			if ($this->post_offset == 0)
@@ -539,12 +539,12 @@ class dcImportWP extends dcIeModule
 					'DELETE FROM '.$this->prefix.'post '.
 					"WHERE blog_id = '".$this->con->escape($this->blog_id)."' "
 				);
-			}	
-			
+			}
+
 			while ($rs->fetch()) {
 				$this->importPost($rs,$db);
 			}
-			
+
 			$db->close();
 		}
 		catch (Exception $e)
@@ -552,20 +552,20 @@ class dcImportWP extends dcIeModule
 			$db->close();
 			throw $e;
 		}
-		
+
 		if ($rs->count() < $this->post_limit) {
 			return -1;
 		} else {
 			$this->post_offset += $this->post_limit;
 		}
-		
+
 		if ($this->post_offset > $this->post_count) {
 			$percent = 100;
 		} else {
 			$percent = $this->post_offset * 100 / $this->post_count;
 		}
 	}
-	
+
 	protected function importPost($rs,$db)
 	{
 		$post_date = !@strtotime($rs->post_date) ? '1970-01-01 00:00' : $rs->post_date;
@@ -574,7 +574,7 @@ class dcImportWP extends dcIeModule
 		} else {
 			$user_id = $this->vars['user_ids'][$rs->post_author];
 		}
-		
+
 		$cur = $this->con->openCursor($this->prefix.'post');
 		$cur->blog_id     = $this->blog_id;
 		$cur->user_id     = $user_id;
@@ -582,11 +582,11 @@ class dcImportWP extends dcIeModule
 		$cur->post_creadt = $post_date;
 		$cur->post_upddt  = $rs->post_modified;
 		$cur->post_title  = $this->cleanStr($rs->post_title);
-		
+
 		if (!$cur->post_title) {
 			$cur->post_title = 'No title';
 		}
-		
+
 		if ($this->vars['cat_import'] || $this->vars['cat_as_tags'])
 		{
 			$old_cat_ids = $db->select(
@@ -600,22 +600,22 @@ class dcImportWP extends dcIeModule
 				'AND r.object_id ='.$rs->ID.
 				' ORDER BY t.term_id ASC '
 				);
-			if (!$old_cat_ids->isEmpty() && $this->vars['cat_import']) 
+			if (!$old_cat_ids->isEmpty() && $this->vars['cat_import'])
 			{
 				$cur->cat_id = $this->vars['cat_ids'][(integer) $old_cat_ids->term_id];
 			}
 		}
-		
+
 		$permalink_infos = array(
-			date('Y',strtotime($cur->post_dt)), 
-			date('m',strtotime($cur->post_dt)), 
-			date('d',strtotime($cur->post_dt)), 
-			date('H',strtotime($cur->post_dt)), 
-			date('i',strtotime($cur->post_dt)), 
-			date('s',strtotime($cur->post_dt)), 
-			$rs->post_name, 
-			$rs->ID, 
-			$cur->cat_id, 
+			date('Y',strtotime($cur->post_dt)),
+			date('m',strtotime($cur->post_dt)),
+			date('d',strtotime($cur->post_dt)),
+			date('H',strtotime($cur->post_dt)),
+			date('i',strtotime($cur->post_dt)),
+			date('s',strtotime($cur->post_dt)),
+			$rs->post_name,
+			$rs->ID,
+			$cur->cat_id,
 			$cur->user_id
 		);
 		$cur->post_url = str_replace(
@@ -624,11 +624,11 @@ class dcImportWP extends dcIeModule
 			$rs->post_type== 'post' ? $this->vars['permalink_template'] : '%postname%'
 		);
 		$cur->post_url = substr($cur->post_url,0,255);
-		
+
 		if (!$cur->post_url) {
 			$cur->post_url = $rs->ID;
 		}
-		
+
 		$cur->post_format = $this->vars['post_formater'];
 		$_post_content = explode('<!--more-->',$rs->post_content,2);
 		if (count($_post_content) == 1) {
@@ -638,10 +638,10 @@ class dcImportWP extends dcIeModule
 			$cur->post_excerpt = $this->cleanStr(array_shift($_post_content));
 			$cur->post_content = $this->cleanStr(array_shift($_post_content));
 		}
-		
+
 		$cur->post_content_xhtml = $this->core->callFormater($this->vars['post_formater'],$cur->post_content);
 		$cur->post_excerpt_xhtml = $this->core->callFormater($this->vars['post_formater'],$cur->post_excerpt);
-		
+
 		switch ($rs->post_status)
 		{
 			case 'publish':
@@ -660,29 +660,29 @@ class dcImportWP extends dcIeModule
 		$cur->post_password     = $rs->post_password ? $rs->post_password : NULL;
 		$cur->post_open_comment = $rs->comment_status == 'open' ? 1 : 0;
 		$cur->post_open_tb      = $rs->ping_status == 'open' ? 1 : 0;
-		
+
 		$cur->post_words = implode(' ',text::splitWords(
 			$cur->post_title.' '.
 			$cur->post_excerpt_xhtml.' '.
 			$cur->post_content_xhtml
 		));
-		
+
 		$cur->post_id = $this->con->select(
 			'SELECT MAX(post_id) FROM '.$this->prefix.'post'
 			)->f(0) + 1;
-		
+
 		$cur->post_url = $this->core->blog->getPostURL($cur->post_url,$cur->post_dt,$cur->post_title,$cur->post_id);
-		
+
 		$cur->insert();
 		$this->importComments($rs->ID,$cur->post_id,$db);
 		$this->importPings($rs->ID,$cur->post_id,$db);
-		
+
 		# Create tags
 		$this->importTags($rs->ID,$cur->post_id,$db);
-		
+
 		if (isset($old_cat_ids))
 		{
-			if (!$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) 
+			if (!$old_cat_ids->isEmpty() && $this->vars['cat_as_tags'])
 			{
 				$old_cat_ids->moveStart();
 				while ($old_cat_ids->fetch()) {
@@ -691,17 +691,17 @@ class dcImportWP extends dcIeModule
 			}
 		}
 	}
-	
+
 	# Comments import
 	protected function importComments($post_id,$new_post_id,$db)
 	{
 		$count_c = $count_t = 0;
-		
+
 		$rs = $db->select(
 			'SELECT * FROM '.$this->vars['db_prefix'].'comments '.
 			'WHERE comment_post_ID = '.(integer) $post_id.' '
 			);
-		
+
 		while ($rs->fetch())
 		{
 			$cur = $this->con->openCursor($this->prefix.'comment');
@@ -715,26 +715,26 @@ class dcImportWP extends dcIeModule
 			$cur->comment_trackback       = $rs->comment_type == 'trackback' ? 1 : 0;
 			$cur->comment_site = substr($this->cleanStr($rs->comment_author_url),0,255);
 			if ($cur->comment_site == '') $cur->comment_site = NULL;
-			
+
 			if ($rs->comment_approved == 'spam') {
 				$cur->comment_status = -2;
 			}
-			
+
 			$cur->comment_words = implode(' ',text::splitWords($cur->comment_content));
-			
+
 			$cur->comment_id = $this->con->select(
 				'SELECT MAX(comment_id) FROM '.$this->prefix.'comment'
 			)->f(0) + 1;
-			
+
 			$cur->insert();
-			
+
 			if ($cur->comment_trackback && $cur->comment_status == 1) {
 				$count_t++;
 			} elseif ($cur->comment_status == 1) {
 				$count_c++;
 			}
 		}
-		
+
 		if ($count_t > 0 || $count_c > 0)
 		{
 			$this->con->execute(
@@ -745,36 +745,36 @@ class dcImportWP extends dcIeModule
 			);
 		}
 	}
-	
+
 	# Pings import
 	protected function importPings($post_id,$new_post_id,$db)
 	{
 		$urls = array();
 		$pings = array();
-		
+
 		$rs = $db->select(
 			'SELECT pinged FROM '.$this->vars['db_prefix'].'posts '.
 			'WHERE ID = '.(integer) $post_id
 			);
 		$pings = explode ("\n",$rs->pinged);
 		unset ($pings[0]);
-		
+
 		foreach($pings as $ping_url)
 		{
 			$url = $this->cleanStr($ping_url);
 			if (isset($urls[$url])) {
 				continue;
 			}
-			
+
 			$cur = $this->con->openCursor($this->prefix.'ping');
 			$cur->post_id = (integer) $new_post_id;
 			$cur->ping_url = $url;
 			$cur->insert();
-			
+
 			$urls[$url] = true;
 		}
 	}
-	
+
 	# Meta import
 	protected function importTags($post_id,$new_post_id,$db)
 	{
@@ -788,14 +788,13 @@ class dcImportWP extends dcIeModule
 			'AND r.object_id ='.$post_id.
 			' ORDER BY t.term_id ASC'
 		);
-		
+
 		if ($rs->isEmpty()) {
 			return;
 		}
-		
+
 		while ($rs->fetch()) {
 			$this->core->meta->setPostMeta($new_post_id,'tag',$this->cleanStr($rs->name));
 		}
 	}
 }
-?>

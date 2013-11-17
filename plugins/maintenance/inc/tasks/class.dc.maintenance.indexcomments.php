@@ -33,7 +33,7 @@ class dcMaintenanceIndexcomments extends dcMaintenanceTask
 	public function execute()
 	{
 		$this->code = $this->core->indexAllComments($this->code, $this->limit);
-		
+
 		return $this->code ? $this->code : true;
 	}
 

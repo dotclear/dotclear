@@ -76,4 +76,3 @@ $_menu['Blog']->addItem(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/ico
 $core->auth->setPermissionType('pages',__('manage pages'));
 
 require dirname(__FILE__).'/_widgets.php';
-?>

@@ -15,7 +15,7 @@ $GLOBALS['core']->addBehavior('adminPostsActionsPage',array('dcLegacyPosts','adm
 $GLOBALS['core']->addBehavior('adminPagesActionsPage',array('dcLegacyPages','adminPagesActionsPage'));
 $GLOBALS['core']->addBehavior('adminCommentsActionsPage',array('dcLegacyComments','adminCommentsActionsPage'));
 
-/* Handle deprecated behaviors : 
+/* Handle deprecated behaviors :
     * adminPostsActionsCombo
 	* adminPostsActionsHeaders
 	* adminPostsActionsContent
@@ -29,7 +29,7 @@ class dcLegacyPosts
 			$as->addAction($stub_actions,array('dcLegacyPosts','onActionLegacy'));
 		}
 	}
-	
+
 	public static function onActionLegacy($core, dcPostsActionsPage $as, $post) {
 		$core->callBehavior('adminPostsActions',$core,$as->getRS(),$as->getAction(),$as->getRedirection());
 		$as->beginPage('',
@@ -38,12 +38,12 @@ class dcLegacyPosts
 			$core->callBehavior('adminPostsActionsHeaders'),'');
 		$core->callBehavior('adminPostsActionsContent',$core,$as->getAction(),$as->getHiddenFields(true));
 		$as->endPage();
-	
+
 	}
 }
 
 
-/* Handle deprecated behaviors : 
+/* Handle deprecated behaviors :
     * adminCommentsActionsCombo
 	* adminCommentsActionsHeaders
 	* adminCommentsActionsContent
@@ -57,7 +57,7 @@ class dcLegacyComments
 			$as->addAction($stub_actions,array('dcLegacyComments','onActionLegacy'));
 		}
 	}
-	
+
 	public static function onActionLegacy($core, dcCommentsActionsPage $as, $Comment) {
 		$core->callBehavior('adminCommentsActions',$core,$as->getRS(),$as->getAction(),$as->getRedirection());
 		$as->beginPage('',
@@ -69,12 +69,12 @@ class dcLegacyComments
 		$res = ob_get_contents();
 		ob_end_clean();
 		$res = str_replace("comments_actions.php",$as->getURI(),$res);
-		echo $res;		
+		echo $res;
 		$as->endPage();
-	
+
 	}
 }
-/* Handle deprecated behaviors : 
+/* Handle deprecated behaviors :
     * adminPagesActionsCombo
 	* adminPagesActionsHeaders
 	* adminPagesActionsContent
@@ -88,7 +88,7 @@ class dcLegacyPages
 			$as->addAction($stub_actions,array('dcLegacyPages','onActionLegacy'));
 		}
 	}
-	
+
 	public static function onActionLegacy($core, dcPagesActionsPage $as, $post) {
 		$core->callBehavior('adminPostsActions',$core,$as->getRS(),$as->getAction(),$as->getRedirection());
 		$as->beginPage('',

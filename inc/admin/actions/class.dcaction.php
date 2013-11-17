@@ -376,4 +376,3 @@ abstract class dcActionsPage
 	 abstract protected function fetchEntries($from);
 
 }
-

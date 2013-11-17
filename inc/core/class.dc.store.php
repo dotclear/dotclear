@@ -262,13 +262,13 @@ class dcStore
 	private static function compare($v1, $v2, $op)
 	{
 		return version_compare(
-			preg_replace('!-r(\d+)$!', '-p$1', $v1), 
-			preg_replace('!-r(\d+)$!', '-p$1', $v2), 
+			preg_replace('!-r(\d+)$!', '-p$1', $v1),
+			preg_replace('!-r(\d+)$!', '-p$1', $v2),
 			$op
 		);
 	}
 
-	/** 
+	/**
 	 * Sort modules list.
 	 *
 	 * @param	array	$a		A module
@@ -277,11 +277,11 @@ class dcStore
 	 */
 	private static function sort($a,$b)
 	{
-		$c = strtolower($a['id']); 
-		$d = strtolower($b['id']); 
-		if ($c == $d) { 
-			return 0; 
-		} 
-		return ($c < $d) ? -1 : 1; 
+		$c = strtolower($a['id']);
+		$d = strtolower($b['id']);
+		if ($c == $d) {
+			return 0;
+		}
+		return ($c < $d) ? -1 : 1;
 	}
 }

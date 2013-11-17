@@ -20,4 +20,3 @@ $this->registerModule(
 								'type' => 'theme'
 							)
 );
-?>

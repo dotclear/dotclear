@@ -64,11 +64,11 @@ if (!empty($_POST['save_settings'])) {
 
 	try {
 		$core->blog->settings->maintenance->put(
-			'plugin_message', 
-			!empty($_POST['settings_plugin_message']), 
-			'boolean', 
-			'Display alert message of late tasks on plugin page', 
-			true, 
+			'plugin_message',
+			!empty($_POST['settings_plugin_message']),
+			'boolean',
+			'Display alert message of late tasks on plugin page',
+			true,
 			true
 		);
 
@@ -84,11 +84,11 @@ if (!empty($_POST['save_settings'])) {
 				$ts = empty($_POST['settings_ts_'.$t->id()]) ? 0 : $_POST['settings_ts_'.$t->id()];
 			}
 			$core->blog->settings->maintenance->put(
-				'ts_'.$t->id(), 
-				abs((integer) $ts), 
-				'integer', 
-				sprintf('Recall time for task %s', $t->id()), 
-				true, 
+				'ts_'.$t->id(),
+				abs((integer) $ts),
+				'integer',
+				sprintf('Recall time for task %s', $t->id()),
+				true,
 				$t->blog()
 			);
 		}
@@ -119,7 +119,7 @@ dcPage::jsPageTabs($tab).
 dcPage::jsLoad('index.php?pf=maintenance/js/settings.js');
 
 if ($task && $task->ajax()) {
-	echo 
+	echo
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA[\n".
 	dcPage::jsVar('dotclear.msg.wait', __('Please wait...')).
@@ -128,7 +128,7 @@ if ($task && $task->ajax()) {
 	dcPage::jsLoad('index.php?pf=maintenance/js/dc.maintenance.js');
 }
 
-echo 
+echo
 $maintenance->getHeaders().'
 </head>
 <body>';
@@ -166,7 +166,7 @@ if ($task && ($res = $task->step()) !== null) {
 
 	// Intermediate task (task required several steps)
 
-	echo 
+	echo
 	'<div class="step-box" id="'.$task->id().'">'.
 	'<p class="step-back">'.
 		'<a class="back" href="'.$p_url.'&amp;tab='.$task->tab().'#'.$task->tab().'">'.__('Back').'</a>'.
@@ -204,13 +204,13 @@ else {
 			$res_task = '';
 			foreach($tasks as $t)
 			{
-				if (!$t->id() 
-				 || $t->group() != $group_obj->id() 
+				if (!$t->id()
+				 || $t->group() != $group_obj->id()
 				 || $t->tab() != $tab_obj->id()) {
 					continue;
 				}
 
-				$res_task .= 
+				$res_task .=
 				'<p>'.form::radio(array('task', $t->id()), $t->id()).' '.
 				'<label class="classic" for="'.$t->id().'">'.
 				html::escapeHTML($t->task()).'</label>';
@@ -219,13 +219,13 @@ else {
 				$ts = $t->expired();
 				if ($core->blog->settings->maintenance->plugin_message && $ts !== false) {
 					if ($ts === null) {
-						$res_task .= 
+						$res_task .=
 						'<br /> <span class="warn">'.
 						__('This task has never been executed.').' '.
 						__('You should execute it now.').'</span>';
 					}
 					else {
-						$res_task .= 
+						$res_task .=
 						'<br /> <span class="warn">'.sprintf(
 							__('Last execution of this task was on %s.'),
 							dt::str($core->blog->settings->system->date_format, $ts).' '.
@@ -239,7 +239,7 @@ else {
 			}
 
 			if (!empty($res_task)) {
-				$res_group .= 
+				$res_group .=
 				'<div class="fieldset">'.
 				'<h4 id="'.$group_obj->id().'">'.$group_obj->name().'</h4>'.
 				$res_task.
@@ -248,7 +248,7 @@ else {
 		}
 
 		if (!empty($res_group)) {
-			echo 
+			echo
 			'<div id="'.$tab_obj->id().'" class="multi-part" title="'.$tab_obj->name().'">'.
 			'<h3>'.$tab_obj->name().'</h3>'.
 			// ($tab_obj->option('summary') ? '<p>'.$tab_obj->option('summary').'</p>' : '').
@@ -271,7 +271,7 @@ else {
 			continue;
 		}
 
-		echo 
+		echo
 		'<div id="'.$t->id().'" class="multi-part" title="'.$t->name().'">'.
 		'<h3>'.$t->name().'</h3>'.
 		'<form action="'.$p_url.'" method="post">'.
@@ -286,7 +286,7 @@ else {
 
 	// Settings
 
-	echo 
+	echo
 	'<div id="settings" class="multi-part" title="'.__('Alert settings').'">'.
 	'<h3>'.__('Alert settings').'</h3>'.
 	'<form action="'.$p_url.'" method="post">'.
@@ -319,7 +319,7 @@ else {
 	{
 		if (!$t->id()) {
 			continue;
-		} 
+		}
 		echo
 		'<div class="two-boxes">'.
 
@@ -330,7 +330,7 @@ else {
 		'</div>';
 	}
 
-	echo 
+	echo
 	'<p class="field wide"><input type="submit" value="'.__('Save').'" /> '.
 	form::hidden(array('tab'), 'settings').
 	form::hidden(array('save_settings'), 1).
@@ -341,5 +341,5 @@ else {
 
 dcPage::helpBlock('maintenance', 'maintenancetasks');
 
-echo 
+echo
 '</body></html>';

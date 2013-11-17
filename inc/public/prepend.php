@@ -100,7 +100,7 @@ if ($__parent_theme) {
 		$__parent_theme = null;
 	}
 }
-	
+
 # If theme doesn't exist, stop everything
 if (!$core->themes->moduleExists($__theme)) {
 	__error(__('Default theme not found.')
@@ -144,9 +144,9 @@ $core->url->mode = $core->blog->settings->system->url_scan;
 try {
 	# --BEHAVIOR-- publicBeforeDocument
 	$core->callBehavior('publicBeforeDocument',$core);
-	
+
 	$core->url->getDocument();
-	
+
 	# --BEHAVIOR-- publicAfterDocument
 	$core->callBehavior('publicAfterDocument',$core);
 } catch (Exception $e) {
@@ -154,4 +154,3 @@ try {
 		,__('Something went wrong while loading template file for your blog.')
 		,660);
 }
-?>

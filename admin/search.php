@@ -29,17 +29,17 @@ $nb_per_page =  30;
 if ($q)
 {
 	$params = array();
-	
+
 	# Get posts
 	if ($qtype == 'p')
 	{
 		$starting_scripts .= dcPage::jsLoad('js/_posts_list.js');
-		
+
 		$params['search'] = $q;
 		$params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 		$params['no_content'] = true;
 		$params['order'] = 'post_dt DESC';
-		
+
 		try {
 			$posts = $core->blog->getPosts($params);
 			$counter = $core->blog->getPosts($params,true);
@@ -52,12 +52,12 @@ if ($q)
 	elseif ($qtype == 'c')
 	{
 		$starting_scripts .= dcPage::jsLoad('js/_comments.js');
-		
+
 		$params['search'] = $q;
 		$params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 		$params['no_content'] = true;
 		$params['order'] = 'comment_dt DESC';
-		
+
 		try {
 			$comments = $core->blog->getComments($params);
 			$counter = $core->blog->getComments($params,true);
@@ -103,25 +103,25 @@ echo
 if ($q && !$core->error->flag())
 {
 	$redir = html::escapeHTML($_SERVER['REQUEST_URI']);
-	
+
 	# Show posts
 	if ($qtype == 'p')
 	{
-	
+
 		if ($counter->f(0) > 0) {
 			printf('<h3>'.
 			($counter->f(0) == 1 ? __('%d entry found') : __('%d entries found')).
 			'</h3>',$counter->f(0));
 		}
-		
+
 		$post_list->display($page,$nb_per_page,
 		'<form action="search.php" method="post" id="form-entries">'.
-		
+
 		'%s'.
-		
+
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
-		
+
 		'<p class="col right"><label for="action1" class="classic">'.__('Selected entries action:').'</label> '.
 		form::combo(array('action','action1'),$posts_actions_page->getCombo()).
 		'<input type="submit" value="'.__('ok').'" /></p>'.
@@ -135,21 +135,21 @@ if ($q && !$core->error->flag())
 	elseif ($qtype == 'c')
 	{
 		# Actions combo box
-		
+
 		if ($counter->f(0) > 0) {
 			printf('<h3>'.
 			($counter->f(0) == 1 ? __('%d comment found') : __('%d comments found')).
 			'</h3>',$counter->f(0));
 		}
-		
+
 		$comment_list->display($page,$nb_per_page,
 		'<form action="search.php" method="post" id="form-comments">'.
-		
+
 		'%s'.
-		
+
 		'<div class="two-cols">'.
 		'<p class="col checkboxes-helpers"></p>'.
-		
+
 		'<p class="col right"><label for="action2" class="classic">'.__('Selected comments action:').'</label> '.
 		form::combo(array('action','action2'),$comments_actions_page->getCombo()).
 		'<input type="submit" value="'.__('ok').'" /></p>'.
@@ -163,4 +163,3 @@ if ($q && !$core->error->flag())
 
 dcPage::helpBlock('core_search');
 dcPage::close();
-?>

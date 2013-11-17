@@ -2,7 +2,7 @@ dotclear.viewPostContent = function(line,action) {
 	var action = action || 'toggle';
 	var postId = $(line).attr('id').substr(1);
 	var tr = document.getElementById('pe'+postId);
-	
+
 	if ( !tr && ( action == 'toggle' || action == 'open' ) ) {
 		tr = document.createElement('tr');
 		tr.id = 'pe'+postId;
@@ -10,16 +10,16 @@ dotclear.viewPostContent = function(line,action) {
 		td.colSpan = 8;
 		td.className = 'expand';
 		tr.appendChild(td);
-		
+
 		// Get post content
 		$.get('services.php',{f:'getPostById', id: postId, post_type: ''},function(data) {
 			var rsp = $(data).children('rsp')[0];
-			
+
 			if (rsp.attributes[0].value == 'ok') {
 				var post = $(rsp).find('post_display_content').text();
 				var post_excerpt = $(rsp).find('post_display_excerpt').text();
 				var res = '';
-				
+
 				if (post) {
 					if (post_excerpt) {
 						res += post_excerpt + '<hr />';
@@ -31,7 +31,7 @@ dotclear.viewPostContent = function(line,action) {
 				alert($(rsp).find('message').text());
 			}
 		});
-		
+
 		$(line).addClass('expand');
 		line.parentNode.insertBefore(tr,line.nextSibling);
 	}
