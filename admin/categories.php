@@ -222,4 +222,3 @@ echo '</div>';
 
 dcPage::helpBlock('core_categories');
 dcPage::close();
-?>

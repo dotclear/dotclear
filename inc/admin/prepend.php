@@ -23,10 +23,10 @@ header("Pragma: no-cache");
 
 function dc_load_locales() {
 	global $_lang, $core;
-	
+
 	$_lang = $core->auth->getInfo('user_lang');
 	$_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$_lang) ? $_lang : 'en';
-	
+
 	l10n::lang($_lang);
 	if (l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/date') === false && $_lang != 'en') {
 		l10n::set(dirname(__FILE__).'/../../locales/en/date');
@@ -39,12 +39,12 @@ function dc_load_locales() {
 function dc_admin_icon_url($img)
 {
 	global $core;
-	
+
 	$core->auth->user_prefs->addWorkspace('interface');
 	$user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
 	if (($user_ui_iconset) && ($img)) {
 		$icon = false;
-		if ((preg_match('/^images\/menu\/(.+)$/',$img,$m)) || 
+		if ((preg_match('/^images\/menu\/(.+)$/',$img,$m)) ||
 			(preg_match('/^index\.php\?pf=(.+)$/',$img,$m))) {
 			if ($m[1]) {
 				$icon = path::real(dirname(__FILE__).'/../../admin/images/iconset/'.$user_ui_iconset.'/'.$m[1],false);
@@ -64,11 +64,11 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
 {
 	# We have session information in constants
 	$_COOKIE[DC_SESSION_NAME] = DC_AUTH_SESS_ID;
-	
+
 	if (!$core->auth->checkSession(DC_AUTH_SESS_UID)) {
 		throw new Exception('Invalid session data.');
 	}
-	
+
 	# Check nonce from POST requests
 	if (!empty($_POST))
 	{
@@ -76,14 +76,14 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
 			throw new Exception('Precondition Failed.');
 		}
 	}
-	
+
 	if (empty($_SESSION['sess_blog_id'])) {
 		throw new Exception('Permission denied.');
 	}
-	
+
 	# Loading locales
 	dc_load_locales();
-	
+
 	$core->setBlog($_SESSION['sess_blog_id']);
 	if (!$core->blog->id) {
 		throw new Exception('Permission denied.');
@@ -99,7 +99,7 @@ elseif ($core->auth->sessionExists())
 			$p = $core->session->getCookieParameters(false,-600);
 			$p[3] = '/';
 			call_user_func_array('setcookie',$p);
-			
+
 			http::redirect('auth.php');
 		}
 	} catch (Exception $e) {
@@ -107,7 +107,7 @@ elseif ($core->auth->sessionExists())
 			,__('There seems to be no Session table in your database. Is Dotclear completly installed?')
 			,20);
 	}
-	
+
 	# Check nonce from POST requests
 	if (!empty($_POST))
 	{
@@ -118,8 +118,8 @@ elseif ($core->auth->sessionExists())
 			exit;
 		}
 	}
-	
-	
+
+
 	if (!empty($_REQUEST['switchblog'])
 	&& $core->auth->getPermissions($_REQUEST['switchblog']) !== false)
 	{
@@ -130,7 +130,7 @@ elseif ($core->auth->sessionExists())
 		if (isset($_SESSION['media_manager_page'])) {
 			unset($_SESSION['media_manager_page']);
 		}
-		
+
 		# Removing switchblog from URL
 		$redir = $_SERVER['REQUEST_URI'];
 		$redir = preg_replace('/switchblog=(.*?)(&|$)/','',$redir);
@@ -138,7 +138,7 @@ elseif ($core->auth->sessionExists())
 		http::redirect($redir);
 		exit;
 	}
-	
+
 	# Check blog to use and log out if no result
 	if (isset($_SESSION['sess_blog_id']))
 	{
@@ -153,10 +153,10 @@ elseif ($core->auth->sessionExists())
 			unset($b);
 		}
 	}
-	
+
 	# Loading locales
 	dc_load_locales();
-	
+
 	if (isset($_SESSION['sess_blog_id'])) {
 		$core->setBlog($_SESSION['sess_blog_id']);
 	} else {
@@ -164,7 +164,7 @@ elseif ($core->auth->sessionExists())
 		http::redirect('auth.php');
 	}
 
-/*	
+/*
 	# Check add to my fav fired
 	if (!empty($_REQUEST['add-favorite'])) {
 		$redir = $_SERVER['REQUEST_URI'];
@@ -183,7 +183,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		require $f;
 	}
 	unset($f);
-	
+
 	if (($hfiles = @scandir($locales_root.$_lang.'/help')) !== false)
 	{
 		foreach ($hfiles as $hfile) {
@@ -204,8 +204,8 @@ if ($core->auth->userID() && $core->blog !== null)
 
 	# [] : Title, URL, small icon, large icon, permissions, id, class
 	# NB : '*' in permissions means any, null means super admin only
-	
-	
+
+
 	# Menus creation
 	$_menu = new ArrayObject();
 	$_menu['Dashboard'] = new dcMenu('dashboard-menu',null);
@@ -218,14 +218,14 @@ if ($core->auth->userID() && $core->blog !== null)
 	# Loading plugins
 	$core->plugins->loadModules(DC_PLUGINS_ROOT,'admin',$_lang);
 	$core->favs->setup();
-	
+
 	if (!$user_ui_nofavmenu) {
 		$core->favs->appendMenu($_menu);
 	}
 
-	
+
 	# Set menu titles
-	
+
 	$_menu['System']->title = __('System settings');
 	$_menu['Blog']->title = __('Blog');
 	$_menu['Plugins']->title = __('Plugins');
@@ -255,7 +255,7 @@ if ($core->auth->userID() && $core->blog !== null)
 	$_menu['Blog']->prependItem(__('New entry'),'post.php','images/menu/edit.png',
 		preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('usage,contentadmin',$core->blog->id));
-	
+
 	$_menu['System']->prependItem(__('Update'),'update.php','images/menu/update.png',
 		preg_match('/update.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin() && is_readable(DC_DIGESTS));
@@ -272,9 +272,8 @@ if ($core->auth->userID() && $core->blog !== null)
 		preg_match('/blogs.php$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin() ||
 		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->getBlogCount() > 1);
-	
+
 	if (empty($core->blog->settings->system->jquery_migrate_mute)) {
 		$core->blog->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
 	}
 }
-?>

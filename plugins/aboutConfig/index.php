@@ -29,11 +29,11 @@ if (!empty($_POST['s']) && is_array($_POST['s']))
 		foreach ($_POST['s'] as $ns => $s)
 		{
 			$core->blog->settings->addNamespace($ns);
-			
+
 			foreach ($s as $k => $v) 	{
 				$core->blog->settings->$ns->put($k,$v);
 			}
-			
+
 			$core->blog->triggerBlog();
 		}
 
@@ -54,14 +54,14 @@ if (!empty($_POST['gs']) && is_array($_POST['gs']))
 		foreach ($_POST['gs'] as $ns => $s)
 		{
 			$core->blog->settings->addNamespace($ns);
-			
+
 			foreach ($s as $k => $v) 	{
 				$core->blog->settings->$ns->put($k,$v,null,null,true,true);
 			}
-			
+
 			$core->blog->triggerBlog();
 		}
-		
+
 		dcPage::addSuccessNotice(__('Configuration successfully updated'));
 		http::redirect($p_url.'&part=global');
 	}
@@ -82,9 +82,9 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 		$field = form::field(array($field_name.'['.$ns.']['.$id.']',$field_name.'_'.$ns.'_'.$id),40,null,
 		html::escapeHTML($s['value']));
 	}
-	
+
 	$slabel = $strong_label ? '<strong>%s</strong>' : '%s';
-	
+
 	return
 	'<tr class="line">'.
 	'<td scope="row"><label for="'.$field_name.'_'.$ns.'_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
@@ -153,7 +153,7 @@ if (count($settings) > 0) {
 	foreach ($settings as $ns => $s) {
 		$ns_combo[$ns] = '#l_'.$ns;
 	}
-	echo 
+	echo
 		'<form action="plugin.php" method="post">'.
 		'<p class="anchor-nav">'.
 		'<label for="ls_nav" class="classic">'.__('Goto:').'</label> '.form::combo('ls_nav',$ns_combo).
@@ -203,7 +203,7 @@ if (count($settings) > 0) {
 	foreach ($settings as $ns => $s) {
 		$ns_combo[$ns] = '#g_'.$ns;
 	}
-	echo 
+	echo
 		'<form action="plugin.php" method="post">'.
 		'<p class="anchor-nav">'.
 		'<label for="gs_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gs_nav',$ns_combo).' '.

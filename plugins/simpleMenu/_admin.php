@@ -33,4 +33,3 @@ $_menu['Blog']->addItem(__('Simple menu'),'plugin.php?p=simpleMenu','index.php?p
                 $core->auth->check('usage,contentadmin',$core->blog->id));
 
 require dirname(__FILE__).'/_widgets.php';
-?>

@@ -20,7 +20,7 @@ $core->themes->loadModules($core->blog->themes_path, null);
 
 # -- Page helper --
 $list = new adminThemesList(
-	$core->themes, 
+	$core->themes,
 	$core->blog->themes_path,
 	$core->blog->settings->system->store_theme_url
 );
@@ -112,7 +112,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 	# Updated modules from repo
 	$modules = $list->store->get(true);
 	if (!empty($modules)) {
-		echo 
+		echo
 		'<div class="multi-part" id="update" title="'.html::escapeHTML(__('Update themes')).'">'.
 		'<h3>'.html::escapeHTML(__('Update themes')).'</h3>'.
 		'<p>'.sprintf(
@@ -158,7 +158,7 @@ if (!empty($modules)) {
 			/* actions */	array('select', 'behavior', 'deactivate', 'delete')
 		);
 
-	echo 
+	echo
 	'</div>';
 }
 
@@ -180,7 +180,7 @@ if (!empty($modules)) {
 			/* actions */	array('activate', 'delete')
 		);
 
-	echo 
+	echo
 	'</div>';
 }
 

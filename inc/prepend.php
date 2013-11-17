@@ -309,4 +309,3 @@ function init_prepend_l10n()
 		}
 	}
 }
-?>

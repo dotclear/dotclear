@@ -71,46 +71,46 @@ if (!empty($_POST))
 		} catch (Exception $e) {
 			throw new Exception('<p>' . __($e->getMessage()) . '</p>');
 		}
-		
+
 		# Checks system capabilites
 		require dirname(__FILE__).'/check.php';
 		if (!dcSystemCheck($con,$_e)) {
 			$can_install = false;
 			throw new Exception('<p>'.__('Dotclear cannot be installed.').'</p><ul><li>'.implode('</li><li>',$_e).'</li></ul>');
 		}
-		
+
 		# Check if dotclear is already installed
 		$schema = dbSchema::init($con);
 		if (in_array($DBPREFIX.'version',$schema->getTables())) {
 			throw new Exception(__('Dotclear is already installed.'));
 		}
-		
+
 		# Does config.php.in exist?
 		$config_in = dirname(__FILE__).'/../../inc/config.php.in';
 		if (!is_file($config_in)) {
 			throw new Exception(sprintf(__('File %s does not exist.'),$config_in));
 		}
-		
+
 		# Can we write config.php
 		if (!is_writable(dirname(DC_RC_PATH))) {
 			throw new Exception(sprintf(__('Cannot write %s file.'),DC_RC_PATH));
 		}
-		
+
 		# Creates config.php file
 		$full_conf = file_get_contents($config_in);
-		
+
 		writeConfigValue('DC_DBDRIVER',$DBDRIVER,$full_conf);
 		writeConfigValue('DC_DBHOST',$DBHOST,$full_conf);
 		writeConfigValue('DC_DBUSER',$DBUSER,$full_conf);
 		writeConfigValue('DC_DBPASSWORD',$DBPASSWORD,$full_conf);
 		writeConfigValue('DC_DBNAME',$DBNAME,$full_conf);
 		writeConfigValue('DC_DBPREFIX',$DBPREFIX,$full_conf);
-		
+
 		$admin_url = preg_replace('%install/wizard.php$%','',$_SERVER['REQUEST_URI']);
 		writeConfigValue('DC_ADMIN_URL',http::getHost().$admin_url,$full_conf);
 		writeConfigValue('DC_ADMIN_MAILFROM','dotclear@'.$_SERVER['HTTP_HOST'],$full_conf);
 		writeConfigValue('DC_MASTER_KEY',md5(uniqid()),$full_conf);
-		
+
 		$fp = @fopen(DC_RC_PATH,'wb');
 		if ($fp === false) {
 			throw new Exception(sprintf(__('Cannot write %s file.'),DC_RC_PATH));
@@ -118,7 +118,7 @@ if (!empty($_POST))
 		fwrite($fp,$full_conf);
 		fclose($fp);
 		chmod(DC_RC_PATH, 0666);
-		
+
 		$con->close();
 		http::redirect('index.php?wiz=1');
 	}
@@ -147,7 +147,7 @@ xml:lang="en" lang="en">
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title><?php echo __('Dotclear installation wizard'); ?></title>
-	<link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" /> 
+	<link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" />
 </head>
 
 <body id="dotclear-admin" class="install">

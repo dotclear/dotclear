@@ -57,7 +57,7 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
 			$ie->process('ok');
 		}
 		else {
-			return 
+			return
 			'<p><label for="file_name">'.__('File name:').'</label>'.
 			form::field('file_name', 50, 255, date('Y-m-d-H-i-').$this->export_name).
 			'</p>'.
@@ -114,7 +114,7 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
 			$ie->process('ok');
 		}
 		else {
-			return 
+			return
 			'<p><label for="file_name">'.__('File name:').'</label>'.
 			form::field('file_name', 50, 255, date('Y-m-d-H-i-').$this->export_name).
 			'</p>'.

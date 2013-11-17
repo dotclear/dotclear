@@ -44,7 +44,7 @@ try
 		$file = $file_default;
 		throw $e;
 	}
-	
+
 	# Write file
 	if (!empty($_POST['write']))
 	{
@@ -116,7 +116,7 @@ else
 	'<fieldset><legend>'.__('File editor').'</legend>'.
 	'<p><label for="file_content">'.sprintf(__('Editing file %s'),'<strong>'.$file['f']).'</strong></label></p>'.
 	'<p>'.form::textarea('file_content',72,25,html::escapeHTML($file['c']),'maximal','',!$file['w']).'</p>';
-	
+
 	if ($file['w'])
 	{
 		echo
@@ -129,16 +129,16 @@ else
 	{
 		echo '<p>'.__('This file is not writable. Please check your theme files permissions.').'</p>';
 	}
-	
+
 	echo
 	'</fieldset></form>';
 
 	if ($user_ui_colorsyntax) {
-		$editorMode = 
+		$editorMode =
 			(!empty($_REQUEST['css']) ? "css" :
 			(!empty($_REQUEST['js']) ? "javascript" :
 			(!empty($_REQUEST['po']) ? "text/plain" : "text/html")));
-		echo 
+		echo
 		'<script>
 			window.CodeMirror.defineMode("dotclear", function(config) {
 				return CodeMirror.multiplexingMode(

@@ -19,7 +19,7 @@ class dcMaintenanceBuildtools extends dcMaintenanceTask
 		global $core;
 		$widget = $this->core->plugins->getModules("widgets");
 		include $widget['root'].'/_default_widgets.php';
-		
+
 		$faker = new l10nFaker($GLOBALS['core']);
 		$faker->generate_file();
 		return true;
@@ -29,7 +29,7 @@ class dcMaintenanceBuildtools extends dcMaintenanceTask
 class l10nFaker {
 	protected $core;
 	protected $bundled_plugins;
-	
+
 	public function __construct($core) {
 		$this->core = $core;
 		$this->bundled_plugins = explode(',', DC_DISTRIB_PLUGINS);
@@ -42,7 +42,7 @@ class l10nFaker {
 	public function generate_file() {
 		global $__widgets;
 		global $__autoload;
-		
+
 		$main = "<?php\n";
 		$plugin = "<?php\n";
 		$main .= "# Media sizes\n\n";

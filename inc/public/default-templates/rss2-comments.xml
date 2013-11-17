@@ -15,9 +15,9 @@
   <copyright>{{tpl:BlogCopyrightNotice encode_xml="1"}}</copyright>
   <docs>http://blogs.law.harvard.edu/tech/rss</docs>
   <generator>Dotclear</generator>
-  
+
   <tpl:Comments order="desc" with_pings="1">
-  
+
   <tpl:CommentIf is_ping="1">
   <item>
     <title>[ping] {{tpl:PingEntryTitle encode_xml="1"}} - {{tpl:PingBlogName encode_xml="1"}}</title>
@@ -25,12 +25,12 @@
     <guid isPermaLink="false">{{tpl:PingFeedID}}</guid>
     <pubDate>{{tpl:PingDate rfc822="1"}}</pubDate>
     <dc:creator>{{tpl:PingBlogName encode_xml="1"}}</dc:creator>
-    
+
     <description>&lt;p&gt;&lt;a href="{{tpl:PingAuthorURL encode_xml="1"}}"&gt;{{tpl:PingTitle encode_xml="1"}}&lt;/a&gt;&lt;/p&gt;
     {{tpl:PingContent encode_xml="1"}}</description>
   </item>
   </tpl:CommentIf>
-  
+
   <tpl:CommentIf is_ping="0">
   <item>
     <title>{{tpl:CommentEntryTitle encode_xml="1"}} - {{tpl:CommentAuthor encode_xml="1"}}</title>
@@ -38,11 +38,11 @@
     <guid isPermaLink="false">{{tpl:CommentFeedID}}</guid>
     <pubDate>{{tpl:CommentDate rfc822="1"}}</pubDate>
     <dc:creator>{{tpl:CommentAuthor encode_xml="1"}}</dc:creator>
-    
+
     <description>{{tpl:CommentContent absolute_urls="1" encode_xml="1"}}</description>
   </item>
   </tpl:CommentIf>
   </tpl:Comments>
-  
+
 </channel>
 </rss>

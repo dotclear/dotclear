@@ -19,25 +19,25 @@ class dcFavorites
 {
 	/** @var dcCore dotclear core instance */
 	protected $core;
-	
+
 	/** @var array list of favorite definitions  */
 	protected $fav_defs;
-	
+
 	/** @var dcWorkspace current favorite landing workspace */
 	protected $ws;
-	
+
 	/** @var array list of user-defined favorite ids */
 	protected $local_prefs;
 
 	/** @var array list of globally-defined favorite ids */
 	protected $global_prefs;
-	
-	/** @var array list of user preferences (either one of the 2 above, or not!) */	
+
+	/** @var array list of user preferences (either one of the 2 above, or not!) */
 	protected $user_prefs;
-	
+
     /**
      * Class constructor
-     * 
+     *
      * @param mixed  $core   dotclear core
      *
      * @access public
@@ -49,7 +49,7 @@ class dcFavorites
 		$this->fav_defs = new ArrayObject();
 		$this->ws = $core->auth->user_prefs->addWorkspace('dashboard');
 		$this->user_prefs = array();
-		
+
 		if ($this->ws->prefExists('favorites')) {
 			$this->local_prefs = @unserialize($this->ws->getLocal('favorites'));
 			$this->global_prefs = @unserialize($this->ws->getGlobal('favorites'));
@@ -63,11 +63,11 @@ class dcFavorites
 		} else {
 			// No favorite defined ? Huhu, let's go for a migration
 			$this->migrateFavorites();
-		}	
+		}
 		defaultFavorites::initDefaultFavorites($this);
 	}
-	
-	
+
+
     /**
      * setup - sets up favorites, fetch user favorites (against his permissions)
      *			This method is to be called after loading plugins
@@ -83,7 +83,7 @@ class dcFavorites
 
    /**
      * getFavorite - retrieves a favorite (complete description) from its id.
-     * 
+     *
      * @param string  $id   the favorite id, or an array having 1 key 'name' set to id, ther keys are merged to favorite.
      *
      * @access public
@@ -116,10 +116,10 @@ class dcFavorites
 		}
 		return $fattr;
 	}
-	
+
    /**
      * getFavorites - retrieves a list of favorites.
-     * 
+     *
      * @param string  $ids   an array of ids, as defined in getFavorite.
      *
      * @access public
@@ -136,7 +136,7 @@ class dcFavorites
 		}
 		return $prefs;
 	}
-		
+
    /**
      * setUserPrefs - get user favorites from settings. These are complete favorites, not ids only
      * 				returned favorites are the first non-empty list from :
@@ -179,9 +179,9 @@ class dcFavorites
 				}
 			}
 		}
-			
+
 	}
-	
+
    /**
      * migrateFavorites - migrate dc < 2.6 favorites to new format
 	 *
@@ -207,8 +207,8 @@ class dcFavorites
 		$this->user_prefs = $this->getFavorites($this->local_prefs);
 	}
 
-	
-	
+
+
    /**
      * legacyFavorites - handle legacy favorites using adminDashboardFavs behavior
 	 *
@@ -230,9 +230,9 @@ class dcFavorites
 			);
 			$this->register ($v[0], $fav);
 		}
-		
+
 	}
-	
+
    /**
      * getUserFavorites - returns favorites that correspond to current user
 	 *   (may be local, global, or failback favorites)
@@ -244,7 +244,7 @@ class dcFavorites
 	public function getUserFavorites() {
 		return $this->user_prefs;
 	}
-	
+
 
    /**
      * getFavoriteIDs - returns user-defined or global favorites ids list
@@ -272,7 +272,7 @@ class dcFavorites
 	public function setFavoriteIDs($ids,$global=false) {
 		$this->ws->put('favorites',serialize($ids),null,null,true,$global);
 	}
-	
+
    /**
      * getAvailableFavoritesIDs - returns all available fav ids
 	 *
@@ -318,7 +318,7 @@ class dcFavorites
 			);
 		}
 	}
-	
+
    /**
      * appendDashboardIcons - adds favorites icons to index page
 	 *					shall not be called outside admin/index.php...
@@ -335,9 +335,9 @@ class dcFavorites
 			}
 			$icons[$k]=new ArrayObject(array($v['title'],$v['url'],$v['large-icon']));
 			$this->core->callBehavior('adminDashboardFavsIcon',$this->core,$k,$icons[$k]);
-		}		
+		}
 	}
-	
+
    /**
      * register - registers a new favorite definition
 	 *
@@ -357,21 +357,21 @@ class dcFavorites
 		$this->fav_defs[$id] = $data;
 		return $this;
 	}
-	
+
    /**
      * registerMultiple - registers a list of favorites definition
 	 *
-     * @param array an array defining all favorites key is the id, value is the data. 
+     * @param array an array defining all favorites key is the id, value is the data.
 	 *				see register method for data format
      * @access public
-     */	
+     */
 	 public function registerMultiple($data) {
 		foreach ($data as $k=>$v) {
 			$this->register($k,$v);
 		}
 		return $this;
 	}
-	
+
    /**
      * exists - tells whether a fav definition exists or not
 	 *
@@ -380,11 +380,11 @@ class dcFavorites
      * @access public
 	 *
 	 * @return true if the fav definition exists, false otherwise
-     */	
+     */
 	public function exists($id) {
 		return isset($this->fav_defs[$id]);
 	}
-	
+
 }
 
 

@@ -7,12 +7,12 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
- * 
+ *
  * DotClear is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with DotClear; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -31,7 +31,7 @@ jsToolBar.prototype.iframe_css = null;
 jsToolBar.prototype.drawToolBar = jsToolBar.prototype.draw;
 jsToolBar.prototype.draw = function(mode) {
 	mode = mode || 'xhtml';
-	
+
 	if (this.can_wwg) {
 		this.mode = 'wysiwyg';
 		this.drawToolBar('wysiwyg');
@@ -43,7 +43,7 @@ jsToolBar.prototype.draw = function(mode) {
 
 jsToolBar.prototype.switchMode = function(mode) {
 	mode = mode || 'xhtml';
-	
+
 	if (mode == 'xhtml') {
 		this.wwg_mode = true;
 		this.draw(mode);
@@ -69,14 +69,14 @@ jsToolBar.prototype.syncContents = function(from) {
 		if (html == '<br />') { html = '<p></p>'; }
 		this.textarea.value = html;
 	}
-	
+
 	function initContent() {
 		if (!This.iframe.contentWindow.document || !This.iframe.contentWindow.document.body) {
 			setTimeout(initContent, 1);
 			return;
 		}
 		This.ibody = This.iframe.contentWindow.document.body;
-		
+
 		if (This.textarea.value != '' && This.textarea.value != '<p></p>') {
 			This.ibody.innerHTML = This.applyWysiwygFilters(This.textarea.value);
 			if (This.ibody.createTextRange) { //cursor at the begin for IE
@@ -138,28 +138,28 @@ jsToolBar.prototype.switchEdit = function() {
 */
 jsToolBar.prototype.initWindow = function() {
 	var This = this;
-	
+
 	this.iframe = document.createElement('iframe');
 	this.textarea.parentNode.insertBefore(this.iframe,this.textarea.nextSibling);
-	
+
 	this.switcher = document.createElement('ul');
 	this.switcher.className = 'jstSwitcher';
 	this.editor.appendChild(this.switcher);
-	
+
 	this.iframe.height = this.textarea.offsetHeight + 0;
 	this.iframe.width = this.textarea.offsetWidth + 0;
-	
+
 	if (this.textarea.tabIndex != undefined) {
 		this.iframe.tabIndex = this.textarea.tabIndex;
 	}
-	
+
 	function initIframe() {
 		var doc = This.iframe.contentWindow.document;
 		if (!doc) {
 			setTimeout(initIframe,1);
 			return false;
 		}
-		
+
 		doc.open();
 		var html =
 		'<html>\n'+
@@ -170,28 +170,28 @@ jsToolBar.prototype.initWindow = function() {
 		'<body>\n'+
 		'</body>\n'+
 		'</html>';
-		
+
 		doc.write(html);
 		doc.close();
 		if (document.all) { // for IE
 			doc.designMode = 'on';
 			// warning : doc is now inaccessible for IE6 sp1
 		}
-		
+
 		This.iwin = This.iframe.contentWindow;
-		
+
 		This.syncContents('textarea');
-		
+
 		if (This.wwg_mode == undefined) {
 			This.wwg_mode = true;
 		}
-		
+
 		if (This.wwg_mode) {
 			This.textarea.style.display = 'none';
 		} else {
 			This.iframe.style.display = 'none';
 		}
-		
+
 		// update textarea on submit
 		if (This.textarea.form) {
 			chainHandler(This.textarea.form,'onsubmit', function() {
@@ -200,15 +200,15 @@ jsToolBar.prototype.initWindow = function() {
 				}
 			});
 		}
-		
+
 		for (var evt in This.iwinEvents) {
 			var event = This.iwinEvents[evt];
 			This.addIwinEvent(This.iframe.contentWindow.document, event.type, event.fn, This);
 		}
-		
+
 		This.setSwitcher();
 		try { This.iwin.document.designMode = 'on'; } catch (e) {}; // Firefox needs this
-		
+
 		return true;
 	}
 	initIframe();
@@ -240,7 +240,7 @@ jsToolBar.prototype.setSwitcher = function() {
 	while (this.switcher.hasChildNodes()) {
 		this.switcher.removeChild(this.switcher.firstChild);
 	}
-	
+
 	var This = this;
 	function setLink(title,link) {
 		var li = document.createElement('li');
@@ -254,11 +254,11 @@ jsToolBar.prototype.setSwitcher = function() {
 			li.className = 'jstSwitcherCurrent';
 			a = document.createTextNode(title);
 		}
-		
+
 		li.appendChild(a);
 		This.switcher.appendChild(li);
 	}
-	
+
 	setLink(this.switcher_visual_title,!this.wwg_mode);
 	setLink(this.switcher_source_title,this.wwg_mode);
 };
@@ -270,7 +270,7 @@ jsToolBar.prototype.removeEditor = function() {
 		this.iframe.parentNode.removeChild(this.iframe);
 		this.iframe = null;
 	}
-	
+
 	if (this.switcher != undefined && this.switcher.parentNode != undefined) {
 		this.switcher.parentNode.removeChild(this.switcher);
 	}
@@ -311,20 +311,20 @@ jsToolBar.prototype.resizeDragMove = function(event) {
 */
 jsToolBar.prototype.insertNode = function(node) {
 	var range;
-	
+
 	if (this.iwin.getSelection) { // Gecko
 		var sel = this.iwin.getSelection();
 		range = sel.getRangeAt(0);
-		
+
 		// deselect all ranges
 		sel.removeAllRanges();
-		
+
 		// empty range
 		range.deleteContents();
-		
+
 		// Insert node
 		range.insertNode(node);
-		
+
 		range.selectNodeContents(node);
 		range.setEndAfter(node);
 		if (range.endContainer.childNodes.length > range.endOffset &&
@@ -334,7 +334,7 @@ jsToolBar.prototype.insertNode = function(node) {
 			range.setEnd(range.endContainer.childNodes[0]);
 		}
 		sel.addRange(range);
-		
+
 		sel.collapseToEnd();
 	} else { // IE
 		// lambda element
@@ -390,7 +390,7 @@ jsToolBar.prototype.replaceNodeByContent = function(node) {
 
 jsToolBar.prototype.getBlockLevel = function() {
 	var blockElts = ['p','h1','h2','h3','h4','h5','h6'];
-	
+
 	var range, commonAncestorContainer;
 	if (this.iwin.getSelection) { //gecko
 		var selection = this.iwin.getSelection();
@@ -403,7 +403,7 @@ jsToolBar.prototype.getBlockLevel = function() {
 		range = this.iwin.document.selection.createRange();
 		commonAncestorContainer = range.parentElement();
 	}
-	
+
 	var ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
 	while (arrayIndexOf(blockElts, ancestorTagName)==-1 && ancestorTagName!='body') {
 		commonAncestorContainer = commonAncestorContainer.parentNode;
@@ -429,8 +429,8 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
 	[/<meta[\w\W]*?>/gim,''],
 	[/<style[\w\W]*?>[\w\W]*?<\/style>/gim, ''],
 	[/<\/?font[\w\W]*?>/gim, ''],
-	
-	
+
+
 	/* Replacements */
 	[/<(\/?)(B|b|STRONG)([\s>\/])/g, "<$1strong$3"],
 	[/<(\/?)(I|i|EM)([\s>\/])/g, "<$1em$3"],
@@ -497,13 +497,13 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
 	while ( /(<[^\/!]>|<[^\/!][^>]*[^\/]>)\s*<\/[^>]*[^-]>/.test(html) ) {
 		html = html.replace(/(<[^\/!]>|<[^\/!][^>]*[^\/]>)\s*<\/[^>]*[^-]>/g, "");
 	}
-	
+
 	/* tous les tags en minuscule */
 	html = html.replace(/<(\/?)([A-Z0-9]+)/g,
 			function(match0, match1, match2) {
 				return "<" + match1 + match2.toLowerCase();
 			});
-	
+
 	/* IE laisse souvent des attributs sans guillemets */
 	var myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%\/:.#?=&;!*()-]*))[^>]*?>/;
 	while ( myRegexp.test(html)) {
@@ -515,21 +515,21 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
 			}
 		)
 	}
-	
+
 	/* les navigateurs rajoutent une unite aux longueurs css nulles */
 	/* note: a ameliorer ! */
 	while ( /(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/.test(html)) {
 		html = html.replace(/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/gi, "$1"+"0$4");
 	}
-	
+
 	/* correction des fins de lignes : le textarea edite contient des \n
 	* le wysiwyg des \r\n , et le textarea mis a jour SANS etre affiche des \r\n ! */
 	html = html.replace(/\r\n/g,"\n");
-	
+
 	/* Trim */
 	html = html.replace(/^\s+/gm,'');
 	html = html.replace(/\s+$/gm,'');
-	
+
 	return html;
 };
 jsToolBar.prototype.validBlockquote = function() {
@@ -537,7 +537,7 @@ jsToolBar.prototype.validBlockquote = function() {
 	                 'h2','h3','h4','h5','h6','hr','ol','p','pre','table','ul'];
 	var BQs = this.iwin.document.getElementsByTagName('blockquote');
 	var bqChilds;
-	
+
 	for (var bq = 0; bq < BQs.length; bq++) {
 		bqChilds = BQs[bq].childNodes;
 		var frag = this.iwin.document.createDocumentFragment();
@@ -571,20 +571,20 @@ jsToolBar.prototype.removeFormatRegexp = new Array(
 	[/(<[a-z][^>]*)margin-left\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)margin-right\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)margin-top\s*:[^;]*;/mg, "$1"],
-	
+
 	[/(<[a-z][^>]*)padding\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)padding-bottom\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)padding-left\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)padding-right\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)padding-top\s*:[^;]*;/mg, "$1"],
-	
+
 	[/(<[a-z][^>]*)font\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)font-family\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)font-size\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)font-style\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)font-variant\s*:[^;]*;/mg, "$1"],
 	[/(<[a-z][^>]*)font-weight\s*:[^;]*;/mg, "$1"],
-	
+
 	[/(<[a-z][^>]*)color\s*:[^;]*;/mg, "$1"]
 );
 
@@ -592,7 +592,7 @@ jsToolBar.prototype.removeTextFormating = function(html) {
 	for (var reg in this.removeFormatRegexp) {
 		html = html.replace(this.removeFormatRegexp[reg][0], this.removeFormatRegexp[reg][1]);
 	}
-	
+
 	html = this.tagsoup2xhtml(html);
 	html = html.replace(/style="\s*?"/mgi,'');
 	return html;
@@ -692,29 +692,29 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
 		range = this.iwin.document.selection.createRange();
 		commonAncestorContainer = range.parentElement();
 	}
-	
+
 	var ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
 	while (ancestorTagName!='a' && ancestorTagName!='body') {
 		commonAncestorContainer = commonAncestorContainer.parentNode;
 		ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
 	}
-	
+
 	// Update or remove link?
 	if (ancestorTagName == 'a') {
 		href = commonAncestorContainer.href || '';
 		hreflang = commonAncestorContainer.hreflang || '';
 	}
-	
+
 	href = window.prompt(this.elements.link.href_prompt,href);
-	
+
 	// Remove link
 	if (ancestorTagName == 'a' && href=='') {
 		this.replaceNodeByContent(commonAncestorContainer);
 	}
 	if (!href) return; // user cancel
-	
+
 	hreflang = window.prompt(this.elements.link.hreflang_prompt, hreflang);
-	
+
 	// Update link
 	if (ancestorTagName == 'a' && href) {
 		commonAncestorContainer.setAttribute('href', href);
@@ -725,7 +725,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
 		}
 		return;
 	}
-	
+
 	// Create link
 	var n = this.getSelectedNode();
 	var a = this.iwin.document.createElement('a');

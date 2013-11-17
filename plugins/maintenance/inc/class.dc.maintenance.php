@@ -47,7 +47,7 @@ class dcMaintenance
 	/**
 	 * Initialize list of tabs and groups and tasks.
 	 *
-	 * To register a tab or group or task, 
+	 * To register a tab or group or task,
 	 * use behavior dcMaintenanceInit then a method of
 	 * dcMaintenance like addTab('myTab', ...).
 	 */

@@ -198,7 +198,7 @@ if (!empty($_POST))
 		$core->blog->settings->addNamespace('themes');
 		$core->blog->settings->themes->put('blowup_style',serialize($blowup_user));
 		$core->blog->triggerBlog();
-		
+
 		dcPage::addSuccessNotice(__('Theme configuration has been successfully updated.'));
 		http::redirect($p_url);
 	}

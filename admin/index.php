@@ -107,7 +107,7 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 		if (empty($__resources['rss_news'])) {
 			throw new Exception();
 		}
-	
+
 		$feed_reader = new feedReader;
 		$feed_reader->setCacheDir(DC_TPL_CACHE);
 		$feed_reader->setTimeout(2);
@@ -121,7 +121,7 @@ if ($core->auth->user_prefs->dashboard->dcnews) {
 			{
 				$dt = isset($item->link) ? '<a href="'.$item->link.'" class="outgoing" title="'.$item->title.'">'.
 					$item->title.' <img src="images/outgoing-blue.png" alt="" /></a>' : $item->title;
-			
+
 				if ($i < 3) {
 					$latest_news .=
 					'<dt>'.$dt.'</dt>'.
@@ -148,12 +148,12 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
 	if (!empty($__resources['doc']))
 	{
 		$doc_links = '<div class="box small dc-box"><h3>'.__('Documentation and support').'</h3><ul>';
-	
+
 		foreach ($__resources['doc'] as $k => $v) {
 			$doc_links .= '<li><a class="outgoing" href="'.$v.'" title="'.$k.'">'.$k.
 			' <img src="images/outgoing-blue.png" alt="" /></a></li>';
 		}
-	
+
 		$doc_links .= '</ul></div>';
 		$__dashboard_items[$dashboardItem][] = $doc_links;
 		$dashboardItem++;
@@ -279,7 +279,7 @@ if ($core->auth->isSuperAdmin())
 {
 	$list = $core->plugins->getErrors();
 	if (!empty($list)) {
-		echo 
+		echo
 		'<div class="error" id="module-errors" class="error"><p>'.__('Errors have occured with following plugins:').'</p> '.
 		'<ul><li>'.implode("</li>\n<li>", $list).'</li></ul></div>';
 	}
@@ -289,7 +289,7 @@ if ($core->auth->isSuperAdmin())
 $dashboardItems = '';
 
 foreach ($__dashboard_items as $i)
-{	
+{
 	if ($i->count() > 0)
 	{
 		$dashboardItems .= '';
@@ -320,7 +320,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		$categories_combo = dcAdminCombos::getCategoriesCombo(
 			$core->blog->getCategories(array('post_type'=>'post'))
 		);
-	
+
 		echo
 		'<div id="quick">'.
 		'<h3>'.__('Quick entry').'</h3>'.
@@ -363,7 +363,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 }
 
 foreach ($__dashboard_contents as $i)
-{	
+{
 	if ($i->count() > 0)
 	{
 		$dashboardContents .= '';
@@ -375,13 +375,12 @@ foreach ($__dashboard_contents as $i)
 }
 
 if ($dashboardContents != '' || $dashboardItems != '') {
-	echo 
+	echo
 	'<div id="dashboard-boxes">'.
 	'<div class="db-items">'.$dashboardItems.$dashboardContents.'</div>'.
-	'</div>';		
+	'</div>';
 }
 
 echo '</div>'; #end dashboard-main
 dcPage::helpBlock('core_dashboard');
 dcPage::close();
-?>

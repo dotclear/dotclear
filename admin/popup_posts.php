@@ -78,4 +78,3 @@ echo '</div>';
 echo '<p><a class="button" href="#" id="link-insert-cancel">'.__('cancel').'</a></p>';
 
 dcPage::closePopup();
-?>
