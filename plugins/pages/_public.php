@@ -29,17 +29,17 @@ class urlPages extends dcUrlHandlers
 		{
 			$_ctx =& $GLOBALS['_ctx'];
 			$core =& $GLOBALS['core'];
-			
+
 			$core->blog->withoutPassword(false);
-			
+
 			$params = new ArrayObject(array(
 				'post_type' => 'page',
 				'post_url' => $args));
-			
+
 			$core->callBehavior('publicPagesBeforeGetPosts',$params,$args);
-			
+
 			$_ctx->posts = $core->blog->getPosts($params);
-			
+
 			$_ctx->comment_preview = new ArrayObject();
 			$_ctx->comment_preview['content'] = '';
 			$_ctx->comment_preview['rawcontent'] = '';
@@ -48,10 +48,10 @@ class urlPages extends dcUrlHandlers
 			$_ctx->comment_preview['site'] = '';
 			$_ctx->comment_preview['preview'] = false;
 			$_ctx->comment_preview['remember'] = false;
-			
+
 			$core->blog->withoutPassword(true);
-			
-			
+
+
 			if ($_ctx->posts->isEmpty())
 			{
 				# The specified page does not exist.
@@ -61,7 +61,7 @@ class urlPages extends dcUrlHandlers
 			{
 				$post_id = $_ctx->posts->post_id;
 				$post_password = $_ctx->posts->post_password;
-				
+
 				# Password protected entry
 				if ($post_password != '' && !$_ctx->preview)
 				{
@@ -71,7 +71,7 @@ class urlPages extends dcUrlHandlers
 					} else {
 						$pwd_cookie = array();
 					}
-					
+
 					# Check for match
 					if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
 					|| (isset($pwd_cookie[$post_id]) && $pwd_cookie[$post_id] == $post_password))
@@ -85,12 +85,12 @@ class urlPages extends dcUrlHandlers
 						return;
 					}
 				}
-				
+
 				$post_comment =
 					isset($_POST['c_name']) && isset($_POST['c_mail']) &&
 					isset($_POST['c_site']) && isset($_POST['c_content']) &&
 					$_ctx->posts->commentsActive();
-				
+
 				# Posting a comment
 				if ($post_comment)
 				{
@@ -102,13 +102,13 @@ class urlPages extends dcUrlHandlers
 						# Exits immediately the application to preserve the server.
 						exit;
 					}
-					
+
 					$name = $_POST['c_name'];
 					$mail = $_POST['c_mail'];
 					$site = $_POST['c_site'];
 					$content = $_POST['c_content'];
 					$preview = !empty($_POST['preview']);
-					
+
 					if ($content != '')
 					{
 						if ($core->blog->settings->system->wiki_comments) {
@@ -119,18 +119,18 @@ class urlPages extends dcUrlHandlers
 						$content = $core->wikiTransform($content);
 						$content = $core->HTMLfilter($content);
 					}
-					
+
 					$_ctx->comment_preview['content'] = $content;
 					$_ctx->comment_preview['rawcontent'] = $_POST['c_content'];
 					$_ctx->comment_preview['name'] = $name;
 					$_ctx->comment_preview['mail'] = $mail;
 					$_ctx->comment_preview['site'] = $site;
-					
+
 					if ($preview)
 					{
 						# --BEHAVIOR-- publicBeforeCommentPreview
 						$core->callBehavior('publicBeforeCommentPreview',$_ctx->comment_preview);
-						
+
 						$_ctx->comment_preview['preview'] = true;
 					}
 					else
@@ -144,31 +144,31 @@ class urlPages extends dcUrlHandlers
 						$cur->post_id = $_ctx->posts->post_id;
 						$cur->comment_status = $core->blog->settings->system->comments_pub ? 1 : -1;
 						$cur->comment_ip = http::realIP();
-						
+
 						$redir = $_ctx->posts->getURL();
 						$redir .= $core->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
-						
+
 						try
 						{
 							if (!text::isEmail($cur->comment_email)) {
 								throw new Exception(__('You must provide a valid email address.'));
 							}
-							
+
 							# --BEHAVIOR-- publicBeforeCommentCreate
 							$core->callBehavior('publicBeforeCommentCreate',$cur);
-							if ($cur->post_id) {					
+							if ($cur->post_id) {
 								$comment_id = $core->blog->addComment($cur);
-							
+
 								# --BEHAVIOR-- publicAfterCommentCreate
 								$core->callBehavior('publicAfterCommentCreate',$cur,$comment_id);
 							}
-							
+
 							if ($cur->comment_status == 1) {
 								$redir_arg = 'pub=1';
 							} else {
 								$redir_arg = 'pub=0';
 							}
-							
+
 							header('Location: '.$redir.$redir_arg);
 						}
 						catch (Exception $e)
@@ -178,7 +178,7 @@ class urlPages extends dcUrlHandlers
 						}
 					}
 				}
-				
+
 				# The entry
 				if ($_ctx->posts->trackbacksActive()) {
 					header('X-Pingback: '.$core->blog->url.$core->url->getURLFor("xmlrpc",$core->blog->id));
@@ -188,12 +188,12 @@ class urlPages extends dcUrlHandlers
 			}
 		}
 	}
-	
+
 	public static function pagespreview($args)
 	{
 		$core = $GLOBALS['core'];
 		$_ctx = $GLOBALS['_ctx'];
-		
+
 		if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#',$args,$m)) {
 			# The specified Preview URL is malformed.
 			self::p404();
@@ -222,39 +222,39 @@ class tplPages
 	public static function pagesWidget($w)
 	{
 		global $core, $_ctx;
-		
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
-		
+
 		$params['post_type'] = 'page';
 		$params['limit'] = abs((integer) $w->limit);
 		$params['no_content'] = true;
 		$params['post_selected'] = false;
-		
+
 		$sort = $w->sortby;
 		if (!in_array($sort,array('post_title','post_position','post_dt'))) {
 			$sort = 'post_title';
 		}
-		
+
 		$order = $w->orderby;
 		if ($order != 'asc') {
 			$order = 'desc';
 		}
 		$params['order'] = $sort.' '.$order;
-		
+
 		$rs = $core->blog->getPosts($params);
-		
+
 		if ($rs->isEmpty()) {
 			return;
 		}
-		
+
 		$res =
 		($w->content_only ? '' : '<div class="pages'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
-		
+
 		while ($rs->fetch()) {
 			$class = '';
 			if (($core->url->type == 'pages' && $_ctx->posts instanceof record && $_ctx->posts->post_id == $rs->post_id)) {
@@ -263,10 +263,9 @@ class tplPages
 			$res .= '<li'.$class.'><a href="'.$rs->getURL().'">'.
 			html::escapeHTML($rs->post_title).'</a></li>';
 		}
-		
+
 		$res .= '</ul>'.($w->content_only ? '' : '</div>');
-		
+
 		return $res;
 	}
 }
-?>

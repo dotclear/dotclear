@@ -32,5 +32,3 @@ if (isset($_REQUEST['redir'])) {
 $posts_actions_page = new dcPostsActionsPage($core,$uri,$args);
 $posts_actions_page->setEnableRedirSelection(false);
 $posts_actions_page->process();
-
-?>

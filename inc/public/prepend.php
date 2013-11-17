@@ -159,4 +159,3 @@ try {
 		,__('Something went wrong while loading template file for your blog.')
 		,660);
 }
-

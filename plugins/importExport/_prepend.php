@@ -31,9 +31,9 @@ function registerIeModules($modules, $core)
 {
 	$modules['import'] = array_merge($modules['import'], array('dcImportFlat'));
 	$modules['import'] = array_merge($modules['import'], array('dcImportFeed'));
-	
+
 	$modules['export'] = array_merge($modules['export'], array('dcExportFlat'));
-	
+
 	if ($core->auth->isSuperAdmin()) {
 		$modules['import'] = array_merge($modules['import'], array('dcImportDC1'));
 		$modules['import'] = array_merge($modules['import'], array('dcImportWP'));

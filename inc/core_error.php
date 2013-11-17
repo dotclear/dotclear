@@ -46,7 +46,7 @@ header("HTTP/1.0 ".$code." ".$summary);
   	font-size: 2.5em;
   	font-weight: normal;
   }
-  
+
   h2 {
   	font-size: 1.5em;
   }

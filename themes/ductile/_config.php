@@ -680,4 +680,3 @@ dcPage::helpBlock('ductile');
 
 // Legacy mode
 if (!$standalone_config) echo '<form style="display:none">';
-?>

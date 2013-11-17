@@ -21,10 +21,10 @@ class dcCategories extends nestedTree
 	protected $f_left = 'cat_lft';
 	protected $f_right = 'cat_rgt';
 	protected $f_id = 'cat_id';
-	
+
 	protected $core;
 	protected $blog_id;
-	
+
 	public function __construct($core)
 	{
 		$this->core =& $core;
@@ -33,19 +33,19 @@ class dcCategories extends nestedTree
 		$this->table = $core->prefix.'category';
 		$this->add_condition = array('blog_id' => "'".$this->con->escape($this->blog_id)."'");
 	}
-	
+
 	public function getChildren($start=0,$id=null,$sort='asc',$fields=array())
 	{
 		$fields = array_merge(array('cat_title','cat_url','cat_desc'),$fields);
 		return parent::getChildren($start,$id,$sort,$fields);
 	}
-	
+
 	public function getParents($id,$fields=array())
 	{
 		$fields = array_merge(array('cat_title','cat_url','cat_desc'),$fields);
 		return parent::getParents($id,$fields);
 	}
-	
+
 	public function getParent($id,$fields=array())
 	{
 		$fields = array_merge(array('cat_title','cat_url','cat_desc'),$fields);
@@ -56,27 +56,27 @@ class dcCategories extends nestedTree
 abstract class nestedTree
 {
 	protected $con;
-	
+
 	protected $table;
 	protected $f_left;
 	protected $f_right;
 	protected $f_id;
-	
+
 	protected $add_condition = array();
-	
+
 	protected $parents;
-	
+
 	public function __construct($con)
 	{
 		$this->con =& $con;
 	}
-	
+
 	public function getChildren($start=0,$id=null,$sort='asc',$fields=array())
 	{
 		$fields = count($fields) > 0 ? ', C2.'.implode(', C2.',$fields) : '';
-		
+
 		$sql = 'SELECT C2.'.$this->f_id.', C2.'.$this->f_left.', C2.'.$this->f_right.', COUNT(C1.'.$this->f_id.') AS level '
-		. $fields.' '	
+		. $fields.' '
 		. 'FROM '.$this->table.' AS C1, '.$this->table.' AS C2 %s '
 		. 'WHERE C2.'.$this->f_left.' BETWEEN C1.'.$this->f_left.' AND C1.'.$this->f_right.' '
 		. ' %s '
@@ -85,28 +85,28 @@ abstract class nestedTree
 		. 'GROUP BY C2.'.$this->f_id.', C2.'.$this->f_left.', C2.'.$this->f_right.' '.$fields.' '
 		. ' %s '
 		. 'ORDER BY C2.'.$this->f_left.' '.($sort == 'asc' ? 'ASC' : 'DESC').' ';
-		
+
 		$from = $where = '';
 		if ($start > 0) {
 			$from = ', '.$this->table.' AS C3';
 			$where = 'AND C3.'.$this->f_id.' = '.(integer) $start.' AND C1.'.$this->f_left.' >= C3.'.$this->f_left.' AND C1.'.$this->f_right.' <= C3.'.$this->f_right;
 			$where .= $this->getCondition('AND','C3.');
 		}
-		
+
 		$having = '';
 		if ($id !== null) {
 			$having = ' HAVING C2.'.$this->f_id.' = '.(integer) $id;
 		}
-		
+
 		$sql = sprintf($sql,$from,$where,$having);
-		
+
 		return $this->con->select($sql);
 	}
-	
+
 	public function getParents($id,$fields=array())
 	{
 		$fields = count($fields) > 0 ? ', C1.'.implode(', C1.',$fields) : '';
-		
+
 		return $this->con->select(
 			'SELECT C1.'.$this->f_id.' '.$fields.' '
 			. 'FROM '.$this->table.' C1, '.$this->table.' C2 '
@@ -118,11 +118,11 @@ abstract class nestedTree
 			. 'ORDER BY C1.'.$this->f_left.' ASC '
 		);
 	}
-	
+
 	public function getParent($id,$fields=array())
 	{
 		$fields = count($fields) > 0 ? ', C1.'.implode(', C1.',$fields) : '';
-		
+
 		return $this->con->select(
 			'SELECT C1.'.$this->f_id.' '.$fields.' '
 			. 'FROM '.$this->table.' C1, '.$this->table.' C2 '
@@ -135,7 +135,7 @@ abstract class nestedTree
 			. $this->con->limit(1)
 		);
 	}
-	
+
 	/* ------------------------------------------------
 	 * Tree manipulations
 	 * ---------------------------------------------- */
@@ -144,7 +144,7 @@ abstract class nestedTree
 		if (!is_array($data) && !($data instanceof cursor)) {
 			throw new Exception('Invalid data block');
 		}
-		
+
 		if (is_array($data))
 		{
 			$D = $data;
@@ -154,25 +154,25 @@ abstract class nestedTree
 			}
 			unset($D);
 		}
-		
+
 		# We want to put it at the end
 		$this->con->writeLock($this->table);
 		try
 		{
 			$rs = $this->con->select('SELECT MAX('.$this->f_id.') as n_id FROM '.$this->table);
 			$id = $rs->n_id;
-			
+
 			$rs = $this->con->select(
 				'SELECT MAX('.$this->f_right.') as n_r '.
 				'FROM '.$this->table.
 				$this->getCondition('WHERE')
 			);
 			$last = $rs->n_r == 0 ? 1 : $rs->n_r;
-			
+
 			$data->{$this->f_id} = $id+1;
 			$data->{$this->f_left} = $last+1;
 			$data->{$this->f_right} = $last+2;
-			
+
 			$data->insert();
 			$this->con->unlock();
 			try {
@@ -186,7 +186,7 @@ abstract class nestedTree
 			throw $e;
 		}
 	}
-	
+
         public function updatePosition($id,$left,$right)
         {
                 $sql = 'UPDATE '.$this->table.' SET '
@@ -208,22 +208,22 @@ abstract class nestedTree
 	public function deleteNode($node,$keep_children=true)
 	{
 		$node = (integer) $node;
-		
+
 		$rs = $this->getChildren(0,$node);
 		if ($rs->isEmpty()) {
 			throw new Exception('Node does not exist.');
 		}
 		$node_left = (integer) $rs->{$this->f_left};
 		$node_right = (integer) $rs->{$this->f_right};
-		
+
 		try
 		{
 			$this->con->begin();
-			
+
 			if ($keep_children)
 			{
 				$this->con->execute('DELETE FROM '.$this->table.' WHERE '.$this->f_id.' = '.$node);
-				
+
 				$sql = 'UPDATE '.$this->table.' SET '
 				. $this->f_right.' = CASE '
 				. 	'WHEN '.$this->f_right.' BETWEEN '.$node_left.' AND '.$node_right.' '
@@ -241,13 +241,13 @@ abstract class nestedTree
 				.	'END '
 				. 'WHERE '.$this->f_right.' > '.$node_left
 				. $this->getCondition();
-				
+
 				$this->con->execute($sql);
 			}
 			else
 			{
 				$this->con->execute('DELETE FROM '.$this->table.' WHERE '.$this->f_left.' BETWEEN '.$node_left.' AND '.$node_right);
-				
+
 				$node_delta = $node_right - $node_left + 1;
 				$sql = 'UPDATE '.$this->table.' SET '
 				. $this->f_left.' = CASE '
@@ -263,7 +263,7 @@ abstract class nestedTree
 				. 'WHERE '.$this->f_right.' > '.$node_right
 				. $this->getCondition();
 			}
-			
+
 			$this->con->commit();
 		}
 		catch (Exception $e)
@@ -272,7 +272,7 @@ abstract class nestedTree
 			throw $e;
 		}
 	}
-	
+
 	public function resetOrder()
 	{
 		$rs = $this->con->select(
@@ -281,7 +281,7 @@ abstract class nestedTree
 			.$this->getCondition('WHERE')
 			.'ORDER BY '.$this->f_left.' ASC '
 		);
-		
+
 		$lft = 2;
 		$this->con->begin();
 		try
@@ -303,7 +303,7 @@ abstract class nestedTree
 			throw $e;
 		}
 	}
-	
+
 	public function setNodeParent($node,$target=0)
 	{
 		if ($node == $target) {
@@ -311,7 +311,7 @@ abstract class nestedTree
 		}
 		$node = (integer) $node;
 		$target = (integer) $target;
-		
+
 		$rs = $this->getChildren(0,$node);
 		if ($rs->isEmpty()) {
 			throw new Exception('Node does not exist.');
@@ -319,7 +319,7 @@ abstract class nestedTree
 		$node_left = (integer) $rs->{$this->f_left};
 		$node_right = (integer) $rs->{$this->f_right};
 		$node_level = (integer) $rs->level;
-		
+
 		if ($target > 0)
 		{
 			$rs = $this->getChildren(0,$target);
@@ -335,7 +335,7 @@ abstract class nestedTree
 		$target_left = (integer) $rs->{$this->f_left};
 		$target_right = (integer) $rs->{$this->f_right};
 		$target_level = (integer) $rs->level;
-		
+
 		if ($node_left == $target_left
 			|| ($target_left >= $node_left && $target_left <= $node_right)
 			|| ($node_level == $target_level+1 && $node_left > $target_left && $node_right < $target_right)
@@ -343,7 +343,7 @@ abstract class nestedTree
 		{
 			throw new Exception('Cannot move tree');
 		}
-		
+
 		if ($target_left < $node_left && $target_right > $node_right && $target_level < $node_level -1)
 		{
 			$sql = 'UPDATE '.$this->table.' SET '
@@ -404,17 +404,17 @@ abstract class nestedTree
 			. 'WHERE ('.$this->f_left.' BETWEEN '.$node_left.' AND '.$target_right.' '
 			. 	'OR '.$this->f_right.' BETWEEN '.$node_left.' AND '.$target_right.')';
 		}
-		
+
 		$sql .= ' '.$this->getCondition();
-		
+
 		$this->con->execute($sql);
 	}
-	
+
 	public function setNodePosition($nodeA,$nodeB,$position='after')
 	{
 		$nodeA = (integer) $nodeA;
 		$nodeB = (integer) $nodeB;
-		
+
 		$rs = $this->getChildren(0,$nodeA);
 		if ($rs->isEmpty()) {
 			throw new Exception('Node does not exist.');
@@ -422,7 +422,7 @@ abstract class nestedTree
 		$A_left = $rs->{$this->f_left};
 		$A_right = $rs->{$this->f_right};
 		$A_level = $rs->level;
-		
+
 		$rs = $this->getChildren(0,$nodeB);
 		if ($rs->isEmpty()) {
 			throw new Exception('Node does not exist.');
@@ -430,20 +430,20 @@ abstract class nestedTree
 		$B_left = $rs->{$this->f_left};
 		$B_right = $rs->{$this->f_right};
 		$B_level = $rs->level;
-		
+
 		if ($A_level != $B_level) {
 			throw new Exception('Cannot change position');
 		}
-		
+
 		$rs = $this->getParents($nodeA);
 		$parentA = $rs->isEmpty() ? 0 : $rs->{$this->f_id};
 		$rs = $this->getParents($nodeB);
 		$parentB = $rs->isEmpty() ? 0 : $rs->{$this->f_id};
-		
+
 		if ($parentA != $parentB) {
 			throw new Exception('Cannot change position');
 		}
-		
+
 		if ($position == 'before')
 		{
 			if ($A_left > $B_left) {
@@ -480,17 +480,17 @@ abstract class nestedTree
 				. 'WHERE '.$this->f_left.' BETWEEN '.$A_left.' AND '.$B_right;
 			}
 		}
-		
+
 		$sql .= $this->getCondition();
 		$this->con->execute($sql);
 	}
-	
+
 	protected function getCondition($start='AND',$prefix='')
 	{
 		if (empty($this->add_condition)) {
 			return '';
 		}
-		
+
 		$w = array();
 		foreach ($this->add_condition as $c => $n) {
 			$w[] = $prefix.$c.' = '.$n;
@@ -498,4 +498,3 @@ abstract class nestedTree
 		return ' '.$start.' '.implode(' AND ',$w).' ';
 	}
 }
-?>

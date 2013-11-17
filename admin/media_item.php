@@ -672,4 +672,3 @@ if ($popup) {
 }
 
 call_user_func($close_f);
-?>

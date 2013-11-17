@@ -78,7 +78,7 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 	if (p.cookie && jQuery.cookie(p.cookie)) {
 		p.hide = p.reverse_cookie;
 	}
-	
+
 	var set_user_pref = p.hide ^ p.reverse_user_pref;
 	if (p.user_pref && p.unfolded_sections !== undefined && (p.user_pref in p.unfolded_sections)) {
 		p.hide = p.reverse_user_pref;
@@ -130,11 +130,11 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 		$(ctarget).click(function() {
 			if (p.user_pref && set_user_pref) {
 				if (p.hide ^ p.reverse_user_pref) {
-					jQuery.post('services.php', 
+					jQuery.post('services.php',
 						{'f':'setSectionFold','section':p.user_pref,'value':1,xd_check: dotclear.nonce},
 						function(data) {});
 				} else {
-					jQuery.post('services.php', 
+					jQuery.post('services.php',
 						{'f':'setSectionFold','section':p.user_pref,'value':0,xd_check: dotclear.nonce},
 						function(data) {});
 				}
@@ -167,7 +167,7 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 			singleExpander(this);
 		});
 	}
-	
+
 	var singleExpander = function singleExpander(line) {
 		$('<input type="image" src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/>')
 			.click(function(e) {
@@ -177,7 +177,7 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 			})
 			.prependTo($(line).children().get(0)); // first td
 	};
-	
+
 	var multipleExpander = function multipleExpander(line,lines) {
 		$('<input type="image" src="'+dotclear.img_plus_src+'" alt="'+dotclear.img_plus_alt+'"/>')
 			.click(function(e) {
@@ -202,7 +202,7 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 				action = 'close';
 			}
 		}
-		
+
 		if (action=='open') {
 			button.src = dotclear.img_minus_src;
 			button.alt = dotclear.img_minus_alt;
@@ -210,7 +210,7 @@ jQuery.fn.toggleWithLegend = function(target,s) {
 			button.src = dotclear.img_plus_src;
 			button.alt = dotclear.img_plus_alt;
 		}
-		
+
 		return action;
 	}
 })(jQuery);
@@ -285,7 +285,7 @@ jQuery.fn.helpViewer = function() {
 	img.click(function() { return toggle(); });
 
 	$('#content').append(img);
-	
+
 	// listen for scroll
 	var peInPage = $('#help-button').offset().top;
 	$('#help-button').addClass("floatable");
@@ -427,7 +427,7 @@ var dotclear = {
 		if ( color.charAt(0) === '#') {
 			return color;
 		}
-		var result = /^rgb\((\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\)$/.exec(color);		
+		var result = /^rgb\((\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\)$/.exec(color);
 		if ( result === null) {
 			return '';
 		}
@@ -463,7 +463,7 @@ $(function() {
 	dotclear.initFadeColor();
 	// remove class no-js from html tag; cf style/default.css for examples
 	$('body').removeClass('no-js').addClass('with-js');
-	
+
 	$('body').contents().each(function() {
 		if (this.nodeType==8) {
 			var data = this.data;

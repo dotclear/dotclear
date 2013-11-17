@@ -16,23 +16,23 @@ if (!defined('DC_RC_PATH')) { return; }
 @brief Plugins specific handler
 @since 2.6
 
-An instance of this class is provided by dcCore $plugins property 
+An instance of this class is provided by dcCore $plugins property
 and used for plugins.
 
 This class extends dcModules.
 */
 class dcPlugins extends dcModules
-{	
+{
 	protected static $type = 'plugin';
 
 	/**
 	This method registers a plugin in modules list. You should use this to
 	register a new plugin.
-	
+
 	<var>$priority</var> is an integer. Modules are sorted by priority and name.
 	Lowest priority comes first. This property is currently ignored when dealing
 	with themes.
-	
+
 	@param	name			<b>string</b>		Module name
 	@param	desc			<b>string</b>		Module description
 	@param	author		<b>string</b>		Module author name

@@ -14,4 +14,3 @@ if (!defined('DC_RC_PATH')) { return; }
 $core->addBehavior('publicBeforeCommentCreate',array('dcAntispam','isSpam'));
 $core->addBehavior('publicBeforeTrackbackCreate',array('dcAntispam','isSpam'));
 $core->addBehavior('publicBeforeDocument',array('dcAntispam','purgeOldSpam'));
-?>

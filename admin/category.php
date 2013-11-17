@@ -28,7 +28,7 @@ if (!empty($_REQUEST['id']))
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
-	
+
 	if (!$core->error->flag() && !$rs->isEmpty())
 	{
 		$cat_id = (integer) $rs->cat_id;
@@ -37,22 +37,22 @@ if (!empty($_REQUEST['id']))
 		$cat_desc = $rs->cat_desc;
 	}
 	unset($rs);
-	
+
 	# Getting hierarchy information
 	$parents = $core->blog->getCategoryParents($cat_id);
 	$rs = $core->blog->getCategoryParent($cat_id);
 	$cat_parent = $rs->isEmpty() ? 0 : (integer) $rs->cat_id;
 	unset($rs);
-	
+
 	# Allowed parents list
 	$children = $core->blog->getCategories(array('post_type'=>'post','start'=>$cat_id));
 	$allowed_parents = array(__('Top level')=>0);
-	
+
 	$p = array();
 	while ($children->fetch()) {
 		$p[$children->cat_id] = 1;
 	}
-	
+
 	$rs = $core->blog->getCategories(array('post_type'=>'post'));
 	while ($rs->fetch()) {
 		if (!isset($p[$rs->cat_id])) {
@@ -63,7 +63,7 @@ if (!empty($_REQUEST['id']))
 		}
 	}
 	unset($rs);
-	
+
 	# Allowed siblings list
 	$siblings = array();
 	$rs = $core->blog->getCategoryFirstChildren($cat_parent);
@@ -107,19 +107,19 @@ if ($cat_id && isset($_POST['cat_sibling']))
 if (isset($_POST['cat_title']))
 {
 	$cur = $core->con->openCursor($core->prefix.'category');
-	
+
 	$cur->cat_title = $cat_title = $_POST['cat_title'];
-	
+
 	if (isset($_POST['cat_desc'])) {
 		$cur->cat_desc = $cat_desc = $_POST['cat_desc'];
 	}
-	
+
 	if (isset($_POST['cat_url'])) {
 		$cur->cat_url = $cat_url = $_POST['cat_url'];
 	} else {
 		$cur->cat_url = $cat_url;
 	}
-	
+
 	try
 	{
 		# Update category
@@ -127,12 +127,12 @@ if (isset($_POST['cat_title']))
 		{
 			# --BEHAVIOR-- adminBeforeCategoryUpdate
 			$core->callBehavior('adminBeforeCategoryUpdate',$cur,$cat_id);
-			
+
 			$core->blog->updCategory($_POST['id'],$cur);
-			
+
 			# --BEHAVIOR-- adminAfterCategoryUpdate
 			$core->callBehavior('adminAfterCategoryUpdate',$cur,$cat_id);
-			
+
 			dcPage::addSuccessNotice(__('The category has been successfully updated.'));
 
 			http::redirect('category.php?id='.$_POST['id']);
@@ -142,12 +142,12 @@ if (isset($_POST['cat_title']))
 		{
 			# --BEHAVIOR-- adminBeforeCategoryCreate
 			$core->callBehavior('adminBeforeCategoryCreate',$cur);
-			
+
 			$id = $core->blog->addCategory($cur,(integer) $_POST['new_cat_parent']);
-			
+
 			# --BEHAVIOR-- adminAfterCategoryCreate
 			$core->callBehavior('adminAfterCategoryCreate',$cur,$id);
-			
+
 			dcPage::addSuccessNotice(sprintf(__('The category "%s" has been successfully created.'),
 				html::escapeHTML($cur->cat_title)));
 			http::redirect('categories.php');
@@ -199,7 +199,7 @@ if (!$cat_id)
 	'<option value="0">'.__('(none)').'</option>';
 	while ($rs->fetch()) {
 		echo '<option value="'.$rs->cat_id.'" '.(!empty($_POST['new_cat_parent']) && $_POST['new_cat_parent'] == $rs->cat_id ? 'selected="selected"' : '').'>'.
-		str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title).'</option>';	
+		str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title).'</option>';
 	}
 	echo
 	'</select></label></p>';
@@ -230,7 +230,7 @@ if ($cat_id)
 	'<h3 class="border-top">'.__('Move this category').'</h3>'.
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	
+
 	'<form action="category.php" method="post" class="fieldset">'.
 	'<h4>'.__('Category parent').'</h4>'.
 	'<p><label for="cat_parent" class="classic">'.__('Parent:').'</label> '.
@@ -239,7 +239,7 @@ if ($cat_id)
 	form::hidden(array('id'),$cat_id).$core->formNonce().'</p>'.
 	'</form>'.
 	'</div>';
-	
+
 	if (count($siblings) > 0) {
 		echo
 		'<div class="col">'.
@@ -253,10 +253,9 @@ if ($cat_id)
 		'</form>'.
 		'</div>';
 	}
-	
+
 	echo '</div>';
 }
 
 dcPage::helpBlock('core_category');
 dcPage::close();
-?>

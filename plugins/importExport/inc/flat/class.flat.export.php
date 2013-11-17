@@ -15,34 +15,34 @@ class flatExport
 {
 	private $con;
 	private $prefix;
-	
+
 	private $line_reg = array('/\\\\/u',  '/\n/u','/\r/u','/"/u');
 	private $line_rep = array('\\\\\\\\', '\n'   ,'\r'   ,'\"');
-	
+
 	public $fp;
-	
+
 	function __construct($con,$out='php://output',$prefix=null)
 	{
 		$this->con =& $con;
 		$this->prefix = $prefix;
-		
+
 		if (($this->fp = fopen($out,'w')) === false) {
 			return false;
 		}
 		@set_time_limit(300);
 	}
-	
+
 	function __destruct()
 	{
 		if (is_resource($this->fp)) {
 			fclose($this->fp);
 		}
 	}
-	
+
 	function export($name,$sql)
 	{
 		$rs = $this->con->select($sql);
-		
+
 		if (!$rs->isEmpty())
 		{
 			fwrite($this->fp,"\n[".$name.' '.implode(',',$rs->columns())."]\n");
@@ -52,29 +52,29 @@ class flatExport
 			fflush($this->fp);
 		}
 	}
-	
+
 	function exportAll()
 	{
 		$tables = $this->getTables();
-		
+
 		foreach ($tables as $table)
 		{
 			$this->exportTable($table);
 		}
 	}
-	
+
 	function exportTable($table)
 	{
 		$req = 'SELECT * FROM '.$this->con->escapeSystem($this->prefix.$table);
-		
+
 		$this->export($table,$req);
 	}
-	
+
 	function getTables()
 	{
 		$schema = dbSchema::init($this->con);
 		$db_tables = $schema->getTables();
-		
+
 		$tables = array();
 		foreach ($db_tables as $t)
 		{
@@ -86,10 +86,10 @@ class flatExport
 				$tables[] = $t;
 			}
 		}
-		
+
 		return $tables;
 	}
-	
+
 	function getLine($rs)
 	{
 		$l = array();
@@ -103,4 +103,3 @@ class flatExport
 		return implode(',',$l)."\n";
 	}
 }
-?>

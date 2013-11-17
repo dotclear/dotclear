@@ -155,8 +155,8 @@
 		padding-top: 24px;
 		}
  	#logo {
-		float:left; 
-		margin: 0 32px 0 24px;	
+		float:left;
+		margin: 0 32px 0 24px;
 		}
 	#logo a {
 		border: none;
@@ -188,7 +188,7 @@
 		padding: 8px 32px 8px 28px;
 		border-right: 1px solid #ccc;
 		min-height: 2.5em;
-		border-radius: 0 0 0 4px;	
+		border-radius: 0 0 0 4px;
 	 	}
 	.supranav li a span {
 		display: block;
@@ -232,7 +232,7 @@
 		position: static;
 		top: 0;
 		}
-	.comment-info { 
+	.comment-info {
 		clear: left;
 		float: left;
 		width: 10em;
@@ -243,10 +243,10 @@
 }
 
 /* ------------------------------------------------------ special redimensionnement paysage */
-@media screen and (max-width:640px) and (orientation: landscape) { 
-  body { 
-   -webkit-text-size-adjust: 70%; 
-  } 
+@media screen and (max-width:640px) and (orientation: landscape) {
+  body {
+   -webkit-text-size-adjust: 70%;
+  }
 }
 
 /* ------------------------------------------------------ règles communes < 640px */
@@ -269,7 +269,7 @@
 	#wrapper {
 		padding: 0 10%;
 		}
-	#blognav, #blogextra { 
+	#blognav, #blogextra {
 		width: 48%; float:left;
 		}
 	#blognav {
@@ -287,10 +287,10 @@
 		}
 	#stickers {
 		padding-right: 13%;
-		}	
+		}
 }
 
-/* ------------------------------------------------------ 
+/* ------------------------------------------------------
 	au-delà de 1024px on passe à deux colonnes
 ------------------------------------------------------ */
 @media only screen and (min-width: 1024px) {
@@ -320,7 +320,7 @@
 	#sidebar #blognav div:first-child {
 		margin-top: 4.66em;
 		}
-	#sidebar div#search:first-child { 
+	#sidebar div#search:first-child {
 		background: none;
 		margin-top: 0;
 		margin-bottom: 2em;
@@ -344,7 +344,7 @@
 		}
 }
 
-/* ------------------------------------------------------ 
+/* ------------------------------------------------------
 	au-delà de 1280px on décale le post-info à gauche
 ------------------------------------------------------- */
 @media only screen and (min-width: 1280px) {
@@ -354,9 +354,9 @@
 	.full .post-attr,
 	.simple .post-attr {
 		margin-left: -220px;
-		margin-top: 0; 
-		float: left; 
-		width: 180px; 
+		margin-top: 0;
+		float: left;
+		width: 180px;
 		text-align: right;
 		}
 	.post-attr a, .post-info, .post-tags {
@@ -368,9 +368,9 @@
 	.dc-archive #content-info {
 		margin-left: 0 !important;
 		}
-	#content-info a.feed { 
+	#content-info a.feed {
 		white-space: nowrap;
-		}	
+		}
 }
 
 /* ------------------------------------------------------ au-delà de 1600px */

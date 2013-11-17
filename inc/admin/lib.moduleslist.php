@@ -764,14 +764,14 @@ class adminModulesList
 
 			if (!empty($buttons)) {
 				if (in_array('checkbox', $cols)) {
-					echo 
+					echo
 					'<p class="checkboxes-helpers"></p>';
 				}
 				echo
 				'<div>'.implode(' ', $buttons).'</div>';
 			}
 		}
-		echo 
+		echo
 		'</form>';
 
 		return $this;
@@ -1591,7 +1591,7 @@ class adminThemesList extends adminModulesList
 
 			if (!empty($buttons)) {
 				if (in_array('checkbox', $cols)) {
-					echo 
+					echo
 					'<p class="checkboxes-helpers"></p>';
 				}
 				echo '<div>'.implode(' ', $buttons).'</div>';

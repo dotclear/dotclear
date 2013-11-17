@@ -24,23 +24,23 @@ class tplSimpleMenu
 		$class = isset($attr['class']) ? trim($attr['class']) : '';
 		$id = isset($attr['id']) ? trim($attr['id']) : '';
 		$description = isset($attr['description']) ? trim($attr['description']) : '';
-		
+
 		if (!preg_match('#^(title|span)$#',$description)) {
 			$description = '';
 		}
-		
+
 		return '<?php echo tplSimpleMenu::displayMenu('.
 				"'".addslashes($class)."',".
 				"'".addslashes($id)."',".
 				"'".addslashes($description)."'".
 			'); ?>';
 	}
-	
+
 	# Widget function
 	public static function simpleMenuWidget($w)
 	{
 		global $core, $_ctx;
-		
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
@@ -56,7 +56,7 @@ class tplSimpleMenu
 			($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.
 			($w->content_only ? '' : '</div>');
 	}
-	
+
 	public static function displayMenu($class='',$id='',$description='')
 	{
 		global $core;
@@ -66,12 +66,12 @@ class tplSimpleMenu
 		$menu = $GLOBALS['core']->blog->settings->system->get('simpleMenu');
 		$menu = @unserialize($menu);
 
-		if (is_array($menu)) 
+		if (is_array($menu))
 		{
 			// Current relative URL
 			$url = $_SERVER['REQUEST_URI'];
 			$abs_url = http::getHost().$url;
-		
+
 			// Home recognition var
 			$home_url = html::stripHostURL($GLOBALS['core']->blog->url);
 			$home_directory = dirname($home_url);
@@ -86,9 +86,9 @@ class tplSimpleMenu
 
 				# Active item test
 				$active = false;
-				if (($url == $href) || 
-					($abs_url == $href) || 
-					($_SERVER['URL_REQUEST_PART'] == $href) || 
+				if (($url == $href) ||
+					($abs_url == $href) ||
+					($_SERVER['URL_REQUEST_PART'] == $href) ||
 					(($_SERVER['URL_REQUEST_PART'] == '') && (($href == $home_url) || ($href == $home_directory)))) {
 					$active = true;
 				}
@@ -122,7 +122,7 @@ class tplSimpleMenu
 						'<a href="'.$href.'"'.$item['title'].'>'.$item['label'].$item['span'].'</a>'.
 						'</li>';
 			}
-			
+
 			// Final rendering
 			if ($ret) {
 				$ret = '<ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'">'."\n".$ret."\n".'</ul>';
@@ -132,5 +132,3 @@ class tplSimpleMenu
 		return $ret;
 	}
 }
-
-?>
