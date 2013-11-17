@@ -1,6 +1,6 @@
 dotclear.viewCommentContent = function(line,action) {
 	var action = action || 'toggle';
-	var commentId = $(line).attr('id').substr(1);	
+	var commentId = $(line).attr('id').substr(1);
 	var tr = document.getElementById('ce'+commentId);
 
 	if ( !tr && ( action == 'toggle' || action == 'open' ) ) {
@@ -10,21 +10,21 @@ dotclear.viewCommentContent = function(line,action) {
 		td.colSpan = 6;
 		td.className = 'expand';
 		tr.appendChild(td);
-		
+
 		// Get comment content
 		$.get('services.php',{f:'getCommentById',id: commentId},function(data) {
 			var rsp = $(data).children('rsp')[0];
-			
+
 			if (rsp.attributes[0].value == 'ok') {
 				var comment = $(rsp).find('comment_display_content').text();
-				
+
 				if (comment) {
 					$(td).append(comment);
 					var comment_email = $(rsp).find('comment_email').text();
 					var comment_site = $(rsp).find('comment_site').text();
 					var comment_ip = $(rsp).find('comment_ip').text();
 					var comment_spam_disp = $(rsp).find('comment_spam_disp').text();
-					
+
 					$(td).append('<p><strong>' + dotclear.msg.website +
 					'</strong> ' + comment_site + '<br />' +
 					'<strong>' + dotclear.msg.email + '</strong> ' + comment_email + '<br />' +
@@ -36,7 +36,7 @@ dotclear.viewCommentContent = function(line,action) {
 				alert($(rsp).find('message').text());
 			}
 		});
-		
+
 		$(line).toggleClass('expand');
 		line.parentNode.insertBefore(tr,line.nextSibling);
 	}

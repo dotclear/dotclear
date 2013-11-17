@@ -631,4 +631,3 @@ echo '</div>'; # /multipart-user-favorites
 
 dcPage::helpBlock('core_user_pref');
 dcPage::close();
-?>

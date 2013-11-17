@@ -20,4 +20,3 @@ if (isset($_SERVER['DC_BLOG_ID'])) {
 }
 
 require dirname(__FILE__).'/inc/public/prepend.php';
-?>

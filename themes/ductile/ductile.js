@@ -59,7 +59,7 @@ $(function() {
 
 			// Set toggle class to each #sidebar h2
 			$("#sidebar div div h2").addClass('toggle');
-			
+
 			// Hide all h2.toggle siblings
 			$('#sidebar div div h2').nextAll().hide();
 

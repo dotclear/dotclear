@@ -100,7 +100,7 @@ thead th, tbody th {
 	font-weight: normal;
 	}
 tbody tr:hover, tbody th:hover {
-	background: #eee; 
+	background: #eee;
 	}
 table caption {
 	color: #14709e;
@@ -161,8 +161,8 @@ h1 a {
 	margin-bottom: 4px;
 	background: transparent url(img/menu.png) no-repeat right top;
 	}
-.supranav li a:hover, 
-.supranav li a:active, 
+.supranav li a:hover,
+.supranav li a:active,
 .supranav li a:focus {
 	background-color: #ebebee;
 	background-position: right -150px;
@@ -213,8 +213,8 @@ h1 a {
 	font-size: 1.1em;
 	font-variant: small-caps;
 	}
-#content-info p, 
-#content-info ul, 
+#content-info p,
+#content-info ul,
 #subcategories ul {
 	margin: .5em 0;
 	padding: 0;
@@ -234,7 +234,7 @@ h1 a {
 	padding-bottom: .1em;
 	}
 /* ------------------------------------------------------- pagination, navlinks */
-.navlinks, 
+.navlinks,
 .pagination {
 	margin: 2em 0 1em 0;
 	padding: 4px 8px;
@@ -253,7 +253,7 @@ h1 a {
 	border-right: 1px solid #aaa;
 	border-bottom: 1px solid #ccc;
 	}
-.navlinks a, 
+.navlinks a,
 .pagination a {
 	color: #333;
 	}
@@ -296,7 +296,7 @@ h1 a {
 	margin-top: 0;
 	}
 .post h3,
-.post h4, 
+.post h4,
 .post h5,
 .post h6 {
 	font-weight: normal;
@@ -314,17 +314,17 @@ img.smiley {
 	border: none;
 	padding: 0;
 	}
-.post-info, 
-.post-tags, 
-.post-info-co, 
+.post-info,
+.post-tags,
+.post-info-co,
 .read-it {
-	line-height: 1.2;	
+	line-height: 1.2;
 	margin: .33em 0;
 	}
 .post-attr {
 	margin-bottom: 1em;
 	}
-.post-info, 
+.post-info,
 .post-tags {
 	font-size: .875em;
 	margin: 0;
@@ -430,10 +430,10 @@ img.smiley {
 ------------------------------------------------------------- */
 
 /* ------------------------------------------------------- commentaires et rétroliens */
-#comments, 
-#ping-url, 
+#comments,
+#ping-url,
 #comment-form,
-#comments-feed { 
+#comments-feed {
 	color: #333;
 	font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
 	font-size: .875em;
@@ -451,17 +451,17 @@ img.smiley {
 	border: 1px dashed #14709e;
 	margin-bottom: 1em;
 	}
-#comments h3, 
-#ping-url h3, 
-#pr h3, 
-#comment-form h3 { 
+#comments h3,
+#ping-url h3,
+#pr h3,
+#comment-form h3 {
 	margin-top: 2em;
 	color: #666;
 	}
 #comment-form h3, #ping-url h3 {
 	margin-top: 0;
 	}
-#comments > ul { 
+#comments > ul {
 	margin-left: 0;
 	padding-left: 0;
 	list-style-type: none;
@@ -471,13 +471,13 @@ img.smiley {
 	margin-left: 0;
 	border-top: 1px solid #bbb;
 	}
-.comment-info { 
+.comment-info {
 	padding-bottom: .2em;
 	line-height: 1.25;
 	color: #686867;
-	font-family: "New Century Schoolbook","Century Schoolbook", "Century Schoolbook L", Georgia, serif;	
+	font-family: "New Century Schoolbook","Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	}
-#comments .me { 
+#comments .me {
 	font-family: "New Century Schoolbook","Century Schoolbook", "Century Schoolbook L", Georgia, serif;
 	color: #14709e;
 	}
@@ -505,16 +505,16 @@ img.smiley {
 
 /* ------------------------------------------------------- formulaire des commentaires */
 #comment-form fieldset { }
-.field { 
+.field {
 	margin-bottom: 1em;
 	}
-.field label { 
+.field label {
 	display: block;
 	font-size: .875em;
 	color: #666;
 	text-indent: 6px;
 	}
-.field input, 
+.field input,
 .field textarea {
 	display: block;
 	font-size: 100%;
@@ -527,11 +527,11 @@ img.smiley {
 .field textarea {
 	padding: .5em 1em;
 	}
-.field input:focus, 
+.field input:focus,
 .field textarea:focus {
 	background: #fff;
 	}
-#comment-form input[type=submit], 
+#comment-form input[type=submit],
 #comment-form input[type=reset] {
 	color: #eee;
 	font-size: .875em;
@@ -572,8 +572,8 @@ img.smiley {
 	font-size: .875em;
 	font-style: italic;
 	}
-#comments-feed { 
-	margin-top: 2em; 
+#comments-feed {
+	margin-top: 2em;
 	}
 
 /* ------------------------------------------------------------
@@ -632,7 +632,7 @@ img.smiley {
 	background-image: none;
 	padding-left: 0;
 	}
-#blognav > div, 
+#blognav > div,
 #blogextra > div {
 	background: #ededed;
 	margin-bottom: 1em;
@@ -642,16 +642,16 @@ img.smiley {
 .category-current {
 	font-weight: bold;
 	}
-	
+
 /* ------------------------------------------------------- recherche */
 #search p {
-	background: #fff; 
+	background: #fff;
 	text-align: right;
 	border: 1px solid #ddd;
 	vertical-align: middle;
 	padding: 0;
 	}
-#search input { 
+#search input {
 	margin: 0;
 	border: none;
 	background: transparent;
@@ -675,11 +675,11 @@ img.smiley {
 	font-variant: small-caps;
 	height: 2em;
 	}
-#search .submit:hover, 
+#search .submit:hover,
 #search .submit:focus {
 	background: #333;
 	}
-	
+
 /* ------------------------------------------------------------
 	9. FOOTER
 ------------------------------------------------------------- */
@@ -699,7 +699,7 @@ img.smiley {
 #footer a {
 	color: #fff;
 	}
-#footer a:hover, 
+#footer a:hover,
 #footer a:focus {
 	background-color: #333;
 	}
@@ -755,17 +755,17 @@ img.smiley {
 	background: transparent url(img/feed.png) no-repeat left center;
 	}
 /* ------------------------------------------------------- tags */
-.dc-tags .content-inner, 
+.dc-tags .content-inner,
 .dc-tags .content-inner ul {
 	font-size: 1.25em;
 	margin: 0;
 	padding: 0;
 	}
-.dc-tags #content ul li, 
+.dc-tags #content ul li,
 .dc-tags #content ul li a,
-#blogcustom .tags ul li, 
-#blogcustom .tags ul li a, 
-#sidebar .tags ul li, 
+#blogcustom .tags ul li,
+#blogcustom .tags ul li a,
+#sidebar .tags ul li,
 #sidebar .tags ul li a {
 	display: inline;
 	width: auto;
@@ -1004,7 +1004,7 @@ hr.hidden {
 	}
 .dc-archive #blogextra h2 {
 	margin-bottom: .33em;
-	}	
+	}
 .dc-archive-month .title h2.post-title {
 	font-size: 1.3em;
 	}
@@ -1029,13 +1029,13 @@ hr.hidden {
 /* ---------------------------------------------------
   12. ET POUR FINIR NE PAS OUBLIER LES CLEARERS
 --------------------------------------------------- */
-.post, 
+.post,
 .pagination,
 .navlinks,
-.footnotes, 
+.footnotes,
 #attachments,
-.read-it, 
-.post-info-co, 
+.read-it,
+.post-info-co,
 #comments, #footer,
 .clearer {
 	clear: both;

@@ -15,11 +15,11 @@ function dotclearUpgrade($core)
 {
     $cleanup_sessions = false; // update it in a step that needed sessions to be removed
 	$version = $core->getVersion('core');
-	
+
 	if ($version === null) {
 		return false;
 	}
-	
+
 	if (version_compare($version,DC_VERSION,'<') == 1 || strpos(DC_VERSION,'dev'))
 	{
 		try
@@ -27,14 +27,14 @@ function dotclearUpgrade($core)
 			if ($core->con->driver() == 'sqlite') {
 				throw new Exception(__('SQLite Database Schema cannot be upgraded.'));
 			}
-			
+
 			# Database upgrade
 			$_s = new dbStruct($core->con,$core->prefix);
 			require dirname(__FILE__).'/db-schema.php';
-			
+
 			$si = new dbStruct($core->con,$core->prefix);
 			$changes = $si->synchronize($_s);
-			
+
 			/* Some other upgrades
 			------------------------------------ */
 			# Populate media_dir field (since 2.0-beta3.3)
@@ -48,7 +48,7 @@ function dotclearUpgrade($core)
 					$cur->update('WHERE media_id = '.(integer) $rs_m->media_id);
 				}
 			}
-			
+
 			if (version_compare($version,'2.0-beta7.3','<'))
 			{
 				# Blowup becomes default theme
@@ -60,12 +60,12 @@ function dotclearUpgrade($core)
 				$core->con->execute(sprintf($strReq,'blueSilence','default'));
 				$core->con->execute(sprintf($strReq,'default','blowup'));
 			}
-			
+
 			if (version_compare($version,'2.1-alpha2-r2383','<'))
 			{
 				$schema = dbSchema::init($core->con);
 				$schema->dropUnique($core->prefix.'category',$core->prefix.'uk_cat_title');
-				
+
 				# Reindex categories
 				$rs = $core->con->select(
 					'SELECT cat_id, cat_title, blog_id '.
@@ -86,7 +86,7 @@ function dotclearUpgrade($core)
 					$cat_blog = $rs->blog_id;
 				}
 			}
-			
+
 			if (version_compare($version,'2.1.6','<='))
 			{
 				# ie7js has been upgraded
@@ -116,7 +116,7 @@ function dotclearUpgrade($core)
 					@unlink(DC_ROOT.'/admin/js/ie7/'.$f);
 				}
 			}
-			
+
 			if (version_compare($version,'2.2-alpha1-r3043','<'))
 			{
 				# metadata has been integrated to the core.
@@ -124,7 +124,7 @@ function dotclearUpgrade($core)
 				if ($core->plugins->moduleExists('metadata')) {
 					$core->plugins->deleteModule('metadata');
 				}
-				
+
 				# Tags template class has been renamed
 				$sqlstr =
 					'SELECT blog_id, setting_id, setting_value '.
@@ -174,7 +174,7 @@ function dotclearUpgrade($core)
 					$core->con->execute($sqlstr);
 					$count++;
 				}
-				
+
 				# A bit of housecleaning for no longer needed files
 				$remfiles = array (
 					'admin/style/cat-bg.png',
@@ -271,7 +271,7 @@ function dotclearUpgrade($core)
 					'inc/clearbricks',
 					'themes/default/tpl'
 				);
-				
+
 				foreach ($remfiles as $f) {
 					@unlink(DC_ROOT.'/'.$f);
 				}
@@ -279,7 +279,7 @@ function dotclearUpgrade($core)
 					@rmdir(DC_ROOT.'/'.$f);
 				}
 			}
-			
+
 			if (version_compare($version,'2.3.1','<'))
 			{
 				# Remove unecessary file
@@ -384,7 +384,7 @@ function dotclearUpgrade($core)
 				$rs = $core->con->select(sprintf($strReqSelect,'date_formats'));
 				if ($rs->f(0)==0) {
 					$strReq = sprintf($strReqFormat,'date_formats',serialize($date_formats),'Date formats examples');
-					$core->con->execute($strReq);					 
+					$core->con->execute($strReq);
 				}
 				$rs = $core->con->select(sprintf($strReqSelect,'time_formats'));
 				if ($rs->f(0)==0) {
@@ -396,28 +396,28 @@ function dotclearUpgrade($core)
 				$rs = $core->con->select(sprintf($strReqSelect,'store_plugin_url'));
 				if ($rs->f(0)==0) {
 					$strReq = sprintf($strReqFormat,'store_plugin_url','http://update.dotaddict.org/dc2/plugins.xml','Plugins XML feed location');
-					$core->con->execute($strReq);					 
+					$core->con->execute($strReq);
 				}
 				$rs = $core->con->select(sprintf($strReqSelect,'store_theme_url'));
 				if ($rs->f(0)==0) {
 					$strReq = sprintf($strReqFormat,'store_theme_url','http://update.dotaddict.org/dc2/themes.xml','Themes XML feed location');
-					$core->con->execute($strReq);					 
+					$core->con->execute($strReq);
 				}
 			}
-			
+
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
-			
+
 			# Drop content from session table if changes or if needed
 			if ($changes != 0 || $cleanup_sessions) {
 				$core->con->execute('DELETE FROM '.$core->prefix.'session ');
 			}
-			
+
 			# Empty templates cache directory
 			try {
 				$core->emptyTemplatesCache();
 			} catch (Exception $e) {}
-			
+
 			return $changes;
 		}
 		catch (Exception $e)
@@ -426,8 +426,7 @@ function dotclearUpgrade($core)
 			' '.$e->getMessage());
 		}
 	}
-	
+
 	# No upgrade?
 	return false;
 }
-?>

@@ -7,7 +7,7 @@ $(function() {
 		toggleDisable($('#blog_title_a'));
 		toggleDisable($('#blog_title_p'));
 	}
-	
+
 	$('#blog_title_hide').click(function() {
 		toggleDisable($('#blog_title_f'));
 		toggleDisable($('#blog_title_s'));
@@ -15,14 +15,14 @@ $(function() {
 		toggleDisable($('#blog_title_a'));
 		toggleDisable($('#blog_title_p'));
 	});
-	
+
 	// Upload form
 	if ($('#top_image').val() == 'custom') {
 		$('#uploader').show();
 	} else {
 		$('#uploader').hide();
 	}
-	
+
 	$('#top_image').change(function() {
 		if (this.value == 'custom') {
 			$('#uploader').show();
@@ -33,23 +33,23 @@ $(function() {
 			$('#image-preview').attr('src','index.php?pf=blowupConfig/alpha-img/page-t/' + this.value + '.png');
 		}
 	});
-	
+
 	// Predefined styles
 	var styles_combo = document.createElement('select');
 	$(styles_combo).append('<option value="">&nbsp;</option>');
 	$(styles_combo).append('<option value="none">none</option>');
 	$(styles_combo).attr('title',dotclear.msg.predefined_style_title);
-	
+
 	for (var style in dotclear.blowup_styles) {
 		styles_option = document.createElement('option');
 		styles_option.value = dotclear.blowup_styles[style];
 		$(styles_option).append(style);
 		$(styles_combo).append(styles_option);
 	}
-	
+
 	$('#theme_config').prepend(styles_combo);
 	$(styles_combo).wrap('<div class="fieldset"></div>').before('<h3>' + dotclear.msg.predefined_styles + '</h3>').wrap('<p></p>');
-	
+
 	$(styles_combo).change(function() {
 		$(this.form).find('input[type=text]').val('').css({backgroundColor: '#FFF', color: '#000'});
 		$(this.form).find('select').not($(this)).val('');
@@ -59,11 +59,11 @@ $(function() {
 			applyBlowupValues(this.value);
 		}
 	});
-	
+
 	// Code import
 	var e = $('#bu_export_content');
 	e.toggle();
-	
+
 	var img = document.createElement('img');
 	img.src = dotclear.img_plus_src;
 	img.alt = dotclear.img_plus_alt;
@@ -71,7 +71,7 @@ $(function() {
 	$(img).css('cursor','pointer');
 	$(document.createTextNode(' ')).prependTo('#bu_export');
 	$(img).prependTo('#bu_export');
-	
+
 	$(img).click(function() {
 		if (e.css('display') == 'none') {
 			this.src = dotclear.img_minus_src;
@@ -82,21 +82,21 @@ $(function() {
 		}
 		e.toggle();
 	});
-	
+
 	var a = document.createElement('a');
 	a.href = '#';
 	$(a).text(dotclear.msg.apply_code);
-	
+
 	e.append(a);
-	
+
 	$(a).click(function() {
 		var code = e.find('#export_code');
 		if (code.size() == 0) { return false; }
-		
+
 		applyBlowupValues(code.val());
 		return false;
 	});
-	
+
 	function toggleDisable(e) {
 		if (e.attr('disabled')) {
 			e.removeAttr('disabled');
@@ -104,13 +104,13 @@ $(function() {
 			e.attr('disabled','disabled');
 		}
 	}
-	
+
 	function applyBlowupValues(code) {
 		code = code.replace("\n","");
 		var re = /(^| )([a-zA-Z0-9_]+):"([^"]*?)"(;|$)/g;
 		var reg = /^(.+):"([^"]*)"(;?)\s*$/;
 		var s = code.match(re);
-		
+
 		if (typeof(s) == 'object' && s.length > 0) {
 			var member, target, value, t_e;
 			for (var i=0,s_length=s.length; i<s_length; i++) {
@@ -121,7 +121,7 @@ $(function() {
 			}
 		}
 	}
-	
+
 	function updateValueField(e,v) {
 		e.val(v);
 		if (v.match(/^#[0-9A-F]{6}$/)) {
@@ -131,13 +131,13 @@ $(function() {
 			});
 		}
 	}
-	
+
 	function getColorLum(color)
 	{
 		var rgb = [parseInt('0x' + color.substring(1, 3)) / 255,
 				parseInt('0x' + color.substring(3, 5)) / 255,
 				parseInt('0x' + color.substring(5, 7)) / 255];
-		
+
 		return (Math.min(rgb[0], Math.min(rgb[1], rgb[2])) + Math.max(rgb[0], Math.max(rgb[1], rgb[2]))) / 2;
 	}
 });

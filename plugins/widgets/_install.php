@@ -37,4 +37,3 @@ if ($settings->widgets->widgets_custom != null) {
 }
 $core->setVersion('widgets',$version);
 return true;
-?>

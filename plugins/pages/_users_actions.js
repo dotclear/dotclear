@@ -1,14 +1,14 @@
 jQuery.fn.updatePagesPermissionsForm = function() {
 	return this.each(function() {
-		
+
 		var perms = {};
 		var re = /^perm\[(.+?)\]\[(.+?)\]$/;
 		var e,prop;
-		
+
 		// Building a nice object of form elements
 		for (var i=0; i<this.elements.length; i++) {
 			e = this.elements[i];
-			
+
 			if (e.name == undefined) {
 				continue;
 			}
@@ -21,7 +21,7 @@ jQuery.fn.updatePagesPermissionsForm = function() {
 				perms[prop[1]] = {};
 			}
 			perms[prop[1]][prop[2]] = e;
-			
+
 			// select related permissions for admin
 			if (prop[2] == 'admin') {
 				if (e.checked) {
@@ -32,10 +32,10 @@ jQuery.fn.updatePagesPermissionsForm = function() {
 				});
 			}
 		}
-		
+
 		function admin(E,perms,re) {
 					P = E.name.match(re);
-					
+
 					perms[P[1]]['pages'].checked = E.checked;
 					perms[P[1]]['pages'].disabled = E.checked;
 		}

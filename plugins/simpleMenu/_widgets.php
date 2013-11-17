@@ -30,4 +30,3 @@ class simpleMenuWidgets
 		$w->simplemenu->setting('class',__('CSS class:'),'');
 	}
 }
-?>

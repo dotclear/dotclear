@@ -97,7 +97,7 @@ class dcMaintenanceTask
 	/**
 	 * Get task permission.
 	 *
-	 * Return user permission required to run this task 
+	 * Return user permission required to run this task
 	 * or null for super admin.
 	 *
 	 * @return <b>mixed</b> Permission.
@@ -214,9 +214,9 @@ class dcMaintenanceTask
 	/**
 	 * Get task group.
 	 *
-	 * If task required a full tab, 
+	 * If task required a full tab,
 	 * this must be returned null.
-	 * 
+	 *
 	 * @return	<b>mixed</b>	Task group ID or null
 	 */
 	public function group()
@@ -227,7 +227,7 @@ class dcMaintenanceTask
 	/**
 	 * Use ajax
 	 *
-	 * Is task use maintenance ajax script 
+	 * Is task use maintenance ajax script
 	 * for steps process.
 	 *
 	 * @return	<b>boolean</b>	Use ajax
@@ -325,7 +325,7 @@ class dcMaintenanceTask
 	/**
 	 * Log task execution.
 	 *
-	 * Sometimes we need to log task execution 
+	 * Sometimes we need to log task execution
 	 * direct from task itself.
 	 *
 	 */

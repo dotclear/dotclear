@@ -26,7 +26,7 @@ $_s->blog
 	->blog_name	('varchar',	255,	false)
 	->blog_desc	('text',		0,	true)
 	->blog_status	('smallint',	0,	false,	1)
-	
+
 	->primary('pk_blog','blog_id')
 	;
 
@@ -39,9 +39,9 @@ $_s->category
 	->cat_position	('integer',	0,	true,	0)
 	->cat_lft		('integer',	0,	true)
 	->cat_rgt		('integer',	0,	true)
-	
+
 	->primary('pk_category','cat_id')
-	
+
 	->unique('uk_cat_url','cat_url','blog_id')
 	;
 
@@ -50,7 +50,7 @@ $_s->session
 	->ses_time	('integer',	0,	false,	0)
 	->ses_start	('integer',	0,	false,	0)
 	->ses_value	('text',		0,	false)
-	
+
 	->primary('pk_session','ses_id')
 	;
 
@@ -61,7 +61,7 @@ $_s->setting
 	->setting_value	('text',		0,	true,	null)
 	->setting_type		('varchar',	8,	false,	"'string'")
 	->setting_label	('text',		0,	true)
-	
+
 	->unique('uk_setting','setting_ns','setting_id','blog_id')
 	;
 
@@ -85,7 +85,7 @@ $_s->user
 	->user_post_status	('smallint',	0,	false,	-2)
 	->user_creadt		('timestamp',	0,	false,	'now()')
 	->user_upddt		('timestamp',	0,	false,	'now()')
-	
+
 	->primary('pk_user','user_id')
 	;
 
@@ -93,7 +93,7 @@ $_s->permissions
 	->user_id		('varchar',	32,	false)
 	->blog_id		('varchar',	32,	false)
 	->permissions	('text',		0,	true)
-	
+
 	->primary('pk_permissions','user_id','blog_id')
 	;
 
@@ -126,9 +126,9 @@ $_s->post
 	->post_open_tb			('smallint',	0,	false,	0)
 	->nb_comment			('integer',	0,	false,	0)
 	->nb_trackback			('integer',	0,	false,	0)
-	
+
 	->primary('pk_post','post_id')
-	
+
 	->unique('uk_post_url','post_url','post_type','blog_id')
 	;
 
@@ -144,7 +144,7 @@ $_s->media
 	->media_creadt		('timestamp',	0,	false,	'now()')
 	->media_upddt		('timestamp',	0,	false,	'now()')
 	->media_private	('smallint',	0,	false,	0)
-	
+
 	->primary('pk_media','media_id')
 	;
 
@@ -152,7 +152,7 @@ $_s->post_media
 	->media_id	('bigint',	0,	false)
 	->post_id		('bigint',	0,	false)
 	->link_type		('varchar',	32,	false,	"'attachment'")
-	
+
 	->primary('pk_post_media','media_id','post_id','link_type')
 	;
 
@@ -164,14 +164,14 @@ $_s->log
 	->log_dt		('timestamp',	0,	false,	'now()')
 	->log_ip		('varchar',	39,	false)
 	->log_msg		('text',	0,	true,	null)
-	
+
 	->primary('pk_log','log_id')
 	;
 
 $_s->version
 	->module	('varchar',	64,	false)
 	->version	('varchar',	32,	false)
-	
+
 	->primary('pk_version','module')
 	;
 
@@ -179,7 +179,7 @@ $_s->ping
 	->post_id		('bigint',	0,	false)
 	->ping_url	('varchar',	255,	false)
 	->ping_dt		('timestamp',	0,	false,	'now()')
-	
+
 	->primary('pk_ping','post_id','ping_url')
 	;
 
@@ -199,7 +199,7 @@ $_s->comment
 	->comment_spam_status	('varchar',	128,	true,	0)
 	->comment_spam_filter	('varchar',	32,	true,	null)
 	->comment_trackback		('smallint',	0,	false,	0)
-	
+
 	->primary('pk_comment','comment_id')
 	;
 
@@ -207,7 +207,7 @@ $_s->meta
 	->meta_id		('varchar',	255,	false)
 	->meta_type	('varchar',	64,	false)
 	->post_id		('bigint',	0,	false)
-	
+
 	->primary('pk_meta','meta_id','meta_type','post_id')
 	;
 
@@ -218,7 +218,7 @@ $_s->pref
 	->pref_value	('text',		0,	true,	null)
 	->pref_type		('varchar',	8,	false,	"'string'")
 	->pref_label	('text',		0,	true)
-	
+
 	->unique('uk_pref','pref_ws','pref_id','user_id')
 	;
 
@@ -279,4 +279,3 @@ if ($_s->driver() == 'pgsql')
 	$_s->media->index		('idx_media_media_path',		'btree',	'media_path', 'media_dir');
 	$_s->pref->index		('idx_pref_user_id_null',		'btree',	'(user_id IS NULL)');
 }
-?>

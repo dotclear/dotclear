@@ -66,5 +66,3 @@ define('DC_TPL_CACHE',path::real(dirname(__FILE__).'/..').'/cache');
 //	socketMail::$smtp_relay = 'my.smtp.relay.org';
 //	socketMail::mail($to,$subject,$message,$headers);
 //}
-
-?>

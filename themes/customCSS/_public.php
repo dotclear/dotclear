@@ -23,4 +23,3 @@ class tplCustomTheme
 		"</style>\n";
 	}
 }
-?>

@@ -29,12 +29,12 @@ if (!empty($_POST['s']) && is_array($_POST['s']))
 		foreach ($_POST['s'] as $ws => $s)
 		{
 			$core->auth->user_prefs->addWorkspace($ws);
-			
+
 			foreach ($s as $k => $v) 	{
 				$core->auth->user_prefs->$ws->put($k,$v);
 			}
 		}
-		
+
 		dcPage::addSuccessNotice(__('Preferences successfully updated'));
 		http::redirect($p_url);
 	}
@@ -52,12 +52,12 @@ if (!empty($_POST['gs']) && is_array($_POST['gs']))
 		foreach ($_POST['gs'] as $ws => $s)
 		{
 			$core->auth->user_prefs->addWorkspace($ws);
-			
+
 			foreach ($s as $k => $v) 	{
 				$core->auth->user_prefs->$ws->put($k,$v,null,null,true,true);
 			}
 		}
-		
+
 		dcPage::addSuccessNotice(__('Preferences successfully updated'));
 		http::redirect($p_url.'&part=global');
 	}
@@ -78,9 +78,9 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
 		$field = form::field(array($field_name.'['.$ws.']['.$id.']',$field_name.'_'.$ws.'_'.$id),40,null,
 		html::escapeHTML($s['value']));
 	}
-	
+
 	$slabel = $strong_label ? '<strong>%s</strong>' : '%s';
-	
+
 	return
 	'<tr class="line">'.
 	'<td scope="row"><label for="'.$field_name.'_'.$ws.'_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
@@ -125,7 +125,7 @@ echo dcPage::breadcrumb(
 <div id="local" class="multi-part" title="<?php echo __('User preferences'); ?>">
 <h3 class="out-of-screen-if-js"><?php echo __('User preferences'); ?></h3>
 
-<?php 
+<?php
 $table_header = '<div class="table-outer"><table class="prefs" id="%s"><caption class="as_h3">%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
@@ -150,7 +150,7 @@ if (count($prefs) > 0) {
 	foreach ($prefs as $ws => $s) {
 		$ws_combo[$ws] = '#l_'.$ws;
 	}
-	echo 
+	echo
 		'<form action="plugin.php" method="post">'.
 		'<p class="anchor-nav">'.
 		'<label for="lp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('lp_nav',$ws_combo).
@@ -200,7 +200,7 @@ if (count($prefs) > 0) {
 	foreach ($prefs as $ws => $s) {
 		$ws_combo[$ws] = '#g_'.$ws;
 	}
-	echo 
+	echo
 		'<form action="plugin.php" method="post">'.
 		'<p class="anchor-nav">'.
 		'<label for="gp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gp_nav',$ws_combo).

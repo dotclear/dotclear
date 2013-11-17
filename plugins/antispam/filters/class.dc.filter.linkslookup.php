@@ -73,4 +73,3 @@ class dcFilterLinksLookup extends dcSpamFilter
 		return $parts[1];
 	}
 }
-?>

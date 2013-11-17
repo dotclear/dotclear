@@ -41,4 +41,3 @@ $_menu['Blog']->addItem(__('Blogroll'),'plugin.php?p=blogroll','index.php?pf=blo
 $core->auth->setPermissionType('blogroll',__('manage blogroll'));
 
 require dirname(__FILE__).'/_widgets.php';
-?>

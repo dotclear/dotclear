@@ -883,4 +883,3 @@ function showComments($rs,$has_action,$tb=false)
 
 dcPage::helpBlock('core_post','core_trackbacks','core_wiki');
 dcPage::close();
-?>

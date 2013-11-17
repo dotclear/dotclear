@@ -24,15 +24,15 @@ class dcPrefs
 	protected $con;		///< <b>connection</b> Database connection object
 	protected $table;		///< <b>string</b> Prefs table name
 	protected $user_id;		///< <b>string</b> User ID
-	
+
 	protected $workspaces = array();		///< <b>array</b> Associative workspaces array
-	
+
 	protected $ws;			///< <b>string</b> Current workspace
-	
+
 	/**
 	Object constructor. Retrieves user prefs and puts them in $workspaces
 	array. Local (user) prefs have a highest priority than global prefs.
-	
+
 	@param	core		<b>dcCore</b>		dcCore object
 	@param	user_id	<b>string</b>		User ID
 	*/
@@ -47,9 +47,9 @@ class dcPrefs
 			}
 		}
 	}
-	
+
 	/**
-	Retrieves all workspaces (and their prefs) from database, with one query. 
+	Retrieves all workspaces (and their prefs) from database, with one query.
 	*/
 	private function loadPrefs()
 	{
@@ -64,12 +64,12 @@ class dcPrefs
 		} catch (Exception $e) {
 			throw $e;
 		}
-		
+
 		/* Prevent empty tables (install phase, for instance) */
 		if ($rs->isEmpty()) {
 			return;
 		}
-		
+
 		do {
 			$ws = trim($rs->f('pref_ws'));
 			if (!$rs->isStart()) {
@@ -80,11 +80,11 @@ class dcPrefs
 			$this->workspaces[$ws] = new dcWorkspace($GLOBALS['core'], $this->user_id, $ws,$rs);
 		} while(!$rs->isStart());
 	}
-		
-	
+
+
 	/**
 	Create a new workspace. If the workspace already exists, return it without modification.
-	
+
 	@param	ws	<b>string</b>		Workspace name
 	@return	<b>dcWorkspace</b>	The workspace created
 	*/
@@ -95,7 +95,7 @@ class dcPrefs
 		}
 		return $this->workspaces[$ws];
 	}
-	
+
 	/**
 	Rename a workspace.
 
@@ -142,10 +142,10 @@ class dcPrefs
 		$this->con->execute($strReq);
 		return true;
 	}
-	
+
 	/**
 	Returns full workspace with all prefs pertaining to it.
-	
+
 	@param	ws	<b>string</b>		Workspace name
 	@return	<b>dcWorkspace</b>
 	*/
@@ -154,10 +154,10 @@ class dcPrefs
 		if (array_key_exists($ws, $this->workspaces)) {
 			return $this->workspaces[$ws];
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	Magic __get method.
 	@copydoc ::get
@@ -166,16 +166,15 @@ class dcPrefs
 	{
 		return $this->get($n);
 	}
-	
+
 	/**
 	Returns $workspaces property content.
-	
+
 	@return	<b>array</b>
 	*/
 	public function dumpWorkspaces()
 	{
 		return $this->workspaces;
 	}
-	
+
 }
-?>

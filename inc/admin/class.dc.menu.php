@@ -15,7 +15,7 @@ class dcMenu
 {
 	private $id;
 	public $title;
-	
+
 	public function __construct($id,$title,$itemSpace='')
 	{
 		$this->id = $id;
@@ -23,32 +23,32 @@ class dcMenu
 		$this->itemSpace = $itemSpace;
 		$this->items = array();
 	}
-	
+
 	public function addItem($title,$url,$img,$active,$show=true,$id=null,$class=null)
 	{
 		if($show) {
 			$this->items[] = $this->itemDef($title,$url,$img,$active,$id,$class);
 		}
 	}
-	
+
 	public function prependItem($title,$url,$img,$active,$show=true,$id=null,$class=null)
 	{
 		if ($show) {
 			array_unshift($this->items,$this->itemDef($title,$url,$img,$active,$id,$class));
 		}
 	}
-	
+
 	public function draw()
 	{
 		if (count($this->items) == 0) {
 			return '';
 		}
-		
+
 		$res =
 		'<div id="'.$this->id.'">'.
 		($this->title ? '<h3>'.$this->title.'</h3>' : '').
 		'<ul>'."\n";
-		
+
 		for ($i=0; $i<count($this->items); $i++)
 		{
 			if ($i+1 < count($this->items) && $this->itemSpace != '') {
@@ -58,12 +58,12 @@ class dcMenu
 				$res .= $this->items[$i]."\n";
 			}
 		}
-		
+
 		$res .= '</ul></div>'."\n";
-		
+
 		return $res;
 	}
-	
+
 	protected function itemDef($title,$url,$img,$active,$id=null,$class=null)
 	{
 		if (is_array($url)) {
@@ -73,16 +73,15 @@ class dcMenu
 			$link = $url;
 			$ahtml = '';
 		}
-		
+
 		$img = dc_admin_icon_url($img);
-		
+
 		return
 		'<li'.(($active || $class) ? ' class="'.(($active) ? 'active ' : '').(($class) ? $class : '').'"' : '').
 		(($id) ? ' id="'.$id.'"' : '').
 		(($img) ? ' style="background-image: url('.$img.');"' : '').
 		'>'.
-		
+
 		'<a href="'.$link.'"'.$ahtml.'>'.$title.'</a></li>'."\n";
 	}
 }
-?>

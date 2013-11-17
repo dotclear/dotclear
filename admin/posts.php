@@ -54,7 +54,7 @@ if (!$core->error->flag())
 	$categories_combo = array_merge(
 		array(
 			new formSelectOption('-',''),
-			new formSelectOption(__('(No cat)'),'NULL')),		
+			new formSelectOption(__('(No cat)'),'NULL')),
 		dcAdminCombos::getCategoriesCombo($categories,false)
 	);
 	$categories_values = array();
@@ -63,18 +63,18 @@ if (!$core->error->flag())
 			$categories_values[$cat->value]=true;
 		}
 	}
-	
+
 	$status_combo = array_merge(
 		array('-' => ''),
-		dcAdminCombos::getPostStatusesCombo()	
+		dcAdminCombos::getPostStatusesCombo()
 	);
-	
+
 	$selected_combo = array(
 	'-' => '',
 	__('Selected') => '1',
 	__('Not selected') => '0'
 	);
-	
+
 	$attachment_combo = array(
 	'-' => '',
 	__('With attachments') => '1',
@@ -86,12 +86,12 @@ if (!$core->error->flag())
 		array('-' => ''),
 		dcAdminCombos::getDatesCombo($dates)
 	);
-	
+
 	$lang_combo = array_merge(
 		array('-' => ''),
-		dcAdminCombos::getLangsCombo($langs,false)	
+		dcAdminCombos::getLangsCombo($langs,false)
 	);
-	
+
 	$sortby_combo = array(
 	__('Date') => 'post_dt',
 	__('Title') => 'post_title',
@@ -102,7 +102,7 @@ if (!$core->error->flag())
 	__('Number of comments') => 'nb_comment',
 	__('Number of trackbacks') => 'nb_trackback'
 	);
-	
+
 	$order_combo = array(
 	__('Descending') => 'desc',
 	__('Ascending') => 'asc'
@@ -209,7 +209,7 @@ if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 	} else {
 		$order='desc';
 	}
-	
+
 	if ($sortby != 'post_dt' || $order != 'desc') {
 		$show_filters = true;
 	}
@@ -271,7 +271,7 @@ if (!$core->error->flag())
 	'<p><label for="status" class="ib">'.__('Status:').'</label> ' .
 	form::combo('status',$status_combo,$status).'</p> '.
 	'</div>'.
-	
+
 	'<div class="cell filters-sibling-cell">'.
 	'<p><label for="selected" class="ib">'.__('Selected:').'</label> '.
 	form::combo('selected',$selected_combo,$selected).'</p>'.
@@ -282,7 +282,7 @@ if (!$core->error->flag())
 	'<p><label for="lang" class="ib">'.__('Lang:').'</label> '.
 	form::combo('lang',$lang_combo,$lang).'</p> '.
 	'</div>'.
-	
+
 	'<div class="cell filters-options">'.
 	'<h4>'.__('Display options').'</h4>'.
 	'<p><label for="sortby" class="ib">'.__('Order by:').'</label> '.
@@ -298,16 +298,16 @@ if (!$core->error->flag())
 	'<p><input type="submit" value="'.__('Apply filters and display options').'" />'.
 	'<br class="clear" /></p>'. //Opera sucks
 	'</form>';
-	
+
 	# Show posts
 	$post_list->display($page,$nb_per_page,
 	'<form action="posts.php" method="post" id="form-entries">'.
-	
+
 	'%s'.
-	
+
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
-	
+
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$posts_actions_page->getCombo()).
 	'<input type="submit" value="'.__('ok').'" /></p>'.
@@ -331,5 +331,3 @@ if (!$core->error->flag())
 
 dcPage::helpBlock('core_posts');
 dcPage::close();
-
-?>
