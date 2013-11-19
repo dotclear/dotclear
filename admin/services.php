@@ -398,7 +398,7 @@ class dcRestMethods
 
 		while ($rs->fetch())
 		{
-			if (preg_match('/'.$q.'/i',$rs->meta_id)) {
+			if (stripos($rs->meta_id,$q) === 0) {
 				$metaTag = new xmlTag('meta');
 				$metaTag->type = $rs->meta_type;
 				$metaTag->uri = rawurlencode($rs->meta_id);
