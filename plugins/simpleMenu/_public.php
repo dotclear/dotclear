@@ -95,15 +95,16 @@ class tplSimpleMenu
 				$title = $span = '';
 				if ($m['descr']) {
 					if ($description == 'title') {
-						$title = ' title="'.__($m['descr']).'"';
+						$title = ' title="'.html::escapeHTML(__($m['descr'])).'"';
 					} else {
-						$span = ' <span>'.__($m['descr']).'</span>';
+						$span = ' <span>'.html::escapeHTML(__($m['descr'])).'</span>';
 					}
 				}
+				$label = html::escapeHTML(__($m['label']));
 
 				$item = new ArrayObject(array(
 					'url' => $href,					// URL
-					'label' => __($m['label']),		// <a> link label
+					'label' => $label,				// <a> link label
 					'title' => $title,				// <a> link title (optional)
 					'span' => $span,				// description (will be displayed after <a> link)
 					'active' => $active,			// status (true/false)
