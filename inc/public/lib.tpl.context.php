@@ -205,9 +205,7 @@ class context
 		}
 
 		$nb_posts = $_ctx->pagination->f(0);
-		$nb_per_page = $_ctx->post_params['limit'][1];
-
-		$nb_pages = ceil($nb_posts/$nb_per_page);
+		$nb_pages = ceil(($nb_posts - $_ctx->nb_entry_first_page) / $_ctx->nb_entry_per_page + 1);
 
 		return $nb_pages;
 	}

@@ -166,6 +166,9 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 	$media_img_m_size = abs((integer) $_POST['media_img_m_size']);
 	if ($media_img_m_size < 0) { $media_img_m_size = 448; }
 
+	$nb_post_for_home = abs((integer) $_POST['nb_post_for_home']);
+	if ($nb_post_for_home <= 1) { $nb_post_for_home = 1; }
+
 	$nb_post_per_page = abs((integer) $_POST['nb_post_per_page']);
 	if ($nb_post_per_page <= 1) { $nb_post_per_page = 1; }
 
@@ -230,6 +233,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('enable_xmlrpc',!empty($_POST['enable_xmlrpc']));
 		$blog_settings->system->put('note_title_tag',$_POST['note_title_tag']);
 
+		$blog_settings->system->put('nb_post_for_home',$nb_post_for_home);
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
 		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
 		$blog_settings->system->put('inc_subcats',!empty($_POST['inc_subcats']));
@@ -511,6 +515,10 @@ if ($blog_id)
 	'</div>'.
 
 	'<div class="col">'.
+	'<p><label for="nb_post_for_home" class="classic">'.sprintf(__('Display %s entries on home page'),
+	form::field('nb_post_for_home',2,3,$blog_settings->system->nb_post_for_home)).
+	'</label></p>'.
+
 	'<p><label for="nb_post_per_page" class="classic">'.sprintf(__('Display %s entries per page'),
 	form::field('nb_post_per_page',2,3,$blog_settings->system->nb_post_per_page)).
 	'</label></p>'.
