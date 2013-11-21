@@ -398,6 +398,10 @@ msgid "Display smilies on entries and comments"
 msgstr "Afficher des émoticônes dans les billets, pages et commentaires"
 
 #, php-format
+msgid "Display %s entries on home page"
+msgstr "Afficher %s billets sur la page d'accueil"
+
+#, php-format
 msgid "Display %s entries per page"
 msgstr "Afficher %s billets par page"
 
