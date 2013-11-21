@@ -233,104 +233,6 @@ class dcTemplate extends template
 		return self::$_r;
 	}
 
-	protected function compileFile($file)
-	{
-		$fc = file_get_contents($file);
-
-		$this->compile_stack[] = $file;
-
-		# Remove every PHP tags
-		if ($this->remove_php)
-		{
-			$fc = preg_replace('/<\?(?=php|=|\s).*?\?>/ms','',$fc);
-		}
-
-		# Transform what could be considered as PHP short tags
-		$fc = preg_replace('/(<\?(?!php|=|\s))(.*?)(\?>)/ms',
-		'<?php echo "$1"; ?>$2<?php echo "$3"; ?>',$fc);
-
-		# Remove template comments <!-- #... -->
-		$fc = preg_replace('/(^\s*)?<!-- #(.*?)-->/ms','',$fc);
-
-		# Lexer part : split file into small pieces
-		# each array entry will be either a tag or plain text
-		$blocks = preg_split(
-			'#(<tpl:\w+[^>]*>)|(</tpl:\w+>)|({{tpl:\w+[^}]*}})#msu',$fc,-1,
-			PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
-
-		# Next : build semantic tree from tokens.
-		$rootNode = new tplNode();
-		$node = $rootNode;
-		$errors = array();
-		foreach ($blocks as $id => $block) {
-			$isblock = preg_match('#<tpl:(\w+)(?:(\s+.*?)>|>)|</tpl:(\w+)>|{{tpl:(\w+)(\s(.*?))?}}#ms',$block,$match);
-			if ($isblock == 1) {
-				if (substr($match[0],1,1) == '/') {
-					// Closing tag, check if it matches current opened node
-					$tag = $match[3];
-					if (($node instanceof tplNodeBlock) && $node->getTag() == $tag) {
-						$node->setClosing();
-						$node = $node->getParent();
-					} else {
-						// Closing tag does not match opening tag
-						// Search if it closes a parent tag
-						$search = $node;
-						while($search->getTag() != 'ROOT' && $search->getTag() != $tag) {
-							$search = $search->getParent();
-						}
-						if ($search->getTag() == $tag) {
-							$errors[] = sprintf(
-								__('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
-								html::escapeHTML($node->getTag()));
-							$search->setClosing();
-							$node = $search->getParent();
-						} else {
-							$errors[]=sprintf(
-								__('Unexpected closing tag </tpl:%s> found.'),
-								$tag);;
-						}
-					}
-				} elseif (substr($match[0],0,1) == '{') {
-					// Value tag
-					$tag = $match[4];
-					$str_attr = '';
-					$attr = array();
-					if (isset($match[6])) {
-						$str_attr = $match[6];
-						$attr = $this->getAttrs($match[6]);
-					}
-					$node->addChild(new tplNodeValue($tag,$attr,$str_attr));
-				} else {
-					// Opening tag, create new node and dive into it
-					$tag = $match[1];
-					$newnode = new tplNodeBlock($tag,isset($match[2])?$this->getAttrs($match[2]):array());
-					$node->addChild($newnode);
-					$node = $newnode;
-				}
-			} else {
-				// Simple text
-				$node->addChild(new tplNodeText($block));
-			}
-		}
-
-		if (($node instanceof tplNodeBlock) && !$node->isClosed()) {
-			$errors[] = sprintf(
-				__('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
-				html::escapeHTML($node->getTag()));
-		}
-
-		$err = "";
-		if (count($errors) > 0) {
-			$err = "\n\n<!-- \n".
-				__('WARNING: the following errors have been found while parsing template file :').
-				"\n * ".
-				join("\n * ",$errors).
-				"\n -->\n";
-		}
-
-		return $rootNode->compile($this).$err;
-	}
-
 	public function compileBlockNode($tag,$attr,$content)
 	{
 		$this->current_tag = $tag;
@@ -341,11 +243,7 @@ class dcTemplate extends template
 		# --BEHAVIOR-- templateInsideBlock
 		$this->core->callBehavior('templateInsideBlock',$this->core,$this->current_tag,$attr,array(&$content));
 
-		if (isset($this->blocks[$this->current_tag])) {
-			$res .= call_user_func($this->blocks[$this->current_tag],$attr,$content);
-		} elseif ($this->unknown_block_handler != null) {
-			$res .= call_user_func($this->unknown_block_handler,$this->current_tag,$attr,$content);
-		}
+		$res .= parent::compileBlockNode($this->current_tag,$attr,$content);
 
 		# --BEHAVIOR-- templateAfterBlock
 		$res .= $this->core->callBehavior('templateAfterBlock',$this->core,$this->current_tag,$attr);
@@ -361,30 +259,12 @@ class dcTemplate extends template
 		# --BEHAVIOR-- templateBeforeValue
 		$res = $this->core->callBehavior('templateBeforeValue',$this->core,$this->current_tag,$attr);
 
-		if (isset($this->values[$this->current_tag])) {
-			$res .= call_user_func($this->values[$this->current_tag],$attr,ltrim($str_attr));
-		} elseif ($this->unknown_value_handler != null) {
-			$res .= call_user_func($this->unknown_value_handler,$this->current_tag,$attr,$str_attr);
-		}
+		$res .= parent::compileValueNode($this->current_tag,$attr,$str_attr);
 
 		# --BEHAVIOR-- templateAfterValue
 		$res .= $this->core->callBehavior('templateAfterValue',$this->core,$this->current_tag,$attr);
 
 		return $res;
-	}
-
-	public function setUnknownValueHandler($callback)
-	{
-		if (is_callable($callback)) {
-			$this->unknown_value_handler = $callback;
-		}
-	}
-
-	public function setUnknownBlockHandler($callback)
-	{
-		if (is_callable($callback)) {
-			$this->unknown_block_handler = $callback;
-		}
 	}
 
 	public function getFilters($attr)
