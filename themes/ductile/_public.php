@@ -35,32 +35,45 @@ class tplDuctileTheme
 	{
 		global $_ctx;
 
-		$nb = 0;
+		$nb_other = $nb_first = 0;
+
 		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_entries_counts');
 		if ($s !== null) {
 			$s = @unserialize($s);
 			if (is_array($s)) {
-				if (isset($s[$GLOBALS['core']->url->type])) {
-					// Nb de billets par page défini par la config du thème
-					$nb = (integer) $s[$GLOBALS['core']->url->type];
-				} else {
-					if (($GLOBALS['core']->url->type == 'default-page') && (isset($s['default']))) {
-						// Les pages 2 et suivantes de la home ont le même nombre de billet que la première page
-						$nb = (integer) $s['default'];
-					}
+				switch ($GLOBALS['core']->url->type) {
+					case 'default':
+					case 'default-page':
+						if (isset($s['default'])) {
+							$nb_first = $nb_other = (integer) $s['default'];
+						}
+						if (isset($s['default-page'])) {
+							$nb_other = (integer) $s['default-page'];
+						}
+						break;
+					default:
+						if (isset($s[$GLOBALS['core']->url->type])) {
+							// Nb de billets par page défini par la config du thème
+							$nb_first = $nb_other = (integer) $s[$GLOBALS['core']->url->type];
+						}
+						break;
 				}
 			}
 		}
 
-		if ($nb == 0) {
+		if ($nb_other == 0) {
 			if (!empty($attr['nb'])) {
 				// Nb de billets par page défini par défaut dans le template
-				$nb = (integer) $attr['nb'];
+				$nb_other = $nb_first = (integer) $attr['nb'];
 			}
 		}
 
-		if ($nb > 0)
-			$_ctx->nb_entry_per_page = $nb;
+		if ($nb_other > 0) {
+			$_ctx->nb_entry_per_page = $nb_other;
+		}
+		if ($nb_first > 0) {
+			$_ctx->nb_entry_first_page = $nb_first;
+		}
 	}
 
 	public static function EntryIfContentIsCut($attr,$content)
