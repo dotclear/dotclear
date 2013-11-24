@@ -361,6 +361,16 @@ if ($popup) {
 		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p></div>';
 }
 
+// Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
+if (!defined('DC_SHOW_HIDDEN_DIRS') || (DC_SHOW_HIDDEN_DIRS == false)) {
+	for ($i = count($dir['dirs']) - 1; $i >= 0; $i--) {
+		if ($dir['dirs'][$i]->d) {
+			if (strpos($dir['dirs'][$i]->relname,'.') !== false) {
+				unset($dir['dirs'][$i]);
+			}
+		}
+	}
+}
 $items = array_values(array_merge($dir['dirs'],$dir['files']));
 
 $fmt_form_media = '<form action="media.php" method="post" id="form-medias">'.
