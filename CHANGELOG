@@ -1,3 +1,11 @@
+Dotclear 2.6.1 - 2013-11-22
+===========================================================
+* Bugfix: trackbacks/pingbacks post URL
+* Bugfix: short/full list of tags (post edition)
+* Bugfix: Toolbar not drawn on new comment form (administration)
+* Various bug fixes
+* Some cosmetic adjustments
+
 Dotclear 2.6 - 2013-11-13
 ===========================================================
 * Various bug fixes
