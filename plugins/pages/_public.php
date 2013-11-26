@@ -111,12 +111,18 @@ class urlPages extends dcUrlHandlers
 
 					if ($content != '')
 					{
-						if ($core->blog->settings->system->wiki_comments) {
-							$core->initWikiComment();
+						# --BEHAVIOR-- publicBeforeCommentTransform
+						$buffer = $core->callBehavior('publicBeforeCommentTransform',$content);
+						if ($buffer != '') {
+							$content = $buffer;
 						} else {
-							$core->initWikiSimpleComment();
+							if ($core->blog->settings->system->wiki_comments) {
+								$core->initWikiComment();
+							} else {
+								$core->initWikiSimpleComment();
+							}
+							$content = $core->wikiTransform($content);
 						}
-						$content = $core->wikiTransform($content);
 						$content = $core->HTMLfilter($content);
 					}
 
