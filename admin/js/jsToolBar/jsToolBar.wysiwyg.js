@@ -526,9 +526,12 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
 	* le wysiwyg des \r\n , et le textarea mis a jour SANS etre affiche des \r\n ! */
 	html = html.replace(/\r\n/g,"\n");
 
-	/* Trim */
-	html = html.replace(/^\s+/gm,'');
-	html = html.replace(/\s+$/gm,'');
+	/* Trim only if there's no pre tag */
+	pattern_pre = /<pre>[\s\S]*<\/pre>/gi;
+	if (!pattern_pre.test(html)) {
+		html = html.replace(/^\s+/gm,'');
+		html = html.replace(/\s+$/gm,'');
+	}
 
 	return html;
 };
