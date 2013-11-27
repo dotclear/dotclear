@@ -124,9 +124,9 @@ if ($is_writable && !empty($_POST['upload_pkg']))
 
 		@unlink($dest);
 		if ($ret_code == 2) {
-			dcPage::addSuccessNotice( __('Language has been successfully upgraded'));
+			dcPage::addSuccessNotice(__('Language has been successfully upgraded'));
 		} else {
-			dcPage::addSuccessNotice($__('Language has been successfully installed.'));
+			dcPage::addSuccessNotice(__('Language has been successfully installed.'));
 		}
 		http::redirect('langs.php');
 	}
