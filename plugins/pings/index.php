@@ -19,19 +19,19 @@ try
 	if (!$pings_uris) {
 		$pings_uris = array();
 	}
-	
+
 	if (isset($_POST['pings_srv_name']))
 	{
 		$pings_srv_name = is_array($_POST['pings_srv_name']) ? $_POST['pings_srv_name'] : array();
 		$pings_srv_uri = is_array($_POST['pings_srv_uri']) ? $_POST['pings_srv_uri'] : array();
 		$pings_uris = array();
-		
+
 		foreach ($pings_srv_name as $k => $v) {
 			if (trim($v) && trim($pings_srv_uri[$k])) {
 				$pings_uris[trim($v)] = trim($pings_srv_uri[$k]);
 			}
 		}
-		
+
 		$core->blog->settings->addNamespace('pings');
 		$core->blog->settings->pings->put('pings_active',!empty($_POST['pings_active']),null,null,true,true);
 		$core->blog->settings->pings->put('pings_uris',serialize($pings_uris),null,null,true,true);
@@ -71,7 +71,7 @@ foreach ($pings_uris as $n => $u)
 	form::field(array('pings_srv_name[]','pings_srv_name-'.$i),20,128,html::escapeHTML($n)).' '.
 	'<label for="pings_srv_uri-'.$i.'" class="classic">'.__('Service URI:').'</label> '.
 	form::field(array('pings_srv_uri[]','pings_srv_uri-'.$i),40,255,html::escapeHTML($u));
-	
+
 	if (!empty($_GET['test']))
 	{
 		try {
@@ -81,7 +81,7 @@ foreach ($pings_uris as $n => $u)
 			echo ' <img src="images/check-off.png" alt="'.__('Error').'" /> '.$e->getMessage();
 		}
 	}
-	
+
 	echo '</p>';
 	$i++;
 }

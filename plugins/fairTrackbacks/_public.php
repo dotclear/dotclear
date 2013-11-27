@@ -15,4 +15,3 @@ if (DC_FAIRTRACKBACKS_FORCE) {
 	$__autoload['dcFilterFairTrackbacks'] = dirname(__FILE__).'/class.dc.filter.fairtrackbacks.php';
 	$core->spamfilters[] = 'dcFilterFairTrackbacks';
 }
-?>

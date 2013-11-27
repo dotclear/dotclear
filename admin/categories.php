@@ -108,6 +108,7 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop
 	&& $core->auth->check('categories',$core->blog->id)
 	&& $rs->count()>1) {
 		$starting_script .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js');
+		$starting_script .= dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
 		$starting_script .= dcPage::jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
 }
 $starting_script .= dcPage::jsLoad('js/_categories.js');
@@ -222,4 +223,3 @@ echo '</div>';
 
 dcPage::helpBlock('core_categories');
 dcPage::close();
-?>

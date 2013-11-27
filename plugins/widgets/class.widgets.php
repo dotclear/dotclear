@@ -14,18 +14,18 @@ if (!defined('DC_RC_PATH')) { return; }
 class dcWidgets
 {
 	private $__widgets = array();
-	
+
 	public static function load($s)
 	{
 		$o = @unserialize(base64_decode($s));
-		
+
 		if ($o instanceof self) {
 			return $o;
 		} else {
 			return self::loadArray($o,$GLOBALS['__widgets']);
 		}
 	}
-	
+
 	public function store()
 	{
 		$serialized = array();
@@ -34,13 +34,13 @@ class dcWidgets
 		}
 		return base64_encode(serialize($serialized));
 	}
-	
+
 	public function create($id,$name,$callback,$append_callback=null,$desc='')
 	{
 		$this->__widgets[$id] = new dcWidget($id,$name,$callback,$desc);
 		$this->__widgets[$id]->append_callback = $append_callback;
 	}
-	
+
 	public function append($widget)
 	{
 		if ($widget instanceof dcWidget) {
@@ -50,12 +50,12 @@ class dcWidgets
 			$this->__widgets[] = $widget;
 		}
 	}
-	
+
 	public function isEmpty()
 	{
 		return count($this->__widgets) == 0;
 	}
-	
+
 	public function elements($sorted=false)
 	{
 		if ($sorted) {
@@ -63,7 +63,7 @@ class dcWidgets
 		}
 		return $this->__widgets;
 	}
-	
+
 	public function __get($id)
 	{
 		if (!isset($this->__widgets[$id])) {
@@ -71,7 +71,7 @@ class dcWidgets
 		}
 		return $this->__widgets[$id];
 	}
-	
+
 	public function __wakeup()
 	{
 		foreach ($this->__widgets as $i => $w)
@@ -81,36 +81,36 @@ class dcWidgets
 			}
 		}
 	}
-	
+
 	public static function loadArray($A,$widgets)
 	{
 		if (!($widgets instanceof self)) {
 			return false;
 		}
-		
+
 		uasort($A,array('self','arraySort'));
-		
+
 		$result = new self;
 		foreach ($A as $v)
 		{
 			if ($widgets->{$v['id']} != null)
 			{
 				$w = clone $widgets->{$v['id']};
-				
+
 				# Settings
 				unset($v['id']);
 				unset($v['order']);
 				foreach ($v as $sid => $s) {
 					$w->{$sid} = $s;
 				}
-				
+
 				$result->append($w);
 			}
 		}
-		
+
 		return $result;
 	}
-	
+
 	private static function arraySort($a, $b)
 	{
 		if ($a['order'] == $b['order']) {
@@ -118,15 +118,15 @@ class dcWidgets
 		}
 		return $a['order'] > $b['order'] ? 1 : -1;
 	}
-	
+
 	private static function sort($a,$b)
 	{
-		$c = $a->name(); 
-		$d = $b->name(); 
-		if ($c == $d) { 
-			return 0; 
-		} 
-		return ($c < $d) ? -1 : 1; 
+		$c = $a->name();
+		$d = $b->name();
+		if ($c == $d) {
+			return 0;
+		}
+		return ($c < $d) ? -1 : 1;
 	}
 }
 
@@ -138,7 +138,7 @@ class dcWidget
 	private $public_callback = null;
 	public $append_callback = null;
 	private $settings = array();
-	
+
 	public function serialize($order) {
 		$values = array();
 		foreach ($this->settings as $k=>$v)
@@ -147,7 +147,7 @@ class dcWidget
 		$values['order']=$order;
 		return $values;
 	}
-	
+
 	public function __construct($id,$name,$callback,$desc='')
 	{
 		$this->public_callback = $callback;
@@ -155,12 +155,12 @@ class dcWidget
 		$this->name = $name;
 		$this->desc = $desc;
 	}
-	
+
 	public function id()
 	{
 		return $this->id;
 	}
-	
+
 	public function name()
 	{
 		return $this->name;
@@ -170,12 +170,12 @@ class dcWidget
 	{
 		return $this->desc;
 	}
-	
+
 	public function getCallback()
 	{
 		return $this->public_callback;
 	}
-	
+
 	public function call($i=0)
 	{
 		if (is_callable($this->public_callback)) {
@@ -183,7 +183,7 @@ class dcWidget
 		}
 		return '<p>Callback not found for widget '.$this->id.'</p>';
 	}
-	
+
 	/* Widget settings
 	--------------------------------------------------- */
 	public function __get($n)
@@ -193,14 +193,14 @@ class dcWidget
 		}
 		return null;
 	}
-	
+
 	public function __set($n,$v)
 	{
 		if (isset($this->settings[$n])) {
 			$this->settings[$n]['value'] = $v;
 		}
 	}
-	
+
 	public function setting($name,$title,$value,$type='text')
 	{
 		if ($type == 'combo') {
@@ -209,23 +209,23 @@ class dcWidget
 				return false;
 			}
 		}
-		
+
 		$this->settings[$name] = array(
 			'title' => $title,
 			'type' => $type,
 			'value' => $value
 		);
-		
+
 		if (isset($options)) {
 			$this->settings[$name]['options'] = $options;
 		}
 	}
-	
+
 	public function settings()
 	{
 		return $this->settings;
 	}
-	
+
 	public function formSettings($pr='',&$i=0)
 	{
 		$res = '';
@@ -234,10 +234,10 @@ class dcWidget
 			$res .= $this->formSetting($id,$s,$pr,$i);
 			$i++;
 		}
-		
+
 		return $res;
 	}
-	
+
 	public function formSetting($id,$s,$pr='',&$i=0)
 	{
 		$res = '';
@@ -287,4 +287,3 @@ class dcWidget
 		return $res;
 	}
 }
-?>

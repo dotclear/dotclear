@@ -61,7 +61,7 @@ xmlns="http://www.w3.org/1999/xhtml">
     <script type="text/javascript"><![CDATA[
     window.onload = function() {
       document.getElementById('feedurl').value = window.location.href;
-      
+
       // Ugly but works ;)
       var c = document.getElementsByTagName('div');
       var t = '';
@@ -74,7 +74,7 @@ xmlns="http://www.w3.org/1999/xhtml">
           } else {
             t = '';
           }
-          
+
           if (t) { c[i].innerHTML = t; }
         }
       }

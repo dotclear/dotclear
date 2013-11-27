@@ -95,11 +95,10 @@ class antispamBehaviors
 		'<p><a href="plugin.php?p=antispam">'.__('Set spam filters.').'</a></p>'.
 		'</div>';
 	}
-	
+
 	public static function adminBeforeBlogSettingsUpdate($settings)
 	{
 		$settings->addNamespace('antispam');
 		$settings->antispam->put('antispam_moderation_ttl',(integer)$_POST['antispam_moderation_ttl']);
 	}
 }
-?>

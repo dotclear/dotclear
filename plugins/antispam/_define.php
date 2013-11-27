@@ -21,4 +21,3 @@ $this->registerModule(
 		'priority' =>		10
 	)
 );
-?>

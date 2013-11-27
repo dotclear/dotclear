@@ -26,4 +26,3 @@ $core->blog->settings->system->put('simpleMenu',serialize($menu_default),'string
 
 $core->setVersion('simpleMenu',$version);
 return true;
-?>

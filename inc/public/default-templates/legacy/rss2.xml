@@ -15,9 +15,9 @@
   <copyright>{{tpl:BlogCopyrightNotice encode_xml="1"}}</copyright>
   <docs>http://blogs.law.harvard.edu/tech/rss</docs>
   <generator>Dotclear</generator>
-  
+
   <tpl:Entries>
-  
+
   <item>
     <title>{{tpl:EntryTitle encode_xml="1"}}</title>
     <link>{{tpl:EntryURL}}</link>
@@ -28,15 +28,15 @@
     <category>{{tpl:EntryCategory encode_html="1"}}</category>
     </tpl:EntryIf>
     <tpl:EntryTags><category>{{tpl:TagID}}</category></tpl:EntryTags>
-    
+
     <description>{{tpl:EntryExcerpt absolute_urls="1" encode_xml="1"}}
     {{tpl:EntryContent absolute_urls="1" encode_xml="1"}}</description>
-    
+
     <tpl:Attachments>
       <enclosure url="{{tpl:AttachmentURL}}"
       length="{{tpl:AttachmentSize full="1"}}" type="{{tpl:AttachmentMimeType}}" />
     </tpl:Attachments>
-    
+
     <tpl:EntryIf comments_active="1">
       <comments>{{tpl:EntryURL}}#comment-form</comments>
       <wfw:comment>{{tpl:EntryURL}}#comment-form</wfw:comment>
@@ -44,6 +44,6 @@
     </tpl:EntryIf>
   </item>
   </tpl:Entries>
-  
+
 </channel>
 </rss>

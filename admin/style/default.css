@@ -441,12 +441,15 @@ a, a:link, a:visited {
 	color: #2373A8;
 	text-decoration: none;
 	border-bottom: 1px dotted #999;
+ 	background-color: inherit;
+ 	outline: 0;
 	}
-a:hover, a:active, a:focus {
+a:hover, a:active {
 	border-bottom-style: solid;
 	}
 a img, a:link img, a:visited img {
 	border: none;
+	background: inherit;
 	}
 h1 a:link, h1 a:visited {
 	border: none;
@@ -454,12 +457,20 @@ h1 a:link, h1 a:visited {
 .discrete a {
 	color: #333;
 	}
+a:link {
+  transition: .5s;
+}
+a:focus, a:focus img {
+  outline: 2px solid #bee74b;
+  border-bottom: none;
+  text-decoration: none;
+}
 /* ----------------------------------------------------------------------------
 																	FORMULAIRES
 ---------------------------------------------------------------------------- */
-input[type=text], input[type=password], input[type=submit], 
+input[type=text], input[type=password], input[type=submit],
 input[type=button], input[type=reset], a.button, button, textarea, select, legend {
-	border-radius: 3px;	
+	border-radius: 3px;
 	max-width: 100%;
 	}
 form {
@@ -487,7 +498,7 @@ legend {
 	background: #fff;
 	margin-bottom: 0.5em;
 	}
-label .maximal, textarea.maximal, input.maximal {
+label .maximal, textarea.maximal, input.maximal, select.maximal {
 	width: 99%;
 	}
 input[type=text], input[type=password], textarea, select {
@@ -685,7 +696,7 @@ input[type=submit]:hover, input[type=submit]:focus,
 	}
 /* suppression, reset, "neutres" fond gris */
 button, input[type=button], input.button,
-input[type=reset], input[type=submit].reset, input.reset, 
+input[type=reset], input[type=submit].reset, input.reset,
 input[type=submit].delete, input.delete,
  a.button, a.button.delete, a.button.reset {
 	color: #000;
@@ -698,8 +709,8 @@ input[type=submit].delete, input.delete,
 	}
 button:hover, input[type=button]:hover, input.button:hover,
 	button:focus, input[type=button]:focus, input.button:focus,
-	input[type=reset]:hover, input[type=submit].reset:hover, input.reset:hover, 
-	input[type=reset]:focus, input[type=submit].reset:focus, input.reset:focus, 
+	input[type=reset]:hover, input[type=submit].reset:hover, input.reset:hover,
+	input[type=reset]:focus, input[type=submit].reset:focus, input.reset:focus,
 	input[type=submit].delete:hover, input.delete:hover,
 	input[type=submit].delete:focus, input.delete:focus,
 	a.button.delete:hover, a.button.reset:hover, a.button:hover,
@@ -929,9 +940,12 @@ h1 a {
 	height: 3em;
 	color: #fff;
 	background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
+	transition: none;
 	}
 h1 a:hover, h1 a:focus {
 	background-position: 0 -94px;
+	background-color: transparent;
+	transition: none;
 	}
 /* top-info-blog */
 #top-info-blog select {
@@ -1276,7 +1290,7 @@ table .count {
 	text-align: right;
 	padding-right: 1.5em;
 	}
-th.first img {
+th.first input {
 	padding-right: 34px;
 	}
 .line img {
@@ -1422,6 +1436,7 @@ a.form-control.open {
 	padding: 1em 1em 0 1em;
 	background: #fff;
 	margin-bottom: 0;
+	margin-top: 1em;
 	}
 #login-screen input[type=text], #login-screen input[type=password], #login-screen input[type=submit],
 #login-screen input[type=text]:focus, #login-screen input[type=password]:focus, #login-screen input[type=submit]:focus {
@@ -1484,9 +1499,18 @@ a.form-control.open {
 	}
 #icons a:focus img, #icons a:hover img {
 	background: #bee74b;
+	outline: 0;
+	border-color: #dadada;
 	}
-#icons a:focus span, #icons a:hover span {
+#icons a:focus {
+	outline: 0;
+	border-color: #fff;
+	}
+#icons a:hover span, #icons a:focus span {
 	border-bottom-style: solid;
+	}
+#icons a:focus span {
+	border: 2px solid #bee74b;
 	}
 /* billet rapide */
 #quick {
@@ -1610,7 +1634,7 @@ li.user_admin {
 	}
 /* ------------------------------------------------------------------- blog_theme.php */
 /* pour les alignements verticaux */
-#theme-new, #theme-activate, #theme-deactivate {
+#theme-new, #theme-activate, #theme-deactivate, #theme-update {
 	margin-left: -10px;
 	margin-right: -10px;
 	}
@@ -1623,8 +1647,9 @@ li.user_admin {
 .box.theme:hover {
 	background: #ecf0f1 url(texture.png);
 	}
-.module-name {
+.module-name, .module-name label {
 	margin-bottom: .5em;
+	color: #676e78;
 	}
 .module-sshot {
 	text-align: center;
@@ -1661,13 +1686,16 @@ span.module-version:before {
 .box.theme input {
 	margin-bottom: 1em;
 	}
+.module-name input[type="checkbox"] {
+	margin-bottom: 0;
+	}
 /**
 Les screenshots des thèmes ont deux tailles possibles :
 - dans Ajouter des thèmes : 240px (+ 10 padding image + 20 padding boîte + 6 bordure + 2 ombrage = 278)
 - dans Thèmes installés : 280px (+ 10 padding-image + 20 padding-boîte + 2 ombrage = 318)
-On adapte largeur et hauteur en fonction 
+On adapte largeur et hauteur en fonction
 */
-#theme-new .box.theme { /* Ajouter un thème */
+#theme-new .box.theme, #theme-update .box.theme { /* Ajouter un thème */
 	width: 278px;
 	min-height: 275px;
 	}
@@ -1908,7 +1936,7 @@ li.media-action input {
 	text-align: right;
 	}
 /* upload multiple */
-.enhanced_uploader .choose_files, .enhanced_uploader .cancel, 
+.enhanced_uploader .choose_files, .enhanced_uploader .cancel,
 .enhanced_uploader .clean, .enhanced_uploader .start {
 	margin-right: .4em;
 	}
@@ -2070,8 +2098,8 @@ div.template-upload {
 	padding: 4px 4px 0 20px;
 	}
 .modules a.module-config {
-	/* todo: add icon here */
-	padding: 4px 4px 0 20px;
+	background: transparent url(settings.png) no-repeat 2px 6px;
+	padding: 4px 4px 0 18px;
 	}
 #m_search {
 	background: transparent url(search.png) no-repeat 4px center;
@@ -2101,6 +2129,9 @@ div.template-upload {
 	}
 .mod-more {
 	padding-top: .5em;
+	}
+#plugin-update td {
+	vertical-align: baseline;
 	}
 /* ---------------------------------------------------------- post.php, page.php */
 #entry-wrapper {
@@ -2338,6 +2369,7 @@ div.template-upload {
 	color: #fff;
 	}
 .nav_prevnext a, a.back {
+	color: #2373A8;
 	border: 1px solid #dfdfdf;
 	padding: 2px 1.5em;
 	border-radius: .75em;
@@ -2566,27 +2598,27 @@ input[type=submit].delete.debug:hover, a.delete.debug:hover {
 	color: #900;
 	border-color: #ffd478;
 	}
-/* ---------------------------------------------- Couleurs ajoutées via javascript	
+/* ---------------------------------------------- Couleurs ajoutées via javascript
 /* color-picker.js */
-.color-color-picker { 
+.color-color-picker {
 	border: 1px solid #000;
-	width: 195px; 
-	background: #fff; 
+	width: 195px;
+	background: #fff;
 	}
 /* _media_item.js */
-.color-div { 
+.color-div {
 	border: 1px solid #ccc;
 	}
 /* fadings ('color' est utilisé comme variable, pas comme text color) */
-.colorBeginPassword, 
-.colorBeginValidatorErr, 
+.colorBeginPassword,
+.colorBeginValidatorErr,
 .colorBeginUserMail 		{ color: #fff; }
-.colorEndPassword, 
-.colorEndError, 
-.colorEndValidatorErr, 
+.colorEndPassword,
+.colorEndError,
+.colorEndValidatorErr,
 .colorEndUserMail 			{ color: #ffbaba; }
 .colorBeginMessage 			{ color: #ccc; }
-.colorEndMessage, 
+.colorEndMessage,
 .colorBeginValidatorMsg 	{ color: #676e78; }
 .colorBeginError 			{ color: #fefacd; }
 .colorBeginSuccess 			{ color: #9BCA1C; }
@@ -2595,20 +2627,7 @@ input[type=submit].delete.debug:hover, a.delete.debug:hover {
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (min-width: 117em) {
-body {
-	border: 1px solid #ccc;
-	border-top-width: 0;
-	}
-}
 @media screen and (min-width: 80em) {
-html {
-	background: #fff;
-	}
-body {
-	max-width: 140em;
-	margin: 0 auto;
-	}
 #wrapper {
 	background: #F7F7F7 url(bg_wrapper.png) repeat-y 18em;
 	}
@@ -2768,6 +2787,16 @@ h1 a:hover, h1 a:focus {
 	padding: 1em;
 	vertical-align: bottom;
 	}
+.pseudo-tabs li {
+	display: block;
+	float: left;
+	width: 50%;
+	border-top: 1px solid #ddd;
+	padding: .25em;
+	}
+.pseudo-tabs li:first-child, .pseudo-tabs li:nth-of-type(2) {
+	border-top: none;
+	}
 }
 @media screen and (max-width: 26.5em) {
 h1, h1 a {
@@ -2835,5 +2864,14 @@ table .maximal {
 	}
 th, td {
 	padding: 0.3em 1em 0.3em 0;
+	}
+.pseudo-tabs li {
+	display: block;
+	width: 100%;
+	float: none;
+	border-top: 1px solid #ddd !important;
+	}
+.pseudo-tabs li:first-child {
+	border-top: none;
 	}
 }

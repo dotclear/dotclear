@@ -80,7 +80,7 @@ class dcBlog
 			$this->name = $b->blog_name;
 			$this->desc = $b->blog_desc;
 			$this->url = $b->blog_url;
-			$this->host = preg_replace('|^([a-z]{3,}://)(.*?)/.*$|','$1$2',$this->url);
+			$this->host = http::getHostFromURL($this->url);
 			$this->creadt = strtotime($b->blog_creadt);
 			$this->upddt = strtotime($b->blog_upddt);
 			$this->status = $b->blog_status;
@@ -962,10 +962,11 @@ class dcBlog
 			} else {
 				$strReq .= 'ORDER BY post_dt DESC ';
 			}
-			if (!empty($params['limit'])) {
+		}
+
+		if (!$count_only && !empty($params['limit'])) {
 				$strReq .= $this->con->limit($params['limit']);
 			}
-		}
 		
 		if (!empty($params['sql_only'])) {
 			return $strReq;
@@ -1892,7 +1893,7 @@ class dcBlog
 	- post_type: Get only entries with given type (default no type, array for many types) 
 	- post_id: (integer) Get comments belonging to given post_id
 	- cat_id: (integer or array) Get comments belonging to entries of given category ID
-	- comment_id: (integer) Get comment with given ID
+	- comment_id: (integer or array) Get comment with given ID (or IDs)
 	- comment_site: (string) Get comments with given comment_site
 	- comment_status: (integer) Get comments with given comment_status
 	- comment_trackback: (integer) Get only comments (0) or trackbacks (1)
@@ -1982,7 +1983,12 @@ class dcBlog
 		}
 		
 		if (isset($params['comment_id']) && $params['comment_id'] !== '') {
-			$strReq .= 'AND comment_id = '.(integer) $params['comment_id'].' ';
+			if (is_array($params['comment_id'])) {
+				array_walk($params['comment_id'],create_function('&$v,$k','if($v!==null){$v=(integer)$v;}'));
+			} else {
+				$params['comment_id'] = array((integer) $params['comment_id']);
+			}
+			$strReq .= 'AND comment_id '.$this->con->in($params['comment_id']);
 		}
 		
 		if (isset($params['comment_site'])) {
