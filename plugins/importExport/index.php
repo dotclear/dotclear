@@ -17,11 +17,11 @@ function listImportExportModules($core,$modules)
 	foreach ($modules as $id)
 	{
 		$o = new $id($core);
-		
-		$res .= 
+
+		$res .=
 		'<dt><a href="'.$o->getURL(true).'">'.html::escapeHTML($o->name).'</a></dt>'.
 		'<dd>'.html::escapeHTML($o->description).'</dd>';
-		
+
 		unset($o);
 	}
 	return '<dl class="modules">'.$res.'</dl>';
@@ -41,7 +41,7 @@ $module = null;
 if ($type && !empty($_REQUEST['module'])) {
 
 	if (isset($modules[$type]) && in_array($_REQUEST['module'],$modules[$type])) {
-	
+
 		$module = new $_REQUEST['module']($core);
 		$module->init();
 	}
@@ -83,9 +83,9 @@ if ($type && $module !== null) {
 
 	echo
 	'<div id="ie-gui">';
-	
+
 	$module->gui();
-	
+
 	echo '</div>';
 }
 else {
@@ -97,14 +97,14 @@ else {
 		dcPage::notices();
 
 	echo '<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']);
-}
 
-echo
-'<h3>'.__('Export').'</h3>'.
-'<p class="info">'.sprintf(
-	__('Export functions are in the page %s.'),
-	'<a href="plugin.php?p=maintenance&amp;tab=backup#backup">'.__('Maintenance').'</a>'
-).'</p>';
+	echo
+	'<h3>'.__('Export').'</h3>'.
+	'<p class="info">'.sprintf(
+		__('Export functions are in the page %s.'),
+		'<a href="plugin.php?p=maintenance&amp;tab=backup#backup">'.__('Maintenance').'</a>'
+	).'</p>';
+}
 
 dcPage::helpBlock('import');
 

@@ -104,7 +104,7 @@ class dcMaintenanceAdmin
 	/**
 	 * Favorites hack.
 	 *
-	 * This updates maintenance fav icon text 
+	 * This updates maintenance fav icon text
 	 * if there are tasks required maintenance.
 	 *
 	 * @param	$core	<b>dcCore</b>	dcCore instance
@@ -159,7 +159,7 @@ class dcMaintenanceAdmin
 				continue;
 			}
 
-			$lines[] = 
+			$lines[] =
 			'<li title="'.($ts === null ?
 				__('This task has never been executed.')
 				:
@@ -187,7 +187,7 @@ class dcMaintenanceAdmin
 	/**
 	 * User preferences form.
 	 *
-	 * This add options for superadmin user 
+	 * This add options for superadmin user
 	 * to show or not expired taks.
 	 *
 	 * @param	$args	<b>object</b>	dcCore instance or record
@@ -232,9 +232,9 @@ class dcMaintenanceAdmin
 	/**
 	 * Build a well sorted help for tasks.
 	 *
-	 * This method is not so good if used with lot of tranlsations 
-	 * as it grows memory usage and translations files size, 
-	 * it is better to use help ressource files 
+	 * This method is not so good if used with lot of tranlsations
+	 * as it grows memory usage and translations files size,
+	 * it is better to use help ressource files
 	 * but keep it for exemple of how to use behavior adminPageHelpBlock.
 	 * Cheers, JC
 	 *
@@ -264,12 +264,12 @@ class dcMaintenanceAdmin
 				$res_task = '';
 				foreach($maintenance->getTasks() as $t)
 				{
-					if ($t->group() != $group_obj->id() 
+					if ($t->group() != $group_obj->id()
 					 || $t->tab() != $tab_obj->id()) {
 						continue;
 					}
 					if (($desc = $t->description()) != '') {
-						$res_task .= 
+						$res_task .=
 						'<dt>'.$t->task().'</dt>'.
 						'<dd>'.$desc.'</dd>';
 					}
@@ -277,7 +277,7 @@ class dcMaintenanceAdmin
 				if (!empty($res_task)) {
 					$desc = $group_obj->description ? $group_obj->description : $group_obj->summary;
 
-					$res_group .= 
+					$res_group .=
 					'<h5>'.$group_obj->name().'</h5>'.
 					($desc ? '<p>'.$desc.'</p>' : '').
 					'<dl>'.$res_task.'</dl>';
@@ -286,7 +286,7 @@ class dcMaintenanceAdmin
 			if (!empty($res_group)) {
 				$desc = $tab_obj->description ? $tab_obj->description : $tab_obj->summary;
 
-				$res_tab .= 
+				$res_tab .=
 				'<h4>'.$tab_obj->name().'</h4>'.
 				($desc ? '<p>'.$desc.'</p>' : '').
 				$res_group;

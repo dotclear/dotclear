@@ -40,14 +40,14 @@ $col = 0;
 while ($tags->fetch())
 {
 	$letter = mb_strtoupper(mb_substr($tags->meta_id,0,1));
-	
+
 	if ($last_letter != $letter) {
 		if ($tags->index() >= round($tags->count()/2)) {
 			$col = 1;
 		}
 		$cols[$col] .= '<tr class="tagLetter"><td colspan="2"><span>'.$letter.'</span></td></tr>';
 	}
-	
+
 	$cols[$col] .=
 	'<tr class="line">'.
 		'<td class="maximal"><a href="'.$p_url.
@@ -55,7 +55,7 @@ while ($tags->fetch())
 		'<td class="nowrap"><strong>'.$tags->count.'</strong> '.
 		(($tags->count==1) ? __('entry') : __('entries')).'</td>'.
 	'</tr>';
-	
+
 	$last_letter = $letter;
 }
 

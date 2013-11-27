@@ -7,7 +7,7 @@
 .jstEditor textarea, .jstEditor iframe {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	box-sizing: border-box;	
+	box-sizing: border-box;
 	margin: 0;
 	border: 1px solid #fbfbfb;
   	width: 100%;
@@ -29,12 +29,12 @@
 .jstElements {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	box-sizing: border-box;	
-	padding: 0 32px 0 1rem; 
+	box-sizing: border-box;
+	padding: 0 32px 0 1rem;
 	border: 1px solid #dfdfdf;
-	overflow: hidden; 
-	background: #f5f5f5; 
-	border-radius: 4px 4px 0 0; 
+	overflow: hidden;
+	background: #f5f5f5;
+	border-radius: 4px 4px 0 0;
 	position: relative;
 	line-height: 30px;
 }
@@ -44,7 +44,7 @@
 .jstElements select {
 	width: 12em;
 	margin-right: .6rem;
-	border: 1px solid #ddd; 
+	border: 1px solid #ddd;
 }
 .jstElements button {
 	width: 30px;
@@ -63,7 +63,7 @@
 	background-color: #fff;
 }
 .jstElements button span {
-	display: none;	
+	display: none;
 }
 .jstElements span {
 	display : inline-block;

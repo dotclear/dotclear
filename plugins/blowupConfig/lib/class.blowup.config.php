@@ -187,7 +187,7 @@ class blowupConfig
 	public static function createCss($s)
 	{
 		global $core;
-		
+
 		if ($s === null) {
 			return;
 		}
@@ -361,7 +361,7 @@ class blowupConfig
 	{
 		file_put_contents(self::cssPath().'/'.$theme.'.css', $css);
 	}
-	
+
 	public static function dropCss($theme)
 	{
 		$file = path::real(self::cssPath().'/'.$theme.'.css');
@@ -669,4 +669,3 @@ class blowupConfig
 		}
 	}
 }
-?>

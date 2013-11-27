@@ -1,20 +1,5 @@
-dotclear.commentExpander = function(line) {
-	var td = line.firstChild;
-
-	var img = document.createElement('img');
-	img.src = dotclear.img_plus_src;
-	img.alt = dotclear.img_plus_alt;
-	img.className = 'expand';
-	$(img).css('cursor','pointer');
-	img.line = line;
-	img.onclick = function() { dotclear.viewCommentContent(this,this.line); };
-
-	td.insertBefore(img,td.firstChild);
-};
-
-dotclear.viewCommentContent = function(img,line) {
-	var commentId = line.id.substr(1);
-
+dotclear.viewCommentContent = function(line,action) {
+	var commentId = $(line).attr('id').substr(1);
 	var tr = document.getElementById('ce'+commentId);
 
 	if (!tr) {
@@ -24,9 +9,6 @@ dotclear.viewCommentContent = function(img,line) {
 		td.colSpan = 6;
 		td.className = 'expand';
 		tr.appendChild(td);
-
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
 
 		// Get comment content
 		$.get('services.php',{f:'getCommentById',id: commentId},function(data) {
@@ -59,15 +41,11 @@ dotclear.viewCommentContent = function(img,line) {
 	{
 		$(tr).toggle();
 		$(line).toggleClass('expand');
-		img.src = dotclear.img_minus_src;
-		img.alt = dotclear.img_minus_alt;
 	}
 	else
 	{
 		$(tr).toggle();
 		$(line).toggleClass('expand');
-		img.src = dotclear.img_plus_src;
-		img.alt = dotclear.img_plus_alt;
 	}
 };
 
@@ -89,7 +67,7 @@ $(function() {
 				// Restore last format if change cancelled
 				$(this).val(last_post_format);
 			}
-			
+
 			$('.format_control > *').addClass('hide');
 			$('.format_control:not(.control_no_'+$(this).val()+') > *').removeClass('hide');
 		});
@@ -101,6 +79,7 @@ $(function() {
 
 	if (document.getElementById('comment_content')) {
 		var commentTb = new jsToolBar(document.getElementById('comment_content'));
+		commentTb.draw('xhtml');
 	}
 
 	// Post preview
@@ -127,10 +106,10 @@ $(function() {
 		a.href = '#';
 		a.className = 'button ';
 		$(a).click(function() {
-			
+
 			excerpt_content = $('#post_excerpt').css('display') != 'none' ? $('#post_excerpt').val() : $('#excerpt-area iframe').contents().find('body').html();
-			post_content    = $('#post_content').css('display') != 'none' ? $('#post_content').val() : $('#content-area iframe').contents().find('body').html();
-			
+			post_content	= $('#post_content').css('display') != 'none' ? $('#post_content').val() : $('#content-area iframe').contents().find('body').html();
+
 			var params = {
 				xd_check: dotclear.nonce,
 				f: 'validatePostMarkup',
@@ -145,13 +124,13 @@ $(function() {
 					alert($(data).find('rsp message').text());
 					return false;
 				}
-					
+
 				$('.message, .success, .error, .warning-msg').remove();
 
 				if ($(data).find('valid').text() == 1) {
 					var p = document.createElement('p');
 					p.id = 'markup-validator';
-					
+
 					$(p).addClass('success');
 					$(p).text(dotclear.msg.xhtml_valid);
 					$('#entry-content h3').after(p);
@@ -161,7 +140,7 @@ $(function() {
 				} else {
 					var div = document.createElement('div');
 					div.id = 'markup-validator';
-					
+
 					$(div).addClass('error');
 					$(div).html('<p><strong>' + dotclear.msg.xhtml_not_valid + '</strong></p>' + $(data).find('errors').text());
 					$('#entry-content h3').after(div);
@@ -184,7 +163,7 @@ $(function() {
 		});
 
 		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
-		
+
 		$('.format_control > *').addClass('hide');
 		$('.format_control:not(.control_no_'+last_post_format+') > *').removeClass('hide');
 
@@ -265,8 +244,9 @@ $(function() {
 	});
 
 	$('#comments').onetabload(function() {
-		$('#form-comments .comments-list tr.line').each(function() {
-			dotclear.commentExpander(this);
+		$.expandContent({
+			lines:$('#form-comments .comments-list tr.line'),
+			callback:dotclear.viewCommentContent
 		});
 		$('#form-comments .checkboxes-helpers').each(function() {
 			dotclear.checkboxesHelpers(this);
@@ -276,8 +256,9 @@ $(function() {
 	});
 
 	$('#trackbacks').onetabload(function() {
-		$('#form-trackbacks .comments-list tr.line').each(function() {
-			dotclear.commentExpander(this);
+		$.expandContent({
+			lines:$('#form-trackbacks .comments-list tr.line'),
+			callback:dotclear.viewCommentContent
 		});
 		$('#form-trackbacks .checkboxes-helpers').each(function() {
 			dotclear.checkboxesHelpers(this);

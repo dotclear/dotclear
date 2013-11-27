@@ -20,4 +20,3 @@ $this->registerModule(
 		'permissions' =>	'admin'
 	)
 );
-?>

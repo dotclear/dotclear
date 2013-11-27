@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -87,7 +87,7 @@ class dcCore
 		$this->session = new sessionDB($this->con,$this->prefix.'session',DC_SESSION_NAME,'',null,DC_ADMIN_SSL);
 		$this->url = new dcUrlHandlers();
 		
-		$this->plugins = new dcModules($this);
+		$this->plugins = new dcPlugins($this);
 		
 		$this->rest = new dcRestServer($this);
 		
@@ -1342,8 +1342,10 @@ class dcCore
 				'Image thumbnail size in media manager'),
 				array('media_img_title_pattern','string','Title ;; Date(%b %Y) ;; separator(, )',
 				'Pattern to set image title when you insert it in a post'),
+				array('nb_post_for_home','integer',20,
+				'Number of entries on first home page'),
 				array('nb_post_per_page','integer',20,
-				'Number of entries on home page and category pages'),
+				'Number of entries on home pages and category pages'),
 				array('nb_post_per_feed','integer',20,
 				'Number of entries on feeds'),
 				array('nb_comment_per_feed','integer',20,

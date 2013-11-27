@@ -16,8 +16,8 @@ dcPage::check('admin');
 
 # -- Page helper --
 $list = new adminModulesList(
-	$core->plugins, 
-	DC_PLUGINS_ROOT, 
+	$core->plugins,
+	DC_PLUGINS_ROOT,
 	$core->blog->settings->system->store_plugin_url
 );
 
@@ -50,6 +50,7 @@ if ($list->setConfiguration()) {
 	# Display previously gathered content
 	$list->displayConfiguration();
 
+	dcPage::helpBlock('core_plugins_conf');
 	dcPage::close();
 
 	# Stop reading code here
@@ -87,27 +88,27 @@ dcPage::open(__('Plugins management'),
 
 # -- Plugins install messages --
 if (!empty($plugins_install['success'])) {
-	echo 
+	echo
 	'<div class="static-msg">'.__('Following plugins have been installed:').'<ul>';
 
 	foreach ($plugins_install['success'] as $k => $v) {
-		echo 
+		echo
 		'<li>'.$k.'</li>';
 	}
 
-	echo 
+	echo
 	'</ul></div>';
 }
 if (!empty($plugins_install['failure'])) {
-	echo 
+	echo
 	'<div class="error">'.__('Following plugins have not been installed:').'<ul>';
 
 	foreach ($plugins_install['failure'] as $k => $v) {
-		echo 
+		echo
 		'<li>'.$k.' ('.$v.')</li>';
 	}
 
-	echo 
+	echo
 	'</ul></div>';
 }
 
@@ -117,7 +118,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 	# Updated modules from repo
 	$modules = $list->store->get(true);
 	if (!empty($modules)) {
-		echo 
+		echo
 		'<div class="multi-part" id="update" title="'.html::escapeHTML(__('Update plugins')).'">'.
 		'<h3>'.html::escapeHTML(__('Update plugins')).'</h3>'.
 		'<p>'.sprintf(
@@ -130,7 +131,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 			->setTab('update')
 			->setModules($modules)
 			->displayModules(
-				/*cols */		array('icon', 'name', 'version', 'current_version', 'desc'),
+				/*cols */		array('checkbox', 'icon', 'name', 'version', 'current_version', 'desc'),
 				/* actions */	array('update')
 			);
 
@@ -151,8 +152,8 @@ echo
 # Activated modules
 $modules = $list->modules->getModules();
 if (!empty($modules)) {
-	
-	echo 
+
+	echo
 	'<h3>'.($core->auth->isSuperAdmin() ?__('Activated plugins') : __('Installed plugins')).'</h3>'.
 	'<p>'.__('You can configure and manage installed plugins from this list.').'</p>';
 
@@ -185,7 +186,7 @@ if ($core->auth->isSuperAdmin()) {
 	}
 }
 
-echo 
+echo
 '</div>';
 
 if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
@@ -239,7 +240,7 @@ $core->callBehavior('pluginsToolsTabs', $core);
 
 # -- Notice for super admin --
 if ($core->auth->isSuperAdmin() && !$list->isWritablePath()) {
-	echo 
+	echo
 	'<p class="warning">'.__('Some functions are disabled, please give write access to your plugins directory to enable them.').'</p>';
 }
 

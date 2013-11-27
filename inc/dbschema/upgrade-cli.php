@@ -21,17 +21,17 @@ try
 	} else {
 		$dc_conf = dirname(__FILE__).'/../config.php';
 	}
-	
+
 	if (!is_file($dc_conf)) {
 		throw new Exception(sprintf('%s is not a file',$dc_conf));
 	}
-	
+
 	$_SERVER['DC_RC_PATH'] = $dc_conf;
 	unset($dc_conf);
-	
+
 	require dirname(__FILE__).'/../prepend.php';
 	require dirname(__FILE__).'/upgrade.php';
-	
+
 	echo "Starting upgrade process\n";
 	$core->con->begin();
 	try {

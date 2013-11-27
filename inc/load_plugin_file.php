@@ -66,7 +66,7 @@ $paths[] = dirname(__FILE__).'/swf';
 foreach ($paths as $m)
 {
 	$PF = path::real($m.'/'.$pf);
-	
+
 	if ($PF !== false) {
 		break;
 	}
@@ -92,4 +92,3 @@ header('Content-Type: '.files::getMimeType($PF));
 header('Content-Length: '.filesize($PF));
 readfile($PF);
 exit;
-?>

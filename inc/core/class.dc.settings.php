@@ -24,15 +24,15 @@ class dcSettings
 	protected $con;		///< <b>connection</b> Database connection object
 	protected $table;		///< <b>string</b> Settings table name
 	protected $blog_id;		///< <b>string</b> Blog ID
-	
+
 	protected $namespaces = array();		///< <b>array</b> Associative namespaces array
-	
+
 	protected $ns;			///< <b>string</b> Current namespace
-	
+
 	/**
 	Object constructor. Retrieves blog settings and puts them in $namespaces
 	array. Local (blog) settings have a highest priority than global settings.
-	
+
 	@param	core		<b>dcCore</b>		dcCore object
 	@param	blog_id	<b>string</b>		Blog ID
 	*/
@@ -43,9 +43,9 @@ class dcSettings
 		$this->blog_id =& $blog_id;
 		$this->loadSettings();
 	}
-	
+
 	/**
-	Retrieves all namespaces (and their settings) from database, with one query. 
+	Retrieves all namespaces (and their settings) from database, with one query.
 	*/
 	private function loadSettings()
 	{
@@ -60,12 +60,12 @@ class dcSettings
 		} catch (Exception $e) {
 			trigger_error(__('Unable to retrieve namespaces:').' '.$this->con->error(), E_USER_ERROR);
 		}
-		
+
 		/* Prevent empty tables (install phase, for instance) */
 		if ($rs->isEmpty()) {
 			return;
 		}
-		
+
 		do {
 			$ns = trim($rs->f('setting_ns'));
 			if (!$rs->isStart()) {
@@ -76,11 +76,11 @@ class dcSettings
 			$this->namespaces[$ns] = new dcNamespace($GLOBALS['core'], $this->blog_id, $ns,$rs);
 		} while(!$rs->isStart());
 	}
-		
-	
+
+
 	/**
 	Create a new namespace. If the namespace already exists, return it without modification.
-	
+
 	@param	ns	<b>string</b>		Namespace name
 	@return	<b>dcNamespace</b>	The namespace created
 	*/
@@ -138,10 +138,10 @@ class dcSettings
 		$this->con->execute($strReq);
 		return true;
 	}
-	
+
 	/**
 	Returns full namespace with all settings pertaining to it.
-	
+
 	@param	ns	<b>string</b>		Namespace name
 	@return	<b>dcNamespace</b>
 	*/
@@ -149,7 +149,7 @@ class dcSettings
 	{
 		return $this->namespaces[$ns];
 	}
-	
+
 	/**
 	Magic __get method.
 	@copydoc ::get
@@ -164,7 +164,7 @@ class dcSettings
 		}
 		return $this->get($n);
 	}
-	
+
 	/**
 	Magic __set method.
 	@copydoc ::set
@@ -173,21 +173,21 @@ class dcSettings
 	{
 		$this->set($n,$v);
 	}
-	
+
 	/**
 	Returns $namespaces property content.
-	
+
 	@return	<b>array</b>
 	*/
 	public function dumpNamespaces()
 	{
 		return $this->namespaces;
 	}
-	
+
 	/**
-	Raises a E_USER_NOTICE errror for deprecated functions. 
+	Raises a E_USER_NOTICE errror for deprecated functions.
 	This allows the developer to know he's been using deprecated functions.
-	
+
 	@param	name	<b>string</b>	Name of the deprecated function that was called.
 	*/
 	private function raiseDeprecated($name)
@@ -201,13 +201,13 @@ class dcSettings
 			trigger_error($msg, E_USER_NOTICE);
 		}
 	}
-	
+
 	/**
 	@deprecated Please set your settings via $core->blog->settings->{namespace}->{setting}
-	
+
 	Sets a setting in $settings property. This sets the setting for script
 	execution time only and if setting exists.
-	
+
 	@param	n		<b>string</b>		Setting name
 	@param	v		<b>mixed</b>		Setting value
 	*/
@@ -216,11 +216,11 @@ class dcSettings
 		// For backward compatibility only: the developer tried to access
 		// a setting directly, without passing via a namespace.
 		$this->raiseDeprecated('old_style_set');
-		
+
 		if (!$this->ns) {
 			throw new Exception(__('No namespace specified'));
 		}
-		
+
 		if (isset($this->namespaces[$this->ns]->$n)) {
 			$this->namespaces[$this->ns]->$n['value'] = $v;
 		} else {
@@ -233,12 +233,12 @@ class dcSettings
 			);
 		}
 	}
-	
+
 	/**
 	@deprecated Please access your settings via $core->blog->settings->{namespace}->...
-	
+
 	Sets a working namespace. You should do this before accessing any setting.
-	
+
 	@param	ns		<b>string</b>		Namespace name
 	*/
 	public function setNamespace($ns)
@@ -250,20 +250,20 @@ class dcSettings
 			throw new Exception(sprintf(__('Invalid setting namespace: %s'),$ns));
 		}
 	}
-	
+
 	/**
 	@deprecated Please set your settings via $core->blog->settings->{namespace}->put()
-	
+
 	Creates or updates a setting.
-	
+
 	$type could be 'string', 'integer', 'float', 'boolean' or null. If $type is
 	null and setting exists, it will keep current setting type.
-	
+
 	$value_change allow you to not change setting. Useful if you need to change
 	a setting label or type and don't want to change its value.
-	
+
 	Don't forget to set namespace before calling this method.
-	
+
 	@param	id			<b>string</b>		Setting ID
 	@param	value		<b>mixed</b>		Setting value
 	@param	type			<b>string</b>		Setting type
@@ -283,12 +283,12 @@ class dcSettings
 		}
 		$this->namespaces[$this->ns]->put($id, $value, $type, $label, $value_change, $global);
 	}
-	
+
 	/**
 	@deprecated Please get your settings via $core->blog->settings->{namespace}->{setting}
-	
+
 	Returns setting value if exists.
-	
+
 	@param	n		<b>string</b>		Setting name
 	@return	<b>mixed</b>
 	*/
@@ -306,15 +306,15 @@ class dcSettings
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	@deprecated Please get your settings via $core->blog->settings->{namespace}->dumpSettings
-	
+
 	Returns all settings content.
-	
+
 	@return	<b>array</b>
 	*/
 	public function dumpSettings()
@@ -322,21 +322,21 @@ class dcSettings
 		// For backward compatibility only: the developer tried to access
 		// the settings directly, without passing via a namespace.
 		$this->raiseDeprecated('dumpSettings');
-		
+
 		$settings = array();
 		// Parse all the namespaces
 		foreach (array_keys($this->namespaces) as $id => $ns) {
 			$settings = array_merge($settings, $this->namespaces[$ns]->dumpSettings());
 		}
-		
+
 		return $settings;
 	}
-	
+
 	/**
 	@deprecated Please get your settings via $core->blog->settings->{namespace}->dumpGlobalSettings
-	
+
 	Returns all global settings content.
-	
+
 	@return	<b>array</b>
 	*/
 	public function dumpGlobalSettings()
@@ -344,13 +344,13 @@ class dcSettings
 		// For backward compatibility only: the developer tried to access
 		// the settings directly, without passing via a namespace.
 		$this->raiseDeprecated('dumpGlobalSettings');
-		
+
 		$settings = array();
 		// Parse all the namespaces
 		foreach (array_keys($this->namespaces) as $id => $ns) {
 			$settings = array_merge($settings, $this->namespaces[$ns]->dumpGlobalSettings());
 		}
-		
+
 		return $settings;
 	}
 
@@ -358,12 +358,12 @@ class dcSettings
 	Returns a list of settings matching given criteria, for any blog.
 	<b>$params</b> is an array taking the following
 	optionnal parameters:
-	
+
 	- ns : retrieve setting from given namespace
 	- id : retrieve only settings corresponding to the given id
-	
+
 	@param	params		<b>array</b>		Parameters
-	@return	<b>record</b>	A record 
+	@return	<b>record</b>	A record
 	*/
 	public function getGlobalSettings($params=array())
 	{
@@ -391,10 +391,10 @@ class dcSettings
 
 	/**
 	Updates a setting from a given record
-	
+
 	@param	rs		<b>record</b>		the setting to update
 	*/
-	public function updateSetting($rs) 
+	public function updateSetting($rs)
 	{
 		$cur = $this->con->openCursor($this->table);
 		$cur->setting_id = $rs->setting_id;
@@ -410,10 +410,10 @@ class dcSettings
 		}
 		$cur->update($where."AND setting_id = '".$this->con->escape($cur->setting_id)."' AND setting_ns = '".$this->con->escape($cur->setting_ns)."' ");
 	}
-	
+
 	/**
 	Drops a setting from a given record
-	
+
 	@param	rs		<b>record</b>		the setting to drop
 	@return	int		number of deleted records (0 if setting does not exist)
 	*/
@@ -428,4 +428,3 @@ class dcSettings
 		return $this->con->execute($strReq);
 	}
 }
-?>

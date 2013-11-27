@@ -15,7 +15,7 @@ if (!defined('DC_RC_PATH')) { return; }
 * @ingroup DC_CORE
 * @nosubgrouping
 * @brief Authentication and user credentials management
-* 
+*
 * dcAuth is a class used to handle everything related to user authentication
 * and credentials. Object is provided by dcCore $auth property.
 */
@@ -25,12 +25,12 @@ class dcAuth
 	protected $core;
 	/** @var connection Database connection object */
 	protected $con;
-	
+
 	/** @var string User table name */
 	protected $user_table;
 	/** @var string Perm table name */
 	protected $perm_table;
-	
+
 	/** @var string Current user ID */
 	protected $user_id;
 	/** @var array Array with user information */
@@ -49,16 +49,16 @@ class dcAuth
 	protected $blogs = array();
 	/** @var integer Count of user blogs */
 	public $blog_count = null;
-	
+
 	/** @var array Permission types */
 	protected $perm_types;
-	
+
 	/** @var dcPrefs dcPrefs object */
 	public $user_prefs;
-	
+
 	/**
 	* Class constructor. Takes dcCore object as single argument.
-	* 
+	*
 	* @param dcCore	$core		dcCore object
 	*/
 	public function __construct($core)
@@ -68,7 +68,7 @@ class dcAuth
 		$this->blog_table = $core->prefix.'blog';
 		$this->user_table = $core->prefix.'user';
 		$this->perm_table = $core->prefix.'permissions';
-		
+
 		$this->perm_types = array(
 			'admin' => __('administrator'),
 			'usage' => __('manage their own entries and comments'),
@@ -80,14 +80,14 @@ class dcAuth
 			'media_admin' => __('manage all media items')
 		);
 	}
-	
+
 	/// @name Credentials and user permissions
 	//@{
 	/**
 	* Checks if user exists and can log in. <var>$pwd</var> argument is optionnal
 	* while you may need to check user without password. This method will create
 	* credentials and populate all needed object properties.
-	* 
+	*
 	* @param string	$user_id		User ID
 	* @param string	$pwd			User password
 	* @param string	$user_key		User key check
@@ -103,21 +103,21 @@ class dcAuth
 				'user_lang, user_tz, user_post_status, user_creadt, user_upddt '.
 				'FROM '.$this->con->escapeSystem($this->user_table).' '.
 				"WHERE user_id = '".$this->con->escape($user_id)."' ";
-		
+
 		try {
 			$rs = $this->con->select($strReq);
 		} catch (Exception $e) {
 			$err = $e->getMessage();
 			return false;
-		}		
-		
+		}
+
 		if ($rs->isEmpty()) {
 			sleep(rand(2,5));
 			return false;
 		}
-		
+
 		$rs->extend('rsExtUser');
-		
+
 		if ($pwd != '')
 		{
 			if (crypt::hmac(DC_MASTER_KEY,$pwd) != $rs->user_pwd) {
@@ -131,11 +131,11 @@ class dcAuth
 				return false;
 			}
 		}
-		
+
 		$this->user_id = $rs->user_id;
 		$this->user_change_pwd = (boolean) $rs->user_change_pwd;
 		$this->user_admin = (boolean) $rs->user_super;
-		
+
 		$this->user_info['user_pwd'] = $rs->user_pwd;
 		$this->user_info['user_name'] = $rs->user_name;
 		$this->user_info['user_firstname'] = $rs->user_firstname;
@@ -148,24 +148,24 @@ class dcAuth
 		$this->user_info['user_post_status'] = $rs->user_post_status;
 		$this->user_info['user_creadt'] = $rs->user_creadt;
 		$this->user_info['user_upddt'] = $rs->user_upddt;
-		
+
 		$this->user_info['user_cn'] = dcUtils::getUserCN($rs->user_id, $rs->user_name,
 		$rs->user_firstname, $rs->user_displayname);
-		
+
 		$this->user_options = array_merge($this->core->userDefaults(),$rs->options());
-		
+
 		$this->user_prefs = new dcPrefs($this->core,$this->user_id);
-		
+
 		# Get permissions on blogs
 		if ($check_blog && ($this->findUserBlog() === false)) {
 			return false;
 		}
 		return true;
 	}
-	
+
 	/**
 	* This method only check current user password.
-	* 
+	*
 	* @param string	$pwd			User password
 	* @return boolean
 	*/
@@ -174,49 +174,49 @@ class dcAuth
 		if (!empty($this->user_info['user_pwd'])) {
 			return $pwd == $this->user_info['user_pwd'];
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
 	* This method checks if user session cookie exists
-	* 
+	*
 	* @return boolean
 	*/
 	public function sessionExists()
 	{
 		return isset($_COOKIE[DC_SESSION_NAME]);
 	}
-	
+
 	/**
 	* This method checks user session validity.
-	* 
+	*
 	* @return boolean
 	*/
 	public function checkSession($uid=null)
 	{
 		$this->core->session->start();
-		
+
 		# If session does not exist, logout.
 		if (!isset($_SESSION['sess_user_id'])) {
 			$this->core->session->destroy();
 			return false;
 		}
-		
+
 		# Check here for user and IP address
 		$this->checkUser($_SESSION['sess_user_id']);
 		$uid = $uid ? $uid : http::browserUID(DC_MASTER_KEY);
-		
+
 		$user_can_log = $this->userID() !== null && $uid == $_SESSION['sess_browser_uid'];
-		
+
 		if (!$user_can_log) {
 			$this->core->session->destroy();
 			return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	/**
 	* Checks if user must change his password in order to login.
 	*
@@ -226,22 +226,22 @@ class dcAuth
 	{
 		return $this->user_change_pwd;
 	}
-	
+
 	/**
 	* Checks if user is super admin
-	* 
+	*
 	* @return boolean
 	*/
 	public function isSuperAdmin()
 	{
 		return $this->user_admin;
 	}
-	
+
 	/**
 	* Checks if user has permissions given in <var>$permissions</var> for blog
 	* <var>$blog_id</var>. <var>$permissions</var> is a coma separated list of
 	* permissions.
-	* 
+	*
 	* @param string	$permissions	Permissions list
 	* @param string	$blog_id		Blog ID
 	* @return boolean
@@ -251,16 +251,16 @@ class dcAuth
 		if ($this->user_admin) {
 			return true;
 		}
-		
+
 		$p = explode(',',$permissions);
 		$b = $this->getPermissions($blog_id);
-		
+
 		if ($b != false)
 		{
 			if (isset($b['admin'])) {
 				return true;
 			}
-			
+
 			foreach ($p as $v)
 			{
 				if (isset($b[$v])) {
@@ -268,13 +268,13 @@ class dcAuth
 				}
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
 	* Returns true if user is allowed to change its password.
-	* 
+	*
 	* @return	boolean
 	*/
 	public function allowPassChange()
@@ -282,7 +282,7 @@ class dcAuth
 		return $this->allow_pass_change;
 	}
 	//@}
-	
+
 	/// @name User code handlers
 	//@{
 	public function getUserCode()
@@ -292,45 +292,45 @@ class dcAuth
 		pack('H*',crypt::hmac(DC_MASTER_KEY,$this->getInfo('user_pwd')));
 		return bin2hex($code);
 	}
-	
+
 	public function checkUserCode($code)
 	{
 		$code = @pack('H*',$code);
-		
+
 		$user_id = trim(@pack('a32',substr($code,0,32)));
 		$pwd = @unpack('H40hex',substr($code,32,40));
-		
+
 		if ($user_id === false || $pwd === false) {
 			return false;
 		}
-		
+
 		$pwd = $pwd['hex'];
-		
+
 		$strReq = 'SELECT user_id, user_pwd '.
 				'FROM '.$this->user_table.' '.
 				"WHERE user_id = '".$this->con->escape($user_id)."' ";
-		
+
 		$rs = $this->con->select($strReq);
-		
+
 		if ($rs->isEmpty()) {
 			return false;
 		}
-		
+
 		if (crypt::hmac(DC_MASTER_KEY,$rs->user_pwd) != $pwd) {
 			return false;
 		}
-		
+
 		return $rs->user_id;
 	}
 	//@}
-	
-	
+
+
 	/// @name Sudo
 	//@{
 	/**
 	* Calls $f function with super admin rights.
 	* Returns the function result.
-	* 
+	*
 	* @param callback	$f			Callback function
 	* @return mixed
 	*/
@@ -339,10 +339,10 @@ class dcAuth
 		if (!is_callable($f)) {
 			throw new Exception($f.' function doest not exist');
 		}
-		
+
 		$args = func_get_args();
 		array_shift($args);
-		
+
 		if ($this->user_admin) {
 			$res = call_user_func_array($f,$args);
 		} else {
@@ -355,20 +355,20 @@ class dcAuth
 				throw $e;
 			}
 		}
-		
+
 		return $res;
 	}
 	//@}
-	
+
 	/// @name User information and options
 	//@{
 	/**
 	* Returns user permissions for a blog as an array which looks like:
-	* 
+	*
 	*  - [blog_id]
 	*    - [permission] => true
 	*    - ...
-	* 
+	*
 	* @param string	$blog_id		Blog ID
 	* @return array
 	*/
@@ -383,21 +383,21 @@ class dcAuth
 				'from '.$this->blog_table.' '.
 				"WHERE blog_id = '".$this->con->escape($blog_id)."' ";
 			$rs = $this->con->select($strReq);
-			
+
 			$this->blogs[$blog_id] = $rs->isEmpty() ? false : array('admin' => true);
-			
+
 			return $this->blogs[$blog_id];
 		}
-		
+
 		$strReq = 'SELECT permissions '.
 				'FROM '.$this->perm_table.' '.
 				"WHERE user_id = '".$this->con->escape($this->user_id)."' ".
 				"AND blog_id = '".$this->con->escape($blog_id)."' ".
 				"AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') ";
 		$rs = $this->con->select($strReq);
-		
+
 		$this->blogs[$blog_id] = $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
-		
+
 		return $this->blogs[$blog_id];
 	}
 
@@ -408,7 +408,7 @@ class dcAuth
 
         return $this->blog_count;
     }
-	
+
 	public function findUserBlog($blog_id=null)
 	{
 		if ($blog_id && $this->getPermissions($blog_id) !== false)
@@ -433,29 +433,29 @@ class dcAuth
 						'ORDER BY blog_id ASC '.
 						$this->con->limit(1);
 			}
-			
+
 			$rs = $this->con->select($strReq);
 			if (!$rs->isEmpty()) {
 				return $rs->blog_id;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
 	* Returns current user ID
-	* 
+	*
 	* @return string
 	*/
 	public function userID()
 	{
 		return $this->user_id;
 	}
-	
+
 	/**
 	* Returns information about a user .
-	* 
+	*
 	* @param string	$n			Information name
 	* @return string
 	*/
@@ -464,13 +464,13 @@ class dcAuth
 		if (isset($this->user_info[$n])) {
 			return $this->user_info[$n];
 		}
-		
+
 		return null;
 	}
-	
+
 	/**
 	* Returns a specific user option
-	* 
+	*
 	* @param string	$n			Option name
 	* @return string
 	*/
@@ -481,10 +481,10 @@ class dcAuth
 		}
 		return null;
 	}
-	
+
 	/**
 	* Returns all user options in an associative array.
-	* 
+	*
 	* @return array
 	*/
 	public function getOptions()
@@ -492,12 +492,12 @@ class dcAuth
 		return $this->user_options;
 	}
 	//@}
-	
+
 	/// @name Permissions
 	//@{
 	/**
 	* Returns an array with permissions parsed from the string <var>$level</var>
-	* 
+	*
 	* @param string	$level		Permissions string
 	* @return array
 	*/
@@ -505,27 +505,27 @@ class dcAuth
 	{
 		$level = preg_replace('/^\|/','',$level);
 		$level = preg_replace('/\|$/','',$level);
-		
+
 		$res = array();
 		foreach (explode('|',$level) as $v) {
 			$res[$v] = true;
 		}
 		return $res;
 	}
-	
+
 	/**
 	* Returns <var>perm_types</var> property content.
-	* 
+	*
 	* @return array
 	*/
 	public function getPermissionsTypes()
 	{
 		return $this->perm_types;
 	}
-	
+
 	/**
 	* Adds a new permission type.
-	* 
+	*
 	* @param string	$name		Permission name
 	* @param string	$title		Permission title
 	*/
@@ -534,13 +534,13 @@ class dcAuth
 		$this->perm_types[$name] = $title;
 	}
 	//@}
-	
+
 	/// @name Password recovery
 	//@{
 	/**
 	* Add a recover key to a specific user identified by its email and
 	* password.
-	* 
+	*
 	* @param string	$user_id		User ID
 	* @param string	$user_email	User Email
 	* @return string
@@ -551,30 +551,30 @@ class dcAuth
 				'FROM '.$this->user_table.' '.
 				"WHERE user_id = '".$this->con->escape($user_id)."' ".
 				"AND user_email = '".$this->con->escape($user_email)."' ";
-		
+
 		$rs = $this->con->select($strReq);
-		
+
 		if ($rs->isEmpty()) {
 			throw new Exception(__('That user does not exist in the database.'));
 		}
-		
+
 		$key = md5(uniqid());
-		
+
 		$cur = $this->con->openCursor($this->user_table);
 		$cur->user_recover_key = $key;
-		
+
 		$cur->update("WHERE user_id = '".$this->con->escape($user_id)."'");
-		
+
 		return $key;
 	}
-	
+
 	/**
 	* Creates a new user password using recovery key. Returns an array:
-	* 
+	*
 	* - user_email
 	* - user_id
 	* - new_pass
-	* 
+	*
 	* @param string	$recover_key	Recovery key
 	* @return array
 	*/
@@ -583,25 +583,25 @@ class dcAuth
 		$strReq = 'SELECT user_id, user_email '.
 				'FROM '.$this->user_table.' '.
 				"WHERE user_recover_key = '".$this->con->escape($recover_key)."' ";
-		
+
 		$rs = $this->con->select($strReq);
-		
+
 		if ($rs->isEmpty()) {
 			throw new Exception(__('That key does not exist in the database.'));
 		}
-		
+
 		$new_pass = crypt::createPassword();
-		
+
 		$cur = $this->con->openCursor($this->user_table);
 		$cur->user_pwd = crypt::hmac(DC_MASTER_KEY,$new_pass);
 		$cur->user_recover_key = null;
-		
+
 		$cur->update("WHERE user_recover_key = '".$this->con->escape($recover_key)."'");
-		
+
 		return array('user_email' => $rs->user_email, 'user_id' => $rs->user_id, 'new_pass' => $new_pass);
 	}
 	//@}
-	
+
 	/** @name User management callbacks
 	This 3 functions only matter if you extend this class and use
 	DC_AUTH_CLASS constant.
@@ -610,14 +610,14 @@ class dcAuth
 	LDAP directory	or other third party authentication database.
 	*/
 	//@{
-	
+
 	/**
 	* Called after core->addUser
 	* @see dcCore::addUser
 	* @param cursor	$cur			User cursor
 	*/
 	public function afterAddUser($cur) {}
-	
+
 	/**
 	* Called after core->updUser
 	* @see dcCore::updUser
@@ -625,7 +625,7 @@ class dcAuth
 	* @param cursor	$cur			User cursor
 	*/
 	public function afterUpdUser($id,$cur) {}
-	
+
 	/**
 	* Called after core->delUser
 	* @see dcCore::delUser
@@ -634,4 +634,3 @@ class dcAuth
 	public function afterDelUser($id) {}
 	//@}
 }
-?>

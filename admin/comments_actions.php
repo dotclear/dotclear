@@ -33,5 +33,3 @@ $comments_actions_page = new dcCommentsActionsPage($core,$uri,$args);
 $comments_actions_page->setEnableRedirSelection(false);
 
 $comments_actions_page->process();
-
-?>

@@ -54,7 +54,9 @@ $core->callBehavior('adminPagesActionsCombo',array(&$combo_action));
 <head>
   <title><?php echo __('Pages'); ?></title>
   <?php
-  	echo dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+  	echo
+  		dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+		dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
 		dcPage::jsLoad('index.php?pf=pages/list.js').
 		'<script type="text/javascript">'.
 		"\n".'//<![CDATA['."\n".
@@ -88,12 +90,12 @@ if (!$core->error->flag())
 	# Show pages
 	$post_list->display($page,$nb_per_page,
 	'<form action="plugin.php" method="post" id="form-entries">'.
-	
+
 	'%s'.
-	
+
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
-	
+
 	'<p class="col right"><label for="action" class="classic">'.__('Selected pages action:').'</label> '.
 	form::combo('action',$pages_actions_page->getCombo()).
 	'<input type="submit" value="'.__('ok').'" />'.

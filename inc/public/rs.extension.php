@@ -20,7 +20,7 @@ class rsExtendPublic
 	{
 		$rs->extend('rsExtPostPublic');
 	}
-	
+
 	public static function coreBlogGetComments($rs)
 	{
 		$rs->extend('rsExtCommentPublic');
@@ -37,33 +37,33 @@ class rsExtPostPublic extends rsExtPost
 			$c = parent::getContent($rs,$absolute_urls);
 			$c = context::remove_html($c);
 			$c = context::cut_string($c,350);
-			
+
 			$c =
 			'<p>'.$c.'... '.
 			'<a href="'.$rs->getURL().'"><em>'.__('Read').'</em> '.
 			html::escapeHTML($rs->post_title).'</a></p>';
-			
+
 			return $c;
 		}
-		
+
 		if ($rs->core->blog->settings->system->use_smilies)
 		{
 			return self::smilies(parent::getContent($rs,$absolute_urls),$rs->core->blog);
 		}
-		
+
 		return parent::getContent($rs,$absolute_urls);
 	}
-	
+
 	public static function getExcerpt($rs,$absolute_urls=false)
 	{
 		if ($rs->core->blog->settings->system->use_smilies)
 		{
 			return self::smilies(parent::getExcerpt($rs,$absolute_urls),$rs->core->blog);
 		}
-		
+
 		return parent::getExcerpt($rs,$absolute_urls);
 	}
-	
+
 	protected static function smilies($c,$blog)
 	{
 		if (!isset($GLOBALS['__smilies'])) {
@@ -80,14 +80,13 @@ class rsExtCommentPublic extends rsExtComment
 		if ($rs->core->blog->settings->system->use_smilies)
 		{
 			$c = parent::getContent($rs,$absolute_urls);
-			
+
 			if (!isset($GLOBALS['__smilies'])) {
 				$GLOBALS['__smilies'] = context::getSmilies($rs->core->blog);
 			}
 			return context::addSmilies($c);
 		}
-		
+
 		return parent::getContent($rs,$absolute_urls);
 	}
 }
-?>
