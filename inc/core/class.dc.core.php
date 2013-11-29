@@ -38,6 +38,7 @@ class dcCore
 	public $postmedia;	///< <b>dcPostMedia</b>		dcPostMedia object
 	public $rest;		///< <b>dcRestServer</b>	dcRestServer object
 	public $log;		///< <b>dcLog</b>			dcLog object
+	public $stime;		///< <b>float</b>			starting time
 
 	private $versions = null;
 	private $formaters = array();
@@ -58,6 +59,12 @@ class dcCore
 	*/
 	public function __construct($driver, $host, $db, $user, $password, $prefix, $persist)
 	{
+		if (defined('DC_START_TIME')) {
+			$this->stime=DC_START_TIME;
+		} else {
+			$this->stime = microtime(true);
+		}
+
 		$this->con = dbLayer::init($driver,$host,$db,$user,$password,$persist);
 
 		# define weak_locks for mysql
@@ -1470,5 +1477,22 @@ class dcCore
 			files::deltree(DC_TPL_CACHE.'/cbtpl');
 		}
 	}
+
+	/**
+	 Return elapsed time since script has been started
+	 @param   $mtime <b>float</b> timestamp (microtime format) to evaluate delta from
+	                       		  current time is taken if null
+	 @return <b>float</b>        elapsed time
+	 */
+	public function getElapsedTime ($mtime=null) {
+		if ($mtime !== null) {
+			return $mtime-$this->stime;
+		} else {
+			return microtime(true)-$this->stime;
+		}
+	}
 	//@}
+
+
+
 }
