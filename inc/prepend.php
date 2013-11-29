@@ -10,6 +10,9 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
+/* Start tick  */
+define('DC_START_TIME',microtime(true));
+
 /* ------------------------------------------------------------------------------------------- */
 #  ClearBricks, DotClear classes auto-loader
 if (@is_dir('/usr/lib/clearbricks')) {
