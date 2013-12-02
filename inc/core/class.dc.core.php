@@ -988,16 +988,19 @@ class dcCore
 
 	private function getBlogCursor($cur)
 	{
-		if ($cur->blog_id !== null
-		&& !preg_match('/^[A-Za-z0-9._-]{2,}$/',$cur->blog_id)) {
+		if (($cur->blog_id !== null
+			&& !preg_match('/^[A-Za-z0-9._-]{2,}$/',$cur->blog_id)) ||
+			(!$cur->blog_id)) {
 			throw new Exception(__('Blog ID must contain at least 2 characters using letters, numbers or symbols.'));
 		}
 
-		if ($cur->blog_name !== null && $cur->blog_name == '') {
+		if (($cur->blog_name !== null && $cur->blog_name == '') ||
+			(!$cur->blog_name)) {
 			throw new Exception(__('No blog name'));
 		}
 
-		if ($cur->blog_url !== null && $cur->blog_url == '') {
+		if (($cur->blog_url !== null && $cur->blog_url == '') ||
+			(!$cur->blog_url)) {
 			throw new Exception(__('No blog URL'));
 		}
 
