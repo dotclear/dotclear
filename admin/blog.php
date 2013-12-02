@@ -20,7 +20,7 @@ $blog_name = '';
 $blog_desc = '';
 
 # Create a blog
-if (!isset($_POST['id']) && !empty($_POST['blog_id']))
+if (!isset($_POST['id']) && (isset($_POST['create'])))
 {
 	$cur = $core->con->openCursor($core->prefix.'blog');
 	$blog_id = $cur->blog_id = $_POST['blog_id'];
@@ -83,11 +83,6 @@ else
 	form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
 	'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> ';
 
-	if ($blog_id) {
-		echo
-		'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
-	}
-
 	echo
 	'<p><label class="required" for="blog_name"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').'</label> '.
 	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</p>'.
@@ -98,7 +93,7 @@ else
 	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label> '.
 	form::textarea('blog_desc',60,5,html::escapeHTML($blog_desc)).'</p>'.
 
-	'<p><input type="submit" accesskey="s" value="'.__('Create').'" /></p>'.
+	'<p><input type="submit" accesskey="s" name="create" value="'.__('Create').'" /></p>'.
 	'</form>';
 
 	dcPage::helpBlock('core_blog_new');
