@@ -15,11 +15,10 @@ class dcThemeEditor
 {
 	protected $core;
 
-	protected $default_theme;
 	protected $user_theme;
 	protected $parent_theme;
+	protected $tplset_theme;
 
-	protected $default_tpl = array();
 	public $tpl = array();
 	public $css = array();
 	public $js  = array();
@@ -30,10 +29,15 @@ class dcThemeEditor
 		$this->core =& $core;
 		$this->default_theme = path::real($this->core->blog->themes_path.'/default');
 		$this->user_theme = path::real($this->core->blog->themes_path.'/'.$this->core->blog->settings->system->theme);
+		$this->tplset_theme = DC_ROOT.'/inc/public/default-templates/'.'mustek';
 		if (null !== $this->core->themes) {
 			$parent_theme = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme,'parent');
 			if ($parent_theme) {
 				$this->parent_theme = path::real($this->core->blog->themes_path.'/'.$parent_theme);
+			}
+			$tplset = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme,'tplset');
+			if ($tplset) {
+				$this->tplset_theme = DC_ROOT.'/inc/public/default-templates/'.$tplset;
 			}
 		}
 		$this->findTemplates();
@@ -206,15 +210,11 @@ class dcThemeEditor
 
 	protected function findTemplates()
 	{
-		# First, we look in template paths
-		$this->default_tpl = $this->getFilesInDir($this->default_theme.'/tpl');
-
 		$this->tpl = array_merge(
-			$this->default_tpl,
+			$this->getFilesInDir($this->tplset_theme),
 			$this->getFilesInDir($this->parent_theme.'/tpl'),
 			$this->getFilesInDir($this->user_theme.'/tpl')
 			);
-		$this->tpl = array_merge($this->getFilesInDir(DC_ROOT.'/inc/public/default-templates'),$this->tpl);
 
 		# Then we look in 'default-templates' plugins directory
 		$plugins = $this->core->plugins->getModules();
