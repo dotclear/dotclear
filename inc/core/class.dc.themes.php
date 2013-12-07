@@ -58,7 +58,7 @@ class dcThemes extends dcModules
 		}
 		# Themes specifics properties
 		$properties = array_merge(
-			array('parent' => null, 'tplset' => 'legacy'),
+			array('parent' => null, 'tplset' => 'mustek'),
 			$properties,
 			array('permissions' => 'admin') // force themes perms
 		);
