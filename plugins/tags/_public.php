@@ -81,7 +81,12 @@ class behaviorsTags
 
 	public static function addTplPath($core)
 	{
-		$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates');
+		$tplset = $core->themes->moduleInfo($core->blog->settings->system->theme,'tplset');
+		if (!empty($tplset) && is_dir(dirname(__FILE__).'/default-templates/'.$tplset)) {
+			$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.$tplset);
+		} else {
+			$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/mustek');
+		}
 	}
 
 }

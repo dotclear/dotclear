@@ -50,7 +50,7 @@
 
 <div id="wrapper">
 
-<div id="main">
+<div id="main" role="main">
   <div id="content">
 
   <div id="content-info">
@@ -84,7 +84,7 @@
   </tpl:CategoryFirstChildren>
 
   <tpl:Entries>
-    <div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" xml:lang="{{tpl:EntryLang}}">
+    <div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" xml:lang="{{tpl:EntryLang}}" role="article">
     <!-- # New day date -->
     <tpl:DateHeader><p class="day-date">{{tpl:EntryDate}}</p></tpl:DateHeader>
 
@@ -148,7 +148,7 @@
   </div>
 </div> <!-- End #main -->
 
-<div id="sidebar">
+<div id="sidebar" role="complementary">
   <div id="blognav">
     {{tpl:Widgets type="nav"}}
   </div> <!-- End #blognav -->

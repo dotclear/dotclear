@@ -45,10 +45,10 @@
 
 <div id="wrapper">
 
-<div id="main">
+<div id="main" role="main">
   <div id="content">
 
-  <div id="p{{tpl:EntryID}}" class="post">
+  <div id="p{{tpl:EntryID}}" class="post" role="article">
     <h2 class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
 
     <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
@@ -135,7 +135,7 @@
     </tpl:SysIfCommentPending>
 
     <!-- # Comment form -->
-    <form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form">
+    <form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
       <tpl:IfCommentPreview>
         <div id="pr">
           <h3>{{tpl:lang Your comment}}</h3>
@@ -229,7 +229,7 @@
   </div>
 </div> <!-- End #main -->
 
-<div id="sidebar">
+<div id="sidebar" role="complementary">
   <div id="blognav">
     {{tpl:Widgets type="nav"}}
   </div> <!-- End #blognav -->

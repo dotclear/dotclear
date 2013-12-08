@@ -189,7 +189,13 @@ class urlPages extends dcUrlHandlers
 				if ($_ctx->posts->trackbacksActive()) {
 					header('X-Pingback: '.$core->blog->url.$core->url->getURLFor("xmlrpc",$core->blog->id));
 				}
-				$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates');
+
+				$tplset = $core->themes->moduleInfo($core->blog->settings->system->theme,'tplset');
+				if (!empty($tplset) && is_dir(dirname(__FILE__).'/default-templates/'.$tplset)) {
+					$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.$tplset);
+				} else {
+					$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/mustek');
+				}
 				self::serveDocument('page.html');
 			}
 		}

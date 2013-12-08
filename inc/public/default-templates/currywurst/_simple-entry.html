@@ -1,4 +1,4 @@
-<div id="p{{tpl:EntryID}}" class="post simple">
+<div id="p{{tpl:EntryID}}" class="post simple" role="article">
 	<h2 class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
 
 	<div class="post-attr">
@@ -116,7 +116,7 @@
 	</tpl:SysIfCommentPending>
 
 	<!-- # Comment form -->
-	<form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form">
+	<form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
 		<tpl:IfCommentPreview>
 			<div id="pr">
 				<h3>{{tpl:lang Your comment}}</h3>

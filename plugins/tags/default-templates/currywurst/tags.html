@@ -25,44 +25,35 @@
 
   {{tpl:include src="_head.html"}}
 </head>
-
 <body class="dc-tags">
-<div id="page">
-{{tpl:include src="_top.html"}}
+  <div id="page">
+    {{tpl:include src="_top.html"}}
 
-<div id="wrapper">
+    <div id="wrapper">
 
-<div id="main">
-  <div id="content">
+      <div id="main" role="main">
+        <div id="content">
 
-  <div id="content-info">
-    <h2>{{tpl:lang Tags}}</h2>
-  </div>
+          <div id="content-info">
+            <h2>{{tpl:lang Tags}}</h2>
+          </div>
 
-  <div class="content-inner">
-  <ul class="tags">
-    <tpl:Tags>
-      <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
-    </tpl:Tags>
-    </ul>
-  </div>
+          <div class="content-inner">
+            <ul class="tags">
+              <tpl:Tags>
+                <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
+              </tpl:Tags>
+            </ul>
+          </div>
 
-  </div>
-</div> <!-- End #main -->
+        </div>
+      </div> <!-- End #main -->
 
-<div id="sidebar">
-  <div id="blognav">
-    {{tpl:Widgets type="nav"}}
-  </div> <!-- End #blognav -->
+      {{tpl:include src="_sidebar.html"}}
 
-  <div id="blogextra">
-    {{tpl:Widgets type="extra"}}
-  </div> <!-- End #blogextra -->
-</div>
+    </div> <!-- End #wrapper -->
 
-</div> <!-- End #wrapper -->
-
-{{tpl:include src="_footer.html"}}
-</div> <!-- End #page -->
+    {{tpl:include src="_footer.html"}}
+  </div> <!-- End #page -->
 </body>
 </html>
