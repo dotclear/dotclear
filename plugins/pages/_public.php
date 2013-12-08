@@ -194,7 +194,7 @@ class urlPages extends dcUrlHandlers
 				if (!empty($tplset) && is_dir(dirname(__FILE__).'/default-templates/'.$tplset)) {
 					$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.$tplset);
 				} else {
-					$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/mustek');
+					$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.DC_DEFAULT_TPLSET);
 				}
 				self::serveDocument('page.html');
 			}

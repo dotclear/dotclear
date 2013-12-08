@@ -29,7 +29,7 @@ class dcThemeEditor
 		$this->core =& $core;
 		$this->default_theme = path::real($this->core->blog->themes_path.'/default');
 		$this->user_theme = path::real($this->core->blog->themes_path.'/'.$this->core->blog->settings->system->theme);
-		$this->tplset_theme = DC_ROOT.'/inc/public/default-templates/'.'mustek';
+		$this->tplset_theme = DC_ROOT.'/inc/public/default-templates/'.DC_DEFAULT_TPLSET;
 		if (null !== $this->core->themes) {
 			$parent_theme = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme,'parent');
 			if ($parent_theme) {
