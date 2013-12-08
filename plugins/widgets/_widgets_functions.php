@@ -28,7 +28,7 @@ class defaultWidgets
 		return
 		($w->content_only ? '' : '<div id="search"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>').
 		($w->title ? '<h2><label for="q">'.html::escapeHTML($w->title).'</label></h2>' : '').
-		'<form action="'.$core->blog->url.'" method="get">'.
+		'<form action="'.$core->blog->url.'" method="get" role="search">'.
 		'<fieldset>'.
 		'<p><input type="text" size="10" maxlength="255" id="q" name="q" value="'.$value.'" /> '.
 		'<input type="submit" class="submit" value="ok" /></p>'.
@@ -49,7 +49,7 @@ class defaultWidgets
 		$res =
 		($w->content_only ? '' : '<div id="topnav"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
-		'<ul>';
+		'<ul role="navigation">';
 
 		if ($core->url->type != 'default') {
 			$res .=
