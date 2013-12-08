@@ -2,15 +2,15 @@
 <html lang="{{tpl:BlogLanguage}}">
 <head>
   <meta charset="UTF-8" />
-  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}" />
 
-  <title>{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:lang Tags}} - {{tpl:BlogName encode_html="1"}}</title>
   <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
   <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
   <meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
 
   <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
-  <meta property="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}" />
+  <meta property="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Tags}} - {{tpl:BlogName encode_html="1"}}" />
   <meta property="dc.language" content="{{tpl:BlogLanguage}}" />
   <meta property="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
   <meta property="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
@@ -19,17 +19,14 @@
   <meta property="dc.format" content="text/html" />
 
   <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
+  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
 
-  <tpl:Archives>
-    <link rel="chapter" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}" />
-  </tpl:Archives>
-
-  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+  <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
 
   {{tpl:include src="_head.html"}}
 </head>
 
-<body class="dc-archive">
+<body class="dc-tags">
 <div id="page">
 {{tpl:include src="_top.html"}}
 
@@ -39,22 +36,15 @@
   <div id="content">
 
   <div id="content-info">
-    <h2>{{tpl:lang Archives}}</h2>
+    <h2>{{tpl:lang Tags}}</h2>
   </div>
 
   <div class="content-inner">
-  <tpl:Archives>
-    <tpl:ArchivesYearHeader>
-      <h3>{{tpl:ArchiveDate format="%Y"}}</h3>
-      <ul>
-    </tpl:ArchivesYearHeader>
-      <li><a href="{{tpl:ArchiveURL}}"
-      title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a>
-      ({{tpl:ArchiveEntriesCount}})</li>
-    <tpl:ArchivesYearFooter>
-      </ul>
-    </tpl:ArchivesYearFooter>
-  </tpl:Archives>
+  <ul class="tags">
+    <tpl:Tags>
+      <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
+    </tpl:Tags>
+    </ul>
   </div>
 
   </div>
