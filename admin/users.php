@@ -70,7 +70,7 @@ if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 	} else {
 		$order='asc';
 	}
-	
+
 	if ($sortby != 'user_id' || $order != 'asc') {
 		$show_filters = true;
 	}
@@ -120,12 +120,12 @@ if (!$core->error->flag())
 	if (!empty($_GET['upd'])) {
 		dcPage::message(__('The permissions have been successfully updated.'));
 	}
-	
+
 	echo
 	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('New user').'</a></strong></p>'.
 	'<form action="users.php" method="get" id="filters-form">'.
 	'<h3 class="out-of-screen-if-js">'.$form_filter_title.'</h3>'.
-	
+
 	'<div class="table">'.
 	'<div class="cell">'.
 	'<h4>'.__('Filters').'</h4>'.
@@ -139,24 +139,24 @@ if (!$core->error->flag())
 	form::combo('sortby',$sortby_combo,$sortby).'</p> '.
 	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
 	form::combo('order',$order_combo,$order).'</p>'.
-	'<p><span class="label ib">'.__('Show').'</span> <label for="nb" class="classic">'.	
+	'<p><span class="label ib">'.__('Show').'</span> <label for="nb" class="classic">'.
 	form::field('nb',3,3,$nb_per_page).' '.__('users per page').'</label></p> '.
 	'</div>'.
 	'</div>'.
 
-	'<p><input type="submit" value="'.__('Apply filters and display options').'" />'.	
+	'<p><input type="submit" value="'.__('Apply filters and display options').'" />'.
 	'<br class="clear" /></p>'. //Opera sucks
 	'</form>';
-	
+
 	# Show users
 	$user_list->display($page,$nb_per_page,
 	'<form action="users_actions.php" method="post" id="form-users">'.
-	
+
 	'%s'.
-	
+
 	'<div class="two-cols">'.
 	'<p class="col checkboxes-helpers"></p>'.
-	
+
 	'<p class="col right"><label for="action" class="classic">'.
 	__('Selected users action:').' '.
 	form::combo('action',$combo_action).
@@ -176,4 +176,3 @@ if (!$core->error->flag())
 }
 dcPage::helpBlock('core_users');
 dcPage::close();
-?>

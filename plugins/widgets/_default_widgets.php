@@ -122,4 +122,3 @@ $__default_widgets['extra']->append($__widgets->subscribe);
 
 # --BEHAVIOR-- initDefaultWidgets
 $core->callBehavior('initDefaultWidgets',$__widgets,$__default_widgets);
-?>

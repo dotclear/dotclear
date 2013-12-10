@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -39,6 +39,7 @@ class dcCore
 	public $rest;		///< <b>dcRestServer</b>	dcRestServer object
 	public $log;		///< <b>dcLog</b>			dcLog object
 	public $tpl;		///< <b>Twig_Environment</b>	Twig_Environment object
+	public $stime;		///< <b>float</b>			starting time
 	
 	private $versions = null;
 	private $formaters = array();
@@ -59,6 +60,12 @@ class dcCore
 	*/
 	public function __construct($driver, $host, $db, $user, $password, $prefix, $persist)
 	{
+		if (defined('DC_START_TIME')) {
+			$this->stime=DC_START_TIME;
+		} else {
+			$this->stime = microtime(true);
+		}
+
 		$this->con = dbLayer::init($driver,$host,$db,$user,$password,$persist);
 		
 		# define weak_locks for mysql
@@ -87,7 +94,7 @@ class dcCore
 		$this->session = new sessionDB($this->con,$this->prefix.'session',DC_SESSION_NAME,'',null,DC_ADMIN_SSL);
 		$this->url = new dcUrlHandlers();
 		
-		$this->plugins = new dcModules($this);
+		$this->plugins = new dcPlugins($this);
 		
 		$this->rest = new dcRestServer($this);
 		
@@ -1018,16 +1025,19 @@ class dcCore
 	
 	private function getBlogCursor($cur)
 	{
-		if ($cur->blog_id !== null
-		&& !preg_match('/^[A-Za-z0-9._-]{2,}$/',$cur->blog_id)) {
+		if (($cur->blog_id !== null
+			&& !preg_match('/^[A-Za-z0-9._-]{2,}$/',$cur->blog_id)) ||
+			(!$cur->blog_id)) {
 			throw new Exception(__('Blog ID must contain at least 2 characters using letters, numbers or symbols.')); 
 		}
 		
-		if ($cur->blog_name !== null && $cur->blog_name == '') {
+		if (($cur->blog_name !== null && $cur->blog_name == '') ||
+			(!$cur->blog_name)) {
 			throw new Exception(__('No blog name'));
 		}
 		
-		if ($cur->blog_url !== null && $cur->blog_url == '') {
+		if (($cur->blog_url !== null && $cur->blog_url == '') ||
+			(!$cur->blog_url)) {
 			throw new Exception(__('No blog URL'));
 		}
 		
@@ -1342,8 +1352,10 @@ class dcCore
 				'Image thumbnail size in media manager'),
 				array('media_img_title_pattern','string','Title ;; Date(%b %Y) ;; separator(, )',
 				'Pattern to set image title when you insert it in a post'),
+				array('nb_post_for_home','integer',20,
+				'Number of entries on first home page'),
 				array('nb_post_per_page','integer',20,
-				'Number of entries on home page and category pages'),
+				'Number of entries on home pages and category pages'),
 				array('nb_post_per_feed','integer',20,
 				'Number of entries on feeds'),
 				array('nb_comment_per_feed','integer',20,
@@ -1505,6 +1517,22 @@ class dcCore
 			files::deltree(DC_TPL_CACHE.'/cbtpl');
 		}
 	}
+
+	/**
+	 Return elapsed time since script has been started
+	 @param   $mtime <b>float</b> timestamp (microtime format) to evaluate delta from
+	                       		  current time is taken if null
+	 @return <b>float</b>        elapsed time
+	 */
+	public function getElapsedTime ($mtime=null) {
+		if ($mtime !== null) {
+			return $mtime-$this->stime;
+		} else {
+			return microtime(true)-$this->stime;
+		}
+	}
 	//@}
+
+
+
 }
-?>

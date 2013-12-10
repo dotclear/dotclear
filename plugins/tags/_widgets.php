@@ -38,10 +38,9 @@ class tagsWidgets
 		$w->tags->setting('content_only',__('Content only'),0,'check');
 		$w->tags->setting('class',__('CSS class:'),'');
 	}
-	
+
 	public static function initDefaultWidgets($w,$d)
 	{
 		$d['nav']->append($w->tags);
 	}
 }
-?>

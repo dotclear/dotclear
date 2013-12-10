@@ -12,12 +12,12 @@
 */
 
 $(function() {
-	
+
 	// clean
 	$('.remove-if-drag').remove();
 	$('.hidden-if-drag').hide();
 	$('.widgets, .sortable-delete').addClass('if-drag');
-	
+
 	// move
 	$( ".connected, .sortable-delete" ).sortable({
 		tolerance: "move",
@@ -33,14 +33,14 @@ $(function() {
 			ui.item.css('left', ui.item.position().left + 20);
 		},
 		update: function(event, ui) {
-			
+
 			ul = $(this);
 			widget = ui.item;
 			field = ul.parents('.widgets');
-			
+
 			// met a zéro le décalage
 			ui.item.css('left', 'auto');
-			
+
 			// signale les zones vides
 			if( ul.find('li:not(.empty-widgets)').length == 0 ) {
 				ul.find('li.empty-widgets').show();
@@ -49,26 +49,26 @@ $(function() {
 				ul.find('li.empty-widgets').hide();
 				field.find('ul.sortable-delete').show();
 			}
-			
+
 			// remove
 			if( widget.parents('ul').is('.sortable-delete') ) {
 				widget.hide('slow', function() {
 					$(this).remove();
 				});
 			}
-			
+
 			// réordonne
 			reorder(ul);
-			
+
 			// expand
 			if(widget.find('img.expand').length == 0) {
 				dotclear.postExpander(widget);
 				dotclear.viewPostContent(widget, 'close');
 			}
-			
+
 		}
 	});
-	
+
 	// add
 	$( "#widgets-ref > li" ).draggable({
 		tolerance: "move",
@@ -80,7 +80,7 @@ $(function() {
 			ui.helper.css({'width': $('#widgets-ref > li').css('width')});
 		}
 	});
-	
+
 	$("li.ui-draggable, ul.ui-sortable li")
 		.not('ul.sortable-delete li, li.empty-widgets')
 		.css({'cursor':'move'});

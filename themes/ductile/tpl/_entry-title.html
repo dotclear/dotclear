@@ -4,7 +4,7 @@
 	<tpl:DateHeader><p class="day-date">{{tpl:EntryDate}}</p></tpl:DateHeader>
 
 	<h2 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
-	
+
 	<div class="post-attr">
 		<p class="post-info">
 			<span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
@@ -16,14 +16,14 @@
 				<span class="post-cat"><a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
 			</tpl:EntryIf>
 		</p>
-	</div>    
-	
+	</div>
+
 	<!-- # --BEHAVIOR-- publicEntryBeforeContent -->
 	{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
-	
+
 	<!-- # --BEHAVIOR-- publicEntryAfterContent -->
 	{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
-	
+
 	<!-- # Number of comments, trackbacks and attachments -->
 	<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
 		<p class="post-info-co">

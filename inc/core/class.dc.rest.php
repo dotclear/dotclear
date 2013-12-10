@@ -21,22 +21,22 @@ Instance of this class is provided by dcCore $rest.
 class dcRestServer extends restServer
 {
 	public $core;		///< dcCore instance
-	
+
 	/**
 	Object constructor.
-	
+
 	@param	core		<b>dcCore</b>		dcCore instance
 	*/
 	public function __construct($core)
 	{
 		parent::__construct();
-		
+
 		$this->core =& $core;
 	}
-	
+
 	/**
 	Rest method call.
-	
+
 	@param	name		<b>string</b>		Method name
 	@param	get		<b>array</b>		GET parameters copy
 	@param	post		<b>array</b>		POST parameters copy
@@ -49,4 +49,3 @@ class dcRestServer extends restServer
 		}
 	}
 }
-?>

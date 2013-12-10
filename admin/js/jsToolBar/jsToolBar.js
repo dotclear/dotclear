@@ -7,12 +7,12 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
- * 
+ *
  * DotClear is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with DotClear; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -22,31 +22,31 @@
 
 function jsToolBar(textarea) {
 	if (!document.createElement) { return; }
-	
+
 	if (!textarea) { return; }
-	
+
 	if ((typeof(document["selection"]) == "undefined")
 	&& (typeof(textarea["setSelectionRange"]) == "undefined")) {
 		return;
 	}
-	
+
 	this.textarea = textarea;
-	
+
 	this.editor = document.createElement('div');
 	this.editor.className = 'jstEditor';
-	
+
 	this.textarea.parentNode.insertBefore(this.editor,this.textarea);
 	this.editor.appendChild(this.textarea);
-	
+
 	this.toolbar = document.createElement("div");
 	this.toolbar.className = 'jstElements';
 	this.editor.parentNode.insertBefore(this.toolbar,this.editor);
-	
+
 	// Dragable resizing (only for gecko)
 	if (navigator.appName == 'Microsoft Internet Explorer')
 	{
 		if (this.editor.addEventListener)
-		{		
+		{
 			this.handle = document.createElement('div');
 			this.handle.className = 'jstHandle';
 			var dragStart = this.resizeDragStart;
@@ -55,9 +55,9 @@ function jsToolBar(textarea) {
 			this.editor.parentNode.insertBefore(this.handle,this.editor.nextSibling);
 		}
 	}
-	
+
 	this.context = null;
-	this.toolNodes = {}; // lorsque la toolbar est dessinée , cet objet est garni 
+	this.toolNodes = {}; // lorsque la toolbar est dessinée , cet objet est garni
 					// de raccourcis vers les éléments DOM correspondants aux outils.
 };
 
@@ -69,7 +69,7 @@ function jsButton(title, fn, scope, className) {
 };
 jsButton.prototype.draw = function() {
 	if (!this.scope) return null;
-	
+
 	var button = document.createElement('button');
 	button.setAttribute('type','button');
 	if (this.className) button.className = this.className;
@@ -77,7 +77,7 @@ jsButton.prototype.draw = function() {
 	var span = document.createElement('span');
 	span.appendChild(document.createTextNode(this.title));
 	button.appendChild(span);
-	
+
 	if (this.icon != undefined) {
 		button.style.backgroundImage = 'url('+this.icon+')';
 	}
@@ -98,7 +98,7 @@ jsSpace.prototype.draw = function() {
 	span.appendChild(document.createTextNode(String.fromCharCode(160)));
 	span.className = 'jstSpacer';
 	if (this.width) span.style.marginRight = this.width+'px';
-	
+
 	return span;
 };
 
@@ -111,11 +111,11 @@ function jsCombo(title, options, scope, fn, className) {
 };
 jsCombo.prototype.draw = function() {
 	if (!this.scope || !this.options) return null;
-	
+
 	var select = document.createElement('select');
 	if (this.className) select.className = className;
 	select.title = this.title;
-	
+
 	for (var o in this.options) {
 		//var opt = this.options[o];
 		var option = document.createElement('option');
@@ -123,16 +123,16 @@ jsCombo.prototype.draw = function() {
 		option.appendChild(document.createTextNode(this.options[o]));
 		select.appendChild(option);
 	}
-	
+
 	var This = this;
 	select.onchange = function() {
-		try { 
+		try {
 			This.fn.call(This.scope, this.value);
 		} catch (e) { alert(e); }
-		
+
 		return false;
 	};
-	
+
 	return select;
 };
 
@@ -141,20 +141,20 @@ jsToolBar.prototype = {
 	base_url: '',
 	mode: 'xhtml',
 	elements: {},
-	
+
 	getMode: function() {
 		return this.mode;
 	},
-	
+
 	setMode: function(mode) {
 		this.mode = mode || 'xhtml';
 	},
-	
+
 	switchMode: function(mode) {
 		mode = mode || 'xhtml';
 		this.draw(mode);
 	},
-	
+
 	button: function(toolName) {
 		var tool = this.elements[toolName];
 		if (typeof tool.fn[this.mode] != 'function') return null;
@@ -174,11 +174,11 @@ jsToolBar.prototype = {
 	},
 	combo: function(toolName) {
 		var tool = this.elements[toolName];
-		
+
 		if( tool[this.mode] != undefined) {
-			
+
 			var length = tool[this.mode].list.length;
-			
+
 			if (typeof tool[this.mode].fn != 'function' || length == 0) {
 				return null;
 			} else {
@@ -189,30 +189,30 @@ jsToolBar.prototype = {
 				}
 				return new jsCombo(tool.title, options, this, tool[this.mode].fn);
 			}
-			
+
 		}
-		
+
 	},
 	draw: function(mode) {
 		this.setMode(mode);
-		
+
 		// Empty toolbar
 		while (this.toolbar.hasChildNodes()) {
 			this.toolbar.removeChild(this.toolbar.firstChild)
 		}
 		this.toolNodes = {}; // vide les raccourcis DOM/**/
-		
+
 		// Draw toolbar elements
 		var b, tool, newTool;
-		
+
 		for (var i in this.elements) {
 			b = this.elements[i];
-			
+
 			var disabled =
 			b.type == undefined || b.type == ''
 			|| (b.disabled != undefined && b.disabled)
 			|| (b.context != undefined && b.context != null && b.context != this.context);
-			
+
 			if (!disabled && typeof this[b.type] == 'function') {
 				tool = this[b.type](i);
 				if (tool) newTool = tool.draw();
@@ -223,24 +223,24 @@ jsToolBar.prototype = {
 			}
 		}
 	},
-	
+
 	singleTag: function(stag,etag) {
 		stag = stag || null;
 		etag = etag || stag;
-		
+
 		if (!stag || !etag) { return; }
-		
+
 		this.encloseSelection(stag,etag);
 	},
-	
+
 	encloseSelection: function(prefix, suffix, fn) {
 		this.textarea.focus();
-		
+
 		prefix = prefix || '';
 		suffix = suffix || '';
-		
+
 		var start, end, sel, scrollPos, subst, res;
-		
+
 		if (typeof(document["selection"]) != "undefined") {
 			sel = document.selection.createRange().text;
 		} else if (typeof(this.textarea["setSelectionRange"]) != "undefined") {
@@ -249,20 +249,20 @@ jsToolBar.prototype = {
 			scrollPos = this.textarea.scrollTop;
 			sel = this.textarea.value.substring(start, end);
 		}
-		
+
 		if (sel.match(/ $/)) { // exclude ending space char, if any
 			sel = sel.substring(0, sel.length - 1);
 			suffix = suffix + " ";
 		}
-		
+
 		if (typeof(fn) == 'function') {
 			res = (sel) ? fn.call(this,sel) : fn('');
 		} else {
 			res = (sel) ? sel : '';
 		}
-		
+
 		subst = prefix + res + suffix;
-		
+
 		if (typeof(document["selection"]) != "undefined") {
 			var range = document.selection.createRange().text = subst;
 			this.textarea.caretPos -= suffix.length;
@@ -277,7 +277,7 @@ jsToolBar.prototype = {
 			this.textarea.scrollTop = scrollPos;
 		}
 	},
-	
+
 	stripBaseURL: function(url) {
 		if (this.base_url != '') {
 			var pos = url.indexOf(this.base_url);
@@ -285,7 +285,7 @@ jsToolBar.prototype = {
 				url = url.substr(this.base_url.length);
 			}
 		}
-		
+
 		return url;
 	}
 };
@@ -354,7 +354,7 @@ jsToolBar.prototype.elements.blocks = {
 
 // spacer
 jsToolBar.prototype.elements.space0 = {
-	type:'space', 
+	type:'space',
 	format:{
 		wysiwyg:true,
 		wiki:true,
@@ -424,7 +424,7 @@ jsToolBar.prototype.elements.code = {
 
 // spacer
 jsToolBar.prototype.elements.space1 = {
-	type:'space', 
+	type:'space',
 	format:{
 		wysiwyg:true,
 		wiki:true,
@@ -444,7 +444,7 @@ jsToolBar.prototype.elements.br = {
 
 // spacer
 jsToolBar.prototype.elements.space2 = {
-	type:'space', 
+	type:'space',
 	format:{
 		wysiwyg:true,
 		wiki:true,
@@ -522,7 +522,7 @@ jsToolBar.prototype.elements.ol = {
 
 // spacer
 jsToolBar.prototype.elements.space3 = {
-	type:'space', 
+	type:'space',
 	format:{
 		wysiwyg:true,
 		wiki:true,
@@ -541,13 +541,13 @@ jsToolBar.prototype.elements.link = {
 	prompt: function(href,hreflang) {
 		href = href || '';
 		hreflang = hreflang || this.elements.link.default_hreflang;
-		
+
 		href = window.prompt(this.elements.link.href_prompt,href);
 		if (!href) { return false; }
-		
+
 		hreflang = window.prompt(this.elements.link.hreflang_prompt,
 		hreflang);
-		
+
 		return { href: this.stripBaseURL(href), hreflang: hreflang };
 	}
 };
@@ -559,7 +559,7 @@ jsToolBar.prototype.elements.link.fn.xhtml = function() {
 		if (link.hreflang) { stag = stag+' hreflang="'+link.hreflang+'"'; }
 		stag = stag+'>';
 		var etag = '</a>';
-		
+
 		this.encloseSelection(stag,etag);
 	}
 };
@@ -570,7 +570,7 @@ jsToolBar.prototype.elements.link.fn.wiki = function() {
 		var etag = '|'+link.href;
 		if (link.hreflang) { etag = etag+'|'+link.hreflang; }
 		etag = etag+']';
-		
+
 		this.encloseSelection(stag,etag);
 	}
 };

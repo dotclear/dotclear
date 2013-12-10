@@ -10,6 +10,9 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
+/* Start tick  */
+define('DC_START_TIME',microtime(true));
+
 /* ------------------------------------------------------------------------------------------- */
 #  ClearBricks, Twig, DotClear classes auto-loader
 if (@is_dir('/usr/lib/clearbricks')) {
@@ -34,6 +37,7 @@ $__autoload['dcMeta']				= dirname(__FILE__).'/core/class.dc.meta.php';
 $__autoload['dcMedia']				= dirname(__FILE__).'/core/class.dc.media.php';
 $__autoload['dcPostMedia']				= dirname(__FILE__).'/core/class.dc.postmedia.php';
 $__autoload['dcModules']				= dirname(__FILE__).'/core/class.dc.modules.php';
+$__autoload['dcPlugins']				= dirname(__FILE__).'/core/class.dc.plugins.php';
 $__autoload['dcThemes']				= dirname(__FILE__).'/core/class.dc.themes.php';
 $__autoload['dcRestServer']			= dirname(__FILE__).'/core/class.dc.rest.php';
 $__autoload['dcNamespace']			= dirname(__FILE__).'/core/class.dc.namespace.php';
@@ -165,6 +169,7 @@ define('DC_L10N_ROOT',dirname(__FILE__).'/../locales');
 define('DC_L10N_UPDATE_URL','http://services.dotclear.net/dc2.l10n/?version=%s');
 define('DC_DISTRIB_PLUGINS','aboutConfig,akismet,antispam,attachments,blogroll,blowupConfig,dclegacy,fairTrackbacks,importExport,maintenance,pages,pings,simpleMenu,tags,themeEditor,userPref,widgets');
 define('DC_DISTRIB_THEMES','blueSilence,blowupConfig,customCSS,default,ductile');
+define('DC_DEFAULT_TPLSET','mustek');
 
 if (!defined('DC_VENDOR_NAME')) {
 	define('DC_VENDOR_NAME','Dotclear');
@@ -334,4 +339,3 @@ function init_prepend_l10n()
 		}
 	}
 }
-?>

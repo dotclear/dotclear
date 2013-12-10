@@ -320,4 +320,3 @@ class dcFilterIP extends dcSpamFilter
 		$this->con->execute($strReq);
 	}
 }
-?>

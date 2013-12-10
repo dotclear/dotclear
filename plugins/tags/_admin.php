@@ -72,26 +72,26 @@ class tagsBehaviors
 	{
 		$wiki2xhtml->registerFunction('url:tag',array('tagsBehaviors','wiki2xhtmlTag'));
 	}
-	
+
 	public static function wiki2xhtmlTag($url,$content)
 	{
 		$url = substr($url,4);
 		if (strpos($content,'tag:') === 0) {
 			$content = substr($content,4);
 		}
-		
-		
+
+
 		$tag_url = html::stripHostURL($GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag'));
 		$res['url'] = $tag_url.'/'.rawurlencode(dcMeta::sanitizeMetaID($url));
 		$res['content'] = $content;
-		
+
 		return $res;
 	}
-	
+
 	public static function tagsField($main,$sidebar,$post)
 	{
 		$meta =& $GLOBALS['core']->meta;
-		
+
 		if (!empty($_POST['post_tags'])) {
 			$value = $_POST['post_tags'];
 		} else {
@@ -101,30 +101,30 @@ class tagsBehaviors
 		'<h5><label class="s-tags" for="post_tags">'.__('Tags').'</label></h5>'.
 		'<div class="p s-tags" id="tags-edit">'.form::textarea('post_tags',20,3,$value,'maximal').'</div>';
 	}
-	
+
 	public static function setTags($cur,$post_id)
 	{
 		$post_id = (integer) $post_id;
-		
+
 		if (isset($_POST['post_tags'])) {
 			$tags = $_POST['post_tags'];
 			$meta =& $GLOBALS['core']->meta;
 			$meta->delPostMeta($post_id,'tag');
-			
+
 			foreach ($meta->splitMetaValues($tags) as $tag) {
 				$meta->setPostMeta($post_id,'tag',$tag);
 			}
 		}
 	}
-	
-	
+
+
 	public static function adminPostsActionsPage($core,$ap)
 	{
 		$ap->addAction(
 			array(__('Tags') => array(__('Add tags') => 'tags')),
 			array('tagsBehaviors','adminAddTags')
 		);
-		
+
 		if ($core->auth->check('delete,contentadmin',$core->blog->id)) {
 			$ap->addAction(
 				array(__('Tags') => array(__('Remove tags') => 'tags_remove')),
@@ -132,7 +132,7 @@ class tagsBehaviors
 			);
 		}
 	}
-	
+
 	public static function adminAddTags($core, dcPostsActionsPage $ap, $post)
 	{
 		if (!empty($post['new_tags']))
@@ -164,15 +164,15 @@ class tagsBehaviors
 				)
 			);
 			$ap->redirect(true);
-		} 
-		else 
+		}
+		else
 		{
 			$tag_url = $core->blog->url.$core->url->getURLFor('tag');
 
 			$opts = $core->auth->getOptions();
 			$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
 
-			
+
 			$ap->beginPage(
 				dcPage::breadcrumb(
 					array(
@@ -182,17 +182,23 @@ class tagsBehaviors
 				)),
 				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 				dcPage::jsMetaEditor().
+				'<script type="text/javascript">'."\n".
+				"//<![CDATA[\n".
+				"var editor_tags_options = {\n".
+					"meta_url : 'plugin.php?p=tags&m=tag_posts&amp;tag=',\n".
+					"list_type : '".html::escapeJS($type)."',\n".
+					"text_confirm_remove : '".html::escapeJS(__('Are you sure you want to remove this tag?'))."',\n".
+					"text_add_meta : '".html::escapeJS(__('Add a tag to this entry'))."',\n".
+					"text_choose : '".html::escapeJS(__('Choose from list'))."',\n".
+					"text_all : '".html::escapeJS(__('all'))."',\n".
+					"text_separation : '".html::escapeJS(__('Enter tags separated by coma'))."',\n".
+				"};\n".
+				"\n//]]>\n".
+				"</script>\n".
 				'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
 				'<script type="text/javascript" src="index.php?pf=tags/js/posts_actions.js"></script>'.
 				'<script type="text/javascript">'."\n".
 				"//<![CDATA[\n".
-				"metaEditor.prototype.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';\n".
-				"metaEditor.prototype.meta_type = '".html::escapeJS($type)."';\n".
-				"metaEditor.prototype.text_confirm_remove = '".html::escapeJS(__('Are you sure you want to remove this %s?'))."';\n".
-				"metaEditor.prototype.text_add_meta = '".html::escapeJS(__('Add a %s to this entry'))."';\n".
-				"metaEditor.prototype.text_choose = '".html::escapeJS(__('Choose from list'))."';\n".
-				"metaEditor.prototype.text_all = '".html::escapeJS(__('all'))."';\n".
-				"metaEditor.prototype.text_separation = '".html::escapeJS(__('Enter tags separated by coma'))."';\n".
 				"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
 				"dotclear.msg.entry = '".html::escapeJS(__('entry'))."';\n".
 				"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
@@ -216,7 +222,7 @@ class tagsBehaviors
 	}
 	public static function adminRemoveTags($core, dcPostsActionsPage $ap, $post)
 	{
-		if (!empty($post['meta_id']) && 
+		if (!empty($post['meta_id']) &&
 			$core->auth->check('delete,contentadmin',$core->blog->id))
 		{
 			$meta =& $core->meta;
@@ -241,7 +247,7 @@ class tagsBehaviors
 		{
 			$meta =& $core->meta;
 			$tags = array();
-			
+
 			foreach ($ap->getIDS() as $id) {
 				$post_tags = $meta->getMetadata(array(
 					'meta_type' => 'tag',
@@ -256,7 +262,7 @@ class tagsBehaviors
 			}
 			if (empty($tags)) {
 				throw new Exception(__('No tags for selected entries'));
-			}			
+			}
 			$ap->beginPage(
 				dcPage::breadcrumb(
 						array(
@@ -265,12 +271,12 @@ class tagsBehaviors
 							__('Remove selected tags from this selection') => ''
 			)));
 			$posts_count = count($_POST['entries']);
-			
+
 			echo
 			'<form action="'.$ap->getURI().'" method="post">'.
 			$ap->getCheckboxes().
 			'<div><p>'.__('Following tags have been found in selected entries:').'</p>';
-			
+
 			foreach ($tags as $k => $n) {
 				$label = '<label class="classic">%s %s</label>';
 				if ($posts_count == $n) {
@@ -281,37 +287,43 @@ class tagsBehaviors
 						html::escapeHTML($k)).
 					'</p>';
 			}
-			
+
 			echo
 			'<p><input type="submit" value="'.__('ok').'" />'.
-			
+
 			$core->formNonce().$ap->getHiddenFields().
 			form::hidden(array('action'),'tags_remove').
 			'</p></div></form>';
 			$ap->endPage();
 		}
-		
+
 	}
-	
+
 	public static function postHeaders()
 	{
 		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
-		
+
 		$opts = $GLOBALS['core']->auth->getOptions();
 		$type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
-		
-		return 
+
+		return
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA[\n".
+		"var editor_tags_options = {\n".
+			"meta_url : 'plugin.php?p=tags&m=tag_posts&amp;tag=',\n".
+			"list_type : '".html::escapeJS($type)."',\n".
+			"text_confirm_remove : '".html::escapeJS(__('Are you sure you want to remove this tag?'))."',\n".
+			"text_add_meta : '".html::escapeJS(__('Add a tag to this entry'))."',\n".
+			"text_choose : '".html::escapeJS(__('Choose from list'))."',\n".
+			"text_all : '".html::escapeJS(__('all'))."',\n".
+			"text_separation : '".html::escapeJS(__('Enter tags separated by coma'))."',\n".
+		"};\n".
+		"\n//]]>\n".
+		"</script>\n".
 		'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
 		'<script type="text/javascript" src="index.php?pf=tags/js/post.js"></script>'.
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
-		"metaEditor.prototype.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';\n".
-		"metaEditor.prototype.meta_type = '".html::escapeJS($type)."';\n".
-		"metaEditor.prototype.text_confirm_remove = '".html::escapeJS(__('Are you sure you want to remove this %s?'))."';\n".
-		"metaEditor.prototype.text_add_meta = '".html::escapeJS(__('Add a %s to this entry'))."';\n".
-		"metaEditor.prototype.text_choose = '".html::escapeJS(__('Choose from list'))."';\n".
-		"metaEditor.prototype.text_all = '".html::escapeJS(__('all'))."';\n".
-		"metaEditor.prototype.text_separation = '';\n".
 		"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
 		"jsToolBar.prototype.elements.tag.url = '".html::escapeJS($tag_url)."';\n".
 		"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
@@ -321,7 +333,7 @@ class tagsBehaviors
 		"</script>\n".
 		'<link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />';
 	}
-	
+
 	public static function adminUserForm($args)
 	{
 		if ($args instanceof dcCore) {
@@ -333,19 +345,19 @@ class tagsBehaviors
 		else {
 			$opts = array();
 		}
-		
+
 		$combo = array();
 		$combo[__('Short')] = 'more';
 		$combo[__('Extended')] = 'all';
-		
+
 		$value = array_key_exists('tag_list_format',$opts) ? $opts['tag_list_format'] : 'more';
-		
+
 		echo
 		'<p><label for="user_tag_list_format" class="classic">'.__('Tags list format:').'</label> '.
 		form::combo('user_tag_list_format',$combo,$value).
 		'</p>';
 	}
-	
+
 	public static function setTagListFormat($cur,$user_id = null)
 	{
 		if (!is_null($user_id)) {
@@ -353,4 +365,3 @@ class tagsBehaviors
 		}
 	}
 }
-?>

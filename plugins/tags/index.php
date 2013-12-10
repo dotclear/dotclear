@@ -19,4 +19,3 @@ if (!empty($_REQUEST['m'])) {
 			break;
 	}
 }
-?>

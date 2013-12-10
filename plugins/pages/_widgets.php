@@ -40,10 +40,9 @@ class pagesWidgets
 		$w->pages->setting('content_only',__('Content only'),0,'check');
 		$w->pages->setting('class',__('CSS class:'),'');
 	}
-	
+
 	public static function initDefaultWidgets($w,$d)
 	{
 		$d['extra']->append($w->pages);
 	}
 }
-?>

@@ -272,6 +272,7 @@ $ductile_lists_base = array(
 
 $ductile_counts_base = array(
 	'default' => null,
+	'default-page' => null,
 	'category' => null,
 	'tag' => null,
 	'search' => null
@@ -289,12 +290,14 @@ $ductile_lists = @unserialize($ductile_lists);
 if (!is_array($ductile_lists)) {
 	$ductile_lists = $ductile_lists_base;
 }
+$ductile_lists = array_merge($ductile_lists_base,$ductile_lists);
 
 $ductile_counts = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_counts');
 $ductile_counts = @unserialize($ductile_counts);
 if (!is_array($ductile_counts)) {
 	$ductile_counts = $ductile_counts_base;
 }
+$ductile_counts = array_merge($ductile_counts_base,$ductile_counts);
 
 $ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
 $ductile_stickers = @unserialize($ductile_stickers);
@@ -680,4 +683,3 @@ dcPage::helpBlock('ductile');
 
 // Legacy mode
 if (!$standalone_config) echo '<form style="display:none">';
-?>

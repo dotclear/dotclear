@@ -30,7 +30,7 @@ $(function(){
 					$('.step-msg',box).text(
 						$('rsp>step',data).attr('title')
 					);
-					var code = $('rsp>step',data).attr('code'); 
+					var code = $('rsp>step',data).attr('code');
 					if (code > 0){
 						dcMaintenanceStep(box,code);
 					} else {

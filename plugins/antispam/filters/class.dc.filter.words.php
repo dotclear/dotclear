@@ -361,4 +361,3 @@ class dcFilterWords extends dcSpamFilter
 		}
 	}
 }
-?>

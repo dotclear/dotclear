@@ -44,7 +44,7 @@ if (!empty($_REQUEST['id']))
 {
 	try {
 		$rs = $core->getUser($_REQUEST['id']);
-		
+
 		$user_id = $rs->user_id;
 		$user_super = $rs->user_super;
 		$user_pwd = $rs->user_pwd;
@@ -57,9 +57,9 @@ if (!empty($_REQUEST['id']))
 		$user_lang = $rs->user_lang;
 		$user_tz = $rs->user_tz;
 		$user_post_status = $rs->user_post_status;
-		
+
 		$user_options = array_merge($user_options,$rs->options());
-		
+
 		$page_title = $user_id;
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -74,9 +74,9 @@ if (isset($_POST['user_name']))
 		if (empty($_POST['your_pwd']) || !$core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['your_pwd']))) {
 			throw new Exception(__('Password verification failed'));
 		}
-		
+
 		$cur = $core->con->openCursor($core->prefix.'user');
-		
+
 		$cur->user_id = $_POST['user_id'];
 		$cur->user_super = $user_super = !empty($_POST['user_super']) ? 1 : 0;
 		$cur->user_name = $user_name = $_POST['user_name'];
@@ -87,7 +87,7 @@ if (isset($_POST['user_name']))
 		$cur->user_lang = $user_lang = $_POST['user_lang'];
 		$cur->user_tz = $user_tz = $_POST['user_tz'];
 		$cur->user_post_status = $user_post_status = $_POST['user_post_status'];
-		
+
 		if ($cur->user_id == $core->auth->userID() && $core->auth->isSuperAdmin()) {
 			// force super_user to true if current user
 			$cur->user_super = $user_super = true;
@@ -95,7 +95,7 @@ if (isset($_POST['user_name']))
 		if ($core->auth->allowPassChange()) {
 			$cur->user_change_pwd = !empty($_POST['user_change_pwd']) ? 1 : 0;
 		}
-		
+
 		if (!empty($_POST['new_pwd'])) {
 			if ($_POST['new_pwd'] != $_POST['new_pwd_c']) {
 				throw new Exception(__("Passwords don't match"));
@@ -103,32 +103,32 @@ if (isset($_POST['user_name']))
 				$cur->user_pwd = $_POST['new_pwd'];
 			}
 		}
-		
+
 		$user_options['post_format'] = $_POST['user_post_format'];
 		$user_options['edit_size'] = (integer) $_POST['user_edit_size'];
-		
+
 		if ($user_options['edit_size'] < 1) {
 			$user_options['edit_size'] = 10;
 		}
-		
+
 		$cur->user_options = new ArrayObject($user_options);
-		
+
 		# Udate user
 		if ($user_id)
 		{
 			# --BEHAVIOR-- adminBeforeUserUpdate
 			$core->callBehavior('adminBeforeUserUpdate',$cur,$user_id);
-			
+
 			$new_id = $core->updUser($user_id,$cur);
-			
+
 			# --BEHAVIOR-- adminAfterUserUpdate
 			$core->callBehavior('adminAfterUserUpdate',$cur,$new_id);
-			
+
 			if ($user_id == $core->auth->userID() &&
 			$user_id != $new_id) {
 				$core->session->destroy();
 			}
-			
+
 			dcPage::addSuccessNotice(__('User has been successfully updated.'));
 			http::redirect('user.php?id='.$new_id);
 		}
@@ -138,15 +138,15 @@ if (isset($_POST['user_name']))
 			if ($core->getUsers(array('user_id' => $cur->user_id),true)->f(0) > 0) {
 				throw new Exception(sprintf(__('User "%s" already exists.'),html::escapeHTML($cur->user_id)));
 			}
-			
+
 			# --BEHAVIOR-- adminBeforeUserCreate
 			$core->callBehavior('adminBeforeUserCreate',$cur);
-			
+
 			$new_id = $core->addUser($cur);
-			
+
 			# --BEHAVIOR-- adminAfterUserCreate
 			$core->callBehavior('adminAfterUserCreate',$cur,$new_id);
-			
+
 			dcPage::addSuccessNotice(__('User has been successfully created.'));
 			if (!empty($_POST['saveplus'])) {
 				http::redirect('user.php');
@@ -179,7 +179,7 @@ dcPage::open($page_title,
 		"});\n".
 		"\n//]]>\n".
 		"</script>\n".
-	
+
 	# --BEHAVIOR-- adminUserHeaders
 	$core->callBehavior('adminUserHeaders'),
 
@@ -298,7 +298,7 @@ form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).
 # --BEHAVIOR-- adminUserForm
 $core->callBehavior('adminUserForm',isset($rs) ? $rs : null);
 
-echo 
+echo
 '</div>'.
 '</div>';
 
@@ -331,10 +331,10 @@ if ($user_id)
 		$core->formNonce().
 		'</p>'.
 		'</form>';
-		
+
 		$permissions = $core->getUserPermissions($user_id);
 		$perm_types = $core->auth->getPermissionsTypes();
-		
+
 		if (count($permissions) == 0)
 		{
 			echo '<p>'.__('No permissions so far.').'</p>';
@@ -345,11 +345,11 @@ if ($user_id)
 			{
 				if (count($v['p']) > 0)
 				{
-					echo 
+					echo
 					'<form action="users_actions.php" method="post" class="perm-block">'.
 					'<p class="blog-perm">'.__('Blog:').' <a href="blog.php?id='.html::escapeHTML($k).'">'.
 					html::escapeHTML($v['name']).'</a> ('.html::escapeHTML($k).')</p>';
-					
+
 					echo '<ul class="ul-perm">';
 					foreach ($v['p'] as $p => $V) {
 						if (isset($perm_types[$p])) {
@@ -368,15 +368,14 @@ if ($user_id)
 					'</form>';
 				}
 			}
-		}	
+		}
 
-	} 
+	}
 	else {
 		echo '<p>'.sprintf(__('%s is super admin (all rights on all blogs).'),'<strong>'.$user_id.'</strong>').'</p>';
-	}	
+	}
 	echo '</div>';
 }
 
 dcPage::helpBlock('core_user');
 dcPage::close();
-?>

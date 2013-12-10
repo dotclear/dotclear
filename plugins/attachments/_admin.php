@@ -37,10 +37,10 @@ class attachmentAdmin
 	}
 	public static function postHeaders()
 	{
-		return 
+		return
 		'<script type="text/javascript" src="index.php?pf=attachments/js/post.js"></script>';
 	}
-	public static function adminPostFormItems($main,$sidebar,$post) 
+	public static function adminPostFormItems($main,$sidebar,$post)
 	{
 		if ($post !== null)
 		{
@@ -65,25 +65,25 @@ class attachmentAdmin
 				'<li>'.$f->media_dtstr.'</li>'.
 				'<li>'.files::size($f->size).' - '.
 				'<a href="'.$f->file_url.'">'.__('open').'</a>'.'</li>'.
-				
+
 				'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
 				'href="post_media.php?post_id='.$post->post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
 				'<img src="images/trash.png" alt="'.__('remove').'" /></a>'.
 				'</li>'.
-				
+
 				'</ul>'.
 				'</div>';
 			}
 			unset($f);
-			
+
 			if (empty($post_media)) {
 				$item .= '<p class="form-note s-attachments">'.__('No attachment.').'</p>';
-			} 
+			}
 			$item .= '<p class="s-attachments"><a class="button" href="media.php?post_id='.$post->post_id.'">'.__('Add files to this entry').'</a></p>';
 			$sidebar['metas-box']['items']['attachments']= $item;
 		}
 	}
-	
+
 	public static function adminPostAfterForm($post) {
 		if ($post !== null)
 		{
@@ -97,4 +97,3 @@ class attachmentAdmin
 		}
 	}
 }
-?>

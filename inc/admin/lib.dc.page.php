@@ -15,7 +15,7 @@ define('DC_AUTH_PAGE','auth.php');
 
 class dcPage
 {
-	private static $loaded_js=array();
+	private static $loaded_js = array();
 	private static $N_TYPES = array(
 		"success" => "success", 
 		"warning" => "warning-msg", 
@@ -28,8 +28,7 @@ class dcPage
 	{
 		global $core;
 
-		if ($core->blog && $core->auth->check($permissions,$core->blog->id))
-		{
+		if ($core->blog && $core->auth->check($permissions,$core->blog->id)) {
 			return;
 		}
 
@@ -318,8 +317,8 @@ class dcPage
 		'<html xmlns="http://www.w3.org/1999/xhtml" '.
 		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
 		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
-		'<meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
 		"<head>\n".
+		'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
 		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
 
@@ -658,6 +657,8 @@ class dcPage
 			__('Are you sure you want to reorder all categories?')).
 		self::jsVar('dotclear.msg.confirm_delete_media',
 			__('Are you sure you want to remove media "%s"?')).
+		self::jsVar('dotclear.msg.confirm_delete_directory',
+			__('Are you sure you want to remove directory "%s"?')).
 		self::jsVar('dotclear.msg.confirm_extract_current',
 			__('Are you sure you want to extract archive in current directory?')).
 		self::jsVar('dotclear.msg.confirm_remove_attachment',
@@ -666,14 +667,20 @@ class dcPage
 			__('Are you sure you want to delete "%s" language?')).
 		self::jsVar('dotclear.msg.confirm_delete_plugin',
 			__('Are you sure you want to delete "%s" plugin?')).
+		self::jsVar('dotclear.msg.confirm_delete_plugins',
+			__('Are you sure you want to delete selected plugins?')).
 		self::jsVar('dotclear.msg.use_this_theme',
 			__('Use this theme')).
 		self::jsVar('dotclear.msg.remove_this_theme',
 			__('Remove this theme')).
 		self::jsVar('dotclear.msg.confirm_delete_theme',
 			__('Are you sure you want to delete "%s" theme?')).
+		self::jsVar('dotclear.msg.confirm_delete_themes',
+			__('Are you sure you want to delete selected themes?')).
 		self::jsVar('dotclear.msg.confirm_delete_backup',
 			__('Are you sure you want to delete this backup?')).
+		self::jsVar('dotclear.msg.confirm_revert_backup',
+			__('Are you sure you want to revert to this backup?')).
 		self::jsVar('dotclear.msg.zip_file_content',
 			__('Zip file content')).
 		self::jsVar('dotclear.msg.xhtml_validator',
@@ -893,7 +900,9 @@ class dcPage
 	"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."'; ".
 
 	"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."'; ".
-	"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ";
+		"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ".
+
+		"jsToolBar.prototype.elements.removeFormat.title = '".html::escapeJS(__('Remove text formating'))."'; ";
 
 	if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
 		$res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";

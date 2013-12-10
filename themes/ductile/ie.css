@@ -24,13 +24,13 @@
 	}
 #stickers {
 	padding-right: 13%;
-	}	
+	}
 #main {
 	width : 100%;
 	}
 #blognav, #blogextra {
 	margin : 0;
-	width: 48%; 
+	width: 48%;
 	float:left;
 	}
 
@@ -67,8 +67,8 @@
 	padding-top: 24px;
 	}
 #logo {
-	float:left; 
-	margin:0 1.5em 0 1em;	
+	float:left;
+	margin:0 1.5em 0 1em;
 	}
 #logo a {
 	border: none;
@@ -142,7 +142,7 @@ h1 {
 #sidebar #blognav div:first-child {
 	margin-top: 4.66em;
 	}
-#sidebar div#search:first-child { 
+#sidebar div#search:first-child {
 	background: none;
 	margin-top: 0;
 	margin-bottom: 2em;

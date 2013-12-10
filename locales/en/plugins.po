@@ -1329,7 +1329,7 @@ msgid "You can place list of late tasks on your %s."
 msgstr ""
 
 msgid "Frequency"
-msgstr "Périodicité"
+msgstr ""
 
 msgid "Use one recall time for all tasks"
 msgstr ""
