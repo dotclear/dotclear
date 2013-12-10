@@ -110,7 +110,7 @@ if (!empty($_GET['zipdl']) && $core->auth->check('media_admin',$core->blog->id))
 		$zip = new fileZip($fp);
 		$zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
 		$zip->addDirectory($core->media->root.'/'.$d,'',true);
-		
+
 		header('Content-Disposition: attachment;filename='.($d ? $d : 'media').'.zip');
 		header('Content-Type: application/x-zip');
 		$zip->write();
@@ -209,11 +209,15 @@ if ($dir && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
 if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove']))
 {
 	$_POST['remove'] = rawurldecode($_POST['remove']);
-	
-	try {
-		$core->media->removeItem($_POST['remove']);
 
-		dcPage::addSuccessNotice(__('File has been successfully removed.'));
+	try {
+		if (is_dir(path::real($core->media->getPwd().'/'.path::clean($_POST['remove'])))) {
+			$msg = __('Directory has been successfully removed.');
+		} else {
+			$msg = __('File has been successfully removed.');
+		}
+		$core->media->removeItem($_POST['remove']);
+		dcPage::addSuccessNotice($msg);
 		http::redirect($page_url.'&d='.rawurlencode($d));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -249,7 +253,7 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 			array('home_link' => !$popup)
 		)
 	);
-	
+
 	echo
 	'<form action="'.html::escapeURL($page_url).'" method="post">'.
 	'<p>'.sprintf(__('Are you sure you want to remove %s?'),
@@ -260,7 +264,7 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 	$core->formNonce().
 	form::hidden('remove',html::escapeHTML($_GET['remove'])).'</p>'.
 	'</form>';
-	
+
 	call_user_func($close_f);
 	exit;
 }
@@ -309,6 +313,11 @@ call_user_func($open_f,__('Media manager'),
 	$breadcrumb
 	);
 
+if ($popup) {
+	// Display notices
+	echo dcPage::notices();
+}
+
 if (!$core_media_writable) {
 	dcPage::warning(__('You do not have sufficient permissions to write to this folder.'));
 }
@@ -352,6 +361,16 @@ if ($popup) {
 		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />').'</p></div>';
 }
 
+// Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
+if (!defined('DC_SHOW_HIDDEN_DIRS') || (DC_SHOW_HIDDEN_DIRS == false)) {
+	for ($i = count($dir['dirs']) - 1; $i >= 0; $i--) {
+		if ($dir['dirs'][$i]->d) {
+			if (strpos($dir['dirs'][$i]->relname,'.') !== false) {
+				unset($dir['dirs'][$i]);
+			}
+		}
+	}
+}
 $items = array_values(array_merge($dir['dirs'],$dir['files']));
 
 $fmt_form_media = '<form action="media.php" method="post" id="form-medias">'.
@@ -371,14 +390,14 @@ $fmt_form_media .=
 echo '<div class="media-list">';
 if (count($items) == 0)
 {
-	echo 
+	echo
 	'<p>'.__('No file.').'</p>'.
 	sprintf($fmt_form_media,'',' hide'); // need for jsUpload to append new media
 }
 else
 {
 	$pager = new dcPager($page,count($items),$nb_per_page,10);
-	
+
 	echo
 	'<form action="media.php" method="get" id="filters-form">'.
 	'<p class="two-boxes"><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
@@ -402,11 +421,11 @@ else
 			$fgroup .= mediaItemLine($items[$i],$j);
 		}
 	}
-	
-	echo 
+
+	echo
 	($dgroup != '' ? '<div class="folders-group">'.$dgroup.'</div>' : '').
 	sprintf($fmt_form_media,$fgroup,'');
-	
+
 	echo $pager->getLinks();
 }
 if (!isset($pager)) {
@@ -419,14 +438,14 @@ echo
 if ($core_media_writable || $core_media_archivable) {
 	echo
 	'<div class="vertical-separator">'.
-	'<h3 class="out-of-screen-if-js">'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>';	
+	'<h3 class="out-of-screen-if-js">'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>';
 }
 
-$core_media_archivable = $core->auth->check('media_admin',$core->blog->id) && 
+$core_media_archivable = $core->auth->check('media_admin',$core->blog->id) &&
 	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent));
 
 if ($core_media_writable || $core_media_archivable) {
-	echo 
+	echo
 	'<div class="two-boxes odd">';
 
 	# Create directory
@@ -456,14 +475,14 @@ if ($core_media_writable || $core_media_archivable) {
 		'</div>';
 	}
 
-	echo 
+	echo
 	'</div>';
 }
 
 if ($core_media_writable)
 {
 	echo
-	'<div class="two-boxes fieldset even">';	
+	'<div class="two-boxes fieldset even">';
 	if ($user_ui_enhanceduploader) {
 		echo
 		'<div class="enhanced_uploader">';
@@ -526,7 +545,7 @@ $core->formNonce().
 '</form>';
 
 if ($core_media_writable || $core_media_archivable) {
-	echo 
+	echo
 	'</div>';
 }
 
@@ -541,11 +560,11 @@ call_user_func($close_f);
 function mediaItemLine($f,$i)
 {
 	global $core, $page_url, $popup, $post_id;
-	
+
 	$fname = $f->basename;
-	
+
 	$class = 'media-item media-col-'.($i%2);
-	
+
 	if ($f->d) {
 		$link = html::escapeURL($page_url).'&amp;d='.html::sanitizeURL($f->relname);
 		if ($f->parent) {
@@ -558,7 +577,7 @@ function mediaItemLine($f,$i)
 		$link =
 		'media_item.php?id='.$f->media_id.'&amp;popup='.$popup.'&amp;post_id='.$post_id;
 	}
-	
+
 	$maxchars = 36;
 	if (strlen($fname) > $maxchars) {
 		$fname = substr($fname, 0, $maxchars-4).'...'.($f->d ? '' : files::getExtension($fname));
@@ -568,7 +587,7 @@ function mediaItemLine($f,$i)
 	'<img src="'.$f->media_icon.'" alt="" />'.$fname.'</a></p>';
 
 	$lst = '';
-	
+
 	if (!$f->d) {
 		$lst .=
 		'<li>'.$f->media_title.'</li>'.
@@ -578,22 +597,22 @@ function mediaItemLine($f,$i)
 		'<a href="'.$f->file_url.'">'.__('open').'</a>'.
 		'</li>';
 	}
-	
+
 	$act = '';
-	
+
 	if ($post_id && !$f->d) {
-		$act .= 
+		$act .=
 		'<a class="attach-media" title="'.__('Attach this file to entry').'" href="post_media.php?media_id='.$f->media_id.
 		'&amp;post_id='.$post_id.'&amp;attach=1">'.
 		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'"/>'.
 		'</a>';
 	}
-	
+
 	if ($popup && !$f->d) {
 		$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
 		'title="'.__('Insert this file into entry').'" /></a> ';
 	}
-	
+
 	if ($f->del) {
 		if (!$popup && !$f->d) {
 			$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($f->basename)),rawurlencode($f->basename));
@@ -604,16 +623,16 @@ function mediaItemLine($f,$i)
 			'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
 		}
 	}
-	
+
 	$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
-	
+
 	if ($f->type == 'audio/mpeg3') {
 		$lst .= '<li>'.dcMedia::mp3player($f->file_url,'index.php?pf=player_mp3.swf').'</li>';
 	}
-	
+
 	$res .=	($lst != '' ? '<ul>'.$lst.'</ul>' : '');
 
 	$res .= '</div>';
-	
+
 	return $res;
 }

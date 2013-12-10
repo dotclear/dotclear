@@ -20,7 +20,7 @@ $core->themes->loadModules($core->blog->themes_path, null);
 
 # -- Page helper --
 $list = new adminThemesList(
-	$core->themes, 
+	$core->themes,
 	$core->blog->themes_path,
 	$core->blog->settings->system->store_theme_url
 );
@@ -75,6 +75,7 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
 	# Display previously gathered content
 	$list->displayConfiguration();
 
+	dcPage::helpBlock('core_blog_theme_conf');
 	dcPage::close();
 
 	# Stop reading code here
@@ -111,7 +112,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 	# Updated modules from repo
 	$modules = $list->store->get(true);
 	if (!empty($modules)) {
-		echo 
+		echo
 		'<div class="multi-part" id="update" title="'.html::escapeHTML(__('Update themes')).'">'.
 		'<h3>'.html::escapeHTML(__('Update themes')).'</h3>'.
 		'<p>'.sprintf(
@@ -124,7 +125,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 			->setTab('themes')
 			->setModules($modules)
 			->displayModules(
-				/*cols */		array('sshot', 'name', 'desc', 'author', 'version', 'current_version', 'parent'),
+				/*cols */		array('checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'parent'),
 				/* actions */	array('update', 'delete')
 			);
 
@@ -157,7 +158,7 @@ if (!empty($modules)) {
 			/* actions */	array('select', 'behavior', 'deactivate', 'delete')
 		);
 
-	echo 
+	echo
 	'</div>';
 }
 
@@ -179,7 +180,7 @@ if (!empty($modules)) {
 			/* actions */	array('activate', 'delete')
 		);
 
-	echo 
+	echo
 	'</div>';
 }
 
@@ -210,7 +211,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		echo
 		'<p class="info vertical-separator">'.sprintf(
 			__("Visit %s repository, the resources center for Dotclear."),
-			'<a href="http://themes.dotaddict.org/dc2/">Dotaddict</a>'
+			'<a href="http://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
 			).
 		'</p>'.
 

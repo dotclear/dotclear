@@ -32,4 +32,3 @@ $core->plugins->loadModules(DC_PLUGINS_ROOT);
 # Start XML-RPC server
 $server = new dcXmlRpc($core,$blog_id);
 $server->serve();
-?>

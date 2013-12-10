@@ -346,6 +346,7 @@ if ($step) {
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 			echo
 				dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+				dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
 				dcPage::jsLoad('index.php?pf=simpleMenu/simplemenu.js');
 		}
 		echo dcPage::jsConfirmClose('additem','menuitems');
@@ -496,16 +497,17 @@ if (count($menu)) {
 		echo '<tr class="line" id="l_'.$i.'">';
 		if (!$step) {
 			$count++;
-			echo '<td class="handle minimal">'.form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),__($m['label'])).'"').
+			echo '<td class="handle minimal">'.
+				form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),html::escapeHTML(__($m['label']))).'"').
 				form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>';
 			echo '<td class="minimal">'.form::checkbox(array('items_selected[]','ims-'.$i),$i).'</td>';
-			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),'',255,__($m['label'])).'</td>';
-			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),'30',255,__($m['descr'])).'</td>';
-			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),'30',255,$m['url']).'</td>';
+			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),'',255,html::escapeHTML(__($m['label']))).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),'30',255,html::escapeHTML(__($m['descr']))).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),'30',255,html::escapeHTML($m['url'])).'</td>';
 		} else {
-			echo '<td class="nowrap" scope="row">'.__($m['label']).'</td>';
-			echo '<td class="nowrap">'.__($m['descr']).'</td>';
-			echo '<td class="nowrap">'.$m['url'].'</td>';
+			echo '<td class="nowrap" scope="row">'.html::escapeHTML(__($m['label'])).'</td>';
+			echo '<td class="nowrap">'.html::escapeHTML(__($m['descr'])).'</td>';
+			echo '<td class="nowrap">'.html::escapeHTML($m['url']).'</td>';
 		}
 		echo '</tr>';
 	}

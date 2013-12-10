@@ -16,7 +16,7 @@ if (!defined('DC_RC_PATH')) { return; }
 @nosubgrouping
 @brief Simple descriptor for tabs, groups and more
 
-At this time this class is used in same way an arrayObject 
+At this time this class is used in same way an arrayObject
 but in futur it could be completed with advance methods.
 */
 class dcMaintenanceDescriptor

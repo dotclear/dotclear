@@ -78,10 +78,15 @@ class behaviorsTags
 			"} ?>\n";
 		}
 	}
-	
+
 	public static function addTplPath($core)
 	{
-		$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates');
+		$tplset = $core->themes->moduleInfo($core->blog->settings->system->theme,'tplset');
+		if (!empty($tplset) && is_dir(dirname(__FILE__).'/default-templates/'.$tplset)) {
+			$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.$tplset);
+		} else {
+			$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.DC_DEFAULT_TPLSET);
+		}
 	}
 
 }
@@ -91,33 +96,33 @@ class tplTags
 	public static function Tags($attr,$content)
 	{
 		$type = isset($attr['type']) ? addslashes($attr['type']) : 'tag';
-		
+
 		$limit = isset($attr['limit']) ? (integer) $attr['limit'] : 'null';
-		
+
 		$sortby = 'meta_id_lower';
 		if (isset($attr['sortby']) && $attr['sortby'] == 'count') {
 			$sortby = 'count';
 		}
-		
+
 		$order = 'asc';
 		if (isset($attr['order']) && $attr['order'] == 'desc') {
 			$order = 'desc';
 		}
-		
+
 		$res =
 		"<?php\n".
 		"\$_ctx->meta = \$core->meta->computeMetaStats(\$core->meta->getMetadata(array('meta_type'=>'"
 			.$type."','limit'=>".$limit."))); ".
 		"\$_ctx->meta->sort('".$sortby."','".$order."'); ".
 		'?>';
-		
+
 		$res .=
 		'<?php while ($_ctx->meta->fetch()) : ?>'.$content.'<?php endwhile; '.
 		'$_ctx->meta = null; ?>';
-		
+
 		return $res;
 	}
-	
+
 	public static function TagsHeader($attr,$content)
 	{
 		return
@@ -125,7 +130,7 @@ class tplTags
 		$content.
 		"<?php endif; ?>";
 	}
-	
+
 	public static function TagsFooter($attr,$content)
 	{
 		return
@@ -133,36 +138,36 @@ class tplTags
 		$content.
 		"<?php endif; ?>";
 	}
-	
+
 	public static function EntryTags($attr,$content)
 	{
 		$type = isset($attr['type']) ? addslashes($attr['type']) : 'tag';
-		
+
 		$sortby = 'meta_id_lower';
 		if (isset($attr['sortby']) && $attr['sortby'] == 'count') {
 			$sortby = 'count';
 		}
-		
+
 		$order = 'asc';
 		if (isset($attr['order']) && $attr['order'] == 'desc') {
 			$order = 'desc';
 		}
-		
+
 		$res =
 		"<?php\n".
 		"\$_ctx->meta = \$core->meta->getMetaRecordset(\$_ctx->posts->post_meta,'".$type."'); ".
 		"\$_ctx->meta->sort('".$sortby."','".$order."'); ".
 		'?>';
-		
+
 		$res .=
 		'<?php while ($_ctx->meta->fetch()) : ?>'.$content.'<?php endwhile; '.
 		'$_ctx->meta = null; ?>';
-		
+
 		return $res;
 	}
 
-	public static function TagIf($attr,$content) 
-	{ 
+	public static function TagIf($attr,$content)
+	{
 		$if = array();
 		$operateur = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
 
@@ -183,7 +188,7 @@ class tplTags
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$_ctx->meta->meta_id').'; ?>';
 	}
-	
+
 	public static function TagCount($attr)
 	{
 		return '<?php echo $_ctx->meta->count; ?>';
@@ -193,78 +198,78 @@ class tplTags
 	{
 		return '<?php echo $_ctx->meta->percent; ?>';
 	}
-	
+
 	public static function TagRoundPercent($attr)
 	{
 		return '<?php echo $_ctx->meta->roundpercent; ?>';
 	}
-	
+
 	public static function TagURL($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("tag",'.
 		'rawurlencode($_ctx->meta->meta_id))').'; ?>';
 	}
-	
+
 	public static function TagCloudURL($attr)
 	{
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("tags")').'; ?>';
 	}
-	
+
 	public static function TagFeedURL($attr)
 	{
 		$type = !empty($attr['type']) ? $attr['type'] : 'rss2';
-		
+
 		if (!preg_match('#^(rss2|atom)$#',$type)) {
 			$type = 'rss2';
 		}
-		
+
 		$f = $GLOBALS['core']->tpl->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$core->blog->url.$core->url->getURLFor("tag_feed",'.
 		'rawurlencode($_ctx->meta->meta_id)."/'.$type.'")').'; ?>';
 	}
-	
+
 	# Widget function
 	public static function tagsWidget($w)
 	{
 		global $core;
-		
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 
 		$params = array('meta_type' => 'tag');
-		
+
 		if ($w->limit !== '') {
 			$params['limit'] = abs((integer) $w->limit);
 		}
-		
+
 		$rs = $core->meta->computeMetaStats(
 			$core->meta->getMetadata($params));
-		
+
 		if ($rs->isEmpty()) {
 			return;
 		}
-		
+
 		$sort = $w->sortby;
 		if (!in_array($sort,array('meta_id_lower','count'))) {
 			$sort = 'meta_id_lower';
 		}
-		
+
 		$order = $w->orderby;
 		if ($order != 'asc') {
 			$order = 'desc';
 		}
-		
+
 		$rs->sort($sort,$order);
-		
+
 		$res =
 		($w->content_only ? '' : '<div class="tags'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
 		'<ul>';
-		
+
 		while ($rs->fetch())
 		{
 			$res .=
@@ -272,18 +277,18 @@ class tplTags
 			'class="tag'.$rs->roundpercent.'">'.
 			$rs->meta_id.'</a> </li>';
 		}
-		
+
 		$res .= '</ul>';
-		
+
 		if ($core->url->getBase('tags') && !is_null($w->alltagslinktitle) && $w->alltagslinktitle !== '')
 		{
 			$res .=
 			'<p><strong><a href="'.$core->blog->url.$core->url->getURLFor("tags").'">'.
 			html::escapeHTML($w->alltagslinktitle).'</a></strong></p>';
 		}
-		
+
 		$res .= ($w->content_only ? '' : '</div>');
-		
+
 		return $res;
 	}
 }
@@ -293,7 +298,7 @@ class urlTags extends dcUrlHandlers
 	public static function tag($args)
 	{
 		$n = self::getPageNumber($args);
-		
+
 		if ($args == '' && !$n)
 		{
 			self::p404();
@@ -303,23 +308,23 @@ class urlTags extends dcUrlHandlers
 			$type = $m[2] == 'atom' ? 'atom' : 'rss2';
 			$mime = 'application/xml';
 			$comments = !empty($m[3]);
-			
+
 			$GLOBALS['_ctx']->meta = $GLOBALS['core']->meta->computeMetaStats(
 				$GLOBALS['core']->meta->getMetadata(array(
 					'meta_type' => 'tag',
 					'meta_id' => $m[1])));
-			
+
 			if ($GLOBALS['_ctx']->meta->isEmpty()) {
 				self::p404();
 			}
 			else
 			{
 				$tpl = $type;
-				
+
 				if ($type == 'atom') {
 					$mime = 'application/atom+xml';
 				}
-				
+
 				self::serveDocument($tpl.'.xml',$mime);
 			}
 		}
@@ -328,12 +333,12 @@ class urlTags extends dcUrlHandlers
 			if ($n) {
 				$GLOBALS['_page_number'] = $n;
 			}
-			
+
 			$GLOBALS['_ctx']->meta = $GLOBALS['core']->meta->computeMetaStats(
 				$GLOBALS['core']->meta->getMetadata(array(
 					'meta_type' => 'tag',
 					'meta_id' => $args)));
-			
+
 			if ($GLOBALS['_ctx']->meta->isEmpty()) {
 				self::p404();
 			} else {
@@ -341,12 +346,12 @@ class urlTags extends dcUrlHandlers
 			}
 		}
 	}
-	
+
 	public static function tags($args)
 	{
 		self::serveDocument('tags.html');
 	}
-	
+
 	public static function tagFeed($args)
 	{
 		if (!preg_match('#^(.+)/(atom|rss2)(/comments)?$#',$args,$m))
@@ -358,12 +363,12 @@ class urlTags extends dcUrlHandlers
 			$tag = $m[1];
 			$type = $m[2];
 			$comments = !empty($m[3]);
-			
+
 			$GLOBALS['_ctx']->meta = $GLOBALS['core']->meta->computeMetaStats(
 				$GLOBALS['core']->meta->getMetadata(array(
 					'meta_type' => 'tag',
 					'meta_id' => $tag)));
-			
+
 			if ($GLOBALS['_ctx']->meta->isEmpty()) {
 				# The specified tag does not exist.
 				self::p404();
@@ -371,13 +376,13 @@ class urlTags extends dcUrlHandlers
 			else
 			{
 				$GLOBALS['_ctx']->feed_subtitle = ' - '.__('Tag').' - '.$GLOBALS['_ctx']->meta->meta_id;
-				
+
 				if ($type == 'atom') {
 					$mime = 'application/atom+xml';
 				} else {
 					$mime = 'application/xml';
 				}
-				
+
 				$tpl = $type;
 				if ($comments) {
 					$tpl .= '-comments';
@@ -387,10 +392,9 @@ class urlTags extends dcUrlHandlers
 					$GLOBALS['_ctx']->short_feed_items = $GLOBALS['core']->blog->settings->system->short_feed_items;
 				}
 				$tpl .= '.xml';
-				
+
 				self::serveDocument($tpl,$mime);
 			}
 		}
 	}
 }
-?>

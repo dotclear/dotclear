@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 09:38+0200\n"
+"POT-Creation-Date: 2013-11-01 14:23+0100\n"
 "PO-Revision-Date: 2012-11-06 10:04+0100\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -1067,6 +1067,10 @@ msgstr "Ce fichier n'est pas un fichier de sauvegarde Dotclear."
 msgid "File is not a single blog export."
 msgstr "Ce fichier n'est pas une exportation d'un blog."
 
+#, php-format
+msgid "Error raised at line %s"
+msgstr "Erreur détectée ligne %s"
+
 msgid "File is not a full export."
 msgstr "Ce fichier n'est pas un fichier de sauvegarde complet."
 
@@ -1634,12 +1638,12 @@ msgid "Add tags to this selection"
 msgstr "Ajouter des mots-clés à cette sélection"
 
 #, php-format
-msgid "Are you sure you want to remove this %s?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce %s ?"
+msgid "Are you sure you want to remove this tag?"
+msgstr "Êtes-vous sûr de vouloir supprimer ce mot-clé ?"
 
 #, php-format
-msgid "Add a %s to this entry"
-msgstr "Ajouter %s à ce billet"
+msgid "Add a tag to this entry"
+msgstr "Ajouter un mot-clé à ce billet"
 
 msgid "Choose from list"
 msgstr "Choisir dans la liste"
@@ -1648,7 +1652,7 @@ msgid "all"
 msgstr "tous"
 
 msgid "Enter tags separated by coma"
-msgstr "Entrez les mots-clés séparés par des virgules"
+msgstr "Séparez les mot-clés par des virgules"
 
 msgid "used in %e - frequency %p%"
 msgstr "utilisé dans %e - fréquence %p%"
@@ -1897,6 +1901,12 @@ msgstr "Volet supplémentaire"
 msgid "empty string"
 msgstr "chaîne vide"
 
+msgid "Sidebars and their widgets have been saved."
+msgstr "Les volets et leurs widgets ont été enregistrés."
+
+msgid "Sidebars have been resetting."
+msgstr "Les volets ont été réinitialisés."
+
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -1962,6 +1972,9 @@ msgstr "Monter le widget"
 
 msgid "Down the widget"
 msgstr "Descendre le widget"
+
+msgid "Remove the widget"
+msgstr "Retirer le widget"
 
 msgid "Remove widget"
 msgstr "Retirer le widget"

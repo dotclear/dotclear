@@ -51,4 +51,3 @@ if ($core->getVersion('pages') == null) {
 
 $core->setVersion('pages',$version);
 return true;
-?>

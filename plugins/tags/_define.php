@@ -15,11 +15,10 @@ $this->registerModule(
 	/* Name */			"Tags",
 	/* Description*/		"Tags for posts",
 	/* Author */			"Olivier Meunier",
-	/* Version */			'1.2',
+	/* Version */			'1.2.1',
 	array(
 		'permissions' =>	'usage,contentadmin',
 		'priority' =>		998,
 		'type'		=>		'plugin'
 	)
 );
-?>

@@ -29,7 +29,7 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 			))
 		);
 		$this->endPage();
-	}	
+	}
 	public function beginPage($breadcrumb='',$head='') {
 		echo '<html><head><title>'.__('Pages').'</title>'.
 			dcPage::jsLoad('js/_posts_actions.js').
@@ -39,7 +39,7 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 		echo '<p><a class="back" href="'.$this->getRedirection(true).'">'.__('Back to pages list').'</a></p>';
 
 	}
-	
+
 	public function endPage() {
 		echo '</body></html>';
 	}
@@ -57,35 +57,35 @@ class dcPagesActionsPage extends dcPostsActionsPage {
 		$this->from['post_type']='page';
 		return parent::process();
 	}
-	
+
 	public static function doReorderPages($core, dcPostsActionsPage $ap, $post) {
 		foreach($post['order'] as $post_id => $value) {
 			if (!$core->auth->check('publish,contentadmin',$core->blog->id))
 				throw new Exception(__('You are not allowed to change this entry status'));
-			
+
 			$strReq = "WHERE blog_id = '".$core->con->escape($core->blog->id)."' ".
 					"AND post_id ".$core->con->in($post_id);
-			
+
 			#If user can only publish, we need to check the post's owner
 			if (!$core->auth->check('contentadmin',$core->blog->id))
 				$strReq .= "AND user_id = '".$core->con->escape($core->auth->userID())."' ";
-			
+
 			$cur = $core->con->openCursor($core->prefix.'post');
-			
+
 			$cur->post_position = (integer) $value-1;
 			$cur->post_upddt = date('Y-m-d H:i:s');
-			
+
 			$cur->update($strReq);
 			$core->blog->triggerBlog();
-			
+
 		}
-		
+
 		dcPage::addSuccessNotice(__('Selected pages have been successfully reordered.'));
 		$ap->redirect(false);
-	}	
+	}
 }
 
-class DefaultPagesActions 
+class DefaultPagesActions
 {
 	public static function adminPagesActionsPage($core, $ap) {
 		if ($core->auth->check('publish,contentadmin',$core->blog->id)) {

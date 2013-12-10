@@ -14,7 +14,7 @@ if (!defined('DC_RC_PATH')) { return; }
 class linksImporter
 {
 	protected $entries = null;
-		
+
 	public function parse($data)
 	{
 		if (preg_match('!<xbel(\s+version)?!', $data)) {
@@ -27,15 +27,15 @@ class linksImporter
 			throw new Exception(__('You need to provide a XBEL or OPML file.'));
 		}
 	}
-	
-	
+
+
 	protected function _parseOPML($data)
 	{
 		$xml = @simplexml_load_string($data);
 		if (!$xml) throw new Exception(__('File is not in XML format.'));
-		
+
 		$outlines = $xml->xpath("//outline");
-		
+
 		$this->entries = array();
 		foreach ($outlines as $outline) {
 			if (isset($outline['htmlUrl'])) {
@@ -55,14 +55,14 @@ class linksImporter
 			$this->entries[] = $entry;
 		}
 	}
-	
+
 	protected function _parseXBEL($data)
 	{
 		$xml = @simplexml_load_string($data);
 		if (!$xml) throw new Exception(__('File is not in XML format.'));
-		
+
 		$outlines = $xml->xpath("//bookmark");
-		
+
 		$this->entries = array();
 		foreach ($outlines as $outline) {
 			if (!isset($outline['href'])) continue;
@@ -76,26 +76,25 @@ class linksImporter
 			$this->entries[] = $entry;
 		}
 	}
-	
-	
+
+
 	public function getAll()
 	{
 		if (!$this->entries) return null;
 		return $this->entries;
 	}
-		
+
 }
 
 class dcImportBlogroll {
-	
+
 	public static function loadFile($file)
 	{
 		if (file_exists($file) && is_readable($file)) {
 			$importer = new linksImporter();
-			$importer->parse(file_get_contents($file));		
+			$importer->parse(file_get_contents($file));
 			return $importer->getAll();
 		}
 		return false;
 	}
 }
-?>
