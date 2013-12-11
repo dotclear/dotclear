@@ -288,9 +288,9 @@ if (!empty($_GET['co'])) {
   </script>
   <?php echo
   dcPage::jsDatePicker().
-  dcPage::jsToolBar().
   dcPage::jsModal().
   dcPage::jsLoad('js/_post.js').
+  $core->callBehavior('adminPostEditor').
   dcPage::jsConfirmClose('entry-form','comment-form').
   # --BEHAVIOR-- adminPageHeaders
   $core->callBehavior('adminPageHeaders').

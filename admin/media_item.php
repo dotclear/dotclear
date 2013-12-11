@@ -208,7 +208,7 @@ $starting_scripts =
 	dcPage::jsLoad('js/_media_item.js');
 if ($popup) {
 	$starting_scripts .=
-	dcPage::jsLoad('js/jsToolBar/popup_media.js');
+	$core->callBehavior('adminPopupMedia');
 }
 call_user_func($open_f,__('Media manager'),
 	$starting_scripts.

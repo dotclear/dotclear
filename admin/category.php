@@ -175,8 +175,8 @@ $elements[$title] = '';
 
 dcPage::open($title,
 	dcPage::jsConfirmClose('category-form').
-	dcPage::jsToolBar().
 	dcPage::jsLoad('js/_category.js'),
+	$core->callBehavior('adminPostEditor').
 	dcPage::breadcrumb($elements)
 );
 

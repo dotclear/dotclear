@@ -16,7 +16,7 @@
 }
 .jstHandle {
 	height: 8px;
-	background: #ccc url(resize.png) no-repeat center center;
+	background: #ccc url(?pf=dcLegacyEditor/css/jsToolBar/resize.png) no-repeat center center;
 	font-size: 0.1em;
 	cursor: s-resize;
 	border-color: #ccc #ccc #ccc #000;
@@ -98,56 +98,56 @@ span.jstSpacer {
 /* Buttons
 -------------------------------------------------------- */
 button.jstb_strong {
-	background-image: url(bt_strong.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_strong.png);
 }
 button.jstb_em {
-	background-image: url(bt_em.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_em.png);
 }
 button.jstb_ins {
-	background-image: url(bt_ins.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ins.png);
 }
 button.jstb_del {
-	background-image: url(bt_del.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_del.png);
 }
 button.jstb_quote {
-	background-image: url(bt_quote.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_quote.png);
 }
 button.jstb_code {
-	background-image: url(bt_code.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_code.png);
 }
 button.jstb_paragraph {
-	background-image: url(bt_paragraph.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_paragraph.png);
 }
 button.jstb_br {
-	background-image: url(bt_br.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_br.png);
 }
 button.jstb_blockquote {
-	background-image: url(bt_bquote.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_bquote.png);
 }
 button.jstb_pre {
-	background-image: url(bt_pre.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_pre.png);
 }
 button.jstb_ul {
-	background-image: url(bt_ul.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ul.png);
 }
 button.jstb_ol {
-	background-image: url(bt_ol.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ol.png);
 }
 button.jstb_link {
-	background-image: url(bt_link.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_link.png);
 }
 button.jstb_img {
-	background-image: url(bt_img.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img.png);
 }
 button.jstb_img_select {
-	background-image: url(bt_img_select.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img_select.png);
 }
 button.jstb_post_link {
-	background-image: url(bt_post.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_post.png);
 }
 button.jstb_removeFormat {
 	background-color: #e5e5e5;
-	background-image: url(bt_clean.png);
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.png);
 	position: absolute;
 	right: 2px;
 	top: 1px;
