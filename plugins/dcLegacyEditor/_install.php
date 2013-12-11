@@ -20,7 +20,7 @@ if (version_compare($core->getVersion('dclegacyeditor'), $version,'>=')) {
 $settings = $core->blog->settings;
 $settings->addNamespace('dclegacyeditor');
 
-$settings->dclegacyeditor->put('active', false, 'boolean', 'dcLegacyEditor plugin activated ?', false);
+$settings->dclegacyeditor->put('active', true, 'boolean', 'dcLegacyEditor plugin activated ?', false);
 
 $core->setVersion('dclegacyeditor', $version);
 return true;
