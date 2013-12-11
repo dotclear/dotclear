@@ -170,8 +170,8 @@ $core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
 /* DISPLAY
 -------------------------------------------------------- */
 dcPage::open(__('Dashboard'),
-	dcPage::jsToolBar().
 	dcPage::jsLoad('js/_index.js').
+	$core->callBehavior('adminPostEditor').
 	# --BEHAVIOR-- adminDashboardHeaders
 	$core->callBehavior('adminDashboardHeaders'),
 	dcPage::breadcrumb(
