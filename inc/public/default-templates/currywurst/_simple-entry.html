@@ -1,11 +1,11 @@
-<div id="p{{tpl:EntryID}}" class="post simple" role="article">
+<div class="post simple" id="p{{tpl:EntryID}}" role="article">
 	<h2 class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
 
-	<div class="post-attr">
+	<div class="post-meta">
 		<p class="post-info">
 			<span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
 			<span class="post-date">{{tpl:EntryDate}}. </span>
-			<span class="permalink"><a href="{{tpl:EntryURL}}">{{tpl:lang Permalink}}</a></span>
+			<span class="post-permalink"><a href="{{tpl:EntryURL}}">{{tpl:lang Permalink}}</a></span>
 			<tpl:EntryIf has_category="1">
 				<span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
 				href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a
@@ -15,9 +15,9 @@
 
 		<tpl:EntryTags>
 			<tpl:TagsHeader>
-				<ul class="post-tags">
+				<ul class="post-tags-list">
 			</tpl:TagsHeader>
-				<li><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
+				<li class="post-tags-item"><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
 			<tpl:TagsFooter>
 				</ul>
 			</tpl:TagsFooter>
@@ -36,16 +36,15 @@
 
 	<!-- # --BEHAVIOR-- publicEntryAfterContent -->
 	{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
-</div>
 
 <!-- # Attachments -->
 <tpl:Attachments>
 	<tpl:AttachmentsHeader>
-		<div id="attachments">
-			<h3>{{tpl:lang Attachments}}</h3>
-			<ul>
+	<div class="post-attachments" id="attachments">
+		<h3 class="post-attachments-title">{{tpl:lang Attachments}}</h3>
+		<ul class="post-attachments-list">
 	</tpl:AttachmentsHeader>
-				<li class="{{tpl:AttachmentType}}">
+				<li class="post-attachments-list__item {{tpl:AttachmentType}}">
 					<tpl:AttachmentIf is_mp3="1">
 						{{tpl:include src="_mp3_player.html"/}} -
 					</tpl:AttachmentIf>
@@ -62,14 +61,23 @@
 		</div>
 	</tpl:AttachmentsFooter>
 </tpl:Attachments>
+</div>
+
+<tpl:EntryIf operator="or" show_comments="1" show_pings="1">
+	<div class="post-feedback">
+</tpl:EntryIf>
 
 <!-- # Comments -->
 <tpl:EntryIf show_comments="1">
 	<tpl:Comments with_pings="1">
 		<tpl:CommentsHeader>
-			<div id="comments">
+			<div class="feedback__comments" id="comments">
 				<h3>{{tpl:EntryCommentCount count_all="1" none="no reactions" one="one reaction" more="%s reactions"}}</h3>
-				<ul>
+				<tpl:EntryIf operator="or" comments_active="1" pings_active="1">
+					<p id="comments-feed"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
+						title="{{tpl:lang This post's comments Atom feed}}">{{tpl:lang This post's comments feed}}</a></p>
+				</tpl:EntryIf>
+				<ul class="comments-list">
 		</tpl:CommentsHeader>
 					<tpl:CommentIf is_ping="0">
 						<li id="c{{tpl:CommentID}}" class="comment {{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
@@ -97,11 +105,6 @@
 	</tpl:Comments>
 </tpl:EntryIf>
 
-<tpl:EntryIf operator="or" comments_active="1" pings_active="1">
-	<p id="comments-feed"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
-		 title="{{tpl:lang This post's comments Atom feed}}">{{tpl:lang This post's comments feed}}</a></p>
-</tpl:EntryIf>
-
 <tpl:EntryIf comments_active="1">
 	<tpl:SysIfFormError>
 		<p class="error" id="pr">{{tpl:SysFormError}}</p>
@@ -116,7 +119,7 @@
 	</tpl:SysIfCommentPending>
 
 	<!-- # Comment form -->
-	<form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
+	<form class="send-comment" action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
 		<tpl:IfCommentPreview>
 			<div id="pr">
 				<h3>{{tpl:lang Your comment}}</h3>
@@ -126,21 +129,20 @@
 		</tpl:IfCommentPreview>
 
 		<h3>{{tpl:lang Add a comment}}</h3>
-		<fieldset>
 			<!-- # --BEHAVIOR-- publicCommentFormBeforeContent -->
 			{{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
 
-			<p class="field"><label for="c_name">{{tpl:lang Name or nickname}}&nbsp;:</label>
+			<p class="field name-field"><label for="c_name">{{tpl:lang Name or nickname}}&nbsp;:</label>
 				<input name="c_name" id="c_name" type="text" size="30" maxlength="255"
 				 value="{{tpl:CommentPreviewName encode_html="1"}}" />
 			</p>
 
-			<p class="field"><label for="c_mail">{{tpl:lang Email address}}&nbsp;:</label>
+			<p class="field mail-field"><label for="c_mail">{{tpl:lang Email address}}&nbsp;:</label>
 				<input name="c_mail" id="c_mail" type="text" size="30" maxlength="255"
 				 value="{{tpl:CommentPreviewEmail encode_html="1"}}" />
 			</p>
 
-			<p class="field"><label for="c_site">{{tpl:lang Website}} ({{tpl:lang optional}})&nbsp;:</label>
+			<p class="field site-field"><label for="c_site">{{tpl:lang Website}} ({{tpl:lang optional}})&nbsp;:</label>
 				<input name="c_site" id="c_site" type="text" size="30" maxlength="255"
 				 value="{{tpl:CommentPreviewSite encode_html="1"}}" />
 			</p>
@@ -149,7 +151,7 @@
 				<input name="f_mail" type="text" size="30" maxlength="255" value="" />
 			</p>
 
-			<p class="field"><label for="c_content">{{tpl:lang Comment}}&nbsp;:</label>
+			<p class="field field-content"><label for="c_content">{{tpl:lang Comment}}&nbsp;:</label>
 				<textarea name="c_content" id="c_content" cols="35"
 				 rows="7">{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
 			</p>
@@ -158,9 +160,7 @@
 
 			<!-- # --BEHAVIOR-- publicCommentFormAfterContent -->
 			{{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
-		</fieldset>
 
-		<fieldset>
 			<p class="buttons">
 				<input type="submit" class="preview" name="preview" value="{{tpl:lang preview}}" />
 		        <tpl:IfCommentPreview>
@@ -172,8 +172,12 @@
 </tpl:EntryIf>
 
 <tpl:EntryIf pings_active="1">
-	<div id="ping-url">
+	<div class="send-ping">
 		<h3>{{tpl:lang Add ping}}</h3>
-		<p>{{tpl:lang Trackback URL}}&nbsp;: {{tpl:EntryPingLink}}</p>
+		<p id="ping-url">{{tpl:lang Trackback URL}}&nbsp;: {{tpl:EntryPingLink}}</p>
+	</div>
+</tpl:EntryIf>
+
+<tpl:EntryIf operator="or" show_comments="1" show_pings="1">
 	</div>
 </tpl:EntryIf>
