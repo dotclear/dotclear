@@ -124,7 +124,7 @@
 			<div id="pr">
 				<h3>{{tpl:lang Your comment}}</h3>
 				<div class="comment-preview">{{tpl:CommentPreviewContent}}</div>
-				<p class="buttons"><input type="submit" class="submit" value="{{tpl:lang send}}" /></p>
+				<p class="buttons"><button type="submit" class="submit" value="{{tpl:lang Send}}">{{tpl:lang Send}}</button></p>
 			</div>
 		</tpl:IfCommentPreview>
 
@@ -132,17 +132,17 @@
 			<!-- # --BEHAVIOR-- publicCommentFormBeforeContent -->
 			{{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
 
-			<p class="field name-field"><label for="c_name">{{tpl:lang Name or nickname}}&nbsp;:</label>
+			<p class="field name-field"><label for="c_name">{{tpl:lang Name or nickname}}<abbr title="{{tpl:lang Required field}}">*</abbr>&nbsp;:</label>
 				<input name="c_name" id="c_name" type="text" size="30" maxlength="255"
-				 value="{{tpl:CommentPreviewName encode_html="1"}}" />
+				 value="{{tpl:CommentPreviewName encode_html="1"}}" required />
 			</p>
 
-			<p class="field mail-field"><label for="c_mail">{{tpl:lang Email address}}&nbsp;:</label>
+			<p class="field mail-field"><label for="c_mail">{{tpl:lang Email address}}<abbr title="{{tpl:lang Required field}}">*</abbr>&nbsp;:</label>
 				<input name="c_mail" id="c_mail" type="text" size="30" maxlength="255"
-				 value="{{tpl:CommentPreviewEmail encode_html="1"}}" />
+				 value="{{tpl:CommentPreviewEmail encode_html="1"}}" required />
 			</p>
 
-			<p class="field site-field"><label for="c_site">{{tpl:lang Website}} ({{tpl:lang optional}})&nbsp;:</label>
+			<p class="field site-field"><label for="c_site">{{tpl:lang Website}}&nbsp;:</label>
 				<input name="c_site" id="c_site" type="text" size="30" maxlength="255"
 				 value="{{tpl:CommentPreviewSite encode_html="1"}}" />
 			</p>
@@ -151,9 +151,9 @@
 				<input name="f_mail" type="text" size="30" maxlength="255" value="" />
 			</p>
 
-			<p class="field field-content"><label for="c_content">{{tpl:lang Comment}}&nbsp;:</label>
+			<p class="field field-content"><label for="c_content">{{tpl:lang Comment}}<abbr title="{{tpl:lang Required field}}">*</abbr>&nbsp;:</label>
 				<textarea name="c_content" id="c_content" cols="35"
-				 rows="7">{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
+				 rows="7" required>{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
 			</p>
 
 			<p class="form-help">{{tpl:CommentHelp}}</p>
@@ -162,12 +162,11 @@
 			{{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
 
 			<p class="buttons">
-				<input type="submit" class="preview" name="preview" value="{{tpl:lang preview}}" />
+				<button type="submit" class="preview" name="preview" value="{{tpl:lang Preview}}">{{tpl:lang Preview}}</button>
 		        <tpl:IfCommentPreview>
-		        	<input type="submit" class="submit" value="{{tpl:lang send}}" />
+		        	<button type="submit" class="submit" value="{{tpl:lang Send}}">{{tpl:lang Send}}</button>
 		        </tpl:IfCommentPreview>
 			</p>
-		</fieldset>
 	</form>
 </tpl:EntryIf>
 
