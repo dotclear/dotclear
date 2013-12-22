@@ -30,7 +30,36 @@ Les motivations sont abrégées en :
 
 Par convention l'ordre des attributs dans les balises html est *class, id, autres attributs*.
 
+Toutes les listes (ul ou ol) comportent le terme "list" dans leur nom de class.
+
 ### _top.html
 
 Déplacement des liens d'accès rapides au-dessus du titre du blog : **a11y**, **ergo**. *Le titre de fenêtre étant lu avant tout par les aides techniques, l'internaute sait déjà où il se trouve. L'accès est également plus rapide au clavier. Côté design, la plupart des créateurs de thèmes ont pris l'habitude de déplacer ce bloc en haut de la page ; ils n'auront plus besoin de passer par des position absolute pour ce faire.*
 
+### _simple-entry.html
+
+(aka contexte du billet seul entier avec commentaires etc.)
+
+Découpage en deux grandes div : post et post-feedback.
+- post
+  - post-title : titre
+  - post-meta
+    - post-info
+    - post-tags-list
+  - post-excerpt
+  - post-content
+  - post-attachments
+    - post-attachments-title
+    - post-attachments-list
+- post-feedback
+  - feedback__comments
+    - comments-feed
+    - comments-list
+  - comment-form
+  - send-trackback
+
+***
+
+A réfléchir : inclusion par défaut de liens "sociaux" ?
+
+***

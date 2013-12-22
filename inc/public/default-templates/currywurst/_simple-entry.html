@@ -44,7 +44,7 @@
 		<h3 class="post-attachments-title">{{tpl:lang Attachments}}</h3>
 		<ul class="post-attachments-list">
 	</tpl:AttachmentsHeader>
-				<li class="post-attachments-list__item {{tpl:AttachmentType}}">
+				<li class="post-attachments-item {{tpl:AttachmentType}}">
 					<tpl:AttachmentIf is_mp3="1">
 						{{tpl:include src="_mp3_player.html"/}} -
 					</tpl:AttachmentIf>
@@ -119,7 +119,7 @@
 	</tpl:SysIfCommentPending>
 
 	<!-- # Comment form -->
-	<form class="send-comment" action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
+	<form class="comment-form" action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
 		<tpl:IfCommentPreview>
 			<div id="pr">
 				<h3>{{tpl:lang Your comment}}</h3>
@@ -178,5 +178,5 @@
 </tpl:EntryIf>
 
 <tpl:EntryIf operator="or" show_comments="1" show_pings="1">
-	</div>
+	</div> <!-- end post-feedback -->
 </tpl:EntryIf>
