@@ -9,8 +9,9 @@
 	{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
 
 	<tpl:EntryIf extended="1">
-		<div class="post-excerpt">{{tpl:EntryExcerpt}}</div>
+	<div class="post-excerpt">{{tpl:EntryExcerpt}}</div>
 	</tpl:EntryIf>
+
 	<div class="post-content">{{tpl:EntryContent}}</div>
 
 	<!-- # --BEHAVIOR-- publicEntryAfterContent -->
@@ -19,22 +20,22 @@
 	<div class="post-meta">
 		<p class="post-info">
 			<span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
-			<span class="post-date">{{tpl:EntryDate}}.
-		</p>
-		<tpl:EntryIf has_category="1">
-			<p class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
+			<span class="post-date">{{tpl:EntryDate}}.</span>
+			<tpl:EntryIf has_category="1">
+			<span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
 				href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a
 				href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a>
-			</p>
-		</tpl:EntryIf>
+			</span>
+			</tpl:EntryIf>
+		</p>
 
 		<tpl:EntryTags>
 			<tpl:TagsHeader>
-				<ul class="post-tags-list">
+			<ul class="post-tags-list">
 			</tpl:TagsHeader>
-					<li class="post-tags-item"><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
+				<li class="post-tags-item"><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
 			<tpl:TagsFooter>
-				</ul>
+			</ul>
 			</tpl:TagsFooter>
 		</tpl:EntryTags>
 
@@ -42,12 +43,12 @@
 		<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
 			<p class="post-info-co">
 			<tpl:EntryIf show_comments="1">
-				<a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
+			<a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
 			</tpl:EntryIf>
 			<tpl:EntryIf show_pings="1">
-				<a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
+			<a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
 			<tpl:EntryIf has_attachment="1">
-				<a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
+			<a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
 			</p>
 		</tpl:EntryIf>
 	</div>

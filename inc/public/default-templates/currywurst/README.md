@@ -40,6 +40,11 @@ Déplacement des liens d'accès rapides au-dessus du titre du blog : **a11y**, *
 
 (aka contexte du billet seul entier avec commentaires etc.)
 
+Formulaire de dépôt de commentaire :
+- remplacement des inputs par des buttons
+- typage des champs
+- ajout des attributs required quand nécessaire
+
 Découpage en deux grandes div : post et post-feedback.
 - post
   - post-title : titre

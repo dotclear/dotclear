@@ -36,11 +36,13 @@
 	<div class="post-meta">
 		<p class="post-info">
 			<span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
-			<span class="post-date">{{tpl:EntryDate}}.</p>
-		<tpl:EntryIf has_category="1"><p class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
-			href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a
-			href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></p>
-		</tpl:EntryIf>
+			<span class="post-date">{{tpl:EntryDate}}.</span>
+			<tpl:EntryIf has_category="1">
+			<span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
+				href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a
+				href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
+			</tpl:EntryIf>
+		</p>
 
 		<tpl:EntryTags>
 			<tpl:TagsHeader>
