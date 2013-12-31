@@ -88,6 +88,7 @@ class dcCommentsActionsPage extends dcActionsPage
 	}
 
 	protected function fetchEntries($from) {
+		$params=array();
 		if (!empty($from['comments'])) {
 			$comments = $from['comments'];
 
@@ -96,22 +97,21 @@ class dcCommentsActionsPage extends dcActionsPage
 			}
 
 			$params['sql'] = 'AND C.comment_id IN('.implode(',',$comments).') ';
-
-			if (!isset($from['full_content']) || empty($from['full_content'])) {
-				$params['no_content'] = true;
-			}
-
-			$co = $this->core->blog->getComments($params);
-			while ($co->fetch())	{
-				$this->entries[$co->comment_id] = array(
-					'title' => $co->post_title,
-					'author' => $co->comment_author
-				);
-			}
-			$this->rs = $co;
 		} else {
-			$this->rs = $this->core->con->select("SELECT blog_id FROM ".$this->core->prefix."blog WHERE false");;
+			$params['sql'] = 'AND 1=0 ';
 		}
+
+		if (!isset($from['full_content']) || empty($from['full_content'])) {
+			$params['no_content'] = true;
+		}
+		$co = $this->core->blog->getComments($params);
+		while ($co->fetch())	{
+			$this->entries[$co->comment_id] = array(
+				'title' => $co->post_title,
+				'author' => $co->comment_author
+			);
+		}
+		$this->rs = $co;
 	}
 }
 
