@@ -67,6 +67,7 @@ class dcPostsActionsPage extends dcActionsPage
 	}
 
 	protected function fetchEntries($from) {
+		$params = array();
 		if (!empty($from['entries']))
 		{
 			$entries = $from['entries'];
@@ -76,23 +77,23 @@ class dcPostsActionsPage extends dcActionsPage
 			}
 
 			$params['sql'] = 'AND P.post_id IN('.implode(',',$entries).') ';
-
-			if (!isset($from['full_content']) || empty($from['full_content'])) {
-				$params['no_content'] = true;
-			}
-
-			if (isset($from['post_type'])) {
-				$params['post_type'] = $from['post_type'];
-			}
-
-			$posts = $this->core->blog->getPosts($params);
-			while ($posts->fetch())	{
-				$this->entries[$posts->post_id] = $posts->post_title;
-			}
-			$this->rs = $posts;
 		} else {
-			$this->rs = $this->core->con->select("SELECT blog_id FROM ".$this->core->prefix."blog WHERE false");;
+			$params['sql'] = 'AND 1=0 ';
 		}
+
+		if (!isset($from['full_content']) || empty($from['full_content'])) {
+			$params['no_content'] = true;
+		}
+
+		if (isset($from['post_type'])) {
+			$params['post_type'] = $from['post_type'];
+		}
+
+		$posts = $this->core->blog->getPosts($params);
+		while ($posts->fetch())	{
+			$this->entries[$posts->post_id] = $posts->post_title;
+		}
+		$this->rs = $posts;
 	}
 }
 
