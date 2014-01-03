@@ -74,8 +74,10 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 $popup = (integer) !empty($_GET['popup']);
 
 $page_url = 'media.php?popup='.$popup.'&post_id='.$post_id;
-$page_url = $core->callBehavior('adminMediaURL',$page_url);
-
+$temp = $core->callBehavior('adminMediaURL',$page_url);
+if ($temp != '') {
+	$page_url=$temp;
+}
 if ($popup) {
 	$open_f = array('dcPage','openPopup');
 	$close_f = array('dcPage','closePopup');
