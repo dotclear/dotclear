@@ -1,5 +1,4 @@
 $(function() {
-	var btn =
 	$('#comment-form p:has(input[type=submit][name=preview],button[type=submit][name=preview])').
 		before(
 			'<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> ' +
