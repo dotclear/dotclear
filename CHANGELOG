@@ -1,3 +1,11 @@
+Dotclear 2.6.2 - 2014-01-20
+===========================================================
+* Security fix: Fixed potential code injection on password protected post/page. Thanks to Charlie Briggs
+* Bugfix: cope with numeric module (plugin/theme) id
+* Bugfix: Bad SQL syntax when using SQLite
+* Bugfix: BlogParentThemeURL template value is back
+* Various bug fixes
+
 Dotclear 2.6.1 - 2013-11-22
 ===========================================================
 * Bugfix: trackbacks/pingbacks post URL
