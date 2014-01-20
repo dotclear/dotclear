@@ -501,13 +501,20 @@ class adminModulesList
 	 */
 	public static function sortModules($modules, $field, $asc=true)
 	{
-		$sorter = array();
-		foreach($modules as $id => $module) {
-			$sorter[$id] = isset($module[$field]) ? $module[$field] : $field;
-		}
-		array_multisort($sorter, $asc ? SORT_ASC : SORT_DESC, $modules);
+		$origin = $sorter = array();
 
-		return $modules;
+		foreach($modules as $id => $module) {
+			$origin[] = $module;
+			$sorter[] = isset($module[$field]) ? $module[$field] : $field;
+		}
+
+		array_multisort($sorter, $asc ? SORT_ASC : SORT_DESC, $origin);
+
+		foreach($origin as $module) {
+			$final[$module['id']] = $module;
+		}
+
+		return $final;
 	}
 
 	/**
