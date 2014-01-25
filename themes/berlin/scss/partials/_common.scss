@@ -1,0 +1,118 @@
+/* Typographie */
+// base //
+body {
+    font-size: 1em;
+    line-height: 1.5;
+    font-family: $sans-serif;
+}
+// titres //
+h1 {
+    font-size: scut-em(48);
+    line-height: 1.2;
+}
+h2 {
+    font-size: scut-em(64);
+    line-height: 1.2;
+    margin-bottom: scut-em(32,64);
+}
+h3 {
+    font-size: scut-em(28);
+    line-height: 1.33;
+    margin-top: scut-em(16,28);
+    margin-bottom: scut-em(12, 28);
+}
+h4 {
+    font-size: scut-em(21);
+    margin-top: scut-em(24, 21);
+    margin-bottom: scut-em(16, 21);
+}
+h5 {
+    font-size: scut-em(18);
+    margin-top: scut-em(28,18);
+}
+h6 {
+    font-size: 1em;
+    margin-bottom: 0;
+}
+h2, h3, h4, h5, h6 {
+    color: $secondary-color;
+}
+// liens
+a {
+    color: $link;
+    text-decoration: none;
+    transition: .3s;
+    &:link, &:visited {
+        border-bottom: 1px solid $gray-medium;
+    }
+    &:visited {
+        border-bottom-style: dotted;
+    }
+    &:hover, &:active {
+        border-color: $link;
+    }
+    &:focus {
+        background-color: $link;
+        color: $gray-very-light;
+    }
+}
+// autres balises
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    @include background-image(linear-gradient(left, $gray-medium, $gray-dark, $gray-medium));
+}
+blockquote, q {
+    font-family: $serif;
+    color: $gray-dark;
+    font-style: italic;
+}
+blockquote {
+    font-size: scut-em(18);
+    line-height: 1.33;
+    quotes: '\201C' '\201D';
+    margin-top: scut-em(32,18);
+}
+blockquote:before,
+blockquote:after {
+    margin-top: 0;
+    font-size: 3em;
+    display: block;
+    line-height: .25;
+    color: $gray-medium;
+    margin-bottom: 0;
+}
+blockquote:before {
+    content: open-quote;
+    float: left;
+    margin-right: .25em;
+}
+blockquote:after {
+    content: close-quote;
+    text-align: right;
+}
+blockquote p:first-child {
+    margin-top: 0;
+}
+kbd {
+    padding: 0.1em 0.5em;
+}
+code, pre, kbd {
+    background-color: #555;
+    color: #EFD540;
+    font-family: $monospace;
+    font-size: scut-em(14);
+    padding: .1em .2em;
+}
+pre {
+    padding: .5em 1em;
+}
+img {
+    max-width: 97%;
+}
+p, ul, ol {
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+ul ul, ul ol, ol ol, ol ul { margin-top: .5em; }
