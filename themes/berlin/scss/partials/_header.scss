@@ -29,10 +29,11 @@
     padding-bottom: .5em;
     margin-right: 3em;
     }
-.site-title__link,
-.site-title__link:link,
-.site-title__link:visited {
+a.site-title__link,
+a.site-title__link:link,
+a.site-title__link:visited {
     background-color: transparent;
+    border-color: transparent;
 }
 .site-title__text {
     color: $gray-dark;
