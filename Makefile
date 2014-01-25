@@ -37,6 +37,7 @@ config: clean config-stamp
 	./themes/blueSilence \
 	./themes/customCSS \
 	./themes/ductile \
+	./themes/berlin \
 	./$(DC)/themes/
 
 	## Copy built-in plugins based on DC_DISTRIB_PLUGINS constant
