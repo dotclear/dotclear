@@ -1333,7 +1333,7 @@ class dcCore
 				'Search engines robots policy'),
 				array('short_feed_items','boolean',false,
 				'Display short feed items'),
-				array('theme','string','default',
+				array('theme','string','berlin',
 				'Blog theme'),
 				array('themes_path','string','themes',
 				'Themes root path'),
