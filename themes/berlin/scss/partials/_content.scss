@@ -29,6 +29,7 @@
     font-size: scut-em(14);
     h2 {
         display: inline-block;
+        vertical-align: top;
         padding: .5em .75em;
         border-radius: .5em;
         background-color: $secondary-color;
@@ -45,6 +46,19 @@
         padding-left: 0;
 
     }
+}
+.content-info__feed {
+    display: inline-block;
+    vertical-align: top;
+    list-style-type: none;
+    li {
+        display: inline;
+        margin-right: 1.5em;
+        }
+}
+.content-info__sub-cat {
+    margin-top: 2em;
+    h3 { font-weight: bold;}
 }
 // lien de retour, à combiner avec le script js
 #gotop {
