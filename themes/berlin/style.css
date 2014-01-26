@@ -760,6 +760,7 @@ a.site-title__link:visited {
   font-size: 0.875em; }
   #content-info h2 {
     display: inline-block;
+    vertical-align: top;
     padding: .5em .75em;
     border-radius: .5em;
     background-color: #267daf;
@@ -773,6 +774,19 @@ a.site-title__link:visited {
   #content-info ul {
     margin-top: 0.5714286em;
     padding-left: 0; }
+
+.content-info__feed {
+  display: inline-block;
+  vertical-align: top;
+  list-style-type: none; }
+  .content-info__feed li {
+    display: inline;
+    margin-right: 1.5em; }
+
+.content-info__sub-cat {
+  margin-top: 2em; }
+  .content-info__sub-cat h3 {
+    font-weight: bold; }
 
 #gotop {
   display: none;
@@ -1079,7 +1093,7 @@ button.submit:active, button.preview:active {
   margin: 0 0 2em 0;
   vertical-align: top; }
   .arch-block a {
-    color: #555; }
+    color: #373737; }
   @media all and (min-width: 30em) {
     .arch-block {
       margin-left: 4em; } }
@@ -1093,13 +1107,14 @@ button.submit:active, button.preview:active {
   font-style: italic;
   font-weight: normal;
   text-transform: lowercase;
-  color: #14709e; }
+  color: #267daf; }
 
 .arch-block h4 {
-  font-weight: normal;
+  font-weight: bold;
   font-size: 1.1em;
   margin-bottom: 0;
-  margin-top: 0; }
+  margin-top: 0;
+  color: #373737; }
 
 .arch-list, .arch-sub-list {
   list-style-type: none;
