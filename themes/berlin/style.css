@@ -1238,6 +1238,10 @@ button.submit:active, button.preview:active {
   -o-transition: 0.3s all linear;
   transition: 0.3s all linear; }
 
+.js #content-info h2,
+.js .content-info__feed {
+  margin-right: 3.5em; }
+
 @media screen and (max-width: 80em) {
   #offcanvas-on,
   #offcanvas-off {
@@ -1295,8 +1299,5 @@ button.submit:active, button.preview:active {
     *behavior: url("scripts");
     _display: inline;
     _overflow: hidden;
-    _overflow-y: visible; }
-
-  #content-info h2 {
-    margin-right: 3.5em; } }
+    _overflow-y: visible; } }
 /*** dev only ***/
