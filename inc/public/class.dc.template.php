@@ -384,6 +384,35 @@ class dcTemplate extends template
 		return '';
 	}
 
+	public function displayCounter($variable,$values,$attr,$count_only_by_default=false) {
+		if (isset($attr['count_only'])) {
+			$count_only=($attr['count_only']==1);
+		} else {
+			$count_only = $count_only_by_default;
+		}
+		if ($count_only) {
+			return "<?php echo ".$variable."; ?>";
+		} else {
+			$v=$values;
+			if (isset($attr['none'])) {
+				$v['none'] = addslashes($attr['none']);
+			}
+			if (isset($attr['one'])) {
+				$v['one'] = addslashes($attr['one']);
+			}
+			if (isset($attr['more'])) {
+				$v['more'] = addslashes($attr['more']);
+			}
+			return
+				"<?php if (".$variable." == 0) {\n".
+				"  printf(__('".$v['none']."'),".$variable.");\n".
+				"} elseif (".$variable." == 1) {\n".
+				"  printf(__('".$v['one']."'),".$variable.");\n".
+				"} else {\n".
+				"  printf(__('".$v['more']."'),".$variable.");\n".
+				"} ?>";
+		}
+	}
 	/* TEMPLATE FUNCTIONS
 	------------------------------------------------------- */
 
@@ -544,7 +573,16 @@ class dcTemplate extends template
 	public function ArchiveEntriesCount($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->archives->nb_post').'; ?>';
+		return $this->displayCounter(
+			sprintf($f,'$_ctx->archives->nb_post'),
+			array(
+				'none' => 'no archive',
+				'one'  => 'one archive',
+				'more' => '%d archives'
+			),
+			$attr,
+			true
+		);
 	}
 
 	/*dtd
@@ -1020,7 +1058,16 @@ class dcTemplate extends template
 	public function CategoryEntriesCount($attr)
 	{
 		$f = $this->getFilters($attr);
-		return '<?php echo '.sprintf($f,'$_ctx->categories->nb_post').'; ?>';
+		return $this->displayCounter(
+			sprintf($f,'$_ctx->categories->nb_post'),
+			array(
+				'none' => 'No post',
+				'one'  => 'One post',
+				'more' => '%d posts'
+			),
+			$attr,
+			true
+		);
 	}
 
 	/* Entries -------------------------------------------- */
@@ -1719,6 +1766,9 @@ class dcTemplate extends template
 		"<?php endif; ?>";
 	}
 
+
+
+
 	/*dtd
 	<!ELEMENT tpl:EntryCommentCount - O -- Number of comments for entry -->
 	<!ATTLIST tpl:EntryCommentCount
@@ -1730,34 +1780,22 @@ class dcTemplate extends template
 	*/
 	public function EntryCommentCount($attr)
 	{
-		$none = 'no comment';
-		$one = 'one comment';
-		$more = '%d comments';
-
-		if (isset($attr['none'])) {
-			$none = addslashes($attr['none']);
-		}
-		if (isset($attr['one'])) {
-			$one = addslashes($attr['one']);
-		}
-		if (isset($attr['more'])) {
-			$more = addslashes($attr['more']);
-		}
-
 		if (empty($attr['count_all'])) {
 			$operation = '$_ctx->posts->nb_comment';
 		} else {
 			$operation = '($_ctx->posts->nb_comment + $_ctx->posts->nb_trackback)';
 		}
 
-		return
-		"<?php if (".$operation." == 0) {\n".
-		"  printf(__('".$none."'),".$operation.");\n".
-		"} elseif (".$operation." == 1) {\n".
-		"  printf(__('".$one."'),".$operation.");\n".
-		"} else {\n".
-		"  printf(__('".$more."'),".$operation.");\n".
-		"} ?>";
+		return $this->displayCounter(
+			$operation,
+			array(
+				'none' => 'no comment',
+				'one'  => 'one comment',
+				'more' => '%d comments'
+				),
+			$attr,
+			false
+		);
 	}
 
 	/*dtd
@@ -1770,28 +1808,16 @@ class dcTemplate extends template
 	*/
 	public function EntryPingCount($attr)
 	{
-		$none = 'no trackback';
-		$one = 'one trackback';
-		$more = '%d trackbacks';
-
-		if (isset($attr['none'])) {
-			$none = addslashes($attr['none']);
-		}
-		if (isset($attr['one'])) {
-			$one = addslashes($attr['one']);
-		}
-		if (isset($attr['more'])) {
-			$more = addslashes($attr['more']);
-		}
-
-		return
-		"<?php if (\$_ctx->posts->nb_trackback == 0) {\n".
-		"  printf(__('".$none."'),(integer) \$_ctx->posts->nb_trackback);\n".
-		"} elseif (\$_ctx->posts->nb_trackback == 1) {\n".
-		"  printf(__('".$one."'),(integer) \$_ctx->posts->nb_trackback);\n".
-		"} else {\n".
-		"  printf(__('".$more."'),(integer) \$_ctx->posts->nb_trackback);\n".
-		"} ?>";
+		return $this->displayCounter(
+			'$_ctx->posts->nb_trackback',
+			array(
+				'none' => 'no trackback',
+				'one'  => 'one trackback',
+				'more' => '%d trackbacks'
+				),
+			$attr,
+			false
+		);
 	}
 
 	/*dtd
