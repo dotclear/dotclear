@@ -210,28 +210,17 @@ class attachmentTpl {
 	*/
 	public static function EntryAttachmentCount($attr)
 	{
-		$none = 'no attachment';
-		$one = 'one attachment';
-		$more = '%d attachments';
-
-		if (isset($attr['none'])) {
-			$none = addslashes($attr['none']);
-		}
-		if (isset($attr['one'])) {
-			$one = addslashes($attr['one']);
-		}
-		if (isset($attr['more'])) {
-			$more = addslashes($attr['more']);
-		}
-
-		return
-		"<?php if (\$_ctx->posts->countMedia() == 0) {\n".
-		"  printf(__('".$none."'),(integer) \$_ctx->posts->countMedia());\n".
-		"} elseif (\$_ctx->posts->countMedia() == 1) {\n".
-		"  printf(__('".$one."'),(integer) \$_ctx->posts->countMedia());\n".
-		"} else {\n".
-		"  printf(__('".$more."'),(integer) \$_ctx->posts->countMedia());\n".
-		"} ?>";
+		global $core;
+		return $core->tpl->displayCounter(
+			'$_ctx->posts->countMedia()',
+			array(
+				'none' => 'no attachment',
+				'one'  => 'one attachment',
+				'more' => '%d attachments'
+			),
+			$attr,
+			false
+		);
 	}
 }
 
