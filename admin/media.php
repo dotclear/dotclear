@@ -438,14 +438,14 @@ if (!isset($pager)) {
 echo
 '</div>';
 
+$core_media_archivable = $core->auth->check('media_admin',$core->blog->id) &&
+	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent));
+
 if ($core_media_writable || $core_media_archivable) {
 	echo
 	'<div class="vertical-separator">'.
 	'<h3 class="out-of-screen-if-js">'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>';
 }
-
-$core_media_archivable = $core->auth->check('media_admin',$core->blog->id) &&
-	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent));
 
 if ($core_media_writable || $core_media_archivable) {
 	echo
