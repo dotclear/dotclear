@@ -1964,3 +1964,12 @@ msgstr ""
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
