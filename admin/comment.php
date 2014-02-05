@@ -180,8 +180,8 @@ if ($comment_id) {
 
 dcPage::open(__('Edit comment'),
 	dcPage::jsConfirmClose('comment-form').
-	dcPage::jsToolBar().
 	dcPage::jsLoad('js/_comment.js').
+	$core->callBehavior('adminPostEditor').
 	# --BEHAVIOR-- adminCommentHeaders
 	$core->callBehavior('adminCommentHeaders'),
 	$breadcrumb

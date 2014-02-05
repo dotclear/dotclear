@@ -59,23 +59,27 @@
 							</tpl:CategoryParents>
 							{{tpl:CategoryTitle encode_html="1"}}
 						</h2>
-						{{tpl:CategoryDescription}}
 
 						<tpl:CategoryIf has_entries="1">
-							<p class="feed-info">
-								<a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}"
-								 title="{{tpl:lang This category's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a>
+							<ul class="content-info__feed">
+								<li><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}"
+								 title="{{tpl:lang This category's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a></li>
 
 								<tpl:SysIf operator="or" comments_active="1" pings_active="1">
-									 - <a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}/comments"
-									 title="{{tpl:lang This category's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
+									 <li><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}/comments"
+									 title="{{tpl:lang This category's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a></li>
 								</tpl:SysIf>
-							</p>
+							</ul>
 						</tpl:CategoryIf>
+
+						<div class="content-info__cat-desc">
+							{{tpl:CategoryDescription}}
+						</div>
+
 
 						<tpl:CategoryFirstChildren>
 							<tpl:CategoriesHeader>
-								<div id="subcategories">
+								<div id="subcategories" class="content-info__sub-cat">
 									<h3>{{tpl:lang Subcategories}}</h3>
 									<ul>
 							</tpl:CategoriesHeader>

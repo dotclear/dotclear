@@ -499,6 +499,10 @@ class context
 			{
 				$res = '.'.$base.'_'.$size.'.jpg';
 			}
+			elseif ($size != 'o' && file_exists($root.'/'.$info['dirname'].'/.'.$base.'_'.$size.'.png'))
+			{
+				$res = '.'.$base.'_'.$size.'.png';
+			}
 			else
 			{
 				$f = $root.'/'.$info['dirname'].'/'.$base;

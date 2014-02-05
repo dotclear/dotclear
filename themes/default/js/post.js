@@ -1,5 +1,5 @@
 $(function() {
-	$('#comment-form p:has(input[type=submit][name=preview])').
+	$('#comment-form p:has(input[type=submit][name=preview],button[type=submit][name=preview])').
 		before(
 			'<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> ' +
 			'<label for="c_remember">' + post_remember_str + '</label>' +

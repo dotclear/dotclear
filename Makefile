@@ -37,27 +37,13 @@ config: clean config-stamp
 	./themes/blueSilence \
 	./themes/customCSS \
 	./themes/ductile \
+	./themes/berlin \
 	./$(DC)/themes/
 
-	## Copy built-in plugins
-	cp -pRf \
-	./plugins/aboutConfig \
-	./plugins/akismet \
-	./plugins/antispam \
-	./plugins/attachments \
-	./plugins/blogroll \
-	./plugins/blowupConfig \
-	./plugins/dclegacy \
-	./plugins/fairTrackbacks \
-	./plugins/importExport \
-	./plugins/maintenance \
-	./plugins/tags \
-	./plugins/pages \
-	./plugins/pings \
-	./plugins/simpleMenu \
-	./plugins/themeEditor \
-	./plugins/userPref \
-	./plugins/widgets \
+	## Copy built-in plugins based on DC_DISTRIB_PLUGINS constant
+	cp -pRf $$(grep DC_DISTRIB_PLUGINS inc/prepend.php | \
+		sed -e "s/.*,'//" -e "s/'.*//" | \
+		sed -e  's/\(^\|,\)/ .\/plugins\//g') \
 	./$(DC)/plugins/
 
 	## "Compile" .po files
@@ -67,7 +53,6 @@ config: clean config-stamp
 	find $(DC)/admin/js/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/ie7/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jquery/*.js -exec ./build-tools/min-js.php \{\} \;
-	find $(DC)/admin/js/jsToolBar/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jsUpload/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/plugins -name '*.js' -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/themes/default/js/*.js -exec ./build-tools/min-js.php \{\} \;
@@ -133,3 +118,4 @@ pack-tool:
 	[ -d $(ipath)/$(iname) ]
 
 
+copy-plugins: clean

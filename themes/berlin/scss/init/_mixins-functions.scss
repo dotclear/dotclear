@@ -1,0 +1,17 @@
+// mixin svg fallback
+@mixin svg(
+    $file-name,
+    $css-img-path: $css-img-path) {
+    background-image: url($css-img-path+'/'+$file-name+'.png');
+    background-image: url($css-img-path+'/'+$file-name+'.svg'), none;
+}
+
+@mixin bg-with-svg(
+    $file-name,
+    $css-img-path: $css-img-path,
+    $repeat: no-repeat,
+    $position: 50% 50%,
+    $bg-color: transparent) {
+    background: url($css-img-path+'/'+$file-name+'.png') $repeat, $position, $bg-color;
+    background-image: url($css-img-path+'/'+$file-name+'.svg'), none;
+}
