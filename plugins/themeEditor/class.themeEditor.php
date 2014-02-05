@@ -46,7 +46,7 @@ class dcThemeEditor
 		$this->findLocales();
 	}
 
-	public function filesList($type,$item='%1$s')
+	public function filesList($type,$item='%1$s',$split=true)
 	{
 		$files = $this->getFilesFromType($type);
 
@@ -55,16 +55,49 @@ class dcThemeEditor
 		}
 
 		$list = '';
-		foreach ($files as $k => $v)
-		{
-			if (strpos($v,$this->user_theme) === 0) {
-				$li = sprintf('<li class="default-file">%s</li>',$item);
-			} elseif ($this->parent_theme && strpos($v,$this->parent_theme) === 0) {
-				$li = sprintf('<li class="parent-file">%s</li>',$item);
-			} else {
-				$li = sprintf('<li>%s</li>',$item);
+		if ($split) {
+			// First part for current theme
+			$list_theme = '';
+			foreach ($files as $k => $v)
+			{
+				if (strpos($v,$this->user_theme) === 0) {
+					$li = sprintf('<li class="default-file">%s</li>',$item);
+					$list_theme .= sprintf($li,$k,html::escapeHTML($k));
+				}
 			}
-			$list .= sprintf($li,$k,html::escapeHTML($k));
+			// Second part for parent theme if any
+			$list_parent = '';
+			foreach ($files as $k => $v)
+			{
+				if ((strpos($v,$this->user_theme) !== 0) && ($this->parent_theme && strpos($v,$this->parent_theme) === 0)) {
+					$li = sprintf('<li class="parent-file">%s</li>',$item);
+					$list_parent .= sprintf($li,$k,html::escapeHTML($k));
+				}
+			}
+			// Third part for template set
+			$list_tpl = '';
+			foreach ($files as $k => $v)
+			{
+				if ((strpos($v,$this->user_theme) !== 0) && ($this->parent_theme && strpos($v,$this->parent_theme) !== 0)) {
+					$li = sprintf('<li>%s</li>',$item);
+					$list_tpl .= sprintf($li,$k,html::escapeHTML($k));
+				}
+			}
+			$list .= ($list_theme != '' ? sprintf('<li class="group-file">'.__('From theme:').'<ul>%s</ul></li>',$list_theme) : '');
+			$list .= ($list_parent != '' ? sprintf('<li class="group-file">'.__('From parent:').'<ul>%s</ul></li>',$list_parent) : '');
+			$list .= ($list_tpl != '' ? sprintf('<li class="group-file">'.__('From template set:').'<ul>%s</ul></li>',$list_tpl) : '');
+		} else {
+			foreach ($files as $k => $v)
+			{
+				if (strpos($v,$this->user_theme) === 0) {
+					$li = sprintf('<li class="default-file">%s</li>',$item);
+				} elseif ($this->parent_theme && strpos($v,$this->parent_theme) === 0) {
+					$li = sprintf('<li class="parent-file">%s</li>',$item);
+				} else {
+					$li = sprintf('<li>%s</li>',$item);
+				}
+				$list .= sprintf($li,$k,html::escapeHTML($k));
+			}
 		}
 
 		return sprintf('<ul>%s</ul>',$list);

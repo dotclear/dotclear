@@ -1982,6 +1982,15 @@ msgstr "Retirer le widget"
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
+msgid "From theme:"
+msgstr "Du thème :"
+
+msgid "From parent:"
+msgstr "Du thème parent :"
+
+msgid "From template set:"
+msgstr "Du jeu de template :"
+
 #~ msgid "RSS or Atom feed subscription links"
 #~ msgstr "Liens d'abonnement aux flux RSS ou Atom"
 
