@@ -74,7 +74,10 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 $popup = (integer) !empty($_GET['popup']);
 
 $page_url = 'media.php?popup='.$popup.'&post_id='.$post_id;
-
+$temp = $core->callBehavior('adminMediaURL',$page_url);
+if ($temp != '') {
+	$page_url=$temp;
+}
 if ($popup) {
 	$open_f = array('dcPage','openPopup');
 	$close_f = array('dcPage','closePopup');
@@ -574,8 +577,8 @@ function mediaItemLine($f,$i)
 			$class .= ' media-folder';
 		}
 	} else {
-		$link =
-		'media_item.php?id='.$f->media_id.'&amp;popup='.$popup.'&amp;post_id='.$post_id;
+		$link = 'media_item.php?id='.$f->media_id.'&amp;popup='.$popup.'&amp;post_id='.$post_id;
+		$link = $core->callBehavior('adminMediaURL',$link);
 	}
 
 	$maxchars = 36;

@@ -373,7 +373,12 @@ class dcUrlHandlers extends urlHandler
 				{
 					# Get passwords cookie
 					if (isset($_COOKIE['dc_passwd'])) {
-						$pwd_cookie = unserialize($_COOKIE['dc_passwd']);
+						$pwd_cookie = json_decode($_COOKIE['dc_passwd']);
+						if ($pwd_cookie === NULL) {
+							$pwd_cookie = array();
+						} else {
+							$pwd_cookie = (array) $pwd_cookie;
+						}
 					} else {
 						$pwd_cookie = array();
 					}
@@ -383,7 +388,7 @@ class dcUrlHandlers extends urlHandler
 					|| (isset($pwd_cookie[$post_id]) && $pwd_cookie[$post_id] == $post_password))
 					{
 						$pwd_cookie[$post_id] = $post_password;
-						setcookie('dc_passwd',serialize($pwd_cookie),0,'/');
+						setcookie('dc_passwd',json_encode($pwd_cookie),0,'/');
 					}
 					else
 					{
