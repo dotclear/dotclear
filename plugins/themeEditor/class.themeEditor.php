@@ -56,29 +56,18 @@ class dcThemeEditor
 
 		$list = '';
 		if ($split) {
-			// First part for current theme
-			$list_theme = '';
+			$list_theme = '';	// Files from current theme
+			$list_parent = '';	// Files from parent of current theme
+			$list_tpl = '';		// Files from template set used by current theme
 			foreach ($files as $k => $v)
 			{
 				if (strpos($v,$this->user_theme) === 0) {
 					$li = sprintf('<li class="default-file">%s</li>',$item);
 					$list_theme .= sprintf($li,$k,html::escapeHTML($k));
-				}
-			}
-			// Second part for parent theme if any
-			$list_parent = '';
-			foreach ($files as $k => $v)
-			{
-				if ((strpos($v,$this->user_theme) !== 0) && ($this->parent_theme && strpos($v,$this->parent_theme) === 0)) {
+				} elseif ($this->parent_theme && strpos($v,$this->parent_theme) === 0) {
 					$li = sprintf('<li class="parent-file">%s</li>',$item);
 					$list_parent .= sprintf($li,$k,html::escapeHTML($k));
-				}
-			}
-			// Third part for template set
-			$list_tpl = '';
-			foreach ($files as $k => $v)
-			{
-				if ((strpos($v,$this->user_theme) !== 0) && ($this->parent_theme && strpos($v,$this->parent_theme) !== 0)) {
+				} else {
 					$li = sprintf('<li>%s</li>',$item);
 					$list_tpl .= sprintf($li,$k,html::escapeHTML($k));
 				}
