@@ -124,7 +124,7 @@ class defaultWidgets
 
 	public static function bestof($w)
 	{
-		global $core;
+		global $core, $_ctx;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
@@ -149,7 +149,11 @@ class defaultWidgets
 		'<ul>';
 
 		while ($rs->fetch()) {
-			$res .= ' <li><a href="'.$rs->getURL().'">'.html::escapeHTML($rs->post_title).'</a></li> ';
+			$class = '';
+			if ($core->url->type == 'post' && $_ctx->posts instanceof record && $_ctx->posts->post_id == $rs->post_id) {
+				$class = ' class="post-current"';
+			}
+			$res .= ' <li'.$class.'><a href="'.$rs->getURL().'">'.html::escapeHTML($rs->post_title).'</a></li> ';
 		}
 
 		$res .= '</ul>'.($w->content_only ? '' : '</div>');
@@ -313,7 +317,7 @@ class defaultWidgets
 
 	public static function lastposts($w)
 	{
-		global $core;
+		global $core, $_ctx;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
@@ -355,7 +359,11 @@ class defaultWidgets
 		'<ul>';
 
 		while ($rs->fetch()) {
-			$res .= '<li><a href="'.$rs->getURL().'">'.
+			$class = '';
+			if ($core->url->type == 'post' && $_ctx->posts instanceof record && $_ctx->posts->post_id == $rs->post_id) {
+				$class = ' class="post-current"';
+			}
+			$res .= '<li'.$class.'><a href="'.$rs->getURL().'">'.
 			html::escapeHTML($rs->post_title).'</a></li>';
 		}
 
