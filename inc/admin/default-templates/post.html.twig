@@ -54,11 +54,11 @@
 			{% for bl in main_blocks %}
 				{{ block(bl) }}
 			{% endfor %}
-			<p>{{ form_field('save')}} 
+			<p>{{ form_field('save')}}
 			{% if preview_url is defined %}
 				<a id="post-preview" href="{{ preview_url}}" class="button" accesskey="p">{{__('Preview')}} (p)</a>
 			{% endif %}
-			
+
 			{{form_field('delete',{'class':'delete'})}}{{form_hidden()}}</p>
 
 		</div>
@@ -104,10 +104,10 @@
 {% endif %}
 {% endblock %}
 
-{% block field_post_status %}
+{#{% block field_post_status %}
 <p>{{ form_field('post_status',{},{'labelclass':'ib'}) }}</p>
 {% endblock %}
-
+#}
 {# Field-specific blocks #}
 
 {% block post_title -%}
@@ -127,7 +127,7 @@
 {%- endblock %}
 
 {% block post_status -%}
-	<p><label class="ib">{{form_field_attr('post_status','label')}} {{ _self.img_status(form_field_attr('post_status','value'))}}</label>{{ form_field('post_status',{},{'label':'','labelclass':'ib'})}}</p>
+	<p class="entry-status"><label for="post_status">{{form_field_attr('post_status','label')}} {{ _self.img_status(form_field_attr('post_status','value'))}}</label>{{ form_field('post_status',{},{'label':'','labelclass':'ib'})}}</p>
 {%- endblock %}
 
 {% block post_dt -%}
@@ -135,15 +135,18 @@
 {%- endblock %}
 
 {% block post_lang -%}
-	<p>{{ form_field('post_lang',{"class":"maximal"},{'nestedlabel':true, 'labelclass':'ib'})}}</p>
+	<p>{{ form_field('post_lang',{"class":"maximal"},{'labelclass':'ib'})}}</p>
 {%- endblock %}
 
 {% block post_format -%}
-	<p>{{ form_field('post_format',{},{'labelclass':'ib'})}}</p>
-	{% if post_id and form_field_attr('post_format','value')=='xhtml' %}
-	<p><a id="convert-xhtml" class="button maximal" href="post.php?id={{post_id}}&amp;xconv=1">
-	{{__('Convert to XHTML')}}</a></p>
-	{% endif %}
+	<div>
+		<h5 id="label_format" class="classic">{{form_field_attr('post_format','label')}}</h5>
+		<p>{{ form_field('post_format',{},{'label':''})}}</p>
+		{% if post_id and form_field_attr('post_format','value')=='xhtml' %}
+			<p><a id="format_control control_no_xhtml" class="button maximal" href="post.php?id={{post_id}}&amp;xconv=1">
+			{{__('Convert to XHTML')}}</a></p>
+		{% endif %}
+	</div>
 {%- endblock %}
 
 {% block post_selected -%}
@@ -151,14 +154,34 @@
 {%- endblock %}
 
 {% block cat_id -%}
-	<p>{{ form_field('cat_id',{'class':'maximal'},{'labelclass':'ib'}) }}</p>
-	{#{% if can_edit_categories %}#}
+{#'<div>'.
+					'<h5 id="label_cat_id">'.__('Category').'</h5>'.
+					'<p><label for="cat_id">'.__('Category:').'</label>'.
+					form::combo('cat_id',$categories_combo,$cat_id,'maximal').
+					'</p>'.
+					($core->auth->check('categories', $core->blog->id) ?
+						'<div>'.
+						'<h5 id="create_cat">'.__('Add a new category').'</h5>'.
+						'<p><label for="new_cat_title">'.__('Title:').' '.
+						form::field('new_cat_title',30,255,'','maximal').'</label></p>'.
+						'<p><label for="new_cat_parent">'.__('Parent:').' '.
+						form::combo('new_cat_parent',$categories_combo,'','maximal').
+						'</label></p>'.
+						'</div>'
+					: '').
+					'</div>')),
+#}
 	<div>
-		<p id="new_cat">{{__('Add a new category')}}</p>
-		<p>{{ form_field('new_cat_title') }}</p>
-		<p>{{ form_field('new_cat_parent') }} </p>
+		<h5 id="label_cat_id">{{form_field_attr('cat_id','label')}}</h5>
+		<p>{{ form_field('cat_id',{},{'label':''})}}</p>
+		{% if 1==1 %}
+			<div>
+				<h5 id="create_cat">{{__('Add a new category')}}</h5>
+				<p>{{ form_field('new_cat_title',{"class":"maximal"}) }}</p>
+				<p>{{ form_field('new_cat_parent') }} </p>
+			</div>
+		{% endif %}
 	</div>
-	{#{% endif %}#}
 {%- endblock %}
 
 {% block post_open_comment -%}
