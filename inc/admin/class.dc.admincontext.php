@@ -21,7 +21,7 @@ class dcProxy {
 
     /**
      * valuesToArray - converts a list of strings to an array having these strings as keys.
-     * 
+     *
      * @param mixed $val the list to convert.
      * @access protected
      * @return mixed Value The resulting array
@@ -62,7 +62,7 @@ class dcProxy {
 			return $this->default;
 		}
 	}
-	
+
 	public function __isset($name) {
 		if ($this->isAllowed($name,$this->attributes)) {
 			return isset($this->object->$name);
@@ -70,7 +70,7 @@ class dcProxy {
 			return false;
 		}
 	}
-	
+
 
 	public function __call($name,$args) {
 		if ($this->isAllowed($name,$this->methods) &&
@@ -111,14 +111,14 @@ class dcAdminContext extends Twig_Extension
 	protected $globals = array();
 	protected $protected_globals = array();
 	protected $memory = array();
-	
+
 	public function __construct($core)
 	{
 		$this->core = $core;
-		
+
 		# Globals editable via context
 		$this->globals = array();
-		
+
 		# Globals not editable via context
 		$this->protected_globals = array(
 			'messages' => array(
@@ -127,22 +127,22 @@ class dcAdminContext extends Twig_Extension
 				'alert' => '',
 				'errors' => array()
 			),
-			
+
 			'page_title'	=> array(),
 			'page_global'	=> false,
-			
+
 			'admin_url' 	=> DC_ADMIN_URL,
 			'theme_url' 	=> '',
 			'plugin_url' 	=> DC_ADMIN_URL.'index.php?pf=',
-			
+
 			'version' 		=> DC_VERSION,
 			'vendor_name' 	=> DC_VENDOR_NAME,
-			
+
 			'safe_mode' 	=> isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'],
 			'debug_mode'	=> DC_DEBUG
 		);
 	}
-	
+
 	/**
 	Prevent call crash from template on method that return this class
 	*/
@@ -150,10 +150,10 @@ class dcAdminContext extends Twig_Extension
 	{
 		return '';
 	}
-	
+
 	/**
 	Test a global variable
-	
+
 	@param string $name Name of the variable to test
 	@return boolean
 	*/
@@ -161,10 +161,10 @@ class dcAdminContext extends Twig_Extension
 	{
 		return isset($this->globals[$name]);
 	}
-	
+
 	/**
 	Add a global variable
-	
+
 	@param string $name Name of the variable
 	@param mixed $value Value of the variable
 	*/
@@ -181,10 +181,10 @@ class dcAdminContext extends Twig_Extension
 //*/
 		$this->globals[$name] = $value;
 	}
-	
+
 	/**
 	Get a global variable
-	
+
 	@param string $name Name of the variable
 	@return mixed Value of the variable or null
 	*/
@@ -192,10 +192,10 @@ class dcAdminContext extends Twig_Extension
 	{
 		return isset($this->globals[$name]) ? $this->globals[$name] : null;
 	}
-	
+
 	/**
 	Returns a list of filters to add to the existing list.
-	
+
 	@return array An array of filters
 	*/
 	public function getFilters()
@@ -204,10 +204,10 @@ class dcAdminContext extends Twig_Extension
 			'trans' => new Twig_Filter_Function("__", array('is_safe' => array('html')))
 		);
 	}
-	
+
 	/**
 	Returns a list of functions to add to the existing list.
-	
+
 	@return array An array of functions
 	*/
 	public function getFunctions()
@@ -220,11 +220,11 @@ class dcAdminContext extends Twig_Extension
 			'build_url' => new Twig_Function_Method($this,'buildUrl', array('is_safe' => array('html')))
 		);
 	}
-	
+
 
     /**
      * Builds an url given a base, and parameters
-     * 
+     *
      * @param mixed $url    the base url as string
      * @param mixed $params the parameters.
      *
@@ -251,24 +251,26 @@ class dcAdminContext extends Twig_Extension
 
 	/**
 	Returns a list of global variables to add to the existing list.
-	
+
 	This merges overloaded variables with defined variables.
-	
+
 	@return array An array of global variables
 	*/
 	public function getGlobals()
 	{
-		$this->getBlogs();
-		$this->getCurrentBlog();
-		$this->getCurrentUser();
-		$this->getMenus();
-		
-		# Additional globals
-		$p = path::info($_SERVER['REQUEST_URI']);
-		$this->protected_globals['current_page'] = $p['base'];
-		$this->protected_globals['blog_count'] = $this->core->auth->getBlogCount();
-		$this->protected_globals['rtl'] = l10n::getTextDirection(
-			$this->protected_globals['current_user']['lang']) == 'rtl';
+		if ($this->core->auth->userID()) {
+			$this->getBlogs();
+			$this->getCurrentBlog();
+			$this->getCurrentUser();
+			$this->getMenus();
+
+			# Additional globals
+			$p = path::info($_SERVER['REQUEST_URI']);
+			$this->protected_globals['current_page'] = $p['base'];
+			$this->protected_globals['blog_count'] = $this->core->auth->getBlogCount();
+			$this->protected_globals['rtl'] = l10n::getTextDirection(
+				$this->protected_globals['current_user']['lang']) == 'rtl';
+		}
 		$this->protected_globals['session'] = array(
 			'id' => session_id(),
 			'uid' => isset($_SESSION['sess_browser_uid']) ? $_SESSION['sess_browser_uid'] : '',
@@ -277,21 +279,21 @@ class dcAdminContext extends Twig_Extension
 		# Keep protected globals safe
 		return array_merge($this->globals,$this->protected_globals);
 	}
-	
+
 	/**
 	Returns the name of the extension.
-	
+
 	@return string The extension name
 	*/
 	public function getName()
 	{
 		return 'AdminContext';
 	}
-	
-	
+
+
 	/**
 	Add an informational message
-	
+
 	@param string $message A message
 	@return object self
 	*/
@@ -300,10 +302,10 @@ class dcAdminContext extends Twig_Extension
 		$this->protected_globals['safe_mode'] = (boolean) $safe_mode;
 		return $this;
 	}
-	
+
 	/**
 	Add an informational message
-	
+
 	@param string $message A message
 	@return object self
 	*/
@@ -312,10 +314,10 @@ class dcAdminContext extends Twig_Extension
 		$this->protected_globals['messages']['static'][] = $message;
 		return $this;
 	}
-	
+
 	/**
 	Add a list of informational messages
-	
+
 	@param string $message A title
 	@param array $message A list of messages
 	@return object self
@@ -325,10 +327,10 @@ class dcAdminContext extends Twig_Extension
 		$this->protected_globals['messages']['lists'][$title] = $messages;
 		return $this;
 	}
-	
+
 	/**
 	Set an important message
-	
+
 	@param string $message A message
 	@return object self
 	*/
@@ -337,10 +339,10 @@ class dcAdminContext extends Twig_Extension
 		$this->protected_globals['messages']['alert'] = $message;
 		return $this;
 	}
-	
+
 	/**
 	Add an error message
-	
+
 	@param string Error message
 	@return object self
 	*/
@@ -349,25 +351,25 @@ class dcAdminContext extends Twig_Extension
 		$this->protected_globals['messages']['errors'][] = $error;
 		return $this;
 	}
-	
+
 	/**
 	Check if there is an error message
-	
+
 	@return boolean
 	*/
 	public function hasError()
 	{
 		return !empty($this->protected_globals['messages']['errors']);
 	}
-	
+
 	/**
 	Add a section to the breadcrumb
-	
-	$title can be: 
-	a string for page title part or 
+
+	$title can be:
+	a string for page title part or
 	TRUE to add blog name at the begining of title or
 	NULL to empty/reset title
-	
+
 	@param mixed $title A title part
 	@param boolean $url Link of the title part
 	@return object self
@@ -380,15 +382,15 @@ class dcAdminContext extends Twig_Extension
 			'class' => $class
 		);
 	}
-	
+
 	/**
 	Fill the page title
-	
-	$title can be: 
-	a string for page title part or 
+
+	$title can be:
+	a string for page title part or
 	TRUE to add blog name at the begining of title or
 	NULL to empty/reset title
-	
+
 	@param mixed $title A title part
 	@param boolean $url Link of the title part
 	@return object self
@@ -410,7 +412,7 @@ class dcAdminContext extends Twig_Extension
 		}
 		return $this;
 	}
-	
+
 	/**
 	Check if a page title is set
 	*/
@@ -418,14 +420,14 @@ class dcAdminContext extends Twig_Extension
 	{
 		return !empty($this->protected_globals['page_title']);
 	}
-	
+
 	/**
 	Get list of blogs
 	*/
 	protected function getBlogs()
 	{
 		$blog_id = '';
-		
+
 		# Blogs list
 		$blogs = array();
 		$blog_count = $this->core->auth->getBlogCount();
@@ -434,12 +436,12 @@ class dcAdminContext extends Twig_Extension
 			$rs_blogs = $this->core->getBlogs(array('order'=>'LOWER(blog_name)','limit'=>20));
 			while ($rs_blogs->fetch()) {
 				$blogs[$rs_blogs->blog_id] = $rs_blogs->blog_name.' - '.$rs_blogs->blog_url;
-				$this->protected_globals['blogs'][$rs_blogs->blog_id] = 
+				$this->protected_globals['blogs'][$rs_blogs->blog_id] =
 				new dcArrayProxy($rs_blogs, array(
 					'blog_id','blog_name','blog_desc','blog_url','blog_creadt','blog_upddt'));
 			}
 		}
-		
+
 		# Switch blog form
 		$form = new dcForm($this->core,'switchblog_menu','index.php');
 		$form
@@ -462,7 +464,7 @@ class dcAdminContext extends Twig_Extension
 				)))
 			->setup();
 	}
-	
+
 	/**
 	Get current blog information
 	*/
@@ -481,7 +483,7 @@ class dcAdminContext extends Twig_Extension
 				'upddt'	=> ''
 			);
 	}
-	
+
 	/**
 	Get current user information
 	*/
@@ -492,7 +494,7 @@ class dcAdminContext extends Twig_Extension
 			'email','url','default_blog','lang','tz',
 			'post_status','creadt','upddt','cn'
 		);
-		
+
 		$user = array(
 			'id' => '',
 			'super' => false,
@@ -503,13 +505,13 @@ class dcAdminContext extends Twig_Extension
 				'media' => false
 			)
 		);
-		
+
 		foreach($infos as $i) {
 			$user[$i] = '';
 		}
-		
+
 		if ($this->core->auth->userID()) {
-		
+
 			$user = array(
 				'id' => $this->core->auth->userID(),
 				'super' => $this->core->auth->isSuperAdmin(),
@@ -518,32 +520,32 @@ class dcAdminContext extends Twig_Extension
 					'media' => $this->core->auth->check('media,media_admin',$this->core->blog->id)
 				)
 			);
-			
+
 			foreach($infos as $i) {
 				$user[$i] = $this->core->auth->getInfo('user_'.$i);
 			}
-			
+
 			foreach($this->core->auth->user_prefs->dumpWorkspaces() as $ws => $prefs) {
 				$user['prefs'][$ws] = $prefs->dumpPrefs();
 			}
 		}
-		
+
 		$this->protected_globals['current_user'] = $user;
 	}
-	
+
 	/**
 	Get sidebar menus
 	*/
 	protected function getMenus()
 	{
 		global $_menu;
-		
+
 		$this->protected_globals['menus'] = array();
-		
+
 		if (!isset($_menu)) {
 			return;
 		}
-		
+
 		foreach($_menu as $m) {
 			$this->protected_globals['menus'][] = array(
 				'id' 		=> $m->getID(),
@@ -553,7 +555,7 @@ class dcAdminContext extends Twig_Extension
 			);
 		}
 	}
-	
+
 	/**
 	Get an array of debug/dev infos
 	*/
@@ -562,7 +564,7 @@ class dcAdminContext extends Twig_Extension
 		if (!DC_DEBUG) {
 			return array();
 		}
-		
+
 		$di = array(
 			'global_vars' => implode(', ',array_keys($GLOBALS)),
 			'memory' => array(
@@ -571,19 +573,19 @@ class dcAdminContext extends Twig_Extension
 			),
 			'xdebug' => array()
 		);
-		
+
 		if (function_exists('xdebug_get_profiler_filename')) {
-		
+
 			$url = http::getSelfURI();
 			$url .= strpos($url,'?') === false ? '?' : '&';
 			$url .= 'XDEBUG_PROFILE';
-			
+
 			$di['xdebug'] = array(
 				'elapse_time' => xdebug_time_index(),
 				'profiler_file' => xdebug_get_profiler_filename(),
 				'profiler_url' =>  $url
 			);
-			
+
 			/* xdebug configuration:
 			zend_extension = /.../xdebug.so
 			xdebug.auto_trace = On
@@ -597,15 +599,15 @@ class dcAdminContext extends Twig_Extension
 			xdebug.profiler_output_name = timestamp
 			*/
 		}
-		
+
 		return $di;
 	}
-	
+
 	/**
 	Add a value in a namespace memory
-	
+
 	This help keep variable when recalling Twig macros
-	
+
 	@param string $ns A namespace
 	@param string $str A value to memorize in this namespace
 	*/
@@ -615,10 +617,10 @@ class dcAdminContext extends Twig_Extension
 			$this->memory[$ns][] = $str;
 		}
 	}
-	
+
 	/**
 	Check if a value is previously memorized in a namespace
-	
+
 	@param string $ns A namespace
 	@param string $str A value to search in this namespace
 	@return array True if exists

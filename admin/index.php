@@ -65,7 +65,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS)) {
 	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
 	$new_v = $updater->check(DC_VERSION);
 	$version_info = $new_v ? $updater->getInfoURL() : '';
-	
+
 	if ($updater->getNotify() && $new_v) {
 		$_ctx->updater = array(
 			'new_version'	=> $new_v,
@@ -144,13 +144,13 @@ if ($core->auth->user_prefs->dashboard->quickentry &&$core->auth->check('usage,c
 	try {
 		$categories = $core->blog->getCategories(array('post_type'=>'post'));
 		while ($categories->fetch()) {
-			$categories_combo[$categories->cat_id] = 
+			$categories_combo[$categories->cat_id] =
 				str_repeat('&nbsp;&nbsp;',$categories->level-1).
 				($categories->level-1 == 0 ? '' : '&bull; ').
 				html::escapeHTML($categories->cat_title);
 		}
 	} catch (Exception $e) { }
-	
+
 	$form = new dcForm($core,array('quickentry','quick-entry'),'post.php');
 	$form
 		->addField(
@@ -183,104 +183,108 @@ if ($core->auth->user_prefs->dashboard->quickentry &&$core->auth->check('usage,c
 		$form->addField(
 			new dcFieldHidden ('save-publish',__('Save and publish')));
 	}
-	
+
 	$_ctx->dashboard_quickentry = true;
 }
 
 # Dashboard icons
 $__dashboard_icons = new ArrayObject();
 
-# Dashboard favorites
-$post_count = $core->blog->getPosts(array(),true)->f(0);
-$str_entries = ($post_count > 1) ? __('%d entries') : __('%d entry');
+$favs = $core->favs->getUserFavorites();
+$core->favs->appendDashboardIcons($__dashboard_icons);
 
-$comment_count = $core->blog->getComments(array(),true)->f(0);
-$str_comments = ($comment_count > 1) ? __('%d comments') : __('%d comment');
 
-$ws = $core->auth->user_prefs->addWorkspace('favorites');
-$count = 0;
-foreach ($ws->dumpPrefs() as $k => $v) {
-	// User favorites only
-	if (!$v['global']) {
-		$fav = unserialize($v['value']);
-		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			if (dc_valid_fav($fav['url'])) {
-				$count++;
-				$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
-					($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-				$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
+# Check plugins and themes update from repository
+function dc_check_store_update($mod, $url, $img, $icon)
+{
+	$repo = new dcStore($mod, $url);
+	$upd = $repo->get(true);
+	if (!empty($upd)) {
+		$icon[0] .= '<br />'.sprintf(__('An update is available', '%s updates are available.', count($upd)),count($upd));
+		$icon[1] .= '#update';
+		$icon[2] = 'images/menu/'.$img.'-b-update.png';
+	}
+}
+if (isset($__dashboard_icons['plugins'])) {
+	dc_check_store_update($core->plugins, $core->blog->settings->system->store_plugin_url, 'plugins', $__dashboard_icons['plugins']);
+}
+if (isset($__dashboard_icons['blog_theme'])) {
+	$themes = new dcThemes($core);
+	$themes->loadModules($core->blog->themes_path, null);
+	dc_check_store_update($themes, $core->blog->settings->system->store_theme_url, 'blog-theme', $__dashboard_icons['blog_theme']);
+}
 
-				# Let plugins set their own title for favorite on dashboard
-				$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
+# Latest news for dashboard
+$__dashboard_items = new ArrayObject(array(new ArrayObject(),new ArrayObject()));
+
+$dashboardItem = 0;
+
+
+if ($core->auth->user_prefs->dashboard->dcnews) {
+	try
+	{
+		if (empty($__resources['rss_news'])) {
+			throw new Exception();
+		}
+
+		$feed_reader = new feedReader;
+		$feed_reader->setCacheDir(DC_TPL_CACHE);
+		$feed_reader->setTimeout(2);
+		$feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
+		$feed = $feed_reader->parse($__resources['rss_news']);
+		if ($feed)
+		{
+			$latest_news = '<div class="box medium dc-box"><h3>'.__('Dotclear news').'</h3><dl id="news">';
+			$i = 1;
+			foreach ($feed->items as $item)
+			{
+				$dt = isset($item->link) ? '<a href="'.$item->link.'" class="outgoing" title="'.$item->title.'">'.
+					$item->title.' <img src="images/outgoing-blue.png" alt="" /></a>' : $item->title;
+
+				if ($i < 3) {
+					$latest_news .=
+					'<dt>'.$dt.'</dt>'.
+					'<dd><p><strong>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</strong> '.
+					'<em>'.text::cutString(html::clean($item->content),120).'...</em></p></dd>';
+				} else {
+					$latest_news .=
+					'<dt>'.$dt.'</dt>'.
+					'<dd>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</dd>';
+				}
+				$i++;
+				if ($i > 2) { break; }
 			}
+			$latest_news .= '</dl></div>';
+			$__dashboard_items[$dashboardItem][] = $latest_news;
+			$dashboardItem++;
 		}
 	}
-}	
-if (!$count) {
-	// Global favorites if any
-	foreach ($ws->dumpPrefs() as $k => $v) {
-		$fav = unserialize($v['value']);
-		if (($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)) {
-			if (dc_valid_fav($fav['url'])) {
-				$count++;
-				$title = ($fav['name'] == 'posts' ? sprintf($str_entries,$post_count) : 
-					($fav['name'] == 'comments' ? sprintf($str_comments,$comment_count) : $fav['title']));
-				$__dashboard_icons[$fav['name']] = new ArrayObject(array(__($title),$fav['url'],$fav['large-icon']));
+	catch (Exception $e) {}
+}
 
-				# Let plugins set their own title for favorite on dashboard
-				$core->callBehavior('adminDashboardFavsIcon',$core,$fav['name'],$__dashboard_icons[$fav['name']]);
-			}
+# Documentation links
+if ($core->auth->user_prefs->dashboard->doclinks) {
+	if (!empty($__resources['doc']))
+	{
+		$doc_links = '<div class="box small dc-box"><h3>'.__('Documentation and support').'</h3><ul>';
+
+		foreach ($__resources['doc'] as $k => $v) {
+			$doc_links .= '<li><a class="outgoing" href="'.$v.'" title="'.$k.'">'.$k.
+			' <img src="images/outgoing-blue.png" alt="" /></a></li>';
 		}
+
+		$doc_links .= '</ul></div>';
+		$__dashboard_items[$dashboardItem][] = $doc_links;
+		$dashboardItem++;
 	}
 }
-if (!$count) {
-	// No user or global favorites, add "user pref" and "new entry" fav
-	if ($core->auth->check('usage,contentadmin',$core->blog->id)) {
-		$__dashboard_icons['new_post'] = new ArrayObject(array(__('New entry'),'post.php','images/menu/edit-b.png'));
-	}
-	$__dashboard_icons['prefs'] = new ArrayObject(array(__('My preferences'),'preferences.php','images/menu/user-pref-b.png'));
-}
 
-# Send dashboard icons to templates
-$icons = array();
-foreach ($__dashboard_icons as $i) {
-	$icons[] = array(
-		'title' 	=> $i[0],
-		'url' 	=> $i[1],
-		'img' 	=> dc_admin_icon_url($i[2])
-	);
-}
-$_ctx->dashboard_icons = $icons;
-
-# Dashboard items
-$__dashboard_items = new ArrayObject(array(new ArrayObject,new ArrayObject));
 $core->callBehavior('adminDashboardItems', $core, $__dashboard_items);
 
-# Send dashboard items to templates
-$items = array();
-foreach ($__dashboard_items as $i) {	
-	if ($i->count() > 0) {
-		foreach ($i as $v) {
-			$items[] = $v;
-		}
-	}
-}
-$_ctx->dashboard_items = $items;
-
 # Dashboard content
+$dashboardContents = '';
 $__dashboard_contents = new ArrayObject(array(new ArrayObject,new ArrayObject));
 $core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
-
-# Send dashboard contents to templates
-$contents = array();
-foreach ($__dashboard_contents as $i) {	
-	if ($i->count() > 0) {
-		foreach ($i as $v) {
-			$contents[] = $v;
-		}
-	}
-}
-$_ctx->dashboard_contents = $contents;
 
 # Blog status message
 if ($core->blog->status == 0) {

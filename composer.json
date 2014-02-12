@@ -1,0 +1,6 @@
+{
+	"require": {
+		"twig/twig": "v1.15.0",
+		"dotclear/clearbricks": "dev-default"
+	}
+}

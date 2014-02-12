@@ -17,8 +17,8 @@ define('DC_START_TIME',microtime(true));
 #  ClearBricks, Twig, DotClear classes auto-loader
 if (@is_dir('/usr/lib/clearbricks')) {
 	define('CLEARBRICKS_PATH','/usr/lib/clearbricks');
-} elseif (is_dir(dirname(__FILE__).'/libs/clearbricks')) {
-	define('CLEARBRICKS_PATH',dirname(__FILE__).'/libs/clearbricks');
+} elseif (is_dir(dirname(__FILE__).'/../vendor/dotclear/clearbricks')) {
+	define('CLEARBRICKS_PATH',dirname(__FILE__).'/../vendor/dotclear/clearbricks');
 } elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
 	define('CLEARBRICKS_PATH',$_SERVER['CLEARBRICKS_PATH']);
 }
@@ -95,8 +95,8 @@ html::$absolute_regs[] = '/(<param\s+name="FlashVars"\s+value=".*?(?:mp3|flv)=)(
 
 if (@is_dir('/usr/lib/twig')) {
 	define('TWIG_PATH','/usr/lib/Twig');
-} elseif (is_dir(dirname(__FILE__).'/libs/Twig')) {
-	define('TWIG_PATH',dirname(__FILE__).'/libs/Twig');
+} elseif (is_dir(dirname(__FILE__).'/../vendor/twig/twig/lib/Twig')) {
+	define('TWIG_PATH',dirname(__FILE__).'/../vendor/twig/twig/lib/Twig');
 } elseif (isset($_SERVER['TWIG_PATH']) && is_dir($_SERVER['TWIG_PATH'])) {
 	define('TWIG_PATH',$_SERVER['TWIG_PATH']);
 }
@@ -310,7 +310,7 @@ function __error($summary,$message,$code=0)
 	# 50 : no default theme
 	# 60 : template processing error
 	# 70 : blog is offline
-	
+
 	if (CLI_MODE)
 	{
 		trigger_error($summary,E_USER_ERROR);
