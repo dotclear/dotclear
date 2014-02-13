@@ -306,7 +306,8 @@ if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
 		__('See <a href="http://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.')
 	);
 }
-
+$_ctx->dashboard_icons = $__dashboard_icons;
+//print_r($__dashboard_icons);exit;
 $_ctx->setBreadCrumb(__('Dashboard').' : '.html::escapeHTML($core->blog->name), false);
 $core->tpl->display('index.html.twig');
 ?>
