@@ -1001,7 +1001,7 @@ class dcMedia extends filemanager
 		}
 	}
 
-	protected function imageThumbRemove($f)
+	public function imageThumbRemove($f)
 	{
 		$p = path::info($f);
 		$alpha = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');

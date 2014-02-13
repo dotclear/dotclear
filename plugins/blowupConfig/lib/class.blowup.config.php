@@ -144,7 +144,7 @@ class blowupConfig
 
 	public static function uploadImage($f)
 	{
-		return dcThemeConfig::uploadImage(self::$img_folder,$f);
+		return dcThemeConfig::uploadImage(self::$img_folder,$f,800);
 	}
 
 	public static function dropImage($img)
