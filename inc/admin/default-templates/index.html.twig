@@ -19,11 +19,11 @@
 <div id="dashboard-main"{% if not has_dashboard_items %} class="fullwidth"{% endif %}>
 	<div id="icons">
 		{% for icon in dashboard_icons %}
-			<p><a href="{{ icon.url }}"><img src="{{ icon.img }}" alt="" />
-			<br /><span>{{ icon.title }}</span></a></p>
+			<p><a href="{{ icon[1] }}"><img src="{{ icon[2] }}" alt="" />
+			<br /><span>{{ icon[0] }}</span></a></p>
 		{% endfor %}
 	</div>
-	
+
 	{% if dashboard_quickentry %}
 		<div id="quick">
 			<h3>{{__('Quick entry')}}</h3>
@@ -37,7 +37,7 @@
 			{% endform %}
 		</div>
 	{% endif %}
-	
+
 	{% if dashboard_contents is not empty %}
 		<div id="dashboard-contents">
 			{% for content in dashboard_contents %}

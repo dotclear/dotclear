@@ -3,15 +3,15 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "77960fc2048ba79c78f64a309f220151",
+    "hash": "0e1a745045996affedec510865a37f2d",
     "packages": [
         {
             "name": "dotclear/clearbricks",
-            "version": "dev-default",
+            "version": "0.9.0",
             "source": {
                 "type": "hg",
                 "url": "http://bitbucket.org/dotclear/clearbricks",
-                "reference": "40b662e0ce7b"
+                "reference": "ea3c26b80754"
             },
             "require": {
                 "php": ">5.3.0"
@@ -37,7 +37,7 @@
                 }
             ],
             "description": "Clearbricks is not yet another framework.",
-            "time": "2013-12-08 14:52:17"
+            "time": "2014-02-07 13:59:12"
         },
         {
             "name": "twig/twig",
@@ -74,11 +74,14 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Armin Ronacher",
-                    "email": "armin.ronacher@active-4.com"
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
@@ -96,9 +99,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "dotclear/clearbricks": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": [
 
     ],
