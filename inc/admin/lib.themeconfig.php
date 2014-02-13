@@ -26,9 +26,9 @@ class dcThemeConfig
 	{
 		// Compute contrast ratio between two colors
 
-		$color = adjustColor($color);
+		$color = self::adjustColor($color);
 		if (($color == '') || (strlen($color) != 7)) return 0;
-		$background = adjustColor($background);
+		$background = self::adjustColor($background);
 		if (($background == '') || (strlen($background) != 7)) return 0;
 
 		$l1 = (0.2126 * pow(hexdec(substr($color,1,2))/255,2.2)) +
@@ -99,8 +99,8 @@ class dcThemeConfig
 	public static function contrastRatio($color,$background,$size='',$bold=false)
 	{
 		if (($color != '') && ($background != '')) {
-			$ratio = computeContrastRatio($color,$background);
-			$level = contrastRatioLevel($ratio,$size,$bold);
+			$ratio = self::computeContrastRatio($color,$background);
+			$level = self::contrastRatioLevel($ratio,$size,$bold);
 			return
 				sprintf(__('ratio %.1f'),$ratio).
 				($level != '' ? ' '.sprintf(__('(%s)'),$level) : '');
