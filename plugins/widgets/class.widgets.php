@@ -184,6 +184,32 @@ class dcWidget
 		return '<p>Callback not found for widget '.$this->id.'</p>';
 	}
 
+	/* Widget rendering tool
+	--------------------------------------------------- */
+	public function renderTitle($title)
+	{
+		global $core;
+
+		if (!$title) {
+			return '';
+		}
+
+		$wtscheme = $core->themes->moduleInfo($core->blog->settings->system->theme,'widgettitleformat');
+		if (empty($wtscheme)) {
+			$tplset = $core->themes->moduleInfo($core->blog->settings->system->theme,'tplset');
+			if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
+				// Use H2 for mustek based themes
+				$wtscheme = '<h2>%s</h2>';
+			} else {
+				// Use H3 for currywurst based themes
+				$wtscheme = '<h3>%s</h3>';
+			}
+		}
+		$ret = sprintf($wtscheme,$title);
+
+		return $ret;
+	}
+
 	/* Widget settings
 	--------------------------------------------------- */
 	public function __get($n)

@@ -27,7 +27,7 @@ class defaultWidgets
 
 		return
 		($w->content_only ? '' : '<div id="search"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>').
-		($w->title ? '<h2><label for="q">'.html::escapeHTML($w->title).'</label></h2>' : '').
+		($w->title ? $w->renderTitle('<label for="q">'.html::escapeHTML($w->title).'</label>') : '').
 		'<form action="'.$core->blog->url.'" method="get" role="search">'.
 		'<fieldset>'.
 		'<p><input type="text" size="10" maxlength="255" id="q" name="q" value="'.$value.'" /> '.
@@ -48,7 +48,7 @@ class defaultWidgets
 
 		$res =
 		($w->content_only ? '' : '<div id="topnav"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul role="navigation">';
 
 		if ($core->url->type != 'default') {
@@ -84,7 +84,7 @@ class defaultWidgets
 
 		$res =
 		($w->content_only ? '' : '<div class="categories'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '');
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '');
 
 		$ref_level = $level = $rs->level-1;
 		while ($rs->fetch())
@@ -145,7 +145,7 @@ class defaultWidgets
 
 		$res =
 		($w->content_only ? '' : '<div class="selected'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
 		while ($rs->fetch()) {
@@ -179,7 +179,7 @@ class defaultWidgets
 		$langs = l10n::getISOcodes();
 		$res =
 		($w->content_only ? '' : '<div class="langs'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
 		while ($rs->fetch())
@@ -219,7 +219,7 @@ class defaultWidgets
 
 		$res =
 		($w->content_only ? '' : '<div class="syndicate'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
 		$res .=
@@ -268,7 +268,7 @@ class defaultWidgets
 
 		$res =
 		($w->content_only ? '' : '<div class="feed'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
 		$i = 0;
@@ -308,7 +308,7 @@ class defaultWidgets
 
 		$res =
 		($w->content_only ? '' : '<div class="text'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		$w->text.
 		($w->content_only ? '' : '</div>');
 
@@ -355,7 +355,7 @@ class defaultWidgets
 
 		$res =
 		($w->content_only ? '' : '<div class="lastposts'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
 		while ($rs->fetch()) {
@@ -390,7 +390,7 @@ class defaultWidgets
 		}
 
 		$res = ($w->content_only ? '' : '<div class="lastcomments'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
 		while ($rs->fetch())

@@ -152,7 +152,7 @@ class tplBlogroll
 
 		return
 		($w->content_only ? '' : '<div class="links'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		$links.
 		($w->content_only ? '' : '</div>');
 	}
