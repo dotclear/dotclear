@@ -428,7 +428,7 @@ class dcThemeConfig
  * Upload an image in images folder
  *
  * @param  string $folder images folder
- * @param  string $f      image filename
+ * @param  string $f      selected image file (as $_FILES[<file input fieldname>])
  * @param  int    $width  check accurate width of uploaded image if <> 0
  *
  * @return string         full pathname of uploaded image
