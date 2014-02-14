@@ -53,7 +53,7 @@ class tplSimpleMenu
 
 		return
 			($w->content_only ? '' : '<div class="simple-menu'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-			($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.
+			($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').$menu.
 			($w->content_only ? '' : '</div>');
 	}
 

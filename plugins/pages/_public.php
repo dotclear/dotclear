@@ -269,7 +269,7 @@ class tplPages
 
 		$res =
 		($w->content_only ? '' : '<div class="pages'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
 		while ($rs->fetch()) {

@@ -267,7 +267,7 @@ class tplTags
 
 		$res =
 		($w->content_only ? '' : '<div class="tags'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
 		if ($core->url->type == 'post' && $_ctx->posts instanceof record) {
