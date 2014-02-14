@@ -1991,6 +1991,15 @@ msgstr "Du thème parent :"
 msgid "From template set:"
 msgstr "Du jeu de template :"
 
+msgid "Reset"
+msgstr "Réinitialiser"
+
+msgid "Are you sure you want to reset this file?"
+msgstr "Êtes-vous sûr de vouloir réinitialiser ce fichier ?"
+
+msgid "The file has been reset."
+msgstr "Le fichier a été réinitialisé."
+
 #~ msgid "RSS or Atom feed subscription links"
 #~ msgstr "Liens d'abonnement aux flux RSS ou Atom"
 
