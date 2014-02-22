@@ -40,7 +40,7 @@ msgstr "Subre"
 msgid "Continue reading"
 msgstr ""
 
-msgid "no comment"
+msgid "no comments"
 msgstr "0 comentaris"
 
 msgid "one comment"

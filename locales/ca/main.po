@@ -702,7 +702,7 @@ msgstr "Descripció:"
 msgid "Entry does not exist."
 msgstr ""
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Sense comentaris"
 
 msgid "You can't edit this comment."

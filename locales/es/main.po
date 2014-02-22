@@ -679,7 +679,7 @@ msgstr "Disposición del MP3"
 msgid "Entry does not exist."
 msgstr "La entrada no existe."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Ningún comentario"
 
 msgid "You can't edit this comment."

@@ -38,7 +38,7 @@ msgstr "Tarih"
 msgid "Continue reading"
 msgstr "Tamamını oku"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "ahkam yok"
 
 msgid "one comment"

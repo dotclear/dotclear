@@ -380,7 +380,7 @@ class adminCommentList extends adminGenericList
 			if( $filter ) {
 				echo '<p><strong>'.__('No comments or trackbacks matches the filter').'</strong></p>';
 			} else {
-				echo '<p><strong>'.__('No comment').'</strong></p>';
+				echo '<p><strong>'.__('No comments').'</strong></p>';
 			}
 		}
 		else
