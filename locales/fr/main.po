@@ -770,7 +770,7 @@ msgstr "Ce billet n'existe pas."
 msgid "Comment has been successfully created."
 msgstr "Le commentaire a été créé."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Aucun commentaire"
 
 msgid "Comment has been successfully updated."

@@ -1791,7 +1791,7 @@ class dcTemplate extends template
 		return $this->displayCounter(
 			$operation,
 			array(
-				'none' => 'no comment',
+				'none' => 'no comments',
 				'one'  => 'one comment',
 				'more' => '%d comments'
 				),

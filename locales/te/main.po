@@ -691,7 +691,7 @@ msgstr "వివరణ:"
 msgid "Entry does not exist."
 msgstr "టపా లేనే లేదు."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "వ్యాఖ్యలు లేవు"
 
 msgid "You can't edit this comment."

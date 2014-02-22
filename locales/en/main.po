@@ -762,7 +762,7 @@ msgstr ""
 msgid "Comment has been successfully created."
 msgstr ""
 
-msgid "No comment"
+msgid "No comments"
 msgstr ""
 
 msgid "Comment has been successfully updated."

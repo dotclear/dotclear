@@ -668,7 +668,7 @@ msgstr ""
 msgid "Entry does not exist."
 msgstr ""
 
-msgid "No comment"
+msgid "No comments"
 msgstr ""
 
 msgid "You can't edit this comment."

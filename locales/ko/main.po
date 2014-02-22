@@ -681,7 +681,7 @@ msgstr "MP3 배치방식"
 msgid "Entry does not exist."
 msgstr "존재하지 않는 글꼭지입니다."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "댓글이 없습니다."
 
 msgid "You can't edit this comment."

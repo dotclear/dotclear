@@ -41,7 +41,7 @@ msgstr "Je la"
 msgid "Continue reading"
 msgstr "Legi plu"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "neniu komento"
 
 msgid "one comment"
