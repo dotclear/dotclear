@@ -144,17 +144,15 @@ class tplBlogroll
 			return;
 		}
 
-		$links = self::getList('<h3>%s</h3>','<ul>%s</ul>','<li%2$s>%1$s</li>',$w->category);
+		$links = self::getList($w->renderSubtitle('',false),'<ul>%s</ul>','<li%2$s>%1$s</li>',$w->category);
 
 		if (empty($links)) {
 			return;
 		}
 
-		return
-		($w->content_only ? '' : '<div class="links'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
-		$links.
-		($w->content_only ? '' : '</div>');
+		return $w->renderDiv($w->content_only,'links '.$w->class,'',
+			($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
+			$links);
 	}
 }
 
