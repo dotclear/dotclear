@@ -266,7 +266,6 @@ class tplTags
 		$rs->sort($sort,$order);
 
 		$res =
-		($w->content_only ? '' : '<div class="tags'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
@@ -299,9 +298,7 @@ class tplTags
 			html::escapeHTML($w->alltagslinktitle).'</a></strong></p>';
 		}
 
-		$res .= ($w->content_only ? '' : '</div>');
-
-		return $res;
+		return $w->renderDiv($w->content_only,'tags '.$w->class,'',$res);
 	}
 }
 
