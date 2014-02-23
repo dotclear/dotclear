@@ -115,10 +115,9 @@ global $__default_widgets;
 $__default_widgets = array('nav'=> new dcWidgets(), 'extra'=> new dcWidgets(), 'custom'=> new dcWidgets());
 
 $__default_widgets['nav']->append($__widgets->search);
-$__default_widgets['nav']->append($__widgets->navigation);
 $__default_widgets['nav']->append($__widgets->bestof);
 $__default_widgets['nav']->append($__widgets->categories);
-$__default_widgets['extra']->append($__widgets->subscribe);
+$__default_widgets['custom']->append($__widgets->subscribe);
 
 # --BEHAVIOR-- initDefaultWidgets
 $core->callBehavior('initDefaultWidgets',$__widgets,$__default_widgets);

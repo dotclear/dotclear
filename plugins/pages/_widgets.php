@@ -43,6 +43,6 @@ class pagesWidgets
 
 	public static function initDefaultWidgets($w,$d)
 	{
-		$d['extra']->append($w->pages);
+		$d['nav']->append($w->pages);
 	}
 }
