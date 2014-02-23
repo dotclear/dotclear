@@ -10,7 +10,7 @@
     display: none;
 }
 // Sexy glissando
-#sidebar, #main {
+.sidebar, #main {
     @include transition(.3s all linear);
 }
 // Dégager la place de l'icône d'ouverture
@@ -63,7 +63,7 @@
         float: left;
         margin-left: -1*(zen-grid-item-width(8));
     }
-    .off-canvas #sidebar {
+    .off-canvas .sidebar {
         position: relative;
         @include zen-grid-item (11, 1, right);
     }

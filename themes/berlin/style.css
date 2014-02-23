@@ -643,60 +643,119 @@ a.site-title__link:visited {
 @media screen and (max-width: 40em) {
   .site-title {
     font-size: 1.8em; } }
-#sidebar {
+.footer__widgets {
+  padding: 1em;
+  background-color: white;
+  text-align: center;
+  line-height: 2; }
+
+.blogcustom__title {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.footer__widgets .widget {
+  margin-top: 1em; }
+
+.footer__widgets h3 {
+  margin-bottom: 0;
+  font-size: 1em;
+  font-weight: bold; }
+
+.footer__widgets ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1; }
+  .footer__widgets ul li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+    white-space: nowrap;
+    padding-left: 0.5em;
+    padding-right: 0.5em; }
+
+.sidebar {
   *zoom: 1;
   padding-top: 2em;
   background: #373737 url(img/bg_dark.png);
   color: white;
   text-shadow: #373737 0px -1px 0px; }
-  #sidebar:after {
+  .sidebar:after {
     content: "";
     display: table;
     clear: both; }
-  #sidebar a:link, #sidebar a:visited {
+  .sidebar a:link, .sidebar a:visited {
     color: #f9f9f9;
     border: none; }
-  #sidebar a:hover, #sidebar a:focus, #sidebar a:active,
-  #sidebar li:hover, #sidebar li:focus {
+  .sidebar a:hover, .sidebar a:focus, .sidebar a:active,
+  .sidebar li:hover, .sidebar li:focus {
     background-color: #d52125; }
 
-#sidebar h2, #sidebar h3 {
+.blognav__title,
+.blogextra__title {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.blognav__widgets h3,
+.blognav__widgets h4,
+.blogextra__widgets h3,
+.blogextra__widgets h4 {
   font-size: 1em;
   color: white;
   font-weight: bold; }
 
-#sidebar h2 {
+.blognav__widgets h3,
+.blogextra__widgets h3 {
   text-transform: uppercase; }
 
-#sidebar h3 {
+.blognav__widgets h4,
+.blogextra__widgets h4 {
   margin-top: 1.5em;
   margin-bottom: 0; }
 
-#blognav > div, #blogextra > div {
+.blognav__widgets .widget, .blogextra__widgets .widget {
   padding: 1em;
   font-size: .875em;
   line-height: 1.71429; }
+  .blognav__widgets .widget > ul, .blogextra__widgets .widget > ul {
+    list-style: none;
+    padding-left: 0;
+    line-height: 2.28571; }
+    .blognav__widgets .widget > ul li, .blogextra__widgets .widget > ul li {
+      list-style-image: none;
+      list-style-type: none;
+      margin-left: 0; }
 
-#blognav div > ul, #blogextra div > ul {
-  list-style: none;
-  padding-left: 0;
-  line-height: 2.28571; }
-  #blognav div > ul li, #blogextra div > ul li {
-    list-style-image: none;
-    list-style-type: none;
-    margin-left: 0; }
-
-#blognav ul, #blogextra ul {
+.blognav__widgets ul, .blogextra__widgets ul {
   margin: 0; }
-#blognav li, #blogextra li {
+.blognav__widgets li, .blogextra__widgets li {
   display: block;
   padding-left: .25em;
   border-bottom: 1px solid gainsboro; }
-#blognav li ul, #blogextra li ul {
+.blognav__widgets li ul, .blogextra__widgets li ul {
   margin-left: -.25em; }
-#blognav li li, #blogextra li li {
+.blognav__widgets li li, .blogextra__widgets li li {
   border-top: 1px solid gainsboro; }
-#blognav li li:last-child, #blogextra li li:last-child {
+.blognav__widgets li li:last-child, .blogextra__widgets li li:last-child {
   border-bottom: none; }
 
 #q {
@@ -709,15 +768,15 @@ a.site-title__link:visited {
 .category-current ul {
   background-color: #373737; }
 
-#sidebar li:hover ul {
+.sidebar li:hover ul {
   background-color: #373737; }
 
 @media screen and (min-width: 30.1em) and (max-width: 60em) {
-  #blognav div, #blogextra div {
+  .blognav__widgets .widget, .blogextra__widgets .widget {
     width: 50%;
     float: left; } }
 @media screen and (min-width: 60.1em) and (max-width: 80em) {
-  #blognav > div, #blogextra > div {
+  .blognav__widgets .widget, .blogextra__widgets .widget {
     width: 33.33%;
     float: left; } }
 /* *** navigation *** */
@@ -1232,7 +1291,7 @@ button.submit:active, button.preview:active {
 #offcanvas-on {
   display: none; }
 
-#sidebar, #main {
+.sidebar, #main {
   -webkit-transition: 0.3s all linear;
   -moz-transition: 0.3s all linear;
   -o-transition: 0.3s all linear;
@@ -1282,7 +1341,7 @@ button.submit:active, button.preview:active {
     float: left;
     margin-left: -66.6666667%; }
 
-  .off-canvas #sidebar {
+  .off-canvas .sidebar {
     position: relative;
     float: right;
     width: 91.6666667%;
