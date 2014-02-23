@@ -738,8 +738,7 @@ a.site-title__link:visited {
   line-height: 1.71429; }
   .blognav__widgets .widget > ul, .blogextra__widgets .widget > ul {
     list-style: none;
-    padding-left: 0;
-    line-height: 2.28571; }
+    padding-left: 0; }
     .blognav__widgets .widget > ul li, .blogextra__widgets .widget > ul li {
       list-style-image: none;
       list-style-type: none;
@@ -749,7 +748,7 @@ a.site-title__link:visited {
   margin: 0; }
 .blognav__widgets li, .blogextra__widgets li {
   display: block;
-  padding-left: .25em;
+  padding: .25em;
   border-bottom: 1px solid gainsboro; }
 .blognav__widgets li ul, .blogextra__widgets li ul {
   margin-left: -.25em; }
