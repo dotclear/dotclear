@@ -1,4 +1,4 @@
-#sidebar {
+.sidebar {
     @include pie-clearfix;
     padding-top: 2em;
     background: $gray-very-dark url(img/bg_dark.png);
@@ -13,31 +13,39 @@
         background-color: $link;
     }
 }
-#sidebar h2, #sidebar h3 {
+.blognav__title,
+.blogextra__title {
+    @include visually-hidden;
+}
+
+.blognav__widgets h3,
+.blognav__widgets h4,
+.blogextra__widgets h3,
+.blogextra__widgets h4 {
     font-size: 1em;
     color: $white;
     font-weight: bold;
 }
-#sidebar h2 {
+.blognav__widgets h3,
+.blogextra__widgets h3 {
     text-transform: uppercase;
 }
-#sidebar h3 {
+.blognav__widgets h4,
+.blogextra__widgets h4 {
     margin-top: 1.5em;
     margin-bottom: 0;
 }
-#blognav > div, #blogextra > div {
+.blognav__widgets .widget, .blogextra__widgets .widget {
     padding: 1em;
     font-size: .875em;
     line-height: 1.71429;
-}
-#blognav div, #blogextra div {
     > ul {
         @include no-bullets;
         padding-left: 0;
         line-height: 2.28571;
     }
 }
-#blognav, #blogextra {
+.blognav__widgets, .blogextra__widgets {
     ul {
         margin: 0;
     }
@@ -66,17 +74,17 @@
 .category-current ul {
     background-color: $gray-very-dark;
 }
-#sidebar li:hover ul {
+.sidebar li:hover ul {
     background-color: $gray-very-dark;
 }
 @media screen and(min-width: ($small-screen + .1em)) and (max-width: $large-screen) {
-    #blognav div, #blogextra div {
+    .blognav__widgets .widget, .blogextra__widgets .widget {
         width: 50%;
         float: left;
     }
 }
 @media screen and(min-width: ($large-screen + .1em)) and(max-width: $xlarge-screen) {
-    #blognav > div, #blogextra > div {
+    .blognav__widgets .widget, .blogextra__widgets .widget {
         width: 33.33%;
         float: left;
     }
