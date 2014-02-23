@@ -1336,7 +1336,7 @@ button.submit:active, button.preview:active {
   #wrapper {
     position: relative; }
 
-  .off-canvas #main {
+  .off-canvas #main, .footer.off-canvas {
     float: left;
     margin-left: -66.6666667%; }
 

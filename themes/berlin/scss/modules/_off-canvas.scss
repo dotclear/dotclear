@@ -59,7 +59,7 @@
     #wrapper {
         position: relative;
     }
-    .off-canvas #main {
+    .off-canvas #main, .footer.off-canvas {
         float: left;
         margin-left: -1*(zen-grid-item-width(8));
     }
