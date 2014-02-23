@@ -42,7 +42,6 @@
     > ul {
         @include no-bullets;
         padding-left: 0;
-        line-height: 2.28571;
     }
 }
 .blognav__widgets, .blogextra__widgets {
@@ -51,7 +50,7 @@
     }
     li {
         display: block;
-        padding-left: .25em;
+        padding: .25em;
         border-bottom: 1px solid $gray-medium;
     }
     li ul {
