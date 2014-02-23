@@ -52,7 +52,7 @@ class defaultWidgets
 			$res .=
 			'<li class="topnav-home">'.
 			'<a href="'.$core->blog->url.'">'.__('Home').'</a>'.
-			'<span> - </span></li>';
+			'</li>';
 		}
 
 		$res .=
