@@ -310,6 +310,9 @@ class context
 		$path = array();
 		if (isset($GLOBALS['__theme'])) {
 			$path[] = $GLOBALS['__theme'];
+			if (isset($GLOBALS['__parent_theme'])) {
+				$path[] = $GLOBALS['__parent_theme'];
+			}
 		}
 		$path[] = 'default';
 		$definition = $blog->themes_path.'/%s/smilies/smilies.txt';
