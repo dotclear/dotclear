@@ -74,7 +74,7 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 $popup = (integer) !empty($_GET['popup']);
 
 $page_url = 'media.php?popup='.$popup.'&post_id='.$post_id;
-if (!empty($temp = $core->callBehavior('adminMediaURL',$page_url))) {
+if (($temp = $core->callBehavior('adminMediaURL',$page_url))!='') {
 	$page_url = $temp;
 }
 
@@ -578,7 +578,7 @@ function mediaItemLine($f,$i)
 		}
 	} else {
 		$link = 'media_item.php?id='.$f->media_id.'&amp;popup='.$popup.'&amp;post_id='.$post_id;
-        if (!empty($temp = $core->callBehavior('adminMediaURL',$link))) {
+        if (($temp = $core->callBehavior('adminMediaURL',$link))!='') {
             $link = $temp;
         }
 	}
