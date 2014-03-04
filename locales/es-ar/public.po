@@ -41,7 +41,7 @@ msgstr "El"
 msgid "Continue reading"
 msgstr "Continuar leyendo"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "sin comentarios"
 
 msgid "one comment"

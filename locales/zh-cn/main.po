@@ -675,7 +675,7 @@ msgstr "MP3 处理"
 msgid "Entry does not exist."
 msgstr "文章不存在。"
 
-msgid "No comment"
+msgid "No comments"
 msgstr "没有评论"
 
 msgid "You can't edit this comment."

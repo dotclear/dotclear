@@ -42,7 +42,7 @@ msgstr "::"
 msgid "Continue reading"
 msgstr "Folytatás"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "nincs hozzászólás"
 
 msgid "one comment"

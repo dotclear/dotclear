@@ -41,7 +41,7 @@ msgstr ", "
 msgid "Continue reading"
 msgstr "Skaityti toliau"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "komentarų nėra"
 
 msgid "one comment"

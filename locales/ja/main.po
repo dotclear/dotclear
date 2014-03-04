@@ -682,7 +682,7 @@ msgstr "MP3 の配置"
 msgid "Entry does not exist."
 msgstr "エントリは存在しません。"
 
-msgid "No comment"
+msgid "No comments"
 msgstr "コメントはありません"
 
 msgid "You can't edit this comment."

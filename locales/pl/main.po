@@ -670,7 +670,7 @@ msgstr "pozycja:"
 msgid "Entry does not exist."
 msgstr "Wpis nie istnieje."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Brak komentarzy"
 
 msgid "You can't edit this comment."

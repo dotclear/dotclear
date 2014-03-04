@@ -63,6 +63,41 @@ Découpage en deux grandes div : post et post-feedback.
   - comment-form
   - send-trackback
 
+### __layout.html
+
+Reprend l'intégralité du home.html et définit les blocs permettant l'héritage et extension
+
+La liste des noms utilisés pour les blocs sont les suivants (les noms sont composés de deux termes, le nom du parent direct du bloc et le nom du bloc en question, sachant que le nom 'attr' est réservé aux attributs des balises, comme pour 'body-attr') :
+
+- html-head : contenu de la balise head
+  - head-title : contenu de la balise title
+  - head-meta : liste des balises meta du head
+  - head-dc : liste des balises dublin core du head
+  - head-linkrel : liste des balises link rel du head
+- body-attr : attributs de la balise body
+- html-body : contenu de la balise body
+  - body-page : contenu de la div #page
+    - page-top : contenu d'entête de la div #page (en général inclusion du _top.html)
+    - page-wrapper : contenu principal de la div #page, soit le contenu de la div #wrapper
+      - wrapper-main : contenu principal de la div #wrapper, soit le contenu de la div #main
+        - main-content : contenu de la div #content
+      - wrapper-sidebar : contenu annexe de la div #wrapper (en général inclusion de _sidebar.html)
+    - page-footer : contenu de pied de page de la div #page (en général inclusion du _footer.html)
+
+Pour rappel, la hiérarchie des blocs html est la suivante :
+
+- html
+  - head
+  - body
+    - #page
+      - .header
+      - #wrapper
+        - #main
+          - #content
+        - #sidebar/.sidebar
+      - #footer/.footer
+
+
 ***
 
 A réfléchir : inclusion par défaut de liens "sociaux" ?

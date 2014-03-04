@@ -675,7 +675,7 @@ msgstr "বিবরণ:"
 msgid "Entry does not exist."
 msgstr "এই এন্ট্রিটি নেই।"
 
-msgid "No comment"
+msgid "No comments"
 msgstr "শূণ্য মন্তব্য"
 
 msgid "You can't edit this comment."

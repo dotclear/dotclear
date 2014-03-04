@@ -651,7 +651,7 @@ if ($post_id)
 	if (!$comments->isEmpty()) {
 		showComments($comments,$has_action);
 	} else {
-		echo '<p>'.__('No comment').'</p>';
+		echo '<p>'.__('No comments').'</p>';
 	}
 
 	if ($has_action) {

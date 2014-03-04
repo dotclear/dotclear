@@ -41,7 +41,7 @@ msgstr "পোস্টের তারিখ:"
 msgid "Continue reading"
 msgstr "বিস্তারিত"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "শূণ্য মন্তব্য"
 
 msgid "one comment"

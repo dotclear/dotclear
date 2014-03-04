@@ -25,16 +25,14 @@ class defaultWidgets
 
 		$value = isset($GLOBALS['_search']) ? html::escapeHTML($GLOBALS['_search']) : '';
 
-		return
-		($w->content_only ? '' : '<div id="search"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>').
-		($w->title ? $w->renderTitle('<label for="q">'.html::escapeHTML($w->title).'</label>') : '').
-		'<form action="'.$core->blog->url.'" method="get" role="search">'.
-		'<fieldset>'.
-		'<p><input type="text" size="10" maxlength="255" id="q" name="q" value="'.$value.'" /> '.
-		'<input type="submit" class="submit" value="ok" /></p>'.
-		'</fieldset>'.
-		'</form>'.
-		($w->content_only ? '' : '</div>');
+		return $w->renderDiv($w->content_only,$w->class,'id="search"',
+			($w->title ? $w->renderTitle('<label for="q">'.html::escapeHTML($w->title).'</label>') : '').
+			'<form action="'.$core->blog->url.'" method="get" role="search">'.
+			'<fieldset>'.
+			'<p><input type="text" size="10" maxlength="255" id="q" name="q" value="'.$value.'" /> '.
+			'<input type="submit" class="submit" value="ok" /></p>'.
+			'</fieldset>'.
+			'</form>');
 	}
 
 	public static function navigation($w)
@@ -47,7 +45,6 @@ class defaultWidgets
 		}
 
 		$res =
-		($w->content_only ? '' : '<div id="topnav"'.($w->class ? ' class="'.html::escapeHTML($w->class).'"' : '').'>').
 		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul role="navigation">';
 
@@ -55,17 +52,16 @@ class defaultWidgets
 			$res .=
 			'<li class="topnav-home">'.
 			'<a href="'.$core->blog->url.'">'.__('Home').'</a>'.
-			'<span> - </span></li>';
+			'</li>';
 		}
 
 		$res .=
 		'<li class="topnav-arch">'.
 		'<a href="'.$core->blog->url.$core->url->getURLFor("archive").'">'.
 		__('Archives').'</a></li>'.
-		'</ul>'.
-		($w->content_only ? '' : '</div>');
+		'</ul>';
 
-		return $res;
+		return $w->renderDiv($w->content_only,$w->class,'id="topnav"',$res);
 	}
 
 	public static function categories($w)
@@ -83,7 +79,6 @@ class defaultWidgets
 		}
 
 		$res =
-		($w->content_only ? '' : '<div class="categories'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '');
 
 		$ref_level = $level = $rs->level-1;
@@ -117,9 +112,8 @@ class defaultWidgets
 		if ($ref_level - $level < 0) {
 			$res .= str_repeat('</li></ul>',-($ref_level - $level));
 		}
-		$res .= ($w->content_only ? '' : '</div>');
 
-		return $res;
+		return $w->renderDiv($w->content_only,'categories '.$w->class,'',$res);
 	}
 
 	public static function bestof($w)
@@ -144,7 +138,6 @@ class defaultWidgets
 		}
 
 		$res =
-		($w->content_only ? '' : '<div class="selected'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
@@ -156,9 +149,9 @@ class defaultWidgets
 			$res .= ' <li'.$class.'><a href="'.$rs->getURL().'">'.html::escapeHTML($rs->post_title).'</a></li> ';
 		}
 
-		$res .= '</ul>'.($w->content_only ? '' : '</div>');
+		$res .= '</ul>';
 
-		return $res;
+		return $w->renderDiv($w->content_only,'selected '.$w->class,'',$res);
 	}
 
 	public static function langs($w)
@@ -178,7 +171,6 @@ class defaultWidgets
 
 		$langs = l10n::getISOcodes();
 		$res =
-		($w->content_only ? '' : '<div class="langs'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
@@ -197,9 +189,9 @@ class defaultWidgets
 			' </li>';
 		}
 
-		$res .= '</ul>'.($w->content_only ? '' : '</div>');
+		$res .= '</ul>';
 
-		return $res;
+		return $w->renderDiv($w->content_only,'langs '.$w->class,'',$res);
 	}
 
 	public static function subscribe($w)
@@ -218,7 +210,6 @@ class defaultWidgets
 		$c_title = __('This blog\'s comments %s feed');
 
 		$res =
-		($w->content_only ? '' : '<div class="syndicate'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
@@ -237,9 +228,9 @@ class defaultWidgets
 			__('Comments feed').'</a></li>';
 		}
 
-		$res .= '</ul>'.($w->content_only ? '' : '</div>');
+		$res .= '</ul>';
 
-		return $res;
+		return $w->renderDiv($w->content_only,'syndicate '.$w->class,'',$res);
 	}
 
 	public static function feed($w)
@@ -267,7 +258,6 @@ class defaultWidgets
 		}
 
 		$res =
-		($w->content_only ? '' : '<div class="feed'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
@@ -292,9 +282,9 @@ class defaultWidgets
 			}
 		}
 
-		$res .= '</ul>'.($w->content_only ? '' : '</div>');
+		$res .= '</ul>';
 
-		return $res;
+		return $w->renderDiv($w->content_only,'feed '.$w->class,'',$res);
 	}
 
 	public static function text($w)
@@ -306,13 +296,9 @@ class defaultWidgets
 			return;
 		}
 
-		$res =
-		($w->content_only ? '' : '<div class="text'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
-		$w->text.
-		($w->content_only ? '' : '</div>');
+		$res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').$w->text;
 
-		return $res;
+		return $w->renderDiv($w->content_only,'text '.$w->class,'',$res);
 	}
 
 	public static function lastposts($w)
@@ -354,7 +340,6 @@ class defaultWidgets
 		}
 
 		$res =
-		($w->content_only ? '' : '<div class="lastposts'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
 		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
@@ -367,9 +352,9 @@ class defaultWidgets
 			html::escapeHTML($rs->post_title).'</a></li>';
 		}
 
-		$res .= '</ul>'.($w->content_only ? '' : '</div>');
+		$res .= '</ul>';
 
-		return $res;
+		return $w->renderDiv($w->content_only,'lastposts '.$w->class,'',$res);
 	}
 
 	public static function lastcomments($w)
@@ -389,9 +374,7 @@ class defaultWidgets
 			return;
 		}
 
-		$res = ($w->content_only ? '' : '<div class="lastcomments'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
-		'<ul>';
+		$res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').'<ul>';
 
 		while ($rs->fetch())
 		{
@@ -403,8 +386,8 @@ class defaultWidgets
 			'</a></li>';
 		}
 
-		$res .= '</ul>'.($w->content_only ? '' : '</div>');
+		$res .= '</ul>';
 
-		return $res;
+		return $w->renderDiv($w->content_only,'lastcomments '.$w->class,'',$res);
 	}
 }

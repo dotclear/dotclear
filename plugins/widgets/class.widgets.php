@@ -186,6 +186,18 @@ class dcWidget
 
 	/* Widget rendering tool
 	--------------------------------------------------- */
+	public function renderDiv($content_only,$class,$attr,$content)
+	{
+		if ($content_only) {
+			return $content;
+		}
+		$ret = '<div class="widget'.($class ? ' '.html::escapeHTML($class) : '').'"'.($attr ? ' '.$attr : '').'>'."\n";
+		$ret .= $content."\n";
+		$ret .= '</div>'."\n";
+
+		return $ret;
+	}
+
 	public function renderTitle($title)
 	{
 		global $core;
@@ -207,6 +219,33 @@ class dcWidget
 		}
 		$ret = sprintf($wtscheme,$title);
 
+		return $ret;
+	}
+
+	public function renderSubtitle($title,$render=true)
+	{
+		global $core;
+
+		if (!$title && $render) {
+			return '';
+		}
+
+		$wtscheme = $core->themes->moduleInfo($core->blog->settings->system->theme,'widgetsubtitleformat');
+		if (empty($wtscheme)) {
+			$tplset = $core->themes->moduleInfo($core->blog->settings->system->theme,'tplset');
+			if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
+				// Use H2 for mustek based themes
+				$wtscheme = '<h3>%s</h3>';
+			} else {
+				// Use H3 for currywurst based themes
+				$wtscheme = '<h4>%s</h4>';
+			}
+		}
+		if (!$render) {
+			return $wtscheme;
+		}
+
+		$ret = sprintf($wtscheme,$title);
 		return $ret;
 	}
 

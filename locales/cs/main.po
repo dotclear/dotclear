@@ -674,7 +674,7 @@ msgstr "Vlastnosti MP3"
 msgid "Entry does not exist."
 msgstr "Položka neexistuje!"
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Žádné komentáře"
 
 msgid "You can't edit this comment."
