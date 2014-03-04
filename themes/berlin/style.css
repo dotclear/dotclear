@@ -885,8 +885,7 @@ a.site-title__link:visited {
   background-color: #f2f2f2;
   border-radius: 0.5714286em;
   padding: 0.5714286em 1.1428571em;
-  margin-bottom: 1.7142857em;
-  clear: both; }
+  margin-bottom: 1.7142857em; }
 
 .post-info {
   margin: .5em 0; }
@@ -979,8 +978,7 @@ a.site-title__link:visited {
 
 .post-feedback {
   max-width: 42em;
-  margin: 3em auto;
-  clear: both; }
+  margin: 3em auto; }
 
 .post-feedback h3 {
   text-align: center;
