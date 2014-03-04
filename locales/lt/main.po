@@ -642,7 +642,7 @@ msgstr "prieš"
 msgid "Entry does not exist."
 msgstr "Įrašas neegzistuoja."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Komentarų nėra."
 
 msgid "You can't edit this comment."

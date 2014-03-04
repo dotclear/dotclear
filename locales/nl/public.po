@@ -42,7 +42,7 @@ msgstr "Op"
 msgid "Continue reading"
 msgstr "Lees verder"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "geen comments"
 
 msgid "one comment"

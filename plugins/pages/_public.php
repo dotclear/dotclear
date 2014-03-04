@@ -267,10 +267,7 @@ class tplPages
 			return;
 		}
 
-		$res =
-		($w->content_only ? '' : '<div class="pages'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
-		'<ul>';
+		$res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').'<ul>';
 
 		while ($rs->fetch()) {
 			$class = '';
@@ -281,8 +278,8 @@ class tplPages
 			html::escapeHTML($rs->post_title).'</a></li>';
 		}
 
-		$res .= '</ul>'.($w->content_only ? '' : '</div>');
+		$res .= '</ul>';
 
-		return $res;
+		return $w->renderDiv($w->content_only,'pages '.$w->class,'',$res);
 	}
 }

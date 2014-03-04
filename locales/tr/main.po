@@ -677,7 +677,7 @@ msgstr "Açıklama:"
 msgid "Entry does not exist."
 msgstr "Yazı mevcut değil."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Ahkam yok"
 
 msgid "You can't edit this comment."

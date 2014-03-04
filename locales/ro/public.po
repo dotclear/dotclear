@@ -42,7 +42,7 @@ msgstr "Activat"
 msgid "Continue reading"
 msgstr "Citește în continuare"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "niciun comentariu"
 
 msgid "one comment"

@@ -90,7 +90,7 @@ if (!empty($_REQUEST['id']))
 }
 
 if (!$comment_id && !$core->error->flag()) {
-	$core->error->add(__('No comment'));
+	$core->error->add(__('No comments'));
 }
 
 if (!$core->error->flag() && isset($rs))

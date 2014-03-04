@@ -673,7 +673,7 @@ msgstr "Allineamento MP3"
 msgid "Entry does not exist."
 msgstr "Questo articolo non esiste."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Nessun commento"
 
 msgid "You can't edit this comment."

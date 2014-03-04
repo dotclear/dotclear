@@ -41,7 +41,7 @@ msgstr "于"
 msgid "Continue reading"
 msgstr "继续阅读"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "没有评论"
 
 msgid "one comment"
