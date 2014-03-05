@@ -18,6 +18,7 @@ $post_id = '';
 $cat_id = '';
 $post_dt = '';
 $post_format = $core->auth->getOption('post_format');
+$editor = $core->auth->getOption('editor');
 $post_password = '';
 $post_url = '';
 $post_lang = $core->auth->getInfo('user_lang');
@@ -59,7 +60,7 @@ $status_combo = dcAdminCombos::getPostStatusesCombo();
 $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
 # Formaters combo
-$formaters_combo = dcAdminCombos::getFormatersCombo();
+$formaters_combo = dcAdminCombos::getFormatersCombo($editor);
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
@@ -377,7 +378,7 @@ dcPage::open($page_title.' - '.__('Entries'),
 	dcPage::jsModal().
 	dcPage::jsMetaEditor().
 	dcPage::jsLoad('js/_post.js').
-	$core->callBehavior('adminPostEditor').
+	$core->callBehavior('adminPostEditor',$editor).
 	dcPage::jsConfirmClose('entry-form','comment-form').
 	# --BEHAVIOR-- adminPostHeaders
 	$core->callBehavior('adminPostHeaders').

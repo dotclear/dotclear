@@ -100,9 +100,6 @@ class dcCore
 		$this->meta = new dcMeta($this);
 
 		$this->log = new dcLog($this);
-
-		$this->addFormater('xhtml', create_function('$s','return $s;'));
-		$this->addFormater('wiki', array($this,'wikiTransform'));
 	}
 
 	private function authInstance()
@@ -210,6 +207,23 @@ class dcCore
 	}
 	//@}
 
+	/// @name Text Formatters methods
+	//@{
+	/**
+	Adds a new text formater which will call the function <var>$func</var> to
+	transform text. The function must be a valid callback and takes one
+	argument: the string to transform. It returns the transformed string.
+
+	@param	editor_id	<b>string</b>	Editor id (dcLegacyEditor, dcCKEditor, ...)
+	@param	name		<b>string</b>	Formater name
+	@param	func		<b>callback</b>	Function to use, must be a valid and callable callback
+	*/
+	public function addEditorFormater($editor_id,$name,$func)
+	{
+		if (is_callable($func)) {
+			$this->formaters[$editor_id][$name] = $func;
+		}
+	}
 
 	/// @name Text Formatters methods
 	//@{
@@ -223,20 +237,64 @@ class dcCore
 	*/
 	public function addFormater($name,$func)
 	{
-		if (is_callable($func)) {
-			$this->formaters[$name] = $func;
-		}
+		$this->addEditorFormater('dcLegacyEditor',$name,$func);
 	}
 
 	/**
-	Returns formaters list.
+	Returns editors list
 
+	@return	<b>array</b> An array of editors values.
+	*/
+	public function getEditors()
+	{
+		$editors = array();
+
+		foreach (array_keys($this->formaters) as $editor_id) {
+			$editors[$editor_id] = $this->plugins->moduleInfo($editor_id,'name');
+		}
+
+		return $editors;
+	}
+
+	/**
+	Returns formaters list by editor
+
+	@param	editor_id	<b>string</b>	Editor id (dcLegacyEditor, dcCKEditor, ...)
 	@return	<b>array</b> An array of formaters names in values.
 	*/
-	public function getFormaters()
+	public function getFormaters($editor_id='')
 	{
-		return array_keys($this->formaters);
+		$formaters_list = array();
+
+		if (!empty($editor_id) && isset($this->formaters[$editor_id])) {
+			$formaters_list = array_keys($this->formaters[$editor_id]);
+		} else {
+			foreach ($this->formaters as $editor => $formaters) {
+				$formaters_list[$editor] = array_keys($formaters);
+			}
+		}
+
+		return $formaters_list;
 	}
+
+	/**
+	If <var>$name</var> is a valid formater, it returns <var>$str</var>
+	transformed using that formater.
+
+	@param	editor_id	<b>string</b>	Editor id (dcLegacyEditor, dcCKEditor, ...)
+	@param	name		<b>string</b>		Formater name
+	@param	str		<b>string</b>		String to transform
+	@return	<b>string</b>	String transformed
+	*/
+	public function callEditorFormater($editor_id,$name,$str)
+	{
+		if (isset($this->formaters[$editor_id]) && isset($this->formaters[$editor_id][$name])) {
+			return call_user_func($this->formaters[$editor_id][$name],$str);
+		}
+
+		return $str;
+	}
+	//@}
 
 	/**
 	If <var>$name</var> is a valid formater, it returns <var>$str</var>
@@ -248,11 +306,7 @@ class dcCore
 	*/
 	public function callFormater($name,$str)
 	{
-		if (isset($this->formaters[$name])) {
-			return call_user_func($this->formaters[$name],$str);
-		}
-
-		return $str;
+		return $this->callEditorFormater('dcLegacyEditor',$name,$str);
 	}
 	//@}
 
@@ -647,7 +701,7 @@ class dcCore
 	   - [name] => Blog name
 	   - [url] => Blog URL
 	   - [p]
-	   	- [permission] => true
+		- [permission] => true
 		- ...
 
 	@param	id		<b>string</b>		User ID
@@ -815,7 +869,7 @@ class dcCore
 	   - [displayname] => User displayname
 	   - [super] => (true|false) super admin
 	   - [p]
-	   	- [permission] => true
+		- [permission] => true
 		- ...
 
 	@param	id			<b>string</b>		Blog ID
@@ -1483,9 +1537,9 @@ class dcCore
 
 	/**
 	 Return elapsed time since script has been started
-	 @param   $mtime <b>float</b> timestamp (microtime format) to evaluate delta from
-	                       		  current time is taken if null
-	 @return <b>float</b>        elapsed time
+	 @param	  $mtime <b>float</b> timestamp (microtime format) to evaluate delta from
+								  current time is taken if null
+	 @return <b>float</b>		 elapsed time
 	 */
 	public function getElapsedTime ($mtime=null) {
 		if ($mtime !== null) {

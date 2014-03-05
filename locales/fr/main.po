@@ -2029,6 +2029,9 @@ msgstr "Ce choix sera appliqué pour tous les utilisateurs"
 msgid "Edition"
 msgstr "Édition"
 
+msgid "Preferred editor:"
+msgstr "Editeur préféré :"
+
 msgid "Preferred format:"
 msgstr "Format d'édition préféré :"
 

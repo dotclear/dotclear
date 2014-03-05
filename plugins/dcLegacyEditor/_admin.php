@@ -22,8 +22,13 @@ $core->auth->check('admin,contentadmin', $core->blog->id)
 $self_ns = $core->blog->settings->addNamespace('dclegacyeditor');
 
 if ($self_ns->active) {
-    $core->addBehavior('adminPostEditor',array('dcLegacyEditorBehaviors','adminPostEditor'));
-    $core->addBehavior('adminPopupMedia',array('dcLegacyEditorBehaviors','adminPopupMedia'));
-    $core->addBehavior('adminPopupLink',array('dcLegacyEditorBehaviors','adminPopupLink'));
-    $core->addBehavior('adminPopupPosts',array('dcLegacyEditorBehaviors','adminPopupPosts'));
+	$wiki2xhtml = new wiki2xhtml();
+
+	$core->addEditorFormater('dcLegacyEditor','xhtml',create_function('$s','return $s;'));
+	$core->addEditorFormater('dcLegacyEditor','wiki',array($wiki2xhtml,'transform'));
+
+	$core->addBehavior('adminPostEditor',array('dcLegacyEditorBehaviors','adminPostEditor'));
+	$core->addBehavior('adminPopupMedia',array('dcLegacyEditorBehaviors','adminPopupMedia'));
+	$core->addBehavior('adminPopupLink',array('dcLegacyEditorBehaviors','adminPopupLink'));
+	$core->addBehavior('adminPopupPosts',array('dcLegacyEditorBehaviors','adminPopupPosts'));
 }

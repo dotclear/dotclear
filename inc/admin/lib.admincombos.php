@@ -50,7 +50,7 @@ class dcAdminCombos {
 	@return	<b>array</b> the combo box (form::combo -compatible format)
 	*/
 	public static function getPostStatusesCombo() {
-		$status_combo =  array();
+		$status_combo =	 array();
 		foreach (self::$core->blog->getAllPostStatus() as $k => $v) {
 			$status_combo[$v] = (string) $k;
 		}
@@ -140,14 +140,43 @@ class dcAdminCombos {
 	}
 
 	/**
-	Returns a combo containing all available formaters in admin
+	Returns a combo containing all available editors in admin
 
 	@return	<b>array</b> the combo box (form::combo -compatible format)
 	*/
-	public static function getFormatersCombo() {
-		foreach (self::$core->getFormaters() as $v) {
-			$formaters_combo[$v] = $v;
+	public static function getEditorsCombo()
+	{
+		$editors_combo = array();
+
+		foreach (self::$core->getEditors() as $v) {
+			$editors_combo[$v] = $v;
 		}
+		
+		return $editors_combo;
+	}
+
+	/**
+	Returns a combo containing all available formaters by editor in admin
+
+	@param	editor_id	<b>string</b>	Editor id (dcLegacyEditor, dcCKEditor, ...)
+	@return	<b>array</b> the combo box (form::combo -compatible format)
+	*/
+	public static function getFormatersCombo($editor_id='')
+	{
+		$formaters_combo = array();
+
+        if (!empty($editor_id)) {
+            foreach (self::$core->getFormaters($editor_id) as $formater) {
+                $formaters_combo[$formater] = $formater;
+            }
+        } else {
+            foreach (self::$core->getFormaters() as $editor => $formaters) {
+                foreach ($formaters as $formater) {
+                    $formaters_combo[$editor][$formater] = $formater;
+                }
+            }
+        }
+
 		return $formaters_combo;
 	}
 
