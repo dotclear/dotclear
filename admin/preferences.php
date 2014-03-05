@@ -26,6 +26,9 @@ $user_tz = $core->auth->getInfo('user_tz');
 $user_post_status = $core->auth->getInfo('user_post_status');
 
 $user_options = $core->auth->getOptions();
+if (empty($user_options['editor'])) {
+    $user_options['editor'] = '';
+}
 
 $core->auth->user_prefs->addWorkspace('dashboard');
 $user_dm_doclinks = $core->auth->user_prefs->dashboard->doclinks;
@@ -57,8 +60,20 @@ if (($default_tab != 'user-profile') && ($default_tab != 'user-options') && ($de
 	$default_tab = 'user-profile';
 }
 
+# Editors combo
+$editors_combo = dcAdminCombos::getEditorsCombo();
+$editors = array_keys($editors_combo);
+
 # Formaters combo
 $formaters_combo = dcAdminCombos::getFormatersCombo();
+
+if (!empty($user_options['editor'])) {
+    $formaters_combo_editor = $formaters_combo[$user_options['editor']];
+} elseif (count($editors)!=0) {
+    $formaters_combo_editor = $formaters_combo[$editors[0]];
+} else {
+    $formaters_combo = array();
+}
 
 $status_combo = dcAdminCombos::getPostStatusescombo();
 
@@ -154,6 +169,7 @@ if (isset($_POST['user_post_format']))
 			$user_options['edit_size'] = 10;
 		}
 		$user_options['post_format'] = $_POST['user_post_format'];
+		$user_options['editor'] = $_POST['user_editor'];
 		$user_options['enable_wysiwyg'] = !empty($_POST['user_wysiwyg']);
 
 		$cur->user_options = new ArrayObject($user_options);
@@ -316,6 +332,7 @@ dcPage::open($page_title,
 				sprintf(__('Password strength: %s'),__('strong'))."', '".
 				sprintf(__('Password strength: %s'),__('very strong'))."']});\n".
 		"});\n".
+        'var formats_by_editor = \''.json_encode($formaters_combo).'\';'.
 		"\n//]]>\n".
 		"</script>\n".
 	dcPage::jsPageTabs($default_tab).
@@ -454,8 +471,11 @@ echo
 '<div class="fieldset">'.
 '<h4>'.__('Edition').'</h4>'.
 
+'<p class="field"><label for="user_editor">'.__('Preferred editor:').'</label>'.
+form::combo('user_editor',$editors_combo,$user_options['editor']).'</p>'.
+
 '<p class="field"><label for="user_post_format">'.__('Preferred format:').'</label>'.
-form::combo('user_post_format',$formaters_combo,$user_options['post_format']).'</p>'.
+form::combo('user_post_format',$formaters_combo_editor,$user_options['post_format']).'</p>'.
 
 '<p class="field"><label for="user_post_status">'.__('Default entry status:').'</label>'.
 form::combo('user_post_status',$status_combo,$user_post_status).'</p>'.
