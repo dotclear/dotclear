@@ -14,8 +14,10 @@ class dcLegacyEditorBehaviors
 {
 	protected static $p_url = 'index.php?pf=dcLegacyEditor';
 
-	public static function adminPostEditor($editor) {
-		if ($editor!='dcLegacyEditor') {return;}
+	public static function adminPostEditor($editor='') {
+        global $core;
+
+		if (!$core->auth->getOption('editor') || $core->auth->getOption('editor')!='dcLegacyEditor') {return;}
 
 		return
 			self::jsToolBar().
