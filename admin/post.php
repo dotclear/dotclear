@@ -378,7 +378,7 @@ dcPage::open($page_title.' - '.__('Entries'),
 	dcPage::jsModal().
 	dcPage::jsMetaEditor().
 	dcPage::jsLoad('js/_post.js').
-	$core->callBehavior('adminPostEditor',$editor).
+	$core->callBehavior('adminPostEditor').
 	dcPage::jsConfirmClose('entry-form','comment-form').
 	# --BEHAVIOR-- adminPostHeaders
 	$core->callBehavior('adminPostHeaders').
