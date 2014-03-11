@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2014 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -448,6 +448,12 @@ if (!$can_view_page) {
 -------------------------------------------------------- */
 if ($can_edit_post)
 {
+	if (count($formaters_combo)>0) {
+		$post_format_field = form::combo('post_format',$formaters_combo,$post_format,'maximal');
+	} else {
+		$post_format_field = '<a href="preferences.php#user-options">'.__('Choose an activated editor').'</a>';
+	}
+
 	$sidebar_items = new ArrayObject(array(
 		'status-box' => array(
 			'title' => __('Status'),
@@ -467,8 +473,7 @@ if ($can_edit_post)
 				'post_format' =>
 					'<div>'.
 					'<h5 id="label_format"><label for="post_format" class="classic">'.__('Text formatting').'</label></h5>'.
-					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
-					'</p>'.
+					'<p>'.$post_format_field.'</p>'.
 					'<p class="format_control control_no_xhtml">'.
 					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').'" href="post.php?id='.$post_id.'&amp;xconv=1">'.
 					__('Convert to XHTML').'</a></p></div>')),

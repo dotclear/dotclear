@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2014 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -261,13 +261,24 @@ class dcCore
 
 	@param	editor_id	<b>string</b>	Editor id (dcLegacyEditor, dcCKEditor, ...)
 	@return	<b>array</b> An array of formaters names in values.
+
+    /**
+    if @param editor_id is empty:
+    return all formaters sorted by actives editors
+    
+    if @param editor_id is not empty
+    return formaters for an editor if editor is active
+    return empty() array if editor is not active. 
+    It can happens when a user choose an editor and admin deactivate that editor later
 	*/
 	public function getFormaters($editor_id='')
 	{
 		$formaters_list = array();
 
-		if (!empty($editor_id) && isset($this->formaters[$editor_id])) {
-			$formaters_list = array_keys($this->formaters[$editor_id]);
+		if (!empty($editor_id)) {
+            if (isset($this->formaters[$editor_id])) {
+                $formaters_list = array_keys($this->formaters[$editor_id]);
+            }
 		} else {
 			foreach ($this->formaters as $editor => $formaters) {
 				$formaters_list[$editor] = array_keys($formaters);

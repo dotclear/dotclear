@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2014 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -67,7 +67,7 @@ $editors = array_keys($editors_combo);
 # Formaters combo
 $formaters_combo = dcAdminCombos::getFormatersCombo();
 
-if (!empty($user_options['editor'])) {
+if (!empty($user_options['editor']) && !empty($formaters_combo[$user_options['editor']])) {
     $formaters_combo_editor = $formaters_combo[$user_options['editor']];
 } elseif (count($editors)!=0) {
     $formaters_combo_editor = $formaters_combo[$editors[0]];
@@ -467,11 +467,18 @@ if ($core->auth->isSuperAdmin()) {
 echo
 '</div>';
 
+// hide editor selector if less than 2 editors
+if (count($editors)<2) {
+    $editor_class = ' hidden';    
+} else {
+    $editor_class = '';
+}
+
 echo
 '<div class="fieldset">'.
 '<h4>'.__('Edition').'</h4>'.
 
-'<p class="field"><label for="user_editor">'.__('Preferred editor:').'</label>'.
+'<p class="field'.$editor_class.'"><label for="user_editor">'.__('Preferred editor:').'</label>'.
 form::combo('user_editor',$editors_combo,$user_options['editor']).'</p>'.
 
 '<p class="field"><label for="user_post_format">'.__('Preferred format:').'</label>'.
