@@ -677,7 +677,7 @@ msgstr "Добавление MP3"
 msgid "Entry does not exist."
 msgstr "Эта запись не существует."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Нет комментариев"
 
 msgid "You can't edit this comment."

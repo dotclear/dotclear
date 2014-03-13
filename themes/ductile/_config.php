@@ -77,18 +77,6 @@ $webfont_apis = array(
 	__('stylesheet (Google)') => 'css'
 );
 
-function adjustFontSize($s)
-{
-	if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex)?$/',$s,$m)) {
-		if (empty($m[2])) {
-			$m[2] = 'em';
-		}
-		return $m[1].$m[2];
-	}
-
-	return null;
-}
-
 $font_families = array(
 	// Theme standard
 	'Ductile body' => '"Century Schoolbook", "Century Schoolbook L", Georgia, serif',
@@ -116,117 +104,6 @@ function fontDef($c)
 	global $font_families;
 
 	return isset($font_families[$c]) ? '<span style="position:absolute;top:0;left:32em;">'.$font_families[$c].'</span>' : '';
-}
-
-function adjustColor($c)
-{
-	if ($c === '') {
-		return '';
-	}
-
-	$c = strtoupper($c);
-
-	if (preg_match('/^[A-F0-9]{3,6}$/',$c)) {
-		$c = '#'.$c;
-	}
-
-	if (preg_match('/^#[A-F0-9]{6}$/',$c)) {
-		return $c;
-	}
-
-	if (preg_match('/^#[A-F0-9]{3,}$/',$c)) {
-		return '#'.substr($c,1,1).substr($c,1,1).substr($c,2,1).substr($c,2,1).substr($c,3,1).substr($c,3,1);
-	}
-
-	return '';
-}
-
-function computeContrastRatio($color,$background)
-{
-	// Compute contrast ratio between two colors
-
-	$color = adjustColor($color);
-	if (($color == '') || (strlen($color) != 7)) return 0;
-	$background = adjustColor($background);
-	if (($background == '') || (strlen($background) != 7)) return 0;
-
-	$l1 = (0.2126 * pow(hexdec(substr($color,1,2))/255,2.2)) +
-		(0.7152 * pow(hexdec(substr($color,3,2))/255,2.2)) +
-		(0.0722 * pow(hexdec(substr($color,5,2))/255,2.2));
-
-	$l2 = (0.2126 * pow(hexdec(substr($background,1,2))/255,2.2)) +
-	 	(0.7152 * pow(hexdec(substr($background,3,2))/255,2.2)) +
-		(0.0722 * pow(hexdec(substr($background,5,2))/255,2.2));
-
-	if ($l1 > $l2) {
-		$ratio = ($l1 + 0.05) / ($l2 + 0.05);
-	} else {
-		$ratio = ($l2 + 0.05) / ($l1 + 0.05);
-	}
-	return $ratio;
-}
-
-function contrastRatioLevel($ratio,$size,$bold)
-{
-	if ($size == '') {
-		return '';
-	}
-
-	// Eval font size in em (assume base font size in pixels equal to 16)
-	if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex)?$/',$size,$m)) {
-		if (empty($m[2])) {
-			$m[2] = 'em';
-		}
-	} else {
-		return '';
-	}
-	switch ($m[2]) {
-		case '%':
-			$s = (float) $m[1] / 100;
-			break;
-		case 'pt':
-			$s = (float) $m[1] / 12;
-			break;
-		case 'px':
-			$s = (float) $m[1] / 16;
-			break;
-		case 'em':
-			$s = (float) $m[1];
-			break;
-		case 'ex':
-			$s = (float) $m[1] / 2;
-			break;
-		default:
-			return '';
-	}
-
-	$large = ((($s > 1.5) && ($bold == false)) || (($s > 1.2) && ($bold == true)));
-
-	// Check ratio
-	if ($ratio > 7) {
-		return 'AAA';
-	} elseif (($ratio > 4.5) && $large) {
-		return 'AAA';
-	} elseif ($ratio > 4.5) {
-		return 'AA';
-	} elseif (($ratio > 3) && $large) {
-		return 'AA';
-	}
-	return '';
-}
-
-function contrastRatio($color,$background,$size='',$bold=false)
-{
-	if (($color != '') && ($background != '')) {
-		$ratio = computeContrastRatio($color,$background);
-		$level = contrastRatioLevel($ratio,$size,$bold);
-		return
-			'<span style="position:absolute;top:0;left:23em;">'.
-			sprintf(__('ratio %.1f'),$ratio).
-			($level != '' ? ' '.sprintf(__('(%s)'),$level) : '').
-			'</span>';
-	}
-	return '';
 }
 
 $ductile_base = array(
@@ -397,26 +274,26 @@ if (!empty($_POST))
 			$ductile_user['alternate_webfont_api'] = $_POST['alternate_webfont_api'];
 
 			$ductile_user['blog_title_w'] = (integer) !empty($_POST['blog_title_w']);
-			$ductile_user['blog_title_s'] = adjustFontSize($_POST['blog_title_s']);
-			$ductile_user['blog_title_c'] = adjustColor($_POST['blog_title_c']);
+			$ductile_user['blog_title_s'] = dcThemeConfig::adjustFontSize($_POST['blog_title_s']);
+			$ductile_user['blog_title_c'] = dcThemeConfig::adjustColor($_POST['blog_title_c']);
 
 			$ductile_user['post_title_w'] = (integer) !empty($_POST['post_title_w']);
-			$ductile_user['post_title_s'] = adjustFontSize($_POST['post_title_s']);
-			$ductile_user['post_title_c'] = adjustColor($_POST['post_title_c']);
+			$ductile_user['post_title_s'] = dcThemeConfig::adjustFontSize($_POST['post_title_s']);
+			$ductile_user['post_title_c'] = dcThemeConfig::adjustColor($_POST['post_title_c']);
 
 			$ductile_user['post_link_w'] = (integer) !empty($_POST['post_link_w']);
-			$ductile_user['post_link_v_c'] = adjustColor($_POST['post_link_v_c']);
-			$ductile_user['post_link_f_c'] = adjustColor($_POST['post_link_f_c']);
+			$ductile_user['post_link_v_c'] = dcThemeConfig::adjustColor($_POST['post_link_v_c']);
+			$ductile_user['post_link_f_c'] = dcThemeConfig::adjustColor($_POST['post_link_f_c']);
 
-			$ductile_user['post_simple_title_c'] = adjustColor($_POST['post_simple_title_c']);
+			$ductile_user['post_simple_title_c'] = dcThemeConfig::adjustColor($_POST['post_simple_title_c']);
 
 			$ductile_user['blog_title_w_m'] = (integer) !empty($_POST['blog_title_w_m']);
-			$ductile_user['blog_title_s_m'] = adjustFontSize($_POST['blog_title_s_m']);
-			$ductile_user['blog_title_c_m'] = adjustColor($_POST['blog_title_c_m']);
+			$ductile_user['blog_title_s_m'] = dcThemeConfig::adjustFontSize($_POST['blog_title_s_m']);
+			$ductile_user['blog_title_c_m'] = dcThemeConfig::adjustColor($_POST['blog_title_c_m']);
 
 			$ductile_user['post_title_w_m'] = (integer) !empty($_POST['post_title_w_m']);
-			$ductile_user['post_title_s_m'] = adjustFontSize($_POST['post_title_s_m']);
-			$ductile_user['post_title_c_m'] = adjustColor($_POST['post_title_c_m']);
+			$ductile_user['post_title_s_m'] = dcThemeConfig::adjustFontSize($_POST['post_title_s_m']);
+			$ductile_user['post_title_c_m'] = dcThemeConfig::adjustColor($_POST['post_title_c_m']);
 		}
 
 		$core->blog->settings->addNamespace('themes');
@@ -582,7 +459,7 @@ form::field('blog_title_s',7,7,$ductile_user['blog_title_s']).'</p>'.
 
 '<p class="field picker"><label for="blog_title_c">'.__('Color:').'</label> '.
 form::field('blog_title_c',7,7,$ductile_user['blog_title_c'],'colorpicker').
-contrastRatio($ductile_user['blog_title_c'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['blog_title_c'],'#ffffff',
 	(!empty($ductile_user['blog_title_s']) ? $ductile_user['blog_title_s'] : '2em'),
 	$ductile_user['blog_title_w']).
 '</p>';
@@ -599,7 +476,7 @@ form::field('post_title_s',7,7,$ductile_user['post_title_s']).'</p>'.
 
 '<p class="field picker"><label for="post_title_c">'.__('Color:').'</label> '.
 form::field('post_title_c',7,7,$ductile_user['post_title_c'],'colorpicker').
-contrastRatio($ductile_user['post_title_c'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['post_title_c'],'#ffffff',
 	(!empty($ductile_user['post_title_s']) ? $ductile_user['post_title_s'] : '2.5em'),
 	$ductile_user['post_title_w']).
 '</p>';
@@ -611,7 +488,7 @@ echo '<h5>'.__('Titles without link').'</h5>'.
 
 '<p class="field picker"><label for="post_simple_title_c">'.__('Color:').'</label> '.
 form::field('post_simple_title_c',7,7,$ductile_user['post_simple_title_c'],'colorpicker').
-contrastRatio($ductile_user['post_simple_title_c'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['post_simple_title_c'],'#ffffff',
 	'1.1em',	// H5 minimum size
 	false).
 '</p>';
@@ -622,14 +499,14 @@ form::checkbox('post_link_w',1,$ductile_user['post_link_w']).'</p>'.
 
 '<p class="field picker"><label for="post_link_v_c">'.__('Normal and visited links color:').'</label> '.
 form::field('post_link_v_c',7,7,$ductile_user['post_link_v_c'],'colorpicker').
-contrastRatio($ductile_user['post_link_v_c'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['post_link_v_c'],'#ffffff',
 	'1em',
 	$ductile_user['post_link_w']).
 '</p>'.
 
 '<p class="field picker"><label for="post_link_f_c">'.__('Active, hover and focus links color:').'</label> '.
 form::field('post_link_f_c',7,7,$ductile_user['post_link_f_c'],'colorpicker').
-contrastRatio($ductile_user['post_link_f_c'],'#ebebee',
+dcThemeConfig::contrastRatio($ductile_user['post_link_f_c'],'#ebebee',
 	'1em',
 	$ductile_user['post_link_w']).
 '</p>';
@@ -648,7 +525,7 @@ form::field('blog_title_s_m',7,7,$ductile_user['blog_title_s_m']).'</p>'.
 
 '<p class="field picker"><label for="blog_title_c_m">'.__('Color:').'</label> '.
 form::field('blog_title_c_m',7,7,$ductile_user['blog_title_c_m'],'colorpicker').
-contrastRatio($ductile_user['blog_title_c_m'],'#d7d7dc',
+dcThemeConfig::contrastRatio($ductile_user['blog_title_c_m'],'#d7d7dc',
 	(!empty($ductile_user['blog_title_s_m']) ? $ductile_user['blog_title_s_m'] : '1.8em'),
 	$ductile_user['blog_title_w_m']).
 '</p>';
@@ -665,7 +542,7 @@ form::field('post_title_s_m',7,7,$ductile_user['post_title_s_m']).'</p>'.
 
 '<p class="field picker"><label for="post_title_c_m">'.__('Color:').'</label> '.
 form::field('post_title_c_m',7,7,$ductile_user['post_title_c_m'],'colorpicker').
-contrastRatio($ductile_user['post_title_c_m'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['post_title_c_m'],'#ffffff',
 	(!empty($ductile_user['post_title_s_m']) ? $ductile_user['post_title_s_m'] : '1.5em'),
 	$ductile_user['post_title_w_m']).
 '</p>';

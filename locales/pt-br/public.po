@@ -41,7 +41,7 @@ msgstr "O dia"
 msgid "Continue reading"
 msgstr "Continue a leitura"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "nenhum comentário"
 
 msgid "one comment"

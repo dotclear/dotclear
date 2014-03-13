@@ -39,9 +39,22 @@ $core->addBehavior('adminDashboardFavorites',array('tagsBehaviors','dashboardFav
 
 $core->addBehavior('adminPageHelpBlock', array('tagsBehaviors', 'adminPageHelpBlock'));
 
+$core->addBehavior('ckeditorExtraPlugins', array('tagsBehaviors', 'ckeditorExtraPlugins'));
+
 # BEHAVIORS
 class tagsBehaviors
 {
+    public static function ckeditorExtraPlugins(ArrayObject $extraPlugins)
+    {
+        global $core;
+
+        $extraPlugins[] = array(
+            'name' => 'dctags',
+            'button' => 'dcTags',
+            'url' => html::stripHostURL($core->blog->getQmarkURL().'pf=tags/js/ckeditor-tags-plugin.js')
+        );
+    }
+
 	public static function adminPageHelpBlock($blocks)
 	{
 		$found = false;

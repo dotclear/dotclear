@@ -41,7 +41,7 @@ msgstr "W"
 msgid "Continue reading"
 msgstr "Kontynuuj czytanie"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "brak komentarzy"
 
 msgid "one comment"

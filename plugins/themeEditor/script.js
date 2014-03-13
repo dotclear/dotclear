@@ -1,4 +1,5 @@
 $(function() {
+	// Cope with saving
 	var msg = false;
 	$('#file-form input[name="write"]').click(function() {
 		var f = this.form;
@@ -30,4 +31,10 @@ $(function() {
 
 		return false;
 	});
+
+	// Confirm for deleting current file
+	$('#file-form input[name="delete"]').click(function() {
+		return window.confirm(dotclear.msg.confirm_reset_file);
+	});
+
 });

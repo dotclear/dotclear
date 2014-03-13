@@ -42,7 +42,7 @@ msgstr "v"
 msgid "Continue reading"
 msgstr "Číst dál..."
 
-msgid "no comment"
+msgid "no comments"
 msgstr "žádné komentáře"
 
 msgid "one comment"

@@ -51,6 +51,14 @@ try
 		$file['c'] = $_POST['file_content'];
 		$o->writeFile($file['type'],$file['f'],$file['c']);
 	}
+
+	# Delete file
+	if (!empty($_POST['delete']))
+	{
+		$o->deleteFile($file['type'],$file['f']);
+		dcPage::addSuccessNotice(__('The file has been deleted.'));
+		http::redirect($p_url.'&'.$file['type'].'='.$file['f']);
+	}
 }
 catch (Exception $e)
 {
@@ -67,6 +75,7 @@ catch (Exception $e)
   <?php echo dcPage::jsVar('dotclear.msg.saving_document',__("Saving document...")); ?>
   <?php echo dcPage::jsVar('dotclear.msg.document_saved',__("Document saved")); ?>
   <?php echo dcPage::jsVar('dotclear.msg.error_occurred',__("An error occurred:")); ?>
+  <?php echo dcPage::jsVar('dotclear.msg.confirm_reset_file',__("Are you sure you want to reset this file?")); ?>
   <?php echo dcPage::jsVar('dotclear.colorsyntax',$user_ui_colorsyntax); ?>
   //]]>
   </script>
@@ -121,6 +130,7 @@ else
 	{
 		echo
 		'<p><input type="submit" name="write" value="'.__('Save').' (s)" accesskey="s" /> '.
+		($o->deletableFile($file['type'],$file['f']) ? '<input type="submit" name="delete" class="delete" value="'.__('Reset').'" />' : '').
 		$core->formNonce().
 		($file['type'] ? form::hidden(array($file['type']),$file['f']) : '').
 		'</p>';
