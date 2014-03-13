@@ -157,6 +157,57 @@ class dcThemeEditor
 		}
 	}
 
+	public function deletableFile($type,$f)
+	{
+		if ($type != 'tpl') {
+			// Only tpl files may be deleted
+			return false;
+		}
+
+		$files = $this->getFilesFromType($type);
+		if (isset($files[$f])) {
+			$dest = $this->getDestinationFile($type,$f);
+			if ($dest) {
+				if (file_exists($dest) && is_writable($dest)) {
+					// Is there a model (parent theme or template set) ?
+					if (isset($this->tpl_model[$f])) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public function deleteFile($type,$f)
+	{
+		if ($type != 'tpl') {
+			// Only tpl files may be deleted
+			return;
+		}
+
+		$files = $this->getFilesFromType($type);
+		if (!isset($files[$f])) {
+			throw new Exception(__('File does not exist.'));
+		}
+
+		try
+		{
+			$dest = $this->getDestinationFile($type,$f);
+			if ($dest) {
+				// File exists and may be deleted
+				unlink($dest);
+
+				// Updating template files list
+				$this->findTemplates();
+			}
+		}
+		catch (Exception $e)
+		{
+			throw new Exception(sprintf(__('Unable to delete file %s. Please check your theme files and folders permissions.'),$f));
+		}
+	}
+
 	protected function getDestinationFile($type,$f)
 	{
 		if ($type == 'tpl') {
@@ -234,14 +285,17 @@ class dcThemeEditor
 	{
 		$this->tpl = array_merge(
 			$this->getFilesInDir($this->tplset_theme),
-			$this->getFilesInDir($this->parent_theme.'/tpl'),
-			$this->getFilesInDir($this->user_theme.'/tpl')
+			$this->getFilesInDir($this->parent_theme.'/tpl')
 			);
+		$this->tpl_model = $this->tpl;
+
+		$this->tpl = array_merge($this->tpl,$this->getFilesInDir($this->user_theme.'/tpl'));
 
 		# Then we look in 'default-templates' plugins directory
 		$plugins = $this->core->plugins->getModules();
 		foreach ($plugins as $p) {
 			$this->tpl = array_merge($this->getFilesInDir($p['root'].'/default-templates'),$this->tpl);
+			$this->tpl_model = array_merge($this->getFilesInDir($p['root'].'/default-templates'),$this->tpl_model);
 		}
 
 		uksort($this->tpl,array($this,'sortFilesHelper'));

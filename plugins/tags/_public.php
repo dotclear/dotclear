@@ -233,7 +233,7 @@ class tplTags
 	# Widget function
 	public static function tagsWidget($w)
 	{
-		global $core;
+		global $core, $_ctx;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
@@ -266,14 +266,25 @@ class tplTags
 		$rs->sort($sort,$order);
 
 		$res =
-		($w->content_only ? '' : '<div class="tags'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
+		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
 		'<ul>';
 
+		if ($core->url->type == 'post' && $_ctx->posts instanceof record) {
+			$_ctx->meta = $core->meta->getMetaRecordset($_ctx->posts->post_meta,'tag');
+		}
 		while ($rs->fetch())
 		{
+			$class = '';
+			if ($core->url->type == 'post' && $_ctx->posts instanceof record) {
+				while ($_ctx->meta->fetch()) {
+					if ($_ctx->meta->meta_id == $rs->meta_id) {
+						$class = ' class="tag-current"';
+						break;
+					}
+				}
+			}
 			$res .=
-			'<li><a href="'.$core->blog->url.$core->url->getURLFor('tag',rawurlencode($rs->meta_id)).'" '.
+			'<li'.$class.'><a href="'.$core->blog->url.$core->url->getURLFor('tag',rawurlencode($rs->meta_id)).'" '.
 			'class="tag'.$rs->roundpercent.'">'.
 			$rs->meta_id.'</a> </li>';
 		}
@@ -287,9 +298,7 @@ class tplTags
 			html::escapeHTML($w->alltagslinktitle).'</a></strong></p>';
 		}
 
-		$res .= ($w->content_only ? '' : '</div>');
-
-		return $res;
+		return $w->renderDiv($w->content_only,'tags '.$w->class,'',$res);
 	}
 }
 

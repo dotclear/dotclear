@@ -72,6 +72,7 @@ $__autoload['dcPager']		= dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['dcAdminCombos']			= dirname(__FILE__).'/admin/lib.admincombos.php';
 $__autoload['adminModulesList']			= dirname(__FILE__).'/admin/lib.moduleslist.php';
 $__autoload['adminThemesList']			= dirname(__FILE__).'/admin/lib.moduleslist.php';
+$__autoload['dcThemeConfig']     = dirname(__FILE__).'/admin/lib.themeconfig.php';
 
 $__autoload['dcTemplate']			= dirname(__FILE__).'/public/class.dc.template.php';
 $__autoload['context']				= dirname(__FILE__).'/public/lib.tpl.context.php';

@@ -673,7 +673,7 @@ msgstr "Position: "
 msgid "Entry does not exist."
 msgstr "Eintrag existiert nicht."
 
-msgid "No comment"
+msgid "No comments"
 msgstr "Kein Kommentar"
 
 msgid "You can't edit this comment."

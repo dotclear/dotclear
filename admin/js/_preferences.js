@@ -19,4 +19,18 @@ $(function() {
 		}
 		return true;
 	});
+
+	// choose format depending of editor based on formats_by_editor defined in preferences.php
+	if (formats_by_editor !== undefined) {
+		var _editors = $.parseJSON(formats_by_editor);
+	
+		$('#user_editor').change(function() {
+			if (!_editors[$(this).val()]) {return;}
+			
+			$('#user_post_format option').remove();
+			for (var format in _editors[$(this).val()]) {
+				$('#user_post_format').append('<option value="'+format+'">'+format+'</option>');
+			}
+		});
+	}
 });

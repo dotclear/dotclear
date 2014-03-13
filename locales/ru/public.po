@@ -39,7 +39,7 @@ msgstr "В"
 msgid "Continue reading"
 msgstr "Читать дальше"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "нет комментариев"
 
 msgid "one comment"

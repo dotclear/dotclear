@@ -14,9 +14,11 @@
         $("#offcanvas-on").click(function(){
             var btn = $('<button id="offcanvas-off" type="button" role="button"><span class="visually-hidden">Hide menu</span></button>');
             $("#wrapper").addClass("off-canvas");
+            $("#footer").addClass("off-canvas");
             $("#sidebar").prepend(btn);
             btn.click(function(evt){
                 $("#wrapper").removeClass("off-canvas");
+                $("#footer").removeClass("off-canvas");
                 evt.target.remove();
             });
         });

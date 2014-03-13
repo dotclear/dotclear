@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="{{tpl:BlogLanguage}}">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+{{tpl:extends parent="__layout.html"}}
 
-	<title>{{tpl:EntryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}</title>
+<tpl:Block name="head-title">{{tpl:EntryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}</tpl:Block>
+
+<tpl:Block name="head-meta">
+	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
 	<meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
 	<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
 	<meta name="author" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
 	<meta name="date" content="{{tpl:EntryDate iso8601="1"}}" />
+</tpl:Block>
 
+<tpl:Block name="head-dc">
 	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
 	<meta property="dc.title" content="{{tpl:EntryTitle encode_html="1"}}" />
 	<meta property="dc.description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
@@ -20,16 +21,18 @@
 	<meta property="dc.date" content="{{tpl:EntryDate iso8601="1"}}" />
 	<meta property="dc.type" content="text" />
 	<meta property="dc.format" content="text/html" />
+</tpl:Block>
 
+<tpl:Block name"head-linkrel">
 	<link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
 	<link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
-
 	<tpl:EntryNext><link rel="next" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryNext>
 	<tpl:EntryPrevious><link rel="prev" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryPrevious>
-
 	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+</tpl:Block>
 
-	{{tpl:include src="_head.html"}}
+<tpl:Block name="html-head">
+	{{tpl:parent}}
 
 	<script type="text/javascript" src="{{tpl:BlogThemeURL}}/../default/js/post.js"></script>
 	<script type="text/javascript">
@@ -37,46 +40,33 @@
 		var post_remember_str = '{{tpl:lang Remember me on this blog}}';
 		//]]>
 	</script>
-</head>
-<body class="dc-post">
-	<div id="page">
-		{{tpl:EntryPingData}}
+</tpl:Block>
 
-		{{tpl:include src="_top.html"}}
+<tpl:Block name="body-attr">class="dc-post"</tpl:Block>
 
-		<div id="wrapper">
+<tpl:Block name="page-top">
+	{{tpl:EntryPingData}}
+	{{tpl:parent}}
+</tpl:Block>
 
-			<div id="main" role="main">
-				<div id="content">
+<tpl:Block name="main-content">
+	<p class="navlinks topnl">
+		<tpl:EntryPrevious><a href="{{tpl:EntryURL}}"
+		 title="{{tpl:EntryTitle encode_html="1"}}" class="prev">&#171; {{tpl:EntryTitle encode_html="1"
+		 cut_string="50"}}</a></tpl:EntryPrevious>
+		<tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}"
+		 title="{{tpl:EntryTitle encode_html="1"}}" class="next">{{tpl:EntryTitle encode_html="1"
+		 cut_string="50"}} &#187;</a></tpl:EntryNext>
+	</p>
 
-					<p class="navlinks topnl">
-						<tpl:EntryPrevious><a href="{{tpl:EntryURL}}"
-						 title="{{tpl:EntryTitle encode_html="1"}}" class="prev">&#171; {{tpl:EntryTitle encode_html="1"
-						 cut_string="50"}}</a></tpl:EntryPrevious>
-						<tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}"
-						 title="{{tpl:EntryTitle encode_html="1"}}" class="next">{{tpl:EntryTitle encode_html="1"
-						 cut_string="50"}} &#187;</a></tpl:EntryNext>
-					</p>
+	{{tpl:include src="_simple-entry.html"}}
 
-					{{tpl:include src="_simple-entry.html"}}
-
-					<p class="navlinks">
-						<tpl:EntryPrevious><a href="{{tpl:EntryURL}}"
-						 title="{{tpl:EntryTitle encode_html="1"}}" class="prev">&#171; {{tpl:EntryTitle encode_html="1"
-						 cut_string="50"}}</a></tpl:EntryPrevious>
-						<tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}"
-						 title="{{tpl:EntryTitle encode_html="1"}}" class="next">{{tpl:EntryTitle encode_html="1"
-						 cut_string="50"}} &#187;</a></tpl:EntryNext>
-					</p>
-
-				</div>
-			</div> <!-- End #main -->
-
-			{{tpl:include src="_sidebar.html"}}
-
-		</div> <!-- End #wrapper -->
-
-		{{tpl:include src="_footer.html"}}
-	</div> <!-- End #page -->
-</body>
-</html>
+	<p class="navlinks">
+		<tpl:EntryPrevious><a href="{{tpl:EntryURL}}"
+		 title="{{tpl:EntryTitle encode_html="1"}}" class="prev">&#171; {{tpl:EntryTitle encode_html="1"
+		 cut_string="50"}}</a></tpl:EntryPrevious>
+		<tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}"
+		 title="{{tpl:EntryTitle encode_html="1"}}" class="next">{{tpl:EntryTitle encode_html="1"
+		 cut_string="50"}} &#187;</a></tpl:EntryNext>
+	</p>
+</tpl:Block>
