@@ -97,14 +97,16 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
 	<script type="text/javascript">
 	//<![CDATA[
 	$(function() {
-		$("#gp_submit").hide();
-		$("#lp_submit").hide();
+		$("#gp_submit,#lp_submit").hide();
+		$('#part-local,#part-global').tabload(function() {
+			$('.multi-part.active select.navigation option:first').attr('selected',true);
+		});		   
 		$("#gp_nav").change(function() {
 			window.location = $("#gp_nav option:selected").val();
-		})
+		});
 		$("#lp_nav").change(function() {
 			window.location = $("#lp_nav option:selected").val();
-		})
+		});
 	});
 	//]]>
 	</script>
@@ -153,7 +155,7 @@ if (count($prefs) > 0) {
 	echo
 		'<form action="plugin.php" method="post">'.
 		'<p class="anchor-nav">'.
-		'<label for="lp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('lp_nav',$ws_combo).
+		'<label for="lp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('lp_nav',$ws_combo,'','navigation').
 		' <input type="submit" value="'.__('Ok').'" id="lp_submit" />'.
 		'<input type="hidden" name="p" value="userPref" />'.
 		$core->formNonce().'</p></form>';
@@ -203,7 +205,7 @@ if (count($prefs) > 0) {
 	echo
 		'<form action="plugin.php" method="post">'.
 		'<p class="anchor-nav">'.
-		'<label for="gp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gp_nav',$ws_combo).
+		'<label for="gp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gp_nav',$ws_combo,'','navigation').
 		' <input type="submit" value="'.__('Ok').'" id="gp_submit" />'.
 		'<input type="hidden" name="p" value="userPref" />'.
 		$core->formNonce().'</p></form>';
