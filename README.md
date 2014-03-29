@@ -81,6 +81,12 @@ CONTRIBUTING
 Dotclear is an open source project. If you'd like to contribute, please read the [CONTRIBUTING file](CONTRIBUTING.md).
 You can submit a pull request, or feel free to use any other way you'd prefer.
 
+Repositories:
+-------------
+https://hg.dotclear.org/dotclear/ (official)
+https://bitbucket.org/dotclear/dotclear (Bitbucket)
+https://github.com/dotclear/dotclear (Github, sync'ed with Bitbucket)
+
 
 [1]: http://download.dotclear.org/loader/dotclear-loader.php
 [2]: http://dotclear.org/documentation/2.0/admin/install
