@@ -289,7 +289,7 @@ jQuery.fn.helpViewer = function() {
 	// listen for scroll
 	var peInPage = $('#help-button').offset().top;
 	$('#help-button').addClass("floatable");
-	var peInFloat = $('#help-button').offset().top;
+	var peInFloat = $('#help-button').offset().top - $(window).scrollTop();
 	$('#help-button').removeClass("floatable");
 	$(window).scroll(
 		function() {
