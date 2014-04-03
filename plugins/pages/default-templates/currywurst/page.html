@@ -1,61 +1,13 @@
-<!DOCTYPE html>
-<html lang="{{tpl:BlogLanguage}}">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+{{tpl:extends parent="post.html"}}
 
-  <title>{{tpl:EntryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}</title>
-  <meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
-  <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
-  <meta name="author" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
-  <meta name="date" content="{{tpl:EntryDate iso8601="1"}}" />
-
-  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
-  <meta property="dc.title" content="{{tpl:EntryTitle encode_html="1"}}" />
-  <meta property="dc.description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
-  <meta property="dc.creator" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
-  <meta property="dc.language" content="{{tpl:EntryLang}}" />
-  <meta property="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
-  <meta property="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
-  <meta property="dc.date" content="{{tpl:EntryDate iso8601="1"}}" />
-  <meta property="dc.type" content="text" />
-  <meta property="dc.format" content="text/html" />
-
+<tpl:Block name="head-linkrel">
   <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
   <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
-
   <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+</tpl:Block>
 
-  {{tpl:include src="_head.html"}}
+<tpl:Block name="body-tag"><body class="dc-page"></tpl:Block>
 
-  <script type="text/javascript" src="{{tpl:BlogThemeURL}}/../default/js/post.js"></script>
-  <script type="text/javascript">
-    //<![CDATA[
-    var post_remember_str = '{{tpl:lang Remember me on this blog}}';
-    //]]>
-  </script>
-</head>
-<body class="dc-page">
-  <div id="page">
-    {{tpl:EntryPingData}}
-
-    {{tpl:include src="_top.html"}}
-
-    <div id="wrapper">
-
-      <div id="main">
-        <div id="content">
-
-          {{tpl:include src="_simple-entry.html"}}
-
-        </div>
-      </div> <!-- End #main -->
-
-      {{tpl:include src="_sidebar.html"}}
-
-    </div> <!-- End #wrapper -->
-
-    {{tpl:include src="_footer.html"}}
-  </div> <!-- End #page -->
-</body>
-</html>
+<tpl:Block name="main-content">
+  {{tpl:include src="_simple-entry.html"}}
+</tpl:Block>
