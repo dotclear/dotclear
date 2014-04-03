@@ -1,26 +1,21 @@
 {{tpl:extends parent="__layout.html"}}
 
-<tpl:Block name="head-title">{{tpl:EntryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}</tpl:Block>
+<tpl:Block name="head-title">
+	<title>{{tpl:EntryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}</title>
+</tpl:Block>
 
-<tpl:Block name="head-meta">
-	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+<tpl:Block name="meta-entry">
 	<meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
-	<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
 	<meta name="author" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
 	<meta name="date" content="{{tpl:EntryDate iso8601="1"}}" />
 </tpl:Block>
 
-<tpl:Block name="head-dc">
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+<tpl:Block name="dc-entry">
 	<meta property="dc.title" content="{{tpl:EntryTitle encode_html="1"}}" />
 	<meta property="dc.description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
 	<meta property="dc.creator" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
 	<meta property="dc.language" content="{{tpl:EntryLang}}" />
-	<meta property="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
-	<meta property="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
 	<meta property="dc.date" content="{{tpl:EntryDate iso8601="1"}}" />
-	<meta property="dc.type" content="text" />
-	<meta property="dc.format" content="text/html" />
 </tpl:Block>
 
 <tpl:Block name"head-linkrel">
