@@ -17,6 +17,7 @@ $redir_url = $p_url.'&act=page';
 $post_id = '';
 $post_dt = '';
 $post_format = $core->auth->getOption('post_format');
+$editor = $core->auth->getOption('editor');
 $post_password = '';
 $post_url = '';
 $post_lang = $core->auth->getInfo('user_lang');
@@ -57,15 +58,23 @@ $status_combo = dcAdminCombos::getPostStatusesCombo();
 $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
 # Formaters combo
-$formaters_combo = dcAdminCombos::getFormatersCombo();
+$formaters_combo = dcAdminCombos::getFormatersCombo($editor);
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
 $lang_combo = dcAdminCombos::getLangsCombo($rs,true);
 
-
 # Validation flag
 $bad_dt = false;
+
+if (count($formaters_combo)==0 || !$core->auth->getOption('editor') || $core->auth->getOption('editor')=='') {
+	dcPage::addNotice("message", 
+					  sprintf(__('Choose an active editor in %s.'), 
+								  '<a href="preferences.php#user-options">'.__('your preferences').'</a>'
+								  )
+					  );
+
+}
 
 # Get page informations
 if (!empty($_REQUEST['id']))
