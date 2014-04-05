@@ -66,6 +66,7 @@ $editors = array_keys($editors_combo);
 
 # Formaters combo
 $formaters_combo = dcAdminCombos::getFormatersCombo();
+$formaters_combo_editor = array();
 
 if (!empty($user_options['editor']) && !empty($formaters_combo[$user_options['editor']])) {
     $formaters_combo_editor = $formaters_combo[$user_options['editor']];
@@ -435,7 +436,7 @@ $core->formNonce().
 echo '<div class="multi-part" id="user-options" title="'.__('My options').'">';
 
 echo
-'<form action="preferences.php" method="post" id="opts-forms">'.
+'<form action="preferences.php#user-options" method="post" id="opts-forms">'.
 '<h3>'.__('My options').'</h3>';
 
 echo
@@ -467,22 +468,15 @@ if ($core->auth->isSuperAdmin()) {
 echo
 '</div>';
 
-// hide editor selector if less than 2 editors
-if (count($editors)<2) {
-    $editor_class = ' hidden';    
-} else {
-    $editor_class = '';
-}
-
 echo
 '<div class="fieldset">'.
 '<h4>'.__('Edition').'</h4>'.
 
-'<p class="field'.$editor_class.'"><label for="user_editor">'.__('Preferred editor:').'</label>'.
-form::combo('user_editor',$editors_combo,$user_options['editor']).'</p>'.
+'<p class="field"><label for="user_editor">'.__('Preferred editor:').'</label>'.
+form::combo('user_editor',array_merge(array(__('Choose an editor') => ''),$editors_combo),$user_options['editor']).'</p>'.
 
 '<p class="field"><label for="user_post_format">'.__('Preferred format:').'</label>'.
-form::combo('user_post_format',$formaters_combo_editor,$user_options['post_format']).'</p>'.
+form::combo('user_post_format',array_merge(array('' => ''), $formaters_combo_editor),$user_options['post_format']).'</p>'.
 
 '<p class="field"><label for="user_post_status">'.__('Default entry status:').'</label>'.
 form::combo('user_post_status',$status_combo,$user_post_status).'</p>'.
