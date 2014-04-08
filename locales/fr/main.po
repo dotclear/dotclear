@@ -3663,6 +3663,12 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
+msgid "Choose an active editor in %s."
+msgstr "Choisissez un éditeur dans %s."
+
+msgid "your preferences"
+msgstr "vos préférences"
+
 #~ msgid "You don't have permissions to deactivate this plugin."
 #~ msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
 

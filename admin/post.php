@@ -73,6 +73,14 @@ $bad_dt = false;
 $TB = new dcTrackback($core);
 $tb_urls = $tb_excerpt = '';
 
+if (count($formaters_combo)==0 || !$core->auth->getOption('editor') || $core->auth->getOption('editor')=='') {
+	dcPage::addNotice("message", 
+					  sprintf(__('Choose an active editor in %s.'), 
+								  '<a href="preferences.php#user-options">'.__('your preferences').'</a>'
+								  )
+					  );
+}
+
 # Get entry informations
 if (!empty($_REQUEST['id']))
 {
@@ -448,10 +456,12 @@ if (!$can_view_page) {
 -------------------------------------------------------- */
 if ($can_edit_post)
 {
-	if (count($formaters_combo)>0) {
+	if (count($formaters_combo)>0 && ($core->auth->getOption('editor') && $core->auth->getOption('editor')!='')) {
 		$post_format_field = form::combo('post_format',$formaters_combo,$post_format,'maximal');
 	} else {
-		$post_format_field = '<a href="preferences.php#user-options">'.__('Choose an activated editor').'</a>';
+		$post_format_field = sprintf(__('Choose an active editor in %s.'), 
+		'<a href="preferences.php#user-options">'.__('your preferences').'</a>'
+		);
 	}
 
 	$sidebar_items = new ArrayObject(array(
