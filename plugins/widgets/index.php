@@ -233,6 +233,7 @@ elseif (!empty($_POST['wreset']))
   	__('Are you sure you want to reset sidebars?')); ?>
   //]]>
   </script>
+  <?php echo $core->callBehavior('adminPostEditor');?>
   <?php echo(dcPage::jsConfirmClose('sidebarsWidgets')); ?>
 </head>
 <body>
