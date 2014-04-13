@@ -295,6 +295,7 @@ dcPage::open(__('Blog settings'),
 	"//]]>".
 	"</script>".
 	dcPage::jsConfirmClose('blog-form').
+	$core->callBehavior('adminPostEditor').
 	dcPage::jsLoad('js/_blog_pref.js').
 
 
