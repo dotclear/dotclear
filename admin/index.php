@@ -324,7 +324,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		echo
 		'<div id="quick">'.
 		'<h3>'.__('Quick entry').'</h3>'.
-		'<form id="quick-entry" action="post.php" method="post" class="fieldset">'.
+		'<form id="quick-entry" action="'.$core->adminurl->get('admin.post').'" method="post" class="fieldset">'.
 		'<h4>'.__('New entry').'</h4>'.
 		'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 		form::field('post_title',20,255,'','maximal').
