@@ -787,7 +787,7 @@ a.site-title__link:visited {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('img/icon_prev.png?1387046145');
+  background-image: url('img/icon_prev.png?1390649129');
   background-repeat: no-repeat;
   background-position: 50% 50%; }
 
@@ -795,7 +795,7 @@ a.site-title__link:visited {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('img/icon_next.png?1387046234');
+  background-image: url('img/icon_next.png?1390649129');
   background-repeat: no-repeat;
   background-position: 50% 50%; }
 
@@ -885,7 +885,8 @@ a.site-title__link:visited {
   background-color: #f2f2f2;
   border-radius: 0.5714286em;
   padding: 0.5714286em 1.1428571em;
-  margin-bottom: 1.7142857em; }
+  margin-bottom: 1.7142857em;
+  clear: both; }
 
 .post-info {
   margin: .5em 0; }
@@ -978,7 +979,8 @@ a.site-title__link:visited {
 
 .post-feedback {
   max-width: 42em;
-  margin: 3em auto; }
+  margin: 3em auto;
+  clear: both; }
 
 .post-feedback h3 {
   text-align: center;
