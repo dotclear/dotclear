@@ -18,7 +18,7 @@ $post_id = '';
 $cat_id = '';
 $post_dt = '';
 $post_format = $core->auth->getOption('post_format');
-$editor = $core->auth->getOption('editor');
+$post_editor = $core->auth->getOption('editor');
 $post_password = '';
 $post_url = '';
 $post_lang = $core->auth->getInfo('user_lang');
@@ -60,7 +60,12 @@ $status_combo = dcAdminCombos::getPostStatusesCombo();
 $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
 # Formaters combo
-$formaters_combo = dcAdminCombos::getFormatersCombo($editor);
+$formaters_combo = dcAdminCombos::getFormatersCombo();
+foreach ($formaters_combo as $editor => $formats) {
+	foreach ($formats as $format) {
+		$formaters_combo[$editor][$format] = "$editor:$format";
+	}
+}
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
@@ -82,25 +87,26 @@ if (count($formaters_combo)==0 || !$core->auth->getOption('editor') || $core->au
 }
 
 # Get entry informations
-if (!empty($_REQUEST['id']))
-{
+if (!empty($_REQUEST['id'])) {
 	$page_title = __('Edit entry');
 
 	$params['post_id'] = $_REQUEST['id'];
 
 	$post = $core->blog->getPosts($params);
 
-	if ($post->isEmpty())
-	{
+	if ($post->isEmpty()) {
 		$core->error->add(__('This entry does not exist.'));
 		$can_view_page = false;
-	}
-	else
-	{
+	} else {
 		$post_id = $post->post_id;
 		$cat_id = $post->cat_id;
 		$post_dt = date('Y-m-d H:i',strtotime($post->post_dt));
 		$post_format = $post->post_format;
+        # try to retrieve editor from post meta
+        $meta_editor = $core->meta->getMetaStr($post->post_meta,'editor');
+        if (!empty($meta_editor)) {
+            $post_editor = $meta_editor;
+        }
 		$post_password = $post->post_password;
 		$post_url = $post->post_url;
 		$post_lang = $post->post_lang;
@@ -189,9 +195,15 @@ if (!empty($_POST['ping']))
 }
 
 # Format excerpt and content
-elseif (!empty($_POST) && $can_edit_post)
-{
-	$post_format = $_POST['post_format'];
+elseif (!empty($_POST) && $can_edit_post) {
+
+	if (strpos($_POST['post_format'], ':')!==false) {
+		list($post_editor, $post_format) = explode(':', $_POST['post_format']);
+	} else {
+		$post_format = $_POST['post_format'];
+		$post_editor = '';
+	}
+
 	$post_excerpt = $_POST['post_excerpt'];
 	$post_content = $_POST['post_content'];
 
@@ -279,6 +291,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 	$cur->cat_id = ($cat_id ? $cat_id : null);
 	$cur->post_dt = $post_dt ? date('Y-m-d H:i:00',strtotime($post_dt)) : '';
 	$cur->post_format = $post_format;
+	$cur->post_meta = serialize(array('editor' => $post_editor));
 	$cur->post_password = $post_password;
 	$cur->post_lang = $post_lang;
 	$cur->post_title = $post_title;
@@ -297,10 +310,12 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 	}
 
 	# Update post
-	if ($post_id)
-	{
-		try
-		{
+	if ($post_id) {
+		try {
+            $meta = $core->meta;
+            $meta->delPostMeta($post_id,'editor');
+            $meta->setPostMeta($post_id,'editor',$post_editor);
+
 			# --BEHAVIOR-- adminBeforePostUpdate
 			$core->callBehavior('adminBeforePostUpdate',$cur,$post_id);
 
@@ -310,31 +325,28 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			$core->callBehavior('adminAfterPostUpdate',$cur,$post_id);
 			dcPage::addSuccessNotice (sprintf(__('The post "%s" has been successfully updated'),html::escapeHTML($cur->post_title)));
 			http::redirect('post.php?id='.$post_id);
-		}
-		catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
-	}
-	else
-	{
+	} else {
 		$cur->user_id = $core->auth->userID();
 
-		try
-		{
+		try {
 			# --BEHAVIOR-- adminBeforePostCreate
 			$core->callBehavior('adminBeforePostCreate',$cur);
 
 			$return_id = $core->blog->addPost($cur);
+
+            $meta = $core->meta;
+            $meta->delPostMeta($return_id,'editor');
+            $meta->setPostMeta($return_id,'editor',$post_editor);
 
 			# --BEHAVIOR-- adminAfterPostCreate
 			$core->callBehavior('adminAfterPostCreate',$cur,$return_id);
 
 			dcPage::addSuccessNotice(__('Entry has been successfully created.'));
 			http::redirect('post.php?id='.$return_id);
-		}
-		catch (Exception $e)
-		{
+		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
 	}
@@ -380,13 +392,18 @@ if ($post_id) {
 	$img_status = '';
 }
 
+$admin_post_behavior = '';
+if (($core->auth->getOption('editor')==$post_editor) 
+    && in_array($post_format, $core->getFormaters($core->auth->getOption('editor')))) {
+    $admin_post_behavior = $core->callBehavior('adminPostEditor');
+}
 
 dcPage::open($page_title.' - '.__('Entries'),
 	dcPage::jsDatePicker().
 	dcPage::jsModal().
 	dcPage::jsMetaEditor().
+    $admin_post_behavior.
 	dcPage::jsLoad('js/_post.js').
-	$core->callBehavior('adminPostEditor').
 	dcPage::jsConfirmClose('entry-form','comment-form').
 	# --BEHAVIOR-- adminPostHeaders
 	$core->callBehavior('adminPostHeaders').
@@ -454,14 +471,18 @@ if (!$can_view_page) {
 }
 /* Post form if we can edit post
 -------------------------------------------------------- */
-if ($can_edit_post)
-{
+if ($can_edit_post) {
 	if (count($formaters_combo)>0 && ($core->auth->getOption('editor') && $core->auth->getOption('editor')!='')) {
-		$post_format_field = form::combo('post_format',$formaters_combo,$post_format,'maximal');
+		// temporay removed until we can switch easily editor
+        // $post_format_field = form::combo('post_format',$formaters_combo,"$post_editor:$post_format",'maximal');
+
+        $post_format_field = sprintf('%s (%s)', $post_format, $post_editor);
+ 		$post_format_field .= form::hidden('post_format',"$post_editor:$post_format");
 	} else {
 		$post_format_field = sprintf(__('Choose an active editor in %s.'), 
 		'<a href="preferences.php#user-options">'.__('your preferences').'</a>'
 		);
+		$post_format_field .= form::hidden('post_format','xhtml');
 	}
 
 	$sidebar_items = new ArrayObject(array(
