@@ -864,6 +864,7 @@ class dcCore
 		return array(
 			'edit_size' => 24,
 			'enable_wysiwyg' => true,
+            'editor' => 'dcLegacyEditor',
 			'post_format' => 'wiki'
 		);
 	}
