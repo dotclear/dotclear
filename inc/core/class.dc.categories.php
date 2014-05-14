@@ -189,10 +189,13 @@ abstract class nestedTree
 
         public function updatePosition($id,$left,$right)
         {
+        		$node_left = (integer) $left;
+        		$node_right = (integer) $right;
+        		$node_id = (integer) $id;
                 $sql = 'UPDATE '.$this->table.' SET '
-                        .$this->f_left.' = '.$left.', '
-                        .$this->f_right.' = '.$right
-                        .' WHERE '.$this->f_id .' = '.(integer) $id
+                        .$this->f_left.' = '.$node_left.', '
+                        .$this->f_right.' = '.$node_right
+                        .' WHERE '.$this->f_id .' = '.$node_id
                         .$this->getCondition();
 
                 $this->con->begin();
