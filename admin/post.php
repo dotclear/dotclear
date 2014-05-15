@@ -40,8 +40,8 @@ $can_edit_post = $core->auth->check('usage,contentadmin',$core->blog->id);
 $can_publish = $core->auth->check('publish,contentadmin',$core->blog->id);
 $can_delete = false;
 
-$post_headlink = '<link rel="%s" title="%s" href="post.php?id=%s" />';
-$post_link = '<a href="post.php?id=%s" title="%s">%s</a>';
+$post_headlink = '<link rel="%s" title="%s" href="'.$core->adminurl->get('admin.post',array('id' => "%s"),'&').'" />';
+$post_link = '<a href="'.$core->adminurl->get('admin.post',array('id' => "%s"),'&').'" title="%s">%s</a>';
 
 $next_link = $prev_link = $next_headlink = $prev_headlink = null;
 
@@ -162,7 +162,7 @@ if (isset($_REQUEST['section']) && $_REQUEST['section']=='trackbacks') {
 	$anchor = 'comments';
 }
 
-$comments_actions_page = new dcCommentsActionsPage($core,'post.php',array('id' => $post_id, '_ANCHOR'=>$anchor,'section' => $anchor));
+$comments_actions_page = new dcCommentsActionsPage($core,$core->adminurl->get('admin.post'),array('id' => $post_id, '_ANCHOR'=>$anchor,'section' => $anchor));
 
 if ($comments_actions_page->process()) {
 	return;
@@ -189,7 +189,10 @@ if (!empty($_POST['ping']))
 
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('All pings sent.'));
-			http::redirect('post.php?id='.$post_id.'&tb=1');
+			http::redirect($core->adminurl->get(
+				'admin.post',
+				array('id' => $post_id, 'tb'=> '1')
+			));
 		}
 	}
 }
@@ -324,7 +327,10 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			# --BEHAVIOR-- adminAfterPostUpdate
 			$core->callBehavior('adminAfterPostUpdate',$cur,$post_id);
 			dcPage::addSuccessNotice (sprintf(__('The post "%s" has been successfully updated'),html::escapeHTML($cur->post_title)));
-			http::redirect('post.php?id='.$post_id);
+			http::redirect($core->adminurl->get(
+				'admin.post',
+				array('id' => $post_id)
+			));
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -345,7 +351,10 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			$core->callBehavior('adminAfterPostCreate',$cur,$return_id);
 
 			dcPage::addSuccessNotice(__('Entry has been successfully created.'));
-			http::redirect('post.php?id='.$return_id);
+			http::redirect($core->adminurl->get(
+				'admin.post',
+				array('id' => $return_id)
+			));
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -506,7 +515,9 @@ if ($can_edit_post) {
 					'<h5 id="label_format"><label for="post_format" class="classic">'.__('Text formatting').'</label></h5>'.
 					'<p>'.$post_format_field.'</p>'.
 					'<p class="format_control control_no_xhtml">'.
-					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').'" href="post.php?id='.$post_id.'&amp;xconv=1">'.
+					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').'" href="'.
+					$core->adminurl->get('admin.post',array('id'=> $post_id,'xconv'=> '1')).
+					'">'.
 					__('Convert to XHTML').'</a></p></div>')),
 		'metas-box' => array(
 			'title' => __('Filing'),
@@ -603,7 +614,7 @@ if ($can_edit_post) {
 	$core->callBehavior('adminPostFormItems',$main_items,$sidebar_items, isset($post) ? $post : null);
 
 	echo '<div class="multi-part" title="'.($post_id ? __('Edit entry') : __('New entry')).'" id="edit-entry">';
-	echo '<form action="post.php" method="post" id="entry-form">';
+	echo '<form action="'.$core->adminurl->get('admin.post').'" method="post" id="entry-form">';
 	echo '<div id="entry-wrapper">';
 	echo '<div id="entry-content"><div class="constrained">';
 
@@ -681,7 +692,7 @@ if ($post_id)
 	'<p class="top-add"><a class="button add" href="#comment-form">'.__('Add a comment').'</a></p>';
 
 	if ($has_action) {
-		echo '<form action="post.php" id="form-comments" method="post">';
+		echo '<form action="'.$core->adminurl->get('admin.post').'" id="form-comments" method="post">';
 	}
 
 	echo '<h3>'.__('Comments').'</h3>';
