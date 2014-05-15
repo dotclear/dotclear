@@ -72,7 +72,7 @@ if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
 	$categories = json_decode($_POST['categories_order']);
 
 	foreach ($categories as $category) {
-		if (!empty($category->item_id)) {
+		if (!empty($category->item_id) && !empty($category->left) && !empty($category->right)) {
 			$core->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
 		}
 	}

@@ -263,11 +263,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 	--------------------------------------------------- */
 	private function setUser($user_id,$pwd)
 	{
-		if ($this->core->auth->userID() == $user_id) {
-			return true;
-		}
-
-		if ($this->core->auth->checkUser($user_id,$pwd) !== true) {
+		if (empty($pwd) || $this->core->auth->checkUser($user_id,$pwd) !== true) {
 			throw new Exception('Login error');
 		}
 
