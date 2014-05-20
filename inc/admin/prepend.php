@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2011 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -173,6 +173,28 @@ elseif ($core->auth->sessionExists())
 	}
 */
 }
+
+$core->adminurl = new dcAdminURL($core);
+
+$core->adminurl->register('admin.posts','posts.php');
+$core->adminurl->register('admin.post','post.php');
+$core->adminurl->register('admin.blog.theme','blog_theme.php');
+$core->adminurl->register('admin.blog.pref','blog_pref.php');
+$core->adminurl->register('admin.blogs','blogs.php');
+$core->adminurl->register('admin.categories','categories.php');
+$core->adminurl->register('admin.category','category.php');
+$core->adminurl->register('admin.comments','comments.php');
+$core->adminurl->register('admin.comments','comment.php');
+$core->adminurl->register('admin.help','help.php');
+$core->adminurl->register('admin.home','index.php');
+$core->adminurl->register('admin.langs','langs.php');
+$core->adminurl->register('admin.media','media.php');
+$core->adminurl->register('admin.media_item','media_item.php');
+$core->adminurl->register('admin.plugins','plugins.php');
+$core->adminurl->register('admin.plugin','plugin.php');
+$core->adminurl->register('admin.user.preferences','preferences.php');
+$core->adminurl->register('admin.user','user.php');
+$core->adminurl->register('admin.users','users.php');
 
 if ($core->auth->userID() && $core->blog !== null)
 {

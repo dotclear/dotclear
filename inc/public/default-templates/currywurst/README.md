@@ -67,14 +67,17 @@ Découpage en deux grandes div : post et post-feedback.
 
 Reprend l'intégralité du home.html et définit les blocs permettant l'héritage et extension
 
-La liste des noms utilisés pour les blocs sont les suivants (les noms sont composés de deux termes, le nom du parent direct du bloc et le nom du bloc en question, sachant que le nom 'attr' est réservé aux attributs des balises, comme pour 'body-attr') :
+La liste des noms utilisés pour les blocs sont les suivants (les noms sont composés de deux termes, le nom du parent direct du bloc et le nom du bloc en question, sachant que le nom 'attr' est réservé aux attributs des balises, comme par exemple 'body-attr', et 'tag' pour encadrer une balise ouvrante seule) :
 
 - html-head : contenu de la balise head
-  - head-title : contenu de la balise title
+  - head-title : balise title
   - head-meta : liste des balises meta du head
+    - meta-robots : consigne pour les robots
+    - meta-entry : partie spécifique au contexte
   - head-dc : liste des balises dublin core du head
+    - dc-entry : partie spécifique au contexte
   - head-linkrel : liste des balises link rel du head
-- body-attr : attributs de la balise body
+- body-tag : balise body (sans contenu ni balise fermante)
 - html-body : contenu de la balise body
   - body-page : contenu de la div #page
     - page-top : contenu d'entête de la div #page (en général inclusion du _top.html)
