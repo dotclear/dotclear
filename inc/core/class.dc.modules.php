@@ -130,6 +130,7 @@ class dcModules
 			$this->loadModuleL10N($id,$lang,'main');
 			if ($ns == 'admin') {
 				$this->loadModuleL10Nresources($id,$lang);
+				$this->core->adminurl->register('admin.plugin.'.$id,'plugin.php',array('p'=>$id));
 			}
 			$this->loadNsFile($id,$ns);
 		}

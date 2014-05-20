@@ -219,7 +219,9 @@ if ($step) {
 					dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
 					http::redirect($p_url);
 				} else {
-					throw new Exception(__('Label and URL of menu item are mandatory.'));
+					$step = 3;
+					$item_select_label = $item_label;
+					dcPage::addErrorNotice(__('Label and URL of menu item are mandatory.'));
 				}
 			}
 			catch (Exception $e) {

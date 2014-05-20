@@ -18,6 +18,7 @@
     border-radius: scut-em(8, 14);
     padding: scut-em(8, 14) scut-em(16, 14);
     margin-bottom: scut-em(24, 14);
+    clear: both;
 }
 .post-info {
     margin: .5em 0;
@@ -100,6 +101,7 @@
 .post-feedback {
     max-width: 42em;
     margin: 3em auto;
+    clear: both;
 }
 .post-feedback h3 {
     text-align: center;

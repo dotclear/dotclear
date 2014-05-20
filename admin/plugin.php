@@ -34,6 +34,7 @@ if (file_exists($p_file)) {
 	}
 	
 	$p_info = $core->plugins->getModules($p);
+	$p_name = $p;
 	$p_url = 'plugin.php?p='.$p;
 	$p_title = $p_head = $p_content = '';
 //*/	
