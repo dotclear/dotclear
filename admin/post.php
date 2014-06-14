@@ -102,11 +102,6 @@ if (!empty($_REQUEST['id'])) {
 		$cat_id = $post->cat_id;
 		$post_dt = date('Y-m-d H:i',strtotime($post->post_dt));
 		$post_format = $post->post_format;
-        # try to retrieve editor from post meta
-        $meta_editor = $core->meta->getMetaStr($post->post_meta,'editor');
-        if (!empty($meta_editor)) {
-            $post_editor = $meta_editor;
-        }
 		$post_password = $post->post_password;
 		$post_url = $post->post_url;
 		$post_lang = $post->post_lang;
@@ -199,14 +194,7 @@ if (!empty($_POST['ping']))
 
 # Format excerpt and content
 elseif (!empty($_POST) && $can_edit_post) {
-
-	if (strpos($_POST['post_format'], ':')!==false) {
-		list($post_editor, $post_format) = explode(':', $_POST['post_format']);
-	} else {
-		$post_format = $_POST['post_format'];
-		$post_editor = '';
-	}
-
+    list(, $post_format) = explode(':', $_POST['post_format']);
 	$post_excerpt = $_POST['post_excerpt'];
 	$post_content = $_POST['post_content'];
 
@@ -294,7 +282,6 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 	$cur->cat_id = ($cat_id ? $cat_id : null);
 	$cur->post_dt = $post_dt ? date('Y-m-d H:i:00',strtotime($post_dt)) : '';
 	$cur->post_format = $post_format;
-	$cur->post_meta = serialize(array('editor' => $post_editor));
 	$cur->post_password = $post_password;
 	$cur->post_lang = $post_lang;
 	$cur->post_title = $post_title;
@@ -315,10 +302,6 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 	# Update post
 	if ($post_id) {
 		try {
-            $meta = $core->meta;
-            $meta->delPostMeta($post_id,'editor');
-            $meta->setPostMeta($post_id,'editor',$post_editor);
-
 			# --BEHAVIOR-- adminBeforePostUpdate
 			$core->callBehavior('adminBeforePostUpdate',$cur,$post_id);
 
@@ -342,10 +325,6 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			$core->callBehavior('adminBeforePostCreate',$cur);
 
 			$return_id = $core->blog->addPost($cur);
-
-            $meta = $core->meta;
-            $meta->delPostMeta($return_id,'editor');
-            $meta->setPostMeta($return_id,'editor',$post_editor);
 
 			# --BEHAVIOR-- adminAfterPostCreate
 			$core->callBehavior('adminAfterPostCreate',$cur,$return_id);
@@ -482,11 +461,7 @@ if (!$can_view_page) {
 -------------------------------------------------------- */
 if ($can_edit_post) {
 	if (count($formaters_combo)>0 && ($core->auth->getOption('editor') && $core->auth->getOption('editor')!='')) {
-		// temporay removed until we can switch easily editor
-        // $post_format_field = form::combo('post_format',$formaters_combo,"$post_editor:$post_format",'maximal');
-
-        $post_format_field = sprintf('%s (%s)', $post_format, $post_editor);
- 		$post_format_field .= form::hidden('post_format',"$post_editor:$post_format");
+        $post_format_field = form::combo('post_format',$formaters_combo,"$post_editor:$post_format",'maximal');
 	} else {
 		$post_format_field = sprintf(__('Choose an active editor in %s.'), 
 		'<a href="preferences.php#user-options">'.__('your preferences').'</a>'
