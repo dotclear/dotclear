@@ -140,7 +140,7 @@ if (isset($_POST['user_name']))
 
 		dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
 
-		http::redirect('preferences.php');
+		http::redirect($core->adminurl->get("admin.user.preferences"));
 	}
 	catch (Exception $e)
 	{
@@ -194,7 +194,7 @@ if (isset($_POST['user_post_format']))
 		$core->callBehavior('adminAfterUserOptionsUpdate',$cur,$core->auth->userID());
 
 		dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
-		http::redirect('preferences.php#user-options');
+		http::redirect($core->adminurl->get("admin.user.preferences").'#user-options');
 	}
 	catch (Exception $e)
 	{
@@ -220,7 +220,7 @@ if (isset($_POST['db-options'])) {
 		$core->callBehavior('adminAfterDashboardOptionsUpdate',$core->auth->userID());
 
 		dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
-		http::redirect('preferences.php#user-favorites');
+		http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
 	}
 	catch (Exception $e)
 	{
@@ -246,7 +246,7 @@ if (!empty($_POST['appendaction']))
 
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('Favorites have been successfully added.'));
-			http::redirect('preferences.php#user-favorites');
+			http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -273,7 +273,7 @@ if (!empty($_POST['removeaction']))
 		$core->favs->setFavoriteIDs(array_keys($user_fav_ids),false);
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('Favorites have been successfully removed.'));
-			http::redirect('preferences.php#user-favorites');
+			http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -300,7 +300,7 @@ if (!empty($_POST['saveorder']) && !empty($order))
 	$core->favs->setFavoriteIDs($order,false);
 	if (!$core->error->flag()) {
 		dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
-		http::redirect('preferences.php#user-favorites');
+		http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
 	}
 }
 
@@ -311,7 +311,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 
 	if (!$core->error->flag()) {
 		dcPage::addSuccessNotice(__('Default favorites have been successfully updated.'));
-		http::redirect('preferences.php#user-favorites');
+		http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
 	}
 }
 
@@ -376,7 +376,7 @@ echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';
 
 echo
 '<h3>'.__('My profile').'</h3>'.
-'<form action="preferences.php" method="post" id="user-form">'.
+'<form action="'.$core->adminurl->get("admin.user.preferences").'" method="post" id="user-form">'.
 
 '<p><label for="user_name">'.__('Last Name:').'</label>'.
 form::field('user_name',20,255,html::escapeHTML($user_name)).'</p>'.
@@ -436,7 +436,7 @@ $core->formNonce().
 echo '<div class="multi-part" id="user-options" title="'.__('My options').'">';
 
 echo
-'<form action="preferences.php#user-options" method="post" id="opts-forms">'.
+'<form action="'.$core->adminurl->get("admin.user.preferences").'#user-options" method="post" id="opts-forms">'.
 '<h3>'.__('My options').'</h3>';
 
 echo
@@ -509,7 +509,7 @@ echo '<div class="multi-part" id="user-favorites" title="'.__('My dashboard').'"
 $ws = $core->auth->user_prefs->addWorkspace('favorites');
 echo '<h3>'.__('My dashboard').'</h3>';
 
-echo '<form action="preferences.php" method="post" id="favs-form" class="two-boxes odd">';
+echo '<form action="'.$core->adminurl->get("admin.user.preferences").'" method="post" id="favs-form" class="two-boxes odd">';
 
 echo '<div id="my-favs" class="fieldset"><h4>'.__('My favorites').'</h4>';
 
@@ -601,7 +601,7 @@ echo '</div>'; # /available favorites
 echo '</form>';
 
 echo
-'<form action="preferences.php" method="post" id="db-forms" class="two-boxes even">'.
+'<form action="'.$core->adminurl->get("admin.user.preferences").'" method="post" id="db-forms" class="two-boxes even">'.
 
 '<div class="fieldset">'.
 '<h4>'.__('Menu').'</h4>'.

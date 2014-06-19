@@ -65,7 +65,7 @@ class dcPage
 			html::escapeHTML($core->blog->name).'</strong>';
 
 			if ($core->auth->getBlogCount() > 20) {
-				$blog_box .= ' - <a href="blogs.php">'.__('Change blog').'</a>';
+				$blog_box .= ' - <a href="'.$core->adminurl->get("admin.blogs").'">'.__('Change blog').'</a>';
 			}
 			$blog_box .= '</p>';
 		}
@@ -136,19 +136,19 @@ class dcPage
 		'<li><a href="#help">'.__('Go to help').'</a></li>'.
 		'</ul>'."\n".
 		'<div id="header">'.
-		'<h1><a href="index.php"><span class="hidden">'.DC_VENDOR_NAME.'</span></a></h1>'."\n";
+		'<h1><a href="'.$core->adminurl->get("admin.home").'"><span class="hidden">'.DC_VENDOR_NAME.'</span></a></h1>'."\n";
 
 		echo
-		'<form action="index.php" method="post" id="top-info-blog">'.
+		'<form action="'.$core->adminurl->get("admin.home").'" method="post" id="top-info-blog">'.
 		$blog_box.
 		'<p><a href="'.$core->blog->url.'" class="outgoing" title="'.__('Go to site').
 		'">'.__('Go to site').'<img src="images/outgoing.png" alt="" /></a>'.
 		'</p></form>'.
 		'<ul id="top-info-user">'.
-		'<li><a class="'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a></li>'.
+		'<li><a class="'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="'.$core->adminurl->get("admin.home").'">'.__('My dashboard').'</a></li>'.
 		'<li><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').
-		'" href="preferences.php">'.__('My preferences').'</a></li>'.
-		'<li><a href="index.php?logout=1" class="logout"><span class="nomobile">'.sprintf(__('Logout %s'),$core->auth->userID()).
+		'" href="'.$core->adminurl->get("admin.user.preferences").'">'.__('My preferences').'</a></li>'.
+		'<li><a href="'.$core->adminurl->get("admin.home",array('logout' => 1)).'" class="logout"><span class="nomobile">'.sprintf(__('Logout %s'),$core->auth->userID()).
 		'</span><img src="images/logout.png" alt="" /></a></li>'.
 		'</ul>'.
 		'</div>'; // end header
@@ -254,7 +254,7 @@ class dcPage
 
 		if (!$GLOBALS['__resources']['ctxhelp']) {
 			echo
-			'<p id="help-button"><a href="help.php" class="outgoing" title="'.
+			'<p id="help-button"><a href="'.$core->adminurl->get("admin.help").'" class="outgoing" title="'.
 			__('Global help').'">'.__('Global help').'</a></p>';
 		}
 
@@ -266,7 +266,7 @@ class dcPage
 
 		'<div id="main-menu">'."\n".
 
-		'<form id="search-menu" action="search.php" method="get">'.
+		'<form id="search-menu" action="'.$core->adminurl->get("admin.search").'" method="get">'.
 		'<p><label for="qx" class="hidden">'.__('Search:').' </label>'.form::field('qx',30,255,'').
 		'<input type="submit" value="'.__('OK').'" /></p>'.
 		'</form>';
@@ -373,12 +373,13 @@ class dcPage
 
 	public static function breadcrumb($elements=null,$options=array())
 	{
+		global $core;
 		$with_home_link = isset($options['home_link'])?$options['home_link']:true;
 		$hl = isset($options['hl'])?$options['hl']:true;
 		$hl_pos = isset($options['hl_pos'])?$options['hl_pos']:-1;
 		// First item of array elements should be blog's name, System or Plugins
 		$res = '<h2>'.($with_home_link ?
-			'<a class="go_home" href="index.php"><img src="style/dashboard.png" alt="'.__('Go to dashboard').'" /></a>' :
+			'<a class="go_home" href="'.$core->adminurl->get("admin.home").'"><img src="style/dashboard.png" alt="'.__('Go to dashboard').'" /></a>' :
 			'<img src="style/dashboard-alt.png" alt="" />');
 		$index = 0;
 		if ($hl_pos < 0) {
@@ -472,6 +473,7 @@ class dcPage
 
 	public static function helpBlock()
 	{
+		global $core;
 		$args = func_get_args();
 
 		$args = new ArrayObject($args);
@@ -525,7 +527,7 @@ class dcPage
 		'</div>'.
 		'<div id="helplink"><hr />'.
 		'<p>'.
-		sprintf(__('See also %s'),sprintf('<a href="help.php">%s</a>',__('the global help'))).
+		sprintf(__('See also %s'),sprintf('<a href="'.$core->adminurl->get("admin.help").'">%s</a>',__('the global help'))).
 		'.</p>'.
 		'</div></div>';
 	}
@@ -828,7 +830,7 @@ class dcPage
 		"</script>\n";
 	}
 
-	
+
 	public static function jsToolBar()
 	{
 		# Deprecated but we keep this for plugins.

@@ -111,7 +111,7 @@ if (!$core->error->flag())
 
 # Actions combo box
 
-$posts_actions_page = new dcPostsActionsPage($core,'posts.php');
+$posts_actions_page = new dcPostsActionsPage($core,$core->adminurl->get("admin.posts"));
 
 if ($posts_actions_page->process()) {
 	return;
@@ -257,8 +257,8 @@ if (!empty($_GET['upd'])) {
 if (!$core->error->flag())
 {
 	echo
-	'<p class="top-add"><a class="button add" href="post.php">'.__('New entry').'</a></p>'.
-	'<form action="posts.php" method="get" id="filters-form">'.
+	'<p class="top-add"><a class="button add" href="'.$core->adminurl->get("admin.post").'">'.__('New entry').'</a></p>'.
+	'<form action="'.$core->adminurl->get("admin.posts").'" method="get" id="filters-form">'.
 	'<h3 class="out-of-screen-if-js">'.$form_filter_title.'</h3>'.
 
 	'<div class="table">'.
@@ -301,7 +301,7 @@ if (!$core->error->flag())
 
 	# Show posts
 	$post_list->display($page,$nb_per_page,
-	'<form action="posts.php" method="post" id="form-entries">'.
+	'<form action="'.$core->adminurl->get("admin.posts").'" method="post" id="form-entries">'.
 
 	'%s'.
 

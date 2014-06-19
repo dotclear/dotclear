@@ -48,12 +48,13 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 	}
 	else
 	{
-		$redir =
-		'users.php?q='.$_POST['q'].
-		'&sortby='.$_POST['sortby'].
-		'&order='.$_POST['order'].
-		'&page='.$_POST['page'].
-		'&nb='.$_POST['nb'];
+		$redir = $core->adminurl->get("admin.users", array(
+			'q'      => $_POST['q'],
+			'sortby' => $_POST['sortby'],
+			'order'  => $_POST['order'],
+			'page'   => $_POST['page'],
+			'nb'     => $_POST['nb']
+		));
 	}
 
 	if (empty($users)) {
@@ -136,14 +137,14 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			__('Users') => 'users.php',
+			__('Users') => $core->adminurl->get("admin.users"),
 			__('Permissions') => ''
 		));
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			__('Users') => 'users.php',
+			__('Users') => $core->adminurl->get("admin.users"),
 			__('Actions') => ''
 		));
 }
@@ -194,7 +195,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 	} catch (Exception $e) { }
 
 	foreach ($users as $u) {
-		$user_list[] = '<a href="user.php?id='.$u.'">'.$u.'</a>';
+		$user_list[] = '<a href="'.$core->adminurl->get("admin.user",array('id' => $u)).'">'.$u.'</a>';
 	}
 
 	echo
@@ -210,7 +211,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 	else
 	{
 		echo
-		'<form action="users_actions.php" method="post" id="form-blogs">'.
+		'<form action="'.$core->adminurl->get("admin.user.actions").'" method="post" id="form-blogs">'.
 		'<div class="table-outer clear">'.
 		'<table><tr>'.
 		'<th class="nowrap" colspan="2">'.__('Blog ID').'</th>'.
@@ -255,7 +256,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	}
 
 	foreach ($users as $u) {
-		$user_list[] = '<a href="user.php?id='.$u.'">'.$u.'</a>';
+		$user_list[] = '<a href="'.$core->adminurl->get("admin.user",array('id' => $u)).'">'.$u.'</a>';
 	}
 
 	echo
@@ -263,11 +264,11 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 		__('You are about to change permissions on the following blogs for users %s.'),
 		implode(', ',$user_list)
 	).'</p>'.
-	'<form id="permissions-form" action="users_actions.php" method="post">';
+	'<form id="permissions-form" action="'.$core->adminurl->get("admin.user.actions").'" method="post">';
 
 	foreach ($blogs as $b)
 	{
-		echo '<h3>'.('Blog:').' <a href="blog.php?id='.html::escapeHTML($b).'">'.html::escapeHTML($b).'</a>'.
+		echo '<h3>'.('Blog:').' <a href="'.$core->adminurl->get("admin.blog",array('id' => html::escapeHTML($b))).'">'.html::escapeHTML($b).'</a>'.
 		form::hidden(array('blogs[]'),$b).'</h3>';
 		$unknown_perms = $user_perm;
 		foreach ($core->auth->getPermissionsTypes() as $perm_id => $perm)

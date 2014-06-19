@@ -69,13 +69,13 @@ if ($q)
 }
 
 if ($qtype == 'p') {
-	$posts_actions_page = new dcPostsActionsPage($core,'search.php',array('q'=>$q,'qtype'=>$qtype));
+	$posts_actions_page = new dcPostsActionsPage($core,$core->adminurl->get("admin.search"),array('q'=>$q,'qtype'=>$qtype));
 
 	if ($posts_actions_page->process()) {
 		return;
 	}
 } else {
-	$comments_actions_page = new dcCommentsActionsPage($core,'search.php',array('q'=>$q,'qtype'=>$qtype));
+	$comments_actions_page = new dcCommentsActionsPage($core,$core->adminurl->get("admin.search"),array('q'=>$q,'qtype'=>$qtype));
 
 	if ($comments_actions_page->process()) {
 		return;
@@ -91,7 +91,7 @@ dcPage::open(__('Search'),$starting_scripts,
 );
 
 echo
-'<form action="search.php" method="get">'.
+'<form action="'.$core->adminurl->get("admin.search").'" method="get">'.
 '<div class="fieldset"><h3>'.__('Search options').'</h3>'.
 '<p><label for="q">'.__('Query:').' </label>'.form::field('q',30,255,html::escapeHTML($q)).'</p>'.
 '<p><label for="qtype1" class="classic">'.form::radio(array('qtype','qtype1'),'p',$qtype == 'p').' '.__('Search in entries').'</label> '.
@@ -115,7 +115,7 @@ if ($q && !$core->error->flag())
 		}
 
 		$post_list->display($page,$nb_per_page,
-		'<form action="search.php" method="post" id="form-entries">'.
+		'<form action="'.$core->adminurl->get("admin.search").'" method="post" id="form-entries">'.
 
 		'%s'.
 
@@ -143,7 +143,7 @@ if ($q && !$core->error->flag())
 		}
 
 		$comment_list->display($page,$nb_per_page,
-		'<form action="search.php" method="post" id="form-comments">'.
+		'<form action="'.$core->adminurl->get("admin.search").'" method="post" id="form-comments">'.
 
 		'%s'.
 
