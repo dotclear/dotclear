@@ -71,7 +71,7 @@ if (($post_id && $media_id) || $core->error->flag())
 		echo '<h2>'.__('Attachment').' &rsaquo; <span class="page-title">'.__('confirm removal').'</span></h2>';
 
 		echo
-		'<form action="post_media.php" method="post">'.
+		'<form action="'.$core->adminurl->get("admin.post.media").'" method="post">'.
 		'<p>'.__('Are you sure you want to remove this attachment?').'</p>'.
 		'<p><input type="submit" class="reset" value="'.__('Cancel').'" /> '.
 		' &nbsp; <input type="submit" class="delete" name="remove" value="'.__('Yes').'" />'.

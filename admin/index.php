@@ -20,7 +20,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 if (!empty($_GET['default_blog'])) {
 	try {
 		$core->setUserDefaultBlog($core->auth->userID(),$core->blog->id);
-		http::redirect('index.php');
+		http::redirect($core->adminurl->get("admin.home"));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -35,7 +35,7 @@ if (!empty($_GET['logout'])) {
 		unset($_COOKIE['dc_admin']);
 		setcookie('dc_admin',false,-600,'','',DC_ADMIN_SSL);
 	}
-	http::redirect('auth.php');
+	http::redirect($core->adminurl->get("admin.auth"));
 	exit;
 }
 
@@ -192,8 +192,8 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 	if ($updater->getNotify() && $new_v) {
 		echo
 		'<div class="dc-update"><h3>'.sprintf(__('Dotclear %s is available!'),$new_v).'</h3> '.
-		'<p><a class="button submit" href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
-		'<a class="button" href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
+		'<p><a class="button submit" href="'.$core->adminurl->get("admin.update").'">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
+		'<a class="button" href="'.$core->adminurl->get("admin.update", array('hide_msg' => 1)).'">'.__('Remind me later').'</a>'.
 		($version_info ? ' </p>'.
 		'<p class="updt-info"><a href="'.$version_info.'">'.__('Information about this version').'</a>' : '').'</p>'.
 		'</div>';
@@ -202,7 +202,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->getBlogCount() > 1) {
 	echo
-	'<p><a href="index.php?default_blog=1" class="button">'.__('Make this blog my default blog').'</a></p>';
+	'<p><a href="'.$core->adminurl->get("admin.home",array('default_blog' => 1)).'" class="button">'.__('Make this blog my default blog').'</a></p>';
 }
 
 if ($core->blog->status == 0) {

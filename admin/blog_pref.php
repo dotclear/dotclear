@@ -25,8 +25,8 @@ if ($standalone)
 	$blog_settings = $core->blog->settings;
 	$blog_url = $core->blog->url;
 
-	$action = 'blog_pref.php';
-	$redir = 'blog_pref.php';
+	$action = $core->adminurl->get("admin.blog.pref");
+	$redir = $core->adminurl->get("admin.blog.pref");
 }
 else
 {
@@ -54,8 +54,8 @@ else
 		$core->error->add($e->getMessage());
 	}
 
-	$action = 'blog.php';
-	$redir = 'blog.php?id=%s';
+	$action = $core->adminurl->get("admin.blog");
+	$redir = $core->adminurl->get("admin.blog",array('id' => "%s"));
 }
 
 # Language codes
@@ -280,7 +280,7 @@ if ($standalone) {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			__('Blogs') => 'blogs.php',
+			__('Blogs') => $core->adminurl->get("admin.blogs"),
 			__('Blog settings').' : '.html::escapeHTML($blog_name) => ''
 		));
 }
@@ -614,7 +614,7 @@ if ($blog_id)
 	if ($core->auth->isSuperAdmin() && $blog_id != $core->blog->id)
 	{
 		echo
-		'<form action="blog_del.php" method="post">'.
+		'<form action="'.$core->adminurl->get("admin.blog.del").'" method="post">'.
 		'<p><input type="submit" class="delete" value="'.__('Delete this blog').'" />'.
 		form::hidden(array('blog_id'),$blog_id).
 		$core->formNonce().'</p>'.
@@ -646,7 +646,7 @@ if ($blog_id)
 	else
 	{
 		if ($core->auth->isSuperAdmin()) {
-			$user_url_p = '<a href="user.php?id=%1$s">%1$s</a>';
+			$user_url_p = '<a href="'.$core->adminurl->get("admin.user",array('id' => '%1$s')).'">%1$s</a>';
 		} else {
 			$user_url_p = '%1$s';
 		}
@@ -718,7 +718,7 @@ if ($blog_id)
 					echo
 					'<form action="users_actions.php" method="post">'.
 					'<p class="change-user-perm"><input type="submit" class="reset" value="'.__('Change permissions').'" />'.
-					form::hidden(array('redir'),'blog_pref.php?id='.$k).
+					form::hidden(array('redir'),$core->adminurl->get("admin.blog.pref",array('id' => $k))).
 					form::hidden(array('action'),'perms').
 					form::hidden(array('users[]'),$k).
 					form::hidden(array('blogs[]'),$blog_id).

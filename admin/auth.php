@@ -15,7 +15,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 # If we have a session cookie, go to index.php
 if (isset($_SESSION['sess_user_id']))
 {
-	http::redirect('index.php');
+	http::redirect($core->adminurl->get('admin.home'));
 }
 
 # Loading locales for detected language
@@ -184,7 +184,7 @@ elseif ($change_pwd)
 			setcookie('dc_admin',$data['cookie_admin'],strtotime('+15 days'),'','',DC_ADMIN_SSL);
 		}
 
-		http::redirect('index.php');
+		http::redirect($core->adminurl->get('admin.home'));
 	}
 	catch (Exception $e)
 	{
@@ -242,7 +242,7 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 			setcookie('dc_admin',$cookie_admin,strtotime('+15 days'),'','',DC_ADMIN_SSL);
 		}
 
-		http::redirect('index.php');
+		http::redirect($core->adminurl->get('admin.home'));
 	}
 	else
 	{
@@ -325,7 +325,7 @@ echo dcPage::jsCommon();
 
 <body id="dotclear-admin" class="auth">
 
-<form action="auth.php" method="post" id="login-screen">
+<form action="<?php echo $core->adminurl->get('admin.auth'); ?>" method="post" id="login-screen">
 <h1><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></h1>
 
 <?php
@@ -338,7 +338,7 @@ if ($msg) {
 
 if ($akey)
 {
-	echo '<p><a href="auth.php">'.__('Back to login screen').'</a></p>';
+	echo '<p><a href="'.$core->adminurl->get('admin.auth').'">'.__('Back to login screen').'</a></p>';
 }
 elseif ($recover)
 {
@@ -355,7 +355,7 @@ elseif ($recover)
 	'</div>'.
 
 	'<div id="issue">'.
-	'<p><a href="auth.php">'.__('Back to login screen').'</a></p>'.
+	'<p><a href="'.$core->adminurl->get('admin.auth').'">'.__('Back to login screen').'</a></p>'.
 	'</div>';
 }
 elseif ($change_pwd)
@@ -425,13 +425,13 @@ else
 
 		if ($safe_mode) {
 			echo
-			'<p><a href="auth.php" id="normal_mode_link">'.__('Get back to normal authentication').'</a></p>';
+			'<p><a href="'.$core->adminurl->get('admin.auth').'" id="normal_mode_link">'.__('Get back to normal authentication').'</a></p>';
 		} else {
 			echo '<p id="more"><strong>'.__('Connection issue?').'</strong></p>';
 			if ($core->auth->allowPassChange()) {
-				echo '<p><a href="auth.php?recover=1">'.__('I forgot my password').'</a></p>';
+				echo '<p><a href="'.$core->adminurl->get('admin.auth',array('recover' => 1)).'">'.__('I forgot my password').'</a></p>';
 			}
-			echo '<p><a href="auth.php?safe_mode=1" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>';
+			echo '<p><a href="'.$core->adminurl->get('admin.auth',array('safe_mode' => 1)).'" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>';
 		}
 
 		echo '</div>';

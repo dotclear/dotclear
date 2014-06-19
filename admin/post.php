@@ -79,9 +79,9 @@ $TB = new dcTrackback($core);
 $tb_urls = $tb_excerpt = '';
 
 if (count($formaters_combo)==0 || !$core->auth->getOption('editor') || $core->auth->getOption('editor')=='') {
-	dcPage::addNotice("message", 
-					  sprintf(__('Choose an active editor in %s.'), 
-								  '<a href="preferences.php#user-options">'.__('your preferences').'</a>'
+	dcPage::addNotice("message",
+					  sprintf(__('Choose an active editor in %s.'),
+								  '<a href="'.$core->adminurl->get("admin.user.preferences").'#user-options">'.__('your preferences').'</a>'
 								  )
 					  );
 }
@@ -249,7 +249,7 @@ if (!empty($_POST['delete']) && $can_delete)
 		# --BEHAVIOR-- adminBeforePostDelete
 		$core->callBehavior('adminBeforePostDelete',$post_id);
 		$core->blog->delPost($post_id);
-		http::redirect('posts.php');
+		http::redirect($core->adminurl->get("admin.posts"));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -381,7 +381,7 @@ if ($post_id) {
 }
 
 $admin_post_behavior = '';
-if (($core->auth->getOption('editor')==$post_editor) 
+if (($core->auth->getOption('editor')==$post_editor)
     && in_array($post_format, $core->getFormaters($core->auth->getOption('editor')))) {
     $admin_post_behavior = $core->callBehavior('adminPostEditor');
 }
@@ -400,7 +400,7 @@ dcPage::open($page_title.' - '.__('Entries'),
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			__('Entries') => 'posts.php',
+			__('Entries') => $core->adminurl->get("admin.posts"),
 			($post_id ? $page_title_edit : $page_title) => ''
 		))
 );
@@ -463,8 +463,8 @@ if ($can_edit_post) {
 	if (count($formaters_combo)>0 && ($core->auth->getOption('editor') && $core->auth->getOption('editor')!='')) {
         $post_format_field = form::combo('post_format',$formaters_combo,"$post_editor:$post_format",'maximal');
 	} else {
-		$post_format_field = sprintf(__('Choose an active editor in %s.'), 
-		'<a href="preferences.php#user-options">'.__('your preferences').'</a>'
+		$post_format_field = sprintf(__('Choose an active editor in %s.'),
+		'<a href="'.$core->adminurl->get("admin.user.preferences").'#user-options">'.__('your preferences').'</a>'
 		);
 		$post_format_field .= form::hidden('post_format','xhtml');
 	}
@@ -615,7 +615,7 @@ if ($can_edit_post) {
 		echo '<a id="post-preview" href="'.$preview_url.'" class="button modal" accesskey="p">'.__('Preview').' (p)'.'</a> ';
 	} else {
 		echo
-		'<a id="post-cancel" href="index.php" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
+		'<a id="post-cancel" href="'.$core->adminurl->get("admin.home").'" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
 	}
 
 	echo
@@ -698,7 +698,7 @@ if ($post_id)
 	'<div class="fieldset clear">'.
 	'<h3>'.__('Add a comment').'</h3>'.
 
-	'<form action="comment.php" method="post" id="comment-form">'.
+	'<form action="'.$core->adminurl->get("admin.comment").'" method="post" id="comment-form">'.
 	'<div class="constrained">'.
 	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label>'.
 	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn'))).
@@ -750,7 +750,7 @@ if ($post_id && $post_status == 1)
 
 	# tracbacks actions
 	if ($has_action) {
-		echo '<form action="post.php" id="form-trackbacks" method="post">';
+		echo '<form action="'.$core->adminurl->get("admin.post").'" id="form-trackbacks" method="post">';
 	}
 
 	echo '<h3>'.__('Trackbacks received').'</h3>';
@@ -784,7 +784,7 @@ if ($post_id && $post_status == 1)
 
 		echo
 		'<h3>'.__('Ping blogs').'</h3>'.
-		'<form action="post.php?id='.$post_id.'" id="trackback-form" method="post">'.
+		'<form action="'.$core->adminurl->get("admin.post",array('id' => $post_id)).'" id="trackback-form" method="post">'.
 		'<p><label for="tb_urls" class="area">'.__('URLs to ping:').'</label>'.
 		form::textarea('tb_urls', 60, 5, $tb_urls).
 		'</p>'.
@@ -797,7 +797,7 @@ if ($post_id && $post_status == 1)
 		'<input type="submit" name="ping" value="'.__('Ping blogs').'" />'.
 		(empty($_GET['tb_auto']) ?
 			'&nbsp;&nbsp;<a class="button" href="'.
-			'post.php?id='.$post_id.'&amp;tb_auto=1&amp;tb=1'.
+			$core->adminurl->get("admin.post",array('id'=> $post_id,'tb_auto' => 1,'tb' => 1)).
 			'">'.__('Auto discover ping URLs').'</a>'
 		: '').
 		'</p>'.
@@ -867,7 +867,7 @@ function showComments($rs,$has_action,$tb=false)
 
 	while($rs->fetch())
 	{
-		$comment_url = 'comment.php?id='.$rs->comment_id;
+		$comment_url = $core->adminurl->get("admin.comment",array('id' => $rs->comment_id));
 
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($rs->comment_status) {
@@ -893,7 +893,7 @@ function showComments($rs,$has_action,$tb=false)
 		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,isset($comments[$rs->comment_id]),'','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
 		'<td class="maximal">'.html::escapeHTML($rs->comment_author).'</td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
-		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.
+		'<td class="nowrap"><a href="'.$core->adminurl->get("admin.comments",array('ip' => $rs->comment_ip)).'">'.$rs->comment_ip.'</a></td>'.
 		'<td class="nowrap status">'.$img_status.'</td>'.
 		'<td class="nowrap status"><a href="'.$comment_url.'">'.
 		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>'.

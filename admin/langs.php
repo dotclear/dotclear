@@ -49,7 +49,7 @@ if ($is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id']))
 		}
 
 		dcPage::addSuccessNotice(__('Language has been successfully deleted.'));
-		http::redirect('langs.php');
+		http::redirect($core->adminurl->get("admin.langs"));
 	}
 	catch (Exception $e)
 	{
@@ -92,7 +92,7 @@ if ($is_writable && !empty($_POST['pkg_url']))
 		} else {
 			dcPage::addSuccessNotice(__('Language has been successfully installed.'));
 		}
-		http::redirect('langs.php');
+		http::redirect($core->adminurl->get("admin.langs"));
 	}
 	catch (Exception $e)
 	{
@@ -128,7 +128,7 @@ if ($is_writable && !empty($_POST['upload_pkg']))
 		} else {
 			dcPage::addSuccessNotice(__('Language has been successfully installed.'));
 		}
-		http::redirect('langs.php');
+		http::redirect($core->adminurl->get("admin.langs"));
 	}
 	catch (Exception $e)
 	{
@@ -160,7 +160,7 @@ echo
 'installation.').'</p>'.
 '<p>'.sprintf(__('You can change your user language in your <a href="%1$s">preferences</a> or '.
 'change your blog\'s main language in your <a href="%2$s">blog settings</a>.'),
-'preferences.php','blog_pref.php').'</p>';
+$core->adminurl->get("admin.user.preferences"),$core->adminurl->get("admin.blog.pref")).'</p>';
 
 echo
 '<h3>'.__('Installed languages').'</h3>';
@@ -202,7 +202,7 @@ else
 		if ($is_deletable)
 		{
 			echo
-			'<form action="langs.php" method="post">'.
+			'<form action="'.$core->adminurl->get("admin.langs").'" method="post">'.
 			'<div>'.
 			$core->formNonce().
 			form::hidden(array('locale_id'),html::escapeHTML($k)).
@@ -233,7 +233,7 @@ if (!empty($dc_langs) && $is_writable)
 	}
 
 	echo
-	'<form method="post" action="langs.php" enctype="multipart/form-data" class="fieldset">'.
+	'<form method="post" action="'.$core->adminurl->get("admin.langs").'" enctype="multipart/form-data" class="fieldset">'.
 	'<h4>'.__('Available languages').'</h4>'.
 	'<p>'.sprintf(__('You can download and install a additional language directly from Dotclear.net. '.
 	'Proposed languages are based on your version: %s.'),'<strong>'.DC_VERSION.'</strong>').'</p>'.
@@ -251,7 +251,7 @@ if ($is_writable)
 {
 	# 'Upload language pack' form
 	echo
-	'<form method="post" action="langs.php" enctype="multipart/form-data" class="fieldset">'.
+	'<form method="post" action="'.$core->adminurl->get("admin.langs").'" enctype="multipart/form-data" class="fieldset">'.
 	'<h4>'.__('Upload a zip file').'</h4>'.
 	'<p>'.__('You can install languages by uploading zip files.').'</p>'.
 	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Language zip file:').'</label> '.

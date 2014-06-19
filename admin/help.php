@@ -75,7 +75,7 @@ if (($content_array['content'] == '') || ($help_page == 'index')) {
 if ($content_array['title'] != '') {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
-			__('Global help') => 'help.php',
+			__('Global help') => $core->adminurl->get("admin.help"),
 			$content_array['title'] => ''
 		));
 } else {

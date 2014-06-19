@@ -178,8 +178,11 @@ $core->adminurl = new dcAdminURL($core);
 
 $core->adminurl->register('admin.posts','posts.php');
 $core->adminurl->register('admin.post','post.php');
+$core->adminurl->register('admin.post.media','post_media.php');
 $core->adminurl->register('admin.blog.theme','blog_theme.php');
 $core->adminurl->register('admin.blog.pref','blog_pref.php');
+$core->adminurl->register('admin.blog.del','blog_del.php');
+$core->adminurl->register('admin.blog','blog.php');
 $core->adminurl->register('admin.blogs','blogs.php');
 $core->adminurl->register('admin.categories','categories.php');
 $core->adminurl->register('admin.category','category.php');
@@ -189,12 +192,17 @@ $core->adminurl->register('admin.help','help.php');
 $core->adminurl->register('admin.home','index.php');
 $core->adminurl->register('admin.langs','langs.php');
 $core->adminurl->register('admin.media','media.php');
-$core->adminurl->register('admin.media_item','media_item.php');
+$core->adminurl->register('admin.media.item','media_item.php');
 $core->adminurl->register('admin.plugins','plugins.php');
 $core->adminurl->register('admin.plugin','plugin.php');
+$core->adminurl->register('admin.search','search.php');
 $core->adminurl->register('admin.user.preferences','preferences.php');
 $core->adminurl->register('admin.user','user.php');
+$core->adminurl->register('admin.user.actions','user_actions.php');
 $core->adminurl->register('admin.users','users.php');
+$core->adminurl->register('admin.auth','auth.php');
+$core->adminurl->register('admin.help','help.php');
+$core->adminurl->register('admin.update','update.php');
 
 if ($core->auth->userID() && $core->blog !== null)
 {
