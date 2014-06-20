@@ -187,7 +187,7 @@ $core->adminurl->register('admin.blogs','blogs.php');
 $core->adminurl->register('admin.categories','categories.php');
 $core->adminurl->register('admin.category','category.php');
 $core->adminurl->register('admin.comments','comments.php');
-$core->adminurl->register('admin.comments','comment.php');
+$core->adminurl->register('admin.comment','comment.php');
 $core->adminurl->register('admin.help','help.php');
 $core->adminurl->register('admin.home','index.php');
 $core->adminurl->register('admin.langs','langs.php');
