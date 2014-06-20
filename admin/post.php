@@ -849,6 +849,7 @@ function isContributionAllowed($id,$dt,$com=true)
 # Show comments or trackbacks
 function showComments($rs,$has_action,$tb=false)
 {
+	global $core;
 	echo
 	'<div class="table-outer">'.
 	'<table class="comments-list"><tr>'.
