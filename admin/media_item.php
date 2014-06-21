@@ -468,12 +468,12 @@ if ($file->media_image)
 
 if ($file->type == 'audio/mpeg3')
 {
-	echo dcMedia::mp3player($file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf'));
+	echo dcMedia::mp3player($file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')));
 }
 
 if ($file->type == 'video/x-flv' || $file->type == 'video/mp4' || $file->type == 'video/x-m4v')
 {
-	echo dcMedia::flvplayer($file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_flv.swf'));
+	echo dcMedia::flvplayer($file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_flv.swf')));
 }
 
 echo
