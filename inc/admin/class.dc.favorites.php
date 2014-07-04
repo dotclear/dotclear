@@ -64,7 +64,6 @@ class dcFavorites
 			// No favorite defined ? Huhu, let's go for a migration
 			$this->migrateFavorites();
 		}
-		defaultFavorites::initDefaultFavorites($this);
 	}
 
 
@@ -76,6 +75,7 @@ class dcFavorites
 	 *
      */
 	 public function setup() {
+		defaultFavorites::initDefaultFavorites($this);
 		$this->legacyFavorites();
 		$this->core->callBehavior('adminDashboardFavorites', $this->core, $this);
 		$this->setUserPrefs();
