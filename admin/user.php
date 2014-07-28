@@ -348,7 +348,7 @@ if ($user_id)
 					echo
 					'<form action="'.$core->adminurl->get("admin.user.actions").'" method="post" class="perm-block">'.
 					'<p class="blog-perm">'.__('Blog:').' <a href="'.
-					$core->adminurl->get("admin.blog",array('id' => html::escapeHTML($k)))'">'.
+					$core->adminurl->get("admin.blog",array('id' => html::escapeHTML($k))).'">'.
 					html::escapeHTML($v['name']).'</a> ('.html::escapeHTML($k).')</p>';
 
 					echo '<ul class="ul-perm">';
