@@ -1,3 +1,8 @@
+Dotclear 2.6.4 - 2014-08-18
+===========================================================
+* Security fix: Sanitize search request. Thanks to Takayuki Uchiyama
+* Security fix: Strenghened xmlrpc (see http://www.breaksec.com/?p=6362)
+
 Dotclear 2.6.3 - 2014-05-16
 ===========================================================
 * Security fix: Strenghened xmlrpc auth. Thanks to Egidio Romano
