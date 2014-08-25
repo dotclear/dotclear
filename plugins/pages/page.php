@@ -58,7 +58,13 @@ $status_combo = dcAdminCombos::getPostStatusesCombo();
 $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
 # Formaters combo
-$formaters_combo = dcAdminCombos::getFormatersCombo($editor);
+$core_formaters = $core->getFormaters();
+$available_formats = array('' => '');
+foreach ($core_formaters as $editor => $formats) {
+	foreach ($formats as $format) {
+        $available_formats[$format] = $format;
+    }
+}
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
@@ -66,15 +72,6 @@ $lang_combo = dcAdminCombos::getLangsCombo($rs,true);
 
 # Validation flag
 $bad_dt = false;
-
-if (count($formaters_combo)==0 || !$core->auth->getOption('editor') || $core->auth->getOption('editor')=='') {
-	dcPage::addNotice("message", 
-					  sprintf(__('Choose an active editor in %s.'), 
-								  '<a href="preferences.php#user-options">'.__('your preferences').'</a>'
-								  )
-					  );
-
-}
 
 # Get page informations
 if (!empty($_REQUEST['id']))
@@ -286,6 +283,11 @@ if (!empty($_GET['co'])) {
 	$default_tab = 'comments';
 }
 
+$admin_post_behavior = '';
+if (!empty($core->auth->getOption('editor')) && !empty($core->auth->getOption('editor')[$post_format])) {
+	$admin_post_behavior = $core->callBehavior('adminPostEditor', $core->auth->getOption('editor')[$post_format]);
+}
+
 ?>
 <html>
 <head>
@@ -299,7 +301,7 @@ if (!empty($_GET['co'])) {
   dcPage::jsDatePicker().
   dcPage::jsModal().
   dcPage::jsLoad('js/_post.js').
-  $core->callBehavior('adminPostEditor').
+  $admin_post_behavior.
   dcPage::jsConfirmClose('entry-form','comment-form').
   # --BEHAVIOR-- adminPageHeaders
   $core->callBehavior('adminPageHeaders').
@@ -412,8 +414,7 @@ if ($can_edit_page)
 				'post_format' =>
 					'<div>'.
 					'<h5 id="label_format"><label for="post_format" class="classic">'.__('Text formatting').'</label></h5>'.
-					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
-					'</p>'.
+					'<p>'.form::combo('post_format',$available_formats,$post_format,'maximal').'</p>'.
 					'<p class="format_control control_wiki">'.
 					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').
 					'" href="'.html::escapeURL($redir_url).'&amp;id='.$post_id.'&amp;xconv=1">'.
