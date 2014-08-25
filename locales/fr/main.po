@@ -2029,8 +2029,8 @@ msgstr "Ce choix sera appliqué pour tous les utilisateurs"
 msgid "Edition"
 msgstr "Édition"
 
-msgid "Preferred editor:"
-msgstr "Editeur préféré :"
+msgid "Preferred editor for %s:"
+msgstr "Editeur préféré pour le format %s :"
 
 msgid "Preferred format:"
 msgstr "Format d'édition préféré :"
@@ -3663,8 +3663,8 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
-msgid "Choose an active editor in %s."
-msgstr "Choisissez un éditeur dans %s."
+msgid "Choose an editor"
+msgstr "Choisissez un éditeur"
 
 msgid "your preferences"
 msgstr "vos préférences"

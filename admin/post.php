@@ -59,12 +59,13 @@ $status_combo = dcAdminCombos::getPostStatusesCombo();
 
 $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
-# Formaters combo
-$formaters_combo = dcAdminCombos::getFormatersCombo();
-foreach ($formaters_combo as $editor => $formats) {
+# Formats combo
+$core_formaters = $core->getFormaters();
+$available_formats = array('' => '');
+foreach ($core_formaters as $editor => $formats) {
 	foreach ($formats as $format) {
-		$formaters_combo[$editor][$format] = "$editor:$format";
-	}
+        $available_formats[$format] = $format;
+    }
 }
 
 # Languages combo
@@ -77,14 +78,6 @@ $bad_dt = false;
 # Trackbacks
 $TB = new dcTrackback($core);
 $tb_urls = $tb_excerpt = '';
-
-if (count($formaters_combo)==0 || !$core->auth->getOption('editor') || $core->auth->getOption('editor')=='') {
-	dcPage::addNotice("message",
-					  sprintf(__('Choose an active editor in %s.'),
-								  '<a href="'.$core->adminurl->get("admin.user.preferences").'#user-options">'.__('your preferences').'</a>'
-								  )
-					  );
-}
 
 # Get entry informations
 if (!empty($_REQUEST['id'])) {
@@ -194,7 +187,7 @@ if (!empty($_POST['ping']))
 
 # Format excerpt and content
 elseif (!empty($_POST) && $can_edit_post) {
-    list(, $post_format) = explode(':', $_POST['post_format']);
+	$post_format = $_POST['post_format'];
 	$post_excerpt = $_POST['post_excerpt'];
 	$post_content = $_POST['post_content'];
 
@@ -381,9 +374,8 @@ if ($post_id) {
 }
 
 $admin_post_behavior = '';
-if (($core->auth->getOption('editor')==$post_editor)
-    && in_array($post_format, $core->getFormaters($core->auth->getOption('editor')))) {
-    $admin_post_behavior = $core->callBehavior('adminPostEditor');
+if (!empty($core->auth->getOption('editor')) && !empty($core->auth->getOption('editor')[$post_format])) {
+	$admin_post_behavior = $core->callBehavior('adminPostEditor', $core->auth->getOption('editor')[$post_format]);
 }
 
 dcPage::open($page_title.' - '.__('Entries'),
@@ -460,15 +452,6 @@ if (!$can_view_page) {
 /* Post form if we can edit post
 -------------------------------------------------------- */
 if ($can_edit_post) {
-	if (count($formaters_combo)>0 && ($core->auth->getOption('editor') && $core->auth->getOption('editor')!='')) {
-        $post_format_field = form::combo('post_format',$formaters_combo,"$post_editor:$post_format",'maximal');
-	} else {
-		$post_format_field = sprintf(__('Choose an active editor in %s.'),
-		'<a href="'.$core->adminurl->get("admin.user.preferences").'#user-options">'.__('your preferences').'</a>'
-		);
-		$post_format_field .= form::hidden('post_format','xhtml');
-	}
-
 	$sidebar_items = new ArrayObject(array(
 		'status-box' => array(
 			'title' => __('Status'),
@@ -488,7 +471,7 @@ if ($can_edit_post) {
 				'post_format' =>
 					'<div>'.
 					'<h5 id="label_format"><label for="post_format" class="classic">'.__('Text formatting').'</label></h5>'.
-					'<p>'.$post_format_field.'</p>'.
+					'<p>'.form::combo('post_format',$available_formats,$post_format,'maximal').'</p>'.
 					'<p class="format_control control_no_xhtml">'.
 					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').'" href="'.
 					$core->adminurl->get('admin.post',array('id'=> $post_id,'xconv'=> '1')).
