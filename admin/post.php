@@ -374,7 +374,7 @@ if ($post_id) {
 }
 
 $admin_post_behavior = '';
-if (!empty($core->auth->getOption('editor')) && !empty($core->auth->getOption('editor')[$post_format])) {
+if ($core->auth->getOption('editor') && !empty($core->auth->getOption('editor')[$post_format])) {
 	$admin_post_behavior = $core->callBehavior('adminPostEditor', $core->auth->getOption('editor')[$post_format]);
 }
 
