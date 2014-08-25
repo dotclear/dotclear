@@ -26,8 +26,8 @@ $user_tz = $core->auth->getInfo('user_tz');
 $user_post_status = $core->auth->getInfo('user_post_status');
 
 $user_options = $core->auth->getOptions();
-if (empty($user_options['editor'])) {
-    $user_options['editor'] = '';
+if (empty($user_options['editor']) || !is_array($user_options['editor'])) {
+	$user_options['editor'] = array();
 }
 
 $core->auth->user_prefs->addWorkspace('dashboard');
@@ -64,18 +64,21 @@ if (($default_tab != 'user-profile') && ($default_tab != 'user-options') && ($de
 $editors_combo = dcAdminCombos::getEditorsCombo();
 $editors = array_keys($editors_combo);
 
-# Formaters combo
-$formaters_combo = dcAdminCombos::getFormatersCombo();
-$formaters_combo_editor = array();
-
-if (!empty($user_options['editor']) && !empty($formaters_combo[$user_options['editor']])) {
-    $formaters_combo_editor = $formaters_combo[$user_options['editor']];
-} elseif (count($editors)!=0) {
-    $formaters_combo_editor = $formaters_combo[$editors[0]];
-} else {
-    $formaters_combo = array();
+# Format by editors
+$formaters = $core->getFormaters();
+$format_by_editors = array();
+foreach ($formaters as $editor => $formats) {
+	foreach ($formats as $format) {
+		$format_by_editors[$format][$editor] = $editor;
+	}
 }
-
+$available_formats = array('' => '');
+foreach (array_keys($format_by_editors) as $format) {
+	$available_formats[$format] = $format;
+	if (!isset($user_options['editor'][$format])) {
+		$user_options['editor'][$format] = '';
+	}
+}
 $status_combo = dcAdminCombos::getPostStatusescombo();
 
 $iconsets_combo = array(__('Default') => '');
@@ -149,7 +152,7 @@ if (isset($_POST['user_name']))
 }
 
 # Update user options
-if (isset($_POST['user_post_format']))
+if (isset($_POST['user_editor']))
 {
 	try
 	{
@@ -332,8 +335,7 @@ dcPage::open($page_title,
 				sprintf(__('Password strength: %s'),__('mediocre'))."', '".
 				sprintf(__('Password strength: %s'),__('strong'))."', '".
 				sprintf(__('Password strength: %s'),__('very strong'))."']});\n".
-		"});\n".
-        'var formats_by_editor = \''.json_encode($formaters_combo).'\';'.
+		"});".
 		"\n//]]>\n".
 		"</script>\n".
 	dcPage::jsPageTabs($default_tab).
@@ -470,14 +472,21 @@ echo
 
 echo
 '<div class="fieldset">'.
-'<h4>'.__('Edition').'</h4>'.
+'<h4>'.__('Edition').'</h4>';
 
-'<p class="field"><label for="user_editor">'.__('Preferred editor:').'</label>'.
-form::combo('user_editor',array_merge(array(__('Choose an editor') => ''),$editors_combo),$user_options['editor']).'</p>'.
-
+foreach ($format_by_editors as $format => $editors) {
+	echo
+	'<p class="field"><label for="user_editor">'.sprintf(__('Preferred editor for %s:'),$format).'</label>'.
+	form::combo(
+		'user_editor['.$format.']',
+		array_merge(array(__('Choose an editor') => ''),$editors),$user_options['editor'][$format]
+	).'</p>';
+}
+echo
 '<p class="field"><label for="user_post_format">'.__('Preferred format:').'</label>'.
-form::combo('user_post_format',array_merge(array('' => ''), $formaters_combo_editor),$user_options['post_format']).'</p>'.
+form::combo('user_post_format',$available_formats,$user_options['post_format']).'</p>';
 
+echo
 '<p class="field"><label for="user_post_status">'.__('Default entry status:').'</label>'.
 form::combo('user_post_status',$status_combo,$user_post_status).'</p>'.
 
