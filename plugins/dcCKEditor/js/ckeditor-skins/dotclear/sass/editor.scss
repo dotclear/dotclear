@@ -1,0 +1,18 @@
+@import "reset";
+@import "mainui";
+@import "panel";
+@import "colorpanel";
+@import "toolbar";
+@import "menu";
+@import "richcombo";
+@import "elementspath";
+@import "presets";
+@import "dialog";
+
+.cke_chrome {
+  visibility: inherit;
+}
+
+.cke_voice_label, legend.cke_voice_label {
+  display: none;
+}
