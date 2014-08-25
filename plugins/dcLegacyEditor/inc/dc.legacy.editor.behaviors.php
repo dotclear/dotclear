@@ -14,10 +14,10 @@ class dcLegacyEditorBehaviors
 {
 	protected static $p_url = 'index.php?pf=dcLegacyEditor';
 
-	public static function adminPostEditor($editor) {
+	public static function adminPostEditor($editor='') {
 		global $core;
 
-		if ($editor!='dcLegacyEditor') {
+		if (empty($editor) || $editor!='dcLegacyEditor') {
 			return;
 		}
 
