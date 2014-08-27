@@ -17,7 +17,7 @@ $redir_url = $p_url.'&act=page';
 $post_id = '';
 $post_dt = '';
 $post_format = $core->auth->getOption('post_format');
-$editor = $core->auth->getOption('editor');
+$post_editor = $core->auth->getOption('editor');
 $post_password = '';
 $post_url = '';
 $post_lang = $core->auth->getInfo('user_lang');
@@ -284,8 +284,8 @@ if (!empty($_GET['co'])) {
 }
 
 $admin_post_behavior = '';
-if (!empty($core->auth->getOption('editor')) && !empty($core->auth->getOption('editor')[$post_format])) {
-	$admin_post_behavior = $core->callBehavior('adminPostEditor', $core->auth->getOption('editor')[$post_format]);
+if ($post_editor && !empty($post_editor[$post_format])) {
+	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format]);
 }
 
 ?>

@@ -373,9 +373,10 @@ if ($post_id) {
 	$img_status = '';
 }
 
+
 $admin_post_behavior = '';
-if ($core->auth->getOption('editor') && !empty($core->auth->getOption('editor')[$post_format])) {
-	$admin_post_behavior = $core->callBehavior('adminPostEditor', $core->auth->getOption('editor')[$post_format]);
+if ($post_editor && !empty($post_editor[$post_format])) {
+	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format]);
 }
 
 dcPage::open($page_title.' - '.__('Entries'),
