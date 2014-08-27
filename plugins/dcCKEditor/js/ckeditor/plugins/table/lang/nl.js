@@ -1,31 +1,31 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'table', 'nl', {
-	border: 'Randdikte',
-	caption: 'Onderschrift',
+	border: 'Breedte rand',
+	caption: 'Naam',
 	cell: {
 		menu: 'Cel',
 		insertBefore: 'Voeg cel in voor',
-		insertAfter: 'Voeg cel in na',
+		insertAfter: 'Voeg cel in achter',
 		deleteCell: 'Cellen verwijderen',
 		merge: 'Cellen samenvoegen',
 		mergeRight: 'Voeg samen naar rechts',
 		mergeDown: 'Voeg samen naar beneden',
-		splitHorizontal: 'Splits cel horizontaal',
-		splitVertical: 'Splits cel vertikaal',
-		title: 'Celeigenschappen',
-		cellType: 'Celtype',
+		splitHorizontal: 'Splits cellen horizontaal',
+		splitVertical: 'Splits cellen verticaal',
+		title: 'Cel eigenschappen',
+		cellType: 'Cel type',
 		rowSpan: 'Rijen samenvoegen',
 		colSpan: 'Kolommen samenvoegen',
 		wordWrap: 'Automatische terugloop',
 		hAlign: 'Horizontale uitlijning',
 		vAlign: 'Verticale uitlijning',
-		alignBaseline: 'Tekstregel',
+		alignBaseline: 'Basislijn',
 		bgColor: 'Achtergrondkleur',
-		borderColor: 'Randkleur',
-		data: 'Gegevens',
+		borderColor: 'Kleur rand',
+		data: 'Inhoud',
 		header: 'Kop',
 		yes: 'Ja',
 		no: 'Nee',
@@ -35,12 +35,12 @@ CKEDITOR.plugins.setLang( 'table', 'nl', {
 		invalidColSpan: 'Kolommen samenvoegen moet een heel getal zijn.',
 		chooseColor: 'Kies'
 	},
-	cellPad: 'Celopvulling',
-	cellSpace: 'Celafstand',
+	cellPad: 'Ruimte in de cel',
+	cellSpace: 'Afstand tussen cellen',
 	column: {
 		menu: 'Kolom',
 		insertBefore: 'Voeg kolom in voor',
-		insertAfter: 'Voeg kolom in na',
+		insertAfter: 'Voeg kolom in achter',
 		deleteColumn: 'Kolommen verwijderen'
 	},
 	columns: 'Kolommen',
@@ -50,25 +50,25 @@ CKEDITOR.plugins.setLang( 'table', 'nl', {
 	headersColumn: 'Eerste kolom',
 	headersNone: 'Geen',
 	headersRow: 'Eerste rij',
-	invalidBorder: 'De randdikte moet een getal zijn.',
-	invalidCellPadding: 'Celopvulling moet een getal zijn.',
-	invalidCellSpacing: 'Celafstand moet een getal zijn.',
+	invalidBorder: 'De rand breedte moet een getal zijn.',
+	invalidCellPadding: 'Ruimte in de cel moet een getal zijn.',
+	invalidCellSpacing: 'Afstand tussen cellen moet een getal zijn.',
 	invalidCols: 'Het aantal kolommen moet een getal zijn groter dan 0.',
 	invalidHeight: 'De tabelhoogte moet een getal zijn.',
 	invalidRows: 'Het aantal rijen moet een getal zijn groter dan 0.',
 	invalidWidth: 'De tabelbreedte moet een getal zijn.',
-	menu: 'Tabeleigenschappen',
+	menu: 'Eigenschappen tabel',
 	row: {
 		menu: 'Rij',
 		insertBefore: 'Voeg rij in voor',
-		insertAfter: 'Voeg rij in na',
+		insertAfter: 'Voeg rij in achter',
 		deleteRow: 'Rijen verwijderen'
 	},
 	rows: 'Rijen',
 	summary: 'Samenvatting',
-	title: 'Tabeleigenschappen',
+	title: 'Eigenschappen tabel',
 	toolbar: 'Tabel',
 	widthPc: 'procent',
 	widthPx: 'pixels',
 	widthUnit: 'eenheid breedte'
-} );
+});

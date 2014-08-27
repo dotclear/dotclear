@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -69,7 +69,7 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'zh-cn', {
 		},
 			{
 			name: '访问前一个焦点区域的命令',
-			legend: '按 ${accessPreviousSpace} 访问^符号前最近的不可访问的焦点区域，例如：两个相邻的 HR 元素。重复此组合按键可以到达远处的焦点区域。'
+			legend: '按 ${accessPreviousSpace} 访问^符号前最近的不可访问的焦点区域，例如：两个相邻的 HR元素。重复此组合按键可以到达远处的焦点区域。'
 		},
 			{
 			name: '访问下一个焦点区域命令',
@@ -81,67 +81,5 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'zh-cn', {
 		}
 		]
 	}
-	],
-	backspace: '退格键',
-	tab: 'Tab 键',
-	enter: '回车键',
-	shift: 'Shift 键',
-	ctrl: 'Ctrl 键',
-	alt: 'Alt 键',
-	pause: '暂停键',
-	capslock: '大写锁定键',
-	escape: 'Esc 键',
-	pageUp: '上翻页键',
-	pageDown: '下翻页键',
-	end: '行尾键',
-	home: '行首键',
-	leftArrow: '向左箭头键',
-	upArrow: '向上箭头键',
-	rightArrow: '向右箭头键',
-	downArrow: '向下箭头键',
-	insert: '插入键',
-	'delete': '删除键',
-	leftWindowKey: '左 WIN 键',
-	rightWindowKey: '右 WIN 键',
-	selectKey: '选择键',
-	numpad0: '小键盘 0 键',
-	numpad1: '小键盘 1 键',
-	numpad2: '小键盘 2 键',
-	numpad3: '小键盘 3 键',
-	numpad4: '小键盘 4 键',
-	numpad5: '小键盘 5 键',
-	numpad6: '小键盘 6 键',
-	numpad7: '小键盘 7 键',
-	numpad8: '小键盘 8 键',
-	numpad9: '小键盘 9 键',
-	multiply: '星号键',
-	add: '加号键',
-	subtract: '减号键',
-	decimalPoint: '小数点键',
-	divide: '除号键',
-	f1: 'F1 键',
-	f2: 'F2 键',
-	f3: 'F3 键',
-	f4: 'F4 键',
-	f5: 'F5 键',
-	f6: 'F6 键',
-	f7: 'F7 键',
-	f8: 'F8 键',
-	f9: 'F9 键',
-	f10: 'F10 键',
-	f11: 'F11 键',
-	f12: 'F12 键',
-	numLock: '数字锁定键',
-	scrollLock: '滚动锁定键',
-	semiColon: '分号键',
-	equalSign: '等号键',
-	comma: '逗号键',
-	dash: '短划线键',
-	period: '句号键',
-	forwardSlash: '斜杠键',
-	graveAccent: '重音符键',
-	openBracket: '左中括号键',
-	backSlash: '反斜杠键',
-	closeBracket: '右中括号键',
-	singleQuote: '单引号键'
-} );
+	]
+});

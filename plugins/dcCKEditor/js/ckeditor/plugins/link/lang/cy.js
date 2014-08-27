@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang( 'link', 'cy', {
@@ -9,7 +9,7 @@ CKEDITOR.plugins.setLang( 'link', 'cy', {
 	advisoryTitle: 'Teitl Cynghorol',
 	anchor: {
 		toolbar: 'Angor',
-		menu: 'Golygu\'r Angor',
+		menu: 'Golygwch yr Angor',
 		title: 'Priodweddau\'r Angor',
 		name: 'Enw\'r Angor',
 		errorName: 'Teipiwch enw\'r angor',
@@ -17,13 +17,13 @@ CKEDITOR.plugins.setLang( 'link', 'cy', {
 	},
 	anchorId: 'Gan Id yr Elfen',
 	anchorName: 'Gan Enw\'r Angor',
-	charset: 'Set Nodau\'r Adnodd Cysylltiedig',
+	charset: 'Set nodau\'r Adnodd Cysylltiedig',
 	cssClasses: 'Dosbarthiadau Dalen Arddull',
 	emailAddress: 'Cyfeiriad E-Bost',
-	emailBody: 'Corff y Neges',
-	emailSubject: 'Testun y Neges',
+	emailBody: 'Pwnc y Neges',
+	emailSubject: 'Testun y Message Subject',
 	id: 'Id',
-	info: 'Gwyb y Ddolen',
+	info: 'Gwyb ar y Ddolen',
 	langCode: 'Cod Iaith',
 	langDir: 'Cyfeiriad Iaith',
 	langDirLTR: 'Chwith i\'r Dde (LTR)',
@@ -62,4 +62,4 @@ CKEDITOR.plugins.setLang( 'link', 'cy', {
 	type: 'Math y Ddolen',
 	unlink: 'Datgysylltu',
 	upload: 'Lanlwytho'
-} );
+});

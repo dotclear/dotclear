@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -81,67 +81,5 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'hu', {
 		}
 		]
 	}
-	],
-	backspace: 'Backspace',
-	tab: 'Tab',
-	enter: 'Enter',
-	shift: 'Shift',
-	ctrl: 'Ctrl',
-	alt: 'Alt',
-	pause: 'Pause',
-	capslock: 'Caps Lock',
-	escape: 'Escape',
-	pageUp: 'Page Up',
-	pageDown: 'Page Down',
-	end: 'End',
-	home: 'Home',
-	leftArrow: 'balra nyíl',
-	upArrow: 'felfelé nyíl',
-	rightArrow: 'jobbra nyíl',
-	downArrow: 'lefelé nyíl',
-	insert: 'Insert',
-	'delete': 'Delete',
-	leftWindowKey: 'bal Windows-billentyű',
-	rightWindowKey: 'jobb Windows-billentyű',
-	selectKey: 'Billentyű választása',
-	numpad0: 'Számbillentyűk 0',
-	numpad1: 'Számbillentyűk 1',
-	numpad2: 'Számbillentyűk 2',
-	numpad3: 'Számbillentyűk 3',
-	numpad4: 'Számbillentyűk 4',
-	numpad5: 'Számbillentyűk 5',
-	numpad6: 'Számbillentyűk 6',
-	numpad7: 'Számbillentyűk 7',
-	numpad8: 'Számbillentyűk 8',
-	numpad9: 'Számbillentyűk 9',
-	multiply: 'Szorzás',
-	add: 'Hozzáadás',
-	subtract: 'Kivonás',
-	decimalPoint: 'Tizedespont',
-	divide: 'Osztás',
-	f1: 'F1',
-	f2: 'F2',
-	f3: 'F3',
-	f4: 'F4',
-	f5: 'F5',
-	f6: 'F6',
-	f7: 'F7',
-	f8: 'F8',
-	f9: 'F9',
-	f10: 'F10',
-	f11: 'F11',
-	f12: 'F12',
-	numLock: 'Num Lock',
-	scrollLock: 'Scroll Lock',
-	semiColon: 'Pontosvessző',
-	equalSign: 'Egyenlőségjel',
-	comma: 'Vessző',
-	dash: 'Kötőjel',
-	period: 'Pont',
-	forwardSlash: 'Perjel',
-	graveAccent: 'Visszafelé dőlő ékezet',
-	openBracket: 'Nyitó szögletes zárójel',
-	backSlash: 'fordított perjel',
-	closeBracket: 'Záró szögletes zárójel',
-	singleQuote: 'szimpla idézőjel'
-} );
+	]
+});
