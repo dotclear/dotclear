@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -7,7 +7,7 @@
  * @fileOverview Image plugin
  */
 
-( function() {
+(function() {
 
 	CKEDITOR.plugins.add( 'image', {
 		requires: 'dialog',
@@ -15,11 +15,6 @@
 		icons: 'image', // %REMOVE_LINE_CORE%
 		hidpi: true, // %REMOVE_LINE_CORE%
 		init: function( editor ) {
-			// Abort when Image2 is to be loaded since both plugins
-			// share the same button, command, etc. names (#11222).
-			if ( editor.plugins.image2 )
-				return;
-
 			var pluginName = 'image';
 
 			// Register the dialog.
@@ -46,24 +41,24 @@
 				label: editor.lang.common.image,
 				command: pluginName,
 				toolbar: 'insert,10'
-			} );
+			});
 
 			editor.on( 'doubleclick', function( evt ) {
 				var element = evt.data.element;
 
 				if ( element.is( 'img' ) && !element.data( 'cke-realelement' ) && !element.isReadOnly() )
 					evt.data.dialog = 'image';
-			} );
+			});
 
 			// If the "menu" plugin is loaded, register the menu items.
 			if ( editor.addMenuItems ) {
-				editor.addMenuItems( {
+				editor.addMenuItems({
 					image: {
 						label: editor.lang.image.menu,
 						command: 'image',
 						group: 'image'
 					}
-				} );
+				});
 			}
 
 			// If the "contextmenu" plugin is loaded, register the listeners.
@@ -71,15 +66,10 @@
 				editor.contextMenu.addListener( function( element, selection ) {
 					if ( getSelectedImage( editor, element ) )
 						return { image: CKEDITOR.TRISTATE_OFF };
-				} );
+				});
 			}
 		},
 		afterInit: function( editor ) {
-			// Abort when Image2 is to be loaded since both plugins
-			// share the same button, command, etc. names (#11222).
-			if ( editor.plugins.image2 )
-				return;
-
 			// Customize the behavior of the alignment commands. (#7430)
 			setupAlignCommand( 'left' );
 			setupAlignCommand( 'right' );
@@ -106,7 +96,7 @@
 
 								evt.cancel();
 							}
-						} );
+						});
 					}
 
 					command.on( 'refresh', function( evt ) {
@@ -120,11 +110,11 @@
 
 							evt.cancel();
 						}
-					} );
+					});
 				}
 			}
 		}
-	} );
+	});
 
 	function getSelectedImage( editor, element ) {
 		if ( !element ) {
@@ -148,7 +138,7 @@
 		return align;
 	}
 
-} )();
+})();
 
 /**
  * Whether to remove links when emptying the link URL field in the image dialog.

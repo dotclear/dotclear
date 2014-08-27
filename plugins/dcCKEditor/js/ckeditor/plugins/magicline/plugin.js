@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -9,11 +9,11 @@
 
 'use strict';
 
-( function() {
+(function() {
 	CKEDITOR.plugins.add( 'magicline', {
-		lang: 'ar,bg,ca,cs,cy,de,el,en,en-gb,eo,es,et,eu,fa,fi,fr,fr-ca,gl,he,hr,hu,id,it,ja,km,ko,ku,lv,nb,nl,no,pl,pt,pt-br,ru,si,sk,sl,sq,sv,tr,ug,uk,vi,zh,zh-cn', // %REMOVE_LINE_CORE%
+		lang: 'ar,bg,ca,cs,cy,de,el,en,eo,es,et,eu,fa,fi,fr,fr-ca,gl,he,hr,hu,id,it,ja,km,ko,ku,lv,nb,nl,no,pl,pt,pt-br,ru,si,sk,sl,sq,sv,tr,ug,uk,vi,zh-cn', // %REMOVE_LINE_CORE%
 		init: initPlugin
-	} );
+	});
 
 	// Activates the box inside of an editor.
 	function initPlugin( editor ) {
@@ -30,7 +30,7 @@
 				boxColor: config.magicline_color || '#ff0000',
 				rtl: config.contentsLangDirection == 'rtl',
 				tabuList: [ 'data-cke-hidden-sel' ].concat( config.magicline_tabuList || [] ),
-				triggers: config.magicline_everywhere ? DTD_BLOCK : { table: 1, hr: 1, div: 1, ul: 1, ol: 1, dl: 1, form: 1, blockquote: 1 }
+				triggers: config.magicline_everywhere ? DTD_BLOCK : { table:1,hr:1,div:1,ul:1,ol:1,dl:1,form:1,blockquote:1 }
 			},
 			scrollTimeout, checkMouseTimeoutPending, checkMouseTimeout, checkMouseTimer;
 
@@ -84,7 +84,7 @@
 			}, true );
 
 			// This is the boundary of the editor. For inline the boundary is editable itself.
-			// For classic (`iframe`-based) editor, the HTML element is a real boundary.
+			// For framed editor, the HTML element is a real boundary.
 			that.boundary = that.inInlineMode ? that.editable : that.doc.getDocumentElement();
 
 			// Enabling the box inside of inline editable is pointless.
@@ -95,11 +95,11 @@
 			// Handle in-line editing by setting appropriate position.
 			// If current position is static, make it relative and clear top/left coordinates.
 			if ( that.inInlineMode && !isPositioned( editable ) ) {
-				editable.setStyles( {
+				editable.setStyles({
 					position: 'relative',
 					top: null,
 					left: null
-				} );
+				});
 			}
 			// Enable the box. Let it produce children elements, initialize
 			// event handlers and own methods.
@@ -115,7 +115,7 @@
 			// Thanks to that, undo doesn't even know about the existence of the box.
 			editable.attachListener( editor, 'beforeUndoImage', function() {
 				that.line.detach();
-			} );
+			});
 
 			// Removes the box HTML from editor data string if getData is called.
 			// Thanks to that, an editor never yields data polluted by the box.
@@ -165,14 +165,14 @@
 					checkMouseTimer = null;
 					that.line.detach();
 				}
-			} );
+			});
 
 			// This one deactivates hidden mode of an editor which
 			// prevents the box from being shown.
 			editable.attachListener( editable, 'keyup', function( event ) {
 				that.hiddenMode = 0;
 				that.debug.showHidden( that.hiddenMode ); // %REMOVE_LINE%
-			} );
+			});
 
 			editable.attachListener( editable, 'keydown', function( event ) {
 				if ( editor.mode != 'wysiwyg' )
@@ -191,11 +191,11 @@
 				}
 
 				that.debug.showHidden( that.hiddenMode ); // %REMOVE_LINE%
-			} );
+			});
 
 			// This method ensures that checkMouse aren't executed
 			// in parallel and no more frequently than specified in timeout function.
-			// In classic (`iframe`-based) editor, document is used as a trigger, to provide magicline
+			// In framed editor, document is used as a trigger, to provide magicline
 			// functionality when mouse is below the body (short content, short body).
 			editable.attachListener( that.inInlineMode ? editable : doc, 'mousemove', function( event ) {
 				checkMouseTimeoutPending = true;
@@ -214,7 +214,7 @@
 				checkMouseTimer = setTimeout( function() {
 					checkMouse( mouse );
 				}, 30 ); // balances performance and accessibility
-			} );
+			});
 
 			// This one removes box on scroll event.
 			// It is to avoid box displacement.
@@ -240,7 +240,7 @@
 
 					that.debug.showHidden( that.hiddenMode ); // %REMOVE_LINE%
 				}
-			} );
+			});
 
 			// Those event handlers remove the box on mousedown
 			// and don't reveal it until the mouse is released.
@@ -255,7 +255,7 @@
 				that.mouseDown = 1;
 
 				that.debug.showHidden( that.hiddenMode ); // %REMOVE_LINE%
-			} );
+			});
 
 			// Google Chrome doesn't trigger this on the scrollbar (since 2009...)
 			// so it is totally useless to check for scroll finish
@@ -264,7 +264,7 @@
 				that.hiddenMode = 0;
 				that.mouseDown = 0;
 				that.debug.showHidden( that.hiddenMode ); // %REMOVE_LINE%
-			} );
+			});
 
 			// Editor commands for accessing difficult focus spaces.
 			editor.addCommand( 'accessPreviousSpace', accessFocusSpaceCmd( that ) );
@@ -279,7 +279,7 @@
 			editor.on( 'loadSnapshot', function( event ) {
 				var elements, element, i;
 
-				for ( var t in { p: 1, br: 1, div: 1 } ) {
+				for ( var t in { p:1,br:1,div:1 } ) {
 					// document.find is not available in QM (#11149).
 					elements = editor.document.getElementsByTag( t );
 
@@ -398,7 +398,7 @@
 	function areSiblings( that, upper, lower ) {
 		return isHtml( upper ) && isHtml( lower ) && lower.equals( upper.getNext( function( node ) {
 			return !( isEmptyTextNode( node ) || isComment( node ) || isFlowBreaker( node ) );
-		} ) );
+		}) );
 	}
 
 	// boxTrigger is an abstract type which describes
@@ -450,11 +450,12 @@
 
 			// Return nothing if:
 			//	\-> Element is not HTML.
-			if ( !( element && element.type == CKEDITOR.NODE_ELEMENT && element.$ ) )
+			if ( !( element && element.type == CKEDITOR.NODE_ELEMENT && element.$ ) ) {
 				return null;
+			}
 
 			// Also return nothing if:
-			//	\-> We're IE<9 and element is out of the top-level element (editable for inline and HTML for classic (`iframe`-based)).
+			//	\-> We're IE<9 and element is out of the top-level element (editable for inline and HTML for framed).
 			//		This is due to the bug which allows IE<9 firing mouse events on element
 			//		with contenteditable=true while doing selection out (far, away) of the element.
 			//		Thus we must always be sure that we stay in editable or HTML.
@@ -465,7 +466,7 @@
 
 			return element;
 		};
-	} )();
+	})();
 
 	// Gets the closest parent node that belongs to triggers group.
 	function getAscendantTrigger( that ) {
@@ -515,7 +516,7 @@
 		node = node[ goBack ? 'getPrevious' : 'getNext' ]( function( node ) {
 			return ( isTextNode( node ) && !isEmptyTextNode( node ) ) ||
 				( isHtml( node ) && !isFlowBreaker( node ) && !isLine( that, node ) );
-		} );
+		});
 
 		return node;
 	}
@@ -592,7 +593,7 @@
 						'top:-17px;' + CKEDITOR.tools.cssVendorPrefix( 'border-radius', '2px 2px 0px 0px', 1 ),
 						'top:-1px;' + CKEDITOR.tools.cssVendorPrefix( 'border-radius', '0px 0px 2px 2px', 1 )
 					]
-				} ),
+				}),
 				extend( newElementFromHtml( TRIANGLE_HTML, doc ), {
 					base: CSS_TRIANGLE + 'left:0px;border-left-color:' + that.boxColor + ';',
 					looks: [
@@ -600,7 +601,7 @@
 						'border-width:8px 0 0 8px;top:-8px',
 						'border-width:0 0 8px 8px;top:0px'
 					]
-				} ),
+				}),
 				extend( newElementFromHtml( TRIANGLE_HTML, doc ), {
 					base: CSS_TRIANGLE + 'right:0px;border-right-color:' + that.boxColor + ';',
 					looks: [
@@ -608,7 +609,7 @@
 						'border-width:8px 8px 0 0;top:-8px',
 						'border-width:0 8px 8px 0;top:0px'
 					]
-				} )
+				})
 			],
 
 			detach: function() {
@@ -746,7 +747,7 @@
 
 			wrap: new newElement( 'span', that.doc )
 
-		} );
+		});
 
 		// Insert children into the box.
 		for ( var i = line.lineChildren.length; i--; )
@@ -781,12 +782,12 @@
 				that.hotNode.scrollIntoView();
 
 			event.data.preventDefault( true );
-		} );
+		});
 
 		// Prevents IE9 from displaying the resize box and disables drag'n'drop functionality.
 		line.on( 'mousedown', function( event ) {
 			event.data.preventDefault( true );
-		} );
+		});
 
 		that.line = line;
 	}
@@ -909,7 +910,7 @@
 						that.lastCmdDirection = !!insertAfter;
 					} );
 
-					if ( !env.ie && that.enterMode != CKEDITOR.ENTER_BR )
+					if( !env.ie && that.enterMode != CKEDITOR.ENTER_BR )
 						that.hotNode.scrollIntoView();
 
 					// Detach the line if was visible (previously triggered by mouse).
@@ -994,7 +995,7 @@
 						return;
 					}
 				};
-			} )()
+			})()
 		};
 	}
 
@@ -1019,7 +1020,7 @@
 		if ( !isHtml( element ) )
 			return false;
 
-		var options = { left: 1, right: 1, center: 1 };
+		var options = { left:1,right:1,center:1 };
 
 		return !!( options[ element.getComputedStyle( 'float' ) ] || options[ element.getAttribute( 'align' ) ] );
 	}
@@ -1035,7 +1036,7 @@
 	var isComment = CKEDITOR.dom.walker.nodeType( CKEDITOR.NODE_COMMENT );
 
 	function isPositioned( element ) {
-		return !!{ absolute: 1, fixed: 1 }[ element.getComputedStyle( 'position' ) ];
+		return !!{ absolute:1,fixed:1 }[ element.getComputedStyle( 'position' ) ];
 	}
 
 	// Is text node?
@@ -1069,7 +1070,7 @@
 	function isChildBetweenPointerAndEdge( that, parent, edgeBottom ) {
 		var edgeChild = parent[ edgeBottom ? 'getLast' : 'getFirst' ]( function( node ) {
 			return that.isRelevant( node ) && !node.is( DTD_TABLECONTENT );
-		} );
+		});
 
 		if ( !edgeChild )
 			return false;
@@ -1136,7 +1137,7 @@
 		if ( isLine( that, edgeNode ) ) {
 			edgeNode = that.line.wrap[ bottomTrigger ? 'getPrevious' : 'getNext' ]( function( node ) {
 				return !( isEmptyTextNode( node ) || isComment( node ) );
-			} );
+			});
 		}
 
 		// Exclude bad nodes (no ML needed then):
@@ -1274,7 +1275,7 @@
 		// 	\-> Reject an element which is a flow breaker.
 		// 	\-> Reject an element which has a child above/below the mouse pointer.
 		//	\-> Reject an element which belongs to list items.
-		if ( isFlowBreaker( element ) ||
+		if( isFlowBreaker( element ) ||
 			isChildBetweenPointerAndEdge( that, element, bottomTrigger ) ||
 			element.getParent().is( DTD_LISTITEM ) ) {
 				that.debug.logEnd( 'ABORT. element is wrong', element ); // %REMOVE_LINE%
@@ -1299,9 +1300,9 @@
 					inBetween( element.size.bottom, view.pane.height - fixedOffset, view.pane.height ) ) {
 						triggerLook = LOOK_BOTTOM;
 				}
-				else if ( inBetween( mouse.y, 0, element.size.top + fixedOffset ) )
+				else if ( inBetween( mouse.y, 0, element.size.top + fixedOffset ) ) {
 					triggerLook = LOOK_TOP;
-
+				}
 			}
 			else
 				triggerLook = LOOK_NORMAL;
@@ -1330,7 +1331,7 @@
 			// 	\-> Reject an elementSibling which is a flow breaker.
 			//	\-> Reject an elementSibling which isn't a trigger.
 			//	\-> Reject an elementSibling which belongs to list items.
-			if ( isFlowBreaker( elementSibling ) ||
+			if( isFlowBreaker( elementSibling ) ||
 				!isTrigger( that, elementSibling ) ||
 				elementSibling.getParent().is( DTD_LISTITEM ) ) {
 					that.debug.logEnd( 'ABORT. elementSibling is wrong', elementSibling ); // %REMOVE_LINE%
@@ -1453,7 +1454,7 @@
 			} else {
 				upper = startElement.getFirst( function( node ) {
 					return expandSelector( that, node );
-				} );
+				});
 			}
 
 			if ( lower && startElement.contains( lower ) ) {
@@ -1462,7 +1463,7 @@
 			} else {
 				lower = startElement.getLast( function( node ) {
 					return expandSelector( that, node );
-				} );
+				});
 			}
 
 			// 1.3.
@@ -1598,13 +1599,13 @@
 			that.debug.groupEnd(); // %REMOVE_LINE%
 			return trigger && expandFilter( that, trigger ) ? trigger : null;
 		};
-	} )();
+	})();
 
 	// Collects dimensions of an element.
 	var sizePrefixes = [ 'top', 'left', 'right', 'bottom' ];
 
 	function getSize( that, element, ignoreScroll, force ) {
-		var getStyle = ( function() {
+		var getStyle = (function() {
 			// Better "cache and reuse" than "call again and again".
 			var computed = env.ie ? element.$.currentStyle : that.win.$.getComputedStyle( element.$, '' );
 
@@ -1614,7 +1615,7 @@
 					} : function( propertyName ) {
 						return computed.getPropertyValue( propertyName );
 					};
-			} )(),
+			})(),
 			docPosition = element.getDocumentPosition(),
 			border = {},
 			margin = {},
@@ -1648,7 +1649,7 @@
 			};
 		}
 
-		return extend( {
+		return extend({
 			border: border,
 			padding: padding,
 			margin: margin,
@@ -1754,7 +1755,7 @@
 		return new boxTrigger( [ upper, lower, null, null ] );
 	}
 
-} )();
+})();
 
 /**
  * Sets the default vertical distance between element edge and mouse pointer that
