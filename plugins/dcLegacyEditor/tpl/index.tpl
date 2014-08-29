@@ -3,10 +3,7 @@
     <title>dcLegacyEditor</title>
   </head>
   <body>
-    <h2><?php echo html::escapeHTML($core->blog->name);?> &gt; dcLegacyEditor</h2>
-    <?php if (!empty($message)):?>
-    <p class="message"><?php echo $message;?></p>
-    <?php endif;?>
+    <?php echo dcPage::breadcrumb(array(__('Plugins') => '',__('dcLegacyEditor') => '')).dcPage::notices(); ?>
 
     <?php if ($is_super_admin):?>
     <h3 class="hidden-if-js"><?php echo __('Settings');?></h3>
@@ -20,7 +17,7 @@
 	  </label>
 	</p>
       </div>
-      
+
       <p>
 	<input type="hidden" name="p" value="dcLegacyEditor"/>
 	<?php echo $core->formNonce();?>
