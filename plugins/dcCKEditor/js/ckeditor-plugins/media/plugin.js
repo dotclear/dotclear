@@ -7,13 +7,13 @@
 					$.toolbarPopup('media.php?popup=1&editor='+editor.name);
 				}
 			});
-			
+
 			editor.ui.addButton('Media', {
-				label: 'Media Selection',
+				label: dotclear.msg.img_select_title,
 				command: 'mediaCommand',
 				toolbar: 'insert'
 			});
-			
+
 			editor.on('doubleclick',function(e) {
 				var element = CKEDITOR.plugins.link.getSelectedLink(editor) || e.data.element;
 				if (!element.isReadOnly()) {

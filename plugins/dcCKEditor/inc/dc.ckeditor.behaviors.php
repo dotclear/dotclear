@@ -31,6 +31,9 @@ class dcCKEditorBehaviors
 	            }
 	            return resource;
              };'.
+            "dotclear.msg.img_select_title = '".html::escapeJS(__('Media chooser'))."'; ".
+            "dotclear.msg.post_link_title = '".html::escapeJS(__('Link to an entry'))."'; ".
+            "dotclear.msg.link_title = '".html::escapeJS(__('Link'))."'; ".
             "\n//]]>\n".
             "</script>\n".
             dcPage::jsLoad(self::$p_url.'/js/ckeditor/ckeditor.js').
