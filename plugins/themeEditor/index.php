@@ -56,7 +56,7 @@ try
 	if (!empty($_POST['delete']))
 	{
 		$o->deleteFile($file['type'],$file['f']);
-		dcPage::addSuccessNotice(__('The file has been deleted.'));
+		dcPage::addSuccessNotice(__('The file has been reset.'));
 		http::redirect($p_url.'&'.$file['type'].'='.$file['f']);
 	}
 }
