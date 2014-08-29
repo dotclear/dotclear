@@ -11,15 +11,15 @@
 			});
 
 			editor.ui.addButton('dcLink', {
-				label: 'Link',
+				label: dotclear.msg.link_title,
 				command: 'dcLinkCommand',
 				toolbar: 'insert'
 			});
-			
+
 			editor.on('doubleclick',function(e) {
 				var element = CKEDITOR.plugins.link.getSelectedLink(editor) || e.data.element;
 				if (!element.isReadOnly()) {
-					if (element.is('a') 
+					if (element.is('a')
 					    && !element.hasClass('media-link') // link to original media @see js/popup_media.js
 					    && !element.hasClass('post')) {    // link to an entry @see js/popup_posts.js
 
@@ -38,7 +38,7 @@
 
 						$.toolbarPopup(popup_url);
 						return false;
-					} 
+					}
 				}
 			});
 		}

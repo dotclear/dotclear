@@ -11,22 +11,22 @@
 			});
 
 			editor.ui.addButton('EntryLink', {
-				label: 'Entry Link Selection',
+				label: dotclear.msg.post_link_title,
 				command: 'entryLinkCommand',
 				toolbar: 'insert'
 			});
-			
+
 			editor.on('doubleclick',function(e) {
 				var element = CKEDITOR.plugins.link.getSelectedLink( editor ) || e.data.element;
 				if (!element.isReadOnly()) {
-					if (element.is('a') 
+					if (element.is('a')
 					    && !element.hasClass('media-link')
 					    && element.hasClass('post')) { // link to original media @see js/popup_media.js
 						editor.getSelection().selectElement(element);
 
 						$.toolbarPopup('popup_posts.php?popup=1&editor='+editor.name);
 						return false;
-					} 
+					}
 				}
 			});
 		}
