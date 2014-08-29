@@ -3,10 +3,7 @@
     <title>dcCKEditor</title>
   </head>
   <body>
-    <h2><?php echo html::escapeHTML($core->blog->name);?> &gt; dcCKEditor</h2>
-    <?php if (!empty($message)):?>
-    <p class="message"><?php echo $message;?></p>
-    <?php endif;?>
+    <?php echo dcPage::breadcrumb(array(__('Plugins') => '',__('dcCKEditor') => '')).dcPage::notices(); ?>
 
     <?php if ($is_super_admin):?>
     <h3 class="hidden-if-js"><?php echo __('Settings');?></h3>
@@ -61,7 +58,7 @@
 	<p>
 	  <label class="classic" for="dcckeditor_textareas">&nbsp;<?php echo __('Text areas to be used by CKEditor');?></label>
 	  <?php echo form::field('dcckeditor_textareas', 50, 255, $dcckeditor_textareas);?>
-	</p>	
+	</p>
 	<p class="clear form-note">
 	  <?php echo __('Comma separed list of textareas - jQuery selector. Defaut: '), DEFAULT_TEXTAREAS;?>
 	</p>
