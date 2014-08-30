@@ -208,7 +208,7 @@ $core->adminurl->register('admin.plugin','plugin.php');
 $core->adminurl->register('admin.search','search.php');
 $core->adminurl->register('admin.user.preferences','preferences.php');
 $core->adminurl->register('admin.user','user.php');
-$core->adminurl->register('admin.user.actions','user_actions.php');
+$core->adminurl->register('admin.user.actions','users_actions.php');
 $core->adminurl->register('admin.users','users.php');
 $core->adminurl->register('admin.auth','auth.php');
 $core->adminurl->register('admin.help','help.php');
