@@ -18,7 +18,11 @@ $href = !empty($_GET['href']) ? $_GET['href'] : '';
 $hreflang = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
 $title = !empty($_GET['title']) ? $_GET['title'] : '';
 
-dcPage::openPopup(__('Add a link'),$core->callBehavior('adminPopupLink'));
+// perhaps better to put active editor in session
+$post_format = $core->auth->getOption('post_format');
+$post_editor = $core->auth->getOption('editor');
+
+dcPage::openPopup(__('Add a link'),$core->callBehavior('adminPopupLink', $post_editor[$post_format]));
 
 echo '<h2 class="page-title">'.__('Add a link').'</h2>';
 
