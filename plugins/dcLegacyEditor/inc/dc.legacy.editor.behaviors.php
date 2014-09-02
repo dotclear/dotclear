@@ -15,26 +15,28 @@ class dcLegacyEditorBehaviors
 	protected static $p_url = 'index.php?pf=dcLegacyEditor';
 
 	public static function adminPostEditor($editor='') {
-		global $core;
-
-		if (empty($editor) || $editor!='dcLegacyEditor') {
-			return;
-		}
+		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
 
 		return
 			self::jsToolBar().
 			dcPage::jsLoad(self::$p_url.'/js/_post_editor.js');
 	}
 
-	public static function adminPopupMedia() {
+	public static function adminPopupMedia($editor='') {
+		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
+
 		return dcPage::jsLoad(self::$p_url.'/js/jsToolBar/popup_media.js');
 	}
 
-	public static function adminPopupLink() {
+	public static function adminPopupLink($editor='') {
+		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
+
 		return dcPage::jsLoad(self::$p_url.'/js/jsToolBar/popup_link.js');
 	}
 
-	public static function adminPopupPosts() {
+	public static function adminPopupPosts($editor='') {
+		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
+
 		return dcPage::jsLoad(self::$p_url.'/js/jsToolBar/popup_posts.js');
 	}
 

@@ -207,8 +207,11 @@ $starting_scripts =
 	"</script>".
 	dcPage::jsLoad('js/_media_item.js');
 if ($popup) {
-	$starting_scripts .=
-	$core->callBehavior('adminPopupMedia');
+	// perhaps better to put active editor in session
+	$post_format = $core->auth->getOption('post_format');
+	$post_editor = $core->auth->getOption('editor');
+
+	$starting_scripts .= $core->callBehavior('adminPopupMedia', $post_editor[$post_format]);
 }
 call_user_func($open_f,__('Media manager'),
 	$starting_scripts.

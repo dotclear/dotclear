@@ -41,15 +41,21 @@ class dcCKEditorBehaviors
             dcPage::jsLoad(self::$config_url);
 	}
 
-    public static function adminPopupMedia() {
+    public static function adminPopupMedia($editor='') {
+        if (empty($editor) || $editor!='dcCKEditor') { return;}
+
     	return dcPage::jsLoad(self::$p_url.'/js/popup_media.js');
     }
 
-    public static function adminPopupLink() {
+    public static function adminPopupLink($editor='') {
+        if (empty($editor) || $editor!='dcCKEditor') { return;}
+
     	return dcPage::jsLoad(self::$p_url.'/js/popup_link.js');
     }
 
-    public static function adminPopupPosts() {
+    public static function adminPopupPosts($editor='') {
+        if (empty($editor) || $editor!='dcCKEditor') { return;}
+
     	return dcPage::jsLoad(self::$p_url.'/js/popup_posts.js');
     }
 
