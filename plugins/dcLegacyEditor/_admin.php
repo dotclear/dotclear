@@ -22,10 +22,12 @@ $core->auth->check('admin,contentadmin', $core->blog->id)
 $self_ns = $core->blog->settings->addNamespace('dclegacyeditor');
 
 if ($self_ns->active) {
-	$wiki2xhtml = new wiki2xhtml();
+    if (!($core->wiki2xhtml instanceof wiki2xhtml)) {
+		$core->initWikiPost();
+	}
 
 	$core->addEditorFormater('dcLegacyEditor','xhtml',create_function('$s','return $s;'));
-	$core->addEditorFormater('dcLegacyEditor','wiki',array($wiki2xhtml,'transform'));
+	$core->addEditorFormater('dcLegacyEditor','wiki',array($core->wiki2xhtml,'transform'));
 
 	$core->addBehavior('adminPostEditor',array('dcLegacyEditorBehaviors','adminPostEditor'));
 	$core->addBehavior('adminPopupMedia',array('dcLegacyEditorBehaviors','adminPopupMedia'));
