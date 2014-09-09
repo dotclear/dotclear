@@ -30,13 +30,14 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
 				url = url.substr(dotclear.base_url.length);
 			}
 		}
-		
+
 		return url;
 	};
 
-	/* Retrieve editor name from URL */
-	$.getEditorName = function getEditorName(url) {
-		return url.replace(/.*editor=([^&]*)(&.*)?/,'$1');
+	/* Retrieve editor from popup */
+    $.active_editor = null;
+	$.getEditorName = function getEditorName() {
+		return $.active_editor;
 	}
 })(jQuery);
 
@@ -48,11 +49,11 @@ $(function() {
 	CKEDITOR.timestamp = '';
 	CKEDITOR.config.skin = 'dotclear,'+dotclear.dcckeditor_plugin_url+'/js/ckeditor-skins/dotclear/';
 
-<?php if (!empty($dcckeditor_cancollapse_button)):?>    
+<?php if (!empty($dcckeditor_cancollapse_button)):?>
 	CKEDITOR.config.toolbarCanCollapse = true;
 <?php endif;?>
-	
-	CKEDITOR.plugins.addExternal('entrylink',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/entrylink/');	
+
+	CKEDITOR.plugins.addExternal('entrylink',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/entrylink/');
 	CKEDITOR.plugins.addExternal('dclink',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/dclink/');
 	CKEDITOR.plugins.addExternal('media',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/media/');
 
@@ -74,7 +75,7 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 ?>
 		extraPlugins: '<?php echo $defautExtraPlugins;?>',
 
-		<?php if (!empty($dcckeditor_format_select)):?>				
+		<?php if (!empty($dcckeditor_format_select)):?>
 		// format tags
 		format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address',
 
@@ -101,7 +102,7 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 					'Format',
 <?php endif;?>
 					'Bold','Italic','Underline','Strike','Subscript','Superscript','Code','Blockquote',
-					
+
 <?php if (!empty($dcckeditor_list_buttons)):?>
 					'NumberedList', 'BulletedList',
 <?php endif;?>
@@ -134,7 +135,7 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 <?php if (!empty($dcckeditor_textcolor_button)):?>
                 ,'TextColor'
 <?php endif;?>
-				] 
+				]
 			},
 			<?php // add extra buttons comming from dotclear plugins
 			if (!empty($extraPlugins) && count($extraPlugins)>0) {
@@ -155,9 +156,16 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 		} else {
 			$('#cke_post_excerpt').addClass('hide');
 		}
-		
+
 		$('#excerpt-area label').click(function() {
 			$('#cke_post_excerpt').toggleClass('hide',$('#post_excerpt').hasClass('hide'));
 		});
 	});
+
+	// @TODO: find a better way to retrieve active editor
+	for (var id in CKEDITOR.instances) {
+		CKEDITOR.instances[id].on('focus', function(e) {
+			$.active_editor = e.editor.name;
+		});
+	}
 });

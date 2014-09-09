@@ -5,13 +5,13 @@ $(function() {
 
 	$('#link-insert-ok').click(function() {
 		var insert_form = $('#link-insert-form').get(0);
-		if (insert_form == undefined) { 
-			return; 
+		if (insert_form == undefined) {
+			return;
 		}
 
-		var editor_name = window.opener.$.getEditorName(document.location.search),
+		var editor_name = window.opener.$.getEditorName(),
 		editor = window.opener.CKEDITOR.instances[editor_name],
-		link = '',	
+		link = '',
 		selected_text = editor.getSelection().getNative().toString();
 
 		if (editor.mode=='wysiwyg') {

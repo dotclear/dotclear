@@ -2,14 +2,14 @@ $(function() {
 	$('#media-insert-cancel').click(function() {
 		window.close();
 	});
-	
+
 	$('#media-insert-ok').click(function() {
 		var insert_form = $('#media-insert-form').get(0);
-		if (insert_form === undefined) { 
-			return; 
+		if (insert_form === undefined) {
+			return;
 		}
 
-		var editor_name = window.opener.$.getEditorName(document.location.search),
+		var editor_name = window.opener.$.getEditorName(),
 		editor = window.opener.CKEDITOR.instances[editor_name],
 		type = insert_form.elements.type.value,
 		img = '',
@@ -46,7 +46,7 @@ $(function() {
 				} else {
 					element = window.opener.CKEDITOR.dom.element.createFromHtml(img);
 				}
-					
+
 				editor.insertElement(element);
 			}
 		}

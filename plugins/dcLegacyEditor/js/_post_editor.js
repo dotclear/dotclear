@@ -1,21 +1,13 @@
 $(function() {
 	if ($('#edit-entry').length==0) {return;}
 
-	// remove editor prefix
-	var getPostFormat = function getPostFormat(post_format) {
-		return post_format.replace(/[^:]*:/,'');
-	};
-	var getPostEditor = function getPostEditor(post_format) {
-		return post_format.replace(/:.*/,'');
-	};
-
 	// Get document format and prepare toolbars
 	var formatField = $('#post_format').get(0);
 	var last_post_format = $(formatField).val();
 	$(formatField).change(function() {
-		if (getPostEditor(this.value)!='dcLegacyEditor') { return;}
+		if (this.value!='dcLegacyEditor') { return;}
 
-		var post_format = getPostFormat(this.value);
+		var post_format = this.value;
 
 		// Confirm post format change
 		if (window.confirm(dotclear.msg.confirm_change_post_format_noconvert)) {
@@ -36,7 +28,7 @@ $(function() {
 	excerptTb.context = contentTb.context = 'post';
 
 	$('.format_control > *').addClass('hide');
-	$('.format_control:not(.control_no_'+getPostFormat(last_post_format)+') > *').removeClass('hide');
+	$('.format_control:not(.control_no_'+last_post_format+') > *').removeClass('hide');
 
 	if ($('#comment_content').length>0) {
 		var commentTb = new jsToolBar(document.getElementById('comment_content'));
@@ -60,7 +52,7 @@ $(function() {
 				f: 'validatePostMarkup',
 				excerpt: excerpt_content,
 				content: post_content,
-				format: getPostFormat($('#post_format').get(0).value),
+				format: $('#post_format').get(0).value,
 				lang: $('#post_lang').get(0).value
 			};
 
@@ -110,8 +102,8 @@ $(function() {
 		a.appendChild(document.createTextNode(dotclear.msg.xhtml_validator));
 
 		// Load toolbars
-		contentTb.switchMode(getPostFormat(formatField.value));
-		excerptTb.switchMode(getPostFormat(formatField.value));
+		contentTb.switchMode(formatField.value);
+		excerptTb.switchMode(formatField.value);
 
 		// Check unsaved changes before XHTML conversion
 		var excerpt = $('#post_excerpt').val();

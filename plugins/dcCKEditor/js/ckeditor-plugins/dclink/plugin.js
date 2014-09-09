@@ -5,7 +5,7 @@
 			editor.addCommand('dcLinkCommand', {
 				exec: function(editor) {
 					if (editor.getSelection().getNative().toString().replace(/\s*/,'')!='') {
-						$.toolbarPopup('popup_link.php?editor='+editor.name);
+						$.toolbarPopup('popup_link.php?plugin_id=dcCKEditor');
 					}
 				}
 			});
@@ -25,7 +25,7 @@
 
 						editor.getSelection().selectElement(element);
 
-						var popup_url = 'popup_link.php?editor='+editor.name;
+						var popup_url = 'popup_link.php?plugin_id=dcCKEditor';
 						if (element.getAttribute('href')) {
 							popup_url += '&href='+element.getAttribute('href');
 						}

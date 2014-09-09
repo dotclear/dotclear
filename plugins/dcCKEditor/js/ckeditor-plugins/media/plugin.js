@@ -4,7 +4,7 @@
 		init: function(editor) {
 			editor.addCommand('mediaCommand', {
 				exec: function(editor) {
-					$.toolbarPopup('media.php?popup=1&editor='+editor.name);
+					$.toolbarPopup('media.php?popup=1&plugin_id=dcCKEditor');
 				}
 			});
 
@@ -18,7 +18,7 @@
 				var element = CKEDITOR.plugins.link.getSelectedLink(editor) || e.data.element;
 				if (!element.isReadOnly()) {
 					if (element.is('img') || (element.is('a') && element.hasClass('media-link'))) {
-						$.toolbarPopup('media.php?popup=1&editor='+editor.name);
+						$.toolbarPopup('media.php?popup=1&plugin_id=dcCKEditor');
 						return false;
 					}
 				}

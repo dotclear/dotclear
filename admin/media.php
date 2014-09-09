@@ -27,6 +27,7 @@ if ($post_id) {
 	unset($post);
 }
 $d = isset($_REQUEST['d']) ? $_REQUEST['d'] : null;
+$plugin_id = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
 $dir = null;
 
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
@@ -73,7 +74,7 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 
 $popup = (integer) !empty($_GET['popup']);
 
-$page_url = $core->adminurl->get("admin.media",array('popup' => $popup,'post_id' => $post_id));
+$page_url = $core->adminurl->get("admin.media",array('popup' => $popup,'post_id' => $post_id, 'plugin_id' => $plugin_id));
 if (($temp = $core->callBehavior('adminMediaURL',$page_url))!='') {
 	$page_url = $temp;
 }
@@ -143,7 +144,7 @@ if ($dir && !empty($_POST['newdir']))
 
 # Adding a file
 if ($dir && !empty($_FILES['upfile'])) {
-  // only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
+	// only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
 	$upfile = array('name' => $_FILES['upfile']['name'][0],
 		'type' => $_FILES['upfile']['type'][0],
 		'tmp_name' => $_FILES['upfile']['tmp_name'][0],
@@ -159,10 +160,11 @@ if ($dir && !empty($_FILES['upfile'])) {
 			files::uploadStatus($upfile);
 			$new_file_id = $core->media->uploadFile($upfile['tmp_name'], $upfile['name']);
 
-			$message['files'][] = array('name' => $upfile['name'],
+			$message['files'][] = array(
+				'name' => $upfile['name'],
 				'size' => $upfile['size'],
-				'html' => mediaItemLine($core->media->getFile($new_file_id), 1)
-				);
+				'html' => mediaItemLine($core->media->getFile($new_file_id), 1, $plugin_id)
+			);
 		} catch (Exception $e) {
 			$message['files'][] = array('name' => $upfile['name'],
 				'size' => $upfile['size'],
@@ -378,7 +380,7 @@ $items = array_values(array_merge($dir['dirs'],$dir['files']));
 
 $fmt_form_media = '<form action="'.$core->adminurl->get("admin.media").'" method="post" id="form-medias">'.
 	'<div class="files-group">%s</div>'.
-	'<p class="hidden">'.$core->formNonce() . form::hidden(array('d'),$d).'</p>';
+	'<p class="hidden">'.$core->formNonce() . form::hidden(array('d'),$d).form::hidden(array('plugin_id'),$plugin_id).'</p>';
 
 if (!$popup) {
 	$fmt_form_media .=
@@ -409,6 +411,7 @@ else
 	form::field('nb_per_page',5,3,(integer) $nb_per_page).' '.
 	'<input type="submit" value="'.__('OK').'" />'.
 	form::hidden(array('popup'),$popup).
+	form::hidden(array('plugin_id'),$plugin_id).
 	form::hidden(array('post_id'),$post_id).
 	'</p>'.
 	'</form>'.
@@ -419,9 +422,9 @@ else
 	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
 	{
 		if ($items[$i]->d) {
-			$dgroup .= mediaItemLine($items[$i],$j);
+			$dgroup .= mediaItemLine($items[$i],$j,$plugin_id);
 		} else {
-			$fgroup .= mediaItemLine($items[$i],$j);
+			$fgroup .= mediaItemLine($items[$i],$j,$plugin_id);
 		}
 	}
 
@@ -560,7 +563,7 @@ if (!$popup) {
 call_user_func($close_f);
 
 /* ----------------------------------------------------- */
-function mediaItemLine($f,$i)
+function mediaItemLine($f,$i,$plugin_id)
 {
 	global $core, $page_url, $popup, $post_id;
 
@@ -577,10 +580,18 @@ function mediaItemLine($f,$i)
 			$class .= ' media-folder';
 		}
 	} else {
-		$link = $core->adminurl->get("admin.media.item", array('id' => $f->media_id,'popup' => $popup,'post_id' => $post_id));
-        if (($temp = $core->callBehavior('adminMediaURL',$link))!='') {
-            $link = $temp;
-        }
+		$link = $core->adminurl->get(
+			'admin.media.item',
+			array(
+				'id' => $f->media_id,
+				'plugin_id' => $plugin_id,
+				'popup' => $popup,
+				'post_id' => $post_id
+			)
+		);
+		if (($temp = $core->callBehavior('adminMediaURL',$link))!='') {
+			$link = $temp;
+		}
 	}
 
 	$maxchars = 36;

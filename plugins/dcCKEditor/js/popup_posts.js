@@ -5,7 +5,7 @@ $(function() {
 
 	$('#form-entries tr>td.maximal>a').click(function(e) {
 		e.preventDefault();
-		var editor_name = window.opener.$.getEditorName(document.location.search),
+		var editor_name = window.opener.$.getEditorName(),
 		editor = window.opener.CKEDITOR.instances[editor_name],
 		link = '',
 		selected_text = editor.getSelection().getNative().toString();
