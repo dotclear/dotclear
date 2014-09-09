@@ -39,7 +39,7 @@ $core->addBehavior('adminDashboardFavorites',array('tagsBehaviors','dashboardFav
 
 $core->addBehavior('adminPageHelpBlock', array('tagsBehaviors', 'adminPageHelpBlock'));
 
-$core->addBehavior('ckeditorExtraPlugins', array('tagsBehaviors', 'ckeditorExtraPlugins'));
+//$core->addBehavior('ckeditorExtraPlugins', array('tagsBehaviors', 'ckeditorExtraPlugins'));
 
 # BEHAVIORS
 class tagsBehaviors
