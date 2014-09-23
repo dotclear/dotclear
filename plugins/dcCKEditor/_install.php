@@ -20,7 +20,7 @@ if (version_compare($core->getVersion('dcCKEditor'), $version,'>=')) {
 $settings = $core->blog->settings;
 $settings->addNamespace('dcckeditor');
 
-$settings->dcckeditor->put('active', false, 'boolean', 'dcCKEditor plugin activated?', false, true);
+$settings->dcckeditor->put('active', true, 'boolean', 'dcCKEditor plugin activated?', false, true);
 $settings->dcckeditor->put('alignment_buttons', true, 'boolean', 'Add alignment buttons?', false, true);
 $settings->dcckeditor->put('list_buttons', true, 'boolean', 'Add list buttons?', false, true);
 $settings->dcckeditor->put('textcolor_button', false, 'boolean', 'Add text color button?', false, true);
