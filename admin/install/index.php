@@ -96,7 +96,10 @@ if ($can_install && !empty($_POST))
 				$_tz = @timezone_open($_tz);
 				if ($_tz instanceof DateTimeZone) {
 					$_tz = @timezone_name_get($_tz);
-					if ($_tz) {
+
+					// check if timezone is valid
+					// date_default_timezone_set throw E_NOTICE and/or E_WARNING if timezone is not valid and return false
+					if (@date_default_timezone_set($_tz)!==false && $_tz) {
 						$default_tz = $_tz;
 					}
 				}
