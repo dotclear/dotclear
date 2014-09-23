@@ -49,7 +49,15 @@ $(function() {
 
 				editor.insertElement(element);
 			}
+		} else {
+			var link = '<a href="';
+			link += window.opener.$.stripBaseURL($('input[name="url"]',insert_form).val());
+			link += '">'+insert_form.elements.title.value+'</a>';
+			element = window.opener.CKEDITOR.dom.element.createFromHtml(link);
+
+			editor.insertElement(element);
 		}
+
 		window.close();
 	});
 });
