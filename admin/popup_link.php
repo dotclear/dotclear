@@ -17,12 +17,13 @@ dcPage::check('usage,contentadmin');
 $href = !empty($_GET['href']) ? $_GET['href'] : '';
 $hreflang = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
 $title = !empty($_GET['title']) ? $_GET['title'] : '';
+$plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) : '';
 
 // perhaps better to put active editor in session
 $post_format = $core->auth->getOption('post_format');
 $post_editor = $core->auth->getOption('editor');
 
-dcPage::openPopup(__('Add a link'),$core->callBehavior('adminPopupLink', $post_editor[$post_format]));
+dcPage::openPopup(__('Add a link'),$core->callBehavior('adminPopupLink', $plugin_id));
 
 echo '<h2 class="page-title">'.__('Add a link').'</h2>';
 
