@@ -15,6 +15,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 $q = !empty($_GET['q']) ? $_GET['q'] : null;
+$plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) : '';
 
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  10;
@@ -51,7 +52,7 @@ $post_editor = $core->auth->getOption('editor');
 
 dcPage::openPopup(__('Add a link to an entry'),
 	dcPage::jsLoad('js/_posts_list.js').
-	$core->callBehavior('adminPopupPosts', $post_editor[$post_format]));
+	$core->callBehavior('adminPopupPosts', $plugin_id));
 
 echo '<h2 class="page-title">'.__('Add a link to an entry').'</h2>';
 
