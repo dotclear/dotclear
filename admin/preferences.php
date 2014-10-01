@@ -476,10 +476,11 @@ echo
 
 foreach ($format_by_editors as $format => $editors) {
 	echo
-	'<p class="field"><label for="user_editor">'.sprintf(__('Preferred editor for %s:'),$format).'</label>'.
+	'<p class="field"><label for="user_editor_'.$format.'">'.sprintf(__('Preferred editor for %s:'),$format).'</label>'.
 	form::combo(
-		'user_editor['.$format.']',
-		array_merge(array(__('Choose an editor') => ''),$editors),$user_options['editor'][$format]
+		array('user_editor['.$format.']', 'user_editor_'.$format),
+		array_merge(array(__('Choose an editor') => ''),$editors),
+		$user_options['editor'][$format]
 	).'</p>';
 }
 echo
