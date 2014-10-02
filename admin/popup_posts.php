@@ -46,10 +46,6 @@ if ($type) {
 	$params['post_type'] = $type;
 }
 
-// perhaps better to put active editor in session
-$post_format = $core->auth->getOption('post_format');
-$post_editor = $core->auth->getOption('editor');
-
 dcPage::openPopup(__('Add a link to an entry'),
 	dcPage::jsLoad('js/_posts_list.js').
 	$core->callBehavior('adminPopupPosts', $plugin_id));
