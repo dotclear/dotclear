@@ -89,13 +89,10 @@ class dcPage
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
 		echo
-		'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" '.
-		' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
-		'<html xmlns="http://www.w3.org/1999/xhtml" '.
-		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
-		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
+		'<!DOCTYPE html>'.
+		'<html lang="'.$core->auth->getInfo('user_lang').'">'."\n".
 		"<head>\n".
-		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
+		'  <meta charset="UTF-8" />'."\n".
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 		'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
@@ -311,14 +308,11 @@ class dcPage
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
 		echo
-		'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" '.
-		' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
-		'<html xmlns="http://www.w3.org/1999/xhtml" '.
-		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
-		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
+		'<!DOCTYPE html>'.
+		'<html lang="'.$core->auth->getInfo('user_lang').'">'."\n".
 		"<head>\n".
+		'  <meta charset="UTF-8" />'."\n".
 		'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
-		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
 
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".

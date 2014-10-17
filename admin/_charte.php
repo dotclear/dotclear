@@ -14,14 +14,14 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="UTF-8" />
 	<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
 	<meta name="GOOGLEBOT" content="NOSNIPPET" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Bibliothèque de styles - Dotclear - 2.6</title>
+	<title>Bibliothèque de styles - Dotclear - 2.7</title>
 	<link rel="icon" type="image/png" href="images/favicon96-login.png" />
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="js/ie7/IE9.js"></script>
