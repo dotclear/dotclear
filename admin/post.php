@@ -64,8 +64,8 @@ $core_formaters = $core->getFormaters();
 $available_formats = array('' => '');
 foreach ($core_formaters as $editor => $formats) {
 	foreach ($formats as $format) {
-        $available_formats[$format] = $format;
-    }
+		$available_formats[$format] = $format;
+	}
 }
 
 # Languages combo
@@ -376,14 +376,14 @@ if ($post_id) {
 
 $admin_post_behavior = '';
 if ($post_editor && !empty($post_editor[$post_format])) {
-	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format]);
+	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'post');
 }
 
 dcPage::open($page_title.' - '.__('Entries'),
 	dcPage::jsDatePicker().
 	dcPage::jsModal().
 	dcPage::jsMetaEditor().
-    $admin_post_behavior.
+	$admin_post_behavior.
 	dcPage::jsLoad('js/_post.js').
 	dcPage::jsConfirmClose('entry-form','comment-form').
 	# --BEHAVIOR-- adminPostHeaders

@@ -26,9 +26,8 @@ $dcckeditor_clipboard_buttons = $core->blog->settings->dcckeditor->clipboard_but
 
 if (!empty($_GET['config'])) {
     // text/javascript response stop stream just after including file
-    include_once(dirname(__FILE__).'/_post_config.php');    
+    include_once(dirname(__FILE__).'/_post_config.php');
     exit();
-} else {    
+} else {
     include_once(dirname(__FILE__).'/inc/_config.php');
 }
-

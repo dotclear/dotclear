@@ -15,8 +15,13 @@ class dcCKEditorBehaviors
     protected static $p_url = 'index.php?pf=dcCKEditor';
     protected static $config_url = 'plugin.php?p=dcCKEditor&config=1';
 
-    public static function adminPostEditor($editor='') {
+    public static function adminPostEditor($editor='',$context='') {
         if (empty($editor) || $editor!='dcCKEditor') { return;}
+
+        $config_js = self::$config_url;
+        if (!empty($context)) {
+            $config_js .= '&context='.$context;
+        }
 
         return
             '<script type="text/javascript">'."\n".
@@ -38,7 +43,7 @@ class dcCKEditorBehaviors
             "</script>\n".
             dcPage::jsLoad(self::$p_url.'/js/ckeditor/ckeditor.js').
             dcPage::jsLoad(self::$p_url.'/js/ckeditor/adapters/jquery.js').
-            dcPage::jsLoad(self::$config_url);
+            dcPage::jsLoad($config_js);
 	}
 
     public static function adminPopupMedia($editor='') {

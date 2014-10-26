@@ -12,8 +12,13 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 header('Content-type: text/javascript');
+if (!empty($_GET['context'])) {
+	$context = $_GET['context'];
+} else {
+	$context = '';
+}
 $__extraPlugins = new ArrayObject();
-$core->callBehavior('ckeditorExtraPlugins',$__extraPlugins);
+$core->callBehavior('ckeditorExtraPlugins',$__extraPlugins,$context);
 $extraPlugins = $__extraPlugins->getArrayCopy();
 ?>
 (function($) {
