@@ -14,7 +14,8 @@ class dcLegacyEditorBehaviors
 {
 	protected static $p_url = 'index.php?pf=dcLegacyEditor';
 
-	public static function adminPostEditor($editor='') {
+    // @param context not use but added to have same function prototype
+    public static function adminPostEditor($editor='',$context='') {
 		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
 
 		return
