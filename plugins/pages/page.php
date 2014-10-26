@@ -285,7 +285,7 @@ if (!empty($_GET['co'])) {
 
 $admin_post_behavior = '';
 if ($post_editor && !empty($post_editor[$post_format])) {
-	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format]);
+	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'page');
 }
 
 ?>
