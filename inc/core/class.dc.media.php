@@ -1093,6 +1093,8 @@ class dcMedia extends filemanager
 		}
 
 		return
+		'<audio controls preload="auto">'.
+		'<source src="'.$url.'" type="audio/mpeg">'.
 		'<object type="application/x-shockwave-flash" '.
 		'data="'.$player.'" '.
 		'width="'.$args['width'].'" height="'.$args['height'].'">'.
@@ -1100,7 +1102,8 @@ class dcMedia extends filemanager
 		'<param name="wmode" value="transparent" />'.
 		'<param name="FlashVars" value="'.implode('&amp;',$vars).'" />'.
 		__('Embedded Audio Player').
-		'</object>';
+		'</object>'.
+		'</audio>';
 	}
 
 	public static function flvplayer($url,$player=null,$args=null)
