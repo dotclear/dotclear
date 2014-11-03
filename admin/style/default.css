@@ -1867,6 +1867,10 @@ p.cat-title {
 	margin: 0;
 	padding: 0;
 	}
+.media-item audio {
+	width: 90%;
+	margin-top: .5em;
+	}
 a.media-icon {
 	display: block;
 	border-bottom: none;
