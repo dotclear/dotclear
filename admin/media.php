@@ -74,8 +74,8 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 
 $popup = (integer) !empty($_GET['popup']);
 
-$page_url = $core->adminurl->get("admin.media",array('popup' => $popup,'post_id' => $post_id, 'plugin_id' => $plugin_id));
-if (($temp = $core->callBehavior('adminMediaURL',$page_url))!='') {
+$page_url = $core->adminurl->get("admin.media",array('popup' => $popup,'post_id' => $post_id));
+if (($temp = $core->callBehavior('adminMediaURL',$page_url.'&plugin_id='.$plugin_id))!='') {
 	$page_url = $temp;
 }
 
@@ -136,7 +136,7 @@ if ($dir && !empty($_POST['newdir']))
 			__('Directory "%s" has been successfully created.'),
 			html::escapeHTML($_POST['newdir']))
 		);
-		http::redirect($page_url.'&d='.rawurlencode($d));
+		http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -163,7 +163,7 @@ if ($dir && !empty($_FILES['upfile'])) {
 			$message['files'][] = array(
 				'name' => $upfile['name'],
 				'size' => $upfile['size'],
-				'html' => mediaItemLine($core->media->getFile($new_file_id), 1, $plugin_id)
+				'html' => mediaItemLine($core->media->getFile($new_file_id), 1)
 			);
 		} catch (Exception $e) {
 			$message['files'][] = array('name' => $upfile['name'],
@@ -183,7 +183,7 @@ if ($dir && !empty($_FILES['upfile'])) {
 			$core->media->uploadFile($upfile['tmp_name'], $upfile['name'], $f_title, $f_private);
 
 			dcPage::addSuccessNotice(__('Files have been successfully uploaded.'));
-			http::redirect($page_url.'&d='.rawurlencode($d));
+			http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -204,7 +204,7 @@ if ($dir && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
 					   count($_POST['medias'])
 			)
 		);
-		http::redirect($page_url.'&d='.rawurlencode($d));
+		http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -223,7 +223,7 @@ if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove']))
 		}
 		$core->media->removeItem($_POST['remove']);
 		dcPage::addSuccessNotice($msg);
-		http::redirect($page_url.'&d='.rawurlencode($d));
+		http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -239,7 +239,7 @@ if ($dir && $core->auth->isSuperAdmin() && !empty($_POST['rebuild']))
 			__('Directory "%s" has been successfully rebuilt.'),
 			html::escapeHTML($d))
 		);
-		http::redirect($page_url.'&d='.rawurlencode($d));
+		http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -288,7 +288,7 @@ if (!isset($core->media)) {
 		array('home_link' => !$popup)
 	);
 } else {
-	$breadcrumb_media = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;d=%s','<span class="page-title">%s</span>');
+	$breadcrumb_media = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;plugin_id='.$plugin_id.'&amp;d=%s','<span class="page-title">%s</span>');
 	if ($breadcrumb_media == '') {
 		$breadcrumb = dcPage::breadcrumb(
 			array(
@@ -301,7 +301,7 @@ if (!isset($core->media)) {
 		$breadcrumb = dcPage::breadcrumb(
 			array(
 				html::escapeHTML($core->blog->name) => '',
-				__('Media manager') => html::escapeURL($page_url.'&d='),
+				__('Media manager') => html::escapeURL($page_url.'&plugin_id='.$plugin_id.'&d='),
 				$breadcrumb_media => ''
 			),
 			array(
@@ -422,9 +422,9 @@ else
 	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
 	{
 		if ($items[$i]->d) {
-			$dgroup .= mediaItemLine($items[$i],$j,$plugin_id);
+			$dgroup .= mediaItemLine($items[$i],$j);
 		} else {
-			$fgroup .= mediaItemLine($items[$i],$j,$plugin_id);
+			$fgroup .= mediaItemLine($items[$i],$j);
 		}
 	}
 
@@ -465,7 +465,8 @@ if ($core_media_writable || $core_media_archivable) {
 		'<p><label for="newdir">'.__('Directory Name:').'</label>'.
 		form::field(array('newdir','newdir'),35,255).'</p>'.
 		'<p><input type="submit" value="'.__('Create').'" />'.
-		form::hidden(array('d'),html::escapeHTML($d)).'</p>'.
+		form::hidden(array('d'),html::escapeHTML($d)).
+		form::hidden(array('plugin_id'),$plugin_id).'</p>'.
 		'</div>'.
 		'</form>';
 	}
@@ -545,7 +546,7 @@ echo
 '<form id="media-remove-hide" action="'.html::escapeURL($page_url).'" method="post" class="hidden">'.
 '<div>'.
 form::hidden('rmyes',1).form::hidden('d',html::escapeHTML($d)).
-form::hidden('remove','').
+form::hidden(array('plugin_id'),$plugin_id).form::hidden('remove','').
 $core->formNonce().
 '</div>'.
 '</form>';
@@ -563,16 +564,16 @@ if (!$popup) {
 call_user_func($close_f);
 
 /* ----------------------------------------------------- */
-function mediaItemLine($f,$i,$plugin_id)
+function mediaItemLine($f,$i)
 {
-	global $core, $page_url, $popup, $post_id;
+	global $core, $page_url, $popup, $post_id, $plugin_id;
 
 	$fname = $f->basename;
 
 	$class = 'media-item media-col-'.($i%2);
 
 	if ($f->d) {
-		$link = html::escapeURL($page_url).'&amp;d='.html::sanitizeURL($f->relname);
+		$link = html::escapeURL($page_url).'&amp;plugin_id='.$plugin_id.'&amp;d='.html::sanitizeURL($f->relname);
 		if ($f->parent) {
 			$fname = '..';
 			$class .= ' media-folder-up';
@@ -635,7 +636,7 @@ function mediaItemLine($f,$i,$plugin_id)
 			$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($f->basename)),rawurlencode($f->basename));
 		} else {
 			$act .= '<a class="media-remove" '.
-			'href="'.html::escapeURL($page_url).'&amp;d='.
+			'href="'.html::escapeURL($page_url).'&amp;plugin_id='.$plugin_id.'&amp;d='.
 			rawurlencode($GLOBALS['d']).'&amp;remove='.rawurlencode($f->basename).'">'.
 			'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
 		}
