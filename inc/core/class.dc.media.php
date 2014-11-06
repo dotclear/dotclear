@@ -1061,8 +1061,8 @@ class dcMedia extends filemanager
 	public static function audioPlayer($type,$url,$player=null,$args=null)
 	{
 		$audio =
-			'<audio controls preload="auto">'."\n".
-			'<source src="'.$url.'">'."\n";
+			'<audio controls preload="auto">'.
+			'<source src="'.$url.'">';
 
 		if ($type == 'audio/mpeg3') {
 			// Include Flash player fallback
@@ -1107,11 +1107,11 @@ class dcMedia extends filemanager
 				'<param name="wmode" value="transparent" />'.
 				'<param name="FlashVars" value="'.implode('&amp;',$vars).'" />'.
 				__('Embedded Audio Player').
-				'</object>'."\n";
+				'</object>';
 		}
 
 		$audio .=
-			'</audio>'."\n";
+			'</audio>';
 
 		return $audio;
 	}
@@ -1128,10 +1128,23 @@ class dcMedia extends filemanager
 	public static function videoPlayer($type,$url,$player=null,$args=null)
 	{
 		$video = '';
+
+		// Cope with width and height, if given
+		$width = 400;
+		$height = 300;
+		if (is_array($args)) {
+			if (!empty($args['width']) && $args['width']) {
+				$width = (int) $args['width'];
+			}
+			if (!empty($args['height']) && $args['height']) {
+				$height = (int) $args['height'];
+			}
+		}
+
 		if ($type != 'video/x-flv') {
 			$video =
-				'<video controls preload="auto">'."\n".
-				'<source src="'.$url.'">'."\n";
+				'<video controls preload="auto"'.($width ? ' width="'.$width.'"' : '').($height ? ' height="'.$height.'"' : '').'>'.
+				'<source src="'.$url.'">';
 		}
 
 		if ($type == 'video/x-flv' || $type == 'video/mp4' || $type == 'video/x-m4v')
@@ -1178,12 +1191,12 @@ class dcMedia extends filemanager
 				'<param name="allowFullScreen" value="true" />'.
 				'<param name="FlashVars" value="'.implode('&amp;',$vars).'" />'.
 				__('Embedded Video Player').
-				'</object>'."\n";
+				'</object>';
 		}
 
 		if ($type != 'video/x-flv') {
 			$video .=
-				'</video>'."\n";
+				'</video>';
 		}
 
 		return $video;

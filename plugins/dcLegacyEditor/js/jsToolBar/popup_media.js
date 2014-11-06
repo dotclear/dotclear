@@ -48,13 +48,16 @@ $(function() {
 			tb.elements.mp3_insert.data.player = player.replace(/>/g,'>\n');
 			tb.elements.mp3_insert.fncall[tb.mode].call(tb);
 		}
-		else if (type == 'flv')
+		else if (type == 'flv') // may be all video media, not only flv
 		{
 			var oplayer = $('<div>'+$('#public_player').val()+'</div>');
 			var flashvars = $("[name=FlashVars]",oplayer).val();
 
 			var align = $('input[name="alignment"]:checked',insert_form).val();
 			var title = insert_form.elements.title.value;
+
+			$('video',oplayer).attr('width',$('#video_w').val());
+			$('video',oplayer).attr('height',$('#video_h').val());
 
 			if (title) {
 				flashvars = 'title='+encodeURI(title)+'&amp;'+flashvars;
