@@ -644,8 +644,11 @@ function mediaItemLine($f,$i)
 
 	$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
 
-	if ($f->type == 'audio/mpeg3') {
-		$lst .= '<li>'.dcMedia::mp3player($f->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf'))).'</li>';
+	// Show player if relevant
+	$file_type = explode('/',$f->type);
+	if ($file_type[0] == 'audio')
+	{
+		$lst .= '<li>'.dcMedia::audioPlayer($f->type,$f->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf'))).'</li>';
 	}
 
 	$res .=	($lst != '' ? '<ul>'.$lst.'</ul>' : '');
