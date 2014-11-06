@@ -254,6 +254,19 @@ if ($p_max_size < $u_max_size) {
 define('DC_MAX_UPLOAD_SIZE',$u_max_size);
 unset($u_max_size); unset($p_max_size);
 
+# Register supplemental mime types
+files::registerMimeTypes(array(
+	// Audio
+	'aac'	=> 'audio/aac',
+	'ogg'	=> 'audio/ogg',
+	'weba'	=> 'audio/webm',
+	'm4a'	=> 'audio/mp4',
+	// Video
+	'mp4'	=> 'video/mp4',
+	'm4p'	=> 'video/mp4',
+	'webm'	=> 'video/webm'
+	));
+
 # Shutdown
 register_shutdown_function('__shutdown');
 

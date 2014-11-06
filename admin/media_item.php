@@ -247,6 +247,9 @@ if (!empty($_GET['blogprefupd'])) {
 	dcPage::success(__('Default media insertion settings have been successfully updated.'));
 }
 
+# Get major file type (first part of mime type)
+$file_type = explode('/',$file->type);
+
 # Insertion popup
 if ($popup)
 {
@@ -322,7 +325,8 @@ if ($popup)
 		'</p>'.
 		'</div>';
 	}
-	elseif ($file->type == 'audio/mpeg3')
+//	elseif ($file->type == 'audio/mpeg3')
+	elseif ($file_type == 'audio')
 	{
 		$media_type = 'mp3';
 
@@ -345,12 +349,14 @@ if ($popup)
 		}
 
 		$public_player_style = unserialize($core->blog->settings->themes->mp3player_style);
-		$public_player = dcMedia::mp3player($file->file_url,$core->blog->getQmarkURL().'pf=player_mp3.swf',$public_player_style);
+//		$public_player = dcMedia::mp3player($file->file_url,$core->blog->getQmarkURL().'pf=player_mp3.swf',$public_player_style);
+		$public_player = dcMedia::audioPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_mp3.swf',$public_player_style);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
 		echo '</p>';
 		echo '</div>';
 	}
-	elseif ($file->type == 'video/x-flv' || $file->type == 'video/mp4' || $file->type == 'video/x-m4v')
+//	elseif ($file->type == 'video/x-flv' || $file->type == 'video/mp4' || $file->type == 'video/x-m4v')
+	elseif ($file_type == 'video')
 	{
 		$media_type = 'flv';
 
@@ -385,7 +391,8 @@ if ($popup)
 		}
 
 		$public_player_style = unserialize($core->blog->settings->themes->flvplayer_style);
-		$public_player = dcMedia::flvplayer($file->file_url,$core->blog->getQmarkURL().'pf=player_flv.swf',$public_player_style);
+//		$public_player = dcMedia::flvplayer($file->file_url,$core->blog->getQmarkURL().'pf=player_flv.swf',$public_player_style);
+		$public_player = dcMedia::videoPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_flv.swf',$public_player_style);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
 		echo '</p>';
 		echo '</div>';
@@ -467,14 +474,14 @@ if ($file->media_image)
 	echo '</p>';
 }
 
-if ($file->type == 'audio/mpeg3')
+// Show player if relevant
+if ($file_type[0] == 'audio')
 {
-	echo dcMedia::mp3player($file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')));
+	echo dcMedia::audioPlayer($file->type,$file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')));
 }
-
-if ($file->type == 'video/x-flv' || $file->type == 'video/mp4' || $file->type == 'video/x-m4v')
+if ($file_type[0] == 'video')
 {
-	echo dcMedia::flvplayer($file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_flv.swf')));
+	echo dcMedia::videoPlayer($file->type,$file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_flv.swf')));
 }
 
 echo
