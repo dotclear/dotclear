@@ -494,7 +494,7 @@ class adminCommentList extends adminGenericList
 		'<td class="nowrap count">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->comment_dt).'</td>'.
 		'<td class="nowrap status txt-center">'.$img_status.'</td>'.
 		'<td class="nowrap discrete"><a href="'.$post_url.'">'.
-		html::escapeHTML($post_title).'</a>'.
+		$post_title.'</a>'.
 		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</td>';
 
 		$res .= '</tr>';
