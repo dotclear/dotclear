@@ -230,6 +230,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('trackbacks_pub',empty($_POST['trackbacks_pub']));
 		$blog_settings->system->put('comments_nofollow',!empty($_POST['comments_nofollow']));
 		$blog_settings->system->put('wiki_comments',!empty($_POST['wiki_comments']));
+		$blog_settings->system->put('comment_preview_optional',!empty($_POST['comment_preview_optional']));
 		$blog_settings->system->put('enable_xmlrpc',!empty($_POST['enable_xmlrpc']));
 		$blog_settings->system->put('note_title_tag',$_POST['note_title_tag']);
 
@@ -472,6 +473,9 @@ if ($blog_id)
 	'<p><label for="wiki_comments" class="classic">'.
 	form::checkbox('wiki_comments','1',$blog_settings->system->wiki_comments).
 	__('Wiki syntax for comments').'</label></p>'.
+	'<p><label for="comment_preview_optional" class="classic">'.
+	form::checkbox('comment_preview_optional','1',$blog_settings->system->comment_preview_optional).
+	__('Preview of comment before submit is not mandatory').'</label></p>'.
 	'</div>'.
 
 	'<div class="col">'.

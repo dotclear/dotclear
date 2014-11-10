@@ -363,6 +363,9 @@ msgstr "Aucune limite : laisser vide."
 msgid "Wiki syntax for comments"
 msgstr "Syntaxe wiki pour les commentaires"
 
+msgid "Preview of comment before submit is not mandatory"
+msgstr "La prévisualisation des commentaires est optionnelle avant leur envoi"
+
 msgid "Accept trackbacks"
 msgstr "Accepter les rétroliens"
 
