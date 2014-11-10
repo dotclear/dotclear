@@ -117,6 +117,7 @@ class dcTemplate extends template
 
 		# Comment preview
 		$this->addBlock('IfCommentPreview',array($this,'IfCommentPreview'));
+		$this->addBlock('IfCommentPreviewOptional',array($this,'IfCommentPreviewOptional'));
 		$this->addValue('CommentPreviewName',array($this,'CommentPreviewName'));
 		$this->addValue('CommentPreviewEmail',array($this,'CommentPreviewEmail'));
 		$this->addValue('CommentPreviewSite',array($this,'CommentPreviewSite'));
@@ -2407,6 +2408,17 @@ class dcTemplate extends template
 	}
 
 	/* Comment preview -------------------------------- */
+	/*dtd
+	<!ELEMENT tpl:IfCommentPreviewOptional - - -- Container displayed if comment preview is optional or currently previewed -->
+	*/
+	public function IfCommentPreviewOptional($attr,$content)
+	{
+		return
+		'<?php if ($core->blog->settings->system->comment_preview_optional || ($_ctx->comment_preview !== null && $_ctx->comment_preview["preview"])) : ?>'.
+		$content.
+		'<?php endif; ?>';
+	}
+
 	/*dtd
 	<!ELEMENT tpl:IfCommentPreview - - -- Container displayed if comment is being previewed -->
 	*/
