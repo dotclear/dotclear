@@ -111,6 +111,9 @@ msgstr "Liste des pages publiées"
 msgid "Blogroll list"
 msgstr "Liste de liens"
 
+msgid "Enable simple menu for this blog"
+msgstr "Acttiver le menu simple pour ce blog"
+
 msgid "List of simple menu items"
 msgstr "Liste des éléments de menu simple"
 
