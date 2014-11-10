@@ -431,13 +431,14 @@ class dcTemplate extends template
 		$start = isset($attr['start']) ? (integer) $attr['start'] : '0';
 		$length = isset($attr['length']) ? (integer) $attr['length'] : 'null';
 		$even = isset($attr['even']) ? (integer) (boolean) $attr['even'] : 'null';
+		$modulo = isset($attr['modulo']) ? (integer) $attr['modulo'] : 'null';
 
 		if ($start > 0) {
 			$start--;
 		}
 
 		return
-		'<?php if ($_ctx->loopPosition('.$start.','.$length.','.$even.')) : ?>'.
+		'<?php if ($_ctx->loopPosition('.$start.','.$length.','.$even.','.$modulo.')) : ?>'.
 		$content.
 		"<?php endif; ?>";
 	}

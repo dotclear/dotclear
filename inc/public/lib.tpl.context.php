@@ -58,7 +58,7 @@ class context
 	}
 
 	# Loop position tests
-	public function loopPosition($start,$length=null,$even=null)
+	public function loopPosition($start,$length=null,$even=null,$modulo=null)
 	{
 		if (!$this->cur_loop) {
 			return false;
@@ -93,6 +93,10 @@ class context
 
 		if ($even !== null) {
 			$test = $test && $index%2 == $even;
+		}
+
+		if ($modulo !== null) {
+			$test = $test && ($index % $modulo == 0);
 		}
 
 		return $test;
