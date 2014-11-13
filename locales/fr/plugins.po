@@ -1985,6 +1985,9 @@ msgstr "Retirer le widget"
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
+msgid "Offline"
+msgstr "Hors ligne"
+
 msgid "From theme:"
 msgstr "Du thème :"
 

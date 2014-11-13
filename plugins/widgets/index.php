@@ -367,7 +367,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$downDisabled = $i == count($widgets->elements())-1 ? ' disabled" src="images/disabled_' : '" src="images/';
 		$altUp = $i == 0 ? ' alt=""' : ' alt="'.__('Up the widget').'"';
 		$altDown = $i == count($widgets->elements())-1 ? ' alt=""' : ' alt="'.__('Down the widget').'"';
-		
+
 		$iname = 'w['.$pr.']['.$i.']';
 
 		$res .=

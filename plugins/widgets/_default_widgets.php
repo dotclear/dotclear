@@ -23,6 +23,7 @@ $__widgets->search->setting('homeonly',__('Display on:'),0,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->search->setting('content_only',__('Content only'),0,'check');
 $__widgets->search->setting('class',__('CSS class:'),'');
+$__widgets->search->setting('offline',__('Offline'),0,'check');
 
 $__widgets->create('navigation',__('Navigation links'),array('defaultWidgets','navigation'),null,'List of navigation links');
 $__widgets->navigation->setting('title',__('Title (optional)').' :','');
@@ -30,6 +31,7 @@ $__widgets->navigation->setting('homeonly',__('Display on:'),0,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->navigation->setting('content_only',__('Content only'),0,'check');
 $__widgets->navigation->setting('class',__('CSS class:'),'');
+$__widgets->navigation->setting('offline',__('Offline'),0,'check');
 
 $__widgets->create('bestof',__('Selected entries'),array('defaultWidgets','bestof'),null,'List of selected entries');
 $__widgets->bestof->setting('title',__('Title (optional)').' :',__('Best of me'));
@@ -38,6 +40,7 @@ $__widgets->bestof->setting('homeonly',__('Display on:'),1,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->bestof->setting('content_only',__('Content only'),0,'check');
 $__widgets->bestof->setting('class',__('CSS class:'),'');
+$__widgets->bestof->setting('offline',__('Offline'),0,'check');
 
 $__widgets->create('langs',__('Blog languages'),array('defaultWidgets','langs'),null,'List of available languages');
 $__widgets->langs->setting('title',__('Title (optional)').' :',__('Languages'));
@@ -45,6 +48,7 @@ $__widgets->langs->setting('homeonly',__('Display on:'),1,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->langs->setting('content_only',__('Content only'),0,'check');
 $__widgets->langs->setting('class',__('CSS class:'),'');
+$__widgets->langs->setting('offline',__('Offline'),0,'check');
 
 $__widgets->create('categories',__('List of categories'),array('defaultWidgets','categories'),null,'List of categories');
 $__widgets->categories->setting('title',__('Title (optional)').' :',__('Categories'));
@@ -55,6 +59,7 @@ $__widgets->categories->setting('homeonly',__('Display on:'),0,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->categories->setting('content_only',__('Content only'),0,'check');
 $__widgets->categories->setting('class',__('CSS class:'),'');
+$__widgets->categories->setting('offline',__('Offline'),0,'check');
 
 $__widgets->create('subscribe',__('Subscribe links'),array('defaultWidgets','subscribe'),null,'Feed subscription links (RSS or Atom)');
 $__widgets->subscribe->setting('title',__('Title (optional)').' :',__('Subscribe'));
@@ -63,6 +68,7 @@ $__widgets->subscribe->setting('homeonly',__('Display on:'),1,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->subscribe->setting('content_only',__('Content only'),0,'check');
 $__widgets->subscribe->setting('class',__('CSS class:'),'');
+$__widgets->subscribe->setting('offline',__('Offline'),0,'check');
 
 $__widgets->create('feed',__('Feed reader'),array('defaultWidgets','feed'),null,'List of last entries from feed (RSS or Atom)');
 $__widgets->feed->setting('title',__('Title (optional)').' :',__('Somewhere else'));
@@ -72,6 +78,7 @@ $__widgets->feed->setting('homeonly',__('Display on:'),1,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->feed->setting('content_only',__('Content only'),0,'check');
 $__widgets->feed->setting('class',__('CSS class:'),'');
+$__widgets->feed->setting('offline',__('Offline'),0,'check');
 
 $__widgets->create('text',__('Text'),array('defaultWidgets','text'),null,'Simple text');
 $__widgets->text->setting('title',__('Title (optional)').' :','');
@@ -80,6 +87,7 @@ $__widgets->text->setting('homeonly',__('Display on:'),0,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->text->setting('content_only',__('Content only'),0,'check');
 $__widgets->text->setting('class',__('CSS class:'),'');
+$__widgets->text->setting('offline',__('Offline'),0,'check');
 
 $__widgets->create('lastposts',__('Last entries'),array('defaultWidgets','lastposts'),null,'List of last entries published');
 $__widgets->lastposts->setting('title',__('Title (optional)').' :',__('Last entries'));
@@ -98,6 +106,7 @@ $__widgets->lastposts->setting('homeonly',__('Display on:'),1,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->lastposts->setting('content_only',__('Content only'),0,'check');
 $__widgets->lastposts->setting('class',__('CSS class:'),'');
+$__widgets->lastposts->setting('offline',__('Offline'),0,'check');
 
 $__widgets->create('lastcomments',__('Last comments'),array('defaultWidgets','lastcomments'),null,'List of last comments published');
 $__widgets->lastcomments->setting('title',__('Title (optional)').' :',__('Last comments'));
@@ -106,6 +115,7 @@ $__widgets->lastcomments->setting('homeonly',__('Display on:'),1,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->lastcomments->setting('content_only',__('Content only'),0,'check');
 $__widgets->lastcomments->setting('class',__('CSS class:'),'');
+$__widgets->lastcomments->setting('offline',__('Offline'),0,'check');
 
 # --BEHAVIOR-- initWidgets
 $core->callBehavior('initWidgets',$__widgets);

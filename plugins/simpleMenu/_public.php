@@ -49,6 +49,9 @@ class tplSimpleMenu
 		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
 			return;
 
+		if ($w->offline)
+			return;
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
