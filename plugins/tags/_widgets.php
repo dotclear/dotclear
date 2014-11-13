@@ -37,6 +37,7 @@ class tagsWidgets
 		);
 		$w->tags->setting('content_only',__('Content only'),0,'check');
 		$w->tags->setting('class',__('CSS class:'),'');
+		$w->tags->setting('offline',__('Offline'),0,'check');
 	}
 
 	public static function initDefaultWidgets($w,$d)

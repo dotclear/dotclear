@@ -28,5 +28,6 @@ class simpleMenuWidgets
 		);
 		$w->simplemenu->setting('content_only',__('Content only'),0,'check');
 		$w->simplemenu->setting('class',__('CSS class:'),'');
+		$w->simplemenu->setting('offline',__('Offline'),0,'check');
 	}
 }
