@@ -132,7 +132,7 @@ class dcPage
 		'<li><a href="#qx">'.__('Go to search').'</a></li>'.
 		'<li><a href="#help">'.__('Go to help').'</a></li>'.
 		'</ul>'."\n".
-		'<div id="header">'.
+		'<div id="header" role="banner">'.
 		'<h1><a href="'.$core->adminurl->get("admin.home").'"><span class="hidden">'.DC_VENDOR_NAME.'</span></a></h1>'."\n";
 
 		echo
@@ -156,7 +156,7 @@ class dcPage
 		'<img class="collapse-mm" src="images/collapser-hide.png" alt="'.__('Hide main menu').'" />'.
 		'<img class="expand-mm" src="images/collapser-show.png" alt="'.__('Show main menu').'" />'.
 		'</a></div>'.
-		'<div id="main">'."\n".
+		'<div id="main" role="main">'."\n".
 		'<div id="content" class="clearfix">'."\n";
 
 		# Safe mode
@@ -261,7 +261,7 @@ class dcPage
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
 
-		'<div id="main-menu">'."\n".
+		'<div id="main-menu" role="navigation">'."\n".
 
 		'<form id="search-menu" action="'.$core->adminurl->get("admin.search").'" method="get" role="search">'.
 		'<p><label for="qx" class="hidden">'.__('Search:').' </label>'.form::field('qx',30,255,'').
@@ -286,7 +286,7 @@ class dcPage
 		"</div>\n";		// End of #wrapper
 
 		echo
-		'<div id="footer">'.
+		'<div id="footer" role="contentinfo">'.
 		'<a href="http://dotclear.org/" title="'.$text.'">'.
 		'<img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
         "<!-- \n                  \n               ,;:'`'::\n".
@@ -341,7 +341,7 @@ class dcPage
 
 		echo
 		'<div id="wrapper">'."\n".
-		'<div id="main">'."\n".
+		'<div id="main" role="main">'."\n".
 		'<div id="content">'."\n";
 
 		// display breadcrumb if given
@@ -361,7 +361,7 @@ class dcPage
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
 		"</div>\n".		// End of #wrapper
-		'<div id="footer"><p>&nbsp;</p></div>'."\n".
+		'<div id="footer" role="contentinfo"><p>&nbsp;</p></div>'."\n".
 		'</body></html>';
 	}
 
