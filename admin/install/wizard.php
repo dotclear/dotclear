@@ -157,7 +157,7 @@ echo
 '<div id="main">';
 
 if (!empty($err)) {
-	echo '<div class="error"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>';
+	echo '<div class="error" role="alert"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>';
 } else {
 	echo '<h2>'.__('Welcome').'</h2>'.
 		'<p>'.__('To complete your Dotclear installation and start writing on your blog, '.

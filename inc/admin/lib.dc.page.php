@@ -163,7 +163,7 @@ class dcPage
 		if ($safe_mode)
 		{
 			echo
-			'<div class="warning"><h3>'.__('Safe mode').'</h3>'.
+			'<div class="warning" role="alert"><h3>'.__('Safe mode').'</h3>'.
 			'<p>'.__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
 			'</div>';
 		}
@@ -241,7 +241,7 @@ class dcPage
 		if (!isset($n['with_ts']) || ($n['with_ts'] == true)) {
 			$ts = dt::str(__('[%H:%M:%S]'),$n['ts'],$core->auth->getInfo('user_tz')).' ';
 		}
-		$res = '<'.$tag.' class="'.$n['class'].'">'.$ts.$n['text'].'</'.$tag.'>';
+		$res = '<'.$tag.' class="'.$n['class'].'" role="alert">'.$ts.$n['text'].'</'.$tag.'>';
 		return $res;
 	}
 
@@ -349,7 +349,7 @@ class dcPage
 
 		if ($core->error->flag()) {
 			echo
-			'<div class="error"><strong>'.__('Errors:').'</strong>'.
+			'<div class="error" role="alert"><strong>'.__('Errors:').'</strong>'.
 			$core->error->toHTML().
 			'</div>';
 		}

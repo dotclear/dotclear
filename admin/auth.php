@@ -329,10 +329,10 @@ echo dcPage::jsCommon();
 
 <?php
 if ($err) {
-	echo '<div class="error">'.$err.'</div>';
+	echo '<div class="error" role="alert">'.$err.'</div>';
 }
 if ($msg) {
-	echo '<p class="success">'.$msg.'</p>';
+	echo '<p class="success" role="alert">'.$msg.'</p>';
 }
 
 if ($akey)
