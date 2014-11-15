@@ -294,15 +294,15 @@ echo
 '<div id="main">';
 
 if (!is_writable(DC_TPL_CACHE)) {
-	echo '<div class="error"><p>'.sprintf(__('Cache directory %s is not writable.'),DC_TPL_CACHE).'</p></div>';
+	echo '<div class="error" role="alert"><p>'.sprintf(__('Cache directory %s is not writable.'),DC_TPL_CACHE).'</p></div>';
 }
 
 if ($can_install && !empty($err)) {
-	echo '<div class="error"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>';
+	echo '<div class="error" role="alert"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>';
 }
 
 if (!empty($_GET['wiz'])) {
-	echo '<p class="success">'.__('Configuration file has been successfully created.').'</p>';
+	echo '<p class="success" role="alert">'.__('Configuration file has been successfully created.').'</p>';
 }
 
 if ($can_install && $step == 0)
@@ -368,7 +368,7 @@ elseif ($can_install && $step == 1)
 
 	$plugins_install_result.
 
-	'<p class="success">'.__('Dotclear has been successfully installed. Here is some useful information you should keep.').'</p>'.
+	'<p class="success" role="alert">'.__('Dotclear has been successfully installed. Here is some useful information you should keep.').'</p>'.
 
 	'<h3>'.__('Your account').'</h3>'.
 	'<ul>'.
@@ -392,7 +392,7 @@ elseif ($can_install && $step == 1)
 elseif (!$can_install)
 {
 	echo '<h2>'.__('Installation can not be completed').'</h2>'.
-	'<div class="error"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>'.
+	'<div class="error" role="alert"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>'.
 	'<p>'.__('For the said reasons, Dotclear can not be installed. '.
 		'Please refer to <a href="http://dotclear.org/documentation/2.0/admin/install">'.
 		'the documentation</a> to learn how to correct the problem.').'</p>';
