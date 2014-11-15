@@ -816,6 +816,7 @@ class dcPage
 		"datePicker.prototype.days[6] = '".html::escapeJS(__('Sunday'))."'; ".
 
 		"datePicker.prototype.img_src = 'images/date-picker.png'; ".
+		"datePicker.prototype.img_alt = '".html::escapeJS(__('Choose date'))."'; ".
 
 		"datePicker.prototype.close_msg = '".html::escapeJS(__('close'))."'; ".
 		"datePicker.prototype.now_msg = '".html::escapeJS(__('now'))."'; ".
