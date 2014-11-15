@@ -472,7 +472,7 @@ if ($can_edit_page)
 	$main_items = new ArrayObject(array(
 		"post_title" =>
 			'<p class="col">'.
-			'<label class="required no-margin bold"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
+			'<label class="required no-margin bold" for="post_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 			form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
 			'</p>',
 
