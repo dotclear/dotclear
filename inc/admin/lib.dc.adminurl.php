@@ -41,7 +41,8 @@ class dcAdminURL
 	 * @param  string $url    url value
 	 * @param  array  $params query string params (optional)
 	 */
-	public function register ($name,$url,$params = array()) {
+	public function register ($name,$url,$params = array())
+	{
 		$this->urls[$name] = array('url' => $url, 'qs' => $params);
 	}
 
@@ -52,7 +53,8 @@ class dcAdminURL
 	 * @param  array  $params extra parameters to add
 	 * @param  string $newurl new url if different from the original
 	 */
-	public function registercopy ($name,$orig,$params = array(),$newurl='') {
+	public function registercopy ($name,$orig,$params = array(),$newurl='')
+	{
 		if (!isset($this->urls[$orig])) {
 			throw new exception ('Unknown URL handler for '.$orig);
 		}
@@ -73,7 +75,8 @@ class dcAdminURL
 	 * @param  string $separator separator to use between QS parameters
 	 * @return string            the forged url
 	 */
-	public function get ($name,$params=array(),$separator='&amp;') {
+	public function get ($name,$params=array(),$separator='&amp;')
+	{
 		if (!isset($this->urls[$name])) {
 			throw new exception ('Unknown URL handler for '.$name);
 		}
@@ -86,5 +89,13 @@ class dcAdminURL
 		return $u;
 	}
 
+	/**
+	 * Returns $urls property content.
+	 *
+	 * @return  ArrayObject
+	 */
+	public function dumpUrls() {
+		return $this->urls;
+	}
 }
 
