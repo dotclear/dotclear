@@ -325,7 +325,7 @@ echo dcPage::jsCommon();
 <body id="dotclear-admin" class="auth">
 
 <form action="<?php echo $core->adminurl->get('admin.auth'); ?>" method="post" id="login-screen">
-<h1><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></h1>
+<h1 role="banner"><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></h1>
 
 <?php
 if ($err) {
@@ -342,7 +342,7 @@ if ($akey)
 elseif ($recover)
 {
 	echo
-	'<div class="fieldset"><h2>'.__('Request a new password').'</h2>'.
+	'<div class="fieldset" role="main"><h2>'.__('Request a new password').'</h2>'.
 	'<p><label for="user_id">'.__('Username:').'</label> '.
 	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</p>'.
 
@@ -380,7 +380,7 @@ else
 	else
 	{
 		if ($safe_mode) {
-			echo '<div class="fieldset">';
+			echo '<div class="fieldset" role="main">';
 			echo '<h2>'.__('Safe mode login').'</h2>';
 			echo
 				'<p class="form-note">'.
@@ -389,7 +389,7 @@ else
 				'</p>';
 		}
 		else {
-			echo '<div class="fieldset">';
+			echo '<div class="fieldset" role="main">';
 		}
 
 		echo
