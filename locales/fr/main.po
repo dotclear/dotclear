@@ -3672,6 +3672,9 @@ msgstr "Choisissez un éditeur"
 msgid "your preferences"
 msgstr "vos préférences"
 
+msgid "Choose date"
+msgstr "Choisir une date"
+
 #~ msgid "You don't have permissions to deactivate this plugin."
 #~ msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
 
