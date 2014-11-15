@@ -177,7 +177,7 @@ else
 		if ($rs->nb_total>0) {
 			// remove current category
 			echo
-			'<label>'.__('Move entries to').'</label> '.
+			'<label for="mov_cat_'.$rs->cat_id.'">'.__('Move entries to').'</label> '.
 			form::combo(array('mov_cat['.$rs->cat_id.']', 'mov_cat_'.$rs->cat_id),array_filter($categories_combo, create_function('$cat', 'return $cat->value!=$GLOBALS[\'rs\']->cat_id;')),'','').
 			' <input type="submit" class="reset" name="mov['.$rs->cat_id.']" value="'.__('OK').'"/>';
 
