@@ -540,7 +540,7 @@ if ($can_edit_page)
 	echo '</div></div>';		// End #entry-content
 	echo '</div>';		// End #entry-wrapper
 
-	echo '<div id="entry-sidebar">';
+	echo '<div id="entry-sidebar" role="complementary">';
 
 	foreach ($sidebar_items as $id => $c) {
 		echo '<div id="'.$id.'" class="sb-box">'.

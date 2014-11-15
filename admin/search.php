@@ -93,7 +93,7 @@ dcPage::open(__('Search'),$starting_scripts,
 );
 
 echo
-'<form action="'.$core->adminurl->get("admin.search").'" method="get">'.
+'<form action="'.$core->adminurl->get("admin.search").'" method="get" role="search">'.
 '<div class="fieldset"><h3>'.__('Search options').'</h3>'.
 '<p><label for="q">'.__('Query:').' </label>'.form::field('q',30,255,$q).'</p>'.
 '<p><label for="qtype1" class="classic">'.form::radio(array('qtype','qtype1'),'p',$qtype == 'p').' '.__('Search in entries').'</label> '.
