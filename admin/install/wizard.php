@@ -135,6 +135,10 @@ function writeConfigValue($name,$val,&$str)
 }
 
 header('Content-Type: text/html; charset=UTF-8');
+
+// Prevents Clickjacking as far as possible
+header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
