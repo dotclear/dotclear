@@ -60,14 +60,13 @@ function dc_admin_icon_url($img)
 	return $img;
 }
 
-
-function addMenuItem($section,$desc,$adminurl,$icon,$perm) {
+function addMenuItem($section,$desc,$adminurl,$icon,$perm)
+{
 	global $core,$_menu;
-	$url=$core->adminurl->get($adminurl);
-	$_menu[$section]->prependItem(
-		$desc, $url, $icon, preg_match('/'.$url.'(\?.*)?$/',
-		$_SERVER['REQUEST_URI']), $perm
-	);
+
+	$url = $core->adminurl->get($adminurl);
+
+	$_menu[$section]->prependItem($desc,$url,$icon,preg_match('/'.$url.'(\?.*)?$/',$_SERVER['REQUEST_URI']),$perm);
 }
 
 if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
@@ -129,7 +128,6 @@ elseif ($core->auth->sessionExists())
 		}
 	}
 
-
 	if (!empty($_REQUEST['switchblog'])
 	&& $core->auth->getPermissions($_REQUEST['switchblog']) !== false)
 	{
@@ -173,15 +171,6 @@ elseif ($core->auth->sessionExists())
 		$core->session->destroy();
 		http::redirect('auth.php');
 	}
-
-/*
-	# Check add to my fav fired
-	if (!empty($_REQUEST['add-favorite'])) {
-		$redir = $_SERVER['REQUEST_URI'];
-		# Extract admin page from URI
-		# TO BE COMPLETED
-	}
-*/
 }
 
 $core->adminurl = new dcAdminURL($core);
@@ -241,10 +230,8 @@ if ($core->auth->userID() && $core->blog !== null)
 
 	$core->favs = new dcFavorites($core);
 
-
 	# [] : Title, URL, small icon, large icon, permissions, id, class
 	# NB : '*' in permissions means any, null means super admin only
-
 
 	# Menus creation
 	$_menu = new ArrayObject();
@@ -263,14 +250,12 @@ if ($core->auth->userID() && $core->blog !== null)
 		$core->favs->appendMenu($_menu);
 	}
 
-
 	# Set menu titles
 
 	$_menu['System']->title = __('System settings');
 	$_menu['Blog']->title = __('Blog');
 	$_menu['Plugins']->title = __('Plugins');
 
-	$url = $core->adminurl->get('admin.blog.theme');
 	addMenuItem('Blog',__('Blog appearance'),'admin.blog.theme','images/menu/themes.png',
 		$core->auth->check('admin',$core->blog->id));
 	addMenuItem('Blog',__('Blog settings'),'admin.blog.pref','images/menu/blog-pref.png',
