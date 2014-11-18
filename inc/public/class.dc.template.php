@@ -74,6 +74,7 @@ class dcTemplate extends template
 		$this->addValue('BlogPublicURL',array($this,'BlogPublicURL'));
 		$this->addValue('BlogQmarkURL',array($this,'BlogQmarkURL'));
 		$this->addValue('BlogMetaRobots',array($this,'BlogMetaRobots'));
+		$this->addValue('BlogJsJQuery',array($this,'BlogJsJQuery'));
 
 		# Categories
 		$this->addBlock('Categories',array($this,'Categories'));
@@ -875,6 +876,15 @@ class dcTemplate extends template
 	{
 		$robots = isset($attr['robots']) ? addslashes($attr['robots']) : '';
 		return "<?php echo context::robotsPolicy(\$core->blog->settings->system->robots_policy,'".$robots."'); ?>";
+	}
+
+	/*dtd
+	<!ELEMENT gpl:BlogJsJQuery - 0 -- Blog Js jQuery version selected -->
+	*/
+	public function BlogJsJQuery($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'$core->blog->getJsJQuery()').'; ?>';
 	}
 
 	/* Categories ----------------------------------------- */

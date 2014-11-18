@@ -3684,6 +3684,12 @@ msgstr "Protéger le blog des détournements de clic ou Clickjacking (voir <a hr
 msgid "Do not display date if alone in title"
 msgstr "Ne pas afficher la date si elle est seule dans le titre"
 
+msgid "jQuery javascript library"
+msgstr "Librairie javascript jQuery"
+
+msgid "jQuery version to be loaded for this blog:"
+msgstr "Version de la librairie jQuery à charger pour ce blog :"
+
 #~ msgid "You don't have permissions to deactivate this plugin."
 #~ msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
 
