@@ -242,6 +242,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
 		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
 		$blog_settings->system->put('media_img_use_dto_first',!empty($_POST['media_img_use_dto_first']));
+		$blog_settings->system->put('media_img_no_date_alone',!empty($_POST['media_img_no_date_alone']));
 		$blog_settings->system->put('media_img_default_size',$_POST['media_img_default_size']);
 		$blog_settings->system->put('media_img_default_alignment',$_POST['media_img_default_alignment']);
 		$blog_settings->system->put('media_img_default_link',!empty($_POST['media_img_default_link']));
@@ -569,10 +570,13 @@ if ($blog_id)
 	'<div class="col">'.
 	'<h5>'.__('Default image insertion attributes').'</h5>'.
 	'<p class="vertical-separator"><label for="media_img_title_pattern">'.__('Inserted image title').'</label>'.
-	form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).' '.
-	'<label for="media_img_use_dto_first" class="classic">'.
+	form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
+	'<p><label for="media_img_use_dto_first" class="classic">'.
 	form::checkbox('media_img_use_dto_first','1',$blog_settings->system->media_img_use_dto_first).
 	__('Use original media date if possible').'</label></p>'.
+	'<p><label for="media_img_no_date_alone" class="classic">'.
+	form::checkbox('media_img_no_date_alone','1',$blog_settings->system->media_img_no_date_alone).
+	__('Do not display date if alone in title').'</label></p>'.
 	'<p class="form-note info">'.__('It is retrieved from the picture\'s metadata.').'</p>'.
 
 	'<p class="field vertical-separator"><label for="media_img_default_size">'.__('Size of inserted image:').'</label>'.

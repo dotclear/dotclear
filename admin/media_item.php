@@ -168,32 +168,44 @@ if (!empty($_POST['save_blog_prefs']))
 }
 
 # Function to get image title based on meta
-function dcGetImageTitle($file,$pattern,$dto_first=false)
+function dcGetImageTitle($file,$pattern,$dto_first=false,$no_date_alone=false)
 {
 	$res = array();
 	$pattern = preg_split('/\s*;;\s*/',$pattern);
 	$sep = ', ';
+	$dates = 0;
+	$items = 0;
 
 	foreach ($pattern as $v) {
 		if ($v == 'Title') {
 			if ($file->media_title != '') {
 				$res[] = $file->media_title;
 			}
+			$items++;
 		} elseif ($file->media_meta->{$v}) {
 			if ((string) $file->media_meta->{$v} != '') {
 				$res[] = (string) $file->media_meta->{$v};
 			}
+			$items++;
 		} elseif (preg_match('/^Date\((.+?)\)$/u',$v,$m)) {
 			if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
 				$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
 			} else {
 				$res[] = dt::str($m[1],$file->media_dt);
 			}
+			$items++;
+			$dates++;
 		} elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u',$v,$m) && $file->media_meta->DateTimeOriginal) {
 			$res[] = dt::dt2str($m[1],(string) $file->media_meta->DateTimeOriginal);
+			$items++;
+			$dates++;
 		} elseif (preg_match('/^separator\((.*?)\)$/u',$v,$m)) {
 			$sep = $m[1];
 		}
+	}
+	if ($no_date_alone && $dates == count($res) && $dates < $items) {
+		// On ne laisse pas les dates seules, sauf si ce sont les seuls items du pattern (hors séparateur)
+		return '';
 	}
 	return implode($sep,$res);
 }
@@ -275,7 +287,8 @@ if ($popup)
 		$media_type = 'image';
 		$media_desc = dcGetImageTitle($file,
 			$core->blog->settings->system->media_img_title_pattern,
-			$core->blog->settings->system->media_img_use_dto_first);
+			$core->blog->settings->system->media_img_use_dto_first,
+			$core->blog->settings->system->media_img_no_date_alone);
 		if ($media_desc == $file->basename) {
 			$media_desc = '';
 		}
