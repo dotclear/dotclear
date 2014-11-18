@@ -143,6 +143,21 @@ $robots_policy_options = array(
 	'NOINDEX,NOFOLLOW,NOARCHIVE' => __("I would like to prevent search engines and archivers from indexing or archiving my blog's content."),
 );
 
+# jQuery available versions
+$jquery_root = dirname(__FILE__).'/../inc/js/jquery';
+$jquery_versions_combo = array(__('Default').' ('.DC_DEFAULT_JQUERY.')' => DC_DEFAULT_JQUERY);
+if (is_dir($jquery_root) && is_readable($jquery_root)) {
+	if (($d = @dir($jquery_root)) !== false) {
+		while (($entry = $d->read()) !== false) {
+			if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($jquery_root.'/'.$entry)) {
+				if ($entry != DC_DEFAULT_JQUERY) {
+					$jquery_versions_combo[$entry] = $entry;
+				}
+			}
+		}
+	}
+}
+
 # Update a blog
 if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 {
@@ -252,6 +267,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		if (isset($_POST['robots_policy'])) {
 			$blog_settings->system->put('robots_policy',$_POST['robots_policy']);
 		}
+		$blog_settings->system->put('jquery_version',$_POST['jquery_version']);
 		$blog_settings->system->put('prevents_clickjacking',!empty($_POST['prevents_clickjacking']));
 
 		# --BEHAVIOR-- adminBeforeBlogSettingsUpdate
@@ -607,6 +623,14 @@ if ($blog_id)
 	}
 
 	echo '</div>';
+
+	echo
+	'<div class="fieldset"><h4>'.__('jQuery javascript library').'</h4>'.
+	'<p><label for="jquery_version" class="classic">'.__('jQuery version to be loaded for this blog:').'</label>'.' '.
+	form::combo('jquery_version',$jquery_versions_combo,$blog_settings->system->jquery_version).
+	'</p>'.
+	'<br class="clear" />'. //Opera sucks
+	'</div>';
 
 	echo
 	'<div class="fieldset"><h4>'.__('Blog security').'</h4>'.

@@ -63,6 +63,9 @@ $paths = array_reverse(explode(PATH_SEPARATOR,DC_PLUGINS_ROOT));
 # Adding admin/res folder here to load some stuff
 $paths[] = dirname(__FILE__).'/swf';
 
+# Adding Js public folder and sub-folders
+$paths[] = dirname(__FILE__).'/js';
+
 foreach ($paths as $m)
 {
 	$PF = path::real($m.'/'.$pf);
