@@ -3681,6 +3681,9 @@ msgstr "Sécurité du blog"
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Protéger le blog des détournements de clic ou Clickjacking (voir <a href=\"https://fr.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 
+msgid "Do not display date if alone in title"
+msgstr "Ne pas afficher la date si elle est seule dans le titre"
+
 #~ msgid "You don't have permissions to deactivate this plugin."
 #~ msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."
 
