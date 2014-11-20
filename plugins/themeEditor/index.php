@@ -79,6 +79,7 @@ catch (Exception $e)
   <?php echo dcPage::jsVar('dotclear.colorsyntax',$user_ui_colorsyntax); ?>
   //]]>
   </script>
+  <?php echo dcPage::jsConfirmClose('file-form'); ?>
   <script type="text/javascript" src="index.php?pf=themeEditor/script.js"></script>
 <?php if ($user_ui_colorsyntax) { ?>
   <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/codemirror/codemirror.css" />

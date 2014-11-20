@@ -84,6 +84,7 @@ if ($posts_actions_page->process()) {
   });
   //]]>
   </script>
+  <?php echo dcPage::jsConfirmClose('tag_rename'); ?>
 </head>
 <body>
 
@@ -107,7 +108,7 @@ if (!$core->error->flag())
 		echo
 		'<div class="tag-actions vertical-separator">'.
 		'<h3>'.html::escapeHTML($tag).'</h3>'.
-		'<form action="'.$this_url.'" method="post">'.
+		'<form action="'.$this_url.'" method="post" id="tag_rename">'.
 		'<p><label for="new_tag_id" class="classic">'.__('Rename').'</label> '.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'<input type="submit" value="'.__('OK').'" />'.
