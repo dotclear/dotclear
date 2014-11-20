@@ -39,7 +39,8 @@ msgstr "В"
 msgid "Continue reading"
 msgstr "Читать дальше"
 
-msgid "no comments"
+#, fuzzy
+msgid "no comment"
 msgstr "нет комментариев"
 
 msgid "one comment"
