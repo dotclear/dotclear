@@ -111,6 +111,7 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop
 		$starting_script .= dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
 		$starting_script .= dcPage::jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
 }
+$starting_script .= dcPage::jsConfirmClose('form-categories');
 $starting_script .= dcPage::jsLoad('js/_categories.js');
 
 dcPage::open(__('Categories'),$starting_script,
