@@ -42,7 +42,8 @@ msgstr "::"
 msgid "Continue reading"
 msgstr "Folytatás"
 
-msgid "no comments"
+#, fuzzy
+msgid "no comment"
 msgstr "nincs hozzászólás"
 
 msgid "one comment"

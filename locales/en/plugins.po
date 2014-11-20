@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 09:38+0200\n"
+"POT-Creation-Date: 2014-11-20 19:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,6 +66,12 @@ msgid "Manage every user preference directive"
 msgstr ""
 
 msgid "Widgets for your blog sidebars"
+msgstr ""
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
 msgstr ""
 
 msgid "Search engine form"
@@ -418,6 +424,9 @@ msgid "Content only"
 msgstr ""
 
 msgid "CSS class:"
+msgstr ""
+
+msgid "Offline"
 msgstr ""
 
 msgid "You must provide a link title"
@@ -808,29 +817,103 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "The 'public' directory does not exist."
-msgstr ""
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr ""
-
 msgid "Unable to create css file."
 msgstr ""
 
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr ""
-
-msgid "Unable to create images."
-msgstr ""
-
-msgid "Invalid file type."
-msgstr ""
-
-msgid "Uploaded image is not 800 pixels wide."
-msgstr ""
-
 msgid "Unable to open image."
+msgstr ""
+
+msgid "The configuration has been updated."
+msgstr ""
+
+msgid "Media chooser"
+msgstr ""
+
+msgid "Link to an entry"
+msgstr ""
+
+msgid "Link"
+msgstr ""
+
+msgid "visual"
+msgstr ""
+
+msgid "source"
+msgstr ""
+
+msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "-- none --"
+msgstr ""
+
+msgid "-- block format --"
+msgstr ""
+
+msgid "Paragraph"
+msgstr ""
+
+msgid "Level 1 header"
+msgstr ""
+
+msgid "Level 2 header"
+msgstr ""
+
+msgid "Level 3 header"
+msgstr ""
+
+msgid "Level 4 header"
+msgstr ""
+
+msgid "Level 5 header"
+msgstr ""
+
+msgid "Level 6 header"
+msgstr ""
+
+msgid "Strong emphasis"
+msgstr ""
+
+msgid "Emphasis"
+msgstr ""
+
+msgid "Inserted"
+msgstr ""
+
+msgid "Deleted"
+msgstr ""
+
+msgid "Inline quote"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Line break"
+msgstr ""
+
+msgid "Blockquote"
+msgstr ""
+
+msgid "Preformated text"
+msgstr ""
+
+msgid "Unordered list"
+msgstr ""
+
+msgid "Ordered list"
+msgstr ""
+
+msgid "URL?"
+msgstr ""
+
+msgid "Language?"
+msgstr ""
+
+msgid "External image"
+msgstr ""
+
+msgid "Remove text formating"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
@@ -1061,6 +1144,10 @@ msgid "File is not a DotClear backup."
 msgstr ""
 
 msgid "File is not a single blog export."
+msgstr ""
+
+#, php-format
+msgid "Error raised at line %s"
 msgstr ""
 
 msgid "File is not a full export."
@@ -1504,6 +1591,9 @@ msgstr ""
 msgid "User defined"
 msgstr ""
 
+msgid "Configuration successfully updated."
+msgstr ""
+
 msgid "Label"
 msgstr ""
 
@@ -1597,6 +1687,12 @@ msgstr ""
 msgid "Add this item"
 msgstr ""
 
+msgid "Enable simple menu for this blog"
+msgstr ""
+
+msgid "Save configuration"
+msgstr ""
+
 msgid "Add an item"
 msgstr ""
 
@@ -1629,12 +1725,10 @@ msgstr[1] ""
 msgid "Add tags to this selection"
 msgstr ""
 
-#, php-format
-msgid "Are you sure you want to remove this %s?"
+msgid "Are you sure you want to remove this tag?"
 msgstr ""
 
-#, php-format
-msgid "Add a %s to this entry"
+msgid "Add a tag to this entry"
 msgstr ""
 
 msgid "Choose from list"
@@ -1737,6 +1831,15 @@ msgstr ""
 msgid "No file"
 msgstr ""
 
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
+
 msgid "File does not exist."
 msgstr ""
 
@@ -1748,6 +1851,13 @@ msgstr ""
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr ""
 
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr ""
+
+msgid "The file has been reset."
+msgstr ""
+
 msgid "Saving document..."
 msgstr ""
 
@@ -1755,6 +1865,9 @@ msgid "Document saved"
 msgstr ""
 
 msgid "An error occurred:"
+msgstr ""
+
+msgid "Are you sure you want to reset this file?"
 msgstr ""
 
 #, php-format
@@ -1772,6 +1885,9 @@ msgstr ""
 
 #, php-format
 msgid "Editing file %s"
+msgstr ""
+
+msgid "Reset"
 msgstr ""
 
 msgid "This file is not writable. Please check your theme files permissions."
@@ -1893,6 +2009,12 @@ msgstr ""
 msgid "empty string"
 msgstr ""
 
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
 msgid "Widgets"
 msgstr ""
 
@@ -1959,17 +2081,11 @@ msgstr ""
 msgid "Down the widget"
 msgstr ""
 
+msgid "Remove the widget"
+msgstr ""
+
 msgid "Remove widget"
 msgstr ""
 
 msgid "Drag widgets here to remove."
-msgstr ""
-
-msgid "From theme:"
-msgstr ""
-
-msgid "From parent:"
-msgstr ""
-
-msgid "From template set:"
 msgstr ""

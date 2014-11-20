@@ -42,7 +42,8 @@ msgstr "投稿日："
 msgid "Continue reading"
 msgstr "続きを読む -"
 
-msgid "no comments"
+#, fuzzy
+msgid "no comment"
 msgstr "コメント(0)"
 
 msgid "one comment"

@@ -41,7 +41,8 @@ msgstr "O dia"
 msgid "Continue reading"
 msgstr "Continue a leitura"
 
-msgid "no comments"
+#, fuzzy
+msgid "no comment"
 msgstr "nenhum comentário"
 
 msgid "one comment"

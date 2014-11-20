@@ -40,7 +40,8 @@ msgstr ""
 msgid "Continue reading"
 msgstr "Jarraitu irakurketa"
 
-msgid "no comments"
+#, fuzzy
+msgid "no comment"
 msgstr "iruzkinik ez "
 
 msgid "one comment"

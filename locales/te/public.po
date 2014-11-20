@@ -40,7 +40,8 @@ msgstr "తేదీ"
 msgid "Continue reading"
 msgstr "చదవడం కొనసాగించండి"
 
-msgid "no comments"
+#, fuzzy
+msgid "no comment"
 msgstr "వ్యాఖ్యలు లేవు"
 
 msgid "one comment"

@@ -43,7 +43,8 @@ msgstr "Em"
 msgid "Continue reading"
 msgstr "Continuar leitura"
 
-msgid "no comments"
+#, fuzzy
+msgid "no comment"
 msgstr "sem comentário"
 
 msgid "one comment"
