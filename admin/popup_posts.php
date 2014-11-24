@@ -20,6 +20,8 @@ $plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) 
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  10;
 
+$type = !empty($_GET['type']) ? $_GET['type'] : null;
+
 $post_types = $core->getPostTypes();
 foreach ($post_types as $k => $v) {
  	$type_combo[__($k)] = (string) $k;
