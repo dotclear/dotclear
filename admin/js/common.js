@@ -381,6 +381,9 @@ var dotclear = {
 	postsActionsHelper: function() {
 		$('#form-entries').submit(function() {
 			var action = $(this).find('select[name="action"]').val();
+			if (action===undefined) {
+				return;
+			}
 			var checked = false;
 
 			$(this).find('input[name="entries[]"]').each(function() {
