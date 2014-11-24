@@ -24,11 +24,6 @@ $post_types = $core->getPostTypes();
 foreach ($post_types as $k => $v) {
  	$type_combo[__($k)] = (string) $k;
 }
-$type = !empty($_POST['selected_type']) ? $_POST['selected_type'] : null;
-if (!$type && $q) {
-	// Cope with search form
-	$type = !empty($_GET['type']) ? $_GET['type'] : null;
-}
 if (!in_array($type, $type_combo)) {
 	$type = null;
 }
@@ -52,9 +47,8 @@ dcPage::openPopup(__('Add a link to an entry'),
 
 echo '<h2 class="page-title">'.__('Add a link to an entry').'</h2>';
 
-echo '<form action="popup_posts.php" method="post">'.
-	'<p><label for="selected_type" class="classic">'.__('Entry type:').'</label> '.form::combo('selected_type',$type_combo,$type).''.
-	$core->formNonce().'</p>'.
+echo '<form action="popup_posts.php" method="get">'.
+	'<p><label for="type" class="classic">'.__('Entry type:').'</label> '.form::combo('type',$type_combo,$type).''.
 	'<noscript><div><input type="submit" value="'.__('Ok').'" /></div></noscript>'.
 	'</form>';
 
