@@ -49,7 +49,7 @@ dotclear.viewPostContent = function(line,action) {
 
 $(function() {
 	// Entry type switcher
-	$('#selected_type').change(function() {
+	$('#type').change(function() {
 		this.form.submit();
 	});
 
