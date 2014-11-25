@@ -203,6 +203,8 @@ $core->adminurl->register('admin.auth','auth.php');
 $core->adminurl->register('admin.help','help.php');
 $core->adminurl->register('admin.update','update.php');
 
+$core->adminurl->registercopy('load.plugin.file','admin.home',array('pf' => 'dummy.css'));
+
 if ($core->auth->userID() && $core->blog !== null)
 {
 	# Loading resources and help files
