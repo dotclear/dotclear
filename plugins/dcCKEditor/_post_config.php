@@ -40,10 +40,22 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
 	};
 
 	/* Retrieve editor from popup */
-    $.active_editor = null;
+	$.active_editor = null;
 	$.getEditorName = function getEditorName() {
 		return $.active_editor;
 	}
+	chainHandler(window, 'onbeforeunload', function(e) {
+		if (e == undefined && window.event) {
+			e = window.event;
+		}
+
+		var editor = CKEDITOR.instances[$.getEditorName()];
+		if (editor.checkDirty()) {
+			e.returnValue = confirmClosePage.prompt;
+			return confirmClosePage.prompt;
+		}
+		return false;
+	});
 })(jQuery);
 
 $(function() {
