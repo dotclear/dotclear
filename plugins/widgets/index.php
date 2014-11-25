@@ -213,19 +213,19 @@ elseif (!empty($_POST['wreset']))
 <html>
 <head>
   <title><?php echo __('Widgets'); ?></title>
-  <link type="text/css" rel="stylesheet" href="index.php?pf=widgets/style.css"/>
+  <link type="text/css" rel="stylesheet" href="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'widgets/style.css')); ?>"/>
   <?php
 		echo
 			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 			dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
-			dcPage::jsLoad('index.php?pf=widgets/widgets.js');
+			dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'widgets/widgets.js')));
   ?>
   <?php
 	$core->auth->user_prefs->addWorkspace('accessibility');
 	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
   ?>
   <?php if (!$user_dm_nodragdrop) : ?>
-  <script type="text/javascript" src="index.php?pf=widgets/dragdrop.js"></script>
+  <script type="text/javascript" src="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'widgets/dragdrop.js')); ?>"></script>
   <?php endif; ?>
   <script type="text/javascript">
   //<![CDATA[

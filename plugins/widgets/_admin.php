@@ -11,18 +11,23 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
+// Register admin URL base of plugin
+$core->adminurl->registercopy('admin.plugin.widgets','admin.plugin',array('p' => 'widgets'));
+
 $core->addBehavior('adminDashboardFavorites','widgets_dashboard_favorites');
 
 function widgets_dashboard_favorites($core,$favs)
 {
 	$favs->register('widgets', array(
 		'title' => __('Presentation widgets'),
-		'url' => 'plugin.php?p=widgets',
-		'small-icon' => 'index.php?pf=widgets/icon.png',
-		'large-icon' => 'index.php?pf=widgets/icon-big.png',
+		'url' => $core->adminurl->get('admin.plugin.widgets'),
+		'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'widgets/icon.png')),
+		'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'widgets/icon-big.png')),
 	));
 }
 
-$_menu['Blog']->addItem(__('Presentation widgets'),'plugin.php?p=widgets','index.php?pf=widgets/icon.png',
-		preg_match('/plugin.php\?p=widgets(&.*)?$/',$_SERVER['REQUEST_URI']),
+$_menu['Blog']->addItem(__('Presentation widgets'),
+		$core->adminurl->get('admin.plugin.widgets'),
+		$core->adminurl->decode('load.plugin.file',array('pf' => 'widgets/icon.png')),
+		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.widgets')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('admin',$core->blog->id));

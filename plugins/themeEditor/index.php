@@ -69,7 +69,7 @@ catch (Exception $e)
 <html>
 <head>
   <title><?php echo __('Edit theme files'); ?></title>
-  <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/style.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/style.css')); ?>" />
   <script type="text/javascript">
   //<![CDATA[
   <?php echo dcPage::jsVar('dotclear.msg.saving_document',__("Saving document...")); ?>
@@ -80,17 +80,17 @@ catch (Exception $e)
   //]]>
   </script>
   <?php echo dcPage::jsConfirmClose('file-form'); ?>
-  <script type="text/javascript" src="index.php?pf=themeEditor/script.js"></script>
+  <script type="text/javascript" src="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/script.js')); ?>"></script>
 <?php if ($user_ui_colorsyntax) { ?>
-  <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/codemirror/codemirror.css" />
-  <link rel="stylesheet" type="text/css" href="index.php?pf=themeEditor/codemirror.css" />
-  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/codemirror.js"></script>
-  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/multiplex.js"></script>
-  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/xml.js"></script>
-  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/javascript.js"></script>
-  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/css.js"></script>
-  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/php.js"></script>
-  <script type="text/JavaScript" src="index.php?pf=themeEditor/codemirror/htmlmixed.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/codemirror/codemirror.css')); ?>" />
+  <link rel="stylesheet" type="text/css" href="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/codemirror.css')); ?>" />
+  <script type="text/JavaScript" src="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/codemirror/codemirror.js')); ?>"></script>
+  <script type="text/JavaScript" src="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/codemirror/multiplex.js')); ?>"></script>
+  <script type="text/JavaScript" src="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/codemirror/xml.js')); ?>"></script>
+  <script type="text/JavaScript" src="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/codemirror/javascript.js')); ?>"></script>
+  <script type="text/JavaScript" src="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/codemirror/css.js')); ?>"></script>
+  <script type="text/JavaScript" src="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/codemirror/php.js')); ?>"></script>
+  <script type="text/JavaScript" src="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'themeEditor/codemirror/htmlmixed.js')); ?>"></script>
 <?php } ?>
 </head>
 
@@ -99,7 +99,7 @@ catch (Exception $e)
 echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
-		__('Blog appearance') => 'blog_theme.php',
+		__('Blog appearance') => $core->adminurl->get('admin.blog.theme'),
 		__('Edit theme files') => ''
 	)).
 	dcPage::notices();
