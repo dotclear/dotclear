@@ -65,8 +65,7 @@ function addMenuItem($section,$desc,$adminurl,$icon,$perm)
 	global $core,$_menu;
 
 	$url = $core->adminurl->get($adminurl);
-
-	$_menu[$section]->prependItem($desc,$url,$icon,preg_match('/'.$url.'(\?.*)?$/',$_SERVER['REQUEST_URI']),$perm);
+	$_menu[$section]->prependItem($desc,$url,$icon,preg_match('/'.preg_quote($url).'(\?.*)?$/',$_SERVER['REQUEST_URI']),$perm);
 }
 
 if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
