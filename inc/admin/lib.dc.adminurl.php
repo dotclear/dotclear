@@ -11,7 +11,6 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-
 /**
 @ingroup DC_CORE
 @nosubgrouping
@@ -41,7 +40,7 @@ class dcAdminURL
 	 * @param  string $url    url value
 	 * @param  array  $params query string params (optional)
 	 */
-	public function register ($name,$url,$params = array())
+	public function register($name,$url,$params=array())
 	{
 		$this->urls[$name] = array('url' => $url, 'qs' => $params);
 	}
@@ -53,7 +52,7 @@ class dcAdminURL
 	 * @param  array  $params extra parameters to add
 	 * @param  string $newurl new url if different from the original
 	 */
-	public function registercopy ($name,$orig,$params = array(),$newurl='')
+	public function registercopy($name,$orig,$params=array(),$newurl='')
 	{
 		if (!isset($this->urls[$orig])) {
 			throw new exception ('Unknown URL handler for '.$orig);
@@ -64,7 +63,6 @@ class dcAdminURL
 			$url['url'] = $newurl;
 		}
 		$this->urls[$name] = $url;
-
 	}
 
 	/**
@@ -75,7 +73,7 @@ class dcAdminURL
 	 * @param  string $separator separator to use between QS parameters
 	 * @return string            the forged url
 	 */
-	public function get ($name,$params=array(),$separator='&amp;')
+	public function get($name,$params=array(),$separator='&amp;')
 	{
 		if (!isset($this->urls[$name])) {
 			throw new exception ('Unknown URL handler for '.$name);
@@ -90,12 +88,25 @@ class dcAdminURL
 	}
 
 	/**
+	 * retrieves a URL (decoded — useful for echoing) given its name, and optional parameters
+	 *
+	 * @param  string $name      URL Name
+	 * @param  array  $params    query string parameters, given as an associative array
+	 * @param  string $separator separator to use between QS parameters
+	 * @return string            the forged decoded url
+	 */
+	public function decode($name,$params=array(),$separator='&amp;')
+	{
+		return urldecode($this->get($name,$params,$separator));
+	}
+
+	/**
 	 * Returns $urls property content.
 	 *
 	 * @return  ArrayObject
 	 */
-	public function dumpUrls() {
+	public function dumpUrls()
+	{
 		return $this->urls;
 	}
 }
-
