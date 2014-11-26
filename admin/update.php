@@ -33,7 +33,7 @@ $version_info = $new_v ? $updater->getInfoURL() : '';
 # Hide "update me" message
 if (!empty($_GET['hide_msg'])) {
 	$updater->setNotify(false);
-	http::redirect($core->urladmin->get('admin.home'));
+	http::redirect('index.php');
 }
 
 $p_url = 'update.php';
@@ -249,7 +249,7 @@ elseif ($step == 'unzip' && !$core->error->flag())
 	echo
 	'<p class="message">'.
 	__("Congratulations, you're one click away from the end of the update.").
-	' <strong><a href="'.$core->urladmin->get('admin.home',array('logout' => '1')).'">'.__('Finish the update.').'</a></strong>'.
+	' <strong><a href="index.php?logout=1">'.__('Finish the update.').'</a></strong>'.
 	'</p>';
 }
 
