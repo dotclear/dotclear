@@ -754,7 +754,7 @@ if ($blog_id)
 
 				if (!$v['super'] && $core->auth->isSuperAdmin()) {
 					echo
-					'<form action="users_actions.php" method="post">'.
+					'<form action="'.$core->adminurl->get('admin.user.actions').'" method="post">'.
 					'<p class="change-user-perm"><input type="submit" class="reset" value="'.__('Change permissions').'" />'.
 					form::hidden(array('redir'),$core->adminurl->get("admin.blog.pref",array('id' => $k))).
 					form::hidden(array('action'),'perms').
