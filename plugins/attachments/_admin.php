@@ -37,8 +37,9 @@ class attachmentAdmin
 	}
 	public static function postHeaders()
 	{
+		$core =& $GLOBALS['core'];
 		return
-		'<script type="text/javascript" src="index.php?pf=attachments/js/post.js"></script>';
+		'<script type="text/javascript" src="'.$core->adminurl->decode('load.plugin.file',array('pf' => 'attachments/js/post.js')).'"></script>';
 	}
 	public static function adminPostFormItems($main,$sidebar,$post)
 	{
@@ -57,17 +58,21 @@ class attachmentAdmin
 				}
 				$item .=
 				'<div class="media-item s-attachments">'.
-				'<a class="media-icon" href="media_item.php?id='.$f->media_id.'">'.
+				'<a class="media-icon" href="'.$core->adminurl->get('admin.media.item',array('id' => $f->media_id)).'">'.
 				'<img src="'.$f->media_icon.'" alt="" title="'.$f->basename.'" /></a>'.
 				'<ul>'.
-				'<li><a class="media-link" href="media_item.php?id='.$f->media_id.'" '.
+				'<li><a class="media-link" href="'.$core->adminurl->get('admin.media.item',array('id' => $f->media_id)).'" '.
 				'title="'.$f->basename.'">'.$ftitle.'</a></li>'.
 				'<li>'.$f->media_dtstr.'</li>'.
 				'<li>'.files::size($f->size).' - '.
 				'<a href="'.$f->file_url.'">'.__('open').'</a>'.'</li>'.
 
 				'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
-				'href="post_media.php?post_id='.$post->post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
+				'href="'.$core->adminurl->get('admin.post.media',array(
+					'post_id' => $post->post_id,
+					'media_id' => $f->media_id,
+					'remove' => '1'
+					)).'">'.
 				'<img src="images/trash.png" alt="'.__('remove').'" /></a>'.
 				'</li>'.
 
@@ -79,7 +84,9 @@ class attachmentAdmin
 			if (empty($post_media)) {
 				$item .= '<p class="form-note s-attachments">'.__('No attachment.').'</p>';
 			}
-			$item .= '<p class="s-attachments"><a class="button" href="media.php?post_id='.$post->post_id.'">'.__('Add files to this entry').'</a></p>';
+			$item .=
+				'<p class="s-attachments"><a class="button" href="'.$core->adminurl->get('admin.media',array('post_id' => $post->post_id)).'">'.
+				__('Add files to this entry').'</a></p>';
 			$sidebar['metas-box']['items']['attachments']= $item;
 		}
 	}
@@ -89,7 +96,7 @@ class attachmentAdmin
 		{
 			$core =& $GLOBALS['core'];
 			echo
-				'<form action="post_media.php" id="attachment-remove-hide" method="post">'.
+				'<form action="'.$core->adminurl->get('admin.post.media').'" id="attachment-remove-hide" method="post">'.
 				'<div>'.form::hidden(array('post_id'),$post->post_id).
 				form::hidden(array('media_id'),'').
 				form::hidden(array('remove'),1).

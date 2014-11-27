@@ -15,9 +15,11 @@ if (!defined('DC_ANTISPAM_CONF_SUPER')) {
 	define('DC_ANTISPAM_CONF_SUPER',false);
 }
 
-$_menu['Plugins']->addItem(__('Antispam'),'plugin.php?p=antispam','index.php?pf=antispam/icon.png',
-		preg_match('/plugin.php\?p=antispam(&.*)?$/',$_SERVER['REQUEST_URI']),
-		$core->auth->check('admin',$core->blog->id));
+$_menu['Plugins']->addItem(__('Antispam'),
+	$core->adminurl->get('admin.plugin.antispam'),
+	$core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/icon.png')),
+	preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.antispam')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
+	$core->auth->check('admin',$core->blog->id));
 
 $core->addBehavior('coreAfterCommentUpdate',array('dcAntispam','trainFilters'));
 $core->addBehavior('adminAfterCommentDesc',array('dcAntispam','statusMessage'));
@@ -30,9 +32,9 @@ function antispamDashboardFavorites($core,$favs)
 {
 	$favs->register('antispam', array(
 		'title' => __('Antispam'),
-		'url' => 'plugin.php?p=antispam',
-		'small-icon' => 'index.php?pf=antispam/icon.png',
-		'large-icon' => 'index.php?pf=antispam/icon-big.png',
+		'url' => $core->adminurl->get('admin.plugin.antispam'),
+		'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/icon.png')),
+		'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/icon-big.png')),
 		'permissions' => 'admin')
 	);
 }
@@ -78,7 +80,8 @@ class antispamBehaviors
 		$ttl = $core->blog->settings->antispam->antispam_moderation_ttl;
 		if ($ttl != null && $ttl >=0) {
 			echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl).' '.
-			sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
+			sprintf(__('You can modify this duration in the %s'),'<a href="'.$core->adminurl->get('admin.blog.pref').
+				'#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
 			'.</p>';
 		}
 	}
@@ -92,7 +95,7 @@ class antispamBehaviors
 		form::field('antispam_moderation_ttl', 3, 3, $ttl).
 		' '.__('days').
 		'</label></p>'.
-		'<p><a href="plugin.php?p=antispam">'.__('Set spam filters.').'</a></p>'.
+		'<p><a href="'.$core->adminurl->get('admin.plugin.antispam').'">'.__('Set spam filters.').'</a></p>'.
 		'</div>';
 	}
 

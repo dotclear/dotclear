@@ -74,7 +74,8 @@ class dcAntispam
 	{
 		if (($count = self::countSpam($core)) > 0) {
 			$str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-			$icons['comments'][0] .= '</span></a> <br /><a href="comments.php?status=-2"><span>'.sprintf($str,$count);
+			$icons['comments'][0] .= '</span></a> <br /><a href="'.$core->adminurl->get('admin.comments',array('status' => '-2')).'"><span>'.
+				sprintf($str,$count);
 		}
 	}
 
@@ -82,7 +83,8 @@ class dcAntispam
 	{
 		if (($count = self::countSpam($core)) > 0) {
 			$str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-			return '</span></a> <br /><a href="comments.php?status=-2"><span>'.sprintf($str,$count);
+			return '</span></a> <br /><a href="'.$core->adminurl->get('admin.comments',array('status' => '-2')).'"><span>'.
+				sprintf($str,$count);
 		} else {
 			return '';
 		}
