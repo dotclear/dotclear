@@ -11,9 +11,6 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-// Register admin URL base of plugin
-$core->adminurl->registercopy('admin.plugin.theme.editor','admin.plugin',array('p' => 'themeEditor'));
-
 if (!isset($__resources['help']['themeEditor'])) {
 	$__resources['help']['themeEditor'] = dirname(__FILE__).'/help.html';
 }
@@ -28,7 +25,7 @@ class themeEditorBehaviors
 	public static function theme_editor_details($core,$id)
 	{
 		if ($id != 'default' && $core->auth->isSuperAdmin()) {
-			return '<p><a href="'.$core->adminurl->get('admin.plugin.theme.editor').'" class="button">'.__('Edit theme files').'</a></p>';
+			return '<p><a href="'.$core->adminurl->get('admin.plugin.themeEditor').'" class="button">'.__('Edit theme files').'</a></p>';
 		}
 	}
 

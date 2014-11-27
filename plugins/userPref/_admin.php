@@ -11,11 +11,8 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-// Register admin URL base of plugin
-$core->adminurl->registercopy('admin.plugin.user.pref','admin.plugin',array('p' => 'userPref'));
-
 $_menu['System']->addItem('user:preferences',
-		$core->adminurl->get('admin.plugin.user.pref'),
+		$core->adminurl->get('admin.plugin.userPref'),
 		$core->adminurl->decode('load.plugin.file',array('pf' => 'userPref/icon.png')),
-		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.user.pref')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
+		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.userPref')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin());

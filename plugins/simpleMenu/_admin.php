@@ -11,22 +11,19 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-// Register admin URL base of plugin
-$core->adminurl->registercopy('admin.plugin.simplemenu','admin.plugin',array('p' => 'simpleMenu'));
-
 $core->addBehavior('adminDashboardIcons','simpleMenu_dashboard');
 $core->addBehavior('adminDashboardFavorites','simpleMenu_dashboard_favs');
 function simpleMenu_dashboard($core,$icons)
 {
 	$icons['simpleMenu'] = new ArrayObject(array(__('Simple menu'),
-		$core->adminurl->get('admin.plugin.simplemenu'),
+		$core->adminurl->get('admin.plugin.simpleMenu'),
 		$core->adminurl->decode('load.plugin.file',array('pf' => 'simpleMenu/icon.png'))));
 }
 function simpleMenu_dashboard_favs($core,$favs)
 {
 	$favs->register('simpleMenu', array(
 		'title' => __('Simple menu'),
-		'url' => $core->adminurl->get('admin.plugin.simplemenu'),
+		'url' => $core->adminurl->get('admin.plugin.simpleMenu'),
 		'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'simpleMenu/icon-small.png')),
 		'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'simpleMenu/icon.png')),
 		'permissions' => 'usage,contentadmin'
@@ -34,9 +31,9 @@ function simpleMenu_dashboard_favs($core,$favs)
 }
 
 $_menu['Blog']->addItem(__('Simple menu'),
-	$core->adminurl->get('admin.plugin.simplemenu'),
+	$core->adminurl->get('admin.plugin.simpleMenu'),
 	$core->adminurl->decode('load.plugin.file',array('pf' => 'simpleMenu/icon-small.png')),
-    preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.simplemenu')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
+    preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.simpleMenu')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
     $core->auth->check('usage,contentadmin',$core->blog->id));
 
 require dirname(__FILE__).'/_widgets.php';
