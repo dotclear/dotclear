@@ -95,7 +95,7 @@ class dcAdminURL
 	 * @param  string $separator separator to use between QS parameters
 	 * @return string            the forged decoded url
 	 */
-	public function decode($name,$params=array(),$separator='&amp;')
+	public function decode($name,$params=array(),$separator='&')
 	{
 		return urldecode($this->get($name,$params,$separator));
 	}
