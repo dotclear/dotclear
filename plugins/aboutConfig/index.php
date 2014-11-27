@@ -154,7 +154,7 @@ if (count($settings) > 0) {
 		$ns_combo[$ns] = '#l_'.$ns;
 	}
 	echo
-		'<form action="plugin.php" method="post">'.
+		'<form action="'.$p_url.'" method="post">'.
 		'<p class="anchor-nav">'.
 		'<label for="ls_nav" class="classic">'.__('Goto:').'</label> '.form::combo('ls_nav',$ns_combo).
 		' <input type="submit" value="'.__('Ok').'" id="ls_submit" />'.
@@ -163,7 +163,7 @@ if (count($settings) > 0) {
 }
 ?>
 
-<form action="plugin.php" method="post">
+<form action="<?php echo $p_url; ?>" method="post">
 
 <?php
 foreach ($settings as $ns => $s)
@@ -204,7 +204,7 @@ if (count($settings) > 0) {
 		$ns_combo[$ns] = '#g_'.$ns;
 	}
 	echo
-		'<form action="plugin.php" method="post">'.
+		'<form action="'.$p_url.'" method="post">'.
 		'<p class="anchor-nav">'.
 		'<label for="gs_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gs_nav',$ns_combo).' '.
 		'<input type="submit" value="'.__('Ok').'" id="gs_submit" />'.
@@ -213,7 +213,7 @@ if (count($settings) > 0) {
 }
 ?>
 
-<form action="plugin.php" method="post">
+<form action="<?php echo $p_url; ?>" method="post">
 
 <?php
 foreach ($settings as $ns => $s)

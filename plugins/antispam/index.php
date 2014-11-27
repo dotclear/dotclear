@@ -117,10 +117,10 @@ catch (Exception $e)
 	echo
 		dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 		dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
-		dcPage::jsLoad('index.php?pf=antispam/antispam.js');
+		dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/antispam.js')));
   }
   ?>
-  <link rel="stylesheet" type="text/css" href="index.php?pf=antispam/style.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/style.css')); ?>" />
 </head>
 <body>
 <?php
@@ -135,7 +135,7 @@ if ($filter_gui !== false)
 		)).
 		dcPage::notices();
 
-	echo '<p><a href="plugin.php?p=antispam" class="back">'.__('Back to filters list').'</a></p>';
+	echo '<p><a href="'.$p_url.'" class="back">'.__('Back to filters list').'</a></p>';
 
 	echo $filter_gui;
 
@@ -163,9 +163,9 @@ else
 
 	echo
 	'<ul class="spaminfo">'.
-	'<li class="spamcount"><a href="comments.php?status=-2">'.__('Junk comments:').'</a> '.
+	'<li class="spamcount"><a href="'.$core->adminurl->get('admin.comments',array('status' => '-2')).'">'.__('Junk comments:').'</a> '.
 	'<strong>'.$spam_count.'</strong></li>'.
-	'<li class="hamcount"><a href="comments.php?status=1">'.__('Published comments:').'</a> '.
+	'<li class="hamcount"><a href="'.$core->adminurl->get('admin.comments',array('status' => '1')).'">'.__('Published comments:').'</a> '.
 	$published_count.'</li>'.
 	'</ul>';
 
@@ -178,7 +178,8 @@ else
 	}
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
-		sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
+		sprintf(__('You can modify this duration in the %s'),'<a href="'.$core->adminurl->get('admin.blog.pref').
+			'#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
 			'.</p>';
 	}
 	echo '</form>';
