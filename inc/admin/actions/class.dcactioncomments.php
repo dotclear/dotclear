@@ -57,7 +57,7 @@ class dcCommentsActionsPage extends dcActionsPage
 		$this->beginPage(dcPage::breadcrumb(
 			array(
 				html::escapeHTML($this->core->blog->name) => '',
-				__('Comments') => 'comments.php',
+				__('Comments') => $this->core->adminurl->get('admin.comments'),
 				__('Comments actions') => ''
 			))
 		);

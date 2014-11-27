@@ -244,6 +244,7 @@ $core->url->register('trackback','trackback','^trackback/(.+)$',array('dcUrlHand
 $core->url->register('rsd','rsd','^rsd$',array('dcUrlHandlers','rsd'));
 $core->url->register('xmlrpc','xmlrpc','^xmlrpc/(.+)$',array('dcUrlHandlers','xmlrpc'));
 
+// Should use dcAdminURL class, but only in admin -> to be moved to public/prepend.php and admin/prepend.php ?
 $core->setPostType('post','post.php?id=%d',$core->url->getURLFor('post','%s'),'Posts');
 
 # Store upload_max_filesize in bytes
