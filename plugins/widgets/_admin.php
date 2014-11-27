@@ -11,9 +11,6 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-// Register admin URL base of plugin
-$core->adminurl->registercopy('admin.plugin.widgets','admin.plugin',array('p' => 'widgets'));
-
 $core->addBehavior('adminDashboardFavorites','widgets_dashboard_favorites');
 
 function widgets_dashboard_favorites($core,$favs)

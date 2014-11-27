@@ -11,9 +11,6 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-// Register admin URL base of plugin
-$core->adminurl->registercopy('admin.plugin.pings','admin.plugin',array('p' => 'pings'));
-
 $_menu['Blog']->addItem(__('Pings'),
 		$core->adminurl->get('admin.plugin.pings'),
 		$core->adminurl->decode('load.plugin.file',array('pf' => 'pings/icon.png')),

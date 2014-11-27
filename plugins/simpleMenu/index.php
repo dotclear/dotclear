@@ -16,7 +16,7 @@ dcPage::check('admin');
 $page_title = __('Simple menu');
 
 # Url de base
-$p_url = $core->adminurl->get('admin.plugin.simplemenu');
+$p_url = $core->adminurl->get('admin.plugin.simpleMenu');
 
 # Url du blog
 $blog_url = html::stripHostURL($core->blog->url);
