@@ -177,7 +177,7 @@ try {
 	echo
 		dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 		dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
-		dcPage::jsLoad('index.php?pf=blogroll/blogroll.js');
+		dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'blogroll/blogroll.js')));
 	}
   ?>
   <?php echo dcPage::jsPageTabs($default_tab); ?>
@@ -197,7 +197,7 @@ try {
 
 <?php if (!$rs->isEmpty()) { ?>
 
-<form action="plugin.php" method="post" id="links-form">
+<form action="<?php echo $core->adminurl->get('admin.plugin'); ?>" method="post" id="links-form">
 <div class="table-outer">
 <table class="dragable">
 <thead>
@@ -269,7 +269,7 @@ while ($rs->fetch())
 <?php
 echo
 '<div class="multi-part clear" id="add-link" title="'.__('Add a link').'">'.
-'<form action="plugin.php" method="post" id="add-link-form">'.
+'<form action="'.$core->adminurl->get('admin.plugin').'" method="post" id="add-link-form">'.
 '<h3>'.__('Add a new link').'</h3>'.
 '<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
 form::field('link_title',30,255,$link_title).
@@ -294,7 +294,7 @@ $core->formNonce().
 
 echo
 '<div class="multi-part" id="add-cat" title="'.__('Add a category').'">'.
-'<form action="plugin.php" method="post" id="add-category-form">'.
+'<form action="'.$core->adminurl->get('admin.plugin').'" method="post" id="add-category-form">'.
 '<h3>'.__('Add a new category').'</h3>'.
 '<p><label for="cat_title" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
 form::field('cat_title',30,255,$cat_title).' '.
@@ -308,7 +308,7 @@ echo
 '<div class="multi-part" id="import-links" title="'.__('Import links').'">';
 if (!isset($imported)) {
 	echo
-	'<form action="plugin.php" method="post" id="import-links-form" enctype="multipart/form-data">'.
+	'<form action="'.$core->adminurl->get('admin.plugin').'" method="post" id="import-links-form" enctype="multipart/form-data">'.
 	'<h3>'.__('Import links').'</h3>'.
 	'<p><label for="links_file" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('OPML or XBEL File:').'</label> '.
 	'<input type="file" id="links_file" name="links_file" /></p>'.
@@ -319,7 +319,7 @@ if (!isset($imported)) {
 }
 else {
 	echo
-	'<form action="plugin.php" method="post" id="import-links-form">'.
+	'<form action="'.$core->adminurl->get('admin.plugin').'" method="post" id="import-links-form">'.
 	'<h3>'.__('Import links').'</h3>';
 	if (empty($imported)) {
 		echo '<p>'.__('Nothing to import').'</p>';

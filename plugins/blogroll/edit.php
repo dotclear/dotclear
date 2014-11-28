@@ -127,7 +127,7 @@ if (isset($rs) && !$rs->is_cat)
 {
 
 	echo
-	'<form action="plugin.php" method="post" class="two-cols fieldset">'.
+	'<form action="'.$core->adminurl->get('admin.plugin').'" method="post" class="two-cols fieldset">'.
 
 	'<div class="col30 first-col">'.
 	'<h3>'.__('Edit link').'</h3>'.
