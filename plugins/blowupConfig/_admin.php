@@ -20,6 +20,6 @@ if (!isset($__resources['help']['blowupConfig'])) {
 function blowup_config_details($core,$id)
 {
 	if ($id == 'default' && $core->auth->check('admin',$core->blog->id)) {
-		return '<p><a href="plugin.php?p=blowupConfig" class="button submit">'.__('Configure theme').'</a></p>';
+		return '<p><a href="'.$core->adminurl->get('admin.plugin.blowupConfig').'" class="button submit">'.__('Configure theme').'</a></p>';
 	}
 }

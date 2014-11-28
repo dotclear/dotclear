@@ -153,7 +153,7 @@ if (count($prefs) > 0) {
 		$ws_combo[$ws] = '#l_'.$ws;
 	}
 	echo
-		'<form action="'.$p_url.'" method="post">'.
+		'<form action="'.$core->adminurl->get('admin.plugin').'" method="post">'.
 		'<p class="anchor-nav">'.
 		'<label for="lp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('lp_nav',$ws_combo,'','navigation').
 		' <input type="submit" value="'.__('Ok').'" id="lp_submit" />'.
@@ -162,7 +162,7 @@ if (count($prefs) > 0) {
 }
 ?>
 
-<form action="<?php echo $p_url; ?>" method="post">
+<form action="<?php echo $core->adminurl->get('admin.plugin'); ?>" method="post">
 
 <?php
 foreach ($prefs as $ws => $s)
@@ -203,7 +203,7 @@ if (count($prefs) > 0) {
 		$ws_combo[$ws] = '#g_'.$ws;
 	}
 	echo
-		'<form action="'.$p_url.'" method="post">'.
+		'<form action="'.$core->adminurl->get('admin.plugin').'" method="post">'.
 		'<p class="anchor-nav">'.
 		'<label for="gp_nav" class="classic">'.__('Goto:').'</label> '.form::combo('gp_nav',$ws_combo,'','navigation').
 		' <input type="submit" value="'.__('Ok').'" id="gp_submit" />'.
@@ -212,7 +212,7 @@ if (count($prefs) > 0) {
 }
 ?>
 
-<form action="<?php echo $p_url; ?>" method="post">
+<form action="<?php echo $core->adminurl->get('admin.plugin'); ?>" method="post">
 
 <?php
 foreach ($prefs as $ws => $s)
