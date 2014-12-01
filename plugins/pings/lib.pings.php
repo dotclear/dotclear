@@ -32,10 +32,12 @@ class pingsBehaviors
 {
 	public static function pingJS()
 	{
+		global $core;
+
 		$res =
 		"<script type=\"text/javascript\">\n//<![CDATA[\n".
 		dcPage::jsVar('dotclear.msg.check_all',__('Check all'))."\n".
-		"</script>\n".dcPage::jsLoad('index.php?pf=pings/post.js');
+		"</script>\n".dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'pings/post.js')));
 
 		return $res;
 	}
