@@ -11,9 +11,11 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$_menu['Blog']->addItem(__('Tags'),'plugin.php?p=tags&amp;m=tags','index.php?pf=tags/icon.png',
-		preg_match('/plugin.php\?p=tags&m=tag(s|_posts)?(&.*)?$/',$_SERVER['REQUEST_URI']),
-		$core->auth->check('usage,contentadmin',$core->blog->id));
+$_menu['Blog']->addItem(__('Tags'),
+	$core->adminurl->get('admin.plugin.tags',array('m' => 'tags')),
+	$core->adminurl->decode('load.plugin.file',array('pf' => 'tags/icon.png')),
+	preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.tags')).'&m=tag(s|_posts)?(&.*)?$/',$_SERVER['REQUEST_URI']),
+	$core->auth->check('usage,contentadmin',$core->blog->id));
 
 require dirname(__FILE__).'/_widgets.php';
 
@@ -77,9 +79,9 @@ class tagsBehaviors
 	{
 		$favs->register('tags', array(
 			'title' => __('Tags'),
-			'url' => 'plugin.php?p=tags&amp;m=tags',
-			'small-icon' => 'index.php?pf=tags/icon.png',
-			'large-icon' => 'index.php?pf=tags/icon-big.png',
+			'url' => $core->adminurl->get('admin.plugin.tags',array('m' => 'tags')),
+			'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'tags/icon.png')),
+			'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'tags/icon-big.png')),
 			'permissions' => 'usage,contentadmin'
 		));
 	}
