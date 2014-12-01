@@ -62,8 +62,8 @@ echo '
 <html>
 <head>
 	<title>'.$title.'</title>
-	<link rel="stylesheet" type="text/css" href="index.php?pf=importExport/style.css" />
-	'.dcPage::jsLoad('index.php?pf=importExport/js/script.js').'
+	<link rel="stylesheet" type="text/css" href="'.$core->adminurl->decode('load.plugin.file',array('pf' => 'mportExport/style.css')).'" />
+	'.dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'importExport/js/script.js'))).'
 	<script type="text/javascript">
 	//<![CDATA[
 	'.dcPage::jsVar('dotclear.msg.please_wait',__('Please wait...')).'
@@ -102,7 +102,7 @@ else {
 	'<h3>'.__('Export').'</h3>'.
 	'<p class="info">'.sprintf(
 		__('Export functions are in the page %s.'),
-		'<a href="plugin.php?p=maintenance&amp;tab=backup#backup">'.__('Maintenance').'</a>'
+		'<a href="'.$core->adminurl->decode('admin.plugin.maintenance',array('tab' => 'backup')).'#backup">'.__('Maintenance').'</a>'
 	).'</p>';
 }
 

@@ -529,7 +529,7 @@ if ($can_edit_page)
 		echo '<a id="post-preview" href="'.$preview_url.'" class="button" accesskey="p">'.__('Preview').' (p)'.'</a>';
 	} else {
 		echo
-		'<a id="post-cancel" href="index.php" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
+		'<a id="post-cancel" href="'.$core->adminurl->get('admin.home').'" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
 	}
 
 	echo
@@ -562,7 +562,7 @@ if ($can_edit_page)
 	if ($post_id && !empty($post_media))
 	{
 		echo
-		'<form action="post_media.php" id="attachment-remove-hide" method="post">'.
+		'<form action="'.$core->adminurl->get('admin.post.media').'" id="attachment-remove-hide" method="post">'.
 		'<div>'.form::hidden(array('post_id'),$post_id).
 		form::hidden(array('media_id'),'').
 		form::hidden(array('remove'),1).
@@ -642,7 +642,7 @@ if ($post_id)
 	'<div class="fieldset clear">'.
 	'<h3>'.__('Add a comment').'</h3>'.
 
-	'<form action="comment.php" method="post" id="comment-form">'.
+	'<form action="'.$core->adminurl->get('admin.comment').'" method="post" id="comment-form">'.
 	'<div class="constrained">'.
 	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label>'.
 	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn'))).
@@ -696,6 +696,8 @@ function isContributionAllowed($id,$dt,$com=true)
 # Show comments or trackbacks
 function showComments($rs,$has_action)
 {
+	global $core;
+
 	echo
 	'<table class="comments-list"><tr>'.
 	'<th colspan="2" class="nowrap first">'.__('Author').'</th>'.
@@ -707,7 +709,7 @@ function showComments($rs,$has_action)
 
 	while($rs->fetch())
 	{
-		$comment_url = 'comment.php?id='.$rs->comment_id;
+		$comment_url = $core->adminurl->decode('admin.comment',array('id' => $rs->comment_id));
 
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($rs->comment_status) {
@@ -733,7 +735,7 @@ function showComments($rs,$has_action)
 		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0,'title="'.__('Select this comment').'"') : '').'</td>'.
 		'<td class="maximal">'.$rs->comment_author.'</td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
-		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.
+		'<td class="nowrap"><a href="'.$core->adminurl->decode('admin.comment',array('ip' => $rs->comment_ip)).'">'.$rs->comment_ip.'</a></td>'.
 		'<td class="nowrap status">'.$img_status.'</td>'.
 		'<td class="nowrap status"><a href="'.$comment_url.'">'.
 		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>'.

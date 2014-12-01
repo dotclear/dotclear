@@ -19,7 +19,7 @@ $maintenance = new dcMaintenance($core);
 $tasks = $maintenance->getTasks();
 
 $headers = '';
-$p_url = 'plugin.php?p=maintenance';
+$p_url = $core->adminurl->get('admin.plugin.maintenance');
 $task = null;
 $expired = array();
 
@@ -116,7 +116,7 @@ $combo_ts = array(
 echo '<html><head>
 <title>'.__('Maintenance').'</title>'.
 dcPage::jsPageTabs($tab).
-dcPage::jsLoad('index.php?pf=maintenance/js/settings.js');
+dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/js/settings.js')));
 
 if ($task && $task->ajax()) {
 	echo
@@ -125,7 +125,7 @@ if ($task && $task->ajax()) {
 	dcPage::jsVar('dotclear.msg.wait', __('Please wait...')).
 	"//]]>\n".
 	'</script>'.
-	dcPage::jsLoad('index.php?pf=maintenance/js/dc.maintenance.js');
+	dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/js/dc.maintenance.js')));
 }
 
 echo
@@ -298,7 +298,7 @@ else {
 
 	'<p class="info">'.sprintf(
 		__('You can place list of late tasks on your %s.'),
-		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
+		'<a href="'.$core->adminurl->get('admin.user.preferences').'#user-favorites">'.__('Dashboard').'</a>'
 	).'</p>'.
 
 	'<h4 class="pretty-title vertical-separator">'.__('Frequency').'</h4>'.

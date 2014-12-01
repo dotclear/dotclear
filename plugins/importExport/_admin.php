@@ -13,9 +13,9 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $_menu['Plugins']->addItem(
 	__('Import/Export'),
-	'plugin.php?p=importExport',
-	'index.php?pf=importExport/icon.png',
-	preg_match('/plugin.php\?p=importExport(&.*)?$/',$_SERVER['REQUEST_URI']),
+	$core->adminurl->get('admin.plugin.importExport'),
+	$core->adminurl->decode('load.plugin.file',array('pf' => 'importExport/icon.png')),
+	preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.importExport')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
 	$core->auth->check('admin',$core->blog->id)
 );
 
@@ -25,9 +25,9 @@ function importExportDashboardFavorites($core,$favs)
 {
 	$favs->register('importExport', array(
 		'title' => __('Import/Export'),
-		'url' => 'plugin.php?p=importExport',
-		'small-icon' => 'index.php?pf=importExport/icon.png',
-		'large-icon' => 'index.php?pf=importExport/icon-big.png',
+		'url' => $core->adminurl->get('admin.plugin.importExport'),
+		'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'importExport/icon.png')),
+		'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'importExport/icon-big.png')),
 		'permissions' => 'admin'
 	));
 }

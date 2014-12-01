@@ -25,7 +25,7 @@ Main class to call everything related to maintenance.
 class dcMaintenance
 {
 	public $core;
-	public $p_url = 'plugin.php?p=maintenance';
+	public $p_url;
 
 	private $tasks = array();
 	private $tabs = array();
@@ -40,6 +40,7 @@ class dcMaintenance
 	public function __construct($core)
 	{
 		$this->core = $core;
+		$this->p_url = $core->adminurl->get('admin.plugin.maintenance');
 		$logs = $this->getLogs();
 		$this->init();
 	}
