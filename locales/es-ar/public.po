@@ -42,7 +42,7 @@ msgid "Continue reading"
 msgstr "Continuar leyendo"
 
 #, fuzzy
-msgid "no comment"
+msgid "no comments"
 msgstr "sin comentarios"
 
 msgid "one comment"
@@ -51,7 +51,7 @@ msgstr "un comentario"
 msgid "%d comments"
 msgstr "%d comentarios"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "sin enlaces inversos"
 
 msgid "one trackback"
@@ -60,7 +60,7 @@ msgstr "un enlace inverso"
 msgid "%d trackbacks"
 msgstr "%d enlaces inversos"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "sin archivos adjuntos"
 
 msgid "one attachment"

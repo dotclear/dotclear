@@ -42,7 +42,7 @@ msgid "Continue reading"
 msgstr "বিস্তারিত"
 
 #, fuzzy
-msgid "no comment"
+msgid "no comments"
 msgstr "শূণ্য মন্তব্য"
 
 msgid "one comment"
@@ -51,7 +51,7 @@ msgstr "একটি মন্তব্য"
 msgid "%d comments"
 msgstr "%dটি মন্তব্য"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "শূণ্য ট্র্যাকব্যাক"
 
 msgid "one trackback"
@@ -60,7 +60,7 @@ msgstr "একটি ট্র্যাকব্যাক"
 msgid "%d trackbacks"
 msgstr "%dটি ট্র্যাকব্যাক"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "শূণ্য এটাচমেন্ট"
 
 msgid "one attachment"

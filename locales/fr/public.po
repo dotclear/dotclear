@@ -40,7 +40,7 @@ msgstr "Le"
 msgid "Continue reading"
 msgstr "Lire la suite"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "aucun commentaire"
 
 msgid "one comment"
@@ -49,7 +49,7 @@ msgstr "un commentaire"
 msgid "%d comments"
 msgstr "%d commentaires"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "aucun rétrolien"
 
 msgid "one trackback"
@@ -58,7 +58,7 @@ msgstr "un rétrolien"
 msgid "%d trackbacks"
 msgstr "%d rétroliens"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "aucune annexe"
 
 msgid "one attachment"

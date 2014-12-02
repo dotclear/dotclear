@@ -40,7 +40,7 @@ msgid "Continue reading"
 msgstr "Читать дальше"
 
 #, fuzzy
-msgid "no comment"
+msgid "no comments"
 msgstr "нет комментариев"
 
 msgid "one comment"
@@ -49,7 +49,7 @@ msgstr "Один комментарий"
 msgid "%d comments"
 msgstr "Комментариев: %d"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "нет трекбеков"
 
 msgid "one trackback"
@@ -58,7 +58,7 @@ msgstr "Один трекбек"
 msgid "%d trackbacks"
 msgstr "Трекбеков: %d"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "нет вложений"
 
 msgid "one attachment"
