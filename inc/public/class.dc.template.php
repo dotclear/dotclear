@@ -1786,7 +1786,7 @@ class dcTemplate extends template
 	/*dtd
 	<!ELEMENT tpl:EntryCommentCount - O -- Number of comments for entry -->
 	<!ATTLIST tpl:EntryCommentCount
-	none		CDATA	#IMPLIED	-- text to display for "no comment" (default: no comment)
+	none		CDATA	#IMPLIED	-- text to display for "no comments" (default: no comments)
 	one		CDATA	#IMPLIED	-- text to display for "one comment" (default: one comment)
 	more		CDATA	#IMPLIED	-- text to display for "more comments" (default: %s comments, %s is replaced by the number of comment)
 	count_all	CDATA	#IMPLIED	-- count comments and trackbacks
@@ -1815,7 +1815,7 @@ class dcTemplate extends template
 	/*dtd
 	<!ELEMENT tpl:EntryPingCount - O -- Number of trackbacks for entry -->
 	<!ATTLIST tpl:EntryPingCount
-	none	CDATA	#IMPLIED	-- text to display for "no ping" (default: no ping)
+	none	CDATA	#IMPLIED	-- text to display for "no pings" (default: no pings)
 	one	CDATA	#IMPLIED	-- text to display for "one ping" (default: one ping)
 	more	CDATA	#IMPLIED	-- text to display for "more pings" (default: %s trackbacks, %s is replaced by the number of pings)
 	>
@@ -1825,7 +1825,7 @@ class dcTemplate extends template
 		return $this->displayCounter(
 			'$_ctx->posts->nb_trackback',
 			array(
-				'none' => 'no trackback',
+				'none' => 'no trackbacks',
 				'one'  => 'one trackback',
 				'more' => '%d trackbacks'
 				),

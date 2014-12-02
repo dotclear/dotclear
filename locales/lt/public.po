@@ -43,7 +43,7 @@ msgid "Continue reading"
 msgstr "Skaityti toliau"
 
 #, fuzzy
-msgid "no comment"
+msgid "no comments"
 msgstr "komentarų nėra"
 
 msgid "one comment"
@@ -52,7 +52,7 @@ msgstr "vienas komentaras"
 msgid "%d comments"
 msgstr "%d komentarai"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "trackback nėra"
 
 msgid "one trackback"
@@ -61,7 +61,7 @@ msgstr "vienas trackback"
 msgid "%d trackbacks"
 msgstr "%d trackback"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "prisegimų nėra"
 
 msgid "one attachment"
