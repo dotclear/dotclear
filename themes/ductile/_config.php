@@ -335,7 +335,7 @@ echo '<p class="field"><label for="logo_src">'.__('Logo URL:').'</label> '.
 if ($core->plugins->moduleExists('simpleMenu'))
 {
 	echo '<p>'.sprintf(__('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),
-		$core->adminurl->get('admin.plugin.simplemenu')).'</p>';
+		$core->adminurl->get('admin.plugin.simpleMenu')).'</p>';
 }
 
 echo '<h4 class="border-top pretty-title">'.__('Stickers').'</h4>';
