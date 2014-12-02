@@ -50,7 +50,7 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
 		}
 
 		var editor = CKEDITOR.instances[$.getEditorName()];
-		if (editor.checkDirty()) {
+		if (!confirmClosePage.formSubmit && editor.checkDirty()) {
 			e.returnValue = confirmClosePage.prompt;
 			return confirmClosePage.prompt;
 		}
