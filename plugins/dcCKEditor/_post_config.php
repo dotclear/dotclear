@@ -23,8 +23,15 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
 ?>
 (function($) {
 	$.toolbarPopup = function toolbarPopup(url) {
+		var args = Array.prototype.slice.call(arguments);
+		var width = 520, height = 420;
+		if (args[1]!==undefined) {
+			width = args[1].width || width;
+			height = args[1].height || height;
+		}
+
 		var popup_params = 'alwaysRaised=yes,dependent=yes,toolbar=yes,';
-		popup_params += 'height=420,width=520,menubar=no,resizable=yes,scrollbars=yes,status=no';
+		popup_params += 'height='+height+',width='+width+',menubar=no,resizable=yes,scrollbars=yes,status=no';
 		var popup_link = window.open(url,'dc_popup', popup_params);
 	};
 
