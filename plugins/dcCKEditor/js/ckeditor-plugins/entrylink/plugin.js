@@ -2,10 +2,12 @@
 	CKEDITOR.plugins.add('entrylink', {
 		icons: 'entrylink',
 		init: function(editor) {
+			popup_params = { 'width': 760, 'height': 500};
+
 			editor.addCommand('entryLinkCommand', {
 				exec: function(editor) {
 					if (editor.getSelection().getNative().toString().replace(/\s*/,'')!='') {
-						$.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor');
+						$.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor', popup_params);
 					}
 				}
 			});
@@ -24,7 +26,7 @@
 					    && element.hasClass('post')) { // link to original media @see js/popup_media.js
 						editor.getSelection().selectElement(element);
 
-						$.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor');
+						$.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor', popup_params);
 						return false;
 					}
 				}
