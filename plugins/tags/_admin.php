@@ -56,7 +56,7 @@ class tagsBehaviors
         $extraPlugins[] = array(
             'name' => 'dctags',
             'button' => 'dcTags',
-            'url' => html::stripHostURL($core->blog->getQmarkURL().'pf=tags/js/ckeditor-tags-plugin.js')
+            'url' => DC_ADMIN_URL.'index.php?pf=tags/js/ckeditor-tags-plugin.js'
         );
     }
 
