@@ -62,7 +62,7 @@ echo '
 <html>
 <head>
 	<title>'.$title.'</title>
-	<link rel="stylesheet" type="text/css" href="'.$core->adminurl->decode('load.plugin.file',array('pf' => 'mportExport/style.css')).'" />
+	<link rel="stylesheet" type="text/css" href="'.$core->adminurl->decode('load.plugin.file',array('pf' => 'importExport/style.css')).'" />
 	'.dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'importExport/js/script.js'))).'
 	<script type="text/javascript">
 	//<![CDATA[
