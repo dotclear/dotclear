@@ -57,6 +57,7 @@ echo '<form action="popup_posts.php" method="get">'.
 echo '<form action="popup_posts.php" method="get">'.
 	'<p><label for="q" class="classic">'.__('Search entry:').'</label> '.form::field('q',30,255,html::escapeHTML($q)).
 	' <input type="submit" value="'.__('Search').'" />'.
+	form::hidden('plugin_id',html::escapeHTML($plugin_id)).
 	form::hidden('type',html::escapeHTML($type)).
 	'</p></form>';
 
