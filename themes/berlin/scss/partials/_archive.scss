@@ -12,6 +12,9 @@
     vertical-align: top;
     a {
         color: $gray-very-dark;
+            &:focus {
+                color: $gray-very-light;
+            }
         }
     @media all and(min-width: $small-screen) {
         margin-left: 4em;
