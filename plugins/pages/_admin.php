@@ -21,8 +21,8 @@ class pagesDashboard
 		$favs->register('pages', array(
 			'title' => __('Pages'),
 			'url' => $core->adminurl->get('admin.plugin.pages'),
-			'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'pages/icon.png')),
-			'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'pages/icon-big.png')),
+			'small-icon' => dcPage::getPF('pages/icon.png'),
+			'large-icon' => dcPage::getPF('pages/icon-big.png'),
 			'permissions' => 'contentadmin,pages',
 			'dashboard_cb' => array('pagesDashboard','pagesDashboardCB'),
 			'active_cb' => array('pagesDashboard','pagesActiveCB')
@@ -30,8 +30,8 @@ class pagesDashboard
 		$favs->register('newpage', array(
 			'title' => __('New page'),
 			'url' => $core->adminurl->get('admin.plugin.pages',array('act' => 'page')),
-			'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'pages/icon-np.png')),
-			'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'pages/icon-np-big.png')),
+			'small-icon' => dcPage::getPF('pages/icon-np.png'),
+			'large-icon' => dcPage::getPF( 'pages/icon-np-big.png'),
 			'permissions' => 'contentadmin,pages',
 			'active_cb' => array('pagesDashboard','newPageActiveCB')
 		));
@@ -71,7 +71,7 @@ function pages_users_actions_headers()
 
 $_menu['Blog']->addItem(__('Pages'),
 	$core->adminurl->get('admin.plugin.pages'),
-	$core->adminurl->decode('load.plugin.file',array('pf' => 'pages/icon.png')),
+	dcPage::getPF('pages/icon.png'),
 	preg_match('/plugin.php(.*)$/',$_SERVER['REQUEST_URI']) && !empty($_REQUEST['p']) && $_REQUEST['p']=='pages',
 	$core->auth->check('contentadmin,pages',$core->blog->id));
 

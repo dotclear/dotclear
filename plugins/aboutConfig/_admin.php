@@ -13,6 +13,6 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $_menu['System']->addItem('about:config',
 	$core->adminurl->get('admin.plugin.aboutConfig'),
-	$core->adminurl->decode('load.plugin.file',array('pf' => 'aboutConfig/icon.png')),
+	dcPage::getPF('aboutConfig/icon.png'),
 	preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.aboutConfig')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
 	$core->auth->isSuperAdmin());

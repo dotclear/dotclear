@@ -924,4 +924,8 @@ class dcPage
 		return
 		'<script type="text/javascript" src="js/meta-editor.js"></script>';
 	}
+
+	public static function getPF($file) {
+		return $GLOBALS['core']->adminurl->get('load.plugin.file',array('pf' => $file),false);
+	}
 }

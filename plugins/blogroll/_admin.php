@@ -20,7 +20,7 @@ function blogroll_dashboard($core,$icons)
 	$icons['blogroll'] = new ArrayObject(array(
 		__('Blogroll'),
 		$core->adminurl->get('admin.plugin.blogroll'),
-		$core->adminurl->decode('load.plugin.file',array('pf' => 'blogroll/icon.png'))
+		dcPage::getPF('blogroll/icon.png')
 		));
 }
 function blogroll_dashboard_favorites($core,$favs)
@@ -28,8 +28,8 @@ function blogroll_dashboard_favorites($core,$favs)
 	$favs->register('blogroll', array(
 		'title' => __('Blogroll'),
 		'url' => $core->adminurl->get('admin.plugin.blogroll'),
-		'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'blogroll/icon-small.png')),
-		'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'blogroll/icon.png')),
+		'small-icon' => dcPage::getPF('blogroll/icon-small.png'),
+		'large-icon' => dcPage::getPF('blogroll/icon.png'),
 		'permissions' => 'usage,contentadmin'
 	));
 }
@@ -37,12 +37,12 @@ function blogroll_users_actions_headers()
 {
 	global $core;
 
-	return dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'blogroll/_users_actions.js')));
+	return dcPage::jsLoad(dcPage::getPF('blogroll/_users_actions.js'));
 }
 
 $_menu['Blog']->addItem(__('Blogroll'),
 	$core->adminurl->get('admin.plugin.blogroll'),
-	$core->adminurl->decode('load.plugin.file',array('pf' => 'blogroll/icon-small.png')),
+	dcPage::getPF('blogroll/icon-small.png'),
     preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.blogroll')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
     $core->auth->check('usage,contentadmin',$core->blog->id));
 
