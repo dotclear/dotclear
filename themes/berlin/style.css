@@ -787,7 +787,7 @@ a.site-title__link:visited {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('img/icon_prev.png?1390649129');
+  background-image: url('img/icon_prev.png?1418493572');
   background-repeat: no-repeat;
   background-position: 50% 50%; }
 
@@ -795,7 +795,7 @@ a.site-title__link:visited {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('img/icon_next.png?1390649129');
+  background-image: url('img/icon_next.png?1418493572');
   background-repeat: no-repeat;
   background-position: 50% 50%; }
 
@@ -1154,6 +1154,8 @@ button.submit:active, button.preview:active {
   vertical-align: top; }
   .arch-block a {
     color: #373737; }
+    .arch-block a:focus {
+      color: #f9f9f9; }
   @media all and (min-width: 30em) {
     .arch-block {
       margin-left: 4em; } }

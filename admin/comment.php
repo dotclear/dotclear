@@ -25,6 +25,7 @@ $comment_status = '';
 $comment_trackback = 0;
 $comment_spam_status = '';
 
+$comment_editor = $core->auth->getOption('editor');
 
 # Status combo
 $status_combo = dcAdminCombos::getCommentStatusescombo();
@@ -181,7 +182,7 @@ if ($comment_id) {
 dcPage::open(__('Edit comment'),
 	dcPage::jsConfirmClose('comment-form').
 	dcPage::jsLoad('js/_comment.js').
-	$core->callBehavior('adminPostEditor').
+	$core->callBehavior('adminPostEditor',$comment_editor['xhtml'],'comment').
 	# --BEHAVIOR-- adminCommentHeaders
 	$core->callBehavior('adminCommentHeaders'),
 	$breadcrumb

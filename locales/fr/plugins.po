@@ -1860,7 +1860,7 @@ msgid "Add this item"
 msgstr "Ajouter cet item"
 
 msgid "Enable simple menu for this blog"
-msgstr "Acttiver le menu simple pour ce blog"
+msgstr "Activer le menu simple pour ce blog"
 
 msgid "Save configuration"
 msgstr "Enregistrer la configuration"

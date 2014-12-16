@@ -405,6 +405,32 @@ function dotclearUpgrade($core)
 				}
 			}
 
+			if (version_compare($version,'2.7','<='))
+			{
+				# Some new settings should be initialized, prepare db queries
+				$strReqFormat = 'INSERT INTO '.$core->prefix.'setting';
+				$strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
+				$strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
+
+				$strReqCount = 'SELECT count(1) FROM '.$core->prefix.'setting';
+				$strReqCount .= ' WHERE setting_id = \'%s\'';
+				$strReqCount .= ' AND setting_ns = \'system\'';
+				$strReqCount .= ' AND blog_id IS NULL';
+
+				$strReqSelect = 'SELECT setting_value FROM '.$core->prefix.'setting';
+				$strReqSelect .= ' WHERE setting_id = \'%s\'';
+				$strReqSelect .= ' AND setting_ns = \'system\'';
+				$strReqSelect .= ' AND blog_id IS NULL';
+
+				# Add nb of posts for home (first page), copying nb of posts on every page
+				$rs = $core->con->select(sprintf($strReqCount,'nb_post_for_home'));
+				if ($rs->f(0)==0) {
+					$rs = $core->con->select(sprintf($strReqSelect,'nb_post_per_page'));
+					$strReq = sprintf($strReqFormat,'nb_post_for_home',$rs->f(0),'Nb of posts on home (first page only)');
+					$core->con->execute($strReq);
+				}
+			}
+
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
 

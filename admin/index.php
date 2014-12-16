@@ -167,11 +167,24 @@ $dashboardContents = '';
 $__dashboard_contents = new ArrayObject(array(new ArrayObject,new ArrayObject));
 $core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
 
+# Editor stuff
+$admin_post_behavior = '';
+if ($core->auth->user_prefs->dashboard->quickentry) {
+	if ($core->auth->check('usage,contentadmin',$core->blog->id))
+	{
+		$post_format = $core->auth->getOption('post_format');
+		$post_editor = $core->auth->getOption('editor');
+		if ($post_editor && !empty($post_editor[$post_format])) {
+			$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'post');
+		}
+	}
+}
+
 /* DISPLAY
 -------------------------------------------------------- */
 dcPage::open(__('Dashboard'),
 	dcPage::jsLoad('js/_index.js').
-	$core->callBehavior('adminPostEditor').
+	$admin_post_behavior.
 	# --BEHAVIOR-- adminDashboardHeaders
 	$core->callBehavior('adminDashboardHeaders'),
 	dcPage::breadcrumb(
