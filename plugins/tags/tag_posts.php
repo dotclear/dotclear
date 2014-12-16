@@ -72,7 +72,7 @@ if ($posts_actions_page->process()) {
 <html>
 <head>
   <title><?php echo __('Tags'); ?></title>
-  <link rel="stylesheet" type="text/css" href="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'tags/style.css')); ?>" />
+  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF('tags/style.css'); ?>" />
   <script type="text/javascript" src="js/_posts_list.js"></script>
   <script type="text/javascript">
   //<![CDATA[

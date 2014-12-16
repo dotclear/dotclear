@@ -211,7 +211,7 @@ if (!empty($_POST))
 <html>
 <head>
   <title><?php echo __('Blowup configuration'); ?></title>
-  <?php echo dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'blowupConfig/config.js'))); ?>
+  <?php echo dcPage::jsLoad(dcPage::getPF('blowupConfig/config.js')); ?>
   <?php echo dcPage::jsColorPicker(); ?>
   <script type="text/javascript">
   //<![CDATA[
@@ -311,8 +311,7 @@ if ($can_write_images) {
 	if ($blowup_user['top_image'] == 'custom' && $blowup_user['uploaded']) {
 		$preview_image = http::concatURL($core->blog->url,blowupConfig::imagesURL().'/page-t.png');
 	} else {
-		$preview_image = $core->adminurl->decode('load.plugin.file',
-			array('pf' => 'blowupConfig/alpha-img/page-t/'.$blowup_user['top_image'].'.png'));
+		$preview_image = dcPage::getPF('blowupConfig/alpha-img/page-t/'.$blowup_user['top_image'].'.png');
 	}
 
 	echo

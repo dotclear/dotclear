@@ -17,7 +17,7 @@ if (!defined('DC_ANTISPAM_CONF_SUPER')) {
 
 $_menu['Plugins']->addItem(__('Antispam'),
 	$core->adminurl->get('admin.plugin.antispam'),
-	$core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/icon.png')),
+	dcPage::getPF('antispam/icon.png'),
 	preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.antispam')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
 	$core->auth->check('admin',$core->blog->id));
 
@@ -33,8 +33,8 @@ function antispamDashboardFavorites($core,$favs)
 	$favs->register('antispam', array(
 		'title' => __('Antispam'),
 		'url' => $core->adminurl->get('admin.plugin.antispam'),
-		'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/icon.png')),
-		'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/icon-big.png')),
+		'small-icon' => dcPage::getPF('antispam/icon.png'),
+		'large-icon' => dcPage::getPF('antispam/icon-big.png'),
 		'permissions' => 'admin')
 	);
 }

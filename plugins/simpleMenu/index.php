@@ -370,7 +370,7 @@ if (!empty($_POST['saveconfig'])) {
 			echo
 				dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 				dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
-				dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'simpleMenu/simplemenu.js')));
+				dcPage::jsLoad(dcPage::getPF('simpleMenu/simplemenu.js'));
 		}
 		echo dcPage::jsConfirmClose('settings','menuitemsappend','additem','menuitems');
 	?>

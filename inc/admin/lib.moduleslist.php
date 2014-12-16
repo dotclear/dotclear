@@ -620,7 +620,7 @@ class adminModulesList
 				'<td class="module-icon nowrap">'.sprintf(
 					'<img alt="%1$s" title="%1$s" src="%2$s" />',
 					html::escapeHTML($id), file_exists($module['root'].'/icon.png') ?
-					$this->core->adminurl->decode('load.plugin.file',array('pf' => $id.'/icon.png')) : 'images/module.png'
+					dcPage::getPF($id.'/icon.png') : 'images/module.png'
 				).'</td>';
 			}
 

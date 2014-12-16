@@ -709,7 +709,7 @@ function showComments($rs,$has_action)
 
 	while($rs->fetch())
 	{
-		$comment_url = $core->adminurl->decode('admin.comment',array('id' => $rs->comment_id));
+		$comment_url = $core->adminurl->get('admin.comment',array('id' => $rs->comment_id),false);
 
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($rs->comment_status) {
@@ -735,7 +735,7 @@ function showComments($rs,$has_action)
 		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0,'title="'.__('Select this comment').'"') : '').'</td>'.
 		'<td class="maximal">'.$rs->comment_author.'</td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
-		'<td class="nowrap"><a href="'.$core->adminurl->decode('admin.comment',array('ip' => $rs->comment_ip)).'">'.$rs->comment_ip.'</a></td>'.
+		'<td class="nowrap"><a href="'.$core->adminurl->get('admin.comment',array('ip' => $rs->comment_ip),false).'">'.$rs->comment_ip.'</a></td>'.
 		'<td class="nowrap status">'.$img_status.'</td>'.
 		'<td class="nowrap status"><a href="'.$comment_url.'">'.
 		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>'.
