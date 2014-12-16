@@ -74,15 +74,10 @@ class dcAdminURL
 	 * @param  string $separator separator to use between QS parameters
 	 * @return string            the forged url
 	 */
-	public function get($name,$params=array(),$urlencode=true,$separator='&amp;')
+	public function get($name,$params=array(),$separator='&amp;')
 	{
 		if (!isset($this->urls[$name])) {
 			throw new exception ('Unknown URL handler for '.$name);
-		}
-		// compatibility check for old behavior
-		if (!is_bool($urlencode)) {
-			$separator=$urlencode;
-			$urlencode = true;
 		}
 		$url = $this->urls[$name];
 		$p = array_merge($url['qs'],$params);
@@ -90,13 +85,71 @@ class dcAdminURL
 		if (!empty($p)) {
 			$u .= '?'.http_build_query($p,'',$separator);
 		}
-		return $urlencode?$u:urldecode($u);
+		return $u;
 	}
+
+
+	/**
+	 * retrieves a URL given its name, and optional parameters
+	 *
+	 * @param  string $name      URL Name
+	 * @param  array  $params    query string parameters, given as an associative array
+	 * @param  boolean $urlencode set to true if url may not be encoded
+	 * @param  string $separator separator to use between QS parameters
+	 * @return string            the forged url
+	 */
+	public function redirect($name,$params=array(),$suffix="")
+	{
+		if (!isset($this->urls[$name])) {
+			throw new exception ('Unknown URL handler for '.$name);
+		}
+		http::redirect($this->get($name,$params,'&').$suffix);
+	}
+
+
+	/**
+	 * retrieves a php page given its name, and optional parameters
+	 * acts like get, but without the query string, should be used within forms actions
+	 *
+	 * @param  string $name      URL Name
+	 * @return string            the forged url
+	 */
+	public function getBase($name)
+	{
+		if (!isset($this->urls[$name])) {
+			throw new exception ('Unknown URL handler for '.$name);
+		}
+		return $this->urls[$name]['url'];
+	}
+
+	/**
+	 * forges form hidden fields to pass to a generated <form>. Should be used in combination with
+	 * form action retrieved from getBase()
+	 *
+	 * @param  string $name      URL Name
+	 * @param  array  $params    query string parameters, given as an associative array
+	 * @return string            the forged form data
+	 */
+	public function getHiddenFormFields($name,$params=array())
+	{
+		if (!isset($this->urls[$name])) {
+			throw new exception ('Unknown URL handler for '.$name);
+		}
+		$url = $this->urls[$name];
+		$p = array_merge($url['qs'],$params);
+		$str = '';
+		foreach ((array)$p as $k => $v) {
+			$str .= form::hidden(array($k),$v);
+		}
+		return $str;
+	}
+
+
 
 	/**
 	 * retrieves a URL (decoded — useful for echoing) given its name, and optional parameters
 	 *
-	 * @deprecated should use get(...,true,...) instead
+	 * should be used carefully, parameters are no more escaped
 	 *
 	 * @param  string $name      URL Name
 	 * @param  array  $params    query string parameters, given as an associative array

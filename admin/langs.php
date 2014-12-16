@@ -49,7 +49,7 @@ if ($is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id']))
 		}
 
 		dcPage::addSuccessNotice(__('Language has been successfully deleted.'));
-		http::redirect($core->adminurl->get("admin.langs"));
+		$core->adminurl->redirect("admin.langs");
 	}
 	catch (Exception $e)
 	{
@@ -92,7 +92,7 @@ if ($is_writable && !empty($_POST['pkg_url']))
 		} else {
 			dcPage::addSuccessNotice(__('Language has been successfully installed.'));
 		}
-		http::redirect($core->adminurl->get("admin.langs"));
+		$core->adminurl->redirect("admin.langs");
 	}
 	catch (Exception $e)
 	{
@@ -128,7 +128,7 @@ if ($is_writable && !empty($_POST['upload_pkg']))
 		} else {
 			dcPage::addSuccessNotice(__('Language has been successfully installed.'));
 		}
-		http::redirect($core->adminurl->get("admin.langs"));
+		$core->adminurl->redirect("admin.langs");
 	}
 	catch (Exception $e)
 	{

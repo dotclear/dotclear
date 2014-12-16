@@ -133,7 +133,7 @@ if (!$core->error->flag() && isset($rs))
 			$core->callBehavior('adminAfterCommentUpdate',$cur,$comment_id);
 
 			dcPage::addSuccessNotice(__('Comment has been successfully updated.'));
-			http::redirect($core->adminurl->get("admin.comment",array('id' => $comment_id)));
+			$core->adminurl->redirect("admin.comment",array('id' => $comment_id));
 		}
 		catch (Exception $e)
 		{
