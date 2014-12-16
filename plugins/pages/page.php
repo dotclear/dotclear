@@ -557,6 +557,10 @@ if ($can_edit_page)
 	echo '</div>';		// End #entry-sidebar
 
 	echo '</form>';
+
+	# --BEHAVIOR-- adminPostForm
+	$core->callBehavior('adminPageAfterForm',isset($post) ? $post : null);
+
 	echo '</div>';		// End
 
 	if ($post_id && !empty($post_media))
