@@ -13,7 +13,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $_menu['Blog']->addItem(__('Tags'),
 	$core->adminurl->get('admin.plugin.tags',array('m' => 'tags')),
-	$core->adminurl->decode('load.plugin.file',array('pf' => 'tags/icon.png')),
+	dcPage::getPF('tags/icon.png'),
 	preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.tags')).'&m=tag(s|_posts)?(&.*)?$/',$_SERVER['REQUEST_URI']),
 	$core->auth->check('usage,contentadmin',$core->blog->id));
 
@@ -80,8 +80,8 @@ class tagsBehaviors
 		$favs->register('tags', array(
 			'title' => __('Tags'),
 			'url' => $core->adminurl->get('admin.plugin.tags',array('m' => 'tags')),
-			'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'tags/icon.png')),
-			'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'tags/icon-big.png')),
+			'small-icon' => dcPage::getPF('tags/icon.png'),
+			'large-icon' => dcPage::getPF('tags/icon-big.png'),
 			'permissions' => 'usage,contentadmin'
 		));
 	}

@@ -70,13 +70,19 @@ class dcAdminURL
 	 *
 	 * @param  string $name      URL Name
 	 * @param  array  $params    query string parameters, given as an associative array
+	 * @param  boolean $urlencode set to true if url may not be encoded
 	 * @param  string $separator separator to use between QS parameters
 	 * @return string            the forged url
 	 */
-	public function get($name,$params=array(),$separator='&amp;')
+	public function get($name,$params=array(),$urlencode=true,$separator='&amp;')
 	{
 		if (!isset($this->urls[$name])) {
 			throw new exception ('Unknown URL handler for '.$name);
+		}
+		// compatibility check for old behavior
+		if (!is_bool($urlencode)) {
+			$separator=$urlencode;
+			$urlencode = true;
 		}
 		$url = $this->urls[$name];
 		$p = array_merge($url['qs'],$params);
@@ -84,11 +90,13 @@ class dcAdminURL
 		if (!empty($p)) {
 			$u .= '?'.http_build_query($p,'',$separator);
 		}
-		return $u;
+		return $urlencode?$u:urldecode($u);
 	}
 
 	/**
 	 * retrieves a URL (decoded — useful for echoing) given its name, and optional parameters
+	 *
+	 * @deprecated should use get(...,true,...) instead
 	 *
 	 * @param  string $name      URL Name
 	 * @param  array  $params    query string parameters, given as an associative array
@@ -97,7 +105,7 @@ class dcAdminURL
 	 */
 	public function decode($name,$params=array(),$separator='&')
 	{
-		return urldecode($this->get($name,$params,$separator));
+		return urldecode($this->get($name,$params,false,$separator));
 	}
 
 	/**

@@ -39,7 +39,7 @@ class attachmentAdmin
 	{
 		$core =& $GLOBALS['core'];
 		return
-		'<script type="text/javascript" src="'.$core->adminurl->decode('load.plugin.file',array('pf' => 'attachments/js/post.js')).'"></script>';
+		'<script type="text/javascript" src="'.dcPage::getPF('attachments/js/post.js').'"></script>';
 	}
 	public static function adminPostFormItems($main,$sidebar,$post)
 	{

@@ -117,10 +117,10 @@ catch (Exception $e)
 	echo
 		dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 		dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
-		dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/antispam.js')));
+		dcPage::jsLoad(dcPage::getPF('antispam/antispam.js'));
   }
   ?>
-  <link rel="stylesheet" type="text/css" href="<?php echo $core->adminurl->decode('load.plugin.file',array('pf' => 'antispam/style.css')); ?>" />
+  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF('antispam/style.css'); ?>" />
 </head>
 <body>
 <?php
