@@ -64,11 +64,9 @@ class dcCKEditorBehaviors
     	return dcPage::jsLoad(self::$p_url.'/js/popup_posts.js');
     }
 
-    public static function adminMediaURL($url) {
+    public static function adminMediaURLParams($p) {
         if (!empty($_GET['editor'])) {
-            $url .= '&editor='.$_GET['editor'];
+            $p['editor']=html::sanitiseURL($_GET['editor']);
         }
-
-        return $url;
     }
 }

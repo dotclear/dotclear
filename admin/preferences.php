@@ -143,7 +143,7 @@ if (isset($_POST['user_name']))
 
 		dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
 
-		http::redirect($core->adminurl->get("admin.user.preferences"));
+		$core->adminurl->redirect("admin.user.preferences");
 	}
 	catch (Exception $e)
 	{
@@ -197,7 +197,7 @@ if (isset($_POST['user_editor']))
 		$core->callBehavior('adminAfterUserOptionsUpdate',$cur,$core->auth->userID());
 
 		dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
-		http::redirect($core->adminurl->get("admin.user.preferences").'#user-options');
+		$core->adminurl->redirect("admin.user.preferences",'#user-options');
 	}
 	catch (Exception $e)
 	{
@@ -223,7 +223,7 @@ if (isset($_POST['db-options'])) {
 		$core->callBehavior('adminAfterDashboardOptionsUpdate',$core->auth->userID());
 
 		dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
-		http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
+		$core->adminurl->redirect("admin.user.preferences",'#user-favorites');
 	}
 	catch (Exception $e)
 	{
@@ -249,7 +249,7 @@ if (!empty($_POST['appendaction']))
 
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('Favorites have been successfully added.'));
-			http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
+			$core->adminurl->redirect("admin.user.preferences",'#user-favorites');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -276,7 +276,7 @@ if (!empty($_POST['removeaction']))
 		$core->favs->setFavoriteIDs(array_keys($user_fav_ids),false);
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('Favorites have been successfully removed.'));
-			http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
+			$core->adminurl->redirect("admin.user.preferences",'#user-favorites');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -303,7 +303,7 @@ if (!empty($_POST['saveorder']) && !empty($order))
 	$core->favs->setFavoriteIDs($order,false);
 	if (!$core->error->flag()) {
 		dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
-		http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
+		$core->adminurl->redirect("admin.user.preferences",'#user-favorites');
 	}
 }
 
@@ -314,7 +314,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 
 	if (!$core->error->flag()) {
 		dcPage::addSuccessNotice(__('Default favorites have been successfully updated.'));
-		http::redirect($core->adminurl->get("admin.user.preferences").'#user-favorites');
+		$core->adminurl->redirect("admin.user.preferences",'#user-favorites');
 	}
 }
 

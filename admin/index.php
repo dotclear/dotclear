@@ -20,7 +20,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 if (!empty($_GET['default_blog'])) {
 	try {
 		$core->setUserDefaultBlog($core->auth->userID(),$core->blog->id);
-		http::redirect($core->adminurl->get("admin.home"));
+		$core->adminurl->redirect("admin.home");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -35,7 +35,7 @@ if (!empty($_GET['logout'])) {
 		unset($_COOKIE['dc_admin']);
 		setcookie('dc_admin',false,-600,'','',DC_ADMIN_SSL);
 	}
-	http::redirect($core->adminurl->get("admin.auth"));
+	$core->adminurl->redirect("admin.auth");
 	exit;
 }
 

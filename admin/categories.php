@@ -23,7 +23,7 @@ if (!empty($_POST['delete'])) {
 	$c = $core->blog->getCategory((integer) $cat_id);
 	if ($c->isEmpty()) {
 		dcPage::addErrorNotice(__('This category does not exist.'));
-		http::redirect($core->adminurl->get("admin.categories"));
+		$core->adminurl->redirect("admin.categories");
 	}
 	$name = $c->cat_title;
 	unset($c);
@@ -32,7 +32,7 @@ if (!empty($_POST['delete'])) {
 		# Delete category
 		$core->blog->delCategory($cat_id);
 		dcPage::addSuccessNotice(sprintf(__('The category "%s" has been successfully deleted.'),html::escapeHTML($name)));
-		http::redirect($core->adminurl->get("admin.categories"));
+		$core->adminurl->redirect("admin.categories");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -61,7 +61,7 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
 		}
 		dcPage::addSuccessNotice(sprintf(__('The entries have been successfully moved to category "%s"'),
 			html::escapeHTML($name)));
-		http::redirect($core->adminurl->get("admin.categories"));
+		$core->adminurl->redirect("admin.categories");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -78,7 +78,7 @@ if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
 	}
 
 	dcPage::addSuccessNotice(__('Categories have been successfully reordered.'));
-	http::redirect($core->adminurl->get("admin.categories"));
+	$core->adminurl->redirect("admin.categories");
 }
 
 # Reset order
@@ -88,7 +88,7 @@ if (!empty($_POST['reset']))
 	{
 		$core->blog->resetCategoriesOrder();
 		dcPage::addSuccessNotice(__('Categories order has been successfully reset.'));
-		http::redirect($core->adminurl->get("admin.categories"));
+		$core->adminurl->redirect("admin.categories");
 	}
 	catch (Exception $e)
 	{

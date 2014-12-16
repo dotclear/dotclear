@@ -29,10 +29,18 @@ if ($post_id) {
 $file = null;
 $popup = (integer) !empty($_GET['popup']);
 $plugin_id = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
-$page_url = $core->adminurl->get("admin.media.item",array('popup' => $popup,'post_id' => $post_id));
-$media_page_url = $core->adminurl->get("admin.media",array('popup' => $popup,'post_id' => $post_id));
+$page_url_params = array('popup' => $popup,'post_id' => $post_id);
+$media_page_url_params = array('popup' => $popup,'post_id' => $post_id);
+
+if ($plugin_id != '') {
+	$page_url_params ['plugin_id'] = $plugin_id;
+}
 
 $id = !empty($_REQUEST['id']) ? (integer) $_REQUEST['id'] : '';
+
+if ($id != '') {
+	$page_url_params ['id'] = $id;
+}
 
 if ($popup) {
 	$open_f = array('dcPage','openPopup');
@@ -83,7 +91,7 @@ if ($file && !empty($_FILES['upfile']) && $file->editable && $core_media_writabl
 		$core->media->uploadFile($_FILES['upfile']['tmp_name'],$file->basename,null,false,true);
 
 		dcPage::addSuccessNotice(__('File has been successfully updated.'));
-		http::redirect($page_url.'&id='.$id.'&plugin_id='.$plugin_id);
+		$core->adminurl->redirect('admin.media.item',$page_url_params);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -112,7 +120,8 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
 		$core->media->updateFile($file,$newFile);
 
 		dcPage::addSuccessNotice(__('File has been successfully updated.'));
-		http::redirect($page_url.'&id='.$id.'&plugin_id='.$plugin_id.'&tab=media-details-tab');
+		$page_url_params['tab'] = 'media-details-tab';
+		$core->adminurl->redirect('admin.media.item',$page_url_params);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -126,7 +135,8 @@ if (!empty($_POST['thumbs']) && $file->media_type == 'image' && $file->editable 
 		$core->media->mediaFireRecreateEvent($file);
 
 		dcPage::addSuccessNotice(__('Thumbnails have been successfully updated.'));
-		http::redirect($page_url.'&id='.$id.'&plugin_id='.$plugin_id.'&tab=media-details-tab');
+		$page_url_params['tab'] = 'media-details-tab';
+		$core->adminurl->redirect('admin.media.item',$page_url_params);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -139,7 +149,8 @@ if (!empty($_POST['unzip']) && $file->type == 'application/zip' && $file->editab
 		$unzip_dir = $core->media->inflateZipFile($file,$_POST['inflate_mode'] == 'new');
 
 		dcPage::addSuccessNotice(__('Zip file has been successfully extracted.'));
-		http::redirect($media_page_url.'&d='.$unzip_dir.'&plugin_id='.$plugin_id);
+		$media_page_url_params['d'] = $unzip_dir;
+		$core->adminurl->redirect('admin.media',$media_page_url_params);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -164,7 +175,7 @@ if (!empty($_POST['save_blog_prefs']))
 	}
 
 	dcPage::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
-	http::redirect($page_url.'&id='.$id.'&plugin_id='.$plugin_id);
+	$core->adminurl->redirect('admin.media.item',$page_url_params);
 }
 
 # Function to get image title based on meta
@@ -222,6 +233,11 @@ $starting_scripts =
 if ($popup && !empty($plugin_id)) {
 	$starting_scripts .= $core->callBehavior('adminPopupMedia', $plugin_id);
 }
+$temp_params = $media_page_url_params;
+$temp_params['d']='%s';
+$bc_template = str_replace("%25s","%s",$core->adminurl->get('admin.media',$temp_params));
+$temp_params['d']='';
+$home_url=$core->adminurl->get('admin.media',$temp_params);
 call_user_func($open_f,__('Media manager'),
 	$starting_scripts.
 	dcPage::jsDatePicker().
@@ -229,8 +245,8 @@ call_user_func($open_f,__('Media manager'),
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
-			__('Media manager') => html::escapeURL($media_page_url).'&amp;d=',
-			$core->media->breadCrumb(html::escapeURL($media_page_url).'&amp;d=%s').'<span class="page-title">'.$file->basename.'</span>' => ''
+			__('Media manager') => $home_url,
+			$core->media->breadCrumb($bc_template).'<span class="page-title">'.$file->basename.'</span>' => ''
 		),
 		array(
 			'home_link' => !$popup,
@@ -427,14 +443,13 @@ if ($popup)
 	if ($media_type != 'default') {
 		echo
 		'<div class="border-top">'.
-		'<form id="save_settings" action="'.html::escapeURL($page_url).'" method="post">'.
+		'<form id="save_settings" action="'.$core->adminurl->getBase('admin.media.item').'" method="post">'.
 		'<p>'.__('Make current settings as default').' '.
 		'<input class="reset" type="submit" name="save_blog_prefs" value="'.__('OK').'" />'.
 		form::hidden(array('pref_src'),'').
 		form::hidden(array('pref_alignment'),'').
 		form::hidden(array('pref_insertion'),'').
-		form::hidden(array('id'),$id).
-		form::hidden(array('plugin_id'),$plugin_id).
+		$core->adminurl->getHiddenFormFields('admin.media.item',$page_url_params).
 		$core->formNonce().'</p>'.
 		'</form>'.'</div>';
 	}
@@ -476,10 +491,10 @@ if ($file->media_image)
 	foreach (array_reverse($file->media_thumb) as $s => $v)
 	{
 		$strong_link = ($s == $thumb_size) ? '<strong>%s</strong>' : '%s';
-		printf($strong_link,'<a href="'.html::escapeURL($page_url).
-		'&amp;id='.$id.'&amp;plugin_id='.$plugin_id.'&amp;size='.$s.'&amp;tab=media-details-tab">'.$core->media->thumb_sizes[$s][2].'</a> | ');
+		printf($strong_link,'<a href="'.$core->adminurl->get('admin.media.item',array_merge($page_url_params,
+			array("size" => $s,'tab' => 'media-details-tab'))).'">'.$core->media->thumb_sizes[$s][2].'</a> | ');
 	}
-	echo '<a href="'.html::escapeURL($page_url).'&amp;id='.$id.'&amp;plugin_id='.$plugin_id.'&amp;size=o&amp;tab=media-details-tab">'.__('original').'</a>';
+	echo '<a href="'.$core->adminurl->get('admin.media.item',array_merge($page_url_params,array("size" => "o","tab"=>"media-details-tab"))).'">'.__('original').'</a>';
 	echo '</p>';
 }
 
@@ -505,7 +520,7 @@ echo
 if (empty($_GET['find_posts']))
 {
 	echo
-	'<p><a class="button" href="'.html::escapeHTML($page_url).'&amp;id='.$id.'&plugin_id='.$plugin_id.'&amp;find_posts=1&amp;tab=media-details-tab">'.
+	'<p><a class="button" href="'.$core->adminurl->get('admin.media.item',array_merge($page_url_params,array("find_posts"=>1,"tab"=>"media-details-tab"))).'">'.
 	__('Show entries containing this media').'</a></p>';
 }
 else
@@ -600,12 +615,11 @@ if ($file->editable && $core_media_writable)
 	if ($file->media_type == 'image')
 	{
 		echo
-		'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post">'.
+		'<form class="clear fieldset" action="'.$core->adminurl->get("admin.media.item").'" method="post">'.
 		'<h4>'.__('Update thumbnails').'</h4>'.
 		'<p>'.__('This will create or update thumbnails for this image.').'</p>'.
 		'<p><input type="submit" name="thumbs" value="'.__('Update thumbnails').'" />'.
-		form::hidden(array('id'),$id).
-		form::hidden(array('plugin_id'),$plugin_id).
+		$core->adminurl->getHiddenFormFields('admin.media',$page_url_params).
 		$core->formNonce().'</p>'.
 		'</form>';
 	}
@@ -618,7 +632,7 @@ if ($file->editable && $core_media_writable)
 		);
 
 		echo
-		'<form class="clear fieldset" id="file-unzip" action="'.html::escapeURL($page_url).'" method="post">'.
+		'<form class="clear fieldset" id="file-unzip" action="'.$core->adminurl->get("admin.media.item").'" method="post">'.
 		'<h4>'.__('Extract archive').'</h4>'.
 		'<ul>'.
 		'<li><strong>'.__('Extract in a new directory').'</strong> : '.
@@ -629,14 +643,13 @@ if ($file->editable && $core_media_writable)
 		'<p><label for="inflate_mode" class="classic">'.__('Extract mode:').'</label> '.
 		form::combo('inflate_mode',$inflate_combo,'new').
 		'<input type="submit" name="unzip" value="'.__('Extract').'" />'.
-		form::hidden(array('id'),$id).
-		form::hidden(array('plugin_id'),$plugin_id).
+		$core->adminurl->getHiddenFormFields('admin.media',$page_url_params).
 		$core->formNonce().'</p>'.
 		'</form>';
 	}
 
 	echo
-	'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post">'.
+	'<form class="clear fieldset" action="'.$core->adminurl->get("admin.media.item").'" method="post">'.
 	'<h4>'.__('Change media properties').'</h4>'.
 	'<p><label for="media_file">'.__('File name:').'</label>'.
 	form::field('media_file',30,255,html::escapeHTML($file->basename)).'</p>'.
@@ -649,13 +662,12 @@ if ($file->editable && $core_media_writable)
 	'<p><label for="media_path">'.__('New directory:').'</label>'.
 	form::combo('media_path',$dirs_combo,dirname($file->relname)).'</p>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
-	form::hidden(array('id'),$id).
-	form::hidden(array('plugin_id'),$plugin_id).
+	$core->adminurl->getHiddenFormFields('admin.media.item',$page_url_params).
 	$core->formNonce().'</p>'.
 	'</form>';
 
 	echo
-	'<form class="clear fieldset" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data">'.
+	'<form class="clear fieldset" action="'.$core->adminurl->get("admin.media.item").'" method="post" enctype="multipart/form-data">'.
 	'<h4>'.__('Change file').'</h4>'.
 	'<div>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).'</div>'.
 	'<p><label for="upfile">'.__('Choose a file:').
@@ -663,20 +675,20 @@ if ($file->editable && $core_media_writable)
 	'<input type="file" id="upfile" name="upfile" size="35" />'.
 	'</label></p>'.
 	'<p><input type="submit" value="'.__('Send').'" />'.
-	form::hidden(array('id'),$id).
-	form::hidden(array('plugin_id'),$plugin_id).
+	$core->adminurl->getHiddenFormFields('admin.media',$page_url_params).
 	$core->formNonce().'</p>'.
 	'</form>';
 
 	if ($file->del) {
 		echo
-		'<form id="delete-form" method="post" action="'.html::escapeURL($media_page_url).
+		'<form id="delete-form" method="post" action="'.$core->adminurl->getBase("admin.media").
 		'&amp;d='.rawurlencode(dirname($file->relname)).
 		'&amp;plugin_id='.$plugin_id.
 		'&amp;remove='.rawurlencode($file->basename).'">'.
 		'<p><input name="delete" type="submit" class="delete" value="'.__('Delete this media').'" />'.
 		form::hidden('remove',rawurlencode($file->basename)).
 		form::hidden('rmyes',1).
+		$core->adminurl->getHiddenFormFields('admin.media',$media_page_url_params).
 		$core->formNonce().'</p>'.
 		'</form>';
 	}

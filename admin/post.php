@@ -40,9 +40,10 @@ $can_edit_post = $core->auth->check('usage,contentadmin',$core->blog->id);
 $can_publish = $core->auth->check('publish,contentadmin',$core->blog->id);
 $can_delete = false;
 
-$post_headlink = '<link rel="%s" title="%s" href="'.$core->adminurl->get('admin.post',array('id' => "%s"),false,'&').'" />';
-$post_link = '<a href="'.$core->adminurl->get('admin.post',array('id' => "%s"),false,'&').'" title="%s">%s</a>';
-
+$post_headlink = '<link rel="%s" title="%s" href="'.$core->adminurl->get('admin.post',array('id' => "%s")).'" />';
+$post_headlink = str_replace('%25s','%s',$post_headlink);
+$post_link = '<a href="'.$core->adminurl->get('admin.post',array('id' => "%s")).'" title="%s">%s</a>';
+$post_link = str_replace('%25s','%s',$post_link);
 $next_link = $prev_link = $next_headlink = $prev_headlink = null;
 
 # If user can't publish
@@ -177,10 +178,10 @@ if (!empty($_POST['ping']))
 
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('All pings sent.'));
-			http::redirect($core->adminurl->get(
+			$core->adminurl->redirect(
 				'admin.post',
 				array('id' => $post_id, 'tb'=> '1')
-			));
+			);
 		}
 	}
 }
@@ -242,7 +243,7 @@ if (!empty($_POST['delete']) && $can_delete)
 		# --BEHAVIOR-- adminBeforePostDelete
 		$core->callBehavior('adminBeforePostDelete',$post_id);
 		$core->blog->delPost($post_id);
-		http::redirect($core->adminurl->get("admin.posts"));
+		$core->adminurl->redirect("admin.posts");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -303,10 +304,10 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			# --BEHAVIOR-- adminAfterPostUpdate
 			$core->callBehavior('adminAfterPostUpdate',$cur,$post_id);
 			dcPage::addSuccessNotice (sprintf(__('The post "%s" has been successfully updated'),html::escapeHTML($cur->post_title)));
-			http::redirect($core->adminurl->get(
+			$core->adminurl->redirect(
 				'admin.post',
 				array('id' => $post_id)
-			));
+			);
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -323,10 +324,10 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			$core->callBehavior('adminAfterPostCreate',$cur,$return_id);
 
 			dcPage::addSuccessNotice(__('Entry has been successfully created.'));
-			http::redirect($core->adminurl->get(
+			$core->adminurl->redirect(
 				'admin.post',
 				array('id' => $return_id)
-			));
+			);
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}

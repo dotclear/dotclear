@@ -926,6 +926,6 @@ class dcPage
 	}
 
 	public static function getPF($file) {
-		return $GLOBALS['core']->adminurl->get('load.plugin.file',array('pf' => $file),false);
+		return $GLOBALS['core']->adminurl->get('load.plugin.file',array('pf' => $file));
 	}
 }

@@ -102,7 +102,7 @@ else {
 	'<h3>'.__('Export').'</h3>'.
 	'<p class="info">'.sprintf(
 		__('Export functions are in the page %s.'),
-		'<a href="'.$core->adminurl->get('admin.plugin.maintenance',array('tab' => 'backup'),false).'#backup">'.__('Maintenance').'</a>'
+		'<a href="'.$core->adminurl->get('admin.plugin.maintenance',array('tab' => 'backup')).'#backup">'.__('Maintenance').'</a>'
 	).'</p>';
 }
 

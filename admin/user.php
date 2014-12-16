@@ -130,7 +130,7 @@ if (isset($_POST['user_name']))
 			}
 
 			dcPage::addSuccessNotice(__('User has been successfully updated.'));
-			http::redirect($core->adminurl->get("admin.user",array('id' => $new_id)));
+			$core->adminurl->redirect("admin.user",array('id' => $new_id));
 		}
 		# Add user
 		else
@@ -149,9 +149,9 @@ if (isset($_POST['user_name']))
 
 			dcPage::addSuccessNotice(__('User has been successfully created.'));
 			if (!empty($_POST['saveplus'])) {
-				http::redirect($core->adminurl->get("admin.user"));
+				$core->adminurl->redirect("admin.user");
 			} else {
-				http::redirect($core->adminurl->get("admin.user",array('id' => $new_id)));
+				$core->adminurl->redirect("admin.user",array('id' => $new_id));
 			}
 		}
 	}

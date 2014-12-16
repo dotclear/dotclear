@@ -74,10 +74,16 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 
 $popup = (integer) !empty($_GET['popup']);
 
-$page_url = $core->adminurl->get("admin.media",array('popup' => $popup,'post_id' => $post_id));
-if (($temp = $core->callBehavior('adminMediaURL',$page_url.'&plugin_id='.$plugin_id))!='') {
-	$page_url = $temp;
+$page_url_params = new ArrayObject(array('popup' => $popup,'post_id' => $post_id));
+if ($d) {
+	$page_url_params ['d'] = rawurlencode($d);
 }
+if ($plugin_id != '') {
+	$page_url_params ['plugin_id'] = $plugin_id;
+}
+
+$core->callBehavior('adminMediaURLParams',$page_url_params);
+$page_url_params = (array) $page_url_params;
 
 if ($popup) {
 	$open_f = array('dcPage','openPopup');
@@ -136,7 +142,7 @@ if ($dir && !empty($_POST['newdir']))
 			__('Directory "%s" has been successfully created.'),
 			html::escapeHTML($_POST['newdir']))
 		);
-		http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
+		$core->adminurl->redirect('admin.media',$page_url_params);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -183,7 +189,7 @@ if ($dir && !empty($_FILES['upfile'])) {
 			$core->media->uploadFile($upfile['tmp_name'], $upfile['name'], $f_title, $f_private);
 
 			dcPage::addSuccessNotice(__('Files have been successfully uploaded.'));
-			http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
+			$core->adminurl->redirect('admin.media',$page_url_params);
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -204,7 +210,7 @@ if ($dir && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
 					   count($_POST['medias'])
 			)
 		);
-		http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
+		$core->adminurl->redirect('admin.media',$page_url_params);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -223,7 +229,7 @@ if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove']))
 		}
 		$core->media->removeItem($_POST['remove']);
 		dcPage::addSuccessNotice($msg);
-		http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
+		$core->adminurl->redirect('admin.media',$page_url_params);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -239,7 +245,7 @@ if ($dir && $core->auth->isSuperAdmin() && !empty($_POST['rebuild']))
 			__('Directory "%s" has been successfully rebuilt.'),
 			html::escapeHTML($d))
 		);
-		http::redirect($page_url.'&plugin_id='.$plugin_id.'&d='.rawurlencode($d));
+		$core->adminurl->redirect('admin.media',$page_url_params);
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -260,12 +266,13 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 	);
 
 	echo
-	'<form action="'.html::escapeURL($page_url).'" method="post">'.
+	'<form action="'.html::escapeURL($core->adminurl->get('admin.media')).'" method="post">'.
 	'<p>'.sprintf(__('Are you sure you want to remove %s?'),
 		html::escapeHTML($_GET['remove'])).'</p>'.
 	'<p><input type="submit" value="'.__('Cancel').'" /> '.
 	' &nbsp; <input type="submit" name="rmyes" value="'.__('Yes').'" />'.
 	form::hidden('d',$d).
+	$core->adminurl->getHiddenFormFields('admin.media',$page_url_params).
 	$core->formNonce().
 	form::hidden('remove',html::escapeHTML($_GET['remove'])).'</p>'.
 	'</form>';
@@ -288,7 +295,10 @@ if (!isset($core->media)) {
 		array('home_link' => !$popup)
 	);
 } else {
-	$breadcrumb_media = $core->media->breadCrumb(html::escapeURL($page_url).'&amp;plugin_id='.$plugin_id.'&amp;d=%s','<span class="page-title">%s</span>');
+	$temp_params = $page_url_params;
+	$temp_params['d']='%s';
+	$bc_template = str_replace("%25s","%s",$core->adminurl->get('admin.media',$temp_params));
+	$breadcrumb_media = $core->media->breadCrumb($bc_template,'<span class="page-title">%s</span>');
 	if ($breadcrumb_media == '') {
 		$breadcrumb = dcPage::breadcrumb(
 			array(
@@ -298,10 +308,13 @@ if (!isset($core->media)) {
 			array('home_link' => !$popup)
 		);
 	} else {
+		$home_params = $page_url_params;
+		$home_params['d']='';
+
 		$breadcrumb = dcPage::breadcrumb(
 			array(
 				html::escapeHTML($core->blog->name) => '',
-				__('Media manager') => html::escapeURL($page_url.'&plugin_id='.$plugin_id.'&d='),
+				__('Media manager') => $core->adminurl->get('admin.media',$home_params),
 				$breadcrumb_media => ''
 			),
 			array(
@@ -458,15 +471,15 @@ if ($core_media_writable || $core_media_archivable) {
 	if ($core_media_writable)
 	{
 		echo
-		'<form action="'.html::escapeURL($page_url).'" method="post" class="fieldset">'.
+		'<form action="'.$core->adminurl->getBase('admin.media').'" method="post" class="fieldset">'.
 		'<div id="new-dir-f">'.
 		'<h4 class="pretty-title">'.__('Create new directory').'</h4>'.
 		$core->formNonce().
 		'<p><label for="newdir">'.__('Directory Name:').'</label>'.
 		form::field(array('newdir','newdir'),35,255).'</p>'.
 		'<p><input type="submit" value="'.__('Create').'" />'.
-		form::hidden(array('d'),html::escapeHTML($d)).
-		form::hidden(array('plugin_id'),$plugin_id).'</p>'.
+		$core->adminurl->getHiddenFormFields('admin.media',$page_url_params).
+		'</p>'.
 		'</div>'.
 		'</form>';
 	}
@@ -477,8 +490,8 @@ if ($core_media_writable || $core_media_archivable) {
 		echo
 		'<div class="fieldset">'.
 		'<h4 class="pretty-title">'.sprintf(__('Backup content of %s'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h4>'.
-		'<p><a class="button submit" href="'.html::escapeURL($page_url).'&amp;zipdl=1">'.
-		__('Download zip file').'</a></p>'.
+		'<p><a class="button submit" href="'.$core->adminurl->get('admin.media',
+			array_merge($page_url_params,array('zipdl' => 1))).'">'.__('Download zip file').'</a></p>'.
 		'</div>';
 	}
 
@@ -566,14 +579,15 @@ call_user_func($close_f);
 /* ----------------------------------------------------- */
 function mediaItemLine($f,$i)
 {
-	global $core, $page_url, $popup, $post_id, $plugin_id;
+	global $core, $page_url, $popup, $post_id, $plugin_id,$page_url_params;
 
 	$fname = $f->basename;
 
-	$class = 'media-item media-col-'.($i%2);
+	$class = 'media-item media-col-'.($i%2); 
 
 	if ($f->d) {
-		$link = html::escapeURL($page_url).'&amp;plugin_id='.$plugin_id.'&amp;d='.html::sanitizeURL($f->relname);
+
+		$link = $core->adminurl->get('admin.media',array_merge($page_url_params,array('d' => html::sanitizeURL($f->relname) )));
 		if ($f->parent) {
 			$fname = '..';
 			$class .= ' media-folder-up';
@@ -581,8 +595,7 @@ function mediaItemLine($f,$i)
 			$class .= ' media-folder';
 		}
 	} else {
-		$link = $core->adminurl->get(
-			'admin.media.item',
+		$params = new ArrayObject(
 			array(
 				'id' => $f->media_id,
 				'plugin_id' => $plugin_id,
@@ -590,9 +603,11 @@ function mediaItemLine($f,$i)
 				'post_id' => $post_id
 			)
 		);
-		if (($temp = $core->callBehavior('adminMediaURL',$link))!='') {
-			$link = $temp;
-		}
+		$core->callBehavior('adminMediaURLParams',$params);
+		$params = (array) $params;
+		$link = $core->adminurl->get(
+			'admin.media.item', $params
+		);
 	}
 
 	$maxchars = 36;
