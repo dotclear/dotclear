@@ -14,7 +14,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $_menu['Plugins']->addItem('dcLegacyEditor',
 	$core->adminurl->get('admin.plugin.dcLegacyEditor'),
-	$core->adminurl->decode('load.plugin.file',array('pf' => 'dcLegacyEditor/icon.png')),
+	dcPage::getPF('dcLegacyEditor/icon.png'),
 	preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.dcLegacyEditor')).'/', $_SERVER['REQUEST_URI']),
 	$core->auth->check('admin,contentadmin', $core->blog->id)
 );

@@ -116,7 +116,7 @@ $combo_ts = array(
 echo '<html><head>
 <title>'.__('Maintenance').'</title>'.
 dcPage::jsPageTabs($tab).
-dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/js/settings.js')));
+dcPage::jsLoad(dcPage::getPF('maintenance/js/settings.js'));
 
 if ($task && $task->ajax()) {
 	echo
@@ -125,7 +125,7 @@ if ($task && $task->ajax()) {
 	dcPage::jsVar('dotclear.msg.wait', __('Please wait...')).
 	"//]]>\n".
 	'</script>'.
-	dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/js/dc.maintenance.js')));
+	dcPage::jsLoad(dcPage::getPF('maintenance/js/dc.maintenance.js'));
 }
 
 echo

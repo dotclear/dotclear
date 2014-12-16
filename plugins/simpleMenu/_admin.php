@@ -17,22 +17,22 @@ function simpleMenu_dashboard($core,$icons)
 {
 	$icons['simpleMenu'] = new ArrayObject(array(__('Simple menu'),
 		$core->adminurl->get('admin.plugin.simpleMenu'),
-		$core->adminurl->decode('load.plugin.file',array('pf' => 'simpleMenu/icon.png'))));
+		dcPage::getPF('simpleMenu/icon.png')));
 }
 function simpleMenu_dashboard_favs($core,$favs)
 {
 	$favs->register('simpleMenu', array(
 		'title' => __('Simple menu'),
 		'url' => $core->adminurl->get('admin.plugin.simpleMenu'),
-		'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'simpleMenu/icon-small.png')),
-		'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'simpleMenu/icon.png')),
+		'small-icon' => dcPage::getPF('simpleMenu/icon-small.png'),
+		'large-icon' => dcPage::getPF('simpleMenu/icon.png'),
 		'permissions' => 'usage,contentadmin'
 	));
 }
 
 $_menu['Blog']->addItem(__('Simple menu'),
 	$core->adminurl->get('admin.plugin.simpleMenu'),
-	$core->adminurl->decode('load.plugin.file',array('pf' => 'simpleMenu/icon-small.png')),
+	dcPage::getPF('simpleMenu/icon-small.png'),
     preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.simpleMenu')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
     $core->auth->check('usage,contentadmin',$core->blog->id));
 

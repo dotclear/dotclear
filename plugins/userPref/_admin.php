@@ -13,6 +13,6 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $_menu['System']->addItem('user:preferences',
 		$core->adminurl->get('admin.plugin.userPref'),
-		$core->adminurl->decode('load.plugin.file',array('pf' => 'userPref/icon.png')),
+		dcPage::getPF('userPref/icon.png'),
 		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.userPref')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin());

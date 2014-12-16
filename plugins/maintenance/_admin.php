@@ -15,7 +15,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 $_menu['Plugins']->addItem(
 	__('Maintenance'),
 	$core->adminurl->get('admin.plugin.maintenance'),
-	$core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/icon.png')),
+	dcPage::getPF('maintenance/icon.png'),
 	preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.maintenance')).'(&.*)?$/', $_SERVER['REQUEST_URI']),
 	$core->auth->check('admin', $core->blog->id)
 );
@@ -82,8 +82,8 @@ class dcMaintenanceAdmin
 		$favs->register('maintenance', array(
 			'title' => __('Maintenance'),
 			'url' => $core->adminurl->get('admin.plugin.maintenance'),
-			'small-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/icon.png')),
-			'large-icon' => $core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/icon-big.png')),
+			'small-icon' => dcPage::getPF('maintenance/icon.png'),
+			'large-icon' => dcPage::getPF('maintenance/icon-big.png'),
 			'permissions' => 'admin',
 			'active_cb' => array('dcMaintenanceAdmin', 'adminDashboardFavoritesActive'),
 			'dashboard_cb' => array('dcMaintenanceAdmin', 'adminDashboardFavoritesCallback')
@@ -133,7 +133,7 @@ class dcMaintenanceAdmin
 		}
 
 		$fav['title'] .= '<br />'.sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
-		$fav['large-icon'] =$core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/icon-big-update.png'));
+		$fav['large-icon'] = dcPage::getPF('maintenance/icon-big-update.png');
 	}
 
 	/**
@@ -176,7 +176,7 @@ class dcMaintenanceAdmin
 
 		$items[] = new ArrayObject(array(
 			'<div id="maintenance-expired" class="box small">'.
-			'<h3><img src="'.$core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/icon-small.png')).'" alt="" /> '.__('Maintenance').'</h3>'.
+			'<h3><img src="'.dcPage::getPF('maintenance/icon-small.png').'" alt="" /> '.__('Maintenance').'</h3>'.
 			'<p class="warning no-margin">'.sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)).'</p>'.
 			'<ul>'.implode('',$lines).'</ul>'.
 			'<p><a href="'.$core->adminurl->get('admin.plugin.maintenance').'">'.__('Manage tasks').'</a></p>'.
@@ -309,7 +309,7 @@ class dcMaintenanceAdmin
 	public static function pluginsToolsHeaders($core, $module)
 	{
 		if ($module == 'maintenance') {
-			return dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'maintenance/js/settings.js')));
+			return dcPage::jsLoad(dcPage::getPF('maintenance/js/settings.js'));
 		}
 	}
 }

@@ -177,7 +177,7 @@ try {
 	echo
 		dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 		dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
-		dcPage::jsLoad($core->adminurl->decode('load.plugin.file',array('pf' => 'blogroll/blogroll.js')));
+		dcPage::jsLoad(dcPage::getPF('blogroll/blogroll.js'));
 	}
   ?>
   <?php echo dcPage::jsPageTabs($default_tab); ?>
