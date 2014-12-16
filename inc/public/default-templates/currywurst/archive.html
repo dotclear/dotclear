@@ -108,15 +108,17 @@
 </tpl:Block>
 
 <tpl:Block name="wrapper-sidebar">
-	<div id="sidebar" role="complementary">
-		<div id="blognav">
+	<div class="sidebar" id="sidebar" role="complementary">
+		<div class="widgets blognav__widgets" id="blognav">
 			<tpl:Widget id="search">
 			</tpl:Widget>
 		</div> <!-- End #blognav -->
 
-		<div id="blogextra">
-			{{tpl:Widgets type="extra"}}
-		</div> <!-- End #blogextra -->
-
+		<tpl:IfWidgets type="extra">
+			<div class="widgets blogextra__widgets" id="blogextra">
+		        <h2 class="blogextra__title">{{tpl:lang Extra menu}}</h2>
+				{{tpl:Widgets type="extra"}}
+			</div> <!-- End #blogextra -->
+		</tpl:IfWidgets>
 	</div> <!-- End #sidebar -->
 </tpl:Block>
