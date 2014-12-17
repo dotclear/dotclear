@@ -12,7 +12,8 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$is_super_admin = $core->auth->isSuperAdmin();
+$is_admin = $core->auth->check('admin,contentadmin', $core->blog->id) || $core->auth->isSuperAdmin();
+
 $core->blog->settings->addNameSpace('dcckeditor');
 $dcckeditor_active = $core->blog->settings->dcckeditor->active;
 $dcckeditor_alignment_buttons = $core->blog->settings->dcckeditor->alignment_buttons;
