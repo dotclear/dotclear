@@ -55,8 +55,7 @@ else
 	}
 
 	$action = $core->adminurl->get("admin.blog");
-	$redir = $core->adminurl->get("admin.blog",array('id' => "%s"),'&');
-	$redir = str_replace('%25s','%s',$redir);
+	$redir = $core->adminurl->get("admin.blog",array('id' => "%s"),'&',true);
 }
 
 # Language codes

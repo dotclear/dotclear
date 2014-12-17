@@ -40,10 +40,8 @@ $can_edit_post = $core->auth->check('usage,contentadmin',$core->blog->id);
 $can_publish = $core->auth->check('publish,contentadmin',$core->blog->id);
 $can_delete = false;
 
-$post_headlink = '<link rel="%s" title="%s" href="'.$core->adminurl->get('admin.post',array('id' => "%s")).'" />';
-$post_headlink = str_replace('%25s','%s',$post_headlink);
-$post_link = '<a href="'.$core->adminurl->get('admin.post',array('id' => "%s")).'" title="%s">%s</a>';
-$post_link = str_replace('%25s','%s',$post_link);
+$post_headlink = '<link rel="%s" title="%s" href="'.$core->adminurl->get('admin.post',array('id' => "%s"),'&amp;',true).'" />';
+$post_link = '<a href="'.$core->adminurl->get('admin.post',array('id' => "%s"),'&amp;',true).'" title="%s">%s</a>';
 $next_link = $prev_link = $next_headlink = $prev_headlink = null;
 
 # If user can't publish

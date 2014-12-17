@@ -297,7 +297,7 @@ if (!isset($core->media)) {
 } else {
 	$temp_params = $page_url_params;
 	$temp_params['d']='%s';
-	$bc_template = str_replace("%25s","%s",$core->adminurl->get('admin.media',$temp_params));
+	$bc_template = $core->adminurl->get('admin.media',$temp_params,'&amp;',true);
 	$breadcrumb_media = $core->media->breadCrumb($bc_template,'<span class="page-title">%s</span>');
 	if ($breadcrumb_media == '') {
 		$breadcrumb = dcPage::breadcrumb(
@@ -583,7 +583,7 @@ function mediaItemLine($f,$i)
 
 	$fname = $f->basename;
 
-	$class = 'media-item media-col-'.($i%2); 
+	$class = 'media-item media-col-'.($i%2);
 
 	if ($f->d) {
 
