@@ -57,7 +57,7 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
 		}
 
 		var editor = CKEDITOR.instances[$.getEditorName()];
-		if (!confirmClosePage.formSubmit && editor.checkDirty()) {
+		if (editor!==undefined && !confirmClosePage.formSubmit && editor.checkDirty()) {
 			e.returnValue = confirmClosePage.prompt;
 			return confirmClosePage.prompt;
 		}
@@ -87,8 +87,10 @@ $(function() {
 	}
 }
 ?>
-
-	$('<?php echo $dcckeditor_textareas;?>').ckeditor({
+    if (dotclear.ckeditor_context===undefined || dotclear.ckeditor_tags_context[dotclear.ckeditor_context]===undefined) {
+        return;
+    }
+	$(dotclear.ckeditor_tags_context[dotclear.ckeditor_context].join(',')).ckeditor({
 <?php
 $defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format';
 if (!empty($extraPlugins) && count($extraPlugins)>0) {
@@ -155,12 +157,18 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 				name: 'custom',
 				items: [
 					'EntryLink','dcLink','Media','-',
-					'Source', 'Maximize'
+					'Source'
 <?php if (!empty($dcckeditor_textcolor_button)):?>
                 ,'TextColor'
 <?php endif;?>
 				]
 			},
+            {
+                name: 'special',
+                items: [
+                    'Maximize'
+                ]
+            },
 			<?php // add extra buttons comming from dotclear plugins
 			if (!empty($extraPlugins) && count($extraPlugins)>0) {
 				$extraPlugins_str = "{name: 'extra', items: [%s]},\n";

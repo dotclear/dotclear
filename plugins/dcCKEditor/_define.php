@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */			    "dcCKEditor",
 	/* Description*/		"dotclear CKEditor integration",
 	/* Author */			"dotclear Team",
-	/* Version */			"0.8.3",
+	/* Version */			"0.9.0",
 	/* Permissions */	    "usage,contentadmin",
 	/* Properties */	    array('type' => 'plugin')
 );

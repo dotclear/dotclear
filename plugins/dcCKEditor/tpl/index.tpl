@@ -53,17 +53,6 @@
 	  <?php echo __('Copy, Paste, Paste Text, Paste from Word');?>
 	</p>
       </div>
-      <div class="fieldset">
-	<h3><?php echo __('Advanced options'); ?></h3>
-	<p>
-	  <label class="classic" for="dcckeditor_textareas">&nbsp;<?php echo __('Text areas to be used by CKEditor');?></label>
-	  <?php echo form::field('dcckeditor_textareas', 50, 255, $dcckeditor_textareas);?>
-	</p>
-	<p class="clear form-note">
-	  <?php echo __('Comma separed list of textareas - jQuery selector. Defaut: '), DEFAULT_TEXTAREAS;?>
-	</p>
-      </div>
-
       <?php endif;?>
       <p>
 	<input type="hidden" name="p" value="dcCKEditor"/>
@@ -75,6 +64,3 @@
     <?php dcPage::helpBlock('dcCKEditor');?>
   </body>
 </html>
-
-
-

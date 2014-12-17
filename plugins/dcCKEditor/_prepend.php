@@ -12,6 +12,4 @@
 
 if (!defined('DC_RC_PATH')) { return; }
 
-define('DEFAULT_TEXTAREAS', 'textarea#post_excerpt,textarea#post_content,textarea#comment_content');
-
 $__autoload['dcCKEditorBehaviors'] = dirname(__FILE__).'/inc/dc.ckeditor.behaviors.php';
