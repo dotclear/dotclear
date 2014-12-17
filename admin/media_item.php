@@ -235,7 +235,7 @@ if ($popup && !empty($plugin_id)) {
 }
 $temp_params = $media_page_url_params;
 $temp_params['d']='%s';
-$bc_template = str_replace("%25s","%s",$core->adminurl->get('admin.media',$temp_params));
+$bc_template = $core->adminurl->get('admin.media',$temp_params,'&amp;',true);
 $temp_params['d']='';
 $home_url=$core->adminurl->get('admin.media',$temp_params);
 call_user_func($open_f,__('Media manager'),

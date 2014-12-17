@@ -213,8 +213,7 @@ class adminPostList extends adminGenericList
 	private function postLine($checked)
 	{
 		if ($this->core->auth->check('categories',$this->core->blog->id)) {
-			$cat_link = '<a href="'.$this->core->adminurl->get('admin.category',array('id' => '%s')).'">%s</a>';
-			$cat_link = str_replace('%25s','%s',$cat_link);
+			$cat_link = '<a href="'.$this->core->adminurl->get('admin.category',array('id' => '%s'),'&amp;',true).'">%s</a>';
 		} else {
 			$cat_link = '%2$s';
 		}

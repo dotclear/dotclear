@@ -72,9 +72,10 @@ class dcAdminURL
 	 * @param  array  $params    query string parameters, given as an associative array
 	 * @param  boolean $urlencode set to true if url may not be encoded
 	 * @param  string $separator separator to use between QS parameters
+	 * @param  boolean $parametric set to true if url will be used as (s)printf() format.
 	 * @return string            the forged url
 	 */
-	public function get($name,$params=array(),$separator='&amp;')
+	public function get($name,$params=array(),$separator='&amp;',$parametric=false)
 	{
 		if (!isset($this->urls[$name])) {
 			throw new exception ('Unknown URL handler for '.$name);
@@ -85,9 +86,9 @@ class dcAdminURL
 		if (!empty($p)) {
 			$u .= '?'.http_build_query($p,'',$separator);
 		}
-		return $u;
+		// Dirty hack to get back %s instead of %25s in URLs used with (s)printf(), as http_build_query urlencode() its result.
+		return $parametric ? str_replace('%25s','%s',$u) : $u;
 	}
-
 
 	/**
 	 * retrieves a URL given its name, and optional parameters
@@ -105,7 +106,6 @@ class dcAdminURL
 		}
 		http::redirect($this->get($name,$params,'&').$suffix);
 	}
-
 
 	/**
 	 * retrieves a php page given its name, and optional parameters
@@ -144,12 +144,10 @@ class dcAdminURL
 		return $str;
 	}
 
-
-
 	/**
 	 * retrieves a URL (decoded — useful for echoing) given its name, and optional parameters
 	 *
-	 * should be used carefully, parameters are no more escaped
+	 * @deprecated 	should be used carefully, parameters are no more escaped
 	 *
 	 * @param  string $name      URL Name
 	 * @param  array  $params    query string parameters, given as an associative array
