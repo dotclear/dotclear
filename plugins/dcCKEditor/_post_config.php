@@ -72,6 +72,7 @@ $(function() {
 
 	CKEDITOR.timestamp = '';
 	CKEDITOR.config.skin = 'dotclear,'+dotclear.dcckeditor_plugin_url+'/js/ckeditor-skins/dotclear/';
+    CKEDITOR.config.baseHref = dotclear.base_url;
 
 <?php if (!empty($dcckeditor_cancollapse_button)):?>
 	CKEDITOR.config.toolbarCanCollapse = true;
