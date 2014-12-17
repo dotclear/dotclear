@@ -284,8 +284,23 @@ if (!empty($_GET['co'])) {
 }
 
 $admin_post_behavior = '';
-if ($post_editor && !empty($post_editor[$post_format])) {
-	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'page', array('#post_excerpt','#post_content'));
+if ($post_editor) {
+	$p_edit = $c_edit = '';
+	if (!empty($post_editor[$post_format])) {
+		$p_edit = $post_editor[$post_format];
+	}
+	if (!empty($post_editor['xhtml'])) {
+		$c_edit = $post_editor['xhtml'];
+	}
+	if ($p_edit == $c_edit) {
+		$admin_post_behavior .= $core->callBehavior('adminPostEditor',
+			$p_edit,'page',array('#post_excerpt','#post_content','#comment_content'));
+	} else {
+		$admin_post_behavior .= $core->callBehavior('adminPostEditor',
+			$p_edit,'page',array('#post_excerpt','#post_content'));
+		$admin_post_behavior .= $core->callBehavior('adminPostEditor',
+			$c_edit,'comment',array('#comment_content'));
+	}
 }
 
 ?>
