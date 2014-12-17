@@ -14,9 +14,17 @@ class dcLegacyEditorBehaviors
 {
 	protected static $p_url = 'index.php?pf=dcLegacyEditor';
 
-    // @param context not use but added to have same function prototype
-    public static function adminPostEditor($editor='',$context='') {
+    /**
+     * adminPostEditor add javascript to the DOM to load ckeditor depending on context
+     *
+     * @param editor   <b>string</b> wanted editor
+     * @param context  <b>string</b> page context (post,page,comment,event,...)
+     * @param tags     <b>array</b>  array of ids to inject editor
+     */
+    public static function adminPostEditor($editor='',$context='',array $tags=array()) {
 		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
+
+        // context and tags are not used for dcLegacyEditor
 
 		return
 			self::jsToolBar().

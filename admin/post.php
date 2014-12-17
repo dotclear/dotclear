@@ -377,7 +377,7 @@ if ($post_id) {
 
 $admin_post_behavior = '';
 if ($post_editor && !empty($post_editor[$post_format])) {
-	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'post');
+	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'post', array('#post_excerpt','#post_content,#comment_content'));
 }
 
 dcPage::open($page_title.' - '.__('Entries'),
