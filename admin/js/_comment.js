@@ -1,5 +1,5 @@
 $(function() {
-	if ($.isFunction('jsToolBar')) {
+	if (typeof(jsToolBar)!==undefined) {
 		var tbComment = new jsToolBar(document.getElementById('comment_content'));
 		tbComment.draw('xhtml');
 	}
