@@ -182,7 +182,7 @@ if ($comment_id) {
 dcPage::open(__('Edit comment'),
 	dcPage::jsConfirmClose('comment-form').
 	dcPage::jsLoad('js/_comment.js').
-	$core->callBehavior('adminPostEditor',$comment_editor['xhtml'],'comment').
+	$core->callBehavior('adminPostEditor',$comment_editor['xhtml'],'comment',array('#comment_content')).
 	# --BEHAVIOR-- adminCommentHeaders
 	$core->callBehavior('adminCommentHeaders'),
 	$breadcrumb
