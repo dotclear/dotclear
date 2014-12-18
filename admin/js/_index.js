@@ -1,7 +1,7 @@
 $(function() {
 	var f = $('#quick-entry');
 	if (f.length > 0) {
-		if (typeof(jsToolBar)!==undefined) {
+		if ($.isFunction(jsToolBar)) {
 			var contentTb = new jsToolBar($('#post_content',f)[0]);
 			contentTb.switchMode($('#post_format',f).val());
 		}
