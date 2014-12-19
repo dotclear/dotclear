@@ -19,6 +19,8 @@ class dcThemeEditor
 	protected $parent_theme;
 	protected $tplset_theme;
 
+	protected $tplset_name;
+
 	public $tpl = array();
 	public $css = array();
 	public $js  = array();
@@ -30,6 +32,7 @@ class dcThemeEditor
 		$this->default_theme = path::real($this->core->blog->themes_path.'/default');
 		$this->user_theme = path::real($this->core->blog->themes_path.'/'.$this->core->blog->settings->system->theme);
 		$this->tplset_theme = DC_ROOT.'/inc/public/default-templates/'.DC_DEFAULT_TPLSET;
+		$this->tplset_name = DC_DEFAULT_TPLSET;
 		if (null !== $this->core->themes) {
 			$parent_theme = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme,'parent');
 			if ($parent_theme) {
@@ -38,6 +41,7 @@ class dcThemeEditor
 			$tplset = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme,'tplset');
 			if ($tplset) {
 				$this->tplset_theme = DC_ROOT.'/inc/public/default-templates/'.$tplset;
+				$this->tplset_name = $tplset;
 			}
 		}
 		$this->findTemplates();
@@ -294,8 +298,12 @@ class dcThemeEditor
 		# Then we look in 'default-templates' plugins directory
 		$plugins = $this->core->plugins->getModules();
 		foreach ($plugins as $p) {
+			// Looking in default-templates directory
 			$this->tpl = array_merge($this->getFilesInDir($p['root'].'/default-templates'),$this->tpl);
 			$this->tpl_model = array_merge($this->getFilesInDir($p['root'].'/default-templates'),$this->tpl_model);
+			// Looking in default-templates/tplset directory
+			$this->tpl = array_merge($this->getFilesInDir($p['root'].'/default-templates/'.$this->tplset_name),$this->tpl);
+			$this->tpl_model = array_merge($this->getFilesInDir($p['root'].'/default-templates/'.$this->tplset_name),$this->tpl_model);
 		}
 
 		uksort($this->tpl,array($this,'sortFilesHelper'));
