@@ -215,7 +215,11 @@ class context
 		}
 
 		$nb_posts = $_ctx->pagination->f(0);
-		$nb_pages = ceil(($nb_posts - $_ctx->nb_entry_first_page) / $_ctx->nb_entry_per_page + 1);
+		if (($GLOBALS['core']->url->type == 'default') || ($GLOBALS['core']->url->type == 'default-page')) {
+			$nb_pages = ceil(($nb_posts - $_ctx->nb_entry_first_page) / $_ctx->nb_entry_per_page + 1);
+		} else {
+			$nb_pages = ceil($nb_posts / $_ctx->nb_entry_per_page);
+		}
 
 		return $nb_pages;
 	}
