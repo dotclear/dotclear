@@ -1117,6 +1117,7 @@ class dcTemplate extends template
 			if ($lastn > 0) {
 				// nb of entries per page specified in template -> regular pagination
 				$p .= "\$params['limit'] = ".$lastn.";\n";
+				$p .= "\$_ctx->nb_entry_first_page = \$_ctx->nb_entry_per_page = ".$lastn.";\n";
 			} else {
 				// nb of entries per page not specified -> use ctx settings
 				$p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
