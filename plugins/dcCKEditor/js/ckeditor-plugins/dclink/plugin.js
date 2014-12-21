@@ -4,7 +4,8 @@
 		init: function(editor) {
 			editor.addCommand('dcLinkCommand', {
 				exec: function(editor) {
-					if (editor.getSelection().getNative().toString().replace(/\s*/,'')!='') {
+					if (editor.getSelection().getSelectedElement()!=null
+					    || editor.getSelection().getNative().toString().replace(/\s*/,'')!='') {
 						$.toolbarPopup('popup_link.php?plugin_id=dcCKEditor');
 					}
 				}

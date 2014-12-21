@@ -1,10 +1,13 @@
+@import "compass/utilities/sprites";
+@import "icons/*.png";
+@import "icons/hidpi/*.png";
+
 /* dialog modal */
 
-.cke_dialog
-{
-	/* Mandatory: Because the dialog.css file is loaded on demand, we avoid
-		showing an unstyled dialog by hidding it. Here, we restore its visibility. */
-	visibility: visible;
+.cke_dialog {
+    /* Mandatory: Because the dialog.css file is loaded on demand, we avoid
+       showing an unstyled dialog by hidding it. Here, we restore its visibility. */
+    visibility: visible;
 }
 
 /* The inner boundary container. */
@@ -285,21 +288,18 @@ a.cke_dialog_tab_disabled
 
 .cke_dialog_close_button
 {
-	background-image: url(images/close.png);
-	background-repeat: no-repeat;
-	background-position: 0 0;
-	position: absolute;
-	cursor: pointer;
-	text-align: center;
-	height: 20px;
-	width: 20px;
-	top: 5px;
-	z-index: 5;
+    @include icons-sprite(close);
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    top: 5px;
+    z-index: 5;
 }
 
 .cke_hidpi .cke_dialog_close_button {
-	background-image: url(images/hidpi/close.png);
-	background-size: 16px;
+    @include hidpi-sprite(close);
 }
 
 .cke_dialog_close_button span
@@ -774,22 +774,20 @@ select.cke_dialog_ui_input_select
 
 .cke_dialog a.cke_btn_reset
 {
-	float: right;
-	background: url(images/refresh.png) top left no-repeat;
-	width: 16px;
-	height: 16px;
-	border: 1px none;
-	font-size: 1px;
+    @include icons-sprite(refresh);
+    float: right;
+    width: 16px;
+    height: 16px;
+    border: 1px none;
+    font-size: 1px;
 }
 
 .cke_hidpi .cke_dialog a.cke_btn_reset {
-	background-size: 16px;
-	background-image: url(images/hidpi/refresh.png);
+    @include hidpi-sprite(refresh);
 }
 
-.cke_rtl .cke_dialog a.cke_btn_reset
-{
-	float: left;
+.cke_rtl .cke_dialog a.cke_btn_reset {
+    float: left;
 }
 
 .cke_dialog a.cke_btn_locked,
@@ -814,33 +812,30 @@ select.cke_dialog_ui_input_select
 	float: right;
 }
 
-.cke_dialog a.cke_btn_locked
-{
-	background-image: url(images/lock.png);
+.cke_dialog a.cke_btn_locked {
+    @include icons-sprite(lock);
 }
 
-.cke_dialog a.cke_btn_unlocked
-{
-	background-image: url(images/lock-open.png);
+.cke_dialog a.cke_btn_unlocked {
+    @include icons-sprite(lock-open);
 }
 
 .cke_hidpi .cke_dialog a.cke_btn_unlocked,
 .cke_hidpi .cke_dialog a.cke_btn_locked {
-	background-size: 16px;
+    background-size: 16px;
 }
 
 .cke_hidpi .cke_dialog a.cke_btn_locked {
-	background-image: url(images/hidpi/lock.png);
+    @include hidpi-sprite(lock);
 }
 
 .cke_hidpi .cke_dialog a.cke_btn_unlocked {
-	background-image: url(images/hidpi/lock-open.png);
+    @include hidpi-sprite(lock-open);
 }
 
-.cke_dialog .cke_btn_over
-{
-	border: outset 1px;
-	cursor: pointer;
+.cke_dialog .cke_btn_over {
+    border: outset 1px;
+    cursor: pointer;
 }
 
 /*

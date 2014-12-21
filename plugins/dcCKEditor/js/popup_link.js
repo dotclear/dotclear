@@ -12,19 +12,28 @@ $(function() {
 		var editor_name = window.opener.$.getEditorName(),
 		editor = window.opener.CKEDITOR.instances[editor_name],
 		link = '',
-		selected_text = editor.getSelection().getNative().toString();
+		selected_element;
+		if (editor.getSelection().getSelectedElement()!=null) {
+			selected_element = editor.getSelection().getSelectedElement();
+		} else {
+			selected_element = editor.getSelection().getNative().toString();
+		}
 
 		if (editor.mode=='wysiwyg') {
-			link = '<a href="'+insert_form.elements.href.value+'"';
+			var link = editor.document.createElement('a');
+			link.setAttribute('href', insert_form.elements.href.value);
 			if (insert_form.elements.title.value!='') {
-				link += ' title="'+insert_form.elements.title.value+'"';
+				link.setAttribute('title', insert_form.elements.title.value);
 			}
 			if (insert_form.elements.hreflang.value!='') {
-				link += ' hreflang="'+insert_form.elements.hreflang.value+'"';
+				link.setAttribute('hreflang', insert_form.elements.hreflang.value);
 			}
-			link += '>'+selected_text+'</a>';
-			var element = window.opener.CKEDITOR.dom.element.createFromHtml(link);
-			editor.insertElement(element);
+			if (editor.getSelection().getSelectedElement()!=null) {
+				selected_element.appendTo(link);
+			} else {
+				link.appendText(selected_element);
+			}
+			editor.insertElement(link);
 		}
 		window.close();
 	});

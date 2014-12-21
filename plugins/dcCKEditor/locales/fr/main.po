@@ -62,3 +62,6 @@ msgstr "Liste des blocs où utiliser CKEditor"
 #: tpl/index.tpl:55
 msgid "Comma separed list of textareas - jQuery selector. Defaut: "
 msgstr "Listes d'élements html à transformer avec CKEditor - C'est une liste utilisée par jQuery. Défaut : "
+
+msgid "URL field cannot be empty."
+msgstr "L'URL ne peut pas être vide."
