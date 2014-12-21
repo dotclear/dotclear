@@ -138,7 +138,7 @@ class tplSimpleMenu
 
 			// Final rendering
 			if ($ret) {
-				$ret = '<ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'" role="navigation">'."\n".$ret."\n".'</ul>';
+				$ret = '<nav role="navigation"><ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'>'."\n".$ret."\n".'</ul></nav>';
 			}
 		}
 
