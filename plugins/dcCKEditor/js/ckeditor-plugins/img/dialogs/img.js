@@ -1,6 +1,6 @@
-CKEDITOR.dialog.add('externalMediaDialog', function(editor) {
+CKEDITOR.dialog.add('imgDialog', function(editor) {
 	return {
-		title: dotclear.msg.external_media_title,
+		title: dotclear.msg.img_title,
 		minWidth: 400,
 		minHeight: 100,
 		contents: [{

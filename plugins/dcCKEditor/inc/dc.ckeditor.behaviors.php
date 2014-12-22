@@ -48,7 +48,7 @@ class dcCKEditorBehaviors
             "dotclear.msg.img_select_title = '".html::escapeJS(__('Media chooser'))."'; ".
             "dotclear.msg.post_link_title = '".html::escapeJS(__('Link to an entry'))."'; ".
             "dotclear.msg.link_title = '".html::escapeJS(__('Link'))."'; ".
-            "dotclear.msg.external_media_title = '".html::escapeJS(__('External image'))."'; ".
+            "dotclear.msg.img_title = '".html::escapeJS(__('External image'))."'; ".
             "dotclear.msg.url_cannot_be_empty = '".html::escapeJS(__('URL field cannot be empty.'))."';".
             "\n//]]>\n".
             "</script>\n".
