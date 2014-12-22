@@ -81,7 +81,7 @@ $(function() {
 	CKEDITOR.plugins.addExternal('entrylink',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/entrylink/');
 	CKEDITOR.plugins.addExternal('dclink',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/dclink/');
 	CKEDITOR.plugins.addExternal('media',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/media/');
-	CKEDITOR.plugins.addExternal('external-media',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/external-media/');
+	CKEDITOR.plugins.addExternal('img',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/img/');
 
 <?php if (!empty($extraPlugins) && count($extraPlugins)>0) {
 	foreach ($extraPlugins as $plugin) {
@@ -94,7 +94,7 @@ $(function() {
     }
 	$(dotclear.ckeditor_tags_context[dotclear.ckeditor_context].join(',')).ckeditor({
 <?php
-$defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,external-media';
+$defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,img';
 if (!empty($extraPlugins) && count($extraPlugins)>0) {
 	foreach ($extraPlugins as $plugin) {
 		$defautExtraPlugins .= ','. $plugin['name'];
@@ -158,7 +158,7 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 			{
 				name: 'custom',
 				items: [
-					'EntryLink','dcLink','Media','dcExternalMedia','-',
+					'EntryLink','dcLink','Media','img','-',
 					'Source'
 <?php if (!empty($dcckeditor_textcolor_button)):?>
                 ,'TextColor'
