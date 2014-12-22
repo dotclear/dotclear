@@ -52,7 +52,7 @@ class defaultWidgets
 
 		$res =
 		($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').
-		'<nav role="navigation"><ul>';
+		'<ul role="navigation">';
 
 		if ($core->url->type != 'default') {
 			$res .=
@@ -65,7 +65,7 @@ class defaultWidgets
 		'<li class="topnav-arch">'.
 		'<a href="'.$core->blog->url.$core->url->getURLFor("archive").'">'.
 		__('Archives').'</a></li>'.
-		'</ul></nav>';
+		'</ul>';
 
 		return $w->renderDiv($w->content_only,$w->class,'id="topnav"',$res);
 	}
