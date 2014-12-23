@@ -76,10 +76,10 @@ $popup = (integer) !empty($_GET['popup']);
 
 $page_url_params = new ArrayObject(array('popup' => $popup,'post_id' => $post_id));
 if ($d) {
-	$page_url_params ['d'] = rawurlencode($d);
+	$page_url_params['d'] = $d;
 }
 if ($plugin_id != '') {
-	$page_url_params ['plugin_id'] = $plugin_id;
+	$page_url_params['plugin_id'] = $plugin_id;
 }
 
 $core->callBehavior('adminMediaURLParams',$page_url_params);
