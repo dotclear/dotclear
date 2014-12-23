@@ -96,7 +96,7 @@ class dcAdminURL
 	 * @param  string $name      URL Name
 	 * @param  array  $params    query string parameters, given as an associative array
 	 * @param  boolean $urlencode set to true if url may not be encoded
-	 * @param  string $separator separator to use between QS parameters
+	 * @param  string $suffix suffix to be added to the QS parameters
 	 * @return string            the forged url
 	 */
 	public function redirect($name,$params=array(),$suffix="")
