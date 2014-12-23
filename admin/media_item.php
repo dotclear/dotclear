@@ -33,7 +33,8 @@ $page_url_params = array('popup' => $popup,'post_id' => $post_id);
 $media_page_url_params = array('popup' => $popup,'post_id' => $post_id);
 
 if ($plugin_id != '') {
-	$page_url_params ['plugin_id'] = $plugin_id;
+	$page_url_params['plugin_id'] = $plugin_id;
+	$media_page_url_params['plugin_id'] = $plugin_id;
 }
 
 $id = !empty($_REQUEST['id']) ? (integer) $_REQUEST['id'] : '';
@@ -681,10 +682,7 @@ if ($file->editable && $core_media_writable)
 
 	if ($file->del) {
 		echo
-		'<form id="delete-form" method="post" action="'.$core->adminurl->getBase("admin.media").
-		'&amp;d='.rawurlencode(dirname($file->relname)).
-		'&amp;plugin_id='.$plugin_id.
-		'&amp;remove='.rawurlencode($file->basename).'">'.
+		'<form id="delete-form" method="post" action="'.$core->adminurl->getBase("admin.media").'">'.
 		'<p><input name="delete" type="submit" class="delete" value="'.__('Delete this media').'" />'.
 		form::hidden('remove',rawurlencode($file->basename)).
 		form::hidden('rmyes',1).
