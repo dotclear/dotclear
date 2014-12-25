@@ -41,9 +41,6 @@ if (!empty($_POST['saveconfig'])) {
 
             $dcckeditor_clipboard_buttons = (empty($_POST['dcckeditor_clipboard_buttons']))?false:true;
             $core->blog->settings->dcckeditor->put('clipboard_buttons', $dcckeditor_clipboard_buttons, 'boolean');
-
-            $dcckeditor_textareas = (!empty($_POST['dcckeditor_textareas']))?trim($_POST['dcckeditor_textareas']):'';
-            $core->blog->settings->dcckeditor->put('textareas', $dcckeditor_textareas, 'string');
         }
 
         dcPage::addSuccessNotice(__('The configuration has been updated.'));

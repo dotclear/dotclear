@@ -20,7 +20,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 if (!empty($_GET['default_blog'])) {
 	try {
 		$core->setUserDefaultBlog($core->auth->userID(),$core->blog->id);
-		http::redirect($core->adminurl->get("admin.home"));
+		$core->adminurl->redirect("admin.home");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -35,7 +35,7 @@ if (!empty($_GET['logout'])) {
 		unset($_COOKIE['dc_admin']);
 		setcookie('dc_admin',false,-600,'','',DC_ADMIN_SSL);
 	}
-	http::redirect($core->adminurl->get("admin.auth"));
+	$core->adminurl->redirect("admin.auth");
 	exit;
 }
 
@@ -175,7 +175,8 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		$post_format = $core->auth->getOption('post_format');
 		$post_editor = $core->auth->getOption('editor');
 		if ($post_editor && !empty($post_editor[$post_format])) {
-			$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'post');
+			// context is not post because of tags not available
+			$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', array('#post_content'));
 		}
 	}
 }

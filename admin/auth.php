@@ -15,7 +15,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 # If we have a session cookie, go to index.php
 if (isset($_SESSION['sess_user_id']))
 {
-	http::redirect($core->adminurl->get('admin.home'));
+	$core->adminurl->redirect('admin.home');
 }
 
 # Loading locales for detected language
@@ -184,7 +184,7 @@ elseif ($change_pwd)
 			setcookie('dc_admin',$data['cookie_admin'],strtotime('+15 days'),'','',DC_ADMIN_SSL);
 		}
 
-		http::redirect($core->adminurl->get('admin.home'));
+		$core->adminurl->redirect('admin.home');
 	}
 	catch (Exception $e)
 	{
@@ -242,7 +242,7 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 			setcookie('dc_admin',$cookie_admin,strtotime('+15 days'),'','',DC_ADMIN_SSL);
 		}
 
-		http::redirect($core->adminurl->get('admin.home'));
+		$core->adminurl->redirect('admin.home');
 	}
 	else
 	{

@@ -57,7 +57,7 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
 		}
 
 		var editor = CKEDITOR.instances[$.getEditorName()];
-		if (!confirmClosePage.formSubmit && editor.checkDirty()) {
+		if (editor!==undefined && !confirmClosePage.formSubmit && editor.checkDirty()) {
 			e.returnValue = confirmClosePage.prompt;
 			return confirmClosePage.prompt;
 		}
@@ -72,6 +72,7 @@ $(function() {
 
 	CKEDITOR.timestamp = '';
 	CKEDITOR.config.skin = 'dotclear,'+dotclear.dcckeditor_plugin_url+'/js/ckeditor-skins/dotclear/';
+    CKEDITOR.config.baseHref = dotclear.base_url;
 
 <?php if (!empty($dcckeditor_cancollapse_button)):?>
 	CKEDITOR.config.toolbarCanCollapse = true;
@@ -80,6 +81,7 @@ $(function() {
 	CKEDITOR.plugins.addExternal('entrylink',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/entrylink/');
 	CKEDITOR.plugins.addExternal('dclink',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/dclink/');
 	CKEDITOR.plugins.addExternal('media',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/media/');
+	CKEDITOR.plugins.addExternal('img',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/img/');
 
 <?php if (!empty($extraPlugins) && count($extraPlugins)>0) {
 	foreach ($extraPlugins as $plugin) {
@@ -87,10 +89,12 @@ $(function() {
 	}
 }
 ?>
-
-	$('<?php echo $dcckeditor_textareas;?>').ckeditor({
+    if (dotclear.ckeditor_context===undefined || dotclear.ckeditor_tags_context[dotclear.ckeditor_context]===undefined) {
+        return;
+    }
+	$(dotclear.ckeditor_tags_context[dotclear.ckeditor_context].join(',')).ckeditor({
 <?php
-$defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format';
+$defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,img';
 if (!empty($extraPlugins) && count($extraPlugins)>0) {
 	foreach ($extraPlugins as $plugin) {
 		$defautExtraPlugins .= ','. $plugin['name'];
@@ -154,13 +158,19 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 			{
 				name: 'custom',
 				items: [
-					'EntryLink','dcLink','Media','-',
-					'Source', 'Maximize'
+					'EntryLink','dcLink','Media','img','-',
+					'Source'
 <?php if (!empty($dcckeditor_textcolor_button)):?>
                 ,'TextColor'
 <?php endif;?>
 				]
 			},
+            {
+                name: 'special',
+                items: [
+                    'Maximize'
+                ]
+            },
 			<?php // add extra buttons comming from dotclear plugins
 			if (!empty($extraPlugins) && count($extraPlugins)>0) {
 				$extraPlugins_str = "{name: 'extra', items: [%s]},\n";

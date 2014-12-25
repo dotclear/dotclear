@@ -84,7 +84,7 @@ if ($cat_id && isset($_POST['cat_parent']))
 		try {
 			$core->blog->setCategoryParent($cat_id,$new_parent);
 			dcPage::addSuccessNotice(__('The category has been successfully moved'));
-			http::redirect($core->adminurl->get("admin.categories"));
+			$core->adminurl->redirect("admin.categories");
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -97,7 +97,7 @@ if ($cat_id && isset($_POST['cat_sibling']))
 	try {
 		$core->blog->setCategoryPosition($cat_id,(integer) $_POST['cat_sibling'],$_POST['cat_move']);
 		dcPage::addSuccessNotice(__('The category has been successfully moved'));
-		http::redirect($core->adminurl->get("admin.categories"));
+		$core->adminurl->redirect("admin.categories");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -135,7 +135,7 @@ if (isset($_POST['cat_title']))
 
 			dcPage::addSuccessNotice(__('The category has been successfully updated.'));
 
-			http::redirect($core->adminurl->get("admin.category",array('id' => $_POST['id'])));
+			$core->adminurl->redirect("admin.category",array('id' => $_POST['id']));
 		}
 		# Create category
 		else
@@ -150,7 +150,7 @@ if (isset($_POST['cat_title']))
 
 			dcPage::addSuccessNotice(sprintf(__('The category "%s" has been successfully created.'),
 				html::escapeHTML($cur->cat_title)));
-			http::redirect($core->adminurl->get("admin.categories"));
+			$core->adminurl->redirect("admin.categories");
 		}
 	}
 	catch (Exception $e)

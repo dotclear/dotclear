@@ -1117,14 +1117,23 @@ class dcTemplate extends template
 			if ($lastn > 0) {
 				// nb of entries per page specified in template -> regular pagination
 				$p .= "\$params['limit'] = ".$lastn.";\n";
+				$p .= "\$_ctx->nb_entry_first_page = \$_ctx->nb_entry_per_page = ".$lastn.";\n";
 			} else {
 				// nb of entries per page not specified -> use ctx settings
-				$p .= "\$params['limit'] = (\$_page_number == 1 ? \$_ctx->nb_entry_first_page : \$_ctx->nb_entry_per_page);\n";
+				$p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
+				$p .= "    \$params['limit'] = (\$_page_number == 1 ? \$_ctx->nb_entry_first_page : \$_ctx->nb_entry_per_page);\n";
+				$p .= "} else {\n";
+				$p .= "    \$params['limit'] = \$_ctx->nb_entry_per_page;\n";
+				$p .= "}\n";
 			}
 			// Set offset (aka index of first entry)
 			if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == "0") {
 				// standard pagination, set offset
-				$p .= "\$params['limit'] = array((\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$_ctx->nb_entry_per_page + \$_ctx->nb_entry_first_page),\$params['limit']);\n";
+				$p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
+				$p .= "    \$params['limit'] = array((\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$_ctx->nb_entry_per_page + \$_ctx->nb_entry_first_page),\$params['limit']);\n";
+				$p .= "} else {\n";
+				$p .= "    \$params['limit'] = array((\$_page_number - 1) * \$_ctx->nb_entry_per_page,\$params['limit']);\n";
+				$p .= "}\n";
 			} else {
 				// no pagination, get all posts from 0 to limit
 				$p .= "\$params['limit'] = array(0, \$params['limit']);\n";
