@@ -72,7 +72,7 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 	$nb_per_page = $_SESSION['nb_per_page'] = (integer)$_GET['nb_per_page'];
 }
 
-$popup = (integer) !empty($_GET['popup']);
+$popup = (integer) !empty($_REQUEST['popup']);
 
 $page_url_params = new ArrayObject(array('popup' => $popup,'post_id' => $post_id));
 if ($d) {
