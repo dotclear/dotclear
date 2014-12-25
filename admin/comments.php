@@ -19,7 +19,7 @@ if (!empty($_POST['delete_all_spam']))
 	try {
 		$core->blog->delJunkComments();
 		$_SESSION['comments_del_spam'] = true;
-		http::redirect($core->adminurl->get("admin.comments"));
+		$core->adminurl->redirect("admin.comments");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}

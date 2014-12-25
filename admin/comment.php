@@ -133,7 +133,7 @@ if (!$core->error->flag() && isset($rs))
 			$core->callBehavior('adminAfterCommentUpdate',$cur,$comment_id);
 
 			dcPage::addSuccessNotice(__('Comment has been successfully updated.'));
-			http::redirect($core->adminurl->get("admin.comment",array('id' => $comment_id)));
+			$core->adminurl->redirect("admin.comment",array('id' => $comment_id));
 		}
 		catch (Exception $e)
 		{
@@ -182,7 +182,7 @@ if ($comment_id) {
 dcPage::open(__('Edit comment'),
 	dcPage::jsConfirmClose('comment-form').
 	dcPage::jsLoad('js/_comment.js').
-	$core->callBehavior('adminPostEditor',$comment_editor['xhtml'],'comment').
+	$core->callBehavior('adminPostEditor',$comment_editor['xhtml'],'comment',array('#comment_content')).
 	# --BEHAVIOR-- adminCommentHeaders
 	$core->callBehavior('adminCommentHeaders'),
 	$breadcrumb

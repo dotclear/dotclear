@@ -15,6 +15,6 @@ $this->registerModule(
 	/* Name */			"dcLegacyEditor",
 	/* Description*/	"dotclear legacy editor",
 	/* Author */		"dotclear Team",
-	/* Version */		'0.1.0',
+	/* Version */		'0.1.1',
 	/* Options */       array('permissions' => 'admin', 'type' => 'plugin')
 );

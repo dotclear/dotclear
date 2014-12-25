@@ -55,7 +55,7 @@ else
 	}
 
 	$action = $core->adminurl->get("admin.blog");
-	$redir = $core->adminurl->get("admin.blog",array('id' => "%s"));
+	$redir = $core->adminurl->get("admin.blog",array('id' => "%s"),'&',true);
 }
 
 # Language codes
@@ -756,7 +756,7 @@ if ($blog_id)
 					echo
 					'<form action="'.$core->adminurl->get('admin.user.actions').'" method="post">'.
 					'<p class="change-user-perm"><input type="submit" class="reset" value="'.__('Change permissions').'" />'.
-					form::hidden(array('redir'),$core->adminurl->get("admin.blog.pref",array('id' => $k))).
+					form::hidden(array('redir'),$core->adminurl->get("admin.blog.pref",array('id' => $k),'&')).
 					form::hidden(array('action'),'perms').
 					form::hidden(array('users[]'),$k).
 					form::hidden(array('blogs[]'),$blog_id).

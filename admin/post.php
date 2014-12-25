@@ -40,9 +40,8 @@ $can_edit_post = $core->auth->check('usage,contentadmin',$core->blog->id);
 $can_publish = $core->auth->check('publish,contentadmin',$core->blog->id);
 $can_delete = false;
 
-$post_headlink = '<link rel="%s" title="%s" href="'.$core->adminurl->get('admin.post',array('id' => "%s"),false,'&').'" />';
-$post_link = '<a href="'.$core->adminurl->get('admin.post',array('id' => "%s"),false,'&').'" title="%s">%s</a>';
-
+$post_headlink = '<link rel="%s" title="%s" href="'.$core->adminurl->get('admin.post',array('id' => "%s"),'&amp;',true).'" />';
+$post_link = '<a href="'.$core->adminurl->get('admin.post',array('id' => "%s"),'&amp;',true).'" title="%s">%s</a>';
 $next_link = $prev_link = $next_headlink = $prev_headlink = null;
 
 # If user can't publish
@@ -177,10 +176,10 @@ if (!empty($_POST['ping']))
 
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('All pings sent.'));
-			http::redirect($core->adminurl->get(
+			$core->adminurl->redirect(
 				'admin.post',
 				array('id' => $post_id, 'tb'=> '1')
-			));
+			);
 		}
 	}
 }
@@ -242,7 +241,7 @@ if (!empty($_POST['delete']) && $can_delete)
 		# --BEHAVIOR-- adminBeforePostDelete
 		$core->callBehavior('adminBeforePostDelete',$post_id);
 		$core->blog->delPost($post_id);
-		http::redirect($core->adminurl->get("admin.posts"));
+		$core->adminurl->redirect("admin.posts");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -303,10 +302,10 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			# --BEHAVIOR-- adminAfterPostUpdate
 			$core->callBehavior('adminAfterPostUpdate',$cur,$post_id);
 			dcPage::addSuccessNotice (sprintf(__('The post "%s" has been successfully updated'),html::escapeHTML($cur->post_title)));
-			http::redirect($core->adminurl->get(
+			$core->adminurl->redirect(
 				'admin.post',
 				array('id' => $post_id)
-			));
+			);
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -323,10 +322,10 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 			$core->callBehavior('adminAfterPostCreate',$cur,$return_id);
 
 			dcPage::addSuccessNotice(__('Entry has been successfully created.'));
-			http::redirect($core->adminurl->get(
+			$core->adminurl->redirect(
 				'admin.post',
 				array('id' => $return_id)
-			));
+			);
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -375,8 +374,23 @@ if ($post_id) {
 
 
 $admin_post_behavior = '';
-if ($post_editor && !empty($post_editor[$post_format])) {
-	$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'post');
+if ($post_editor) {
+    $p_edit = $c_edit = '';
+    if (!empty($post_editor[$post_format])) {
+        $p_edit = $post_editor[$post_format];
+    }
+    if (!empty($post_editor['xhtml'])) {
+        $c_edit = $post_editor['xhtml'];
+    }
+    if ($p_edit == $c_edit) {
+        $admin_post_behavior .= $core->callBehavior('adminPostEditor',
+            $p_edit,'post',array('#post_excerpt','#post_content','#comment_content'));
+    } else {
+        $admin_post_behavior .= $core->callBehavior('adminPostEditor',
+            $p_edit,'post',array('#post_excerpt','#post_content'));
+        $admin_post_behavior .= $core->callBehavior('adminPostEditor',
+            $c_edit,'comment',array('#comment_content'));
+    }
 }
 
 dcPage::open($page_title.' - '.__('Entries'),

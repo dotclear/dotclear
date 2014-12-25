@@ -51,7 +51,7 @@ if (!isset($_POST['id']) && (isset($_POST['create'])))
 		# --BEHAVIOR-- adminAfterBlogCreate
 		$core->callBehavior('adminAfterBlogCreate',$cur,$blog_id,$blog_settings);
 		dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), html::escapeHTML($cur->blog_name)));
-		http::redirect($core->adminurl->get("admin.blog", array('id' => $cur->blog_id)));
+		$core->adminurl->redirect("admin.blog", array('id' => $cur->blog_id));
 	}
 	catch (Exception $e)
 	{

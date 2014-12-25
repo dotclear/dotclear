@@ -12,7 +12,8 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$is_super_admin = $core->auth->isSuperAdmin();
+$is_admin = $core->auth->check('admin,contentadmin', $core->blog->id) || $core->auth->isSuperAdmin();
+
 $core->blog->settings->addNameSpace('dcckeditor');
 $dcckeditor_active = $core->blog->settings->dcckeditor->active;
 $dcckeditor_alignment_buttons = $core->blog->settings->dcckeditor->alignment_buttons;
@@ -21,7 +22,6 @@ $dcckeditor_textcolor_button = $core->blog->settings->dcckeditor->textcolor_butt
 $dcckeditor_cancollapse_button = $core->blog->settings->dcckeditor->cancollapse_button;
 $dcckeditor_format_select = $core->blog->settings->dcckeditor->format_select;
 $dcckeditor_table_button = $core->blog->settings->dcckeditor->table_button;
-$dcckeditor_textareas = $core->blog->settings->dcckeditor->textareas;
 $dcckeditor_clipboard_buttons = $core->blog->settings->dcckeditor->clipboard_buttons;
 
 if (!empty($_GET['config'])) {
