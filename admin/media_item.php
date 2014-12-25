@@ -27,7 +27,7 @@ if ($post_id) {
 }
 
 $file = null;
-$popup = (integer) !empty($_GET['popup']);
+$popup = (integer) !empty($_REQUEST['popup']);
 $plugin_id = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
 $page_url_params = array('popup' => $popup,'post_id' => $post_id);
 $media_page_url_params = array('popup' => $popup,'post_id' => $post_id);
