@@ -615,7 +615,7 @@ function mediaItemLine($f,$i)
 		$fname = substr($fname, 0, $maxchars-4).'...'.($f->d ? '' : files::getExtension($fname));
 	}
 	$res =
-	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.$link.'">'.
+	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.rawurldecode($link).'">'.
 	'<img src="'.$f->media_icon.'" alt="" />'.$fname.'</a></p>';
 
 	$lst = '';
