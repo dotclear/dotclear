@@ -54,25 +54,25 @@ __('Ascending') => 'asc'
 
 /* Get comments
 -------------------------------------------------------- */
-$author = isset($_GET['author']) ?	$_GET['author'] : '';
-$status = isset($_GET['status']) ?		$_GET['status'] : '';
-$type = !empty($_GET['type']) ?		$_GET['type'] : '';
-$sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'comment_dt';
-$order = !empty($_GET['order']) ?		$_GET['order'] : 'desc';
-$ip = !empty($_GET['ip']) ?			$_GET['ip'] : '';
+$author = isset($_REQUEST['author']) ?	$_REQUEST['author'] : '';
+$status = isset($_REQUEST['status']) ?		$_REQUEST['status'] : '';
+$type = !empty($_REQUEST['type']) ?		$_REQUEST['type'] : '';
+$sortby = !empty($_REQUEST['sortby']) ?	$_REQUEST['sortby'] : 'comment_dt';
+$order = !empty($_REQUEST['order']) ?		$_REQUEST['order'] : 'desc';
+$ip = !empty($_REQUEST['ip']) ?			$_REQUEST['ip'] : '';
 
 $with_spam = $author || $status || $type || $sortby != 'comment_dt' || $order != 'desc' || $ip;
 
 $show_filters = false;
 
-$page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
+$page = !empty($_REQUEST['page']) ? max(1,(integer) $_REQUEST['page']) : 1;
 $nb_per_page =  30;
 
-if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-	if ($nb_per_page != $_GET['nb']) {
+if (!empty($_REQUEST['nb']) && (integer) $_REQUEST['nb'] > 0) {
+	if ($nb_per_page != $_REQUEST['nb']) {
 		$show_filters = true;
 	}
-	$nb_per_page = (integer) $_GET['nb'];
+	$nb_per_page = (integer) $_REQUEST['nb'];
 }
 
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
@@ -135,7 +135,34 @@ if ($core->auth->check('delete,contentadmin',$core->blog->id) && $status == -2)
 	$default = 'delete';
 }
 
-$comments_actions_page = new dcCommentsActionsPage($core,$core->adminurl->get("admin.comments"));
+# Les paramètres à conserver d’une action à l’autre. Évite par exemple de revenir sur la liste des commentaires après une action sur les indésirables.
+$action_page_params = array();
+if($type) {
+    $action_page_params['type'] = $type;
+}
+if($author) {
+    $action_page_params['author'] = $author;
+}
+if($status) {
+    $action_page_params['status'] = $status;
+}
+if($sortby != 'comment_dt') { // 'comment_dt' par défaut.
+    $action_page_params['sortby'] = $sortby;
+}
+if($ip) {
+    $action_page_params['ip'] = $ip;
+}
+if($order && $order != 'desc') { // Desc par défaut
+    $action_page_params['order'] = $order;
+}
+if($page > 1) { // Page 1 par défaut
+    $action_page_params['page'] = $page;
+}
+if($nb_per_page != 30) { //30 par défaut
+    $action_page_params['nb'] = $nb_per_page;
+}
+
+$comments_actions_page = new dcCommentsActionsPage($core,$core->adminurl->get("admin.comments"), $action_page_params);
 
 if ($comments_actions_page->process()) {
 	return;
@@ -173,9 +200,9 @@ dcPage::open(__('Comments and trackbacks'),$starting_script,
 			__('Comments and trackbacks') => ''
 		))
 );
-if (!empty($_GET['upd'])) {
+if (!empty($_REQUEST['upd'])) {
 	dcPage::success(__('Selected comments have been successfully updated.'));
-} elseif (!empty($_GET['del'])) {
+} elseif (!empty($_REQUEST['del'])) {
 	dcPage::success(__('Selected comments have been successfully deleted.'));
 }
 
