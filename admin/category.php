@@ -173,10 +173,12 @@ if ($cat_id) {
 }
 $elements[$title] = '';
 
+$category_editor = $core->auth->getOption('editor');
+
 dcPage::open($title,
 	dcPage::jsConfirmClose('category-form').
-	dcPage::jsLoad('js/_category.js'),
-	$core->callBehavior('adminPostEditor').
+	dcPage::jsLoad('js/_category.js').
+	$core->callBehavior('adminPostEditor',$category_editor['xhtml'],'category',array('#cat_desc')),
 	dcPage::breadcrumb($elements)
 );
 
