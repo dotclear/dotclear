@@ -16,7 +16,7 @@ dcPage::check('media,media_admin');
 
 $tab = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 
-$post_id = !empty($_GET['post_id']) ? (integer) $_GET['post_id'] : null;
+$post_id = !empty($_REQUEST['post_id']) ? (integer) $_REQUEST['post_id'] : null;
 if ($post_id) {
 	$post = $core->blog->getPosts(array('post_id'=>$post_id));
 	if ($post->isEmpty()) {

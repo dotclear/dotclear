@@ -16,7 +16,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('media,media_admin');
 
-$post_id = !empty($_GET['post_id']) ? (integer) $_GET['post_id'] : null;
+$post_id = !empty($_REQUEST['post_id']) ? (integer) $_REQUEST['post_id'] : null;
 if ($post_id) {
 	$post = $core->blog->getPosts(array('post_id'=>$post_id,'post_type'=>''));
 	if ($post->isEmpty()) {
