@@ -19,6 +19,7 @@ class dcThemeEditor
 	protected $parent_theme;
 	protected $tplset_theme;
 
+	protected $parent_name;
 	protected $tplset_name;
 
 	public $tpl = array();
@@ -37,6 +38,7 @@ class dcThemeEditor
 			$parent_theme = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme,'parent');
 			if ($parent_theme) {
 				$this->parent_theme = path::real($this->core->blog->themes_path.'/'.$parent_theme);
+				$this->parent_name = $parent_theme;
 			}
 			$tplset = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme,'tplset');
 			if ($tplset) {
@@ -77,8 +79,10 @@ class dcThemeEditor
 				}
 			}
 			$list .= ($list_theme != '' ? sprintf('<li class="group-file">'.__('From theme:').'<ul>%s</ul></li>',$list_theme) : '');
-			$list .= ($list_parent != '' ? sprintf('<li class="group-file">'.__('From parent:').'<ul>%s</ul></li>',$list_parent) : '');
-			$list .= ($list_tpl != '' ? sprintf('<li class="group-file">'.__('From template set:').'<ul>%s</ul></li>',$list_tpl) : '');
+			$list .= ($list_parent != '' ? sprintf('<li class="group-file">'.__('From parent:').' %s<ul>%s</ul></li>',
+				$this->parent_name,$list_parent) : '');
+			$list .= ($list_tpl != '' ? sprintf('<li class="group-file">'.__('From template set:').' %s<ul>%s</ul></li>',
+				$this->tplset_name,$list_tpl) : '');
 		} else {
 			foreach ($files as $k => $v)
 			{
