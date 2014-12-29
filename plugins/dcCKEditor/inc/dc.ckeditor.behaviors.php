@@ -77,7 +77,7 @@ class dcCKEditorBehaviors
 
     public static function adminMediaURLParams($p) {
         if (!empty($_GET['editor'])) {
-            $p['editor'] = html::sanitiseURL($_GET['editor']);
+            $p['editor'] = html::sanitizeURL($_GET['editor']);
         }
     }
 
