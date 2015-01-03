@@ -258,7 +258,7 @@ h1 a {
 /* ------------------------------------------------------------
 	6. BILLETS
 ------------------------------------------------------------- */
-.post {
+div.post {
 	background: transparent url(img/filet.png) repeat-x left bottom;
 	position: relative;
 	padding-bottom: 1.5em;
