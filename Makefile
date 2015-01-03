@@ -66,6 +66,7 @@ config: clean config-stamp
 	find ./$(DIST)/ -type d -name '.hg'  | xargs -r rm -rf
 	find ./$(DIST)/ -type d -name '.git' | xargs -r rm -rf
 	find ./$(DIST)/ -type f -name '.*ignore' | xargs -r rm -rf
+	find ./$(DIST)/ -type f -name '.flow' | xargs -r rm -rf
 
 	## Create digest
 	cd $(DC) && ( \
