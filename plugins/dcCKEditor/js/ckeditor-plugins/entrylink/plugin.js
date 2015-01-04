@@ -23,7 +23,7 @@
 				if (!element.isReadOnly()) {
 					if (element.is('a')
 					    && !element.hasClass('media-link')
-					    && element.hasClass('post')) { // link to original media @see js/popup_media.js
+					    && element.hasClass('ref-post')) { // link to original media @see js/popup_media.js
 						editor.getSelection().selectElement(element);
 
 						$.toolbarPopup('popup_posts.php?popup=1&plugin_id=dcCKEditor', popup_params);
