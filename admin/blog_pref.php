@@ -159,130 +159,157 @@ if (is_dir($jquery_root) && is_readable($jquery_root)) {
 }
 
 # Update a blog
-if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
+if ($blog_id && $core->auth->check('admin',$blog_id))
 {
-	$cur = $core->con->openCursor($core->prefix.'blog');
-	if ($core->auth->isSuperAdmin()) {
-		$cur->blog_id = $_POST['blog_id'];
-		$cur->blog_url = preg_replace('/\?+$/','?',$_POST['blog_url']);
-		if (in_array($_POST['blog_status'],$status_combo)) {
-			$cur->blog_status = (integer) $_POST['blog_status'];
-		}
-	}
-	$cur->blog_name = $_POST['blog_name'];
-	$cur->blog_desc = $_POST['blog_desc'];
-
-	$media_img_t_size = abs((integer) $_POST['media_img_t_size']);
-	if ($media_img_t_size < 0) { $media_img_t_size = 100; }
-
-	$media_img_s_size = abs((integer) $_POST['media_img_s_size']);
-	if ($media_img_s_size < 0) { $media_img_s_size = 240; }
-
-	$media_img_m_size = abs((integer) $_POST['media_img_m_size']);
-	if ($media_img_m_size < 0) { $media_img_m_size = 448; }
-
-	$nb_post_for_home = abs((integer) $_POST['nb_post_for_home']);
-	if ($nb_post_for_home <= 1) { $nb_post_for_home = 1; }
-
-	$nb_post_per_page = abs((integer) $_POST['nb_post_per_page']);
-	if ($nb_post_per_page <= 1) { $nb_post_per_page = 1; }
-
-	$nb_post_per_feed = abs((integer) $_POST['nb_post_per_feed']);
-	if ($nb_post_per_feed <= 1) { $nb_post_per_feed = 1; }
-
-	$nb_comment_per_feed = abs((integer) $_POST['nb_comment_per_feed']);
-	if ($nb_comment_per_feed <= 1) { $nb_comment_per_feed = 1; }
-
-	try
-	{
-		if ($cur->blog_id != null && $cur->blog_id != $blog_id) {
-			$rs = $core->getBlog($cur->blog_id);
-
-			if ($rs) {
-				throw new Exception(__('This blog ID is already used.'));
+	if (isset($_POST['save_blog'])) {
+		$cur = $core->con->openCursor($core->prefix.'blog');
+		if ($core->auth->isSuperAdmin()) {
+			$cur->blog_id = $_POST['blog_id'];
+			$cur->blog_url = preg_replace('/\?+$/','?',$_POST['blog_url']);
+			if (in_array($_POST['blog_status'],$status_combo)) {
+				$cur->blog_status = (integer) $_POST['blog_status'];
 			}
 		}
+		$cur->blog_name = $_POST['blog_name'];
+		$cur->blog_desc = $_POST['blog_desc'];
 
-		# --BEHAVIOR-- adminBeforeBlogUpdate
-		$core->callBehavior('adminBeforeBlogUpdate',$cur,$blog_id);
+		$media_img_t_size = abs((integer) $_POST['media_img_t_size']);
+		if ($media_img_t_size < 0) { $media_img_t_size = 100; }
 
-		if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$_POST['lang'])) {
-			throw new Exception(__('Invalid language code'));
-		}
+		$media_img_s_size = abs((integer) $_POST['media_img_s_size']);
+		if ($media_img_s_size < 0) { $media_img_s_size = 240; }
 
-		$core->updBlog($blog_id,$cur);
+		$media_img_m_size = abs((integer) $_POST['media_img_m_size']);
+		if ($media_img_m_size < 0) { $media_img_m_size = 448; }
 
-		# --BEHAVIOR-- adminAfterBlogUpdate
-		$core->callBehavior('adminAfterBlogUpdate',$cur,$blog_id);
+		$nb_post_for_home = abs((integer) $_POST['nb_post_for_home']);
+		if ($nb_post_for_home <= 1) { $nb_post_for_home = 1; }
 
-		if ($cur->blog_id != null && $cur->blog_id != $blog_id) {
-			if ($blog_id == $core->blog->id) {
-				$core->setBlog($cur->blog_id);
-				$_SESSION['sess_blog_id'] = $cur->blog_id;
-				$blog_settings = $core->blog->settings;
-			} else {
-				$blog_settings = new dcSettings($core,$cur->blog_id);
+		$nb_post_per_page = abs((integer) $_POST['nb_post_per_page']);
+		if ($nb_post_per_page <= 1) { $nb_post_per_page = 1; }
+
+		$nb_post_per_feed = abs((integer) $_POST['nb_post_per_feed']);
+		if ($nb_post_per_feed <= 1) { $nb_post_per_feed = 1; }
+
+		$nb_comment_per_feed = abs((integer) $_POST['nb_comment_per_feed']);
+		if ($nb_comment_per_feed <= 1) { $nb_comment_per_feed = 1; }
+
+		try
+		{
+			if ($cur->blog_id != null && $cur->blog_id != $blog_id) {
+				$rs = $core->getBlog($cur->blog_id);
+
+				if ($rs) {
+					throw new Exception(__('This blog ID is already used.'));
+				}
 			}
 
-			$blog_id = $cur->blog_id;
+			# --BEHAVIOR-- adminBeforeBlogUpdate
+			$core->callBehavior('adminBeforeBlogUpdate',$cur,$blog_id);
+
+			if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$_POST['lang'])) {
+				throw new Exception(__('Invalid language code'));
+			}
+
+			$core->updBlog($blog_id,$cur);
+
+			# --BEHAVIOR-- adminAfterBlogUpdate
+			$core->callBehavior('adminAfterBlogUpdate',$cur,$blog_id);
+
+			if ($cur->blog_id != null && $cur->blog_id != $blog_id) {
+				if ($blog_id == $core->blog->id) {
+					$core->setBlog($cur->blog_id);
+					$_SESSION['sess_blog_id'] = $cur->blog_id;
+					$blog_settings = $core->blog->settings;
+				} else {
+					$blog_settings = new dcSettings($core,$cur->blog_id);
+				}
+
+				$blog_id = $cur->blog_id;
+			}
+
+
+			$blog_settings->addNameSpace('system');
+
+			$blog_settings->system->put('editor',$_POST['editor']);
+			$blog_settings->system->put('copyright_notice',$_POST['copyright_notice']);
+			$blog_settings->system->put('post_url_format',$_POST['post_url_format']);
+			$blog_settings->system->put('lang',$_POST['lang']);
+			$blog_settings->system->put('blog_timezone',$_POST['blog_timezone']);
+			$blog_settings->system->put('date_format',$_POST['date_format']);
+			$blog_settings->system->put('time_format',$_POST['time_format']);
+			$blog_settings->system->put('comments_ttl',abs((integer) $_POST['comments_ttl']));
+			$blog_settings->system->put('trackbacks_ttl',abs((integer) $_POST['trackbacks_ttl']));
+			$blog_settings->system->put('allow_comments',!empty($_POST['allow_comments']));
+			$blog_settings->system->put('allow_trackbacks',!empty($_POST['allow_trackbacks']));
+			$blog_settings->system->put('comments_pub',empty($_POST['comments_pub']));
+			$blog_settings->system->put('trackbacks_pub',empty($_POST['trackbacks_pub']));
+			$blog_settings->system->put('comments_nofollow',!empty($_POST['comments_nofollow']));
+			$blog_settings->system->put('wiki_comments',!empty($_POST['wiki_comments']));
+			$blog_settings->system->put('comment_preview_optional',!empty($_POST['comment_preview_optional']));
+			$blog_settings->system->put('enable_xmlrpc',!empty($_POST['enable_xmlrpc']));
+			$blog_settings->system->put('note_title_tag',$_POST['note_title_tag']);
+			$blog_settings->system->put('nb_post_for_home',$nb_post_for_home);
+			$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
+			$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
+			$blog_settings->system->put('inc_subcats',!empty($_POST['inc_subcats']));
+			$blog_settings->system->put('media_img_t_size',$media_img_t_size);
+			$blog_settings->system->put('media_img_s_size',$media_img_s_size);
+			$blog_settings->system->put('media_img_m_size',$media_img_m_size);
+			$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
+			$blog_settings->system->put('media_img_use_dto_first',!empty($_POST['media_img_use_dto_first']));
+			$blog_settings->system->put('media_img_no_date_alone',!empty($_POST['media_img_no_date_alone']));
+			$blog_settings->system->put('media_img_default_size',$_POST['media_img_default_size']);
+			$blog_settings->system->put('media_img_default_alignment',$_POST['media_img_default_alignment']);
+			$blog_settings->system->put('media_img_default_link',!empty($_POST['media_img_default_link']));
+			$blog_settings->system->put('nb_post_per_feed',$nb_post_per_feed);
+			$blog_settings->system->put('nb_comment_per_feed',$nb_comment_per_feed);
+			$blog_settings->system->put('short_feed_items',!empty($_POST['short_feed_items']));
+			if (isset($_POST['robots_policy'])) {
+				$blog_settings->system->put('robots_policy',$_POST['robots_policy']);
+			}
+			$blog_settings->system->put('jquery_version',$_POST['jquery_version']);
+			$blog_settings->system->put('prevents_clickjacking',!empty($_POST['prevents_clickjacking']));
+
+			# --BEHAVIOR-- adminBeforeBlogSettingsUpdate
+			$core->callBehavior('adminBeforeBlogSettingsUpdate',$blog_settings);
+
+			if ($core->auth->isSuperAdmin() && in_array($_POST['url_scan'],$url_scan_combo)) {
+				$blog_settings->system->put('url_scan',$_POST['url_scan']);
+			}
+			dcPage::addSuccessNotice(__('Blog has been successfully updated.'));
+
+			http::redirect(sprintf($redir,$blog_id));
+			exit;
 		}
-
-
-		$blog_settings->addNameSpace('system');
-
-		$blog_settings->system->put('editor',$_POST['editor']);
-		$blog_settings->system->put('copyright_notice',$_POST['copyright_notice']);
-		$blog_settings->system->put('post_url_format',$_POST['post_url_format']);
-		$blog_settings->system->put('lang',$_POST['lang']);
-		$blog_settings->system->put('blog_timezone',$_POST['blog_timezone']);
-		$blog_settings->system->put('date_format',$_POST['date_format']);
-		$blog_settings->system->put('time_format',$_POST['time_format']);
-		$blog_settings->system->put('comments_ttl',abs((integer) $_POST['comments_ttl']));
-		$blog_settings->system->put('trackbacks_ttl',abs((integer) $_POST['trackbacks_ttl']));
-		$blog_settings->system->put('allow_comments',!empty($_POST['allow_comments']));
-		$blog_settings->system->put('allow_trackbacks',!empty($_POST['allow_trackbacks']));
-		$blog_settings->system->put('comments_pub',empty($_POST['comments_pub']));
-		$blog_settings->system->put('trackbacks_pub',empty($_POST['trackbacks_pub']));
-		$blog_settings->system->put('comments_nofollow',!empty($_POST['comments_nofollow']));
-		$blog_settings->system->put('wiki_comments',!empty($_POST['wiki_comments']));
-		$blog_settings->system->put('comment_preview_optional',!empty($_POST['comment_preview_optional']));
-		$blog_settings->system->put('enable_xmlrpc',!empty($_POST['enable_xmlrpc']));
-		$blog_settings->system->put('note_title_tag',$_POST['note_title_tag']);
-		$blog_settings->system->put('nb_post_for_home',$nb_post_for_home);
-		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
-		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
-		$blog_settings->system->put('inc_subcats',!empty($_POST['inc_subcats']));
-		$blog_settings->system->put('media_img_t_size',$media_img_t_size);
-		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
-		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
-		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
-		$blog_settings->system->put('media_img_use_dto_first',!empty($_POST['media_img_use_dto_first']));
-		$blog_settings->system->put('media_img_no_date_alone',!empty($_POST['media_img_no_date_alone']));
-		$blog_settings->system->put('media_img_default_size',$_POST['media_img_default_size']);
-		$blog_settings->system->put('media_img_default_alignment',$_POST['media_img_default_alignment']);
-		$blog_settings->system->put('media_img_default_link',!empty($_POST['media_img_default_link']));
-		$blog_settings->system->put('nb_post_per_feed',$nb_post_per_feed);
-		$blog_settings->system->put('nb_comment_per_feed',$nb_comment_per_feed);
-		$blog_settings->system->put('short_feed_items',!empty($_POST['short_feed_items']));
-		if (isset($_POST['robots_policy'])) {
-			$blog_settings->system->put('robots_policy',$_POST['robots_policy']);
+		catch (Exception $e)
+		{
+			$core->error->add($e->getMessage());
 		}
-		$blog_settings->system->put('jquery_version',$_POST['jquery_version']);
-		$blog_settings->system->put('prevents_clickjacking',!empty($_POST['prevents_clickjacking']));
-
-		# --BEHAVIOR-- adminBeforeBlogSettingsUpdate
-		$core->callBehavior('adminBeforeBlogSettingsUpdate',$blog_settings);
-
-		if ($core->auth->isSuperAdmin() && in_array($_POST['url_scan'],$url_scan_combo)) {
-			$blog_settings->system->put('url_scan',$_POST['url_scan']);
+	} elseif (isset($_POST['enable']) && is_array($_POST['enable'])) {
+		$blog_settings->addNamespace('pluginsactivated');
+		foreach ($_POST['enable'] as $id => $desc) {
+			if ($core->plugins->moduleExists($id) && 
+				($blog_settings->pluginsactivated->get($id) !== null) &&
+				$core->plugins->moduleInfo($id,'perblog_activation')) {
+				$blog_settings->pluginsactivated->put($id,true);
+			}
 		}
-		dcPage::addSuccessNotice(__('Blog has been successfully updated.'));
-
-		http::redirect(sprintf($redir,$blog_id));
-	}
-	catch (Exception $e)
-	{
-		$core->error->add($e->getMessage());
+		dcPage::addSuccessNotice(__('Plugin successfully enabled.'));
+		http::redirect(sprintf($redir,$blog_id)."#plugins");
+		exit;
+	} elseif (isset($_POST['disable']) && is_array($_POST['disable'])) {
+		$blog_settings->addNamespace('pluginsactivated');
+		foreach ($_POST['disable'] as $id => $desc) {
+			if ($core->plugins->moduleExists($id) && 
+				($blog_settings->pluginsactivated->get($id) !== null) &&
+				$core->plugins->moduleInfo($id,'perblog_activation')) {
+				$blog_settings->pluginsactivated->put($id,false);
+			}
+		}
+		dcPage::addSuccessNotice(__('Plugin successfully disabled.'));
+		http::redirect(sprintf($redir,$blog_id)."#plugins");
+		exit;
 	}
 }
 
@@ -339,8 +366,7 @@ if ($blog_id)
 	'<form action="'.$action.'" method="post" id="blog-form">';
 
 	echo
-	'<div class="fieldset"><h4>'.__('Blog details').'</h4>'.
-	$core->formNonce();
+	'<div class="fieldset"><h4>'.__('Blog details').'</h4>';
 
 	if ($core->auth->isSuperAdmin())
 	{
@@ -644,8 +670,9 @@ if ($blog_id)
 	$core->callBehavior('adminBlogPreferencesForm',$core,$blog_settings);
 
 	echo
-	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
+	'<p><input type="submit" accesskey="s" name="save_blog" value="'.__('Save').'" />'.
 	(!$standalone ? form::hidden('id',$blog_id) : '').
+	$core->formNonce().
 	'</p>'.
 	'</form>';
 
@@ -772,7 +799,63 @@ if ($blog_id)
 		}
 	}
 
+
 	echo '</div>';
+
+	#
+	# Per-blog activated plugins
+	$plugins = $core->plugins->getModules();
+	$plugins_activation = array();
+
+	foreach ($plugins as $id => $p) {
+		if ($core->plugins->moduleInfo($id,'perblog_activation')) {
+			$plugins_activation[$id]=$core->blog->settings->pluginsactivated->get($id);
+		}
+	}
+	echo
+	'<div class="multi-part" id="plugins" title="'.__('Plugins').'">'.
+	'<h3 class="out-of-screen-if-js">'.__('Plugins').'</h3>'.
+	'<div class="fieldset"><h4>'.__('Plugins activation for this blog').'</h4>';
+	if (!count($plugins_activation)) {
+		echo '<p>'.__('No per-blog plugins configured for this blog').'</p>';
+	} else {
+		echo
+			'<form action="'.$core->adminurl->getBase('admin.blog.pref').'" method="POST">'.
+			'<table><thead>'.
+			'<th class="first nowrap">'.__('Plugin').'</th>'.
+			'<th class="first nowrap maximal">'.__('Description').'</th>'.
+			'<th class="nowrap">'.__('Status').'</th>'.
+			'<th class="minimal nowrap">'.__('Action').'</th>'.
+			'</thead>';
+		foreach ($plugins_activation as $id => $enabled) {
+			echo 
+				'<tr><td>'.$core->plugins->moduleInfo($id,'name').'</td>'.
+				'<td>'.$core->plugins->moduleInfo($id,'desc').'</td>';
+
+			if ($enabled) {
+				echo
+					'<td>'.__('Enabled').'</td>'.
+					'<td><input type="submit" class="reset" name="disable['.$id.']" value="'.__('Disable for this blog').'"/></td>';
+			} else {
+				echo
+					'<td>'.__('Disabled').'</td>'.
+					'<td><input type="submit" name="enable['.$id.']" value="'.__('Enable for this blog').'"/></td>';
+			}
+			'</tr>';
+		}
+
+		echo 
+			'</table>'.
+			'<p><input type="submit" accesskey="s" name="save_plugins" value="'.__('Save').'" />'.
+				(!$standalone ? form::hidden('id',$blog_id) : '').
+				$core->formNonce().
+				$core->adminurl->getHiddenFormFields('admin.blog');
+			'</p>'.
+			'</form>';
+	}
+	echo '</div>';
+	echo '</div>';
+
 }
 
 dcPage::helpBlock('core_blog_pref');
