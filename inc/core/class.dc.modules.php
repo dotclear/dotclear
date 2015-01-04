@@ -116,6 +116,9 @@ class dcModules
 		# Load translation, _prepend and ns_file
 		foreach ($this->modules as $id => $m)
 		{
+			if ($m['perblog_activation'] && !$this->core->blog->settings->pluginsactivated->get($id)) {
+				continue;
+			}
 			if (file_exists($m['root'].'/_prepend.php'))
 			{
 				$r = $this->loadModuleFile($m['root'].'/_prepend.php');
@@ -183,7 +186,8 @@ class dcModules
 				'permissions' => null,
 				'priority' => 1000,
 				'standalone_config' => false,
-				'type' => null
+				'type' => null,
+				'perblog_activation' => false
 			), $properties
 		);
 
@@ -206,6 +210,12 @@ class dcModules
 			} elseif (!$this->core->auth->check($permissions,$this->core->blog->id)) {
 				return;
 			}
+		}
+
+		$this->core->blog->settings->addNamespace("pluginsactivated");
+		# Per-blog activation settings
+		if ($properties['perblog_activation'] && ($this->core->blog->settings->pluginsactivated->get($this->id) === null)) {
+			$this->core->blog->settings->pluginsactivated->put($this->id,false,"boolean",sprintf(__('plugin "%s" activated'),$this->id),true,true);
 		}
 
 		# Check module install on multiple path

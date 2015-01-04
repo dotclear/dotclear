@@ -17,8 +17,9 @@ $this->registerModule(
 	/* Author */		"Olivier Meunier",
 	/* Version */		'1.4',
 	array(
-		'permissions' =>	'contentadmin,pages',
-		'priority' =>	999,
-		'type'		=>		'plugin'
+		'permissions'        =>	'contentadmin,pages',
+		'priority'           =>	999,
+		'type'               =>	'plugin',
+		'perblog_activation' => true
 	)
 );
