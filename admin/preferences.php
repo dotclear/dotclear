@@ -351,28 +351,6 @@ dcPage::open($page_title,
 	))
 );
 
-if (!empty($_GET['upd'])) {
-	dcPage::success(__('Personal information has been successfully updated.'));
-}
-if (!empty($_GET['updated'])) {
-	dcPage::success(__('Personal options has been successfully updated.'));
-}
-if (!empty($_GET['db-updated'])) {
-	dcPage::success(__('Dashboard options has been successfully updated.'));
-}
-if (!empty($_GET['append'])) {
-	dcPage::success(__('Favorites have been successfully added.'));
-}
-if (!empty($_GET['neworder'])) {
-	dcPage::success(__('Favorites have been successfully updated.'));
-}
-if (!empty($_GET['removed'])) {
-	dcPage::success(__('Favorites have been successfully removed.'));
-}
-if (!empty($_GET['replaced'])) {
-	dcPage::success(__('Default favorites have been successfully updated.'));
-}
-
 # User profile
 echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';
 
