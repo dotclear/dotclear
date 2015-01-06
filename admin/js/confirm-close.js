@@ -78,6 +78,8 @@ confirmClose.prototype = {
 			return this.getFormRadioValue(e);
 		} else if (e.type != undefined && e.type == 'checkbox') {
 			return this.getFormCheckValue(e);
+		} else if (e.type == 'password') {
+			return null;
 		} else if (e.value != undefined) {
 			return e.value;
 		} else {
