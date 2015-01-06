@@ -1,7 +1,7 @@
 $(function() {
 	// Cope with saving
 	var msg = false;
-	$('#file-form input[name="write"]').click(function() {
+	$('#file-form input[name="write"]').click(function(e) {
 		var f = this.form;
 
 		var data = {
@@ -26,12 +26,15 @@ $(function() {
 				msg.text(dotclear.msg.document_saved);
 				$('#file-chooser').empty();
 				$(res).find('#file-chooser').children().appendTo('#file-chooser');
-				confirmClosePage.getCurrentForms();
 
+				if ($.isFunction(confirmClosePage['getCurrentForms'])) {
+					confirmClosePage.forms = [];
+					confirmClosePage.getCurrentForms();
+				}
 			}
 		});
 
-		return false;
+		e.preventDefault();
 	});
 
 	// Confirm for deleting current file
