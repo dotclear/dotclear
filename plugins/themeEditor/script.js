@@ -26,6 +26,8 @@ $(function() {
 				msg.text(dotclear.msg.document_saved);
 				$('#file-chooser').empty();
 				$(res).find('#file-chooser').children().appendTo('#file-chooser');
+				confirmClosePage.getCurrentForms();
+
 			}
 		});
 
