@@ -16,7 +16,7 @@ dcPage::check('media,media_admin');
 
 $tab = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 
-$post_id = !empty($_GET['post_id']) ? (integer) $_GET['post_id'] : null;
+$post_id = !empty($_REQUEST['post_id']) ? (integer) $_REQUEST['post_id'] : null;
 if ($post_id) {
 	$post = $core->blog->getPosts(array('post_id'=>$post_id));
 	if ($post->isEmpty()) {
@@ -27,7 +27,7 @@ if ($post_id) {
 }
 
 $file = null;
-$popup = (integer) !empty($_GET['popup']);
+$popup = (integer) !empty($_REQUEST['popup']);
 $plugin_id = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
 $page_url_params = array('popup' => $popup,'post_id' => $post_id);
 $media_page_url_params = array('popup' => $popup,'post_id' => $post_id);

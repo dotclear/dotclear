@@ -11,7 +11,7 @@ $(function() {
 		selected_text = editor.getSelection().getNative().toString();
 
 		if (editor.mode=='wysiwyg') {
-			link = '<a class="post" href="'+window.opener.$.stripBaseURL($(this).attr('title'))+'">'+selected_text+'</a>';
+			link = '<a class="ref-post" href="'+window.opener.$.stripBaseURL($(this).attr('title'))+'">'+selected_text+'</a>';
 			var element = window.opener.CKEDITOR.dom.element.createFromHtml(link);
 			editor.insertElement(element);
 		}

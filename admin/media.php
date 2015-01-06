@@ -16,7 +16,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('media,media_admin');
 
-$post_id = !empty($_GET['post_id']) ? (integer) $_GET['post_id'] : null;
+$post_id = !empty($_REQUEST['post_id']) ? (integer) $_REQUEST['post_id'] : null;
 if ($post_id) {
 	$post = $core->blog->getPosts(array('post_id'=>$post_id,'post_type'=>''));
 	if ($post->isEmpty()) {
@@ -72,7 +72,7 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 	$nb_per_page = $_SESSION['nb_per_page'] = (integer)$_GET['nb_per_page'];
 }
 
-$popup = (integer) !empty($_GET['popup']);
+$popup = (integer) !empty($_REQUEST['popup']);
 
 $page_url_params = new ArrayObject(array('popup' => $popup,'post_id' => $post_id));
 if ($d) {
@@ -615,7 +615,7 @@ function mediaItemLine($f,$i)
 		$fname = substr($fname, 0, $maxchars-4).'...'.($f->d ? '' : files::getExtension($fname));
 	}
 	$res =
-	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.$link.'">'.
+	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.rawurldecode($link).'">'.
 	'<img src="'.$f->media_icon.'" alt="" />'.$fname.'</a></p>';
 
 	$lst = '';

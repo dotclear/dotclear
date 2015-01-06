@@ -17,6 +17,7 @@ confirmClose.prototype = {
 		var formsInPage = this.getForms();
 		var f;
 		var This = this;
+		this.forms=new Array();
 		for (var i=0; i<formsInPage.length; i++) {
 			f = formsInPage[i];
 			var tmpForm = new Array();
