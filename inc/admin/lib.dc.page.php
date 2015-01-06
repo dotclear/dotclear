@@ -91,9 +91,8 @@ class dcPage
 
 		// Prevents Clickjacking as far as possible
 		if (isset($options['x-frame-allow'])) {
-			$host = parse_url($options['x-frame-allow'], PHP_URL_HOST);
-			$scheme = parse_url($options['x-frame-allow'], PHP_URL_SCHEME);
-			header(sprintf('X-Frame-Options: %s', ($host !== null)?($scheme.'://'.$host):'SAMEORIGIN'));
+			$url = parse_url($options['x-frame-allow']);
+			header(sprintf('X-Frame-Options: %s', is_array($url)?($url['scheme'].'://'.$url['host']):'SAMEORIGIN'));
 		} else {
 			header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 		}
