@@ -42,6 +42,7 @@ class blogrollWidgets
 		);
 		$w->links->setting('content_only',__('Content only'),0,'check');
 		$w->links->setting('class',__('CSS class:'),'');
+		$w->links->setting('offline',__('Offline'),0,'check');
 	}
 
 	public static function initDefaultWidgets($w,$d)

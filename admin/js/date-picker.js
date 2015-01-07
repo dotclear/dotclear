@@ -439,6 +439,7 @@ datePicker.prototype = {
 	draw: function() {
 		var imgE = document.createElement('img');
 		imgE.src = this.img_src;
+		imgE.alt = this.img_alt;
 		imgE.style.position = 'absolute';
 		imgE.style.top = this.img_top;
 		imgE.style.left = (this.target.clientWidth+4)+'px';

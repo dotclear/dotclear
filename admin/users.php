@@ -122,8 +122,8 @@ if (!$core->error->flag())
 	}
 
 	echo
-	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('New user').'</a></strong></p>'.
-	'<form action="users.php" method="get" id="filters-form">'.
+	'<p class="top-add"><strong><a class="button add" href="'.$core->adminurl->get("admin.user").'">'.__('New user').'</a></strong></p>'.
+	'<form action="'.$core->adminurl->get("admin.users").'" method="get" id="filters-form">'.
 	'<h3 class="out-of-screen-if-js">'.$form_filter_title.'</h3>'.
 
 	'<div class="table">'.
@@ -150,7 +150,7 @@ if (!$core->error->flag())
 
 	# Show users
 	$user_list->display($page,$nb_per_page,
-	'<form action="users_actions.php" method="post" id="form-users">'.
+	'<form action="'.$core->adminurl->get("admin.user.actions").'" method="post" id="form-users">'.
 
 	'%s'.
 

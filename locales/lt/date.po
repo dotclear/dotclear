@@ -9,6 +9,7 @@ msgstr ""
 "PO-Revision-Date: 2012-04-18 21:10+0100\n"
 "Last-Translator: Paulius Černakauskas <paulius.cernakauskas@gmail.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -132,4 +133,3 @@ msgstr "šeštadienį"
 
 msgid "Sunday"
 msgstr "sekmadienį"
-

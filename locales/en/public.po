@@ -51,7 +51,7 @@ msgstr ""
 msgid "%d comments"
 msgstr ""
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr ""
 
 msgid "one trackback"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "%d trackbacks"
 msgstr ""
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr ""
 
 msgid "one attachment"

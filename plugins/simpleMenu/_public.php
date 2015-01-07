@@ -21,6 +21,11 @@ class tplSimpleMenu
 	# Template function
 	public static function simpleMenu($attr)
 	{
+		global $core;
+
+		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
+			return '';
+
 		$class = isset($attr['class']) ? trim($attr['class']) : '';
 		$id = isset($attr['id']) ? trim($attr['id']) : '';
 		$description = isset($attr['description']) ? trim($attr['description']) : '';
@@ -41,6 +46,12 @@ class tplSimpleMenu
 	{
 		global $core, $_ctx;
 
+		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
+			return;
+
+		if ($w->offline)
+			return;
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
@@ -60,6 +71,9 @@ class tplSimpleMenu
 		global $core;
 
 		$ret = '';
+
+		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
+			return $ret;
 
 		$menu = $GLOBALS['core']->blog->settings->system->get('simpleMenu');
 		$menu = @unserialize($menu);
@@ -124,7 +138,7 @@ class tplSimpleMenu
 
 			// Final rendering
 			if ($ret) {
-				$ret = '<ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'" role="navigation">'."\n".$ret."\n".'</ul>';
+				$ret = '<ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').' role="navigation">'."\n".$ret."\n".'</ul>';
 			}
 		}
 

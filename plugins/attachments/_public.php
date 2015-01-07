@@ -203,7 +203,7 @@ class attachmentTpl {
 	/*dtd
 	<!ELEMENT tpl:EntryAttachmentCount - O -- Number of attachments for entry -->
 	<!ATTLIST tpl:EntryAttachmentCount
-	none	CDATA	#IMPLIED	-- text to display for "no attachment" (default: no attachment)
+	none	CDATA	#IMPLIED	-- text to display for "no attachments" (default: no attachments)
 	one	CDATA	#IMPLIED	-- text to display for "one attachment" (default: one attachment)
 	more	CDATA	#IMPLIED	-- text to display for "more attachment" (default: %s attachment, %s is replaced by the number of attachments)
 	>
@@ -214,7 +214,7 @@ class attachmentTpl {
 		return $core->tpl->displayCounter(
 			'$_ctx->posts->countMedia()',
 			array(
-				'none' => 'no attachment',
+				'none' => 'no attachments',
 				'one'  => 'one attachment',
 				'more' => '%d attachments'
 			),

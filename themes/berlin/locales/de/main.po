@@ -1,0 +1,67 @@
+# Language: Deutsch
+# Module: berlin - 1.0
+# Date: 2014-07-27 09:40:35
+# Translated with translater 2013.05.11
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: berlin 1.0\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-07-27T09:40:35+00:00\n"
+"Last-Translator: Thomas Bloch\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: tpl/404.html:27
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr "Die URL die Sie gesucht haben, wurde entweder gelöscht, verschoben oder es hat sich ein Tippfehler eingeschlichen.."
+
+#: tpl/404.html:31
+msgid "Suggestions:"
+msgstr "Vorschläge:"
+
+#: tpl/404.html:33
+msgid "Go to homepage"
+msgstr "Zur Homepage"
+
+#: tpl/404.html:34
+msgid "Use search form"
+msgstr "Verwende die Suche"
+
+#: tpl/_simple-entry.html:89
+msgid "From"
+msgstr "Von"
+
+#: tpl/_simple-entry.html:127
+#: tpl/_simple-entry.html:127
+#: tpl/_simple-entry.html:167
+#: tpl/_simple-entry.html:167
+msgid "Send"
+msgstr "Senden"
+
+#: tpl/_simple-entry.html:175
+msgid "Add ping"
+msgstr "Ping hinzufügen"
+
+#: tpl/archive.html:37
+msgid "By date"
+msgstr "Nach Datum"
+
+#: tpl/archive.html:38
+msgid "FromDay"
+msgstr "Von"
+
+#: tpl/archive.html:38
+msgid "toDay"
+msgstr "bis"
+
+#: tpl/archive.html:59
+msgid "By category"
+msgstr "Nach Kategorien"
+
+#: tpl/archive.html:82
+msgid "By tag"
+msgstr "Nach Tags"
+

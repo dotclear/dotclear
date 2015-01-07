@@ -4,8 +4,8 @@ describe("Others common methods (admin/js/common.js)", function() {
 			loadFixtures('posts_list.html');
 			dotclear.postsActionsHelper();
 			
-			spyOn(window, 'confirm').andReturn(false);
-			var submitCallback = jasmine.createSpy().andReturn(false);
+			spyOn(window, 'confirm').and.returnValue(false);
+			var submitCallback = jasmine.createSpy().and.returnValue(false);
 			$('#form-entries').submit(submitCallback);
 
 			$('select[name="action"] option[value="delete"]').attr('selected', 'selected');
@@ -18,8 +18,8 @@ describe("Others common methods (admin/js/common.js)", function() {
 			loadFixtures('posts_list.html');
 			dotclear.postsActionsHelper();
 			
-			spyOn(window, 'confirm').andReturn(false);
-			var submitCallback = jasmine.createSpy().andReturn(false);
+			spyOn(window, 'confirm').and.returnValue(false);
+			var submitCallback = jasmine.createSpy().and.returnValue(false);
 			$('#form-entries').submit(submitCallback);
 
 			$('select[name="action"] option[value="delete"]').attr('selected', 'selected');
@@ -30,8 +30,8 @@ describe("Others common methods (admin/js/common.js)", function() {
 			loadFixtures('posts_list.html');
 			dotclear.postsActionsHelper();
 			
-			spyOn(window, 'confirm').andReturn(false);
-			var submitCallback = jasmine.createSpy().andReturn(false);
+			spyOn(window, 'confirm').and.returnValue(false);
+			var submitCallback = jasmine.createSpy().and.returnValue(false);
 			$('#form-entries').submit(submitCallback);
 
 			$('select[name="action"] option[value="publish"]').attr('selected', 'selected');
@@ -45,8 +45,8 @@ describe("Others common methods (admin/js/common.js)", function() {
 			loadFixtures('comments_list.html');
 			dotclear.commentsActionsHelper();
 			
-			spyOn(window, 'confirm').andReturn(false);
-			var submitCallback = jasmine.createSpy().andReturn(false);
+			spyOn(window, 'confirm').and.returnValue(false);
+			var submitCallback = jasmine.createSpy().and.returnValue(false);
 			$('#form-comments').submit(submitCallback);
 
 			$('select[name="action"] option[value="delete"]').attr('selected', 'selected');
@@ -59,8 +59,8 @@ describe("Others common methods (admin/js/common.js)", function() {
 			loadFixtures('comments_list.html');
 			dotclear.commentsActionsHelper();
 			
-			spyOn(window, 'confirm').andReturn(false);
-			var submitCallback = jasmine.createSpy().andReturn(false);
+			spyOn(window, 'confirm').and.returnValue(false);
+			var submitCallback = jasmine.createSpy().and.returnValue(false);
 			$('#form-comments').submit(submitCallback);
 
 			$('select[name="action"] option[value="delete"]').attr('selected', 'selected');
@@ -71,8 +71,8 @@ describe("Others common methods (admin/js/common.js)", function() {
 			loadFixtures('comments_list.html');
 			dotclear.commentsActionsHelper();
 			
-			spyOn(window, 'confirm').andReturn(false);
-			var submitCallback = jasmine.createSpy().andReturn(false);
+			spyOn(window, 'confirm').and.returnValue(false);
+			var submitCallback = jasmine.createSpy().and.returnValue(false);
 			$('#form-comments').submit(submitCallback);
 
 			$('select[name="action"] option[value="publish"]').attr('selected', 'selected');

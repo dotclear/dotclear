@@ -39,6 +39,7 @@ class pagesWidgets
 		);
 		$w->pages->setting('content_only',__('Content only'),0,'check');
 		$w->pages->setting('class',__('CSS class:'),'');
+		$w->pages->setting('offline',__('Offline'),0,'check');
 	}
 
 	public static function initDefaultWidgets($w,$d)

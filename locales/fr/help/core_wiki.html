@@ -1,13 +1,13 @@
 <html>
 <head>
-  <title>Référence de la syntaxe Wiki</title>
+  <title>Référence de la syntaxe wiki</title>
 </head>
 
 <body>
 
-<h4>Référence de la syntaxe Wiki</h4>
+<h4>Référence de la syntaxe wiki</h4>
 
-<p>La syntaxe Wiki est une manière d'écrire du texte avec un jeu de balises
+<p>La syntaxe wiki est une manière d'écrire du texte avec un jeu de balises
 réduit au minimum, permettant de couvrir les besoins les plus courants
 (titres, paragraphes, citations, listes...).</p>
 
@@ -25,10 +25,10 @@ réduit au minimum, permettant de couvrir les besoins les plus courants
   listes à puce ou <code>#</code> pour des listes numérotées. Vous pouvez faire
   des listes imbriquées en mélangeant les codes de liste. Par exemple&nbsp;:
 <pre>
-* item 1
-** item 1.1
-* item 2
-*# item 2.1
+<code>*</code> item 1
+<code>**</code> item 1.1
+<code>*</code> item 2
+<code>*#</code> item 2.1
 ...
 </pre>
   </li>
@@ -70,16 +70,21 @@ de formatage, ajoutez le caractère <code>\</code> avant celui-ci. Par exemple&n
 
 <dt>Insérer du code HTML</dt>
 <dd>Vous pouvez ponctuellement avoir besoin d'insérer du code HTML dans votre
-texte au format Wiki. Pour cela, pour insérer du code sous forme de bloc (<code>div</code>, <code>p</code>, …) utilisez le code suivant&nbsp;:
-<pre>
-///html
-&lt;p style="color:red"&gt;mon texte en rouge&lt;/p&gt;
-///
-</pre>
-Et pour insérer du code HTML en ligne (<code>span</code>, …) utilisez deux apostrophes inversées comme dans le code suivant&nbsp;:
-<pre>
-``&lt;span style="color:blue"&gt;mon texte en bleu&lt;/span&gt;``
-</pre>
+texte au format wiki.
+<ul>
+  <li>Pour insérer du code sous forme de bloc (<code>div</code>, <code>p</code>, etc.) utilisez le code suivant&nbsp;:
+    <pre>
+    <code>///html
+    &lt;p style="color:red"&gt;mon texte en rouge&lt;/p&gt;
+    ///</code>
+    </pre>
+  </li>
+  <li>Et pour insérer du code HTML en ligne (<code>span</code>, etc.) utilisez deux apostrophes inversées comme dans le code suivant&nbsp;:
+    <pre>
+      <code>``&lt;span style="color:blue"&gt;mon texte en bleu&lt;/span&gt;``</code>
+    </pre>
+  </li>
+</ul>
 </dd>
 </dl>
 

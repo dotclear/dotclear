@@ -25,8 +25,8 @@ if ($standalone)
 	$blog_settings = $core->blog->settings;
 	$blog_url = $core->blog->url;
 
-	$action = 'blog_pref.php';
-	$redir = 'blog_pref.php';
+	$action = $core->adminurl->get("admin.blog.pref");
+	$redir = $core->adminurl->get("admin.blog.pref");
 }
 else
 {
@@ -54,8 +54,8 @@ else
 		$core->error->add($e->getMessage());
 	}
 
-	$action = 'blog.php';
-	$redir = 'blog.php?id=%s';
+	$action = $core->adminurl->get("admin.blog");
+	$redir = $core->adminurl->get("admin.blog",array('id' => "%s"),'&',true);
 }
 
 # Language codes
@@ -142,6 +142,21 @@ $robots_policy_options = array(
 	'INDEX,FOLLOW,NOARCHIVE' => __("I would like search engines and archivers to index but not archive my blog's content."),
 	'NOINDEX,NOFOLLOW,NOARCHIVE' => __("I would like to prevent search engines and archivers from indexing or archiving my blog's content."),
 );
+
+# jQuery available versions
+$jquery_root = dirname(__FILE__).'/../inc/js/jquery';
+$jquery_versions_combo = array(__('Default').' ('.DC_DEFAULT_JQUERY.')' => DC_DEFAULT_JQUERY);
+if (is_dir($jquery_root) && is_readable($jquery_root)) {
+	if (($d = @dir($jquery_root)) !== false) {
+		while (($entry = $d->read()) !== false) {
+			if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($jquery_root.'/'.$entry)) {
+				if ($entry != DC_DEFAULT_JQUERY) {
+					$jquery_versions_combo[$entry] = $entry;
+				}
+			}
+		}
+	}
+}
 
 # Update a blog
 if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
@@ -230,9 +245,9 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('trackbacks_pub',empty($_POST['trackbacks_pub']));
 		$blog_settings->system->put('comments_nofollow',!empty($_POST['comments_nofollow']));
 		$blog_settings->system->put('wiki_comments',!empty($_POST['wiki_comments']));
+		$blog_settings->system->put('comment_preview_optional',!empty($_POST['comment_preview_optional']));
 		$blog_settings->system->put('enable_xmlrpc',!empty($_POST['enable_xmlrpc']));
 		$blog_settings->system->put('note_title_tag',$_POST['note_title_tag']);
-
 		$blog_settings->system->put('nb_post_for_home',$nb_post_for_home);
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
 		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
@@ -242,16 +257,18 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
 		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
 		$blog_settings->system->put('media_img_use_dto_first',!empty($_POST['media_img_use_dto_first']));
+		$blog_settings->system->put('media_img_no_date_alone',!empty($_POST['media_img_no_date_alone']));
 		$blog_settings->system->put('media_img_default_size',$_POST['media_img_default_size']);
 		$blog_settings->system->put('media_img_default_alignment',$_POST['media_img_default_alignment']);
 		$blog_settings->system->put('media_img_default_link',!empty($_POST['media_img_default_link']));
 		$blog_settings->system->put('nb_post_per_feed',$nb_post_per_feed);
 		$blog_settings->system->put('nb_comment_per_feed',$nb_comment_per_feed);
 		$blog_settings->system->put('short_feed_items',!empty($_POST['short_feed_items']));
-
 		if (isset($_POST['robots_policy'])) {
 			$blog_settings->system->put('robots_policy',$_POST['robots_policy']);
 		}
+		$blog_settings->system->put('jquery_version',$_POST['jquery_version']);
+		$blog_settings->system->put('prevents_clickjacking',!empty($_POST['prevents_clickjacking']));
 
 		# --BEHAVIOR-- adminBeforeBlogSettingsUpdate
 		$core->callBehavior('adminBeforeBlogSettingsUpdate',$blog_settings);
@@ -280,7 +297,7 @@ if ($standalone) {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			__('Blogs') => 'blogs.php',
+			__('Blogs') => $core->adminurl->get("admin.blogs"),
 			__('Blog settings').' : '.html::escapeHTML($blog_name) => ''
 		));
 }
@@ -472,6 +489,9 @@ if ($blog_id)
 	'<p><label for="wiki_comments" class="classic">'.
 	form::checkbox('wiki_comments','1',$blog_settings->system->wiki_comments).
 	__('Wiki syntax for comments').'</label></p>'.
+	'<p><label for="comment_preview_optional" class="classic">'.
+	form::checkbox('comment_preview_optional','1',$blog_settings->system->comment_preview_optional).
+	__('Preview of comment before submit is not mandatory').'</label></p>'.
 	'</div>'.
 
 	'<div class="col">'.
@@ -566,10 +586,13 @@ if ($blog_id)
 	'<div class="col">'.
 	'<h5>'.__('Default image insertion attributes').'</h5>'.
 	'<p class="vertical-separator"><label for="media_img_title_pattern">'.__('Inserted image title').'</label>'.
-	form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).' '.
-	'<label for="media_img_use_dto_first" class="classic">'.
+	form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
+	'<p><label for="media_img_use_dto_first" class="classic">'.
 	form::checkbox('media_img_use_dto_first','1',$blog_settings->system->media_img_use_dto_first).
 	__('Use original media date if possible').'</label></p>'.
+	'<p><label for="media_img_no_date_alone" class="classic">'.
+	form::checkbox('media_img_no_date_alone','1',$blog_settings->system->media_img_no_date_alone).
+	__('Do not display date if alone in title').'</label></p>'.
 	'<p class="form-note info">'.__('It is retrieved from the picture\'s metadata.').'</p>'.
 
 	'<p class="field vertical-separator"><label for="media_img_default_size">'.__('Size of inserted image:').'</label>'.
@@ -601,6 +624,21 @@ if ($blog_id)
 
 	echo '</div>';
 
+	echo
+	'<div class="fieldset"><h4>'.__('jQuery javascript library').'</h4>'.
+	'<p><label for="jquery_version" class="classic">'.__('jQuery version to be loaded for this blog:').'</label>'.' '.
+	form::combo('jquery_version',$jquery_versions_combo,$blog_settings->system->jquery_version).
+	'</p>'.
+	'<br class="clear" />'. //Opera sucks
+	'</div>';
+
+	echo
+	'<div class="fieldset"><h4>'.__('Blog security').'</h4>'.
+	'<p><label for="prevents_clickjacking" class="classic">'.
+	form::checkbox('prevents_clickjacking','1',$blog_settings->system->prevents_clickjacking).
+	__('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)').'</label></p>'.
+	'<br class="clear" />'. //Opera sucks
+	'</div>';
 
 	# --BEHAVIOR-- adminBlogPreferencesForm
 	$core->callBehavior('adminBlogPreferencesForm',$core,$blog_settings);
@@ -614,7 +652,7 @@ if ($blog_id)
 	if ($core->auth->isSuperAdmin() && $blog_id != $core->blog->id)
 	{
 		echo
-		'<form action="blog_del.php" method="post">'.
+		'<form action="'.$core->adminurl->get("admin.blog.del").'" method="post">'.
 		'<p><input type="submit" class="delete" value="'.__('Delete this blog').'" />'.
 		form::hidden(array('blog_id'),$blog_id).
 		$core->formNonce().'</p>'.
@@ -646,7 +684,7 @@ if ($blog_id)
 	else
 	{
 		if ($core->auth->isSuperAdmin()) {
-			$user_url_p = '<a href="user.php?id=%1$s">%1$s</a>';
+			$user_url_p = '<a href="'.$core->adminurl->get("admin.user",array('id' => '%1$s')).'">%1$s</a>';
 		} else {
 			$user_url_p = '%1$s';
 		}
@@ -716,9 +754,9 @@ if ($blog_id)
 
 				if (!$v['super'] && $core->auth->isSuperAdmin()) {
 					echo
-					'<form action="users_actions.php" method="post">'.
+					'<form action="'.$core->adminurl->get('admin.user.actions').'" method="post">'.
 					'<p class="change-user-perm"><input type="submit" class="reset" value="'.__('Change permissions').'" />'.
-					form::hidden(array('redir'),'blog_pref.php?id='.$k).
+					form::hidden(array('redir'),$core->adminurl->get("admin.blog.pref",array('id' => $k),'&')).
 					form::hidden(array('action'),'perms').
 					form::hidden(array('users[]'),$k).
 					form::hidden(array('blogs[]'),$blog_id).

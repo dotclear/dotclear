@@ -5,10 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-14 22:01+0100\n"
+"POT-Creation-Date: 2014-11-20 19:48+0100\n"
 "PO-Revision-Date: 2012-04-19 03:20+0100\n"
 "Last-Translator: Paulius Černakauskas <paulius.cernakauskas@gmail.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,17 +17,131 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid "no"
-msgstr "ne"
+msgid "Manage every blog configuration directive"
+msgstr ""
+
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
+msgid "Generic antispam plugin for Dotclear"
+msgstr ""
+
+msgid "Manage post attachments"
+msgstr ""
+
+#, fuzzy
+msgid "Manage your blogroll"
+msgstr "tvarkyti Bogroll"
+
+msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Legacy modules for dotclear"
+msgstr ""
+
+msgid "Trackback validity check"
+msgstr ""
+
+#, fuzzy
+msgid "Import and Export your blog"
+msgstr "Eksportuoti blogą"
+
+msgid "Maintain your installation"
+msgstr ""
+
+msgid "Serve entries as simple web pages"
+msgstr ""
+
+#, fuzzy
+msgid "Ping services"
+msgstr "Testuoti ping servisus"
+
+msgid "Simple menu for Dotclear"
+msgstr ""
+
+msgid "Tags for posts"
+msgstr ""
+
+msgid "Theme Editor"
+msgstr "Temų redaktorius"
+
+msgid "Manage every user preference directive"
+msgstr ""
+
+#, fuzzy
+msgid "Widgets for your blog sidebars"
+msgstr "pridėti valdiklius prie šoninių juostų"
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+#, fuzzy
+msgid "Search engine form"
+msgstr "Paie.kos variklis"
+
+#, fuzzy
+msgid "List of navigation links"
+msgstr "Navigacijos nuorodos"
+
+#, fuzzy
+msgid "List of selected entries"
+msgstr "Pasirinktiems įrašams žymų nėra"
+
+msgid "List of available languages"
+msgstr ""
+
+#, fuzzy
+msgid "List of categories"
+msgstr "Visos kategorijos"
+
+msgid "Feed subscription links (RSS or Atom)"
+msgstr ""
+
+msgid "List of last entries from feed (RSS or Atom)"
+msgstr ""
+
+msgid "Simple text"
+msgstr ""
+
+msgid "List of last entries published"
+msgstr ""
+
+#, fuzzy
+msgid "List of last comments published"
+msgstr "Šio blogo komentarų %s rss"
+
+#, fuzzy
+msgid "Tags cloud"
+msgstr "Pridedamos žymos:"
+
+msgid "List of published pages"
+msgstr ""
+
+#, fuzzy
+msgid "Blogroll list"
+msgstr "Blogroll"
+
+msgid "List of simple menu items"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "Nustatymai sėkmingai atnaujinti"
 
-msgid "Settings definition successfully updated"
-msgstr "Nustatymų aprašas sėkmingai atnaujintas"
+msgid "no"
+msgstr "ne"
 
-msgid "blog settings"
-msgstr "blogo nustatymai"
+msgid "yes"
+msgstr ""
+
+msgid "about:config"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Settings for %s"
+msgstr "Redaguojamas failas %s"
 
 msgid "Value"
 msgstr "Reikšmė"
@@ -34,7 +149,11 @@ msgstr "Reikšmė"
 msgid "Description"
 msgstr "Aprašymas"
 
-msgid "global settings"
+msgid "Goto:"
+msgstr ""
+
+#, fuzzy
+msgid "Global settings"
 msgstr "bendri nustatymai"
 
 msgid "Akismet spam filter"
@@ -43,6 +162,10 @@ msgstr "Aksimet spamo filtras"
 #, php-format
 msgid "Filtered by %s."
 msgstr "Filtruota pagal %s"
+
+#, fuzzy
+msgid "Filter configuration have been successfully saved."
+msgstr "Filtrų nustatymai sėkmingai išsaugoti."
 
 msgid "Akismet API key:"
 msgstr "Akismet API raktas:"
@@ -59,11 +182,23 @@ msgstr "Gaukite savo API raktą"
 msgid "Antispam"
 msgstr "Antispam"
 
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "Senesni nei %s dienų spamo komentarai bus automatiškai ištrinami."
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
 msgid "Delete junk comments older than"
 msgstr "Trinti šiukšlėmis pažymųtus komentarus senesnius nei"
 
 msgid "days"
 msgstr "dienų"
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Aksimet spamo filtras"
 
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IP Blacklist sąrašas / Whitelist filtras"
@@ -84,11 +219,12 @@ msgstr "Blacklist"
 msgid "Whitelist"
 msgstr "Whitelist"
 
-msgid "Add an IP address"
+#, fuzzy
+msgid "Add an IP address: "
 msgstr "Pridėti IP adresą"
 
-msgid "Global IP"
-msgstr "Globalus IP"
+msgid "Global IP (used for all blogs)"
+msgstr ""
 
 msgid "Add"
 msgstr "Pridėti"
@@ -99,12 +235,22 @@ msgstr "Sąraše nėra IP adreso"
 msgid "IP list"
 msgstr "IP sąrašas"
 
+msgid "Local IPs (used only for this blog)"
+msgstr ""
+
+msgid "Global IPs (used for all blogs)"
+msgstr ""
+
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "Patikrina siuntėjo IP adresą DNSLB serveriuose"
 
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "Filtruota pagal %1$s su %2$s serveriu."
+
+#, fuzzy
+msgid "The list of DNSBL servers has been succesfully updated."
+msgstr "Išdėstymas sėkmingai atnaujintas."
 
 msgid "IP Lookup servers"
 msgstr "IP paieškos serveriai"
@@ -131,17 +277,24 @@ msgstr "Žodžis sėkmingai pridėtas."
 msgid "Words have been successfully removed."
 msgstr "Žodžiai sėkmingai pašalinti."
 
-msgid "Add a word"
+#, fuzzy
+msgid "Add a word "
 msgstr "Pridėti žodį."
 
-msgid "Global word"
-msgstr "Bendras žodis"
+msgid "Global word (used for all blogs)"
+msgstr ""
 
 msgid "No word in list."
 msgstr "Sąraše žodžių nėra"
 
-msgid "List"
-msgstr "Sąrašas"
+msgid "List of bad words"
+msgstr ""
+
+msgid "Local words (used only for this blog)"
+msgstr ""
+
+msgid "Global words (used for all blogs)"
+msgstr ""
 
 msgid "Delete selected words"
 msgstr "Trinti pasirinktus žodžius"
@@ -188,18 +341,23 @@ msgstr "Nėra filtro"
 msgid "Filter has no user interface."
 msgstr "Filtras neturi vartotojo sąsajos."
 
-msgid "Return to filters"
-msgstr "Grįžti į filtrus"
+msgid "Filters configuration has been successfully saved."
+msgstr "Filtrų nustatymai sėkmingai išsaugoti."
 
 #, php-format
 msgid "%s configuration"
 msgstr "%s nustatymai"
 
+#, fuzzy, php-format
+msgid "%s filter configuration"
+msgstr "Filtro nustatymai"
+
+#, fuzzy
+msgid "Back to filters list"
+msgstr "Atgal į žymų sąrašą"
+
 msgid "Information"
 msgstr "Informacija"
-
-msgid "Spam comments have been successfully deleted."
-msgstr "Spamo komentarai sėkmingai ištrinti."
 
 msgid "Junk comments:"
 msgstr "Komentarų šiukšlės:"
@@ -207,21 +365,8 @@ msgstr "Komentarų šiukšlės:"
 msgid "Published comments:"
 msgstr "Publikuoti komentarai:"
 
-msgid "Delete all spams"
-msgstr "Trinti visą spamą"
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "Senesni nei %s dienų spamo komentarai bus automatiškai ištrinami."
-
-msgid "You can modify this duration in the %s"
-msgstr ""
-
 msgid "Available spam filters"
 msgstr "Galimi spam filtrai"
-
-msgid "Filters configuration has been successfully saved."
-msgstr "Filtrų nustatymai sėkmingai išsaugoti."
 
 msgid "Order"
 msgstr "Rūšiavimas"
@@ -238,6 +383,10 @@ msgstr "Filtro pavadinimas"
 msgid "Filter configuration"
 msgstr "Filtro nustatymai"
 
+#, fuzzy
+msgid "position"
+msgstr "Puslapio pozicija"
+
 msgid "Syndication"
 msgstr "Sindikavimas"
 
@@ -246,6 +395,23 @@ msgstr "Šlamšto komentarų RSS "
 
 msgid "Published comments RSS feed"
 msgstr "Publikuotų komentarų RSS"
+
+msgid "Attachments"
+msgstr ""
+
+#, php-format
+msgid "Attachments (%d)"
+msgstr ""
+
+msgid "remove"
+msgstr ""
+
+msgid "No attachment."
+msgstr ""
+
+#, fuzzy
+msgid "Add files to this entry"
+msgstr "Pridėti failus prie šio puslapio"
 
 msgid "Blogroll"
 msgstr "Blogroll"
@@ -256,11 +422,35 @@ msgstr "tvarkyti Bogroll"
 msgid "Links"
 msgstr "Nuorodos"
 
+msgid "Title (optional)"
+msgstr ""
+
 msgid "All categories"
 msgstr "Visos kategorijos"
 
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "Visos žymos"
+
 msgid "Home page only"
 msgstr "Tik namų puslapis"
+
+msgid "Except on home page"
+msgstr ""
+
+#, fuzzy
+msgid "Content only"
+msgstr "Turinio filtrai"
+
+#, fuzzy
+msgid "CSS class:"
+msgstr "CSS failai"
+
+msgid "Offline"
+msgstr ""
 
 msgid "You must provide a link title"
 msgstr "Turite įrašyti nuorodos pavadinimą"
@@ -277,23 +467,24 @@ msgstr "Tai ne XML formato failas."
 msgid "No such link or title"
 msgstr "Tokios nuorodos ar pavadinimo nėra"
 
-msgid "Return to blogroll"
-msgstr "Grįžti į Blogroll"
+msgid "Link has been successfully updated"
+msgstr "Nuoroda sėkmingai atnaujinta"
 
 msgid "Category has been successfully updated"
 msgstr "Kategorija sėkmingai atnaujinta"
 
+msgid "Return to blogroll"
+msgstr "Grįžti į Blogroll"
+
 msgid "Edit category"
 msgstr "Taisyti kategoriją"
-
-msgid "Link has been successfully updated"
-msgstr "Nuoroda sėkmingai atnaujinta"
 
 msgid "Edit link"
 msgstr "Taisyti nuorodą"
 
-msgid "XFN"
-msgstr "XFN"
+#, fuzzy
+msgid "XFN information"
+msgstr "Informacija"
 
 msgid "_xfn_Me"
 msgstr "Aš"
@@ -373,14 +564,11 @@ msgstr "Mylimas"
 msgid "Nothing to import"
 msgstr "Nėra ką įkelti"
 
+msgid "links have been successfully imported."
+msgstr "nuorodos sėkmingai įkeltos."
+
 msgid "Import operation cancelled."
 msgstr "Įkėlimas atšauktas."
-
-msgid "Items order has been successfully updated"
-msgstr "Išdėstymas sėkmingai atnaujintas."
-
-msgid "Items have been successfully removed."
-msgstr "Sėkmingai pašalinti."
 
 msgid "Link has been successfully created."
 msgstr "Nuoroda sėkmingai sukurta."
@@ -388,8 +576,11 @@ msgstr "Nuoroda sėkmingai sukurta."
 msgid "category has been successfully created."
 msgstr "Kategorija sėkmingai sukurta."
 
-msgid "links have been successfully imported."
-msgstr "nuorodos sėkmingai įkeltos."
+msgid "Items have been successfully removed."
+msgstr "Sėkmingai pašalinti."
+
+msgid "Items order has been successfully updated"
+msgstr "Išdėstymas sėkmingai atnaujintas."
 
 msgid "URL"
 msgstr "URL"
@@ -397,8 +588,9 @@ msgstr "URL"
 msgid "Lang"
 msgstr "Kalba"
 
-msgid "Save order"
-msgstr "Išsaugojimo tvarka"
+#, fuzzy
+msgid "select this link"
+msgstr "Trinti šią žymą"
 
 msgid "Delete selected links"
 msgstr "Trinti pasirinktas nuorodas"
@@ -421,8 +613,8 @@ msgstr "Įkelti nuorodas"
 msgid "OPML or XBEL File:"
 msgstr "OPML arba XBEL failas:"
 
-msgid "import"
-msgstr "įkelti"
+msgid "Import"
+msgstr "Importuoti"
 
 msgid "Light linear gradient"
 msgstr "Šviesus linijinis gradientas"
@@ -439,6 +631,9 @@ msgstr "Spalva"
 msgid "Custom..."
 msgstr "Kitoks…"
 
+msgid "Theme configuration has been successfully updated."
+msgstr "Nustatymai sėkmingai atnaujiti."
+
 msgid "Blowup configuration"
 msgstr "Blowup nustatymai"
 
@@ -448,11 +643,18 @@ msgstr "Numatyti stiliai"
 msgid "Apply code"
 msgstr "Taikyti kodą"
 
+#, fuzzy
+msgid "Choose a predefined style"
+msgstr "Numatyti stiliai"
+
+msgid "Back to Blog appearance"
+msgstr ""
+
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr "Dėl šių priežasčių paveikslėliai negali būti sukurti. Nebus galima keisti kai kurių fono nustatymų."
 
-msgid "Theme configuration has been successfully updated."
-msgstr "Nustatymai sėkmingai atnaujiti."
+msgid "Customization"
+msgstr ""
 
 msgid "General"
 msgstr "Bendras"
@@ -529,9 +731,6 @@ msgstr "Pridėkite savo paveikslėlį:"
 #, php-format
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr "800 pikselių pločio, maksimalaus %s dydžio, JPEG arba PNG failas."
-
-msgid "Preview"
-msgstr "Peržiūrėti"
 
 msgid "Sidebar"
 msgstr "Šoninė juosta"
@@ -626,36 +825,136 @@ msgstr "Apatinės dalies nuorodų spalva:"
 msgid "Footer background color:"
 msgstr "Apatinės dalies fono spalva:"
 
+msgid "Additional CSS"
+msgstr ""
+
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr ""
+
 msgid "Configuration import / export"
 msgstr "Nustatymų importavimas / eksportavimas"
 
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr "Galite dalintis savo nustatymai naudodamiesi šiuo kodu. Norėdami pritaikyti nustatymus, ikelkite kodą, paspauskite \"Taikyti kodą\" ir išsaugokite."
 
+msgid "Copy this code:"
+msgstr ""
+
 msgid "default"
 msgstr "standartinis"
 
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Negalima bent viena iš šių funkcijų: imagecreatetruecolor, imagepng & imagecreatefrompng."
-
-msgid "The 'public' directory does not exist."
-msgstr "Direktorija 'public' neegzistuoja"
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr "Negalima modifikuoti '%s' direktorijos."
-
-msgid "Unable to create images."
+#, fuzzy
+msgid "Unable to create css file."
 msgstr "Nepavyksta sukurti paveikslėlių."
-
-msgid "Invalid file type."
-msgstr "Netinkamas failo tipas."
-
-msgid "Uploaded image is not 800 pixels wide."
-msgstr "Įkeltas paveikslėlis yra ne 800 pikselių pločio."
 
 msgid "Unable to open image."
 msgstr "Nepavyko atidaryti paveikslėlio."
+
+#, fuzzy
+msgid "The configuration has been updated."
+msgstr "Nustatymai sėkmingai atnaujiti."
+
+msgid "Media chooser"
+msgstr ""
+
+#, fuzzy
+msgid "Link to an entry"
+msgstr "Nuoroda į visas žymas:"
+
+#, fuzzy
+msgid "Link"
+msgstr "Nuorodos"
+
+msgid "visual"
+msgstr ""
+
+msgid "source"
+msgstr ""
+
+msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "-- none --"
+msgstr ""
+
+msgid "-- block format --"
+msgstr ""
+
+msgid "Paragraph"
+msgstr ""
+
+#, fuzzy
+msgid "Level 1 header"
+msgstr "Rss skaityklė"
+
+#, fuzzy
+msgid "Level 2 header"
+msgstr "Rss skaityklė"
+
+#, fuzzy
+msgid "Level 3 header"
+msgstr "Rss skaityklė"
+
+#, fuzzy
+msgid "Level 4 header"
+msgstr "Rss skaityklė"
+
+#, fuzzy
+msgid "Level 5 header"
+msgstr "Rss skaityklė"
+
+#, fuzzy
+msgid "Level 6 header"
+msgstr "Rss skaityklė"
+
+msgid "Strong emphasis"
+msgstr ""
+
+msgid "Emphasis"
+msgstr ""
+
+msgid "Inserted"
+msgstr ""
+
+#, fuzzy
+msgid "Deleted"
+msgstr "Registras ištrintas."
+
+msgid "Inline quote"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Line break"
+msgstr ""
+
+msgid "Blockquote"
+msgstr ""
+
+msgid "Preformated text"
+msgstr ""
+
+msgid "Unordered list"
+msgstr ""
+
+msgid "Ordered list"
+msgstr ""
+
+msgid "URL?"
+msgstr ""
+
+#, fuzzy
+msgid "Language?"
+msgstr "Kalba"
+
+#, fuzzy
+msgid "External image"
+msgstr "Externes Medium"
+
+#, fuzzy
+msgid "Remove text formating"
+msgstr "Naikinti žymėjimą"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Patikrina trackback šaltinio nuorodą į įrašą."
@@ -672,21 +971,33 @@ msgstr "Eksportuoja blogą arba pilną Dotclear instaliaciją į bendrą failą.
 msgid "Export file not found."
 msgstr "Eksportuojamas failas nerastas."
 
-msgid "Export a blog"
-msgstr "Eksportuoti blogą"
+msgid "Failed to compress export file."
+msgstr ""
+
+#, fuzzy
+msgid "Single blog"
+msgstr "Importuoti vieną blogą"
 
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr "Bus sukurtas eksportuojamas failas jūsų dabartiniam blogui: %s"
 
-msgid "Export"
-msgstr "Eksportavimas"
+#, fuzzy
+msgid "Compress file"
+msgstr "Šablonų failai"
 
 msgid "You may also want to download your media directory as a zip file"
 msgstr "Tai pat galite parsisiųsti savo media direktoriją kaip zip failą."
 
-msgid "Export all content"
-msgstr "Eksportuoti visą turinį"
+msgid "Export"
+msgstr "Eksportavimas"
+
+msgid "Multiple blogs"
+msgstr ""
+
+#, fuzzy
+msgid "This will create an export of all the content of your database."
+msgstr "Dėmesio: Bus ištrintas visas jūsų duomenų bazės turinys išskyrus dalyvius."
 
 msgid "Congratulation!"
 msgstr "Sveikiname!"
@@ -709,15 +1020,12 @@ msgstr "Dotclear 1.2 importavimas"
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importuoja Dotclear 1.2 Instaliaciją į dabartinį blogą."
 
-#, php-format
-msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
-msgstr "Visas Dotclear 1.2 turinys bus importuotas į dabartinį blogą (%s) kaip naujas turinys."
+#, fuzzy, php-format
+msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
+msgstr "Importuoja Dotclear 1.2 Instaliaciją į dabartinį blogą."
 
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Atkreipkite dėmesį, kad šis procesas gali ištrinti jūsų kategorijas, blogroll, įrašus ir komentarus dabartiniame bloge."
-
-msgid "Depending on the size of your blog, it could take a few minutes."
-msgstr "Tai gali užtrukti iki kelių minučių priklausomai nuo jūsų blogo dydžio."
 
 msgid "General information"
 msgstr "Bendra informacija"
@@ -760,14 +1068,17 @@ msgstr "Atkreipkite dėmesį, kad Dotclear 2 turi naują URL išdėstymą. Galit
 msgid "next step"
 msgstr "kitas žingsnis"
 
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr "Tai gali užtrukti iki kelių minučių priklausomai nuo jūsų blogo dydžio."
+
 msgid "Dotclear tables not found"
 msgstr "Dotclear lentelės nerastos"
 
-msgid "Feed import"
-msgstr "Feed importas"
+msgid "RSS or Atom feed import"
+msgstr ""
 
-msgid "Imports a feed as new entries."
-msgstr "Importuoja rss feed kaip naujus įrašus"
+msgid "Add a feed content to the blog."
+msgstr ""
 
 msgid "Cannot retrieve feed URL."
 msgstr "Nepavyksta gauti rss URL."
@@ -778,18 +1089,12 @@ msgstr "Nėra rss įrašų."
 msgid "Content successfully imported."
 msgstr "Turinys sėkmingai importuotas."
 
-msgid "Import from a feed"
-msgstr "Importuoti iš rss"
-
-#, php-format
-msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
-msgstr "Bus importuota RSS arba Atom įrašai kaip nauji įrašai jūsų bloge: %s"
+#, fuzzy, php-format
+msgid "Add a feed content to the current blog: <strong>%s</strong>."
+msgstr "Importuojama viena blogo atsarginė kopija kaip naujas turinys jūsų bloge: %s."
 
 msgid "Feed URL:"
 msgstr "Rss URL:"
-
-msgid "Send"
-msgstr "Siųsti"
 
 msgid "Flat file import"
 msgstr "Paprastas failo importavimas"
@@ -803,9 +1108,6 @@ msgstr "Vienas blogas sėkmingai importuotas."
 msgid "Are you sure you want to import a full backup file?"
 msgstr "Ar tikrai norite importuoti visą atsarginės kopijos failą?"
 
-msgid "Import a single blog"
-msgstr "Importuoti vieną blogą"
-
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "Importuojama viena blogo atsarginė kopija kaip naujas turinys jūsų bloge: %s."
@@ -813,14 +1115,26 @@ msgstr "Importuojama viena blogo atsarginė kopija kaip naujas turinys jūsų bl
 msgid "Upload a backup file"
 msgstr "Įkelti atsarginės kopijos failą"
 
+#, php-format
+msgid "maximum size %s"
+msgstr ""
+
 msgid "or pick up a local file in your public directory"
 msgstr "arba pasirinkite vietinį failą iš savo public direktorijos"
 
-msgid "Import a full backup file"
-msgstr "Importuoti visą atsarginės kopijos failą"
-
-msgid "Warning: This will reset all the content of your database, except users."
+#, fuzzy
+msgid "This will reset all the content of your database, except users."
 msgstr "Dėmesio: Bus ištrintas visas jūsų duomenų bazės turinys išskyrus dalyvius."
+
+msgid "Another file with same name exists."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to extract backup file."
+msgstr "Įkelti atsarginės kopijos failą"
+
+msgid "No backup in compressed file."
+msgstr ""
 
 msgid "WordPress import"
 msgstr "Wordpress importavimas"
@@ -838,7 +1152,8 @@ msgstr "Pirmiausiai mums reikalinga tam tikra informacija apie jūsų WordPress 
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress ir Dotclear categorijų tvarkymas yra gana skinrtingas. WordPress jūs galite priskirti kelias kategorijas vienam įrašui. Dotclear mes į tai žiūrime labiau kaip \"Viena kategorija, kelios žymos.\". Tokiu būdu Dotclear gali importuoti tik vieną kategoriją kiekvienam įrašui ir pasirinks pirmiausiai įvardintą. Jei norite atkirai atsekti kiekvieną kategoriją, galite jas įkelti kaip žymas, naudodami pasirinktiną prefiksą."
 
-msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+#, fuzzy
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "Kita vertus WordPress įrašams kategorijos negai būti atšauktos ir tipinė instaliaciją pirmą kategoriją įvardina <i>\"Uncategorized\"</i>. Jei jūs nekeitėte šios kategorijos, tiesiog ignoruokite tai nes Dotclear leidžia jūsų įrašų nepriskirti jokiai kategorijai."
 
 msgid "Ignore the first category:"
@@ -877,45 +1192,155 @@ msgstr "Tai nėra Dotclear atsarginės kopijos failas."
 msgid "File is not a single blog export."
 msgstr "Tai nėra vieno blogo eksportuotas failas."
 
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
 msgid "File is not a full export."
 msgstr "Nepilnai eksportuotas failas."
 
-msgid "The backup file does not appear to be well formed."
-msgstr "Atsarginės kopijos failas yra blogai formatuotas,"
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+#, fuzzy
+msgid "Database export"
+msgstr "Paprasto failo eksportavimas"
+
+msgid "Download database of current blog"
+msgstr ""
+
+msgid "Download database of all blogs"
+msgstr ""
 
 msgid "Please wait..."
 msgstr "Prašome palaukti…"
 
-msgid "Import"
-msgstr "Importuoti"
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
 
 msgid "Maintenance"
 msgstr "Priežiūra"
 
-msgid "Optimization successful."
-msgstr "Sėkmingai optimizuota."
+#, fuzzy
+msgid "Servicing"
+msgstr "Serviso pavadinimas:"
 
-msgid "Comments and trackback counted."
-msgstr "Komentarai ir trackback suskaičiuoti."
+msgid "Tools to maintain the performance of your blogs."
+msgstr ""
+
+#, fuzzy
+msgid "Backup"
+msgstr "Atgal"
+
+msgid "Tools to back up your content."
+msgstr ""
+
+msgid "Development"
+msgstr ""
+
+msgid "Tools to assist in development of plugins, themes and core."
+msgstr ""
+
+msgid "Optimize"
+msgstr ""
+
+msgid "Count and index"
+msgstr ""
+
+msgid "Purge"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+#, fuzzy
+msgid "Current blog"
+msgstr "Grįžti į Blogroll"
+
+#, fuzzy
+msgid "All blogs"
+msgstr "Visos žymos"
+
+msgid "Maintain translations"
+msgstr ""
+
+msgid "Translations"
+msgstr ""
+
+#, php-format
+msgid "One task to execute"
+msgid_plural "%s tasks to execute"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "This task has never been executed."
+msgstr ""
+
+#, php-format
+msgid "Last execution of this task was on %s."
+msgstr ""
+
+#, php-format
+msgid "There is a task to execute."
+msgid_plural "There are %s tasks to execute."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Manage tasks"
+msgstr "tvarkyti puslapius"
+
+msgid "Display overdue tasks counter on maintenance dashboard icon"
+msgstr ""
+
+msgid "Display overdue tasks list on dashboard items"
+msgstr ""
+
+msgid "Failed to execute task."
+msgstr ""
+
+#, fuzzy
+msgid "Task successfully executed."
+msgstr "Nuoroda sėkmingai sukurta."
+
+msgid "Empty templates cache directory"
+msgstr "Trinti šablonų cache direktoriją"
 
 msgid "Templates cache directory emptied."
 msgstr "Šablonų cache direktorija išvalyta."
 
-msgid "Logs deleted."
-msgstr "Registras ištrintas."
+#, fuzzy
+msgid "Failed to empty templates cache directory."
+msgstr "Trinti šablonų cache direktoriją"
 
-#, php-format
-msgid "Indexing entry %d to %d."
-msgstr "Indeksuojami įrašai nuo %d iki %d"
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+msgstr ""
 
-msgid "next"
-msgstr "kitas"
+#, fuzzy
+msgid "Count again comments and trackbacks"
+msgstr "Komentarai ir trackback suskaičiuoti."
 
-msgid "Entries index done."
-msgstr "Įrašų indeksavimas baigtas."
+msgid "Comments and trackback counted."
+msgstr "Komentarai ir trackback suskaičiuoti."
 
-msgid "Back"
-msgstr "Atgal"
+#, fuzzy
+msgid "Failed to count comments and trackbacks."
+msgstr "Komentarai ir trackback suskaičiuoti."
+
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Search engine index"
+msgstr "Paieškos variklio indeksas"
+
+#, fuzzy
+msgid "Index all comments for search engine"
+msgstr "Indeksuoti visus komentarus"
+
+msgid "Next"
+msgstr ""
 
 #, php-format
 msgid "Indexing comment %d to %d."
@@ -924,47 +1349,172 @@ msgstr "Ineksuojami komentarai nuo %d iki %d."
 msgid "Comments index done."
 msgstr "Komentarų indeksavimas baigtas."
 
-msgid "Optimize database room"
-msgstr "Optimizuojama duomenų bazės talpa"
-
-msgid "Vacuum tables"
-msgstr "Vacuum lentelės"
-
-msgid "Counters"
-msgstr "Skaičiuoklės"
-
-msgid "Reset comments and ping counters"
-msgstr "Išvalyti komentarų ir ping skaitiklius"
-
-msgid "Search engine index"
-msgstr "Paieškos variklio indeksas"
-
-msgid "This may take a very long time"
-msgstr "gali ilgai užtrukti"
-
-msgid "Index all posts"
-msgstr "Indeksuoti visus įrašus"
-
-msgid "Index all comments"
+#, fuzzy
+msgid "Failed to index comments."
 msgstr "Indeksuoti visus komentarus"
 
-msgid "Vacuum logs"
-msgstr "Vacuum registras"
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr ""
+
+msgid "Index all entries for search engine"
+msgstr ""
+
+#, php-format
+msgid "Indexing entry %d to %d."
+msgstr "Indeksuojami įrašai nuo %d iki %d"
+
+msgid "Entries index done."
+msgstr "Įrašų indeksavimas baigtas."
+
+#, fuzzy
+msgid "Failed to index entries."
+msgstr "Pasirinkti įrašai"
+
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr ""
 
 msgid "Delete all logs"
 msgstr "Trinti visus registrus"
 
-msgid "Empty templates cache directory"
-msgstr "Trinti šablonų cache direktoriją"
+msgid "Logs deleted."
+msgstr "Registras ištrintas."
 
-msgid "Empty directory"
-msgstr "Trinti direktoriją"
+#, fuzzy
+msgid "Failed to delete logs."
+msgstr "Nepavyksta sukurti paveikslėlių."
 
-msgid "Pages"
-msgstr "Puslapiai"
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
+msgstr ""
+
+#, fuzzy
+msgid "Entries metadata"
+msgstr "Įrašų rss"
+
+msgid "Synchronize entries metadata"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Synchronize entry %d to %d."
+msgstr "Indeksuojami įrašai nuo %d iki %d"
+
+#, fuzzy
+msgid "Entries metadata synchronize done."
+msgstr "Įrašų indeksavimas baigtas."
+
+msgid "Failed to synchronize entries metadata."
+msgstr ""
+
+msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
+msgstr ""
+
+#, fuzzy
+msgid "Optimise database"
+msgstr "Optimizuojama duomenų bazės talpa"
+
+#, fuzzy
+msgid "optimize tables"
+msgstr "Optimizuojama duomenų bazės talpa"
+
+msgid "Optimization successful."
+msgstr "Sėkmingai optimizuota."
+
+msgid "Failed to optimize tables."
+msgstr ""
+
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
+msgstr ""
+
+msgid "Download media folder of current blog"
+msgstr ""
+
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr ""
+
+msgid "Download active theme of current blog"
+msgstr ""
+
+msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
+msgstr ""
+
+#, fuzzy
+msgid "Maintenance plugin has been successfully configured."
+msgstr "Kategorija sėkmingai sukurta."
+
+msgid "Never"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+#, fuzzy
+msgid "This may take a very long time."
+msgstr "gali ilgai užtrukti"
+
+#, fuzzy
+msgid "Alert settings"
+msgstr "blogo nustatymai"
+
+#, fuzzy
+msgid "Activation"
+msgstr "Aktyvus"
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "New page"
+msgstr "Naujas puslapis"
+
+#, fuzzy, php-format
+msgid "%d page"
+msgstr "Redaguoti puslapį"
+
+#, fuzzy, php-format
+msgid "%d pages"
+msgstr "Redaguoti puslapį"
 
 msgid "manage pages"
 msgstr "tvarkyti puslapius"
+
+#, fuzzy
+msgid "My first page"
+msgstr "Redaguoti puslapį"
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 msgid "Published on"
 msgstr "Publikuota"
@@ -984,29 +1534,57 @@ msgstr "Puslapio pozicija"
 msgid "Publication date"
 msgstr "Publikavimo data"
 
+#, fuzzy
+msgid "Pages actions"
+msgstr "Puslapio pozicija"
+
+#, fuzzy
+msgid "Back to pages list"
+msgstr "Atgal į žymų sąrašą"
+
+#, fuzzy
+msgid "Selected pages have been successfully reordered."
+msgstr "Sėkmingai pašalinti."
+
 msgid "No page"
 msgstr "Puslapio nėra"
+
+msgid "Hidden"
+msgstr ""
+
+#, fuzzy
+msgid "Select this page"
+msgstr "Trinti šią žymą"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Ar tikrai norite ištrinti pasirinktus puslapius?"
 
-msgid "New page"
-msgstr "Naujas puslapis"
+#, fuzzy
+msgid "Selected pages have been successfully updated."
+msgstr "Nustatymi sėkmingai atnaujinti."
+
+#, fuzzy
+msgid "Selected pages have been successfully deleted."
+msgstr "Spamo komentarai sėkmingai ištrinti."
 
 msgid "Selected pages action:"
 msgstr "Veiksmas pasirinktiems puslapiams:"
+
+msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
+msgstr ""
+
+msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
+msgstr ""
+
+#, fuzzy
+msgid "Save pages order"
+msgstr "Išsaugojimo tvarka"
 
 msgid "This page does not exist."
 msgstr "Šis puslapis neegzistuoja."
 
 msgid "Edit page"
 msgstr "Redaguoti puslapį"
-
-msgid "next page"
-msgstr "kitas puslapis"
-
-msgid "previous page"
-msgstr "ankstesnis puslapis"
 
 msgid "Are you sure you want to delete this page?"
 msgstr "Ar tikrai norite ištrinti šį puslapį?"
@@ -1017,38 +1595,38 @@ msgstr "Puslapis sėkmingai atnaujintas."
 msgid "Page has been successfully created."
 msgstr "Puslapis sėkmingai sukurtas"
 
-msgid "View page"
-msgstr "Žiūrėti puslapį"
-
-msgid "Preview page"
-msgstr "Peržiūrėti puslapį"
+msgid "Go to this page on the site"
+msgstr ""
 
 msgid "Page status"
 msgstr "Puslapio statusas:"
 
-msgid "Page position"
-msgstr "Puslapio pozicija:"
-
-msgid "Page lang"
+#, fuzzy
+msgid "Page language"
 msgstr "Puslapio kalba:"
 
-msgid "Page password"
-msgstr "Puslapio slaptažodis:"
+#, fuzzy
+msgid "Hide in widget Pages"
+msgstr "Slėpti pagrindinę antraštę"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Dėmesio: gali atsirasti konfliktas su kitu puslapiu, jei URL nustatysite rankiniu būdu."
 
-msgid "Add files to this page"
-msgstr "Pridėti failus prie šio puslapio"
+msgid "Introduction to the page."
+msgstr ""
+
+#, fuzzy
+msgid "Select this comment"
+msgstr "Trinti šią žymą"
 
 msgid "Pings"
 msgstr "Pingai"
 
-msgid "Pings configuration"
-msgstr "Pings nustatymai"
-
 msgid "Settings have been successfully updated."
 msgstr "Nustatymi sėkmingai atnaujinti."
+
+msgid "Pings configuration"
+msgstr "Pings nustatymai"
 
 msgid "Activate pings extension"
 msgstr "Įjungti ping'ų išplėtimus"
@@ -1059,7 +1637,8 @@ msgstr "Serviso pavadinimas:"
 msgid "Service URI:"
 msgstr "Serviso URI:"
 
-msgid "error"
+#, fuzzy
+msgid "Error"
 msgstr "klaida"
 
 msgid "Test ping services"
@@ -1068,21 +1647,191 @@ msgstr "Testuoti ping servisus"
 msgid "Check all"
 msgstr "Patikrinti visus"
 
-msgid "Pings:"
-msgstr "Ping'ai"
+msgid "Simple menu"
+msgstr ""
+
+#, fuzzy
+msgid "All months"
+msgstr "Visos žymos"
+
+msgid "All tags"
+msgstr "Visos žymos"
+
+msgid "Home"
+msgstr "Pagrindinis"
+
+#, fuzzy
+msgid "Archive"
+msgstr "Archyvas"
+
+#, fuzzy
+msgid "Page"
+msgstr "Puslapiai"
 
 msgid "Tags"
 msgstr "Žymos"
 
-msgid "Tags:"
-msgstr "Žymos:"
+msgid "User defined"
+msgstr ""
+
+#, fuzzy
+msgid "Configuration successfully updated."
+msgstr "Nustatymai sėkmingai atnaujinti"
+
+msgid "Label"
+msgstr ""
+
+msgid "Recent posts"
+msgstr ""
 
 #, php-format
-msgid "Are you sure you want to remove this %s?"
+msgid "Switch to %s language"
+msgstr ""
+
+msgid "Recent Posts from this category"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archyvas"
+
+#, fuzzy, php-format
+msgid "Posts from %s"
+msgstr "Pasirinkite iš sąrašo"
+
+#, php-format
+msgid "Recent posts for %s tag"
+msgstr ""
+
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "Žodžis sėkmingai pridėtas."
+
+msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "Sėkmingai pašalinti."
+
+#, fuzzy
+msgid "No menu items selected."
+msgstr "Nėra rss įrašų."
+
+msgid "Label is mandatory."
+msgstr ""
+
+msgid "URL is mandatory."
+msgstr ""
+
+#, fuzzy
+msgid "Menu items have been successfully updated."
+msgstr "Nustatymi sėkmingai atnaujinti."
+
+msgid "Step #1"
+msgstr ""
+
+msgid "Step #2"
+msgstr ""
+
+msgid "Step #3"
+msgstr ""
+
+#, fuzzy
+msgid "Add item"
+msgstr "Pridėti žymėjimą"
+
+#, fuzzy
+msgid "Select type"
+msgstr "Pasirinkti įrašai"
+
+msgid "Type of item menu:"
+msgstr ""
+
+msgid "Continue..."
+msgstr ""
+
+#, fuzzy
+msgid "Select language:"
+msgstr "Blogo kalbos"
+
+#, fuzzy
+msgid "Select category:"
+msgstr "Taisyti kategoriją"
+
+msgid "Select month (if necessary):"
+msgstr ""
+
+#, fuzzy
+msgid "Select page:"
+msgstr "Veiksmas pasirinktiems puslapiams:"
+
+msgid "Select tag (if necessary):"
+msgstr ""
+
+msgid "Label of item menu:"
+msgstr ""
+
+#, fuzzy
+msgid "Description of item menu:"
+msgstr "Aprašymas"
+
+msgid "URL of item menu:"
+msgstr ""
+
+msgid "Add this item"
+msgstr ""
+
+msgid "Enable simple menu for this blog"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "%s nustatymai"
+
+#, fuzzy
+msgid "Add an item"
+msgstr "Pridėti naują nuorodą"
+
+msgid "Menu items list"
+msgstr ""
+
+msgid "Update menu"
+msgstr ""
+
+#, fuzzy
+msgid "Delete selected menu items"
+msgstr "Trinti pasirinktas nuorodas"
+
+#, fuzzy
+msgid "Are you sure you want to remove selected menu items?"
+msgstr "Ar tikrai norite ištrinti pasirinktas nuorodas?"
+
+#, fuzzy
+msgid "No menu items so far."
+msgstr "Nėra rss įrašų."
+
+msgid "Add tags"
+msgstr "Pridėti žymėjimą"
+
+msgid "Remove tags"
+msgstr "Naikinti žymėjimą"
+
+#, fuzzy
+msgid "Tag has been successfully added to selected entries"
+msgid_plural "Tags have been successfully added to selected entries"
+msgstr[0] "Žyma sėkmingai pašalinta"
+msgstr[1] "Žyma sėkmingai pašalinta"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "Pridėti %s? prie šio įrašo"
+
+#, fuzzy
+msgid "Are you sure you want to remove this tag?"
 msgstr "Ar tikrai norite pašalinti šį %s?"
 
-#, php-format
-msgid "Add a %s to this entry"
+#, fuzzy
+msgid "Add a tag to this entry"
 msgstr "Pridėti %s? prie šio įrašo"
 
 msgid "Choose from list"
@@ -1091,8 +1840,8 @@ msgstr "Pasirinkite iš sąrašo"
 msgid "all"
 msgstr "visi"
 
-msgid "Tag"
-msgstr "Žyma"
+msgid "Enter tags separated by coma"
+msgstr "Įveslite žymas atskirtas kableliais"
 
 msgid "used in %e - frequency %p%"
 msgstr "naudojama %e - dažnumas %p%"
@@ -1103,34 +1852,34 @@ msgstr "įrašas"
 msgid "entries"
 msgstr "įrašai"
 
-msgid "Enter tags separated by coma"
-msgstr "Įveslite žymas atskirtas kableliais"
-
-msgid "Add tags"
-msgstr "Pridėti žymėjimą"
-
-msgid "Remove tags"
-msgstr "Naikinti žymėjimą"
-
-msgid "Add tags to entries"
-msgstr "Pridėti žymas prie įrašų"
-
 msgid "Tags to add:"
 msgstr "Pridedamos žymos:"
 
-msgid "Remove selected tags from entries"
-msgstr "Pašalinti pasirinktas žymas nuo įrašų"
+#, fuzzy
+msgid "Tag has been successfully removed from selected entries"
+msgid_plural "Tags have been successfully removed from selected entries"
+msgstr[0] "Žyma sėkmingai pašalinta"
+msgstr[1] "Žyma sėkmingai pašalinta"
 
 msgid "No tags for selected entries"
 msgstr "Pasirinktiems įrašams žymų nėra"
 
+#, fuzzy
+msgid "Remove selected tags from this selection"
+msgstr "Pašalinti pasirinktas žymas nuo įrašų"
+
 msgid "Following tags have been found in selected entries:"
 msgstr "Pasirinktuose įrašuose rastos tokios žymos:"
 
-msgid "short"
+msgid "Tag"
+msgstr "Žyma"
+
+#, fuzzy
+msgid "Short"
 msgstr "trumpas"
 
-msgid "extended"
+#, fuzzy
+msgid "Extended"
 msgstr "išplėstas"
 
 msgid "Tags list format:"
@@ -1151,38 +1900,53 @@ msgstr "Įrašų skaičius"
 msgid "Tag name"
 msgstr "Žymos pavadinimas"
 
-msgid "All tags"
-msgstr "Visos žymos"
-
 msgid "Link to all tags:"
 msgstr "Nuoroda į visas žymas:"
-
-msgid "Edit tag"
-msgstr "Redaguoti žymą"
 
 msgid "Tag has been successfully renamed"
 msgstr "Žyma sėkmingai pervadinta"
 
+msgid "Tag has been successfully removed"
+msgstr "Žyma sėkmingai pašalinta"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove tag: “%s”?"
+msgstr "Ar tikrai norite pašalinti šį %s?"
+
 msgid "Back to tags list"
 msgstr "Atgal į žymų sąrašą"
 
-msgid "Rename this tag:"
-msgstr "Pervadinti šią žymą:"
+msgid "Rename"
+msgstr ""
 
 msgid "Delete this tag"
 msgstr "Trinti šią žymą"
 
-msgid "Tag has been successfully removed"
-msgstr "Žyma sėkmingai pašalinta"
+#, php-format
+msgid "List of entries with the tag “%s”"
+msgstr ""
 
 msgid "No tags on this blog."
 msgstr "Šiame bloge nėra žymų"
 
-msgid "Theme Editor"
-msgstr "Temų redaktorius"
+#, fuzzy
+msgid "Edit theme files"
+msgstr "Redaguojamas failas %s"
+
+msgid "Syntax highlighting in theme editor"
+msgstr ""
 
 msgid "No file"
 msgstr "Failo nėra"
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
 
 msgid "File does not exist."
 msgstr "Failas neegzistuoja"
@@ -1195,6 +1959,13 @@ msgstr "Failas %s yra neperskaitomas"
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Nepavyksta įrašyti %s failo. Patikrinkite savo temų failus ir byloms suteiktas teises."
 
+#, fuzzy, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "Nepavyksta įrašyti %s failo. Patikrinkite savo temų failus ir byloms suteiktas teises."
+
+msgid "The file has been reset."
+msgstr ""
+
 msgid "Saving document..."
 msgstr "Saugomas dokumentas..."
 
@@ -1203,6 +1974,10 @@ msgstr "Dokumentas išsaugotas"
 
 msgid "An error occurred:"
 msgstr "Įvyko klaida:"
+
+#, fuzzy
+msgid "Are you sure you want to reset this file?"
+msgstr "Ar tikrai norite ištrinti šį puslapį?"
 
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
@@ -1221,6 +1996,9 @@ msgstr "Failų redagavimas"
 msgid "Editing file %s"
 msgstr "Redaguojamas failas %s"
 
+msgid "Reset"
+msgstr ""
+
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "Negalima įrašyti į failą. Patikrinkite temų failams suteiktas teises."
 
@@ -1232,6 +2010,23 @@ msgstr "CSS failai"
 
 msgid "JavaScript files"
 msgstr "JavaScript failai"
+
+#, fuzzy
+msgid "Locales files"
+msgstr "Šablonų failai"
+
+#, fuzzy
+msgid "Preferences successfully updated"
+msgstr "Puslapis sėkmingai atnaujintas."
+
+msgid "user:preferences"
+msgstr ""
+
+msgid "User preferences"
+msgstr ""
+
+msgid "Global preferences"
+msgstr ""
 
 msgid "Presentation widgets"
 msgstr "Vaizdavimo valdikliai"
@@ -1253,6 +2048,13 @@ msgstr "Blogo kalbos"
 
 msgid "With entries counts"
 msgstr "Su įrašų skaičiumi"
+
+msgid "Include sub cats in count"
+msgstr ""
+
+#, fuzzy
+msgid "Include empty categories"
+msgstr "Importuojamos kategorijos"
 
 msgid "Subscribe links"
 msgstr "Sekti nuorodas"
@@ -1293,12 +2095,6 @@ msgstr "Paskutiniai komentarai"
 msgid "Comments limit:"
 msgstr "Komentarų limitas:"
 
-msgid "Home"
-msgstr "Pagrindinis"
-
-msgid "Archives"
-msgstr "Archyvas"
-
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Šio blogo įrašų %s rss"
@@ -1319,6 +2115,19 @@ msgstr "navigacija"
 msgid "extra"
 msgstr "ekstra"
 
+#, fuzzy
+msgid "custom"
+msgstr "Kitoks…"
+
+msgid "empty string"
+msgstr ""
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
 msgid "Widgets"
 msgstr "Valdikliai"
 
@@ -1328,10 +2137,17 @@ msgstr "Ar tikrai norite išvalyti šonines juostas?"
 msgid "Available widgets"
 msgstr "Galimi valdikliai"
 
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
+msgstr "rūšiavimas"
+
 msgid "Append to:"
 msgstr "Pritaikyti:"
 
-msgid "add widgets to sidebars"
+#, fuzzy
+msgid "Add widgets to sidebars"
 msgstr "pridėti valdiklius prie šoninių juostų"
 
 msgid "Navigation sidebar"
@@ -1340,32 +2156,17 @@ msgstr "Navigacinė soninė juosta"
 msgid "Extra sidebar"
 msgstr "Papildoma šoninė juosta"
 
-msgid "update sidebars"
-msgstr "atnaujinti šonines juostas"
-
-msgid "reset sidebars"
+#, fuzzy
+msgid "Custom sidebar"
 msgstr "nutrinti šonines juostas"
 
-msgid "Widget templates tags"
-msgstr "Valdiklių šablonų žymės"
+#, fuzzy
+msgid "Update sidebars"
+msgstr "atnaujinti šonines juostas"
 
-msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr "Jei jums leidžiama redaguoti savo temos šablonus, valdiklius galite pridėti tiesiogiai kaip šablonų žymas su savais nustatymais."
-
-msgid "To add a widget in your template, you need to write code like this:"
-msgstr "Norėdami pridėti valdiklį į savo šabloną, turite šitaip rašyti kodą:"
-
-msgid "Widget ID"
-msgstr "Valdiklio ID"
-
-msgid "Setting name"
-msgstr "Nustatymo pavadinimas"
-
-msgid "Setting value"
-msgstr "Nustatymo reikšmė"
-
-msgid "Here are the following available widgets for your blog:"
-msgstr "Šiuos valdiklius galite naudoti savo bloge:"
+#, fuzzy
+msgid "Reset sidebars"
+msgstr "nutrinti šonines juostas"
 
 msgid "Widget ID:"
 msgstr "Valdiklio ID:"
@@ -1373,20 +2174,183 @@ msgstr "Valdiklio ID:"
 msgid "No setting for this widget"
 msgstr "Nėra valdiklio nustatymų"
 
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
 msgid "Setting name:"
 msgstr "Nustatymo pavadiminas:"
 
-msgid "No widget."
+#, fuzzy
+msgid "No widget as far."
 msgstr "Valdiklio nėra."
 
-msgid "order"
-msgstr "rūšiavimas"
+#, fuzzy
+msgid "Up the widget"
+msgstr "Pašalinti valdiklį"
+
+#, fuzzy
+msgid "Down the widget"
+msgstr "Pašalinti valdiklį"
+
+#, fuzzy
+msgid "Remove the widget"
+msgstr "Pašalinti valdiklį"
 
 msgid "Remove widget"
 msgstr "Pašalinti valdiklį"
 
-#~ msgid "External media"
-#~ msgstr "Externes Medium"
+msgid "Drag widgets here to remove."
+msgstr ""
+
+#~ msgid "Settings definition successfully updated"
+#~ msgstr "Nustatymų aprašas sėkmingai atnaujintas"
+
+#~ msgid "Global IP"
+#~ msgstr "Globalus IP"
+
+#~ msgid "Global word"
+#~ msgstr "Bendras žodis"
+
+#~ msgid "List"
+#~ msgstr "Sąrašas"
+
+#~ msgid "Return to filters"
+#~ msgstr "Grįžti į filtrus"
+
+#~ msgid "Delete all spams"
+#~ msgstr "Trinti visą spamą"
+
+#~ msgid "XFN"
+#~ msgstr "XFN"
+
+#~ msgid "import"
+#~ msgstr "įkelti"
+
+#~ msgid "Preview"
+#~ msgstr "Peržiūrėti"
+
+#~ msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+#~ msgstr "Negalima bent viena iš šių funkcijų: imagecreatetruecolor, imagepng & imagecreatefrompng."
+
+#~ msgid "The 'public' directory does not exist."
+#~ msgstr "Direktorija 'public' neegzistuoja"
+
+#~ msgid "The '%s' directory cannot be modified."
+#~ msgstr "Negalima modifikuoti '%s' direktorijos."
+
+#~ msgid "Invalid file type."
+#~ msgstr "Netinkamas failo tipas."
+
+#~ msgid "Uploaded image is not 800 pixels wide."
+#~ msgstr "Įkeltas paveikslėlis yra ne 800 pikselių pločio."
+
+#~ msgid "Export all content"
+#~ msgstr "Eksportuoti visą turinį"
+
+#~ msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
+#~ msgstr "Visas Dotclear 1.2 turinys bus importuotas į dabartinį blogą (%s) kaip naujas turinys."
+
+#~ msgid "Feed import"
+#~ msgstr "Feed importas"
+
+#~ msgid "Imports a feed as new entries."
+#~ msgstr "Importuoja rss feed kaip naujus įrašus"
+
+#~ msgid "Import from a feed"
+#~ msgstr "Importuoti iš rss"
+
+#~ msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
+#~ msgstr "Bus importuota RSS arba Atom įrašai kaip nauji įrašai jūsų bloge: %s"
+
+#~ msgid "Send"
+#~ msgstr "Siųsti"
+
+#~ msgid "Import a full backup file"
+#~ msgstr "Importuoti visą atsarginės kopijos failą"
+
+#~ msgid "The backup file does not appear to be well formed."
+#~ msgstr "Atsarginės kopijos failas yra blogai formatuotas,"
+
+#~ msgid "next"
+#~ msgstr "kitas"
+
+#~ msgid "Vacuum tables"
+#~ msgstr "Vacuum lentelės"
+
+#~ msgid "Counters"
+#~ msgstr "Skaičiuoklės"
+
+#~ msgid "Reset comments and ping counters"
+#~ msgstr "Išvalyti komentarų ir ping skaitiklius"
+
+#~ msgid "Index all posts"
+#~ msgstr "Indeksuoti visus įrašus"
+
+#~ msgid "Vacuum logs"
+#~ msgstr "Vacuum registras"
+
+#~ msgid "Empty directory"
+#~ msgstr "Trinti direktoriją"
+
+#~ msgid "next page"
+#~ msgstr "kitas puslapis"
+
+#~ msgid "previous page"
+#~ msgstr "ankstesnis puslapis"
+
+#~ msgid "View page"
+#~ msgstr "Žiūrėti puslapį"
+
+#~ msgid "Preview page"
+#~ msgstr "Peržiūrėti puslapį"
+
+#~ msgid "Page password"
+#~ msgstr "Puslapio slaptažodis:"
+
+#~ msgid "Pings:"
+#~ msgstr "Ping'ai"
+
+#~ msgid "Tags:"
+#~ msgstr "Žymos:"
+
+#~ msgid "Add tags to entries"
+#~ msgstr "Pridėti žymas prie įrašų"
+
+#~ msgid "Edit tag"
+#~ msgstr "Redaguoti žymą"
+
+#~ msgid "Rename this tag:"
+#~ msgstr "Pervadinti šią žymą:"
+
+#~ msgid "Widget templates tags"
+#~ msgstr "Valdiklių šablonų žymės"
+
+#~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
+#~ msgstr "Jei jums leidžiama redaguoti savo temos šablonus, valdiklius galite pridėti tiesiogiai kaip šablonų žymas su savais nustatymais."
+
+#~ msgid "To add a widget in your template, you need to write code like this:"
+#~ msgstr "Norėdami pridėti valdiklį į savo šabloną, turite šitaip rašyti kodą:"
+
+#~ msgid "Widget ID"
+#~ msgstr "Valdiklio ID"
+
+#~ msgid "Setting name"
+#~ msgstr "Nustatymo pavadinimas"
+
+#~ msgid "Setting value"
+#~ msgstr "Nustatymo reikšmė"
+
+#~ msgid "Here are the following available widgets for your blog:"
+#~ msgstr "Šiuos valdiklius galite naudoti savo bloge:"
 
 #~ msgid "External media selector"
 #~ msgstr "Externe Medienauswahl"

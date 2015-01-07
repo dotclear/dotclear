@@ -25,7 +25,7 @@ if (isset($_REQUEST['redir'])) {
 	}
 	$args['redir'] = $_REQUEST['redir'];
 } else {
-	$uri = 'posts.php';
+	$uri = $core->adminurl->get("admin.posts");
 	$args=array();
 }
 

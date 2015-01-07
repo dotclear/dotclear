@@ -11,8 +11,10 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$_menu['Blog']->addItem(__('Pings'),'plugin.php?p=pings','index.php?pf=pings/icon.png',
-		preg_match('/plugin.php\?p=pings/',$_SERVER['REQUEST_URI']),
+$_menu['Blog']->addItem(__('Pings'),
+		$core->adminurl->get('admin.plugin.pings'),
+		dcPage::getPF('pings/icon.png'),
+		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.pings')).'/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin());
 
 $__autoload['pingsAPI'] = dirname(__FILE__).'/lib.pings.php';
@@ -42,9 +44,9 @@ function pingDashboardFavorites($core,$favs)
 {
 	$favs->register('pings', array(
 		'title' => __('Pings'),
-		'url' => 'plugin.php?p=pings',
-		'small-icon' => 'index.php?pf=pings/icon.png',
-		'large-icon' => 'index.php?pf=pings/icon-big.png',
+		'url' => $core->adminurl->get('admin.plugin.pings'),
+		'small-icon' => dcPage::getPF('pings/icon.png'),
+		'large-icon' => dcPage::getPF('pings/icon-big.png'),
 	));
 }
 

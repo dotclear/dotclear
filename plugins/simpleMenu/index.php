@@ -16,7 +16,7 @@ dcPage::check('admin');
 $page_title = __('Simple menu');
 
 # Url de base
-$p_url = 'plugin.php?p=simpleMenu';
+$p_url = $core->adminurl->get('admin.plugin.simpleMenu');
 
 # Url du blog
 $blog_url = html::stripHostURL($core->blog->url);
@@ -110,143 +110,198 @@ if (!is_array($menu)) {
 	$menu = array();
 }
 
-# Récupération paramètres postés
-$item_type = isset($_POST['item_type']) ? $_POST['item_type'] : '';
-$item_select = isset($_POST['item_select']) ? $_POST['item_select'] : '';
-$item_label = isset($_POST['item_label']) ? $_POST['item_label'] : '';
-$item_descr = isset($_POST['item_descr']) ? $_POST['item_descr'] : '';
-$item_url = isset($_POST['item_url']) ? $_POST['item_url'] : '';
+# Récupération état d'activation du menu
+$menu_active = (boolean) $core->blog->settings->system->simpleMenu_active;
 
-# Traitement
-$step = (!empty($_GET['add']) ? (integer) $_GET['add'] : 0);
-if (($step > 4) || ($step < 0)) $step = 0;
-if ($step) {
+// Saving new configuration
+if (!empty($_POST['saveconfig'])) {
+	try
+	{
+		$menu_active = (empty($_POST['active'])) ? false : true;
+		$core->blog->settings->system->put('simpleMenu_active',$menu_active,'boolean');
+		$core->blog->triggerBlog();
 
-	# Récupération libellés des choix
-	$item_type_label = isset($items[$item_type]) ? $items[$item_type][0] : '';
+		// All done successfully, return to menu items list
+		dcPage::addSuccessNotice(__('Configuration successfully updated.'));
+		http::redirect($p_url);
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+} else {
+	# Récupération paramètres postés
+	$item_type = isset($_POST['item_type']) ? $_POST['item_type'] : '';
+	$item_select = isset($_POST['item_select']) ? $_POST['item_select'] : '';
+	$item_label = isset($_POST['item_label']) ? $_POST['item_label'] : '';
+	$item_descr = isset($_POST['item_descr']) ? $_POST['item_descr'] : '';
+	$item_url = isset($_POST['item_url']) ? $_POST['item_url'] : '';
 
-	switch ($step) {
-		case 1:
-			// First step, menu item type to be selected
-			$item_type = $item_select = '';
-			break;
-		case 2:
-			if ($items[$item_type][1]) {
-				// Second step (optional), menu item sub-type to be selected
-				$item_select = '';
+	# Traitement
+	$step = (!empty($_GET['add']) ? (integer) $_GET['add'] : 0);
+	if (($step > 4) || ($step < 0)) $step = 0;
+	if ($step) {
+
+		# Récupération libellés des choix
+		$item_type_label = isset($items[$item_type]) ? $items[$item_type][0] : '';
+
+		switch ($step) {
+			case 1:
+				// First step, menu item type to be selected
+				$item_type = $item_select = '';
 				break;
-			}
-		case 3:
-			// Third step, menu item attributes to be changed or completed if necessary
-			$item_select_label = '';
-			$item_label = __('Label');
-			$item_descr = __('Description');
-			$item_url = $blog_url;
-			switch ($item_type) {
-				case 'home':
-					$item_label = __('Home');
-					$item_descr = __('Recent posts');
+			case 2:
+				if ($items[$item_type][1]) {
+					// Second step (optional), menu item sub-type to be selected
+					$item_select = '';
 					break;
-				case 'lang':
-					$item_select_label = array_search($item_select,$langs_combo);
-					$item_label = $item_select_label;
-					$item_descr = sprintf(__('Switch to %s language'),$item_select_label);
-					$item_url .= $core->url->getURLFor('lang',$item_select);
-					break;
-				case 'category':
-					$item_select_label = $categories_label[$item_select];
-					$item_label = $item_select_label;
-					$item_descr = __('Recent Posts from this category');
-					$item_url .= $core->url->getURLFor('category',$item_select);
-					break;
-				case 'archive':
-					$item_select_label = array_search($item_select,$months_combo);
-					if ($item_select == '-') {
-						$item_label = __('Archives');
-						$item_descr = $first_year.($first_year != $last_year ? ' - '.$last_year : '');
-						$item_url .= $core->url->getURLFor('archive');
-					} else {
+				}
+			case 3:
+				// Third step, menu item attributes to be changed or completed if necessary
+				$item_select_label = '';
+				$item_label = __('Label');
+				$item_descr = __('Description');
+				$item_url = $blog_url;
+				switch ($item_type) {
+					case 'home':
+						$item_label = __('Home');
+						$item_descr = __('Recent posts');
+						break;
+					case 'lang':
+						$item_select_label = array_search($item_select,$langs_combo);
 						$item_label = $item_select_label;
-						$item_descr = sprintf(__('Posts from %s'),$item_select_label);
-						$item_url .= $core->url->getURLFor('archive',substr($item_select,0,4).'/'.substr($item_select,-2));
-					}
-					break;
-				case 'pages':
-					$item_select_label = array_search($item_select,$pages_combo);
-					$item_label = $item_select_label;
-					$item_descr = '';
-					$item_url = html::stripHostURL($item_select);
-					break;
-				case 'tags':
-					$item_select_label = array_search($item_select,$tags_combo);
-					if ($item_select == '-') {
-						$item_label = __('All tags');
+						$item_descr = sprintf(__('Switch to %s language'),$item_select_label);
+						$item_url .= $core->url->getURLFor('lang',$item_select);
+						break;
+					case 'category':
+						$item_select_label = $categories_label[$item_select];
+						$item_label = $item_select_label;
+						$item_descr = __('Recent Posts from this category');
+						$item_url .= $core->url->getURLFor('category',$item_select);
+						break;
+					case 'archive':
+						$item_select_label = array_search($item_select,$months_combo);
+						if ($item_select == '-') {
+							$item_label = __('Archives');
+							$item_descr = $first_year.($first_year != $last_year ? ' - '.$last_year : '');
+							$item_url .= $core->url->getURLFor('archive');
+						} else {
+							$item_label = $item_select_label;
+							$item_descr = sprintf(__('Posts from %s'),$item_select_label);
+							$item_url .= $core->url->getURLFor('archive',substr($item_select,0,4).'/'.substr($item_select,-2));
+						}
+						break;
+					case 'pages':
+						$item_select_label = array_search($item_select,$pages_combo);
+						$item_label = $item_select_label;
 						$item_descr = '';
-						$item_url .= $core->url->getURLFor('tags');
+						$item_url = html::stripHostURL($item_select);
+						break;
+					case 'tags':
+						$item_select_label = array_search($item_select,$tags_combo);
+						if ($item_select == '-') {
+							$item_label = __('All tags');
+							$item_descr = '';
+							$item_url .= $core->url->getURLFor('tags');
+						} else {
+							$item_label = $item_select_label;
+							$item_descr = sprintf(__('Recent posts for %s tag'),$item_select_label);
+							$item_url .= $core->url->getURLFor('tag',$item_select);
+						}
+						break;
+					case 'special':
+						break;
+					default:
+						# --BEHAVIOR-- adminSimpleMenuBeforeEdit
+						# Should modify if necessary $item_label, $item_descr and $item_url
+						# Should set if necessary $item_select_label (displayed on further admin step only)
+						$core->callBehavior('adminSimpleMenuBeforeEdit',$item_type,$item_select,
+							array(&$item_label,&$item_descr,&$item_url,&$item_select_label));
+						break;
+				}
+				break;
+			case 4:
+				// Fourth step, menu item to be added
+				try {
+					if (($item_label != '') && ($item_url != ''))
+					{
+						// Add new item menu in menu array
+						$menu[] = array(
+							'label' => $item_label,
+							'descr' => $item_descr,
+							'url' => $item_url
+						);
+						// Save menu in blog settings
+						$core->blog->settings->system->put('simpleMenu',serialize($menu));
+						$core->blog->triggerBlog();
+
+						// All done successfully, return to menu items list
+						dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
+						http::redirect($p_url);
 					} else {
-						$item_label = $item_select_label;
-						$item_descr = sprintf(__('Recent posts for %s tag'),$item_select_label);
-						$item_url .= $core->url->getURLFor('tag',$item_select);
+						$step = 3;
+						$item_select_label = $item_label;
+						dcPage::addErrorNotice(__('Label and URL of menu item are mandatory.'));
 					}
-					break;
-				case 'special':
-					break;
-				default:
-					# --BEHAVIOR-- adminSimpleMenuBeforeEdit
-					# Should modify if necessary $item_label, $item_descr and $item_url
-					# Should set if necessary $item_select_label (displayed on further admin step only)
-					$core->callBehavior('adminSimpleMenuBeforeEdit',$item_type,$item_select,
-						array(&$item_label,&$item_descr,&$item_url,&$item_select_label));
-					break;
-			}
-			break;
-		case 4:
-			// Fourth step, menu item to be added
+				}
+				catch (Exception $e) {
+					$core->error->add($e->getMessage());
+				}
+				break;
+		}
+	} else {
+
+		# Remove selected menu items
+		if (!empty($_POST['removeaction']))
+		{
 			try {
-				if (($item_label != '') && ($item_url != ''))
-				{
-					// Add new item menu in menu array
-					$menu[] = array(
-						'label' => $item_label,
-						'descr' => $item_descr,
-						'url' => $item_url
-					);
+		 		if (!empty($_POST['items_selected'])) {
+					foreach ($_POST['items_selected'] as $k => $v) {
+						$menu[$v]['label'] = '';
+					}
+					$newmenu = array();
+					foreach ($menu as $k => $v) {
+						if ($v['label']) {
+							$newmenu[] = array(
+								'label' => $v['label'],
+								'descr' => $v['descr'],
+								'url' => $v['url']);
+						}
+					}
+					$menu = $newmenu;
 					// Save menu in blog settings
 					$core->blog->settings->system->put('simpleMenu',serialize($menu));
 					$core->blog->triggerBlog();
 
 					// All done successfully, return to menu items list
-					dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
+					dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
 					http::redirect($p_url);
 				} else {
-					$step = 3;
-					$item_select_label = $item_label;
-					dcPage::addErrorNotice(__('Label and URL of menu item are mandatory.'));
+					throw new Exception(__('No menu items selected.'));
 				}
 			}
 			catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
-			break;
-	}
-} else {
+		}
 
-	# Remove selected menu items
-	if (!empty($_POST['removeaction']))
-	{
-		try {
-	 		if (!empty($_POST['items_selected'])) {
-				foreach ($_POST['items_selected'] as $k => $v) {
-					$menu[$v]['label'] = '';
+		# Update menu items
+		if (!empty($_POST['updateaction']))
+		{
+			try {
+				foreach ($_POST['items_label'] as $k => $v) {
+					if (!$v) throw new Exception(__('Label is mandatory.'));
+				}
+				foreach ($_POST['items_url'] as $k => $v) {
+					if (!$v) throw new Exception(__('URL is mandatory.'));
 				}
 				$newmenu = array();
-				foreach ($menu as $k => $v) {
-					if ($v['label']) {
-						$newmenu[] = array(
-							'label' => $v['label'],
-							'descr' => $v['descr'],
-							'url' => $v['url']);
-					}
+				for ($i = 0; $i < count($_POST['items_label']); $i++)
+				{
+					$newmenu[] = array(
+						'label' => $_POST['items_label'][$i],
+						'descr' => $_POST['items_descr'][$i],
+						'url' => $_POST['items_url'][$i]);
 				}
 				$menu = $newmenu;
 				// Save menu in blog settings
@@ -254,87 +309,53 @@ if ($step) {
 				$core->blog->triggerBlog();
 
 				// All done successfully, return to menu items list
-				dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
+				dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
 				http::redirect($p_url);
-			} else {
-				throw new Exception(__('No menu items selected.'));
+			}
+			catch (Exception $e) {
+				$core->error->add($e->getMessage());
 			}
 		}
-		catch (Exception $e) {
-			$core->error->add($e->getMessage());
+
+		# Order menu items
+		$order = array();
+		if (empty($_POST['im_order']) && !empty($_POST['order'])) {
+			$order = $_POST['order'];
+			asort($order);
+			$order = array_keys($order);
+		} elseif (!empty($_POST['im_order'])) {
+			$order = $_POST['im_order'];
+			if (substr($order,-1) == ',') {
+				$order = substr($order,0,strlen($order)-1);
+			}
+			$order = explode(',',$order);
 		}
+
+		if (!empty($_POST['updateaction']) && !empty($order))
+		{
+			try {
+				$newmenu = array();
+				foreach ($order as $i => $k) {
+					$newmenu[] = array(
+						'label' => $menu[$k]['label'],
+						'descr' => $menu[$k]['descr'],
+						'url' => $menu[$k]['url']);
+				}
+				$menu = $newmenu;
+				// Save menu in blog settings
+				$core->blog->settings->system->put('simpleMenu',serialize($menu));
+				$core->blog->triggerBlog();
+
+				// All done successfully, return to menu items list
+				dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
+				http::redirect($p_url);
+			}
+			catch (Exception $e) {
+				$core->error->add($e->getMessage());
+			}
+		}
+
 	}
-
-	# Update menu items
-	if (!empty($_POST['updateaction']))
-	{
-		try {
-			foreach ($_POST['items_label'] as $k => $v) {
-				if (!$v) throw new Exception(__('Label is mandatory.'));
-			}
-			foreach ($_POST['items_url'] as $k => $v) {
-				if (!$v) throw new Exception(__('URL is mandatory.'));
-			}
-			$newmenu = array();
-			for ($i = 0; $i < count($_POST['items_label']); $i++)
-			{
-				$newmenu[] = array(
-					'label' => $_POST['items_label'][$i],
-					'descr' => $_POST['items_descr'][$i],
-					'url' => $_POST['items_url'][$i]);
-			}
-			$menu = $newmenu;
-			// Save menu in blog settings
-			$core->blog->settings->system->put('simpleMenu',serialize($menu));
-			$core->blog->triggerBlog();
-
-			// All done successfully, return to menu items list
-			dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
-			http::redirect($p_url);
-		}
-		catch (Exception $e) {
-			$core->error->add($e->getMessage());
-		}
-	}
-
-	# Order menu items
-	$order = array();
-	if (empty($_POST['im_order']) && !empty($_POST['order'])) {
-		$order = $_POST['order'];
-		asort($order);
-		$order = array_keys($order);
-	} elseif (!empty($_POST['im_order'])) {
-		$order = $_POST['im_order'];
-		if (substr($order,-1) == ',') {
-			$order = substr($order,0,strlen($order)-1);
-		}
-		$order = explode(',',$order);
-	}
-
-	if (!empty($_POST['updateaction']) && !empty($order))
-	{
-		try {
-			$newmenu = array();
-			foreach ($order as $i => $k) {
-				$newmenu[] = array(
-					'label' => $menu[$k]['label'],
-					'descr' => $menu[$k]['descr'],
-					'url' => $menu[$k]['url']);
-			}
-			$menu = $newmenu;
-			// Save menu in blog settings
-			$core->blog->settings->system->put('simpleMenu',serialize($menu));
-			$core->blog->triggerBlog();
-
-			// All done successfully, return to menu items list
-			dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
-			http::redirect($p_url);
-		}
-		catch (Exception $e) {
-			$core->error->add($e->getMessage());
-		}
-	}
-
 }
 
 # Display
@@ -349,9 +370,9 @@ if ($step) {
 			echo
 				dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 				dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
-				dcPage::jsLoad('index.php?pf=simpleMenu/simplemenu.js');
+				dcPage::jsLoad(dcPage::getPF('simpleMenu/simplemenu.js'));
 		}
-		echo dcPage::jsConfirmClose('additem','menuitems');
+		echo dcPage::jsConfirmClose('settings','menuitemsappend','additem','menuitems');
 	?>
 </head>
 
@@ -396,6 +417,7 @@ if ($step) {
 		)).
 		dcPage::notices();
 }
+
 if ($step)
 {
 	// Formulaire d'ajout d'un item
@@ -463,6 +485,15 @@ if ($step)
 			echo '</form>';
 			break;
 	}
+}
+
+// Formulaire d'activation
+if (!$step) {
+	echo '<form id="settings" action="'.$p_url.'" method="post">'.
+		'<p>'.form::checkbox('active',1,$menu_active).
+		'<label class="classic" for="active">'.__('Enable simple menu for this blog').'</label>'.'</p>'.
+		'<p>'.$core->formNonce().'<input type="submit" name="saveconfig" value="'.__('Save configuration').'" />'.'</p>'.
+		'</form>';
 }
 
 // Liste des items

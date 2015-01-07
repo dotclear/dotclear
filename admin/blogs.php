@@ -98,11 +98,11 @@ if (!empty($_GET['del'])) {
 if (!$core->error->flag())
 {
 	if ($core->auth->isSuperAdmin()) {
-		echo '<p class="top-add"><a class="button add" href="blog.php">'.__('Create a new blog').'</a></p>';
+		echo '<p class="top-add"><a class="button add" href="'.$core->adminurl->get("admin.blog").'">'.__('Create a new blog').'</a></p>';
 	}
 
 	echo
-	'<form action="blogs.php" method="get" id="filters-form">'.
+	'<form action="'.$core->adminurl->get("admin.blogs").'" method="get" id="filters-form">'.
 	'<h3 class="hidden">'.__('Filter blogs list').'</h3>'.
 
 	'<div class="table">'.
@@ -147,7 +147,7 @@ if (!$core->error->flag())
 		'<table class="clear">';
 
 		if( $show_filters ) {
-			echo '<caption>'.sprintf(__('%d blog matches the filter.','%d blogs match the filter.', $nb_blog)).'</caption>';
+			echo '<caption>'.sprintf(__('%d blog matches the filter.','%d blogs match the filter.',$nb_blog),$nb_blog).'</caption>';
 		} else {
 			echo '<caption class="hidden">'.__('Blogs list').'</caption>';
 		}
@@ -182,7 +182,7 @@ function blogLine($rs)
 
 	if ($GLOBALS['core']->auth->isSuperAdmin()) {
 		$edit_link =
-		'<a href="blog.php?id='.$blog_id.'"  title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
+		'<a href="'.$core->adminurl->get("admin.blog",array('id' => $blog_id)).'"  title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
 		'<img src="images/edit-mini.png" alt="'.__('Edit blog settings').'" /> '.$blog_id.'</a> ';
 	} else {
 		$edit_link = $blog_id;
@@ -197,7 +197,7 @@ function blogLine($rs)
 	return
 	'<tr class="line">'.
 	'<td class="nowrap">'.$edit_link.'</td>'.
-	'<td class="maximal"><a href="index.php?switchblog='.$rs->blog_id.'" '.
+	'<td class="maximal"><a href="'.$core->adminurl->get("admin.home",array('switchblog' => $rs->blog_id)).'" '.
 	'title="'.sprintf(__('Switch to blog %s'),$rs->blog_id).'">'.
 	html::escapeHTML($rs->blog_name).'</a></td>'.
 	'<td class="nowrap count">'.$core->countBlogPosts($rs->blog_id).'</td>'.

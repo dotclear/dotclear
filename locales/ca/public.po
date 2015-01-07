@@ -40,6 +40,7 @@ msgstr "El"
 msgid "Continue reading"
 msgstr "Continuar llegint"
 
+#, fuzzy
 msgid "no comments"
 msgstr "Sense comentaris"
 
@@ -49,7 +50,7 @@ msgstr "Un comentari"
 msgid "%d comments"
 msgstr "%d comentaris"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "Sense respostes"
 
 msgid "one trackback"
@@ -58,7 +59,7 @@ msgstr "Una resposta"
 msgid "%d trackbacks"
 msgstr "%d respostes"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "sense fitxers adjunts"
 
 msgid "one attachment"

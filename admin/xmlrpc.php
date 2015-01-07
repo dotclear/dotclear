@@ -26,6 +26,9 @@ if (empty($blog_id)) {
 	exit;
 }
 
+# Avoid plugins warnings, set a default blog
+$core->setBlog($blog_id);
+
 # Loading plugins
 $core->plugins->loadModules(DC_PLUGINS_ROOT);
 

@@ -19,6 +19,9 @@ class dcThemeEditor
 	protected $parent_theme;
 	protected $tplset_theme;
 
+	protected $parent_name;
+	protected $tplset_name;
+
 	public $tpl = array();
 	public $css = array();
 	public $js  = array();
@@ -30,14 +33,17 @@ class dcThemeEditor
 		$this->default_theme = path::real($this->core->blog->themes_path.'/default');
 		$this->user_theme = path::real($this->core->blog->themes_path.'/'.$this->core->blog->settings->system->theme);
 		$this->tplset_theme = DC_ROOT.'/inc/public/default-templates/'.DC_DEFAULT_TPLSET;
+		$this->tplset_name = DC_DEFAULT_TPLSET;
 		if (null !== $this->core->themes) {
 			$parent_theme = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme,'parent');
 			if ($parent_theme) {
 				$this->parent_theme = path::real($this->core->blog->themes_path.'/'.$parent_theme);
+				$this->parent_name = $parent_theme;
 			}
 			$tplset = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme,'tplset');
 			if ($tplset) {
 				$this->tplset_theme = DC_ROOT.'/inc/public/default-templates/'.$tplset;
+				$this->tplset_name = $tplset;
 			}
 		}
 		$this->findTemplates();
@@ -73,8 +79,10 @@ class dcThemeEditor
 				}
 			}
 			$list .= ($list_theme != '' ? sprintf('<li class="group-file">'.__('From theme:').'<ul>%s</ul></li>',$list_theme) : '');
-			$list .= ($list_parent != '' ? sprintf('<li class="group-file">'.__('From parent:').'<ul>%s</ul></li>',$list_parent) : '');
-			$list .= ($list_tpl != '' ? sprintf('<li class="group-file">'.__('From template set:').'<ul>%s</ul></li>',$list_tpl) : '');
+			$list .= ($list_parent != '' ? sprintf('<li class="group-file">'.__('From parent:').' %s<ul>%s</ul></li>',
+				$this->parent_name,$list_parent) : '');
+			$list .= ($list_tpl != '' ? sprintf('<li class="group-file">'.__('From template set:').' %s<ul>%s</ul></li>',
+				$this->tplset_name,$list_tpl) : '');
 		} else {
 			foreach ($files as $k => $v)
 			{
@@ -294,8 +302,12 @@ class dcThemeEditor
 		# Then we look in 'default-templates' plugins directory
 		$plugins = $this->core->plugins->getModules();
 		foreach ($plugins as $p) {
+			// Looking in default-templates directory
 			$this->tpl = array_merge($this->getFilesInDir($p['root'].'/default-templates'),$this->tpl);
 			$this->tpl_model = array_merge($this->getFilesInDir($p['root'].'/default-templates'),$this->tpl_model);
+			// Looking in default-templates/tplset directory
+			$this->tpl = array_merge($this->getFilesInDir($p['root'].'/default-templates/'.$this->tplset_name),$this->tpl);
+			$this->tpl_model = array_merge($this->getFilesInDir($p['root'].'/default-templates/'.$this->tplset_name),$this->tpl_model);
 		}
 
 		uksort($this->tpl,array($this,'sortFilesHelper'));

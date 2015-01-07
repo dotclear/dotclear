@@ -18,6 +18,9 @@ class defaultWidgets
 	{
 		global $core;
 
+		if ($w->offline)
+			return;
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
@@ -38,6 +41,9 @@ class defaultWidgets
 	public static function navigation($w)
 	{
 		global $core;
+
+		if ($w->offline)
+			return;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
@@ -67,6 +73,9 @@ class defaultWidgets
 	public static function categories($w)
 	{
 		global $core, $_ctx;
+
+		if ($w->offline)
+			return;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
@@ -120,6 +129,9 @@ class defaultWidgets
 	{
 		global $core, $_ctx;
 
+		if ($w->offline)
+			return;
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
@@ -157,6 +169,9 @@ class defaultWidgets
 	public static function langs($w)
 	{
 		global $core, $_ctx;
+
+		if ($w->offline)
+			return;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default' && $core->url->type != 'lang') ||
 			($w->homeonly == 2 && ($core->url->type == 'default' || $core->url->type == 'lang'))) {
@@ -198,6 +213,9 @@ class defaultWidgets
 	{
 		global $core;
 
+		if ($w->offline)
+			return;
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
@@ -235,11 +253,14 @@ class defaultWidgets
 
 	public static function feed($w)
 	{
+		global $core;
+
 		if (!$w->url) {
 			return;
 		}
 
-		global $core;
+		if ($w->offline)
+			return;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
@@ -291,6 +312,9 @@ class defaultWidgets
 	{
 		global $core;
 
+		if ($w->offline)
+			return;
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
@@ -304,6 +328,9 @@ class defaultWidgets
 	public static function lastposts($w)
 	{
 		global $core, $_ctx;
+
+		if ($w->offline)
+			return;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
@@ -360,6 +387,9 @@ class defaultWidgets
 	public static function lastcomments($w)
 	{
 		global $core;
+
+		if ($w->offline)
+			return;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {

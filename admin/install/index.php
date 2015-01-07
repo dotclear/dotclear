@@ -96,7 +96,10 @@ if ($can_install && !empty($_POST))
 				$_tz = @timezone_open($_tz);
 				if ($_tz instanceof DateTimeZone) {
 					$_tz = @timezone_name_get($_tz);
-					if ($_tz) {
+
+					// check if timezone is valid
+					// date_default_timezone_set throw E_NOTICE and/or E_WARNING if timezone is not valid and return false
+					if (@date_default_timezone_set($_tz)!==false && $_tz) {
 						$default_tz = $_tz;
 					}
 				}
@@ -235,12 +238,15 @@ if (!isset($step)) {
 	$step = 0;
 }
 header('Content-Type: text/html; charset=UTF-8');
+
+// Prevents Clickjacking as far as possible
+header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta http-equiv="Content-Language" content="en" />
@@ -292,15 +298,15 @@ echo
 '<div id="main">';
 
 if (!is_writable(DC_TPL_CACHE)) {
-	echo '<div class="error"><p>'.sprintf(__('Cache directory %s is not writable.'),DC_TPL_CACHE).'</p></div>';
+	echo '<div class="error" role="alert"><p>'.sprintf(__('Cache directory %s is not writable.'),DC_TPL_CACHE).'</p></div>';
 }
 
 if ($can_install && !empty($err)) {
-	echo '<div class="error"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>';
+	echo '<div class="error" role="alert"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>';
 }
 
 if (!empty($_GET['wiz'])) {
-	echo '<p class="success">'.__('Configuration file has been successfully created.').'</p>';
+	echo '<p class="success" role="alert">'.__('Configuration file has been successfully created.').'</p>';
 }
 
 if ($can_install && $step == 0)
@@ -366,7 +372,7 @@ elseif ($can_install && $step == 1)
 
 	$plugins_install_result.
 
-	'<p class="success">'.__('Dotclear has been successfully installed. Here is some useful information you should keep.').'</p>'.
+	'<p class="success" role="alert">'.__('Dotclear has been successfully installed. Here is some useful information you should keep.').'</p>'.
 
 	'<h3>'.__('Your account').'</h3>'.
 	'<ul>'.
@@ -390,7 +396,7 @@ elseif ($can_install && $step == 1)
 elseif (!$can_install)
 {
 	echo '<h2>'.__('Installation can not be completed').'</h2>'.
-	'<div class="error"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>'.
+	'<div class="error" role="alert"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>'.
 	'<p>'.__('For the said reasons, Dotclear can not be installed. '.
 		'Please refer to <a href="http://dotclear.org/documentation/2.0/admin/install">'.
 		'the documentation</a> to learn how to correct the problem.').'</p>';

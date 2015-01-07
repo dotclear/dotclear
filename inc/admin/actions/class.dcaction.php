@@ -222,7 +222,7 @@ abstract class dcActionsPage
 	protected function setupRedir($from) {
 		foreach ($this->redirect_fields as $p) {
 			if (isset($from[$p])) {
-				$redir_args[$p] = $from[$p];
+				$this->redir_args[$p] = $from[$p];
 			}
 		}
 	}

@@ -298,14 +298,14 @@ class dcCore
 	@param	editor_id	<b>string</b>	Editor id (dcLegacyEditor, dcCKEditor, ...)
 	@return	<b>array</b> An array of formaters names in values.
 
-    /**
-    if @param editor_id is empty:
-    return all formaters sorted by actives editors
-    
-    if @param editor_id is not empty
-    return formaters for an editor if editor is active
-    return empty() array if editor is not active. 
-    It can happens when a user choose an editor and admin deactivate that editor later
+	/**
+	if @param editor_id is empty:
+	return all formaters sorted by actives editors
+
+	if @param editor_id is not empty
+	return formaters for an editor if editor is active
+	return empty() array if editor is not active.
+	It can happens when a user choose an editor and admin deactivate that editor later
 	*/
 	public function getFormaters($editor_id='')
 	{
@@ -329,8 +329,8 @@ class dcCore
 	transformed using that formater.
 	
 	@param	editor_id	<b>string</b>	Editor id (dcLegacyEditor, dcCKEditor, ...)
-	@param	name		<b>string</b>		Formater name
-	@param	str		<b>string</b>		String to transform
+	@param	name		<b>string</b>	Formater name
+	@param	str			<b>string</b>	String to transform
 	@return	<b>string</b>	String transformed
 	*/
 	public function callEditorFormater($editor_id,$name,$str)
@@ -348,7 +348,7 @@ class dcCore
 	transformed using that formater.
 
 	@param	name		<b>string</b>		Formater name
-	@param	str		<b>string</b>		String to transform
+	@param	str		    <b>string</b>		String to transform
 	@return	<b>string</b>	String transformed
 	*/
 	public function callFormater($name,$str)
@@ -900,7 +900,7 @@ class dcCore
 		return array(
 			'edit_size' => 24,
 			'enable_wysiwyg' => true,
-            'editor' => 'dcLegacyEditor',
+			'editor' => array('xhtml' => 'dcCKEditor', 'wiki' => 'dcLegacyEditor'),
 			'post_format' => 'wiki'
 		);
 	}
