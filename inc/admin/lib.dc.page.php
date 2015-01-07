@@ -16,6 +16,7 @@ define('DC_AUTH_PAGE','auth.php');
 class dcPage
 {
 	private static $loaded_js = array();
+	private static $xframe_loaded = false;
 	private static $N_TYPES = array(
 		"success" => "success",
 		"warning" => "warning-msg",
@@ -91,10 +92,9 @@ class dcPage
 
 		// Prevents Clickjacking as far as possible
 		if (isset($options['x-frame-allow'])) {
-			$url = parse_url($options['x-frame-allow']);
-			header(sprintf('X-Frame-Options: %s', is_array($url)?($url['scheme'].'://'.$url['host']):'SAMEORIGIN'));
+			self::setXFrameOptions($options['x-frame-allow']);
 		} else {
-			header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+			self::setXFrameOptions();
 		}
 		echo
 		'<!DOCTYPE html>'.
@@ -921,5 +921,19 @@ class dcPage
 
 	public static function getPF($file) {
 		return $GLOBALS['core']->adminurl->get('load.plugin.file',array('pf' => $file));
+	}
+
+	public static function setXFrameOptions($origin=null) {
+		if (self::$xframe_loaded) {
+			return;
+		}
+		if ($origin !== null) {
+			$url = parse_url($origin);
+			header(sprintf('X-Frame-Options: %s', is_array($url)?($url['scheme'].'://'.$url['host']):'SAMEORIGIN'));
+		} else {
+			header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+		}
+		self::$xframe_loaded = true;
+
 	}
 }
