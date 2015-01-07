@@ -213,7 +213,7 @@ class adminPostList extends adminGenericList
 	private function postLine($checked)
 	{
 		if ($this->core->auth->check('categories',$this->core->blog->id)) {
-			$cat_link = '<a href="category.php?id=%s">%s</a>';
+			$cat_link = '<a href="'.$this->core->adminurl->get('admin.category',array('id' => '%s'),'&amp;',true).'">%s</a>';
 		} else {
 			$cat_link = '%2$s';
 		}
@@ -442,15 +442,17 @@ class adminCommentList extends adminGenericList
 		global $author, $status, $sortby, $order, $nb_per_page;
 
 		$author_url =
-		'comments.php?n='.$nb_per_page.
-		'&amp;status='.$status.
-		'&amp;sortby='.$sortby.
-		'&amp;order='.$order.
-		'&amp;author='.rawurlencode($this->rs->comment_author);
+		$this->core->adminurl->get('admin.comments',array(
+			'n' => $nb_per_page,
+			'status' => $status,
+			'sortby' => $sortby,
+			'order' => $order,
+			'author' => $this->rs->comment_author
+			));
 
 		$post_url = $this->core->getPostAdminURL($this->rs->post_type,$this->rs->post_id);
 
-		$comment_url = 'comment.php?id='.$this->rs->comment_id;
+		$comment_url = $this->core->adminurl->get('admin.comment',array('id' => $this->rs->comment_id));
 
 		$comment_dt =
 		dt::dt2str($this->core->blog->settings->system->date_format.' - '.
@@ -494,7 +496,7 @@ class adminCommentList extends adminGenericList
 		'<td class="nowrap count">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->comment_dt).'</td>'.
 		'<td class="nowrap status txt-center">'.$img_status.'</td>'.
 		'<td class="nowrap discrete"><a href="'.$post_url.'">'.
-		html::escapeHTML($post_title).'</a>'.
+		$post_title.'</a>'.
 		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</td>';
 
 		$res .= '</tr>';
@@ -575,12 +577,12 @@ class adminUserList extends adminGenericList
 		'<tr class="line">'.
 		'<td class="nowrap">'.form::hidden(array('nb_post[]'),(integer) $this->rs->nb_post).
 		form::checkbox(array('users[]'),$this->rs->user_id).'</td>'.
-		'<td class="maximal" scope="row"><a href="user.php?id='.$this->rs->user_id.'">'.
+		'<td class="maximal" scope="row"><a href="'.$this->core->adminurl->get('admin.user',array('id' => $this->rs->user_id)).'">'.
 		$this->rs->user_id.'</a>&nbsp;'.$img_status.'</td>'.
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_firstname).'</td>'.
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_name).'</td>'.
 		'<td class="nowrap">'.html::escapeHTML($this->rs->user_displayname).'</td>'.
-		'<td class="nowrap count"><a href="posts.php?user_id='.$this->rs->user_id.'">'.
+		'<td class="nowrap count"><a href="'.$this->core->adminurl->get('admin.posts',array('user_id' => $this->rs->user_id)).'">'.
 		$this->rs->nb_post.'</a></td>'.
 		'</tr>';
 	}

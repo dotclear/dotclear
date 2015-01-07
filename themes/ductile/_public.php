@@ -163,16 +163,19 @@ class tplDuctileTheme
 
 	public static function ductileLogoSrcHelper()
 	{
+		$img_url = $GLOBALS['core']->blog->settings->system->themes_url.'/'.$GLOBALS['core']->blog->settings->system->theme.'/img/logo.png';
+
 		$s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme.'_style');
 		if ($s === null) {
-			return;
+			// no settings yet, return default logo
+			return $img_url;
 		}
 		$s = @unserialize($s);
 		if (!is_array($s)) {
-			return;
+			// settings error, return default logo
+			return $img_url;
 		}
 
-		$img_url = $GLOBALS['core']->blog->settings->system->themes_url.'/'.$GLOBALS['core']->blog->settings->system->theme.'/img/logo.png';
 		if (isset($s['logo_src'])) {
 			if ($s['logo_src'] !== null) {
 				if ($s['logo_src'] != '') {

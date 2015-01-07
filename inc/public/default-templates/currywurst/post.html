@@ -29,7 +29,7 @@
 <tpl:Block name="html-head">
 	{{tpl:parent}}
 
-	<script type="text/javascript" src="{{tpl:BlogThemeURL}}/../default/js/post.js"></script>
+	<script type="text/javascript" src="{{tpl:BlogQmarkURL}}pf=post.js"></script>
 	<script type="text/javascript">
 		//<![CDATA[
 		var post_remember_str = '{{tpl:lang Remember me on this blog}}';
@@ -37,7 +37,7 @@
 	</script>
 </tpl:Block>
 
-<tpl:block name="body-tag"><body class="dc-post"></tpl:Block>
+<tpl:Block name="body-tag"><body class="dc-post"></tpl:Block>
 
 <tpl:Block name="page-top">
 	{{tpl:EntryPingData}}

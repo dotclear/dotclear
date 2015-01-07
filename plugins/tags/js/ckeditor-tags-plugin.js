@@ -15,7 +15,7 @@
 			});
 
 			editor.ui.addButton('dcTags', {
-				label: 'Tag',
+				label: jsToolBar.prototype.elements.tag.title,
 				command: 'dcTagsCommand',
 				toolbar: 'insert',
 				icon: this.path + 'tag.png'

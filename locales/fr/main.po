@@ -10,15 +10,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-01 14:23+0100\n"
-"PO-Revision-Date: 2012-08-13 07:13+0000\n"
-"Last-Translator: xave <xave@dotclear.net>\n"
+"POT-Creation-Date: 2014-11-20 19:20+0100\n"
+"PO-Revision-Date: 2014-11-20 19:12+0100\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.6.10\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear a été mis à jour."
@@ -145,9 +146,6 @@ msgstr "Champ obligatoire"
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Au moins 2 caractères, composés de lettres non accentuées, chiffres ou symboles."
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "Veuillez noter que changer l'identifiant de votre blog peut nécessiter des modifications de votre fichier index.php public."
-
 msgid "Blog name:"
 msgstr "Nom du blog :"
 
@@ -261,6 +259,9 @@ msgstr "Je souhaite que mon blog soit indexé mais pas archivé par les moteurs 
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Je souhaite que mon blog ne soit ni indexé ni archivé par les moteurs de recherche et archiveurs."
 
+msgid "Default"
+msgstr "Défaut"
+
 msgid "This blog ID is already used."
 msgstr "Cet identifiant est déjà utilisé."
 
@@ -287,6 +288,9 @@ msgstr "Paramètres"
 
 msgid "Blog details"
 msgstr "Informations du blog"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "Veuillez noter que changer l'identifiant de votre blog peut nécessiter des modifications de votre fichier index.php public."
 
 msgid "URL scan method:"
 msgstr "Méthode de lecture de l'URL :"
@@ -362,6 +366,9 @@ msgstr "Aucune limite : laisser vide."
 
 msgid "Wiki syntax for comments"
 msgstr "Syntaxe wiki pour les commentaires"
+
+msgid "Preview of comment before submit is not mandatory"
+msgstr "La prévisualisation des commentaires est optionnelle avant leur envoi"
 
 msgid "Accept trackbacks"
 msgstr "Accepter les rétroliens"
@@ -440,6 +447,9 @@ msgstr "Titres des images insérées"
 msgid "Use original media date if possible"
 msgstr "Utiliser la date originelle du média si possible"
 
+msgid "Do not display date if alone in title"
+msgstr "Ne pas afficher la date si elle est seule dans le titre"
+
 msgid "It is retrieved from the picture's metadata."
 msgstr "Ces informations sont obtenues depuis les métadonnées de l'image."
 
@@ -454,6 +464,18 @@ msgstr "Insérer le lien vers l'image originale"
 
 msgid "Search engines robots policy"
 msgstr "Paramètres d'indexation par les moteurs de recherche"
+
+msgid "jQuery javascript library"
+msgstr "Librairie javascript jQuery"
+
+msgid "jQuery version to be loaded for this blog:"
+msgstr "Version de la librairie jQuery à charger pour ce blog :"
+
+msgid "Blog security"
+msgstr "Sécurité du blog"
+
+msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr "Protéger le blog des détournements de clic ou Clickjacking (voir <a href=\"https://fr.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 
 msgid "Save"
 msgstr "Enregistrer"
@@ -955,6 +977,9 @@ msgstr "Il n'existe pas de répertoire /public/ à l'endroit spécifié pour le 
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Il n'existe pas de répertoire principal accessible en écriture pour la médiathèque. Vous devriez contacter votre administrateur."
 
+msgid "Error:"
+msgstr "Erreur :"
+
 msgid "Following plugins have been installed:"
 msgstr "Les plugins suivants ont été installés :"
 
@@ -1328,6 +1353,9 @@ msgid_plural "Successfully delete %d medias."
 msgstr[0] "Suppression d'un média effectuée."
 msgstr[1] "Suppression de %d médias effectuée."
 
+msgid "Directory has been successfully removed."
+msgstr "Le répertoire a été supprimé."
+
 msgid "File has been successfully removed."
 msgstr "Le fichier a été supprimé."
 
@@ -1356,9 +1384,6 @@ msgstr "Vous n'avez pas les droits suffisants pour écrire dans ce répertoire."
 
 msgid "Directory has been successfully created."
 msgstr "Le répertoire a été créé."
-
-msgid "Directory has been successfully removed."
-msgstr "Le répertoire a été supprimé."
 
 msgid "Directory has been successfully rebuilt."
 msgstr "Le répertoire a été reconstruit."
@@ -1945,9 +1970,6 @@ msgstr "billets par page"
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
 
-msgid "Default"
-msgstr "Défaut"
-
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Si vous voulez modifier votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel."
 
@@ -2029,8 +2051,12 @@ msgstr "Ce choix sera appliqué pour tous les utilisateurs"
 msgid "Edition"
 msgstr "Édition"
 
-msgid "Preferred editor:"
-msgstr "Editeur préféré :"
+#, php-format
+msgid "Preferred editor for %s:"
+msgstr "Editeur préféré pour le format %s :"
+
+msgid "Choose an editor"
+msgstr "Choisissez un éditeur"
 
 msgid "Preferred format:"
 msgstr "Format d'édition préféré :"
@@ -2491,9 +2517,6 @@ msgstr "Mode de secours"
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Vous êtes en mode de secours. Tous les plugins ont été temporairement désactivés. N'oubliez-pas de vous déconnecter puis de vous reconnecter normalement pour retrouver toutes les fonctionnalités"
 
-msgid "Error:"
-msgstr "Erreur :"
-
 msgid "[%H:%M:%S]"
 msgstr "[%H:%M:%S]"
 
@@ -2587,12 +2610,12 @@ msgid "Are you sure you want to reorder all categories?"
 msgstr "Êtes-vous certain de vouloir réinitialiser l'ordre des catégories ?"
 
 #, php-format
-msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "Êtes-vous certain de vouloir supprimer le répertoire \"%s\" ?"
-
-#, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Êtes-vous certain de vouloir supprimer le média \"%s\" ?"
+
+#, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "Êtes-vous certain de vouloir supprimer le répertoire \"%s\" ?"
 
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Êtes-vous certain de vouloir extraire l'archive dans le répertoire actuel ?"
@@ -2673,101 +2696,14 @@ msgstr "Mots-clés:"
 msgid "You have unsaved changes."
 msgstr "Vous n'avez pas enregistré vos modifications."
 
+msgid "Choose date"
+msgstr "Choisir une date"
+
 msgid "close"
 msgstr "fermer"
 
 msgid "now"
 msgstr "maintenant"
-
-msgid "visual"
-msgstr "visuel"
-
-msgid "source"
-msgstr "source"
-
-msgid "You can use the following shortcuts to format your text."
-msgstr "Vous pouvez utiliser les raccourcis suivants pour formater votre texte."
-
-msgid "-- none --"
-msgstr "-- aucun --"
-
-msgid "-- block format --"
-msgstr "-- format bloc --"
-
-msgid "Paragraph"
-msgstr "Paragraphe"
-
-msgid "Level 1 header"
-msgstr "Titre de niveau 1"
-
-msgid "Level 2 header"
-msgstr "Titre de niveau 2"
-
-msgid "Level 3 header"
-msgstr "Titre de niveau 3"
-
-msgid "Level 4 header"
-msgstr "Titre de niveau 4"
-
-msgid "Level 5 header"
-msgstr "Titre de niveau 5"
-
-msgid "Level 6 header"
-msgstr "Titre de niveau 6"
-
-msgid "Strong emphasis"
-msgstr "Forte emphase"
-
-msgid "Emphasis"
-msgstr "Emphase"
-
-msgid "Inserted"
-msgstr "Insertion"
-
-msgid "Deleted"
-msgstr "Suppression"
-
-msgid "Inline quote"
-msgstr "Citation en ligne"
-
-msgid "Code"
-msgstr "Code"
-
-msgid "Line break"
-msgstr "Passage à la ligne"
-
-msgid "Blockquote"
-msgstr "Bloc de citation"
-
-msgid "Preformated text"
-msgstr "Texte préformaté"
-
-msgid "Unordered list"
-msgstr "Liste à puces"
-
-msgid "Ordered list"
-msgstr "Liste numérotée"
-
-msgid "Link"
-msgstr "Lien"
-
-msgid "URL?"
-msgstr "URL ?"
-
-msgid "Language?"
-msgstr "Langue ?"
-
-msgid "External image"
-msgstr "Image externe"
-
-msgid "Media chooser"
-msgstr "Sélecteur de média"
-
-msgid "Link to an entry"
-msgstr "Lien vers une entrée"
-
-msgid "Remove text formating"
-msgstr "Retirer le formatage du texte"
 
 msgid "Temporarily activate enhanced uploader"
 msgstr "Activer temporairement l'interface avancée"
@@ -3138,6 +3074,37 @@ msgstr "Administrateur"
 msgid "superadmin"
 msgstr "Super administrateur"
 
+#, php-format
+msgid "ratio %.1f"
+msgstr "ratio %.1f"
+
+#, php-format
+msgid "(%s)"
+msgstr "(%s)"
+
+msgid "The 'public' directory does not exist."
+msgstr "Le répertoire 'public' n'existe pas."
+
+#, php-format
+msgid "The '%s' directory cannot be modified."
+msgstr "Le répertoire %s ne peut pas être modifié."
+
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Au moins une des fonctions suivantes n'est pas disponible : imagecreatetruecolor, imagepng & imagecreatefrompng."
+
+msgid "Unable to create images."
+msgstr "Impossible de créer des images."
+
+msgid "Invalid file type."
+msgstr "Type de fichier invalide."
+
+msgid "An error occurred while writing the file."
+msgstr "Une erreur est survenue pendant l'écriture du fichier."
+
+#, php-format
+msgid "Uploaded image is not %s pixels wide."
+msgstr "L'image envoyée n'a pas %s pixels de large."
+
 msgid "Database error"
 msgstr "Erreur de base de données"
 
@@ -3160,7 +3127,7 @@ msgid "small"
 msgstr "petite"
 
 msgid "thumbnail"
-msgstr "vignettes"
+msgstr "vignette"
 
 msgid "square"
 msgstr "carrée"
@@ -3549,6 +3516,9 @@ msgstr "Il manque un répertoire temporaire."
 msgid "Failed to write file to disk."
 msgstr "Impossible d'écrire le fichier."
 
+msgid "A PHP extension stopped the file upload."
+msgstr "Une extension PHP a arrêté l'envoi du fichier."
+
 #, php-format
 msgid "%s is not a directory."
 msgstr "%s n'est pas un répertoire."
@@ -3586,9 +3556,6 @@ msgstr "Le nouveau fichier existe déjà."
 msgid "Cannot write in this directory."
 msgstr "Impossible d'écrire dans ce répertoire."
 
-msgid "An error occurred while writing the file."
-msgstr "Une erreur est survenue pendant l'écriture du fichier."
-
 msgid "Source file does not exist."
 msgstr "Le fichier source n'existe pas."
 
@@ -3613,10 +3580,21 @@ msgstr "Ce répertoire ne peut pas être supprimé."
 msgid "Not enough memory to open image."
 msgstr "Mémoire insuffisante pour ouvrir l'image."
 
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr "Impossible de trouver la balise de fermeture pour le bloc <tpl:%s>. Le contenu a été ignoré."
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr "Balise de fermeture <tpl:%s> inattendue trouvée."
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr "ATTENTION: Les erreurs suivantes ont été rencontrées lors du parcours du fichier de template :"
+
 msgid "singular"
 msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "singulier"
+msgstr[1] "puriel"
 
 #, php-format
 msgid "File %s is not compressed in the zip."
@@ -3663,11 +3641,98 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
-msgid "Choose an active editor in %s."
-msgstr "Choisissez un éditeur dans %s."
+#~ msgid "visual"
+#~ msgstr "visuel"
 
-msgid "your preferences"
-msgstr "vos préférences"
+#~ msgid "source"
+#~ msgstr "source"
+
+#~ msgid "You can use the following shortcuts to format your text."
+#~ msgstr "Vous pouvez utiliser les raccourcis suivants pour formater votre texte."
+
+#~ msgid "-- none --"
+#~ msgstr "-- aucun --"
+
+#~ msgid "-- block format --"
+#~ msgstr "-- format bloc --"
+
+#~ msgid "Paragraph"
+#~ msgstr "Paragraphe"
+
+#~ msgid "Level 1 header"
+#~ msgstr "Titre de niveau 1"
+
+#~ msgid "Level 2 header"
+#~ msgstr "Titre de niveau 2"
+
+#~ msgid "Level 3 header"
+#~ msgstr "Titre de niveau 3"
+
+#~ msgid "Level 4 header"
+#~ msgstr "Titre de niveau 4"
+
+#~ msgid "Level 5 header"
+#~ msgstr "Titre de niveau 5"
+
+#~ msgid "Level 6 header"
+#~ msgstr "Titre de niveau 6"
+
+#~ msgid "Strong emphasis"
+#~ msgstr "Forte emphase"
+
+#~ msgid "Emphasis"
+#~ msgstr "Emphase"
+
+#~ msgid "Inserted"
+#~ msgstr "Insertion"
+
+#~ msgid "Deleted"
+#~ msgstr "Suppression"
+
+#~ msgid "Inline quote"
+#~ msgstr "Citation en ligne"
+
+#~ msgid "Code"
+#~ msgstr "Code"
+
+#~ msgid "Line break"
+#~ msgstr "Passage à la ligne"
+
+#~ msgid "Blockquote"
+#~ msgstr "Bloc de citation"
+
+#~ msgid "Preformated text"
+#~ msgstr "Texte préformaté"
+
+#~ msgid "Unordered list"
+#~ msgstr "Liste à puces"
+
+#~ msgid "Ordered list"
+#~ msgstr "Liste numérotée"
+
+#~ msgid "Link"
+#~ msgstr "Lien"
+
+#~ msgid "URL?"
+#~ msgstr "URL ?"
+
+#~ msgid "Language?"
+#~ msgstr "Langue ?"
+
+#~ msgid "External image"
+#~ msgstr "Image externe"
+
+#~ msgid "Media chooser"
+#~ msgstr "Sélecteur de média"
+
+#~ msgid "Link to an entry"
+#~ msgstr "Lien vers une entrée"
+
+#~ msgid "Remove text formating"
+#~ msgstr "Retirer le formatage du texte"
+
+#~ msgid "your preferences"
+#~ msgstr "vos préférences"
 
 #~ msgid "You don't have permissions to deactivate this plugin."
 #~ msgstr "Vous n'avez pas les permissions pour désactiver ce plugin."

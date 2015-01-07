@@ -36,6 +36,8 @@ tags
 themeEditor
 userPref
 widgets
+dcLegacyEditor
+dcCKEditor
 _fake_plugin
 "
 

@@ -19,7 +19,7 @@ if (!empty($_POST['delete_all_spam']))
 	try {
 		$core->blog->delJunkComments();
 		$_SESSION['comments_del_spam'] = true;
-		http::redirect('comments.php');
+		$core->adminurl->redirect("admin.comments");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -135,7 +135,7 @@ if ($core->auth->check('delete,contentadmin',$core->blog->id) && $status == -2)
 	$default = 'delete';
 }
 
-$comments_actions_page = new dcCommentsActionsPage($core,'comments.php');
+$comments_actions_page = new dcCommentsActionsPage($core,$core->adminurl->get("admin.comments"));
 
 if ($comments_actions_page->process()) {
 	return;
@@ -190,15 +190,15 @@ if (!$core->error->flag())
 	if ($spam_count > 0) {
 
 		echo
-			'<form action="comments.php" method="post" class="fieldset">';
+			'<form action="'.$core->adminurl->get("admin.comments").'" method="post" class="fieldset">';
 
 		if (!$with_spam || ($status != -2)) {
 			if ($spam_count == 1) {
 				echo '<p>'.sprintf(__('You have one spam comment.'),'<strong>'.$spam_count.'</strong>').' '.
-				'<a href="comments.php?status=-2">'.__('Show it.').'</a>.</p>';
+				'<a href="'.$core->adminurl->get("admin.comments",array('status' => -2)).'">'.__('Show it.').'</a></p>';
 			} elseif ($spam_count > 1) {
 				echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
-				'<a href="comments.php?status=-2">'.__('Show them.').'</a>.</p>';
+				'<a href="'.$core->adminurl->get("admin.comments",array('status' => -2)).'">'.__('Show them.').'</a></p>';
 			}
 		}
 
@@ -214,7 +214,7 @@ if (!$core->error->flag())
 	}
 
 	echo
-	'<form action="comments.php" method="get" id="filters-form">'.
+	'<form action="'.$core->adminurl->get("admin.comments").'" method="get" id="filters-form">'.
 	'<h3 class="hidden">'.__('Filter comments and trackbacks list').'</h3>'.
 	'<div class="table">'.
 
@@ -251,7 +251,7 @@ if (!$core->error->flag())
 
 	# Show comments
 	$comment_list->display($page,$nb_per_page,
-	'<form action="comments.php" method="post" id="form-comments">'.
+	'<form action="'.$core->adminurl->get("admin.comments").'" method="post" id="form-comments">'.
 
 	'%s'.
 

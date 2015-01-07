@@ -12,7 +12,8 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$is_super_admin = $core->auth->isSuperAdmin();
+$is_admin = $core->auth->check('admin,contentadmin', $core->blog->id) || $core->auth->isSuperAdmin();
+
 $core->blog->settings->addNameSpace('dclegacyeditor');
 $dclegacyeditor_active = $core->blog->settings->dclegacyeditor->active;
 

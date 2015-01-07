@@ -20,18 +20,18 @@ class pagesDashboard
 	{
 		$favs->register('pages', array(
 			'title' => __('Pages'),
-			'url' => 'plugin.php?p=pages',
-			'small-icon' => 'index.php?pf=pages/icon.png',
-			'large-icon' => 'index.php?pf=pages/icon-big.png',
+			'url' => $core->adminurl->get('admin.plugin.pages'),
+			'small-icon' => dcPage::getPF('pages/icon.png'),
+			'large-icon' => dcPage::getPF('pages/icon-big.png'),
 			'permissions' => 'contentadmin,pages',
 			'dashboard_cb' => array('pagesDashboard','pagesDashboardCB'),
 			'active_cb' => array('pagesDashboard','pagesActiveCB')
 		));
 		$favs->register('newpage', array(
 			'title' => __('New page'),
-			'url' => 'plugin.php?p=pages&amp;act=page',
-			'small-icon' => 'index.php?pf=pages/icon-np.png',
-			'large-icon' => 'index.php?pf=pages/icon-np-big.png',
+			'url' => $core->adminurl->get('admin.plugin.pages',array('act' => 'page')),
+			'small-icon' => dcPage::getPF('pages/icon-np.png'),
+			'large-icon' => dcPage::getPF( 'pages/icon-np-big.png'),
 			'permissions' => 'contentadmin,pages',
 			'active_cb' => array('pagesDashboard','newPageActiveCB')
 		));
@@ -69,9 +69,11 @@ function pages_users_actions_headers()
 	return dcPage::jsLoad('index.php?pf=pages/_users_actions.js');
 }
 
-$_menu['Blog']->addItem(__('Pages'),'plugin.php?p=pages','index.php?pf=pages/icon.png',
-		preg_match('/plugin.php(.*)$/',$_SERVER['REQUEST_URI']) && !empty($_REQUEST['p']) && $_REQUEST['p']=='pages',
-		$core->auth->check('contentadmin,pages',$core->blog->id));
+$_menu['Blog']->addItem(__('Pages'),
+	$core->adminurl->get('admin.plugin.pages'),
+	dcPage::getPF('pages/icon.png'),
+	preg_match('/plugin.php(.*)$/',$_SERVER['REQUEST_URI']) && !empty($_REQUEST['p']) && $_REQUEST['p']=='pages',
+	$core->auth->check('contentadmin,pages',$core->blog->id));
 
 $core->auth->setPermissionType('pages',__('manage pages'));
 

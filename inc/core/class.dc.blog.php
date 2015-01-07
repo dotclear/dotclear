@@ -120,6 +120,18 @@ class dcBlog
 	}
 
 	/**
+	Reruens jQuery version selected for the blog.
+	 */
+	public function getJsJQuery()
+	{
+		$version = $this->settings->system->jquery_version;
+		if ($version == '') {
+			$version = DC_DEFAULT_JQUERY;	// defined in inc/prepend.php
+		}
+		return 'jquery/'.$version;
+	}
+
+	/**
 	Returns an entry status name given to a code. Status are translated, never
 	use it for tests. If status code does not exist, returns <i>unpublished</i>.
 

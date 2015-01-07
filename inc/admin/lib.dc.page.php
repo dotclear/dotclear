@@ -16,6 +16,7 @@ define('DC_AUTH_PAGE','auth.php');
 class dcPage
 {
 	private static $loaded_js = array();
+	private static $xframe_loaded = false;
 	private static $N_TYPES = array(
 		"success" => "success", 
 		"warning" => "warning-msg", 
@@ -53,7 +54,7 @@ class dcPage
 	}
 
 	# Top of admin page
-	public static function open($title='',$head='',$breadcrumb='')
+	public static function open($title='',$head='',$breadcrumb='',$options=array())
 	{
 		global $core;
 
@@ -65,7 +66,7 @@ class dcPage
 			html::escapeHTML($core->blog->name).'</strong>';
 
 			if ($core->auth->getBlogCount() > 20) {
-				$blog_box .= ' - <a href="blogs.php">'.__('Change blog').'</a>';
+				$blog_box .= ' - <a href="'.$core->adminurl->get("admin.blogs").'">'.__('Change blog').'</a>';
 			}
 			$blog_box .= '</p>';
 		}
@@ -88,14 +89,18 @@ class dcPage
 
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
+
+		// Prevents Clickjacking as far as possible
+		if (isset($options['x-frame-allow'])) {
+			self::setXFrameOptions($options['x-frame-allow']);
+		} else {
+			self::setXFrameOptions();
+		}
 		echo
-		'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" '.
-		' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
-		'<html xmlns="http://www.w3.org/1999/xhtml" '.
-		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
-		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
+		'<!DOCTYPE html>'.
+		'<html lang="'.$core->auth->getInfo('user_lang').'">'."\n".
 		"<head>\n".
-		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
+		'  <meta charset="UTF-8" />'."\n".
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 		'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
@@ -136,20 +141,20 @@ class dcPage
 		'<li><a href="#qx">'.__('Go to search').'</a></li>'.
 		'<li><a href="#help">'.__('Go to help').'</a></li>'.
 		'</ul>'."\n".
-		'<div id="header">'.
-		'<h1><a href="index.php"><span class="hidden">'.DC_VENDOR_NAME.'</span></a></h1>'."\n";
+		'<div id="header" role="banner">'.
+		'<h1><a href="'.$core->adminurl->get("admin.home").'"><span class="hidden">'.DC_VENDOR_NAME.'</span></a></h1>'."\n";
 
 		echo
-		'<form action="index.php" method="post" id="top-info-blog">'.
+		'<form action="'.$core->adminurl->get("admin.home").'" method="post" id="top-info-blog">'.
 		$blog_box.
 		'<p><a href="'.$core->blog->url.'" class="outgoing" title="'.__('Go to site').
 		'">'.__('Go to site').'<img src="images/outgoing.png" alt="" /></a>'.
 		'</p></form>'.
 		'<ul id="top-info-user">'.
-		'<li><a class="'.(preg_match('/index.php$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="index.php">'.__('My dashboard').'</a></li>'.
-		'<li><a class="smallscreen'.(preg_match('/preferences.php(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').
-		'" href="preferences.php">'.__('My preferences').'</a></li>'.
-		'<li><a href="index.php?logout=1" class="logout"><span class="nomobile">'.sprintf(__('Logout %s'),$core->auth->userID()).
+		'<li><a class="'.(preg_match('/'.preg_quote($core->adminurl->get('admin.home')).'$/',$_SERVER['REQUEST_URI']) ? ' active' : '').'" href="'.$core->adminurl->get("admin.home").'">'.__('My dashboard').'</a></li>'.
+		'<li><a class="smallscreen'.(preg_match('/'.preg_quote($core->adminurl->get('admin.user.preferences')).'(\?.*)?$/',$_SERVER['REQUEST_URI']) ? ' active' : '').
+		'" href="'.$core->adminurl->get("admin.user.preferences").'">'.__('My preferences').'</a></li>'.
+		'<li><a href="'.$core->adminurl->get("admin.home",array('logout' => 1)).'" class="logout"><span class="nomobile">'.sprintf(__('Logout %s'),$core->auth->userID()).
 		'</span><img src="images/logout.png" alt="" /></a></li>'.
 		'</ul>'.
 		'</div>'; // end header
@@ -160,14 +165,14 @@ class dcPage
 		'<img class="collapse-mm" src="images/collapser-hide.png" alt="'.__('Hide main menu').'" />'.
 		'<img class="expand-mm" src="images/collapser-show.png" alt="'.__('Show main menu').'" />'.
 		'</a></div>'.
-		'<div id="main">'."\n".
+		'<div id="main" role="main">'."\n".
 		'<div id="content" class="clearfix">'."\n";
 
 		# Safe mode
 		if ($safe_mode)
 		{
 			echo
-			'<div class="warning"><h3>'.__('Safe mode').'</h3>'.
+			'<div class="warning" role="alert"><h3>'.__('Safe mode').'</h3>'.
 			'<p>'.__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities').'</p>'.
 			'</div>';
 		}
@@ -245,7 +250,7 @@ class dcPage
 		if (!isset($n['with_ts']) || ($n['with_ts'] == true)) {
 			$ts = dt::str(__('[%H:%M:%S]'),$n['ts'],$core->auth->getInfo('user_tz')).' ';
 		}
-		$res = '<'.$tag.' class="'.$n['class'].'">'.$ts.$n['text'].'</'.$tag.'>';
+		$res = '<'.$tag.' class="'.$n['class'].'" role="alert">'.$ts.$n['text'].'</'.$tag.'>';
 		return $res;
 	}
 
@@ -255,7 +260,7 @@ class dcPage
 
 		if (!$GLOBALS['__resources']['ctxhelp']) {
 			echo
-			'<p id="help-button"><a href="help.php" class="outgoing" title="'.
+			'<p id="help-button"><a href="'.$core->adminurl->get("admin.help").'" class="outgoing" title="'.
 			__('Global help').'">'.__('Global help').'</a></p>';
 		}
 
@@ -265,9 +270,9 @@ class dcPage
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
 
-		'<div id="main-menu">'."\n".
+		'<div id="main-menu" role="navigation">'."\n".
 
-		'<form id="search-menu" action="search.php" method="get">'.
+		'<form id="search-menu" action="'.$core->adminurl->get("admin.search").'" method="get" role="search">'.
 		'<p><label for="qx" class="hidden">'.__('Search:').' </label>'.form::field('qx',30,255,'').
 		'<input type="submit" value="'.__('OK').'" /></p>'.
 		'</form>';
@@ -290,12 +295,19 @@ class dcPage
 		"</div>\n";		// End of #wrapper
 
 		echo
-		'<div id="footer">'.
+		'<div id="footer" role="contentinfo">'.
 		'<a href="http://dotclear.org/" title="'.$text.'">'.
 		'<img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
-        "<!-- \n                  \n               ,;:'`'::\n".
-		"            __||\n      _____/LLLL\_\n      \__________\"|\n".
-        "    ~^~^~^~^~^~^~^~^~^~\n -->\n";
+		"<!-- "."\n".
+		"( \\"."\n".
+		" ) )"."\n".
+		"( (  .-\"\"-.  A.-.A"."\n".
+		" \ \/      \/ , , \\"."\n".
+		"  \   \    =;  t  /="."\n".
+		"   \   |\"\".  ',--'"."\n".
+		"    / //  | ||"."\n".
+		"   /_,))  |_,))"."\n".
+		" -->"."\n";
 
 		if (defined('DC_DEV') && DC_DEV === true) {
 			echo self::debugInfo();
@@ -311,15 +323,16 @@ class dcPage
 
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
+
+		// Prevents Clickjacking as far as possible
+		header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+
 		echo
-		'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" '.
-		' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'."\n".
-		'<html xmlns="http://www.w3.org/1999/xhtml" '.
-		'xml:lang="'.$core->auth->getInfo('user_lang').'" '.
-		'lang="'.$core->auth->getInfo('user_lang').'">'."\n".
+		'<!DOCTYPE html>'.
+		'<html lang="'.$core->auth->getInfo('user_lang').'">'."\n".
 		"<head>\n".
+		'  <meta charset="UTF-8" />'."\n".
 		'  <meta name="viewport" content="width=device-width, initial-scale=1.0" />'."\n".
-		'  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />'."\n".
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
 
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
@@ -348,7 +361,7 @@ class dcPage
 
 		echo
 		'<div id="wrapper">'."\n".
-		'<div id="main">'."\n".
+		'<div id="main" role="main">'."\n".
 		'<div id="content">'."\n";
 
 		// display breadcrumb if given
@@ -356,7 +369,7 @@ class dcPage
 
 		if ($core->error->flag()) {
 			echo
-			'<div class="error"><strong>'.__('Errors:').'</strong>'.
+			'<div class="error" role="alert"><strong>'.__('Errors:').'</strong>'.
 			$core->error->toHTML().
 			'</div>';
 		}
@@ -368,18 +381,19 @@ class dcPage
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
 		"</div>\n".		// End of #wrapper
-		'<div id="footer"><p>&nbsp;</p></div>'."\n".
+		'<div id="footer" role="contentinfo"><p>&nbsp;</p></div>'."\n".
 		'</body></html>';
 	}
 
 	public static function breadcrumb($elements=null,$options=array())
 	{
+		global $core;
 		$with_home_link = isset($options['home_link'])?$options['home_link']:true;
 		$hl = isset($options['hl'])?$options['hl']:true;
 		$hl_pos = isset($options['hl_pos'])?$options['hl_pos']:-1;
 		// First item of array elements should be blog's name, System or Plugins
 		$res = '<h2>'.($with_home_link ?
-			'<a class="go_home" href="index.php"><img src="style/dashboard.png" alt="'.__('Go to dashboard').'" /></a>' :
+			'<a class="go_home" href="'.$core->adminurl->get("admin.home").'"><img src="style/dashboard.png" alt="'.__('Go to dashboard').'" /></a>' :
 			'<img src="style/dashboard-alt.png" alt="" />');
 		$index = 0;
 		if ($hl_pos < 0) {
@@ -473,6 +487,7 @@ class dcPage
 
 	public static function helpBlock()
 	{
+		global $core;
 		$args = func_get_args();
 
 		$args = new ArrayObject($args);
@@ -526,7 +541,7 @@ class dcPage
 		'</div>'.
 		'<div id="helplink"><hr />'.
 		'<p>'.
-		sprintf(__('See also %s'),sprintf('<a href="help.php">%s</a>',__('the global help'))).
+		sprintf(__('See also %s'),sprintf('<a href="'.$core->adminurl->get("admin.help").'">%s</a>',__('the global help'))).
 		'.</p>'.
 		'</div></div>';
 	}
@@ -822,6 +837,7 @@ class dcPage
 	"datePicker.prototype.days[6] = '".html::escapeJS(__('Sunday'))."'; ".
 
 	"datePicker.prototype.img_src = 'images/date-picker.png'; ".
+		"datePicker.prototype.img_alt = '".html::escapeJS(__('Choose date'))."'; ".
 
 	"datePicker.prototype.close_msg = '".html::escapeJS(__('close'))."'; ".
 	"datePicker.prototype.now_msg = '".html::escapeJS(__('now'))."'; ".
@@ -903,5 +919,23 @@ class dcPage
 	{
 	return
 	'<script type="text/javascript" src="js/meta-editor.js"></script>';
+	}
+
+	public static function getPF($file) {
+		return $GLOBALS['core']->adminurl->get('load.plugin.file',array('pf' => $file));
+	}
+
+	public static function setXFrameOptions($origin=null) {
+		if (self::$xframe_loaded) {
+			return;
+		}
+		if ($origin !== null) {
+			$url = parse_url($origin);
+			header(sprintf('X-Frame-Options: %s', is_array($url)?($url['scheme'].'://'.$url['host']):'SAMEORIGIN'));
+		} else {
+			header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+		}
+		self::$xframe_loaded = true;
+
 	}
 }

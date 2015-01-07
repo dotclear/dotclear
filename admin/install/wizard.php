@@ -135,12 +135,15 @@ function writeConfigValue($name,$val,&$str)
 }
 
 header('Content-Type: text/html; charset=UTF-8');
+
+// Prevents Clickjacking as far as possible
+header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta http-equiv="Content-Language" content="en" />
@@ -158,7 +161,7 @@ echo
 '<div id="main">';
 
 if (!empty($err)) {
-	echo '<div class="error"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>';
+	echo '<div class="error" role="alert"><p><strong>'.__('Errors:').'</strong></p>'.$err.'</div>';
 } else {
 	echo '<h2>'.__('Welcome').'</h2>'.
 		'<p>'.__('To complete your Dotclear installation and start writing on your blog, '.

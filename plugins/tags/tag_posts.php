@@ -72,7 +72,7 @@ if ($posts_actions_page->process()) {
 <html>
 <head>
   <title><?php echo __('Tags'); ?></title>
-  <link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF('tags/style.css'); ?>" />
   <script type="text/javascript" src="js/_posts_list.js"></script>
   <script type="text/javascript">
   //<![CDATA[
@@ -84,6 +84,7 @@ if ($posts_actions_page->process()) {
   });
   //]]>
   </script>
+  <?php echo dcPage::jsConfirmClose('tag_rename'); ?>
 </head>
 <body>
 
@@ -107,7 +108,7 @@ if (!$core->error->flag())
 		echo
 		'<div class="tag-actions vertical-separator">'.
 		'<h3>'.html::escapeHTML($tag).'</h3>'.
-		'<form action="'.$this_url.'" method="post">'.
+		'<form action="'.$this_url.'" method="post" id="tag_rename">'.
 		'<p><label for="new_tag_id" class="classic">'.__('Rename').'</label> '.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'<input type="submit" value="'.__('OK').'" />'.
@@ -127,7 +128,7 @@ if (!$core->error->flag())
 	# Show posts
 	echo '<h4 class="vertical-separator pretty-title">'.sprintf(__('List of entries with the tag “%s”'),html::escapeHTML($tag)).'</h4>';
 	$post_list->display($page,$nb_per_page,
-	'<form action="plugin.php" method="post" id="form-entries">'.
+	'<form action="'.$core->adminurl->get('admin.plugin').'" method="post" id="form-entries">'.
 
 	'%s'.
 

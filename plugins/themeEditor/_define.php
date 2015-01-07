@@ -15,7 +15,7 @@ $this->registerModule(
 	/* Name */			"themeEditor",
 	/* Description*/		"Theme Editor",
 	/* Author */			"Olivier Meunier",
-	/* Version */			'1.1',
+	/* Version */			'1.2',
 	array(
 		'type'		=>		'plugin'
 	)

@@ -109,6 +109,12 @@ class dcUrlHandlers extends urlHandler
 		}
 
 		header('Content-Type: '.$_ctx->content_type.'; charset=UTF-8');
+
+		if ($core->blog->settings->system->prevents_clickjacking) {
+			// Prevents Clickjacking as far as possible
+			header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+		}
+
 		$result['content'] = $core->tpl->getData($_ctx->current_tpl);
 		$result['content_type'] = $_ctx->content_type;
 		$result['tpl'] = $_ctx->current_tpl;
@@ -384,10 +390,12 @@ class dcUrlHandlers extends urlHandler
 					}
 
 					# Check for match
+					# Note: We must prefix post_id key with '#'' in pwd_cookie array in order to avoid integer conversion
+					# because MyArray["12345"] is treated as MyArray[12345]
 					if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
-					|| (isset($pwd_cookie[$post_id]) && $pwd_cookie[$post_id] == $post_password))
+					|| (isset($pwd_cookie['#'.$post_id]) && $pwd_cookie['#'.$post_id] == $post_password))
 					{
-						$pwd_cookie[$post_id] = $post_password;
+						$pwd_cookie['#'.$post_id] = $post_password;
 						setcookie('dc_passwd',json_encode($pwd_cookie),0,'/');
 					}
 					else

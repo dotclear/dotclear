@@ -56,6 +56,7 @@ config: clean config-stamp
 	find $(DC)/admin/js/jsUpload/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/plugins -name '*.js' -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/themes/default/js/*.js -exec ./build-tools/min-js.php \{\} \;
+	find $(DC)/inc/js -name '*.js' -exec ./build-tools/min-js.php \{\} \;
 
 	## Debug off
 	perl -pi -e "s|^//\*== DC_DEBUG|/*== DC_DEBUG|sgi;" $(DC)/inc/prepend.php $(DC)/inc/prepend.php
@@ -65,6 +66,7 @@ config: clean config-stamp
 	find ./$(DIST)/ -type d -name '.hg'  | xargs -r rm -rf
 	find ./$(DIST)/ -type d -name '.git' | xargs -r rm -rf
 	find ./$(DIST)/ -type f -name '.*ignore' | xargs -r rm -rf
+	find ./$(DIST)/ -type f -name '.flow' | xargs -r rm -rf
 
 	## Create digest
 	cd $(DC) && ( \

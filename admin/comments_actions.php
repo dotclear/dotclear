@@ -23,7 +23,7 @@ if (isset($_REQUEST['redir'])) {
 	}
 	$args['redir'] = $_REQUEST['redir'];
 } else {
-	$uri = 'comments.php';
+	$uri = $core->adminurl->get("admin.comments");
 	$args=array();
 }
 

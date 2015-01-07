@@ -10,6 +10,10 @@
 # -- END LICENSE BLOCK -----------------------------------------
 
 if (!defined('DC_RC_PATH')) { return; }
+// public part below
+
+if (!defined('DC_CONTEXT_ADMIN')) { return false; }
+// admin part below
 
 # Behaviors
 $GLOBALS['core']->addBehavior('adminPageHTMLHead',array('tplDuctileThemeAdmin','adminPageHTMLHead'));

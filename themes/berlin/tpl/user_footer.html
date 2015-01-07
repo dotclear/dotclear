@@ -3,16 +3,16 @@
         $("html").addClass("js");
         // Show/Hide main menu
         $(".header__nav").
-        before('<button id="hamburger" type="button" role="button"><span class="visually-hidden">Navigation</span></button>').
+        before('<button id="hamburger" type="button"><span class="visually-hidden">Navigation</span></button>').
         toggle();
         $("#hamburger").click(function(){
                 $(this).toggleClass("open");
                 $(".header__nav").toggle('easing');
         });
         // Show/Hide sidebar on small screens
-        $("#main").prepend('<button id="offcanvas-on" type="button" role="button"><span class="visually-hidden">Show menu</span></button>');
+        $("#main").prepend('<button id="offcanvas-on" type="button"><span class="visually-hidden">Show menu</span></button>');
         $("#offcanvas-on").click(function(){
-            var btn = $('<button id="offcanvas-off" type="button" role="button"><span class="visually-hidden">Hide menu</span></button>');
+            var btn = $('<button id="offcanvas-off" type="button"><span class="visually-hidden">Hide menu</span></button>');
             $("#wrapper").addClass("off-canvas");
             $("#footer").addClass("off-canvas");
             $("#sidebar").prepend(btn);

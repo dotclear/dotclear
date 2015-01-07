@@ -213,19 +213,19 @@ elseif (!empty($_POST['wreset']))
 <html>
 <head>
   <title><?php echo __('Widgets'); ?></title>
-  <link type="text/css" rel="stylesheet" href="index.php?pf=widgets/style.css"/>
+  <link type="text/css" rel="stylesheet" href="<?php echo dcPage::getPF('widgets/style.css'); ?>"/>
   <?php
 		echo
 			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 			dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
-			dcPage::jsLoad('index.php?pf=widgets/widgets.js');
+			dcPage::jsLoad(dcPage::getPF('widgets/widgets.js'));
   ?>
   <?php
 	$core->auth->user_prefs->addWorkspace('accessibility');
 	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
   ?>
   <?php if (!$user_dm_nodragdrop) : ?>
-  <script type="text/javascript" src="index.php?pf=widgets/dragdrop.js"></script>
+  <script type="text/javascript" src="<?php echo dcPage::getPF('widgets/dragdrop.js'); ?>"></script>
   <?php endif; ?>
   <script type="text/javascript">
   //<![CDATA[
@@ -367,7 +367,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$downDisabled = $i == count($widgets->elements())-1 ? ' disabled" src="images/disabled_' : '" src="images/';
 		$altUp = $i == 0 ? ' alt=""' : ' alt="'.__('Up the widget').'"';
 		$altDown = $i == count($widgets->elements())-1 ? ' alt=""' : ' alt="'.__('Down the widget').'"';
-		
+
 		$iname = 'w['.$pr.']['.$i.']';
 
 		$res .=

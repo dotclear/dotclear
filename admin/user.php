@@ -130,7 +130,7 @@ if (isset($_POST['user_name']))
 			}
 
 			dcPage::addSuccessNotice(__('User has been successfully updated.'));
-			http::redirect('user.php?id='.$new_id);
+			$core->adminurl->redirect("admin.user",array('id' => $new_id));
 		}
 		# Add user
 		else
@@ -149,9 +149,9 @@ if (isset($_POST['user_name']))
 
 			dcPage::addSuccessNotice(__('User has been successfully created.'));
 			if (!empty($_POST['saveplus'])) {
-				http::redirect('user.php');
+				$core->adminurl->redirect("admin.user");
 			} else {
-				http::redirect('user.php?id='.$new_id);
+				$core->adminurl->redirect("admin.user",array('id' => $new_id));
 			}
 		}
 	}
@@ -186,7 +186,7 @@ dcPage::open($page_title,
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			__('Users') => 'users.php',
+			__('Users') => $core->adminurl->get("admin.users"),
 			$page_title => ''
 		))
 );
@@ -200,7 +200,7 @@ if (!empty($_GET['add'])) {
 }
 
 echo
-'<form action="user.php" method="post" id="user-form">'.
+'<form action="'.$core->adminurl->get("admin.user").'" method="post" id="user-form">'.
 '<div class="two-cols">'.
 
 '<div class="col">'.
@@ -323,9 +323,9 @@ if ($user_id)
 	if (!$user_super)
 	{
 		echo
-		'<form action="users_actions.php" method="post">'.
+		'<form action="'.$core->adminurl->get("admin.user.actions").'" method="post">'.
 		'<p><input type="submit" value="'.__('Add new permissions').'" />'.
-		form::hidden(array('redir'),'user.php?id='.$user_id).
+		form::hidden(array('redir'),$core->adminurl->get("admin.user",array('id' => $user_id))).
 		form::hidden(array('action'),'blogs').
 		form::hidden(array('users[]'),$user_id).
 		$core->formNonce().
@@ -346,8 +346,9 @@ if ($user_id)
 				if (count($v['p']) > 0)
 				{
 					echo
-					'<form action="users_actions.php" method="post" class="perm-block">'.
-					'<p class="blog-perm">'.__('Blog:').' <a href="blog.php?id='.html::escapeHTML($k).'">'.
+					'<form action="'.$core->adminurl->get("admin.user.actions").'" method="post" class="perm-block">'.
+					'<p class="blog-perm">'.__('Blog:').' <a href="'.
+					$core->adminurl->get("admin.blog",array('id' => html::escapeHTML($k))).'">'.
 					html::escapeHTML($v['name']).'</a> ('.html::escapeHTML($k).')</p>';
 
 					echo '<ul class="ul-perm">';
@@ -359,7 +360,7 @@ if ($user_id)
 					echo
 					'</ul>'.
 					'<p class="add-perm"><input type="submit" class="reset" value="'.__('Change permissions').'" />'.
-					form::hidden(array('redir'),'user.php?id='.$user_id).
+					form::hidden(array('redir'),$core->adminurl->get("admin.user",array('id' => $user_id))).
 					form::hidden(array('action'),'perms').
 					form::hidden(array('users[]'),$user_id).
 					form::hidden(array('blogs[]'),$k).

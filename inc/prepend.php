@@ -169,9 +169,10 @@ define('DC_VERSION','2.99-dev');
 define('DC_DIGESTS',dirname(__FILE__).'/digests');
 define('DC_L10N_ROOT',dirname(__FILE__).'/../locales');
 define('DC_L10N_UPDATE_URL','http://services.dotclear.net/dc2.l10n/?version=%s');
-define('DC_DISTRIB_PLUGINS','aboutConfig,akismet,antispam,attachments,blogroll,blowupConfig,dclegacy,fairTrackbacks,importExport,maintenance,pages,pings,simpleMenu,tags,themeEditor,userPref,widgets,dcLegacyEditor');
+define('DC_DISTRIB_PLUGINS','aboutConfig,akismet,antispam,attachments,blogroll,blowupConfig,dclegacy,fairTrackbacks,importExport,maintenance,pages,pings,simpleMenu,tags,themeEditor,userPref,widgets,dcLegacyEditor,dcCKEditor');
 define('DC_DISTRIB_THEMES','berlin,blueSilence,blowupConfig,customCSS,default,ductile');
 define('DC_DEFAULT_TPLSET','mustek');
+define('DC_DEFAULT_JQUERY','1.4.2');
 
 if (!defined('DC_VENDOR_NAME')) {
 	define('DC_VENDOR_NAME','Dotclear');
@@ -269,6 +270,7 @@ $core->url->register('trackback','trackback','^trackback/(.+)$',array('dcUrlHand
 $core->url->register('rsd','rsd','^rsd$',array('dcUrlHandlers','rsd'));
 $core->url->register('xmlrpc','xmlrpc','^xmlrpc/(.+)$',array('dcUrlHandlers','xmlrpc'));
 
+// Should use dcAdminURL class, but only in admin -> to be moved to public/prepend.php and admin/prepend.php ?
 $core->setPostType('post','post.php?id=%d',$core->url->getURLFor('post','%s'),'Posts');
 
 # Store upload_max_filesize in bytes
@@ -279,6 +281,19 @@ if ($p_max_size < $u_max_size) {
 }
 define('DC_MAX_UPLOAD_SIZE',$u_max_size);
 unset($u_max_size); unset($p_max_size);
+
+# Register supplemental mime types
+files::registerMimeTypes(array(
+	// Audio
+	'aac'	=> 'audio/aac',
+	'ogg'	=> 'audio/ogg',
+	'weba'	=> 'audio/webm',
+	'm4a'	=> 'audio/mp4',
+	// Video
+	'mp4'	=> 'video/mp4',
+	'm4p'	=> 'video/mp4',
+	'webm'	=> 'video/webm'
+	));
 
 # Shutdown
 register_shutdown_function('__shutdown');

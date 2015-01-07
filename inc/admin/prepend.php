@@ -60,6 +60,14 @@ function dc_admin_icon_url($img)
 	return $img;
 }
 
+function addMenuItem($section,$desc,$adminurl,$icon,$perm)
+{
+	global $core,$_menu;
+
+	$url = $core->adminurl->get($adminurl);
+	$_menu[$section]->prependItem($desc,$url,$icon,preg_match('/'.preg_quote($url).'(\?.*)?$/',$_SERVER['REQUEST_URI']),$perm);
+}
+
 if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
 {
 	# We have session information in constants
@@ -119,7 +127,6 @@ elseif ($core->auth->sessionExists())
 		}
 	}
 	
-	
 	if (!empty($_REQUEST['switchblog'])
 	&& $core->auth->getPermissions($_REQUEST['switchblog']) !== false)
 	{
@@ -163,38 +170,39 @@ elseif ($core->auth->sessionExists())
 		$core->session->destroy();
 		http::redirect('auth.php');
 	}
-
-/*	
-	# Check add to my fav fired
-	if (!empty($_REQUEST['add-favorite'])) {
-		$redir = $_SERVER['REQUEST_URI'];
-		# Extract admin page from URI
-		# TO BE COMPLETED
-	}
-*/
 }
 
 $core->adminurl = new dcAdminURL($core);
 
 $core->adminurl->register('admin.posts','posts.php');
 $core->adminurl->register('admin.post','post.php');
+$core->adminurl->register('admin.post.media','post_media.php');
 $core->adminurl->register('admin.blog.theme','blog_theme.php');
 $core->adminurl->register('admin.blog.pref','blog_pref.php');
+$core->adminurl->register('admin.blog.del','blog_del.php');
+$core->adminurl->register('admin.blog','blog.php');
 $core->adminurl->register('admin.blogs','blogs.php');
 $core->adminurl->register('admin.categories','categories.php');
 $core->adminurl->register('admin.category','category.php');
 $core->adminurl->register('admin.comments','comments.php');
-$core->adminurl->register('admin.comments','comment.php');
+$core->adminurl->register('admin.comment','comment.php');
 $core->adminurl->register('admin.help','help.php');
 $core->adminurl->register('admin.home','index.php');
 $core->adminurl->register('admin.langs','langs.php');
 $core->adminurl->register('admin.media','media.php');
-$core->adminurl->register('admin.media_item','media_item.php');
+$core->adminurl->register('admin.media.item','media_item.php');
 $core->adminurl->register('admin.plugins','plugins.php');
 $core->adminurl->register('admin.plugin','plugin.php');
+$core->adminurl->register('admin.search','search.php');
 $core->adminurl->register('admin.user.preferences','preferences.php');
 $core->adminurl->register('admin.user','user.php');
+$core->adminurl->register('admin.user.actions','users_actions.php');
 $core->adminurl->register('admin.users','users.php');
+$core->adminurl->register('admin.auth','auth.php');
+$core->adminurl->register('admin.help','help.php');
+$core->adminurl->register('admin.update','update.php');
+
+$core->adminurl->registercopy('load.plugin.file','admin.home',array('pf' => 'dummy.css'));
 
 if ($core->auth->userID() && $core->blog !== null)
 {
@@ -227,7 +235,6 @@ if ($core->auth->userID() && $core->blog !== null)
 	# [] : Title, URL, small icon, large icon, permissions, id, class
 	# NB : '*' in permissions means any, null means super admin only
 	
-	
 	# Menus creation
 	$_menu = new ArrayObject();
 	$_menu['Dashboard'] = new dcMenu('dashboard-menu',null);
@@ -245,53 +252,38 @@ if ($core->auth->userID() && $core->blog !== null)
 		$core->favs->appendMenu($_menu);
 	}
 
-	
 	# Set menu titles
 	
 	$_menu['System']->title = __('System settings');
 	$_menu['Blog']->title = __('Blog');
 	$_menu['Plugins']->title = __('Plugins');
 
-
-	$_menu['Blog']->prependItem(__('Blog appearance'),'blog_theme.php','images/menu/themes.png',
-		preg_match('/blog_theme.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Blog appearance'),'admin.blog.theme','images/menu/themes.png',
 		$core->auth->check('admin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Blog settings'),'blog_pref.php','images/menu/blog-pref.png',
-		preg_match('/blog_pref.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Blog settings'),'admin.blog.pref','images/menu/blog-pref.png',
 		$core->auth->check('admin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Media manager'),'media.php','images/menu/media.png',
-		preg_match('/media(_item)?.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Media manager'),'admin.media','images/menu/media.png',
 		$core->auth->check('media,media_admin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Categories'),'categories.php','images/menu/categories.png',
-		preg_match('/categories.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Categories'),'admin.categories','images/menu/categories.png',
 		$core->auth->check('categories',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Search'),'search.php','images/menu/search.png',
-		preg_match('/search.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Search'),'admin.search','images/menu/search.png',
 		$core->auth->check('usage,contentadmin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Comments'),'comments.php','images/menu/comments.png',
-		preg_match('/comments.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Comments'),'admin.comments','images/menu/comments.png',
 		$core->auth->check('usage,contentadmin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Entries'),'posts.php','images/menu/entries.png',
-		preg_match('/posts.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Entries'),'admin.posts','images/menu/entries.png',
 		$core->auth->check('usage,contentadmin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('New entry'),'post.php','images/menu/edit.png',
-		preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('New entry'),'admin.post','images/menu/edit.png',
 		$core->auth->check('usage,contentadmin',$core->blog->id));
 	
-	$_menu['System']->prependItem(__('Update'),'update.php','images/menu/update.png',
-		preg_match('/update.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('System',__('Update'),'admin.update','images/menu/update.png',
 		$core->auth->isSuperAdmin() && is_readable(DC_DIGESTS));
-	$_menu['System']->prependItem(__('Languages'),'langs.php','images/menu/langs.png',
-		preg_match('/langs.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('System',__('Languages'),'admin.langs','images/menu/langs.png',
 		$core->auth->isSuperAdmin());
-	$_menu['System']->prependItem(__('Plugins management'),'plugins.php','images/menu/plugins.png',
-		preg_match('/plugins.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('System',__('Plugins management'),'admin.plugins','images/menu/plugins.png',
 		$core->auth->isSuperAdmin());
-	$_menu['System']->prependItem(__('Users'),'users.php','images/menu/users.png',
-		preg_match('/users.php$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('System',__('Users'),'admin.users','images/menu/users.png',
 		$core->auth->isSuperAdmin());
-	$_menu['System']->prependItem(__('Blogs'),'blogs.php','images/menu/blogs.png',
-		preg_match('/blogs.php$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('System',__('Blogs'),'admin.blogs','images/menu/blogs.png',
 		$core->auth->isSuperAdmin() ||
 		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->getBlogCount() > 1);
 

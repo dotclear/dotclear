@@ -60,8 +60,10 @@ $pf = path::clean($_GET['pf']);
 
 $paths = array_reverse(explode(PATH_SEPARATOR,DC_PLUGINS_ROOT));
 
-# Adding admin/res folder here to load some stuff
+# Adding some folders here to load some stuff
 $paths[] = dirname(__FILE__).'/swf';
+$paths[] = dirname(__FILE__).'/js';
+$paths[] = dirname(__FILE__).'/css';
 
 foreach ($paths as $m)
 {

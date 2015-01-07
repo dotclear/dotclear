@@ -1,24 +1,19 @@
 {{tpl:extends parent="__layout.html"}}
 
-<tpl:Block name="head-title">{{tpl:lang Search}} - {{tpl:SysSearchString encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></tpl:Block>
+<tpl:Block name="head-title">
+	<title>{{tpl:lang Search}} - {{tpl:SysSearchString encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+</tpl:Block>
 
-<tpl:Block name="head-meta">
+<tpl:Block name="meta-robots">
 	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX,NOARCHIVE"}}" />
-	<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
-	<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
-	<meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
 </tpl:Block>
 
-<tpl:Block name="head-dc">
-	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+<tpl:Block name="dc-entry">
 	<meta property="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Search}} - {{tpl:SysSearchString encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
+	<meta property="dc.description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription encode_html="1"}}" />
 	<meta property="dc.language" content="{{tpl:BlogLanguage}}" />
-	<meta property="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
-	<meta property="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
 	<meta property="dc.date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
-	<meta property="dc.type" content="text" />
-	<meta property="dc.format" content="text/html" />
-</tpl:Block>
+</tpl:Block>	<!-- dc-title-head -->
 
 <tpl:Block name="head-linkrel">
 	<link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
@@ -39,7 +34,7 @@
 	<link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
 </tpl:Block>
 
-<tpl:Block name="body-attr">class="dc-search"</tpl:Block>
+<tpl:Block name="body-tag"><body class="dc-search"></tpl:Block>
 
 <tpl:Block name="main-content">
 	<div id="content-info">

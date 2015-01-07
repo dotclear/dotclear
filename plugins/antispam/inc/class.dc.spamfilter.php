@@ -39,7 +39,7 @@ class dcSpamFilter
 			$this->name = get_class($this);
 		}
 
-		$this->gui_url = 'plugin.php?p=antispam&f='.get_class($this);
+        $this->gui_url = 'plugin.php?p=antispam&f='.get_class($this);
 	}
 
 	/**

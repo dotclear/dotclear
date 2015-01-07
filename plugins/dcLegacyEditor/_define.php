@@ -12,9 +12,12 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"dcLegacyEditor",
-	/* Description*/	"dotclear legacy editor",
-	/* Author */		"dotclear Team",
-	/* Version */		'0.1.0',
-	/* Options */       array('permissions' => 'admin', 'type' => 'plugin')
+	/* Name */				"dcLegacyEditor",
+	/* Description*/		"dotclear legacy editor",
+	/* Author */			"dotclear Team",
+	/* Version */			'0.1.2',
+	array(
+		'permissions' =>	'usage,contentadmin',
+		'type'		=>		'plugin'
+	)
 );

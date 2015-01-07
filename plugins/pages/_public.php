@@ -78,10 +78,12 @@ class urlPages extends dcUrlHandlers
 					}
 
 					# Check for match
+					# Note: We must prefix post_id key with '#'' in pwd_cookie array in order to avoid integer conversion
+					# because MyArray["12345"] is treated as MyArray[12345]
 					if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
-					|| (isset($pwd_cookie[$post_id]) && $pwd_cookie[$post_id] == $post_password))
+					|| (isset($pwd_cookie['#'.$post_id]) && $pwd_cookie['#'.$post_id] == $post_password))
 					{
-						$pwd_cookie[$post_id] = $post_password;
+						$pwd_cookie['#'.$post_id] = $post_password;
 						setcookie('dc_passwd',json_encode($pwd_cookie),0,'/');
 					}
 					else
@@ -239,6 +241,9 @@ class tplPages
 	public static function pagesWidget($w)
 	{
 		global $core, $_ctx;
+
+		if ($w->offline)
+			return;
 
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {

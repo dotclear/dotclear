@@ -43,7 +43,7 @@ if (!$core->error->flag() && $blog_id && !empty($_POST['del']))
 			$core->delBlog($blog_id);
 			dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), html::escapeHTML($blog_name)));
 
-			http::redirect('blogs.php');
+			$core->adminurl->redirect("admin.blogs");
 		} catch (Exception $e) {
 			$core->error->add($e->getMessage());
 		}
@@ -54,7 +54,7 @@ dcPage::open(__('Delete a blog'),'',
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			__('Blogs') => 'blogs.php',
+			__('Blogs') => $core->adminurl->get("admin.blogs"),
 			__('Delete a blog') => ''
 		))
 );
@@ -68,7 +68,7 @@ if (!$core->error->flag())
 	'<p>'.__('Please give your password to confirm the blog deletion.').'</p>';
 
 	echo
-	'<form action="blog_del.php" method="post">'.
+	'<form action="'.$core->adminurl->get("admin.blog.del").'" method="post">'.
 	'<div>'.$core->formNonce().'</div>'.
 	'<p><label for="pwd">'.__('Your password:').'</label> '.
 	form::password('pwd',20,255).'</p>'.

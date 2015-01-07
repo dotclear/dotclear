@@ -17,6 +17,7 @@ confirmClose.prototype = {
 		var formsInPage = this.getForms();
 		var f;
 		var This = this;
+		this.forms=new Array();
 		for (var i=0; i<formsInPage.length; i++) {
 			f = formsInPage[i];
 			var tmpForm = new Array();
@@ -77,6 +78,8 @@ confirmClose.prototype = {
 			return this.getFormRadioValue(e);
 		} else if (e.type != undefined && e.type == 'checkbox') {
 			return this.getFormCheckValue(e);
+		} else if (e.type == 'password') {
+			return null;
 		} else if (e.value != undefined) {
 			return e.value;
 		} else {

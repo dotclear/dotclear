@@ -74,6 +74,7 @@ class dcTemplate extends template
 		$this->addValue('BlogPublicURL',array($this,'BlogPublicURL'));
 		$this->addValue('BlogQmarkURL',array($this,'BlogQmarkURL'));
 		$this->addValue('BlogMetaRobots',array($this,'BlogMetaRobots'));
+		$this->addValue('BlogJsJQuery',array($this,'BlogJsJQuery'));
 
 		# Categories
 		$this->addBlock('Categories',array($this,'Categories'));
@@ -117,6 +118,7 @@ class dcTemplate extends template
 
 		# Comment preview
 		$this->addBlock('IfCommentPreview',array($this,'IfCommentPreview'));
+		$this->addBlock('IfCommentPreviewOptional',array($this,'IfCommentPreviewOptional'));
 		$this->addValue('CommentPreviewName',array($this,'CommentPreviewName'));
 		$this->addValue('CommentPreviewEmail',array($this,'CommentPreviewEmail'));
 		$this->addValue('CommentPreviewSite',array($this,'CommentPreviewSite'));
@@ -431,13 +433,14 @@ class dcTemplate extends template
 		$start = isset($attr['start']) ? (integer) $attr['start'] : '0';
 		$length = isset($attr['length']) ? (integer) $attr['length'] : 'null';
 		$even = isset($attr['even']) ? (integer) (boolean) $attr['even'] : 'null';
+		$modulo = isset($attr['modulo']) ? (integer) $attr['modulo'] : 'null';
 
 		if ($start > 0) {
 			$start--;
 		}
 
 		return
-		'<?php if ($_ctx->loopPosition('.$start.','.$length.','.$even.')) : ?>'.
+		'<?php if ($_ctx->loopPosition('.$start.','.$length.','.$even.','.$modulo.')) : ?>'.
 		$content.
 		"<?php endif; ?>";
 	}
@@ -875,6 +878,15 @@ class dcTemplate extends template
 		return "<?php echo context::robotsPolicy(\$core->blog->settings->system->robots_policy,'".$robots."'); ?>";
 	}
 
+	/*dtd
+	<!ELEMENT gpl:BlogJsJQuery - 0 -- Blog Js jQuery version selected -->
+	*/
+	public function BlogJsJQuery($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'$core->blog->getJsJQuery()').'; ?>';
+	}
+
 	/* Categories ----------------------------------------- */
 
 	/*dtd
@@ -1105,14 +1117,24 @@ class dcTemplate extends template
 			if ($lastn > 0) {
 				// nb of entries per page specified in template -> regular pagination
 				$p .= "\$params['limit'] = ".$lastn.";\n";
+				$p .= "\$nb_entry_first_page = \$nb_entry_per_page = ".$lastn.";\n";
 			} else {
 				// nb of entries per page not specified -> use ctx settings
-				$p .= "\$params['limit'] = (\$_page_number == 1 ? \$_ctx->nb_entry_first_page : \$_ctx->nb_entry_per_page);\n";
+				$p .= "\$nb_entry_first_page=\$_ctx->nb_entry_first_page; \$nb_entry_per_page = \$_ctx->nb_entry_per_page;\n";
+				$p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
+				$p .= "    \$params['limit'] = (\$_page_number == 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
+				$p .= "} else {\n";
+				$p .= "    \$params['limit'] = \$nb_entry_per_page;\n";
+				$p .= "}\n";
 			}
 			// Set offset (aka index of first entry)
 			if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == "0") {
 				// standard pagination, set offset
-				$p .= "\$params['limit'] = array((\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$_ctx->nb_entry_per_page + \$_ctx->nb_entry_first_page),\$params['limit']);\n";
+				$p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
+				$p .= "    \$params['limit'] = array((\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']);\n";
+				$p .= "} else {\n";
+				$p .= "    \$params['limit'] = array((\$_page_number - 1) * \$nb_entry_per_page,\$params['limit']);\n";
+				$p .= "}\n";
 			} else {
 				// no pagination, get all posts from 0 to limit
 				$p .= "\$params['limit'] = array(0, \$params['limit']);\n";
@@ -1774,7 +1796,7 @@ class dcTemplate extends template
 	/*dtd
 	<!ELEMENT tpl:EntryCommentCount - O -- Number of comments for entry -->
 	<!ATTLIST tpl:EntryCommentCount
-	none		CDATA	#IMPLIED	-- text to display for "no comment" (default: no comment)
+	none		CDATA	#IMPLIED	-- text to display for "no comments" (default: no comments)
 	one		CDATA	#IMPLIED	-- text to display for "one comment" (default: one comment)
 	more		CDATA	#IMPLIED	-- text to display for "more comments" (default: %s comments, %s is replaced by the number of comment)
 	count_all	CDATA	#IMPLIED	-- count comments and trackbacks
@@ -1803,7 +1825,7 @@ class dcTemplate extends template
 	/*dtd
 	<!ELEMENT tpl:EntryPingCount - O -- Number of trackbacks for entry -->
 	<!ATTLIST tpl:EntryPingCount
-	none	CDATA	#IMPLIED	-- text to display for "no ping" (default: no ping)
+	none	CDATA	#IMPLIED	-- text to display for "no pings" (default: no pings)
 	one	CDATA	#IMPLIED	-- text to display for "one ping" (default: one ping)
 	more	CDATA	#IMPLIED	-- text to display for "more pings" (default: %s trackbacks, %s is replaced by the number of pings)
 	>
@@ -1813,7 +1835,7 @@ class dcTemplate extends template
 		return $this->displayCounter(
 			'$_ctx->posts->nb_trackback',
 			array(
-				'none' => 'no trackback',
+				'none' => 'no trackbacks',
 				'one'  => 'one trackback',
 				'more' => '%d trackbacks'
 				),
@@ -2406,6 +2428,17 @@ class dcTemplate extends template
 	}
 
 	/* Comment preview -------------------------------- */
+	/*dtd
+	<!ELEMENT tpl:IfCommentPreviewOptional - - -- Container displayed if comment preview is optional or currently previewed -->
+	*/
+	public function IfCommentPreviewOptional($attr,$content)
+	{
+		return
+		'<?php if ($core->blog->settings->system->comment_preview_optional || ($_ctx->comment_preview !== null && $_ctx->comment_preview["preview"])) : ?>'.
+		$content.
+		'<?php endif; ?>';
+	}
+
 	/*dtd
 	<!ELEMENT tpl:IfCommentPreview - - -- Container displayed if comment is being previewed -->
 	*/

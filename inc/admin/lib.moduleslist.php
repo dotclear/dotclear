@@ -38,7 +38,7 @@ class adminModulesList
 	protected $path_writable = false;	/**< @var	boolean	Indicate if modules root directory is writable */
 	protected $path_pattern = false;	/**< @var	string	Directory pattern to work on */
 
-	protected $page_url = 'plugins.php';	/**< @var	string	Page URL */
+	protected $page_url = '';				/**< @var	string	Page URL */
 	protected $page_qs = '?';				/**< @var	string	Page query string */
 	protected $page_tab = '';				/**< @var	string	Page tab */
 	protected $page_redir = '';				/**< @var	string	Page redirection */
@@ -64,6 +64,8 @@ class adminModulesList
 		$this->core = $modules->core;
 		$this->modules = $modules;
 		$this->store = new dcStore($modules, $xml_url);
+
+		$this->page_url = $this->core->adminurl->get('admin.plugins');
 
 		$this->setPath($modules_root);
 		$this->setIndex(__('other'));
@@ -617,7 +619,8 @@ class adminModulesList
 				echo
 				'<td class="module-icon nowrap">'.sprintf(
 					'<img alt="%1$s" title="%1$s" src="%2$s" />',
-					html::escapeHTML($id), file_exists($module['root'].'/icon.png') ? 'index.php?pf='.$id.'/icon.png' : 'images/module.png'
+					html::escapeHTML($id), file_exists($module['root'].'/icon.png') ?
+					dcPage::getPF($id.'/icon.png') : 'images/module.png'
 				).'</td>';
 			}
 
@@ -1372,7 +1375,20 @@ class adminModulesList
  */
 class adminThemesList extends adminModulesList
 {
-	protected $page_url = 'blog_theme.php';
+	/**
+	 * Constructor.
+	 *
+	 * Note that this creates dcStore instance.
+	 *
+	 * @param	object	$modules		dcModules instance
+	 * @param	string	$modules_root	Modules root directories
+	 * @param	string	$xml_url		URL of modules feed from repository
+	 */
+	public function __construct(dcModules $modules, $modules_root, $xml_url)
+	{
+		parent::__construct($modules, $modules_root, $xml_url);
+		$this->page_url = $this->core->adminurl->get('admin.blog.theme');
+	}
 
 	public function displayModules($cols=array('name', 'config', 'version', 'desc'), $actions=array(), $nav_limit=false)
 	{

@@ -17,7 +17,7 @@ $redir_url = $p_url.'&act=page';
 $post_id = '';
 $post_dt = '';
 $post_format = $core->auth->getOption('post_format');
-$editor = $core->auth->getOption('editor');
+$post_editor = $core->auth->getOption('editor');
 $post_password = '';
 $post_url = '';
 $post_lang = $core->auth->getInfo('user_lang');
@@ -58,7 +58,13 @@ $status_combo = dcAdminCombos::getPostStatusesCombo();
 $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
 # Formaters combo
-$formaters_combo = dcAdminCombos::getFormatersCombo($editor);
+$core_formaters = $core->getFormaters();
+$available_formats = array('' => '');
+foreach ($core_formaters as $editor => $formats) {
+	foreach ($formats as $format) {
+        $available_formats[$format] = $format;
+    }
+}
 
 # Languages combo
 $rs = $core->blog->getLangs(array('order'=>'asc'));
@@ -66,15 +72,6 @@ $lang_combo = dcAdminCombos::getLangsCombo($rs,true);
 
 # Validation flag
 $bad_dt = false;
-
-if (count($formaters_combo)==0 || !$core->auth->getOption('editor') || $core->auth->getOption('editor')=='') {
-	dcPage::addNotice("message", 
-					  sprintf(__('Choose an active editor in %s.'), 
-								  '<a href="preferences.php#user-options">'.__('your preferences').'</a>'
-								  )
-					  );
-
-}
 
 # Get page informations
 if (!empty($_REQUEST['id']))
@@ -286,6 +283,27 @@ if (!empty($_GET['co'])) {
 	$default_tab = 'comments';
 }
 
+$admin_post_behavior = '';
+if ($post_editor) {
+	$p_edit = $c_edit = '';
+	if (!empty($post_editor[$post_format])) {
+		$p_edit = $post_editor[$post_format];
+	}
+	if (!empty($post_editor['xhtml'])) {
+		$c_edit = $post_editor['xhtml'];
+	}
+	if ($p_edit == $c_edit) {
+		$admin_post_behavior .= $core->callBehavior('adminPostEditor',
+			$p_edit,'page',array('#post_excerpt','#post_content','#comment_content'));
+	} else {
+		$admin_post_behavior .= $core->callBehavior('adminPostEditor',
+			$p_edit,'page',array('#post_excerpt','#post_content'));
+		$admin_post_behavior .= $core->callBehavior('adminPostEditor',
+			$c_edit,'comment',array('#comment_content'));
+	}
+}
+
+dcPage::setXFrameOptions($core->blog->url);
 ?>
 <html>
 <head>
@@ -299,7 +317,7 @@ if (!empty($_GET['co'])) {
   dcPage::jsDatePicker().
   dcPage::jsModal().
   dcPage::jsLoad('js/_post.js').
-  $core->callBehavior('adminPostEditor').
+  $admin_post_behavior.
   dcPage::jsConfirmClose('entry-form','comment-form').
   # --BEHAVIOR-- adminPageHeaders
   $core->callBehavior('adminPageHeaders').
@@ -412,8 +430,7 @@ if ($can_edit_page)
 				'post_format' =>
 					'<div>'.
 					'<h5 id="label_format"><label for="post_format" class="classic">'.__('Text formatting').'</label></h5>'.
-					'<p>'.form::combo('post_format',$formaters_combo,$post_format,'maximal').
-					'</p>'.
+					'<p>'.form::combo('post_format',$available_formats,$post_format,'maximal').'</p>'.
 					'<p class="format_control control_wiki">'.
 					'<a id="convert-xhtml" class="button'.($post_id && $post_format != 'wiki' ? ' hide' : '').
 					'" href="'.html::escapeURL($redir_url).'&amp;id='.$post_id.'&amp;xconv=1">'.
@@ -471,7 +488,7 @@ if ($can_edit_page)
 	$main_items = new ArrayObject(array(
 		"post_title" =>
 			'<p class="col">'.
-			'<label class="required no-margin bold"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
+			'<label class="required no-margin bold" for="post_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 			form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
 			'</p>',
 
@@ -528,7 +545,7 @@ if ($can_edit_page)
 		echo '<a id="post-preview" href="'.$preview_url.'" class="button" accesskey="p">'.__('Preview').' (p)'.'</a>';
 	} else {
 		echo
-		'<a id="post-cancel" href="index.php" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
+		'<a id="post-cancel" href="'.$core->adminurl->get('admin.home').'" class="button" accesskey="c">'.__('Cancel').' (c)</a>';
 	}
 
 	echo
@@ -539,7 +556,7 @@ if ($can_edit_page)
 	echo '</div></div>';		// End #entry-content
 	echo '</div>';		// End #entry-wrapper
 
-	echo '<div id="entry-sidebar">';
+	echo '<div id="entry-sidebar" role="complementary">';
 
 	foreach ($sidebar_items as $id => $c) {
 		echo '<div id="'.$id.'" class="sb-box">'.
@@ -556,12 +573,16 @@ if ($can_edit_page)
 	echo '</div>';		// End #entry-sidebar
 
 	echo '</form>';
+
+	# --BEHAVIOR-- adminPostForm
+	$core->callBehavior('adminPageAfterForm',isset($post) ? $post : null);
+
 	echo '</div>';		// End
 
 	if ($post_id && !empty($post_media))
 	{
 		echo
-		'<form action="post_media.php" id="attachment-remove-hide" method="post">'.
+		'<form action="'.$core->adminurl->get('admin.post.media').'" id="attachment-remove-hide" method="post">'.
 		'<div>'.form::hidden(array('post_id'),$post_id).
 		form::hidden(array('media_id'),'').
 		form::hidden(array('remove'),1).
@@ -641,7 +662,7 @@ if ($post_id)
 	'<div class="fieldset clear">'.
 	'<h3>'.__('Add a comment').'</h3>'.
 
-	'<form action="comment.php" method="post" id="comment-form">'.
+	'<form action="'.$core->adminurl->get('admin.comment').'" method="post" id="comment-form">'.
 	'<div class="constrained">'.
 	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label>'.
 	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn'))).
@@ -695,6 +716,8 @@ function isContributionAllowed($id,$dt,$com=true)
 # Show comments or trackbacks
 function showComments($rs,$has_action)
 {
+	global $core;
+
 	echo
 	'<table class="comments-list"><tr>'.
 	'<th colspan="2" class="nowrap first">'.__('Author').'</th>'.
@@ -706,7 +729,7 @@ function showComments($rs,$has_action)
 
 	while($rs->fetch())
 	{
-		$comment_url = 'comment.php?id='.$rs->comment_id;
+		$comment_url = $core->adminurl->get('admin.comment',array('id' => $rs->comment_id));
 
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
 		switch ($rs->comment_status) {
@@ -732,7 +755,7 @@ function showComments($rs,$has_action)
 		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,'','','',0,'title="'.__('Select this comment').'"') : '').'</td>'.
 		'<td class="maximal">'.$rs->comment_author.'</td>'.
 		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
-		'<td class="nowrap"><a href="comments.php?ip='.$rs->comment_ip.'">'.$rs->comment_ip.'</a></td>'.
+		'<td class="nowrap"><a href="'.$core->adminurl->get('admin.comment',array('ip' => $rs->comment_ip)).'">'.$rs->comment_ip.'</a></td>'.
 		'<td class="nowrap status">'.$img_status.'</td>'.
 		'<td class="nowrap status"><a href="'.$comment_url.'">'.
 		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>'.
