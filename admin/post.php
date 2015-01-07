@@ -410,6 +410,9 @@ dcPage::open($page_title.' - '.__('Entries'),
 			__('Entries') => $core->adminurl->get("admin.posts"),
 			($post_id ? $page_title_edit : $page_title) => ''
 		))
+	, array(
+		'x-frame-allow' => $core->blog->url
+	)
 );
 
 if (!empty($_GET['upd'])) {
