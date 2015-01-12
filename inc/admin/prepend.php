@@ -23,10 +23,10 @@ header("Pragma: no-cache");
 
 function dc_load_locales() {
 	global $_lang, $core;
-	
+
 	$_lang = $core->auth->getInfo('user_lang');
 	$_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$_lang) ? $_lang : 'en';
-	
+
 	l10n::lang($_lang);
 	if (l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/date') === false && $_lang != 'en') {
 		l10n::set(dirname(__FILE__).'/../../locales/en/date');
@@ -39,12 +39,12 @@ function dc_load_locales() {
 function dc_admin_icon_url($img)
 {
 	global $core;
-	
+
 	$core->auth->user_prefs->addWorkspace('interface');
 	$user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
 	if (($user_ui_iconset) && ($img)) {
 		$icon = false;
-		if ((preg_match('/^images\/menu\/(.+)$/',$img,$m)) || 
+		if ((preg_match('/^images\/menu\/(.+)$/',$img,$m)) ||
 			(preg_match('/^index\.php\?pf=(.+)$/',$img,$m))) {
 			if ($m[1]) {
 				$icon = path::real(dirname(__FILE__).'/../../admin/images/iconset/'.$user_ui_iconset.'/'.$m[1],false);
@@ -72,11 +72,11 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
 {
 	# We have session information in constants
 	$_COOKIE[DC_SESSION_NAME] = DC_AUTH_SESS_ID;
-	
+
 	if (!$core->auth->checkSession(DC_AUTH_SESS_UID)) {
 		throw new Exception('Invalid session data.');
 	}
-	
+
 	# Check nonce from POST requests
 	if (!empty($_POST))
 	{
@@ -84,14 +84,14 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
 			throw new Exception('Precondition Failed.');
 		}
 	}
-	
+
 	if (empty($_SESSION['sess_blog_id'])) {
 		throw new Exception('Permission denied.');
 	}
-	
+
 	# Loading locales
 	dc_load_locales();
-	
+
 	$core->setBlog($_SESSION['sess_blog_id']);
 	if (!$core->blog->id) {
 		throw new Exception('Permission denied.');
@@ -107,7 +107,7 @@ elseif ($core->auth->sessionExists())
 			$p = $core->session->getCookieParameters(false,-600);
 			$p[3] = '/';
 			call_user_func_array('setcookie',$p);
-			
+
 			http::redirect('auth.php');
 		}
 	} catch (Exception $e) {
@@ -115,7 +115,7 @@ elseif ($core->auth->sessionExists())
 			,__('There seems to be no Session table in your database. Is Dotclear completly installed?')
 			,20);
 	}
-	
+
 	# Check nonce from POST requests
 	if (!empty($_POST))
 	{
@@ -126,7 +126,7 @@ elseif ($core->auth->sessionExists())
 			exit;
 		}
 	}
-	
+
 	if (!empty($_REQUEST['switchblog'])
 	&& $core->auth->getPermissions($_REQUEST['switchblog']) !== false)
 	{
@@ -137,7 +137,7 @@ elseif ($core->auth->sessionExists())
 		if (isset($_SESSION['media_manager_page'])) {
 			unset($_SESSION['media_manager_page']);
 		}
-		
+
 		# Removing switchblog from URL
 		$redir = $_SERVER['REQUEST_URI'];
 		$redir = preg_replace('/switchblog=(.*?)(&|$)/','',$redir);
@@ -145,7 +145,7 @@ elseif ($core->auth->sessionExists())
 		http::redirect($redir);
 		exit;
 	}
-	
+
 	# Check blog to use and log out if no result
 	if (isset($_SESSION['sess_blog_id']))
 	{
@@ -160,10 +160,10 @@ elseif ($core->auth->sessionExists())
 			unset($b);
 		}
 	}
-	
+
 	# Loading locales
 	dc_load_locales();
-	
+
 	if (isset($_SESSION['sess_blog_id'])) {
 		$core->setBlog($_SESSION['sess_blog_id']);
 	} else {
@@ -171,6 +171,12 @@ elseif ($core->auth->sessionExists())
 		http::redirect('auth.php');
 	}
 }
+# Add admin default templates path
+$core->loadTemplateEnvironment();
+$core->tpl->getLoader()->addPath(dirname(__FILE__).'/default-templates');
+# Set admin context
+$_ctx = new dcAdminContext($core);
+$core->tpl->addExtension($_ctx);
 
 $core->adminurl = new dcAdminURL($core);
 
@@ -213,7 +219,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		require $f;
 	}
 	unset($f);
-	
+
 	if (($hfiles = @scandir($locales_root.$_lang.'/help')) !== false)
 	{
 		foreach ($hfiles as $hfile) {
@@ -234,7 +240,7 @@ if ($core->auth->userID() && $core->blog !== null)
 
 	# [] : Title, URL, small icon, large icon, permissions, id, class
 	# NB : '*' in permissions means any, null means super admin only
-	
+
 	# Menus creation
 	$_menu = new ArrayObject();
 	$_menu['Dashboard'] = new dcMenu('dashboard-menu',null);
@@ -253,7 +259,7 @@ if ($core->auth->userID() && $core->blog !== null)
 	}
 
 	# Set menu titles
-	
+
 	$_menu['System']->title = __('System settings');
 	$_menu['Blog']->title = __('Blog');
 	$_menu['Plugins']->title = __('Plugins');
@@ -274,7 +280,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		$core->auth->check('usage,contentadmin',$core->blog->id));
 	addMenuItem('Blog',__('New entry'),'admin.post','images/menu/edit.png',
 		$core->auth->check('usage,contentadmin',$core->blog->id));
-	
+
 	addMenuItem('System',__('Update'),'admin.update','images/menu/update.png',
 		$core->auth->isSuperAdmin() && is_readable(DC_DIGESTS));
 	addMenuItem('System',__('Languages'),'admin.langs','images/menu/langs.png',
@@ -292,11 +298,7 @@ if ($core->auth->userID() && $core->blog !== null)
 	}
 }
 
-# Add admin default templates path
-$core->tpl->getLoader()->addPath(dirname(__FILE__).'/default-templates');
-# Set admin context
-$_ctx = new dcAdminContext($core);
-$core->tpl->addExtension($_ctx);
+
 
 # --BEHAVIOR-- adminPrepend
 $core->callBehavior('adminPrepend',$core,$_ctx);
