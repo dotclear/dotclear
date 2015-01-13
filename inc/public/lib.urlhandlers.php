@@ -110,7 +110,10 @@ class dcUrlHandlers extends urlHandler
 
 		header('Content-Type: '.$_ctx->content_type.'; charset=UTF-8');
 
-		if ($core->blog->settings->system->prevents_clickjacking) {
+		if ($_ctx->exists('xframeoption')) {
+			$url = parse_url($_ctx->xframeoption);
+			header(sprintf('X-Frame-Options: %s', is_array($url)?("ALLOW-FROM ".$url['scheme'].'://'.$url['host']):'SAMEORIGIN'));
+		} elseif ($core->blog->settings->system->prevents_clickjacking) {
 			// Prevents Clickjacking as far as possible
 			header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 		}
@@ -534,6 +537,9 @@ class dcUrlHandlers extends urlHandler
 			else
 			{
 				$_ctx->preview = true;
+				if (defined ("DC_ADMIN_URL")) {
+					$_ctx->xframeoption=DC_ADMIN_URL;
+				}
 				self::post($post_url);
 			}
 		}
