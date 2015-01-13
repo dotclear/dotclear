@@ -929,7 +929,7 @@ class dcPage
 		}
 		if ($origin !== null) {
 			$url = parse_url($origin);
-			header(sprintf('X-Frame-Options: %s', is_array($url)?($url['scheme'].'://'.$url['host']):'SAMEORIGIN'));
+			header(sprintf('X-Frame-Options: %s', is_array($url)?("ALLOW-FROM ".$url['scheme'].'://'.$url['host']):'SAMEORIGIN'));
 		} else {
 			header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 		}
