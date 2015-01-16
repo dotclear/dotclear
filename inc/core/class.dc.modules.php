@@ -113,9 +113,9 @@ class dcModules
 		# Sort plugins
 		uasort($this->modules,array($this,'sortModules'));
 
-		# Load translation, _prepend and ns_file
 		foreach ($this->modules as $id => $m)
 		{
+			# Load translation and _prepend
 			if (file_exists($m['root'].'/_prepend.php'))
 			{
 				$r = $this->loadModuleFile($m['root'].'/_prepend.php');
@@ -132,6 +132,10 @@ class dcModules
 				$this->loadModuleL10Nresources($id,$lang);
 				$this->core->adminurl->register('admin.plugin.'.$id,'plugin.php',array('p'=>$id));
 			}
+		}
+		foreach ($this->modules as $id => $m)
+		{
+			# Load ns_file
 			$this->loadNsFile($id,$ns);
 		}
 	}
