@@ -229,6 +229,10 @@ class urlPages extends dcUrlHandlers
 			else
 			{
 				$_ctx->preview = true;
+				if (defined ("DC_ADMIN_URL")) {
+					$_ctx->xframeoption=DC_ADMIN_URL;
+				}
+
 				self::pages($post_url);
 			}
 		}
