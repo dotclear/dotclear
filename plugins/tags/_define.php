@@ -15,10 +15,10 @@ $this->registerModule(
 	/* Name */			"Tags",
 	/* Description*/		"Tags for posts",
 	/* Author */			"Olivier Meunier",
-	/* Version */			'1.3',
+	/* Version */			'1.4',
 	array(
 		'permissions' =>	'usage,contentadmin',
-		'priority' =>		998,
+		'priority' =>		1001,	// Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
 		'type'		=>		'plugin'
 	)
 );
