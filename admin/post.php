@@ -589,7 +589,8 @@ if ($can_edit_post) {
 	# --BEHAVIOR-- adminPostFormItems
 	$core->callBehavior('adminPostFormItems',$main_items,$sidebar_items, isset($post) ? $post : null);
 
-	echo '<div class="multi-part" title="'.($post_id ? __('Edit entry') : __('New entry')).'" id="edit-entry">';
+	echo '<div class="multi-part" title="'.($post_id ? __('Edit entry') : __('New entry')).
+		sprintf(' &rsaquo; %s',$post_format).'" id="edit-entry">';
 	echo '<form action="'.$core->adminurl->get('admin.post').'" method="post" id="entry-form">';
 	echo '<div id="entry-wrapper">';
 	echo '<div id="entry-content"><div class="constrained">';
