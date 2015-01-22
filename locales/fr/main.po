@@ -466,10 +466,10 @@ msgid "Search engines robots policy"
 msgstr "Paramètres d'indexation par les moteurs de recherche"
 
 msgid "jQuery javascript library"
-msgstr "Librairie javascript jQuery"
+msgstr "Bibliothèque javascript jQuery"
 
 msgid "jQuery version to be loaded for this blog:"
-msgstr "Version de la librairie jQuery à charger pour ce blog :"
+msgstr "Version de la bibliothèque jQuery à charger pour ce blog :"
 
 msgid "Blog security"
 msgstr "Sécurité du blog"
