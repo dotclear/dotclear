@@ -515,7 +515,8 @@ if ($can_edit_page)
 	# --BEHAVIOR-- adminPostFormItems
 	$core->callBehavior('adminPageFormItems',$main_items,$sidebar_items, isset($post) ? $post : null);
 
-	echo '<div class="multi-part" title="'.($post_id ? __('Edit page') : __('New page')).'" id="edit-entry">';
+	echo '<div class="multi-part" title="'.($post_id ? __('Edit page') : __('New page')).
+		sprintf(' &rsaquo; %s',$post_format).'" id="edit-entry">';
 	echo '<form action="'.html::escapeURL($redir_url).'" method="post" id="entry-form">';
 
 	echo '<div id="entry-wrapper">';
