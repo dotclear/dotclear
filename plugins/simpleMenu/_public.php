@@ -30,7 +30,7 @@ class tplSimpleMenu
 		$id = isset($attr['id']) ? trim($attr['id']) : '';
 		$description = isset($attr['description']) ? trim($attr['description']) : '';
 
-		if (!preg_match('#^(title|span)$#',$description)) {
+		if (!preg_match('#^(title|span|both|none)$#',$description)) {
 			$description = '';
 		}
 
@@ -46,6 +46,8 @@ class tplSimpleMenu
 	{
 		global $core, $_ctx;
 
+		$descr_type = array(0 => 'span',1 => 'title',2 => 'both',3 => 'none');
+
 		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
 			return;
 
@@ -57,7 +59,11 @@ class tplSimpleMenu
 			return;
 		}
 
-		$menu = tplSimpleMenu::displayMenu('','','title');
+		$description = 'title';
+		if (isset($descr_type[$w->description])) {
+			$description = $descr_type[$w->description];
+		}
+		$menu = tplSimpleMenu::displayMenu('','',$description);
 		if ($menu == '') {
 			return;
 		}
@@ -106,9 +112,10 @@ class tplSimpleMenu
 				}
 				$title = $span = '';
 				if ($m['descr']) {
-					if ($description == 'title') {
+					if ($description == 'title' || $description == 'both') {
 						$title = ' title="'.html::escapeHTML(__($m['descr'])).'"';
-					} else {
+					}
+					if ($description == 'span' || $description == 'both') {
 						$span = ' <span>'.html::escapeHTML(__($m['descr'])).'</span>';
 					}
 				}
