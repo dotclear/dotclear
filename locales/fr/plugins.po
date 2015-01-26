@@ -1883,6 +1883,21 @@ msgstr "Êtes-vous sûr de vouloir supprimer les items de menu sélectionnés ?"
 msgid "No menu items so far."
 msgstr "Aucun item de menu pour l'instant."
 
+msgid "Item description"
+msgstr "Description des items de menu"
+
+msgid "Displayed in link"
+msgstr "Affichée dans le lien"
+
+msgid "Used as link title"
+msgstr "Utilisée comme titre du lien"
+
+msgid "Displayed in link and used as title"
+msgstr "Affichée dans le lien et utilisée comme titre"
+
+msgid "Not displayed nor used"
+msgstr "Ignorée"
+
 msgid "Add tags"
 msgstr "Ajouter des mots-clés"
 
