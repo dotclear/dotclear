@@ -846,7 +846,7 @@ msgid "Media chooser"
 msgstr "Sélecteur de média"
 
 msgid "Link to an entry"
-msgstr "Lien vers une entrée :"
+msgstr "Lien vers une entrée"
 
 msgid "Link"
 msgstr "Lien"

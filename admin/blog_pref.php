@@ -684,7 +684,7 @@ if ($blog_id)
 	else
 	{
 		if ($core->auth->isSuperAdmin()) {
-			$user_url_p = '<a href="'.$core->adminurl->get("admin.user",array('id' => '%1$s')).'">%1$s</a>';
+			$user_url_p = '<a href="'.$core->adminurl->get("admin.user",array('id' => '%1$s'),'&amp;',true).'">%1$s</a>';
 		} else {
 			$user_url_p = '%1$s';
 		}
