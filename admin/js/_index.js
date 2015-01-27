@@ -56,6 +56,7 @@ $(function() {
 					msg += '</p>';
 					$('#post_title',f).val('');
 					$('#post_content',f).val('');
+					$('#post_content',f).change();
 					if ($.isFunction('jsToolBar') &&  (contentTb.getMode() == 'wysiwyg')) {
 						contentTb.syncContents('textarea');
 					}

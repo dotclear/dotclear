@@ -365,10 +365,10 @@ msgid "No limit: leave blank."
 msgstr "Aucune limite : laisser vide."
 
 msgid "Wiki syntax for comments"
-msgstr "Syntaxe wiki pour les commentaires"
+msgstr "Autoriser la syntaxe wiki pour les commentaires"
 
 msgid "Preview of comment before submit is not mandatory"
-msgstr "La prévisualisation des commentaires est optionnelle avant leur envoi"
+msgstr "Rendre optionnelle la prévisualisation des commentaires"
 
 msgid "Accept trackbacks"
 msgstr "Accepter les rétroliens"
@@ -466,10 +466,10 @@ msgid "Search engines robots policy"
 msgstr "Paramètres d'indexation par les moteurs de recherche"
 
 msgid "jQuery javascript library"
-msgstr "Librairie javascript jQuery"
+msgstr "Bibliothèque javascript jQuery"
 
 msgid "jQuery version to be loaded for this blog:"
-msgstr "Version de la librairie jQuery à charger pour ce blog :"
+msgstr "Version de la bibliothèque jQuery à charger pour ce blog :"
 
 msgid "Blog security"
 msgstr "Sécurité du blog"
