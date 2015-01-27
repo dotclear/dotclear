@@ -18,9 +18,10 @@ config: clean config-stamp
 	cp -pRf ./locales/README ./locales/en ./locales/fr ./$(DC)/locales/
 
 	## Remove tests directories and test stuff
-	rm -fr ./$(DC)/inc/libs/clearbricks/tests ./$(DC)/inc/libs/clearbricks/composer.* \
-	       ./$(DC)/inc/libs/clearbricks/.atoum.* ./$(DC)/inc/libs/clearbricks/vendor \
-	       ./$(DC)/inc/libs/clearbricks/bin ./$(DC)/inc/libs/clearbricks/_dist
+	rm -fr ./$(DC)/inc/libs/clearbricks/tests ./$(DC)/inc/libs/clearbricks/composer.*	\
+	       ./$(DC)/inc/libs/clearbricks/.atoum.* ./$(DC)/inc/libs/clearbricks/vendor	\
+	       ./$(DC)/inc/libs/clearbricks/bin ./$(DC)/inc/libs/clearbricks/_dist		\
+	       ./$(DC)/features ./$(DC)/travis ./$(DC)/behat.yml.dist ./$(DC)/composer.*
 
 	## Create cache, db, plugins and public folders
 	mkdir ./$(DC)/cache ./$(DC)/db ./$(DC)/plugins ./$(DC)/public ./$(DC)/themes
