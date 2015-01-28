@@ -46,10 +46,10 @@
 	</tpl:AttachmentsHeader>
 				<li class="post-attachments-item {{tpl:AttachmentType}}">
 					<tpl:AttachmentIf is_mp3="1">
-						{{tpl:include src="_mp3_player.html"/}} -
+						{{tpl:include src="_mp3_player.html"}} -
 					</tpl:AttachmentIf>
 					<tpl:AttachmentIf is_flv="1">
-						{{tpl:include src="_flv_player.html"/}}
+						{{tpl:include src="_flv_player.html"}}
 					</tpl:AttachmentIf>
 					<tpl:AttachmentIf is_flv="0">
 						<a href="{{tpl:AttachmentURL}}"
