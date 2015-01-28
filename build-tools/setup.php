@@ -29,5 +29,5 @@ if (!file_exists($dc_base.'/composer.phar')) {
 	file_put_contents($dc_base.'/composer.phar',$composer_installer);
 }
 chdir($dc_base);
-echo 'Running '.$php_exec.' composer.phar update'."\n";
-passthru ($php_exec.' composer.phar update');
+echo 'Running '.$php_exec.' composer.phar install'."\n";
+passthru ($php_exec.' composer.phar install');
