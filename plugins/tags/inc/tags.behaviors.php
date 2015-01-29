@@ -15,25 +15,36 @@ class tagsBehaviors
 {
 	public static function adminPostEditor($editor='',$context='',array $tags=array())
 	{
-		if ($editor != 'dcLegacyEditor' || $context != 'post') return;
+		if (($editor != 'dcLegacyEditor' && $editor != 'dcCKEditor') || $context != 'post') return;
 
 		$tag_url = $GLOBALS['core']->blog->url.$GLOBALS['core']->url->getURLFor('tag');
 
-		return
-		'<script type="text/javascript" src="index.php?pf=tags/js/legacy-post.js"></script>'.
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
-		"jsToolBar.prototype.elements.tag.url = '".html::escapeJS($tag_url)."';\n".
-		"\n//]]>\n".
-		"</script>\n";
+		if ($editor == 'dcLegacyEditor') {
+			return
+			'<script type="text/javascript" src="index.php?pf=tags/js/legacy-post.js"></script>'.
+			'<script type="text/javascript">'."\n".
+			"//<![CDATA[\n".
+			"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
+			"jsToolBar.prototype.elements.tag.url = '".html::escapeJS($tag_url)."';\n".
+			"\n//]]>\n".
+			"</script>\n";
+		} elseif ($editor == 'dcCKEditor') {
+			return
+			'<script type="text/javascript">'."\n".
+			"//<![CDATA[\n".
+			"dotclear.msg.tag_title = '".html::escapeJS(__('Tag'))."';\n".
+			"dotclear.msg.tag_url = '".html::escapeJS($tag_url)."';\n".
+			"\n//]]>\n".
+			"</script>\n";
+		}
+		return;
 	}
 
     public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, $context)
     {
         global $core;
 
-        if ($context!='post') {
+        if ($context != 'post') {
             return;
         }
         $extraPlugins[] = array(
