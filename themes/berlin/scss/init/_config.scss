@@ -1,6 +1,19 @@
 // ----------------- LIBRAIRIES ------------------- //
+
+// ----------------- Compass config --------------- //
+// Do not support IE less than IE9
+$browser-minimum-versions: (
+  "ie": "9"
+);
+$graceful-usage-threshold: 100;
+$critical-usage-threshold: 100;
 @import "compass";                    // gem
+
 @import "libs/scut";
+
+// ----------------- Zengrids config -------------- //
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie6: false;
 //@import "libs/zen-grids/background";
 //@import "libs/zen-grids/flow";
 @import "libs/zen-grids/grids";
