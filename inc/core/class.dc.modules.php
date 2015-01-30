@@ -69,6 +69,8 @@ class dcModules
 		$disabled = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 		$disabled = $disabled && !get_parent_class($this) ? true : false;
 
+		$ignored = array();
+
 		foreach ($this->path as $root)
 		{
 			if (!is_dir($root) || !is_readable($root)) {
@@ -122,6 +124,7 @@ class dcModules
 
 				# If _prepend.php file returns null (ie. it has a void return statement)
 				if (is_null($r)) {
+					$ignored[] = $id;
 					continue;
 				}
 				unset($r);
@@ -135,6 +138,10 @@ class dcModules
 		}
 		foreach ($this->modules as $id => $m)
 		{
+			# If _prepend.php file returns null (ie. it has a void return statement)
+			if (in_array($id,$ignored)) {
+				continue;
+			}
 			# Load ns_file
 			$this->loadNsFile($id,$ns);
 		}
