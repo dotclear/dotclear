@@ -1,5 +1,5 @@
 body {
-    background: $gray-light url(img/bg_light.png);
+    background: $gray-light inline-image('bg_light.png');
     color: $primary-color;
 }
 #main {
