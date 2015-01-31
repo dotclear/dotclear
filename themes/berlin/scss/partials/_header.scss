@@ -105,8 +105,8 @@ a.site-title__link:visited {
         border-color: $link;
     }
     &.open {
-    background-image: url(img/icon_close.png);
-    background-image: url(img/icon_close.svg), none;
+    background-image: inline-image('icon_close.png');
+    background-image: inline-image('icon_close.svg'), none;
     }
 }
 @media screen and(max-width: $large-screen) {

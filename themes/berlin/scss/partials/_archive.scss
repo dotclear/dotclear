@@ -78,17 +78,17 @@
     }
 /* par categorie */
 .arch-cat-list, .arch-sub-cat-list {
-    background: transparent url(img/vline.png) repeat-y;
+    background: transparent inline-image('vline.png') repeat-y;
     }
 .arch-sub-cat-list {
     margin: .5em 0 0 .5em;
     }
 .arch-cat-list li {
     padding: .2em .2em .2em 20px;
-    background: transparent url(img/hline.png) no-repeat left .82em;
+    background: transparent inline-image('hline.png') no-repeat left .82em;
     }
 .arch-cat-list li:last-child {
-    background-image: url(img/last-hline.png);
+    background-image: inline-image('last-hline.png');
     }
 /* par tag */
 .arch-by-tag {

@@ -80,8 +80,8 @@
     box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
 }
 .post-attachments:before {
-    content: url(img/icon_attachments.png);
-    content: url(img/icon_attachments.svg);
+    content: inline-image('icon_attachments.png');
+    content: inline-image('icon_attachments.svg');
     display: block;
     position: absolute;
     margin-top: -.33em;
@@ -124,7 +124,7 @@
             background-color: #EDF3F2;
         }
         .ping {
-            background: #f3efed url(img/icon_trackbacks.png) no-repeat 1.5em 4em;
+            background: #f3efed inline-image('icon_trackbacks.png') no-repeat 1.5em 4em;
         }
             .comment-number {
                 display: block;
@@ -149,7 +149,7 @@
     background-color: #EDF3F2;
 }
 .send-trackback {
-    background: #f3efed url(img/icon_trackbacks.png) no-repeat 1.5em 4em;
+    background: #f3efed inline-image('icon_trackbacks.png') no-repeat 1.5em 4em;
 }
 .field label {
     display: inline-block;
