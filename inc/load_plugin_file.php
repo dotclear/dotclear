@@ -87,7 +87,7 @@ if (!in_array(files::getExtension($PF),$allow_types)) {
 	exit;
 }
 
-http::$cache_max_age = 7200;
+http::$cache_max_age = 7 * 24 * 60 * 60;	// One week cache for plugin's files served by ?pf=… is better than old 2 hours
 http::cache(array_merge(array($PF),get_included_files()));
 
 header('Content-Type: '.files::getMimeType($PF));
