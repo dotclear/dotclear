@@ -10,9 +10,7 @@
 *,
 *:after,
 *:before {
-	-webkit-box-sizing: border-box; // Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    // Firefox, other Gecko */
-	-ms-box-sizing: border-box;     // Explorer
 	box-sizing: border-box;
 }
 html {
@@ -75,12 +73,12 @@ pre {
 	white-space: pre-wrap;
 }
 fieldset {
-  margin: 0;
-  padding: 0;
-  border: none;
+	margin: 0;
+	padding: 0;
+	border: none;
 }
 input, button, select {
-  vertical-align: middle;
+	vertical-align: middle;
 }
 button, input, select, textarea {
 	font-family: inherit;
@@ -107,7 +105,7 @@ input[type="radio"] {
 	border: none;
 }
 input[type="search"] {
-  -webkit-appearance: textfield;
+	-webkit-appearance: textfield;
 }
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
@@ -119,20 +117,20 @@ input::-moz-focus-inner {
 	padding: 0;
 }
 textarea {
-  overflow: auto;
-  vertical-align: top;
+	overflow: auto;
+	vertical-align: top;
 }
 table {
-  border-collapse: collapse;
-  margin-bottom: 1.5em;
+	border-collapse: collapse;
+	margin-bottom: 1.5em;
 }
 td, th {
-  padding: 1px;
-  vertical-align: top;
-  text-align: left;
+	padding: 1px;
+	vertical-align: top;
+	text-align: left;
 }
 td:first-child, th:first-child {
-  empty-cells: hide;
+	empty-cells: hide;
 }
 /* scripts */
 body > script {display: none !important;}
@@ -140,23 +138,23 @@ body > script {display: none !important;}
 /* HTML5 for old browsers */
 article, aside, details, figcaption, figure, footer,
 header, hgroup, main, nav, section, summary {
-  display: block;
+	display: block;
 }
 audio, canvas, video {
-  display: inline-block;
+	display: inline-block;
 }
 audio:not([controls]) {
-  display: none;
-  height: 0;
+	display: none;
+	height: 0;
 }
 figure {
-  margin: 0;
+	margin: 0;
 }
 [hidden], template {
-  display: none;
+	display: none;
 }
 svg:not(:root) {
-  overflow: hidden;
+	overflow: hidden;
 }
 /* Headings reset */
 h1, h2, h3, h4, h5, h6 {
