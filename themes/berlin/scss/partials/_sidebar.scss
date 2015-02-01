@@ -1,6 +1,7 @@
 .sidebar {
     @include pie-clearfix;
     padding-top: 2em;
+    padding-bottom: 2em;
     background: $gray-very-dark url(img/bg_dark.png);
     color: $white;
     text-shadow: $gray-very-dark 0px -1px 0px;

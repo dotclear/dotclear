@@ -642,6 +642,7 @@ a.site-title__link:visited {
 
 .sidebar {
   padding-top: 2em;
+  padding-bottom: 2em;
   background: #373737 url(img/bg_dark.png);
   color: #fff;
   text-shadow: #373737 0px -1px 0px; }
