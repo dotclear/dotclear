@@ -131,7 +131,6 @@ class dcTemplate extends template
 		$this->addBlock('Entries',array($this,'Entries'));
 		$this->addBlock('EntriesFooter',array($this,'EntriesFooter'));
 		$this->addBlock('EntriesHeader',array($this,'EntriesHeader'));
-		$this->addValue('EntryExcerpt',array($this,'EntryExcerpt'));
 		$this->addValue('EntryAuthorCommonName',array($this,'EntryAuthorCommonName'));
 		$this->addValue('EntryAuthorDisplayName',array($this,'EntryAuthorDisplayName'));
 		$this->addValue('EntryAuthorEmail',array($this,'EntryAuthorEmail'));
@@ -147,10 +146,12 @@ class dcTemplate extends template
 		$this->addValue('EntryCommentCount',array($this,'EntryCommentCount'));
 		$this->addValue('EntryContent',array($this,'EntryContent'));
 		$this->addValue('EntryDate',array($this,'EntryDate'));
+		$this->addValue('EntryExcerpt',array($this,'EntryExcerpt'));
 		$this->addValue('EntryFeedID',array($this,'EntryFeedID'));
 		$this->addValue('EntryFirstImage',array($this,'EntryFirstImage'));
 		$this->addValue('EntryID',array($this,'EntryID'));
 		$this->addBlock('EntryIf',array($this,'EntryIf'));
+		$this->addBlock('EntryIfContentCut',array($this,'EntryIfContentCut'));
 		$this->addValue('EntryIfFirst',array($this,'EntryIfFirst'));
 		$this->addValue('EntryIfOdd',array($this,'EntryIfOdd'));
 		$this->addValue('EntryIfSelected',array($this,'EntryIfSelected'));
@@ -1433,7 +1434,7 @@ class dcTemplate extends template
 	}
 
 	/*dtd
-	<!ELEMENT tpl:EntryContent - O -- Entry content -->
+	<!ELEMENT tpl:EntryContent -  -- Entry content -->
 	<!ATTLIST tpl:EntryContent
 	absolute_urls	CDATA	#IMPLIED -- transforms local URLs to absolute one
 	full			(1|0)	#IMPLIED -- returns full content with excerpt
@@ -1454,6 +1455,36 @@ class dcTemplate extends template
 		} else {
 			return '<?php echo '.sprintf($f,'$_ctx->posts->getContent('.$urls.')').'; ?>';
 		}
+	}
+
+	/*dtd
+	<!ELEMENT tpl:EntryIfContentCut - - -- Test if Entry content has been cut -->
+	<!ATTLIST tpl:EntryIfContentCut
+	absolute_urls	CDATA	#IMPLIED -- transforms local URLs to absolute one
+	full			(1|0)	#IMPLIED -- test with full content and excerpt
+	>
+	*/
+	public function EntryIfContentCut($attr,$content)
+	{
+		if (empty($attr['cut_string']) || !empty($attr['full'])) {
+			return '';
+		}
+
+		$urls = '0';
+		if (!empty($attr['absolute_urls'])) {
+			$urls = '1';
+		}
+
+		$short = $this->getFilters($attr);
+		$cut = $attr['cut_string'];
+		$attr['cut_string'] = 0;
+		$full = $this->getFilters($attr);
+		$attr['cut_string'] = $cut;
+
+		return '<?php if (strlen('.sprintf($full,'$_ctx->posts->getContent('.$urls.')').') > '.
+			'strlen('.sprintf($short,'$_ctx->posts->getContent('.$urls.')').')) : ?>'.
+			$content.
+			'<?php endif; ?>';
 	}
 
 	/*dtd
