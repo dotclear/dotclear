@@ -431,6 +431,17 @@ function dotclearUpgrade($core)
 				}
 			}
 
+			if (version_compare($version,'2.8','<'))
+			{
+				# switch from jQuery 1.11.1 to 1.11.2
+				$strReq = 'UPDATE '.$core->prefix.'setting '.
+						" SET setting_value = '1.11.2' ".
+						" WHERE setting_id = 'jquery_version' ".
+						" AND setting_ns = 'system' ".
+						" AND setting_value = '1.11.1' ";
+				$core->con->execute($strReq);
+			}
+
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
 
