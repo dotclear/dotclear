@@ -866,7 +866,9 @@ a.site-title__link:visited {
   white-space: nowrap;
   vertical-align: top; }
   .post-tags-item a:after {
-    content: "."; }
+    content: ","; }
+  .post-tags-item:last-child a:after {
+    content: ""; }
 
 .post-info-co {
   margin: .5em 0; }

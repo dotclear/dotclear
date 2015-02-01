@@ -37,7 +37,8 @@
 .post-tags-item {
     @include inline-block-list-item();
     vertical-align: top;
-    a:after { content: "."}
+    a:after { content: ","}
+    &:last-child a:after { content: ""}
 }
 .post-info-co {
     margin: .5em 0;
