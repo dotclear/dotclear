@@ -123,7 +123,7 @@ else
 {
 	echo
 	'<form id="file-form" action="'.$p_url.'" method="post">'.
-	'<fieldset><legend>'.__('File editor').'</legend>'.
+	'<div class="fieldset"><h4>'.__('File editor').'</h4>'.
 	'<p><label for="file_content">'.sprintf(__('Editing file %s'),'<strong>'.$file['f']).'</strong></label></p>'.
 	'<p>'.form::textarea('file_content',72,25,html::escapeHTML($file['c']),'maximal','',!$file['w']).'</p>';
 
@@ -142,7 +142,7 @@ else
 	}
 
 	echo
-	'</fieldset></form>';
+	'</div></form>';
 
 	if ($user_ui_colorsyntax) {
 		$editorMode =
