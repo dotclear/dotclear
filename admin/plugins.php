@@ -180,7 +180,7 @@ if ($core->auth->isSuperAdmin()) {
 			->setTab('plugins')
 			->setModules($modules)
 			->displayModules(
-				/* cols */		array('icon', 'name', 'distrib'),
+				/* cols */		array('expander', 'icon', 'name', 'version', 'desc', 'distrib'),
 				/* actions */	array('activate', 'delete')
 			);
 	}

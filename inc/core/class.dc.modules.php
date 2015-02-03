@@ -25,6 +25,8 @@ class dcModules
 	protected $disabled = array();
 	protected $errors = array();
 	protected $modules_names = array();
+	protected $disabled_mode = false;
+	protected $disabled_meta = array();
 
 	protected $id;
 	protected $mroot;
@@ -102,10 +104,12 @@ class dcModules
 					}
 					else
 					{
-						$this->disabled[$entry] = array(
-							'root' => $full_entry,
-							'root_writable' => is_writable($full_entry)
-						);
+						if (file_exists($full_entry.'/_define.php')) {
+							$this->disabled_mode=true;
+							require $full_entry.'/_define.php';
+							$this->disabled_mode=false;
+							$this->disabled[$entry] =  $this->disabled_meta;
+						}
 					}
 				}
 			}
@@ -176,6 +180,20 @@ class dcModules
 	*/
 	public function registerModule($name,$desc,$author,$version, $properties = array())
 	{
+		if ($this->disabled_mode) {
+			$this->disabled_meta = array_merge(
+					$properties,
+					array(
+						'root' => $this->mroot,
+						'name' => $name,
+						'desc' => $desc,
+						'author' => $author,
+						'version' => $version,
+						'root_writable' => is_writable($this->mroot)
+					)
+				);
+			return;
+		}
 		# Fallback to legacy registerModule parameters
 		if (!is_array($properties)) {
 			$args = func_get_args();
@@ -194,7 +212,8 @@ class dcModules
 				'permissions' => null,
 				'priority' => 1000,
 				'standalone_config' => false,
-				'type' => null
+				'type' => null,
+				'requires' => array()
 			), $properties
 		);
 
