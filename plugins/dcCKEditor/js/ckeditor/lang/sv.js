@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sv'] = {
     undo : 
@@ -14,7 +14,7 @@ CKEDITOR.lang['sv'] = {
     	toolbarExpand : 'Visa verktygsfält',
     	toolbarGroups : 
     	{
-    		document : 'Document',
+    		document : 'Dokument',
     		clipboard : 'Clipboard/Undo',
     		editing : 'Editing',
     		forms : 'Forms',
@@ -129,24 +129,6 @@ CKEDITOR.lang['sv'] = {
     {
     	toolbar : 'Källa'
     },
-    smiley : 
-    {
-    	options : 'Smileyinställningar',
-    	title : 'Infoga smiley',
-    	toolbar : 'Smiley'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Visa block'
-    },
-    selectall : 
-    {
-    	toolbar : 'Markera allt'
-    },
-    save : 
-    {
-    	toolbar : 'Spara'
-    },
     removeformat : 
     {
     	toolbar : 'Radera formatering'
@@ -154,10 +136,6 @@ CKEDITOR.lang['sv'] = {
     print : 
     {
     	toolbar : 'Skriv ut'
-    },
-    preview : 
-    {
-    	preview : 'Förhandsgranska'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['sv'] = {
     	error : 'Det var inte möjligt att städa upp den inklistrade data på grund av ett internt fel',
     	title : 'Klistra in från Word',
     	toolbar : 'Klistra in från Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Sidbrytning',
-    	toolbar : 'Infoga sidbrytning för utskrift'
-    },
-    newpage : 
-    {
-    	toolbar : 'Ny sida'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['sv'] = {
     	validateHSpace : 'HSpace måste vara ett heltal.',
     	validateVSpace : 'VSpace måste vara ett heltal.'
     },
-    iframe : 
-    {
-    	border : 'Visa ramkant',
-    	noUrl : 'Skriv in URL för iFrame',
-    	scrolling : 'Aktivera rullningslister',
-    	title : 'iFrame Egenskaper',
-    	toolbar : 'iFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Infoga horisontal linje'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Egenskaper för knapp',
-    		text : 'Text (värde)',
-    		type : 'Typ',
-    		typeBtn : 'Knapp',
-    		typeSbm : 'Skicka',
-    		typeRst : 'Återställ'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Egenskaper för kryssruta',
-    		radioTitle : 'Egenskaper för alternativknapp',
-    		value : 'Värde',
-    		selected : 'Vald'
-    	},
-    	form : 
-    	{
-    		title : 'Egenskaper för formulär',
-    		menu : 'Egenskaper för formulär',
-    		action : 'Funktion',
-    		method : 'Metod',
-    		encoding : 'Kodning'
-    	},
-    	hidden : 
-    	{
-    		title : 'Egenskaper för dolt fält',
-    		name : 'Namn',
-    		value : 'Värde'
-    	},
-    	select : 
-    	{
-    		title : 'Egenskaper för flervalslista',
-    		selectInfo : 'Information',
-    		opAvail : 'Befintliga val',
-    		value : 'Värde',
-    		size : 'Storlek',
-    		lines : 'Linjer',
-    		chkMulti : 'Tillåt flerval',
-    		opText : 'Text',
-    		opValue : 'Värde',
-    		btnAdd : 'Lägg till',
-    		btnModify : 'Redigera',
-    		btnUp : 'Upp',
-    		btnDown : 'Ner',
-    		btnSetValue : 'Markera som valt värde',
-    		btnDelete : 'Radera'
-    	},
-    	textarea : 
-    	{
-    		title : 'Egenskaper för textruta',
-    		cols : 'Kolumner',
-    		rows : 'Rader'
-    	},
-    	textfield : 
-    	{
-    		title : 'Egenskaper för textfält',
-    		name : 'Namn',
-    		value : 'Värde',
-    		charWidth : 'Teckenbredd',
-    		maxChars : 'Max antal tecken',
-    		type : 'Typ',
-    		typeText : 'Text',
-    		typePass : 'Lösenord',
-    		typeEmail : 'E-post',
-    		typeSearch : 'Sök',
-    		typeTel : 'Telefonnummer',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['sv'] = {
     	tag_h6 : 'Rubrik 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formaterad'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Storlek',
-    		voiceLabel : 'Teckenstorlek',
-    		panelTitle : 'Teckenstorlek'
-    	},
-    	label : 'Typsnitt',
-    	panelTitle : 'Typsnitt',
-    	voiceLabel : 'Typsnitt'
-    },
-    flash : 
-    {
-    	access : 'Script-tillgång',
-    	accessAlways : 'Alltid',
-    	accessNever : 'Aldrig',
-    	accessSameDomain : 'Samma domän',
-    	alignAbsBottom : 'Absolut nederkant',
-    	alignAbsMiddle : 'Absolut centrering',
-    	alignBaseline : 'Baslinje',
-    	alignTextTop : 'Text överkant',
-    	bgcolor : 'Bakgrundsfärg',
-    	chkFull : 'Tillåt helskärm',
-    	chkLoop : 'Upprepa/Loopa',
-    	chkMenu : 'Aktivera Flashmeny',
-    	chkPlay : 'Automatisk uppspelning',
-    	flashvars : 'Variabler för Flash',
-    	hSpace : 'Horis. marginal',
-    	properties : 'Flashegenskaper',
-    	propertiesTab : 'Egenskaper',
-    	quality : 'Kvalitet',
-    	qualityAutoHigh : 'Auto Hög',
-    	qualityAutoLow : 'Auto Låg',
-    	qualityBest : 'Bäst',
-    	qualityHigh : 'Hög',
-    	qualityLow : 'Låg',
-    	qualityMedium : 'Medium',
-    	scale : 'Skala',
-    	scaleAll : 'Visa allt',
-    	scaleFit : 'Exakt passning',
-    	scaleNoBorder : 'Ingen ram',
-    	title : 'Flashegenskaper',
-    	vSpace : 'Vert. marginal',
-    	validateHSpace : 'HSpace måste vara ett nummer.',
-    	validateSrc : 'Var god ange länkens URL',
-    	validateVSpace : 'VSpace måste vara ett nummer.',
-    	windowMode : 'Fönsterläge',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Fönster'
-    },
-    find : 
-    {
-    	find : 'Sök',
-    	findOptions : 'Sökalternativ',
-    	findWhat : 'Sök efter:',
-    	matchCase : 'Skiftläge',
-    	matchCyclic : 'Matcha cykliska',
-    	matchWord : 'Inkludera hela ord',
-    	notFoundMsg : 'Angiven text kunde ej hittas.',
-    	replace : 'Ersätt',
-    	replaceAll : 'Ersätt alla',
-    	replaceSuccessMsg : '%1 förekomst(er) ersatta.',
-    	replaceWith : 'Ersätt med:',
-    	title : 'Sök och ersätt'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['sv'] = {
     contextmenu : 
     {
     	options : 'Context Menu Options'
-    },
-    colordialog : 
-    {
-    	clear : 'Rensa',
-    	highlight : 'Markera',
-    	options : 'Färgalternativ',
-    	selected : 'Vald färg',
-    	title : 'Välj färg'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['sv'] = {
     	securityMsg : 'På grund av din webbläsares säkerhetsinställningar kan verktyget inte få åtkomst till urklippsdatan. Var god och använd detta fönster istället.',
     	title : 'Klistra in'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Vald)'
+    },
     blockquote : 
     {
     	toolbar : 'Blockcitat'
-    },
-    bidi : 
-    {
-    	ltr : 'Text riktning från vänster till höger',
-    	rtl : 'Text riktning från höger till vänster'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['sv'] = {
     	alignLeft : 'Vänster',
     	alignRight : 'Höger',
     	alignCenter : 'Centrerad',
+    	alignJustify : 'Justera till marginaler',
     	alignTop : 'Överkant',
     	alignMiddle : 'Mitten',
     	alignBottom : 'Nederkant',
+    	alignNone : 'Ingen',
     	invalidValue : 'Felaktigt värde.',
     	invalidHeight : 'Höjd måste vara ett nummer.',
     	invalidWidth : 'Bredd måste vara ett nummer.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['sv'] = {
     	invalidInlineStyle : 'Det angivna värdet för style måste innehålla en eller flera tupler separerade med semikolon i följande format: "name : value"',
     	cssLengthTooltip : 'Ange ett nummer i pixlar eller ett nummer men godkänd CSS-mätenhet (px, %, in, cm, mm, em, ex, pt, eller pc).',
     	unavailable : '%1<span class="cke_accessibility">, Ej tillgänglig</span>'
-    } } 
+    } }; 

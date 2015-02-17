@@ -1,62 +1,62 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['pt'] = {
     undo : 
     {
-    	redo : 'Repetir',
+    	redo : 'Refazer',
     	undo : 'Anular'
     },
     toolbar : 
     {
-    	toolbarCollapse : 'Colapsar Barra',
-    	toolbarExpand : 'Expandir Barra',
+    	toolbarCollapse : 'Ocultar barra de ferramentas',
+    	toolbarExpand : 'Expandir barra de ferramentas',
     	toolbarGroups : 
     	{
-    		document : 'Document',
-    		clipboard : 'Clipboard/Undo',
-    		editing : 'Editing',
-    		forms : 'Forms',
-    		basicstyles : 'Basic Styles',
-    		paragraph : 'Paragraph',
-    		links : 'Links',
-    		insert : 'Insert',
-    		styles : 'Styles',
-    		colors : 'Colors',
-    		tools : 'Tools'
+    		document : 'Documento',
+    		clipboard : 'Área de transferência/Anular',
+    		editing : 'Edição',
+    		forms : 'Formulários',
+    		basicstyles : 'Estilos Básicos',
+    		paragraph : 'Parágrafo',
+    		links : 'Hiperligações',
+    		insert : 'Inserir',
+    		styles : 'Estilos',
+    		colors : 'Cores',
+    		tools : 'Ferramentas'
     	},
-    	toolbars : 'Editor de barras de ferramentas'
+    	toolbars : 'Editor de Barras de Ferramentas'
     },
     templates : 
     {
     	button : 'Modelos',
     	emptyListMsg : '(Sem modelos definidos)',
-    	insertOption : 'Substituir conteúdos actuais',
-    	options : 'Opções do Modelo',
-    	selectPromptMsg : 'Por favor, seleccione o modelo a abrir no editor<br>(o conteúdo actual será perdido):',
-    	title : 'Modelo de Conteúdo'
+    	insertOption : 'Substituir conteúdos atuais',
+    	options : 'Opções do modelo',
+    	selectPromptMsg : 'Por favor, selecione o modelo para abrir no editor',
+    	title : 'Conteúdo dos Modelos'
     },
     table : 
     {
-    	border : 'Tamanho da Margem',
-    	caption : 'Título',
+    	border : 'Tamanho do contorno',
+    	caption : 'Legenda',
     	cell : 
     	{
     		menu : 'Célula',
-    		insertBefore : 'Inserir Célula Antes',
-    		insertAfter : 'Inserir Célula Depois',
-    		deleteCell : 'Eliminar Célula',
+    		insertBefore : 'Inserir célula antes',
+    		insertAfter : 'Inserir célula depois',
+    		deleteCell : 'Apagar Células',
     		merge : 'Unir Células',
     		mergeRight : 'Unir à Direita',
-    		mergeDown : 'Unir abaixo',
-    		splitHorizontal : 'Dividir Célula Horizontalmente',
-    		splitVertical : 'Dividir Célula Verticalmente',
-    		title : 'Propriedades da Célula',
-    		cellType : 'Tipo de Célula',
+    		mergeDown : 'Fundir abaixo',
+    		splitHorizontal : 'Dividir célula horizontalmente',
+    		splitVertical : 'Dividir célula verticalmente',
+    		title : 'Propriedades da célula',
+    		cellType : 'Tipo de célula',
     		rowSpan : 'Filas na Célula',
     		colSpan : 'Colunas na Célula',
-    		wordWrap : 'Continuar',
+    		wordWrap : 'Moldar texto',
     		hAlign : 'Alinhamento Horizontal',
     		vAlign : 'Alinhamento Vertical',
     		alignBaseline : 'Base',
@@ -72,50 +72,50 @@ CKEDITOR.lang['pt'] = {
     		invalidColSpan : 'As colunas da célula deve ter um número inteiro.',
     		chooseColor : 'Escolher'
     	},
-    	cellPad : 'Criação de Espaço',
-    	cellSpace : 'Espaçamento Célula',
+    	cellPad : 'Espaço interior',
+    	cellSpace : 'Espaçamento de célula',
     	column : 
     	{
     		menu : 'Coluna',
     		insertBefore : 'Inserir Coluna Antes',
-    		insertAfter : 'Inserir Coluna Depois',
-    		deleteColumn : 'Apagar Colunas'
+    		insertAfter : 'Inserir coluna depois',
+    		deleteColumn : 'Apagar colunas'
     	},
     	columns : 'Colunas',
-    	deleteTable : 'Apagar Tabela',
+    	deleteTable : 'Apagar tabela',
     	headers : 'Cabeçalhos',
     	headersBoth : 'Ambos',
     	headersColumn : 'Primeira coluna',
     	headersNone : 'Nenhum',
-    	headersRow : 'Primeira Linha',
-    	invalidBorder : 'O tamanho da borda tem de ser um número.',
+    	headersRow : 'Primeira linha',
+    	invalidBorder : 'O tamanho da margem tem de ser um número.',
     	invalidCellPadding : 'A criação do espaço na célula deve ser um número positivo.',
     	invalidCellSpacing : 'O espaçamento da célula deve ser um número positivo.',
     	invalidCols : 'O número de colunas tem de ser um número maior que 0.',
     	invalidHeight : 'A altura da tabela tem de ser um número.',
-    	invalidRows : 'O número das linhas tem de ser um número maior que 0.',
+    	invalidRows : 'O número de linhas tem de ser maior que 0.',
     	invalidWidth : 'A largura da tabela tem de ser um número.',
     	menu : 'Propriedades da Tabela',
     	row : 
     	{
     		menu : 'Linha',
-    		insertBefore : 'Inserir Linha Antes',
-    		insertAfter : 'Inserir Linha Depois',
-    		deleteRow : 'Apagar Linhas'
+    		insertBefore : 'Inserir linha antes',
+    		insertAfter : 'Inserir linha depois',
+    		deleteRow : 'Apagar linhas'
     	},
     	rows : 'Linhas',
     	summary : 'Sumário',
     	title : 'Propriedades da Tabela',
     	toolbar : 'Tabela',
     	widthPc : 'percentagem',
-    	widthPx : 'pixels',
+    	widthPx : 'pontos',
     	widthUnit : 'unidade da largura'
     },
     stylescombo : 
     {
-    	label : 'Estilo',
+    	label : 'Estilos',
     	panelTitle : 'Estilos de Formatação',
-    	panelTitle1 : 'Estilos de Bloco',
+    	panelTitle1 : 'Estilos de bloco',
     	panelTitle2 : 'Estilos de Linha',
     	panelTitle3 : 'Estilos de Objeto'
     },
@@ -123,29 +123,11 @@ CKEDITOR.lang['pt'] = {
     {
     	options : 'Opções de caracteres especiais',
     	title : 'Selecione um caracter especial',
-    	toolbar : 'Inserir Caracter Especial'
+    	toolbar : 'Inserir carácter especial'
     },
     sourcearea : 
     {
     	toolbar : 'Fonte'
-    },
-    smiley : 
-    {
-    	options : 'Opções de Emoticons',
-    	title : 'Inserir um Emoticon',
-    	toolbar : 'Emoticons'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Exibir blocos'
-    },
-    selectall : 
-    {
-    	toolbar : 'Selecionar Tudo'
-    },
-    save : 
-    {
-    	toolbar : 'Guardar'
     },
     removeformat : 
     {
@@ -154,10 +136,6 @@ CKEDITOR.lang['pt'] = {
     print : 
     {
     	toolbar : 'Imprimir'
-    },
-    preview : 
-    {
-    	preview : 'Pré-visualizar'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['pt'] = {
     	error : 'Não foi possivel limpar a informação colada decido a um erro interno.',
     	title : 'Colar do Word',
     	toolbar : 'Colar do Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Quebra de página',
-    	toolbar : 'Inserir Quebra de Página'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nova Página'
     },
     maximize : 
     {
@@ -259,20 +228,20 @@ CKEDITOR.lang['pt'] = {
     	popupResizable : 'Redimensionável',
     	popupScrollBars : 'Barras de deslocamento',
     	popupStatusBar : 'Barra de Estado',
-    	popupToolbar : 'Barra de Ferramentas',
+    	popupToolbar : 'Barra de ferramentas',
     	popupTop : 'Posição Direita',
     	rel : 'Relação',
     	selectAnchor : 'Seleccionar una referência',
     	styles : 'Estilo',
-    	tabIndex : 'Índice de Tubulação',
-    	target : 'Destino',
-    	targetFrame : '<Frame>',
+    	tabIndex : 'Índice de tabulação',
+    	target : 'Alvo',
+    	targetFrame : '<frame>',
     	targetFrameName : 'Nome do Frame Destino',
-    	targetPopup : '<Janela de popup>',
+    	targetPopup : '<janela de popup>',
     	targetPopupName : 'Nome da Janela de Popup',
     	title : 'Hiperligação',
     	toAnchor : 'Referência a esta página',
-    	toEmail : 'E-Mail',
+    	toEmail : 'Email',
     	toUrl : 'URL',
     	toolbar : 'Inserir/Editar Hiperligação',
     	type : 'Tipo de Hiperligação',
@@ -283,8 +252,8 @@ CKEDITOR.lang['pt'] = {
     {
     	block : 'Justificado',
     	center : 'Alinhar ao Centro',
-    	left : 'Alinhar à Esquerda',
-    	right : 'Alinhar à Direita'
+    	left : 'Alinhar à esquerda',
+    	right : 'Alinhar à direita'
     },
     indent : 
     {
@@ -296,7 +265,7 @@ CKEDITOR.lang['pt'] = {
     	alertUrl : 'Por favor introduza o URL da imagem',
     	alt : 'Texto Alternativo',
     	border : 'Limite',
-    	btnUpload : 'Enviar para o Servidor',
+    	btnUpload : 'Enviar para o servidor',
     	button2Img : 'Deseja transformar o botão com imagem selecionado em uma imagem?',
     	hSpace : 'Esp.Horiz',
     	img2Button : 'Deseja transformar a imagem selecionada em um botão com imagem?',
@@ -314,89 +283,9 @@ CKEDITOR.lang['pt'] = {
     	validateHSpace : 'HSpace tem de ser um numero.',
     	validateVSpace : 'VSpace tem de ser um numero.'
     },
-    iframe : 
-    {
-    	border : 'Mostrar a borda da Frame',
-    	noUrl : 'Por favor escreva o URL da iframe',
-    	scrolling : 'Activar barras de deslocamento',
-    	title : 'Propriadades da IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Inserir Linha Horizontal'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Propriedades do Botão',
-    		text : 'Texto (Valor)',
-    		type : 'Tipo',
-    		typeBtn : 'Button',
-    		typeSbm : 'Submit',
-    		typeRst : 'Reset'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Propriedades da Caixa de Verificação',
-    		radioTitle : 'Propriedades do Botão de Opção',
-    		value : 'Valor',
-    		selected : 'Seleccionado'
-    	},
-    	form : 
-    	{
-    		title : 'Propriedades do Formulário',
-    		menu : 'Propriedades do Formulário',
-    		action : 'Acção',
-    		method : 'Método',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'Propriedades do Campo Escondido',
-    		name : 'Nome',
-    		value : 'Valor'
-    	},
-    	select : 
-    	{
-    		title : 'Propriedades da Caixa de Combinação',
-    		selectInfo : 'Informação',
-    		opAvail : 'Opções Possíveis',
-    		value : 'Valor',
-    		size : 'Tamanho',
-    		lines : 'linhas',
-    		chkMulti : 'Permitir selecções múltiplas',
-    		opText : 'Texto',
-    		opValue : 'Valor',
-    		btnAdd : 'Adicionar',
-    		btnModify : 'Modificar',
-    		btnUp : 'Para cima',
-    		btnDown : 'Para baixo',
-    		btnSetValue : 'Definir um valor por defeito',
-    		btnDelete : 'Apagar'
-    	},
-    	textarea : 
-    	{
-    		title : 'Propriedades da Área de Texto',
-    		cols : 'Colunas',
-    		rows : 'Linhas'
-    	},
-    	textfield : 
-    	{
-    		title : 'Propriedades do Campo de Texto',
-    		name : 'Nome',
-    		value : 'Valor',
-    		charWidth : 'Tamanho do caracter',
-    		maxChars : 'Nr. Máximo de Caracteres',
-    		type : 'Tipo',
-    		typeText : 'Texto',
-    		typePass : 'Palavra-chave',
-    		typeEmail : 'Email',
-    		typeSearch : 'Pesquisar',
-    		typeTel : 'Numero de telefone',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -413,91 +302,24 @@ CKEDITOR.lang['pt'] = {
     	tag_p : 'Normal',
     	tag_pre : 'Formatado'
     },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Tamanho',
-    		voiceLabel : 'Tamanho da Letra',
-    		panelTitle : 'Tamanho da Letra'
-    	},
-    	label : 'Tipo de Letra',
-    	panelTitle : 'Nome do Tipo de Letra',
-    	voiceLabel : 'Tipo de Letra'
-    },
-    flash : 
-    {
-    	access : 'Acesso ao Script',
-    	accessAlways : 'Sempre',
-    	accessNever : 'Nunca',
-    	accessSameDomain : 'Mesmo dominio',
-    	alignAbsBottom : 'Abs inferior',
-    	alignAbsMiddle : 'Abs centro',
-    	alignBaseline : 'Linha de base',
-    	alignTextTop : 'Topo do texto',
-    	bgcolor : 'Cor de Fundo',
-    	chkFull : 'Permitir Ecrã inteiro',
-    	chkLoop : 'Loop',
-    	chkMenu : 'Permitir Menu do Flash',
-    	chkPlay : 'Reproduzir automaticamente',
-    	flashvars : 'Variaveis para o Flash',
-    	hSpace : 'Esp.Horiz',
-    	properties : 'Propriedades do Flash',
-    	propertiesTab : 'Propriedades',
-    	quality : 'Qualidade',
-    	qualityAutoHigh : 'Alta Automaticamente',
-    	qualityAutoLow : 'Baixa Automaticamente',
-    	qualityBest : 'Melhor',
-    	qualityHigh : 'Alta',
-    	qualityLow : 'Baixa',
-    	qualityMedium : 'Média',
-    	scale : 'Escala',
-    	scaleAll : 'Mostrar tudo',
-    	scaleFit : 'Tamanho Exacto',
-    	scaleNoBorder : 'Sem Limites',
-    	title : 'Propriedades do Flash',
-    	vSpace : 'Esp.Vert',
-    	validateHSpace : 'HSpace tem de ser um numero.',
-    	validateSrc : 'Por favor introduza a hiperligação URL',
-    	validateVSpace : 'VSpace tem de ser um numero.',
-    	windowMode : 'Modo de janela',
-    	windowModeOpaque : 'Opaco',
-    	windowModeTransparent : 'Transparente',
-    	windowModeWindow : 'Janela'
-    },
-    find : 
-    {
-    	find : 'Procurar',
-    	findOptions : 'Find Options',
-    	findWhat : 'Texto a Procurar:',
-    	matchCase : 'Maiúsculas/Minúsculas',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'Coincidir com toda a palavra',
-    	notFoundMsg : 'O texto especificado não foi encontrado.',
-    	replace : 'Substituir',
-    	replaceAll : 'Substituir Tudo',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'Substituir por:',
-    	title : 'Find and Replace'
-    },
     fakeobjects : 
     {
     	anchor : ' Inserir/Editar Âncora',
     	flash : 'Animação Flash',
-    	hiddenfield : 'Campo Ocultado',
+    	hiddenfield : 'Campo oculto',
     	iframe : 'IFrame',
     	unknown : 'Objeto Desconhecido'
     },
     elementspath : 
     {
-    	eleLabel : 'Camninho dos Elementos',
+    	eleLabel : 'Caminho dos elementos',
     	eleTitle : 'Elemento %1'
     },
     div : 
     {
     	IdInputLabel : 'ID',
     	advisoryTitleInputLabel : 'Título',
-    	cssClassInputLabel : 'Classes de Estilo de Folhas Classes',
+    	cssClassInputLabel : 'Classes de folhas de estilo',
     	edit : 'Editar Div',
     	inlineStyleInputLabel : 'Estilho em Linha',
     	langDirLTRLabel : 'Esquerda à Direita (LTR)',
@@ -512,14 +334,6 @@ CKEDITOR.lang['pt'] = {
     contextmenu : 
     {
     	options : 'Menu de opções de contexto'
-    },
-    colordialog : 
-    {
-    	clear : 'Limpar',
-    	highlight : 'Realçar',
-    	options : 'Opções da Cor',
-    	selected : 'Cor Selecionada',
-    	title : 'Selecionar Cor'
     },
     colorbutton : 
     {
@@ -558,19 +372,19 @@ CKEDITOR.lang['pt'] = {
     		AFEEEE : 'Pale Turquoise',
     		ADD8E6 : 'Light Blue',
     		DDA0DD : 'Plum',
-    		D3D3D3 : 'Light Grey',
+    		D3D3D3 : 'Cinza claro',
     		FFF0F5 : 'Lavender Blush',
-    		FAEBD7 : 'Antique White',
-    		FFFFE0 : 'Light Yellow',
+    		FAEBD7 : 'Branco velho',
+    		FFFFE0 : 'Amarelo claro',
     		F0FFF0 : 'Honeydew',
     		F0FFFF : 'Azure',
     		F0F8FF : 'Alice Blue',
     		E6E6FA : 'Lavender',
-    		FFF : 'White'
+    		FFF : 'Branco'
     	},
-    	more : 'Mais Cores...',
-    	panelTitle : 'Colors',
-    	textColorTitle : 'Cor do Texto'
+    	more : 'Mais cores...',
+    	panelTitle : 'Cores',
+    	textColorTitle : 'Cor do texto'
     },
     clipboard : 
     {
@@ -579,26 +393,25 @@ CKEDITOR.lang['pt'] = {
     	cut : 'Cortar',
     	cutError : 'A configuração de segurança do navegador não permite a execução automática de operações de cortar. Por favor use o teclado (Ctrl/Cmd+X).',
     	paste : 'Colar',
-    	pasteArea : 'Colar Área',
+    	pasteArea : 'Colar área',
     	pasteMsg : 'Por favor, cole dentro da seguinte caixa usando o teclado (<STRONG>Ctrl/Cmd+V</STRONG>) e prima <STRONG>OK</STRONG>.',
     	securityMsg : 'Devido ás definições de segurança do teu browser, o editor não pode aceder ao clipboard diretamente. É necessário que voltes a colar as informações nesta janela.',
     	title : 'Colar'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selecionado)'
+    },
     blockquote : 
     {
     	toolbar : 'Bloco de citação'
-    },
-    bidi : 
-    {
-    	ltr : 'Direção do texto da esquerda para a direita',
-    	rtl : 'Direção do texto da direita para a esquerda'
     },
     basicstyles : 
     {
     	bold : 'Negrito',
     	italic : 'Itálico',
     	strike : 'Rasurado',
-    	subscript : 'Superior à Linha',
+    	subscript : 'Superior à linha',
     	superscript : 'Inferior à Linha',
     	underline : 'Sublinhado'
     },
@@ -607,43 +420,43 @@ CKEDITOR.lang['pt'] = {
     	copy : 'Direitos de Autor &copy; $1. Todos os direitos reservados.',
     	dlgTitle : 'Sobre o CKEditor',
     	help : 'Doar $1 para ajudar.',
-    	moreInfo : 'Para informação sobre o licenciamento, visite o nosso site da web:',
+    	moreInfo : 'Para informação sobre licenciamento visite o nosso sítio web:',
     	title : 'Sobre o CKEditor',
     	userGuide : 'CKEditor - Guia do Utilizador'
     },
-    editor : 'Rich Text Editor',
-    editorPanel : 'Rich Text Editor panel',
+    editor : 'Editor de texto enriquecido',
+    editorPanel : 'Painel do editor de texto enriquecido',
     common : 
     {
     	editorHelp : 'Pressione ALT+0 para ajuda',
-    	browseServer : 'Explorar Servidor',
+    	browseServer : 'Navegar no servidor',
     	url : 'URL',
     	protocol : 'Protocolo',
     	upload : 'Enviar',
-    	uploadSubmit : 'Enviar para o Servidor',
+    	uploadSubmit : 'Enviar para o servidor',
     	image : 'Imagem',
     	flash : 'Flash',
     	form : 'Formulário',
     	checkbox : 'Caixa de Seleção',
-    	radio : 'Botão de Opção',
-    	textField : 'Campo de Texto',
-    	textarea : 'Área de Texto',
-    	hiddenField : 'Campo Ocultado',
+    	radio : 'Botão',
+    	textField : 'Campo do Texto',
+    	textarea : 'Área do Texto',
+    	hiddenField : 'Campo oculto',
     	button : 'Botão',
-    	select : 'Campo de Seleção',
-    	imageButton : 'Botão de Imagem',
+    	select : 'Campo da Seleção',
+    	imageButton : 'Botão da Imagem',
     	notSet : '<Não definido>',
     	id : 'Id.',
     	name : 'Nome',
-    	langDir : 'Orientação do Idioma',
+    	langDir : 'Direção do Idioma',
     	langDirLtr : 'Esquerda para a Direita (EPD)',
     	langDirRtl : 'Direita para a Esquerda (DPE)',
-    	langCode : 'Código de Idioma',
+    	langCode : 'Código do Idioma',
     	longDescr : 'Descrição Completa do URL',
-    	cssClass : 'Classes de Estilo de Folhas',
+    	cssClass : 'Classes de Estilo das Folhas',
     	advisoryTitle : 'Título Consultivo',
     	cssStyle : 'Estilo',
-    	ok : 'OK',
+    	ok : 'CONFIRMAR',
     	cancel : 'Cancelar',
     	close : 'Fechar',
     	preview : 'Pré-visualização',
@@ -651,7 +464,7 @@ CKEDITOR.lang['pt'] = {
     	generalTab : 'Geral',
     	advancedTab : 'Avançado',
     	validateNumberFailed : 'Este valor não é um numero.',
-    	confirmNewPage : 'Irão ser perdidas quaisquer alterações não guardadas. Tem certeza que deseja carregar a página nova?',
+    	confirmNewPage : 'Irão ser perdidas quaisquer alterações não guardadas. Tem a certeza que deseja carregar a nova página?',
     	confirmCancel : 'Foram alteradas algumas das opções. Tem a certeza que deseja fechar a janela?',
     	options : 'Opções',
     	target : 'Destino',
@@ -662,22 +475,24 @@ CKEDITOR.lang['pt'] = {
     	langDirLTR : 'Esquerda para a Direita (EPD)',
     	langDirRTL : 'Direita para a Esquerda (DPE)',
     	styles : 'Estilo',
-    	cssClasses : 'Classes de Estilo de Folhas',
+    	cssClasses : 'Classes de folhas de estilo',
     	width : 'Largura',
     	height : 'Altura',
     	align : 'Alinhamento',
     	alignLeft : 'Esquerda',
     	alignRight : 'Direita',
     	alignCenter : 'Centrado',
+    	alignJustify : 'Justificado',
     	alignTop : 'Topo',
     	alignMiddle : 'Centro',
-    	alignBottom : 'Fundo',
+    	alignBottom : 'Base',
+    	alignNone : 'Nenhum',
     	invalidValue : 'Valor inválido.',
-    	invalidHeight : 'A altura tem de ser um número.',
-    	invalidWidth : 'A largura tem de ser um número. ',
-    	invalidCssLength : 'Valor especificado para o campo "1%" deve ser um número positivo, com ou sem uma unidade de medida CSS válida (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	invalidHtmlLength : 'Valor especificado para o campo "1%" deve ser um número positivo, com ou sem uma unidade de medida HTML válida (px ou %).',
-    	invalidInlineStyle : 'Valor especificado para o estilo em embutido deve ser constituído por uma ou mais tuplas com o formato de "nome : valor", separados por ponto e vírgula.',
-    	cssLengthTooltip : 'Digite um número para um valor em pixels ou um número com uma unidade CSS válida (px, %, in, cm, mm, em, ex, pt, or pc).',
+    	invalidHeight : 'A altura deve ser um número.',
+    	invalidWidth : 'A largura deve ser um número. ',
+    	invalidCssLength : 'O valor especificado para o campo "1%" deve ser um número positivo, com ou sem uma unidade de medida CSS válida (px, %, in, cm, mm, em, ex, pt, ou pc).',
+    	invalidHtmlLength : 'O valor especificado para o campo "1%" deve ser um número positivo, com ou sem uma unidade de medida HTML válida (px ou %).',
+    	invalidInlineStyle : 'O valor especificado para o estilo em linha deve constituir um ou mais conjuntos de valores com o formato de "nome : valor", separados por ponto e vírgula.',
+    	cssLengthTooltip : 'Insira um número para um valor em pontos ou um número com uma unidade CSS válida (px, %, in, cm, mm, em, ex, pt, ou pc).',
     	unavailable : '%1<span class="cke_accessibility">, indisponível</span>'
-    } } 
+    } }; 

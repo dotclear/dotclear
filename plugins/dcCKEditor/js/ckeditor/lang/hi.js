@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['hi'] = {
     undo : 
@@ -121,31 +121,13 @@ CKEDITOR.lang['hi'] = {
     },
     specialchar : 
     {
-    	options : 'Special Character Options',
+    	options : 'विशेष चरित्र विकल्प',
     	title : 'विशेष करॅक्टर चुनें',
     	toolbar : 'विशेष करॅक्टर इन्सर्ट करें'
     },
     sourcearea : 
     {
     	toolbar : 'सोर्स'
-    },
-    smiley : 
-    {
-    	options : 'Smiley Options',
-    	title : 'स्माइली इन्सर्ट करें',
-    	toolbar : 'स्माइली'
-    },
-    showblocks : 
-    {
-    	toolbar : 'ब्लॉक दिखायें'
-    },
-    selectall : 
-    {
-    	toolbar : 'सब सॅलॅक्ट करें'
-    },
-    save : 
-    {
-    	toolbar : 'सेव'
     },
     removeformat : 
     {
@@ -154,10 +136,6 @@ CKEDITOR.lang['hi'] = {
     print : 
     {
     	toolbar : 'प्रिन्ट'
-    },
-    preview : 
-    {
-    	preview : 'प्रीव्यू'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['hi'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'पेस्ट (वर्ड से)',
     	toolbar : 'पेस्ट (वर्ड से)'
-    },
-    pagebreak : 
-    {
-    	alt : 'पेज ब्रेक',
-    	toolbar : 'पेज ब्रेक इन्सर्ट् करें'
-    },
-    newpage : 
-    {
-    	toolbar : 'नया पेज'
     },
     maximize : 
     {
@@ -256,12 +225,12 @@ CKEDITOR.lang['hi'] = {
     	popupLeft : 'बायीं तरफ',
     	popupLocationBar : 'लोकेशन बार',
     	popupMenuBar : 'मॅन्यू बार',
-    	popupResizable : 'Resizable',
+    	popupResizable : 'आकार बदलने लायक',
     	popupScrollBars : 'स्क्रॉल बार',
     	popupStatusBar : 'स्टेटस बार',
     	popupToolbar : 'टूल बार',
     	popupTop : 'दायीं तरफ',
-    	rel : 'Relationship',
+    	rel : 'संबंध',
     	selectAnchor : 'ऐंकर चुनें',
     	styles : 'स्टाइल',
     	tabIndex : 'टैब इन्डॅक्स',
@@ -314,89 +283,9 @@ CKEDITOR.lang['hi'] = {
     	validateHSpace : 'HSpace must be a whole number.',
     	validateVSpace : 'VSpace must be a whole number.'
     },
-    iframe : 
-    {
-    	border : 'Show frame border',
-    	noUrl : 'Please type the iframe URL',
-    	scrolling : 'Enable scrollbars',
-    	title : 'IFrame Properties',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'हॉरिज़ॉन्टल रेखा इन्सर्ट करें'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'बटन प्रॉपर्टीज़',
-    		text : 'टेक्स्ट (वैल्यू)',
-    		type : 'प्रकार',
-    		typeBtn : 'बटन',
-    		typeSbm : 'सब्मिट',
-    		typeRst : 'रिसेट'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'चॅक बॉक्स प्रॉपर्टीज़',
-    		radioTitle : 'रेडिओ बटन प्रॉपर्टीज़',
-    		value : 'वैल्यू',
-    		selected : 'सॅलॅक्टॅड'
-    	},
-    	form : 
-    	{
-    		title : 'फ़ॉर्म प्रॉपर्टीज़',
-    		menu : 'फ़ॉर्म प्रॉपर्टीज़',
-    		action : 'क्रिया',
-    		method : 'तरीका',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'गुप्त फ़ील्ड प्रॉपर्टीज़',
-    		name : 'नाम',
-    		value : 'वैल्यू'
-    	},
-    	select : 
-    	{
-    		title : 'चुनाव फ़ील्ड प्रॉपर्टीज़',
-    		selectInfo : 'सूचना',
-    		opAvail : 'उपलब्ध विकल्प',
-    		value : 'वैल्यू',
-    		size : 'साइज़',
-    		lines : 'पंक्तियाँ',
-    		chkMulti : 'एक से ज्यादा विकल्प चुनने दें',
-    		opText : 'टेक्स्ट',
-    		opValue : 'वैल्यू',
-    		btnAdd : 'जोड़ें',
-    		btnModify : 'बदलें',
-    		btnUp : 'ऊपर',
-    		btnDown : 'नीचे',
-    		btnSetValue : 'चुनी गई वैल्यू सॅट करें',
-    		btnDelete : 'डिलीट'
-    	},
-    	textarea : 
-    	{
-    		title : 'टेक्स्त एरिया प्रॉपर्टीज़',
-    		cols : 'कालम',
-    		rows : 'पंक्तियां'
-    	},
-    	textfield : 
-    	{
-    		title : 'टेक्स्ट फ़ील्ड प्रॉपर्टीज़',
-    		name : 'नाम',
-    		value : 'वैल्यू',
-    		charWidth : 'करॅक्टर की चौढ़ाई',
-    		maxChars : 'अधिकतम करॅक्टर',
-    		type : 'टाइप',
-    		typeText : 'टेक्स्ट',
-    		typePass : 'पास्वर्ड',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['hi'] = {
     	tag_h6 : 'शीर्षक 6',
     	tag_p : 'साधारण',
     	tag_pre : 'फ़ॉर्मैटॅड'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'साइज़',
-    		voiceLabel : 'Font Size',
-    		panelTitle : 'साइज़'
-    	},
-    	label : 'फ़ॉन्ट',
-    	panelTitle : 'फ़ॉन्ट',
-    	voiceLabel : 'फ़ॉन्ट'
-    },
-    flash : 
-    {
-    	access : 'Script Access',
-    	accessAlways : 'Always',
-    	accessNever : 'Never',
-    	accessSameDomain : 'Same domain',
-    	alignAbsBottom : 'Abs नीचे',
-    	alignAbsMiddle : 'Abs ऊपर',
-    	alignBaseline : 'मूल रेखा',
-    	alignTextTop : 'टेक्स्ट ऊपर',
-    	bgcolor : 'बैक्ग्राउन्ड रंग',
-    	chkFull : 'Allow Fullscreen',
-    	chkLoop : 'लूप',
-    	chkMenu : 'फ़्लैश मॅन्यू का प्रयोग करें',
-    	chkPlay : 'ऑटो प्ले',
-    	flashvars : 'Variables for Flash',
-    	hSpace : 'हॉरिज़ॉन्टल स्पेस',
-    	properties : 'फ़्लैश प्रॉपर्टीज़',
-    	propertiesTab : 'Properties',
-    	quality : 'Quality',
-    	qualityAutoHigh : 'Auto High',
-    	qualityAutoLow : 'Auto Low',
-    	qualityBest : 'Best',
-    	qualityHigh : 'High',
-    	qualityLow : 'Low',
-    	qualityMedium : 'Medium',
-    	scale : 'स्केल',
-    	scaleAll : 'सभी दिखायें',
-    	scaleFit : 'बिल्कुल फ़िट',
-    	scaleNoBorder : 'कोई बॉर्डर नहीं',
-    	title : 'फ़्लैश प्रॉपर्टीज़',
-    	vSpace : 'वर्टिकल स्पेस',
-    	validateHSpace : 'HSpace must be a number.',
-    	validateSrc : 'लिंक URL टाइप करें',
-    	validateVSpace : 'VSpace must be a number.',
-    	windowMode : 'Window mode',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Window'
-    },
-    find : 
-    {
-    	find : 'खोजें',
-    	findOptions : 'Find Options',
-    	findWhat : 'यह खोजें:',
-    	matchCase : 'केस मिलायें',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'पूरा शब्द मिलायें',
-    	notFoundMsg : 'आपके द्वारा दिया गया टेक्स्ट नहीं मिला',
-    	replace : 'रीप्लेस',
-    	replaceAll : 'सभी रिप्लेस करें',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'इससे रिप्लेस करें:',
-    	title : 'खोजें और बदलें'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['hi'] = {
     contextmenu : 
     {
     	options : 'Context Menu Options'
-    },
-    colordialog : 
-    {
-    	clear : 'Clear',
-    	highlight : 'Highlight',
-    	options : 'Color Options',
-    	selected : 'Selected Color',
-    	title : 'Select color'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['hi'] = {
     	securityMsg : 'आपके ब्राउज़र की सुरक्षा आपके ब्राउज़र की सुरKश सैटिंग के कारण, एडिटर आपके क्लिपबोर्ड डेटा को नहीं पा सकता है. आपको उसे इस विन्डो में दोबारा पेस्ट करना होगा.',
     	title : 'पेस्ट'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'ब्लॉक-कोट'
-    },
-    bidi : 
-    {
-    	ltr : 'Text direction from left to right',
-    	rtl : 'Text direction from right to left'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['hi'] = {
     	alignLeft : 'दायें',
     	alignRight : 'दायें',
     	alignCenter : 'बीच में',
+    	alignJustify : 'ब्लॉक जस्टीफ़ाई',
     	alignTop : 'ऊपर',
     	alignMiddle : 'मध्य',
     	alignBottom : 'नीचे',
+    	alignNone : 'None',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Height must be a number.',
     	invalidWidth : 'Width must be a number.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['hi'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, unavailable</span>'
-    } } 
+    } }; 

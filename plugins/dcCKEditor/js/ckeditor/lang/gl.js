@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['gl'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['gl'] = {
     {
     	toolbar : 'Orixe'
     },
-    smiley : 
-    {
-    	options : 'Opcións de emoticonas',
-    	title : 'Inserir unha emoticona',
-    	toolbar : 'Emoticona'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Amosar os bloques'
-    },
-    selectall : 
-    {
-    	toolbar : 'Seleccionar todo'
-    },
-    save : 
-    {
-    	toolbar : 'Gardar'
-    },
     removeformat : 
     {
     	toolbar : 'Retirar o formato'
@@ -154,10 +136,6 @@ CKEDITOR.lang['gl'] = {
     print : 
     {
     	toolbar : 'Imprimir'
-    },
-    preview : 
-    {
-    	preview : 'Vista previa'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['gl'] = {
     	error : 'Non foi posíbel depurar os datos pegados por mor dun erro interno',
     	title : 'Pegar desde Word',
     	toolbar : 'Pegar desde Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Quebra de páxina',
-    	toolbar : 'Inserir quebra de páxina'
-    },
-    newpage : 
-    {
-    	toolbar : 'Páxina nova'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['gl'] = {
     	validateHSpace : 'O espazado horizontal debe ser un número.',
     	validateVSpace : 'O espazado vertical debe ser un número.'
     },
-    iframe : 
-    {
-    	border : 'Amosar o bordo do marco',
-    	noUrl : 'Escriba o enderezo do iframe',
-    	scrolling : 'Activar as barras de desprazamento',
-    	title : 'Propiedades do iFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Inserir unha liña horizontal'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Propiedades do botón',
-    		text : 'Texto (Valor)',
-    		type : 'Tipo',
-    		typeBtn : 'Botón',
-    		typeSbm : 'Enviar',
-    		typeRst : 'Restabelever'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Propiedades da caixa de selección',
-    		radioTitle : 'Propiedades do botón de opción',
-    		value : 'Valor',
-    		selected : 'Seleccionado'
-    	},
-    	form : 
-    	{
-    		title : 'Propiedades do formulario',
-    		menu : 'Propiedades do formulario',
-    		action : 'Acción',
-    		method : 'Método',
-    		encoding : 'Codificación'
-    	},
-    	hidden : 
-    	{
-    		title : 'Propiedades do campo agochado',
-    		name : 'Nome',
-    		value : 'Valor'
-    	},
-    	select : 
-    	{
-    		title : 'Propiedades do campo de selección',
-    		selectInfo : 'Información',
-    		opAvail : 'Opcións dispoñíbeis',
-    		value : 'Valor',
-    		size : 'Tamaño',
-    		lines : 'liñas',
-    		chkMulti : 'Permitir múltiplas seleccións',
-    		opText : 'Texto',
-    		opValue : 'Valor',
-    		btnAdd : 'Engadir',
-    		btnModify : 'Modificar',
-    		btnUp : 'Subir',
-    		btnDown : 'Baixar',
-    		btnSetValue : 'Estabelecer como valor seleccionado',
-    		btnDelete : 'Eliminar'
-    	},
-    	textarea : 
-    	{
-    		title : 'Propiedades da área de texto',
-    		cols : 'Columnas',
-    		rows : 'Filas'
-    	},
-    	textfield : 
-    	{
-    		title : 'Propiedades do campo de texto',
-    		name : 'Nome',
-    		value : 'Valor',
-    		charWidth : 'Largo do carácter',
-    		maxChars : 'Núm. máximo de caracteres',
-    		type : 'Tipo',
-    		typeText : 'Texto',
-    		typePass : 'Contrasinal',
-    		typeEmail : 'Correo',
-    		typeSearch : 'Buscar',
-    		typeTel : 'Número de teléfono',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['gl'] = {
     	tag_h6 : 'Encabezado 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formatado'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Tamaño',
-    		voiceLabel : 'Tamaño da letra',
-    		panelTitle : 'Tamaño da letra'
-    	},
-    	label : 'Tipo de letra',
-    	panelTitle : 'Nome do tipo de letra',
-    	voiceLabel : 'Tipo de letra'
-    },
-    flash : 
-    {
-    	access : 'Acceso de scripts',
-    	accessAlways : 'Sempre',
-    	accessNever : 'Nunca',
-    	accessSameDomain : 'Mesmo dominio',
-    	alignAbsBottom : 'Abs Inferior',
-    	alignAbsMiddle : 'Abs centro',
-    	alignBaseline : 'Liña de base',
-    	alignTextTop : 'Tope do texto',
-    	bgcolor : 'Cor do fondo',
-    	chkFull : 'Permitir pantalla completa',
-    	chkLoop : 'Repetir',
-    	chkMenu : 'Activar o menú do «Flash»',
-    	chkPlay : 'Reprodución auomática',
-    	flashvars : 'Opcións do «Flash»',
-    	hSpace : 'Esp. Horiz.',
-    	properties : 'Propiedades do «Flash»',
-    	propertiesTab : 'Propiedades',
-    	quality : 'Calidade',
-    	qualityAutoHigh : 'Alta, automática',
-    	qualityAutoLow : 'Baixa, automática',
-    	qualityBest : 'A mellor',
-    	qualityHigh : 'Alta',
-    	qualityLow : 'Baixa',
-    	qualityMedium : 'Media',
-    	scale : 'Escalar',
-    	scaleAll : 'Amosar todo',
-    	scaleFit : 'Encaixar axustando',
-    	scaleNoBorder : 'Sen bordo',
-    	title : 'Propiedades do «Flash»',
-    	vSpace : 'Esp.Vert.',
-    	validateHSpace : 'O espazado horizontal debe ser un número.',
-    	validateSrc : 'O URL non pode estar baleiro.',
-    	validateVSpace : 'O espazado vertical debe ser un número.',
-    	windowMode : 'Modo da xanela',
-    	windowModeOpaque : 'Opaca',
-    	windowModeTransparent : 'Transparente',
-    	windowModeWindow : 'Xanela'
-    },
-    find : 
-    {
-    	find : 'Buscar',
-    	findOptions : 'Buscar opcións',
-    	findWhat : 'Texto a buscar:',
-    	matchCase : 'Coincidir Mai./min.',
-    	matchCyclic : 'Coincidencia cíclica',
-    	matchWord : 'Coincidencia coa palabra completa',
-    	notFoundMsg : 'Non se atopou o texto indicado.',
-    	replace : 'Substituir',
-    	replaceAll : 'Substituír todo',
-    	replaceSuccessMsg : '%1 concorrencia(s) substituída(s).',
-    	replaceWith : 'Substituír con:',
-    	title : 'Buscar e substituír'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['gl'] = {
     contextmenu : 
     {
     	options : 'Opcións do menú contextual'
-    },
-    colordialog : 
-    {
-    	clear : 'Limpar',
-    	highlight : 'Resaltar',
-    	options : 'Opcións de cor',
-    	selected : 'Cor seleccionado',
-    	title : 'Seleccione unha cor'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['gl'] = {
     	securityMsg : 'Por mor da configuración de seguranza do seu navegador, o editor non ten acceso ao portapapeis. É necesario pegalo novamente nesta xanela.',
     	title : 'Pegar'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (seleccionado)'
+    },
     blockquote : 
     {
     	toolbar : 'Cita'
-    },
-    bidi : 
-    {
-    	ltr : 'Dirección do texto de esquerda a dereita',
-    	rtl : 'Dirección do texto de dereita a esquerda'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['gl'] = {
     	userGuide : 'Guía do usuario do CKEditor'
     },
     editor : 'Editor de texto mellorado',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Panel do editor de texto mellorado',
     common : 
     {
     	editorHelp : 'Prema ALT 0 para obter axuda',
@@ -669,9 +482,11 @@ CKEDITOR.lang['gl'] = {
     	alignLeft : 'Esquerda',
     	alignRight : 'Dereita',
     	alignCenter : 'Centro',
+    	alignJustify : 'Xustificado',
     	alignTop : 'Arriba',
     	alignMiddle : 'Centro',
     	alignBottom : 'Abaixo',
+    	alignNone : 'None',
     	invalidValue : 'Valor incorrecto.',
     	invalidHeight : 'O alto debe ser un número.',
     	invalidWidth : 'O largo debe ser un número.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['gl'] = {
     	invalidInlineStyle : 'O valor especificado no estilo en liña debe consistir nunha ou máis tuplas co formato «nome : valor», separadas por punto e coma.',
     	cssLengthTooltip : 'Escriba un número para o valor en píxeles ou un número cunha unidade CSS correcta (px, %, in, cm, mm, em, ex, pt, ou pc).',
     	unavailable : '%1<span class="cke_accessibility">, non dispoñíbel</span>'
-    } } 
+    } }; 

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['da'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['da'] = {
     {
     	toolbar : 'Kilde'
     },
-    smiley : 
-    {
-    	options : 'Smileymuligheder',
-    	title : 'Vælg smiley',
-    	toolbar : 'Smiley'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Vis afsnitsmærker'
-    },
-    selectall : 
-    {
-    	toolbar : 'Vælg alt'
-    },
-    save : 
-    {
-    	toolbar : 'Gem'
-    },
     removeformat : 
     {
     	toolbar : 'Fjern formatering'
@@ -154,10 +136,6 @@ CKEDITOR.lang['da'] = {
     print : 
     {
     	toolbar : 'Udskriv'
-    },
-    preview : 
-    {
-    	preview : 'Vis eksempel'
     },
     pastetext : 
     {
@@ -171,15 +149,6 @@ CKEDITOR.lang['da'] = {
     	title : 'Indsæt fra Word',
     	toolbar : 'Indsæt fra Word'
     },
-    pagebreak : 
-    {
-    	alt : 'Sideskift',
-    	toolbar : 'Indsæt sideskift'
-    },
-    newpage : 
-    {
-    	toolbar : 'Ny side'
-    },
     maximize : 
     {
     	maximize : 'Maksimér',
@@ -187,7 +156,7 @@ CKEDITOR.lang['da'] = {
     },
     magicline : 
     {
-    	title : 'Insert paragraph here'
+    	title : 'Indsæt afsnit'
     },
     liststyle : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['da'] = {
     	validateHSpace : 'HSpace skal være et helt nummer.',
     	validateVSpace : 'VSpace skal være et helt nummer.'
     },
-    iframe : 
-    {
-    	border : 'Vis kant på rammen',
-    	noUrl : 'Venligst indsæt URL på iframen',
-    	scrolling : 'Aktiver scrollbars',
-    	title : 'Iframe egenskaber',
-    	toolbar : 'Iframe'
-    },
     horizontalrule : 
     {
     	toolbar : 'Indsæt vandret streg'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Egenskaber for knap',
-    		text : 'Tekst',
-    		type : 'Type',
-    		typeBtn : 'Knap',
-    		typeSbm : 'Send',
-    		typeRst : 'Nulstil'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Egenskaber for afkrydsningsfelt',
-    		radioTitle : 'Egenskaber for alternativknap',
-    		value : 'Værdi',
-    		selected : 'Valgt'
-    	},
-    	form : 
-    	{
-    		title : 'Egenskaber for formular',
-    		menu : 'Egenskaber for formular',
-    		action : 'Handling',
-    		method : 'Metode',
-    		encoding : 'Kodning (encoding)'
-    	},
-    	hidden : 
-    	{
-    		title : 'Egenskaber for skjult felt',
-    		name : 'Navn',
-    		value : 'Værdi'
-    	},
-    	select : 
-    	{
-    		title : 'Egenskaber for liste',
-    		selectInfo : 'Generelt',
-    		opAvail : 'Valgmuligheder',
-    		value : 'Værdi',
-    		size : 'Størrelse',
-    		lines : 'Linjer',
-    		chkMulti : 'Tillad flere valg',
-    		opText : 'Tekst',
-    		opValue : 'Værdi',
-    		btnAdd : 'Tilføj',
-    		btnModify : 'Redigér',
-    		btnUp : 'Op',
-    		btnDown : 'Ned',
-    		btnSetValue : 'Sæt som valgt',
-    		btnDelete : 'Slet'
-    	},
-    	textarea : 
-    	{
-    		title : 'Egenskaber for tekstboks',
-    		cols : 'Kolonner',
-    		rows : 'Rækker'
-    	},
-    	textfield : 
-    	{
-    		title : 'Egenskaber for tekstfelt',
-    		name : 'Navn',
-    		value : 'Værdi',
-    		charWidth : 'Bredde (tegn)',
-    		maxChars : 'Max. antal tegn',
-    		type : 'Type',
-    		typeText : 'Tekst',
-    		typePass : 'Adgangskode',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['da'] = {
     	tag_h6 : 'Overskrift 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formateret'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Skriftstørrelse',
-    		voiceLabel : 'Skriftstørrelse',
-    		panelTitle : 'Skriftstørrelse'
-    	},
-    	label : 'Skrifttype',
-    	panelTitle : 'Skrifttype',
-    	voiceLabel : 'Skrifttype'
-    },
-    flash : 
-    {
-    	access : 'Scriptadgang',
-    	accessAlways : 'Altid',
-    	accessNever : 'Aldrig',
-    	accessSameDomain : 'Samme domæne',
-    	alignAbsBottom : 'Absolut nederst',
-    	alignAbsMiddle : 'Absolut centreret',
-    	alignBaseline : 'Grundlinje',
-    	alignTextTop : 'Toppen af teksten',
-    	bgcolor : 'Baggrundsfarve',
-    	chkFull : 'Tillad fuldskærm',
-    	chkLoop : 'Gentagelse',
-    	chkMenu : 'Vis Flash-menu',
-    	chkPlay : 'Automatisk afspilning',
-    	flashvars : 'Variabler for Flash',
-    	hSpace : 'Vandret margen',
-    	properties : 'Egenskaber for Flash',
-    	propertiesTab : 'Egenskaber',
-    	quality : 'Kvalitet',
-    	qualityAutoHigh : 'Auto høj',
-    	qualityAutoLow : 'Auto lav',
-    	qualityBest : 'Bedste',
-    	qualityHigh : 'Høj',
-    	qualityLow : 'Lav',
-    	qualityMedium : 'Medium',
-    	scale : 'Skalér',
-    	scaleAll : 'Vis alt',
-    	scaleFit : 'Tilpas størrelse',
-    	scaleNoBorder : 'Ingen ramme',
-    	title : 'Egenskaber for Flash',
-    	vSpace : 'Lodret margen',
-    	validateHSpace : 'Vandret margen skal være et tal.',
-    	validateSrc : 'Indtast hyperlink URL!',
-    	validateVSpace : 'Lodret margen skal være et tal.',
-    	windowMode : 'Vinduestilstand',
-    	windowModeOpaque : 'Gennemsigtig (opaque)',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Vindue'
-    },
-    find : 
-    {
-    	find : 'Søg',
-    	findOptions : 'Find muligheder',
-    	findWhat : 'Søg efter:',
-    	matchCase : 'Forskel på store og små bogstaver',
-    	matchCyclic : 'Match cyklisk',
-    	matchWord : 'Kun hele ord',
-    	notFoundMsg : 'Søgeteksten blev ikke fundet',
-    	replace : 'Erstat',
-    	replaceAll : 'Erstat alle',
-    	replaceSuccessMsg : '%1 forekomst(er) erstattet.',
-    	replaceWith : 'Erstat med:',
-    	title : 'Søg og erstat'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['da'] = {
     contextmenu : 
     {
     	options : 'Muligheder for hjælpemenu'
-    },
-    colordialog : 
-    {
-    	clear : 'Nulstil',
-    	highlight : 'Markér',
-    	options : 'Farvemuligheder',
-    	selected : 'Valgt farve',
-    	title : 'Vælg farve'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['da'] = {
     	securityMsg : 'Din browsers sikkerhedsindstillinger tillader ikke editoren at få automatisk adgang til udklipsholderen.<br><br>Du skal indsætte udklipsholderens indhold i dette vindue igen.',
     	title : 'Indsæt'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Valgt)'
+    },
     blockquote : 
     {
     	toolbar : 'Blokcitat'
-    },
-    bidi : 
-    {
-    	ltr : 'Tekstretning fra venstre til højre',
-    	rtl : 'Tekstretning fra højre til venstre'
     },
     basicstyles : 
     {
@@ -669,10 +482,12 @@ CKEDITOR.lang['da'] = {
     	alignLeft : 'Venstre',
     	alignRight : 'Højre',
     	alignCenter : 'Centreret',
+    	alignJustify : 'Lige margener',
     	alignTop : 'Øverst',
     	alignMiddle : 'Centreret',
     	alignBottom : 'Nederst',
-    	invalidValue : 'Invalid value.',
+    	alignNone : 'Ingen',
+    	invalidValue : 'Ugyldig værdi.',
     	invalidHeight : 'Højde skal være et tal.',
     	invalidWidth : 'Bredde skal være et tal.',
     	invalidCssLength : 'Værdien specificeret for "%1" feltet skal være et positivt nummer med eller uden en CSS måleenhed  (px, %, in, cm, mm, em, ex, pt, eller pc).',
@@ -680,4 +495,4 @@ CKEDITOR.lang['da'] = {
     	invalidInlineStyle : 'Værdien specificeret for inline style skal indeholde en eller flere elementer med et format som "name:value", separeret af semikoloner',
     	cssLengthTooltip : 'Indsæt en numerisk værdi i pixel eller nummer med en gyldig CSS værdi (px, %, in, cm, mm, em, ex, pt, eller pc).',
     	unavailable : '%1<span class="cke_accessibility">, ikke tilgængelig</span>'
-    } } 
+    } }; 

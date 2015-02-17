@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -81,5 +81,67 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'vi', {
 		}
 		]
 	}
-	]
-});
+	],
+	backspace: 'Phím Backspace',
+	tab: 'Phím Tab',
+	enter: 'Phím Tab',
+	shift: 'Phím Shift',
+	ctrl: 'Phím Ctrl',
+	alt: 'Phím Alt',
+	pause: 'Phím Pause',
+	capslock: 'Phím Caps Lock',
+	escape: 'Phím Escape',
+	pageUp: 'Phím Page Up',
+	pageDown: 'Phím Page Down',
+	end: 'Phím End',
+	home: 'Phím Home',
+	leftArrow: 'Phím Left Arrow',
+	upArrow: 'Phím Up Arrow',
+	rightArrow: 'Phím Right Arrow',
+	downArrow: 'Phím Down Arrow',
+	insert: 'Chèn',
+	'delete': 'Xóa',
+	leftWindowKey: 'Phím Left Windows',
+	rightWindowKey: 'Phím Right Windows ',
+	selectKey: 'Chọn phím',
+	numpad0: 'Phím 0',
+	numpad1: 'Phím 1',
+	numpad2: 'Phím 2',
+	numpad3: 'Phím 3',
+	numpad4: 'Phím 4',
+	numpad5: 'Phím 5',
+	numpad6: 'Phím 6',
+	numpad7: 'Phím 7',
+	numpad8: 'Phím 8',
+	numpad9: 'Phím 9',
+	multiply: 'Nhân',
+	add: 'Thêm',
+	subtract: 'Trừ',
+	decimalPoint: 'Điểm số thập phân',
+	divide: 'Chia',
+	f1: 'F1',
+	f2: 'F2',
+	f3: 'F3',
+	f4: 'F4',
+	f5: 'F5',
+	f6: 'F6',
+	f7: 'F7',
+	f8: 'F8',
+	f9: 'F9',
+	f10: 'F10',
+	f11: 'F11',
+	f12: 'F12',
+	numLock: 'Num Lock',
+	scrollLock: 'Scroll Lock',
+	semiColon: 'Dấu chấm phẩy',
+	equalSign: 'Đăng nhập bằng',
+	comma: 'Dấu phẩy',
+	dash: 'Dấu gạch ngang',
+	period: 'Phím .',
+	forwardSlash: 'Phím /',
+	graveAccent: 'Phím `',
+	openBracket: 'Open Bracket',
+	backSlash: 'Dấu gạch chéo ngược',
+	closeBracket: 'Gần giá đỡ',
+	singleQuote: 'Trích dẫn'
+} );

@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -81,5 +81,67 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'sq', {
 		}
 		]
 	}
-	]
-});
+	],
+	backspace: 'Prapa',
+	tab: 'Fletë',
+	enter: 'Enter',
+	shift: 'Shift',
+	ctrl: 'Ctrl',
+	alt: 'Alt',
+	pause: 'Pause',
+	capslock: 'Caps Lock',
+	escape: 'Escape',
+	pageUp: 'Page Up',
+	pageDown: 'Page Down',
+	end: 'End',
+	home: 'Home',
+	leftArrow: 'Shenja majtas',
+	upArrow: 'Shenja sipër',
+	rightArrow: 'Shenja djathtas',
+	downArrow: 'Shenja poshtë',
+	insert: 'Shto',
+	'delete': 'Grise',
+	leftWindowKey: 'Left Windows key', // MISSING
+	rightWindowKey: 'Right Windows key', // MISSING
+	selectKey: 'Select key', // MISSING
+	numpad0: 'Numpad 0', // MISSING
+	numpad1: 'Numpad 1', // MISSING
+	numpad2: 'Numpad 2', // MISSING
+	numpad3: 'Numpad 3', // MISSING
+	numpad4: 'Numpad 4', // MISSING
+	numpad5: 'Numpad 5', // MISSING
+	numpad6: 'Numpad 6', // MISSING
+	numpad7: 'Numpad 7', // MISSING
+	numpad8: 'Numpad 8', // MISSING
+	numpad9: 'Numpad 9', // MISSING
+	multiply: 'Multiply', // MISSING
+	add: 'Shto',
+	subtract: 'Subtract', // MISSING
+	decimalPoint: 'Decimal Point', // MISSING
+	divide: 'Divide', // MISSING
+	f1: 'F1',
+	f2: 'F2',
+	f3: 'F3',
+	f4: 'F4',
+	f5: 'F5',
+	f6: 'F6',
+	f7: 'F7',
+	f8: 'F8',
+	f9: 'F9',
+	f10: 'F10',
+	f11: 'F11',
+	f12: 'F12',
+	numLock: 'Num Lock',
+	scrollLock: 'Scroll Lock',
+	semiColon: 'Semicolon',
+	equalSign: 'Equal Sign', // MISSING
+	comma: 'Presje',
+	dash: 'vizë',
+	period: 'Pikë',
+	forwardSlash: 'Forward Slash', // MISSING
+	graveAccent: 'Grave Accent', // MISSING
+	openBracket: 'Hape kllapën',
+	backSlash: 'Backslash', // MISSING
+	closeBracket: 'Mbylle kllapën',
+	singleQuote: 'Single Quote' // MISSING
+} );

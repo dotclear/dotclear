@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sr-latn'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['sr-latn'] = {
     {
     	toolbar : 'Kôd'
     },
-    smiley : 
-    {
-    	options : 'Smiley Options',
-    	title : 'Unesi smajlija',
-    	toolbar : 'Smajli'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Show Blocks'
-    },
-    selectall : 
-    {
-    	toolbar : 'Označi sve'
-    },
-    save : 
-    {
-    	toolbar : 'Sačuvaj'
-    },
     removeformat : 
     {
     	toolbar : 'Ukloni formatiranje'
@@ -154,10 +136,6 @@ CKEDITOR.lang['sr-latn'] = {
     print : 
     {
     	toolbar : 'Štampa'
-    },
-    preview : 
-    {
-    	preview : 'Izgled stranice'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['sr-latn'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Zalepi iz Worda',
     	toolbar : 'Zalepi iz Worda'
-    },
-    pagebreak : 
-    {
-    	alt : 'Page Break',
-    	toolbar : 'Insert Page Break for Printing'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nova stranica'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['sr-latn'] = {
     	validateHSpace : 'HSpace must be a whole number.',
     	validateVSpace : 'VSpace must be a whole number.'
     },
-    iframe : 
-    {
-    	border : 'Show frame border',
-    	noUrl : 'Please type the iframe URL',
-    	scrolling : 'Enable scrollbars',
-    	title : 'IFrame Properties',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Unesi horizontalnu liniju'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Osobine dugmeta',
-    		text : 'Tekst (vrednost)',
-    		type : 'Tip',
-    		typeBtn : 'Button',
-    		typeSbm : 'Submit',
-    		typeRst : 'Reset'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Osobine polja za potvrdu',
-    		radioTitle : 'Osobine radio-dugmeta',
-    		value : 'Vrednost',
-    		selected : 'Označeno'
-    	},
-    	form : 
-    	{
-    		title : 'Osobine forme',
-    		menu : 'Osobine forme',
-    		action : 'Akcija',
-    		method : 'Metoda',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'Osobine skrivenog polja',
-    		name : 'Naziv',
-    		value : 'Vrednost'
-    	},
-    	select : 
-    	{
-    		title : 'Osobine izbornog polja',
-    		selectInfo : 'Info',
-    		opAvail : 'Dostupne opcije',
-    		value : 'Vrednost',
-    		size : 'Veličina',
-    		lines : 'linija',
-    		chkMulti : 'Dozvoli višestruku selekciju',
-    		opText : 'Tekst',
-    		opValue : 'Vrednost',
-    		btnAdd : 'Dodaj',
-    		btnModify : 'Izmeni',
-    		btnUp : 'Gore',
-    		btnDown : 'Dole',
-    		btnSetValue : 'Podesi kao označenu vrednost',
-    		btnDelete : 'Obriši'
-    	},
-    	textarea : 
-    	{
-    		title : 'Osobine zone teksta',
-    		cols : 'Broj kolona',
-    		rows : 'Broj redova'
-    	},
-    	textfield : 
-    	{
-    		title : 'Osobine tekstualnog polja',
-    		name : 'Naziv',
-    		value : 'Vrednost',
-    		charWidth : 'Širina (karaktera)',
-    		maxChars : 'Maksimalno karaktera',
-    		type : 'Tip',
-    		typeText : 'Tekst',
-    		typePass : 'Lozinka',
-    		typeEmail : 'Email',
-    		typeSearch : 'Pretraži',
-    		typeTel : 'Broj telefona',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['sr-latn'] = {
     	tag_h6 : 'Naslov 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formatirano'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Veličina fonta',
-    		voiceLabel : 'Font Size',
-    		panelTitle : 'Veličina fonta'
-    	},
-    	label : 'Font',
-    	panelTitle : 'Font',
-    	voiceLabel : 'Font'
-    },
-    flash : 
-    {
-    	access : 'Script Access',
-    	accessAlways : 'Always',
-    	accessNever : 'Never',
-    	accessSameDomain : 'Same domain',
-    	alignAbsBottom : 'Abs dole',
-    	alignAbsMiddle : 'Abs sredina',
-    	alignBaseline : 'Bazno',
-    	alignTextTop : 'Vrh teksta',
-    	bgcolor : 'Boja pozadine',
-    	chkFull : 'Allow Fullscreen',
-    	chkLoop : 'Ponavljaj',
-    	chkMenu : 'Uključi fleš meni',
-    	chkPlay : 'Automatski start',
-    	flashvars : 'Variables for Flash',
-    	hSpace : 'HSpace',
-    	properties : 'Osobine fleša',
-    	propertiesTab : 'Properties',
-    	quality : 'Quality',
-    	qualityAutoHigh : 'Auto High',
-    	qualityAutoLow : 'Auto Low',
-    	qualityBest : 'Best',
-    	qualityHigh : 'High',
-    	qualityLow : 'Low',
-    	qualityMedium : 'Medium',
-    	scale : 'Skaliraj',
-    	scaleAll : 'Prikaži sve',
-    	scaleFit : 'Popuni površinu',
-    	scaleNoBorder : 'Bez ivice',
-    	title : 'Osobine fleša',
-    	vSpace : 'VSpace',
-    	validateHSpace : 'HSpace must be a number.',
-    	validateSrc : 'Unesite URL linka',
-    	validateVSpace : 'VSpace must be a number.',
-    	windowMode : 'Window mode',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Window'
-    },
-    find : 
-    {
-    	find : 'Pretraga',
-    	findOptions : 'Find Options',
-    	findWhat : 'Pronadi:',
-    	matchCase : 'Razlikuj mala i velika slova',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'Uporedi cele reci',
-    	notFoundMsg : 'Traženi tekst nije pronađen.',
-    	replace : 'Zamena',
-    	replaceAll : 'Zameni sve',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'Zameni sa:',
-    	title : 'Find and Replace'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['sr-latn'] = {
     contextmenu : 
     {
     	options : 'Context Menu Options'
-    },
-    colordialog : 
-    {
-    	clear : 'Clear',
-    	highlight : 'Highlight',
-    	options : 'Color Options',
-    	selected : 'Selected Color',
-    	title : 'Select color'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['sr-latn'] = {
     	securityMsg : 'Zbog sigurnosnih postavki vašeg pregledača, editor nije u mogućnosti da direktno pristupi podacima u klipbordu. Potrebno je da zalepite još jednom u ovom prozoru.',
     	title : 'Zalepi'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Block Quote'
-    },
-    bidi : 
-    {
-    	ltr : 'Text direction from left to right',
-    	rtl : 'Text direction from right to left'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['sr-latn'] = {
     	alignLeft : 'Levo',
     	alignRight : 'Desno',
     	alignCenter : 'Sredina',
+    	alignJustify : 'Obostrano ravnanje',
     	alignTop : 'Vrh',
     	alignMiddle : 'Sredina',
     	alignBottom : 'Dole',
+    	alignNone : 'None',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Visina mora biti broj.',
     	invalidWidth : 'Širina mora biti broj.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['sr-latn'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, unavailable</span>'
-    } } 
+    } }; 

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['vi'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['vi'] = {
     {
     	toolbar : 'Mã HTML'
     },
-    smiley : 
-    {
-    	options : 'Tùy chọn hình  biểu lộ cảm xúc',
-    	title : 'Chèn hình biểu lộ cảm xúc (mặt cười)',
-    	toolbar : 'Hình biểu lộ cảm xúc (mặt cười)'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Hiển thị các khối'
-    },
-    selectall : 
-    {
-    	toolbar : 'Chọn tất cả'
-    },
-    save : 
-    {
-    	toolbar : 'Lưu'
-    },
     removeformat : 
     {
     	toolbar : 'Xoá định dạng'
@@ -154,10 +136,6 @@ CKEDITOR.lang['vi'] = {
     print : 
     {
     	toolbar : 'In'
-    },
-    preview : 
-    {
-    	preview : 'Xem trước'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['vi'] = {
     	error : 'Không thể để làm sạch các dữ liệu dán do một lỗi nội bộ',
     	title : 'Dán với định dạng Word',
     	toolbar : 'Dán với định dạng Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Ngắt trang',
-    	toolbar : 'Chèn ngắt trang'
-    },
-    newpage : 
-    {
-    	toolbar : 'Trang mới'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['vi'] = {
     	validateHSpace : 'Khoảng đệm ngang phải là một số nguyên dương',
     	validateVSpace : 'Khoảng đệm dọc phải là một số nguyên dương'
     },
-    iframe : 
-    {
-    	border : 'Hiển thị viền khung',
-    	noUrl : 'Vui lòng nhập địa chỉ iframe',
-    	scrolling : 'Kích hoạt thanh cuộn',
-    	title : 'Thuộc tính iframe',
-    	toolbar : 'Iframe'
-    },
     horizontalrule : 
     {
     	toolbar : 'Chèn đường phân cách ngang'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Thuộc tính của nút',
-    		text : 'Chuỗi hiển thị (giá trị)',
-    		type : 'Kiểu',
-    		typeBtn : 'Nút bấm',
-    		typeSbm : 'Nút gửi',
-    		typeRst : 'Nút nhập lại'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Thuộc tính nút kiểm',
-    		radioTitle : 'Thuộc tính nút chọn',
-    		value : 'Giá trị',
-    		selected : 'Được chọn'
-    	},
-    	form : 
-    	{
-    		title : 'Thuộc tính biểu mẫu',
-    		menu : 'Thuộc tính biểu mẫu',
-    		action : 'Hành động',
-    		method : 'Phương thức',
-    		encoding : 'Bảng mã'
-    	},
-    	hidden : 
-    	{
-    		title : 'Thuộc tính trường ẩn',
-    		name : 'Tên',
-    		value : 'Giá trị'
-    	},
-    	select : 
-    	{
-    		title : 'Thuộc tính ô chọn',
-    		selectInfo : 'Thông tin',
-    		opAvail : 'Các tùy chọn có thể sử dụng',
-    		value : 'Giá trị',
-    		size : 'Kích cỡ',
-    		lines : 'dòng',
-    		chkMulti : 'Cho phép chọn nhiều',
-    		opText : 'Văn bản',
-    		opValue : 'Giá trị',
-    		btnAdd : 'Thêm',
-    		btnModify : 'Thay đổi',
-    		btnUp : 'Lên',
-    		btnDown : 'Xuống',
-    		btnSetValue : 'Giá trị được chọn',
-    		btnDelete : 'Nút xoá'
-    	},
-    	textarea : 
-    	{
-    		title : 'Thuộc tính vùng văn bản',
-    		cols : 'Số cột',
-    		rows : 'Số hàng'
-    	},
-    	textfield : 
-    	{
-    		title : 'Thuộc tính trường văn bản',
-    		name : 'Tên',
-    		value : 'Giá trị',
-    		charWidth : 'Độ rộng của ký tự',
-    		maxChars : 'Số ký tự tối đa',
-    		type : 'Kiểu',
-    		typeText : 'Ký tự',
-    		typePass : 'Mật khẩu',
-    		typeEmail : 'Email',
-    		typeSearch : 'Tìm kiếm',
-    		typeTel : 'Số điện thoại',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['vi'] = {
     	tag_h6 : 'Heading 6',
     	tag_p : 'Bình thường (P)',
     	tag_pre : 'Đã thiết lập'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Cỡ chữ',
-    		voiceLabel : 'Kích cỡ phông',
-    		panelTitle : 'Cỡ chữ'
-    	},
-    	label : 'Phông',
-    	panelTitle : 'Phông',
-    	voiceLabel : 'Phông'
-    },
-    flash : 
-    {
-    	access : 'Truy cập mã',
-    	accessAlways : 'Luôn luôn',
-    	accessNever : 'Không bao giờ',
-    	accessSameDomain : 'Cùng tên miền',
-    	alignAbsBottom : 'Dưới tuyệt đối',
-    	alignAbsMiddle : 'Giữa tuyệt đối',
-    	alignBaseline : 'Đường cơ sở',
-    	alignTextTop : 'Phía trên chữ',
-    	bgcolor : 'Màu nền',
-    	chkFull : 'Cho phép toàn màn hình',
-    	chkLoop : 'Lặp',
-    	chkMenu : 'Cho phép bật menu của Flash',
-    	chkPlay : 'Tự động chạy',
-    	flashvars : 'Các biến số dành cho Flash',
-    	hSpace : 'Khoảng đệm ngang',
-    	properties : 'Thuộc tính Flash',
-    	propertiesTab : 'Thuộc tính',
-    	quality : 'Chất lượng',
-    	qualityAutoHigh : 'Cao tự động',
-    	qualityAutoLow : 'Thấp tự động',
-    	qualityBest : 'Tốt nhất',
-    	qualityHigh : 'Cao',
-    	qualityLow : 'Thấp',
-    	qualityMedium : 'Trung bình',
-    	scale : 'Tỷ lệ',
-    	scaleAll : 'Hiển thị tất cả',
-    	scaleFit : 'Vừa vặn',
-    	scaleNoBorder : 'Không đường viền',
-    	title : 'Thuộc tính Flash',
-    	vSpace : 'Khoảng đệm dọc',
-    	validateHSpace : 'Khoảng đệm ngang phải là số nguyên.',
-    	validateSrc : 'Hãy đưa vào đường dẫn liên kết',
-    	validateVSpace : 'Khoảng đệm dọc phải là số nguyên.',
-    	windowMode : 'Chế độ cửa sổ',
-    	windowModeOpaque : 'Mờ đục',
-    	windowModeTransparent : 'Trong suốt',
-    	windowModeWindow : 'Cửa sổ'
-    },
-    find : 
-    {
-    	find : 'Tìm kiếm',
-    	findOptions : 'Tìm tùy chọn',
-    	findWhat : 'Tìm chuỗi:',
-    	matchCase : 'Phân biệt chữ hoa/thường',
-    	matchCyclic : 'Giống một phần',
-    	matchWord : 'Giống toàn bộ từ',
-    	notFoundMsg : 'Không tìm thấy chuỗi cần tìm.',
-    	replace : 'Thay thế',
-    	replaceAll : 'Thay thế tất cả',
-    	replaceSuccessMsg : '%1 vị trí đã được thay thế.',
-    	replaceWith : 'Thay bằng:',
-    	title : 'Tìm kiếm và thay thế'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['vi'] = {
     contextmenu : 
     {
     	options : 'Tùy chọn menu bổ xung'
-    },
-    colordialog : 
-    {
-    	clear : 'Xóa bỏ',
-    	highlight : 'Màu chọn',
-    	options : 'Tùy chọn màu',
-    	selected : 'Màu đã chọn',
-    	title : 'Chọn màu'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['vi'] = {
     	securityMsg : 'Do thiết lập bảo mật của trình duyệt nên trình biên tập không thể truy cập trực tiếp vào nội dung đã sao chép. Bạn cần phải dán lại nội dung vào cửa sổ này.',
     	title : 'Dán'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Đã chọn)'
+    },
     blockquote : 
     {
     	toolbar : 'Khối trích dẫn'
-    },
-    bidi : 
-    {
-    	ltr : 'Văn bản hướng từ trái sang phải',
-    	rtl : 'Văn bản hướng từ phải sang trái'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['vi'] = {
     	userGuide : 'Hướng dẫn sử dụng CKEditor'
     },
     editor : 'Bộ soạn thảo văn bản có định dạng',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Bảng điều khiển Rich Text Editor',
     common : 
     {
     	editorHelp : 'Nhấn ALT + 0 để được giúp đỡ',
@@ -642,7 +455,7 @@ CKEDITOR.lang['vi'] = {
     	longDescr : 'Mô tả URL',
     	cssClass : 'Lớp Stylesheet',
     	advisoryTitle : 'Nhan đề hướng dẫn',
-    	cssStyle : 'Kiểu (style)',
+    	cssStyle : 'Kiểu ',
     	ok : 'Đồng ý',
     	cancel : 'Bỏ qua',
     	close : 'Đóng',
@@ -664,14 +477,16 @@ CKEDITOR.lang['vi'] = {
     	styles : 'Kiểu',
     	cssClasses : 'Lớp CSS',
     	width : 'Chiều rộng',
-    	height : 'chiều cao',
+    	height : 'Chiều cao',
     	align : 'Vị trí',
     	alignLeft : 'Trái',
     	alignRight : 'Phải',
     	alignCenter : 'Giữa',
+    	alignJustify : 'Sắp chữ',
     	alignTop : 'Trên',
     	alignMiddle : 'Giữa',
     	alignBottom : 'Dưới',
+    	alignNone : 'Không',
     	invalidValue : 'Giá trị không hợp lệ.',
     	invalidHeight : 'Chiều cao phải là số nguyên.',
     	invalidWidth : 'Chiều rộng phải là số nguyên.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['vi'] = {
     	invalidInlineStyle : 'Giá trị quy định cho kiểu nội tuyến phải bao gồm một hoặc nhiều dữ liệu với định dạng "tên:giá trị", cách nhau bằng dấu chấm phẩy.',
     	cssLengthTooltip : 'Nhập một giá trị theo pixel hoặc một số với một đơn vị CSS hợp lệ (px, %, in, cm, mm, em, ex, pt, hoặc pc).',
     	unavailable : '%1<span class="cke_accessibility">, không có</span>'
-    } } 
+    } }; 

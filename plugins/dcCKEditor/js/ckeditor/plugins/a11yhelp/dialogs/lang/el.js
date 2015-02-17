@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -81,5 +81,67 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'el', {
 		}
 		]
 	}
-	]
-});
+	],
+	backspace: 'Backspace',
+	tab: 'Tab',
+	enter: 'Enter',
+	shift: 'Shift',
+	ctrl: 'Ctrl',
+	alt: 'Alt',
+	pause: 'Pause',
+	capslock: 'Caps Lock',
+	escape: 'Escape',
+	pageUp: 'Page Up',
+	pageDown: 'Page Down',
+	end: 'End',
+	home: 'Home',
+	leftArrow: 'Αριστερό Βέλος',
+	upArrow: 'Πάνω Βέλος',
+	rightArrow: 'Δεξί Βέλος',
+	downArrow: 'Κάτω Βέλος',
+	insert: 'Insert ',
+	'delete': 'Delete',
+	leftWindowKey: 'Αριστερό Πλήκτρο Windows',
+	rightWindowKey: 'Δεξί Πλήκτρο Windows',
+	selectKey: 'Πλήκτρο Select',
+	numpad0: 'Αριθμητικό πληκτρολόγιο 0',
+	numpad1: 'Αριθμητικό Πληκτρολόγιο 1',
+	numpad2: 'Αριθμητικό πληκτρολόγιο 2',
+	numpad3: 'Αριθμητικό πληκτρολόγιο 3',
+	numpad4: 'Αριθμητικό πληκτρολόγιο 4',
+	numpad5: 'Αριθμητικό πληκτρολόγιο 5',
+	numpad6: 'Αριθμητικό πληκτρολόγιο 6',
+	numpad7: 'Αριθμητικό πληκτρολόγιο 7',
+	numpad8: 'Αριθμητικό πληκτρολόγιο 8',
+	numpad9: 'Αριθμητικό πληκτρολόγιο 9',
+	multiply: 'Πολλαπλασιασμός',
+	add: 'Πρόσθεση',
+	subtract: 'Αφαίρεση',
+	decimalPoint: 'Υποδιαστολή',
+	divide: 'Διαίρεση',
+	f1: 'F1',
+	f2: 'F2',
+	f3: 'F3',
+	f4: 'F4',
+	f5: 'F5',
+	f6: '6',
+	f7: '7',
+	f8: 'F8',
+	f9: 'F9',
+	f10: 'F10',
+	f11: 'F11',
+	f12: 'F12',
+	numLock: 'Num Lock',
+	scrollLock: 'Scroll Lock',
+	semiColon: 'Ερωτηματικό',
+	equalSign: 'Σύμβολο Ισότητας',
+	comma: 'Κόμμα',
+	dash: 'Παύλα',
+	period: 'Τελεία',
+	forwardSlash: 'Κάθετος',
+	graveAccent: 'Βαρεία',
+	openBracket: 'Άνοιγμα Παρένθεσης',
+	backSlash: 'Ανάστροφη Κάθετος',
+	closeBracket: 'Κλείσιμο Παρένθεσης',
+	singleQuote: 'Απόστροφος'
+} );

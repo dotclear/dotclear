@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['mn'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['mn'] = {
     {
     	toolbar : 'Код'
     },
-    smiley : 
-    {
-    	options : 'Smiley Options',
-    	title : 'Тодорхойлолт оруулах',
-    	toolbar : 'Тодорхойлолт'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Хавтангуудыг харуулах'
-    },
-    selectall : 
-    {
-    	toolbar : 'Бүгдийг нь сонгох'
-    },
-    save : 
-    {
-    	toolbar : 'Хадгалах'
-    },
     removeformat : 
     {
     	toolbar : 'Параргафын загварыг авч хаях'
@@ -154,10 +136,6 @@ CKEDITOR.lang['mn'] = {
     print : 
     {
     	toolbar : 'Хэвлэх'
-    },
-    preview : 
-    {
-    	preview : 'Уридчлан харах'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['mn'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Word-оос буулгах',
     	toolbar : 'Word-оос буулгах'
-    },
-    pagebreak : 
-    {
-    	alt : 'Page Break',
-    	toolbar : 'Хуудас тусгаарлагч оруулах'
-    },
-    newpage : 
-    {
-    	toolbar : 'Шинэ хуудас'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['mn'] = {
     	validateHSpace : 'HSpace must be a whole number.',
     	validateVSpace : 'VSpace must be a whole number.'
     },
-    iframe : 
-    {
-    	border : 'Show frame border',
-    	noUrl : 'Please type the iframe URL',
-    	scrolling : 'Enable scrollbars',
-    	title : 'IFrame Properties',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Хөндлөн зураас оруулах'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Товчны шинж чанар',
-    		text : 'Тэкст (Утга)',
-    		type : 'Төрөл',
-    		typeBtn : 'Товч',
-    		typeSbm : 'Submit',
-    		typeRst : 'Болих'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Чекбоксны шинж чанар',
-    		radioTitle : 'Радио товчны шинж чанар',
-    		value : 'Утга',
-    		selected : 'Сонгогдсон'
-    	},
-    	form : 
-    	{
-    		title : 'Форм шинж чанар',
-    		menu : 'Форм шинж чанар',
-    		action : 'Үйлдэл',
-    		method : 'Арга',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'Нууц талбарын шинж чанар',
-    		name : 'Нэр',
-    		value : 'Утга'
-    	},
-    	select : 
-    	{
-    		title : 'Согогч талбарын шинж чанар',
-    		selectInfo : 'Мэдээлэл',
-    		opAvail : 'Идвэхтэй сонголт',
-    		value : 'Утга',
-    		size : 'Хэмжээ',
-    		lines : 'Мөр',
-    		chkMulti : 'Олон зүйл зэрэг сонгохыг зөвшөөрөх',
-    		opText : 'Тэкст',
-    		opValue : 'Утга',
-    		btnAdd : 'Нэмэх',
-    		btnModify : 'Өөрчлөх',
-    		btnUp : 'Дээш',
-    		btnDown : 'Доош',
-    		btnSetValue : 'Сонгогдсан утга оноох',
-    		btnDelete : 'Устгах'
-    	},
-    	textarea : 
-    	{
-    		title : 'Текст орчны шинж чанар',
-    		cols : 'Багана',
-    		rows : 'Мөр'
-    	},
-    	textfield : 
-    	{
-    		title : 'Текст талбарын шинж чанар',
-    		name : 'Нэр',
-    		value : 'Утга',
-    		charWidth : 'Тэмдэгтын өргөн',
-    		maxChars : 'Хамгийн их тэмдэгт',
-    		type : 'Төрөл',
-    		typeText : 'Текст',
-    		typePass : 'Нууц үг',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'цахим хуудасны хаяг (URL)'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['mn'] = {
     	tag_h6 : 'Гарчиг 6',
     	tag_p : 'Хэвийн',
     	tag_pre : 'Formatted'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Хэмжээ',
-    		voiceLabel : 'Үсгийн хэмжээ',
-    		panelTitle : 'Үсгийн хэмжээ'
-    	},
-    	label : 'Үсгийн хэлбэр',
-    	panelTitle : 'Үгсийн хэлбэрийн нэр',
-    	voiceLabel : 'Үгсийн хэлбэр'
-    },
-    flash : 
-    {
-    	access : 'Script Access',
-    	accessAlways : 'Онцлогууд',
-    	accessNever : 'Хэзээ ч үгүй',
-    	accessSameDomain : 'Байнга',
-    	alignAbsBottom : 'Abs доод талд',
-    	alignAbsMiddle : 'Abs Дунд талд',
-    	alignBaseline : 'Baseline',
-    	alignTextTop : 'Текст дээр',
-    	bgcolor : 'Дэвсгэр өнгө',
-    	chkFull : 'Allow Fullscreen',
-    	chkLoop : 'Давтах',
-    	chkMenu : 'Флаш цэс идвэхжүүлэх',
-    	chkPlay : 'Автоматаар тоглох',
-    	flashvars : 'Variables for Flash',
-    	hSpace : 'Хөндлөн зай',
-    	properties : 'Флаш шинж чанар',
-    	propertiesTab : 'Properties',
-    	quality : 'Quality',
-    	qualityAutoHigh : 'Auto High',
-    	qualityAutoLow : 'Auto Low',
-    	qualityBest : 'Best',
-    	qualityHigh : 'High',
-    	qualityLow : 'Low',
-    	qualityMedium : 'Medium',
-    	scale : 'Өргөгтгөх',
-    	scaleAll : 'Бүгдийг харуулах',
-    	scaleFit : 'Яг тааруулах',
-    	scaleNoBorder : 'Хүрээгүй',
-    	title : 'Флаш  шинж чанар',
-    	vSpace : 'Босоо зай',
-    	validateHSpace : 'HSpace must be a number.',
-    	validateSrc : 'Линк URL-ээ төрөлжүүлнэ үү',
-    	validateVSpace : 'VSpace must be a number.',
-    	windowMode : 'Window mode',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Window'
-    },
-    find : 
-    {
-    	find : 'Хайх',
-    	findOptions : 'Хайх сонголтууд',
-    	findWhat : 'Хайх үг/үсэг:',
-    	matchCase : 'Тэнцэх төлөв',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'Тэнцэх бүтэн үг',
-    	notFoundMsg : 'Хайсан бичвэрийг олсонгүй.',
-    	replace : 'Орлуулах',
-    	replaceAll : 'Бүгдийг нь солих',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'Солих үг:',
-    	title : 'Хайж орлуулах'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['mn'] = {
     contextmenu : 
     {
     	options : 'Context Menu Options'
-    },
-    colordialog : 
-    {
-    	clear : 'Clear',
-    	highlight : 'Highlight',
-    	options : 'Color Options',
-    	selected : 'Selected Color',
-    	title : 'Select color'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['mn'] = {
     	securityMsg : 'Таны үзүүлэгч/browser/-н хамгаалалтын тохиргооноос болоод editor clipboard өгөгдөлрүү шууд хандах боломжгүй. Энэ цонход дахин paste хийхийг оролд.',
     	title : 'Буулгах'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Ишлэл хэсэг'
-    },
-    bidi : 
-    {
-    	ltr : 'Зүүнээс баруун тийш бичлэг',
-    	rtl : 'Баруунаас зүүн тийш бичлэг'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['mn'] = {
     	alignLeft : 'Зүүн',
     	alignRight : 'Баруун',
     	alignCenter : 'Төвд',
+    	alignJustify : 'Тэгшлэх',
     	alignTop : 'Дээд талд',
     	alignMiddle : 'Дунд',
     	alignBottom : 'Доод талд',
+    	alignNone : 'None',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Өндөр нь тоо байх ёстой.',
     	invalidWidth : 'Өргөн нь тоо байх ёстой.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['mn'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, unavailable</span>'
-    } } 
+    } }; 

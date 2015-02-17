@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['et'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['et'] = {
     {
     	toolbar : 'Lähtekood'
     },
-    smiley : 
-    {
-    	options : 'Emotikonide valikud',
-    	title : 'Sisesta emotikon',
-    	toolbar : 'Emotikon'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Blokkide näitamine'
-    },
-    selectall : 
-    {
-    	toolbar : 'Kõige valimine'
-    },
-    save : 
-    {
-    	toolbar : 'Salvestamine'
-    },
     removeformat : 
     {
     	toolbar : 'Vormingu eemaldamine'
@@ -154,10 +136,6 @@ CKEDITOR.lang['et'] = {
     print : 
     {
     	toolbar : 'Printimine'
-    },
-    preview : 
-    {
-    	preview : 'Eelvaade'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['et'] = {
     	error : 'Asetatud andmete puhastamine ei olnud sisemise vea tõttu võimalik',
     	title : 'Asetamine Wordist',
     	toolbar : 'Asetamine Wordist'
-    },
-    pagebreak : 
-    {
-    	alt : 'Lehevahetuskoht',
-    	toolbar : 'Lehevahetuskoha sisestamine'
-    },
-    newpage : 
-    {
-    	toolbar : 'Uus leht'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['et'] = {
     	validateHSpace : 'Horisontaalne vaheruum peab olema täisarv.',
     	validateVSpace : 'Vertikaalne vaheruum peab olema täisarv.'
     },
-    iframe : 
-    {
-    	border : 'Raami äärise näitamine',
-    	noUrl : 'Vali iframe URLi liik',
-    	scrolling : 'Kerimisribade lubamine',
-    	title : 'IFrame omadused',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Horisontaaljoone sisestamine'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Nupu omadused',
-    		text : 'Tekst (väärtus)',
-    		type : 'Liik',
-    		typeBtn : 'Nupp',
-    		typeSbm : 'Saada',
-    		typeRst : 'Lähtesta'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Märkeruudu omadused',
-    		radioTitle : 'Raadionupu omadused',
-    		value : 'Väärtus',
-    		selected : 'Märgitud'
-    	},
-    	form : 
-    	{
-    		title : 'Vormi omadused',
-    		menu : 'Vormi omadused',
-    		action : 'Toiming',
-    		method : 'Meetod',
-    		encoding : 'Kodeering'
-    	},
-    	hidden : 
-    	{
-    		title : 'Varjatud lahtri omadused',
-    		name : 'Nimi',
-    		value : 'Väärtus'
-    	},
-    	select : 
-    	{
-    		title : 'Valiklahtri omadused',
-    		selectInfo : 'Info',
-    		opAvail : 'Võimalikud valikud:',
-    		value : 'Väärtus',
-    		size : 'Suurus',
-    		lines : 'ridu',
-    		chkMulti : 'Võimalik mitu valikut',
-    		opText : 'Tekst',
-    		opValue : 'Väärtus',
-    		btnAdd : 'Lisa',
-    		btnModify : 'Muuda',
-    		btnUp : 'Üles',
-    		btnDown : 'Alla',
-    		btnSetValue : 'Määra vaikimisi',
-    		btnDelete : 'Kustuta'
-    	},
-    	textarea : 
-    	{
-    		title : 'Tekstiala omadused',
-    		cols : 'Veerge',
-    		rows : 'Ridu'
-    	},
-    	textfield : 
-    	{
-    		title : 'Tekstilahtri omadused',
-    		name : 'Nimi',
-    		value : 'Väärtus',
-    		charWidth : 'Laius (tähemärkides)',
-    		maxChars : 'Maksimaalselt tähemärke',
-    		type : 'Liik',
-    		typeText : 'Tekst',
-    		typePass : 'Parool',
-    		typeEmail : 'E-mail',
-    		typeSearch : 'Otsi',
-    		typeTel : 'Telefon',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['et'] = {
     	tag_h6 : 'Pealkiri 6',
     	tag_p : 'Tavaline',
     	tag_pre : 'Vormindatud'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Suurus',
-    		voiceLabel : 'Kirja suurus',
-    		panelTitle : 'Suurus'
-    	},
-    	label : 'Kiri',
-    	panelTitle : 'Kiri',
-    	voiceLabel : 'Kiri'
-    },
-    flash : 
-    {
-    	access : 'Skriptide ligipääs',
-    	accessAlways : 'Kõigile',
-    	accessNever : 'Mitte ühelegi',
-    	accessSameDomain : 'Samalt domeenilt',
-    	alignAbsBottom : 'Abs alla',
-    	alignAbsMiddle : 'Abs keskele',
-    	alignBaseline : 'Baasjoonele',
-    	alignTextTop : 'Tekstist üles',
-    	bgcolor : 'Tausta värv',
-    	chkFull : 'Täisekraan lubatud',
-    	chkLoop : 'Korduv',
-    	chkMenu : 'Flashi menüü lubatud',
-    	chkPlay : 'Automaatne start ',
-    	flashvars : 'Flashi muutujad',
-    	hSpace : 'H. vaheruum',
-    	properties : 'Flashi omadused',
-    	propertiesTab : 'Omadused',
-    	quality : 'Kvaliteet',
-    	qualityAutoHigh : 'Automaatne kõrge',
-    	qualityAutoLow : 'Automaatne madal',
-    	qualityBest : 'Parim',
-    	qualityHigh : 'Kõrge',
-    	qualityLow : 'Madal',
-    	qualityMedium : 'Keskmine',
-    	scale : 'Mastaap',
-    	scaleAll : 'Näidatakse kõike',
-    	scaleFit : 'Täpne sobivus',
-    	scaleNoBorder : 'Äärist ei ole',
-    	title : 'Flashi omadused',
-    	vSpace : 'V. vaheruum',
-    	validateHSpace : 'H. vaheruum peab olema number.',
-    	validateSrc : 'Palun kirjuta lingi URL',
-    	validateVSpace : 'V. vaheruum peab olema number.',
-    	windowMode : 'Akna režiim',
-    	windowModeOpaque : 'Läbipaistmatu',
-    	windowModeTransparent : 'Läbipaistev',
-    	windowModeWindow : 'Aken'
-    },
-    find : 
-    {
-    	find : 'Otsi',
-    	findOptions : 'Otsingu valikud',
-    	findWhat : 'Otsitav:',
-    	matchCase : 'Suur- ja väiketähtede eristamine',
-    	matchCyclic : 'Jätkatakse algusest',
-    	matchWord : 'Ainult terved sõnad',
-    	notFoundMsg : 'Otsitud teksti ei leitud.',
-    	replace : 'Asenda',
-    	replaceAll : 'Asenda kõik',
-    	replaceSuccessMsg : '%1 vastet asendati.',
-    	replaceWith : 'Asendus:',
-    	title : 'Otsimine ja asendamine'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['et'] = {
     contextmenu : 
     {
     	options : 'Kontekstimenüü valikud'
-    },
-    colordialog : 
-    {
-    	clear : 'Eemalda',
-    	highlight : 'Näidis',
-    	options : 'Värvi valikud',
-    	selected : 'Valitud värv',
-    	title : 'Värvi valimine'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['et'] = {
     	securityMsg : 'Sinu veebisirvija turvaseadete tõttu ei oma redaktor otsest ligipääsu lõikelaua andmetele. Sa pead asetama need uuesti siia aknasse.',
     	title : 'Asetamine'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Blokktsitaat'
-    },
-    bidi : 
-    {
-    	ltr : 'Teksti suund vasakult paremale',
-    	rtl : 'Teksti suund paremalt vasakule'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['et'] = {
     	userGuide : 'CKEditori kasutusjuhendit'
     },
     editor : 'Rikkalik tekstiredaktor',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Rikkaliku tekstiredaktori paneel',
     common : 
     {
     	editorHelp : 'Abi saamiseks vajuta ALT 0',
@@ -643,7 +456,7 @@ CKEDITOR.lang['et'] = {
     	cssClass : 'Stiilistiku klassid',
     	advisoryTitle : 'Soovituslik pealkiri',
     	cssStyle : 'Laad',
-    	ok : 'OK',
+    	ok : 'Olgu',
     	cancel : 'Loobu',
     	close : 'Sulge',
     	preview : 'Eelvaade',
@@ -669,9 +482,11 @@ CKEDITOR.lang['et'] = {
     	alignLeft : 'Vasak',
     	alignRight : 'Paremale',
     	alignCenter : 'Kesk',
+    	alignJustify : 'Rööpjoondus',
     	alignTop : 'Üles',
     	alignMiddle : 'Keskele',
     	alignBottom : 'Alla',
+    	alignNone : 'None',
     	invalidValue : 'Vigane väärtus.',
     	invalidHeight : 'Kõrgus peab olema number.',
     	invalidWidth : 'Laius peab olema number.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['et'] = {
     	invalidInlineStyle : 'Reasisese stiili määrangud peavad koosnema paarisväärtustest (tuples), mis on semikoolonitega eraldatult järgnevas vormingus: "nimi : väärtus".',
     	cssLengthTooltip : 'Sisesta väärtus pikslites või number koos sobiva CSS-i ühikuga (px, %, in, cm, mm, em, ex, pt või pc).',
     	unavailable : '%1<span class="cke_accessibility">, pole saadaval</span>'
-    } } 
+    } }; 

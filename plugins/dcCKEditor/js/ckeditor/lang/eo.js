@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['eo'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['eo'] = {
     {
     	toolbar : 'Fonto'
     },
-    smiley : 
-    {
-    	options : 'Opcioj pri mienvinjetoj',
-    	title : 'Enmeti Mienvinjeton',
-    	toolbar : 'Mienvinjeto'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Montri la blokojn'
-    },
-    selectall : 
-    {
-    	toolbar : 'Elekti ĉion'
-    },
-    save : 
-    {
-    	toolbar : 'Konservi'
-    },
     removeformat : 
     {
     	toolbar : 'Forigi Formaton'
@@ -154,10 +136,6 @@ CKEDITOR.lang['eo'] = {
     print : 
     {
     	toolbar : 'Presi'
-    },
-    preview : 
-    {
-    	preview : 'Vidigi Aspekton'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['eo'] = {
     	error : 'Ne eblis purigi la intergluitajn datenojn pro interna eraro',
     	title : 'Interglui el Word',
     	toolbar : 'Interglui el Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Paĝavanco',
-    	toolbar : 'Enmeti Paĝavancon por Presado'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nova Paĝo'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['eo'] = {
     	validateHSpace : 'La horizontala spaco devas esti entjera nombro.',
     	validateVSpace : 'La vertikala spaco devas esti entjera nombro.'
     },
-    iframe : 
-    {
-    	border : 'Montri borderon de kadro (frame)',
-    	noUrl : 'Bonvolu entajpi la retadreson de la ligilo al la enlinia kadro (IFrame)',
-    	scrolling : 'Ebligi rulumskalon',
-    	title : 'Atributoj de la enlinia kadro (IFrame)',
-    	toolbar : 'Enlinia kadro (IFrame)'
-    },
     horizontalrule : 
     {
     	toolbar : 'Enmeti Horizontalan Linion'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Butonaj atributoj',
-    		text : 'Teksto (Valoro)',
-    		type : 'Tipo',
-    		typeBtn : 'Butono',
-    		typeSbm : 'Validigi (submit)',
-    		typeRst : 'Remeti en la originstaton (Reset)'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Markobutonaj Atributoj',
-    		radioTitle : 'Radiobutonaj Atributoj',
-    		value : 'Valoro',
-    		selected : 'Selektita'
-    	},
-    	form : 
-    	{
-    		title : 'Formularaj Atributoj',
-    		menu : 'Formularaj Atributoj',
-    		action : 'Ago',
-    		method : 'Metodo',
-    		encoding : 'Kodoprezento'
-    	},
-    	hidden : 
-    	{
-    		title : 'Atributoj de Kaŝita Kampo',
-    		name : 'Nomo',
-    		value : 'Valoro'
-    	},
-    	select : 
-    	{
-    		title : 'Atributoj de Elekta Kampo',
-    		selectInfo : 'Informoj pri la rulummenuo',
-    		opAvail : 'Elektoj Disponeblaj',
-    		value : 'Valoro',
-    		size : 'Grando',
-    		lines : 'Linioj',
-    		chkMulti : 'Permesi Plurajn Elektojn',
-    		opText : 'Teksto',
-    		opValue : 'Valoro',
-    		btnAdd : 'Aldoni',
-    		btnModify : 'Modifi',
-    		btnUp : 'Supren',
-    		btnDown : 'Malsupren',
-    		btnSetValue : 'Agordi kiel Elektitan Valoron',
-    		btnDelete : 'Forigi'
-    	},
-    	textarea : 
-    	{
-    		title : 'Atributoj de Teksta Areo',
-    		cols : 'Kolumnoj',
-    		rows : 'Linioj'
-    	},
-    	textfield : 
-    	{
-    		title : 'Atributoj de Teksta Kampo',
-    		name : 'Nomo',
-    		value : 'Valoro',
-    		charWidth : 'Signolarĝo',
-    		maxChars : 'Maksimuma Nombro da Signoj',
-    		type : 'Tipo',
-    		typeText : 'Teksto',
-    		typePass : 'Pasvorto',
-    		typeEmail : 'retpoŝtadreso',
-    		typeSearch : 'Serĉi',
-    		typeTel : 'Telefonnumero',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['eo'] = {
     	tag_h6 : 'Titolo 6',
     	tag_p : 'Normala',
     	tag_pre : 'Formatita'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Grado',
-    		voiceLabel : 'Tipara grado',
-    		panelTitle : 'Tipara grado'
-    	},
-    	label : 'Tiparo',
-    	panelTitle : 'Tipara nomo',
-    	voiceLabel : 'Tiparo'
-    },
-    flash : 
-    {
-    	access : 'Atingi skriptojn',
-    	accessAlways : 'Ĉiam',
-    	accessNever : 'Neniam',
-    	accessSameDomain : 'Sama domajno',
-    	alignAbsBottom : 'Absoluta Malsupro',
-    	alignAbsMiddle : 'Absoluta Centro',
-    	alignBaseline : 'TekstoMalsupro',
-    	alignTextTop : 'TekstoSupro',
-    	bgcolor : 'Fona Koloro',
-    	chkFull : 'Permesi tutekranon',
-    	chkLoop : 'Iteracio',
-    	chkMenu : 'Ebligi flaŝmenuon',
-    	chkPlay : 'Aŭtomata legado',
-    	flashvars : 'Variabloj por Flaŝo',
-    	hSpace : 'Horizontala Spaco',
-    	properties : 'Flaŝatributoj',
-    	propertiesTab : 'Atributoj',
-    	quality : 'Kvalito',
-    	qualityAutoHigh : 'Aŭtomate alta',
-    	qualityAutoLow : 'Aŭtomate malalta',
-    	qualityBest : 'Plej bona',
-    	qualityHigh : 'Alta',
-    	qualityLow : 'Malalta',
-    	qualityMedium : 'Meza',
-    	scale : 'Skalo',
-    	scaleAll : 'Montri ĉion',
-    	scaleFit : 'Origina grando',
-    	scaleNoBorder : 'Neniu bordero',
-    	title : 'Flaŝatributoj',
-    	vSpace : 'Vertikala Spaco',
-    	validateHSpace : 'Horizontala Spaco devas esti nombro.',
-    	validateSrc : 'Bonvolu entajpi la retadreson (URL)',
-    	validateVSpace : 'Vertikala Spaco devas esti nombro.',
-    	windowMode : 'Fenestra reĝimo',
-    	windowModeOpaque : 'Opaka',
-    	windowModeTransparent : 'Travidebla',
-    	windowModeWindow : 'Fenestro'
-    },
-    find : 
-    {
-    	find : 'Serĉi',
-    	findOptions : 'Opcioj pri Serĉado',
-    	findWhat : 'Serĉi:',
-    	matchCase : 'Kongruigi Usklecon',
-    	matchCyclic : 'Cikla Serĉado',
-    	matchWord : 'Tuta Vorto',
-    	notFoundMsg : 'La celteksto ne estas trovita.',
-    	replace : 'Anstataŭigi',
-    	replaceAll : 'Anstataŭigi Ĉion',
-    	replaceSuccessMsg : '%1 anstataŭigita(j) apero(j).',
-    	replaceWith : 'Anstataŭigi per:',
-    	title : 'Serĉi kaj Anstataŭigi'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['eo'] = {
     contextmenu : 
     {
     	options : 'Opcioj de Kunteksta Menuo'
-    },
-    colordialog : 
-    {
-    	clear : 'Forigi',
-    	highlight : 'Detaloj',
-    	options : 'Opcioj pri koloroj',
-    	selected : 'Selektita koloro',
-    	title : 'Selekti koloron'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['eo'] = {
     	securityMsg : 'Pro la sekurecagordo de via TTT-legilo, la redaktilo ne povas rekte atingi viajn datenojn en la poŝo. Bonvolu denove interglui la datenojn en tiun fenestron.',
     	title : 'Interglui'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selektita)'
+    },
     blockquote : 
     {
     	toolbar : 'Citaĵo'
-    },
-    bidi : 
-    {
-    	ltr : 'Tekstdirekto de maldekstre dekstren',
-    	rtl : 'Tekstdirekto de dekstre maldekstren'
     },
     basicstyles : 
     {
@@ -611,8 +424,8 @@ CKEDITOR.lang['eo'] = {
     	title : 'Pri CKEditor',
     	userGuide : 'CKEditor Uzindikoj'
     },
-    editor : 'Redaktilo por Riĉiga Teksto',
-    editorPanel : 'Rich Text Editor panel',
+    editor : 'RiĉTeksta Redaktilo',
+    editorPanel : 'Panelo de la RiĉTeksta Redaktilo',
     common : 
     {
     	editorHelp : 'Premu ALT 0 por helpilo',
@@ -669,9 +482,11 @@ CKEDITOR.lang['eo'] = {
     	alignLeft : 'Maldekstre',
     	alignRight : 'Dekstre',
     	alignCenter : 'Centre',
+    	alignJustify : 'Ĝisrandigi Ambaŭflanke',
     	alignTop : 'Supre',
     	alignMiddle : 'Centre',
     	alignBottom : 'Malsupre',
+    	alignNone : 'None',
     	invalidValue : 'Nevalida Valoro',
     	invalidHeight : 'Alto devas esti nombro.',
     	invalidWidth : 'Larĝo devas esti nombro.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['eo'] = {
     	invalidInlineStyle : 'La valoro indikita por la enlinia stilo devas konsisti el unu aŭ pluraj elementoj kun la formato de "nomo : valoro", apartigitaj per punktokomoj.',
     	cssLengthTooltip : 'Entajpu nombron por rastrumera valoro aŭ nombron kun valida CSSunuo (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, nehavebla</span>'
-    } } 
+    } }; 

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['it'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['it'] = {
     {
     	toolbar : 'Sorgente'
     },
-    smiley : 
-    {
-    	options : 'Opzioni Smiley',
-    	title : 'Inserisci emoticon',
-    	toolbar : 'Emoticon'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Visualizza Blocchi'
-    },
-    selectall : 
-    {
-    	toolbar : 'Seleziona tutto'
-    },
-    save : 
-    {
-    	toolbar : 'Salva'
-    },
     removeformat : 
     {
     	toolbar : 'Elimina formattazione'
@@ -154,10 +136,6 @@ CKEDITOR.lang['it'] = {
     print : 
     {
     	toolbar : 'Stampa'
-    },
-    preview : 
-    {
-    	preview : 'Anteprima'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['it'] = {
     	error : 'Non è stato possibile eliminare il testo incollato a causa di un errore interno.',
     	title : 'Incolla da Word',
     	toolbar : 'Incolla da Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Interruzione di pagina',
-    	toolbar : 'Inserisci interruzione di pagina per la stampa'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nuova pagina'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['it'] = {
     	validateHSpace : 'Il campo HSpace deve essere un numero intero.',
     	validateVSpace : 'Il campo VSpace deve essere un numero intero.'
     },
-    iframe : 
-    {
-    	border : 'Mostra il bordo',
-    	noUrl : 'Inserire l\'URL del campo IFrame',
-    	scrolling : 'Abilita scrollbar',
-    	title : 'Proprietà IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Inserisci riga orizzontale'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Proprietà bottone',
-    		text : 'Testo (Valore)',
-    		type : 'Tipo',
-    		typeBtn : 'Bottone',
-    		typeSbm : 'Invio',
-    		typeRst : 'Annulla'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Proprietà checkbox',
-    		radioTitle : 'Proprietà radio button',
-    		value : 'Valore',
-    		selected : 'Selezionato'
-    	},
-    	form : 
-    	{
-    		title : 'Proprietà modulo',
-    		menu : 'Proprietà modulo',
-    		action : 'Azione',
-    		method : 'Metodo',
-    		encoding : 'Codifica'
-    	},
-    	hidden : 
-    	{
-    		title : 'Proprietà campo nascosto',
-    		name : 'Nome',
-    		value : 'Valore'
-    	},
-    	select : 
-    	{
-    		title : 'Proprietà menu di selezione',
-    		selectInfo : 'Info',
-    		opAvail : 'Opzioni disponibili',
-    		value : 'Valore',
-    		size : 'Dimensione',
-    		lines : 'righe',
-    		chkMulti : 'Permetti selezione multipla',
-    		opText : 'Testo',
-    		opValue : 'Valore',
-    		btnAdd : 'Aggiungi',
-    		btnModify : 'Modifica',
-    		btnUp : 'Su',
-    		btnDown : 'Gi',
-    		btnSetValue : 'Imposta come predefinito',
-    		btnDelete : 'Rimuovi'
-    	},
-    	textarea : 
-    	{
-    		title : 'Proprietà area di testo',
-    		cols : 'Colonne',
-    		rows : 'Righe'
-    	},
-    	textfield : 
-    	{
-    		title : 'Proprietà campo di testo',
-    		name : 'Nome',
-    		value : 'Valore',
-    		charWidth : 'Larghezza',
-    		maxChars : 'Numero massimo di caratteri',
-    		type : 'Tipo',
-    		typeText : 'Testo',
-    		typePass : 'Password',
-    		typeEmail : 'Email',
-    		typeSearch : 'Cerca',
-    		typeTel : 'Numero di telefono',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['it'] = {
     	tag_h6 : 'Titolo 6',
     	tag_p : 'Normale',
     	tag_pre : 'Formattato'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Dimensione',
-    		voiceLabel : 'Dimensione Carattere',
-    		panelTitle : 'Dimensione'
-    	},
-    	label : 'Carattere',
-    	panelTitle : 'Carattere',
-    	voiceLabel : 'Carattere'
-    },
-    flash : 
-    {
-    	access : 'Accesso Script',
-    	accessAlways : 'Sempre',
-    	accessNever : 'Mai',
-    	accessSameDomain : 'Solo stesso dominio',
-    	alignAbsBottom : 'In basso assoluto',
-    	alignAbsMiddle : 'Centrato assoluto',
-    	alignBaseline : 'Linea base',
-    	alignTextTop : 'In alto al testo',
-    	bgcolor : 'Colore sfondo',
-    	chkFull : 'Permetti la modalità tutto schermo',
-    	chkLoop : 'Riavvio automatico',
-    	chkMenu : 'Abilita Menu di Flash',
-    	chkPlay : 'Avvio Automatico',
-    	flashvars : 'Variabili per Flash',
-    	hSpace : 'HSpace',
-    	properties : 'Proprietà Oggetto Flash',
-    	propertiesTab : 'Proprietà',
-    	quality : 'Qualità',
-    	qualityAutoHigh : 'Alta Automatica',
-    	qualityAutoLow : 'Bassa Automatica',
-    	qualityBest : 'Massima',
-    	qualityHigh : 'Alta',
-    	qualityLow : 'Bassa',
-    	qualityMedium : 'Intermedia',
-    	scale : 'Ridimensiona',
-    	scaleAll : 'Mostra Tutto',
-    	scaleFit : 'Dimensione Esatta',
-    	scaleNoBorder : 'Senza Bordo',
-    	title : 'Proprietà Oggetto Flash',
-    	vSpace : 'VSpace',
-    	validateHSpace : 'L\'HSpace dev\'essere un numero.',
-    	validateSrc : 'Devi inserire l\'URL del collegamento',
-    	validateVSpace : 'Il VSpace dev\'essere un numero.',
-    	windowMode : 'Modalità finestra',
-    	windowModeOpaque : 'Opaca',
-    	windowModeTransparent : 'Trasparente',
-    	windowModeWindow : 'Finestra'
-    },
-    find : 
-    {
-    	find : 'Trova',
-    	findOptions : 'Opzioni di ricerca',
-    	findWhat : 'Trova:',
-    	matchCase : 'Maiuscole/minuscole',
-    	matchCyclic : 'Ricerca ciclica',
-    	matchWord : 'Solo parole intere',
-    	notFoundMsg : 'L\'elemento cercato non è stato trovato.',
-    	replace : 'Sostituisci',
-    	replaceAll : 'Sostituisci tutto',
-    	replaceSuccessMsg : '%1 occorrenza(e) sostituite.',
-    	replaceWith : 'Sostituisci con:',
-    	title : 'Cerca e Sostituisci'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['it'] = {
     contextmenu : 
     {
     	options : 'Opzioni del menù contestuale'
-    },
-    colordialog : 
-    {
-    	clear : 'cancella',
-    	highlight : 'Evidenzia',
-    	options : 'Opzioni colore',
-    	selected : 'Seleziona il colore',
-    	title : 'Selezionare il colore'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['it'] = {
     	securityMsg : 'A causa delle impostazioni di sicurezza del browser,l\'editor non è in grado di accedere direttamente agli appunti. E\' pertanto necessario incollarli di nuovo in questa finestra.',
     	title : 'Incolla'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (selezionato)'
+    },
     blockquote : 
     {
     	toolbar : 'Citazione'
-    },
-    bidi : 
-    {
-    	ltr : 'Direzione del testo da sinistra verso destra',
-    	rtl : 'Direzione del testo da destra verso sinistra'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['it'] = {
     	userGuide : 'Guida Utente CKEditor'
     },
     editor : 'Rich Text Editor',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Pannello Rich Text Editor',
     common : 
     {
     	editorHelp : 'Premi ALT 0 per aiuto',
@@ -669,9 +482,11 @@ CKEDITOR.lang['it'] = {
     	alignLeft : 'Sinistra',
     	alignRight : 'Destra',
     	alignCenter : 'Centrato',
+    	alignJustify : 'Giustifica',
     	alignTop : 'In Alto',
     	alignMiddle : 'Centrato',
     	alignBottom : 'In Basso',
+    	alignNone : 'Nessuno',
     	invalidValue : 'Valore non valido.',
     	invalidHeight : 'L\'altezza dev\'essere un numero',
     	invalidWidth : 'La Larghezza dev\'essere un numero',
@@ -680,4 +495,4 @@ CKEDITOR.lang['it'] = {
     	invalidInlineStyle : 'Il valore specificato per lo stile inline deve consistere in una o più tuple con il formato di "name : value", separati da semicolonne.',
     	cssLengthTooltip : 'Inserisci un numero per il valore in pixel oppure un numero con una valida unità CSS (px, %, in, cm, mm, ex, pt, o pc).',
     	unavailable : '%1<span class="cke_accessibility">, non disponibile</span>'
-    } } 
+    } }; 

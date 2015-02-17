@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fa'] = {
     undo : 
@@ -17,24 +17,24 @@ CKEDITOR.lang['fa'] = {
     		document : 'سند',
     		clipboard : 'حافظه موقت/برگشت',
     		editing : 'در حال ویرایش',
-    		forms : 'فرمها',
-    		basicstyles : 'شیوههای پایه',
+    		forms : 'فرم\u200bها',
+    		basicstyles : 'سبک‌های پایه',
     		paragraph : 'بند',
     		links : 'پیوندها',
     		insert : 'ورود',
-    		styles : 'شیوهها',
-    		colors : 'رنگها',
+    		styles : 'سبک‌ها',
+    		colors : 'رنگ\u200bها',
     		tools : 'ابزارها'
     	},
-    	toolbars : 'نوار ابزار'
+    	toolbars : 'نوار ابزارهای ویرایش‌گر'
     },
     templates : 
     {
     	button : 'الگوها',
     	emptyListMsg : '(الگوئی تعریف نشده است)',
     	insertOption : 'محتویات کنونی جایگزین شوند',
-    	options : 'گزینههای الگو',
-    	selectPromptMsg : 'لطفا الگوی موردنظر را برای بازکردن در ویرایشگر برگزینید<br>(محتویات کنونی از دست خواهند رفت):',
+    	options : 'گزینه‌های الگو',
+    	selectPromptMsg : 'لطفاً الگوی مورد نظر را برای بازکردن در ویرایشگر انتخاب کنید',
     	title : 'الگوهای محتویات'
     },
     table : 
@@ -121,31 +121,13 @@ CKEDITOR.lang['fa'] = {
     },
     specialchar : 
     {
-    	options : 'گزینههای نویسههای ویژه',
-    	title : 'گزینش نویسهی ویژه',
-    	toolbar : 'گنجاندن نویسهی ویژه'
+    	options : 'گزینه‌های نویسه‌های ویژه',
+    	title : 'گزینش نویسه‌ی ویژه',
+    	toolbar : 'گنجاندن نویسه‌ی ویژه'
     },
     sourcearea : 
     {
     	toolbar : 'منبع'
-    },
-    smiley : 
-    {
-    	options : 'گزینههای خندانک',
-    	title : 'گنجاندن خندانک',
-    	toolbar : 'خندانک'
-    },
-    showblocks : 
-    {
-    	toolbar : 'نمایش بلوکها'
-    },
-    selectall : 
-    {
-    	toolbar : 'گزینش همه'
-    },
-    save : 
-    {
-    	toolbar : 'ذخیره'
     },
     removeformat : 
     {
@@ -154,10 +136,6 @@ CKEDITOR.lang['fa'] = {
     print : 
     {
     	toolbar : 'چاپ'
-    },
-    preview : 
-    {
-    	preview : 'پیشنمایش'
     },
     pastetext : 
     {
@@ -171,15 +149,6 @@ CKEDITOR.lang['fa'] = {
     	title : 'چسباندن از Word',
     	toolbar : 'چسباندن از Word'
     },
-    pagebreak : 
-    {
-    	alt : 'شکستن صفحه',
-    	toolbar : 'گنجاندن شکستگی پایان برگه'
-    },
-    newpage : 
-    {
-    	toolbar : 'برگهٴ تازه'
-    },
     maximize : 
     {
     	maximize : 'بیشنه کردن',
@@ -191,11 +160,11 @@ CKEDITOR.lang['fa'] = {
     },
     liststyle : 
     {
-    	armenian : 'شمارهگذاری ارمنی',
-    	bulletedTitle : 'ویژگیهای فهرست گلولهدار',
+    	armenian : 'شماره‌گذاری ارمنی',
+    	bulletedTitle : 'خصوصیات فهرست نقطه‌ای',
     	circle : 'دایره',
-    	decimal : 'دهدهی (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'دهدهی همراه با صفر (01, 02, 03, etc.)',
+    	decimal : 'ده‌دهی (۱، ۲، ۳، ...)',
+    	decimalLeadingZero : 'دهدهی همراه با صفر (۰۱، ۰۲، ۰۳، ...)',
     	disc : 'صفحه گرد',
     	georgian : 'شمارهگذاری گریگورین (an, ban, gan, etc.)',
     	lowerAlpha : 'پانویس الفبایی (a, b, c, d, e, etc.)',
@@ -213,8 +182,8 @@ CKEDITOR.lang['fa'] = {
     },
     list : 
     {
-    	bulletedlist : 'فهرست نقطهای',
-    	numberedlist : 'فهرست شمارهدار'
+    	bulletedlist : 'فهرست نقطه\u200bای',
+    	numberedlist : 'فهرست شماره\u200bدار'
     },
     link : 
     {
@@ -225,23 +194,23 @@ CKEDITOR.lang['fa'] = {
     	anchor : 
     	{
     		toolbar : 'گنجاندن/ویرایش لنگر',
-    		menu : 'ویژگیهای لنگر',
-    		title : 'ویژگیهای لنگر',
+    		menu : 'ویژگی\u200bهای لنگر',
+    		title : 'ویژگی\u200bهای لنگر',
     		name : 'نام لنگر',
     		errorName : 'لطفا نام لنگر را بنویسید',
     		remove : 'حذف لنگر'
     	},
     	anchorId : 'با شناسهٴ المان',
     	anchorName : 'با نام لنگر',
-    	charset : 'نویسهگان منبع پیوند شده',
-    	cssClasses : 'کلاسهای شیوهنامه(Stylesheet)',
+    	charset : 'نویسه\u200bگان منبع پیوند شده',
+    	cssClasses : 'کلاس\u200bهای شیوه\u200bنامه(Stylesheet)',
     	emailAddress : 'نشانی پست الکترونیکی',
     	emailBody : 'متن پیام',
     	emailSubject : 'موضوع پیام',
     	id : 'شناسه',
     	info : 'اطلاعات پیوند',
-    	langCode : 'جهتنمای زبان',
-    	langDir : 'جهتنمای زبان',
+    	langCode : 'جهت\u200bنمای زبان',
+    	langDir : 'جهت\u200bنمای زبان',
     	langDirLTR : 'چپ به راست (LTR)',
     	langDirRTL : 'راست به چپ (RTL)',
     	menu : 'ویرایش پیوند',
@@ -251,13 +220,13 @@ CKEDITOR.lang['fa'] = {
     	noUrl : 'لطفا URL پیوند را بنویسید',
     	other : '<سایر>',
     	popupDependent : 'وابسته (Netscape)',
-    	popupFeatures : 'ویژگیهای پنجرهٴ پاپاپ',
+    	popupFeatures : 'ویژگی\u200bهای پنجرهٴ پاپاپ',
     	popupFullScreen : 'تمام صفحه (IE)',
     	popupLeft : 'موقعیت چپ',
     	popupLocationBar : 'نوار موقعیت',
     	popupMenuBar : 'نوار منو',
     	popupResizable : 'قابل تغییر اندازه',
-    	popupScrollBars : 'میلههای پیمایش',
+    	popupScrollBars : 'میله\u200bهای پیمایش',
     	popupStatusBar : 'نوار وضعیت',
     	popupToolbar : 'نوار ابزار',
     	popupTop : 'موقعیت بالا',
@@ -303,10 +272,10 @@ CKEDITOR.lang['fa'] = {
     	infoTab : 'اطلاعات تصویر',
     	linkTab : 'پیوند',
     	lockRatio : 'قفل کردن نسبت',
-    	menu : 'ویژگیهای تصویر',
+    	menu : 'ویژگی\u200bهای تصویر',
     	resetSize : 'بازنشانی اندازه',
-    	title : 'ویژگیهای تصویر',
-    	titleButton : 'ویژگیهای دکمهٴ تصویری',
+    	title : 'ویژگی\u200bهای تصویر',
+    	titleButton : 'ویژگی\u200bهای دکمهٴ تصویری',
     	upload : 'انتقال به سرور',
     	urlMissing : 'آدرس URL اصلی تصویر یافت نشد.',
     	vSpace : 'فاصلهٴ عمودی',
@@ -314,171 +283,24 @@ CKEDITOR.lang['fa'] = {
     	validateHSpace : 'مقدار فاصله گذاری افقی باید یک عدد باشد.',
     	validateVSpace : 'مقدار فاصله گذاری عمودی باید یک عدد باشد.'
     },
-    iframe : 
-    {
-    	border : 'نمایش خطوط frame',
-    	noUrl : 'لطفا مسیر URL iframe را درج کنید',
-    	scrolling : 'نمایش خطکشها',
-    	title : 'ویژگیهای IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'گنجاندن خط افقی'
     },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'ویژگیهای دکمه',
-    		text : 'متن (مقدار)',
-    		type : 'نوع',
-    		typeBtn : 'دکمه',
-    		typeSbm : 'ثبت',
-    		typeRst : 'بازنشانی (Reset)'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'ویژگیهای خانهٴ گزینهای',
-    		radioTitle : 'ویژگیهای دکمهٴ رادیویی',
-    		value : 'مقدار',
-    		selected : 'برگزیده'
-    	},
-    	form : 
-    	{
-    		title : 'ویژگیهای فرم',
-    		menu : 'ویژگیهای فرم',
-    		action : 'رویداد',
-    		method : 'متد',
-    		encoding : 'رمزنگاری'
-    	},
-    	hidden : 
-    	{
-    		title : 'ویژگیهای فیلد پنهان',
-    		name : 'نام',
-    		value : 'مقدار'
-    	},
-    	select : 
-    	{
-    		title : 'ویژگیهای فیلد چندگزینهای',
-    		selectInfo : 'اطلاعات',
-    		opAvail : 'گزینههای دردسترس',
-    		value : 'مقدار',
-    		size : 'اندازه',
-    		lines : 'خطوط',
-    		chkMulti : 'گزینش چندگانه فراهم باشد',
-    		opText : 'متن',
-    		opValue : 'مقدار',
-    		btnAdd : 'افزودن',
-    		btnModify : 'ویرایش',
-    		btnUp : 'بالا',
-    		btnDown : 'پائین',
-    		btnSetValue : 'تنظیم به عنوان مقدار برگزیده',
-    		btnDelete : 'پاککردن'
-    	},
-    	textarea : 
-    	{
-    		title : 'ویژگیهای ناحیهٴ متنی',
-    		cols : 'ستونها',
-    		rows : 'سطرها'
-    	},
-    	textfield : 
-    	{
-    		title : 'ویژگیهای فیلد متنی',
-    		name : 'نام',
-    		value : 'مقدار',
-    		charWidth : 'پهنای نویسه',
-    		maxChars : 'بیشینهٴ نویسهها',
-    		type : 'نوع',
-    		typeText : 'متن',
-    		typePass : 'گذرواژه',
-    		typeEmail : 'ایمیل',
-    		typeSearch : 'جستجو',
-    		typeTel : 'شماره تلفن',
-    		typeUrl : 'URL'
-    	}
-    },
     format : 
     {
-    	label : 'فرمت',
-    	panelTitle : 'فرمت',
-    	tag_address : 'آدرس',
+    	label : 'قالب',
+    	panelTitle : 'قالب بند',
+    	tag_address : 'نشانی',
     	tag_div : 'بند',
-    	tag_h1 : 'سرنویس 1',
-    	tag_h2 : 'سرنویس 2',
-    	tag_h3 : 'سرنویس 3',
-    	tag_h4 : 'سرنویس 4',
-    	tag_h5 : 'سرنویس 5',
-    	tag_h6 : 'سرنویس 6',
-    	tag_p : 'نرمال',
-    	tag_pre : 'فرمت شده'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'اندازه',
-    		voiceLabel : 'اندازه قلم',
-    		panelTitle : 'اندازه قلم'
-    	},
-    	label : 'قلم',
-    	panelTitle : 'نام قلم',
-    	voiceLabel : 'قلم'
-    },
-    flash : 
-    {
-    	access : 'دسترسی به اسکریپت',
-    	accessAlways : 'همیشه',
-    	accessNever : 'هرگز',
-    	accessSameDomain : 'همان دامنه',
-    	alignAbsBottom : 'پائین مطلق',
-    	alignAbsMiddle : 'وسط مطلق',
-    	alignBaseline : 'خط پایه',
-    	alignTextTop : 'متن بالا',
-    	bgcolor : 'رنگ پسزمینه',
-    	chkFull : 'اجازه تمام صفحه',
-    	chkLoop : 'اجرای پیاپی',
-    	chkMenu : 'در دسترس بودن منوی فلش',
-    	chkPlay : 'آغاز خودکار',
-    	flashvars : 'مقادیر برای فلش',
-    	hSpace : 'فاصلهٴ افقی',
-    	properties : 'ویژگیهای فلش',
-    	propertiesTab : 'ویژگیها',
-    	quality : 'کیفیت',
-    	qualityAutoHigh : 'بالا - خودکار',
-    	qualityAutoLow : 'پایین - خودکار',
-    	qualityBest : 'بهترین',
-    	qualityHigh : 'بالا',
-    	qualityLow : 'پایین',
-    	qualityMedium : 'متوسط',
-    	scale : 'مقیاس',
-    	scaleAll : 'نمایش همه',
-    	scaleFit : 'جایگیری کامل',
-    	scaleNoBorder : 'بدون کران',
-    	title : 'ویژگیهای فلش',
-    	vSpace : 'فاصلهٴ عمودی',
-    	validateHSpace : 'مقدار فاصله گذاری افقی باید یک عدد باشد.',
-    	validateSrc : 'لطفا URL پیوند را بنویسید',
-    	validateVSpace : 'مقدار فاصله گذاری عمودی باید یک عدد باشد.',
-    	windowMode : 'حالت پنجره',
-    	windowModeOpaque : 'مات',
-    	windowModeTransparent : 'شفاف',
-    	windowModeWindow : 'پنجره'
-    },
-    find : 
-    {
-    	find : 'جستجو',
-    	findOptions : 'گزینههای جستجو',
-    	findWhat : 'چه چیز را مییابید:',
-    	matchCase : 'همسانی در بزرگی و کوچکی نویسهها',
-    	matchCyclic : 'همسانی با چرخه',
-    	matchWord : 'همسانی با واژهٴ کامل',
-    	notFoundMsg : 'متن موردنظر یافت نشد.',
-    	replace : 'جایگزینی',
-    	replaceAll : 'جایگزینی همهٴ یافتهها',
-    	replaceSuccessMsg : '%1 رخداد جایگزین شد.',
-    	replaceWith : 'جایگزینی با:',
-    	title : 'جستجو و جایگزینی'
+    	tag_h1 : 'سرنویس ۱',
+    	tag_h2 : 'سرنویس ۲',
+    	tag_h3 : 'سرنویس ۳',
+    	tag_h4 : 'سرنویس ۴',
+    	tag_h5 : 'سرنویس ۵',
+    	tag_h6 : 'سرنویس ۶',
+    	tag_p : 'معمولی',
+    	tag_pre : 'قالب‌دار'
     },
     fakeobjects : 
     {
@@ -497,9 +319,9 @@ CKEDITOR.lang['fa'] = {
     {
     	IdInputLabel : 'شناسه',
     	advisoryTitleInputLabel : 'عنوان مشاوره',
-    	cssClassInputLabel : 'کلاسهای شیوهنامه',
+    	cssClassInputLabel : 'کلاس\u200bهای شیوه\u200bنامه',
     	edit : 'ویرایش Div',
-    	inlineStyleInputLabel : 'سبک درونخطی(Inline Style)',
+    	inlineStyleInputLabel : 'سبک درون\u200bخطی(Inline Style)',
     	langDirLTRLabel : 'چپ به راست (LTR)',
     	langDirLabel : 'جهت نوشتاری زبان',
     	langDirRTLLabel : 'راست به چپ (RTL)',
@@ -511,35 +333,27 @@ CKEDITOR.lang['fa'] = {
     },
     contextmenu : 
     {
-    	options : 'گزینههای منوی زمینه'
-    },
-    colordialog : 
-    {
-    	clear : 'پاک کردن',
-    	highlight : 'متمایز',
-    	options : 'گزینههای رنگ',
-    	selected : 'رنگ انتخاب شده',
-    	title : 'انتخاب رنگ'
+    	options : 'گزینه\u200bهای منوی زمینه'
     },
     colorbutton : 
     {
     	auto : 'خودکار',
-    	bgColorTitle : 'رنگ پسزمینه',
+    	bgColorTitle : 'رنگ پس\u200bزمینه',
     	colors : 
     	{
     		'000' : 'سیاه',
     		'800000' : 'خرمایی',
-    		'8B4513' : 'قهوهای شکلاتی',
+    		'8B4513' : 'قهوه\u200bای شکلاتی',
     		'2F4F4F' : 'ارغوانی مایل به خاکستری',
     		'008080' : 'آبی مایل به خاکستری',
     		'000080' : 'آبی سیر',
     		'4B0082' : 'نیلی',
     		'696969' : 'خاکستری تیره',
     		B22222 : 'آتش آجری',
-    		A52A2A : 'قهوهای',
-    		DAA520 : 'میلهی طلایی',
+    		A52A2A : 'قهوه\u200bای',
+    		DAA520 : 'میله\u200bی طلایی',
     		'006400' : 'سبز تیره',
-    		'40E0D0' : 'فیروزهای',
+    		'40E0D0' : 'فیروزه\u200bای',
     		'0000CD' : 'آبی روشن',
     		'800080' : 'ارغوانی',
     		'808080' : 'خاکستری',
@@ -555,7 +369,7 @@ CKEDITOR.lang['fa'] = {
     		FFA500 : 'نارنجی',
     		FFFF00 : 'زرد',
     		'00FF00' : 'فسفری',
-    		AFEEEE : 'فیروزهای رنگ پریده',
+    		AFEEEE : 'فیروزه\u200bای رنگ پریده',
     		ADD8E6 : 'آبی کمرنگ',
     		DDA0DD : 'آلویی',
     		D3D3D3 : 'خاکستری روشن',
@@ -568,7 +382,7 @@ CKEDITOR.lang['fa'] = {
     		E6E6FA : 'بنفش کمرنگ',
     		FFF : 'سفید'
     	},
-    	more : 'رنگهای بیشتر...',
+    	more : 'رنگ\u200bهای بیشتر...',
     	panelTitle : 'رنگها',
     	textColorTitle : 'رنگ متن'
     },
@@ -584,77 +398,76 @@ CKEDITOR.lang['fa'] = {
     	securityMsg : 'به خاطر تنظیمات امنیتی مرورگر شما، ویرایشگر نمیتواند دسترسی مستقیم به دادههای clipboard داشته باشد. شما باید دوباره آنرا در این پنجره بچسبانید.',
     	title : 'چسباندن'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (انتخاب شده)'
+    },
     blockquote : 
     {
     	toolbar : 'بلوک نقل قول'
-    },
-    bidi : 
-    {
-    	ltr : 'نوشتار متن از چپ به راست',
-    	rtl : 'نوشتار متن از راست به چپ'
     },
     basicstyles : 
     {
     	bold : 'درشت',
     	italic : 'خمیده',
-    	strike : 'میانخط',
+    	strike : 'خط‌خورده',
     	subscript : 'زیرنویس',
     	superscript : 'بالانویس',
-    	underline : 'زیرخطدار'
+    	underline : 'زیرخط‌دار'
     },
     about : 
     {
     	copy : 'حق نشر &copy; $1. کلیه حقوق محفوظ است.',
     	dlgTitle : 'درباره CKEditor',
-    	help : ' برای راهنمایی $1 را بررسی کنید.',
+    	help : ' برای راهنمایی $1 را ملاحظه کنید.',
     	moreInfo : 'برای کسب اطلاعات مجوز لطفا به وب سایت ما مراجعه کنید:',
     	title : 'درباره CKEditor',
     	userGuide : 'راهنمای کاربران CKEditor'
     },
-    editor : 'ویرایشگر متن کامل',
-    editorPanel : 'Rich Text Editor panel',
+    editor : 'ویرایش‌گر متن غنی',
+    editorPanel : 'پنل ویرایشگر متن غنی',
     common : 
     {
     	editorHelp : 'کلید Alt+0 را برای راهنمایی بفشارید',
-    	browseServer : 'فهرستنمایی سرور',
+    	browseServer : 'فهرست\u200bنمایی سرور',
     	url : 'URL',
-    	protocol : 'پروتکل',
-    	upload : 'آپلود',
+    	protocol : 'قرارداد',
+    	upload : 'بالاگذاری',
     	uploadSubmit : 'به سرور بفرست',
     	image : 'تصویر',
     	flash : 'فلش',
     	form : 'فرم',
-    	checkbox : 'چکباکس',
-    	radio : 'دکمهی رادیویی',
+    	checkbox : 'چک‌باکس',
+    	radio : 'دکمه‌ی رادیویی',
     	textField : 'فیلد متنی',
     	textarea : 'ناحیهٴ متنی',
     	hiddenField : 'فیلد پنهان',
     	button : 'دکمه',
-    	select : 'فیلد انتخاب چند گزینهای',
-    	imageButton : 'دکمهی تصویری',
-    	notSet : '<تعین نشده>',
+    	select : 'فیلد انتخاب چند گزینه\u200bای',
+    	imageButton : 'دکمه‌ی تصویری',
+    	notSet : '<تعیین‌نشده>',
     	id : 'شناسه',
     	name : 'نام',
-    	langDir : 'جهتنمای زبان',
+    	langDir : 'جهت زبان',
     	langDirLtr : 'چپ به راست',
     	langDirRtl : 'راست به چپ',
     	langCode : 'کد زبان',
     	longDescr : 'URL توصیف طولانی',
-    	cssClass : 'کلاسهای شیوهنامه (Stylesheet)',
+    	cssClass : 'کلاس\u200bهای شیوه\u200bنامه (Stylesheet)',
     	advisoryTitle : 'عنوان کمکی',
-    	cssStyle : 'شیوه (style)',
+    	cssStyle : 'سبک',
     	ok : 'پذیرش',
     	cancel : 'انصراف',
     	close : 'بستن',
-    	preview : 'پیشنمایش',
+    	preview : 'پیش‌نمایش',
     	resize : 'تغییر اندازه',
     	generalTab : 'عمومی',
-    	advancedTab : 'پیشرفته',
+    	advancedTab : 'پیش‌رفته',
     	validateNumberFailed : 'این مقدار یک عدد نیست.',
-    	confirmNewPage : 'هر تغییر ایجاد شدهی ذخیره نشده از بین خواهد رفت. آیا اطمینان دارید که قصد بارگیری صفحه جدیدی را دارید؟',
-    	confirmCancel : 'برخی از گزینهها تغییر کردهاند. آیا واقعا قصد بستن این پنجره را دارید؟',
-    	options : 'گزینهها',
-    	target : 'نحوه باز کردن',
+    	confirmNewPage : 'هر تغییر ایجاد شده\u200bی ذخیره نشده از بین خواهد رفت. آیا اطمینان دارید که قصد بارگیری صفحه جدیدی را دارید؟',
+    	confirmCancel : 'برخی از گزینه‌ها تغییر کرده‌اند. آیا واقعا قصد بستن این پنجره را دارید؟',
+    	options : 'گزینه\u200bها',
+    	target : 'مقصد',
     	targetNew : 'پنجره جدید',
     	targetTop : 'بالاترین پنجره',
     	targetSelf : 'همان پنجره',
@@ -662,22 +475,24 @@ CKEDITOR.lang['fa'] = {
     	langDirLTR : 'چپ به راست',
     	langDirRTL : 'راست به چپ',
     	styles : 'سبک',
-    	cssClasses : 'کلاسهای شیوهنامه',
+    	cssClasses : 'کلاس‌های سبک‌نامه',
     	width : 'عرض',
     	height : 'طول',
     	align : 'چینش',
     	alignLeft : 'چپ',
     	alignRight : 'راست',
-    	alignCenter : 'مرکز',
+    	alignCenter : 'وسط',
+    	alignJustify : 'بلوک چین',
     	alignTop : 'بالا',
-    	alignMiddle : 'وسط',
+    	alignMiddle : 'میانه',
     	alignBottom : 'پائین',
+    	alignNone : 'هیچ',
     	invalidValue : 'مقدار نامعتبر.',
     	invalidHeight : 'ارتفاع باید یک عدد باشد.',
     	invalidWidth : 'عرض باید یک عدد باشد.',
     	invalidCssLength : 'عدد تعیین شده برای فیلد "%1" باید یک عدد مثبت با یا بدون یک واحد اندازه گیری CSS معتبر باشد (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'عدد تعیین شده برای فیلد "%1" باید یک عدد مثبت با یا بدون یک واحد اندازه گیری HTML معتبر باشد (px or %).',
-    	invalidInlineStyle : 'عدد تعیین شده برای سبک درونخطی -Inline Style- باید دارای یک یا چند چندتایی با شکلی شبیه "name : value" که باید با یک ";" از هم جدا شوند.',
+    	invalidInlineStyle : 'عدد تعیین شده برای سبک درون\u200bخطی -Inline Style- باید دارای یک یا چند چندتایی با شکلی شبیه "name : value" که باید با یک ";" از هم جدا شوند.',
     	cssLengthTooltip : 'یک عدد برای یک مقدار بر حسب پیکسل و یا یک عدد با یک واحد CSS معتبر وارد کنید (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">، غیر قابل دسترس</span>'
-    } } 
+    } }; 

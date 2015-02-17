@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ka'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['ka'] = {
     {
     	toolbar : 'კოდები'
     },
-    smiley : 
-    {
-    	options : 'სიცილაკის პარამეტრები',
-    	title : 'სიცილაკის ჩასმა',
-    	toolbar : 'სიცილაკები'
-    },
-    showblocks : 
-    {
-    	toolbar : 'არეების ჩვენება'
-    },
-    selectall : 
-    {
-    	toolbar : 'ყველაფრის მონიშნვა'
-    },
-    save : 
-    {
-    	toolbar : 'ჩაწერა'
-    },
     removeformat : 
     {
     	toolbar : 'ფორმატირების მოხსნა'
@@ -154,10 +136,6 @@ CKEDITOR.lang['ka'] = {
     print : 
     {
     	toolbar : 'ბეჭდვა'
-    },
-    preview : 
-    {
-    	preview : 'გადახედვა'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['ka'] = {
     	error : 'შიდა შეცდომის გამო ვერ მოხერხდა ტექსტის გაწმენდა',
     	title : 'ვორდიდან ჩასმა',
     	toolbar : 'ვორდიდან ჩასმა'
-    },
-    pagebreak : 
-    {
-    	alt : 'გვერდის წყვეტა',
-    	toolbar : 'გვერდის წყვეტა ბეჭდვისთვის'
-    },
-    newpage : 
-    {
-    	toolbar : 'ახალი გვერდი'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['ka'] = {
     	validateHSpace : 'ჰორიზონტალური სივრცე მთელი რიცხვი უნდა იყოს.',
     	validateVSpace : 'ვერტიკალური სივრცე მთელი რიცხვი უნდა იყოს.'
     },
-    iframe : 
-    {
-    	border : 'ჩარჩოს გამოჩენა',
-    	noUrl : 'აკრიფეთ iframe-ის URL',
-    	scrolling : 'გადახვევის ზოლების დაშვება',
-    	title : 'IFrame-ის პარამეტრები',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'ჰორიზონტალური ხაზის ჩასმა'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'ღილაკის პარამეტრები',
-    		text : 'ტექსტი',
-    		type : 'ტიპი',
-    		typeBtn : 'ღილაკი',
-    		typeSbm : 'გაგზავნა',
-    		typeRst : 'გასუფთავება'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'მონიშვნის ღილაკის (Checkbox) პარამეტრები',
-    		radioTitle : 'ასარჩევი ღილაკის (Radio) პარამეტრები',
-    		value : 'ტექსტი',
-    		selected : 'არჩეული'
-    	},
-    	form : 
-    	{
-    		title : 'ფორმის პარამეტრები',
-    		menu : 'ფორმის პარამეტრები',
-    		action : 'ქმედება',
-    		method : 'მეთოდი',
-    		encoding : 'კოდირება'
-    	},
-    	hidden : 
-    	{
-    		title : 'მალული ველის პარამეტრები',
-    		name : 'სახელი',
-    		value : 'მნიშვნელობა'
-    	},
-    	select : 
-    	{
-    		title : 'არჩევის ველის პარამეტრები',
-    		selectInfo : 'ინფორმაცია',
-    		opAvail : 'შესაძლებელი ვარიანტები',
-    		value : 'მნიშვნელობა',
-    		size : 'ზომა',
-    		lines : 'ხაზები',
-    		chkMulti : 'მრავლობითი არჩევანის საშუალება',
-    		opText : 'ტექსტი',
-    		opValue : 'მნიშვნელობა',
-    		btnAdd : 'დამატება',
-    		btnModify : 'შეცვლა',
-    		btnUp : 'ზემოთ',
-    		btnDown : 'ქვემოთ',
-    		btnSetValue : 'ამორჩეულ მნიშვნელოვნად დაყენება',
-    		btnDelete : 'წაშლა'
-    	},
-    	textarea : 
-    	{
-    		title : 'ტექსტური არის პარამეტრები',
-    		cols : 'სვეტები',
-    		rows : 'სტრიქონები'
-    	},
-    	textfield : 
-    	{
-    		title : 'ტექსტური ველის პარამეტრები',
-    		name : 'სახელი',
-    		value : 'მნიშვნელობა',
-    		charWidth : 'სიმბოლოს ზომა',
-    		maxChars : 'ასოების მაქსიმალური ოდენობა',
-    		type : 'ტიპი',
-    		typeText : 'ტექსტი',
-    		typePass : 'პაროლი',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['ka'] = {
     	tag_h6 : 'სათაური 6',
     	tag_p : 'ჩვეულებრივი',
     	tag_pre : 'ფორმატირებული'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'ზომა',
-    		voiceLabel : 'ტექსტის ზომა',
-    		panelTitle : 'ტექსტის ზომა'
-    	},
-    	label : 'ფონტი',
-    	panelTitle : 'ფონტის სახელი',
-    	voiceLabel : 'ფონტი'
-    },
-    flash : 
-    {
-    	access : 'სკრიპტის წვდომა',
-    	accessAlways : 'ყოველთვის',
-    	accessNever : 'არასდროს',
-    	accessSameDomain : 'იგივე დომენი',
-    	alignAbsBottom : 'ჩარჩოს ქვემოთა ნაწილის სწორება ტექსტისთვის',
-    	alignAbsMiddle : 'ჩარჩოს შუა ნაწილის სწორება ტექსტისთვის',
-    	alignBaseline : 'საბაზისო ხაზის სწორება',
-    	alignTextTop : 'ტექსტი ზემოდან',
-    	bgcolor : 'ფონის ფერი',
-    	chkFull : 'მთელი ეკრანის დაშვება',
-    	chkLoop : 'ჩაციკლვა',
-    	chkMenu : 'Flash-ის მენიუს დაშვება',
-    	chkPlay : 'ავტო გაშვება',
-    	flashvars : 'ცვლადები Flash-ისთვის',
-    	hSpace : 'ჰორიზ. სივრცე',
-    	properties : 'Flash-ის პარამეტრები',
-    	propertiesTab : 'პარამეტრები',
-    	quality : 'ხარისხი',
-    	qualityAutoHigh : 'მაღალი (ავტომატური)',
-    	qualityAutoLow : 'ძალიან დაბალი',
-    	qualityBest : 'საუკეთესო',
-    	qualityHigh : 'მაღალი',
-    	qualityLow : 'დაბალი',
-    	qualityMedium : 'საშუალო',
-    	scale : 'მასშტაბირება',
-    	scaleAll : 'ყველაფრის ჩვენება',
-    	scaleFit : 'ზუსტი ჩასმა',
-    	scaleNoBorder : 'ჩარჩოს გარეშე',
-    	title : 'Flash-ის პარამეტრები',
-    	vSpace : 'ვერტ. სივრცე',
-    	validateHSpace : 'ჰორიზონტალური სივრცე არ უნდა იყოს ცარიელი.',
-    	validateSrc : 'URL არ უნდა იყოს ცარიელი.',
-    	validateVSpace : 'ვერტიკალური სივრცე არ უნდა იყოს ცარიელი.',
-    	windowMode : 'ფანჯრის რეჟიმი',
-    	windowModeOpaque : 'გაუმჭვირვალე',
-    	windowModeTransparent : 'გამჭვირვალე',
-    	windowModeWindow : 'ფანჯარა'
-    },
-    find : 
-    {
-    	find : 'ძებნა',
-    	findOptions : 'Find Options',
-    	findWhat : 'საძიებელი ტექსტი:',
-    	matchCase : 'დიდი და პატარა ასოების დამთხვევა',
-    	matchCyclic : 'დოკუმენტის ბოლოში გასვლის მერე თავიდან დაწყება',
-    	matchWord : 'მთელი სიტყვის დამთხვევა',
-    	notFoundMsg : 'მითითებული ტექსტი არ მოიძებნა.',
-    	replace : 'შეცვლა',
-    	replaceAll : 'ყველას შეცვლა',
-    	replaceSuccessMsg : '%1 მოძებნილი შეიცვალა.',
-    	replaceWith : 'შეცვლის ტექსტი:',
-    	title : 'ძებნა და შეცვლა'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['ka'] = {
     contextmenu : 
     {
     	options : 'კონტექსტური მენიუს პარამეტრები'
-    },
-    colordialog : 
-    {
-    	clear : 'გასუფთავება',
-    	highlight : 'ჩვენება',
-    	options : 'ფერის პარამეტრები',
-    	selected : 'არჩეული ფერი',
-    	title : 'ფერის შეცვლა'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['ka'] = {
     	securityMsg : 'თქვენი ბროუზერის უსაფრთხოების პარამეტრები არ იძლევა clipboard-ის მონაცემების წვდომის უფლებას. კიდევ უნდა ჩასვათ ტექსტი ამ ფანჯარაში.',
     	title : 'ჩასმა'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'ციტატა'
-    },
-    bidi : 
-    {
-    	ltr : 'ტექსტის მიმართულება მარცხნიდან მარჯვნივ',
-    	rtl : 'ტექსტის მიმართულება მარჯვნიდან მარცხნივ'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['ka'] = {
     	alignLeft : 'მარცხენა',
     	alignRight : 'მარჯვენა',
     	alignCenter : 'შუა',
+    	alignJustify : '両端揃え',
     	alignTop : 'ზემოთა',
     	alignMiddle : 'შუა',
     	alignBottom : 'ქვემოთა',
+    	alignNone : 'None',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'სიმაღლე რიცხვით უნდა იყოს წარმოდგენილი.',
     	invalidWidth : 'სიგანე რიცხვით უნდა იყოს წარმოდგენილი.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['ka'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, მიუწვდომელია</span>'
-    } } 
+    } }; 

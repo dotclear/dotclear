@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['pl'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['pl'] = {
     {
     	toolbar : 'Źródło dokumentu'
     },
-    smiley : 
-    {
-    	options : 'Opcje emotikonów',
-    	title : 'Wstaw emotikona',
-    	toolbar : 'Emotikony'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Pokaż bloki'
-    },
-    selectall : 
-    {
-    	toolbar : 'Zaznacz wszystko'
-    },
-    save : 
-    {
-    	toolbar : 'Zapisz'
-    },
     removeformat : 
     {
     	toolbar : 'Usuń formatowanie'
@@ -154,10 +136,6 @@ CKEDITOR.lang['pl'] = {
     print : 
     {
     	toolbar : 'Drukuj'
-    },
-    preview : 
-    {
-    	preview : 'Podgląd'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['pl'] = {
     	error : 'Wyczyszczenie wklejonych danych nie było możliwe z powodu wystąpienia błędu.',
     	title : 'Wklej z programu MS Word',
     	toolbar : 'Wklej z programu MS Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Wstaw podział strony',
-    	toolbar : 'Wstaw podział strony'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nowa strona'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['pl'] = {
     	validateHSpace : 'Wartość odstępu poziomego musi być liczbą całkowitą.',
     	validateVSpace : 'Wartość odstępu pionowego musi być liczbą całkowitą.'
     },
-    iframe : 
-    {
-    	border : 'Pokaż obramowanie obiektu IFrame',
-    	noUrl : 'Podaj adres URL elementu IFrame',
-    	scrolling : 'Włącz paski przewijania',
-    	title : 'Właściwości elementu IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Wstaw poziomą linię'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Właściwości przycisku',
-    		text : 'Tekst (Wartość)',
-    		type : 'Typ',
-    		typeBtn : 'Przycisk',
-    		typeSbm : 'Wyślij',
-    		typeRst : 'Wyczyść'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Właściwości pola wyboru (checkbox)',
-    		radioTitle : 'Właściwości przycisku opcji (radio)',
-    		value : 'Wartość',
-    		selected : 'Zaznaczone'
-    	},
-    	form : 
-    	{
-    		title : 'Właściwości formularza',
-    		menu : 'Właściwości formularza',
-    		action : 'Akcja',
-    		method : 'Metoda',
-    		encoding : 'Kodowanie'
-    	},
-    	hidden : 
-    	{
-    		title : 'Właściwości pola ukrytego',
-    		name : 'Nazwa',
-    		value : 'Wartość'
-    	},
-    	select : 
-    	{
-    		title : 'Właściwości listy wyboru',
-    		selectInfo : 'Informacje',
-    		opAvail : 'Dostępne opcje',
-    		value : 'Wartość',
-    		size : 'Rozmiar',
-    		lines : 'wierszy',
-    		chkMulti : 'Wielokrotny wybór',
-    		opText : 'Tekst',
-    		opValue : 'Wartość',
-    		btnAdd : 'Dodaj',
-    		btnModify : 'Zmień',
-    		btnUp : 'Do góry',
-    		btnDown : 'Do dołu',
-    		btnSetValue : 'Ustaw jako zaznaczoną',
-    		btnDelete : 'Usuń'
-    	},
-    	textarea : 
-    	{
-    		title : 'Właściwości obszaru tekstowego',
-    		cols : 'Liczba kolumn',
-    		rows : 'Liczba wierszy'
-    	},
-    	textfield : 
-    	{
-    		title : 'Właściwości pola tekstowego',
-    		name : 'Nazwa',
-    		value : 'Wartość',
-    		charWidth : 'Szerokość w znakach',
-    		maxChars : 'Szerokość maksymalna',
-    		type : 'Typ',
-    		typeText : 'Tekst',
-    		typePass : 'Hasło',
-    		typeEmail : 'Email',
-    		typeSearch : 'Szukaj',
-    		typeTel : 'Numer telefonu',
-    		typeUrl : 'Adres URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['pl'] = {
     	tag_h6 : 'Nagłówek 6',
     	tag_p : 'Normalny',
     	tag_pre : 'Tekst sformatowany'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Rozmiar',
-    		voiceLabel : 'Rozmiar czcionki',
-    		panelTitle : 'Rozmiar'
-    	},
-    	label : 'Czcionka',
-    	panelTitle : 'Czcionka',
-    	voiceLabel : 'Czcionka'
-    },
-    flash : 
-    {
-    	access : 'Dostęp skryptów',
-    	accessAlways : 'Zawsze',
-    	accessNever : 'Nigdy',
-    	accessSameDomain : 'Ta sama domena',
-    	alignAbsBottom : 'Do dołu',
-    	alignAbsMiddle : 'Do środka w pionie',
-    	alignBaseline : 'Do linii bazowej',
-    	alignTextTop : 'Do góry tekstu',
-    	bgcolor : 'Kolor tła',
-    	chkFull : 'Zezwól na pełny ekran',
-    	chkLoop : 'Pętla',
-    	chkMenu : 'Włącz menu',
-    	chkPlay : 'Autoodtwarzanie',
-    	flashvars : 'Zmienne obiektu Flash',
-    	hSpace : 'Odstęp poziomy',
-    	properties : 'Właściwości obiektu Flash',
-    	propertiesTab : 'Właściwości',
-    	quality : 'Jakość',
-    	qualityAutoHigh : 'Auto wysoka',
-    	qualityAutoLow : 'Auto niska',
-    	qualityBest : 'Najlepsza',
-    	qualityHigh : 'Wysoka',
-    	qualityLow : 'Niska',
-    	qualityMedium : 'Średnia',
-    	scale : 'Skaluj',
-    	scaleAll : 'Pokaż wszystko',
-    	scaleFit : 'Dokładne dopasowanie',
-    	scaleNoBorder : 'Bez obramowania',
-    	title : 'Właściwości obiektu Flash',
-    	vSpace : 'Odstęp pionowy',
-    	validateHSpace : 'Odstęp poziomy musi być liczbą.',
-    	validateSrc : 'Podaj adres URL',
-    	validateVSpace : 'Odstęp pionowy musi być liczbą.',
-    	windowMode : 'Tryb okna',
-    	windowModeOpaque : 'Nieprzezroczyste',
-    	windowModeTransparent : 'Przezroczyste',
-    	windowModeWindow : 'Okno'
-    },
-    find : 
-    {
-    	find : 'Znajdź',
-    	findOptions : 'Opcje wyszukiwania',
-    	findWhat : 'Znajdź:',
-    	matchCase : 'Uwzględnij wielkość liter',
-    	matchCyclic : 'Cykliczne dopasowanie',
-    	matchWord : 'Całe słowa',
-    	notFoundMsg : 'Nie znaleziono szukanego hasła.',
-    	replace : 'Zamień',
-    	replaceAll : 'Zamień wszystko',
-    	replaceSuccessMsg : '%1 wystąpień zastąpionych.',
-    	replaceWith : 'Zastąp przez:',
-    	title : 'Znajdź i zamień'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['pl'] = {
     contextmenu : 
     {
     	options : 'Opcje menu kontekstowego'
-    },
-    colordialog : 
-    {
-    	clear : 'Wyczyść',
-    	highlight : 'Zaznacz',
-    	options : 'Opcje koloru',
-    	selected : 'Wybrany',
-    	title : 'Wybierz kolor'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['pl'] = {
     	securityMsg : 'Zabezpieczenia przeglądarki uniemożliwiają wklejenie danych bezpośrednio do edytora. Proszę ponownie wkleić dane w tym oknie.',
     	title : 'Wklej'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Wybrany)'
+    },
     blockquote : 
     {
     	toolbar : 'Cytat'
-    },
-    bidi : 
-    {
-    	ltr : 'Kierunek tekstu od lewej strony do prawej',
-    	rtl : 'Kierunek tekstu od prawej strony do lewej'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['pl'] = {
     	alignLeft : 'Do lewej',
     	alignRight : 'Do prawej',
     	alignCenter : 'Do środka',
+    	alignJustify : 'Wyjustuj',
     	alignTop : 'Do góry',
     	alignMiddle : 'Do środka',
     	alignBottom : 'Do dołu',
+    	alignNone : 'Brak',
     	invalidValue : 'Nieprawidłowa wartość.',
     	invalidHeight : 'Wysokość musi być liczbą.',
     	invalidWidth : 'Szerokość musi być liczbą.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['pl'] = {
     	invalidInlineStyle : 'Wartość podana dla stylu musi składać się z jednej lub większej liczby krotek w formacie "nazwa : wartość", rozdzielonych średnikami.',
     	cssLengthTooltip : 'Wpisz liczbę dla wartości w pikselach lub liczbę wraz z jednostką długości zgodną z CSS (px, %, in, cm, mm, em, ex, pt lub pc).',
     	unavailable : '%1<span class="cke_accessibility">, niedostępne</span>'
-    } } 
+    } }; 

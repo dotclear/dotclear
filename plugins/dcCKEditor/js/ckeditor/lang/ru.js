@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ru'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['ru'] = {
     {
     	toolbar : 'Источник'
     },
-    smiley : 
-    {
-    	options : 'Выбор смайла',
-    	title : 'Вставить смайл',
-    	toolbar : 'Смайлы'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Отображать блоки'
-    },
-    selectall : 
-    {
-    	toolbar : 'Выделить все'
-    },
-    save : 
-    {
-    	toolbar : 'Сохранить'
-    },
     removeformat : 
     {
     	toolbar : 'Убрать форматирование'
@@ -154,10 +136,6 @@ CKEDITOR.lang['ru'] = {
     print : 
     {
     	toolbar : 'Печать'
-    },
-    preview : 
-    {
-    	preview : 'Предварительный просмотр'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['ru'] = {
     	error : 'Невозможно очистить вставленные данные из-за внутренней ошибки',
     	title : 'Вставить из Word',
     	toolbar : 'Вставить из Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Разрыв страницы',
-    	toolbar : 'Вставить разрыв страницы для печати'
-    },
-    newpage : 
-    {
-    	toolbar : 'Новая страница'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['ru'] = {
     	validateHSpace : 'Горизонтальный отступ должен быть задан числом.',
     	validateVSpace : 'Вертикальный отступ должен быть задан числом.'
     },
-    iframe : 
-    {
-    	border : 'Показать границы фрейма',
-    	noUrl : 'Пожалуйста, введите ссылку фрейма',
-    	scrolling : 'Отображать полосы прокрутки',
-    	title : 'Свойства iFrame',
-    	toolbar : 'iFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Вставить горизонтальную линию'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Свойства кнопки',
-    		text : 'Текст (Значение)',
-    		type : 'Тип',
-    		typeBtn : 'Кнопка',
-    		typeSbm : 'Отправка',
-    		typeRst : 'Сброс'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Свойства флаговой кнопки',
-    		radioTitle : 'Свойства кнопки выбора',
-    		value : 'Значение',
-    		selected : 'Выбрано'
-    	},
-    	form : 
-    	{
-    		title : 'Свойства формы',
-    		menu : 'Свойства формы',
-    		action : 'Действие',
-    		method : 'Метод',
-    		encoding : 'Кодировка'
-    	},
-    	hidden : 
-    	{
-    		title : 'Свойства скрытого поля',
-    		name : 'Имя',
-    		value : 'Значение'
-    	},
-    	select : 
-    	{
-    		title : 'Свойства списка выбора',
-    		selectInfo : 'Информация о списке выбора',
-    		opAvail : 'Доступные варианты',
-    		value : 'Значение',
-    		size : 'Размер',
-    		lines : 'строк(и)',
-    		chkMulti : 'Разрешить выбор нескольких вариантов',
-    		opText : 'Текст',
-    		opValue : 'Значение',
-    		btnAdd : 'Добавить',
-    		btnModify : 'Изменить',
-    		btnUp : 'Поднять',
-    		btnDown : 'Опустить',
-    		btnSetValue : 'Пометить как выбранное',
-    		btnDelete : 'Удалить'
-    	},
-    	textarea : 
-    	{
-    		title : 'Свойства многострочного текстового поля',
-    		cols : 'Колонок',
-    		rows : 'Строк'
-    	},
-    	textfield : 
-    	{
-    		title : 'Свойства текстового поля',
-    		name : 'Имя',
-    		value : 'Значение',
-    		charWidth : 'Ширина поля (в символах)',
-    		maxChars : 'Макс. количество символов',
-    		type : 'Тип содержимого',
-    		typeText : 'Текст',
-    		typePass : 'Пароль',
-    		typeEmail : 'Email',
-    		typeSearch : 'Поиск',
-    		typeTel : 'Номер телефона',
-    		typeUrl : 'Ссылка'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['ru'] = {
     	tag_h6 : 'Заголовок 6',
     	tag_p : 'Обычное',
     	tag_pre : 'Моноширинное'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Размер',
-    		voiceLabel : 'Размер шрифта',
-    		panelTitle : 'Размер шрифта'
-    	},
-    	label : 'Шрифт',
-    	panelTitle : 'Шрифт',
-    	voiceLabel : 'Шрифт'
-    },
-    flash : 
-    {
-    	access : 'Доступ к скриптам',
-    	accessAlways : 'Всегда',
-    	accessNever : 'Никогда',
-    	accessSameDomain : 'В том же домене',
-    	alignAbsBottom : 'По низу текста',
-    	alignAbsMiddle : 'По середине текста',
-    	alignBaseline : 'По базовой линии',
-    	alignTextTop : 'По верху текста',
-    	bgcolor : 'Цвет фона',
-    	chkFull : 'Разрешить полноэкранный режим',
-    	chkLoop : 'Повторять',
-    	chkMenu : 'Включить меню Flash',
-    	chkPlay : 'Автоматическое воспроизведение',
-    	flashvars : 'Переменные для Flash',
-    	hSpace : 'Гориз. отступ',
-    	properties : 'Свойства Flash',
-    	propertiesTab : 'Свойства',
-    	quality : 'Качество',
-    	qualityAutoHigh : 'Запуск на высоком',
-    	qualityAutoLow : 'Запуск на низком',
-    	qualityBest : 'Лучшее',
-    	qualityHigh : 'Высокое',
-    	qualityLow : 'Низкое',
-    	qualityMedium : 'Среднее',
-    	scale : 'Масштабировать',
-    	scaleAll : 'Пропорционально',
-    	scaleFit : 'Заполнять',
-    	scaleNoBorder : 'Заходить за границы',
-    	title : 'Свойства Flash',
-    	vSpace : 'Вертик. отступ',
-    	validateHSpace : 'Горизонтальный отступ задается числом.',
-    	validateSrc : 'Вы должны ввести ссылку',
-    	validateVSpace : 'Вертикальный отступ задается числом.',
-    	windowMode : 'Взаимодействие с окном',
-    	windowModeOpaque : 'Непрозрачный',
-    	windowModeTransparent : 'Прозрачный',
-    	windowModeWindow : 'Обычный'
-    },
-    find : 
-    {
-    	find : 'Найти',
-    	findOptions : 'Опции поиска',
-    	findWhat : 'Найти:',
-    	matchCase : 'Учитывать регистр',
-    	matchCyclic : 'По всему тексту',
-    	matchWord : 'Только слово целиком',
-    	notFoundMsg : 'Искомый текст не найден.',
-    	replace : 'Заменить',
-    	replaceAll : 'Заменить всё',
-    	replaceSuccessMsg : 'Успешно заменено %1 раз(а).',
-    	replaceWith : 'Заменить на:',
-    	title : 'Поиск и замена'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['ru'] = {
     contextmenu : 
     {
     	options : 'Параметры контекстного меню'
-    },
-    colordialog : 
-    {
-    	clear : 'Очистить',
-    	highlight : 'Под курсором',
-    	options : 'Настройки цвета',
-    	selected : 'Выбранный цвет',
-    	title : 'Выберите цвет'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['ru'] = {
     	securityMsg : 'Настройки безопасности вашего браузера не разрешают редактору напрямую обращаться к буферу обмена. Вы должны вставить текст снова в это окно.',
     	title : 'Вставить'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Выбрано)'
+    },
     blockquote : 
     {
     	toolbar : 'Цитата'
-    },
-    bidi : 
-    {
-    	ltr : 'Направление текста слева направо',
-    	rtl : 'Направление текста справа налево'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['ru'] = {
     	userGuide : 'Руководство пользователя CKEditor'
     },
     editor : 'Визуальный текстовый редактор',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Визуальный редактор текста',
     common : 
     {
     	editorHelp : 'Нажмите ALT-0 для открытия справки',
@@ -669,9 +482,11 @@ CKEDITOR.lang['ru'] = {
     	alignLeft : 'По левому краю',
     	alignRight : 'По правому краю',
     	alignCenter : 'По центру',
+    	alignJustify : 'По ширине',
     	alignTop : 'Поверху',
     	alignMiddle : 'Посередине',
     	alignBottom : 'Понизу',
+    	alignNone : 'Нет',
     	invalidValue : 'Недопустимое значение.',
     	invalidHeight : 'Высота задается числом.',
     	invalidWidth : 'Ширина задается числом.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['ru'] = {
     	invalidInlineStyle : 'Значение, указанное для стиля элемента, должно состоять из одной или нескольких пар данных в формате "параметр : значение", разделённых точкой с запятой.',
     	cssLengthTooltip : 'Введите значение в пикселях, либо число с корректной единицей меры CSS (px, %, in, cm, mm, em, ex, pt или pc).',
     	unavailable : '%1<span class="cke_accessibility">, недоступно</span>'
-    } } 
+    } }; 

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['de'] = {
     undo : 
@@ -114,7 +114,7 @@ CKEDITOR.lang['de'] = {
     stylescombo : 
     {
     	label : 'Stil',
-    	panelTitle : 'Formatierungenstil',
+    	panelTitle : 'Formatierungsstile',
     	panelTitle1 : 'Block Stilart',
     	panelTitle2 : 'Inline Stilart',
     	panelTitle3 : 'Objekt Stilart'
@@ -129,24 +129,6 @@ CKEDITOR.lang['de'] = {
     {
     	toolbar : 'Quellcode'
     },
-    smiley : 
-    {
-    	options : 'Smiley Optionen',
-    	title : 'Smiley auswählen',
-    	toolbar : 'Smiley'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Blöcke anzeigen'
-    },
-    selectall : 
-    {
-    	toolbar : 'Alles auswählen'
-    },
-    save : 
-    {
-    	toolbar : 'Speichern'
-    },
     removeformat : 
     {
     	toolbar : 'Formatierungen entfernen'
@@ -154,10 +136,6 @@ CKEDITOR.lang['de'] = {
     print : 
     {
     	toolbar : 'Drucken'
-    },
-    preview : 
-    {
-    	preview : 'Vorschau'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['de'] = {
     	error : 'Aufgrund eines internen Fehlers war es nicht möglich die eingefügten Daten zu bereinigen',
     	title : 'Aus MS-Word einfügen',
     	toolbar : 'Aus MS-Word einfügen'
-    },
-    pagebreak : 
-    {
-    	alt : 'Seitenumbruch einfügen',
-    	toolbar : 'Seitenumbruch einfügen'
-    },
-    newpage : 
-    {
-    	toolbar : 'Neue Seite'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['de'] = {
     	validateHSpace : 'Horizontal-Abstand muß eine ganze Zahl sein.',
     	validateVSpace : 'Vertikal-Abstand muß eine ganze Zahl sein.'
     },
-    iframe : 
-    {
-    	border : 'Rahmen anzeigen',
-    	noUrl : 'Bitte geben Sie die IFrame-URL an',
-    	scrolling : 'Rollbalken anzeigen',
-    	title : 'IFrame-Eigenschaften',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Horizontale Linie einfügen'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Button-Eigenschaften',
-    		text : 'Text (Wert)',
-    		type : 'Typ',
-    		typeBtn : 'Button',
-    		typeSbm : 'Absenden',
-    		typeRst : 'Zurücksetzen'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Checkbox-Eigenschaften',
-    		radioTitle : 'Optionsfeld-Eigenschaften',
-    		value : 'Wert',
-    		selected : 'ausgewählt'
-    	},
-    	form : 
-    	{
-    		title : 'Formular-Eigenschaften',
-    		menu : 'Formular-Eigenschaften',
-    		action : 'Action',
-    		method : 'Method',
-    		encoding : 'Zeichenkodierung'
-    	},
-    	hidden : 
-    	{
-    		title : 'Verstecktes Feld-Eigenschaften',
-    		name : 'Name',
-    		value : 'Wert'
-    	},
-    	select : 
-    	{
-    		title : 'Auswahlfeld-Eigenschaften',
-    		selectInfo : 'Info',
-    		opAvail : 'Mögliche Optionen',
-    		value : 'Wert',
-    		size : 'Größe',
-    		lines : 'Linien',
-    		chkMulti : 'Erlaube Mehrfachauswahl',
-    		opText : 'Text',
-    		opValue : 'Wert',
-    		btnAdd : 'Hinzufügen',
-    		btnModify : 'Ändern',
-    		btnUp : 'Hoch',
-    		btnDown : 'Runter',
-    		btnSetValue : 'Setze als Standardwert',
-    		btnDelete : 'Entfernen'
-    	},
-    	textarea : 
-    	{
-    		title : 'Textfeld (mehrzeilig) Eigenschaften',
-    		cols : 'Spalten',
-    		rows : 'Reihen'
-    	},
-    	textfield : 
-    	{
-    		title : 'Textfeld (einzeilig) Eigenschaften',
-    		name : 'Name',
-    		value : 'Wert',
-    		charWidth : 'Zeichenbreite',
-    		maxChars : 'Max. Zeichen',
-    		type : 'Typ',
-    		typeText : 'Text',
-    		typePass : 'Passwort',
-    		typeEmail : 'E-mail',
-    		typeSearch : 'Suche',
-    		typeTel : 'Telefonnummer',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['de'] = {
     	tag_h6 : 'Überschrift 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formatiert'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Größe',
-    		voiceLabel : 'Schrifgröße',
-    		panelTitle : 'Größe'
-    	},
-    	label : 'Schriftart',
-    	panelTitle : 'Schriftart',
-    	voiceLabel : 'Schriftart'
-    },
-    flash : 
-    {
-    	access : 'Skript Zugang',
-    	accessAlways : 'Immer',
-    	accessNever : 'Nie',
-    	accessSameDomain : 'Gleiche Domain',
-    	alignAbsBottom : 'Abs Unten',
-    	alignAbsMiddle : 'Abs Mitte',
-    	alignBaseline : 'Baseline',
-    	alignTextTop : 'Text Oben',
-    	bgcolor : 'Hintergrundfarbe',
-    	chkFull : 'Vollbildmodus erlauben',
-    	chkLoop : 'Endlosschleife',
-    	chkMenu : 'Flash-Menü aktivieren',
-    	chkPlay : 'Automatisch Abspielen',
-    	flashvars : 'Variablen für Flash',
-    	hSpace : 'Horizontal-Abstand',
-    	properties : 'Flash-Eigenschaften',
-    	propertiesTab : 'Eigenschaften',
-    	quality : 'Qualität',
-    	qualityAutoHigh : 'Auto Hoch',
-    	qualityAutoLow : 'Auto Niedrig',
-    	qualityBest : 'Beste',
-    	qualityHigh : 'Hoch',
-    	qualityLow : 'Niedrig',
-    	qualityMedium : 'Medium',
-    	scale : 'Skalierung',
-    	scaleAll : 'Alles anzeigen',
-    	scaleFit : 'Passgenau',
-    	scaleNoBorder : 'Ohne Rand',
-    	title : 'Flash-Eigenschaften',
-    	vSpace : 'Vertikal-Abstand',
-    	validateHSpace : 'HSpace muss eine Zahl sein.',
-    	validateSrc : 'Bitte geben Sie die Link-URL an',
-    	validateVSpace : 'VSpace muss eine Zahl sein.',
-    	windowMode : 'Fenster Modus',
-    	windowModeOpaque : 'Deckend',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Fenster'
-    },
-    find : 
-    {
-    	find : 'Suchen',
-    	findOptions : 'Suchoptionen',
-    	findWhat : 'Suche nach:',
-    	matchCase : 'Groß-Kleinschreibung beachten',
-    	matchCyclic : 'Zyklische Suche',
-    	matchWord : 'Nur ganze Worte suchen',
-    	notFoundMsg : 'Der gesuchte Text wurde nicht gefunden.',
-    	replace : 'Ersetzen',
-    	replaceAll : 'Alle ersetzen',
-    	replaceSuccessMsg : '%1 vorkommen ersetzt.',
-    	replaceWith : 'Ersetze mit:',
-    	title : 'Suchen und Ersetzen'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['de'] = {
     contextmenu : 
     {
     	options : 'Kontextmenü Optionen'
-    },
-    colordialog : 
-    {
-    	clear : 'Entfernen',
-    	highlight : 'Hervorheben',
-    	options : 'Farbeoptionen',
-    	selected : 'Ausgewählte Farbe',
-    	title : 'Farbe wählen'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['de'] = {
     	securityMsg : 'Aufgrund von Sicherheitsbeschränkungen Ihres Browsers kann der Editor nicht direkt auf die Zwischenablage zugreifen. Bitte fügen Sie den Inhalt erneut in diesem Fenster ein.',
     	title : 'Einfügen'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Ausgewählt)'
+    },
     blockquote : 
     {
     	toolbar : 'Zitatblock'
-    },
-    bidi : 
-    {
-    	ltr : 'Leserichtung von Links nach Rechts',
-    	rtl : 'Leserichtung von Rechts nach Links'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['de'] = {
     	userGuide : 'CKEditor Benutzerhandbuch'
     },
     editor : 'WYSIWYG-Editor',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'WYSIWYG-Editor-Leiste',
     common : 
     {
     	editorHelp : 'Drücken Sie ALT 0 für Hilfe',
@@ -669,9 +482,11 @@ CKEDITOR.lang['de'] = {
     	alignLeft : 'Links',
     	alignRight : 'Rechts',
     	alignCenter : 'Zentriert',
+    	alignJustify : 'Blocksatz',
     	alignTop : 'Oben',
     	alignMiddle : 'Mitte',
     	alignBottom : 'Unten',
+    	alignNone : 'Keine',
     	invalidValue : 'Ungültiger Wert.',
     	invalidHeight : 'Höhe muss eine Zahl sein.',
     	invalidWidth : 'Breite muss eine Zahl sein.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['de'] = {
     	invalidInlineStyle : 'Wert spezifiziert für inline Stilart muss enthalten ein oder mehr Tupels mit dem Format "Name : Wert" getrennt mit Semikolons.',
     	cssLengthTooltip : 'Gebe eine Zahl ein für ein Wert in pixels oder eine Zahl mit einer korrekten CSS Messeinheit (px, %, in, cm, mm, em, ex, pt oder pc).',
     	unavailable : '%1<span class="cke_accessibility">, nicht verfügbar</span>'
-    } } 
+    } }; 

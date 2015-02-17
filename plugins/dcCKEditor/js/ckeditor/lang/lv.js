@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['lv'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['lv'] = {
     {
     	toolbar : 'HTML kods'
     },
-    smiley : 
-    {
-    	options : 'Smaidiņu uzstādījumi',
-    	title : 'Ievietot smaidiņu',
-    	toolbar : 'Smaidiņi'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Parādīt blokus'
-    },
-    selectall : 
-    {
-    	toolbar : 'Iezīmēt visu'
-    },
-    save : 
-    {
-    	toolbar : 'Saglabāt'
-    },
     removeformat : 
     {
     	toolbar : 'Noņemt stilus'
@@ -154,10 +136,6 @@ CKEDITOR.lang['lv'] = {
     print : 
     {
     	toolbar : 'Drukāt'
-    },
-    preview : 
-    {
-    	preview : 'Priekšskatīt'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['lv'] = {
     	error : 'Iekšējas kļūdas dēļ, neizdevās iztīrīt ielīmētos datus.',
     	title : 'Ievietot no Worda',
     	toolbar : 'Ievietot no Worda'
-    },
-    pagebreak : 
-    {
-    	alt : 'Lapas pārnesums',
-    	toolbar : 'Ievietot lapas pārtraukumu drukai'
-    },
-    newpage : 
-    {
-    	toolbar : 'Jauna lapa'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['lv'] = {
     	validateHSpace : 'HSpace jābūt veselam skaitlim',
     	validateVSpace : 'VSpace jābūt veselam skaitlim'
     },
-    iframe : 
-    {
-    	border : 'Rādīt rāmi',
-    	noUrl : 'Norādiet iframe adresi',
-    	scrolling : 'Atļaut ritjoslas',
-    	title : 'IFrame uzstādījumi',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Ievietot horizontālu Atdalītājsvītru'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Pogas īpašības',
-    		text : 'Teksts (vērtība)',
-    		type : 'Tips',
-    		typeBtn : 'Poga',
-    		typeSbm : 'Nosūtīt',
-    		typeRst : 'Atcelt'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Atzīmēšanas kastītes īpašības',
-    		radioTitle : 'Izvēles poga īpašības',
-    		value : 'Vērtība',
-    		selected : 'Iezīmēts'
-    	},
-    	form : 
-    	{
-    		title : 'Formas īpašības',
-    		menu : 'Formas īpašības',
-    		action : 'Darbība',
-    		method : 'Metode',
-    		encoding : 'Kodējums'
-    	},
-    	hidden : 
-    	{
-    		title : 'Paslēptās teksta rindas īpašības',
-    		name : 'Nosaukums',
-    		value : 'Vērtība'
-    	},
-    	select : 
-    	{
-    		title : 'Iezīmēšanas lauka īpašības',
-    		selectInfo : 'Informācija',
-    		opAvail : 'Pieejamās iespējas',
-    		value : 'Vērtība',
-    		size : 'Izmērs',
-    		lines : 'rindas',
-    		chkMulti : 'Atļaut vairākus iezīmējumus',
-    		opText : 'Teksts',
-    		opValue : 'Vērtība',
-    		btnAdd : 'Pievienot',
-    		btnModify : 'Veikt izmaiņas',
-    		btnUp : 'Augšup',
-    		btnDown : 'Lejup',
-    		btnSetValue : 'Noteikt kā iezīmēto vērtību',
-    		btnDelete : 'Dzēst'
-    	},
-    	textarea : 
-    	{
-    		title : 'Teksta laukuma īpašības',
-    		cols : 'Kolonnas',
-    		rows : 'Rindas'
-    	},
-    	textfield : 
-    	{
-    		title : 'Teksta rindas  īpašības',
-    		name : 'Nosaukums',
-    		value : 'Vērtība',
-    		charWidth : 'Simbolu platums',
-    		maxChars : 'Simbolu maksimālais daudzums',
-    		type : 'Tips',
-    		typeText : 'Teksts',
-    		typePass : 'Parole',
-    		typeEmail : 'Epasts',
-    		typeSearch : 'Meklēt',
-    		typeTel : 'Tālruņa numurs',
-    		typeUrl : 'Adrese'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['lv'] = {
     	tag_h6 : 'Virsraksts 6',
     	tag_p : 'Normāls teksts',
     	tag_pre : 'Formatēts teksts'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Izmērs',
-    		voiceLabel : 'Fonta izmeŗs',
-    		panelTitle : 'Izmērs'
-    	},
-    	label : 'Šrifts',
-    	panelTitle : 'Šrifts',
-    	voiceLabel : 'Fonts'
-    },
-    flash : 
-    {
-    	access : 'Skripta pieeja',
-    	accessAlways : 'Vienmēr',
-    	accessNever : 'Nekad',
-    	accessSameDomain : 'Tas pats domēns',
-    	alignAbsBottom : 'Absolūti apakšā',
-    	alignAbsMiddle : 'Absolūti vertikāli centrēts',
-    	alignBaseline : 'Pamatrindā',
-    	alignTextTop : 'Teksta augšā',
-    	bgcolor : 'Fona krāsa',
-    	chkFull : 'Pilnekrāns',
-    	chkLoop : 'Nepārtraukti',
-    	chkMenu : 'Atļaut Flash izvēlni',
-    	chkPlay : 'Automātiska atskaņošana',
-    	flashvars : 'Flash mainīgie',
-    	hSpace : 'Horizontālā telpa',
-    	properties : 'Flash īpašības',
-    	propertiesTab : 'Uzstādījumi',
-    	quality : 'Kvalitāte',
-    	qualityAutoHigh : 'Automātiski Augsta',
-    	qualityAutoLow : 'Automātiski Zema',
-    	qualityBest : 'Labākā',
-    	qualityHigh : 'Augsta',
-    	qualityLow : 'Zema',
-    	qualityMedium : 'Vidēja',
-    	scale : 'Mainīt izmēru',
-    	scaleAll : 'Rādīt visu',
-    	scaleFit : 'Precīzs izmērs',
-    	scaleNoBorder : 'Bez rāmja',
-    	title : 'Flash īpašības',
-    	vSpace : 'Vertikālā telpa',
-    	validateHSpace : 'Hspace jābūt skaitlim',
-    	validateSrc : 'Lūdzu norādi hipersaiti',
-    	validateVSpace : 'Vspace jābūt skaitlim',
-    	windowMode : 'Loga režīms',
-    	windowModeOpaque : 'Necaurspīdīgs',
-    	windowModeTransparent : 'Caurspīdīgs',
-    	windowModeWindow : 'Logs'
-    },
-    find : 
-    {
-    	find : 'Meklēt',
-    	findOptions : 'Meklēt uzstādījumi',
-    	findWhat : 'Meklēt:',
-    	matchCase : 'Reģistrjūtīgs',
-    	matchCyclic : 'Sakrist cikliski',
-    	matchWord : 'Jāsakrīt pilnībā',
-    	notFoundMsg : 'Norādītā frāze netika atrasta.',
-    	replace : 'Nomainīt',
-    	replaceAll : 'Aizvietot visu',
-    	replaceSuccessMsg : '%1 gadījums(i) aizvietoti',
-    	replaceWith : 'Nomainīt uz:',
-    	title : 'Meklēt un aizvietot'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['lv'] = {
     contextmenu : 
     {
     	options : 'Uznirstošās izvēlnes uzstādījumi'
-    },
-    colordialog : 
-    {
-    	clear : 'Notīrīt',
-    	highlight : 'Paraugs',
-    	options : 'Krāsas uzstādījumi',
-    	selected : 'Izvēlētā krāsa',
-    	title : 'Izvēlies krāsu'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['lv'] = {
     	securityMsg : 'Jūsu pārlūka drošības uzstādījumu dēļ, nav iespējams tieši piekļūt jūsu starpliktuvei. Jums jāielīmē atkārtoti šajā logā.',
     	title : 'Ievietot'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Bloka citāts'
-    },
-    bidi : 
-    {
-    	ltr : 'Teksta virziens no kreisās uz labo',
-    	rtl : 'Teksta virziens no labās uz kreiso'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['lv'] = {
     	alignLeft : 'Pa kreisi',
     	alignRight : 'Pa labi',
     	alignCenter : 'Centrēti',
+    	alignJustify : 'Izlīdzināt malas',
     	alignTop : 'Augšā',
     	alignMiddle : 'Vertikāli centrēts',
     	alignBottom : 'Apakšā',
+    	alignNone : 'None',
     	invalidValue : 'Nekorekta vērtība',
     	invalidHeight : 'Augstumam jābūt skaitlim.',
     	invalidWidth : 'Platumam jābūt skaitlim',
@@ -680,4 +495,4 @@ CKEDITOR.lang['lv'] = {
     	invalidInlineStyle : 'Iekļautajā stilā norādītajai vērtībai jāsastāv no viena vai vairākiem pāriem pēc forma\'ta "nosaukums: vērtība", atdalītiem ar semikolu.',
     	cssLengthTooltip : 'Ievadiet vērtību pikseļos vai skaitli ar derīgu CSS mērvienību (px, %, in, cm, mm, em, ex, pt, vai pc).',
     	unavailable : '%1<span class="cke_accessibility">, nav pieejams</span>'
-    } } 
+    } }; 

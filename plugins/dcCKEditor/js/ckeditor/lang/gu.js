@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['gu'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['gu'] = {
     {
     	toolbar : 'મૂળ કે પ્રાથમિક દસ્તાવેજ'
     },
-    smiley : 
-    {
-    	options : 'સમ્ય્લી વિકલ્પો',
-    	title : 'સ્માઇલી  પસંદ કરો',
-    	toolbar : 'સ્માઇલી'
-    },
-    showblocks : 
-    {
-    	toolbar : 'બ્લૉક બતાવવું'
-    },
-    selectall : 
-    {
-    	toolbar : 'બઘું પસંદ કરવું'
-    },
-    save : 
-    {
-    	toolbar : 'સેવ'
-    },
     removeformat : 
     {
     	toolbar : 'ફૉર્મટ કાઢવું'
@@ -154,10 +136,6 @@ CKEDITOR.lang['gu'] = {
     print : 
     {
     	toolbar : 'પ્રિન્ટ'
-    },
-    preview : 
-    {
-    	preview : 'પૂર્વદર્શન'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['gu'] = {
     	error : 'પેસ્ટ કરેલો ડેટા ઇન્ટરનલ એરર ના લીથે સાફ કરી શકાયો નથી.',
     	title : 'પેસ્ટ (વડૅ ટેક્સ્ટ)',
     	toolbar : 'પેસ્ટ (વડૅ ટેક્સ્ટ)'
-    },
-    pagebreak : 
-    {
-    	alt : 'નવું પાનું',
-    	toolbar : 'ઇન્સર્ટ પેજબ્રેક/પાનાને અલગ કરવું/દાખલ કરવું'
-    },
-    newpage : 
-    {
-    	toolbar : 'નવુ પાનું'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['gu'] = {
     	validateHSpace : 'HSpaceઆંકડો હોવો જોઈએ.',
     	validateVSpace : 'VSpace આંકડો હોવો જોઈએ. '
     },
-    iframe : 
-    {
-    	border : 'ફ્રેમ બોર્ડેર બતાવવી',
-    	noUrl : 'iframe URL ટાઈપ્ કરો',
-    	scrolling : 'સ્ક્રોલબાર ચાલુ કરવા',
-    	title : 'IFrame વિકલ્પો',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'સમસ્તરીય રેખા ઇન્સર્ટ/દાખલ કરવી'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'બટનના ગુણ',
-    		text : 'ટેક્સ્ટ (વૅલ્યૂ)',
-    		type : 'પ્રકાર',
-    		typeBtn : 'બટન',
-    		typeSbm : 'સબ્મિટ',
-    		typeRst : 'રિસેટ'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'ચેક બોક્સ ગુણ',
-    		radioTitle : 'રેડિઓ બટનના ગુણ',
-    		value : 'વૅલ્યૂ',
-    		selected : 'સિલેક્ટેડ'
-    	},
-    	form : 
-    	{
-    		title : 'ફૉર્મ/પત્રકના ગુણ',
-    		menu : 'ફૉર્મ/પત્રકના ગુણ',
-    		action : 'ક્રિયા',
-    		method : 'પદ્ધતિ',
-    		encoding : 'અન્કોડીન્ગ'
-    	},
-    	hidden : 
-    	{
-    		title : 'ગુપ્ત ક્ષેત્રના ગુણ',
-    		name : 'નામ',
-    		value : 'વૅલ્યૂ'
-    	},
-    	select : 
-    	{
-    		title : 'પસંદગી ક્ષેત્રના ગુણ',
-    		selectInfo : 'સૂચના',
-    		opAvail : 'ઉપલબ્ધ વિકલ્પ',
-    		value : 'વૅલ્યૂ',
-    		size : 'સાઇઝ',
-    		lines : 'લીટીઓ',
-    		chkMulti : 'એકથી વધારે પસંદ કરી શકો',
-    		opText : 'ટેક્સ્ટ',
-    		opValue : 'વૅલ્યૂ',
-    		btnAdd : 'ઉમેરવું',
-    		btnModify : 'બદલવું',
-    		btnUp : 'ઉપર',
-    		btnDown : 'નીચે',
-    		btnSetValue : 'પસંદ કરલી વૅલ્યૂ સેટ કરો',
-    		btnDelete : 'રદ કરવું'
-    	},
-    	textarea : 
-    	{
-    		title : 'ટેક્સ્ટ એઅરિઆ, શબ્દ વિસ્તારના ગુણ',
-    		cols : 'કૉલમ/ઊભી કટાર',
-    		rows : 'પંક્તિઓ'
-    	},
-    	textfield : 
-    	{
-    		title : 'ટેક્સ્ટ ફીલ્ડ, શબ્દ ક્ષેત્રના ગુણ',
-    		name : 'નામ',
-    		value : 'વૅલ્યૂ',
-    		charWidth : 'કેરેક્ટરની પહોળાઈ',
-    		maxChars : 'અધિકતમ કેરેક્ટર',
-    		type : 'ટાઇપ',
-    		typeText : 'ટેક્સ્ટ',
-    		typePass : 'પાસવર્ડ',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['gu'] = {
     	tag_h6 : 'શીર્ષક 6',
     	tag_p : 'સામાન્ય',
     	tag_pre : 'ફૉર્મટેડ'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'ફૉન્ટ સાઇઝ/કદ',
-    		voiceLabel : 'ફોન્ટ સાઈઝ',
-    		panelTitle : 'ફૉન્ટ સાઇઝ/કદ'
-    	},
-    	label : 'ફૉન્ટ',
-    	panelTitle : 'ફૉન્ટ',
-    	voiceLabel : 'ફોન્ટ'
-    },
-    flash : 
-    {
-    	access : 'સ્ક્રીપ્ટ એક્સેસ',
-    	accessAlways : 'હમેશાં',
-    	accessNever : 'નહી',
-    	accessSameDomain : 'એજ ડોમેન',
-    	alignAbsBottom : 'Abs નીચે',
-    	alignAbsMiddle : 'Abs ઉપર',
-    	alignBaseline : 'આધાર લીટી',
-    	alignTextTop : 'ટેક્સ્ટ ઉપર',
-    	bgcolor : 'બૅકગ્રાઉન્ડ રંગ,',
-    	chkFull : 'ફૂલ સ્ક્રીન કરવું',
-    	chkLoop : 'લૂપ',
-    	chkMenu : 'ફ્લૅશ મેન્યૂ નો પ્રયોગ કરો',
-    	chkPlay : 'ઑટો/સ્વયં પ્લે',
-    	flashvars : 'ફલેશ ના વિકલ્પો',
-    	hSpace : 'સમસ્તરીય જગ્યા',
-    	properties : 'ફ્લૅશના ગુણ',
-    	propertiesTab : 'ગુણ',
-    	quality : 'ગુણધર્મ',
-    	qualityAutoHigh : 'ઓટો ઊંચું',
-    	qualityAutoLow : 'ઓટો નીચું',
-    	qualityBest : 'શ્રેષ્ઠ',
-    	qualityHigh : 'ઊંચું',
-    	qualityLow : 'નીચું',
-    	qualityMedium : 'મધ્યમ',
-    	scale : 'સ્કેલ',
-    	scaleAll : 'સ્કેલ ઓલ/બધુ બતાવો',
-    	scaleFit : 'સ્કેલ એકદમ ફીટ',
-    	scaleNoBorder : 'સ્કેલ બોર્ડર વગર',
-    	title : 'ફ્લૅશ ગુણ',
-    	vSpace : 'લંબરૂપ જગ્યા',
-    	validateHSpace : 'HSpace આંકડો હોવો જોઈએ.',
-    	validateSrc : 'લિંક  URL ટાઇપ કરો',
-    	validateVSpace : 'VSpace આંકડો હોવો જોઈએ.',
-    	windowMode : 'વિન્ડો મોડ',
-    	windowModeOpaque : 'અપારદર્શક',
-    	windowModeTransparent : 'પારદર્શક',
-    	windowModeWindow : 'વિન્ડો'
-    },
-    find : 
-    {
-    	find : 'શોધવું',
-    	findOptions : 'વીકલ્પ શોધો',
-    	findWhat : 'આ શોધો',
-    	matchCase : 'કેસ સરખા રાખો',
-    	matchCyclic : 'સરખાવવા બધા',
-    	matchWord : 'બઘા શબ્દ સરખા રાખો',
-    	notFoundMsg : 'તમે શોધેલી ટેક્સ્ટ નથી મળી',
-    	replace : 'રિપ્લેસ/બદલવું',
-    	replaceAll : 'બઘા બદલી ',
-    	replaceSuccessMsg : '%1 ફેરફારો બાદલાયા છે.',
-    	replaceWith : 'આનાથી બદલો',
-    	title : 'શોધવું અને બદલવું'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['gu'] = {
     contextmenu : 
     {
     	options : 'કોન્તેક્ષ્ત્ મેનુના વિકલ્પો'
-    },
-    colordialog : 
-    {
-    	clear : 'સાફ કરવું',
-    	highlight : 'હાઈઈટ',
-    	options : 'રંગના વિકલ્પ',
-    	selected : 'પસંદ કરેલો રંગ',
-    	title : 'રંગ પસંદ કરો'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['gu'] = {
     	securityMsg : 'તમારા બ્રાઉઝર ની સુરક્ષિત સેટિંગસના કારણે,એડિટર તમારા કિલ્પબોર્ડ ડેટા ને કોપી નથી કરી શકતો. તમારે આ વિન્ડોમાં ફરીથી પેસ્ટ કરવું પડશે.',
     	title : 'પેસ્ટ'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'બ્લૉક-કોટ, અવતરણચિહ્નો'
-    },
-    bidi : 
-    {
-    	ltr : 'ટેક્ષ્ત્ ની દિશા ડાબે થી જમણે',
-    	rtl : 'ટેક્ષ્ત્ ની દિશા જમણે થી ડાબે'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['gu'] = {
     	alignLeft : 'ડાબી બાજુ ગોઠવવું',
     	alignRight : 'જમણી',
     	alignCenter : 'મધ્ય સેન્ટર',
+    	alignJustify : 'બ્લૉક, અંતરાય જસ્ટિફાઇ',
     	alignTop : 'ઉપર',
     	alignMiddle : 'વચ્ચે',
     	alignBottom : 'નીચે',
+    	alignNone : 'None',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'ઉંચાઈ એક આંકડો હોવો જોઈએ.',
     	invalidWidth : 'પોહળ ઈ એક આંકડો હોવો જોઈએ.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['gu'] = {
     	invalidInlineStyle : 'ઈનલાઈન  સ્ટાઈલ ની વેલ્યુ  "name : value" ના ફોર્મેટ માં હોવી જોઈએ, વચ્ચે સેમી-કોલોન જોઈએ.',
     	cssLengthTooltip : 'પિક્ષ્લ્ નો આંકડો CSS unit (px, %, in, cm, mm, em, ex, pt, or pc) માં નાખો.',
     	unavailable : '%1<span class="cke_accessibility">, નથી મળતું</span>'
-    } } 
+    } }; 

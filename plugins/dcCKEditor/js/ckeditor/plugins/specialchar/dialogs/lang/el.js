@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -22,7 +22,7 @@ CKEDITOR.plugins.setLang( 'specialchar', 'el', {
 	copy: 'Σύμβολο πνευματικών δικαιωμάτων',
 	ordf: 'Feminine ordinal indicator', // MISSING
 	laquo: 'Αριστερός χαρακτήρας διπλού εισαγωγικού',
-	not: 'Not sign', // MISSING
+	not: 'Σύμβολο άρνησης',
 	reg: 'Σύμβολο σημάτων κατατεθέν',
 	macr: 'Μακρόν',
 	deg: 'Σύμβολο βαθμού',
@@ -122,4 +122,4 @@ CKEDITOR.plugins.setLang( 'specialchar', 'el', {
 	hArr: 'Διπλό βελάκι αριστερά-δεξιά',
 	diams: 'Μαύρο διαμάντι',
 	asymp: 'Σχεδόν ίσο με'
-});
+} );

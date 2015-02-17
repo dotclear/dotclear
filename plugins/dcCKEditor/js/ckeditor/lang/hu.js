@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['hu'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['hu'] = {
     {
     	toolbar : 'Forráskód'
     },
-    smiley : 
-    {
-    	options : 'Hangulatjel opciók',
-    	title : 'Hangulatjel beszúrása',
-    	toolbar : 'Hangulatjelek'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Blokkok megjelenítése'
-    },
-    selectall : 
-    {
-    	toolbar : 'Mindent kijelöl'
-    },
-    save : 
-    {
-    	toolbar : 'Mentés'
-    },
     removeformat : 
     {
     	toolbar : 'Formázás eltávolítása'
@@ -154,10 +136,6 @@ CKEDITOR.lang['hu'] = {
     print : 
     {
     	toolbar : 'Nyomtatás'
-    },
-    preview : 
-    {
-    	preview : 'Előnézet'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['hu'] = {
     	error : 'Egy belső hiba miatt nem sikerült megtisztítani a szöveget',
     	title : 'Beillesztés Word-ből',
     	toolbar : 'Beillesztés Word-ből'
-    },
-    pagebreak : 
-    {
-    	alt : 'Oldaltörés',
-    	toolbar : 'Oldaltörés beillesztése'
-    },
-    newpage : 
-    {
-    	toolbar : 'Új oldal'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['hu'] = {
     	validateHSpace : 'Vízszintes távolságnak egész számot kell beírni!',
     	validateVSpace : 'Függőleges távolságnak egész számot kell beírni!'
     },
-    iframe : 
-    {
-    	border : 'Legyen keret',
-    	noUrl : 'Kérem írja be a iframe URL-t',
-    	scrolling : 'Gördítősáv bekapcsolása',
-    	title : 'IFrame Tulajdonságok',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Elválasztóvonal beillesztése'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Gomb tulajdonságai',
-    		text : 'Szöveg (Érték)',
-    		type : 'Típus',
-    		typeBtn : 'Gomb',
-    		typeSbm : 'Küldés',
-    		typeRst : 'Alaphelyzet'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Jelölőnégyzet tulajdonságai',
-    		radioTitle : 'Választógomb tulajdonságai',
-    		value : 'Érték',
-    		selected : 'Kiválasztott'
-    	},
-    	form : 
-    	{
-    		title : 'Űrlap tulajdonságai',
-    		menu : 'Űrlap tulajdonságai',
-    		action : 'Adatfeldolgozást végző hivatkozás',
-    		method : 'Adatküldés módja',
-    		encoding : 'Kódolás'
-    	},
-    	hidden : 
-    	{
-    		title : 'Rejtett mező tulajdonságai',
-    		name : 'Név',
-    		value : 'Érték'
-    	},
-    	select : 
-    	{
-    		title : 'Legördülő lista tulajdonságai',
-    		selectInfo : 'Alaptulajdonságok',
-    		opAvail : 'Elérhető opciók',
-    		value : 'Érték',
-    		size : 'Méret',
-    		lines : 'sor',
-    		chkMulti : 'több sor is kiválasztható',
-    		opText : 'Szöveg',
-    		opValue : 'Érték',
-    		btnAdd : 'Hozzáad',
-    		btnModify : 'Módosít',
-    		btnUp : 'Fel',
-    		btnDown : 'Le',
-    		btnSetValue : 'Legyen az alapértelmezett érték',
-    		btnDelete : 'Töröl'
-    	},
-    	textarea : 
-    	{
-    		title : 'Szövegterület tulajdonságai',
-    		cols : 'Karakterek száma egy sorban',
-    		rows : 'Sorok száma'
-    	},
-    	textfield : 
-    	{
-    		title : 'Szövegmező tulajdonságai',
-    		name : 'Név',
-    		value : 'Érték',
-    		charWidth : 'Megjelenített karakterek száma',
-    		maxChars : 'Maximális karakterszám',
-    		type : 'Típus',
-    		typeText : 'Szöveg',
-    		typePass : 'Jelszó',
-    		typeEmail : 'Ímél',
-    		typeSearch : 'Keresés',
-    		typeTel : 'Telefonszám',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['hu'] = {
     	tag_h6 : 'Fejléc 6',
     	tag_p : 'Normál',
     	tag_pre : 'Formázott'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Méret',
-    		voiceLabel : 'Betűméret',
-    		panelTitle : 'Méret'
-    	},
-    	label : 'Betűtípus',
-    	panelTitle : 'Betűtípus',
-    	voiceLabel : 'Betűtípus'
-    },
-    flash : 
-    {
-    	access : 'Szkript hozzáférés',
-    	accessAlways : 'Mindig',
-    	accessNever : 'Soha',
-    	accessSameDomain : 'Azonos domainről',
-    	alignAbsBottom : 'Legaljára',
-    	alignAbsMiddle : 'Közepére',
-    	alignBaseline : 'Alapvonalhoz',
-    	alignTextTop : 'Szöveg tetejére',
-    	bgcolor : 'Háttérszín',
-    	chkFull : 'Teljes képernyő engedélyezése',
-    	chkLoop : 'Folyamatosan',
-    	chkMenu : 'Flash menü engedélyezése',
-    	chkPlay : 'Automata lejátszás',
-    	flashvars : 'Flash változók',
-    	hSpace : 'Vízsz. táv',
-    	properties : 'Flash tulajdonságai',
-    	propertiesTab : 'Tulajdonságok',
-    	quality : 'Minőség',
-    	qualityAutoHigh : 'Automata jó',
-    	qualityAutoLow : 'Automata gyenge',
-    	qualityBest : 'Legjobb',
-    	qualityHigh : 'Jó',
-    	qualityLow : 'Gyenge',
-    	qualityMedium : 'Közepes',
-    	scale : 'Méretezés',
-    	scaleAll : 'Mindent mutat',
-    	scaleFit : 'Teljes kitöltés',
-    	scaleNoBorder : 'Keret nélkül',
-    	title : 'Flash tulajdonságai',
-    	vSpace : 'Függ. táv',
-    	validateHSpace : 'A vízszintes távolsűág mezőbe csak számokat írhat.',
-    	validateSrc : 'Adja meg a hivatkozás webcímét',
-    	validateVSpace : 'A függőleges távolsűág mezőbe csak számokat írhat.',
-    	windowMode : 'Ablak mód',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Window'
-    },
-    find : 
-    {
-    	find : 'Keresés',
-    	findOptions : 'Find Options',
-    	findWhat : 'Keresett szöveg:',
-    	matchCase : 'kis- és nagybetű megkülönböztetése',
-    	matchCyclic : 'Ciklikus keresés',
-    	matchWord : 'csak ha ez a teljes szó',
-    	notFoundMsg : 'A keresett szöveg nem található.',
-    	replace : 'Csere',
-    	replaceAll : 'Az összes cseréje',
-    	replaceSuccessMsg : '%1 egyezőség cserélve.',
-    	replaceWith : 'Csere erre:',
-    	title : 'Keresés és csere'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['hu'] = {
     contextmenu : 
     {
     	options : 'Helyi menü opciók'
-    },
-    colordialog : 
-    {
-    	clear : 'Ürítés',
-    	highlight : 'Nagyítás',
-    	options : 'Szín opciók',
-    	selected : 'Kiválasztott',
-    	title : 'Válasszon színt'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['hu'] = {
     	securityMsg : 'A böngésző biztonsági beállításai miatt a szerkesztő nem képes hozzáférni a vágólap adataihoz. Illeszd be újra ebben az ablakban.',
     	title : 'Beillesztés'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Kiválasztva)'
+    },
     blockquote : 
     {
     	toolbar : 'Idézet blokk'
-    },
-    bidi : 
-    {
-    	ltr : 'Szöveg iránya balról jobbra',
-    	rtl : 'Szöveg iránya jobbról balra'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['hu'] = {
     	alignLeft : 'Bal',
     	alignRight : 'Jobbra',
     	alignCenter : 'Középre',
+    	alignJustify : 'Sorkizárt',
     	alignTop : 'Tetejére',
     	alignMiddle : 'Középre',
     	alignBottom : 'Aljára',
+    	alignNone : 'None',
     	invalidValue : 'Érvénytelen érték.',
     	invalidHeight : 'A magasság mezőbe csak számokat írhat.',
     	invalidWidth : 'A szélesség mezőbe csak számokat írhat.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['hu'] = {
     	invalidInlineStyle : 'Az inline stílusnak megadott értéknek tartalmaznia kell egy vagy több rekordot a "name : value" formátumban, pontosvesszővel elválasztva.',
     	cssLengthTooltip : 'Adjon meg egy számot értéknek pixelekben vagy egy számot érvényes CSS mértékegységben (px, %, in, cm, mm, em, ex, pt, vagy pc).',
     	unavailable : '%1<span class="cke_accessibility">, nem elérhető</span>'
-    } } 
+    } }; 

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ko'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['ko'] = {
     {
     	toolbar : '소스'
     },
-    smiley : 
-    {
-    	options : '이모티콘 옵션',
-    	title : '아이콘 삽입',
-    	toolbar : '아이콘'
-    },
-    showblocks : 
-    {
-    	toolbar : '블록 보기'
-    },
-    selectall : 
-    {
-    	toolbar : '전체선택'
-    },
-    save : 
-    {
-    	toolbar : '저장하기'
-    },
     removeformat : 
     {
     	toolbar : '포맷 지우기'
@@ -154,10 +136,6 @@ CKEDITOR.lang['ko'] = {
     print : 
     {
     	toolbar : '인쇄하기'
-    },
-    preview : 
-    {
-    	preview : '미리보기'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['ko'] = {
     	error : '내부 오류로 붙여 넣은 데이터를 정리 할 수 없습니다.',
     	title : 'MS Word 형식에서 붙여넣기',
     	toolbar : 'MS Word 형식에서 붙여넣기'
-    },
-    pagebreak : 
-    {
-    	alt : '패이지 나누기',
-    	toolbar : '인쇄시 페이지 나누기 삽입'
-    },
-    newpage : 
-    {
-    	toolbar : '새 문서'
     },
     maximize : 
     {
@@ -261,7 +230,7 @@ CKEDITOR.lang['ko'] = {
     	popupStatusBar : '상태바',
     	popupToolbar : '툴바',
     	popupTop : '윗쪽 위치',
-    	rel : 'Relationship',
+    	rel : '관계',
     	selectAnchor : '책갈피 선택',
     	styles : 'Style',
     	tabIndex : '탭 순서',
@@ -314,89 +283,9 @@ CKEDITOR.lang['ko'] = {
     	validateHSpace : '가로 길이는 정수여야 합니다.',
     	validateVSpace : '세로 길이는 정수여야 합니다.'
     },
-    iframe : 
-    {
-    	border : '프레임 테두리 표시',
-    	noUrl : 'iframe 대응 URL을 입력해주세요.',
-    	scrolling : '스크롤바 사용',
-    	title : 'IFrame 속성',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : '수평선 삽입'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : '버튼 속성',
-    		text : '버튼글자(값)',
-    		type : '버튼종류',
-    		typeBtn : 'Button',
-    		typeSbm : 'Submit',
-    		typeRst : 'Reset'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : '체크박스 속성',
-    		radioTitle : '라디오버튼 속성',
-    		value : '값',
-    		selected : '선택됨'
-    	},
-    	form : 
-    	{
-    		title : '폼 속성',
-    		menu : '폼 속성',
-    		action : '실행경로(Action)',
-    		method : '방법(Method)',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : '숨김필드 속성',
-    		name : '이름',
-    		value : '값'
-    	},
-    	select : 
-    	{
-    		title : '펼침목록 속성',
-    		selectInfo : '정보',
-    		opAvail : '선택옵션',
-    		value : '값',
-    		size : '세로크기',
-    		lines : '줄',
-    		chkMulti : '여러항목 선택 허용',
-    		opText : '이름',
-    		opValue : '값',
-    		btnAdd : '추가',
-    		btnModify : '변경',
-    		btnUp : '위로',
-    		btnDown : '아래로',
-    		btnSetValue : '선택된것으로 설정',
-    		btnDelete : '삭제'
-    	},
-    	textarea : 
-    	{
-    		title : '입력영역 속성',
-    		cols : '칸수',
-    		rows : '줄수'
-    	},
-    	textfield : 
-    	{
-    		title : '입력필드 속성',
-    		name : '이름',
-    		value : '값',
-    		charWidth : '글자 너비',
-    		maxChars : '최대 글자수',
-    		type : '종류',
-    		typeText : '문자열',
-    		typePass : '비밀번호',
-    		typeEmail : '이메일',
-    		typeSearch : '검색',
-    		typeTel : '전화번호',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['ko'] = {
     	tag_h6 : 'Heading 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formatted'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : '글자 크기',
-    		voiceLabel : 'Font Size',
-    		panelTitle : '글자 크기'
-    	},
-    	label : '폰트',
-    	panelTitle : '폰트',
-    	voiceLabel : '폰트'
-    },
-    flash : 
-    {
-    	access : 'Script Access',
-    	accessAlways : 'Always',
-    	accessNever : 'Never',
-    	accessSameDomain : 'Same domain',
-    	alignAbsBottom : '줄아래(Abs Bottom)',
-    	alignAbsMiddle : '줄중간(Abs Middle)',
-    	alignBaseline : '기준선',
-    	alignTextTop : '글자상단',
-    	bgcolor : '배경 색상',
-    	chkFull : 'Allow Fullscreen',
-    	chkLoop : '반복',
-    	chkMenu : '플래쉬메뉴 가능',
-    	chkPlay : '자동재생',
-    	flashvars : 'Variables for Flash',
-    	hSpace : '수평여백',
-    	properties : '플래쉬 속성',
-    	propertiesTab : 'Properties',
-    	quality : 'Quality',
-    	qualityAutoHigh : 'Auto High',
-    	qualityAutoLow : 'Auto Low',
-    	qualityBest : 'Best',
-    	qualityHigh : 'High',
-    	qualityLow : 'Low',
-    	qualityMedium : 'Medium',
-    	scale : '영역',
-    	scaleAll : '모두보기',
-    	scaleFit : '영역자동조절',
-    	scaleNoBorder : '경계선없음',
-    	title : '플래쉬 등록정보',
-    	vSpace : '수직여백',
-    	validateHSpace : 'HSpace must be a number.',
-    	validateSrc : '링크 URL을 입력하십시요.',
-    	validateVSpace : 'VSpace must be a number.',
-    	windowMode : 'Window mode',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Window'
-    },
-    find : 
-    {
-    	find : '찾기',
-    	findOptions : 'Find Options',
-    	findWhat : '찾을 문자열:',
-    	matchCase : '대소문자 구분',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : '온전한 단어',
-    	notFoundMsg : '문자열을 찾을 수 없습니다.',
-    	replace : '바꾸기',
-    	replaceAll : '모두 바꾸기',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : '바꿀 문자열:',
-    	title : '찾기 & 바꾸기'
     },
     fakeobjects : 
     {
@@ -498,28 +320,20 @@ CKEDITOR.lang['ko'] = {
     	IdInputLabel : 'ID',
     	advisoryTitleInputLabel : 'Advisory Title',
     	cssClassInputLabel : 'Stylesheet Classes',
-    	edit : 'Edit Div',
-    	inlineStyleInputLabel : 'Inline Style',
+    	edit : 'Div 태그 수정',
+    	inlineStyleInputLabel : '인라인 스타일',
     	langDirLTRLabel : '왼쪽에서 오른쪽 (LTR)',
     	langDirLabel : '쓰기 방향',
     	langDirRTLLabel : '오른쪽에서 왼쪽 (RTL)',
-    	languageCodeInputLabel : ' Language Code',
-    	remove : 'Remove Div',
+    	languageCodeInputLabel : '언어 코드',
+    	remove : 'Div 태그 삭제',
     	styleSelectLabel : 'Style',
-    	title : 'Create Div Container',
-    	toolbar : 'Create Div Container'
+    	title : 'Div 태그 생성',
+    	toolbar : 'Div 태그 생성'
     },
     contextmenu : 
     {
     	options : '컨텍스트 메뉴 옵션'
-    },
-    colordialog : 
-    {
-    	clear : '제거',
-    	highlight : '하이라이트',
-    	options : '색상 옵션',
-    	selected : '색상 선택됨',
-    	title : '색상 선택'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['ko'] = {
     	securityMsg : '브러우저 보안 설정으로 인해, 클립보드의 자료를 직접 접근할 수 없습니다. 이 창에 다시 붙여넣기 하십시오.',
     	title : '붙여넣기'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : '인용 블록'
-    },
-    bidi : 
-    {
-    	ltr : '택스트 방향이 왼쪽에서 오른쪽으로 ',
-    	rtl : '택스트 방향이 오른쪽에서 왼쪽으로'
     },
     basicstyles : 
     {
@@ -648,7 +461,7 @@ CKEDITOR.lang['ko'] = {
     	close : '닫기',
     	preview : '미리보기',
     	resize : '크기 조절',
-    	generalTab : 'General',
+    	generalTab : '일반',
     	advancedTab : '자세히',
     	validateNumberFailed : '이 값은 숫자가 아닙니다.',
     	confirmNewPage : '저장하지 않은 모든 변경사항은 유실됩니다. 정말로 새로운 페이지를 부르겠습니까?',
@@ -669,9 +482,11 @@ CKEDITOR.lang['ko'] = {
     	alignLeft : '왼쪽',
     	alignRight : '오른쪽',
     	alignCenter : '가운데',
+    	alignJustify : '両端揃え',
     	alignTop : '위',
     	alignMiddle : '중간',
     	alignBottom : '아래',
+    	alignNone : 'None',
     	invalidValue : '잘못된 값.',
     	invalidHeight : '높이는 숫자여야 합니다.',
     	invalidWidth : '넓이는 숫자여야 합니다.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['ko'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, 사용할 수 없음</span>'
-    } } 
+    } }; 

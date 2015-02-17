@@ -36,6 +36,7 @@ class dcCKEditorBehaviors
             dcPage::jsVar('dotclear.ckeditor_context', $context).
             'dotclear.ckeditor_tags_context = '.sprintf('{%s:["%s"]};'."\n", $context, implode('","', $tags)).
             'var CKEDITOR_BASEPATH = "'.DC_ADMIN_URL.self::$p_url.'/js/ckeditor/";'."\n".
+            dcPage::jsVar('dotclear.admin_base_url', DC_ADMIN_URL).
             dcPage::jsVar('dotclear.base_url', $GLOBALS['core']->blog->host).
             dcPage::jsVar('dotclear.dcckeditor_plugin_url',DC_ADMIN_URL.self::$p_url).
             'CKEDITOR_GETURL = function(resource) {

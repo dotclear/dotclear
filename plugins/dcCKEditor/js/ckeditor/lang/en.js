@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['en'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['en'] = {
     {
     	toolbar : 'Source'
     },
-    smiley : 
-    {
-    	options : 'Smiley Options',
-    	title : 'Insert a Smiley',
-    	toolbar : 'Smiley'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Show Blocks'
-    },
-    selectall : 
-    {
-    	toolbar : 'Select All'
-    },
-    save : 
-    {
-    	toolbar : 'Save'
-    },
     removeformat : 
     {
     	toolbar : 'Remove Format'
@@ -154,10 +136,6 @@ CKEDITOR.lang['en'] = {
     print : 
     {
     	toolbar : 'Print'
-    },
-    preview : 
-    {
-    	preview : 'Preview'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['en'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Paste from Word',
     	toolbar : 'Paste from Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Page Break',
-    	toolbar : 'Insert Page Break for Printing'
-    },
-    newpage : 
-    {
-    	toolbar : 'New Page'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['en'] = {
     	validateHSpace : 'HSpace must be a whole number.',
     	validateVSpace : 'VSpace must be a whole number.'
     },
-    iframe : 
-    {
-    	border : 'Show frame border',
-    	noUrl : 'Please type the iframe URL',
-    	scrolling : 'Enable scrollbars',
-    	title : 'IFrame Properties',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Insert Horizontal Line'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Button Properties',
-    		text : 'Text (Value)',
-    		type : 'Type',
-    		typeBtn : 'Button',
-    		typeSbm : 'Submit',
-    		typeRst : 'Reset'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Checkbox Properties',
-    		radioTitle : 'Radio Button Properties',
-    		value : 'Value',
-    		selected : 'Selected'
-    	},
-    	form : 
-    	{
-    		title : 'Form Properties',
-    		menu : 'Form Properties',
-    		action : 'Action',
-    		method : 'Method',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'Hidden Field Properties',
-    		name : 'Name',
-    		value : 'Value'
-    	},
-    	select : 
-    	{
-    		title : 'Selection Field Properties',
-    		selectInfo : 'Select Info',
-    		opAvail : 'Available Options',
-    		value : 'Value',
-    		size : 'Size',
-    		lines : 'lines',
-    		chkMulti : 'Allow multiple selections',
-    		opText : 'Text',
-    		opValue : 'Value',
-    		btnAdd : 'Add',
-    		btnModify : 'Modify',
-    		btnUp : 'Up',
-    		btnDown : 'Down',
-    		btnSetValue : 'Set as selected value',
-    		btnDelete : 'Delete'
-    	},
-    	textarea : 
-    	{
-    		title : 'Textarea Properties',
-    		cols : 'Columns',
-    		rows : 'Rows'
-    	},
-    	textfield : 
-    	{
-    		title : 'Text Field Properties',
-    		name : 'Name',
-    		value : 'Value',
-    		charWidth : 'Character Width',
-    		maxChars : 'Maximum Characters',
-    		type : 'Type',
-    		typeText : 'Text',
-    		typePass : 'Password',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['en'] = {
     	tag_h6 : 'Heading 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formatted'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Size',
-    		voiceLabel : 'Font Size',
-    		panelTitle : 'Font Size'
-    	},
-    	label : 'Font',
-    	panelTitle : 'Font Name',
-    	voiceLabel : 'Font'
-    },
-    flash : 
-    {
-    	access : 'Script Access',
-    	accessAlways : 'Always',
-    	accessNever : 'Never',
-    	accessSameDomain : 'Same domain',
-    	alignAbsBottom : 'Abs Bottom',
-    	alignAbsMiddle : 'Abs Middle',
-    	alignBaseline : 'Baseline',
-    	alignTextTop : 'Text Top',
-    	bgcolor : 'Background color',
-    	chkFull : 'Allow Fullscreen',
-    	chkLoop : 'Loop',
-    	chkMenu : 'Enable Flash Menu',
-    	chkPlay : 'Auto Play',
-    	flashvars : 'Variables for Flash',
-    	hSpace : 'HSpace',
-    	properties : 'Flash Properties',
-    	propertiesTab : 'Properties',
-    	quality : 'Quality',
-    	qualityAutoHigh : 'Auto High',
-    	qualityAutoLow : 'Auto Low',
-    	qualityBest : 'Best',
-    	qualityHigh : 'High',
-    	qualityLow : 'Low',
-    	qualityMedium : 'Medium',
-    	scale : 'Scale',
-    	scaleAll : 'Show all',
-    	scaleFit : 'Exact Fit',
-    	scaleNoBorder : 'No Border',
-    	title : 'Flash Properties',
-    	vSpace : 'VSpace',
-    	validateHSpace : 'HSpace must be a number.',
-    	validateSrc : 'URL must not be empty.',
-    	validateVSpace : 'VSpace must be a number.',
-    	windowMode : 'Window mode',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Window'
-    },
-    find : 
-    {
-    	find : 'Find',
-    	findOptions : 'Find Options',
-    	findWhat : 'Find what:',
-    	matchCase : 'Match case',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'Match whole word',
-    	notFoundMsg : 'The specified text was not found.',
-    	replace : 'Replace',
-    	replaceAll : 'Replace All',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'Replace with:',
-    	title : 'Find and Replace'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['en'] = {
     contextmenu : 
     {
     	options : 'Context Menu Options'
-    },
-    colordialog : 
-    {
-    	clear : 'Clear',
-    	highlight : 'Highlight',
-    	options : 'Color Options',
-    	selected : 'Selected Color',
-    	title : 'Select color'
     },
     colorbutton : 
     {
@@ -584,20 +398,19 @@ CKEDITOR.lang['en'] = {
     	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
     	title : 'Paste'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Block Quote'
-    },
-    bidi : 
-    {
-    	ltr : 'Text direction from left to right',
-    	rtl : 'Text direction from right to left'
     },
     basicstyles : 
     {
     	bold : 'Bold',
     	italic : 'Italic',
-    	strike : 'Strike Through',
+    	strike : 'Strikethrough',
     	subscript : 'Subscript',
     	superscript : 'Superscript',
     	underline : 'Underline'
@@ -669,9 +482,11 @@ CKEDITOR.lang['en'] = {
     	alignLeft : 'Left',
     	alignRight : 'Right',
     	alignCenter : 'Center',
+    	alignJustify : 'Justify',
     	alignTop : 'Top',
     	alignMiddle : 'Middle',
     	alignBottom : 'Bottom',
+    	alignNone : 'None',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Height must be a number.',
     	invalidWidth : 'Width must be a number.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['en'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, unavailable</span>'
-    } } 
+    } }; 

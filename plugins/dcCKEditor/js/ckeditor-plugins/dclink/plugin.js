@@ -22,7 +22,7 @@
 				if (!element.isReadOnly()) {
 					if (element.is('a')
 					    && !element.hasClass('media-link') // link to original media @see js/popup_media.js
-					    && !element.hasClass('post')) {    // link to an entry @see js/popup_posts.js
+					    && !element.hasClass('ref-post')) {    // link to an entry @see js/popup_posts.js
 
 						editor.getSelection().selectElement(element);
 

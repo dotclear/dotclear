@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['id'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['id'] = {
     {
     	toolbar : 'Sumber'
     },
-    smiley : 
-    {
-    	options : 'Opsi Smiley',
-    	title : 'Sisip sebuah Smiley',
-    	toolbar : 'Smiley'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Perlihatkan Blok'
-    },
-    selectall : 
-    {
-    	toolbar : 'Pilih Semua'
-    },
-    save : 
-    {
-    	toolbar : 'Simpan'
-    },
     removeformat : 
     {
     	toolbar : 'Hapus Format'
@@ -154,10 +136,6 @@ CKEDITOR.lang['id'] = {
     print : 
     {
     	toolbar : 'Cetak'
-    },
-    preview : 
-    {
-    	preview : 'Pratinjau'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['id'] = {
     	error : 'Tidak mungkin membersihkan data yang ditempel dikerenakan kesalahan internal',
     	title : 'Tempel dari Word',
     	toolbar : 'Tempel dari Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Halaman Istirahat',
-    	toolbar : 'Sisip Halaman Istirahat untuk Pencetakan '
-    },
-    newpage : 
-    {
-    	toolbar : 'Halaman Baru'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['id'] = {
     	validateHSpace : 'HSpace must be a whole number.',
     	validateVSpace : 'VSpace must be a whole number.'
     },
-    iframe : 
-    {
-    	border : 'Show frame border',
-    	noUrl : 'Please type the iframe URL',
-    	scrolling : 'Enable scrollbars',
-    	title : 'IFrame Properties',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Sisip Garis Horisontal'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Button Properties',
-    		text : 'Teks (Nilai)',
-    		type : 'Tipe',
-    		typeBtn : 'Tombol',
-    		typeSbm : 'Menyerahkan',
-    		typeRst : 'Reset'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Checkbox Properties',
-    		radioTitle : 'Radio Button Properties',
-    		value : 'Nilai',
-    		selected : 'Terpilih'
-    	},
-    	form : 
-    	{
-    		title : 'Form Properties',
-    		menu : 'Form Properties',
-    		action : 'Aksi',
-    		method : 'Metode',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'Hidden Field Properties',
-    		name : 'Nama',
-    		value : 'Nilai'
-    	},
-    	select : 
-    	{
-    		title : 'Selection Field Properties',
-    		selectInfo : 'Select Info',
-    		opAvail : 'Available Options',
-    		value : 'Nilai',
-    		size : 'Ukuran',
-    		lines : 'garis',
-    		chkMulti : 'Izinkan pemilihan ganda',
-    		opText : 'Teks',
-    		opValue : 'Nilai',
-    		btnAdd : 'Tambah',
-    		btnModify : 'Modifikasi',
-    		btnUp : 'Atas',
-    		btnDown : 'Bawah',
-    		btnSetValue : 'Set as selected value',
-    		btnDelete : 'Hapus'
-    	},
-    	textarea : 
-    	{
-    		title : 'Textarea Properties',
-    		cols : 'Kolom',
-    		rows : 'Baris'
-    	},
-    	textfield : 
-    	{
-    		title : 'Text Field Properties',
-    		name : 'Name',
-    		value : 'Nilai',
-    		charWidth : 'Character Width',
-    		maxChars : 'Maximum Characters',
-    		type : 'Tipe',
-    		typeText : 'Teks',
-    		typePass : 'Kata kunci',
-    		typeEmail : 'Surel',
-    		typeSearch : 'Cari',
-    		typeTel : 'Nomor Telepon',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['id'] = {
     	tag_h6 : 'Heading 6',
     	tag_p : 'Normal',
     	tag_pre : 'Membentuk'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Ukuran',
-    		voiceLabel : 'Font Size',
-    		panelTitle : 'Font Size'
-    	},
-    	label : 'Font',
-    	panelTitle : 'Font Name',
-    	voiceLabel : 'Font'
-    },
-    flash : 
-    {
-    	access : 'Script Access',
-    	accessAlways : 'Selalu',
-    	accessNever : 'Tidak Pernah',
-    	accessSameDomain : 'Domain yang sama',
-    	alignAbsBottom : 'Abs Bottom',
-    	alignAbsMiddle : 'Abs Middle',
-    	alignBaseline : 'Dasar',
-    	alignTextTop : 'Text Top',
-    	bgcolor : 'Warna Latar Belakang',
-    	chkFull : 'Izinkan Layar Penuh',
-    	chkLoop : 'Loop',
-    	chkMenu : 'Enable Flash Menu',
-    	chkPlay : 'Mainkan Otomatis',
-    	flashvars : 'Variables for Flash',
-    	hSpace : 'HSpace',
-    	properties : 'Flash Properties',
-    	propertiesTab : 'Properti',
-    	quality : 'Kualitas',
-    	qualityAutoHigh : 'Tinggi Otomatis',
-    	qualityAutoLow : 'Rendah Otomatis',
-    	qualityBest : 'Terbaik',
-    	qualityHigh : 'Tinggi',
-    	qualityLow : 'Rendah',
-    	qualityMedium : 'Sedang',
-    	scale : 'Scale',
-    	scaleAll : 'Perlihatkan semua',
-    	scaleFit : 'Exact Fit',
-    	scaleNoBorder : 'Tanpa Batas',
-    	title : 'Flash Properties',
-    	vSpace : 'VSpace',
-    	validateHSpace : 'HSpace harus sebuah angka',
-    	validateSrc : 'URL tidak boleh kosong',
-    	validateVSpace : 'VSpace harus sebuah angka',
-    	windowMode : 'Window mode',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparan',
-    	windowModeWindow : 'Jendela'
-    },
-    find : 
-    {
-    	find : 'Temukan',
-    	findOptions : 'Opsi menemukan',
-    	findWhat : 'Temukan apa:',
-    	matchCase : 'Match case',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'Match whole word',
-    	notFoundMsg : 'The specified text was not found.',
-    	replace : 'Ganti',
-    	replaceAll : 'Ganti Semua',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'Ganti dengan:',
-    	title : 'Temukan dan Ganti'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['id'] = {
     contextmenu : 
     {
     	options : 'Opsi Konteks Pilihan'
-    },
-    colordialog : 
-    {
-    	clear : 'Clear',
-    	highlight : 'Highlight',
-    	options : 'Color Options',
-    	selected : 'Selected Color',
-    	title : 'Select color'
     },
     colorbutton : 
     {
@@ -584,20 +398,19 @@ CKEDITOR.lang['id'] = {
     	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
     	title : 'Tempel'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Kutipan Blok'
-    },
-    bidi : 
-    {
-    	ltr : 'Arah penulisan dari kiri ke kanan.',
-    	rtl : 'Arah penulisan dari kanan ke kiri.'
     },
     basicstyles : 
     {
     	bold : 'Huruf Tebal',
     	italic : 'Huruf Miring',
-    	strike : 'Strike Through',
+    	strike : 'Strikethrough',
     	subscript : 'Subscript',
     	superscript : 'Superscript',
     	underline : 'Garis Bawah'
@@ -669,9 +482,11 @@ CKEDITOR.lang['id'] = {
     	alignLeft : 'Kiri',
     	alignRight : 'Kanan',
     	alignCenter : 'Tengah',
+    	alignJustify : 'Rata kiri-kanan',
     	alignTop : 'Atas',
     	alignMiddle : 'Tengah',
     	alignBottom : 'Bawah',
+    	alignNone : 'None',
     	invalidValue : 'Nilai tidak sah.',
     	invalidHeight : 'Tinggi harus sebuah angka.',
     	invalidWidth : 'Lebar harus sebuah angka.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['id'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Masukkan sebuah angka untuk sebuah nilai dalam pixel atau sebuah angka dengan unit CSS yang sah (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, tidak tersedia</span>'
-    } } 
+    } }; 

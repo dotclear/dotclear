@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fi'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['fi'] = {
     {
     	toolbar : 'Koodi'
     },
-    smiley : 
-    {
-    	options : 'Hymiön ominaisuudet',
-    	title : 'Lisää hymiö',
-    	toolbar : 'Hymiö'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Näytä elementit'
-    },
-    selectall : 
-    {
-    	toolbar : 'Valitse kaikki'
-    },
-    save : 
-    {
-    	toolbar : 'Tallenna'
-    },
     removeformat : 
     {
     	toolbar : 'Poista muotoilu'
@@ -154,10 +136,6 @@ CKEDITOR.lang['fi'] = {
     print : 
     {
     	toolbar : 'Tulosta'
-    },
-    preview : 
-    {
-    	preview : 'Esikatsele'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['fi'] = {
     	error : 'Liitetyn tiedon siivoaminen ei onnistunut sisäisen virheen takia',
     	title : 'Liitä Word-dokumentista',
     	toolbar : 'Liitä Word-dokumentista'
-    },
-    pagebreak : 
-    {
-    	alt : 'Sivunvaihto',
-    	toolbar : 'Lisää sivunvaihto'
-    },
-    newpage : 
-    {
-    	toolbar : 'Tyhjennä'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['fi'] = {
     	validateHSpace : 'HSpace-määrityksen täytyy olla kokonaisluku.',
     	validateVSpace : 'VSpace-määrityksen täytyy olla kokonaisluku.'
     },
-    iframe : 
-    {
-    	border : 'Näytä kehyksen reunat',
-    	noUrl : 'Anna IFrame-kehykselle lähdeosoite (src)',
-    	scrolling : 'Näytä vierityspalkit',
-    	title : 'IFrame-kehyksen ominaisuudet',
-    	toolbar : 'IFrame-kehys'
-    },
     horizontalrule : 
     {
     	toolbar : 'Lisää murtoviiva'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Painikkeen ominaisuudet',
-    		text : 'Teksti (arvo)',
-    		type : 'Tyyppi',
-    		typeBtn : 'Painike',
-    		typeSbm : 'Lähetä',
-    		typeRst : 'Tyhjennä'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Valintaruudun ominaisuudet',
-    		radioTitle : 'Radiopainikkeen ominaisuudet',
-    		value : 'Arvo',
-    		selected : 'Valittu'
-    	},
-    	form : 
-    	{
-    		title : 'Lomakkeen ominaisuudet',
-    		menu : 'Lomakkeen ominaisuudet',
-    		action : 'Toiminto',
-    		method : 'Tapa',
-    		encoding : 'Enkoodaus'
-    	},
-    	hidden : 
-    	{
-    		title : 'Piilokentän ominaisuudet',
-    		name : 'Nimi',
-    		value : 'Arvo'
-    	},
-    	select : 
-    	{
-    		title : 'Valintakentän ominaisuudet',
-    		selectInfo : 'Info',
-    		opAvail : 'Ominaisuudet',
-    		value : 'Arvo',
-    		size : 'Koko',
-    		lines : 'Rivit',
-    		chkMulti : 'Salli usea valinta',
-    		opText : 'Teksti',
-    		opValue : 'Arvo',
-    		btnAdd : 'Lisää',
-    		btnModify : 'Muuta',
-    		btnUp : 'Ylös',
-    		btnDown : 'Alas',
-    		btnSetValue : 'Aseta valituksi',
-    		btnDelete : 'Poista'
-    	},
-    	textarea : 
-    	{
-    		title : 'Tekstilaatikon ominaisuudet',
-    		cols : 'Sarakkeita',
-    		rows : 'Rivejä'
-    	},
-    	textfield : 
-    	{
-    		title : 'Tekstikentän ominaisuudet',
-    		name : 'Nimi',
-    		value : 'Arvo',
-    		charWidth : 'Leveys',
-    		maxChars : 'Maksimi merkkimäärä',
-    		type : 'Tyyppi',
-    		typeText : 'Teksti',
-    		typePass : 'Salasana',
-    		typeEmail : 'Sähköposti',
-    		typeSearch : 'Haku',
-    		typeTel : 'Puhelinnumero',
-    		typeUrl : 'Osoite'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['fi'] = {
     	tag_h6 : 'Otsikko 6',
     	tag_p : 'Normaali',
     	tag_pre : 'Muotoiltu'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Koko',
-    		voiceLabel : 'Kirjaisimen koko',
-    		panelTitle : 'Koko'
-    	},
-    	label : 'Kirjaisinlaji',
-    	panelTitle : 'Kirjaisinlaji',
-    	voiceLabel : 'Kirjaisinlaji'
-    },
-    flash : 
-    {
-    	access : 'Skriptien pääsy',
-    	accessAlways : 'Aina',
-    	accessNever : 'Ei koskaan',
-    	accessSameDomain : 'Sama verkkotunnus',
-    	alignAbsBottom : 'Aivan alas',
-    	alignAbsMiddle : 'Aivan keskelle',
-    	alignBaseline : 'Alas (teksti)',
-    	alignTextTop : 'Ylös (teksti)',
-    	bgcolor : 'Taustaväri',
-    	chkFull : 'Salli kokoruututila',
-    	chkLoop : 'Toisto',
-    	chkMenu : 'Näytä Flash-valikko',
-    	chkPlay : 'Automaattinen käynnistys',
-    	flashvars : 'Muuttujat Flash:lle',
-    	hSpace : 'Vaakatila',
-    	properties : 'Flash-ominaisuudet',
-    	propertiesTab : 'Ominaisuudet',
-    	quality : 'Laatu',
-    	qualityAutoHigh : 'Automaattinen korkea',
-    	qualityAutoLow : 'Automaattinen matala',
-    	qualityBest : 'Paras',
-    	qualityHigh : 'Korkea',
-    	qualityLow : 'Matala',
-    	qualityMedium : 'Keskitaso',
-    	scale : 'Levitä',
-    	scaleAll : 'Näytä kaikki',
-    	scaleFit : 'Tarkka koko',
-    	scaleNoBorder : 'Ei rajaa',
-    	title : 'Flash ominaisuudet',
-    	vSpace : 'Pystytila',
-    	validateHSpace : 'Vaakatilan täytyy olla numero.',
-    	validateSrc : 'Linkille on kirjoitettava URL',
-    	validateVSpace : 'Pystytilan täytyy olla numero.',
-    	windowMode : 'Ikkuna tila',
-    	windowModeOpaque : 'Läpinäkyvyys',
-    	windowModeTransparent : 'Läpinäkyvä',
-    	windowModeWindow : 'Ikkuna'
-    },
-    find : 
-    {
-    	find : 'Etsi',
-    	findOptions : 'Hakuasetukset',
-    	findWhat : 'Etsi mitä:',
-    	matchCase : 'Sama kirjainkoko',
-    	matchCyclic : 'Kierrä ympäri',
-    	matchWord : 'Koko sana',
-    	notFoundMsg : 'Etsittyä tekstiä ei löytynyt.',
-    	replace : 'Korvaa',
-    	replaceAll : 'Korvaa kaikki',
-    	replaceSuccessMsg : '%1 esiintymä(ä) korvattu.',
-    	replaceWith : 'Korvaa tällä:',
-    	title : 'Etsi ja korvaa'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['fi'] = {
     contextmenu : 
     {
     	options : 'Pikavalikon ominaisuudet'
-    },
-    colordialog : 
-    {
-    	clear : 'Poista',
-    	highlight : 'Korostus',
-    	options : 'Värin ominaisuudet',
-    	selected : 'Valittu',
-    	title : 'Valitse väri'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['fi'] = {
     	securityMsg : 'Selaimesi turva-asetukset eivät salli editorin käyttää leikepöytää suoraan. Sinun pitää suorittaa liittäminen tässä ikkunassa.',
     	title : 'Liitä'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Valittu)'
+    },
     blockquote : 
     {
     	toolbar : 'Lainaus'
-    },
-    bidi : 
-    {
-    	ltr : 'Tekstin suunta vasemmalta oikealle',
-    	rtl : 'Tekstin suunta oikealta vasemmalle'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['fi'] = {
     	userGuide : 'CKEditorin käyttäjäopas'
     },
     editor : 'Rikastekstieditori',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Rikastekstieditoripaneeli',
     common : 
     {
     	editorHelp : 'Paina ALT 0 nähdäksesi ohjeen',
@@ -669,9 +482,11 @@ CKEDITOR.lang['fi'] = {
     	alignLeft : 'Vasemmalle',
     	alignRight : 'Oikealle',
     	alignCenter : 'Keskelle',
+    	alignJustify : 'Tasaa molemmat reunat',
     	alignTop : 'Ylös',
     	alignMiddle : 'Keskelle',
     	alignBottom : 'Alas',
+    	alignNone : 'Ei asetettu',
     	invalidValue : 'Virheellinen arvo.',
     	invalidHeight : 'Korkeuden täytyy olla numero.',
     	invalidWidth : 'Leveyden täytyy olla numero.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['fi'] = {
     	invalidInlineStyle : 'Tyylille annetun arvon täytyy koostua yhdestä tai useammasta "nimi : arvo" parista, jotka ovat eroteltuna toisistaan puolipisteillä.',
     	cssLengthTooltip : 'Anna numeroarvo pikseleinä tai numeroarvo CSS mittayksikön kanssa (px, %, in, cm, mm, em, ex, pt, tai pc).',
     	unavailable : '%1<span class="cke_accessibility">, ei saatavissa</span>'
-    } } 
+    } }; 
