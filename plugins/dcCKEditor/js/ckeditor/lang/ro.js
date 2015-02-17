@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ro'] = {
     undo : 
@@ -89,7 +89,7 @@ CKEDITOR.lang['ro'] = {
     	headersNone : 'Nimic',
     	headersRow : 'Primul rând',
     	invalidBorder : 'Dimensiunea bordurii trebuie să aibe un număr.',
-    	invalidCellPadding : 'Cell padding must be a positive number.',
+    	invalidCellPadding : 'Spațierea celulei trebuie sa fie un număr pozitiv',
     	invalidCellSpacing : 'Spațierea celului trebuie să fie un număr pozitiv.',
     	invalidCols : 'Numărul coloanelor trebuie să fie mai mare decât 0.',
     	invalidHeight : 'Inaltimea celulei trebuie sa fie un numar.',
@@ -129,24 +129,6 @@ CKEDITOR.lang['ro'] = {
     {
     	toolbar : 'Sursa'
     },
-    smiley : 
-    {
-    	options : 'Opțiuni figuri expresive',
-    	title : 'Inserează o figură expresivă (Emoticon)',
-    	toolbar : 'Figură expresivă (Emoticon)'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Arată blocurile'
-    },
-    selectall : 
-    {
-    	toolbar : 'Selectează tot'
-    },
-    save : 
-    {
-    	toolbar : 'Salvează'
-    },
     removeformat : 
     {
     	toolbar : 'Înlătură formatarea'
@@ -154,10 +136,6 @@ CKEDITOR.lang['ro'] = {
     print : 
     {
     	toolbar : 'Printează'
-    },
-    preview : 
-    {
-    	preview : 'Previzualizare'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['ro'] = {
     	error : 'Nu a fost posibilă curățarea datelor adăugate datorită unei erori interne',
     	title : 'Adaugă din Word',
     	toolbar : 'Adaugă din Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Page Break',
-    	toolbar : 'Inserează separator de pagină (Page Break)'
-    },
-    newpage : 
-    {
-    	toolbar : 'Pagină nouă'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['ro'] = {
     	validateHSpace : 'Hspace trebuie să fie un număr întreg.',
     	validateVSpace : 'Vspace trebuie să fie un număr întreg.'
     },
-    iframe : 
-    {
-    	border : 'Show frame border',
-    	noUrl : 'Please type the iframe URL',
-    	scrolling : 'Enable scrollbars',
-    	title : 'IFrame Properties',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Inserează linie orizontală'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Proprietăţi buton',
-    		text : 'Text (Valoare)',
-    		type : 'Tip',
-    		typeBtn : 'Buton',
-    		typeSbm : 'Trimite',
-    		typeRst : 'Reset'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Proprietăţi bifă (Checkbox)',
-    		radioTitle : 'Proprietăţi buton radio (Radio Button)',
-    		value : 'Valoare',
-    		selected : 'Selectat'
-    	},
-    	form : 
-    	{
-    		title : 'Proprietăţi formular (Form)',
-    		menu : 'Proprietăţi formular (Form)',
-    		action : 'Acţiune',
-    		method : 'Metodă',
-    		encoding : 'Encodare'
-    	},
-    	hidden : 
-    	{
-    		title : 'Proprietăţi câmp ascuns (Hidden Field)',
-    		name : 'Nume',
-    		value : 'Valoare'
-    	},
-    	select : 
-    	{
-    		title : 'Proprietăţi câmp selecţie (Selection Field)',
-    		selectInfo : 'Informaţii',
-    		opAvail : 'Opţiuni disponibile',
-    		value : 'Valoare',
-    		size : 'Mărime',
-    		lines : 'linii',
-    		chkMulti : 'Permite selecţii multiple',
-    		opText : 'Text',
-    		opValue : 'Valoare',
-    		btnAdd : 'Adaugă',
-    		btnModify : 'Modifică',
-    		btnUp : 'Sus',
-    		btnDown : 'Jos',
-    		btnSetValue : 'Setează ca valoare selectată',
-    		btnDelete : 'Şterge'
-    	},
-    	textarea : 
-    	{
-    		title : 'Proprietăţi suprafaţă text (Textarea)',
-    		cols : 'Coloane',
-    		rows : 'Linii'
-    	},
-    	textfield : 
-    	{
-    		title : 'Proprietăţi câmp text (Text Field)',
-    		name : 'Nume',
-    		value : 'Valoare',
-    		charWidth : 'Lărgimea caracterului',
-    		maxChars : 'Caractere maxime',
-    		type : 'Tip',
-    		typeText : 'Text',
-    		typePass : 'Parolă',
-    		typeEmail : 'Email',
-    		typeSearch : 'Cauta',
-    		typeTel : 'Numar de telefon',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['ro'] = {
     	tag_h6 : 'Heading 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formatat'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Mărime',
-    		voiceLabel : 'Font Size',
-    		panelTitle : 'Mărime'
-    	},
-    	label : 'Font',
-    	panelTitle : 'Font',
-    	voiceLabel : 'Font'
-    },
-    flash : 
-    {
-    	access : 'Acces script',
-    	accessAlways : 'Întotdeauna',
-    	accessNever : 'Niciodată',
-    	accessSameDomain : 'Același domeniu',
-    	alignAbsBottom : 'Jos absolut (Abs Bottom)',
-    	alignAbsMiddle : 'Mijloc absolut (Abs Middle)',
-    	alignBaseline : 'Linia de jos (Baseline)',
-    	alignTextTop : 'Text sus',
-    	bgcolor : 'Coloarea fundalului',
-    	chkFull : 'Permite pe tot ecranul',
-    	chkLoop : 'Repetă (Loop)',
-    	chkMenu : 'Activează meniul flash',
-    	chkPlay : 'Rulează automat',
-    	flashvars : 'Variabile pentru flash',
-    	hSpace : 'HSpace',
-    	properties : 'Proprietăţile flashului',
-    	propertiesTab : 'Proprietăți',
-    	quality : 'Calitate',
-    	qualityAutoHigh : 'Auto înaltă',
-    	qualityAutoLow : 'Auto Joasă',
-    	qualityBest : 'Cea mai bună',
-    	qualityHigh : 'Înaltă',
-    	qualityLow : 'Joasă',
-    	qualityMedium : 'Medie',
-    	scale : 'Scală',
-    	scaleAll : 'Arată tot',
-    	scaleFit : 'Potriveşte',
-    	scaleNoBorder : 'Fără bordură (No border)',
-    	title : 'Proprietăţile flashului',
-    	vSpace : 'VSpace',
-    	validateHSpace : 'Hspace trebuie să fie un număr.',
-    	validateSrc : 'Vă rugăm să scrieţi URL-ul',
-    	validateVSpace : 'VSpace trebuie să fie un număr',
-    	windowMode : 'Mod fereastră',
-    	windowModeOpaque : 'Opacă',
-    	windowModeTransparent : 'Transparentă',
-    	windowModeWindow : 'Fereastră'
-    },
-    find : 
-    {
-    	find : 'Găseşte',
-    	findOptions : 'Find Options',
-    	findWhat : 'Găseşte:',
-    	matchCase : 'Deosebeşte majuscule de minuscule (Match case)',
-    	matchCyclic : 'Potrivește ciclic',
-    	matchWord : 'Doar cuvintele întregi',
-    	notFoundMsg : 'Textul specificat nu a fost găsit.',
-    	replace : 'Înlocuieşte',
-    	replaceAll : 'Înlocuieşte tot',
-    	replaceSuccessMsg : '%1 căutări înlocuite.',
-    	replaceWith : 'Înlocuieşte cu:',
-    	title : 'Găseşte şi înlocuieşte'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['ro'] = {
     contextmenu : 
     {
     	options : 'Opțiuni Meniu Contextual'
-    },
-    colordialog : 
-    {
-    	clear : 'Clear',
-    	highlight : 'Highlight',
-    	options : 'Color Options',
-    	selected : 'Selected Color',
-    	title : 'Select color'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['ro'] = {
     	securityMsg : 'Din cauza setărilor de securitate ale programului dvs. cu care navigaţi pe internet (browser), editorul nu poate accesa direct datele din clipboard. Va trebui să adăugaţi din nou datele în această fereastră.',
     	title : 'Adaugă'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selectat)'
+    },
     blockquote : 
     {
     	toolbar : 'Citat'
-    },
-    bidi : 
-    {
-    	ltr : 'Text direction from left to right',
-    	rtl : 'Text direction from right to left'
     },
     basicstyles : 
     {
@@ -604,12 +417,12 @@ CKEDITOR.lang['ro'] = {
     },
     about : 
     {
-    	copy : 'Copyright &copy; $1. All rights reserved.',
-    	dlgTitle : 'About CKEditor',
-    	help : 'Check $1 for help.',
-    	moreInfo : 'For licensing information please visit our web site:',
-    	title : 'About CKEditor',
-    	userGuide : 'CKEditor User\'s Guide'
+    	copy : 'Copyright &copy; $1. Toate drepturile rezervate.',
+    	dlgTitle : 'Despre CKEeditor',
+    	help : 'Citește  $1 pentru ajutor.',
+    	moreInfo : 'Pentru informații despre licență, vă rugăm vizitați web site-ul nostru:',
+    	title : 'Despre CKEditor',
+    	userGuide : 'CKEditor Ghid Utilizator'
     },
     editor : 'Rich Text Editor',
     editorPanel : 'Rich Text Editor panel',
@@ -669,9 +482,11 @@ CKEDITOR.lang['ro'] = {
     	alignLeft : 'Mărește Bara',
     	alignRight : 'Dreapta',
     	alignCenter : 'Centru',
+    	alignJustify : 'Aliniere în bloc (Block Justify)',
     	alignTop : 'Sus',
     	alignMiddle : 'Mijloc',
     	alignBottom : 'Jos',
+    	alignNone : 'None',
     	invalidValue : 'Varloare invalida',
     	invalidHeight : 'Înălțimea trebuie să fie un număr.',
     	invalidWidth : 'Lățimea trebuie să fie un număr.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['ro'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, nu este disponibil</span>'
-    } } 
+    } }; 

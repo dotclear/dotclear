@@ -1,32 +1,32 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['el'] = {
     undo : 
     {
-    	redo : 'Επαναφορά',
+    	redo : 'Επανάληψη',
     	undo : 'Αναίρεση'
     },
     toolbar : 
     {
-    	toolbarCollapse : 'Σύμπτηξη Εργαλειοθήκης',
+    	toolbarCollapse : 'Σύμπτυξη Εργαλειοθήκης',
     	toolbarExpand : 'Ανάπτυξη Εργαλειοθήκης',
     	toolbarGroups : 
     	{
     		document : 'Έγγραφο',
-    		clipboard : 'Clipboard/Undo',
-    		editing : 'Σε επεξεργασία',
+    		clipboard : 'Πρόχειρο/Αναίρεση',
+    		editing : 'Επεξεργασία',
     		forms : 'Φόρμες',
-    		basicstyles : 'Βασικά στυλ',
+    		basicstyles : 'Βασικά Στυλ',
     		paragraph : 'Παράγραφος',
-    		links : 'Συνδέσμοι',
+    		links : 'Σύνδεσμοι',
     		insert : 'Εισαγωγή',
     		styles : 'Στυλ',
     		colors : 'Χρώματα',
     		tools : 'Εργαλεία'
     	},
-    	toolbars : 'Εργαλειοθήκες Επεξεργαστή'
+    	toolbars : 'Εργαλειοθήκες επεξεργαστή'
     },
     templates : 
     {
@@ -50,13 +50,13 @@ CKEDITOR.lang['el'] = {
     		merge : 'Ενοποίηση Κελιών',
     		mergeRight : 'Συγχώνευση Με Δεξιά',
     		mergeDown : 'Συγχώνευση Με Κάτω',
-    		splitHorizontal : 'Οριζόντιο Μοίρασμα Κελιού',
-    		splitVertical : 'Κατακόρυφο Μοίρασμα Κελιού',
+    		splitHorizontal : 'Οριζόντια Διαίρεση Κελιού',
+    		splitVertical : 'Κατακόρυφη Διαίρεση Κελιού',
     		title : 'Ιδιότητες Κελιού',
     		cellType : 'Τύπος Κελιού',
-    		rowSpan : 'Εύρος Σειρών',
+    		rowSpan : 'Εύρος Γραμμών',
     		colSpan : 'Εύρος Στηλών',
-    		wordWrap : 'Word Wrap',
+    		wordWrap : 'Αναδίπλωση Λέξεων',
     		hAlign : 'Οριζόντια Στοίχιση',
     		vAlign : 'Κάθετη Στοίχιση',
     		alignBaseline : 'Baseline',
@@ -66,41 +66,41 @@ CKEDITOR.lang['el'] = {
     		header : 'Κεφαλίδα',
     		yes : 'Ναι',
     		no : 'Όχι',
-    		invalidWidth : 'Το πλάτος του κελιού πρέπει να είναι ένας αριθμός.',
-    		invalidHeight : 'Το ύψος του κελιού πρέπει να είναι ένας αριθμός.',
-    		invalidRowSpan : 'Rows span must be a whole number.',
-    		invalidColSpan : 'Columns span must be a whole number.',
+    		invalidWidth : 'Το πλάτος του κελιού πρέπει να είναι αριθμός.',
+    		invalidHeight : 'Το ύψος του κελιού πρέπει να είναι αριθμός.',
+    		invalidRowSpan : 'Το εύρος των γραμμών πρέπει να είναι ακέραιος αριθμός.',
+    		invalidColSpan : 'Το εύρος των στηλών πρέπει να είναι ακέραιος αριθμός.',
     		chooseColor : 'Επιλέξτε'
     	},
-    	cellPad : 'Γέμισμα κελιών',
-    	cellSpace : 'Διάστημα κελιών',
+    	cellPad : 'Αναπλήρωση κελιών',
+    	cellSpace : 'Απόσταση κελιών',
     	column : 
     	{
     		menu : 'Στήλη',
     		insertBefore : 'Εισαγωγή Στήλης Πριν',
-    		insertAfter : 'Εισαγωγή Σειράς Μετά',
-    		deleteColumn : 'Διαγραφή Κολωνών'
+    		insertAfter : 'Εισαγωγή Στήλης Μετά',
+    		deleteColumn : 'Διαγραφή Στηλών'
     	},
-    	columns : 'Κολώνες',
-    	deleteTable : 'Διαγραφή πίνακα',
+    	columns : 'Στήλες',
+    	deleteTable : 'Διαγραφή Πίνακα',
     	headers : 'Κεφαλίδες',
     	headersBoth : 'Και τα δύο',
-    	headersColumn : 'Πρώτη Στήλη',
+    	headersColumn : 'Πρώτη στήλη',
     	headersNone : 'Κανένα',
-    	headersRow : 'Πρώτη Σειρά',
+    	headersRow : 'Πρώτη Γραμμή',
     	invalidBorder : 'Το πάχος του περιγράμματος πρέπει να είναι ένας αριθμός.',
-    	invalidCellPadding : 'Το γέμισμα μέσα στα κελιά πρέπει να είναι ένας θετικός αριθμός.',
+    	invalidCellPadding : 'Η αναπλήρωση των κελιών πρέπει να είναι θετικός αριθμός.',
     	invalidCellSpacing : 'Η απόσταση μεταξύ των κελιών πρέπει να είναι ένας θετικός αριθμός.',
     	invalidCols : 'Ο αριθμός των στηλών πρέπει να είναι μεγαλύτερος από 0.',
-    	invalidHeight : 'Το ύψος του πίνακα πρέπει να είναι ένας αριθμός.',
+    	invalidHeight : 'Το ύψος του πίνακα πρέπει να είναι αριθμός.',
     	invalidRows : 'Ο αριθμός των σειρών πρέπει να είναι μεγαλύτερος από 0.',
     	invalidWidth : 'Το πλάτος του πίνακα πρέπει να είναι ένας αριθμός.',
     	menu : 'Ιδιότητες Πίνακα',
     	row : 
     	{
-    		menu : 'Σειρά',
-    		insertBefore : 'Εισαγωγή Σειράς Από Πάνω',
-    		insertAfter : 'Εισαγωγή Σειράς Από Κάτω',
+    		menu : 'Γραμμή',
+    		insertBefore : 'Εισαγωγή Γραμμής Πριν',
+    		insertAfter : 'Εισαγωγή Γραμμής Μετά',
     		deleteRow : 'Διαγραφή Γραμμών'
     	},
     	rows : 'Γραμμές',
@@ -108,56 +108,34 @@ CKEDITOR.lang['el'] = {
     	title : 'Ιδιότητες Πίνακα',
     	toolbar : 'Πίνακας',
     	widthPc : 'τοις εκατό',
-    	widthPx : 'pixels',
+    	widthPx : 'pixel',
     	widthUnit : 'μονάδα πλάτους'
     },
     stylescombo : 
     {
     	label : 'Μορφές',
     	panelTitle : 'Στυλ Μορφοποίησης',
-    	panelTitle1 : 'Στυλ Κομματιών',
+    	panelTitle1 : 'Στυλ Τμημάτων',
     	panelTitle2 : 'Στυλ Εν Σειρά',
     	panelTitle3 : 'Στυλ Αντικειμένων'
     },
     specialchar : 
     {
     	options : 'Επιλογές Ειδικών Χαρακτήρων',
-    	title : 'Επιλέξτε έναν Ειδικό Χαρακτήρα',
+    	title : 'Επιλέξτε Έναν Ειδικό Χαρακτήρα',
     	toolbar : 'Εισαγωγή Ειδικού Χαρακτήρα'
     },
     sourcearea : 
     {
-    	toolbar : 'HTML κώδικας'
-    },
-    smiley : 
-    {
-    	options : 'Επιλογές Smiley',
-    	title : 'Επιλέξτε ένα Smiley',
-    	toolbar : 'Smiley'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Προβολή Περιοχών'
-    },
-    selectall : 
-    {
-    	toolbar : 'Επιλογή όλων'
-    },
-    save : 
-    {
-    	toolbar : 'Αποθήκευση'
+    	toolbar : 'Κώδικας'
     },
     removeformat : 
     {
-    	toolbar : 'Αφαίρεση Μορφοποίησης'
+    	toolbar : 'Εκκαθάριση Μορφοποίησης'
     },
     print : 
     {
     	toolbar : 'Εκτύπωση'
-    },
-    preview : 
-    {
-    	preview : 'Προεπισκόπιση'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['el'] = {
     	error : 'Δεν ήταν δυνατό να καθαριστούν τα δεδομένα λόγω ενός εσωτερικού σφάλματος',
     	title : 'Επικόλληση από το Word',
     	toolbar : 'Επικόλληση από το Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Αλλαγή Σελίδας',
-    	toolbar : 'Εισαγωγή Τέλους Σελίδας για Εκτύπωση'
-    },
-    newpage : 
-    {
-    	toolbar : 'Νέα Σελίδα'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['el'] = {
     	validateHSpace : 'Το HSpace πρέπει να είναι ένας ακέραιος αριθμός.',
     	validateVSpace : 'Το VSpace πρέπει να είναι ένας ακέραιος αριθμός.'
     },
-    iframe : 
-    {
-    	border : 'Προβολή περιγράμματος πλαισίου',
-    	noUrl : 'Παρακαλούμε εισάγεται το URL του iframe',
-    	scrolling : 'Ενεργοποίηση μπαρών κύλισης',
-    	title : 'Ιδιότητες IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Εισαγωγή Οριζόντιας Γραμμής'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Ιδιότητες Κουμπιού',
-    		text : 'Κείμενο (Τιμή)',
-    		type : 'Τύπος',
-    		typeBtn : 'Κουμπί',
-    		typeSbm : 'Υποβολή',
-    		typeRst : 'Επαναφορά'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Ιδιότητες Κουτιού Επιλογής',
-    		radioTitle : 'Ιδιότητες Κουμπιού Επιλογής',
-    		value : 'Τιμή',
-    		selected : 'Επιλεγμένο'
-    	},
-    	form : 
-    	{
-    		title : 'Ιδιότητες Φόρμας',
-    		menu : 'Ιδιότητες Φόρμας',
-    		action : 'Ενέργεια',
-    		method : 'Μέθοδος',
-    		encoding : 'Κωδικοποίηση'
-    	},
-    	hidden : 
-    	{
-    		title : 'Ιδιότητες Κρυφού Πεδίου',
-    		name : 'Όνομα',
-    		value : 'Τιμή'
-    	},
-    	select : 
-    	{
-    		title : 'Ιδιότητες Πεδίου Επιλογής',
-    		selectInfo : 'Πληροφορίες Πεδίου Επιλογής',
-    		opAvail : 'Διαθέσιμες Επιλογές',
-    		value : 'Τιμή',
-    		size : 'Μέγεθος',
-    		lines : 'γραμμές',
-    		chkMulti : 'Να επιτρέπονται οι πολλαπλές επιλογές',
-    		opText : 'Κείμενο',
-    		opValue : 'Τιμή',
-    		btnAdd : 'Προσθήκη',
-    		btnModify : 'Τροποποίηση',
-    		btnUp : 'Πάνω',
-    		btnDown : 'Κάτω',
-    		btnSetValue : 'Θέση ως προεπιλογή',
-    		btnDelete : 'Διαγραφή'
-    	},
-    	textarea : 
-    	{
-    		title : 'Ιδιότητες Περιοχής Κειμένου',
-    		cols : 'Στήλες',
-    		rows : 'Σειρές'
-    	},
-    	textfield : 
-    	{
-    		title : 'Ιδιότητες Πεδίου Κειμένου',
-    		name : 'Όνομα',
-    		value : 'Τιμή',
-    		charWidth : 'Πλάτος Χαρακτήρων',
-    		maxChars : 'Μέγιστοι χαρακτήρες',
-    		type : 'Τύπος',
-    		typeText : 'Κείμενο',
-    		typePass : 'Κωδικός',
-    		typeEmail : 'Email',
-    		typeSearch : 'Αναζήτηση',
-    		typeTel : 'Αριθμός Τηλεφώνου',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['el'] = {
     	tag_h6 : 'Κεφαλίδα 6',
     	tag_p : 'Κανονική',
     	tag_pre : 'Προ-μορφοποιημένη'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Μέγεθος',
-    		voiceLabel : 'Μέγεθος Γραμματοσειράς',
-    		panelTitle : 'Μέγεθος Γραμματοσειράς'
-    	},
-    	label : 'Γραμματοσειρά',
-    	panelTitle : 'Όνομα Γραμματοσειράς',
-    	voiceLabel : 'Γραμματοσειρά'
-    },
-    flash : 
-    {
-    	access : 'Πρόσβαση Script',
-    	accessAlways : 'Πάντα',
-    	accessNever : 'Ποτέ',
-    	accessSameDomain : 'Ίδιο όνομα τομέα',
-    	alignAbsBottom : 'Απόλυτα Κάτω',
-    	alignAbsMiddle : 'Απόλυτα στη Μέση',
-    	alignBaseline : 'Γραμμή Βάσης',
-    	alignTextTop : 'Κορυφή Κειμένου',
-    	bgcolor : 'Χρώμα Υποβάθρου',
-    	chkFull : 'Να Επιτρέπεται η Προβολή σε Πλήρη Οθόνη',
-    	chkLoop : 'Επανάληψη',
-    	chkMenu : 'Ενεργοποίηση Flash Menu',
-    	chkPlay : 'Αυτόματη Εκτέλεση',
-    	flashvars : 'Μεταβλητές για Flash',
-    	hSpace : 'Οριζόντιο Διάστημα',
-    	properties : 'Ιδιότητες Flash',
-    	propertiesTab : 'Ιδιότητες',
-    	quality : 'Ποιότητα',
-    	qualityAutoHigh : 'Αυτόματη Υψηλή',
-    	qualityAutoLow : 'Αυτόματη Χαμηλή',
-    	qualityBest : 'Καλύτερη',
-    	qualityHigh : 'Υψηλή',
-    	qualityLow : 'Χαμηλή',
-    	qualityMedium : 'Μεσαία',
-    	scale : 'Μεγέθυνση',
-    	scaleAll : 'Εμφάνιση όλων',
-    	scaleFit : 'Ακριβές Μέγεθος',
-    	scaleNoBorder : 'Χωρίς Περίγραμμα',
-    	title : 'Ιδιότητες Flash',
-    	vSpace : 'Κάθετο Διάστημα',
-    	validateHSpace : 'Το HSpace πρέπει να είναι αριθμός.',
-    	validateSrc : 'Εισάγετε την τοποθεσία (URL) του υπερσυνδέσμου (Link)',
-    	validateVSpace : 'Το VSpace πρέπει να είναι αριθμός.',
-    	windowMode : 'Τρόπος λειτουργίας παραθύρου',
-    	windowModeOpaque : 'Συμπαγές',
-    	windowModeTransparent : 'Διάφανο',
-    	windowModeWindow : 'Παράθυρο'
-    },
-    find : 
-    {
-    	find : 'Εύρεση',
-    	findOptions : 'Επιλογές Εύρεσης',
-    	findWhat : 'Εύρεση για:',
-    	matchCase : 'Ταίριασμα πεζών/κεφαλαίων',
-    	matchCyclic : 'Αναδρομική εύρεση',
-    	matchWord : 'Εύρεση μόνο πλήρων λέξεων',
-    	notFoundMsg : 'Το κείμενο δεν βρέθηκε.',
-    	replace : 'Αντικατάσταση',
-    	replaceAll : 'Αντικατάσταση Όλων',
-    	replaceSuccessMsg : 'Ο(ι) όρος(-οι) αντικαταστήθηκε(-αν) %1 φορές.',
-    	replaceWith : 'Αντικατάσταση με:',
-    	title : 'Εύρεση και Αντικατάσταση'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['el'] = {
     contextmenu : 
     {
     	options : 'Επιλογές Αναδυόμενου Μενού'
-    },
-    colordialog : 
-    {
-    	clear : 'Εκκαθάριση',
-    	highlight : 'Σήμανση',
-    	options : 'Επιλογές Χρωμάτων',
-    	selected : 'Επιλεγμένο Χρώμα',
-    	title : 'Επιλογή χρώματος'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['el'] = {
     	securityMsg : 'Λόγων των ρυθμίσεων ασφάλειας του περιηγητή σας, ο επεξεργαστής δεν μπορεί να έχει πρόσβαση στην μνήμη επικόλλησης. Χρειάζεται να επικολλήσετε ξανά σε αυτό το παράθυρο.',
     	title : 'Επικόλληση'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Επιλεγμένο)'
+    },
     blockquote : 
     {
     	toolbar : 'Περιοχή Παράθεσης'
-    },
-    bidi : 
-    {
-    	ltr : 'Διεύθυνση κειμένου από αριστερά στα δεξιά',
-    	rtl : 'Διεύθυνση κειμένου από δεξιά στα αριστερά'
     },
     basicstyles : 
     {
@@ -606,13 +419,13 @@ CKEDITOR.lang['el'] = {
     {
     	copy : 'Πνευματικά δικαιώματα &copy; $1 Με επιφύλαξη παντός δικαιώματος.',
     	dlgTitle : 'Περί του CKEditor',
-    	help : 'Ελέγξτε το $1 για βοήθεια.',
-    	moreInfo : 'Για πληροφορίες αδειών παρακαλούμε επισκεφθείτε την ιστοσελίδα μας:',
+    	help : 'Ελέγξτε τις $1 για βοήθεια.',
+    	moreInfo : 'Για πληροφορίες σχετικές με την άδεια χρήσης, παρακαλούμε επισκεφθείτε την ιστοσελίδα μας:',
     	title : 'Περί του CKEditor',
     	userGuide : 'Οδηγίες Χρήστη CKEditor'
     },
     editor : 'Επεξεργαστής Πλούσιου Κειμένου',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Πίνακας Επεξεργαστή Πλούσιου Κειμένου',
     common : 
     {
     	editorHelp : 'Πατήστε το ALT 0 για βοήθεια',
@@ -669,9 +482,11 @@ CKEDITOR.lang['el'] = {
     	alignLeft : 'Αριστερά',
     	alignRight : 'Δεξιά',
     	alignCenter : 'Κέντρο',
+    	alignJustify : 'Πλήρης Στοίχιση',
     	alignTop : 'Πάνω',
     	alignMiddle : 'Μέση',
     	alignBottom : 'Κάτω',
+    	alignNone : 'Χωρίς',
     	invalidValue : 'Μη έγκυρη τιμή.',
     	invalidHeight : 'Το ύψος πρέπει να είναι ένας αριθμός.',
     	invalidWidth : 'Το πλάτος πρέπει να είναι ένας αριθμός.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['el'] = {
     	invalidInlineStyle : 'Η τιμή για το εν σειρά στυλ πρέπει να περιέχει ένα ή περισσότερα ζεύγη με την μορφή "όνομα: τιμή" διαχωρισμένα με Ελληνικό ερωτηματικό.',
     	cssLengthTooltip : 'Εισάγεται μια τιμή σε pixel ή έναν αριθμό μαζί με μια έγκυρη μονάδα μέτρησης CSS (px, %, in, cm, mm, em, ex, pt, ή pc).',
     	unavailable : '%1<span class="cke_accessibility">, δεν είναι διαθέσιμο</span>'
-    } } 
+    } }; 

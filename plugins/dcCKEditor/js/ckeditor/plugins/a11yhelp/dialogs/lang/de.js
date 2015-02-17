@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -81,5 +81,67 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'de', {
 		}
 		]
 	}
-	]
-});
+	],
+	backspace: 'Rücklöschtaste',
+	tab: 'Tab',
+	enter: 'Eingabe',
+	shift: 'Umschalt',
+	ctrl: 'Strg',
+	alt: 'Alt',
+	pause: 'Pause',
+	capslock: 'Feststell',
+	escape: 'Escape',
+	pageUp: 'Bild auf',
+	pageDown: 'Bild ab',
+	end: 'Ende',
+	home: 'Pos1',
+	leftArrow: 'Linke Pfeiltaste',
+	upArrow: 'Obere Pfeiltaste',
+	rightArrow: 'Rechte Pfeiltaste',
+	downArrow: 'Untere Pfeiltaste',
+	insert: 'Einfügen',
+	'delete': 'Entfernen',
+	leftWindowKey: 'Linke Windowstaste',
+	rightWindowKey: 'Rechte Windowstaste',
+	selectKey: 'Taste auswählen',
+	numpad0: 'Ziffernblock 0',
+	numpad1: 'Ziffernblock 1',
+	numpad2: 'Ziffernblock 2',
+	numpad3: 'Ziffernblock 3',
+	numpad4: 'Ziffernblock 4',
+	numpad5: 'Ziffernblock 5',
+	numpad6: 'Ziffernblock 6',
+	numpad7: 'Ziffernblock 7',
+	numpad8: 'Ziffernblock 8',
+	numpad9: 'Ziffernblock 9',
+	multiply: 'Multiplizieren',
+	add: 'Addieren',
+	subtract: 'Subtrahieren',
+	decimalPoint: 'Punkt',
+	divide: 'Dividieren',
+	f1: 'F1',
+	f2: 'F2',
+	f3: 'F3',
+	f4: 'F4',
+	f5: 'F5',
+	f6: 'F6',
+	f7: 'F7',
+	f8: 'F8',
+	f9: 'F9',
+	f10: 'F10',
+	f11: 'F11',
+	f12: 'F12',
+	numLock: 'Ziffernblock feststellen',
+	scrollLock: 'Rollen',
+	semiColon: 'Semikolon',
+	equalSign: 'Gleichheitszeichen',
+	comma: 'Komma',
+	dash: 'Bindestrich',
+	period: 'Punkt',
+	forwardSlash: 'Schrägstrich',
+	graveAccent: 'Gravis',
+	openBracket: 'Öffnende eckige Klammer',
+	backSlash: 'Rückwärtsgewandter Schrägstrich',
+	closeBracket: 'Schließende eckige Klammer',
+	singleQuote: 'Einfaches Anführungszeichen'
+} );

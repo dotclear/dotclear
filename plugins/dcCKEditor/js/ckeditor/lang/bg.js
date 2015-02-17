@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['bg'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['bg'] = {
     {
     	toolbar : 'Източник'
     },
-    smiley : 
-    {
-    	options : 'Опции за усмивката',
-    	title : 'Вмъкване на усмивка',
-    	toolbar : 'Усмивка'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Показва блокове'
-    },
-    selectall : 
-    {
-    	toolbar : 'Избери всичко'
-    },
-    save : 
-    {
-    	toolbar : 'Запис'
-    },
     removeformat : 
     {
     	toolbar : 'Премахване на форматирането'
@@ -154,10 +136,6 @@ CKEDITOR.lang['bg'] = {
     print : 
     {
     	toolbar : 'Печат'
-    },
-    preview : 
-    {
-    	preview : 'Преглед'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['bg'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Вмъкни от MS Word',
     	toolbar : 'Вмъкни от MS Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Разделяне на страници',
-    	toolbar : 'Вмъкване на нова страница при печат'
-    },
-    newpage : 
-    {
-    	toolbar : 'Нова страница'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['bg'] = {
     	validateHSpace : 'HSpace must be a whole number.',
     	validateVSpace : 'VSpace must be a whole number.'
     },
-    iframe : 
-    {
-    	border : 'Показва рамка на карето',
-    	noUrl : 'Моля въведете URL за iFrame',
-    	scrolling : 'Вкл. скролбаровете',
-    	title : 'IFrame настройки',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Вмъкване на хоризонтална линия'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Настройки на бутона',
-    		text : 'Текст (стойност)',
-    		type : 'Тип',
-    		typeBtn : 'Бутон',
-    		typeSbm : 'Добави',
-    		typeRst : 'Нулиране'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Checkbox Properties',
-    		radioTitle : 'Настройки на радиобутон',
-    		value : 'Стойност',
-    		selected : 'Избрано'
-    	},
-    	form : 
-    	{
-    		title : 'Настройки на формата',
-    		menu : 'Настройки на формата',
-    		action : 'Действие',
-    		method : 'Метод',
-    		encoding : 'Кодиране'
-    	},
-    	hidden : 
-    	{
-    		title : 'Настройки за скрито поле',
-    		name : 'Име',
-    		value : 'Стойност'
-    	},
-    	select : 
-    	{
-    		title : 'Selection Field Properties',
-    		selectInfo : 'Select Info',
-    		opAvail : 'Налични опции',
-    		value : 'Стойност',
-    		size : 'Размер',
-    		lines : 'линии',
-    		chkMulti : 'Allow multiple selections',
-    		opText : 'Текст',
-    		opValue : 'Стойност',
-    		btnAdd : 'Добави',
-    		btnModify : 'Промени',
-    		btnUp : 'На горе',
-    		btnDown : 'На долу',
-    		btnSetValue : 'Set as selected value',
-    		btnDelete : 'Изтриване'
-    	},
-    	textarea : 
-    	{
-    		title : 'Опции за текстовата зона',
-    		cols : 'Колони',
-    		rows : 'Редове'
-    	},
-    	textfield : 
-    	{
-    		title : 'Настройки за текстово поле',
-    		name : 'Име',
-    		value : 'Стойност',
-    		charWidth : 'Ширина на знаците',
-    		maxChars : 'Макс. знаци',
-    		type : 'Тип',
-    		typeText : 'Текст',
-    		typePass : 'Парола',
-    		typeEmail : 'Email',
-    		typeSearch : 'Търсене',
-    		typeTel : 'Телефонен номер',
-    		typeUrl : 'Уеб адрес'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['bg'] = {
     	tag_h6 : 'Заглавие 6',
     	tag_p : 'Нормален',
     	tag_pre : 'Форматиран'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Размер',
-    		voiceLabel : 'Размер на шрифт',
-    		panelTitle : 'Размер на шрифт'
-    	},
-    	label : 'Шрифт',
-    	panelTitle : 'Име на шрифт',
-    	voiceLabel : 'Шрифт'
-    },
-    flash : 
-    {
-    	access : 'Достъп до скрипт',
-    	accessAlways : 'Винаги',
-    	accessNever : 'Никога',
-    	accessSameDomain : 'Същият домейн',
-    	alignAbsBottom : 'Най-долу',
-    	alignAbsMiddle : 'Точно по средата',
-    	alignBaseline : 'Базова линия',
-    	alignTextTop : 'Върху текста',
-    	bgcolor : 'Цвят на фона',
-    	chkFull : 'Включи на цял екран',
-    	chkLoop : 'Цикъл',
-    	chkMenu : 'Разрешено Flash меню',
-    	chkPlay : 'Авто. пускане',
-    	flashvars : 'Променливи за Флаш',
-    	hSpace : 'Хоризонтален отстъп',
-    	properties : 'Настройки за флаш',
-    	propertiesTab : 'Настройки',
-    	quality : 'Качество',
-    	qualityAutoHigh : 'Авто. високо',
-    	qualityAutoLow : 'Авто. ниско',
-    	qualityBest : 'Отлично',
-    	qualityHigh : 'Високо',
-    	qualityLow : 'Ниско',
-    	qualityMedium : 'Средно',
-    	scale : 'Оразмеряване',
-    	scaleAll : 'Показва всичко',
-    	scaleFit : 'Според мястото',
-    	scaleNoBorder : 'Без рамка',
-    	title : 'Настройки за флаш',
-    	vSpace : 'Вертикален отстъп',
-    	validateHSpace : 'HSpace трябва да е число.',
-    	validateSrc : 'Уеб адреса не трябва да е празен.',
-    	validateVSpace : 'VSpace трябва да е число.',
-    	windowMode : 'Режим на прозореца',
-    	windowModeOpaque : 'Плътност',
-    	windowModeTransparent : 'Прозрачност',
-    	windowModeWindow : 'Прозорец'
-    },
-    find : 
-    {
-    	find : 'Търсене',
-    	findOptions : 'Find Options',
-    	findWhat : 'Търси за:',
-    	matchCase : 'Съвпадение',
-    	matchCyclic : 'Циклично съвпадение',
-    	matchWord : 'Съвпадение с дума',
-    	notFoundMsg : 'Указаният текст не е намерен.',
-    	replace : 'Препокриване',
-    	replaceAll : 'Препокрий всички',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'Препокрива с:',
-    	title : 'Търсене и препокриване'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['bg'] = {
     contextmenu : 
     {
     	options : 'Опции на контекстното меню'
-    },
-    colordialog : 
-    {
-    	clear : 'Изчистване',
-    	highlight : 'Осветяване',
-    	options : 'Цветови опции',
-    	selected : 'Изберете цвят',
-    	title : 'Изберете цвят'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['bg'] = {
     	securityMsg : 'Заради настройките за сигурност на Вашия браузър, редакторът не може да прочете данните от клипборда коректно.',
     	title : 'Вмъкни'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Блок за цитат'
-    },
-    bidi : 
-    {
-    	ltr : 'Посока на текста от ляво на дясно',
-    	rtl : 'Посока на текста от дясно на ляво'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['bg'] = {
     	alignLeft : 'Ляво',
     	alignRight : 'Дясно',
     	alignCenter : 'Център',
+    	alignJustify : 'Двустранно подравняване',
     	alignTop : 'Горе',
     	alignMiddle : 'По средата',
     	alignBottom : 'Долу',
+    	alignNone : 'None',
     	invalidValue : 'Невалидна стойност.',
     	invalidHeight : 'Височината трябва да е число.',
     	invalidWidth : 'Ширина требе да е число.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['bg'] = {
     	invalidInlineStyle : 'Стойността на стилa трябва да съдържат една или повече двойки във формат "name : value", разделени с двоеточие.',
     	cssLengthTooltip : 'Въведете числена стойност в пиксели или друга валидна CSS единица (px, %, in, cm, mm, em, ex, pt, или pc).',
     	unavailable : '%1<span class="cke_accessibility">, недостъпно</span>'
-    } } 
+    } }; 

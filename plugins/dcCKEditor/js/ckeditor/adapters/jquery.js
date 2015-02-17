@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -18,7 +18,7 @@
  * @aside guide dev_jquery
  */
 
-(function( $ ) {
+( function( $ ) {
 	/**
 	 * Allows CKEditor to override `jQuery.fn.val()`. When set to `true`, the `val()` function
 	 * used on textarea elements replaced with CKEditor uses the CKEditor API.
@@ -73,8 +73,8 @@
 		/**
 		 * A jQuery function which triggers the creation of CKEditor with `<textarea>` and
 		 * {@link CKEDITOR.dtd#$editable editable} elements.
-		 * Every `<textarea>` element will be converted to a framed editor, while any other
-		 * supported element will be converted to an inline editor.
+		 * Every `<textarea>` element will be converted to a classic (`iframe`-based) editor,
+		 * while any other supported element will be converted to an inline editor.
 		 * This method binds the callback to the `instanceReady` event of all instances.
 		 * If the editor has already been created, the callback is fired straightaway.
 		 * You can also create multiple editors at once by using `$( '.className' ).ckeditor();`.
@@ -121,7 +121,7 @@
 					element = this,
 					dfd = new $.Deferred();
 
-					promises.push( dfd.promise() );
+				promises.push( dfd.promise() );
 
 				if ( editor && !instanceLock ) {
 					if ( callback )
@@ -132,8 +132,7 @@
 					// CREATE NEW INSTANCE
 
 					// Handle config.autoUpdateElement inside this plugin if desired.
-					if ( config.autoUpdateElement
-						|| ( typeof config.autoUpdateElement == 'undefined' && CKEDITOR.config.autoUpdateElement ) ) {
+					if ( config.autoUpdateElement || ( typeof config.autoUpdateElement == 'undefined' && CKEDITOR.config.autoUpdateElement ) ) {
 						config.autoUpdateElementJquery = true;
 					}
 
@@ -260,7 +259,7 @@
 					}, null, null, 9999 );
 				} else {
 					// Editor is already during creation process, bind our code to the event.
-					editor.once( 'instanceReady', function( evt ) {
+					editor.once( 'instanceReady', function() {
 						setTimeout( function() {
 							// Delay bit more if editor is still not ready.
 							if ( !editor.element ) {
@@ -339,10 +338,10 @@
 
 								promises.push( dfd.promise() );
 								return true;
-							}
-							// Call default .val function for rest of elements
-							else
+								// Call default .val function for rest of elements
+							} else {
 								return oldValMethod.call( $elem, value );
+							}
 						} );
 
 					// If there is no promise return default result (jQuery object of chaining).
@@ -372,4 +371,4 @@
 			};
 		} );
 	}
-})( window.jQuery );
+} )( window.jQuery );

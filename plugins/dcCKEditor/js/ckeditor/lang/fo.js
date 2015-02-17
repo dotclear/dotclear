@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fo'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['fo'] = {
     {
     	toolbar : 'Kelda'
     },
-    smiley : 
-    {
-    	options : 'Møguleikar fyri Smiley',
-    	title : 'Vel Smiley',
-    	toolbar : 'Smiley'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Vís blokkar'
-    },
-    selectall : 
-    {
-    	toolbar : 'Markera alt'
-    },
-    save : 
-    {
-    	toolbar : 'Goym'
-    },
     removeformat : 
     {
     	toolbar : 'Strika sniðgeving'
@@ -154,10 +136,6 @@ CKEDITOR.lang['fo'] = {
     print : 
     {
     	toolbar : 'Prenta'
-    },
-    preview : 
-    {
-    	preview : 'Frumsýning'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['fo'] = {
     	error : 'Tað eydnaðist ikki at reinsa tekstin vegna ein internan feil',
     	title : 'Innrita frá Word',
     	toolbar : 'Innrita frá Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Síðuskift',
-    	toolbar : 'Ger síðuskift'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nýggj síða'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['fo'] = {
     	validateHSpace : 'HSpace má vera eitt heiltal.',
     	validateVSpace : 'VSpace má vera eitt heiltal.'
     },
-    iframe : 
-    {
-    	border : 'Vís frame kant',
-    	noUrl : 'Vinarliga skriva URL til iframe',
-    	scrolling : 'Loyv scrollbars',
-    	title : 'Møguleikar fyri IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Ger vatnrætta linju'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Eginleikar fyri knøtt',
-    		text : 'Tekstur',
-    		type : 'Slag',
-    		typeBtn : 'Knøttur',
-    		typeSbm : 'Send',
-    		typeRst : 'Nullstilla'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Eginleikar fyri flugubein',
-    		radioTitle : 'Eginleikar fyri radioknøtt',
-    		value : 'Virði',
-    		selected : 'Valt'
-    	},
-    	form : 
-    	{
-    		title : 'Eginleikar fyri Form',
-    		menu : 'Eginleikar fyri Form',
-    		action : 'Hending',
-    		method : 'Háttur',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'Eginleikar fyri fjaldan teig',
-    		name : 'Navn',
-    		value : 'Virði'
-    	},
-    	select : 
-    	{
-    		title : 'Eginleikar fyri valskrá',
-    		selectInfo : 'Upplýsingar',
-    		opAvail : 'Tøkir møguleikar',
-    		value : 'Virði',
-    		size : 'Stødd',
-    		lines : 'Linjur',
-    		chkMulti : 'Loyv fleiri valmøguleikum samstundis',
-    		opText : 'Tekstur',
-    		opValue : 'Virði',
-    		btnAdd : 'Legg afturat',
-    		btnModify : 'Broyt',
-    		btnUp : 'Upp',
-    		btnDown : 'Niður',
-    		btnSetValue : 'Set sum valt virði',
-    		btnDelete : 'Strika'
-    	},
-    	textarea : 
-    	{
-    		title : 'Eginleikar fyri tekstumráði',
-    		cols : 'kolonnur',
-    		rows : 'røðir'
-    	},
-    	textfield : 
-    	{
-    		title : 'Eginleikar fyri tekstteig',
-    		name : 'Navn',
-    		value : 'Virði',
-    		charWidth : 'Breidd (sjónlig tekn)',
-    		maxChars : 'Mest loyvdu tekn',
-    		type : 'Slag',
-    		typeText : 'Tekstur',
-    		typePass : 'Loyniorð',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['fo'] = {
     	tag_h6 : 'Yvirskrift 6',
     	tag_p : 'Vanligt',
     	tag_pre : 'Sniðgivið'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Skriftstødd',
-    		voiceLabel : 'Skriftstødd',
-    		panelTitle : 'Skriftstødd'
-    	},
-    	label : 'Skrift',
-    	panelTitle : 'Skrift',
-    	voiceLabel : 'Skrift'
-    },
-    flash : 
-    {
-    	access : 'Script atgongd',
-    	accessAlways : 'Altíð',
-    	accessNever : 'Ongantíð',
-    	accessSameDomain : 'Sama navnaøki',
-    	alignAbsBottom : 'Abs botnur',
-    	alignAbsMiddle : 'Abs miðja',
-    	alignBaseline : 'Basislinja',
-    	alignTextTop : 'Tekst toppur',
-    	bgcolor : 'Bakgrundslitur',
-    	chkFull : 'Loyv fullan skerm',
-    	chkLoop : 'Endurspæl',
-    	chkMenu : 'Ger Flash skrá virkna',
-    	chkPlay : 'Avspælingin byrjar sjálv',
-    	flashvars : 'Variablar fyri Flash',
-    	hSpace : 'Høgri breddi',
-    	properties : 'Flash eginleikar',
-    	propertiesTab : 'Eginleikar',
-    	quality : 'Góðska',
-    	qualityAutoHigh : 'Auto høg',
-    	qualityAutoLow : 'Auto Lág',
-    	qualityBest : 'Besta',
-    	qualityHigh : 'Høg',
-    	qualityLow : 'Lág',
-    	qualityMedium : 'Meðal',
-    	scale : 'Skalering',
-    	scaleAll : 'Vís alt',
-    	scaleFit : 'Neyv skalering',
-    	scaleNoBorder : 'Eingin bordi',
-    	title : 'Flash eginleikar',
-    	vSpace : 'Vinstri breddi',
-    	validateHSpace : 'HSpace má vera eitt tal.',
-    	validateSrc : 'Vinarliga skriva tilknýti (URL)',
-    	validateVSpace : 'VSpace má vera eitt tal.',
-    	windowMode : 'Slag av rúti',
-    	windowModeOpaque : 'Ikki transparent',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Rútur'
-    },
-    find : 
-    {
-    	find : 'Leita',
-    	findOptions : 'Finn møguleikar',
-    	findWhat : 'Finn:',
-    	matchCase : 'Munur á stórum og smáum bókstavum',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'Bert heil orð',
-    	notFoundMsg : 'Leititeksturin varð ikki funnin',
-    	replace : 'Yvirskriva',
-    	replaceAll : 'Yvirskriva alt',
-    	replaceSuccessMsg : '%1 úrslit broytt.',
-    	replaceWith : 'Yvirskriva við:',
-    	title : 'Finn og broyt'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['fo'] = {
     contextmenu : 
     {
     	options : 'Context Menu Options'
-    },
-    colordialog : 
-    {
-    	clear : 'Strika',
-    	highlight : 'Framheva',
-    	options : 'Litmøguleikar',
-    	selected : 'Valdur litur',
-    	title : 'Vel lit'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['fo'] = {
     	securityMsg : 'Trygdaruppseting alnótskagans forðar tekstviðgeranum í beinleiðis atgongd til avritingarminnið. Tygum mugu royna aftur í hesum rútinum.',
     	title : 'Innrita'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Blockquote'
-    },
-    bidi : 
-    {
-    	ltr : 'Tekstkós frá vinstru til høgru',
-    	rtl : 'Tekstkós frá høgru til vinstru'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['fo'] = {
     	alignLeft : 'Vinstra',
     	alignRight : 'Høgra',
     	alignCenter : 'Miðsett',
+    	alignJustify : 'Javnir tekstkantar',
     	alignTop : 'Ovast',
     	alignMiddle : 'Miðja',
     	alignBottom : 'Botnur',
+    	alignNone : 'None',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Hædd má vera eitt tal.',
     	invalidWidth : 'Breidd má vera eitt tal.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['fo'] = {
     	invalidInlineStyle : 'Virði specifiserað fyri inline style má hava eitt ella fleiri pør (tuples) skrivað sum "name : value", hvørt parið sundurskilt við semi-colon.',
     	cssLengthTooltip : 'Skriva eitt tal fyri eitt virði í pixels ella eitt tal við gyldigum CSS eind (px, %, in, cm, mm, em, ex, pt, ella pc).',
     	unavailable : '%1<span class="cke_accessibility">, ikki tøkt</span>'
-    } } 
+    } }; 

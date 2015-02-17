@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ug'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['ug'] = {
     {
     	toolbar : 'مەنبە'
     },
-    smiley : 
-    {
-    	options : 'چىراي ئىپادە سىنبەلگە تاللانمىسى',
-    	title : 'چىراي ئىپادە سىنبەلگە قىستۇر',
-    	toolbar : 'چىراي ئىپادە'
-    },
-    showblocks : 
-    {
-    	toolbar : 'بۆلەكنى كۆرسەت'
-    },
-    selectall : 
-    {
-    	toolbar : 'ھەممىنى تاللا'
-    },
-    save : 
-    {
-    	toolbar : 'ساقلا'
-    },
     removeformat : 
     {
     	toolbar : 'پىچىمنى چىقىرىۋەت'
@@ -154,10 +136,6 @@ CKEDITOR.lang['ug'] = {
     print : 
     {
     	toolbar : 'باس '
-    },
-    preview : 
-    {
-    	preview : 'ئالدىن كۆزەت'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['ug'] = {
     	error : 'ئىچكى خاتالىق سەۋەبىدىن چاپلايدىغان سانلىق مەلۇماتنى تازىلىيالمايدۇ',
     	title : 'MS Word تىن چاپلا',
     	toolbar : 'MS Word تىن چاپلا'
-    },
-    pagebreak : 
-    {
-    	alt : 'بەت ئايرىغۇچ',
-    	toolbar : 'بەت ئايرىغۇچ قىستۇر'
-    },
-    newpage : 
-    {
-    	toolbar : 'يېڭى بەت'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['ug'] = {
     	validateHSpace : 'توغرىسىغا ئارىلىق چوقۇم پۈتۈن سان بولىدۇ',
     	validateVSpace : 'بويىغا ئارىلىق چوقۇم پۈتۈن سان بولىدۇ'
     },
-    iframe : 
-    {
-    	border : 'كاندۇك گىرۋەكلىرىنى كۆرسەت',
-    	noUrl : 'كاندۇكنىڭ ئادرېسى(Url)نى كىرگۈزۈڭ',
-    	scrolling : 'دومىلىما سۈرگۈچكە يول قوي',
-    	title : 'IFrame خاسلىق',
-    	toolbar : 'IFrame '
-    },
     horizontalrule : 
     {
     	toolbar : 'توغرا سىزىق قىستۇر'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'توپچا خاسلىقى',
-    		text : 'بەلگە (قىممەت)',
-    		type : 'تىپى',
-    		typeBtn : 'توپچا',
-    		typeSbm : 'تاپشۇر',
-    		typeRst : 'ئەسلىگە قايتۇر'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'كۆپ تاللاش خاسلىقى',
-    		radioTitle : 'تاق تاللاش توپچا خاسلىقى',
-    		value : 'تاللىغان قىممەت',
-    		selected : 'تاللانغان'
-    	},
-    	form : 
-    	{
-    		title : 'جەدۋەل خاسلىقى',
-    		menu : 'جەدۋەل خاسلىقى',
-    		action : 'مەشغۇلات',
-    		method : 'ئۇسۇل',
-    		encoding : 'جەدۋەل كودلىنىشى'
-    	},
-    	hidden : 
-    	{
-    		title : 'يوشۇرۇن دائىرە خاسلىقى',
-    		name : 'ئات',
-    		value : 'دەسلەپكى قىممىتى'
-    	},
-    	select : 
-    	{
-    		title : 'جەدۋەل/تىزىم خاسلىقى',
-    		selectInfo : 'ئۇچۇر تاللاڭ',
-    		opAvail : 'تاللاش تۈرلىرى',
-    		value : 'قىممەت',
-    		size : 'ئېگىزلىكى',
-    		lines : 'قۇر',
-    		chkMulti : 'كۆپ تاللاشچان',
-    		opText : 'تاللانما تېكىستى',
-    		opValue : 'تاللانما قىممىتى',
-    		btnAdd : 'قوش',
-    		btnModify : 'ئۆزگەرت',
-    		btnUp : 'ئۈستىگە',
-    		btnDown : 'ئاستىغا',
-    		btnSetValue : 'دەسلەپكى تاللانما قىممىتىگە تەڭشە',
-    		btnDelete : 'ئۆچۈر'
-    	},
-    	textarea : 
-    	{
-    		title : ' كۆپ قۇرلۇق تېكىست خاسلىقى',
-    		cols : 'ھەرپ كەڭلىكى',
-    		rows : 'قۇر سانى'
-    	},
-    	textfield : 
-    	{
-    		title : 'تاق قۇرلۇق تېكىست خاسلىقى',
-    		name : 'ئات',
-    		value : 'دەسلەپكى قىممىتى',
-    		charWidth : 'ھەرپ كەڭلىكى',
-    		maxChars : 'ئەڭ كۆپ ھەرپ سانى',
-    		type : 'تىپى',
-    		typeText : 'تېكىست',
-    		typePass : 'ئىم',
-    		typeEmail : 'تورخەت',
-    		typeSearch : 'ئىزدە',
-    		typeTel : 'تېلېفون نومۇر',
-    		typeUrl : 'ئادرېس'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['ug'] = {
     	tag_h6 : 'ماۋزۇ 6',
     	tag_p : 'ئادەتتىكى',
     	tag_pre : 'تىزىلغان پىچىم'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'چوڭلۇقى',
-    		voiceLabel : 'خەت چوڭلۇقى',
-    		panelTitle : 'چوڭلۇقى'
-    	},
-    	label : 'خەت نۇسخا',
-    	panelTitle : 'خەت نۇسخا',
-    	voiceLabel : 'خەت نۇسخا'
-    },
-    flash : 
-    {
-    	access : 'قوليازما زىيارەتكە يول قوي',
-    	accessAlways : 'ھەمىشە',
-    	accessNever : 'ھەرگىز',
-    	accessSameDomain : 'ئوخشاش دائىرىدە',
-    	alignAbsBottom : 'مۇتلەق ئاستى',
-    	alignAbsMiddle : 'مۇتلەق ئوتتۇرا',
-    	alignBaseline : 'ئاساسىي سىزىق',
-    	alignTextTop : 'تېكىست ئۈستىدە',
-    	bgcolor : 'تەگلىك رەڭگى',
-    	chkFull : 'پۈتۈن ئېكراننى قوزغات',
-    	chkLoop : 'دەۋرىي',
-    	chkMenu : 'Flash تىزىملىكنى قوزغات',
-    	chkPlay : 'ئۆزلۈكىدىن چال',
-    	flashvars : 'Flash  ئۆزگەرگۈچى',
-    	hSpace : 'توغرىسىغا ئارىلىق',
-    	properties : 'Flash خاسلىق',
-    	propertiesTab : 'خاسلىق',
-    	quality : 'سۈپەت',
-    	qualityAutoHigh : 'يۇقىرى (ئاپتوماتىك)',
-    	qualityAutoLow : 'تۆۋەن (ئاپتوماتىك)',
-    	qualityBest : 'ئەڭ ياخشى',
-    	qualityHigh : 'يۇقىرى',
-    	qualityLow : 'تۆۋەن',
-    	qualityMedium : 'ئوتتۇرا (ئاپتوماتىك)',
-    	scale : 'نىسبىتى',
-    	scaleAll : 'ھەممىنى كۆرسەت',
-    	scaleFit : 'قەتئىي ماسلىشىش',
-    	scaleNoBorder : 'گىرۋەك يوق',
-    	title : 'ماۋزۇ',
-    	vSpace : 'بويىغا ئارىلىق',
-    	validateHSpace : 'توغرىسىغا ئارىلىق چوقۇم سان بولىدۇ',
-    	validateSrc : 'ئەسلى ھۆججەت ئادرېسىنى كىرگۈزۈڭ',
-    	validateVSpace : 'بويىغا ئارىلىق چوقۇم سان بولىدۇ',
-    	windowMode : 'كۆزنەك ھالىتى',
-    	windowModeOpaque : 'خىرە',
-    	windowModeTransparent : 'سۈزۈك',
-    	windowModeWindow : 'كۆزنەك گەۋدىسى'
-    },
-    find : 
-    {
-    	find : 'ئىزدە',
-    	findOptions : 'ئىزدەش تاللانمىسى',
-    	findWhat : 'ئىزدە:',
-    	matchCase : 'چوڭ كىچىك ھەرپنى پەرقلەندۈر',
-    	matchCyclic : 'ئايلانما ماسلىشىش',
-    	matchWord : 'پۈتۈن سۆز ماسلىشىش',
-    	notFoundMsg : 'بەلگىلەنگەن تېكىستنى تاپالمىدى',
-    	replace : 'ئالماشتۇر',
-    	replaceAll : 'ھەممىنى ئالماشتۇر',
-    	replaceSuccessMsg : 'جەمئى %1 جايدىكى ئالماشتۇرۇش تاماملاندى',
-    	replaceWith : 'ئالماشتۇر:',
-    	title : 'ئىزدەپ ئالماشتۇر'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['ug'] = {
     contextmenu : 
     {
     	options : 'قىسقا يول تىزىملىك تاللانمىسى'
-    },
-    colordialog : 
-    {
-    	clear : 'تازىلا',
-    	highlight : 'يورۇت',
-    	options : 'رەڭ تاللانمىسى',
-    	selected : 'رەڭ تاللاڭ',
-    	title : 'رەڭ تاللاڭ'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['ug'] = {
     	securityMsg : 'توركۆرگۈڭىزنىڭ بىخەتەرلىك تەڭشىكى سەۋەبىدىن بۇ تەھرىرلىگۈچ چاپلاش تاختىسىدىكى مەزمۇننى بىۋاستە زىيارەت قىلالمايدۇ، بۇ كۆزنەكتە قايتا بىر قېتىم چاپلىشىڭىز كېرەك.',
     	title : 'چاپلا'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'بۆلەك نەقىل'
-    },
-    bidi : 
-    {
-    	ltr : 'تېكىست يۆنىلىشى سولدىن ئوڭغا',
-    	rtl : 'تېكىست يۆنىلىشى ئوڭدىن سولغا'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['ug'] = {
     	alignLeft : 'سول',
     	alignRight : 'ئوڭ',
     	alignCenter : 'ئوتتۇرا',
+    	alignJustify : 'ئىككى تەرەپتىن توغرىلا',
     	alignTop : 'ئۈستى',
     	alignMiddle : 'ئوتتۇرا',
     	alignBottom : 'ئاستى',
+    	alignNone : 'None',
     	invalidValue : 'ئىناۋەتسىز قىممەت.',
     	invalidHeight : 'ئېگىزلىك چوقۇم رەقەم پىچىمىدا بولۇشى زۆرۈر',
     	invalidWidth : 'كەڭلىك چوقۇم رەقەم پىچىمىدا بولۇشى زۆرۈر',
@@ -680,4 +495,4 @@ CKEDITOR.lang['ug'] = {
     	invalidInlineStyle : 'ئىچكى باغلانما ئۇسلۇبى چوقۇم چېكىتلىك پەش بىلەن ئايرىلغان بىر ياكى كۆپ «خاسلىق ئاتى:خاسلىق قىممىتى» پىچىمىدا بولۇشى لازىم',
     	cssLengthTooltip : 'بۇ سۆز بۆلىكى بىرىكمە CSS ئۇزۇنلۇق قىممىتى بولۇشى كېرەك. ئۆز ئىچىگە ئالىدىغان بىرلىك (px, %, in, cm, mm, em, ex, pt ياكى pc)',
     	unavailable : '%1<span class=\\\\"cke_accessibility\\\\">، ئىشلەتكىلى بولمايدۇ</span>'
-    } } 
+    } }; 

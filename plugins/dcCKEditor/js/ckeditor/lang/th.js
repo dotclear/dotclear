@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['th'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['th'] = {
     {
     	toolbar : 'ดูรหัส HTML'
     },
-    smiley : 
-    {
-    	options : 'ตัวเลือกไอคอนแสดงอารมณ์',
-    	title : 'แทรกสัญลักษณ์สื่ออารมณ์',
-    	toolbar : 'รูปสื่ออารมณ์'
-    },
-    showblocks : 
-    {
-    	toolbar : 'แสดงบล็อคข้อมูล'
-    },
-    selectall : 
-    {
-    	toolbar : 'เลือกทั้งหมด'
-    },
-    save : 
-    {
-    	toolbar : 'บันทึก'
-    },
     removeformat : 
     {
     	toolbar : 'ล้างรูปแบบ'
@@ -154,10 +136,6 @@ CKEDITOR.lang['th'] = {
     print : 
     {
     	toolbar : 'สั่งพิมพ์'
-    },
-    preview : 
-    {
-    	preview : 'ดูหน้าเอกสารตัวอย่าง'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['th'] = {
     	error : 'ไม่สามารถล้างข้อมูลที่ต้องการวางได้เนื่องจากเกิดข้อผิดพลาดภายในระบบ',
     	title : 'วางสำเนาจากตัวอักษรเวิร์ด',
     	toolbar : 'วางสำเนาจากตัวอักษรเวิร์ด'
-    },
-    pagebreak : 
-    {
-    	alt : 'ตัวแบ่งหน้า',
-    	toolbar : 'แทรกตัวแบ่งหน้า Page Break'
-    },
-    newpage : 
-    {
-    	toolbar : 'สร้างหน้าเอกสารใหม่'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['th'] = {
     	validateHSpace : 'HSpace must be a whole number.',
     	validateVSpace : 'VSpace must be a whole number.'
     },
-    iframe : 
-    {
-    	border : 'Show frame border',
-    	noUrl : 'Please type the iframe URL',
-    	scrolling : 'Enable scrollbars',
-    	title : 'IFrame Properties',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'แทรกเส้นคั่นบรรทัด'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'รายละเอียดของ ปุ่ม',
-    		text : 'ข้อความ (ค่าตัวแปร)',
-    		type : 'ข้อความ',
-    		typeBtn : 'Button',
-    		typeSbm : 'Submit',
-    		typeRst : 'Reset'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'คุณสมบัติของ เช็คบ๊อก',
-    		radioTitle : 'คุณสมบัติของ เรดิโอบัตตอน',
-    		value : 'ค่าตัวแปร',
-    		selected : 'เลือกเป็นค่าเริ่มต้น'
-    	},
-    	form : 
-    	{
-    		title : 'คุณสมบัติของ แบบฟอร์ม',
-    		menu : 'คุณสมบัติของ แบบฟอร์ม',
-    		action : 'แอคชั่น',
-    		method : 'เมธอด',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'คุณสมบัติของ ฮิดเดนฟิลด์',
-    		name : 'ชื่อ',
-    		value : 'ค่าตัวแปร'
-    	},
-    	select : 
-    	{
-    		title : 'คุณสมบัติของ แถบตัวเลือก',
-    		selectInfo : 'อินโฟ',
-    		opAvail : 'รายการตัวเลือก',
-    		value : 'ค่าตัวแปร',
-    		size : 'ขนาด',
-    		lines : 'บรรทัด',
-    		chkMulti : 'เลือกหลายค่าได้',
-    		opText : 'ข้อความ',
-    		opValue : 'ค่าตัวแปร',
-    		btnAdd : 'เพิ่ม',
-    		btnModify : 'แก้ไข',
-    		btnUp : 'บน',
-    		btnDown : 'ล่าง',
-    		btnSetValue : 'เลือกเป็นค่าเริ่มต้น',
-    		btnDelete : 'ลบ'
-    	},
-    	textarea : 
-    	{
-    		title : 'คุณสมบัติของ เท็กแอเรีย',
-    		cols : 'สดมภ์',
-    		rows : 'แถว'
-    	},
-    	textfield : 
-    	{
-    		title : 'คุณสมบัติของ เท็กซ์ฟิลด์',
-    		name : 'ชื่อ',
-    		value : 'ค่าตัวแปร',
-    		charWidth : 'ความกว้าง',
-    		maxChars : 'จำนวนตัวอักษรสูงสุด',
-    		type : 'ชนิด',
-    		typeText : 'ข้อความ',
-    		typePass : 'รหัสผ่าน',
-    		typeEmail : 'อีเมล',
-    		typeSearch : 'ค้นหาก',
-    		typeTel : 'หมายเลขโทรศัพท์',
-    		typeUrl : 'ที่อยู่อ้างอิง URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['th'] = {
     	tag_h6 : 'Heading 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formatted'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'ขนาด',
-    		voiceLabel : 'Font Size',
-    		panelTitle : 'ขนาด'
-    	},
-    	label : 'แบบอักษร',
-    	panelTitle : 'แบบอักษร',
-    	voiceLabel : 'แบบอักษร'
-    },
-    flash : 
-    {
-    	access : 'การเข้าถึงสคริปต์',
-    	accessAlways : 'ตลอดไป',
-    	accessNever : 'ไม่เลย',
-    	accessSameDomain : 'โดเมนเดียวกัน',
-    	alignAbsBottom : 'ชิดด้านล่างสุด',
-    	alignAbsMiddle : 'กึ่งกลาง',
-    	alignBaseline : 'ชิดบรรทัด',
-    	alignTextTop : 'ใต้ตัวอักษร',
-    	bgcolor : 'สีพื้นหลัง',
-    	chkFull : 'อนุญาตให้แสดงเต็มหน้าจอได้',
-    	chkLoop : 'เล่นวนรอบ Loop',
-    	chkMenu : 'ให้ใช้งานเมนูของ Flash',
-    	chkPlay : 'เล่นอัตโนมัติ Auto Play',
-    	flashvars : 'ตัวแปรสำหรับ Flas',
-    	hSpace : 'ระยะแนวนอน',
-    	properties : 'คุณสมบัติของไฟล์ Flash',
-    	propertiesTab : 'คุณสมบัติ',
-    	quality : 'คุณภาพ',
-    	qualityAutoHigh : 'ปรับคุณภาพสูงอัตโนมัติ',
-    	qualityAutoLow : 'ปรับคุณภาพต่ำอัตโนมัติ',
-    	qualityBest : 'ดีที่สุด',
-    	qualityHigh : 'สูง',
-    	qualityLow : 'ต่ำ',
-    	qualityMedium : 'ปานกลาง',
-    	scale : 'อัตราส่วน Scale',
-    	scaleAll : 'แสดงให้เห็นทั้งหมด Show all',
-    	scaleFit : 'แสดงให้พอดีกับพื้นที่ Exact Fit',
-    	scaleNoBorder : 'ไม่แสดงเส้นขอบ No Border',
-    	title : 'คุณสมบัติของไฟล์ Flash',
-    	vSpace : 'ระยะแนวตั้ง',
-    	validateHSpace : 'HSpace ต้องเป็นจำนวนตัวเลข',
-    	validateSrc : 'กรุณาระบุที่อยู่อ้างอิงออนไลน์ (URL)',
-    	validateVSpace : 'VSpace ต้องเป็นจำนวนตัวเลข',
-    	windowMode : 'โหมดหน้าต่าง',
-    	windowModeOpaque : 'ความทึบแสง',
-    	windowModeTransparent : 'ความโปรงแสง',
-    	windowModeWindow : 'หน้าต่าง'
-    },
-    find : 
-    {
-    	find : 'ค้นหา',
-    	findOptions : 'Find Options',
-    	findWhat : 'ค้นหาคำว่า:',
-    	matchCase : 'ตัวโหญ่-เล็ก ต้องตรงกัน',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'ต้องตรงกันทุกคำ',
-    	notFoundMsg : 'ไม่พบคำที่ค้นหา.',
-    	replace : 'ค้นหาและแทนที่',
-    	replaceAll : 'แทนที่ทั้งหมดที่พบ',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'แทนที่ด้วย:',
-    	title : 'Find and Replace'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['th'] = {
     contextmenu : 
     {
     	options : 'Context Menu Options'
-    },
-    colordialog : 
-    {
-    	clear : 'Clear',
-    	highlight : 'Highlight',
-    	options : 'Color Options',
-    	selected : 'Selected Color',
-    	title : 'Select color'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['th'] = {
     	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
     	title : 'วาง'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Block Quote'
-    },
-    bidi : 
-    {
-    	ltr : 'Text direction from left to right',
-    	rtl : 'Text direction from right to left'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['th'] = {
     	alignLeft : 'ชิดซ้าย',
     	alignRight : 'ชิดขวา',
     	alignCenter : 'กึ่งกลาง',
+    	alignJustify : 'நியாயப்படுத்தவும்',
     	alignTop : 'บนสุด',
     	alignMiddle : 'กึ่งกลางแนวตั้ง',
     	alignBottom : 'ชิดด้านล่าง',
+    	alignNone : 'None',
     	invalidValue : 'ค่าไม่ถูกต้อง',
     	invalidHeight : 'ความสูงต้องเป็นตัวเลข',
     	invalidWidth : 'ความกว้างต้องเป็นตัวเลข',
@@ -680,4 +495,4 @@ CKEDITOR.lang['th'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, unavailable</span>'
-    } } 
+    } }; 

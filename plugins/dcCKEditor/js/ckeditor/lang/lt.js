@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['lt'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['lt'] = {
     {
     	toolbar : 'Šaltinis'
     },
-    smiley : 
-    {
-    	options : 'Šypsenėlių nustatymai',
-    	title : 'Įterpti veidelį',
-    	toolbar : 'Veideliai'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Rodyti blokus'
-    },
-    selectall : 
-    {
-    	toolbar : 'Pažymėti viską'
-    },
-    save : 
-    {
-    	toolbar : 'Išsaugoti'
-    },
     removeformat : 
     {
     	toolbar : 'Panaikinti formatą'
@@ -154,10 +136,6 @@ CKEDITOR.lang['lt'] = {
     print : 
     {
     	toolbar : 'Spausdinti'
-    },
-    preview : 
-    {
-    	preview : 'Peržiūra'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['lt'] = {
     	error : 'Dėl vidinių sutrikimų, nepavyko išvalyti įkeliamo teksto',
     	title : 'Įdėti iš Word',
     	toolbar : 'Įdėti iš Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Puslapio skirtukas',
-    	toolbar : 'Įterpti puslapių skirtuką'
-    },
-    newpage : 
-    {
-    	toolbar : 'Naujas puslapis'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['lt'] = {
     	validateHSpace : 'Reikšmė turi būti sveikas skaičius.',
     	validateVSpace : 'Reikšmė turi būti sveikas skaičius.'
     },
-    iframe : 
-    {
-    	border : 'Rodyti rėmelį',
-    	noUrl : 'Nurodykite iframe nuorodą',
-    	scrolling : 'Įjungti slankiklius',
-    	title : 'IFrame nustatymai',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Įterpti horizontalią liniją'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Mygtuko savybės',
-    		text : 'Tekstas (Reikšmė)',
-    		type : 'Tipas',
-    		typeBtn : 'Mygtukas',
-    		typeSbm : 'Siųsti',
-    		typeRst : 'Išvalyti'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Žymimojo langelio savybės',
-    		radioTitle : 'Žymimosios akutės savybės',
-    		value : 'Reikšmė',
-    		selected : 'Pažymėtas'
-    	},
-    	form : 
-    	{
-    		title : 'Formos savybės',
-    		menu : 'Formos savybės',
-    		action : 'Veiksmas',
-    		method : 'Metodas',
-    		encoding : 'Kodavimas'
-    	},
-    	hidden : 
-    	{
-    		title : 'Nerodomo lauko savybės',
-    		name : 'Vardas',
-    		value : 'Reikšmė'
-    	},
-    	select : 
-    	{
-    		title : 'Atrankos lauko savybės',
-    		selectInfo : 'Informacija',
-    		opAvail : 'Galimos parinktys',
-    		value : 'Reikšmė',
-    		size : 'Dydis',
-    		lines : 'eilučių',
-    		chkMulti : 'Leisti daugeriopą atranką',
-    		opText : 'Tekstas',
-    		opValue : 'Reikšmė',
-    		btnAdd : 'Įtraukti',
-    		btnModify : 'Modifikuoti',
-    		btnUp : 'Aukštyn',
-    		btnDown : 'Žemyn',
-    		btnSetValue : 'Laikyti pažymėta reikšme',
-    		btnDelete : 'Trinti'
-    	},
-    	textarea : 
-    	{
-    		title : 'Teksto srities savybės',
-    		cols : 'Ilgis',
-    		rows : 'Plotis'
-    	},
-    	textfield : 
-    	{
-    		title : 'Teksto lauko savybės',
-    		name : 'Vardas',
-    		value : 'Reikšmė',
-    		charWidth : 'Ilgis simboliais',
-    		maxChars : 'Maksimalus simbolių skaičius',
-    		type : 'Tipas',
-    		typeText : 'Tekstas',
-    		typePass : 'Slaptažodis',
-    		typeEmail : 'El. paštas',
-    		typeSearch : 'Paieška',
-    		typeTel : 'Telefono numeris',
-    		typeUrl : 'Nuoroda'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['lt'] = {
     	tag_h6 : 'Antraštinis 6',
     	tag_p : 'Normalus',
     	tag_pre : 'Formuotas'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Šrifto dydis',
-    		voiceLabel : 'Šrifto dydis',
-    		panelTitle : 'Šrifto dydis'
-    	},
-    	label : 'Šriftas',
-    	panelTitle : 'Šriftas',
-    	voiceLabel : 'Šriftas'
-    },
-    flash : 
-    {
-    	access : 'Skripto priėjimas',
-    	accessAlways : 'Visada',
-    	accessNever : 'Niekada',
-    	accessSameDomain : 'Tas pats domenas',
-    	alignAbsBottom : 'Absoliučią apačią',
-    	alignAbsMiddle : 'Absoliutų vidurį',
-    	alignBaseline : 'Apatinę liniją',
-    	alignTextTop : 'Teksto viršūnę',
-    	bgcolor : 'Fono spalva',
-    	chkFull : 'Leisti per visą ekraną',
-    	chkLoop : 'Ciklas',
-    	chkMenu : 'Leisti Flash meniu',
-    	chkPlay : 'Automatinis paleidimas',
-    	flashvars : 'Flash kintamieji',
-    	hSpace : 'Hor.Erdvė',
-    	properties : 'Flash savybės',
-    	propertiesTab : 'Nustatymai',
-    	quality : 'Kokybė',
-    	qualityAutoHigh : 'Automatiškai Gera',
-    	qualityAutoLow : 'Automatiškai Žema',
-    	qualityBest : 'Geriausia',
-    	qualityHigh : 'Gera',
-    	qualityLow : 'Žema',
-    	qualityMedium : 'Vidutinė',
-    	scale : 'Mastelis',
-    	scaleAll : 'Rodyti visą',
-    	scaleFit : 'Tikslus atitikimas',
-    	scaleNoBorder : 'Be rėmelio',
-    	title : 'Flash savybės',
-    	vSpace : 'Vert.Erdvė',
-    	validateHSpace : 'HSpace turi būti skaičius.',
-    	validateSrc : 'Prašome įvesti nuorodos URL',
-    	validateVSpace : 'VSpace turi būti skaičius.',
-    	windowMode : 'Lango režimas',
-    	windowModeOpaque : 'Nepermatomas',
-    	windowModeTransparent : 'Permatomas',
-    	windowModeWindow : 'Langas'
-    },
-    find : 
-    {
-    	find : 'Rasti',
-    	findOptions : 'Paieškos nustatymai',
-    	findWhat : 'Surasti tekstą:',
-    	matchCase : 'Skirti didžiąsias ir mažąsias raides',
-    	matchCyclic : 'Sutampantis cikliškumas',
-    	matchWord : 'Atitikti pilną žodį',
-    	notFoundMsg : 'Nurodytas tekstas nerastas.',
-    	replace : 'Pakeisti',
-    	replaceAll : 'Pakeisti viską',
-    	replaceSuccessMsg : '%1 sutapimas(ų) buvo pakeisti.',
-    	replaceWith : 'Pakeisti tekstu:',
-    	title : 'Surasti ir pakeisti'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['lt'] = {
     contextmenu : 
     {
     	options : 'Kontekstinio meniu parametrai'
-    },
-    colordialog : 
-    {
-    	clear : 'Išvalyti',
-    	highlight : 'Paryškinti',
-    	options : 'Spalvos nustatymai',
-    	selected : 'Pasirinkta spalva',
-    	title : 'Pasirinkite spalvą'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['lt'] = {
     	securityMsg : 'Dėl jūsų naršyklės saugumo nustatymų, redaktorius negali tiesiogiai pasiekti laikinosios atminties. Jums reikia nukopijuoti dar kartą į šį langą.',
     	title : 'Įdėti'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Pasirinkta)'
+    },
     blockquote : 
     {
     	toolbar : 'Citata'
-    },
-    bidi : 
-    {
-    	ltr : 'Tekstas iš kairės į dešinę',
-    	rtl : 'Tekstas iš dešinės į kairę'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['lt'] = {
     	userGuide : 'CKEditor Vartotojo Gidas'
     },
     editor : 'Pilnas redaktorius',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Pilno redagtoriaus skydelis',
     common : 
     {
     	editorHelp : 'Spauskite ALT 0 dėl pagalbos',
@@ -669,9 +482,11 @@ CKEDITOR.lang['lt'] = {
     	alignLeft : 'Kairę',
     	alignRight : 'Dešinę',
     	alignCenter : 'Centrą',
+    	alignJustify : 'Lygiuoti abi puses',
     	alignTop : 'Viršūnę',
     	alignMiddle : 'Vidurį',
     	alignBottom : 'Apačią',
+    	alignNone : 'Niekas',
     	invalidValue : 'Neteisinga reikšmė.',
     	invalidHeight : 'Aukštis turi būti nurodytas skaičiais.',
     	invalidWidth : 'Plotis turi būti nurodytas skaičiais.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['lt'] = {
     	invalidInlineStyle : 'Reikšmė nurodyta vidiniame stiliuje turi būti sudaryta iš vieno šių reikšmių "vardas : reikšmė", atskirta kabliataškiais.',
     	cssLengthTooltip : 'Įveskite reikšmę pikseliais arba skaičiais su tinkamu CSS vienetu (px, %, in, cm, mm, em, ex, pt arba pc).',
     	unavailable : '%1<span class="cke_accessibility">, netinkamas</span>'
-    } } 
+    } }; 

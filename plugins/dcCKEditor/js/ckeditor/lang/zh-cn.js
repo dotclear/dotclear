@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['zh-cn'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['zh-cn'] = {
     {
     	toolbar : '源码'
     },
-    smiley : 
-    {
-    	options : '表情图标选项',
-    	title : '插入表情图标',
-    	toolbar : '表情符'
-    },
-    showblocks : 
-    {
-    	toolbar : '显示区块'
-    },
-    selectall : 
-    {
-    	toolbar : '全选'
-    },
-    save : 
-    {
-    	toolbar : '保存'
-    },
     removeformat : 
     {
     	toolbar : '清除格式'
@@ -154,10 +136,6 @@ CKEDITOR.lang['zh-cn'] = {
     print : 
     {
     	toolbar : '打印'
-    },
-    preview : 
-    {
-    	preview : '预览'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['zh-cn'] = {
     	error : '由于内部错误无法清理要粘贴的数据',
     	title : '从 MS Word 粘贴',
     	toolbar : '从 MS Word 粘贴'
-    },
-    pagebreak : 
-    {
-    	alt : '分页符',
-    	toolbar : '插入打印分页符'
-    },
-    newpage : 
-    {
-    	toolbar : '新建'
     },
     maximize : 
     {
@@ -293,19 +262,19 @@ CKEDITOR.lang['zh-cn'] = {
     },
     image : 
     {
-    	alertUrl : '请输入图象地址',
+    	alertUrl : '请输入图像地址',
     	alt : '替换文本',
     	border : '边框大小',
     	btnUpload : '上传到服务器',
     	button2Img : '确定要把当前图像按钮转换为普通图像吗？',
     	hSpace : '水平间距',
     	img2Button : '确定要把当前图像改变为图像按钮吗？',
-    	infoTab : '图象',
+    	infoTab : '图像信息',
     	linkTab : '链接',
     	lockRatio : '锁定比例',
-    	menu : '图象属性',
+    	menu : '图像属性',
     	resetSize : '原始尺寸',
-    	title : '图象属性',
+    	title : '图像属性',
     	titleButton : '图像域属性',
     	upload : '上传',
     	urlMissing : '缺少图像源文件地址',
@@ -314,89 +283,9 @@ CKEDITOR.lang['zh-cn'] = {
     	validateHSpace : '水平间距必须为整数格式',
     	validateVSpace : '垂直间距必须为整数格式'
     },
-    iframe : 
-    {
-    	border : '显示框架边框',
-    	noUrl : '请输入框架的 URL',
-    	scrolling : '允许滚动条',
-    	title : 'IFrame 属性',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : '插入水平线'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : '按钮属性',
-    		text : '标签(值)',
-    		type : '类型',
-    		typeBtn : '按钮',
-    		typeSbm : '提交',
-    		typeRst : '重设'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : '复选框属性',
-    		radioTitle : '单选按钮属性',
-    		value : '选定值',
-    		selected : '已勾选'
-    	},
-    	form : 
-    	{
-    		title : '表单属性',
-    		menu : '表单属性',
-    		action : '动作',
-    		method : '方法',
-    		encoding : '表单编码'
-    	},
-    	hidden : 
-    	{
-    		title : '隐藏域属性',
-    		name : '名称',
-    		value : '初始值'
-    	},
-    	select : 
-    	{
-    		title : '菜单/列表属性',
-    		selectInfo : '选择信息',
-    		opAvail : '可选项',
-    		value : '值',
-    		size : '高度',
-    		lines : '行',
-    		chkMulti : '允许多选',
-    		opText : '选项文本',
-    		opValue : '选项值',
-    		btnAdd : '添加',
-    		btnModify : '修改',
-    		btnUp : '上移',
-    		btnDown : '下移',
-    		btnSetValue : '设为初始选定',
-    		btnDelete : '删除'
-    	},
-    	textarea : 
-    	{
-    		title : '多行文本属性',
-    		cols : '字符宽度',
-    		rows : '行数'
-    	},
-    	textfield : 
-    	{
-    		title : '单行文本属性',
-    		name : '名称',
-    		value : '初始值',
-    		charWidth : '字符宽度',
-    		maxChars : '最多字符数',
-    		type : '类型',
-    		typeText : '文本',
-    		typePass : '密码',
-    		typeEmail : 'Email',
-    		typeSearch : '搜索',
-    		typeTel : '电话号码',
-    		typeUrl : '地址'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['zh-cn'] = {
     	tag_h6 : '标题 6',
     	tag_p : '普通',
     	tag_pre : '已编排格式'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : '大小',
-    		voiceLabel : '文字大小',
-    		panelTitle : '大小'
-    	},
-    	label : '字体',
-    	panelTitle : '字体',
-    	voiceLabel : '字体'
-    },
-    flash : 
-    {
-    	access : '允许脚本访问',
-    	accessAlways : '总是',
-    	accessNever : '从不',
-    	accessSameDomain : '同域',
-    	alignAbsBottom : '绝对底部',
-    	alignAbsMiddle : '绝对居中',
-    	alignBaseline : '基线',
-    	alignTextTop : '文本上方',
-    	bgcolor : '背景颜色',
-    	chkFull : '启用全屏',
-    	chkLoop : '循环',
-    	chkMenu : '启用 Flash 菜单',
-    	chkPlay : '自动播放',
-    	flashvars : 'Flash 变量',
-    	hSpace : '水平间距',
-    	properties : 'Flash 属性',
-    	propertiesTab : '属性',
-    	quality : '质量',
-    	qualityAutoHigh : '高(自动)',
-    	qualityAutoLow : '低(自动)',
-    	qualityBest : '最好',
-    	qualityHigh : '高',
-    	qualityLow : '低',
-    	qualityMedium : '中(自动)',
-    	scale : '缩放',
-    	scaleAll : '全部显示',
-    	scaleFit : '严格匹配',
-    	scaleNoBorder : '无边框',
-    	title : '标题',
-    	vSpace : '垂直间距',
-    	validateHSpace : '水平间距必须为数字格式',
-    	validateSrc : '请输入源文件地址',
-    	validateVSpace : '垂直间距必须为数字格式',
-    	windowMode : '窗体模式',
-    	windowModeOpaque : '不透明',
-    	windowModeTransparent : '透明',
-    	windowModeWindow : '窗体'
-    },
-    find : 
-    {
-    	find : '查找',
-    	findOptions : '查找选项',
-    	findWhat : '查找:',
-    	matchCase : '区分大小写',
-    	matchCyclic : '循环匹配',
-    	matchWord : '全字匹配',
-    	notFoundMsg : '指定的文本没有找到。',
-    	replace : '替换',
-    	replaceAll : '全部替换',
-    	replaceSuccessMsg : '共完成 %1 处替换。',
-    	replaceWith : '替换:',
-    	title : '查找和替换'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['zh-cn'] = {
     contextmenu : 
     {
     	options : '快捷菜单选项'
-    },
-    colordialog : 
-    {
-    	clear : '清除',
-    	highlight : '高亮',
-    	options : '颜色选项',
-    	selected : '选择颜色',
-    	title : '选择颜色'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['zh-cn'] = {
     	securityMsg : '因为您的浏览器的安全设置原因，本编辑器不能直接访问您的剪贴板内容，你需要在本窗口重新粘贴一次。',
     	title : '粘贴'
     },
+    button : 
+    {
+    	selectedLabel : '已选中 %1 项'
+    },
     blockquote : 
     {
     	toolbar : '块引用'
-    },
-    bidi : 
-    {
-    	ltr : '文字方向为从左至右',
-    	rtl : '文字方向为从右至左'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['zh-cn'] = {
     	userGuide : 'CKEditor 用户向导'
     },
     editor : '所见即所得编辑器',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : '所见即所得编辑器面板',
     common : 
     {
     	editorHelp : '按 ALT+0 获得帮助',
@@ -621,7 +434,7 @@ CKEDITOR.lang['zh-cn'] = {
     	protocol : '协议',
     	upload : '上传',
     	uploadSubmit : '上传到服务器',
-    	image : '图象',
+    	image : '图像',
     	flash : 'Flash',
     	form : '表单',
     	checkbox : '复选框',
@@ -669,9 +482,11 @@ CKEDITOR.lang['zh-cn'] = {
     	alignLeft : '左对齐',
     	alignRight : '右对齐',
     	alignCenter : '居中',
+    	alignJustify : '两端对齐',
     	alignTop : '顶端',
     	alignMiddle : '居中',
     	alignBottom : '底部',
+    	alignNone : '无',
     	invalidValue : '无效的值。',
     	invalidHeight : '高度必须为数字格式',
     	invalidWidth : '宽度必须为数字格式',
@@ -680,4 +495,4 @@ CKEDITOR.lang['zh-cn'] = {
     	invalidInlineStyle : '内联样式必须为格式是以分号分隔的一个或多个“属性名 : 属性值”。',
     	cssLengthTooltip : '输入一个表示像素值的数字，或加上一个有效的 CSS 长度单位(px, %, in, cm, mm, em, ex, pt 或 pc)。',
     	unavailable : '%1<span class="cke_accessibility">，不可用</span>'
-    } } 
+    } }; 

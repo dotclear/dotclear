@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sk'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['sk'] = {
     {
     	toolbar : 'Zdroj'
     },
-    smiley : 
-    {
-    	options : 'Možnosti smajlíkov',
-    	title : 'Vložiť smajlíka',
-    	toolbar : 'Smajlíky'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Ukázať bloky'
-    },
-    selectall : 
-    {
-    	toolbar : 'Vybrať všetko'
-    },
-    save : 
-    {
-    	toolbar : 'Uložiť'
-    },
     removeformat : 
     {
     	toolbar : 'Odstrániť formátovanie'
@@ -154,10 +136,6 @@ CKEDITOR.lang['sk'] = {
     print : 
     {
     	toolbar : 'Tlač'
-    },
-    preview : 
-    {
-    	preview : 'Náhľad'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['sk'] = {
     	error : 'Nebolo možné vyčistiť vložené dáta kvôli internej chybe',
     	title : 'Vložiť z Wordu',
     	toolbar : 'Vložiť z Wordu'
-    },
-    pagebreak : 
-    {
-    	alt : 'Zalomenie strany',
-    	toolbar : 'Vložiť oddeľovač stránky pre tlač'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nová stránka'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['sk'] = {
     	validateHSpace : 'H-medzera musí byť celé číslo.',
     	validateVSpace : 'V-medzera musí byť celé číslo.'
     },
-    iframe : 
-    {
-    	border : 'Zobraziť rám frame-u',
-    	noUrl : 'Prosím, vložte URL iframe',
-    	scrolling : 'Povoliť skrolovanie',
-    	title : 'Vlastnosti IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Vložiť vodorovnú čiaru'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Vlastnosti tlačidla',
-    		text : 'Text (Hodnota)',
-    		type : 'Typ',
-    		typeBtn : 'Tlačidlo',
-    		typeSbm : 'Odoslať',
-    		typeRst : 'Resetovať'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Vlastnosti zaškrtávacieho políčka',
-    		radioTitle : 'Vlastnosti prepínača (radio button)',
-    		value : 'Hodnota',
-    		selected : 'Vybrané (selected)'
-    	},
-    	form : 
-    	{
-    		title : 'Vlastnosti formulára',
-    		menu : 'Vlastnosti formulára',
-    		action : 'Akcia (action)',
-    		method : 'Metóda (method)',
-    		encoding : 'Kódovanie (encoding)'
-    	},
-    	hidden : 
-    	{
-    		title : 'Vlastnosti skrytého poľa',
-    		name : 'Názov (name)',
-    		value : 'Hodnota'
-    	},
-    	select : 
-    	{
-    		title : 'Vlastnosti rozbaľovacieho zoznamu',
-    		selectInfo : 'Informácie o výbere',
-    		opAvail : 'Dostupné možnosti',
-    		value : 'Hodnota',
-    		size : 'Veľkosť',
-    		lines : 'riadkov',
-    		chkMulti : 'Povoliť viacnásobný výber',
-    		opText : 'Text',
-    		opValue : 'Hodnota',
-    		btnAdd : 'Pridať',
-    		btnModify : 'Upraviť',
-    		btnUp : 'Hore',
-    		btnDown : 'Dole',
-    		btnSetValue : 'Nastaviť ako vybranú hodnotu',
-    		btnDelete : 'Vymazať'
-    	},
-    	textarea : 
-    	{
-    		title : 'Vlastnosti textovej oblasti (textarea)',
-    		cols : 'Stĺpcov',
-    		rows : 'Riadkov'
-    	},
-    	textfield : 
-    	{
-    		title : 'Vlastnosti textového poľa',
-    		name : 'Názov (name)',
-    		value : 'Hodnota',
-    		charWidth : 'Šírka poľa (podľa znakov)',
-    		maxChars : 'Maximálny počet znakov',
-    		type : 'Typ',
-    		typeText : 'Text',
-    		typePass : 'Heslo',
-    		typeEmail : 'Email',
-    		typeSearch : 'Hľadať',
-    		typeTel : 'Telefónne číslo',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['sk'] = {
     	tag_h6 : 'Nadpis 6',
     	tag_p : 'Normálny',
     	tag_pre : 'Formátovaný'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Veľkosť',
-    		voiceLabel : 'Veľkosť písma',
-    		panelTitle : 'Veľkosť písma'
-    	},
-    	label : 'Font',
-    	panelTitle : 'Názov fontu',
-    	voiceLabel : 'Font'
-    },
-    flash : 
-    {
-    	access : 'Prístup skriptu',
-    	accessAlways : 'Vždy',
-    	accessNever : 'Nikdy',
-    	accessSameDomain : 'Rovnaká doména',
-    	alignAbsBottom : 'Úplne dole',
-    	alignAbsMiddle : 'Do stredu',
-    	alignBaseline : 'Na základnú čiaru',
-    	alignTextTop : 'Na horný okraj textu',
-    	bgcolor : 'Farba pozadia',
-    	chkFull : 'Povoliť zobrazenie na celú obrazovku (fullscreen)',
-    	chkLoop : 'Opakovanie',
-    	chkMenu : 'Povoliť Flash Menu',
-    	chkPlay : 'Automatické prehrávanie',
-    	flashvars : 'Premenné pre Flash',
-    	hSpace : 'H-medzera',
-    	properties : 'Vlastnosti Flashu',
-    	propertiesTab : 'Vlastnosti',
-    	quality : 'Kvalita',
-    	qualityAutoHigh : 'Automaticky vysoká',
-    	qualityAutoLow : 'Automaticky nízka',
-    	qualityBest : 'Najlepšia',
-    	qualityHigh : 'Vysoká',
-    	qualityLow : 'Nízka',
-    	qualityMedium : 'Stredná',
-    	scale : 'Mierka',
-    	scaleAll : 'Zobraziť všetko',
-    	scaleFit : 'Roztiahnuť, aby sedelo presne',
-    	scaleNoBorder : 'Bez okrajov',
-    	title : 'Vlastnosti Flashu',
-    	vSpace : 'V-medzera',
-    	validateHSpace : 'H-medzera musí byť číslo.',
-    	validateSrc : 'URL nesmie byť prázdne.',
-    	validateVSpace : 'V-medzera musí byť číslo',
-    	windowMode : 'Mód okna',
-    	windowModeOpaque : 'Nepriehľadný',
-    	windowModeTransparent : 'Priehľadný',
-    	windowModeWindow : 'Okno'
-    },
-    find : 
-    {
-    	find : 'Hľadať',
-    	findOptions : 'Nájsť možnosti',
-    	findWhat : 'Čo hľadať:',
-    	matchCase : 'Rozlišovať malé a veľké písmená',
-    	matchCyclic : 'Cykliť zhodu',
-    	matchWord : 'Len celé slová',
-    	notFoundMsg : 'Hľadaný text nebol nájdený.',
-    	replace : 'Nahradiť',
-    	replaceAll : 'Nahradiť všetko',
-    	replaceSuccessMsg : '%1 výskyt(ov) nahradených.',
-    	replaceWith : 'Čím nahradiť:',
-    	title : 'Nájsť a nahradiť'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['sk'] = {
     contextmenu : 
     {
     	options : 'Možnosti kontextového menu'
-    },
-    colordialog : 
-    {
-    	clear : 'Vyčistiť',
-    	highlight : 'Zvýrazniť',
-    	options : 'Možnosti farby',
-    	selected : 'Vybraná farba',
-    	title : 'Vyberte farbu'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['sk'] = {
     	securityMsg : 'Kvôli vašim bezpečnostným nastaveniam prehliadača editor nie je schopný pristupovať k vašej schránke na kopírovanie priamo. Vložte to preto do tohto okna.',
     	title : 'Vložiť'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Vybrané)'
+    },
     blockquote : 
     {
     	toolbar : 'Citácia'
-    },
-    bidi : 
-    {
-    	ltr : 'Smer textu zľava doprava',
-    	rtl : 'Smer textu sprava doľava'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['sk'] = {
     	userGuide : 'Používateľská príručka KCEditor-a'
     },
     editor : 'Editor formátovaného textu',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Panel editora formátovaného textu',
     common : 
     {
     	editorHelp : 'Stlačte ALT 0 pre nápovedu',
@@ -669,9 +482,11 @@ CKEDITOR.lang['sk'] = {
     	alignLeft : 'Vľavo',
     	alignRight : 'Vpravo',
     	alignCenter : 'Na stred',
+    	alignJustify : 'Zarovnať do bloku',
     	alignTop : 'Nahor',
     	alignMiddle : 'Na stred',
     	alignBottom : 'Dole',
+    	alignNone : 'Žiadne',
     	invalidValue : 'Neplatná hodnota.',
     	invalidHeight : 'Výška musí byť číslo.',
     	invalidWidth : 'Šírka musí byť číslo.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['sk'] = {
     	invalidInlineStyle : 'Zadaná hodnota pre inline štýl musí pozostávať s jedného, alebo viac dvojíc formátu "názov: hodnota", oddelených bodkočiarkou.',
     	cssLengthTooltip : 'Vložte číslo pre hodnotu v pixeloch alebo číslo so správnou CSS jednotou (px, %, in, cm, mm, em, ex, pt alebo pc).',
     	unavailable : '%1<span class="cke_accessibility">, nedostupný</span>'
-    } } 
+    } }; 

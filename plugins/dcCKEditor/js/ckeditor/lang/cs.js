@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['cs'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['cs'] = {
     {
     	toolbar : 'Zdroj'
     },
-    smiley : 
-    {
-    	options : 'Nastavení smajlíků',
-    	title : 'Vkládání smajlíků',
-    	toolbar : 'Smajlíci'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Ukázat bloky'
-    },
-    selectall : 
-    {
-    	toolbar : 'Vybrat vše'
-    },
-    save : 
-    {
-    	toolbar : 'Uložit'
-    },
     removeformat : 
     {
     	toolbar : 'Odstranit formátování'
@@ -154,10 +136,6 @@ CKEDITOR.lang['cs'] = {
     print : 
     {
     	toolbar : 'Tisk'
-    },
-    preview : 
-    {
-    	preview : 'Náhled'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['cs'] = {
     	error : 'Z důvodu vnitřní chyby nebylo možné provést vyčištění vkládaného textu.',
     	title : 'Vložit z Wordu',
     	toolbar : 'Vložit z Wordu'
-    },
-    pagebreak : 
-    {
-    	alt : 'Konec stránky',
-    	toolbar : 'Vložit konec stránky'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nová stránka'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['cs'] = {
     	validateHSpace : 'Horizontální mezera musí být nastavena v celých číslech.',
     	validateVSpace : 'Vertikální mezera musí být nastavena v celých číslech.'
     },
-    iframe : 
-    {
-    	border : 'Zobrazit okraj',
-    	noUrl : 'Zadejte prosím URL obsahu pro IFrame',
-    	scrolling : 'Zapnout posuvníky',
-    	title : 'Vlastnosti IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Vložit vodorovnou linku'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Vlastnosti tlačítka',
-    		text : 'Popisek',
-    		type : 'Typ',
-    		typeBtn : 'Tlačítko',
-    		typeSbm : 'Odeslat',
-    		typeRst : 'Obnovit'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Vlastnosti zaškrtávacího políčka',
-    		radioTitle : 'Vlastnosti přepínače',
-    		value : 'Hodnota',
-    		selected : 'Zaškrtnuto'
-    	},
-    	form : 
-    	{
-    		title : 'Vlastnosti formuláře',
-    		menu : 'Vlastnosti formuláře',
-    		action : 'Akce',
-    		method : 'Metoda',
-    		encoding : 'Kódování'
-    	},
-    	hidden : 
-    	{
-    		title : 'Vlastnosti skrytého pole',
-    		name : 'Název',
-    		value : 'Hodnota'
-    	},
-    	select : 
-    	{
-    		title : 'Vlastnosti seznamu',
-    		selectInfo : 'Info',
-    		opAvail : 'Dostupná nastavení',
-    		value : 'Hodnota',
-    		size : 'Velikost',
-    		lines : 'Řádků',
-    		chkMulti : 'Povolit mnohonásobné výběry',
-    		opText : 'Text',
-    		opValue : 'Hodnota',
-    		btnAdd : 'Přidat',
-    		btnModify : 'Změnit',
-    		btnUp : 'Nahoru',
-    		btnDown : 'Dolů',
-    		btnSetValue : 'Nastavit jako vybranou hodnotu',
-    		btnDelete : 'Smazat'
-    	},
-    	textarea : 
-    	{
-    		title : 'Vlastnosti textové oblasti',
-    		cols : 'Sloupců',
-    		rows : 'Řádků'
-    	},
-    	textfield : 
-    	{
-    		title : 'Vlastnosti textového pole',
-    		name : 'Název',
-    		value : 'Hodnota',
-    		charWidth : 'Šířka ve znacích',
-    		maxChars : 'Maximální počet znaků',
-    		type : 'Typ',
-    		typeText : 'Text',
-    		typePass : 'Heslo',
-    		typeEmail : 'Email',
-    		typeSearch : 'Hledat',
-    		typeTel : 'Telefonní číslo',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['cs'] = {
     	tag_h6 : 'Nadpis 6',
     	tag_p : 'Normální',
     	tag_pre : 'Naformátováno'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Velikost',
-    		voiceLabel : 'Velikost písma',
-    		panelTitle : 'Velikost'
-    	},
-    	label : 'Písmo',
-    	panelTitle : 'Písmo',
-    	voiceLabel : 'Písmo'
-    },
-    flash : 
-    {
-    	access : 'Přístup ke skriptu',
-    	accessAlways : 'Vždy',
-    	accessNever : 'Nikdy',
-    	accessSameDomain : 'Ve stejné doméně',
-    	alignAbsBottom : 'Zcela dolů',
-    	alignAbsMiddle : 'Doprostřed',
-    	alignBaseline : 'Na účaří',
-    	alignTextTop : 'Na horní okraj textu',
-    	bgcolor : 'Barva pozadí',
-    	chkFull : 'Povolit celoobrazovkový režim',
-    	chkLoop : 'Opakování',
-    	chkMenu : 'Nabídka Flash',
-    	chkPlay : 'Automatické spuštění',
-    	flashvars : 'Proměnné pro Flash',
-    	hSpace : 'Horizontální mezera',
-    	properties : 'Vlastnosti Flashe',
-    	propertiesTab : 'Vlastnosti',
-    	quality : 'Kvalita',
-    	qualityAutoHigh : 'Vysoká - auto',
-    	qualityAutoLow : 'Nízká - auto',
-    	qualityBest : 'Nejlepší',
-    	qualityHigh : 'Vysoká',
-    	qualityLow : 'Nejnižší',
-    	qualityMedium : 'Střední',
-    	scale : 'Zobrazit',
-    	scaleAll : 'Zobrazit vše',
-    	scaleFit : 'Přizpůsobit',
-    	scaleNoBorder : 'Bez okraje',
-    	title : 'Vlastnosti Flashe',
-    	vSpace : 'Vertikální mezera',
-    	validateHSpace : 'Zadaná horizontální mezera musí být číslo.',
-    	validateSrc : 'Zadejte prosím URL odkazu',
-    	validateVSpace : 'Zadaná vertikální mezera musí být číslo.',
-    	windowMode : 'Režim okna',
-    	windowModeOpaque : 'Neprůhledné',
-    	windowModeTransparent : 'Průhledné',
-    	windowModeWindow : 'Okno'
-    },
-    find : 
-    {
-    	find : 'Hledat',
-    	findOptions : 'Možnosti hledání',
-    	findWhat : 'Co hledat:',
-    	matchCase : 'Rozlišovat velikost písma',
-    	matchCyclic : 'Procházet opakovaně',
-    	matchWord : 'Pouze celá slova',
-    	notFoundMsg : 'Hledaný text nebyl nalezen.',
-    	replace : 'Nahradit',
-    	replaceAll : 'Nahradit vše',
-    	replaceSuccessMsg : '%1 nahrazení.',
-    	replaceWith : 'Čím nahradit:',
-    	title : 'Najít a nahradit'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['cs'] = {
     contextmenu : 
     {
     	options : 'Nastavení kontextové nabídky'
-    },
-    colordialog : 
-    {
-    	clear : 'Vyčistit',
-    	highlight : 'Zvýraznit',
-    	options : 'Nastavení barvy',
-    	selected : 'Vybráno',
-    	title : 'Výběr barvy'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['cs'] = {
     	securityMsg : 'Z důvodů nastavení bezpečnosti vašeho prohlížeče nemůže editor přistupovat přímo do schránky. Obsah schránky prosím vložte znovu do tohoto okna.',
     	title : 'Vložit'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Vybráno)'
+    },
     blockquote : 
     {
     	toolbar : 'Citace'
-    },
-    bidi : 
-    {
-    	ltr : 'Směr textu zleva doprava',
-    	rtl : 'Směr textu zprava doleva'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['cs'] = {
     	alignLeft : 'Vlevo',
     	alignRight : 'Vpravo',
     	alignCenter : 'Na střed',
+    	alignJustify : 'Zarovnat do bloku',
     	alignTop : 'Nahoru',
     	alignMiddle : 'Na střed',
     	alignBottom : 'Dolů',
+    	alignNone : 'Žádné',
     	invalidValue : 'Neplatná hodnota.',
     	invalidHeight : 'Zadaná výška musí být číslo.',
     	invalidWidth : 'Šířka musí být číslo.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['cs'] = {
     	invalidInlineStyle : 'Hodnota určená pro řádkový styl se musí skládat z jedné nebo více n-tic ve formátu "název : hodnota", oddělené středníky',
     	cssLengthTooltip : 'Zadejte číslo jako hodnotu v pixelech nebo číslo s platnou jednotkou CSS (px, %, v cm, mm, em, ex, pt, nebo pc).',
     	unavailable : '%1<span class="cke_accessibility">, nedostupné</span>'
-    } } 
+    } }; 

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['af'] = {
     undo : 
@@ -14,19 +14,19 @@ CKEDITOR.lang['af'] = {
     	toolbarExpand : 'Vergroot werkbalk',
     	toolbarGroups : 
     	{
-    		document : 'Document',
-    		clipboard : 'Clipboard/Undo',
-    		editing : 'Editing',
-    		forms : 'Forms',
-    		basicstyles : 'Basic Styles',
-    		paragraph : 'Paragraph',
-    		links : 'Links',
-    		insert : 'Insert',
-    		styles : 'Styles',
-    		colors : 'Colors',
-    		tools : 'Tools'
+    		document : 'Dokument',
+    		clipboard : 'Knipbord/Undo',
+    		editing : 'Verander',
+    		forms : 'Vorms',
+    		basicstyles : 'Eenvoudige Styl',
+    		paragraph : 'Paragraaf',
+    		links : 'Skakels',
+    		insert : 'Toevoeg',
+    		styles : 'Style',
+    		colors : 'Kleure',
+    		tools : 'Gereedskap'
     	},
-    	toolbars : 'Editor toolbars'
+    	toolbars : 'Werkbalke'
     },
     templates : 
     {
@@ -114,7 +114,7 @@ CKEDITOR.lang['af'] = {
     stylescombo : 
     {
     	label : 'Styl',
-    	panelTitle : 'Opmaak style',
+    	panelTitle : 'Vormaat style',
     	panelTitle1 : 'Blok style',
     	panelTitle2 : 'Inlyn style',
     	panelTitle3 : 'Objek style'
@@ -129,24 +129,6 @@ CKEDITOR.lang['af'] = {
     {
     	toolbar : 'Bron'
     },
-    smiley : 
-    {
-    	options : 'Lagbekkie opsies',
-    	title : 'Voeg lagbekkie by',
-    	toolbar : 'Lagbekkie'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Toon blokke'
-    },
-    selectall : 
-    {
-    	toolbar : 'Selekteer alles'
-    },
-    save : 
-    {
-    	toolbar : 'Bewaar'
-    },
     removeformat : 
     {
     	toolbar : 'Verwyder opmaak'
@@ -154,10 +136,6 @@ CKEDITOR.lang['af'] = {
     print : 
     {
     	toolbar : 'Druk'
-    },
-    preview : 
-    {
-    	preview : 'Voorbeeld'
     },
     pastetext : 
     {
@@ -171,15 +149,6 @@ CKEDITOR.lang['af'] = {
     	title : 'Plak vanuit Word',
     	toolbar : 'Plak vanuit Word'
     },
-    pagebreak : 
-    {
-    	alt : 'Bladsy-einde',
-    	toolbar : 'Bladsy-einde invoeg'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nuwe bladsy'
-    },
     maximize : 
     {
     	maximize : 'Maksimaliseer',
@@ -187,7 +156,7 @@ CKEDITOR.lang['af'] = {
     },
     magicline : 
     {
-    	title : 'Insert paragraph here'
+    	title : 'Voeg paragraaf hier in'
     },
     liststyle : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['af'] = {
     	validateHSpace : 'HSpasie moet \'n heelgetal wees.',
     	validateVSpace : 'VSpasie moet \'n heelgetal wees.'
     },
-    iframe : 
-    {
-    	border : 'Wys rand van raam',
-    	noUrl : 'Gee die iframe URL',
-    	scrolling : 'Skuifbalke aan',
-    	title : 'IFrame Eienskappe',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Horisontale lyn invoeg'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Knop eienskappe',
-    		text : 'Teks (Waarde)',
-    		type : 'Soort',
-    		typeBtn : 'Knop',
-    		typeSbm : 'Stuur',
-    		typeRst : 'Maak leeg'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Merkhokkie eienskappe',
-    		radioTitle : 'Radioknoppie eienskappe',
-    		value : 'Waarde',
-    		selected : 'Geselekteer'
-    	},
-    	form : 
-    	{
-    		title : 'Vorm eienskappe',
-    		menu : 'Vorm eienskappe',
-    		action : 'Aksie',
-    		method : 'Metode',
-    		encoding : 'Kodering'
-    	},
-    	hidden : 
-    	{
-    		title : 'Verborge veld eienskappe',
-    		name : 'Naam',
-    		value : 'Waarde'
-    	},
-    	select : 
-    	{
-    		title : 'Keuseveld eienskappe',
-    		selectInfo : 'Info',
-    		opAvail : 'Beskikbare opsies',
-    		value : 'Waarde',
-    		size : 'Grootte',
-    		lines : 'Lyne',
-    		chkMulti : 'Laat meer as een keuse toe',
-    		opText : 'Teks',
-    		opValue : 'Waarde',
-    		btnAdd : 'Byvoeg',
-    		btnModify : 'Wysig',
-    		btnUp : 'Op',
-    		btnDown : 'Af',
-    		btnSetValue : 'Stel as geselekteerde waarde',
-    		btnDelete : 'Verwyder'
-    	},
-    	textarea : 
-    	{
-    		title : 'Teks-area eienskappe',
-    		cols : 'Kolomme',
-    		rows : 'Rye'
-    	},
-    	textfield : 
-    	{
-    		title : 'Teksveld eienskappe',
-    		name : 'Naam',
-    		value : 'Waarde',
-    		charWidth : 'Breedte (karakters)',
-    		maxChars : 'Maksimum karakters',
-    		type : 'Soort',
-    		typeText : 'Teks',
-    		typePass : 'Wagwoord',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['af'] = {
     	tag_h6 : 'Opskrif 6',
     	tag_p : 'Normaal',
     	tag_pre : 'Opgemaak'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Grootte',
-    		voiceLabel : 'Fontgrootte',
-    		panelTitle : 'Fontgrootte'
-    	},
-    	label : 'Font',
-    	panelTitle : 'Fontnaam',
-    	voiceLabel : 'Font'
-    },
-    flash : 
-    {
-    	access : 'Skrip toegang',
-    	accessAlways : 'Altyd',
-    	accessNever : 'Nooit',
-    	accessSameDomain : 'Selfde domeinnaam',
-    	alignAbsBottom : 'Absoluut-onder',
-    	alignAbsMiddle : 'Absoluut-middel',
-    	alignBaseline : 'Basislyn',
-    	alignTextTop : 'Teks bo',
-    	bgcolor : 'Agtergrondkleur',
-    	chkFull : 'Laat volledige skerm toe',
-    	chkLoop : 'Herhaal',
-    	chkMenu : 'Flash spyskaart aan',
-    	chkPlay : 'Speel outomaties',
-    	flashvars : 'Veranderlikes vir Flash',
-    	hSpace : 'HSpasie',
-    	properties : 'Flash eienskappe',
-    	propertiesTab : 'Eienskappe',
-    	quality : 'Kwaliteit',
-    	qualityAutoHigh : 'Outomaties hoog',
-    	qualityAutoLow : 'Outomaties laag',
-    	qualityBest : 'Beste',
-    	qualityHigh : 'Hoog',
-    	qualityLow : 'Laag',
-    	qualityMedium : 'Gemiddeld',
-    	scale : 'Skaal',
-    	scaleAll : 'Wys alles',
-    	scaleFit : 'Presiese pas',
-    	scaleNoBorder : 'Geen rand',
-    	title : 'Flash eienskappe',
-    	vSpace : 'VSpasie',
-    	validateHSpace : 'HSpasie moet \'n heelgetal wees.',
-    	validateSrc : 'Voeg die URL in',
-    	validateVSpace : 'VSpasie moet \'n heelgetal wees.',
-    	windowMode : 'Venster modus',
-    	windowModeOpaque : 'Ondeursigtig',
-    	windowModeTransparent : 'Deursigtig',
-    	windowModeWindow : 'Venster'
-    },
-    find : 
-    {
-    	find : 'Soek',
-    	findOptions : 'Find Options',
-    	findWhat : 'Soek na:',
-    	matchCase : 'Hoof/kleinletter sensitief',
-    	matchCyclic : 'Soek deurlopend',
-    	matchWord : 'Hele woord moet voorkom',
-    	notFoundMsg : 'Teks nie gevind nie.',
-    	replace : 'Vervang',
-    	replaceAll : 'Vervang alles',
-    	replaceSuccessMsg : '%1 voorkoms(te) vervang.',
-    	replaceWith : 'Vervang met:',
-    	title : 'Soek en vervang'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['af'] = {
     contextmenu : 
     {
     	options : 'Konteks Spyskaart-opsies'
-    },
-    colordialog : 
-    {
-    	clear : 'Herstel',
-    	highlight : 'Aktief',
-    	options : 'Kleuropsies',
-    	selected : 'Geselekteer',
-    	title : 'Kies kleur'
     },
     colorbutton : 
     {
@@ -584,20 +398,19 @@ CKEDITOR.lang['af'] = {
     	securityMsg : 'Weens u blaaier se sekuriteitsinstelling is data op die knipbord nie toeganklik nie. U kan dit eers weer in hierdie venster plak.',
     	title : 'Byvoeg'
     },
+    button : 
+    {
+    	selectedLabel : '%1 uitgekies'
+    },
     blockquote : 
     {
     	toolbar : 'Sitaatblok'
-    },
-    bidi : 
-    {
-    	ltr : 'Skryfrigting van links na regs',
-    	rtl : 'Skryfrigting van regs na links'
     },
     basicstyles : 
     {
     	bold : 'Vet',
     	italic : 'Skuins',
-    	strike : 'Deurstreep',
+    	strike : 'Deurgestreep',
     	subscript : 'Onderskrif',
     	superscript : 'Bo-skrif',
     	underline : 'Onderstreep'
@@ -605,14 +418,14 @@ CKEDITOR.lang['af'] = {
     about : 
     {
     	copy : 'Kopiereg &copy; $1. Alle regte voorbehou.',
-    	dlgTitle : 'Info oor CKEditor',
-    	help : 'Check $1 for help.',
+    	dlgTitle : 'Meer oor CKEditor',
+    	help : 'Slaan $1 na vir hulp.',
     	moreInfo : 'Vir lisensie-informasie, besoek asb. ons webwerf:',
-    	title : 'Info oor CKEditor',
-    	userGuide : 'CKEditor User\'s Guide'
+    	title : 'Meer oor CKEditor',
+    	userGuide : 'CKEditor Gebruikers gits'
     },
-    editor : 'Teksverwerker',
-    editorPanel : 'Rich Text Editor panel',
+    editor : 'Woordverwerker',
+    editorPanel : 'Woordverwerkerpaneel',
     common : 
     {
     	editorHelp : 'Druk op ALT 0 vir hulp',
@@ -620,18 +433,18 @@ CKEDITOR.lang['af'] = {
     	url : 'URL',
     	protocol : 'Protokol',
     	upload : 'Oplaai',
-    	uploadSubmit : 'Stuur na bediener',
-    	image : 'Afbeelding',
+    	uploadSubmit : 'Stuur aan die bediener',
+    	image : 'Beeld',
     	flash : 'Flash',
     	form : 'Vorm',
     	checkbox : 'Merkhokkie',
     	radio : 'Radioknoppie',
     	textField : 'Teksveld',
-    	textarea : 'Teks-area',
-    	hiddenField : 'Blinde veld',
+    	textarea : 'Teksarea',
+    	hiddenField : 'Versteekteveld',
     	button : 'Knop',
     	select : 'Keuseveld',
-    	imageButton : 'Afbeeldingsknop',
+    	imageButton : 'Beeldknop',
     	notSet : '<geen instelling>',
     	id : 'Id',
     	name : 'Naam',
@@ -647,14 +460,14 @@ CKEDITOR.lang['af'] = {
     	cancel : 'Kanselleer',
     	close : 'Sluit',
     	preview : 'Voorbeeld',
-    	resize : 'Sleep om te herskaal',
+    	resize : 'Skalierung',
     	generalTab : 'Algemeen',
     	advancedTab : 'Gevorderd',
-    	validateNumberFailed : 'Hierdie waarde is nie \'n getal nie.',
-    	confirmNewPage : 'Alle wysiginge sal verlore gaan. Is u seker dat u \'n nuwe bladsy wil laai?',
-    	confirmCancel : 'Sommige opsies is gewysig. Is u seker dat u hierdie dialoogvenster wil sluit?',
+    	validateNumberFailed : 'Hierdie waarde is nie \'n nommer nie.',
+    	confirmNewPage : 'Alle wysiginge sal verlore gaan. Is jy seker dat jy \'n nuwe bladsy wil laai?',
+    	confirmCancel : 'Sommige opsies is gewysig. Is jy seker dat jy hierdie dialoogvenster wil sluit?',
     	options : 'Opsies',
-    	target : 'Doel',
+    	target : 'Teiken',
     	targetNew : 'Nuwe venster (_blank)',
     	targetTop : 'Boonste venster (_top)',
     	targetSelf : 'Selfde venster (_self)',
@@ -665,19 +478,21 @@ CKEDITOR.lang['af'] = {
     	cssClasses : 'CSS klasse',
     	width : 'Breedte',
     	height : 'Hoogte',
-    	align : 'Oplyn',
+    	align : 'Orienteerung',
     	alignLeft : 'Links',
     	alignRight : 'Regs',
-    	alignCenter : 'Sentreer',
+    	alignCenter : 'Middel',
+    	alignJustify : 'Eweredig',
     	alignTop : 'Bo',
     	alignMiddle : 'Middel',
     	alignBottom : 'Onder',
-    	invalidValue : 'Invalid value.',
+    	alignNone : 'Geen',
+    	invalidValue : 'Ongeldige waarde',
     	invalidHeight : 'Hoogte moet \'n getal wees',
     	invalidWidth : 'Breedte moet \'n getal wees.',
-    	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
-    	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
-    	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
+    	invalidCssLength : 'Die waarde vir die "%1" veld moet \'n posetiewe getal wees met of sonder \'n geldige CSS eenheid (px, %, in, cm, mm, em, ex, pt, of pc).',
+    	invalidHtmlLength : 'Die waarde vir die  "%1" veld moet \'n posetiewe getal wees met of sonder \'n geldige HTML eenheid (px of %).',
+    	invalidInlineStyle : 'Ongeldige CSS. Formaat is een of meer sleutel-wert paare, "naam : wert" met kommapunte gesky.',
+    	cssLengthTooltip : 'Voeg \'n getal wert in pixel in, of \'n waarde met geldige CSS eenheid (px, %, in, cm, mm, em, ex, pt, of pc).',
     	unavailable : '%1<span class="cke_accessibility">, nie beskikbaar nie</span>'
-    } } 
+    } }; 

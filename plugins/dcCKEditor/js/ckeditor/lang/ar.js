@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ar'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['ar'] = {
     {
     	toolbar : 'المصدر'
     },
-    smiley : 
-    {
-    	options : 'خصائص الإبتسامات',
-    	title : 'إدراج ابتسامات',
-    	toolbar : 'ابتسامات'
-    },
-    showblocks : 
-    {
-    	toolbar : 'مخطط تفصيلي'
-    },
-    selectall : 
-    {
-    	toolbar : 'تحديد الكل'
-    },
-    save : 
-    {
-    	toolbar : 'حفظ'
-    },
     removeformat : 
     {
     	toolbar : 'إزالة التنسيقات'
@@ -154,10 +136,6 @@ CKEDITOR.lang['ar'] = {
     print : 
     {
     	toolbar : 'طباعة'
-    },
-    preview : 
-    {
-    	preview : 'معاينة الصفحة'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['ar'] = {
     	error : 'لم يتم مسح المعلومات الملصقة لخلل داخلي',
     	title : 'لصق من وورد',
     	toolbar : 'لصق من وورد'
-    },
-    pagebreak : 
-    {
-    	alt : 'فاصل الصفحة',
-    	toolbar : 'إدخال صفحة جديدة'
-    },
-    newpage : 
-    {
-    	toolbar : 'صفحة جديدة'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['ar'] = {
     	validateHSpace : 'HSpace يجب أن يكون عدداً.',
     	validateVSpace : 'VSpace يجب أن يكون عدداً.'
     },
-    iframe : 
-    {
-    	border : 'إظهار حدود الإطار',
-    	noUrl : 'فضلا أكتب رابط الـ iframe',
-    	scrolling : 'تفعيل أشرطة الإنتقال',
-    	title : 'خصائص iframe',
-    	toolbar : 'iframe'
-    },
     horizontalrule : 
     {
     	toolbar : 'خط فاصل'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'خصائص زر الضغط',
-    		text : 'القيمة/التسمية',
-    		type : 'نوع الزر',
-    		typeBtn : 'زر',
-    		typeSbm : 'إرسال',
-    		typeRst : 'إعادة تعيين'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'خصائص خانة الإختيار',
-    		radioTitle : 'خصائص زر الخيار',
-    		value : 'القيمة',
-    		selected : 'محدد'
-    	},
-    	form : 
-    	{
-    		title : 'خصائص النموذج',
-    		menu : 'خصائص النموذج',
-    		action : 'اسم الملف',
-    		method : 'الأسلوب',
-    		encoding : 'تشفير'
-    	},
-    	hidden : 
-    	{
-    		title : 'خصائص الحقل المخفي',
-    		name : 'الاسم',
-    		value : 'القيمة'
-    	},
-    	select : 
-    	{
-    		title : 'خصائص اختيار الحقل',
-    		selectInfo : 'اختار معلومات',
-    		opAvail : 'الخيارات المتاحة',
-    		value : 'القيمة',
-    		size : 'الحجم',
-    		lines : 'الأسطر',
-    		chkMulti : 'السماح بتحديدات متعددة',
-    		opText : 'النص',
-    		opValue : 'القيمة',
-    		btnAdd : 'إضافة',
-    		btnModify : 'تعديل',
-    		btnUp : 'أعلى',
-    		btnDown : 'أسفل',
-    		btnSetValue : 'إجعلها محددة',
-    		btnDelete : 'إزالة'
-    	},
-    	textarea : 
-    	{
-    		title : 'خصائص مساحة النص',
-    		cols : 'الأعمدة',
-    		rows : 'الصفوف'
-    	},
-    	textfield : 
-    	{
-    		title : 'خصائص مربع النص',
-    		name : 'الاسم',
-    		value : 'القيمة',
-    		charWidth : 'عرض السمات',
-    		maxChars : 'اقصى عدد للسمات',
-    		type : 'نوع المحتوى',
-    		typeText : 'نص',
-    		typePass : 'كلمة مرور',
-    		typeEmail : 'بريد إلكتروني',
-    		typeSearch : 'بحث',
-    		typeTel : 'رقم الهاتف',
-    		typeUrl : 'الرابط'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['ar'] = {
     	tag_h6 : 'العنوان  6',
     	tag_p : 'عادي',
     	tag_pre : 'منسّق'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'حجم الخط',
-    		voiceLabel : 'حجم الخط',
-    		panelTitle : 'حجم الخط'
-    	},
-    	label : 'خط',
-    	panelTitle : 'حجم الخط',
-    	voiceLabel : 'حجم الخط'
-    },
-    flash : 
-    {
-    	access : 'دخول النص البرمجي',
-    	accessAlways : 'دائماً',
-    	accessNever : 'مطلقاً',
-    	accessSameDomain : 'نفس النطاق',
-    	alignAbsBottom : 'أسفل النص',
-    	alignAbsMiddle : 'وسط السطر',
-    	alignBaseline : 'على السطر',
-    	alignTextTop : 'أعلى النص',
-    	bgcolor : 'لون الخلفية',
-    	chkFull : 'ملء الشاشة',
-    	chkLoop : 'تكرار',
-    	chkMenu : 'تمكين قائمة فيلم الفلاش',
-    	chkPlay : 'تشغيل تلقائي',
-    	flashvars : 'متغيرات الفلاش',
-    	hSpace : 'تباعد أفقي',
-    	properties : 'خصائص الفلاش',
-    	propertiesTab : 'الخصائص',
-    	quality : 'جودة',
-    	qualityAutoHigh : 'عالية تلقائياً',
-    	qualityAutoLow : 'منخفضة تلقائياً',
-    	qualityBest : 'أفضل',
-    	qualityHigh : 'عالية',
-    	qualityLow : 'منخفضة',
-    	qualityMedium : 'متوسطة',
-    	scale : 'الحجم',
-    	scaleAll : 'إظهار الكل',
-    	scaleFit : 'ضبط تام',
-    	scaleNoBorder : 'بلا حدود',
-    	title : 'خصائص فيلم الفلاش',
-    	vSpace : 'تباعد عمودي',
-    	validateHSpace : 'HSpace يجب أن يكون عدداً.',
-    	validateSrc : 'فضلاً أدخل عنوان الموقع الذي يشير إليه الرابط',
-    	validateVSpace : 'VSpace يجب أن يكون عدداً.',
-    	windowMode : 'وضع النافذة',
-    	windowModeOpaque : 'غير شفاف',
-    	windowModeTransparent : 'شفاف',
-    	windowModeWindow : 'نافذة'
-    },
-    find : 
-    {
-    	find : 'بحث',
-    	findOptions : 'Find Options',
-    	findWhat : 'البحث بـ:',
-    	matchCase : 'مطابقة حالة الأحرف',
-    	matchCyclic : 'مطابقة دورية',
-    	matchWord : 'مطابقة بالكامل',
-    	notFoundMsg : 'لم يتم العثور على النص المحدد.',
-    	replace : 'إستبدال',
-    	replaceAll : 'إستبدال الكل',
-    	replaceSuccessMsg : 'تم استبدال 1% من الحالات ',
-    	replaceWith : 'إستبدال بـ:',
-    	title : 'بحث واستبدال'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['ar'] = {
     contextmenu : 
     {
     	options : 'خصائص قائمة السياق'
-    },
-    colordialog : 
-    {
-    	clear : 'مسح',
-    	highlight : 'تحديد',
-    	options : 'اختيارات الألوان',
-    	selected : 'اللون المختار',
-    	title : 'اختر اللون'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['ar'] = {
     	securityMsg : 'نظراً لإعدادات الأمان الخاصة بمتصفحك، لن يتمكن هذا المحرر من الوصول لمحتوى حافظتك، لذلك يجب عليك لصق المحتوى مرة أخرى في هذه النافذة.',
     	title : 'لصق'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'اقتباس'
-    },
-    bidi : 
-    {
-    	ltr : 'إتجاه النص من اليسار إلى اليمين',
-    	rtl : 'إتجاه النص من اليمين إلى اليسار'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['ar'] = {
     	userGuide : 'دليل مستخدم CKEditor.'
     },
     editor : 'محرر النص الغني',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'لائحة محرر النص المنسق',
     common : 
     {
     	editorHelp : 'إضغط على ALT + 0 للحصول على المساعدة.',
@@ -669,9 +482,11 @@ CKEDITOR.lang['ar'] = {
     	alignLeft : 'يسار',
     	alignRight : 'يمين',
     	alignCenter : 'وسط',
+    	alignJustify : 'ضبط',
     	alignTop : 'أعلى',
     	alignMiddle : 'وسط',
     	alignBottom : 'أسفل',
+    	alignNone : 'None',
     	invalidValue : 'قيمة غير مفبولة.',
     	invalidHeight : 'الارتفاع يجب أن يكون عدداً.',
     	invalidWidth : 'العرض يجب أن يكون عدداً.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['ar'] = {
     	invalidInlineStyle : 'قيمة الخانة المخصصة لـ  Inline Style يجب أن تختوي على مجموع واحد أو أكثر بالشكل التالي: "name : value", مفصولة بفاصلة منقزطة.',
     	cssLengthTooltip : 'أدخل رقما للقيمة بالبكسل أو رقما بوحدة CSS مقبولة (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, غير متاح</span>'
-    } } 
+    } }; 

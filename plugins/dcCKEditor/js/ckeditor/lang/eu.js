@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['eu'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['eu'] = {
     {
     	toolbar : 'HTML Iturburua'
     },
-    smiley : 
-    {
-    	options : 'Aurpegiera Aukerak',
-    	title : 'Aurpegiera Sartu',
-    	toolbar : 'Aurpegierak'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Blokeak erakutsi'
-    },
-    selectall : 
-    {
-    	toolbar : 'Hautatu dena'
-    },
-    save : 
-    {
-    	toolbar : 'Gorde'
-    },
     removeformat : 
     {
     	toolbar : 'Kendu Formatua'
@@ -154,10 +136,6 @@ CKEDITOR.lang['eu'] = {
     print : 
     {
     	toolbar : 'Inprimatu'
-    },
-    preview : 
-    {
-    	preview : 'Aurrebista'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['eu'] = {
     	error : 'Barneko errore bat dela eta ezin izan da testua garbitu',
     	title : 'Itsatsi Word-etik',
     	toolbar : 'Itsatsi Word-etik'
-    },
-    pagebreak : 
-    {
-    	alt : 'Orrialde-jauzia',
-    	toolbar : 'Txertatu Orrialde-jauzia Inprimatzean'
-    },
-    newpage : 
-    {
-    	toolbar : 'Orrialde Berria'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['eu'] = {
     	validateHSpace : 'HSpace zenbaki oso bat izan behar da.',
     	validateVSpace : 'VSpace zenbaki oso bat izan behar da.'
     },
-    iframe : 
-    {
-    	border : 'Markoaren ertza ikusi',
-    	noUrl : 'iframe-aren URLa idatzi, mesedez.',
-    	scrolling : 'Korritze barrak gaitu',
-    	title : 'IFrame-aren Propietateak',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Txertatu Marra Horizontala'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Botoiaren Ezaugarriak',
-    		text : 'Testua (Balorea)',
-    		type : 'Mota',
-    		typeBtn : 'Botoia',
-    		typeSbm : 'Bidali',
-    		typeRst : 'Garbitu'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Kontrol-laukiko Ezaugarriak',
-    		radioTitle : 'Aukera-botoiaren Ezaugarriak',
-    		value : 'Balorea',
-    		selected : 'Hautatuta'
-    	},
-    	form : 
-    	{
-    		title : 'Formularioaren Ezaugarriak',
-    		menu : 'Formularioaren Ezaugarriak',
-    		action : 'Ekintza',
-    		method : 'Metodoa',
-    		encoding : 'Kodeketa'
-    	},
-    	hidden : 
-    	{
-    		title : 'Ezkutuko Eremuaren Ezaugarriak',
-    		name : 'Izena',
-    		value : 'Balorea'
-    	},
-    	select : 
-    	{
-    		title : 'Hautespen Eremuaren Ezaugarriak',
-    		selectInfo : 'Informazioa',
-    		opAvail : 'Aukera Eskuragarriak',
-    		value : 'Balorea',
-    		size : 'Tamaina',
-    		lines : 'lerro kopurura',
-    		chkMulti : 'Hautaketa anitzak baimendu',
-    		opText : 'Testua',
-    		opValue : 'Balorea',
-    		btnAdd : 'Gehitu',
-    		btnModify : 'Aldatu',
-    		btnUp : 'Gora',
-    		btnDown : 'Behera',
-    		btnSetValue : 'Aukeratutako balorea ezarri',
-    		btnDelete : 'Ezabatu'
-    	},
-    	textarea : 
-    	{
-    		title : 'Testu-arearen Ezaugarriak',
-    		cols : 'Zutabeak',
-    		rows : 'Lerroak'
-    	},
-    	textfield : 
-    	{
-    		title : 'Testu Eremuaren Ezaugarriak',
-    		name : 'Izena',
-    		value : 'Balorea',
-    		charWidth : 'Zabalera',
-    		maxChars : 'Zenbat karaktere gehienez',
-    		type : 'Mota',
-    		typeText : 'Testua',
-    		typePass : 'Pasahitza',
-    		typeEmail : 'E-posta',
-    		typeSearch : 'Bilatu',
-    		typeTel : 'Telefono Zenbakia',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['eu'] = {
     	tag_h6 : 'Izenburua 6',
     	tag_p : 'Arrunta',
     	tag_pre : 'Formateatua'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Tamaina',
-    		voiceLabel : 'Tamaina',
-    		panelTitle : 'Tamaina'
-    	},
-    	label : 'Letra-tipoa',
-    	panelTitle : 'Letra-tipoa',
-    	voiceLabel : 'Letra-tipoa'
-    },
-    flash : 
-    {
-    	access : 'Scriptak baimendu',
-    	accessAlways : 'Beti',
-    	accessNever : 'Inoiz ere ez',
-    	accessSameDomain : 'Domeinu berdinekoak',
-    	alignAbsBottom : 'Abs Behean',
-    	alignAbsMiddle : 'Abs Erdian',
-    	alignBaseline : 'Oinan',
-    	alignTextTop : 'Testua Goian',
-    	bgcolor : 'Atzeko kolorea',
-    	chkFull : 'Onartu Pantaila osoa',
-    	chkLoop : 'Begizta',
-    	chkMenu : 'Flasharen Menua Gaitu',
-    	chkPlay : 'Automatikoki Erreproduzitu',
-    	flashvars : 'Flash Aldagaiak',
-    	hSpace : 'HSpace',
-    	properties : 'Flasharen Ezaugarriak',
-    	propertiesTab : 'Ezaugarriak',
-    	quality : 'Kalitatea',
-    	qualityAutoHigh : 'Auto Altua',
-    	qualityAutoLow : 'Auto Baxua',
-    	qualityBest : 'Hoberena',
-    	qualityHigh : 'Altua',
-    	qualityLow : 'Baxua',
-    	qualityMedium : 'Ertaina',
-    	scale : 'Eskalatu',
-    	scaleAll : 'Dena erakutsi',
-    	scaleFit : 'Doitu',
-    	scaleNoBorder : 'Ertzik gabe',
-    	title : 'Flasharen Ezaugarriak',
-    	vSpace : 'VSpace',
-    	validateHSpace : 'HSpace zenbaki bat izan behar da.',
-    	validateSrc : 'Mesedez URL esteka idatzi',
-    	validateVSpace : 'VSpace zenbaki bat izan behar da.',
-    	windowMode : 'Leihoaren modua',
-    	windowModeOpaque : 'Opakoa',
-    	windowModeTransparent : 'Gardena',
-    	windowModeWindow : 'Leihoa'
-    },
-    find : 
-    {
-    	find : 'Bilatu',
-    	findOptions : 'Find Options',
-    	findWhat : 'Zer bilatu:',
-    	matchCase : 'Maiuskula/minuskula',
-    	matchCyclic : 'Bilaketa ziklikoa',
-    	matchWord : 'Esaldi osoa bilatu',
-    	notFoundMsg : 'Idatzitako testua ez da topatu.',
-    	replace : 'Ordezkatu',
-    	replaceAll : 'Ordeztu Guztiak',
-    	replaceSuccessMsg : 'Zenbat aldiz ordeztua: %1',
-    	replaceWith : 'Zerekin ordeztu:',
-    	title : 'Bilatu eta Ordeztu'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['eu'] = {
     contextmenu : 
     {
     	options : 'Testuingurko Menuaren Aukerak'
-    },
-    colordialog : 
-    {
-    	clear : 'Garbitu',
-    	highlight : 'Nabarmendu',
-    	options : 'Kolore Aukerak',
-    	selected : 'Hautatutako Kolorea',
-    	title : 'Kolorea Hautatu'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['eu'] = {
     	securityMsg : 'Nabigatzailearen segurtasun ezarpenak direla eta, editoreak ezin du arbela zuzenean erabili. Leiho honetan berriro itsatsi behar duzu.',
     	title : 'Itsatsi'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Aipamen blokea'
-    },
-    bidi : 
-    {
-    	ltr : 'Testuaren norantza ezkerretik eskuinera',
-    	rtl : 'Testuaren norantza eskuinetik ezkerrera'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['eu'] = {
     	alignLeft : 'Ezkerrera',
     	alignRight : 'Eskuman',
     	alignCenter : 'Erdian',
+    	alignJustify : 'Justifikatu',
     	alignTop : 'Goian',
     	alignMiddle : 'Erdian',
     	alignBottom : 'Behean',
+    	alignNone : 'None',
     	invalidValue : 'Balio ezegokia.',
     	invalidHeight : 'Altuera zenbaki bat izan behar da.',
     	invalidWidth : 'Zabalera zenbaki bat izan behar da.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['eu'] = {
     	invalidInlineStyle : 'Lerroko estiloan zehazten dena tupla "name : value" formatuko eta puntu eta komaz bereiztutako tupla bat edo gehiago izan behar dira.',
     	cssLengthTooltip : 'Zenbakia bakarrik zehazten bada pixeletan egongo da. CSS neurri unitatea ere zehaztu ahal da (px, %, in, cm, mm, em, ex, pt, edo pc).',
     	unavailable : '%1<span class="cke_accessibility">, erabilezina</span>'
-    } } 
+    } }; 

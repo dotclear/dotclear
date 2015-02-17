@@ -23,6 +23,13 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
 ?>
 (function($) {
 	$.toolbarPopup = function toolbarPopup(url) {
+		if (dotclear.admin_base_url != '') {
+			var pos = url.indexOf(dotclear.admin_base_url);
+			if (pos == -1) {
+				url = dotclear.admin_base_url + url;
+			}
+		}
+
 		var args = Array.prototype.slice.call(arguments);
 		var width = 520, height = 420;
 		if (args[1]!==undefined) {

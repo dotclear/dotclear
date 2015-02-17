@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fr'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['fr'] = {
     {
     	toolbar : 'Source'
     },
-    smiley : 
-    {
-    	options : 'Options des émoticones',
-    	title : 'Insérer un émoticone',
-    	toolbar : 'Émoticones'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Afficher les blocs'
-    },
-    selectall : 
-    {
-    	toolbar : 'Tout sélectionner'
-    },
-    save : 
-    {
-    	toolbar : 'Enregistrer'
-    },
     removeformat : 
     {
     	toolbar : 'Supprimer la mise en forme'
@@ -154,10 +136,6 @@ CKEDITOR.lang['fr'] = {
     print : 
     {
     	toolbar : 'Imprimer'
-    },
-    preview : 
-    {
-    	preview : 'Aperçu'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['fr'] = {
     	error : 'Il n\'a pas été possible de nettoyer les données collées à la suite d\'une erreur interne.',
     	title : 'Coller depuis Word',
     	toolbar : 'Coller depuis Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Saut de page',
-    	toolbar : 'Saut de page'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nouvelle page'
     },
     maximize : 
     {
@@ -271,7 +240,7 @@ CKEDITOR.lang['fr'] = {
     	targetPopup : '<fenêtre popup>',
     	targetPopupName : 'Nom de la fenêtre popup',
     	title : 'Lien',
-    	toAnchor : 'Transformer le lien en ancre dans le texte',
+    	toAnchor : 'Ancre',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
     	toolbar : 'Lien',
@@ -314,89 +283,9 @@ CKEDITOR.lang['fr'] = {
     	validateHSpace : 'HSpace doit être un entier.',
     	validateVSpace : 'VSpace doit être un entier.'
     },
-    iframe : 
-    {
-    	border : 'Afficher une bordure de la IFrame',
-    	noUrl : 'Veuillez entrer l\'adresse du lien de la IFrame',
-    	scrolling : 'Permettre à la barre de défilement',
-    	title : 'Propriétés de la IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Ligne horizontale'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Propriétés du bouton',
-    		text : 'Texte (Value)',
-    		type : 'Type',
-    		typeBtn : 'Bouton',
-    		typeSbm : 'Validation (submit)',
-    		typeRst : 'Remise à zéro'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Propriétés de la case à cocher',
-    		radioTitle : 'Propriétés du bouton Radio',
-    		value : 'Valeur',
-    		selected : 'Sélectionné'
-    	},
-    	form : 
-    	{
-    		title : 'Propriétés du formulaire',
-    		menu : 'Propriétés du formulaire',
-    		action : 'Action',
-    		method : 'Méthode',
-    		encoding : 'Encodage'
-    	},
-    	hidden : 
-    	{
-    		title : 'Propriétés du champ caché',
-    		name : 'Nom',
-    		value : 'Valeur'
-    	},
-    	select : 
-    	{
-    		title : 'Propriétés du menu déroulant',
-    		selectInfo : 'Informations sur le menu déroulant',
-    		opAvail : 'Options disponibles',
-    		value : 'Valeur',
-    		size : 'Taille',
-    		lines : 'Lignes',
-    		chkMulti : 'Permettre les sélections multiples',
-    		opText : 'Texte',
-    		opValue : 'Valeur',
-    		btnAdd : 'Ajouter',
-    		btnModify : 'Modifier',
-    		btnUp : 'Haut',
-    		btnDown : 'Bas',
-    		btnSetValue : 'Définir comme valeur sélectionnée',
-    		btnDelete : 'Supprimer'
-    	},
-    	textarea : 
-    	{
-    		title : 'Propriétés de la zone de texte',
-    		cols : 'Colonnes',
-    		rows : 'Lignes'
-    	},
-    	textfield : 
-    	{
-    		title : 'Propriétés du champ texte',
-    		name : 'Nom',
-    		value : 'Valeur',
-    		charWidth : 'Taille des caractères',
-    		maxChars : 'Nombre maximum de caractères',
-    		type : 'Type',
-    		typeText : 'Texte',
-    		typePass : 'Mot de passe',
-    		typeEmail : 'E-mail',
-    		typeSearch : 'Rechercher',
-    		typeTel : 'Numéro de téléphone',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['fr'] = {
     	tag_h6 : 'Titre 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formaté'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Taille',
-    		voiceLabel : 'Taille de police',
-    		panelTitle : 'Taille de police'
-    	},
-    	label : 'Police',
-    	panelTitle : 'Style de police',
-    	voiceLabel : 'Police'
-    },
-    flash : 
-    {
-    	access : 'Accès aux scripts',
-    	accessAlways : 'Toujours',
-    	accessNever : 'Jamais',
-    	accessSameDomain : 'Même domaine',
-    	alignAbsBottom : 'Bas absolu',
-    	alignAbsMiddle : 'Milieu absolu',
-    	alignBaseline : 'Bas du texte',
-    	alignTextTop : 'Haut du texte',
-    	bgcolor : 'Couleur d\'arrière-plan',
-    	chkFull : 'Permettre le plein écran',
-    	chkLoop : 'Boucle',
-    	chkMenu : 'Activer le menu Flash',
-    	chkPlay : 'Jouer automatiquement',
-    	flashvars : 'Variables du Flash',
-    	hSpace : 'Espacement horizontal',
-    	properties : 'Propriétés du Flash',
-    	propertiesTab : 'Propriétés',
-    	quality : 'Qualité',
-    	qualityAutoHigh : 'Haute Auto',
-    	qualityAutoLow : 'Basse Auto',
-    	qualityBest : 'Meilleure',
-    	qualityHigh : 'Haute',
-    	qualityLow : 'Basse',
-    	qualityMedium : 'Moyenne',
-    	scale : 'Echelle',
-    	scaleAll : 'Afficher tout',
-    	scaleFit : 'Taille d\'origine',
-    	scaleNoBorder : 'Pas de bordure',
-    	title : 'Propriétés du Flash',
-    	vSpace : 'Espacement vertical',
-    	validateHSpace : 'L\'espacement horizontal doit être un nombre.',
-    	validateSrc : 'L\'adresse ne doit pas être vide.',
-    	validateVSpace : 'L\'espacement vertical doit être un nombre.',
-    	windowMode : 'Mode fenêtre',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Fenêtre'
-    },
-    find : 
-    {
-    	find : 'Trouver',
-    	findOptions : 'Options de recherche',
-    	findWhat : 'Expression à trouver: ',
-    	matchCase : 'Respecter la casse',
-    	matchCyclic : 'Boucler',
-    	matchWord : 'Mot entier uniquement',
-    	notFoundMsg : 'Le texte spécifié ne peut être trouvé.',
-    	replace : 'Remplacer',
-    	replaceAll : 'Remplacer tout',
-    	replaceSuccessMsg : '%1 occurrence(s) replacée(s).',
-    	replaceWith : 'Remplacer par: ',
-    	title : 'Trouver et remplacer'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['fr'] = {
     contextmenu : 
     {
     	options : 'Options du menu contextuel'
-    },
-    colordialog : 
-    {
-    	clear : 'Effacer',
-    	highlight : 'Détails',
-    	options : 'Option des couleurs',
-    	selected : 'Couleur choisie',
-    	title : 'Choisir une couleur'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['fr'] = {
     	securityMsg : 'A cause des paramètres de sécurité de votre navigateur, l\'éditeur n\'est pas en mesure d\'accéder directement à vos données contenues dans le presse-papier. Vous devriez réessayer de coller les données dans la fenêtre.',
     	title : 'Coller'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Sélectionné)'
+    },
     blockquote : 
     {
     	toolbar : 'Citation'
-    },
-    bidi : 
-    {
-    	ltr : 'Direction du texte de la gauche vers la droite',
-    	rtl : 'Direction du texte de la droite vers la gauche'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['fr'] = {
     	userGuide : 'Guide de l\'utilisateur CKEditor en anglais'
     },
     editor : 'Éditeur de Texte Enrichi',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Tableau de bord de l\'éditeur de texte enrichi',
     common : 
     {
     	editorHelp : 'Appuyez sur ALT-0 pour l\'aide',
@@ -669,9 +482,11 @@ CKEDITOR.lang['fr'] = {
     	alignLeft : 'Gauche',
     	alignRight : 'Droite',
     	alignCenter : 'Centré',
+    	alignJustify : 'Justifier',
     	alignTop : 'Haut',
     	alignMiddle : 'Milieu',
     	alignBottom : 'Bas',
+    	alignNone : 'Aucun',
     	invalidValue : 'Valeur incorrecte.',
     	invalidHeight : 'La hauteur doit être un nombre.',
     	invalidWidth : 'La largeur doit être un nombre.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['fr'] = {
     	invalidInlineStyle : 'La valeur spécifiée pour le style inline doit être composée d\'un ou plusieurs couples de valeur au format "nom : valeur", separés par des points-virgules.',
     	cssLengthTooltip : 'Entrer un nombre pour une valeur en pixels ou un nombre avec une unité de mesure CSS valide (px, %, in, cm, mm, em, ex, pt, ou pc).',
     	unavailable : '%1<span class="cke_accessibility">, Indisponible</span>'
-    } } 
+    } }; 

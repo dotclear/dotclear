@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ku'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['ku'] = {
     {
     	toolbar : 'سەرچاوە'
     },
-    smiley : 
-    {
-    	options : 'هەڵبژاردەی زەردەخەنه',
-    	title : 'دانانی زەردەخەنەیەك',
-    	toolbar : 'زەردەخەنه'
-    },
-    showblocks : 
-    {
-    	toolbar : 'نیشاندانی بەربەستەکان'
-    },
-    selectall : 
-    {
-    	toolbar : 'دیاریکردنی هەمووی'
-    },
-    save : 
-    {
-    	toolbar : 'پاشکەوتکردن'
-    },
     removeformat : 
     {
     	toolbar : 'لابردنی داڕشتەکە'
@@ -154,10 +136,6 @@ CKEDITOR.lang['ku'] = {
     print : 
     {
     	toolbar : 'چاپکردن'
-    },
-    preview : 
-    {
-    	preview : 'پێشبینین'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['ku'] = {
     	error : 'هیچ ڕێگەیەك نەبوو لەلکاندنی دەقەکه بەهۆی هەڵەیەکی ناوەخۆیی',
     	title : 'لکاندنی لەلایەن Word',
     	toolbar : 'لکاندنی لەڕێی Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'پشووی پەڕە',
-    	toolbar : 'دانانی پشووی پەڕە بۆ چاپکردن'
-    },
-    newpage : 
-    {
-    	toolbar : 'پەڕەیەکی نوێ'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['ku'] = {
     	validateHSpace : 'بۆشایی ئاسۆیی دەبێت بەتەواوی تەنها ژمارە بێت.',
     	validateVSpace : 'بۆشایی ئەستونی دەبێت بەتەواوی تەنها ژماره بێت.'
     },
-    iframe : 
-    {
-    	border : 'نیشاندانی لاکێشه بە چوواردەوری چووارچێوە',
-    	noUrl : 'تکایه ناونیشانی بەستەر بنووسه بۆ چووارچێوه',
-    	scrolling : 'چالاککردنی هاتووچۆپێکردن',
-    	title : 'دیالۆگی چووارچێوه',
-    	toolbar : 'چووارچێوه'
-    },
     horizontalrule : 
     {
     	toolbar : 'دانانی هێلی ئاسۆیی'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'خاسیەتی دوگمە',
-    		text : '(نرخی) دەق',
-    		type : 'جۆر',
-    		typeBtn : 'دوگمە',
-    		typeSbm : 'بنێرە',
-    		typeRst : 'ڕێکخستنەوە'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'خاسیەتی چووارگۆشی پشکنین',
-    		radioTitle : 'خاسیەتی جێگرەوەی دوگمە',
-    		value : 'نرخ',
-    		selected : 'هەڵبژاردرا'
-    	},
-    	form : 
-    	{
-    		title : 'خاسیەتی داڕشتە',
-    		menu : 'خاسیەتی داڕشتە',
-    		action : 'کردار',
-    		method : 'ڕێگە',
-    		encoding : 'بەکۆدکەر'
-    	},
-    	hidden : 
-    	{
-    		title : 'خاسیەتی خانەی شاردراوە',
-    		name : 'ناو',
-    		value : 'نرخ'
-    	},
-    	select : 
-    	{
-    		title : 'هەڵبژاردەی خاسیەتی خانە',
-    		selectInfo : 'زانیاری',
-    		opAvail : 'هەڵبژاردەی لەبەردەستدابوون',
-    		value : 'نرخ',
-    		size : 'گەورەیی',
-    		lines : 'هێڵەکان',
-    		chkMulti : 'ڕێدان بەفره هەڵبژارده',
-    		opText : 'دەق',
-    		opValue : 'نرخ',
-    		btnAdd : 'زیادکردن',
-    		btnModify : 'گۆڕانکاری',
-    		btnUp : 'سەرەوه',
-    		btnDown : 'خوارەوە',
-    		btnSetValue : 'دابنێ وەك نرخێکی هەڵبژێردراو',
-    		btnDelete : 'سڕینەوه'
-    	},
-    	textarea : 
-    	{
-    		title : 'خاسیەتی ڕووبەری دەق',
-    		cols : 'ستوونەکان',
-    		rows : 'ڕیزەکان'
-    	},
-    	textfield : 
-    	{
-    		title : 'خاسیەتی خانەی دەق',
-    		name : 'ناو',
-    		value : 'نرخ',
-    		charWidth : 'پانی نووسە',
-    		maxChars : 'ئەوپەڕی نووسە',
-    		type : 'جۆر',
-    		typeText : 'دەق',
-    		typePass : 'پێپەڕەوشە',
-    		typeEmail : 'ئیمەیل',
-    		typeSearch : 'گەڕان',
-    		typeTel : 'ژمارەی تەلەفۆن',
-    		typeUrl : 'ناونیشانی بەستەر'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['ku'] = {
     	tag_h6 : 'سەرنووسەی ٦',
     	tag_p : 'ئاسایی',
     	tag_pre : 'شێوازکراو'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'گەورەیی',
-    		voiceLabel : 'گەورەیی فۆنت',
-    		panelTitle : 'گەورەیی فۆنت'
-    	},
-    	label : 'فۆنت',
-    	panelTitle : 'ناوی فۆنت',
-    	voiceLabel : 'فۆنت'
-    },
-    flash : 
-    {
-    	access : 'دەستپێگەیشتنی نووسراو',
-    	accessAlways : 'هەمیشه',
-    	accessNever : 'هەرگیز',
-    	accessSameDomain : 'هەمان دۆمەین',
-    	alignAbsBottom : 'له ژێرەوه',
-    	alignAbsMiddle : 'لەناوەند',
-    	alignBaseline : 'هێڵەبنەڕەت',
-    	alignTextTop : 'دەق لەسەرەوه',
-    	bgcolor : 'ڕەنگی پاشبنەما',
-    	chkFull : 'ڕێپێدان بە پڕی شاشه',
-    	chkLoop : 'گرێ',
-    	chkMenu : 'چالاککردنی لیستەی فلاش',
-    	chkPlay : 'پێکردنی یان لێدانی خۆکار',
-    	flashvars : 'گۆڕاوەکان بۆ فلاش',
-    	hSpace : 'بۆشایی ئاسۆیی',
-    	properties : 'خاسیەتی فلاش',
-    	propertiesTab : 'خاسیەت',
-    	quality : 'جۆرایەتی',
-    	qualityAutoHigh : 'بەرزی خۆکار',
-    	qualityAutoLow : 'نزمی خۆکار',
-    	qualityBest : 'باشترین',
-    	qualityHigh : 'بەرزی',
-    	qualityLow : 'نزم',
-    	qualityMedium : 'مامناوەند',
-    	scale : 'پێوانه',
-    	scaleAll : 'نیشاندانی هەموو',
-    	scaleFit : 'بەوردی بگونجێت',
-    	scaleNoBorder : 'بێ پەراوێز',
-    	title : 'خاسیەتی فلاش',
-    	vSpace : 'بۆشایی ئەستونی',
-    	validateHSpace : 'بۆشایی ئاسۆیی دەبێت ژمارە بێت.',
-    	validateSrc : 'ناونیشانی بەستەر نابێت خاڵی بێت',
-    	validateVSpace : 'بۆشایی ئەستونی دەبێت ژماره بێت.',
-    	windowMode : 'شێوازی پەنجەره',
-    	windowModeOpaque : 'ناڕوون',
-    	windowModeTransparent : 'ڕۆشن',
-    	windowModeWindow : 'پەنجەره'
-    },
-    find : 
-    {
-    	find : 'گەڕان',
-    	findOptions : 'هەڵبژاردەکانی گەڕان',
-    	findWhat : 'گەڕان بەدووای:',
-    	matchCase : 'جیاکردنەوه لەنێوان پیتی گەورەو بچووك',
-    	matchCyclic : 'گەڕان لەهەموو پەڕەکه',
-    	matchWord : 'تەنەا هەموو وشەکه',
-    	notFoundMsg : 'هیچ دەقه گەڕانێك نەدۆزراوه.',
-    	replace : 'لەبریدانان',
-    	replaceAll : 'لەبریدانانی هەمووی',
-    	replaceSuccessMsg : ' پێشهاتە(ی) لەبری دانرا. %1',
-    	replaceWith : 'لەبریدانان به:',
-    	title : 'گەڕان و لەبریدانان'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['ku'] = {
     contextmenu : 
     {
     	options : 'هەڵبژاردەی لیستەی کلیکی دەستی ڕاست'
-    },
-    colordialog : 
-    {
-    	clear : 'پاکیکەوە',
-    	highlight : 'نیشانکردن',
-    	options : 'هەڵبژاردەی ڕەنگەکان',
-    	selected : 'ڕەنگی هەڵبژێردراو',
-    	title : 'هەڵبژاردنی ڕەنگ'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['ku'] = {
     	securityMsg : 'بەهۆی شێوەپێدانی پارێزی وێبگەڕەکەت، سەرنووسەکه ناتوانێت دەستبگەیەنێت بەهەڵگیراوەکە ڕاستەوخۆ. بۆیه پێویسته دووباره بیلکێنیت لەم پەنجەرەیه.',
     	title : 'لکاندن'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (هەڵبژێردراو)'
+    },
     blockquote : 
     {
     	toolbar : 'بەربەستکردنی ووتەی وەرگیراو'
-    },
-    bidi : 
-    {
-    	ltr : 'ئاراستەی نووسە لە چەپ بۆ ڕاست',
-    	rtl : 'ئاراستەی نووسە لە ڕاست بۆ چەپ'
     },
     basicstyles : 
     {
@@ -611,11 +424,11 @@ CKEDITOR.lang['ku'] = {
     	title : 'دەربارەی CKEditor',
     	userGuide : 'ڕێپیشاندەری CKEditors'
     },
-    editor : 'سەرنووسەی دەقی بە پیت',
-    editorPanel : 'Rich Text Editor panel',
+    editor : 'سەرنووسەی دەقی تەواو',
+    editorPanel : 'بڕگەی سەرنووسەی دەقی تەواو',
     common : 
     {
-    	editorHelp : 'کلیکی ALT لەگەڵ 0 بکه بۆ یارمەتی',
+    	editorHelp : 'کلیکی ALT لەگەڵ 0 بکه‌ بۆ یارمەتی',
     	browseServer : 'هێنانی ڕاژە',
     	url : 'ناونیشانی بەستەر',
     	protocol : 'پڕۆتۆکۆڵ',
@@ -640,11 +453,11 @@ CKEDITOR.lang['ku'] = {
     	langDirRtl : 'ڕاست بۆ چەپ (RTL)',
     	langCode : 'هێمای زمان',
     	longDescr : 'پێناسەی درێژی بەستەر',
-    	cssClass : 'شێوازی چینی پهڕە',
+    	cssClass : 'شێوازی چینی په‌ڕە',
     	advisoryTitle : 'ڕاوێژکاری سەردێڕ',
     	cssStyle : 'شێواز',
     	ok : 'باشە',
-    	cancel : 'هەڵوەشاندن',
+    	cancel : 'پاشگەزبوونەوە',
     	close : 'داخستن',
     	preview : 'پێشبینین',
     	resize : 'گۆڕینی ئەندازە',
@@ -669,15 +482,17 @@ CKEDITOR.lang['ku'] = {
     	alignLeft : 'چەپ',
     	alignRight : 'ڕاست',
     	alignCenter : 'ناوەڕاست',
+    	alignJustify : 'هاوستوونی',
     	alignTop : 'سەرەوە',
     	alignMiddle : 'ناوەند',
     	alignBottom : 'ژێرەوە',
+    	alignNone : 'هیچ',
     	invalidValue : 'نرخێکی نادرووست.',
     	invalidHeight : 'درێژی دەبێت ژمارە بێت.',
     	invalidWidth : 'پانی دەبێت ژمارە بێت.',
     	invalidCssLength : 'ئەم نرخەی دراوە بۆ خانەی "%1" دەبێت ژمارەکی درووست بێت یان بێ ناونیشانی ئامرازی (px, %, in, cm, mm, em, ex, pt, یان pc).',
     	invalidHtmlLength : 'ئەم نرخەی دراوە بۆ خانەی "%1" دەبێت ژمارەکی درووست بێت یان بێ ناونیشانی ئامرازی HTML (px یان %).',
     	invalidInlineStyle : 'دانەی نرخی شێوازی ناوهێڵ دەبێت پێکهاتبێت لەیەك یان زیاتری داڕشتە "ناو : نرخ", جیاکردنەوەی بە فاریزە و خاڵ',
-    	cssLengthTooltip : 'ژمارەیەك بنووسه بۆ نرخی piksel یان ئامرازێکی درووستی CSS (px, %, in, cm, mm, em, ex, pt, یان pc).',
+    	cssLengthTooltip : 'ژمارەیەك بنووسه‌ بۆ نرخی piksel یان ئامرازێکی درووستی CSS (px, %, in, cm, mm, em, ex, pt, یان pc).',
     	unavailable : '%1<span class="cke_accessibility">, ئامادە نیە</span>'
-    } } 
+    } }; 

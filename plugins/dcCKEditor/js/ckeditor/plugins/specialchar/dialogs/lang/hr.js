@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -41,7 +41,7 @@ CKEDITOR.plugins.setLang( 'specialchar', 'hr', {
 	frac34: 'Vulgar fraction three quarters', // MISSING
 	iquest: 'Naopaki upitnik',
 	Agrave: 'Veliko latinsko slovo A s akcentom',
-	Aacute: 'Latin capital letter A with acute accent', // MISSING
+	Aacute: 'Latinično veliko slovo A sa oštrim naglaskom',
 	Acirc: 'Latin capital letter A with circumflex', // MISSING
 	Atilde: 'Latin capital letter A with tilde', // MISSING
 	Auml: 'Latin capital letter A with diaeresis', // MISSING
@@ -122,4 +122,4 @@ CKEDITOR.plugins.setLang( 'specialchar', 'hr', {
 	hArr: 'Left right double arrow', // MISSING
 	diams: 'Black diamond suit', // MISSING
 	asymp: 'Almost equal to' // MISSING
-});
+} );

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['is'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['is'] = {
     {
     	toolbar : 'Kóði'
     },
-    smiley : 
-    {
-    	options : 'Smiley Options',
-    	title : 'Velja svip',
-    	toolbar : 'Svipur'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Sýna blokkir'
-    },
-    selectall : 
-    {
-    	toolbar : 'Velja allt'
-    },
-    save : 
-    {
-    	toolbar : 'Vista'
-    },
     removeformat : 
     {
     	toolbar : 'Fjarlægja snið'
@@ -154,10 +136,6 @@ CKEDITOR.lang['is'] = {
     print : 
     {
     	toolbar : 'Prenta'
-    },
-    preview : 
-    {
-    	preview : 'Forskoða'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['is'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Líma úr Word',
     	toolbar : 'Líma úr Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Page Break',
-    	toolbar : 'Setja inn síðuskil'
-    },
-    newpage : 
-    {
-    	toolbar : 'Ný síða'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['is'] = {
     	validateHSpace : 'HSpace must be a whole number.',
     	validateVSpace : 'VSpace must be a whole number.'
     },
-    iframe : 
-    {
-    	border : 'Show frame border',
-    	noUrl : 'Please type the iframe URL',
-    	scrolling : 'Enable scrollbars',
-    	title : 'IFrame Properties',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Lóðrétt lína'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Eigindi hnapps',
-    		text : 'Texti',
-    		type : 'Gerð',
-    		typeBtn : 'Hnappur',
-    		typeSbm : 'Staðfesta',
-    		typeRst : 'Hreinsa'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Eigindi markreits',
-    		radioTitle : 'Eigindi valhnapps',
-    		value : 'Gildi',
-    		selected : 'Valið'
-    	},
-    	form : 
-    	{
-    		title : 'Eigindi innsláttarforms',
-    		menu : 'Eigindi innsláttarforms',
-    		action : 'Aðgerð',
-    		method : 'Aðferð',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'Eigindi falins svæðis',
-    		name : 'Nafn',
-    		value : 'Gildi'
-    	},
-    	select : 
-    	{
-    		title : 'Eigindi lista',
-    		selectInfo : 'Upplýsingar',
-    		opAvail : 'Kostir',
-    		value : 'Gildi',
-    		size : 'Stærð',
-    		lines : 'línur',
-    		chkMulti : 'Leyfa fleiri kosti',
-    		opText : 'Texti',
-    		opValue : 'Gildi',
-    		btnAdd : 'Bæta við',
-    		btnModify : 'Breyta',
-    		btnUp : 'Upp',
-    		btnDown : 'Niður',
-    		btnSetValue : 'Merkja sem valið',
-    		btnDelete : 'Eyða'
-    	},
-    	textarea : 
-    	{
-    		title : 'Eigindi textasvæðis',
-    		cols : 'Dálkar',
-    		rows : 'Línur'
-    	},
-    	textfield : 
-    	{
-    		title : 'Eigindi textareits',
-    		name : 'Nafn',
-    		value : 'Gildi',
-    		charWidth : 'Breidd (leturtákn)',
-    		maxChars : 'Hámarksfjöldi leturtákna',
-    		type : 'Gerð',
-    		typeText : 'Texti',
-    		typePass : 'Lykilorð',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'Vefslóð'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['is'] = {
     	tag_h6 : 'Fyrirsögn 6',
     	tag_p : 'Venjulegt letur',
     	tag_pre : 'Forsniðið'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Leturstærð ',
-    		voiceLabel : 'Font Size',
-    		panelTitle : 'Leturstærð '
-    	},
-    	label : 'Leturgerð ',
-    	panelTitle : 'Leturgerð ',
-    	voiceLabel : 'Leturgerð '
-    },
-    flash : 
-    {
-    	access : 'Script Access',
-    	accessAlways : 'Always',
-    	accessNever : 'Never',
-    	accessSameDomain : 'Same domain',
-    	alignAbsBottom : 'Abs neðst',
-    	alignAbsMiddle : 'Abs miðjuð',
-    	alignBaseline : 'Grunnlína',
-    	alignTextTop : 'Efri brún texta',
-    	bgcolor : 'Bakgrunnslitur',
-    	chkFull : 'Allow Fullscreen',
-    	chkLoop : 'Endurtekning',
-    	chkMenu : 'Sýna Flash-valmynd',
-    	chkPlay : 'Sjálfvirk spilun',
-    	flashvars : 'Variables for Flash',
-    	hSpace : 'Vinstri bil',
-    	properties : 'Eigindi Flash',
-    	propertiesTab : 'Properties',
-    	quality : 'Quality',
-    	qualityAutoHigh : 'Auto High',
-    	qualityAutoLow : 'Auto Low',
-    	qualityBest : 'Best',
-    	qualityHigh : 'High',
-    	qualityLow : 'Low',
-    	qualityMedium : 'Medium',
-    	scale : 'Skali',
-    	scaleAll : 'Sýna allt',
-    	scaleFit : 'Fella skala að stærð',
-    	scaleNoBorder : 'Án ramma',
-    	title : 'Eigindi Flash',
-    	vSpace : 'Hægri bil',
-    	validateHSpace : 'HSpace must be a number.',
-    	validateSrc : 'Sláðu inn veffang stiklunnar!',
-    	validateVSpace : 'VSpace must be a number.',
-    	windowMode : 'Window mode',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Window'
-    },
-    find : 
-    {
-    	find : 'Leita',
-    	findOptions : 'Find Options',
-    	findWhat : 'Leita að:',
-    	matchCase : 'Gera greinarmun á¡ há¡- og lágstöfum',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'Aðeins heil orð',
-    	notFoundMsg : 'Leitartexti fannst ekki!',
-    	replace : 'Skipta út',
-    	replaceAll : 'Skipta út allsstaðar',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'Skipta út fyrir:',
-    	title : 'Finna og skipta'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['is'] = {
     contextmenu : 
     {
     	options : 'Context Menu Options'
-    },
-    colordialog : 
-    {
-    	clear : 'Clear',
-    	highlight : 'Highlight',
-    	options : 'Color Options',
-    	selected : 'Selected Color',
-    	title : 'Select color'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['is'] = {
     	securityMsg : 'Vegna öryggisstillinga í vafranum þínum fær ritillinn ekki beinan aðgang að klippuborðinu. Þú verður að líma innihaldið aftur inn í þennan glugga.',
     	title : 'Líma'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Inndráttur'
-    },
-    bidi : 
-    {
-    	ltr : 'Text direction from left to right',
-    	rtl : 'Text direction from right to left'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['is'] = {
     	alignLeft : 'Vinstri',
     	alignRight : 'Hægri',
     	alignCenter : 'Miðjað',
+    	alignJustify : 'Jafna báðum megin',
     	alignTop : 'Efst',
     	alignMiddle : 'Miðjuð',
     	alignBottom : 'Neðst',
+    	alignNone : 'None',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Height must be a number.',
     	invalidWidth : 'Width must be a number.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['is'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, unavailable</span>'
-    } } 
+    } }; 

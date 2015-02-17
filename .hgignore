@@ -3,3 +3,4 @@ inc/config.php
 \.htaccess
 public
 behat.yml
+build-tools/ckeditor/ckbuilder.jar

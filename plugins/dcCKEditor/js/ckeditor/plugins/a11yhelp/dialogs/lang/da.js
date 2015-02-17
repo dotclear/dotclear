@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -53,7 +53,7 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'da', {
 		},
 			{
 			name: ' Italic command', // MISSING
-			legend: 'Press ${italic}' // MISSING
+			legend: 'Klik ${italic}'
 		},
 			{
 			name: ' Underline command', // MISSING
@@ -65,7 +65,7 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'da', {
 		},
 			{
 			name: ' Toolbar Collapse command', // MISSING
-			legend: 'Press ${toolbarCollapse}' // MISSING
+			legend: 'Klik ${toolbarCollapse}'
 		},
 			{
 			name: ' Access previous focus space command', // MISSING
@@ -81,5 +81,67 @@ CKEDITOR.plugins.setLang( 'a11yhelp', 'da', {
 		}
 		]
 	}
-	]
-});
+	],
+	backspace: 'Backspace', // MISSING
+	tab: 'Tab',
+	enter: 'Enter',
+	shift: 'Shift',
+	ctrl: 'Ctrl',
+	alt: 'Alt',
+	pause: 'Pause',
+	capslock: 'Caps Lock',
+	escape: 'Escape',
+	pageUp: 'Page Up',
+	pageDown: 'Page Down',
+	end: 'End',
+	home: 'Home',
+	leftArrow: 'Venstre pil',
+	upArrow: 'Pil op',
+	rightArrow: 'Højre pil',
+	downArrow: 'Pil ned',
+	insert: 'Insert',
+	'delete': 'Delete',
+	leftWindowKey: 'Venstre Windows tast',
+	rightWindowKey: 'Højre Windows tast',
+	selectKey: 'Select key', // MISSING
+	numpad0: 'Numpad 0',
+	numpad1: 'Numpad 1',
+	numpad2: 'Numpad 2',
+	numpad3: 'Numpad 3',
+	numpad4: 'Numpad 4',
+	numpad5: 'Numpad 5',
+	numpad6: 'Numpad 6',
+	numpad7: 'Numpad 7',
+	numpad8: 'Numpad 8',
+	numpad9: 'Numpad 9',
+	multiply: 'Gange',
+	add: 'Plus',
+	subtract: 'Minus',
+	decimalPoint: 'Decimal Point', // MISSING
+	divide: 'Divider',
+	f1: 'F1',
+	f2: 'F2',
+	f3: 'F3',
+	f4: 'F4',
+	f5: 'F5',
+	f6: 'F6',
+	f7: 'F7',
+	f8: 'F8',
+	f9: 'F9',
+	f10: 'F10',
+	f11: 'F11',
+	f12: 'F12',
+	numLock: 'Num Lock',
+	scrollLock: 'Scroll Lock',
+	semiColon: 'Semikolon',
+	equalSign: 'Lighedstegn',
+	comma: 'Komma',
+	dash: 'Bindestreg',
+	period: 'Punktum',
+	forwardSlash: 'Skråstreg',
+	graveAccent: 'Grave Accent', // MISSING
+	openBracket: 'Start klamme',
+	backSlash: 'Omvendt skråstreg',
+	closeBracket: 'Slut klamme',
+	singleQuote: 'Enkelt citationstegn'
+} );

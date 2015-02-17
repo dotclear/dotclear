@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['tr'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['tr'] = {
     {
     	toolbar : 'Kaynak'
     },
-    smiley : 
-    {
-    	options : 'İfade Seçenekleri',
-    	title : 'İfade Ekle',
-    	toolbar : 'İfade'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Blokları Göster'
-    },
-    selectall : 
-    {
-    	toolbar : 'Tümünü Seç'
-    },
-    save : 
-    {
-    	toolbar : 'Kaydet'
-    },
     removeformat : 
     {
     	toolbar : 'Biçimi Kaldır'
@@ -154,10 +136,6 @@ CKEDITOR.lang['tr'] = {
     print : 
     {
     	toolbar : 'Yazdır'
-    },
-    preview : 
-    {
-    	preview : 'Ön İzleme'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['tr'] = {
     	error : 'Yapıştırmadaki veri bilgisi hata düzelene kadar silinmeyecektir',
     	title : 'Word\'den Yapıştır',
     	toolbar : 'Word\'den Yapıştır'
-    },
-    pagebreak : 
-    {
-    	alt : 'Sayfa Sonu',
-    	toolbar : 'Sayfa Sonu Ekle'
-    },
-    newpage : 
-    {
-    	toolbar : 'Yeni Sayfa'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['tr'] = {
     	validateHSpace : 'HSpace tam sayı olmalıdır.',
     	validateVSpace : 'VSpace tam sayı olmalıdır.'
     },
-    iframe : 
-    {
-    	border : 'Çerceve sınırlarını göster',
-    	noUrl : 'Lütfen IFrame köprü (URL) bağlantısını yazın',
-    	scrolling : 'Kaydırma çubuklarını aktif et',
-    	title : 'IFrame Özellikleri',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Yatay Satır Ekle'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Düğme Özellikleri',
-    		text : 'Metin (Değer)',
-    		type : 'Tip',
-    		typeBtn : 'Düğme',
-    		typeSbm : 'Gönder',
-    		typeRst : 'Sıfırla'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Onay Kutusu Özellikleri',
-    		radioTitle : 'Seçenek Düğmesi Özellikleri',
-    		value : 'Değer',
-    		selected : 'Seçili'
-    	},
-    	form : 
-    	{
-    		title : 'Form Özellikleri',
-    		menu : 'Form Özellikleri',
-    		action : 'İşlem',
-    		method : 'Yöntem',
-    		encoding : 'Kodlama'
-    	},
-    	hidden : 
-    	{
-    		title : 'Gizli Veri Özellikleri',
-    		name : 'Ad',
-    		value : 'Değer'
-    	},
-    	select : 
-    	{
-    		title : 'Seçim Menüsü Özellikleri',
-    		selectInfo : 'Bilgi',
-    		opAvail : 'Mevcut Seçenekler',
-    		value : 'Değer',
-    		size : 'Boyut',
-    		lines : 'satır',
-    		chkMulti : 'Çoklu seçime izin ver',
-    		opText : 'Metin',
-    		opValue : 'Değer',
-    		btnAdd : 'Ekle',
-    		btnModify : 'Düzenle',
-    		btnUp : 'Yukarı',
-    		btnDown : 'Aşağı',
-    		btnSetValue : 'Seçili değer olarak ata',
-    		btnDelete : 'Sil'
-    	},
-    	textarea : 
-    	{
-    		title : 'Çok Satırlı Metin Özellikleri',
-    		cols : 'Sütunlar',
-    		rows : 'Satırlar'
-    	},
-    	textfield : 
-    	{
-    		title : 'Metin Girişi Özellikleri',
-    		name : 'Ad',
-    		value : 'Değer',
-    		charWidth : 'Karakter Genişliği',
-    		maxChars : 'En Fazla Karakter',
-    		type : 'Tür',
-    		typeText : 'Metin',
-    		typePass : 'Şifre',
-    		typeEmail : 'E-posta',
-    		typeSearch : 'Ara',
-    		typeTel : 'Telefon Numarası',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['tr'] = {
     	tag_h6 : 'Başlık 6',
     	tag_p : 'Normal',
     	tag_pre : 'Biçimli'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Boyut',
-    		voiceLabel : 'Font Size',
-    		panelTitle : 'Boyut'
-    	},
-    	label : 'Yazı Türü',
-    	panelTitle : 'Yazı Türü',
-    	voiceLabel : 'Font'
-    },
-    flash : 
-    {
-    	access : 'Kod İzni',
-    	accessAlways : 'Herzaman',
-    	accessNever : 'Asla',
-    	accessSameDomain : 'Aynı domain',
-    	alignAbsBottom : 'Tam Altı',
-    	alignAbsMiddle : 'Tam Ortası',
-    	alignBaseline : 'Taban Çizgisi',
-    	alignTextTop : 'Yazı Tepeye',
-    	bgcolor : 'Arka Renk',
-    	chkFull : 'Tam ekrana İzinver',
-    	chkLoop : 'Döngü',
-    	chkMenu : 'Flash Menüsünü Kullan',
-    	chkPlay : 'Otomatik Oynat',
-    	flashvars : 'Flash Değerleri',
-    	hSpace : 'Yatay Boşluk',
-    	properties : 'Flash Özellikleri',
-    	propertiesTab : 'Özellikler',
-    	quality : 'Kalite',
-    	qualityAutoHigh : 'Otomatik Yükseklik',
-    	qualityAutoLow : 'Otomatik Düşüklük',
-    	qualityBest : 'En iyi',
-    	qualityHigh : 'Yüksek',
-    	qualityLow : 'Düşük',
-    	qualityMedium : 'Orta',
-    	scale : 'Boyutlandır',
-    	scaleAll : 'Hepsini Göster',
-    	scaleFit : 'Tam Sığdır',
-    	scaleNoBorder : 'Kenar Yok',
-    	title : 'Flash Özellikleri',
-    	vSpace : 'Dikey Boşluk',
-    	validateHSpace : 'HSpace sayı olmalıdır.',
-    	validateSrc : 'Lütfen köprü URL\'sini yazın',
-    	validateVSpace : 'VSpace sayı olmalıdır.',
-    	windowMode : 'Pencere modu',
-    	windowModeOpaque : 'Opak',
-    	windowModeTransparent : 'Şeffaf',
-    	windowModeWindow : 'Pencere'
-    },
-    find : 
-    {
-    	find : 'Bul',
-    	findOptions : 'Seçenekleri Bul',
-    	findWhat : 'Aranan:',
-    	matchCase : 'Büyük/küçük harf duyarlı',
-    	matchCyclic : 'Eşleşen döngü',
-    	matchWord : 'Kelimenin tamamı uysun',
-    	notFoundMsg : 'Belirtilen yazı bulunamadı.',
-    	replace : 'Değiştir',
-    	replaceAll : 'Tümünü Değiştir',
-    	replaceSuccessMsg : '%1 bulunanlardan değiştirildi.',
-    	replaceWith : 'Bununla değiştir:',
-    	title : 'Bul ve Değiştir'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['tr'] = {
     contextmenu : 
     {
     	options : 'İçerik Menüsü Seçenekleri'
-    },
-    colordialog : 
-    {
-    	clear : 'Temizle',
-    	highlight : 'İşaretle',
-    	options : 'Renk Seçenekleri',
-    	selected : 'Seçilmiş',
-    	title : 'Renk seç'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['tr'] = {
     	securityMsg : 'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin direkt olarak panoya erişimine izin vermiyor. Bu pencere içine tekrar yapıştırmalısınız..',
     	title : 'Yapıştır'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Seçilmiş)'
+    },
     blockquote : 
     {
     	toolbar : 'Blok Oluştur'
-    },
-    bidi : 
-    {
-    	ltr : 'Metin yönü soldan sağa',
-    	rtl : 'Metin yönü sağdan sola'
     },
     basicstyles : 
     {
@@ -615,69 +428,71 @@ CKEDITOR.lang['tr'] = {
     editorPanel : 'Rich Text Editor panel',
     common : 
     {
-    	editorHelp : 'Yardım için ALT 0 tuşuna basın',
-    	browseServer : 'Sunucuyu Gez',
+    	editorHelp : 'Yardım için ALT 0 tuşlarına basın',
+    	browseServer : 'Sunucuya Gözat',
     	url : 'URL',
     	protocol : 'Protokol',
     	upload : 'Karşıya Yükle',
-    	uploadSubmit : 'Sunucuya Yolla',
+    	uploadSubmit : 'Sunucuya Gönder',
     	image : 'Resim',
     	flash : 'Flash',
     	form : 'Form',
     	checkbox : 'Onay Kutusu',
     	radio : 'Seçenek Düğmesi',
-    	textField : 'Metin Girişi',
-    	textarea : 'Çok Satırlı Metin',
-    	hiddenField : 'Gizli Veri',
+    	textField : 'Metin Kutusu',
+    	textarea : 'Metin Alanı',
+    	hiddenField : 'Gizli Alan',
     	button : 'Düğme',
-    	select : 'Seçim Menüsü',
-    	imageButton : 'Resimli Düğme',
+    	select : 'Seçme Alanı',
+    	imageButton : 'Resim Düğmesi',
     	notSet : '<tanımlanmamış>',
     	id : 'Kimlik',
-    	name : 'Ad',
+    	name : 'İsim',
     	langDir : 'Dil Yönü',
     	langDirLtr : 'Soldan Sağa (LTR)',
     	langDirRtl : 'Sağdan Sola (RTL)',
     	langCode : 'Dil Kodlaması',
     	longDescr : 'Uzun Tanımlı URL',
     	cssClass : 'Biçem Sayfası Sınıfları',
-    	advisoryTitle : 'Danışma Başlığı',
+    	advisoryTitle : 'Öneri Başlığı',
     	cssStyle : 'Biçem',
     	ok : 'Tamam',
     	cancel : 'İptal',
     	close : 'Kapat',
-    	preview : 'Ön gösterim',
-    	resize : 'Boyutlandırmak için sürükle',
+    	preview : 'Önizleme',
+    	resize : 'Yeniden Boyutlandır',
     	generalTab : 'Genel',
     	advancedTab : 'Gelişmiş',
-    	validateNumberFailed : 'Bu değer sayı değildir.',
-    	confirmNewPage : 'İceriğiniz kayıt edilmediğinden dolayı kaybolacaktır. Yeni bir sayfa yüklemek istediğinize eminsiniz?',
-    	confirmCancel : 'Bazı seçenekler değişmiştir. Dialog penceresini kapatmak istediğinize eminmisiniz?',
+    	validateNumberFailed : 'Bu değer bir sayı değildir.',
+    	confirmNewPage : 'Bu içerikle ilgili kaydedilmemiş tüm bilgiler kaybolacaktır. Yeni bir sayfa yüklemek istediğinizden emin misiniz?',
+    	confirmCancel : 'Bazı seçenekleri değiştirdiniz. İletişim penceresini kapatmak istediğinizden emin misiniz?',
     	options : 'Seçenekler',
     	target : 'Hedef',
     	targetNew : 'Yeni Pencere (_blank)',
-    	targetTop : 'Enüst Pencere (_top)',
+    	targetTop : 'En Üstteki Pencere (_top)',
     	targetSelf : 'Aynı Pencere (_self)',
-    	targetParent : 'Ana Pencere (_parent)',
+    	targetParent : 'Üst Pencere (_parent)',
     	langDirLTR : 'Soldan Sağa (LTR)',
     	langDirRTL : 'Sağdan Sola (RTL)',
-    	styles : 'Stil',
-    	cssClasses : 'Stil sayfası Sınıfı',
+    	styles : 'Biçem',
+    	cssClasses : 'Biçem Sayfası Sınıfları',
     	width : 'Genişlik',
     	height : 'Yükseklik',
     	align : 'Hizalama',
     	alignLeft : 'Sol',
     	alignRight : 'Sağ',
-    	alignCenter : 'Merkez',
-    	alignTop : 'Tepe',
+    	alignCenter : 'Ortala',
+    	alignJustify : 'İki Kenara Yaslanmış',
+    	alignTop : 'Üst',
     	alignMiddle : 'Orta',
     	alignBottom : 'Alt',
+    	alignNone : 'Hiçbiri',
     	invalidValue : 'Geçersiz değer.',
-    	invalidHeight : 'Yükseklik sayı olmalıdır.',
-    	invalidWidth : 'Genişlik bir sayı olmalıdır.',
-    	invalidCssLength : 'Belirttiğiniz sayı "%1" alanı için pozitif bir sayı CSS birim değeri olmalıdır (px, %, in, cm, mm, em, ex, pt, veya pc).',
+    	invalidHeight : 'Yükseklik değeri bir sayı olmalıdır.',
+    	invalidWidth : 'Genişlik değeri bir sayı olmalıdır.',
+    	invalidCssLength : '"%1" alanı için verilen değer, geçerli bir CSS ölçü birimi (px, %, in, cm, mm, em, ex, pt, veya pc) içeren veya içermeyen pozitif bir sayı olmalıdır.',
     	invalidHtmlLength : 'Belirttiğiniz sayı "%1" alanı için pozitif bir sayı HTML birim değeri olmalıdır (px veya %).',
-    	invalidInlineStyle : 'Noktalı virgülle ayrılmış: "değer adı," inline stil için belirtilen değer biçiminde bir veya daha fazla dizilerden oluşmalıdır.',
-    	cssLengthTooltip : 'Pikseller için bir numara girin veya geçerli bir CSS numarası (px, %, in, cm, mm, em, ex, pt, veya pc).',
-    	unavailable : '%1<span class="cke_accessibility">, hazır değildir</span>'
-    } } 
+    	invalidInlineStyle : 'Satıriçi biçem için verilen değer, "isim : değer" biçiminde birbirinden noktalı virgüllerle ayrılan bir veya daha fazla değişkenler grubundan oluşmalıdır.',
+    	cssLengthTooltip : 'Piksel türünde bir sayı veya geçerli bir CSS ölçü birimi (px, %, in, cm, mm, em, ex, pt veya pc) içeren bir sayı girin.',
+    	unavailable : '%1<span class="cke_accessibility">, kullanılamaz</span>'
+    } }; 

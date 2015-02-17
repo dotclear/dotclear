@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['bn'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['bn'] = {
     {
     	toolbar : 'সোর্স'
     },
-    smiley : 
-    {
-    	options : 'Smiley Options',
-    	title : 'স্মাইলী যুক্ত কর',
-    	toolbar : 'স্মাইলী'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Show Blocks'
-    },
-    selectall : 
-    {
-    	toolbar : 'সব সিলেক্ট কর'
-    },
-    save : 
-    {
-    	toolbar : 'সংরক্ষন কর'
-    },
     removeformat : 
     {
     	toolbar : 'ফরমেট সরাও'
@@ -154,10 +136,6 @@ CKEDITOR.lang['bn'] = {
     print : 
     {
     	toolbar : 'প্রিন্ট'
-    },
-    preview : 
-    {
-    	preview : 'প্রিভিউ'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['bn'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'পেস্ট (শব্দ)',
     	toolbar : 'পেস্ট (শব্দ)'
-    },
-    pagebreak : 
-    {
-    	alt : 'Page Break',
-    	toolbar : 'পেজ ব্রেক'
-    },
-    newpage : 
-    {
-    	toolbar : 'নতুন পেজ'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['bn'] = {
     	validateHSpace : 'HSpace must be a whole number.',
     	validateVSpace : 'VSpace must be a whole number.'
     },
-    iframe : 
-    {
-    	border : 'Show frame border',
-    	noUrl : 'Please type the iframe URL',
-    	scrolling : 'Enable scrollbars',
-    	title : 'IFrame Properties',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'রেখা যুক্ত কর'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'বাটন প্রোপার্টি',
-    		text : 'টেক্সট (ভ্যালু)',
-    		type : 'প্রকার',
-    		typeBtn : 'Button',
-    		typeSbm : 'Submit',
-    		typeRst : 'Reset'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'চেক বক্স প্রোপার্টি',
-    		radioTitle : 'রেডিও বাটন প্রোপার্টি',
-    		value : 'ভ্যালু',
-    		selected : 'সিলেক্টেড'
-    	},
-    	form : 
-    	{
-    		title : 'ফর্ম প্রোপার্টি',
-    		menu : 'ফর্ম প্রোপার্টি',
-    		action : 'একশ্যন',
-    		method : 'পদ্ধতি',
-    		encoding : 'Encoding'
-    	},
-    	hidden : 
-    	{
-    		title : 'গুপ্ত ফীল্ড প্রোপার্টি',
-    		name : 'নাম',
-    		value : 'ভ্যালু'
-    	},
-    	select : 
-    	{
-    		title : 'বাছাই ফীল্ড প্রোপার্টি',
-    		selectInfo : 'তথ্য',
-    		opAvail : 'অন্যান্য বিকল্প',
-    		value : 'ভ্যালু',
-    		size : 'সাইজ',
-    		lines : 'লাইন সমূহ',
-    		chkMulti : 'একাধিক সিলেকশন এলাউ কর',
-    		opText : 'টেক্সট',
-    		opValue : 'ভ্যালু',
-    		btnAdd : 'যুক্ত',
-    		btnModify : 'বদলে দাও',
-    		btnUp : 'উপর',
-    		btnDown : 'নীচে',
-    		btnSetValue : 'বাছাই করা ভ্যালু হিসেবে সেট কর',
-    		btnDelete : 'ডিলীট'
-    	},
-    	textarea : 
-    	{
-    		title : 'টেক্সট এরিয়া প্রোপার্টি',
-    		cols : 'কলাম',
-    		rows : 'রো'
-    	},
-    	textfield : 
-    	{
-    		title : 'টেক্সট ফীল্ড প্রোপার্টি',
-    		name : 'নাম',
-    		value : 'ভ্যালু',
-    		charWidth : 'ক্যারেক্টার প্রশস্ততা',
-    		maxChars : 'সর্বাধিক ক্যারেক্টার',
-    		type : 'টাইপ',
-    		typeText : 'টেক্সট',
-    		typePass : 'পাসওয়ার্ড',
-    		typeEmail : 'Email',
-    		typeSearch : 'Search',
-    		typeTel : 'Telephone Number',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['bn'] = {
     	tag_h6 : 'শীর্ষক ৬',
     	tag_p : 'সাধারণ',
     	tag_pre : 'ফর্মেটেড'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'সাইজ',
-    		voiceLabel : 'Font Size',
-    		panelTitle : 'সাইজ'
-    	},
-    	label : 'ফন্ট',
-    	panelTitle : 'ফন্ট',
-    	voiceLabel : 'ফন্ট'
-    },
-    flash : 
-    {
-    	access : 'Script Access',
-    	accessAlways : 'Always',
-    	accessNever : 'Never',
-    	accessSameDomain : 'Same domain',
-    	alignAbsBottom : 'Abs নীচে',
-    	alignAbsMiddle : 'Abs উপর',
-    	alignBaseline : 'মূল রেখা',
-    	alignTextTop : 'টেক্সট উপর',
-    	bgcolor : 'বেকগ্রাউন্ড রং',
-    	chkFull : 'Allow Fullscreen',
-    	chkLoop : 'লূপ',
-    	chkMenu : 'ফ্ল্যাশ মেনু এনাবল কর',
-    	chkPlay : 'অটো প্লে',
-    	flashvars : 'Variables for Flash',
-    	hSpace : 'হরাইজন্টাল স্পেস',
-    	properties : 'ফ্লাশ প্রোপার্টি',
-    	propertiesTab : 'Properties',
-    	quality : 'Quality',
-    	qualityAutoHigh : 'Auto High',
-    	qualityAutoLow : 'Auto Low',
-    	qualityBest : 'Best',
-    	qualityHigh : 'High',
-    	qualityLow : 'Low',
-    	qualityMedium : 'Medium',
-    	scale : 'স্কেল',
-    	scaleAll : 'সব দেখাও',
-    	scaleFit : 'নিখুঁত ফিট',
-    	scaleNoBorder : 'কোনো বর্ডার নেই',
-    	title : 'ফ্ল্যাশ প্রোপার্টি',
-    	vSpace : 'ভার্টিকেল স্পেস',
-    	validateHSpace : 'HSpace must be a number.',
-    	validateSrc : 'অনুগ্রহ করে URL লিংক টাইপ করুন',
-    	validateVSpace : 'VSpace must be a number.',
-    	windowMode : 'Window mode',
-    	windowModeOpaque : 'Opaque',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Window'
-    },
-    find : 
-    {
-    	find : 'খোজো',
-    	findOptions : 'Find Options',
-    	findWhat : 'যা খুঁজতে হবে:',
-    	matchCase : 'কেস মিলাও',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'পুরা শব্দ মেলাও',
-    	notFoundMsg : 'আপনার উল্লেখিত টেকস্ট পাওয়া যায়নি',
-    	replace : 'রিপ্লেস',
-    	replaceAll : 'সব বদলে দাও',
-    	replaceSuccessMsg : '%1 occurrence(s) replaced.',
-    	replaceWith : 'যার সাথে বদলাতে হবে:',
-    	title : 'Find and Replace'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['bn'] = {
     contextmenu : 
     {
     	options : 'Context Menu Options'
-    },
-    colordialog : 
-    {
-    	clear : 'Clear',
-    	highlight : 'Highlight',
-    	options : 'Color Options',
-    	selected : 'Selected Color',
-    	title : 'Select color'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['bn'] = {
     	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
     	title : 'পেস্ট'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Block Quote'
-    },
-    bidi : 
-    {
-    	ltr : 'Text direction from left to right',
-    	rtl : 'Text direction from right to left'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['bn'] = {
     	alignLeft : 'বামে',
     	alignRight : 'ডানে',
     	alignCenter : 'মাঝখানে',
+    	alignJustify : 'ব্লক জাস্টিফাই',
     	alignTop : 'উপর',
     	alignMiddle : 'মধ্য',
     	alignBottom : 'নীচে',
+    	alignNone : 'None',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Height must be a number.',
     	invalidWidth : 'Width must be a number.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['bn'] = {
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	unavailable : '%1<span class="cke_accessibility">, unavailable</span>'
-    } } 
+    } }; 

@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sq'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['sq'] = {
     {
     	toolbar : 'Burimi'
     },
-    smiley : 
-    {
-    	options : 'Opsionet e Ikonave',
-    	title : 'Vendos Ikonë',
-    	toolbar : 'Ikona'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Shfaq Blloqet'
-    },
-    selectall : 
-    {
-    	toolbar : 'Përzgjidh të Gjitha'
-    },
-    save : 
-    {
-    	toolbar : 'Ruaje'
-    },
     removeformat : 
     {
     	toolbar : 'Largo Formatin'
@@ -154,10 +136,6 @@ CKEDITOR.lang['sq'] = {
     print : 
     {
     	toolbar : 'Shtype'
-    },
-    preview : 
-    {
-    	preview : 'Parashiko'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['sq'] = {
     	error : 'Nuk ishte e mundur të fshiheshin të dhënat e hedhura për shkak të një gabimi të brendshëm',
     	title : 'Hidhe nga Word-i',
     	toolbar : 'Hidhe nga Word-i'
-    },
-    pagebreak : 
-    {
-    	alt : 'Thyerja e Faqes',
-    	toolbar : 'Vendos Thyerje Faqeje për Shtyp'
-    },
-    newpage : 
-    {
-    	toolbar : 'Faqe e Re'
     },
     maximize : 
     {
@@ -257,14 +226,14 @@ CKEDITOR.lang['sq'] = {
     	popupLocationBar : 'Shiriti i Lokacionit',
     	popupMenuBar : 'Shiriti i Menysë',
     	popupResizable : 'I ndryshueshëm',
-    	popupScrollBars : 'Scroll Bars',
+    	popupScrollBars : 'Shiritat zvarritës',
     	popupStatusBar : 'Shiriti i Statutit',
     	popupToolbar : 'Shiriti i Mejteve',
     	popupTop : 'Top Pozita',
     	rel : 'Marrëdhëniet',
     	selectAnchor : 'Përzgjidh një Spirancë',
     	styles : 'Stil',
-    	tabIndex : 'Tab Index',
+    	tabIndex : 'Indeksi i fletave',
     	target : 'Objektivi',
     	targetFrame : '<frame>',
     	targetFrameName : 'Emri i Kornizës së Synuar',
@@ -314,89 +283,9 @@ CKEDITOR.lang['sq'] = {
     	validateHSpace : 'Hapësira horizontale duhet të jetë numër i plotë.',
     	validateVSpace : 'Hapësira vertikale duhet të jetë numër i plotë.'
     },
-    iframe : 
-    {
-    	border : 'Shfaq kufirin e kornizës',
-    	noUrl : 'Ju lutemi shkruani URL-në e iframe-it',
-    	scrolling : 'Lejo shiritët zvarritës',
-    	title : 'Karakteristikat e IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Vendos Vijë Horizontale'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Rekuizitat e Pullës',
-    		text : 'Teskti (Vlera)',
-    		type : 'LLoji',
-    		typeBtn : 'Buton',
-    		typeSbm : 'Dërgo',
-    		typeRst : 'Rikthe'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Rekuizitat e Kutizë Përzgjedhëse',
-    		radioTitle : 'Rekuizitat e Pullës',
-    		value : 'Vlera',
-    		selected : 'Përzgjedhur'
-    	},
-    	form : 
-    	{
-    		title : 'Rekuizitat e Formës',
-    		menu : 'Rekuizitat e Formës',
-    		action : 'Veprim',
-    		method : 'Metoda',
-    		encoding : 'Kodimi'
-    	},
-    	hidden : 
-    	{
-    		title : 'Rekuizitat e Fushës së Fshehur',
-    		name : 'Emër',
-    		value : 'Vlera'
-    	},
-    	select : 
-    	{
-    		title : 'Rekuizitat e Fushës së Përzgjedhur',
-    		selectInfo : 'Përzgjidh Informacionin',
-    		opAvail : 'Opsionet e Mundshme',
-    		value : 'Vlera',
-    		size : 'Madhësia',
-    		lines : 'rreshtat',
-    		chkMulti : 'Lejo përzgjidhje të shumëfishta',
-    		opText : 'Teksti',
-    		opValue : 'Vlera',
-    		btnAdd : 'Vendos',
-    		btnModify : 'Ndrysho',
-    		btnUp : 'Sipër',
-    		btnDown : 'Poshtë',
-    		btnSetValue : 'Bëje si vlerë të përzgjedhur',
-    		btnDelete : 'Grise'
-    	},
-    	textarea : 
-    	{
-    		title : 'Rekuzitat e Fushës së Tekstit',
-    		cols : 'Kolonat',
-    		rows : 'Rreshtat'
-    	},
-    	textfield : 
-    	{
-    		title : 'Rekuizitat e Fushës së Tekstit',
-    		name : 'Emër',
-    		value : 'Vlera',
-    		charWidth : 'Gjerësia e Karakterit',
-    		maxChars : 'Numri maksimal i karaktereve',
-    		type : 'LLoji',
-    		typeText : 'Teksti',
-    		typePass : 'Fjalëkalimi',
-    		typeEmail : 'Posta Elektronike',
-    		typeSearch : 'Kërko',
-    		typeTel : 'Numri i Telefonit',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['sq'] = {
     	tag_h6 : 'Titulli 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formatuar'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Madhësia',
-    		voiceLabel : 'Madhësia e Shkronjës',
-    		panelTitle : 'Madhësia e Shkronjës'
-    	},
-    	label : 'Shkronja',
-    	panelTitle : 'Emri i Shkronjës',
-    	voiceLabel : 'Shkronja'
-    },
-    flash : 
-    {
-    	access : 'Qasja në Skriptë',
-    	accessAlways : 'Gjithnjë',
-    	accessNever : 'Asnjëherë',
-    	accessSameDomain : 'Fusha e Njëjtë',
-    	alignAbsBottom : 'Abs në Fund',
-    	alignAbsMiddle : 'Abs në Mes',
-    	alignBaseline : 'Baza',
-    	alignTextTop : 'Koka e Tekstit',
-    	bgcolor : 'Ngjyra e Prapavijës',
-    	chkFull : 'Lejo Ekran të Plotë',
-    	chkLoop : 'Përsëritje',
-    	chkMenu : 'Lejo Menynë për Flash',
-    	chkPlay : 'Auto Play',
-    	flashvars : 'Variablat për Flash',
-    	hSpace : 'Hapësira Horizontale',
-    	properties : 'Karakteristikat për Flash',
-    	propertiesTab : 'Karakteristikat',
-    	quality : 'Kualiteti',
-    	qualityAutoHigh : 'Automatikisht i Lartë',
-    	qualityAutoLow : 'Automatikisht i Ulët',
-    	qualityBest : 'Më i Miri',
-    	qualityHigh : 'I Lartë',
-    	qualityLow : 'Më i Ulti',
-    	qualityMedium : 'I Mesëm',
-    	scale : 'Shkalla',
-    	scaleAll : 'Shfaq të Gjitha',
-    	scaleFit : 'Përputhje të Plotë',
-    	scaleNoBorder : 'Pa Kornizë',
-    	title : 'Rekuizitat për Flash',
-    	vSpace : 'Hapësira Vertikale',
-    	validateHSpace : 'Hapësira Horizontale duhet të është numër.',
-    	validateSrc : 'URL nuk duhet mbetur zbrazur.',
-    	validateVSpace : 'Hapësira Vertikale duhet të është numër.',
-    	windowMode : 'Window mode',
-    	windowModeOpaque : 'Errët',
-    	windowModeTransparent : 'Tejdukshëm',
-    	windowModeWindow : 'Window'
-    },
-    find : 
-    {
-    	find : 'Gjej',
-    	findOptions : 'Gjejë Alternativat',
-    	findWhat : 'Gjej çka:',
-    	matchCase : 'Rasti i përputhjes',
-    	matchCyclic : 'Përputh ciklikun',
-    	matchWord : 'Përputh fjalën e tërë',
-    	notFoundMsg : 'Teksti i caktuar nuk mundej të gjendet.',
-    	replace : 'Zëvendëso',
-    	replaceAll : 'Zëvendëso të gjitha',
-    	replaceSuccessMsg : '%1 rast(e) u zëvendësua(n).',
-    	replaceWith : 'Zëvendëso me:',
-    	title : 'Gjej dhe Zëvendëso'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['sq'] = {
     contextmenu : 
     {
     	options : 'Mundësitë e Menysë së Kontekstit'
-    },
-    colordialog : 
-    {
-    	clear : 'Pastro',
-    	highlight : 'Thekso',
-    	options : 'Përzgjedhjet e Ngjyrave',
-    	selected : 'Ngjyra e Përzgjedhur',
-    	title : 'Përzgjidh një ngjyrë'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['sq'] = {
     	securityMsg : 'Për shkak të dhënave të sigurisë së shfletuesit tuaj, redaktuesi nuk është në gjendje të i qaset drejtpërdrejtë të dhanve të tabelës suaj të punës. Ju duhet të hidhni atë përsëri në këtë dritare.',
     	title : 'Hidhe'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Përzgjedhur)'
+    },
     blockquote : 
     {
     	toolbar : 'Citatet'
-    },
-    bidi : 
-    {
-    	ltr : 'Drejtimi i tekstit nga e majta në të djathtë',
-    	rtl : 'Drejtimi i tekstit nga e djathta në të majtë'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['sq'] = {
     	userGuide : 'Udhëzuesi i Shfrytëzuesit të CKEditor'
     },
     editor : 'Redaktues i Pasur Teksti',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Paneli i redaktuesit të tekstit të plotë',
     common : 
     {
     	editorHelp : 'Shtyp ALT 0 për ndihmë',
@@ -669,9 +482,11 @@ CKEDITOR.lang['sq'] = {
     	alignLeft : 'Majtas',
     	alignRight : 'Djathtas',
     	alignCenter : 'Qendër',
+    	alignJustify : 'Zgjero',
     	alignTop : 'Lart',
     	alignMiddle : 'Në mes',
     	alignBottom : 'Poshtë',
+    	alignNone : 'Asnjë',
     	invalidValue : 'Vlerë e pavlefshme',
     	invalidHeight : 'Lartësia duhet të jetë një numër',
     	invalidWidth : 'Gjerësia duhet të jetë një numër',
@@ -680,4 +495,4 @@ CKEDITOR.lang['sq'] = {
     	invalidInlineStyle : 'Stili inline duhet të jetë një apo disa vlera të formatit "emër: vlerë", ndarë nga pikëpresje.',
     	cssLengthTooltip : 'Fut një numër për vlerën në pixel apo një numër me një njësi të vlefshme CSS (px, %, in, cm, mm, ex, pt, ose pc).',
     	unavailable : '%1<span class="cke_accessibility">, i padisponueshëm</span>'
-    } } 
+    } }; 

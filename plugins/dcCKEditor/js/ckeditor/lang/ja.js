@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ja'] = {
     undo : 
@@ -109,7 +109,7 @@ CKEDITOR.lang['ja'] = {
     	toolbar : '表',
     	widthPc : 'パーセント',
     	widthPx : 'ピクセル',
-    	widthUnit : 'ユニット'
+    	widthUnit : '幅の単位'
     },
     stylescombo : 
     {
@@ -129,24 +129,6 @@ CKEDITOR.lang['ja'] = {
     {
     	toolbar : 'ソース'
     },
-    smiley : 
-    {
-    	options : '絵文字オプション',
-    	title : '顔文字挿入',
-    	toolbar : '絵文字'
-    },
-    showblocks : 
-    {
-    	toolbar : 'ブロック表示'
-    },
-    selectall : 
-    {
-    	toolbar : 'すべて選択'
-    },
-    save : 
-    {
-    	toolbar : '保存'
-    },
     removeformat : 
     {
     	toolbar : '書式を解除'
@@ -154,10 +136,6 @@ CKEDITOR.lang['ja'] = {
     print : 
     {
     	toolbar : '印刷'
-    },
-    preview : 
-    {
-    	preview : 'プレビュー'
     },
     pastetext : 
     {
@@ -171,15 +149,6 @@ CKEDITOR.lang['ja'] = {
     	title : 'ワード文章から貼り付け',
     	toolbar : 'ワード文章から貼り付け'
     },
-    pagebreak : 
-    {
-    	alt : '改ページ',
-    	toolbar : '印刷の為に改ページ挿入'
-    },
-    newpage : 
-    {
-    	toolbar : '新しいページ'
-    },
     maximize : 
     {
     	maximize : '最大化',
@@ -192,7 +161,7 @@ CKEDITOR.lang['ja'] = {
     liststyle : 
     {
     	armenian : 'アルメニア数字',
-    	bulletedTitle : '番号無しリストのプロパティ',
+    	bulletedTitle : '箇条書きのプロパティ',
     	circle : '白丸',
     	decimal : '数字 (1, 2, 3, etc.)',
     	decimalLeadingZero : '0付きの数字 (01, 02, 03, etc.)',
@@ -314,89 +283,9 @@ CKEDITOR.lang['ja'] = {
     	validateHSpace : '水平間隔は数値で入力してください。',
     	validateVSpace : '垂直間隔は数値で入力してください。'
     },
-    iframe : 
-    {
-    	border : 'フレームの枠を表示',
-    	noUrl : 'iframeのURLを入力してください。',
-    	scrolling : 'スクロールバーの表示を許可',
-    	title : 'iFrameのプロパティ',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : '水平線'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'ボタン プロパティ',
-    		text : 'テキスト (値)',
-    		type : 'タイプ',
-    		typeBtn : 'ボタン',
-    		typeSbm : '送信',
-    		typeRst : 'リセット'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'チェックボックスのプロパティ',
-    		radioTitle : 'ラジオボタンのプロパティ',
-    		value : '値',
-    		selected : '選択済み'
-    	},
-    	form : 
-    	{
-    		title : 'フォームのプロパティ',
-    		menu : 'フォームのプロパティ',
-    		action : 'アクション (action)',
-    		method : 'メソッド (method)',
-    		encoding : 'エンコード方式 (encoding)'
-    	},
-    	hidden : 
-    	{
-    		title : '不可視フィールド プロパティ',
-    		name : '名前 (name)',
-    		value : '値 (value)'
-    	},
-    	select : 
-    	{
-    		title : '選択フィールドのプロパティ',
-    		selectInfo : '情報',
-    		opAvail : '利用可能なオプション',
-    		value : '選択項目値',
-    		size : 'サイズ',
-    		lines : '行',
-    		chkMulti : '複数選択を許可',
-    		opText : '選択項目名',
-    		opValue : '値',
-    		btnAdd : '追加',
-    		btnModify : '編集',
-    		btnUp : '上へ',
-    		btnDown : '下へ',
-    		btnSetValue : '選択した値を設定',
-    		btnDelete : '削除'
-    	},
-    	textarea : 
-    	{
-    		title : 'テキストエリア プロパティ',
-    		cols : '列',
-    		rows : '行'
-    	},
-    	textfield : 
-    	{
-    		title : '１行テキスト プロパティ',
-    		name : '名前',
-    		value : '値',
-    		charWidth : 'サイズ',
-    		maxChars : '最大長',
-    		type : 'タイプ',
-    		typeText : 'テキスト',
-    		typePass : 'パスワード入力',
-    		typeEmail : 'メール',
-    		typeSearch : '検索',
-    		typeTel : '電話番号',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['ja'] = {
     	tag_h6 : '見出し 6',
     	tag_p : '標準',
     	tag_pre : '書式付き'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'サイズ',
-    		voiceLabel : 'フォントサイズ',
-    		panelTitle : 'フォントサイズ'
-    	},
-    	label : 'フォント',
-    	panelTitle : 'フォント',
-    	voiceLabel : 'フォント'
-    },
-    flash : 
-    {
-    	access : 'スプリクトアクセス(AllowScriptAccess)',
-    	accessAlways : 'すべての場合に通信可能(Always)',
-    	accessNever : 'すべての場合に通信不可能(Never)',
-    	accessSameDomain : '同一ドメインのみに通信可能(Same domain)',
-    	alignAbsBottom : '下部(絶対的)',
-    	alignAbsMiddle : '中央(絶対的)',
-    	alignBaseline : 'ベースライン',
-    	alignTextTop : 'テキスト上部',
-    	bgcolor : '背景色',
-    	chkFull : 'フルスクリーン許可',
-    	chkLoop : 'ループ再生',
-    	chkMenu : 'Flashメニュー可能',
-    	chkPlay : '再生',
-    	flashvars : 'フラッシュに渡す変数(FlashVars)',
-    	hSpace : '横間隔',
-    	properties : 'Flash プロパティ',
-    	propertiesTab : 'プロパティ',
-    	quality : '画質',
-    	qualityAutoHigh : '自動/高',
-    	qualityAutoLow : '自動/低',
-    	qualityBest : '品質優先',
-    	qualityHigh : '高',
-    	qualityLow : '低',
-    	qualityMedium : '中',
-    	scale : '拡大縮小設定',
-    	scaleAll : 'すべて表示',
-    	scaleFit : '上下左右にフィット',
-    	scaleNoBorder : '外が見えない様に拡大',
-    	title : 'Flash プロパティ',
-    	vSpace : '縦間隔',
-    	validateHSpace : '横間隔は数値で入力してください。',
-    	validateSrc : 'リンクURLを入力してください。',
-    	validateVSpace : '縦間隔は数値で入力してください。',
-    	windowMode : 'ウィンドウモード',
-    	windowModeOpaque : '背景を不透明設定',
-    	windowModeTransparent : '背景を透過設定',
-    	windowModeWindow : '標準'
-    },
-    find : 
-    {
-    	find : '検索',
-    	findOptions : '検索オプション',
-    	findWhat : '検索する文字列:',
-    	matchCase : '大文字と小文字を区別する',
-    	matchCyclic : '末尾に逹したら先頭に戻る',
-    	matchWord : '単語単位で探す',
-    	notFoundMsg : '指定された文字列は見つかりませんでした。',
-    	replace : '置換',
-    	replaceAll : 'すべて置換',
-    	replaceSuccessMsg : '%1 個置換しました。',
-    	replaceWith : '置換後の文字列:',
-    	title : '検索と置換'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['ja'] = {
     contextmenu : 
     {
     	options : 'コンテキストメニューオプション'
-    },
-    colordialog : 
-    {
-    	clear : 'クリア',
-    	highlight : 'ハイライト',
-    	options : 'カラーオプション',
-    	selected : '選択された色',
-    	title : '色選択'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['ja'] = {
     	securityMsg : 'ブラウザのセキュリティ設定により、エディタはクリップボードデータに直接アクセスすることができません。このウィンドウは貼り付け操作を行う度に表示されます。',
     	title : '貼り付け'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (選択中)'
+    },
     blockquote : 
     {
     	toolbar : 'ブロック引用文'
-    },
-    bidi : 
-    {
-    	ltr : 'テキストの向き : 左から右へ',
-    	rtl : 'テキストの向き : 右から左へ'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['ja'] = {
     	userGuide : 'CKEditor User\'s Guide'
     },
     editor : 'リッチテキストエディタ',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'リッチテキストエディタパネル',
     common : 
     {
     	editorHelp : 'ヘルプは ALT 0 を押してください',
@@ -669,9 +482,11 @@ CKEDITOR.lang['ja'] = {
     	alignLeft : '左',
     	alignRight : '右',
     	alignCenter : '中央',
+    	alignJustify : '両端揃え',
     	alignTop : '上',
     	alignMiddle : '中央',
     	alignBottom : '下',
+    	alignNone : 'なし',
     	invalidValue : '不正な値です。',
     	invalidHeight : '高さは数値で入力してください。',
     	invalidWidth : '幅は数値で入力してください。',
@@ -680,4 +495,4 @@ CKEDITOR.lang['ja'] = {
     	invalidInlineStyle : '入力されたインラインスタイルの値は、"名前 : 値" のフォーマットのセットで、複数の場合はセミコロンで区切られている形式である必要があります。',
     	cssLengthTooltip : 'ピクセル数もしくはCSSにセットできる数値を入力してください。(px,%,in,cm,mm,em,ex,pt,or pc)',
     	unavailable : '%1<span class="cke_accessibility">, 利用不可能</span>'
-    } } 
+    } }; 

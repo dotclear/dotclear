@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ca'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['ca'] = {
     {
     	toolbar : 'Codi font'
     },
-    smiley : 
-    {
-    	options : 'Opcions d\'emoticones',
-    	title : 'Insereix una icona',
-    	toolbar : 'Icona'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Mostra els blocs'
-    },
-    selectall : 
-    {
-    	toolbar : 'Selecciona-ho tot'
-    },
-    save : 
-    {
-    	toolbar : 'Desa'
-    },
     removeformat : 
     {
     	toolbar : 'Elimina Format'
@@ -154,10 +136,6 @@ CKEDITOR.lang['ca'] = {
     print : 
     {
     	toolbar : 'Imprimeix'
-    },
-    preview : 
-    {
-    	preview : 'Visualització prèvia'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['ca'] = {
     	error : 'No ha estat possible netejar les dades enganxades degut a un error intern',
     	title : 'Enganxa des del Word',
     	toolbar : 'Enganxa des del Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Salt de pàgina',
-    	toolbar : 'Insereix salt de pàgina'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nova pàgina'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['ca'] = {
     	validateHSpace : 'HSpace ha de ser un nombre enter.',
     	validateVSpace : 'VSpace ha de ser un nombre enter.'
     },
-    iframe : 
-    {
-    	border : 'Mostra la vora del marc',
-    	noUrl : 'Si us plau, introdueixi la URL de l\'iframe',
-    	scrolling : 'Activa les barres de desplaçament',
-    	title : 'Propietats de l\'IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Insereix línia horitzontal'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Propietats del botó',
-    		text : 'Text (Valor)',
-    		type : 'Tipus',
-    		typeBtn : 'Botó',
-    		typeSbm : 'Transmet formulari',
-    		typeRst : 'Reinicia formulari'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Propietats de la casella de verificació',
-    		radioTitle : 'Propietats del botó d\'opció',
-    		value : 'Valor',
-    		selected : 'Seleccionat'
-    	},
-    	form : 
-    	{
-    		title : 'Propietats del formulari',
-    		menu : 'Propietats del formulari',
-    		action : 'Acció',
-    		method : 'Mètode',
-    		encoding : 'Codificació'
-    	},
-    	hidden : 
-    	{
-    		title : 'Propietats del camp ocult',
-    		name : 'Nom',
-    		value : 'Valor'
-    	},
-    	select : 
-    	{
-    		title : 'Propietats del camp de selecció',
-    		selectInfo : 'Info',
-    		opAvail : 'Opcions disponibles',
-    		value : 'Valor',
-    		size : 'Mida',
-    		lines : 'Línies',
-    		chkMulti : 'Permet múltiples seleccions',
-    		opText : 'Text',
-    		opValue : 'Valor',
-    		btnAdd : 'Afegeix',
-    		btnModify : 'Modifica',
-    		btnUp : 'Amunt',
-    		btnDown : 'Avall',
-    		btnSetValue : 'Selecciona per defecte',
-    		btnDelete : 'Elimina'
-    	},
-    	textarea : 
-    	{
-    		title : 'Propietats de l\'àrea de text',
-    		cols : 'Columnes',
-    		rows : 'Files'
-    	},
-    	textfield : 
-    	{
-    		title : 'Propietats del camp de text',
-    		name : 'Nom',
-    		value : 'Valor',
-    		charWidth : 'Amplada',
-    		maxChars : 'Nombre màxim de caràcters',
-    		type : 'Tipus',
-    		typeText : 'Text',
-    		typePass : 'Contrasenya',
-    		typeEmail : 'Correu electrònic',
-    		typeSearch : 'Cercar',
-    		typeTel : 'Número de telèfon',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['ca'] = {
     	tag_h6 : 'Encapçalament 6',
     	tag_p : 'Normal',
     	tag_pre : 'Formatejat'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Mida',
-    		voiceLabel : 'Mida de la lletra',
-    		panelTitle : 'Mida'
-    	},
-    	label : 'Tipus de lletra',
-    	panelTitle : 'Tipus de lletra',
-    	voiceLabel : 'Tipus de lletra'
-    },
-    flash : 
-    {
-    	access : 'Accés a scripts',
-    	accessAlways : 'Sempre',
-    	accessNever : 'Mai',
-    	accessSameDomain : 'El mateix domini',
-    	alignAbsBottom : 'Abs Bottom',
-    	alignAbsMiddle : 'Abs Middle',
-    	alignBaseline : 'Baseline',
-    	alignTextTop : 'Text Top',
-    	bgcolor : 'Color de Fons',
-    	chkFull : 'Permetre la pantalla completa',
-    	chkLoop : 'Bucle',
-    	chkMenu : 'Habilita menú Flash',
-    	chkPlay : 'Reprodució automàtica',
-    	flashvars : 'Variables de Flash',
-    	hSpace : 'Espaiat horit.',
-    	properties : 'Propietats del Flash',
-    	propertiesTab : 'Propietats',
-    	quality : 'Qualitat',
-    	qualityAutoHigh : 'Alta automàtica',
-    	qualityAutoLow : 'Baixa automàtica',
-    	qualityBest : 'La millor',
-    	qualityHigh : 'Alta',
-    	qualityLow : 'Baixa',
-    	qualityMedium : 'Mitjana',
-    	scale : 'Escala',
-    	scaleAll : 'Mostra-ho tot',
-    	scaleFit : 'Mida exacta',
-    	scaleNoBorder : 'Sense vores',
-    	title : 'Propietats del Flash',
-    	vSpace : 'Espaiat vert.',
-    	validateHSpace : 'L\'espaiat horitzonatal ha de ser un nombre.',
-    	validateSrc : 'Si us plau, escrigui l\'enllaç URL',
-    	validateVSpace : 'L\'espaiat vertical ha de ser un nombre.',
-    	windowMode : 'Mode de la finestra',
-    	windowModeOpaque : 'Opaca',
-    	windowModeTransparent : 'Transparent',
-    	windowModeWindow : 'Finestra'
-    },
-    find : 
-    {
-    	find : 'Cerca',
-    	findOptions : 'Opcions de Cerca',
-    	findWhat : 'Cerca el:',
-    	matchCase : 'Distingeix majúscules/minúscules',
-    	matchCyclic : 'Match cyclic',
-    	matchWord : 'Només paraules completes',
-    	notFoundMsg : 'El text especificat no s\'ha trobat.',
-    	replace : 'Reemplaça',
-    	replaceAll : 'Reemplaça-ho tot',
-    	replaceSuccessMsg : '%1 ocurrència/es reemplaçada/es.',
-    	replaceWith : 'Reemplaça amb:',
-    	title : 'Cerca i reemplaça'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['ca'] = {
     contextmenu : 
     {
     	options : 'Opcions del menú contextual'
-    },
-    colordialog : 
-    {
-    	clear : 'Neteja',
-    	highlight : 'Destacat',
-    	options : 'Opcions del color',
-    	selected : 'Color Seleccionat',
-    	title : 'Seleccioni el color'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['ca'] = {
     	securityMsg : 'A causa de la configuració de seguretat del vostre navegador, l\'editor no pot accedir a les dades del porta-retalls directament. Enganxeu-ho un altre cop en aquesta finestra.',
     	title : 'Enganxar'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Seleccionat)'
+    },
     blockquote : 
     {
     	toolbar : 'Bloc de cita'
-    },
-    bidi : 
-    {
-    	ltr : 'Direcció del text d\'esquerra a dreta',
-    	rtl : 'Direcció del text de dreta a esquerra'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['ca'] = {
     	alignLeft : 'Ajusta a l\'esquerra',
     	alignRight : 'Ajusta a la dreta',
     	alignCenter : 'Centre',
+    	alignJustify : 'Justificat',
     	alignTop : 'Superior',
     	alignMiddle : 'Centre',
     	alignBottom : 'Inferior',
+    	alignNone : 'None',
     	invalidValue : 'Valor no vàlid.',
     	invalidHeight : 'L\'alçada ha de ser un número.',
     	invalidWidth : 'L\'amplada ha de ser un número.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['ca'] = {
     	invalidInlineStyle : 'El valor especificat per l\'estil en línia ha de constar d\'una o més tuples amb el format "name: value", separats per punt i coma.',
     	cssLengthTooltip : 'Introduïu un número per un valor en píxels o un número amb una unitat vàlida de CSS (px, %, in, cm, mm, em, ex, pt o pc).',
     	unavailable : '%1<span class="cke_accessibility">, no disponible</span>'
-    } } 
+    } }; 

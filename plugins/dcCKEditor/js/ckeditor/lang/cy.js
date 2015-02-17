@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['cy'] = {
     undo : 
@@ -26,7 +26,7 @@ CKEDITOR.lang['cy'] = {
     		colors : 'Lliwiau',
     		tools : 'Offer'
     	},
-    	toolbars : 'Bariau offer golygydd'
+    	toolbars : 'Bariau offer y golygydd'
     },
     templates : 
     {
@@ -70,10 +70,10 @@ CKEDITOR.lang['cy'] = {
     		invalidHeight : 'Mae\'n rhaid i uchder y gell fod yn rhif.',
     		invalidRowSpan : 'Mae\'n rhaid i rychwant y rhesi fod yn gyfanrif.',
     		invalidColSpan : 'Mae\'n rhaid i rychwant y colofnau fod yn gyfanrif.',
-    		chooseColor : 'Choose'
+    		chooseColor : 'Dewis'
     	},
     	cellPad : 'Padio\'r gell',
-    	cellSpace : 'Bylchu\'r gell',
+    	cellSpace : 'Bylchiad y gell',
     	column : 
     	{
     		menu : 'Colofn',
@@ -95,7 +95,7 @@ CKEDITOR.lang['cy'] = {
     	invalidHeight : 'Mae\'n rhaid i uchder y tabl fod yn rhif.',
     	invalidRows : 'Mae\'n rhaid cael o leiaf un rhes.',
     	invalidWidth : 'Mae\'n rhaid i led y tabl fod yn rhif.',
-    	menu : 'Nodweddion Tabl',
+    	menu : 'Priodweddau\'r Tabl',
     	row : 
     	{
     		menu : 'Rhes',
@@ -105,7 +105,7 @@ CKEDITOR.lang['cy'] = {
     	},
     	rows : 'Rhesi',
     	summary : 'Crynodeb',
-    	title : 'Nodweddion Tabl',
+    	title : 'Priodweddau\'r Tabl',
     	toolbar : 'Tabl',
     	widthPc : 'y cant',
     	widthPx : 'picsel',
@@ -129,24 +129,6 @@ CKEDITOR.lang['cy'] = {
     {
     	toolbar : 'HTML'
     },
-    smiley : 
-    {
-    	options : 'Opsiynau Gwenogluniau',
-    	title : 'Mewnosod Gwenoglun',
-    	toolbar : 'Gwenoglun'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Dangos Blociau'
-    },
-    selectall : 
-    {
-    	toolbar : 'Dewis Popeth'
-    },
-    save : 
-    {
-    	toolbar : 'Cadw'
-    },
     removeformat : 
     {
     	toolbar : 'Tynnu Fformat'
@@ -154,10 +136,6 @@ CKEDITOR.lang['cy'] = {
     print : 
     {
     	toolbar : 'Argraffu'
-    },
-    preview : 
-    {
-    	preview : 'Rhagolwg'
     },
     pastetext : 
     {
@@ -171,15 +149,6 @@ CKEDITOR.lang['cy'] = {
     	title : 'Gludo o Word',
     	toolbar : 'Gludo o Word'
     },
-    pagebreak : 
-    {
-    	alt : 'Toriad Tudalen',
-    	toolbar : 'Mewnosod Toriad Tudalen i Argraffu'
-    },
-    newpage : 
-    {
-    	toolbar : 'Tudalen newydd'
-    },
     maximize : 
     {
     	maximize : 'Mwyhau',
@@ -191,7 +160,7 @@ CKEDITOR.lang['cy'] = {
     },
     liststyle : 
     {
-    	armenian : 'Rhifau Armeneg',
+    	armenian : 'Rhifo Armeneg',
     	bulletedTitle : 'Priodweddau Rhestr Fwled',
     	circle : 'Cylch',
     	decimal : 'Degol (1, 2, 3, ayyb.)',
@@ -225,7 +194,7 @@ CKEDITOR.lang['cy'] = {
     	anchor : 
     	{
     		toolbar : 'Angor',
-    		menu : 'Golygwch yr Angor',
+    		menu : 'Golygu\'r Angor',
     		title : 'Priodweddau\'r Angor',
     		name : 'Enw\'r Angor',
     		errorName : 'Teipiwch enw\'r angor',
@@ -233,13 +202,13 @@ CKEDITOR.lang['cy'] = {
     	},
     	anchorId : 'Gan Id yr Elfen',
     	anchorName : 'Gan Enw\'r Angor',
-    	charset : 'Set nodau\'r Adnodd Cysylltiedig',
+    	charset : 'Set Nodau\'r Adnodd Cysylltiedig',
     	cssClasses : 'Dosbarthiadau Dalen Arddull',
     	emailAddress : 'Cyfeiriad E-Bost',
-    	emailBody : 'Pwnc y Neges',
-    	emailSubject : 'Testun y Message Subject',
+    	emailBody : 'Corff y Neges',
+    	emailSubject : 'Testun y Neges',
     	id : 'Id',
-    	info : 'Gwyb ar y Ddolen',
+    	info : 'Gwyb y Ddolen',
     	langCode : 'Cod Iaith',
     	langDir : 'Cyfeiriad Iaith',
     	langDirLTR : 'Chwith i\'r Dde (LTR)',
@@ -281,7 +250,7 @@ CKEDITOR.lang['cy'] = {
     },
     justify : 
     {
-    	block : 'Aliniad Bloc',
+    	block : 'Unioni',
     	center : 'Alinio i\'r Canol',
     	left : 'Alinio i\'r Chwith',
     	right : 'Alinio i\'r Dde'
@@ -307,96 +276,16 @@ CKEDITOR.lang['cy'] = {
     	resetSize : 'Ailosod Maint',
     	title : 'Priodweddau Delwedd',
     	titleButton : 'Priodweddau Botwm Delwedd',
-    	upload : 'lanlwytho',
+    	upload : 'Lanlwytho',
     	urlMissing : 'URL gwreiddiol y ddelwedd ar goll.',
     	vSpace : 'BwlchF',
     	validateBorder : 'Rhaid i\'r ymyl fod yn gyfanrif.',
     	validateHSpace : 'Rhaid i\'r HSpace fod yn gyfanrif.',
     	validateVSpace : 'Rhaid i\'r VSpace fod yn gyfanrif.'
     },
-    iframe : 
-    {
-    	border : 'Dangos ymyl y ffrâm',
-    	noUrl : 'Rhowch fath URL yr iframe',
-    	scrolling : 'Galluogi bariau sgrolio',
-    	title : 'Priodweddau IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Mewnosod Llinell Lorweddol'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Priodweddau Botymau',
-    		text : 'Testun (Gwerth)',
-    		type : 'Math',
-    		typeBtn : 'Botwm',
-    		typeSbm : 'Gyrru',
-    		typeRst : 'Ailosod'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Priodweddau Blwch Ticio',
-    		radioTitle : 'Priodweddau Botwm Radio',
-    		value : 'Gwerth',
-    		selected : 'Dewiswyd'
-    	},
-    	form : 
-    	{
-    		title : 'Priodweddau Ffurflen',
-    		menu : 'Priodweddau Ffurflen',
-    		action : 'Gweithred',
-    		method : 'Dull',
-    		encoding : 'Amgodio'
-    	},
-    	hidden : 
-    	{
-    		title : 'Priodweddau Maes Cudd',
-    		name : 'Enw',
-    		value : 'Gwerth'
-    	},
-    	select : 
-    	{
-    		title : 'Priodweddau Maes Dewis',
-    		selectInfo : 'Gwyb Dewis',
-    		opAvail : 'Opsiynau ar Gael',
-    		value : 'Gwerth',
-    		size : 'Maint',
-    		lines : 'llinellau',
-    		chkMulti : 'Caniatàu aml-ddewisiadau',
-    		opText : 'Testun',
-    		opValue : 'Gwerth',
-    		btnAdd : 'Ychwanegu',
-    		btnModify : 'Newid',
-    		btnUp : 'Lan',
-    		btnDown : 'Lawr',
-    		btnSetValue : 'Gosod fel gwerth a ddewiswyd',
-    		btnDelete : 'Dileu'
-    	},
-    	textarea : 
-    	{
-    		title : 'Priodweddau Ardal Testun',
-    		cols : 'Colofnau',
-    		rows : 'Rhesi'
-    	},
-    	textfield : 
-    	{
-    		title : 'Priodweddau Maes Testun',
-    		name : 'Enw',
-    		value : 'Gwerth',
-    		charWidth : 'Lled Nod',
-    		maxChars : 'Uchafswm y Nodau',
-    		type : 'Math',
-    		typeText : 'Testun',
-    		typePass : 'Cyfrinair',
-    		typeEmail : 'Ebost',
-    		typeSearch : 'Chwilio',
-    		typeTel : 'Rhif Ffôn',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['cy'] = {
     	tag_h6 : 'Pennawd 6',
     	tag_p : 'Normal',
     	tag_pre : 'Wedi\'i Fformatio'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Maint',
-    		voiceLabel : 'Maint y Ffont',
-    		panelTitle : 'Maint y Ffont'
-    	},
-    	label : 'Ffont',
-    	panelTitle : 'Enw\'r Ffont',
-    	voiceLabel : 'Ffont'
-    },
-    flash : 
-    {
-    	access : 'Mynediad Sgript',
-    	accessAlways : 'Pob amser',
-    	accessNever : 'Byth',
-    	accessSameDomain : 'R\'un parth',
-    	alignAbsBottom : 'Gwaelod Abs',
-    	alignAbsMiddle : 'Canol Abs',
-    	alignBaseline : 'Baslinell',
-    	alignTextTop : 'Testun Top',
-    	bgcolor : 'Lliw cefndir',
-    	chkFull : 'Caniatàu Sgrin Llawn',
-    	chkLoop : 'Lwpio',
-    	chkMenu : 'Galluogi Dewislen Flash',
-    	chkPlay : 'AwtoChwarae',
-    	flashvars : 'Newidynnau ar gyfer Flash',
-    	hSpace : 'BwlchLl',
-    	properties : 'Priodweddau Flash',
-    	propertiesTab : 'Priodweddau',
-    	quality : 'Ansawdd',
-    	qualityAutoHigh : 'Uchel Awto',
-    	qualityAutoLow : 'Isel Awto',
-    	qualityBest : 'Gorau',
-    	qualityHigh : 'Uchel',
-    	qualityLow : 'Isel',
-    	qualityMedium : 'Canolig',
-    	scale : 'Graddfa',
-    	scaleAll : 'Dangos pob',
-    	scaleFit : 'Ffit Union',
-    	scaleNoBorder : 'Dim Ymyl',
-    	title : 'Priodweddau Flash',
-    	vSpace : 'BwlchF',
-    	validateHSpace : 'Rhaid i\'r BwlchLl fod yn rhif.',
-    	validateSrc : 'Ni all yr URL fod yn wag.',
-    	validateVSpace : 'Rhaid i\'r BwlchF fod yn rhif.',
-    	windowMode : 'Modd ffenestr',
-    	windowModeOpaque : 'Afloyw',
-    	windowModeTransparent : 'Tryloyw',
-    	windowModeWindow : 'Ffenestr'
-    },
-    find : 
-    {
-    	find : 'Chwilio',
-    	findOptions : 'Chwilio Opsiynau',
-    	findWhat : 'Chwilio\'r term:',
-    	matchCase : 'Cyfateb i\'r cas',
-    	matchCyclic : 'Cyfateb cylchol',
-    	matchWord : 'Cyfateb gair cyfan',
-    	notFoundMsg : 'Nid oedd y testun wedi\'i ddarganfod.',
-    	replace : 'Amnewid',
-    	replaceAll : 'Amnewid pob un',
-    	replaceSuccessMsg : 'Amnewidiwyd %1 achlysur.',
-    	replaceWith : 'Amnewid gyda:',
-    	title : 'Chwilio ac Amnewid'
     },
     fakeobjects : 
     {
@@ -497,7 +319,7 @@ CKEDITOR.lang['cy'] = {
     {
     	IdInputLabel : 'Id',
     	advisoryTitleInputLabel : 'Teitl Cynghorol',
-    	cssClassInputLabel : 'Dosbarthiadau Ffeil Ddiwyg',
+    	cssClassInputLabel : 'Dosbarthiadau Ffeil Arddull',
     	edit : 'Golygu Div',
     	inlineStyleInputLabel : 'Arddull Mewn Llinell',
     	langDirLTRLabel : 'Chwith i\'r Dde (LTR)',
@@ -512,14 +334,6 @@ CKEDITOR.lang['cy'] = {
     contextmenu : 
     {
     	options : 'Opsiynau Dewislen Cyd-destun'
-    },
-    colordialog : 
-    {
-    	clear : 'Clirio',
-    	highlight : 'Uwcholeuo',
-    	options : 'Opsiynau Lliw',
-    	selected : 'Lliw a Ddewiswyd',
-    	title : 'Dewis lliw'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['cy'] = {
     	securityMsg : 'Oherwydd gosodiadau diogelwch eich porwr, \'dyw\'r porwr ddim yn gallu ennill mynediad i\'r data ar y clipfwrdd yn uniongyrchol. Mae angen i chi ei ludo eto i\'r ffenestr hon.',
     	title : 'Gludo'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Selected)'
+    },
     blockquote : 
     {
     	toolbar : 'Dyfyniad bloc'
-    },
-    bidi : 
-    {
-    	ltr : 'Cyfeiriad testun o\'r chwith i\'r dde',
-    	rtl : 'Cyfeiriad testun o\'r dde i\'r chwith'
     },
     basicstyles : 
     {
@@ -612,7 +425,7 @@ CKEDITOR.lang['cy'] = {
     	userGuide : 'Canllawiau Defnyddiwr CKEditor'
     },
     editor : 'Golygydd Testun Cyfoethog',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Panel Golygydd Testun Cyfoethog',
     common : 
     {
     	editorHelp : 'Gwasgwch ALT 0 am gymorth',
@@ -669,9 +482,11 @@ CKEDITOR.lang['cy'] = {
     	alignLeft : 'Chwith',
     	alignRight : 'Dde',
     	alignCenter : 'Canol',
+    	alignJustify : 'Unioni',
     	alignTop : 'Brig',
     	alignMiddle : 'Canol',
     	alignBottom : 'Gwaelod',
+    	alignNone : 'None',
     	invalidValue : 'Gwerth annilys.',
     	invalidHeight : 'Mae\'n rhaid i\'r uchder fod yn rhif.',
     	invalidWidth : 'Mae\'n rhaid i\'r lled fod yn rhif.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['cy'] = {
     	invalidInlineStyle : 'Mae\'n rhaid i\'r gwerth ar gyfer arddull mewn-llinell gynnwys un set neu fwy ar y fformat "enw : gwerth", wedi\'u gwahanu gyda hanner colon.',
     	cssLengthTooltip : 'Rhowch rif am werth mewn picsel neu rhif gydag uned CSS dilys (px, %, in, cm, mm, em, pt neu pc).',
     	unavailable : '%1<span class="cke_accessibility">, ddim ar gael</span>'
-    } } 
+    } }; 

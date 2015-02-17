@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['uk'] = {
     undo : 
@@ -129,24 +129,6 @@ CKEDITOR.lang['uk'] = {
     {
     	toolbar : 'Джерело'
     },
-    smiley : 
-    {
-    	options : 'Опції смайликів',
-    	title : 'Вставити смайлик',
-    	toolbar : 'Смайлик'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Показувати блоки'
-    },
-    selectall : 
-    {
-    	toolbar : 'Виділити все'
-    },
-    save : 
-    {
-    	toolbar : 'Зберегти'
-    },
     removeformat : 
     {
     	toolbar : 'Очистити форматування'
@@ -154,10 +136,6 @@ CKEDITOR.lang['uk'] = {
     print : 
     {
     	toolbar : 'Друк'
-    },
-    preview : 
-    {
-    	preview : 'Попередній перегляд'
     },
     pastetext : 
     {
@@ -170,15 +148,6 @@ CKEDITOR.lang['uk'] = {
     	error : 'Неможливо очистити форматування через внутрішню помилку.',
     	title : 'Вставити з Word',
     	toolbar : 'Вставити з Word'
-    },
-    pagebreak : 
-    {
-    	alt : 'Розрив Сторінки',
-    	toolbar : 'Вставити розрив сторінки'
-    },
-    newpage : 
-    {
-    	toolbar : 'Нова сторінка'
     },
     maximize : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['uk'] = {
     	validateHSpace : 'Гориз. відступ повинен бути цілим числом.',
     	validateVSpace : 'Верт. відступ повинен бути цілим числом.'
     },
-    iframe : 
-    {
-    	border : 'Показати рамки фрейму',
-    	noUrl : 'Будь ласка введіть посилання для IFrame',
-    	scrolling : 'Увімкнути прокрутку',
-    	title : 'Налаштування для IFrame',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Горизонтальна лінія'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Властивості кнопки',
-    		text : 'Значення',
-    		type : 'Тип',
-    		typeBtn : 'Кнопка (button)',
-    		typeSbm : 'Надіслати (submit)',
-    		typeRst : 'Очистити (reset)'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Властивості галочки',
-    		radioTitle : 'Властивості кнопки вибору',
-    		value : 'Значення',
-    		selected : 'Обрана'
-    	},
-    	form : 
-    	{
-    		title : 'Властивості форми',
-    		menu : 'Властивості форми',
-    		action : 'Дія',
-    		method : 'Метод',
-    		encoding : 'Кодування'
-    	},
-    	hidden : 
-    	{
-    		title : 'Властивості прихованого поля',
-    		name : 'Ім\'я',
-    		value : 'Значення'
-    	},
-    	select : 
-    	{
-    		title : 'Властивості списку',
-    		selectInfo : 'Інфо',
-    		opAvail : 'Доступні варіанти',
-    		value : 'Значення',
-    		size : 'Кількість',
-    		lines : 'видимих позицій у списку',
-    		chkMulti : 'Список з мультивибором',
-    		opText : 'Текст',
-    		opValue : 'Значення',
-    		btnAdd : 'Добавити',
-    		btnModify : 'Змінити',
-    		btnUp : 'Вгору',
-    		btnDown : 'Вниз',
-    		btnSetValue : 'Встановити як обране значення',
-    		btnDelete : 'Видалити'
-    	},
-    	textarea : 
-    	{
-    		title : 'Властивості текстової області',
-    		cols : 'Стовбці',
-    		rows : 'Рядки'
-    	},
-    	textfield : 
-    	{
-    		title : 'Властивості текстового поля',
-    		name : 'Ім\'я',
-    		value : 'Значення',
-    		charWidth : 'Ширина',
-    		maxChars : 'Макс. к-ть символів',
-    		type : 'Тип',
-    		typeText : 'Текст',
-    		typePass : 'Пароль',
-    		typeEmail : 'Пошта',
-    		typeSearch : 'Пошук',
-    		typeTel : 'Мобільний',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['uk'] = {
     	tag_h6 : 'Заголовок 6',
     	tag_p : 'Нормальний',
     	tag_pre : 'Форматований'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Розмір',
-    		voiceLabel : 'Розмір шрифту',
-    		panelTitle : 'Розмір'
-    	},
-    	label : 'Шрифт',
-    	panelTitle : 'Шрифт',
-    	voiceLabel : 'Шрифт'
-    },
-    flash : 
-    {
-    	access : 'Доступ до скрипта',
-    	accessAlways : 'Завжди',
-    	accessNever : 'Ніколи',
-    	accessSameDomain : 'З того ж домена',
-    	alignAbsBottom : 'По нижньому краю (abs)',
-    	alignAbsMiddle : 'По середині (abs)',
-    	alignBaseline : 'По базовій лінії',
-    	alignTextTop : 'Текст по верхньому краю',
-    	bgcolor : 'Колір фону',
-    	chkFull : 'Дозволити повноекранний перегляд',
-    	chkLoop : 'Циклічно',
-    	chkMenu : 'Дозволити меню Flash',
-    	chkPlay : 'Автопрогравання',
-    	flashvars : 'Змінні Flash',
-    	hSpace : 'Гориз. відступ',
-    	properties : 'Властивості Flash',
-    	propertiesTab : 'Властивості',
-    	quality : 'Якість',
-    	qualityAutoHigh : 'Автом. відмінна',
-    	qualityAutoLow : 'Автом. низька',
-    	qualityBest : 'Відмінна',
-    	qualityHigh : 'Висока',
-    	qualityLow : 'Низька',
-    	qualityMedium : 'Середня',
-    	scale : 'Масштаб',
-    	scaleAll : 'Показати все',
-    	scaleFit : 'Поч. розмір',
-    	scaleNoBorder : 'Без рамки',
-    	title : 'Властивості Flash',
-    	vSpace : 'Верт. відступ',
-    	validateHSpace : 'Гориз. відступ повинен бути цілим числом.',
-    	validateSrc : 'Будь ласка, вкажіть URL посилання',
-    	validateVSpace : 'Верт. відступ повинен бути цілим числом.',
-    	windowMode : 'Віконний режим',
-    	windowModeOpaque : 'Непрозорість',
-    	windowModeTransparent : 'Прозорість',
-    	windowModeWindow : 'Вікно'
-    },
-    find : 
-    {
-    	find : 'Пошук',
-    	findOptions : 'Параметри Пошуку',
-    	findWhat : 'Шукати:',
-    	matchCase : 'Враховувати регістр',
-    	matchCyclic : 'Циклічна заміна',
-    	matchWord : 'Збіг цілих слів',
-    	notFoundMsg : 'Вказаний текст не знайдено.',
-    	replace : 'Заміна',
-    	replaceAll : 'Замінити все',
-    	replaceSuccessMsg : '%1 співпадінь(ня) замінено.',
-    	replaceWith : 'Замінити на:',
-    	title : 'Знайти і замінити'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['uk'] = {
     contextmenu : 
     {
     	options : 'Опції контекстного меню'
-    },
-    colordialog : 
-    {
-    	clear : 'Очистити',
-    	highlight : 'Колір, на який вказує курсор',
-    	options : 'Опції кольорів',
-    	selected : 'Обраний колір',
-    	title : 'Обрати колір'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['uk'] = {
     	securityMsg : 'Редактор не може отримати прямий доступ до буферу обміну у зв\'язку з налаштуваннями Вашого браузера. Вам потрібно вставити інформацію в це вікно.',
     	title : 'Вставити'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Вибрано)'
+    },
     blockquote : 
     {
     	toolbar : 'Цитата'
-    },
-    bidi : 
-    {
-    	ltr : 'Напрямок тексту зліва направо',
-    	rtl : 'Напрямок тексту справа наліво'
     },
     basicstyles : 
     {
@@ -669,9 +482,11 @@ CKEDITOR.lang['uk'] = {
     	alignLeft : 'По лівому краю',
     	alignRight : 'По правому краю',
     	alignCenter : 'По центру',
+    	alignJustify : 'По ширині',
     	alignTop : 'По верхньому краю',
     	alignMiddle : 'По середині',
     	alignBottom : 'По нижньому краю',
+    	alignNone : 'Нема',
     	invalidValue : 'Невірне значення.',
     	invalidHeight : 'Висота повинна бути цілим числом.',
     	invalidWidth : 'Ширина повинна бути цілим числом.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['uk'] = {
     	invalidInlineStyle : 'Значення, вказане для вбудованого стилю повинне складатися з одного чи кількох кортежів у форматі "ім\'я : значення", розділених крапкою з комою.',
     	cssLengthTooltip : 'Введіть номер значення в пікселях або число з дійсною одиниці CSS (px, %, in, cm, mm, em, ex, pt або pc).',
     	unavailable : '%1<span class="cke_accessibility">, не доступне</span>'
-    } } 
+    } }; 

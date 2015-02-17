@@ -1,6 +1,6 @@
 ﻿/*
-Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.html or http://ckeditor.com/license
+Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['nl'] = {
     undo : 
@@ -39,30 +39,30 @@ CKEDITOR.lang['nl'] = {
     },
     table : 
     {
-    	border : 'Breedte rand',
-    	caption : 'Naam',
+    	border : 'Randdikte',
+    	caption : 'Onderschrift',
     	cell : 
     	{
     		menu : 'Cel',
     		insertBefore : 'Voeg cel in voor',
-    		insertAfter : 'Voeg cel in achter',
+    		insertAfter : 'Voeg cel in na',
     		deleteCell : 'Cellen verwijderen',
     		merge : 'Cellen samenvoegen',
     		mergeRight : 'Voeg samen naar rechts',
     		mergeDown : 'Voeg samen naar beneden',
-    		splitHorizontal : 'Splits cellen horizontaal',
-    		splitVertical : 'Splits cellen verticaal',
-    		title : 'Cel eigenschappen',
-    		cellType : 'Cel type',
+    		splitHorizontal : 'Splits cel horizontaal',
+    		splitVertical : 'Splits cel vertikaal',
+    		title : 'Celeigenschappen',
+    		cellType : 'Celtype',
     		rowSpan : 'Rijen samenvoegen',
     		colSpan : 'Kolommen samenvoegen',
     		wordWrap : 'Automatische terugloop',
     		hAlign : 'Horizontale uitlijning',
     		vAlign : 'Verticale uitlijning',
-    		alignBaseline : 'Basislijn',
+    		alignBaseline : 'Tekstregel',
     		bgColor : 'Achtergrondkleur',
-    		borderColor : 'Kleur rand',
-    		data : 'Inhoud',
+    		borderColor : 'Randkleur',
+    		data : 'Gegevens',
     		header : 'Kop',
     		yes : 'Ja',
     		no : 'Nee',
@@ -72,13 +72,13 @@ CKEDITOR.lang['nl'] = {
     		invalidColSpan : 'Kolommen samenvoegen moet een heel getal zijn.',
     		chooseColor : 'Kies'
     	},
-    	cellPad : 'Ruimte in de cel',
-    	cellSpace : 'Afstand tussen cellen',
+    	cellPad : 'Celopvulling',
+    	cellSpace : 'Celafstand',
     	column : 
     	{
     		menu : 'Kolom',
     		insertBefore : 'Voeg kolom in voor',
-    		insertAfter : 'Voeg kolom in achter',
+    		insertAfter : 'Voeg kolom in na',
     		deleteColumn : 'Kolommen verwijderen'
     	},
     	columns : 'Kolommen',
@@ -88,24 +88,24 @@ CKEDITOR.lang['nl'] = {
     	headersColumn : 'Eerste kolom',
     	headersNone : 'Geen',
     	headersRow : 'Eerste rij',
-    	invalidBorder : 'De rand breedte moet een getal zijn.',
-    	invalidCellPadding : 'Ruimte in de cel moet een getal zijn.',
-    	invalidCellSpacing : 'Afstand tussen cellen moet een getal zijn.',
+    	invalidBorder : 'De randdikte moet een getal zijn.',
+    	invalidCellPadding : 'Celopvulling moet een getal zijn.',
+    	invalidCellSpacing : 'Celafstand moet een getal zijn.',
     	invalidCols : 'Het aantal kolommen moet een getal zijn groter dan 0.',
     	invalidHeight : 'De tabelhoogte moet een getal zijn.',
     	invalidRows : 'Het aantal rijen moet een getal zijn groter dan 0.',
     	invalidWidth : 'De tabelbreedte moet een getal zijn.',
-    	menu : 'Eigenschappen tabel',
+    	menu : 'Tabeleigenschappen',
     	row : 
     	{
     		menu : 'Rij',
     		insertBefore : 'Voeg rij in voor',
-    		insertAfter : 'Voeg rij in achter',
+    		insertAfter : 'Voeg rij in na',
     		deleteRow : 'Rijen verwijderen'
     	},
     	rows : 'Rijen',
     	summary : 'Samenvatting',
-    	title : 'Eigenschappen tabel',
+    	title : 'Tabeleigenschappen',
     	toolbar : 'Tabel',
     	widthPc : 'procent',
     	widthPx : 'pixels',
@@ -127,25 +127,7 @@ CKEDITOR.lang['nl'] = {
     },
     sourcearea : 
     {
-    	toolbar : 'Code'
-    },
-    smiley : 
-    {
-    	options : 'Smiley opties',
-    	title : 'Smiley invoegen',
-    	toolbar : 'Smiley'
-    },
-    showblocks : 
-    {
-    	toolbar : 'Toon blokken'
-    },
-    selectall : 
-    {
-    	toolbar : 'Alles selecteren'
-    },
-    save : 
-    {
-    	toolbar : 'Opslaan'
+    	toolbar : 'Broncode'
     },
     removeformat : 
     {
@@ -153,11 +135,7 @@ CKEDITOR.lang['nl'] = {
     },
     print : 
     {
-    	toolbar : 'Printen'
-    },
-    preview : 
-    {
-    	preview : 'Voorbeeld'
+    	toolbar : 'Afdrukken'
     },
     pastetext : 
     {
@@ -166,19 +144,10 @@ CKEDITOR.lang['nl'] = {
     },
     pastefromword : 
     {
-    	confirmCleanup : 'De tekst die u plakte lijkt gekopieerd te zijn vanuit Word. Wilt u de tekst opschonen voordat deze geplakt wordt?',
+    	confirmCleanup : 'De tekst die u wilt plakken lijkt gekopieerd te zijn vanuit Word. Wilt u de tekst opschonen voordat deze geplakt wordt?',
     	error : 'Het was niet mogelijk om de geplakte tekst op te schonen door een interne fout',
-    	title : 'Plakken als Word-gegevens',
-    	toolbar : 'Plakken als Word-gegevens'
-    },
-    pagebreak : 
-    {
-    	alt : 'Pagina-einde',
-    	toolbar : 'Pagina-einde invoegen'
-    },
-    newpage : 
-    {
-    	toolbar : 'Nieuwe pagina'
+    	title : 'Plakken vanuit Word',
+    	toolbar : 'Plakken vanuit Word'
     },
     maximize : 
     {
@@ -213,8 +182,8 @@ CKEDITOR.lang['nl'] = {
     },
     list : 
     {
-    	bulletedlist : 'Opsomming',
-    	numberedlist : 'Genummerde lijst'
+    	bulletedlist : 'Opsomming invoegen',
+    	numberedlist : 'Genummerde lijst invoegen'
     },
     link : 
     {
@@ -314,89 +283,9 @@ CKEDITOR.lang['nl'] = {
     	validateHSpace : 'HSpace moet een heel nummer zijn.',
     	validateVSpace : 'VSpace moet een heel nummer zijn.'
     },
-    iframe : 
-    {
-    	border : 'Framerand tonen',
-    	noUrl : 'Geef de IFrame URL in',
-    	scrolling : 'Scrollbalken inschakelen',
-    	title : 'IFrame eigenschappen',
-    	toolbar : 'IFrame'
-    },
     horizontalrule : 
     {
     	toolbar : 'Horizontale lijn invoegen'
-    },
-    forms : 
-    {
-    	button : 
-    	{
-    		title : 'Eigenschappen knop',
-    		text : 'Tekst (waarde)',
-    		type : 'Soort',
-    		typeBtn : 'Knop',
-    		typeSbm : 'Versturen',
-    		typeRst : 'Leegmaken'
-    	},
-    	checkboxAndRadio : 
-    	{
-    		checkboxTitle : 'Eigenschappen aanvinkvakje',
-    		radioTitle : 'Eigenschappen selectievakje',
-    		value : 'Waarde',
-    		selected : 'Geselecteerd'
-    	},
-    	form : 
-    	{
-    		title : 'Eigenschappen formulier',
-    		menu : 'Eigenschappen formulier',
-    		action : 'Actie',
-    		method : 'Methode',
-    		encoding : 'Codering'
-    	},
-    	hidden : 
-    	{
-    		title : 'Eigenschappen verborgen veld',
-    		name : 'Naam',
-    		value : 'Waarde'
-    	},
-    	select : 
-    	{
-    		title : 'Eigenschappen selectieveld',
-    		selectInfo : 'Informatie',
-    		opAvail : 'Beschikbare opties',
-    		value : 'Waarde',
-    		size : 'Grootte',
-    		lines : 'Regels',
-    		chkMulti : 'Gecombineerde selecties toestaan',
-    		opText : 'Tekst',
-    		opValue : 'Waarde',
-    		btnAdd : 'Toevoegen',
-    		btnModify : 'Wijzigen',
-    		btnUp : 'Omhoog',
-    		btnDown : 'Omlaag',
-    		btnSetValue : 'Als geselecteerde waarde instellen',
-    		btnDelete : 'Verwijderen'
-    	},
-    	textarea : 
-    	{
-    		title : 'Eigenschappen tekstvak',
-    		cols : 'Kolommen',
-    		rows : 'Rijen'
-    	},
-    	textfield : 
-    	{
-    		title : 'Eigenschappen tekstveld',
-    		name : 'Naam',
-    		value : 'Waarde',
-    		charWidth : 'Breedte (tekens)',
-    		maxChars : 'Maximum aantal tekens',
-    		type : 'Soort',
-    		typeText : 'Tekst',
-    		typePass : 'Wachtwoord',
-    		typeEmail : 'E-mail',
-    		typeSearch : 'Zoeken',
-    		typeTel : 'Telefoonnummer',
-    		typeUrl : 'URL'
-    	}
     },
     format : 
     {
@@ -412,73 +301,6 @@ CKEDITOR.lang['nl'] = {
     	tag_h6 : 'Kop 6',
     	tag_p : 'Normaal',
     	tag_pre : 'Met opmaak'
-    },
-    font : 
-    {
-    	fontSize : 
-    	{
-    		label : 'Lettergrootte',
-    		voiceLabel : 'Lettergrootte',
-    		panelTitle : 'Lettergrootte'
-    	},
-    	label : 'Lettertype',
-    	panelTitle : 'Lettertype',
-    	voiceLabel : 'Lettertype'
-    },
-    flash : 
-    {
-    	access : 'Script toegang',
-    	accessAlways : 'Altijd',
-    	accessNever : 'Nooit',
-    	accessSameDomain : 'Zelfde domeinnaam',
-    	alignAbsBottom : 'Absoluut-onder',
-    	alignAbsMiddle : 'Absoluut-midden',
-    	alignBaseline : 'Basislijn',
-    	alignTextTop : 'Boven tekst',
-    	bgcolor : 'Achtergrondkleur',
-    	chkFull : 'Schermvullend toestaan',
-    	chkLoop : 'Herhalen',
-    	chkMenu : 'Flashmenu\'s inschakelen',
-    	chkPlay : 'Automatisch afspelen',
-    	flashvars : 'Variabelen voor Flash',
-    	hSpace : 'HSpace',
-    	properties : 'Eigenschappen Flash',
-    	propertiesTab : 'Eigenschappen',
-    	quality : 'Kwaliteit',
-    	qualityAutoHigh : 'Automatisch hoog',
-    	qualityAutoLow : 'Automatisch laag',
-    	qualityBest : 'Beste',
-    	qualityHigh : 'Hoog',
-    	qualityLow : 'Laag',
-    	qualityMedium : 'Gemiddeld',
-    	scale : 'Schaal',
-    	scaleAll : 'Alles tonen',
-    	scaleFit : 'Precies passend',
-    	scaleNoBorder : 'Geen rand',
-    	title : 'Eigenschappen Flash',
-    	vSpace : 'VSpace',
-    	validateHSpace : 'De HSpace moet een getal zijn.',
-    	validateSrc : 'De URL mag niet leeg zijn.',
-    	validateVSpace : 'De VSpace moet een getal zijn.',
-    	windowMode : 'Venster modus',
-    	windowModeOpaque : 'Ondoorzichtig',
-    	windowModeTransparent : 'Doorzichtig',
-    	windowModeWindow : 'Venster'
-    },
-    find : 
-    {
-    	find : 'Zoeken',
-    	findOptions : 'Zoekopties',
-    	findWhat : 'Zoeken naar:',
-    	matchCase : 'Hoofdlettergevoelig',
-    	matchCyclic : 'Doorlopend zoeken',
-    	matchWord : 'Hele woord moet voorkomen',
-    	notFoundMsg : 'De opgegeven tekst is niet gevonden.',
-    	replace : 'Vervangen',
-    	replaceAll : 'Alles vervangen',
-    	replaceSuccessMsg : '%1 resultaten vervangen.',
-    	replaceWith : 'Vervangen met:',
-    	title : 'Zoeken en vervangen'
     },
     fakeobjects : 
     {
@@ -512,14 +334,6 @@ CKEDITOR.lang['nl'] = {
     contextmenu : 
     {
     	options : 'Contextmenu opties'
-    },
-    colordialog : 
-    {
-    	clear : 'Wissen',
-    	highlight : 'Actief',
-    	options : 'Kleuropties',
-    	selected : 'Geselecteerde kleur',
-    	title : 'Selecteer kleur'
     },
     colorbutton : 
     {
@@ -584,14 +398,13 @@ CKEDITOR.lang['nl'] = {
     	securityMsg : 'Door de beveiligingsinstellingen van uw browser is het niet mogelijk om direct vanuit het klembord in de editor te plakken. Middels opnieuw plakken in dit venster kunt u de tekst alsnog plakken in de editor.',
     	title : 'Plakken'
     },
+    button : 
+    {
+    	selectedLabel : '%1 (Geselecteerd)'
+    },
     blockquote : 
     {
     	toolbar : 'Citaatblok'
-    },
-    bidi : 
-    {
-    	ltr : 'Schrijfrichting van links naar rechts',
-    	rtl : 'Schrijfrichting van rechts naar links'
     },
     basicstyles : 
     {
@@ -600,14 +413,14 @@ CKEDITOR.lang['nl'] = {
     	strike : 'Doorhalen',
     	subscript : 'Subscript',
     	superscript : 'Superscript',
-    	underline : 'Onderstreept'
+    	underline : 'Onderstrepen'
     },
     about : 
     {
     	copy : 'Copyright &copy; $1. Alle rechten voorbehouden.',
     	dlgTitle : 'Over CKEditor',
     	help : 'Bekijk de $1 voor hulp.',
-    	moreInfo : 'Voor licentie informatie, bezoek onze website:',
+    	moreInfo : 'Bezoek onze website voor licentieinformatie:',
     	title : 'Over CKEditor',
     	userGuide : 'CKEditor gebruiksaanwijzing'
     },
@@ -624,8 +437,8 @@ CKEDITOR.lang['nl'] = {
     	image : 'Afbeelding',
     	flash : 'Flash',
     	form : 'Formulier',
-    	checkbox : 'Aanvinkvakje',
-    	radio : 'Selectievakje',
+    	checkbox : 'Selectievinkje',
+    	radio : 'Keuzerondje',
     	textField : 'Tekstveld',
     	textarea : 'Tekstvak',
     	hiddenField : 'Verborgen veld',
@@ -662,16 +475,18 @@ CKEDITOR.lang['nl'] = {
     	langDirLTR : 'Links naar rechts (LTR)',
     	langDirRTL : 'Rechts naar links (RTL)',
     	styles : 'Stijl',
-    	cssClasses : 'Stylesheet klassen',
+    	cssClasses : 'Stylesheet-klassen',
     	width : 'Breedte',
     	height : 'Hoogte',
     	align : 'Uitlijning',
     	alignLeft : 'Links',
     	alignRight : 'Rechts',
     	alignCenter : 'Centreren',
+    	alignJustify : 'Uitvullen',
     	alignTop : 'Boven',
     	alignMiddle : 'Midden',
     	alignBottom : 'Onder',
+    	alignNone : 'Geen',
     	invalidValue : 'Ongeldige waarde.',
     	invalidHeight : 'De hoogte moet een getal zijn.',
     	invalidWidth : 'De breedte moet een getal zijn.',
@@ -680,4 +495,4 @@ CKEDITOR.lang['nl'] = {
     	invalidInlineStyle : 'Waarde voor de online stijl moet bestaan uit een of meerdere tupels met het formaat "naam : waarde", gescheiden door puntkomma\'s.',
     	cssLengthTooltip : 'Geef een nummer in voor een waarde in pixels of geef een nummer in met een geldige CSS eenheid (px, %, in, cm, mm, em, ex, pt, of pc).',
     	unavailable : '%1<span class="cke_accessibility">, niet beschikbaar</span>'
-    } } 
+    } }; 
