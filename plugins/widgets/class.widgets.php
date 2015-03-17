@@ -268,7 +268,7 @@ class dcWidget
 
 	public function setting($name,$title,$value,$type='text')
 	{
-		if ($type == 'combo') {
+		if ($type == 'combo' || $type=='radio') {
 			$options = @func_get_arg(4);
 			if (!is_array($options)) {
 				return false;
