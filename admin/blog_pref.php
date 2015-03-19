@@ -162,15 +162,14 @@ if (is_dir($jquery_root) && is_readable($jquery_root)) {
 if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 {
 	$cur = $core->con->openCursor($core->prefix.'blog');
-	if ($core->auth->isSuperAdmin()) {
-		$cur->blog_id = $_POST['blog_id'];
-		$cur->blog_url = preg_replace('/\?+$/','?',$_POST['blog_url']);
-		if (in_array($_POST['blog_status'],$status_combo)) {
-			$cur->blog_status = (integer) $_POST['blog_status'];
-		}
-	}
+	$cur->blog_id = $_POST['blog_id'];
+	$cur->blog_url = preg_replace('/\?+$/','?', $_POST['blog_url']);
 	$cur->blog_name = $_POST['blog_name'];
 	$cur->blog_desc = $_POST['blog_desc'];
+
+	if ($core->auth->isSuperAdmin() && in_array($_POST['blog_status'], $status_combo)) {
+		$cur->blog_status = (int) $_POST['blog_status'];
+	}
 
 	$media_img_t_size = abs((integer) $_POST['media_img_t_size']);
 	if ($media_img_t_size < 0) { $media_img_t_size = 100; }
@@ -349,6 +348,15 @@ if ($blog_id)
 		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
 		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
 		'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
+	} else {
+		/*
+		Only super admins can change the blog ID and URL, but we need to pass
+		their values to the POST request via hidden html input values  so as
+		to allow admins to update other settings.
+		Otherwise dcCore::getBlogCursor() throws an exception.
+		*/
+		echo form::field('blog_id', 30, 32, html::escapeHTML($blog_id), '', '', false, 'hidden="hidden"');
+		echo form::field('blog_url', 50, 255, html::escapeHTML($blog_url), '', '', false, 'hidden="hidden"');
 	}
 
 	echo
