@@ -60,13 +60,15 @@ $pf = path::clean($_GET['pf']);
 
 $paths = array_reverse(explode(PATH_SEPARATOR,DC_PLUGINS_ROOT));
 
-# Adding admin/res folder here to load some stuff
+# Adding some folders here to load some stuff
 $paths[] = dirname(__FILE__).'/swf';
+$paths[] = dirname(__FILE__).'/js';
+$paths[] = dirname(__FILE__).'/css';
 
 foreach ($paths as $m)
 {
 	$PF = path::real($m.'/'.$pf);
-	
+
 	if ($PF !== false) {
 		break;
 	}
@@ -85,11 +87,10 @@ if (!in_array(files::getExtension($PF),$allow_types)) {
 	exit;
 }
 
-http::$cache_max_age = 7200;
+http::$cache_max_age = 7 * 24 * 60 * 60;	// One week cache for plugin's files served by ?pf=… is better than old 2 hours
 http::cache(array_merge(array($PF),get_included_files()));
 
 header('Content-Type: '.files::getMimeType($PF));
 header('Content-Length: '.filesize($PF));
 readfile($PF);
 exit;
-?>

@@ -29,17 +29,17 @@ class urlPages extends dcUrlHandlers
 		{
 			$_ctx =& $GLOBALS['_ctx'];
 			$core =& $GLOBALS['core'];
-			
+
 			$core->blog->withoutPassword(false);
-			
+
 			$params = new ArrayObject(array(
 				'post_type' => 'page',
 				'post_url' => $args));
-			
+
 			$core->callBehavior('publicPagesBeforeGetPosts',$params,$args);
-			
+
 			$_ctx->posts = $core->blog->getPosts($params);
-			
+
 			$_ctx->comment_preview = new ArrayObject();
 			$_ctx->comment_preview['content'] = '';
 			$_ctx->comment_preview['rawcontent'] = '';
@@ -48,10 +48,10 @@ class urlPages extends dcUrlHandlers
 			$_ctx->comment_preview['site'] = '';
 			$_ctx->comment_preview['preview'] = false;
 			$_ctx->comment_preview['remember'] = false;
-			
+
 			$core->blog->withoutPassword(true);
-			
-			
+
+
 			if ($_ctx->posts->isEmpty())
 			{
 				# The specified page does not exist.
@@ -61,23 +61,30 @@ class urlPages extends dcUrlHandlers
 			{
 				$post_id = $_ctx->posts->post_id;
 				$post_password = $_ctx->posts->post_password;
-				
+
 				# Password protected entry
 				if ($post_password != '' && !$_ctx->preview)
 				{
 					# Get passwords cookie
 					if (isset($_COOKIE['dc_passwd'])) {
-						$pwd_cookie = unserialize($_COOKIE['dc_passwd']);
+						$pwd_cookie = json_decode($_COOKIE['dc_passwd']);
+						if ($pwd_cookie === NULL) {
+							$pwd_cookie = array();
+						} else {
+							$pwd_cookie = (array) $pwd_cookie;
+						}
 					} else {
 						$pwd_cookie = array();
 					}
-					
+
 					# Check for match
+					# Note: We must prefix post_id key with '#'' in pwd_cookie array in order to avoid integer conversion
+					# because MyArray["12345"] is treated as MyArray[12345]
 					if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
-					|| (isset($pwd_cookie[$post_id]) && $pwd_cookie[$post_id] == $post_password))
+					|| (isset($pwd_cookie['#'.$post_id]) && $pwd_cookie['#'.$post_id] == $post_password))
 					{
-						$pwd_cookie[$post_id] = $post_password;
-						setcookie('dc_passwd',serialize($pwd_cookie),0,'/');
+						$pwd_cookie['#'.$post_id] = $post_password;
+						setcookie('dc_passwd',json_encode($pwd_cookie),0,'/');
 					}
 					else
 					{
@@ -85,12 +92,12 @@ class urlPages extends dcUrlHandlers
 						return;
 					}
 				}
-				
+
 				$post_comment =
 					isset($_POST['c_name']) && isset($_POST['c_mail']) &&
 					isset($_POST['c_site']) && isset($_POST['c_content']) &&
 					$_ctx->posts->commentsActive();
-				
+
 				# Posting a comment
 				if ($post_comment)
 				{
@@ -102,35 +109,41 @@ class urlPages extends dcUrlHandlers
 						# Exits immediately the application to preserve the server.
 						exit;
 					}
-					
+
 					$name = $_POST['c_name'];
 					$mail = $_POST['c_mail'];
 					$site = $_POST['c_site'];
 					$content = $_POST['c_content'];
 					$preview = !empty($_POST['preview']);
-					
+
 					if ($content != '')
 					{
-						if ($core->blog->settings->system->wiki_comments) {
-							$core->initWikiComment();
+						# --BEHAVIOR-- publicBeforeCommentTransform
+						$buffer = $core->callBehavior('publicBeforeCommentTransform',$content);
+						if ($buffer != '') {
+							$content = $buffer;
 						} else {
-							$core->initWikiSimpleComment();
+							if ($core->blog->settings->system->wiki_comments) {
+								$core->initWikiComment();
+							} else {
+								$core->initWikiSimpleComment();
+							}
+							$content = $core->wikiTransform($content);
 						}
-						$content = $core->wikiTransform($content);
 						$content = $core->HTMLfilter($content);
 					}
-					
+
 					$_ctx->comment_preview['content'] = $content;
 					$_ctx->comment_preview['rawcontent'] = $_POST['c_content'];
 					$_ctx->comment_preview['name'] = $name;
 					$_ctx->comment_preview['mail'] = $mail;
 					$_ctx->comment_preview['site'] = $site;
-					
+
 					if ($preview)
 					{
 						# --BEHAVIOR-- publicBeforeCommentPreview
 						$core->callBehavior('publicBeforeCommentPreview',$_ctx->comment_preview);
-						
+
 						$_ctx->comment_preview['preview'] = true;
 					}
 					else
@@ -144,31 +157,31 @@ class urlPages extends dcUrlHandlers
 						$cur->post_id = $_ctx->posts->post_id;
 						$cur->comment_status = $core->blog->settings->system->comments_pub ? 1 : -1;
 						$cur->comment_ip = http::realIP();
-						
+
 						$redir = $_ctx->posts->getURL();
 						$redir .= $core->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
-						
+
 						try
 						{
 							if (!text::isEmail($cur->comment_email)) {
 								throw new Exception(__('You must provide a valid email address.'));
 							}
-							
+
 							# --BEHAVIOR-- publicBeforeCommentCreate
 							$core->callBehavior('publicBeforeCommentCreate',$cur);
-							if ($cur->post_id) {					
+							if ($cur->post_id) {
 								$comment_id = $core->blog->addComment($cur);
-							
+
 								# --BEHAVIOR-- publicAfterCommentCreate
 								$core->callBehavior('publicAfterCommentCreate',$cur,$comment_id);
 							}
-							
+
 							if ($cur->comment_status == 1) {
 								$redir_arg = 'pub=1';
 							} else {
 								$redir_arg = 'pub=0';
 							}
-							
+
 							header('Location: '.$redir.$redir_arg);
 						}
 						catch (Exception $e)
@@ -178,19 +191,28 @@ class urlPages extends dcUrlHandlers
 						}
 					}
 				}
-				
+
 				# The entry
-				$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates');
+				if ($_ctx->posts->trackbacksActive()) {
+					header('X-Pingback: '.$core->blog->url.$core->url->getURLFor("xmlrpc",$core->blog->id));
+				}
+
+				$tplset = $core->themes->moduleInfo($core->blog->settings->system->theme,'tplset');
+				if (!empty($tplset) && is_dir(dirname(__FILE__).'/default-templates/'.$tplset)) {
+					$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.$tplset);
+				} else {
+					$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates/'.DC_DEFAULT_TPLSET);
+				}
 				self::serveDocument('page.html');
 			}
 		}
 	}
-	
+
 	public static function pagespreview($args)
 	{
 		$core = $GLOBALS['core'];
 		$_ctx = $GLOBALS['_ctx'];
-		
+
 		if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#',$args,$m)) {
 			# The specified Preview URL is malformed.
 			self::p404();
@@ -207,6 +229,10 @@ class urlPages extends dcUrlHandlers
 			else
 			{
 				$_ctx->preview = true;
+				if (defined ("DC_ADMIN_URL")) {
+					$_ctx->xframeoption=DC_ADMIN_URL;
+				}
+
 				self::pages($post_url);
 			}
 		}
@@ -219,39 +245,39 @@ class tplPages
 	public static function pagesWidget($w)
 	{
 		global $core, $_ctx;
-		
+
+		if ($w->offline)
+			return;
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
-		
+
 		$params['post_type'] = 'page';
 		$params['limit'] = abs((integer) $w->limit);
 		$params['no_content'] = true;
 		$params['post_selected'] = false;
-		
+
 		$sort = $w->sortby;
 		if (!in_array($sort,array('post_title','post_position','post_dt'))) {
 			$sort = 'post_title';
 		}
-		
+
 		$order = $w->orderby;
 		if ($order != 'asc') {
 			$order = 'desc';
 		}
 		$params['order'] = $sort.' '.$order;
-		
+
 		$rs = $core->blog->getPosts($params);
-		
+
 		if ($rs->isEmpty()) {
 			return;
 		}
-		
-		$res =
-		($w->content_only ? '' : '<div class="pages'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-		($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').
-		'<ul>';
-		
+
+		$res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').'<ul>';
+
 		while ($rs->fetch()) {
 			$class = '';
 			if (($core->url->type == 'pages' && $_ctx->posts instanceof record && $_ctx->posts->post_id == $rs->post_id)) {
@@ -260,10 +286,9 @@ class tplPages
 			$res .= '<li'.$class.'><a href="'.$rs->getURL().'">'.
 			html::escapeHTML($rs->post_title).'</a></li>';
 		}
-		
-		$res .= '</ul>'.($w->content_only ? '' : '</div>');
-		
-		return $res;
+
+		$res .= '</ul>';
+
+		return $w->renderDiv($w->content_only,'pages '.$w->class,'',$res);
 	}
 }
-?>

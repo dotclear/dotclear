@@ -25,7 +25,7 @@ class themeEditorBehaviors
 	public static function theme_editor_details($core,$id)
 	{
 		if ($id != 'default' && $core->auth->isSuperAdmin()) {
-			return '<p><a href="plugin.php?p=themeEditor" class="button">'.__('Theme Editor').'</a></p>';
+			return '<p><a href="'.$core->adminurl->get('admin.plugin.themeEditor').'" class="button">'.__('Edit theme files').'</a></p>';
 		}
 	}
 
@@ -37,27 +37,22 @@ class themeEditorBehaviors
 		$core->auth->user_prefs->addWorkspace('interface');
 		try {
 			$core->auth->user_prefs->interface->put('colorsyntax',!empty($_POST['colorsyntax']),'boolean');
-		} 
+		}
 		catch (Exception $e)
 		{
 			$core->error->add($e->getMessage());
 		}
 	}
-	
+
 	public static function adminPreferencesForm($core)
 	{
 		// Add fieldset for plugin options
 		$core->auth->user_prefs->addWorkspace('interface');
 
 		echo
-		'<fieldset><legend>'.__('Theme Editor').'</legend>'.
-		
 		'<p><label for="colorsyntax" class="classic">'.
-		form::checkbox('colorsyntax',1,$core->auth->user_prefs->interface->colorsyntax).' '.
-		__('Syntax color').'</label></p>'.
-
-		'<br class="clear" />'. //Opera sucks
-		'</fieldset>';
+		form::checkbox('colorsyntax',1,$core->auth->user_prefs->interface->colorsyntax).'</label>'.
+		__('Syntax highlighting in theme editor').
+		'</p>';
 	}
 }
-?>

@@ -25,14 +25,20 @@ if ($rs->isEmpty()) {
 	exit;
 }
 
-if ($post_id && $media_id && !empty($_POST['attach']))
-{
-	$core->media = new dcMedia($core);
-	$core->media->addPostMedia($post_id,$media_id);
-	http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
-}
-
 try {
+	if ($post_id && $media_id && !empty($_REQUEST['attach']))
+	{
+		$core->media = new dcMedia($core);
+		$core->media->addPostMedia($post_id,$media_id);
+        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+            header('Content-type: application/json');
+            echo json_encode(array('url' => $core->getPostAdminURL($rs->post_type,$post_id,false)));
+            exit();
+        } else {
+            http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
+        }
+	}
+
 	$core->media = new dcMedia($core);
 	$f = $core->media->getPostMedia($post_id,$media_id);
 	if (empty($f)) {
@@ -50,20 +56,22 @@ if (($post_id && $media_id) || $core->error->flag())
 	if (!empty($_POST['remove']))
 	{
 		$core->media->removePostMedia($post_id,$media_id);
-		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false).'&rmattach=1');
+
+		dcPage::addSuccessNotice(__('Attachment has been successfully removed.'));
+		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
 	}
 	elseif (isset($_POST['post_id'])) {
 		http::redirect($core->getPostAdminURL($rs->post_type,$post_id,false));
 	}
-	
+
 	if (!empty($_GET['remove']))
 	{
 		dcPage::open(__('Remove attachment'));
-		
+
 		echo '<h2>'.__('Attachment').' &rsaquo; <span class="page-title">'.__('confirm removal').'</span></h2>';
-		
+
 		echo
-		'<form action="post_media.php" method="post">'.
+		'<form action="'.$core->adminurl->get("admin.post.media").'" method="post">'.
 		'<p>'.__('Are you sure you want to remove this attachment?').'</p>'.
 		'<p><input type="submit" class="reset" value="'.__('Cancel').'" /> '.
 		' &nbsp; <input type="submit" class="delete" name="remove" value="'.__('Yes').'" />'.
@@ -71,9 +79,8 @@ if (($post_id && $media_id) || $core->error->flag())
 		form::hidden('media_id',$media_id).
 		$core->formNonce().'</p>'.
 		'</form>';
-		
+
 		dcPage::close();
 		exit;
 	}
 }
-?>

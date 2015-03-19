@@ -15,10 +15,10 @@ $this->registerModule(
 	/* Name */		"Pages",
 	/* Description*/	"Serve entries as simple web pages",
 	/* Author */		"Olivier Meunier",
-	/* Version */		'1.2',
+	/* Version */		'1.4',
 	array(
 		'permissions' =>	'contentadmin,pages',
-		'priority' =>	999
+		'priority' =>	999,
+		'type'		=>		'plugin'
 	)
 );
-?>

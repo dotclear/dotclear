@@ -21,57 +21,75 @@ class tplSimpleMenu
 	# Template function
 	public static function simpleMenu($attr)
 	{
+		global $core;
+
+		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
+			return '';
+
 		$class = isset($attr['class']) ? trim($attr['class']) : '';
 		$id = isset($attr['id']) ? trim($attr['id']) : '';
 		$description = isset($attr['description']) ? trim($attr['description']) : '';
-		
-		if (!preg_match('#^(title|span)$#',$description)) {
+
+		if (!preg_match('#^(title|span|both|none)$#',$description)) {
 			$description = '';
 		}
-		
+
 		return '<?php echo tplSimpleMenu::displayMenu('.
 				"'".addslashes($class)."',".
 				"'".addslashes($id)."',".
 				"'".addslashes($description)."'".
 			'); ?>';
 	}
-	
+
 	# Widget function
 	public static function simpleMenuWidget($w)
 	{
 		global $core, $_ctx;
-		
+
+		$descr_type = array(0 => 'span',1 => 'title',2 => 'both',3 => 'none');
+
+		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
+			return;
+
+		if ($w->offline)
+			return;
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 
-		$menu = tplSimpleMenu::displayMenu('','','title');
+		$description = 'title';
+		if (isset($descr_type[$w->description])) {
+			$description = $descr_type[$w->description];
+		}
+		$menu = tplSimpleMenu::displayMenu('','',$description);
 		if ($menu == '') {
 			return;
 		}
 
-		return
-			($w->content_only ? '' : '<div class="simple-menu'.($w->class ? ' '.html::escapeHTML($w->class) : '').'">').
-			($w->title ? '<h2>'.html::escapeHTML($w->title).'</h2>' : '').$menu.
-			($w->content_only ? '' : '</div>');
+		return $w->renderDiv($w->content_only,'simple-menu '.$w->class,'',
+			($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '').$menu);
 	}
-	
+
 	public static function displayMenu($class='',$id='',$description='')
 	{
 		global $core;
 
 		$ret = '';
 
+		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
+			return $ret;
+
 		$menu = $GLOBALS['core']->blog->settings->system->get('simpleMenu');
 		$menu = @unserialize($menu);
 
-		if (is_array($menu)) 
+		if (is_array($menu))
 		{
 			// Current relative URL
 			$url = $_SERVER['REQUEST_URI'];
 			$abs_url = http::getHost().$url;
-		
+
 			// Home recognition var
 			$home_url = html::stripHostURL($GLOBALS['core']->blog->url);
 			$home_directory = dirname($home_url);
@@ -86,24 +104,26 @@ class tplSimpleMenu
 
 				# Active item test
 				$active = false;
-				if (($url == $href) || 
-					($abs_url == $href) || 
-					($_SERVER['URL_REQUEST_PART'] == $href) || 
+				if (($url == $href) ||
+					($abs_url == $href) ||
+					($_SERVER['URL_REQUEST_PART'] == $href) ||
 					(($_SERVER['URL_REQUEST_PART'] == '') && (($href == $home_url) || ($href == $home_directory)))) {
 					$active = true;
 				}
 				$title = $span = '';
 				if ($m['descr']) {
-					if ($description == 'title') {
-						$title = ' title="'.__($m['descr']).'"';
-					} else {
-						$span = ' <span>'.__($m['descr']).'</span>';
+					if ($description == 'title' || $description == 'both') {
+						$title = ' title="'.html::escapeHTML(__($m['descr'])).'"';
+					}
+					if ($description == 'span' || $description == 'both') {
+						$span = ' <span>'.html::escapeHTML(__($m['descr'])).'</span>';
 					}
 				}
+				$label = html::escapeHTML(__($m['label']));
 
 				$item = new ArrayObject(array(
 					'url' => $href,					// URL
-					'label' => __($m['label']),		// <a> link label
+					'label' => $label,				// <a> link label
 					'title' => $title,				// <a> link title (optional)
 					'span' => $span,				// description (will be displayed after <a> link)
 					'active' => $active,			// status (true/false)
@@ -122,15 +142,13 @@ class tplSimpleMenu
 						'<a href="'.$href.'"'.$item['title'].'>'.$item['label'].$item['span'].'</a>'.
 						'</li>';
 			}
-			
+
 			// Final rendering
 			if ($ret) {
-				$ret = '<ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'">'."\n".$ret."\n".'</ul>';
+				$ret = '<ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'" role="navigation">'."\n".$ret."\n".'</ul>';
 			}
 		}
 
 		return $ret;
 	}
 }
-
-?>

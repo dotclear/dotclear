@@ -40,7 +40,7 @@ msgstr "올린 때 : "
 msgid "Continue reading"
 msgstr "본문으로"
 
-msgid "no comment"
+msgid "no comments"
 msgstr "댓글 없음"
 
 msgid "one comment"
@@ -49,7 +49,7 @@ msgstr "댓글 하나"
 msgid "%d comments"
 msgstr "댓글 %d 개"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "글걸이 없음"
 
 msgid "one trackback"
@@ -58,7 +58,7 @@ msgstr "글걸이 1 개"
 msgid "%d trackbacks"
 msgstr "글걸이 %d 개"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "첨부파일 없음"
 
 msgid "one attachment"

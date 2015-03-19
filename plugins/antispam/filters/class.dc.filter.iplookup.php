@@ -15,6 +15,7 @@ class dcFilterIpLookup extends dcSpamFilter
 {
 	public $name = 'IP Lookup';
 	public $has_gui = true;
+	public $help = 'iplookup-filter';
 
 	private $default_bls = 'sbl-xbl.spamhaus.org , bsb.spamlookup.net';
 
@@ -43,21 +44,15 @@ class dcFilterIpLookup extends dcSpamFilter
 			return;
 		}
 
-		$match = array();
-
 		$bls = $this->getServers();
 		$bls = preg_split('/\s*,\s*/',$bls);
 
-		foreach ($bls as $bl)
-		{
+		foreach ($bls as $bl) {
 			if ($this->dnsblLookup($ip,$bl)) {
-				$match[] = $bl;
+				// Pass by reference $status to contain matching DNSBL
+				$status = $bl;
+				return true;
 			}
-		}
-
-		if (!empty($match)) {
-			$status = substr(implode(', ',$match),0,128);
-			return true;
 		}
 	}
 
@@ -70,7 +65,8 @@ class dcFilterIpLookup extends dcSpamFilter
 			try {
 				$this->core->blog->settings->addNamespace('antispam');
 				$this->core->blog->settings->antispam->put('antispam_dnsbls',$_POST['bls'],'string','Antispam DNSBL servers',true,false);
-				http::redirect($url.'&upd=1');
+				dcPage::addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
+				http::redirect($url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
@@ -78,17 +74,16 @@ class dcFilterIpLookup extends dcSpamFilter
 
 		/* DISPLAY
 		---------------------------------------------- */
-		$res = '';
+		$res = dcPage::notices();
 
 		$res .=
-		'<form action="'.html::escapeURL($url).'" method="post">'.
-		'<fieldset><legend>' . __('IP Lookup servers') . '</legend>'.
-		'<p><label for="bls">'.__('Add here a coma separated list of servers.').
+		'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
+		'<h3>' . __('IP Lookup servers') . '</h3>'.
+		'<p><label for="bls">'.__('Add here a coma separated list of servers.').'</label>'.
 		form::textarea('bls',40,3,html::escapeHTML($bls),'maximal').
 		'</p>'.
-		'<p><input type="submit" value="'.__('Save').'" /></label></p>'.
+		'<p><input type="submit" value="'.__('Save').'" />'.
 		$this->core->formNonce().'</p>'.
-		'</fieldset>'.
 		'</form>';
 
 		return $res;
@@ -118,4 +113,3 @@ class dcFilterIpLookup extends dcSpamFilter
 		return false;
 	}
 }
-?>

@@ -15,18 +15,16 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 $q = !empty($_GET['q']) ? $_GET['q'] : null;
+$plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) : '';
 
-$page = !empty($_GET['page']) ? (integer) $_GET['page'] : 1;
+$page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  10;
+
+$type = !empty($_GET['type']) ? $_GET['type'] : null;
 
 $post_types = $core->getPostTypes();
 foreach ($post_types as $k => $v) {
  	$type_combo[__($k)] = (string) $k;
-}
-$type = !empty($_POST['type']) ? $_POST['type'] : null;
-if (!$type && $q) {
-	// Cope with search form
-	$type = !empty($_GET['type']) ? $_GET['type'] : null;
 }
 if (!in_array($type, $type_combo)) {
 	$type = null;
@@ -47,21 +45,21 @@ if ($type) {
 
 dcPage::openPopup(__('Add a link to an entry'),
 	dcPage::jsLoad('js/_posts_list.js').
-	dcPage::jsLoad('js/jsToolBar/popup_posts.js'));
+	$core->callBehavior('adminPopupPosts', $plugin_id));
 
 echo '<h2 class="page-title">'.__('Add a link to an entry').'</h2>';
 
-echo '<form action="popup_posts.php" method="post">'.
-	'<p><label for"type" class="classic">'.__('Entry type:').' '.form::combo('type',$type_combo,$type).'</label></p>'.
-	$core->formNonce().
+echo '<form action="popup_posts.php" method="get">'.
+	'<p><label for="type" class="classic">'.__('Entry type:').'</label> '.form::combo('type',$type_combo,$type).''.
 	'<noscript><div><input type="submit" value="'.__('Ok').'" /></div></noscript>'.
 	'</form>';
 
 echo '<form action="popup_posts.php" method="get">'.
-	'<p><label for="q" class="classic">'.__('Search entry:').' '.form::field('q',30,255,html::escapeHTML($q)).'</label> '.
-	' <input type="submit" value="'.__('Search').'" /></p>'.
+	'<p><label for="q" class="classic">'.__('Search entry:').'</label> '.form::field('q',30,255,html::escapeHTML($q)).
+	' <input type="submit" value="'.__('Search').'" />'.
+	form::hidden('plugin_id',html::escapeHTML($plugin_id)).
 	form::hidden('type',html::escapeHTML($type)).
-	'</form>';
+	'</p></form>';
 
 try {
 	$posts = $core->blog->getPosts($params);
@@ -78,4 +76,3 @@ echo '</div>';
 echo '<p><a class="button" href="#" id="link-insert-cancel">'.__('cancel').'</a></p>';
 
 dcPage::closePopup();
-?>

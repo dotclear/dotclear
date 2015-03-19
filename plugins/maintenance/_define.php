@@ -13,8 +13,12 @@ if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
 	/* Name */			"Maintenance",
-	/* Description*/		"Maintain your database",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'1.2'
+	/* Description*/		"Maintain your installation",
+	/* Author */			"Olivier Meunier & Association Dotclear",
+	/* Version */			'1.3.1',
+	array(
+		'permissions' =>	'admin',
+		'type'		=>		'plugin'
+	)
+
 );
-?>

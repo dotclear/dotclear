@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-// Database driver (mysql, pgsql, sqlite)
+// Database driver (mysql, mysqli, pgsql, sqlite)
 define('DC_DBDRIVER','');
 
 // Database hostname (usually "localhost")
@@ -49,7 +49,7 @@ define('DC_SESSION_NAME','dcxd');
 define('DC_PLUGINS_ROOT',dirname(__FILE__).'/../plugins');
 
 // Template cache directory
-define('DC_TPL_CACHE',dirname(__FILE__).'/../cache');
+define('DC_TPL_CACHE',path::real(dirname(__FILE__).'/..').'/cache');
 
 
 // If you have PATH_INFO issue, uncomment following lines
@@ -66,5 +66,3 @@ define('DC_TPL_CACHE',dirname(__FILE__).'/../cache');
 //	socketMail::$smtp_relay = 'my.smtp.relay.org';
 //	socketMail::mail($to,$subject,$message,$headers);
 //}
-
-?>

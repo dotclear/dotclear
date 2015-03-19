@@ -15,22 +15,20 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 <html>
 <head>
   <title><?php echo __('Tags'); ?></title>
-  <link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF('tags/style.css'); ?>" />
 </head>
 
 <body>
 <?php
-dcPage::breadcrumb(
+echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
-		'<span class="page-title">'.__('Tags').'</span>' => ''
-	));
+		__('Tags') => ''
+	)).
+	dcPage::notices();
 ?>
 
 <?php
-if (!empty($_GET['del'])) {
-	dcPage::message(__('Tag has been successfully removed'));
-}
 
 $tags = $core->meta->getMetadata(array('meta_type' => 'tag'));
 $tags = $core->meta->computeMetaStats($tags);
@@ -42,14 +40,14 @@ $col = 0;
 while ($tags->fetch())
 {
 	$letter = mb_strtoupper(mb_substr($tags->meta_id,0,1));
-	
+
 	if ($last_letter != $letter) {
 		if ($tags->index() >= round($tags->count()/2)) {
 			$col = 1;
 		}
 		$cols[$col] .= '<tr class="tagLetter"><td colspan="2"><span>'.$letter.'</span></td></tr>';
 	}
-	
+
 	$cols[$col] .=
 	'<tr class="line">'.
 		'<td class="maximal"><a href="'.$p_url.
@@ -57,7 +55,7 @@ while ($tags->fetch())
 		'<td class="nowrap"><strong>'.$tags->count.'</strong> '.
 		(($tags->count==1) ? __('entry') : __('entries')).'</td>'.
 	'</tr>';
-	
+
 	$last_letter = $letter;
 }
 
@@ -76,6 +74,8 @@ else
 {
 	echo '<p>'.__('No tags on this blog.').'</p>';
 }
+
+dcPage::helpBlock('tags');
 ?>
 
 </body>

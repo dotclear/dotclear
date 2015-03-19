@@ -22,4 +22,3 @@ $settings->themes->put('blowup_style','','string','Blow Up  custom style',false)
 
 $core->setVersion('blowupConfig',$version);
 return true;
-?>

@@ -1,0 +1,55 @@
+<div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} full" lang="{{tpl:EntryLang}}" role="article">
+
+	<!-- # New day date -->
+	<tpl:DateHeader><p class="post-day-date">{{tpl:EntryDate}}</p></tpl:DateHeader>
+
+	<h2 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
+
+	<!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+	{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+
+	<tpl:EntryIf extended="1">
+	<div class="post-excerpt">{{tpl:EntryExcerpt}}</div>
+	</tpl:EntryIf>
+
+	<div class="post-content">{{tpl:EntryContent}}</div>
+
+	<!-- # --BEHAVIOR-- publicEntryAfterContent -->
+	{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+
+	<div class="post-meta">
+		<p class="post-info">
+			<span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
+			<span class="post-date">{{tpl:EntryDate}}.</span>
+			<tpl:EntryIf has_category="1">
+			<span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
+				href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a
+				href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a>
+			</span>
+			</tpl:EntryIf>
+		</p>
+
+		<tpl:EntryTags>
+			<tpl:TagsHeader>
+			<ul class="post-tags-list">
+			</tpl:TagsHeader>
+				<li class="post-tags-item"><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
+			<tpl:TagsFooter>
+			</ul>
+			</tpl:TagsFooter>
+		</tpl:EntryTags>
+
+		<!-- # Number of comments, trackbacks and attachments -->
+		<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+			<p class="post-info-co">
+			<tpl:EntryIf show_comments="1">
+			<a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
+			</tpl:EntryIf>
+			<tpl:EntryIf show_pings="1">
+			<a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
+			<tpl:EntryIf has_attachment="1">
+			<a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
+			</p>
+		</tpl:EntryIf>
+	</div>
+</div>

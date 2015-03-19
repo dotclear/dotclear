@@ -1,0 +1,184 @@
+.jstEditor {
+	border-width : 0 1px 1px 1px;
+	border-style : solid;
+	border-color : #ddd;
+	background : #f7f7f7;
+}
+.jstEditor textarea, .jstEditor iframe {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	border: 1px solid #fbfbfb;
+  	width: 100%;
+  	padding: .5em 0 0 0;
+  	min-height: 100px;
+}
+.jstHandle {
+	height: 8px;
+	background: #ccc url(?pf=dcLegacyEditor/css/jsToolBar/resize.png) no-repeat center center;
+	font-size: 0.1em;
+	cursor: s-resize;
+	border-color: #ccc #ccc #ccc #000;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+}
+.jstEditor textarea:focus, .jstEditor iframe:focus {
+	border-color: #bee74b;
+}
+.jstElements {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 32px 0 1rem;
+	border: 1px solid #dfdfdf;
+	overflow: hidden;
+	background: #f5f5f5;
+	border-radius: 4px 4px 0 0;
+	position: relative;
+	line-height: 30px;
+}
+.jstElements select, .jstElements button {
+	vertical-align: middle;
+}
+.jstElements select {
+	width: 12em;
+	margin-right: .6rem;
+	border: 1px solid #ddd;
+}
+.jstElements button {
+	width: 30px;
+	height: 28px;
+	border-style: solid;
+	border-width: 1px;
+	margin-left: 2px;
+	margin-bottom: 2px;
+	border-color: #e5e5e5 #ccc #ccc #e5e5e5;
+	background-color : #f7f7f7;
+	background-position : 50% 50%;
+	background-repeat: no-repeat;
+}
+.jstElements button:hover, .jstElements button:focus {
+	border-color : #ddd;
+	background-color: #fff;
+}
+.jstElements button span {
+	display: none;
+}
+.jstElements span {
+	display : inline-block;
+	vertical-align: top;
+}
+span.jstSpacer {
+	width : 8px;
+}
+.jstSwitcher {
+	display: block;
+	list-style: none;
+	margin: 0;
+	padding: 0 0 5px 0;
+	background: #dfdfdf;
+	border-top: 1px solid #999;
+}
+.jstSwitcher li {
+	display: inline;
+	margin: 0 0 0 5px;
+	padding: 2px 8px;
+}
+.jstSwitcher li.jstSwitcherCurrent {
+	color: #fff;
+	background: #677374;
+	border-radius: 0 0 2px 2px;
+}
+.jstSwitcher a {
+	font-weight: normal;
+	border-bottom: none !important;
+}
+
+/* Buttons
+-------------------------------------------------------- */
+button.jstb_strong {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_strong.png);
+}
+button.jstb_em {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_em.png);
+}
+button.jstb_ins {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ins.png);
+}
+button.jstb_del {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_del.png);
+}
+button.jstb_quote {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_quote.png);
+}
+button.jstb_code {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_code.png);
+}
+button.jstb_paragraph {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_paragraph.png);
+}
+button.jstb_br {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_br.png);
+}
+button.jstb_blockquote {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_bquote.png);
+}
+button.jstb_pre {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_pre.png);
+}
+button.jstb_ul {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ul.png);
+}
+button.jstb_ol {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ol.png);
+}
+button.jstb_link {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_link.png);
+}
+button.jstb_img {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img.png);
+}
+button.jstb_img_select {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img_select.png);
+}
+button.jstb_post_link {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_post.png);
+}
+button.jstb_removeFormat {
+	background-color: #e5e5e5;
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.png);
+	position: absolute;
+	right: 2px;
+	top: 1px;
+	border-color: #ccc;
+}
+
+/* WYSIWYG Iframe */
+.wysiwygIframe {
+	border-width : 1px;
+	border-style : solid;
+	border-color : #000 #ccc #ccc #000;
+	width : 100%;
+}
+
+/* WYSIWYG Document */
+body.wysiwygDoc {
+	font: 12px "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;
+	color : #000;
+	background: #f9f9f9;
+	margin: 0;
+	padding : 2px;
+	border: none;
+}
+.wysiwygDoc pre, .wysiwygDoc code, .wysiwygDoc kbd, .wysiwygDoc samp {
+	font-family:"Courier New",Courier,monospace;
+	font-size : 1.1em;
+}
+.wysiwygDoc code {
+	color : #666;
+	font-weight : bold;
+}
+body.wysiwygDoc  > p:first-child {
+	margin-top: 0;
+}

@@ -1,24 +1,24 @@
 $(function() {
 	var tag_field = $('#new_tags');
-	
+
 	tag_field.after('<div id="tags_list"></div>');
 	tag_field.hide();
-	
-	var target = $('#tags_list');	
-	var mEdit = new metaEditor(target,tag_field,'tag');
+
+	var target = $('#tags_list');
+	var mEdit = new metaEditor(target,tag_field,'tag',editor_tags_options);
 	mEdit.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';
-	
+
 	mEdit.meta_dialog = $('<input type="text" />');
 	mEdit.meta_dialog.attr('title',mEdit.text_add_meta.replace(/%s/,mEdit.meta_type));
 	mEdit.meta_dialog.attr('id','post_meta_input');
 	mEdit.meta_dialog.css('width','90%');
-	
+
 	mEdit.addMetaDialog();
-	
+
 	$('input[name="save_tags"]').click(function() {
 		tag_field.val($('#post_meta_input').val());
 	});
-	
+
 	$('#post_meta_input').autocomplete(mEdit.service_uri, {
 		extraParams: {
 			'f': 'searchMeta',
@@ -28,7 +28,7 @@ $(function() {
 		multiple: true,
 		matchSubset: false,
 		matchContains: true,
-		parse: function(xml) { 
+		parse: function(xml) {
 			var results = [];
 			$(xml).find('meta').each(function(){
 				results[results.length] = {
@@ -38,7 +38,7 @@ $(function() {
 						"percent":  $(this).attr("roundpercent")
 					},
 					result: $(this).text()
-				}; 
+				};
 			});
 			return results;
 		},
@@ -53,8 +53,8 @@ $(function() {
 				) +
 			')</em>';
 		},
-		formatResult: function(tag) { 
-			return tag.result; 
+		formatResult: function(tag) {
+			return tag.result;
 		}
 	});
 });

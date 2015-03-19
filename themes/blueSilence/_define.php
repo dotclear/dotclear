@@ -15,6 +15,8 @@ $this->registerModule(
 	/* Name */			"Blue Silence",
 	/* Description*/		"Dotclear Theme",
 	/* Author */			"Marco / marcarea.com",
-	/* Version */			'1.0'
+	/* Version */			'1.0',
+	array(
+		'type'		=>		'theme'
+	)
 );
-?>

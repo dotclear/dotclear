@@ -11,7 +11,8 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$_menu['System']->addItem('user:preferences','plugin.php?p=userPref','index.php?pf=userPref/icon.png',
-		preg_match('/plugin.php\?p=userPref(&.*)?$/',$_SERVER['REQUEST_URI']),
+$_menu['System']->addItem('user:preferences',
+		$core->adminurl->get('admin.plugin.userPref'),
+		dcPage::getPF('userPref/icon.png'),
+		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.userPref')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin());
-?>

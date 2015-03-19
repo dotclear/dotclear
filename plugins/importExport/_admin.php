@@ -13,23 +13,31 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $_menu['Plugins']->addItem(
 	__('Import/Export'),
-	'plugin.php?p=importExport',
-	'index.php?pf=importExport/icon.png',
-	preg_match('/plugin.php\?p=importExport(&.*)?$/',$_SERVER['REQUEST_URI']),
+	$core->adminurl->get('admin.plugin.importExport'),
+	dcPage::getPF('importExport/icon.png'),
+	preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.importExport')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
 	$core->auth->check('admin',$core->blog->id)
 );
 
-$core->addBehavior('adminDashboardFavs','importExportDashboardFavs');
+$core->addBehavior('adminDashboardFavorites','importExportDashboardFavorites');
 
-function importExportDashboardFavs($core,$favs)
+function importExportDashboardFavorites($core,$favs)
 {
-	$favs['importExport'] = new ArrayObject(array(
-		'importExport',
-		__('Import/Export'),
-		'plugin.php?p=importExport',
-		'index.php?pf=importExport/icon.png',
-		'index.php?pf=importExport/icon-big.png',
-		'admin',null,null
+	$favs->register('importExport', array(
+		'title' => __('Import/Export'),
+		'url' => $core->adminurl->get('admin.plugin.importExport'),
+		'small-icon' => dcPage::getPF('importExport/icon.png'),
+		'large-icon' => dcPage::getPF('importExport/icon-big.png'),
+		'permissions' => 'admin'
 	));
 }
-?>
+
+$core->addBehavior('dcMaintenanceInit', 'ieMaintenanceInit');
+
+function ieMaintenanceInit($maintenance)
+{
+	$maintenance
+	->addTask('ieMaintenanceExportblog')
+	->addTask('ieMaintenanceExportfull')
+	;
+}

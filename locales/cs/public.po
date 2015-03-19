@@ -42,7 +42,8 @@ msgstr "v"
 msgid "Continue reading"
 msgstr "Číst dál..."
 
-msgid "no comment"
+#, fuzzy
+msgid "no comments"
 msgstr "žádné komentáře"
 
 msgid "one comment"
@@ -51,7 +52,7 @@ msgstr "jeden komentář"
 msgid "%d comments"
 msgstr "%d komentářů(e)"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "žádné trackbacky"
 
 msgid "one trackback"
@@ -60,7 +61,7 @@ msgstr "jeden trackback"
 msgid "%d trackbacks"
 msgstr "%d trackbacků(y)"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "žádná příloha"
 
 msgid "one attachment"

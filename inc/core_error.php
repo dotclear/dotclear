@@ -13,11 +13,10 @@
 header('Content-Type: text/html; charset=utf-8');
 header("HTTP/1.0 ".$code." ".$summary);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Language" content="en" />
+  <meta charset="UTF-8" />
   <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
   <meta name="GOOGLEBOT" content="NOSNIPPET" />
   <title>Dotclear - Error</title>
@@ -37,16 +36,16 @@ header("HTTP/1.0 ".$code." ".$summary);
 	  font-size: 1.2em;
   }
   a, a:link, a:visited {
-	color : #06c;
+	color : #2373A8;
 	text-decoration : none;
 	border-bottom : 1px dotted #f90;
   }
   h1 {
-  	color: #06c;
+  	color: #2373A8;
   	font-size: 2.5em;
   	font-weight: normal;
   }
-  
+
   h2 {
   	font-size: 1.5em;
   }

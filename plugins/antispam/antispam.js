@@ -5,7 +5,7 @@ $(function() {
 	}, function () {
 		$(this).css({'cursor':'auto'});
 	});
-	$('#filters-form').submit(function() {
+	$('#filters-list-form').submit(function() {
 		var order=[];
 		$("#filters-list tr td input.position").each(function() {
 			order.push(this.name.replace(/^f_order\[([^\]]+)\]$/,'$1'));
@@ -15,4 +15,8 @@ $(function() {
 	});
 	$("#filters-list tr td input.position").hide();
 	$("#filters-list tr td.handle").addClass('handler');
+
+	$('form input[type=submit][name=delete_all]').click(function(){
+		return window.confirm(dotclear.msg.confirm_spam_delete);
+	});
 });

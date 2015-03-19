@@ -40,7 +40,8 @@ msgstr "తేదీ"
 msgid "Continue reading"
 msgstr "చదవడం కొనసాగించండి"
 
-msgid "no comment"
+#, fuzzy
+msgid "no comments"
 msgstr "వ్యాఖ్యలు లేవు"
 
 msgid "one comment"
@@ -49,7 +50,7 @@ msgstr "ఒక వ్యాఖ్య"
 msgid "%d comments"
 msgstr "%d వ్యాఖ్యలు"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "ట్రాకుబ్యాకులు లేవు"
 
 msgid "one trackback"
@@ -58,7 +59,7 @@ msgstr "ఒక ట్రాకుబ్యాకు"
 msgid "%d trackbacks"
 msgstr "%d ట్రాకుబ్యాకులు"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "జోడింపులు లేవు"
 
 msgid "one attachment"

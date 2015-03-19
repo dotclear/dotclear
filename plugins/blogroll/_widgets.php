@@ -19,8 +19,8 @@ class blogrollWidgets
 	public static function initWidgets($w)
 	{
 		$w->create('links',__('Blogroll'),array('tplBlogroll','linksWidget'),null,'Blogroll list');
-		$w->links->setting('title',__('Title:'),__('Links'));
-		
+		$w->links->setting('title',__('Title (optional)').' :',__('Links'));
+
 		$br = new dcBlogroll($GLOBALS['core']->blog);
 		$h = $br->getLinksHierarchy($br->getLinks());
 		$h = array_keys($h);
@@ -32,7 +32,7 @@ class blogrollWidgets
 		}
 		unset($br,$h);
 		$w->links->setting('category',__('Category'),'','combo',$categories);
-		
+
 		$w->links->setting('homeonly',__('Display on:'),1,'combo',
 			array(
 				__('All pages') => 0,
@@ -42,11 +42,11 @@ class blogrollWidgets
 		);
 		$w->links->setting('content_only',__('Content only'),0,'check');
 		$w->links->setting('class',__('CSS class:'),'');
+		$w->links->setting('offline',__('Offline'),0,'check');
 	}
-	
+
 	public static function initDefaultWidgets($w,$d)
 	{
 		$d['extra']->append($w->links);
 	}
 }
-?>

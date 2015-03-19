@@ -25,7 +25,7 @@ $s->spamrule
 	->blog_id		('varchar',	32,	true)
 	->rule_type	('varchar',	16,	false,	"'word'")
 	->rule_content	('varchar',	128,	false)
-	
+
 	->primary('pk_spamrule','rule_id')
 	;
 
@@ -53,4 +53,3 @@ $settings->antispam->put('antispam_moderation_ttl',0,'integer','Antispam Moderat
 
 $core->setVersion('antispam',$version);
 return true;
-?>

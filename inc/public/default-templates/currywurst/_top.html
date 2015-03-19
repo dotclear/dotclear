@@ -1,0 +1,20 @@
+<div class="header">
+	<nav role="navigation">
+		<ul class="skip-links" id="prelude">
+			<li><a href="#main">{{tpl:lang To content}}</a></li>
+			<li><a href="#blognav">{{tpl:lang To menu}}</a></li>
+			<li><a href="#search">{{tpl:lang To search}}</a></li>
+		</ul>
+	</nav>
+
+	<div class="banner" role="banner">
+		<h1 class="site-title"><a class="site-title__link"
+			href="{{tpl:BlogURL}}"><span class="site-title__text">{{tpl:BlogName encode_html="1"}}</span></a></h1>
+		<p class="site-baseline">{{tpl:BlogDescription}}</p>
+	</div>
+
+	<!-- # --BEHAVIOR-- publicTopAfterContent -->
+	{{tpl:SysBehavior behavior="publicTopAfterContent"}}
+
+	{{tpl:SimpleMenu class="nav header__nav"}}
+</div>

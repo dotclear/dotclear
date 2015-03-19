@@ -12,23 +12,40 @@
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
 $core->addBehavior('adminDashboardIcons','blogroll_dashboard');
-$core->addBehavior('adminDashboardFavs','blogroll_dashboard_favs');
+$core->addBehavior('adminDashboardFavorites','blogroll_dashboard_favorites');
+$core->addBehavior('adminUsersActionsHeaders','blogroll_users_actions_headers');
+
 function blogroll_dashboard($core,$icons)
 {
-	$icons['blogroll'] = new ArrayObject(array(__('Blogroll'),'plugin.php?p=blogroll','index.php?pf=blogroll/icon.png'));
+	$icons['blogroll'] = new ArrayObject(array(
+		__('Blogroll'),
+		$core->adminurl->get('admin.plugin.blogroll'),
+		dcPage::getPF('blogroll/icon.png')
+		));
 }
-function blogroll_dashboard_favs($core,$favs)
+function blogroll_dashboard_favorites($core,$favs)
 {
-	$favs['blogroll'] = new ArrayObject(array('blogroll','Blogroll','plugin.php?p=blogroll',
-		'index.php?pf=blogroll/icon-small.png','index.php?pf=blogroll/icon.png',
-		'usage,contentadmin',null,null));
+	$favs->register('blogroll', array(
+		'title' => __('Blogroll'),
+		'url' => $core->adminurl->get('admin.plugin.blogroll'),
+		'small-icon' => dcPage::getPF('blogroll/icon-small.png'),
+		'large-icon' => dcPage::getPF('blogroll/icon.png'),
+		'permissions' => 'usage,contentadmin'
+	));
+}
+function blogroll_users_actions_headers()
+{
+	global $core;
+
+	return dcPage::jsLoad(dcPage::getPF('blogroll/_users_actions.js'));
 }
 
-$_menu['Blog']->addItem(__('Blogroll'),'plugin.php?p=blogroll','index.php?pf=blogroll/icon-small.png',
-                preg_match('/plugin.php\?p=blogroll(&.*)?$/',$_SERVER['REQUEST_URI']),
-                $core->auth->check('usage,contentadmin',$core->blog->id));
+$_menu['Blog']->addItem(__('Blogroll'),
+	$core->adminurl->get('admin.plugin.blogroll'),
+	dcPage::getPF('blogroll/icon-small.png'),
+    preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.blogroll')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
+    $core->auth->check('usage,contentadmin',$core->blog->id));
 
 $core->auth->setPermissionType('blogroll',__('manage blogroll'));
 
 require dirname(__FILE__).'/_widgets.php';
-?>

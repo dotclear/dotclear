@@ -7,7 +7,7 @@ Standards-Version: 3.6.1
 
 Package: dotclear
 Architecture: all
-Depends: ${misc:Depends}, apache2 | httpd | apache, libclearbricks, php5-pgsql | php5-sqlite | php5-mysql, php5-gd
+Depends: ${misc:Depends}, apache2 | httpd | apache, libclearbricks, php5-pgsql | php5-sqlite | php5-mysql | php5-mysqli, php5-gd
 Suggests: php5-tidy
 Description: DotClear 2
  Dotclear is a blog engine written in PHP 5.

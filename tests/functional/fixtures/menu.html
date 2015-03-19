@@ -1,0 +1,36 @@
+<div id="menu">
+  <div id="status-box" class="box">
+    <h4>État</h4>
+    <p class="entry-status">
+      <label for="post_status" class="ib">État du billet <img class="img_select_option" alt="Publié" title="Publié" src="../../admin/images/check-on.png" /></label>
+      <select name="post_status" id="post_status" class="maximal" >
+	<option value="-2">En attente</option>
+	<option value="-1">Programmé</option>
+	<option value="0">Non publié</option>
+	<option value="1" selected="selected">Publié</option>
+      </select>
+    </p>
+    <p>
+      <label for="post_dt" class="ib">Date et heure de publication</label>
+      <input type="text" size="16" name="post_dt" id="post_dt" maxlength="16" value="2013-08-15 13:17"  /></p>
+    <p>
+      <label for="post_lang" class="ib">Langue du billet</label>
+      <select name="post_lang" id="post_lang" >
+	<option value=""></option>
+	<optgroup label="Plus utilisées">
+	  <option value="fr" selected="selected">fr - Français</option>
+	</optgroup>
+	<optgroup label="Disponible">
+	  <option value="aa">aa - Afaraf</option>
+	  <option value="zu">zu - isiZulu</option>
+	</optgroup>
+      </select>
+    </p>
+    <p>
+      <label for="post_format" class="ib">Syntaxe de saisie</label><select name="post_format" id="post_format" class="maximal" >
+	<option value="xhtml" selected="selected">xhtml</option>
+	<option value="wiki">wiki</option>
+      </select>
+    </p>
+  </div>
+</div>

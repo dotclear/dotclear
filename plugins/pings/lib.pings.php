@@ -17,13 +17,13 @@ class pingsAPI extends xmlrpcClient
 	{
 		$o = new self($srv_uri);
 		$o->timeout = 3;
-		
+
 		$rsp = $o->query('weblogUpdates.ping',$site_name,$site_url);
-		
+
 		if (isset($rsp['flerror']) && $rsp['flerror']) {
 			throw new Exception($rsp['message']);
 		}
-		
+
 		return true;
 	}
 }
@@ -32,60 +32,64 @@ class pingsBehaviors
 {
 	public static function pingJS()
 	{
+		global $core;
+
 		$res =
 		"<script type=\"text/javascript\">\n//<![CDATA[\n".
 		dcPage::jsVar('dotclear.msg.check_all',__('Check all'))."\n".
-		"</script>\n".dcPage::jsLoad('index.php?pf=pings/post.js');
-		
+		"</script>\n".dcPage::jsLoad(dcPage::getPF('pings/post.js'));
+
 		return $res;
 	}
-	
-	public static function pingsForm($post)
+
+	public static function pingsFormItems($main,$sidebar,$post)
 	{
 		$core =& $GLOBALS['core'];
 		if (!$core->blog->settings->pings->pings_active) {
 			return;
 		}
-		
+
 		$pings_uris = @unserialize($core->blog->settings->pings->pings_uris);
 		if (empty($pings_uris) || !is_array($pings_uris)) {
 			return;
 		}
-		
+
 		if (!empty($_POST['pings_do']) && is_array($_POST['pings_do'])) {
 			$pings_do = $_POST['pings_do'];
 		} else {
 			$pings_do = array();
 		}
-		
-		echo '<h3 class="ping-services">'.__('Pings:').'</h3>';
+
+		$item = '<h5 class="ping-services">'.__('Pings').'</h5>';
 		$i = 0;
 		foreach ($pings_uris as $k => $v)
 		{
-			echo
+			$item .=
 			'<p class="ping-services"><label for="pings_do-'.$i.'" class="classic">'.
-			form::checkbox(array('pings_do[]','pings_do-'.$i),html::escapeHTML($v),in_array($v,$pings_do)).' '.
+			form::checkbox(array('pings_do[]','pings_do-'.$i),html::escapeHTML($v),in_array($v,$pings_do), 'check-ping-services').' '.
 			html::escapeHTML($k).'</label></p>';
 			$i++;
 		}
+		$sidebar['options-box']['items']['pings']=$item;
+
 	}
-	
+
 	public static function doPings($cur,$post_id)
 	{
 		if (empty($_POST['pings_do']) || !is_array($_POST['pings_do'])) {
 			return;
 		}
-		
+
 		$core =& $GLOBALS['core'];
 		if (!$core->blog->settings->pings->pings_active) {
 			return;
 		}
-		
+
 		$pings_uris = @unserialize($core->blog->settings->pings->pings_uris);
 		if (empty($pings_uris) || !is_array($pings_uris)) {
 			return;
 		}
-		
+
 		foreach ($_POST['pings_do'] as $uri)
 		{
 			if (in_array($uri,$pings_uris)) {
@@ -96,4 +100,3 @@ class pingsBehaviors
 		}
 	}
 }
-?>
