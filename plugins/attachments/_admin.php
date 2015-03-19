@@ -11,60 +11,92 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$core->addBehavior ('adminPostFormSidebar',array('attachmentAdmin','adminPostFormSidebar'));
-$core->addBehavior ('adminPostAfterForm',array('attachmentAdmin','adminPostAfterForm'));
+$core->addBehavior('adminPostFormItems',array('attachmentAdmin','adminPostFormItems'));
+$core->addBehavior('adminPostAfterForm',array('attachmentAdmin','adminPostAfterForm'));
+$core->addBehavior('adminPostHeaders',array('attachmentAdmin','postHeaders'));
+$core->addBehavior('adminPageFormItems',array('attachmentAdmin','adminPostFormItems'));
+$core->addBehavior('adminPageAfterForm',array('attachmentAdmin','adminPostAfterForm'));
+$core->addBehavior('adminPageHeaders',array('attachmentAdmin','postHeaders'));
+$core->addBehavior('adminPageHelpBlock',array('attachmentAdmin','adminPageHelpBlock'));
 
 class attachmentAdmin
 {
-	public static function adminPostFormSidebar($post) 
+	public static function adminPageHelpBlock($blocks)
+	{
+		$found = false;
+		foreach($blocks as $block) {
+			if ($block == 'core_post') {
+				$found = true;
+				break;
+			}
+		}
+		if (!$found) {
+			return null;
+		}
+		$blocks[] = 'attachments';
+	}
+	public static function postHeaders()
+	{
+		$core =& $GLOBALS['core'];
+		return
+		'<script type="text/javascript" src="'.dcPage::getPF('attachments/js/post.js').'"></script>';
+	}
+	public static function adminPostFormItems($main,$sidebar,$post)
 	{
 		if ($post !== null)
 		{
 			$core =& $GLOBALS['core'];
 			$post_media = $core->media->getPostMedia($post->post_id);
-			echo
-			'<h3 class="clear">'.__('Attachments').'</h3>';
+			$nb_media = count($post_media);
+			$title = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'),$nb_media);
+			$item = '<h5 class="clear s-attachments">'.$title.'</h5>';
 			foreach ($post_media as $f)
 			{
 				$ftitle = $f->media_title;
 				if (strlen($ftitle) > 18) {
 					$ftitle = substr($ftitle,0,16).'...';
 				}
-				echo
-				'<div class="media-item">'.
-				'<a class="media-icon" href="media_item.php?id='.$f->media_id.'">'.
+				$item .=
+				'<div class="media-item s-attachments">'.
+				'<a class="media-icon" href="'.$core->adminurl->get('admin.media.item',array('id' => $f->media_id)).'">'.
 				'<img src="'.$f->media_icon.'" alt="" title="'.$f->basename.'" /></a>'.
 				'<ul>'.
-				'<li><a class="media-link" href="media_item.php?id='.$f->media_id.'"'.
+				'<li><a class="media-link" href="'.$core->adminurl->get('admin.media.item',array('id' => $f->media_id)).'" '.
 				'title="'.$f->basename.'">'.$ftitle.'</a></li>'.
 				'<li>'.$f->media_dtstr.'</li>'.
 				'<li>'.files::size($f->size).' - '.
 				'<a href="'.$f->file_url.'">'.__('open').'</a>'.'</li>'.
-				
+
 				'<li class="media-action"><a class="attachment-remove" id="attachment-'.$f->media_id.'" '.
-				'href="post_media.php?post_id='.$post->post_id.'&amp;media_id='.$f->media_id.'&amp;remove=1">'.
-				'<img src="images/check-off.png" alt="'.__('remove').'" /></a>'.
+				'href="'.$core->adminurl->get('admin.post.media',array(
+					'post_id' => $post->post_id,
+					'media_id' => $f->media_id,
+					'remove' => '1'
+					)).'">'.
+				'<img src="images/trash.png" alt="'.__('remove').'" /></a>'.
 				'</li>'.
-				
+
 				'</ul>'.
 				'</div>';
 			}
 			unset($f);
-			
+
 			if (empty($post_media)) {
-				echo '<p>'.__('No attachment.').'</p>';
-			} else {
+				$item .= '<p class="form-note s-attachments">'.__('No attachment.').'</p>';
 			}
-			echo '<p><a class="button" href="media.php?post_id='.$post->post_id.'">'.__('Add files to this entry').'</a></p>';
+			$item .=
+				'<p class="s-attachments"><a class="button" href="'.$core->adminurl->get('admin.media',array('post_id' => $post->post_id)).'">'.
+				__('Add files to this entry').'</a></p>';
+			$sidebar['metas-box']['items']['attachments']= $item;
 		}
 	}
-	
+
 	public static function adminPostAfterForm($post) {
 		if ($post !== null)
 		{
 			$core =& $GLOBALS['core'];
 			echo
-				'<form action="post_media.php" id="attachment-remove-hide" method="post">'.
+				'<form action="'.$core->adminurl->get('admin.post.media').'" id="attachment-remove-hide" method="post">'.
 				'<div>'.form::hidden(array('post_id'),$post->post_id).
 				form::hidden(array('media_id'),'').
 				form::hidden(array('remove'),1).
@@ -72,4 +104,3 @@ class attachmentAdmin
 		}
 	}
 }
-?>

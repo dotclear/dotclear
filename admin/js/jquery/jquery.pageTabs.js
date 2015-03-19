@@ -1,93 +1,103 @@
-jQuery.pageTabs = function(start_tab,settings) {
-	return new jQuery._pageTabs(start_tab,settings);
-};
+(function($) {
+	'use strict';
+    
+	$.pageTabs = function(start_tab, opts) {
+		var defaults = {
+			containerClass: 'part-tabs',
+			partPrefix: 'part-',
+			contentClass: 'multi-part',
+			activeClass: 'part-tabs-active',
+			idTabPrefix: 'part-tabs-'
+		};
+		
+		$.pageTabs.options = $.extend({}, defaults, opts);
+		var active_tab = start_tab || '';
+		var hash = $.pageTabs.getLocationHash();
 
-jQuery._pageTabs = function(start_tab,settings) {
-	var defaults = {
-		className: 'multi-part',
-		listClassName: 'part-tabs',
-		breakerClassName: 'clear'
+		if (hash !== undefined && hash) {
+			window.scrollTo(0,0);
+			active_tab = hash;
+		} else if (active_tab == '') { // open first part
+			active_tab = $('.'+$.pageTabs.options.contentClass+':eq(0)').attr('id');
+		}
+
+		createTabs();
+		
+		$('ul li', '.'+$.pageTabs.options.containerClass).click(function(e) {
+			if ($(this).hasClass($.pageTabs.options.activeClass)) {
+				return;
+			}
+
+			$(this).parent().find('li.'+$.pageTabs.options.activeClass).removeClass($.pageTabs.options.activeClass);
+			$(this).addClass($.pageTabs.options.activeClass);
+			$('.'+$.pageTabs.options.contentClass+'.active').removeClass('active').hide();
+
+			var part_to_activate = $('#'+$.pageTabs.options.partPrefix+getHash($(this).find('a').attr('href')));
+
+			part_to_activate.addClass('active').show();
+			if (!part_to_activate.hasClass('loaded')) {
+				part_to_activate.onetabload();
+				part_to_activate.addClass('loaded');
+			}
+			
+			part_to_activate.tabload();
+		});
+
+		$(window).bind('hashchange onhashchange', function(e) {
+			$.pageTabs.clickTab($.pageTabs.getLocationHash());
+		});
+
+		$.pageTabs.clickTab(active_tab);
+		
+		return this;
+	};
+	
+	var createTabs = function createTabs() {
+		var lis = [], li_class = '';
+		
+		$('.'+$.pageTabs.options.contentClass).each(function() {
+			$(this).hide();
+			lis.push('<li id="'+$.pageTabs.options.idTabPrefix+$(this).attr('id')+'">'
+				 +'<a href="#'+$(this).attr('id')+'">'+$(this).attr('title')+'</a></li>');
+			$(this).attr('id', $.pageTabs.options.partPrefix + $(this).attr('id')).prop('title','');
+		});
+		
+		$('<div class="'+$.pageTabs.options.containerClass+'"><ul>'+lis.join('')+'</ul></div>')
+			.insertBefore($('.'+$.pageTabs.options.contentClass).get(0));
+	};
+	
+	var getHash = function getHash(href) {
+		var href = href || '';
+
+		return href.replace(/.*#/, '');
+	};
+	
+	$.pageTabs.clickTab = function(tab) {
+		if (tab=='') {
+			tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
+		} else if ($('#'+$.pageTabs.options.idTabPrefix+tab, '.'+$.pageTabs.options.containerClass).length==0) {
+			// try to find anchor in a .multi-part div
+			if ($('#'+tab).length==1) {
+				var div_content = $('#'+tab).parents('.'+$.pageTabs.options.contentClass);
+				if (div_content.length==1) {
+					tab = div_content.attr('id').replace($.pageTabs.options.partPrefix,'');
+				} else {
+					tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
+				}
+			} else {
+				tab = getHash($('ul li a', '.'+$.pageTabs.options.containerClass+':eq(0)').attr('href'));
+			}
+		}
+
+		$('ul li a', '.'+$.pageTabs.options.containerClass).filter(function() {
+			return getHash($(this).attr('href'))==tab;
+		}).parent().click();
 	};
 
-	var index = start_tab ? start_tab : 0;
-
-	this.params = jQuery.extend(defaults,settings);
-	this.divs = jQuery('div.'+this.params.className);
-	this.createList();
-	this.showDiv(index);
-};
-
-jQuery._pageTabs.prototype = {
-	items: new Array(),
-
-	createList: function() {
-		if (this.divs.length <= 0) {
-			return;
-		}
-
-		this.block = document.createElement('div');
-		this.block.className = this.params.listClassName;
-		this.list = document.createElement('ul');
-		//this.list.className = this.params.listClassName;
-		this.block.appendChild(this.list);
-		var li, a;
-
-		var This = this;
-		var i=0;
-		jQuery('.'+this.params.className).each(function() {
-			if (this.tagName == "DIV") {
-				li = document.createElement('li');
-				a = document.createElement('a');
-				a.appendChild(document.createTextNode(this.title));
-				this.title = '';
-				a.href = '#';
-				a.fn = This.showDiv;
-				a.index = this.id || i;
-				a.obj = This;
-				jQuery(a).click(function() { this.fn.call(this.obj,this.index); return false; });
-				li.appendChild(a);
-				This.list.appendChild(li);
-				This.items[i] = li;
-				i++;
-			} else {
-				li = document.createElement('li');
-				li.className = This.params.listClassName+'-link';
-				li.appendChild(this);
-				This.list.appendChild(li);
-			}
-		});
-
-		this.breaker = document.createElement('br');
-		this.breaker.className = this.params.breakerClassName;
-
-		jQuery(this.divs.get(0)).before(this.block);
-		jQuery(this.block).after(this.breaker);
-	},
-
-	showDiv: function(index) {
-		var This = this;
-		var i = 0;
-		var to_trigger = null;
-
-		this.divs.each(function() {
-			if ((this.id != '' && this.id == index) || i == index) {
-				jQuery(this).show(0);
-				This.items[i].className = This.params.listClassName+'-active';
-				to_trigger = i;
-			} else {
-				jQuery(this).hide(0);
-				This.items[i].className = '';
-			}
-
-			i++;
-		});
-
-		if (to_trigger != null) {
-			jQuery(this.divs[to_trigger]).onetabload();
-			jQuery(this.divs[to_trigger]).tabload();
-		}
-	}
-};
+	$.pageTabs.getLocationHash = function() {
+		return getHash(document.location.hash);
+	};
+})(jQuery);
 
 jQuery.fn.tabload = function(f) {
 	this.each(function() {
@@ -100,6 +110,7 @@ jQuery.fn.tabload = function(f) {
 	});
 	return this;
 };
+
 jQuery.fn.onetabload = function(f) {
 	this.each(function() {
 		if (f) {

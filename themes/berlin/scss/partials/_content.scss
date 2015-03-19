@@ -1,0 +1,84 @@
+/* *** navigation *** */
+.navlinks {
+    color: $white;
+    margin: 0;
+}
+.prev {
+    @include replace-text(inline-image('icon_prev.png'));
+}
+.next {
+    @include replace-text(inline-image('icon_next.png'));
+}
+.prev, .next {
+    vertical-align: middle;
+    width: 2.5em;
+    height: 2.5em;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid $gray-medium;
+    background-color: $gray-light;
+        &:hover, &:focus {
+            border-width: 3px;
+        }
+}
+/* *** content info *** */
+#content-info {
+    margin-bottom: 4em;
+    border-bottom: 1px solid $gray-medium;
+    padding: 0;
+    font-size: scut-em(14);
+    h2 {
+        display: inline-block;
+        vertical-align: top;
+        padding: .5em .75em;
+        border-radius: .5em;
+        background-color: $secondary-color;
+        color: $white;
+        font-size: scut-em(16,14);
+        text-align: center;
+        a {color: $white; }
+    }
+    h3 {
+        font-size: 1em;
+    }
+    ul {
+        margin-top: scut-em(8, 14);
+        padding-left: 0;
+
+    }
+}
+.content-info__feed {
+    display: inline-block;
+    vertical-align: top;
+    list-style-type: none;
+    li {
+        display: inline;
+        margin-right: 1.5em;
+        }
+}
+.content-info__sub-cat {
+    margin-top: 2em;
+    h3 { font-weight: bold;}
+}
+// lien de retour, à combiner avec le script js
+#gotop {
+    display:none;
+    z-index: 1000;
+    position:fixed;
+    bottom: 0;
+    right:.5em;
+    width: 10em;
+    padding: .25em;
+    border: 1px solid $gray-dark;
+    border-radius: .25em;
+    background-color: $white;
+    color:#333;
+    font-size: .875em;
+    text-align:center;
+    a, a:link, a:hover, a:active {
+        background: transparent;
+        border: none;
+        font-weight: bold;
+        color: $gray-dark;
+    }
+}

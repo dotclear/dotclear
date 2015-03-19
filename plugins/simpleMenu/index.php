@@ -16,54 +16,38 @@ dcPage::check('admin');
 $page_title = __('Simple menu');
 
 # Url de base
-$p_url = 'plugin.php?p=simpleMenu';
+$p_url = $core->adminurl->get('admin.plugin.simpleMenu');
 
 # Url du blog
 $blog_url = html::stripHostURL($core->blog->url);
 
 # Liste des catégories
-$categories_combo = array();
 $categories_label = array();
-try {
-	$rs = $core->blog->getCategories(array('post_type'=>'post'));
-	while ($rs->fetch()) {
-		$categories_combo[] = new formSelectOption(
-			str_repeat('&nbsp;&nbsp;',$rs->level-1).($rs->level-1 == 0 ? '' : '&bull; ').html::escapeHTML($rs->cat_title),
-			$rs->cat_url
-		);
-		$categories_label[$rs->cat_url] = html::escapeHTML($rs->cat_title);
-	}
-} catch (Exception $e) { }
+$rs = $core->blog->getCategories(array('post_type'=>'post'));
+$categories_combo = dcAdminCombos::getCategoriesCombo($rs,false,true);
+$rs->moveStart();
+while ($rs->fetch()) {
+	$categories_label[$rs->cat_url] = html::escapeHTML($rs->cat_title);
+}
 
 # Liste des langues utilisées
-$langs_combo = array();
-try {
-	$rs = $core->blog->getLangs(array('order'=>'asc'));
-	if ($rs->count() > 1)
-	{
-		$all_langs = l10n::getISOcodes(0,1);
-		while ($rs->fetch()) {
-			$lang_name = isset($all_langs[$rs->post_lang]) ? $all_langs[$rs->post_lang] : $rs->post_lang;
-			$langs_combo[$lang_name] = $rs->post_lang;
-		}
-		unset($all_langs);
-	}
-	unset($rs);
-} catch (Exception $e) { }
+$langs_combo = dcAdminCombos::getLangscombo(
+	$core->blog->getLangs(array('order'=>'asc'))
+);
 
 # Liste des mois d'archive
-$months_combo = array();
-try {
-	$rs = $core->blog->getDates(array('type'=>'month'));
-	$months_combo[__('All months')] = '-';
-	$first_year = $last_year = 0;
-	while ($rs->fetch()) {
-		$months_combo[dt::str('%B %Y',$rs->ts())] = $rs->year().$rs->month();
-		if (($first_year == 0) || ($rs->year() < $first_year)) $first_year = $rs->year();
-		if (($last_year == 0) || ($rs->year() > $last_year)) $last_year = $rs->year();
-	}
-	unset($rs);
-} catch (Exception $e) { }
+$rs = $core->blog->getDates(array('type'=>'month'));
+$months_combo = array_merge(
+	array(__('All months') => '-'),
+	dcAdmincombos::getDatesCombo($rs)
+);
+
+$first_year = $last_year = 0;
+while ($rs->fetch()) {
+	if (($first_year == 0) || ($rs->year() < $first_year)) $first_year = $rs->year();
+	if (($last_year == 0) || ($rs->year() > $last_year)) $last_year = $rs->year();
+}
+unset($rs);
 
 # Liste des pages -- Doit être pris en charge plus tard par le plugin ?
 $pages_combo = array();
@@ -126,225 +110,252 @@ if (!is_array($menu)) {
 	$menu = array();
 }
 
-# Récupération paramètres postés
-$item_type = isset($_POST['item_type']) ? $_POST['item_type'] : '';
-$item_select = isset($_POST['item_select']) ? $_POST['item_select'] : '';
-$item_label = isset($_POST['item_label']) ? $_POST['item_label'] : '';
-$item_descr = isset($_POST['item_descr']) ? $_POST['item_descr'] : '';
-$item_url = isset($_POST['item_url']) ? $_POST['item_url'] : '';
+# Récupération état d'activation du menu
+$menu_active = (boolean) $core->blog->settings->system->simpleMenu_active;
 
-# Traitement
-$step = (!empty($_GET['add']) ? (integer) $_GET['add'] : 0);
-if (($step > 4) || ($step < 0)) $step = 0;
-if ($step) {
+// Saving new configuration
+if (!empty($_POST['saveconfig'])) {
+	try
+	{
+		$menu_active = (empty($_POST['active'])) ? false : true;
+		$core->blog->settings->system->put('simpleMenu_active',$menu_active,'boolean');
+		$core->blog->triggerBlog();
 
-	# Récupération libellés des choix
-	$item_type_label = isset($items[$item_type]) ? $items[$item_type][0] : '';
+		// All done successfully, return to menu items list
+		dcPage::addSuccessNotice(__('Configuration successfully updated.'));
+		http::redirect($p_url);
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+} else {
+	# Récupération paramètres postés
+	$item_type = isset($_POST['item_type']) ? $_POST['item_type'] : '';
+	$item_select = isset($_POST['item_select']) ? $_POST['item_select'] : '';
+	$item_label = isset($_POST['item_label']) ? $_POST['item_label'] : '';
+	$item_descr = isset($_POST['item_descr']) ? $_POST['item_descr'] : '';
+	$item_url = isset($_POST['item_url']) ? $_POST['item_url'] : '';
 
-	switch ($step) {
-		case 1:
-			// First step, menu item type to be selected
-			$item_type = $item_select = '';
-			break;
-		case 2:
-			if ($items[$item_type][1]) {
-				// Second step (optional), menu item sub-type to be selected
-				$item_select = '';
+	# Traitement
+	$step = (!empty($_GET['add']) ? (integer) $_GET['add'] : 0);
+	if (($step > 4) || ($step < 0)) $step = 0;
+	if ($step) {
+
+		# Récupération libellés des choix
+		$item_type_label = isset($items[$item_type]) ? $items[$item_type][0] : '';
+
+		switch ($step) {
+			case 1:
+				// First step, menu item type to be selected
+				$item_type = $item_select = '';
 				break;
-			}
-		case 3:
-			// Third step, menu item attributes to be changed or completed if necessary
-			$item_select_label = '';
-			$item_label = __('Label');
-			$item_descr = __('Description');
-			$item_url = $blog_url;
-			switch ($item_type) {
-				case 'home':
-					$item_label = __('Home');
-					$item_descr = __('Recent posts');
+			case 2:
+				if ($items[$item_type][1]) {
+					// Second step (optional), menu item sub-type to be selected
+					$item_select = '';
 					break;
-				case 'lang':
-					$item_select_label = array_search($item_select,$langs_combo);
-					$item_label = $item_select_label;
-					$item_descr = sprintf(__('Switch to %s language'),$item_select_label);
-					$item_url .= $core->url->getURLFor('lang',$item_select);
-					break;
-				case 'category':
-					$item_select_label = $categories_label[$item_select];
-					$item_label = $item_select_label;
-					$item_descr = __('Recent Posts from this category');
-					$item_url .= $core->url->getURLFor('category',$item_select);
-					break;
-				case 'archive':
-					$item_select_label = array_search($item_select,$months_combo);
-					if ($item_select == '-') {
-						$item_label = __('Archives');
-						$item_descr = $first_year.($first_year != $last_year ? ' - '.$last_year : '');
-						$item_url .= $core->url->getURLFor('archive');
-					} else {
+				}
+			case 3:
+				// Third step, menu item attributes to be changed or completed if necessary
+				$item_select_label = '';
+				$item_label = __('Label');
+				$item_descr = __('Description');
+				$item_url = $blog_url;
+				switch ($item_type) {
+					case 'home':
+						$item_label = __('Home');
+						$item_descr = __('Recent posts');
+						break;
+					case 'lang':
+						$item_select_label = array_search($item_select,$langs_combo);
 						$item_label = $item_select_label;
-						$item_descr = sprintf(__('Posts from %s'),$item_select_label);
-						$item_url .= $core->url->getURLFor('archive',substr($item_select,0,4).'/'.substr($item_select,-2));
-					}
-					break;
-				case 'pages':
-					$item_select_label = array_search($item_select,$pages_combo);
-					$item_label = $item_select_label;
-					$item_descr = '';
-					$item_url = html::stripHostURL($item_select);
-					break;
-				case 'tags':
-					$item_select_label = array_search($item_select,$tags_combo);
-					if ($item_select == '-') {
-						$item_label = __('All tags');
+						$item_descr = sprintf(__('Switch to %s language'),$item_select_label);
+						$item_url .= $core->url->getURLFor('lang',$item_select);
+						break;
+					case 'category':
+						$item_select_label = $categories_label[$item_select];
+						$item_label = $item_select_label;
+						$item_descr = __('Recent Posts from this category');
+						$item_url .= $core->url->getURLFor('category',$item_select);
+						break;
+					case 'archive':
+						$item_select_label = array_search($item_select,$months_combo);
+						if ($item_select == '-') {
+							$item_label = __('Archives');
+							$item_descr = $first_year.($first_year != $last_year ? ' - '.$last_year : '');
+							$item_url .= $core->url->getURLFor('archive');
+						} else {
+							$item_label = $item_select_label;
+							$item_descr = sprintf(__('Posts from %s'),$item_select_label);
+							$item_url .= $core->url->getURLFor('archive',substr($item_select,0,4).'/'.substr($item_select,-2));
+						}
+						break;
+					case 'pages':
+						$item_select_label = array_search($item_select,$pages_combo);
+						$item_label = $item_select_label;
 						$item_descr = '';
-						$item_url .= $core->url->getURLFor('tags');
+						$item_url = html::stripHostURL($item_select);
+						break;
+					case 'tags':
+						$item_select_label = array_search($item_select,$tags_combo);
+						if ($item_select == '-') {
+							$item_label = __('All tags');
+							$item_descr = '';
+							$item_url .= $core->url->getURLFor('tags');
+						} else {
+							$item_label = $item_select_label;
+							$item_descr = sprintf(__('Recent posts for %s tag'),$item_select_label);
+							$item_url .= $core->url->getURLFor('tag',$item_select);
+						}
+						break;
+					case 'special':
+						break;
+					default:
+						# --BEHAVIOR-- adminSimpleMenuBeforeEdit
+						# Should modify if necessary $item_label, $item_descr and $item_url
+						# Should set if necessary $item_select_label (displayed on further admin step only)
+						$core->callBehavior('adminSimpleMenuBeforeEdit',$item_type,$item_select,
+							array(&$item_label,&$item_descr,&$item_url,&$item_select_label));
+						break;
+				}
+				break;
+			case 4:
+				// Fourth step, menu item to be added
+				try {
+					if (($item_label != '') && ($item_url != ''))
+					{
+						// Add new item menu in menu array
+						$menu[] = array(
+							'label' => $item_label,
+							'descr' => $item_descr,
+							'url' => $item_url
+						);
+						// Save menu in blog settings
+						$core->blog->settings->system->put('simpleMenu',serialize($menu));
+						$core->blog->triggerBlog();
+
+						// All done successfully, return to menu items list
+						dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
+						http::redirect($p_url);
 					} else {
-						$item_label = $item_select_label;
-						$item_descr = sprintf(__('Recent posts for %s tag'),$item_select_label);
-						$item_url .= $core->url->getURLFor('tag',$item_select);
+						$step = 3;
+						$item_select_label = $item_label;
+						dcPage::addErrorNotice(__('Label and URL of menu item are mandatory.'));
 					}
-					break;
-				case 'special':
-					break;
-				default:
-					# --BEHAVIOR-- adminSimpleMenuBeforeEdit
-					# Should modify if necessary $item_label, $item_descr and $item_url
-					# Should set if necessary $item_select_label (displayed on further admin step only)
-					$core->callBehavior('adminSimpleMenuBeforeEdit',$item_type,$item_select,
-						array(&$item_label,&$item_descr,&$item_url,&$item_select_label));
-					break;
-			}
-			break;
-		case 4:
-			// Fourth step, menu item to be added
+				}
+				catch (Exception $e) {
+					$core->error->add($e->getMessage());
+				}
+				break;
+		}
+	} else {
+
+		# Remove selected menu items
+		if (!empty($_POST['removeaction']))
+		{
 			try {
-				if (($item_label != '') && ($item_url != '')) 
-				{
-					// Add new item menu in menu array
-					$menu[] = array(
-						'label' => $item_label,
-						'descr' => $item_descr,
-						'url' => $item_url
-					);
+		 		if (!empty($_POST['items_selected'])) {
+					foreach ($_POST['items_selected'] as $k => $v) {
+						$menu[$v]['label'] = '';
+					}
+					$newmenu = array();
+					foreach ($menu as $k => $v) {
+						if ($v['label']) {
+							$newmenu[] = array(
+								'label' => $v['label'],
+								'descr' => $v['descr'],
+								'url' => $v['url']);
+						}
+					}
+					$menu = $newmenu;
 					// Save menu in blog settings
 					$core->blog->settings->system->put('simpleMenu',serialize($menu));
 					$core->blog->triggerBlog();
-				
+
 					// All done successfully, return to menu items list
-					http::redirect($p_url.'&added=1');
+					dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
+					http::redirect($p_url);
 				} else {
-					throw new Exception(__('Label and URL of menu item are mandatory.'));
+					throw new Exception(__('No menu items selected.'));
 				}
 			}
 			catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
-			break;
-	}
-} else {
-	
-	# Remove selected menu items
-	if (!empty($_POST['removeaction']))
-	{
-		try {
-	 		if (!empty($_POST['items_selected'])) {
-				foreach ($_POST['items_selected'] as $k => $v) {
-					$menu[$v]['label'] = '';
+		}
+
+		# Update menu items
+		if (!empty($_POST['updateaction']))
+		{
+			try {
+				foreach ($_POST['items_label'] as $k => $v) {
+					if (!$v) throw new Exception(__('Label is mandatory.'));
+				}
+				foreach ($_POST['items_url'] as $k => $v) {
+					if (!$v) throw new Exception(__('URL is mandatory.'));
 				}
 				$newmenu = array();
-				foreach ($menu as $k => $v) {
-					if ($v['label']) {
-						$newmenu[] = array(
-							'label' => $v['label'],
-							'descr' => $v['descr'],
-							'url' => $v['url']);
-					}
+				for ($i = 0; $i < count($_POST['items_label']); $i++)
+				{
+					$newmenu[] = array(
+						'label' => $_POST['items_label'][$i],
+						'descr' => $_POST['items_descr'][$i],
+						'url' => $_POST['items_url'][$i]);
 				}
 				$menu = $newmenu;
 				// Save menu in blog settings
 				$core->blog->settings->system->put('simpleMenu',serialize($menu));
 				$core->blog->triggerBlog();
-				
+
 				// All done successfully, return to menu items list
-				http::redirect($p_url.'&removed=1');
-			} else {
-				throw new Exception(__('No menu items selected.'));
+				dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
+				http::redirect($p_url);
+			}
+			catch (Exception $e) {
+				$core->error->add($e->getMessage());
 			}
 		}
-		catch (Exception $e) {
-			$core->error->add($e->getMessage());
-		}
-	}
 
-	# Update menu items
-	if (!empty($_POST['updateaction']))
-	{
-		try {
-			foreach ($_POST['items_label'] as $k => $v) {
-				if (!$v) throw new Exception(__('Label is mandatory.'));
+		# Order menu items
+		$order = array();
+		if (empty($_POST['im_order']) && !empty($_POST['order'])) {
+			$order = $_POST['order'];
+			asort($order);
+			$order = array_keys($order);
+		} elseif (!empty($_POST['im_order'])) {
+			$order = $_POST['im_order'];
+			if (substr($order,-1) == ',') {
+				$order = substr($order,0,strlen($order)-1);
 			}
-			foreach ($_POST['items_url'] as $k => $v) {
-				if (!$v) throw new Exception(__('URL is mandatory.'));
-			}
-			$newmenu = array();
-			for ($i = 0; $i < count($_POST['items_label']); $i++)
-			{
-				$newmenu[] = array(
-					'label' => $_POST['items_label'][$i],
-					'descr' => $_POST['items_descr'][$i],
-					'url' => $_POST['items_url'][$i]);
-			}
-			$menu = $newmenu;
-			// Save menu in blog settings
-			$core->blog->settings->system->put('simpleMenu',serialize($menu));
-			$core->blog->triggerBlog();
+			$order = explode(',',$order);
+		}
 
-			// All done successfully, return to menu items list
-			http::redirect($p_url.'&updated=1');
-		}
-		catch (Exception $e) {
-			$core->error->add($e->getMessage());
-		}
-	}
-	
-	# Order menu items
-	$order = array();
-	if (empty($_POST['im_order']) && !empty($_POST['order'])) {
-		$order = $_POST['order'];
-		asort($order);
-		$order = array_keys($order);
-	} elseif (!empty($_POST['im_order'])) {
-		$order = $_POST['im_order'];
-		if (substr($order,-1) == ',') {
-			$order = substr($order,0,strlen($order)-1);
-		}
-		$order = explode(',',$order);
-	}
+		if (!empty($_POST['updateaction']) && !empty($order))
+		{
+			try {
+				$newmenu = array();
+				foreach ($order as $i => $k) {
+					$newmenu[] = array(
+						'label' => $menu[$k]['label'],
+						'descr' => $menu[$k]['descr'],
+						'url' => $menu[$k]['url']);
+				}
+				$menu = $newmenu;
+				// Save menu in blog settings
+				$core->blog->settings->system->put('simpleMenu',serialize($menu));
+				$core->blog->triggerBlog();
 
-	if (!empty($_POST['updateaction']) && !empty($order))
-	{
-		try {
-			$newmenu = array();
-			foreach ($order as $i => $k) {
-				$newmenu[] = array(
-					'label' => $menu[$k]['label'],
-					'descr' => $menu[$k]['descr'],
-					'url' => $menu[$k]['url']);
+				// All done successfully, return to menu items list
+				dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
+				http::redirect($p_url);
 			}
-			$menu = $newmenu;
-			// Save menu in blog settings
-			$core->blog->settings->system->put('simpleMenu',serialize($menu));
-			$core->blog->triggerBlog();
-
-			// All done successfully, return to menu items list
-			http::redirect($p_url.'&neworder=1');
-		} 
-		catch (Exception $e) {
-			$core->error->add($e->getMessage());
+			catch (Exception $e) {
+				$core->error->add($e->getMessage());
+			}
 		}
+
 	}
-	
 }
 
 # Display
@@ -353,13 +364,15 @@ if ($step) {
 <html>
 <head>
 	<title><?php echo $page_title; ?></title>
-	<?php 
+	<?php
 		$core->auth->user_prefs->addWorkspace('accessibility');
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 			echo
 				dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
-				dcPage::jsLoad('index.php?pf=simpleMenu/simplemenu.js');
+				dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
+				dcPage::jsLoad(dcPage::getPF('simpleMenu/simplemenu.js'));
 		}
+		echo dcPage::jsConfirmClose('settings','menuitemsappend','additem','menuitems');
 	?>
 </head>
 
@@ -367,33 +380,51 @@ if ($step) {
 
 <?php
 
-if (!empty($_GET['added'])) {
-	dcPage::message(__('Menu item has been successfully added.'));
-}
-if (!empty($_GET['removed'])) {
-	dcPage::message(__('Menu items have been successfully removed.'));
-}
-if (!empty($_GET['neworder'])) {
-	dcPage::message(__('Menu items have been successfully updated.'));
-}
-if (!empty($_GET['updated'])) {
-	dcPage::message(__('Menu items have been successfully updated.'));
-}
-
-if ($step) 
-{
-	// Formulaire d'ajout d'un item
-	dcPage::breadcrumb(
+if ($step) {
+	switch ($step) {
+		case 1:
+			$step_label = __('Step #1');
+			break;
+		case 2:
+			if ($items[$item_type][1]) {
+				$step_label = __('Step #2');
+				break;
+			}
+		case 3:
+			if ($items[$item_type][1]) {
+				$step_label = __('Step #3');
+			} else {
+				$step_label = __('Step #2');
+			}
+			break;
+	}
+	echo dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			$page_title => $p_url,
-			'<span class="page-title">'.__('Add item').'</span>' => ''
-		));
+			__('Add item') => '',
+			$step_label => ''
+		),
+		array(
+			'hl_pos' => -2)
+	).
+	dcPage::notices();
+} else {
+	echo dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			$page_title => ''
+		)).
+		dcPage::notices();
+}
 
+if ($step)
+{
+	// Formulaire d'ajout d'un item
 	switch ($step) {
 		case 1:
 			// Selection du type d'item
-			echo '<form id="additem" action="'.$p_url.'&add=2" method="post">';
+			echo '<form id="additem" action="'.$p_url.'&amp;add=2" method="post">';
 			echo '<fieldset><legend>'.__('Select type').'</legend>';
 			echo '<p class="field"><label for="item_type" class="classic">'.__('Type of item menu:').'</label>'.form::combo('item_type',$items_combo,'').'</p>';
 			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Continue...').'" />'.'</p>';
@@ -403,7 +434,7 @@ if ($step)
 		case 2:
 			if ($items[$item_type][1]) {
 				// Choix à faire
-				echo '<form id="additem" action="'.$p_url.'&add=3" method="post">';
+				echo '<form id="additem" action="'.$p_url.'&amp;add=3" method="post">';
 				echo '<fieldset><legend>'.$item_type_label.'</legend>';
 				switch ($item_type) {
 					case 'lang':
@@ -440,7 +471,7 @@ if ($step)
 			}
 		case 3:
 			// Libellé et description
-			echo '<form id="additem" action="'.$p_url.'&add=4" method="post">';
+			echo '<form id="additem" action="'.$p_url.'&amp;add=4" method="post">';
 			echo '<fieldset><legend>'.$item_type_label.($item_select_label != '' ? ' ('.$item_select_label.')' : '').'</legend>';
 			echo '<p class="field"><label for="item_label" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
 				__('Label of item menu:').'</label>'.form::field('item_label',20,255,$item_label).'</p>';
@@ -456,17 +487,18 @@ if ($step)
 	}
 }
 
-// Liste des items
+// Formulaire d'activation
 if (!$step) {
-	dcPage::breadcrumb(
-		array(
-			html::escapeHTML($core->blog->name) => '',
-			'<span class="page-title">'.$page_title.'</span>' => ''
-		));
+	echo '<form id="settings" action="'.$p_url.'" method="post">'.
+		'<p>'.form::checkbox('active',1,$menu_active).
+		'<label class="classic" for="active">'.__('Enable simple menu for this blog').'</label>'.'</p>'.
+		'<p>'.$core->formNonce().'<input type="submit" name="saveconfig" value="'.__('Save configuration').'" />'.'</p>'.
+		'</form>';
 }
 
+// Liste des items
 if (!$step) {
-	echo '<form id="menuitemsappend" action="'.$p_url.'&add=1" method="post">';
+	echo '<form id="menuitemsappend" action="'.$p_url.'&amp;add=1" method="post">';
 	echo '<p class="top-add">'.$core->formNonce().'<input class="button add" type="submit" name="appendaction" value="'.__('Add an item').'" /></p>';
 	echo '</form>';
 }
@@ -476,8 +508,9 @@ if (count($menu)) {
 		echo '<form id="menuitems" action="'.$p_url.'" method="post">';
 	}
 	// Entête table
-	echo 
-		'<table class="maximal dragable">'.
+	echo
+		'<div class="table-outer">'.
+		'<table class="dragable">'.
 		'<caption>'.__('Menu items list').'</caption>'.
 		'<thead>'.
 		'<tr>';
@@ -491,27 +524,28 @@ if (count($menu)) {
 		'<th scope="col">'.__('URL').'</th>'.
 		'</tr>'.
 		'</thead>'.
-		'<tbody id="menuitemslist">';
+		'<tbody'.(!$step ? ' id="menuitemslist"' : '').'>';
 	$count = 0;
 	foreach ($menu as $i => $m) {
 		echo '<tr class="line" id="l_'.$i.'">';
 		if (!$step) {
 			$count++;
-			echo '<td class="handle minimal">'.form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),__($m['label'])).'"').
+			echo '<td class="handle minimal">'.
+				form::field(array('order['.$i.']'),2,3,$count,'position','',false,'title="'.sprintf(__('position of %s'),html::escapeHTML(__($m['label']))).'"').
 				form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>';
 			echo '<td class="minimal">'.form::checkbox(array('items_selected[]','ims-'.$i),$i).'</td>';
-			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),20,255,__($m['label'])).'</td>';
-			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),30,255,__($m['descr'])).'</td>';
-			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),40,255,$m['url']).'</td>';
+			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),'',255,html::escapeHTML(__($m['label']))).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),'30',255,html::escapeHTML(__($m['descr']))).'</td>';
+			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),'30',255,html::escapeHTML($m['url'])).'</td>';
 		} else {
-			echo '<td class="nowrap" scope="row">'.__($m['label']).'</td>';
-			echo '<td class="nowrap">'.__($m['descr']).'</td>';
-			echo '<td class="nowrap">'.$m['url'].'</td>';
+			echo '<td class="nowrap" scope="row">'.html::escapeHTML(__($m['label'])).'</td>';
+			echo '<td class="nowrap">'.html::escapeHTML(__($m['descr'])).'</td>';
+			echo '<td class="nowrap">'.html::escapeHTML($m['url']).'</td>';
 		}
 		echo '</tr>';
 	}
 	echo '</tbody>'.
-		'</table>';
+		'</table></div>';
 	if (!$step) {
 		echo '<div class="two-cols">';
 		echo '<p class="col">'.form::hidden('im_order','').$core->formNonce();
@@ -525,7 +559,7 @@ if (count($menu)) {
 	}
 } else {
 	echo
-		'<p>'.__('Currently no menu items').'</p>';
+		'<p>'.__('No menu items so far.').'</p>';
 }
 
 dcPage::helpBlock('simpleMenu');

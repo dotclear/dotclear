@@ -1,0 +1,102 @@
+// ----------------- LIBRAIRIES ------------------- //
+
+// ----------------- Compass config --------------- //
+// Do not support IE less than IE9
+$browser-minimum-versions: (
+  "ie": "9"
+);
+$graceful-usage-threshold: 100;
+$critical-usage-threshold: 100;
+@import "compass";                    // gem
+
+@import "libs/scut";
+
+// ----------------- Zengrids config -------------- //
+$legacy-support-for-ie7: false;
+$legacy-support-for-ie6: false;
+//@import "libs/zen-grids/background";
+//@import "libs/zen-grids/flow";
+@import "libs/zen-grids/grids";
+//@import "libs/sass-mq-master/_mq";
+
+// ------------------ VARIABLES ------------------- //
+
+// ========================================================================== //
+// =Tailles de base
+//
+// On établit la grille verticale puis on calcule la taille des caractères
+// et de l'interlignage de référence en fonction de cette grille.
+// ========================================================================== //
+$base-grid: 8px;
+$base-font-size: 16px;
+$base-line-height: 24px;
+
+// ========================================================================== //
+// =Grille (zen-grids)
+// ========================================================================== //
+$zen-columns: 12;
+$zen-gutters: 2em;
+
+// ========================================================================== //
+// =Box model pour IE (zen-grids)
+// ========================================================================== //
+
+$box-sizing-polyfill-path: "scripts";
+
+// ========================================================================== //
+// =Typographie
+// ========================================================================== //
+
+$sans-serif: Lato, "Open Sans", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+$serif: "New Century Schoolbook","Century Schoolbook","Century Schoolbook L", Georgia, serif;
+$monospace: "Andale Mono", AndaleMono, monospace;
+
+// ========================================================================== //
+// =Couleurs
+// ========================================================================== //
+
+// Palette de base
+$white: #fff;
+$gray: #dcdcdc;
+$dark-blue-green: #68838b;
+$black: #000;
+$blue: #267daf;
+$red: #d52125;
+
+$gray-very-dark: shade($gray, 75%);
+$gray-dark: shade($gray, 55%);
+$gray-medium: $gray;
+$gray-light: tint($gray, 65%);
+$gray-very-light: tint($gray, 85%);
+
+// Application
+
+$primary-color: $gray-very-dark;            // Texte courant
+$secondary-color: $blue;                    // Titres
+$link: $red;                                // Liens
+$button-base: $dark-blue-green;             // Boutons
+$button-dark: shade($button-base, 10%);
+$button-light: tint($button-base, 10%);
+
+// Autres
+$css-img-path: 'img'; // utile pour le mixin de fallback svg
+
+// ========================================================================== //
+// =Breakpoints
+//
+// Points de rupture courants des différentes tailles d'écran.
+//
+// La mesure en em permet de l'appliquer aussi aux cas d'usage
+// de modification de la taille de base des caractères dans
+// les préférences de l'utilisateur ou de l'utilisation du grossissement
+// des caractères dans le navigateur.
+//
+// Dans le cadre de la création d'un thème, adapter ces points à ceux
+// correspondant aux nécessités de votre design.
+// ========================================================================== //
+
+$x-small-screen: 20em; // 320
+$small-screen:   30em; // 480
+$medium-screen:  40em; // 640
+$large-screen:   60em; // 960
+$xlarge-screen:  80em; // 1280

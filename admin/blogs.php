@@ -30,15 +30,18 @@ $q = !empty($_GET['q']) ? $_GET['q'] : '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'blog_upddt';
 $order = !empty($_GET['order']) ? $_GET['order'] : 'desc';
 
-$page = !empty($_GET['page']) ? $_GET['page'] : 1;
+$show_filters = false;
+
+$page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  30;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
+	if ($nb_per_page != $_GET['nb']) {
+		$show_filters = true;
+	}
 	$nb_per_page = (integer) $_GET['nb'];
 }
 
-$show_filters = false;
-	
 # - Search filter
 if ($q) {
 	$params['q'] = $q;
@@ -50,7 +53,7 @@ if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 	if ($order !== '' && in_array($order,$order_combo)) {
 		$params['order'] = $sortby.' '.$order;
 	}
-	
+
 	if ($sortby != 'blog_upddt' || $order != 'desc') {
 		$show_filters = true;
 	}
@@ -68,122 +71,137 @@ try {
 
 /* DISPLAY
 -------------------------------------------------------- */
-$starting_script = '';
-if (!$show_filters) {
-	$starting_script .= dcPage::jsLoad('js/filter-controls.js');
-}
-dcPage::open(__('List of blogs'),$starting_script);
+
+$form_filter_title = __('Show filters and display options');
+$starting_script  = dcPage::jsLoad('js/filter-controls.js');
+$starting_script .=
+	'<script type="text/javascript">'."\n".
+	"//<![CDATA["."\n".
+	dcPage::jsVar('dotclear.msg.show_filters', $show_filters ? 'true':'false')."\n".
+	dcPage::jsVar('dotclear.msg.filter_posts_list',$form_filter_title)."\n".
+	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel filters and display options'))."\n".
+	"//]]>".
+	"</script>";
+
+dcPage::open(__('List of blogs'),$starting_script,
+	dcPage::breadcrumb(
+		array(
+			__('System') => '',
+			__('List of blogs') => ''
+		))
+);
 
 if (!empty($_GET['del'])) {
-	dcPage::message(__('Blog has been successfully deleted.'));
+	dcPage::success(__('Blog has been successfully deleted.'));
 }
-
-dcPage::breadcrumb(
-	array(
-		__('System') => '',
-		'<span class="page-title">'.__('List of blogs').'</span>' => ''
-	));
 
 if (!$core->error->flag())
 {
 	if ($core->auth->isSuperAdmin()) {
-		echo '<p class="top-add"><a class="button add" href="blog.php">'.__('Create a new blog').'</a></p>';
+		echo '<p class="top-add"><a class="button add" href="'.$core->adminurl->get("admin.blog").'">'.__('Create a new blog').'</a></p>';
 	}
-	
-	if (!$show_filters) {
-		echo '<p><a id="filter-control" class="form-control" href="#">'.__('Filters').'</a></p>';
-	}
-	
+
 	echo
-	'<form action="blogs.php" method="get" id="filters-form">'.
-	'<fieldset class="two-cols"><legend>'.__('Filters').'</legend>'.
-	
-	'<div class="col">'.
-	'<p><label for="sortby">'.__('Order by:').' '.
-	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).
-	'</label> '.
-	'<label for="order">'.__('Sort:').' '.
-	form::combo('order',$order_combo,html::escapeHTML($order)).
-	'</label></p>'.
+	'<form action="'.$core->adminurl->get("admin.blogs").'" method="get" id="filters-form">'.
+	'<h3 class="hidden">'.__('Filter blogs list').'</h3>'.
+
+	'<div class="table">'.
+	'<div class="cell">'.
+	'<h4>'.__('Filters').'</h4>'.
+	'<p><label for="q" class="ib">'.__('Search:').'</label> '.
+	form::field('q',20,255,html::escapeHTML($q)).'</p>'.
 	'</div>'.
-	
-	'<div class="col">'.
-	'<p><label for="q">'.__('Search:').' '.
-	form::field('q',20,255,html::escapeHTML($q)).
-	'</label></p>'.
-	'<p><label for="nb" class="classic">'.	form::field('nb',3,3,$nb_per_page).' '.
-	__('Blogs per page').'</label> '.
-	'<input type="submit" value="'.__('Apply filters').'" /></p>'.
+
+	'<div class="cell filters-options">'.
+	'<h4>'.__('Display options').'</h4>'.
+	'<p><label for="sortby" class="ib">'.__('Order by:').'</label> '.
+	form::combo('sortby',$sortby_combo,html::escapeHTML($sortby)).'</p>'.
+	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
+	form::combo('order',$order_combo,html::escapeHTML($order)).'</p>'.
+	'<p><span class="label ib">'.__('Show').'</span> <label for="nb" class="classic">'.
+	form::field('nb',3,3,$nb_per_page).' '.__('blogs per page').'</label></p>'.
 	'</div>'.
-	
-	'<br class="clear" />'. //Opera sucks
-	'</fieldset>'.
+	'</div>'.
+
+	'<p><input type="submit" value="'.__('Apply filters and display options').'" />'.
+	'<br class="clear" /></p>'. //Opera sucks
 	'</form>';
-	
+
 	# Show blogs
 	if ($nb_blog == 0)
 	{
-		echo '<p><strong>'.__('No blog').'</strong></p>';
+		if( $show_filters ) {
+			echo '<p><strong>'.__('No blog matches the filter').'</strong></p>';
+		} else {
+			echo '<p><strong>'.__('No blog').'</strong></p>';
+		}
 	}
 	else
 	{
-		$pager = new pager($page,$nb_blog,$nb_per_page,10);
-		$pager->var_page = 'page';
-		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
-		
+		$pager = new dcPager($page,$nb_blog,$nb_per_page,10);
+
+		echo $pager->getLinks();
+
 		echo
-		'<table class="clear"><tr>'.
-		'<th>'.__('Blog name').'</th>'.
-		'<th class="nowrap">'.__('Last update').'</th>'.
-		'<th class="nowrap">'.__('Entries (all types)').'</th>'.
-		'<th class="nowrap">'.__('Blog ID').'</th>'.
-		'<th>&nbsp;</th>'.
-		'<th class="nowrap">'.__('Status').'</th>'.
+		'<div class="table-outer">'.
+		'<table class="clear">';
+
+		if( $show_filters ) {
+			echo '<caption>'.sprintf(__('%d blog matches the filter.','%d blogs match the filter.',$nb_blog),$nb_blog).'</caption>';
+		} else {
+			echo '<caption class="hidden">'.__('Blogs list').'</caption>';
+		}
+
+		echo
+		'<tr>'.
+		'<th scope="col" class="nowrap">'.__('Blog id').'</th>'.
+		'<th scope="col">'.__('Blog name').'</th>'.
+		'<th scope="col" class="nowrap">'.__('Entries (all types)').'</th>'.
+		'<th scope="col" class="nowrap">'.__('Last update').'</th>'.
+		'<th scope="col" class="nowrap">'.__('Status').'</th>'.
 		'</tr>';
-		
+
 		while ($rs->fetch()) {
 			echo blogLine($rs);
 		}
-		
-		echo '</table>';
-		
-		echo '<p>'.__('Page(s)').' : '.$pager->getLinks().'</p>';
+
+		echo '</table></div>';
+
+		echo $pager->getLinks();
 	}
 }
-
+dcPage::helpBlock('core_blogs');
 dcPage::close();
 
 function blogLine($rs)
 {
 	global $core;
-	
+
 	$blog_id = html::escapeHTML($rs->blog_id);
 	$edit_link = '';
-	
+
 	if ($GLOBALS['core']->auth->isSuperAdmin()) {
-		$edit_link = 
-		'<a href="blog.php?id='.$blog_id.'" '.
-		'title="'.sprintf(__('Edit blog %s'),$blog_id).'">'.
-		__('edit').'</a>';
+		$edit_link =
+		'<a href="'.$core->adminurl->get("admin.blog",array('id' => $blog_id)).'"  title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
+		'<img src="images/edit-mini.png" alt="'.__('Edit blog settings').'" /> '.$blog_id.'</a> ';
+	} else {
+		$edit_link = $blog_id;
 	}
-	
+
 	$img_status = $rs->blog_status == 1 ? 'check-on' : 'check-off';
 	$txt_status = $GLOBALS['core']->getBlogStatus($rs->blog_status);
 	$img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',$img_status,$txt_status);
 	$offset = dt::getTimeOffset($core->auth->getInfo('user_tz'));
 	$blog_upddt = dt::str(__('%Y-%m-%d %H:%M'),strtotime($rs->blog_upddt) + $offset);
-	
+
 	return
 	'<tr class="line">'.
-	'<td class="maximal"><a href="index.php?switchblog='.$rs->blog_id.'" '.
+	'<td class="nowrap">'.$edit_link.'</td>'.
+	'<td class="maximal"><a href="'.$core->adminurl->get("admin.home",array('switchblog' => $rs->blog_id)).'" '.
 	'title="'.sprintf(__('Switch to blog %s'),$rs->blog_id).'">'.
 	html::escapeHTML($rs->blog_name).'</a></td>'.
-	'<td class="nowrap">'.$blog_upddt.'</td>'.
-	'<td class="nowrap">'.$core->countBlogPosts($rs->blog_id).'</td>'.
-	'<td class="nowrap">'.$blog_id.'</td>'.
-	'<td>'.$edit_link.'</td>'.
+	'<td class="nowrap count">'.$core->countBlogPosts($rs->blog_id).'</td>'.
+	'<td class="nowrap count">'.$blog_upddt.'</td>'.
 	'<td class="status">'.$img_status.'</td>'.
 	'</tr>';
 }
-?>

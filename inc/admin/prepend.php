@@ -21,35 +21,13 @@ header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-ch
 // HTTP/1.0
 header("Pragma: no-cache");
 
-function dc_valid_fav($url) {
-	global $core;
-
-	if (preg_match('#plugin\.php\?p=([^&]+)#',$url,$matches)) {
-		if (isset($matches[1])) {
-			if (!$core->plugins->moduleExists($matches[1])) {
-				return false;
-			}
-		}
-	}
-	return true;
-}
-
-function dc_prepare_url($url) {
-
-	$u = str_replace(array('?','&amp;','/'),array('\?','&','\\/'),$url);
-	return (!strpos($u,'\?') ? 
-		'/'.$u.'$/' :
-		(!strpos($u,'&') ? 
-		'/'.$u.'(\?.*)?$/' :
-		'/'.$u.'(&.*)?$/'));
-}
-
 function dc_load_locales() {
 	global $_lang, $core;
-	
+
 	$_lang = $core->auth->getInfo('user_lang');
 	$_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$_lang) ? $_lang : 'en';
-	
+
+	l10n::lang($_lang);
 	if (l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/date') === false && $_lang != 'en') {
 		l10n::set(dirname(__FILE__).'/../../locales/en/date');
 	}
@@ -61,12 +39,12 @@ function dc_load_locales() {
 function dc_admin_icon_url($img)
 {
 	global $core;
-	
+
 	$core->auth->user_prefs->addWorkspace('interface');
 	$user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
 	if (($user_ui_iconset) && ($img)) {
 		$icon = false;
-		if ((preg_match('/^images\/menu\/(.+)$/',$img,$m)) || 
+		if ((preg_match('/^images\/menu\/(.+)$/',$img,$m)) ||
 			(preg_match('/^index\.php\?pf=(.+)$/',$img,$m))) {
 			if ($m[1]) {
 				$icon = path::real(dirname(__FILE__).'/../../admin/images/iconset/'.$user_ui_iconset.'/'.$m[1],false);
@@ -82,15 +60,23 @@ function dc_admin_icon_url($img)
 	return $img;
 }
 
+function addMenuItem($section,$desc,$adminurl,$icon,$perm)
+{
+	global $core,$_menu;
+
+	$url = $core->adminurl->get($adminurl);
+	$_menu[$section]->prependItem($desc,$url,$icon,preg_match('/'.preg_quote($url).'(\?.*)?$/',$_SERVER['REQUEST_URI']),$perm);
+}
+
 if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
 {
 	# We have session information in constants
 	$_COOKIE[DC_SESSION_NAME] = DC_AUTH_SESS_ID;
-	
+
 	if (!$core->auth->checkSession(DC_AUTH_SESS_UID)) {
 		throw new Exception('Invalid session data.');
 	}
-	
+
 	# Check nonce from POST requests
 	if (!empty($_POST))
 	{
@@ -98,14 +84,14 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
 			throw new Exception('Precondition Failed.');
 		}
 	}
-	
+
 	if (empty($_SESSION['sess_blog_id'])) {
 		throw new Exception('Permission denied.');
 	}
-	
+
 	# Loading locales
 	dc_load_locales();
-	
+
 	$core->setBlog($_SESSION['sess_blog_id']);
 	if (!$core->blog->id) {
 		throw new Exception('Permission denied.');
@@ -121,7 +107,7 @@ elseif ($core->auth->sessionExists())
 			$p = $core->session->getCookieParameters(false,-600);
 			$p[3] = '/';
 			call_user_func_array('setcookie',$p);
-			
+
 			http::redirect('auth.php');
 		}
 	} catch (Exception $e) {
@@ -129,7 +115,7 @@ elseif ($core->auth->sessionExists())
 			,__('There seems to be no Session table in your database. Is Dotclear completly installed?')
 			,20);
 	}
-	
+
 	# Check nonce from POST requests
 	if (!empty($_POST))
 	{
@@ -140,8 +126,7 @@ elseif ($core->auth->sessionExists())
 			exit;
 		}
 	}
-	
-	
+
 	if (!empty($_REQUEST['switchblog'])
 	&& $core->auth->getPermissions($_REQUEST['switchblog']) !== false)
 	{
@@ -152,7 +137,7 @@ elseif ($core->auth->sessionExists())
 		if (isset($_SESSION['media_manager_page'])) {
 			unset($_SESSION['media_manager_page']);
 		}
-		
+
 		# Removing switchblog from URL
 		$redir = $_SERVER['REQUEST_URI'];
 		$redir = preg_replace('/switchblog=(.*?)(&|$)/','',$redir);
@@ -160,7 +145,7 @@ elseif ($core->auth->sessionExists())
 		http::redirect($redir);
 		exit;
 	}
-	
+
 	# Check blog to use and log out if no result
 	if (isset($_SESSION['sess_blog_id']))
 	{
@@ -175,26 +160,49 @@ elseif ($core->auth->sessionExists())
 			unset($b);
 		}
 	}
-	
+
 	# Loading locales
 	dc_load_locales();
-	
+
 	if (isset($_SESSION['sess_blog_id'])) {
 		$core->setBlog($_SESSION['sess_blog_id']);
 	} else {
 		$core->session->destroy();
 		http::redirect('auth.php');
 	}
-
-/*	
-	# Check add to my fav fired
-	if (!empty($_REQUEST['add-favorite'])) {
-		$redir = $_SERVER['REQUEST_URI'];
-		# Extract admin page from URI
-		# TO BE COMPLETED
-	}
-*/
 }
+
+$core->adminurl = new dcAdminURL($core);
+
+$core->adminurl->register('admin.posts','posts.php');
+$core->adminurl->register('admin.post','post.php');
+$core->adminurl->register('admin.post.media','post_media.php');
+$core->adminurl->register('admin.blog.theme','blog_theme.php');
+$core->adminurl->register('admin.blog.pref','blog_pref.php');
+$core->adminurl->register('admin.blog.del','blog_del.php');
+$core->adminurl->register('admin.blog','blog.php');
+$core->adminurl->register('admin.blogs','blogs.php');
+$core->adminurl->register('admin.categories','categories.php');
+$core->adminurl->register('admin.category','category.php');
+$core->adminurl->register('admin.comments','comments.php');
+$core->adminurl->register('admin.comment','comment.php');
+$core->adminurl->register('admin.help','help.php');
+$core->adminurl->register('admin.home','index.php');
+$core->adminurl->register('admin.langs','langs.php');
+$core->adminurl->register('admin.media','media.php');
+$core->adminurl->register('admin.media.item','media_item.php');
+$core->adminurl->register('admin.plugins','plugins.php');
+$core->adminurl->register('admin.plugin','plugin.php');
+$core->adminurl->register('admin.search','search.php');
+$core->adminurl->register('admin.user.preferences','preferences.php');
+$core->adminurl->register('admin.user','user.php');
+$core->adminurl->register('admin.user.actions','users_actions.php');
+$core->adminurl->register('admin.users','users.php');
+$core->adminurl->register('admin.auth','auth.php');
+$core->adminurl->register('admin.help','help.php');
+$core->adminurl->register('admin.update','update.php');
+
+$core->adminurl->registercopy('load.plugin.file','admin.home',array('pf' => 'dummy.css'));
 
 if ($core->auth->userID() && $core->blog !== null)
 {
@@ -205,7 +213,7 @@ if ($core->auth->userID() && $core->blog !== null)
 		require $f;
 	}
 	unset($f);
-	
+
 	if (($hfiles = @scandir($locales_root.$_lang.'/help')) !== false)
 	{
 		foreach ($hfiles as $hfile) {
@@ -215,163 +223,71 @@ if ($core->auth->userID() && $core->blog !== null)
 		}
 	}
 	unset($hfiles,$locales_root);
+	// Contextual help flag
+	$GLOBALS['__resources']['ctxhelp'] = false;
 
 	$core->auth->user_prefs->addWorkspace('interface');
 	$user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
 
-	# Standard favorites
-	$_fav = new ArrayObject();
+	$core->favs = new dcFavorites($core);
 
 	# [] : Title, URL, small icon, large icon, permissions, id, class
 	# NB : '*' in permissions means any, null means super admin only
-	
-	$_fav['prefs'] = new ArrayObject(array('prefs','My preferences','preferences.php',
-		'images/menu/user-pref.png','images/menu/user-pref-b.png',
-		'*',null,null));
 
-	$_fav['new_post'] = new ArrayObject(array('new_post','New entry','post.php',
-		'images/menu/edit.png','images/menu/edit-b.png',
-		'usage,contentadmin',null,'menu-new-post'));
-	$_fav['posts'] = new ArrayObject(array('posts','Entries','posts.php',
-		'images/menu/entries.png','images/menu/entries-b.png',
-		'usage,contentadmin',null,null));
-	$_fav['comments'] = new ArrayObject(array('comments','Comments','comments.php',
-		'images/menu/comments.png','images/menu/comments-b.png',
-		'usage,contentadmin',null,null));
-	$_fav['search'] = new ArrayObject(array('search','Search','search.php',
-		'images/menu/search.png','images/menu/search-b.png',
-		'usage,contentadmin',null,null));
-	$_fav['categories'] = new ArrayObject(array('categories','Categories','categories.php',
-		'images/menu/categories.png','images/menu/categories-b.png',
-		'categories',null,null));
-	$_fav['media'] = new ArrayObject(array('media','Media manager','media.php',
-		'images/menu/media.png','images/menu/media-b.png',
-		'media,media_admin',null,null));
-	$_fav['blog_pref'] = new ArrayObject(array('blog_pref','Blog settings','blog_pref.php',
-		'images/menu/blog-pref.png','images/menu/blog-pref-b.png',
-		'admin',null,null));
-	$_fav['blog_theme'] = new ArrayObject(array('blog_theme','Blog appearance','blog_theme.php',
-		'images/menu/themes.png','images/menu/blog-theme-b.png',
-		'admin',null,null));
-
-	$_fav['blogs'] = new ArrayObject(array('blogs','Blogs','blogs.php',
-		'images/menu/blogs.png','images/menu/blogs-b.png',
-		'usage,contentadmin',null,null));
-	$_fav['users'] = new ArrayObject(array('users','Users','users.php',
-		'images/menu/users.png','images/menu/users-b.png',
-		null,null,null));
-	$_fav['plugins'] = new ArrayObject(array('plugins','Plugins','plugins.php',
-		'images/menu/plugins.png','images/menu/plugins-b.png',
-		null,null,null));
-	$_fav['langs'] = new ArrayObject(array('langs','Languages','langs.php',
-		'images/menu/langs.png','images/menu/langs-b.png',
-		null,null,null));
-	
 	# Menus creation
+	$_menu = new ArrayObject();
 	$_menu['Dashboard'] = new dcMenu('dashboard-menu',null);
-	if (!$user_ui_nofavmenu)
-		$_menu['Favorites'] = new dcMenu('favorites-menu','My favorites');
+	if (!$user_ui_nofavmenu) {
+		$core->favs->appendMenuTitle($_menu);
+	}
 	$_menu['Blog'] = new dcMenu('blog-menu','Blog');
 	$_menu['System'] = new dcMenu('system-menu','System');
 	$_menu['Plugins'] = new dcMenu('plugins-menu','Plugins');
-	
 	# Loading plugins
 	$core->plugins->loadModules(DC_PLUGINS_ROOT,'admin',$_lang);
+	$core->favs->setup();
 
-	# Loading favorites info from plugins
-	$core->callBehavior('adminDashboardFavs', $core, $_fav);
-	
+	if (!$user_ui_nofavmenu) {
+		$core->favs->appendMenu($_menu);
+	}
+
 	# Set menu titles
-	
+
 	$_menu['System']->title = __('System settings');
 	$_menu['Blog']->title = __('Blog');
 	$_menu['Plugins']->title = __('Plugins');
-	if (!$user_ui_nofavmenu)
-		$_menu['Favorites']->title = __('My favorites');
 
-/*	
-	if (!preg_match('/index.php$/',$_SERVER['REQUEST_URI'])) {
-		# Admin index can't be add in fav's
-		$_menu['Dashboard']->prependItem(__('Add this page to my favorites'),'#','images/menu/add_to_favorites.png',
-			false,$core->auth->check('usage,contentadmin',$core->blog->id),'fav-add');
-	}
-*/
-	$_menu['Blog']->prependItem(__('Blog appearance'),'blog_theme.php','images/menu/themes.png',
-		preg_match('/blog_theme.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Blog appearance'),'admin.blog.theme','images/menu/themes.png',
 		$core->auth->check('admin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Blog settings'),'blog_pref.php','images/menu/blog-pref.png',
-		preg_match('/blog_pref.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Blog settings'),'admin.blog.pref','images/menu/blog-pref.png',
 		$core->auth->check('admin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Media manager'),'media.php','images/menu/media.png',
-		preg_match('/media(_item)?.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Media manager'),'admin.media','images/menu/media.png',
 		$core->auth->check('media,media_admin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Categories'),'categories.php','images/menu/categories.png',
-		preg_match('/categories.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Categories'),'admin.categories','images/menu/categories.png',
 		$core->auth->check('categories',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Search'),'search.php','images/menu/search.png',
-		preg_match('/search.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Search'),'admin.search','images/menu/search.png',
 		$core->auth->check('usage,contentadmin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Comments'),'comments.php','images/menu/comments.png',
-		preg_match('/comments.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Comments'),'admin.comments','images/menu/comments.png',
 		$core->auth->check('usage,contentadmin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('Entries'),'posts.php','images/menu/entries.png',
-		preg_match('/posts.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
+	addMenuItem('Blog',__('Entries'),'admin.posts','images/menu/entries.png',
 		$core->auth->check('usage,contentadmin',$core->blog->id));
-	$_menu['Blog']->prependItem(__('New entry'),'post.php','images/menu/edit.png',
-		preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
-		$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post');
-	
-	$_menu['System']->prependItem(__('Updates'),'update.php','images/menu/update.png',
-		preg_match('/update.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
-		$core->auth->isSuperAdmin() && is_readable(DC_DIGESTS));
-	$_menu['System']->prependItem(__('Languages'),'langs.php','images/menu/langs.png',
-		preg_match('/langs.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
-		$core->auth->isSuperAdmin());
-	$_menu['System']->prependItem(__('Plugins'),'plugins.php','images/menu/plugins.png',
-		preg_match('/plugins.php(\?.*)?$/',$_SERVER['REQUEST_URI']),
-		$core->auth->isSuperAdmin());
-	$_menu['System']->prependItem(__('Users'),'users.php','images/menu/users.png',
-		preg_match('/users.php$/',$_SERVER['REQUEST_URI']),
-		$core->auth->isSuperAdmin());
-	$_menu['System']->prependItem(__('Blogs'),'blogs.php','images/menu/blogs.png',
-		preg_match('/blogs.php$/',$_SERVER['REQUEST_URI']),
-		$core->auth->isSuperAdmin() ||
-		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->blog_count > 1);
+	addMenuItem('Blog',__('New entry'),'admin.post','images/menu/edit.png',
+		$core->auth->check('usage,contentadmin',$core->blog->id));
 
-	if (!$user_ui_nofavmenu) {
-		// Set favorites menu
-		$ws = $core->auth->user_prefs->addWorkspace('favorites');
-		$count = 0;
-		foreach ($ws->dumpPrefs() as $k => $v) {
-			// User favorites only
-			if (!$v['global']) {
-				$fav = unserialize($v['value']);
-				if (dc_valid_fav($fav['url'])) {
-					$count++;
-					$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-						preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
-						(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
-				}
-			}
-		}	
-		if (!$count) {
-			// Global favorites if any
-			foreach ($ws->dumpPrefs() as $k => $v) {
-				$fav = unserialize($v['value']);
-				if (dc_valid_fav($fav['url'])) {
-					$count++;
-					$_menu['Favorites']->addItem(__($fav['title']),$fav['url'],$fav['small-icon'],
-						preg_match(dc_prepare_url($fav['url']),$_SERVER['REQUEST_URI']),
-						(($fav['permissions'] == '*') || $core->auth->check($fav['permissions'],$core->blog->id)),$fav['id'],$fav['class']);
-				}
-			}
-		}
-		if (!$count) {
-			// No user or global favorites, add "new entry" fav
-			$_menu['Favorites']->addItem(__('New entry'),'post.php','images/menu/edit.png',
-				preg_match('/post.php$/',$_SERVER['REQUEST_URI']),
-				$core->auth->check('usage,contentadmin',$core->blog->id),'menu-new-post',null);
-		}
+	addMenuItem('System',__('Update'),'admin.update','images/menu/update.png',
+		$core->auth->isSuperAdmin() && is_readable(DC_DIGESTS));
+	addMenuItem('System',__('Languages'),'admin.langs','images/menu/langs.png',
+		$core->auth->isSuperAdmin());
+	addMenuItem('System',__('Plugins management'),'admin.plugins','images/menu/plugins.png',
+		$core->auth->isSuperAdmin());
+	addMenuItem('System',__('Users'),'admin.users','images/menu/users.png',
+		$core->auth->isSuperAdmin());
+	addMenuItem('System',__('Blogs'),'admin.blogs','images/menu/blogs.png',
+		$core->auth->isSuperAdmin() ||
+		$core->auth->check('usage,contentadmin',$core->blog->id) && $core->auth->getBlogCount() > 1);
+
+	if (empty($core->blog->settings->system->jquery_migrate_mute)) {
+		$core->blog->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
 	}
 }
-?>
+

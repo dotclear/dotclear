@@ -5,43 +5,43 @@ class lambdaModule
 	private $deb;
 	private $type;
 	private $today;
-	
+
 	private $id;
 	private $package_name;
 	private $name;
 	private $desc;
 	private $author;
 	private $version;
-	
+
 	public function __construct($module,$type)
 	{
 		if ($type != 'plugin' && $type != 'theme') {
 			throw new Exception('Invalid module type');
 		}
 		$this->type = $type;
-		
+
 		if (!$module || !is_dir($module)) {
 			throw new Exception(sprintf('Module %s does not exist',$module));
 		}
-		
+
 		$mod_define = $module.'/_define.php';
-		
+
 		if (!is_file($mod_define)) {
 			throw new Exception(sprintf('Module %s does not have _define.php file',$module));
 		}
-		
+
 		if (is_dir($module.'/debian')) {
 			throw new Exception(sprintf('Module %s already have a debian directory',$module));
 		}
-		
+
 		include $mod_define;
 		$this->id = strtolower(basename(realpath($module)));
 		$this->package_name = 'libdotclear-'.$this->type.'-'.$this->id;
-		
+
 		# Creating debian directory
 		$this->deb = $module.'/debian';
 		mkdir($this->deb);
-		
+
 		$this->createFile('changelog',$this->changelogTPL());
 		$this->createFile('compat',"4\n");
 		$this->createFile('control',$this->controlTPL());
@@ -50,7 +50,7 @@ class lambdaModule
 		$this->createFile('rules',$this->rulesTPL());
 		chmod($this->deb.'/rules',0755);
 	}
-	
+
 	private function registerModule($name,$desc,$author,$version)
 	{
 		$this->name = $name;
@@ -58,14 +58,14 @@ class lambdaModule
 		$this->author = $author;
 		$this->version = $version;
 	}
-	
+
 	private function createFile($name,$content='')
 	{
 		$fp = fopen($this->deb.'/'.$name,'wb');
 		fwrite($fp,$content);
 		fclose($fp);
 	}
-	
+
 	private function changelogTPL()
 	{
 		return
@@ -75,7 +75,7 @@ class lambdaModule
 		"\n".
 		" -- ".$this->author." <email@example.com>  ".date('r')."\n\n";
 	}
-	
+
 	private function controlTPL()
 	{
 		return
@@ -95,7 +95,7 @@ class lambdaModule
 		" ".$this->desc."\n".
 		"\n";
 	}
-	
+
 	private function copyrightTPL()
 	{
 		return
@@ -125,13 +125,13 @@ class lambdaModule
 		"Public License can be found in `/usr/share/common-licenses/GPL'.".
 		"\n";
 	}
-	
+
 	private function dirsTPL()
 	{
 		return
 		'/usr/share/dotclear/'.$this->type.'s/'.$this->id."\n";
 	}
-	
+
 	private function rulesTPL()
 	{
 		return

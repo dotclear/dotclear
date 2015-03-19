@@ -9,12 +9,9 @@
 .tag80 { font-size: 210%; }
 .tag90 { font-size: 220%; }
 .tag100 { font-size: 230%; }
-
 table.tags {
 	margin-left: 3em;
-}
-
-
+	}
 tr.tagLetter span {
 	font-size : 250%;
 	border: none;
@@ -23,37 +20,34 @@ tr.tagLetter span {
 	position: relative;
 	top: 0.80em;
 	left: -2ex;
-}
-
+	}
 ul.metaList {
 	margin: 0 0 1em 0;
 	padding: 0;
-}
+	}
 ul.metaList li {
 	margin: 0;
 	padding: 0;
 	list-style: square;
 	list-style-position: inside;
-}
-
+	}
 a.metaRemove {
 	color : #999 !important;
 	border: none;
-}
+	}
 a.metaRemove:hover, a.metaRemove:focus {
-	color : #06c !important;
-}
-
+	color : #2373A8 !important;
+	}
 .addMeta a {
 	border: none;
-}
+	}
 .addMeta a:hover, .addMeta a:focus {
 	background: #fc0;
 	color: #000;
-}
+	}
 .addMeta a.metaGetMore {
 	font-weight: bold;
-}
+	}
 /* Auto Complete */
 .ac_results {
 	padding: 0px;
@@ -61,40 +55,50 @@ a.metaRemove:hover, a.metaRemove:focus {
 	background-color: white;
 	overflow: hidden;
 	z-index: 99999;
-}
+	}
 .ac_results ul {
 	width: 100%;
 	list-style-position: outside;
 	list-style: none;
 	padding: 0;
 	margin: 0;
-}
+	}
 .ac_results li {
 	margin: 0px;
 	padding: 2px 5px;
 	cursor: default;
 	display: block;
-	/* 
-	if width will be 100% horizontal scrollbar will apear 
+	/*
+	if width will be 100% horizontal scrollbar will apear
 	when scroll mode will be used
 	*/
 	/*width: 100%;*/
 	font: menu;
 	font-size: 1em;
-	/* 
-	it is very important, if line-height not setted or setted 
+	/*
+	it is very important, if line-height not setted or setted
 	in relative units scroll will be broken in firefox
 	*/
 	line-height: 16px;
 	overflow: hidden;
-}
+	}
 .ac_loading {
 	background: transparent url('index.php?pf=tags/img/loader.gif') right center no-repeat;
-}
+	}
 .ac_odd {
 	background-color: #eee;
-}
+	}
 .ac_over {
-	background-color: #06c;
+	background-color: #2373A8;
 	color: white;
-}
+	}
+#post_meta_input:focus {
+	-moz-box-sizing: content-box;
+	}
+#tags-edit input[type=text] {
+	width: 11.5em;
+	}
+.tag-actions form {
+	display: inline-block;
+	margin-right: 1.5em;
+	}

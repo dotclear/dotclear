@@ -38,7 +38,8 @@ msgstr "Tarih"
 msgid "Continue reading"
 msgstr "Tamamını oku"
 
-msgid "no comment"
+#, fuzzy
+msgid "no comments"
 msgstr "ahkam yok"
 
 msgid "one comment"
@@ -47,7 +48,7 @@ msgstr "bir ahkam"
 msgid "%d comments"
 msgstr "%d ahkam"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "gerizleme yok"
 
 msgid "one trackback"
@@ -56,7 +57,7 @@ msgstr "bir gerizleme"
 msgid "%d trackbacks"
 msgstr "%d gerizleme"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "ek yok"
 
 msgid "one attachment"

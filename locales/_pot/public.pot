@@ -40,7 +40,7 @@ msgstr ""
 msgid "Continue reading"
 msgstr ""
 
-msgid "no comment"
+msgid "no comments"
 msgstr ""
 
 msgid "one comment"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "%d comments"
 msgstr ""
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr ""
 
 msgid "one trackback"
@@ -58,7 +58,7 @@ msgstr ""
 msgid "%d trackbacks"
 msgstr ""
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr ""
 
 msgid "one attachment"
@@ -84,7 +84,7 @@ msgstr ""
 
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr ""
-    
+
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
 msgstr ""
 
@@ -237,7 +237,7 @@ msgstr ""
 
 msgid "You must provide a valid email address."
 msgstr ""
- 
+
 msgid "Read"
 msgstr ""
 

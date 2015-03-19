@@ -1,10 +1,10 @@
 ToolMan._dragsortFactory.makeTableSortable = function(table) {
 	if (table == null) return;
-	
+
 	var helpers = ToolMan.helpers();
 	var coordinates = ToolMan.coordinates();
 	var items = table.getElementsByTagName("tr");
-	
+
 	helpers.map(items, function(item) {
 		var dragGroup = dragsort.makeSortable(item);
 		dragGroup.setThreshold(4);

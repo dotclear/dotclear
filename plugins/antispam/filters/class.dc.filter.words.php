@@ -15,10 +15,7 @@ class dcFilterWords extends dcSpamFilter
 {
 	public $has_gui = true;
 	public $name = 'Bad Words';
-
-	private $style_list = 'height: 200px; overflow: auto; margin-bottom: 1em; ';
-	private $style_p = 'margin: 1px 0 0 0; padding: 0.2em 0.5em; ';
-	private $style_global = 'background: #ccff99; ';
+	public $help = 'words-filter';
 
 	private $con;
 	private $table;
@@ -73,7 +70,8 @@ class dcFilterWords extends dcSpamFilter
 		{
 			try {
 				$this->defaultWordsList();
-				http::redirect($url.'&list=1');
+				dcPage::addSuccessNotice(__('Words have been successfully added.'));
+				http::redirect($url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
@@ -86,7 +84,8 @@ class dcFilterWords extends dcSpamFilter
 
 			try {
 				$this->addRule($_POST['swa'],$globalsw);
-				http::redirect($url.'&added=1');
+				dcPage::addSuccessNotice(__('Word has been successfully added.'));
+				http::redirect($url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
@@ -97,7 +96,8 @@ class dcFilterWords extends dcSpamFilter
 		{
 			try {
 				$this->removeRule($_POST['swd']);
-				http::redirect($url.'&removed=1');
+				dcPage::addSuccessNotice(__('Words have been successfully removed.'));
+				http::redirect($url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());
 			}
@@ -105,25 +105,15 @@ class dcFilterWords extends dcSpamFilter
 
 		/* DISPLAY
 		---------------------------------------------- */
-		$res = '';
-
-		if (!empty($_GET['list'])) {
-			$res .= dcPage::message(__('Words have been successfully added.'),true,false,false);
-		}
-		if (!empty($_GET['added'])) {
-			$res .= dcPage::message(__('Word has been successfully added.'),true,false,false);
-		}
-		if (!empty($_GET['removed'])) {
-			$res .= dcPage::message(__('Words have been successfully removed.'),true,false,false);
-		}
+		$res = dcPage::notices();
 
 		$res .=
 		'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
-		'<p><label class="classic" for="swa">'.__('Add a word ').' '.form::field('swa',20,128).'</label>';
+		'<p><label class="classic" for="swa">'.__('Add a word ').'</label> '.form::field('swa',20,128);
 
 		if ($core->auth->isSuperAdmin()) {
-			$res .= '<label class="classic" for="globalsw">'.form::checkbox('globalsw',1).' '.
-			__('Global word (used for all blogs)').'</label> ';
+			$res .= '<label class="classic" for="globalsw">'.form::checkbox('globalsw',1).'</label> '.
+			__('Global word (used for all blogs)');
 		}
 
 		$res .=
@@ -142,20 +132,22 @@ class dcFilterWords extends dcSpamFilter
 			$res .=
 			'<form action="'.html::escapeURL($url).'" method="post" class="fieldset">'.
 			'<h3>' . __('List of bad words') . '</h3>'.
-			'<div style="'.$this->style_list.'">';
+			'<div class="antispam">';
 
 			$res_global = '';
 			$res_local = '';
 			while ($rs->fetch())
 			{
 				$disabled_word = false;
-				$p_style = $this->style_p;
+
+				$p_style = '';
+
 				if (!$rs->blog_id) {
 					$disabled_word = !$core->auth->isSuperAdmin();
-					$p_style .= $this->style_global;
+					$p_style .= ' global';
 				}
 
-				$item = '<p style="'.$p_style.'"><label class="classic" for="word-'.$rs->rule_id.'">'.
+				$item = '<p class="'.$p_style.'"><label class="classic" for="word-'.$rs->rule_id.'">'.
 					form::checkbox(array('swd[]', 'word-'.$rs->rule_id),$rs->rule_id,false,'','',$disabled_word).' '.
 					html::escapeHTML($rs->rule_content).
 					'</label></p>';
@@ -369,4 +361,3 @@ class dcFilterWords extends dcSpamFilter
 		}
 	}
 }
-?>

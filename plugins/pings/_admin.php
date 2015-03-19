@@ -11,8 +11,10 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$_menu['Plugins']->addItem(__('Pings'),'plugin.php?p=pings','index.php?pf=pings/icon.png',
-		preg_match('/plugin.php\?p=pings/',$_SERVER['REQUEST_URI']),
+$_menu['Blog']->addItem(__('Pings'),
+		$core->adminurl->get('admin.plugin.pings'),
+		dcPage::getPF('pings/icon.png'),
+		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.pings')).'/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin());
 
 $__autoload['pingsAPI'] = dirname(__FILE__).'/lib.pings.php';
@@ -25,23 +27,42 @@ if (!array_key_exists('pings',$core->blog->settings->dumpNamespaces()))
 		'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
 		'Google Blog Search' => 'http://blogsearch.google.com/ping/RPC2'
 	);
-		
+
 	$core->blog->settings->addNamespace('pings');
 	$core->blog->settings->pings->put('pings_active',1,'boolean','Activate pings plugin',true,true);
 	$core->blog->settings->pings->put('pings_uris',serialize($default_pings_uris),'string','Pings services URIs',true,true);
 }
 
 $core->addBehavior('adminPostHeaders',array('pingsBehaviors','pingJS'));
-$core->addBehavior('adminPostFormSidebar',array('pingsBehaviors','pingsForm'));
+$core->addBehavior('adminPostFormItems',array('pingsBehaviors','pingsFormItems'));
 $core->addBehavior('adminAfterPostCreate',array('pingsBehaviors','doPings'));
 $core->addBehavior('adminAfterPostUpdate',array('pingsBehaviors','doPings'));
 
-$core->addBehavior('adminDashboardFavs','pingDashboardFavs');
+$core->addBehavior('adminDashboardFavorites','pingDashboardFavorites');
 
-function pingDashboardFavs($core,$favs)
+function pingDashboardFavorites($core,$favs)
 {
-	$favs['pings'] = new ArrayObject(array('pings','Pings','plugin.php?p=pings',
-		'index.php?pf=pings/icon.png','index.php?pf=pings/icon-big.png',
-		null,null,null));
+	$favs->register('pings', array(
+		'title' => __('Pings'),
+		'url' => $core->adminurl->get('admin.plugin.pings'),
+		'small-icon' => dcPage::getPF('pings/icon.png'),
+		'large-icon' => dcPage::getPF('pings/icon-big.png'),
+	));
 }
-?>
+
+$core->addBehavior('adminPageHelpBlock', 'pingsPageHelpBlock');
+
+function pingsPageHelpBlock($blocks)
+{
+	$found = false;
+	foreach($blocks as $block) {
+		if ($block == 'core_post') {
+			$found = true;
+			break;
+		}
+	}
+	if (!$found) {
+		return null;
+	}
+	$blocks[] = 'pings_post';
+}

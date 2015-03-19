@@ -15,7 +15,17 @@ function checkQueryString() {
 
 
 $(function() {
-	checkQueryString();
-	$('#blog_url').focusout(checkQueryString);
-	$('#url_scan').live("change",checkQueryString);
+	if( $('#blog_url').length > 0 ) {
+		checkQueryString();
+		$('#blog_url').focusout(checkQueryString);
+		$('body').on('change','#url_scan',checkQueryString);
+	}
+
+	$('#date_format_select,#time_format_select').change(function() {
+		if ($(this).prop('value') == '') {
+			return;
+		}
+		$('#'+$(this).attr('id').replace('_select','')).prop('value', $(this).prop('value'));
+		$(this).parent().next('.chosen').html($(this).find(':selected').prop('label'));
+	});
 });

@@ -13,6 +13,9 @@ if (!defined('DC_RC_PATH')) { return; }
 
 class blowupConfig
 {
+	protected static $css_folder = 'blowup-css';
+	protected static $img_folder = 'blowup-images';
+
 	protected static $fonts = array(
 		'sans-serif' => array(
 			'ss1' => 'Arial, Helvetica, sans-serif',
@@ -48,6 +51,7 @@ class blowupConfig
 		'flourish-1' => 'Flourished 1',
 		'flourish-2' => 'Flourished 2',
 		'animals' => 'Animals',
+		'plumetis' => 'Plumetis',
 		'flamingo' => 'Flamingo',
 		'rabbit' => 'Rabbit',
 		'roadrunner-1' => 'Road Runner 1',
@@ -88,132 +92,222 @@ class blowupConfig
 		return isset(self::$fonts_list[$c]) ? self::$fonts_list[$c] : null;
 	}
 
-	public static function adjustFontSize($s)
+	public static function cssPath()
 	{
-		if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex)?$/',$s,$m)) {
-			if (empty($m[2])) {
-				$m[2] = 'px';
-			}
-			return $m[1].$m[2];
-		}
-
-		return null;
+		return dcThemeConfig::cssPath(self::$css_folder);
 	}
 
-	public static function adjustPosition($p)
+	public static function cssURL()
 	{
-		if (!preg_match('/^[0-9]+(:[0-9]+)?$/',$p)) {
-			return null;
-		}
-
-		$p = explode(':',$p);
-
-		return $p[0].(count($p) == 1 ? ':0' : ':'.$p[1]);
+		return dcThemeConfig::cssURL(self::$css_folder);
 	}
 
-	public static function adjustColor($c)
+	public static function canWriteCss($create=false)
 	{
-		if ($c === '') {
-			return '';
-		}
-
-		$c = strtoupper($c);
-
-		if (preg_match('/^[A-F0-9]{3,6}$/',$c)) {
-			$c = '#'.$c;
-		}
-
-		if (preg_match('/^#[A-F0-9]{6}$/',$c)) {
-			return $c;
-		}
-
-		if (preg_match('/^#[A-F0-9]{3,}$/',$c)) {
-			return '#'.substr($c,1,1).substr($c,1,1).substr($c,2,1).substr($c,2,1).substr($c,3,1).substr($c,3,1);
-		}
-
-		return '';
+		return dcThemeConfig::canWriteCss(self::$css_folder,$create);
 	}
 
-	public static function cleanCSS($css)
+	protected static function backgroundImg(&$css,$selector,$value,$image)
 	{
-		// TODO ?
-		return $css;
+		dcThemeConfig::backgroundImg(self::$img_folder,$css,$selector,$value,$image);
+	}
+
+	private static function writeCss($theme,$css)
+	{
+		dcThemeConfig::writeCSS(self::$css_folder,$theme,$css);
+	}
+
+	public static function dropCss($theme)
+	{
+		dcThemeConfig::dropCss(self::$css_folder,$theme);
+	}
+
+	public static function publicCssUrlHelper()
+	{
+		return dcThemeConfig::publicCssUrlHelper(self::$css_folder);
 	}
 
 	public static function imagesPath()
 	{
-		global $core;
-		return path::real($core->blog->public_path).'/blowup-images';
+		return dcThemeConfig::imagesPath(self::$img_folder);
 	}
 
 	public static function imagesURL()
 	{
-		global $core;
-		return $core->blog->settings->system->public_url.'/blowup-images';
+		return dcThemeConfig::imagesURL(self::$img_folder);
 	}
 
 	public static function canWriteImages($create=false)
 	{
-		global $core;
-
-		$public = path::real($core->blog->public_path);
-		$imgs = self::imagesPath();
-
-		if (!function_exists('imagecreatetruecolor') || !function_exists('imagepng') || !function_exists('imagecreatefrompng')) {
-			$core->error->add(__('At least one of the following functions is not available: '.
-				'imagecreatetruecolor, imagepng & imagecreatefrompng.'));
-			return false;
-		}
-
-		if (!is_dir($public)) {
-			$core->error->add(__('The \'public\' directory does not exist.'));
-			return false;
-		}
-
-		if (!is_dir($imgs)) {
-			if (!is_writable($public)) {
-				$core->error->add(sprintf(__('The \'%s\' directory cannot be modified.'),'public'));
-				return false;
-			}
-			if ($create) {
-				files::makeDir($imgs);
-			}
-			return true;
-		}
-
-		if (!is_writable($imgs)) {
-			$core->error->add(sprintf(__('The \'%s\' directory cannot be modified.'),'public/blowup-images'));
-			return false;
-		}
-
-		return true;
+		return dcThemeConfig::canWriteImages(self::$img_folder,$create);
 	}
 
 	public static function uploadImage($f)
 	{
-		if (!self::canWriteImages(true)) {
-			throw new Exception(__('Unable to create images.'));
+		return dcThemeConfig::uploadImage(self::$img_folder,$f,800);
+	}
+
+	public static function dropImage($img)
+	{
+		dcThemeConfig::dropImage(self::$img_folder,$img);
+	}
+
+	public static function createCss($s)
+	{
+		global $core;
+
+		if ($s === null) {
+			return;
 		}
 
-		$name = $f['name'];
-		$type = files::getMimeType($name);
+		$css = array();
 
-		if ($type != 'image/jpeg' && $type != 'image/png') {
-			throw new Exception(__('Invalid file type.'));
+		/* Sidebar position
+		---------------------------------------------- */
+		if ($s['sidebar_position'] == 'left') {
+			$css['#wrapper']['background-position'] = '-300px 0';
+			$css['#main']['float'] = 'right';
+			$css['#sidebar']['float'] = 'left';
 		}
 
-		$dest = self::imagesPath().'/uploaded'.($type == 'image/png' ? '.png' : '.jpg');
+		/* Properties
+		---------------------------------------------- */
+		dcThemeConfig::prop($css,'body','background-color',$s['body_bg_c']);
 
-		if (@move_uploaded_file($f['tmp_name'],$dest) === false) {
-			throw new Exception(__('An error occurred while writing the file.'));
+		dcThemeConfig::prop($css,'body','color',$s['body_txt_c']);
+		dcThemeConfig::prop($css,'.post-tags li a:link, .post-tags li a:visited, .post-info-co a:link, .post-info-co a:visited','color',$s['body_txt_c']);
+		dcThemeConfig::prop($css,'#page','font-size',$s['body_txt_s']);
+		dcThemeConfig::prop($css,'body','font-family',self::fontDef($s['body_txt_f']));
+
+		dcThemeConfig::prop($css,'.post-content, .post-excerpt, #comments dd, #pings dd, dd.comment-preview','line-height',$s['body_line_height']);
+
+		if (!$s['blog_title_hide'])
+		{
+			dcThemeConfig::prop($css,'#top h1 a','color',$s['blog_title_c']);
+			dcThemeConfig::prop($css,'#top h1','font-size',$s['blog_title_s']);
+			dcThemeConfig::prop($css,'#top h1','font-family',self::fontDef($s['blog_title_f']));
+
+			if ($s['blog_title_a'] == 'right' || $s['blog_title_a'] == 'left') {
+				$css['#top h1'][$s['blog_title_a']] = '0px';
+				$css['#top h1']['width'] = 'auto';
+			}
+
+			if ($s['blog_title_p'])
+			{
+				$_p = explode(':',$s['blog_title_p']);
+				$css['#top h1']['top'] = $_p[1].'px';
+				if ($s['blog_title_a'] != 'center') {
+					$_a = $s['blog_title_a'] == 'right' ? 'right' : 'left';
+					$css['#top h1'][$_a] = $_p[0].'px';
+				}
+			}
+		}
+		else
+		{
+			dcThemeConfig::prop($css,'#top h1 span','text-indent','-5000px');
+			dcThemeConfig::prop($css,'#top h1','top','0px');
+			$css['#top h1 a'] = array(
+				'display' => 'block',
+				'height' => $s['top_height'] ? ($s['top_height']-10).'px' : '120px',
+				'width' => '800px'
+			);
+		}
+		dcThemeConfig::prop($css,'#top','height',$s['top_height']);
+
+		dcThemeConfig::prop($css,'.day-date','color',$s['date_title_c']);
+		dcThemeConfig::prop($css,'.day-date','font-family',self::fontDef($s['date_title_f']));
+		dcThemeConfig::prop($css,'.day-date','font-size',$s['date_title_s']);
+
+		dcThemeConfig::prop($css,'a','color',$s['body_link_c']);
+		dcThemeConfig::prop($css,'a:visited','color',$s['body_link_v_c']);
+		dcThemeConfig::prop($css,'a:hover, a:focus, a:active','color',$s['body_link_f_c']);
+
+		dcThemeConfig::prop($css,'#comment-form input, #comment-form textarea','color',$s['body_link_c']);
+		dcThemeConfig::prop($css,'#comment-form input.preview','color',$s['body_link_c']);
+		dcThemeConfig::prop($css,'#comment-form input.preview:hover','background',$s['body_link_f_c']);
+		dcThemeConfig::prop($css,'#comment-form input.preview:hover','border-color',$s['body_link_f_c']);
+		dcThemeConfig::prop($css,'#comment-form input.submit','color',$s['body_link_c']);
+		dcThemeConfig::prop($css,'#comment-form input.submit:hover','background',$s['body_link_f_c']);
+		dcThemeConfig::prop($css,'#comment-form input.submit:hover','border-color',$s['body_link_f_c']);
+
+		dcThemeConfig::prop($css,'#sidebar','font-family',self::fontDef($s['sidebar_text_f']));
+		dcThemeConfig::prop($css,'#sidebar','font-size',$s['sidebar_text_s']);
+		dcThemeConfig::prop($css,'#sidebar','color',$s['sidebar_text_c']);
+
+		dcThemeConfig::prop($css,'#sidebar h2','font-family',self::fontDef($s['sidebar_title_f']));
+		dcThemeConfig::prop($css,'#sidebar h2','font-size',$s['sidebar_title_s']);
+		dcThemeConfig::prop($css,'#sidebar h2','color',$s['sidebar_title_c']);
+
+		dcThemeConfig::prop($css,'#sidebar h3','font-family',self::fontDef($s['sidebar_title2_f']));
+		dcThemeConfig::prop($css,'#sidebar h3','font-size',$s['sidebar_title2_s']);
+		dcThemeConfig::prop($css,'#sidebar h3','color',$s['sidebar_title2_c']);
+
+		dcThemeConfig::prop($css,'#sidebar ul','border-top-color',$s['sidebar_line_c']);
+		dcThemeConfig::prop($css,'#sidebar li','border-bottom-color',$s['sidebar_line_c']);
+		dcThemeConfig::prop($css,'#topnav ul','border-bottom-color',$s['sidebar_line_c']);
+
+		dcThemeConfig::prop($css,'#sidebar li a','color',$s['sidebar_link_c']);
+		dcThemeConfig::prop($css,'#sidebar li a:visited','color',$s['sidebar_link_v_c']);
+		dcThemeConfig::prop($css,'#sidebar li a:hover, #sidebar li a:focus, #sidebar li a:active','color',$s['sidebar_link_f_c']);
+		dcThemeConfig::prop($css,'#search input','color',$s['sidebar_link_c']);
+		dcThemeConfig::prop($css,'#search .submit','color',$s['sidebar_link_c']);
+		dcThemeConfig::prop($css,'#search .submit:hover','background',$s['sidebar_link_f_c']);
+		dcThemeConfig::prop($css,'#search .submit:hover','border-color',$s['sidebar_link_f_c']);
+
+		dcThemeConfig::prop($css,'.post-title','color',$s['post_title_c']);
+		dcThemeConfig::prop($css,'.post-title a, .post-title a:visited','color',$s['post_title_c']);
+		dcThemeConfig::prop($css,'.post-title','font-family',self::fontDef($s['post_title_f']));
+		dcThemeConfig::prop($css,'.post-title','font-size',$s['post_title_s']);
+
+		dcThemeConfig::prop($css,'#comments dd','background-color',$s['post_comment_bg_c']);
+		dcThemeConfig::prop($css,'#comments dd','color',$s['post_comment_c']);
+		dcThemeConfig::prop($css,'#comments dd.me','background-color',$s['post_commentmy_bg_c']);
+		dcThemeConfig::prop($css,'#comments dd.me','color',$s['post_commentmy_c']);
+
+		dcThemeConfig::prop($css,'#prelude, #prelude a','color',$s['prelude_c']);
+
+		dcThemeConfig::prop($css,'#footer p','background-color',$s['footer_bg_c']);
+		dcThemeConfig::prop($css,'#footer p','color',$s['footer_c']);
+		dcThemeConfig::prop($css,'#footer p','font-size',$s['footer_s']);
+		dcThemeConfig::prop($css,'#footer p','font-family',self::fontDef($s['footer_f']));
+		dcThemeConfig::prop($css,'#footer p a','color',$s['footer_l_c']);
+
+		/* Images
+		------------------------------------------------------ */
+		self::backgroundImg($css,'body',$s['body_bg_c'],'body-bg.png');
+		self::backgroundImg($css,'body',$s['body_bg_g'] != 'light','body-bg.png');
+		self::backgroundImg($css,'body',$s['prelude_c'],'body-bg.png');
+		self::backgroundImg($css,'#top',$s['body_bg_c'],'page-t.png');
+		self::backgroundImg($css,'#top',$s['body_bg_g'] != 'light','page-t.png');
+		self::backgroundImg($css,'#top',$s['uploaded'] || $s['top_image'],'page-t.png');
+		self::backgroundImg($css,'#footer',$s['body_bg_c'],'page-b.png');
+		self::backgroundImg($css,'#comments dt',$s['post_comment_bg_c'],'comment-t.png');
+		self::backgroundImg($css,'#comments dd',$s['post_comment_bg_c'],'comment-b.png');
+		self::backgroundImg($css,'#comments dt.me',$s['post_commentmy_bg_c'],'commentmy-t.png');
+		self::backgroundImg($css,'#comments dd.me',$s['post_commentmy_bg_c'],'commentmy-b.png');
+
+		$res = '';
+		foreach ($css as $selector => $values) {
+			$res .= $selector." {\n";
+			foreach ($values as $k => $v) {
+				$res .= $k.':'.$v.";\n";
+			}
+			$res .= "}\n";
 		}
 
-		$s = getimagesize($dest);
-		if ($s[0] != 800) {
-			throw new Exception(__('Uploaded image is not 800 pixels wide.'));
+		$res .= $s['extra_css'];
+
+		if (!self::canWriteCss(true)) {
+			throw new Exception(__('Unable to create css file.'));
 		}
 
-		return $dest;
+		# erase old css file
+		self::dropCss($core->blog->settings->system->theme);
+
+		# create new css file into public blowup-css subdirectory
+		self::writeCss($core->blog->settings->system->theme, $res);
+
+		return $res;
 	}
 
 	public static function createImages(&$config,$uploaded)
@@ -266,9 +360,9 @@ class blowupConfig
 		self::dropImage(basename($comment_t));
 		self::dropImage(basename($comment_b));
 
-		$body_color = self::adjustColor($body_color);
-		$prelude_color = self::adjustColor($prelude_color);
-		$comment_color = self::adjustColor($comment_color);
+		$body_color = dcThemeConfig::adjustColor($body_color);
+		$prelude_color = dcThemeConfig::adjustColor($prelude_color);
+		$comment_color = dcThemeConfig::adjustColor($comment_color);
 
 		if ($top_image || $body_color || $gradient != 'light' || $prelude_color || $uploaded)
 		{
@@ -413,17 +507,4 @@ class blowupConfig
 		imagedestroy($s_comment_b);
 	}
 
-	public static function dropImage($img)
-	{
-		$img = path::real(self::imagesPath().'/'.$img);
-		if (is_writable(dirname($img))) {
-			@unlink($img);
-			@unlink(dirname($img).'/.'.basename($img,'.png').'_sq.jpg');
-			@unlink(dirname($img).'/.'.basename($img,'.png').'_m.jpg');
-			@unlink(dirname($img).'/.'.basename($img,'.png').'_s.jpg');
-			@unlink(dirname($img).'/.'.basename($img,'.png').'_sq.jpg');
-			@unlink(dirname($img).'/.'.basename($img,'.png').'_t.jpg');
-		}
-	}
 }
-?>

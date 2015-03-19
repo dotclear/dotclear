@@ -23,7 +23,7 @@ $menu_default = array(
 	array('label' => 'Archives', 'descr' => '', 'url' => $blog_url.$core->url->getURLFor('archive'))
 );
 $core->blog->settings->system->put('simpleMenu',serialize($menu_default),'string','simpleMenu default menu',false,true);
+$core->blog->settings->system->put('simpleMenu_active',true,'boolean','Active',false,true);
 
 $core->setVersion('simpleMenu',$version);
 return true;
-?>

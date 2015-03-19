@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-06 18:09+0100\n"
+"POT-Creation-Date: 2014-11-20 19:51+0100\n"
 "PO-Revision-Date: 2010-01-16 19:14+0800\n"
 "Last-Translator: lainme <lainme993@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,20 +17,132 @@ msgstr ""
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: CHINA\n"
 
+msgid "Manage every blog configuration directive"
+msgstr ""
+
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
+msgid "Generic antispam plugin for Dotclear"
+msgstr ""
+
+msgid "Manage post attachments"
+msgstr ""
+
+#, fuzzy
+msgid "Manage your blogroll"
+msgstr "管理博客链接"
+
+msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Legacy modules for dotclear"
+msgstr ""
+
+msgid "Trackback validity check"
+msgstr ""
+
+#, fuzzy
+msgid "Import and Export your blog"
+msgstr "导出一个博客"
+
+msgid "Maintain your installation"
+msgstr ""
+
+msgid "Serve entries as simple web pages"
+msgstr ""
+
+#, fuzzy
+msgid "Ping services"
+msgstr "测试 ping 服务器"
+
+msgid "Simple menu for Dotclear"
+msgstr ""
+
+msgid "Tags for posts"
+msgstr ""
+
+msgid "Theme Editor"
+msgstr "主题编辑器"
+
+msgid "Manage every user preference directive"
+msgstr ""
+
+#, fuzzy
+msgid "Widgets for your blog sidebars"
+msgstr "添加小工具和侧边栏"
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+#, fuzzy
+msgid "Search engine form"
+msgstr "搜索引擎"
+
+#, fuzzy
+msgid "List of navigation links"
+msgstr "导航链接"
+
+#, fuzzy
+msgid "List of selected entries"
+msgstr "所选文章没有标签"
+
+msgid "List of available languages"
+msgstr ""
+
+#, fuzzy
+msgid "List of categories"
+msgstr "所有分类目录"
+
+msgid "Feed subscription links (RSS or Atom)"
+msgstr ""
+
+msgid "List of last entries from feed (RSS or Atom)"
+msgstr ""
+
+msgid "Simple text"
+msgstr ""
+
+msgid "List of last entries published"
+msgstr ""
+
+#, fuzzy
+msgid "List of last comments published"
+msgstr "此博客的评论 %s feed"
+
+#, fuzzy
+msgid "Tags cloud"
+msgstr "要添加的标签："
+
+msgid "List of published pages"
+msgstr ""
+
+#, fuzzy
+msgid "Blogroll list"
+msgstr "博客链接"
+
+#, fuzzy
+msgid "List of simple menu items"
+msgstr "删除选定的链接"
+
+msgid "Configuration successfully updated"
+msgstr "成功更新配置"
+
 msgid "no"
 msgstr "否"
 
 msgid "yes"
 msgstr ""
 
-msgid "Configuration successfully updated"
-msgstr "成功更新配置"
+msgid "about:config"
+msgstr ""
 
-msgid "Settings definition successfully updated"
-msgstr "成功更新设置定义"
-
-msgid "blog settings"
-msgstr "博客设置"
+#, fuzzy, php-format
+msgid "Settings for %s"
+msgstr "编辑文件 %s"
 
 msgid "Value"
 msgstr "值"
@@ -41,10 +153,8 @@ msgstr "描述"
 msgid "Goto:"
 msgstr ""
 
-msgid "Ok"
-msgstr ""
-
-msgid "global settings"
+#, fuzzy
+msgid "Global settings"
 msgstr "全局设置"
 
 msgid "Akismet spam filter"
@@ -53,6 +163,10 @@ msgstr "Akismet 垃圾评论过滤"
 #, php-format
 msgid "Filtered by %s."
 msgstr "依据 %s 过滤。"
+
+#, fuzzy
+msgid "Filter configuration have been successfully saved."
+msgstr "成功保存过滤器配置。"
 
 msgid "Akismet API key:"
 msgstr "Akismet API key："
@@ -69,11 +183,23 @@ msgstr "获取您自己的 API key"
 msgid "Antispam"
 msgstr "反垃圾评论"
 
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr "所有早于 %s 天的垃圾评论都会被自动删除。"
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
 msgid "Delete junk comments older than"
 msgstr "删除垃圾评论早于"
 
 msgid "days"
 msgstr "天"
+
+#, fuzzy
+msgid "Set spam filters."
+msgstr "Akismet 垃圾评论过滤"
 
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IP 黑名单／白名单过滤"
@@ -98,8 +224,8 @@ msgstr "白名单"
 msgid "Add an IP address: "
 msgstr "添加一个 IP 地址"
 
-msgid "Global IP"
-msgstr "全球 IP"
+msgid "Global IP (used for all blogs)"
+msgstr ""
 
 msgid "Add"
 msgstr "添加"
@@ -110,12 +236,22 @@ msgstr "列表中没有 IP 地址。"
 msgid "IP list"
 msgstr "IP 列表"
 
+msgid "Local IPs (used only for this blog)"
+msgstr ""
+
+msgid "Global IPs (used for all blogs)"
+msgstr ""
+
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "从 DNSBL 服务器检查发送者 IP 地址"
 
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "根据服务器 %2$s 被 %1$s 过滤。"
+
+#, fuzzy
+msgid "The list of DNSBL servers has been succesfully updated."
+msgstr "成功更新项目顺序"
 
 msgid "IP Lookup servers"
 msgstr "IP 查询服务器"
@@ -146,13 +282,19 @@ msgstr "成功移除关键字。"
 msgid "Add a word "
 msgstr "添加一个关键字"
 
-msgid "Global word"
-msgstr "全局关键字"
+msgid "Global word (used for all blogs)"
+msgstr ""
 
 msgid "No word in list."
 msgstr "列表中没有关键字"
 
 msgid "List of bad words"
+msgstr ""
+
+msgid "Local words (used only for this blog)"
+msgstr ""
+
+msgid "Global words (used for all blogs)"
 msgstr ""
 
 msgid "Delete selected words"
@@ -201,38 +343,29 @@ msgstr "过滤器不存在。"
 msgid "Filter has no user interface."
 msgstr "过滤器没有用户界面。"
 
+msgid "Filters configuration has been successfully saved."
+msgstr "成功保存过滤器配置。"
+
 #, php-format
 msgid "%s configuration"
 msgstr "%s 配置"
 
+#, fuzzy, php-format
+msgid "%s filter configuration"
+msgstr "过滤器配置"
+
+#, fuzzy
+msgid "Back to filters list"
+msgstr "返回到标签列表"
+
 msgid "Information"
 msgstr "信息"
-
-msgid "Spam comments have been successfully deleted."
-msgstr "成功删除垃圾评论。"
 
 msgid "Junk comments:"
 msgstr "垃圾评论："
 
 msgid "Published comments:"
 msgstr "发布的评论："
-
-msgid "Delete all spams"
-msgstr "删除所有垃圾评论"
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr "所有早于 %s 天的垃圾评论都会被自动删除。"
-
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-#, fuzzy
-msgid "Blog preferences"
-msgstr "全局设置"
-
-msgid "Filters configuration has been successfully saved."
-msgstr "成功保存过滤器配置。"
 
 msgid "Available spam filters"
 msgstr "可用的垃圾评论过滤器"
@@ -268,6 +401,10 @@ msgstr "发表的评论 RSS feed"
 msgid "Attachments"
 msgstr ""
 
+#, php-format
+msgid "Attachments (%d)"
+msgstr ""
+
 msgid "remove"
 msgstr ""
 
@@ -287,11 +424,35 @@ msgstr "管理博客链接"
 msgid "Links"
 msgstr "链接"
 
+msgid "Title (optional)"
+msgstr ""
+
 msgid "All categories"
 msgstr "所有分类目录"
 
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "所有标签"
+
 msgid "Home page only"
 msgstr "仅首页"
+
+msgid "Except on home page"
+msgstr ""
+
+#, fuzzy
+msgid "Content only"
+msgstr "内容过滤器"
+
+#, fuzzy
+msgid "CSS class:"
+msgstr "CSS 文件"
+
+msgid "Offline"
+msgstr ""
 
 msgid "You must provide a link title"
 msgstr "您必须提供一个链接标题"
@@ -308,23 +469,24 @@ msgstr "文件不是 XML 格式。"
 msgid "No such link or title"
 msgstr "没有这样的链接或者标题"
 
-msgid "Return to blogroll"
-msgstr "返回到博客链接"
+msgid "Link has been successfully updated"
+msgstr "成功更新链接"
 
 msgid "Category has been successfully updated"
 msgstr "成功更新分类目录"
 
+msgid "Return to blogroll"
+msgstr "返回到博客链接"
+
 msgid "Edit category"
 msgstr "编辑分类目录"
-
-msgid "Link has been successfully updated"
-msgstr "成功更新链接"
 
 msgid "Edit link"
 msgstr "编辑链接"
 
-msgid "XFN"
-msgstr "链接关系（XFN）"
+#, fuzzy
+msgid "XFN information"
+msgstr "信息"
 
 msgid "_xfn_Me"
 msgstr "我自己"
@@ -404,14 +566,11 @@ msgstr "甜心"
 msgid "Nothing to import"
 msgstr "没有要导入的"
 
+msgid "links have been successfully imported."
+msgstr "成功导入链接。"
+
 msgid "Import operation cancelled."
 msgstr "导入操作被取消。"
-
-msgid "Items order has been successfully updated"
-msgstr "成功更新项目顺序"
-
-msgid "Items have been successfully removed."
-msgstr "成功删除项目。"
 
 msgid "Link has been successfully created."
 msgstr "成功创建连接。"
@@ -419,8 +578,11 @@ msgstr "成功创建连接。"
 msgid "category has been successfully created."
 msgstr "成功创建分类目录。"
 
-msgid "links have been successfully imported."
-msgstr "成功导入链接。"
+msgid "Items have been successfully removed."
+msgstr "成功删除项目。"
+
+msgid "Items order has been successfully updated"
+msgstr "成功更新项目顺序"
 
 msgid "URL"
 msgstr "URL"
@@ -471,6 +633,9 @@ msgstr "实色"
 msgid "Custom..."
 msgstr "定制..."
 
+msgid "Theme configuration has been successfully updated."
+msgstr "成功更新主题配置。"
+
 msgid "Blowup configuration"
 msgstr "Blowup 配置"
 
@@ -484,12 +649,15 @@ msgstr "应用代码"
 msgid "Choose a predefined style"
 msgstr "预定义的样式"
 
+msgid "Back to Blog appearance"
+msgstr ""
+
 #, fuzzy
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr "由于图片无法被创建，您将不能改变某些背景属性。"
 
-msgid "Theme configuration has been successfully updated."
-msgstr "成功更新主题配置。"
+msgid "Customization"
+msgstr ""
 
 msgid "General"
 msgstr "一般"
@@ -664,6 +832,9 @@ msgstr "足部背景颜色："
 msgid "Additional CSS"
 msgstr ""
 
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr ""
+
 msgid "Configuration import / export"
 msgstr "配置导入／导出"
 
@@ -676,28 +847,116 @@ msgstr ""
 msgid "default"
 msgstr "默认"
 
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr ""
-
 #, fuzzy
-msgid "The 'public' directory does not exist."
-msgstr "此页面不存在。"
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr ""
-
-msgid "Unable to create images."
+msgid "Unable to create css file."
 msgstr "无法创建图片。"
-
-msgid "Invalid file type."
-msgstr "无效的文件格式。"
-
-msgid "Uploaded image is not 800 pixels wide."
-msgstr ""
 
 msgid "Unable to open image."
 msgstr "无法打开图片。"
+
+#, fuzzy
+msgid "The configuration has been updated."
+msgstr "成功更新主题配置。"
+
+msgid "Media chooser"
+msgstr ""
+
+msgid "Link to an entry"
+msgstr ""
+
+#, fuzzy
+msgid "Link"
+msgstr "链接"
+
+msgid "visual"
+msgstr ""
+
+msgid "source"
+msgstr ""
+
+msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "-- none --"
+msgstr ""
+
+msgid "-- block format --"
+msgstr ""
+
+msgid "Paragraph"
+msgstr ""
+
+#, fuzzy
+msgid "Level 1 header"
+msgstr "Feed 读者"
+
+#, fuzzy
+msgid "Level 2 header"
+msgstr "Feed 读者"
+
+#, fuzzy
+msgid "Level 3 header"
+msgstr "Feed 读者"
+
+#, fuzzy
+msgid "Level 4 header"
+msgstr "Feed 读者"
+
+#, fuzzy
+msgid "Level 5 header"
+msgstr "Feed 读者"
+
+#, fuzzy
+msgid "Level 6 header"
+msgstr "Feed 读者"
+
+msgid "Strong emphasis"
+msgstr ""
+
+msgid "Emphasis"
+msgstr ""
+
+msgid "Inserted"
+msgstr ""
+
+msgid "Deleted"
+msgstr ""
+
+msgid "Inline quote"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Line break"
+msgstr ""
+
+msgid "Blockquote"
+msgstr ""
+
+msgid "Preformated text"
+msgstr ""
+
+msgid "Unordered list"
+msgstr ""
+
+msgid "Ordered list"
+msgstr ""
+
+msgid "URL?"
+msgstr ""
+
+#, fuzzy
+msgid "Language?"
+msgstr "语言"
+
+#, fuzzy
+msgid "External image"
+msgstr "外部媒体"
+
+#, fuzzy
+msgid "Remove text formating"
+msgstr "移除标签"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "检查文章链接的 trackback 源"
@@ -714,21 +973,33 @@ msgstr "导出一个博客或者整个 Dotclear 到一个纯文本文件。"
 msgid "Export file not found."
 msgstr "导出文件没有找到。"
 
-msgid "Export a blog"
-msgstr "导出一个博客"
+msgid "Failed to compress export file."
+msgstr ""
+
+#, fuzzy
+msgid "Single blog"
+msgstr "导入单一博客"
 
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr "这将会导出您当前博客：%s"
 
-msgid "Export"
-msgstr "导出"
+#, fuzzy
+msgid "Compress file"
+msgstr "模板文件"
 
 msgid "You may also want to download your media directory as a zip file"
 msgstr "您或许也希望将您的媒体目录作为 zip 文件下载"
 
-msgid "Export all content"
-msgstr "导出所有内容"
+msgid "Export"
+msgstr "导出"
+
+msgid "Multiple blogs"
+msgstr ""
+
+#, fuzzy
+msgid "This will create an export of all the content of your database."
+msgstr "警告：这将会您的数据库中所有内容，除了用户。"
 
 msgid "Congratulation!"
 msgstr "恭喜！"
@@ -751,15 +1022,12 @@ msgstr "Dotclear 1.2 导入"
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "从 Dotclear 1.2 导入到您现在的博客。"
 
-#, php-format
-msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
-msgstr "这将会将您 Dotclear 1.2 的内容作为新内容导入到当前的博客：%s。"
+#, fuzzy, php-format
+msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
+msgstr "从 Dotclear 1.2 导入到您现在的博客。"
 
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "请注意这个过程将会清空您当前博客的分类目录、博客链接表、文章和评论。"
-
-msgid "Depending on the size of your blog, it could take a few minutes."
-msgstr "根据您博客的大小而不同，这将会花费一些时间。"
 
 msgid "General information"
 msgstr "一般信息"
@@ -802,14 +1070,17 @@ msgstr "请注意 Dotclear 2 有一个新的 URL 布局。您可以通过安装 
 msgid "next step"
 msgstr "下一步"
 
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr "根据您博客的大小而不同，这将会花费一些时间。"
+
 msgid "Dotclear tables not found"
 msgstr "Dotclear 表没有找到"
 
-msgid "Feed import"
-msgstr "Feed 导入"
+msgid "RSS or Atom feed import"
+msgstr ""
 
-msgid "Imports a feed as new entries."
-msgstr "将 feed 作为新文章导入。"
+msgid "Add a feed content to the blog."
+msgstr ""
 
 msgid "Cannot retrieve feed URL."
 msgstr "无法检索 feed URL。"
@@ -820,12 +1091,9 @@ msgstr "feed 中没有条目。"
 msgid "Content successfully imported."
 msgstr "成功导入内容。"
 
-msgid "Import from a feed"
-msgstr "从 feed 中导入"
-
-#, php-format
-msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
-msgstr "这将会把一个 feed (RSS 或者 Atom)做为一个新内容导入当前博客：%s。"
+#, fuzzy, php-format
+msgid "Add a feed content to the current blog: <strong>%s</strong>."
+msgstr "这将会把一个单一博客的备份作为新内容导入到当前博客：%s。"
 
 msgid "Feed URL:"
 msgstr "Feed URL："
@@ -842,24 +1110,33 @@ msgstr "成功导入单一博客。"
 msgid "Are you sure you want to import a full backup file?"
 msgstr "您确定您要导入一个完整的备份文件吗？"
 
-msgid "Import a single blog"
-msgstr "导入单一博客"
-
 #, php-format
-msgid "This will import a single blog backup as new content in the current blog: %s."
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "这将会把一个单一博客的备份作为新内容导入到当前博客：%s。"
 
 msgid "Upload a backup file"
 msgstr "上传一个备份文件"
 
+#, php-format
+msgid "maximum size %s"
+msgstr ""
+
 msgid "or pick up a local file in your public directory"
 msgstr "或者从您的 public 目录中选择一个本地文件"
 
-msgid "Import a full backup file"
-msgstr "导入一个完整的备份文件"
-
-msgid "Warning: This will reset all the content of your database, except users."
+#, fuzzy
+msgid "This will reset all the content of your database, except users."
 msgstr "警告：这将会您的数据库中所有内容，除了用户。"
+
+msgid "Another file with same name exists."
+msgstr ""
+
+#, fuzzy
+msgid "Failed to extract backup file."
+msgstr "上传一个备份文件"
+
+msgid "No backup in compressed file."
+msgstr ""
 
 msgid "WordPress import"
 msgstr "WordPress 导入"
@@ -877,7 +1154,8 @@ msgstr "我们首先需要一些关于您以前 WordPress 的一些信息。"
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "WordPress 和 Dotclear 处理分类目录的方式很不同。WorePress 中您可以为一篇文章指定多个分类目录。而在 Dotclear 的世界中，我们更倾向于“一个分类目录，多个标签”。因此，Dotclear 对每篇文章仅能导入一个分类目录并会选择数字最低的一个。如果您希望跟踪每一个分类目录，您可以将它们导入为带有可选前缀的标签。"
 
-msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+#, fuzzy
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "在另一方面，WordPress 里，一篇文章无法不被分类，默认的安装将会有第一个分类目录名为“未分类”。如果您没有改变此分类目录，您可以在导入博客的时候忽略它，因为 Dotclear 可以确实保证您的文章不被分类。"
 
 msgid "Ignore the first category:"
@@ -916,42 +1194,155 @@ msgstr "文件不是一个 Dotclear 备份。"
 msgid "File is not a single blog export."
 msgstr "文件不是一个单一博客的导出。"
 
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
 msgid "File is not a full export."
 msgstr "文件不是一个完整的导出。"
 
-msgid "The backup file does not appear to be well formed."
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+#, fuzzy
+msgid "Database export"
+msgstr "纯文本导出"
+
+msgid "Download database of current blog"
+msgstr ""
+
+msgid "Download database of all blogs"
 msgstr ""
 
 msgid "Please wait..."
 msgstr "请稍等..."
 
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
 msgid "Maintenance"
 msgstr "维护"
 
-msgid "Optimization successful."
-msgstr "优化成功。"
+#, fuzzy
+msgid "Servicing"
+msgstr "服务器名称："
 
-msgid "Comments and trackback counted."
-msgstr "评论和 trackback 已计数。"
+msgid "Tools to maintain the performance of your blogs."
+msgstr ""
+
+#, fuzzy
+msgid "Backup"
+msgstr "返回"
+
+msgid "Tools to back up your content."
+msgstr ""
+
+msgid "Development"
+msgstr ""
+
+msgid "Tools to assist in development of plugins, themes and core."
+msgstr ""
+
+msgid "Optimize"
+msgstr ""
+
+msgid "Count and index"
+msgstr ""
+
+msgid "Purge"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+#, fuzzy
+msgid "Current blog"
+msgstr "返回到博客链接"
+
+#, fuzzy
+msgid "All blogs"
+msgstr "所有标签"
+
+msgid "Maintain translations"
+msgstr ""
+
+msgid "Translations"
+msgstr ""
+
+#, php-format
+msgid "One task to execute"
+msgid_plural "%s tasks to execute"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "This task has never been executed."
+msgstr ""
+
+#, php-format
+msgid "Last execution of this task was on %s."
+msgstr ""
+
+#, php-format
+msgid "There is a task to execute."
+msgid_plural "There are %s tasks to execute."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Manage tasks"
+msgstr "管理页面"
+
+msgid "Display overdue tasks counter on maintenance dashboard icon"
+msgstr ""
+
+msgid "Display overdue tasks list on dashboard items"
+msgstr ""
+
+msgid "Failed to execute task."
+msgstr ""
+
+#, fuzzy
+msgid "Task successfully executed."
+msgstr "成功创建连接。"
+
+msgid "Empty templates cache directory"
+msgstr "清空模板缓存目录"
 
 msgid "Templates cache directory emptied."
 msgstr "模板缓存目录清空。"
 
-msgid "Logs deleted."
+#, fuzzy
+msgid "Failed to empty templates cache directory."
+msgstr "清空模板缓存目录"
+
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
 msgstr ""
 
-#, php-format
-msgid "Indexing entry %d to %d."
-msgstr "索引文章 %d 到 %d。"
+#, fuzzy
+msgid "Count again comments and trackbacks"
+msgstr "评论和 trackback 已计数。"
 
-msgid "next"
-msgstr "下一个"
+msgid "Comments and trackback counted."
+msgstr "评论和 trackback 已计数。"
 
-msgid "Entries index done."
-msgstr "文章索引完成。"
+#, fuzzy
+msgid "Failed to count comments and trackbacks."
+msgstr "评论和 trackback 已计数。"
 
-msgid "Back"
-msgstr "返回"
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Search engine index"
+msgstr "搜索引擎索引"
+
+#, fuzzy
+msgid "Index all comments for search engine"
+msgstr "索引所有评论"
+
+msgid "Next"
+msgstr ""
 
 #, php-format
 msgid "Indexing comment %d to %d."
@@ -960,46 +1351,155 @@ msgstr "索引评论 %d 到 %d。"
 msgid "Comments index done."
 msgstr "评论索引完成。"
 
-msgid "Optimize database room"
-msgstr "优化数据库空间"
-
-msgid "Vacuum tables"
-msgstr "清理表"
-
-msgid "Counters"
-msgstr "计数"
-
-msgid "Reset comments and ping counters"
-msgstr "重置评论和 ping 计数。"
-
-msgid "Search engine index"
-msgstr "搜索引擎索引"
-
-msgid "This may take a very long time"
-msgstr "这可能需要很长时间"
-
-msgid "Index all posts"
-msgstr "索引所有文章"
-
-msgid "Index all comments"
+#, fuzzy
+msgid "Failed to index comments."
 msgstr "索引所有评论"
 
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr ""
+
+msgid "Index all entries for search engine"
+msgstr ""
+
+#, php-format
+msgid "Indexing entry %d to %d."
+msgstr "索引文章 %d 到 %d。"
+
+msgid "Entries index done."
+msgstr "文章索引完成。"
+
 #, fuzzy
-msgid "Vacuum logs"
-msgstr "清理表"
+msgid "Failed to index entries."
+msgstr "精选的文章"
+
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr ""
 
 #, fuzzy
 msgid "Delete all logs"
 msgstr "删除所有垃圾评论"
 
-msgid "Empty templates cache directory"
-msgstr "清空模板缓存目录"
+msgid "Logs deleted."
+msgstr ""
 
-msgid "Empty directory"
-msgstr "清空目录"
+#, fuzzy
+msgid "Failed to delete logs."
+msgstr "无法创建图片。"
 
-msgid "Pages"
-msgstr "页面"
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
+msgstr ""
+
+#, fuzzy
+msgid "Entries metadata"
+msgstr "文章 feed"
+
+msgid "Synchronize entries metadata"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Synchronize entry %d to %d."
+msgstr "索引文章 %d 到 %d。"
+
+#, fuzzy
+msgid "Entries metadata synchronize done."
+msgstr "文章索引完成。"
+
+msgid "Failed to synchronize entries metadata."
+msgstr ""
+
+msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
+msgstr ""
+
+#, fuzzy
+msgid "Optimise database"
+msgstr "优化数据库空间"
+
+#, fuzzy
+msgid "optimize tables"
+msgstr "优化数据库空间"
+
+msgid "Optimization successful."
+msgstr "优化成功。"
+
+msgid "Failed to optimize tables."
+msgstr ""
+
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
+msgstr ""
+
+msgid "Download media folder of current blog"
+msgstr ""
+
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr ""
+
+msgid "Download active theme of current blog"
+msgstr ""
+
+msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
+msgstr ""
+
+#, fuzzy
+msgid "Maintenance plugin has been successfully configured."
+msgstr "成功创建分类目录。"
+
+msgid "Never"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+#, fuzzy
+msgid "This may take a very long time."
+msgstr "这可能需要很长时间"
+
+#, fuzzy
+msgid "Alert settings"
+msgstr "博客设置"
+
+#, fuzzy
+msgid "Activation"
+msgstr "激活"
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "New page"
+msgstr "新页面"
 
 #, fuzzy, php-format
 msgid "%d page"
@@ -1011,6 +1511,13 @@ msgstr "编辑页面"
 
 msgid "manage pages"
 msgstr "管理页面"
+
+#, fuzzy
+msgid "My first page"
+msgstr "编辑页面"
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
+msgstr ""
 
 msgid "Published on"
 msgstr "发布于"
@@ -1030,33 +1537,57 @@ msgstr "页面位置"
 msgid "Publication date"
 msgstr "发布时间"
 
+#, fuzzy
+msgid "Pages actions"
+msgstr "页面位置"
+
+#, fuzzy
+msgid "Back to pages list"
+msgstr "返回到标签列表"
+
+#, fuzzy
+msgid "Selected pages have been successfully reordered."
+msgstr "成功删除项目。"
+
 msgid "No page"
 msgstr "没有页面"
 
+msgid "Hidden"
+msgstr ""
+
 #, fuzzy
-msgid "select this page"
+msgid "Select this page"
 msgstr "删除此标签"
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "您确定要删除选定的页面吗？"
 
-msgid "New page"
-msgstr "新页面"
+#, fuzzy
+msgid "Selected pages have been successfully updated."
+msgstr "成功更新设置。"
+
+#, fuzzy
+msgid "Selected pages have been successfully deleted."
+msgstr "成功删除垃圾评论。"
 
 msgid "Selected pages action:"
 msgstr "选定的页面动作："
+
+msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
+msgstr ""
+
+msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
+msgstr ""
+
+#, fuzzy
+msgid "Save pages order"
+msgstr "保存顺序"
 
 msgid "This page does not exist."
 msgstr "此页面不存在。"
 
 msgid "Edit page"
 msgstr "编辑页面"
-
-msgid "next page"
-msgstr "下一个页面"
-
-msgid "previous page"
-msgstr "前一个页面"
 
 msgid "Are you sure you want to delete this page?"
 msgstr "您确定要删除此页面吗？"
@@ -1070,32 +1601,35 @@ msgstr "成功创建页面。"
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr "页面状态："
 
-msgid "Page position:"
-msgstr "页面位置："
-
-msgid "Page lang:"
+#, fuzzy
+msgid "Page language"
 msgstr "页面语言："
 
-msgid "Page password:"
-msgstr "页面密码："
+#, fuzzy
+msgid "Hide in widget Pages"
+msgstr "隐藏主标题"
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "警告：如果您手动设置 URL，它可能与其它页面冲突。"
 
-msgid "Add files to this page"
-msgstr "向此页面添加文件"
+msgid "Introduction to the page."
+msgstr ""
+
+#, fuzzy
+msgid "Select this comment"
+msgstr "删除此标签"
 
 msgid "Pings"
 msgstr "Pings"
 
-msgid "Pings configuration"
-msgstr "Pings 配置"
-
 msgid "Settings have been successfully updated."
 msgstr "成功更新设置。"
+
+msgid "Pings configuration"
+msgstr "Pings 配置"
 
 msgid "Activate pings extension"
 msgstr "激活 pings 扩展"
@@ -1106,7 +1640,8 @@ msgstr "服务器名称："
 msgid "Service URI:"
 msgstr "服务器 URL："
 
-msgid "error"
+#, fuzzy
+msgid "Error"
 msgstr "错误"
 
 msgid "Test ping services"
@@ -1115,13 +1650,7 @@ msgstr "测试 ping 服务器"
 msgid "Check all"
 msgstr ""
 
-msgid "Pings:"
-msgstr "Pings："
-
 msgid "Simple menu"
-msgstr ""
-
-msgid "Menu"
 msgstr ""
 
 #, fuzzy
@@ -1148,6 +1677,10 @@ msgstr "标签"
 msgid "User defined"
 msgstr ""
 
+#, fuzzy
+msgid "Configuration successfully updated."
+msgstr "成功更新配置"
+
 msgid "Label"
 msgstr ""
 
@@ -1172,8 +1705,16 @@ msgstr "从列表中选择"
 msgid "Recent posts for %s tag"
 msgstr ""
 
+#, fuzzy
+msgid "Menu item has been successfully added."
+msgstr "成功添加关键字。"
+
 msgid "Label and URL of menu item are mandatory."
 msgstr ""
+
+#, fuzzy
+msgid "Menu items have been successfully removed."
+msgstr "成功删除项目。"
 
 #, fuzzy
 msgid "No menu items selected."
@@ -1186,16 +1727,17 @@ msgid "URL is mandatory."
 msgstr ""
 
 #, fuzzy
-msgid "Menu item has been successfully added."
-msgstr "成功添加关键字。"
-
-#, fuzzy
-msgid "Menu items have been successfully removed."
-msgstr "成功删除项目。"
-
-#, fuzzy
 msgid "Menu items have been successfully updated."
 msgstr "成功更新设置。"
+
+msgid "Step #1"
+msgstr ""
+
+msgid "Step #2"
+msgstr ""
+
+msgid "Step #3"
+msgstr ""
 
 #, fuzzy
 msgid "Add item"
@@ -1242,6 +1784,13 @@ msgstr ""
 msgid "Add this item"
 msgstr ""
 
+msgid "Enable simple menu for this blog"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "%s 配置"
+
 #, fuzzy
 msgid "Add an item"
 msgstr "添加一个新链接"
@@ -1261,18 +1810,31 @@ msgstr "删除选定的链接"
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "您确定您要删除选定的链接吗？"
 
-msgid "Currently no menu items"
+msgid "No menu items so far."
 msgstr ""
 
-msgid "Tags:"
-msgstr "标签："
+msgid "Add tags"
+msgstr "添加标签"
 
-#, php-format
-msgid "Are you sure you want to remove this %s?"
+msgid "Remove tags"
+msgstr "移除标签"
+
+#, fuzzy
+msgid "Tag has been successfully added to selected entries"
+msgid_plural "Tags have been successfully added to selected entries"
+msgstr[0] "成功移除标签"
+msgstr[1] "成功移除标签"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "向这篇文章添加 %s"
+
+#, fuzzy
+msgid "Are you sure you want to remove this tag?"
 msgstr "您确定您要移除这个 %s 吗？"
 
-#, php-format
-msgid "Add a %s to this entry"
+#, fuzzy
+msgid "Add a tag to this entry"
 msgstr "向这篇文章添加 %s"
 
 msgid "Choose from list"
@@ -1281,8 +1843,8 @@ msgstr "从列表中选择"
 msgid "all"
 msgstr "所有"
 
-msgid "Tag"
-msgstr "标签"
+msgid "Enter tags separated by coma"
+msgstr ""
 
 msgid "used in %e - frequency %p%"
 msgstr ""
@@ -1294,35 +1856,34 @@ msgstr "中间"
 msgid "entries"
 msgstr "文章"
 
-msgid "Enter tags separated by coma"
-msgstr ""
-
-msgid "Add tags"
-msgstr "添加标签"
-
-msgid "Remove tags"
-msgstr "移除标签"
-
-msgid "Add tags to entries"
-msgstr "向文章添加标签"
-
 msgid "Tags to add:"
 msgstr "要添加的标签："
 
-msgid "Remove selected tags from entries"
-msgstr "从文章中移除选择的标签"
+#, fuzzy
+msgid "Tag has been successfully removed from selected entries"
+msgid_plural "Tags have been successfully removed from selected entries"
+msgstr[0] "成功移除标签"
+msgstr[1] "成功移除标签"
 
 msgid "No tags for selected entries"
 msgstr "所选文章没有标签"
 
+#, fuzzy
+msgid "Remove selected tags from this selection"
+msgstr "从文章中移除选择的标签"
+
 msgid "Following tags have been found in selected entries:"
 msgstr "所选文章中发现下列标签："
 
-msgid "short"
+msgid "Tag"
+msgstr "标签"
+
+msgid "Short"
 msgstr ""
 
-msgid "extended"
-msgstr ""
+#, fuzzy
+msgid "Extended"
+msgstr "外部媒体"
 
 #, fuzzy
 msgid "Tags list format:"
@@ -1346,44 +1907,51 @@ msgstr "标签名称"
 msgid "Link to all tags:"
 msgstr ""
 
-msgid "Edit tag"
-msgstr "编辑标签"
-
 msgid "Tag has been successfully renamed"
 msgstr "成功重命名标签"
 
+msgid "Tag has been successfully removed"
+msgstr "成功移除标签"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove tag: “%s”?"
+msgstr "您确定您要移除这个 %s 吗？"
+
 msgid "Back to tags list"
 msgstr "返回到标签列表"
-
-#, fuzzy
-msgid "Actions for this tag"
-msgstr "向此页面添加文件"
-
-#, fuzzy
-msgid "Edit tag name:"
-msgstr "编辑标签"
 
 msgid "Rename"
 msgstr ""
 
 #, fuzzy
-msgid "Delete this tag:"
+msgid "Delete this tag"
 msgstr "删除此标签"
 
-msgid "List of entries with this tag"
+#, php-format
+msgid "List of entries with the tag “%s”"
 msgstr ""
-
-msgid "Tag has been successfully removed"
-msgstr "成功移除标签"
 
 msgid "No tags on this blog."
 msgstr "此博客上没有标签"
 
-msgid "Theme Editor"
-msgstr "主题编辑器"
+#, fuzzy
+msgid "Edit theme files"
+msgstr "编辑文件 %s"
+
+msgid "Syntax highlighting in theme editor"
+msgstr ""
 
 msgid "No file"
 msgstr "没有文件"
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
+msgstr ""
 
 msgid "File does not exist."
 msgstr "文件不存在。"
@@ -1396,6 +1964,13 @@ msgstr "文件 %s 无法读取"
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "无法写入文件 %s。请检查您的主题文件和文件夹的权限。"
 
+#, fuzzy, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr "无法写入文件 %s。请检查您的主题文件和文件夹的权限。"
+
+msgid "The file has been reset."
+msgstr ""
+
 msgid "Saving document..."
 msgstr "保存文件..."
 
@@ -1404,6 +1979,10 @@ msgstr "文件已保存"
 
 msgid "An error occurred:"
 msgstr "出现一个错误："
+
+#, fuzzy
+msgid "Are you sure you want to reset this file?"
+msgstr "您确定要删除此页面吗？"
 
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
@@ -1422,6 +2001,9 @@ msgstr "文件编辑器"
 msgid "Editing file %s"
 msgstr "编辑文件 %s"
 
+msgid "Reset"
+msgstr ""
+
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr "文件不可写。请检查您的主题文件的权限。"
 
@@ -1435,18 +2017,23 @@ msgid "JavaScript files"
 msgstr "JavaScript 文件"
 
 #, fuzzy
+msgid "Locales files"
+msgstr "模板文件"
+
+#, fuzzy
 msgid "Preferences successfully updated"
 msgstr "成功更新页面。"
 
 #, fuzzy
-msgid "Preferences definition successfully updated"
-msgstr "成功更新设置定义"
-
-msgid "user preferences"
-msgstr ""
+msgid "user:preferences"
+msgstr "全局设置"
 
 #, fuzzy
-msgid "global preferences"
+msgid "User preferences"
+msgstr "全局设置"
+
+#, fuzzy
+msgid "Global preferences"
 msgstr "全局设置"
 
 msgid "Presentation widgets"
@@ -1469,6 +2056,13 @@ msgstr "博客语言"
 
 msgid "With entries counts"
 msgstr "带有文章计数"
+
+msgid "Include sub cats in count"
+msgstr ""
+
+#, fuzzy
+msgid "Include empty categories"
+msgstr "导入分类目录"
 
 msgid "Subscribe links"
 msgstr "订阅链接"
@@ -1533,6 +2127,15 @@ msgstr "额外"
 msgid "custom"
 msgstr "定制..."
 
+msgid "empty string"
+msgstr ""
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
 msgid "Widgets"
 msgstr "小工具"
 
@@ -1541,6 +2144,12 @@ msgstr "您确定要重置侧边栏吗？"
 
 msgid "Available widgets"
 msgstr "可用的小工具"
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
+msgstr "顺序"
 
 msgid "Append to:"
 msgstr "追加到："
@@ -1565,57 +2174,173 @@ msgstr "更新侧边栏"
 msgid "Reset sidebars"
 msgstr "重置侧边栏"
 
-#, fuzzy
-msgid "Use of widgets"
-msgstr "没有小工具。"
-
-msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
-msgstr ""
-
-msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
-msgstr ""
-
-msgid "Reset sidebars to get back to default widgets installation."
-msgstr ""
-
-msgid "Widget templates tags"
-msgstr "小工具模板标签"
-
-msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr "如果您被允许编辑您的主题模板，您可以直接以模板标签方式添加小工具，并附加各自的配置。"
-
-msgid "To add a widget in your template, you need to write code like this:"
-msgstr "要在您的模板中添加小工具，您下需要这样写代码："
-
-msgid "Widget ID"
-msgstr "小工具 ID"
-
-msgid "Setting name"
-msgstr "设置名称"
-
-msgid "Setting value"
-msgstr "设置值"
-
-msgid "Here are the following available widgets for your blog:"
-msgstr "这里是您博客可用的小工具："
-
 msgid "Widget ID:"
 msgstr "小工具 ID："
 
 msgid "No setting for this widget"
 msgstr "这个小工具没有设置"
 
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
 msgid "Setting name:"
 msgstr "设置名称："
 
-msgid "No widget."
+#, fuzzy
+msgid "No widget as far."
 msgstr "没有小工具。"
 
-msgid "order"
-msgstr "顺序"
+#, fuzzy
+msgid "Up the widget"
+msgstr "没有小工具。"
+
+#, fuzzy
+msgid "Down the widget"
+msgstr "移除小工具"
+
+#, fuzzy
+msgid "Remove the widget"
+msgstr "移除小工具"
 
 msgid "Remove widget"
 msgstr "移除小工具"
+
+msgid "Drag widgets here to remove."
+msgstr ""
+
+#~ msgid "Settings definition successfully updated"
+#~ msgstr "成功更新设置定义"
+
+#~ msgid "Global IP"
+#~ msgstr "全球 IP"
+
+#~ msgid "Global word"
+#~ msgstr "全局关键字"
+
+#~ msgid "Delete all spams"
+#~ msgstr "删除所有垃圾评论"
+
+#~ msgid "XFN"
+#~ msgstr "链接关系（XFN）"
+
+#, fuzzy
+#~ msgid "The 'public' directory does not exist."
+#~ msgstr "此页面不存在。"
+
+#~ msgid "Invalid file type."
+#~ msgstr "无效的文件格式。"
+
+#~ msgid "Export all content"
+#~ msgstr "导出所有内容"
+
+#~ msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
+#~ msgstr "这将会将您 Dotclear 1.2 的内容作为新内容导入到当前的博客：%s。"
+
+#~ msgid "Feed import"
+#~ msgstr "Feed 导入"
+
+#~ msgid "Imports a feed as new entries."
+#~ msgstr "将 feed 作为新文章导入。"
+
+#~ msgid "Import from a feed"
+#~ msgstr "从 feed 中导入"
+
+#~ msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
+#~ msgstr "这将会把一个 feed (RSS 或者 Atom)做为一个新内容导入当前博客：%s。"
+
+#~ msgid "Import a full backup file"
+#~ msgstr "导入一个完整的备份文件"
+
+#~ msgid "next"
+#~ msgstr "下一个"
+
+#~ msgid "Vacuum tables"
+#~ msgstr "清理表"
+
+#~ msgid "Counters"
+#~ msgstr "计数"
+
+#~ msgid "Reset comments and ping counters"
+#~ msgstr "重置评论和 ping 计数。"
+
+#~ msgid "Index all posts"
+#~ msgstr "索引所有文章"
+
+#, fuzzy
+#~ msgid "Vacuum logs"
+#~ msgstr "清理表"
+
+#~ msgid "Empty directory"
+#~ msgstr "清空目录"
+
+#~ msgid "Pages"
+#~ msgstr "页面"
+
+#~ msgid "next page"
+#~ msgstr "下一个页面"
+
+#~ msgid "previous page"
+#~ msgstr "前一个页面"
+
+#~ msgid "Page password"
+#~ msgstr "页面密码："
+
+#~ msgid "Add files to this page"
+#~ msgstr "向此页面添加文件"
+
+#~ msgid "Pings:"
+#~ msgstr "Pings："
+
+#~ msgid "Tags:"
+#~ msgstr "标签："
+
+#~ msgid "Add tags to entries"
+#~ msgstr "向文章添加标签"
+
+#~ msgid "Edit tag"
+#~ msgstr "编辑标签"
+
+#, fuzzy
+#~ msgid "Actions for this tag"
+#~ msgstr "向此页面添加文件"
+
+#, fuzzy
+#~ msgid "Edit tag name:"
+#~ msgstr "编辑标签"
+
+#, fuzzy
+#~ msgid "Preferences definition successfully updated"
+#~ msgstr "成功更新设置定义"
+
+#~ msgid "Widget templates tags"
+#~ msgstr "小工具模板标签"
+
+#~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
+#~ msgstr "如果您被允许编辑您的主题模板，您可以直接以模板标签方式添加小工具，并附加各自的配置。"
+
+#~ msgid "To add a widget in your template, you need to write code like this:"
+#~ msgstr "要在您的模板中添加小工具，您下需要这样写代码："
+
+#~ msgid "Widget ID"
+#~ msgstr "小工具 ID"
+
+#~ msgid "Setting name"
+#~ msgstr "设置名称"
+
+#~ msgid "Setting value"
+#~ msgstr "设置值"
+
+#~ msgid "Here are the following available widgets for your blog:"
+#~ msgstr "这里是您博客可用的小工具："
 
 #~ msgid "List"
 #~ msgstr "列表"
@@ -1640,12 +2365,6 @@ msgstr "移除小工具"
 
 #~ msgid "Rename this tag:"
 #~ msgstr "重命名此标签："
-
-#~ msgid "Save order"
-#~ msgstr "保存顺序"
-
-#~ msgid "External media"
-#~ msgstr "外部媒体"
 
 #~ msgid "External media selector"
 #~ msgstr "外部媒体选择器"

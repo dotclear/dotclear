@@ -1,8 +1,10 @@
 $(function() {
 	var f = $('#quick-entry');
 	if (f.length > 0) {
-		var contentTb = new jsToolBar($('#post_content',f)[0]);
-		contentTb.switchMode($('#post_format',f).val());
+		if ($.isFunction(jsToolBar)) {
+			var contentTb = new jsToolBar($('#post_content',f)[0]);
+			contentTb.switchMode($('#post_format',f).val());
+		}
 
 		$('input[name=save]',f).click(function() {
 			quickPost(f,-2);
@@ -20,7 +22,7 @@ $(function() {
 		}
 
 		function quickPost(f,status) {
-			if (contentTb.getMode() == 'wysiwyg') {
+			if ($.isFunction('jsToolBar') && (contentTb.getMode() == 'wysiwyg')) {
 				contentTb.syncContents('iframe');
 			}
 
@@ -32,7 +34,9 @@ $(function() {
 				cat_id: $('#cat_id',f).val(),
 				post_status: status,
 				post_format: $('#post_format',f).val(),
-				post_lang: $('#post_lang',f).val()
+				post_lang: $('#post_lang',f).val(),
+				new_cat_title: $('#new_cat_title',f).val(),
+				new_cat_parent: $('#new_cat_parent',f).val()
 			}
 
 			$('p.qinfo',f).remove();
@@ -52,18 +56,27 @@ $(function() {
 					msg += '</p>';
 					$('#post_title',f).val('');
 					$('#post_content',f).val('');
-					if (contentTb.getMode() == 'wysiwyg') {
+					$('#post_content',f).change();
+					if ($.isFunction('jsToolBar') &&  (contentTb.getMode() == 'wysiwyg')) {
 						contentTb.syncContents('textarea');
 					}
+					$('#cat_id',f).val('0');
+					$('#new_cat_title',f).val('');
+					$('#new_cat_parent',f).val('0');
 				}
 
 				$('fieldset',f).prepend(msg);
 			});
 		}
+		$('#new_cat').toggleWithLegend($('#new_cat').parent().children().not('#new_cat'), {
+			// no cookie on new category as we don't use this every day
+			legend_click: true
+		});
 	}
 
 	// allow to hide quick entry div, and remember choice
 	$('#quick h3').toggleWithLegend($('#quick').children().not('h3'),{
-		cookie: 'dcx_quick_entry'
+		legend_click: true,
+		user_pref: 'dcx_quick_entry'
 	});
 });

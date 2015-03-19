@@ -1,0 +1,28 @@
+// mixin svg fallback
+@mixin svg(
+    $file-name,
+    $css-img-path: $css-img-path) {
+    background-image: inline-image($file-name+'.png');
+    background-image: inline-image($file-name+'.svg'), none;
+}
+
+@mixin bg-with-svg(
+    $file-name,
+    $css-img-path: $css-img-path,
+    $repeat: no-repeat,
+    $position: 50% 50%,
+    $bg-color: transparent) {
+    background: inline-image($file-name+'.png') $repeat, $position, $bg-color;
+    background-image: inline-image($file-name+'.svg'), none;
+}
+
+@mixin visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}

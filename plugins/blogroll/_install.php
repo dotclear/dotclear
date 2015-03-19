@@ -30,7 +30,7 @@ $s->link
 	->link_lang		('varchar',	5,	true)
 	->link_xfn		('varchar',	255,	true)
 	->link_position	('integer',	0,	false,	0)
-	
+
 	->primary('pk_link','link_id')
 	;
 
@@ -43,4 +43,3 @@ $changes = $si->synchronize($s);
 
 $core->setVersion('blogroll',$version);
 return true;
-?>

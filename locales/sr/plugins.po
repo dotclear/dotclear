@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-06 18:10+0100\n"
+"POT-Creation-Date: 2014-11-20 19:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,19 +16,119 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Manage every blog configuration directive"
+msgstr ""
+
+msgid "Akismet interface for Dotclear"
+msgstr ""
+
+msgid "Generic antispam plugin for Dotclear"
+msgstr ""
+
+msgid "Manage post attachments"
+msgstr ""
+
+msgid "Manage your blogroll"
+msgstr ""
+
+msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Legacy modules for dotclear"
+msgstr ""
+
+msgid "Trackback validity check"
+msgstr ""
+
+msgid "Import and Export your blog"
+msgstr ""
+
+msgid "Maintain your installation"
+msgstr ""
+
+msgid "Serve entries as simple web pages"
+msgstr ""
+
+msgid "Ping services"
+msgstr ""
+
+msgid "Simple menu for Dotclear"
+msgstr ""
+
+msgid "Tags for posts"
+msgstr ""
+
+msgid "Theme Editor"
+msgstr ""
+
+msgid "Manage every user preference directive"
+msgstr ""
+
+msgid "Widgets for your blog sidebars"
+msgstr ""
+
+msgid "dotclear legacy editor"
+msgstr ""
+
+msgid "dotclear CKEditor integration"
+msgstr ""
+
+msgid "Search engine form"
+msgstr ""
+
+msgid "List of navigation links"
+msgstr ""
+
+msgid "List of selected entries"
+msgstr ""
+
+msgid "List of available languages"
+msgstr ""
+
+msgid "List of categories"
+msgstr ""
+
+msgid "Feed subscription links (RSS or Atom)"
+msgstr ""
+
+msgid "List of last entries from feed (RSS or Atom)"
+msgstr ""
+
+msgid "Simple text"
+msgstr ""
+
+msgid "List of last entries published"
+msgstr ""
+
+msgid "List of last comments published"
+msgstr ""
+
+msgid "Tags cloud"
+msgstr ""
+
+msgid "List of published pages"
+msgstr ""
+
+msgid "Blogroll list"
+msgstr ""
+
+msgid "List of simple menu items"
+msgstr ""
+
+msgid "Configuration successfully updated"
+msgstr ""
+
 msgid "no"
 msgstr ""
 
 msgid "yes"
 msgstr ""
 
-msgid "Configuration successfully updated"
+msgid "about:config"
 msgstr ""
 
-msgid "Settings definition successfully updated"
-msgstr ""
-
-msgid "blog settings"
+#, php-format
+msgid "Settings for %s"
 msgstr ""
 
 msgid "Value"
@@ -40,10 +140,7 @@ msgstr ""
 msgid "Goto:"
 msgstr ""
 
-msgid "Ok"
-msgstr ""
-
-msgid "global settings"
+msgid "Global settings"
 msgstr ""
 
 msgid "Akismet spam filter"
@@ -51,6 +148,9 @@ msgstr ""
 
 #, php-format
 msgid "Filtered by %s."
+msgstr ""
+
+msgid "Filter configuration have been successfully saved."
 msgstr ""
 
 msgid "Akismet API key:"
@@ -68,10 +168,21 @@ msgstr ""
 msgid "Antispam"
 msgstr ""
 
+#, php-format
+msgid "All spam comments older than %s day(s) will be automatically deleted."
+msgstr ""
+
+#, php-format
+msgid "You can modify this duration in the %s"
+msgstr ""
+
 msgid "Delete junk comments older than"
 msgstr ""
 
 msgid "days"
+msgstr ""
+
+msgid "Set spam filters."
 msgstr ""
 
 msgid "IP Blacklist / Whitelist Filter"
@@ -96,7 +207,7 @@ msgstr ""
 msgid "Add an IP address: "
 msgstr ""
 
-msgid "Global IP"
+msgid "Global IP (used for all blogs)"
 msgstr ""
 
 msgid "Add"
@@ -108,11 +219,20 @@ msgstr ""
 msgid "IP list"
 msgstr ""
 
+msgid "Local IPs (used only for this blog)"
+msgstr ""
+
+msgid "Global IPs (used for all blogs)"
+msgstr ""
+
 msgid "Checks sender IP address against DNSBL servers"
 msgstr ""
 
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
+msgstr ""
+
+msgid "The list of DNSBL servers has been succesfully updated."
 msgstr ""
 
 msgid "IP Lookup servers"
@@ -143,13 +263,19 @@ msgstr ""
 msgid "Add a word "
 msgstr ""
 
-msgid "Global word"
+msgid "Global word (used for all blogs)"
 msgstr ""
 
 msgid "No word in list."
 msgstr ""
 
 msgid "List of bad words"
+msgstr ""
+
+msgid "Local words (used only for this blog)"
+msgstr ""
+
+msgid "Global words (used for all blogs)"
 msgstr ""
 
 msgid "Delete selected words"
@@ -197,36 +323,27 @@ msgstr ""
 msgid "Filter has no user interface."
 msgstr ""
 
+msgid "Filters configuration has been successfully saved."
+msgstr ""
+
 #, php-format
 msgid "%s configuration"
 msgstr ""
 
-msgid "Information"
+#, php-format
+msgid "%s filter configuration"
 msgstr ""
 
-msgid "Spam comments have been successfully deleted."
+msgid "Back to filters list"
+msgstr ""
+
+msgid "Information"
 msgstr ""
 
 msgid "Junk comments:"
 msgstr ""
 
 msgid "Published comments:"
-msgstr ""
-
-msgid "Delete all spams"
-msgstr ""
-
-#, php-format
-msgid "All spam comments older than %s day(s) will be automatically deleted."
-msgstr ""
-
-msgid "You can modify this duration in the %s"
-msgstr ""
-
-msgid "Blog preferences"
-msgstr ""
-
-msgid "Filters configuration has been successfully saved."
 msgstr ""
 
 msgid "Available spam filters"
@@ -262,6 +379,10 @@ msgstr ""
 msgid "Attachments"
 msgstr ""
 
+#, php-format
+msgid "Attachments (%d)"
+msgstr ""
+
 msgid "remove"
 msgstr ""
 
@@ -280,10 +401,31 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
+msgid "Title (optional)"
+msgstr ""
+
 msgid "All categories"
 msgstr ""
 
+msgid "Display on:"
+msgstr ""
+
+msgid "All pages"
+msgstr ""
+
 msgid "Home page only"
+msgstr ""
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Content only"
+msgstr ""
+
+msgid "CSS class:"
+msgstr ""
+
+msgid "Offline"
 msgstr ""
 
 msgid "You must provide a link title"
@@ -301,22 +443,22 @@ msgstr ""
 msgid "No such link or title"
 msgstr ""
 
-msgid "Return to blogroll"
+msgid "Link has been successfully updated"
 msgstr ""
 
 msgid "Category has been successfully updated"
 msgstr ""
 
-msgid "Edit category"
+msgid "Return to blogroll"
 msgstr ""
 
-msgid "Link has been successfully updated"
+msgid "Edit category"
 msgstr ""
 
 msgid "Edit link"
 msgstr ""
 
-msgid "XFN"
+msgid "XFN information"
 msgstr ""
 
 msgid "_xfn_Me"
@@ -397,13 +539,10 @@ msgstr ""
 msgid "Nothing to import"
 msgstr ""
 
+msgid "links have been successfully imported."
+msgstr ""
+
 msgid "Import operation cancelled."
-msgstr ""
-
-msgid "Items order has been successfully updated"
-msgstr ""
-
-msgid "Items have been successfully removed."
 msgstr ""
 
 msgid "Link has been successfully created."
@@ -412,7 +551,10 @@ msgstr ""
 msgid "category has been successfully created."
 msgstr ""
 
-msgid "links have been successfully imported."
+msgid "Items have been successfully removed."
+msgstr ""
+
+msgid "Items order has been successfully updated"
 msgstr ""
 
 msgid "URL"
@@ -463,6 +605,9 @@ msgstr ""
 msgid "Custom..."
 msgstr ""
 
+msgid "Theme configuration has been successfully updated."
+msgstr ""
+
 msgid "Blowup configuration"
 msgstr ""
 
@@ -475,10 +620,13 @@ msgstr ""
 msgid "Choose a predefined style"
 msgstr ""
 
+msgid "Back to Blog appearance"
+msgstr ""
+
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr ""
 
-msgid "Theme configuration has been successfully updated."
+msgid "Customization"
 msgstr ""
 
 msgid "General"
@@ -653,6 +801,9 @@ msgstr ""
 msgid "Additional CSS"
 msgstr ""
 
+msgid "Any additional CSS styles (must be written using the CSS syntax):"
+msgstr ""
+
 msgid "Configuration import / export"
 msgstr ""
 
@@ -665,26 +816,103 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr ""
-
-msgid "The 'public' directory does not exist."
-msgstr ""
-
-#, php-format
-msgid "The '%s' directory cannot be modified."
-msgstr ""
-
-msgid "Unable to create images."
-msgstr ""
-
-msgid "Invalid file type."
-msgstr ""
-
-msgid "Uploaded image is not 800 pixels wide."
+msgid "Unable to create css file."
 msgstr ""
 
 msgid "Unable to open image."
+msgstr ""
+
+msgid "The configuration has been updated."
+msgstr ""
+
+msgid "Media chooser"
+msgstr ""
+
+msgid "Link to an entry"
+msgstr ""
+
+msgid "Link"
+msgstr ""
+
+msgid "visual"
+msgstr ""
+
+msgid "source"
+msgstr ""
+
+msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "-- none --"
+msgstr ""
+
+msgid "-- block format --"
+msgstr ""
+
+msgid "Paragraph"
+msgstr ""
+
+msgid "Level 1 header"
+msgstr ""
+
+msgid "Level 2 header"
+msgstr ""
+
+msgid "Level 3 header"
+msgstr ""
+
+msgid "Level 4 header"
+msgstr ""
+
+msgid "Level 5 header"
+msgstr ""
+
+msgid "Level 6 header"
+msgstr ""
+
+msgid "Strong emphasis"
+msgstr ""
+
+msgid "Emphasis"
+msgstr ""
+
+msgid "Inserted"
+msgstr ""
+
+msgid "Deleted"
+msgstr ""
+
+msgid "Inline quote"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Line break"
+msgstr ""
+
+msgid "Blockquote"
+msgstr ""
+
+msgid "Preformated text"
+msgstr ""
+
+msgid "Unordered list"
+msgstr ""
+
+msgid "Ordered list"
+msgstr ""
+
+msgid "URL?"
+msgstr ""
+
+msgid "Language?"
+msgstr ""
+
+msgid "External image"
+msgstr ""
+
+msgid "Remove text formating"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
@@ -702,20 +930,29 @@ msgstr ""
 msgid "Export file not found."
 msgstr ""
 
-msgid "Export a blog"
+msgid "Failed to compress export file."
+msgstr ""
+
+msgid "Single blog"
 msgstr ""
 
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr ""
 
-msgid "Export"
+msgid "Compress file"
 msgstr ""
 
 msgid "You may also want to download your media directory as a zip file"
 msgstr ""
 
-msgid "Export all content"
+msgid "Export"
+msgstr ""
+
+msgid "Multiple blogs"
+msgstr ""
+
+msgid "This will create an export of all the content of your database."
 msgstr ""
 
 msgid "Congratulation!"
@@ -740,13 +977,10 @@ msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr ""
 
 #, php-format
-msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
+msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr ""
 
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
-msgstr ""
-
-msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr ""
 
 msgid "General information"
@@ -790,13 +1024,16 @@ msgstr ""
 msgid "next step"
 msgstr ""
 
+msgid "Depending on the size of your blog, it could take a few minutes."
+msgstr ""
+
 msgid "Dotclear tables not found"
 msgstr ""
 
-msgid "Feed import"
+msgid "RSS or Atom feed import"
 msgstr ""
 
-msgid "Imports a feed as new entries."
+msgid "Add a feed content to the blog."
 msgstr ""
 
 msgid "Cannot retrieve feed URL."
@@ -808,11 +1045,8 @@ msgstr ""
 msgid "Content successfully imported."
 msgstr ""
 
-msgid "Import from a feed"
-msgstr ""
-
 #, php-format
-msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
+msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr ""
 
 msgid "Feed URL:"
@@ -830,23 +1064,30 @@ msgstr ""
 msgid "Are you sure you want to import a full backup file?"
 msgstr ""
 
-msgid "Import a single blog"
-msgstr ""
-
 #, php-format
-msgid "This will import a single blog backup as new content in the current blog: %s."
+msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr ""
 
 msgid "Upload a backup file"
 msgstr ""
 
+#, php-format
+msgid "maximum size %s"
+msgstr ""
+
 msgid "or pick up a local file in your public directory"
 msgstr ""
 
-msgid "Import a full backup file"
+msgid "This will reset all the content of your database, except users."
 msgstr ""
 
-msgid "Warning: This will reset all the content of your database, except users."
+msgid "Another file with same name exists."
+msgstr ""
+
+msgid "Failed to extract backup file."
+msgstr ""
+
+msgid "No backup in compressed file."
 msgstr ""
 
 msgid "WordPress import"
@@ -865,7 +1106,7 @@ msgstr ""
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr ""
 
-msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr ""
 
 msgid "Ignore the first category:"
@@ -904,41 +1145,143 @@ msgstr ""
 msgid "File is not a single blog export."
 msgstr ""
 
+#, php-format
+msgid "Error raised at line %s"
+msgstr ""
+
 msgid "File is not a full export."
 msgstr ""
 
-msgid "The backup file does not appear to be well formed."
+#, php-format
+msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
+msgstr ""
+
+msgid "Database export"
+msgstr ""
+
+msgid "Download database of current blog"
+msgstr ""
+
+msgid "Download database of all blogs"
 msgstr ""
 
 msgid "Please wait..."
 msgstr ""
 
+#, php-format
+msgid "Export functions are in the page %s."
+msgstr ""
+
 msgid "Maintenance"
 msgstr ""
 
-msgid "Optimization successful."
+msgid "Servicing"
 msgstr ""
 
-msgid "Comments and trackback counted."
+msgid "Tools to maintain the performance of your blogs."
+msgstr ""
+
+msgid "Backup"
+msgstr ""
+
+msgid "Tools to back up your content."
+msgstr ""
+
+msgid "Development"
+msgstr ""
+
+msgid "Tools to assist in development of plugins, themes and core."
+msgstr ""
+
+msgid "Optimize"
+msgstr ""
+
+msgid "Count and index"
+msgstr ""
+
+msgid "Purge"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Current blog"
+msgstr ""
+
+msgid "All blogs"
+msgstr ""
+
+msgid "Maintain translations"
+msgstr ""
+
+msgid "Translations"
+msgstr ""
+
+#, php-format
+msgid "One task to execute"
+msgid_plural "%s tasks to execute"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "This task has never been executed."
+msgstr ""
+
+#, php-format
+msgid "Last execution of this task was on %s."
+msgstr ""
+
+#, php-format
+msgid "There is a task to execute."
+msgid_plural "There are %s tasks to execute."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Manage tasks"
+msgstr ""
+
+msgid "Display overdue tasks counter on maintenance dashboard icon"
+msgstr ""
+
+msgid "Display overdue tasks list on dashboard items"
+msgstr ""
+
+msgid "Failed to execute task."
+msgstr ""
+
+msgid "Task successfully executed."
+msgstr ""
+
+msgid "Empty templates cache directory"
 msgstr ""
 
 msgid "Templates cache directory emptied."
 msgstr ""
 
-msgid "Logs deleted."
+msgid "Failed to empty templates cache directory."
 msgstr ""
 
-#, php-format
-msgid "Indexing entry %d to %d."
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
 msgstr ""
 
-msgid "next"
+msgid "Count again comments and trackbacks"
 msgstr ""
 
-msgid "Entries index done."
+msgid "Comments and trackback counted."
 msgstr ""
 
-msgid "Back"
+msgid "Failed to count comments and trackbacks."
+msgstr ""
+
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Search engine index"
+msgstr ""
+
+msgid "Index all comments for search engine"
+msgstr ""
+
+msgid "Next"
 msgstr ""
 
 #, php-format
@@ -948,43 +1291,142 @@ msgstr ""
 msgid "Comments index done."
 msgstr ""
 
-msgid "Optimize database room"
+msgid "Failed to index comments."
 msgstr ""
 
-msgid "Vacuum tables"
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr ""
 
-msgid "Counters"
+msgid "Index all entries for search engine"
 msgstr ""
 
-msgid "Reset comments and ping counters"
+#, php-format
+msgid "Indexing entry %d to %d."
 msgstr ""
 
-msgid "Search engine index"
+msgid "Entries index done."
 msgstr ""
 
-msgid "This may take a very long time"
+msgid "Failed to index entries."
 msgstr ""
 
-msgid "Index all posts"
-msgstr ""
-
-msgid "Index all comments"
-msgstr ""
-
-msgid "Vacuum logs"
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr ""
 
 msgid "Delete all logs"
 msgstr ""
 
-msgid "Empty templates cache directory"
+msgid "Logs deleted."
 msgstr ""
 
-msgid "Empty directory"
+msgid "Failed to delete logs."
 msgstr ""
 
-msgid "Pages"
+msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
+msgstr ""
+
+msgid "Entries metadata"
+msgstr ""
+
+msgid "Synchronize entries metadata"
+msgstr ""
+
+#, php-format
+msgid "Synchronize entry %d to %d."
+msgstr ""
+
+msgid "Entries metadata synchronize done."
+msgstr ""
+
+msgid "Failed to synchronize entries metadata."
+msgstr ""
+
+msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
+msgstr ""
+
+msgid "Optimise database"
+msgstr ""
+
+msgid "optimize tables"
+msgstr ""
+
+msgid "Optimization successful."
+msgstr ""
+
+msgid "Failed to optimize tables."
+msgstr ""
+
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
+msgstr ""
+
+msgid "Download media folder of current blog"
+msgstr ""
+
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr ""
+
+msgid "Download active theme of current blog"
+msgstr ""
+
+msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
+msgstr ""
+
+msgid "Maintenance plugin has been successfully configured."
+msgstr ""
+
+msgid "Never"
+msgstr ""
+
+msgid "Every week"
+msgstr ""
+
+msgid "Every two weeks"
+msgstr ""
+
+msgid "Every month"
+msgstr ""
+
+msgid "Every two months"
+msgstr ""
+
+msgid "You have not sufficient permissions to view this page."
+msgstr ""
+
+msgid "You should execute it now."
+msgstr ""
+
+msgid "Execute task"
+msgstr ""
+
+msgid "This may take a very long time."
+msgstr ""
+
+msgid "Alert settings"
+msgstr ""
+
+msgid "Activation"
+msgstr ""
+
+msgid "Display alert messages on late tasks"
+msgstr ""
+
+#, php-format
+msgid "You can place list of late tasks on your %s."
+msgstr ""
+
+msgid "Frequency"
+msgstr ""
+
+msgid "Use one recall time for all tasks"
+msgstr ""
+
+msgid "Recall time for all tasks:"
+msgstr ""
+
+msgid "Use one recall time per task"
+msgstr ""
+
+msgid "New page"
 msgstr ""
 
 #, php-format
@@ -996,6 +1438,12 @@ msgid "%d pages"
 msgstr ""
 
 msgid "manage pages"
+msgstr ""
+
+msgid "My first page"
+msgstr ""
+
+msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr ""
 
 msgid "Published on"
@@ -1016,31 +1464,49 @@ msgstr ""
 msgid "Publication date"
 msgstr ""
 
+msgid "Pages actions"
+msgstr ""
+
+msgid "Back to pages list"
+msgstr ""
+
+msgid "Selected pages have been successfully reordered."
+msgstr ""
+
 msgid "No page"
 msgstr ""
 
-msgid "select this page"
+msgid "Hidden"
+msgstr ""
+
+msgid "Select this page"
 msgstr ""
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr ""
 
-msgid "New page"
+msgid "Selected pages have been successfully updated."
+msgstr ""
+
+msgid "Selected pages have been successfully deleted."
 msgstr ""
 
 msgid "Selected pages action:"
+msgstr ""
+
+msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
+msgstr ""
+
+msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
+msgstr ""
+
+msgid "Save pages order"
 msgstr ""
 
 msgid "This page does not exist."
 msgstr ""
 
 msgid "Edit page"
-msgstr ""
-
-msgid "next page"
-msgstr ""
-
-msgid "previous page"
 msgstr ""
 
 msgid "Are you sure you want to delete this page?"
@@ -1055,31 +1521,31 @@ msgstr ""
 msgid "Go to this page on the site"
 msgstr ""
 
-msgid "Page status:"
+msgid "Page status"
 msgstr ""
 
-msgid "Page position:"
+msgid "Page language"
 msgstr ""
 
-msgid "Page lang:"
-msgstr ""
-
-msgid "Page password:"
+msgid "Hide in widget Pages"
 msgstr ""
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr ""
 
-msgid "Add files to this page"
+msgid "Introduction to the page."
+msgstr ""
+
+msgid "Select this comment"
 msgstr ""
 
 msgid "Pings"
 msgstr ""
 
-msgid "Pings configuration"
+msgid "Settings have been successfully updated."
 msgstr ""
 
-msgid "Settings have been successfully updated."
+msgid "Pings configuration"
 msgstr ""
 
 msgid "Activate pings extension"
@@ -1091,7 +1557,7 @@ msgstr ""
 msgid "Service URI:"
 msgstr ""
 
-msgid "error"
+msgid "Error"
 msgstr ""
 
 msgid "Test ping services"
@@ -1100,13 +1566,7 @@ msgstr ""
 msgid "Check all"
 msgstr ""
 
-msgid "Pings:"
-msgstr ""
-
 msgid "Simple menu"
-msgstr ""
-
-msgid "Menu"
 msgstr ""
 
 msgid "All months"
@@ -1128,6 +1588,9 @@ msgid "Tags"
 msgstr ""
 
 msgid "User defined"
+msgstr ""
+
+msgid "Configuration successfully updated."
 msgstr ""
 
 msgid "Label"
@@ -1154,7 +1617,13 @@ msgstr ""
 msgid "Recent posts for %s tag"
 msgstr ""
 
+msgid "Menu item has been successfully added."
+msgstr ""
+
 msgid "Label and URL of menu item are mandatory."
+msgstr ""
+
+msgid "Menu items have been successfully removed."
 msgstr ""
 
 msgid "No menu items selected."
@@ -1166,13 +1635,16 @@ msgstr ""
 msgid "URL is mandatory."
 msgstr ""
 
-msgid "Menu item has been successfully added."
-msgstr ""
-
-msgid "Menu items have been successfully removed."
-msgstr ""
-
 msgid "Menu items have been successfully updated."
+msgstr ""
+
+msgid "Step #1"
+msgstr ""
+
+msgid "Step #2"
+msgstr ""
+
+msgid "Step #3"
 msgstr ""
 
 msgid "Add item"
@@ -1214,6 +1686,12 @@ msgstr ""
 msgid "Add this item"
 msgstr ""
 
+msgid "Enable simple menu for this blog"
+msgstr ""
+
+msgid "Save configuration"
+msgstr ""
+
 msgid "Add an item"
 msgstr ""
 
@@ -1229,18 +1707,27 @@ msgstr ""
 msgid "Are you sure you want to remove selected menu items?"
 msgstr ""
 
-msgid "Currently no menu items"
+msgid "No menu items so far."
 msgstr ""
 
-msgid "Tags:"
+msgid "Add tags"
 msgstr ""
 
-#, php-format
-msgid "Are you sure you want to remove this %s?"
+msgid "Remove tags"
 msgstr ""
 
-#, php-format
-msgid "Add a %s to this entry"
+msgid "Tag has been successfully added to selected entries"
+msgid_plural "Tags have been successfully added to selected entries"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Add tags to this selection"
+msgstr ""
+
+msgid "Are you sure you want to remove this tag?"
+msgstr ""
+
+msgid "Add a tag to this entry"
 msgstr ""
 
 msgid "Choose from list"
@@ -1249,7 +1736,7 @@ msgstr ""
 msgid "all"
 msgstr ""
 
-msgid "Tag"
+msgid "Enter tags separated by coma"
 msgstr ""
 
 msgid "used in %e - frequency %p%"
@@ -1261,34 +1748,30 @@ msgstr ""
 msgid "entries"
 msgstr ""
 
-msgid "Enter tags separated by coma"
-msgstr ""
-
-msgid "Add tags"
-msgstr ""
-
-msgid "Remove tags"
-msgstr ""
-
-msgid "Add tags to entries"
-msgstr ""
-
 msgid "Tags to add:"
 msgstr ""
 
-msgid "Remove selected tags from entries"
-msgstr ""
+msgid "Tag has been successfully removed from selected entries"
+msgid_plural "Tags have been successfully removed from selected entries"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "No tags for selected entries"
+msgstr ""
+
+msgid "Remove selected tags from this selection"
 msgstr ""
 
 msgid "Following tags have been found in selected entries:"
 msgstr ""
 
-msgid "short"
+msgid "Tag"
 msgstr ""
 
-msgid "extended"
+msgid "Short"
+msgstr ""
+
+msgid "Extended"
 msgstr ""
 
 msgid "Tags list format:"
@@ -1312,40 +1795,48 @@ msgstr ""
 msgid "Link to all tags:"
 msgstr ""
 
-msgid "Edit tag"
-msgstr ""
-
 msgid "Tag has been successfully renamed"
-msgstr ""
-
-msgid "Back to tags list"
-msgstr ""
-
-msgid "Actions for this tag"
-msgstr ""
-
-msgid "Edit tag name:"
-msgstr ""
-
-msgid "Rename"
-msgstr ""
-
-msgid "Delete this tag:"
-msgstr ""
-
-msgid "List of entries with this tag"
 msgstr ""
 
 msgid "Tag has been successfully removed"
 msgstr ""
 
+#, php-format
+msgid "Are you sure you want to remove tag: “%s”?"
+msgstr ""
+
+msgid "Back to tags list"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Delete this tag"
+msgstr ""
+
+#, php-format
+msgid "List of entries with the tag “%s”"
+msgstr ""
+
 msgid "No tags on this blog."
 msgstr ""
 
-msgid "Theme Editor"
+msgid "Edit theme files"
+msgstr ""
+
+msgid "Syntax highlighting in theme editor"
 msgstr ""
 
 msgid "No file"
+msgstr ""
+
+msgid "From theme:"
+msgstr ""
+
+msgid "From parent:"
+msgstr ""
+
+msgid "From template set:"
 msgstr ""
 
 msgid "File does not exist."
@@ -1359,6 +1850,13 @@ msgstr ""
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr ""
 
+#, php-format
+msgid "Unable to delete file %s. Please check your theme files and folders permissions."
+msgstr ""
+
+msgid "The file has been reset."
+msgstr ""
+
 msgid "Saving document..."
 msgstr ""
 
@@ -1366,6 +1864,9 @@ msgid "Document saved"
 msgstr ""
 
 msgid "An error occurred:"
+msgstr ""
+
+msgid "Are you sure you want to reset this file?"
 msgstr ""
 
 #, php-format
@@ -1385,6 +1886,9 @@ msgstr ""
 msgid "Editing file %s"
 msgstr ""
 
+msgid "Reset"
+msgstr ""
+
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr ""
 
@@ -1397,16 +1901,19 @@ msgstr ""
 msgid "JavaScript files"
 msgstr ""
 
+msgid "Locales files"
+msgstr ""
+
 msgid "Preferences successfully updated"
 msgstr ""
 
-msgid "Preferences definition successfully updated"
+msgid "user:preferences"
 msgstr ""
 
-msgid "user preferences"
+msgid "User preferences"
 msgstr ""
 
-msgid "global preferences"
+msgid "Global preferences"
 msgstr ""
 
 msgid "Presentation widgets"
@@ -1428,6 +1935,12 @@ msgid "Blog languages"
 msgstr ""
 
 msgid "With entries counts"
+msgstr ""
+
+msgid "Include sub cats in count"
+msgstr ""
+
+msgid "Include empty categories"
 msgstr ""
 
 msgid "Subscribe links"
@@ -1492,6 +2005,15 @@ msgstr ""
 msgid "custom"
 msgstr ""
 
+msgid "empty string"
+msgstr ""
+
+msgid "Sidebars and their widgets have been saved."
+msgstr ""
+
+msgid "Sidebars have been resetting."
+msgstr ""
+
 msgid "Widgets"
 msgstr ""
 
@@ -1499,6 +2021,12 @@ msgid "Are you sure you want to reset sidebars?"
 msgstr ""
 
 msgid "Available widgets"
+msgstr ""
+
+msgid "Drag widgets from this list to one of the sidebars, for add."
+msgstr ""
+
+msgid "order"
 msgstr ""
 
 msgid "Append to:"
@@ -1522,53 +2050,41 @@ msgstr ""
 msgid "Reset sidebars"
 msgstr ""
 
-msgid "Use of widgets"
-msgstr ""
-
-msgid "Widgets may be used to add various blocks of content to be displayed on your public pages. To add a widget, drag it from the Available widgets list on the left to one of the sidebars on the right of this page. You can order your widgets in a sidebar by dragging them up or down. You must update sidebars to apply your changes."
-msgstr ""
-
-msgid "Once included in a sidebar, widgets have configuration options that you can reach by clicking on the + sign next to their name."
-msgstr ""
-
-msgid "Reset sidebars to get back to default widgets installation."
-msgstr ""
-
-msgid "Widget templates tags"
-msgstr ""
-
-msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-msgstr ""
-
-msgid "To add a widget in your template, you need to write code like this:"
-msgstr ""
-
-msgid "Widget ID"
-msgstr ""
-
-msgid "Setting name"
-msgstr ""
-
-msgid "Setting value"
-msgstr ""
-
-msgid "Here are the following available widgets for your blog:"
-msgstr ""
-
 msgid "Widget ID:"
 msgstr ""
 
 msgid "No setting for this widget"
 msgstr ""
 
+msgid "boolean"
+msgstr ""
+
+msgid "possible values:"
+msgstr ""
+
+msgid "listitem"
+msgstr ""
+
+msgid "string"
+msgstr ""
+
 msgid "Setting name:"
 msgstr ""
 
-msgid "No widget."
+msgid "No widget as far."
 msgstr ""
 
-msgid "order"
+msgid "Up the widget"
+msgstr ""
+
+msgid "Down the widget"
+msgstr ""
+
+msgid "Remove the widget"
 msgstr ""
 
 msgid "Remove widget"
+msgstr ""
+
+msgid "Drag widgets here to remove."
 msgstr ""

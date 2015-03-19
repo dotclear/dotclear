@@ -20,9 +20,17 @@
 }
 #file-chooser li.default-file {
 	color: #f90;
+	font-weight: bold;
 }
 #file-chooser li.parent-file {
 	color:#c00;
+}
+#file-chooser li.group-file {
+	list-style: none;
+	margin-bottom: 1em;
+}
+#file-chooser li.group-file ul {
+	margin-top: .5em;
 }
 textarea {
 	font: 1em Monaco,"Courier New",Courier,monospace;

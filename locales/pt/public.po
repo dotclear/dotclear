@@ -43,7 +43,8 @@ msgstr "Em"
 msgid "Continue reading"
 msgstr "Continuar leitura"
 
-msgid "no comment"
+#, fuzzy
+msgid "no comments"
 msgstr "sem comentário"
 
 msgid "one comment"
@@ -52,7 +53,7 @@ msgstr "um comentário"
 msgid "%d comments"
 msgstr "%d comentários"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "sem trackback"
 
 msgid "one trackback"
@@ -61,7 +62,7 @@ msgstr "um trackback"
 msgid "%d trackbacks"
 msgstr "%d trackbacks"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "sem anexo"
 
 msgid "one attachment"

@@ -14,14 +14,14 @@ configure: configure-stamp
 configure-stamp:
 	dh_testdir
 	# Add here commands to configure the package.
-	
+
 	touch configure-stamp
 
 build: build-stamp
 
 build-stamp: configure-stamp
 	dh_testdir
-	
+
 	# Add here commands to compile the package.
 	$(MAKE) config
 	touch build-stamp
@@ -30,10 +30,10 @@ clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp configure-stamp
-	
+
 	# Add here commands to clean up after the build process.
 	-$(MAKE) clean
-	
+
 	dh_clean
 
 install: build
@@ -41,20 +41,20 @@ install: build
 	dh_testroot
 	dh_clean -k
 	dh_installdirs
-	
+
 	# Add here commands to install the package into debian/dotclear.
 	cp -af $(CURDIR)/_dist/dotclear $(CURDIR)/debian/dotclear/usr/share/
 	mkdir -p $(CURDIR)/debian/dotclear/etc/dotclear
 	mv $(DEST)/inc/config.php.in $(CURDIR)/debian/dotclear/etc/dotclear/config.php
-	
+
 	# Clearbricks is in libclearbricks
 	rm -rf $(CURDIR)/debian/dotclear/usr/share/dotclear/inc/clearbricks
-	
+
 	# Language packs
 	mkdir -p $(CURDIR)/debian/dotclear-l10n-ja/usr/share/dotclear/locales
 	cp -af $(CURDIR)/locales/ja $(CURDIR)/debian/dotclear-l10n-ja/usr/share/dotclear/locales/
 	find $(CURDIR)/debian/dotclear-l10n-ja/usr/share/dotclear/locales/ -type d -name '.svn' | xargs rm -rf
-	
+
 # Build architecture-independent files here.
 binary-indep: build install
 # We have nothing to do by default.

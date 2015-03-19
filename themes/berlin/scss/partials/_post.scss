@@ -1,0 +1,259 @@
+/**
+    POST
+------------------------------- */
+.post {
+    max-width: 42em;
+    margin: 2em auto 6em;
+}
+.post-day-date {
+    font-size: scut-em(14,16);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: scut-em(12,14);
+}
+.post-meta {
+    font-size: scut-em(14);
+    background-color: $gray-light;
+    border-radius: scut-em(8, 14);
+    padding: scut-em(8, 14) scut-em(16, 14);
+    margin-bottom: scut-em(24, 14);
+    clear: both;
+}
+.post-info {
+    margin: .5em 0;
+}
+.full .post-info,
+.short .post-info,
+.post-cat,
+.post-tags-list {
+    margin: .5em 0;
+    display: inline;
+    vertical-align: top;
+}
+.post-tags-list {
+    @include inline-block-list-container;
+}
+.post-tags-item {
+    @include inline-block-list-item();
+    vertical-align: top;
+    a:after { content: ","}
+    &:last-child a:after { content: ""}
+}
+.post-info-co {
+    margin: .5em 0;
+    }
+.post-title {
+    text-align: center;
+    font-weight: 200;
+    a, a:link, a:visited {
+        border-bottom-color: $white;
+    }
+    a:hover, a:focus, a:active {
+        color: $secondary-color;
+        background-color: transparent;
+    }
+    @media screen and (max-width: $medium-screen) {
+        font-size: scut-em(32);
+    }
+}
+.post-content {
+    margin-bottom: 1em;
+}
+.post-read-it {
+    margin-bottom: 1.5em;
+}
+.footnotes {
+    font-size: scut-em(14, 16);
+    margin-top: 2em;
+    margin-bottom: 3em;
+    h4 {
+        display: inline-block;
+        border-top: 1px solid $secondary-color;
+        padding-right: 3em;
+        margin-bottom: 0;
+    }
+}
+.post-attachments {
+    position: relative;
+    padding: 0 2.5em .25em;
+    border: 1px solid $gray-medium;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.post-attachments:before {
+    content: inline-image('icon_attachments.png');
+    content: inline-image('icon_attachments.svg');
+    display: block;
+    position: absolute;
+    margin-top: -.33em;
+    margin-left: -2em;
+}
+.post-attachments-title {
+    padding-top: .75em;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $gray-dark;
+}
+.post-attachments-list {
+    padding-left: 1em;
+    margin-top: .5em;
+}
+.post-feedback {
+    max-width: 42em;
+    margin: 3em auto;
+    clear: both;
+}
+.post-feedback h3 {
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: $gray-dark;
+}
+    .comments-list {
+        @include no-bullets;
+        padding-left: 0;
+    }
+        .comment, .ping {
+            overflow: hidden;
+            padding: .1em 1.5em .1em 4em;
+            margin-bottom: 2em;
+            border-radius: .25em;
+            box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
+        }
+        .comment {
+            background-color: #EDF3F2;
+        }
+        .ping {
+            background: #f3efed inline-image('icon_trackbacks.png') no-repeat 1.5em 4em;
+        }
+            .comment-number {
+                display: block;
+                float: left;
+                width: 2.5em;
+                height: 2.5em;
+                margin-left: -3.5em;
+                margin-right: 1em;
+                margin-top: -.5em;
+                border-radius: 50%;
+                background-color: $white;
+                z-index: 1000;
+                line-height: 2.5em;
+                text-align: center;
+            }
+.comment-form, .send-trackback {
+    overflow: hidden;
+    padding: .75em 3em .1em;
+    margin-bottom: 2em;
+    border-radius: .25em;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
+    background-color: #EDF3F2;
+}
+.send-trackback {
+    background: #f3efed inline-image('icon_trackbacks.png') no-repeat 1.5em 4em;
+}
+.field label {
+    display: inline-block;
+    width: 10em;
+}
+.field input {
+    max-width: 100%;
+}
+.field textarea {
+    display: block;
+    width: 100%;
+}
+.form-help, .remember {
+    font-size: scut-em(14, 16);
+}
+#pr {
+    background-color: $gray-light;
+    padding: .5em;
+    border: 2px solid #6c7c7c;
+    margin-bottom: 2em;
+}
+.error {
+    background-color: $link;
+    color: $white;
+    padding: .25em .5em;
+}
+/* Button Style */
+.buttons {
+    text-align: right;
+}
+button.submit, button.preview {
+    @include background-image(linear-gradient(top, $button-light, $button-dark));
+    box-shadow:inset 0 1px 3px 0 $button-light;
+    background-color: $button-light;
+    border-radius: .25em;
+    border: 1px solid $button-dark;
+    display: inline-block;
+    cursor: pointer;
+    color: $white;
+    padding: .25em .5em;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 $gray-dark;
+}
+button.submit:hover,
+button.submit:focus,
+button.preview:hover,
+button.preview:focus {
+    cursor: pointer;
+    @include background-image(linear-gradient($button-dark, $button-dark));
+    background-color: $button-dark;
+}
+button.submit:active, button.preview:active {
+    position: relative;
+    top: 1px;
+}
+@media all and(max-width: $small-screen) {
+    .comment-number {
+        margin-top: 0;
+    }
+    .comment-content, .ping-content {
+        margin-left: -3.5em;
+        margin-right: -1em;
+    }
+    .comment-form, .send-trackback {
+        padding: .75em .5em .1em;
+    }
+}
+@media all and(min-width: $small-screen+.1em) {
+    .post-day-date:after,
+    .post-day-date:before {
+        display: inline-block;
+        height: 1px;
+        content: " ";
+        background-color: $gray-medium;
+        text-shadow: none;
+        width: 20%;
+        margin-bottom: .33em;
+    }
+    .post-day-date:after {
+        margin-left: 2em;
+    }
+    .post-day-date:before {
+        margin-right: 2em;
+    }
+    .post-feedback h3:after,
+    .post-feedback h3:before {
+        display: inline-block;
+        height: 1px;
+        content: " ";
+        background-color: $gray-medium;
+        text-shadow: none;
+        width: 20%;
+        margin-bottom: .33em;
+    }
+    .post-feedback h3:after {
+        margin-left: 2em;
+    }
+    .post-feedback h3:before {
+        margin-right: 2em;
+    }
+}
+@media all and(max-width: $medium-screen) {
+    .post {
+        margin: 1em auto 3em;
+    }
+}

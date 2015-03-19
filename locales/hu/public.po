@@ -42,7 +42,8 @@ msgstr "::"
 msgid "Continue reading"
 msgstr "Folytatás"
 
-msgid "no comment"
+#, fuzzy
+msgid "no comments"
 msgstr "nincs hozzászólás"
 
 msgid "one comment"
@@ -51,7 +52,7 @@ msgstr "egy hozzászólás"
 msgid "%d comments"
 msgstr "%d hozzászólás"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "nincs trackback"
 
 msgid "one trackback"
@@ -60,7 +61,7 @@ msgstr "1 trackback"
 msgid "%d trackbacks"
 msgstr "%d trackback"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "nincs melléklet"
 
 msgid "one attachment"

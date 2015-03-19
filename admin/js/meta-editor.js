@@ -1,8 +1,18 @@
 //~ metaEditor & metaEditor.prototype should go to the core.
-function metaEditor(target,meta_field,meta_type) {
+function metaEditor(target,meta_field,meta_type,meta_options) {
 	this.target = target;
 	this.meta_field = meta_field;
 	this.meta_type = meta_type;
+
+	// options
+	meta_options = meta_options || {};
+	this.meta_url = meta_options.meta_url || this.meta_url;
+	this.list_type = meta_options.list_type || this.list_type;
+	this.text_confirm_remove = meta_options.text_confirm_remove || this.text_confirm_remove;
+	this.text_add_meta = meta_options.text_add_meta || this.text_add_meta;
+	this.text_choose = meta_options.text_choose || this.text_choose;
+	this.text_all = meta_options.text_all || this.text_all;
+	this.text_separation = meta_options.text_separation || this.text_separation;
 };
 
 metaEditor.prototype = {
@@ -12,22 +22,23 @@ metaEditor.prototype = {
 	text_choose: 'Choose from list',
 	text_all: 'all',
 	text_separation: 'Separate each %s by comas',
-	
+	list_type: 'more',
+
 	target: null,
 	meta_type: null,
 	meta_dialog: null,
 	meta_field: null,
 	submit_button: null,
 	post_id: false,
-	
+
 	service_uri: 'services.php',
-	
+
 	displayMeta: function(type,post_id) {
 		this.meta_type = type;
 		this.post_id = post_id;
 		this.target.empty();
-		
-		this.meta_dialog = $('<input type="text" />');
+
+		this.meta_dialog = $('<input type="text" class="ib" />');
 		this.meta_dialog.attr('title',this.text_add_meta.replace(/%s/,this.meta_type));
 		this.meta_dialog.attr('id','post_meta_input');
 		// Meta dialog input
@@ -38,34 +49,34 @@ metaEditor.prototype = {
 			}
 			return true;
 		});
-		
+
 		var This = this;
-		
-		this.submit_button = $('<input type="button" value="ok" />');
+
+		this.submit_button = $('<input type="button" value="ok" class="ib" />');
 		this.submit_button.click(function() {
 			var v = This.meta_dialog.val();
 			This.addMeta(v);
 			return false;
 		});
-		
+
 		this.addMetaDialog();
-		
+
 		if (this.post_id == false) {
 			this.target.append(this.meta_field);
 		}
 		this.displayMetaList();
 	},
-	
+
 	displayMetaList: function() {
 		var li;
 		if (this.meta_list == undefined) {
 			this.meta_list = $('<ul class="metaList"></ul>');
 			this.target.prepend(this.meta_list);
 		}
-		
+
 		if (this.post_id == false) {
 			var meta = this.splitMetaValues(this.meta_field.val());
-			
+
 			this.meta_list.empty();
 			for (var i=0; i<meta.length; i++) {
 				li = $('<li>'+meta[i]+'</li>');
@@ -87,12 +98,12 @@ metaEditor.prototype = {
 				sortby: 'metaId,asc',
 				postId: this.post_id
 			};
-			
+
 			$.get(this.service_uri,params,function(data) {
 				data = $(data);
-				
+
 				if (data.find('rsp').attr('status') != 'ok') { return; }
-				
+
 				This.meta_list.empty();
 				data.find('meta').each(function() {
 					var meta_id = $(this).text();
@@ -110,50 +121,46 @@ metaEditor.prototype = {
 			});
 		}
 	},
-	
+
 	addMetaDialog: function() {
-		var This = this;
-		
+
 		if (this.submit_button == null) {
 			this.target.append($('<p></p>').append(this.meta_dialog));
 		} else {
 			this.target.append($('<p></p>').append(this.meta_dialog).append(' ').append(this.submit_button));
 		}
-		
-		// View meta list
-		var a = $('<a href="#">' + this.text_choose + '</a>');
-		a.click(function() {
-			This.showMetaList(metaEditor.prototype.meta_type,$(this).parent());
-			return false;
-		});
+
 		if (this.text_separation != '') {
 			this.target.append($('<p></p>').addClass('form-note').append(this.text_separation.replace(/%s/,this.meta_type)));
 		}
-		this.target.append($('<p></p>').append(a));
+
+		this.showMetaList(this.list_type,this.target);
+
 	},
-	
-	showMetaList: function(type,target) {
-		target.empty();
-		target.append('...');
-		target.addClass('addMeta');
-		
+
+	showMetaList: function(list_type,target) {
 		var params = {
 			f: 'getMeta',
 			metaType: this.meta_type,
 			sortby: 'metaId,asc'
 		};
-		
-		if (type == 'more') {
+
+		if (list_type == 'more') {
 			params.limit = '30';
 		}
-		
+
 		var This = this;
-		
+
 		$.get(this.service_uri,params,function(data) {
+
+			var pl = $('<p class="addMeta"></p>');
+
+			$(target).find('.addMeta').remove();
+
 			if ($(data).find('meta').length > 0) {
-				target.empty();
+				pl.empty();
 				var meta_link;
-				
+
 				$(data).find('meta').each(function(i) {
 					meta_link = $('<a href="#">' + $(this).text() + '</a>');
 					meta_link.get(0).meta_id = $(this).text();
@@ -162,34 +169,53 @@ metaEditor.prototype = {
 						This.meta_dialog.val(v.join(','));
 						return false;
 					});
-					
+
 					if (i>0) {
-						target.append(', ');
+						pl.append(', ');
 					}
-					target.append(meta_link);
+					pl.append(meta_link);
 				});
-				
-				if (type == 'more') {
+
+				if (list_type == 'more') {
 					var a_more = $('<a href="#" class="metaGetMore"></a>');
 					a_more.append(This.text_all + String.fromCharCode(160)+String.fromCharCode(187));
 					a_more.click(function() {
-						This.showMetaList('all',target);
+						This.showMetaList('more-all',target);
 						return false;
 					});
-					target.append(', ').append(a_more);
+					pl.append(', ').append(a_more);
 				}
+
+				if (list_type != 'more-all') {
+					pl.addClass('hide');
+
+					var pa = $('<p></p>');
+					target.append(pa);
+
+					var a = $('<a href="#" class="metaGetList">' + This.text_choose + '</a>');
+					a.click(function() {
+						$(this).parent().next().removeClass('hide');
+						$(this).remove();
+						return false;
+					});
+
+					pa.append(a);
+				}
+
+				target.append(pl);
+
 			} else {
-				target.empty();
+				pl.empty();
 			}
 		});
 	},
-	
+
 	addMeta: function(str) {
 		str = this.splitMetaValues(str).join(',');
 		if (this.post_id == false) {
 			str = this.splitMetaValues(this.meta_field.val() + ',' + str);
 			this.meta_field.val(str);
-			
+
 			this.meta_dialog.val('');
 			this.displayMetaList();
 		} else {
@@ -200,7 +226,7 @@ metaEditor.prototype = {
 				metaType: this.meta_type,
 				meta: str
 			};
-			
+
 			var This = this;
 			$.post(this.service_uri,params,function(data) {
 				if ($(data).find('rsp').attr('status') == 'ok') {
@@ -212,7 +238,7 @@ metaEditor.prototype = {
 			});
 		}
 	},
-	
+
 	removeMeta: function(meta_id) {
 		if (this.post_id == false) {
 			var meta = this.splitMetaValues(this.meta_field.val());
@@ -226,7 +252,7 @@ metaEditor.prototype = {
 			this.displayMetaList();
 		} else {
 			var text_confirm_msg = this.text_confirm_remove.replace(/%s/,this.meta_type);
-			
+
 			if (window.confirm(text_confirm_msg)) {
 				var This = this;
 				var params = {
@@ -236,7 +262,7 @@ metaEditor.prototype = {
 					metaId: meta_id,
 					metaType: this.meta_type
 				};
-				
+
 				$.post(this.service_uri,params,function(data) {
 					if ($(data).find('rsp').attr('status') == 'ok') {
 						This.displayMetaList();
@@ -247,7 +273,7 @@ metaEditor.prototype = {
 			}
 		}
 	},
-	
+
 	splitMetaValues: function(str) {
 		function inArray(needle,stack) {
 			for (var i=0; i<stack.length; i++) {
@@ -257,7 +283,7 @@ metaEditor.prototype = {
 			}
 			return false;
 		}
-		
+
 		var res = new Array();
 		var v = str.split(',');
 		v.sort();

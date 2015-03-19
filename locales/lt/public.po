@@ -9,6 +9,7 @@ msgstr ""
 "PO-Revision-Date: 2012-04-18 20:53+0100\n"
 "Last-Translator: Paulius Černakauskas <paulius.cernakauskas@gmail.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,7 +42,8 @@ msgstr ", "
 msgid "Continue reading"
 msgstr "Skaityti toliau"
 
-msgid "no comment"
+#, fuzzy
+msgid "no comments"
 msgstr "komentarų nėra"
 
 msgid "one comment"
@@ -50,7 +52,7 @@ msgstr "vienas komentaras"
 msgid "%d comments"
 msgstr "%d komentarai"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "trackback nėra"
 
 msgid "one trackback"
@@ -59,7 +61,7 @@ msgstr "vienas trackback"
 msgid "%d trackbacks"
 msgstr "%d trackback"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "prisegimų nėra"
 
 msgid "one attachment"
@@ -241,4 +243,3 @@ msgstr "Turite nurodyti teisingą el. pašto adresą."
 
 msgid "Read"
 msgstr "Skaityti"
-

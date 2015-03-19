@@ -40,7 +40,8 @@ msgstr "Subre"
 msgid "Continue reading"
 msgstr ""
 
-msgid "no comment"
+#, fuzzy
+msgid "no comments"
 msgstr "0 comentaris"
 
 msgid "one comment"
@@ -49,7 +50,7 @@ msgstr "1 comentaris"
 msgid "%d comments"
 msgstr "%d comentaris"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr ""
 
 msgid "one trackback"
@@ -58,7 +59,7 @@ msgstr ""
 msgid "%d trackbacks"
 msgstr ""
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr ""
 
 msgid "one attachment"

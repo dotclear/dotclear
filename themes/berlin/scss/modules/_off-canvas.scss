@@ -1,0 +1,70 @@
+/* *** MODULE sidebar off-canvas *** */
+// En version mobile, si js est actif un bouton
+// est créé. Il permet de faire glisser le sidebar
+// depuis la droite de l'écran en repoussant le
+// main à gauche.
+
+// Par défaut le bouton n'est pas affiché ; il ne
+// le sera que sur les petits écrans.
+#offcanvas-on {
+    display: none;
+}
+// Sexy glissando
+.sidebar, #main {
+    @include transition(.3s all linear);
+}
+// Dégager la place de l'icône d'ouverture
+.js #content-info h2,
+.js .content-info__feed {
+        margin-right: 3.5em;
+}
+
+@media screen and(max-width: $xlarge-screen) {
+    // les boutons
+    #offcanvas-on,
+    #offcanvas-off {
+        position: absolute;
+        top: .5em;
+        right: .5em;
+        height: 2.5em;
+        width: 2.5em;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        border: none;
+        padding: 0;
+    }
+    #offcanvas-on:hover,
+    #offcanvas-on:focus,
+    #offcanvas-off:hover,
+    #offcanvas-off:focus {
+        background-color: $gray-very-dark;
+    }
+    //ouverture
+    #offcanvas-on {
+        display: block;
+        background-color: $white;
+        background-image: inline-image('icon_open-sidebar.png');
+        background-image: inline-image('icon_open-sidebar.svg'), none;
+        border: .1em solid $gray-dark;
+        border-radius: .25em;
+    }
+    // fermeture
+    #offcanvas-off {
+        background-color: $gray-very-dark;
+        background-image: inline-image('icon_close.png');
+        background-image: inline-image('icon_close.svg'), none;
+        border: 1px solid $white;
+    }
+    // le layout de positionnement du sidebar
+    #wrapper {
+        position: relative;
+    }
+    .off-canvas #main, .footer.off-canvas {
+        float: left;
+        margin-left: -1*(zen-grid-item-width(8));
+    }
+    .off-canvas .sidebar {
+        position: relative;
+        @include zen-grid-item (11, 1, right);
+    }
+}

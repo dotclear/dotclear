@@ -17,11 +17,11 @@ function listImportExportModules($core,$modules)
 	foreach ($modules as $id)
 	{
 		$o = new $id($core);
-		
-		$res .= 
+
+		$res .=
 		'<dt><a href="'.$o->getURL(true).'">'.html::escapeHTML($o->name).'</a></dt>'.
 		'<dd>'.html::escapeHTML($o->description).'</dd>';
-		
+
 		unset($o);
 	}
 	return '<dl class="modules">'.$res.'</dl>';
@@ -30,7 +30,7 @@ function listImportExportModules($core,$modules)
 $modules = new ArrayObject(array('import' => array(),'export' => array()));
 
 # --BEHAVIOR-- importExportModules
-$core->callBehavior('importExportModules',$modules);
+$core->callBehavior('importExportModules', $modules, $core);
 
 $type = null;
 if (!empty($_REQUEST['type'])  && in_array($_REQUEST['type'],array('export','import'))) {
@@ -41,7 +41,7 @@ $module = null;
 if ($type && !empty($_REQUEST['module'])) {
 
 	if (isset($modules[$type]) && in_array($_REQUEST['module'],$modules[$type])) {
-	
+
 		$module = new $_REQUEST['module']($core);
 		$module->init();
 	}
@@ -62,8 +62,8 @@ echo '
 <html>
 <head>
 	<title>'.$title.'</title>
-	<link rel="stylesheet" type="text/css" href="index.php?pf=importExport/style.css" />
-	'.dcPage::jsLoad('index.php?pf=importExport/js/script.js').'
+	<link rel="stylesheet" type="text/css" href="'.dcPage::getPF('importExport/style.css').'" />
+	'.dcPage::jsLoad(dcPage::getPF('importExport/js/script.js')).'
 	<script type="text/javascript">
 	//<![CDATA[
 	'.dcPage::jsVar('dotclear.msg.please_wait',__('Please wait...')).'
@@ -73,33 +73,39 @@ echo '
 <body>';
 
 if ($type && $module !== null) {
-	dcPage::breadcrumb(
+	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
 			$title => $p_url,
-			'<span class="page-title">'.html::escapeHTML($module->name).'</span>' => ''
-		));
+			html::escapeHTML($module->name) => ''
+		)).
+		dcPage::notices();
 
 	echo
 	'<div id="ie-gui">';
-	
+
 	$module->gui();
-	
+
 	echo '</div>';
 }
 else {
-	dcPage::breadcrumb(
+	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
-			'<span class="page-title">'.$title.'</span>' => ''
-		));
+			$title => ''
+		)).
+		dcPage::notices();
+
+	echo '<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']);
 
 	echo
-	'<h3>'.__('Import').'</h3>'.listImportExportModules($core,$modules['import']).
-	'<h3>'.__('Export').'</h3>'.listImportExportModules($core,$modules['export']);
+	'<h3>'.__('Export').'</h3>'.
+	'<p class="info">'.sprintf(
+		__('Export functions are in the page %s.'),
+		'<a href="'.$core->adminurl->get('admin.plugin.maintenance',array('tab' => 'backup')).'#backup">'.__('Maintenance').'</a>'
+	).'</p>';
 }
 
-echo '
-</body>
-</html>';
-?>
+dcPage::helpBlock('import');
+
+echo '</body></html>';

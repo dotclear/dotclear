@@ -10,6 +10,10 @@
 # -- END LICENSE BLOCK -----------------------------------------
 
 if (!defined('DC_RC_PATH')) { return; }
+// public part below
+
+if (!defined('DC_CONTEXT_ADMIN')) { return false; }
+// admin part below
 
 # Behaviors
 $GLOBALS['core']->addBehavior('adminPageHTMLHead',array('tplDuctileThemeAdmin','adminPageHTMLHead'));
@@ -25,7 +29,8 @@ class tplDuctileThemeAdmin
 		$core->auth->user_prefs->addWorkspace('accessibility');
 		if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 			echo
-				dcPage::jsLoad('js/jquery/jquery-ui.custom.js');
+				dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
+				dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
 				echo <<<EOT
 <script type="text/javascript">
 //<![CDATA[
@@ -54,4 +59,3 @@ EOT;
 
 	}
 }
-?>

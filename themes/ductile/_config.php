@@ -23,6 +23,11 @@ $tpl_path = dirname(__FILE__).'/tpl/';
 
 $standalone_config = (boolean) $core->themes->moduleInfo($core->blog->settings->system->theme,'standalone_config');
 
+// Load contextual help
+if (file_exists(dirname(__FILE__).'/locales/'.$_lang.'/resources.php')) {
+	require dirname(__FILE__).'/locales/'.$_lang.'/resources.php';
+}
+
 $list_types = array(
 	__('Title') => 'title',
 	__('Short') => 'short',
@@ -53,7 +58,7 @@ $contexts = array(
 );
 
 $fonts = array(
-	__('default') => '',
+	__('Default') => '',
 	__('Ductile primary') => 'Ductile body',
 	__('Ductile secondary') => 'Ductile alternate',
 	__('Times New Roman') => 'Times New Roman',
@@ -71,18 +76,6 @@ $webfont_apis = array(
 	__('javascript (Adobe)') => 'js',
 	__('stylesheet (Google)') => 'css'
 );
-
-function adjustFontSize($s)
-{
-	if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex)?$/',$s,$m)) {
-		if (empty($m[2])) {
-			$m[2] = 'em';
-		}
-		return $m[1].$m[2];
-	}
-
-	return null;
-}
 
 $font_families = array(
 	// Theme standard
@@ -109,119 +102,8 @@ $font_families = array(
 function fontDef($c)
 {
 	global $font_families;
-	
+
 	return isset($font_families[$c]) ? '<span style="position:absolute;top:0;left:32em;">'.$font_families[$c].'</span>' : '';
-}
-
-function adjustColor($c)
-{
-	if ($c === '') {
-		return '';
-	}
-
-	$c = strtoupper($c);
-
-	if (preg_match('/^[A-F0-9]{3,6}$/',$c)) {
-		$c = '#'.$c;
-	}
-
-	if (preg_match('/^#[A-F0-9]{6}$/',$c)) {
-		return $c;
-	}
-
-	if (preg_match('/^#[A-F0-9]{3,}$/',$c)) {
-		return '#'.substr($c,1,1).substr($c,1,1).substr($c,2,1).substr($c,2,1).substr($c,3,1).substr($c,3,1);
-	}
-
-	return '';
-}
-
-function computeContrastRatio($color,$background)
-{
-	// Compute contrast ratio between two colors
-	
-	$color = adjustColor($color);
-	if (($color == '') || (strlen($color) != 7)) return 0;
-	$background = adjustColor($background);
-	if (($background == '') || (strlen($background) != 7)) return 0;
-	
-	$l1 = (0.2126 * pow(hexdec(substr($color,1,2))/255,2.2)) +
-		(0.7152 * pow(hexdec(substr($color,3,2))/255,2.2)) +
-		(0.0722 * pow(hexdec(substr($color,5,2))/255,2.2));
-
-	$l2 = (0.2126 * pow(hexdec(substr($background,1,2))/255,2.2)) +
-	 	(0.7152 * pow(hexdec(substr($background,3,2))/255,2.2)) +
-		(0.0722 * pow(hexdec(substr($background,5,2))/255,2.2));
-
-	if ($l1 > $l2) {
-		$ratio = ($l1 + 0.05) / ($l2 + 0.05);
-	} else {
-		$ratio = ($l2 + 0.05) / ($l1 + 0.05);
-	}
-	return $ratio;
-}
-
-function contrastRatioLevel($ratio,$size,$bold)
-{
-	if ($size == '') {
-		return '';
-	}
-
-	// Eval font size in em (assume base font size in pixels equal to 16)
-	if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex)?$/',$size,$m)) {
-		if (empty($m[2])) {
-			$m[2] = 'em';
-		}
-	} else {
-		return '';
-	}
-	switch ($m[2]) {
-		case '%':
-			$s = (float) $m[1] / 100;
-			break;
-		case 'pt':
-			$s = (float) $m[1] / 12;
-			break;
-		case 'px':
-			$s = (float) $m[1] / 16;
-			break;
-		case 'em':
-			$s = (float) $m[1];
-			break;
-		case 'ex':
-			$s = (float) $m[1] / 2;
-			break;
-		default:
-			return '';
-	}
-
-	$large = ((($s > 1.5) && ($bold == false)) || (($s > 1.2) && ($bold == true)));
-	
-	// Check ratio
-	if ($ratio > 7) {
-		return 'AAA';
-	} elseif (($ratio > 4.5) && $large) {
-		return 'AAA';
-	} elseif ($ratio > 4.5) {
-		return 'AA';
-	} elseif (($ratio > 3) && $large) {
-		return 'AA';
-	}
-	return '';
-}
-
-function contrastRatio($color,$background,$size='',$bold=false)
-{
-	if (($color != '') && ($background != '')) {
-		$ratio = computeContrastRatio($color,$background);
-		$level = contrastRatioLevel($ratio,$size,$bold);
-		return 
-			'<span style="position:absolute;top:0;left:23em;">'.
-			sprintf(__('ratio %.1f'),$ratio).
-			($level != '' ? ' '.sprintf(__('(%s)'),$level) : '').
-			'</span>';
-	}
-	return '';
 }
 
 $ductile_base = array(
@@ -267,6 +149,7 @@ $ductile_lists_base = array(
 
 $ductile_counts_base = array(
 	'default' => null,
+	'default-page' => null,
 	'category' => null,
 	'tag' => null,
 	'search' => null
@@ -284,12 +167,14 @@ $ductile_lists = @unserialize($ductile_lists);
 if (!is_array($ductile_lists)) {
 	$ductile_lists = $ductile_lists_base;
 }
+$ductile_lists = array_merge($ductile_lists_base,$ductile_lists);
 
 $ductile_counts = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_entries_counts');
 $ductile_counts = @unserialize($ductile_counts);
 if (!is_array($ductile_counts)) {
 	$ductile_counts = $ductile_counts_base;
 }
+$ductile_counts = array_merge($ductile_counts_base,$ductile_counts);
 
 $ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme.'_stickers');
 $ductile_stickers = @unserialize($ductile_stickers);
@@ -365,17 +250,17 @@ if (!empty($_POST))
 				}
 				$ductile_stickers = $new_ductile_stickers;
 			}
-			
+
 			for ($i = 0; $i < count($_POST['list_type']); $i++) {
 				$ductile_lists[$_POST['list_ctx'][$i]] = $_POST['list_type'][$i];
 			}
-	 		
+
 			for ($i = 0; $i < count($_POST['count_nb']); $i++) {
 				$ductile_counts[$_POST['count_ctx'][$i]] = $_POST['count_nb'][$i];
 			}
-	 		
+
 		}
-		
+
 		# CSS
 		if ($conf_tab == 'css') {
 			$ductile_user['body_font'] = $_POST['body_font'];
@@ -389,28 +274,28 @@ if (!empty($_POST))
 			$ductile_user['alternate_webfont_api'] = $_POST['alternate_webfont_api'];
 
 			$ductile_user['blog_title_w'] = (integer) !empty($_POST['blog_title_w']);
-			$ductile_user['blog_title_s'] = adjustFontSize($_POST['blog_title_s']);
-			$ductile_user['blog_title_c'] = adjustColor($_POST['blog_title_c']);
-		
+			$ductile_user['blog_title_s'] = dcThemeConfig::adjustFontSize($_POST['blog_title_s']);
+			$ductile_user['blog_title_c'] = dcThemeConfig::adjustColor($_POST['blog_title_c']);
+
 			$ductile_user['post_title_w'] = (integer) !empty($_POST['post_title_w']);
-			$ductile_user['post_title_s'] = adjustFontSize($_POST['post_title_s']);
-			$ductile_user['post_title_c'] = adjustColor($_POST['post_title_c']);
-		
+			$ductile_user['post_title_s'] = dcThemeConfig::adjustFontSize($_POST['post_title_s']);
+			$ductile_user['post_title_c'] = dcThemeConfig::adjustColor($_POST['post_title_c']);
+
 			$ductile_user['post_link_w'] = (integer) !empty($_POST['post_link_w']);
-			$ductile_user['post_link_v_c'] = adjustColor($_POST['post_link_v_c']);
-			$ductile_user['post_link_f_c'] = adjustColor($_POST['post_link_f_c']);
-		
-			$ductile_user['post_simple_title_c'] = adjustColor($_POST['post_simple_title_c']);
-		
+			$ductile_user['post_link_v_c'] = dcThemeConfig::adjustColor($_POST['post_link_v_c']);
+			$ductile_user['post_link_f_c'] = dcThemeConfig::adjustColor($_POST['post_link_f_c']);
+
+			$ductile_user['post_simple_title_c'] = dcThemeConfig::adjustColor($_POST['post_simple_title_c']);
+
 			$ductile_user['blog_title_w_m'] = (integer) !empty($_POST['blog_title_w_m']);
-			$ductile_user['blog_title_s_m'] = adjustFontSize($_POST['blog_title_s_m']);
-			$ductile_user['blog_title_c_m'] = adjustColor($_POST['blog_title_c_m']);
-		
+			$ductile_user['blog_title_s_m'] = dcThemeConfig::adjustFontSize($_POST['blog_title_s_m']);
+			$ductile_user['blog_title_c_m'] = dcThemeConfig::adjustColor($_POST['blog_title_c_m']);
+
 			$ductile_user['post_title_w_m'] = (integer) !empty($_POST['post_title_w_m']);
-			$ductile_user['post_title_s_m'] = adjustFontSize($_POST['post_title_s_m']);
-			$ductile_user['post_title_c_m'] = adjustColor($_POST['post_title_c_m']);
+			$ductile_user['post_title_s_m'] = dcThemeConfig::adjustFontSize($_POST['post_title_s_m']);
+			$ductile_user['post_title_c_m'] = dcThemeConfig::adjustColor($_POST['post_title_c_m']);
 		}
-		
+
 		$core->blog->settings->addNamespace('themes');
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_style',serialize($ductile_user));
 		$core->blog->settings->themes->put($core->blog->settings->system->theme.'_stickers',serialize($ductile_stickers));
@@ -422,7 +307,7 @@ if (!empty($_POST))
 
 		// Template cache reset
 		$core->emptyTemplatesCache();
-		
+
 		dcPage::message(__('Theme configuration upgraded.'),true,true);
 	}
 	catch (Exception $e)
@@ -436,24 +321,28 @@ if (!$standalone_config) echo '</form>';
 
 # HTML Tab
 
-echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">';
+echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">'.
+'<h3>'.__('Content').'</h3>';
 
-echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
+echo '<form id="theme_config" action="'.$core->adminurl->get('admin.blog.theme',array('conf' => '1')).
+'" method="post" enctype="multipart/form-data">';
 
-echo '<fieldset><legend>'.__('Header').'</legend>'.
-'<p class="field"><label for="subtitle_hidden">'.__('Hide blog description:').' '.
-form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</label>'.'</p>';
+echo '<h4>'.__('Header').'</h4>'.
+'<p class="field"><label for="subtitle_hidden">'.__('Hide blog description:').'</label> '.
+form::checkbox('subtitle_hidden',1,$ductile_user['subtitle_hidden']).'</p>';
+echo '<p class="field"><label for="logo_src">'.__('Logo URL:').'</label> '.
+	form::field('logo_src',40,255,$ductile_user['logo_src']).'</p>';
 if ($core->plugins->moduleExists('simpleMenu'))
 {
-	echo '<p>'.sprintf(__('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),'plugin.php?p=simpleMenu').'</p>';
+	echo '<p>'.sprintf(__('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),
+		$core->adminurl->get('admin.plugin.simpleMenu')).'</p>';
 }
-echo '<p class="field"><label for="logo_src">'.__('Logo URL:').' '.
-	form::field('logo_src',40,255,$ductile_user['logo_src']).'</label>'.'</p>';
-echo '</fieldset>';
 
-echo '<fieldset><legend>'.__('Stickers').'</legend>';
+echo '<h4 class="border-top pretty-title">'.__('Stickers').'</h4>';
 
-echo '<table class="dragable">'.'<caption>'.__('Stickers (footer)').'</caption>'.
+echo
+'<div class="table-outer">'.
+'<table class="dragable">'.'<caption>'.__('Stickers (footer)').'</caption>'.
 '<thead>'.
 '<tr>'.
 '<th scope="col">'.'</th>'.
@@ -466,24 +355,22 @@ echo '<table class="dragable">'.'<caption>'.__('Stickers (footer)').'</caption>'
 $count = 0;
 foreach ($ductile_stickers as $i => $v) {
 	$count++;
-	echo 
+	echo
 	'<tr class="line" id="l_'.$i.'">'.
 	'<td class="handle minimal">'.form::field(array('order['.$i.']'),2,3,$count,'position','',false).
 		form::hidden(array('dynorder[]','dynorder-'.$i),$i).'</td>'.
-	'<td>'.form::hidden(array('sticker_image[]'),$v['image']).'<img src="'.$img_url.$v['image'].'" /> '.'</td>'.
-	'<td scope="raw">'.form::field(array('sticker_label[]','dsl-'.$i),20,255,$v['label']).'</td>'.
+	'<td>'.form::hidden(array('sticker_image[]'),$v['image']).'<img src="'.$img_url.$v['image'].'" alt="'.$v['image'].'" /> '.'</td>'.
+	'<td scope="row">'.form::field(array('sticker_label[]','dsl-'.$i),20,255,$v['label']).'</td>'.
 	'<td>'.form::field(array('sticker_url[]','dsu-'.$i),40,255,$v['url']).'</td>'.
 	'</tr>';
 }
 echo
 '</tbody>'.
-'</table>';
+'</table></div>';
 
-echo '</fieldset>';
+echo '<h4 class="border-top pretty-title">'.__('Entries list types and limits').'</h4>';
 
-echo '<fieldset><legend>'.__('Entries list types and limits').'</legend>';
-
-echo '<table id="entrieslist">'.'<caption>'.__('Entries lists').'</caption>'.
+echo '<table id="entrieslist">'.'<caption class="hidden">'.__('Entries lists').'</caption>'.
 '<thead>'.
 '<tr>'.
 '<th scope="col">'.__('Context').'</th>'.
@@ -493,9 +380,9 @@ echo '<table id="entrieslist">'.'<caption>'.__('Entries lists').'</caption>'.
 '</thead>'.
 '<tbody>';
 foreach ($ductile_lists as $k => $v) {
-	echo 
+	echo
 		'<tr>'.
-		'<td scope="raw">'.$contexts[$k].'</td>'.
+		'<td scope="row">'.$contexts[$k].'</td>'.
 		'<td>'.form::hidden(array('list_ctx[]'),$k).form::combo(array('list_type[]'),$list_types,$v).'</td>';
 	if (array_key_exists($k,$ductile_counts)) {
 		echo '<td>'.form::hidden(array('count_ctx[]'),$k).form::field(array('count_nb[]'),2,3,$ductile_counts[$k]).'</td>';
@@ -509,14 +396,11 @@ echo
 '</tbody>'.
 '</table>';
 
-echo '</fieldset>';
+echo '<h4 class="border-top pretty-title">'.__('Miscellaneous options').'</h4>';
+echo '<p><label for="preview_not_mandatory" class="classic">'.__('Comment preview is not mandatory:').'</label> '.
+form::checkbox('preview_not_mandatory',1,$ductile_user['preview_not_mandatory']).'</p>';
 
-echo '<fieldset><legend>'.__('Miscellaneous options').'</legend>';
-echo '<p class="field"><label for="preview_not_mandatory">'.__('Comment preview is not mandatory:').' '.
-form::checkbox('preview_not_mandatory',1,$ductile_user['preview_not_mandatory']).'</label>'.'</p>';
-echo '</fieldset>';
-
-echo '<input type="hidden" name="conf_tab" value="html">';
+echo '<p><input type="hidden" name="conf_tab" value="html" /></p>';
 echo '<p class="clear">'.form::hidden('ds_order','').'<input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
 echo '</form>';
 
@@ -526,155 +410,151 @@ echo '</div>'; // Close tab
 
 echo '<div class="multi-part" id="themes-list'.($conf_tab == 'css' ? '' : '-css').'" title="'.__('Presentation').'">';
 
-echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
+echo '<form id="theme_config" action="'.$core->adminurl->get('admin.blog.theme',array('conf' => '1')).
+	'" method="post" enctype="multipart/form-data">';
 
 echo '<h3>'.__('General settings').'</h3>';
 
-echo '<fieldset><legend>'.__('Fonts').'</legend>';
+echo '<h4 class="pretty-title">'.__('Fonts').'</h4>';
 
 echo '<div class="two-cols">';
 echo '<div class="col">';
 echo
-'<p class="field"><label for="body_font">'.__('Main:').' '.
-form::combo('body_font',$fonts,$ductile_user['body_font']).'</label>'.
+'<h5>'.__('Main text').'</h5>'.
+'<p class="field"><label for="body_font">'.__('Main font:').'</label> '.
+form::combo('body_font',$fonts,$ductile_user['body_font']).
 (!empty($ductile_user['body_font']) ? ' '.fontDef($ductile_user['body_font']) : '').
+' <span class="form-note">'.__('Set to Default to use a webfont.').'</span>'.
 '</p>'.
-'<p class="form-note">'.__('Set main font to default to use webfont below.').'</p> '.
 '<p class="field"><label for="body_webfont_family">'.__('Webfont family:').'</label> '.
 form::field('body_webfont_family',25,255,$ductile_user['body_webfont_family']).'</p>'.
 '<p class="field"><label for="body_webfont_url">'.__('Webfont URL:').'</label> '.
 form::field('body_webfont_url',50,255,$ductile_user['body_webfont_url']).'</p>'.
-'<p class="field"><label for="body_webfont_url">'.__('Webfont API:').' '.
-form::combo('body_webfont_api',$webfont_apis,$ductile_user['body_webfont_api']).'</label>'.'</p>';
+'<p class="field"><label for="body_webfont_url">'.__('Webfont API:').'</label> '.
+form::combo('body_webfont_api',$webfont_apis,$ductile_user['body_webfont_api']).'</p>';
 echo '</div>';
 echo '<div class="col">';
 echo
-'<p class="field"><label for="alternate_font">'.__('Secondary:').' '.
-form::combo('alternate_font',$fonts,$ductile_user['alternate_font']).'</label>'.
+'<h5>'.__('Secondary text').'</h5>'.
+'<p class="field"><label for="alternate_font">'.__('Secondary font:').'</label> '.
+form::combo('alternate_font',$fonts,$ductile_user['alternate_font']).
 (!empty($ductile_user['alternate_font']) ? ' '.fontDef($ductile_user['alternate_font']) : '').
+' <span class="form-note">'.__('Set to Default to use a webfont.').'</span>'.
 '</p>'.
-'<p class="form-note">'.__('Set secondary font to default to use webfont below.').'</p> '.
 '<p class="field"><label for="alternate_webfont_family">'.__('Webfont family:').'</label> '.
 form::field('alternate_webfont_family',25,255,$ductile_user['alternate_webfont_family']).'</p>'.
 '<p class="field"><label for="alternate_webfont_url">'.__('Webfont URL:').'</label> '.
 form::field('alternate_webfont_url',50,255,$ductile_user['alternate_webfont_url']).'</p>'.
-'<p class="field"><label for="alternate_webfont_api">'.__('Webfont API:').' '.
-form::combo('alternate_webfont_api',$webfont_apis,$ductile_user['alternate_webfont_api']).'</label>'.'</p>';
+'<p class="field"><label for="alternate_webfont_api">'.__('Webfont API:').'</label> '.
+form::combo('alternate_webfont_api',$webfont_apis,$ductile_user['alternate_webfont_api']).'</p>';
 echo '</div>';
 echo '</div>';
-echo '</fieldset>';
 
+echo '<h4 class="clear border-top pretty-title">'.__('Titles').'</h4>';
 echo '<div class="two-cols">';
 echo '<div class="col">';
-
-echo '<fieldset><legend>'.__('Blog title').'</legend>'.
-'<p class="field"><label for="blog_title_w">'.__('In bold:').' '.
-form::checkbox('blog_title_w',1,$ductile_user['blog_title_w']).'</label>'.'</p>'.
+echo '<h5>'.__('Blog title').'</h5>'.
+'<p class="field"><label for="blog_title_w">'.__('In bold:').'</label> '.
+form::checkbox('blog_title_w',1,$ductile_user['blog_title_w']).'</p>'.
 
 '<p class="field"><label for="blog_title_s">'.__('Font size (in em by default):').'</label> '.
 form::field('blog_title_s',7,7,$ductile_user['blog_title_s']).'</p>'.
 
 '<p class="field picker"><label for="blog_title_c">'.__('Color:').'</label> '.
 form::field('blog_title_c',7,7,$ductile_user['blog_title_c'],'colorpicker').
-contrastRatio($ductile_user['blog_title_c'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['blog_title_c'],'#ffffff',
 	(!empty($ductile_user['blog_title_s']) ? $ductile_user['blog_title_s'] : '2em'),
 	$ductile_user['blog_title_w']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
 echo '</div>';
 echo '<div class="col">';
 
-echo '<fieldset><legend>'.__('Post title').'</legend>'.
-'<p class="field"><label for="post_title_w">'.__('In bold:').' '.
-form::checkbox('post_title_w',1,$ductile_user['post_title_w']).'</label>'.'</p>'.
+echo '<h5>'.__('Post title').'</h5>'.
+'<p class="field"><label for="post_title_w">'.__('In bold:').'</label> '.
+form::checkbox('post_title_w',1,$ductile_user['post_title_w']).'</p>'.
 
 '<p class="field"><label for="post_title_s">'.__('Font size (in em by default):').'</label> '.
 form::field('post_title_s',7,7,$ductile_user['post_title_s']).'</p>'.
 
 '<p class="field picker"><label for="post_title_c">'.__('Color:').'</label> '.
 form::field('post_title_c',7,7,$ductile_user['post_title_c'],'colorpicker').
-contrastRatio($ductile_user['post_title_c'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['post_title_c'],'#ffffff',
 	(!empty($ductile_user['post_title_s']) ? $ductile_user['post_title_s'] : '2.5em'),
 	$ductile_user['post_title_w']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
 echo '</div>';
 echo '</div>';
 
-echo '<fieldset><legend>'.__('Titles without link').'</legend>'.
+echo '<h5>'.__('Titles without link').'</h5>'.
 
 '<p class="field picker"><label for="post_simple_title_c">'.__('Color:').'</label> '.
 form::field('post_simple_title_c',7,7,$ductile_user['post_simple_title_c'],'colorpicker').
-contrastRatio($ductile_user['post_simple_title_c'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['post_simple_title_c'],'#ffffff',
 	'1.1em',	// H5 minimum size
 	false).
-'</p>'.
-'</fieldset>';
+'</p>';
 
-echo '<fieldset><legend>'.__('Inside posts links').'</legend>'.
-'<p class="field"><label for="post_link_w">'.__('In bold:').' '.
-form::checkbox('post_link_w',1,$ductile_user['post_link_w']).'</label>'.'</p>'.
+echo '<h4 class="border-top pretty-title">'.__('Inside posts links').'</h4>'.
+'<p class="field"><label for="post_link_w">'.__('In bold:').'</label> '.
+form::checkbox('post_link_w',1,$ductile_user['post_link_w']).'</p>'.
 
 '<p class="field picker"><label for="post_link_v_c">'.__('Normal and visited links color:').'</label> '.
 form::field('post_link_v_c',7,7,$ductile_user['post_link_v_c'],'colorpicker').
-contrastRatio($ductile_user['post_link_v_c'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['post_link_v_c'],'#ffffff',
 	'1em',
 	$ductile_user['post_link_w']).
 '</p>'.
 
 '<p class="field picker"><label for="post_link_f_c">'.__('Active, hover and focus links color:').'</label> '.
 form::field('post_link_f_c',7,7,$ductile_user['post_link_f_c'],'colorpicker').
-contrastRatio($ductile_user['post_link_f_c'],'#ebebee',
+dcThemeConfig::contrastRatio($ductile_user['post_link_f_c'],'#ebebee',
 	'1em',
 	$ductile_user['post_link_w']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
-echo '<h3>'.__('Mobile specific settings').'</h3>';
+echo '<h3 class="border-top">'.__('Mobile specific settings').'</h3>';
 
 echo '<div class="two-cols">';
 echo '<div class="col">';
 
-echo '<fieldset><legend>'.__('Blog title').'</legend>'.
-'<p class="field"><label for="blog_title_w_m">'.__('In bold:').' '.
-form::checkbox('blog_title_w_m',1,$ductile_user['blog_title_w_m']).'</label>'.'</p>'.
+echo '<h4 class="pretty-title">'.__('Blog title').'</h4>'.
+'<p class="field"><label for="blog_title_w_m">'.__('In bold:').'</label> '.
+form::checkbox('blog_title_w_m',1,$ductile_user['blog_title_w_m']).'</p>'.
 
 '<p class="field"><label for="blog_title_s_m">'.__('Font size (in em by default):').'</label> '.
 form::field('blog_title_s_m',7,7,$ductile_user['blog_title_s_m']).'</p>'.
 
 '<p class="field picker"><label for="blog_title_c_m">'.__('Color:').'</label> '.
 form::field('blog_title_c_m',7,7,$ductile_user['blog_title_c_m'],'colorpicker').
-contrastRatio($ductile_user['blog_title_c_m'],'#d7d7dc',
+dcThemeConfig::contrastRatio($ductile_user['blog_title_c_m'],'#d7d7dc',
 	(!empty($ductile_user['blog_title_s_m']) ? $ductile_user['blog_title_s_m'] : '1.8em'),
 	$ductile_user['blog_title_w_m']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
 echo '</div>';
 echo '<div class="col">';
 
-echo '<fieldset><legend>'.__('Post title').'</legend>'.
-'<p class="field"><label for="post_title_w_m">'.__('In bold:').' '.
-form::checkbox('post_title_w_m',1,$ductile_user['post_title_w_m']).'</label>'.'</p>'.
+echo '<h4 class="pretty-title">'.__('Post title').'</h4>'.
+'<p class="field"><label for="post_title_w_m">'.__('In bold:').'</label> '.
+form::checkbox('post_title_w_m',1,$ductile_user['post_title_w_m']).'</p>'.
 
 '<p class="field"><label for="post_title_s_m">'.__('Font size (in em by default):').'</label> '.
 form::field('post_title_s_m',7,7,$ductile_user['post_title_s_m']).'</p>'.
 
 '<p class="field picker"><label for="post_title_c_m">'.__('Color:').'</label> '.
 form::field('post_title_c_m',7,7,$ductile_user['post_title_c_m'],'colorpicker').
-contrastRatio($ductile_user['post_title_c_m'],'#ffffff',
+dcThemeConfig::contrastRatio($ductile_user['post_title_c_m'],'#ffffff',
 	(!empty($ductile_user['post_title_s_m']) ? $ductile_user['post_title_s_m'] : '1.5em'),
 	$ductile_user['post_title_w_m']).
-'</p>'.
-'</fieldset>';
+'</p>';
 
 echo '</div>';
 echo '</div>';
 
-echo '<input type="hidden" name="conf_tab" value="css">';
-echo '<p class="clear"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
+echo '<p><input type="hidden" name="conf_tab" value="css" /></p>';
+echo '<p class="clear border-top"><input type="submit" value="'.__('Save').'" />'.$core->formNonce().'</p>';
 echo '</form>';
 
 echo '</div>'; // Close tab
@@ -683,4 +563,3 @@ dcPage::helpBlock('ductile');
 
 // Legacy mode
 if (!$standalone_config) echo '<form style="display:none">';
-?>

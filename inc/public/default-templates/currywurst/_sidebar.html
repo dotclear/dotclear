@@ -1,0 +1,14 @@
+<div class="sidebar" id="sidebar" role="complementary">
+	<tpl:IfWidgets type="nav">
+		<div class="widgets blognav__widgets" id="blognav">
+	        <h2 class="blognav__title">{{tpl:lang Blog menu}}</h2>
+			{{tpl:Widgets type="nav"}}
+		</div> <!-- End #blognav -->
+	</tpl:IfWidgets>
+	<tpl:IfWidgets type="extra">
+		<div class="widgets blogextra__widgets" id="blogextra">
+	        <h2 class="blogextra__title">{{tpl:lang Extra menu}}</h2>
+			{{tpl:Widgets type="extra"}}
+		</div> <!-- End #blogextra -->
+	</tpl:IfWidgets>
+</div>

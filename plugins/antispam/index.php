@@ -42,7 +42,9 @@ try
 		$ts = dt::str('%Y-%m-%d %H:%M:%S',$_POST['ts'],$core->blog->settings->system->blog_timezone);
 
 		dcAntispam::delAllSpam($core,$ts);
-		http::redirect($p_url.'&del=1');
+
+		dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
+		http::redirect($p_url);
 	}
 
 	# Update filters
@@ -88,7 +90,9 @@ try
 		}
 
 		dcAntispam::$filters->saveFilterOpts($filters_opt);
-		http::redirect($p_url.'&upd=1');
+
+		dcPage::addSuccessNotice(__('Filters configuration has been successfully saved.'));
+		http::redirect($p_url);
 	}
 }
 catch (Exception $e)
@@ -112,32 +116,41 @@ catch (Exception $e)
   if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 	echo
 		dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
-		dcPage::jsLoad('index.php?pf=antispam/antispam.js');
+		dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
+		dcPage::jsLoad(dcPage::getPF('antispam/antispam.js'));
   }
   ?>
-  <link rel="stylesheet" type="text/css" href="index.php?pf=antispam/style.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF('antispam/style.css'); ?>" />
 </head>
 <body>
 <?php
 
 if ($filter_gui !== false)
 {
-	dcPage::breadcrumb(
+	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
 			$page_name => $p_url,
-			'<span class="page-title">'.sprintf(__('%s configuration'),$filter->name).'</span>' => ''
-		));
+			sprintf(__('%s filter configuration'),$filter->name) => ''
+		)).
+		dcPage::notices();
+
+	echo '<p><a href="'.$p_url.'" class="back">'.__('Back to filters list').'</a></p>';
 
 	echo $filter_gui;
+
+	if ($filter->help) {
+		dcPage::helpBlock($filter->help);
+	}
 }
 else
 {
-	dcPage::breadcrumb(
+	echo dcPage::breadcrumb(
 		array(
 			__('Plugins') => '',
-			'<span class="page-title">'.$page_name.'</span>' => ''
-		));
+			$page_name => ''
+		)).
+		dcPage::notices();
 
 	# Information
 	$spam_count = dcAntispam::countSpam($core);
@@ -148,15 +161,11 @@ else
 	'<form action="'.$p_url.'" method="post" class="fieldset">'.
 	'<h3>'.__('Information').'</h3>';
 
-	if (!empty($_GET['del'])) {
-		dcPage::message(__('Spam comments have been successfully deleted.'));
-	}
-
 	echo
 	'<ul class="spaminfo">'.
-	'<li class="spamcount"><a href="comments.php?status=-2">'.__('Junk comments:').'</a> '.
+	'<li class="spamcount"><a href="'.$core->adminurl->get('admin.comments',array('status' => '-2')).'">'.__('Junk comments:').'</a> '.
 	'<strong>'.$spam_count.'</strong></li>'.
-	'<li class="hamcount"><a href="comments.php?status=1">'.__('Published comments:').'</a> '.
+	'<li class="hamcount"><a href="'.$core->adminurl->get('admin.comments',array('status' => '1')).'">'.__('Published comments:').'</a> '.
 	$published_count.'</li>'.
 	'</ul>';
 
@@ -169,21 +178,23 @@ else
 	}
 	if ($moderationTTL != null && $moderationTTL >=0) {
 		echo '<p>'.sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL).' '.
-		sprintf(__('You can modify this duration in the %s'),'<a href="blog_pref.php#antispam_moderation_ttl"> '.__('Blog preferences').'</a>').
-			'</p>';
+		sprintf(__('You can modify this duration in the %s'),'<a href="'.$core->adminurl->get('admin.blog.pref').
+			'#antispam_moderation_ttl"> '.__('Blog settings').'</a>').
+			'.</p>';
 	}
 	echo '</form>';
 
 
 	# Filters
 	echo
-	'<form action="'.$p_url.'" method="post" id="filters-form">';
+	'<form action="'.$p_url.'" method="post" id="filters-list-form">';
 
 	if (!empty($_GET['upd'])) {
-		dcPage::message(__('Filters configuration has been successfully saved.'));
+		dcPage::success(__('Filters configuration has been successfully saved.'));
 	}
 
 	echo
+	'<div class="table-outer">'.
 	'<table class="dragable">'.
 	'<caption class="as_h3">'.__('Available spam filters').'</caption>'.
 	'<thead><tr>'.
@@ -211,14 +222,14 @@ else
 		'<td class="handle">'.form::field(array('f_order['.$fid.']'),2,5,(string) $i, 'position', '', false, 'title="'.__('position').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_active[]'),$fid,$f->active, '', '', false, 'title="'.__('Active').'"').'</td>'.
 		'<td class="nowrap">'.form::checkbox(array('filters_auto_del[]'),$fid,$f->auto_delete, '', '', false, 'title="'.__('Auto Del.').'"').'</td>'.
-		'<td class="nowrap" scope="raw">'.$f->name.'</td>'.
+		'<td class="nowrap" scope="row">'.$f->name.'</td>'.
 		'<td class="maximal">'.$f->description.'</td>'.
 		'<td class="status">'.$gui_link.'</td>'.
 		'</tr>';
 		$i++;
 	}
 	echo
-	'</tbody></table>'.
+	'</tbody></table></div>'.
 	'<p>'.form::hidden('filters_order','').
 	$core->formNonce().
 	'<input type="submit" name="filters_upd" value="'.__('Save').'" /></p>'.
@@ -244,7 +255,10 @@ else
 		'<li class="feed"><a href="'.$ham_feed.'">'.__('Published comments RSS feed').'</a></li>'.
 		'</ul>';
 	}
+
+	dcPage::helpBlock('antispam','antispam-filters');
 }
+
 ?>
 
 </body>

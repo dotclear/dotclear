@@ -14,28 +14,28 @@ if (!defined('DC_RC_PATH')) { return; }
 class dcFilterLinksLookup extends dcSpamFilter
 {
 	public $name = 'Links Lookup';
-	
+
 	private $server = 'multi.surbl.org';
-	
+
 	protected function setInfo()
 	{
 		$this->description = __('Checks links in comments against surbl.org');
 	}
-	
+
 	public function getStatusMessage($status,$comment_id)
 	{
 		return sprintf(__('Filtered by %1$s with server %2$s.'),$this->guiLink(),$status);
 	}
-	
+
 	public function isSpam($type,$author,$email,$site,$ip,$content,$post_id,&$status)
 	{
 		if (!$ip || long2ip(ip2long($ip)) != $ip) {
 			return;
 		}
-		
+
 		$urls = $this->getLinks($content);
 		array_unshift($urls,$site);
-		
+
 		foreach ($urls as $u)
 		{
 			$b = parse_url($u);
@@ -47,36 +47,29 @@ class dcFilterLinksLookup extends dcSpamFilter
 			$domain_elem = explode(".",$domain);
 
 			$i = count($domain_elem) - 1;
+			if ($i == 0) {
+				// "domain" is 1 word long, don't check it
+				return null;
+			}
 			$host = $domain_elem[$i];
 			do
 			{
 				$host = $domain_elem[$i - 1].'.'.$host;
 				$i--;
-				if (substr(gethostbyname($host.'.'.$this->server),0,3) == "127" ) 
+				if (substr(gethostbyname($host.'.'.$this->server),0,3) == "127" )
 				{
 					$status = substr($domain,0,128);
 					return true;
-				}				
+				}
 			} while ($i > 0);
 		}
 	}
-	
+
 	private function getLinks($text)
 	{
-		$res = array();
-		
-		# href attribute on "a" tags
-		if (preg_match_all('/<a ([^>]+)>/ms', $text, $match, PREG_SET_ORDER))
-		{
-			for ($i = 0; $i<count($match); $i++)
-			{
-				if (preg_match('/href="(http:\/\/[^"]+)"/ms', $match[$i][1], $matches)) {
-					$res[] = $matches[1];
-				}
-			}
-		}
-		
-		return $res;
+		// href attribute on "a" tags is second match
+		preg_match_all('|<a.*?href="(http.*?)"|', $text, $parts);
+
+		return $parts[1];
 	}
 }
-?>

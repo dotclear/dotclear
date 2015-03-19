@@ -1,5 +1,5 @@
 msgid "Theme configuration upgraded."
-msgstr "Configuration du thème mise à jour."
+msgstr "La configuration du thème a été mise à jour."
 
 msgid "Content"
 msgstr "Contenu"
@@ -14,7 +14,7 @@ msgid "Logo URL:"
 msgstr "URL du logo :"
 
 msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr "Pour configurer le menu allez à la <a href=\"%s\">page d'administration de l'extension Menu Simple</a>."
+msgstr "Pour configurer le menu allez à la <a href=\"%s\">page d'administration de Menu Simple</a>."
 
 msgid "Stickers"
 msgstr "Étiquettes"
@@ -50,7 +50,7 @@ msgid "Entries for a tag"
 msgstr "Billets pour un mot-clé"
 
 msgid "Search result entries"
-msgstr "Billets résultants d'une recherche"
+msgstr "Billets résultant d'une recherche"
 
 msgid "Month archive entries"
 msgstr "Billets d'une archive mensuelle"
@@ -68,7 +68,7 @@ msgid "Miscellaneous options"
 msgstr "Options diverses"
 
 msgid "Comment preview is not mandatory:"
-msgstr "Prévisualisation du commentaire optionnelle :"
+msgstr "Prévisualisation du commentaire non obligatoire :"
 
 msgid "Presentation"
 msgstr "Présentation"
@@ -86,7 +86,7 @@ msgid "In bold:"
 msgstr "En gras :"
 
 msgid "Font size (in em by default):"
-msgstr "Taille de police (en em par défaut) :"
+msgstr "Taille du texte courant (en em par défaut) :"
 
 msgid "Color:"
 msgstr "Couleur :"
@@ -124,10 +124,10 @@ msgstr "javascript (Adobe)"
 msgid "stylesheet (Google)"
 msgstr "feuille de style (Google)"
 
-msgid "Set main font to default to use webfont below."
+msgid "Set main font to Default to use webfont below."
 msgstr "Mettre la police de caractère principale à Défaut pour utiliser la fonte web ci-dessous."
 
-msgid "Set secondary font to default to use webfont below."
+msgid "Set secondary font to Default to use webfont below."
 msgstr "Mettre la police de caractère secondaire à Défaut pour utiliser la fonte web ci-dessous."
 
 msgid "Webfont family:"
