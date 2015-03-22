@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2014 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2015 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -112,8 +112,11 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 
 		<?php if (!empty($dcckeditor_format_select)):?>
 		// format tags
+<?php if (!empty($dcckeditor_format_tags)):?>
+        format_tags: '<?php echo $dcckeditor_format_tags;?>',
+<?php else:?>
 		format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address',
-
+<?php endif;?>
 		// following definition are needed to be specialized
 		format_p: { element: 'p' },
 		format_h1: { element: 'h1' },
