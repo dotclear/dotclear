@@ -26,6 +26,7 @@ $settings->dcckeditor->put('list_buttons', true, 'boolean', 'Add list buttons?',
 $settings->dcckeditor->put('textcolor_button', false, 'boolean', 'Add text color button?', false, true);
 $settings->dcckeditor->put('cancollapse_button', false, 'boolean', 'Add collapse button?', false, true);
 $settings->dcckeditor->put('format_select', false, 'boolean', 'Add format selection?', false, true);
+$settings->dcckeditor->put('format_tags', 'p;h1;h2;h3;h4;h5;h6;pre;address', 'string', 'Custom formats', false, true);
 $settings->dcckeditor->put('table_button', false, 'boolean', 'Add table button?', false, true);
 $settings->dcckeditor->put('clipboard_buttons', false, 'boolean', 'Add clipboard buttons?', false, true);
 
