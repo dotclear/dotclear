@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2015 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -33,13 +33,15 @@ $(function() {
 			ui.item.css('left', ui.item.position().left + 20);
 		},
 		update: function(event, ui) {
-
 			ul = $(this);
 			widget = ui.item;
 			field = ul.parents('.widgets');
 
 			// met a zéro le décalage
 			ui.item.css('left', 'auto');
+			# Fixes issue #2080
+			ui.item.css('width', 'auto');
+			ui.item.css('height', 'auto');
 
 			// signale les zones vides
 			if( ul.find('li:not(.empty-widgets)').length == 0 ) {
@@ -65,7 +67,6 @@ $(function() {
 				dotclear.postExpander(widget);
 				dotclear.viewPostContent(widget, 'close');
 			}
-
 		}
 	});
 
