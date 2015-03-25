@@ -39,7 +39,7 @@ $(function() {
 
 			// met a zéro le décalage
 			ui.item.css('left', 'auto');
-			# Fixes issue #2080
+			// Fixes issue #2080
 			ui.item.css('width', 'auto');
 			ui.item.css('height', 'auto');
 
