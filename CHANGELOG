@@ -1,3 +1,10 @@
+Dotclear 2.7.5 - 2015-03-25
+===========================================================
+* Security : Fixed SecPod 1055, Multiple Stored Cross-site Scripting Vulnerabilities
+* Admins (not super admins) cannot change blog parameters : fixed
+* Allow radio button in widget settings
+* Typo in mustek page template
+
 Dotclear 2.7.4 - 2015-02-13
 ===========================================================
 * Berlin theme: resources usage has been optimized
