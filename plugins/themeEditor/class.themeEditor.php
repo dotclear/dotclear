@@ -317,6 +317,7 @@ class dcThemeEditor
 	{
 		$this->css = $this->getFilesInDir($this->user_theme,'css');
 		$this->css= array_merge($this->css,$this->getFilesInDir($this->user_theme.'/style','css','style/'));
+		$this->css= array_merge($this->css,$this->getFilesInDir($this->user_theme.'/css','css','css/'));
 	}
 
 	protected function findScripts()
