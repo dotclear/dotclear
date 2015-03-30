@@ -48,12 +48,12 @@
 
 <tpl:Block name="main-content">
 	<header id="content-info">
-		<h1>
+		<h2>
 			<tpl:CategoryParents>
 				<a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> &rsaquo;
 			</tpl:CategoryParents>
 			{{tpl:CategoryTitle encode_html="1"}}
-		</h1>
+		</h2>
 
 		<tpl:CategoryIf has_entries="1">
 			<ul class="content-info__feed">
