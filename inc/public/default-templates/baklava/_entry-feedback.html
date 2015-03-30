@@ -7,7 +7,7 @@
 	<tpl:Comments with_pings="1">
 		<tpl:CommentsHeader>
 			<section class="feedback__comments" id="comments">
-				<h1>{{tpl:EntryCommentCount count_all="1" none="no reactions" one="one reaction" more="%s reactions"}}</h3>
+				<h2>{{tpl:EntryCommentCount count_all="1" none="no reactions" one="one reaction" more="%s reactions"}}</h2>
 				<tpl:EntryIf operator="or" comments_active="1" pings_active="1">
 					<p id="comments-feed"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
 						title="{{tpl:lang This post's comments Atom feed}}">{{tpl:lang This post's comments feed}}</a></p>

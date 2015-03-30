@@ -34,7 +34,7 @@
 
 		<section id="time-criteria"><!-- entries sorted by date -->
 			<div id="arch-by-year" class="arch-block arch-by-year">
-				<h1>{{tpl:lang By date}}</h1>
+				<h2>{{tpl:lang By date}}</h2>
 				<p class="fromto">{{tpl:lang FromDay}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate format="%e %B %Y"}}</a></tpl:Entries> {{tpl:lang toDay}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate format="%e %B %Y"}}</a></tpl:Entries></p>
 				<tpl:Archives order="asc">
 					<tpl:ArchivesYearHeader>
@@ -56,7 +56,7 @@
 			<tpl:Categories level="1">
 				<tpl:CategoriesHeader>
 					<div id="arch-by-cat" class="arch-block arch-by-cat">
-						<h1>{{tpl:lang By category}}</h1>
+						<h2>{{tpl:lang By category}}</h2>
 						<ul class="arch-list arch-cat-list">
 							</tpl:CategoriesHeader>
 							<li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
@@ -79,7 +79,7 @@
 			<tpl:Tags sortby="count" order="desc">
 				<tpl:TagsHeader>
 					<div id="arch-by-tag" class="arch-block arch-by-tag">
-						<h1>{{tpl:lang By tag}}</h1>
+						<h2>{{tpl:lang By tag}}</h2>
 						<ul class="arch-list arch-tag-list">
 				</tpl:TagsHeader>
 							<li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
@@ -94,7 +94,7 @@
 			<div id="arch-by-page" class="arch-block arch-by-page">
 				<tpl:Entries type="page" no_content="1" lastn="0" selected="0">
 					<tpl:EntriesHeader>
-						<h1>{{tpl:lang Pages}}</h1>
+						<h2>{{tpl:lang Pages}}</h2>
 						<ul class="arch-list arch-page-list">
 					</tpl:EntriesHeader>
 							<li><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></li>
