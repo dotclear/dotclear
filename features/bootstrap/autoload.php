@@ -14,8 +14,6 @@ define('CLEARBRICKS_PATH',__DIR__.'/../../inc/libs/clearbricks');
 
 require_once __DIR__.'/../../vendor/autoload.php';
 
-include_once '/var/projets/common/Log.php';
-
 $__autoload = array();
 $__autoload['dbStruct'] = CLEARBRICKS_PATH.'/dbschema/class.dbstruct.php';
 $__autoload['dbSchema'] = CLEARBRICKS_PATH.'/dbschema/class.dbschema.php';
