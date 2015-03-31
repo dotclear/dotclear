@@ -21,10 +21,19 @@ class DbContext extends RawMinkContext
 {
     private static $conf_loaded = false;
     private static $con = null;
+    private static $session_name = null;
     public static $prefix = 'dc_';
 
     public function __construct($parameters) {
         $this->parameters = $parameters;
+    }
+
+    public function getSessionName($parameters) {
+        if (!self::$conf_loaded) {
+            self::getConnection($parameters);
+        }
+
+        return self::$session_name;
     }
 
     /**
@@ -69,7 +78,12 @@ class DbContext extends RawMinkContext
         if (empty($parameters['sql_cleanup_file']) && !is_readable($parameters['sql_cleanup_file'])) {
             throw new Exception(sprintf('sql cleanup file %s does not exist or not readable', $parameters['sql_cleanup_file']));
         }
-        self::executeSqlFile($parameters['sql_cleanup_file']);
+        if (!empty($parameters['user_id_to_not_delete'])) {
+            $replace_user_id  = $parameters['user_id_to_not_delete'];
+        } else {
+            $replace_user_id = null;
+        }
+        self::executeSqlFile($parameters['sql_cleanup_file'], $replace_user_id);
    }
 
     private function addUser(array $params) {
@@ -99,13 +113,17 @@ class DbContext extends RawMinkContext
             include($parameters['config_file']);
             self::$conf_loaded = true;
             self::$prefix = DC_DBPREFIX;
+            self::$session_name = DC_SESSION_NAME;
 
             self::$con = \dbLayer::init(DC_DBDRIVER,DC_DBHOST,DC_DBNAME,DC_DBUSER,DC_DBPASSWORD,DC_DBPERSIST);
         }
     }
 
-    private static function executeSqlFile($file) {
+    private static function executeSqlFile($file, $replace_user_id=null) {
         $queries = file($file);
+        if ($replace_user_id) {
+            $queries = str_replace('__USER_ID__', $replace_user_id, $queries);
+        }
         if (!empty($queries)) {
             try {
                 foreach ($queries as $query) {

@@ -47,8 +47,10 @@ class FeatureContext extends MinkContext
      * @Given /^I am logged in as "([^"]*)" with password "([^"]*)" with remember me$/
      */
     public function iAmLoggedInAsWithPasswordWithRememberMe($username, $password) {
+        $session_name = $this->getSubcontext('db')->getSessionName($this->parameters);
+
         $this->iAmLoggedInAsWithPassword($username, $password, true);
-        $this->getMink()->assertSession()->cookieExists('dcxd'); // @TODO : retrieve cookie name from config
+        $this->getMink()->assertSession()->cookieExists($session_name);
         $this->getMink()->assertSession()->cookieExists('dc_admin');
     }
 
