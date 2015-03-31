@@ -45,6 +45,15 @@ class DbContext extends RawMinkContext
         }
     }
 
+    /**
+     * @Given /^a blog:$/
+     */
+    public function aBlog(TableNode $table) {
+        foreach ($table->getHash() as $blog) {
+            $this->last_id = self::addBlog($blog);
+        }
+    }
+
     /*
     /* ORM methods
     **/
@@ -84,7 +93,7 @@ class DbContext extends RawMinkContext
             $replace_user_id = null;
         }
         self::executeSqlFile($parameters['sql_cleanup_file'], $replace_user_id);
-   }
+    }
 
     private function addUser(array $params) {
         self::getConnection($this->parameters);
@@ -99,6 +108,26 @@ class DbContext extends RawMinkContext
 			$user->user_pwd = \crypt::hmac(DC_MASTER_KEY,$params['password']);
             $user->user_super = 1;
             $user->insert();
+        }
+    }
+
+    private function addBlog(array $params) {
+        self::getConnection($this->parameters);
+        if (empty($params['blog_id']) || empty($params['blog_name']) || empty($params['blog_url'])) {
+            throw new Exception('blog_id, blog_name and blog_url for blog are mandatory'."\n");
+        }
+
+        $strReq = 'SELECT count(1) FROM '.self::$prefix.'blog';
+        $strReq .= ' WHERE blog_id = \''.self::$con->escape($params['blog_id']).'\'';
+        if ((int) self::$con->select($strReq)->f(0)==0) {
+            $blog = self::$con->openCursor(self::$prefix . 'blog');
+            $blog->blog_id = $params['blog_id'];
+            $blog->blog_name = $params['blog_name'];
+            $blog->blog_url = $params['blog_url'];
+            $blog->blog_creadt = date('Y-m-d H:i:s');
+            $blog->blog_upddt = date('Y-m-d H:i:s');
+            $blog->blog_uid = md5(uniqid());
+            $blog->insert();
         }
     }
 

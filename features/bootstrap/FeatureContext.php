@@ -61,4 +61,12 @@ class FeatureContext extends MinkContext
         $session_name = $this->getSubcontext('db')->getSessionName($this->parameters);
         $this->getMink()->assertSession()->cookieExists($session_name);
     }
+
+    /**
+     * @When /^I switch to blog "([^"]*)"$/
+     */
+    public function iSwitchToBlog($blog_name) {
+        $this->selectOption('switchblog', $blog_name);
+        $this->pressButton('ok');
+    }
 }
