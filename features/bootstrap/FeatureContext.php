@@ -58,6 +58,7 @@ class FeatureContext extends MinkContext
      * @When /^I restart my browser$/
      */
     public function iRestartMyBrowser() {
-        $this->getMink()->assertSession()->cookieExists('dcxd');
+        $session_name = $this->getSubcontext('db')->getSessionName($this->parameters);
+        $this->getMink()->assertSession()->cookieExists($session_name);
     }
 }
