@@ -451,9 +451,9 @@ if ($blog_id)
 	form::combo('note_title_tag',$note_title_tag_combo,$blog_settings->system->note_title_tag).
 	'</p>'.
 
-	'<p><label for="enable_xmlrpc" class="classic">'.'</label>'.
+	'<p><label for="enable_xmlrpc" class="classic">'.
 	form::checkbox('enable_xmlrpc','1',$blog_settings->system->enable_xmlrpc).
-	__('Enable XML/RPC interface').'</p>';
+	__('Enable XML/RPC interface').'</label>'.'</p>';
 
 	echo
 		'<p class="form-note info">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';

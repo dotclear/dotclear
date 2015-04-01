@@ -112,8 +112,8 @@ class dcFilterWords extends dcSpamFilter
 		'<p><label class="classic" for="swa">'.__('Add a word ').'</label> '.form::field('swa',20,128);
 
 		if ($core->auth->isSuperAdmin()) {
-			$res .= form::checkbox('globalsw',1).
-			'<label class="classic" for="globalsw">'.__('Global word (used for all blogs)').'</label> ';
+			$res .= '<label class="classic" for="globalsw">'.form::checkbox('globalsw',1).
+				__('Global word (used for all blogs)').'</label> ';
 		}
 
 		$res .=
