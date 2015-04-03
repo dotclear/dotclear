@@ -21,6 +21,7 @@ updating another blog settings.
 */
 class dcSettings
 {
+	protected $core;		///< <b>connection</b> Database connection object
 	protected $con;		///< <b>connection</b> Database connection object
 	protected $table;		///< <b>string</b> Settings table name
 	protected $blog_id;		///< <b>string</b> Blog ID
@@ -38,9 +39,10 @@ class dcSettings
 	*/
 	public function __construct($core,$blog_id)
 	{
-		$this->con =& $core->con;
+        $this->core = &$core;
+		$this->con = &$core->con;
 		$this->table = $core->prefix.'setting';
-		$this->blog_id =& $blog_id;
+		$this->blog_id = &$blog_id;
 		$this->loadSettings();
 	}
 
@@ -73,7 +75,7 @@ class dcSettings
 				// at very first time
 				$rs->movePrev();
 			}
-			$this->namespaces[$ns] = new dcNamespace($GLOBALS['core'], $this->blog_id, $ns,$rs);
+			$this->namespaces[$ns] = new dcNamespace($this->core, $this->blog_id, $ns,$rs);
 		} while(!$rs->isStart());
 	}
 
@@ -87,7 +89,7 @@ class dcSettings
 	public function addNamespace($ns)
 	{
 		if (!array_key_exists($ns, $this->namespaces)) {
-			$this->namespaces[$ns] = new dcNamespace($GLOBALS['core'], $this->blog_id, $ns);
+			$this->namespaces[$ns] = new dcNamespace($this->core, $this->blog_id, $ns);
 		}
 		return $this->namespaces[$ns];
 	}
@@ -279,7 +281,7 @@ class dcSettings
 		}
 		if (!isset($this->namespaces[$this->ns])) {
 			// Create namespace if needed
-			$this->namespaces[$this->ns] = new dcNamespace($GLOBALS['core'], $this->blog_id, $this->ns);
+			$this->namespaces[$this->ns] = new dcNamespace($this->core, $this->blog_id, $this->ns);
 		}
 		$this->namespaces[$this->ns]->put($id, $value, $type, $label, $value_change, $global);
 	}
