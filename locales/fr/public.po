@@ -263,3 +263,6 @@ msgstr "Lire"
 
 #~ msgid "In"
 #~ msgstr "Dans"
+
+msgid "Page top"
+msgstr "Haut de page"
