@@ -20,11 +20,15 @@ $__autoload['dbSchema'] = CLEARBRICKS_PATH.'/dbschema/class.dbschema.php';
 $__autoload['pgsqlSchema'] = CLEARBRICKS_PATH.'/dbschema/class.pgsql.dbschema.php';
 $__autoload['mysqlSchema'] = CLEARBRICKS_PATH.'/dbschema/class.mysql.dbschema.php';
 $__autoload['mysqliSchema'] = CLEARBRICKS_PATH.'/dbschema/class.mysqli.dbschema.php';
+$__autoload['sqliteSchema'] = CLEARBRICKS_PATH.'/dbschema/class.sqlite.dbschema.php';
 $__autoload['dbLayer'] = CLEARBRICKS_PATH.'/dblayer/dblayer.php';
 $__autoload['mysqlConnection'] = CLEARBRICKS_PATH.'/dblayer/class.mysql.php';
 $__autoload['mysqliConnection'] = CLEARBRICKS_PATH.'/dblayer/class.mysqli.php';
 $__autoload['pgsqlConnection'] = CLEARBRICKS_PATH.'/dblayer/class.pgsql.php';
+$__autoload['sqliteConnection'] = CLEARBRICKS_PATH.'/dblayer/class.sqlite.php';
 $__autoload['crypt'] = CLEARBRICKS_PATH.'/common/lib.crypt.php';
+$__autoload['files'] = CLEARBRICKS_PATH.'/common/lib.files.php';
+$__autoload['path'] = CLEARBRICKS_PATH.'/common/lib.files.php';
 
 
 $loader = new \Composer\Autoload\ClassLoader();
