@@ -65,6 +65,19 @@ if (!empty($_POST))
 {
 	try
 	{
+		if ($DBDRIVER == 'sqlite') {
+			if (strpos($DBNAME, '/') === false) {
+				$sqlite_db_directory = dirname(DC_RC_PATH).'/../db/';
+				files::makeDir($sqlite_db_directory,true);
+
+				# Can we write sqlite_db_directory ?
+				if (!is_writable($sqlite_db_directory)) {
+					throw new Exception(sprintf(__('Cannot write "%s" directory.'),path::real($sqlite_db_directory,false)));
+				}
+				$DBNAME = $sqlite_db_directory.$DBNAME;
+			}
+		}
+
 		# Tries to connect to database
 		try {
 			$con = dbLayer::init($DBDRIVER,$DBHOST,$DBNAME,$DBUSER,$DBPASSWORD);
@@ -181,7 +194,7 @@ echo
 
 '<form action="wizard.php" method="post">'.
 '<p><label class="required" for="DBDRIVER"><abbr title="'.__('Required field').'">*</abbr> '.__('Database type:').'</label> '.
-form::combo('DBDRIVER',array(__('MySQL (deprecated)')=>'mysql',__('MySQLi')=>'mysqli',__('PostgreSQL')=>'pgsql'),$DBDRIVER).'</p>'.
+    form::combo('DBDRIVER',array(__('MySQL (deprecated)')=>'mysql',__('MySQLi')=>'mysqli',__('PostgreSQL')=>'pgsql',__('SQLite')=>'sqlite'),$DBDRIVER).'</p>'.
 '<p><label for="DBHOST">'.__('Database Host Name:').'</label> '.
 form::field('DBHOST',30,255,html::escapeHTML($DBHOST)).'</p>'.
 '<p><label for="DBNAME">'.__('Database Name:').'</label> '.
