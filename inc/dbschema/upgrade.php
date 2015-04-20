@@ -25,7 +25,7 @@ function dotclearUpgrade($core)
 		try
 		{
 			if ($core->con->driver() == 'sqlite') {
-				throw new Exception(__('SQLite Database Schema cannot be upgraded.'));
+				return false; // Need to find a way to upgrade sqlite database
 			}
 
 			# Database upgrade
