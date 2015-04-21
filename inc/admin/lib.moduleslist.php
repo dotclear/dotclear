@@ -670,7 +670,17 @@ class adminModulesList
 			if (in_array('desc', $cols)) {
 				$tds++;
 				echo
-				'<td class="module-desc maximal">'.html::escapeHTML(__($module['desc'])).'</td>';
+				'<td class="module-desc maximal">'.html::escapeHTML(__($module['desc']));
+				if (in_array('deps', $cols)) {
+
+					if (isset($module['disable_also'])) {
+						echo
+						'<br/><span class="info">'.__('Disabling or removing this plugin will also disable the following plugins: ').
+						join(',',$module['disable_also']).'</span>';
+					}
+				}
+				echo '</td>';
+
 			}
 
 			if (in_array('distrib', $cols)) {
