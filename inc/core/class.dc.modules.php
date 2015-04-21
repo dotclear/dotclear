@@ -25,6 +25,7 @@ class dcModules
 	protected $disabled = array();
 	protected $errors = array();
 	protected $modules_names = array();
+	protected $all_modules = array();
 	protected $disabled_mode = false;
 	protected $disabled_meta = array();
 
@@ -48,6 +49,38 @@ class dcModules
 	public function __construct($core)
 	{
 		$this->core =& $core;
+	}
+
+
+	public function checkDependencies() {
+		$to_disable = array();
+		foreach ($this->all_modules as $k => &$m) {
+			if (isset($m['requires'])) {
+				foreach ($m['requires'] as &$dep) {
+					$missing = array();
+					if (!is_array($dep)) {
+						$dep = array($dep);
+					}
+					if (!isset($this->all_modules[$dep[0]])) {
+						// module not present
+						$missing[$dep[0]] = true;
+					} elseif (count($dep)>1 && version_compare($m['version'],$dep[1],'<')) {
+						// module present, but version missing
+						$missing[$dep[0]] = $dep[1];
+					}
+					if (count($missing)) {
+						$m['errors']=$missing;
+						$to_disable[]=$k;
+					} else {
+						$this->all_modules[$dep[0]]['disable_also'][]=$k;
+						$m['require_enable'][]=$dep[0];
+						if (!$this->all_modules[$dep[0]]['enabled']) {
+							$to_disable[]=$k;
+						}
+					}
+				}
+			}
+		}
 	}
 
 	/**
@@ -99,23 +132,29 @@ class dcModules
 						$this->id = $entry;
 						$this->mroot = $full_entry;
 						require $full_entry.'/_define.php';
+						$this->all_modules[$entry] =& $this->modules[$entry];
 						$this->id = null;
 						$this->mroot = null;
 					}
 					else
 					{
 						if (file_exists($full_entry.'/_define.php')) {
+							$this->id = $entry;
+							$this->mroot = $full_entry;
 							$this->disabled_mode=true;
 							require $full_entry.'/_define.php';
 							$this->disabled_mode=false;
 							$this->disabled[$entry] =  $this->disabled_meta;
+							$this->all_modules[$entry] =& $this->disabled[$entry];
+							$this->id = null;
+							$this->mroot = null;
 						}
 					}
 				}
 			}
 			$d->close();
 		}
-
+		$this->checkDependencies();
 		# Sort plugins
 		uasort($this->modules,array($this,'sortModules'));
 
@@ -189,6 +228,7 @@ class dcModules
 						'desc' => $desc,
 						'author' => $author,
 						'version' => $version,
+						'enabled' => false,
 						'root_writable' => is_writable($this->mroot)
 					)
 				);
@@ -213,6 +253,7 @@ class dcModules
 				'priority' => 1000,
 				'standalone_config' => false,
 				'type' => null,
+				'enabled' => true,
 				'requires' => array()
 			), $properties
 		);

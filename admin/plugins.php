@@ -162,7 +162,7 @@ if (!empty($modules)) {
 		->setTab('plugins')
 		->setModules($modules)
 		->displayModules(
-			/* cols */		array('expander', 'icon', 'name', 'version', 'desc', 'distrib'),
+			/* cols */		array('expander', 'icon', 'name', 'version', 'desc', 'distrib','deps'),
 			/* actions */	array('deactivate', 'delete', 'behavior')
 		);
 }
@@ -208,7 +208,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 			->displaySearch()
 			->displayIndex()
 			->displayModules(
-				/* cols */		array('expander', 'name', 'score', 'version', 'desc'),
+				/* cols */		array('expander', 'name', 'score', 'version', 'desc','deps'),
 				/* actions */	array('install'),
 				/* nav limit */	true
 			);
