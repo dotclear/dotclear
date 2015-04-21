@@ -217,8 +217,8 @@ class dcFilterWords extends dcSpamFilter
 			throw new Exception(__('This word exists'));
 		}
 
-		$rs = $this->con->select('SELECT MAX(rule_id) FROM '.$this->table);
-		$id = (integer) $rs->f(0) + 1;
+		$rs_max = $this->con->select('SELECT MAX(rule_id) FROM '.$this->table);
+		$id = (integer) $rs_max->f(0) + 1;
 
 		$cur = $this->con->openCursor($this->table);
 		$cur->rule_id = $id;
