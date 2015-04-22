@@ -572,7 +572,16 @@ class dcCore
 			'user_desc, user_lang,user_tz,user_post_status,user_options ';
 
 			if (!empty($params['order']) && !$count_only) {
-				$strReq .= 'ORDER BY '.$this->con->escape($params['order']).' ';
+				if (preg_match('`^([^. ]+) (?:asc|desc)`i',$params['order'],$matches)) {
+					if (in_array($matches[1],array('user_id','user_name','user_firstname','user_displayname'))) {
+						$table_prefix = 'U';
+					} else {
+						$table_prefix = 'P'; // order = nb_post (asc|desc)
+					}
+					$strReq .= 'ORDER BY '.$table_prefix.'.'.$this->con->escape($params['order']).' ';
+				} else {
+					$strReq .= 'ORDER BY '.$this->con->escape($params['order']).' ';
+				}
 			} else {
 				$strReq .= 'ORDER BY U.user_id ASC ';
 			}

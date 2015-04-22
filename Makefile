@@ -21,6 +21,7 @@ config: clean config-stamp
 	rm -fr ./$(DC)/inc/libs/clearbricks/tests ./$(DC)/inc/libs/clearbricks/composer.*	\
 	       ./$(DC)/inc/libs/clearbricks/.atoum.* ./$(DC)/inc/libs/clearbricks/vendor	\
 	       ./$(DC)/inc/libs/clearbricks/bin ./$(DC)/inc/libs/clearbricks/_dist		\
+	       ./$(DC)/.atoum.* ./$(DC)/test ./$(DC)/travis					\
 	       ./$(DC)/features ./$(DC)/travis ./$(DC)/behat.yml.dist ./$(DC)/composer.*
 
 	## Create cache, db, plugins and public folders
