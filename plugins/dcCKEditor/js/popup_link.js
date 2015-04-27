@@ -23,10 +23,16 @@ $(function() {
 			var link = editor.document.createElement('a');
 			link.setAttribute('href', insert_form.elements.href.value);
 			if (insert_form.elements.title.value!='') {
-				link.setAttribute('title', insert_form.elements.title.value);
+				link.setAttribute(
+					'title',
+					window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.title.value)
+				);
 			}
 			if (insert_form.elements.hreflang.value!='') {
-				link.setAttribute('hreflang', insert_form.elements.hreflang.value);
+				link.setAttribute(
+					'hreflang',
+					window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.hreflang.value)
+				);
 			}
 			if (editor.getSelection().getSelectedElement()!=null) {
 				selected_element.appendTo(link);
