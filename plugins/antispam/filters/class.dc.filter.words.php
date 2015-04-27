@@ -217,11 +217,7 @@ class dcFilterWords extends dcSpamFilter
 			throw new Exception(__('This word exists'));
 		}
 
-		$rs_max = $this->con->select('SELECT MAX(rule_id) FROM '.$this->table);
-		$id = (integer) $rs_max->f(0) + 1;
-
 		$cur = $this->con->openCursor($this->table);
-		$cur->rule_id = $id;
 		$cur->rule_type = 'word';
 		$cur->rule_content = (string) $content;
 
@@ -232,8 +228,10 @@ class dcFilterWords extends dcSpamFilter
 		}
 
 		if (!$rs->isEmpty() && $general) {
-			$cur->update();
+			$cur->update('WHERE rule_id = '.$rs->rule_id);
 		} else {
+			$rs_max = $this->con->select('SELECT MAX(rule_id) FROM '.$this->table);
+			$cur->rule_id = (integer) $rs_max->f(0) + 1;
 			$cur->insert();
 		}
 	}

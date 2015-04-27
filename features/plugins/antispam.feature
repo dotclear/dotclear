@@ -29,7 +29,7 @@ Feature: Manage comment
     And I go to "/admin/plugin.php?p=antispam&f=dcFilterWords"
     When I fill in "Add a word" with "MyWord"
     And I press "Add"
-    Then I should see "MyWord" in the ".antispam" element
+    Then I should see "MyWord" in the ".antispam .local" element
     # try to add to other blog
     When I switch to blog "My first blog"
     And I go to "/admin/plugin.php?p=antispam&f=dcFilterWords"
@@ -46,7 +46,11 @@ Feature: Manage comment
     And I go to "/admin/plugin.php?p=antispam&f=dcFilterWords"
     When I fill in "Add a word" with "MyWord"
     And I press "Add"
-    Then I should see "MyWord" in the ".antispam" element
+    Then I should see "MyWord" in the ".antispam .local" element
+    When I fill in "Add a word" with "Other word"
+    And I check "Global word (used for all blogs)"
+    And I press "Add"
+    Then I should see "Other word" in the ".antispam .global" element
     # try to add to other blog
     When I switch to blog "My first blog"
     And I go to "/admin/plugin.php?p=antispam&f=dcFilterWords"
@@ -54,4 +58,4 @@ Feature: Manage comment
     And I check "Global word (used for all blogs)"
     And I press "Add"
     Then I should not see "This word exists"
-    And I should see "MyWord" in the ".antispam" element
+    And I should see "MyWord" in the ".antispam .global" element
