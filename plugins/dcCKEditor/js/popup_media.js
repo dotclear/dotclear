@@ -24,9 +24,7 @@ $(function() {
 				img = '<img class="media" src="';
 				img += window.opener.$.stripBaseURL($('input[name="src"]:checked',insert_form).val())+'"';
 				var img_title = $('input[name="description"]',insert_form).val();
-				img_title
-					.replace('&','&amp;').replace('>','&gt;')
-					.replace('<','&lt;').replace('"','&quot;');
+				img_title = window.opener.CKEDITOR.tools.htmlEncodeAttr(img_title);
 				img += ' title="'+img_title+'"';
 				var align = $('input[name="alignment"]:checked',insert_form).val();
 				if (align!='' && align!='none') {
@@ -34,7 +32,7 @@ $(function() {
 				}
 
 				var title = $('input[name="title"]',insert_form).val();
-				img += ' alt="'+title+'"/>';
+				img += ' alt="'+window.opener.CKEDITOR.tools.htmlEncodeAttr(title)+'"/>';
 
 				var element;
 				if ($('input[name="insertion"]:checked',insert_form).val() == 'link') {
@@ -52,7 +50,7 @@ $(function() {
 		} else {
 			var link = '<a href="';
 			link += window.opener.$.stripBaseURL($('input[name="url"]',insert_form).val());
-			link += '">'+insert_form.elements.title.value+'</a>';
+			link += '">'+window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.title.value)+'</a>';
 			element = window.opener.CKEDITOR.dom.element.createFromHtml(link);
 
 			editor.insertElement(element);
