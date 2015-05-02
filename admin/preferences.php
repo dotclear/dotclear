@@ -175,6 +175,7 @@ if (isset($_POST['user_editor']))
 		$user_options['post_format'] = $_POST['user_post_format'];
 		$user_options['editor'] = $_POST['user_editor'];
 		$user_options['enable_wysiwyg'] = !empty($_POST['user_wysiwyg']);
+		$user_options['toolbar_bottom'] = !empty($_POST['user_toolbar_bottom']);
 
 		$cur->user_options = new ArrayObject($user_options);
 
@@ -475,6 +476,10 @@ form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).'</p>'.
 '<p><label for="user_wysiwyg" class="classic">'.
 form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg']).' '.
 __('Enable WYSIWYG mode').'</label></p>'.
+
+'<p><label for="user_toolbar_bottom" class="classic">'.
+form::checkbox('user_toolbar_bottom',1,$user_options['toolbar_bottom']).' '.
+__('Display editor\'s toolbar at bottom of textarea (if possible)').'</label></p>'.
 
 '</div>';
 

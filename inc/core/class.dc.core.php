@@ -873,6 +873,7 @@ class dcCore
 		return array(
 			'edit_size' => 24,
 			'enable_wysiwyg' => true,
+			'toolbar_bottom' => false,
 			'editor' => array('xhtml' => 'dcCKEditor', 'wiki' => 'dcLegacyEditor'),
 			'post_format' => 'wiki'
 		);

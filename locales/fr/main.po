@@ -2070,6 +2070,9 @@ msgstr "Taille de la zone d'édition :"
 msgid "Enable WYSIWYG mode"
 msgstr "Activer l'éditeur visuel"
 
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr "Afficher la barre d'outil des éditeurs en bas de la zone de saisie (si possible)"
+
 msgid "Other options"
 msgstr "Autres options"
 
