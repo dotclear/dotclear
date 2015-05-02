@@ -14,13 +14,13 @@ class dcLegacyEditorBehaviors
 {
 	protected static $p_url = 'index.php?pf=dcLegacyEditor';
 
-    /**
-     * adminPostEditor add javascript to the DOM to load ckeditor depending on context
-     *
-     * @param editor   <b>string</b> wanted editor
-     * @param context  <b>string</b> page context (post,page,comment,event,...)
-     * @param tags     <b>array</b>  array of ids to inject editor
-     */
+	/**
+	 * adminPostEditor add javascript to the DOM to load ckeditor depending on context
+	 *
+	 * @param editor   <b>string</b> wanted editor
+	 * @param context  <b>string</b> page context (post,page,comment,event,...)
+	 * @param tags     <b>array</b>  array of ids to inject editor
+	 */
 	public static function adminPostEditor($editor='',$context='',array $tags=array()) {
 		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
 
@@ -60,7 +60,7 @@ class dcLegacyEditorBehaviors
 
 		if (isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('enable_wysiwyg')) {
 			$res .= '<script type="text/javascript" src="'.self::$p_url.'/js/jsToolBar/jsToolBar.wysiwyg.js"></script>';
-        }
+		}
 
 		$res .=
 		'<script type="text/javascript" src="'.self::$p_url.'/js/jsToolBar/jsToolBar.dotclear.js"></script>'.
@@ -130,6 +130,9 @@ class dcLegacyEditorBehaviors
 		if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
 			$res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";
 		}
+
+		$res .= "jsToolBar.prototype.toolbar_bottom = ".
+			(isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom') ? 'true' : 'false').";\n";
 
 		$res .=
 		"\n//]]>\n".
