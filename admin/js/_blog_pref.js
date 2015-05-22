@@ -15,7 +15,8 @@ function checkQueryString() {
 
 
 $(function() {
-	if( $('#blog_url').length > 0 ) {
+	var blog_url = $('#blog_url');
+	if (blog_url.length > 0 && !blog_url.is(':hidden')) {
 		checkQueryString();
 		$('#blog_url').focusout(checkQueryString);
 		$('body').on('change','#url_scan',checkQueryString);
