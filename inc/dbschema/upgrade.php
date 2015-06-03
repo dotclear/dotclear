@@ -440,6 +440,13 @@ function dotclearUpgrade($core)
 						" AND setting_ns = 'system' ".
 						" AND setting_value = '1.11.1' ";
 				$core->con->execute($strReq);
+				# setup media_exclusion (cope with php, php5, php7, … rather than only .php)
+				$strReq = 'UPDATE '.$core->prefix.'setting '.
+						" SET setting_value = '/\\.php[0-9]*\$/i' ".
+						" WHERE setting_id = 'media_exclusion' ".
+						" AND setting_ns = 'system' ".
+						" AND setting_value = '/\\.php\$/i' ";
+				$core->con->execute($strReq);
 			}
 
 			$core->setVersion('core',DC_VERSION);
