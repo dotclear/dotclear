@@ -51,36 +51,56 @@ class dcModules
 		$this->core =& $core;
 	}
 
-
+	/**
+	 * Checks all modules dependencies
+	 * 	Fills in the following information in module :
+	 * 	  * cannot_enable : list reasons why module cannot be enabled. Not set if module can be enabled
+	 * 	  * cannot_disable : list reasons why module cannot be disabled. Not set if module can be disabled
+	 * 	  * implies : reverse dependencies
+	 * @return array list of enabled modules with unmet dependencies, and that must be disabled.
+	 */
 	public function checkDependencies() {
 		$to_disable = array();
 		foreach ($this->all_modules as $k => &$m) {
 			if (isset($m['requires'])) {
+				$missing = array();
 				foreach ($m['requires'] as &$dep) {
-					$missing = array();
 					if (!is_array($dep)) {
 						$dep = array($dep);
 					}
+					// grab missing dependencies
 					if (!isset($this->all_modules[$dep[0]])) {
 						// module not present
-						$missing[$dep[0]] = true;
-					} elseif (count($dep)>1 && version_compare($m['version'],$dep[1],'<')) {
+						$missing[$dep[0]] = sprintf(__("Requires module %s which is not installed"), $dep[0]);
+					} elseif ((count($dep)>1) && version_compare($this->all_modules[$dep[0]]['version'],$dep[1])==-1) {
+						echo "bla:".version_compare($this->all_modules[$dep[0]]['version'],$dep[1],'<');
 						// module present, but version missing
-						$missing[$dep[0]] = $dep[1];
+						$missing[$dep[0]] = sprintf(__("Requires module %s version %s, but version %s is installed"), $dep[0],$dep[1],$m['version']);
+					} elseif (!$this->all_modules[$dep[0]]['enabled']) {
+						// module disabled
+						$missing[$dep[0]] = sprintf(__("Requires module %s which is disabled"), $dep[0]);
 					}
-					if (count($missing)) {
-						$m['errors']=$missing;
-						$to_disable[]=$k;
-					} else {
-						$this->all_modules[$dep[0]]['disable_also'][]=$k;
-						$m['require_enable'][]=$dep[0];
-						if (!$this->all_modules[$dep[0]]['enabled']) {
-							$to_disable[]=$k;
-						}
+					$this->all_modules[$dep[0]]['implies'][]=$k;
+				}
+				if (count($missing)) {
+					$m['cannot_enable']=$missing;
+					if ($m['enabled']) {
+						$to_disable[]=array('name' => $k,'reason'=> $missing);
 					}
 				}
 			}
 		}
+		// Check modules that cannot be disabled
+		foreach ($this->modules as $k => &$m) {
+			if (isset($m['implies']) && $m['enabled']) {
+				foreach ($m['implies'] as $im) {
+					if (isset($this->all_modules[$im]) && $this->all_modules[$im]['enabled']) {
+						$m['cannot_disable'][]=$im;
+					}
+				}
+			}
+		}
+		return $to_disable;
 	}
 
 	/**

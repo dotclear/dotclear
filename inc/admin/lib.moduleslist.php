@@ -671,13 +671,23 @@ class adminModulesList
 				$tds++;
 				echo
 				'<td class="module-desc maximal">'.html::escapeHTML(__($module['desc']));
-				if (in_array('deps', $cols)) {
-
-					if (isset($module['disable_also'])) {
-						echo
-						'<br/><span class="info">'.__('Disabling or removing this plugin will also disable the following plugins: ').
-						join(',',$module['disable_also']).'</span>';
+				if (isset($module['cannot_disable']) && $module['enabled']) {
+					echo
+					'<br/><span class="info">'.
+					sprintf(__('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
+							join(',',$module['cannot_disable'])).
+					'</span>';
+				}
+				if (isset($module['cannot_enable']) && !$module['enabled']) {
+					echo
+					'<br/><span class="info">'.
+					__('This module cannot be enabled, because of the following reasons :').
+					'<ul>';
+					foreach ($module['cannot_enable'] as $m=>$reason) {
+						echo '<li>'.$reason.'</li>';
 					}
+					echo '</ul>'.
+					'</span>';
 				}
 				echo '</td>';
 
@@ -814,19 +824,19 @@ class adminModulesList
 			switch($action) {
 
 				# Deactivate
-				case 'activate': if ($this->core->auth->isSuperAdmin() && $module['root_writable']) {
+				case 'activate': if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_enable'])) {
 					$submits[] =
 					'<input type="submit" name="activate['.html::escapeHTML($id).']" value="'.__('Activate').'" />';
 				} break;
 
 				# Activate
-				case 'deactivate': if ($this->core->auth->isSuperAdmin() && $module['root_writable']) {
+				case 'deactivate': if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_disable'])) {
 					$submits[] =
 					'<input type="submit" name="deactivate['.html::escapeHTML($id).']" value="'.__('Deactivate').'" class="reset" />';
 				} break;
 
 				# Delete
-				case 'delete': if ($this->core->auth->isSuperAdmin() && $this->isDeletablePath($module['root'])) {
+				case 'delete': if ($this->core->auth->isSuperAdmin() && $this->isDeletablePath($module['root'])&& !isset($module['cannot_disable'])) {
 					$dev = !preg_match('!^'.$this->path_pattern.'!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
 					$submits[] =
 					'<input type="submit" class="delete '.$dev.'" name="delete['.html::escapeHTML($id).']" value="'.__('Delete').'" />';
