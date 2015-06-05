@@ -73,7 +73,6 @@ class dcModules
 						// module not present
 						$missing[$dep[0]] = sprintf(__("Requires module %s which is not installed"), $dep[0]);
 					} elseif ((count($dep)>1) && version_compare($this->all_modules[$dep[0]]['version'],$dep[1])==-1) {
-						echo "bla:".version_compare($this->all_modules[$dep[0]]['version'],$dep[1],'<');
 						// module present, but version missing
 						$missing[$dep[0]] = sprintf(__("Requires module %s version %s, but version %s is installed"), $dep[0],$dep[1],$m['version']);
 					} elseif (!$this->all_modules[$dep[0]]['enabled']) {
