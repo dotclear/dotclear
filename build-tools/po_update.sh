@@ -25,6 +25,7 @@ antispam
 attachments
 blogroll
 blowupConfig
+breadcrumb
 dclegacy
 fairTrackbacks
 importExport
