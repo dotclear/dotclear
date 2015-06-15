@@ -549,7 +549,18 @@ class dcPage
 	{
 		$escaped_src = html::escapeHTML($src);
 		if (!isset(self::$loaded_js[$escaped_src])) {
-			self::$loaded_js[$escaped_src]=true;
+			self::$loaded_js[$escaped_src] = true;
+			if (strpos($escaped_src,'?')===false) {
+				$escaped_src .= '?v=';
+			} else {
+				$escaped_src .= '&v=';
+			}
+
+			if (defined('DC_DEV') && DC_DEV === true) {
+				$escaped_src .= md5(uniqid());
+			} else {
+				$escaped_src .= DC_VERSION;
+			}
 			return '<script type="text/javascript" src="'.$escaped_src.'"></script>'."\n";
 		}
 	}
