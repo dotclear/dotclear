@@ -52,33 +52,6 @@ $(function() {
 				);
 
 				editor.insertElement(figure);
-
-				// figure = '<figure';
-				// img = '<img class="media" src="';
-				// img += window.opener.$.stripBaseURL($('input[name="src"]:checked',insert_form).val())+'"';
-
-				// fig_caption = '<figcaption>'+img_description+'</figcaption>';
-
-
-				// var title = $('input[name="title"]',insert_form).val();
-				// img += ' alt="'+window.opener.CKEDITOR.tools.htmlEncodeAttr(title)+'"/>';
-
-				// figure += img + fig_caption + '</figure>';
-
-				// var element;
-				// if ($('input[name="insertion"]:checked',insert_form).val() == 'link') {
-				// 	var link = '<a class="media-link" href="';
-				// 	link += window.opener.$.stripBaseURL($('input[name="url"]',insert_form).val());
-				// 	link += '">'+figure+'</a>';
-
-				// 	element = '<a>'+figure+'</a>';//link;
-				// } else {
-				// 	element = figure;
-				// }
-
-				// alert('element: '+element);
-
-				// editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(element));
 			}
 		} else {
 			var link = '<a href="';
