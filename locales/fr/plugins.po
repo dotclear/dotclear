@@ -98,7 +98,7 @@ msgid "Feed subscription links (RSS or Atom)"
 msgstr "Liens de souscription aux flux (RSS ou Atom)"
 
 msgid "List of last entries from feed (RSS or Atom)"
-msgstr "Liste des derniers billets d'un flux (RSS or Atom)"
+msgstr "Liste des derniers billets d'un flux (RSS ou Atom)"
 
 msgid "Simple text"
 msgstr "Texte simple"
