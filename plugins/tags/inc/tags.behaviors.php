@@ -21,7 +21,7 @@ class tagsBehaviors
 
 		if ($editor == 'dcLegacyEditor') {
 			return
-			'<script type="text/javascript" src="index.php?pf=tags/js/legacy-post.js"></script>'.
+			dcPage::jsLoad(dcPage::getPF('tags/js/legacy-post.js')).
 			'<script type="text/javascript">'."\n".
 			"//<![CDATA[\n".
 			"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
@@ -192,7 +192,6 @@ class tagsBehaviors
 						__('Entries') => $ap->getRedirection(true),
 						__('Add tags to this selection') => ''
 				)),
-				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 				dcPage::jsMetaEditor().
 				'<script type="text/javascript">'."\n".
 				"//<![CDATA[\n".
@@ -207,8 +206,8 @@ class tagsBehaviors
 				"};\n".
 				"\n//]]>\n".
 				"</script>\n".
-				'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
-				'<script type="text/javascript" src="index.php?pf=tags/js/posts_actions.js"></script>'.
+				dcPage::jsLoad(dcPage::getPF('tags/js/jquery.autocomplete.js')).
+				dcPage::jsLoad(dcPage::getPF('tags/js/posts_actions.js')).
 				'<script type="text/javascript">'."\n".
 				"//<![CDATA[\n".
 				"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
@@ -216,7 +215,7 @@ class tagsBehaviors
 				"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
 				"\n//]]>\n".
 				"</script>\n".
-				'<link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />'
+				dcPage::cssLoad(dcPage::getPF('tags/style.css'))
 			);
 			echo
 				'<form action="'.$ap->getURI().'" method="post">'.
@@ -332,8 +331,8 @@ class tagsBehaviors
 		"};\n".
 		"\n//]]>\n".
 		"</script>\n".
-		'<script type="text/javascript" src="index.php?pf=tags/js/jquery.autocomplete.js"></script>'.
-		'<script type="text/javascript" src="index.php?pf=tags/js/post.js"></script>'.
+		dcPage::jsLoad(dcPage::getPF('tags/js/jquery.autocomplete.js')).
+		dcPage::jsLoad(dcPage::getPF('tags/js/post.js')).
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
@@ -341,7 +340,7 @@ class tagsBehaviors
 		"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
 		"\n//]]>\n".
 		"</script>\n".
-		'<link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />';
+		dcPage::cssLoad(dcPage::getPF('tags/style.css'));
 	}
 
 	public static function adminUserForm($args)

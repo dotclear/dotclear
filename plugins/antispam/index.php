@@ -119,8 +119,8 @@ catch (Exception $e)
 		dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
 		dcPage::jsLoad(dcPage::getPF('antispam/antispam.js'));
   }
+  echo dcPage::cssLoad(dcPage::getPF('antispam/style.css'));
   ?>
-  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF('antispam/style.css'); ?>" />
 </head>
 <body>
 <?php
