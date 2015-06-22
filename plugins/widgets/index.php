@@ -213,7 +213,7 @@ elseif (!empty($_POST['wreset']))
 <html>
 <head>
   <title><?php echo __('Widgets'); ?></title>
-  <link type="text/css" rel="stylesheet" href="<?php echo dcPage::getPF('widgets/style.css'); ?>"/>
+  <?php echo dcPage::cssLoad(dcPage::getPF('widgets/style.css'));?>
   <?php
 		echo
 			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
@@ -225,7 +225,7 @@ elseif (!empty($_POST['wreset']))
 	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
   ?>
   <?php if (!$user_dm_nodragdrop) : ?>
-  <script type="text/javascript" src="<?php echo dcPage::getPF('widgets/dragdrop.js'); ?>"></script>
+  <?php echo dcPage::jsLoad(dcPage::getPF('widgets/dragdrop.js'));?>
   <?php endif; ?>
   <script type="text/javascript">
   //<![CDATA[

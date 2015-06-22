@@ -61,10 +61,10 @@ $title = __('Import/Export');
 echo '
 <html>
 <head>
-	<title>'.$title.'</title>
-	<link rel="stylesheet" type="text/css" href="'.dcPage::getPF('importExport/style.css').'" />
-	'.dcPage::jsLoad(dcPage::getPF('importExport/js/script.js')).'
-	<script type="text/javascript">
+	<title>'.$title.'</title>'.
+	dcPage::cssLoad(dcPage::getPF('importExport/style.css')).
+	dcPage::jsLoad(dcPage::getPF('importExport/js/script.js')).
+	'<script type="text/javascript">
 	//<![CDATA[
 	'.dcPage::jsVar('dotclear.msg.please_wait',__('Please wait...')).'
 	//]]>

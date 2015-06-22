@@ -15,7 +15,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 <html>
 <head>
   <title><?php echo __('Tags'); ?></title>
-  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF('tags/style.css'); ?>" />
+  <?php echo dcPage::cssLoad(dcPage::getPF('tags/style.css'));?>
 </head>
 
 <body>

@@ -38,8 +38,7 @@ class attachmentAdmin
 	public static function postHeaders()
 	{
 		$core =& $GLOBALS['core'];
-		return
-		'<script type="text/javascript" src="'.dcPage::getPF('attachments/js/post.js').'"></script>';
+		return dcPage::jsLoad(dcPage::getPF('attachments/js/post.js'));
 	}
 	public static function adminPostFormItems($main,$sidebar,$post)
 	{
