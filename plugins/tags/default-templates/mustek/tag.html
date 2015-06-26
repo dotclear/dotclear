@@ -1,153 +1,124 @@
-<!DOCTYPE html>
-<html lang="{{tpl:BlogLanguage}}">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+{{tpl:extends parent="__layout.html"}}
 
-  <title>{{tpl:lang Tag}} - {{tpl:TagID}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
-  <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
-  <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
-  <meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+<tpl:Block name="head-title">
+	<title>{{tpl:lang Tag}} - {{tpl:TagID}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+</tpl:Block>
 
-  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
-  <meta property="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Tag}} - {{tpl:TagID}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
-  <meta property="dc.language" content="{{tpl:BlogLanguage}}" />
-  <meta property="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
-  <meta property="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
-  <meta property="dc.date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
-  <meta property="dc.type" content="text" />
-  <meta property="dc.format" content="text/html" />
+<tpl:Block name="meta-entry">
+	<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
+	<meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+</tpl:Block>
 
-  <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
-  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
+<tpl:Block name="dc-entry">
+	<meta property="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Tag}} - {{tpl:TagID}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
+	<meta property="dc.language" content="{{tpl:BlogLanguage}}" />
+	<meta property="dc.date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+</tpl:Block>
 
-  <tpl:Entries no_content="1">
-    <tpl:EntriesHeader>
-      <tpl:Pagination>
-        <tpl:PaginationIf end="0">
-        <link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}" />
-        </tpl:PaginationIf>
+<tpl:Block name="head-linkrel">
+	<link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
+	<link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
 
-        <tpl:PaginationIf start="0">
-        <link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}" />
-        </tpl:PaginationIf>
-      </tpl:Pagination>
-    </tpl:EntriesHeader>
+	<tpl:Entries no_content="1">
+		<tpl:EntriesHeader>
+			<tpl:Pagination>
+				<tpl:PaginationIf end="0">
+					<link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}" />
+				</tpl:PaginationIf>
 
-    <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
-  </tpl:Entries>
+				<tpl:PaginationIf start="0">
+					<link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}" />
+				</tpl:PaginationIf>
+			</tpl:Pagination>
+		</tpl:EntriesHeader>
 
-  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:TagFeedURL type="atom"}}" />
-  <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
+		<link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+	</tpl:Entries>
 
-  {{tpl:include src="_head.html"}}
-</head>
+	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:TagFeedURL type="atom"}}" />
+	<link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
+</tpl:Block>
 
-<body class="dc-tag">
-<div id="page">
-{{tpl:include src="_top.html"}}
+<tpl:Block name="body-tag"><body class="dc-tag"></tpl:Block>
 
-<div id="wrapper">
+<tpl:Block name="main-content">
+	<div id="content-info">
+		<h2>{{tpl:lang Tag}} - {{tpl:TagID}}</h2>
 
-<div id="main" role="main">
-  {{tpl:Breadcrumb}}
-  <div id="content">
+		<p><a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}"
+		title="{{tpl:lang This tag's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a>
 
-  <div id="content-info">
-    <h2>{{tpl:lang Tag}} - {{tpl:TagID}}</h2>
+		<tpl:SysIf operator="or" comments_active="1" pings_active="1">
+		- <a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}/comments"
+		title="{{tpl:lang This tag's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
+		</tpl:SysIf>
+		</p>
+	</div>
 
-    <p><a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}"
-    title="{{tpl:lang This tag's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a>
+	<tpl:Entries>
+		<div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" role="article">
+			<!-- # New day date -->
+			<tpl:DateHeader><p class="day-date">{{tpl:EntryDate}}</p></tpl:DateHeader>
 
-    <tpl:SysIf operator="or" comments_active="1" pings_active="1">
-    - <a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}/comments"
-    title="{{tpl:lang This tag's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
-    </tpl:SysIf>
-    </p>
-  </div>
+			<h2 class="post-title"><a
+			href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
 
-  <tpl:Entries>
-    <div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" role="article">
-    <!-- # New day date -->
-    <tpl:DateHeader><p class="day-date">{{tpl:EntryDate}}</p></tpl:DateHeader>
+			<p class="post-info">{{tpl:lang By}} {{tpl:EntryAuthorLink}}
+			{{tpl:lang on}} {{tpl:EntryDate}}, {{tpl:EntryTime}}
+			<tpl:EntryIf has_category="1">
+			- <a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a>
+			</tpl:EntryIf>
+			</p>
 
-    <h2 class="post-title"><a
-    href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
+			<tpl:EntryTags>
+				<tpl:TagsHeader><ul class="post-tags"></tpl:TagsHeader>
+				<li><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
+				<tpl:TagsFooter></ul></tpl:TagsFooter>
+			</tpl:EntryTags>
 
-    <p class="post-info">{{tpl:lang By}} {{tpl:EntryAuthorLink}}
-    {{tpl:lang on}} {{tpl:EntryDate}}, {{tpl:EntryTime}}
-    <tpl:EntryIf has_category="1">
-    - <a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a>
-    </tpl:EntryIf>
-    </p>
+			<!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+			{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
 
-    <tpl:EntryTags>
-    <tpl:TagsHeader><ul class="post-tags"></tpl:TagsHeader>
-    <li><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
-    <tpl:TagsFooter></ul></tpl:TagsFooter>
-    </tpl:EntryTags>
+			<!-- # Entry with an excerpt -->
+			<tpl:EntryIf extended="1">
+				<div class="post-content">{{tpl:EntryExcerpt}}</div>
+				<p class="read-it"><a href="{{tpl:EntryURL}}"
+				title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue
+				reading}}</a>...</p>
+			</tpl:EntryIf>
 
-    <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
-    {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+			<!-- # Entry without excerpt -->
+			<tpl:EntryIf extended="0">
+				<div class="post-content">{{tpl:EntryContent}}</div>
+			</tpl:EntryIf>
 
-    <!-- # Entry with an excerpt -->
-    <tpl:EntryIf extended="1">
-      <div class="post-content">{{tpl:EntryExcerpt}}</div>
-      <p class="read-it"><a href="{{tpl:EntryURL}}"
-      title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue
-      reading}}</a>...</p>
-    </tpl:EntryIf>
+			<!-- # --BEHAVIOR-- publicEntryAfterContent -->
+			{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
 
-    <!-- # Entry without excerpt -->
-    <tpl:EntryIf extended="0">
-      <div class="post-content">{{tpl:EntryContent}}</div>
-    </tpl:EntryIf>
+			<!-- # Number of comments, trackbacks and attachments -->
+			<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+				<p class="post-info-co">
+			</tpl:EntryIf>
+			<tpl:EntryIf show_comments="1">
+					<a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
+			</tpl:EntryIf>
+			<tpl:EntryIf show_pings="1">
+					<a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
+			<tpl:EntryIf has_attachment="1">
+					<a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
+			<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+				</p>
+			</tpl:EntryIf>
+		</div>
 
-    <!-- # --BEHAVIOR-- publicEntryAfterContent -->
-    {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
-
-    <!-- # Number of comments, trackbacks and attachments -->
-    <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
-      <p class="post-info-co">
-    </tpl:EntryIf>
-    <tpl:EntryIf show_comments="1">
-      <a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
-    </tpl:EntryIf>
-    <tpl:EntryIf show_pings="1">
-      <a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
-    <tpl:EntryIf has_attachment="1">
-      <a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
-    <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
-      </p>
-    </tpl:EntryIf>
-    </div>
-
-    <tpl:EntriesFooter>
-      <tpl:Pagination>
-        <p class="pagination"><tpl:PaginationIf end="0"><a href="{{tpl:PaginationURL offset="+1"}}" class="prev">&#171;
-        {{tpl:lang previous entries}}</a> - </tpl:PaginationIf>
-        {{tpl:lang page}} {{tpl:PaginationCurrent}} {{tpl:lang of}} {{tpl:PaginationCounter}}
-        <tpl:PaginationIf start="0"> - <a href="{{tpl:PaginationURL offset="-1"}}" class="next">{{tpl:lang next entries}}
-        &#187;</a></tpl:PaginationIf></p>
-      </tpl:Pagination>
-    </tpl:EntriesFooter>
-  </tpl:Entries>
-  </div>
-</div> <!-- End #main -->
-
-<div id="sidebar" role="complementary">
-  <div id="blognav">
-    {{tpl:Widgets type="nav"}}
-  </div> <!-- End #blognav -->
-
-  <div id="blogextra">
-    {{tpl:Widgets type="extra"}}
-  </div> <!-- End #blogextra -->
-</div>
-
-</div> <!-- End #wrapper -->
-
-{{tpl:include src="_footer.html"}}
-</div> <!-- End #page -->
-</body>
-</html>
+		<tpl:EntriesFooter>
+			<tpl:Pagination>
+				<p class="pagination"><tpl:PaginationIf end="0"><a href="{{tpl:PaginationURL offset="+1"}}" class="prev">&#171;
+				{{tpl:lang previous entries}}</a> - </tpl:PaginationIf>
+				{{tpl:lang page}} {{tpl:PaginationCurrent}} {{tpl:lang of}} {{tpl:PaginationCounter}}
+				<tpl:PaginationIf start="0"> - <a href="{{tpl:PaginationURL offset="-1"}}" class="next">{{tpl:lang next entries}}
+				&#187;</a></tpl:PaginationIf></p>
+			</tpl:Pagination>
+		</tpl:EntriesFooter>
+	</tpl:Entries>
+</tpl:Block>
