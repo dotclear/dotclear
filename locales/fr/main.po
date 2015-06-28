@@ -1704,6 +1704,9 @@ msgstr "Vous pouvez installer des plugins en déposant ou téléchargeant des fi
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Certaines fonctions sont désactivées, donnez un accès en écriture à votre répertoire de plugins pour les activer."
 
+msgid "Some functions are disabled, please give write access to your themes directory to enable them."
+msgstr "Certaines fonctions sont désactivées, donnez un accès en écriture à votre répertoire de thèmes pour les activer."
+
 msgid "Add a link"
 msgstr "Ajouter un lien"
 

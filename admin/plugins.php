@@ -113,7 +113,7 @@ if (!empty($plugins_install['failure'])) {
 }
 
 # -- Display modules lists --
-if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
+if ($core->auth->isSuperAdmin()) {
 
 	# Updated modules from repo
 	$modules = $list->store->get(true);
