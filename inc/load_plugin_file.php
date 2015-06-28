@@ -46,6 +46,13 @@ if (empty($_GET['pf'])) {
 	exit;
 }
 
+// $_GET['v'] : version in url to bypass cache in case of dotclear upgrade or in dev mode
+// but don't care of value
+if (isset($_GET['v']))
+{
+    unset($_GET['v']);
+}
+
 // Only $_GET['pf'] is allowed in URL
 if (count($_GET) > 1)
 {

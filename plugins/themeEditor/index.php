@@ -69,7 +69,7 @@ catch (Exception $e)
 <html>
 <head>
   <title><?php echo __('Edit theme files'); ?></title>
-  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF('themeEditor/style.css'); ?>" />
+  <?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));?>
   <script type="text/javascript">
   //<![CDATA[
   <?php echo dcPage::jsVar('dotclear.msg.saving_document',__("Saving document...")); ?>
@@ -82,15 +82,15 @@ catch (Exception $e)
   <?php echo dcPage::jsConfirmClose('file-form'); ?>
   <script type="text/javascript" src="<?php echo dcPage::getPF('themeEditor/script.js'); ?>"></script>
 <?php if ($user_ui_colorsyntax) { ?>
-  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF( 'themeEditor/codemirror/codemirror.css'); ?>" />
-  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF( 'themeEditor/codemirror.css'); ?>" />
-  <script type="text/JavaScript" src="<?php echo dcPage::getPF('themeEditor/codemirror/codemirror.js'); ?>"></script>
-  <script type="text/JavaScript" src="<?php echo dcPage::getPF('themeEditor/codemirror/multiplex.js'); ?>"></script>
-  <script type="text/JavaScript" src="<?php echo dcPage::getPF('themeEditor/codemirror/xml.js'); ?>"></script>
-  <script type="text/JavaScript" src="<?php echo dcPage::getPF('themeEditor/codemirror/javascript.js'); ?>"></script>
-  <script type="text/JavaScript" src="<?php echo dcPage::getPF('themeEditor/codemirror/css.js'); ?>"></script>
-  <script type="text/JavaScript" src="<?php echo dcPage::getPF('themeEditor/codemirror/php.js'); ?>"></script>
-  <script type="text/JavaScript" src="<?php echo dcPage::getPF('themeEditor/codemirror/htmlmixed.js'); ?>"></script>
+  <?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/codemirror/codemirror.css'));?>
+  <?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/codemirror.css'));?>
+  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/codemirror.js'));?>
+  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/multiplex.js'));?>
+  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/xml.js'));?>
+  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/javascript.js'));?>
+  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/css.js'));?>
+  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/php.js'));?>
+  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/htmlmixed.js'));?>
 <?php } ?>
 </head>
 
