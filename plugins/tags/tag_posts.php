@@ -72,8 +72,8 @@ if ($posts_actions_page->process()) {
 <html>
 <head>
   <title><?php echo __('Tags'); ?></title>
-  <link rel="stylesheet" type="text/css" href="<?php echo dcPage::getPF('tags/style.css'); ?>" />
-  <script type="text/javascript" src="js/_posts_list.js"></script>
+  <?php echo dcPage::cssLoad(dcPage::getPF('tags/style.css'));?>
+  <?php echo dcPage::jsLoad('js/_posts_list.js');?>
   <script type="text/javascript">
   //<![CDATA[
   dotclear.msg.confirm_tag_delete = '<?php echo html::escapeJS(sprintf(__('Are you sure you want to remove tag: “%s”?'),html::escapeHTML($tag))) ?>';

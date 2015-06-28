@@ -16,6 +16,7 @@ define('DC_AUTH_PAGE','auth.php');
 class dcPage
 {
 	private static $loaded_js = array();
+	private static $loaded_css = array();
 	private static $xframe_loaded = false;
 	private static $N_TYPES = array(
 		"success" => "success",
@@ -108,18 +109,17 @@ class dcPage
 
 
 		self::jsLoadIE7().
-		'  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
+		self::cssLoad('style/default.css');
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
-			echo
-			'  <link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n";
+			echo self::cssLoad('style/default-rtl.css');
 		}
 
 		$core->auth->user_prefs->addWorkspace('interface');
 		$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 		if (!$user_ui_hide_std_favicon) {
 			echo
-			'<link rel="icon" type="image/png" href="images/favicon96-login.png" />'.
-			'<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />';
+			'<link rel="icon" type="image/png" href="images/favicon96-login.png" />'."\n".
+			'<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />'."\n";
 		}
 		echo
 		self::jsCommon().
@@ -338,10 +338,9 @@ class dcPage
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 
 		self::jsLoadIE7().
-		'	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'."\n";
+		self::cssLoad('style/default.css');
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
-			echo
-			'	<link rel="stylesheet" href="style/default-rtl.css" type="text/css" media="screen" />'."\n";
+			echo self::cssLoad('style/default-rtl.css');
 		}
 
 		echo
@@ -545,13 +544,42 @@ class dcPage
 		'</div></div>';
 	}
 
+	public static function cssLoad($src, $media='screen')
+	{
+		$escaped_src = html::escapeHTML($src);
+		if (!isset(self::$loaded_css[$escaped_src])) {
+			self::$loaded_css[$escaped_src] = true;
+			$escaped_src = self::appendVersion($escaped_src);
+
+			return '<link rel="stylesheet" href="'.$escaped_src.'" type="text/css" media="'.$media.'" />'."\n";
+		}
+	}
+
 	public static function jsLoad($src)
 	{
 		$escaped_src = html::escapeHTML($src);
 		if (!isset(self::$loaded_js[$escaped_src])) {
-			self::$loaded_js[$escaped_src]=true;
+			self::$loaded_js[$escaped_src] = true;
+			$escaped_src = self::appendVersion($escaped_src);
 			return '<script type="text/javascript" src="'.$escaped_src.'"></script>'."\n";
 		}
+	}
+
+	private static function appendVersion($src)
+	{
+		if (strpos($src,'?')===false) {
+			$src .= '?v=';
+		} else {
+			$src .= '&v=';
+		}
+
+		if (defined('DC_DEV') && DC_DEV === true) {
+			$src .= md5(uniqid());
+		} else {
+			$src .= DC_VERSION;
+		}
+
+		return $src;
 	}
 
 	public static function jsVar($n,$v)
@@ -733,7 +761,7 @@ class dcPage
 		return
 		'<!--[if lt IE 9]>'."\n".
 		self::jsLoad('js/ie7/IE9.js').
-		'<link rel="stylesheet" type="text/css" href="style/iesucks.css" />'."\n".
+		self::cssLoad('style/iesucks.css').
 		'<![endif]-->'."\n";
 	}
 
@@ -787,7 +815,7 @@ class dcPage
 	public static function jsModal()
 	{
 		return
-		'<link rel="stylesheet" type="text/css" href="style/modal/modal.css" />'."\n".
+		self::cssLoad('style/modal/modal.css').
 		self::jsLoad('js/jquery/jquery.modal.js').
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
@@ -800,7 +828,7 @@ class dcPage
 	public static function jsColorPicker()
 	{
 		return
-		'<link rel="stylesheet" type="text/css" href="style/farbtastic/farbtastic.css" />'."\n".
+		self::cssLoad('style/farbtastic/farbtastic.css').
 		self::jsLoad('js/jquery/jquery.farbtastic.js').
 		self::jsLoad('js/color-picker.js');
 	}
@@ -808,7 +836,7 @@ class dcPage
 	public static function jsDatePicker()
 	{
 		return
-		'<link rel="stylesheet" type="text/css" href="style/date-picker.css" />'."\n".
+		self::cssLoad('style/date-picker.css').
 		self::jsLoad('js/date-picker.js').
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
@@ -904,19 +932,18 @@ class dcPage
 	public static function jsToolMan()
 	{
 		return
-		'<script type="text/javascript" src="js/tool-man/core.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/events.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/css.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/coordinates.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/drag.js"></script>'.
-		'<script type="text/javascript" src="js/tool-man/dragsort.js"></script>'.
-		'<script type="text/javascript" src="js/dragsort-tablerows.js"></script>';
+		self::jsLoad('js/tool-man/core.js').
+		self::jsLoad('js/tool-man/events.js').
+		self::jsLoad('js/tool-man/css.js').
+		self::jsLoad('js/tool-man/coordinates.js').
+		self::jsLoad('js/tool-man/drag.js').
+		self::jsLoad('js/tool-man/dragsort.js').
+		self::jsLoad('js/dragsort-tablerows.js');
 	}
 
 	public static function jsMetaEditor()
 	{
-		return
-		'<script type="text/javascript" src="js/meta-editor.js"></script>';
+		return self::jsLoad('js/meta-editor.js');
 	}
 
 	public static function getPF($file) {
