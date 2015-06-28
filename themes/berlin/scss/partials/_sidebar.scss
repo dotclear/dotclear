@@ -44,6 +44,10 @@
         @include no-bullets;
         padding-left: 0;
     }
+    > nav ul {
+        @include no-bullets;
+        padding-left: 0;
+    }
 }
 .blognav__widgets, .blogextra__widgets {
     ul {
