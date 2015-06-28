@@ -696,6 +696,13 @@ a.site-title__link:visited {
       list-style-image: none;
       list-style-type: none;
       margin-left: 0; }
+  .blognav__widgets .widget > nav ul, .blogextra__widgets .widget > nav ul {
+    list-style: none;
+    padding-left: 0; }
+    .blognav__widgets .widget > nav ul li, .blogextra__widgets .widget > nav ul li {
+      list-style-image: none;
+      list-style-type: none;
+      margin-left: 0; }
 
 .blognav__widgets ul, .blogextra__widgets ul {
   margin: 0; }
