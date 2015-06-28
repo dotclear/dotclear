@@ -47,8 +47,14 @@ if (empty($_GET['pf'])) {
 }
 
 // $_GET['v'] : version in url to bypass cache in case of dotclear upgrade or in dev mode
-// Only $_GET['pf'] and $_GET['v'] are allowed in URL
-if (count($_GET) > 2)
+// but don't care of value
+if (isset($_GET['v']))
+{
+    unset($_GET['v']);
+}
+
+// Only $_GET['pf'] is allowed in URL
+if (count($_GET) > 1)
 {
     header('Content-Type: text/plain');
     http::head(403,'Forbidden');
