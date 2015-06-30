@@ -384,12 +384,12 @@ if ($post_editor) {
     }
     if ($p_edit == $c_edit) {
         $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $p_edit,'post',array('#post_excerpt','#post_content','#comment_content'));
+            $p_edit,'post',array('#post_excerpt','#post_content','#comment_content'),$post_format);
     } else {
         $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $p_edit,'post',array('#post_excerpt','#post_content'));
+            $p_edit,'post',array('#post_excerpt','#post_content'),$post_format);
         $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $c_edit,'comment',array('#comment_content'));
+            $c_edit,'comment',array('#comment_content'),'xhtml');
     }
 }
 

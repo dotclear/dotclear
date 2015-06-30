@@ -20,8 +20,9 @@ class dcLegacyEditorBehaviors
 	 * @param editor   <b>string</b> wanted editor
 	 * @param context  <b>string</b> page context (post,page,comment,event,...)
 	 * @param tags     <b>array</b>  array of ids to inject editor
+	 * @param syntax   <b>string</b> wanted syntax (wiki,markdown,...)
 	 */
-	public static function adminPostEditor($editor='',$context='',array $tags=array()) {
+	public static function adminPostEditor($editor='',$context='',array $tags=array(),$syntax='') {
 		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
 
 		return
@@ -30,6 +31,7 @@ class dcLegacyEditorBehaviors
 			'<script type="text/javascript">'."\n".
 			"//<![CDATA[\n".
 			dcPage::jsVar('dotclear.legacy_editor_context', $context).
+			dcPage::jsVar('dotclear.legacy_editor_syntax', $syntax).
 			'dotclear.legacy_editor_tags_context = '.sprintf('{%s:["%s"]};'."\n", $context, implode('","', $tags)).
 			"\n//]]>\n".
 			"</script>\n";

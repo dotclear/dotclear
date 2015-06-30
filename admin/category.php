@@ -178,7 +178,7 @@ $category_editor = $core->auth->getOption('editor');
 dcPage::open($title,
 	dcPage::jsConfirmClose('category-form').
 	dcPage::jsLoad('js/_category.js').
-	$core->callBehavior('adminPostEditor',$category_editor['xhtml'],'category',array('#cat_desc')),
+	$core->callBehavior('adminPostEditor',$category_editor['xhtml'],'category',array('#cat_desc'),'xhtml'),
 	dcPage::breadcrumb($elements)
 );
 

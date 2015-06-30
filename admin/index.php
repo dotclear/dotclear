@@ -176,7 +176,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		$post_editor = $core->auth->getOption('editor');
 		if ($post_editor && !empty($post_editor[$post_format])) {
 			// context is not post because of tags not available
-			$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', array('#post_content'));
+			$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', array('#post_content'),$post_format);
 		}
 	}
 }

@@ -21,9 +21,10 @@ class dcCKEditorBehaviors
      * @param editor   <b>string</b> wanted editor
      * @param context  <b>string</b> page context (post,page,comment,event,...)
      * @param tags     <b>array</b>  array of ids into inject editor
+     * @param syntax   <b>string</b> wanted syntax (xhtml)
      */
-    public static function adminPostEditor($editor='',$context='',array $tags=array()) {
-        if (empty($editor) || $editor!='dcCKEditor') { return;}
+    public static function adminPostEditor($editor='',$context='',array $tags=array(),$syntax='xhtml') {
+        if (empty($editor) || $editor != 'dcCKEditor' || $syntax != 'xhtml') { return;}
 
         $config_js = self::$config_url;
         if (!empty($context)) {
