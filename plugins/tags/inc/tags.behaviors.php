@@ -13,7 +13,7 @@
 # BEHAVIORS
 class tagsBehaviors
 {
-	public static function adminPostEditor($editor='',$context='',array $tags=array())
+	public static function adminPostEditor($editor='',$context='',array $tags=array(),$syntax='')
 	{
 		if (($editor != 'dcLegacyEditor' && $editor != 'dcCKEditor') || $context != 'post') return;
 
