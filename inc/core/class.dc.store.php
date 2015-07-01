@@ -194,17 +194,25 @@ class dcStore
 	 */
 	public function download($url, $dest)
 	{
-		try {
-			$client = netHttp::initClient($url, $path);
-			$client->setUserAgent($this->user_agent);
-			$client->useGzip(false);
-			$client->setPersistReferers(false);
-			$client->setOutput($dest);
-			$client->get($path);
-			unset($client);
+		// Check and add default protocol if necessary
+		if (!preg_match('%^http[s]?:\/\/%',$url)) {
+			$url = 'http://'.$url;
 		}
-		catch (Exception $e) {
-			unset($client);
+		// Download package
+		if ($client = netHttp::initClient($url, $path)) {
+			try {
+				$client->setUserAgent($this->user_agent);
+				$client->useGzip(false);
+				$client->setPersistReferers(false);
+				$client->setOutput($dest);
+				$client->get($path);
+				unset($client);
+			}
+			catch (Exception $e) {
+				unset($client);
+				throw new Exception(__('An error occurred while downloading the file.'));
+			}
+		} else {
 			throw new Exception(__('An error occurred while downloading the file.'));
 		}
 	}
