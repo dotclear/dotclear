@@ -275,7 +275,7 @@ msgid "Blog settings"
 msgstr "Paramètres du blog"
 
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
-msgstr "Attention : sauf cas particulier, il est généralement conseillé de terminer l'URL de votre blog par \"/\" en mode PATH_INFO."
+msgstr "Attention : sauf cas particulier, il est généralement conseillé de terminer l'URL de votre blog par \"/\" en mode PATH_INFO."
 
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Attention: sauf cas particulier, il est généralement conseillé de terminer l'URL de votre blog par \\\"?\\\" en mode QUERY_STRING."
@@ -293,7 +293,7 @@ msgid "Please note that changing your blog ID may require changes in your public
 msgstr "Veuillez noter que changer l'identifiant de votre blog peut nécessiter des modifications de votre fichier index.php public."
 
 msgid "URL scan method:"
-msgstr "Méthode de lecture de l'URL :"
+msgstr "Méthode de lecture de l'URL :"
 
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
@@ -304,7 +304,7 @@ msgid "The URL of blog or the URL scan method might not be well set (<code>%s</c
 msgstr "L'URL du blog ou la méthode de lecture de l'URL ne semblent pas être bien réglées (<code>%s</code> ne retourne pas un flux ATOM)"
 
 msgid "Blog status:"
-msgstr "État du blog :"
+msgstr "État du blog :"
 
 msgid "Blog configuration"
 msgstr "Configuration du blog"
@@ -325,7 +325,7 @@ msgid "New post URL format:"
 msgstr "Format d'URL des nouveaux billets :"
 
 msgid "HTML tag for the title of the notes on the blog:"
-msgstr "Balise HTML pour le titre des notes sur le blog :"
+msgstr "Balise HTML pour le titre des notes sur le blog :"
 
 msgid "Enable XML/RPC interface"
 msgstr "Activer l'interface XML/RPC"
@@ -362,7 +362,7 @@ msgid "Leave comments open for %s days"
 msgstr "Laisser les commentaires ouverts durant %s jours"
 
 msgid "No limit: leave blank."
-msgstr "Aucune limite : laisser vide."
+msgstr "Aucune limite : laisser vide."
 
 msgid "Wiki syntax for comments"
 msgstr "Autoriser la syntaxe wiki pour les commentaires"
@@ -393,7 +393,7 @@ msgid "Pattern of date"
 msgstr "Modèle de date"
 
 msgid "Sample:"
-msgstr "Exemple :"
+msgstr "Exemple :"
 
 msgid "Time format:"
 msgstr "Format des heures :"
@@ -454,10 +454,10 @@ msgid "It is retrieved from the picture's metadata."
 msgstr "Ces informations sont obtenues depuis les métadonnées de l'image."
 
 msgid "Size of inserted image:"
-msgstr "Taille de l'image insérée :"
+msgstr "Taille de l'image insérée :"
 
 msgid "Image alignment:"
-msgstr "Alignement de l'image :"
+msgstr "Alignement de l'image :"
 
 msgid "Insert a link to the original image"
 msgstr "Insérer le lien vers l'image originale"
@@ -469,7 +469,7 @@ msgid "jQuery javascript library"
 msgstr "Bibliothèque javascript jQuery"
 
 msgid "jQuery version to be loaded for this blog:"
-msgstr "Version de la bibliothèque jQuery à charger pour ce blog :"
+msgstr "Version de la bibliothèque jQuery à charger pour ce blog :"
 
 msgid "Blog security"
 msgstr "Sécurité du blog"
@@ -496,14 +496,14 @@ msgid "No users"
 msgstr "Aucun utilisateur"
 
 msgid "Publications on this blog:"
-msgstr "Publications sur ce blog :"
+msgstr "Publications sur ce blog :"
 
 #, php-format
 msgid "%1$s: %2$s"
-msgstr "%1$s : %2$s"
+msgstr "%1$s : %2$s"
 
 msgid "Permissions:"
-msgstr "Permissions :"
+msgstr "Permissions :"
 
 msgid "Super administrator"
 msgstr "Super administrateur"
@@ -784,7 +784,7 @@ msgid "before"
 msgstr "avant"
 
 msgid "position: "
-msgstr "position : "
+msgstr "position : "
 
 msgid "Entry does not exist."
 msgstr "Ce billet n'existe pas."
@@ -822,7 +822,7 @@ msgid ""
 msgstr ""
 "Bonjour,\n"
 "\n"
-"Vous avez déposé un commentaire sur :\n"
+"Vous avez déposé un commentaire sur :\n"
 "%s\n"
 "\n"
 "\n"
@@ -928,7 +928,7 @@ msgid "Dotclear news"
 msgstr "Actualité de Dotclear"
 
 msgid "%d %B %Y:"
-msgstr "%d %B %Y :"
+msgstr "%d %B %Y :"
 
 msgid "Documentation and support"
 msgstr "Documentation et support"
@@ -978,7 +978,7 @@ msgid "There is no writable root directory for the media manager. You should con
 msgstr "Il n'existe pas de répertoire principal accessible en écriture pour la médiathèque. Vous devriez contacter votre administrateur."
 
 msgid "Error:"
-msgstr "Erreur :"
+msgstr "Erreur :"
 
 msgid "Following plugins have been installed:"
 msgstr "Les plugins suivants ont été installés :"
@@ -987,7 +987,7 @@ msgid "Following plugins have not been installed:"
 msgstr "Les plugins suivants n'ont pas été installés :"
 
 msgid "Errors have occured with following plugins:"
-msgstr "Des erreurs se sont produites avec les plugins suivants :"
+msgstr "Des erreurs se sont produites avec les plugins suivants :"
 
 msgid "Quick entry"
 msgstr "Billet rapide"
@@ -1100,7 +1100,7 @@ msgstr "Installation de Dotclear"
 
 #, php-format
 msgid "Password strength: %s"
-msgstr "Force du mot de passe : %s"
+msgstr "Force du mot de passe : %s"
 
 msgid "very weak"
 msgstr "très faible"
@@ -1143,7 +1143,7 @@ msgid "First Name:"
 msgstr "Prénom :"
 
 msgid "Last Name:"
-msgstr "Nom :"
+msgstr "Nom :"
 
 msgid "Username and password"
 msgstr "Identifiant et mot de passe"
@@ -1200,7 +1200,7 @@ msgid "To complete your Dotclear installation and start writing on your blog, we
 msgstr "Pour achever votre installation de Dotclear, il ne manque plus que les informations concernant votre base de données, puis vos informations personnelles. Remplissez simplement les deux formulaires suivants et vous pourrez commencer à utiliser votre blog."
 
 msgid "Attention:"
-msgstr "Attention :"
+msgstr "Attention :"
 
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "cet assistant peut ne pas fonctionner chez tous les hébergeurs. Si vous rencontrez un problème, vous trouverez comment créer le fichier de configuration dans <a href=\"http://fr.dotclear.org/documentation/2.0/admin/install\">la documentation</a>."
@@ -1412,11 +1412,11 @@ msgid "Sort files:"
 msgstr "Trier les fichiers :"
 
 msgid "Number of elements displayed per page:"
-msgstr "Nombre d'éléments affichés par page :"
+msgstr "Nombre d'éléments affichés par page :"
 
 #, php-format
 msgid "In %s:"
-msgstr "Dans %s :"
+msgstr "Dans %s :"
 
 msgid "Create new directory"
 msgstr "Créer un répertoire"
@@ -1723,7 +1723,7 @@ msgid "Add a link to an entry"
 msgstr "Ajouter un lien vers une entrée"
 
 msgid "Entry type:"
-msgstr "Type d'entrées :"
+msgstr "Type d'entrées :"
 
 msgid "Ok"
 msgstr "Ok"
@@ -1827,13 +1827,13 @@ msgid "Comments and trackbacks list"
 msgstr "Liste des commentaires et des rétroliens"
 
 msgid "Warning: Comments are not more accepted for this entry."
-msgstr "Attention : les commentaires ne sont plus acceptés pour ce billet."
+msgstr "Attention : les commentaires ne sont plus acceptés pour ce billet."
 
 msgid "Comments are not accepted on this blog so far."
 msgstr "Les commentaires ne sont pas acceptés sur ce blog pour le moment."
 
 msgid "Warning: Trackbacks are not more accepted for this entry."
-msgstr "Attention : les rétroliens ne sont plus acceptés pour ce billet."
+msgstr "Attention : les rétroliens ne sont plus acceptés pour ce billet."
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Les rétroliens sont fermés sur ce blog pour le moment."
@@ -1854,7 +1854,7 @@ msgid "Introduction to the post."
 msgstr "Introduction au billet."
 
 msgid "Personal notes:"
-msgstr "Notes personnelles :"
+msgstr "Notes personnelles :"
 
 msgid "Unpublished notes."
 msgstr "Notes non publiées."
@@ -1890,7 +1890,7 @@ msgid "URLs to ping:"
 msgstr "URLs à rétrolier :"
 
 msgid "Excerpt to send:"
-msgstr "Extrait à envoyer :"
+msgstr "Extrait à envoyer :"
 
 msgid "Auto discover ping URLs"
 msgstr "Découverte automatique des URL à rétrolier"
@@ -1959,7 +1959,7 @@ msgid "Selected:"
 msgstr "Sélectionné :"
 
 msgid "Attachments:"
-msgstr "Annexes :"
+msgstr "Annexes :"
 
 msgid "Month:"
 msgstr "Mois :"
@@ -2007,7 +2007,7 @@ msgid "Display name:"
 msgstr "Pseudonyme :"
 
 msgid "Language for my interface:"
-msgstr "Langue de mon interface :"
+msgstr "Langue de mon interface :"
 
 msgid "My timezone:"
 msgstr "Mon fuseau horaire :"
@@ -2016,10 +2016,10 @@ msgid "Change my password"
 msgstr "Changer mon mot de passe"
 
 msgid "Confirm new password:"
-msgstr "Confirmer le nouveau mot de passe :"
+msgstr "Confirmer le nouveau mot de passe :"
 
 msgid "Your current password:"
-msgstr "Votre mot de passe actuel :"
+msgstr "Votre mot de passe actuel :"
 
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Si vous avez modifié votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel pour enregistrer ces modifications."
@@ -2043,7 +2043,7 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr "Si cette option est cochée, des champs numériques permettront d'indiquer la position des éléments."
 
 msgid "Number of elements displayed per page in media manager:"
-msgstr "Nombre d'éléments affichés par page dans la médiathèque :"
+msgstr "Nombre d'éléments affichés par page dans la médiathèque :"
 
 msgid "Do not use standard favicon"
 msgstr "Ne pas utiliser le favicon standard de Dotclear"
@@ -2129,7 +2129,7 @@ msgid "Dashboard icons"
 msgstr "Icônes du tableau de bord"
 
 msgid "Iconset:"
-msgstr "Jeu d'icônes :"
+msgstr "Jeu d'icônes :"
 
 msgid "Dashboard modules"
 msgstr "Modules du tableau de bord"
@@ -2262,7 +2262,7 @@ msgid "User profile"
 msgstr "Profil utilisateur"
 
 msgid "User ID:"
-msgstr "Identifiant (login) :"
+msgstr "Identifiant (login) :"
 
 msgid "Warning:"
 msgstr "Attention :"
@@ -2457,7 +2457,7 @@ msgid "Change author for this selection"
 msgstr "Changer l'auteur pour cette sélection"
 
 msgid "New author (author ID):"
-msgstr "Nouvel auteur (identifiant utilisateur) :"
+msgstr "Nouvel auteur (identifiant utilisateur) :"
 
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
@@ -2559,7 +2559,7 @@ msgid "Hide"
 msgstr "Cacher"
 
 msgid "Select:"
-msgstr "Sélectionner :"
+msgstr "Sélectionner :"
 
 msgid "no selection"
 msgstr "aucun"
@@ -2673,13 +2673,13 @@ msgid "There are XHTML markup errors."
 msgstr "Il y a des erreurs XHTML."
 
 msgid "Attention: an audit of a content not yet registered."
-msgstr "Attention : la vérification porte sur un contenu non encore enregistré."
+msgstr "Attention : la vérification porte sur un contenu non encore enregistré."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Vous avez des modifications non sauvegardées. Changer de format vous fera perdre ces modifications. Continuer ?"
 
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr "Attention : le changement de syntaxe ne transformera pas les balises des contenus déjà saisis. Pensez à les réadapter après cette opération. Confirmez-vous ce changement de syntaxe ?"
+msgstr "Attention : le changement de syntaxe ne transformera pas les balises des contenus déjà saisis. Pensez à les réadapter après cette opération. Confirmez-vous ce changement de syntaxe ?"
 
 msgid "Loading enhanced uploader, please wait."
 msgstr "Chargement de l'interface avancée."
@@ -2691,10 +2691,10 @@ msgid "Support"
 msgstr "Assistance"
 
 msgid "Help:"
-msgstr "Aide :"
+msgstr "Aide :"
 
 msgid "Section:"
-msgstr "Section : "
+msgstr "Section : "
 
 msgid "Tags:"
 msgstr "Mots-clés:"
@@ -2763,8 +2763,8 @@ msgstr "La recherche est autorisée sur plusieurs mots de 2 caractères minimum,
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "%d résultat trouvé pour la recherche \"%s\" :"
-msgstr[1] "%d résultats trouvés pour la recherche \"%s\" :"
+msgstr[0] "%d résultat trouvé pour la recherche \"%s\" :"
+msgstr[1] "%d résultats trouvés pour la recherche \"%s\" :"
 
 msgid "current selection"
 msgstr "sélection courante"
@@ -2779,7 +2779,7 @@ msgid "no results"
 msgstr "pas de résultats"
 
 msgid "Browse index:"
-msgstr "Parcourir l'index :"
+msgstr "Parcourir l'index :"
 
 msgid "Plugins list"
 msgstr "Liste des plugins"
@@ -2873,7 +2873,7 @@ msgstr[0] "Ce plugin a été mis à jour."
 msgstr[1] "Ces plugins ont été mis à jour."
 
 msgid "Zip file path:"
-msgstr "Chemin du fichier zip :"
+msgstr "Chemin du fichier zip :"
 
 msgid "Download a zip file"
 msgstr "Télécharger un fichier zip"
@@ -3001,7 +3001,7 @@ msgstr "Page %s / %s"
 
 #, php-format
 msgid "Direct access page %s"
-msgstr "Aller à la page : %s"
+msgstr "Aller à la page : %s"
 
 msgid "&#171; prev."
 msgstr "&#171; préc."
@@ -3096,7 +3096,7 @@ msgid "The '%s' directory cannot be modified."
 msgstr "Le répertoire %s ne peut pas être modifié."
 
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
-msgstr "Au moins une des fonctions suivantes n'est pas disponible : imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr "Au moins une des fonctions suivantes n'est pas disponible : imagecreatetruecolor, imagepng & imagecreatefrompng."
 
 msgid "Unable to create images."
 msgstr "Impossible de créer des images."
@@ -3373,7 +3373,7 @@ msgid "No namespace specified"
 msgstr "Aucun espace de nom spécifié"
 
 msgid "Unable to retrieve workspaces:"
-msgstr "Impossible d'obtenir les espaces de travail :"
+msgstr "Impossible d'obtenir les espaces de travail :"
 
 msgid "Unable to retrieve namespaces:"
 msgstr "Impossible d'obtenir les espaces de nom :"
@@ -3465,10 +3465,10 @@ msgstr "Fichier de contrôle invalide."
 
 #, php-format
 msgid "Invalid dcWorkspace: %s"
-msgstr "Espace de travail de la préférence invalide : %s"
+msgstr "Espace de travail de la préférence invalide : %s"
 
 msgid "Unable to retrieve prefs:"
-msgstr "Impossible d'obtenir les préférences :"
+msgstr "Impossible d'obtenir les préférences :"
 
 #, php-format
 msgid "%s is not a valid pref id"
@@ -3595,7 +3595,7 @@ msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Balise de fermeture <tpl:%s> inattendue trouvée."
 
 msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "ATTENTION: Les erreurs suivantes ont été rencontrées lors du parcours du fichier de template :"
+msgstr "ATTENTION: Les erreurs suivantes ont été rencontrées lors du parcours du fichier de template :"
 
 msgid "singular"
 msgid_plural "plural"
@@ -3645,7 +3645,7 @@ msgid "<p>This either means that the username and password information in your <
 msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de passe de votre fichier <strong>config.php</strong> sont incorrects, soit que nous ne pouvons pas contacter le serveur de base de données à l'adresse \"<em>%s</em>\". Cela peut vouloir dire que le serveur en question est éteint.</p> <ul><li>Êtes-vous sûr que l'identifiant et le mot de passe sont corrects ?</li><li>Êtes-vous sûr d'avoir entré le bon nom de serveur ?</li><li> Êtes-vous sûr que le serveur fonctionne ?</li></ul><p>Si vous n'êtes pas sûr de la signification de ces termes, vous devriez probablement contacter votre hébergeur. Si vous avez besoin d'une aide supplémentaire, vous pouvez vous rendre sur <a href=\"http://forum.dotclear.net/\">le forum d'entraide Dotclear</a>.</p>"
 
 msgid "The following error was encountered while trying to read the database:"
-msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
 #~ msgid "visual"
 #~ msgstr "visuel"
@@ -3875,10 +3875,10 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Installer ou mettre à jour un plugin"
 
 #~ msgid "Plugin zip file:"
-#~ msgstr "Fichier zip de du plugin :"
+#~ msgstr "Fichier zip de du plugin :"
 
 #~ msgid "Plugin zip file URL:"
-#~ msgstr "URL du fichier zip du plugin :"
+#~ msgstr "URL du fichier zip du plugin :"
 
 #~ msgid "Download plugin"
 #~ msgstr "Télécharger le plugin"
@@ -3926,7 +3926,7 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Liste des liens"
 
 #~ msgid "Some plugins are installed twice:"
-#~ msgstr "Ces plugins sont installés en double :"
+#~ msgstr "Ces plugins sont installés en double :"
 
 #~ msgid "Sort"
 #~ msgstr "Trier"
@@ -3935,7 +3935,7 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Filtrer la liste des billets"
 
 #~ msgid "Number of media displayed per page:"
-#~ msgstr "Nombre de médias affichés par page :"
+#~ msgstr "Nombre de médias affichés par page :"
 
 #~ msgid "publish"
 #~ msgstr "publier"
@@ -3962,7 +3962,7 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Filtrer la liste des utilisateurs"
 
 #~ msgid "%s: in [%s] and [%s]"
-#~ msgstr "%s : dans [%s] et [%s]"
+#~ msgstr "%s : dans [%s] et [%s]"
 
 #~ msgid "Leave blank to disable this feature."
 #~ msgstr "Laissez vide pour annuler ce comportement."
@@ -3977,7 +3977,7 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Classement"
 
 #~ msgid "Category where entries of deleted categories will be moved:"
-#~ msgstr "Catégorie où seront déplacés les billets des catégories supprimées :"
+#~ msgstr "Catégorie où seront déplacés les billets des catégories supprimées :"
 
 #~ msgid "Delete selected categories"
 #~ msgstr "Supprimer les catégories sélectionnées"
@@ -4019,7 +4019,7 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Choisissez une catégorie à supprimer :"
 
 #~ msgid "Choose the category which will receive its entries:"
-#~ msgstr "Sélectionnez la catégorie qui recevra ses éventuels billets :"
+#~ msgstr "Sélectionnez la catégorie qui recevra ses éventuels billets :"
 
 #~ msgid "This will relocate all categories on the top level"
 #~ msgstr "Ceci va déplacer toutes les catégories au premier niveau"
@@ -4097,7 +4097,7 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Billets par page"
 
 #~ msgid "Author ID:"
-#~ msgstr "Identifiant de l'utilisateur :"
+#~ msgstr "Identifiant de l'utilisateur :"
 
 #~ msgid "User language:"
 #~ msgstr "Langue de l'utilisateur :"
@@ -4175,7 +4175,7 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Seul un superadministrateur peut supprimer un blog"
 
 #~ msgid "Edit basename:"
-#~ msgstr "Modifier l'URL spécifique :"
+#~ msgstr "Modifier l'URL spécifique :"
 
 #~ msgid "Protect with password"
 #~ msgstr "Protéger par un mot de passe"
