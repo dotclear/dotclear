@@ -451,7 +451,7 @@ function dotclearUpgrade($core)
 				$strReq = 'INSERT INTO '.$core->prefix.'setting'.
 						' (setting_id,setting_ns,setting_value,setting_type,setting_label)'.
 						' VALUES(\'%s\',\'system\',\'%s\',\'boolean\',\'%s\')';
-				$core->con-execute(sprintf($strReq,'no_search','0','Disable internal search system'));
+				$core->con->execute(sprintf($strReq,'no_search','0','Disable internal search system'));
 			}
 
 			$core->setVersion('core',DC_VERSION);
