@@ -1250,10 +1250,10 @@ msgid "Database export"
 msgstr "Exporter la base de données"
 
 msgid "Download database of current blog"
-msgstr "Télécharger la base de données du blog courant"
+msgstr "Télécharger les contenus et réglages du blog courant"
 
 msgid "Download database of all blogs"
-msgstr "Télécharger la base de données de tous les blogs"
+msgstr "Télécharger les contenus et réglages de tous les blogs"
 
 msgid "Please wait..."
 msgstr "Veuillez patientez…"
