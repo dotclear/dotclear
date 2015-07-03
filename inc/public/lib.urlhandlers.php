@@ -225,16 +225,24 @@ class dcUrlHandlers extends urlHandler
 		$_ctx =& $GLOBALS['_ctx'];
 		$core =& $GLOBALS['core'];
 
-		$core->url->type='search';
+		if ($core->blog->settings->system->no_search) {
 
-		$GLOBALS['_search'] = !empty($_GET['q']) ? rawurldecode($_GET['q']) : '';
-		if ($GLOBALS['_search']) {
-			$params = new ArrayObject(array('search' => $GLOBALS['_search']));
-			$core->callBehavior('publicBeforeSearchCount',$params);
-			$GLOBALS['_search_count'] = $core->blog->getPosts($params,true)->f(0);
+			# Search is disabled for this blog.
+			self::p404();
+
+		} else {
+
+			$core->url->type='search';
+
+			$GLOBALS['_search'] = !empty($_GET['q']) ? rawurldecode($_GET['q']) : '';
+			if ($GLOBALS['_search']) {
+				$params = new ArrayObject(array('search' => $GLOBALS['_search']));
+				$core->callBehavior('publicBeforeSearchCount',$params);
+				$GLOBALS['_search_count'] = $core->blog->getPosts($params,true)->f(0);
+			}
+
+			self::serveDocument('search.html');
 		}
-
-		self::serveDocument('search.html');
 	}
 
 	public static function lang($args)

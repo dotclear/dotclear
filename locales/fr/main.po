@@ -404,6 +404,9 @@ msgstr "Modèle d'heure"
 msgid "Display smilies on entries and comments"
 msgstr "Afficher des émoticônes dans les billets, pages et commentaires"
 
+msgid "Disable internal search system"
+msgstr "Désactiver la recherche interne"
+
 #, php-format
 msgid "Display %s entries on home page"
 msgstr "Afficher %s billets sur la page d'accueil"

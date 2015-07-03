@@ -18,6 +18,9 @@ class defaultWidgets
 	{
 		global $core;
 
+		if ($core->blog->settings->system->no_search)
+			return;
+
 		if ($w->offline)
 			return;
 

@@ -250,6 +250,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('nb_post_for_home',$nb_post_for_home);
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
 		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
+		$blog_settings->system->put('no_search',!empty($_POST['no_search']));
 		$blog_settings->system->put('inc_subcats',!empty($_POST['inc_subcats']));
 		$blog_settings->system->put('media_img_t_size',$media_img_t_size);
 		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
@@ -541,6 +542,10 @@ if ($blog_id)
 	'<p><label for="use_smilies" class="classic">'.
 	form::checkbox('use_smilies','1',$blog_settings->system->use_smilies).
 	__('Display smilies on entries and comments').'</label></p>'.
+
+	'<p><label for="no_search" class="classic">'.
+	form::checkbox('no_search','1',$blog_settings->system->no_search).
+	__('Disable internal search system').'</label></p>'.
 	'</div>'.
 
 	'<div class="col">'.

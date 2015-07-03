@@ -447,6 +447,11 @@ function dotclearUpgrade($core)
 						" AND setting_ns = 'system' ".
 						" AND setting_value = '/\\.php\$/i' ";
 				$core->con->execute($strReq);
+				# Some new settings should be initialized, prepare db queries
+				$strReq = 'INSERT INTO '.$core->prefix.'setting'.
+						' (setting_id,setting_ns,setting_value,setting_type,setting_label)'.
+						' VALUES(\'%s\',\'system\',\'%s\',\'boolean\',\'%s\')';
+				$core->con-execute(sprintf($strReq,'no_search','0','Disable internal search system'));
 			}
 
 			$core->setVersion('core',DC_VERSION);
