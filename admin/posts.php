@@ -100,7 +100,8 @@ if (!$core->error->flag())
 	__('Status') => 'post_status',
 	__('Selected') => 'post_selected',
 	__('Number of comments') => 'nb_comment',
-	__('Number of trackbacks') => 'nb_trackback'
+	__('Number of trackbacks') => 'nb_trackback',
+	__('Password') => 'post_password'
 	);
 
 	$order_combo = array(
