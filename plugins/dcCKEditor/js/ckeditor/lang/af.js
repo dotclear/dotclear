@@ -262,7 +262,6 @@ CKEDITOR.lang['af'] = {
     },
     image : 
     {
-    	alertUrl : 'Gee URL van afbeelding.',
     	alt : 'Alternatiewe teks',
     	border : 'Rand',
     	btnUpload : 'Stuur na bediener',

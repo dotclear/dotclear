@@ -262,7 +262,6 @@ CKEDITOR.lang['zh-cn'] = {
     },
     image : 
     {
-    	alertUrl : '请输入图像地址',
     	alt : '替换文本',
     	border : '边框大小',
     	btnUpload : '上传到服务器',

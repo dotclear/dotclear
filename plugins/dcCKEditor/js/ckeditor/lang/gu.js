@@ -262,7 +262,6 @@ CKEDITOR.lang['gu'] = {
     },
     image : 
     {
-    	alertUrl : 'ચિત્રની URL ટાઇપ કરો',
     	alt : 'ઑલ્ટર્નટ ટેક્સ્ટ',
     	border : 'બોર્ડર',
     	btnUpload : 'આ સર્વરને મોકલવું',

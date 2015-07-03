@@ -262,7 +262,6 @@ CKEDITOR.lang['es'] = {
     },
     image : 
     {
-    	alertUrl : 'Por favor escriba la URL de la imagen',
     	alt : 'Texto Alternativo',
     	border : 'Borde',
     	btnUpload : 'Enviar al Servidor',
@@ -400,7 +399,7 @@ CKEDITOR.lang['es'] = {
     },
     button : 
     {
-    	selectedLabel : '%1 (Selected)'
+    	selectedLabel : '%1 (Seleccionado)'
     },
     blockquote : 
     {
@@ -486,7 +485,7 @@ CKEDITOR.lang['es'] = {
     	alignTop : 'Tope',
     	alignMiddle : 'Centro',
     	alignBottom : 'Pie',
-    	alignNone : 'None',
+    	alignNone : 'Ninguno',
     	invalidValue : 'Valor no válido',
     	invalidHeight : 'Altura debe ser un número.',
     	invalidWidth : 'Anchura debe ser un número.',

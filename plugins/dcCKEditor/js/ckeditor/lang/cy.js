@@ -262,7 +262,6 @@ CKEDITOR.lang['cy'] = {
     },
     image : 
     {
-    	alertUrl : 'Rhowch URL y ddelwedd',
     	alt : 'Testun Amgen',
     	border : 'Ymyl',
     	btnUpload : 'Anfon i\'r Gweinydd',

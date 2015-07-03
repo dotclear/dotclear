@@ -262,7 +262,6 @@ CKEDITOR.lang['tr'] = {
     },
     image : 
     {
-    	alertUrl : 'Lütfen resmin URL\'sini yazınız',
     	alt : 'Alternatif Yazı',
     	border : 'Kenar',
     	btnUpload : 'Sunucuya Yolla',
@@ -425,7 +424,7 @@ CKEDITOR.lang['tr'] = {
     	userGuide : 'CKEditor Kullanıcı Kılavuzu'
     },
     editor : 'Zengin Metin Editörü',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Zengin Metin Editör Paneli',
     common : 
     {
     	editorHelp : 'Yardım için ALT 0 tuşlarına basın',

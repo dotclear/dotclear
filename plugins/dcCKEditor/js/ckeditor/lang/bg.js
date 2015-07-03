@@ -15,7 +15,7 @@ CKEDITOR.lang['bg'] = {
     	toolbarGroups : 
     	{
     		document : 'Документ',
-    		clipboard : 'Clipboard/Undo',
+    		clipboard : 'Клипборд/Отмяна',
     		editing : 'Промяна',
     		forms : 'Форми',
     		basicstyles : 'Базови стилове',
@@ -127,7 +127,7 @@ CKEDITOR.lang['bg'] = {
     },
     sourcearea : 
     {
-    	toolbar : 'Източник'
+    	toolbar : 'Изходен код'
     },
     removeformat : 
     {
@@ -262,7 +262,6 @@ CKEDITOR.lang['bg'] = {
     },
     image : 
     {
-    	alertUrl : 'Моля, въведете пълния път до изображението',
     	alt : 'Алтернативен текст',
     	border : 'Рамка',
     	btnUpload : 'Изпрати я на сървъра',
@@ -321,15 +320,15 @@ CKEDITOR.lang['bg'] = {
     	advisoryTitleInputLabel : 'Препоръчително заглавие',
     	cssClassInputLabel : 'Класове за CSS',
     	edit : 'Промяна на Div',
-    	inlineStyleInputLabel : 'Inline Style',
+    	inlineStyleInputLabel : 'В редица',
     	langDirLTRLabel : 'Ляво на Дясно (ЛнД)',
     	langDirLabel : 'Посока на езика',
     	langDirRTLLabel : 'Дясно на Ляво (ДнЛ)',
     	languageCodeInputLabel : ' Код на езика',
     	remove : 'Премахване на Div',
     	styleSelectLabel : 'Стил',
-    	title : 'Create Div Container',
-    	toolbar : 'Create Div Container'
+    	title : 'Създай Div блок',
+    	toolbar : 'Създаване на Div контейнер'
     },
     contextmenu : 
     {
@@ -400,7 +399,7 @@ CKEDITOR.lang['bg'] = {
     },
     button : 
     {
-    	selectedLabel : '%1 (Selected)'
+    	selectedLabel : '%1 (Избрано)'
     },
     blockquote : 
     {
@@ -425,7 +424,7 @@ CKEDITOR.lang['bg'] = {
     	userGuide : 'CKEditor User\'s Guide'
     },
     editor : 'Текстов редактор за форматиран текст',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'Панел на текстовия редактор',
     common : 
     {
     	editorHelp : 'натиснете ALT 0 за помощ',
@@ -486,7 +485,7 @@ CKEDITOR.lang['bg'] = {
     	alignTop : 'Горе',
     	alignMiddle : 'По средата',
     	alignBottom : 'Долу',
-    	alignNone : 'None',
+    	alignNone : 'Без подравняване',
     	invalidValue : 'Невалидна стойност.',
     	invalidHeight : 'Височината трябва да е число.',
     	invalidWidth : 'Ширина требе да е число.',

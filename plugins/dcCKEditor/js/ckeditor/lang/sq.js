@@ -262,7 +262,6 @@ CKEDITOR.lang['sq'] = {
     },
     image : 
     {
-    	alertUrl : 'Ju lutemi shkruani URL-në e fotos',
     	alt : 'Tekst Alternativ',
     	border : 'Korniza',
     	btnUpload : 'Dërgo në server',

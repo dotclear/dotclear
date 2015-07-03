@@ -262,7 +262,6 @@ CKEDITOR.lang['ka'] = {
     },
     image : 
     {
-    	alertUrl : 'აკრიფეთ სურათის URL',
     	alt : 'სანაცვლო ტექსტი',
     	border : 'ჩარჩო',
     	btnUpload : 'სერვერისთვის გაგზავნა',

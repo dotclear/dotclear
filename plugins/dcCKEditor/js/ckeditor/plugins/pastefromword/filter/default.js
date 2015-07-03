@@ -248,6 +248,11 @@
 							// The best situation: "mso-list:l0 level1 lfo2" tells the belonged list root, list item indentation, etc.
 							[ ( /^mso-list$/ ), null, function( val ) {
 								val = val.split( ' ' );
+								// Ignore values like "mso-list:Ignore". (FF #11976)
+								if ( val.length < 2 ) {
+									return;
+								}
+
 								var listId = Number( val[ 0 ].match( /\d+/ ) ),
 									indent = Number( val[ 1 ].match( /\d+/ ) );
 
@@ -596,6 +601,10 @@
 					element.name = styleDef.element;
 					CKEDITOR.tools.extend( element.attributes, CKEDITOR.tools.clone( styleDef.attributes ) );
 					element.addStyle( CKEDITOR.style.getStyleText( styleDef ) );
+					// Mark style classes as allowed so they will not be filtered out (#12256).
+					if ( styleDef.attributes && styleDef.attributes[ 'class' ] ) {
+						element.classWhiteList = ' ' + styleDef.attributes[ 'class' ] + ' ';
+					}
 				} : function() {};
 			},
 
@@ -1058,7 +1067,13 @@
 					// Only Firefox carry style sheet from MS-Word, which
 					// will be applied by us manually. For other browsers
 					// the css className is useless.
-					'class': falsyFilter,
+					// We need to keep classes added as a style (#12256).
+					'class': function( value, element ) {
+						if ( element.classWhiteList && element.classWhiteList.indexOf( ' ' + value + ' ' ) != -1 ) {
+							return value;
+						}
+						return false;
+					},
 
 					// MS-Word always generate 'background-color' along with 'bgcolor',
 					// simply drop the deprecated attributes.
@@ -1121,6 +1136,10 @@
 	};
 
 	CKEDITOR.cleanWord = function( data, editor ) {
+		// We get <![if !supportLists]> and <![endif]> when we started using `dataTransfer` instead of pasteBin, so we need to
+		// change <![if !supportLists]> to <!--[if !supportLists]--> and <![endif]> to <!--[endif]-->.
+		data = data.replace( /<!\[([^\]]*?)\]>/g, '<!--[$1]-->' );
+
 		// Firefox will be confused by those downlevel-revealed IE conditional
 		// comments, fixing them first( convert it to upperlevel-revealed one ).
 		// e.g. <![if !vml]>...<![endif]>
@@ -1159,7 +1178,7 @@
 		try {
 			data = dataProcessor.toHtml( data );
 		} catch ( e ) {
-			alert( editor.lang.pastefromword.error ); // jshint ignore:line
+			editor.showNotification( editor.lang.pastefromword.error );
 		}
 
 		// Below post processing those things that are unable to delivered by filter rules.

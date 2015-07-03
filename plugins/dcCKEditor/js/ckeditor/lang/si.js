@@ -262,7 +262,6 @@ CKEDITOR.lang['si'] = {
     },
     image : 
     {
-    	alertUrl : 'කරුණාකර රුපයේ URL ලියන්න',
     	alt : 'විකල්ප ',
     	border : 'සීමාවවල ',
     	btnUpload : 'සේවාදායකය වෙත යොමුකිරිම',

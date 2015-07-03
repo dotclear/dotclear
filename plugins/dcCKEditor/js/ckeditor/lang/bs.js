@@ -262,7 +262,6 @@ CKEDITOR.lang['bs'] = {
     },
     image : 
     {
-    	alertUrl : 'Molimo ukucajte URL od slike.',
     	alt : 'Tekst na slici',
     	border : 'Okvir',
     	btnUpload : 'Šalji na server',

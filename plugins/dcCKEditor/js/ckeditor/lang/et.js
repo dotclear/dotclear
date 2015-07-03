@@ -262,7 +262,6 @@ CKEDITOR.lang['et'] = {
     },
     image : 
     {
-    	alertUrl : 'Palun kirjuta pildi URL',
     	alt : 'Alternatiivne tekst',
     	border : 'Joon',
     	btnUpload : 'Saada serverisse',

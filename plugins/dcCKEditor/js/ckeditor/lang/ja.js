@@ -262,7 +262,6 @@ CKEDITOR.lang['ja'] = {
     },
     image : 
     {
-    	alertUrl : '画像のURLを入力してください',
     	alt : '代替テキスト',
     	border : '枠線の幅',
     	btnUpload : 'サーバーに送信',

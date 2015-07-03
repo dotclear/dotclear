@@ -262,7 +262,6 @@ CKEDITOR.lang['vi'] = {
     },
     image : 
     {
-    	alertUrl : 'Hãy đưa vào đường dẫn của ảnh',
     	alt : 'Chú thích ảnh',
     	border : 'Đường viền',
     	btnUpload : 'Tải lên máy chủ',

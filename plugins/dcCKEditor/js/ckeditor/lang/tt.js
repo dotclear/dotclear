@@ -88,11 +88,11 @@ CKEDITOR.lang['tt'] = {
     	headersColumn : 'Беренче багана',
     	headersNone : 'Һичбер',
     	headersRow : 'Беренче юл',
-    	invalidBorder : 'Чик киңлеге сан булырга тиеш',
+    	invalidBorder : 'Чик киңлеге сан булырга тиеш.',
     	invalidCellPadding : 'Cell padding must be a positive number.',
-    	invalidCellSpacing : 'Cell spacing must be a positive number.',
+    	invalidCellSpacing : 'Күзәнәкләр аралары уңай сан булырга тиеш.',
     	invalidCols : 'Number of columns must be a number greater than 0.',
-    	invalidHeight : 'Таблица биеклеге сан булырга тиеш',
+    	invalidHeight : 'Таблица биеклеге сан булырга тиеш.',
     	invalidRows : 'Number of rows must be a number greater than 0.',
     	invalidWidth : 'Таблица киңлеге сан булырга тиеш',
     	menu : 'Таблица үзлекләре',
@@ -262,12 +262,11 @@ CKEDITOR.lang['tt'] = {
     },
     image : 
     {
-    	alertUrl : 'Рәсемгә сылталама языгыз',
     	alt : 'Альтернатив текст',
     	border : 'Чик',
     	btnUpload : 'Серверга җибәрү',
     	button2Img : 'Do you want to transform the selected image button on a simple image?',
-    	hSpace : 'HSpace',
+    	hSpace : 'Горизонталь ара',
     	img2Button : 'Do you want to transform the selected image on a image button?',
     	infoTab : 'Рәсем тасвирламасы',
     	linkTab : 'Сылталама',
@@ -278,10 +277,10 @@ CKEDITOR.lang['tt'] = {
     	titleButton : 'Рәсемле төймə үзлекләре',
     	upload : 'Йөкләү',
     	urlMissing : 'Image source URL is missing.',
-    	vSpace : 'VSpace',
-    	validateBorder : 'Чик киңлеге сан булырга тиеш',
-    	validateHSpace : 'HSpace must be a whole number.',
-    	validateVSpace : 'VSpace must be a whole number.'
+    	vSpace : 'Вертикаль ара',
+    	validateBorder : 'Чик киңлеге сан булырга тиеш.',
+    	validateHSpace : 'Горизонталь ара бөтен сан булырга тиеш.',
+    	validateVSpace : 'Вертикаль ара бөтен сан булырга тиеш.'
     },
     horizontalrule : 
     {
@@ -382,7 +381,7 @@ CKEDITOR.lang['tt'] = {
     		E6E6FA : 'Ала миләүшә',
     		FFF : 'Ак'
     	},
-    	more : 'Башка төсләр',
+    	more : 'Башка төсләр...',
     	panelTitle : 'Төсләр',
     	textColorTitle : 'Текст төсе'
     },
@@ -419,7 +418,7 @@ CKEDITOR.lang['tt'] = {
     {
     	copy : 'Copyright &copy; $1. Бар хокуклар сакланган',
     	dlgTitle : 'CKEditor турында',
-    	help : 'Check $1 for help.',
+    	help : 'Ярдәм өчен $1 тикшереп карагыз.',
     	moreInfo : 'For licensing information please visit our web site:',
     	title : 'CKEditor турында',
     	userGuide : 'CKEditor кулланмасы'
@@ -463,7 +462,7 @@ CKEDITOR.lang['tt'] = {
     	resize : 'Зурлыкны үзгәртү',
     	generalTab : 'Төп',
     	advancedTab : 'Киңәйтелгән көйләүләр',
-    	validateNumberFailed : 'Әлеге кыйммәт сан түгел',
+    	validateNumberFailed : 'Әлеге кыйммәт сан түгел.',
     	confirmNewPage : 'Any unsaved changes to this content will be lost. Are you sure you want to load new page?',
     	confirmCancel : 'You have changed some options. Are you sure you want to close the dialog window?',
     	options : 'Үзлекләр',
@@ -487,9 +486,9 @@ CKEDITOR.lang['tt'] = {
     	alignMiddle : 'Уртага',
     	alignBottom : 'Аска',
     	alignNone : 'Һичбер',
-    	invalidValue : 'Дөрес булмаган кыйммәт',
-    	invalidHeight : 'Биеклек сан булырга тиеш',
-    	invalidWidth : 'Киңлек сан булырга тиеш',
+    	invalidValue : 'Дөрес булмаган кыйммәт.',
+    	invalidHeight : 'Биеклек сан булырга тиеш.',
+    	invalidWidth : 'Киңлек сан булырга тиеш.',
     	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',

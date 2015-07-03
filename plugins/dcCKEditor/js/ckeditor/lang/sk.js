@@ -262,7 +262,6 @@ CKEDITOR.lang['sk'] = {
     },
     image : 
     {
-    	alertUrl : 'Zadajte prosím URL obrázka',
     	alt : 'Alternatívny text',
     	border : 'Rám (border)',
     	btnUpload : 'Odoslať to na server',

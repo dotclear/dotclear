@@ -262,7 +262,6 @@ CKEDITOR.lang['bn'] = {
     },
     image : 
     {
-    	alertUrl : 'অনুগ্রহক করে ছবির URL টাইপ করুন',
     	alt : 'বিকল্প টেক্সট',
     	border : 'বর্ডার',
     	btnUpload : 'ইহাকে সার্ভারে প্রেরন কর',

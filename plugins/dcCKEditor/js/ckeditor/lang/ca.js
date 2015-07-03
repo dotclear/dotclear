@@ -262,7 +262,6 @@ CKEDITOR.lang['ca'] = {
     },
     image : 
     {
-    	alertUrl : 'Si us plau, escriviu la URL de la imatge',
     	alt : 'Text alternatiu',
     	border : 'Vora',
     	btnUpload : 'Envia-la al servidor',

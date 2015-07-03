@@ -262,7 +262,6 @@ CKEDITOR.lang['id'] = {
     },
     image : 
     {
-    	alertUrl : 'Mohon tulis URL gambar',
     	alt : 'Teks alternatif',
     	border : 'Batas',
     	btnUpload : 'Kirim ke Server',
