@@ -121,7 +121,7 @@ if (!empty($_GET['zipdl']) && $core->auth->check('media_admin',$core->blog->id))
 		$zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
 		$zip->addDirectory($core->media->root.'/'.$d,'',true);
 
-		header('Content-Disposition: attachment;filename='.($d ? $d : 'media').'.zip');
+		header('Content-Disposition: attachment;filename='.date('Y-m-d').'-'.$core->blog->id.'-'.($d ? $d : 'media').'.zip');
 		header('Content-Type: application/x-zip');
 		$zip->write();
 		unset($zip);
