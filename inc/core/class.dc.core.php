@@ -1429,6 +1429,8 @@ class dcCore
 				'URL handle mode (path_info or query_string)'),
 				array('use_smilies','boolean',false,
 				'Show smilies on entries and comments'),
+				array('no_search','boolean',false,
+				'Disable search'),
 				array('inc_subcats','boolean',false,
 				'Include sub-categories in category page and category posts feed'),
 				array('wiki_comments','boolean',false,

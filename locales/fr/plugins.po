@@ -2627,3 +2627,6 @@ msgstr "La balise {{tpl:Breadcrumb [separator=" &amp;rsaquo; "]}} doit Ãªtre prÃ
 
 msgid "Do not encapsulate breadcrumb in a &lt;p id="breadcrumb"&gt;...&lt;/p&gt; tag."
 msgstr "Ne pas encadrer le fil d'Ariane avec une balise &lt;p id="breadcrumb"&gt;...&lt;/p&gt;."
+
+msgid "Search:"
+msgstr "Recherche :"
