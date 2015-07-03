@@ -89,7 +89,7 @@ class dcImportFlat extends dcIeModule
 
 		if ($full_upl !== null && $this->core->auth->isSuperAdmin())
 		{
-			if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['your_pwd']))) {
+			if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword($this->core->auth->crypt($_POST['your_pwd']))) {
 				throw new Exception(__('Password verification failed'));
 			}
 

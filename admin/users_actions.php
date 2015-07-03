@@ -96,7 +96,7 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 	{
 		try
 		{
-			if (empty($_POST['your_pwd']) || !$core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['your_pwd']))) {
+			if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($core->auth->crypt($_POST['your_pwd']))) {
 				throw new Exception(__('Password verification failed'));
 			}
 
