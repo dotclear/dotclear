@@ -262,7 +262,6 @@ CKEDITOR.lang['km'] = {
     },
     image : 
     {
-    	alertUrl : 'សូម\u200bបញ្ចូល URL រូបភាព',
     	alt : 'អត្ថបទជំនួស',
     	border : 'ស៊ុម',
     	btnUpload : 'ផ្ញើ\u200bទៅ\u200bម៉ាស៊ីន\u200bបម្រើ',

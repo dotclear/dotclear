@@ -262,7 +262,6 @@ CKEDITOR.lang['no'] = {
     },
     image : 
     {
-    	alertUrl : 'Vennligst skriv bilde-urlen',
     	alt : 'Alternativ tekst',
     	border : 'Ramme',
     	btnUpload : 'Send det til serveren',

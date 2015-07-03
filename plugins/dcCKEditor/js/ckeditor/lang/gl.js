@@ -116,7 +116,7 @@ CKEDITOR.lang['gl'] = {
     	label : 'Estilos',
     	panelTitle : 'Estilos de formatando',
     	panelTitle1 : 'Estilos de bloque',
-    	panelTitle2 : 'Estilos de carácter',
+    	panelTitle2 : 'Estilos de liña',
     	panelTitle3 : 'Estilos de obxecto'
     },
     specialchar : 
@@ -262,7 +262,6 @@ CKEDITOR.lang['gl'] = {
     },
     image : 
     {
-    	alertUrl : 'Escriba o URL da imaxe',
     	alt : 'Texto alternativo',
     	border : 'Bordo',
     	btnUpload : 'Enviar ao servidor',
@@ -318,7 +317,7 @@ CKEDITOR.lang['gl'] = {
     div : 
     {
     	IdInputLabel : 'ID',
-    	advisoryTitleInputLabel : 'Título',
+    	advisoryTitleInputLabel : 'Título informativo',
     	cssClassInputLabel : 'Clases da folla de estilos',
     	edit : 'Editar Div',
     	inlineStyleInputLabel : 'Estilo de liña',
@@ -486,7 +485,7 @@ CKEDITOR.lang['gl'] = {
     	alignTop : 'Arriba',
     	alignMiddle : 'Centro',
     	alignBottom : 'Abaixo',
-    	alignNone : 'None',
+    	alignNone : 'Ningún',
     	invalidValue : 'Valor incorrecto.',
     	invalidHeight : 'O alto debe ser un número.',
     	invalidWidth : 'O largo debe ser un número.',

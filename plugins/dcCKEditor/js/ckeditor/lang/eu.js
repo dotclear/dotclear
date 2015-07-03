@@ -262,7 +262,6 @@ CKEDITOR.lang['eu'] = {
     },
     image : 
     {
-    	alertUrl : 'Mesedez Irudiaren URLa idatzi',
     	alt : 'Ordezko Testua',
     	border : 'Ertza',
     	btnUpload : 'Zerbitzarira bidalia',

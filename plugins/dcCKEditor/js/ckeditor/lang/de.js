@@ -10,14 +10,14 @@ CKEDITOR.lang['de'] = {
     },
     toolbar : 
     {
-    	toolbarCollapse : 'Symbolleiste einklappen',
-    	toolbarExpand : 'Symbolleiste ausklappen',
+    	toolbarCollapse : 'Werkzeugleiste einklappen',
+    	toolbarExpand : 'Werkzeugleiste ausklappen',
     	toolbarGroups : 
     	{
     		document : 'Dokument',
     		clipboard : 'Zwischenablage/Rückgängig',
     		editing : 'Editieren',
-    		forms : 'Formularen',
+    		forms : 'Formulare',
     		basicstyles : 'Grundstile',
     		paragraph : 'Absatz',
     		links : 'Links',
@@ -26,20 +26,20 @@ CKEDITOR.lang['de'] = {
     		colors : 'Farben',
     		tools : 'Werkzeuge'
     	},
-    	toolbars : 'Editor Symbolleisten'
+    	toolbars : 'Editor Werkzeugleisten'
     },
     templates : 
     {
     	button : 'Vorlagen',
-    	emptyListMsg : '(keine Vorlagen definiert)',
-    	insertOption : 'Aktuellen Inhalt ersetzen',
-    	options : 'Vorlagen Optionen',
-    	selectPromptMsg : 'Klicken Sie auf eine Vorlage, um sie im Editor zu öffnen (der aktuelle Inhalt wird dabei gelöscht!):',
-    	title : 'Vorlagen'
+    	emptyListMsg : '(Keine Vorlagen definiert)',
+    	insertOption : 'Aktuelle Inhalte ersetzen',
+    	options : 'Vorlagenoptionen',
+    	selectPromptMsg : 'Klicken Sie auf eine Vorlage, um sie im Editor zu öffnen',
+    	title : 'Inhaltsvorlagen'
     },
     table : 
     {
-    	border : 'Rahmen',
+    	border : 'Rahmengröße',
     	caption : 'Überschrift',
     	cell : 
     	{
@@ -52,7 +52,7 @@ CKEDITOR.lang['de'] = {
     		mergeDown : 'Nach unten verbinden',
     		splitHorizontal : 'Zelle horizontal teilen',
     		splitVertical : 'Zelle vertikal teilen',
-    		title : 'Zellen-Eigenschaften',
+    		title : 'Zelleneigenschaften',
     		cellType : 'Zellart',
     		rowSpan : 'Anzahl Zeilen verbinden',
     		colSpan : 'Anzahl Spalten verbinden',
@@ -66,8 +66,8 @@ CKEDITOR.lang['de'] = {
     		header : 'Überschrift',
     		yes : 'Ja',
     		no : 'Nein',
-    		invalidWidth : 'Zellenbreite muß eine Zahl sein.',
-    		invalidHeight : 'Zellenhöhe muß eine Zahl sein.',
+    		invalidWidth : 'Zellenbreite muss eine Zahl sein.',
+    		invalidHeight : 'Zellenhöhe muss eine Zahl sein.',
     		invalidRowSpan : '"Anzahl Zeilen verbinden" muss eine Ganzzahl sein.',
     		invalidColSpan : '"Anzahl Spalten verbinden" muss eine Ganzzahl sein.',
     		chooseColor : 'Wählen'
@@ -115,15 +115,15 @@ CKEDITOR.lang['de'] = {
     {
     	label : 'Stil',
     	panelTitle : 'Formatierungsstile',
-    	panelTitle1 : 'Block Stilart',
+    	panelTitle1 : 'Blockstile',
     	panelTitle2 : 'Inline Stilart',
-    	panelTitle3 : 'Objekt Stilart'
+    	panelTitle3 : 'Objektstile'
     },
     specialchar : 
     {
-    	options : 'Sonderzeichen Optionen',
+    	options : 'Sonderzeichenoptionen',
     	title : 'Sonderzeichen auswählen',
-    	toolbar : 'Sonderzeichen einfügen/editieren'
+    	toolbar : 'Sonderzeichen einfügen'
     },
     sourcearea : 
     {
@@ -131,7 +131,7 @@ CKEDITOR.lang['de'] = {
     },
     removeformat : 
     {
-    	toolbar : 'Formatierungen entfernen'
+    	toolbar : 'Formatierung entfernen'
     },
     print : 
     {
@@ -139,15 +139,15 @@ CKEDITOR.lang['de'] = {
     },
     pastetext : 
     {
-    	button : 'Als Text einfügen',
-    	title : 'Als Text einfügen'
+    	button : 'Als Klartext einfügen',
+    	title : 'Als Klartext einfügen'
     },
     pastefromword : 
     {
     	confirmCleanup : 'Der Text, den Sie einfügen möchten, scheint aus MS-Word kopiert zu sein. Möchten Sie ihn zuvor bereinigen lassen?',
     	error : 'Aufgrund eines internen Fehlers war es nicht möglich die eingefügten Daten zu bereinigen',
-    	title : 'Aus MS-Word einfügen',
-    	toolbar : 'Aus MS-Word einfügen'
+    	title : 'Aus Word einfügen',
+    	toolbar : 'Aus Word einfügen'
     },
     maximize : 
     {
@@ -160,30 +160,30 @@ CKEDITOR.lang['de'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenisch Nummerierung',
-    	bulletedTitle : 'Listen-Eigenschaften',
+    	armenian : 'Armenische Nummerierung',
+    	bulletedTitle : 'Aufzählungslisteneigenschaften',
     	circle : 'Ring',
     	decimal : 'Dezimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Dezimal mit führende  Null (01, 02, 03, etc.)',
+    	decimalLeadingZero : 'Dezimal mit führender Null (01, 02, 03, usw.)',
     	disc : 'Kreis',
-    	georgian : 'Georgisch Nummerierung (an, ban, gan, etc.)',
-    	lowerAlpha : 'Klein alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Klein griechisch (alpha, beta, gamma, etc.)',
-    	lowerRoman : 'Klein römisch (i, ii, iii, iv, v, etc.)',
+    	georgian : 'Georgische Nummerierung (an, ban, gan, usw.)',
+    	lowerAlpha : 'Klein Alpha (a, b, c, d, e, usw.)',
+    	lowerGreek : 'Klein griechisch (alpha, beta, gamma, usw.)',
+    	lowerRoman : 'Klein römisch (i, ii, iii, iv, v, usw.)',
     	none : 'Keine',
-    	notset : '<nicht gesetzt>',
-    	numberedTitle : 'Nummerierte Listen-Eigenschaften',
+    	notset : '<nicht festgelegt>',
+    	numberedTitle : 'Nummerierte Listeneigenschaften',
     	square : 'Quadrat',
     	start : 'Start',
     	type : 'Typ',
     	upperAlpha : 'Groß alpha (A, B, C, D, E, etc.)',
-    	upperRoman : 'Groß römisch (I, II, III, IV, V, etc.)',
-    	validateStartNumber : 'List Startnummer muss eine ganze Zahl sein.'
+    	upperRoman : 'Groß römisch (I, II, III, IV, V, usw.)',
+    	validateStartNumber : 'Listenstartnummer muss eine ganze Zahl sein.'
     },
     list : 
     {
     	bulletedlist : 'Liste',
-    	numberedlist : 'Nummerierte Liste'
+    	numberedlist : 'Nummerierte Liste einfügen/entfernen'
     },
     link : 
     {
@@ -193,42 +193,42 @@ CKEDITOR.lang['de'] = {
     	advisoryTitle : 'Titel Beschreibung',
     	anchor : 
     	{
-    		toolbar : 'Anker einfügen/editieren',
-    		menu : 'Anker-Eigenschaften',
-    		title : 'Anker-Eigenschaften',
-    		name : 'Anker Name',
+    		toolbar : 'Anker',
+    		menu : 'Anker bearbeiten',
+    		title : 'Ankereigenschaften',
+    		name : 'Ankername',
     		errorName : 'Bitte geben Sie den Namen des Ankers ein',
     		remove : 'Anker entfernen'
     	},
-    	anchorId : 'nach Element Id',
-    	anchorName : 'nach Anker Name',
-    	charset : 'Ziel-Zeichensatz',
-    	cssClasses : 'Stylesheet Klasse',
-    	emailAddress : 'E-Mail Adresse',
+    	anchorId : 'Nach Elementkennung',
+    	anchorName : 'Nach Ankername',
+    	charset : 'Verknüpfter Ressourcenzeichensatz',
+    	cssClasses : 'Formatvorlagenklasse',
+    	emailAddress : 'E-Mail-Adresse',
     	emailBody : 'Nachrichtentext',
     	emailSubject : 'Betreffzeile',
-    	id : 'Id',
-    	info : 'Link-Info',
-    	langCode : 'Sprachenkürzel',
+    	id : 'Kennung',
+    	info : 'Linkinfo',
+    	langCode : 'Sprachcode',
     	langDir : 'Schreibrichtung',
     	langDirLTR : 'Links nach Rechts (LTR)',
     	langDirRTL : 'Rechts nach Links (RTL)',
-    	menu : 'Link editieren',
+    	menu : 'Link bearbeiten',
     	name : 'Name',
-    	noAnchors : '(keine Anker im Dokument vorhanden)',
-    	noEmail : 'Bitte geben Sie e-Mail Adresse an',
+    	noAnchors : '(Keine Anker im Dokument vorhanden)',
+    	noEmail : 'Bitte geben Sie E-Mail-Adresse an',
     	noUrl : 'Bitte geben Sie die Link-URL an',
     	other : '<andere>',
     	popupDependent : 'Abhängig (Netscape)',
-    	popupFeatures : 'Pop-up Fenster-Eigenschaften',
+    	popupFeatures : 'Pop-up Fenstereigenschaften',
     	popupFullScreen : 'Vollbild (IE)',
     	popupLeft : 'Linke Position',
-    	popupLocationBar : 'Adress-Leiste',
-    	popupMenuBar : 'Menü-Leiste',
+    	popupLocationBar : 'Adressleiste',
+    	popupMenuBar : 'Menüleiste',
     	popupResizable : 'Größe änderbar',
     	popupScrollBars : 'Rollbalken',
     	popupStatusBar : 'Statusleiste',
-    	popupToolbar : 'Symbolleiste',
+    	popupToolbar : 'Werkzeugleiste',
     	popupTop : 'Obere Position',
     	rel : 'Beziehung',
     	selectAnchor : 'Anker auswählen',
@@ -262,26 +262,25 @@ CKEDITOR.lang['de'] = {
     },
     image : 
     {
-    	alertUrl : 'Bitte geben Sie die Bild-URL an',
     	alt : 'Alternativer Text',
     	border : 'Rahmen',
     	btnUpload : 'Zum Server senden',
-    	button2Img : 'Möchten Sie den gewählten Bild-Button in ein einfaches Bild umwandeln?',
+    	button2Img : 'Möchten Sie die ausgewählte Bildschaltfläche in ein einfaches Bild umwandeln?',
     	hSpace : 'Horizontal-Abstand',
-    	img2Button : 'Möchten Sie das gewählten Bild in einen Bild-Button umwandeln?',
-    	infoTab : 'Bild-Info',
+    	img2Button : 'Möchten Sie das ausgewählte Bild in eine Bildschaltfläche umwandeln?',
+    	infoTab : 'Bildinfo',
     	linkTab : 'Link',
     	lockRatio : 'Größenverhältnis beibehalten',
-    	menu : 'Bild-Eigenschaften',
+    	menu : 'Bildeigenschaften',
     	resetSize : 'Größe zurücksetzen',
-    	title : 'Bild-Eigenschaften',
-    	titleButton : 'Bildbutton-Eigenschaften',
+    	title : 'Bildeigenschaften',
+    	titleButton : 'Bildschaltflächeneigenschaften',
     	upload : 'Hochladen',
-    	urlMissing : 'Imagequelle URL fehlt.',
+    	urlMissing : 'Bildquellen-URL fehlt.',
     	vSpace : 'Vertikal-Abstand',
-    	validateBorder : 'Rahmen muß eine ganze Zahl sein.',
-    	validateHSpace : 'Horizontal-Abstand muß eine ganze Zahl sein.',
-    	validateVSpace : 'Vertikal-Abstand muß eine ganze Zahl sein.'
+    	validateBorder : 'Rahmen muss eine ganze Zahl sein.',
+    	validateHSpace : 'Horizontal-Abstand muss eine ganze Zahl sein.',
+    	validateVSpace : 'Vertikal-Abstand muss eine ganze Zahl sein.'
     },
     horizontalrule : 
     {
@@ -290,8 +289,8 @@ CKEDITOR.lang['de'] = {
     format : 
     {
     	label : 'Format',
-    	panelTitle : 'Format',
-    	tag_address : 'Addresse',
+    	panelTitle : 'Absatzformat',
+    	tag_address : 'Adresse',
     	tag_div : 'Normal (DIV)',
     	tag_h1 : 'Überschrift 1',
     	tag_h2 : 'Überschrift 2',
@@ -305,35 +304,35 @@ CKEDITOR.lang['de'] = {
     fakeobjects : 
     {
     	anchor : 'Anker',
-    	flash : 'Flash Animation',
+    	flash : 'Flash-Animation',
     	hiddenfield : 'Verstecktes Feld',
     	iframe : 'IFrame',
     	unknown : 'Unbekanntes Objekt'
     },
     elementspath : 
     {
-    	eleLabel : 'Elements Pfad',
+    	eleLabel : 'Elementepfad',
     	eleTitle : '%1 Element'
     },
     div : 
     {
-    	IdInputLabel : 'Id',
+    	IdInputLabel : 'Kennung',
     	advisoryTitleInputLabel : 'Tooltip',
-    	cssClassInputLabel : 'Stylesheet Klasse',
+    	cssClassInputLabel : 'Formatvorlagenklasse',
     	edit : 'Div bearbeiten',
     	inlineStyleInputLabel : 'Inline Stil',
     	langDirLTRLabel : 'Links nach Rechs (LTR)',
-    	langDirLabel : 'Sprache Richtung',
+    	langDirLabel : 'Sprachrichtung',
     	langDirRTLLabel : 'Rechs nach Links (RTL)',
-    	languageCodeInputLabel : 'Sprachenkürzel',
+    	languageCodeInputLabel : 'Sprachcode',
     	remove : 'Div entfernen',
-    	styleSelectLabel : 'Style',
+    	styleSelectLabel : 'Stil',
     	title : 'Div Container erzeugen',
     	toolbar : 'Div Container erzeugen'
     },
     contextmenu : 
     {
-    	options : 'Kontextmenü Optionen'
+    	options : 'Kontextmenüoptionen'
     },
     colorbutton : 
     {
@@ -346,7 +345,7 @@ CKEDITOR.lang['de'] = {
     		'8B4513' : 'Braun',
     		'2F4F4F' : 'Dunkles Schiefergrau',
     		'008080' : 'Blaugrün',
-    		'000080' : 'Navy',
+    		'000080' : 'Marineblau',
     		'4B0082' : 'Indigo',
     		'696969' : 'Dunkelgrau',
     		B22222 : 'Ziegelrot',
@@ -354,7 +353,7 @@ CKEDITOR.lang['de'] = {
     		DAA520 : 'Goldgelb',
     		'006400' : 'Dunkelgrün',
     		'40E0D0' : 'Türkis',
-    		'0000CD' : 'Medium Blau',
+    		'0000CD' : 'Mittelblau',
     		'800080' : 'Lila',
     		'808080' : 'Grau',
     		F00 : 'Rot',
@@ -363,13 +362,13 @@ CKEDITOR.lang['de'] = {
     		'008000' : 'Grün',
     		'0FF' : 'Cyan',
     		'00F' : 'Blau',
-    		EE82EE : 'Hellviolett',
+    		EE82EE : 'Violett',
     		A9A9A9 : 'Dunkelgrau',
     		FFA07A : 'Helles Lachsrosa',
     		FFA500 : 'Orange',
     		FFFF00 : 'Gelb',
     		'00FF00' : 'Lime',
-    		AFEEEE : 'Blaß-Türkis',
+    		AFEEEE : 'Blasstürkis',
     		ADD8E6 : 'Hellblau',
     		DDA0DD : 'Pflaumenblau',
     		D3D3D3 : 'Hellgrau',
@@ -419,7 +418,7 @@ CKEDITOR.lang['de'] = {
     {
     	copy : 'Copyright &copy; $1. Alle Rechte vorbehalten.',
     	dlgTitle : 'Über CKEditor',
-    	help : 'Prüfe $1 für Hilfe.',
+    	help : 'Prüfen Sie $1 für Hilfe.',
     	moreInfo : 'Für Informationen über unsere Lizenzbestimmungen besuchen sie bitte unsere Webseite:',
     	title : 'Über CKEditor',
     	userGuide : 'CKEditor Benutzerhandbuch'
@@ -437,30 +436,30 @@ CKEDITOR.lang['de'] = {
     	image : 'Bild',
     	flash : 'Flash',
     	form : 'Formular',
-    	checkbox : 'Checkbox',
-    	radio : 'Radiobutton',
-    	textField : 'Textfeld einzeilig',
-    	textarea : 'Textfeld mehrzeilig',
+    	checkbox : 'Kontrollbox',
+    	radio : 'Optionsfeld',
+    	textField : 'Textfeld',
+    	textarea : 'Textfeld',
     	hiddenField : 'Verstecktes Feld',
-    	button : 'Klickbutton',
+    	button : 'Schaltfläche',
     	select : 'Auswahlfeld',
-    	imageButton : 'Bildbutton',
-    	notSet : '<nichts>',
-    	id : 'ID',
+    	imageButton : 'Bildschaltfläche',
+    	notSet : '<nicht festgelegt>',
+    	id : 'Kennung',
     	name : 'Name',
     	langDir : 'Schreibrichtung',
     	langDirLtr : 'Links nach Rechts (LTR)',
     	langDirRtl : 'Rechts nach Links (RTL)',
-    	langCode : 'Sprachenkürzel',
-    	longDescr : 'Langform URL',
-    	cssClass : 'Stylesheet Klasse',
+    	langCode : 'Sprachcode',
+    	longDescr : 'Langbeschreibungs-URL',
+    	cssClass : 'Formatvorlagenklassen',
     	advisoryTitle : 'Titel Beschreibung',
-    	cssStyle : 'Style',
+    	cssStyle : 'Stil',
     	ok : 'OK',
     	cancel : 'Abbrechen',
     	close : 'Schließen',
     	preview : 'Vorschau',
-    	resize : 'Zum Vergrößern ziehen',
+    	resize : 'Größe ändern',
     	generalTab : 'Allgemein',
     	advancedTab : 'Erweitert',
     	validateNumberFailed : 'Dieser Wert ist keine Nummer.',

@@ -262,7 +262,6 @@ CKEDITOR.lang['fa'] = {
     },
     image : 
     {
-    	alertUrl : 'لطفا URL تصویر را بنویسید',
     	alt : 'متن جایگزین',
     	border : 'لبه',
     	btnUpload : 'به سرور بفرست',

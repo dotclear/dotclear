@@ -262,7 +262,6 @@ CKEDITOR.lang['ar'] = {
     },
     image : 
     {
-    	alertUrl : 'فضلاً أكتب الموقع الذي توجد عليه هذه الصورة.',
     	alt : 'عنوان الصورة',
     	border : 'سمك الحدود',
     	btnUpload : 'أرسلها للخادم',
@@ -400,7 +399,7 @@ CKEDITOR.lang['ar'] = {
     },
     button : 
     {
-    	selectedLabel : '%1 (Selected)'
+    	selectedLabel : '%1 (محدد)'
     },
     blockquote : 
     {

@@ -262,8 +262,7 @@ CKEDITOR.lang['hu'] = {
     },
     image : 
     {
-    	alertUrl : 'Töltse ki a kép webcímét',
-    	alt : 'Buborék szöveg',
+    	alt : 'Alternatív szöveg',
     	border : 'Keret',
     	btnUpload : 'Küldés a szerverre',
     	button2Img : 'A kiválasztott képgombból sima képet szeretne csinálni?',

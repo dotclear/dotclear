@@ -262,7 +262,6 @@ CKEDITOR.lang['fo'] = {
     },
     image : 
     {
-    	alertUrl : 'Rita slóðina til myndina',
     	alt : 'Alternativur tekstur',
     	border : 'Bordi',
     	btnUpload : 'Send til ambætaran',
@@ -486,7 +485,7 @@ CKEDITOR.lang['fo'] = {
     	alignTop : 'Ovast',
     	alignMiddle : 'Miðja',
     	alignBottom : 'Botnur',
-    	alignNone : 'None',
+    	alignNone : 'Eingin',
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Hædd má vera eitt tal.',
     	invalidWidth : 'Breidd má vera eitt tal.',

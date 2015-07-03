@@ -59,7 +59,7 @@ CKEDITOR.lang['el'] = {
     		wordWrap : 'Αναδίπλωση Λέξεων',
     		hAlign : 'Οριζόντια Στοίχιση',
     		vAlign : 'Κάθετη Στοίχιση',
-    		alignBaseline : 'Baseline',
+    		alignBaseline : 'Γραμμή Βάσης',
     		bgColor : 'Χρώμα Φόντου',
     		borderColor : 'Χρώμα Περιγράμματος',
     		data : 'Δεδομένα',
@@ -262,7 +262,6 @@ CKEDITOR.lang['el'] = {
     },
     image : 
     {
-    	alertUrl : 'Εισάγετε την τοποθεσία (URL) της εικόνας',
     	alt : 'Εναλλακτικό Κείμενο',
     	border : 'Περίγραμμα',
     	btnUpload : 'Αποστολή στον Διακομιστή',
@@ -371,7 +370,7 @@ CKEDITOR.lang['el'] = {
     		'00FF00' : 'Μοσχολέμονο',
     		AFEEEE : 'Pale Turquoise',
     		ADD8E6 : 'Γαλάζιο',
-    		DDA0DD : 'Plum',
+    		DDA0DD : 'Δαμασκηνί',
     		D3D3D3 : 'Ανοικτό Γκρι',
     		FFF0F5 : 'Lavender Blush',
     		FAEBD7 : 'Antique White',

@@ -262,7 +262,6 @@ CKEDITOR.lang['eo'] = {
     },
     image : 
     {
-    	alertUrl : 'Bonvolu tajpi la retadreson de la bildo',
     	alt : 'Anstataŭiga Teksto',
     	border : 'Bordero',
     	btnUpload : 'Sendu al Servilo',
@@ -486,7 +485,7 @@ CKEDITOR.lang['eo'] = {
     	alignTop : 'Supre',
     	alignMiddle : 'Centre',
     	alignBottom : 'Malsupre',
-    	alignNone : 'None',
+    	alignNone : 'Neniu',
     	invalidValue : 'Nevalida Valoro',
     	invalidHeight : 'Alto devas esti nombro.',
     	invalidWidth : 'Larĝo devas esti nombro.',

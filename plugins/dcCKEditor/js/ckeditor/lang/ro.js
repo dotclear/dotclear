@@ -262,7 +262,6 @@ CKEDITOR.lang['ro'] = {
     },
     image : 
     {
-    	alertUrl : 'Vă rugăm să scrieţi URL-ul imaginii',
     	alt : 'Text alternativ',
     	border : 'Margine',
     	btnUpload : 'Trimite la server',
@@ -320,16 +319,16 @@ CKEDITOR.lang['ro'] = {
     	IdInputLabel : 'Id',
     	advisoryTitleInputLabel : 'Titlul consultativ',
     	cssClassInputLabel : 'Clasele cu stilul paginii (CSS)',
-    	edit : 'Edit Div',
-    	inlineStyleInputLabel : 'Inline Style',
+    	edit : 'Modifică Div-ul',
+    	inlineStyleInputLabel : 'Stil Inline',
     	langDirLTRLabel : 'stânga-dreapta (LTR)',
     	langDirLabel : 'Direcţia cuvintelor',
     	langDirRTLLabel : 'dreapta-stânga (RTL)',
     	languageCodeInputLabel : 'Codul limbii',
-    	remove : 'Remove Div',
+    	remove : 'Șterge Div-ul',
     	styleSelectLabel : 'Stil',
-    	title : 'Create Div Container',
-    	toolbar : 'Create Div Container'
+    	title : 'Crează un container Div',
+    	toolbar : 'Crează un container Div'
     },
     contextmenu : 
     {
@@ -487,12 +486,12 @@ CKEDITOR.lang['ro'] = {
     	alignMiddle : 'Mijloc',
     	alignBottom : 'Jos',
     	alignNone : 'None',
-    	invalidValue : 'Varloare invalida',
+    	invalidValue : 'Valoare invalidă',
     	invalidHeight : 'Înălțimea trebuie să fie un număr.',
     	invalidWidth : 'Lățimea trebuie să fie un număr.',
-    	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
-    	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
-    	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
+    	invalidCssLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură CSS (px, %, in, cm, mm, em, ex, pt, sau pc).',
+    	invalidHtmlLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură HTML (px sau %).',
+    	invalidInlineStyle : 'Valoarea specificată pentru stil trebuie să conțină una sau mai multe construcții de tipul "name : value", separate prin punct și virgulă.',
+    	cssLengthTooltip : 'Introduceți un număr în pixeli sau un număr cu o unitate de măsură CSS (px, %, in, cm, mm, em, ex, pt, sau pc).',
     	unavailable : '%1<span class="cke_accessibility">, nu este disponibil</span>'
     } }; 

@@ -262,7 +262,6 @@ CKEDITOR.lang['lt'] = {
     },
     image : 
     {
-    	alertUrl : 'Prašome įvesti vaizdo URL',
     	alt : 'Alternatyvus Tekstas',
     	border : 'Rėmelis',
     	btnUpload : 'Siųsti į serverį',

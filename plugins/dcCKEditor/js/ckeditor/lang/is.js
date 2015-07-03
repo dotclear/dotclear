@@ -262,7 +262,6 @@ CKEDITOR.lang['is'] = {
     },
     image : 
     {
-    	alertUrl : 'Sláðu inn slóðina að myndinni',
     	alt : 'Baklægur texti',
     	border : 'Rammi',
     	btnUpload : 'Hlaða upp',

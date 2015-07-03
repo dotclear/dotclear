@@ -262,7 +262,6 @@ CKEDITOR.lang['pl'] = {
     },
     image : 
     {
-    	alertUrl : 'Podaj adres obrazka.',
     	alt : 'Tekst zastępczy',
     	border : 'Obramowanie',
     	btnUpload : 'Wyślij',

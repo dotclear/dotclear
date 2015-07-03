@@ -262,7 +262,6 @@ CKEDITOR.lang['fr'] = {
     },
     image : 
     {
-    	alertUrl : 'Veuillez entrer l\'adresse de l\'image',
     	alt : 'Texte de remplacement',
     	border : 'Bordure',
     	btnUpload : 'Envoyer sur le serveur',

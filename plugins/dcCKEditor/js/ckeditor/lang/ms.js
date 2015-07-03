@@ -262,7 +262,6 @@ CKEDITOR.lang['ms'] = {
     },
     image : 
     {
-    	alertUrl : 'Sila taip URL untuk fail gambar',
     	alt : 'Text Alternatif',
     	border : 'Border',
     	btnUpload : 'Hantar ke Server',

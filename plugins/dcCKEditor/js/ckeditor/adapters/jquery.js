@@ -19,6 +19,14 @@
  */
 
 ( function( $ ) {
+	if ( typeof $ == 'undefined' ) {
+		throw new Error( 'jQuery should be loaded before CKEditor jQuery adapter.' );
+	}
+
+	if ( typeof CKEDITOR == 'undefined' ) {
+		throw new Error( 'CKEditor should be loaded before CKEditor jQuery adapter.' );
+	}
+
 	/**
 	 * Allows CKEditor to override `jQuery.fn.val()`. When set to `true`, the `val()` function
 	 * used on textarea elements replaced with CKEditor uses the CKEditor API.
@@ -42,13 +50,8 @@
 	 * @cfg {Boolean} [jqueryOverrideVal=true]
 	 * @member CKEDITOR.config
 	 */
-	CKEDITOR.config.jqueryOverrideVal = typeof CKEDITOR.config.jqueryOverrideVal == 'undefined'  ?
-				true
-			:
-				CKEDITOR.config.jqueryOverrideVal;
-
-	if ( typeof $ == 'undefined' )
-		return;
+	CKEDITOR.config.jqueryOverrideVal =
+		typeof CKEDITOR.config.jqueryOverrideVal == 'undefined' ? true : CKEDITOR.config.jqueryOverrideVal;
 
 	// jQuery object methods.
 	$.extend( $.fn, {

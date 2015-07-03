@@ -151,13 +151,25 @@
 					return dialog.lockRatio;
 				};
 
-			var resetSize = function( dialog ) {
-					var oImageOriginal = dialog.originalElement;
-					if ( oImageOriginal.getCustomData( 'isReady' ) == 'true' ) {
+			var resetSize = function( dialog, emptyValues ) {
+					var oImageOriginal = dialog.originalElement,
+						ready = oImageOriginal.getCustomData( 'isReady' ) == 'true';
+
+					if ( ready ) {
 						var widthField = dialog.getContentElement( 'info', 'txtWidth' ),
-							heightField = dialog.getContentElement( 'info', 'txtHeight' );
-						widthField && widthField.setValue( oImageOriginal.$.width );
-						heightField && heightField.setValue( oImageOriginal.$.height );
+							heightField = dialog.getContentElement( 'info', 'txtHeight' ),
+							widthValue, heightValue;
+
+						if ( emptyValues ) {
+							widthValue = 0;
+							heightValue = 0;
+						} else {
+							widthValue = oImageOriginal.$.width;
+							heightValue = oImageOriginal.$.height;
+						}
+
+						widthField && widthField.setValue( widthValue );
+						heightField && heightField.setValue( heightValue );
 					}
 					updatePreview( dialog );
 				};
@@ -207,9 +219,10 @@
 					if ( loader )
 						loader.setStyle( 'display', 'none' );
 
-					// New image -> new domensions
-					if ( !this.dontResetSize )
-						resetSize( this );
+					// New image -> new dimensions
+					if ( !this.dontResetSize ) {
+						resetSize( this, editor.config.image_prefillDimensions === false );
+					}
 
 					if ( this.firstLoad ) {
 						CKEDITOR.tools.setTimeout( function() {
@@ -296,16 +309,23 @@
 						this.linkElement = link;
 						this.linkEditMode = true;
 
+						// If there is an existing link, by default keep it (true).
+						// It will be removed if certain conditions are met and Link tab is enabled. (#13351)
+						this.addLink = true;
+
 						// Look for Image element.
 						var linkChildren = link.getChildren();
 						if ( linkChildren.count() == 1 ) {
-							var childTagName = linkChildren.getItem( 0 ).getName();
-							if ( childTagName == 'img' || childTagName == 'input' ) {
-								this.imageElement = linkChildren.getItem( 0 );
-								if ( this.imageElement.getName() == 'img' )
-									this.imageEditMode = 'img';
-								else if ( this.imageElement.getName() == 'input' )
-									this.imageEditMode = 'input';
+							var childTag = linkChildren.getItem( 0 );
+
+							if ( childTag.type == CKEDITOR.NODE_ELEMENT ) {
+								if ( childTag.is( 'img' ) || childTag.is( 'input' ) ) {
+									this.imageElement = linkChildren.getItem( 0 );
+									if ( this.imageElement.is( 'img' ) )
+										this.imageEditMode = 'img';
+									else if ( this.imageElement.is( 'input' ) )
+										this.imageEditMode = 'input';
+								}
 							}
 						}
 						// Fill out all fields.
@@ -333,8 +353,6 @@
 
 						// Fill out all fields.
 						this.setupContent( IMAGE, this.imageElement );
-					} else {
-						this.imageElement = editor.document.createElement( 'img' );
 					}
 
 					// Refresh LockRatio button
@@ -402,12 +420,21 @@
 					// Insert a new Image.
 					if ( !this.imageEditMode ) {
 						if ( this.addLink ) {
-							//Insert a new Link.
 							if ( !this.linkEditMode ) {
+								// Insert a new link.
 								editor.insertElement( this.linkElement );
 								this.linkElement.append( this.imageElement, false );
-							} else //Link already exists, image not.
-							editor.insertElement( this.imageElement );
+							} else {
+								// We already have a link in editor.
+								if ( this.linkElement.equals( editor.getSelection().getSelectedElement() ) ) {
+									// If the link is selected outside, replace it's content rather than the link itself. ([<a>foo</a>])
+									this.linkElement.setHtml( '' );
+									this.linkElement.append( this.imageElement, false );
+								} else {
+									// Only inside of the link is selected, so replace it with image. (<a>[foo]</a>, <a>[f]oo</a>)
+									editor.insertElement( this.imageElement );
+								}
+							}
 						} else {
 							editor.insertElement( this.imageElement );
 						}
@@ -596,7 +623,7 @@
 											return isValid;
 										},
 										setup: setupDimension,
-										commit: function( type, element, internalCommit ) {
+										commit: function( type, element ) {
 											var value = this.getValue();
 											if ( type == IMAGE ) {
 												if ( value && editor.activeFilter.check( 'img{width,height}' ) )
@@ -604,7 +631,7 @@
 												else
 													element.removeStyle( 'width' );
 
-												!internalCommit && element.removeAttribute( 'width' );
+												element.removeAttribute( 'width' );
 											} else if ( type == PREVIEW ) {
 												var aMatch = value.match( regexGetSize );
 												if ( !aMatch ) {
@@ -637,7 +664,7 @@
 											return isValid;
 										},
 										setup: setupDimension,
-										commit: function( type, element, internalCommit ) {
+										commit: function( type, element ) {
 											var value = this.getValue();
 											if ( type == IMAGE ) {
 												if ( value && editor.activeFilter.check( 'img{width,height}' ) )
@@ -645,7 +672,7 @@
 												else
 													element.removeStyle( 'height' );
 
-												!internalCommit && element.removeAttribute( 'height' );
+												element.removeAttribute( 'height' );
 											} else if ( type == PREVIEW ) {
 												var aMatch = value.match( regexGetSize );
 												if ( !aMatch ) {
@@ -742,7 +769,7 @@
 											this.setValue( value );
 										}
 									},
-									commit: function( type, element, internalCommit ) {
+									commit: function( type, element ) {
 										var value = parseInt( this.getValue(), 10 );
 										if ( type == IMAGE || type == PREVIEW ) {
 											if ( !isNaN( value ) ) {
@@ -752,7 +779,7 @@
 												element.removeStyle( 'border' );
 											}
 
-											if ( !internalCommit && type == IMAGE )
+											if ( type == IMAGE )
 												element.removeAttribute( 'border' );
 										} else if ( type == CLEANUP ) {
 											element.removeAttribute( 'border' );
@@ -793,7 +820,7 @@
 											this.setValue( value );
 										}
 									},
-									commit: function( type, element, internalCommit ) {
+									commit: function( type, element ) {
 										var value = parseInt( this.getValue(), 10 );
 										if ( type == IMAGE || type == PREVIEW ) {
 											if ( !isNaN( value ) ) {
@@ -804,7 +831,7 @@
 												element.removeStyle( 'margin-right' );
 											}
 
-											if ( !internalCommit && type == IMAGE )
+											if ( type == IMAGE )
 												element.removeAttribute( 'hspace' );
 										} else if ( type == CLEANUP ) {
 											element.removeAttribute( 'hspace' );
@@ -843,7 +870,7 @@
 											this.setValue( value );
 										}
 									},
-									commit: function( type, element, internalCommit ) {
+									commit: function( type, element ) {
 										var value = parseInt( this.getValue(), 10 );
 										if ( type == IMAGE || type == PREVIEW ) {
 											if ( !isNaN( value ) ) {
@@ -854,7 +881,7 @@
 												element.removeStyle( 'margin-bottom' );
 											}
 
-											if ( !internalCommit && type == IMAGE )
+											if ( type == IMAGE )
 												element.removeAttribute( 'vspace' );
 										} else if ( type == CLEANUP ) {
 											element.removeAttribute( 'vspace' );
@@ -903,7 +930,7 @@
 											this.setValue( value );
 										}
 									},
-									commit: function( type, element, internalCommit ) {
+									commit: function( type, element ) {
 										var value = this.getValue();
 										if ( type == IMAGE || type == PREVIEW ) {
 											if ( value )
@@ -911,7 +938,7 @@
 											else
 												element.removeStyle( 'float' );
 
-											if ( !internalCommit && type == IMAGE ) {
+											if ( type == IMAGE ) {
 												value = ( element.getAttribute( 'align' ) || '' ).toLowerCase();
 												switch ( value ) {
 													// we should remove it only if it matches "left" or "right",
@@ -978,6 +1005,8 @@
 
 									if ( this.getValue() || !editor.config.image_removeLinkByEmptyURL )
 										this.getDialog().addLink = true;
+									else
+										this.getDialog().addLink = false;
 								}
 							}
 						}

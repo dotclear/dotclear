@@ -262,7 +262,6 @@ CKEDITOR.lang['fi'] = {
     },
     image : 
     {
-    	alertUrl : 'Kirjoita kuvan osoite (URL)',
     	alt : 'Vaihtoehtoinen teksti',
     	border : 'Kehys',
     	btnUpload : 'Lähetä palvelimelle',

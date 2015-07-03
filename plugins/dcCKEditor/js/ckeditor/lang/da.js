@@ -262,7 +262,6 @@ CKEDITOR.lang['da'] = {
     },
     image : 
     {
-    	alertUrl : 'Indtast stien til billedet',
     	alt : 'Alternativ tekst',
     	border : 'Ramme',
     	btnUpload : 'Upload fil til serveren',

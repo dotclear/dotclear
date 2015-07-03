@@ -262,7 +262,6 @@ CKEDITOR.lang['sr-latn'] = {
     },
     image : 
     {
-    	alertUrl : 'Unesite URL slike',
     	alt : 'Alternativni tekst',
     	border : 'Okvir',
     	btnUpload : 'Pošalji na server',
