@@ -3650,6 +3650,15 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
+msgid "With password"
+msgstr "Avec mot de passe"
+
+msgid "Without password"
+msgstr "Sans mot de passe"
+
+msgid "Format:"
+msgstr "Format :"
+
 #~ msgid "visual"
 #~ msgstr "visuel"
 

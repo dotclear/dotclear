@@ -963,6 +963,10 @@ class dcBlog
 			$strReq .= ")";
 		}
 
+		if (!empty($params['where'])) {
+			$strReq .= $params['where'].' ';
+		}
+
 		if (!empty($params['sql'])) {
 			$strReq .= $params['sql'].' ';
 		}

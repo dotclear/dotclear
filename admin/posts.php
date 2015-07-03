@@ -81,6 +81,12 @@ if (!$core->error->flag())
 	__('Without attachments') => '0'
 	);
 
+	$password_combo = array(
+	'-' => '',
+	__('With password') => '1',
+	__('Without password') => '0'
+	);
+
 	# Months array
 	$dt_m_combo = array_merge(
 		array('-' => ''),
@@ -92,6 +98,19 @@ if (!$core->error->flag())
 		dcAdminCombos::getLangsCombo($langs,false)
 	);
 
+	# Post formats
+	$core_formaters = $core->getFormaters();
+	$available_formats = array();
+	foreach ($core_formaters as $editor => $formats) {
+		foreach ($formats as $format) {
+			$available_formats[$format] = $format;
+		}
+	}
+	$format_combo = array_merge(
+		array('-' => ''),
+		$available_formats
+	);
+
 	$sortby_combo = array(
 	__('Date') => 'post_dt',
 	__('Title') => 'post_title',
@@ -100,8 +119,7 @@ if (!$core->error->flag())
 	__('Status') => 'post_status',
 	__('Selected') => 'post_selected',
 	__('Number of comments') => 'nb_comment',
-	__('Number of trackbacks') => 'nb_trackback',
-	__('Password') => 'post_password'
+	__('Number of trackbacks') => 'nb_trackback'
 	);
 
 	$order_combo = array(
@@ -120,15 +138,17 @@ if ($posts_actions_page->process()) {
 
 /* Get posts
 -------------------------------------------------------- */
-$user_id = !empty($_GET['user_id']) ?	$_GET['user_id'] : '';
-$cat_id = !empty($_GET['cat_id']) ?	$_GET['cat_id'] : '';
-$status = isset($_GET['status']) ?	$_GET['status'] : '';
-$selected = isset($_GET['selected']) ?	$_GET['selected'] : '';
-$attachment = isset($_GET['attachment']) ?	$_GET['attachment'] : '';
-$month = !empty($_GET['month']) ?		$_GET['month'] : '';
-$lang = !empty($_GET['lang']) ?		$_GET['lang'] : '';
+$user_id = !empty($_GET['user_id']) ? $_GET['user_id'] : '';
+$cat_id = !empty($_GET['cat_id']) ? $_GET['cat_id'] : '';
+$status = isset($_GET['status']) ? $_GET['status'] : '';
+$password = isset($_GET['password']) ? $_GET['password'] : '';
+$selected = isset($_GET['selected']) ? $_GET['selected'] : '';
+$attachment = isset($_GET['attachment']) ? $_GET['attachment'] : '';
+$month = !empty($_GET['month']) ? $_GET['month'] : '';
+$lang = !empty($_GET['lang']) ?	$_GET['lang'] : '';
+$format = !empty($_GET['format']) ? $_GET['format'] : '';
 $sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'post_dt';
-$order = !empty($_GET['order']) ?		$_GET['order'] : 'desc';
+$order = !empty($_GET['order']) ? $_GET['order'] : 'desc';
 
 $show_filters = false;
 
@@ -144,6 +164,7 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
 
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 $params['no_content'] = true;
+$params['where'] = '';
 
 # - User filter
 if ($user_id !== '' && in_array($user_id,$users_combo)) {
@@ -169,6 +190,14 @@ if ($status !== '' && in_array($status,$status_combo)) {
 	$status='';
 }
 
+# - Password filter
+if ($password !== '' && in_array($password,$password_combo)) {
+	$params['where'] .= ' AND post_password IS '.($password ? 'NOT ' : '').'NULL ';
+	$show_filters = true;
+} else {
+	$password='';
+}
+
 # - Selected filter
 if ($selected !== '' && in_array($selected,$selected_combo)) {
 	$params['post_selected'] = $selected;
@@ -177,7 +206,7 @@ if ($selected !== '' && in_array($selected,$selected_combo)) {
 	$selected='';
 }
 
-# - Selected filter
+# - Attachment filter
 if ($attachment !== '' && in_array($attachment,$attachment_combo)) {
 	$params['media'] = $attachment;
 	$params['link_type'] = 'attachment';
@@ -201,6 +230,14 @@ if ($lang !== '' && in_array($lang,$lang_combo)) {
 	$show_filters = true;
 } else {
 	$lang='';
+}
+
+# - Format filter
+if ($format !== '' && in_array($format,$format_combo)) {
+	$params['where'] .= " AND post_format = '".$format."' ";
+	$show_filters = true;
+} else {
+	$format='';
 }
 
 # - Sortby and order filter
@@ -271,6 +308,10 @@ if (!$core->error->flag())
 	form::combo('cat_id',$categories_combo,$cat_id).'</p>'.
 	'<p><label for="status" class="ib">'.__('Status:').'</label> ' .
 	form::combo('status',$status_combo,$status).'</p> '.
+	'<p><label for="format" class="ib">'.__('Format:').'</label> '.
+	form::combo('format',$format_combo,$format).'</p>'.
+	'<p><label for="password" class="ib">'.__('Password:').'</label> '.
+	form::combo('password',$password_combo,$password).'</p>'.
 	'</div>'.
 
 	'<div class="cell filters-sibling-cell">'.
@@ -315,6 +356,7 @@ if (!$core->error->flag())
 	form::hidden(array('user_id'),$user_id).
 	form::hidden(array('cat_id'),$cat_id).
 	form::hidden(array('status'),$status).
+	form::hidden(array('password'),$password).
 	form::hidden(array('selected'),$selected).
 	form::hidden(array('attachment'),$attachment).
 	form::hidden(array('month'),$month).
