@@ -185,7 +185,7 @@ class dcCore
 
 	public function getNonce()
 	{
-		return crypt::hmac(DC_MASTER_KEY,session_id());
+		return $this->auth->crypt(session_id());
 	}
 
 	public function checkNonce($secret)
@@ -194,7 +194,7 @@ class dcCore
 			return false;
 		}
 
-		return $secret == crypt::hmac(DC_MASTER_KEY,session_id());
+		return $secret == $this->auth->crypt(session_id());
 	}
 
 	public function formNonce()
@@ -846,7 +846,7 @@ class dcCore
 			if (strlen($cur->user_pwd) < 6) {
 				throw new Exception(__('Password must contain at least 6 characters.'));
 			}
-			$cur->user_pwd = crypt::hmac(DC_MASTER_KEY,$cur->user_pwd);
+			$cur->user_pwd = $this->auth->crypt($cur->user_pwd);
 		}
 
 		if ($cur->user_lang !== null && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$cur->user_lang)) {

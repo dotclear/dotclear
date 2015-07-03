@@ -101,7 +101,7 @@ if (isset($_POST['user_name']))
 {
 	try
 	{
-		$pwd_check = !empty($_POST['cur_pwd']) && $core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['cur_pwd']));
+		$pwd_check = !empty($_POST['cur_pwd']) && $core->auth->checkPassword($core->auth->crypt($_POST['cur_pwd']));
 
 		if ($core->auth->allowPassChange() && !$pwd_check && $user_email != $_POST['user_email']) {
 			throw new Exception(__('If you want to change your email or password you must provide your current password.'));

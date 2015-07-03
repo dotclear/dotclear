@@ -118,7 +118,7 @@ if ($can_install && !empty($_POST))
 		$cur = $core->con->openCursor($core->prefix.'user');
 		$cur->user_id = $u_login;
 		$cur->user_super = 1;
-		$cur->user_pwd = crypt::hmac(DC_MASTER_KEY,$u_pwd);
+		$cur->user_pwd = $core->auth->crypt($u_pwd);
 		$cur->user_name = (string) $u_name;
 		$cur->user_firstname = (string) $u_firstname;
 		$cur->user_email = (string) $u_email;

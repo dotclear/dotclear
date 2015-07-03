@@ -120,7 +120,7 @@ class dcAuth
 
 		if ($pwd != '')
 		{
-			if (crypt::hmac(DC_MASTER_KEY,$pwd) != $rs->user_pwd) {
+			if ($this->crypt($pwd) != $rs->user_pwd) {
 				sleep(rand(2,5));
 				return false;
 			}
@@ -161,6 +161,17 @@ class dcAuth
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * This method crypt given string (password, session_id, …).
+	 *
+	 * @param string $pwd string to be crypted
+	 * @return string crypted value
+	 */
+	public function crypt($pwd)
+	{
+		return crypt::hmac(DC_MASTER_KEY,$pwd);
 	}
 
 	/**
@@ -289,7 +300,7 @@ class dcAuth
 	{
 		$code =
 		pack('a32',$this->userID()).
-		pack('H*',crypt::hmac(DC_MASTER_KEY,$this->getInfo('user_pwd')));
+		pack('H*',$this->crypt($this->getInfo('user_pwd')));
 		return bin2hex($code);
 	}
 
@@ -316,7 +327,7 @@ class dcAuth
 			return false;
 		}
 
-		if (crypt::hmac(DC_MASTER_KEY,$rs->user_pwd) != $pwd) {
+		if ($this->crypt($rs->user_pwd) != $pwd) {
 			return false;
 		}
 
@@ -593,7 +604,7 @@ class dcAuth
 		$new_pass = crypt::createPassword();
 
 		$cur = $this->con->openCursor($this->user_table);
-		$cur->user_pwd = crypt::hmac(DC_MASTER_KEY,$new_pass);
+		$cur->user_pwd = $this->crypt($new_pass);
 		$cur->user_recover_key = null;
 
 		$cur->update("WHERE user_recover_key = '".$this->con->escape($recover_key)."'");

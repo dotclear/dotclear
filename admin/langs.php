@@ -62,7 +62,7 @@ if ($is_writable && !empty($_POST['pkg_url']))
 {
 	try
 	{
-		if (empty($_POST['your_pwd']) || !$core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['your_pwd']))) {
+		if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($core->auth->crypt($_POST['your_pwd']))) {
 			throw new Exception(__('Password verification failed'));
 		}
 
@@ -105,7 +105,7 @@ if ($is_writable && !empty($_POST['upload_pkg']))
 {
 	try
 	{
-		if (empty($_POST['your_pwd']) || !$core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['your_pwd']))) {
+		if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($core->auth->crypt($_POST['your_pwd']))) {
 			throw new Exception(__('Password verification failed'));
 		}
 

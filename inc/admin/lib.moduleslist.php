@@ -1171,7 +1171,7 @@ class adminModulesList
 		elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
 			|| !empty($_POST['fetch_pkg']) && !empty($_POST['pkg_url']))
 		{
-			if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY, $_POST['your_pwd']))) {
+			if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword($this->core->auth->crypt($_POST['your_pwd']))) {
 				throw new Exception(__('Password verification failed'));
 			}
 
@@ -1946,7 +1946,7 @@ class adminThemesList extends adminModulesList
 		elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
 			|| !empty($_POST['fetch_pkg']) && !empty($_POST['pkg_url']))
 		{
-			if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY, $_POST['your_pwd']))) {
+			if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword($this->core->auth->crypt($_POST['your_pwd']))) {
 				throw new Exception(__('Password verification failed'));
 			}
 

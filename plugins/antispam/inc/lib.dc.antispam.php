@@ -133,7 +133,7 @@ class dcAntispam
 	{
 		$code =
 		pack('a32',$core->auth->userID()).
-		pack('H*',crypt::hmac(DC_MASTER_KEY,$core->auth->getInfo('user_pwd')));
+		pack('H*',$core->auth->crypt($core->auth->getInfo('user_pwd')));
 		return bin2hex($code);
 	}
 
@@ -160,7 +160,7 @@ class dcAntispam
 			return false;
 		}
 
-		if (crypt::hmac(DC_MASTER_KEY,$rs->user_pwd) != $pwd) {
+		if ($core->auth->crypt($rs->user_pwd) != $pwd) {
 			return false;
 		}
 
