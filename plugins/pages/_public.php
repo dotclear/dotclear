@@ -11,11 +11,38 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
+$core->addBehavior('coreBlogBeforeGetPosts',array('publicPages','coreBlogBeforeGetPosts'));
+
 # Localized string we find in template
 __('Published on');
 __('This page\'s comments feed');
 
 require dirname(__FILE__).'/_widgets.php';
+
+class publicPages
+{
+	public static function coreBlogBeforeGetPosts($params)
+	{
+		global $core, $_ctx;
+
+		if ($core->url->type == 'search') {
+			// Add page post type for searching
+			if (isset($params['post_type'])) {
+				if (!is_array($params['post_type'])) {
+					// Convert it in array
+					$params['post_type'] = array($params['post_type']);
+				}
+				if (!in_array('page', $params['post_type'])) {
+					// Add page post type
+					$params['post_type'][] = 'page';
+				}
+			} else {
+				// Dont miss default post type (aka post)
+				$params['post_type'] = array('post','page');
+			}
+		}
+	}
+}
 
 class urlPages extends dcUrlHandlers
 {
