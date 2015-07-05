@@ -51,7 +51,6 @@ __('Descending') => 'desc',
 __('Ascending') => 'asc'
 );
 
-
 /* Get comments
 -------------------------------------------------------- */
 $author = isset($_GET['author']) ?	$_GET['author'] : '';
@@ -109,6 +108,12 @@ if ($status !== '' && in_array($status,$status_combo)) {
 if ($ip) {
 	$params['comment_ip'] = $ip;
 	$show_filters = true;
+}
+
+// Add some sort order if spams displayed
+if ($with_spam || ($status == -2)) {
+	$sortby_combo[__('IP')] = 'comment_ip';
+	$sortby_combo[__('Spam filter')] = 'comment_spam_filter';
 }
 
 # Sortby and order filter
@@ -273,7 +278,8 @@ if (!$core->error->flag())
 	'</div>'.
 
 	'</form>',
-	$show_filters
+	$show_filters,
+	($with_spam || ($status == -2))
 	);
 }
 

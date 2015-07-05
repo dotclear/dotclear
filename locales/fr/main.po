@@ -906,6 +906,9 @@ msgstr "Filtrer la liste des commentaires et rétroliens"
 msgid "Type:"
 msgstr "Type :"
 
+msgid "Spam filter"
+msgstr "Filtre antispam"
+
 msgid "comments per page"
 msgstr "commentaires par page"
 
