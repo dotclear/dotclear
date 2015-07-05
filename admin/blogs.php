@@ -188,7 +188,7 @@ function blogLine($rs)
 		$edit_link = $blog_id;
 	}
 
-	$img_status = $rs->blog_status == 1 ? 'check-on' : 'check-off';
+	$img_status = $rs->blog_status == 1 ? 'check-on' : ($rs->blog_status == 0 ? 'check-off' : 'check-wrn');
 	$txt_status = $GLOBALS['core']->getBlogStatus($rs->blog_status);
 	$img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',$img_status,$txt_status);
 	$offset = dt::getTimeOffset($core->auth->getInfo('user_tz'));
