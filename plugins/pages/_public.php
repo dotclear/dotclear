@@ -23,7 +23,7 @@ class publicPages
 {
 	public static function coreBlogBeforeGetPosts($params)
 	{
-		global $core, $_ctx;
+		global $core;
 
 		if ($core->url->type == 'search') {
 			// Add page post type for searching
