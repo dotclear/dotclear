@@ -373,7 +373,7 @@ class adminPostMiniList extends adminGenericList
 
 class adminCommentList extends adminGenericList
 {
-	public function display($page,$nb_per_page,$enclose_block='',$filter=false)
+	public function display($page,$nb_per_page,$enclose_block='',$filter=false,$spam=false)
 	{
 		if ($this->rs->isEmpty())
 		{
@@ -385,6 +385,19 @@ class adminCommentList extends adminGenericList
 		}
 		else
 		{
+			// Get antispam filters' name
+			$filters = array();
+			if ($spam) {
+				if (class_exists(dcAntispam)) {
+					dcAntispam::initFilters();
+					$fs = dcAntispam::$filters->getFilters();
+					foreach ($fs as $fid => $f)
+					{
+						$filters[$fid] = $f->name;
+					}
+				}
+			}
+
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 
 			$comments = array();
@@ -412,7 +425,13 @@ class adminCommentList extends adminGenericList
 			'<th colspan="2" scope="col" abbr="comm" class="first">'.__('Type').'</th>'.
 			'<th scope="col">'.__('Author').'</th>'.
 			'<th scope="col">'.__('Date').'</th>'.
-			'<th scope="col" class="txt-center">'.__('Status').'</th>'.
+			'<th scope="col" class="txt-center">'.__('Status').'</th>';
+			if ($spam) {
+				$html_block .=
+				'<th scope="col">'.__('IP').'</th>'.
+				'<th scope="col">'.__('Spam filter').'</th>';
+			}
+			$html_block .=
 			'<th scope="col" abbr="entry">'.__('Entry').'</th>'.
 			'</tr>%s</table></div>';
 
@@ -428,7 +447,7 @@ class adminCommentList extends adminGenericList
 
 			while ($this->rs->fetch())
 			{
-				echo $this->commentLine(isset($comments[$this->rs->comment_id]));
+				echo $this->commentLine(isset($comments[$this->rs->comment_id]),$spam,$filters);
 			}
 
 			echo $blocks[1];
@@ -437,9 +456,9 @@ class adminCommentList extends adminGenericList
 		}
 	}
 
-	private function commentLine($checked=false)
+	private function commentLine($checked=false,$spam=false,$filters=array())
 	{
-		global $author, $status, $sortby, $order, $nb_per_page;
+		global $core, $author, $status, $sortby, $order, $nb_per_page;
 
 		$author_url =
 		$this->core->adminurl->get('admin.comments',array(
@@ -494,7 +513,21 @@ class adminCommentList extends adminGenericList
 			($this->rs->comment_trackback ? __('trackback') : __('comment')).' '.'</a></td>'.
 		'<td class="nowrap maximal"><a href="'.$author_url.'">'.html::escapeHTML($this->rs->comment_author).'</a></td>'.
 		'<td class="nowrap count">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$this->rs->comment_dt).'</td>'.
-		'<td class="nowrap status txt-center">'.$img_status.'</td>'.
+		'<td class="nowrap status txt-center">'.$img_status.'</td>';
+		if ($spam) {
+			$filter_name = '';
+			if ($this->rs->comment_spam_filter) {
+				if (isset($filters[$this->rs->comment_spam_filter])) {
+					$filter_name = $filters[$this->rs->comment_spam_filter];
+				} else {
+					$filter_name = $this->rs->comment_spam_filter;
+				}
+			}
+			$res .=
+			'<td class="nowrap"><a href="'.$core->adminurl->get("admin.comments",array('ip' => $this->rs->comment_ip)).'">'.$this->rs->comment_ip.'</a></td>'.
+			'<td class="nowrap">'.$filter_name.'</td>';
+		}
+		$res .=
 		'<td class="nowrap discrete"><a href="'.$post_url.'">'.
 		$post_title.'</a>'.
 		($this->rs->post_type != 'post' ? ' ('.html::escapeHTML($this->rs->post_type).')' : '').'</td>';
