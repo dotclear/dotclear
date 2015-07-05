@@ -216,6 +216,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		'<table><tr>'.
 		'<th class="nowrap" colspan="2">'.__('Blog ID').'</th>'.
 		'<th class="nowrap">'.__('Blog name').'</th>'.
+		'<th class="nowrap">'.__('URL').'</th>'.
 		'<th class="nowrap">'.__('Entries').'</th>'.
 		'<th class="nowrap">'.__('Status').'</th>'.
 		'</tr>';
@@ -232,6 +233,8 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 			form::checkbox(array('blogs[]'),$rs->blog_id,'','','',false,'title="'.__('select').' '.$rs->blog_id.'"').'</td>'.
 			'<td class="nowrap">'.$rs->blog_id.'</td>'.
 			'<td class="maximal">'.html::escapeHTML($rs->blog_name).'</td>'.
+			'<td class="nowrap"><a class="outgoing" href="'.html::escapeHTML($rs->blog_url).'">'.html::escapeHTML($rs->blog_url).
+				' <img src="images/outgoing-blue.png" alt="" /></a></td>'.
 			'<td class="nowrap">'.$core->countBlogPosts($rs->blog_id).'</td>'.
 			'<td class="status">'.$img_status.'</td>'.
 			'</tr>';
