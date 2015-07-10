@@ -388,7 +388,7 @@ class adminCommentList extends adminGenericList
 			// Get antispam filters' name
 			$filters = array();
 			if ($spam) {
-				if (class_exists(dcAntispam)) {
+				if (class_exists('dcAntispam')) {
 					dcAntispam::initFilters();
 					$fs = dcAntispam::$filters->getFilters();
 					foreach ($fs as $fid => $f)
