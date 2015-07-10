@@ -884,6 +884,15 @@ msgstr "Les commentaires sélectionnés ont été supprimés."
 msgid "Spam comments have been successfully deleted."
 msgstr "Les commentaires indésirables ont été supprimés."
 
+msgid "IP addresses for selected comments have been blacklisted."
+msgstr "Les adresses IP des commentaires sélectionnés ont été ajoutées en liste noire."
+
+msgid "Blacklist IP"
+msgstr "Ajouter en liste noire"
+
+msgid "Blacklist IP (global)"
+msgstr "Ajouter en liste noire (pour tous les blogs)"
+
 msgid "You have one spam comment."
 msgstr "Vous avez un commentaire indésirable."
 
