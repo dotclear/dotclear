@@ -139,6 +139,26 @@ class dcDefaultCommentActions
 				array('dcDefaultCommentActions','doDeleteComment')
 			);
 		}
+
+		$ip_filter_active = true;
+		if ($core->blog->settings->antispam->antispam_filters !== null) {
+			$filters_opt = @unserialize($core->blog->settings->antispam->antispam_filters);
+			if (is_array($filters_opt)) {
+				$ip_filter_active = isset($filters_opt['dcFilterIP']) && is_array($filters_opt['dcFilterIP']) && $filters_opt['dcFilterIP'][0]==1;
+			}
+		}
+
+		if ($ip_filter_active) {
+			$blacklist_actions = array(__('Blacklist IP') => 'blacklist');
+			if ($core->auth->isSuperAdmin()) {
+				$blacklist_actions[__('Blacklist IP (global)')] = 'blacklist_global';
+			}
+
+			$ap->addAction(
+				array(__('IP address') => $blacklist_actions),
+				array('dcDefaultCommentActions','doBlacklistIP')
+			);
+		}
 	}
 
 	public static function doChangeCommentStatus($core, dcCommentsActionsPage $ap, $post) {
@@ -178,5 +198,24 @@ class dcDefaultCommentActions
 		$core->blog->delComments($co_ids);
 		dcPage::addSuccessNotice(__('Selected comments have been successfully deleted.'));
 		$ap->redirect(false);
+	}
+
+	public static function doBlacklistIP($core, dcCommentsActionsPage $ap, $post) {
+		$action = $ap->getAction();
+		$co_ids = $ap->getIDs();
+		if (empty($co_ids)) {
+			throw new Exception(__('No comment selected'));
+		}
+
+		$global = !empty($action) && $action == 'blacklist_global' && $core->auth->isSuperAdmin();
+
+		$ip_filter = new dcFilterIP($core);
+		$rs = $ap->getRS();
+		while ($rs->fetch()) {
+			$ip_filter->addIP('black',$rs->comment_ip,$global);
+		}
+
+		dcPage::addSuccessNotice(__('IP addresses for selected comments have been blacklisted.'));
+		$ap->redirect(true);
 	}
 }
