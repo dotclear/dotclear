@@ -2622,11 +2622,11 @@ msgstr "404"
 msgid "Enable breadcrumb for this blog"
 msgstr "Activer l'affichage du fil d'Ariane pour ce blog"
 
-msgid "The {{tpl:Breadcrumb [separator=" &amp;rsaquo; "]}} tag should be present (or inserted if not) in the template."
-msgstr "La balise {{tpl:Breadcrumb [separator=" &amp;rsaquo; "]}} doit être présente (ou insérée dans le cas contraire) dans le ou les fichiers template du thème."
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr "La balise {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} doit être présente (ou insérée dans le cas contraire) dans le ou les fichiers template du thème."
 
-msgid "Do not encapsulate breadcrumb in a &lt;p id="breadcrumb"&gt;...&lt;/p&gt; tag."
-msgstr "Ne pas encadrer le fil d'Ariane avec une balise &lt;p id="breadcrumb"&gt;...&lt;/p&gt;."
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr "Ne pas encadrer le fil d'Ariane avec une balise &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt;."
 
 msgid "Search:"
 msgstr "Recherche :"
