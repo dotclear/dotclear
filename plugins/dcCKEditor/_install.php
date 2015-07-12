@@ -29,6 +29,7 @@ $settings->dcckeditor->put('format_select', true, 'boolean', 'Add format selecti
 $settings->dcckeditor->put('format_tags', 'p;h1;h2;h3;h4;h5;h6;pre;address', 'string', 'Custom formats', false, true);
 $settings->dcckeditor->put('table_button', false, 'boolean', 'Add table button?', false, true);
 $settings->dcckeditor->put('clipboard_buttons', false, 'boolean', 'Add clipboard buttons?', false, true);
+$settings->dcckeditor->put('disable_native_spellchecker', true, 'boolean', 'Disables the built-in spell checker if the browser provides one?', false, true);
 
 $core->setVersion('dcCKEditor', $version);
 return true;

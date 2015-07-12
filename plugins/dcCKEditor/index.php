@@ -24,6 +24,7 @@ $dcckeditor_format_select = $core->blog->settings->dcckeditor->format_select;
 $dcckeditor_format_tags = $core->blog->settings->dcckeditor->format_tags;
 $dcckeditor_table_button = $core->blog->settings->dcckeditor->table_button;
 $dcckeditor_clipboard_buttons = $core->blog->settings->dcckeditor->clipboard_buttons;
+$dcckeditor_disable_native_spellchecker = $core->blog->settings->dcckeditor->disable_native_spellchecker;
 
 if (!empty($_GET['config'])) {
     // text/javascript response stop stream just after including file

@@ -59,6 +59,10 @@
 	<p class="clear form-note">
 	  <?php echo __('Copy, Paste, Paste Text, Paste from Word');?>
 	</p>
+	<p>
+	  <?php echo form::checkbox('dcckeditor_disable_native_spellchecker', 1, $dcckeditor_disable_native_spellchecker);?>
+	  <label class="classic" for="dcckeditor_disable_native_spellchecker">&nbsp;<?php echo __('Disables the built-in spell checker if the browser provides one');?></label>
+	</p>
       </div>
       <?php endif;?>
 
