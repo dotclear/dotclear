@@ -78,6 +78,9 @@ $(function() {
 	 */
 
 	CKEDITOR.timestamp = '';
+<?php if (!empty(!$dcckeditor_disable_native_spellchecker)):?>
+	CKEDITOR.disableNativeSpellChecker = false;
+<?php endif;?>
 	CKEDITOR.config.skin = 'dotclear,'+dotclear.dcckeditor_plugin_url+'/js/ckeditor-skins/dotclear/';
 	CKEDITOR.config.baseHref = dotclear.base_url;
 	CKEDITOR.config.height = '<?php echo $core->auth->getOption('edit_size') * 14;?>px';
@@ -97,9 +100,9 @@ $(function() {
 	}
 }
 ?>
-    if (dotclear.ckeditor_context===undefined || dotclear.ckeditor_tags_context[dotclear.ckeditor_context]===undefined) {
-        return;
-    }
+	if (dotclear.ckeditor_context===undefined || dotclear.ckeditor_tags_context[dotclear.ckeditor_context]===undefined) {
+		return;
+	}
 	$(dotclear.ckeditor_tags_context[dotclear.ckeditor_context].join(',')).ckeditor({
 <?php
 $defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,img';
