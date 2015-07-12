@@ -60,6 +60,14 @@ $(function() {
 
 				editor.insertElement(figure);
 			}
+		} else if (type=='mp3') {
+			var player = $('#public_player').val();
+			var align = $('input[name="alignment"]:checked',insert_form).val();
+
+			if (align != undefined && align != 'none') {
+				player = '<div style="' + media_align_grid[align] + '">' + player + '</div>';
+			}
+			editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player));
 		} else {
 			var link = '<a href="';
 			link += window.opener.$.stripBaseURL($('input[name="url"]',insert_form).val());
