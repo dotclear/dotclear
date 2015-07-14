@@ -208,7 +208,7 @@ if (!$core->error->flag())
 		}
 
 		echo
-			'<p class="no-margin">'.
+			'<p>'.
 			$core->formNonce().
 			'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
 
