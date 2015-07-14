@@ -9,9 +9,14 @@
 @import "presets";
 
 .cke_chrome {
-  visibility: inherit;
+    visibility: inherit;
 }
 
 .cke_voice_label, legend.cke_voice_label {
   display: none;
+}
+
+// bug in firefox : https://support.mozilla.org/fr/questions/1050264
+.cke_browser_gecko .cke_contents textarea {
+    white-space: pre-wrap !important;
 }
