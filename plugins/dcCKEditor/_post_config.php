@@ -79,9 +79,9 @@ $(function() {
 
 	CKEDITOR.timestamp = '';
 <?php if (!isset($dcckeditor_disable_native_spellchecker) || $dcckeditor_disable_native_spellchecker):?>
-	CKEDITOR.disableNativeSpellChecker = true;
+	CKEDITOR.config.disableNativeSpellChecker = true;
 <?php else:?>
-	CKEDITOR.disableNativeSpellChecker = false;
+	CKEDITOR.config.disableNativeSpellChecker = false;
 <?php endif;?>
 	CKEDITOR.config.skin = 'dotclear,'+dotclear.dcckeditor_plugin_url+'/js/ckeditor-skins/dotclear/';
 	CKEDITOR.config.baseHref = dotclear.base_url;
