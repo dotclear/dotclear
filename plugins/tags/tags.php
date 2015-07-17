@@ -39,7 +39,7 @@ $cols = array('','');
 $col = 0;
 while ($tags->fetch())
 {
-	$letter = mb_strtoupper(mb_substr($tags->meta_id,0,1));
+	$letter = mb_strtoupper(mb_substr($tags->meta_id_lower,0,1));
 
 	if ($last_letter != $letter) {
 		if ($tags->index() >= round($tags->count()/2)) {
