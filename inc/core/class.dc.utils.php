@@ -104,9 +104,11 @@ class dcUtils
 	 * @param string $ns admin/public/lang
 	 * @param string $lang language to be used if $ns = 'lang'
 	 */
-	public static function lexicalSort(&$arr,$ns='admin',$lang='en_US')
+	public static function lexicalSort(&$arr,$ns='',$lang='en_US')
 	{
-		dcUtils::setLexicalLang($ns,$lang);
+		if ($ns != '') {
+			dcUtils::setLexicalLang($ns,$lang);
+		}
 		return usort($arr,array('dcUtils','lexicalSortHelper'));
 	}
 
@@ -117,9 +119,11 @@ class dcUtils
 	 * @param string $ns admin/public/lang
 	 * @param string $lang language to be used if $ns = 'lang'
 	 */
-	public static function lexicalArraySort(&$arr,$ns='admin',$lang='en_US')
+	public static function lexicalArraySort(&$arr,$ns='',$lang='en_US')
 	{
-		dcUtils::setLexicalLang($ns,$lang);
+		if ($ns != '') {
+			dcUtils::setLexicalLang($ns,$lang);
+		}
 		return uasort($arr,array('dcUtils','lexicalSortHelper'));
 	}
 
@@ -130,13 +134,15 @@ class dcUtils
 	 * @param string $ns admin/public/lang
 	 * @param string $lang language to be used if $ns = 'lang'
 	 */
-	public static function lexicalKeySort(&$arr,$ns='admin',$lang='en_US')
+	public static function lexicalKeySort(&$arr,$ns='',$lang='en_US')
 	{
-		dcUtils::setLexicalLang($ns,$lang);
+		if ($ns != '') {
+			dcUtils::setLexicalLang($ns,$lang);
+		}
 		return uksort($arr,array('dcUtils','lexicalSortHelper'));
 	}
 
-	public static function setLexicalLang($ns='admin',$lang='en_US')
+	public static function setLexicalLang($ns='',$lang='en_US')
 	{
 		global $core;
 
@@ -146,13 +152,16 @@ class dcUtils
 				// Set locale with user prefs
 				$user_language = $core->auth->getInfo('user_lang');
 				setlocale(LC_COLLATE, $user_language);
+				break;
 			case 'public':
 				// Set locale with blog params
 				$blog_language = $core->blog->settings->system->lang;
 				setlocale(LC_COLLATE, $blog_language);
+				break;
 			case 'lang':
 				// Set locale with arg
 				setlocale(LC_COLLATE, $lang);
+				break;
 		}
 	}
 

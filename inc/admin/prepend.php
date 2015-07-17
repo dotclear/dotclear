@@ -34,6 +34,9 @@ function dc_load_locales() {
 	l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/main');
 	l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/public');
 	l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/plugins');
+
+	// Set lexical lang
+	dcUtils::setlexicalLang('admin',$_lang);
 }
 
 function dc_admin_icon_url($img)
