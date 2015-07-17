@@ -121,8 +121,8 @@ class dcWidgets
 
 	private static function sort($a,$b)
 	{
-		$c = $a->name();
-		$d = $b->name();
+		$c = dcUtils::removeDiacritics(mb_strtolower($a->name()));
+		$d = dcUtils::removeDiacritics(mb_strtolower($b->name()));
 		if ($c == $d) {
 			return 0;
 		}
