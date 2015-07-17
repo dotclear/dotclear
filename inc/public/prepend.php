@@ -75,6 +75,9 @@ if (l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/date') === false && $
 l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/public');
 l10n::set(dirname(__FILE__).'/../../locales/'.$_lang.'/plugins');
 
+// Set lexical lang
+dcUtils::setlexicalLang('public',$_lang);
+
 # Loading plugins
 try {
 	$core->plugins->loadModules(DC_PLUGINS_ROOT,'public',$_lang);
