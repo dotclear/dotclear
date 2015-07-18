@@ -293,19 +293,19 @@ class dcPage
 		'</div>'."\n".		// End of #main-menu
 		"</div>\n";		// End of #wrapper
 
+		$figure = "
+    @..@
+   (----)
+  ( >__< )
+  ^^ ~~ ^^
+		";
+
 		echo
 		'<div id="footer" role="contentinfo">'.
 		'<a href="http://dotclear.org/" title="'.$text.'">'.
 		'<img src="style/dc_logos/w-dotclear90.png" alt="'.$text.'" /></a></div>'."\n".
 		"<!-- "."\n".
-		"( \\"."\n".
-		" ) )"."\n".
-		"( (  .-\"\"-.  A.-.A"."\n".
-		" \ \/      \/ , , \\"."\n".
-		"  \   \    =;  t  /="."\n".
-		"   \   |\"\".  ',.-'"."\n".
-		"    / //  | ||"."\n".
-		"   /_,))  |_,))"."\n".
+		$figure.
 		" -->"."\n";
 
 		if (defined('DC_DEV') && DC_DEV === true) {
