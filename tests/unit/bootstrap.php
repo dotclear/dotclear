@@ -22,6 +22,8 @@ $__autoload['mysqlConnection'] = CLEARBRICKS_PATH.'/dblayer/class.mysql.php';
 $__autoload['mysqliConnection'] = CLEARBRICKS_PATH.'/dblayer/class.mysqli.php';
 $__autoload['pgsqlConnection'] = CLEARBRICKS_PATH.'/dblayer/class.pgsql.php';
 $__autoload['record'] = CLEARBRICKS_PATH.'/dblayer/dblayer.php';
+$__autoload['template'] = CLEARBRICKS_PATH.'/template/class.template.php';
+$__autoload['path'] = CLEARBRICKS_PATH.'/common/lib.files.php';
 
 $__autoload['dcCore'] = __DIR__.'/../../inc/core/class.dc.core.php';
 $__autoload['dcNamespace'] = __DIR__.'/../../inc/core/class.dc.namespace.php';
