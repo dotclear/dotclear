@@ -28,6 +28,7 @@ class dcModules
 	protected $all_modules = array();
 	protected $disabled_mode = false;
 	protected $disabled_meta = array();
+	protected $to_disable = array();
 
 	protected $id;
 	protected $mroot;
@@ -60,7 +61,7 @@ class dcModules
 	 * @return array list of enabled modules with unmet dependencies, and that must be disabled.
 	 */
 	public function checkDependencies() {
-		$to_disable = array();
+		$this->to_disable = array();
 		foreach ($this->all_modules as $k => &$m) {
 			if (isset($m['requires'])) {
 				$missing = array();
@@ -84,7 +85,7 @@ class dcModules
 				if (count($missing)) {
 					$m['cannot_enable']=$missing;
 					if ($m['enabled']) {
-						$to_disable[]=array('name' => $k,'reason'=> $missing);
+						$this->to_disable[]=array('name' => $k,'reason'=> $missing);
 					}
 				}
 			}
@@ -99,7 +100,41 @@ class dcModules
 				}
 			}
 		}
-		return $to_disable;
+	}
+
+	/**
+	 * Checks all modules dependencies, and disable unmet dependencies
+	 * @param  string $redir_url URL to redirect if modules are to disable
+	 * @return boolea, true if a redirection has been performed
+	 */
+	public function disableDepModules($redir_url) {
+		if (isset($_GET['dep'])) {
+			// Avoid infinite redirects
+			return false;
+		}
+		$reason = array();
+		foreach ($this->to_disable as $module) {
+				try{
+					$this->deactivateModule($module['name']);
+					$reason[] = sprintf("<li>%s : %s</li>",$module['name'],join(',',$module['reason']));
+				} catch (Exception $e) {
+				}
+		}
+		if (count($reason)) {
+			$message = sprintf ("<p>%s</p><ul>%s</ul>",
+				__("The following extensions have been disabled :"),
+				join('',$reason)
+			);
+			dcPage::addWarningNotice($message,array('divtag'=>true,'with_ts' => false));
+			if (strpos($redir_url,"?")) {
+				$url = $redir_url."&"."dep=1";
+			} else {
+				$url = $redir_url."?"."dep=1";
+			}
+			http::redirect($url);
+			return true;
+		}
+		return false;
 	}
 
 	/**

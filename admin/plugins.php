@@ -24,6 +24,10 @@ $list = new adminModulesList(
 adminModulesList::$allow_multi_install = (boolean) DC_ALLOW_MULTI_MODULES;
 adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
+if ($core->plugins->disableDepModules($core->adminurl->get('admin.plugins',array()))) {
+	exit;
+}
+
 # -- Display module configuration page --
 if ($list->setConfiguration()) {
 
