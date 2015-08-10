@@ -28,6 +28,10 @@ if (!empty($_GET['default_blog'])) {
 
 dcPage::check('usage,contentadmin');
 
+if ($core->plugins->disableDepModules($core->adminurl->get('admin.home',array()))) {
+	exit;
+}
+
 # Logout
 if (!empty($_GET['logout'])) {
 	$core->session->destroy();
