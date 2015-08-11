@@ -60,7 +60,8 @@ class dcModules
 	 * 	  * implies : reverse dependencies
 	 * @return array list of enabled modules with unmet dependencies, and that must be disabled.
 	 */
-	public function checkDependencies() {
+	public function checkDependencies()
+	{
 		$this->to_disable = array();
 		foreach ($this->all_modules as $k => &$m) {
 			if (isset($m['requires'])) {
@@ -105,32 +106,29 @@ class dcModules
 	/**
 	 * Checks all modules dependencies, and disable unmet dependencies
 	 * @param  string $redir_url URL to redirect if modules are to disable
-	 * @return boolea, true if a redirection has been performed
+	 * @return boolean, true if a redirection has been performed
 	 */
-	public function disableDepModules($redir_url) {
+	public function disableDepModules($redir_url)
+	{
 		if (isset($_GET['dep'])) {
 			// Avoid infinite redirects
 			return false;
 		}
 		$reason = array();
 		foreach ($this->to_disable as $module) {
-				try{
-					$this->deactivateModule($module['name']);
-					$reason[] = sprintf("<li>%s : %s</li>",$module['name'],join(',',$module['reason']));
-				} catch (Exception $e) {
-				}
+			try{
+				$this->deactivateModule($module['name']);
+				$reason[] = sprintf("<li>%s : %s</li>",$module['name'],join(',',$module['reason']));
+			} catch (Exception $e) {
+			}
 		}
 		if (count($reason)) {
 			$message = sprintf ("<p>%s</p><ul>%s</ul>",
-				__("The following extensions have been disabled :"),
+				__('The following extensions have been disabled :'),
 				join('',$reason)
 			);
-			dcPage::addWarningNotice($message,array('divtag'=>true,'with_ts' => false));
-			if (strpos($redir_url,"?")) {
-				$url = $redir_url."&"."dep=1";
-			} else {
-				$url = $redir_url."?"."dep=1";
-			}
+			dcPage::addWarningNotice($message,array('divtag' => true,'with_ts' => false));
+			$url = $redir_url.(strpos($redir_url,"?") ? '&' : '?').'dep=1';
 			http::redirect($url);
 			return true;
 		}

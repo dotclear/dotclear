@@ -1,3 +1,24 @@
+Dotclear 2.8 - 2015-08-13
+===========================================================
+* New module dependencies system (plugins)
+* Theme editor: Cope with css theme sub-folder
+* extension/heritage system applied to mustek templateset
+* installation wizard now allows SQLite engine
+* Legacy editor toolbar may now be displayed below textarea
+* Breadcrumb plugin added to the distribution, included in mustek/currywurst templatesets
+* Allow a fifth parameter (optional) for image to insert a legend using figure/figcaption tags (wiki)
+* XHTML validator removed from legacy editor
+* Update jQuery from 1.11.2 to 1.11.3
+* Add a blog parameter to disable internal search
+* Add some sort orders and filters criteria for posts and comments
+* Update CKEditor from 4.4.8 to 4.5.2
+* Add IP and antispam filter columns when displaying spams
+* Add actions to directly blacklist IP from comments list
+* Lexical sort order for tags and widgets
+* Use HTML5 audio tag for MP3 attachments
+* Lot of bug fixes
+* Various cosmestic adjustments
+
 Dotclear 2.7.4 - 2015-02-13
 ===========================================================
 * Berlin theme: resources usage has been optimized
