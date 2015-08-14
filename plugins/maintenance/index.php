@@ -157,7 +157,7 @@ if ($task && ($res = $task->step()) !== null) {
 			'<a href="'.$p_url.'">'.__('Maintenance').'</a>' => '',
 			html::escapeHTML($task->name())=> ''
 		)
-	);
+	).dcPage::notices();
 
 	// content
 	if (substr($res, 0, 1) != '<') {
@@ -192,7 +192,7 @@ else {
 			__('Plugins') => '',
 			__('Maintenance') => ''
 		)
-	);
+	).dcPage::notices();
 
 	// Simple task (with only a button to start it)
 
