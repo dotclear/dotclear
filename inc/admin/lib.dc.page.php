@@ -195,7 +195,6 @@ class dcPage
 		// return notices if any
 		$res = '';
 		if (isset($_SESSION['notifications'])) {
-			$notifications = $_SESSION['notifications'];
 			foreach ($_SESSION['notifications'] as $notification) {
 				$res .= self::getNotification($notification);
 			}
