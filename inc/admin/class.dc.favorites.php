@@ -314,7 +314,8 @@ class dcFavorites
 				$v['active'],
 				true,
 				$v['id'],
-				$v['class']
+				$v['class'],
+				true
 			);
 		}
 	}
