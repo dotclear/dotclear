@@ -176,24 +176,28 @@ class dcPage
 			'</div>';
 		}
 
-		// Display breadcrumb (if given) before any error message
+		// Display breadcrumb (if given) before any error messages
 		echo $breadcrumb;
 
-		if ($core->error->flag()) {
-			echo
-			'<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</strong></p>'.
-			$core->error->toHTML().
-			'</div>';
-		}
-
-		// Display notices
+		// Display notices and errors
 		echo self::notices();
 	}
 
 	public static function notices()
 	{
-		// return notices if any
+		global $core;
+		static $error_displayed = false;
 		$res = '';
+
+		// return error messages if any
+		if ($core->error->flag() && !$error_displayed) {
+			$res .= '<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</strong></p>'.
+			$core->error->toHTML().
+			'</div>';
+			$error_displayed = true;
+		}
+
+		// return notices if any
 		if (isset($_SESSION['notifications'])) {
 			foreach ($_SESSION['notifications'] as $notification) {
 				$res .= self::getNotification($notification);
@@ -364,12 +368,8 @@ class dcPage
 		// display breadcrumb if given
 		echo $breadcrumb;
 
-		if ($core->error->flag()) {
-			echo
-			'<div class="error" role="alert"><strong>'.__('Errors:').'</strong>'.
-			$core->error->toHTML().
-			'</div>';
-		}
+		// Display notices and errors
+		echo self::notices();
 	}
 
 	public static function closePopup()
