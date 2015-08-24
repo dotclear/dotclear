@@ -16,7 +16,7 @@ $this->registerModule(
 	/* Name */			"Breadcrumb",
 	/* Description*/		"Breadcrumb for Dotclear",
 	/* Author */			"Franck Paul",
-	/* Version */			'0.6',
+	/* Version */			'0.7',
 	array(
 		/* Permissions */	'permissions' =>	'usage,contentadmin',
 		/* Type */			'type' =>			'plugin'
