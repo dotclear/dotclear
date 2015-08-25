@@ -543,41 +543,35 @@ class dcPage
 		'</div></div>';
 	}
 
-	public static function cssLoad($src, $media='screen')
+	public static function cssLoad($src,$media='screen',$v='')
 	{
 		$escaped_src = html::escapeHTML($src);
 		if (!isset(self::$loaded_css[$escaped_src])) {
 			self::$loaded_css[$escaped_src] = true;
-			$escaped_src = self::appendVersion($escaped_src);
+			$escaped_src = self::appendVersion($escaped_src,$v);
 
 			return '<link rel="stylesheet" href="'.$escaped_src.'" type="text/css" media="'.$media.'" />'."\n";
 		}
 	}
 
-	public static function jsLoad($src)
+	public static function jsLoad($src,$v='')
 	{
 		$escaped_src = html::escapeHTML($src);
 		if (!isset(self::$loaded_js[$escaped_src])) {
 			self::$loaded_js[$escaped_src] = true;
-			$escaped_src = self::appendVersion($escaped_src);
+			$escaped_src = self::appendVersion($escaped_src,$v);
 			return '<script type="text/javascript" src="'.$escaped_src.'"></script>'."\n";
 		}
 	}
 
-	private static function appendVersion($src)
+	private static function appendVersion($src,$v='')
 	{
-		if (strpos($src,'?')===false) {
-			$src .= '?v=';
-		} else {
-			$src .= '&v=';
-		}
-
+		$src .= (strpos($src,'?') === false ? '?' : '&').'v=';
 		if (defined('DC_DEV') && DC_DEV === true) {
 			$src .= md5(uniqid());
 		} else {
-			$src .= DC_VERSION;
+			$src .= ($v === '' ? DC_VERSION : $v);
 		}
-
 		return $src;
 	}
 
