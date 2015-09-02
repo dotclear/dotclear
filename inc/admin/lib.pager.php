@@ -51,10 +51,10 @@ class dcPager extends pager
 		foreach ($args as $k=>$v) {
 			if (is_array($v)) {
 				foreach ($v as $k2=>$v2) {
-					$this->form_hidden .= form::hidden(array($k.'[]'),$v2);
+					$this->form_hidden .= form::hidden(array($k.'[]'),html::escapeHTML($v2));
 				}
 			} else {
-				$this->form_hidden .= form::hidden(array($k),$v);
+				$this->form_hidden .= form::hidden(array($k),html::escapeHTML($v));
 			}
 		}
 		$this->form_action = $url['path'];
