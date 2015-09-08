@@ -30,6 +30,9 @@ if (!empty($_POST['saveconfig'])) {
 			$dcckeditor_textcolor_button = (empty($_POST['dcckeditor_textcolor_button']))?false:true;
 			$core->blog->settings->dcckeditor->put('textcolor_button', $dcckeditor_textcolor_button, 'boolean');
 
+			$dcckeditor_background_textcolor_button = (empty($_POST['dcckeditor_background_textcolor_button']))?false:true;
+			$core->blog->settings->dcckeditor->put('background_textcolor_button', $dcckeditor_background_textcolor_button, 'boolean');
+
 			$dcckeditor_cancollapse_button = (empty($_POST['dcckeditor_cancollapse_button']))?false:true;
 			$core->blog->settings->dcckeditor->put('cancollapse_button', $dcckeditor_cancollapse_button, 'boolean');
 
