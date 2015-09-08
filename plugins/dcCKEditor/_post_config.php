@@ -95,6 +95,10 @@ $(function() {
 	CKEDITOR.plugins.addExternal('dclink',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/dclink/');
 	CKEDITOR.plugins.addExternal('media',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/media/');
 	CKEDITOR.plugins.addExternal('img',dotclear.dcckeditor_plugin_url+'/js/ckeditor-plugins/img/');
+	<?php if (!empty($dcckeditor_textcolor_button) || !empty($dcckeditor_background_textcolor_button)):?>
+	// button add "More Colors..." can be added if colordialog plugin is enabled
+	CKEDITOR.config.colorButton_enableMore = true;
+	<?php endif;?>
 
 <?php if (!empty($extraPlugins) && count($extraPlugins)>0) {
 	foreach ($extraPlugins as $plugin) {
@@ -119,7 +123,7 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 		<?php if (!empty($dcckeditor_format_select)):?>
 		// format tags
 <?php if (!empty($dcckeditor_format_tags)):?>
-        format_tags: '<?php echo $dcckeditor_format_tags;?>',
+		format_tags: '<?php echo $dcckeditor_format_tags;?>',
 <?php else:?>
 		format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address',
 <?php endif;?>
@@ -177,16 +181,19 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 					'EntryLink','dcLink','Media','img','-',
 					'Source'
 <?php if (!empty($dcckeditor_textcolor_button)):?>
-                ,'TextColor'
+					,'TextColor'
+<?php endif;?>
+<?php if (!empty($dcckeditor_background_textcolor_button)):?>
+					,'BGColor'
 <?php endif;?>
 				]
 			},
-            {
-                name: 'special',
-                items: [
-                    'Maximize'
-                ]
-            },
+			{
+				name: 'special',
+				items: [
+					'Maximize'
+				]
+			},
 			<?php // add extra buttons comming from dotclear plugins
 			if (!empty($extraPlugins) && count($extraPlugins)>0) {
 				$extraPlugins_str = "{name: 'extra', items: [%s]},\n";

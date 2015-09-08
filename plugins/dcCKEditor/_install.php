@@ -24,6 +24,7 @@ $settings->dcckeditor->put('active', true, 'boolean', 'dcCKEditor plugin activat
 $settings->dcckeditor->put('alignment_buttons', true, 'boolean', 'Add alignment buttons?', false, true);
 $settings->dcckeditor->put('list_buttons', true, 'boolean', 'Add list buttons?', false, true);
 $settings->dcckeditor->put('textcolor_button', false, 'boolean', 'Add text color button?', false, true);
+$settings->dcckeditor->put('background_textcolor_button', false, 'boolean', 'Add background text color button?', false, true);
 $settings->dcckeditor->put('cancollapse_button', false, 'boolean', 'Add collapse button?', false, true);
 $settings->dcckeditor->put('format_select', true, 'boolean', 'Add format selection?', false, true);
 $settings->dcckeditor->put('format_tags', 'p;h1;h2;h3;h4;h5;h6;pre;address', 'string', 'Custom formats', false, true);

@@ -49,6 +49,10 @@ msgstr "Sauver la configuration"
 msgid "Add text color button"
 msgstr "Ajouter le bouton pour changer la couleur du texte"
 
+#: tpl/index.tpl:37
+msgid "Add background text color button"
+msgstr "Ajouter le bouton pour changer la couleur de fond du texte"
+
 #: tpl/index.tpl:41
 msgid "Add collapse button"
 msgstr "Ajouter le bouton pour masquer les boutons"

@@ -19,6 +19,7 @@ $dcckeditor_active = $core->blog->settings->dcckeditor->active;
 $dcckeditor_alignment_buttons = $core->blog->settings->dcckeditor->alignment_buttons;
 $dcckeditor_list_buttons = $core->blog->settings->dcckeditor->list_buttons;
 $dcckeditor_textcolor_button = $core->blog->settings->dcckeditor->textcolor_button;
+$dcckeditor_background_textcolor_button = $core->blog->settings->dcckeditor->background_textcolor_button;
 $dcckeditor_cancollapse_button = $core->blog->settings->dcckeditor->cancollapse_button;
 $dcckeditor_format_select = $core->blog->settings->dcckeditor->format_select;
 $dcckeditor_format_tags = $core->blog->settings->dcckeditor->format_tags;

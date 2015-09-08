@@ -34,6 +34,10 @@
 	  <label class="classic" for="dcckeditor_textcolor_button">&nbsp;<?php echo __('Add text color button');?></label>
 	</p>
 	<p>
+	  <?php echo form::checkbox('dcckeditor_background_textcolor_button', 1, $dcckeditor_background_textcolor_button); ?>
+	  <label class="classic" for="dcckeditor_background_textcolor_button">&nbsp;<?php echo __('Add background text color button');?></label>
+	</p>
+	<p>
 	  <?php echo form::checkbox('dcckeditor_cancollapse_button', 1, $dcckeditor_cancollapse_button); ?>
 	  <label class="classic" for="dcckeditor_cancollapse_button">&nbsp;<?php echo __('Add collapse button');?></label>
 	</p>
