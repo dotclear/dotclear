@@ -1,0 +1,76 @@
+# Finnish translation of DotClear
+# Kari Eveli <lexitec@lexitec.fi>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-20 19:20+0100\n"
+"PO-Revision-Date: 2015-09-09 19:53+0300\n"
+"Last-Translator: Kari Eveli <lexitec@lexitec.fi>\n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "The configuration has been updated."
+msgstr "Asetukset päivitetty"
+
+msgid "Settings"
+msgstr "Asetukset"
+
+msgid "Plugin activation"
+msgstr "Liitännäisen käyttöönotto"
+
+msgid "Enable dcCKEditor plugin"
+msgstr "Ota dcCKEditor-liitännäinen käyttöön"
+
+msgid "Options"
+msgstr "Lisäasetukset"
+
+msgid "Add alignment buttons"
+msgstr "Lisää kohdistusnapit"
+
+msgid "Add lists buttons"
+msgstr "Lisää luettelonapit"
+
+msgid "Save configuration"
+msgstr "Tallenna asetukset"
+
+msgid "Add text color button"
+msgstr "Lisää tekstivärinappi"
+
+msgid "Add collapse button"
+msgstr "Lisää kutista-nappi"
+
+msgid "Add format selection"
+msgstr "Lisää muotoilunvalinta"
+
+msgid "Advanced options"
+msgstr "Edistyneet lisäasetukset"
+
+msgid "Text areas to be used by CKEditor"
+msgstr "CKEditorin käyttämät tekstialueet"
+
+msgid "Comma separed list of textareas - jQuery selector. Defaut: "
+msgstr "Pilkuin eroteltu luettelo tekstialueista - jQuery-valitsin. Oletus:"
+
+msgid "Custom formats"
+msgstr "Mukautetut muotoilut"
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr "Oletusmuotoilut ovat: p;h1;h2;h3;h4;h5;h6;pre;address"
+
+msgid "Add table button"
+msgstr "Lisää taulukkonappi"
+
+msgid "Add clipboard buttons"
+msgstr "Lisää leiketaulunapit"
+
+msgid "Copy, Paste, Paste Text, Paste from Word "
+msgstr "Kopioi, Liitä, Liitä tekstinä, Liitä Wordistä"
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr "Poistaa sisäänrakennetun oikeinkirjoituksentarkistajan käytöstä, mikäli selaimessa on sellainen"

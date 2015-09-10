@@ -586,13 +586,13 @@ if ($blog_id)
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	'<h5>'.__('Generated image sizes (in pixels)').'</h5>'.
-	'<p class="field"><label for="media_img_t_size">Thumbnail</label> '.
+	'<p class="field"><label for="media_img_t_size">'.__('Thumbnail').'</label> '.
 	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</p>'.
 
-	'<p class="field"><label for="media_img_s_size">Small</label> '.
+	'<p class="field"><label for="media_img_s_size">'.__('Small').'</label> '.
 	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</p>'.
 
-	'<p class="field"><label for="media_img_m_size">Medium</label> '.
+	'<p class="field"><label for="media_img_m_size">'.__('Medium').'</label> '.
 	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</p>'.
 	'</div>'.
 

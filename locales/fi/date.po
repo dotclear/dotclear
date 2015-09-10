@@ -1,0 +1,133 @@
+# Finnish translation of DotClear
+# Kari Eveli <lexitec@lexitec.fi>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2008-04-15 16:34+0100\n"
+"Last-Translator: Kari Eveli <lexitec@lexitec.fi>\n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr "%d.%m.%Y %H:%M"
+
+msgid "_Jan"
+msgstr "Tam"
+
+msgid "_Feb"
+msgstr "Hel"
+
+msgid "_Mar"
+msgstr "Maa"
+
+msgid "_Apr"
+msgstr "Huh"
+
+msgid "_May"
+msgstr "Tou"
+
+msgid "_Jun"
+msgstr "Kesä"
+
+msgid "_Jul"
+msgstr "Hei"
+
+msgid "_Aug"
+msgstr "Elo"
+
+msgid "_Sep"
+msgstr "Syys"
+
+msgid "_Oct"
+msgstr "Loka"
+
+msgid "_Nov"
+msgstr "Mar"
+
+msgid "_Dec"
+msgstr "Jou"
+
+msgid "January"
+msgstr "Tammikuu"
+
+msgid "February"
+msgstr "helmikuu"
+
+msgid "March"
+msgstr "Maaliskuu"
+
+msgid "April"
+msgstr "Huhtikuu"
+
+msgid "May"
+msgstr "Toukokuu"
+
+msgid "June"
+msgstr "Kesäkuu"
+
+msgid "July"
+msgstr "Heinäkuu"
+
+msgid "August"
+msgstr "Elokuu"
+
+msgid "September"
+msgstr "Syyskuu"
+
+msgid "October"
+msgstr "Lokakuu"
+
+msgid "November"
+msgstr "Marraskuu"
+
+msgid "December"
+msgstr "Joulukuu"
+
+msgid "_Mon"
+msgstr "Ma"
+
+msgid "_Tue"
+msgstr "Ti"
+
+msgid "_Wed"
+msgstr "Ke"
+
+msgid "_Thu"
+msgstr "To"
+
+msgid "_Fri"
+msgstr "Pe"
+
+msgid "_Sat"
+msgstr "La"
+
+msgid "_Sun"
+msgstr "Su"
+
+msgid "Monday"
+msgstr "Maanantai"
+
+msgid "Tuesday"
+msgstr "Tiistai"
+
+msgid "Wednesday"
+msgstr "Keskiviikko"
+
+msgid "Thursday"
+msgstr "Torstai"
+
+msgid "Friday"
+msgstr "Perjantai"
+
+msgid "Saturday"
+msgstr "Lauantai"
+
+msgid "Sunday"
+msgstr "Sunnuntai"
