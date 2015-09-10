@@ -132,7 +132,7 @@ echo dcPage::breadcrumb(
 $table_header = '<div class="table-outer"><table class="settings" id="%s"><caption class="as_h3">%s</caption>'.
 '<thead>'.
 '<tr>'."\n".
-'  <th class="nowrap">Setting ID</th>'."\n".
+'  <th class="nowrap">'.__('Setting ID').'</th>'."\n".
 '  <th>'.__('Value').'</th>'."\n".
 '  <th>'.__('Type').'</th>'."\n".
 '  <th class="maximalx">'.__('Description').'</th>'."\n".
