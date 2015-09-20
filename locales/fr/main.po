@@ -1407,15 +1407,18 @@ msgid "Zip file has been successfully extracted."
 msgstr "Le fichier zip a été extrait."
 
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s."
-msgstr "Choisissez un fichier à attacher au billet %s en cliquant sur %s."
+msgid "Choose a file to attach to entry %s by clicking on %s"
+msgstr "Choisissez un fichier à attacher au billet %s en cliquant sur %s"
 
 msgid "Attach this file to entry"
 msgstr "Attacher ce fichier au billet"
 
 #, php-format
-msgid "Choose a file to insert into entry by clicking on %s."
-msgstr "Choisissez un fichier à insérer dans le billet en cliquant sur %s."
+msgid "Choose a file to insert into entry by clicking on %s"
+msgstr "Choisissez un fichier à insérer dans le billet en cliquant sur %s"
+
+msgid "upload a new file"
+msgstr "envoyez un nouveau fichier"
 
 msgid "Remove selected medias"
 msgstr "Supprimer les médias sélectionnés"
