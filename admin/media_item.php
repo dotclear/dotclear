@@ -497,6 +497,24 @@ if ($file->media_image)
 	}
 	echo '<a href="'.$core->adminurl->get('admin.media.item',array_merge($page_url_params,array("size" => "o","tab"=>"media-details-tab"))).'">'.__('original').'</a>';
 	echo '</p>';
+
+	if ($thumb_size != 'o' && isset($file->media_thumb[$thumb_size])) {
+		$p = path::info($file->file);
+		$alpha = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');
+		$thumb = sprintf(($alpha ? $core->media->thumb_tp_alpha : $core->media->thumb_tp),$p['dirname'],$p['base'],'%s');
+		$thumb_file = sprintf($thumb,$thumb_size);
+		$T = getimagesize($thumb_file);
+		$stats = stat($thumb_file);
+		echo
+		'<h3>'.__('Thumbnail details').'</h3>'.
+		'<ul>'.
+		'<li><strong>'.__('Image width:').'</strong> '.$T[0].' px</li>'.
+		'<li><strong>'.__('Image height:').'</strong> '.$T[1].' px</li>'.
+		'<li><strong>'.__('File size:').'</strong> '.files::size($stats[7]).'</li>'.
+		'<li><strong>'.__('File URL:').'</strong> <a href="'.$file->media_thumb[$thumb_size].'">'.
+			$file->media_thumb[$thumb_size].'</a></li>'.
+		'</ul>';
+	}
 }
 
 // Show player if relevant
@@ -513,7 +531,16 @@ echo
 '<h3>'.__('Media details').'</h3>'.
 '<ul>'.
 	'<li><strong>'.__('File owner:').'</strong> '.$file->media_user.'</li>'.
-	'<li><strong>'.__('File type:').'</strong> '.$file->type.'</li>'.
+	'<li><strong>'.__('File type:').'</strong> '.$file->type.'</li>';
+if ($file->media_image)
+{
+	$S = getimagesize($file->file);
+	echo
+	'<li><strong>'.__('Image width:').'</strong> '.$S[0].' px</li>'.
+	'<li><strong>'.__('Image height:').'</strong> '.$S[1].' px</li>';
+	unset($S);
+}
+echo
 	'<li><strong>'.__('File size:').'</strong> '.files::size($file->size).'</li>'.
 	'<li><strong>'.__('File URL:').'</strong> <a href="'.$file->file_url.'">'.$file->file_url.'</a></li>'.
 '</ul>';
