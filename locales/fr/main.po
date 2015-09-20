@@ -3671,6 +3671,15 @@ msgstr "Sans mot de passe"
 msgid "Format:"
 msgstr "Format :"
 
+msgid "Thumbnail details"
+msgstr "Détails de la miniature"
+
+msgid "Image width:"
+msgstr "Largeur de l'image :"
+
+msgid "Image height:"
+msgstr "Hauteur de l'image :"
+
 #~ msgid "visual"
 #~ msgstr "visuel"
 
