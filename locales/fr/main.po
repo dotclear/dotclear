@@ -1487,6 +1487,15 @@ msgstr "Envoyer"
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Les réglages actuels pour les médias et les images sont définis dans les %s"
 
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s fichier trouvé"
+msgstr[1] "%s fichiers trouvés"
+
+msgid "Will search into media filename (including path), title and description"
+msgstr "Recherche parmi les noms des fichiers (incluant leur chemin), les titres et descriptions"
+
 msgid "Blog parameters"
 msgstr "Paramètres du blog"
 

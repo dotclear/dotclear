@@ -55,6 +55,9 @@ if ($page != 1) {
 	unset($_SESSION['media_manager_page']);
 }
 
+# Get query in any
+$q = isset($_REQUEST['q']) ? $_REQUEST['q'] : null;
+
 # Sort combo
 $sort_combo = array(
 	__('By names, in ascending order') => 'name-asc',
@@ -81,6 +84,9 @@ if ($d) {
 if ($plugin_id != '') {
 	$page_url_params['plugin_id'] = $plugin_id;
 }
+if ($q) {
+	$page_url_params['q'] = $q;
+}
 
 $core->callBehavior('adminMediaURLParams',$page_url_params);
 $page_url_params = (array) $page_url_params;
@@ -99,8 +105,17 @@ try {
 	if ($file_sort) {
 		$core->media->setFileSort($file_sort);
 	}
-	$core->media->chdir($d);
-	$core->media->getDir();
+	$query = false;
+	if ($q) {
+		$query = $core->media->searchMedia($q);
+	}
+	if (!$query) {
+		$core->media->chdir($d);
+		$core->media->getDir();
+	} else {
+		$d = null;
+		$core->media->chdir($d);
+	}
 	$core_media_writable = $core->media->writable();
 	$dir =& $core->media->dir;
 	if  (!$core_media_writable) {
@@ -169,7 +184,7 @@ if ($dir && !empty($_FILES['upfile'])) {
 			$message['files'][] = array(
 				'name' => $upfile['name'],
 				'size' => $upfile['size'],
-				'html' => mediaItemLine($core->media->getFile($new_file_id), 1)
+				'html' => mediaItemLine($core->media->getFile($new_file_id),1,$query)
 			);
 		} catch (Exception $e) {
 			$message['files'][] = array('name' => $upfile['name'],
@@ -186,7 +201,7 @@ if ($dir && !empty($_FILES['upfile'])) {
 			$f_title = (isset($_POST['upfiletitle']) ? $_POST['upfiletitle'] : '');
 			$f_private = (isset($_POST['upfilepriv']) ? $_POST['upfilepriv'] : false);
 
-			$core->media->uploadFile($upfile['tmp_name'], $upfile['name'], $f_title, $f_private);
+			$core->media->uploadFile($upfile['tmp_name'],$upfile['name'],$f_title,$f_private);
 
 			dcPage::addSuccessNotice(__('Files have been successfully uploaded.'));
 			$core->adminurl->redirect('admin.media',$page_url_params);
@@ -272,6 +287,7 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 	'<p><input type="submit" value="'.__('Cancel').'" /> '.
 	' &nbsp; <input type="submit" name="rmyes" value="'.__('Yes').'" />'.
 	form::hidden('d',$d).
+	form::hidden('q',$q).
 	$core->adminurl->getHiddenFormFields('admin.media',$page_url_params).
 	$core->formNonce().
 	form::hidden('remove',html::escapeHTML($_GET['remove'])).'</p>'.
@@ -295,33 +311,48 @@ if (!isset($core->media)) {
 		array('home_link' => !$popup)
 	);
 } else {
-	$temp_params = $page_url_params;
-	$temp_params['d']='%s';
-	$bc_template = $core->adminurl->get('admin.media',$temp_params,'&amp;',true);
-	$breadcrumb_media = $core->media->breadCrumb($bc_template,'<span class="page-title">%s</span>');
-	if ($breadcrumb_media == '') {
-		$breadcrumb = dcPage::breadcrumb(
-			array(
-				html::escapeHTML($core->blog->name) => '',
-				__('Media manager') => ''
-			),
-			array('home_link' => !$popup)
-		);
-	} else {
+	if ($query || (!$query && $q)) {
+		$count = $query ? count($dir['files']) : 0;
 		$home_params = $page_url_params;
 		$home_params['d']='';
-
+		$home_params['q']='';
 		$breadcrumb = dcPage::breadcrumb(
 			array(
 				html::escapeHTML($core->blog->name) => '',
 				__('Media manager') => $core->adminurl->get('admin.media',$home_params),
-				$breadcrumb_media => ''
+				__('Search:').' '.$q.' ('.sprintf(__('%s file found','%s files found',$count),$count).')' => ''
 			),
-			array(
-				'home_link' => !$popup,
-				'hl' => false
-			)
+			array('home_link' => !$popup)
 		);
+	} else {
+		$temp_params = $page_url_params;
+		$temp_params['d']='%s';
+		$bc_template = $core->adminurl->get('admin.media',$temp_params,'&amp;',true);
+		$breadcrumb_media = $core->media->breadCrumb($bc_template,'<span class="page-title">%s</span>');
+		if ($breadcrumb_media == '') {
+			$breadcrumb = dcPage::breadcrumb(
+				array(
+					html::escapeHTML($core->blog->name) => '',
+					__('Media manager') => ''
+				),
+				array('home_link' => !$popup)
+			);
+		} else {
+			$home_params = $page_url_params;
+			$home_params['d']='';
+
+			$breadcrumb = dcPage::breadcrumb(
+				array(
+					html::escapeHTML($core->blog->name) => '',
+					__('Media manager') => $core->adminurl->get('admin.media',$home_params),
+					$breadcrumb_media => ''
+				),
+				array(
+					'home_link' => !$popup,
+					'hl' => false
+				)
+			);
+		}
 	}
 }
 
@@ -401,7 +432,11 @@ $items = array_values(array_merge($dir['dirs'],$dir['files']));
 
 $fmt_form_media = '<form action="'.$core->adminurl->get("admin.media").'" method="post" id="form-medias">'.
 	'<div class="files-group">%s</div>'.
-	'<p class="hidden">'.$core->formNonce() . form::hidden(array('d'),$d).form::hidden(array('plugin_id'),$plugin_id).'</p>';
+	'<p class="hidden">'.$core->formNonce().
+	form::hidden(array('d'),$d).
+	form::hidden(array('q'),$q).
+	form::hidden(array('plugin_id'),$plugin_id).
+	'</p>';
 
 if (!$popup) {
 	$fmt_form_media .=
@@ -425,6 +460,16 @@ else
 	$pager = new dcPager($page,count($items),$nb_per_page,10);
 
 	echo
+	'<form action="'.$core->adminurl->get("admin.media").'" method="get" id="search-form">'.
+	'<p><label for="search" class="classic">'.__('Search:').'</label> '.
+	form::field('q',20,255,$q).' '.
+	'<input type="submit" value="'.__('OK').'" />'.' '.
+	'<span class="form-note">'.__('Will search into media filename (including path), title and description').'</span>'.
+	form::hidden(array('popup'),$popup).
+	form::hidden(array('plugin_id'),$plugin_id).
+	form::hidden(array('post_id'),$post_id).
+	'</p>'.
+	'</form>'.
 	'<form action="'.$core->adminurl->get("admin.media").'" method="get" id="filters-form">'.
 	'<p class="two-boxes"><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
 	form::combo('file_sort',$sort_combo,$file_sort).'</p>'.
@@ -434,6 +479,7 @@ else
 	form::hidden(array('popup'),$popup).
 	form::hidden(array('plugin_id'),$plugin_id).
 	form::hidden(array('post_id'),$post_id).
+	form::hidden(array('q'),$q).
 	'</p>'.
 	'</form>'.
 	$pager->getLinks();
@@ -443,9 +489,9 @@ else
 	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
 	{
 		if ($items[$i]->d) {
-			$dgroup .= mediaItemLine($items[$i],$j);
+			$dgroup .= mediaItemLine($items[$i],$j,$query);
 		} else {
-			$fgroup .= mediaItemLine($items[$i],$j);
+			$fgroup .= mediaItemLine($items[$i],$j,$query);
 		}
 	}
 
@@ -465,13 +511,13 @@ echo
 $core_media_archivable = $core->auth->check('media_admin',$core->blog->id) &&
 	!(count($items) == 0 || (count($items) == 1 && $items[0]->parent));
 
-if ($core_media_writable || $core_media_archivable) {
+if ((!$query) && ($core_media_writable || $core_media_archivable)) {
 	echo
 	'<div class="vertical-separator">'.
 	'<h3 class="out-of-screen-if-js">'.sprintf(__('In %s:'),($d == '' ? '“'.__('Media manager').'”' : '“'.$d.'”')).'</h3>';
 }
 
-if ($core_media_writable || $core_media_archivable) {
+if ((!$query) && ($core_media_writable || $core_media_archivable)) {
 	echo
 	'<div class="two-boxes odd">';
 
@@ -507,7 +553,7 @@ if ($core_media_writable || $core_media_archivable) {
 	'</div>';
 }
 
-if ($core_media_writable)
+if (!$query && $core_media_writable)
 {
 	echo
 	'<div class="two-boxes fieldset even">';
@@ -568,11 +614,12 @@ echo
 '<div>'.
 form::hidden('rmyes',1).form::hidden('d',html::escapeHTML($d)).
 form::hidden(array('plugin_id'),$plugin_id).form::hidden('remove','').
+form::hidden(array('q'),$q).
 $core->formNonce().
 '</div>'.
 '</form>';
 
-if ($core_media_writable || $core_media_archivable) {
+if ((!$query) && ($core_media_writable || $core_media_archivable)) {
 	echo
 	'</div>';
 }
@@ -585,11 +632,12 @@ if (!$popup) {
 call_user_func($close_f);
 
 /* ----------------------------------------------------- */
-function mediaItemLine($f,$i)
+function mediaItemLine($f,$i,$query)
 {
 	global $core, $page_url, $popup, $post_id, $plugin_id,$page_url_params;
 
 	$fname = $f->basename;
+	$file = $query ? $f->relname : $f->basename;
 
 	$class = 'media-item media-col-'.($i%2);
 
@@ -624,7 +672,7 @@ function mediaItemLine($f,$i)
 	}
 	$res =
 	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.rawurldecode($link).'">'.
-	'<img src="'.$f->media_icon.'" alt="" />'.$fname.'</a></p>';
+	'<img src="'.$f->media_icon.'" alt="" />'.($query ? $file : $fname).'</a></p>';
 
 	$lst = '';
 
@@ -656,11 +704,14 @@ function mediaItemLine($f,$i)
 
 	if ($f->del) {
 		if (!$popup && !$f->d) {
-			$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($f->basename)),rawurlencode($f->basename));
+			$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($file)),$file);
 		} else {
 			$act .= '<a class="media-remove" '.
-			'href="'.html::escapeURL($page_url).'&amp;plugin_id='.$plugin_id.'&amp;d='.
-			rawurlencode($GLOBALS['d']).'&amp;remove='.rawurlencode($f->basename).'">'.
+			'href="'.html::escapeURL($page_url).
+			'&amp;plugin_id='.$plugin_id.
+			'&amp;d='.rawurlencode($GLOBALS['d']).
+			'&amp;q='.rawurlencode($GLOBALS['q']).
+			'&amp;remove='.rawurlencode($file).'">'.
 			'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
 		}
 	}
