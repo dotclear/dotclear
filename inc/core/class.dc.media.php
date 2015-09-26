@@ -367,7 +367,6 @@ class dcMedia extends filemanager
 			default:
 				return strcasecmp($a->basename,$b->basename);
 		}
-
 	}
 
 	/**
@@ -516,6 +515,57 @@ class dcMedia extends filemanager
 
 		$rs = $this->con->select($strReq);
 		return $this->fileRecord($rs);
+	}
+
+	/**
+	Search into media db (only).
+
+	@param	query		<b>string</b>		Search query
+	@return boolean 	true or false if nothing found
+	*/
+	public function searchMedia($query)
+	{
+		if ($query == '') {
+			return false;
+		}
+
+		$strReq =
+		'SELECT media_file, media_id, media_path, media_title, media_meta, media_dt, '.
+		'media_creadt, media_upddt, media_private, user_id '.
+		'FROM '.$this->table.' '.
+		"WHERE media_path = '".$this->path."' ".
+		"AND (media_title LIKE '%".$this->con->escape($query)."%' ".
+		"	OR media_file LIKE '%".$this->con->escape($query)."%' ".
+		"	OR media_meta LIKE '<Description>%".$this->con->escape($query)."%</Description>')";
+
+		if (!$this->core->auth->check('media_admin',$this->core->blog->id))
+		{
+			$strReq .= 'AND (media_private <> 1 ';
+
+			if ($this->core->auth->userID()) {
+				$strReq .= "OR user_id = '".$this->con->escape($this->core->auth->userID())."'";
+			}
+			$strReq .= ') ';
+		}
+
+		$rs = $this->con->select($strReq);
+
+		$this->dir = array('dirs' => array(),'files' => array());
+		$f_res = array();
+		while ($rs->fetch())
+		{
+			$fr = $this->fileRecord($rs);
+			if ($fr) {
+				$f_res[] = $fr;
+			}
+		}
+		$this->dir['files'] = $f_res;
+
+		try {
+			usort($this->dir['files'],array($this,'sortFileHandler'));
+		} catch (Exception $e) {}
+
+		return (count($f_res) > 0 ? true : false);
 	}
 
 	/**
