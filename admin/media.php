@@ -66,12 +66,6 @@ $sort_combo = array(
 	__('By dates, in descending order') => 'date-desc'
 	);
 
-# Display mode combo
-$mode_combo = array(
-	__('Grid') => 'grid',
-	__('List') => 'list'
-	);
-
 if (!empty($_GET['file_mode'])) {
 	$_SESSION['media_file_mode'] = $_GET['file_mode'];
 }
@@ -483,8 +477,14 @@ else
 	'</p>'.
 	'</form>'.
 	'<form action="'.$core->adminurl->get("admin.media").'" method="get" id="filters-form">'.
-	'<p class="three-boxes"><label for="file_mode" class="classic">'.__('Display mode:').'</label> '.
-	form::combo('file_mode',$mode_combo,$file_mode).'</p>'.
+	'<span class="media-file-mode">'.
+	'<a href="'.$core->adminurl->get("admin.media",array_merge($page_url_params,array('file_mode' => 'grid'))).'" title="'.__('Grid display mode').'">'.
+	'<img src="images/grid-'.($file_mode == 'grid' ? 'on' : 'off').'.png" alt="'.__('Grid display mode').'" />'.
+	'</a>'.
+	'<a href="'.$core->adminurl->get("admin.media",array_merge($page_url_params,array('file_mode' => 'list'))).'" title="'.__('List display mode').'">'.
+	'<img src="images/list-'.($file_mode == 'list' ? 'on' : 'off').'.png" alt="'.__('List display mode').'" />'.
+	'</a>'.
+	'</span>'.
 	'<p class="three-boxes"><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
 	form::combo('file_sort',$sort_combo,$file_sort).'</p>'.
 	'<p class="three-boxes"><label for="nb_per_page" class="classic">'.__('Number of elements displayed per page:').'</label> '.

@@ -1844,6 +1844,15 @@ p.cat-title {
 	width: 100%;
 	}
 /* ------------------------------------------------------------------ media.php */
+span.media-file-mode {
+	margin-right: 1em;
+}
+.media-file-mode a {
+	border-bottom: none;
+}
+.media-file-mode img {
+	margin-right: 1em;
+}
 .media-item {
 	position: relative;
 	border: 1px solid #dfdfdf;
