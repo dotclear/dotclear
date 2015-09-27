@@ -43,7 +43,7 @@ if (!isset($_GET['page']) && isset($_SESSION['media_manager_page'])) {
 	$page = $_SESSION['media_manager_page'];
 }
 
-# We set session information about directory and page
+# We set session information about directory, page and display mode
 if ($d) {
 	$_SESSION['media_manager_dir'] = $d;
 } else {
@@ -66,10 +66,22 @@ $sort_combo = array(
 	__('By dates, in descending order') => 'date-desc'
 	);
 
+# Display mode combo
+$mode_combo = array(
+	__('Grid') => 'grid',
+	__('List') => 'list'
+	);
+
+if (!empty($_GET['file_mode'])) {
+	$_SESSION['media_file_mode'] = $_GET['file_mode'];
+}
+$file_mode = !empty($_SESSION['media_file_mode']) ? $_SESSION['media_file_mode'] : false;
+
 if (!empty($_GET['file_sort']) && in_array($_GET['file_sort'],$sort_combo)) {
 	$_SESSION['media_file_sort'] = $_GET['file_sort'];
 }
 $file_sort = !empty($_SESSION['media_file_sort']) ? $_SESSION['media_file_sort'] : null;
+
 $nb_per_page = !empty($_SESSION['nb_per_page']) ? (integer)$_SESSION['nb_per_page'] : $nb_per_page;
 if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 	$nb_per_page = $_SESSION['nb_per_page'] = (integer)$_GET['nb_per_page'];
@@ -471,9 +483,11 @@ else
 	'</p>'.
 	'</form>'.
 	'<form action="'.$core->adminurl->get("admin.media").'" method="get" id="filters-form">'.
-	'<p class="two-boxes"><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
+	'<p class="three-boxes"><label for="file_mode" class="classic">'.__('Display mode:').'</label> '.
+	form::combo('file_mode',$mode_combo,$file_mode).'</p>'.
+	'<p class="three-boxes"><label for="file_sort" class="classic">'.__('Sort files:').'</label> '.
 	form::combo('file_sort',$sort_combo,$file_sort).'</p>'.
-	'<p class="two-boxes"><label for="nb_per_page" class="classic">'.__('Number of elements displayed per page:').'</label> '.
+	'<p class="three-boxes"><label for="nb_per_page" class="classic">'.__('Number of elements displayed per page:').'</label> '.
 	form::field('nb_per_page',5,3,(integer) $nb_per_page).' '.
 	'<input type="submit" value="'.__('OK').'" />'.
 	form::hidden(array('popup'),$popup).
@@ -484,20 +498,47 @@ else
 	'</form>'.
 	$pager->getLinks();
 
-	$dgroup = '';
-	$fgroup = '';
-	for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
-	{
-		if ($items[$i]->d) {
-			$dgroup .= mediaItemLine($items[$i],$j,$query);
-		} else {
-			$fgroup .= mediaItemLine($items[$i],$j,$query);
-		}
-	}
+	if ($file_mode == 'list') {
+		$table =
+		'<div class="table-outer">'.
+		'<table>'.
+		'<caption class="hidden">'.__('Media list').'</caption>'.
+		'<tr>'.
+		'<th colspan="2" class="first">'.__('Name').'</th>'.
+		'<th scope="col">'.__('Date').'</th>'.
+		'<th scope="col">'.__('Size').'</th>'.
+		'</tr>';
 
-	echo
-	($dgroup != '' ? '<div class="folders-group">'.$dgroup.'</div>' : '').
-	sprintf($fmt_form_media,$fgroup,'');
+		$dlist = '';
+		$flist = '';
+		for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
+		{
+			if ($items[$i]->d) {
+				$dlist .= mediaItemLine($items[$i],$j,$query,true);
+			} else {
+				$flist .= mediaItemLine($items[$i],$j,$query,true);
+			}
+		}
+		$table .= $dlist.$flist;
+
+		$table .=
+		'</table></div>';
+		echo sprintf($fmt_form_media,$table,'');
+	} else {
+		$dgroup = '';
+		$fgroup = '';
+		for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
+		{
+			if ($items[$i]->d) {
+				$dgroup .= mediaItemLine($items[$i],$j,$query);
+			} else {
+				$fgroup .= mediaItemLine($items[$i],$j,$query);
+			}
+		}
+		echo
+		($dgroup != '' ? '<div class="folders-group">'.$dgroup.'</div>' : '').
+		sprintf($fmt_form_media,$fgroup,'');
+	}
 
 	echo $pager->getLinks();
 }
@@ -632,14 +673,14 @@ if (!$popup) {
 call_user_func($close_f);
 
 /* ----------------------------------------------------- */
-function mediaItemLine($f,$i,$query)
+function mediaItemLine($f,$i,$query,$table=false)
 {
 	global $core, $page_url, $popup, $post_id, $plugin_id,$page_url_params;
 
 	$fname = $f->basename;
 	$file = $query ? $f->relname : $f->basename;
 
-	$class = 'media-item media-col-'.($i%2);
+	$class = $table ? '' : 'media-item media-col-'.($i%2);
 
 	if ($f->d) {
 
@@ -670,25 +711,10 @@ function mediaItemLine($f,$i,$query)
 	if (strlen($fname) > $maxchars) {
 		$fname = substr($fname, 0, $maxchars-4).'...'.($f->d ? '' : files::getExtension($fname));
 	}
-	$res =
-	'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.rawurldecode($link).'">'.
-	'<img src="'.$f->media_icon.'" alt="" />'.($query ? $file : $fname).'</a></p>';
-
-	$lst = '';
-
-	if (!$f->d) {
-		$lst .=
-		'<li>'.$f->media_title.'</li>'.
-		'<li>'.
-		$f->media_dtstr.' - '.
-		files::size($f->size).' - '.
-		'<a href="'.$f->file_url.'">'.__('open').'</a>'.
-		'</li>';
-	}
 
 	$act = '';
-
 	if ($post_id && !$f->d) {
+		// Media attachment button
 		$act .=
 		'<a class="attach-media" title="'.__('Attach this file to entry').'" href="'.
 		$core->adminurl->get("admin.post.media", array('media_id' => $f->media_id, 'post_id' => $post_id,'attach' => 1)).
@@ -696,13 +722,13 @@ function mediaItemLine($f,$i,$query)
 		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'"/>'.
 		'</a>';
 	}
-
 	if ($popup && !$f->d) {
+		// Media insertion button
 		$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
 		'title="'.__('Insert this file into entry').'" /></a> ';
 	}
-
 	if ($f->del) {
+		// Deletion button or checkbox
 		if (!$popup && !$f->d) {
 			$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($file)),$file);
 		} else {
@@ -716,18 +742,42 @@ function mediaItemLine($f,$i,$query)
 		}
 	}
 
-	$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
+	if (!$table) {
+		$res =
+		'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.rawurldecode($link).'">'.
+		'<img src="'.$f->media_icon.'" alt="" />'.($query ? $file : $fname).'</a></p>';
 
-	// Show player if relevant
-	$file_type = explode('/',$f->type);
-	if ($file_type[0] == 'audio')
-	{
-		$lst .= '<li>'.dcMedia::audioPlayer($f->type,$f->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf'))).'</li>';
+		$lst = '';
+		if (!$f->d) {
+			$lst .=
+			'<li>'.$f->media_title.'</li>'.
+			'<li>'.
+			$f->media_dtstr.' - '.
+			files::size($f->size).' - '.
+			'<a href="'.$f->file_url.'">'.__('open').'</a>'.
+			'</li>';
+		}
+		$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
+
+		// Show player if relevant
+		$file_type = explode('/',$f->type);
+		if ($file_type[0] == 'audio')
+		{
+			$lst .= '<li>'.dcMedia::audioPlayer($f->type,$f->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf'))).'</li>';
+		}
+
+		$res .=	($lst != '' ? '<ul>'.$lst.'</ul>' : '');
+		$res .= '</div>';
+	} else {
+		$res = '<tr class="'.$class.'">';
+		$res .= '<td class="media-action">'.$act.'</td>';
+		$res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="'.rawurldecode($link).'">'.
+				'<img src="'.$f->media_icon.'" alt="" />'.($query ? $file : $fname).'</a>'.
+				'<br />'.($f->d ? '' : $f->media_title).'</td>';
+		$res .= '<td class="nowrap count">'.($f->d ? '' : $f->media_dtstr).'</td>';
+		$res .= '<td class="nowrap count">'.($f->d ? '' : files::size($f->size).' - '.'<a href="'.$f->file_url.'">'.__('open').'</a>').'</td>';
+		$res .= '</tr>';
 	}
-
-	$res .=	($lst != '' ? '<ul>'.$lst.'</ul>' : '');
-
-	$res .= '</div>';
 
 	return $res;
 }

@@ -1879,6 +1879,13 @@ a.media-icon {
 .media-icon img {
 	display: block;
 	}
+a.media-flag {
+	border-bottom: none;
+}
+.media-flag img {
+	float: left;
+	margin-right: .5em;
+}
 .media-link {
 	font-size: 1.1em;
 	}
@@ -1926,6 +1933,9 @@ li.media-action input {
 	background: transparent url(bg_menu.png) repeat-y;
 	border-color: #eee;
 	}
+tr.media-folder {
+	background: transparent;
+}
 .media-folder-up {
 	border-color: #fff;
 	padding-bottom: 6px;
