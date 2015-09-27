@@ -1426,14 +1426,11 @@ msgstr "Supprimer les médias sélectionnés"
 msgid "No file."
 msgstr "Aucun fichier."
 
-msgid "Display mode:"
-msgstr "Mode d'affichage:"
+msgid "Grid display mode"
+msgstr "Afficher sous forme de grille"
 
-msgid "Grid"
-msgstr "Grille"
-
-msgid "List"
-msgstr "Liste"
+msgid "List display mode"
+msgstr "Afficher sous forme de liste"
 
 msgid "Sort files:"
 msgstr "Trier les fichiers :"
