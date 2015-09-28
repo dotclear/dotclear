@@ -143,19 +143,19 @@ elseif ($change_pwd)
 			throw new Exception();
 		}
 
-	# Check login informations
-	$check_user = false;
-	if (isset($data['cookie_admin']) && strlen($data['cookie_admin']) == 104)
-	{
-		$user_id = substr($data['cookie_admin'],40);
-		$user_id = @unpack('a32',@pack('H*',$user_id));
-		if (is_array($user_id))
+		# Check login informations
+		$check_user = false;
+		if (isset($data['cookie_admin']) && strlen($data['cookie_admin']) == 104)
 		{
-			$user_id = $user_id[1];
-			$user_key = substr($data['cookie_admin'],0,40);
-			$check_user = $core->auth->checkUser($user_id,null,$user_key) === true;
+			$user_id = substr($data['cookie_admin'],40);
+			$user_id = @unpack('a32',@pack('H*',$user_id));
+			if (is_array($user_id))
+			{
+				$user_id = $data['user_id'];
+				$user_key = substr($data['cookie_admin'],0,40);
+				$check_user = $core->auth->checkUser($user_id,null,$user_key) === true;
+			}
 		}
-	}
 
 		if (!$core->auth->allowPassChange() || !$check_user) {
 			$change_pwd = false;
