@@ -65,6 +65,13 @@ try {
 	$counter = $core->getBlogs($params,1);
 	$rs = $core->getBlogs($params);
 	$nb_blog = $counter->f(0);
+	$rsStatic = $rs->toStatic();
+	if ($sortby != 'blog_upddt') {
+		// Sort blog list using lexical order if necessary
+		$rsStatic->extend('rsExtUser');
+		$rsStatic = $rsStatic->toExtStatic();
+		$rsStatic->lexicalSort(($sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'),$order);
+	}
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
@@ -162,8 +169,8 @@ if (!$core->error->flag())
 		'<th scope="col" class="nowrap">'.__('Status').'</th>'.
 		'</tr>';
 
-		while ($rs->fetch()) {
-			echo blogLine($rs);
+		while ($rsStatic->fetch()) {
+			echo blogLine($rsStatic);
 		}
 
 		echo '</table></div>';
