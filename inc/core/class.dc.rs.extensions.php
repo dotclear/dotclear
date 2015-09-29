@@ -893,6 +893,24 @@ class rsExtUser
 	}
 }
 
+class rsExtBlog
+{
+	private static $sortfield;
+	private static $sortsign;
+	/**
+	Converts this record to a {@link extStaticRecord} instance.
+
+	@param 	rs 	Invisible parameter
+	 */
+	public static function toExtStatic($rs)
+	{
+		if ($rs instanceof extStaticRecord) {
+			return $rs;
+		}
+		return new extStaticRecord($rs);
+	}
+}
+
 class extStaticRecord extends staticRecord
 {
 	private $sortfield;
