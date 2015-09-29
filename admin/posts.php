@@ -46,9 +46,11 @@ try {
 if (!$core->error->flag())
 {
 	# Filter form we'll put in html_block
+	$users_combo = dcAdminCombos::getUsersCombo($users);
+	dcUtils::lexicalKeySort($users_combo);
 	$users_combo = array_merge(
 		array('-' => ''),
-		dcAdminCombos::getUsersCombo($users)
+		$users_combo
 	);
 
 	$categories_combo = array_merge(

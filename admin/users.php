@@ -83,7 +83,14 @@ if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 try {
 	$rs = $core->getUsers($params);
 	$counter = $core->getUsers($params,1);
-	$user_list = new adminUserList($core,$rs,$counter->f(0));
+	$rsStatic = $rs->toStatic();
+	if ($sortby != 'nb_post') {
+		// Sort user list using lexical order if necessary
+		$rsStatic->extend('rsExtUser');
+		$rsStatic = $rsStatic->toExtStatic();
+		$rsStatic->lexicalSort($sortby,$order);
+	}
+	$user_list = new adminUserList($core,$rsStatic,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }

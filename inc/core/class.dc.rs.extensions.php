@@ -845,6 +845,8 @@ function.
 */
 class rsExtUser
 {
+	private static $sortfield;
+	private static $sortsign;
 	/**
 	Returns a user option.
 
@@ -875,5 +877,60 @@ class rsExtUser
 			return $options;
 		}
 		return array();
+	}
+
+	/**
+	Converts this record to a {@link extStaticRecord} instance.
+
+	@param 	rs 	Invisible parameter
+	 */
+	public static function toExtStatic($rs)
+	{
+		if ($rs instanceof extStaticRecord) {
+			return $rs;
+		}
+		return new extStaticRecord($rs);
+	}
+}
+
+class extStaticRecord extends staticRecord
+{
+	private $sortfield;
+	private $sortsign;
+
+	public function __construct($rs)
+	{
+		parent::__construct($rs->__data,$rs->__info);
+	}
+
+	/**
+	Lexically sort.
+
+	@param 	field 	<b>string<b>	sort field
+	@param  order 	<b>string<b>	sort order
+	 */
+	public function lexicalSort($field,$order='asc')
+	{
+		$this->sortfield = $field;
+		$this->sortsign = strtolower($order) == 'asc' ? 1 : -1;
+
+		usort($this->__data,array($this,'lexicalSortCallback'));
+
+		$this->sortfield = null;
+		$this->sortsign = null;
+	}
+	private function lexicalSortCallback($a,$b)
+	{
+		$a = $a[$this->sortfield];
+		$b = $b[$this->sortfield];
+
+		# Integer values
+		if ($a == (string) (integer) $a && $b == (string) (integer) $b) {
+			$a = (integer) $a;
+			$b = (integer) $b;
+			return ($a - $b) * $this->sortsign;
+		}
+
+		return strcoll(strtolower(dcUtils::removeDiacritics($a)),strtolower(dcUtils::removeDiacritics($b))) * $this->sortsign;
 	}
 }
