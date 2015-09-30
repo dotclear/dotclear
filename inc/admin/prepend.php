@@ -72,6 +72,39 @@ function addMenuItem($section,$desc,$adminurl,$icon,$perm)
 		preg_match('/'.preg_quote($url).'(\?.*)?$/',$_SERVER['REQUEST_URI']),$perm,null,null,true);
 }
 
+function dc_register_urls($core,$modules,$lang)
+{
+	$core->adminurl->register('admin.posts','posts.php');
+	$core->adminurl->register('admin.post','post.php');
+	$core->adminurl->register('admin.post.media','post_media.php');
+	$core->adminurl->register('admin.blog.theme','blog_theme.php');
+	$core->adminurl->register('admin.blog.pref','blog_pref.php');
+	$core->adminurl->register('admin.blog.del','blog_del.php');
+	$core->adminurl->register('admin.blog','blog.php');
+	$core->adminurl->register('admin.blogs','blogs.php');
+	$core->adminurl->register('admin.categories','categories.php');
+	$core->adminurl->register('admin.category','category.php');
+	$core->adminurl->register('admin.comments','comments.php');
+	$core->adminurl->register('admin.comment','comment.php');
+	$core->adminurl->register('admin.help','help.php');
+	$core->adminurl->register('admin.home','index.php');
+	$core->adminurl->register('admin.langs','langs.php');
+	$core->adminurl->register('admin.media','media.php');
+	$core->adminurl->register('admin.media.item','media_item.php');
+	$core->adminurl->register('admin.plugins','plugins.php');
+	$core->adminurl->register('admin.plugin','plugin.php');
+	$core->adminurl->register('admin.search','search.php');
+	$core->adminurl->register('admin.user.preferences','preferences.php');
+	$core->adminurl->register('admin.user','user.php');
+	$core->adminurl->register('admin.user.actions','users_actions.php');
+	$core->adminurl->register('admin.users','users.php');
+	$core->adminurl->register('admin.auth','auth.php');
+	$core->adminurl->register('admin.help','help.php');
+	$core->adminurl->register('admin.update','update.php');
+
+	$core->adminurl->registercopy('load.plugin.file','admin.home',array('pf' => 'dummy.css'));
+}
+
 if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
 {
 	# We have session information in constants
@@ -177,36 +210,7 @@ elseif ($core->auth->sessionExists())
 }
 
 $core->adminurl = new dcAdminURL($core);
-
-$core->adminurl->register('admin.posts','posts.php');
-$core->adminurl->register('admin.post','post.php');
-$core->adminurl->register('admin.post.media','post_media.php');
-$core->adminurl->register('admin.blog.theme','blog_theme.php');
-$core->adminurl->register('admin.blog.pref','blog_pref.php');
-$core->adminurl->register('admin.blog.del','blog_del.php');
-$core->adminurl->register('admin.blog','blog.php');
-$core->adminurl->register('admin.blogs','blogs.php');
-$core->adminurl->register('admin.categories','categories.php');
-$core->adminurl->register('admin.category','category.php');
-$core->adminurl->register('admin.comments','comments.php');
-$core->adminurl->register('admin.comment','comment.php');
-$core->adminurl->register('admin.help','help.php');
-$core->adminurl->register('admin.home','index.php');
-$core->adminurl->register('admin.langs','langs.php');
-$core->adminurl->register('admin.media','media.php');
-$core->adminurl->register('admin.media.item','media_item.php');
-$core->adminurl->register('admin.plugins','plugins.php');
-$core->adminurl->register('admin.plugin','plugin.php');
-$core->adminurl->register('admin.search','search.php');
-$core->adminurl->register('admin.user.preferences','preferences.php');
-$core->adminurl->register('admin.user','user.php');
-$core->adminurl->register('admin.user.actions','users_actions.php');
-$core->adminurl->register('admin.users','users.php');
-$core->adminurl->register('admin.auth','auth.php');
-$core->adminurl->register('admin.help','help.php');
-$core->adminurl->register('admin.update','update.php');
-
-$core->adminurl->registercopy('load.plugin.file','admin.home',array('pf' => 'dummy.css'));
+$core->addBehavior('coreBeforeLoadingNsFiles','dc_register_urls');
 
 if ($core->auth->userID() && $core->blog !== null)
 {
