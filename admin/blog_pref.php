@@ -703,7 +703,7 @@ if ($blog_id)
 		}
 
 		# Sort users list on user_id key
-		ksort($blog_users);
+		dcUtils::lexicalKeySort($blog_users);
 
 		$post_type = $core->getPostTypes();
 		$current_blog_id = $core->blog->id;
