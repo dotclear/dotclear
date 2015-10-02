@@ -752,7 +752,7 @@ class adminModulesList
 
 				$config = !empty($module['root']) && file_exists(path::real($module['root'].'/_config.php'));
 
-				if ($config || !empty($module['section']) || !empty($module['section'])) {
+				if ($config || !empty($module['section']) || !empty($module['tags'])) {
 					echo
 					'<div><ul class="mod-more">';
 
@@ -766,7 +766,7 @@ class adminModulesList
 						'<li class="module-section">'.__('Section:').' '.html::escapeHTML($module['section']).'</li>';
 					}
 
-					if (!empty($module['section'])) {
+					if (!empty($module['tags'])) {
 						echo
 						'<li class="module-tags">'.__('Tags:').' '.html::escapeHTML($module['tags']).'</li>';
 					}
