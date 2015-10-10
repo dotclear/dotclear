@@ -441,6 +441,9 @@ msgstr "Soyez prudent si plusieurs blogs de l'installation partagent la même m�
 msgid "Generated image sizes (in pixels)"
 msgstr "Tailles des miniatures générées (largeur en pixels)"
 
+msgid "Default size of the inserted video (in pixels)"
+msgstr "Taille par defaut des vidéos insérées (en pixels)"
+
 msgid "Default image insertion attributes"
 msgstr "Attributs par défaut pour l'insertion d'image"
 
@@ -3170,6 +3173,12 @@ msgstr "vignette"
 
 msgid "square"
 msgstr "carrée"
+
+msgid "Width"
+msgstr "Largeur"
+
+msgid "Height"
+msgstr "Hauteur"
 
 msgid "Posts"
 msgstr "Billets"

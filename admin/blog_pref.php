@@ -180,6 +180,12 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 	$media_img_m_size = abs((integer) $_POST['media_img_m_size']);
 	if ($media_img_m_size < 0) { $media_img_m_size = 448; }
 
+	$media_video_width = abs((integer) $_POST['media_video_width']);
+	if ($media_video_width < 0) { $media_video_width = 400; }
+	
+	$media_video_height = abs((integer) $_POST['media_video_height']);
+	if ($media_video_height < 0) { $media_video_height = 300; }
+
 	$nb_post_for_home = abs((integer) $_POST['nb_post_for_home']);
 	if ($nb_post_for_home <= 1) { $nb_post_for_home = 1; }
 
@@ -255,6 +261,8 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('media_img_t_size',$media_img_t_size);
 		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
+		$blog_settings->system->put('media_video_width',$media_video_width);
+		$blog_settings->system->put('media_video_height',$media_video_height);
 		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
 		$blog_settings->system->put('media_img_use_dto_first',!empty($_POST['media_img_use_dto_first']));
 		$blog_settings->system->put('media_img_no_date_alone',!empty($_POST['media_img_no_date_alone']));
@@ -594,6 +602,13 @@ if ($blog_id)
 
 	'<p class="field"><label for="media_img_m_size">'.__('Medium').'</label> '.
 	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</p>'.
+
+	'<h5>'.__('Default size of the inserted video (in pixels)').'</h5>'.
+	'<p class="field"><label for="media_video_width">'.__('Width').'</label> '.
+	form::field('media_video_width',3,3,$blog_settings->system->media_video_width).'</p>'.
+
+	'<p class="field"><label for="media_video_height">'.__('Height').'</label> '.
+	form::field('media_video_height',3,3,$blog_settings->system->media_video_height).'</p>'.
 	'</div>'.
 
 	'<div class="col">'.
