@@ -393,9 +393,9 @@ if ($popup)
 		'<div class="two-boxes">'.
 		'<h3>'.__('Video size').'</h3>'.
 		'<p><label for="video_w" class="classic">'.__('Width:').'</label> '.
-		form::field('video_w',3,4,400).'  '.
+		form::field('video_w',3,4,$core->blog->settings->system->media_video_width).'  '.
 		'<label for="video_h" class="classic">'.__('Height:').'</label> '.
-		form::field('video_h',3,4,300).
+		form::field('video_h',3,4,$core->blog->settings->system->media_video_height).
 		'</p>'.
 		'</div>';
 
