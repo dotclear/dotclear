@@ -182,7 +182,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 
 	$media_video_width = abs((integer) $_POST['media_video_width']);
 	if ($media_video_width < 0) { $media_video_width = 400; }
-	
+
 	$media_video_height = abs((integer) $_POST['media_video_height']);
 	if ($media_video_height < 0) { $media_video_height = 300; }
 
