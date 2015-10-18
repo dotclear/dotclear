@@ -1973,6 +1973,18 @@ msgstr "Sélectionné"
 msgid "Not selected"
 msgstr "Non sélectionné"
 
+msgid "Comments:"
+msgstr "Comentaires :"
+
+msgid "Trackbacks:"
+msgstr "Rétroliens :"
+
+msgid "Opened"
+msgstr "Ouverts"
+
+msgid "Closed"
+msgstr "Fermés"
+
 msgid "With attachments"
 msgstr "Avec annexe(s)"
 

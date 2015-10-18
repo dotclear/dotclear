@@ -77,6 +77,18 @@ if (!$core->error->flag())
 	__('Not selected') => '0'
 	);
 
+	$comment_combo = array(
+	'-' => '',
+	__('Opened') => '1',
+	__('Closed') => '0'
+	);
+
+	$trackback_combo = array(
+	'-' => '',
+	__('Opened') => '1',
+	__('Closed') => '0'
+	);
+
 	$attachment_combo = array(
 	'-' => '',
 	__('With attachments') => '1',
@@ -145,6 +157,8 @@ $cat_id = !empty($_GET['cat_id']) ? $_GET['cat_id'] : '';
 $status = isset($_GET['status']) ? $_GET['status'] : '';
 $password = isset($_GET['password']) ? $_GET['password'] : '';
 $selected = isset($_GET['selected']) ? $_GET['selected'] : '';
+$comment = isset($_GET['comment']) ? $_GET['comment'] : '';
+$trackback = isset($_GET['trackback']) ? $_GET['trackback'] : '';
 $attachment = isset($_GET['attachment']) ? $_GET['attachment'] : '';
 $month = !empty($_GET['month']) ? $_GET['month'] : '';
 $lang = !empty($_GET['lang']) ?	$_GET['lang'] : '';
@@ -206,6 +220,22 @@ if ($selected !== '' && in_array($selected,$selected_combo)) {
 	$show_filters = true;
 } else {
 	$selected='';
+}
+
+# - Comment filter
+if ($comment !== '' && in_array($comment,$comment_combo)) {
+	$params['where'] .= " AND post_open_comment = '".$comment."' ";
+	$show_filters = true;
+} else {
+	$comment='';
+}
+
+# - Comment filter
+if ($trackback !== '' && in_array($trackback,$trackback_combo)) {
+	$params['where'] .= " AND post_open_tb = '".$trackback."' ";
+	$show_filters = true;
+} else {
+	$trackback='';
 }
 
 # - Attachment filter
@@ -325,6 +355,10 @@ if (!$core->error->flag())
 	form::combo('month',$dt_m_combo,$month).'</p>'.
 	'<p><label for="lang" class="ib">'.__('Lang:').'</label> '.
 	form::combo('lang',$lang_combo,$lang).'</p> '.
+	'<p><label for="comment" class="ib">'.__('Comments:').'</label> '.
+	form::combo('comment',$comment_combo,$comment).'</p>'.
+	'<p><label for="trackback" class="ib">'.__('Trackbacks:').'</label> '.
+	form::combo('trackback',$trackback_combo,$trackback).'</p>'.
 	'</div>'.
 
 	'<div class="cell filters-options">'.
@@ -360,6 +394,8 @@ if (!$core->error->flag())
 	form::hidden(array('status'),$status).
 	form::hidden(array('password'),$password).
 	form::hidden(array('selected'),$selected).
+	form::hidden(array('comment'),$comment).
+	form::hidden(array('trackback'),$trackback).
 	form::hidden(array('attachment'),$attachment).
 	form::hidden(array('month'),$month).
 	form::hidden(array('lang'),$lang).
