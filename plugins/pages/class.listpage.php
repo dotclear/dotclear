@@ -76,18 +76,23 @@ class adminPagesList extends adminGenericList
 	private function postLine($count,$checked)
 	{
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+		$sts_class = '';
 		switch ($this->rs->post_status) {
 			case 1:
 				$img_status = sprintf($img,__('Published'),'check-on.png');
+				$sts_class = 'sts-online';
 				break;
 			case 0:
 				$img_status = sprintf($img,__('Unpublished'),'check-off.png');
+				$sts_class = 'sts-offline';
 				break;
 			case -1:
 				$img_status = sprintf($img,__('Scheduled'),'scheduled.png');
+				$sts_class = 'sts-scheduled';
 				break;
 			case -2:
 				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
+				$sts_class = 'sts-pending';
 				break;
 		}
 
@@ -108,7 +113,7 @@ class adminPagesList extends adminGenericList
 			$attach = sprintf($img,sprintf($attach_str,$nb_media),'attach.png');
 		}
 
-		$res = '<tr class="line'.($this->rs->post_status != 1 ? ' offline' : '').'"'.
+		$res = '<tr class="line '.($this->rs->post_status != 1 ? 'offline ' : '').$sts_class.'"'.
 		' id="p'.$this->rs->post_id.'">';
 
 		$cols = array(
