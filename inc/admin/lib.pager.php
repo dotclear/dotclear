@@ -231,18 +231,23 @@ class adminPostList extends adminGenericList
 		}
 
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+		$sts_class = '';
 		switch ($this->rs->post_status) {
 			case 1:
 				$img_status = sprintf($img,__('Published'),'check-on.png');
+				$sts_class = 'sts-online';
 				break;
 			case 0:
 				$img_status = sprintf($img,__('Unpublished'),'check-off.png');
+				$sts_class = 'sts-offline';
 				break;
 			case -1:
 				$img_status = sprintf($img,__('Scheduled'),'scheduled.png');
+				$sts_class = 'sts-scheduled';
 				break;
 			case -2:
 				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
+				$sts_class = 'sts-pending';
 				break;
 		}
 
@@ -263,7 +268,7 @@ class adminPostList extends adminGenericList
 			$attach = sprintf($img,sprintf($attach_str,$nb_media),'attach.png');
 		}
 
-		$res = '<tr class="line'.($this->rs->post_status != 1 ? ' offline' : '').'"'.
+		$res = '<tr class="line '.($this->rs->post_status != 1 ? 'offline ' : '').$sts_class.'"'.
 		' id="p'.$this->rs->post_id.'">';
 
 		$cols = array(
@@ -341,18 +346,23 @@ class adminPostMiniList extends adminGenericList
 	private function postLine()
 	{
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+		$sts_class = '';
 		switch ($this->rs->post_status) {
 			case 1:
 				$img_status = sprintf($img,__('Published'),'check-on.png');
+				$sts_class = 'sts-online';
 				break;
 			case 0:
 				$img_status = sprintf($img,__('Unpublished'),'check-off.png');
+				$sts_class = 'sts-offline';
 				break;
 			case -1:
 				$img_status = sprintf($img,__('Scheduled'),'scheduled.png');
+				$sts_class = 'sts-scheduled';
 				break;
 			case -2:
 				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
+				$sts_class = 'sts-pending';
 				break;
 		}
 
@@ -373,7 +383,7 @@ class adminPostMiniList extends adminGenericList
 			$attach = sprintf($img,sprintf($attach_str,$nb_media),'attach.png');
 		}
 
-		$res = '<tr class="line'.($this->rs->post_status != 1 ? ' offline' : '').'"'.
+		$res = '<tr class="line '.($this->rs->post_status != 1 ? 'offline ' : '').$sts_class.'"'.
 		' id="p'.$this->rs->post_id.'">';
 
 		$cols = array(
@@ -506,18 +516,23 @@ class adminCommentList extends adminGenericList
 		$this->core->blog->settings->system->time_format,$this->rs->comment_dt);
 
 		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+		$sts_class = '';
 		switch ($this->rs->comment_status) {
 			case 1:
 				$img_status = sprintf($img,__('Published'),'check-on.png');
+				$sts_class = 'sts-online';
 				break;
 			case 0:
 				$img_status = sprintf($img,__('Unpublished'),'check-off.png');
+				$sts_class = 'sts-offline';
 				break;
 			case -1:
 				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
+				$sts_class = 'sts-pending';
 				break;
 			case -2:
 				$img_status = sprintf($img,__('Junk'),'junk.png');
+				$sts_class = 'sts-junk';
 				break;
 		}
 
@@ -529,7 +544,7 @@ class adminCommentList extends adminGenericList
 			$this->rs->comment_trackback ? __('trackback') : __('comment'),
 			html::escapeHTML($this->rs->comment_author));
 
-		$res = '<tr class="line'.($this->rs->comment_status != 1 ? ' offline' : '').'"'.
+		$res = '<tr class="line '.($this->rs->comment_status != 1 ? 'offline ' : '').$sts_class.'"'.
 		' id="c'.$this->rs->comment_id.'">';
 
 		$cols = array(
