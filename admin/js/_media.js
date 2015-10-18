@@ -2,6 +2,7 @@
 	$.fn.enhancedUploader = function() {
 		return this.each(function() {
 			var me = $(this);
+			var $container = $(me).parent();
 
 			function enableButton(button) {
 				button.prop('disabled',false).removeClass('disabled');
@@ -25,9 +26,11 @@
 			}
 
 			$('.button.choose_files').click(function(e) {
-				// Use the native click() of the file input.
-				$('#upfile').click();
-				e.preventDefault();
+				if ($container.hasClass('enhanced_uploader')) {
+					// Use the native click() of the file input.
+					$('#upfile').click();
+					e.preventDefault();
+				}
 			});
 
 			$('.button.cancel', '#fileupload .fileupload-buttonbar').click(function(e) {
@@ -79,7 +82,6 @@
 				}
 			});
 
-			var $container = $(me).parent();
 			var $msg,label;
 
 			if ($container.hasClass('enhanced_uploader')) {
