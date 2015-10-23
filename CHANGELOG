@@ -1,3 +1,11 @@
+Dotclear 2.8.2 - 2015-10-??
+===========================================================
+* Security fix : Fixed potential XSS on comments management page
+* Security fix : Enforce media exclusion control
+* Php 5.5 leaves NULL chars in unpack ==> add trim, fixed
+* Media title (in standard mode) is now taken into account on upload
+* Some 🐛 🔫
+
 Dotclear 2.8.1 - 2015-09-23
 ===========================================================
 * Fix admin pager parameters escaping - thanks Keiko Yashiki from JPCERT/CC for reporting this XSS
