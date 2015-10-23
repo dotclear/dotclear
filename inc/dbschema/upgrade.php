@@ -454,6 +454,18 @@ function dotclearUpgrade($core)
 				$core->con->execute(sprintf($strReq,'no_search','0','Disable internal search system'));
 			}
 
+			if (version_compare($version,'2.8.1','<'))
+			{
+				# Update flie exclusion upload regex
+				$strReq = 'UPDATE '.$core->prefix.'setting '.
+						" SET setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*\$/i' ".
+						" WHERE setting_id = 'media_exclusion' ".
+						" AND setting_ns = 'system' ".
+						" AND (setting_value = '/\\.php[0-9]*\$/i' ".
+						"   OR setting_value = '/\\.php\$/i') ";
+				$core->con->execute($strReq);
+			}
+
 			$core->setVersion('core',DC_VERSION);
 			$core->blogDefaults();
 
