@@ -566,7 +566,7 @@ class dcPage
 
 	private static function appendVersion($src,$v='')
 	{
-		$src .= (strpos($src,'?') === false ? '?' : '&').'v=';
+		$src .= (strpos($src,'?') === false ? '?' : '&amp;').'v=';
 		if (defined('DC_DEV') && DC_DEV === true) {
 			$src .= md5(uniqid());
 		} else {
