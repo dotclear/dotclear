@@ -431,7 +431,7 @@ function dotclearUpgrade($core)
 				}
 			}
 
-			if (version_compare($version,'2.8','<'))
+			if (version_compare($version,'2.8.1','<='))
 			{
 				# switch from jQuery 1.11.1 to 1.11.2
 				$strReq = 'UPDATE '.$core->prefix.'setting '.
@@ -454,7 +454,7 @@ function dotclearUpgrade($core)
 				$core->con->execute(sprintf($strReq,'no_search','0','Disable internal search system'));
 			}
 
-			if (version_compare($version,'2.8.1','<'))
+			if (version_compare($version,'2.8.2','<='))
 			{
 				# Update flie exclusion upload regex
 				$strReq = 'UPDATE '.$core->prefix.'setting '.
