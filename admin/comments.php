@@ -270,7 +270,7 @@ if (!$core->error->flag())
 	form::hidden(array('type'),$type).
 	form::hidden(array('sortby'),$sortby).
 	form::hidden(array('order'),$order).
-	form::hidden(array('author'),preg_replace('/%/','%%',$author)).
+	form::hidden(array('author'),html::escapeHTML(preg_replace('/%/','%%',$author))).
 	form::hidden(array('status'),$status).
 	form::hidden(array('ip'),preg_replace('/%/','%%',$ip)).
 	form::hidden(array('page'),$page).
