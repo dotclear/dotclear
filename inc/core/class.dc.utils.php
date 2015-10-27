@@ -97,6 +97,53 @@ class dcUtils
 		return (boolean) version_compare($current_version, $required_version, $operator);
 	}
 
+	private static function appendVersion($src,$v='')
+	{
+		$src .= (strpos($src,'?') === false ? '?' : '&amp;').'v=';
+		if (defined('DC_DEV') && DC_DEV === true) {
+			$src .= md5(uniqid());
+		} else {
+			$src .= ($v === '' ? DC_VERSION : $v);
+		}
+		return $src;
+	}
+
+	public static function cssLoad($src,$media='screen',$v=null)
+	{
+		$escaped_src = html::escapeHTML($src);
+		if ($v !== null) {
+			$escaped_src = dcUtils::appendVersion($escaped_src,$v);
+		}
+		return '<link rel="stylesheet" href="'.$escaped_src.'" type="text/css" media="'.$media.'" />'."\n";
+	}
+
+	public static function jsLoad($src,$v=null)
+	{
+		$escaped_src = html::escapeHTML($src);
+		if ($v !== null) {
+			$escaped_src = dcUtils::appendVersion($escaped_src,$v);
+		}
+		return '<script type="text/javascript" src="'.$escaped_src.'"></script>'."\n";
+	}
+
+	public static function jsVars($vars)
+	{
+		$ret = '<script type="text/javascript">'."\n".
+				"//<![CDATA[\n";
+		foreach ($vars as $var => $value) {
+			$ret .= 'var '.$var.' = '.(is_string($value) ? '"'.html::escapeJS($value).'"' : $value).';'."\n";
+		}
+		$ret .= "\n//]]>\n".
+				"</script>\n";
+
+		return $ret;
+	}
+
+	public static function jsVar($n,$v)
+	{
+		return dcUtils::jsVars(array($n => $v));
+	}
+
 	/**
 	 * Locale specific array sorting function
 	 *
