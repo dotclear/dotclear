@@ -1008,6 +1008,13 @@ class dcBlog
 		# --BEHAVIOR-- coreBlogGetPosts
 		$this->core->callBehavior('coreBlogGetPosts',$rs);
 
+		# --BEHAVIOR-- coreBlogAfterGetPosts
+		$alt = new arrayObject(array('rs' => null,'params' => $params,'count_only' => $count_only));
+		$this->core->callBehavior('coreBlogAfterGetPosts',$rs,$alt);
+		if ($alt['rs'] instanceof record) {
+			$rs = $alt['rs'];
+		}
+
 		return $rs;
 	}
 
