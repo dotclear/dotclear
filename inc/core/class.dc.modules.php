@@ -62,6 +62,7 @@ class dcModules
 	 */
 	public function checkDependencies()
 	{
+		$dc_version = preg_replace('/\-dev$/','',DC_VERSION);
 		$this->to_disable = array();
 		foreach ($this->all_modules as $k => &$m) {
 			if (isset($m['requires'])) {
@@ -71,15 +72,23 @@ class dcModules
 						$dep = array($dep);
 					}
 					// grab missing dependencies
-					if (!isset($this->all_modules[$dep[0]])) {
+					if (!isset($this->all_modules[$dep[0]]) && ($dep[0] != 'core')) {
 						// module not present
-						$missing[$dep[0]] = sprintf(__("Requires module %s which is not installed"), $dep[0]);
-					} elseif ((count($dep)>1) && version_compare($this->all_modules[$dep[0]]['version'],$dep[1])==-1) {
+						$missing[$dep[0]] = sprintf(__("Requires %s module which is not installed"), $dep[0]);
+					} elseif ((count($dep) > 1) &&
+						version_compare(($dep[0] == 'core' ? $dc_version : $this->all_modules[$dep[0]]['version']),$dep[1]) == -1)
+					{
 						// module present, but version missing
-						$missing[$dep[0]] = sprintf(__("Requires module %s version %s, but version %s is installed"), $dep[0],$dep[1],$m['version']);
-					} elseif (!$this->all_modules[$dep[0]]['enabled']) {
+						if ($dep[0] == 'core') {
+							$missing[$dep[0]] = sprintf(__("Requires Dotclear version %s, but version %s is installed"),
+							$dep[1],$dc_version);
+						} else {
+							$missing[$dep[0]] = sprintf(__("Requires %s module version %s, but version %s is installed"),
+							$dep[0],$dep[1],$this->all_modules[$dep[0]]['version']);
+						}
+					} elseif (($dep[0] != 'core') && !$this->all_modules[$dep[0]]['enabled']) {
 						// module disabled
-						$missing[$dep[0]] = sprintf(__("Requires module %s which is disabled"), $dep[0]);
+						$missing[$dep[0]] = sprintf(__("Requires %s module which is disabled"), $dep[0]);
 					}
 					$this->all_modules[$dep[0]]['implies'][]=$k;
 				}
