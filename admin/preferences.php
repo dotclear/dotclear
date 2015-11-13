@@ -46,6 +46,7 @@ if ($core->auth->isSuperAdmin()) {
 $user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
 $user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
 $user_ui_media_by_page = ($core->auth->user_prefs->interface->media_by_page ? $core->auth->user_prefs->interface->media_by_page : 30);
+$user_ui_media_nb_last_dirs = $core->auth->user_prefs->interface->media_nb_last_dirs;
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
@@ -190,8 +191,9 @@ if (isset($_POST['user_editor']))
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
 		}
 		$core->auth->user_prefs->interface->put('media_by_page',(integer)$_POST['user_ui_media_by_page'],'integer');
+		$core->auth->user_prefs->interface->put('media_nb_last_dirs',(integer)$_POST['user_ui_media_nb_last_dirs'],'integer');
 
-		# Udate user
+		# Update user
 		$core->updUser($core->auth->userID(),$cur);
 
 		# --BEHAVIOR-- adminAfterUserOptionsUpdate
@@ -436,6 +438,11 @@ __('Disable javascript powered drag and drop for ordering items').'</label></p>'
 echo
 '<p><label for="user_ui_media_by_page" class="classic">'.__('Number of elements displayed per page in media manager:').'</label> '.
 form::field('user_ui_media_by_page',5,3,(integer) $user_ui_media_by_page).'</p>';
+
+echo
+'<p><label for="user_ui_media_nb_last_dirs" class="classic">'.__('Number of recent folders proposed in media manager:').'</label> '.
+form::field('user_ui_media_nb_last_dirs',5,3,(integer) $user_ui_media_nb_last_dirs).'</p>'.
+'<p class="clear form-note">'.__('Leave empty to ignore, displayed only if Javascript is enabled in your browser.').'</p>';
 
 if ($core->auth->isSuperAdmin()) {
 	echo

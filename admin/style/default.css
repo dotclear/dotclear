@@ -1958,6 +1958,10 @@ tr.media-folder {
 .medias-delete {
 	text-align: right;
 	}
+.media-recent {
+	float: left;
+	margin-right: 2em;
+}
 /* upload multiple */
 .enhanced_uploader .choose_files, .enhanced_uploader .cancel,
 .enhanced_uploader .clean, .enhanced_uploader .start {

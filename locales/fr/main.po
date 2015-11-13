@@ -1441,6 +1441,9 @@ msgstr "Trier les fichiers :"
 msgid "Number of elements displayed per page:"
 msgstr "Nombre d'éléments affichés par page :"
 
+msgid "Goto recent folder:"
+msgstr "Aller au dossier récent :"
+
 #, php-format
 msgid "In %s:"
 msgstr "Dans %s :"
@@ -2092,6 +2095,12 @@ msgstr "Si cette option est cochée, des champs numériques permettront d'indiqu
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr "Nombre d'éléments affichés par page dans la médiathèque :"
+
+msgid "Number of recent folders proposed in media manager:"
+msgstr "Nombre de dossiers récents proposés dans la médiathèque :"
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr "Laisser vide pour ignorer ; affiché seulement si Javascript est activé dans votre navigateur."
 
 msgid "Do not use standard favicon"
 msgstr "Ne pas utiliser le favicon standard de Dotclear"

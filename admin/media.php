@@ -116,7 +116,13 @@ try {
 		$query = $core->media->searchMedia($q);
 	}
 	if (!$query) {
-		$core->media->chdir($d);
+		$try_d = $d;
+		// Reset current dir
+		$d = null;
+		// Change directory (may cause an exception if directory doesn't exist)
+		$core->media->chdir($try_d);
+		// Restore current dir variable
+		$d = $try_d;
 		$core->media->getDir();
 	} else {
 		$d = null;
@@ -130,6 +136,34 @@ try {
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
+
+# Recent media dirs
+$last_dirs = null;
+//if ($d) {
+	$recent_dir = rtrim($d,'/');;
+	$core->auth->user_prefs->addWorkspace('interface');
+	$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
+	if ($nb_last_dirs > 0) {
+		$last_dirs = @unserialize($core->auth->user_prefs->interface->media_last_dirs);
+		if (!is_array($last_dirs)) {
+			$last_dirs = array();
+		}
+		if (!in_array($recent_dir,$last_dirs)) {
+			// Add new dir at the top of the list
+			array_unshift($last_dirs,$recent_dir);
+			// Remove oldest dir(s)
+			while (count($last_dirs) > $nb_last_dirs) {
+				array_pop($last_dirs);
+			}
+		} else {
+			// Move current dir at the top of list
+			unset($last_dirs[array_search($recent_dir,$last_dirs)]);
+			array_unshift($last_dirs,$recent_dir);
+		}
+		// Store new list
+		$core->auth->user_prefs->interface->put('media_last_dirs',serialize($last_dirs));
+	}
+//}
 
 # Zip download
 if (!empty($_GET['zipdl']) && $core->auth->check('media_admin',$core->blog->id))
@@ -317,11 +351,11 @@ if (!isset($core->media)) {
 		array('home_link' => !$popup)
 	);
 } else {
+	$home_params = $page_url_params;
+	$home_params['d']='';
+	$home_params['q']='';
 	if ($query || (!$query && $q)) {
 		$count = $query ? count($dir['files']) : 0;
-		$home_params = $page_url_params;
-		$home_params['d']='';
-		$home_params['q']='';
 		$breadcrumb = dcPage::breadcrumb(
 			array(
 				html::escapeHTML($core->blog->name) => '',
@@ -339,7 +373,7 @@ if (!isset($core->media)) {
 			$breadcrumb = dcPage::breadcrumb(
 				array(
 					html::escapeHTML($core->blog->name) => '',
-					__('Media manager') => ''
+					__('Media manager') => $core->adminurl->get('admin.media',$home_params)
 				),
 				array('home_link' => !$popup)
 			);
@@ -358,6 +392,38 @@ if (!isset($core->media)) {
 					'hl' => false
 				)
 			);
+		}
+	}
+}
+
+// Recent media folders
+$last_folders = '';
+$last_folders_item = '';
+$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
+if ($nb_last_dirs > 0) {
+	if (!is_array($last_dirs)) {
+		$last_dirs = @unserialize($core->auth->user_prefs->interface->media_last_dirs);
+	}
+	if (is_array($last_dirs)) {
+		foreach ($last_dirs as $ld) {
+			$ld_params = $page_url_params;
+			$ld_params['d'] = $ld;
+			$last_folders_item .=
+				'<option value="'.urldecode($core->adminurl->get('admin.media',$ld_params)).'"'.
+				($ld == rtrim($d,'/') ? ' selected="selected"' : '').'>'.
+				'/'.$ld.'</option>'."\n";
+		}
+		if ($last_folders_item != '') {
+			$last_folders =
+				'<p class="media-recent hidden-if-no-js">'.
+				'<label class="classic" for="switchfolder">'.__('Goto recent folder:').'</label> '.
+				'<select name="switchfolder" id="switchfolder">'.
+				$last_folders_item.
+				'</select>'.
+				'<script type="text/javascript">var urlmenu = document.getElementById(\'switchfolder\');
+				 urlmenu.onchange = function() { window.location = this.options[this.selectedIndex].value; };
+				</script>'.
+				'</p>';
 		}
 	}
 }
@@ -455,6 +521,8 @@ $fmt_form_media .=
 	'</form>';
 
 echo '<div class="media-list">';
+echo $last_folders;
+
 if (count($items) == 0)
 {
 	echo
