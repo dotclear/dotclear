@@ -466,14 +466,18 @@ function dotclearUpgrade($core)
 				$core->con->execute($strReq);
 			}
 
-			if (version_compare($version,'2.9','<'))
+			if (version_compare($version,'2.9','<='))
 			{
 				# Some new settings should be initialized, prepare db queries
 				$strReq = 'INSERT INTO '.$core->prefix.'setting'.
 						' (setting_id,setting_ns,setting_value,setting_type,setting_label)'.
-						' VALUES(\'%s\',\'system\',\'%s\',\'integer\',\'%s\')';
-				$core->con->execute(sprintf($strReq,'media_video_width','400','Media video insertion width'));
-				$core->con->execute(sprintf($strReq,'media_video_height','300','Media video insertion height'));
+						' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
+				$core->con->execute(
+					sprintf($strReq,'media_video_width','400','integer','Media video insertion width'));
+				$core->con->execute(
+					sprintf($strReq,'media_video_height','300','integer','Media video insertion height'));
+				$core->con->execute(
+					sprintf($strReq,'media_flash_fallback','1','boolean','Flash player fallback for audio and video media'));
 			}
 
 			$core->setVersion('core',DC_VERSION);

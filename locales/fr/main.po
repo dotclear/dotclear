@@ -444,6 +444,15 @@ msgstr "Tailles des miniatures générées (largeur en pixels)"
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Taille par defaut des vidéos insérées (en pixels)"
 
+msgid "Flash player"
+msgstr "Lecteur Flash"
+
+msgid "Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media"
+msgstr "Insérer le lecteur Flash de secours pour les médias vidéo (mp4 ou m4v) et audio (mp3)"
+
+msgid "For flv video, the Flash player will be anyway inserted."
+msgstr "Pour les vidéos Flv, le lecteur Flash sera quoi qu'il en soit inséré."
+
 msgid "Default image insertion attributes"
 msgstr "Attributs par défaut pour l'insertion d'image"
 

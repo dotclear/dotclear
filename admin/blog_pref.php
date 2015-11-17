@@ -263,6 +263,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
 		$blog_settings->system->put('media_video_width',$media_video_width);
 		$blog_settings->system->put('media_video_height',$media_video_height);
+		$blog_settings->system->put('media_flash_fallback',!empty($_POST['media_flash_fallback']));
 		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
 		$blog_settings->system->put('media_img_use_dto_first',!empty($_POST['media_img_use_dto_first']));
 		$blog_settings->system->put('media_img_no_date_alone',!empty($_POST['media_img_no_date_alone']));
@@ -609,6 +610,12 @@ if ($blog_id)
 
 	'<p class="field"><label for="media_video_height">'.__('Height').'</label> '.
 	form::field('media_video_height',3,3,$blog_settings->system->media_video_height).'</p>'.
+
+	'<h5>'.__('Flash player').'</h5>'.
+	'<p><label for="media_flash_fallback">'.
+	form::checkbox('media_flash_fallback','1',$blog_settings->system->media_flash_fallback).
+	__('Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media').'</label></p>'.
+	'<p class="form-note info">'.__('For flv video, the Flash player will be anyway inserted.').'</p>'.
 	'</div>'.
 
 	'<div class="col">'.

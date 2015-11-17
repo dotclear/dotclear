@@ -1102,19 +1102,20 @@ class dcMedia extends filemanager
 	/**
 	Returns HTML code for audio player (HTML5 and if possible fallback Flash player)
 
-	@param  type	<b>string</b> 		audio mime type
-	@param	url		<b>string</b>		audio URL to play
-	@param	player	<b>string</b>		Player URL (flash player fallback)
-	@param	args	<b>array</b>		Player parameters (flash player fallback)
+	@param  type		<b>string</b> 		audio mime type
+	@param	url			<b>string</b>		audio URL to play
+	@param	player		<b>string</b>		Player URL (flash player fallback)
+	@param	args		<b>array</b>		Player parameters (flash player fallback)
+	@param  fallback 	<b>boolean</b>		Include Flash player fallback
 	@return	<b>string</b>
 	*/
-	public static function audioPlayer($type,$url,$player=null,$args=null)
+	public static function audioPlayer($type,$url,$player=null,$args=null,$fallback=true)
 	{
 		$audio =
 			'<audio controls preload="auto">'.
 			'<source src="'.$url.'">';
 
-		if ($type == 'audio/mpeg3') {
+		if ($fallback && $type == 'audio/mpeg3') {
 			// Include Flash player fallback
 			if (!$player) {
 				$player = 'player_mp3.swf';
@@ -1169,13 +1170,14 @@ class dcMedia extends filemanager
 	/**
 	Returns HTML code for video player (HTML5 and if possible fallback Flash player)
 
-	@param  type	<b>string</b> 		video mime type
-	@param	url		<b>string</b>		video URL to play
-	@param	player	<b>string</b>		Player URL (flash player fallback)
-	@param	args	<b>array</b>		Player parameters (flash player fallback)
+	@param  type		<b>string</b> 		video mime type
+	@param	url			<b>string</b>		video URL to play
+	@param	player		<b>string</b>		Player URL (flash player fallback)
+	@param	args		<b>array</b>		Player parameters (flash player fallback)
+	@param  fallback 	<b>boolean</b>		Include Flash player fallback (if not .flv)
 	@return	<b>string</b>
 	*/
-	public static function videoPlayer($type,$url,$player=null,$args=null)
+	public static function videoPlayer($type,$url,$player=null,$args=null,$fallback=true)
 	{
 		$video = '';
 
@@ -1197,7 +1199,7 @@ class dcMedia extends filemanager
 				'<source src="'.$url.'">';
 		}
 
-		if ($type == 'video/x-flv' || $type == 'video/mp4' || $type == 'video/x-m4v')
+		if ($type == 'video/x-flv' || ($fallback && ($type == 'video/mp4' || $type == 'video/x-m4v')))
 		{
 			// Include Flash player fallback
 			if (!$player) {
@@ -1255,12 +1257,13 @@ class dcMedia extends filemanager
 	/**
 	Returns HTML code for MP3 player
 
-	@param	url		<b>string</b>		MP3 URL to play
-	@param	player	<b>string</b>		Player URL
+	@param	url			<b>string</b>		MP3 URL to play
+	@param	player		<b>string</b>		Player URL
 	@param	args		<b>array</b>		Player parameters
+	@param  fallback 	<b>boolean</b>		Include Flash player fallback
 	@return	<b>string</b>
 	*/
-	public static function mp3player($url,$player=null,$args=null)
+	public static function mp3player($url,$player=null,$args=null,$fallback=true)
 	{
 		if (!$player) {
 			$player = 'player_mp3.swf';
@@ -1298,14 +1301,15 @@ class dcMedia extends filemanager
 		return
 		'<audio controls preload="auto">'.
 		'<source src="'.$url.'" type="audio/mpeg">'.
-		'<object type="application/x-shockwave-flash" '.
-		'data="'.$player.'" '.
-		'width="'.$args['width'].'" height="'.$args['height'].'">'.
-		'<param name="movie" value="'.$player.'" />'.
-		'<param name="wmode" value="transparent" />'.
-		'<param name="FlashVars" value="'.implode('&amp;',$vars).'" />'.
-		__('Embedded Audio Player').
-		'</object>'.
+		($fallback ?
+			'<object type="application/x-shockwave-flash" '.
+			'data="'.$player.'" '.
+			'width="'.$args['width'].'" height="'.$args['height'].'">'.
+			'<param name="movie" value="'.$player.'" />'.
+			'<param name="wmode" value="transparent" />'.
+			'<param name="FlashVars" value="'.implode('&amp;',$vars).'" />'.
+			__('Embedded Audio Player').
+			'</object>' : '').
 		'</audio>';
 	}
 
