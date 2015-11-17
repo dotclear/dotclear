@@ -378,7 +378,7 @@ if ($popup)
 		}
 
 		$public_player_style = unserialize($core->blog->settings->themes->mp3player_style);
-		$public_player = dcMedia::audioPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_mp3.swf',$public_player_style);
+		$public_player = dcMedia::audioPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_mp3.swf',$public_player_style,null,$core->blog->settings->system->media_flash_fallback);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
 		echo '</p>';
 		echo '</div>';
@@ -418,7 +418,7 @@ if ($popup)
 		}
 
 		$public_player_style = unserialize($core->blog->settings->themes->flvplayer_style);
-		$public_player = dcMedia::videoPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_flv.swf',$public_player_style);
+		$public_player = dcMedia::videoPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_flv.swf',$public_player_style,null,$core->blog->settings->system->media_flash_fallback);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
 		echo '</p>';
 		echo '</div>';
@@ -520,11 +520,13 @@ if ($file->media_image)
 // Show player if relevant
 if ($file_type[0] == 'audio')
 {
-	echo dcMedia::audioPlayer($file->type,$file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')));
+	echo dcMedia::audioPlayer($file->type,$file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')),
+		null,$core->blog->settings->system->media_flash_fallback);
 }
 if ($file_type[0] == 'video')
 {
-	echo dcMedia::videoPlayer($file->type,$file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_flv.swf')));
+	echo dcMedia::videoPlayer($file->type,$file->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_flv.swf')),
+		null,$core->blog->settings->system->media_flash_fallback);
 }
 
 echo
