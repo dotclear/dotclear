@@ -139,7 +139,7 @@ try {
 
 # Recent media dirs
 $last_dirs = null;
-//if ($d) {
+if (!$q) {	// Ignore search results
 	$recent_dir = rtrim($d,'/');;
 	$core->auth->user_prefs->addWorkspace('interface');
 	$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
@@ -163,7 +163,7 @@ $last_dirs = null;
 		// Store new list
 		$core->auth->user_prefs->interface->put('media_last_dirs',serialize($last_dirs));
 	}
-//}
+}
 
 # Zip download
 if (!empty($_GET['zipdl']) && $core->auth->check('media_admin',$core->blog->id))
@@ -522,6 +522,17 @@ $fmt_form_media .=
 
 echo '<div class="media-list">';
 echo $last_folders;
+echo // Search form
+	'<form action="'.$core->adminurl->get("admin.media").'" method="get" id="search-form">'.
+	'<p><label for="search" class="classic">'.__('Search:').'</label> '.
+	form::field('q',20,255,$q).' '.
+	'<input type="submit" value="'.__('OK').'" />'.' '.
+	'<span class="form-note">'.__('Will search into media filename (including path), title and description').'</span>'.
+	form::hidden(array('popup'),$popup).
+	form::hidden(array('plugin_id'),$plugin_id).
+	form::hidden(array('post_id'),$post_id).
+	'</p>'.
+	'</form>';
 
 if (count($items) == 0)
 {
@@ -534,16 +545,6 @@ else
 	$pager = new dcPager($page,count($items),$nb_per_page,10);
 
 	echo
-	'<form action="'.$core->adminurl->get("admin.media").'" method="get" id="search-form">'.
-	'<p><label for="search" class="classic">'.__('Search:').'</label> '.
-	form::field('q',20,255,$q).' '.
-	'<input type="submit" value="'.__('OK').'" />'.' '.
-	'<span class="form-note">'.__('Will search into media filename (including path), title and description').'</span>'.
-	form::hidden(array('popup'),$popup).
-	form::hidden(array('plugin_id'),$plugin_id).
-	form::hidden(array('post_id'),$post_id).
-	'</p>'.
-	'</form>'.
 	'<form action="'.$core->adminurl->get("admin.media").'" method="get" id="filters-form">'.
 	'<span class="media-file-mode">'.
 	'<a href="'.$core->adminurl->get("admin.media",array_merge($page_url_params,array('file_mode' => 'grid'))).'" title="'.__('Grid display mode').'">'.
