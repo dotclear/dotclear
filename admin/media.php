@@ -69,7 +69,7 @@ $sort_combo = array(
 if (!empty($_GET['file_mode'])) {
 	$_SESSION['media_file_mode'] = $_GET['file_mode'];
 }
-$file_mode = !empty($_SESSION['media_file_mode']) ? $_SESSION['media_file_mode'] : false;
+$file_mode = !empty($_SESSION['media_file_mode']) ? $_SESSION['media_file_mode'] : 'grid';
 
 if (!empty($_GET['file_sort']) && in_array($_GET['file_sort'],$sort_combo)) {
 	$_SESSION['media_file_sort'] = $_GET['file_sort'];
