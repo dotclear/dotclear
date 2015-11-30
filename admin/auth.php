@@ -148,12 +148,14 @@ elseif ($change_pwd)
 		if (isset($data['cookie_admin']) && strlen($data['cookie_admin']) == 104)
 		{
 			$user_id = substr($data['cookie_admin'],40);
-			$user_id = trim(@unpack('a32',@pack('H*',$user_id)));
+			$user_id = @unpack('a32',@pack('H*',$user_id));
 			if (is_array($user_id))
 			{
-				$user_id = $data['user_id'];
+				$user_id = trim($data['user_id']);
 				$user_key = substr($data['cookie_admin'],0,40);
 				$check_user = $core->auth->checkUser($user_id,null,$user_key) === true;
+			} else {
+				$user_id = trim($user_id);
 			}
 		}
 
