@@ -61,10 +61,10 @@ elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104)
 {
 	# If we have a remember cookie, go through auth process with user_key
 	$user_id = substr($_COOKIE['dc_admin'],40);
-	$user_id = trim(@unpack('a32',@pack('H*',$user_id)));
+	$user_id = @unpack('a32',@pack('H*',$user_id));
 	if (is_array($user_id))
 	{
-		$user_id = $user_id[1];
+		$user_id = trim($user_id[1]);
 		$user_key = substr($_COOKIE['dc_admin'],0,40);
 		$user_pwd = null;
 	}
