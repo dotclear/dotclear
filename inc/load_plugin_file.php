@@ -98,6 +98,7 @@ http::$cache_max_age = 7 * 24 * 60 * 60;	// One week cache for plugin's files se
 http::cache(array_merge(array($PF),get_included_files()));
 
 header('Content-Type: '.files::getMimeType($PF));
-header('Content-Length: '.filesize($PF));
+// Content-length is not mandatory and must be the exact size of content transfered AFTER possible compression (gzip, deflate, …)
+//header('Content-Length: '.filesize($PF));
 readfile($PF);
 exit;
