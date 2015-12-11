@@ -563,11 +563,11 @@ class flatImport extends flatBackup
 		$this->cur_comment->comment_words       = (string) $comment->comment_words;
 		$this->cur_comment->comment_ip          = (string) $comment->comment_ip;
 		$this->cur_comment->comment_status      = (integer) $comment->comment_status;
-		$this->cur_comment->comment_spam_status = (integer) $comment->comment_spam_status;
+		$this->cur_comment->comment_spam_status = (string) $comment->comment_spam_status;
 		$this->cur_comment->comment_trackback   = (integer) $comment->comment_trackback;
 
 		$this->cur_comment->comment_tz = $comment->exists('comment_tz') ? (string) $comment->comment_tz : 'UTC';
-		$this->cur_comment->comment_spam_filter = $comment->exists('comment_spam_filter') ? (integer) $comment->comment_spam_filter : null;
+		$this->cur_comment->comment_spam_filter = $comment->exists('comment_spam_filter') ? (string) $comment->comment_spam_filter : null;
 
 		$this->cur_comment->insert();
 	}
