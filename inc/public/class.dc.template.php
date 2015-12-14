@@ -133,6 +133,7 @@ class dcTemplate extends template
 		$this->addValue('EntryAuthorCommonName',array($this,'EntryAuthorCommonName'));
 		$this->addValue('EntryAuthorDisplayName',array($this,'EntryAuthorDisplayName'));
 		$this->addValue('EntryAuthorEmail',array($this,'EntryAuthorEmail'));
+		$this->addValue('EntryAuthorEmailMD5',array($this,'EntryAuthorEmailMD5'));
 		$this->addValue('EntryAuthorID',array($this,'EntryAuthorID'));
 		$this->addValue('EntryAuthorLink',array($this,'EntryAuthorLink'));
 		$this->addValue('EntryAuthorURL',array($this,'EntryAuthorURL'));
@@ -1546,6 +1547,16 @@ class dcTemplate extends template
 
 		$f = $this->getFilters($attr);
 		return '<?php echo '.sprintf($f,"\$_ctx->posts->getAuthorEmail(".$p.")").'; ?>';
+	}
+
+	/*dtd
+	<!ELEMENT tpl:EntryAuthorEmailMD5 - O -- Entry author email MD5 sum -->
+	>
+	*/
+	public function EntryAuthorEmailMD5($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'md5($_ctx->posts->getAuthorEmail(false))').'; ?>';
 	}
 
 	/*dtd
