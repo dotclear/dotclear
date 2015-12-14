@@ -1612,7 +1612,7 @@ msgid "Published on"
 msgstr "Publié le"
 
 msgid "This page's comments feed"
-msgstr "Flux des commentaires de cette page"
+msgstr "Fil des commentaires de cette page"
 
 msgid "You must provide a valid email address."
 msgstr "Vous devez indiquer une adresse e-mail valide."
