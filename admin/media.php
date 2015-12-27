@@ -408,6 +408,7 @@ if ($nb_last_dirs > 0) {
 		foreach ($last_dirs as $ld) {
 			$ld_params = $page_url_params;
 			$ld_params['d'] = $ld;
+			$ld_params['q'] = '';	// Reset search
 			$last_folders_item .=
 				'<option value="'.urldecode($core->adminurl->get('admin.media',$ld_params)).'"'.
 				($ld == rtrim($d,'/') ? ' selected="selected"' : '').'>'.
