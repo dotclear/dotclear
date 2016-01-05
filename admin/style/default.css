@@ -1955,7 +1955,7 @@ tr.media-folder {
 	color: #676e78;
 	border-bottom: none;
 	}
-.medias-delete {
+.medias-delete, .medias-select {
 	text-align: right;
 	}
 .media-recent {

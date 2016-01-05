@@ -28,9 +28,10 @@ if ($post_id) {
 
 $file = null;
 $popup = (integer) !empty($_REQUEST['popup']);
+$select = !empty($_REQUEST['select']) ? (integer)$_REQUEST['select'] : 0;	// 0 : none, 1 : single media, >1 : multiple medias
 $plugin_id = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
-$page_url_params = array('popup' => $popup,'post_id' => $post_id);
-$media_page_url_params = array('popup' => $popup,'post_id' => $post_id);
+$page_url_params = array('popup' => $popup,'select' => $select,'post_id' => $post_id);
+$media_page_url_params = array('popup' => $popup,'select' => $select,'post_id' => $post_id);
 
 if ($plugin_id != '') {
 	$page_url_params['plugin_id'] = $plugin_id;
@@ -279,8 +280,77 @@ if (!empty($_GET['blogprefupd'])) {
 # Get major file type (first part of mime type)
 $file_type = explode('/',$file->type);
 
+# Selection mode
+if ($select) {
+	// Let user choose thumbnail size if image
+	$media_desc = $file->media_title;
+
+	echo
+	'<div id="media-select" class="multi-part" title="'.__('Select media item').'">'.
+	'<h3>'.__('Select media item').'</h3>'.
+	'<form id="media-select-form" action="" method="get">';
+
+	$media_img_default_size = $core->blog->settings->system->media_img_default_size;
+	if ($media_img_default_size == '') {
+		$media_img_default_size = 'm';
+	}
+	$media_img_default_alignment = $core->blog->settings->system->media_img_default_alignment;
+	if ($media_img_default_alignment == '') {
+		$media_img_default_alignment = 'none';
+	}
+	$media_img_default_link = (boolean)$core->blog->settings->system->media_img_default_link;
+
+	if ($file->media_type == 'image')
+	{
+		$media_type = 'image';
+		$media_desc = dcGetImageTitle($file,
+			$core->blog->settings->system->media_img_title_pattern,
+			$core->blog->settings->system->media_img_use_dto_first,
+			$core->blog->settings->system->media_img_no_date_alone);
+		if ($media_desc == $file->basename) {
+			$media_desc = '';
+		}
+
+		echo
+		'<h3>'.__('Image size:').'</h3> ';
+
+		$s_checked = false;
+		echo '<p>';
+		foreach (array_reverse($file->media_thumb) as $s => $v) {
+			$s_checked = ($s == $media_img_default_size);
+			echo '<label class="classic">'.
+			form::radio(array('src'),html::escapeHTML($v),$s_checked).' '.
+			$core->media->thumb_sizes[$s][2].'</label><br /> ';
+		}
+		$s_checked = (!isset($file->media_thumb[$media_img_default_size]));
+		echo '<label class="classic">'.
+		form::radio(array('src'),$file->file_url,$s_checked).' '.__('original').'</label><br /> ';
+		echo '</p>';
+
+	} elseif ($file_type[0] == 'audio') {
+		$media_type = 'mp3';
+	} elseif ($file_type[0] == 'video') {
+		$media_type = 'flv';
+	} else {
+		$media_type = 'default';
+	}
+
+	echo
+	'<p>'.
+	'<a id="media-select-ok" class="button submit" href="#">'.__('Select').'</a> '.
+	'<a id="media-select-cancel" class="button" href="#">'.__('Cancel').'</a>'.
+	form::hidden(array('type'),html::escapeHTML($media_type)).
+	form::hidden(array('title'),html::escapeHTML($file->media_title)).
+	form::hidden(array('description'),html::escapeHTML($media_desc)).
+	form::hidden(array('url'),$file->file_url).
+	'</p>';
+
+	echo '</form>';
+	echo '</div>';
+}
+
 # Insertion popup
-if ($popup)
+if ($popup && !$select)
 {
 	$media_desc = $file->media_title;
 
@@ -458,7 +528,7 @@ if ($popup)
 	echo '</div>';
 }
 
-if ($popup) {
+if ($popup || $select) {
 	echo
 	'<div class="multi-part" title="'.__('Media details').'" id="media-details-tab">';
 } else {
@@ -727,7 +797,7 @@ if ($file->editable && $core_media_writable)
 
 echo
 '</div>';
-if ($popup) {
+if ($popup || $select) {
 	echo
 	'</div>';
 }
