@@ -137,12 +137,12 @@ $(function() {
 		dotclear.checkboxesHelpers(this);
 	});
 
-	$('#form-medias').submit(function() {
-		var count_checked = $('input[name="medias[]"]:checked', $(this)).length;
-		if (count_checked==0) {
+	$('#form-medias #delete_medias').click(function(e) {
+		var count_checked = $('input[name="medias[]"]:checked', $('#form-medias')).length;
+		if (count_checked == 0) {
+			e.preventDefault();
 			return false;
 		}
-
 		return window.confirm(dotclear.msg.confirm_delete_medias.replace('%d',count_checked));
 	});
 

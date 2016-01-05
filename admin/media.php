@@ -55,7 +55,7 @@ if ($page != 1) {
 	unset($_SESSION['media_manager_page']);
 }
 
-# Get query in any
+# Get query if any
 $q = isset($_REQUEST['q']) ? $_REQUEST['q'] : null;
 
 # Sort combo
@@ -82,8 +82,9 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 }
 
 $popup = (integer) !empty($_REQUEST['popup']);
+$select = !empty($_REQUEST['select']) ? (integer)$_REQUEST['select'] : 0;	// 0 : none, 1 : single media, >1 : multiple medias
 
-$page_url_params = new ArrayObject(array('popup' => $popup,'post_id' => $post_id));
+$page_url_params = new ArrayObject(array('popup' => $popup,'select' => $select,'post_id' => $post_id));
 if ($d) {
 	$page_url_params['d'] = $d;
 }
@@ -473,22 +474,36 @@ if (!$dir) {
 	exit;
 }
 
-if ($post_id) {
-	echo '<div class="form-note info"><p>'.sprintf(__('Choose a file to attach to entry %s by clicking on %s'),
-		'<a href="'.$core->getPostAdminURL($post_type,$post_id).'">'.html::escapeHTML($post_title).'</a>',
-		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />');
+if ($select) {
+	// Select mode (popup or not)
+	echo '<div class="'.($popup ? 'form-note ' : '').'info"><p>';
+	if ($select == 1) {
+		echo sprintf(__('Select a file by clicking on %s'),'<img src="images/plus.png" alt="'.__('Select this file').'" />');
+	} else {
+		echo sprintf(__('Select files and click on <strong>%s</strong> button'),__('Choose selected medias'));
+	}
 	if ($core_media_writable) {
 		echo ' '.__('or').' '.sprintf('<a href="#fileupload">%s</a>',__('upload a new file'));
 	}
 	echo '</p></div>';
-}
-if ($popup) {
-	echo '<div class="info"><p>'.sprintf(__('Choose a file to insert into entry by clicking on %s'),
-		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />');
-	if ($core_media_writable) {
-		echo ' '.__('or').' '.sprintf('<a href="#fileupload">%s</a>',__('upload a new file'));
+} else {
+	if ($post_id) {
+		echo '<div class="form-note info"><p>'.sprintf(__('Choose a file to attach to entry %s by clicking on %s'),
+			'<a href="'.$core->getPostAdminURL($post_type,$post_id).'">'.html::escapeHTML($post_title).'</a>',
+			'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />');
+		if ($core_media_writable) {
+			echo ' '.__('or').' '.sprintf('<a href="#fileupload">%s</a>',__('upload a new file'));
+		}
+		echo '</p></div>';
 	}
-	echo '</p></div>';
+	if ($popup) {
+		echo '<div class="info"><p>'.sprintf(__('Choose a file to insert into entry by clicking on %s'),
+			'<img src="images/plus.png" alt="'.__('Attach this file to entry').'" />');
+		if ($core_media_writable) {
+			echo ' '.__('or').' '.sprintf('<a href="#fileupload">%s</a>',__('upload a new file'));
+		}
+		echo '</p></div>';
+	}
 }
 
 // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
@@ -511,11 +526,22 @@ $fmt_form_media = '<form action="'.$core->adminurl->get("admin.media").'" method
 	form::hidden(array('plugin_id'),$plugin_id).
 	'</p>';
 
-if (!$popup) {
+if (!$popup || $select > 1) {
+	// Checkboxes and action
 	$fmt_form_media .=
-	'<div class="medias-delete%s">'.
+	'<div class="'.(!$popup ? 'medias-delete' : '').' '.($select > 1 ? 'medias-select' : '').'">'.
 	'<p class="checkboxes-helpers"></p>'.
-	'<p><input type="submit" class="delete" name="delete_medias" value="'.__('Remove selected medias').'"/></p>'.
+	'<p>';
+	if ($select > 1) {
+		$fmt_form_media .=
+		'<input type="submit" class="select" id="select_medias" name="select_medias" value="'.__('Choose selected medias').'"/> ';
+	}
+	if (!$popup) {
+		$fmt_form_media .=
+		'<input type="submit" class="delete" id="delete_medias" name="delete_medias" value="'.__('Remove selected medias').'"/>';
+	}
+	$fmt_form_media .=
+	'</p>'.
 	'</div>';
 }
 $fmt_form_media .=
@@ -530,6 +556,7 @@ echo // Search form
 	'<input type="submit" value="'.__('OK').'" />'.' '.
 	'<span class="form-note">'.__('Will search into media filename (including path), title and description').'</span>'.
 	form::hidden(array('popup'),$popup).
+	form::hidden(array('select'),$select).
 	form::hidden(array('plugin_id'),$plugin_id).
 	form::hidden(array('post_id'),$post_id).
 	'</p>'.
@@ -561,6 +588,7 @@ else
 	form::field('nb_per_page',5,3,(integer) $nb_per_page).' '.
 	'<input type="submit" value="'.__('OK').'" />'.
 	form::hidden(array('popup'),$popup).
+	form::hidden(array('select'),$select).
 	form::hidden(array('plugin_id'),$plugin_id).
 	form::hidden(array('post_id'),$post_id).
 	form::hidden(array('q'),$q).
@@ -745,7 +773,7 @@ call_user_func($close_f);
 /* ----------------------------------------------------- */
 function mediaItemLine($f,$i,$query,$table=false)
 {
-	global $core, $page_url, $popup, $post_id, $plugin_id,$page_url_params;
+	global $core, $page_url, $popup, $select, $post_id, $plugin_id, $page_url_params;
 
 	$fname = $f->basename;
 	$file = $query ? $f->relname : $f->basename;
@@ -753,7 +781,7 @@ function mediaItemLine($f,$i,$query,$table=false)
 	$class = $table ? '' : 'media-item media-col-'.($i%2);
 
 	if ($f->d) {
-
+		// Folder
 		$link = $core->adminurl->get('admin.media',array_merge($page_url_params,array('d' => html::sanitizeURL($f->relname) )));
 		if ($f->parent) {
 			$fname = '..';
@@ -762,11 +790,13 @@ function mediaItemLine($f,$i,$query,$table=false)
 			$class .= ' media-folder';
 		}
 	} else {
+		// Item
 		$params = new ArrayObject(
 			array(
 				'id' => $f->media_id,
 				'plugin_id' => $plugin_id,
 				'popup' => $popup,
+				'select' => $select,
 				'post_id' => $post_id
 			)
 		);
@@ -783,24 +813,41 @@ function mediaItemLine($f,$i,$query,$table=false)
 	}
 
 	$act = '';
-	if ($post_id && !$f->d) {
-		// Media attachment button
-		$act .=
-		'<a class="attach-media" title="'.__('Attach this file to entry').'" href="'.
-		$core->adminurl->get("admin.post.media", array('media_id' => $f->media_id, 'post_id' => $post_id,'attach' => 1)).
-		'">'.
-		'<img src="images/plus.png" alt="'.__('Attach this file to entry').'"/>'.
-		'</a>';
-	}
-	if ($popup && !$f->d) {
-		// Media insertion button
-		$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
-		'title="'.__('Insert this file into entry').'" /></a> ';
+	if (!$f->d) {
+		if ($select > 0) {
+			if ($select == 1) {
+				// Single media selection button
+				$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Select this file').'" '.
+				'title="'.__('Select this file').'" /></a> ';
+			} else {
+				// Multiple media selection checkbox
+				$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($file)),$file);
+			}
+		} else {
+			// Item
+			if ($post_id) {
+				// Media attachment button
+				$act .=
+				'<a class="attach-media" title="'.__('Attach this file to entry').'" href="'.
+				$core->adminurl->get("admin.post.media", array('media_id' => $f->media_id, 'post_id' => $post_id,'attach' => 1)).
+				'">'.
+				'<img src="images/plus.png" alt="'.__('Attach this file to entry').'"/>'.
+				'</a>';
+			}
+			if ($popup) {
+				// Media insertion button
+				$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
+				'title="'.__('Insert this file into entry').'" /></a> ';
+			}
+		}
 	}
 	if ($f->del) {
 		// Deletion button or checkbox
 		if (!$popup && !$f->d) {
-			$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($file)),$file);
+			if ($select < 2) {
+				// Already set for multiple media selection
+				$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($file)),$file);
+			}
 		} else {
 			$act .= '<a class="media-remove" '.
 			'href="'.html::escapeURL($page_url).
@@ -812,6 +859,7 @@ function mediaItemLine($f,$i,$query,$table=false)
 		}
 	}
 
+	// Render markup
 	if (!$table) {
 		$res =
 		'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.rawurldecode($link).'">'.
