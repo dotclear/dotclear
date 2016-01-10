@@ -448,7 +448,7 @@ if ($popup && !$select)
 		}
 
 		$public_player_style = unserialize($core->blog->settings->themes->mp3player_style);
-		$public_player = dcMedia::audioPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_mp3.swf',$public_player_style,null,$core->blog->settings->system->media_flash_fallback);
+		$public_player = dcMedia::audioPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_mp3.swf',$public_player_style,$core->blog->settings->system->media_flash_fallback);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
 		echo '</p>';
 		echo '</div>';
@@ -488,7 +488,7 @@ if ($popup && !$select)
 		}
 
 		$public_player_style = unserialize($core->blog->settings->themes->flvplayer_style);
-		$public_player = dcMedia::videoPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_flv.swf',$public_player_style,null,$core->blog->settings->system->media_flash_fallback);
+		$public_player = dcMedia::videoPlayer($file->type,$file->file_url,$core->blog->getQmarkURL().'pf=player_flv.swf',$public_player_style,$core->blog->settings->system->media_flash_fallback);
 		echo form::hidden('public_player',html::escapeHTML($public_player));
 		echo '</p>';
 		echo '</div>';
