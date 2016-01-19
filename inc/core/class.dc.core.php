@@ -59,7 +59,7 @@ class dcCore
 	public function __construct($driver, $host, $db, $user, $password, $prefix, $persist)
 	{
 		if (defined('DC_START_TIME')) {
-			$this->stime=DC_START_TIME;
+			$this->stime = DC_START_TIME;
 		} else {
 			$this->stime = microtime(true);
 		}
@@ -87,9 +87,17 @@ class dcCore
 
 		$this->prefix = $prefix;
 
+		$ttl = DC_SESSION_TTL;
+		if (!is_null($ttl)) {
+			if (substr(trim($ttl),0,1) != '-') {
+				// Clearbricks requires negative session TTL
+				$ttl = '-'.trim($ttl);
+			}
+		}
+
 		$this->error = new dcError();
 		$this->auth = $this->authInstance();
-		$this->session = new sessionDB($this->con,$this->prefix.'session',DC_SESSION_NAME,'',null,DC_ADMIN_SSL);
+		$this->session = new sessionDB($this->con,$this->prefix.'session',DC_SESSION_NAME,'',null,DC_ADMIN_SSL,$ttl);
 		$this->url = new dcUrlHandlers();
 
 		$this->plugins = new dcPlugins($this);

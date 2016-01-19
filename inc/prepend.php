@@ -156,6 +156,10 @@ if (!defined('DC_XMLRPC_URL')) {
 	define('DC_XMLRPC_URL','%1$sxmlrpc/%2$s');
 }
 
+if (!defined('DC_SESSION_TTL')) {
+	define('DC_SESSION_TTL',null);
+}
+
 if (!defined('DC_ADMIN_SSL')) {
 	define('DC_ADMIN_SSL',false);
 }
