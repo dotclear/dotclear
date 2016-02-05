@@ -51,8 +51,8 @@ class dcFavorites
 		$this->user_prefs = array();
 
 		if ($this->ws->prefExists('favorites')) {
-			$this->local_prefs = @unserialize($this->ws->getLocal('favorites'));
-			$this->global_prefs = @unserialize($this->ws->getGlobal('favorites'));
+			$this->local_prefs = $this->ws->getLocal('favorites');
+			$this->global_prefs = $this->ws->getGlobal('favorites');
 			// Since we never know what user puts through user:preferences ...
 			if (!is_array($this->local_prefs)) {
 				$this->local_prefs = array();
@@ -105,7 +105,7 @@ class dcFavorites
 			}
 			$fattr = $this->fav_defs[$p];
 		}
-		$fattr = array_merge (array('id' => null,'class'=>null),$fattr);
+		$fattr = array_merge(array('id' => null,'class' => null),$fattr);
 		if (isset($fattr['permissions'])) {
 			if (is_bool($fattr['permissions']) && !$fattr['permissions'] ) {
 				return false;
@@ -157,13 +157,13 @@ class dcFavorites
 		}
 		$u = explode('?',$_SERVER['REQUEST_URI']);
 		// Loop over prefs to enable active favorites
-		foreach ($this->user_prefs as $k=>&$v) {
+		foreach ($this->user_prefs as $k => &$v) {
 			if (isset($v['active_cb']) && is_callable($v['active_cb'])) {
 				// Use callback if defined to match whether favorite is active or not
 				$v['active'] = call_user_func($v['active_cb'],$u[0],$_REQUEST);
 			} else {
 				// Failback active detection. We test against URI name & parameters
-				$v['active']=true; // true until something proves it is false
+				$v['active'] = true; // true until something proves it is false
 				$u = explode('?',$v['url'],2);
 				if (!preg_match('/'.preg_quote($u[0],"/").'/',$_SERVER['REQUEST_URI'])) {
 					$v['active'] = false; // no URI match
@@ -202,8 +202,8 @@ class dcFavorites
 				}
 			}
 		}
-		$this->ws->put('favorites',serialize($this->global_prefs),'string','User favorites',true,true);
-		$this->ws->put('favorites',serialize($this->local_prefs));
+		$this->ws->put('favorites',$this->global_prefs,'array','User favorites',true,true);
+		$this->ws->put('favorites',$this->local_prefs);
 		$this->user_prefs = $this->getFavorites($this->local_prefs);
 	}
 
@@ -270,7 +270,7 @@ class dcFavorites
      * @access public
      */
 	public function setFavoriteIDs($ids,$global=false) {
-		$this->ws->put('favorites',serialize($ids),null,null,true,$global);
+		$this->ws->put('favorites',$ids,null,null,true,$global);
 	}
 
    /**
@@ -306,7 +306,7 @@ class dcFavorites
      * @access public
      */
 	public function appendMenu($menu) {
-		foreach ($this->user_prefs as $k=>$v) {
+		foreach ($this->user_prefs as $k => $v) {
 			$menu['Favorites']->addItem(
 				$v['title'],
 				$v['url'],
@@ -329,7 +329,7 @@ class dcFavorites
      * @access public
      */
 	public function appendDashboardIcons($icons) {
-		foreach ($this->user_prefs as $k=>$v) {
+		foreach ($this->user_prefs as $k => $v) {
 			if (isset($v['dashboard_cb']) && is_callable($v['dashboard_cb'])) {
 				$v = new ArrayObject($v);
 				call_user_func($v['dashboard_cb'],$this->core,$v);
@@ -367,7 +367,7 @@ class dcFavorites
      * @access public
      */
 	 public function registerMultiple($data) {
-		foreach ($data as $k=>$v) {
+		foreach ($data as $k => $v) {
 			$this->register($k,$v);
 		}
 		return $this;
