@@ -66,8 +66,8 @@ $status_combo = dcAdminCombos::getBlogStatusescombo();
 
 # Date format combo
 $now = time();
-$date_formats = unserialize($blog_settings->system->date_formats);
-$time_formats = unserialize($blog_settings->system->time_formats);
+$date_formats = $blog_settings->system->date_formats;
+$time_formats = $blog_settings->system->time_formats;
 $date_formats_combo = array('' => '');
 foreach ($date_formats as $format) {
     $date_formats_combo[dt::str($format, $now)] = $format;

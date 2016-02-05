@@ -49,7 +49,7 @@ class pingsBehaviors
 			return;
 		}
 
-		$pings_uris = @unserialize($core->blog->settings->pings->pings_uris);
+		$pings_uris = $core->blog->settings->pings->pings_uris;
 		if (empty($pings_uris) || !is_array($pings_uris)) {
 			return;
 		}
@@ -85,7 +85,7 @@ class pingsBehaviors
 			return;
 		}
 
-		$pings_uris = @unserialize($core->blog->settings->pings->pings_uris);
+		$pings_uris = $core->blog->settings->pings->pings_uris;
 		if (empty($pings_uris) || !is_array($pings_uris)) {
 			return;
 		}

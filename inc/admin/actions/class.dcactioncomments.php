@@ -142,7 +142,7 @@ class dcDefaultCommentActions
 
 		$ip_filter_active = true;
 		if ($core->blog->settings->antispam->antispam_filters !== null) {
-			$filters_opt = @unserialize($core->blog->settings->antispam->antispam_filters);
+			$filters_opt = $core->blog->settings->antispam->antispam_filters;
 			if (is_array($filters_opt)) {
 				$ip_filter_active = isset($filters_opt['dcFilterIP']) && is_array($filters_opt['dcFilterIP']) && $filters_opt['dcFilterIP'][0]==1;
 			}
