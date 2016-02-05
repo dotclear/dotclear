@@ -81,9 +81,7 @@ class tplSimpleMenu
 		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
 			return $ret;
 
-		$menu = $GLOBALS['core']->blog->settings->system->get('simpleMenu');
-		$menu = @unserialize($menu);
-
+		$menu = $core->blog->settings->system->simpleMenu;
 		if (is_array($menu))
 		{
 			// Current relative URL
@@ -91,7 +89,7 @@ class tplSimpleMenu
 			$abs_url = http::getHost().$url;
 
 			// Home recognition var
-			$home_url = html::stripHostURL($GLOBALS['core']->blog->url);
+			$home_url = html::stripHostURL($core->blog->url);
 			$home_directory = dirname($home_url);
 			if ($home_directory != '/')
 				$home_directory = $home_directory.'/';

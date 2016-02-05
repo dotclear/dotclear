@@ -478,6 +478,13 @@ function dotclearUpgrade($core)
 					sprintf($strReq,'media_video_height','300','integer','Media video insertion height'));
 				$core->con->execute(
 					sprintf($strReq,'media_flash_fallback','1','boolean','Flash player fallback for audio and video media'));
+
+				# Some settings and prefs should be moved from string to array
+				settings2array('system','date_formats');
+				settings2array('system','time_formats');
+				settings2array('antispam','antispam_filters');
+				settings2array('pings','pings_uris');
+				settings2array('system','simpleMenu');
 			}
 
 			$core->setVersion('core',DC_VERSION);
@@ -504,4 +511,64 @@ function dotclearUpgrade($core)
 
 	# No upgrade?
 	return false;
+}
+
+/**
+ * Convert old-fashion serialized array setting to new-fashion json encoded array
+ * @param  $ns      namespace
+ * @param  $setting setting name (id)
+ */
+function settings2array($ns,$setting)
+{
+	global $core;
+
+	$strReqSelect =
+		"SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ".$core->prefix."setting ".
+		"WHERE setting_id = '%s' ".
+		"AND setting_ns = '%s' ".
+		"AND setting_type = 'string'";
+	$rs = $core->con->select(sprintf($strReqSelect,$setting,$ns));
+	while ($rs->fetch()) {
+		$value = json_encode(unserialize($rs->setting_value));
+		$rs2 = "UPDATE ".$core->prefix."setting ".
+			"SET setting_type='array', setting_value = '".$core->con->escape($value)."' ".
+			"WHERE setting_id='".$core->con->escape($rs->setting_id)."' ".
+			"AND setting_ns='".$core->con->escape($rs->setting_ns)."' ";
+		if ($rs->blog_id == '') {
+			$rs2 .= "AND blog_id IS null";
+		} else {
+			$rs2 .= "AND blog_id = '".$core->con->escape($rs->blog_id)."'";
+		}
+		$core->con->execute($rs2);
+	}
+}
+
+/**
+ * Convert old-fashion serialized array pref to new-fashion json encoded array
+ * @param  $ws      workspace
+ * @param  $pref 	pref name (id)
+ */
+function prefs2array($ws,$pref)
+{
+	global $core;
+
+	$strReqSelect =
+		"SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ".$core->prefix."pref ".
+		"WHERE pref_id = '%s' ".
+		"AND pref_ws = '%s' ".
+		"AND pref_type = 'string'";
+	$rs = $core->con->select(sprintf($strReqSelect,$pref,$ns));
+	while ($rs->fetch()) {
+		$value = json_encode(unserialize($rs->pref_value));
+		$rs2 = "UPDATE ".$core->prefix."pref ".
+			"SET pref_type='array', pref_value = '".$core->con->escape($value)."' ".
+			"WHERE pref_id='".$core->con->escape($rs->pref_id)."' ".
+			"AND pref_ws='".$core->con->escape($rs->pref_ws)."' ";
+		if ($rs->user_id == '') {
+			$rs2 .= "AND user_id IS null";
+		} else {
+			$rs2 .= "AND user_id = '".$core->con->escape($rs->user_id)."'";
+		}
+		$core->con->execute($rs2);
+	}
 }

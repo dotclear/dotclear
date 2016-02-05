@@ -75,7 +75,7 @@ class dcNamespace
 			$type = $rs->f('setting_type');
 
 			if ($type == 'array') {
-				$value = @json_decode($value);
+				$value = @json_decode($value,true);
 			} else {
 				if ($type == 'float' || $type == 'double') {
 					$type = 'float';

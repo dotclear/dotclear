@@ -105,7 +105,6 @@ foreach ($items as $k => $v) {
 
 # Lecture menu existant
 $menu = $core->blog->settings->system->get('simpleMenu');
-$menu = @unserialize($menu);
 if (!is_array($menu)) {
 	$menu = array();
 }
@@ -232,7 +231,7 @@ if (!empty($_POST['saveconfig'])) {
 							'url' => $item_url
 						);
 						// Save menu in blog settings
-						$core->blog->settings->system->put('simpleMenu',serialize($menu));
+						$core->blog->settings->system->put('simpleMenu',$menu);
 						$core->blog->triggerBlog();
 
 						// All done successfully, return to menu items list
@@ -270,7 +269,7 @@ if (!empty($_POST['saveconfig'])) {
 					}
 					$menu = $newmenu;
 					// Save menu in blog settings
-					$core->blog->settings->system->put('simpleMenu',serialize($menu));
+					$core->blog->settings->system->put('simpleMenu',$menu);
 					$core->blog->triggerBlog();
 
 					// All done successfully, return to menu items list
@@ -305,7 +304,7 @@ if (!empty($_POST['saveconfig'])) {
 				}
 				$menu = $newmenu;
 				// Save menu in blog settings
-				$core->blog->settings->system->put('simpleMenu',serialize($menu));
+				$core->blog->settings->system->put('simpleMenu',$menu);
 				$core->blog->triggerBlog();
 
 				// All done successfully, return to menu items list
@@ -343,7 +342,7 @@ if (!empty($_POST['saveconfig'])) {
 				}
 				$menu = $newmenu;
 				// Save menu in blog settings
-				$core->blog->settings->system->put('simpleMenu',serialize($menu));
+				$core->blog->settings->system->put('simpleMenu',$menu);
 				$core->blog->triggerBlog();
 
 				// All done successfully, return to menu items list

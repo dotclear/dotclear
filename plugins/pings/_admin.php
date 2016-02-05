@@ -30,7 +30,7 @@ if (!array_key_exists('pings',$core->blog->settings->dumpNamespaces()))
 
 	$core->blog->settings->addNamespace('pings');
 	$core->blog->settings->pings->put('pings_active',1,'boolean','Activate pings plugin',true,true);
-	$core->blog->settings->pings->put('pings_uris',serialize($default_pings_uris),'string','Pings services URIs',true,true);
+	$core->blog->settings->pings->put('pings_uris',$default_pings_uris,'array','Pings services URIs',true,true);
 }
 
 $core->addBehavior('adminPostHeaders',array('pingsBehaviors','pingJS'));
