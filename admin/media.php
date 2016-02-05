@@ -145,7 +145,7 @@ if (!$q) {	// Ignore search results
 	$core->auth->user_prefs->addWorkspace('interface');
 	$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
 	if ($nb_last_dirs > 0) {
-		$last_dirs = @unserialize($core->auth->user_prefs->interface->media_last_dirs);
+		$last_dirs = $core->auth->user_prefs->interface->media_last_dirs;
 		if (!is_array($last_dirs)) {
 			$last_dirs = array();
 		}
@@ -162,7 +162,7 @@ if (!$q) {	// Ignore search results
 			array_unshift($last_dirs,$recent_dir);
 		}
 		// Store new list
-		$core->auth->user_prefs->interface->put('media_last_dirs',serialize($last_dirs));
+		$core->auth->user_prefs->interface->put('media_last_dirs',$last_dirs);
 	}
 }
 
@@ -403,7 +403,7 @@ $last_folders_item = '';
 $nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
 if ($nb_last_dirs > 0) {
 	if (!is_array($last_dirs)) {
-		$last_dirs = @unserialize($core->auth->user_prefs->interface->media_last_dirs);
+		$last_dirs = $core->auth->user_prefs->interface->media_last_dirs;
 	}
 	if (is_array($last_dirs)) {
 		foreach ($last_dirs as $ld) {

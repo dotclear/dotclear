@@ -485,6 +485,8 @@ function dotclearUpgrade($core)
 				settings2array('antispam','antispam_filters');
 				settings2array('pings','pings_uris');
 				settings2array('system','simpleMenu');
+				prefs2array('dashboard','favorites');
+				prefs2array('interface','media_last_dirs');
 			}
 
 			$core->setVersion('core',DC_VERSION);
@@ -557,7 +559,7 @@ function prefs2array($ws,$pref)
 		"WHERE pref_id = '%s' ".
 		"AND pref_ws = '%s' ".
 		"AND pref_type = 'string'";
-	$rs = $core->con->select(sprintf($strReqSelect,$pref,$ns));
+	$rs = $core->con->select(sprintf($strReqSelect,$pref,$ws));
 	while ($rs->fetch()) {
 		$value = json_encode(unserialize($rs->pref_value));
 		$rs2 = "UPDATE ".$core->prefix."pref ".
