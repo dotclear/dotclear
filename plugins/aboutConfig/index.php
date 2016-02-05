@@ -26,14 +26,14 @@ if (!empty($_POST['s']) && is_array($_POST['s']))
 {
 	try
 	{
-		foreach ($_POST['s'] as $ns => $s)
-		{
+		foreach ($_POST['s'] as $ns => $s) {
 			$core->blog->settings->addNamespace($ns);
-
-			foreach ($s as $k => $v) 	{
+			foreach ($s as $k => $v) {
+				if ($_POST['s_type'][$ns][$k] == 'array') {
+					$v = json_decode($v,true);
+				}
 				$core->blog->settings->$ns->put($k,$v);
 			}
-
 			$core->blog->triggerBlog();
 		}
 
@@ -51,14 +51,14 @@ if (!empty($_POST['gs']) && is_array($_POST['gs']))
 {
 	try
 	{
-		foreach ($_POST['gs'] as $ns => $s)
-		{
+		foreach ($_POST['gs'] as $ns => $s) {
 			$core->blog->settings->addNamespace($ns);
-
-			foreach ($s as $k => $v) 	{
+			foreach ($s as $k => $v) {
+				if ($_POST['gs_type'][$ns][$k] == 'array') {
+					$v = json_decode($v,true);
+				}
 				$core->blog->settings->$ns->put($k,$v,null,null,true,true);
 			}
-
 			$core->blog->triggerBlog();
 		}
 
@@ -79,9 +79,16 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 		$field = form::combo(array($field_name.'['.$ns.']['.$id.']',$field_name.'_'.$ns.'_'.$id),
 		array(__('yes') => 1, __('no') => 0),$s['value'] ? 1 : 0);
 	} else {
-		$field = form::field(array($field_name.'['.$ns.']['.$id.']',$field_name.'_'.$ns.'_'.$id),40,null,
-		html::escapeHTML($s['value']));
+		if ($s['type'] == 'array') {
+			$field = form::field(array($field_name.'['.$ns.']['.$id.']',$field_name.'_'.$ns.'_'.$id),40,null,
+			html::escapeHTML(json_encode($s['value'])));
+		} else {
+			$field = form::field(array($field_name.'['.$ns.']['.$id.']',$field_name.'_'.$ns.'_'.$id),40,null,
+			html::escapeHTML($s['value']));
+		}
 	}
+	$type = form::hidden(array($field_name.'_type'.'['.$ns.']['.$id.']',$field_name.'_'.$ns.'_'.$id.'_type'),
+		html::escapeHTML($s['type']));
 
 	$slabel = $strong_label ? '<strong>%s</strong>' : '%s';
 
@@ -89,7 +96,7 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 	'<tr class="line">'.
 	'<td scope="row"><label for="'.$field_name.'_'.$ns.'_'.$id.'">'.sprintf($slabel,html::escapeHTML($id)).'</label></td>'.
 	'<td>'.$field.'</td>'.
-	'<td>'.$s['type'].'</td>'.
+	'<td>'.$s['type'].$type.'</td>'.
 	'<td>'.html::escapeHTML($s['label']).'</td>'.
 	'</tr>';
 }
