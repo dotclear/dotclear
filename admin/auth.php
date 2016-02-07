@@ -42,7 +42,7 @@ $err = $msg = null;
 if (empty($_GET) && empty($_POST)) {
 	require dirname(__FILE__).'/../inc/dbschema/upgrade.php';
 	try {
-		if (($changes = dotclearUpgrade($core)) !== false) {
+		if (($changes = dcUpgrade::dotclearUpgrade($core)) !== false) {
 			$msg = __('Dotclear has been upgraded.').'<!-- '.$changes.' -->';
 		}
 	} catch (Exception $e) {
