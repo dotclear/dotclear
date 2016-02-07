@@ -28,6 +28,7 @@ if (!defined('CLEARBRICKS_PATH') || !is_dir(CLEARBRICKS_PATH)) {
 }
 
 require CLEARBRICKS_PATH.'/_common.php';
+
 $__autoload['dcCore']        = dirname(__FILE__).'/core/class.dc.core.php';
 $__autoload['dcAuth']        = dirname(__FILE__).'/core/class.dc.auth.php';
 $__autoload['dcBlog']        = dirname(__FILE__).'/core/class.dc.blog.php';
@@ -52,33 +53,34 @@ $__autoload['dcPrefs']       = dirname(__FILE__).'/core/class.dc.prefs.php';
 $__autoload['dcStore']       = dirname(__FILE__).'/core/class.dc.store.php';
 $__autoload['dcStoreReader'] = dirname(__FILE__).'/core/class.dc.store.reader.php';
 $__autoload['dcStoreParser'] = dirname(__FILE__).'/core/class.dc.store.parser.php';
-$__autoload['dcFavorites']   = dirname(__FILE__).'/admin/class.dc.favorites.php';
+$__autoload['rsExtPost']     = dirname(__FILE__).'/core/class.dc.rs.extensions.php';
+$__autoload['rsExtComment']  = dirname(__FILE__).'/core/class.dc.rs.extensions.php';
+$__autoload['rsExtDates']    = dirname(__FILE__).'/core/class.dc.rs.extensions.php';
+$__autoload['rsExtUser']     = dirname(__FILE__).'/core/class.dc.rs.extensions.php';
 
-$__autoload['rsExtPost']    = dirname(__FILE__).'/core/class.dc.rs.extensions.php';
-$__autoload['rsExtComment'] = dirname(__FILE__).'/core/class.dc.rs.extensions.php';
-$__autoload['rsExtDates']   = dirname(__FILE__).'/core/class.dc.rs.extensions.php';
-$__autoload['rsExtUser']    = dirname(__FILE__).'/core/class.dc.rs.extensions.php';
+$__autoload['dcUpgrade']	 = dirname(__FILE__).'/dbschema/upgrade.php';
 
-$__autoload['dcMenu']            = dirname(__FILE__).'/admin/class.dc.menu.php';
-$__autoload['dcPage']            = dirname(__FILE__).'/admin/lib.dc.page.php';
-$__autoload['adminGenericList']  = dirname(__FILE__).'/admin/lib.pager.php';
-$__autoload['adminPostList']     = dirname(__FILE__).'/admin/lib.pager.php';
-$__autoload['adminPostMiniList'] = dirname(__FILE__).'/admin/lib.pager.php';
-$__autoload['adminCommentList']  = dirname(__FILE__).'/admin/lib.pager.php';
-$__autoload['adminUserList']     = dirname(__FILE__).'/admin/lib.pager.php';
-$__autoload['dcPager']           = dirname(__FILE__).'/admin/lib.pager.php';
-$__autoload['dcAdminCombos']     = dirname(__FILE__).'/admin/lib.admincombos.php';
-$__autoload['adminModulesList']  = dirname(__FILE__).'/admin/lib.moduleslist.php';
-$__autoload['adminThemesList']   = dirname(__FILE__).'/admin/lib.moduleslist.php';
-$__autoload['dcThemeConfig']     = dirname(__FILE__).'/admin/lib.themeconfig.php';
-
-$__autoload['dcTemplate']            = dirname(__FILE__).'/public/class.dc.template.php';
-$__autoload['context']               = dirname(__FILE__).'/public/lib.tpl.context.php';
-$__autoload['dcUrlHandlers']         = dirname(__FILE__).'/public/lib.urlhandlers.php';
+$__autoload['dcMenu']            	 = dirname(__FILE__).'/admin/class.dc.menu.php';
+$__autoload['dcFavorites']   	 	 = dirname(__FILE__).'/admin/class.dc.favorites.php';
+$__autoload['dcPage']            	 = dirname(__FILE__).'/admin/lib.dc.page.php';
+$__autoload['adminGenericList']  	 = dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['adminPostList']     	 = dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['adminPostMiniList'] 	 = dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['adminCommentList']  	 = dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['adminUserList']     	 = dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['dcPager']           	 = dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['dcAdminCombos']     	 = dirname(__FILE__).'/admin/lib.admincombos.php';
+$__autoload['adminModulesList']  	 = dirname(__FILE__).'/admin/lib.moduleslist.php';
+$__autoload['adminThemesList']   	 = dirname(__FILE__).'/admin/lib.moduleslist.php';
+$__autoload['dcThemeConfig']     	 = dirname(__FILE__).'/admin/lib.themeconfig.php';
 $__autoload['dcAdminURL']            = dirname(__FILE__).'/admin/lib.dc.adminurl.php';
 $__autoload['dcPostsActionsPage']    = dirname(__FILE__).'/admin/actions/class.dcactionposts.php';
 $__autoload['dcCommentsActionsPage'] = dirname(__FILE__).'/admin/actions/class.dcactioncomments.php';
 $__autoload['dcActionsPage']         = dirname(__FILE__).'/admin/actions/class.dcaction.php';
+
+$__autoload['dcTemplate']            = dirname(__FILE__).'/public/class.dc.template.php';
+$__autoload['context']               = dirname(__FILE__).'/public/lib.tpl.context.php';
+$__autoload['dcUrlHandlers']         = dirname(__FILE__).'/public/lib.urlhandlers.php';
 
 # Clearbricks extensions
 html::$absolute_regs[] = '/(<param\s+name="movie"\s+value=")(.*?)(")/msu';
