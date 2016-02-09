@@ -533,7 +533,11 @@ class dcUpgrade
 			"AND setting_type = 'string'";
 		$rs = $core->con->select(sprintf($strReqSelect,$setting,$ns));
 		while ($rs->fetch()) {
-			$value = json_encode(unserialize($rs->setting_value));
+			$value = unserialize($rs->setting_value);
+			if (!$value) {
+				$value = array();
+			}
+			$value = json_encode(settype($value,'array'));
 			$rs2 = "UPDATE ".$core->prefix."setting ".
 				"SET setting_type='array', setting_value = '".$core->con->escape($value)."' ".
 				"WHERE setting_id='".$core->con->escape($rs->setting_id)."' ".
@@ -563,7 +567,11 @@ class dcUpgrade
 			"AND pref_type = 'string'";
 		$rs = $core->con->select(sprintf($strReqSelect,$pref,$ws));
 		while ($rs->fetch()) {
-			$value = json_encode(unserialize($rs->pref_value));
+			$value = unserialize($rs->pref_value);
+			if (!$value) {
+				$value = array();
+			}
+			$value = json_encode(settype($value,'array'));
 			$rs2 = "UPDATE ".$core->prefix."pref ".
 				"SET pref_type='array', pref_value = '".$core->con->escape($value)."' ".
 				"WHERE pref_id='".$core->con->escape($rs->pref_id)."' ".
