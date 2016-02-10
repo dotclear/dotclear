@@ -707,7 +707,7 @@ if (!$query && $core_media_writable)
 	echo
 	'<h4>'.__('Add files').'</h4>'.
 	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
-	'<form id="fileupload" action="'.html::escapeURL($page_url).'" method="post" enctype="multipart/form-data" aria-disabled="false">'.
+	'<form id="fileupload" action="'.html::escapeURL($core->adminurl->get('admin.media',$page_url_params)).'" method="post" enctype="multipart/form-data" aria-disabled="false">'.
 	'<p>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</p>'.
 	'<div class="fileupload-ctrl"><p class="queue-message"></p><ul class="files"></ul></div>';
@@ -718,7 +718,7 @@ if (!$query && $core_media_writable)
 	echo
 	'<p><label for="upfile">'.'<span class="add-label one-file">'.__('Choose file').'</span>'.'</label>'.
 	'<button class="button choose_files">'.__('Choose files').'</button>'.
-	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($page_url).'" /></p>';
+	'<input type="file" id="upfile" name="upfile[]"'.($user_ui_enhanceduploader?' multiple="mutiple"':'').' data-url="'.html::escapeURL($core->adminurl->get('admin.media',$page_url_params)).'" /></p>';
 
 	echo
 	'<p class="max-sizer form-note">&nbsp;'.__('Maximum file size allowed:').' '.files::size(DC_MAX_UPLOAD_SIZE).'</p>';
@@ -749,7 +749,7 @@ if (!$query && $core_media_writable)
 
 # Empty remove form (for javascript actions)
 echo
-'<form id="media-remove-hide" action="'.html::escapeURL($page_url).'" method="post" class="hidden">'.
+'<form id="media-remove-hide" action="'.html::escapeURL($core->adminurl->get('admin.media',$page_url_params)).'" method="post" class="hidden">'.
 '<div>'.
 form::hidden('rmyes',1).form::hidden('d',html::escapeHTML($d)).
 form::hidden(array('plugin_id'),$plugin_id).form::hidden('remove','').
