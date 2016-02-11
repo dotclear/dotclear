@@ -45,13 +45,17 @@
 		<ul class="post-attachments-list">
 	</tpl:AttachmentsHeader>
 				<li class="post-attachments-item {{tpl:AttachmentType}}">
-					<tpl:AttachmentIf is_mp3="1">
-						{{tpl:include src="_mp3_player.html"}} -
+					<tpl:AttachmentIf is_audio="1">
+						{{tpl:include src="_audio_player.html"}}
 					</tpl:AttachmentIf>
-					<tpl:AttachmentIf is_flv="1">
-						{{tpl:include src="_flv_player.html"}}
+					<tpl:AttachmentIf is_video="1">
+						<tpl:AttachmentIf is_flv="0">
+							{{tpl:include src="_video_player.html"}}
+						{{tpl:else}}
+							{{tpl:include src="_flv_player.html"}}
+						</tpl:AttachmentIf>
 					</tpl:AttachmentIf>
-					<tpl:AttachmentIf is_flv="0">
+					<tpl:AttachmentIf is_video="0" is_audio="0">
 						<a href="{{tpl:AttachmentURL}}"
 						 title="{{tpl:AttachmentFileName}} ({{tpl:AttachmentSize}})">{{tpl:AttachmentTitle}}</a>
 					</tpl:AttachmentIf>

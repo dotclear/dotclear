@@ -45,7 +45,7 @@ class attachmentAdmin
 		if ($post !== null)
 		{
 			$core =& $GLOBALS['core'];
-			$post_media = $core->media->getPostMedia($post->post_id);
+			$post_media = $core->media->getPostMedia($post->post_id,null,'attachment');
 			$nb_media = count($post_media);
 			$title = !$nb_media ? __('Attachments') : sprintf(__('Attachments (%d)'),$nb_media);
 			$item = '<h5 class="clear s-attachments">'.$title.'</h5>';
@@ -70,6 +70,7 @@ class attachmentAdmin
 				'href="'.$core->adminurl->get('admin.post.media',array(
 					'post_id' => $post->post_id,
 					'media_id' => $f->media_id,
+					'link_type' => 'attachment',
 					'remove' => '1'
 					)).'">'.
 				'<img src="images/trash.png" alt="'.__('remove').'" /></a>'.
@@ -84,7 +85,7 @@ class attachmentAdmin
 				$item .= '<p class="form-note s-attachments">'.__('No attachment.').'</p>';
 			}
 			$item .=
-				'<p class="s-attachments"><a class="button" href="'.$core->adminurl->get('admin.media',array('post_id' => $post->post_id)).'">'.
+				'<p class="s-attachments"><a class="button" href="'.$core->adminurl->get('admin.media',array('post_id' => $post->post_id, 'link_type' => 'attachment')).'">'.
 				__('Add files to this entry').'</a></p>';
 			$sidebar['metas-box']['items']['attachments']= $item;
 		}
@@ -98,6 +99,7 @@ class attachmentAdmin
 				'<form action="'.$core->adminurl->get('admin.post.media').'" id="attachment-remove-hide" method="post">'.
 				'<div>'.form::hidden(array('post_id'),$post->post_id).
 				form::hidden(array('media_id'),'').
+				form::hidden(array('link_type'),'attachment').
 				form::hidden(array('remove'),1).
 				$core->formNonce().'</div></form>';
 		}

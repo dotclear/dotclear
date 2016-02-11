@@ -39,7 +39,7 @@ class attachmentTpl {
 		$res =
 		"<?php\n".
 		'if ($_ctx->posts !== null && $core->media) {'."\n".
-			'$_ctx->attachments = new ArrayObject($core->media->getPostMedia($_ctx->posts->post_id));'."\n".
+			'$_ctx->attachments = new ArrayObject($core->media->getPostMedia($_ctx->posts->post_id,null,"attachment"));'."\n".
 		"?>\n".
 
 		'<?php foreach ($_ctx->attachments as $attach_i => $attach_f) : '.
@@ -82,6 +82,8 @@ class attachmentTpl {
 	has_thumb	(0|1)	#IMPLIED	-- test if attachment has a square thumnail (value : 1) or not (value : 0)
 	is_mp3	(0|1)	#IMPLIED	-- test if attachment is a mp3 file (value : 1) or not (value : 0)
 	is_flv	(0|1)	#IMPLIED	-- test if attachment is a flv file (value : 1) or not (value : 0)
+	is_audio	(0|1)	#IMPLIED	-- test if attachment is an audio file (value : 1) or not (value : 0)
+	is_video	(0|1)	#IMPLIED	-- test if attachment is a video file (value : 1) or not (value : 0)
 	>
 	*/
 	public static function AttachmentIf($attr,$content)
@@ -106,11 +108,18 @@ class attachmentTpl {
 		}
 
 		if (isset($attr['is_flv'])) {
-			$sign = (boolean) $attr['is_flv'] ? '' : '!';
-			$if[] = $sign.
-				'($attach_f->type == "video/x-flv" || '.
-				'$attach_f->type == "video/mp4" || '.
-				'$attach_f->type == "video/x-m4v")';
+			$sign = (boolean) $attr['is_flv'] ? '==' : '!=';
+			$if[] = '$attach_f->type '.$sign.' "video/x-flv"';
+		}
+
+		if (isset($attr['is_audio'])) {
+			$sign = (boolean) $attr['is_audio'] ? '==' : '!=';
+			$if[] = '$attach_f->type_prefix '.$sign.' "audio"';
+		}
+
+		if (isset($attr['is_video'])) {
+			$sign = (boolean) $attr['is_video'] ? '==' : '!=';
+			$if[] = '$attach_f->type_prefix '.$sign.' "video"';
 		}
 
 		if (count($if) != 0) {
@@ -212,7 +221,7 @@ class attachmentTpl {
 	{
 		global $core;
 		return $core->tpl->displayCounter(
-			'$_ctx->posts->countMedia()',
+			'$_ctx->posts->countMedia(\'attachment\')',
 			array(
 				'none' => 'no attachments',
 				'one'  => 'one attachment',
@@ -230,7 +239,7 @@ class attachmentBehavior
 	{
 		if ($tag == "EntryIf" && isset($attr['has_attachment'])) {
 			$sign = (boolean) $attr['has_attachment'] ? '' : '!';
-			$if[] = $sign.'$_ctx->posts->countMedia()';
+			$if[] = $sign.'$_ctx->posts->countMedia(\'attachment\')';
 		}
 	}
 }
