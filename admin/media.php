@@ -30,6 +30,9 @@ $d = isset($_REQUEST['d']) ? $_REQUEST['d'] : null;
 $plugin_id = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
 $dir = null;
 
+// Attachement type if any
+$link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
+
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page = ((integer) $core->auth->user_prefs->interface->media_by_page ? (integer) $core->auth->user_prefs->interface->media_by_page : 30);
 
@@ -84,7 +87,7 @@ if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
 $popup = (integer) !empty($_REQUEST['popup']);
 $select = !empty($_REQUEST['select']) ? (integer)$_REQUEST['select'] : 0;	// 0 : none, 1 : single media, >1 : multiple medias
 
-$page_url_params = new ArrayObject(array('popup' => $popup,'select' => $select,'post_id' => $post_id));
+$page_url_params = new ArrayObject(array('popup' => $popup,'select' => $select,'post_id' => $post_id,'link_type' => $link_type));
 if ($d) {
 	$page_url_params['d'] = $d;
 }
@@ -773,7 +776,7 @@ call_user_func($close_f);
 /* ----------------------------------------------------- */
 function mediaItemLine($f,$i,$query,$table=false)
 {
-	global $core, $page_url, $popup, $select, $post_id, $plugin_id, $page_url_params;
+	global $core, $page_url, $popup, $select, $post_id, $plugin_id, $page_url_params, $link_type;
 
 	$fname = $f->basename;
 	$file = $query ? $f->relname : $f->basename;
@@ -829,7 +832,8 @@ function mediaItemLine($f,$i,$query,$table=false)
 				// Media attachment button
 				$act .=
 				'<a class="attach-media" title="'.__('Attach this file to entry').'" href="'.
-				$core->adminurl->get("admin.post.media", array('media_id' => $f->media_id, 'post_id' => $post_id,'attach' => 1)).
+				$core->adminurl->get("admin.post.media",
+					array('media_id' => $f->media_id, 'post_id' => $post_id,'attach' => 1,'link_type' => $link_type)).
 				'">'.
 				'<img src="images/plus.png" alt="'.__('Attach this file to entry').'"/>'.
 				'</a>';

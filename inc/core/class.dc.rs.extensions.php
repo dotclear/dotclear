@@ -446,7 +446,7 @@ class rsExtPost
 	@param	rs	Invisible parameter
 	@return	<b>integer</b>
 	*/
-	public static function countMedia($rs)
+	public static function countMedia($rs,$link_type=null)
 	{
 		if (isset($rs->_nb_media[$rs->index()]))
 		{
@@ -458,6 +458,9 @@ class rsExtPost
 			'SELECT count(media_id) '.
 			'FROM '.$rs->core->prefix.'post_media '.
 			'WHERE post_id = '.(integer) $rs->post_id.' ';
+			if ($link_type != null) {
+				$strReq .= "AND link_type = '".$rs->core->con->escape($link_type)."'";
+			}
 
 			$res = (integer) $rs->core->con->select($strReq)->f(0);
 			$rs->_nb_media[$rs->index()] = $res;

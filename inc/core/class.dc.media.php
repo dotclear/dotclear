@@ -572,11 +572,12 @@ class dcMedia extends filemanager
 	Returns media items attached to a blog post. Result is an array containing
 	fileItems objects.
 
-	@param	post_id	<b>integer</b>		Post ID
+	@param	post_id		<b>integer</b>		Post ID
 	@param	media_id	<b>integer</b>		Optionnal media ID
+	@param	link_type	<b>string</b>		Optionnal link type
 	@return	<b>array</b> Array of fileItems
 	*/
-	public function getPostMedia($post_id,$media_id=null)
+	public function getPostMedia($post_id,$media_id=null,$link_type=null)
 	{
 		$params = array(
 			'post_id' => $post_id,
@@ -584,6 +585,9 @@ class dcMedia extends filemanager
 		);
 		if ($media_id) {
 			$params['media_id'] = (integer) $media_id;
+		}
+		if ($link_type) {
+			$params['link_type'] = $link_type;
 		}
 		$rs = $this->postmedia->getPostMedia($params);
 
@@ -603,18 +607,18 @@ class dcMedia extends filemanager
 	@deprecated since version 2.4
 	@see dcPostMedia::addPostMedia
 	*/
-	public function addPostMedia($post_id,$media_id)
+	public function addPostMedia($post_id,$media_id,$link_type='attachment')
 	{
-		$this->postmedia->addPostMedia($post_id,$media_id);
+		$this->postmedia->addPostMedia($post_id,$media_id,$link_type);
 	}
 
 	/**
 	@deprecated since version 2.4
 	@see dcPostMedia::removePostMedia
 	*/
-	public function removePostMedia($post_id,$media_id)
+	public function removePostMedia($post_id,$media_id,$link_type='attachment')
 	{
-		$this->postmedia->removePostMedia($post_id,$media_id,"attachment");
+		$this->postmedia->removePostMedia($post_id,$media_id,$link_type);
 	}
 
 	/**

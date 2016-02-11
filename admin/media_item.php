@@ -26,12 +26,15 @@ if ($post_id) {
 	unset($post);
 }
 
+// Attachement type if any
+$link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
+
 $file = null;
 $popup = (integer) !empty($_REQUEST['popup']);
 $select = !empty($_REQUEST['select']) ? (integer)$_REQUEST['select'] : 0;	// 0 : none, 1 : single media, >1 : multiple medias
 $plugin_id = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
 $page_url_params = array('popup' => $popup,'select' => $select,'post_id' => $post_id);
-$media_page_url_params = array('popup' => $popup,'select' => $select,'post_id' => $post_id);
+$media_page_url_params = array('popup' => $popup,'select' => $select,'post_id' => $post_id,'link_type' => $link_type);
 
 if ($plugin_id != '') {
 	$page_url_params['plugin_id'] = $plugin_id;

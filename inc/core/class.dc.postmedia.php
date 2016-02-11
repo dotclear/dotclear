@@ -77,7 +77,7 @@ class dcPostMedia
 		if (isset($params['sql'])) {
 			$strReq .= $params['sql'];
 		}
-	//echo $strReq; exit;
+
 		$rs = $this->con->select($strReq);
 
 		return $rs;
@@ -86,8 +86,9 @@ class dcPostMedia
 	/**
 	Attaches a media to a post.
 
-	@param	post_id	<b>integer</b>		Post ID
+	@param	post_id		<b>integer</b>		Post ID
 	@param	media_id	<b>integer</b>		Optionnal media ID
+	@param	link_type	<b>string</b>		Optionnal link type (default: attachment)
 	*/
 	public function addPostMedia($post_id,$media_id,$link_type='attachment')
 	{
@@ -112,8 +113,9 @@ class dcPostMedia
 	/**
 	Detaches a media from a post.
 
-	@param	post_id	<b>integer</b>		Post ID
+	@param	post_id		<b>integer</b>		Post ID
 	@param	media_id	<b>integer</b>		Optionnal media ID
+	@param	link_type	<b>string</b>		Optionnal link type
 	*/
 	public function removePostMedia($post_id,$media_id,$link_type=null)
 	{
