@@ -1655,7 +1655,7 @@ class adminThemesList extends adminModulesList
 		if ($id != $this->core->blog->settings->system->theme) {
 
 			# Select theme to use on curent blog
-			if (in_array('select', $actions) && $this->path_writable) {
+			if (in_array('select', $actions)) {
 				$submits[] =
 				'<input type="submit" name="select['.html::escapeHTML($id).']" value="'.__('Use this one').'" />';
 			}
