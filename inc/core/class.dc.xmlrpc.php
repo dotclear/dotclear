@@ -781,7 +781,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		}
 
 		$file_name = $file['name'];
-		$file_bits = base64_decode($file['bits']);
+		$file_bits = $file['bits'];
 
 		$this->setUser($user,$pwd);
 		$this->setBlog();
