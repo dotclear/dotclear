@@ -15,7 +15,7 @@ $(function() {
 		    media_align_grid = {
 			    left: 'float: left; margin: 0 1em 1em 0;',
 			    right: 'float: right; margin: 0 0 1em 1em;',
-			    center: 'margin: 0 auto; display: block;'
+			    center: 'margin: 0 auto; display: table;'
 		    };
 
 		if (type=='image') {
