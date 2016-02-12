@@ -1227,7 +1227,8 @@ class dcCore
 			'active_fr_syntax' => 0,
 			'first_title_level' => 3,
 			'note_prefix' => 'wiki-footnote',
-			'note_str' => '<div class="footnotes"><h4>Notes</h4>%s</div>'
+			'note_str' => '<div class="footnotes"><h4>Notes</h4>%s</div>',
+			'img_style_center' => 'display:table; margin:0 auto;'
 		));
 
 		$this->wiki2xhtml->registerFunction('url:post',array($this,'wikiPostLink'));
