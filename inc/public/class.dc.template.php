@@ -139,6 +139,7 @@ class dcTemplate extends template
 		$this->addValue('EntryAuthorURL',array($this,'EntryAuthorURL'));
 		$this->addValue('EntryBasename',array($this,'EntryBasename'));
 		$this->addValue('EntryCategory',array($this,'EntryCategory'));
+		$this->addValue('EntryCategoryDescription',array($this,'EntryCategoryDescription'));
 		$this->addBlock('EntryCategoriesBreadcrumb',array($this,'EntryCategoriesBreadcrumb'));
 		$this->addValue('EntryCategoryID',array($this,'EntryCategoryID'));
 		$this->addValue('EntryCategoryURL',array($this,'EntryCategoryURL'));
@@ -1593,6 +1594,15 @@ class dcTemplate extends template
 	{
 		$f = $this->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$_ctx->posts->cat_title').'; ?>';
+	}
+
+	/*dtd
+	<!ELEMENT tpl:EntryCategoryDescription - O -- Entry category description -->
+	*/
+	public function EntryCategoryDescription($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'$_ctx->posts->cat_desc').'; ?>';
 	}
 
 	/*dtd
