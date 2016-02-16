@@ -1,3 +1,31 @@
+Dotclear 2.9 - 2016-02-29
+===========================================================
+* Additionnal menu items are now lexically sorted (default items and favorites order will be preserved)
+* Wiki syntax : Added ""marked text"" support (HTML5 only)
+* Session TTL are now adjustable (set DC_SESSION_TTL in inc/config.php)
+* Add behaviors for posts/pages/comments/users lists' columns → let 3rd party plugin playing with them
+* Blog and user lists are now lexically sorted
+* Some new filters have been added for post lists
+* Add a search engine in media manager (looking in filename, title and description metadata)
+* Add recent folders direct access mechanism for the media manager (setting in user prefs)
+* Add a another display mode (list) to the media manager
+* Details about currently selected thumbnail in media manager are now displayed
+* Shortcut access to the upload file form is now displayed on top on media page
+* Default insertion size (width and height) may now be defined for video media
+* Flash player fallback insertion is now optional for audio and video media
+* Modules may have dependencies on Dotclear core version too (using 'core' as module name)
+* Avoid mixed content (http vs https) for post/page preview: will open preview in another window if necessary
+* Finnish translation has been added
+* Content-length header is not more sent in HTTP response (should fix very long delays on some servers)
+* Template engine : add tpl:EntryAuthorEmailMD5 and tpl:EntryCategoryDescription tags
+* A new pref/setting array type is now available (JSON encoded in db)
+* Cope with sort of "un-attached" media → allows new features as "featured media" plugin
+* PHP 7 compliance, PHP 5.3 min
+* Fix : Cope with "unknown" scheme in url (ie nor http: neither https: is defined in origin url)
+* Fix : Let select another theme even if theme folder is read-only
+* Fix : XML-RPC media uploaded are not more twice Base64 decoded
+* And plenty of other 🐛 🔫, various 🌼 adjustments, and also lot of 🍻 drunk
+
 Dotclear 2.8.2 - 2015-10-25
 ===========================================================
 * Security fix : Fixed potential XSS on comments management page
