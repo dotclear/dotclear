@@ -20,6 +20,7 @@ Dotclear 2.9 - 2016-02-29
 * Template engine : add tpl:EntryAuthorEmailMD5 and tpl:EntryCategoryDescription tags
 * A new pref/setting array type is now available (JSON encoded in db)
 * Cope with sort of "un-attached" media → allows new features as "featured media" plugin
+* CKEditor library updated from 4.5.1 to 4.5.8
 * PHP 7 compliance, PHP 5.3 min
 * Fix : Cope with "unknown" scheme in url (ie nor http: neither https: is defined in origin url)
 * Fix : Let select another theme even if theme folder is read-only
