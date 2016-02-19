@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ug'] = {
@@ -387,7 +387,7 @@ CKEDITOR.lang['ug'] = {
     },
     clipboard : 
     {
-    	copy : 'نەشر ھوقۇقىغا ئىگە بەلگىسى',
+    	copy : 'كۆچۈر',
     	copyError : 'تور كۆرگۈڭىزنىڭ بىخەتەرلىك تەڭشىكى تەھرىرلىگۈچنىڭ كۆچۈر مەشغۇلاتىنى ئۆزلۈكىدىن ئىجرا قىلىشىغا يول قويمايدۇ، ھەرپتاختا تېز كۇنۇپكا (Ctrl/Cmd+C) ئارقىلىق تاماملاڭ',
     	cut : 'كەس',
     	cutError : 'تور كۆرگۈڭىزنىڭ بىخەتەرلىك تەڭشىكى تەھرىرلىگۈچنىڭ كەس مەشغۇلاتىنى ئۆزلۈكىدىن ئىجرا قىلىشىغا يول قويمايدۇ، ھەرپتاختا تېز كۇنۇپكا (Ctrl/Cmd+X) ئارقىلىق تاماملاڭ',
@@ -399,7 +399,7 @@ CKEDITOR.lang['ug'] = {
     },
     button : 
     {
-    	selectedLabel : '%1 (Selected)'
+    	selectedLabel : '%1 (تاللاندى)'
     },
     blockquote : 
     {
@@ -424,7 +424,7 @@ CKEDITOR.lang['ug'] = {
     	userGuide : 'CKEditor ئىشلەتكۈچى قوللانمىسى'
     },
     editor : 'تەھرىرلىگۈچ',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'مول تېكست تەھرىرلىگۈچ تاختىسى',
     common : 
     {
     	editorHelp : 'ALT+0 نى بېسىپ ياردەمنى كۆرۈڭ',
@@ -485,7 +485,7 @@ CKEDITOR.lang['ug'] = {
     	alignTop : 'ئۈستى',
     	alignMiddle : 'ئوتتۇرا',
     	alignBottom : 'ئاستى',
-    	alignNone : 'None',
+    	alignNone : 'يوق',
     	invalidValue : 'ئىناۋەتسىز قىممەت.',
     	invalidHeight : 'ئېگىزلىك چوقۇم رەقەم پىچىمىدا بولۇشى زۆرۈر',
     	invalidWidth : 'كەڭلىك چوقۇم رەقەم پىچىمىدا بولۇشى زۆرۈر',

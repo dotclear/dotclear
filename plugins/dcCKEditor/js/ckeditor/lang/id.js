@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['id'] = {
@@ -26,7 +26,7 @@ CKEDITOR.lang['id'] = {
     		colors : 'Warna',
     		tools : 'Alat'
     	},
-    	toolbars : 'Editor toolbars'
+    	toolbars : 'Toolbar Penyunting'
     },
     templates : 
     {
@@ -204,21 +204,21 @@ CKEDITOR.lang['id'] = {
     	anchorName : 'By Anchor Name',
     	charset : 'Linked Resource Charset',
     	cssClasses : 'Kelas Stylesheet',
-    	emailAddress : 'E-Mail Address',
+    	emailAddress : 'Alamat E-mail',
     	emailBody : 'Message Body',
-    	emailSubject : 'Message Subject',
+    	emailSubject : 'Judul Pesan',
     	id : 'Id',
     	info : 'Link Info',
     	langCode : 'Kode Bahasa',
     	langDir : 'Arah Bahasa',
     	langDirLTR : 'Kiri ke Kanan (LTR)',
     	langDirRTL : 'Kanan ke Kiri (RTL)',
-    	menu : 'Edit Link',
+    	menu : 'Sunting Tautan',
     	name : 'Nama',
     	noAnchors : '(No anchors available in the document)',
-    	noEmail : 'Please type the e-mail address',
-    	noUrl : 'Please type the link URL',
-    	other : '<other>',
+    	noEmail : 'Silahkan ketikkan alamat e-mail',
+    	noUrl : 'Silahkan ketik URL tautan',
+    	other : '<lainnya>',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : 'Popup Window Features',
     	popupFullScreen : 'Full Screen (IE)',
@@ -230,7 +230,7 @@ CKEDITOR.lang['id'] = {
     	popupStatusBar : 'Status Bar',
     	popupToolbar : 'Toolbar',
     	popupTop : 'Top Position',
-    	rel : 'Relationship',
+    	rel : 'Hubungan',
     	selectAnchor : 'Select an Anchor',
     	styles : 'Gaya',
     	tabIndex : 'Tab Index',
@@ -267,19 +267,19 @@ CKEDITOR.lang['id'] = {
     	btnUpload : 'Kirim ke Server',
     	button2Img : 'Do you want to transform the selected image button on a simple image?',
     	hSpace : 'HSpace',
-    	img2Button : 'Do you want to transform the selected image on a image button?',
+    	img2Button : 'Apakah anda ingin mengubah gambar yang dipilih pada tombol gambar?',
     	infoTab : 'Info Gambar',
     	linkTab : 'Tautan',
     	lockRatio : 'Lock Ratio',
     	menu : 'Image Properties',
-    	resetSize : 'Reset Size',
+    	resetSize : 'Atur Ulang Ukuran',
     	title : 'Image Properties',
     	titleButton : 'Image Button Properties',
     	upload : 'Unggah',
     	urlMissing : 'Image source URL is missing.',
     	vSpace : 'VSpace',
-    	validateBorder : 'Border must be a whole number.',
-    	validateHSpace : 'HSpace must be a whole number.',
+    	validateBorder : 'Border harus berupa angka',
+    	validateHSpace : 'HSpace harus berupa angka',
     	validateVSpace : 'VSpace must be a whole number.'
     },
     horizontalrule : 
@@ -340,50 +340,50 @@ CKEDITOR.lang['id'] = {
     	bgColorTitle : 'Warna Latar Belakang',
     	colors : 
     	{
-    		'000' : 'Black',
-    		'800000' : 'Maroon',
+    		'000' : 'Hitam',
+    		'800000' : 'Merah Tua',
     		'8B4513' : 'Saddle Brown',
     		'2F4F4F' : 'Dark Slate Gray',
     		'008080' : 'Teal',
     		'000080' : 'Navy',
     		'4B0082' : 'Indigo',
-    		'696969' : 'Dark Gray',
-    		B22222 : 'Fire Brick',
-    		A52A2A : 'Brown',
+    		'696969' : 'Abu-abu Gelap',
+    		B22222 : 'Merah Bata',
+    		A52A2A : 'Coklat',
     		DAA520 : 'Golden Rod',
-    		'006400' : 'Dark Green',
+    		'006400' : 'Hijau Gelap',
     		'40E0D0' : 'Turquoise',
-    		'0000CD' : 'Medium Blue',
-    		'800080' : 'Purple',
-    		'808080' : 'Gray',
-    		F00 : 'Red',
-    		FF8C00 : 'Dark Orange',
-    		FFD700 : 'Gold',
-    		'008000' : 'Green',
+    		'0000CD' : 'Biru Sedang',
+    		'800080' : 'Ungu',
+    		'808080' : 'Abu-abu',
+    		F00 : 'Merah',
+    		FF8C00 : 'Jingga Gelap',
+    		FFD700 : 'Emas',
+    		'008000' : 'Hijau',
     		'0FF' : 'Cyan',
-    		'00F' : 'Blue',
+    		'00F' : 'Biru',
     		EE82EE : 'Violet',
-    		A9A9A9 : 'Dim Gray',
-    		FFA07A : 'Light Salmon',
-    		FFA500 : 'Orange',
-    		FFFF00 : 'Yellow',
-    		'00FF00' : 'Lime',
-    		AFEEEE : 'Pale Turquoise',
-    		ADD8E6 : 'Light Blue',
+    		A9A9A9 : 'Abu-abu Redup',
+    		FFA07A : 'Salmon Cerah',
+    		FFA500 : 'Jingga',
+    		FFFF00 : 'Kuning',
+    		'00FF00' : 'Jeruk Lemon',
+    		AFEEEE : 'Biru Hijau Pucat',
+    		ADD8E6 : 'Biru Cerah',
     		DDA0DD : 'Plum',
-    		D3D3D3 : 'Light Grey',
+    		D3D3D3 : 'Abu-abu Cerah',
     		FFF0F5 : 'Lavender Blush',
     		FAEBD7 : 'Antique White',
-    		FFFFE0 : 'Light Yellow',
+    		FFFFE0 : 'Kuning Cerah',
     		F0FFF0 : 'Honeydew',
     		F0FFFF : 'Azure',
     		F0F8FF : 'Alice Blue',
     		E6E6FA : 'Lavender',
-    		FFF : 'White'
+    		FFF : 'Putih'
     	},
-    	more : 'More Colors...',
+    	more : 'Warna lainnya...',
     	panelTitle : 'Warna',
-    	textColorTitle : 'Text Color'
+    	textColorTitle : 'Warna Teks'
     },
     clipboard : 
     {
@@ -394,12 +394,12 @@ CKEDITOR.lang['id'] = {
     	paste : 'Tempel',
     	pasteArea : 'Area Tempel',
     	pasteMsg : 'Please paste inside the following box using the keyboard (<strong>Ctrl/Cmd+V</strong>) and hit OK',
-    	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
+    	securityMsg : 'Karena pengaturan keamanan peramban anda, editor tida dapat mengakses data clipboard anda secara langsung. Anda harus mem-paste kembali pada halaman ini',
     	title : 'Tempel'
     },
     button : 
     {
-    	selectedLabel : '%1 (Selected)'
+    	selectedLabel : '%1(Dipilih)'
     },
     blockquote : 
     {
