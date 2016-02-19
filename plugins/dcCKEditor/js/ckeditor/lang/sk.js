@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sk'] = {
@@ -19,7 +19,7 @@ CKEDITOR.lang['sk'] = {
     		editing : 'Upravovanie',
     		forms : 'Formuláre',
     		basicstyles : 'Základné štýly',
-    		paragraph : 'Odstavec',
+    		paragraph : 'Odsek',
     		links : 'Odkazy',
     		insert : 'Vložiť',
     		styles : 'Štýly',
@@ -39,7 +39,7 @@ CKEDITOR.lang['sk'] = {
     },
     table : 
     {
-    	border : 'Šírka rámu (border)',
+    	border : 'Šírka orámovania',
     	caption : 'Popis',
     	cell : 
     	{
@@ -56,12 +56,12 @@ CKEDITOR.lang['sk'] = {
     		cellType : 'Typ bunky',
     		rowSpan : 'Rozsah riadkov',
     		colSpan : 'Rozsah stĺpcov',
-    		wordWrap : 'Zalomovanie riadkov',
+    		wordWrap : 'Zalamovanie riadkov',
     		hAlign : 'Horizontálne zarovnanie',
     		vAlign : 'Vertikálne zarovnanie',
     		alignBaseline : 'Základná čiara (baseline)',
     		bgColor : 'Farba pozadia',
-    		borderColor : 'Farba rámu',
+    		borderColor : 'Farba orámovania',
     		data : 'Dáta',
     		header : 'Hlavička',
     		yes : 'Áno',
@@ -88,7 +88,7 @@ CKEDITOR.lang['sk'] = {
     	headersColumn : 'Prvý stĺpec',
     	headersNone : 'Žiadne',
     	headersRow : 'Prvý riadok',
-    	invalidBorder : 'Širka rámu musí byť číslo.',
+    	invalidBorder : 'Šírka orámovania musí byť číslo.',
     	invalidCellPadding : 'Odsadenie v bunkách (cell padding) musí byť kladné číslo.',
     	invalidCellSpacing : 'Medzera mädzi bunkami (cell spacing) musí byť kladné číslo.',
     	invalidCols : 'Počet stĺpcov musí byť číslo väčšie ako 0.',
@@ -144,8 +144,8 @@ CKEDITOR.lang['sk'] = {
     },
     pastefromword : 
     {
-    	confirmCleanup : 'Vkladaný text vyzerá byť skopírovaný z Wordu. Chcete ho automaticky vyčistiť pred vkladaním?',
-    	error : 'Nebolo možné vyčistiť vložené dáta kvôli internej chybe',
+    	confirmCleanup : 'Zdá sa, že vkladaný text pochádza z programu MS Word. Chcete ho pred vkladaním automaticky vyčistiť?',
+    	error : 'Kvôli internej chybe nebolo možné vložené dáta vyčistiť',
     	title : 'Vložiť z Wordu',
     	toolbar : 'Vložiť z Wordu'
     },
@@ -156,7 +156,7 @@ CKEDITOR.lang['sk'] = {
     },
     magicline : 
     {
-    	title : 'Sem vložte paragraf'
+    	title : 'Odsek vložiť sem'
     },
     liststyle : 
     {
@@ -166,7 +166,7 @@ CKEDITOR.lang['sk'] = {
     	decimal : 'Číselné (1, 2, 3, atď.)',
     	decimalLeadingZero : 'Číselné s nulou (01, 02, 03, atď.)',
     	disc : 'Disk',
-    	georgian : 'Gregoriánske číslovanie (an, ban, gan, atď.)',
+    	georgian : 'Gruzínske číslovanie (an, ban, gan, atď.)',
     	lowerAlpha : 'Malé latinské (a, b, c, d, e, atď.)',
     	lowerGreek : 'Malé grécke (alfa, beta, gama, atď.)',
     	lowerRoman : 'Malé rímske (i, ii, iii, iv, v, atď.)',
@@ -182,8 +182,8 @@ CKEDITOR.lang['sk'] = {
     },
     list : 
     {
-    	bulletedlist : 'Vložiť/Odstrániť zoznam s odrážkami',
-    	numberedlist : 'Vložiť/Odstrániť číslovaný zoznam'
+    	bulletedlist : 'Vložiť/odstrániť zoznam s odrážkami',
+    	numberedlist : 'Vložiť/odstrániť číslovaný zoznam'
     },
     link : 
     {
@@ -289,7 +289,7 @@ CKEDITOR.lang['sk'] = {
     format : 
     {
     	label : 'Formát',
-    	panelTitle : 'Formát',
+    	panelTitle : 'Odsek',
     	tag_address : 'Adresa',
     	tag_div : 'Normálny (DIV)',
     	tag_h1 : 'Nadpis 1',
@@ -341,7 +341,7 @@ CKEDITOR.lang['sk'] = {
     	colors : 
     	{
     		'000' : 'Čierna',
-    		'800000' : 'Maroon',
+    		'800000' : 'Gaštanová',
     		'8B4513' : 'Sedlová hnedá',
     		'2F4F4F' : 'Tmavo bridlicovo sivá',
     		'008080' : 'Modrozelená',
@@ -364,17 +364,17 @@ CKEDITOR.lang['sk'] = {
     		'00F' : 'Modrá',
     		EE82EE : 'Fialová',
     		A9A9A9 : 'Tmavá sivá',
-    		FFA07A : 'Svetlo lososová',
+    		FFA07A : 'Svetlá lososová',
     		FFA500 : 'Oranžová',
     		FFFF00 : 'Žltá',
     		'00FF00' : 'Vápenná',
-    		AFEEEE : 'Svetlo tyrkysová',
-    		ADD8E6 : 'Svetlo modrá',
+    		AFEEEE : 'Svetlá tyrkysová',
+    		ADD8E6 : 'Svetlá modrá',
     		DDA0DD : 'Slivková',
-    		D3D3D3 : 'Svetlo sivá',
+    		D3D3D3 : 'Svetlá sivá',
     		FFF0F5 : 'Levanduľovo červená',
     		FAEBD7 : 'Antická biela',
-    		FFFFE0 : 'Svetlo žltá',
+    		FFFFE0 : 'Svetlá žltá',
     		F0FFF0 : 'Medová',
     		F0FFFF : 'Azúrová',
     		F0F8FF : 'Alicovo modrá',
@@ -388,13 +388,13 @@ CKEDITOR.lang['sk'] = {
     clipboard : 
     {
     	copy : 'Kopírovať',
-    	copyError : 'Bezpečnostné nastavenia Vášho prehliadača nedovoľujú editoru automaticky spustiť operáciu kopírovania. Prosím, použite na to klávesnicu (Ctrl/Cmd+C).',
+    	copyError : 'Bezpečnostné nastavenia vášho prehliadača nedovoľujú editoru automaticky spustiť operáciu kopírovania. Použite na to klávesnicu (Ctrl/Cmd+C).',
     	cut : 'Vystrihnúť',
-    	cutError : 'Bezpečnostné nastavenia Vášho prehliadača nedovoľujú editoru automaticky spustiť operáciu vystrihnutia. Prosím, použite na to klávesnicu (Ctrl/Cmd+X).',
+    	cutError : 'Bezpečnostné nastavenia vášho prehliadača nedovoľujú editoru automaticky spustiť operáciu vystrihnutia. Použite na to klávesnicu (Ctrl/Cmd+X).',
     	paste : 'Vložiť',
-    	pasteArea : 'Miesto pre vloženie',
-    	pasteMsg : 'Prosím, vložte nasledovný rámček použitím klávesnice (<STRONG>Ctrl/Cmd+V</STRONG>) a stlačte OK.',
-    	securityMsg : 'Kvôli vašim bezpečnostným nastaveniam prehliadača editor nie je schopný pristupovať k vašej schránke na kopírovanie priamo. Vložte to preto do tohto okna.',
+    	pasteArea : 'Miesto na vloženie',
+    	pasteMsg : 'Použitím klávesnice (<STRONG>Ctrl/Cmd+V</STRONG>) vložte text do rámčeka a stlačte OK.',
+    	securityMsg : 'Kvôli bezpečnostným nastaveniam vášho prehliadača editor nemôže pristupovať k schránke na kopírovanie priamo. Vložte to preto do tohto okna.',
     	title : 'Vložiť'
     },
     button : 
@@ -427,8 +427,8 @@ CKEDITOR.lang['sk'] = {
     editorPanel : 'Panel editora formátovaného textu',
     common : 
     {
-    	editorHelp : 'Stlačte ALT 0 pre nápovedu',
-    	browseServer : 'Prechádzať server',
+    	editorHelp : 'Stlačením ALT 0 spustiť pomocníka',
+    	browseServer : 'Prehliadať server',
     	url : 'URL',
     	protocol : 'Protokol',
     	upload : 'Odoslať',
@@ -436,7 +436,7 @@ CKEDITOR.lang['sk'] = {
     	image : 'Obrázok',
     	flash : 'Flash',
     	form : 'Formulár',
-    	checkbox : 'Zaškrtávacie políčko',
+    	checkbox : 'Zaškrtávacie pole',
     	radio : 'Prepínač',
     	textField : 'Textové pole',
     	textarea : 'Textová oblasť',
@@ -462,7 +462,7 @@ CKEDITOR.lang['sk'] = {
     	resize : 'Zmeniť veľkosť',
     	generalTab : 'Hlavné',
     	advancedTab : 'Rozšírené',
-    	validateNumberFailed : 'Hodnota nieje číslo.',
+    	validateNumberFailed : 'Hodnota nie je číslo.',
     	confirmNewPage : 'Prajete si načítat novú stránku? Všetky neuložené zmeny budú stratené. ',
     	confirmCancel : 'Niektore možnosti boli zmenené. Naozaj chcete zavrieť okno?',
     	options : 'Možnosti',

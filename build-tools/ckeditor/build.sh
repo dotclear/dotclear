@@ -4,7 +4,7 @@
 set -e
 
 # Download ckbuilder.jar from http://download.cksource.com/CKBuilder/
-# Current release is 2.0.3
+# Current release is 2.3.0
 
 # 1) clone ckbuilder from git@github.com:ckeditor/ckbuilder.git
 # 2) patch src/lib/builder.js at line 120
@@ -25,7 +25,7 @@ set -e
 # 4) copy ckbuilder.jar (generated in bin directory) to build-tools/ckeditor/
 # 5) clone ckeditor-dev git@github.com:ckeditor/ckeditor-dev.git
 # 6) build ckeditor from dotclear root directory
-# $ ./build-tools/ckeditor/build.sh 4.4.7 ../ckeditor-dev
+# $ ./build-tools/ckeditor/build.sh 4.5.8 ../ckeditor-dev
 
 PROGNAME=$(basename $0)
 

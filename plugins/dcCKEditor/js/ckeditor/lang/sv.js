@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sv'] = {
@@ -15,16 +15,16 @@ CKEDITOR.lang['sv'] = {
     	toolbarGroups : 
     	{
     		document : 'Dokument',
-    		clipboard : 'Clipboard/Undo',
-    		editing : 'Editing',
-    		forms : 'Forms',
-    		basicstyles : 'Basic Styles',
-    		paragraph : 'Paragraph',
-    		links : 'Links',
-    		insert : 'Insert',
-    		styles : 'Styles',
-    		colors : 'Colors',
-    		tools : 'Tools'
+    		clipboard : 'Urklipp/ångra',
+    		editing : 'Redigering',
+    		forms : 'Formulär',
+    		basicstyles : 'Basstilar',
+    		paragraph : 'Paragraf',
+    		links : 'Länkar',
+    		insert : 'Infoga',
+    		styles : 'Stilar',
+    		colors : 'Färger',
+    		tools : 'Verktyg'
     	},
     	toolbars : 'Redigera verktygsfält'
     },
@@ -182,8 +182,8 @@ CKEDITOR.lang['sv'] = {
     },
     list : 
     {
-    	bulletedlist : 'Punktlista',
-    	numberedlist : 'Numrerad lista'
+    	bulletedlist : 'Infoga/ta bort punktlista',
+    	numberedlist : 'Infoga/ta bort numrerad lista'
     },
     link : 
     {
