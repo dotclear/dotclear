@@ -616,7 +616,7 @@ class dcPage
 		return
 		self::jsLoad('js/jquery/jquery.js').
 		$mute_or_no.
-		self::jsLoad('js/jquery/jquery-migrate-1.2.1.js').
+		self::jsLoad('js/jquery/jquery-migrate.js').
 		self::jsLoad('js/jquery/jquery.biscuit.js').
 		self::jsLoad('js/jquery/jquery.bgFade.js').
 		self::jsLoad('js/common.js').
