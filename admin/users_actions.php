@@ -307,6 +307,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	}
 
 	echo
+	'<p class="checkboxes-helpers"></p>'.
 	'<div class="fieldset">'.
 	'<h3>'.__('Validate permissions').'</h3>'.
 	'<p><label for="your_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
