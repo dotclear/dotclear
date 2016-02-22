@@ -168,7 +168,7 @@ if (!$core->error->flag())
 	__('Selected users action:').' '.
 	form::combo('action',$combo_action).
 	'</label> '.
-	'<input type="submit" value="'.__('ok').'" />'.
+	'<input id="do-action" type="submit" value="'.__('ok').'" />'.
 	form::hidden(array('q'),html::escapeHTML($q)).
 	form::hidden(array('sortby'),$sortby).
 	form::hidden(array('order'),$order).

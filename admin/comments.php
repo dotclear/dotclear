@@ -266,7 +266,7 @@ if (!$core->error->flag())
 	'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
 	form::combo('action',$comments_actions_page->getCombo(),$default,'','','','title="'.__('Actions').'"').
 	$core->formNonce().
-	'<input type="submit" value="'.__('ok').'" /></p>'.
+	'<input id="do-action" type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('type'),$type).
 	form::hidden(array('sortby'),$sortby).
 	form::hidden(array('order'),$order).

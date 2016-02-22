@@ -59,10 +59,11 @@ $(function() {
 		callback:dotclear.viewCommentContent
 	});
 	$('.checkboxes-helpers').each(function() {
-		dotclear.checkboxesHelpers(this);
+		dotclear.checkboxesHelpers(this,undefined,'#form-comments td input[type=checkbox]','#form-comments #do-action');
 	});
 	$('#form-comments td input[type=checkbox]').enableShiftClick();
 	dotclear.commentsActionsHelper();
+	dotclear.condSubmit('#form-comments td input[type=checkbox]','#form-comments #do-action');
 	$('form input[type=submit][name=delete_all_spam]').click(function(){
 		return window.confirm(dotclear.msg.confirm_spam_delete);
 	});

@@ -1,7 +1,8 @@
 $(function() {
 	$('.checkboxes-helpers').each(function() {
-		dotclear.checkboxesHelpers(this);
+		dotclear.checkboxesHelpers(this,undefined,'#form-users input[type="checkbox"]','#form-users #do-action');
 	});
+	dotclear.condSubmit('#form-users input[type="checkbox"]','#form-users #do-action');
 	$('#form-users').submit(function() {
 		var action = $(this).find('select[name="action"]').val();
 		var user_ids = new Array();

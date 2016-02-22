@@ -310,6 +310,33 @@ jQuery.fn.helpViewer = function() {
 var dotclear = {
 	msg: {},
 
+	condSubmit: function(chkboxes,target) {
+		var checkboxes = $(chkboxes),
+		    submitButt = $(target);
+
+		if (checkboxes === undefined || submitButt === undefined) {
+			return;
+		}
+
+		// Set initial state
+	    submitButt.attr("disabled", !checkboxes.is(":checked"));
+	    if (!checkboxes.is(":checked")) {
+	    	submitButt.addClass('disabled');
+	    } else {
+	    	submitButt.removeClass('disabled');
+	    }
+
+		checkboxes.click(function() {
+			// Update target state
+		    submitButt.attr("disabled", !checkboxes.is(":checked"));
+		    if (!checkboxes.is(":checked")) {
+		    	submitButt.addClass('disabled');
+		    } else {
+		    	submitButt.removeClass('disabled');
+		    }
+		});
+	},
+
 	hideLockable: function() {
 		$('div.lockable').each(function() {
 			var current_lockable_div = this;
@@ -341,7 +368,7 @@ var dotclear = {
 		});
 	},
 
-	checkboxesHelpers: function(e, target) {
+	checkboxesHelpers: function(e, target, c, s) {
 		$(e).append(document.createTextNode(dotclear.msg.to_select));
 		$(e).append(document.createTextNode(' '));
 
@@ -351,7 +378,9 @@ var dotclear = {
 			} else {
 				$(e).parents('form').find('input[type="checkbox"]').check();
 			}
-
+			if (c !== undefined && s !== undefined) {
+				dotclear.condSubmit(c,s);
+			}
 			return false;
 		}).appendTo($(e));
 		$(e).append(document.createTextNode(' | '));
@@ -362,7 +391,9 @@ var dotclear = {
 			} else {
 				$(e).parents('form').find('input[type="checkbox"]').unCheck();
 			}
-
+			if (c !== undefined && s !== undefined) {
+				dotclear.condSubmit(c,s);
+			}
 			return false;
 		}).appendTo($(e));
 		$(e).append(document.createTextNode(' - '));
@@ -373,7 +404,9 @@ var dotclear = {
 			} else {
 				$(e).parents('form').find('input[type="checkbox"]').toggleCheck();
 			}
-
+			if (c !== undefined && s !== undefined) {
+				dotclear.condSubmit(c,s);
+			}
 			return false;
 		}).appendTo($(e));
 	},

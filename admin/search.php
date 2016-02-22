@@ -126,7 +126,7 @@ if ($q && !$core->error->flag())
 
 		'<p class="col right"><label for="action1" class="classic">'.__('Selected entries action:').'</label> '.
 		form::combo(array('action','action1'),$posts_actions_page->getCombo()).
-		'<input type="submit" value="'.__('ok').'" /></p>'.
+		'<input id="do-action" type="submit" value="'.__('ok').'" /></p>'.
 		$core->formNonce().
 		$posts_actions_page->getHiddenFields().
 		'</div>'.
@@ -154,7 +154,7 @@ if ($q && !$core->error->flag())
 
 		'<p class="col right"><label for="action2" class="classic">'.__('Selected comments action:').'</label> '.
 		form::combo(array('action','action2'),$comments_actions_page->getCombo()).
-		'<input type="submit" value="'.__('ok').'" /></p>'.
+		'<input id="do-action" type="submit" value="'.__('ok').'" /></p>'.
 		$core->formNonce().
 		$comments_actions_page->getHiddenFields().
 		'</div>'.

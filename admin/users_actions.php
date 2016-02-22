@@ -243,7 +243,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		echo
 		'</table></div>'.
 		'<p class="checkboxes-helpers"></p>'.
-		'<p><input type="submit" value="'.__('Set permissions').'" />'.
+		'<p><input id="do-action" type="submit" value="'.__('Set permissions').'" />'.
 		$hidden_fields.
 		form::hidden(array('action'),'perms').
 		$core->formNonce().'</p>'.

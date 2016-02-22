@@ -92,7 +92,8 @@ jQuery.fn.updatePermissionsForm = function() {
 
 $(function() {
 	$('.checkboxes-helpers').each(function() {
-		dotclear.checkboxesHelpers(this);
+		dotclear.checkboxesHelpers(this,undefined,'#form-blogs input[type="checkbox"]','#form-blogs #do-action');
 	});
+	dotclear.condSubmit('#form-blogs input[type="checkbox"]','#form-blogs #do-action');
 	$('#permissions-form').updatePermissionsForm();
 });

@@ -98,7 +98,7 @@ if (!$core->error->flag())
 
 	'<p class="col right"><label for="action" class="classic">'.__('Selected pages action:').'</label> '.
 	form::combo('action',$pages_actions_page->getCombo()).
-	'<input type="submit" value="'.__('ok').'" />'.
+	'<input id="do-action" type="submit" value="'.__('ok').'" />'.
 	form::hidden(array('post_type'),'page').
 	form::hidden(array('p'),'pages').
 	form::hidden(array('act'),'list').
