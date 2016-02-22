@@ -12,4 +12,5 @@ $(function() {
 		// no cookie on new category as we don't use this every day
 		legend_click: true
 	});
+	dotclear.condSubmit('table.posts-list td input[type=checkbox]','input[type=submit]');
 });

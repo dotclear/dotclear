@@ -134,8 +134,9 @@ $(function() {
 	$('#fileupload').enhancedUploader();
 
 	$('.checkboxes-helpers').each(function() {
-		dotclear.checkboxesHelpers(this);
+		dotclear.checkboxesHelpers(this,undefined,'#form-medias input[type="checkbox"]','#form-medias #delete_medias');
 	});
+	dotclear.condSubmit('#form-medias input[type="checkbox"]','#form-medias #delete_medias');
 
 	$('#form-medias #delete_medias').click(function(e) {
 		var count_checked = $('input[name="medias[]"]:checked', $('#form-medias')).length;

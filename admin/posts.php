@@ -388,7 +388,7 @@ if (!$core->error->flag())
 
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$posts_actions_page->getCombo()).
-	'<input type="submit" value="'.__('ok').'" /></p>'.
+	'<input id="do-action" type="submit" value="'.__('ok').'" disabled /></p>'.
 	form::hidden(array('user_id'),$user_id).
 	form::hidden(array('cat_id'),$cat_id).
 	form::hidden(array('status'),$status).

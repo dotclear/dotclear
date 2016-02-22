@@ -549,7 +549,7 @@ if (count($menu)) {
 		echo '<div class="two-cols">';
 		echo '<p class="col">'.form::hidden('im_order','').$core->formNonce();
 		echo '<input type="submit" name="updateaction" value="'.__('Update menu').'" />'.'</p>';
-		echo '<p class="col right">'.'<input type="submit" class="delete" name="removeaction" '.
+		echo '<p class="col right">'.'<input id="remove-action" type="submit" class="delete" name="removeaction" '.
 				'value="'.__('Delete selected menu items').'" '.
 				'onclick="return window.confirm(\''.html::escapeJS(__('Are you sure you want to remove selected menu items?')).'\');" />'.
 			'</p>';

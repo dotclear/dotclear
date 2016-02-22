@@ -15,4 +15,5 @@ $(function() {
 	});
 	$("#links-list tr td input.position").hide();
 	$("#links-list tr td.handle").addClass('handler');
+	dotclear.condSubmit('#links-form td input[type="checkbox"]','#links-form #remove-action');
 });

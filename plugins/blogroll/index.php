@@ -251,7 +251,7 @@ while ($rs->fetch())
 	$core->formNonce();
 ?>
 <input type="submit" name="saveorder" value="<?php echo __('Save order'); ?>" /></p>
-<p class="col right"><input type="submit" class="delete" name="removeaction"
+<p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction"
 	 value="<?php echo __('Delete selected links'); ?>"
 	 onclick="return window.confirm('
 	 <?php echo html::escapeJS(__('Are you sure you want to delete selected links?')); ?>');" /></p>

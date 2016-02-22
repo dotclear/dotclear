@@ -137,7 +137,7 @@ if (!$core->error->flag())
 
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$posts_actions_page->getCombo()).
-	'<input type="submit" value="'.__('OK').'" /></p>'.
+	'<input id="do-action" type="submit" value="'.__('OK').'" /></p>'.
 	form::hidden('post_type','').
 	form::hidden('p','tags').
 	form::hidden('m','tag_posts').
