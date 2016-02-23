@@ -744,7 +744,9 @@ if (!$query && $core_media_writable)
 	'</div>';
 
 	echo
-	'<p style="clear:both;">'.form::hidden(array('d'),$d).form::hidden(array('plugin_id'),$plugin_id).'</p>'.
+	'<p style="clear:both;">'.
+	form::hidden(array('d'),$d).form::hidden(array('plugin_id'),$plugin_id).form::hidden(array('q'),$q).
+	'</p>'.
 	'</form>'.
 	'</div>'.
 	'</div>';
