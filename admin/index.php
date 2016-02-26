@@ -201,7 +201,7 @@ dcPage::open(__('Dashboard'),
 );
 
 # Dotclear updates notifications
-if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
+if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS))
 {
 	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
 	$new_v = $updater->check(DC_VERSION);
