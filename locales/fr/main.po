@@ -3430,6 +3430,24 @@ msgstr "Le plugin ne peut pas être désactivé."
 msgid "Cannot activate plugin."
 msgstr "Le plugin ne peut pas être activé."
 
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "Ce module ne peut être désactivé ou supprimé car les modules suivants sont actifs : %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "Ce module ne peut activé pour les raisons suivantes :"
+
+msgid "Requires %s module which is not installed"
+msgstr "Requiert le module %s qui n'est pas installé"
+
+msgid "Requires Dotclear version %s, but version %s is installed"
+msgstr "Requiert la version %s de Dotclear alors que la version %s est installée"
+
+msgid "Requires %s module version %s, but version %s is installed"
+msgstr "Requiert le module %s version %s alors que la version %s est installée"
+
+msgid "Requires %s module which is disabled"
+msgstr "Requiert le module %s qui est désactivé"
+
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "Espace de nom du paramètre invalide : %s"
