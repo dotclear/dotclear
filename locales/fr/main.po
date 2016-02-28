@@ -1544,6 +1544,9 @@ msgstr "Les paramètres par défaut d'insertion des médias ont été mis à jou
 msgid "Are you sure to delete this media?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce média ?"
 
+msgid "Size"
+msgstr "Taille"
+
 msgid "Insert media item"
 msgstr "Insérer un média"
 
