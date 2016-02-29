@@ -192,6 +192,7 @@ if (isset($_POST['user_editor']))
 		}
 		$core->auth->user_prefs->interface->put('media_by_page',(integer)$_POST['user_ui_media_by_page'],'integer');
 		$core->auth->user_prefs->interface->put('media_nb_last_dirs',(integer)$_POST['user_ui_media_nb_last_dirs'],'integer');
+		$core->auth->user_prefs->interface->put('media_last_dirs',array(),'array',null,false);
 
 		# Update user
 		$core->updUser($core->auth->userID(),$cur);

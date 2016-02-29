@@ -519,6 +519,10 @@ class dcUpgrade
 			self::settings2array('pings','pings_uris');
 			self::settings2array('system','simpleMenu');
 			self::prefs2array('dashboard','favorites');
+		}
+
+		if (version_compare($version,'2.9.1','<='))
+		{
 			self::prefs2array('interface','media_last_dirs');
 		}
 
