@@ -23,6 +23,7 @@ Dotclear 2.9 - 2016-02-29
 * CKEditor library updated from 4.5.1 to 4.5.8
 * Update jQuery from 1.11.3 to 2.2.0, jQuery-migrate from 1.2.1 to 1.3.0, jQuery-ui-custom from 1.11.2 to 1.11.4
 * Provide jQuery 2.2.0 for public use (themes/plugins) - 1.4.2 (default) and 1.11.3 still provided
+* Some locales added or updated
 * PHP 7 compliance, PHP 5.3 min
 * Fix : Cope with "unknown" scheme in url (ie nor http: neither https: is defined in origin url)
 * Fix : Let select another theme even if theme folder is read-only
