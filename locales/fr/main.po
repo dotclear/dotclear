@@ -1989,7 +1989,7 @@ msgid "Not selected"
 msgstr "Non sélectionné"
 
 msgid "Comments:"
-msgstr "Comentaires :"
+msgstr "Commentaires :"
 
 msgid "Trackbacks:"
 msgstr "Rétroliens :"
