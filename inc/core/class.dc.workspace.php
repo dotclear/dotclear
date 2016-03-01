@@ -236,7 +236,11 @@ class dcWorkspace
 			} elseif ($this->prefExists($id,true)) {
 				$type = $this->global_prefs[$id]['type'];
 			} else {
-				$type = 'string';
+				if (is_array($value)) {
+					$type = 'array';
+				} else {
+					$type = 'string';
+				}
 			}
 		}
 		elseif ($type != 'boolean' && $type != 'integer' && $type != 'float' && $type != 'array')
