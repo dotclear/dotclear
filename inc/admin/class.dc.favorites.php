@@ -270,7 +270,7 @@ class dcFavorites
      * @access public
      */
 	public function setFavoriteIDs($ids,$global=false) {
-		$this->ws->put('favorites',$ids,null,null,true,$global);
+		$this->ws->put('favorites',$ids,'array',null,true,$global);
 	}
 
    /**
