@@ -165,7 +165,7 @@ if (!$q) {	// Ignore search results
 			array_unshift($last_dirs,$recent_dir);
 		}
 		// Store new list
-		$core->auth->user_prefs->interface->put('media_last_dirs',$last_dirs);
+		$core->auth->user_prefs->interface->put('media_last_dirs',$last_dirs,'array');
 	}
 }
 
