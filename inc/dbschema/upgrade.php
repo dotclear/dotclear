@@ -523,6 +523,7 @@ class dcUpgrade
 
 		if (version_compare($version,'2.9.1','<='))
 		{
+			self::prefs2array('dashboard','favorites');
 			self::prefs2array('interface','media_last_dirs');
 		}
 
