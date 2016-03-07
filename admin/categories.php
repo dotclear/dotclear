@@ -99,7 +99,7 @@ if (!empty($_POST['reset']))
 
 /* Display
 -------------------------------------------------------- */
-$rs = $core->blog->getCategories(array('post_type'=>'post'));
+$rs = $core->blog->getCategories();
 
 $starting_script = "";
 

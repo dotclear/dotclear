@@ -16,7 +16,7 @@ dcPage::check('usage,contentadmin');
 
 # Getting categories
 try {
-	$categories = $core->blog->getCategories(array('post_type'=>'post'));
+	$categories = $core->blog->getCategories();
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }

@@ -51,7 +51,7 @@ if (!$can_publish) {
 
 # Getting categories
 $categories_combo = dcAdminCombos::getCategoriesCombo(
-	$core->blog->getCategories(array('post_type'=>'post'))
+	$core->blog->getCategories()
 );
 
 $status_combo = dcAdminCombos::getPostStatusesCombo();
@@ -334,7 +334,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 
 # Getting categories
 $categories_combo = dcAdminCombos::getCategoriesCombo(
-	$core->blog->getCategories(array('post_type'=>'post'))
+	$core->blog->getCategories()
 );
 /* DISPLAY
 -------------------------------------------------------- */

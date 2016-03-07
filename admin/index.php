@@ -336,7 +336,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 	{
 		# Getting categories
 		$categories_combo = dcAdminCombos::getCategoriesCombo(
-			$core->blog->getCategories(array('post_type'=>'post'))
+			$core->blog->getCategories(array())
 		);
 
 		echo

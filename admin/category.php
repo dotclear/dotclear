@@ -45,7 +45,7 @@ if (!empty($_REQUEST['id']))
 	unset($rs);
 
 	# Allowed parents list
-	$children = $core->blog->getCategories(array('post_type'=>'post','start'=>$cat_id));
+	$children = $core->blog->getCategories(array('start'=>$cat_id));
 	$allowed_parents = array(__('Top level')=>0);
 
 	$p = array();
@@ -53,7 +53,7 @@ if (!empty($_REQUEST['id']))
 		$p[$children->cat_id] = 1;
 	}
 
-	$rs = $core->blog->getCategories(array('post_type'=>'post'));
+	$rs = $core->blog->getCategories();
 	while ($rs->fetch()) {
 		if (!isset($p[$rs->cat_id])) {
 			$allowed_parents[] = new formSelectOption(
@@ -194,7 +194,7 @@ form::field('cat_title',40,255,html::escapeHTML($cat_title)).
 '</p>';
 if (!$cat_id)
 {
-	$rs = $core->blog->getCategories(array('post_type'=>'post'));
+	$rs = $core->blog->getCategories();
 	echo
 	'<p><label for="new_cat_parent">'.__('Parent:').' '.
 	'<select id="new_cat_parent" name="new_cat_parent" >'.
