@@ -1111,12 +1111,13 @@ class dcMedia extends filemanager
 	@param	player		<b>string</b>		Player URL (flash player fallback)
 	@param	args		<b>array</b>		Player parameters (flash player fallback)
 	@param  fallback 	<b>boolean</b>		Include Flash player fallback
+	@param 	preload		<b>boolean</b>		Add preload="auto" attribute if true, else preload="none"
 	@return	<b>string</b>
 	*/
-	public static function audioPlayer($type,$url,$player=null,$args=null,$fallback=true)
+	public static function audioPlayer($type,$url,$player=null,$args=null,$fallback=true,$preload=true)
 	{
 		$audio =
-			'<audio controls preload="auto">'.
+			'<audio controls preload="'.($preload ? 'auto' : 'none').'">'.
 			'<source src="'.$url.'">';
 
 		if ($fallback && $type == 'audio/mpeg3') {
@@ -1179,9 +1180,10 @@ class dcMedia extends filemanager
 	@param	player		<b>string</b>		Player URL (flash player fallback)
 	@param	args		<b>array</b>		Player parameters (flash player fallback)
 	@param  fallback 	<b>boolean</b>		Include Flash player fallback (if not .flv)
+	@param 	preload		<b>boolean</b>		Add preload="auto" attribute if true, else preload="none"
 	@return	<b>string</b>
 	*/
-	public static function videoPlayer($type,$url,$player=null,$args=null,$fallback=true)
+	public static function videoPlayer($type,$url,$player=null,$args=null,$fallback=true,$preload=true)
 	{
 		$video = '';
 
@@ -1199,7 +1201,9 @@ class dcMedia extends filemanager
 
 		if ($type != 'video/x-flv') {
 			$video =
-				'<video controls preload="auto"'.($width ? ' width="'.$width.'"' : '').($height ? ' height="'.$height.'"' : '').'>'.
+				'<video controls preload="'.($preload ? 'auto' : 'none').'"'.
+				($width ? ' width="'.$width.'"' : '').
+				($height ? ' height="'.$height.'"' : '').'>'.
 				'<source src="'.$url.'">';
 		}
 
@@ -1265,9 +1269,10 @@ class dcMedia extends filemanager
 	@param	player		<b>string</b>		Player URL
 	@param	args		<b>array</b>		Player parameters
 	@param  fallback 	<b>boolean</b>		Include Flash player fallback
+	@param 	preload		<b>boolean</b>		Add preload="auto" attribute if true, else preload="none"
 	@return	<b>string</b>
 	*/
-	public static function mp3player($url,$player=null,$args=null,$fallback=true)
+	public static function mp3player($url,$player=null,$args=null,$fallback=true,$preload=true)
 	{
 		if (!$player) {
 			$player = 'player_mp3.swf';
@@ -1303,7 +1308,7 @@ class dcMedia extends filemanager
 		}
 
 		return
-		'<audio controls preload="auto">'.
+		'<audio controls preload="'.($preload ? 'auto' : 'none').'">'.
 		'<source src="'.$url.'" type="audio/mpeg">'.
 		($fallback ?
 			'<object type="application/x-shockwave-flash" '.

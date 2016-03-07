@@ -233,7 +233,11 @@ class dcNamespace
 			} elseif ($this->settingExists($id,true)) {
 				$type = $this->global_settings[$id]['type'];
 			} else {
-				$type = 'string';
+				if (is_array($value)) {
+					$type = 'array';
+				} else {
+					$type = 'string';
+				}
 			}
 		}
 		elseif ($type != 'boolean' && $type != 'integer' && $type != 'float' && $type != 'array')
