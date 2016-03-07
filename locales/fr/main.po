@@ -707,7 +707,7 @@ msgstr[0] "La catégorie a été déplacée."
 msgstr[1] "Les catégories ont été déplacées."
 
 msgid "Entries have been successfully moved to the category you choose."
-msgstr "Les billets ont été déplacés dans la catégorie choisie."
+msgstr "Les entrées ont été déplacés dans la catégorie choisie."
 
 msgid "New category"
 msgstr "Nouvelle catégorie"
@@ -717,13 +717,13 @@ msgstr "Pas de catégorie pour le moment."
 
 #, php-format
 msgid "%d entries"
-msgstr "%d billets"
+msgstr "%d entrées"
 
 #, php-format
 msgid "%d entry"
 msgid_plural "%d entries"
-msgstr[0] "%d billet"
-msgstr[1] "%d billets"
+msgstr[0] "%d entrée"
+msgstr[1] "%d entrées"
 
 msgid "total:"
 msgstr "total :"
@@ -732,7 +732,7 @@ msgid "URL:"
 msgstr "URL :"
 
 msgid "Move entries to"
-msgstr "Déplacer les billets vers"
+msgstr "Déplacer les entrées vers"
 
 msgid "OK"
 msgstr "OK"
@@ -802,7 +802,7 @@ msgid "position: "
 msgstr "position : "
 
 msgid "Entry does not exist."
-msgstr "Ce billet n'existe pas."
+msgstr "Cette entrée n'existe pas."
 
 msgid "Comment has been successfully created."
 msgstr "Le commentaire a été créé."
