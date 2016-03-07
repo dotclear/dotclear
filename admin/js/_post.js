@@ -52,19 +52,21 @@ dotclear.viewCommentContent = function(line,action) {
 $(function() {
 	// Post preview
 	$preview_url = $('#post-preview').attr('href');
-	if (window.location.protocol == 'http:' || $preview_url.substring(0,7) != 'http://') {
-		// Open preview in a modal iframe
-		// ie (blog uri on admin uri): https on https, http on http, https on http
-		$('#post-preview').modalWeb($(window).width()-40,$(window).height()-40);
-	}
-	else
-	{
-		// Open preview on antother window
-		// ie (blog uri on admin uri): http on https
-		$('#post-preview').click(function(e) {
-			e.preventDefault();
-			window.open($(this).attr('href'));
-		});
+	if ($preview_url) {
+		if (window.location.protocol == 'http:' || $preview_url.substring(0,7) != 'http://') {
+			// Open preview in a modal iframe
+			// ie (blog uri on admin uri): https on https, http on http, https on http
+			$('#post-preview').modalWeb($(window).width()-40,$(window).height()-40);
+		}
+		else
+		{
+			// Open preview on antother window
+			// ie (blog uri on admin uri): http on https
+			$('#post-preview').click(function(e) {
+				e.preventDefault();
+				window.open($(this).attr('href'));
+			});
+		}
 	}
 
 	// Tabs events

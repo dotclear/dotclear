@@ -165,7 +165,7 @@ if (!$q) {	// Ignore search results
 			array_unshift($last_dirs,$recent_dir);
 		}
 		// Store new list
-		$core->auth->user_prefs->interface->put('media_last_dirs',$last_dirs);
+		$core->auth->user_prefs->interface->put('media_last_dirs',$last_dirs,'array');
 	}
 }
 
@@ -887,7 +887,7 @@ function mediaItemLine($f,$i,$query,$table=false)
 		$file_type = explode('/',$f->type);
 		if ($file_type[0] == 'audio')
 		{
-			$lst .= '<li>'.dcMedia::audioPlayer($f->type,$f->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')),null,$core->blog->settings->system->media_flash_fallback).'</li>';
+			$lst .= '<li>'.dcMedia::audioPlayer($f->type,$f->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')),null,$core->blog->settings->system->media_flash_fallback,false).'</li>';
 		}
 
 		$res .=	($lst != '' ? '<ul>'.$lst.'</ul>' : '');
