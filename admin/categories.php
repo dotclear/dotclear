@@ -50,7 +50,7 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
 		if ($mov_cat !== null) {
 			$c = $core->blog->getCategory($mov_cat);
 			if ($c->isEmpty()) {
-				throw new Exception(__('Category where to move posts does not exist'));
+				throw new Exception(__('Category where to move entries does not exist'));
 			}
 			$name = $c->cat_title;
 			unset($c);

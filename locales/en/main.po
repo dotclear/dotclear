@@ -665,7 +665,7 @@ msgstr ""
 msgid "The category \"%s\" has been successfully deleted."
 msgstr ""
 
-msgid "Category where to move posts does not exist"
+msgid "Category where to move entries does not exist"
 msgstr ""
 
 #, php-format
