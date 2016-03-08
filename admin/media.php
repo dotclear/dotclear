@@ -526,7 +526,11 @@ $fmt_form_media = '<form action="'.$core->adminurl->get("admin.media").'" method
 	'<p class="hidden">'.$core->formNonce().
 	form::hidden(array('d'),$d).
 	form::hidden(array('q'),$q).
+	form::hidden(array('popup'),$popup).
+	form::hidden(array('select'),$select).
 	form::hidden(array('plugin_id'),$plugin_id).
+	form::hidden(array('post_id'),$post_id).
+	form::hidden(array('link_type'),$link_type).
 	'</p>';
 
 if (!$popup || $select > 1) {
@@ -562,6 +566,7 @@ echo // Search form
 	form::hidden(array('select'),$select).
 	form::hidden(array('plugin_id'),$plugin_id).
 	form::hidden(array('post_id'),$post_id).
+	form::hidden(array('link_type'),$link_type).
 	'</p>'.
 	'</form>';
 
@@ -594,6 +599,7 @@ else
 	form::hidden(array('select'),$select).
 	form::hidden(array('plugin_id'),$plugin_id).
 	form::hidden(array('post_id'),$post_id).
+	form::hidden(array('link_type'),$link_type).
 	form::hidden(array('q'),$q).
 	'</p>'.
 	'</form>'.
@@ -745,7 +751,13 @@ if (!$query && $core_media_writable)
 
 	echo
 	'<p style="clear:both;">'.
-	form::hidden(array('d'),$d).form::hidden(array('plugin_id'),$plugin_id).form::hidden(array('q'),$q).
+	form::hidden(array('d'),$d).
+	form::hidden(array('q'),$q).
+	form::hidden(array('popup'),$popup).
+	form::hidden(array('select'),$select).
+	form::hidden(array('plugin_id'),$plugin_id).
+	form::hidden(array('post_id'),$post_id).
+	form::hidden(array('link_type'),$link_type).
 	'</p>'.
 	'</form>'.
 	'</div>'.
@@ -756,9 +768,15 @@ if (!$query && $core_media_writable)
 echo
 '<form id="media-remove-hide" action="'.html::escapeURL($core->adminurl->get('admin.media',$page_url_params)).'" method="post" class="hidden">'.
 '<div>'.
-form::hidden('rmyes',1).form::hidden('d',html::escapeHTML($d)).
-form::hidden(array('plugin_id'),$plugin_id).form::hidden('remove','').
+form::hidden('rmyes',1).
+form::hidden('d',html::escapeHTML($d)).
 form::hidden(array('q'),$q).
+form::hidden(array('popup'),$popup).
+form::hidden(array('select'),$select).
+form::hidden(array('plugin_id'),$plugin_id).
+form::hidden(array('post_id'),$post_id).
+form::hidden(array('link_type'),$link_type).
+form::hidden('remove','').
 $core->formNonce().
 '</div>'.
 '</form>';
@@ -802,7 +820,8 @@ function mediaItemLine($f,$i,$query,$table=false)
 				'plugin_id' => $plugin_id,
 				'popup' => $popup,
 				'select' => $select,
-				'post_id' => $post_id
+				'post_id' => $post_id,
+				'link_type' => $link_type
 			)
 		);
 		$core->callBehavior('adminMediaURLParams',$params);
