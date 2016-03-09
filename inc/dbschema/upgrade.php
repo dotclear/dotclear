@@ -523,8 +523,19 @@ class dcUpgrade
 
 		if (version_compare($version,'2.9.1','<='))
 		{
+			# Some settings and prefs should be moved from string to array
 			self::prefs2array('dashboard','favorites');
 			self::prefs2array('interface','media_last_dirs');
+
+			# Update flie exclusion upload regex
+			$strReq = 'UPDATE '.$core->prefix.'setting '.
+					" SET setting_value = '/\\.(phps?|pht(ml)?|phl|shtml)[0-9]*\$/i' ".
+					" WHERE setting_id = 'media_exclusion' ".
+					" AND setting_ns = 'system' ".
+					" AND (setting_value = '/\\.php[0-9]*\$/i' ".
+					"   OR setting_value = '/\\.php\$/i') ".
+					"	OR setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*\$/i' ";
+			$core->con->execute($strReq);
 		}
 
 		$core->setVersion('core',DC_VERSION);
