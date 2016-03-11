@@ -910,7 +910,7 @@ class dcPage
 		"\n//]]>\n".
 		"</script>\n".
 
-		self::jsLoad('js/jsUpload/vendor/jquery.ui.widget.js').
+		self::jsLoad('js/jquery/jquery-ui.custom.js').
 		self::jsLoad('js/jsUpload/tmpl.js').
 		self::jsLoad('js/jsUpload/template-upload.js').
 		self::jsLoad('js/jsUpload/template-download.js').
