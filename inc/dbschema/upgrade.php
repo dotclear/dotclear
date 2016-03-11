@@ -538,6 +538,12 @@ class dcUpgrade
 			$core->con->execute($strReq);
 		}
 
+		if (version_compare($version,'2.10','<='))
+		{
+			@unlink(DC_ROOT.'/'.'admin/js/jsUpload/vendor/jquery.ui.widget.js');
+			@rmdir(DC_ROOT.'/'.'admin/js/jsUpload/vendor');
+		}
+
 		$core->setVersion('core',DC_VERSION);
 		$core->blogDefaults();
 
