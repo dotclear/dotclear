@@ -1701,7 +1701,7 @@ class adminThemesList extends adminModulesList
 
 	public function doActions()
 	{
-		if (empty($_POST) || !empty($_REQUEST['conf']) || !$this->isWritablePath()) {
+		if (empty($_POST) || !empty($_REQUEST['conf'])) {
 			return null;
 		}
 
@@ -1727,263 +1727,269 @@ class adminThemesList extends adminModulesList
 			}
 		}
 
-		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['activate'])) {
-
-			if (is_array($_POST['activate'])) {
-				$modules = array_keys($_POST['activate']);
+		else {
+			if (!$this->isWritablePath()) {
+				return null;
 			}
 
-			$list = $this->modules->getDisabledModules();
-			if (empty($list)) {
-				throw new Exception(__('No such theme.'));
-			}
+			if ($this->core->auth->isSuperAdmin() && !empty($_POST['activate'])) {
 
-			$count = 0;
-			foreach($list as $id => $module) {
-
-				if (!in_array($id, $modules)) {
-					continue;
+				if (is_array($_POST['activate'])) {
+					$modules = array_keys($_POST['activate']);
 				}
 
-				# --BEHAVIOR-- themeBeforeActivate
-				$this->core->callBehavior('themeBeforeActivate', $id);
-
-				$this->modules->activateModule($id);
-
-				# --BEHAVIOR-- themeAfterActivate
-				$this->core->callBehavior('themeAfterActivate', $id);
-
-				$count++;
-			}
-
-			dcPage::addSuccessNotice(
-				__('Theme has been successfully activated.', 'Themes have been successuflly activated.', $count)
-			);
-			http::redirect($this->getURL());
-		}
-
-		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
-
-			if (is_array($_POST['deactivate'])) {
-				$modules = array_keys($_POST['deactivate']);
-			}
-
-			$list = $this->modules->getModules();
-			if (empty($list)) {
-				throw new Exception(__('No such theme.'));
-			}
-
-			$failed = false;
-			$count = 0;
-			foreach($list as $id => $module) {
-
-				if (!in_array($id, $modules)) {
-					continue;
+				$list = $this->modules->getDisabledModules();
+				if (empty($list)) {
+					throw new Exception(__('No such theme.'));
 				}
 
-				if (!$module['root_writable']) {
-					$failed = true;
-					continue;
-				}
+				$count = 0;
+				foreach($list as $id => $module) {
 
-				$module[$id] = $id;
-
-				# --BEHAVIOR-- themeBeforeDeactivate
-				$this->core->callBehavior('themeBeforeDeactivate', $module);
-
-				$this->modules->deactivateModule($id);
-
-				# --BEHAVIOR-- themeAfterDeactivate
-				$this->core->callBehavior('themeAfterDeactivate', $module);
-
-				$count++;
-			}
-
-			if ($failed) {
-				dcPage::addWarningNotice(__('Some themes have not been deactivated.'));
-			}
-			else {
-				dcPage::addSuccessNotice(
-					__('Theme has been successfully deactivated.', 'Themes have been successuflly deactivated.', $count)
-				);
-			}
-			http::redirect($this->getURL());
-		}
-
-		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['delete'])) {
-
-			if (is_array($_POST['delete'])) {
-				$modules = array_keys($_POST['delete']);
-			}
-
-			$list = $this->modules->getDisabledModules();
-
-			$failed = false;
-			$count = 0;
-			foreach($modules as $id)
-			{
-				if (!isset($list[$id])) {
-
-					if (!$this->modules->moduleExists($id)) {
-						throw new Exception(__('No such theme.'));
+					if (!in_array($id, $modules)) {
+						continue;
 					}
 
-					$module = $this->modules->getModules($id);
-					$module['id'] = $id;
+					# --BEHAVIOR-- themeBeforeActivate
+					$this->core->callBehavior('themeBeforeActivate', $id);
 
-					if (!$this->isDeletablePath($module['root'])) {
+					$this->modules->activateModule($id);
+
+					# --BEHAVIOR-- themeAfterActivate
+					$this->core->callBehavior('themeAfterActivate', $id);
+
+					$count++;
+				}
+
+				dcPage::addSuccessNotice(
+					__('Theme has been successfully activated.', 'Themes have been successuflly activated.', $count)
+				);
+				http::redirect($this->getURL());
+			}
+
+			elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
+
+				if (is_array($_POST['deactivate'])) {
+					$modules = array_keys($_POST['deactivate']);
+				}
+
+				$list = $this->modules->getModules();
+				if (empty($list)) {
+					throw new Exception(__('No such theme.'));
+				}
+
+				$failed = false;
+				$count = 0;
+				foreach($list as $id => $module) {
+
+					if (!in_array($id, $modules)) {
+						continue;
+					}
+
+					if (!$module['root_writable']) {
 						$failed = true;
 						continue;
 					}
 
-					# --BEHAVIOR-- themeBeforeDelete
-					$this->core->callBehavior('themeBeforeDelete', $module);
+					$module[$id] = $id;
 
-					$this->modules->deleteModule($id);
+					# --BEHAVIOR-- themeBeforeDeactivate
+					$this->core->callBehavior('themeBeforeDeactivate', $module);
 
-					# --BEHAVIOR-- themeAfterDelete
-					$this->core->callBehavior('themeAfterDelete', $module);
+					$this->modules->deactivateModule($id);
+
+					# --BEHAVIOR-- themeAfterDeactivate
+					$this->core->callBehavior('themeAfterDeactivate', $module);
+
+					$count++;
+				}
+
+				if ($failed) {
+					dcPage::addWarningNotice(__('Some themes have not been deactivated.'));
 				}
 				else {
-					$this->modules->deleteModule($id, true);
+					dcPage::addSuccessNotice(
+						__('Theme has been successfully deactivated.', 'Themes have been successuflly deactivated.', $count)
+					);
+				}
+				http::redirect($this->getURL());
+			}
+
+			elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['delete'])) {
+
+				if (is_array($_POST['delete'])) {
+					$modules = array_keys($_POST['delete']);
 				}
 
-				$count++;
+				$list = $this->modules->getDisabledModules();
+
+				$failed = false;
+				$count = 0;
+				foreach($modules as $id)
+				{
+					if (!isset($list[$id])) {
+
+						if (!$this->modules->moduleExists($id)) {
+							throw new Exception(__('No such theme.'));
+						}
+
+						$module = $this->modules->getModules($id);
+						$module['id'] = $id;
+
+						if (!$this->isDeletablePath($module['root'])) {
+							$failed = true;
+							continue;
+						}
+
+						# --BEHAVIOR-- themeBeforeDelete
+						$this->core->callBehavior('themeBeforeDelete', $module);
+
+						$this->modules->deleteModule($id);
+
+						# --BEHAVIOR-- themeAfterDelete
+						$this->core->callBehavior('themeAfterDelete', $module);
+					}
+					else {
+						$this->modules->deleteModule($id, true);
+					}
+
+					$count++;
+				}
+
+				if (!$count && $failed) {
+					throw new Exception(__("You don't have permissions to delete this theme."));
+				}
+				elseif ($failed) {
+					dcPage::addWarningNotice(__('Some themes have not been delete.'));
+				}
+				else {
+					dcPage::addSuccessNotice(
+						__('Theme has been successfully deleted.', 'Themes have been successuflly deleted.', $count)
+					);
+				}
+				http::redirect($this->getURL());
 			}
 
-			if (!$count && $failed) {
-				throw new Exception(__("You don't have permissions to delete this theme."));
-			}
-			elseif ($failed) {
-				dcPage::addWarningNotice(__('Some themes have not been delete.'));
-			}
-			else {
+			elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['install'])) {
+
+				if (is_array($_POST['install'])) {
+					$modules = array_keys($_POST['install']);
+				}
+
+				$list = $this->store->get();
+
+				if (empty($list)) {
+					throw new Exception(__('No such theme.'));
+				}
+
+				$count = 0;
+				foreach($list as $id => $module) {
+
+					if (!in_array($id, $modules)) {
+						continue;
+					}
+
+					$dest = $this->getPath().'/'.basename($module['file']);
+
+					# --BEHAVIOR-- themeBeforeAdd
+					$this->core->callBehavior('themeBeforeAdd', $module);
+
+					$this->store->process($module['file'], $dest);
+
+					# --BEHAVIOR-- themeAfterAdd
+					$this->core->callBehavior('themeAfterAdd', $module);
+
+					$count++;
+				}
+
 				dcPage::addSuccessNotice(
-					__('Theme has been successfully deleted.', 'Themes have been successuflly deleted.', $count)
+					__('Theme has been successfully installed.', 'Themes have been successuflly installed.', $count)
 				);
-			}
-			http::redirect($this->getURL());
-		}
-
-		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['install'])) {
-
-			if (is_array($_POST['install'])) {
-				$modules = array_keys($_POST['install']);
+				http::redirect($this->getURL());
 			}
 
-			$list = $this->store->get();
+			elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['update'])) {
 
-			if (empty($list)) {
-				throw new Exception(__('No such theme.'));
-			}
-
-			$count = 0;
-			foreach($list as $id => $module) {
-
-				if (!in_array($id, $modules)) {
-					continue;
+				if (is_array($_POST['update'])) {
+					$modules = array_keys($_POST['update']);
 				}
 
-				$dest = $this->getPath().'/'.basename($module['file']);
+				$list = $this->store->get(true);
+				if (empty($list)) {
+					throw new Exception(__('No such theme.'));
+				}
+
+				$count = 0;
+				foreach($list as $module) {
+
+					if (!in_array($module['id'], $modules)) {
+						continue;
+					}
+
+					$dest = $module['root'].'/../'.basename($module['file']);
+
+					# --BEHAVIOR-- themeBeforeUpdate
+					$this->core->callBehavior('themeBeforeUpdate', $module);
+
+					$this->store->process($module['file'], $dest);
+
+					# --BEHAVIOR-- themeAfterUpdate
+					$this->core->callBehavior('themeAfterUpdate', $module);
+
+					$count++;
+				}
+
+				$tab = $count && $count == count($list) ? '#themes' : '#update';
+
+				dcPage::addSuccessNotice(
+					__('Theme has been successfully updated.', 'Themes have been successuflly updated.', $count)
+				);
+				http::redirect($this->getURL().$tab);
+			}
+
+			# Manual actions
+			elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
+				|| !empty($_POST['fetch_pkg']) && !empty($_POST['pkg_url']))
+			{
+				if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword($this->core->auth->crypt($_POST['your_pwd']))) {
+					throw new Exception(__('Password verification failed'));
+				}
+
+				if (!empty($_POST['upload_pkg'])) {
+					files::uploadStatus($_FILES['pkg_file']);
+
+					$dest = $this->getPath().'/'.$_FILES['pkg_file']['name'];
+					if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
+						throw new Exception(__('Unable to move uploaded file.'));
+					}
+				}
+				else {
+					$url = urldecode($_POST['pkg_url']);
+					$dest = $this->getPath().'/'.basename($url);
+					$this->store->download($url, $dest);
+				}
 
 				# --BEHAVIOR-- themeBeforeAdd
-				$this->core->callBehavior('themeBeforeAdd', $module);
+				$this->core->callBehavior('themeBeforeAdd', null);
 
-				$this->store->process($module['file'], $dest);
+				$ret_code = $this->store->install($dest);
 
 				# --BEHAVIOR-- themeAfterAdd
-				$this->core->callBehavior('themeAfterAdd', $module);
+				$this->core->callBehavior('themeAfterAdd', null);
 
-				$count++;
+				dcPage::addSuccessNotice($ret_code == 2 ?
+					__('Theme has been successfully updated.') :
+					__('Theme has been successfully installed.')
+				);
+				http::redirect($this->getURL().'#themes');
 			}
 
-			dcPage::addSuccessNotice(
-				__('Theme has been successfully installed.', 'Themes have been successuflly installed.', $count)
-			);
-			http::redirect($this->getURL());
-		}
-
-		elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['update'])) {
-
-			if (is_array($_POST['update'])) {
-				$modules = array_keys($_POST['update']);
-			}
-
-			$list = $this->store->get(true);
-			if (empty($list)) {
-				throw new Exception(__('No such theme.'));
-			}
-
-			$count = 0;
-			foreach($list as $module) {
-
-				if (!in_array($module['id'], $modules)) {
-					continue;
-				}
-
-				$dest = $module['root'].'/../'.basename($module['file']);
-
-				# --BEHAVIOR-- themeBeforeUpdate
-				$this->core->callBehavior('themeBeforeUpdate', $module);
-
-				$this->store->process($module['file'], $dest);
-
-				# --BEHAVIOR-- themeAfterUpdate
-				$this->core->callBehavior('themeAfterUpdate', $module);
-
-				$count++;
-			}
-
-			$tab = $count && $count == count($list) ? '#themes' : '#update';
-
-			dcPage::addSuccessNotice(
-				__('Theme has been successfully updated.', 'Themes have been successuflly updated.', $count)
-			);
-			http::redirect($this->getURL().$tab);
-		}
-
-		# Manual actions
-		elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
-			|| !empty($_POST['fetch_pkg']) && !empty($_POST['pkg_url']))
-		{
-			if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword($this->core->auth->crypt($_POST['your_pwd']))) {
-				throw new Exception(__('Password verification failed'));
-			}
-
-			if (!empty($_POST['upload_pkg'])) {
-				files::uploadStatus($_FILES['pkg_file']);
-
-				$dest = $this->getPath().'/'.$_FILES['pkg_file']['name'];
-				if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
-					throw new Exception(__('Unable to move uploaded file.'));
-				}
-			}
 			else {
-				$url = urldecode($_POST['pkg_url']);
-				$dest = $this->getPath().'/'.basename($url);
-				$this->store->download($url, $dest);
+
+				# --BEHAVIOR-- adminModulesListDoActions
+				$this->core->callBehavior('adminModulesListDoActions', $this, $modules, 'theme');
+
 			}
-
-			# --BEHAVIOR-- themeBeforeAdd
-			$this->core->callBehavior('themeBeforeAdd', null);
-
-			$ret_code = $this->store->install($dest);
-
-			# --BEHAVIOR-- themeAfterAdd
-			$this->core->callBehavior('themeAfterAdd', null);
-
-			dcPage::addSuccessNotice($ret_code == 2 ?
-				__('Theme has been successfully updated.') :
-				__('Theme has been successfully installed.')
-			);
-			http::redirect($this->getURL().'#themes');
-		}
-
-		else {
-
-			# --BEHAVIOR-- adminModulesListDoActions
-			$this->core->callBehavior('adminModulesListDoActions', $this, $modules, 'theme');
-
 		}
 
 		return null;
