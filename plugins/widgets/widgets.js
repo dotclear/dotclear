@@ -125,4 +125,13 @@ $(function() {
 		$li.prev().before($li);
 		reorder($this.parents('ul.connected'));
 	});
+
+	// HTML text editor
+	if ($.isFunction(jsToolBar)) {
+		$('#sidebarsWidgets textarea').each(function() {
+			var tbWidgetText = new jsToolBar(this);
+			tbWidgetText.draw('xhtml');
+		});
+	}
+
 });
