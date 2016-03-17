@@ -297,11 +297,10 @@ class dcPage
 		"</div>\n";		// End of #wrapper
 
 		$figure = "
-    @..@
-   (----)
-  ( >__< )
-  ^^ ~~ ^^
-		";
+   /\_/\
+  (='.'=)
+  (\")-(\")
+  		";
 
 		echo
 		'<div id="footer" role="contentinfo">'.
