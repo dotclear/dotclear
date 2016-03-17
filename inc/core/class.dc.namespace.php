@@ -390,6 +390,16 @@ class dcNamespace
 	}
 
 	/**
+	Returns $ns property content.
+
+	@return	<b>string</b>
+	*/
+	public function dumpNamespace()
+	{
+		return $this->ns;
+	}
+
+	/**
 	Returns $settings property content.
 
 	@return	<b>array</b>
@@ -397,6 +407,16 @@ class dcNamespace
 	public function dumpSettings()
 	{
 		return $this->settings;
+	}
+
+	/**
+	Returns $local_settings property content.
+
+	@return	<b>array</b>
+	*/
+	public function dumpLocalSettings()
+	{
+		return $this->local_settings;
 	}
 
 	/**

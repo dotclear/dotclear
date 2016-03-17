@@ -406,6 +406,16 @@ class dcWorkspace
 	}
 
 	/**
+	Returns $ws property content.
+
+	@return	<b>string</b>
+	*/
+	public function dumpWorkspace()
+	{
+		return $this->ws;
+	}
+
+	/**
 	Returns $prefs property content.
 
 	@return	<b>array</b>
