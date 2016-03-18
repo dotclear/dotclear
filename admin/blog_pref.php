@@ -311,6 +311,8 @@ if ($standalone) {
 		));
 }
 
+$desc_editor = $core->auth->getOption('editor');
+
 dcPage::open(__('Blog settings'),
 	'<script type="text/javascript">'."\n".
 	"//<![CDATA["."\n".
@@ -321,7 +323,7 @@ dcPage::open(__('Blog settings'),
 	"//]]>".
 	"</script>".
 	dcPage::jsConfirmClose('blog-form').
-	$core->callBehavior('adminPostEditor').
+	$core->callBehavior('adminPostEditor',$desc_editor['xhtml'],'blog_desc',array('#blog_desc'),'xhtml').
 	dcPage::jsLoad('js/_blog_pref.js').
 
 

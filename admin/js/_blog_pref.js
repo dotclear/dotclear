@@ -29,4 +29,13 @@ $(function() {
 		$('#'+$(this).attr('id').replace('_select','')).prop('value', $(this).prop('value'));
 		$(this).parent().next('.chosen').html($(this).find(':selected').prop('label'));
 	});
+
+	// HTML text editor
+	if ($.isFunction(jsToolBar)) {
+		$('#blog_desc').each(function() {
+			var tbWidgetText = new jsToolBar(this);
+			tbWidgetText.draw('xhtml');
+		});
+	}
+
 });
