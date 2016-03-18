@@ -14,7 +14,7 @@
 				<meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
 			</tpl:Block>	<!-- meta-robots -->
 			<tpl:Block name="meta-entry">
-				<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
+				<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" remove_html="1" encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
 				<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
 				<meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
 			</tpl:Block>	<!-- meta-entry -->
@@ -28,7 +28,7 @@
 			<meta property="dc.format" content="text/html" />
 			<tpl:Block name="dc-entry">
 				<meta property="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
-				<meta property="dc.description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription encode_html="1"}}" />
+				<meta property="dc.description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}" />
 				<meta property="dc.language" content="{{tpl:BlogLanguage}}" />
 				<meta property="dc.date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
 			</tpl:Block>	<!-- dc-entry -->

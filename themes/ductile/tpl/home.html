@@ -5,14 +5,14 @@
 	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
 
 	<title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
-	<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
+	<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" remove_html="1" encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
 	<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
 	<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
 	<meta name="date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
 
 	<link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
 	<meta name="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
-	<meta name="dc.description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription encode_html="1"}}" />
+	<meta name="dc.description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}" />
 	<meta name="dc.language" content="{{tpl:BlogLanguage}}" />
 	<meta name="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
 	<meta name="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
