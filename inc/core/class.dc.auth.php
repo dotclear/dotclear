@@ -171,7 +171,7 @@ class dcAuth
 	 */
 	public function crypt($pwd)
 	{
-		return crypt::hmac(DC_MASTER_KEY,$pwd);
+		return crypt::hmac(DC_MASTER_KEY,$pwd,DC_CRYPT_ALGO);
 	}
 
 	/**
@@ -309,7 +309,7 @@ class dcAuth
 		$code = @pack('H*',$code);
 
 		$user_id = trim(@pack('a32',substr($code,0,32)));
-		$pwd = @unpack('H40hex',substr($code,32,40));
+		$pwd = @unpack('H*hex',substr($code,32));
 
 		if ($user_id === false || $pwd === false) {
 			return false;

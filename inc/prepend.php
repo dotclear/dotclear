@@ -190,6 +190,19 @@ if (!defined('DC_ALLOW_MULTI_MODULES')) {
 	define('DC_ALLOW_MULTI_MODULES',false);
 }
 
+if (!defined('DC_CRYPT_ALGO')) {
+	define('DC_CRYPT_ALGO','sha1');	// As in Dotclear 2.9 and previous
+} else {
+	// Check length of cryptographic algorithm result and exit if less than 40 characters long
+	if (strlen(crypt::hmac(DC_MASTER_KEY,DC_VENDOR_NAME,DC_CRYPT_ALGO)) < 40) {
+		if (!defined('DC_CONTEXT_ADMIN')) {
+			exit('Site temporarily unavailable');
+		} else {
+			exit(DC_CRYPT_ALGO.' cryptographic algorithm configured is not strong enough, please change it.');
+		}
+	}
+}
+
 l10n::init();
 
 try {
