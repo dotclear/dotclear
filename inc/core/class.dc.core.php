@@ -197,6 +197,7 @@ class dcCore
 
 	public function checkNonce($secret)
 	{
+		// 40 alphanumeric characters min
 		if (!preg_match('/^([0-9a-f]{40,})$/i',$secret)) {
 			return false;
 		}
