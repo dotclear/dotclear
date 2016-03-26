@@ -15,7 +15,6 @@ class dcUpgrade
 {
 	public static function dotclearUpgrade($core)
 	{
-	    $cleanup_sessions = false; // update it in a step that needed sessions to be removed
 		$version = $core->getVersion('core');
 
 		if ($version === null) {
@@ -39,7 +38,7 @@ class dcUpgrade
 
 				/* Some other upgrades
 				------------------------------------ */
-				self::growUp($core,$version);
+				$cleanup_sessions = self::growUp($core,$version);
 
 				# Drop content from session table if changes or if needed
 				if ($changes != 0 || $cleanup_sessions) {
@@ -69,6 +68,8 @@ class dcUpgrade
 		if ($version === null) {
 			return false;
 		}
+
+	    $cleanup_sessions = false; // update it in a step that needed sessions to be removed
 
 		# Populate media_dir field (since 2.0-beta3.3)
 		if (version_compare($version,'2.0-beta3.3','<'))
@@ -547,7 +548,7 @@ class dcUpgrade
 		$core->setVersion('core',DC_VERSION);
 		$core->blogDefaults();
 
-		return true;
+		return $cleanup_sessions;
 	}
 
 	/**
