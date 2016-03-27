@@ -1,3 +1,12 @@
+Dotclear 2.9.1 - 2016-03-27
+===========================================================
+* Security: Add shtml extension to default media exclusion extension control, thank's Nitin Venkatesh for report
+* Changing theme is now allowed even with read-only theme folder
+* Audio media are not more preloaded in media manager pages
+* Array settings/prefs are stored with 'array' type rather than 'string'
+* 🐛 → Various bug fixes
+* 🌼 → Some cosmetic adjustments
+
 Dotclear 2.9 - 2016-02-29
 ===========================================================
 * Additionnal menu items are now lexically sorted (default items and favorites order will be preserved)
