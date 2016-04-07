@@ -2197,6 +2197,9 @@ msgstr "Afficher les favoris en haut du menu"
 msgid "Dashboard icons"
 msgstr "Icônes du tableau de bord"
 
+msgid "Display dashboard icons"
+msgstr "Afficher les icônes du tableau de bord"
+
 msgid "Iconset:"
 msgstr "Jeu d'icônes :"
 

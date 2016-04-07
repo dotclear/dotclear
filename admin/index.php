@@ -321,15 +321,17 @@ foreach ($__dashboard_items as $i)
 # Dashboard elements
 echo '<div id="dashboard-main">';
 
-# Dashboard icons
-echo '<div id="icons">';
-foreach ($__dashboard_icons as $i)
-{
-	echo
-	'<p><a href="'.$i[1].'"><img src="'.dc_admin_icon_url($i[2]).'" alt="" />'.
-	'<br /><span>'.$i[0].'</span></a></p>';
+if (!$core->auth->user_prefs->dashboard->nofavicons) {
+	# Dashboard icons
+	echo '<div id="icons">';
+	foreach ($__dashboard_icons as $i)
+	{
+		echo
+		'<p><a href="'.$i[1].'"><img src="'.dc_admin_icon_url($i[2]).'" alt="" />'.
+		'<br /><span>'.$i[0].'</span></a></p>';
+	}
+	echo '</div>';
 }
-echo '</div>';
 
 if ($core->auth->user_prefs->dashboard->quickentry) {
 	if ($core->auth->check('usage,contentadmin',$core->blog->id))
