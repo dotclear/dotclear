@@ -34,6 +34,7 @@ $core->auth->user_prefs->addWorkspace('dashboard');
 $user_dm_doclinks = $core->auth->user_prefs->dashboard->doclinks;
 $user_dm_dcnews = $core->auth->user_prefs->dashboard->dcnews;
 $user_dm_quickentry = $core->auth->user_prefs->dashboard->quickentry;
+$user_dm_nofavicons = $core->auth->user_prefs->dashboard->nofavicons;
 
 $core->auth->user_prefs->addWorkspace('accessibility');
 $user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
@@ -220,6 +221,7 @@ if (isset($_POST['db-options'])) {
 		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
 		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
 		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
+		$core->auth->user_prefs->dashboard->put('nofavicons',empty($_POST['user_dm_nofavicons']),'boolean');
 		$core->auth->user_prefs->interface->put('iconset',(!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
 		$core->auth->user_prefs->interface->put('nofavmenu',empty($_POST['user_ui_nofavmenu']),'boolean');
 
@@ -610,16 +612,22 @@ echo
 form::checkbox('user_ui_nofavmenu',1,!$user_ui_nofavmenu).' '.
 __('Display favorites at the top of the menu').'</label></p></div>';
 
+echo
+'<div class="fieldset">'.
+'<h4>'.__('Dashboard icons').'</h4>'.
+'<p><label for="user_dm_nofavicons" class="classic">'.
+form::checkbox('user_dm_nofavicons',1,!$user_dm_nofavicons).' '.
+__('Display dashboard icons').'</label></p>';
+
 if (count($iconsets_combo) > 1) {
 	echo
-		'<div class="fieldset">'.
-		'<h4>'.__('Dashboard icons').'</h4>'.
 		'<p><label for="user_ui_iconset" class="classic">'.__('Iconset:').'</label> '.
-		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</p>'.
-		'</div>';
+		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</p>';
 } else {
 	echo '<p class="hidden">'.form::hidden('user_ui_iconset','').'</p>';
 }
+echo
+'</div>';
 
 echo
 '<div class="fieldset">'.
