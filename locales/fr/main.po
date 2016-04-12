@@ -3088,11 +3088,34 @@ msgid "No entry"
 msgstr "Pas de billet"
 
 #, php-format
-msgid "List of %s entries match the filter."
+msgid "List of %s entries matching the filter."
 msgstr "Liste des %s billets correspondant au filtre"
 
 msgid "Entries list"
 msgstr "Liste des entrées"
+
+msgid "List of entries (%s)"
+msgstr "Liste des billets (%s)"
+
+msgid ", <a href="%s">published</a> (1)"
+msgid_plural ", <a href="%s">published</a> (%s)"
+msgstr[0] ", <a href="%s">publié</a> (1)"
+msgstr[1] ", <a href="%s">publiés</a> (%s)"
+
+msgid ", <a href="%s">pending</a> (1)"
+msgid_plural ", <a href="%s">pending</a> (%s)"
+msgstr[0] ", <a href="%s">en attente</a> (1)"
+msgstr[1] ", <a href="%s">en attente</a> (%s)"
+
+msgid ", <a href="%s">programmed</a> (1)"
+msgid_plural ", <a href="%s">programmed</a> (%s)"
+msgstr[0] ", <a href="%s">programmé</a> (1)"
+msgstr[1] ", <a href="%s">programmés</a> (%s)"
+
+msgid ", <a href="%s">unpublished</a> (1)"
+msgid_plural ", <a href="%s">unpublished</a> (%s)"
+msgstr[0] ", <a href="%s">non publié</a> (1)"
+msgstr[1] ", <a href="%s">non publiés</a> (%s)"
 
 msgid "Protected"
 msgstr "Protégé"
@@ -3113,6 +3136,14 @@ msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "Commentaire ou rétrolien correspondant au filtre."
 msgstr[1] "Liste des %s commentaires ou rétroliens correspondants au filtre."
+
+msgid "List of comments and trackbacks (%s)"
+msgstr "Liste des commentaires et rétroliens (%s)"
+
+msgid ", <a href="%s">spam</a> (1)"
+msgid_plural ", <a href="%s">spam</a> (%s)"
+msgstr[0] ", <a href="%s">indésirable</a> (1)"
+msgstr[1] ", <a href="%s">indésirables</a> (%s)"
 
 msgid "Type"
 msgstr "Type"

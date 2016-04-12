@@ -174,9 +174,33 @@ class adminPostList extends adminGenericList
 			'<table>';
 
 			if( $filter ) {
-				$html_block .= '<caption>'.sprintf(__('List of %s entries match the filter.'), $this->rs_count).'</caption>';
+				$html_block .= '<caption>'.sprintf(__('List of %s entries matching the filter.'), $this->rs_count).'</caption>';
 			} else {
-				$html_block .= '<caption class="hidden">'.__('Entries list').'</caption>';
+				$nb_published = $this->core->blog->getPosts(array('post_status' => 1),true)->f(0);
+				$nb_pending = $this->core->blog->getPosts(array('post_status' => -2),true)->f(0);
+				$nb_programmed = $this->core->blog->getPosts(array('post_status' => -1),true)->f(0);
+				$nb_unpublished = $this->core->blog->getPosts(array('post_status' => 0),true)->f(0);
+				$html_block .= '<caption>'.
+					sprintf(__('List of entries (%s)'),$this->rs_count).
+					($nb_published ?
+						sprintf(
+						__(', <a href="%s">published</a> (1)',', <a href="%s">published</a> (%s)',$nb_published),
+						$this->core->adminurl->get('admin.posts',array('status' => 1)),
+						$nb_published) : '').
+					($nb_pending ?
+						sprintf(
+						__(', <a href="%s">pending</a> (1)',', <a href="%s">pending</a> (%s)',$nb_pending),
+						$this->core->adminurl->get('admin.posts',array('status' => -2)),
+						$nb_pending) : '').
+					($nb_programmed ?
+						sprintf(__(', <a href="%s">programmed</a> (1)',', <a href="%s">programmed</a> (%s)',$nb_programmed),
+						$this->core->adminurl->get('admin.posts',array('status' => -1)),
+						$nb_programmed) : '').
+					($nb_unpublished ?
+						sprintf(__(', <a href="%s">unpublished</a> (1)',', <a href="%s">unpublished</a> (%s)',$nb_unpublished),
+						$this->core->adminurl->get('admin.posts',array('status' => 0)),
+						$nb_unpublished) : '').
+					'</caption>';
 			}
 
 			$cols = array(
@@ -453,7 +477,31 @@ class adminCommentList extends adminGenericList
 						$this->rs_count), $this->rs_count).
 					'</caption>';
 			} else {
-				$html_block .= '<caption class="hidden">'.__('Comments and trackbacks list').'</caption>';
+				$nb_published = $this->core->blog->getComments(array('comment_status' => 1),true)->f(0);
+				$nb_spam = $this->core->blog->getComments(array('comment_status' => -2),true)->f(0);
+				$nb_pending = $this->core->blog->getComments(array('comment_status' => -1),true)->f(0);
+				$nb_unpublished = $this->core->blog->getComments(array('comment_status' => 0),true)->f(0);
+				$html_block .= '<caption>'.
+					sprintf(__('List of comments and trackbacks (%s)'),$this->rs_count).
+					($nb_published ?
+						sprintf(
+						__(', <a href="%s">published</a> (1)',', <a href="%s">published</a> (%s)',$nb_published),
+						$this->core->adminurl->get('admin.comments',array('status' => 1)),
+						$nb_published) : '').
+					($nb_spam ?
+						sprintf(
+						__(', <a href="%s">spam</a> (1)',', <a href="%s">spam</a> (%s)',$nb_spam),
+						$this->core->adminurl->get('admin.comments',array('status' => -2)),
+						$nb_spam) : '').
+					($nb_pending ?
+						sprintf(__(', <a href="%s">pending</a> (1)',', <a href="%s">pending</a> (%s)',$nb_pending),
+						$this->core->adminurl->get('admin.comments',array('status' => -1)),
+						$nb_pending) : '').
+					($nb_unpublished ?
+						sprintf(__(', <a href="%s">unpublished</a> (1)',', <a href="%s">unpublished</a> (%s)',$nb_unpublished),
+						$this->core->adminurl->get('admin.comments',array('status' => 0)),
+						$nb_unpublished) : '').
+					'</caption>';
 			}
 
 			$cols = array(
