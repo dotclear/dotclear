@@ -412,6 +412,9 @@ msgstr "Liens"
 msgid "Title (optional)"
 msgstr "Titre (optionnel)"
 
+msgid "Placeholder (HTML5 only, optional):"
+msgstr "Texte indicatif (HTML5 seulement, optionnel) :"
+
 msgid "All categories"
 msgstr "Toutes les catégories"
 
