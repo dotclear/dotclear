@@ -19,6 +19,7 @@ $__widgets = new dcWidgets;
 
 $__widgets->create('search',__('Search engine'),array('defaultWidgets','search'),null,'Search engine form');
 $__widgets->search->setting('title',__('Title (optional)').' :',__('Search'));
+$__widgets->search->setting('placeholder',__('Placeholder (HTML5 only, optional):'),'');
 $__widgets->search->setting('homeonly',__('Display on:'),0,'combo',
 	array(__('All pages') => 0, __('Home page only') => 1, __('Except on home page') => 2));
 $__widgets->search->setting('content_only',__('Content only'),0,'check');

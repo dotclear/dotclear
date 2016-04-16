@@ -35,7 +35,8 @@ class defaultWidgets
 			($w->title ? $w->renderTitle('<label for="q">'.html::escapeHTML($w->title).'</label>') : '').
 			'<form action="'.$core->blog->url.'" method="get" role="search">'.
 			'<fieldset>'.
-			'<p><input type="text" size="10" maxlength="255" id="q" name="q" value="'.$value.'" /> '.
+			'<p><input type="text" size="10" maxlength="255" id="q" name="q" value="'.$value.'" '.
+			($w->placeholder ? 'placeholder="'.html::escapeHTML($w->placeholder).'"' : '').'/> '.
 			'<input type="submit" class="submit" value="ok" /></p>'.
 			'</fieldset>'.
 			'</form>');
