@@ -1934,6 +1934,12 @@ tr.media-folder {
 	float: left;
 	margin-right: 2em;
 }
+#media-fav-dir {
+	border-bottom: none;
+}
+#media-fav-dir img {
+	vertical-align: middle;
+}
 /* upload multiple */
 .enhanced_uploader .choose_files, .enhanced_uploader .cancel,
 .enhanced_uploader .clean, .enhanced_uploader .start {
