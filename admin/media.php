@@ -141,10 +141,36 @@ try {
 	$core->error->add($e->getMessage());
 }
 
+# Cope with fav/unfav dir
+$fav_dirs = null;
+if (!empty($_GET['fav'])) {
+	if (!$q) { // Ignore search results
+		$fav_dir = rtrim($d,'/');
+		$core->auth->user_prefs->addWorkspace('interface');
+		$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
+		if ($nb_last_dirs > 0) {
+			$fav_dirs = $core->auth->user_prefs->interface->media_fav_dirs;
+			if (!is_array($fav_dirs)) {
+				$fav_dirs = array();
+			}
+			if (!in_array($fav_dir,$fav_dirs) && $_GET['fav'] == 'y') {
+				// Add directory in favorites
+				array_unshift($fav_dirs,$fav_dir);
+			} elseif (in_array($fav_dir,$fav_dirs) && $_GET['fav'] == 'n') {
+				// Remove directory from favorites
+				unset($fav_dirs[array_search($fav_dir,$fav_dirs)]);
+			}
+			// Store new list
+			$core->auth->user_prefs->interface->put('media_fav_dirs',$fav_dirs,'array');
+			$core->adminurl->redirect('admin.media',$page_url_params);
+		}
+	}
+}
+
 # Recent media dirs
 $last_dirs = null;
 if (!$q) {	// Ignore search results
-	$recent_dir = rtrim($d,'/');;
+	$recent_dir = rtrim($d,'/');
 	$core->auth->user_prefs->addWorkspace('interface');
 	$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
 	if ($nb_last_dirs > 0) {
@@ -403,33 +429,75 @@ if (!isset($core->media)) {
 // Recent media folders
 $last_folders = '';
 $last_folders_item = '';
+$fav_url = '';
+$fav_img = '';
+$fav_alt = '';
 $nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
 if ($nb_last_dirs > 0) {
+	// Favorites directories
+	$fav_dirs = $core->auth->user_prefs->interface->media_fav_dirs;
+	if (!is_array($fav_dirs)) {
+		$fav_dirs = array();
+	}
+	foreach ($fav_dirs as $ld) {
+		// Add favorites dirs on top of combo
+		$ld_params = $page_url_params;
+		$ld_params['d'] = $ld;
+		$ld_params['q'] = '';	// Reset search
+		$last_folders_item .=
+			'<option value="'.urldecode($core->adminurl->get('admin.media',$ld_params)).'"'.
+			($ld == rtrim($d,'/') ? ' selected="selected"' : '').'>'.
+			'/'.$ld.'</option>'."\n";
+		if ($ld == rtrim($d,'/')) {
+			// Current directory is a favorite → button will un-fav
+			$ld_params['fav'] = 'n';
+			$fav_url = urldecode($core->adminurl->get('admin.media',$ld_params));
+			unset($ld_params['fav']);
+			$fav_img = 'images/fav-on.png';
+			$fav_alt = __('Remove this folder from your favorites');
+		}
+	}
+	if ($last_folders_item != '') {
+		// add a separator between favorite dirs and recent dirs
+		$last_folders_item .= '<option disabled>_________</option>';
+	}
+	// Recent directories
 	if (!is_array($last_dirs)) {
 		$last_dirs = $core->auth->user_prefs->interface->media_last_dirs;
 	}
 	if (is_array($last_dirs)) {
 		foreach ($last_dirs as $ld) {
-			$ld_params = $page_url_params;
-			$ld_params['d'] = $ld;
-			$ld_params['q'] = '';	// Reset search
-			$last_folders_item .=
-				'<option value="'.urldecode($core->adminurl->get('admin.media',$ld_params)).'"'.
-				($ld == rtrim($d,'/') ? ' selected="selected"' : '').'>'.
-				'/'.$ld.'</option>'."\n";
+			if (!in_array($ld,$fav_dirs)) {
+				$ld_params = $page_url_params;
+				$ld_params['d'] = $ld;
+				$ld_params['q'] = '';	// Reset search
+				$last_folders_item .=
+					'<option value="'.urldecode($core->adminurl->get('admin.media',$ld_params)).'"'.
+					($ld == rtrim($d,'/') ? ' selected="selected"' : '').'>'.
+					'/'.$ld.'</option>'."\n";
+				if ($ld == rtrim($d,'/')) {
+					// Current directory is not a favorite → button will fav
+					$ld_params['fav'] = 'y';
+					$fav_url = urldecode($core->adminurl->get('admin.media',$ld_params));
+					unset($ld_params['fav']);
+					$fav_img = 'images/fav-off.png';
+					$fav_alt = __('Add this folder to your favorites');
+				}
+			}
 		}
-		if ($last_folders_item != '') {
-			$last_folders =
-				'<p class="media-recent hidden-if-no-js">'.
-				'<label class="classic" for="switchfolder">'.__('Goto recent folder:').'</label> '.
-				'<select name="switchfolder" id="switchfolder">'.
-				$last_folders_item.
-				'</select>'.
-				'<script type="text/javascript">var urlmenu = document.getElementById(\'switchfolder\');
-				 urlmenu.onchange = function() { window.location = this.options[this.selectedIndex].value; };
-				</script>'.
-				'</p>';
-		}
+	}
+	if ($last_folders_item != '') {
+		$last_folders =
+			'<p class="media-recent hidden-if-no-js">'.
+			'<label class="classic" for="switchfolder">'.__('Goto recent folder:').'</label> '.
+			'<select name="switchfolder" id="switchfolder">'.
+			$last_folders_item.
+			'</select>'.
+			'<script type="text/javascript">var urlmenu = document.getElementById(\'switchfolder\');
+			 urlmenu.onchange = function() { window.location = this.options[this.selectedIndex].value; };
+			</script>'.
+			' <a id="media-fav-dir" href="'.$fav_url.'" title="'.$fav_alt.'"><img src="'.$fav_img.'" alt="'.$fav_alt.'" /></a>'.
+			'</p>';
 	}
 }
 

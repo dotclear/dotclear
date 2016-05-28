@@ -1453,6 +1453,12 @@ msgstr "Nombre d'éléments affichés par page :"
 msgid "Goto recent folder:"
 msgstr "Aller au dossier récent :"
 
+msgid "Add this folder to your favorites"
+msgstr "Ajouter ce dossier à vos favoris"
+
+msgid "Remove this folder from your favorites"
+msgstr "Retirer ce dossier de vos favoris"
+
 #, php-format
 msgid "In %s:"
 msgstr "Dans %s :"
