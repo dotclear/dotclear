@@ -11,16 +11,6 @@
 	<meta property="dc.date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
 </tpl:Block>
 
-<tpl:Block name="og-entry">
-	<meta property="og:title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}" />
-	<meta property="og:description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}" />
-</tpl:Block>	<!-- #og-entry -->
-
-<tpl:Block name="schema-entry">
-	<meta itemprop="name" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}" />
-	<meta itemprop="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}" />
-</tpl:Block>	<!-- #schema-entry -->
-
 <tpl:Block name="head-linkrel">
 	<link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
 	<tpl:Archives>

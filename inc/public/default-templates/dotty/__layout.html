@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{tpl:BlogLanguage}}">
-<head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
+<head prefix="dc: http://purl.org/dc/terms/#">
 	<tpl:Block name="html-head">
 		<meta charset="UTF-8" />
 
@@ -32,20 +32,6 @@
 				<meta property="dc.date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
 			</tpl:Block>	<!-- dc-entry -->
 		</tpl:Block>	<!-- head-dc -->
-
-		<tpl:Block name="head-og">
-			<tpl:Block name="og-entry">
-				<meta property="og:title" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
-				<meta property="og:description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}" />
-			</tpl:Block>	<!-- #og-entry -->
-		</tpl:Block>	<!-- #head-og -->
-
-		<tpl:Block name="head-schema">
-			<tpl:Block name="schema-entry">
-				<meta itemprop="name" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
-				<meta itemprop="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}" />
-			</tpl:Block>	<!-- #schema-entry -->
-		</tpl:Block>	<!-- #head-schema -->
 
 		<tpl:Block name="head-linkrel">
 			<link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
