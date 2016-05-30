@@ -18,16 +18,6 @@
 	<meta property="dc.date" content="{{tpl:EntryDate iso8601="1"}}" />
 </tpl:Block>
 
-<tpl:Block name="og-entry">
-	<meta property="og:title" content="{{tpl:EntryTitle encode_html="1"}}" />
-	<meta property="og:description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
-</tpl:Block>	<!-- #og-entry -->
-
-<tpl:Block name="schema-entry">
-	<meta itemprop="name" content="{{tpl:EntryTitle encode_html="1"}}" />
-	<meta itemprop="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
-</tpl:Block>	<!-- #schema-entry -->
-
 <tpl:Block name="head-linkrel">
 	<link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
 	<link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
