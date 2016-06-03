@@ -2,6 +2,7 @@
 	$.fn.enhancedUploader = function() {
 		return this.each(function() {
 			var me = $(this);
+			var $container = $(me).parent();
 
 			function enableButton(button) {
 				button.prop('disabled',false).removeClass('disabled');
@@ -25,9 +26,11 @@
 			}
 
 			$('.button.choose_files').click(function(e) {
-				// Use the native click() of the file input.
-				$('#upfile').click();
-				e.preventDefault();
+				if ($container.hasClass('enhanced_uploader')) {
+					// Use the native click() of the file input.
+					$('#upfile').click();
+					e.preventDefault();
+				}
 			});
 
 			$('.button.cancel', '#fileupload .fileupload-buttonbar').click(function(e) {
@@ -79,7 +82,6 @@
 				}
 			});
 
-			var $container = $(me).parent();
 			var $msg,label;
 
 			if ($container.hasClass('enhanced_uploader')) {
@@ -132,15 +134,16 @@ $(function() {
 	$('#fileupload').enhancedUploader();
 
 	$('.checkboxes-helpers').each(function() {
-		dotclear.checkboxesHelpers(this);
+		dotclear.checkboxesHelpers(this,undefined,'#form-medias input[type="checkbox"]','#form-medias #delete_medias');
 	});
+	dotclear.condSubmit('#form-medias input[type="checkbox"]','#form-medias #delete_medias');
 
-	$('#form-medias').submit(function() {
-		var count_checked = $('input[name="medias[]"]:checked', $(this)).length;
-		if (count_checked==0) {
+	$('#form-medias #delete_medias').click(function(e) {
+		var count_checked = $('input[name="medias[]"]:checked', $('#form-medias')).length;
+		if (count_checked == 0) {
+			e.preventDefault();
 			return false;
 		}
-
 		return window.confirm(dotclear.msg.confirm_delete_medias.replace('%d',count_checked));
 	});
 

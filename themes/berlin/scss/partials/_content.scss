@@ -4,10 +4,10 @@
     margin: 0;
 }
 .prev {
-    @include replace-text('icon_prev.png');
+    @include replace-text(inline-image('icon_prev.png'));
 }
 .next {
-    @include replace-text('icon_next.png');
+    @include replace-text(inline-image('icon_next.png'));
 }
 .prev, .next {
     vertical-align: middle;

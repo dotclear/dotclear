@@ -25,8 +25,8 @@ if ($standalone)
 	$blog_settings = $core->blog->settings;
 	$blog_url = $core->blog->url;
 
-	$action = 'blog_pref.php';
-	$redir = 'blog_pref.php';
+	$action = $core->adminurl->get("admin.blog.pref");
+	$redir = $core->adminurl->get("admin.blog.pref");
 }
 else
 {
@@ -54,8 +54,8 @@ else
 		$core->error->add($e->getMessage());
 	}
 
-	$action = 'blog.php';
-	$redir = 'blog.php?id=%s';
+	$action = $core->adminurl->get("admin.blog");
+	$redir = $core->adminurl->get("admin.blog",array('id' => "%s"),'&',true);
 }
 
 # Language codes
@@ -66,8 +66,8 @@ $status_combo = dcAdminCombos::getBlogStatusescombo();
 
 # Date format combo
 $now = time();
-$date_formats = unserialize($blog_settings->system->date_formats);
-$time_formats = unserialize($blog_settings->system->time_formats);
+$date_formats = $blog_settings->system->date_formats;
+$time_formats = $blog_settings->system->time_formats;
 $date_formats_combo = array('' => '');
 foreach ($date_formats as $format) {
     $date_formats_combo[dt::str($format, $now)] = $format;
@@ -143,19 +143,33 @@ $robots_policy_options = array(
 	'NOINDEX,NOFOLLOW,NOARCHIVE' => __("I would like to prevent search engines and archivers from indexing or archiving my blog's content."),
 );
 
+# jQuery available versions
+$jquery_root = dirname(__FILE__).'/../inc/js/jquery';
+$jquery_versions_combo = array(__('Default').' ('.DC_DEFAULT_JQUERY.')' => DC_DEFAULT_JQUERY);
+if (is_dir($jquery_root) && is_readable($jquery_root)) {
+	if (($d = @dir($jquery_root)) !== false) {
+		while (($entry = $d->read()) !== false) {
+			if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($jquery_root.'/'.$entry)) {
+				if ($entry != DC_DEFAULT_JQUERY) {
+					$jquery_versions_combo[$entry] = $entry;
+				}
+			}
+		}
+	}
+}
+
 # Update a blog
 if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 {
 	$cur = $core->con->openCursor($core->prefix.'blog');
-	if ($core->auth->isSuperAdmin()) {
-		$cur->blog_id = $_POST['blog_id'];
-		$cur->blog_url = preg_replace('/\?+$/','?',$_POST['blog_url']);
-		if (in_array($_POST['blog_status'],$status_combo)) {
-			$cur->blog_status = (integer) $_POST['blog_status'];
-		}
-	}
+	$cur->blog_id = $_POST['blog_id'];
+	$cur->blog_url = preg_replace('/\?+$/','?', $_POST['blog_url']);
 	$cur->blog_name = $_POST['blog_name'];
 	$cur->blog_desc = $_POST['blog_desc'];
+
+	if ($core->auth->isSuperAdmin() && in_array($_POST['blog_status'], $status_combo)) {
+		$cur->blog_status = (int) $_POST['blog_status'];
+	}
 
 	$media_img_t_size = abs((integer) $_POST['media_img_t_size']);
 	if ($media_img_t_size < 0) { $media_img_t_size = 100; }
@@ -165,6 +179,12 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 
 	$media_img_m_size = abs((integer) $_POST['media_img_m_size']);
 	if ($media_img_m_size < 0) { $media_img_m_size = 448; }
+
+	$media_video_width = abs((integer) $_POST['media_video_width']);
+	if ($media_video_width < 0) { $media_video_width = 400; }
+
+	$media_video_height = abs((integer) $_POST['media_video_height']);
+	if ($media_video_height < 0) { $media_video_height = 300; }
 
 	$nb_post_for_home = abs((integer) $_POST['nb_post_for_home']);
 	if ($nb_post_for_home <= 1) { $nb_post_for_home = 1; }
@@ -230,28 +250,34 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('trackbacks_pub',empty($_POST['trackbacks_pub']));
 		$blog_settings->system->put('comments_nofollow',!empty($_POST['comments_nofollow']));
 		$blog_settings->system->put('wiki_comments',!empty($_POST['wiki_comments']));
+		$blog_settings->system->put('comment_preview_optional',!empty($_POST['comment_preview_optional']));
 		$blog_settings->system->put('enable_xmlrpc',!empty($_POST['enable_xmlrpc']));
 		$blog_settings->system->put('note_title_tag',$_POST['note_title_tag']);
-
 		$blog_settings->system->put('nb_post_for_home',$nb_post_for_home);
 		$blog_settings->system->put('nb_post_per_page',$nb_post_per_page);
 		$blog_settings->system->put('use_smilies',!empty($_POST['use_smilies']));
+		$blog_settings->system->put('no_search',!empty($_POST['no_search']));
 		$blog_settings->system->put('inc_subcats',!empty($_POST['inc_subcats']));
 		$blog_settings->system->put('media_img_t_size',$media_img_t_size);
 		$blog_settings->system->put('media_img_s_size',$media_img_s_size);
 		$blog_settings->system->put('media_img_m_size',$media_img_m_size);
+		$blog_settings->system->put('media_video_width',$media_video_width);
+		$blog_settings->system->put('media_video_height',$media_video_height);
+		$blog_settings->system->put('media_flash_fallback',!empty($_POST['media_flash_fallback']));
 		$blog_settings->system->put('media_img_title_pattern',$_POST['media_img_title_pattern']);
 		$blog_settings->system->put('media_img_use_dto_first',!empty($_POST['media_img_use_dto_first']));
+		$blog_settings->system->put('media_img_no_date_alone',!empty($_POST['media_img_no_date_alone']));
 		$blog_settings->system->put('media_img_default_size',$_POST['media_img_default_size']);
 		$blog_settings->system->put('media_img_default_alignment',$_POST['media_img_default_alignment']);
 		$blog_settings->system->put('media_img_default_link',!empty($_POST['media_img_default_link']));
 		$blog_settings->system->put('nb_post_per_feed',$nb_post_per_feed);
 		$blog_settings->system->put('nb_comment_per_feed',$nb_comment_per_feed);
 		$blog_settings->system->put('short_feed_items',!empty($_POST['short_feed_items']));
-
 		if (isset($_POST['robots_policy'])) {
 			$blog_settings->system->put('robots_policy',$_POST['robots_policy']);
 		}
+		$blog_settings->system->put('jquery_version',$_POST['jquery_version']);
+		$blog_settings->system->put('prevents_clickjacking',!empty($_POST['prevents_clickjacking']));
 
 		# --BEHAVIOR-- adminBeforeBlogSettingsUpdate
 		$core->callBehavior('adminBeforeBlogSettingsUpdate',$blog_settings);
@@ -280,10 +306,12 @@ if ($standalone) {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			__('Blogs') => 'blogs.php',
+			__('Blogs') => $core->adminurl->get("admin.blogs"),
 			__('Blog settings').' : '.html::escapeHTML($blog_name) => ''
 		));
 }
+
+$desc_editor = $core->auth->getOption('editor');
 
 dcPage::open(__('Blog settings'),
 	'<script type="text/javascript">'."\n".
@@ -295,6 +323,7 @@ dcPage::open(__('Blog settings'),
 	"//]]>".
 	"</script>".
 	dcPage::jsConfirmClose('blog-form').
+	$core->callBehavior('adminPostEditor',$desc_editor['xhtml'],'blog_desc',array('#blog_desc'),'xhtml').
 	dcPage::jsLoad('js/_blog_pref.js').
 
 
@@ -331,6 +360,15 @@ if ($blog_id)
 		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
 		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
 		'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
+	} else {
+		/*
+		Only super admins can change the blog ID and URL, but we need to pass
+		their values to the POST request via hidden html input values  so as
+		to allow admins to update other settings.
+		Otherwise dcCore::getBlogCursor() throws an exception.
+		*/
+		echo form::field('blog_id', 30, 32, html::escapeHTML($blog_id), '', '', false, 'hidden="hidden"');
+		echo form::field('blog_url', 50, 255, html::escapeHTML($blog_url), '', '', false, 'hidden="hidden"');
 	}
 
 	echo
@@ -425,9 +463,9 @@ if ($blog_id)
 	form::combo('note_title_tag',$note_title_tag_combo,$blog_settings->system->note_title_tag).
 	'</p>'.
 
-	'<p><label for="enable_xmlrpc" class="classic">'.'</label>'.
+	'<p><label for="enable_xmlrpc" class="classic">'.
 	form::checkbox('enable_xmlrpc','1',$blog_settings->system->enable_xmlrpc).
-	__('Enable XML/RPC interface').'</p>';
+	__('Enable XML/RPC interface').'</label>'.'</p>';
 
 	echo
 		'<p class="form-note info">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';
@@ -471,6 +509,9 @@ if ($blog_id)
 	'<p><label for="wiki_comments" class="classic">'.
 	form::checkbox('wiki_comments','1',$blog_settings->system->wiki_comments).
 	__('Wiki syntax for comments').'</label></p>'.
+	'<p><label for="comment_preview_optional" class="classic">'.
+	form::checkbox('comment_preview_optional','1',$blog_settings->system->comment_preview_optional).
+	__('Preview of comment before submit is not mandatory').'</label></p>'.
 	'</div>'.
 
 	'<div class="col">'.
@@ -512,6 +553,10 @@ if ($blog_id)
 	'<p><label for="use_smilies" class="classic">'.
 	form::checkbox('use_smilies','1',$blog_settings->system->use_smilies).
 	__('Display smilies on entries and comments').'</label></p>'.
+
+	'<p><label for="no_search" class="classic">'.
+	form::checkbox('no_search','1',$blog_settings->system->no_search).
+	__('Disable internal search system').'</label></p>'.
 	'</div>'.
 
 	'<div class="col">'.
@@ -552,23 +597,39 @@ if ($blog_id)
 	'<div class="two-cols">'.
 	'<div class="col">'.
 	'<h5>'.__('Generated image sizes (in pixels)').'</h5>'.
-	'<p class="field"><label for="media_img_t_size">Thumbnail</label> '.
+	'<p class="field"><label for="media_img_t_size">'.__('Thumbnail').'</label> '.
 	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</p>'.
 
-	'<p class="field"><label for="media_img_s_size">Small</label> '.
+	'<p class="field"><label for="media_img_s_size">'.__('Small').'</label> '.
 	form::field('media_img_s_size',3,3,$blog_settings->system->media_img_s_size).'</p>'.
 
-	'<p class="field"><label for="media_img_m_size">Medium</label> '.
+	'<p class="field"><label for="media_img_m_size">'.__('Medium').'</label> '.
 	form::field('media_img_m_size',3,3,$blog_settings->system->media_img_m_size).'</p>'.
+
+	'<h5>'.__('Default size of the inserted video (in pixels)').'</h5>'.
+	'<p class="field"><label for="media_video_width">'.__('Width').'</label> '.
+	form::field('media_video_width',3,3,$blog_settings->system->media_video_width).'</p>'.
+
+	'<p class="field"><label for="media_video_height">'.__('Height').'</label> '.
+	form::field('media_video_height',3,3,$blog_settings->system->media_video_height).'</p>'.
+
+	'<h5>'.__('Flash player').'</h5>'.
+	'<p><label for="media_flash_fallback">'.
+	form::checkbox('media_flash_fallback','1',$blog_settings->system->media_flash_fallback).
+	__('Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media').'</label></p>'.
+	'<p class="form-note info">'.__('For flv video, the Flash player will be anyway inserted.').'</p>'.
 	'</div>'.
 
 	'<div class="col">'.
 	'<h5>'.__('Default image insertion attributes').'</h5>'.
 	'<p class="vertical-separator"><label for="media_img_title_pattern">'.__('Inserted image title').'</label>'.
-	form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).' '.
-	'<label for="media_img_use_dto_first" class="classic">'.
+	form::combo('media_img_title_pattern',$img_title_combo,html::escapeHTML($blog_settings->system->media_img_title_pattern)).'</p>'.
+	'<p><label for="media_img_use_dto_first" class="classic">'.
 	form::checkbox('media_img_use_dto_first','1',$blog_settings->system->media_img_use_dto_first).
 	__('Use original media date if possible').'</label></p>'.
+	'<p><label for="media_img_no_date_alone" class="classic">'.
+	form::checkbox('media_img_no_date_alone','1',$blog_settings->system->media_img_no_date_alone).
+	__('Do not display date if alone in title').'</label></p>'.
 	'<p class="form-note info">'.__('It is retrieved from the picture\'s metadata.').'</p>'.
 
 	'<p class="field vertical-separator"><label for="media_img_default_size">'.__('Size of inserted image:').'</label>'.
@@ -600,6 +661,21 @@ if ($blog_id)
 
 	echo '</div>';
 
+	echo
+	'<div class="fieldset"><h4>'.__('jQuery javascript library').'</h4>'.
+	'<p><label for="jquery_version" class="classic">'.__('jQuery version to be loaded for this blog:').'</label>'.' '.
+	form::combo('jquery_version',$jquery_versions_combo,$blog_settings->system->jquery_version).
+	'</p>'.
+	'<br class="clear" />'. //Opera sucks
+	'</div>';
+
+	echo
+	'<div class="fieldset"><h4>'.__('Blog security').'</h4>'.
+	'<p><label for="prevents_clickjacking" class="classic">'.
+	form::checkbox('prevents_clickjacking','1',$blog_settings->system->prevents_clickjacking).
+	__('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)').'</label></p>'.
+	'<br class="clear" />'. //Opera sucks
+	'</div>';
 
 	# --BEHAVIOR-- adminBlogPreferencesForm
 	$core->callBehavior('adminBlogPreferencesForm',$core,$blog_settings);
@@ -613,7 +689,7 @@ if ($blog_id)
 	if ($core->auth->isSuperAdmin() && $blog_id != $core->blog->id)
 	{
 		echo
-		'<form action="blog_del.php" method="post">'.
+		'<form action="'.$core->adminurl->get("admin.blog.del").'" method="post">'.
 		'<p><input type="submit" class="delete" value="'.__('Delete this blog').'" />'.
 		form::hidden(array('blog_id'),$blog_id).
 		$core->formNonce().'</p>'.
@@ -645,13 +721,13 @@ if ($blog_id)
 	else
 	{
 		if ($core->auth->isSuperAdmin()) {
-			$user_url_p = '<a href="user.php?id=%1$s">%1$s</a>';
+			$user_url_p = '<a href="'.$core->adminurl->get("admin.user",array('id' => '%1$s'),'&amp;',true).'">%1$s</a>';
 		} else {
 			$user_url_p = '%1$s';
 		}
 
 		# Sort users list on user_id key
-		ksort($blog_users);
+		dcUtils::lexicalKeySort($blog_users);
 
 		$post_type = $core->getPostTypes();
 		$current_blog_id = $core->blog->id;
@@ -715,9 +791,9 @@ if ($blog_id)
 
 				if (!$v['super'] && $core->auth->isSuperAdmin()) {
 					echo
-					'<form action="users_actions.php" method="post">'.
+					'<form action="'.$core->adminurl->get('admin.user.actions').'" method="post">'.
 					'<p class="change-user-perm"><input type="submit" class="reset" value="'.__('Change permissions').'" />'.
-					form::hidden(array('redir'),'blog_pref.php?id='.$k).
+					form::hidden(array('redir'),$core->adminurl->get("admin.blog.pref",array('id' => $k),'&')).
 					form::hidden(array('action'),'perms').
 					form::hidden(array('users[]'),$k).
 					form::hidden(array('blogs[]'),$blog_id).

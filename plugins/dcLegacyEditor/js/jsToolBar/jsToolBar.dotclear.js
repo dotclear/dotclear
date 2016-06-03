@@ -2,9 +2,9 @@
 -------------------------------------------------------- */
 jsToolBar.prototype.elements.link.data = {};
 jsToolBar.prototype.elements.link.fncall = {};
-jsToolBar.prototype.elements.link.open_url = 'popup_link.php';
+jsToolBar.prototype.elements.link.open_url = 'popup_link.php?plugin_id=dcLegacyEditor';
 
-jsToolBar.prototype.elements.link.popup = function (args) {
+jsToolBar.prototype.elements.link.popup = function(args) {
 	window.the_toolbar = this;
 	args = args || '';
 
@@ -17,7 +17,7 @@ jsToolBar.prototype.elements.link.popup = function (args) {
 };
 
 jsToolBar.prototype.elements.link.fn.wiki = function() {
-	this.elements.link.popup.call(this,'?hreflang='+this.elements.link.default_hreflang);
+	this.elements.link.popup.call(this,'&hreflang='+this.elements.link.default_hreflang);
 };
 jsToolBar.prototype.elements.link.fncall.wiki = function() {
 	var data = this.elements.link.data;
@@ -40,7 +40,7 @@ jsToolBar.prototype.elements.link.fncall.wiki = function() {
 };
 
 jsToolBar.prototype.elements.link.fn.xhtml = function() {
-	this.elements.link.popup.call(this,'?hreflang='+this.elements.link.default_hreflang);
+	this.elements.link.popup.call(this,'&hreflang='+this.elements.link.default_hreflang);
 };
 jsToolBar.prototype.elements.link.fncall.xhtml = function() {
 	var data = this.elements.link.data;
@@ -76,7 +76,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
 		hreflang = a.tag.hreflang || '';
 	}
 
-	this.elements.link.popup.call(this,'?href='+href+'&hreflang='+hreflang+'&title='+title);
+	this.elements.link.popup.call(this,'&href='+href+'&hreflang='+hreflang+'&title='+title);
 };
 jsToolBar.prototype.elements.link.fncall.wysiwyg = function() {
 	var data = this.elements.link.data;
@@ -154,7 +154,7 @@ jsToolBar.prototype.elements.img_select = {
 	title: 'Image chooser',
 	fn: {},
 	fncall: {},
-	open_url: 'media.php?popup=1',
+	open_url: 'media.php?popup=1&plugin_id=dcLegacyEditor',
 	data: {},
 	popup: function() {
 		window.the_toolbar = this;
@@ -354,7 +354,7 @@ jsToolBar.prototype.elements.post_link = {
 	type: 'button',
 	title: 'Link to an entry',
 	fn: {},
-	open_url: 'popup_posts.php',
+	open_url: 'popup_posts.php?plugin_id=dcLegacyEditor',
 	data: {},
 	popup: function() {
 		window.the_toolbar = this;

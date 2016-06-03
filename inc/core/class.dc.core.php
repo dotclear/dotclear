@@ -3,13 +3,12 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2014 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2015 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
 
 /**
 @defgroup DC_CORE Dotclear Core Classes
@@ -60,7 +59,7 @@ class dcCore
 	public function __construct($driver, $host, $db, $user, $password, $prefix, $persist)
 	{
 		if (defined('DC_START_TIME')) {
-			$this->stime=DC_START_TIME;
+			$this->stime = DC_START_TIME;
 		} else {
 			$this->stime = microtime(true);
 		}
@@ -88,9 +87,17 @@ class dcCore
 
 		$this->prefix = $prefix;
 
+		$ttl = DC_SESSION_TTL;
+		if (!is_null($ttl)) {
+			if (substr(trim($ttl),0,1) != '-') {
+				// Clearbricks requires negative session TTL
+				$ttl = '-'.trim($ttl);
+			}
+		}
+
 		$this->error = new dcError();
 		$this->auth = $this->authInstance();
-		$this->session = new sessionDB($this->con,$this->prefix.'session',DC_SESSION_NAME,'',null,DC_ADMIN_SSL);
+		$this->session = new sessionDB($this->con,$this->prefix.'session',DC_SESSION_NAME,'',null,DC_ADMIN_SSL,$ttl);
 		$this->url = new dcUrlHandlers();
 
 		$this->plugins = new dcPlugins($this);
@@ -185,16 +192,17 @@ class dcCore
 
 	public function getNonce()
 	{
-		return crypt::hmac(DC_MASTER_KEY,session_id());
+		return $this->auth->crypt(session_id());
 	}
 
 	public function checkNonce($secret)
 	{
+		// 40 alphanumeric characters min
 		if (!preg_match('/^([0-9a-f]{40,})$/i',$secret)) {
 			return false;
 		}
 
-		return $secret == crypt::hmac(DC_MASTER_KEY,session_id());
+		return $secret == $this->auth->crypt(session_id());
 	}
 
 	public function formNonce()
@@ -262,14 +270,14 @@ class dcCore
 	@param	editor_id	<b>string</b>	Editor id (dcLegacyEditor, dcCKEditor, ...)
 	@return	<b>array</b> An array of formaters names in values.
 
-    /**
-    if @param editor_id is empty:
-    return all formaters sorted by actives editors
-    
-    if @param editor_id is not empty
-    return formaters for an editor if editor is active
-    return empty() array if editor is not active. 
-    It can happens when a user choose an editor and admin deactivate that editor later
+	/**
+	if @param editor_id is empty:
+	return all formaters sorted by actives editors
+
+	if @param editor_id is not empty
+	return formaters for an editor if editor is active
+	return empty() array if editor is not active.
+	It can happens when a user choose an editor and admin deactivate that editor later
 	*/
 	public function getFormaters($editor_id='')
 	{
@@ -293,8 +301,8 @@ class dcCore
 	transformed using that formater.
 
 	@param	editor_id	<b>string</b>	Editor id (dcLegacyEditor, dcCKEditor, ...)
-	@param	name		<b>string</b>		Formater name
-	@param	str		<b>string</b>		String to transform
+	@param	name		<b>string</b>	Formater name
+	@param	str			<b>string</b>	String to transform
 	@return	<b>string</b>	String transformed
 	*/
 	public function callEditorFormater($editor_id,$name,$str)
@@ -312,7 +320,7 @@ class dcCore
 	transformed using that formater.
 
 	@param	name		<b>string</b>		Formater name
-	@param	str		<b>string</b>		String to transform
+	@param	str		    <b>string</b>		String to transform
 	@return	<b>string</b>	String transformed
 	*/
 	public function callFormater($name,$str)
@@ -572,7 +580,16 @@ class dcCore
 			'user_desc, user_lang,user_tz,user_post_status,user_options ';
 
 			if (!empty($params['order']) && !$count_only) {
-				$strReq .= 'ORDER BY '.$this->con->escape($params['order']).' ';
+				if (preg_match('`^([^. ]+) (?:asc|desc)`i',$params['order'],$matches)) {
+					if (in_array($matches[1],array('user_id','user_name','user_firstname','user_displayname'))) {
+						$table_prefix = 'U.';
+					} else {
+						$table_prefix = ''; // order = nb_post (asc|desc)
+					}
+					$strReq .= 'ORDER BY '.$table_prefix.$this->con->escape($params['order']).' ';
+				} else {
+					$strReq .= 'ORDER BY '.$this->con->escape($params['order']).' ';
+				}
 			} else {
 				$strReq .= 'ORDER BY U.user_id ASC ';
 			}
@@ -581,7 +598,6 @@ class dcCore
 		if (!$count_only && !empty($params['limit'])) {
 			$strReq .= $this->con->limit($params['limit']);
 		}
-
 		$rs = $this->con->select($strReq);
 		$rs->extend('rsExtUser');
 		return $rs;
@@ -837,7 +853,7 @@ class dcCore
 			if (strlen($cur->user_pwd) < 6) {
 				throw new Exception(__('Password must contain at least 6 characters.'));
 			}
-			$cur->user_pwd = crypt::hmac(DC_MASTER_KEY,$cur->user_pwd);
+			$cur->user_pwd = $this->auth->crypt($cur->user_pwd);
 		}
 
 		if ($cur->user_lang !== null && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/',$cur->user_lang)) {
@@ -864,6 +880,8 @@ class dcCore
 		return array(
 			'edit_size' => 24,
 			'enable_wysiwyg' => true,
+			'toolbar_bottom' => false,
+			'editor' => array('xhtml' => 'dcCKEditor', 'wiki' => 'dcLegacyEditor'),
 			'post_format' => 'wiki'
 		);
 	}
@@ -1188,6 +1206,7 @@ class dcCore
 			'active_lists' => 1,
 			'active_quote' => 1,
 			'active_pre' => 1,
+			'active_aside' => 1,
 			'active_empty' => 1,
 			'active_auto_br' => 0,
 			'active_auto_urls' => 0,
@@ -1210,7 +1229,8 @@ class dcCore
 			'active_fr_syntax' => 0,
 			'first_title_level' => 3,
 			'note_prefix' => 'wiki-footnote',
-			'note_str' => '<div class="footnotes"><h4>Notes</h4>%s</div>'
+			'note_str' => '<div class="footnotes"><h4>Notes</h4>%s</div>',
+			'img_style_center' => 'display:table; margin:0 auto;'
 		));
 
 		$this->wiki2xhtml->registerFunction('url:post',array($this,'wikiPostLink'));
@@ -1233,6 +1253,7 @@ class dcCore
 			'active_lists' => 0,
 			'active_quote' => 0,
 			'active_pre' => 0,
+			'active_aside' => 0,
 			'active_empty' => 0,
 			'active_auto_br' => 1,
 			'active_auto_urls' => 1,
@@ -1273,6 +1294,7 @@ class dcCore
 			'active_lists' => 1,
 			'active_quote' => 0,
 			'active_pre' => 1,
+			'active_aside' => 0,
 			'active_empty' => 0,
 			'active_auto_br' => 1,
 			'active_auto_urls' => 1,
@@ -1370,7 +1392,7 @@ class dcCore
 				'Enable XML/RPC interface'),
 				array('lang','string','en',
 				'Default blog language'),
-				array('media_exclusion','string','/\.php$/i',
+				array('media_exclusion','string','/\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*$/i',
 				'File name exclusion pattern in media manager. (PCRE value)'),
 				array('media_img_m_size','integer',448,
 				'Image medium size in media manager'),
@@ -1380,6 +1402,12 @@ class dcCore
 				'Image thumbnail size in media manager'),
 				array('media_img_title_pattern','string','Title ;; Date(%b %Y) ;; separator(, )',
 				'Pattern to set image title when you insert it in a post'),
+				array('media_video_width','integer',400,
+				'Video width in media manager'),
+				array('media_video_height','integer',300,
+				'Video height in media manager'),
+				array('media_flash_fallback','boolean',true,
+				'Flash player fallback for audio and video media'),
 				array('nb_post_for_home','integer',20,
 				'Number of entries on first home page'),
 				array('nb_post_per_page','integer',20,
@@ -1418,6 +1446,8 @@ class dcCore
 				'URL handle mode (path_info or query_string)'),
 				array('use_smilies','boolean',false,
 				'Show smilies on entries and comments'),
+				array('no_search','boolean',false,
+				'Disable search'),
 				array('inc_subcats','boolean',false,
 				'Include sub-categories in category page and category posts feed'),
 				array('wiki_comments','boolean',false,

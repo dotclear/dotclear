@@ -19,7 +19,7 @@ if (!empty($_POST['delete_all_spam']))
 	try {
 		$core->blog->delJunkComments();
 		$_SESSION['comments_del_spam'] = true;
-		http::redirect('comments.php');
+		$core->adminurl->redirect("admin.comments");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
@@ -50,7 +50,6 @@ $order_combo = array(
 __('Descending') => 'desc',
 __('Ascending') => 'asc'
 );
-
 
 /* Get comments
 -------------------------------------------------------- */
@@ -111,6 +110,12 @@ if ($ip) {
 	$show_filters = true;
 }
 
+// Add some sort order if spams displayed
+if ($with_spam || ($status == -2)) {
+	$sortby_combo[__('IP')] = 'comment_ip';
+	$sortby_combo[__('Spam filter')] = 'comment_spam_filter';
+}
+
 # Sortby and order filter
 if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 	if ($order !== '' && in_array($order,$order_combo)) {
@@ -135,7 +140,7 @@ if ($core->auth->check('delete,contentadmin',$core->blog->id) && $status == -2)
 	$default = 'delete';
 }
 
-$comments_actions_page = new dcCommentsActionsPage($core,'comments.php');
+$comments_actions_page = new dcCommentsActionsPage($core,$core->adminurl->get("admin.comments"));
 
 if ($comments_actions_page->process()) {
 	return;
@@ -190,20 +195,20 @@ if (!$core->error->flag())
 	if ($spam_count > 0) {
 
 		echo
-			'<form action="comments.php" method="post" class="fieldset">';
+			'<form action="'.$core->adminurl->get("admin.comments").'" method="post" class="fieldset">';
 
 		if (!$with_spam || ($status != -2)) {
 			if ($spam_count == 1) {
 				echo '<p>'.sprintf(__('You have one spam comment.'),'<strong>'.$spam_count.'</strong>').' '.
-				'<a href="comments.php?status=-2">'.__('Show it.').'</a>.</p>';
+				'<a href="'.$core->adminurl->get("admin.comments",array('status' => -2)).'">'.__('Show it.').'</a></p>';
 			} elseif ($spam_count > 1) {
 				echo '<p>'.sprintf(__('You have %s spam comments.'),'<strong>'.$spam_count.'</strong>').' '.
-				'<a href="comments.php?status=-2">'.__('Show them.').'</a>.</p>';
+				'<a href="'.$core->adminurl->get("admin.comments",array('status' => -2)).'">'.__('Show them.').'</a></p>';
 			}
 		}
 
 		echo
-			'<p class="no-margin">'.
+			'<p>'.
 			$core->formNonce().
 			'<input name="delete_all_spam" class="delete" type="submit" value="'.__('Delete all spams').'" /></p>';
 
@@ -214,7 +219,7 @@ if (!$core->error->flag())
 	}
 
 	echo
-	'<form action="comments.php" method="get" id="filters-form">'.
+	'<form action="'.$core->adminurl->get("admin.comments").'" method="get" id="filters-form">'.
 	'<h3 class="hidden">'.__('Filter comments and trackbacks list').'</h3>'.
 	'<div class="table">'.
 
@@ -239,7 +244,7 @@ if (!$core->error->flag())
 	form::combo('sortby',$sortby_combo,$sortby).'</p>'.
 	'<p><label for="order" class="ib">'.__('Sort:').'</label> '.
 	form::combo('order',$order_combo,$order).'</p>'.
-	'<p><span class="label ib">Afficher</span> <label for="nb" class="classic">'.
+	'<p><span class="label ib">'.__('Show').'</span> <label for="nb" class="classic">'.
 	form::field('nb',3,3,$nb_per_page).' '.
 	__('comments per page').'</label></p>'.
 	'</div>'.
@@ -251,7 +256,7 @@ if (!$core->error->flag())
 
 	# Show comments
 	$comment_list->display($page,$nb_per_page,
-	'<form action="comments.php" method="post" id="form-comments">'.
+	'<form action="'.$core->adminurl->get("admin.comments").'" method="post" id="form-comments">'.
 
 	'%s'.
 
@@ -261,11 +266,11 @@ if (!$core->error->flag())
 	'<p class="col right"><label for="action" class="classic">'.__('Selected comments action:').'</label> '.
 	form::combo('action',$comments_actions_page->getCombo(),$default,'','','','title="'.__('Actions').'"').
 	$core->formNonce().
-	'<input type="submit" value="'.__('ok').'" /></p>'.
+	'<input id="do-action" type="submit" value="'.__('ok').'" /></p>'.
 	form::hidden(array('type'),$type).
 	form::hidden(array('sortby'),$sortby).
 	form::hidden(array('order'),$order).
-	form::hidden(array('author'),preg_replace('/%/','%%',$author)).
+	form::hidden(array('author'),html::escapeHTML(preg_replace('/%/','%%',$author))).
 	form::hidden(array('status'),$status).
 	form::hidden(array('ip'),preg_replace('/%/','%%',$ip)).
 	form::hidden(array('page'),$page).
@@ -273,7 +278,8 @@ if (!$core->error->flag())
 	'</div>'.
 
 	'</form>',
-	$show_filters
+	$show_filters,
+	($with_spam || ($status == -2))
 	);
 }
 

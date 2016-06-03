@@ -78,10 +78,14 @@ class dcWorkspace
 			$value = $rs->f('pref_value');
 			$type = $rs->f('pref_type');
 
-			if ($type == 'float' || $type == 'double') {
-				$type = 'float';
-			} elseif ($type != 'boolean' && $type != 'integer') {
-				$type = 'string';
+			if ($type == 'array') {
+				$value = @json_decode($value,true);
+			} else {
+				if ($type == 'float' || $type == 'double') {
+					$type = 'float';
+				} elseif ($type != 'boolean' && $type != 'integer') {
+					$type = 'string';
+				}
 			}
 
 			settype($value,$type);
@@ -232,10 +236,14 @@ class dcWorkspace
 			} elseif ($this->prefExists($id,true)) {
 				$type = $this->global_prefs[$id]['type'];
 			} else {
-				$type = 'string';
+				if (is_array($value)) {
+					$type = 'array';
+				} else {
+					$type = 'string';
+				}
 			}
 		}
-		elseif ($type != 'boolean' && $type != 'integer' && $type != 'float')
+		elseif ($type != 'boolean' && $type != 'integer' && $type != 'float' && $type != 'array')
 		{
 			$type = 'string';
 		}
@@ -250,7 +258,11 @@ class dcWorkspace
 			}
 		}
 
-		settype($value,$type);
+		if ($type != 'array') {
+			settype($value,$type);
+		} else {
+			$value = json_encode($value);
+		}
 
 		$cur = $this->con->openCursor($this->table);
 		$cur->pref_value = ($type == 'boolean') ? (string) (integer) $value : (string) $value;
@@ -391,6 +403,16 @@ class dcWorkspace
 
 		$array = $global ? 'local' : 'global';
 		$this->prefs = $this->{$array.'_prefs'};
+	}
+
+	/**
+	Returns $ws property content.
+
+	@return	<b>string</b>
+	*/
+	public function dumpWorkspace()
+	{
+		return $this->ws;
 	}
 
 	/**

@@ -1,3 +1,147 @@
+Dotclear 2.9.1 - 2016-03-27
+===========================================================
+* Security: Add shtml extension to default media exclusion extension control, thank's Nitin Venkatesh for report
+* Changing theme is now allowed even with read-only theme folder
+* Audio media are not more preloaded in media manager pages
+* Array settings/prefs are stored with 'array' type rather than 'string'
+* 🐛 → Various bug fixes
+* 🌼 → Some cosmetic adjustments
+
+Dotclear 2.9 - 2016-02-29
+===========================================================
+* Additionnal menu items are now lexically sorted (default items and favorites order will be preserved)
+* Wiki syntax : Added ""marked text"" support (HTML5 only)
+* Session TTL are now adjustable (set DC_SESSION_TTL in inc/config.php)
+* Add behaviors for posts/pages/comments/users lists' columns → let 3rd party plugin playing with them
+* Blog and user lists are now lexically sorted
+* Some new filters have been added for post lists
+* Add a search engine in media manager (looking in filename, title and description metadata)
+* Add recent folders direct access mechanism for the media manager (setting in user prefs)
+* Add a another display mode (list) to the media manager
+* Details about currently selected thumbnail in media manager are now displayed
+* Shortcut access to the upload file form is now displayed on top on media page
+* Default insertion size (width and height) may now be defined for video media
+* Flash player fallback insertion is now optional for audio and video media
+* Modules may have dependencies on Dotclear core version too (using 'core' as module name)
+* Avoid mixed content (http vs https) for post/page preview: will open preview in another window if necessary
+* Finnish translation has been added
+* Content-length header is not more sent in HTTP response (should fix very long delays on some servers)
+* Template engine : add tpl:EntryAuthorEmailMD5 and tpl:EntryCategoryDescription tags
+* A new pref/setting array type is now available (JSON encoded in db)
+* Cope with sort of "un-attached" media → allows new features as "featured media" plugin
+* CKEditor library updated from 4.5.1 to 4.5.8
+* Update jQuery from 1.11.3 to 2.2.0, jQuery-migrate from 1.2.1 to 1.3.0, jQuery-ui-custom from 1.11.2 to 1.11.4
+* Provide jQuery 2.2.0 for public use (themes/plugins) - 1.4.2 (default) and 1.11.3 still provided
+* Some locales added or updated
+* PHP 7 compliance, PHP 5.3 min
+* Fix : Cope with "unknown" scheme in url (ie nor http: neither https: is defined in origin url)
+* Fix : Let select another theme even if theme folder is read-only
+* Fix : XML-RPC media uploaded are not more twice Base64 decoded
+* And plenty of other 🐛 🔫, various 🌼 adjustments, and also lot of 🍻 drunk
+
+Dotclear 2.8.2 - 2015-10-25
+===========================================================
+* Security fix : Fixed potential XSS on comments management page
+* Security fix : Enforce media exclusion control
+* Php 5.5 leaves NULL chars in unpack ==> add trim, fixed
+* Media title (in standard mode) is now taken into account on upload
+* Some 🐛 🔫
+
+Dotclear 2.8.1 - 2015-09-23
+===========================================================
+* Fix admin pager parameters escaping - thanks Keiko Yashiki from JPCERT/CC for reporting this XSS
+* Error on changing post author in entries' lists: fixed
+* Cope with unknown URL scheme in X-Frame-Options
+* One ot two of 🍻 drunk
+
+Dotclear 2.8 - 2015-08-13
+===========================================================
+* New module dependencies system (plugins)
+* Theme editor: Cope with css theme sub-folder
+* extension/heritage system applied to mustek templateset
+* installation wizard now allows SQLite engine
+* Legacy editor toolbar may now be displayed below textarea
+* Breadcrumb plugin added to the distribution, included in mustek/currywurst templatesets
+* Allow a fifth parameter (optional) for image to insert a legend using figure/figcaption tags (wiki)
+* XHTML validator removed from legacy editor
+* Update jQuery from 1.11.2 to 1.11.3
+* Add a blog parameter to disable internal search
+* Add some sort orders and filters criteria for posts and comments
+* Update CKEditor from 4.4.8 to 4.5.2
+* Add IP and antispam filter columns when displaying spams
+* Add actions to directly blacklist IP from comments list
+* Lexical sort order for tags and widgets
+* Use HTML5 audio tag for MP3 attachments
+* Bye the 🐈, welcome the 🐸
+* Lot of 🐛 🔫
+* Various 🌼 adjustments
+* Full of 🍻 drunk
+
+Dotclear 2.7.4 - 2015-02-13
+===========================================================
+* Berlin theme: resources usage has been optimized
+* currywurst templateset: head-linkrel block name fixed
+* Current editor syntax: now displayed near edited field (post/page/quick entry)
+* Some admin URLs were malformed: fixed
+* Post/page preview: anti-clickjacking system fixed
+* The cat is valid now
+
+Dotclear 2.7.3 - 2015-01-13
+===========================================================
+* Restore advanced edition of category description (as in 2.6)
+* Various bug fixes
+* Some cosmetic adjustments
+
+Dotclear 2.7.2 - 2014-12-25
+===========================================================
+* Dotclear wiki could not be used by standard user: fixed
+
+Dotclear 2.7.1 - 2014-12-25
+===========================================================
+* Various bug fixes
+* Some cosmetic adjustments
+
+Dotclear 2.7 - 2014-12-13
+===========================================================
+* Security : protection against clickjacking may be activated (see blog parameters)
+* Switch to HTML5 : backend, templatesets and themes
+* ARIA roles in da place (a11y)
+* Multiple templatesets : mustek (legacy) and currywurst
+* Themes may use extension/heritage template mechanisms
+* New theme (Berlin) based on currywurst templateset
+* New WYSIWYG editor (CKEditor)
+* Dotclear Wiki now produces HTML5 compatible markup
+* Video and audio HTML5 tags are now used (with fallback to flash if possible)
+* Copying default theme to user-defined theme folder is not more necessary
+* Preview of comment may be optional (see blog parameters)
+* Widgets may be put offline without deleting them
+* jQuery version may be choosen between 1.4.2 (default) and 1.11.1 (see blog parameters)
+* Number of posts listed on home page may be different than other pages (see blog parameters)
+* Hidden folders are now hidden in media manager (set DC_SHOW_HIDDEN_DIRS to true in config.php to display them)
+* User-defined template files may be reset (deleted) in theme editor
+* Drag'n'drop now enabled on touch screens
+* Alternative syntax may be set for comments by third-party plugins
+* A lot of bug fixes
+* Much more cosmetic adjustements and enhancements
+
+Dotclear 2.6.4 - 2014-08-18
+===========================================================
+* Security fix: Sanitize search request. Thanks to Takayuki Uchiyama
+* Security fix: Strenghened xmlrpc (see http://www.breaksec.com/?p=6362)
+
+Dotclear 2.6.3 - 2014-05-16
+===========================================================
+* Security fix: Strengthened xmlrpc auth. Thanks to Egidio Romano
+* Security fix: Strengthened categories ordering. Thanks to Egidio Romano
+
+Dotclear 2.6.2 - 2014-01-20
+===========================================================
+* Security fix: Fixed potential code injection on password protected post/page. Thanks to Charlie Briggs
+* Bugfix: cope with numeric module (plugin/theme) id
+* Bugfix: Bad SQL syntax when using SQLite
+* Bugfix: BlogParentThemeURL template value is back
+* Various bug fixes
+
 Dotclear 2.6.1 - 2013-11-22
 ===========================================================
 * Bugfix: trackbacks/pingbacks post URL

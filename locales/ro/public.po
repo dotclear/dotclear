@@ -42,6 +42,7 @@ msgstr "Activat"
 msgid "Continue reading"
 msgstr "Citește în continuare"
 
+#, fuzzy
 msgid "no comments"
 msgstr "niciun comentariu"
 
@@ -51,7 +52,7 @@ msgstr "un comentariu"
 msgid "%d comments"
 msgstr "%d comentarii"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "fără trackback"
 
 msgid "one trackback"
@@ -60,7 +61,7 @@ msgstr "un trackback"
 msgid "%d trackbacks"
 msgstr "%d trackback-uri"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "niciun atașament"
 
 msgid "one attachment"

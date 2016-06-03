@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2015-07-15 14:17+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: _config.php:31 _config.php:34 inc/_config.php:43
+msgid "The configuration has been updated."
+msgstr "La configuration a été mise à jour."
+
+#: tpl/index.tpl:12
+msgid "Settings"
+msgstr "Options"
+
+#: tpl/index.tpl:15
+msgid "Plugin activation"
+msgstr "Activation du plugin"
+
+#: tpl/index.tpl:19
+msgid "Enable dcCKEditor plugin"
+msgstr "Activer le plugin dcCKEditor"
+
+#: tpl/index.tpl:26
+msgid "Options"
+msgstr "Options"
+
+#: tpl/index.tpl:29
+msgid "Add alignment buttons"
+msgstr "Ajouter les boutons d'alignement"
+
+#: tpl/index.tpl:33
+msgid "Add lists buttons"
+msgstr "Ajouter les boutons de listes"
+
+#: tpl/index.tpl:40 tpl/index.tpl:44 tpl/index.tpl:63
+msgid "Save configuration"
+msgstr "Sauver la configuration"
+
+#: tpl/index.tpl:37
+msgid "Add text color button"
+msgstr "Ajouter le bouton pour changer la couleur du texte"
+
+#: tpl/index.tpl:37
+msgid "Add background text color button"
+msgstr "Ajouter le bouton pour changer la couleur de fond du texte"
+
+#: tpl/index.tpl:41
+msgid "Add collapse button"
+msgstr "Ajouter le bouton pour masquer les boutons"
+
+#: tpl/index.tpl:45
+msgid "Add format selection"
+msgstr "Ajouter le bouton pour ajouter les formats."
+
+msgid "Add table button"
+msgstr "Ajouter le bouton pour ajouter des tableaux."
+
+msgid "Add clipboard buttons"
+msgstr "Ajouter les boutons de copier/coller..."
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr "Copier, Coller, Coller sans mise en forme, Copier depuis word"
+
+#: tpl/index.tpl:49
+msgid "Advanced options"
+msgstr "Options avancées"
+
+#: tpl/index.tpl:51
+msgid "Text areas to be used by CKEditor"
+msgstr "Liste des blocs où utiliser CKEditor"
+
+#: tpl/index.tpl:55
+msgid "Comma separed list of textareas - jQuery selector. Defaut: "
+msgstr "Listes d'élements html à transformer avec CKEditor - C'est une liste utilisée par jQuery. Défaut : "
+
+msgid "URL field cannot be empty."
+msgstr "L'URL ne peut pas être vide."
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr "Désactiver la correction orthographique fournie par le navigateur"

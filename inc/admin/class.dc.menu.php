@@ -21,26 +21,37 @@ class dcMenu
 		$this->id = $id;
 		$this->title = $title;
 		$this->itemSpace = $itemSpace;
+		$this->pinned = array();
 		$this->items = array();
 	}
 
-	public function addItem($title,$url,$img,$active,$show=true,$id=null,$class=null)
+	public function addItem($title,$url,$img,$active,$show=true,$id=null,$class=null,$pinned=false)
 	{
 		if($show) {
-			$this->items[] = $this->itemDef($title,$url,$img,$active,$id,$class);
+			$item = $this->itemDef($title,$url,$img,$active,$id,$class);
+			if ($pinned) {
+				$this->pinned[] = $item;
+			} else {
+				$this->items[$title] = $item;
+			}
 		}
 	}
 
-	public function prependItem($title,$url,$img,$active,$show=true,$id=null,$class=null)
+	public function prependItem($title,$url,$img,$active,$show=true,$id=null,$class=null,$pinned=false)
 	{
 		if ($show) {
-			array_unshift($this->items,$this->itemDef($title,$url,$img,$active,$id,$class));
+			$item = $this->itemDef($title,$url,$img,$active,$id,$class);
+			if ($pinned) {
+				array_unshift($this->pinned,$item);
+			} else {
+				$this->items[$title] = $item;
+			}
 		}
 	}
 
 	public function draw()
 	{
-		if (count($this->items) == 0) {
+		if (count($this->items) + count($this->pinned) == 0) {
 			return '';
 		}
 
@@ -49,14 +60,29 @@ class dcMenu
 		($this->title ? '<h3>'.$this->title.'</h3>' : '').
 		'<ul>'."\n";
 
-		for ($i=0; $i<count($this->items); $i++)
+		// 1. Display pinned items (unsorted)
+		for ($i=0; $i<count($this->pinned); $i++)
 		{
-			if ($i+1 < count($this->items) && $this->itemSpace != '') {
-				$res .= preg_replace('|</li>$|',$this->itemSpace.'</li>',$this->items[$i]);
+			if ($i+1 < count($this->pinned) && $this->itemSpace != '') {
+				$res .= preg_replace('|</li>$|',$this->itemSpace.'</li>',$this->pinned[$i]);
 				$res .= "\n";
 			} else {
-				$res .= $this->items[$i]."\n";
+				$res .= $this->pinned[$i]."\n";
 			}
+		}
+
+		// 2. Display unpinned itmes (sorted)
+		$i = 0;
+		dcUtils::lexicalKeySort($this->items);
+		foreach ($this->items as $title => $item)
+		{
+			if ($i+1 < count($this->items) && $this->itemSpace != '') {
+				$res .= preg_replace('|</li>$|',$this->itemSpace.'</li>',$item);
+				$res .= "\n";
+			} else {
+				$res .= $item."\n";
+			}
+			$i++;
 		}
 
 		$res .= '</ul></div>'."\n";

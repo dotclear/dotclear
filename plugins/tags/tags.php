@@ -15,7 +15,7 @@ if (!defined('DC_CONTEXT_ADMIN')) { return; }
 <html>
 <head>
   <title><?php echo __('Tags'); ?></title>
-  <link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />
+  <?php echo dcPage::cssLoad(dcPage::getPF('tags/style.css'));?>
 </head>
 
 <body>
@@ -39,7 +39,7 @@ $cols = array('','');
 $col = 0;
 while ($tags->fetch())
 {
-	$letter = mb_strtoupper(mb_substr($tags->meta_id,0,1));
+	$letter = mb_strtoupper(mb_substr($tags->meta_id_lower,0,1));
 
 	if ($last_letter != $letter) {
 		if ($tags->index() >= round($tags->count()/2)) {

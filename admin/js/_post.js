@@ -51,7 +51,26 @@ dotclear.viewCommentContent = function(line,action) {
 
 $(function() {
 	// Post preview
-	$('#post-preview').modalWeb($(window).width()-40,$(window).height()-40);
+	$preview_url = $('#post-preview').attr('href');
+	if ($preview_url) {
+
+		// Make $preview_url absolute
+		$a = document.createElement('a');
+		$a.href = $('#post-preview').attr('href');
+		$preview_url = $a.href;
+
+		// Check if admin and blog have same protocol (ie not mixed-content)
+		if (window.location.protocol == $preview_url.substring(0,window.location.protocol.length)) {
+			// Open preview in a modal iframe
+			$('#post-preview').modalWeb($(window).width()-40,$(window).height()-40);
+		} else {
+			// Open preview on antother window
+			$('#post-preview').click(function(e) {
+				e.preventDefault();
+				window.open($(this).attr('href'));
+			});
+		}
+	}
 
 	// Tabs events
 	$('#edit-entry').onetabload(function() {

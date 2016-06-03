@@ -14,7 +14,7 @@
 				<meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
 			</tpl:Block>	<!-- meta-robots -->
 			<tpl:Block name="meta-entry">
-				<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
+				<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" remove_html="1" encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
 				<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
 				<meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
 			</tpl:Block>	<!-- meta-entry -->
@@ -28,13 +28,13 @@
 			<meta property="dc.format" content="text/html" />
 			<tpl:Block name="dc-entry">
 				<meta property="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
-				<meta property="dc.description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription encode_html="1"}}" />
+				<meta property="dc.description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}" />
 				<meta property="dc.language" content="{{tpl:BlogLanguage}}" />
 				<meta property="dc.date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
-			</tpl:Block>	<!-- dc-title-head -->
+			</tpl:Block>	<!-- dc-entry -->
 		</tpl:Block>	<!-- head-dc -->
 
-		<tpl:Block name"head-linkrel">
+		<tpl:Block name="head-linkrel">
 			<link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
 			<tpl:Categories>
 				<link rel="section" href="{{tpl:CategoryURL}}" title="{{tpl:CategoryTitle encode_html="1"}}" />
@@ -64,9 +64,9 @@
 		{{tpl:include src="_head.html"}}
 	</tpl:Block>	<!-- html-head -->
 </head>
-<tpl:block name="body-tag">
+<tpl:Block name="body-tag">
 	<body class="dc-home <tpl:SysIf current_mode="default">dc-home-first</tpl:SysIf>">
-</tpl:block>
+</tpl:Block>
 	<tpl:Block name="html-body">
 		<div id="page">
 			<tpl:Block name="body-page">
@@ -78,6 +78,9 @@
 					<tpl:Block name="page-wrapper">
 						<div id="main" role="main">
 							<tpl:Block name="wrapper-main">
+								<tpl:Block name="main-breadcrumb">
+									{{tpl:Breadcrumb}}
+								</tpl:Block>
 								<div id="content">
 									<tpl:Block name="main-content">
 
@@ -106,7 +109,7 @@
 
 										</tpl:Entries>
 
-									</tpl:Block>	<!-- page-content -->
+									</tpl:Block>	<!-- main-content -->
 								</div> <!-- End #content -->
 							</tpl:Block>	<!-- wrapper-main -->
 						</div> <!-- End #main -->

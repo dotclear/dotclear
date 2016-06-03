@@ -74,7 +74,8 @@ class dcAntispam
 	{
 		if (($count = self::countSpam($core)) > 0) {
 			$str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-			$icons['comments'][0] .= '</span></a> <br /><a href="comments.php?status=-2"><span>'.sprintf($str,$count);
+			$icons['comments'][0] .= '</span></a> <br /><a href="'.$core->adminurl->get('admin.comments',array('status' => '-2')).'"><span>'.
+				sprintf($str,$count);
 		}
 	}
 
@@ -82,7 +83,8 @@ class dcAntispam
 	{
 		if (($count = self::countSpam($core)) > 0) {
 			$str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-			return '</span></a> <br /><a href="comments.php?status=-2"><span>'.sprintf($str,$count);
+			return '</span></a> <br /><a href="'.$core->adminurl->get('admin.comments',array('status' => '-2')).'"><span>'.
+				sprintf($str,$count);
 		} else {
 			return '';
 		}
@@ -131,7 +133,7 @@ class dcAntispam
 	{
 		$code =
 		pack('a32',$core->auth->userID()).
-		pack('H*',crypt::hmac(DC_MASTER_KEY,$core->auth->getInfo('user_pwd')));
+		pack('H*',$core->auth->crypt($core->auth->getInfo('user_pwd')));
 		return bin2hex($code);
 	}
 
@@ -140,7 +142,7 @@ class dcAntispam
 		$code = pack('H*',$code);
 
 		$user_id = trim(@pack('a32',substr($code,0,32)));
-		$pwd = @unpack('H40hex',substr($code,32,40));
+		$pwd = @unpack('H*hex',substr($code,32));
 
 		if ($user_id === false || $pwd === false) {
 			return false;
@@ -158,7 +160,7 @@ class dcAntispam
 			return false;
 		}
 
-		if (crypt::hmac(DC_MASTER_KEY,$rs->user_pwd) != $pwd) {
+		if ($core->auth->crypt($rs->user_pwd) != $pwd) {
 			return false;
 		}
 

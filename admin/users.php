@@ -83,7 +83,14 @@ if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
 try {
 	$rs = $core->getUsers($params);
 	$counter = $core->getUsers($params,1);
-	$user_list = new adminUserList($core,$rs,$counter->f(0));
+	$rsStatic = $rs->toStatic();
+	if ($sortby != 'nb_post') {
+		// Sort user list using lexical order if necessary
+		$rsStatic->extend('rsExtUser');
+		$rsStatic = $rsStatic->toExtStatic();
+		$rsStatic->lexicalSort($sortby,$order);
+	}
+	$user_list = new adminUserList($core,$rsStatic,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
@@ -122,8 +129,8 @@ if (!$core->error->flag())
 	}
 
 	echo
-	'<p class="top-add"><strong><a class="button add" href="user.php">'.__('New user').'</a></strong></p>'.
-	'<form action="users.php" method="get" id="filters-form">'.
+	'<p class="top-add"><strong><a class="button add" href="'.$core->adminurl->get("admin.user").'">'.__('New user').'</a></strong></p>'.
+	'<form action="'.$core->adminurl->get("admin.users").'" method="get" id="filters-form">'.
 	'<h3 class="out-of-screen-if-js">'.$form_filter_title.'</h3>'.
 
 	'<div class="table">'.
@@ -150,7 +157,7 @@ if (!$core->error->flag())
 
 	# Show users
 	$user_list->display($page,$nb_per_page,
-	'<form action="users_actions.php" method="post" id="form-users">'.
+	'<form action="'.$core->adminurl->get("admin.user.actions").'" method="post" id="form-users">'.
 
 	'%s'.
 
@@ -161,7 +168,7 @@ if (!$core->error->flag())
 	__('Selected users action:').' '.
 	form::combo('action',$combo_action).
 	'</label> '.
-	'<input type="submit" value="'.__('ok').'" />'.
+	'<input id="do-action" type="submit" value="'.__('ok').'" />'.
 	form::hidden(array('q'),html::escapeHTML($q)).
 	form::hidden(array('sortby'),$sortby).
 	form::hidden(array('order'),$order).

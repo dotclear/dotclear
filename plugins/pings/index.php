@@ -15,7 +15,7 @@ dcPage::checkSuper();
 
 try
 {
-	$pings_uris = @unserialize($core->blog->settings->pings->pings_uris);
+	$pings_uris = $core->blog->settings->pings->pings_uris;
 	if (!$pings_uris) {
 		$pings_uris = array();
 	}
@@ -34,7 +34,7 @@ try
 
 		$core->blog->settings->addNamespace('pings');
 		$core->blog->settings->pings->put('pings_active',!empty($_POST['pings_active']),null,null,true,true);
-		$core->blog->settings->pings->put('pings_uris',serialize($pings_uris),null,null,true,true);
+		$core->blog->settings->pings->put('pings_uris',$pings_uris,null,null,true,true);
 		dcPage::addSuccessNotice(__('Settings have been successfully updated.'));
 		http::redirect($p_url);
 	}

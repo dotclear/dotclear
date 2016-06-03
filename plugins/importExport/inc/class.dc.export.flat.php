@@ -203,7 +203,7 @@ class dcExportFlat extends dcIeModule
 		__('Compress file').'</label>'.
 		'</p>'.
 
-		'<p class="zip-dl"><a href="media.php?d=&amp;zipdl=1">'.
+		'<p class="zip-dl"><a href="'.$this->core->decode('admin.media',array('d' => '','zipdl' => '1')).'">'.
 		__('You may also want to download your media directory as a zip file').'</a></p>'.
 
 		'<p><input type="submit" value="'.__('Export').'" />'.

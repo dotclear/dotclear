@@ -17,8 +17,9 @@ dcPage::check('usage,contentadmin');
 $href = !empty($_GET['href']) ? $_GET['href'] : '';
 $hreflang = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
 $title = !empty($_GET['title']) ? $_GET['title'] : '';
+$plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) : '';
 
-dcPage::openPopup(__('Add a link'),$core->callBehavior('adminPopupLink'));
+dcPage::openPopup(__('Add a link'),$core->callBehavior('adminPopupLink', $plugin_id));
 
 echo '<h2 class="page-title">'.__('Add a link').'</h2>';
 

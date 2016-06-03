@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-05 14:32+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: _config.php:31 _config.php:34 inc/_config.php:43
+msgid "The configuration has been updated."
+msgstr ""
+
+#: tpl/index.tpl:12 tpl/index.tpl:12
+msgid "Settings"
+msgstr ""
+
+#: tpl/index.tpl:15 tpl/index.tpl:15
+msgid "Plugin activation"
+msgstr ""
+
+#: tpl/index.tpl:19 tpl/index.tpl:19
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+#: tpl/index.tpl:26 tpl/index.tpl:26
+msgid "Options"
+msgstr ""
+
+#: tpl/index.tpl:29 tpl/index.tpl:29
+msgid "Add alignment buttons"
+msgstr ""
+
+#: tpl/index.tpl:33 tpl/index.tpl:33
+msgid "Add lists buttons"
+msgstr ""
+
+#: tpl/index.tpl:40 tpl/index.tpl:44 tpl/index.tpl:63
+msgid "Save configuration"
+msgstr ""
+
+#: tpl/index.tpl:37 tpl/index.tpl:37
+msgid "Add text color button"
+msgstr ""
+
+#: tpl/index.tpl:41
+msgid "Add collapse button"
+msgstr ""
+
+#: tpl/index.tpl:49
+msgid "Add format selection"
+msgstr ""
+
+#: tpl/index.tpl:51
+msgid "Advanced options"
+msgstr ""
+
+#: tpl/index.tpl:53
+msgid "Text areas to be used by CKEditor"
+msgstr ""
+
+#: tpl/index.tpl:55
+msgid "Comma separed list of textareas - jQuery selector. Defaut: "
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+

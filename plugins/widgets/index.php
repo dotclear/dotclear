@@ -213,19 +213,19 @@ elseif (!empty($_POST['wreset']))
 <html>
 <head>
   <title><?php echo __('Widgets'); ?></title>
-  <link type="text/css" rel="stylesheet" href="index.php?pf=widgets/style.css"/>
+  <?php echo dcPage::cssLoad(dcPage::getPF('widgets/style.css'));?>
   <?php
 		echo
 			dcPage::jsLoad('js/jquery/jquery-ui.custom.js').
 			dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js').
-			dcPage::jsLoad('index.php?pf=widgets/widgets.js');
+			dcPage::jsLoad(dcPage::getPF('widgets/widgets.js'));
   ?>
   <?php
 	$core->auth->user_prefs->addWorkspace('accessibility');
 	$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
   ?>
   <?php if (!$user_dm_nodragdrop) : ?>
-  <script type="text/javascript" src="index.php?pf=widgets/dragdrop.js"></script>
+  <?php echo dcPage::jsLoad(dcPage::getPF('widgets/dragdrop.js'));?>
   <?php endif; ?>
   <script type="text/javascript">
   //<![CDATA[
@@ -233,6 +233,10 @@ elseif (!empty($_POST['wreset']))
   	__('Are you sure you want to reset sidebars?')); ?>
   //]]>
   </script>
+  <?php
+  		$widget_editor = $core->auth->getOption('editor');
+  		echo $core->callBehavior('adminPostEditor',$widget_editor['xhtml'],'widget',array('#sidebarsWidgets textarea'),'xhtml');
+  ?>
   <?php echo(dcPage::jsConfirmClose('sidebarsWidgets')); ?>
 </head>
 <body>
@@ -366,7 +370,7 @@ function sidebarWidgets($id,$title,$widgets,$pr,$default_widgets,&$j)
 		$downDisabled = $i == count($widgets->elements())-1 ? ' disabled" src="images/disabled_' : '" src="images/';
 		$altUp = $i == 0 ? ' alt=""' : ' alt="'.__('Up the widget').'"';
 		$altDown = $i == count($widgets->elements())-1 ? ' alt=""' : ' alt="'.__('Down the widget').'"';
-		
+
 		$iname = 'w['.$pr.']['.$i.']';
 
 		$res .=

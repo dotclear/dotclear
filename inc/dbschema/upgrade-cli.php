@@ -30,12 +30,11 @@ try
 	unset($dc_conf);
 
 	require dirname(__FILE__).'/../prepend.php';
-	require dirname(__FILE__).'/upgrade.php';
 
 	echo "Starting upgrade process\n";
 	$core->con->begin();
 	try {
-		$changes = dotclearUpgrade($core);
+		$changes = dcUpgrade::dotclearUpgrade($core);
 	} catch (Exception $e) {
 		$core->con->rollback();
 		throw $e;

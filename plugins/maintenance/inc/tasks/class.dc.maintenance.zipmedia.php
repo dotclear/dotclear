@@ -43,7 +43,7 @@ class dcMaintenanceZipmedia extends dcMaintenanceTask
 		$this->log();
 
 		// Send zip
-		header('Content-Disposition: attachment;filename=media.zip');
+		header('Content-Disposition: attachment;filename='.date('Y-m-d').'-'.$this->core->blog->id.'-'.'media.zip');
 		header('Content-Type: application/x-zip');
 		$zip->write();
 		unset($zip);

@@ -58,7 +58,7 @@ class context
 	}
 
 	# Loop position tests
-	public function loopPosition($start,$length=null,$even=null)
+	public function loopPosition($start,$length=null,$even=null,$modulo=null)
 	{
 		if (!$this->cur_loop) {
 			return false;
@@ -95,57 +95,60 @@ class context
 			$test = $test && $index%2 == $even;
 		}
 
+		if ($modulo !== null) {
+			$test = $test && ($index % $modulo == 0);
+		}
+
 		return $test;
 	}
 
+    # Static methods
+	public static function global_filter($str,
+		$encode_xml, $remove_html, $cut_string, $lower_case, $upper_case ,$encode_url ,$tag='')
+	{
+		$args = func_get_args();
+		array_pop($args);
+		$args[0] =& $str;
 
-        # Static methods
-        public static function global_filter($str,
-        $encode_xml, $remove_html, $cut_string, $lower_case, $upper_case ,$encode_url ,$tag='')
-        {
-                $args = func_get_args();
-                array_pop($args);
-                $args[0] =& $str;
+		# --BEHAVIOR-- publicBeforeContentFilter
+		$res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter',$GLOBALS['core'],$tag,$args);
 
-                # --BEHAVIOR-- publicBeforeContentFilter
-                $res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter',$GLOBALS['core'],$tag,$args);
+		if ($remove_html) {
+			$str = self::remove_html($str);
+			$str = preg_replace('/\s+/',' ',$str);
+		}
 
-                if ($remove_html) {
-                        $str = self::remove_html($str);
-                        $str = preg_replace('/\s+/',' ',$str);
-                }
+		if ($encode_xml) {
+			$str = self::encode_xml($str);
+		}
 
-                if ($encode_xml) {
-                        $str = self::encode_xml($str);
-                }
+		if ($cut_string) {
+			$str = self::cut_string($str,(integer) $cut_string);
+		}
 
-                if ($cut_string) {
-                        $str = self::cut_string($str,(integer) $cut_string);
-                }
+		if ($lower_case) {
+			$str = self::lower_case($str);
+		} elseif ($upper_case) {
+			if ($upper_case == 2) {
+				$str = self::capitalize($str);
+			} else {
+				$str = self::upper_case($str);
+			}
+		}
+		if ($encode_url) {
+			$str = self::encode_url($str);
+		}
 
-                if ($lower_case) {
-                        $str = self::lower_case($str);
-                } elseif ($upper_case) {
-                        if ($upper_case == 2) {
-                                $str = self::capitalize($str);
-                        } else {
-                                $str = self::upper_case($str);
-                        }
-                }
-                if ($encode_url) {
-                        $str = self::encode_url($str);
-                }
+		# --BEHAVIOR-- publicAfterContentFilter
+		$res = $GLOBALS['core']->callBehavior('publicAfterContentFilter',$GLOBALS['core'],$tag,$args);
 
-                # --BEHAVIOR-- publicAfterContentFilter
-                $res = $GLOBALS['core']->callBehavior('publicAfterContentFilter',$GLOBALS['core'],$tag,$args);
+		return $str;
+	}
 
-                return $str;
-        }
-
-        public static function encode_url($str)
-        {
-                return urlencode($str);
-        }
+	public static function encode_url($str)
+	{
+		return urlencode($str);
+	}
 
 	public static function cut_string($str,$l)
 	{
@@ -212,7 +215,11 @@ class context
 		}
 
 		$nb_posts = $_ctx->pagination->f(0);
-		$nb_pages = ceil(($nb_posts - $_ctx->nb_entry_first_page) / $_ctx->nb_entry_per_page + 1);
+		if (($GLOBALS['core']->url->type == 'default') || ($GLOBALS['core']->url->type == 'default-page')) {
+			$nb_pages = ceil(($nb_posts - $_ctx->nb_entry_first_page) / $_ctx->nb_entry_per_page + 1);
+		} else {
+			$nb_pages = ceil($nb_posts / $_ctx->nb_entry_per_page);
+		}
 
 		return $nb_pages;
 	}

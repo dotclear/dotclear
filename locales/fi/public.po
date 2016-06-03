@@ -1,0 +1,264 @@
+# Finnish translation of DotClear
+# Kari Eveli <lexitec@lexitec.fi>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"PO-Revision-Date: 2015-09-08 11:02+0300\n"
+"Last-Translator: Kari Eveli <lexitec@lexitec.fi>\n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "To content"
+msgstr "Mene sisältöön"
+
+msgid "To menu"
+msgstr "Mene valikkoon"
+
+msgid "To search"
+msgstr "Mene hakuun"
+
+msgid "By"
+msgstr "Kirjoittanut"
+
+msgid "by"
+msgstr "kirjoittanut"
+
+msgid "on"
+msgstr "pv"
+
+msgid "On"
+msgstr "Pv"
+
+msgid "Continue reading"
+msgstr "Lue lisää"
+
+msgid "no comments"
+msgstr "ei kommentteja"
+
+msgid "one comment"
+msgstr "yksi kommentti"
+
+msgid "%d comments"
+msgstr "%d kommenttia"
+
+msgid "no trackbacks"
+msgstr "ei takaisinviittauksia"
+
+msgid "one trackback"
+msgstr "yksi takaisinviitaus"
+
+msgid "%d trackbacks"
+msgstr "%d takaisinviitausta"
+
+msgid "no attachments"
+msgstr "ei liitteitä"
+
+msgid "one attachment"
+msgstr "yksi liite"
+
+msgid "%d attachments"
+msgstr "%d liitettä"
+
+msgid "previous entries"
+msgstr "aiemmat merkinnät"
+
+msgid "page"
+msgstr "sivu"
+
+msgid "of"
+msgstr "/"
+
+msgid "next entries"
+msgstr "seuraavat merkinnät"
+
+msgid "Search"
+msgstr "Haku"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Hakusi <em>%1$s</em> ei tuottanut tulosta."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Hakusi <em>%1$s</em> tuotti <strong>%2$s</strong> tuloksen."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Hakusi <em>%1$s</em>tuotti <strong>%2$s</strong> tulosta."
+
+msgid "Home"
+msgstr "Etusivu"
+
+msgid "All keywords"
+msgstr "Kaikki avainsanat"
+
+msgid "Best of me"
+msgstr "Parhaat palat"
+
+msgid "Languages"
+msgstr "Kielet"
+
+msgid "Categories"
+msgstr "Kategoriat"
+
+msgid "Subcategories"
+msgstr "Alikategoriat"
+
+msgid "Archives"
+msgstr "Arkistot"
+
+msgid "Links"
+msgstr "Linkit"
+
+msgid "Subscribe"
+msgstr "Tilaa"
+
+msgid "Entries feed"
+msgstr "Blogimerkintöjen syöte"
+
+msgid "Comments feed"
+msgstr "Kommenttien syöte"
+
+msgid "This blog's comments Atom feed"
+msgstr "Tämän blogin kommenttien Atom-syöte"
+
+msgid "This category's entries Atom feed"
+msgstr "Tähän kategoriaan kuuluvien merkintöjen Atom-syöte"
+
+msgid "This category's comments Atom feed"
+msgstr "Tähän kategoriaan kuuluvien kommenttien Atom-syöte"
+
+msgid "This post's comments feed"
+msgstr "Tämän blogimerkinnän kommenttien syöte"
+
+msgid "This post's comments Atom feed"
+msgstr "Tämän blogimerkinnän kommenttien Atom-syöte"
+
+msgid "Attachments"
+msgstr "Liitteet"
+
+msgid "Permalink"
+msgstr "Pysyvä linkki"
+
+msgid "Comments"
+msgstr "Kommentit"
+
+msgid "Your comment"
+msgstr "Kommenttisi"
+
+msgid "Your comment has been published."
+msgstr "Kommenttisi on julkaistu."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr ""
+"Kommenttisi on otettu vastaan ja julkaistaan, mikäli se hyväksytään "
+"esitarkastuksessa."
+
+msgid "Add a comment"
+msgstr "Lisää kommentti"
+
+msgid "Name or nickname"
+msgstr "Nimi tai nimimerkki"
+
+msgid "Email address"
+msgstr "Sähköpostiosoite"
+
+msgid "Website"
+msgstr "Sivusto"
+
+msgid "optional"
+msgstr "valinnainen"
+
+msgid "Comment"
+msgstr "Kommentti"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr "Kommentteja voi muotoilla käyttämällä yksinkertaista wikisyntaksia."
+
+msgid ""
+"HTML code is displayed as text and web addresses are automatically converted."
+msgstr ""
+"HTML-koodit näkyvät koodeina. Verkko-osoitteet muunnetaan automaattisesti."
+
+msgid "Remember me on this blog"
+msgstr "Muista minut tässä blogissa"
+
+msgid "preview"
+msgstr "esikatsele"
+
+msgid "send"
+msgstr "lähetä"
+
+msgid "They posted on the same topic"
+msgstr "Samasta asiasta muualla"
+
+msgid "Trackback URL"
+msgstr "Takaisinviittausosoite"
+
+msgid "You must provide an author name"
+msgstr "Anna kirjoittajan nimi"
+
+msgid "You must provide a comment"
+msgstr "Kirjoita kommentti"
+
+msgid "Email address is not valid"
+msgstr "Sähköpostiosoite ei kelpaa"
+
+msgid "Document not found"
+msgstr "Asiakirjaa ei löydy"
+
+msgid "The document you are looking for does not exist."
+msgstr "Etsimääsi asiakirjaa ei ole."
+
+msgid "Powered by %s"
+msgstr "Käytetty blogiohjelmisto: %s"
+
+msgid "Subscribe to"
+msgstr "Tilaa"
+
+msgid "What is an RSS feed?"
+msgstr "Mikä on RSS-syöte?"
+
+msgid ""
+"RSS feed is a free blog summary. It provides content (either posts or "
+"comments) or summaries of content, together with links to the full versions, "
+"and other metadata. The last published items may then be read by your "
+"favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</"
+"a>."
+msgstr ""
+"RSS-syöte tarjoaa tiivistelmän blogista. Se voi sisältää blogimerkintöjen "
+"tai kommenttien sisällön tai otteita näistä sekä linkin täysiin versioihin "
+"ja muitakin tietoja. Näin voit lukea viimeisimmät julkaistut merkinnät "
+"käyttämälläsi <a href=\"http://en.wikipedia.org/wiki/Aggregator\">RSS-"
+"lukuohjelmalla</a>."
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Kopioi seuraava verkko-osoite RRS-lukijaasi:"
+
+msgid "Password needed"
+msgstr "Salasana vaaditaan"
+
+msgid "You must give a password to access this area."
+msgstr "Tälle alueelle pääsyyn vaaditaan salasana."
+
+msgid "Password:"
+msgstr "Salasana:"
+
+msgid "You must provide a valid email address."
+msgstr "Antakaa kelvollinen sähköpostiosoite."
+
+msgid "Read"
+msgstr "Lue"
+
+msgid "Page top"
+msgstr "Sivun ylälaitaan"
+
+#~ msgid "in"
+#~ msgstr "dans"
+
+#~ msgid "In"
+#~ msgstr "Dans"

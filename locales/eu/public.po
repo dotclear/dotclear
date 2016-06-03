@@ -40,6 +40,7 @@ msgstr ""
 msgid "Continue reading"
 msgstr "Jarraitu irakurketa"
 
+#, fuzzy
 msgid "no comments"
 msgstr "iruzkinik ez "
 
@@ -49,7 +50,7 @@ msgstr "iruzkin 1 "
 msgid "%d comments"
 msgstr "%d iruzkin "
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr ""
 
 msgid "one trackback"
@@ -58,7 +59,7 @@ msgstr ""
 msgid "%d trackbacks"
 msgstr ""
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "eranskinik ez"
 
 msgid "one attachment"

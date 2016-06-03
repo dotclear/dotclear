@@ -24,6 +24,10 @@ $list = new adminModulesList(
 adminModulesList::$allow_multi_install = (boolean) DC_ALLOW_MULTI_MODULES;
 adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
+if ($core->plugins->disableDepModules($core->adminurl->get('admin.plugins',array()))) {
+	exit;
+}
+
 # -- Display module configuration page --
 if ($list->setConfiguration()) {
 
@@ -113,7 +117,7 @@ if (!empty($plugins_install['failure'])) {
 }
 
 # -- Display modules lists --
-if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
+if ($core->auth->isSuperAdmin()) {
 
 	# Updated modules from repo
 	$modules = $list->store->get(true);
@@ -162,7 +166,7 @@ if (!empty($modules)) {
 		->setTab('plugins')
 		->setModules($modules)
 		->displayModules(
-			/* cols */		array('expander', 'icon', 'name', 'version', 'desc', 'distrib'),
+			/* cols */		array('expander', 'icon', 'name', 'version', 'desc', 'distrib','deps'),
 			/* actions */	array('deactivate', 'delete', 'behavior')
 		);
 }
@@ -180,7 +184,7 @@ if ($core->auth->isSuperAdmin()) {
 			->setTab('plugins')
 			->setModules($modules)
 			->displayModules(
-				/* cols */		array('icon', 'name', 'distrib'),
+				/* cols */		array('expander', 'icon', 'name', 'version', 'desc', 'distrib'),
 				/* actions */	array('activate', 'delete')
 			);
 	}
@@ -208,7 +212,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 			->displaySearch()
 			->displayIndex()
 			->displayModules(
-				/* cols */		array('expander', 'name', 'score', 'version', 'desc'),
+				/* cols */		array('expander', 'name', 'score', 'version', 'desc','deps'),
 				/* actions */	array('install'),
 				/* nav limit */	true
 			);

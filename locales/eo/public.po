@@ -41,6 +41,7 @@ msgstr "Je la"
 msgid "Continue reading"
 msgstr "Legi plu"
 
+#, fuzzy
 msgid "no comments"
 msgstr "neniu komento"
 
@@ -50,7 +51,7 @@ msgstr "neniu komento"
 msgid "%d comments"
 msgstr "%d komentoj"
 
-msgid "no trackback"
+msgid "no trackbacks"
 msgstr "neniu retroligo"
 
 msgid "one trackback"
@@ -59,7 +60,7 @@ msgstr "unu retroligo"
 msgid "%d trackbacks"
 msgstr "%d retroligoj"
 
-msgid "no attachment"
+msgid "no attachments"
 msgstr "neniu aldonaĵo"
 
 msgid "one attachment"

@@ -40,7 +40,12 @@ function jsToolBar(textarea) {
 
 	this.toolbar = document.createElement("div");
 	this.toolbar.className = 'jstElements';
-	this.editor.parentNode.insertBefore(this.toolbar,this.editor);
+
+	if (this.toolbar_bottom) {
+		this.editor.parentNode.insertBefore(this.toolbar,this.editor.nextSibling);
+	} else {
+		this.editor.parentNode.insertBefore(this.toolbar,this.editor);
+	}
 
 	// Dragable resizing (only for gecko)
 	if (navigator.appName == 'Microsoft Internet Explorer')
@@ -141,6 +146,7 @@ jsToolBar.prototype = {
 	base_url: '',
 	mode: 'xhtml',
 	elements: {},
+	toolbar_bottom: false,
 
 	getMode: function() {
 		return this.mode;

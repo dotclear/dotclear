@@ -51,8 +51,8 @@ class dcFavorites
 		$this->user_prefs = array();
 
 		if ($this->ws->prefExists('favorites')) {
-			$this->local_prefs = @unserialize($this->ws->getLocal('favorites'));
-			$this->global_prefs = @unserialize($this->ws->getGlobal('favorites'));
+			$this->local_prefs = $this->ws->getLocal('favorites');
+			$this->global_prefs = $this->ws->getGlobal('favorites');
 			// Since we never know what user puts through user:preferences ...
 			if (!is_array($this->local_prefs)) {
 				$this->local_prefs = array();
@@ -64,7 +64,6 @@ class dcFavorites
 			// No favorite defined ? Huhu, let's go for a migration
 			$this->migrateFavorites();
 		}
-		defaultFavorites::initDefaultFavorites($this);
 	}
 
 
@@ -76,6 +75,7 @@ class dcFavorites
 	 *
      */
 	 public function setup() {
+		defaultFavorites::initDefaultFavorites($this);
 		$this->legacyFavorites();
 		$this->core->callBehavior('adminDashboardFavorites', $this->core, $this);
 		$this->setUserPrefs();
@@ -105,7 +105,7 @@ class dcFavorites
 			}
 			$fattr = $this->fav_defs[$p];
 		}
-		$fattr = array_merge (array('id' => null,'class'=>null),$fattr);
+		$fattr = array_merge(array('id' => null,'class' => null),$fattr);
 		if (isset($fattr['permissions'])) {
 			if (is_bool($fattr['permissions']) && !$fattr['permissions'] ) {
 				return false;
@@ -157,13 +157,13 @@ class dcFavorites
 		}
 		$u = explode('?',$_SERVER['REQUEST_URI']);
 		// Loop over prefs to enable active favorites
-		foreach ($this->user_prefs as $k=>&$v) {
+		foreach ($this->user_prefs as $k => &$v) {
 			if (isset($v['active_cb']) && is_callable($v['active_cb'])) {
 				// Use callback if defined to match whether favorite is active or not
 				$v['active'] = call_user_func($v['active_cb'],$u[0],$_REQUEST);
 			} else {
 				// Failback active detection. We test against URI name & parameters
-				$v['active']=true; // true until something proves it is false
+				$v['active'] = true; // true until something proves it is false
 				$u = explode('?',$v['url'],2);
 				if (!preg_match('/'.preg_quote($u[0],"/").'/',$_SERVER['REQUEST_URI'])) {
 					$v['active'] = false; // no URI match
@@ -202,8 +202,8 @@ class dcFavorites
 				}
 			}
 		}
-		$this->ws->put('favorites',serialize($this->global_prefs),'string','User favorites',true,true);
-		$this->ws->put('favorites',serialize($this->local_prefs));
+		$this->ws->put('favorites',$this->global_prefs,'array','User favorites',true,true);
+		$this->ws->put('favorites',$this->local_prefs);
 		$this->user_prefs = $this->getFavorites($this->local_prefs);
 	}
 
@@ -270,7 +270,7 @@ class dcFavorites
      * @access public
      */
 	public function setFavoriteIDs($ids,$global=false) {
-		$this->ws->put('favorites',serialize($ids),null,null,true,$global);
+		$this->ws->put('favorites',$ids,'array',null,true,$global);
 	}
 
    /**
@@ -306,7 +306,7 @@ class dcFavorites
      * @access public
      */
 	public function appendMenu($menu) {
-		foreach ($this->user_prefs as $k=>$v) {
+		foreach ($this->user_prefs as $k => $v) {
 			$menu['Favorites']->addItem(
 				$v['title'],
 				$v['url'],
@@ -314,7 +314,8 @@ class dcFavorites
 				$v['active'],
 				true,
 				$v['id'],
-				$v['class']
+				$v['class'],
+				true
 			);
 		}
 	}
@@ -328,7 +329,7 @@ class dcFavorites
      * @access public
      */
 	public function appendDashboardIcons($icons) {
-		foreach ($this->user_prefs as $k=>$v) {
+		foreach ($this->user_prefs as $k => $v) {
 			if (isset($v['dashboard_cb']) && is_callable($v['dashboard_cb'])) {
 				$v = new ArrayObject($v);
 				call_user_func($v['dashboard_cb'],$this->core,$v);
@@ -366,7 +367,7 @@ class dcFavorites
      * @access public
      */
 	 public function registerMultiple($data) {
-		foreach ($data as $k=>$v) {
+		foreach ($data as $k => $v) {
 			$this->register($k,$v);
 		}
 		return $this;
@@ -395,86 +396,87 @@ class dcFavorites
 class defaultFavorites
 {
 	public static function initDefaultFavorites($favs) {
+		$core =& $GLOBALS['core'];
 		$favs->registerMultiple(array(
 			'prefs' => array(
 				'title' => __('My preferences'),
-				'url' => 'preferences.php',
+				'url' => $core->adminurl->get("admin.user.preferences"),
 				'small-icon' => 'images/menu/user-pref.png',
 				'large-icon' => 'images/menu/user-pref-b.png'),
 			'new_post' => array(
 				'title' => __('New entry'),
-				'url' => 'post.php',
+				'url' => $core->adminurl->get("admin.post"),
 				'small-icon' => 'images/menu/edit.png',
 				'large-icon' => 'images/menu/edit-b.png',
 				'permissions' =>'usage,contentadmin'),
 			'posts' => array(
 				'title' => __('Entries'),
-				'url' => 'posts.php',
+				'url' => $core->adminurl->get("admin.posts"),
 				'small-icon' => 'images/menu/entries.png',
 				'large-icon' => 'images/menu/entries-b.png',
 				'permissions' => 'usage,contentadmin',
 				'dashboard_cb' => array('defaultFavorites','postsDashboard')),
 			'comments' => array(
 				'title' => __('Comments'),
-				'url' => 'comments.php',
+				'url' => $core->adminurl->get("admin.comments"),
 				'small-icon' => 'images/menu/comments.png',
 				'large-icon' => 'images/menu/comments-b.png',
 				'permissions' => 'usage,contentadmin',
 				'dashboard_cb' => array('defaultFavorites','commentsDashboard')),
 			'search' => array(
 				'title' => __('Search'),
-				'url' => 'search.php',
+				'url' => $core->adminurl->get("admin.search"),
 				'small-icon' => 'images/menu/search.png',
 				'large-icon' => 'images/menu/search-b.png',
 				'permissions' => 'usage,contentadmin'),
 			'categories' => array(
 				'title' => __('Categories'),
-				'url' => 'categories.php',
+				'url' => $core->adminurl->get("admin.categories"),
 				'small-icon' => 'images/menu/categories.png',
 				'large-icon' => 'images/menu/categories-b.png',
 				'permissions' =>'categories'),
 			'media' => array(
 				'title' => __('Media manager'),
-				'url' => 'media.php',
+				'url' => $core->adminurl->get("admin.media"),
 				'small-icon' => 'images/menu/media.png',
 				'large-icon' => 'images/menu/media-b.png',
 				'permissions' => 'media, media_admin'),
 			'blog_pref' => array(
 				'title' => __('Blog settings'),
-				'url' => 'blog_pref.php',
+				'url' => $core->adminurl->get("admin.blog.pref"),
 				'small-icon' => 'images/menu/blog-pref.png',
 				'large-icon' => 'images/menu/blog-pref-b.png',
 				'permissions' => 'admin'),
 			'blog_theme' => array(
 				'title' => __('Blog appearance'),
-				'url' => 'blog_theme.php',
+				'url' => $core->adminurl->get("admin.blog.theme"),
 				'small-icon' => 'images/menu/themes.png',
 				'large-icon' => 'images/menu/blog-theme-b.png',
 				'permissions' => 'admin'),
 			'blogs' => array(
 				'title' => __('Blogs'),
-				'url' => 'blogs.php',
+				'url' => $core->adminurl->get("admin.blogs"),
 				'small-icon' => 'images/menu/blogs.png',
 				'large-icon' => 'images/menu/blogs-b.png',
 				'permissions' =>'usage,contentadmin'),
 			'users' => array(
 				'title' => __('Users'),
-				'url' => 'users.php',
+				'url' => $core->adminurl->get("admin.users"),
 				'small-icon' => 'images/menu/users.png',
 				'large-icon' => 'images/menu/users-b.png'),
 			'plugins' => array(
 				'title' => __('Plugins management'),
-				'url' => 'plugins.php',
+				'url' => $core->adminurl->get("admin.plugins"),
 				'small-icon' => 'images/menu/plugins.png',
 				'large-icon' => 'images/menu/plugins-b.png'),
 			'langs' => array(
 				'title' => __('Languages'),
-				'url' => 'langs.php',
+				'url' => $core->adminurl->get("admin.langs"),
 				'small-icon' => 'images/menu/langs.png',
 				'large-icon' => 'images/menu/langs-b.png'),
 			'help' => array(
 				'title' => __('Global help'),
-				'url' => 'help.php',
+				'url' => $core->adminurl->get("admin.help"),
 				'small-icon' => 'images/menu/help.png',
 				'large-icon' => 'images/menu/help-b.png')
 		));

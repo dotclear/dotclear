@@ -403,7 +403,7 @@ class dcMeta
 
 		while ($rs_static->fetch())
 		{
-			$rs_static->set('meta_id_lower',mb_strtolower($rs_static->meta_id));
+			$rs_static->set('meta_id_lower',dcUtils::removeDiacritics(mb_strtolower($rs_static->meta_id)));
 
 			$count = $rs_static->count;
 			$percent = ((integer) $rs_static->count) * 100 / $max[$rs_static->meta_type];

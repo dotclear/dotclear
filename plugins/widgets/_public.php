@@ -16,6 +16,7 @@ require_once dirname(__FILE__).'/_widgets_functions.php';
 
 $core->tpl->addValue('Widgets',array('publicWidgets','tplWidgets'));
 $core->tpl->addBlock('Widget',array('publicWidgets','tplWidget'));
+$core->tpl->addBlock('IfWidgets',array('publicWidgets','tplIfWidgets'));
 
 class publicWidgets
 {
@@ -65,6 +66,41 @@ class publicWidgets
 			}
 			echo $w->call($k);
 		}
+	}
+
+	public static function tplIfWidgets($attr,$content)
+	{
+		$type = isset($attr['type']) ? $attr['type'] : '';
+
+		# widgets to disable
+		$disable = isset($attr['disable']) ? trim($attr['disable']) : '';
+
+		if ($type == '') {
+			$res = "publicWidgets::ifWidgetsHandler('nav','".addslashes($disable)."') &&"."\n".
+				"   publicWidgets::ifWidgetsHandler('extra','".addslashes($disable)."') &&"."\n".
+				"   publicWidgets::ifWidgetsHandler('custom','".addslashes($disable)."')"."\n";
+		} else {
+			if (!in_array($type, array('nav','extra','custom'))) {
+				$type = 'nav';
+			}
+			$res = "publicWidgets::ifWidgetsHandler('".addslashes($type)."','".addslashes($disable)."')";
+		}
+		return '<?php if('.$res.') : ?>'.$content.'<?php endif; ?>';
+	}
+
+	public static function ifWidgetsHandler($type,$disable='')
+	{
+		$wtype = 'widgets_'.$type;
+		$GLOBALS['core']->blog->settings->addNameSpace('widgets');
+		$widgets = $GLOBALS['core']->blog->settings->widgets->{$wtype};
+
+		if (!$widgets) { // If widgets value is empty, get defaults
+			$widgets = self::defaultWidgets($type);
+		} else { // Otherwise, load widgets
+			$widgets = dcWidgets::load($widgets);
+		}
+
+		return (!$widgets->isEmpty());
 	}
 
 	private static function defaultWidgets($type)

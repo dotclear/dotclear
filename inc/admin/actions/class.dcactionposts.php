@@ -344,9 +344,13 @@ class dcDefaultPostActions
 					'order' => 'nb_post DESC'
 					);
 				$rs = $core->getUsers($params);
-				while ($rs->fetch())
+				$rsStatic = $rs->toStatic();
+				$rsStatic->extend('rsExtUser');
+				$rsStatic = $rsStatic->toExtStatic();
+				$rsStatic->lexicalSort('user_id');
+				while ($rsStatic->fetch())
 				{
-					$usersList .= ($usersList != '' ? ',' : '').'"'.$rs->user_id.'"';
+					$usersList .= ($usersList != '' ? ',' : '').'"'.$rsStatic->user_id.'"';
 				}
 			}
 			$ap->beginPage(
